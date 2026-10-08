@@ -218,6 +218,18 @@ export interface GoalView {
 	claimed: boolean;
 }
 
+/** Phần vừa nhận trong một lần thay đổi kinh tế (M3.3a) — client hiện "+N EXP", "+N xu", lên cấp. */
+export interface EcoGain {
+	exp: number;
+	coins: number;
+	potions: number;
+	/** Số cấp vừa lên. */
+	levels: number;
+	reason: 'kill' | 'quest' | 'boss' | 'checkin' | 'spend' | 'potion' | 'admin';
+	/** Loại quái / tên nhiệm vụ / lý do tiêu. */
+	what: string;
+}
+
 /** Loại bình thời hạn mua bằng kim cương (danh mục ở `@aether/sim/shop`). */
 export type BuffKind = 'exp' | 'dmg' | 'guard';
 
@@ -296,7 +308,15 @@ export type ClientMessage =
 	/** Mua món `item` ở Cửa hàng kim cương — giá theo danh mục CỦA MÁY CHỦ. */
 	| { t: 'shopBuy'; item: string }
 	/** Xin danh sách trạm (map trạm của các vùng) đã từng đặt chân tới — cột dịch chuyển. */
-	| { t: 'hubs' };
+	| { t: 'hubs' }
+	/** M3.3a — kinh tế ở máy chủ: vừa hạ quái RIÊNG loại `type` (quái dùng chung máy chủ tự tính, không báo). */
+	| { t: 'kill'; type: string }
+	/** Vừa xong nhiệm vụ `id` — máy chủ trao thưởng theo dữ liệu truyện (một lần). */
+	| { t: 'quest'; id: string }
+	/** Tiêu `amount` xu (`reason`: tẩy điểm, dịch chuyển…). */
+	| { t: 'spend'; reason: string; amount: number }
+	/** Uống một bình hồi phục. */
+	| { t: 'potion' };
 
 export type ServerMessage =
 	| { t: 'welcome'; you: string; players: PlayerView[] }
@@ -339,4 +359,6 @@ export type ServerMessage =
 	/** Vừa mua xong món `item` (kim cương đã trừ — tin `wallet` + `buffs` đi kèm). */
 	| { t: 'bought'; item: string }
 	/** Trạm đã từng đặt chân tới (`vùng/map`) — máy chủ ghi lúc vào game / sang map. */
-	| { t: 'hubs'; list: string[] };
+	| { t: 'hubs'; list: string[] }
+	/** Cấp / EXP / xu / bình THẬT (máy chủ giữ — M3.3a): sau `welcome` và sau mỗi thay đổi; `gain` = phần vừa nhận / tiêu. */
+	| { t: 'eco'; level: number; exp: number; coins: number; potions: number; gain?: EcoGain };

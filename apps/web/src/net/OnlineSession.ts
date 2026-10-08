@@ -36,6 +36,8 @@ export interface OnlineHandlers {
 	bought(item: string): void;
 	/** Trạm đã từng tới (`vùng/map`) — bảng cột dịch chuyển. */
 	hubs(list: string[]): void;
+	/** Cấp / EXP / xu / bình THẬT (máy chủ giữ — M3.3a). */
+	eco(m: Extract<ServerMessage, { t: 'eco' }>): void;
 	kicked(reason: string): void;
 	status(online: boolean): void;
 }
@@ -109,6 +111,7 @@ export class OnlineSession {
 			else if (m.t === 'buffs') h.buffs?.(m.list);
 			else if (m.t === 'bought') h.bought?.(m.item);
 			else if (m.t === 'hubs') h.hubs?.(m.list);
+			else if (m.t === 'eco') h.eco?.(m);
 			else if (m.t === 'kicked') {
 				this.closed = true;
 				h.kicked?.(m.reason);

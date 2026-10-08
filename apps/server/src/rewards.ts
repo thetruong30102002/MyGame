@@ -8,6 +8,8 @@ import { mapExists, nearNpc } from './maps.ts';
 export interface RewardsHost {
 	send(player: string, msg: ServerMessage): void;
 	where(player: string): { map: string; x: number; y: number } | null;
+	/** Cộng xu + bình của quà (kinh tế ở máy chủ — M3.3a); `ref` chống trao lặp. */
+	gift(player: string, coins: number, potions: number, ref: string): void;
 }
 
 type RewardMessage = Extract<ClientMessage, { t: 'checkin' | 'goals' | 'goalClaim' | 'hubs' }>;
@@ -78,6 +80,7 @@ export class Rewards {
 			this.host.send(player, { t: 'system', text: 'Hôm nay bạn đã điểm danh rồi — quay lại vào ngày mai nhé' });
 			return this.host.send(player, { t: 'daily', daily: this.daily(player) });
 		}
+		this.host.gift(player, gift.coins, gift.potions, `checkin-gift:${player}:${today}`);
 		this.host.send(player, { t: 'gift', reason: 'checkin', title: `Điểm danh ngày ${checkinSlot(streak)}`, gift });
 		this.host.send(player, { t: 'wallet', diamonds: balance });
 		this.host.send(player, { t: 'daily', daily: this.daily(player) });

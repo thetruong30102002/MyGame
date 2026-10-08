@@ -84,8 +84,25 @@ nhất; độ trễ mạng với đòn cận chiến (cần dự đoán tốt); 
     trình duyệt quái đứng im đúng ~3 giây mỗi lần, trình duyệt không gửi lại tin nào (0 tin dội).
   - Giới hạn còn lại: phá băng sớm (Tan Chảy, Vỡ Vụn của Thổ) chỉ xảy ra ở máy người đánh — máy khác còn băng tới hết giờ; người
     có Vỡ Vụn (Băng 9) thấy băng do người khác gây ra tan cũng nổ vụn băng của mình (coi như phần thưởng đánh chung).
-- **Còn thiếu (M3.3)**: kiểm sát thương theo chỉ số người chơi (khi cấp / trang bị ở máy chủ); phần thưởng (xu / EXP / rơi đồ) vẫn
-  cộng ở client; máu người chơi vẫn ở client.
+- **M3.3a — ĐÃ LÀM (08/10/2026): cấp / EXP / xu / bình hồi phục ở máy chủ.**
+  - **Máy chủ là nguồn sự thật** (`apps/server/src/economy.ts`, luật thuần `@aether/sim/economy`): gói `save` / PUT tiến độ của client
+    KHÔNG ghi đè được bốn số này (`Store.saveProgress` giữ nguyên trong CSDL). Vào game và mỗi lần đổi máy chủ gửi `eco` (số thật + phần
+    vừa nhận); client vẽ theo (`CombatSystem.setEconomy` — lên cấp diễn từng cấp như trước). Bản lưu cũ: số client tự ghi trước đó được
+    nhận một lần làm số khởi đầu (kẹp khoảng hợp lệ).
+  - **Nguồn**: quái DÙNG CHUNG — máy chủ tự trao lúc tính công (× bình EXP đang dùng → phần EXP của K4 đã ở máy chủ); quái RIÊNG (khu
+    tuổi thơ / nhiệm vụ / boss cốt truyện) — client báo `kill`, máy chủ chỉ nhận loại có trong khu riêng (hoặc là boss) của map đang
+    đứng, mỗi loại tối đa SỐ CON có thật trên map trong một nhịp hồi sinh 14 giây, boss cốt truyện một lần; **nhiệm vụ** — client báo
+    `quest <id>`, máy chủ thưởng theo dữ liệu truyện của chính nó (dữ liệu truyện chuyển sang `packages/sim/src/story/`), mỗi nhiệm vụ
+    một lần; **quà điểm danh** — máy chủ cộng thẳng.
+  - **Tiêu**: tẩy điểm, dịch chuyển (`spend`), uống bình (`potion`) — client làm ngay, máy chủ trừ; thiếu thì không trừ và gửi lại số
+    thật. **Nhật ký** `eco_ledger` (mọi thay đổi trừ hạ quái thường — đã đếm ở `kill_counts`); `ref` duy nhất chặn trao lặp.
+  - Chơi một mình (không phiên trực tuyến — trang lab) vẫn tự cộng như cũ.
+  - Test: `apps/server/tests/economy.test.ts` (11 ca), `apps/web/tests/economy.test.ts`; thử thật: client tự cộng 1 triệu EXP (lên cấp
+    35 ở máy mình) → tải lại trang về đúng cấp máy chủ; trả nhiệm vụ thật → máy chủ trao EXP qua `eco`.
+  - Hệ quả: mốc cấp của cổng vùng, giá dịch chuyển, xu tẩy điểm giờ theo số máy chủ (cổng vùng vẫn kiểm ở client, nhưng cấp đã thật).
+    "Xoá tiến độ, chơi lại" (bảng Dev) không còn đặt lại cấp / xu ở máy chủ.
+- **Còn thiếu (M3.3b+)**: túi đồ + trang bị ở máy chủ (đồ mới chỉ có quà cốt truyện — chưa có rơi đồ / mua đồ bằng xu); rơi đồ; kiểm
+  sát thương theo chỉ số người chơi; máu người chơi vẫn ở client; hiệu ứng bình chiến đấu vẫn ở client.
 
 ## 5. Trước khi có M3 (đã / có thể làm)
 

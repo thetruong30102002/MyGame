@@ -446,6 +446,13 @@ export interface CombatHooks {
 	netCc?(f: Fighter, cc: MobCc): void;
 	/** Vị trí người chơi khác cùng map (boss dùng chung nhắm vùng nổ vào bất kỳ ai, không chỉ người làm chủ nó). */
 	others?(): readonly { x: number; y: number }[];
+	/**
+	 * Kinh tế ở máy chủ (M3.3a): có hook này thì hạ quái RIÊNG không tự cộng xu / EXP mà báo máy chủ (`type` = loại quái); máy chủ trả
+	 * số thật (`setEconomy`). Quái dùng chung máy chủ tự tính công — không báo. Thiếu hook = chơi một mình, tự cộng như cũ.
+	 */
+	reportKill?(type: string): void;
+	/** Vừa uống một bình hồi phục (kinh tế ở máy chủ: máy chủ trừ bình). */
+	potionUsed?(): void;
 }
 
 interface Dummy {
@@ -2222,6 +2229,7 @@ export class CombatSystem {
 		if (pc.potions <= 0) return void this.hooks.toast('Hết bình hồi phục', 'warn');
 		if (pc.hp >= pc.hpMax) return;
 		pc.potions -= 1;
+		this.hooks.potionUsed?.();
 		const amount = Math.round(pc.hpMax * 0.5);
 		pc.hp = Math.min(pc.hpMax, pc.hp + amount);
 		this.float(this.player.x, this.player.y - this.player.height - 8, `+${amount}`, 0x5be38a, 15);
@@ -2236,16 +2244,41 @@ export class CombatSystem {
 		this.hooks.toast(`+${amount} EXP`, 'exp');
 		while (pc.level < MAX_LEVEL && pc.exp >= expForLevel(pc.level)) {
 			pc.exp -= expForLevel(pc.level);
-			pc.level += 1;
-			this.applyLevel(true);
-			if (this.hooks.levelUp) this.hooks.levelUp(pc.level);
-			else this.hooks.toast(`Lên cấp ${pc.level}!`, 'level');
-			const p = this.player;
-			this.vfx.play('light_pillar', p.x, p.y - pillar(p), { blend: 'add', follow: p, followOffset: { x: 0, y: -pillar(p) }, fps: 16 });
-			this.vfx.play('sparkle', p.x, p.y - p.chest - 4, { blend: 'add', fps: 16 });
-			this.vfx.play('magic_circle', p.x, p.y, { layer: 'ground', tint: 0xffe28a, follow: p, fps: 14 });
+			this.levelUpTo(pc.level + 1);
 		}
 		if (pc.level >= MAX_LEVEL) pc.exp = 0;
+	}
+
+	/** Lên tới cấp `level` (một cấp): chỉ số cấp mới, báo Game, cột sáng + vòng phép. */
+	private levelUpTo(level: number): void {
+		const pc = this.pc;
+		pc.level = level;
+		this.applyLevel(true);
+		if (this.hooks.levelUp) this.hooks.levelUp(pc.level);
+		else this.hooks.toast(`Lên cấp ${pc.level}!`, 'level');
+		const p = this.player;
+		this.vfx.play('light_pillar', p.x, p.y - pillar(p), { blend: 'add', follow: p, followOffset: { x: 0, y: -pillar(p) }, fps: 16 });
+		this.vfx.play('sparkle', p.x, p.y - p.chest - 4, { blend: 'add', fps: 16 });
+		this.vfx.play('magic_circle', p.x, p.y, { layer: 'ground', tint: 0xffe28a, follow: p, fps: 14 });
+	}
+
+	/**
+	 * Số THẬT từ máy chủ (M3.3a — tin `eco`): cấp / EXP / xu / bình. Cấp tăng thì diễn lên cấp từng cấp (chỉ số, cột sáng, điểm tiềm
+	 * năng); cấp giảm (quản trị sửa) thì đặt thẳng. `gain` để hiện "+N EXP / +N xu" (máy chủ quyết, máy này chỉ vẽ).
+	 */
+	setEconomy(e: { level: number; exp: number; coins: number; potions: number }, gain?: { exp: number; coins: number; potions: number; reason: string }): void {
+		const pc = this.pc;
+		if (gain && gain.exp > 0) this.hooks.toast(`+${gain.exp} EXP`, 'exp');
+		if (gain && gain.coins > 0 && gain.reason !== 'quest' && gain.reason !== 'checkin') this.hooks.toast(`+${gain.coins} xu`, 'loot');
+		const target = Math.max(1, Math.min(MAX_LEVEL, Math.floor(e.level)));
+		if (target > pc.level) while (pc.level < target) this.levelUpTo(pc.level + 1);
+		else if (target < pc.level) {
+			pc.level = target;
+			this.applyLevel(false);
+		}
+		pc.exp = e.exp;
+		pc.coins = e.coins;
+		pc.potions = e.potions;
 	}
 
 	// ———————————————————————————— vòng lặp ————————————————————————————
@@ -3297,9 +3330,14 @@ export class CombatSystem {
 		}
 		// Quái dùng chung gục mà máy này không được tính công (không đánh nó trong 30 giây gần nhất): chỉ phần hình.
 		if (!rewarded) return;
-		this.pc.coins += f.stats.coins;
-		this.hooks.toast(`+${f.stats.coins} xu`, 'loot');
-		this.grantExp(Math.round(f.stats.exp * this.potion.exp));
+		// Kinh tế ở máy chủ: quái dùng chung máy chủ tự trao (tính công), quái riêng báo máy chủ — xu / EXP về qua `setEconomy`.
+		if (this.hooks.reportKill) {
+			if (!f.net) this.hooks.reportKill(f.id);
+		} else {
+			this.pc.coins += f.stats.coins;
+			this.hooks.toast(`+${f.stats.coins} xu`, 'loot');
+			this.grantExp(Math.round(f.stats.exp * this.potion.exp));
+		}
 		this.hooks.enemyKilled(f);
 	}
 

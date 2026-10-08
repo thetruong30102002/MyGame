@@ -1,4 +1,4 @@
-"""Chuyển bản thiết kế tuổi thơ (JSON từ workflow "childhood-story-design") sang apps/web/src/game/story/childhood.ts.
+"""Chuyển bản thiết kế tuổi thơ (JSON từ workflow "childhood-story-design") sang packages/sim/src/story/childhood.ts (dữ liệu truyện dùng chung web + máy chủ — M3.3).
 
 Chạy: python packages/asset-pipeline/src/story/buildChildhood.py <design.json>
 Thiết kế là dữ liệu do người duyệt chốt; file .ts sinh ra KHÔNG sửa tay (sửa JSON rồi chạy lại).
@@ -9,7 +9,7 @@ import re
 import sys
 
 SRC = sys.argv[1]
-OUT = 'D:/nttrg/pixel/apps/web/src/game/story/childhood.ts'
+OUT = 'D:/nttrg/pixel/packages/sim/src/story/childhood.ts'
 d = json.load(io.open(SRC, encoding='utf-8'))
 
 # Sprite cho từng khoá NPC. Chưa có trong manifest thì game tự hiện điểm tương tác phát sáng.
@@ -131,7 +131,7 @@ child_npcs = {k: v for k, v in npcs.items() if v['ages'][0] < 16}
 out = io.StringIO()
 out.write('// SINH TỰ ĐỘNG từ bản thiết kế tuổi thơ (workflow "childhood-story-design") bởi\n')
 out.write('// packages/asset-pipeline/src/story/buildChildhood.py — đừng sửa tay, sửa JSON thiết kế rồi chạy lại.\n')
-out.write("import type { NpcDef, QuestDef } from './storyTypes';\n\n")
+out.write("import type { NpcDef, QuestDef } from './storyTypes.ts';\n\n")
 out.write(f"export const CHILDHOOD_TITLE = {js(d['title'])};\n\n")
 out.write(f"export const PROLOGUE: string[] = {js(d['prologue'])};\n\n")
 out.write(f"export const CHILDHOOD_AGE_CARDS: Record<number, string[]> = {js(cards)};\n\n")

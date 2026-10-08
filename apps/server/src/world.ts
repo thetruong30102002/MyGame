@@ -6,6 +6,7 @@ import { Social } from './social.ts';
 import { MobRegistry, mapZonesFromDisk } from './mobs.ts';
 import { Rewards } from './rewards.ts';
 import { BUFF_TICK_MS, Shop } from './shop.ts';
+import { Economy } from './economy.ts';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -35,6 +36,8 @@ interface Conn {
 	mobPos: RateLimiter;
 	/** Động tác đánh của quái mình làm chủ + khống chế mình gây ra (M3.2b). */
 	mobActs: RateLimiter;
+	/** Báo hạ quái riêng / xong nhiệm vụ / tiêu xu / uống bình (M3.3a). */
+	eco: RateLimiter;
 }
 
 /** Thư mục map của client — máy chủ đọc chung nguồn dữ liệu (`AETHER_MAPS` để đổi). */
@@ -54,13 +57,14 @@ export class World {
 	readonly mobs: MobRegistry;
 	readonly rewards: Rewards;
 	readonly shop: Shop;
+	readonly economy: Economy;
 	private readonly buffTimer: NodeJS.Timeout;
 
 	constructor(
 		private readonly store: Store,
 		zonesOf = mapZonesFromDisk(MAPS_DIR),
 		mapsDir = MAPS_DIR,
-		now: () => number = Date.now,
+		private readonly now: () => number = Date.now,
 	) {
 		this.timer = setInterval(() => {
 			this.broadcastSnapshots();
@@ -76,13 +80,36 @@ export class World {
 					const c = this.conns.get(id);
 					if (c) send(c.ws, msg);
 				},
-				credited: (id, type) => this.store.addKill(id, type),
+				credited: (id, type) => {
+					this.store.addKill(id, type);
+					this.economy.sharedKill(id, type);
+				},
 			},
 			zonesOf,
+		);
+		this.economy = new Economy(
+			store,
+			{
+				send: (id, msg) => {
+					const c = this.conns.get(id);
+					if (!c) return;
+					send(c.ws, msg);
+					// Lên cấp (máy chủ tính): người khác thấy cấp mới, bạn bè cập nhật trạng thái.
+					if (msg.t === 'eco' && msg.level !== c.view.level) {
+						c.view.level = msg.level;
+						c.dirty = true;
+						this.social.presenceChanged(id);
+					}
+				},
+				map: (id) => this.conns.get(id)?.map ?? null,
+			},
+			mapsDir,
+			now,
 		);
 		this.rewards = new Rewards(
 			store,
 			{
+				gift: (id, coins, potions, ref) => this.economy.gift(id, coins, potions, ref),
 				send: (id, msg) => {
 					const c = this.conns.get(id);
 					if (c) send(c.ws, msg);
@@ -195,12 +222,14 @@ export class World {
 			mobHits: new RateLimiter(40, 1000),
 			mobPos: new RateLimiter(25, 1000),
 			mobActs: new RateLimiter(60, 1000),
+			eco: new RateLimiter(40, 10_000, this.now),
 		};
 		this.conns.set(ch.id, conn);
 		const others = this.inMap(conn.map).filter((c) => c !== conn && c.view.sprite);
 		send(ws, { t: 'welcome', you: ch.id, players: others.map((c) => c.view) });
 		// Sau `welcome`: client đã sẵn sàng nhận trạng thái bạn bè + tin nhắn riêng chờ giao.
 		this.social.online(ch.id);
+		this.economy.online(ch.id);
 		this.rewards.online(ch.id);
 		this.shop.online(ch.id);
 		this.rewards.visit(ch.id, conn.map);
@@ -265,6 +294,15 @@ export class World {
 			case 'hubs':
 				if (!c.social.allow('rewards')) return send(c.ws, { t: 'system', text: 'Thao tác nhanh quá, chậm lại chút nhé' });
 				return this.rewards.handle(c.view.id, msg);
+			case 'kill':
+			case 'quest':
+			case 'spend':
+			case 'potion':
+				if (!c.eco.allow('eco')) return;
+				if (msg.t === 'kill') return this.economy.privateKill(c.view.id, msg.type);
+				if (msg.t === 'quest') return this.economy.quest(c.view.id, msg.id);
+				if (msg.t === 'spend') return this.economy.spend(c.view.id, msg.reason, msg.amount);
+				return this.economy.usePotion(c.view.id);
 			case 'shopBuy':
 				if (!c.social.allow('shop')) return send(c.ws, { t: 'system', text: 'Thao tác nhanh quá, chậm lại chút nhé' });
 				return this.shop.buy(c.view.id, msg.item);
@@ -358,19 +396,18 @@ export class World {
 		for (const o of this.inMap(c.map)) if (o !== c) send(o.ws, out);
 	}
 
+	/** Tiến độ client gửi: vị trí, map, truyện… — cấp / EXP / xu / bình KHÔNG lấy từ đây (máy chủ giữ — `Economy`, `Store.saveProgress`). */
 	private save(c: Conn, p: CharacterProgress): void {
 		if (!c.saves.allow('save')) return;
 		const clean = cleanProgress(p);
 		if (!clean) return;
-		const levelUp = c.view.level !== clean.level;
-		c.view.level = clean.level;
 		this.store.saveProgress(c.view.id, clean);
-		if (levelUp) this.social.presenceChanged(c.view.id);
 	}
 
 	private leave(c: Conn): void {
 		this.conns.delete(c.view.id);
 		this.shop.offline(c.view.id);
+		this.economy.offline(c.view.id);
 		this.mobs.unsubscribe(c.view.id);
 		for (const o of this.inMap(c.map)) send(o.ws, { t: 'leave', id: c.view.id });
 		this.social.presenceChanged(c.view.id);

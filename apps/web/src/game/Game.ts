@@ -323,15 +323,22 @@ export class Game {
 
 		this.story = new StoryDirector(STORY, {
 			dialogue: (lines) => useGameStore.getState().pushBeat({ kind: 'dialogue', lines: this.toDialogue(lines) }),
-			reward: (r, title) => {
+			reward: (r, title, id) => {
 				const st = useGameStore.getState();
 				st.toast(`Hoàn thành: ${title}`, 'level');
+				if (r.unlockSkill) this.announceUnlock(r.unlockSkill);
+				// Trực tuyến (M3.3a): máy chủ trao xu / bình / EXP theo id nhiệm vụ (một lần) — số về qua tin `eco`.
+				if (this.online) {
+					this.online.send({ t: 'quest', id });
+					if (r.potions) st.toast(`+${r.potions} Bình hồi phục`, 'loot');
+					if (r.coins) st.toast(`+${r.coins} xu`, 'loot');
+					return this.persist();
+				}
 				if (r.coins) this.combat.pc.coins += r.coins;
 				if (r.potions) {
 					this.combat.pc.potions += r.potions;
 					st.toast(`+${r.potions} Bình hồi phục`, 'loot');
 				}
-				if (r.unlockSkill) this.announceUnlock(r.unlockSkill);
 				// Nhiệm vụ thưởng bằng thứ khác (mở nhánh Thổ) có thể 0 EXP — không hiện "+0 EXP".
 				if (r.exp > 0) this.combat.grantExp(r.exp);
 				this.persist();
@@ -403,6 +410,13 @@ export class Game {
 				// Gửi ngay (không chờ nhịp 10Hz) để người khác thấy động tác khớp lúc đạn bay ra.
 				onAction: (anim, dir, skill) => this.online?.send({ t: 'action', anim, dir, skill }),
 				onActionEnd: () => this.online?.send({ t: 'actionEnd' }),
+				// Kinh tế ở máy chủ (M3.3a): trực tuyến thì hạ quái riêng / uống bình báo máy chủ; chơi một mình (không có phiên) tự cộng.
+				...(this.online
+					? {
+							reportKill: (type: string) => this.online?.send({ t: 'kill', type }),
+							potionUsed: () => this.online?.send({ t: 'potion' }),
+						}
+					: {}),
 				levelUp: (level) => {
 					// Gợi ý phím P vô nghĩa trên điện thoại (không có bàn phím) — ở đó bảng mở bằng cách chạm khung tên.
 					const keyHint = typeof matchMedia === 'function' && matchMedia('(pointer: coarse)').matches ? '' : ' (P)';
@@ -410,7 +424,8 @@ export class Game {
 					this.persist();
 				},
 			},
-			this.story.state.player,
+			// Trực tuyến: cấp / EXP / xu / bình lấy theo máy chủ (CSDL), không theo bản sao trong bản lưu truyện.
+			online ? { ...this.story.state.player, ...pickEco(online.progress) } : this.story.state.player,
 			this.vfx,
 		);
 
@@ -1258,6 +1273,10 @@ export class Game {
 				this.applyBuffs();
 			},
 			hubs: (hubs) => useSession.setState({ hubs }),
+			eco: (m) => {
+				this.combat.setEconomy(m, m.gain);
+				this.persist();
+			},
 			bought: (item) => useGameStore.getState().toast(`Đã mua ${SHOP.find((x) => x.id === item)?.name ?? item}`, 'loot'),
 			kicked: (reason) => {
 				// Màn chọn nhân vật hiện lại lý do: toast trong game biến mất ngay khi game bị gỡ.
@@ -1755,12 +1774,10 @@ export class Game {
 	}
 
 	/**
-	 * Quà điểm danh / thành tựu từ máy chủ (K1): kim cương đã vào ví ở máy chủ (tin `wallet` đi kèm), xu + bình hồi phục còn ở
-	 * bản lưu client (tới M3.3) nên cộng ở đây qua `grantItem` — lưu luôn.
+	 * Quà điểm danh / thành tựu từ máy chủ (K1): kim cương vào ví, xu + bình vào kinh tế ở máy chủ (M3.3a — tin `wallet` / `eco` đi
+	 * kèm). Ở đây chỉ báo.
 	 */
 	private receiveGift(reason: 'checkin' | 'goal', title: string, gift: GiftView): void {
-		if (gift.coins > 0) this.grantItem('coins', gift.coins);
-		if (gift.potions > 0) this.grantItem('potion', gift.potions);
 		const text = giftText(gift);
 		useGameStore.getState().toast(reason === 'goal' ? `Thành tựu: ${title}` : `${title}: ${text}`, reason === 'goal' ? 'level' : 'loot');
 		if (reason === 'goal' && text) useGameStore.getState().toast(text, 'loot');
@@ -1917,6 +1934,7 @@ export class Game {
 		const cost = resetCost(pc.level);
 		if (pc.coins < cost) return void st.toast(`Cần ${cost} xu để tẩy điểm (đang có ${pc.coins})`, 'warn');
 		pc.coins -= cost;
+		this.online?.send({ t: 'spend', reason: 'talent_reset', amount: cost });
 		this.story.resetTalents();
 		this.syncTalents();
 		this.persist();
@@ -2063,6 +2081,7 @@ export class Game {
 		const why = region !== this.worldIndex.region ? this.gateReason(region) : null;
 		if (why) return void st.toast(why, 'warn');
 		pc.coins -= WAYSTONE_COST;
+		this.online?.send({ t: 'spend', reason: 'waystone', amount: WAYSTONE_COST });
 		st.setPanel(null);
 		st.toast(`−${WAYSTONE_COST} xu · dịch chuyển tới ${r.name}`, 'info');
 		void this.changeMap(key, r.waystone.spot);
@@ -2352,6 +2371,11 @@ export class Game {
 		this.world?.ground.destroy();
 		this.app?.destroy(true, { children: true });
 	}
+}
+
+/** Cấp / EXP / xu / bình trong tiến độ nhân vật máy chủ gửi (M3.3a — máy chủ giữ bốn số này). */
+function pickEco(p: { level: number; exp: number; coins: number; potions: number }): { level: number; exp: number; coins: number; potions: number } {
+	return { level: p.level, exp: p.exp, coins: p.coins, potions: p.potions };
 }
 
 /** Hệ số hiển thị: 2 chữ số là đủ đọc, và giữ JSON so sánh ổn định giữa các lần ghi store. */

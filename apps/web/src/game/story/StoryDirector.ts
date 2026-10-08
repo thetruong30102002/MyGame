@@ -77,7 +77,8 @@ const LEGACY_ORDER = ['c4_silverdew', 'c4_dinner', 'c6_first_thread', 'c6_old_ha
 
 export interface StoryEvents {
 	dialogue(lines: Line[]): void;
-	reward(r: QuestDef['reward'], title: string): void;
+	/** `id`: nhiệm vụ vừa xong — chơi trực tuyến thì máy chủ trao thưởng theo id (M3.3a), không cộng số `r` ở máy này. */
+	reward(r: QuestDef['reward'], title: string, id: string): void;
 	questsChanged(): void;
 	/** Sinh `remaining` vật phẩm nhặt (tải lại giữa chừng thì chỉ sinh phần còn thiếu). */
 	pickups(item: string, spots: string[], remaining: number): void;
@@ -633,7 +634,7 @@ export class StoryDirector {
 		if (this.state.completed.includes(q.id)) return;
 		this.state.completed.push(q.id);
 		if (q.reward.unlockSkill) this.grantUnlock(q.reward.unlockSkill);
-		this.events.reward(q.reward, q.title);
+		this.events.reward(q.reward, q.title, q.id);
 		if (q.after.length) this.events.dialogue(q.after);
 		this.events.questCompleted(q);
 		this.state.index += 1;

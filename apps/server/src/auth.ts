@@ -29,10 +29,11 @@ export class RateLimiter {
 	constructor(
 		private readonly max: number,
 		private readonly windowMs: number,
+		private readonly clock: () => number = Date.now,
 	) {}
 
 	allow(key: string): boolean {
-		const now = Date.now();
+		const now = this.clock();
 		const list = (this.hits.get(key) ?? []).filter((t) => now - t < this.windowMs);
 		if (list.length >= this.max) {
 			this.hits.set(key, list);

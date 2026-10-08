@@ -2,6 +2,7 @@ import { mkdirSync } from 'node:fs';
 import { dirname } from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
 import type { BuffKind, BuffView, CharacterInfo, CharacterProgress, Gender } from '@aether/protocol';
+import type { Eco } from '@aether/sim/economy';
 
 /**
  * Lưu trữ bằng SQLite có sẵn trong Node (`node:sqlite`) — không cần cài máy chủ CSDL riêng. Đủ cho vài
@@ -96,6 +97,19 @@ export class Store {
 				streak INTEGER NOT NULL,
 				total INTEGER NOT NULL
 			);
+			-- Nhật ký kinh tế (M3.3a): mọi thay đổi xu / bình / EXP trừ hạ quái thường (đã đếm ở kill_counts). \`ref\` duy nhất: nhiệm vụ,
+			-- boss cốt truyện, quà điểm danh chỉ trao một lần.
+			CREATE TABLE IF NOT EXISTS eco_ledger (
+				id INTEGER PRIMARY KEY,
+				character_id TEXT NOT NULL REFERENCES characters(id) ON DELETE CASCADE,
+				coins INTEGER NOT NULL,
+				potions INTEGER NOT NULL,
+				exp INTEGER NOT NULL,
+				reason TEXT NOT NULL,
+				ref TEXT UNIQUE,
+				at INTEGER NOT NULL
+			);
+			CREATE INDEX IF NOT EXISTS eco_ledger_char ON eco_ledger(character_id);
 			-- Mỗi ngày đã điểm danh (khung lịch ở client).
 			CREATE TABLE IF NOT EXISTS checkin_days (
 				character_id TEXT NOT NULL REFERENCES characters(id) ON DELETE CASCADE,
@@ -197,8 +211,49 @@ export class Store {
 		return Number(this.db.prepare('DELETE FROM characters WHERE id = ? AND account_id = ?').run(id, accountId).changes) > 0;
 	}
 
+	/**
+	 * Lưu tiến độ client gửi (vị trí, map, truyện…) — GIỮ NGUYÊN cấp / EXP / xu / bình đang có trong CSDL (M3.3a: máy chủ là nguồn sự
+	 * thật, ghi qua `saveEco`). Bản ghi cũ thiếu trường nào thì lấy số client gửi (chỉ lần đầu).
+	 */
 	saveProgress(id: string, progress: CharacterProgress): void {
-		this.db.prepare('UPDATE characters SET progress = ?, updated_at = ? WHERE id = ?').run(JSON.stringify(progress), Date.now(), id);
+		const keep = ['level', 'exp', 'coins', 'potions'].map((k) => `'$.${k}', coalesce(json_extract(progress, '$.${k}'), json_extract(?1, '$.${k}'))`).join(', ');
+		this.db.prepare(`UPDATE characters SET progress = json_set(?1, ${keep}), updated_at = ?2 WHERE id = ?3`).run(JSON.stringify(progress), Date.now(), id);
+	}
+
+	/** Cấp / EXP / xu / bình đang lưu (null = không có nhân vật). */
+	ecoOf(id: string): Eco | null {
+		const row = this.db
+			.prepare(`SELECT json_extract(progress, '$.level') AS level, json_extract(progress, '$.exp') AS exp, json_extract(progress, '$.coins') AS coins, json_extract(progress, '$.potions') AS potions FROM characters WHERE id = ?`)
+			.get(id) as Eco | undefined;
+		return row ? { level: row.level, exp: row.exp, coins: row.coins, potions: row.potions } : null;
+	}
+
+	/**
+	 * Ghi cấp / EXP / xu / bình (một transaction) + một dòng nhật ký nếu có `log`. Trả false = `log.ref` đã dùng (nhiệm vụ / boss / quà
+	 * đã trao) — không đổi gì.
+	 */
+	saveEco(id: string, e: Eco, log: { reason: string; coins: number; potions: number; exp: number; ref: string | null } | null): boolean {
+		let ok = false;
+		this.tx(() => {
+			if (log?.ref && this.db.prepare('SELECT 1 FROM eco_ledger WHERE ref = ?').get(log.ref)) return;
+			this.db
+				.prepare(`UPDATE characters SET progress = json_set(progress, '$.level', ?, '$.exp', ?, '$.coins', ?, '$.potions', ?), updated_at = ? WHERE id = ?`)
+				.run(e.level, e.exp, e.coins, e.potions, Date.now(), id);
+			if (log) this.db.prepare('INSERT INTO eco_ledger (character_id, coins, potions, exp, reason, ref, at) VALUES (?, ?, ?, ?, ?, ?, ?)').run(id, log.coins, log.potions, log.exp, log.reason, log.ref, Date.now());
+			ok = true;
+		});
+		return ok;
+	}
+
+	/** Nhật ký kinh tế gần nhất trước (quản trị / test). */
+	ecoLedger(id: string, limit = 20): { coins: number; potions: number; exp: number; reason: string; ref: string | null }[] {
+		return this.db.prepare('SELECT coins, potions, exp, reason, ref FROM eco_ledger WHERE character_id = ? ORDER BY id DESC LIMIT ?').all(id, limit) as {
+			coins: number;
+			potions: number;
+			exp: number;
+			reason: string;
+			ref: string | null;
+		}[];
 	}
 
 	// ———— Xã hội ————
