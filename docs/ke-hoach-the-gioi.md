@@ -192,7 +192,9 @@ phí thì vẽ bằng token đó.
 | Tranh vùng (màn chuyển vùng) + minimap | Pro Flash | trả phí | ~15 |
 | **Cộng một vùng** | | | **~240 miễn phí + ~550 trả phí** |
 
-→ 9 vùng mới ≈ **2.200 lượt miễn phí** (15 token × 5 lượt/đêm ≈ 75/ngày → ~1 tháng rải đều) + **~5.000 lượt trả phí**
+→ **Đã chốt lại 08/10/2026** (chủ dự án: "tập trung vào nhân vật của người dùng và boss"): boss vẽ đủ như bảng trên, quái thường cắt còn 3
+loại mới + 2 bản đổi màu mỗi vùng → mỗi vùng mới ~650 lượt — phân bổ đầy đủ ở `docs/pixellab-ke-hoach-ve.md` mục Phân bổ lượt.
+Ước tính cũ (vẽ riêng tất cả): → 9 vùng mới ≈ **2.200 lượt miễn phí** (15 token × 5 lượt/đêm ≈ 75/ngày → ~1 tháng rải đều) + **~5.000 lượt trả phí**
 (Tier 1 = 2.000/tháng → **~2,5 tháng** chỉ riêng boss/chiêu boss, chưa kể skill người chơi và trang phục ở
 `docs/pixellab-ke-hoach-ve.md`). Vì vậy **làm từng vùng một**, không vẽ dàn trải: vùng nào xong hình thì mở vùng đó.
 Logic vẫn theo luật "làm trước, có hình thì thay": vùng có thể chạy trước bằng quái/boss mượn hình vùng cũ nhuộm màu,
