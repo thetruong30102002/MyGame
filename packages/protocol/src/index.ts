@@ -7,6 +7,13 @@ export const SERVER_PORT = 3200;
 /** Nhịp máy chủ gửi ảnh chụp vị trí người chơi (lần/giây). */
 export const SNAPSHOT_HZ = 10;
 export const CHAT_MAX = 200;
+/**
+ * Kênh chat (docs/ke-hoach-xa-hoi.md mục 2): `map` = người cùng map (mặc định — client / máy chủ bản cũ không ghi kênh), `world` =
+ * mọi người đang online. Kênh Thế giới cần cấp ≥ `WORLD_CHAT_LEVEL` và mỗi người 1 tin / `WORLD_CHAT_GAP_MS` (chống quảng cáo).
+ */
+export type ChatChannel = 'map' | 'world';
+export const WORLD_CHAT_LEVEL = 10;
+export const WORLD_CHAT_GAP_MS = 10_000;
 /** Cấp tối đa (chủ dự án chốt 08/10/2026: 10 vùng × ~10 cấp — docs/ke-hoach-the-gioi.md). Máy chủ kẹp cấp lưu lên theo số này. */
 export const MAX_LEVEL = 100;
 
@@ -246,7 +253,7 @@ export type ClientMessage =
 	/** Tin đầu tiên sau khi mở kết nối: xác thực bằng token phiên (không đặt token trên URL để khỏi lọt vào log). */
 	| { t: 'hello'; token: string; character: string }
 	| { t: 'move'; x: number; y: number; dir: string; anim: string; sprite: string }
-	| { t: 'chat'; text: string }
+	| { t: 'chat'; text: string; ch?: ChatChannel }
 	/** Vừa tung đòn: máy khác chỉ phát động tác (hình), không có sát thương. */
 	| { t: 'action'; anim: ActionAnim; dir: string; skill?: string }
 	/** Động tác vừa gửi bị cắt trước khi diễn hết (né, đi, bị ngắt): máy khác dừng hình. Tin riêng — máy chủ bản cũ bỏ qua im lặng. */
@@ -294,7 +301,7 @@ export type ServerMessage =
 	| { t: 'leave'; id: string }
 	/** Chỉ gồm người chơi có thay đổi kể từ ảnh chụp trước. */
 	| { t: 'snapshot'; players: Pick<PlayerView, 'id' | 'x' | 'y' | 'dir' | 'anim' | 'sprite' | 'level'>[] }
-	| { t: 'chat'; from: string; name: string; text: string; at: number }
+	| { t: 'chat'; from: string; name: string; text: string; at: number; ch?: ChatChannel }
 	| { t: 'system'; text: string }
 	| { t: 'action'; id: string; anim: ActionAnim; dir: string; skill?: string }
 	| { t: 'actionEnd'; id: string }

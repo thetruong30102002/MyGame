@@ -21,6 +21,8 @@ export interface ChatLine {
 	fromId?: string;
 	/** Tin nhắn riêng: `in` = người khác nhắn mình, `out` = mình nhắn (`name` khi đó là người nhận). */
 	whisper?: 'in' | 'out';
+	/** Kênh của tin chat (thiếu = chat map) — thẻ kênh ở khung chat lọc theo trường này. */
+	ch?: 'map' | 'world';
 }
 
 /** Một người để nhắn riêng / thao tác (từ bảng Bạn bè hoặc bấm tên trong chat). */
@@ -74,6 +76,8 @@ interface SessionState {
 }
 
 let chatId = 0;
+/** Số dòng chat giữ lại (mọi kênh chung một danh sách — kênh Thế giới đông nên giữ nhiều hơn một màn). */
+const CHAT_KEEP = 120;
 
 /** Ví / điểm danh / thành tựu của nhân vật trước không được lọt sang lượt chơi mới. */
 const NO_REWARDS = { diamonds: null, daily: null, goals: null, buffs: null };
@@ -209,7 +213,7 @@ export const useSession = create<SessionState>((set, get) => {
 		clearNotice: () => set({ notice: null }),
 		pushChat: (line) => {
 			chatId += 1;
-			set({ chat: [...get().chat.slice(-49), { ...line, id: chatId, at: Date.now() }] });
+			set({ chat: [...get().chat.slice(-(CHAT_KEEP - 1)), { ...line, id: chatId, at: Date.now() }] });
 		},
 	};
 });

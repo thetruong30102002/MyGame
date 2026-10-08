@@ -6,7 +6,7 @@ export interface OnlineHandlers {
 	join(p: PlayerView): void;
 	leave(id: string): void;
 	snapshot(players: Extract<ServerMessage, { t: 'snapshot' }>['players']): void;
-	chat(m: { from: string; name: string; text: string; at: number }): void;
+	chat(m: Extract<ServerMessage, { t: 'chat' }>): void;
 	action(m: Extract<ServerMessage, { t: 'action' }>): void;
 	actionEnd(m: Extract<ServerMessage, { t: 'actionEnd' }>): void;
 	/** Người khác đổi đồ gắn (máy chủ bản cũ không bao giờ gửi tin này). */
@@ -125,8 +125,9 @@ export class OnlineSession {
 		if (this.ws?.readyState === WebSocket.OPEN) this.ws.send(JSON.stringify(msg));
 	}
 
-	chat(text: string): void {
-		this.send({ t: 'chat', text });
+	/** Chat map (mặc định) hoặc kênh Thế giới. */
+	chat(text: string, ch: 'map' | 'world' = 'map'): void {
+		this.send(ch === 'world' ? { t: 'chat', text, ch } : { t: 'chat', text });
 	}
 
 	/** Mời kết bạn theo id (bấm tên) hoặc theo tên gõ tay. */

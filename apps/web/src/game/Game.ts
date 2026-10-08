@@ -1181,7 +1181,11 @@ export class Game {
 				r.view.gear = cleanGearView(m.gear) ?? undefined;
 				r.actor?.setGear(decodeGear(r.view.gear));
 			},
-			chat: (m) => chat({ name: m.name, text: m.text, self: m.from === o.character.id, fromId: m.from }),
+			// Người mình đã chặn: tin chat map / Thế giới của họ ẩn luôn ở máy này (máy chủ vẫn phát cho người khác).
+			chat: (m) => {
+				if (useSession.getState().social.blocked.some((p) => p.id === m.from)) return;
+				chat({ name: m.name, text: m.text, self: m.from === o.character.id, fromId: m.from, ...(m.ch === 'world' ? { ch: 'world' as const } : {}) });
+			},
 			social: (state) => useSession.setState({ social: state }),
 			mobs: (map, list) => {
 				if (map !== `${this.worldIndex.region}/${this.mapId}`) return;

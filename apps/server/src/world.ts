@@ -1,5 +1,5 @@
 import type { WebSocket } from 'ws';
-import { ACTION_ANIMS, CHAT_MAX, cleanGearView, DIRS8, MAX_LEVEL, SNAPSHOT_HZ, type CharacterProgress, type ClientMessage, type PlayerView, type ServerMessage } from '@aether/protocol';
+import { ACTION_ANIMS, CHAT_MAX, cleanGearView, DIRS8, MAX_LEVEL, SNAPSHOT_HZ, WORLD_CHAT_GAP_MS, WORLD_CHAT_LEVEL, type CharacterProgress, type ClientMessage, type PlayerView, type ServerMessage } from '@aether/protocol';
 import { RateLimiter } from './auth.ts';
 import type { Store } from './db.ts';
 import { Social } from './social.ts';
@@ -22,6 +22,8 @@ interface Conn {
 	lastMoveAt: number;
 	saves: RateLimiter;
 	chat: RateLimiter;
+	/** Kênh Thế giới: 1 tin / `WORLD_CHAT_GAP_MS` (chặt hơn chat map — cả server cùng đọc). */
+	worldChat: RateLimiter;
 	actions: RateLimiter;
 	maps: RateLimiter;
 	gears: RateLimiter;
@@ -181,6 +183,7 @@ export class World {
 			lastMoveAt: 0,
 			saves: new RateLimiter(10, 10_000),
 			chat: new RateLimiter(5, 5000),
+			worldChat: new RateLimiter(1, WORLD_CHAT_GAP_MS),
 			// Nhịp đánh nhanh nhất (Trảm 0.38s) ≈ 2.6 đòn/giây; 8/giây là trần chống spam.
 			actions: new RateLimiter(8, 1000),
 			// Chuyển map hợp lệ cách nhau ít nhất vài giây (màn tối + đi bộ); trần này chỉ chặn spam.
@@ -212,6 +215,7 @@ export class World {
 			case 'chat': {
 				const text = String(msg.text ?? '').replace(/\s+/g, ' ').trim().slice(0, CHAT_MAX);
 				if (!text) return;
+				if (msg.ch === 'world') return this.worldChat(c, text);
 				if (!c.chat.allow('chat')) return send(c.ws, { t: 'system', text: 'Bạn chat nhanh quá, chậm lại chút nhé' });
 				const out: ServerMessage = { t: 'chat', from: c.view.id, name: c.view.name, text, at: Date.now() };
 				for (const o of this.inMap(c.map)) send(o.ws, out);
@@ -271,6 +275,14 @@ export class World {
 				return this.mobs.cc(c.view.id, String(msg.id ?? ''), msg.cc);
 			default:
 		}
+	}
+
+	/** Kênh Thế giới: mọi người đang online (cả người ở map khác) — cấp ≥ `WORLD_CHAT_LEVEL`, 1 tin / 10 giây. */
+	private worldChat(c: Conn, text: string): void {
+		if (c.view.level < WORLD_CHAT_LEVEL) return send(c.ws, { t: 'system', text: `Kênh Thế giới mở từ cấp ${WORLD_CHAT_LEVEL} — chat map vẫn dùng được` });
+		if (!c.worldChat.allow('world')) return send(c.ws, { t: 'system', text: `Kênh Thế giới: mỗi ${WORLD_CHAT_GAP_MS / 1000} giây một tin thôi nhé` });
+		const out: ServerMessage = { t: 'chat', from: c.view.id, name: c.view.name, text, at: Date.now(), ch: 'world' };
+		for (const o of this.conns.values()) send(o.ws, out);
 	}
 
 	private move(c: Conn, m: Extract<ClientMessage, { t: 'move' }>): void {

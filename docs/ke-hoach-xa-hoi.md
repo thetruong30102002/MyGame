@@ -96,6 +96,21 @@ Nhà riêng N1 cần X1 (quyền xem nhà theo bạn bè).
   :3201 thật, 2 tài khoản WebSocket); đã thử giao diện bằng trình duyệt với tài khoản rác trên máy chủ thử
   (`apps/web/scripts/dev-test.mjs` = web dev :3102 trỏ :3201).
 
+### X2b — thẻ kênh + kênh Thế giới — ĐÃ LÀM (08/10/2026)
+
+- **Thẻ kênh** trong khung chat: Tất cả · Map · Thế giới · Riêng (`apps/web/src/components/chatTabs.ts`). Thông báo hệ thống hiện
+  ở mọi thẻ; thẻ không xem có số đỏ = tin của người khác chưa đọc. Gõ ở thẻ nào đi kênh đó (thẻ Riêng: `/w`, `/r` hoặc chọn người);
+  `/g <nội dung>` gửi kênh Thế giới từ thẻ nào cũng được. Máy tính: hàng thẻ trên khung chat; cảm ứng: hiện khi bấm "Trò chuyện".
+- **Kênh Thế giới**: tin `chat` có `ch: 'world'` → máy chủ phát cho MỌI người online (cả map khác). Cần **cấp ≥ 10** và **1 tin / 10
+  giây** (`WORLD_CHAT_LEVEL`, `WORLD_CHAT_GAP_MS` ở `packages/protocol`); tin hiện nhãn xanh lá "Thế giới". Cấp vẫn do client báo
+  (tới M3.3) nên người sửa bản lưu vượt được mốc cấp — không vượt được trần 1 tin / 10 giây.
+- Người mình đã chặn: tin chat map / Thế giới của họ ẩn ở máy mình (trước đây chỉ chặn được chat riêng + lời mời).
+- Tương thích ngược: tin không ghi kênh = chat map như cũ.
+- Test: `apps/server/tests/chat.test.ts` (4 ca), `apps/web/tests/chattabs.test.ts`; thử thật trên máy chủ thử: trình duyệt cấp thấp
+  ở Thistlewood + bot cấp 20 ở Mossvale — tin Thế giới của bot tới trình duyệt (số đỏ trên thẻ), tin map của bot không lọt; trình
+  duyệt gửi Thế giới bị nhắc "mở từ cấp 10". Cả khổ điện thoại.
+- Chưa làm: tab riêng theo từng người, báo cáo tin, lọc từ tục, kênh Tổ đội (chờ X4).
+
 ### Cài đặt (08/10/2026, chủ dự án: "nút đổi nhân vật chỉ nên ở mục cài đặt cạnh nút đăng xuất")
 
 Thẻ **Cài đặt (O)** trong bảng Hành trang — lưu theo máy (`useSettings`, localStorage): âm thanh (chung / nhạc / hiệu ứng / tắt
