@@ -85,8 +85,14 @@ export const MAX_CHARACTERS = 4;
 
 // ---- WebSocket --------------------------------------------------------------------------------
 
-/** Động tác ra đòn một lần (không lặp): vung kiếm, vung tay niệm phép. Không bao giờ đi qua snapshot. */
-export const ACTION_ANIMS = ['attack', 'cast'] as const;
+/**
+ * Động tác một lần (không lặp) của người chơi: vung kiếm, niệm phép + các động tác riêng của skill (`packages/sim/src/moves.ts`).
+ * Không bao giờ đi qua snapshot. Chỉ THÊM tên vào cuối; tên chỉ gồm a–z (khung atlas `<động tác>_<hướng>_<số>`).
+ */
+export const ACTION_ANIMS = [
+	'attack', 'cast', 'backslash', 'thrust', 'throw', 'channel', 'push', 'skycall', 'stomp', 'charge', 'smash', 'lunge', 'dodge', 'block',
+	'parry', 'spin', 'flurry', 'wave', 'fling', 'vanish', 'ultimate', 'hit', 'death', 'revive', 'drink',
+] as const;
 export type ActionAnim = (typeof ACTION_ANIMS)[number];
 export const DIRS8 = ['S', 'SW', 'W', 'NW', 'N', 'NE', 'E', 'SE'] as const;
 

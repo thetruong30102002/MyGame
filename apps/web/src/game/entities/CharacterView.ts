@@ -97,6 +97,11 @@ export class CharacterView {
 		this.applyPhase();
 	}
 
+	/** Atlas đã vẽ động tác `anim` cho hướng `dir` (hoặc hướng kề) — chưa có thì skill dùng động tác sẵn có của nó. */
+	hasAction(anim: ActionName, dir: Direction): boolean {
+		return this.textures.actionFrames(anim, dir) !== null;
+	}
+
 	/** Mốc thời gian của động tác cho hướng `dir`; null = hướng đó chưa vẽ (dùng phương án dự phòng). */
 	actionTiming(anim: ActionName, dir: Direction, cooldown: number): ActionTiming | null {
 		const frames = this.textures.actionFrames(anim, dir);

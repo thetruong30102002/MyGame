@@ -1,5 +1,6 @@
 import type { MobAct, MobCc, MobCcKey } from '@aether/protocol';
 import { MOB_CC_KEYS } from '@aether/sim/mobs';
+import { COMBO_WINDOW, SKILL_MOVE, SLASH_COMBO } from '@aether/sim/moves';
 import { Container, Graphics, Sprite, Text, type Texture } from 'pixi.js';
 import type { ActionName, Direction } from '../assets/AssetManifest';
 import { ACTION_EPS, strikeClock, type ActionTiming, type StrikePlan } from '../entities/actionClock';
@@ -685,6 +686,10 @@ export class CombatSystem {
 	private readonly press = { n: 0, at: -99 };
 	/** Đà Lướt: số đòn Kiếm nhanh còn lại sau lần né gần nhất + hạn dùng (giây trận). */
 	private momentum = { n: 0, until: -99 };
+	/** Chuỗi đòn kiếm thường: nhát đang ở (chỉ số `SLASH_COMBO`) + lúc bấm nhát đó. */
+	private slashChain = { step: -1, at: -99 };
+	/** Động tác gục đang phát (chỉ khi atlas có `death`) — đứng ở khung cuối tới lúc hồi sinh. */
+	private deathPose: { t: number; timing: ActionTiming } | null = null;
 	/** Lần bấm né gần nhất (giây trận) + chỗ đứng lúc bấm — Phản Đòn xét "né đúng lúc" (`skillRules.COUNTER.perfect`). */
 	private dodgeAt = -99;
 	private readonly dodgeFrom = { x: 0, y: 0 };
@@ -1293,11 +1298,12 @@ export class CombatSystem {
 			}
 			const action = { skill, index, dx, dy, tx: aim.x, ty: aim.y, dir, t: 0, released: false, prevCooldown, mpPaid: skill.mpCost };
 			// Đà Lướt: dựng nhịp theo hồi chiêu THƯỜNG rồi co cả động tác ÷1,25 — vẫn vừa trong hồi chiêu đã rút, không co hai lần.
-			const plain = skill.anim ? p.view.actionTiming(skill.anim, dir, fast ? cooldown * PASSIVE.momentumSpeed : cooldown) : null;
+			const anim = this.moveOf(skill, dir);
+			const plain = anim ? p.view.actionTiming(anim, dir, fast ? cooldown * PASSIVE.momentumSpeed : cooldown) : null;
 			const timing = plain && fast ? quicken(plain, PASSIVE.momentumSpeed) : plain;
-			if (skill.anim && timing && p.view.playAction(skill.anim, dir, { timing, external: true })) pc.action = { ...action, timing };
+			if (anim && timing && p.view.playAction(anim, dir, { timing, external: true })) pc.action = { ...action, timing };
 			else this.release(action, false);
-			if (skill.anim) this.hooks.onAction?.(skill.anim, dir, skill.id);
+			if (anim) this.hooks.onAction?.(anim, dir, skill.id);
 		};
 		if (skill.charge) {
 			// Dồn lực (Nhất Kích): đứng im, tia sáng tụ quanh người đúng bằng thời gian dồn — xong mới vào động tác vung.
@@ -2053,13 +2059,39 @@ export class CombatSystem {
 		this.playArt('blur_evade', p.x, p.y);
 	}
 
-	/** Phát động tác vung (attack) theo hướng `dir` mà KHÔNG khoá người chơi (phản đòn); nhân vật đang vung thì thôi. */
+	/**
+	 * Động tác của skill cho hướng `dir`: động tác riêng (`@aether/sim/moves`, Trảm theo chuỗi 3 nhát) nếu atlas đã vẽ, chưa thì
+	 * động tác sẵn có `skill.anim`. undefined = skill không có động tác (đòn nổ ngay).
+	 */
+	private moveOf(skill: SkillDef, dir: Direction): ActionName | undefined {
+		if (!skill.anim) return undefined;
+		let move = SKILL_MOVE[skill.id];
+		if (skill.id === 'slash') {
+			const c = this.slashChain;
+			c.step = this.time - c.at <= COMBO_WINDOW ? (c.step + 1) % SLASH_COMBO.length : 0;
+			c.at = this.time;
+			move = SLASH_COMBO[c.step];
+		}
+		return move && this.player.view.hasAction(move, dir) ? move : skill.anim;
+	}
+
+	/** Phát động tác vung theo hướng `dir` mà KHÔNG khoá người chơi (phản đòn: `parry`, chưa vẽ thì `attack`); đang vung thì thôi. */
 	private swingAt(dir: Direction): void {
 		const v = this.player.view;
 		if (v.busy) return;
-		const timing = v.actionTiming('attack', dir, 0.35);
-		if (timing && v.playAction('attack', dir, { timing, external: false })) this.hooks.onAction?.('attack', dir, 'slash');
+		const anim: ActionName = v.hasAction('parry', dir) ? 'parry' : 'attack';
+		const timing = v.actionTiming(anim, dir, 0.35);
+		if (timing && v.playAction(anim, dir, { timing, external: false })) this.hooks.onAction?.(anim, dir, 'slash');
 		else v.set(v.baseAnimation, dir);
+	}
+
+	/** Động tác phụ không gắn skill (uống bình, trúng đòn, hồi sinh): chỉ phát khi atlas đã vẽ và người chơi không đang ra đòn. */
+	private poseOnce(anim: ActionName): void {
+		const v = this.player.view;
+		const dir = v.direction;
+		if (v.busy || !v.hasAction(anim, dir)) return;
+		const timing = v.actionTiming(anim, dir, Infinity);
+		if (timing && v.playAction(anim, dir, { timing, external: false })) this.hooks.onAction?.(anim, dir, '');
 	}
 
 	/** Hình trúng đòn theo hệ (Thổ: hình tạm `earth_hit`). */
@@ -2230,6 +2262,7 @@ export class CombatSystem {
 		if (pc.hp >= pc.hpMax) return;
 		pc.potions -= 1;
 		this.hooks.potionUsed?.();
+		this.poseOnce('drink');
 		const amount = Math.round(pc.hpMax * 0.5);
 		pc.hp = Math.min(pc.hpMax, pc.hp + amount);
 		this.float(this.player.x, this.player.y - this.player.height - 8, `+${amount}`, 0x5be38a, 15);
@@ -2302,9 +2335,17 @@ export class CombatSystem {
 
 		if (pc.dead) {
 			pc.respawnT -= dt;
+			const pose = this.deathPose;
+			if (pose) {
+				// Gục xong thì nằm ở khung cuối (đồng hồ dừng ngay trước mốc kết thúc).
+				pose.t = Math.min(pose.t + dt, pose.timing.dur - 0.01);
+				p.view.seekAction(pose.t);
+			}
 			if (pc.respawnT <= 0) {
 				const at = this.hooks.playerRespawn();
 				Object.assign(p, at);
+				if (this.deathPose) p.view.endAction();
+				this.deathPose = null;
 				pc.dead = false;
 				pc.action = null;
 				pc.buffered = null;
@@ -2713,7 +2754,10 @@ export class CombatSystem {
 			this.momentum.n = 0;
 			this.player.root.alpha = 0.35;
 			this.hooks.toast('Bạn đã gục ngã…', 'warn');
-		}
+			const v = this.player.view;
+			const timing = v.hasAction('death', v.direction) ? v.actionTiming('death', v.direction, Infinity) : null;
+			this.deathPose = timing && v.playAction('death', v.direction, { timing, external: true }) ? { t: 0, timing } : null;
+		} else this.poseOnce('hit');
 	}
 
 	/**

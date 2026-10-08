@@ -4,7 +4,11 @@ import type { RGBAImage } from '../image/rgba.js';
 export const DIRECTIONS = ['S', 'SW', 'W', 'NW', 'N', 'NE', 'E', 'SE'] as const;
 export type Direction = (typeof DIRECTIONS)[number];
 
-export const ANIMATIONS = ['idle', 'walk', 'run', 'attack', 'cast', 'hit', 'death', 'dodge', 'block'] as const;
+/** Gồm các động tác riêng của skill người chơi — trùng `ACTION_ANIMS` của `packages/protocol` (test `moves` kiểm). */
+export const ANIMATIONS = [
+	'idle', 'walk', 'run', 'attack', 'cast', 'hit', 'death', 'dodge', 'block', 'backslash', 'thrust', 'throw', 'channel', 'push', 'skycall',
+	'stomp', 'charge', 'smash', 'lunge', 'parry', 'spin', 'flurry', 'wave', 'fling', 'vanish', 'ultimate', 'revive', 'drink',
+] as const;
 export type AnimationName = (typeof ANIMATIONS)[number];
 
 /** Danh tính nhân vật — mọi animation của cùng một characterId phải giữ đúng các thuộc tính này. */

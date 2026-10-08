@@ -1,3 +1,4 @@
+import { wieldOf } from '@aether/sim/moves';
 import type { AnimationName, CharacterManifestEntry } from '../assets/AssetManifest';
 
 /**
@@ -21,9 +22,9 @@ export const ACTION_EPS = 1e-6;
 /** Chừa khe giữa hai đòn liên tiếp khi giữ phím: động tác luôn xong TRƯỚC khi hồi chiêu kịp sẵn sàng (khe đó đứng ở frame cuối — `HOLD_LINGER` của CombatSystem). */
 const COOLDOWN_GAP = 0.02;
 
-/** Frame tung đòn mặc định khi spec chưa khai `hitFrame`: kiếm vào thế ~1/3, phép đẩy tay ~3/8 chu kỳ. */
+/** Frame tung đòn mặc định khi spec chưa khai `hitFrame`: kiếm vào thế ~1/3, phép (niệm / phóng / gọi…) đẩy tay ~3/8 chu kỳ. */
 export function defaultHitFrame(anim: AnimationName, n: number): number {
-	return Math.round(anim === 'cast' ? (n * 3) / 8 : n / 3);
+	return Math.round(wieldOf(anim) === 'magic' ? (n * 3) / 8 : n / 3);
 }
 
 /**

@@ -1,11 +1,12 @@
 import { Assets, type Spritesheet, type Texture } from 'pixi.js';
+import type { ActionAnim } from '@aether/protocol';
 import type { GearAnchors } from '../gearLayers';
 
 export const DIRECTIONS = ['S', 'SW', 'W', 'NW', 'N', 'NE', 'E', 'SE'] as const;
 export type Direction = (typeof DIRECTIONS)[number];
-export type AnimationName = 'idle' | 'walk' | 'run' | 'attack' | 'cast' | 'hit' | 'death' | 'dodge' | 'block';
-/** Động tác một lần (không lặp) — vung kiếm, vung tay niệm phép. */
-export type ActionName = 'attack' | 'cast';
+export type AnimationName = 'idle' | 'walk' | 'run' | ActionAnim;
+/** Động tác một lần (không lặp) — vung kiếm, niệm phép, động tác riêng của skill (`@aether/sim/moves`). */
+export type ActionName = ActionAnim;
 
 /**
  * Thông số một animation. Động tác một lần (pipeline đánh dấu `loop: false`) có thêm `frames` (số frame

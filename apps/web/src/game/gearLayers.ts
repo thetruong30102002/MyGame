@@ -1,4 +1,5 @@
 import { cleanGearView, GEAR_VIEW_SLOTS, type GearView } from '@aether/protocol';
+import { wieldOf } from '@aether/sim/moves';
 import type { Direction } from './assets/AssetManifest';
 import { EQUIP_SLOTS, ITEMS, RARITY_ORDER, type EquipSlotId, type GearState, type Rarity } from './equipment';
 import { BAKED_HELD, GEAR_ART, OUTFITS, VIEW_OF, type GearArt, type GearLayerSlot, type GearViewArt, type Wield } from './gearArt';
@@ -90,11 +91,11 @@ export function layoutPiece(piece: Pick<GearPiece, 'slot' | 'id'>, anchors: Gear
 }
 
 /**
- * Thế cầm sau khung động tác `anim`: chém (`attack`) → cầm kiếm, niệm (`cast`) → cầm gậy; động tác khác (đứng, đi) giữ thế
- * trước đó — vừa niệm phép xong đi tiếp thì vẫn cầm gậy.
+ * Thế cầm sau khung động tác `anim`: động tác kiếm (chém, đâm, bổ, xoay…) → cầm kiếm, động tác phép (niệm, phóng, gọi…) → cầm
+ * gậy (`@aether/sim/moves`); động tác khác (đứng, đi, trúng đòn, uống bình) giữ thế trước đó — niệm xong đi tiếp vẫn cầm gậy.
  */
 export function stanceAfter(anim: string | undefined, prev: Wield): Wield {
-	return anim === 'attack' ? 'melee' : anim === 'cast' ? 'magic' : prev;
+	return wieldOf(anim) ?? prev;
 }
 
 /** Thế cầm mặc định theo con đường (chưa ra đòn nào): Pháp sư cầm gậy, còn lại cầm kiếm. */

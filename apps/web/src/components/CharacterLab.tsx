@@ -1,5 +1,6 @@
 'use client';
 
+import { ACTION_ANIMS } from '@aether/protocol';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import type { AnimationName } from '@/game/assets/AssetManifest';
@@ -31,7 +32,7 @@ export function CharacterLab() {
 	const [bg, setBg] = useState<Background>('night');
 	const [checks, setChecks] = useState<QualityCheck[]>([]);
 	const [meta, setMeta] = useState<{ displayName: string; identity: Record<string, string>; source: { provider: string; ref: string }; animations: Record<string, unknown> } | null>(null);
-	// Nút theo đúng animation atlas đang có: thêm attack/cast vào atlas là hiện nút duyệt, không sửa code.
+	// Nút theo đúng animation atlas đang có: thêm động tác (attack, cast, động tác skill…) vào atlas là hiện nút duyệt, không sửa code.
 	const anims = meta ? Object.keys(meta.animations) : ['idle'];
 	const shown = anims.includes(anim) ? anim : 'idle';
 
@@ -81,7 +82,7 @@ export function CharacterLab() {
 				y += label;
 				DIRECTIONS.forEach((dir, i) => {
 					// Động tác một lần chỉ hiện ở hướng đã vẽ (hướng trống = game dùng phương án dự phòng, nổ tức thì).
-					const frames = shown === 'attack' || shown === 'cast' ? tex.actionFrames(shown, dir) : tex.frames(shown as AnimationName, dir);
+					const frames = (ACTION_ANIMS as readonly string[]).includes(shown) ? tex.actionFrames(shown as AnimationName, dir) : tex.frames(shown as AnimationName, dir);
 					if (!frames) return;
 					const s = new AnimatedSprite(frames);
 					s.anchor.set(0, 0);
