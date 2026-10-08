@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { CHAT_MAX, WORLD_CHAT_DIAMONDS, WORLD_CHAT_GAP_MS, WORLD_CHAT_LEVEL } from '@aether/protocol';
+import { CHAT_MAX, WORLD_CHAT_DIAMONDS, WORLD_CHAT_GAP_MS } from '@aether/protocol';
 import { useGameStore } from '@/store/useGameStore';
 import { useSession, type ChatLine, type PersonRef } from '@/store/useSession';
 import { CHAT_TABS, inConversation, inTab, routeLine, unread, unreadFrom, whisperPartners, type ChatTab, type WhisperPartner } from './chatTabs';
@@ -18,7 +18,7 @@ const WORLD = 'text-[#8fe39a]';
 /** Chữ khi thẻ đang xem chưa có tin nào. */
 const EMPTY_TAB: Record<Exclude<ChatTab, 'all'>, string> = {
 	map: 'Chưa có ai nói gì ở map này.',
-	world: `Kênh Thế giới: mọi người đang online đều đọc được — ${WORLD_CHAT_DIAMONDS} kim cương mỗi tin, từ cấp ${WORLD_CHAT_LEVEL}, mỗi ${WORLD_CHAT_GAP_MS / 1000} giây một tin.`,
+	world: `Kênh Thế giới: mọi người đang online đều đọc được — ${WORLD_CHAT_DIAMONDS} kim cương mỗi tin, mỗi ${WORLD_CHAT_GAP_MS / 1000} giây một tin.`,
 	whisper: 'Chưa có tin riêng. Gõ /w <tên> <nội dung>, hoặc bấm tên người chơi → Nhắn riêng.',
 };
 
@@ -207,7 +207,6 @@ export function ChatBox({ placement = 'bottom' }: { placement?: 'bottom' | 'stac
 	const menu = useSession((s) => s.personMenu);
 	const setMenu = useSession((s) => s.setPersonMenu);
 	const connected = useSession((s) => s.connected);
-	const level = useGameStore((s) => s.stats.level);
 	const diamonds = useSession((s) => s.diamonds);
 	// Thẻ kênh đang xem + mốc đã đọc (id dòng chat cuối) của từng thẻ — đếm số tin chưa đọc.
 	const [tab, setTab] = useState<ChatTab>('all');
@@ -296,7 +295,6 @@ export function ChatBox({ placement = 'bottom' }: { placement?: 'bottom' | 'stac
 		else if (t) {
 			const r = routeLine(t, tab);
 			if ('hint' in r) system(r.hint);
-			else if (r.ch === 'world' && level < WORLD_CHAT_LEVEL) system(`Kênh Thế giới mở từ cấp ${WORLD_CHAT_LEVEL} — chat map vẫn dùng được.`);
 			else if (r.ch === 'world' && diamonds !== null && diamonds < WORLD_CHAT_DIAMONDS) system(`Chat kênh Thế giới tốn ${WORLD_CHAT_DIAMONDS} kim cương mỗi tin — bạn đang có ${diamonds}.`);
 			else online.chat(r.text, r.ch);
 		}

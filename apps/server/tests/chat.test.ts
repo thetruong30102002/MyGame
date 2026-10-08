@@ -1,10 +1,10 @@
 // Chạy: npx tsx tests/chat.test.ts — kênh chat (docs/ke-hoach-xa-hoi.md mục 2): chat map chỉ tới người cùng map, kênh Thế giới
-// tới mọi người online (cả map khác), cần cấp ≥ 10, 1 tin / 10 giây và 3 kim cương / tin. CSDL SQLite THẬT trong thư mục tạm + socket giả.
+// tới mọi người online (cả map khác), cấp nào cũng được, 1 tin / 10 giây và 3 kim cương / tin. CSDL SQLite THẬT trong thư mục tạm + socket giả.
 import assert from 'node:assert/strict';
 import { mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { WORLD_CHAT_DIAMONDS, WORLD_CHAT_LEVEL, type ServerMessage } from '@aether/protocol';
+import { WORLD_CHAT_DIAMONDS, type ServerMessage } from '@aether/protocol';
 import { Store } from '../src/db.ts';
 import { newProgress } from '../src/http.ts';
 import { World } from '../src/world.ts';
@@ -46,10 +46,10 @@ const dir = mkdtempSync(join(tmpdir(), 'aether-chat-'));
 const store = new Store(join(dir, 'c.db'));
 const world = new World(store, () => []);
 const people: [string, number, string][] = [
-	['Cao Thủ', WORLD_CHAT_LEVEL, 'human/town'],
+	['Cao Thủ', 10, 'human/town'],
 	['Bạn Cùng Map', 3, 'human/town'],
 	['Ở Rừng', 20, 'human/mossvale'],
-	['Tân Thủ', WORLD_CHAT_LEVEL - 1, 'human/mossvale'],
+	['Tân Thủ', 1, 'human/mossvale'],
 ];
 const ids: string[] = [];
 const ws: FakeWs[] = people.map(([name, level, map], i) => {
@@ -79,7 +79,7 @@ try {
 		store.addDiamonds(ids[0]!, 7, 'admin:thử');
 	});
 
-	test('kênh Thế giới: mọi người online nhận, kể cả ở map khác và người chưa đủ cấp; trừ 3 kim cương + báo ví', () => {
+	test('kênh Thế giới: mọi người online nhận, kể cả ở map khác và người cấp thấp; trừ 3 kim cương + báo ví', () => {
 		pro.push({ t: 'chat', text: 'ai đi săn Vua Lich không?', ch: 'world' });
 		assert.equal(store.diamonds(ids[0]!), 7 - WORLD_CHAT_DIAMONDS);
 		assert.equal(store.diamondLedger(ids[0]!, 1)[0]!.reason, 'chat:world');
@@ -89,13 +89,15 @@ try {
 		assert.equal(forest.chats().at(-1)!.name, 'Cao Thủ');
 	});
 
-	test('chưa đủ cấp 10: không gửi được kênh Thế giới (chat map vẫn được)', () => {
-		const before = forest.chats().length;
-		newbie.push({ t: 'chat', text: 'mua bán acc', ch: 'world' });
-		assert.match(newbie.said, /từ cấp 10/);
-		assert.equal(forest.chats().length, before, 'không ai nhận');
+	test('cấp nào cũng chat kênh Thế giới được (chủ dự án bỏ điều kiện cấp 10) — chỉ cần đủ kim cương', () => {
+		newbie.push({ t: 'chat', text: 'tân thủ cấp 1 chào cả server', ch: 'world' });
+		assert.match(newbie.said, /tốn 3 kim cương/, 'chưa có kim cương');
+		store.addDiamonds(ids[3]!, 3, 'admin:thử');
+		newbie.push({ t: 'chat', text: 'tân thủ cấp 1 chào cả server', ch: 'world' });
+		assert.equal(mate.chats().at(-1)!.text, 'tân thủ cấp 1 chào cả server', 'người ở map khác nhận');
+		assert.equal(store.diamonds(ids[3]!), 0);
 		newbie.push({ t: 'chat', text: 'chào rừng' });
-		assert.equal(forest.chats().at(-1)!.text, 'chào rừng');
+		assert.equal(forest.chats().at(-1)!.text, 'chào rừng', 'chat map vẫn như cũ');
 	});
 
 	test('1 tin / 10 giây ở kênh Thế giới; chat map không bị ảnh hưởng', () => {

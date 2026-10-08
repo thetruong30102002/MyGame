@@ -26,7 +26,7 @@ người chơi theo **id nhân vật** (không theo tên hiển thị — tên c
 | **Map** (đang có) | người cùng map | giữ nguyên |
 | **Riêng (thì thầm)** | 2 người | gõ `/w <tên> …` hoặc bấm tên → Chat riêng. Người nhận offline thì lưu lại, vào game thấy (giữ 30 ngày, tối đa 200 tin / cuộc) |
 | **Tổ đội** | thành viên tổ đội | có khi có tổ đội (mục 4) |
-| **Thế giới** | mọi người online | giới hạn chặt hơn (1 tin / 10 giây, cần cấp ≥ 10) để không thành bãi quảng cáo |
+| **Thế giới** | mọi người online | giới hạn chặt hơn (1 tin / 10 giây, 3 kim cương / tin — không cần cấp) để không thành bãi quảng cáo |
 | **Hệ thống** | mình | đã có (`t: 'system'`) |
 
 - Khung chat có **thẻ kênh** (Tất cả · Map · Riêng · Tổ đội · Thế giới); tin riêng có tab theo từng người + dấu chưa đọc.
@@ -101,15 +101,14 @@ Nhà riêng N1 cần X1 (quyền xem nhà theo bạn bè).
 - **Thẻ kênh** trong khung chat: Tất cả · Map · Thế giới · Riêng (`apps/web/src/components/chatTabs.ts`). Thông báo hệ thống hiện
   ở mọi thẻ; thẻ không xem có số đỏ = tin của người khác chưa đọc. Gõ ở thẻ nào đi kênh đó (thẻ Riêng: `/w`, `/r` hoặc chọn người);
   `/g <nội dung>` gửi kênh Thế giới từ thẻ nào cũng được. Máy tính: hàng thẻ trên khung chat; cảm ứng: hiện khi bấm "Trò chuyện".
-- **Kênh Thế giới**: tin `chat` có `ch: 'world'` → máy chủ phát cho MỌI người online (cả map khác). Cần **cấp ≥ 10**, **1 tin / 10
-  giây** và **3 kim cương / tin** (chủ dự án 08/10/2026; `WORLD_CHAT_LEVEL`, `WORLD_CHAT_GAP_MS`, `WORLD_CHAT_DIAMONDS` ở
-  `packages/protocol`) — máy chủ kiểm đủ kim cương trước, trừ (nhật ký `chat:world`) rồi mới phát; tin hiện nhãn xanh lá "Thế giới". Cấp vẫn do client báo
-  (tới M3.3) nên người sửa bản lưu vượt được mốc cấp — không vượt được trần 1 tin / 10 giây.
+- **Kênh Thế giới**: tin `chat` có `ch: 'world'` → máy chủ phát cho MỌI người online (cả map khác). Cần **1 tin / 10 giây** và **3 kim
+  cương / tin** (chủ dự án 08/10/2026; điều kiện cấp ≥ 10 lúc đầu đã BỎ theo chủ dự án cùng ngày; `WORLD_CHAT_GAP_MS`,
+  `WORLD_CHAT_DIAMONDS` ở `packages/protocol`) — máy chủ kiểm đủ kim cương trước, trừ (nhật ký `chat:world`) rồi mới phát; tin hiện nhãn xanh lá "Thế giới".
 - Người mình đã chặn: tin chat map / Thế giới của họ ẩn ở máy mình (trước đây chỉ chặn được chat riêng + lời mời).
 - Tương thích ngược: tin không ghi kênh = chat map như cũ.
 - Test: `apps/server/tests/chat.test.ts` (4 ca), `apps/web/tests/chattabs.test.ts`; thử thật trên máy chủ thử: trình duyệt cấp thấp
-  ở Thistlewood + bot cấp 20 ở Mossvale — tin Thế giới của bot tới trình duyệt (số đỏ trên thẻ), tin map của bot không lọt; trình
-  duyệt gửi Thế giới bị nhắc "mở từ cấp 10". Cả khổ điện thoại.
+  ở Thistlewood + bot cấp 20 ở Mossvale — tin Thế giới của bot tới trình duyệt (số đỏ trên thẻ), tin map của bot không lọt. Cả khổ
+  điện thoại.
 - **Tab riêng theo từng người** (thêm cùng ngày): trong thẻ Riêng có hàng tab mỗi người đã nhắn / được nhắn (mới nhất trước, số đỏ =
   tin của người đó chưa đọc) + "Tất cả tin riêng". Chọn người = chỉ xem cuộc trò chuyện với họ và gõ là nhắn cho họ. Thử thật: 2 bot
   nhắn cho trình duyệt → hai tab (2 và 1 tin chưa đọc), trả lời trong tab Lan chỉ tới Lan.
