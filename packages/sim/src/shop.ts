@@ -13,11 +13,17 @@ import type { BuffKind } from '@aether/protocol';
 import type { NpcSpot } from './rewards.ts';
 
 /**
- * Người bán: Bram — thương nhân lữ hành ở quảng trường Thistlewood (chủ dự án 08/10/2026: "cửa hàng không phải ở UI người dùng,
- * cần đi mua ở NPC"). Máy chủ chỉ bán khi người chơi đứng gần chỗ này. Bram có hai khoá NPC theo tuổi (cùng chỗ đứng).
+ * Người bán hàng ở các vùng (chủ dự án 08/10/2026: "cửa hàng cần đi mua ở NPC" + "mua đồ ở các NPC ở các vùng nữa"): máy chủ chỉ
+ * bán khi người chơi đứng gần MỘT trong các chỗ này. Vùng mới có nơi ở thì thêm người bán của nơi đó vào đây (+ NPC ở client).
+ * `keys`: các khoá NPC của cùng người bán (Bram có hai khoá theo tuổi, cùng chỗ đứng).
  */
-export const MERCHANT = { npc: 'bram', map: 'human/town', spot: 'plaza', dx: -110, dy: -40, range: 240 } as const satisfies NpcSpot;
-export const MERCHANT_NPCS: readonly string[] = ['bram', 'merchant_bram'];
+export const MERCHANTS: readonly (NpcSpot & { keys: readonly string[] })[] = [
+	{ npc: 'bram', keys: ['bram', 'merchant_bram'], map: 'human/town', spot: 'plaza', dx: -110, dy: -40, range: 240 },
+];
+/** Người bán đầu tiên (Bram ở Thistlewood). */
+export const MERCHANT = MERCHANTS[0]!;
+/** Mọi khoá NPC bán hàng — bấm E mở quầy. */
+export const MERCHANT_NPCS: readonly string[] = MERCHANTS.flatMap((m) => m.keys);
 
 export interface ShopItem {
 	id: string;

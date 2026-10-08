@@ -1,4 +1,5 @@
 import type { ClientMessage, DailyView, GoalView, ServerMessage } from '@aether/protocol';
+import { hubKeys } from '@aether/sim/regions';
 import { checkinGift, checkinSlot, CHRONICLER, dayBefore, GOALS, killStats, nextStreak, vnDay, type GoalStats } from '@aether/sim/rewards';
 import type { Store } from './db.ts';
 import { mapExists, nearNpc } from './maps.ts';
@@ -9,7 +10,7 @@ export interface RewardsHost {
 	where(player: string): { map: string; x: number; y: number } | null;
 }
 
-type RewardMessage = Extract<ClientMessage, { t: 'checkin' | 'goals' | 'goalClaim' }>;
+type RewardMessage = Extract<ClientMessage, { t: 'checkin' | 'goals' | 'goalClaim' | 'hubs' }>;
 
 /**
  * Ví kim cương + điểm danh + thành tựu (K1 — docs/ke-hoach-kim-cuong.md). Máy chủ quyết hết: ngày theo giờ máy chủ, tiến độ
@@ -37,6 +38,7 @@ export class Rewards {
 	handle(player: string, msg: RewardMessage): void {
 		if (msg.t === 'checkin') return this.checkin(player);
 		if (msg.t === 'goals') return this.host.send(player, { t: 'goals', list: this.goals(player) });
+		if (msg.t === 'hubs') return this.host.send(player, { t: 'hubs', list: this.hubs(player) });
 		return this.claim(player, String(msg.id ?? ''));
 	}
 
@@ -48,6 +50,12 @@ export class Rewards {
 		const streak = done || s.lastDay === dayBefore(today) ? s.streak : 0;
 		const month = this.store.checkinDays(player, today.slice(0, 7));
 		return { day: today, done, streak, next: checkinGift(done ? streak + 1 : nextStreak(s.lastDay, s.streak, today)), month };
+	}
+
+	/** Trạm (map trạm của vùng đã mở) đã từng đặt chân tới — cột dịch chuyển chỉ đưa tới những chỗ này. */
+	hubs(player: string): string[] {
+		const been = new Set(this.store.visitedMaps(player));
+		return hubKeys().filter((k) => been.has(k));
 	}
 
 	stats(player: string): GoalStats {

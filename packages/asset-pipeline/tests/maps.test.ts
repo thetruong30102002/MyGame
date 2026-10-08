@@ -4,7 +4,7 @@ import { mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { createImage, writePng, type RGBAImage } from '../src/image/rgba.js';
-import { buildHumanRegion, validateRegion, type MapData } from '../src/maps/human/index.js';
+import { buildHumanRegion, crossRegionExits, validateRegion, type MapData } from '../src/maps/human/index.js';
 import { keyMagenta, loadSheetCell, parseSheetPath } from '../src/props/sheet.js';
 
 let passed = 0;
@@ -64,6 +64,16 @@ test('lối sai: map đích không có / điểm đến không có / điểm đ�
 	const arrive = forest.spots.find((s) => s.id === 'west_entry')!;
 	Object.assign(arrive, { x: back.x0 + 10, y: (back.y0 + back.y1) / 2 });
 	assert.ok(validateRegion(c).some((e) => e.includes('nằm trong lối')));
+});
+
+test('lối sang vùng khác (`vùng/map`): không bắt map đích trong vùng này; sai dạng thì báo; liệt kê để kiểm chéo', () => {
+	const a = clone();
+	const town = a.find((m) => m.id === 'town')!;
+	town.exits.push({ ...town.exits[0]!, id: 'to_swamp', to: 'swamp/hub', toSpot: 'west_entry' });
+	assert.deepEqual(validateRegion(a), []);
+	assert.deepEqual(crossRegionExits('human', a), [{ from: 'human/town', to: 'swamp/hub', toSpot: 'west_entry' }]);
+	town.exits.at(-1)!.to = 'Swamp/../hub';
+	assert.ok(validateRegion(a).some((e) => e.includes('sai dạng vùng/map')));
 });
 
 test('đường dẫn tấm: sheet:<tấm>#<ô>@<cột>x<hàng>', () => {

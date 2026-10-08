@@ -75,7 +75,7 @@ try {
 		store.addDiamonds(me, 40, 'admin:thử');
 		const far = join_({ x: 300, y: 300 });
 		far.push({ t: 'shopBuy', item: 'exp2_30' });
-		assert.match(far.last('system')!.text, /quầy của Bram/);
+		assert.match(far.last('system')!.text, /quầy của người bán hàng/);
 		assert.equal(far.last('bought'), undefined);
 		assert.equal(store.diamonds(me), 40);
 		store.addDiamonds(me, -40, 'admin:thử');

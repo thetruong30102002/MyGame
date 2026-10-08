@@ -53,6 +53,8 @@ interface SessionState {
 	goals: GoalView[] | null;
 	/** Bình thời hạn đang hiệu lực + lúc nhận (Date.now) — giây còn lại tính lùi từ mốc này (`activeBuffs`). */
 	buffs: { list: BuffView[]; at: number } | null;
+	/** Trạm đã từng tới (`vùng/map`, máy chủ gửi khi mở cột dịch chuyển) — null = chưa xin. */
+	hubs: string[] | null;
 	/** Đang nhắn riêng cho ai (ô nhập chat gửi tin riêng tới người này) — null = chat map. */
 	whisperTo: PersonRef | null;
 	/** Người vừa nhắn riêng cho mình gần nhất — lệnh `/r` trả lời người này. */
@@ -80,7 +82,7 @@ let chatId = 0;
 const CHAT_KEEP = 120;
 
 /** Ví / điểm danh / thành tựu của nhân vật trước không được lọt sang lượt chơi mới. */
-const NO_REWARDS = { diamonds: null, daily: null, goals: null, buffs: null };
+const NO_REWARDS = { diamonds: null, daily: null, goals: null, buffs: null, hubs: null };
 
 function readStored(key: string): string | null {
 	try {
@@ -128,6 +130,7 @@ export const useSession = create<SessionState>((set, get) => {
 		daily: null,
 		goals: null,
 		buffs: null,
+		hubs: null,
 		whisperTo: null,
 		lastWhisper: null,
 		setWhisperTo: (whisperTo) => set({ whisperTo }),

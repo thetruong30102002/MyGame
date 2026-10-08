@@ -380,6 +380,11 @@ export class Store {
 		this.db.prepare('INSERT OR IGNORE INTO visited_maps (character_id, map, at) VALUES (?, ?, ?)').run(characterId, map, Date.now());
 	}
 
+	/** Các map đã đặt chân tới (`vùng/map`). */
+	visitedMaps(characterId: string): string[] {
+		return (this.db.prepare('SELECT map FROM visited_maps WHERE character_id = ? ORDER BY at').all(characterId) as { map: string }[]).map((r) => r.map);
+	}
+
 	visitedCount(characterId: string): number {
 		return (this.db.prepare('SELECT COUNT(*) AS n FROM visited_maps WHERE character_id = ?').get(characterId) as { n: number }).n;
 	}

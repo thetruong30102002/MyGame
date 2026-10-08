@@ -65,6 +65,11 @@ export function buildHumanRegion(meta: Record<string, PropMeta>, decalIds: strin
 	return { maps, index };
 }
 
+/** Các lối sang vùng khác của một vùng (`from` = id đầy đủ map nguồn) — để kiểm chéo khi dựng vùng đích. */
+export function crossRegionExits(region: string, maps: MapData[]): { from: string; to: string; toSpot: string }[] {
+	return maps.flatMap((m) => m.exits.filter((e) => e.to.includes('/')).map((e) => ({ from: `${region}/${m.id}`, to: e.to, toSpot: e.toSpot })));
+}
+
 /** Luật của vùng: trả danh sách lỗi (rỗng = đạt). Tách riêng để test gọi trực tiếp. */
 export function validateRegion(maps: MapData[]): string[] {
 	const out: string[] = [];
@@ -91,6 +96,12 @@ export function validateRegion(maps: MapData[]): string[] {
 			const W = m.width * m.tileSize;
 			const H = m.height * m.tileSize;
 			if (e.x0 < 0 || e.y0 < 0 || e.x1 > W || e.y1 > H) out.push(`${m.id}: lối ${e.id} ra ngoài map`);
+			// Lối sang VÙNG KHÁC (`to` = `vùng/map`, khung nhiều vùng): map đích + điểm đến + lối quay về thuộc vùng kia — kiểm
+			// khi dựng vùng đó (`crossRegionExits`), ở đây chỉ kiểm dạng id.
+			if (e.to.includes('/')) {
+				if (!/^[a-z0-9_]+\/[a-z0-9_]+$/.test(e.to)) out.push(`${m.id}: lối ${e.id} tới "${e.to}" sai dạng vùng/map`);
+				continue;
+			}
 			const t = byId.get(e.to);
 			if (!t) {
 				out.push(`${m.id}: lối ${e.id} dẫn tới map "${e.to}" không có`);
@@ -103,7 +114,7 @@ export function validateRegion(maps: MapData[]): string[] {
 				// Đứng ngay trong dải lối của map đích thì vừa tới đã bị đẩy về — nhảy qua lại mãi.
 				for (const back of t.exits) if (s.x >= back.x0 && s.x < back.x1 && s.y >= back.y0 && s.y < back.y1) out.push(`${e.to}: điểm đến ${e.toSpot} nằm trong lối ${back.id}`);
 			}
-			if (!t.exits.some((b) => b.to === m.id)) out.push(`${e.to}: không có lối quay về ${m.id}`);
+			if (!t.exits.some((b) => b.to === m.id || b.to.endsWith(`/${m.id}`))) out.push(`${e.to}: không có lối quay về ${m.id}`);
 		}
 	}
 	return out;

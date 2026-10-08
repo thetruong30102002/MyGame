@@ -75,6 +75,8 @@ import { buildCodex, npcKey } from './codex';
 import { isSharedZone } from '@aether/sim/mobs';
 import { CHRONICLER } from '@aether/sim/rewards';
 import { buffMults, MERCHANT_NPCS, SHOP } from '@aether/sim/shop';
+import { regionDef, regionGate, splitMapKey, START_REGION, WAYSTONE_COST } from '@aether/sim/regions';
+import { isWaystone } from './story/services';
 import type { MobView } from '@aether/protocol';
 import { GIFT_ITEMS } from './items';
 import { activeBuffs, giftText } from './rewards';
@@ -268,6 +270,8 @@ export class Game {
 	private mobPosT = 0;
 	/** Nhịp quét "đã gặp" cho Thư viện (giây). */
 	private codexT = 0;
+	/** Lần báo "cổng vùng chưa mở" gần nhất (performance.now) — đứng ở lối không bị báo dồn dập. */
+	private gateToastAt = -1e9;
 	/** Đã đặt thế cầm mặc định cho người chơi chưa (một lần — sau đó thế cầm theo động tác). */
 	private stanceSet = false;
 	private lastGearSent = '';
@@ -302,10 +306,11 @@ export class Game {
 		if (this.destroyed) return void this.app.destroy(true);
 		this.keyboard = new Keyboard();
 
-		// Map đã lưu (`human/mossvale`) nếu còn trong chỉ mục vùng; không thì map khởi đầu.
-		this.worldIndex = await loadWorldIndex('human');
-		useGameStore.setState({ mapNames: Object.fromEntries(Object.keys(this.worldIndex.data.maps).map((m) => [`${this.worldIndex.region}/${m}`, this.worldIndex.name(m)])) });
-		const savedMap = online?.progress.map?.split('/')[1];
+		// Map đã lưu (`vùng/map`, vd `human/mossvale`): nạp đúng vùng đó nếu vùng đã mở và còn map; không thì map khởi đầu của vùng đầu.
+		const savedKey = splitMapKey(online?.progress.map || `${START_REGION}/`, START_REGION);
+		this.worldIndex = regionDef(savedKey.region)?.ready ? await loadWorldIndex(savedKey.region).catch(() => loadWorldIndex(START_REGION)) : await loadWorldIndex(START_REGION);
+		this.addMapNames(this.worldIndex);
+		const savedMap = savedKey.region === this.worldIndex.region ? savedKey.map : undefined;
 		this.mapId = savedMap && this.worldIndex.has(savedMap) ? savedMap : this.worldIndex.data.start;
 		const [manifest, world] = await Promise.all([loadManifest(), MapWorld.load(this.worldIndex.region, this.mapId, this.entities), this.vfx.load()]);
 		if (this.destroyed) return void world.destroy();
@@ -739,6 +744,8 @@ export class Game {
 		this.npcs = [];
 		for (const [key, def] of Object.entries(STORY.npcs)) {
 			if (age < def.ages[0] || age > def.ages[1]) continue;
+			// NPC của vùng khác (địa điểm trùng tên ở trạm vùng khác) không đứng ở đây. Thiếu `region` = vùng đầu (cốt truyện).
+			if ((def.region ?? START_REGION) !== this.worldIndex.region) continue;
 			// Chỗ đứng nằm ở map khác (vd Aldric 8 tuổi ở bìa rừng) thì NPC đó không có mặt ở map này.
 			const spot = this.world.spot(def.at.spot);
 			if (!spot) continue;
@@ -929,8 +936,14 @@ export class Game {
 			n.actor?.view.set('idle', directionOf(this.player.x - n.x, this.player.y - n.y));
 			// Bia Danh Vọng: mở bảng thành tựu (máy chủ giữ tiến độ + kim cương). Chơi một mình thì chỉ đọc chữ trên bia.
 			if (n.key === CHRONICLER.npc && this.online) return void useGameStore.getState().setPanel('glory');
-			// Bram: quầy Cửa hàng kim cương (Bram không giao nhiệm vụ nào — có thì nhiệm vụ phải được ưu tiên trước quầy).
-			if (MERCHANT_NPCS.includes(n.key) && this.online) return void useGameStore.getState().setPanel('shop');
+			// Người bán hàng (Bram, người bán các vùng): quầy Cửa hàng kim cương. Bram không giao nhiệm vụ nào — NPC bán hàng nào giao
+			// nhiệm vụ thì nhiệm vụ phải được ưu tiên trước quầy.
+			if (MERCHANT_NPCS.includes(n.key) && this.online) {
+				useGameStore.setState({ panelNpc: this.story.npcName(n.key) });
+				return void useGameStore.getState().setPanel('shop');
+			}
+			// Cột dịch chuyển ở trạm: bảng các trạm đã tới (máy chủ ghi map đã đặt chân tới).
+			if (isWaystone(n.key) && this.online) return void useGameStore.getState().setPanel('waystone');
 			this.story.talk(n.key);
 			return;
 		}
@@ -1044,7 +1057,7 @@ export class Game {
 			p.view.set(running ? 'run' : 'walk', directionOf(intent.x, intent.y), speed / WALK_SPEED_REFERENCE);
 			// Bước vào dải lối sang map và đang đi VỀ PHÍA mép đó (đứng yên hay quay lại trong dải thì không chuyển).
 			const exit = this.world.exitAt(p.x, p.y);
-			if (exit && crossesExit(exit, p.x, p.y, intent.x, intent.y)) void this.changeMap(exit.to, exit.toSpot);
+			if (exit && crossesExit(exit, p.x, p.y, intent.x, intent.y)) this.useExit(exit);
 		} else if (!pc.dash) p.view.set('idle', p.view.direction);
 
 		// Quái / NPC đi lang thang qua tường tạm (Tường Đá, Tường Lửa) trước rồi mới tới tường bản đồ — không đi xuyên.
@@ -1244,6 +1257,7 @@ export class Game {
 				useSession.setState({ buffs: { list, at: Date.now() } });
 				this.applyBuffs();
 			},
+			hubs: (hubs) => useSession.setState({ hubs }),
 			bought: (item) => useGameStore.getState().toast(`Đã mua ${SHOP.find((x) => x.id === item)?.name ?? item}`, 'loot'),
 			kicked: (reason) => {
 				// Màn chọn nhân vật hiện lại lý do: toast trong game biến mất ngay khi game bị gỡ.
@@ -1448,7 +1462,7 @@ export class Game {
 		const tiers = this.story.talentTiers();
 		const target = this.canAct() ? this.nearestInteractable() : null;
 		// Vật thể (bia đá cổ) thì "Xem", người thì "Nói chuyện với".
-		const npcVerb = (key: string) => (MERCHANT_NPCS.includes(key) && this.online ? 'Mua hàng của' : STORY.npcs[key]?.prop ? 'Xem' : 'Nói chuyện với');
+		const npcVerb = (key: string) => (MERCHANT_NPCS.includes(key) && this.online ? 'Mua hàng của' : isWaystone(key) && this.online ? 'Dùng' : STORY.npcs[key]?.prop ? 'Xem' : 'Nói chuyện với');
 		const hint = !target ? null : target.kind === 'npc' ? `${npcVerb(target.npc.key)} ${this.story.npcName(target.npc.key)}` : `Nhặt ${target.pickup.loot ? itemDef(target.pickup.item).name : (ITEM_NAME[target.pickup.item] ?? target.pickup.item)}`;
 		useGameStore.setState({
 			fps: Math.round(ticker.FPS),
@@ -1839,6 +1853,7 @@ export class Game {
 		if (!this.combat || !this.story) return;
 		const st = useGameStore.getState();
 		const pc = this.combat.pc;
+		if (r.kind === 'teleport') return r.map ? this.teleport(r.map) : undefined;
 		if (r.kind === 'use_potion') {
 			if (!controlsForAge(this.shownAge).potion) return void st.toast('Chưa tới lúc dùng bình mật ong', 'warn');
 			return this.combat.usePotion();
@@ -1941,17 +1956,32 @@ export class Game {
 	 * nạp map mới, đứng ở `spotId` → dựng lại NPC, bầy quái, phần thế giới của nhiệm vụ đang làm → báo máy chủ → sáng
 	 * lại. Đang tự đi thì đi tiếp trên map mới (mục tiêu cách nhiều map vẫn tới được).
 	 */
-	private async changeMap(mapId: string, spotId: string | null): Promise<void> {
-		if (this.changing || this.destroyed || !this.worldIndex.has(mapId)) return;
+	private async changeMap(target: string, spotId: string | null, opts: { force?: boolean } = {}): Promise<void> {
+		if (this.changing || this.destroyed) return;
+		// `target`: map cùng vùng (`mossvale`) hoặc id đầy đủ (`swamp/hub`) — lối / cột dịch chuyển sang vùng khác.
+		const { region, map: mapId } = splitMapKey(target, this.worldIndex.region);
+		const crossing = region !== this.worldIndex.region;
+		if (crossing && !opts.force) {
+			const why = this.gateReason(region);
+			if (why) return void useGameStore.getState().toast(why, 'warn');
+		}
+		if (!crossing && !this.worldIndex.has(mapId)) return;
 		const resumeWalk = !!this.autoWalk;
 		this.cancelAutoWalk('map');
 		this.combat.interrupt();
 		this.changing = true;
 		this.fade.target = 1;
 		try {
+			// Sang vùng khác: nạp chỉ mục của vùng đó trước (map đích phải có trong chỉ mục).
+			const index = crossing ? await loadWorldIndex(region) : this.worldIndex;
+			if (!index.has(mapId)) throw new Error(`Vùng ${region} không có map ${mapId}`);
 			// Chờ tối hẳn (~0,2s) song song với lúc tải map — không thấy cảnh nhảy.
-			const [world] = await Promise.all([MapWorld.load(this.worldIndex.region, mapId, this.entities), new Promise((r) => setTimeout(r, 220))]);
+			const [world] = await Promise.all([MapWorld.load(index.region, mapId, this.entities), new Promise((r) => setTimeout(r, 220))]);
 			if (this.destroyed) return void world.destroy();
+			if (crossing) {
+				this.worldIndex = index;
+				this.addMapNames(index);
+			}
 			this.clearMapEntities();
 			this.world.destroy();
 			this.world = world;
@@ -1978,6 +2008,7 @@ export class Game {
 			for (const z of world.data.monsterZones) if (!z.onDemand && this.story.state.age >= (z.fromAge ?? 0)) void this.spawnZone(z.id).catch((e) => console.error('[map] quái', e));
 			this.story.reapplyWorld();
 			this.persist();
+			if (crossing) this.announceRegion(region);
 		} catch (e) {
 			console.error('[map]', e);
 			useGameStore.getState().toast('Không tải được vùng mới — thử lại', 'warn');
@@ -1986,6 +2017,55 @@ export class Game {
 			this.fade.target = 0;
 		}
 		if (resumeWalk && !this.destroyed) this.startAutoWalk();
+	}
+
+	/** Bước vào dải lối: sang vùng khác mà cổng chưa mở thì đẩy lùi ra khỏi dải + báo (mỗi 3 giây một lần), không thì sang map. */
+	private useExit(exit: MapExit): void {
+		const { region } = splitMapKey(exit.to, this.worldIndex.region);
+		const why = region !== this.worldIndex.region ? this.gateReason(region) : null;
+		if (!why) return void this.changeMap(exit.to, exit.toSpot);
+		const d = EDGE_DIR[exit.edge];
+		Object.assign(this.player, { x: this.player.x - d.x * 24, y: this.player.y - d.y * 24 });
+		const now = performance.now();
+		if (now - this.gateToastAt < 3000) return;
+		this.gateToastAt = now;
+		useGameStore.getState().toast(why, 'warn');
+	}
+
+	/** Cổng vùng (`@aether/sim/regions`): cấp + boss chúa vùng trước đã hạ (Thư viện đếm cả boss cốt truyện). null = qua được. */
+	private gateReason(region: string): string | null {
+		return regionGate(region, { level: this.combat.pc.level, bossKills: this.story.codex.kills });
+	}
+
+	/** Màn chuyển vùng: tên vùng + cấp khuyên dùng + một câu giới thiệu (tranh vùng PixelLab vẽ sau). */
+	private announceRegion(region: string): void {
+		const r = regionDef(region);
+		if (!r) return;
+		useGameStore.getState().pushBeat({ kind: 'card', title: r.name, lines: [`Vùng ${r.order} · cấp khuyên dùng ${r.levels[0]}–${r.levels[1]}`, r.intro] });
+	}
+
+	/** Tên hiển thị của các map trong vùng `index` (bảng Bạn bè ghi bạn đang ở đâu) — gộp thêm, không xoá vùng khác. */
+	private addMapNames(index: WorldIndex): void {
+		const names = Object.fromEntries(Object.keys(index.data.maps).map((m) => [`${index.region}/${m}`, index.name(m)]));
+		useGameStore.setState({ mapNames: { ...useGameStore.getState().mapNames, ...names } });
+	}
+
+	/** Cột dịch chuyển: tới trạm `key` (`vùng/map`, đã từng tới — máy chủ ghi), trả xu, đứng cạnh cột ở trạm đó. */
+	private teleport(key: string): void {
+		const st = useGameStore.getState();
+		const pc = this.combat.pc;
+		const { region, map } = splitMapKey(key, this.worldIndex.region);
+		const r = regionDef(region);
+		if (!r || r.hub !== map) return;
+		if (region === this.worldIndex.region && map === this.mapId) return void st.toast('Bạn đang ở trạm này rồi', 'info');
+		if (!useSession.getState().hubs?.includes(key)) return void st.toast(`Chưa tới ${r.name} — phải đặt chân tới trạm một lần mới dịch chuyển được`, 'warn');
+		if (pc.coins < WAYSTONE_COST) return void st.toast(`Cần ${WAYSTONE_COST} xu để dịch chuyển (đang có ${pc.coins})`, 'warn');
+		const why = region !== this.worldIndex.region ? this.gateReason(region) : null;
+		if (why) return void st.toast(why, 'warn');
+		pc.coins -= WAYSTONE_COST;
+		st.setPanel(null);
+		st.toast(`−${WAYSTONE_COST} xu · dịch chuyển tới ${r.name}`, 'info');
+		void this.changeMap(key, r.waystone.spot);
 	}
 
 	private regionBossKey(zoneId: string): string {
@@ -2177,7 +2257,10 @@ export class Game {
 			},
 			player: () => ({ x: Math.round(this.player.x), y: Math.round(this.player.y), sprite: this.player.id, map: this.mapId }),
 			/** Sang map khác như đi qua lối (`goMap('mossvale', 'west_entry')`); trả Promise xong khi map mới đã dựng. */
-			goMap: (id: string, spot: string | null = null) => this.changeMap(id, spot),
+			goMap: (id: string, spot: string | null = null) => this.changeMap(id, spot, { force: true }),
+			/** Cổng vùng (`regionGate`) với người chơi hiện tại — null = vào được. */
+			gate: (region: string) => this.gateReason(region),
+			region: () => this.worldIndex.region,
 			exits: () => this.world.exits.map((e) => ({ id: e.id, to: e.to, x0: e.x0, y0: e.y0, x1: e.x1, y1: e.y1 })),
 			blocked: (x: number, y: number) => this.world.blocked(x, y, 11, 5),
 			combat: () => ({ level: this.combat.pc.level, hp: this.combat.pc.hp, mp: this.combat.pc.mp, enemies: this.combat.enemies.map((e) => ({ id: e.id, hp: Math.round(e.hp), dead: e.dead, x: Math.round(e.actor.x), y: Math.round(e.actor.y), net: e.net ? (e.net.owned ? 'own' : 'puppet') : null, freeze: round2(e.freeze) })) }),

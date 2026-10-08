@@ -1,3 +1,4 @@
+import { REGIONS } from '@aether/sim/regions';
 import { CHRONICLER } from '@aether/sim/rewards';
 import type { NpcDef } from './storyTypes';
 
@@ -5,7 +6,32 @@ import type { NpcDef } from './storyTypes';
  * NPC DỊCH VỤ (không thuộc cốt truyện): đứng cố định, bấm E mở bảng riêng thay cho thoại (docs/pixellab-ke-hoach-ve.md mục
  * NPC dịch vụ). Dùng chung cơ chế NPC của cốt truyện để có hình, nhãn tên, chấm trên bản đồ, trang Thư viện.
  */
+/** Khoá NPC cột dịch chuyển của vùng `region`. */
+export const waystoneKey = (region: string): string => `waystone_${region}`;
+export const isWaystone = (key: string): boolean => key.startsWith('waystone_');
+
+/**
+ * Cột dịch chuyển ở trạm của MỌI vùng đã mở (khung nhiều vùng — docs/ke-hoach-the-gioi.md mục 3): bấm E mở bảng các trạm đã tới.
+ * Chỗ đứng lấy từ `REGIONS[].waystone` dùng chung. Hình TẠM là đồ vật `stone_lantern` (đèn đá) — có cột PixelLab vẽ thì đổi `prop`.
+ */
+const WAYSTONES: Record<string, NpcDef> = Object.fromEntries(
+	REGIONS.filter((r) => r.ready).map((r) => [
+		waystoneKey(r.id),
+		{
+			name: 'Cột dịch chuyển',
+			title: r.name,
+			sprite: null,
+			prop: 'stone_lantern',
+			at: { spot: r.waystone.spot, dx: r.waystone.dx, dy: r.waystone.dy },
+			ages: [0, 99],
+			region: r.id,
+			idle: ['«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»'],
+		} satisfies NpcDef,
+	]),
+);
+
 export const SERVICE_NPCS: Record<string, NpcDef> = {
+	...WAYSTONES,
 	/**
 	 * Bia Danh Vọng (K1 — docs/ke-hoach-kim-cuong.md): nhận quà thành tựu. Chỗ đứng lấy từ `CHRONICLER` dùng chung với máy chủ —
 	 * máy chủ chỉ trao quà khi người chơi đứng gần đúng chỗ này. Hình TẠM là đồ vật `rune_stone` có sẵn (như bia đá cổ ở Nghĩa

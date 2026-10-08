@@ -1,5 +1,5 @@
 import type { ServerMessage } from '@aether/protocol';
-import { BUFF_MAX_MS, buffPower, MERCHANT, SHOP } from '@aether/sim/shop';
+import { BUFF_MAX_MS, buffPower, MERCHANTS, SHOP } from '@aether/sim/shop';
 import type { Store } from './db.ts';
 import { nearNpc } from './maps.ts';
 
@@ -13,7 +13,7 @@ export interface ShopHost {
 export const BUFF_TICK_MS = 5000;
 
 /**
- * Cửa hàng kim cương + bình thời hạn (K1 — docs/ke-hoach-kim-cuong.md), bán ở quầy Bram (`MERCHANT` — đứng xa thì không bán).
+ * Cửa hàng kim cương + bình thời hạn (K1 — docs/ke-hoach-kim-cuong.md), bán ở quầy của người bán hàng các vùng (`MERCHANTS` — đứng xa thì không bán).
  * Giá theo danh mục CỦA MÁY CHỦ (`@aether/sim/shop`); kim cương trừ và bình ghi trong một transaction. Thời gian bình chỉ trôi lúc người chơi online: vào game bắt đầu đếm, mỗi
  * `BUFF_TICK_MS` trừ phần đã chơi, rời game trừ nốt.
  */
@@ -52,7 +52,8 @@ export class Shop {
 	buy(player: string, raw: unknown): void {
 		const item = SHOP.find((x) => x.id === String(raw ?? ''));
 		if (!item) return;
-		if (!nearNpc(this.mapsDir, this.host.where(player), MERCHANT)) return this.send(player, { t: 'system', text: 'Hãy tới quầy của Bram ở quảng trường Thistlewood để mua hàng' });
+		const at = this.host.where(player);
+		if (!MERCHANTS.some((m) => nearNpc(this.mapsDir, at, m))) return this.send(player, { t: 'system', text: 'Hãy tới quầy của người bán hàng (như Bram ở quảng trường Thistlewood) để mua hàng' });
 		// Trừ giờ đã chơi TRƯỚC khi so bình đang có / cộng thời gian — không thì phần chơi từ nhịp trước được tính lại.
 		this.spend(player);
 		const r = this.store.buyBuff(player, { id: item.id, price: item.price, kind: item.buff.kind, mult: item.buff.mult, ms: item.buff.minutes * 60_000 }, buffPower, BUFF_MAX_MS);

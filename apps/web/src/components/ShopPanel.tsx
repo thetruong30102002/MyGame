@@ -4,6 +4,7 @@ import { useState } from 'react';
 import type { BuffKind } from '@aether/protocol';
 import { BUFF_GROUP, buffLabel, buffPower, fmtRemaining, SHOP, type ShopItem } from '@aether/sim/shop';
 import { activeBuffs } from '@/game/rewards';
+import { useGameStore } from '@/store/useGameStore';
 import { useSession } from '@/store/useSession';
 import { SectionTitle } from './CharacterPanelParts';
 import { DiamondCount, ServiceWindow } from './ServiceWindow';
@@ -19,6 +20,7 @@ export function ShopPanel() {
 	const connected = useSession((s) => s.connected);
 	const diamonds = useSession((s) => s.diamonds);
 	const buffs = useSession((s) => s.buffs);
+	const seller = useGameStore((s) => s.panelNpc);
 	const [confirm, setConfirm] = useState<string | null>(null);
 	const now = useNow(1000, !!buffs?.list.length);
 	if (!online || diamonds === null) return null;
@@ -28,7 +30,7 @@ export function ShopPanel() {
 	return (
 		<ServiceWindow
 			id="shop"
-			title="Quầy của Bram"
+			title={`Quầy của ${seller ?? "thương nhân"}`}
 			subtitle="«Hàng xịn từ phương xa, chỉ nhận kim cương!» — kim cương nhận từ điểm danh mỗi ngày và Bia Danh Vọng. Thời gian bình chỉ trôi khi đang chơi."
 			aside={<DiamondCount n={diamonds} />}
 			onOpen={() => setConfirm(null)}

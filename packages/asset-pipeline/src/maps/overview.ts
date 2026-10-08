@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto';
 import { readFileSync, writeFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { basename, join } from 'node:path';
 import { blit, createImage, crop, readPng, writePng, type RGBAImage } from '../image/rgba.js';
 
 export type Biome = 'meadow' | 'deadland' | 'rocky';
@@ -103,7 +103,7 @@ export function writeMinimap(regionDir: string, mapId: string, map?: OverviewMap
 	const mapRaw = readFileSync(join(regionDir, `${mapId}.json`));
 	const atlasRaw = readFileSync(join(regionDir, 'props.png'));
 	const data = map ?? (JSON.parse(mapRaw.toString('utf8')) as OverviewMap);
-	const sp = sprites ?? spritesFromAtlas(readPng(join(regionDir, 'props.png')), JSON.parse(readFileSync(join(regionDir, 'props.json'), 'utf8')) as Parameters<typeof spritesFromAtlas>[1]);
+	const sp = sprites ?? spritesFromAtlas(readPng(join(regionDir, 'props.png')), JSON.parse(readFileSync(join(regionDir, 'props.json'), 'utf8')) as Parameters<typeof spritesFromAtlas>[1], basename(regionDir));
 	const img = renderOverview(data, sp, MINIMAP_DOWNSCALE);
 	const version = createHash('sha1').update(mapRaw).update(atlasRaw).digest('hex').slice(0, 8);
 	const png = join(regionDir, `${mapId}.minimap.png`);

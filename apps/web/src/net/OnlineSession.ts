@@ -34,6 +34,8 @@ export interface OnlineHandlers {
 	/** Bình thời hạn đang hiệu lực / vừa mua xong một món ở Cửa hàng kim cương. */
 	buffs(list: BuffView[]): void;
 	bought(item: string): void;
+	/** Trạm đã từng tới (`vùng/map`) — bảng cột dịch chuyển. */
+	hubs(list: string[]): void;
 	kicked(reason: string): void;
 	status(online: boolean): void;
 }
@@ -106,6 +108,7 @@ export class OnlineSession {
 			else if (m.t === 'gift') h.gift?.(m);
 			else if (m.t === 'buffs') h.buffs?.(m.list);
 			else if (m.t === 'bought') h.bought?.(m.item);
+			else if (m.t === 'hubs') h.hubs?.(m.list);
 			else if (m.t === 'kicked') {
 				this.closed = true;
 				h.kicked?.(m.reason);
@@ -165,6 +168,11 @@ export class OnlineSession {
 
 	claimGoal(id: string): void {
 		this.send({ t: 'goalClaim', id });
+	}
+
+	/** Xin danh sách trạm đã tới (cột dịch chuyển). */
+	hubs(): void {
+		this.send({ t: 'hubs' });
 	}
 
 	/** Mua món `item` ở Cửa hàng kim cương (máy chủ tính giá). */

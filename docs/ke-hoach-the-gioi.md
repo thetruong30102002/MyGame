@@ -21,6 +21,31 @@ vùng **khoảng 3 boss** và **khoảng 7 map con** → **~70 map**. Luật th�
 Bố cục trong vùng: trạm ở đầu, map săn xếp thành cây 2 nhánh (giống vùng 1: Thistlewood → Mossvale → Đá Phong Ấn, và
 Thistlewood → Nghĩa địa → Đồi Xương / Vách Gargoyle), thánh địa ở cuối nhánh khó nhất.
 
+## 1.1 Nơi ở của mỗi vùng: làng hoặc toà thành (chủ dự án 08/10/2026)
+
+Chủ dự án: "mỗi vùng sẽ có một ngôi làng hoặc lâu đài, toà thành (chính trị) để còn liên quan đến các nhiệm vụ" + "mua đồ ở các
+NPC ở các vùng nữa". Nơi ở chính là map **Trạm** của vùng (bảng mục 1):
+
+- **Làng** (`village`): dân thường nhờ việc, nhiệm vụ nhỏ của vùng. **Toà thành** (`castle`): lãnh chúa / triều đình / hội đồng —
+  có chính trị, phe phái, là nguồn nhiệm vụ chính (cốt truyện vùng) và nơi mở thưởng lớn.
+- NPC dịch vụ của nơi ở: **người bán hàng** (luôn có), thợ rèn / thợ may / thợ cắt tóc (vùng lớn), **cột dịch chuyển** (luôn có).
+  Máy chủ cho mua ở bất kỳ người bán nào trong `MERCHANTS` (`packages/sim/src/shop.ts`) khi đứng cạnh — vùng mới có nơi ở thì
+  thêm người bán của nơi đó.
+- Danh sách nơi ở (TÊN ĐỀ XUẤT, chủ dự án chốt lại) nằm ở `packages/sim/src/regions.ts` (`settlement`):
+
+| # | Vùng | Nơi ở | Loại | Vai trò |
+|---|---|---|---|---|
+| 1 | Thung lũng Thistlewood | Thị trấn Thistlewood | làng | quê nhà của Lior — nhiệm vụ tuổi thơ / tuổi 16 |
+| 2 | Đầm lầy Mù Sương | Làng nhà sàn Lau Xám | làng | dân đầm lầy nhờ dẹp quái, tìm thuốc giải độc |
+| 3 | Sa mạc Hồng Cát | Thành ốc đảo Sahrin | toà thành | vương quốc sa mạc, các tộc tranh nguồn nước |
+| 4 | Cao nguyên Gió Hú | Làng Cối Xay Gió | làng | giữ đền thờ trên mây |
+| 5 | Lãnh nguyên Băng Giá | Làng gỗ Tuyết Phong | làng | thợ săn, thợ mỏ băng |
+| 6 | Núi lửa Hoả Sơn | Pháo đài người lùn Đe Đỏ | toà thành | hội đồng người lùn, rèn binh khí |
+| 7 | Quần đảo San Hô | Cảng chài San Hô | làng | làng chài, thương thuyền, tin đồn tàu ma |
+| 8 | Rừng Nấm Ngầm | Làng người nấm Ánh Tím | làng | tộc người nấm dưới lòng đất |
+| 9 | Phế tích Aether | Toà thành Aether cổ | toà thành | tàn dư triều đình pháp sư, phe phái tranh di sản |
+| 10 | Vực Hư Không | Thành trì Hư Không | toà thành | tiền đồn cuối, liên quân các vùng |
+
 ## 2. Mười vùng đất (đề xuất — chủ dự án duyệt tên, thứ tự, chủ đề)
 
 Trần cấp **100** (chốt 08/10/2026) → mỗi vùng ≈ 10 cấp: vùng 1 cấp 1–10, vùng 2 cấp 10–20 … vùng 10 cấp 90–100. Mỗi vùng thiên về
@@ -184,6 +209,28 @@ ghi rõ chỗ nào đang tạm.
 6. **Bảng cấp vùng**: cấp quái, exp, xu, bảng rơi đồ theo vùng (nối với kế hoạch đồ đạc/kinh tế).
 7. **Công cụ dựng map vùng mới** trong pipeline: khung 7 map + bộ đồ vật của vùng → map JSON + minimap (pipeline `map` đang
    dựng vùng `human`, cần tham số hoá theo vùng).
+
+## 5.1 Khung nhiều vùng — ĐÃ LÀM phần lớn T0b (08/10/2026)
+
+- **Danh sách 10 vùng dùng chung** `packages/sim/src/regions.ts`: tên, thứ tự, cấp, trạm, chỗ đứng cột dịch chuyển, boss chúa, nơi ở,
+  `ready` (đã có map). Hiện chỉ vùng 1 `ready`.
+- **Id map `vùng/map`** ở mọi chỗ (bản lưu, máy chủ, quái dùng chung, thành tựu thám hiểm — đã như vậy từ trước). Lối ra có thể trỏ
+  sang vùng khác (`exits.to = 'swamp/hub'`); vào game nạp đúng vùng của bản lưu (vùng chưa mở / hỏng → vùng đầu).
+- **Cổng vùng** (`regionGate`): vùng chưa có map → "đang xây dựng"; đủ map thì cần cấp ≥ cấp đầu của vùng + đã hạ boss chúa vùng
+  trước (đếm từ Thư viện ở client — cả boss cốt truyện). Bước vào lối khi cổng đóng: bị đẩy lùi + báo. Qua cổng: **màn chuyển vùng**
+  (tên vùng, cấp khuyên dùng, một câu giới thiệu — tranh vùng PixelLab vẽ sau). Trước M3.3 cổng chỉ kiểm ở client.
+- **Cột dịch chuyển** ở trạm của mọi vùng đã mở (NPC dịch vụ, hình TẠM `stone_lantern`; Thistlewood: góc tây nam quảng trường): bảng
+  10 vùng theo thứ tự, trạm đã từng đặt chân tới (máy chủ trả `hubs` từ bảng `visited_maps`) thì dịch chuyển được, 20 xu / lần.
+- **NPC theo vùng**: `NpcDef.region` (thiếu = vùng đầu) — địa điểm trùng tên ở trạm vùng khác không kéo NPC cốt truyện vùng 1 sang.
+- **Kháng / yếu hệ** của quái: `ENEMY_STATS.resist` (hệ số theo hệ, kẹp 0,25–3) nhân vào đòn trúng + nhịp cháy. Quái vùng 1 CHƯA đặt
+  (giữ cân bằng hiện tại) — quái vùng mới khai theo hệ của vùng (mục 2).
+- **Pipeline**: `npm run assets:map -- <vùng>` (mặc định `human`); vùng mới khai ở `packages/asset-pipeline/src/maps/regions.ts`. Lối
+  sang vùng khác không bắt map đích trong vùng này (kiểm chéo khi dựng vùng kia — `crossRegionExits`). Dựng lại vùng 1: không đổi byte nào.
+- Thử thật (máy chủ thử + vùng THỬ tạm chép từ Đá Phong Ấn, xoá sau khi thử): cổng báo "đang xây dựng", sang vùng thử có màn chuyển
+  vùng + minimap / tên khu / lối đúng vùng, quay lại vùng 1, cột dịch chuyển mở bảng. Test: `apps/server/tests/regions.test.ts`,
+  `packages/asset-pipeline/tests/maps.test.ts`.
+- **Chưa làm**: bản đồ tổng (chờ tranh lục địa PixelLab), bảng cấp / rơi đồ theo vùng (mục 5.6 — làm cùng vùng 2), dẫn đường nhiệm
+  vụ XUYÊN vùng (tìm đường hiện trong một vùng; nhiệm vụ mới chỉ có ở vùng 1).
 
 ## 6. Thứ tự triển khai
 

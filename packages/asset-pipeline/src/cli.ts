@@ -18,10 +18,11 @@ import { PixelLabMcp, type McpToolResult } from './pixellab/mcp.js';
 import { unzip } from './pixellab/zip.js';
 import { DIRECTIONS, type AnimationName, type CharacterAssetProvider, type CharacterIdentity, type Direction } from './providers/types.js';
 import { runQualityGate, type QualityGateOptions, type VisualReview } from './quality/QualityGate.js';
-import { buildHumanRegion, type WorldIndex } from './maps/human/index.js';
+import type { WorldIndex } from './maps/human/index.js';
+import { regionBuild } from './maps/regions.js';
 import { renderOverview, writeMinimap } from './maps/overview.js';
 import { addOutline, downscaleMode, extractDecals, loadFreePixelImage, packShelf, propIssues, propMeta, trim, type PropMeta } from './props/buildProps.js';
-import { HUMAN_KINGDOM_DECAL_SHEETS, HUMAN_KINGDOM_PROPS, PIXELLAB_PREFIX } from './props/humanKingdom.js';
+import { PIXELLAB_PREFIX } from './props/humanKingdom.js';
 import { keyMagenta, loadSheetCell, parseSheetPath, sheetPreview } from './props/sheet.js';
 import { filledSlice, measureHollow, UI_ASSETS, type NineSlice } from './props/uiAssets.js';
 import { buildVfxFrames, VFX } from './vfx/buildVfx.js';
@@ -990,15 +991,17 @@ async function pixler(args: string[]): Promise<void> {
 	console.log(`  quota còn: ${q.remaining}/${q.total} lượt sinh, ${q.animationsRemaining}/${q.animationsTotal} lượt animate (reset ${q.resetAt})`);
 }
 
-/** Gói asset vùng Human Kingdom: atlas đồ vật + decal + map JSON + ảnh xem trước. */
-async function buildMap(): Promise<void> {
+/** Gói asset một vùng (`map [vùng]`, mặc định `human`): atlas đồ vật + decal + map JSON + ảnh xem trước + `world.json`. */
+async function buildMap(region = 'human'): Promise<void> {
+	const build = regionBuild(region);
 	const cache = join(CACHE, 'freepixel', 'props');
-	const outDir = join(WEB_ASSETS, 'maps', 'human');
+	const outDir = join(WEB_ASSETS, 'maps', region);
+	mkdirSync(outDir, { recursive: true });
 	const sheetsDir = join(PIXELLAB_SOURCES, 'sheets');
 	const items: { id: string; img: RGBAImage }[] = [];
 	const meta: Record<string, PropMeta> = {};
 	const cutBySheet = new Map<string, RGBAImage[]>();
-	for (const def of HUMAN_KINGDOM_PROPS) {
+	for (const def of build.props) {
 		const plName = def.path.startsWith(PIXELLAB_PREFIX) ? def.path.slice(PIXELLAB_PREFIX.length) : null;
 		const cell = parseSheetPath(def.path);
 		let raw: RGBAImage;
@@ -1040,7 +1043,7 @@ async function buildMap(): Promise<void> {
 	for (const [sheet, cells] of cutBySheet) writePng(join(REPORTS, 'sheets', `${sheet}.png`), scaleNearest(sheetPreview(cells, 3), 2));
 
 	const decalIds: string[] = [];
-	for (const { tag, sheet } of HUMAN_KINGDOM_DECAL_SHEETS) {
+	for (const { tag, sheet } of build.decals) {
 		const file = join(sheetsDir, `${sheet}.png`);
 		if (!existsSync(file)) {
 			console.log(`  … decal ${tag}: chưa có tấm ${sheet} — map dùng tấm này không có decal`);
@@ -1058,7 +1061,7 @@ async function buildMap(): Promise<void> {
 	writePng(join(outDir, 'props.png'), image);
 	const anchors = Object.fromEntries(
 		Object.entries(frames).map(([id, f]) => [
-			`human/${id}`,
+			`${region}/${id}`,
 			{ frame: f, rotated: false, trimmed: false, spriteSourceSize: { x: 0, y: 0, w: f.w, h: f.h }, sourceSize: { w: f.w, h: f.h }, anchor: { x: 0.5, y: 1 } },
 		]),
 	);
@@ -1066,7 +1069,7 @@ async function buildMap(): Promise<void> {
 	writeFileSync(join(outDir, 'props.meta.json'), JSON.stringify(meta, null, '	'));
 	console.log(`  atlas đồ vật: ${Object.keys(meta).length} đồ vật + ${decalIds.length} decal → ${image.width}×${image.height}`);
 
-	const { maps, index } = buildHumanRegion(meta, decalIds);
+	const { maps, index } = build.build(meta, decalIds);
 	const byId = Object.fromEntries(items.map((it) => [it.id, it.img]));
 	for (const map of maps) {
 		writeFileSync(join(outDir, `${map.id}.json`), JSON.stringify(map));
@@ -1140,8 +1143,8 @@ function isGrayish(img: RGBAImage): boolean {
 }
 
 /** Chỉ dựng lại ảnh minimap từ map + atlas ĐÃ xuất — không đụng <map>.json/props.* (khác lệnh `map`). */
-function buildMapOverview(): void {
-	const dir = join(WEB_ASSETS, 'maps', 'human');
+function buildMapOverview(region = 'human'): void {
+	const dir = join(WEB_ASSETS, 'maps', region);
 	const index = JSON.parse(readFileSync(join(dir, 'world.json'), 'utf8')) as WorldIndex;
 	for (const id of Object.keys(index.maps)) {
 		const mini = writeMinimap(dir, id);
@@ -1426,8 +1429,8 @@ ${await mcp.call('get_balance').catch((e: Error) => e.message)}
 		console.log(`✔ ${id}: ${files.length} file ← PixelLab ${uuid}`);
 		return;
 	}
-	if (cmd === 'map') return buildMap();
-	if (cmd === 'map-overview') return buildMapOverview();
+	if (cmd === 'map') return buildMap(args[0]);
+	if (cmd === 'map-overview') return buildMapOverview(args[0]);
 	if (cmd === 'vfx') return buildVfx();
 	if (cmd === 'ui') return buildUi();
 	if (cmd === 'anchors') return annotatePublished(args);

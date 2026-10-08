@@ -226,9 +226,10 @@ export interface PlayerSpriteView {
 
 /**
  * Bảng đang mở (dừng điều khiển nhân vật như lúc đọc thoại). Chỉ một bảng một lúc, và không cùng lúc với bản đồ lớn.
- * Ngoài Hành trang (`ServiceWindow`): `glory` (bấm E ở Bia Danh Vọng), `shop` (bấm E ở Bram), `calendar` (icon lịch trên HUD).
+ * Ngoài Hành trang (`ServiceWindow`): `glory` (bấm E ở Bia Danh Vọng), `shop` (bấm E ở Bram), `calendar` (icon lịch trên HUD),
+ * `waystone` (bấm E ở cột dịch chuyển).
  */
-export type PanelId = 'character' | 'talents' | 'inventory' | 'codex' | 'friends' | 'settings' | 'glory' | 'shop' | 'calendar';
+export type PanelId = 'character' | 'talents' | 'inventory' | 'codex' | 'friends' | 'settings' | 'glory' | 'shop' | 'calendar' | 'waystone';
 
 /**
  * Yêu cầu từ giao diện xuống game: mỗi lần tăng `seq`, Game nghe và thực hiện.
@@ -238,7 +239,7 @@ export type PanelId = 'character' | 'talents' | 'inventory' | 'codex' | 'friends
  */
 export interface GameRequest {
 	seq: number;
-	kind: 'talent_add' | 'talent_reset' | 'use_potion' | 'set_slot' | 'set_enchant' | 'equip' | 'unequip';
+	kind: 'talent_add' | 'talent_reset' | 'use_potion' | 'set_slot' | 'set_enchant' | 'equip' | 'unequip' | 'teleport';
 	branch?: BranchId;
 	style?: SwordStyleId;
 	/**
@@ -255,6 +256,8 @@ export interface GameRequest {
 	equipSlot?: EquipSlotId;
 	/** Dành cho mua / bán / vứt về sau. */
 	itemId?: string;
+	/** `teleport`: trạm đích (`vùng/map`). */
+	map?: string;
 }
 
 export interface DialogueLine {
@@ -365,6 +368,8 @@ interface GameState {
 	/** Bảng nhân vật / tiềm năng / kho đồ đang mở (null = không). Mở bảng thì đóng bản đồ và ngược lại. */
 	panel: PanelId | null;
 	setPanel: (panel: PanelId | null) => void;
+	/** Tên NPC đã mở bảng dịch vụ (quầy hàng của ai) — `ServiceWindow` ghi tiêu đề theo. */
+	panelNpc: string | null;
 	talents: TalentsView;
 	/** Túi đồ (kể cả chồng ảo bình mật ong); đồ đang mặc nằm ở `equipment`. */
 	inventory: InventoryItem[];
@@ -426,6 +431,7 @@ export const useGameStore = create<GameState>((set, get) => ({
 	mapOpen: false,
 	setMapOpen: (mapOpen) => set(mapOpen ? { mapOpen, panel: null } : { mapOpen }),
 	panel: null,
+	panelNpc: null,
 	setPanel: (panel) => set(panel ? { panel, mapOpen: false } : { panel }),
 	talents: {
 		points: 0,

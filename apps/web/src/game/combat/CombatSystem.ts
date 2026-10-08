@@ -56,7 +56,7 @@ import {
 	type ReactionId,
 	type WallSeg,
 } from './skillRules';
-import { cleanLevel, ENEMY_STATS, expForLevel, HERO_SKILLS, isGroundTarget, isSwordSkill, PATHS, type Element, type EnemyStats, type HeroPath, type SkillDef, type SkillHitFx } from './skills';
+import { cleanLevel, elementMult, ENEMY_STATS, expForLevel, HERO_SKILLS, isGroundTarget, isSwordSkill, PATHS, type Element, type EnemyStats, type HeroPath, type SkillDef, type SkillHitFx } from './skills';
 import {
 	canEnchant,
 	depthBonus,
@@ -2408,7 +2408,7 @@ export class CombatSystem {
 					// (Thuỷ Triều Dâng) / đang choáng (Trọng Lực) nhận thêm như mọi nguồn. Nhịp đốt giết quái = chết lúc đang cháy (Tro Tàn).
 					// Đốt là sát thương phép: tính theo `magicAtk()` (ATK + Phép thuật của trang bị) như Tro Tàn / vụn băng.
 					const lava = f.burnPower > 1;
-					this.damage(f, Math.max(1, Math.round(this.magicAtk() * 0.18 * f.burnPower * this.fx.burnDamage * this.vulnerability(f))), lava ? 0xff6a2a : 0xffa23d, false, true);
+					this.damage(f, Math.max(1, Math.round(this.magicAtk() * 0.18 * f.burnPower * this.fx.burnDamage * this.vulnerability(f) * elementMult(f.stats, 'fire'))), lava ? 0xff6a2a : 0xffa23d, false, true);
 					this.vfx.play('flame', a.x + (Math.random() - 0.5) * 18, a.y - a.chest + 6 - Math.random() * 24, { blend: 'add', fps: 14, tint: lava ? 0xff7a3a : undefined });
 					if (f.dead) continue;
 				}
@@ -3138,7 +3138,8 @@ export class CombatSystem {
 		const snap = { burning: f.burn > 0, frozen: f.freeze > 0 || f.iced };
 		const hpBefore = Math.max(0, f.hp);
 		const r = this.react(f, element, a.x, a.y);
-		let dmg = base * (0.9 + Math.random() * 0.2) * r.mult * burning * vuln;
+		// Kháng / yếu hệ của loại quái (`ENEMY_STATS.resist`) — nhân theo hệ của chính đòn.
+		let dmg = base * (0.9 + Math.random() * 0.2) * r.mult * burning * vuln * elementMult(f.stats, element);
 		const reaction = r.reaction;
 		const crit = Math.random() < CRIT_CHANCE + this.fx.crit + this.gear.crit / 100 + critBonus;
 		if (crit) dmg *= CRIT_MULT;

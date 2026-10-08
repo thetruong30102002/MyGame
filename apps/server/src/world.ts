@@ -262,6 +262,7 @@ export class World {
 			case 'checkin':
 			case 'goals':
 			case 'goalClaim':
+			case 'hubs':
 				if (!c.social.allow('rewards')) return send(c.ws, { t: 'system', text: 'Thao tác nhanh quá, chậm lại chút nhé' });
 				return this.rewards.handle(c.view.id, msg);
 			case 'shopBuy':

@@ -12,6 +12,7 @@ import { CalendarPanel } from '@/components/CalendarPanel';
 import { GloryPanel } from '@/components/GloryPanel';
 import { Hud } from '@/components/Hud';
 import { ShopPanel } from '@/components/ShopPanel';
+import { WaystonePanel } from '@/components/WaystonePanel';
 import { DialogueBox, StoryScenes } from '@/components/StoryUI';
 import { TouchControls, useTouchDevice } from '@/components/TouchControls';
 import { WorldMap } from '@/components/WorldMap';
@@ -44,6 +45,7 @@ export default function Home() {
 					<GloryPanel />
 					<ShopPanel />
 					<CalendarPanel />
+					<WaystonePanel />
 					<DialogueBox />
 					<StoryScenes />
 				</>

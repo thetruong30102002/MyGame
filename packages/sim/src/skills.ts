@@ -414,6 +414,17 @@ export interface EnemyStats {
 	ranged?: 'arrow' | 'shadow';
 	exp: number;
 	coins: number;
+	/**
+	 * Kháng / yếu hệ (docs/ke-hoach-the-gioi.md mục 2 — mỗi vùng thiên một hệ): hệ số nhân sát thương theo hệ của đòn (< 1 kháng,
+	 * > 1 yếu). Thiếu = 1. Quái vùng 1 chưa đặt (giữ cân bằng hiện tại); quái vùng mới khai theo hệ của vùng.
+	 */
+	resist?: Partial<Record<Element, number>>;
+}
+
+/** Hệ số sát thương theo hệ của quái (`resist`), kẹp 0,25–3 để số liệu nhập sai không thành bất tử / một nhát chết. */
+export function elementMult(stats: Pick<EnemyStats, 'resist'>, element: Element): number {
+	const m = stats.resist?.[element];
+	return m === undefined || !Number.isFinite(m) ? 1 : Math.max(0.25, Math.min(3, m));
 }
 
 /**

@@ -294,7 +294,9 @@ export type ClientMessage =
 	/** Nhận quà thành tựu `id` (phải đứng cạnh Bia Danh Vọng). */
 	| { t: 'goalClaim'; id: string }
 	/** Mua món `item` ở Cửa hàng kim cương — giá theo danh mục CỦA MÁY CHỦ. */
-	| { t: 'shopBuy'; item: string };
+	| { t: 'shopBuy'; item: string }
+	/** Xin danh sách trạm (map trạm của các vùng) đã từng đặt chân tới — cột dịch chuyển. */
+	| { t: 'hubs' };
 
 export type ServerMessage =
 	| { t: 'welcome'; you: string; players: PlayerView[] }
@@ -335,4 +337,6 @@ export type ServerMessage =
 	/** Bình đang hiệu lực (sau `welcome`, sau khi mua, khi một bình hết giờ). */
 	| { t: 'buffs'; list: BuffView[] }
 	/** Vừa mua xong món `item` (kim cương đã trừ — tin `wallet` + `buffs` đi kèm). */
-	| { t: 'bought'; item: string };
+	| { t: 'bought'; item: string }
+	/** Trạm đã từng đặt chân tới (`vùng/map`) — máy chủ ghi lúc vào game / sang map. */
+	| { t: 'hubs'; list: string[] };
