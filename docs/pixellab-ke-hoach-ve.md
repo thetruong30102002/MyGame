@@ -3,24 +3,15 @@
 Chủ dự án mua gói **Tier 1** ($12/tháng: 2.000 lượt, 8 job song song, mở `transfer_outfit`) và **vẫn dùng song song** các
 token miễn phí. Lượt gói KHÔNG cộng dồn sang tháng sau → khi có token trả phí thì vẽ một mạch theo danh sách dưới.
 
-## Phân bổ lượt — ưu tiên nhân vật người chơi + boss (chủ dự án chốt 08/10/2026)
+## Phân bổ lượt — MỘT gói 24$ (5.000 lượt), ưu tiên nhân vật người chơi + boss (chủ dự án chốt 08/10/2026)
 
-Chủ dự án: "tập trung vào nhân vật của người dùng và boss". Hai nhóm này vẽ RIÊNG, đủ chất lượng; phần còn lại cắt bằng đổi màu / dùng
-lại (luật hình tạm "chỉ biến tấu hình có sẵn"). Gói PixelLab hiện có (tra 08/10/2026): 12$ = 2.000 lượt, 24$ = 5.000, 48$ = 10.000 / tháng
-— lượt không cộng dồn sang tháng sau.
+Chủ dự án: "tập trung vào nhân vật của người dùng và boss", "cân đối 5000 image của gói 24 đô", "sẽ làm full trước". Danh sách đầy đủ
+(vùng / map / quái / boss / rồng / trang bị) + ngân sách từng hạng mục + ba đợt vẽ + bàn giao: **`docs/the-gioi-aether.md`** (nguồn
+số liệu duy nhất — các con số cũ ở file này và ở `docs/ke-hoach-the-gioi.md` mục 4 là ước tính trước khi cắt, KHÔNG dùng).
 
-| Nhóm | Gồm | Lượt |
-|---|---|---|
-| **Nhân vật người chơi** (giữ đủ) | hiệu ứng ~70 skill vẽ riêng từng skill (~1.000) · 4 bộ trang phục × 2 giới tính (~400) · kiểu tóc A1 (~400) · động tác riêng: lướt, giữ thế, phân thân, phóng kiếm (~150) | ~1.950 |
-| **Boss** (giữ đủ) | 27 boss vẽ riêng (~1.600) · chiêu: boss chúa 3–4 chiêu, boss khu 2 chiêu (~3.000) | ~4.600 |
-| Quái thường (CẮT) | mỗi vùng 3 loại mới + 2 bản đổi màu (recolor 0 lượt); vẽ 5 hướng + lật gương 3 hướng; `create_character` chế độ thường (1 lượt đủ 8 hướng) | ~550 |
-| Map (vốn rẻ) | đồ vật / trạm / tranh vùng / tranh lục địa | ~600 |
-| **Cộng** | | **~7.700** |
-
-Thứ tự trả tiền theo vùng (không mua dồn): **tháng 1** ~1.900 lượt (gói 12$) — hiệu ứng skill người chơi, 2 bộ đồ + 2 kiểu tóc, boss
-Gargoyle Đá + chiêu Vua Lich / Quỷ vương, tranh lục địa; **mỗi vùng mới** ~650 lượt (3 boss + chiêu + quái + đồ vật) → gói 12$ ≈ 3 vùng /
-tháng. Cả game ≈ 4 tháng gói 12$ hoặc 2 tháng gói 24$ (tổng tiền gần bằng nhau, gói 24$ nhanh hơn). Lượt miễn phí (15 token ×
-~5 / ngày) dồn cho việc nhẹ — 08/10/2026 PixelLab đang khoá lượt miễn phí, chưa trông vào được.
+Tóm tắt: ~4.725 / 5.000 lượt — nhân vật người chơi ~1.250 (hiệu ứng skill theo hệ + tuyệt kỹ, trang bị hiện trên người: mỗi kiểu hình
+vẽ một bộ đồ rồi cắt 4 lớp áo / quần / giày / găng, đồ gắn, tóc, động tác), boss ~2.620 (28 boss mới + chiêu + 7 rồng), quái thường
+~405 (27 loại mới, 19 loại đổi màu), map + giao diện ~450.
 
 ## Phân việc
 

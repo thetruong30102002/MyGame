@@ -118,6 +118,9 @@ Phản ứng nguyên tố: **Thuỷ** vào mục tiêu đang cháy → *Hơi Nư
 | Kim cương | ◐ K1: ví ở máy chủ + nhật ký, điểm danh mỗi ngày, Bia Danh Vọng (thành tựu), quầy kim cương của Bram bán bình EXP / chiến đấu, icon lịch mở cửa sổ điểm danh. Chưa nạp tiền thật — [`docs/ke-hoach-kim-cuong.md`](docs/ke-hoach-kim-cuong.md) |
 | 12–13 | chưa làm (tối ưu asset, mobile) |
 
+**Bắt đầu đọc / làm tiếp (người hay agent): [`docs/the-gioi-aether.md`](docs/the-gioi-aether.md)** — mục Bàn giao (trạng thái, việc
+kế tiếp, lệnh chạy / kiểm / triển khai, luật dự án) + danh sách vùng / map / quái / boss / trang bị + ngân sách PixelLab.
+
 Cốt truyện: [`docs/story.md`](docs/story.md). Đội hình nhân vật và lý do loại: [`docs/asset-pipeline.md`](docs/asset-pipeline.md).
 Lịch sinh nhân vật Pixler theo quota: [`docs/pixler-plan.md`](docs/pixler-plan.md).
 

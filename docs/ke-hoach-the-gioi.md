@@ -1,5 +1,8 @@
 # Kế hoạch thế giới: 10 vùng đất × 7 map (chốt khung 08/10/2026)
 
+> Danh sách chi tiết từng vùng / map / quái / boss / rồng + trang bị + ngân sách PixelLab (một gói 24$) + bàn giao cho agent sau:
+> **`docs/the-gioi-aether.md`** (sinh từ `docs/tools/the-gioi-aether.py`, kèm trang HTML `docs/the-gioi-aether.html`).
+
 Chủ dự án 08/10/2026: thế giới có **khoảng 10 vùng đất** (băng, sa mạc, đầm lầy…). Các map đang có tính là **vùng 1**. Mỗi
 vùng **khoảng 3 boss** và **khoảng 7 map con** → **~70 map**. Luật thế giới đã chốt từ trước vẫn giữ:
 
