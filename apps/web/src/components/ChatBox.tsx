@@ -1,10 +1,10 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { CHAT_MAX, WORLD_CHAT_GAP_MS, WORLD_CHAT_LEVEL } from '@aether/protocol';
+import { CHAT_MAX, WORLD_CHAT_DIAMONDS, WORLD_CHAT_GAP_MS, WORLD_CHAT_LEVEL } from '@aether/protocol';
 import { useGameStore } from '@/store/useGameStore';
 import { useSession, type ChatLine, type PersonRef } from '@/store/useSession';
-import { CHAT_TABS, inTab, routeLine, unread, type ChatTab } from './chatTabs';
+import { CHAT_TABS, inConversation, inTab, routeLine, unread, unreadFrom, whisperPartners, type ChatTab, type WhisperPartner } from './chatTabs';
 import { useMediaQuery } from './useMediaQuery';
 
 /** Tin cũ hơn chừng này (ms) thì mờ đi ở chat thu gọn — vẫn đọc được nhưng không giành mắt với màn chơi. */
@@ -18,7 +18,7 @@ const WORLD = 'text-[#8fe39a]';
 /** Chữ khi thẻ đang xem chưa có tin nào. */
 const EMPTY_TAB: Record<Exclude<ChatTab, 'all'>, string> = {
 	map: 'Chưa có ai nói gì ở map này.',
-	world: `Kênh Thế giới: mọi người đang online đều đọc được (từ cấp ${WORLD_CHAT_LEVEL}, mỗi ${WORLD_CHAT_GAP_MS / 1000} giây một tin).`,
+	world: `Kênh Thế giới: mọi người đang online đều đọc được — ${WORLD_CHAT_DIAMONDS} kim cương mỗi tin, từ cấp ${WORLD_CHAT_LEVEL}, mỗi ${WORLD_CHAT_GAP_MS / 1000} giây một tin.`,
 	whisper: 'Chưa có tin riêng. Gõ /w <tên> <nội dung>, hoặc bấm tên người chơi → Nhắn riêng.',
 };
 
@@ -26,9 +26,38 @@ const EMPTY_TAB: Record<Exclude<ChatTab, 'all'>, string> = {
 const PLACEHOLDER: Record<ChatTab, string> = {
 	all: 'Chat map, Enter để gửi… (/g Thế giới · /w tên nhắn riêng)',
 	map: 'Chat với người cùng map…',
-	world: 'Chat kênh Thế giới…',
+	world: `Chat kênh Thế giới (${WORLD_CHAT_DIAMONDS} kim cương / tin)…`,
 	whisper: '/w <tên> <nội dung> · /r trả lời',
 };
+
+/**
+ * Thẻ Riêng: tab theo TỪNG NGƯỜI đã nhắn / được nhắn (mới nhất trước) + "Tất cả tin riêng". Chọn người = chỉ xem cuộc trò chuyện
+ * với họ và gõ là nhắn cho họ (chính là `whisperTo`). Số đỏ = tin của người đó chưa đọc. Dải vuốt ngang khi đông người.
+ */
+function PeopleRow({ people, active, counts, onPick }: { people: WhisperPartner[]; active: string | null; counts: Record<string, number>; onPick: (p: WhisperPartner | null) => void }) {
+	const chip = (on: boolean) => `relative shrink-0 whitespace-nowrap rounded-full px-2 py-0.5 text-chip font-extrabold ${on ? 'bg-[#3b1f45] text-[#f2a8ff] ring-1 ring-[#f2a8ff]' : 'bg-[#1a110a]/60 text-parchment-dim hover:text-parchment'}`;
+	return (
+		<div role="tablist" aria-label="Tin riêng theo người" className="pointer-events-auto mb-1 flex gap-1.5 overflow-x-auto pt-2 pr-2 [scrollbar-width:none]">
+			<button type="button" role="tab" aria-selected={!active} onMouseDown={(e) => e.preventDefault()} onClick={() => onPick(null)} className={chip(!active)}>
+				Tất cả tin riêng
+			</button>
+			{people.map((p) => {
+				const on = p.id === active;
+				const n = on ? 0 : (counts[p.id] ?? 0);
+				return (
+					<button key={p.id} type="button" role="tab" aria-selected={on} title={`Nhắn riêng với ${p.name}`} onMouseDown={(e) => e.preventDefault()} onClick={() => onPick(p)} className={chip(on)}>
+						<span className="block max-w-[110px] truncate">{p.name}</span>
+						{n > 0 && (
+							<span className="absolute -right-1.5 -top-2 flex h-4 min-w-4 items-center justify-center rounded-full bg-[#b22911] px-1 text-[10px] leading-none text-paper-hi" aria-label={`${n} tin chưa đọc`}>
+								{n > 99 ? '99+' : n}
+							</span>
+						)}
+					</button>
+				);
+			})}
+		</div>
+	);
+}
 
 /**
  * Hàng thẻ kênh: số đỏ = tin của người khác chưa đọc ở thẻ đó. `onMouseDown` chặn mất focus — đang gõ mà bấm đổi thẻ thì ô nhập
@@ -179,9 +208,12 @@ export function ChatBox({ placement = 'bottom' }: { placement?: 'bottom' | 'stac
 	const setMenu = useSession((s) => s.setPersonMenu);
 	const connected = useSession((s) => s.connected);
 	const level = useGameStore((s) => s.stats.level);
+	const diamonds = useSession((s) => s.diamonds);
 	// Thẻ kênh đang xem + mốc đã đọc (id dòng chat cuối) của từng thẻ — đếm số tin chưa đọc.
 	const [tab, setTab] = useState<ChatTab>('all');
 	const [seen, setSeen] = useState<Record<ChatTab, number>>({ all: 0, map: 0, world: 0, whisper: 0 });
+	/** Mốc đã đọc của từng cuộc trò chuyện riêng (id người → id dòng). */
+	const [seenPeople, setSeenPeople] = useState<Record<string, number>>({});
 	// Đang thoại / xem thẻ cảnh thì Enter là "đọc tiếp", không mở chat. Bảng nhân vật / bản đồ lớn đang mở thì Enter là
 	// bấm nút đang focus trong bảng — mở chat lúc đó là ô nhập nằm khuất DƯỚI lớp phủ z-15 và nút không chạy.
 	const story = useGameStore((s) => !!s.dialogue || !!s.card || s.scene !== 'play' || !!s.panel || s.mapOpen);
@@ -220,6 +252,12 @@ export function ChatBox({ placement = 'bottom' }: { placement?: 'bottom' | 'stac
 	useEffect(() => {
 		setSeen((s) => (s[tab] === lastId ? s : { ...s, [tab]: lastId }));
 	}, [tab, lastId]);
+	// Đang xem cuộc trò chuyện với một người (thẻ Riêng + đã chọn người) → tin của người đó coi như đã đọc.
+	const talkingTo = tab === 'whisper' ? (whisperTo?.id ?? null) : null;
+	useEffect(() => {
+		if (!talkingTo) return;
+		setSeenPeople((s) => (s[talkingTo] === lastId ? s : { ...s, [talkingTo]: lastId }));
+	}, [talkingTo, lastId]);
 
 	useEffect(() => {
 		list.current?.scrollTo({ top: list.current.scrollHeight });
@@ -259,6 +297,7 @@ export function ChatBox({ placement = 'bottom' }: { placement?: 'bottom' | 'stac
 			const r = routeLine(t, tab);
 			if ('hint' in r) system(r.hint);
 			else if (r.ch === 'world' && level < WORLD_CHAT_LEVEL) system(`Kênh Thế giới mở từ cấp ${WORLD_CHAT_LEVEL} — chat map vẫn dùng được.`);
+			else if (r.ch === 'world' && diamonds !== null && diamonds < WORLD_CHAT_DIAMONDS) system(`Chat kênh Thế giới tốn ${WORLD_CHAT_DIAMONDS} kim cương mỗi tin — bạn đang có ${diamonds}.`);
 			else online.chat(r.text, r.ch);
 		}
 		if (!whisperTo || cmd) setTyping(false);
@@ -268,11 +307,19 @@ export function ChatBox({ placement = 'bottom' }: { placement?: 'bottom' | 'stac
 		setTab(t);
 		if (t === 'map' || t === 'world') setWhisperTo(null);
 	};
-	const shown = chat.filter((m) => inTab(m, tab));
+	const shown = talkingTo ? chat.filter((m) => inConversation(m, talkingTo)) : chat.filter((m) => inTab(m, tab));
+	// Người đang được chọn nhắn mà chưa có tin nào (vừa bấm "Nhắn riêng") vẫn có tab của mình.
+	const people = whisperPartners(chat);
+	if (whisperTo && !people.some((p) => p.id === whisperTo.id)) people.unshift({ ...whisperTo, last: Infinity });
+	const peopleCounts = Object.fromEntries(people.map((p) => [p.id, unreadFrom(chat, p.id, seenPeople[p.id] ?? 0)]));
+	const peopleRow = tab === 'whisper' && people.length > 0 && (
+		<PeopleRow people={people} active={talkingTo} counts={peopleCounts} onPick={(p) => setWhisperTo(p ? { id: p.id, name: p.name } : null)} />
+	);
 	const counts = Object.fromEntries(CHAT_TABS.map((x) => [x.id, unread(chat, x.id, seen[x.id])])) as Record<ChatTab, number>;
 	// Cột trái cảm ứng chỉ rộng 208px: thẻ nhỏ hơn cho đủ một hàng.
 	const tabs = <TabRow tab={tab} counts={counts} onTab={pickTab} small={stack && !low} />;
-	const emptyTab = tab !== 'all' && chat.length > 0 && !shown.some((m) => !m.system) && <p className="text-parchment-dim">{EMPTY_TAB[tab]}</p>;
+	const emptyTab =
+		tab !== 'all' && chat.length > 0 && !shown.some((m) => !m.system) && <p className="text-parchment-dim">{talkingTo ? `Chưa có tin với ${whisperTo?.name}. Gõ để nhắn riêng.` : EMPTY_TAB[tab]}</p>;
 	const stopTyping = (): void => {
 		setTyping(false);
 		setWhisperTo(null);
@@ -327,6 +374,7 @@ export function ChatBox({ placement = 'bottom' }: { placement?: 'bottom' | 'stac
 				{typing ? (
 					<div className="mt-1">
 						{tabs}
+						{peopleRow}
 						<div ref={list} className="ui-dark pointer-events-auto max-h-[128px] overflow-y-auto px-2 py-1 [scrollbar-width:thin] [@media(max-height:500px)]:max-h-[calc(100dvh-152px-164px-28px)]">
 							{empty}
 							{emptyTab}
@@ -359,6 +407,7 @@ export function ChatBox({ placement = 'bottom' }: { placement?: 'bottom' | 'stac
 		// Nền tối trong mờ (.ui-dark) chứ không dùng giấy sáng: khung chat ở đây suốt lúc chơi, che game càng ít càng tốt.
 		<div className="pointer-events-auto absolute bottom-[132px] left-3 z-10 w-[min(80vw,360px,max(240px,calc(50vw-414px)))] max-[1128px]:bottom-[160px]">
 			{tabs}
+			{peopleRow}
 			<div ref={list} className="ui-dark max-h-[176px] overflow-y-auto px-2 py-1 text-body font-semibold [scrollbar-width:thin]">
 				{chat.length === 0 && <p className="text-parchment-dim">{connected ? 'Bạn đã tới Thistlewood. Nhấn Enter để chào mọi người.' : 'Đang tìm đường tới máy chủ…'}</p>}
 				{emptyTab}

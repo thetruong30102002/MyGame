@@ -9,11 +9,13 @@ export const SNAPSHOT_HZ = 10;
 export const CHAT_MAX = 200;
 /**
  * Kênh chat (docs/ke-hoach-xa-hoi.md mục 2): `map` = người cùng map (mặc định — client / máy chủ bản cũ không ghi kênh), `world` =
- * mọi người đang online. Kênh Thế giới cần cấp ≥ `WORLD_CHAT_LEVEL` và mỗi người 1 tin / `WORLD_CHAT_GAP_MS` (chống quảng cáo).
+ * mọi người đang online. Kênh Thế giới cần cấp ≥ `WORLD_CHAT_LEVEL`, mỗi người 1 tin / `WORLD_CHAT_GAP_MS` (chống quảng cáo) và
+ * mỗi tin tốn `WORLD_CHAT_DIAMONDS` kim cương (chủ dự án 08/10/2026: "chat thế giới cần 3 kim cương").
  */
 export type ChatChannel = 'map' | 'world';
 export const WORLD_CHAT_LEVEL = 10;
 export const WORLD_CHAT_GAP_MS = 10_000;
+export const WORLD_CHAT_DIAMONDS = 3;
 /** Cấp tối đa (chủ dự án chốt 08/10/2026: 10 vùng × ~10 cấp — docs/ke-hoach-the-gioi.md). Máy chủ kẹp cấp lưu lên theo số này. */
 export const MAX_LEVEL = 100;
 

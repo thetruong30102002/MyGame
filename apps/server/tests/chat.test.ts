@@ -1,10 +1,10 @@
 // Chạy: npx tsx tests/chat.test.ts — kênh chat (docs/ke-hoach-xa-hoi.md mục 2): chat map chỉ tới người cùng map, kênh Thế giới
-// tới mọi người online (cả map khác), cần cấp ≥ 10 và 1 tin / 10 giây. CSDL SQLite THẬT trong thư mục tạm + socket giả.
+// tới mọi người online (cả map khác), cần cấp ≥ 10, 1 tin / 10 giây và 3 kim cương / tin. CSDL SQLite THẬT trong thư mục tạm + socket giả.
 import assert from 'node:assert/strict';
 import { mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { WORLD_CHAT_LEVEL, type ServerMessage } from '@aether/protocol';
+import { WORLD_CHAT_DIAMONDS, WORLD_CHAT_LEVEL, type ServerMessage } from '@aether/protocol';
 import { Store } from '../src/db.ts';
 import { newProgress } from '../src/http.ts';
 import { World } from '../src/world.ts';
@@ -51,10 +51,12 @@ const people: [string, number, string][] = [
 	['Ở Rừng', 20, 'human/mossvale'],
 	['Tân Thủ', WORLD_CHAT_LEVEL - 1, 'human/mossvale'],
 ];
+const ids: string[] = [];
 const ws: FakeWs[] = people.map(([name, level, map], i) => {
 	const acc = store.createAccount(`c${i}`, 'x')!;
 	store.createSession(`tok${i}`, acc, 3600_000);
 	const id = store.createCharacter(`00000000-0000-0000-0000-0000000000d${i}`, acc, name, 'male', { ...newProgress(), level, map })!.id;
+	ids.push(id);
 	const w = new FakeWs();
 	world.accept(w as never);
 	w.push({ t: 'hello', token: `tok${i}`, character: id });
@@ -70,8 +72,19 @@ try {
 		assert.equal(mate.chats()[0]!.ch, undefined);
 	});
 
-	test('kênh Thế giới: mọi người online nhận, kể cả ở map khác và người chưa đủ cấp', () => {
+	test('kênh Thế giới tốn 3 kim cương: chưa đủ thì không gửi, không ai nhận', () => {
+		pro.push({ t: 'chat', text: 'chưa có tiền', ch: 'world' });
+		assert.match(pro.said, /tốn 3 kim cương/);
+		assert.equal(forest.chats().length, 0);
+		store.addDiamonds(ids[0]!, 7, 'admin:thử');
+	});
+
+	test('kênh Thế giới: mọi người online nhận, kể cả ở map khác và người chưa đủ cấp; trừ 3 kim cương + báo ví', () => {
 		pro.push({ t: 'chat', text: 'ai đi săn Vua Lich không?', ch: 'world' });
+		assert.equal(store.diamonds(ids[0]!), 7 - WORLD_CHAT_DIAMONDS);
+		assert.equal(store.diamondLedger(ids[0]!, 1)[0]!.reason, 'chat:world');
+		const wallet = pro.inbox.filter((m): m is Extract<ServerMessage, { t: 'wallet' }> => m.t === 'wallet').at(-1);
+		assert.equal(wallet?.diamonds, 4, 'ví mới gửi về cho người chat');
 		for (const w of ws) assert.deepEqual(w.chats().at(-1)!.ch, 'world');
 		assert.equal(forest.chats().at(-1)!.name, 'Cao Thủ');
 	});
@@ -89,6 +102,7 @@ try {
 		const before = mate.chats().length;
 		pro.push({ t: 'chat', text: 'tin thứ hai liền', ch: 'world' });
 		assert.match(pro.said, /mỗi 10 giây một tin/);
+		assert.equal(store.diamonds(ids[0]!), 4, 'bị chặn vì nhịp: không trừ kim cương');
 		assert.equal(mate.chats().length, before);
 		pro.push({ t: 'chat', text: 'chat map vẫn đi' });
 		assert.equal(mate.chats().at(-1)!.text, 'chat map vẫn đi');

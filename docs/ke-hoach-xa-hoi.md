@@ -101,15 +101,19 @@ Nhà riêng N1 cần X1 (quyền xem nhà theo bạn bè).
 - **Thẻ kênh** trong khung chat: Tất cả · Map · Thế giới · Riêng (`apps/web/src/components/chatTabs.ts`). Thông báo hệ thống hiện
   ở mọi thẻ; thẻ không xem có số đỏ = tin của người khác chưa đọc. Gõ ở thẻ nào đi kênh đó (thẻ Riêng: `/w`, `/r` hoặc chọn người);
   `/g <nội dung>` gửi kênh Thế giới từ thẻ nào cũng được. Máy tính: hàng thẻ trên khung chat; cảm ứng: hiện khi bấm "Trò chuyện".
-- **Kênh Thế giới**: tin `chat` có `ch: 'world'` → máy chủ phát cho MỌI người online (cả map khác). Cần **cấp ≥ 10** và **1 tin / 10
-  giây** (`WORLD_CHAT_LEVEL`, `WORLD_CHAT_GAP_MS` ở `packages/protocol`); tin hiện nhãn xanh lá "Thế giới". Cấp vẫn do client báo
+- **Kênh Thế giới**: tin `chat` có `ch: 'world'` → máy chủ phát cho MỌI người online (cả map khác). Cần **cấp ≥ 10**, **1 tin / 10
+  giây** và **3 kim cương / tin** (chủ dự án 08/10/2026; `WORLD_CHAT_LEVEL`, `WORLD_CHAT_GAP_MS`, `WORLD_CHAT_DIAMONDS` ở
+  `packages/protocol`) — máy chủ kiểm đủ kim cương trước, trừ (nhật ký `chat:world`) rồi mới phát; tin hiện nhãn xanh lá "Thế giới". Cấp vẫn do client báo
   (tới M3.3) nên người sửa bản lưu vượt được mốc cấp — không vượt được trần 1 tin / 10 giây.
 - Người mình đã chặn: tin chat map / Thế giới của họ ẩn ở máy mình (trước đây chỉ chặn được chat riêng + lời mời).
 - Tương thích ngược: tin không ghi kênh = chat map như cũ.
 - Test: `apps/server/tests/chat.test.ts` (4 ca), `apps/web/tests/chattabs.test.ts`; thử thật trên máy chủ thử: trình duyệt cấp thấp
   ở Thistlewood + bot cấp 20 ở Mossvale — tin Thế giới của bot tới trình duyệt (số đỏ trên thẻ), tin map của bot không lọt; trình
   duyệt gửi Thế giới bị nhắc "mở từ cấp 10". Cả khổ điện thoại.
-- Chưa làm: tab riêng theo từng người, báo cáo tin, lọc từ tục, kênh Tổ đội (chờ X4).
+- **Tab riêng theo từng người** (thêm cùng ngày): trong thẻ Riêng có hàng tab mỗi người đã nhắn / được nhắn (mới nhất trước, số đỏ =
+  tin của người đó chưa đọc) + "Tất cả tin riêng". Chọn người = chỉ xem cuộc trò chuyện với họ và gõ là nhắn cho họ. Thử thật: 2 bot
+  nhắn cho trình duyệt → hai tab (2 và 1 tin chưa đọc), trả lời trong tab Lan chỉ tới Lan.
+- Chưa làm: báo cáo tin, lọc từ tục, kênh Tổ đội (chờ X4).
 
 ### Cài đặt (08/10/2026, chủ dự án: "nút đổi nhân vật chỉ nên ở mục cài đặt cạnh nút đăng xuất")
 

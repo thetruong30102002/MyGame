@@ -33,6 +33,36 @@ export function unread(lines: readonly ChatLine[], tab: ChatTab, seen: number): 
 	return n;
 }
 
+/** Một người trong thẻ Riêng: tab riêng theo từng người đã nhắn / được nhắn (mới nhất trước). */
+export interface WhisperPartner {
+	id: string;
+	name: string;
+	/** id dòng tin cuối với người này. */
+	last: number;
+}
+
+/** Những người có tin riêng trong danh sách chat (dòng tin riêng ghi `fromId` = người kia — cả tin mình gửi đi), mới nhất trước. */
+export function whisperPartners(lines: readonly ChatLine[]): WhisperPartner[] {
+	const map = new Map<string, WhisperPartner>();
+	for (const l of lines) {
+		if (!l.whisper || !l.fromId) continue;
+		map.set(l.fromId, { id: l.fromId, name: l.name, last: l.id });
+	}
+	return [...map.values()].sort((a, b) => b.last - a.last);
+}
+
+/** Tin riêng CỦA người `id` gửi mình, mới hơn mốc đã xem `seen`. */
+export function unreadFrom(lines: readonly ChatLine[], id: string, seen: number): number {
+	let n = 0;
+	for (const l of lines) if (l.id > seen && l.whisper === 'in' && l.fromId === id) n += 1;
+	return n;
+}
+
+/** Dòng thuộc cuộc trò chuyện riêng với `id` (cả thông báo hệ thống — vd "đang offline, tin sẽ tới sau"). */
+export function inConversation(l: ChatLine, id: string): boolean {
+	return !!l.system || (!!l.whisper && l.fromId === id);
+}
+
 /**
  * Gửi dòng `text` theo thẻ đang mở: `/g <nội dung>` = kênh Thế giới từ thẻ nào cũng được; ở thẻ Thế giới → Thế giới; thẻ Riêng
  * mà chưa chọn người → nhắc cách nhắn riêng; còn lại → chat map. (`/w`, `/r` và "đang nhắn riêng cho ai" xử lý trước ở ChatBox.)

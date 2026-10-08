@@ -63,7 +63,24 @@ Nhân vật = nhiều LỚP ghép lúc chạy, không vẽ sẵn mọi tổ hợ
 | Đồ gắn (mũ, vũ khí, khiên, áo choàng) | món đang mặc | lớp gắn theo điểm neo (đang làm) — mũ che tóc thì ẩn phần tóc trên | ~2 / món |
 | Độ hiếm | — | code nhuộm + viền sáng | 0 |
 
-- Màn tạo nhân vật thêm chọn kiểu tóc + màu tóc (miễn phí lần đầu).
+- Màn tạo nhân vật thêm chọn kiểu tóc + màu tóc (miễn phí lần đầu) — chi tiết ở mục **A1** ngay dưới.
+
+### A1 — Chọn kiểu tóc + màu tóc khi tạo nhân vật (chủ dự án 08/10/2026 — CHỜ PIXELLAB, chưa làm)
+
+Chủ dự án: "khi đăng ký có thể chọn được màu tóc của nhân vật và kiểu tóc (các kiểu free) — thêm vào kế hoạch, chờ có PixelLab sẽ
+làm". Màn tạo nhân vật hiện chỉ có tên + nam/nữ (`apps/web/src/components/CharacterSelect.tsx`).
+
+| Phần | Làm gì |
+|---|---|
+| Giao diện | Màn tạo nhân vật: thêm hàng **Kiểu tóc** (chỉ các kiểu MIỄN PHÍ — đề xuất 3 kiểu / giới tính, gồm kiểu gốc hiện tại) và hàng **Màu tóc** (bảng ~12 màu thường). Xem trước trên nhân vật xoay 4 hướng, cả bản bé (4–8 tuổi) lẫn 16 tuổi. |
+| Dữ liệu | `CharacterInfo.appearance = { hair, hairColor }` (id ngắn); máy chủ kiểm id thuộc danh sách MIỄN PHÍ lúc tạo (danh sách dùng chung ở `packages/sim`); `PlayerView` mang `appearance` để người khác thấy đúng tóc. Nhân vật cũ = kiểu gốc + màu gốc. |
+| Màu tóc | 0 lượt PixelLab: code thay bảng màu đúng pixel tóc theo MẶT NẠ tóc của từng sprite (pipeline có `recolor`). Mặt nạ tách ra cùng lúc với kiểu tóc bên dưới. |
+| Kiểu tóc | Mỗi kiểu = phiên bản nhân vật đổi tóc (`create_character_state` / `transfer_outfit`, token trả phí) trên mọi khung động tác → pipeline tách thành LỚP TÓC ghép lên mọi trang phục (bảng Ngoại hình ở trên). Phải có cho CẢ hai mốc tuổi (sprite bé + 16 tuổi). |
+| Đổi sau khi tạo | Qua Thợ cắt tóc ở quảng trường (xu); kiểu xịn / màu đặc biệt (ánh kim, đổi màu) bán bằng kim cương (K3 — `docs/ke-hoach-kim-cuong.md`). |
+| Ước lượng | 2 kiểu mới × 2 giới tính × 2 mốc tuổi = 8 phiên bản × ~40–60 lượt ≈ 320–480 lượt (kiểu gốc không tốn). Làm thử 1 kiểu trước để kiểm bước tách lớp tóc. |
+
+Thứ tự khi có token trả phí: tách mặt nạ tóc của 4 sprite người chơi (bé trai / bé gái / 16 nam / 16 nữ) → bật chọn màu tóc
+(chưa cần kiểu mới) → vẽ 1 kiểu thử → đủ kiểu miễn phí.
 - **NPC dịch vụ ở quảng trường Thistlewood** (chủ dự án 08/10/2026 — đổi ngoại hình phải qua NPC, không mở trong bảng):
 
   | NPC | Dịch vụ | Giao diện | Giá (đề xuất) |

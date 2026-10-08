@@ -1,5 +1,5 @@
 import type { WebSocket } from 'ws';
-import { ACTION_ANIMS, CHAT_MAX, cleanGearView, DIRS8, MAX_LEVEL, SNAPSHOT_HZ, WORLD_CHAT_GAP_MS, WORLD_CHAT_LEVEL, type CharacterProgress, type ClientMessage, type PlayerView, type ServerMessage } from '@aether/protocol';
+import { ACTION_ANIMS, CHAT_MAX, cleanGearView, DIRS8, MAX_LEVEL, SNAPSHOT_HZ, WORLD_CHAT_DIAMONDS, WORLD_CHAT_GAP_MS, WORLD_CHAT_LEVEL, type CharacterProgress, type ClientMessage, type PlayerView, type ServerMessage } from '@aether/protocol';
 import { RateLimiter } from './auth.ts';
 import type { Store } from './db.ts';
 import { Social } from './social.ts';
@@ -277,11 +277,19 @@ export class World {
 		}
 	}
 
-	/** Kênh Thế giới: mọi người đang online (cả người ở map khác) — cấp ≥ `WORLD_CHAT_LEVEL`, 1 tin / 10 giây. */
+	/**
+	 * Kênh Thế giới: mọi người đang online (cả người ở map khác) — cấp ≥ `WORLD_CHAT_LEVEL`, 1 tin / 10 giây, mỗi tin trừ
+	 * `WORLD_CHAT_DIAMONDS` kim cương (kiểm đủ tiền TRƯỚC khi tính lượt, trừ xong mới phát — thiếu tiền không mất lượt).
+	 */
 	private worldChat(c: Conn, text: string): void {
+		const id = c.view.id;
 		if (c.view.level < WORLD_CHAT_LEVEL) return send(c.ws, { t: 'system', text: `Kênh Thế giới mở từ cấp ${WORLD_CHAT_LEVEL} — chat map vẫn dùng được` });
+		if (this.store.diamonds(id) < WORLD_CHAT_DIAMONDS) return send(c.ws, { t: 'system', text: `Chat kênh Thế giới tốn ${WORLD_CHAT_DIAMONDS} kim cương mỗi tin — bạn chưa đủ` });
 		if (!c.worldChat.allow('world')) return send(c.ws, { t: 'system', text: `Kênh Thế giới: mỗi ${WORLD_CHAT_GAP_MS / 1000} giây một tin thôi nhé` });
-		const out: ServerMessage = { t: 'chat', from: c.view.id, name: c.view.name, text, at: Date.now(), ch: 'world' };
+		const balance = this.store.addDiamonds(id, -WORLD_CHAT_DIAMONDS, 'chat:world');
+		if (balance === null) return send(c.ws, { t: 'system', text: `Chat kênh Thế giới tốn ${WORLD_CHAT_DIAMONDS} kim cương mỗi tin — bạn chưa đủ` });
+		send(c.ws, { t: 'wallet', diamonds: balance });
+		const out: ServerMessage = { t: 'chat', from: id, name: c.view.name, text, at: Date.now(), ch: 'world' };
 		for (const o of this.conns.values()) send(o.ws, out);
 	}
 
