@@ -147,48 +147,51 @@ GEAR_ATTACH = [
 BODY_FAMILIES = 'Vải tân thủ · Giáp da · Giáp sắt · Áo pháp sư'
 
 BUDGET = [
-    ('Nhân vật người chơi (ưu tiên)', [
-        ('Hiệu ứng skill: mỗi hệ một bộ niệm / đạn / nổ dùng chung (7 hệ), 8 tuyệt kỹ mốc 10 vẽ riêng, 9 phản ứng nguyên tố', 450),
-        ('Trang bị lớp thân: 4 kiểu hình × 2 giới tính × ~50 lượt — mỗi kiểu vẽ MỘT bộ đồ hoàn chỉnh, pipeline cắt ra 4 lớp áo / quần / giày / găng để phối tự do', 400),
-        ('Trang bị gắn: 24 kiểu (6 kiếm, 6 trượng, 3 khiên, 6 mũ, 3 áo choàng) × ~2 lượt', 50),
-        ('Kiểu tóc: 2 kiểu mới × 2 giới tính, bản 16 tuổi (tuổi thơ giữ tóc gốc)', 200),
-        ('Động tác riêng: lướt, giữ thế, phân thân, phóng kiếm', 150),
-    ]),
-    ('Boss (ưu tiên)', [
-        ('28 boss vẽ mới × ~40 lượt (4 hướng + lật gương; đi, đánh, niệm, gục)', 1120),
-        ('Chiêu boss chúa: 10 boss × 2 chiêu riêng × ~30 lượt (gồm Quỷ vương)', 600),
-        ('Chiêu boss khu: 20 boss × 1 chiêu riêng × ~10 lượt (gồm Vua Lich); chiêu thứ hai dùng hiệu ứng hệ có sẵn', 200),
-        ('7 rồng nguyên tố × ~100 lượt (sprite lớn 4 hướng + 2 chiêu)', 700),
-    ]),
-    ('Quái thường (cắt)', [
-        ('27 loại vẽ mới × ~15 lượt (chế độ thường 1 lượt đủ 8 hướng; đi / đánh 4 hướng + lật gương); 19 loại đổi màu = 0 lượt', 405),
-    ]),
     ('Map + giao diện', [
         ('Đồ vật / nhà / cây 9 vùng (4 tấm 3×3 mỗi vùng), 9 trạm, tranh lục địa, gian hàng, icon (kim cương, lịch, 6 bình)', 450),
     ]),
+    ('Quái thường', [
+        ('27 loại vẽ mới × ~15 lượt (chế độ thường 1 lượt đủ 8 hướng; đi / đánh 4 hướng + lật gương); 19 loại đổi màu = 0 lượt', 405),
+    ]),
+    ('Boss', [
+        ('28 boss vẽ mới × ~40 lượt (4 hướng + lật gương; đi, đánh, niệm, gục)', 1120),
+        ('Chiêu boss chúa: 10 boss × 2 chiêu riêng × ~30 lượt (gồm Quỷ vương)', 600),
+        ('Chiêu boss khu: 20 boss × 2 chiêu riêng × ~10 lượt (gồm Vua Lich)', 400),
+    ]),
+    ('Rồng (vẽ đầy đủ)', [
+        ('7 rồng nguyên tố × ~250 lượt (sprite lớn 192–256px, 4 hướng + lật gương, động tác + 3–4 chiêu)', 1750),
+    ]),
+]
+
+# Để GÓI SAU (chủ dự án 08/10/2026: "tạm thời đồ đạc và nhân vật để sau"): yêu cầu trang bị hiện trên người vẫn giữ nguyên.
+LATER = [
+    ('Hiệu ứng skill: mỗi hệ một bộ niệm / đạn / nổ dùng chung (7 hệ), 8 tuyệt kỹ mốc 10, 9 phản ứng nguyên tố', 450),
+    ('Trang bị lớp thân: 4 kiểu hình × 2 giới tính × ~50 lượt (một bộ đồ → cắt 4 lớp áo / quần / giày / găng)', 400),
+    ('Trang bị gắn: 24 kiểu (kiếm, trượng, khiên, mũ, áo choàng) × ~2 lượt', 50),
+    ('Kiểu tóc: 2 kiểu mới × 2 giới tính (bản 16 tuổi)', 200),
+    ('Động tác riêng: lướt, giữ thế, phân thân, phóng kiếm', 150),
 ]
 
 MONTHS = [
-    ('Đợt 1', 'nhân vật người chơi', [
-        'Trang bị: làm thử 1 kiểu hình (cắt 4 lớp) trước, đạt mới vẽ tiếp 3 kiểu còn lại',
-        'Hiệu ứng skill theo hệ + tuyệt kỹ + phản ứng; động tác riêng; kiểu tóc',
-    ], 1250),
-    ('Đợt 2', 'boss + rồng', [
-        'Vùng 1 trước: Gargoyle Đá + chiêu Quỷ vương / Vua Lich',
-        '27 boss vùng 2–10 + chiêu, rồi 7 rồng',
-    ], 2620),
-    ('Đợt 3', 'quái + map', [
+    ('Đợt 1', 'map + quái', [
+        'Đồ vật, nhà, cây của 9 vùng; 9 trạm; tranh lục địa; gian hàng; icon',
         '27 loại quái mới (19 loại còn lại đổi màu bằng code)',
-        'Đồ vật 9 vùng, trạm, tranh lục địa, gian hàng, icon',
     ], 855),
+    ('Đợt 2', 'boss', [
+        'Vùng 1 trước: Gargoyle Đá + chiêu Quỷ vương / Vua Lich',
+        '27 boss vùng 2–10, mỗi boss chúa 2 chiêu, mỗi boss khu 2 chiêu',
+    ], 2120),
+    ('Đợt 3', '7 rồng đầy đủ', [
+        'Phong, Băng, Hoả, Thuỷ, Địa, Quang, Hắc Long — sprite lớn + 3–4 chiêu mỗi con',
+    ], 1750),
 ]
 
 QUESTIONS = [
     'Tên 10 vùng, nơi ở (làng / toà thành) và tên map — tên vùng 2–10 là đề xuất.',
     'Danh sách quái từng vùng, nhất là các loại dùng hình đổi màu (cột Hình). Đã thay vài loại trong kế hoạch cũ để dùng lại hình: vùng 3 "linh hồn cát" → Cung thủ xương cát, vùng 5 bỏ "chim cánh cụt chiến" → Gargoyle băng.',
-    'Trang bị: 4 kiểu hình bộ đồ (Vải tân thủ, Giáp da, Giáp sắt, Áo pháp sư) cắt thành 4 lớp áo / quần / giày / găng; đồ gắn 24 kiểu. Đồ khác cấp / khác chỉ số dùng chung kiểu hình, khác màu theo độ hiếm (code nhuộm, 0 lượt).',
-    'Dây chuyền và nhẫn không hiện trên người (quá nhỏ) — chỉ hiện ở kho đồ.',
-    'Ngân sách vừa ĐÚNG MỘT gói 24$ (5.000 lượt), còn ~275 lượt dự phòng để vẽ lại — vẽ hỏng nhiều thì cắt bớt rồng / chiêu boss khu trước, không cắt nhân vật người chơi.',
+    'Boss + rồng: tên, chiêu chính (mục Rồng) — gói này vẽ đủ 28 boss mới + 7 rồng.',
+    'Nhân vật người chơi + trang bị để gói sau (~1.250 lượt). Khi làm: 4 kiểu hình bộ đồ cắt 4 lớp áo / quần / giày / găng, đồ gắn 24 kiểu; dây chuyền / nhẫn chỉ hiện ở kho đồ.',
+    'Ngân sách vừa MỘT gói 24$ (5.000 lượt), dự phòng ~275 lượt để vẽ lại — vẽ hỏng nhiều thì cắt chiêu boss khu thứ hai trước.',
 ]
 
 
@@ -263,6 +266,9 @@ total_budget = sum(v for _, items in BUDGET for _, v in items)
 
 def dotnum(n):
     return f'{n:,}'.replace(',', '.')
+
+
+later_html = ''.join(f'<tr><td>{esc(t)}</td><td class="num">{dotnum(v)}</td></tr>' for t, v in LATER)
 
 
 budget_html = ''.join(
@@ -381,21 +387,21 @@ h4 {{ font-family: var(--display); font-size: 17px; margin: 0 0 6px; }}
   <main>
     <section id="tom-tat">
       <h1>Thế giới Aether</h1>
-      <p class="lead">Danh sách vùng, map, quái, boss, rồng và phần hình nhân vật người chơi cần vẽ — cân cho vừa một gói PixelLab 24$ (5.000 lượt). Soạn 08/10/2026. Bản Markdown cùng nội dung + phần bàn giao cho agent: <code>docs/the-gioi-aether.md</code>.</p>
+      <p class="lead">Danh sách vùng, map, quái, boss, rồng và phần hình nhân vật người chơi cần vẽ — gói PixelLab 24$ (5.000 lượt) làm trước map, quái, boss, rồng; nhân vật + trang bị để gói sau. Soạn 08/10/2026. Bản Markdown cùng nội dung + phần bàn giao cho agent: <code>docs/the-gioi-aether.md</code>.</p>
       <span class="status-line">Bản đề xuất — chờ chốt</span>
       <div class="stats">
         <div class="stat"><b>10</b><span>vùng · mỗi vùng 1 trạm (làng / toà thành) + 5 map săn + 1 thánh địa</span></div>
         <div class="stat"><b>70</b><span>map (đã có 6 ở vùng 1)</span></div>
         <div class="stat"><b>{new_mob} + {tint_mob}</b><span>loại quái: vẽ mới + đổi màu (đã có 4 loại vùng 1)</span></div>
         <div class="stat"><b>30 + 7</b><span>boss vùng (vẽ mới {boss_new}) + rồng nguyên tố</span></div>
-        <div class="stat"><b>~{str(f"{total_budget:,}").replace(",", ".")}</b><span>lượt PixelLab cho cả game — vừa 1 gói 24$ (5.000)</span></div>
+        <div class="stat"><b>~{str(f"{total_budget:,}").replace(",", ".")}</b><span>lượt PixelLab gói này (map, quái, boss, rồng) — vừa 1 gói 24$ (5.000)</span></div>
       </div>
       <p class="note">Luật chung của mỗi vùng: mỗi map săn <b>chỉ một loại quái</b>, sinh theo bầy; 2 trong 5 map săn có hang ổ <b>boss khu</b> (hồi sinh theo giờ); <b>boss chúa</b> ở thánh địa, hạ xong mới mở vùng kế. Ưu tiên lượt vẽ: <b>nhân vật người chơi + boss</b> vẽ riêng, đủ chất lượng; quái thường cắt bằng hình đổi màu.</p>
       <div class="legend">{pill("co")}{pill("moi")}{pill("mau:quái khác")}{pill("chieu")}</div>
     </section>
 
     <section id="trang-bi">
-      <h2>Trang bị hiện trên người</h2>
+      <h2>Trang bị hiện trên người <span class="pill plan" style="vertical-align:middle">Để gói sau</span></h2>
       <p>Mặc món nào thì nhân vật hiện đúng món đó: cầm kiếm nào, cầm trượng nào, đội mũ nào, mặc áo, quần, đi giày, đeo găng nào đều thấy trên người — cả người chơi khác cũng thấy. Mỗi lúc chỉ cầm một vũ khí: chém thì cầm kiếm, niệm phép thì cầm trượng.</p>
       <div class="gear-split" style="margin-top:14px">
         <div>
@@ -432,13 +438,15 @@ h4 {{ font-family: var(--display); font-size: 17px; margin: 0 0 6px; }}
 
     <section id="ngan-sach">
       <h2>Ngân sách PixelLab</h2>
-      <p>Chủ dự án chọn <b>một gói 24$ = 5.000 lượt</b> và làm đủ cả game trước. Mọi hạng mục dưới đây đã cân cho vừa gói đó, ưu tiên nhân vật người chơi + boss. Gói chạy 10 việc song song; lượt không dùng hết trong tháng thì mất.</p>
+      <p>Chủ dự án chọn <b>một gói 24$ = 5.000 lượt</b>, làm trước <b>map, quái, boss và đủ 7 rồng</b>; nhân vật người chơi + trang bị để gói sau. Gói chạy 10 việc song song; lượt không dùng hết trong tháng thì mất.</p>
       <div class="table-wrap" style="margin-top:12px"><table>
         <thead><tr><th colspan="2">Hạng mục</th><th class="num">Lượt</th></tr></thead>
         <tbody>{budget_html}<tr class="total"><td colspan="2">Cộng</td><td class="num">~{str(f"{total_budget:,}").replace(",", ".")}</td></tr></tbody>
       </table></div>
       <div class="months">{months_html}</div>
-      <p class="note">Cộng ≈ {str(f"{total_budget:,}").replace(",", ".")} / 5.000 lượt → còn ~{5000 - total_budget} lượt dự phòng để vẽ lại. Vẽ theo ba đợt dưới đây, đợt sau chỉ bắt đầu khi đợt trước đạt; nếu thiếu lượt thì cắt theo thứ tự: chiêu boss khu → rồng → quái mới thành đổi màu. Không cắt nhân vật người chơi.</p>
+      <h4 style="margin-top:18px">Để gói sau — nhân vật người chơi + trang bị (~{dotnum(sum(v for _, v in LATER))} lượt)</h4>
+      <div class="table-wrap"><table><tbody>{later_html}</tbody></table></div>
+      <p class="note">Cộng ≈ {str(f"{total_budget:,}").replace(",", ".")} / 5.000 lượt → còn ~{5000 - total_budget} lượt dự phòng để vẽ lại. Vẽ theo ba đợt dưới đây, đợt sau chỉ bắt đầu khi đợt trước đạt; nếu thiếu lượt thì cắt chiêu thứ hai của boss khu trước.</p>
     </section>
 
     <section id="can-chot">
@@ -474,12 +482,15 @@ https://claude.ai/artifact/VTrVtPJHXUtETsssKRcx9K). Không sửa tay hai file si
 
 1. Chủ dự án chốt danh sách (mục Cần chốt) → mua gói 24$ → thêm token trả phí vào CUỐI `PIXELLAB_TOKENS` trong `.env.local`
    (chủ dự án tự thêm). Kiểm số dư trước khi vẽ: `cd packages/asset-pipeline && npx tsx src/cli.ts pixellab balances` (miễn phí).
-   Vẽ theo ba đợt ở mục Ngân sách; đợt sau chỉ bắt đầu khi đợt trước đạt. Lượt miễn phí của PixelLab đang khoá (08/10/2026).
-2. **Lớp trang bị thân** (yêu cầu bắt buộc: mặc món nào hiện đúng món đó — kiếm, trượng, mũ, áo, quần, giày, găng): pipeline tách bộ đồ
-   PixelLab so với nhân vật gốc → cắt 4 lớp theo vùng thân → `apps/web/src/game/gearArt.ts` / `gearLayers.ts`. Làm thử 1 kiểu trước.
+   Vẽ theo ba đợt ở mục Ngân sách: **map + quái → boss → 7 rồng** (chủ dự án: nhân vật + đồ đạc để sau); đợt sau chỉ bắt đầu khi đợt
+   trước đạt. Lượt miễn phí của PixelLab đang khoá (08/10/2026).
+2. **Hang Gargoyle** (map thứ 7 vùng 1) rồi **vùng 2 → 10** theo hình vừa vẽ: map dựng bằng pipeline (`npm run assets:map -- <vùng>`,
+   khai vùng ở `packages/asset-pipeline/src/maps/regions.ts`), bật `ready: true` ở `packages/sim/src/regions.ts`; boss + chiêu + rồng
+   (Long Huyệt, boss thế giới dùng chung — `docs/ke-hoach-the-gioi.md` mục 2.1, 2.2).
 3. **M3.3b**: túi đồ + trang bị ở máy chủ, rơi đồ (máy chủ quyết), nhật ký kinh tế.
-4. **Hang Gargoyle** (map thứ 7 vùng 1) rồi **vùng 2**: map dựng bằng pipeline (`npm run assets:map -- <vùng>`, khai vùng ở
-   `packages/asset-pipeline/src/maps/regions.ts`), bật `ready: true` ở `packages/sim/src/regions.ts`.
+4. Gói sau — **nhân vật người chơi + trang bị** (yêu cầu bắt buộc: mặc món nào hiện đúng món đó — kiếm, trượng, mũ, áo, quần, giày,
+   găng): pipeline tách bộ đồ PixelLab so với nhân vật gốc → cắt 4 lớp theo vùng thân → `apps/web/src/game/gearArt.ts` /
+   `gearLayers.ts`. Làm thử 1 kiểu trước.
 5. Việc nhỏ chờ làm: báo cáo tin chat + lọc từ tục, bảng xếp hạng, trang quản trị (kim cương / nhật ký / tin bị báo cáo).
 
 ### Chạy / kiểm
@@ -525,15 +536,16 @@ def dot(n):
 md = []
 md.append('# Thế giới Aether — vùng, map, quái, boss, trang bị, ngân sách PixelLab\n')
 md.append('> FILE SINH TỰ ĐỘNG từ `docs/tools/the-gioi-aether.py` — sửa dữ liệu ở đó rồi chạy lại (sinh cả bản HTML). Soạn 08/10/2026,')
-md.append('> cân cho vừa MỘT gói PixelLab 24$ (5.000 lượt) — chủ dự án chọn gói này và làm đủ cả game trước. Trạng thái: **chờ chủ dự án chốt**.\n')
+md.append('> MỘT gói PixelLab 24$ (5.000 lượt): làm trước **map, quái, boss, đủ 7 rồng**; nhân vật người chơi + trang bị để gói sau (chủ dự án')
+md.append('> 08/10/2026). Trạng thái: **chờ chủ dự án chốt**.\n')
 md.append(HANDOFF)
 md.append('## Tóm tắt\n')
 md.append('- **10 vùng**, mỗi vùng 7 map: 1 trạm (làng hoặc toà thành — nơi ở có NPC dịch vụ, nhiệm vụ), 5 map săn, 1 thánh địa → **70 map** (đã có 6 ở vùng 1).')
 md.append(f'- Quái thường: **{new_mob} loại vẽ mới + {tint_mob} loại đổi màu** (0 lượt) + 4 loại đã có ở vùng 1. Mỗi map săn chỉ một loại quái, sinh theo bầy.')
 md.append(f'- Boss: **30 boss vùng** (2 boss khu + 1 boss chúa mỗi vùng; vẽ mới {boss_new}) + **7 rồng nguyên tố** (boss thêm, map phụ Long Huyệt).')
-md.append(f'- PixelLab: **~{dot(total_budget)} / 5.000 lượt** → còn ~{5000 - total_budget} lượt dự phòng. Ưu tiên nhân vật người chơi + boss.\n')
+md.append(f'- PixelLab gói này: **~{dot(total_budget)} / 5.000 lượt** (map, quái, boss, rồng) → còn ~{5000 - total_budget} lượt dự phòng. Nhân vật + trang bị: gói sau (~{dot(sum(v for _, v in LATER))} lượt).\n')
 
-md.append('## Trang bị hiện trên người (BẮT BUỘC)\n')
+md.append('## Trang bị hiện trên người (BẮT BUỘC — làm ở gói sau)\n')
 md.append('Mặc món nào thì nhân vật hiện đúng món đó — cầm kiếm nào, cầm trượng nào, đội mũ nào, áo, quần, giày, găng nào đều thấy trên người,')
 md.append('người chơi khác cũng thấy. Mỗi lúc cầm một vũ khí: chém thì cầm kiếm, niệm phép thì cầm trượng.\n')
 md.append('| Lớp thân | Cách hiện | Kiểu hình bản đầu |\n|---|---|---|')
@@ -581,10 +593,13 @@ for g, items in BUDGET:
     for i, (t, v) in enumerate(items):
         md.append(f'| {g if i == 0 else ""} | {md_cell(t)} | {dot(v)} |')
 md.append(f'| **Cộng** | | **~{dot(total_budget)}** (dự phòng ~{5000 - total_budget}) |\n')
-md.append('Vẽ theo ba đợt (đợt sau chỉ bắt đầu khi đợt trước đạt). Thiếu lượt thì cắt theo thứ tự: chiêu boss khu → rồng → quái mới thành')
-md.append('đổi màu. **Không cắt nhân vật người chơi.**\n')
+md.append('Vẽ theo ba đợt (đợt sau chỉ bắt đầu khi đợt trước đạt). Thiếu lượt thì cắt chiêu thứ hai của boss khu trước.\n')
 for m, pack, items, tot in MONTHS:
     md.append(f'- **{m} — {pack}** (~{dot(tot)} lượt): ' + '; '.join(items) + '.')
+md.append('')
+md.append(f'**Để gói sau — nhân vật người chơi + trang bị** (~{dot(sum(v for _, v in LATER))} lượt):\n')
+for t, v in LATER:
+    md.append(f'- {t} — {dot(v)}')
 md.append('')
 md.append('## Cần chốt\n')
 for i, q in enumerate(QUESTIONS, 1):
