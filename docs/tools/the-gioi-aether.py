@@ -26,8 +26,8 @@ REGIONS = [
              ('Làng nhà sàn Lau Xám', 'Trạm', [], 'moi'),
              ('Bãi Lau Sậy', 'Săn', [('Ếch độc', 'moi')], 'moi'),
              ('Kênh Đỉa', 'Săn', [('Đỉa đầm', 'moi'), ('Mẹ Ếch · boss khu', 'moi')], 'moi'),
-             ('Rừng Ngập Nấm', 'Săn', [('Nấm phát quang', 'mau:Nấm rừng')], 'moi'),
-             ('Đầm Xác Chìm', 'Săn', [('Xác sống bùn', 'mau:Xác sống')], 'moi'),
+             ('Rừng Ngập Nấm', 'Săn', [('Nấm phát quang', 'moi')], 'moi'),
+             ('Đầm Rắn Nước', 'Săn', [('Rắn nước', 'moi')], 'moi'),
              ('Vực Sương Xanh', 'Săn', [('Người cá bùn', 'moi'), ('Phù thuỷ đầm · boss khu', 'moi')], 'moi'),
              ('Hồ Hydra', 'Thánh địa', [('Hydra bùn · boss chúa', 'moi')], 'moi'),
          ]),
@@ -37,9 +37,9 @@ REGIONS = [
              ('Thành ốc đảo Sahrin', 'Trạm (toà thành)', [], 'moi'),
              ('Cồn Cát Đỏ', 'Săn', [('Bọ cạp', 'moi')], 'moi'),
              ('Hẻm Rắn', 'Săn', [('Rắn cát', 'moi'), ('Bọ cạp chúa · boss khu', 'moi')], 'moi'),
-             ('Lăng Mộ Cát', 'Săn', [('Xác ướp', 'mau:Xác sống')], 'moi'),
+             ('Lăng Mộ Cát', 'Săn', [('Xác ướp', 'moi')], 'moi'),
              ('Vách Kền Kền', 'Săn', [('Kền kền', 'moi')], 'moi'),
-             ('Phế tích Đá Đỏ', 'Săn', [('Cung thủ xương cát', 'mau:Cung thủ xương'), ('Pharaoh xác ướp · boss khu', 'moi')], 'moi'),
+             ('Phế tích Đá Đỏ', 'Săn', [('Linh hồn cát', 'moi'), ('Pharaoh xác ướp · boss khu', 'moi')], 'moi'),
              ('Hố Cát Nuốt', 'Thánh địa', [('Sâu cát khổng lồ · boss chúa', 'moi')], 'moi'),
          ]),
     dict(n=4, name='Cao nguyên Gió Hú', lv='30–40', elem='Phong', weak='Thổ', status='Chưa có map', dragon='Phong Long',
@@ -49,18 +49,18 @@ REGIONS = [
              ('Đồi Cỏ Cao', 'Săn', [('Sói gió', 'moi')], 'moi'),
              ('Vách Chim Ưng', 'Săn', [('Chim ưng', 'moi'), ('Đại bàng bão · boss khu', 'moi')], 'moi'),
              ('Thung Lũng Tiên', 'Săn', [('Tiên gió', 'moi')], 'moi'),
-             ('Bãi Đá Bay', 'Săn', [('Đá bay', 'mau:Gargoyle đá')], 'moi'),
-             ('Đường Lên Đền Mây', 'Săn', [('Yêu tinh gió', 'mau:Tiên gió'), ('Pháp sư gió · boss khu', 'moi')], 'moi'),
+             ('Bãi Đá Bay', 'Săn', [('Đá bay', 'moi')], 'moi'),
+             ('Đường Lên Đền Mây', 'Săn', [('Yêu tinh gió', 'moi'), ('Pháp sư gió · boss khu', 'moi')], 'moi'),
              ('Đền Trên Mây', 'Thánh địa', [('Rồng gió · boss chúa', 'moi')], 'moi'),
          ]),
     dict(n=5, name='Lãnh nguyên Băng Giá', lv='40–50', elem='Băng', weak='Hoả', status='Chưa có map', dragon='Băng Long',
          town=('village', 'Làng gỗ Tuyết Phong', 'Thợ săn và thợ mỏ băng sống qua mùa đông dài.'),
          maps=[
              ('Làng gỗ Tuyết Phong', 'Trạm', [], 'moi'),
-             ('Rừng Thông Tuyết', 'Săn', [('Sói tuyết', 'mau:Sói gió')], 'moi'),
+             ('Rừng Thông Tuyết', 'Săn', [('Sói tuyết', 'moi')], 'moi'),
              ('Hồ Băng', 'Săn', [('Tinh linh băng', 'moi'), ('Nữ hoàng băng · boss khu', 'moi')], 'moi'),
              ('Đèo Người Tuyết', 'Săn', [('Người tuyết', 'moi'), ('Yeti · boss khu', 'moi')], 'moi'),
-             ('Mỏ Băng', 'Săn', [('Gargoyle băng', 'mau:Gargoyle đá')], 'moi'),
+             ('Bờ Biển Băng', 'Săn', [('Chim cánh cụt chiến', 'moi')], 'moi'),
              ('Hang Gấu', 'Săn', [('Gấu băng', 'moi')], 'moi'),
              ('Ngai Băng', 'Thánh địa', [('Băng long · boss chúa', 'moi')], 'moi'),
          ]),
@@ -71,8 +71,8 @@ REGIONS = [
              ('Bãi Đá Đen', 'Săn', [('Thằn lằn lửa', 'moi')], 'moi'),
              ('Sông Dung Nham', 'Săn', [('Golem dung nham', 'moi'), ('Golem dung nham cổ · boss khu', 'moi')], 'moi'),
              ('Hang Dơi Lửa', 'Săn', [('Dơi lửa', 'moi')], 'moi'),
-             ('Lò Rèn Bỏ Hoang', 'Săn', [('Tinh linh lửa', 'mau:Tinh linh băng')], 'moi'),
-             ('Miệng Núi', 'Săn', [('Sói lửa', 'mau:Sói gió'), ('Salamander · boss khu', 'moi')], 'moi'),
+             ('Lò Rèn Bỏ Hoang', 'Săn', [('Tinh linh lửa', 'moi')], 'moi'),
+             ('Miệng Núi', 'Săn', [('Quỷ lửa', 'moi'), ('Salamander · boss khu', 'moi')], 'moi'),
              ('Lõi Núi Lửa', 'Thánh địa', [('Hoả thần · boss chúa', 'moi')], 'moi'),
          ]),
     dict(n=7, name='Quần đảo San Hô', lv='60–70', elem='Thuỷ', weak='Phong, Thổ', status='Chưa có map', dragon='Thuỷ Long',
@@ -82,19 +82,19 @@ REGIONS = [
              ('Bãi Cát Trắng', 'Săn', [('Cua', 'moi')], 'moi'),
              ('Rạn San Hô', 'Săn', [('Sứa', 'moi'), ('Cua chúa · boss khu', 'moi')], 'moi'),
              ('Đảo Cướp Biển', 'Săn', [('Cướp biển', 'moi')], 'moi'),
-             ('Đầm Người Cá', 'Săn', [('Người cá', 'mau:Người cá bùn')], 'moi'),
-             ('Bãi Tàu Đắm', 'Săn', [('Rắn biển', 'mau:Rắn cát'), ('Thuyền trưởng ma · boss khu', 'moi')], 'moi'),
+             ('Đầm Người Cá', 'Săn', [('Người cá', 'moi')], 'moi'),
+             ('Bãi Tàu Đắm', 'Săn', [('Bạch tuộc', 'moi'), ('Thuyền trưởng ma · boss khu', 'moi')], 'moi'),
              ('Vực Kraken', 'Thánh địa', [('Kraken · boss chúa', 'moi')], 'moi'),
          ]),
     dict(n=8, name='Rừng Nấm Ngầm', lv='70–80', elem='Thổ', weak='Phong', status='Chưa có map', dragon='Địa Long',
          town=('village', 'Làng người nấm Ánh Tím', 'Tộc người nấm dưới lòng đất, chỉ tin người đã giúp họ.'),
          maps=[
              ('Làng người nấm Ánh Tím', 'Trạm', [], 'moi'),
-             ('Rừng Nấm Khổng Lồ', 'Săn', [('Người nấm', 'mau:Nấm rừng')], 'moi'),
+             ('Rừng Nấm Khổng Lồ', 'Săn', [('Người nấm', 'moi')], 'moi'),
              ('Hang Nhện', 'Săn', [('Nhện hang', 'moi'), ('Nhện chúa · boss khu', 'moi')], 'moi'),
              ('Mạch Tinh Thể', 'Săn', [('Sâu tinh thể', 'moi')], 'moi'),
-             ('Hang Dơi Tím', 'Săn', [('Dơi tím', 'mau:Dơi hang')], 'moi'),
-             ('Điện Nấm', 'Săn', [('Golem đá', 'mau:Golem dung nham'), ('Vua người nấm · boss khu', 'moi')], 'moi'),
+             ('Hang Bọ Đèn', 'Săn', [('Bọ đèn ngầm', 'moi')], 'moi'),
+             ('Điện Nấm', 'Săn', [('Rùa đá rêu', 'moi'), ('Vua người nấm · boss khu', 'moi')], 'moi'),
              ('Lòng Đất Sâu', 'Thánh địa', [('Rồng đất · boss chúa', 'moi')], 'moi'),
          ]),
     dict(n=9, name='Phế tích Aether', lv='80–90', elem='Aether / thép (kháng phép)', weak='Kiếm', status='Chưa có map', dragon='Quang Long',
@@ -104,8 +104,8 @@ REGIONS = [
              ('Phố Đổ Nát', 'Săn', [('Hiệp sĩ ma', 'moi')], 'moi'),
              ('Xưởng Máy Cổ', 'Săn', [('Vệ binh máy', 'moi'), ('Cỗ máy canh giữ · boss khu', 'moi')], 'moi'),
              ('Thư Viện Bay', 'Săn', [('Sách bay', 'moi')], 'moi'),
-             ('Tháp Pháp Sư', 'Săn', [('Pháp sư mất trí', 'mau:Cướp biển')], 'moi'),
-             ('Sân Tượng', 'Săn', [('Gargoyle cổ', 'mau:Gargoyle đá'), ('Hiệp sĩ đầu lâu · boss khu', 'moi')], 'moi'),
+             ('Tháp Pháp Sư', 'Săn', [('Pháp sư mất trí', 'moi')], 'moi'),
+             ('Xưởng Rối', 'Săn', [('Rối gỗ ma thuật', 'moi'), ('Hiệp sĩ đầu lâu · boss khu', 'moi')], 'moi'),
              ('Điện Aether', 'Thánh địa', [('Đại pháp sư sa đoạ · boss chúa', 'moi')], 'moi'),
          ]),
     dict(n=10, name='Vực Hư Không', lv='90–100', elem='Bóng tối / hỗn hợp', weak='Aether, Hoả', status='Chưa có map', dragon='Hắc Long',
@@ -114,8 +114,8 @@ REGIONS = [
              ('Thành trì Hư Không', 'Trạm (toà thành)', [], 'moi'),
              ('Đảo Trôi Tím', 'Săn', [('Quỷ hư không', 'moi')], 'moi'),
              ('Khe Nứt', 'Săn', [('Mắt bay', 'moi'), ('Hiệp sĩ hư không · boss khu', 'moi')], 'moi'),
-             ('Rừng Bóng', 'Săn', [('Bóng người', 'mau:Hiệp sĩ ma')], 'moi'),
-             ('Nghĩa Trang Hư Không', 'Săn', [('Ác linh', 'mau:Tinh linh băng')], 'moi'),
+             ('Rừng Bóng', 'Săn', [('Bóng người', 'moi')], 'moi'),
+             ('Nghĩa Trang Hư Không', 'Săn', [('Ác linh', 'moi')], 'moi'),
              ('Hang Ma Sói', 'Săn', [('Ma sói', 'moi'), ('Mẹ quỷ · boss khu', 'moi')], 'moi'),
              ('Ngai Ma Vương', 'Thánh địa', [('Ma vương · boss chúa (trùm cuối)', 'moi')], 'moi'),
          ]),
@@ -150,16 +150,16 @@ BUDGET = [
     ('Map + giao diện', [
         ('Đồ vật / nhà / cây 9 vùng (4 tấm 3×3 mỗi vùng), 9 trạm, tranh lục địa, gian hàng, icon (kim cương, lịch, 6 bình)', 450),
     ]),
-    ('Quái thường', [
-        ('27 loại vẽ mới × ~15 lượt (chế độ thường 1 lượt đủ 8 hướng; đi / đánh 4 hướng + lật gương); 19 loại đổi màu = 0 lượt', 405),
+    ('Quái thường (đa dạng — mỗi loại một hình riêng)', [
+        ('46 loại vẽ mới × ~15 lượt (chế độ thường 1 lượt đủ 8 hướng; đi / đánh 4 hướng + lật gương) — không dùng bản đổi màu', 690),
     ]),
     ('Boss', [
         ('28 boss vẽ mới × ~40 lượt (4 hướng + lật gương; đi, đánh, niệm, gục)', 1120),
-        ('Chiêu boss chúa: 10 boss × 2 chiêu riêng × ~30 lượt (gồm Quỷ vương)', 600),
-        ('Chiêu boss khu: 20 boss × 2 chiêu riêng × ~10 lượt (gồm Vua Lich)', 400),
+        ('Boss chúa: 10 boss × 2 chiêu riêng × ~30 lượt (gồm Quỷ vương)', 600),
+        ('Boss khu: 20 boss × 1 chiêu riêng × ~10 lượt (gồm Vua Lich)', 200),
     ]),
-    ('Rồng (vẽ đầy đủ)', [
-        ('7 rồng nguyên tố × ~250 lượt (sprite lớn 192–256px, 4 hướng + lật gương, động tác + 3–4 chiêu)', 1750),
+    ('Rồng', [
+        ('7 rồng nguyên tố × ~220 lượt (sprite lớn 192–256px, 4 hướng + lật gương, động tác + 3 chiêu)', 1540),
     ]),
 ]
 
@@ -175,23 +175,23 @@ LATER = [
 MONTHS = [
     ('Đợt 1', 'map + quái', [
         'Đồ vật, nhà, cây của 9 vùng; 9 trạm; tranh lục địa; gian hàng; icon',
-        '27 loại quái mới (19 loại còn lại đổi màu bằng code)',
-    ], 855),
+        '46 loại quái thường mới (mỗi loại một hình riêng)',
+    ], 1140),
     ('Đợt 2', 'boss', [
         'Vùng 1 trước: Gargoyle Đá + chiêu Quỷ vương / Vua Lich',
-        '27 boss vùng 2–10, mỗi boss chúa 2 chiêu, mỗi boss khu 2 chiêu',
-    ], 2120),
-    ('Đợt 3', '7 rồng đầy đủ', [
-        'Phong, Băng, Hoả, Thuỷ, Địa, Quang, Hắc Long — sprite lớn + 3–4 chiêu mỗi con',
-    ], 1750),
+        '27 boss vùng 2–10 — boss chúa 2 chiêu, boss khu 1 chiêu',
+    ], 1920),
+    ('Đợt 3', '7 rồng', [
+        'Phong, Băng, Hoả, Thuỷ, Địa, Quang, Hắc Long — sprite lớn + 3 chiêu mỗi con',
+    ], 1540),
 ]
 
 QUESTIONS = [
     'Tên 10 vùng, nơi ở (làng / toà thành) và tên map — tên vùng 2–10 là đề xuất.',
-    'Danh sách quái từng vùng, nhất là các loại dùng hình đổi màu (cột Hình). Đã thay vài loại trong kế hoạch cũ để dùng lại hình: vùng 3 "linh hồn cát" → Cung thủ xương cát, vùng 5 bỏ "chim cánh cụt chiến" → Gargoyle băng.',
-    'Boss + rồng: tên, chiêu chính (mục Rồng) — gói này vẽ đủ 28 boss mới + 7 rồng.',
+    'Danh sách 46 loại quái thường (mỗi loại vẽ riêng, không dùng bản đổi màu). Đổi so với kế hoạch cũ cho khỏi trùng dáng: vùng 8 "dơi" → Bọ đèn ngầm, "golem đá" → Rùa đá rêu; vùng 9 "gargoyle cổ" → Rối gỗ ma thuật; vùng 1 thêm Dơi hang (Hang Gargoyle).',
+    'Chiêu: boss chúa 2 chiêu, boss khu 1 chiêu, rồng 3 chiêu (chủ dự án chốt 08/10/2026). Tên boss + chiêu chính của rồng (mục Rồng).',
     'Nhân vật người chơi + trang bị để gói sau (~1.250 lượt). Khi làm: 4 kiểu hình bộ đồ cắt 4 lớp áo / quần / giày / găng, đồ gắn 24 kiểu; dây chuyền / nhẫn chỉ hiện ở kho đồ.',
-    'Ngân sách vừa MỘT gói 24$ (5.000 lượt), dự phòng ~275 lượt để vẽ lại — vẽ hỏng nhiều thì cắt chiêu boss khu thứ hai trước.',
+    'Gói 24$ (5.000 lượt) dùng ~4.600, dự phòng ~400 lượt để vẽ lại.',
 ]
 
 
@@ -392,12 +392,12 @@ h4 {{ font-family: var(--display); font-size: 17px; margin: 0 0 6px; }}
       <div class="stats">
         <div class="stat"><b>10</b><span>vùng · mỗi vùng 1 trạm (làng / toà thành) + 5 map săn + 1 thánh địa</span></div>
         <div class="stat"><b>70</b><span>map (đã có 6 ở vùng 1)</span></div>
-        <div class="stat"><b>{new_mob} + {tint_mob}</b><span>loại quái: vẽ mới + đổi màu (đã có 4 loại vùng 1)</span></div>
+        <div class="stat"><b>{new_mob}</b><span>loại quái thường vẽ mới, mỗi loại một hình riêng (+4 loại có sẵn ở vùng 1)</span></div>
         <div class="stat"><b>30 + 7</b><span>boss vùng (vẽ mới {boss_new}) + rồng nguyên tố</span></div>
         <div class="stat"><b>~{str(f"{total_budget:,}").replace(",", ".")}</b><span>lượt PixelLab gói này (map, quái, boss, rồng) — vừa 1 gói 24$ (5.000)</span></div>
       </div>
-      <p class="note">Luật chung của mỗi vùng: mỗi map săn <b>chỉ một loại quái</b>, sinh theo bầy; 2 trong 5 map săn có hang ổ <b>boss khu</b> (hồi sinh theo giờ); <b>boss chúa</b> ở thánh địa, hạ xong mới mở vùng kế. Ưu tiên lượt vẽ: <b>nhân vật người chơi + boss</b> vẽ riêng, đủ chất lượng; quái thường cắt bằng hình đổi màu.</p>
-      <div class="legend">{pill("co")}{pill("moi")}{pill("mau:quái khác")}{pill("chieu")}</div>
+      <p class="note">Luật chung của mỗi vùng: mỗi map săn <b>chỉ một loại quái</b>, sinh theo bầy; 2 trong 5 map săn có hang ổ <b>boss khu</b> (1 chiêu riêng, hồi sinh theo giờ); <b>boss chúa</b> ở thánh địa (2 chiêu riêng), hạ xong mới mở vùng kế. Quái thường mỗi loại một hình riêng — không dùng bản đổi màu. Rồng 3 chiêu.</p>
+      <div class="legend">{pill("co")}{pill("moi")}{pill("chieu")}</div>
     </section>
 
     <section id="trang-bi">
@@ -446,7 +446,7 @@ h4 {{ font-family: var(--display); font-size: 17px; margin: 0 0 6px; }}
       <div class="months">{months_html}</div>
       <h4 style="margin-top:18px">Để gói sau — nhân vật người chơi + trang bị (~{dotnum(sum(v for _, v in LATER))} lượt)</h4>
       <div class="table-wrap"><table><tbody>{later_html}</tbody></table></div>
-      <p class="note">Cộng ≈ {str(f"{total_budget:,}").replace(",", ".")} / 5.000 lượt → còn ~{5000 - total_budget} lượt dự phòng để vẽ lại. Vẽ theo ba đợt dưới đây, đợt sau chỉ bắt đầu khi đợt trước đạt; nếu thiếu lượt thì cắt chiêu thứ hai của boss khu trước.</p>
+      <p class="note">Cộng ≈ {str(f"{total_budget:,}").replace(",", ".")} / 5.000 lượt → còn ~{5000 - total_budget} lượt dự phòng để vẽ lại. Vẽ theo ba đợt dưới đây, đợt sau chỉ bắt đầu khi đợt trước đạt.</p>
     </section>
 
     <section id="can-chot">
@@ -541,7 +541,7 @@ md.append('> 08/10/2026). Trạng thái: **chờ chủ dự án chốt**.\n')
 md.append(HANDOFF)
 md.append('## Tóm tắt\n')
 md.append('- **10 vùng**, mỗi vùng 7 map: 1 trạm (làng hoặc toà thành — nơi ở có NPC dịch vụ, nhiệm vụ), 5 map săn, 1 thánh địa → **70 map** (đã có 6 ở vùng 1).')
-md.append(f'- Quái thường: **{new_mob} loại vẽ mới + {tint_mob} loại đổi màu** (0 lượt) + 4 loại đã có ở vùng 1. Mỗi map săn chỉ một loại quái, sinh theo bầy.')
+md.append(f'- Quái thường: **{new_mob} loại vẽ mới**, mỗi loại một hình riêng (không dùng bản đổi màu) + 4 loại đã có ở vùng 1. Mỗi map săn một loại quái, sinh theo bầy.')
 md.append(f'- Boss: **30 boss vùng** (2 boss khu + 1 boss chúa mỗi vùng; vẽ mới {boss_new}) + **7 rồng nguyên tố** (boss thêm, map phụ Long Huyệt).')
 md.append(f'- PixelLab gói này: **~{dot(total_budget)} / 5.000 lượt** (map, quái, boss, rồng) → còn ~{5000 - total_budget} lượt dự phòng. Nhân vật + trang bị: gói sau (~{dot(sum(v for _, v in LATER))} lượt).\n')
 
@@ -559,7 +559,7 @@ for a, n, c in GEAR_ATTACH:
 md.append('\nĐồ khác cấp / khác chỉ số dùng chung kiểu hình, độ hiếm hiện bằng màu + viền sáng (code nhuộm). Dây chuyền, nhẫn chỉ hiện ở kho đồ.\n')
 
 md.append('## 10 vùng\n')
-md.append('Chú thích cột Hình: **vẽ mới** = PixelLab vẽ; "đổi màu từ X" = code đổi màu hình quái X (0 lượt); "có sẵn" = đã có trong game;')
+md.append('Chú thích cột Hình: **vẽ mới** = PixelLab vẽ (mỗi loại quái một hình riêng, không dùng bản đổi màu); "có sẵn" = đã có trong game;')
 md.append('"cần chiêu mới" = có hình, thiếu hiệu ứng chiêu. Boss khu ở hang ổ trong map săn (hồi sinh theo giờ); boss chúa ở thánh địa,')
 md.append('hạ xong mới mở vùng kế.\n')
 for r in REGIONS:
@@ -593,7 +593,7 @@ for g, items in BUDGET:
     for i, (t, v) in enumerate(items):
         md.append(f'| {g if i == 0 else ""} | {md_cell(t)} | {dot(v)} |')
 md.append(f'| **Cộng** | | **~{dot(total_budget)}** (dự phòng ~{5000 - total_budget}) |\n')
-md.append('Vẽ theo ba đợt (đợt sau chỉ bắt đầu khi đợt trước đạt). Thiếu lượt thì cắt chiêu thứ hai của boss khu trước.\n')
+md.append('Vẽ theo ba đợt (đợt sau chỉ bắt đầu khi đợt trước đạt).\n')
 for m, pack, items, tot in MONTHS:
     md.append(f'- **{m} — {pack}** (~{dot(tot)} lượt): ' + '; '.join(items) + '.')
 md.append('')

@@ -9,9 +9,10 @@ Chủ dự án: "tập trung vào nhân vật của người dùng và boss", "c
 (vùng / map / quái / boss / rồng / trang bị) + ngân sách từng hạng mục + ba đợt vẽ + bàn giao: **`docs/the-gioi-aether.md`** (nguồn
 số liệu duy nhất — các con số cũ ở file này và ở `docs/ke-hoach-the-gioi.md` mục 4 là ước tính trước khi cắt, KHÔNG dùng).
 
-Tóm tắt (chủ dự án 08/10/2026: "tạm thời đồ đạc và nhân vật để sau — làm xong quái, các map và boss, full rồng trước"): gói này
-~4.725 / 5.000 lượt — map + giao diện ~450, quái thường ~405 (27 loại mới, 19 loại đổi màu), boss ~2.120 (28 boss mới, boss chúa 2
-chiêu, boss khu 2 chiêu), 7 rồng vẽ đầy đủ ~1.750. Nhân vật người chơi + trang bị hiện trên người (~1.250) để gói sau.
+Tóm tắt (chủ dự án 08/10/2026: "đồ đạc và nhân vật để sau — làm xong quái, các map và boss, full rồng trước"; "rồng 3 chiêu, boss khu
+1 chiêu, boss chúa 2 chiêu, đừng thay màu quái — quái thường nên đa dạng"): gói này ~4.600 / 5.000 lượt — map + giao diện ~450, quái
+thường ~690 (46 loại, mỗi loại một hình riêng), boss ~1.920 (28 boss mới; boss chúa 2 chiêu, boss khu 1 chiêu), 7 rồng × 3 chiêu ~1.540;
+dự phòng ~400. Nhân vật người chơi + trang bị hiện trên người (~1.250) để gói sau.
 
 ## Phân việc
 

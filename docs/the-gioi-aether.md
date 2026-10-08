@@ -56,9 +56,9 @@ https://claude.ai/artifact/VTrVtPJHXUtETsssKRcx9K). Không sửa tay hai file si
 ## Tóm tắt
 
 - **10 vùng**, mỗi vùng 7 map: 1 trạm (làng hoặc toà thành — nơi ở có NPC dịch vụ, nhiệm vụ), 5 map săn, 1 thánh địa → **70 map** (đã có 6 ở vùng 1).
-- Quái thường: **27 loại vẽ mới + 19 loại đổi màu** (0 lượt) + 4 loại đã có ở vùng 1. Mỗi map săn chỉ một loại quái, sinh theo bầy.
+- Quái thường: **46 loại vẽ mới**, mỗi loại một hình riêng (không dùng bản đổi màu) + 4 loại đã có ở vùng 1. Mỗi map săn một loại quái, sinh theo bầy.
 - Boss: **30 boss vùng** (2 boss khu + 1 boss chúa mỗi vùng; vẽ mới 28) + **7 rồng nguyên tố** (boss thêm, map phụ Long Huyệt).
-- PixelLab gói này: **~4.725 / 5.000 lượt** (map, quái, boss, rồng) → còn ~275 lượt dự phòng. Nhân vật + trang bị: gói sau (~1.250 lượt).
+- PixelLab gói này: **~4.600 / 5.000 lượt** (map, quái, boss, rồng) → còn ~400 lượt dự phòng. Nhân vật + trang bị: gói sau (~1.250 lượt).
 
 ## Trang bị hiện trên người (BẮT BUỘC — làm ở gói sau)
 
@@ -87,7 +87,7 @@ tác) → pipeline so với nhân vật gốc để tách phần đồ, rồi c�
 
 ## 10 vùng
 
-Chú thích cột Hình: **vẽ mới** = PixelLab vẽ; "đổi màu từ X" = code đổi màu hình quái X (0 lượt); "có sẵn" = đã có trong game;
+Chú thích cột Hình: **vẽ mới** = PixelLab vẽ (mỗi loại quái một hình riêng, không dùng bản đổi màu); "có sẵn" = đã có trong game;
 "cần chiêu mới" = có hình, thiếu hiệu ứng chiêu. Boss khu ở hang ổ trong map săn (hồi sinh theo giờ); boss chúa ở thánh địa,
 hạ xong mới mở vùng kế.
 
@@ -119,8 +119,8 @@ hạ xong mới mở vùng kế.
 | Bãi Lau Sậy | Săn | Ếch độc | **vẽ mới** | chưa có |
 | Kênh Đỉa | Săn | Đỉa đầm | **vẽ mới** | chưa có |
 |  |  | Mẹ Ếch · boss khu | **vẽ mới** |  |
-| Rừng Ngập Nấm | Săn | Nấm phát quang | đổi màu từ Nấm rừng | chưa có |
-| Đầm Xác Chìm | Săn | Xác sống bùn | đổi màu từ Xác sống | chưa có |
+| Rừng Ngập Nấm | Săn | Nấm phát quang | **vẽ mới** | chưa có |
+| Đầm Rắn Nước | Săn | Rắn nước | **vẽ mới** | chưa có |
 | Vực Sương Xanh | Săn | Người cá bùn | **vẽ mới** | chưa có |
 |  |  | Phù thuỷ đầm · boss khu | **vẽ mới** |  |
 | Hồ Hydra | Thánh địa | Hydra bùn · boss chúa | **vẽ mới** | chưa có |
@@ -136,9 +136,9 @@ hạ xong mới mở vùng kế.
 | Cồn Cát Đỏ | Săn | Bọ cạp | **vẽ mới** | chưa có |
 | Hẻm Rắn | Săn | Rắn cát | **vẽ mới** | chưa có |
 |  |  | Bọ cạp chúa · boss khu | **vẽ mới** |  |
-| Lăng Mộ Cát | Săn | Xác ướp | đổi màu từ Xác sống | chưa có |
+| Lăng Mộ Cát | Săn | Xác ướp | **vẽ mới** | chưa có |
 | Vách Kền Kền | Săn | Kền kền | **vẽ mới** | chưa có |
-| Phế tích Đá Đỏ | Săn | Cung thủ xương cát | đổi màu từ Cung thủ xương | chưa có |
+| Phế tích Đá Đỏ | Săn | Linh hồn cát | **vẽ mới** | chưa có |
 |  |  | Pharaoh xác ướp · boss khu | **vẽ mới** |  |
 | Hố Cát Nuốt | Thánh địa | Sâu cát khổng lồ · boss chúa | **vẽ mới** | chưa có |
 
@@ -155,8 +155,8 @@ hạ xong mới mở vùng kế.
 | Vách Chim Ưng | Săn | Chim ưng | **vẽ mới** | chưa có |
 |  |  | Đại bàng bão · boss khu | **vẽ mới** |  |
 | Thung Lũng Tiên | Săn | Tiên gió | **vẽ mới** | chưa có |
-| Bãi Đá Bay | Săn | Đá bay | đổi màu từ Gargoyle đá | chưa có |
-| Đường Lên Đền Mây | Săn | Yêu tinh gió | đổi màu từ Tiên gió | chưa có |
+| Bãi Đá Bay | Săn | Đá bay | **vẽ mới** | chưa có |
+| Đường Lên Đền Mây | Săn | Yêu tinh gió | **vẽ mới** | chưa có |
 |  |  | Pháp sư gió · boss khu | **vẽ mới** |  |
 | Đền Trên Mây | Thánh địa | Rồng gió · boss chúa | **vẽ mới** | chưa có |
 
@@ -169,12 +169,12 @@ hạ xong mới mở vùng kế.
 | Map | Loại | Quái / boss | Hình | Map |
 |---|---|---|---|---|
 | Làng gỗ Tuyết Phong | Trạm | — (NPC dịch vụ) | — | chưa có |
-| Rừng Thông Tuyết | Săn | Sói tuyết | đổi màu từ Sói gió | chưa có |
+| Rừng Thông Tuyết | Săn | Sói tuyết | **vẽ mới** | chưa có |
 | Hồ Băng | Săn | Tinh linh băng | **vẽ mới** | chưa có |
 |  |  | Nữ hoàng băng · boss khu | **vẽ mới** |  |
 | Đèo Người Tuyết | Săn | Người tuyết | **vẽ mới** | chưa có |
 |  |  | Yeti · boss khu | **vẽ mới** |  |
-| Mỏ Băng | Săn | Gargoyle băng | đổi màu từ Gargoyle đá | chưa có |
+| Bờ Biển Băng | Săn | Chim cánh cụt chiến | **vẽ mới** | chưa có |
 | Hang Gấu | Săn | Gấu băng | **vẽ mới** | chưa có |
 | Ngai Băng | Thánh địa | Băng long · boss chúa | **vẽ mới** | chưa có |
 
@@ -191,8 +191,8 @@ hạ xong mới mở vùng kế.
 | Sông Dung Nham | Săn | Golem dung nham | **vẽ mới** | chưa có |
 |  |  | Golem dung nham cổ · boss khu | **vẽ mới** |  |
 | Hang Dơi Lửa | Săn | Dơi lửa | **vẽ mới** | chưa có |
-| Lò Rèn Bỏ Hoang | Săn | Tinh linh lửa | đổi màu từ Tinh linh băng | chưa có |
-| Miệng Núi | Săn | Sói lửa | đổi màu từ Sói gió | chưa có |
+| Lò Rèn Bỏ Hoang | Săn | Tinh linh lửa | **vẽ mới** | chưa có |
+| Miệng Núi | Săn | Quỷ lửa | **vẽ mới** | chưa có |
 |  |  | Salamander · boss khu | **vẽ mới** |  |
 | Lõi Núi Lửa | Thánh địa | Hoả thần · boss chúa | **vẽ mới** | chưa có |
 
@@ -209,8 +209,8 @@ hạ xong mới mở vùng kế.
 | Rạn San Hô | Săn | Sứa | **vẽ mới** | chưa có |
 |  |  | Cua chúa · boss khu | **vẽ mới** |  |
 | Đảo Cướp Biển | Săn | Cướp biển | **vẽ mới** | chưa có |
-| Đầm Người Cá | Săn | Người cá | đổi màu từ Người cá bùn | chưa có |
-| Bãi Tàu Đắm | Săn | Rắn biển | đổi màu từ Rắn cát | chưa có |
+| Đầm Người Cá | Săn | Người cá | **vẽ mới** | chưa có |
+| Bãi Tàu Đắm | Săn | Bạch tuộc | **vẽ mới** | chưa có |
 |  |  | Thuyền trưởng ma · boss khu | **vẽ mới** |  |
 | Vực Kraken | Thánh địa | Kraken · boss chúa | **vẽ mới** | chưa có |
 
@@ -223,12 +223,12 @@ hạ xong mới mở vùng kế.
 | Map | Loại | Quái / boss | Hình | Map |
 |---|---|---|---|---|
 | Làng người nấm Ánh Tím | Trạm | — (NPC dịch vụ) | — | chưa có |
-| Rừng Nấm Khổng Lồ | Săn | Người nấm | đổi màu từ Nấm rừng | chưa có |
+| Rừng Nấm Khổng Lồ | Săn | Người nấm | **vẽ mới** | chưa có |
 | Hang Nhện | Săn | Nhện hang | **vẽ mới** | chưa có |
 |  |  | Nhện chúa · boss khu | **vẽ mới** |  |
 | Mạch Tinh Thể | Săn | Sâu tinh thể | **vẽ mới** | chưa có |
-| Hang Dơi Tím | Săn | Dơi tím | đổi màu từ Dơi hang | chưa có |
-| Điện Nấm | Săn | Golem đá | đổi màu từ Golem dung nham | chưa có |
+| Hang Bọ Đèn | Săn | Bọ đèn ngầm | **vẽ mới** | chưa có |
+| Điện Nấm | Săn | Rùa đá rêu | **vẽ mới** | chưa có |
 |  |  | Vua người nấm · boss khu | **vẽ mới** |  |
 | Lòng Đất Sâu | Thánh địa | Rồng đất · boss chúa | **vẽ mới** | chưa có |
 
@@ -245,8 +245,8 @@ hạ xong mới mở vùng kế.
 | Xưởng Máy Cổ | Săn | Vệ binh máy | **vẽ mới** | chưa có |
 |  |  | Cỗ máy canh giữ · boss khu | **vẽ mới** |  |
 | Thư Viện Bay | Săn | Sách bay | **vẽ mới** | chưa có |
-| Tháp Pháp Sư | Săn | Pháp sư mất trí | đổi màu từ Cướp biển | chưa có |
-| Sân Tượng | Săn | Gargoyle cổ | đổi màu từ Gargoyle đá | chưa có |
+| Tháp Pháp Sư | Săn | Pháp sư mất trí | **vẽ mới** | chưa có |
+| Xưởng Rối | Săn | Rối gỗ ma thuật | **vẽ mới** | chưa có |
 |  |  | Hiệp sĩ đầu lâu · boss khu | **vẽ mới** |  |
 | Điện Aether | Thánh địa | Đại pháp sư sa đoạ · boss chúa | **vẽ mới** | chưa có |
 
@@ -262,8 +262,8 @@ hạ xong mới mở vùng kế.
 | Đảo Trôi Tím | Săn | Quỷ hư không | **vẽ mới** | chưa có |
 | Khe Nứt | Săn | Mắt bay | **vẽ mới** | chưa có |
 |  |  | Hiệp sĩ hư không · boss khu | **vẽ mới** |  |
-| Rừng Bóng | Săn | Bóng người | đổi màu từ Hiệp sĩ ma | chưa có |
-| Nghĩa Trang Hư Không | Săn | Ác linh | đổi màu từ Tinh linh băng | chưa có |
+| Rừng Bóng | Săn | Bóng người | **vẽ mới** | chưa có |
+| Nghĩa Trang Hư Không | Săn | Ác linh | **vẽ mới** | chưa có |
 | Hang Ma Sói | Săn | Ma sói | **vẽ mới** | chưa có |
 |  |  | Mẹ quỷ · boss khu | **vẽ mới** |  |
 | Ngai Ma Vương | Thánh địa | Ma vương · boss chúa (trùm cuối) | **vẽ mới** | chưa có |
@@ -288,18 +288,18 @@ Châu triệu hồi Thần Long. Chi tiết cơ chế: `docs/ke-hoach-the-gioi.m
 | Nhóm | Hạng mục | Lượt |
 |---|---|---|
 | Map + giao diện | Đồ vật / nhà / cây 9 vùng (4 tấm 3×3 mỗi vùng), 9 trạm, tranh lục địa, gian hàng, icon (kim cương, lịch, 6 bình) | 450 |
-| Quái thường | 27 loại vẽ mới × ~15 lượt (chế độ thường 1 lượt đủ 8 hướng; đi / đánh 4 hướng + lật gương); 19 loại đổi màu = 0 lượt | 405 |
+| Quái thường (đa dạng — mỗi loại một hình riêng) | 46 loại vẽ mới × ~15 lượt (chế độ thường 1 lượt đủ 8 hướng; đi / đánh 4 hướng + lật gương) — không dùng bản đổi màu | 690 |
 | Boss | 28 boss vẽ mới × ~40 lượt (4 hướng + lật gương; đi, đánh, niệm, gục) | 1.120 |
-|  | Chiêu boss chúa: 10 boss × 2 chiêu riêng × ~30 lượt (gồm Quỷ vương) | 600 |
-|  | Chiêu boss khu: 20 boss × 2 chiêu riêng × ~10 lượt (gồm Vua Lich) | 400 |
-| Rồng (vẽ đầy đủ) | 7 rồng nguyên tố × ~250 lượt (sprite lớn 192–256px, 4 hướng + lật gương, động tác + 3–4 chiêu) | 1.750 |
-| **Cộng** | | **~4.725** (dự phòng ~275) |
+|  | Boss chúa: 10 boss × 2 chiêu riêng × ~30 lượt (gồm Quỷ vương) | 600 |
+|  | Boss khu: 20 boss × 1 chiêu riêng × ~10 lượt (gồm Vua Lich) | 200 |
+| Rồng | 7 rồng nguyên tố × ~220 lượt (sprite lớn 192–256px, 4 hướng + lật gương, động tác + 3 chiêu) | 1.540 |
+| **Cộng** | | **~4.600** (dự phòng ~400) |
 
-Vẽ theo ba đợt (đợt sau chỉ bắt đầu khi đợt trước đạt). Thiếu lượt thì cắt chiêu thứ hai của boss khu trước.
+Vẽ theo ba đợt (đợt sau chỉ bắt đầu khi đợt trước đạt).
 
-- **Đợt 1 — map + quái** (~855 lượt): Đồ vật, nhà, cây của 9 vùng; 9 trạm; tranh lục địa; gian hàng; icon; 27 loại quái mới (19 loại còn lại đổi màu bằng code).
-- **Đợt 2 — boss** (~2.120 lượt): Vùng 1 trước: Gargoyle Đá + chiêu Quỷ vương / Vua Lich; 27 boss vùng 2–10, mỗi boss chúa 2 chiêu, mỗi boss khu 2 chiêu.
-- **Đợt 3 — 7 rồng đầy đủ** (~1.750 lượt): Phong, Băng, Hoả, Thuỷ, Địa, Quang, Hắc Long — sprite lớn + 3–4 chiêu mỗi con.
+- **Đợt 1 — map + quái** (~1.140 lượt): Đồ vật, nhà, cây của 9 vùng; 9 trạm; tranh lục địa; gian hàng; icon; 46 loại quái thường mới (mỗi loại một hình riêng).
+- **Đợt 2 — boss** (~1.920 lượt): Vùng 1 trước: Gargoyle Đá + chiêu Quỷ vương / Vua Lich; 27 boss vùng 2–10 — boss chúa 2 chiêu, boss khu 1 chiêu.
+- **Đợt 3 — 7 rồng** (~1.540 lượt): Phong, Băng, Hoả, Thuỷ, Địa, Quang, Hắc Long — sprite lớn + 3 chiêu mỗi con.
 
 **Để gói sau — nhân vật người chơi + trang bị** (~1.250 lượt):
 
@@ -312,7 +312,7 @@ Vẽ theo ba đợt (đợt sau chỉ bắt đầu khi đợt trước đạt). 
 ## Cần chốt
 
 1. Tên 10 vùng, nơi ở (làng / toà thành) và tên map — tên vùng 2–10 là đề xuất.
-2. Danh sách quái từng vùng, nhất là các loại dùng hình đổi màu (cột Hình). Đã thay vài loại trong kế hoạch cũ để dùng lại hình: vùng 3 "linh hồn cát" → Cung thủ xương cát, vùng 5 bỏ "chim cánh cụt chiến" → Gargoyle băng.
-3. Boss + rồng: tên, chiêu chính (mục Rồng) — gói này vẽ đủ 28 boss mới + 7 rồng.
+2. Danh sách 46 loại quái thường (mỗi loại vẽ riêng, không dùng bản đổi màu). Đổi so với kế hoạch cũ cho khỏi trùng dáng: vùng 8 "dơi" → Bọ đèn ngầm, "golem đá" → Rùa đá rêu; vùng 9 "gargoyle cổ" → Rối gỗ ma thuật; vùng 1 thêm Dơi hang (Hang Gargoyle).
+3. Chiêu: boss chúa 2 chiêu, boss khu 1 chiêu, rồng 3 chiêu (chủ dự án chốt 08/10/2026). Tên boss + chiêu chính của rồng (mục Rồng).
 4. Nhân vật người chơi + trang bị để gói sau (~1.250 lượt). Khi làm: 4 kiểu hình bộ đồ cắt 4 lớp áo / quần / giày / găng, đồ gắn 24 kiểu; dây chuyền / nhẫn chỉ hiện ở kho đồ.
-5. Ngân sách vừa MỘT gói 24$ (5.000 lượt), dự phòng ~275 lượt để vẽ lại — vẽ hỏng nhiều thì cắt chiêu boss khu thứ hai trước.
+5. Gói 24$ (5.000 lượt) dùng ~4.600, dự phòng ~400 lượt để vẽ lại.
