@@ -738,7 +738,7 @@ figure.sk figcaption {{ font-size: 13px; display: flex; flex-wrap: wrap; gap: 4p
     <section id="tom-tat">
       <h1>Thế giới Aether</h1>
       <p class="lead">Danh sách vùng, map (kèm phác thảo), quái, boss, rồng, skill nhân vật và trang bị cần vẽ — chia <b>3 mốc</b>: Mốc 1 vẽ trước đủ skill nhân vật thật chi tiết + 1/3 thế giới (vùng 1–4). Soạn 08/10/2026. Bản Markdown cùng nội dung + phần bàn giao cho agent: <code>docs/the-gioi-aether.md</code>.</p>
-      <span class="status-line">Bản đề xuất — chờ chốt</span>
+      <span class="status-line">Đã chốt 08/10/2026 — chờ mua gói PixelLab 24$</span>
       <div class="stats">
         <div class="stat"><b>10</b><span>vùng · mỗi vùng 1 trạm (làng / toà thành) + 5 map săn + 1 thánh địa</span></div>
         <div class="stat"><b>70</b><span>map (đã có 6 ở vùng 1)</span></div>
@@ -871,11 +871,11 @@ https://claude.ai/artifact/VTrVtPJHXUtETsssKRcx9K). Không sửa tay hai file si
 | Chat: kênh Map / Thế giới (3 kim cương / tin) / Riêng, tab riêng từng người | ✔ | `docs/ke-hoach-xa-hoi.md` |
 | Khung nhiều vùng T0b: 10 vùng, đi xuyên vùng, cổng vùng, cột dịch chuyển, nơi ở + người bán theo vùng | ✔ (chỉ vùng 1 có map) | `docs/ke-hoach-the-gioi.md` mục 5.1 |
 | M3.3a: cấp / EXP / xu / bình do máy chủ giữ | ✔ | `docs/ke-hoach-m3-may-chu-chien-dau.md` |
-| Hình PixelLab theo danh sách này | ✘ chờ chủ dự án chốt + mua gói 24$ | file này + `docs/pixellab-ke-hoach-ve.md` |
+| Hình PixelLab theo danh sách này | ✘ kế hoạch 3 mốc ĐÃ CHỐT (08/10/2026), chờ chủ dự án mua gói 24$ | file này + `docs/pixellab-ke-hoach-ve.md` |
 
 ### Việc kế tiếp (thứ tự đề xuất)
 
-1. Chủ dự án chốt danh sách (mục Cần chốt) → mua gói 24$ → thêm token trả phí vào CUỐI `PIXELLAB_TOKENS` trong `.env.local`
+1. Kế hoạch đã chốt (08/10/2026: "kế hoạch ổn"; mục Cần chốt chỉ còn để tinh chỉnh) → chủ dự án mua gói 24$ → thêm token trả phí vào CUỐI `PIXELLAB_TOKENS` trong `.env.local`
    (chủ dự án tự thêm). Kiểm số dư trước khi vẽ: `cd packages/asset-pipeline && npx tsx src/cli.ts pixellab balances` (miễn phí).
    Vẽ theo **3 mốc** (mục 3 mốc vẽ): **Mốc 1** skill nhân vật thật chi tiết (24 động tác — chuỗi chém, vung tay phóng phép, lướt, đỡ,
    xoay… — icon + hiệu ứng riêng từng skill, 8 tuyệt kỹ) + vùng 1–4 + Phong Long → **Mốc 2** vùng 5–7 + 3 rồng (cùng gói nếu còn lượt)
@@ -936,7 +936,7 @@ md = []
 md.append('# Thế giới Aether — vùng, map, quái, boss, trang bị, ngân sách PixelLab\n')
 md.append('> FILE SINH TỰ ĐỘNG từ `docs/tools/the-gioi-aether.py` — sửa dữ liệu ở đó rồi chạy lại (sinh cả bản HTML). Soạn 08/10/2026,')
 md.append('> chia **3 mốc** (chủ dự án 08/10/2026): Mốc 1 = skill nhân vật thật chi tiết + vùng 1–4; Mốc 2 = vùng 5–7 + 3 rồng; Mốc 3 = vùng 8–10')
-md.append('> + 3 rồng + nhân vật / trang bị. Trạng thái: **chờ chủ dự án chốt**.\n')
+md.append('> + 3 rồng + nhân vật / trang bị. Trạng thái: **đã chốt 08/10/2026, chờ mua gói 24$**.\n')
 md.append(HANDOFF)
 md.append('## Tóm tắt\n')
 md.append('- **10 vùng**, mỗi vùng 7 map: 1 trạm (làng hoặc toà thành — nơi ở có NPC dịch vụ, nhiệm vụ), 5 map săn, 1 thánh địa → **70 map** (đã có 6 ở vùng 1).')
