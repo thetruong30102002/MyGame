@@ -168,6 +168,26 @@ export interface MobView {
 /** Vị trí một quái: [id, x, y, hướng, động tác] — mảng cho gọn (gửi 10 lần/giây). */
 export type MobMove = [string, number, number, string, string];
 
+/**
+ * Động tác đánh của quái, CHỦ quái phát cho mọi máy (M3.2b): mỗi máy tự xét đòn có trúng người chơi CỦA MÌNH không, sát thương
+ * tính từ chỉ số quái ở máy nhận — không có con số nào trong tin để chủ quái gian đánh người khác.
+ */
+export type MobAct =
+	/** Bắt đầu lấy đà `s` giây, quay về hướng `dir` — con rối phát động tác đánh. */
+	| { k: 'wind'; dir: string; s: number }
+	/** Nhát cận chiến nổ khi quái đứng ở (x, y), quay theo hướng (nx, ny). */
+	| { k: 'melee'; x: number; y: number; nx: number; ny: number }
+	/** Bắn (boss: 3 viên toả) từ (x, y) theo hướng (nx, ny). */
+	| { k: 'shot'; x: number; y: number; nx: number; ny: number }
+	/** Boss gọi vùng nổ ở (x, y). */
+	| { k: 'aoe'; x: number; y: number };
+
+/** Khống chế / suy yếu trên quái (danh sách khoá ở `@aether/sim/mobs` `MOB_CC_KEYS`). */
+export type MobCcKey = 'freeze' | 'stun' | 'air' | 'slow' | 'chill' | 'frost' | 'armor' | 'sunder' | 'miss' | 'daze';
+
+/** Giây còn lại của từng khống chế + mức chậm + cú đẩy [vx, vy, giây] — người gây ra gửi cho chủ quái (AI) và mọi máy khác. */
+export type MobCc = Partial<Record<MobCcKey, number>> & { slowMult?: number; push?: [number, number, number] };
+
 /** Trạng thái hiển thị của một người chơi khác: đủ để vẽ đúng sprite, hướng, động tác. */
 export interface PlayerView {
 	id: string;
@@ -216,7 +236,11 @@ export type ClientMessage =
 	/** Đòn của mình trúng quái `id` (sát thương đã tính ở máy mình — máy chủ kiểm tầm / nhịp / trần rồi trừ máu). */
 	| { t: 'mobHit'; id: string; dmg: number }
 	/** Quái `id` vừa lao vào mình: xin làm chủ (máy chủ đổi chủ nếu mình gần nó hơn chủ cũ). */
-	| { t: 'mobAggro'; id: string };
+	| { t: 'mobAggro'; id: string }
+	/** Chủ quái `id` báo động tác đánh của nó (máy chủ chỉ nhận từ chủ, phát cho người khác). */
+	| { t: 'mobAct'; id: string; act: MobAct }
+	/** Mình vừa khống chế quái `id` (hoặc quái mình làm chủ đổi khống chế) — máy chủ phát cho người khác trong map. */
+	| { t: 'mobCc'; id: string; cc: MobCc };
 
 export type ServerMessage =
 	| { t: 'welcome'; you: string; players: PlayerView[] }
@@ -245,4 +269,6 @@ export type ServerMessage =
 	/** Quái gục — `credit`: những người được tính công (nhận EXP, xu, nhiệm vụ). */
 	| { t: 'mobDie'; id: string; by: string; credit: string[] }
 	| { t: 'mobSpawn'; mob: MobView }
-	| { t: 'mobOwner'; id: string; owner: string | null };
+	| { t: 'mobOwner'; id: string; owner: string | null }
+	| { t: 'mobAct'; id: string; act: MobAct }
+	| { t: 'mobCc'; id: string; cc: MobCc };

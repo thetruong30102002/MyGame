@@ -1,4 +1,4 @@
-import type { CharacterInfo, CharacterProgress, ClientMessage, MobMove, MobView, PlayerView, ServerMessage, SocialState, WhisperMessage } from '@aether/protocol';
+import type { CharacterInfo, CharacterProgress, ClientMessage, MobAct, MobCc, MobMove, MobView, PlayerView, ServerMessage, SocialState, WhisperMessage } from '@aether/protocol';
 import { api, serverUrl } from './api';
 
 export interface OnlineHandlers {
@@ -23,6 +23,8 @@ export interface OnlineHandlers {
 	mobDie(m: Extract<ServerMessage, { t: 'mobDie' }>): void;
 	mobSpawn(mob: MobView): void;
 	mobOwner(id: string, owner: string | null): void;
+	mobAct(id: string, act: MobAct): void;
+	mobCc(id: string, cc: MobCc): void;
 	kicked(reason: string): void;
 	status(online: boolean): void;
 }
@@ -87,6 +89,8 @@ export class OnlineSession {
 			else if (m.t === 'mobDie') h.mobDie?.(m);
 			else if (m.t === 'mobSpawn') h.mobSpawn?.(m.mob);
 			else if (m.t === 'mobOwner') h.mobOwner?.(m.id, m.owner);
+			else if (m.t === 'mobAct') h.mobAct?.(m.id, m.act);
+			else if (m.t === 'mobCc') h.mobCc?.(m.id, m.cc);
 			else if (m.t === 'kicked') {
 				this.closed = true;
 				h.kicked?.(m.reason);

@@ -387,6 +387,9 @@ export class Game {
 				playerRespawn: () => ({ ...this.world.data.spawn }),
 				netHit: (f, amount) => f.net && this.online?.send({ t: 'mobHit', id: f.net.id, dmg: Math.round(amount) }),
 				netAggro: (f) => f.net && !f.net.owned && this.online?.send({ t: 'mobAggro', id: f.net.id }),
+				netAct: (f, act) => f.net && this.online?.send({ t: 'mobAct', id: f.net.id, act }),
+				netCc: (f, cc) => f.net && this.online?.send({ t: 'mobCc', id: f.net.id, cc }),
+				others: () => this.otherPositions(),
 				isUnlocked: (s) => this.story.isUnlocked(s),
 				practiceHit: (element, reaction) => this.story.practiced(element, reaction),
 				// Gửi ngay (không chờ nhịp 10Hz) để người khác thấy động tác khớp lúc đạn bay ra.
@@ -1205,6 +1208,15 @@ export class Game {
 				f.net.owned = owner === o.character.id;
 				Object.assign(f.net, { tx: f.actor.x, ty: f.actor.y });
 			},
+			// Quái người khác làm chủ vừa lấy đà / đánh / gọi vùng nổ: diễn lại, xét đòn trên người chơi máy này.
+			mobAct: (id, act) => {
+				const f = this.netMobs.get(id);
+				if (f) this.combat.netAct(f, act);
+			},
+			mobCc: (id, cc) => {
+				const f = this.netMobs.get(id);
+				if (f) this.combat.netControl(f, cc);
+			},
 			whisper: (messages) => {
 				for (const m of messages) {
 					const out = m.from === o.character.id;
@@ -1282,6 +1294,13 @@ export class Game {
 		this.netMobs.set(m.id, f);
 		const zone = this.world.data.monsterZones.find((z) => z.id === m.zone);
 		if (m.boss) this.regionBosses.set(f, { zone: m.zone, name: zone?.name ?? actor.displayName });
+	}
+
+	/** Người chơi khác đang thấy trên map (đã có hình, còn hiện) — boss dùng chung chọn người để gọi vùng nổ. */
+	private otherPositions(): { x: number; y: number }[] {
+		const out: { x: number; y: number }[] = [];
+		for (const r of this.remotes.values()) if (r.actor) out.push({ x: r.actor.x, y: r.actor.y });
+		return out;
 	}
 
 	/** Báo máy chủ vị trí các quái mình làm chủ (còn sống) — 10 lần/giây, chỉ con có đổi. */
@@ -2122,7 +2141,7 @@ export class Game {
 			goMap: (id: string, spot: string | null = null) => this.changeMap(id, spot),
 			exits: () => this.world.exits.map((e) => ({ id: e.id, to: e.to, x0: e.x0, y0: e.y0, x1: e.x1, y1: e.y1 })),
 			blocked: (x: number, y: number) => this.world.blocked(x, y, 11, 5),
-			combat: () => ({ level: this.combat.pc.level, hp: this.combat.pc.hp, mp: this.combat.pc.mp, enemies: this.combat.enemies.map((e) => ({ id: e.id, hp: Math.round(e.hp), dead: e.dead, x: Math.round(e.actor.x), y: Math.round(e.actor.y) })) }),
+			combat: () => ({ level: this.combat.pc.level, hp: this.combat.pc.hp, mp: this.combat.pc.mp, enemies: this.combat.enemies.map((e) => ({ id: e.id, hp: Math.round(e.hp), dead: e.dead, x: Math.round(e.actor.x), y: Math.round(e.actor.y), net: e.net ? (e.net.owned ? 'own' : 'puppet') : null, freeze: round2(e.freeze) })) }),
 			/** Có động tác thì đòn chỉ BẮT ĐẦU: `step(Math.ceil(action().releaseAt * 60) + 1)` rồi mới đọc `combat()`. */
 			cast: (i: number, x: number, y: number) => this.combat.cast(i, { x, y }),
 			action: () => {

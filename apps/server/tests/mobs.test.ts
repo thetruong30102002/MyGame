@@ -132,6 +132,48 @@ test('chủ rời map: quái chuyển cho người gần nhất còn lại; khô
 	assert.equal(reg.mob('human/graveyard', z0(1))!.owner, 'A');
 });
 
+test('động tác đánh (M3.2b): chỉ chủ phát được, người khác nhận, chủ không bị dội lại; nổ xa quái / tin hỏng thì bỏ', () => {
+	const id = z0(1);
+	const m = reg.mob('human/graveyard', id)!;
+	assert.equal(m.owner, 'A');
+	pos.A = { x: m.x + 20, y: m.y };
+	pos.B = { x: m.x + 40, y: m.y };
+	reg.subscribe('B', 'human/graveyard');
+	inbox.A = [];
+	inbox.B = [];
+	reg.act('A', id, { k: 'wind', dir: 'E', s: 0.3 });
+	reg.act('A', id, { k: 'melee', x: m.x + 5, y: m.y, nx: 3, ny: 4 });
+	reg.act('B', id, { k: 'melee', x: m.x, y: m.y, nx: 1, ny: 0 });
+	reg.act('A', id, { k: 'melee', x: m.x + 500, y: m.y, nx: 1, ny: 0 });
+	reg.act('A', id, { k: 'wind', dir: 'UP', s: 0.3 });
+	reg.act('A', id, { k: 'shot', x: m.x, y: m.y, nx: 0, ny: 0 });
+	reg.act('A', id, { k: 'heal', x: m.x, y: m.y });
+	reg.act('A', id, { k: 'aoe', x: m.x + 300, y: m.y });
+	const acts = (inbox.B ?? []).flatMap((x) => (x.t === 'mobAct' ? [x.act] : []));
+	assert.deepEqual(acts, [
+		{ k: 'wind', dir: 'E', s: 0.3 },
+		{ k: 'melee', x: m.x + 5, y: m.y, nx: 0.6, ny: 0.8 },
+		{ k: 'aoe', x: m.x + 300, y: m.y },
+	], 'người không làm chủ / nổ xa quái / hướng bậy / loại lạ: bỏ; hướng được chuẩn hoá');
+	assert.equal(last('A', 'mobAct'), undefined, 'chủ không bị dội lại');
+});
+
+test('khống chế (M3.2b): người đứng gần gửi được, kẹp trần, khoá lạ bỏ; phát cho mọi người khác (cả chủ)', () => {
+	const id = z0(1);
+	const m = reg.mob('human/graveyard', id)!;
+	inbox.A = [];
+	inbox.B = [];
+	reg.cc('B', id, { freeze: 99, stun: 0.5, burn: 3, slow: 2, slowMult: 0.01, push: [99999, 0, 5] });
+	assert.deepEqual(last('A', 'mobCc'), { t: 'mobCc', id, cc: { freeze: 5, stun: 0.5, slow: 2, slowMult: 0.1, push: [2000, 0, 0.3] } });
+	assert.equal(last('B', 'mobCc'), undefined, 'không dội lại người gửi');
+	reg.cc('A', id, { burn: 2, wet: 3 });
+	assert.equal(last('B', 'mobCc'), undefined, 'chỉ có khoá không đồng bộ: không gửi gì');
+	pos.B = { x: m.x + 5000, y: m.y };
+	reg.cc('B', id, { stun: 1 });
+	assert.equal((inbox.A ?? []).filter((x) => x.t === 'mobCc').length, 1, 'đứng quá xa: bỏ');
+	reg.unsubscribe('B');
+});
+
 // Nối vào World + CSDL thật: tin `mobSub` / `mobHit` đi qua WebSocket giả, số lần hạ ghi vào bảng `kill_counts`.
 {
 	const { Store } = await import('../src/db.ts');

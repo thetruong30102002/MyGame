@@ -1,3 +1,5 @@
+import type { MobAct, MobCc, MobCcKey } from '@aether/protocol';
+import { MOB_CC_KEYS } from '@aether/sim/mobs';
 import { Container, Graphics, Sprite, Text, type Texture } from 'pixi.js';
 import type { ActionName, Direction } from '../assets/AssetManifest';
 import { ACTION_EPS, strikeClock, type ActionTiming, type StrikePlan } from '../entities/actionClock';
@@ -93,6 +95,10 @@ export interface NetMob {
 	dying?: { burning: boolean; frozen: boolean };
 	/** Lần xin làm chủ gần nhất (giây trận) — xin lại tối đa mỗi giây một lần. */
 	askedAt?: number;
+	/** Khống chế mà máy khác ĐÃ BIẾT (giây, trừ dần theo giờ) — chỉ gửi phần tăng thêm, nhận từ mạng cũng ghi vào nên không vọng lại. */
+	ccSeen?: Partial<Record<MobCcKey, number>>;
+	/** Cú đẩy đã gửi (so theo đối tượng — mỗi cú đẩy mới là một object mới). */
+	pushSeen?: object | null;
 }
 
 export interface Fighter {
@@ -434,6 +440,12 @@ export interface CombatHooks {
 	netHit?(f: Fighter, amount: number): void;
 	/** Quái dùng chung vừa lao vào người chơi máy này — xin làm chủ. */
 	netAggro?(f: Fighter): void;
+	/** Quái dùng chung MÁY NÀY làm chủ vừa lấy đà / đánh / gọi vùng nổ — gửi máy khác (họ tự xét có trúng mình không). */
+	netAct?(f: Fighter, act: MobAct): void;
+	/** Khống chế trên quái dùng chung vừa tăng ở máy này — gửi chủ quái (AI) + máy khác (màu, phá giáp). */
+	netCc?(f: Fighter, cc: MobCc): void;
+	/** Vị trí người chơi khác cùng map (boss dùng chung nhắm vùng nổ vào bất kỳ ai, không chỉ người làm chủ nó). */
+	others?(): readonly { x: number; y: number }[];
 }
 
 interface Dummy {
@@ -524,6 +536,12 @@ const MP_REGEN = 3.2;
 const ENCHANT_ELEMENT: Record<EnchantId, Element> = { fire: 'fire', water: 'water', wind: 'wind', ice: 'ice', earth: 'earth' };
 /** Đẩy lùi: trượt hết quãng trong chừng này giây. */
 const PUSH_SECONDS = 0.16;
+/** Vùng nổ của boss: bán kính, giây báo trước, hệ số sức đánh, tầm nhắm. */
+const BOSS_AOE = { r: 84, seconds: 1.1, power: 1.8, range: 360 } as const;
+/** Nhát chém nhắm người KHÁC (quái dùng chung): người chơi máy này phải đứng trong nón ±72° phía trước quái mới trúng. */
+const MELEE_CONE_COS = 0.3;
+/** Khống chế chỉ gửi khi dài hơn mức máy khác đã biết chừng này giây (tránh gửi vụn mỗi frame). */
+const CC_SYNC_EPS = 0.05;
 /** Bề ngang thân khi xét trúng vùng (px): quái thường / boss. */
 const BODY_PAD = 14;
 const BOSS_PAD = 24;
@@ -2414,6 +2432,7 @@ export class CombatSystem {
 			f.miss = Math.max(0, f.miss - dt);
 			f.daze = Math.max(0, f.daze - dt);
 			f.dust = Math.max(0, f.dust - dt);
+			if (f.net) this.ccOut(f, f.net, dt);
 			// Hất lên: sprite bay theo parabol, bóng đổ (thuộc `root`) vẫn nằm trên đất.
 			const lift = launchHeight(f.air, f.airTotal);
 			a.view.sprite.y = lift ? -lift : 0;
@@ -2522,9 +2541,11 @@ export class CombatSystem {
 
 			if (f.boss) {
 				f.aoeTimer -= dt;
-				if (f.aoeTimer <= 0 && dist < 360) {
+				if (f.aoeTimer <= 0 && dist < BOSS_AOE.range) {
 					f.aoeTimer = enraged ? 5 : 7;
-					this.telegraph(p.x, p.y, 84, 1.1, f.stats.atk * 1.8);
+					const t = this.aoeTarget(f);
+					this.telegraph(t.x, t.y, BOSS_AOE.r, BOSS_AOE.seconds, f.stats.atk * BOSS_AOE.power);
+					if (f.net?.owned) this.hooks.netAct?.(f, { k: 'aoe', x: Math.round(t.x), y: Math.round(t.y) });
 				}
 			}
 			if (f.attackTimer <= 0 && dist <= f.stats.reach + 10 && !walled) {
@@ -2549,6 +2570,7 @@ export class CombatSystem {
 		const dir = directionOf(dx, dy);
 		this.endSwing(f);
 		a.view.set('idle', dir);
+		if (f.net?.owned) this.hooks.netAct?.(f, { k: 'wind', dir, s: seconds });
 		const plan = a.view.strikePlan(dir, seconds);
 		if (plan && a.view.playAction('attack', dir, { timing: plan.timing, external: true })) {
 			f.swing = { plan, t: 0 };
@@ -2570,20 +2592,41 @@ export class CombatSystem {
 		const nx = (p.x - a.x) / (dist || 1);
 		const ny = (p.y - a.y) / (dist || 1);
 		const ranged = f.stats.ranged && (!f.boss || f.attacks % 3 === 0);
+		// Quái dùng chung: máy người khác diễn lại nhát này — ai đứng trong tầm nhát / đường đạn cũng ăn đòn (máy họ tự xét).
+		if (f.net?.owned) this.hooks.netAct?.(f, { k: ranged ? 'shot' : 'melee', x: Math.round(a.x), y: Math.round(a.y), nx, ny });
 		// Cú giật chỉ còn là phương án dự phòng khi atlas chưa có động tác đánh.
 		if (!f.swing) a.lunge(nx, ny, ranged ? 3 : 10);
 		if (ranged) return this.enemyShot(f, nx, ny);
-		this.vfx.play('slash', a.x + nx * 26, a.y - a.chest + 2 + ny * 18, { rotation: Math.atan2(ny, nx), tint: f.boss ? 0xff6b8a : 0xffd0d0, fps: 30 });
+		this.meleeAt(f, a.x, a.y, nx, ny, dist, false);
+	}
+
+	/**
+	 * Nhát cận chiến của quái đứng ở (x, y) quay về (nx, ny), xét trên người chơi máy này (`dist` = khoảng cách tới người chơi).
+	 * `cone`: nhát này nhắm người KHÁC (quái dùng chung, chủ ở máy khác) — phải đứng phía trước quái mới trúng.
+	 */
+	private meleeAt(f: Fighter, x: number, y: number, nx: number, ny: number, dist: number, cone: boolean): void {
+		const p = this.player;
+		this.vfx.play('slash', x + nx * 26, y - f.actor.chest + 2 + ny * 18, { rotation: Math.atan2(ny, nx), tint: f.boss ? 0xff6b8a : 0xffd0d0, fps: 30 });
+		const reach = f.stats.reach + 16;
+		const front = !cone || dist < 1 || ((p.x - x) * nx + (p.y - y) * ny) / dist >= MELEE_CONE_COS;
 		// Đã lăn ra khỏi tầm: trượt — trừ khi vừa né ĐÚNG LÚC từ chỗ đứng trong tầm (Phản Đòn: đòn vẫn tính là nhắm trúng
 		// chỗ vừa đứng → `incoming` phản).
-		const reach = f.stats.reach + 16;
-		if (dist > reach && !(this.perfectDodge() && Math.hypot(this.dodgeFrom.x - a.x, this.dodgeFrom.y - a.y) <= reach)) return;
+		if ((dist > reach || !front) && !(this.perfectDodge() && Math.hypot(this.dodgeFrom.x - x, this.dodgeFrom.y - y) <= reach)) return;
 		// Tường tạm chắn giữa: nhát chém vào tường.
-		if (this.walls.length && wallBetween(a.x, a.y, p.x, p.y, this.walls)) return;
+		if (this.walls.length && wallBetween(x, y, p.x, p.y, this.walls)) return;
 		// Bão Cát / Gió Loạn: đòn trượt (chỉ tung xúc xắc khi đang dính — không đụng chuỗi ngẫu nhiên của trận thường).
 		const chance = missChance(f, EARTH.sandMiss, PASSIVE.gustMiss);
 		if (chance > 0 && Math.random() < chance) this.missed();
 		else this.incoming('melee', f.stats.atk, f);
+	}
+
+	/** Boss nhắm vùng nổ: quái riêng → người chơi; boss dùng chung → một người BẤT KỲ trong tầm (cả người chơi máy khác). */
+	private aoeTarget(f: Fighter): { x: number; y: number } {
+		const p = this.player;
+		if (!f.net) return p;
+		const a = f.actor;
+		const near = [p, ...(this.hooks.others?.() ?? [])].filter((o) => Math.hypot(o.x - a.x, o.y - a.y) < BOSS_AOE.range);
+		return near[Math.floor(Math.random() * near.length)] ?? p;
 	}
 
 	/** Đòn quái trượt (Bão Cát): chữ "Trượt" trên đầu người chơi — chỉ khi đòn đó lẽ ra đã trúng. */
@@ -2593,7 +2636,7 @@ export class CombatSystem {
 		this.float(this.player.x, this.player.y - this.player.height - 8, 'Trượt', 0xf0d28a, 13);
 	}
 
-	private enemyShot(f: Fighter, nx: number, ny: number): void {
+	private enemyShot(f: Fighter, nx: number, ny: number, ox = f.actor.x, oy = f.actor.y): void {
 		const a = f.actor;
 		const kind = f.stats.ranged!;
 		const shots = f.boss ? [-0.28, 0, 0.28] : [0];
@@ -2603,7 +2646,7 @@ export class CombatSystem {
 			const v = kind === 'arrow' ? 300 : 240;
 			const chance = missChance(f, EARTH.sandMiss, PASSIVE.gustMiss);
 			const missed = chance > 0 && Math.random() < chance;
-			this.fire({ x: a.x, y: a.y - a.chest, vx: (nx * c - ny * s) * v, vy: (nx * s + ny * c) * v, life: 1.6, team: 'enemy', damage: f.stats.atk * (f.boss ? 0.9 : 1), element: kind, pierce: false, missed, lift: a.chest, owner: f });
+			this.fire({ x: ox, y: oy - a.chest, vx: (nx * c - ny * s) * v, vy: (nx * s + ny * c) * v, life: 1.6, team: 'enemy', damage: f.stats.atk * (f.boss ? 0.9 : 1), element: kind, pierce: false, missed, lift: a.chest, owner: f });
 		}
 	}
 
@@ -3281,10 +3324,91 @@ export class CombatSystem {
 		f.actor.sync();
 	}
 
+	/**
+	 * Động tác đánh của quái dùng chung do CHỦ (máy khác) phát: con rối diễn lại, đòn xét trên người chơi MÁY NÀY — sát thương
+	 * lấy từ chỉ số quái ở máy này, tin mạng chỉ mang vị trí / hướng.
+	 */
+	netAct(f: Fighter, act: MobAct): void {
+		const n = f.net;
+		if (!n || n.owned || f.dead) return;
+		const a = f.actor;
+		if (act.k === 'wind') {
+			const dir = act.dir as Direction;
+			a.view.cancelAction();
+			const plan = a.view.strikePlan(dir, act.s);
+			// Không có động tác đánh cho hướng đó: nháy trắng báo đòn như quái riêng (`windup` trừ dần trong `puppet`).
+			if (!plan || !a.view.playAction('attack', dir, { timing: plan.timing, external: false })) f.windup = act.s;
+			return;
+		}
+		if (act.k === 'aoe') return this.telegraph(act.x, act.y, BOSS_AOE.r, BOSS_AOE.seconds, f.stats.atk * BOSS_AOE.power);
+		f.windup = 0;
+		if (!a.view.busy) a.lunge(act.nx, act.ny, act.k === 'shot' ? 3 : 10);
+		if (act.k === 'shot') return this.enemyShot(f, act.nx, act.ny, act.x, act.y);
+		this.meleeAt(f, act.x, act.y, act.nx, act.ny, Math.hypot(this.player.x - act.x, this.player.y - act.y), true);
+	}
+
+	/**
+	 * Khống chế máy khác gây ra trên quái dùng chung (máy chủ đã kẹp trần): chủ áp vào AI (đứng im, chậm, đánh trượt, bị đẩy),
+	 * con rối thì đổi màu + ăn phá giáp / vỡ giáp cho đòn của máy này.
+	 */
+	netControl(f: Fighter, cc: MobCc): void {
+		const n = f.net;
+		if (!n || f.dead) return;
+		const seen = (n.ccSeen ??= {});
+		for (const k of MOB_CC_KEYS) {
+			const v = cc[k];
+			if (v === undefined) continue;
+			seen[k] = Math.max(seen[k] ?? 0, v);
+			if (k === 'slow') addSlow(f, v, cc.slowMult ?? f.slowMult);
+			else if (k === 'freeze') {
+				if (canFreeze(f)) f.freeze = Math.max(f.freeze, v);
+			} else if (v > f[k]) {
+				f[k] = v;
+				if (k === 'air') f.airTotal = v;
+			}
+		}
+		if (cc.push && n.owned && !f.boss) {
+			f.push = { vx: cc.push[0], vy: cc.push[1], t: cc.push[2] };
+			n.pushSeen = f.push;
+		}
+		if (f.stun > 0 || f.freeze > 0 || f.air > 0) {
+			f.windup = 0;
+			this.endSwing(f);
+			if (!n.owned) f.actor.view.cancelAction();
+		}
+	}
+
+	/**
+	 * Khống chế trên quái dùng chung vừa TĂNG ở máy này (đòn của mình lên con rối, hoặc trên quái mình làm chủ) → gửi đi.
+	 * `ccSeen` trừ dần theo giờ đúng như chính khống chế, nên chỉ phần dài thêm mới được gửi. Cú đẩy chỉ có nghĩa với chủ (AI
+	 * di chuyển quái) nên chỉ gửi từ con rối.
+	 */
+	private ccOut(f: Fighter, n: NetMob, dt: number): void {
+		if (!this.hooks.netCc) return;
+		const seen = (n.ccSeen ??= {});
+		let out: MobCc | null = null;
+		for (const k of MOB_CC_KEYS) {
+			const known = Math.max(0, (seen[k] ?? 0) - dt);
+			seen[k] = known;
+			if (f[k] <= known + CC_SYNC_EPS) continue;
+			out ??= {};
+			out[k] = Math.round(f[k] * 1000) / 1000;
+			seen[k] = f[k];
+			if (k === 'slow') out.slowMult = f.slowMult;
+		}
+		if (!n.owned && f.push && f.push !== n.pushSeen) {
+			out ??= {};
+			out.push = [Math.round(f.push.vx), Math.round(f.push.vy), Math.round(f.push.t * 1000) / 1000];
+			n.pushSeen = f.push;
+		}
+		if (out) this.hooks.netCc(f, out);
+	}
+
 	/** Con rối (quái người khác làm chủ): trượt mượt tới vị trí máy chủ phát; lệch xa (vừa đổi chủ / hồi sinh) thì nhảy thẳng. */
 	private puppet(f: Fighter, dt: number): void {
 		const a = f.actor;
 		const n = f.net!;
+		if (f.windup > 0) f.windup = Math.max(0, f.windup - dt);
 		const k = 1 - Math.exp(-12 * dt);
 		a.x += (n.tx - a.x) * k;
 		a.y += (n.ty - a.y) * k;

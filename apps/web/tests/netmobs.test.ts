@@ -34,6 +34,11 @@ const tex = {
 
 const hits: [string, number][] = [];
 const aggro: string[] = [];
+type Act = import('@aether/protocol').MobAct;
+type Cc = import('@aether/protocol').MobCc;
+const acts: [string, Act][] = [];
+const ccs: [string, Cc][] = [];
+let others: { x: number; y: number }[] = [];
 const killed: string[] = [];
 const vfx = { ground: new Container(), top: new Container(), play: () => undefined, frames: () => [], update: () => undefined, clear: () => undefined };
 const combat = new CombatSystem(
@@ -51,6 +56,9 @@ const combat = new CombatSystem(
 		practiceHit: () => undefined,
 		netHit: (f: Fighter, n: number) => void hits.push([f.net!.id, n]),
 		netAggro: (f: Fighter) => void aggro.push(f.net!.id),
+		netAct: (f: Fighter, act: Act) => void acts.push([f.net!.id, act]),
+		netCc: (f: Fighter, cc: Cc) => void ccs.push([f.net!.id, cc]),
+		others: () => others,
 	} as never,
 	{ level: 5, exp: 0, coins: 0, potions: 0 },
 	vfx as never,
@@ -116,6 +124,108 @@ const near = (a: number, b: number, what: string, eps = 1) => assert.ok(Math.abs
 	tick(60 * 8);
 	assert.ok(Math.abs(f.actor.x - p.x) < 120, 'quái mình làm chủ đuổi tới');
 	assert.ok(combat.pc.hp < hp || combat.pc.dead, 'và đánh người chơi');
+	const mine = acts.filter(([id]) => id === 'g:b:0').map(([, a]) => a.k);
+	assert.ok(mine.includes('wind') && mine.includes('melee'), `phát động tác cho máy khác (${mine.join(',')})`);
+	combat.netKill(f, false);
 }
 
-console.log('✔ netmobs.test: con rối theo máy chủ + không tự đánh + xin làm chủ, đòn trúng báo máy chủ không tự gục, thưởng chỉ khi được tính công, làm chủ thì AI chạy');
+const revive = (x: number) => {
+	Object.assign(combat.pc, { dead: false, iframes: 0, respawnT: 0 });
+	combat.refill();
+	Object.assign(p, { x, y: 100 });
+	p.root.alpha = 1;
+};
+
+// 4) M3.2b: nhát của quái người khác làm chủ — xét trên người chơi máy này: trước mặt + trong tầm thì trúng, sau lưng /
+// ngoài tầm thì không; vùng nổ boss chủ phát cũng nổ ở máy này.
+{
+	const f = mob('g:c:0', 300, false);
+	revive(330);
+	const hp = combat.pc.hp;
+	combat.netAct(f, { k: 'melee', x: 300, y: 100, nx: 1, ny: 0 });
+	assert.ok(combat.pc.hp < hp, 'đứng trước quái trong tầm: trúng');
+	combat.pc.iframes = 0;
+	const hp2 = combat.pc.hp;
+	combat.netAct(f, { k: 'melee', x: 300, y: 100, nx: -1, ny: 0 });
+	assert.equal(combat.pc.hp, hp2, 'sau lưng quái: không trúng');
+	revive(600);
+	const hp3 = combat.pc.hp;
+	combat.netAct(f, { k: 'melee', x: 300, y: 100, nx: 1, ny: 0 });
+	assert.equal(combat.pc.hp, hp3, 'ngoài tầm: không trúng');
+	revive(330);
+	combat.netAct(f, { k: 'aoe', x: 330, y: 100 });
+	tick(80);
+	assert.ok(combat.pc.hp < combat.pc.hpMax, 'vùng nổ boss dùng chung trúng người đứng trong');
+	const archer = combat.addEnemy(new Actor('mob_skeleton_archer_001', tex, 100, 400, 'E', { x: 100, y: 400, radius: 40 }), 'mob_skeleton_archer_001', { x: 100, y: 400, radius: 40 }, 'Cung', {
+		net: { id: 'g:c:1', owned: false, tx: 100, ty: 400, dir: 'E' as Dir, anim: 'idle' as const },
+	})!;
+	revive(260);
+	p.y = 400;
+	combat.netAct(archer, { k: 'shot', x: 100, y: 400, nx: 1, ny: 0 });
+	tick(60);
+	assert.ok(combat.pc.hp < combat.pc.hpMax, 'mũi tên của quái người khác làm chủ bay tới, trúng người chơi máy này');
+	combat.netKill(archer, false);
+	combat.netKill(f, false);
+}
+
+// 5) Khống chế đồng bộ: đòn của mình lên con rối → gửi phần TĂNG một lần (không gửi lại khi trừ dần); nhận từ mạng thì áp
+// vào và không dội lại.
+{
+	const f = mob('g:d:0', 900, false);
+	ccs.length = 0;
+	f.stun = 1;
+	tick(1);
+	assert.equal(ccs.length, 1);
+	near(ccs[0]![1].stun!, 1 - 1 / 60, 'gửi giây còn lại', 0.01);
+	tick(30);
+	assert.equal(ccs.length, 1, 'chỉ trừ dần: không gửi lại');
+	combat.netControl(f, { stun: 2, armor: 4 });
+	tick(5);
+	assert.equal(ccs.length, 1, 'nhận từ mạng: không dội lại');
+	assert.ok(f.stun > 1.9 && f.armor > 3.9, 'con rối nhận choáng + phá giáp');
+	combat.netKill(f, false);
+}
+
+// 6) Làm chủ mà người khác đóng băng + đẩy quái: AI đứng im (không đánh), bị đẩy thật; tan băng thì đánh lại.
+{
+	const f = mob('g:e:0', 1520, true);
+	revive(1500);
+	combat.netControl(f, { freeze: 2, push: [300, 0, 0.16] });
+	const x0 = f.actor.x;
+	tick(20);
+	near(f.actor.x, x0 + 48, 'bị đẩy theo cú đẩy máy khác gửi', 2);
+	const hp = combat.pc.hp;
+	tick(60);
+	assert.ok(combat.pc.hp >= hp, 'đang đóng băng: không đánh');
+	tick(60 * 4);
+	assert.ok(combat.pc.hp < hp || combat.pc.dead, 'tan băng: đánh lại');
+	combat.netKill(f, false);
+}
+
+// 7) Boss dùng chung mình làm chủ gọi vùng nổ vào người chơi KHÁC trong tầm (không chỉ người chơi máy này).
+{
+	const home = { x: 2600, y: 100, radius: 60 };
+	const boss = combat.addEnemy(new Actor('boss_lich_001', tex, 2600, 100, 'W', home), 'boss_lich_001', home, 'Vua Lich', {
+		regionBoss: true,
+		net: { id: 'g:f:0', owned: true, tx: 2600, ty: 100, dir: 'S' as Dir, anim: 'idle' as const },
+	})!;
+	revive(2650);
+	others = [{ x: 2700, y: 160 }];
+	const rnd = Math.random;
+	Math.random = () => 0.99;
+	try {
+		for (let i = 0; i < 60 * 9 && !acts.some(([id, a]) => id === 'g:f:0' && a.k === 'aoe'); i += 1) {
+			combat.pc.iframes = 1e9;
+			tick(1);
+		}
+	} finally {
+		Math.random = rnd;
+	}
+	const aoe = acts.find(([id, a]) => id === 'g:f:0' && a.k === 'aoe')?.[1];
+	assert.deepEqual(aoe, { k: 'aoe', x: 2700, y: 160 }, 'vùng nổ nhắm người chơi khác + phát cho máy khác');
+	combat.netKill(boss, false);
+}
+
+console.log(
+	'✔ netmobs.test: con rối theo máy chủ + không tự đánh + xin làm chủ, đòn trúng báo máy chủ không tự gục, thưởng chỉ khi được tính công, làm chủ thì AI chạy + phát động tác; M3.2b: nhát / đạn / vùng nổ của chủ khác trúng người máy này, khống chế đồng bộ hai chiều, boss nhắm người khác',
+);

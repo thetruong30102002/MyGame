@@ -29,6 +29,8 @@ interface Conn {
 	/** Đòn trúng quái: nhanh nhất ~ chục nhát/giây (Liên Hoàn, mưa nhiều điểm) — 40/giây là trần chống spam. */
 	mobHits: RateLimiter;
 	mobPos: RateLimiter;
+	/** Động tác đánh của quái mình làm chủ + khống chế mình gây ra (M3.2b). */
+	mobActs: RateLimiter;
 }
 
 /** Thư mục map của client — máy chủ đọc chung nguồn dữ liệu (`AETHER_MAPS` để đổi). */
@@ -149,6 +151,7 @@ export class World {
 			whispers: new RateLimiter(5, 5000),
 			mobHits: new RateLimiter(40, 1000),
 			mobPos: new RateLimiter(25, 1000),
+			mobActs: new RateLimiter(60, 1000),
 		};
 		this.conns.set(ch.id, conn);
 		const others = this.inMap(conn.map).filter((c) => c !== conn && c.view.sprite);
@@ -209,6 +212,12 @@ export class World {
 			case 'mobAggro':
 				if (!c.mobPos.allow('mobAggro')) return;
 				return this.mobs.aggro(c.view.id, String(msg.id ?? ''));
+			case 'mobAct':
+				if (!c.mobActs.allow('mobAct')) return;
+				return this.mobs.act(c.view.id, String(msg.id ?? ''), msg.act);
+			case 'mobCc':
+				if (!c.mobActs.allow('mobCc')) return;
+				return this.mobs.cc(c.view.id, String(msg.id ?? ''), msg.cc);
 			default:
 		}
 	}

@@ -2,7 +2,18 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import type { MobMove, MobView, ServerMessage } from '@aether/protocol';
 import { respawnDelay } from '@aether/sim/bossRules';
-import { isSharedZone, MOB_CREDIT_SECONDS, MOB_HIT_RANGE, MOB_OWNER_SWITCH, mobId, zoneSpawnPoints, type MonsterZoneDef } from '@aether/sim/mobs';
+import {
+	cleanMobAct,
+	cleanMobCc,
+	isSharedZone,
+	MOB_ACT_RANGE,
+	MOB_CREDIT_SECONDS,
+	MOB_HIT_RANGE,
+	MOB_OWNER_SWITCH,
+	mobId,
+	zoneSpawnPoints,
+	type MonsterZoneDef,
+} from '@aether/sim/mobs';
 import { ENEMY_STATS } from '@aether/sim/skills';
 
 /** Phần thế giới mà sổ quái cần: vị trí người chơi + gửi tin. */
@@ -135,6 +146,34 @@ export class MobRegistry {
 		this.broadcast(m, { t: 'mobDie', id: mob.id, by: player, credit });
 	}
 
+	/**
+	 * Động tác đánh (M3.2b): CHỈ nhận từ chủ của con quái đó, quái còn sống, nổ gần chỗ quái đang đứng — phát cho mọi người
+	 * khác trong map, mỗi máy tự xét người chơi của mình có trúng không.
+	 */
+	act(player: string, id: string, raw: unknown): void {
+		const m = this.mapOf(player);
+		const mob = m?.mobs.get(String(id));
+		if (!m || !mob || mob.dead || mob.owner !== player) return;
+		const act = cleanMobAct(raw);
+		if (!act) return;
+		if (act.k !== 'wind' && Math.hypot(act.x - mob.x, act.y - mob.y) > (act.k === 'aoe' ? MOB_ACT_RANGE.aoe : MOB_ACT_RANGE.body)) return;
+		this.broadcast(m, { t: 'mobAct', id: mob.id, act }, player);
+	}
+
+	/**
+	 * Khống chế (M3.2b): người đánh (đứng đủ gần như khi báo đòn trúng) hoặc chủ quái báo — kẹp trần thời lượng rồi phát cho
+	 * mọi người khác: chủ áp vào AI (đứng im, chậm, đánh trượt), người khác thấy màu + ăn phá giáp.
+	 */
+	cc(player: string, id: string, raw: unknown): void {
+		const m = this.mapOf(player);
+		const mob = m?.mobs.get(String(id));
+		if (!m || !mob || mob.dead) return;
+		const me = this.host.position(player);
+		if (!me || Math.hypot(me.x - mob.x, me.y - mob.y) > MOB_HIT_RANGE) return;
+		const cc = cleanMobCc(raw);
+		if (cc) this.broadcast(m, { t: 'mobCc', id: mob.id, cc }, player);
+	}
+
 	/** Nhịp 10 lần/giây: phát vị trí đã đổi, hồi sinh quái tới giờ. */
 	tick(): void {
 		const t = this.now();
@@ -230,8 +269,8 @@ export class MobRegistry {
 		if (announce) this.broadcast(m, { t: 'mobOwner', id: mob.id, owner });
 	}
 
-	private broadcast(m: MapMobs, msg: ServerMessage): void {
-		for (const p of m.subs) this.host.send(p, msg);
+	private broadcast(m: MapMobs, msg: ServerMessage, except?: string): void {
+		for (const p of m.subs) if (p !== except) this.host.send(p, msg);
 	}
 }
 

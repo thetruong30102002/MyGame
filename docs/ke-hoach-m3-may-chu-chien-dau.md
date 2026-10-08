@@ -65,10 +65,27 @@ nhất; độ trễ mạng với đòn cận chiến (cần dự đoán tốt); 
   - Test: `apps/server/tests/mobs.test.ts` (8 ca, gồm qua `World` + CSDL thật), `apps/web/tests/netmobs.test.ts`; thử thật trên
     máy chủ thử với trình duyệt + bot người chơi thứ hai: số sát thương của bot hiện trên nấm, đánh chung → "công: 2 người",
     người được tính công nhận xu.
-- **Còn thiếu (M3.2b)**: (1) quái chỉ đánh người chơi của máy làm chủ — người khác đứng sát nhưng không gần bằng chủ thì không bị
-  đánh; (2) khống chế (đóng băng, choáng, đẩy lùi, chậm) do người KHÔNG làm chủ gây ra chỉ hiện ở máy họ, AI ở máy chủ quái
-  không biết — cần gửi kèm hiệu ứng trong `mobHit` để chủ áp; (3) kiểm sát thương theo chỉ số người chơi (M3.3, khi cấp /
-  trang bị ở máy chủ); (4) phần thưởng vẫn cộng ở client (M3.3).
+- **M3.2b — ĐÃ LÀM (08/10/2026): quái đánh mọi người + khống chế dùng chung.**
+  - **Động tác đánh** (`mobAct`): chủ quái phát lấy đà (`wind`), nhát cận chiến (`melee`), bắn (`shot`), vùng nổ boss (`aoe`) —
+    máy chủ CHỈ nhận từ chủ con đó, kiểm nổ gần chỗ quái (thân 160px / vùng nổ 480px), chuẩn hoá hướng, phát cho người khác.
+    Mỗi máy tự xét người chơi CỦA MÌNH: nhát chém trúng khi đứng trong tầm + trong nón ±72° phía trước quái (né đúng lúc vẫn
+    phản được), đạn bay thật trên máy mình, vùng nổ nổ thật. **Tin không mang con số sát thương** — máy nhận tính từ chỉ số
+    quái của mình, nên chủ quái sửa client cũng không đánh mạnh người khác được. Con rối diễn động tác đánh như quái thật.
+  - **Boss dùng chung nhắm vùng nổ vào bất kỳ ai** trong 360px (cả người chơi máy khác), không chỉ người làm chủ.
+  - **Khống chế** (`mobCc`): khi khống chế trên quái dùng chung TĂNG ở máy nào (đòn của mình lên con rối, hay quái mình làm chủ)
+    thì máy đó gửi phần tăng; máy chủ kiểm người gửi đứng trong 900px, kẹp trần (`@aether/sim/mobs` `MOB_CC_CAP`, cú đẩy ≤ 2000px/s
+    · 0,3 giây) rồi phát cho mọi người khác. Chủ áp vào AI (đóng băng / choáng / hất thì đứng im, chậm, đánh trượt, bị đẩy thật);
+    máy khác thấy màu + ăn phá giáp / vỡ giáp cho đòn của mình. Đồng bộ: đóng băng, choáng, hất, chậm, lạnh, lạnh sâu, phá giáp,
+    vỡ giáp, Bão Cát, Gió Loạn. **Không** đồng bộ ướt / cháy / bụi đất: đó là nguyên liệu phản ứng của riêng người gây ra
+    (đồng bộ thì hai người cùng ăn một lần phản ứng, cháy thì nhịp đốt tính hai lần). Máy nhận ghi mức đã biết nên không dội lại.
+  - Test: `apps/server/tests/mobs.test.ts` (+2 ca), `apps/web/tests/netmobs.test.ts` (+4 khối: nhát / đạn / vùng nổ của chủ
+    khác, khống chế hai chiều không dội, chủ bị đóng băng + đẩy, boss nhắm người khác). Thử thật trên máy chủ thử (trình duyệt làm
+    chủ 17 con nấm + bot đứng sát): bot nhận 54 nhát (48 trúng, 6 trượt vì đứng sau lưng / ngoài tầm), bot đóng băng quái → ở
+    trình duyệt quái đứng im đúng ~3 giây mỗi lần, trình duyệt không gửi lại tin nào (0 tin dội).
+  - Giới hạn còn lại: phá băng sớm (Tan Chảy, Vỡ Vụn của Thổ) chỉ xảy ra ở máy người đánh — máy khác còn băng tới hết giờ; người
+    có Vỡ Vụn (Băng 9) thấy băng do người khác gây ra tan cũng nổ vụn băng của mình (coi như phần thưởng đánh chung).
+- **Còn thiếu (M3.3)**: kiểm sát thương theo chỉ số người chơi (khi cấp / trang bị ở máy chủ); phần thưởng (xu / EXP / rơi đồ) vẫn
+  cộng ở client; máu người chơi vẫn ở client.
 
 ## 5. Trước khi có M3 (đã / có thể làm)
 
