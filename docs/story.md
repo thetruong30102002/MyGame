@@ -78,6 +78,10 @@ Phần sau Chương Mở Đầu được phát triển trong [`story-arc.md`](st
 động cơ và chuyển biến của dàn nhân vật, lựa chọn có cái giá cụ thể, cùng khung nội dung cho Chương 1–7
 và kết thúc. Đây là thiết kế cốt truyện; các chương này chưa được triển khai thành nhiệm vụ trong game.
 
+**Bản nháp mới (08/10/2026, chờ duyệt): [`cot-truyen-aether.md`](cot-truyen-aether.md)** — *Biên Niên Bảy Mối*, 10 chương theo 10 vùng
+× 7 map của kế hoạch thế giới, nhiều drama hơn (bí mật của Garrick, Bram hy sinh, Aldric thành Hiệp sĩ hư không, Ma vương Ostrin cũng
+từ thế giới khác tới). Duyệt xong thì mạch này thay phần Chương 2–7 (7 lục địa) ở trên. Sinh từ `docs/tools/cot-truyen.py`.
+
 ## Mã nguồn
 
 - Dữ liệu: `apps/web/src/game/story/childhood.ts` (**sinh tự động** từ

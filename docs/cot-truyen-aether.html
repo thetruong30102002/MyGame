@@ -1,0 +1,336 @@
+<title>Biên Niên Bảy Mối</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,600;0,700;0,800;1,500&family=Nunito:wght@500;600;700;800&display=swap">
+<style>
+/* Bố cục: sổ cốt truyện một cột (mục lục dính trái trên màn rộng); giấy da + mực đỏ son cho cú lật, cùng bộ màu với trang Thế giới Aether. */
+:root {
+  --paper: #f5e3c0; --paper-hi: #fcf2dc; --paper-sunk: #e9cf9f; --line: #c9a578;
+  --ink: #34200f; --ink-soft: #6b4a2b; --wood: #4a2e1c; --gold: #a8740e; --blood: #9a2b1f; --sea: #1f5a7a; --leaf: #2f6b34;
+  --display: 'Alegreya', Georgia, serif; --body: 'Nunito', system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #1f150d; --paper-hi: #2a1d13; --paper-sunk: #170f09; --line: #5a3f27;
+  --ink: #f0dfb8; --ink-soft: #d2b88a; --wood: #f0dfb8; --gold: #ffcf66; --blood: #ff9d8c; --sea: #9fd3ff; --leaf: #8fd39a; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --paper: #1f150d; --paper-hi: #2a1d13; --paper-sunk: #170f09; --line: #5a3f27;
+  --ink: #f0dfb8; --ink-soft: #d2b88a; --wood: #f0dfb8; --gold: #ffcf66; --blood: #ff9d8c; --sea: #9fd3ff; --leaf: #8fd39a; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 15.5px; line-height: 1.65; }
+.wrap { max-width: 1200px; margin: 0 auto; padding-inline: 16px; padding-block: 28px 72px; display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 36px; }
+@media (max-width: 880px) { .wrap { grid-template-columns: minmax(0, 1fr); } nav.toc { position: static !important; } }
+nav.toc { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 16px); align-self: start; display: flex; flex-direction: column; gap: 2px; font-size: 14px; }
+nav.toc .label { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); font-weight: 800; margin: 10px 0 4px; }
+nav.toc a { color: var(--ink); text-decoration: none; padding: 3px 8px; border-radius: 6px; display: flex; gap: 8px; }
+nav.toc a:hover, nav.toc a:focus-visible { background: var(--paper-sunk); outline: none; }
+nav.toc .num { color: var(--blood); font-weight: 800; min-width: 1.4em; font-variant-numeric: tabular-nums; }
+main { min-width: 0; display: flex; flex-direction: column; gap: 48px; }
+h1, h2, h3, h4 { font-family: var(--display); text-wrap: balance; margin: 0; line-height: 1.2; }
+h1 { font-size: clamp(32px, 5.4vw, 52px); font-weight: 800; }
+h2 { font-size: 27px; font-weight: 800; border-bottom: 2px solid var(--line); padding-bottom: 6px; margin-bottom: 16px; }
+h3 { font-size: clamp(24px, 3.4vw, 32px); font-weight: 800; }
+h4 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+p { margin: 0; }
+q { font-family: var(--display); font-style: italic; font-weight: 500; quotes: "“" "”"; }
+.lead { font-family: var(--display); font-size: clamp(18px, 2.3vw, 22px); line-height: 1.5; max-width: 62ch; margin-top: 12px; }
+.status { display: inline-block; margin-top: 16px; font-size: 13px; font-weight: 800; color: var(--blood); background: var(--paper-hi); border: 1px solid var(--line); padding: 3px 12px; border-radius: 999px; }
+dl.theme { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px 24px; margin: 22px 0 0; }
+dl.theme dt { font-size: 12px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; color: var(--gold); }
+dl.theme dd { margin: 2px 0 0; }
+.cast { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 14px; }
+.person { background: var(--paper-hi); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.person .role { font-size: 12px; font-weight: 800; color: var(--ink-soft); letter-spacing: .04em; }
+.person .fate { margin-top: auto; padding-top: 6px; border-top: 1px dashed var(--line); font-size: 13px; font-weight: 700; color: var(--blood); }
+.chapter { display: flex; flex-direction: column; gap: 16px; scroll-margin-top: 16px; }
+.chapter header { display: flex; flex-direction: column; gap: 6px; }
+.eyebrow { font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--gold); }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag { font-size: 12px; font-weight: 800; padding: 1px 10px; border-radius: 999px; background: var(--paper-sunk); color: var(--ink-soft); }
+.tag.dragon { color: var(--sea); }
+.core { font-size: 16.5px; max-width: 72ch; }
+.split { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 28px; }
+@media (max-width: 1040px) { .split { grid-template-columns: minmax(0, 1fr); } }
+ol.maps { margin: 0; padding-left: 26px; display: flex; flex-direction: column; gap: 10px; }
+ol.maps li::marker { font-family: var(--display); font-weight: 800; color: var(--gold); }
+ol.maps b { font-family: var(--display); font-size: 16.5px; }
+.side { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+ul.bosses { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.boss { font-weight: 800; color: var(--blood); }
+.choice h4 { font-size: 16px; }
+.table-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { text-align: left; vertical-align: top; padding: 7px 9px; border-bottom: 1px solid var(--line); }
+thead th { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); }
+tbody th { font-weight: 800; min-width: 7em; }
+.ending { background: var(--paper-hi); border-left: 4px solid var(--blood); border-radius: 0 10px 10px 0; padding: 12px 16px; display: flex; flex-direction: column; gap: 4px; }
+.ending span { font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--blood); }
+.ending p { font-family: var(--display); font-size: 17.5px; line-height: 1.5; }
+ol.twists { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+ol.twists li { display: grid; grid-template-columns: 6.5em minmax(0, 1fr); gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--line); }
+ol.twists a { color: var(--blood); font-weight: 800; text-decoration: none; font-variant-numeric: tabular-nums; }
+.role { color: var(--ink-soft); font-size: 12px; }
+code { font-size: 13px; }
+ol.review { padding-left: 22px; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+.chapters { display: flex; flex-direction: column; gap: 56px; }
+</style>
+
+<div class="wrap">
+  <nav class="toc" aria-label="Mục lục">
+    <span class="label">Tổng quan</span>
+    <a href="#tom-tat">Cả truyện</a>
+    <a href="#nhan-vat">Nhân vật và bí mật</a>
+    <span class="label">10 chương · 10 vùng</span>
+    <a href="#chuong-1"><span class="num">1</span>Hai nửa nút thắt</a><a href="#chuong-2"><span class="num">2</span>Những người chết đuối dưới đập</a><a href="#chuong-3"><span class="num">3</span>Nước của nữ hoàng</a><a href="#chuong-4"><span class="num">4</span>Bạn cũ, cờ mới</a><a href="#chuong-5"><span class="num">5</span>Bức thư đến muộn</a><a href="#chuong-6"><span class="num">6</span>Lửa trong lò, lửa trong lòng</a><a href="#chuong-7"><span class="num">7</span>Con tàu của cha</a><a href="#chuong-8"><span class="num">8</span>Dưới đất không có cờ</a><a href="#chuong-9"><span class="num">9</span>Hai chị em, một vết bỏng</a><a href="#chuong-10"><span class="num">10</span>Người buộc nút</a>
+    <span class="label">Thêm</span>
+    <a href="#cu-lat">Những cú lật</a>
+    <a href="#co">Cờ lựa chọn</a>
+    <a href="#duyet">Cần duyệt</a>
+  </nav>
+  <main>
+    <section id="tom-tat">
+      <h1>Biên Niên Bảy Mối</h1>
+      <p class="lead">Lior sống kiếp thứ hai với đôi mắt thấy sợi Aether. Thắng Quỷ vương ở tuổi 16 chỉ là mở màn: bảy rồng giữ bảy Mối của một giao ước ba trăm năm đang hút cạn những vùng đất rìa, trong đó có quê nhà. Đi qua mười vùng, Lior đánh mất người thầy, suýt mất mẹ, phải đối kiếm với người bạn thân nhất, và cuối cùng đứng trước Ma vương: một người cũng đến từ thế giới khác, người đã thề sẽ không bao giờ để thứ gì <q>để sau</q>.</p>
+      <span class="status">Bản nháp chờ chủ dự án duyệt · 08/10/2026</span>
+      <dl class="theme"><div><dt>Câu hỏi của cả truyện</dt><dd>Khi mọi mối nối đều có giá, ta có quyền buộc người khác vào một lời hứa nhân danh điều tốt không?</dd></div><div><dt>Chủ đề cá nhân</dt><dd><q>Để sau</q> → <q>đi ngay</q>. Kiếp trước Minh để mọi thứ đến muộn. Kiếp này Lior học tiếp nửa sau của bài học: có mặt không có nghĩa là quyết định thay người khác.</dd></div><div><dt>Tấm gương đối lập</dt><dd>Ma vương Ostrin cũng từ thế giới khác tới, cũng thề <q>không chờ ai</q>. Ông làm mọi thứ một mình, không hỏi ai, và thành quái vật. Lior là phiên bản biết hỏi.</dd></div><div><dt>Luật kể</dt><dd>Không phe nào hoàn toàn đúng. Mỗi lựa chọn cứu một điều và làm khó một điều khác. Bí ẩn giải bằng chứng cứ, không có giọng nói thần linh nào chỉ đường.</dd></div></dl>
+    </section>
+
+    <section id="nhan-vat">
+      <h2>Nhân vật và điều họ giấu</h2>
+      <div class="cast"><article class="person"><h4>Lior Ashvale</h4><span class="role">Người chơi · 16 tuổi trở lên</span><p>Mang ký ức của Minh, lập trình viên chết trong đêm mưa. Thấy sợi Aether từ lúc chào đời. Trên tay hằn dấu nút sau trận Quỷ vương.</p><p class="fate">Tuỳ người chơi</p></article><article class="person"><h4>Garrick Ashvale</h4><span class="role">Cha · thợ săn</span><p>Hai mươi năm trước là trinh sát dẫn đường cho Đoàn Ấn Ký đắp đập trong Đầm lầy Mù Sương. Con đập nhấn chìm làng Lau Xám cũ. Dấu khắc con hươu của ông vẫn còn trên cột mốc.</p><p class="fate">Thú nhận ở chương 2 hoặc bị lộ ở chương 6</p></article><article class="person"><h4>Elin Ashvale</h4><span class="role">Mẹ · người nuôi ong</span><p>Không có phép. Bà ngoại của bà nằm trong danh sách <q>người hiến sức</q> của Giao Ước. Đổ bệnh ở chương 5 khi sợi đỏ len vào tổ ong.</p><p class="fate">Sống. Bức thư của mẹ là cảnh cuối</p></article><article class="person"><h4>Aldric</h4><span class="role">Bạn thân · hiệp sĩ</span><p>Muốn đủ mạnh để không ai phải bị hiến tế. Theo Đoàn Ấn Ký ngay cuối chương 1, leo lên thành hiệp sĩ, bị chính Đoàn bỏ rơi, rồi tự ghép sợi hư không vào người.</p><p class="fate">Thành Hiệp sĩ hư không ở chương 10: cứu được hoặc chết trong tay Lior</p></article><article class="person"><h4>Mirelle</h4><span class="role">Nữ trị liệu</span><p>Em trai bà, Caelum, thấy sợi Aether như Lior và được Học viện đưa đi năm 12 tuổi. Vết sẹo bỏng trên tay bà là do cậu. Vì thế bà dạy <q>thả ra mà không làm ai bỏng mới khó</q>.</p><p class="fate">Chọn chữa hay buông em trai ở chương 9</p></article><article class="person"><h4>Bram</h4><span class="role">Thương nhân · người thầy</span><p>Cựu cận vệ thành Sahrin, đào ngũ đêm mẹ bị xử vì chống bán mạch nước. Cha ông là thuyền trưởng Corvin buôn lậu đá ấn. Đồng xu hình nút là của mẹ ông.</p><p class="fate">Chết ở chương 7, giữ con tàu đắm cho Lior thoát</p></article><article class="person"><h4>Nyra</h4><span class="role">Đồng hành mới · thầy thuốc độc dược</span><p>Con gái Phù thuỷ đầm. Cha cô chết đuối khi con đập vỡ làng. Lanh lợi, chua ngoa, ghét người Rowanmere. Không biết người dẫn đường đắp đập chính là cha của Lior.</p><p class="fate">Ở lại hay bỏ đi tuỳ việc Lior có nói thật không</p></article><article class="person"><h4>Valen Hắc Thệ</h4><span class="role">Hiệp sĩ trưởng Đoàn Ấn Ký</span><p>Trẻ mồ côi từ một vùng bị hút cạn, tin rằng giữ nút bằng mọi giá cứu được nhiều người nhất. Đối thủ có lý nhất của Lior.</p><p class="fate">Bị Ma vương giết ở cuối chương 9</p></article><article class="person"><h4>Ostrin, Kẻ Buộc Nút</h4><span class="role">Ma vương · trùm cuối</span><p>Ba trăm năm trước cũng từ thế giới khác tới. Lập Giao Ước Bảy Mối, rồi tự buộc mình làm nút trung tâm. Ba thế kỷ hút sức vùng rìa biến ông thành Ma vương. Ông muốn Lior thay mình.</p><p class="fate">Chương 10</p></article><article class="person"><h4>Bảy rồng nguyên tố</h4><span class="role">Người giữ bảy Mối</span><p>Mỗi rồng giữ một Mối của Giao Ước; Long Châu là phần <q>đồng ý</q> của một vùng. Rồng không trao quyền, chỉ hỏi Lior một câu.</p><p class="fate">Gom đủ 7 Long Châu → Thần Long thức dậy</p></article></div>
+    </section>
+
+    <section>
+      <h2>10 chương theo 10 vùng</h2>
+      <div class="chapters">
+<section class="chapter" id="chuong-1">
+  <header>
+    <span class="eyebrow">Chương 1 · Vùng 1 · Thung lũng Thistlewood</span>
+    <h3>Hai nửa nút thắt</h3>
+    <div class="tags"><span class="tag">Ấm áp → chia ly</span></div>
+  </header>
+  <p class="core">Phần tuổi thơ và trận Quỷ vương đã chơi được. Chương 1 khép vùng: bí mật đầu tiên của Đoàn Ấn Ký nằm ngay dưới chân thị trấn, và người bạn thân nhất ra đi trong đêm.</p>
+  <div class="split">
+    <div>
+      <h4>Theo từng map (thứ tự đi)</h4>
+      <ol class="maps"><li><b>Thistlewood</b><p>Sau trận Quỷ vương: cha chờ ở đầu cầu với chiếc đèn, mẹ giữ phần ăn nóng. Sáng hôm sau sông Brightwater đổi dòng, một thùng ong của mẹ mất đàn. Bram nhìn dấu nút trên tay Lior rồi tái mặt.</p></li><li><b>Rừng Mossvale</b><p>Nấm rừng mọc thành vòng quanh những sợi đỏ còn sót. Lior lần theo và thấy chúng không chạy về tảng đá phong ấn mà chạy xa hơn, về phía đông nam, ra khỏi bản đồ.</p></li><li><b>Nghĩa địa Hoàng Hôn</b><p>Hầm mộ mở ra sau trận động đất. Bia đá cổ khắc huy hiệu bảy vòng tròn nối nhau: huy hiệu của Đoàn Ấn Ký.</p></li><li><b>Đồi Xương Trắng</b><p>Cung thủ xương mặc giáp có cùng huy hiệu. Cả một đội hiệp sĩ đã chết ở đây ba trăm năm trước, mặt quay về phía thị trấn như đang canh giữ.</p></li><li><b>Vách Gargoyle</b><p>Gargoyle đá thức dậy cùng lúc khi dấu nút trên tay Lior nóng lên. Chúng không đuổi theo Lior mà bay về hướng hang.</p></li><li><b>Hang Gargoyle</b><p>Map mới. Sâu trong hang là một gian đá ghi tên <q>những người hiến sức</q> cho Giao Ước. Trong danh sách có tên bà ngoại của mẹ. Lior chép lại và giấu đi, chưa dám kể với ai.</p></li><li><b>Đá Phong Ấn</b><p>Tảng đá đã nguội. Đứng đây nhìn xuống, thị trấn bé như lòng bàn tay. Aldric hỏi: <q>Cậu có định đi không?</q> Lior chưa trả lời.</p></li></ol>
+    </div>
+    <div class="side">
+      <h4>Boss và chuyện của boss</h4>
+      <ul class="bosses"><li><span class="boss">Vua Lich</span> Hiệp sĩ của Đoàn được chôn cùng lời thề. Trước khi tan, hắn nói: <q>Đoàn sẽ đến lấy lại nút.</q> Câu nói thành sự thật ngay cuối chương.</li><li><span class="boss">Gargoyle Đá</span> Tượng canh do Đoàn đặt từ ba trăm năm trước để canh gian đá ghi tên. Hạ nó thì danh sách mở ra.</li><li><span class="boss">Quỷ vương rừng sâu</span> Đã chơi được. Sự thật chỉ lộ ở chương 10: nó từng là sinh vật canh giữ vết rạn, hoá điên khi Mối bị hút cạn.</li></ul>
+      <div class="choice"><h4>Lựa chọn: Bến sông (theo story-arc.md)</h4><div class="table-wrap"><table>
+      <thead><tr><th>Chọn</th><th>Được</th><th>Mất</th></tr></thead><tbody><tr><th scope="row">Buộc nút tạm thời</th><td>Giếng và bờ sông ổn định ngay</td><td>Người tham gia kiệt sức, mùa ong năm đó giảm nửa</td></tr><tr><th scope="row">Mở đường vòng</th><td>Không bắt ai làm nguồn sức</td><td>Nhà kho và cầu nhỏ bị ngập, Bram ở lại thêm ba tuần</td></tr></tbody></table></div></div>
+    </div>
+  </div>
+  <div class="ending"><span>Kết chương</span><p>Valen Hắc Thệ cùng mười hiệp sĩ vào thị trấn đòi <q>thu hồi</q> đồng xu. Lior không giao. Valen mỉm cười bỏ đi. Đêm đó Aldric đi theo đoàn kỵ sĩ, để lại thanh Kiếm Sấm Sét bằng gỗ trước cửa nhà Lior. Không có thư.</p></div>
+</section>
+<section class="chapter" id="chuong-2">
+  <header>
+    <span class="eyebrow">Chương 2 · Vùng 2 · Đầm lầy Mù Sương</span>
+    <h3>Những người chết đuối dưới đập</h3>
+    <div class="tags"><span class="tag">Nghi ngờ · bí mật của cha</span></div>
+  </header>
+  <p class="core">Lior lần theo sợi đỏ vào đầm lầy và gặp Nyra, cô gái ghét người Rowanmere. Garrick lặng lẽ đi theo con. Càng vào sâu, Lior càng nhận ra những dấu khắc con hươu quen thuộc trên các cột mốc của con đập.</p>
+  <div class="split">
+    <div>
+      <h4>Theo từng map (thứ tự đi)</h4>
+      <ol class="maps"><li><b>Làng nhà sàn Lau Xám</b><p>Dân làng nhìn người Rowanmere như nhìn rắn. Nyra chữa vết rắn cắn cho Lior bằng thứ thuốc <q>đắng như sự thật</q>. Garrick tới vào buổi chiều, nói là đi săn ngang qua. Trưởng làng Ysolde nhìn ông rất lâu.</p></li><li><b>Bãi Lau Sậy</b><p>Ếch độc tràn lên vì nước dâng mỗi năm một cao. Giữa lau có một cột mốc gỗ khắc con hươu, giống hệt dấu cha khắc trên khung cửa nhà. Garrick nói <q>dấu thợ săn ai cũng khắc vậy</q>. Ông nói dối.</p></li><li><b>Kênh Đỉa</b><p>Con kênh do Đoàn đào để dẫn nước về Mối. Đỉa đầm bám kín cửa cống. Mẹ Ếch đẻ trứng trong cống: muốn mở cống phải đánh nó, hoặc dời từng ổ trứng ra đầm (lâu hơn, Nyra nhìn Lior khác đi).</p></li><li><b>Rừng Ngập Nấm</b><p>Nấm phát quang mọc trên mái những ngôi nhà chìm của làng cũ. Nyra dẫn Lior tới một mái nhà: mộ của cha cô. Cô kể đêm vỡ đập lúc cô bốn tuổi. Garrick đứng phía sau, không nói gì, tay siết cán dao.</p></li><li><b>Đầm Rắn Nước</b><p>Rắn nước tụ quanh xác thuyền của đội đắp đập. Trong hòm có nhật ký đội trưởng: <q>Trinh sát G. dẫn lối an toàn qua đầm. Làng phía dưới đã được báo.</q> Làng chưa từng được báo.</p></li><li><b>Vực Sương Xanh</b><p>Phù thuỷ đầm Odessa, mẹ của Nyra, dùng sương giữ quái khỏi làng, nhưng cũng nuôi Hydra để một ngày trả thù Rowanmere. Thấy Garrick, bà gọi thẳng: <q>Kẻ khắc hươu.</q> Garrick muốn quỳ xuống nhận tội trước mặt Nyra.</p></li><li><b>Hồ Hydra</b><p>Hydra bùn lớn lên từ xác làng cũ dưới đáy hồ và từ hai mươi năm oán hận. Mỗi đầu bị chém mọc lại cho tới khi Lior thấy sợi nối nó với cửa cống.</p></li></ol>
+    </div>
+    <div class="side">
+      <h4>Boss và chuyện của boss</h4>
+      <ul class="bosses"><li><span class="boss">Mẹ Ếch</span> Chỉ bảo vệ trứng. Đánh thì nhanh; dời trứng thì Nyra bắt đầu tin Lior.</li><li><span class="boss">Phù thuỷ đầm</span> Odessa không phải kẻ ác. Bà là người mẹ mất chồng, giữ làng bằng sương và nuôi hận bằng Hydra. Thua trận, bà xin Lior một điều: <q>Đừng để con bé đi theo người Rowanmere.</q></li><li><span class="boss">Hydra bùn</span> Boss chúa. Hạ nó thì hồ rút, mái nhà làng cũ lộ ra giữa bùn.</li></ul>
+      <div class="choice"><h4>Lựa chọn: Để cha thú nhận bây giờ hay &quot;để sau&quot;?</h4><div class="table-wrap"><table>
+      <thead><tr><th>Chọn</th><th>Được</th><th>Mất</th></tr></thead><tbody><tr><th scope="row">Để Garrick nói ngay</th><td>Sự thật ra trước khi Nyra gắn bó. Nyra tin Lior vì Lior không giấu</td><td>Nyra ghét Garrick. Làng Lau Xám đuổi ông khỏi đầm. Cha con im lặng suốt đường về</td></tr><tr><th scope="row">Ngăn cha lại, để sau</th><td>Nyra theo Lior vui vẻ, cha giữ được thể diện</td><td>Bom hẹn giờ: Nyra sẽ tự phát hiện ở chương 6 và bỏ đi trong đêm</td></tr></tbody></table></div></div><div class="choice"><h4>Lựa chọn: Con đập</h4><div class="table-wrap"><table>
+      <thead><tr><th>Chọn</th><th>Được</th><th>Mất</th></tr></thead><tbody><tr><th scope="row">Phá đập</th><td>Đầm rút, làng cũ được chôn cất tử tế</td><td>Sông Brightwater ở quê cạn một mùa, ong của mẹ thiếu nước</td></tr><tr><th scope="row">Giữ đập, mở cống từng phần</th><td>Hai bên đều còn nước</td><td>Cần người canh cống mãi mãi. Garrick tự nhận ở lại để chuộc lỗi, gia đình xa nhau</td></tr></tbody></table></div></div>
+    </div>
+  </div>
+  <div class="ending"><span>Kết chương</span><p>Nyra khoác túi thuốc theo Lior lên đường. Một con chim ưng của Đoàn thả xuống mảnh giấy có ấn đỏ: <q>Hiệp sĩ Aldric được phong tước. Lần sau gặp, chúng ta sẽ bàn về đồng xu.</q></p></div>
+</section>
+<section class="chapter" id="chuong-3">
+  <header>
+    <span class="eyebrow">Chương 3 · Vùng 3 · Sa mạc Hồng Cát</span>
+    <h3>Nước của nữ hoàng</h3>
+    <div class="tags"><span class="tag">Chính trị · anh em</span></div>
+  </header>
+  <p class="core">Thành ốc đảo Sahrin đang bán mạch nước ngầm cho Đoàn Ấn Ký. Bram bị lính nhận mặt là kẻ đào ngũ và bị bắt giam ngay ngày đầu. Muốn cứu thầy, Lior phải chọn đứng về phía nữ hoàng hay phía em gái của Bram, thủ lĩnh phe nổi dậy.</p>
+  <div class="split">
+    <div>
+      <h4>Theo từng map (thứ tự đi)</h4>
+      <ol class="maps"><li><b>Thành ốc đảo Sahrin</b><p>Nữ hoàng Amira mở tiệc đón <q>những người đã giết Quỷ vương</q>. Giữa tiệc, lính hoàng gia còng tay Bram: mười lăm năm trước ông bỏ trốn đúng đêm mẹ ông bị xử vì chống bán nước. Tể tướng Hassim, người của Đoàn, mỉm cười.</p></li><li><b>Cồn Cát Đỏ</b><p>Đi hộ tống đoàn buôn nước của triều đình thì bị cướp. Kẻ cướp chia nước cho dân nghèo ngoài thành. Thủ lĩnh là một phụ nữ đeo mặt nạ: Zahra.</p></li><li><b>Hẻm Rắn</b><p>Hang ổ phe nổi dậy. Zahra tháo mặt nạ: cô là em gái Bram. <q>Anh ấy về muộn mười lăm năm.</q> Bọ cạp chúa là thú cưỡi cũ của hoàng gia, bị bỏ đói khi triều đình bán nước.</p></li><li><b>Lăng Mộ Cát</b><p>Lăng các vua đã ký Giao Ước. Tường khắc lời hứa: Sahrin được một ghế trong hội đồng Bảy Mối. Tên Sahrin đã bị đục khỏi đá.</p></li><li><b>Vách Kền Kền</b><p>Kền kền ăn xác một đội lính của nữ hoàng. Thư trong túi đội trưởng chứng minh Tể tướng Hassim cố tình đưa họ vào chỗ chết để mở đường hút nước. Ông phản bội cả nữ hoàng.</p></li><li><b>Phế tích Đá Đỏ</b><p>Linh hồn cát canh bản Giao Ước gốc. Pharaoh xác ướp là vị vua Sahrin đầu tiên ký vào đó, bị trói hồn ba trăm năm để giữ bản gốc.</p></li><li><b>Hố Cát Nuốt</b><p>Hassim mở cống ngầm hút cạn ốc đảo. Sâu cát khổng lồ trồi lên, cả thành rung chuyển. Bram bị treo làm mồi trên miệng hố.</p></li></ol>
+    </div>
+    <div class="side">
+      <h4>Boss và chuyện của boss</h4>
+      <ul class="bosses"><li><span class="boss">Bọ cạp chúa</span> Thú cưỡi hoàng gia bị bỏ đói. Zahra xin Lior đừng giết nó nếu có thể.</li><li><span class="boss">Pharaoh xác ướp</span> Vị vua đã ký. Hạ ông thì hồn ông được thả, ông trao bản gốc và nói: <q>Chúng ta đã tin họ.</q></li><li><span class="boss">Sâu cát khổng lồ</span> Boss chúa. Đánh trên nền cát lún trong lúc Bram treo trên đầu.</li></ul>
+      <div class="choice"><h4>Lựa chọn: Trao bản Giao Ước gốc cho ai?</h4><div class="table-wrap"><table>
+      <thead><tr><th>Chọn</th><th>Được</th><th>Mất</th></tr></thead><tbody><tr><th scope="row">Nữ hoàng Amira</th><td>Bà xử Hassim, công bố sự thật từ từ, thành giữ được trật tự</td><td>Zahra coi Lior là kẻ phản bội. Phe nổi dậy tan. Bram mất em lần nữa</td></tr><tr><th scope="row">Zahra</th><td>Sự thật lan khắp sa mạc trong một đêm, dân có tiếng nói</td><td>Nội chiến. Amira thoái vị, Sahrin hỗn loạn suốt chương sau</td></tr></tbody></table></div></div>
+    </div>
+  </div>
+  <div class="ending"><span>Kết chương</span><p>Bram và Zahra đứng hai đầu sân thành. Ông xin lỗi. Cô không tha thứ, nhưng ném cho ông chiếc khăn của mẹ. Hassim trốn lên cao nguyên mang theo cỗ máy hút nước và một hòm đá ấn.</p></div>
+</section>
+<section class="chapter" id="chuong-4">
+  <header>
+    <span class="eyebrow">Chương 4 · Vùng 4 · Cao nguyên Gió Hú</span>
+    <h3>Bạn cũ, cờ mới</h3>
+    <div class="tags"><span class="tag">Tình bạn · đối kiếm</span><span class="tag dragon">Rồng: Phong Long Tuyệt Vân</span></div>
+  </header>
+  <p class="core">Cối xay gió ngừng quay vì Đoàn dựng tháp thu gió. Người chỉ huy đồn là Aldric. Hai người bạn đánh chung một trận, ngồi chung một đống lửa, rồi rút kiếm với nhau trước mặt con rồng đầu tiên.</p>
+  <div class="split">
+    <div>
+      <h4>Theo từng map (thứ tự đi)</h4>
+      <ol class="maps"><li><b>Làng Cối Xay Gió</b><p>Gặp lại Aldric trong bộ giáp có huy hiệu bảy vòng. Cậu ôm chầm Lior, rồi khựng lại khi thấy Nyra: <q>Phù thuỷ đầm?</q> Dân làng không dám mở miệng trước mặt hiệp sĩ.</p></li><li><b>Đồi Cỏ Cao</b><p>Sói gió hoá điên vì gió bị hút. Aldric và Lior đánh lưng tựa lưng như hồi tám tuổi. Đêm đó bên đống lửa, Aldric nhắc lại lời ngoéo tay: <q>Tớ vẫn đang đi đánh Quỷ vương thật đây.</q></p></li><li><b>Vách Chim Ưng</b><p>Đại bàng bão làm tổ trên tháp thu gió. Aldric nhận lệnh giết nó. Lior thấy trong tổ có ba quả trứng.</p></li><li><b>Thung Lũng Tiên</b><p>Tiên gió mất nhà vì gió cạn. Một tiên già kể về Tuyệt Vân, con rồng giữ Mối Phong, và về người đàn ông <q>từ ngoài trời</q> đã buộc Mối ba trăm năm trước.</p></li><li><b>Bãi Đá Bay</b><p>Đá bay rơi xuống vì gió yếu, đè sập nửa làng. Lior bắt gặp Hassim lắp cỗ máy Sahrin vào chân tháp, Aldric ký lệnh nghiệm thu.</p></li><li><b>Đường Lên Đền Mây</b><p>Pháp sư gió Orrin từng dựng chính những ngọn tháp này cho Đoàn, nay hối hận và muốn phá chúng. Aldric được lệnh bắt ông. Orrin đứng chắn đường lên đền.</p></li><li><b>Đền Trên Mây</b><p>Rồng gió, con của Tuyệt Vân, điên lên vì Mối bị hút. Sau trận đánh, Lior vào Long Huyệt gặp chính Tuyệt Vân.</p></li></ol>
+    </div>
+    <div class="side">
+      <h4>Boss và chuyện của boss</h4>
+      <ul class="bosses"><li><span class="boss">Đại bàng bão</span> Chỉ bảo vệ tổ. Hạ nó thì Aldric hoàn thành lệnh; xua nó đi thì Aldric bị ghi lỗi.</li><li><span class="boss">Pháp sư gió</span> Orrin không muốn thắng, ông muốn ai đó nghe. Thua trận, ông trao Lior sơ đồ mọi tháp thu gió trên lục địa.</li><li><span class="boss">Rồng gió</span> Boss chúa: con rồng non điên vì đói gió.</li><li><span class="boss">Phong Long Tuyệt Vân</span> Rồng thứ nhất. Hỏi: <q>Ai cho ngươi quyền đồng ý thay cả cao nguyên?</q> Trao Long Châu đầu tiên. Valen xuất hiện ngay sau đó đòi lấy châu.</li></ul>
+      <div class="choice"><h4>Lựa chọn: Long Châu Phong</h4><div class="table-wrap"><table>
+      <thead><tr><th>Chọn</th><th>Được</th><th>Mất</th></tr></thead><tbody><tr><th scope="row">Giao cho Valen</th><td>Aldric được thăng chức, Đoàn tạm thời để Lior yên</td><td>Mối Phong bị hút tiếp, tháp vẫn đứng, làng cối xay dời đi</td></tr><tr><th scope="row">Giữ châu, đấu với Aldric</th><td>Gió trở lại cao nguyên một phần</td><td>Aldric thua (hoặc cố tình chém trượt). Valen tước kiếm của cậu trước mặt mọi người. Đoàn truy nã Lior</td></tr></tbody></table></div></div>
+    </div>
+  </div>
+  <div class="ending"><span>Kết chương</span><p>Một bức thư đến chậm ba tuần, nét chữ nguệch ngoạc của cha, lá thư đầu tiên trong đời ông: <q>Mẹ ốm. Con đừng lo. Cha khắc thêm một vạch.</q></p></div>
+</section>
+<section class="chapter" id="chuong-5">
+  <header>
+    <span class="eyebrow">Chương 5 · Vùng 5 · Lãnh nguyên Băng Giá</span>
+    <h3>Bức thư đến muộn</h3>
+    <div class="tags"><span class="tag">Gia đình · đi hay ở</span><span class="tag dragon">Rồng: Băng Long Hàn Sương</span></div>
+  </header>
+  <p class="core">Mẹ đổ bệnh vì sợi đỏ len vào tổ ong ở quê: Mối Băng đang hút từ vùng rìa. Cột dịch chuyển cho Lior về nhà trong một hơi thở. Nhưng làng Tuyết Phong đang bị bão nhốt và cần người dẫn đường. Chương này hỏi thẳng câu hỏi của kiếp trước.</p>
+  <div class="split">
+    <div>
+      <h4>Theo từng map (thứ tự đi)</h4>
+      <ol class="maps"><li><b>Làng gỗ Tuyết Phong</b><p>Bão băng chặn mọi lối ra. Trưởng làng già đã đi lên hồ ba ngày chưa về. Lior cầm thư của cha, đứng trước cột dịch chuyển rất lâu.</p></li><li><b>Rừng Thông Tuyết</b><p>Sói tuyết săn theo bầy. Kael, thợ săn mười bốn tuổi, mất cha trong trận bão. Cậu săn y như cách Garrick dạy Lior: đọc gió trước, rồi mới đọc dấu chân.</p></li><li><b>Hồ Băng</b><p>Nữ hoàng băng là một người mẹ của làng đã tự đóng băng mình để giữ mặt hồ khỏi vỡ. Bà không còn nhận ra con mình. Hạ bà là để bà được tan ra và nghỉ.</p></li><li><b>Đèo Người Tuyết</b><p>Yeti chặn đèo vì đàn con ở phía sau. Nyra và Lior cãi nhau lần đầu: <q>Cậu lúc nào cũng muốn cứu hết. Có ai cứu được hết đâu.</q></p></li><li><b>Bờ Biển Băng</b><p>Chim cánh cụt chiến giữ bãi. Một con tàu băng của Đoàn chở Long Châu bị kẹt. Bram đọc tên khắc trên thân tàu và bỗng im bặt: <q>Hải Âu Bạc</q>, tàu của cha ông.</p></li><li><b>Hang Gấu</b><p>Gấu băng ngủ đông trên một mạch Aether. Trong hang có câu đố của Hàn Sương khắc trên vách: muốn vào Long Huyệt phải nói ra một điều mình đang cố quên.</p></li><li><b>Ngai Băng</b><p>Băng long giữ cửa Long Huyệt. Vào trong là Hàn Sương, con rồng giữ băng để quên.</p></li></ol>
+    </div>
+    <div class="side">
+      <h4>Boss và chuyện của boss</h4>
+      <ul class="bosses"><li><span class="boss">Nữ hoàng băng</span> Người mẹ đóng băng chính mình. Cảnh bà tan ra là đối chiếu trực tiếp với mẹ của Lior.</li><li><span class="boss">Yeti</span> Bảo vệ đàn con. Có thể đánh, hoặc dẫn đàn qua đèo trước rồi mới đi.</li><li><span class="boss">Băng long</span> Boss chúa canh cửa.</li><li><span class="boss">Băng Long Hàn Sương</span> Rồng thứ hai. Hỏi: <q>Ngươi muốn nhớ hay muốn quên?</q> Lior kể về cuộc gọi chưa bao giờ gọi. Trao Long Châu.</li></ul>
+      <div class="choice"><h4>Lựa chọn: Về nhà ngay hay ở lại?</h4><div class="table-wrap"><table>
+      <thead><tr><th>Chọn</th><th>Được</th><th>Mất</th></tr></thead><tbody><tr><th scope="row">Về ngay qua cột dịch chuyển</th><td>Ngồi cạnh giường mẹ một đêm. Mẹ nắm tay con rồi đẩy đi: <q>Con về rồi. Giờ đi đi.</q></td><td>Không ai dẫn đường, trưởng làng chết trên hồ. Kael không bao giờ nhìn Lior như trước</td></tr><tr><th scope="row">Ở lại đến hết bão</th><td>Cứu được làng và trưởng làng</td><td>Mẹ qua khỏi nhưng Lior không có mặt. Cha khắc một vạch mới trên khung cửa, không ghi tên</td></tr></tbody></table></div></div>
+    </div>
+  </div>
+  <div class="ending"><span>Kết chương</span><p>Tin từ phương nam: người lùn Đe Đỏ từ chối rèn vũ khí cho Đoàn. Đoàn tuyên chiến. Người dẫn đội tiên phong là Aldric. Mirelle gửi thư từ trong pháo đài: <q>Ở đây cần thầy thuốc.</q></p></div>
+</section>
+<section class="chapter" id="chuong-6">
+  <header>
+    <span class="eyebrow">Chương 6 · Vùng 6 · Núi lửa Hoả Sơn</span>
+    <h3>Lửa trong lò, lửa trong lòng</h3>
+    <div class="tags"><span class="tag">Chiến tranh · phản bội</span><span class="tag dragon">Rồng: Hoả Long Viêm Đế</span></div>
+  </header>
+  <p class="core">Pháo đài người lùn bị vây. Trong pháo đài, hai chị em hoàng tộc chia đôi hội đồng. Ngoài pháo đài, Aldric dẫn quân. Trong túi Lior, tấm bản đồ cha vẽ chờ Nyra nhìn thấy.</p>
+  <div class="split">
+    <div>
+      <h4>Theo từng map (thứ tự đi)</h4>
+      <ol class="maps"><li><b>Pháo đài Đe Đỏ</b><p>Nữ vương rèn Hilde muốn đóng cổng giữ trung lập. Em trai bà, Durin, muốn rèn vũ khí cho Đoàn để đổi lấy lửa của Mối Hoả. Mirelle băng bó cho cả lính hai phe.</p></li><li><b>Bãi Đá Đen</b><p>Thằn lằn lửa chui lên từ khe đá. Lior bắt gặp Durin mở cổng phụ cho Đoàn trong đêm.</p></li><li><b>Sông Dung Nham</b><p>Golem dung nham cổ do người lùn rèn từ thời Giao Ước để canh Mối. Trên lưng nó khắc tên những người thợ đã hiến sức, có cả tổ tiên của Hilde.</p></li><li><b>Hang Dơi Lửa</b><p>Nyra tìm thuốc trong túi Lior và thấy tấm bản đồ cha vẽ: dấu con hươu, đường mòn qua đầm cũ. Nếu Lior đã giấu sự thật ở chương 2, đêm đó Nyra bỏ đi, chỉ để lại lọ thuốc giải cuối cùng.</p></li><li><b>Lò Rèn Bỏ Hoang</b><p>Tinh linh lửa giữ một lò rèn bỏ hoang. Trên đe còn nằm một thanh kiếm sấm sét thật, đúng hình thanh kiếm gỗ Aldric khắc hồi bé. Lior có thể mang nó theo.</p></li><li><b>Miệng Núi</b><p>Đội tiên phong của Aldric bị dung nham vây. Valen ra lệnh rút, để họ làm mồi. Lior có thể quay lại cứu họ. Aldric chiến đấu cạnh Lior và lần đầu nghe tận tai lệnh bỏ rơi.</p></li><li><b>Lõi Núi Lửa</b><p>Hoả thần là linh hồn lò rèn đầu tiên của người lùn, hoá điên vì Mối bị hút. Sau trận, Lior vào Long Huyệt gặp Viêm Đế.</p></li></ol>
+    </div>
+    <div class="side">
+      <h4>Boss và chuyện của boss</h4>
+      <ul class="bosses"><li><span class="boss">Golem dung nham cổ</span> Người canh do chính người lùn làm ra. Hilde xin giữ lại lõi của nó.</li><li><span class="boss">Salamander</span> Chặn đường tới đội của Aldric. Đánh nhanh thì cứu kịp cả đội.</li><li><span class="boss">Hoả thần</span> Boss chúa: thần lửa của lò rèn đầu tiên.</li><li><span class="boss">Hoả Long Viêm Đế</span> Rồng thứ ba. Hỏi: <q>Lửa có hỏi ai được ấm không?</q> Trao Long Châu. Mirelle kể về em trai Caelum và cho Lior xem vết sẹo bỏng.</li></ul>
+      <div class="choice"><h4>Lựa chọn: Đứng về phía ai trong hội đồng?</h4><div class="table-wrap"><table>
+      <thead><tr><th>Chọn</th><th>Được</th><th>Mất</th></tr></thead><tbody><tr><th scope="row">Hilde · trung lập</th><td>Pháo đài giữ được nghề rèn, không thành xưởng vũ khí</td><td>Đóng cổng bỏ dân tị nạn bên ngoài. Durin bị tống giam, người lùn chia rẽ</td></tr><tr><th scope="row">Durin · rèn cho Đoàn</th><td>Pháo đài không bị phá, dân tị nạn được vào</td><td>Vũ khí Đe Đỏ đổ về chiến trường. Hilde thoái vị</td></tr></tbody></table></div></div>
+    </div>
+  </div>
+  <div class="ending"><span>Kết chương</span><p>Bram nhận một mẩu giấy từ thuỷ thủ qua đường: <q>Hải Âu Bạc đã chìm ở San Hô. Người ta vẫn thấy đèn trên boong mỗi đêm.</q></p></div>
+</section>
+<section class="chapter" id="chuong-7">
+  <header>
+    <span class="eyebrow">Chương 7 · Vùng 7 · Quần đảo San Hô</span>
+    <h3>Con tàu của cha</h3>
+    <div class="tags"><span class="tag">Mất mát · tha thứ</span><span class="tag dragon">Rồng: Thuỷ Long Thương Hải</span></div>
+  </header>
+  <p class="core">Bram kể hết sự thật. Cha ông buôn lậu đá ấn cho cả Đoàn lẫn phe nổi dậy, và đã bán vị trí làng người cá. Trên con tàu ma, hai cha con gặp nhau lần cuối. Bram không trở về.</p>
+  <div class="split">
+    <div>
+      <h4>Theo từng map (thứ tự đi)</h4>
+      <ol class="maps"><li><b>Cảng chài San Hô</b><p>Bên bếp lửa làng chài, Bram kể lần đầu không giấu điều gì: cha ông là thuyền trưởng Corvin, còn đồng xu là của mẹ, người đã giữ hình dạng thật của mối nối.</p></li><li><b>Bãi Cát Trắng</b><p>Cua chiếm bãi. Trẻ con làng chài nhặt đá ấn vỡ trôi dạt vào bờ để bán cho thương lái. Một đứa nhặt được mảnh có khắc tên Corvin.</p></li><li><b>Rạn San Hô</b><p>Sứa phát sáng quanh một mảnh Mối Thuỷ vỡ. Cua chúa ôm mảnh đó như ôm con.</p></li><li><b>Đảo Cướp Biển</b><p>Cướp biển là thuỷ thủ cũ của Corvin. Họ kể chuyến hàng cuối: Corvin bán vị trí làng người cá cho Đoàn đổi lấy tự do cho cả thuyền.</p></li><li><b>Đầm Người Cá</b><p>Người cá căm hận đất liền. Công chúa Maris giữ một tù binh là thuỷ thủ của Hải Âu Bạc, sống sót nhờ ăn tảo suốt mười năm.</p></li><li><b>Bãi Tàu Đắm</b><p>Đèn trên boong Hải Âu Bạc vẫn sáng. Thuyền trưởng ma Corvin đứng ở mũi tàu chờ con trai. Ông xin tha thứ. Bram không đáp.</p></li><li><b>Vực Kraken</b><p>Kraken kéo xác tàu xuống vực. Bram ở lại giữ thân tàu cho Lior và Nyra kịp thoát.</p></li></ol>
+    </div>
+    <div class="side">
+      <h4>Boss và chuyện của boss</h4>
+      <ul class="bosses"><li><span class="boss">Cua chúa</span> Ôm mảnh Mối như ôm con. Hạ nó lấy mảnh, hoặc để mảnh lại cho rạn san hô.</li><li><span class="boss">Thuyền trưởng ma</span> Corvin không đánh để thắng. Mỗi đòn đánh là một câu xin lỗi. Thua trận, ông tan ra khi Bram cuối cùng nói: <q>Con nghe rồi.</q></li><li><span class="boss">Kraken</span> Boss chúa. Trận đánh dưới con tàu đang chìm.</li><li><span class="boss">Thuỷ Long Thương Hải</span> Rồng thứ tư. Nói: <q>Biển nhận mọi thứ chảy vào, kể cả người thương.</q> Trao Long Châu.</li></ul>
+      <div class="choice"><h4>Lựa chọn: Các mảnh đá ấn nhặt được</h4><div class="table-wrap"><table>
+      <thead><tr><th>Chọn</th><th>Được</th><th>Mất</th></tr></thead><tbody><tr><th scope="row">Trả cho người cá</th><td>Maris đưa tộc người cá trở lại hội đồng các vùng, có tiếng nói</td><td>Không đủ đá đóng tàu nhanh. Đến Rừng Nấm muộn, đội của Aldric mất thêm ba người</td></tr><tr><th scope="row">Đóng tàu tốc hành</th><td>Kịp cứu đội của Aldric</td><td>Người cá đóng cửa với đất liền. Liên quân ở chương 10 thiếu một tộc</td></tr></tbody></table></div></div>
+    </div>
+  </div>
+  <div class="ending"><span>Kết chương</span><p>Lời cuối của Bram: <q>Đồng xu là của mẹ ta. Giờ là của cháu. Đừng đưa nó cho vua nào cả.</q> Tin dữ nối tiếp: Aldric bị Vua người nấm bắt làm con tin. Valen không đến cứu.</p></div>
+</section>
+<section class="chapter" id="chuong-8">
+  <header>
+    <span class="eyebrow">Chương 8 · Vùng 8 · Rừng Nấm Ngầm</span>
+    <h3>Dưới đất không có cờ</h3>
+    <div class="tags"><span class="tag">Giải cứu · thật lòng</span><span class="tag dragon">Rồng: Địa Long Thạch Cốt</span></div>
+  </header>
+  <p class="core">Đi cứu Aldric dưới lòng đất. Lần đầu tiên từ chương 1, hai người bạn nói thật với nhau. Lior biết Aldric muốn gì. Không ai biết đó là mầm của bi kịch.</p>
+  <div class="split">
+    <div>
+      <h4>Theo từng map (thứ tự đi)</h4>
+      <ol class="maps"><li><b>Làng người nấm Ánh Tím</b><p>Tộc người nấm chỉ tin người đã giúp họ. Trưởng lão Sporrin bắt Lior làm ba việc trước khi chỉ đường xuống điện.</p></li><li><b>Rừng Nấm Khổng Lồ</b><p>Người nấm bị nhiễm sợi đỏ, mặt nấm chuyển màu máu. Nyra (nếu còn đi cùng) chế thuốc giải từ chính bào tử của chúng.</p></li><li><b>Hang Nhện</b><p>Nhện chúa giăng tơ quanh đội của Aldric. Đội bị Đoàn bỏ lại, chỉ còn bốn người. Aldric bị thương ở chân vẫn đứng chắn trước lính của mình.</p></li><li><b>Mạch Tinh Thể</b><p>Đoàn khai thác tinh thể Aether, hút cạn cả rừng. Aldric đọc được lệnh của Valen: <q>Đội này là mồi. Không cần đón.</q></p></li><li><b>Hang Bọ Đèn</b><p>Dưới ánh bọ đèn, Aldric nói câu thật nhất của cậu: <q>Tớ muốn đủ mạnh để không ai phải bị hiến nữa. Kể cả nếu phải tự hiến mình.</q> Lior không biết trả lời sao.</p></li><li><b>Điện Nấm</b><p>Vua người nấm Muscar đã mặc cả với Đoàn: bán tinh thể đổi lấy việc làng không bị càn. Ông giữ Aldric để đổi. Ông không phải kẻ ác, ông chỉ sợ.</p></li><li><b>Lòng Đất Sâu</b><p>Rồng đất cuộn mình quanh Mối Thổ. Sau trận, Thạch Cốt nói ra cái tên mà cả lục địa đã quên: Ostrin.</p></li></ol>
+    </div>
+    <div class="side">
+      <h4>Boss và chuyện của boss</h4>
+      <ul class="bosses"><li><span class="boss">Nhện chúa</span> Giải cứu đội Aldric giữa lưới tơ.</li><li><span class="boss">Vua người nấm</span> Thua trận, Muscar thả Aldric và xin Lior đừng kể cho Đoàn biết làng ở đâu.</li><li><span class="boss">Rồng đất</span> Boss chúa: trồi lên dưới chân, giáp đá phải phá.</li><li><span class="boss">Địa Long Thạch Cốt</span> Rồng thứ năm. Nói: <q>Đất nhớ mọi bước chân.</q> Trao Long Châu và cái tên Ostrin, Kẻ Buộc Nút.</li></ul>
+      <div class="choice"><h4>Lựa chọn: Aldric muốn quay về Đoàn &quot;để sửa nó từ bên trong&quot;</h4><div class="table-wrap"><table>
+      <thead><tr><th>Chọn</th><th>Được</th><th>Mất</th></tr></thead><tbody><tr><th scope="row">Để cậu đi, tin cậu</th><td>Tình bạn giữ nguyên. Aldric ôm Lior trước khi đi</td><td>Cậu đi một mình vào nơi đã bỏ rơi cậu</td></tr><tr><th scope="row">Giữ cậu lại bằng mọi giá</th><td>Lior đã cố</td><td>Cậu vẫn đi lúc nửa đêm, và nhớ rằng Lior không tin cậu</td></tr></tbody></table></div></div>
+    </div>
+  </div>
+  <div class="ending"><span>Kết chương</span><p>Mirelle biến mất khỏi trạm. Bà để lại vòng tay trị liệu và một dòng: <q>Ta đi tìm Caelum. Lần này ta không để sau.</q></p></div>
+</section>
+<section class="chapter" id="chuong-9">
+  <header>
+    <span class="eyebrow">Chương 9 · Vùng 9 · Phế tích Aether</span>
+    <h3>Hai chị em, một vết bỏng</h3>
+    <div class="tags"><span class="tag">Sự thật · gương soi</span><span class="tag dragon">Rồng: Quang Long Thiên Huy</span></div>
+  </header>
+  <p class="core">Thành cổ của các pháp sư giữ cuốn nhật ký của Ostrin. Lior đọc và thấy chính mình trong đó. Mirelle tìm thấy em trai, nhưng em trai bà đã định làm nút thay Ostrin.</p>
+  <div class="split">
+    <div>
+      <h4>Theo từng map (thứ tự đi)</h4>
+      <ol class="maps"><li><b>Toà thành Aether cổ</b><p>Ba phe tranh di sản: Học giả Thư viện muốn công bố mọi thứ, Đoàn muốn khoá lại, Hội Thợ Máy muốn bán. Người giữ cổng hỏi Lior: <q>Ngươi theo phe nào?</q></p></li><li><b>Phố Đổ Nát</b><p>Hiệp sĩ ma của Đoàn đầu tiên đánh lại trận chiến ba trăm năm trước, mỗi đêm một lần, không bao giờ thắng.</p></li><li><b>Xưởng Máy Cổ</b><p>Vệ binh máy canh một bảng đo sức hút của từng vùng. Dòng Thistlewood ghi <q>còn 3%</q>. Đó là lý do ong của mẹ chết.</p></li><li><b>Thư Viện Bay</b><p>Sách bay quanh trang bị xé của Học viện: nhật ký Ostrin. <q>Tôi đến từ một nơi khác. Ở đó tôi đã để mọi thứ đến muộn. Ở đây tôi sẽ không chờ ai.</q> Lior phải ngồi xuống.</p></li><li><b>Tháp Pháp Sư</b><p>Pháp sư mất trí là học trò của Caelum. Ở đỉnh tháp, Mirelle nằm bị thương. Bà vẫn đi tiếp.</p></li><li><b>Xưởng Rối</b><p>Rối gỗ ma thuật diễn lại cảnh lập Giao Ước. Hiệp sĩ đầu lâu là chỉ huy đầu tiên của Đoàn, bị Ostrin kết tội vì dám nói không. Hắn kể Valen cũng là trẻ mồ côi của một vùng bị hút cạn.</p></li><li><b>Điện Aether</b><p>Caelum, Đại pháp sư sa đoạ, muốn thay Ostrin làm nút để cứu Thistlewood, quê của chị mình. Cái giá là trở thành một Ostrin khác.</p></li></ol>
+    </div>
+    <div class="side">
+      <h4>Boss và chuyện của boss</h4>
+      <ul class="bosses"><li><span class="boss">Cỗ máy canh giữ</span> Cỗ máy đo sức hút do Ostrin chế. Phá nó thì bảng số tắt, nhưng ai cũng đã kịp đọc.</li><li><span class="boss">Hiệp sĩ đầu lâu</span> Người đầu tiên nói không với Ostrin. Hạ hắn để hắn được nghỉ.</li><li><span class="boss">Đại pháp sư sa đoạ</span> Boss chúa: Caelum. Mirelle đứng giữa trận đánh.</li><li><span class="boss">Quang Long Thiên Huy</span> Rồng thứ sáu. Nói: <q>Ánh sáng cho ngươi thấy. Nó không cho ngươi quyền.</q> Trao Long Châu.</li></ul>
+      <div class="choice"><h4>Lựa chọn: Mirelle và Caelum (Lior chỉ được khuyên, Mirelle quyết)</h4><div class="table-wrap"><table>
+      <thead><tr><th>Chọn</th><th>Được</th><th>Mất</th></tr></thead><tbody><tr><th scope="row">Khuyên bà chữa cho em</th><td>Caelum sống, mất hẳn khả năng thấy sợi, về Thistlewood cùng chị</td><td>Mirelle cạn sức trị liệu suốt chương 10</td></tr><tr><th scope="row">Khuyên bà buông em đi</th><td>Mirelle giữ được sức cho trận cuối</td><td>Caelum chết thanh thản. Mirelle không bao giờ chữa bằng phép nữa, chỉ bằng thuốc</td></tr></tbody></table></div></div>
+    </div>
+  </div>
+  <div class="ending"><span>Kết chương</span><p>Valen về báo thất bại và bị Ma vương giết ngay trên bậc ngai. Aldric nhặt thanh kiếm của Valen lên: <q>Nếu không ai đủ mạnh, tớ sẽ là người đó.</q> Cậu bước vào Vực Hư Không trước Lior một ngày.</p></div>
+</section>
+<section class="chapter" id="chuong-10">
+  <header>
+    <span class="eyebrow">Chương 10 · Vùng 10 · Vực Hư Không</span>
+    <h3>Người buộc nút</h3>
+    <div class="tags"><span class="tag">Đỉnh điểm · lựa chọn cuối</span><span class="tag dragon">Rồng: Hắc Long Vô Tận</span></div>
+  </header>
+  <p class="core">Mọi lựa chọn từ chương 1 dồn về đây: ai có mặt trong liên quân, Nyra còn bên cạnh không, Aldric còn cứu được không. Ở cuối vực, Ostrin mời Lior làm người kế vị.</p>
+  <div class="split">
+    <div>
+      <h4>Theo từng map (thứ tự đi)</h4>
+      <ol class="maps"><li><b>Thành trì Hư Không</b><p>Liên quân tụ về theo lựa chọn của Lior: Zahra hoặc Amira, Hilde hoặc Durin, người cá của Maris, người nấm của Muscar, làng Lau Xám. Garrick có mặt, mang theo cây cung cũ. <q>Con gọi, cha đến.</q></p></li><li><b>Đảo Trôi Tím</b><p>Quỷ hư không nhảy giữa những hòn đảo trôi. Mỗi đảo là một mảnh đất bị hút cạn: một góc đầm Lau Xám, một bức tường Sahrin, một mái nhà quen ở Thistlewood.</p></li><li><b>Khe Nứt</b><p>Mắt bay canh khe nứt. Ở đáy khe, Hiệp sĩ hư không chờ Lior. Dưới lớp giáp đen là Aldric.</p></li><li><b>Rừng Bóng</b><p>Bóng người dựng lại ký ức của Minh: văn phòng ca đêm, tiếng mưa, chiếc điện thoại chưa bao giờ bấm gọi. Không ai nói gì, chỉ có ký ức.</p></li><li><b>Nghĩa Trang Hư Không</b><p>Ác linh là tên những người đã bị hút sức suốt ba trăm năm. Lior đọc thấy tên bà ngoại của mẹ, và tên Bram vừa được khắc thêm.</p></li><li><b>Hang Ma Sói</b><p>Mẹ quỷ, bạn đời của Quỷ vương rừng sâu, đòi nợ máu. Bà kể sự thật: Quỷ vương từng là người canh vết rạn ở Mossvale.</p></li><li><b>Ngai Ma Vương</b><p>Ostrin ngồi giữa bảy sợi chỉ khổng lồ. Ông nói giọng của một người rất mệt: <q>Cậu sẽ không bao giờ phải để sau nữa. Cậu sẽ có mặt ở mọi nơi, mãi mãi.</q></p></li></ol>
+    </div>
+    <div class="side">
+      <h4>Boss và chuyện của boss</h4>
+      <ul class="bosses"><li><span class="boss">Hiệp sĩ hư không</span> Aldric. Nếu đủ gắn bó (chương 1 tôn trọng việc cậu đi, chương 4 không ép cậu thua, chương 6 cứu đội cậu, chương 8 tin cậu) và Lior mang theo thanh kiếm gỗ hoặc kiếm sấm sét: cậu tỉnh lại ở đòn cuối. Nếu không: cậu chết trong tay Lior, đọc nốt lời ngoéo tay năm tám tuổi.</li><li><span class="boss">Mẹ quỷ</span> Tha thì bà về canh vết rạn ở Mossvale. Giết thì vết rạn không ai canh.</li><li><span class="boss">Ma vương</span> Boss chúa, trùm cuối: Ostrin, Kẻ Buộc Nút.</li><li><span class="boss">Hắc Long Vô Tận</span> Rồng thứ bảy. Nói: <q>Vô tận là khi không ai được rút lui.</q> Đủ bảy Long Châu, Thần Long, hình hài sống của Giao Ước, thức dậy.</li></ul>
+      <div class="choice"><h4>Lựa chọn: Lựa chọn cuối trước Thần Long</h4><div class="table-wrap"><table>
+      <thead><tr><th>Chọn</th><th>Được</th><th>Mất</th></tr></thead><tbody><tr><th scope="row">Tháo nút thành nhiều giao ước nhỏ</th><td>Mỗi vùng giữ Long Châu của mình, có quyền rút lui và xem lại. Kết thúc chính</td><td>Chậm, có nơi thất bại, có mùa đói. Không ai được hứa an toàn</td></tr><tr><th scope="row">Tự buộc mình làm nút</th><td>Thế giới an toàn ngay lập tức</td><td>Lior thành người kế vị Ostrin. Vạch khắc trên khung cửa nhà dừng lại mãi mãi</td></tr><tr><th scope="row">Để Ostrin giữ tiếp</th><td>Không đổi gì, không ai chết thêm hôm nay</td><td>Vùng rìa tiếp tục bị hút. Thistlewood <q>còn 3%</q> giảm về 0</td></tr></tbody></table></div></div>
+    </div>
+  </div>
+  <div class="ending"><span>Kết chương</span><p>Phần kết: Lior nhận một lá thư của mẹ. Không có phép, chỉ có giấy và mùi sáp ong. Người chơi đọc ngay hoặc cất đi để đọc ở nơi an toàn; truyện không chấm điểm lựa chọn ấy. Trên khung cửa nhà có một vạch khắc mới. Bài hát viết dở từ kiếp trước được thổi trọn trên cây sáo sậy.</p></div>
+</section></div>
+    </section>
+
+    <section id="cu-lat">
+      <h2>Những cú lật</h2>
+      <ol class="twists"><li><a href="#chuong-1">Chương 1</a><span>Thistlewood nằm trong danh sách <q>người hiến sức</q> của Giao Ước: bà ngoại của mẹ cũng có tên.</span></li><li><a href="#chuong-2">Chương 2</a><span>Garrick từng dẫn đường cho Đoàn đắp con đập nhấn chìm làng của Nyra.</span></li><li><a href="#chuong-3">Chương 3</a><span>Bram là kẻ đào ngũ của Sahrin. Thủ lĩnh phe nổi dậy là em gái ông.</span></li><li><a href="#chuong-4">Chương 4</a><span>Aldric là hiệp sĩ của Đoàn. Hai người bạn rút kiếm với nhau.</span></li><li><a href="#chuong-6">Chương 6</a><span>Mirelle có một em trai thấy sợi Aether. Vết sẹo trên tay bà là do cậu.</span></li><li><a href="#chuong-7">Chương 7</a><span>Bram chết. Cha ông là thuyền trưởng buôn lậu đá ấn.</span></li><li><a href="#chuong-8">Chương 8</a><span>Đoàn cố tình dùng đội của Aldric làm mồi. Rồng đất nói ra cái tên Ostrin.</span></li><li><a href="#chuong-9">Chương 9</a><span>Ostrin cũng từ thế giới khác tới. Quê nhà chỉ <q>còn 3%</q>.</span></li><li><a href="#chuong-10">Chương 10</a><span>Hiệp sĩ hư không là Aldric. Quỷ vương từng là người canh vết rạn. Thần Long chính là Giao Ước.</span></li></ol>
+    </section>
+
+    <section id="co">
+      <h2>Cờ lựa chọn</h2>
+      <p style="max-width:72ch">Không có thanh thiện cảm chung. Game ghi từng quyết định thành cờ riêng; đoạn sau đọc cờ để đổi thoại, ai có mặt và kết cục.</p>
+      <div class="table-wrap" style="margin-top:12px"><table>
+        <thead><tr><th>Cờ</th><th>Đặt ở</th><th>Đổi điều gì về sau</th></tr></thead>
+        <tbody><tr><td><code>aldric_bond</code><div class="role">Gắn bó với Aldric</div></td><td>C1 tôn trọng việc cậu đi · C4 không ép cậu thua · C6 cứu đội cậu · C8 tin cậu</td><td>C10: cứu được Aldric ở đòn cuối (cần thêm thanh kiếm gỗ hoặc kiếm sấm sét trong túi)</td></tr><tr><td><code>garrick_truth</code><div class="role">Cha thú nhận ở đầm</div></td><td>C2</td><td>C6: Nyra ở lại hay bỏ đi · C10: làng Lau Xám có vào liên quân không</td></tr><tr><td><code>nyra_trust</code><div class="role">Nyra tin Lior</div></td><td>C2 dời trứng Mẹ Ếch · C2 sự thật về cha · C5 cuộc cãi nhau</td><td>C8 thuốc giải người nấm · C10 Nyra đứng cạnh Lior</td></tr><tr><td><code>sahrin_side</code><div class="role">Bản Giao Ước gốc</div></td><td>C3: Amira / Zahra</td><td>C10: ai dẫn quân Sahrin</td></tr><tr><td><code>forge_side</code><div class="role">Hội đồng Đe Đỏ</div></td><td>C6: Hilde / Durin</td><td>C10: vũ khí liên quân, người lùn có tới không</td></tr><tr><td><code>merfolk</code><div class="role">Đá ấn cho người cá</div></td><td>C7</td><td>C8 đến kịp hay muộn · C10 người cá có tới không</td></tr><tr><td><code>went_home</code><div class="role">Về nhà khi mẹ ốm</div></td><td>C5</td><td>Thoại của mẹ, vạch khắc trên khung cửa, Kael ở Tuyết Phong</td></tr><tr><td><code>caelum</code><div class="role">Số phận Caelum</div></td><td>C9</td><td>C10 sức trị liệu của Mirelle; phần kết ở Thistlewood</td></tr></tbody>
+      </table></div>
+    </section>
+
+    <section id="duyet">
+      <h2>Cần duyệt</h2>
+      <ol class="review"><li>Thay mạch Chương 2–7 cũ (7 lục địa Varnhold, Lumeria, Nocthar…) bằng 10 vùng của kế hoạch thế giới? Giữ nền: Giao Ước Bảy Mối, đồng xu của Bram, chủ đề <q>để sau → đi ngay</q>.</li><li>Bram chết ở chương 7 — giữ, hay cho ông sống sót (mất một chân, về Thistlewood)?</li><li>Aldric thành Hiệp sĩ hư không ở chương 10 (boss khu Khe Nứt) — có hai kết: cứu được / chết. Đồng ý?</li><li>Ma vương Ostrin cũng là người từ thế giới khác tới, tấm gương ngược của Lior. Đồng ý, hay để Ma vương là người bản địa?</li><li>Nyra: đồng hành, có thể thân thiết hơn tuỳ người chơi, không ép yêu đương. Thêm / bớt đồng hành nào?</li><li>Mẹ ốm ở chương 5 nhưng không chết. Muốn nặng hơn (mất thật) hay giữ nhẹ như này?</li><li>Bảy rồng là người giữ bảy Mối, Thần Long chính là Giao Ước; điều ước Thần Long trong game (thú cưng, thú cưỡi, skin) đi sau lựa chọn cuối.</li></ol>
+    </section>
+  </main>
+</div>
