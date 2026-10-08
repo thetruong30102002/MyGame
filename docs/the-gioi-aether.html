@@ -1,0 +1,363 @@
+<title>Thế giới Aether</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:wght@600;700;800&family=Nunito:wght@500;600;700;800&display=swap">
+<style>
+/* Bố cục: một cột đọc (mục lục dính bên trái trên màn rộng), tông giấy + gỗ của bộ UI trong game. */
+:root {
+  --paper: #f7e6c4; --paper-hi: #fdf3dc; --paper-sunk: #ecd3a4; --line: #c9a578;
+  --ink: #3a2413; --ink-soft: #6b4a2b; --wood: #4a2e1c; --gold: #b07a12; --leaf: #2f6b34; --berry: #9a3324; --sky: #1f5f8a;
+  --have-bg: #dcebd3; --new-bg: #f6d6c8; --tint-bg: #d7e6f2; --skill-bg: #f3e1b6; --plan-bg: #ecd3a4;
+  --display: 'Alegreya', Georgia, serif; --body: 'Nunito', system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #22170f; --paper-hi: #2c1f15; --paper-sunk: #1a110a; --line: #5a3f27;
+  --ink: #f0dfb8; --ink-soft: #d9c08f; --wood: #f0dfb8; --gold: #ffd166; --leaf: #8fd39a; --berry: #ffb4a3; --sky: #9fd3ff;
+  --have-bg: #233a24; --new-bg: #4a2219; --tint-bg: #1d3347; --skill-bg: #4a3712; --plan-bg: #33251a; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --paper: #22170f; --paper-hi: #2c1f15; --paper-sunk: #1a110a; --line: #5a3f27;
+  --ink: #f0dfb8; --ink-soft: #d9c08f; --wood: #f0dfb8; --gold: #ffd166; --leaf: #8fd39a; --berry: #ffb4a3; --sky: #9fd3ff;
+  --have-bg: #233a24; --new-bg: #4a2219; --tint-bg: #1d3347; --skill-bg: #4a3712; --plan-bg: #33251a; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.6; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-inline: 16px; padding-block: 28px 64px; display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 32px; }
+@media (max-width: 860px) { .wrap { grid-template-columns: minmax(0, 1fr); } nav.toc { position: static !important; } }
+nav.toc { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 16px); align-self: start; display: flex; flex-direction: column; gap: 2px; font-size: 14px; }
+nav.toc .label { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); font-weight: 800; margin: 10px 0 4px; }
+nav.toc a { color: var(--ink); text-decoration: none; padding: 3px 8px; border-radius: 6px; display: flex; gap: 8px; }
+nav.toc a:hover, nav.toc a:focus-visible { background: var(--paper-sunk); outline: none; }
+nav.toc .num { color: var(--gold); font-weight: 800; min-width: 1.4em; font-variant-numeric: tabular-nums; }
+main { min-width: 0; display: flex; flex-direction: column; gap: 40px; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; line-height: 1.2; }
+h1 { font-size: clamp(30px, 5vw, 44px); font-weight: 800; }
+h2 { font-size: 26px; font-weight: 800; border-bottom: 2px solid var(--line); padding-bottom: 6px; margin-bottom: 14px; }
+h3 { font-size: 22px; font-weight: 800; }
+p { margin: 0; max-width: 72ch; }
+.lead { color: var(--ink-soft); font-size: 16px; margin-top: 8px; }
+.status-line { display: inline-flex; gap: 8px; align-items: center; margin-top: 14px; font-size: 13px; font-weight: 800; color: var(--berry); background: var(--new-bg); padding: 4px 10px; border-radius: 999px; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 20px; }
+.stat { background: var(--paper-hi); border: 2px solid var(--line); border-radius: 10px; padding: 12px 14px; }
+.stat b { display: block; font-family: var(--display); font-size: 28px; font-variant-numeric: tabular-nums; }
+.stat span { color: var(--ink-soft); font-size: 13px; }
+.note { background: var(--paper-hi); border-left: 4px solid var(--gold); padding: 12px 14px; border-radius: 0 8px 8px 0; margin-top: 12px; }
+.table-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+thead th { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.role { color: var(--ink-soft); font-size: 12px; }
+.muted { color: var(--ink-soft); }
+ul.mobs { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px; }
+ul.mobs li { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.mob.boss { font-weight: 800; color: var(--berry); }
+.pill { display: inline-block; font-size: 11px; font-weight: 800; padding: 1px 8px; border-radius: 999px; white-space: nowrap; }
+.pill.have { background: var(--have-bg); color: var(--leaf); }
+.pill.new { background: var(--new-bg); color: var(--berry); }
+.pill.tint { background: var(--tint-bg); color: var(--sky); }
+.pill.skill { background: var(--skill-bg); color: var(--gold); }
+.pill.plan { background: var(--plan-bg); color: var(--ink-soft); }
+.legend { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.region { display: flex; flex-direction: column; gap: 10px; scroll-margin-top: 16px; }
+.region-head { display: flex; flex-direction: column; gap: 4px; }
+.region-no { font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--gold); }
+.facts { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 13px; }
+.facts i { font-style: normal; color: var(--ink-soft); margin-right: 4px; }
+.settle { background: var(--paper-hi); border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; display: flex; flex-wrap: wrap; gap: 6px; align-items: baseline; }
+.kind { font-size: 11px; font-weight: 800; padding: 1px 8px; border-radius: 999px; background: var(--paper-sunk); }
+.kind.castle { background: var(--skill-bg); color: var(--gold); }
+.dragon-note { font-size: 13px; color: var(--ink-soft); }
+tr.grp th { font-family: var(--display); font-size: 17px; text-transform: none; letter-spacing: 0; color: var(--ink); background: var(--paper-sunk); }
+tr.total td { font-weight: 800; font-size: 16px; border-top: 2px solid var(--ink); }
+.months { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 14px; }
+.month { background: var(--paper-hi); border: 2px solid var(--line); border-radius: 10px; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; }
+.month-head { display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.month-head b { font-family: var(--display); font-size: 18px; }
+.month-head span { font-size: 12px; font-weight: 800; color: var(--gold); }
+.month ul { margin: 0; padding-left: 18px; font-size: 14px; }
+.month-total { margin-top: auto; font-weight: 800; font-variant-numeric: tabular-nums; }
+ol.questions { display: flex; flex-direction: column; gap: 8px; padding-left: 22px; margin: 0; }
+.gear-split { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+.gear-split > div { min-width: 0; }
+h4 { font-family: var(--display); font-size: 17px; margin: 0 0 6px; }
+</style>
+
+<div class="wrap">
+  <nav class="toc" aria-label="Mục lục">
+    <span class="label">Trang này</span>
+    <a href="#tom-tat">Tóm tắt</a>
+    <a href="#trang-bi">Trang bị hiện trên người</a>
+    <span class="label">10 vùng</span>
+    <a href="#vung-1"><span class="num">1</span>Thung lũng Thistlewood</a><a href="#vung-2"><span class="num">2</span>Đầm lầy Mù Sương</a><a href="#vung-3"><span class="num">3</span>Sa mạc Hồng Cát</a><a href="#vung-4"><span class="num">4</span>Cao nguyên Gió Hú</a><a href="#vung-5"><span class="num">5</span>Lãnh nguyên Băng Giá</a><a href="#vung-6"><span class="num">6</span>Núi lửa Hoả Sơn</a><a href="#vung-7"><span class="num">7</span>Quần đảo San Hô</a><a href="#vung-8"><span class="num">8</span>Rừng Nấm Ngầm</a><a href="#vung-9"><span class="num">9</span>Phế tích Aether</a><a href="#vung-10"><span class="num">10</span>Vực Hư Không</a>
+    <span class="label">Thêm</span>
+    <a href="#rong">7 rồng nguyên tố</a>
+    <a href="#ngan-sach">Ngân sách PixelLab</a>
+    <a href="#can-chot">Cần chốt</a>
+  </nav>
+  <main>
+    <section id="tom-tat">
+      <h1>Thế giới Aether</h1>
+      <p class="lead">Danh sách vùng, map, quái, boss, rồng và phần hình nhân vật người chơi cần vẽ — để chủ dự án chốt trước khi mua gói PixelLab 24$. Soạn 08/10/2026.</p>
+      <span class="status-line">Bản đề xuất — chờ chốt</span>
+      <div class="stats">
+        <div class="stat"><b>10</b><span>vùng · mỗi vùng 1 trạm (làng / toà thành) + 5 map săn + 1 thánh địa</span></div>
+        <div class="stat"><b>70</b><span>map (đã có 6 ở vùng 1)</span></div>
+        <div class="stat"><b>27 + 19</b><span>loại quái: vẽ mới + đổi màu (đã có 4 loại vùng 1)</span></div>
+        <div class="stat"><b>30 + 7</b><span>boss vùng (vẽ mới 28) + rồng nguyên tố</span></div>
+        <div class="stat"><b>~10.970</b><span>lượt PixelLab cho cả game</span></div>
+      </div>
+      <p class="note">Luật chung của mỗi vùng: mỗi map săn <b>chỉ một loại quái</b>, sinh theo bầy; 2 trong 5 map săn có hang ổ <b>boss khu</b> (hồi sinh theo giờ); <b>boss chúa</b> ở thánh địa, hạ xong mới mở vùng kế. Ưu tiên lượt vẽ: <b>nhân vật người chơi + boss</b> vẽ riêng, đủ chất lượng; quái thường cắt bằng hình đổi màu.</p>
+      <div class="legend"><span class="pill have">Có sẵn</span><span class="pill new">Vẽ mới</span><span class="pill tint">Đổi màu từ quái khác</span><span class="pill skill">Có hình · cần chiêu mới</span></div>
+    </section>
+
+    <section id="trang-bi">
+      <h2>Trang bị hiện trên người</h2>
+      <p>Mặc món nào thì nhân vật hiện đúng món đó: cầm kiếm nào, cầm trượng nào, đội mũ nào, mặc áo, quần, đi giày, đeo găng nào đều thấy trên người — cả người chơi khác cũng thấy. Mỗi lúc chỉ cầm một vũ khí: chém thì cầm kiếm, niệm phép thì cầm trượng.</p>
+      <div class="gear-split" style="margin-top:14px">
+        <div>
+          <h4>Lớp thân (đắt — vẽ theo từng khung động tác)</h4>
+          <div class="table-wrap"><table>
+            <thead><tr><th>Món</th><th>Cách hiện</th><th>Kiểu hình bản đầu</th><th class="num">Số kiểu</th></tr></thead>
+            <tbody><tr><td><b>Áo</b></td><td>lớp thân — vẽ theo từng khung động tác</td><td>Vải tân thủ · Giáp da · Giáp sắt · Áo pháp sư</td><td class="num">4 × 2 giới tính</td></tr><tr><td><b>Quần</b></td><td>lớp thân</td><td>Vải tân thủ · Giáp da · Giáp sắt · Áo pháp sư</td><td class="num">4 × 2 giới tính</td></tr><tr><td><b>Giày</b></td><td>lớp thân</td><td>Vải tân thủ · Giáp da · Giáp sắt · Áo pháp sư</td><td class="num">4 × 2 giới tính</td></tr><tr><td><b>Găng tay</b></td><td>lớp thân (nhỏ, bàn tay)</td><td>Vải tân thủ · Giáp da · Giáp sắt · Áo pháp sư</td><td class="num">4 × 2 giới tính</td></tr></tbody>
+          </table></div>
+        </div>
+        <div>
+          <h4>Đồ gắn (rẻ — 3 hướng nhìn mỗi món)</h4>
+          <div class="table-wrap"><table>
+            <thead><tr><th>Món</th><th>Cách hiện</th><th class="num">Bản đầu</th></tr></thead>
+            <tbody><tr><td><b>Vũ khí chính — kiếm</b></td><td>tay phải; chém thì cầm kiếm</td><td class="num">6 kiểu</td></tr><tr><td><b>Vũ khí phép — trượng / gậy</b></td><td>niệm phép thì cầm trượng (mỗi lúc cầm một loại)</td><td class="num">6 kiểu</td></tr><tr><td><b>Tay phụ — khiên</b></td><td>tay trái</td><td class="num">3 kiểu</td></tr><tr><td><b>Mũ</b></td><td>đội trên đầu; mũ che tóc thì ẩn phần tóc trên</td><td class="num">6 kiểu</td></tr><tr><td><b>Áo choàng</b></td><td>sau lưng / trước khi nhìn sau</td><td class="num">3 kiểu</td></tr></tbody>
+          </table></div>
+        </div>
+      </div>
+      <p class="note">Đồ khác cấp, khác chỉ số dùng chung một kiểu hình; độ hiếm hiện bằng màu và viền sáng (code nhuộm, không tốn lượt). Dây chuyền, nhẫn quá nhỏ để thấy trên người — chỉ hiện ở kho đồ. Hiện trong game đã gắn được mũ / vũ khí / tay phụ / áo choàng; áo đang đổi cả bộ — lớp thân riêng từng món cần thêm bước tách lớp trong pipeline (làm thử 1 món trước).</p>
+    </section>
+
+    <section>
+      <h2>10 vùng</h2>
+      <div style="display:flex;flex-direction:column;gap:32px">
+<section class="region" id="vung-1">
+  <header class="region-head">
+    <span class="region-no">Vùng 1</span>
+    <h3>Thung lũng Thistlewood</h3>
+    <div class="facts">
+      <span><i>Cấp</i> 1–10</span>
+      <span><i>Hệ vùng</i> Bóng tối</span>
+      <span><i>Quái yếu</i> Hoả, Aether</span>
+      <span><i>Trạng thái</i> Đang chơi được (6/7 map)</span>
+    </div>
+  </header>
+  <div class="settle"><span class="kind village">Làng</span><b>Thị trấn Thistlewood</b><span class="muted"> — Quê nhà của Lior: nhiệm vụ tuổi thơ và tuổi 16 bắt đầu ở đây.</span></div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Map</th><th>Quái / boss · hình</th><th>Map</th></tr></thead>
+      <tbody><tr><td><b>Thistlewood</b><div class="role">Trạm</div></td><td><span class="muted">Không có quái · NPC dịch vụ</span></td><td><span class="pill have">Đã có map</span></td></tr><tr><td><b>Rừng Mossvale</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Nấm rừng</span><span class="pill have">Có sẵn</span></li></ul></td><td><span class="pill have">Đã có map</span></td></tr><tr><td><b>Nghĩa địa Hoàng Hôn</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Xác sống</span><span class="pill have">Có sẵn</span></li><li><span class="mob boss">Vua Lich · boss khu (hầm mộ)</span><span class="pill skill">Có hình · cần chiêu mới</span></li></ul></td><td><span class="pill have">Đã có map</span></td></tr><tr><td><b>Đồi Xương Trắng</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Cung thủ xương</span><span class="pill have">Có sẵn</span></li></ul></td><td><span class="pill have">Đã có map</span></td></tr><tr><td><b>Vách Gargoyle</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Gargoyle đá</span><span class="pill have">Có sẵn</span></li></ul></td><td><span class="pill have">Đã có map</span></td></tr><tr><td><b>Hang Gargoyle</b><div class="role">Săn (mới)</div></td><td><ul class="mobs"><li><span class="mob">Dơi hang</span><span class="pill new">Vẽ mới</span></li><li><span class="mob boss">Gargoyle Đá · boss khu</span><span class="pill new">Vẽ mới</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Đá Phong Ấn</b><div class="role">Thánh địa</div></td><td><ul class="mobs"><li><span class="mob boss">Quỷ vương rừng sâu · boss chúa</span><span class="pill skill">Có hình · cần chiêu mới</span></li></ul></td><td><span class="pill have">Đã có map</span></td></tr></tbody>
+    </table>
+  </div>
+  
+</section>
+<section class="region" id="vung-2">
+  <header class="region-head">
+    <span class="region-no">Vùng 2</span>
+    <h3>Đầm lầy Mù Sương</h3>
+    <div class="facts">
+      <span><i>Cấp</i> 10–20</span>
+      <span><i>Hệ vùng</i> Thuỷ / độc</span>
+      <span><i>Quái yếu</i> Thổ, Phong</span>
+      <span><i>Trạng thái</i> Chưa có map</span>
+    </div>
+  </header>
+  <div class="settle"><span class="kind village">Làng</span><b>Làng nhà sàn Lau Xám</b><span class="muted"> — Dân đầm lầy sống trên nhà sàn, nhờ người lạ dẹp quái và tìm thuốc giải độc.</span></div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Map</th><th>Quái / boss · hình</th><th>Map</th></tr></thead>
+      <tbody><tr><td><b>Làng nhà sàn Lau Xám</b><div class="role">Trạm</div></td><td><span class="muted">Không có quái · NPC dịch vụ</span></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Bãi Lau Sậy</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Ếch độc</span><span class="pill new">Vẽ mới</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Kênh Đỉa</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Đỉa đầm</span><span class="pill new">Vẽ mới</span></li><li><span class="mob boss">Mẹ Ếch · boss khu</span><span class="pill new">Vẽ mới</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Rừng Ngập Nấm</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Nấm phát quang</span><span class="pill tint">Đổi màu từ Nấm rừng</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Đầm Xác Chìm</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Xác sống bùn</span><span class="pill tint">Đổi màu từ Xác sống</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Vực Sương Xanh</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Người cá bùn</span><span class="pill new">Vẽ mới</span></li><li><span class="mob boss">Phù thuỷ đầm · boss khu</span><span class="pill new">Vẽ mới</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Hồ Hydra</b><div class="role">Thánh địa</div></td><td><ul class="mobs"><li><span class="mob boss">Hydra bùn · boss chúa</span><span class="pill new">Vẽ mới</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr></tbody>
+    </table>
+  </div>
+  
+</section>
+<section class="region" id="vung-3">
+  <header class="region-head">
+    <span class="region-no">Vùng 3</span>
+    <h3>Sa mạc Hồng Cát</h3>
+    <div class="facts">
+      <span><i>Cấp</i> 20–30</span>
+      <span><i>Hệ vùng</i> Thổ / Hoả</span>
+      <span><i>Quái yếu</i> Thuỷ, Băng</span>
+      <span><i>Trạng thái</i> Chưa có map</span>
+    </div>
+  </header>
+  <div class="settle"><span class="kind castle">Toà thành</span><b>Thành ốc đảo Sahrin</b><span class="muted"> — Vương quốc sa mạc: các tộc tranh nguồn nước, triều đình giao nhiệm vụ.</span></div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Map</th><th>Quái / boss · hình</th><th>Map</th></tr></thead>
+      <tbody><tr><td><b>Thành ốc đảo Sahrin</b><div class="role">Trạm (toà thành)</div></td><td><span class="muted">Không có quái · NPC dịch vụ</span></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Cồn Cát Đỏ</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Bọ cạp</span><span class="pill new">Vẽ mới</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Hẻm Rắn</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Rắn cát</span><span class="pill new">Vẽ mới</span></li><li><span class="mob boss">Bọ cạp chúa · boss khu</span><span class="pill new">Vẽ mới</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Lăng Mộ Cát</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Xác ướp</span><span class="pill tint">Đổi màu từ Xác sống</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Vách Kền Kền</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Kền kền</span><span class="pill new">Vẽ mới</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Phế tích Đá Đỏ</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Cung thủ xương cát</span><span class="pill tint">Đổi màu từ Cung thủ xương</span></li><li><span class="mob boss">Pharaoh xác ướp · boss khu</span><span class="pill new">Vẽ mới</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Hố Cát Nuốt</b><div class="role">Thánh địa</div></td><td><ul class="mobs"><li><span class="mob boss">Sâu cát khổng lồ · boss chúa</span><span class="pill new">Vẽ mới</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr></tbody>
+    </table>
+  </div>
+  
+</section>
+<section class="region" id="vung-4">
+  <header class="region-head">
+    <span class="region-no">Vùng 4</span>
+    <h3>Cao nguyên Gió Hú</h3>
+    <div class="facts">
+      <span><i>Cấp</i> 30–40</span>
+      <span><i>Hệ vùng</i> Phong</span>
+      <span><i>Quái yếu</i> Thổ</span>
+      <span><i>Trạng thái</i> Chưa có map</span>
+    </div>
+  </header>
+  <div class="settle"><span class="kind village">Làng</span><b>Làng Cối Xay Gió</b><span class="muted"> — Làng trên cao nguyên, giữ đền thờ trên mây.</span></div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Map</th><th>Quái / boss · hình</th><th>Map</th></tr></thead>
+      <tbody><tr><td><b>Làng Cối Xay Gió</b><div class="role">Trạm</div></td><td><span class="muted">Không có quái · NPC dịch vụ</span></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Đồi Cỏ Cao</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Sói gió</span><span class="pill new">Vẽ mới</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Vách Chim Ưng</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Chim ưng</span><span class="pill new">Vẽ mới</span></li><li><span class="mob boss">Đại bàng bão · boss khu</span><span class="pill new">Vẽ mới</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Thung Lũng Tiên</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Tiên gió</span><span class="pill new">Vẽ mới</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Bãi Đá Bay</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Đá bay</span><span class="pill tint">Đổi màu từ Gargoyle đá</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Đường Lên Đền Mây</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Yêu tinh gió</span><span class="pill tint">Đổi màu từ Tiên gió</span></li><li><span class="mob boss">Pháp sư gió · boss khu</span><span class="pill new">Vẽ mới</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Đền Trên Mây</b><div class="role">Thánh địa</div></td><td><ul class="mobs"><li><span class="mob boss">Rồng gió · boss chúa</span><span class="pill new">Vẽ mới</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr></tbody>
+    </table>
+  </div>
+  <p class="dragon-note">Thêm: <b>Phong Long</b> ở Long Huyệt (map phụ của vùng) — xem mục Rồng.</p>
+</section>
+<section class="region" id="vung-5">
+  <header class="region-head">
+    <span class="region-no">Vùng 5</span>
+    <h3>Lãnh nguyên Băng Giá</h3>
+    <div class="facts">
+      <span><i>Cấp</i> 40–50</span>
+      <span><i>Hệ vùng</i> Băng</span>
+      <span><i>Quái yếu</i> Hoả</span>
+      <span><i>Trạng thái</i> Chưa có map</span>
+    </div>
+  </header>
+  <div class="settle"><span class="kind village">Làng</span><b>Làng gỗ Tuyết Phong</b><span class="muted"> — Thợ săn và thợ mỏ băng sống qua mùa đông dài.</span></div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Map</th><th>Quái / boss · hình</th><th>Map</th></tr></thead>
+      <tbody><tr><td><b>Làng gỗ Tuyết Phong</b><div class="role">Trạm</div></td><td><span class="muted">Không có quái · NPC dịch vụ</span></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Rừng Thông Tuyết</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Sói tuyết</span><span class="pill tint">Đổi màu từ Sói gió</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Hồ Băng</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Tinh linh băng</span><span class="pill new">Vẽ mới</span></li><li><span class="mob boss">Nữ hoàng băng · boss khu</span><span class="pill new">Vẽ mới</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Đèo Người Tuyết</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Người tuyết</span><span class="pill new">Vẽ mới</span></li><li><span class="mob boss">Yeti · boss khu</span><span class="pill new">Vẽ mới</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Mỏ Băng</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Gargoyle băng</span><span class="pill tint">Đổi màu từ Gargoyle đá</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Hang Gấu</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Gấu băng</span><span class="pill new">Vẽ mới</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Ngai Băng</b><div class="role">Thánh địa</div></td><td><ul class="mobs"><li><span class="mob boss">Băng long · boss chúa</span><span class="pill new">Vẽ mới</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr></tbody>
+    </table>
+  </div>
+  <p class="dragon-note">Thêm: <b>Băng Long</b> ở Long Huyệt (map phụ của vùng) — xem mục Rồng.</p>
+</section>
+<section class="region" id="vung-6">
+  <header class="region-head">
+    <span class="region-no">Vùng 6</span>
+    <h3>Núi lửa Hoả Sơn</h3>
+    <div class="facts">
+      <span><i>Cấp</i> 50–60</span>
+      <span><i>Hệ vùng</i> Hoả</span>
+      <span><i>Quái yếu</i> Thuỷ, Băng</span>
+      <span><i>Trạng thái</i> Chưa có map</span>
+    </div>
+  </header>
+  <div class="settle"><span class="kind castle">Toà thành</span><b>Pháo đài người lùn Đe Đỏ</b><span class="muted"> — Hội đồng người lùn: rèn binh khí, đổi lấy nhiệm vụ trong lòng núi.</span></div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Map</th><th>Quái / boss · hình</th><th>Map</th></tr></thead>
+      <tbody><tr><td><b>Pháo đài Đe Đỏ</b><div class="role">Trạm (toà thành)</div></td><td><span class="muted">Không có quái · NPC dịch vụ</span></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Bãi Đá Đen</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Thằn lằn lửa</span><span class="pill new">Vẽ mới</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Sông Dung Nham</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Golem dung nham</span><span class="pill new">Vẽ mới</span></li><li><span class="mob boss">Golem dung nham cổ · boss khu</span><span class="pill new">Vẽ mới</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Hang Dơi Lửa</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Dơi lửa</span><span class="pill new">Vẽ mới</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Lò Rèn Bỏ Hoang</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Tinh linh lửa</span><span class="pill tint">Đổi màu từ Tinh linh băng</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Miệng Núi</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Sói lửa</span><span class="pill tint">Đổi màu từ Sói gió</span></li><li><span class="mob boss">Salamander · boss khu</span><span class="pill new">Vẽ mới</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Lõi Núi Lửa</b><div class="role">Thánh địa</div></td><td><ul class="mobs"><li><span class="mob boss">Hoả thần · boss chúa</span><span class="pill new">Vẽ mới</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr></tbody>
+    </table>
+  </div>
+  <p class="dragon-note">Thêm: <b>Hoả Long</b> ở Long Huyệt (map phụ của vùng) — xem mục Rồng.</p>
+</section>
+<section class="region" id="vung-7">
+  <header class="region-head">
+    <span class="region-no">Vùng 7</span>
+    <h3>Quần đảo San Hô</h3>
+    <div class="facts">
+      <span><i>Cấp</i> 60–70</span>
+      <span><i>Hệ vùng</i> Thuỷ</span>
+      <span><i>Quái yếu</i> Phong, Thổ</span>
+      <span><i>Trạng thái</i> Chưa có map</span>
+    </div>
+  </header>
+  <div class="settle"><span class="kind village">Làng</span><b>Cảng chài San Hô</b><span class="muted"> — Làng chài và thương thuyền, tin đồn về tàu ma.</span></div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Map</th><th>Quái / boss · hình</th><th>Map</th></tr></thead>
+      <tbody><tr><td><b>Cảng chài San Hô</b><div class="role">Trạm</div></td><td><span class="muted">Không có quái · NPC dịch vụ</span></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Bãi Cát Trắng</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Cua</span><span class="pill new">Vẽ mới</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Rạn San Hô</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Sứa</span><span class="pill new">Vẽ mới</span></li><li><span class="mob boss">Cua chúa · boss khu</span><span class="pill new">Vẽ mới</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Đảo Cướp Biển</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Cướp biển</span><span class="pill new">Vẽ mới</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Đầm Người Cá</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Người cá</span><span class="pill tint">Đổi màu từ Người cá bùn</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Bãi Tàu Đắm</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Rắn biển</span><span class="pill tint">Đổi màu từ Rắn cát</span></li><li><span class="mob boss">Thuyền trưởng ma · boss khu</span><span class="pill new">Vẽ mới</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Vực Kraken</b><div class="role">Thánh địa</div></td><td><ul class="mobs"><li><span class="mob boss">Kraken · boss chúa</span><span class="pill new">Vẽ mới</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr></tbody>
+    </table>
+  </div>
+  <p class="dragon-note">Thêm: <b>Thuỷ Long</b> ở Long Huyệt (map phụ của vùng) — xem mục Rồng.</p>
+</section>
+<section class="region" id="vung-8">
+  <header class="region-head">
+    <span class="region-no">Vùng 8</span>
+    <h3>Rừng Nấm Ngầm</h3>
+    <div class="facts">
+      <span><i>Cấp</i> 70–80</span>
+      <span><i>Hệ vùng</i> Thổ</span>
+      <span><i>Quái yếu</i> Phong</span>
+      <span><i>Trạng thái</i> Chưa có map</span>
+    </div>
+  </header>
+  <div class="settle"><span class="kind village">Làng</span><b>Làng người nấm Ánh Tím</b><span class="muted"> — Tộc người nấm dưới lòng đất, chỉ tin người đã giúp họ.</span></div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Map</th><th>Quái / boss · hình</th><th>Map</th></tr></thead>
+      <tbody><tr><td><b>Làng người nấm Ánh Tím</b><div class="role">Trạm</div></td><td><span class="muted">Không có quái · NPC dịch vụ</span></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Rừng Nấm Khổng Lồ</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Người nấm</span><span class="pill tint">Đổi màu từ Nấm rừng</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Hang Nhện</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Nhện hang</span><span class="pill new">Vẽ mới</span></li><li><span class="mob boss">Nhện chúa · boss khu</span><span class="pill new">Vẽ mới</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Mạch Tinh Thể</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Sâu tinh thể</span><span class="pill new">Vẽ mới</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Hang Dơi Tím</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Dơi tím</span><span class="pill tint">Đổi màu từ Dơi hang</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Điện Nấm</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Golem đá</span><span class="pill tint">Đổi màu từ Golem dung nham</span></li><li><span class="mob boss">Vua người nấm · boss khu</span><span class="pill new">Vẽ mới</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Lòng Đất Sâu</b><div class="role">Thánh địa</div></td><td><ul class="mobs"><li><span class="mob boss">Rồng đất · boss chúa</span><span class="pill new">Vẽ mới</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr></tbody>
+    </table>
+  </div>
+  <p class="dragon-note">Thêm: <b>Địa Long</b> ở Long Huyệt (map phụ của vùng) — xem mục Rồng.</p>
+</section>
+<section class="region" id="vung-9">
+  <header class="region-head">
+    <span class="region-no">Vùng 9</span>
+    <h3>Phế tích Aether</h3>
+    <div class="facts">
+      <span><i>Cấp</i> 80–90</span>
+      <span><i>Hệ vùng</i> Aether / thép (kháng phép)</span>
+      <span><i>Quái yếu</i> Kiếm</span>
+      <span><i>Trạng thái</i> Chưa có map</span>
+    </div>
+  </header>
+  <div class="settle"><span class="kind castle">Toà thành</span><b>Toà thành Aether cổ</b><span class="muted"> — Tàn dư triều đình pháp sư xưa — các phe tranh nhau di sản Aether.</span></div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Map</th><th>Quái / boss · hình</th><th>Map</th></tr></thead>
+      <tbody><tr><td><b>Toà thành Aether cổ</b><div class="role">Trạm (toà thành)</div></td><td><span class="muted">Không có quái · NPC dịch vụ</span></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Phố Đổ Nát</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Hiệp sĩ ma</span><span class="pill new">Vẽ mới</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Xưởng Máy Cổ</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Vệ binh máy</span><span class="pill new">Vẽ mới</span></li><li><span class="mob boss">Cỗ máy canh giữ · boss khu</span><span class="pill new">Vẽ mới</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Thư Viện Bay</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Sách bay</span><span class="pill new">Vẽ mới</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Tháp Pháp Sư</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Pháp sư mất trí</span><span class="pill tint">Đổi màu từ Cướp biển</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Sân Tượng</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Gargoyle cổ</span><span class="pill tint">Đổi màu từ Gargoyle đá</span></li><li><span class="mob boss">Hiệp sĩ đầu lâu · boss khu</span><span class="pill new">Vẽ mới</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Điện Aether</b><div class="role">Thánh địa</div></td><td><ul class="mobs"><li><span class="mob boss">Đại pháp sư sa đoạ · boss chúa</span><span class="pill new">Vẽ mới</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr></tbody>
+    </table>
+  </div>
+  <p class="dragon-note">Thêm: <b>Quang Long</b> ở Long Huyệt (map phụ của vùng) — xem mục Rồng.</p>
+</section>
+<section class="region" id="vung-10">
+  <header class="region-head">
+    <span class="region-no">Vùng 10</span>
+    <h3>Vực Hư Không</h3>
+    <div class="facts">
+      <span><i>Cấp</i> 90–100</span>
+      <span><i>Hệ vùng</i> Bóng tối / hỗn hợp</span>
+      <span><i>Quái yếu</i> Aether, Hoả</span>
+      <span><i>Trạng thái</i> Chưa có map</span>
+    </div>
+  </header>
+  <div class="settle"><span class="kind castle">Toà thành</span><b>Thành trì Hư Không</b><span class="muted"> — Tiền đồn cuối cùng trước Ma vương — liên quân các vùng đóng ở đây.</span></div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Map</th><th>Quái / boss · hình</th><th>Map</th></tr></thead>
+      <tbody><tr><td><b>Thành trì Hư Không</b><div class="role">Trạm (toà thành)</div></td><td><span class="muted">Không có quái · NPC dịch vụ</span></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Đảo Trôi Tím</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Quỷ hư không</span><span class="pill new">Vẽ mới</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Khe Nứt</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Mắt bay</span><span class="pill new">Vẽ mới</span></li><li><span class="mob boss">Hiệp sĩ hư không · boss khu</span><span class="pill new">Vẽ mới</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Rừng Bóng</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Bóng người</span><span class="pill tint">Đổi màu từ Hiệp sĩ ma</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Nghĩa Trang Hư Không</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Ác linh</span><span class="pill tint">Đổi màu từ Tinh linh băng</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Hang Ma Sói</b><div class="role">Săn</div></td><td><ul class="mobs"><li><span class="mob">Ma sói</span><span class="pill new">Vẽ mới</span></li><li><span class="mob boss">Mẹ quỷ · boss khu</span><span class="pill new">Vẽ mới</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr><tr><td><b>Ngai Ma Vương</b><div class="role">Thánh địa</div></td><td><ul class="mobs"><li><span class="mob boss">Ma vương · boss chúa (trùm cuối)</span><span class="pill new">Vẽ mới</span></li></ul></td><td><span class="pill plan">Chưa có map</span></td></tr></tbody>
+    </table>
+  </div>
+  <p class="dragon-note">Thêm: <b>Hắc Long</b> ở Long Huyệt (map phụ của vùng) — xem mục Rồng.</p>
+</section></div>
+    </section>
+
+    <section id="rong">
+      <h2>7 rồng nguyên tố</h2>
+      <p>Boss thêm, ngoài 3 boss của vùng. Mỗi rồng ở một map phụ riêng (Long Huyệt), cần cấp 40 mới vào; chỉ người đánh đòn cuối nhận Long Châu — mở tuyệt kỹ mốc 10; đủ 7 Long Châu triệu hồi Thần Long.</p>
+      <div class="table-wrap" style="margin-top:12px"><table>
+        <thead><tr><th>Rồng</th><th>Long Huyệt</th><th class="num">Cấp</th><th>Hệ</th><th>Chiêu chính</th></tr></thead>
+        <tbody><tr><td><b>Phong Long</b><div class="role">Tuyệt Vân</div></td><td>Vùng 4 · đỉnh Đền Trên Mây</td><td class="num">~40</td><td>Phong — yếu Thổ</td><td>bay vòng trên cao, đáp xuống tạo lốc; bão gió đẩy ra mép vực</td></tr><tr><td><b>Băng Long</b><div class="role">Hàn Sương</div></td><td>Vùng 5 · hang băng dưới hồ đóng băng</td><td class="num">~50</td><td>Băng — yếu Hoả</td><td>hơi thở băng, mưa trụ băng, mặt hồ nứt</td></tr><tr><td><b>Hoả Long</b><div class="role">Viêm Đế</div></td><td>Vùng 6 · miệng núi lửa</td><td class="num">~60</td><td>Hoả — yếu Thuỷ, Băng</td><td>phun lửa theo nón, mưa thiên thạch, dung nham dâng</td></tr><tr><td><b>Thuỷ Long</b><div class="role">Thương Hải</div></td><td>Vùng 7 · xoáy nước giữa rạn san hô</td><td class="num">~70</td><td>Thuỷ — yếu Phong, Thổ</td><td>lặn / trồi chỗ khác, sóng thần, làm ướt cả sân</td></tr><tr><td><b>Địa Long</b><div class="role">Thạch Cốt</div></td><td>Vùng 8 · đáy hang tinh thể</td><td class="num">~80</td><td>Thổ — yếu Phong</td><td>trồi lên dưới chân, gai đá, giáp đá phải phá</td></tr><tr><td><b>Quang Long</b><div class="role">Thiên Huy</div></td><td>Vùng 9 · tháp ma pháp đổ nát</td><td class="num">~90</td><td>Aether — kháng phép, yếu Kiếm</td><td>tia sáng quét, khiên phản phép, nhân bản ảnh rồng</td></tr><tr><td><b>Hắc Long</b><div class="role">Vô Tận</div></td><td>Vùng 10 · khe nứt trước cổng thành Ma vương</td><td class="num">~95</td><td>Hắc ám — yếu Aether, Hoả</td><td>hố hư không hút người chơi, bóng rồng tách làm ba</td></tr></tbody>
+      </table></div>
+    </section>
+
+    <section id="ngan-sach">
+      <h2>Ngân sách PixelLab</h2>
+      <p>Gói hiện có: 12$ = 2.000 lượt, 24$ = 5.000 lượt, 48$ = 10.000 lượt mỗi tháng. Lượt không dùng hết thì mất, nên mua theo tháng, vẽ theo thứ tự mở vùng.</p>
+      <div class="table-wrap" style="margin-top:12px"><table>
+        <thead><tr><th colspan="2">Hạng mục</th><th class="num">Lượt</th></tr></thead>
+        <tbody><tr class="grp"><th colspan="2">Nhân vật người chơi</th><th class="num">3.200</th></tr><tr><td colspan="2">Hiệu ứng ~70 skill (vẽ riêng từng skill: lúc niệm. đạn bay. lúc trúng)</td><td class="num">1.000</td></tr><tr><td colspan="2">Trang bị lớp thân: 4 món (áo. quần. giày. găng) × 4 kiểu hình × 2 giới tính × ~50 lượt</td><td class="num">1.600</td></tr><tr><td colspan="2">Trang bị gắn: 24 kiểu (kiếm. trượng. khiên. mũ. áo choàng) × ~2 lượt</td><td class="num">50</td></tr><tr><td colspan="2">Kiểu tóc chọn lúc tạo nhân vật (2 kiểu mới × 2 giới tính × 2 mốc tuổi)</td><td class="num">400</td></tr><tr><td colspan="2">Động tác riêng: lướt. giữ thế. phân thân. phóng kiếm</td><td class="num">150</td></tr><tr class="grp"><th colspan="2">Boss</th><th class="num">6.630</th></tr><tr><td colspan="2">28 boss vẽ mới (27 boss vùng 2–10 + Gargoyle Đá) × ~60 lượt</td><td class="num">1.680</td></tr><tr><td colspan="2">Chiêu: 10 boss chúa × 3–4 chiêu. 20 boss khu × 2 chiêu (gồm Vua Lich. Quỷ vương)</td><td class="num">3.200</td></tr><tr><td colspan="2">7 rồng nguyên tố × ~250 lượt (sprite lớn + 3–4 chiêu)</td><td class="num">1.750</td></tr><tr class="grp"><th colspan="2">Quái thường (cắt)</th><th class="num">540</th></tr><tr><td colspan="2">27 loại vẽ mới × ~20 lượt (chế độ thường. 5 hướng + lật gương); 19 loại đổi màu = 0 lượt</td><td class="num">540</td></tr><tr class="grp"><th colspan="2">Map (vốn rẻ)</th><th class="num">600</th></tr><tr><td colspan="2">Đồ vật / nhà / cây của 9 vùng. trạm. tranh vùng. tranh lục địa. gian hàng</td><td class="num">600</td></tr><tr class="total"><td colspan="2">Cộng</td><td class="num">~10.970</td></tr></tbody>
+      </table></div>
+      <div class="months"><div class="month"><div class="month-head"><b>Tháng 1</b><span>Gói 24$ · 5.000 lượt</span></div><ul><li>Toàn bộ nhân vật người chơi: hiệu ứng skill, trang bị lớp thân + đồ gắn, kiểu tóc, động tác (~3.200)</li><li>Vùng 1: Gargoyle Đá + Dơi hang (Hang Gargoyle), chiêu cho Vua Lich + Quỷ vương + Gargoyle Đá (~500)</li><li>Tranh lục địa cho bản đồ tổng (~40)</li><li>Vùng 2 + vùng 3: boss, chiêu, quái mới, đồ vật (~1.240)</li></ul><div class="month-total">≈ 4.980 lượt</div></div><div class="month"><div class="month-head"><b>Tháng 2</b><span>Gói 24$ · 5.000 lượt</span></div><ul><li>Vùng 4 → 10: boss, chiêu, quái mới, đồ vật (7 × ~620 ≈ 4.340)</li><li>Rồng Phong Long + Băng Long (~500)</li></ul><div class="month-total">≈ 4.840 lượt</div></div><div class="month"><div class="month-head"><b>Tháng 3</b><span>Gói 12$ · 2.000 lượt</span></div><ul><li>5 rồng còn lại (~1.250)</li><li>Vẽ lại những hình chưa đạt (~750)</li></ul><div class="month-total">≈ 2.000 lượt</div></div></div>
+      <p class="note">Tổng ≈ 60$ trong 3 tháng (24$ + 24$ + 12$). Nếu bớt kiểu hình trang bị bản đầu (ví dụ 3 thay vì 4 kiểu mỗi món thân) thì tháng 3 gần như không cần.</p>
+    </section>
+
+    <section id="can-chot">
+      <h2>Cần chốt</h2>
+      <ol class="questions"><li>Tên 10 vùng, nơi ở (làng / toà thành) và tên map — tên vùng 2–10 là đề xuất.</li><li>Danh sách quái từng vùng, nhất là các loại dùng hình đổi màu (cột Hình). Đã thay vài loại trong kế hoạch cũ để dùng lại hình: vùng 3 &quot;linh hồn cát&quot; → Cung thủ xương cát, vùng 5 bỏ &quot;chim cánh cụt chiến&quot; → Gargoyle băng.</li><li>Số kiểu hình trang bị bản đầu: 4 kiểu cho mỗi món thân (áo, quần, giày, găng), đồ gắn 24 kiểu. Đồ khác cấp / khác chỉ số dùng chung một kiểu hình, khác màu theo độ hiếm (code nhuộm, 0 lượt).</li><li>Dây chuyền và nhẫn không hiện trên người (quá nhỏ) — chỉ hiện ở kho đồ. Đồng ý không?</li><li>Thứ tự vẽ theo tháng (mục Ngân sách). Lượt không dùng hết thì mất, nên mỗi tháng chỉ mua đúng gói cần.</li></ol>
+    </section>
+  </main>
+</div>
