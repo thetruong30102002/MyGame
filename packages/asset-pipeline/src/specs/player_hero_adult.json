@@ -1,0 +1,91 @@
+{
+	"identity": {
+		"characterId": "player_hero_adult",
+		"hair": "silver_spiky",
+		"eyes": "blue",
+		"skin": "light",
+		"outfit": "navy_hooded_travel_coat_gold_trim",
+		"weapon": "none_weapon_layer",
+		"palette": "fantasy_blue_01"
+	},
+	"displayName": "Nhân vật chính (16 tuổi, nam)",
+	"role": "player",
+	"provider": "pixellab",
+	"pixellab": {
+		"animations": {
+			"idle": "idle",
+			"walk": "walk",
+			"attack": [
+				"attack-sword",
+				"attack-swing",
+				"attack-img"
+			],
+			"cast": [
+				"cast",
+				"cast-img"
+			]
+		},
+		"mirrorWest": true
+	},
+	"frameSize": {
+		"width": 80,
+		"height": 88
+	},
+	"baselineY": 84,
+	"animations": {
+		"idle": {
+			"fps": 6,
+			"minFrames": 4,
+			"maxFrames": 8
+		},
+		"walk": {
+			"fps": 10,
+			"minFrames": 6,
+			"maxFrames": 8
+		},
+		"attack": {
+			"fps": 17,
+			"minFrames": 4,
+			"maxFrames": 12,
+			"optional": true,
+			"durationMs": 360,
+			"hitFrame": 2
+		},
+		"cast": {
+			"fps": 20,
+			"minFrames": 4,
+			"maxFrames": 12,
+			"optional": true,
+			"durationMs": 400
+		}
+	},
+	"cleanup": {
+		"alignToIdle": true
+	},
+	"quality": {
+		"maxHeightDrift": 0.15,
+		"weaponAnims": {
+			"animations": [
+				"attack",
+				"cast"
+			],
+			"reason": "07/10/2026 duyệt bằng mắt từng khung: kiếm thép/trượng vẽ bằng animate_image (pixellab animimg) mang màu không có trên thân và lưỡi kiếm tách khỏi tay — là chủ ý, không phải vật lạ. Khung có tia phép PixelLab tự vẽ đã bỏ bằng pickExtra."
+		}
+	},
+	"provisional": [
+		"S",
+		"SW",
+		"W",
+		"NW",
+		"N",
+		"NE",
+		"E",
+		"SE"
+	],
+	"notes": "PixelLab Pro Flash (06/10/2026), ảnh mẫu phong cách = Lior bé (chép nét/bóng, không chép bảng màu). Tạo lại trên token #4 từ ảnh hướng S của bản đầu (khung đầu giữ nguyên). Tay không: vũ khí là lớp riêng. Idle tạm ảnh xoay tĩnh.",
+	"review": {
+		"status": "approved",
+		"date": "06/10/2026",
+		"notes": "Duyệt bằng mắt 8 hướng đứng + đi (đi thật 5 hướng S/SE/E/NE/N, phía tây lật gương): tóc bạc dựng, mắt xanh, áo khoác xanh than viền vàng, áo trong xanh nhạt, quần nâu, bao tay da nhất quán; tay không, không vật lạ."
+	}
+}

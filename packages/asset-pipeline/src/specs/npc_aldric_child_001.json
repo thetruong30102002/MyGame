@@ -1,0 +1,70 @@
+{
+	"identity": {
+		"characterId": "npc_aldric_child_001",
+		"hair": "chestnut_brown",
+		"eyes": "green",
+		"skin": "light",
+		"outfit": "tin_pot_helmet_red_scarf_cape_brown_tunic",
+		"weapon": "wooden_sword_at_belt",
+		"palette": "village_warm_01"
+	},
+	"displayName": "Aldric",
+	"role": "npc",
+	"provider": "pixellab",
+	"pixellab": {
+		"animations": {
+			"idle": "idle",
+			"walk": "walk"
+		},
+		"mirrorWest": true
+	},
+	"frameSize": {
+		"width": 72,
+		"height": 72
+	},
+	"baselineY": 66,
+	"animations": {
+		"idle": {
+			"fps": 6,
+			"minFrames": 4,
+			"maxFrames": 8
+		},
+		"walk": {
+			"fps": 10,
+			"minFrames": 6,
+			"maxFrames": 8
+		}
+	},
+	"cleanup": {
+		"alignToIdle": true
+	},
+	"quality": {
+		"maxHeightDrift": 0.15,
+		"allowForeign": [
+			{
+				"animation": "walk",
+				"direction": "N",
+				"frames": [
+					6
+				],
+				"reason": "Vệt sáng trên vạt áo choàng đỏ khi tung lên — cùng khăn choàng, không phải vật lạ (đã xem frame 0–7 hướng N)."
+			}
+		]
+	},
+	"provisional": [
+		"S",
+		"SW",
+		"W",
+		"NW",
+		"N",
+		"NE",
+		"E",
+		"SE"
+	],
+	"notes": "PixelLab Pro Flash (06/10/2026), ảnh mẫu phong cách = Lior bé. Bạn cùng tuổi, hiệp sĩ tự phong với Kiếm Sấm Sét bằng gỗ (giắt ở thắt lưng, gắn liền thân). Tay không (vũ khí/đồ cầm là lớp riêng). Idle tạm ảnh xoay tĩnh.",
+	"review": {
+		"status": "approved",
+		"date": "06/10/2026",
+		"notes": "Duyệt bằng mắt: nồi thiếc, khăn đỏ, kiếm gỗ giắt hông nhất quán 8 hướng; khung 72×72 vì nồi trên đầu làm cao 58px."
+	}
+}

@@ -1,0 +1,13 @@
+{
+	"map": "town",
+	"image": "town.minimap.png",
+	"width": 300,
+	"height": 312,
+	"downscale": 8,
+	"world": {
+		"width": 2400,
+		"height": 2496,
+		"tileSize": 48
+	},
+	"version": "a63d1824"
+}

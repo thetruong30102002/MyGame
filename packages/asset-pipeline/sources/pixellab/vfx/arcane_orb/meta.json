@@ -1,0 +1,27 @@
+{
+	"id": "arcane_orb",
+	"kind": "loop",
+	"canvas": {
+		"w": 24,
+		"h": 24
+	},
+	"first": {
+		"prompt": "small glowing energy orb, white-hot core with a very pale lavender glow and tiny white sparkles, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "d07f605c-0ead-4e3e-9982-18a69a2268a9"
+	},
+	"action": "magic orb pulses and glows, energy swirling inside, tiny sparkles orbiting, seamless loop",
+	"frameCount": 4,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png"
+	],
+	"animateJobId": "333ef7a4-c2c1-45b9-af79-b9a1eaba5695",
+	"createdAt": "2026-10-07T00:32:45.346Z",
+	"token": 6
+}

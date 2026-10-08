@@ -1,0 +1,81 @@
+{
+	"checks": [
+		{
+			"id": "anim-idle",
+			"label": "Animation idle: đủ 8 hướng, 4–8 frame",
+			"status": "pass",
+			"detail": " · TẠM ảnh tĩnh: S, SW, W, NW, N, NE, E, SE"
+		},
+		{
+			"id": "anim-walk",
+			"label": "Animation walk: đủ 8 hướng, 6–8 frame",
+			"status": "pass",
+			"detail": " · TẠM ảnh tĩnh: S, SW, W, NW, N, NE, E, SE"
+		},
+		{
+			"id": "no-empty-frames",
+			"label": "Không có frame rỗng (ô trống trong sheet nguồn)",
+			"status": "pass",
+			"detail": "mọi frame có hình"
+		},
+		{
+			"id": "dimensions",
+			"label": "Đúng kích thước 80×88",
+			"status": "pass",
+			"detail": "mọi frame đúng cỡ"
+		},
+		{
+			"id": "transparent-bg",
+			"label": "Nền trong suốt (viền canvas rỗng)",
+			"status": "pass",
+			"detail": "mọi frame có viền rỗng"
+		},
+		{
+			"id": "crisp-alpha",
+			"label": "Mép cứng: không có pixel bán trong suốt (không AA)",
+			"status": "pass",
+			"detail": "0 pixel bán trong suốt"
+		},
+		{
+			"id": "no-blur",
+			"label": "Không nhoè: số màu/frame và tỉ lệ chuyển màu li ti",
+			"status": "pass",
+			"detail": "tối đa 64 màu/frame (ngưỡng 128), micro-step 0.2% (ngưỡng 12%)"
+		},
+		{
+			"id": "silhouette-size",
+			"label": "Silhouette đủ lớn để đọc được (45–95% chiều cao canvas)",
+			"status": "pass",
+			"detail": "cao 67–70px trên 88px"
+		},
+		{
+			"id": "silhouette-solid",
+			"label": "Silhouette liền khối (không mảnh rời)",
+			"status": "pass",
+			"detail": "mọi frame liền khối"
+		},
+		{
+			"id": "proportions",
+			"label": "Tỉ lệ nhất quán giữa các frame cùng hướng (lệch cao ≤ 15%)",
+			"status": "pass",
+			"detail": "ổn định"
+		},
+		{
+			"id": "no-foreign-objects",
+			"label": "Không có vật/màu lạ chỉ xuất hiện ở vài frame (vũ khí ngẫu nhiên, đổi áo/tóc)",
+			"status": "pass",
+			"detail": "bảng màu nhất quán"
+		},
+		{
+			"id": "anatomy",
+			"label": "Duyệt bằng mắt: giải phẫu, vũ khí/trang phục/tóc không đổi giữa frame",
+			"status": "pass",
+			"detail": "07/10/2026: Duyệt bằng mắt 8 ảnh xoay: cùng nét chibi viền đen với Lior/Bram, tóc nâu + khăn đỏ + áo giáp + kiếm đeo hông nhất quán mọi hướng. NPC đứng gác cổng bắc nên idle/walk tạm bằng ảnh xoay là đủ; thay hiệp sĩ FreePixel npc_squire_001 (lệch style)."
+		}
+	],
+	"stats": {
+		"frames": 80,
+		"maxColorsPerFrame": 64,
+		"microStepRatio": 0.0022463676374730205
+	}
+}

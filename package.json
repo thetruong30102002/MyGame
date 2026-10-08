@@ -1,0 +1,23 @@
+{
+  "name": "aether-chronicle",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w @aether/web",
+    "server": "npm run dev -w @aether/server",
+    "build": "npm run build -w @aether/web",
+    "assets:character": "npm run character -w @aether/asset-pipeline --",
+    "assets:catalog": "npm run catalog -w @aether/asset-pipeline --",
+    "assets:anchors": "npm run anchors -w @aether/asset-pipeline --",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "assets:pixler": "npm run pixler -w @aether/asset-pipeline --",
+    "assets:pixellab": "npm run pixellab -w @aether/asset-pipeline --",
+    "assets:map": "npm run map -w @aether/asset-pipeline",
+    "assets:vfx": "npm run vfx -w @aether/asset-pipeline",
+    "assets:ui": "npm run ui -w @aether/asset-pipeline"
+  }
+}

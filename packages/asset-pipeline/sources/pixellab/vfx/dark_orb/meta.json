@@ -1,0 +1,27 @@
+{
+	"id": "dark_orb",
+	"kind": "loop",
+	"canvas": {
+		"w": 28,
+		"h": 28
+	},
+	"first": {
+		"prompt": "small dark shadow orb, deep purple-black core with a violet glow rim, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "0893e3d3-60b5-407a-b61f-695a4e1bd8f0"
+	},
+	"action": "dark orb pulses, purple energy swirling around it, seamless loop",
+	"frameCount": 4,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png"
+	],
+	"animateJobId": "821c6a69-fc04-42e7-a5c6-1c581815c65b",
+	"createdAt": "2026-10-07T02:49:46.239Z",
+	"token": 11
+}

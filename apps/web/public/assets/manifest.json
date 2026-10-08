@@ -1,0 +1,913 @@
+{
+	"version": 1,
+	"characters": {
+		"mob_mushroom_001": {
+			"displayName": "Nấm rừng",
+			"role": "monster",
+			"identity": {
+				"characterId": "mob_mushroom_001",
+				"hair": "red_cap_white_spots",
+				"eyes": "angry",
+				"skin": "pale_stem",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "forest_mob_01"
+			},
+			"atlas": "characters/mob_mushroom_001/mob_mushroom_001.json",
+			"frameSize": {
+				"width": 72,
+				"height": 72
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9166666666666666
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash (06/10/2026), ảnh mẫu phong cách = Lior bé (chép nét/bóng, không chép bảng màu). Quái nấm bìa rừng Mossvale (nhiệm vụ 8 tuổi). Idle tạm ảnh xoay tĩnh.",
+			"bodyHeight": 41,
+			"portrait": "portraits/mob_mushroom_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			]
+		},
+		"boss_demon_001": {
+			"displayName": "Quỷ vương rừng sâu",
+			"role": "boss",
+			"identity": {
+				"characterId": "boss_demon_001",
+				"hair": "black_horns",
+				"eyes": "glowing_yellow",
+				"skin": "crimson",
+				"outfit": "iron_shoulder_armor_red_runes_bat_wings",
+				"weapon": "claws",
+				"palette": "demon_01"
+			},
+			"atlas": "characters/boss_demon_001/boss_demon_001.json",
+			"frameSize": {
+				"width": 96,
+				"height": 104
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9615384615384616
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash (06/10/2026), ảnh mẫu phong cách = Lior bé (chép nét/bóng, không chép bảng màu). Boss phong ấn dưới tảng đá phía bắc Mossvale; khung 96 cho to hơn quái thường. Idle tạm ảnh xoay tĩnh.",
+			"bodyHeight": 84,
+			"portrait": "portraits/boss_demon_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			]
+		},
+		"player_lior_child_f": {
+			"displayName": "Nhân vật chính (bé gái)",
+			"role": "player",
+			"identity": {
+				"characterId": "player_lior_child_f",
+				"hair": "silver_side_ponytail",
+				"eyes": "blue",
+				"skin": "light",
+				"outfit": "navy_hooded_capelet_gold_trim_blue_tunic_dress",
+				"weapon": "none_weapon_layer",
+				"palette": "fantasy_blue_01"
+			},
+			"atlas": "characters/player_lior_child_f/player_lior_child_f.json",
+			"frameSize": {
+				"width": 64,
+				"height": 64
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9375
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 11,
+					"frames": 4,
+					"hitFrame": 2,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"cast": {
+					"fps": 15,
+					"frames": 6,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash (05/10/2026), ảnh mẫu phong cách = Lior bé. Thay bản vẽ tay tạm cùng ID. Que gỗ gỡ khỏi thân (removeThin); ở hướng SE còn nét que mảnh vắt qua chân (trùng thân, không gỡ tự động được). Idle tạm ảnh xoay tĩnh; hướng chưa có walk tạm ảnh tĩnh nhún 1px.",
+			"bodyHeight": 52,
+			"portrait": "portraits/player_lior_child_f.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			]
+		},
+		"player_lior_child": {
+			"displayName": "Lior (bé)",
+			"role": "player",
+			"identity": {
+				"characterId": "player_lior_child",
+				"hair": "silver",
+				"eyes": "blue",
+				"skin": "light",
+				"outfit": "navy_hooded_capelet_gold_trim_blue_tunic",
+				"weapon": "none_weapon_layer",
+				"palette": "fantasy_blue_01"
+			},
+			"atlas": "characters/player_lior_child/player_lior_child.json",
+			"frameSize": {
+				"width": 64,
+				"height": 64
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9375
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 11,
+					"frames": 4,
+					"hitFrame": 2,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"E"
+					]
+				},
+				"cast": {
+					"fps": 20,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash theo 3 ảnh mẫu chibi của chủ dự án (02/10/2026), walk = mẫu walking-8-frames (S, SE, E, NE, N; phía tây lật gương). Que gỗ gỡ khỏi thân (removeThin): thân tay không, vũ khí là lớp riêng. Idle tạm là ảnh xoay tĩnh; hướng nào chưa có walk thì tạm ảnh tĩnh nhún 1px.",
+			"bodyHeight": 51,
+			"portrait": "portraits/player_lior_child.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			]
+		},
+		"npc_elin_001": {
+			"displayName": "Elin Ashvale",
+			"role": "npc",
+			"identity": {
+				"characterId": "npc_elin_001",
+				"hair": "silver_loose_braid",
+				"eyes": "blue",
+				"skin": "light",
+				"outfit": "cream_linen_dress_brown_apron_blue_headscarf",
+				"weapon": "none",
+				"palette": "village_warm_01"
+			},
+			"atlas": "characters/npc_elin_001/npc_elin_001.json",
+			"frameSize": {
+				"width": 80,
+				"height": 88
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9545454545454546
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash (06/10/2026), ảnh mẫu phong cách = Lior bé. Mẹ của nhân vật chính, người nuôi ong, quê vùng núi tuyết phía bắc (tóc bạc — nhân vật chính thừa hưởng). Tay không (vũ khí/đồ cầm là lớp riêng). Idle tạm ảnh xoay tĩnh.",
+			"bodyHeight": 61,
+			"portrait": "portraits/npc_elin_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			]
+		},
+		"npc_aldric_child_001": {
+			"displayName": "Aldric",
+			"role": "npc",
+			"identity": {
+				"characterId": "npc_aldric_child_001",
+				"hair": "chestnut_brown",
+				"eyes": "green",
+				"skin": "light",
+				"outfit": "tin_pot_helmet_red_scarf_cape_brown_tunic",
+				"weapon": "wooden_sword_at_belt",
+				"palette": "village_warm_01"
+			},
+			"atlas": "characters/npc_aldric_child_001/npc_aldric_child_001.json",
+			"frameSize": {
+				"width": 72,
+				"height": 72
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9166666666666666
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash (06/10/2026), ảnh mẫu phong cách = Lior bé. Bạn cùng tuổi, hiệp sĩ tự phong với Kiếm Sấm Sét bằng gỗ (giắt ở thắt lưng, gắn liền thân). Tay không (vũ khí/đồ cầm là lớp riêng). Idle tạm ảnh xoay tĩnh.",
+			"bodyHeight": 60,
+			"portrait": "portraits/npc_aldric_child_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			]
+		},
+		"npc_mirelle_001": {
+			"displayName": "Mirelle",
+			"role": "npc",
+			"identity": {
+				"characterId": "npc_mirelle_001",
+				"hair": "grey_bun",
+				"eyes": "brown",
+				"skin": "light",
+				"outfit": "white_healer_robe_green_trim_green_shawl",
+				"weapon": "none",
+				"palette": "church_01"
+			},
+			"atlas": "characters/npc_mirelle_001/npc_mirelle_001.json",
+			"frameSize": {
+				"width": 80,
+				"height": 88
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9545454545454546
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash (06/10/2026), ảnh mẫu phong cách = Lior bé. Nữ trị liệu ở nhà thờ, hàng xóm; năm 16 tuổi dạy phép Hồi Phục. Tay không (vũ khí/đồ cầm là lớp riêng). Idle tạm ảnh xoay tĩnh.",
+			"bodyHeight": 72,
+			"portrait": "portraits/npc_mirelle_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			]
+		},
+		"npc_garrick_001": {
+			"displayName": "Garrick Ashvale",
+			"role": "npc",
+			"identity": {
+				"characterId": "npc_garrick_001",
+				"hair": "short_dark_brown_beard",
+				"eyes": "dark",
+				"skin": "tan",
+				"outfit": "moss_green_hunter_cloak_leather_vest",
+				"weapon": "carving_knife_sheathed",
+				"palette": "forest_01"
+			},
+			"atlas": "characters/npc_garrick_001/npc_garrick_001.json",
+			"frameSize": {
+				"width": 80,
+				"height": 88
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9545454545454546
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash (06/10/2026), ảnh mẫu phong cách = Lior bé. Cha của nhân vật chính, thợ săn ít nói, hay vót gỗ. Tay không (vũ khí/đồ cầm là lớp riêng). Idle tạm ảnh xoay tĩnh.",
+			"bodyHeight": 74,
+			"portrait": "portraits/npc_garrick_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			]
+		},
+		"player_hero_adult": {
+			"displayName": "Nhân vật chính (16 tuổi, nam)",
+			"role": "player",
+			"identity": {
+				"characterId": "player_hero_adult",
+				"hair": "silver_spiky",
+				"eyes": "blue",
+				"skin": "light",
+				"outfit": "navy_hooded_travel_coat_gold_trim",
+				"weapon": "none_weapon_layer",
+				"palette": "fantasy_blue_01"
+			},
+			"atlas": "characters/player_hero_adult/player_hero_adult.json",
+			"frameSize": {
+				"width": 80,
+				"height": 88
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9545454545454546
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 11,
+					"frames": 4,
+					"hitFrame": 2,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"cast": {
+					"fps": 20,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash (06/10/2026), ảnh mẫu phong cách = Lior bé (chép nét/bóng, không chép bảng màu). Tạo lại trên token #4 từ ảnh hướng S của bản đầu (khung đầu giữ nguyên). Tay không: vũ khí là lớp riêng. Idle tạm ảnh xoay tĩnh.",
+			"bodyHeight": 77,
+			"portrait": "portraits/player_hero_adult.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			]
+		},
+		"mob_skeleton_archer_001": {
+			"displayName": "Cung thủ xương",
+			"role": "monster",
+			"identity": {
+				"characterId": "mob_skeleton_archer_001",
+				"hair": "bone",
+				"eyes": "glowing_blue",
+				"skin": "bone",
+				"outfit": "tattered_grey_hood_cloak",
+				"weapon": "bow_on_back",
+				"palette": "undead_01"
+			},
+			"atlas": "characters/mob_skeleton_archer_001/mob_skeleton_archer_001.json",
+			"frameSize": {
+				"width": 80,
+				"height": 88
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9545454545454546
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash (06/10/2026), ảnh mẫu phong cách = Lior bé (chép nét/bóng, không chép bảng màu). Quái bắn xa; cung và ống tên đeo lưng (gắn thân), tay không. Idle tạm ảnh xoay tĩnh.",
+			"bodyHeight": 55,
+			"portrait": "portraits/mob_skeleton_archer_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			]
+		},
+		"npc_bram_001": {
+			"displayName": "Bram",
+			"role": "npc",
+			"identity": {
+				"characterId": "npc_bram_001",
+				"hair": "red_brown_beard",
+				"eyes": "brown",
+				"skin": "tan",
+				"outfit": "green_travel_coat_mustard_vest_feather_hat_backpack",
+				"weapon": "none",
+				"palette": "merchant_01"
+			},
+			"atlas": "characters/npc_bram_001/npc_bram_001.json",
+			"frameSize": {
+				"width": 80,
+				"height": 88
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9545454545454546
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash (06/10/2026), ảnh mẫu phong cách = Lior bé (chép nét/bóng, không chép bảng màu). Thương nhân lữ hành, thay npc_merchant_001 (FreePixel). Idle tạm ảnh xoay tĩnh.",
+			"bodyHeight": 73,
+			"portrait": "portraits/npc_bram_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			]
+		},
+		"player_hero_adult_f": {
+			"displayName": "Nhân vật chính (16 tuổi, nữ)",
+			"role": "player",
+			"identity": {
+				"characterId": "player_hero_adult_f",
+				"hair": "silver_high_side_ponytail",
+				"eyes": "blue",
+				"skin": "light",
+				"outfit": "navy_hooded_travel_coat_gold_trim",
+				"weapon": "none_weapon_layer",
+				"palette": "fantasy_blue_01"
+			},
+			"atlas": "characters/player_hero_adult_f/player_hero_adult_f.json",
+			"frameSize": {
+				"width": 80,
+				"height": 88
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9545454545454546
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 11,
+					"frames": 4,
+					"hitFrame": 2,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"cast": {
+					"fps": 20,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash (06/10/2026), ảnh mẫu phong cách = Lior bé (chép nét/bóng, không chép bảng màu). Tạo lại trên token #4 từ ảnh hướng S của bản đầu. Tay không: vũ khí là lớp riêng. Idle tạm ảnh xoay tĩnh.",
+			"bodyHeight": 71,
+			"portrait": "portraits/player_hero_adult_f.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			]
+		},
+		"npc_aldric_001": {
+			"displayName": "Aldric",
+			"role": "npc",
+			"identity": {
+				"characterId": "npc_aldric_001",
+				"hair": "chestnut_brown",
+				"eyes": "green",
+				"skin": "light",
+				"outfit": "chainmail_red_tabard_red_scarf",
+				"weapon": "sword_sheathed_hip",
+				"palette": "guard_01"
+			},
+			"atlas": "characters/npc_aldric_001/npc_aldric_001.json",
+			"frameSize": {
+				"width": 80,
+				"height": 88
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9545454545454546
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash (06/10/2026), ảnh mẫu phong cách = Lior bé (chép nét/bóng, không chép bảng màu). Aldric 16 tuổi, cận vệ tập sự ở cổng bắc; thay npc_squire_001 (FreePixel). Idle tạm ảnh xoay tĩnh.",
+			"bodyHeight": 70,
+			"portrait": "portraits/npc_aldric_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			]
+		}
+	}
+}

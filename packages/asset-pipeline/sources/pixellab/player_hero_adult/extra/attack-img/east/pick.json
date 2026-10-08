@@ -1,0 +1,10 @@
+{
+	"from": "extra-raw/attack-b-img/east",
+	"frames": [
+		4,
+		5,
+		6,
+		7
+	],
+	"note": "kiếm dài: 4 hạ kiếm sau người, 5 quét ngang, 6 vệt loé chém (hitFrame 2), 7 chĩa tới; thay bản attack-img (kiếm nhỏ như dao găm)"
+}

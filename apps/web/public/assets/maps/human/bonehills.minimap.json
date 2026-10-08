@@ -1,0 +1,13 @@
+{
+	"map": "bonehills",
+	"image": "bonehills.minimap.png",
+	"width": 264,
+	"height": 240,
+	"downscale": 8,
+	"world": {
+		"width": 2112,
+		"height": 1920,
+		"tileSize": 48
+	},
+	"version": "abc6b89b"
+}

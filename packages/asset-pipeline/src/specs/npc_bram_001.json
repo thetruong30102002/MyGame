@@ -1,0 +1,65 @@
+{
+	"identity": {
+		"characterId": "npc_bram_001",
+		"hair": "red_brown_beard",
+		"eyes": "brown",
+		"skin": "tan",
+		"outfit": "green_travel_coat_mustard_vest_feather_hat_backpack",
+		"weapon": "none",
+		"palette": "merchant_01"
+	},
+	"displayName": "Bram",
+	"role": "npc",
+	"provider": "pixellab",
+	"pixellab": {
+		"animations": {
+			"idle": "idle",
+			"walk": "walk"
+		},
+		"mirrorWest": true,
+		"reject": {
+			"walk": [
+				"N"
+			]
+		}
+	},
+	"frameSize": {
+		"width": 80,
+		"height": 88
+	},
+	"baselineY": 84,
+	"animations": {
+		"idle": {
+			"fps": 6,
+			"minFrames": 4,
+			"maxFrames": 8
+		},
+		"walk": {
+			"fps": 10,
+			"minFrames": 6,
+			"maxFrames": 8
+		}
+	},
+	"cleanup": {
+		"alignToIdle": true
+	},
+	"quality": {
+		"maxHeightDrift": 0.15
+	},
+	"provisional": [
+		"S",
+		"SW",
+		"W",
+		"NW",
+		"N",
+		"NE",
+		"E",
+		"SE"
+	],
+	"notes": "PixelLab Pro Flash (06/10/2026), ảnh mẫu phong cách = Lior bé (chép nét/bóng, không chép bảng màu). Thương nhân lữ hành, thay npc_merchant_001 (FreePixel). Idle tạm ảnh xoay tĩnh.",
+	"review": {
+		"status": "approved",
+		"date": "06/10/2026",
+		"notes": "Duyệt bằng mắt 8 hướng đứng + đi: mũ rộng vành cắm lông, râu đỏ nâu, áo khoác xanh, gilê vàng, ba lô khung gỗ + cuộn chăn nhất quán. LOẠI walk N (bản PixelLab làm MẤT ba lô) → dùng ảnh xoay nhún nhẹ. Walk SE thấp hơn ảnh đứng ~7px (trong ngưỡng 15%); NPC đứng yên trong game nên chấp nhận."
+	}
+}

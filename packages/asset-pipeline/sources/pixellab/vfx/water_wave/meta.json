@@ -1,0 +1,27 @@
+{
+	"id": "water_wave",
+	"kind": "loop",
+	"canvas": {
+		"w": 36,
+		"h": 36
+	},
+	"first": {
+		"prompt": "small water bolt, blue water droplet arrow with white foam highlight, pointing right, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "2ac9e5c4-2066-48e4-a6d0-3dd1fb733a91"
+	},
+	"action": "water bolt ripples and churns while flying, foam trail wobbling, seamless loop",
+	"frameCount": 4,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png"
+	],
+	"animateJobId": "ec1086b9-7a5d-415c-a4a5-b50019334859",
+	"createdAt": "2026-10-07T02:16:47.578Z",
+	"token": 8
+}

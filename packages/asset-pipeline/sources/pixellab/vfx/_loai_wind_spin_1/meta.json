@@ -1,0 +1,27 @@
+{
+	"id": "wind_spin",
+	"kind": "loop",
+	"canvas": {
+		"w": 40,
+		"h": 40
+	},
+	"first": {
+		"prompt": "small green-white wind blade, spinning crescent of air with speed lines, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "1bc9872e-42bc-4e41-826f-7af4d68180b9"
+	},
+	"action": "wind blade spins rapidly, swirling air lines rotating, seamless loop",
+	"frameCount": 4,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png"
+	],
+	"animateJobId": "1bd6215e-43d8-46a5-b53c-e37ccf448a1c",
+	"createdAt": "2026-10-07T02:21:58.563Z",
+	"token": 8
+}

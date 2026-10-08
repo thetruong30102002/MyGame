@@ -1,0 +1,10 @@
+{
+	"from": "extra-raw/attack-img/south",
+	"frames": [
+		1,
+		2,
+		3,
+		4
+	],
+	"note": "1 que chìa trái, 2 giơ lên, 3 quét chéo qua người (hitFrame 2), 4 theo đà sang phải"
+}

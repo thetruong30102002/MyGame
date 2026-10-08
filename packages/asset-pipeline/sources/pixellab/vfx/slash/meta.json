@@ -1,0 +1,33 @@
+{
+	"id": "slash",
+	"kind": "burst",
+	"canvas": {
+		"w": 92,
+		"h": 92
+	},
+	"first": {
+		"prompt": "a sword swing slash trail effect: one thin bright white VERTICAL crescent swoosh arc, convex side facing right, thick in the middle and tapering to sharp points at top and bottom, a fading pale cyan inner edge and a few short speed lines, glowing motion trail, flat effect, no blade, no weapon, no horn, no rings, no bands, pixel art game effect, lineless, transparent background, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "418d0dac-62a1-4027-a69c-789827543d6f"
+	},
+	"action": "the slash trail sweeps quickly from top to bottom along the arc, then thins out and fades away",
+	"frameCount": 6,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png"
+	],
+	"animateJobId": "abf25949-ba4f-4b56-b8af-18c12f956aa6",
+	"createdAt": "2026-10-07T02:24:49.401Z",
+	"token": 8,
+	"drop": [
+		"frame_005.png",
+		"frame_006.png"
+	]
+}

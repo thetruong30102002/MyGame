@@ -1,0 +1,31 @@
+{
+	"id": "fire_ring",
+	"kind": "burst",
+	"canvas": {
+		"w": 132,
+		"h": 132
+	},
+	"first": {
+		"prompt": "flat ring of fire seen from directly above, circular band of orange and yellow flames, empty transparent center, pixel art game effect, lineless, limited palette, isolated on a fully transparent background, no ground, no scenery, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "9e8fd47a-3d31-4bc9-8dba-f66f5c2f4e72"
+	},
+	"action": "ring of fire flares up, flames dance higher, then burn down into embers and fade away",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "01660c47-b11c-4b94-b90d-173c1020565d",
+	"createdAt": "2026-10-07T02:51:22.808Z",
+	"token": 10
+}

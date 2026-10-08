@@ -1,0 +1,97 @@
+{
+	"characterId": "player_lior_child",
+	"directions": {
+		"S": {
+			"jobId": "gen_f97fff3b-3a9b-4aba-83e5-d7793430ed25",
+			"imageIndex": 1,
+			"file": "base-1.png",
+			"instruction": "base"
+		},
+		"E": {
+			"jobId": "gen_deb546bb-69dd-42d0-97c6-d8d6141d769f",
+			"imageIndex": 0,
+			"file": "dir-E.png",
+			"instruction": "Same exact character (silver hair, blue eyes, blue child tunic small cloak, wooden practice wand), same outfit, colors, staff and proportions, same size and pixel style, now turned to face right, full side profile view (east). Full body, transparent background."
+		},
+		"N": {
+			"jobId": "gen_92a1950f-2b57-4e84-8277-63ee5909e09b",
+			"imageIndex": 0,
+			"file": "dir-N-92a1950f.png",
+			"instruction": "Same exact character (silver hair, blue eyes, blue child tunic small cloak, wooden practice wand), same outfit, colors, staff and proportions, same size and pixel style, now turned around facing away from the viewer, full back view (north). Full body, transparent background. Back view only: we see the back of his messy silver hair and the dark blue cloak hanging down; both arms at his sides; the wooden staff held vertically in his right hand; no symbols or patterns on the cloak."
+		}
+	},
+	"animations": {
+		"idle": {
+			"S": {
+				"jobId": "anm_7028aa37-052f-4aca-8d3f-d5a7c090433c",
+				"preset": "Idle",
+				"files": [
+					"idle-S-0.png"
+				]
+			}
+		},
+		"walk": {
+			"S": {
+				"jobId": "anm_9e8e15c3-4776-4528-a125-6efb7f106723",
+				"preset": "Custom",
+				"files": [
+					"walk-S-0.png"
+				]
+			}
+		}
+	},
+	"log": [
+		{
+			"at": "2026-10-02T01:29:58.904Z",
+			"action": "generate",
+			"jobId": "gen_f97fff3b-3a9b-4aba-83e5-d7793430ed25",
+			"note": "2 ứng viên 72×88"
+		},
+		{
+			"at": "2026-10-02T01:30:15.767Z",
+			"action": "select",
+			"jobId": "gen_f97fff3b-3a9b-4aba-83e5-d7793430ed25",
+			"note": "#1: tóc bạc dựng + áo choàng xanh đậm khớp chân dung Lior lớn; gậy gỗ dài nối với trượng lúc lớn"
+		},
+		{
+			"at": "2026-10-02T01:30:53.019Z",
+			"action": "edit",
+			"jobId": "gen_deb546bb-69dd-42d0-97c6-d8d6141d769f",
+			"note": "E"
+		},
+		{
+			"at": "2026-10-02T01:31:23.413Z",
+			"action": "edit",
+			"jobId": "gen_685014cc-97e7-44ba-9c4b-6cd0c6fe997f",
+			"note": "N"
+		},
+		{
+			"at": "2026-10-02T01:32:18.193Z",
+			"action": "edit",
+			"jobId": "gen_92a1950f-2b57-4e84-8277-63ee5909e09b",
+			"note": "N (thay gen_685014cc-97e7-44ba-9c4b-6cd0c6fe997f): Back view only: we see the back of his messy silver hair and the dark blue cloak hanging down; both arms at his sides; the wooden staff held vertically in his right hand; no symbols or patterns on the cloak."
+		},
+		{
+			"at": "2026-10-02T01:33:34.746Z",
+			"action": "animate",
+			"jobId": "anm_7028aa37-052f-4aca-8d3f-d5a7c090433c",
+			"note": "idle/S 1 ảnh, preset Idle"
+		},
+		{
+			"at": "2026-10-02T01:34:48.813Z",
+			"action": "animate",
+			"jobId": "anm_9e8e15c3-4776-4528-a125-6efb7f106723",
+			"note": "walk/S 1 ảnh, preset Custom: child walking toward viewer, clear alternating leg steps, cloak sways, staff held steady"
+		}
+	],
+	"base": {
+		"jobId": "gen_f97fff3b-3a9b-4aba-83e5-d7793430ed25",
+		"prompt": "7 year old boy child, anime face, big blue eyes, messy silver hair, simple blue tunic with small hooded cloak, brown belt, boots, holding short wooden wand, full body standing, front view facing viewer, high-detail anime pixel art, crisp pixels, no text",
+		"files": [
+			"base-0.png",
+			"base-1.png"
+		],
+		"selected": 1,
+		"createdAt": "2026-10-02T01:29:58.903Z"
+	}
+}

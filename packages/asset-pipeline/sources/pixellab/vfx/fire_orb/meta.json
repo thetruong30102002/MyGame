@@ -1,0 +1,30 @@
+{
+	"id": "fire_orb",
+	"kind": "loop",
+	"canvas": {
+		"w": 24,
+		"h": 24
+	},
+	"first": {
+		"prompt": "small round fireball, bright yellow core, orange and red flames around it, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "345ed722-170e-456f-9853-65716d99b18e"
+	},
+	"action": "fireball burning and pulsing, flames flickering around the core, seamless loop",
+	"frameCount": 4,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png"
+	],
+	"animateJobId": "ab099233-35c9-4edd-943e-b8602d9d8873",
+	"createdAt": "2026-10-07T02:10:45.079Z",
+	"token": 8,
+	"drop": [
+		"frame_002.png"
+	]
+}

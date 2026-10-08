@@ -1,0 +1,60 @@
+{
+	"identity": {
+		"characterId": "npc_elin_001",
+		"hair": "silver_loose_braid",
+		"eyes": "blue",
+		"skin": "light",
+		"outfit": "cream_linen_dress_brown_apron_blue_headscarf",
+		"weapon": "none",
+		"palette": "village_warm_01"
+	},
+	"displayName": "Elin Ashvale",
+	"role": "npc",
+	"provider": "pixellab",
+	"pixellab": {
+		"animations": {
+			"idle": "idle",
+			"walk": "walk"
+		},
+		"mirrorWest": true
+	},
+	"frameSize": {
+		"width": 80,
+		"height": 88
+	},
+	"baselineY": 84,
+	"animations": {
+		"idle": {
+			"fps": 6,
+			"minFrames": 4,
+			"maxFrames": 8
+		},
+		"walk": {
+			"fps": 10,
+			"minFrames": 6,
+			"maxFrames": 8
+		}
+	},
+	"cleanup": {
+		"alignToIdle": true
+	},
+	"quality": {
+		"maxHeightDrift": 0.15
+	},
+	"provisional": [
+		"S",
+		"SW",
+		"W",
+		"NW",
+		"N",
+		"NE",
+		"E",
+		"SE"
+	],
+	"notes": "PixelLab Pro Flash (06/10/2026), ảnh mẫu phong cách = Lior bé. Mẹ của nhân vật chính, người nuôi ong, quê vùng núi tuyết phía bắc (tóc bạc — nhân vật chính thừa hưởng). Tay không (vũ khí/đồ cầm là lớp riêng). Idle tạm ảnh xoay tĩnh.",
+	"review": {
+		"status": "approved",
+		"date": "06/10/2026",
+		"notes": "Duyệt bằng mắt 8 hướng đứng + đi: tóc bạc tết, khăn xanh, tạp dề nâu nhất quán; bước đi tự nhiên, tay vung theo nhịp."
+	}
+}

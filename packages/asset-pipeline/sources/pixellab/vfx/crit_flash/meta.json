@@ -1,0 +1,33 @@
+{
+	"id": "crit_flash",
+	"kind": "burst",
+	"canvas": {
+		"w": 60,
+		"h": 60
+	},
+	"first": {
+		"prompt": "bright golden yellow and white impact star flash with sharp rays, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "e89843a3-95aa-4f41-994c-ef85a51e33ab"
+	},
+	"action": "impact flash bursts outward quickly, rays extend then vanish",
+	"frameCount": 6,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png"
+	],
+	"animateJobId": "39876ae7-c943-410b-9f2d-d3680be87543",
+	"createdAt": "2026-10-07T02:31:14.258Z",
+	"token": 9,
+	"drop": [
+		"frame_005.png",
+		"frame_006.png"
+	]
+}

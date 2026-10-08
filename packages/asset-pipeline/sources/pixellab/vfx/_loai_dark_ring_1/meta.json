@@ -1,0 +1,31 @@
+{
+	"id": "dark_ring",
+	"kind": "burst",
+	"canvas": {
+		"w": 176,
+		"h": 176
+	},
+	"first": {
+		"prompt": "flat dark magic ring seen from directly above, purple and violet glowing circle with small dark flames along the edge, empty transparent center, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "b73895e4-5df1-4482-9922-e66484bb039a"
+	},
+	"action": "dark ring flares up with purple flames, then dissolves into dark wisps and fades away",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "1ca3b65d-08c5-46a8-bcff-c9828a7caaea",
+	"createdAt": "2026-10-07T02:44:07.509Z",
+	"token": 11
+}

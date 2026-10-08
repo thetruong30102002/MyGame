@@ -1,0 +1,36 @@
+{
+	"id": "blood_hit",
+	"kind": "burst",
+	"canvas": {
+		"w": 44,
+		"h": 44
+	},
+	"first": {
+		"prompt": "small white and pale yellow impact spark, a star-shaped burst of short sharp radiating lines with a few red-orange flecks, isolated effect on a fully transparent background, pixel art game effect, crisp dark outline, limited palette, chibi RPG style, no weapon, no sword, no blade, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "04000e2c-a4f1-446b-8709-4af1168e0414"
+	},
+	"action": "impact spark bursts outward quickly, lines shoot out and fade away",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "1d1a4776-33a7-4d01-85a8-926d86709f58",
+	"createdAt": "2026-10-07T02:38:26.023Z",
+	"token": 9,
+	"drop": [
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	]
+}

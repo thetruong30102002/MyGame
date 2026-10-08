@@ -1,0 +1,37 @@
+{
+	"id": "wind_burst",
+	"kind": "burst",
+	"canvas": {
+		"w": 64,
+		"h": 64
+	},
+	"first": {
+		"prompt": "small whirlwind gust just forming, pale green and white swirling air streaks, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "6db813f9-35bd-4c7a-aeb0-7dd2ff94474e",
+		"drawn": "first_drawn.png"
+	},
+	"action": "whirlwind gust spins and expands outward, then streaks scatter and fade away",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "7baa36d2-2ab4-4009-9bd4-2a4a625212df",
+	"createdAt": "2026-10-07T02:18:18.034Z",
+	"token": 9,
+	"drop": [
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	]
+}

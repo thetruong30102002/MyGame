@@ -1,0 +1,92 @@
+{
+	"characterId": "player_mage_002",
+	"directions": {
+		"S": {
+			"jobId": "gen_ddb6be6a-3ba7-483e-aab9-628dd7c602f5",
+			"imageIndex": 2,
+			"file": "base-2.png",
+			"instruction": "base"
+		},
+		"E": {
+			"jobId": "gen_d96f0a55-c5b9-44a8-ad91-d4cbc3d34e4f",
+			"imageIndex": 0,
+			"file": "dir-E.png",
+			"instruction": "Same exact character (silver hair, blue eyes, dark blue mage robes, wood magic staff), same outfit, colors, staff and proportions, same size and pixel style, now turned to face right, full side profile view (east). Full body, transparent background."
+		},
+		"N": {
+			"jobId": "gen_b9c4e431-8901-4a70-b5ae-99fa081b441a",
+			"imageIndex": 0,
+			"file": "dir-N.png",
+			"instruction": "Same exact character (silver hair, blue eyes, dark blue mage robes, wood magic staff), same outfit, colors, staff and proportions, same size and pixel style, now turned around facing away from the viewer, full back view (north). Full body, transparent background."
+		}
+	},
+	"animations": {
+		"idle": {
+			"S": {
+				"jobId": "anm_4e4e4aca-0d60-42db-8794-c42f77d14afd",
+				"preset": "Idle",
+				"files": [
+					"idle-S-0.png"
+				]
+			}
+		},
+		"walk": {
+			"S": {
+				"jobId": "anm_56f167f3-6950-4b83-9c24-43d644b9afaa",
+				"preset": "Walk",
+				"files": [
+					"walk-S-0.png"
+				]
+			}
+		}
+	},
+	"log": [
+		{
+			"at": "2026-10-01T09:13:29.048Z",
+			"action": "generate",
+			"jobId": "gen_ddb6be6a-3ba7-483e-aab9-628dd7c602f5",
+			"note": "3 ứng viên 128×160"
+		},
+		{
+			"at": "2026-10-01T09:14:19.338Z",
+			"action": "select",
+			"jobId": "gen_ddb6be6a-3ba7-483e-aab9-628dd7c602f5",
+			"note": "#2: mặt anime rõ nhất, tóc bạc, áo choàng nhiều lớp, trượng gỗ; gọn trong canvas (bbox 18..110 × 2..158), không chạm mép"
+		},
+		{
+			"at": "2026-10-01T09:14:57.006Z",
+			"action": "edit",
+			"jobId": "gen_d96f0a55-c5b9-44a8-ad91-d4cbc3d34e4f",
+			"note": "E"
+		},
+		{
+			"at": "2026-10-01T09:15:32.607Z",
+			"action": "edit",
+			"jobId": "gen_b9c4e431-8901-4a70-b5ae-99fa081b441a",
+			"note": "N"
+		},
+		{
+			"at": "2026-10-01T09:16:56.631Z",
+			"action": "animate",
+			"jobId": "anm_4e4e4aca-0d60-42db-8794-c42f77d14afd",
+			"note": "idle/S 1 frame"
+		},
+		{
+			"at": "2026-10-01T09:18:13.125Z",
+			"action": "animate",
+			"jobId": "anm_56f167f3-6950-4b83-9c24-43d644b9afaa",
+			"note": "walk/S 1 frame"
+		}
+	],
+	"base": {
+		"jobId": "gen_ddb6be6a-3ba7-483e-aab9-628dd7c602f5",
+		"prompt": "Young male mage, anime face, blue eyes, silver hair, dark blue layered robe with hooded cloak, belt, boots, gloves, holding wooden magic staff, full body standing, front view facing viewer, high-detail anime pixel art, crisp pixel edges, rich shading, no chibi, no text",
+		"files": [
+			"base-0.png",
+			"base-1.png",
+			"base-2.png"
+		],
+		"selected": 2,
+		"createdAt": "2026-10-01T09:13:29.047Z"
+	}
+}

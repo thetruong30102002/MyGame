@@ -1,0 +1,22 @@
+{
+  "name": "@aether/server",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/main.ts",
+    "start": "tsx src/main.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@aether/protocol": "*",
+    "ws": "^8.22.0",
+    "@aether/sim": "*"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/ws": "^8.18.2",
+    "tsx": "^4.23.0",
+    "typescript": "~5.9.3"
+  }
+}

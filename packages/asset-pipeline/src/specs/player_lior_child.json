@@ -1,0 +1,93 @@
+{
+	"identity": {
+		"characterId": "player_lior_child",
+		"hair": "silver",
+		"eyes": "blue",
+		"skin": "light",
+		"outfit": "navy_hooded_capelet_gold_trim_blue_tunic",
+		"weapon": "none_weapon_layer",
+		"palette": "fantasy_blue_01"
+	},
+	"displayName": "Lior (bé)",
+	"role": "player",
+	"provider": "pixellab",
+	"pixellab": {
+		"animations": {
+			"idle": "idle",
+			"walk": "walk",
+			"attack": [
+				"attack-sword",
+				"attack-swing",
+				"attack-img"
+			],
+			"cast": [
+				"cast",
+				"cast-img"
+			]
+		},
+		"mirrorWest": true
+	},
+	"frameSize": {
+		"width": 64,
+		"height": 64
+	},
+	"baselineY": 60,
+	"animations": {
+		"idle": {
+			"fps": 6,
+			"minFrames": 4,
+			"maxFrames": 8
+		},
+		"walk": {
+			"fps": 10,
+			"minFrames": 6,
+			"maxFrames": 8
+		},
+		"attack": {
+			"fps": 17,
+			"minFrames": 4,
+			"maxFrames": 12,
+			"optional": true,
+			"durationMs": 360,
+			"hitFrame": 2
+		},
+		"cast": {
+			"fps": 20,
+			"minFrames": 4,
+			"maxFrames": 12,
+			"optional": true,
+			"durationMs": 400
+		}
+	},
+	"cleanup": {
+		"removeThin": {
+			"minY": 30,
+			"minLength": 4,
+			"woodRatio": 0.7
+		},
+		"alignToIdle": true,
+		"keepThinIn": [
+			"attack",
+			"cast"
+		]
+	},
+	"quality": {
+		"maxHeightDrift": 0.15
+	},
+	"provisional": [
+		"S",
+		"SW",
+		"W",
+		"NW",
+		"N",
+		"NE",
+		"E",
+		"SE"
+	],
+	"notes": "PixelLab Pro Flash theo 3 ảnh mẫu chibi của chủ dự án (02/10/2026), walk = mẫu walking-8-frames (S, SE, E, NE, N; phía tây lật gương). Que gỗ gỡ khỏi thân (removeThin): thân tay không, vũ khí là lớp riêng. Idle tạm là ảnh xoay tĩnh; hướng nào chưa có walk thì tạm ảnh tĩnh nhún 1px.",
+	"review": {
+		"status": "approved",
+		"date": "06/10/2026",
+		"notes": "Duyệt bằng mắt 8 hướng sau khi gỡ que: tay, ủng, áo choàng nguyên vẹn; walk S/SE/E/NE nhận diện nhất quán, áo choàng bay theo nhịp."
+	}
+}

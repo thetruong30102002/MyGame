@@ -1,0 +1,89 @@
+{
+  "group_id": "6b4babfb-1a8e-4aab-bec2-2f9d07510cf3",
+  "states": [
+    {
+      "character": {
+        "id": "940f8e5b-ed7f-4ae2-8561-38b29580de7b",
+        "name": "Idle",
+        "prompt": "Aldric, energetic 6-year-old boy who calls himself a knight. Messy chestnut-brown hair, bright green eyes, confident grin, a scraped band-aid on his cheek. Wears a dented tin cooking pot as a helmet that is slightly too big, a red scarf tied as a cape, a simple brown tunic with a rope belt, a small wooden sword tucked into the belt at his hip, dark pants, brown boots. Empty hands, holding nothing. Same chibi anime pixel art style as the reference: big anime head, black single-color outline, cel shading, low top-down view.",
+        "size": {
+          "width": 64,
+          "height": 64
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-10-06T09:31:56.354513+00:00"
+      },
+      "folder": "Idle",
+      "frames": {
+        "rotations": {
+          "south": "Idle/rotations/south.png",
+          "south-east": "Idle/rotations/south-east.png",
+          "east": "Idle/rotations/east.png",
+          "north-east": "Idle/rotations/north-east.png",
+          "north": "Idle/rotations/north.png",
+          "north-west": "Idle/rotations/north-west.png",
+          "west": "Idle/rotations/west.png",
+          "south-west": "Idle/rotations/south-west.png"
+        },
+        "animations": {
+          "walk": {
+            "east": [
+              "Idle/animations/walk/east/frame_000.png",
+              "Idle/animations/walk/east/frame_001.png",
+              "Idle/animations/walk/east/frame_002.png",
+              "Idle/animations/walk/east/frame_003.png",
+              "Idle/animations/walk/east/frame_004.png",
+              "Idle/animations/walk/east/frame_005.png",
+              "Idle/animations/walk/east/frame_006.png",
+              "Idle/animations/walk/east/frame_007.png"
+            ],
+            "south-east": [
+              "Idle/animations/walk/south-east/frame_000.png",
+              "Idle/animations/walk/south-east/frame_001.png",
+              "Idle/animations/walk/south-east/frame_002.png",
+              "Idle/animations/walk/south-east/frame_003.png",
+              "Idle/animations/walk/south-east/frame_004.png",
+              "Idle/animations/walk/south-east/frame_005.png",
+              "Idle/animations/walk/south-east/frame_006.png",
+              "Idle/animations/walk/south-east/frame_007.png"
+            ],
+            "north-east": [
+              "Idle/animations/walk/north-east/frame_000.png",
+              "Idle/animations/walk/north-east/frame_001.png",
+              "Idle/animations/walk/north-east/frame_002.png",
+              "Idle/animations/walk/north-east/frame_003.png",
+              "Idle/animations/walk/north-east/frame_004.png",
+              "Idle/animations/walk/north-east/frame_005.png",
+              "Idle/animations/walk/north-east/frame_006.png",
+              "Idle/animations/walk/north-east/frame_007.png"
+            ],
+            "south": [
+              "Idle/animations/walk/south/frame_000.png",
+              "Idle/animations/walk/south/frame_001.png",
+              "Idle/animations/walk/south/frame_002.png",
+              "Idle/animations/walk/south/frame_003.png",
+              "Idle/animations/walk/south/frame_004.png",
+              "Idle/animations/walk/south/frame_005.png",
+              "Idle/animations/walk/south/frame_006.png",
+              "Idle/animations/walk/south/frame_007.png"
+            ],
+            "north": [
+              "Idle/animations/walk/north/frame_000.png",
+              "Idle/animations/walk/north/frame_001.png",
+              "Idle/animations/walk/north/frame_002.png",
+              "Idle/animations/walk/north/frame_003.png",
+              "Idle/animations/walk/north/frame_004.png",
+              "Idle/animations/walk/north/frame_005.png",
+              "Idle/animations/walk/north/frame_006.png",
+              "Idle/animations/walk/north/frame_007.png"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "export_version": "3.1",
+  "export_date": "2026-10-06T09:44:31.452437"
+}

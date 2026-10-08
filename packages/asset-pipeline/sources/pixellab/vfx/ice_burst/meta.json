@@ -1,0 +1,32 @@
+{
+	"id": "ice_burst",
+	"kind": "burst",
+	"canvas": {
+		"w": 60,
+		"h": 60
+	},
+	"first": {
+		"prompt": "small burst of ice crystals just starting, pale cyan and white jagged ice shards around a bright core, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "cc9458e9-96cb-4b55-97e1-abaa96098336",
+		"drawn": "first_drawn.png"
+	},
+	"action": "ice crystals burst outward into sharp shards and frost mist, then shatter into sparkles and fade away",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "6f84676b-6558-4984-9ef2-eb4bba7835e0",
+	"createdAt": "2026-10-07T04:21:50.441Z",
+	"token": 13
+}

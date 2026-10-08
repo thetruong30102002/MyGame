@@ -1,0 +1,19 @@
+{
+	"description": "A sprite sheet of NINE separate game UI item icons arranged in a 3 by 3 grid, each centered in its own cell with wide empty space around it: a small glass potion bottle filled with golden honey and a cork stopper; a small pile of shiny gold coins; a brown leather adventurer backpack; a red heart; a blue mana water droplet crystal; two crossed steel swords; a glowing purple magic orb with sparkles; a round wooden shield with an iron rim; a bright golden five-pointed star, thick dark outline, soft cel shading, every icon fully separate on a plain flat solid bright magenta (#FF00FF) chroma-key background, no text, no frame, no characters",
+	"width": 192,
+	"height": 192,
+	"no_background": false,
+	"style_options": {
+		"color_palette": true,
+		"outline": true,
+		"shading": true,
+		"detail": false
+	},
+	"style_image": {
+		"path": "C:/Users/thetr/AppData/Local/Temp/claude/D--pms/b18d073e-506e-4c58-8cf3-4fc6a2aedf14/scratchpad/pl/house_trim.png",
+		"usage_description": "Copy ONLY the art style of this reference: chunky chibi pixel art, thick dark outline on every shape, soft cel shading, warm saturated palette. Do not draw this house."
+	},
+	"jobId": "32bb0934-048d-44a8-a569-19af8e314759",
+	"token": 13,
+	"createdAt": "2026-10-07T04:24:31.637Z"
+}

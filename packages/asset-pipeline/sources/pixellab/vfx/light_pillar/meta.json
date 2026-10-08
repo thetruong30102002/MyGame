@@ -1,0 +1,32 @@
+{
+	"id": "light_pillar",
+	"kind": "burst",
+	"canvas": {
+		"w": 132,
+		"h": 132
+	},
+	"first": {
+		"prompt": "a vertical pillar of soft golden-white healing light shining down onto a small glowing circle, tiny sparkles around it, isolated effect on a fully transparent background, no ground, no grass, no plants, no scenery, pixel art game effect, lineless, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "151bf188-ffdc-49b2-a181-168a2ad105ae"
+	},
+	"action": "the light pillar beams down and brightens while sparkles rise, then the light narrows and fades away",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "89eaad91-82a8-478c-b2db-a57fc372b802",
+	"createdAt": "2026-10-07T02:31:34.393Z",
+	"token": 8,
+	"keyDark": 112
+}

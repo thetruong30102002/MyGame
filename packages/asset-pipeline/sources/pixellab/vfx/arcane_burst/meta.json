@@ -1,0 +1,32 @@
+{
+	"id": "arcane_burst",
+	"kind": "burst",
+	"canvas": {
+		"w": 52,
+		"h": 52
+	},
+	"first": {
+		"prompt": "small violet magic explosion just starting, cyan sparks around a bright core, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "5eb1695b-2fec-4572-a9f9-21c793767a21",
+		"drawn": "first_drawn.png"
+	},
+	"action": "magic energy bursts outward into a ring of sparks and runes, then fades into small particles",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "88033b91-53ba-44b6-868c-dbb3c64a1d82",
+	"createdAt": "2026-10-07T00:35:56.522Z",
+	"token": 6
+}

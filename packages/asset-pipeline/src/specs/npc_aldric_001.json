@@ -1,0 +1,60 @@
+{
+	"identity": {
+		"characterId": "npc_aldric_001",
+		"hair": "chestnut_brown",
+		"eyes": "green",
+		"skin": "light",
+		"outfit": "chainmail_red_tabard_red_scarf",
+		"weapon": "sword_sheathed_hip",
+		"palette": "guard_01"
+	},
+	"displayName": "Aldric",
+	"role": "npc",
+	"provider": "pixellab",
+	"pixellab": {
+		"animations": {
+			"idle": "idle",
+			"walk": "walk"
+		},
+		"mirrorWest": true
+	},
+	"frameSize": {
+		"width": 80,
+		"height": 88
+	},
+	"baselineY": 84,
+	"animations": {
+		"idle": {
+			"fps": 6,
+			"minFrames": 4,
+			"maxFrames": 8
+		},
+		"walk": {
+			"fps": 10,
+			"minFrames": 6,
+			"maxFrames": 8
+		}
+	},
+	"cleanup": {
+		"alignToIdle": true
+	},
+	"quality": {
+		"maxHeightDrift": 0.15
+	},
+	"provisional": [
+		"S",
+		"SW",
+		"W",
+		"NW",
+		"N",
+		"NE",
+		"E",
+		"SE"
+	],
+	"notes": "PixelLab Pro Flash (06/10/2026), ảnh mẫu phong cách = Lior bé (chép nét/bóng, không chép bảng màu). Aldric 16 tuổi, cận vệ tập sự ở cổng bắc; thay npc_squire_001 (FreePixel). Idle tạm ảnh xoay tĩnh.",
+	"review": {
+		"status": "approved",
+		"date": "07/10/2026",
+		"notes": "Duyệt bằng mắt 8 ảnh xoay: cùng nét chibi viền đen với Lior/Bram, tóc nâu + khăn đỏ + áo giáp + kiếm đeo hông nhất quán mọi hướng. NPC đứng gác cổng bắc nên idle/walk tạm bằng ảnh xoay là đủ; thay hiệp sĩ FreePixel npc_squire_001 (lệch style)."
+	}
+}

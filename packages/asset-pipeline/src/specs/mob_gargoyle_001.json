@@ -1,0 +1,55 @@
+{
+	"identity": {
+		"characterId": "mob_gargoyle_001",
+		"hair": "stone_horns",
+		"eyes": "glowing_orange",
+		"skin": "stone_grey",
+		"outfit": "folded_stone_wings",
+		"weapon": "claws",
+		"palette": "stone_01"
+	},
+	"displayName": "Gargoyle",
+	"role": "monster",
+	"provider": "pixellab",
+	"pixellab": {
+		"animations": {
+			"idle": "idle",
+			"walk": "walk"
+		},
+		"mirrorWest": true
+	},
+	"frameSize": {
+		"width": 80,
+		"height": 88
+	},
+	"baselineY": 84,
+	"animations": {
+		"idle": {
+			"fps": 6,
+			"minFrames": 4,
+			"maxFrames": 8
+		},
+		"walk": {
+			"fps": 10,
+			"minFrames": 6,
+			"maxFrames": 8
+		}
+	},
+	"cleanup": {
+		"alignToIdle": true
+	},
+	"quality": {
+		"maxHeightDrift": 0.15
+	},
+	"provisional": [
+		"S",
+		"SW",
+		"W",
+		"NW",
+		"N",
+		"NE",
+		"E",
+		"SE"
+	],
+	"notes": "PixelLab Pro Flash (06/10/2026), ảnh mẫu phong cách = Lior bé (chép nét/bóng, không chép bảng màu). Quái khoảng trống Mossvale (16 tuổi). Idle tạm ảnh xoay tĩnh."
+}

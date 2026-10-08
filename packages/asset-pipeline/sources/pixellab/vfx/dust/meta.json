@@ -1,0 +1,30 @@
+{
+	"id": "dust",
+	"kind": "burst",
+	"canvas": {
+		"w": 44,
+		"h": 44
+	},
+	"first": {
+		"prompt": "three small soft round puffs of pale brown dust kicked up from the ground, light airy cloud puffs with soft shading, loosely grouped, pixel art game effect, crisp dark outline, limited palette, isolated on a fully transparent background, chibi RPG style, no rock, no stone, no ground, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "849a556f-8f47-4bb7-9e4b-e72fdd2f4a91",
+		"drawn": "first_drawn.png"
+	},
+	"action": "the dust puffs billow outward and drift apart, getting lighter and smaller until they vanish",
+	"frameCount": 6,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png"
+	],
+	"animateJobId": "3ced248e-27a5-4778-93b1-5e2cf03c3000",
+	"createdAt": "2026-10-07T04:09:54.832Z",
+	"token": 13
+}

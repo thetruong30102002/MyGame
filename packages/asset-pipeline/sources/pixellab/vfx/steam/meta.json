@@ -1,0 +1,31 @@
+{
+	"id": "steam",
+	"kind": "burst",
+	"canvas": {
+		"w": 84,
+		"h": 84
+	},
+	"first": {
+		"prompt": "a puff of white hot steam cloud with small curling swirls, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "30cce195-ca1e-4137-adbe-28f2283fe328"
+	},
+	"action": "steam cloud billows outward and rises, then thins out and fades away",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "cfa876c2-163f-49ca-809a-15a8545389f5",
+	"createdAt": "2026-10-07T02:24:28.775Z",
+	"token": 9
+}

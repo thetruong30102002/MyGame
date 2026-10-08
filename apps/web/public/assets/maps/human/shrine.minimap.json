@@ -1,0 +1,13 @@
+{
+	"map": "shrine",
+	"image": "shrine.minimap.png",
+	"width": 180,
+	"height": 156,
+	"downscale": 8,
+	"world": {
+		"width": 1440,
+		"height": 1248,
+		"tileSize": 48
+	},
+	"version": "688d94cb"
+}

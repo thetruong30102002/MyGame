@@ -1,0 +1,27 @@
+{
+	"id": "flame",
+	"kind": "loop",
+	"canvas": {
+		"w": 32,
+		"h": 32
+	},
+	"first": {
+		"prompt": "small flickering flame, yellow core with orange and red tips, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "83079493-5aee-4767-8a86-906ea7c448ff"
+	},
+	"action": "flame flickers and dances in place, seamless loop",
+	"frameCount": 4,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png"
+	],
+	"animateJobId": "e3df80fa-d18c-4408-917f-55b533e9f1e5",
+	"createdAt": "2026-10-07T02:54:57.099Z",
+	"token": 10
+}

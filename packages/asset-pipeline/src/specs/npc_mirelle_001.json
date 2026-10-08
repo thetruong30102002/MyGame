@@ -1,0 +1,60 @@
+{
+	"identity": {
+		"characterId": "npc_mirelle_001",
+		"hair": "grey_bun",
+		"eyes": "brown",
+		"skin": "light",
+		"outfit": "white_healer_robe_green_trim_green_shawl",
+		"weapon": "none",
+		"palette": "church_01"
+	},
+	"displayName": "Mirelle",
+	"role": "npc",
+	"provider": "pixellab",
+	"pixellab": {
+		"animations": {
+			"idle": "idle",
+			"walk": "walk"
+		},
+		"mirrorWest": true
+	},
+	"frameSize": {
+		"width": 80,
+		"height": 88
+	},
+	"baselineY": 84,
+	"animations": {
+		"idle": {
+			"fps": 6,
+			"minFrames": 4,
+			"maxFrames": 8
+		},
+		"walk": {
+			"fps": 10,
+			"minFrames": 6,
+			"maxFrames": 8
+		}
+	},
+	"cleanup": {
+		"alignToIdle": true
+	},
+	"quality": {
+		"maxHeightDrift": 0.15
+	},
+	"provisional": [
+		"S",
+		"SW",
+		"W",
+		"NW",
+		"N",
+		"NE",
+		"E",
+		"SE"
+	],
+	"notes": "PixelLab Pro Flash (06/10/2026), ảnh mẫu phong cách = Lior bé. Nữ trị liệu ở nhà thờ, hàng xóm; năm 16 tuổi dạy phép Hồi Phục. Tay không (vũ khí/đồ cầm là lớp riêng). Idle tạm ảnh xoay tĩnh.",
+	"review": {
+		"status": "approved",
+		"date": "06/10/2026",
+		"notes": "Duyệt bằng mắt 8 hướng đứng + đi: tóc bạc búi, kính tròn, khăn choàng xanh, áo trắng viền xanh, túi đeo chéo nhất quán; bước đi đều, phía tây lật gương khớp phía đông."
+	}
+}

@@ -1,0 +1,33 @@
+{
+	"id": "dark_ring",
+	"kind": "burst",
+	"canvas": {
+		"w": 176,
+		"h": 176
+	},
+	"first": {
+		"prompt": null,
+		"image": "first.png",
+		"source": "file"
+	},
+	"action": "the small purple flames along the edge of the ring flare up and flicker, then shrink down and the thin ring fades away, the center of the ring stays empty and fully transparent in every frame, no filling, no disc",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "88262c36-7f76-4fea-9aea-cc60975ee3f6",
+	"createdAt": "2026-10-07T02:54:54.475Z",
+	"token": 11,
+	"drop": [
+		"frame_008.png"
+	]
+}

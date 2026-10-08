@@ -1,0 +1,59 @@
+{
+  "group_id": "fc587af6-b3d8-483a-a055-eac9e5de748e",
+  "states": [
+    {
+      "character": {
+        "id": "9b616f75-23e0-493e-b49d-4ed0c6fd1738",
+        "name": "Idle",
+        "prompt": "5-year-old girl hero, the female counterpart of the reference boy, same chibi anime pixel art style. Long silver-white hair with pale blue-grey shading, tied in a side ponytail with a small dark navy ribbon, soft bangs over the forehead. Big bright blue eyes, small cute face. Wears the same dark navy blue short hooded cloak (capelet over the shoulders) with gold trim edges and a small gold clasp at the neck, a blue tunic dress underneath reaching mid-thigh, brown leather belt with a small gold buckle, dark leggings, brown boots. Holds a small wooden stick in her right hand. Black single-color outline, cel shading.",
+        "size": {
+          "width": 64,
+          "height": 64
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-10-05T04:32:53.403185+00:00"
+      },
+      "folder": "Idle",
+      "frames": {
+        "rotations": {
+          "south": "Idle/rotations/south.png",
+          "south-east": "Idle/rotations/south-east.png",
+          "east": "Idle/rotations/east.png",
+          "north-east": "Idle/rotations/north-east.png",
+          "north": "Idle/rotations/north.png",
+          "north-west": "Idle/rotations/north-west.png",
+          "west": "Idle/rotations/west.png",
+          "south-west": "Idle/rotations/south-west.png"
+        },
+        "animations": {
+          "walk": {
+            "east": [
+              "Idle/animations/walk/east/frame_000.png",
+              "Idle/animations/walk/east/frame_001.png",
+              "Idle/animations/walk/east/frame_002.png",
+              "Idle/animations/walk/east/frame_003.png",
+              "Idle/animations/walk/east/frame_004.png",
+              "Idle/animations/walk/east/frame_005.png",
+              "Idle/animations/walk/east/frame_006.png",
+              "Idle/animations/walk/east/frame_007.png"
+            ],
+            "south": [
+              "Idle/animations/walk/south/frame_000.png",
+              "Idle/animations/walk/south/frame_001.png",
+              "Idle/animations/walk/south/frame_002.png",
+              "Idle/animations/walk/south/frame_003.png",
+              "Idle/animations/walk/south/frame_004.png",
+              "Idle/animations/walk/south/frame_005.png",
+              "Idle/animations/walk/south/frame_006.png",
+              "Idle/animations/walk/south/frame_007.png"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "export_version": "3.1",
+  "export_date": "2026-10-06T09:33:28.966184"
+}

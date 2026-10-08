@@ -1,0 +1,19 @@
+{
+	"description": "A sprite sheet of FOUR separate antique fantasy RPG user interface pieces arranged in a 2 by 2 grid, each centered in its own quarter, seen perfectly flat and straight-on, perfectly symmetrical: top-left a square window frame made of dark carved wood with ornate aged gold metal corner pieces and a thin gold inner trim, HOLLOW with an empty center; top-right a small square inventory slot frame of dark stone with tiny gold rivets at the corners, HOLLOW with an empty center; bottom-left a wide rectangular button made of a polished wooden plank with aged gold trim and gold end caps; bottom-right a horizontal parchment scroll title banner with rolled ends, thick dark outline, every piece fully separate on a plain flat solid bright magenta (#FF00FF) chroma-key background that also fills the hollow centers, no text, no icons, no characters",
+	"width": 192,
+	"height": 192,
+	"no_background": false,
+	"style_options": {
+		"color_palette": true,
+		"outline": true,
+		"shading": true,
+		"detail": false
+	},
+	"style_image": {
+		"path": "C:/Users/thetr/AppData/Local/Temp/claude/D--pms/b18d073e-506e-4c58-8cf3-4fc6a2aedf14/scratchpad/pl/house_trim.png",
+		"usage_description": "Copy ONLY the art style of this reference: chunky pixel art, thick dark outline, soft cel shading, warm aged wood and stone palette. Do not draw this house."
+	},
+	"jobId": "1ad7c916-4abf-48c4-9c60-d04d6eb49980",
+	"token": 14,
+	"createdAt": "2026-10-07T04:20:08.829Z"
+}

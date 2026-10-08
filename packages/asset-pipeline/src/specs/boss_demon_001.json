@@ -1,0 +1,60 @@
+{
+	"identity": {
+		"characterId": "boss_demon_001",
+		"hair": "black_horns",
+		"eyes": "glowing_yellow",
+		"skin": "crimson",
+		"outfit": "iron_shoulder_armor_red_runes_bat_wings",
+		"weapon": "claws",
+		"palette": "demon_01"
+	},
+	"displayName": "Quỷ vương rừng sâu",
+	"role": "boss",
+	"provider": "pixellab",
+	"pixellab": {
+		"animations": {
+			"idle": "idle",
+			"walk": "walk"
+		},
+		"mirrorWest": true
+	},
+	"frameSize": {
+		"width": 96,
+		"height": 104
+	},
+	"baselineY": 100,
+	"animations": {
+		"idle": {
+			"fps": 6,
+			"minFrames": 4,
+			"maxFrames": 8
+		},
+		"walk": {
+			"fps": 10,
+			"minFrames": 6,
+			"maxFrames": 8
+		}
+	},
+	"cleanup": {
+		"alignToIdle": true
+	},
+	"quality": {
+		"maxHeightDrift": 0.15
+	},
+	"provisional": [
+		"S",
+		"SW",
+		"W",
+		"NW",
+		"N",
+		"NE",
+		"E",
+		"SE"
+	],
+	"notes": "PixelLab Pro Flash (06/10/2026), ảnh mẫu phong cách = Lior bé (chép nét/bóng, không chép bảng màu). Boss phong ấn dưới tảng đá phía bắc Mossvale; khung 96 cho to hơn quái thường. Idle tạm ảnh xoay tĩnh.",
+	"review": {
+		"status": "approved",
+		"date": "06/10/2026",
+		"notes": "Duyệt bằng mắt 8 hướng đứng + đi (đi thật S/E, phía tây lật gương, còn lại tạm ảnh xoay): quỷ da đỏ thẫm, sừng cong đen, cánh dơi, giáp vai sắt, mắt vàng nhất quán giữa các frame; cánh xoè khi đi hướng S, gập khi đi ngang."
+	}
+}

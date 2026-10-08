@@ -1,0 +1,60 @@
+{
+	"identity": {
+		"characterId": "npc_garrick_001",
+		"hair": "short_dark_brown_beard",
+		"eyes": "dark",
+		"skin": "tan",
+		"outfit": "moss_green_hunter_cloak_leather_vest",
+		"weapon": "carving_knife_sheathed",
+		"palette": "forest_01"
+	},
+	"displayName": "Garrick Ashvale",
+	"role": "npc",
+	"provider": "pixellab",
+	"pixellab": {
+		"animations": {
+			"idle": "idle",
+			"walk": "walk"
+		},
+		"mirrorWest": true
+	},
+	"frameSize": {
+		"width": 80,
+		"height": 88
+	},
+	"baselineY": 84,
+	"animations": {
+		"idle": {
+			"fps": 6,
+			"minFrames": 4,
+			"maxFrames": 8
+		},
+		"walk": {
+			"fps": 10,
+			"minFrames": 6,
+			"maxFrames": 8
+		}
+	},
+	"cleanup": {
+		"alignToIdle": true
+	},
+	"quality": {
+		"maxHeightDrift": 0.15
+	},
+	"provisional": [
+		"S",
+		"SW",
+		"W",
+		"NW",
+		"N",
+		"NE",
+		"E",
+		"SE"
+	],
+	"notes": "PixelLab Pro Flash (06/10/2026), ảnh mẫu phong cách = Lior bé. Cha của nhân vật chính, thợ săn ít nói, hay vót gỗ. Tay không (vũ khí/đồ cầm là lớp riêng). Idle tạm ảnh xoay tĩnh.",
+	"review": {
+		"status": "approved",
+		"date": "06/10/2026",
+		"notes": "Duyệt bằng mắt 8 hướng đứng + đi: tóc nâu rối, râu quai nón, áo choàng xanh rêu, áo da nâu, bao tay quấn vải nhất quán; râu giữ đủ ở mọi frame đi hướng S; phía tây lật gương khớp phía đông."
+	}
+}

@@ -1,0 +1,93 @@
+# Kế hoạch vẽ PixelLab theo loại token (chốt 08/10/2026)
+
+Chủ dự án mua gói **Tier 1** ($12/tháng: 2.000 lượt, 8 job song song, mở `transfer_outfit`) và **vẫn dùng song song** các
+token miễn phí. Lượt gói KHÔNG cộng dồn sang tháng sau → khi có token trả phí thì vẽ một mạch theo danh sách dưới.
+
+## Phân việc
+
+| Token | Dùng cho | Lý do |
+|---|---|---|
+| **Trả phí** | Render NẶNG làm game "xịn": hiệu ứng skill lớn 160–256px nhiều khung (12–16), tuyệt kỹ mốc 10, **chiêu thức boss**, bộ trang phục nhân vật (`create_character_state` / `transfer_outfit`), nhân vật/boss chính | Không bị khoá "free generations unavailable", 8 job cùng lúc, khổ lớn tốn nhiều lượt |
+| Miễn phí (15 token) | Việc NHẸ: tấm icon 3×3 (skill, bị động, trang bị), đồ vật/props, động tác nhỏ `animimg` của quái, đồ gắn lên người (mũ/vũ khí/khiên/áo choàng — 3 hướng/món) | Mỗi job ≤ 6 lượt, rải theo lượt thưởng mỗi ngày |
+
+Token trả phí sẽ được thêm vào CUỐI `PIXELLAB_TOKENS` trong `.env.local` (chủ dự án tự thêm, không gửi qua chat).
+
+## Danh sách vẽ NẶNG (token trả phí, theo thứ tự)
+
+1. **Chiêu thức boss** (chủ dự án: "boss sẽ có hiệu ứng mạnh xịn"):
+   - Quỷ vương rừng sâu (`boss_demon_001`): cột lửa địa ngục trồi dưới chân người chơi (thay vòng báo AoE hiện tại), loạt
+     cầu bóng tối (đạn ba tia), sóng lửa khi nổi giận (dưới 50% máu), vụ nổ khi bị hạ.
+   - Vua Lich (`boss_lich_001`): lời nguyền (vòng ma pháp tím dưới đất rồi nổ), mưa sọ/linh hồn, gọi bộ xương lên từ đất,
+     hào quang nổi giận, tan biến khi bị hạ.
+   - Mỗi chiêu: khung đầu Pro Flash khổ 192–256 + `animate_image` 12–16 khung.
+2. **TOÀN BỘ hiệu ứng skill của nhân vật chính** (chủ dự án 08/10/2026: "tất cả skill cũng cần chi tiết và xịn") — không
+   chỉ skill lớn. Mỗi skill chủ động vẽ riêng đủ các phần nó có: lúc niệm/vung (tụ lực quanh người), đạn/vệt bay, lúc trúng
+   (nổ/vỡ), vùng tồn tại (mưa, lốc, tường…). Khung đầu Pro Flash + `animate_image` 12–16 khung, khổ 96–192 tuỳ skill.
+   Phạm vi (đếm theo `docs/ke-hoach-nguyen-to.md` mục 3):
+
+   | Nhóm | Số skill | Ghi chú |
+   |---|---|---|
+   | 5 nguyên tố × 6 chủ động (mốc 1, 3, 5, 6, 8, 10) | 30 | Hoả Cầu → Phượng Hoàng, Thuỷ Tiễn → Đại Hồng Thuỷ… |
+   | Kiếm: Trảm + 3 lưu phái × 5 chủ động | 16 | vệt chém, lướt, giữ thế, phân thân, phóng kiếm |
+   | Kiếm pháp nguyên tố | 5 | Liệt Hoả Trảm… |
+   | Tia Aether + Suối Lành | 2 | |
+   | Phản ứng (Hơi Nước, Bùng Lửa, Băng Giá, Đóng Băng, Tan Chảy, Bùn Lầy, Dung Nham, Bão Cát, Vỡ Vụn) | 9 | hiệu ứng nổ khi kết hợp |
+   | Hiệu ứng bị động nhìn thấy (Tro Tàn nổ, Mạch Nguồn hồi, khiên Gương Băng…) | ~8 | |
+
+   ≈ 70 hiệu ứng, phần lớn 2 phần (bay + trúng) → **~900–1.100 lượt**. Cộng chiêu boss (~150) + bộ trang phục (~400) ≈
+   1.500–1.650 lượt: vừa trong 2.000 lượt/tháng của Tier 1 nhưng không dư nhiều → vẽ theo thứ tự ưu tiên dưới, xấu thì vẽ
+   lại bằng phần dư; thiếu thì chuyển phần còn lại sang tháng sau.
+   Thứ tự: skill mốc 1–5 người chơi dùng nhiều nhất (Trảm, Tia Aether, Hoả Cầu, Thuỷ Tiễn, Phong Nhận, Băng Tiễn, Đá Văng,
+   Suối Lành) → phản ứng → mốc 5 ★ → mốc 6–8 → kiếm pháp → mốc 10 (tuyệt kỹ).
+3. **Hiệu ứng skill lớn** (đang chờ ở hàng đợi miễn phí → chuyển sang token trả phí, vẽ khổ to hơn): `ice_pillar`,
+   `lightning_strike`, `rain_cloud`, `tornado`, `meteor`, `ice_rain`, `rock_spikes`; thêm tường lửa, tường đá, gương băng,
+   lở đá (đang dùng hình tạm — `TEMP_ART`).
+   Phủ phép kiếm mốc 7 (08/10/2026, đang tạm): vụ nổ nhỏ phủ Hoả (mượn `ember_burst`), lưỡi gió phủ Phong (đạn Phong chung),
+   lúc đóng băng của phủ Băng (`ice_burst`); thêm vệt chém riêng từng hệ thay cho vệt chém trắng nhuộm màu.
+4. **Tuyệt kỹ mốc 10** (GĐ4): Phượng Hoàng, Đại Hồng Thuỷ, Thiên Phong, Kỷ Băng Hà, Sơn Thần (triệu hồi), Phán Quyết,
+   Thiên Tĩnh, Ngàn Bóng.
+5. **Bộ trang phục nhân vật** (áo-quần-giày hiện lên người): vải tân thủ → giáp da → giáp sắt → áo pháp sư, × 2 giới tính,
+   mỗi bộ = phiên bản nhân vật + đi/chém/niệm (~40–60 lượt/bộ/giới tính).
+6. Động tác riêng của kỹ năng người chơi (lướt, giữ thế đỡ, phân thân, phóng kiếm) — đang dùng attack/cast tạm.
+
+## Ngoại hình nhân vật: skin, kiểu tóc, màu tóc (chủ dự án 08/10/2026)
+
+Nhân vật = nhiều LỚP ghép lúc chạy, không vẽ sẵn mọi tổ hợp (tóc × trang phục × skin là bùng nổ số lượng):
+
+| Lớp | Đổi bằng | Cách làm | Tốn lượt |
+|---|---|---|---|
+| **Màu tóc** | chọn màu (bảng ~12 màu) | code thay bảng màu đúng các pixel tóc (mặt nạ tóc tính một lần cho mỗi sprite — pipeline đã có công cụ `recolor`) | **0** |
+| **Kiểu tóc** | chọn kiểu (5–8 kiểu/giới tính) | PixelLab vẽ phiên bản nhân vật đổi tóc (`create_character_state` / `transfer_outfit` trên đúng các khung động tác) → pipeline TÁCH vùng tóc bằng cách so với sprite gốc cùng khung → thành LỚP TÓC riêng, ghép lên mọi trang phục/skin (cùng dáng gốc nên đầu trùng chỗ) | ~40–60 / kiểu / giới tính |
+| **Trang phục** (áo-quần-giày) | món áo đang mặc | phiên bản thân (mục 5 trên) — vẽ với đầu gốc để lớp tóc khớp | ~40–60 / bộ / giới tính |
+| **Skin** (mỹ phẩm: hiệp sĩ hoàng gia, pháp sư bóng đêm, trang phục lễ hội…) | chọn trong tủ đồ, ĐÈ lên hình trang phục, không đổi chỉ số | như trang phục nhưng chỉ để ngắm; skin có mũ/tóc riêng thì ẩn lớp tóc | ~40–60 / skin / giới tính |
+| Đồ gắn (mũ, vũ khí, khiên, áo choàng) | món đang mặc | lớp gắn theo điểm neo (đang làm) — mũ che tóc thì ẩn phần tóc trên | ~2 / món |
+| Độ hiếm | — | code nhuộm + viền sáng | 0 |
+
+- Màn tạo nhân vật thêm chọn kiểu tóc + màu tóc (miễn phí lần đầu).
+- **NPC dịch vụ ở quảng trường Thistlewood** (chủ dự án 08/10/2026 — đổi ngoại hình phải qua NPC, không mở trong bảng):
+
+  | NPC | Dịch vụ | Giao diện | Giá (đề xuất) |
+  |---|---|---|---|
+  | **Thợ cắt tóc** (quầy có gương + ghế) | đổi kiểu tóc, nhuộm màu tóc | xem trước trên nhân vật xoay 4 hướng rồi mới trả | xu, rẻ (nhuộm < cắt) |
+  | **Thợ may / tiệm trang phục** | bán + đổi **skin**, tủ đồ skin đã sở hữu (mặc/cởi miễn phí) | tủ đồ + xem trước | xu; skin hiếm từ sự kiện/boss |
+  | **Thợ rèn** (về sau) | bán/nâng cấp vũ khí, giáp, đồ gắn; tách chỉ số | so sánh chỉ số như thẻ kho đồ | xu |
+  | **Thương nhân Bram** (đã có) | bình máu, vật phẩm thường | — | xu |
+
+  Hình: mỗi NPC là một nhân vật PixelLab (token miễn phí, ~10–15 lượt/NPC: tạo + ảnh xoay + đứng thở) + quầy hàng/đồ vật
+  quanh họ (tấm đồ vật 3×3 ~6 lượt). Dùng chung cơ chế NPC + hội thoại + nút "E" đang có; mở bảng cửa hàng thay vì thoại.
+  Xu mua sắm lưu ở máy chủ khi có hệ cửa hàng (hiện xu nằm trong bản lưu client — cần chuyển kiểm xu sang server trước khi
+  bán đồ thật để tránh gian lận).
+- Rủi ro chính: tách lớp tóc tự động — PixelLab có thể đổi lệch vài pixel ngoài tóc; cần bước duyệt + dọn mặt nạ. Thử
+  trước với 1 kiểu tóc trước khi vẽ cả bộ.
+- Ước lượng bản đầu: 6 kiểu tóc × 2 giới tính (~600) + 4 skin × 2 (~400) → thêm ~1.000 lượt → rải sang tháng thứ 2 của
+  gói Tier 1 (tháng đầu ưu tiên chiêu boss + skill + trang phục).
+
+## Danh sách vẽ NHẸ (token miễn phí — hàng đợi qua đêm)
+
+Icon thẻ **Bạn bè** + **Cài đặt** của bảng Hành trang (08/10/2026 — đang chỉ hiện chữ), cùng nét bộ icon UI `public/assets/ui`.
+
+**Cuốn sách Thư viện** (08/10/2026): hai trang giấy cũ mở ra + bìa da + gáy, dải đánh dấu (3 màu), khung chân dung — đang dùng khung
+UI gỗ / giấy sẵn có (`components/CodexBook.tsx`). Vẽ dạng tấm 9-slice (`ui` pipeline) để co giãn theo màn hình.
+
+Động tác đánh của quái, zombie/gargoyle/Lich (nhân vật), đồ vật vùng Nghĩa địa/Đồi Xương/Vách Gargoyle, tấm icon trang bị
+`E1_equip`, icon skill + bị động (~76), đồ gắn lên người (mũ/vũ khí/khiên/áo choàng).

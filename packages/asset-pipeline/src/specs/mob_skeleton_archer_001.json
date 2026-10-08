@@ -1,0 +1,60 @@
+{
+	"identity": {
+		"characterId": "mob_skeleton_archer_001",
+		"hair": "bone",
+		"eyes": "glowing_blue",
+		"skin": "bone",
+		"outfit": "tattered_grey_hood_cloak",
+		"weapon": "bow_on_back",
+		"palette": "undead_01"
+	},
+	"displayName": "Cung thủ xương",
+	"role": "monster",
+	"provider": "pixellab",
+	"pixellab": {
+		"animations": {
+			"idle": "idle",
+			"walk": "walk"
+		},
+		"mirrorWest": true
+	},
+	"frameSize": {
+		"width": 80,
+		"height": 88
+	},
+	"baselineY": 84,
+	"animations": {
+		"idle": {
+			"fps": 6,
+			"minFrames": 4,
+			"maxFrames": 8
+		},
+		"walk": {
+			"fps": 10,
+			"minFrames": 6,
+			"maxFrames": 8
+		}
+	},
+	"cleanup": {
+		"alignToIdle": true
+	},
+	"quality": {
+		"maxHeightDrift": 0.15
+	},
+	"provisional": [
+		"S",
+		"SW",
+		"W",
+		"NW",
+		"N",
+		"NE",
+		"E",
+		"SE"
+	],
+	"notes": "PixelLab Pro Flash (06/10/2026), ảnh mẫu phong cách = Lior bé (chép nét/bóng, không chép bảng màu). Quái bắn xa; cung và ống tên đeo lưng (gắn thân), tay không. Idle tạm ảnh xoay tĩnh.",
+	"review": {
+		"status": "approved",
+		"date": "06/10/2026",
+		"notes": "Duyệt bằng mắt 8 hướng đứng + đi (đi thật 5 hướng, phía tây lật gương): áo choàng mũ trùm xám rách, hốc mắt xanh, dây da chéo ngực nhất quán. Cung/ống tên đổi chỗ giữa ảnh đứng và ảnh đi ở vài hướng, hướng N ống tên nhảy bên vài frame — chấp nhận cho quái (nhìn nhỏ trong game), không phải nhân vật người chơi."
+	}
+}

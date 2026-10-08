@@ -1,0 +1,13 @@
+node_modules/
+.next/
+.next-funnel/
+.next-devtest/
+out/
+dist/
+.env.local
+.env*.local
+*.log
+.asset-cache/
+packages/asset-pipeline/reports/
+apps/web/next-env.d.ts
+*.tsbuildinfo

@@ -1,0 +1,22 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "web",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "dev"
+      ],
+      "port": 3100
+    },
+    {
+      "name": "web-test",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "apps/web/scripts/dev-test.mjs"
+      ],
+      "port": 3102
+    }
+  ]
+}

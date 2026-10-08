@@ -1,0 +1,29 @@
+{
+	"id": "slash",
+	"kind": "burst",
+	"canvas": {
+		"w": 92,
+		"h": 92
+	},
+	"first": {
+		"prompt": "vertical crescent sword slash arc, convex side facing right, thick in the middle tapering to sharp tips at top and bottom, white and pale silver glow, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "00273122-0c9c-4323-b6a8-beaa93487d8b"
+	},
+	"action": "slash arc sweeps quickly from top to bottom, then thins out and fades away",
+	"frameCount": 6,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png"
+	],
+	"animateJobId": "6c85c3a3-78d8-453a-bf34-f91eb4c000e1",
+	"createdAt": "2026-10-07T02:08:22.098Z",
+	"token": 8
+}

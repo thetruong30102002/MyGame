@@ -1,0 +1,13 @@
+{
+	"map": "cliffs",
+	"image": "cliffs.minimap.png",
+	"width": 264,
+	"height": 240,
+	"downscale": 8,
+	"world": {
+		"width": 2112,
+		"height": 1920,
+		"tileSize": 48
+	},
+	"version": "9d89a365"
+}

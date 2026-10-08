@@ -1,0 +1,434 @@
+{
+	"house": {
+		"kind": "building",
+		"w": 146,
+		"h": 157,
+		"blocks": true,
+		"footprint": {
+			"x": -66,
+			"y": -60,
+			"w": 131,
+			"h": 60
+		}
+	},
+	"church": {
+		"kind": "building",
+		"w": 127,
+		"h": 195,
+		"blocks": true,
+		"footprint": {
+			"x": -57,
+			"y": -64,
+			"w": 114,
+			"h": 64
+		}
+	},
+	"house_forge": {
+		"kind": "building",
+		"w": 172,
+		"h": 173,
+		"blocks": true,
+		"footprint": {
+			"x": -71,
+			"y": -60,
+			"w": 141,
+			"h": 60
+		}
+	},
+	"house_store": {
+		"kind": "building",
+		"w": 183,
+		"h": 155,
+		"blocks": true,
+		"footprint": {
+			"x": -78,
+			"y": -60,
+			"w": 156,
+			"h": 60
+		}
+	},
+	"house_inn": {
+		"kind": "building",
+		"w": 181,
+		"h": 177,
+		"blocks": true,
+		"footprint": {
+			"x": -77,
+			"y": -64,
+			"w": 154,
+			"h": 64
+		}
+	},
+	"house_stone": {
+		"kind": "building",
+		"w": 167,
+		"h": 163,
+		"blocks": true,
+		"footprint": {
+			"x": -74,
+			"y": -58,
+			"w": 147,
+			"h": 58
+		}
+	},
+	"house_farm": {
+		"kind": "building",
+		"w": 179,
+		"h": 171,
+		"blocks": true,
+		"footprint": {
+			"x": -79,
+			"y": -58,
+			"w": 158,
+			"h": 58
+		}
+	},
+	"tree": {
+		"kind": "tree",
+		"w": 125,
+		"h": 143,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 20,
+			"h": 14
+		}
+	},
+	"tree_flip": {
+		"kind": "tree",
+		"w": 125,
+		"h": 143,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 20,
+			"h": 14
+		}
+	},
+	"tree_autumn": {
+		"kind": "tree",
+		"w": 125,
+		"h": 143,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 20,
+			"h": 14
+		}
+	},
+	"stall_fruit": {
+		"kind": "building",
+		"w": 74,
+		"h": 76,
+		"blocks": true,
+		"footprint": {
+			"x": -32,
+			"y": -30,
+			"w": 63,
+			"h": 30
+		}
+	},
+	"stall_cloth": {
+		"kind": "building",
+		"w": 75,
+		"h": 76,
+		"blocks": true,
+		"footprint": {
+			"x": -32,
+			"y": -30,
+			"w": 64,
+			"h": 30
+		}
+	},
+	"well": {
+		"kind": "decor",
+		"w": 64,
+		"h": 79,
+		"blocks": true,
+		"footprint": {
+			"x": -26,
+			"y": -26,
+			"w": 51,
+			"h": 26
+		}
+	},
+	"signpost": {
+		"kind": "decor",
+		"w": 55,
+		"h": 77,
+		"blocks": true,
+		"footprint": {
+			"x": -7,
+			"y": -10,
+			"w": 14,
+			"h": 10
+		}
+	},
+	"barrel": {
+		"kind": "decor",
+		"w": 37,
+		"h": 45,
+		"blocks": true,
+		"footprint": {
+			"x": -15,
+			"y": -18,
+			"w": 30,
+			"h": 18
+		}
+	},
+	"crate": {
+		"kind": "decor",
+		"w": 41,
+		"h": 44,
+		"blocks": true,
+		"footprint": {
+			"x": -18,
+			"y": -18,
+			"w": 35,
+			"h": 18
+		}
+	},
+	"haybale": {
+		"kind": "decor",
+		"w": 54,
+		"h": 43,
+		"blocks": true,
+		"footprint": {
+			"x": -23,
+			"y": -20,
+			"w": 46,
+			"h": 20
+		}
+	},
+	"training_dummy": {
+		"kind": "decor",
+		"w": 44,
+		"h": 59,
+		"blocks": true,
+		"footprint": {
+			"x": -9,
+			"y": -12,
+			"w": 18,
+			"h": 12
+		}
+	},
+	"fence": {
+		"kind": "decor",
+		"w": 55,
+		"h": 38,
+		"blocks": true,
+		"footprint": {
+			"x": -28,
+			"y": -10,
+			"w": 55,
+			"h": 10
+		}
+	},
+	"bench": {
+		"kind": "decor",
+		"w": 53,
+		"h": 29,
+		"blocks": true,
+		"footprint": {
+			"x": -23,
+			"y": -14,
+			"w": 45,
+			"h": 14
+		}
+	},
+	"planter": {
+		"kind": "decor",
+		"w": 49,
+		"h": 37,
+		"blocks": true,
+		"footprint": {
+			"x": -22,
+			"y": -14,
+			"w": 44,
+			"h": 14
+		}
+	},
+	"lamp": {
+		"kind": "decor",
+		"w": 19,
+		"h": 54,
+		"blocks": true,
+		"footprint": {
+			"x": -3,
+			"y": -8,
+			"w": 6,
+			"h": 8
+		}
+	},
+	"wheelbarrow": {
+		"kind": "decor",
+		"w": 59,
+		"h": 37,
+		"blocks": true,
+		"footprint": {
+			"x": -24,
+			"y": -16,
+			"w": 47,
+			"h": 16
+		}
+	},
+	"bush": {
+		"kind": "bush",
+		"w": 47,
+		"h": 43,
+		"blocks": true,
+		"footprint": {
+			"x": -14,
+			"y": -14,
+			"w": 28,
+			"h": 14
+		}
+	},
+	"bush_flower": {
+		"kind": "bush",
+		"w": 47,
+		"h": 43,
+		"blocks": true,
+		"footprint": {
+			"x": -14,
+			"y": -14,
+			"w": 28,
+			"h": 14
+		}
+	},
+	"rock_mossy": {
+		"kind": "rock",
+		"w": 48,
+		"h": 43,
+		"blocks": true,
+		"footprint": {
+			"x": -18,
+			"y": -22,
+			"w": 36,
+			"h": 22
+		}
+	},
+	"rock_gray": {
+		"kind": "rock",
+		"w": 43,
+		"h": 38,
+		"blocks": true,
+		"footprint": {
+			"x": -16,
+			"y": -20,
+			"w": 32,
+			"h": 20
+		}
+	},
+	"stump": {
+		"kind": "rock",
+		"w": 47,
+		"h": 37,
+		"blocks": true,
+		"footprint": {
+			"x": -14,
+			"y": -16,
+			"w": 28,
+			"h": 16
+		}
+	},
+	"mushroom_glow": {
+		"kind": "flower",
+		"w": 42,
+		"h": 39,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"herb_silver": {
+		"kind": "flower",
+		"w": 42,
+		"h": 44,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"fern": {
+		"kind": "flower",
+		"w": 46,
+		"h": 43,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"wildflowers": {
+		"kind": "flower",
+		"w": 42,
+		"h": 36,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"seal_stone": {
+		"kind": "building",
+		"w": 73,
+		"h": 89,
+		"blocks": true,
+		"footprint": {
+			"x": -29,
+			"y": -30,
+			"w": 58,
+			"h": 30
+		}
+	},
+	"pillar_broken": {
+		"kind": "rock",
+		"w": 49,
+		"h": 85,
+		"blocks": true,
+		"footprint": {
+			"x": -17,
+			"y": -22,
+			"w": 34,
+			"h": 22
+		}
+	},
+	"rune_stone": {
+		"kind": "rock",
+		"w": 46,
+		"h": 58,
+		"blocks": true,
+		"footprint": {
+			"x": -16,
+			"y": -18,
+			"w": 32,
+			"h": 18
+		}
+	},
+	"stone_lantern": {
+		"kind": "decor",
+		"w": 50,
+		"h": 76,
+		"blocks": true,
+		"footprint": {
+			"x": -15,
+			"y": -18,
+			"w": 30,
+			"h": 18
+		}
+	}
+}

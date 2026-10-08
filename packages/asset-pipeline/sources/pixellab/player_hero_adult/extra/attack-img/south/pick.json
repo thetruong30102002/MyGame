@@ -1,0 +1,10 @@
+{
+	"from": "extra-raw/attack-b-img/south",
+	"frames": [
+		2,
+		3,
+		4,
+		5
+	],
+	"note": "2 với tay, 3 rút kiếm, 4 kiếm chém chéo ra phải (hitFrame 2), 5 quét qua người"
+}

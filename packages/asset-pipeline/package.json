@@ -1,0 +1,27 @@
+{
+  "name": "@aether/asset-pipeline",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "character": "tsx src/cli.ts character",
+    "catalog": "tsx src/cli.ts catalog",
+    "anchors": "tsx src/cli.ts anchors",
+    "typecheck": "tsc --noEmit",
+    "pixler": "tsx src/cli.ts pixler",
+    "pixellab": "tsx src/cli.ts pixellab",
+    "map": "tsx src/cli.ts map",
+    "ui": "tsx src/cli.ts ui",
+    "vfx": "tsx src/cli.ts vfx",
+    "test": "tsx tests/vfx-pixellab.test.ts && tsx tests/maps.test.ts && tsx tests/gear-anchors.test.ts"
+  },
+  "dependencies": {
+    "pngjs": "^7.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/pngjs": "^6.0.5",
+    "tsx": "^4.23.0",
+    "typescript": "~5.9.3"
+  }
+}

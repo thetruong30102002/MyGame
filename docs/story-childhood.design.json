@@ -1,0 +1,680 @@
+{
+ "title": "Những Vạch Khắc Trên Khung Cửa: tuổi thơ của Lior (Chương Mở Đầu)",
+ "prologue": [
+  "Kiếp trước, tôi tên là Minh. Hai mươi chín tuổi, lập trình viên ca đêm.",
+  "Tôi bỏ dở cây đàn. Bỏ dở những cuộc gọi về nhà. Bỏ dở mọi thứ… “để sau”.",
+  "Một đêm mưa, tôi gục xuống bàn phím và không bao giờ tỉnh lại nữa.",
+  "Ý nghĩ cuối cùng của tôi là: “Mai mình gọi cho mẹ. Mai, chắc chắn.”",
+  "…",
+  "Rồi có ánh sáng. Tiếng một người phụ nữ khóc, tiếng một người đàn ông cười vụng về.",
+  "Một bàn tay thô ráp áp lên má tôi, run run như sợ làm tôi vỡ. Về sau tôi mới biết đó là bàn tay cầm kiếm của cha.",
+  "Tôi được sinh ra lần nữa, ở Thistlewood, một thị trấn nhỏ ven rừng Mossvale. Cha mẹ đặt tên tôi là Lior Ashvale.",
+  "Và ngay từ khi mở mắt, tôi đã nhìn thấy chúng: những sợi Aether óng ánh, trôi trong không khí như tơ nhện dưới nắng sớm.",
+  "Giữa muôn sợi tơ ấy có một sợi màu đỏ sẫm. Nó không trôi. Nó căng thẳng tắp về phía bắc rừng Mossvale, như sợi chỉ rút ra từ một vết nứt trong lòng đất.",
+  "Mẹ ôm tôi vào lòng, ngân nga một bài hát không lời. Sợi đỏ mờ dần sau giọng mẹ.",
+  "Có người hát cho tôi nghe, trước cả khi tôi kịp nghĩ tới hai chữ “để sau”."
+ ],
+ "ageCards": [
+  {
+   "age": 4,
+   "lines": [
+    "Đôi chân chưa chịu nghe lời: đi năm bước, ngã một lần. Cái lưỡi cũng chẳng khá hơn.",
+    "Nhưng mắt tôi thì đã thấy những sợi tơ, rõ như ban ngày.",
+    "Mẹ tôi là pháp sư của làng, loại pháp sư nhóm bếp không cần đá lửa và gọi được mưa nhỏ cho vườn rau. Sau vườn còn có sáu thùng ong, và tiếng vo ve là thứ đầu tiên tôi nghe thấy mỗi sáng.",
+    "Cha tôi là kiếm sĩ. Không phải hiệp sĩ trong truyện, chỉ là một người lính gác cũ, chiều nào cũng ngồi mài kiếm ở đầu cầu.",
+    "Mẹ nhờ việc gì, tôi cũng muốn là người đứng dậy trước. Chỉ có điều, đứng dậy vẫn là một trong những việc khó nhất của tôi."
+   ]
+  },
+  {
+   "age": 6,
+   "lines": [
+    "Đêm tôi đi gọi cha về ăn tối năm ấy, cha lấy mũi kiếm khắc một vạch lên khung cửa, ngang đỉnh đầu tôi. Mẹ viết bên cạnh: “Lior, bốn tuổi.”",
+    "Giờ cạnh đó đã có thêm vạch “sáu tuổi”, cao hơn đúng một gang tay. Tôi đã nói tròn câu, và học được cách giấu bớt những gì mình thấy. Chỉ cha mẹ biết.",
+    "Thằng Aldric cùng tuổi vừa tự phong mình làm hiệp sĩ. Lãnh địa của nó là cái ghế đá ngoài quảng trường.",
+    "Sáng nay mẹ dúi vào tay tôi một hũ mật ong: “Mang sang nhà thờ cho cô Mirelle, cô ấy cần làm thuốc bỏng. Đi thẳng. Đừng nếm.”",
+    "Tôi nếm một chút. Chỉ một chút thôi."
+   ]
+  },
+  {
+   "age": 8,
+   "lines": [
+    "Tay tôi đã quen chuôi kiếm gỗ của cha, miệng đã biết gọi tên ba loại sợi Aether. Nhưng tôi vẫn chưa biết gọi người khác giúp mình.",
+    "Mùa hè năm ấy, chẳng nhân dịp gì, cha khắc cho tôi một cây sáo sậy. Cha bảo: “Cha không giỏi nói. Nên cha khắc.”",
+    "Tôi thổi được năm nốt đầu của bài hát tôi viết dở trên cây đàn năm nào. Tới nốt thứ sáu thì tôi vẫn chưa nghĩ ra.",
+    "Bác Bram đi Varnhold về, dúi vào tay tôi một đồng xu cổ khắc hình nút thắt. “Từ thời Chiến tranh Ấn Ký đấy,” bác nháy mắt, “hoặc là đồ giả. Ta cũng chẳng rõ.”",
+    "Rồi một chiều cuối thu, bác chạy hớt hải tới cửa nhà tôi: “Thằng Aldric vác kiếm gỗ chạy qua cầu rồi! Nó bảo đi diệt rồng!”"
+   ]
+  }
+ ],
+ "npcs": [
+  {
+   "key": "mother_elin",
+   "name": "Elin Ashvale",
+   "title": "Mẹ · Pháp sư làng",
+   "spriteHint": "MỚI: npc_elin_001 (Pixler, khung người lớn như npc_medic_001). Người nuôi ong, KHÔNG có phép, KHÔNG làm nghề chữa bệnh: mũ rơm rộng vành, tạp dề nâu, váy màu mật ong, tay không cầm gì. KHÔNG dùng npc_healer_001 hay npc_alchemist_001 (vừa sai nghề, vừa trượt cổng chất lượng). Khi chưa có sprite, Game tự vẽ quả cầu sáng kèm nhãn tên, nên vẫn chơi được.",
+   "placement": "spot 'home', dx +60, dy +16: hiên nhà Ashvale, giữa cửa nhà (9,22) và tiệm thuốc nhà bên (12,23). Thùng ong của mẹ coi như nằm sau vườn, chỉ nhắc trong thoại, không cần prop. Tuổi [4,8]. Là người giao c4_silverdew, c4_dinner và nhận báo cáo c6_first_thread, c6_old_hat, c8_snow."
+  },
+  {
+   "key": "father_garrick",
+   "name": "Garrick Ashvale",
+   "title": "Cha · Kiếm sĩ",
+   "spriteHint": "MỚI: npc_garrick_001 (Pixler). Áo da, áo choàng mũ trùm, dây ống tên vắt chéo ngực, tay KHÔNG cầm gì để tránh lỗi đồ vật lúc có lúc không. KHÔNG dùng npc_hunter_001 (trượt cổng chất lượng: 44 frame rỗng) hay npc_lumberjack_001 (rìu lúc có lúc không).",
+   "placement": "spot 'river_bank', dx -72, dy +64 ≈ ô (39.5, 28.3): chỗ ngồi vót tên cố định ở bờ tây sông, ngay đầu cầu, phía nam đường lớn. Tuổi [4,8]. Đứng yên suốt tuổi thơ: mọi cảnh của cha diễn ra ở đây."
+  },
+  {
+   "key": "healer_mirelle",
+   "name": "Mirelle",
+   "title": "Nữ trị liệu",
+   "spriteHint": "Dùng lại npc_medic_001 (đã duyệt).",
+   "placement": "spot 'church', dx +30 (giống youth.ts). Tuổi [4,8]. Tách khoá khỏi 'mirelle' (tuổi [16,99]) của youth.ts, vì story.ts gộp {...CHILDHOOD_NPCS, ...YOUTH_NPCS} nên trùng khoá thì bản 16 tuổi đè lên. Là thầy thuốc, KHÔNG thấy sợi Aether, KHÔNG phải người dạy phép."
+  },
+  {
+   "key": "merchant_bram",
+   "name": "Bram",
+   "title": "Thương nhân lữ hành",
+   "spriteHint": "Dùng lại npc_merchant_001 (đã duyệt).",
+   "placement": "spot 'plaza', dx -110, dy -40 (giống youth.ts). Tuổi [4,8]. Chỉ có thoại idle, không giao nhiệm vụ; đồng xu và tin báo Aldric chạy vào rừng nằm ở thẻ chữ 8 tuổi."
+  },
+  {
+   "key": "kid_aldric",
+   "name": "Aldric",
+   "title": "Hiệp sĩ (tự phong) · 6 tuổi",
+   "spriteHint": "MỚI: npc_aldric_child_001 (Pixler, canvas trẻ con 72×88 như player_lior_child): khăn đỏ buộc làm áo choàng, kiếm gỗ. Bản 16 tuổi vẫn dùng npc_squire_001.",
+   "placement": "spot 'plaza', dx -96, dy +250 ≈ ghế đá (20,31). Chỉ tuổi [6,6]. Nhân vật phụ, chỉ có thoại idle."
+  },
+  {
+   "key": "kid_aldric_forest",
+   "name": "Aldric",
+   "title": "Hiệp sĩ (tự phong) · 8 tuổi",
+   "spriteHint": "Cùng sprite npc_aldric_child_001.",
+   "placement": "spot 'forest_edge', dx +48, dy +120 ≈ ô (50, 28.5): giữa vùng quái 'mossvale_edge', ngay bên kia cầu. Chỉ tuổi [8,8]. Nhận báo cáo c8_forest_edge."
+  },
+  {
+   "key": "elin",
+   "name": "Elin Ashvale",
+   "title": "Mẹ · Pháp sư làng",
+   "spriteHint": "Cùng npc_elin_001.",
+   "placement": "BỔ SUNG cho youth.ts: spot 'home', dx +60, dy +16, tuổi [16,99]. Chỉ có idle, để cha mẹ không biến mất ở chương 16 tuổi."
+  },
+  {
+   "key": "garrick",
+   "name": "Garrick Ashvale",
+   "title": "Cha · Kiếm sĩ",
+   "spriteHint": "Cùng npc_garrick_001.",
+   "placement": "BỔ SUNG cho youth.ts: spot 'river_bank', dx -72, dy +64, tuổi [16,99]. Idle trả lại lời hứa \"Con gọi, cha đến\"."
+  }
+ ],
+ "quests": [
+  {
+   "id": "c4_silverdew",
+   "age": 4,
+   "title": "Những sợi tơ trong vườn mẹ",
+   "giver": "mother_elin",
+   "objectiveType": "pickup",
+   "objectiveDetail": "pickup:herb:3 | onGive.pickups=herb_spot_1,herb_spot_2,herb_spot_3,herb_spot_4 | turnIn=mother_elin",
+   "objectiveText": "Hái cỏ Sương Bạc có sợi tơ sáng ({n}/{total})",
+   "rewardExp": 10,
+   "rewardOther": "Kỷ vật “Túi thơm cỏ Sương Bạc” · cờ aether_sight (vật nhặt được có viền sợi Aether) · dạy WASD + E",
+   "dialogueBefore": [
+    {
+     "speaker": "mother_elin",
+     "line": "Lior, con dậy rồi à? Mẹ đang cần một người phụ việc cao… ba gang tay."
+    },
+    {
+     "speaker": "mother_elin",
+     "line": "Đàn ong mới về cần một cái thùng thơm. Con ra vườn hái giúp mẹ ba cây cỏ Sương Bạc nhé, mẹ xoa vào thùng là ong chịu ở."
+    },
+    {
+     "speaker": "mother_elin",
+     "line": "Lá bạc, mép răng cưa… mà thôi, con bốn tuổi biết gì, cứ hái cây nào con thích."
+    },
+    {
+     "speaker": "lior",
+     "line": "Dạ! Cỏ… xương… bác!"
+    },
+    {
+     "speaker": "inner",
+     "line": "Lưỡi đứa trẻ bốn tuổi không có nút sửa lỗi chính tả."
+    },
+    {
+     "speaker": "mother_elin",
+     "line": "Sương Bạc, con trai. Quanh nhà mình, chỗ nào ẩm là có. Đi chậm thôi kẻo ngã."
+    },
+    {
+     "speaker": "narrator",
+     "line": "(WASD hoặc phím mũi tên để đi · đứng cạnh vật lấp lánh rồi nhấn E để nhặt.)"
+    }
+   ],
+   "dialogueAfter": [
+    {
+     "speaker": "mother_elin",
+     "line": "Ba cây, đúng cả ba. Lại còn chừa ra mấy bụi ngải dại mọc ngay cạnh, trông y hệt. Con nhìn bằng gì vậy, con trai?"
+    },
+    {
+     "speaker": "lior",
+     "line": "Cây này có sợi sáng. Cây kia không có."
+    },
+    {
+     "speaker": "mother_elin",
+     "line": "Mẹ làm phép hai mươi năm mà chưa thấy sợi nào cả. Nhưng ong của mẹ thì đồng ý với con: chúng chỉ bay tới đúng ba cây ấy."
+    },
+    {
+     "speaker": "mother_elin",
+     "line": "Chuyện này nhà mình giữ riêng, nhé. Mẹ khâu cho con cái túi thơm, bỏ vào một nhánh con vừa hái."
+    }
+   ],
+   "innerMonologue": [
+    "Tâm hồn hai mươi chín tuổi, đôi chân bốn tuổi. Riêng cái bậc cửa nhà mình đã hạ tôi bốn lần.",
+    "Giữa đám bụi giống hệt nhau, chỉ ba cây có sợi tơ bạc quấn quanh. Mẹ nhờ là tôi đi ngay. Chân ngắn thì đi chậm, nhưng đi ngay."
+   ]
+  },
+  {
+   "id": "c4_dinner",
+   "age": 4,
+   "title": "Gọi cha về ăn tối",
+   "giver": "mother_elin",
+   "objectiveType": "talk",
+   "objectiveDetail": "talk:father_garrick | turnIn=father_garrick",
+   "objectiveText": "Ra bờ sông Brightwater gọi cha về ăn tối",
+   "rewardExp": 15,
+   "rewardOther": "Dạy chạy (Shift) · kết mốc 4 tuổi → thẻ chữ 6 tuổi (vạch khắc đầu tiên trên khung cửa)",
+   "dialogueBefore": [
+    {
+     "speaker": "mother_elin",
+     "line": "Súp nấm chín rồi. Con ra bờ sông gọi cha về giúp mẹ nhé."
+    },
+    {
+     "speaker": "mother_elin",
+     "line": "Cha con ngồi mài kiếm ở chỗ cũ, ngay đầu cầu. Gọi to vào, cha con mà mài kiếm là điếc đặc."
+    },
+    {
+     "speaker": "lior",
+     "line": "Con đi liền!"
+    },
+    {
+     "speaker": "mother_elin",
+     "line": "Cứ theo đường lớn về phía mặt trời mọc. Mà chạy đi con, súp nguội mất."
+    },
+    {
+     "speaker": "narrator",
+     "line": "(Giữ Shift để chạy.)"
+    }
+   ],
+   "dialogueAfter": [
+    {
+     "speaker": "lior",
+     "line": "Cha ơiii! Mẹ bảo về ăn tối!"
+    },
+    {
+     "speaker": "father_garrick",
+     "line": "…Ừ."
+    },
+    {
+     "speaker": "narrator",
+     "line": "(Cha tra kiếm vào vỏ, phủi bụi đá mài trên tay, rồi nhấc bổng tôi lên vai.)"
+    },
+    {
+     "speaker": "father_garrick",
+     "line": "Cao chưa?"
+    },
+    {
+     "speaker": "inner",
+     "line": "Tôi từng cao một mét bảy hai. Giờ, tính cả vai cha, tôi là người cao nhất Thistlewood."
+    }
+   ],
+   "innerMonologue": [
+    "Kiếp trước, mẹ gọi “về ăn cơm đi con” qua điện thoại không biết bao nhiêu lần. Tôi toàn bấm tắt. Giờ tôi là người đi gọi."
+   ]
+  },
+  {
+   "id": "c6_first_thread",
+   "age": 6,
+   "title": "Sợi tơ đầu tiên",
+   "giver": "healer_mirelle",
+   "objectiveType": "practice",
+   "objectiveDetail": "practice:aether:5 | dummy=dummy_backyard | onGive.unlock=staff | turnIn=mother_elin",
+   "objectiveText": "Tung Tia Aether vào Ông Rơm ở sân sau ({n}/{total})",
+   "rewardExp": 20,
+   "rewardOther": "unlockSkill=fire (Hoả Cầu, phím 1: Lior nhìn sợi lửa trong bếp của mẹ) · hiện thanh kỹ năng + MP · dạy nhắm chuột + K · quà của mẹ: Trượng gỗ (nhận ngay khi giao việc)",
+   "dialogueBefore": [
+    {
+     "speaker": "narrator",
+     "line": "(Tôi đặt hũ mật ong lên bàn. Cô Mirelle đang khuấy một lọ thuốc màu hổ phách. Trong lọ, mấy sợi tơ vàng cam cuộn tròn như đang ngủ.)"
+    },
+    {
+     "speaker": "inner",
+     "line": "Tôi chỉ định chạm thử một sợi. Thật đấy. Chỉ chạm thôi."
+    },
+    {
+     "speaker": "narrator",
+     "line": "(Lọ thuốc sôi sùng sục. Cái nút bần bật thẳng lên trần nhà.)"
+    },
+    {
+     "speaker": "healer_mirelle",
+     "line": "…Lior Ashvale. Con vừa làm gì lọ thuốc của ta thế?"
+    },
+    {
+     "speaker": "lior",
+     "line": "Con chỉ chạm vào sợi tơ thôi ạ. Sợi màu cam ấy."
+    },
+    {
+     "speaker": "healer_mirelle",
+     "line": "Sợi tơ. Ta biết sợi Aether là gì, sách nào cũng vẽ. Nhưng ta là thầy thuốc, không phải pháp sư. Sợi con thấy, ta không thấy."
+    },
+    {
+     "speaker": "healer_mirelle",
+     "line": "Nên phần thấy sợi, ta chịu. Còn làm sao để không ai bị bỏng thì ta biết, ta băng bó cả đời rồi. Phần đó ta dạy được: đừng chĩa vào người, và thả tay ra trước khi nóng."
+    },
+    {
+     "speaker": "healer_mirelle",
+     "line": "Phép thì về hỏi mẹ con. Mẹ con là pháp sư đấy, pháp sư làng thôi, nhưng vẫn là pháp sư."
+    },
+    {
+     "speaker": "healer_mirelle",
+     "line": "À, đừng khoe với ai vội. Thị trấn nhỏ, lời đồn đi nhanh hơn người. Rồi lái buôn khắp vùng sẽ kéo tới, đòi đưa con đi làm trò ở chợ phiên."
+    },
+    {
+     "speaker": "narrator",
+     "line": "(Chiều đó, mẹ nghe cô Mirelle kể chuyện cái nút bần. Mẹ im lặng rất lâu, rồi lục dưới đáy rương ra một cây trượng gỗ ngắn, đầu quấn sợi đồng đã xỉn.)"
+    },
+    {
+     "speaker": "mother_elin",
+     "line": "Trượng tập của mẹ hồi mười tuổi. Phép của mẹ chỉ đủ nhóm bếp với gọi mưa cho vườn rau, nhưng cầm trượng thì tay con đỡ run."
+    },
+    {
+     "speaker": "mother_elin",
+     "line": "Ra sân sau tập với Ông Rơm. Cha con dựng để tập kiếm, ông ta không biết đau. Chĩa vào rơm, không chĩa vào người, càng không chĩa vào mẹ."
+    },
+    {
+     "speaker": "inner",
+     "line": "Cách chạm thì không ai dạy được tôi. Nhưng tôi từng có một cây đàn. Chạm vào sợi như chạm dây đàn: gảy, rồi buông."
+    },
+    {
+     "speaker": "narrator",
+     "line": "(Nhận Trượng gỗ của mẹ · rê chuột để nhắm · phím K hoặc chuột phải để tung Tia Aether · màn cảm ứng: chạm xa nhân vật.)"
+    }
+   ],
+   "dialogueAfter": [
+    {
+     "speaker": "mother_elin",
+     "line": "Mẹ đứng xem từ phát đầu tiên đấy. Nồi canh trong bếp sôi trào ra hết rồi đây này."
+    },
+    {
+     "speaker": "mother_elin",
+     "line": "Cả đàn ong cũng bay ra xem. Mẹ chưa thấy chúng tò mò thế bao giờ."
+    },
+    {
+     "speaker": "mother_elin",
+     "line": "Mẹ học mười năm mới gảy nổi một đốm lửa bằng đầu que diêm. Con thì… thôi, mẹ không ghen đâu. Mẹ hơi ghen thôi."
+    },
+    {
+     "speaker": "inner",
+     "line": "Mẹ không hỏi đó là gì. Mẹ chỉ đứng xem. Hoá ra có những lúc người ta không cần hiểu, chỉ cần có mặt."
+    },
+    {
+     "speaker": "narrator",
+     "line": "(Trong bếp, sợi Aether quanh ngọn lửa xoắn lại như lò xo. Tôi đưa tay ra, và một sợi xoắn theo ngón tay tôi.)"
+    },
+    {
+     "speaker": "mother_elin",
+     "line": "Lior. Con đang nhìn bếp của mẹ bằng ánh mắt rất đáng lo đấy. Lửa thì ra sân mà tập!"
+    }
+   ],
+   "innerMonologue": [
+    "Phát đầu trượt. Phát thứ hai làm cháy sém một ngọn cỏ. Tới phát thứ năm, Ông Rơm lắc lư như vừa bị ai vỗ vai.",
+    "Tôi quay lại thì thấy mẹ đứng ở hiên, tay vẫn cầm cái muôi."
+   ]
+  },
+  {
+   "id": "c6_wooden_sword",
+   "age": 6,
+   "title": "Thanh kiếm gỗ",
+   "giver": "father_garrick",
+   "objectiveType": "practice",
+   "objectiveDetail": "practice:steel:5 | dummy=dummy_riverside | onGive.unlock=sword | turnIn=father_garrick",
+   "objectiveText": "Chém Ông Rơm bên sông bằng kiếm gỗ của cha ({n}/{total})",
+   "rewardExp": 20,
+   "rewardOther": "Quà của cha: Kiếm gỗ (mở Trảm, phím J) — nhận ngay khi cha giao việc · học song song kiếm (cha) và phép (mẹ)",
+   "dialogueBefore": [
+    {
+     "speaker": "narrator",
+     "line": "(Chiều hôm ấy, cha gọi tôi ra đầu cầu. Trên tảng đá cha hay ngồi mài kiếm có một vật dài bọc vải.)"
+    },
+    {
+     "speaker": "father_garrick",
+     "line": "Của con."
+    },
+    {
+     "speaker": "narrator",
+     "line": "(Một thanh kiếm gỗ sồi, dài vừa tay tôi. Chuôi quấn da cũ, lưỡi bào nhẵn đến mức không còn một cái dằm. Cha đã gọt nó suốt một mùa đông.)"
+    },
+    {
+     "speaker": "father_garrick",
+     "line": "Mẹ dạy con phép. Cha dạy con cầm kiếm. Học cả hai."
+    },
+    {
+     "speaker": "father_garrick",
+     "line": "Cha không phải hiệp sĩ. Cha là lính gác cũ. Nhưng chém thẳng thì cha dạy được."
+    },
+    {
+     "speaker": "father_garrick",
+     "line": "Ông Rơm bên sông. Năm nhát. Chân trước, tay sau. Đứng sát mới trúng."
+    },
+    {
+     "speaker": "inner",
+     "line": "Kiếp trước tôi chưa từng được ai tặng một thứ làm bằng tay. Thanh kiếm nhẹ hơn tôi tưởng, vậy mà tay tôi vẫn run."
+    },
+    {
+     "speaker": "narrator",
+     "line": "(Nhận Kiếm gỗ của cha · phím J hoặc chuột trái để chém · màn cảm ứng: chạm gần nhân vật. Kiếm chỉ trúng khi đứng sát.)"
+    }
+   ],
+   "dialogueAfter": [
+    {
+     "speaker": "father_garrick",
+     "line": "…Được."
+    },
+    {
+     "speaker": "father_garrick",
+     "line": "Kiếm để giữ người, không để doạ người. Nhớ."
+    },
+    {
+     "speaker": "inner",
+     "line": "Cả buổi chiều cha nói chưa tới mười câu. Câu cuối cùng thì tôi nhớ đến tận bây giờ."
+    }
+   ],
+   "innerMonologue": [
+    "Nhát đầu chém vào không khí. Nhát thứ ba trúng, rơm bay tứ tung. Tới nhát thứ năm, tôi nghe cha khẽ hắng giọng.",
+    "Không biết đó là khen hay chê. Với cha, có lẽ là cả hai."
+   ]
+  },
+  {
+   "id": "c6_old_hat",
+   "age": 6,
+   "title": "Mũ cũ. Đừng cháy.",
+   "giver": "mother_elin",
+   "objectiveType": "practice",
+   "objectiveDetail": "practice:fire:3 | dummy=dummy_backyard | turnIn=mother_elin",
+   "objectiveText": "Tung Hoả Cầu vào Ông Rơm, tránh cái mũ ({n}/{total})",
+   "rewardExp": 25,
+   "rewardOther": "unlockSkill=water (Thuỷ Tiễn, phím 2: Lior nhìn sợi nước trong xô nước mẹ dội) · potions=1 (Bình mật ong của mẹ) · kết mốc 6 tuổi",
+   "dialogueBefore": [
+    {
+     "speaker": "mother_elin",
+     "line": "Mẹ nói thật đấy. Bếp của mẹ không phải bia tập. Mà ong của mẹ thì sợ khói."
+    },
+    {
+     "speaker": "mother_elin",
+     "line": "À, sáng nay cha con có dặn trước khi ra sông. Đúng bốn chữ: “Mũ cũ. Đừng cháy.”"
+    },
+    {
+     "speaker": "lior",
+     "line": "Con hiểu rồi ạ. Bắn vào người rơm, tránh cái mũ."
+    },
+    {
+     "speaker": "inner",
+     "line": "Ông Rơm đội cái mũ cũ của cha, vành sờn, lông chim rụng mất một nửa. Con xin lỗi cha trước nhé."
+    },
+    {
+     "speaker": "narrator",
+     "line": "(Phím 1: Hoả Cầu. Tốn MP và phải chờ hồi chiêu; MP tự hồi dần.)"
+    }
+   ],
+   "dialogueAfter": [
+    {
+     "speaker": "narrator",
+     "line": "(Cái mũ cũ của cha bốc khói. Rồi bốc lửa. Mẹ vung tay, một quả cầu nước to bằng cái bát bay ra, xèo một tiếng trên đầu Ông Rơm.)"
+    },
+    {
+     "speaker": "narrator",
+     "line": "(Trong quả cầu nước của mẹ, tôi thấy những sợi tơ xanh lam, nặng và mát, chảy xuống như dây đàn buông.)"
+    },
+    {
+     "speaker": "inner",
+     "line": "Phép của mẹ không lớn: một bát nước, một ngọn lửa bếp. Nhưng mẹ vừa chỉ cho tôi sợi tơ thứ ba. (Thuỷ Tiễn, phím 2.)"
+    },
+    {
+     "speaker": "mother_elin",
+     "line": "Không bỏng chứ? Cầm lấy bình mật ong này, mật nhà mình đấy. Lần sau bỏng thì bôi, mệt thì uống. Còn cái mũ… để mẹ nói với cha."
+    },
+    {
+     "speaker": "father_garrick",
+     "line": "(Tối đó, cha đứng nhìn cái mũ cháy xém rất lâu.) …Mũ cũ."
+    }
+   ],
+   "innerMonologue": [
+    "Phát thứ ba trúng ngay ngực Ông Rơm. Rồi tôi ngửi thấy mùi khét. Không phải mùi rơm. Mùi… vải."
+   ]
+  },
+  {
+   "id": "c8_forest_edge",
+   "age": 8,
+   "title": "Bìa rừng Mossvale",
+   "giver": "father_garrick",
+   "objectiveType": "kill",
+   "objectiveDetail": "kill:mob_mushroom_001:3 | onGive.zone=mossvale_edge | turnIn=kid_aldric_forest",
+   "objectiveText": "Hạ nấm rừng đang vây Aldric ở bìa rừng ({n}/{total})",
+   "rewardExp": 40,
+   "rewardOther": "unlockSkill=wind (Phong Nhận, phím 3: từ bài đọc gió của cha) · potions=1 (mẹ dúi vào túi cha từ sáng) · dạy Space (lăn né) + R (uống thuốc) + Hơi Nước · lời ngoéo tay với Aldric (trả ở chương 16 tuổi)",
+   "dialogueBefore": [
+    {
+     "speaker": "lior",
+     "line": "Cha ơi! Aldric vác kiếm gỗ chạy qua cầu rồi! Nó bảo vào rừng diệt rồng!"
+    },
+    {
+     "speaker": "inner",
+     "line": "Kiếp trước tôi chưa từng nhờ ai, sợ làm phiền. Chân tôi đã định tự chạy qua cầu… rồi tôi quay đầu về phía cha."
+    },
+    {
+     "speaker": "father_garrick",
+     "line": "Rồng. …Nấm thì có. Rồng thì không."
+    },
+    {
+     "speaker": "father_garrick",
+     "line": "Cha giữ đầu cầu. Con vào gọi Aldric. Cha thấy con tập rồi."
+    },
+    {
+     "speaker": "father_garrick",
+     "line": "Nấm co người là sắp lao. Đừng lùi. Bước ngang."
+    },
+    {
+     "speaker": "narrator",
+     "line": "(J: chém kiếm khi nấm áp sát · K: Tia Aether từ xa · Space: lăn né, tốn thể lực · R: uống bình mật ong của mẹ · mẹo: Hoả Cầu rồi Thuỷ Tiễn vào cùng một con nấm sẽ ra Hơi Nước!)"
+    },
+    {
+     "speaker": "father_garrick",
+     "line": "Đứng xuôi gió là nó ngửi thấy con. Gió đi đâu, mùi đi đó."
+    },
+    {
+     "speaker": "inner",
+     "line": "Cha chỉ thả một nhúm bụi. Còn tôi thấy cả một dòng sông sợi xanh lục đang chảy về phía tây."
+    }
+   ],
+   "dialogueAfter": [
+    {
+     "speaker": "kid_aldric_forest",
+     "line": "Tớ không sợ! Tớ chỉ… đang đứng yên một cách dũng cảm thôi!"
+    },
+    {
+     "speaker": "kid_aldric_forest",
+     "line": "Cậu vừa múa kiếm vừa làm phép, gian lận quá! Thôi được, cậu đứng sau, tớ đứng trước. Lớn lên tụi mình đi đánh Quỷ vương thật, không phải nấm. Ngoéo tay!"
+    },
+    {
+     "speaker": "narrator",
+     "line": "(Hai đứa dắt nhau về đầu cầu. Cha vẫn đứng đúng chỗ cũ. Cha quỳ xuống, phủi bào tử nấm trên tóc tôi.)"
+    },
+    {
+     "speaker": "father_garrick",
+     "line": "Con gọi cha là đúng. Lần sau cũng vậy. Con gọi, cha đến. Lần nào cũng đến."
+    },
+    {
+     "speaker": "inner",
+     "line": "Kiếp trước, điện thoại tôi rung đến tắt mà tôi không nhấc máy. Kiếp này, có người dạy tôi rằng chỉ cần gọi một tiếng."
+    }
+   ],
+   "innerMonologue": [
+    "Con nấm cuối cùng xẹp xuống như cái bánh bao hết hơi. Tóc tôi đầy bào tử, tay còn run. Nhưng tôi không chạy.",
+    "Lúc ngẩng lên, tôi thấy ở tận phía bắc khu rừng có một sợi tơ đỏ, mảnh như sợi chỉ, rỉ ra từ một khe đất. Nó vẫn ở đó, từ ngày tôi mở mắt."
+   ]
+  },
+  {
+   "id": "c8_snow",
+   "age": 8,
+   "title": "Tuyết cho mẹ",
+   "giver": "null",
+   "objectiveType": "practice",
+   "objectiveDetail": "practice:wind:3 | giver=null (tự nhận ngay sau c8_forest_edge) | dummy=dummy_riverside (đánh Thuỷ Tiễn trước để Ông Rơm ướt, rồi Phong Nhận → Băng Giá) | turnIn=mother_elin",
+   "objectiveText": "Thuỷ Tiễn rồi Phong Nhận vào Ông Rơm bên sông ({n}/{total})",
+   "rewardExp": 50,
+   "rewardOther": "Kỷ vật “Khăn len của mẹ” · ghi nhận “Lần đan đầu tiên” (nguồn gốc trong truyện của phản ứng nguyên tố) · kết thúc tuổi thơ → thẻ time-skip (ageCards[16]) → y1_mushrooms · unlockSkill=ice",
+   "dialogueBefore": [
+    {
+     "speaker": "narrator",
+     "line": "(Trên đường về, cha dừng lại ở đầu cầu, nhìn về phía nhà mình.)"
+    },
+    {
+     "speaker": "father_garrick",
+     "line": "Mai sinh nhật mẹ. Quê mẹ ở núi phía bắc, mùa đông trắng xoá. Mẹ nhớ tuyết."
+    },
+    {
+     "speaker": "father_garrick",
+     "line": "…Cha không làm ra tuyết được. Con thì sao?"
+    },
+    {
+     "speaker": "father_garrick",
+     "line": "Phép của mẹ ấm thôi, không lạnh được. Mẹ thử mười năm rồi."
+    },
+    {
+     "speaker": "father_garrick",
+     "line": "Ở quê mẹ, áo phơi ướt mà gặp gió bấc là đông cứng. Cha thấy rồi."
+    },
+    {
+     "speaker": "father_garrick",
+     "line": "Ông Rơm bên này không có mũ. Cha hết mũ cũ rồi. Nước trước. Gió sau, ngay khi nó còn ướt. Chậm là khô."
+    },
+    {
+     "speaker": "narrator",
+     "line": "(Phím 2: Thuỷ Tiễn làm ướt · phím 3: Phong Nhận. Gió trúng mục tiêu đang ướt sẽ ra Băng Giá!)"
+    },
+    {
+     "speaker": "inner",
+     "line": "Lúc nãy tôi đã nắm được một sợi gió. Giờ chỉ cần tết nó với sợi nước, như mẹ tết tóc mỗi sáng."
+    }
+   ],
+   "dialogueAfter": [
+    {
+     "speaker": "narrator",
+     "line": "(Tối hôm ấy, tôi đứng giữa sân, tết sợi nước với sợi gió. Từ lòng bàn tay tôi, những bông tuyết bay lên rồi rơi xuống mái nhà Ashvale. Chỉ mái nhà ấy thôi.)"
+    },
+    {
+     "speaker": "mother_elin",
+     "line": "Tuyết… ở Thistlewood? Hai cha con bày trò từ bao giờ thế này?"
+    },
+    {
+     "speaker": "lior",
+     "line": "Cha nghĩ ra. Con chỉ làm phép thôi."
+    },
+    {
+     "speaker": "father_garrick",
+     "line": "…Con làm phần khó."
+    },
+    {
+     "speaker": "inner",
+     "line": "Tôi không xoá được kiếp trước. Nhưng tối nay, có một người mẹ không phải chờ."
+    },
+    {
+     "speaker": "narrator",
+     "line": "(Khuya hôm ấy, tôi tết sợi nước với sợi gió chặt thêm một vòng nữa. Lần này chúng không bay thành tuyết mà đông lại thành một mũi băng thật, lạnh buốt trong lòng bàn tay. Mở Băng Tiễn — phím 5. Băng trúng mục tiêu ướt sẽ Đóng Băng!)"
+    }
+   ],
+   "innerMonologue": [
+    "Băng Giá! Ông Rơm phủ một lớp sương trắng, rồi những bông tuyết đầu tiên bay lả tả theo gió. Tôi đã đan được hai sợi tơ làm một.",
+    "Kiếp trước, sinh nhật mẹ, tôi chỉ nhắn một dòng: “Con bận, mẹ thông cảm nhé.” Mẹ trả lời bằng một trái tim. Tôi chưa bao giờ biết mẹ đã chờ bao lâu."
+   ]
+  }
+ ],
+ "idleLines": [
+  {
+   "npc": "mother_elin",
+   "lines": [
+    "Đi đâu thì đi, nhớ về trước bữa tối nhé, con trai.",
+    "Đi qua thùng ong thì đi chậm. Đứng yên là ong không đốt. Chạy là nó tưởng con là bông hoa biết chạy.",
+    "Có chuyện gì thì gọi người lớn. Gọi thật to vào, cả nhà mình ai cũng điếc đặc khi đang làm việc."
+   ]
+  },
+  {
+   "npc": "father_garrick",
+   "lines": [
+    "…Ừ.",
+    "(Cha giơ thanh kiếm vừa mài lên ngang mắt, ngắm lưỡi một lúc, rồi đưa chuôi cho tôi cầm thử. Nặng trịch. Hình như đó là cả một câu chuyện.)"
+   ]
+  },
+  {
+   "npc": "healer_mirelle",
+   "lines": [
+    "Ta đang pha thuốc. Đứng xa cái nồi ra, nó hay phun lắm.",
+    "Cảm ơn mẹ con giùm ta nhé. Thuốc bỏng mà thiếu mật ong nhà Ashvale thì chẳng ra gì."
+   ]
+  },
+  {
+   "npc": "merchant_bram",
+   "lines": [
+    "Ồ, ngài thám hiểm cao ba gang tay của Thistlewood!",
+    "Nhắn cha cháu giùm ta: tiền đá mài tháng trước. Ông ấy sẽ bảo “…Ừ.” rồi quên ngay.",
+    "Thế giới này rộng lắm, nhóc. Rộng hơn rừng Mossvale nhiều. Lớn lên cháu sẽ tự thấy."
+   ]
+  },
+  {
+   "npc": "kid_aldric",
+   "lines": [
+    "Đứng lại, dân làng! Ta là Hiệp sĩ Aldric, người canh giữ cái ghế đá này!",
+    "…Tổ đội của tớ đang thiếu một pháp sư. Cậu làm nhé? Không cần biết phép đâu. Tớ cũng đâu biết đánh kiếm."
+   ]
+  },
+  {
+   "npc": "kid_aldric_forest",
+   "lines": [
+    "Tớ đang canh bìa rừng. Không phải vì chân tớ còn run đâu nhé.",
+    "Thanh kiếm gỗ này tên là Kiếm Sấm Sét. Sấm thì chưa có. Sét cũng chưa."
+   ]
+  },
+  {
+   "npc": "elin",
+   "lines": [
+    "Đi rừng thì quàng cái khăn len vào. Sáng sớm bên kia sông lạnh lắm.",
+    "Và về trước bữa tối. Mười sáu tuổi hay sáu tuổi thì cũng thế."
+   ]
+  },
+  {
+   "npc": "garrick",
+   "lines": [
+    "Đủ lớn rồi. Qua cầu đi.",
+    "…Gọi. Cha đến."
+   ]
+  }
+ ],
+ "timeSkip": [
+  "Đêm ấy, cha khắc vạch “tám tuổi” lên khung cửa. Mẹ vẽ thêm bên cạnh một bông tuyết.",
+  "Rồi những vạch khắc cứ thế dày lên. Năm mười tuổi, Ông Rơm cháy mất cái mũ cũ thứ ba của cha. Cha nhìn đống tro rất lâu, rồi bảo: “…Mũ cũ.”",
+  "Sáng tập kiếm với cha ở đầu cầu, chiều tập phép với mẹ ở sân sau. Cha bảo kiếm của cha chỉ ở mức vừa phải, mẹ bảo phép của mẹ cũng vậy. Năm mười bốn tuổi, tôi chém gãy cọc gỗ cha dựng và thổi tắt cả sáu ngọn nến của mẹ chỉ bằng một làn gió.",
+  "Aldric vào đội gác cổng bắc. Thanh Kiếm Sấm Sét bằng gỗ vẫn nằm dưới đáy túi đồ của cậu ấy. Tôi biết, vì tôi đã thấy.",
+  "Cây sáo sậy treo ở bậu cửa sổ. Năm mười lăm tuổi, tôi nghĩ ra nốt thứ sáu, và bài hát bỏ dở năm nào cuối cùng cũng có đoạn kết. Cha nghe xong bảo: “…Hay.” Cha nói thật. Tôi biết, vì cha xin nghe lại lần nữa.",
+  "Mười sáu tuổi. Vạch khắc mới nhất đã nằm ngang tầm mắt cha. Còn sợi đỏ phía bắc rừng thì không còn mảnh như sợi chỉ nữa: nó rỉ ra từ dưới tảng đá cũ mà người già vẫn dặn đừng lại gần, mỗi mùa lại dày thêm một chút.",
+  "Sáng nay mẹ gọi tôi dậy. Tôi “dạ” ngay từ tiếng gọi đầu tiên."
+ ],
+ "pixlerPrompts": [
+  {
+   "character": "npc_elin_001 (mẹ Elin Ashvale, người nuôi ong)",
+   "prompt": "Young woman beekeeper mother, anime face, gentle green eyes, long chestnut hair in loose side braid, wide straw sun hat, cream blouse, honey yellow dress, brown work apron, empty hands, full body standing, front view facing viewer, high-detail anime pixel art, crisp pixels, no text"
+  },
+  {
+   "character": "npc_garrick_001 (cha Garrick Ashvale)",
+   "prompt": "Tall rugged hunter father, anime face, dark brown hair, stubble, grey eyes, brown leather jerkin, green hooded cloak, quiver strap across chest, knife sheath on belt, empty hands, full body standing, front view facing viewer, high-detail anime pixel art, crisp pixels, no text"
+  },
+  {
+   "character": "npc_aldric_child_001 (Aldric 6–8 tuổi)",
+   "prompt": "8 year old boy child, anime face, bright brown eyes, short spiky chestnut hair, red scarf tied as tiny cape, oversized tan padded tunic, brown boots, holding short wooden toy sword, full body standing, front view facing viewer, high-detail anime pixel art, crisp pixels, no text"
+  }
+ ],
+ "designNotes": "TÓM TẮT: 6 nhiệm vụ tuổi thơ chia 3 mốc, nay là 4/6/8 tuổi (trước là 3/5/7), dài khoảng 22 phút. Xương sống PA1 \"Những Vạch Khắc Trên Khung Cửa\" giữ nguyên, và đã sửa hết 8 điểm bị bắt trùng (xem mục cuối). Phần lớn thay đổi engine của bản trước ĐÃ CÓ TRONG CODE; bản sửa này chỉ cần thêm 4 thay đổi nhỏ (mục 3).\n\n1) VÌ SAO CHỌN PA1\nTổng điểm: PA1 94,5 · PA2 94 · PA3 86, và 2/3 hội đồng chọn PA1.\n- Ghép từ PA2: phím mở theo tuổi, mỗi phím do một người lớn trong truyện dạy. Có câu \"Mũ cũ. Đừng cháy.\". Phong Nhận lấy từ bài \"đọc gió\" của nghề săn. Cha dạy né bằng câu \"Đừng lùi. Bước ngang.\". Có lời ngoéo tay với Aldric.\n- Ghép từ PA3: sợi đỏ (nay neo vào vết nứt dưới đất), đồng xu Ấn Ký của Bram, và bài hát dang dở thổi trên cây sáo sậy.\n- KHÔNG ghép: giọng nói, Dây Lặng, sự cố ánh đỏ.\n\n2) KHỚP ENGINE (đã đọc storyTypes.ts, StoryDirector.ts, Game.ts, ages.ts, buildChildhood.py, story.test.ts)\n- Mỗi QuestDef chỉ có một mục tiêu, nên 6 nhiệm vụ nối nhau. Phép được trao lúc complete, nên phép trao ở nhiệm vụ trước rồi luyện ở nhiệm vụ sau:\n  • fire: trao ở c6_first_thread, luyện ở c6_old_hat.\n  • water: trao ở c6_old_hat, dùng ở c8_forest_edge.\n  • wind: trao ở c8_forest_edge, luyện ở c8_snow.\n  • J (aether) luôn mở.\n- Id dùng tiền tố c{tuổi}_. Giver \"null\" (c6_old_hat, c8_snow) nghĩa là tự nhận, và thoại after của nhiệm vụ trước phát liền với thoại before của nhiệm vụ này. Thoại đã viết để đọc liền một mạch.\n- c6_first_thread: HUD hiện \"Nói chuyện với Mirelle\". Lý do đi sang đó (đem hũ mật ong) nằm ở thẻ chữ 6 tuổi, nên không phải thêm nhiệm vụ \"đi giao hàng\".\n- innerMonologue: nhiệm vụ talk (c4_dinner) thì script tự chèn vào đầu after. Các nhiệm vụ khác đi vào onReady, phát lúc mục tiêu vừa đủ.\n- Idle phát cả mảng thành một đoạn. Idle của Mirelle và của Aldric 6 tuổi đã viết lại cho trung tính, để đúng ở MỌI tuổi trong khoảng (bản cũ nhắc phép từ trước khi Lior có phép).\n\n3) THAY ĐỔI KỸ THUẬT\nĐã có trong code, không phải làm lại: onReady, onGive.zone + onDemand, fromAge 16 cho mossvale_clearing, controlsForAge, hình nộm giữ wet/chill (hitDummy dùng chung nhánh phản ứng), dummy_riverside (38,30), onComplete frost trên home, đặt Lior ở spot home mỗi lần đổi mốc tuổi, Game không tự mở 'heal' (Mirelle dạy ở y1_mushrooms).\n\nCần làm cho bản sửa này:\na. ages.ts:\n   - ageTitle đổi thành {4:'Bốn tuổi', 6:'Sáu tuổi', 8:'Tám tuổi'}; mốc 16 đổi thành 'Tám năm sau · Mười sáu tuổi'.\n   - Ngưỡng của controlsForAge (<5 / <7) GIỮ NGUYÊN, vẫn đúng: 4 tuổi ra minimal, 6 ra magic, 8 ra full. Chỉ sửa comment 3/5/7 thành 4/6/8.\nb. buildChildhood.py:\n   - Đổi `q['id'] == 'c7_snow'` thành `'c8_snow'`, nếu không sẽ mất tuyết ở cảnh cuối.\n   - Đổi tuổi mặc định [3,7] thành [4,8]. Mọi placement đã ghi sẵn \"Tuổi [a,b]\", nên mặc định này thực tế không bị dùng.\nc. Bản lưu cũ: age 3/5/7 và completed c3_/c5_/c7_. Thứ tự nhiệm vụ không đổi nên index vẫn khớp. Trong StoryDirector.load: nếu age thuộc {3,5,7} thì cộng 1, rồi map id cũ sang id mới. Làm vậy đỡ hơn tăng SAVE_KEY, vì tăng SAVE_KEY thì người chơi phải xem lại lời tựa.\nd. humanTown.ts (tuỳ chọn, chỉ đổi chữ): tên điểm herb_spot đổi từ 'Vườn thảo dược' thành 'Vườn sau nhà'. Không cần asset mới; thùng ong chỉ nhắc trong thoại.\n- story.test.ts tự đọc dữ liệu (thẻ chữ theo tuổi, thứ tự mốc, người giao có mặt), nên không phải sửa test.\n\n4) DẠY PHÍM THEO NHIỆM VỤ\n- c4_silverdew: WASD, E.\n- c4_dinner: Shift.\n- c6_first_thread: nhắm chuột, J.\n- c6_old_hat: phím 1, MP, hồi chiêu.\n- c8_forest_edge: Space, R, phím 2 trong trận, Hơi Nước.\n- c8_snow: phím 3, Băng Giá.\nPhím 4 mở ở y1_mushrooms.\n\n5) CÂN BẰNG VÀ THỜI LƯỢNG (không đổi)\n- EXP: 10+15+20+25+40+50 = 160, cộng 3 nấm × 14 = 202. Hết tuổi thơ ở cấp 2.\n- Nấm 60 HP, mỗi đòn chỉ khoảng 4 HP, an toàn cho trẻ con. MP tối đa 78, đủ cho 3 cặp Thuỷ+Phong.\n- Thời lượng: lời tựa 1' · c4_silverdew 3' · c4_dinner 2,5' · c6_first_thread 3' · c6_old_hat 2,5' · c8_forest_edge 4,5' · c8_snow 3,5' · thẻ chữ và time-skip khoảng 2'. Tổng khoảng 22'.\n\n6) HỐI TIẾC VÀ CHỮA LÀNH\n- Mô-típ riêng là \"để sau\". Lời tựa mở bằng \"Mai mình gọi cho mẹ. Mai, chắc chắn.\" Câu kết lời tựa: có người hát cho Lior nghe trước khi cậu kịp nghĩ tới chữ \"để sau\".\n- Chỉ 3 cảnh nói thẳng \"Kiếp trước…\":\n  • c4_dinner: cuộc gọi bị bấm tắt.\n  • c8_forest_edge: không dám nhờ ai.\n  • c8_snow: sinh nhật mẹ chỉ nhắn một dòng.\n- Những chỗ để hành động tự nói thay lời:\n  • \"Đi ngay\" ở c4_silverdew.\n  • \"Chỉ cần có mặt\" ở c6_first_thread.\n  • Cây đàn thành cây sáo (thẻ chữ 8 tuổi), bài hát được viết nốt ở time-skip.\n- Time-skip KẾT BẰNG HÀNH ĐỘNG: \"Tôi “dạ” ngay từ tiếng gọi đầu tiên\", đảo lại đúng những cuộc gọi bị bấm tắt.\n- Mô-típ xuyên suốt: vạch khắc, \"Mũ cũ\", \"Con gọi, cha đến\".\n\n7) SỬA CHƯƠNG 16 TUỔI (youth.ts) VÀ docs/story.md\n- y1_mushrooms, before[0]: \"Lior. Từ hôm con sáu tuổi làm lọ thuốc của ta sôi lên bằng một ngón tay, ta chưa gặp ai như con. Vẫn nhớ hai điều ta dặn chứ: đừng chĩa vào người, thả tay ra trước khi nóng.\"\n- y1_mushrooms, after: thay câu \"nhìn vào sợi Aether quanh vết thương…\" bằng \"Ta không thấy sợi, nhưng ta biết vết thương khép theo chiều nào: từ mép vào giữa, từ sâu ra nông. Con nhìn, ta chỉ đường. Vuốt, đừng kéo.\" Phép Hồi Phục thành việc của hai người: Lior nhìn sợi, Mirelle thạo chữa thương.\n- y2_shadows: \"Lời ngoéo tay năm bảy tuổi\" đổi thành \"năm tám tuổi\".\n- Bram idle: \"hồi bảy tuổi\" đổi thành \"hồi tám tuổi\".\n- y3_demon, before: thay \"Lần này mình sẽ không để điều gì “để sau” nữa.\" bằng \"Đá phong ấn… phía bắc khoảng trống. Nấm co người là sắp lao. Quỷ chắc cũng thế. Đừng lùi. Bước ngang.\" Câu này gọi lại bài học né của cha, đúng lúc vào trận boss.\n- ĐỀ NGHỊ đổi YOUTH_ENDING (ngoài phạm vi chương này, nhưng là điểm gần Hitogami nhất của cả game): bỏ giọng nói biết Lior là người chuyển sinh, thay bằng:\n  \"Con quỷ tan thành tro dưới ánh trăng.\" / \"Sợi đỏ phía bắc rừng đứt phựt. Đầu sợi cuộn lại, quấn quanh mu bàn tay Lior rồi tắt.\" / \"Ở chỗ ấy hiện lên một ký hiệu lạ hình nút thắt: Ấn Ký Aether.\" / \"Trong túi áo, đồng xu cổ bác Bram cho năm tám tuổi ấm dần lên. Hình khắc trên mặt đồng xu giống hệt ký hiệu trên tay cậu.\"\n  Bí ẩn vẫn còn (đồng xu thời Chiến tranh Ấn Ký) mà không có thực thể nào gọi tên thân phận chuyển sinh.\n- docs/story.md:\n  • Ý nghĩ cuối của Minh đổi thành \"Mai mình gọi cho mẹ. Mai, chắc chắn.\"\n  • Garrick: \"dạy cầm kiếm\" đổi thành \"dạy đọc dấu chân thú và đọc gió\".\n  • Elin: đổi thành \"người nuôi ong\".\n  • Mirelle: \"thầy thuốc, không thấy sợi; dạy Lior giữ an toàn rồi cùng cậu làm phép Hồi Phục\".\n  • Chương 0: \"tuổi thơ 4/6/8 → time-skip → 16 tuổi\".\n  • Chương 7: \"sự thật về 'giọng nói'\" đổi thành \"sự thật về Ấn Ký\".\n- Tên vương quốc: đổi \"Vương quốc Asteria\" thành \"Vương quốc Rowanmere\" ở bảng vùng của story.md, ở câu \"thị trấn biên giới phía đông Asteria\" (viết lại thành \"thị trấn ven rừng Mossvale\") và ở chapter0.ts dòng 13. chapter0.ts hiện không còn được import ở đâu, có thể xoá luôn.\n\n8) NÉ MUSHOKU TENSEI\n- Không có gia sư. Không ai báo tài năng cho một người thầy. Người lớn nữ duy nhất biết về Aether thì KHÔNG thấy sợi và tự nhận không dạy được.\n- Lior tự mò ra cách thả sợi, bằng ký ức cây đàn của kiếp trước.\n- Mẹ nuôi ong và không có phép, cha là thợ săn và không dạy kiếm. Không ai trong nhà là healer.\n- Không biến cố, không giọng nói, không thần linh. Lior là con một; bạn thơ ấu là cậu bé muốn làm hiệp sĩ.\n- Mốc 4/6/8 không trùng nhịp 3/5/7 của Mushoku. Quà của cha không gắn với sinh nhật hay với mốc học phép.\n- Cảnh tuyết là quà sinh nhật cho mẹ, do cha nghĩ ra. Tuyết đi từ lòng bàn tay xuống đúng một mái nhà: không gọi mây, không phải bài thi tốt nghiệp.\n\n9) ASSET\n- 3 sprite mới (prompt ở trên; Elin đổi trang phục sang người nuôi ong). Cả ba CHƯA được sinh nên đổi prompt không tốn gì.\n- Lior 4–8 tuổi dùng player_lior_child.\n- Ông Rơm dùng prop training_dummy. Kiểm prop có mũ hay không để giữ câu \"Ông Rơm bên này không có mũ\".\n- Mirelle dùng npc_medic_001, Bram dùng npc_merchant_001.\n\nĐã sửa vì trùng lặp:\n1. [high] Cảnh dạy phép đầu tiên của Mirelle giống mạch Roxy:\n   - Bỏ \"Mẹ con kể với ta rồi\". Lior sang nhà thờ vì việc vặt (mẹ sai mang hũ mật ong, nằm ở thẻ chữ 6 tuổi). Lọ thuốc sôi vì tay cậu chạm vào sợi lửa, nên Mirelle phát hiện một cách tình cờ.\n   - Bỏ câu \"Lumeria / ngồi thiền mười năm / con khỏi ngồi thiền\" và mọi lời thán phục. Không nhắc Lumeria trong cảnh này.\n   - Mirelle nói thẳng \"ta là thầy thuốc, không phải pháp sư. Sợi con thấy, ta không thấy\", và chỉ dạy hai điều an toàn.\n   - Cách chạm sợi do Lior TỰ mò ra (inner: \"như chạm dây đàn: gảy, rồi buông\").\n   - Ông Rơm vốn là bia tập cung của cha, không phải cha \"dựng sẵn cho con tập phép\".\n   - Mẹ chỉ phản ứng với việc nhỏ: nồi canh trào, đàn ong bay ra xem. Bỏ câu \"Nữa đi con… đẹp quá!\".\n2. [medium] Công thức \"ước lúc chết rồi thề 'lần này'\":\n   - Ý nghĩ cuối đổi thành \"Mai mình gọi cho mẹ. Mai, chắc chắn.\"\n   - Câu kết lời tựa đổi thành \"Có người hát cho tôi nghe, trước cả khi tôi kịp nghĩ tới hai chữ “để sau”.\"\n   - Bỏ \"Và lần này…\" ở thẻ chữ 4 tuổi.\n   - Câu chốt time-skip là một hành động.\n   - Đổi luôn inner của y3_demon (mục 7).\n   - Lời tựa, thẻ chữ và time-skip không còn câu nào mở bằng \"Lần này\", cũng không còn cụm \"sống thật\" hay \"làm lại từ đầu\".\n3. [medium] Mốc 3/5/7 trùng nhịp tuổi thơ Mushoku:\n   - Dời sang 4/6/8, đổi id c4_/c6_/c8_. Vạch khắc thành \"Lior, bốn tuổi\", thẻ 16 tuổi thành \"Tám năm sau\".\n   - Thêm nữa, cây sáo sậy chuyển sang thẻ chữ 8 tuổi, tặng \"chẳng nhân dịp gì\", không phải quà sinh nhật.\n   - Mốc 6 tuổi không có ai dạy phép.\n4. [medium] \"Thị trấn biên giới của Vương quốc Asteria\" gợi Buena/Fittoa/Asura:\n   - Lời tựa đổi thành \"ở Thistlewood, một thị trấn nhỏ ven rừng Mossvale\". Không còn câu nào ghép nơi sinh, \"biên giới\" và tên vương quốc.\n   - Đề nghị đổi tên toàn cục sang \"Vương quốc Rowanmere\" (không mở đầu bằng As-, cùng lối đặt tên theo cây cỏ như Thistlewood và Mossvale).\n5. [medium] Sợi đỏ và lời cảnh báo cài sẵn khuôn Hitogami:\n   - Câu \"như có ai ở đầu bên kia đang nắm giữ\" đổi thành \"như sợi chỉ rút ra từ một vết nứt trong lòng đất\". Ở 8 tuổi sợi đỏ \"rỉ ra từ một khe đất\"; ở time-skip nó \"rỉ ra từ dưới tảng đá cũ\", tức đúng chỗ phong ấn.\n   - Bỏ câu \"đêm qua sáng hơn mọi đêm\".\n   - Bỏ \"thứ trong bóng tối nhìn thấy\". Lý do Mirelle dặn giữ kín nay là chuyện đời thường: lời đồn, lái buôn đòi đưa con đi làm trò ở chợ phiên.\n   - Đề nghị YOUTH_ENDING bỏ giọng nói (mục 7).\n6. [high] Lời tựa và câu chốt time-skip (bị bắt lần hai, cùng gốc với điểm 2): đã xử lý như điểm 2.\n   - Hối tiếc chung chung được thay bằng một việc dở dang cụ thể: cuộc gọi cho mẹ, gắn với mô-típ \"để sau\".\n   - Câu chốt time-skip là hành động đáp lại tiếng gọi.\n   - Giữ nguyên cây đàn bỏ dở, cuộc gọi bị bấm tắt và cảnh gục xuống bàn phím.\n7. [medium] Bộ khung gia đình gần Zenith (mẹ làm nghề chữa bệnh, cộng thêm nữ trị liệu dạy phép):\n   - Elin đổi từ thầy thuốc thảo dược sang NGƯỜI NUÔI ONG.\n   - c4_silverdew thành hái cỏ Sương Bạc xoa vào thùng ong mới (dựa theo lối nuôi ong thật: xoa cỏ thơm vào thùng để dụ đàn ong ở lại), và đàn ong \"xác nhận\" đúng ba cây. Cơ chế soi sợi giữ nguyên.\n   - \"Bình mật ong\" thành mật nhà làm, phím R vẫn uống được. Idle của mẹ có câu đùa về ong.\n   - Title đổi thành \"Mẹ · Người nuôi ong\", prompt Pixler đổi trang phục.\n   - Mirelle là healer duy nhất và không phải thầy dạy phép.\n   - Cảnh tuyết khép tuổi thơ được giữ ở quy mô một mái nhà, là quà sinh nhật, không phải phép lớn để tốt nghiệp.\n8. [medium] Mirelle trầm trồ trò thần đồng kiểu \"người ta mất N năm, con thì không\":\n   - Bỏ câu so sánh. Mirelle thận trọng, ngược tính cách với Roxy: \"phần thấy sợi, ta chịu… làm sao để không ai bị bỏng thì ta biết… Phần đó ta dạy được\".\n   - Giữ giọng riêng: câu \"chạm dây đàn\" (chuyển sang inner của Lior cho khớp điểm 1) và câu \"đừng chĩa vào mẹ con\".\n   - Năng khiếu nhìn sợi chỉ được kể qua hành động (ba cây cỏ, lọ thuốc sôi), không qua lời khen.\n\nBắt đầu: 02/10/2026 09:11 · Kết thúc: 02/10/2026 09:17 · Tổng: 6 phút\n06/10/2026: chủ dự án đổi nghề cha mẹ — cha là KIẾM SĨ, mẹ là PHÁP SƯ, cả hai năng lực tầm trung; Lior học song song kiếm (cha, phím J) và phép (mẹ, phím K) từ năm 6 tuổi; kiếm gỗ + trượng tập là quà của cha mẹ (đồ tân thủ)."
+}

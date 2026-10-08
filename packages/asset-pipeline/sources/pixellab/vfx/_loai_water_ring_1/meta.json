@@ -1,0 +1,31 @@
+{
+	"id": "water_ring",
+	"kind": "burst",
+	"canvas": {
+		"w": 72,
+		"h": 72
+	},
+	"first": {
+		"prompt": "flat water ripple ring seen from directly above, thin blue circular wave with white foam, empty transparent center, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "88e4a0f7-9939-4fac-9151-d88fb6f0b77b"
+	},
+	"action": "ripple ring expands outward and thins, then fades away",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "fb4a26c2-7cc3-48c8-a8f1-42076d0d98cd",
+	"createdAt": "2026-10-07T02:58:01.741Z",
+	"token": 10
+}

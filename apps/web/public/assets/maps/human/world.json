@@ -1,0 +1,307 @@
+{
+	"region": "human",
+	"start": "town",
+	"maps": {
+		"town": {
+			"name": "Thistlewood",
+			"width": 2400,
+			"height": 2496,
+			"exits": [
+				{
+					"id": "to_mossvale",
+					"to": "mossvale",
+					"x": 2376,
+					"y": 1272,
+					"label": "Rừng Mossvale"
+				},
+				{
+					"id": "to_graveyard",
+					"to": "graveyard",
+					"x": 1080,
+					"y": 24,
+					"label": "Nghĩa địa Hoàng Hôn"
+				}
+			],
+			"spots": [
+				"home",
+				"backyard",
+				"plaza",
+				"church",
+				"north_gate",
+				"north_road",
+				"river_bank",
+				"bridge",
+				"east_gate",
+				"herb_spot_1",
+				"herb_spot_2",
+				"herb_spot_3",
+				"herb_spot_4"
+			],
+			"zones": [],
+			"dummies": [
+				"dummy_backyard",
+				"dummy_riverside"
+			],
+			"boss": null
+		},
+		"mossvale": {
+			"name": "Rừng Mossvale",
+			"width": 2304,
+			"height": 2112,
+			"exits": [
+				{
+					"id": "to_town",
+					"to": "town",
+					"x": 24,
+					"y": 1032,
+					"label": "Thistlewood"
+				},
+				{
+					"id": "to_shrine",
+					"to": "shrine",
+					"x": 1128,
+					"y": 24,
+					"label": "Đá Phong Ấn"
+				}
+			],
+			"spots": [
+				"west_entry",
+				"north_entry",
+				"forest_edge",
+				"mob_clearing",
+				"forest_spot_1",
+				"forest_spot_2",
+				"forest_spot_3",
+				"forest_spot_4",
+				"forest_spot_5",
+				"forest_spot_6"
+			],
+			"zones": [
+				{
+					"id": "mossvale_edge",
+					"monsters": [
+						"mob_mushroom_001"
+					]
+				},
+				{
+					"id": "mossvale_clearing",
+					"monsters": [
+						"mob_mushroom_001"
+					]
+				},
+				{
+					"id": "mossvale_east",
+					"monsters": [
+						"mob_mushroom_001"
+					]
+				},
+				{
+					"id": "mossvale_south",
+					"monsters": [
+						"mob_mushroom_001"
+					]
+				},
+				{
+					"id": "mossvale_north",
+					"monsters": [
+						"mob_mushroom_001"
+					]
+				}
+			],
+			"dummies": [],
+			"boss": null
+		},
+		"shrine": {
+			"name": "Đá Phong Ấn",
+			"width": 1440,
+			"height": 1248,
+			"exits": [
+				{
+					"id": "to_mossvale",
+					"to": "mossvale",
+					"x": 720,
+					"y": 1224,
+					"label": "Rừng Mossvale"
+				}
+			],
+			"spots": [
+				"south_entry",
+				"seal_stone"
+			],
+			"zones": [],
+			"dummies": [],
+			"boss": "boss_demon_001"
+		},
+		"graveyard": {
+			"name": "Nghĩa địa Hoàng Hôn",
+			"width": 2208,
+			"height": 2016,
+			"exits": [
+				{
+					"id": "to_town_gy",
+					"to": "town",
+					"x": 1104,
+					"y": 1992,
+					"label": "Thistlewood"
+				},
+				{
+					"id": "to_cliffs",
+					"to": "cliffs",
+					"x": 816,
+					"y": 24,
+					"label": "Vách Gargoyle"
+				},
+				{
+					"id": "to_bonehills",
+					"to": "bonehills",
+					"x": 2184,
+					"y": 1008,
+					"label": "Đồi Xương Trắng"
+				}
+			],
+			"spots": [
+				"south_gate_gy",
+				"north_gate_gy",
+				"east_gate_gy",
+				"crypt"
+			],
+			"zones": [
+				{
+					"id": "gy_plot_sw",
+					"monsters": [
+						"mob_zombie_001"
+					]
+				},
+				{
+					"id": "gy_plot_se",
+					"monsters": [
+						"mob_zombie_001"
+					]
+				},
+				{
+					"id": "gy_plot_nw",
+					"monsters": [
+						"mob_zombie_001"
+					]
+				},
+				{
+					"id": "gy_plot_ne",
+					"monsters": [
+						"mob_zombie_001"
+					]
+				},
+				{
+					"id": "gy_crypt",
+					"monsters": [
+						"boss_lich_001"
+					]
+				}
+			],
+			"dummies": [],
+			"boss": null
+		},
+		"bonehills": {
+			"name": "Đồi Xương Trắng",
+			"width": 2112,
+			"height": 1920,
+			"exits": [
+				{
+					"id": "to_graveyard_bh",
+					"to": "graveyard",
+					"x": 24,
+					"y": 960,
+					"label": "Nghĩa địa Hoàng Hôn"
+				}
+			],
+			"spots": [
+				"west_entry_bh"
+			],
+			"zones": [
+				{
+					"id": "bh_north_west",
+					"monsters": [
+						"mob_skeleton_archer_001"
+					]
+				},
+				{
+					"id": "bh_north",
+					"monsters": [
+						"mob_skeleton_archer_001"
+					]
+				},
+				{
+					"id": "bh_east",
+					"monsters": [
+						"mob_skeleton_archer_001"
+					]
+				},
+				{
+					"id": "bh_south",
+					"monsters": [
+						"mob_skeleton_archer_001"
+					]
+				},
+				{
+					"id": "bh_far_east",
+					"monsters": [
+						"mob_skeleton_archer_001"
+					]
+				}
+			],
+			"dummies": [],
+			"boss": null
+		},
+		"cliffs": {
+			"name": "Vách Gargoyle",
+			"width": 2112,
+			"height": 1920,
+			"exits": [
+				{
+					"id": "to_graveyard_cl",
+					"to": "graveyard",
+					"x": 1104,
+					"y": 1896,
+					"label": "Nghĩa địa Hoàng Hôn"
+				}
+			],
+			"spots": [
+				"south_entry_cl",
+				"ruin_plaza"
+			],
+			"zones": [
+				{
+					"id": "cl_west",
+					"monsters": [
+						"mob_gargoyle_001"
+					]
+				},
+				{
+					"id": "cl_east",
+					"monsters": [
+						"mob_gargoyle_001"
+					]
+				},
+				{
+					"id": "cl_sw",
+					"monsters": [
+						"mob_gargoyle_001"
+					]
+				},
+				{
+					"id": "cl_se",
+					"monsters": [
+						"mob_gargoyle_001"
+					]
+				},
+				{
+					"id": "cl_plaza",
+					"monsters": [
+						"mob_gargoyle_001"
+					]
+				}
+			],
+			"dummies": [],
+			"boss": null
+		}
+	}
+}

@@ -1,0 +1,19 @@
+{
+	"description": "A sprite sheet of SIXTEEN tiny separate ground details arranged in a 4 by 4 grid, each very small and centered in its own cell, seen from slightly above lying flat on the ground: small green grass tufts, tiny clover patches, tiny white and yellow flowers, small gray pebbles, thick dark outline, soft cel shading, every detail fully separate with empty transparent space around it, no ground fill, no text",
+	"width": 128,
+	"height": 128,
+	"no_background": true,
+	"style_options": {
+		"color_palette": true,
+		"outline": true,
+		"shading": true,
+		"detail": false
+	},
+	"style_image": {
+		"path": "C:/Users/thetr/AppData/Local/Temp/claude/D--pms/b18d073e-506e-4c58-8cf3-4fc6a2aedf14/scratchpad/pl/bush_ref.png",
+		"usage_description": "Copy ONLY the art style of this reference: chunky chibi pixel art, thick dark outline on every shape, soft cel shading, warm saturated palette, front-facing view. Do not draw this house or tree."
+	},
+	"jobId": "be587732-538d-4e0d-ad18-0038b8433626",
+	"token": 12,
+	"createdAt": "2026-10-07T04:08:55.428Z"
+}

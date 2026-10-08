@@ -1,0 +1,248 @@
+/**
+ * Hợp đồng giữa máy chủ (`apps/server`) và client (`apps/web`): kiểu dữ liệu REST + tin nhắn WebSocket.
+ * Chỉ có KIỂU và hằng số thuần — không import Node hay DOM, để cả hai phía dùng chung một file.
+ */
+
+export const SERVER_PORT = 3200;
+/** Nhịp máy chủ gửi ảnh chụp vị trí người chơi (lần/giây). */
+export const SNAPSHOT_HZ = 10;
+export const CHAT_MAX = 200;
+/** Cấp tối đa (chủ dự án chốt 08/10/2026: 10 vùng × ~10 cấp — docs/ke-hoach-the-gioi.md). Máy chủ kẹp cấp lưu lên theo số này. */
+export const MAX_LEVEL = 100;
+
+export type Gender = 'male' | 'female';
+
+/** Tên nhân vật: 3–16 ký tự, chữ cái (có dấu tiếng Việt), số, khoảng trắng đơn ở giữa. */
+export const NAME_RULE = /^[\p{L}\p{N}](?:[\p{L}\p{N}]| (?! ))*[\p{L}\p{N}]$/u;
+export const NAME_MIN = 3;
+export const NAME_MAX = 16;
+
+export function validateName(name: string): string | null {
+	const n = name.trim();
+	if (n.length < NAME_MIN || n.length > NAME_MAX) return `Tên dài ${NAME_MIN}–${NAME_MAX} ký tự`;
+	if (!NAME_RULE.test(n)) return 'Tên chỉ gồm chữ, số và khoảng trắng đơn';
+	return null;
+}
+
+export function validateUsername(u: string): string | null {
+	if (!/^[a-z0-9_]{3,20}$/.test(u)) return 'Tên đăng nhập 3–20 ký tự: chữ thường không dấu, số, gạch dưới';
+	return null;
+}
+
+export function validatePassword(p: string): string | null {
+	if (p.length < 6 || p.length > 72) return 'Mật khẩu dài 6–72 ký tự';
+	return null;
+}
+
+/** Tiến độ một nhân vật — client gửi lên định kỳ, máy chủ lưu nguyên khối (chưa phải server authoritative). */
+export interface CharacterProgress {
+	level: number;
+	exp: number;
+	coins: number;
+	potions: number;
+	map: string;
+	x: number;
+	y: number;
+	/** Trạng thái cốt truyện (StoryDirector.SaveData), máy chủ không đọc nội dung. */
+	story: unknown;
+	introSeen: boolean;
+}
+
+export interface CharacterInfo {
+	id: string;
+	name: string;
+	gender: Gender;
+	createdAt: number;
+	progress: CharacterProgress;
+}
+
+// ---- REST -------------------------------------------------------------------------------------
+
+export interface AuthRequest {
+	username: string;
+	password: string;
+}
+export interface AuthResponse {
+	token: string;
+	username: string;
+}
+export interface CreateCharacterRequest {
+	name: string;
+	gender: Gender;
+}
+export interface ApiError {
+	error: string;
+}
+export const MAX_CHARACTERS = 4;
+
+// ---- WebSocket --------------------------------------------------------------------------------
+
+/** Động tác ra đòn một lần (không lặp): vung kiếm, vung tay niệm phép. Không bao giờ đi qua snapshot. */
+export const ACTION_ANIMS = ['attack', 'cast'] as const;
+export type ActionAnim = (typeof ACTION_ANIMS)[number];
+export const DIRS8 = ['S', 'SW', 'W', 'NW', 'N', 'NE', 'E', 'SE'] as const;
+
+/**
+ * Đồ GẮN lên người đang mặc (vẽ thành lớp chồng lên sprite) — thứ tự ô CỐ ĐỊNH, chỉ được THÊM ô vào CUỐI. Bộ trang phục
+ * (áo-quần-giày) không đi ở đây: nó đổi hẳn sprite nên đi qua trường `sprite`.
+ */
+export const GEAR_VIEW_SLOTS = ['head', 'main', 'off', 'back'] as const;
+export type GearViewSlot = (typeof GEAR_VIEW_SLOTS)[number];
+/** Số bậc độ hiếm (0 = thường … 4 = huyền thoại) — chữ số sau dấu `:` của một ô. */
+export const GEAR_RARITY_LEVELS = 5;
+/**
+ * Mỗi ô: `''` (trống), `'<id>'` (độ hiếm thường) hoặc `'<id>:<bậc>'` — id chữ thường/số/gạch dưới tối đa 24 ký tự. Gọn
+ * (vài chục byte cho cả bộ) và kiểm được bằng một biểu thức.
+ */
+export type GearView = string[];
+const GEAR_PIECE = new RegExp(`^[a-z0-9_]{1,24}(?::[0-${GEAR_RARITY_LEVELS - 1}])?$`);
+
+/**
+ * Chuẩn hoá danh sách đồ gắn nhận qua mạng (dùng ở CẢ máy chủ lẫn client). null = không phải mảng hoặc nhiều ô hơn
+ * `GEAR_VIEW_SLOTS` (bỏ cả gói). Ô sai dạng thành ô trống; thiếu ô thì đệm trống — luôn trả đúng số ô.
+ * Bản cũ không gửi trường này → null → máy nhận coi như không mặc gì, không lỗi.
+ */
+export function cleanGearView(raw: unknown): GearView | null {
+	if (!Array.isArray(raw) || raw.length > GEAR_VIEW_SLOTS.length) return null;
+	return GEAR_VIEW_SLOTS.map((_, i) => {
+		const v = raw[i];
+		return typeof v === 'string' && GEAR_PIECE.test(v) ? v : '';
+	});
+}
+
+// ---- Xã hội: bạn bè, chặn, chat riêng (docs/ke-hoach-xa-hoi.md) -------------------------------------
+
+export const MAX_FRIENDS = 100;
+/** Lời mời kết bạn chưa trả lời quá chừng này thì tự huỷ. */
+export const FRIEND_REQUEST_TTL = 7 * 24 * 3600 * 1000;
+/** Tin nhắn riêng gửi lúc người nhận offline: giữ chừng này rồi xoá; mỗi cặp người tối đa `WHISPER_KEEP` tin chờ. */
+export const WHISPER_TTL = 30 * 24 * 3600 * 1000;
+export const WHISPER_KEEP = 200;
+
+/** Một người trong danh sách xã hội (bạn, lời mời, người bị chặn). `map` chỉ có khi là BẠN đang online. */
+export interface SocialPerson {
+	id: string;
+	name: string;
+	level: number;
+	online: boolean;
+	map?: string;
+}
+
+/** Toàn bộ trạng thái xã hội của mình — máy chủ gửi lại nguyên khối mỗi khi có thay đổi (danh sách nhỏ, ≤ 100 bạn). */
+export interface SocialState {
+	friends: SocialPerson[];
+	/** Lời mời người khác gửi mình, chờ mình trả lời. */
+	incoming: SocialPerson[];
+	/** Lời mời mình đã gửi, chờ người kia. */
+	outgoing: SocialPerson[];
+	blocked: SocialPerson[];
+}
+
+/** Tin nhắn riêng. Máy chủ gửi cho CẢ người nhận lẫn người gửi (bản của người gửi để hiện "→ Tên"). */
+export interface WhisperMessage {
+	from: string;
+	fromName: string;
+	to: string;
+	toName: string;
+	text: string;
+	at: number;
+}
+
+// ---- Quái dùng chung (M3.2 — luật ở `@aether/sim/mobs`) -----------------------------------------------------
+
+/** Một con quái dùng chung như máy chủ giữ. `owner`: người chơi đang chạy AI cho nó (null = chưa ai, đứng yên). */
+export interface MobView {
+	id: string;
+	type: string;
+	zone: string;
+	x: number;
+	y: number;
+	hp: number;
+	hpMax: number;
+	dead: boolean;
+	owner: string | null;
+	home: { x: number; y: number; r: number };
+	boss: boolean;
+}
+
+/** Vị trí một quái: [id, x, y, hướng, động tác] — mảng cho gọn (gửi 10 lần/giây). */
+export type MobMove = [string, number, number, string, string];
+
+/** Trạng thái hiển thị của một người chơi khác: đủ để vẽ đúng sprite, hướng, động tác. */
+export interface PlayerView {
+	id: string;
+	name: string;
+	gender: Gender;
+	/** Sprite theo tuổi trong cốt truyện (trẻ con / người lớn) — và theo bộ trang phục đang mặc (`player_hero_adult_leather`). */
+	sprite: string;
+	level: number;
+	x: number;
+	y: number;
+	dir: string;
+	anim: string;
+	/** Đồ gắn đang mặc (`GearView`). Máy chủ bản cũ không có → thiếu trường = không vẽ lớp đồ. */
+	gear?: GearView;
+}
+
+export type ClientMessage =
+	/** Tin đầu tiên sau khi mở kết nối: xác thực bằng token phiên (không đặt token trên URL để khỏi lọt vào log). */
+	| { t: 'hello'; token: string; character: string }
+	| { t: 'move'; x: number; y: number; dir: string; anim: string; sprite: string }
+	| { t: 'chat'; text: string }
+	/** Vừa tung đòn: máy khác chỉ phát động tác (hình), không có sát thương. */
+	| { t: 'action'; anim: ActionAnim; dir: string; skill?: string }
+	/** Động tác vừa gửi bị cắt trước khi diễn hết (né, đi, bị ngắt): máy khác dừng hình. Tin riêng — máy chủ bản cũ bỏ qua im lặng. */
+	| { t: 'actionEnd' }
+	| { t: 'save'; progress: CharacterProgress }
+	/** Đồ gắn đang mặc vừa đổi (và gửi lại sau mỗi `welcome`). Tin riêng — máy chủ bản cũ bỏ qua im lặng. */
+	| { t: 'gear'; gear: GearView }
+	/** Vừa sang map khác (`<vùng>/<map>`): máy chủ chuyển mình sang nhóm người chơi của map đó, gửi lại `welcome`. */
+	| { t: 'map'; map: string }
+	| { t: 'ping'; at: number }
+	/** Mời kết bạn — theo id (bấm tên) hoặc theo tên gõ tay. */
+	| { t: 'friendAdd'; id?: string; name?: string }
+	/** Trả lời lời mời của `id`. */
+	| { t: 'friendRespond'; id: string; accept: boolean }
+	/** Huỷ bạn với `id`, hoặc rút lại lời mời mình đã gửi cho `id`. */
+	| { t: 'friendRemove'; id: string }
+	/** Chặn / bỏ chặn `id` (chặn thì tự huỷ bạn + lời mời hai chiều). */
+	| { t: 'block'; id: string; on: boolean }
+	/** Chat riêng: tới `to` (id), HOẶC `line` = phần sau `/w ` (tên + nội dung — tên có thể chứa khoảng trắng, máy chủ tự tách). */
+	| { t: 'whisper'; to?: string; text?: string; line?: string }
+	/** Bật / tắt nhận quái dùng chung của map đang đứng (client ở thế giới người lớn mới bật). */
+	| { t: 'mobSub'; on: boolean }
+	/** Chủ quái báo vị trí các quái mình chạy AI. */
+	| { t: 'mobPos'; list: MobMove[] }
+	/** Đòn của mình trúng quái `id` (sát thương đã tính ở máy mình — máy chủ kiểm tầm / nhịp / trần rồi trừ máu). */
+	| { t: 'mobHit'; id: string; dmg: number }
+	/** Quái `id` vừa lao vào mình: xin làm chủ (máy chủ đổi chủ nếu mình gần nó hơn chủ cũ). */
+	| { t: 'mobAggro'; id: string };
+
+export type ServerMessage =
+	| { t: 'welcome'; you: string; players: PlayerView[] }
+	| { t: 'join'; player: PlayerView }
+	| { t: 'leave'; id: string }
+	/** Chỉ gồm người chơi có thay đổi kể từ ảnh chụp trước. */
+	| { t: 'snapshot'; players: Pick<PlayerView, 'id' | 'x' | 'y' | 'dir' | 'anim' | 'sprite' | 'level'>[] }
+	| { t: 'chat'; from: string; name: string; text: string; at: number }
+	| { t: 'system'; text: string }
+	| { t: 'action'; id: string; anim: ActionAnim; dir: string; skill?: string }
+	| { t: 'actionEnd'; id: string }
+	/** Người chơi `id` đổi đồ gắn. Client bản cũ không biết tin này → bỏ qua im lặng. */
+	| { t: 'gear'; id: string; gear: GearView }
+	| { t: 'pong'; at: number }
+	/** Đóng kết nối có lý do (đăng nhập nơi khác, phiên hết hạn). */
+	| { t: 'kicked'; reason: string }
+	/** Trạng thái xã hội (gửi sau `welcome` đầu tiên và mỗi khi thay đổi). Client bản cũ bỏ qua. */
+	| { t: 'social'; state: SocialState }
+	/** Một hoặc nhiều tin nhắn riêng (lúc vào game: các tin nhận được khi đang offline). */
+	| { t: 'whisper'; messages: WhisperMessage[] }
+	/** Toàn bộ quái dùng chung của map (lúc bật nhận). */
+	| { t: 'mobs'; map: string; list: MobView[] }
+	| { t: 'mobMove'; list: MobMove[] }
+	/** Máu quái sau một đòn (`by` = người đánh). */
+	| { t: 'mobHp'; id: string; hp: number; by: string; dmg: number }
+	/** Quái gục — `credit`: những người được tính công (nhận EXP, xu, nhiệm vụ). */
+	| { t: 'mobDie'; id: string; by: string; credit: string[] }
+	| { t: 'mobSpawn'; mob: MobView }
+	| { t: 'mobOwner'; id: string; owner: string | null };

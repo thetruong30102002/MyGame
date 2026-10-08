@@ -1,0 +1,14 @@
+{
+	"description": "A sprite sheet of NINE separate handheld equipment sprites for a chibi RPG character, arranged in a 3 by 3 grid, each centered in its own cell with empty space around it. Top row: three variations of a child's wooden training sword (pale carved wood blade with rounded tip, short wooden crossguard, brown leather-wrapped grip), each drawn diagonally with the tip pointing to the upper right and the pommel at the lower left. Middle row: three variations of an apprentice wooden training staff (straight polished wooden shaft, small glowing light blue crystal held by a wooden claw at the top end), each drawn diagonally with the crystal end at the upper right and the butt end at the lower left. Bottom row: one small round wooden buckler shield with an iron rim and iron boss seen from the front, the same shield seen from the side as a thin vertical edge, the same shield seen from behind showing a leather hand strap. Thick dark outline, soft cel shading, warm saturated palette, every sprite fully separate on a plain flat solid bright magenta (#FF00FF) chroma-key background, no text, no frame, no characters, no hands",
+	"width": 192,
+	"height": 192,
+	"no_background": false,
+	"style_options": {
+		"color_palette": true,
+		"outline": true,
+		"shading": true,
+		"detail": false
+	},
+	"style_image_path": "D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/style/hero_S.png",
+	"style_usage": "Copy ONLY the art style of this reference: chunky chibi pixel art, thick dark outline on every shape, soft cel shading, palette. Do not draw this character."
+}

@@ -1,0 +1,19 @@
+{
+	"description": "A sprite sheet of NINE separate small nature props arranged in a 3 by 3 grid, each small and centered in its own cell: round leafy green bush, green bush with small pink flowers, mossy green boulder, gray rock, cut tree stump, cluster of three glowing light-blue mushrooms, small herb plant with silver-white serrated leaves, green fern, patch of tiny yellow and white wildflowers, drawn in straight FRONT VIEW like the reference (facing the camera, slight top-down), thick dark outline, soft cel shading, every object fully separate on a plain flat solid bright magenta (#FF00FF) chroma-key background with wide empty space around it, no ground, no shadow puddles, no text, no characters",
+	"width": 192,
+	"height": 192,
+	"no_background": false,
+	"style_options": {
+		"color_palette": true,
+		"outline": true,
+		"shading": true,
+		"detail": false
+	},
+	"style_image": {
+		"path": "C:/Users/thetr/AppData/Local/Temp/claude/D--pms/b18d073e-506e-4c58-8cf3-4fc6a2aedf14/scratchpad/pl/tree_trim.png",
+		"usage_description": "Copy ONLY the art style of this reference: chunky chibi pixel art, thick dark outline on every shape, soft cel shading, warm saturated palette, front-facing view. Do not draw this house or tree."
+	},
+	"jobId": "d018e459-fc5b-47fc-b64a-938d496d8b32",
+	"token": 12,
+	"createdAt": "2026-10-07T03:40:18.609Z"
+}

@@ -1,0 +1,32 @@
+{
+	"id": "water_splash",
+	"kind": "burst",
+	"canvas": {
+		"w": 52,
+		"h": 52
+	},
+	"first": {
+		"prompt": "small water splash just starting, blue droplets with white foam, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "10a097dc-eaad-418f-b322-bbd421c45033",
+		"drawn": "first_drawn.png"
+	},
+	"action": "water splash bursts outward into droplets and spray, then droplets fall and vanish",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "a981518a-0c77-40d9-8bff-7e442dde62a8",
+	"createdAt": "2026-10-07T02:19:14.440Z",
+	"token": 8
+}

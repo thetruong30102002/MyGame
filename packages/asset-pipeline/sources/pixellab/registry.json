@@ -1,0 +1,71 @@
+{
+	"player_lior_child": {
+		"uuid": "bfde505a-9d0a-4fd3-8161-b15e18810210",
+		"token": 0,
+		"walkGroup": "d5b60105-a84b-4a04-9162-cdf0884c4c42"
+	},
+	"player_lior_child_f": {
+		"uuid": "9b616f75-23e0-493e-b49d-4ed0c6fd1738",
+		"token": 0,
+		"walkGroup": "8ec324b2-5cd6-4e4e-85a3-26069d6103c4"
+	},
+	"player_hero_adult": {
+		"uuid": "44d6bc45-7028-4687-84c7-c923a0939361",
+		"token": 4,
+		"walkGroup": "70087aa5-fefe-41f8-a58d-facfb3cf4640"
+	},
+	"player_hero_adult_f": {
+		"uuid": "3df2d528-15bf-46c0-89f7-bfb829cb3735",
+		"token": 4,
+		"walkGroup": "62f6cdb1-dc6c-4930-a439-64f9ab08f07c"
+	},
+	"npc_elin_001": {
+		"uuid": "56677596-54c7-4355-82cb-05bb58492f11",
+		"token": 1,
+		"walkGroup": "2d66a0ce-ba02-4582-a6f9-6f855697f964"
+	},
+	"npc_aldric_child_001": {
+		"uuid": "940f8e5b-ed7f-4ae2-8561-38b29580de7b",
+		"token": 2,
+		"walkGroup": "95e87497-6365-4bae-b7f3-bf8f1e558194"
+	},
+	"npc_garrick_001": {
+		"uuid": "04c0bd80-cb40-4ad3-96b7-470126af3818",
+		"token": 1,
+		"walkGroup": "4ea9bf1d-af47-4f55-9f64-5e214535680c"
+	},
+	"npc_mirelle_001": {
+		"uuid": "9be5a05a-dcee-4e04-8bfc-72638e464f93",
+		"token": 2,
+		"walkGroup": "93b51b8f-a55c-4daf-a844-d149ffa65649"
+	},
+	"npc_bram_001": {
+		"uuid": "1f6b5f60-9146-4f6b-99b8-c167bbf813fa",
+		"token": 3,
+		"walkGroup": "d97b67e4-644e-41f0-b827-39700bc0d21a"
+	},
+	"mob_skeleton_archer_001": {
+		"uuid": "7ffedcf6-869a-4f6b-826a-5fc3960b7fc1",
+		"token": 5,
+		"walkGroup": "97a1f83f-b81c-4d9f-a2d0-5368b8bb99f8"
+	},
+	"boss_demon_001": {
+		"uuid": "92d78294-7bc3-4c99-be1d-14fb35c5ab15",
+		"token": 5,
+		"walkGroup": "a2245ef7-c816-417e-9332-a24f2f5fbdd3"
+	},
+	"mob_mushroom_001": {
+		"uuid": "616edb8a-6a87-4034-bf6e-5b256a120adf",
+		"token": 3,
+		"walkGroup": "03b554b0-e3da-41cc-a0a0-f90fce22fd69"
+	},
+	"npc_aldric_001": {
+		"uuid": "416d0746-edd9-400a-80ae-c951cb839aed",
+		"token": 4,
+		"walkGroup": "541fff4f-2cce-4501-80ff-b2fb6bf67932"
+	},
+	"boss_lich_001": {
+		"uuid": "baab2dc2-6604-44a2-a3ed-ea377862a753",
+		"token": 14
+	}
+}

@@ -1,0 +1,19 @@
+{
+	"description": "A sprite sheet of SIXTEEN tiny separate ground details arranged in a 4 by 4 grid, each very small and centered in its own cell, seen from slightly above lying flat on the ground: dry yellow dead grass tufts, small scattered bones, tiny skulls, cracked dark grey pebbles, dead brown leaves, thick dark outline, soft cel shading, every detail fully separate on a plain flat solid bright magenta (#FF00FF) chroma-key background, no ground fill, no text",
+	"width": 128,
+	"height": 128,
+	"no_background": false,
+	"style_options": {
+		"color_palette": true,
+		"outline": true,
+		"shading": true,
+		"detail": false
+	},
+	"style_image": {
+		"path": "C:/Users/thetr/AppData/Local/Temp/claude/D--pms/b18d073e-506e-4c58-8cf3-4fc6a2aedf14/scratchpad/pl/bush_ref.png",
+		"usage_description": "Copy ONLY the art style of this reference: chunky pixel art, thick dark outline, soft cel shading."
+	},
+	"jobId": "f0696cdc-5f3f-4ce0-9c7e-ff7e6d881c3e",
+	"token": 13,
+	"createdAt": "2026-10-07T04:38:13.753Z"
+}

@@ -1,0 +1,31 @@
+{
+	"id": "sparkle",
+	"kind": "burst",
+	"canvas": {
+		"w": 80,
+		"h": 80
+	},
+	"first": {
+		"prompt": "healing sparkle, white and very pale mint glowing plus-shaped sparkles and small stars, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "227c8fae-8e40-4cd5-ac7c-8de40dbc4cdf"
+	},
+	"action": "healing sparkles appear, rise upward and twinkle, then fade away gently",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "fcb9c282-58a2-4f9c-af3b-b7674015828b",
+	"createdAt": "2026-10-07T02:05:49.998Z",
+	"token": 8
+}

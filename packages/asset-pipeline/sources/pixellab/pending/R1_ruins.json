@@ -1,0 +1,14 @@
+{
+	"description": "A sprite sheet of NINE separate ancient ruin and cliff props arranged in a 3 by 3 grid, each centered in its own cell, in this exact order left to right, top to bottom: crumbling section of old gray stone brick wall; stone gargoyle statue on a pedestal; large round gray boulder; short flight of worn stone stairs; fallen broken stone column lying on its side; iron brazier bowl with burning orange fire on a stand; jagged gray rock outcrop; tall thin pointed rock spire; upright stone tablet carved with glowing blue runes, drawn in straight FRONT VIEW like the reference (facing the camera, slight top-down), thick dark outline, soft cel shading, every object fully separate on a plain flat solid bright magenta (#FF00FF) chroma-key background with wide empty space around it, no ground, no shadow puddles, no text, no characters",
+	"width": 192,
+	"height": 192,
+	"no_background": false,
+	"style_options": {
+		"color_palette": true,
+		"outline": true,
+		"shading": true,
+		"detail": false
+	},
+	"style_image_path": "D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/style/tree_ref.png",
+	"style_usage": "Copy ONLY the art style of this reference: chunky chibi pixel art, thick dark outline on every shape, soft cel shading, warm saturated palette, front-facing view. Do not draw this tree."
+}

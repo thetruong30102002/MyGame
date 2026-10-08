@@ -1,0 +1,93 @@
+{
+	"identity": {
+		"characterId": "player_lior_child_f",
+		"hair": "silver_side_ponytail",
+		"eyes": "blue",
+		"skin": "light",
+		"outfit": "navy_hooded_capelet_gold_trim_blue_tunic_dress",
+		"weapon": "none_weapon_layer",
+		"palette": "fantasy_blue_01"
+	},
+	"displayName": "Nhân vật chính (bé gái)",
+	"role": "player",
+	"provider": "pixellab",
+	"pixellab": {
+		"animations": {
+			"idle": "idle",
+			"walk": "walk",
+			"attack": [
+				"attack-sword",
+				"attack-swing",
+				"attack-img"
+			],
+			"cast": [
+				"cast",
+				"cast-img"
+			]
+		},
+		"mirrorWest": true
+	},
+	"frameSize": {
+		"width": 64,
+		"height": 64
+	},
+	"baselineY": 60,
+	"animations": {
+		"idle": {
+			"fps": 6,
+			"minFrames": 4,
+			"maxFrames": 8
+		},
+		"walk": {
+			"fps": 10,
+			"minFrames": 6,
+			"maxFrames": 8
+		},
+		"attack": {
+			"fps": 17,
+			"minFrames": 4,
+			"maxFrames": 12,
+			"optional": true,
+			"durationMs": 360,
+			"hitFrame": 2
+		},
+		"cast": {
+			"fps": 20,
+			"minFrames": 4,
+			"maxFrames": 12,
+			"optional": true,
+			"durationMs": 400
+		}
+	},
+	"cleanup": {
+		"removeThin": {
+			"minY": 30,
+			"minLength": 4,
+			"woodRatio": 0.7
+		},
+		"alignToIdle": true,
+		"keepThinIn": [
+			"attack",
+			"cast"
+		]
+	},
+	"quality": {
+		"maxHeightDrift": 0.15
+	},
+	"provisional": [
+		"S",
+		"SW",
+		"W",
+		"NW",
+		"N",
+		"NE",
+		"E",
+		"SE"
+	],
+	"notes": "PixelLab Pro Flash (05/10/2026), ảnh mẫu phong cách = Lior bé. Thay bản vẽ tay tạm cùng ID. Que gỗ gỡ khỏi thân (removeThin); ở hướng SE còn nét que mảnh vắt qua chân (trùng thân, không gỡ tự động được). Idle tạm ảnh xoay tĩnh; hướng chưa có walk tạm ảnh tĩnh nhún 1px.",
+	"review": {
+		"status": "approved",
+		"date": "06/10/2026",
+		"notes": "Duyệt bằng mắt 8 hướng sau khi gỡ que: cùng bộ với Lior (tóc bạc, áo choàng ngắn nẹp vàng), đuôi tóc lệch nhất quán giữa các hướng."
+	}
+}

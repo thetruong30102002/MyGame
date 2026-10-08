@@ -1,0 +1,35 @@
+{
+	"id": "frost",
+	"kind": "burst",
+	"canvas": {
+		"w": 72,
+		"h": 72
+	},
+	"first": {
+		"prompt": "icy frost burst, pale blue ice crystals and small snowflakes radiating from the center, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "13480312-c19f-409e-a6d6-5c5963624413"
+	},
+	"action": "frost crystals burst outward and sparkle, then snowflakes drift down and fade away",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "a5cd309b-b9b4-44a4-b189-24e302226ea4",
+	"createdAt": "2026-10-07T02:27:30.367Z",
+	"token": 9,
+	"drop": [
+		"frame_007.png",
+		"frame_008.png"
+	]
+}

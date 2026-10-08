@@ -1,0 +1,91 @@
+{
+	"frame": {
+		"file": "frame.png",
+		"w": 79,
+		"h": 80,
+		"slice": {
+			"top": 18,
+			"right": 18,
+			"bottom": 18,
+			"left": 18
+		}
+	},
+	"slot": {
+		"file": "slot.png",
+		"w": 58,
+		"h": 57,
+		"slice": {
+			"top": 13,
+			"right": 13,
+			"bottom": 13,
+			"left": 13
+		}
+	},
+	"button": {
+		"file": "button.png",
+		"w": 89,
+		"h": 39,
+		"slice": {
+			"top": 16,
+			"right": 20,
+			"bottom": 16,
+			"left": 20
+		}
+	},
+	"banner": {
+		"file": "banner.png",
+		"w": 85,
+		"h": 57,
+		"slice": {
+			"top": 24,
+			"right": 20,
+			"bottom": 24,
+			"left": 20
+		}
+	},
+	"icon_potion": {
+		"file": "icon_potion.png",
+		"w": 35,
+		"h": 44
+	},
+	"icon_coins": {
+		"file": "icon_coins.png",
+		"w": 44,
+		"h": 37
+	},
+	"icon_backpack": {
+		"file": "icon_backpack.png",
+		"w": 42,
+		"h": 46
+	},
+	"icon_hp": {
+		"file": "icon_hp.png",
+		"w": 43,
+		"h": 38
+	},
+	"icon_mp": {
+		"file": "icon_mp.png",
+		"w": 31,
+		"h": 46
+	},
+	"icon_attack": {
+		"file": "icon_attack.png",
+		"w": 48,
+		"h": 44
+	},
+	"icon_magic": {
+		"file": "icon_magic.png",
+		"w": 35,
+		"h": 39
+	},
+	"icon_defense": {
+		"file": "icon_defense.png",
+		"w": 48,
+		"h": 49
+	},
+	"icon_star": {
+		"file": "icon_star.png",
+		"w": 45,
+		"h": 42
+	}
+}

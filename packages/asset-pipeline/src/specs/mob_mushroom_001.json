@@ -1,0 +1,60 @@
+{
+	"identity": {
+		"characterId": "mob_mushroom_001",
+		"hair": "red_cap_white_spots",
+		"eyes": "angry",
+		"skin": "pale_stem",
+		"outfit": "none",
+		"weapon": "none",
+		"palette": "forest_mob_01"
+	},
+	"displayName": "Nấm rừng",
+	"role": "monster",
+	"provider": "pixellab",
+	"pixellab": {
+		"animations": {
+			"idle": "idle",
+			"walk": "walk"
+		},
+		"mirrorWest": true
+	},
+	"frameSize": {
+		"width": 72,
+		"height": 72
+	},
+	"baselineY": 66,
+	"animations": {
+		"idle": {
+			"fps": 6,
+			"minFrames": 4,
+			"maxFrames": 8
+		},
+		"walk": {
+			"fps": 10,
+			"minFrames": 6,
+			"maxFrames": 8
+		}
+	},
+	"cleanup": {
+		"alignToIdle": true
+	},
+	"quality": {
+		"maxHeightDrift": 0.15
+	},
+	"provisional": [
+		"S",
+		"SW",
+		"W",
+		"NW",
+		"N",
+		"NE",
+		"E",
+		"SE"
+	],
+	"notes": "PixelLab Pro Flash (06/10/2026), ảnh mẫu phong cách = Lior bé (chép nét/bóng, không chép bảng màu). Quái nấm bìa rừng Mossvale (nhiệm vụ 8 tuổi). Idle tạm ảnh xoay tĩnh.",
+	"review": {
+		"status": "approved",
+		"date": "06/10/2026",
+		"notes": "Duyệt bằng mắt 8 hướng đứng + đi (đi thật S/E/N, phía tây lật gương, chéo tạm ảnh xoay): mũ đỏ chấm trắng, mảng rêu, thân trắng có mặt, tay chân ngắn nhất quán giữa các frame; quái nhỏ cao 36–40px."
+	}
+}
