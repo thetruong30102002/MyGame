@@ -96,6 +96,14 @@ export class Store {
 				streak INTEGER NOT NULL,
 				total INTEGER NOT NULL
 			);
+			-- Mỗi ngày đã điểm danh (khung lịch ở client).
+			CREATE TABLE IF NOT EXISTS checkin_days (
+				character_id TEXT NOT NULL REFERENCES characters(id) ON DELETE CASCADE,
+				day TEXT NOT NULL,
+				PRIMARY KEY (character_id, day)
+			);
+			-- Lịch sử ngày điểm danh có từ 08/10/2026 (K1): bù ngày điểm danh gần nhất của bảng cũ, chạy lại không trùng.
+			INSERT OR IGNORE INTO checkin_days (character_id, day) SELECT character_id, last_day FROM checkins;
 			CREATE TABLE IF NOT EXISTS goals_claimed (
 				character_id TEXT NOT NULL REFERENCES characters(id) ON DELETE CASCADE,
 				goal TEXT NOT NULL,
@@ -342,9 +350,15 @@ export class Store {
 			this.db
 				.prepare('INSERT INTO checkins (character_id, last_day, streak, total) VALUES (?, ?, ?, 1) ON CONFLICT(character_id) DO UPDATE SET last_day = excluded.last_day, streak = excluded.streak, total = total + 1')
 				.run(characterId, day, streak);
+			this.db.prepare('INSERT OR IGNORE INTO checkin_days (character_id, day) VALUES (?, ?)').run(characterId, day);
 			out = this.applyDiamonds(characterId, diamonds, 'checkin', `checkin:${characterId}:${day}`);
 		});
 		return out;
+	}
+
+	/** Các ngày đã điểm danh trong tháng `month` (`YYYY-MM`), tăng dần. */
+	checkinDays(characterId: string, month: string): string[] {
+		return (this.db.prepare("SELECT day FROM checkin_days WHERE character_id = ? AND substr(day, 1, 7) = ? ORDER BY day").all(characterId, month) as { day: string }[]).map((r) => r.day);
 	}
 
 	claimedGoals(characterId: string): string[] {

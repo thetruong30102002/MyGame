@@ -39,6 +39,16 @@ export function activeBuffs(state: { list: BuffView[]; at: number } | null, now:
 	return state.list.flatMap((b) => (b.remaining - gone > 0 ? [{ ...b, remaining: b.remaining - gone }] : []));
 }
 
+/** Ô của khung lịch tháng chứa `day` (`YYYY-MM-DD`): tuần bắt đầu thứ Hai, null = ô trống đầu tháng. */
+export function monthGrid(day: string): ({ day: string; date: number } | null)[] {
+	const [y, m] = day.split('-').map(Number) as [number, number];
+	const lead = (new Date(Date.UTC(y, m - 1, 1)).getUTCDay() + 6) % 7;
+	const days = new Date(Date.UTC(y, m, 0)).getUTCDate();
+	const out: ({ day: string; date: number } | null)[] = Array.from({ length: lead }, () => null);
+	for (let d = 1; d <= days; d += 1) out.push({ day: `${day.slice(0, 7)}-${String(d).padStart(2, '0')}`, date: d });
+	return out;
+}
+
 /** Số có dấu chấm ngăn nghìn kiểu Việt ("1.000"). */
 export function fmtCount(n: number): string {
 	return Math.max(0, Math.floor(n)).toLocaleString('vi-VN');

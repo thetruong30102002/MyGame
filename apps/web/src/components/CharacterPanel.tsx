@@ -6,7 +6,6 @@ import { useSession } from '@/store/useSession';
 import { CharacterFriendsTab } from './CharacterPanelFriends';
 import { CharacterInventoryTab } from './CharacterPanelInventory';
 import { CharacterSettingsTab } from './CharacterPanelSettings';
-import { CharacterShopTab } from './CharacterPanelShop';
 import { CodexTab } from './CodexTab';
 import { CharacterStatsTab } from './CharacterPanelStats';
 import { CharacterTalentsTab } from './CharacterPanelTalents';
@@ -22,12 +21,11 @@ const TABS: { id: PanelId; label: string; key: string; code: string }[] = [
 	{ id: 'inventory', label: 'Kho đồ', key: 'I', code: 'KeyI' },
 	{ id: 'codex', label: 'Thư viện', key: 'B', code: 'KeyB' },
 	{ id: 'friends', label: 'Bạn bè', key: 'F', code: 'KeyF' },
-	{ id: 'shop', label: 'Cửa hàng', key: 'H', code: 'KeyH' },
 	{ id: 'settings', label: 'Cài đặt', key: 'O', code: 'KeyO' },
 ];
 
 /**
- * Phím C / P / I / B / F / H / O / Esc không được cướp phím khi đang GÕ CHỮ (chat, ô mời kết bạn). Ô tích / thanh kéo của thẻ Cài đặt
+ * Phím C / P / I / B / F / O / Esc không được cướp phím khi đang GÕ CHỮ (chat, ô mời kết bạn). Ô tích / thanh kéo của thẻ Cài đặt
  * cũng là `<input>` nhưng không gõ chữ — coi là đang gõ thì Esc không đóng được bảng sau khi vừa bấm một ô tích.
  */
 const NOT_TYPING = new Set(['checkbox', 'radio', 'range', 'button', 'submit', 'reset', 'color']);
@@ -59,7 +57,7 @@ export function CharacterPanel() {
 	// (lớp `max-height:500px` bên dưới) — xuống hàng là mất thêm 50px của khoảng ~150–270px nội dung còn lại.
 	const compact = useMediaQuery('(max-width: 639px), (max-height: 500px)');
 	const visible = !!panel && ready && scene === 'play' && !story;
-	// Bảng không thuộc Hành trang (Bia Danh Vọng) tự vẽ ở component riêng.
+	// Bảng không thuộc Hành trang (Bia Danh Vọng, quầy Bram, lịch điểm danh) tự vẽ ở `ServiceWindow`.
 	const mine = TABS.some((t) => t.id === panel);
 
 	useEffect(() => {
@@ -159,7 +157,6 @@ export function CharacterPanel() {
 					{panel === 'inventory' && <CharacterInventoryTab />}
 					{panel === 'codex' && <CodexTab />}
 					{panel === 'friends' && <CharacterFriendsTab />}
-					{panel === 'shop' && <CharacterShopTab />}
 					{panel === 'settings' && <CharacterSettingsTab />}
 				</div>
 				{/* z-40: trên mọi lớp dính đáy của tab (cột chi tiết z-5, thanh "Bước kế tiếp" z-20, sheet điện thoại z-30) — thiếu nó thì báo "Học" / "Đã mặc" nằm khuất sau chính sheet vừa bấm. */}

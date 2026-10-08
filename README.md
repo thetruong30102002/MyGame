@@ -31,8 +31,7 @@ cd apps/server && npx tsx src/grant.ts "<tên>" 10   # quản trị: cộng kim 
 | Chuột trái / J | Đòn cơ bản, ngắm theo con trỏ |
 | 1 · 2 · 3 · 4 | Kỹ năng (Pháp sư: Hoả Cầu · Thuỷ Tiễn · Phong Nhận · Hồi Phục) |
 | Space | Né (bất tử ngắn, 25 stamina) |
-| E | Nói chuyện / nhặt đồ / qua thoại |
-| H | Cửa hàng kim cương |
+| E | Nói chuyện / nhặt đồ / qua thoại (Bram: quầy kim cương · Bia Danh Vọng: thành tựu) |
 | R | Bình hồi phục |
 
 ### Chơi trên điện thoại
@@ -116,7 +115,7 @@ Phản ứng nguyên tố: **Thuỷ** vào mục tiêu đang cháy → *Hơi Nư
 | 9 Inventory | ◐ mới có xu + bình hồi phục; túi đồ/trang bị chưa làm |
 | 10 Quest | ✔ Chương 0: 4 nhiệm vụ + lời tựa + kết chương, lưu/tải `localStorage` |
 | 11 Online | ◐ M1 xong: đăng nhập, tạo nhân vật nam/nữ (thay Lior trong truyện), thấy nhau, chat, lưu trên máy chủ. Kế hoạch: [`docs/online-va-build.md`](docs/online-va-build.md) |
-| Kim cương | ◐ K1: ví ở máy chủ + nhật ký, điểm danh mỗi ngày, Bia Danh Vọng (thành tựu), Cửa hàng (phím H) bán bình EXP / chiến đấu. Chưa nạp tiền thật — [`docs/ke-hoach-kim-cuong.md`](docs/ke-hoach-kim-cuong.md) |
+| Kim cương | ◐ K1: ví ở máy chủ + nhật ký, điểm danh mỗi ngày, Bia Danh Vọng (thành tựu), quầy kim cương của Bram bán bình EXP / chiến đấu, icon lịch mở cửa sổ điểm danh. Chưa nạp tiền thật — [`docs/ke-hoach-kim-cuong.md`](docs/ke-hoach-kim-cuong.md) |
 | 12–13 | chưa làm (tối ưu asset, mobile) |
 
 Cốt truyện: [`docs/story.md`](docs/story.md). Đội hình nhân vật và lý do loại: [`docs/asset-pipeline.md`](docs/asset-pipeline.md).

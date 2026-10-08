@@ -1,5 +1,6 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import type { NpcSpot } from '@aether/sim/rewards';
 
 /** Mã map `<vùng>/<tên>` hợp lệ — chỉ chữ thường, số, gạch dưới (không cho `..` lọt ra ngoài thư mục map). */
 const MAP_ID = /^[a-z0-9_]{1,24}\/[a-z0-9_]{1,40}$/;
@@ -42,4 +43,11 @@ export function spotOf(dir: string, map: string, id: string): { x: number; y: nu
 		spots.set(file, list);
 	}
 	return list[id] ?? null;
+}
+
+/** Người chơi đứng (map, x, y) có ở gần NPC dịch vụ `npc` không — máy chủ chỉ phục vụ (trao quà, bán hàng) khi đúng chỗ. */
+export function nearNpc(dir: string, at: { map: string; x: number; y: number } | null, npc: NpcSpot): boolean {
+	const spot = spotOf(dir, npc.map, npc.spot);
+	if (!at || !spot || at.map !== npc.map) return false;
+	return Math.hypot(at.x - (spot.x + npc.dx), at.y - (spot.y + npc.dy)) <= npc.range;
 }

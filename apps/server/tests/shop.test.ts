@@ -5,7 +5,7 @@ import { mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import type { ServerMessage } from '@aether/protocol';
-import { BUFF_MAX_MS, buffLabel, buffMults, fmtRemaining, SHOP } from '@aether/sim/shop';
+import { BUFF_MAX_MS, buffLabel, buffMults, fmtRemaining, MERCHANT, SHOP } from '@aether/sim/shop';
 import { Store } from '../src/db.ts';
 const price = (id: string): number => SHOP.find((x) => x.id === id)!.price;
 import { newProgress } from '../src/http.ts';
@@ -60,14 +60,28 @@ const world = new World(store, () => [], undefined, () => clock);
 const acc = store.createAccount('s0', 'x')!;
 store.createSession('tok', acc, 3600_000);
 const me = store.createCharacter('00000000-0000-0000-0000-0000000000c0', acc, 'Mua Sắm', 'female', newProgress())!.id;
-const join_ = (): FakeWs => {
+// Vào game ở Thistlewood; gói vị trí đầu đặt tự do — mặc định đứng ngay trước quầy Bram (địa điểm `plaza` + lệch của Bram).
+const AT_BRAM = { x: 1080 + MERCHANT.dx, y: 1272 + MERCHANT.dy + 30 };
+const join_ = (at = AT_BRAM): FakeWs => {
 	const ws = new FakeWs();
 	world.accept(ws as never);
 	ws.push({ t: 'hello', token: 'tok', character: me });
+	ws.push({ t: 'move', ...at, dir: 'N', anim: 'idle', sprite: 'player_hero_adult' });
 	return ws;
 };
 
 try {
+	test('chỉ bán khi đứng cạnh quầy Bram ở quảng trường', () => {
+		store.addDiamonds(me, 40, 'admin:thử');
+		const far = join_({ x: 300, y: 300 });
+		far.push({ t: 'shopBuy', item: 'exp2_30' });
+		assert.match(far.last('system')!.text, /quầy của Bram/);
+		assert.equal(far.last('bought'), undefined);
+		assert.equal(store.diamonds(me), 40);
+		store.addDiamonds(me, -40, 'admin:thử');
+		far.close();
+	});
+
 	let a = join_();
 	test('vào game: nhận danh sách bình (rỗng); thiếu kim cương thì không mua được, không trừ gì', () => {
 		assert.deepEqual(a.last('buffs')!.list, []);

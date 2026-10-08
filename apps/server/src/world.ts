@@ -96,10 +96,17 @@ export class World {
 		);
 		this.shop = new Shop(
 			store,
-			(id, msg) => {
-				const c = this.conns.get(id);
-				if (c) send(c.ws, msg);
+			{
+				send: (id, msg) => {
+					const c = this.conns.get(id);
+					if (c) send(c.ws, msg);
+				},
+				where: (id) => {
+					const c = this.conns.get(id);
+					return c && c.view.sprite ? { map: c.map, x: c.view.x, y: c.view.y } : null;
+				},
 			},
+			mapsDir,
 			now,
 		);
 		this.buffTimer = setInterval(() => this.shop.tick(), BUFF_TICK_MS);

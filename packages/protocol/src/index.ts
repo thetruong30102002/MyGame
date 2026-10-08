@@ -191,12 +191,16 @@ export interface GiftView {
 	potions: number;
 }
 
-/** Điểm danh hôm nay: `day` = ngày giờ Việt Nam, `streak` = chuỗi ngày liên tiếp tính tới lần gần nhất, `next` = quà kế. */
+/**
+ * Điểm danh hôm nay: `day` = ngày giờ Việt Nam, `streak` = chuỗi ngày liên tiếp tính tới lần gần nhất, `next` = quà kế, `month` =
+ * các ngày đã điểm danh trong tháng của `day` (khung lịch). Máy chủ bản cũ không gửi `month`.
+ */
 export interface DailyView {
 	day: string;
 	done: boolean;
 	streak: number;
 	next: GiftView;
+	month?: string[];
 }
 
 /** Tiến độ một thành tựu (tên / mốc / quà đọc từ `GOALS` dùng chung theo `id`). */

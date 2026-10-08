@@ -112,13 +112,25 @@ pháp lý trước bước K2. Trước đó chỉ chạy ví + cửa hàng vớ
     online (trừ mỗi 5 giây + lúc rời game); hết giờ thì xoá và báo client.
   - **Hiệu ứng áp ở client** (tới K4): `CombatSystem.potion` — EXP hạ quái (không nhân EXP nhiệm vụ), sát thương lên quái (cả quái
     dùng chung — số báo máy chủ đã nhân), sát thương nhận từ quái. Client tự đếm lùi, hết giờ là thôi áp ngay.
-  - **Giao diện**: thẻ **Cửa hàng (phím H)** trong Hành trang (số dư, bình đang dùng, danh sách món; bấm Mua hai lần để chắc); HUD
+  - **Giao diện** (K1c đã đổi — xem dưới): thẻ **Cửa hàng (phím H)** trong Hành trang (số dư, bình đang dùng, danh sách món; bấm Mua hai lần để chắc); HUD
     hiện đồng hồ bình dưới khung tên ("EXP ×2 29:41"), bấm mở thẻ Cửa hàng.
   - Test: `apps/server/tests/shop.test.ts` (7 ca), `apps/web/tests/netmobs.test.ts` mục 8 (EXP ×3, sát thương +20%),
     `apps/web/tests/rewards.test.ts`; thử thật trên máy chủ thử (giá cũ): mua trừ đúng giá, đồng hồ HUD chạy.
-- **Còn lại**: icon kim cương + icon bình (PixelLab — 08/10/2026 lượt miễn phí đang bị khoá "free generations are temporarily
-  unavailable", cần token trả phí); mỹ phẩm (K3); bình hồi máu nhanh / tăng rơi đồ (chưa có hệ rơi đồ); bản bình yếu hơn mua
-  bằng xu / rơi ở boss (mục 2).
+- **K1c — ĐÃ LÀM (08/10/2026): sửa giao diện theo chủ dự án** ("cửa hàng không phải ở UI người dùng, cần đi mua ở NPC; điểm
+  danh cần khung lịch, là tab riêng có icon cái lịch; kim cương hiện ở kho đồ cạnh vàng; vàng hiển thị trong kho, không cần view
+  bên ngoài"):
+  - **Cửa hàng ở NPC**: bỏ thẻ Cửa hàng (phím H) khỏi Hành trang; bấm E ở **Bram** (quảng trường Thistlewood) mở "Quầy của Bram".
+    Máy chủ chỉ bán khi đứng trong 240px quanh Bram (`MERCHANT` ở `@aether/sim/shop`, cùng cách kiểm với Bia Danh Vọng). Bram
+    không giao nhiệm vụ nào — sau này giao thì nhiệm vụ phải được ưu tiên trước quầy.
+  - **Điểm danh = cửa sổ riêng có khung lịch**: icon lịch dưới khung tên (chấm đỏ khi hôm nay chưa nhận) mở cửa sổ: lịch tháng
+    (tuần từ thứ Hai, ngày đã nhận tô vàng, hôm nay viền vàng) + vòng quà 7 ngày + nút Điểm danh. Máy chủ lưu từng ngày đã điểm
+    danh (bảng `checkin_days`, bù ngày điểm danh gần nhất của dữ liệu cũ) và gửi kèm `daily.month`. Bia Danh Vọng chỉ còn thành tựu.
+  - **Tiền chỉ ở Kho đồ**: xu + kim cương hiện cạnh nhau ở đầu Túi đồ; khung tên trên HUD bỏ hẳn xu / kim cương. Đồng hồ bình vẫn
+    trên HUD (cạnh icon lịch), chỉ để xem.
+  - **Icon TẠM vẽ tay** (PixelLab đang khoá lượt miễn phí): `public/assets/ui/icon_diamond.png` (22×18 ×2) và `icon_calendar.png`
+    (20×20 ×2) — có hình PixelLab thì thay đúng hai file này (giữ cỡ, hoặc sửa `width`/`height` ở chỗ dùng).
+- **Còn lại**: icon kim cương / lịch / bình bằng PixelLab (cần token trả phí); mỹ phẩm (K3); bình hồi máu nhanh / tăng rơi đồ (chưa
+  có hệ rơi đồ); bản bình yếu hơn mua bằng xu / rơi ở boss (mục 2).
 
 ## 7. Câu hỏi còn mở
 

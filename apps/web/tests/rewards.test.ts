@@ -3,7 +3,7 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { CHRONICLER, GOALS } from '@aether/sim/rewards';
-import { activeBuffs, fmtCount, giftText, goalGroups } from '../src/game/rewards';
+import { activeBuffs, fmtCount, giftText, goalGroups, monthGrid } from '../src/game/rewards';
 import { STORY } from '../src/game/story/story';
 
 let passed = 0;
@@ -43,6 +43,15 @@ test('bình đang dùng: client tự đếm lùi từ lúc nhận, hết giờ t
 	assert.deepEqual(activeBuffs(st, 1000 + 30_000), [{ kind: 'exp', mult: 2, remaining: 30 }]);
 	assert.deepEqual(activeBuffs(st, 1000 + 61_000), []);
 	assert.deepEqual(activeBuffs(null, 0), []);
+});
+
+test('khung lịch: tuần bắt đầu thứ Hai, đủ ngày của tháng (cả tháng 2 năm nhuận)', () => {
+	const oct = monthGrid('2026-10-08');
+	assert.equal(oct.filter((c) => c === null).length, 3, '01/10/2026 là thứ Năm → 3 ô trống (T2, T3, T4)');
+	assert.deepEqual(oct[3], { day: '2026-10-01', date: 1 });
+	assert.equal(oct.at(-1)!.day, '2026-10-31');
+	assert.equal(monthGrid('2028-02-10').filter(Boolean).length, 29);
+	assert.equal(monthGrid('2026-06-01')[0]!.day, '2026-06-01', '01/06/2026 là thứ Hai → không ô trống');
 });
 
 console.log(`${passed} test qua`);

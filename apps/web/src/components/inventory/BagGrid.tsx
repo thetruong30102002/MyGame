@@ -4,6 +4,7 @@ import { useRef, type KeyboardEvent } from 'react';
 import { BAG_SIZE, bagUsed } from '@/game/equipment';
 import { ITEM_INFO } from '@/game/items';
 import type { InventoryItem } from '@/store/useGameStore';
+import { useSession } from '@/store/useSession';
 import { fmtNum } from '../CharacterPanelParts';
 import { ItemIcon, type InvMode } from './invShared';
 
@@ -46,6 +47,7 @@ export interface BagProps {
  * giấy lõm. Máy tính: lưới hiện 2 hàng, cuộn trong; điện thoại: cả tab cuộn chung (không lồng vùng cuộn).
  */
 export function BagGrid({ mode, items, coins, filter, onFilter, selected, fits, cols, fine, touch, onPick, onPickDouble, onHover, note }: BagProps) {
+	const diamonds = useSession((s) => s.diamonds);
 	const gridRef = useRef<HTMLDivElement>(null);
 	// Màn thấp không có chip lọc: bộ lọc chọn từ lúc máy còn dọc (state ở màn cha, xoay máy không dựng lại) không được giấu
 	// đồ mà không còn nút nào để bỏ lọc.
@@ -70,15 +72,26 @@ export function BagGrid({ mode, items, coins, filter, onFilter, selected, fits, 
 
 	return (
 		<div className="flex min-w-0 flex-col gap-2">
-			<div className="flex items-center gap-2">
-				<h3 className="font-display text-[18px] leading-[1.3] font-extrabold">Túi đồ</h3>
-				<span className="text-note text-ink-soft tabular-nums" title="Bình mật ong không chiếm ô túi">
+			<div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+				<h3 className="whitespace-nowrap font-display text-[18px] leading-[1.3] font-extrabold">Túi đồ</h3>
+				<span className="whitespace-nowrap text-note text-ink-soft tabular-nums" title="Bình mật ong không chiếm ô túi">
 					{bagUsed(items)}/{BAG_SIZE} ô
 				</span>
-				<span className="ml-auto flex items-center gap-1" title="Xu — để tẩy điểm tiềm năng">
+				{/* Tiền: xu + kim cương thành một cụm — màn hẹp thì cả cụm xuống hàng riêng thay vì bẻ chữ. */}
+				<span className="ml-auto flex items-center gap-3 whitespace-nowrap">
+				<span className="flex items-center gap-1" title="Xu — để tẩy điểm tiềm năng">
 					<img src={ITEM_INFO.coins?.icon ?? '/assets/ui/icon_coins.png'} width={44} height={37} alt="" draggable={false} className="pixel-img max-w-none" />
 					<b className="text-[18px] font-extrabold tabular-nums">{fmtNum(coins)}</b>
 					<span className="text-note text-ink-soft">xu</span>
+				</span>
+				{/* Kim cương (K1): số dư ở máy chủ — chỉ có khi chơi trực tuyến. Icon TẠM vẽ tay, có icon PixelLab thì thay file. */}
+				{diamonds !== null && (
+					<span className="flex items-center gap-1" title="Kim cương — nhận từ điểm danh và Bia Danh Vọng, mua đồ ở quầy Bram">
+						<img src="/assets/ui/icon_diamond.png" width={44} height={36} alt="" draggable={false} className="pixel-img max-w-none" />
+						<b className="text-[18px] font-extrabold tabular-nums">{fmtNum(diamonds)}</b>
+						<span className="text-note text-ink-soft">kim cương</span>
+					</span>
+				)}
 				</span>
 			</div>
 			{mode !== 'low' && (

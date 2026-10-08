@@ -8,8 +8,10 @@ import { CharacterPanel } from '@/components/CharacterPanel';
 import { CharacterSelect } from '@/components/CharacterSelect';
 import { ChatBox } from '@/components/ChatBox';
 import { GameCanvas } from '@/components/GameCanvas';
+import { CalendarPanel } from '@/components/CalendarPanel';
 import { GloryPanel } from '@/components/GloryPanel';
 import { Hud } from '@/components/Hud';
+import { ShopPanel } from '@/components/ShopPanel';
 import { DialogueBox, StoryScenes } from '@/components/StoryUI';
 import { TouchControls, useTouchDevice } from '@/components/TouchControls';
 import { WorldMap } from '@/components/WorldMap';
@@ -40,6 +42,8 @@ export default function Home() {
 					<WorldMap />
 					<CharacterPanel />
 					<GloryPanel />
+					<ShopPanel />
+					<CalendarPanel />
 					<DialogueBox />
 					<StoryScenes />
 				</>

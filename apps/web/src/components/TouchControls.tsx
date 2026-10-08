@@ -150,7 +150,7 @@ export function TouchControls() {
 	const skillButton = (s: SkillSlot | undefined, size?: 'lg' | 'md' | 'sm'): ReactNode => (s ? <ActionButton key={s.id} label={s.name} code={s.code} size={size} skill={s} /> : gap);
 	const talk = hint ? (
 		<ActionButton label={hint} code="KeyE" size="md">
-			<span className="font-display text-[16px] leading-[1.45] font-extrabold text-white text-outline">{hint.startsWith('Nhặt') ? 'Nhặt' : hint.startsWith('Xem') ? 'Xem' : 'Nói'}</span>
+			<span className="font-display text-[16px] leading-[1.45] font-extrabold text-white text-outline">{hint.startsWith('Nhặt') ? 'Nhặt' : hint.startsWith('Xem') ? 'Xem' : hint.startsWith('Mua') ? 'Mua' : 'Nói'}</span>
 		</ActionButton>
 	) : null;
 	const dodge = full ? (

@@ -86,6 +86,8 @@ Nhân vật = nhiều LỚP ghép lúc chạy, không vẽ sẵn mọi tổ hợ
 
 Icon thẻ **Bạn bè** + **Cài đặt** của bảng Hành trang (08/10/2026 — đang chỉ hiện chữ), cùng nét bộ icon UI `public/assets/ui`.
 
+**Icon kim cương + icon lịch điểm danh** (08/10/2026, K1 — `docs/ke-hoach-kim-cuong.md`): đang dùng hình TẠM vẽ tay `public/assets/ui/icon_diamond.png` (44×36) và `icon_calendar.png` (40×40); vẽ cùng nét tấm icon I1 (`icon_coins`…) rồi ghi đè hai file. Thêm icon từng loại bình kim cương (EXP, Cuồng Lực, Hộ Thân) cho đồng hồ bình trên HUD.
+
 **Cuốn sách Thư viện** (08/10/2026): hai trang giấy cũ mở ra + bìa da + gáy, dải đánh dấu (3 màu), khung chân dung — đang dùng khung
 UI gỗ / giấy sẵn có (`components/CodexBook.tsx`). Vẽ dạng tấm 9-slice (`ui` pipeline) để co giãn theo màn hình.
 

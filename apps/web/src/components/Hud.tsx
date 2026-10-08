@@ -98,7 +98,8 @@ function HudPortrait({ src, alt, iw, ih, legacy }: { src: string; alt: string; i
 
 /**
  * Khung tên (gỗ phẳng). `compact` (điện thoại dọc, khung 208px): dòng 1 dành trọn cho tên; nhãn phụ (tuổi / con đường)
- * và xu xuống dòng dưới — để chung dòng thì tên chỉ còn ~45px. Không có hàng nút: bấm vào khung là mở bảng Nhân vật
+ * xuống dòng dưới — để chung dòng thì tên chỉ còn ~45px. Xu + kim cương KHÔNG hiện ở đây (chủ dự án 08/10/2026: "vàng nên hiển
+ * thị trong kho, không cần view ngay bên ngoài") — xem ở Kho đồ. Không có hàng nút: bấm vào khung là mở bảng Nhân vật
  * (trong đó có tab Kho đồ / Tiềm năng). Vũ khí đã bỏ khỏi đây — ảnh 49–54px thu về 20px lẻ, mà Kho đồ đã có.
  * Chân dung nằm trong ô đá: máy tính 90×88 = đúng 2 lần mảnh giữa của slot.png nên viền đá không bị co giãn lẻ.
  */
@@ -107,7 +108,6 @@ function PlayerFrame({ touch, compact, slim = false }: { touch: boolean; compact
 	const portrait = useGameStore((st) => st.playerPortrait);
 	const hud = useGameStore((st) => st.hud);
 	const unspent = useGameStore((st) => st.talents.unspent);
-	const diamonds = useSession((st) => st.diamonds);
 	// Tranh cũ là ảnh nguyên người khổ lớn, phải cắt lấy đầu; ảnh mặt của pipeline thì vừa khung sẵn.
 	const legacy = /\/(lior|hero-female)\.png$/.test(portrait);
 	const [name, ...rest] = s.name.split(' · ');
@@ -122,17 +122,6 @@ function PlayerFrame({ touch, compact, slim = false }: { touch: boolean; compact
 	);
 	// Điện thoại xoay ngang (`slim`): khung hẹp — bỏ nhãn con đường (đã có trong bảng Nhân vật) để tên không bị cắt.
 	const subEl = sub && !slim ? <span className="ui-tag min-w-0 shrink truncate bg-gold/20 leading-[1.45] text-gold-hi">{sub}</span> : null;
-	// Kim cương (K1): số máy chủ đẩy — máy chủ bản cũ không gửi thì ẩn. Chưa có icon PixelLab nên ghi chữ "KC" như "xu".
-	const coins = (
-		<span className="ml-auto flex shrink-0 items-baseline gap-1.5 text-note font-extrabold tabular-nums">
-			<span className="text-gold-hi">{s.coins} xu</span>
-			{diamonds !== null && (
-				<span className="text-sky" title="Kim cương — nhận khi điểm danh và ở Bia Danh Vọng">
-					{diamonds} KC
-				</span>
-			)}
-		</span>
-	);
 	const bar = touch ? 'touch' : 'main';
 	return (
 		// Bấm vào bất kỳ chỗ nào trên khung (chân dung, tên, thanh máu) là mở bảng Nhân vật — trong đó có tab Kho đồ / Tiềm năng.
@@ -152,16 +141,12 @@ function PlayerFrame({ touch, compact, slim = false }: { touch: boolean; compact
 				{compact ? (
 					<>
 						{nameEl}
-						<div className="-mt-0.5 flex min-w-0 items-center gap-1.5">
-							{subEl}
-							{coins}
-						</div>
+						{subEl && <div className="-mt-0.5 flex min-w-0 items-center gap-1.5">{subEl}</div>}
 					</>
 				) : (
 					<div className={`flex min-w-0 items-center gap-1.5 ${badgeOnFrame ? 'pr-6' : ''}`}>
 						{nameEl}
 						{subEl}
-						{coins}
 					</div>
 				)}
 				{hud !== 'minimal' && <Bar value={s.hp} max={s.hpMax} fill="var(--color-hp)" label={`${s.hp} / ${s.hpMax}`} size={bar} />}
@@ -175,36 +160,31 @@ function PlayerFrame({ touch, compact, slim = false }: { touch: boolean; compact
 }
 
 /**
- * Nút điểm danh dưới khung tên (K1): chỉ hiện khi hôm nay (giờ Việt Nam, máy chủ tính) chưa điểm danh. Bấm một lần là ẩn ngay,
- * chờ máy chủ trả trạng thái mới — quà hiện bằng thông báo. Máy chủ chặn lần thứ hai nên bấm đúp cũng không nhận đôi.
+ * Icon lịch dưới khung tên (K1): mở cửa sổ Điểm danh có khung lịch. Chấm đỏ = hôm nay (giờ Việt Nam, máy chủ tính) chưa điểm
+ * danh. Icon là hình TẠM vẽ tay (`public/assets/ui/icon_calendar.png`, 20×20 ×2) — có icon PixelLab thì thay file.
  */
-function DailyChip({ touch }: { touch: boolean }) {
+function CalendarButton({ touch }: { touch: boolean }) {
 	const online = useSession((st) => st.online);
 	const daily = useSession((st) => st.daily);
-	const connected = useSession((st) => st.connected);
-	// Ghi lại đúng bản trạng thái lúc bấm: máy chủ trả bản mới (đã điểm danh, hoặc lỗi) thì nút theo bản mới.
-	const [sentFor, setSentFor] = useState<typeof daily>(null);
-	if (!online || !daily || daily.done || sentFor === daily) return null;
+	if (!online || !daily) return null;
+	const label = daily.done ? 'Điểm danh — hôm nay đã nhận' : 'Điểm danh — hôm nay chưa nhận quà';
 	return (
 		<button
 			type="button"
-			disabled={!connected}
-			onClick={() => {
-				online.checkin();
-				setSentFor(daily);
-			}}
-			title={`Điểm danh mỗi ngày: +${daily.next.diamonds} kim cương, ${daily.next.coins} xu, ${daily.next.potions} Bình hồi phục`}
-			className={`ui-plank pointer-events-auto relative flex items-center gap-2 rounded-full pl-3 pr-1.5 font-extrabold text-parchment ring-2 ring-gold transition-[filter] before:absolute before:-inset-1 enabled:hover:brightness-110 disabled:opacity-60 ${touch ? 'h-9 text-note' : 'h-9 text-body'}`}
+			onClick={() => togglePanel('calendar')}
+			aria-label={label}
+			title={label}
+			className={`ui-plank pointer-events-auto relative flex items-center justify-center transition-[filter] before:absolute before:-inset-1 hover:brightness-110 ${touch ? 'h-12 w-12' : 'h-[52px] w-[52px]'}`}
 		>
-			<span className="leading-[1.45]">Điểm danh{daily.streak > 0 ? ` · chuỗi ${daily.streak} ngày` : ''}</span>
-			<span className="ui-tag bg-sky text-ink-brown">+{daily.next.diamonds} KC</span>
+			<img src="/assets/ui/icon_calendar.png" width={40} height={40} alt="" draggable={false} className="pixel-img max-w-none" />
+			{!daily.done && <span className="absolute -right-1.5 -top-1.5 h-4 w-4 animate-bob rounded-full border-2 border-paper-hi bg-[#b22911]" />}
 		</button>
 	);
 }
 
 /**
- * Bình kim cương đang dùng (K1): nhãn + đồng hồ đếm lùi giờ chơi (chưa có icon PixelLab — chữ trên thẻ gỗ). Bấm mở thẻ
- * Cửa hàng. Không có bình thì không vẽ gì.
+ * Bình kim cương đang dùng (K1): nhãn + đồng hồ đếm lùi giờ chơi (chưa có icon PixelLab — chữ trên thẻ gỗ). Chỉ để xem — mua
+ * thêm ở quầy Bram. Không có bình thì không vẽ gì.
  */
 function BuffChips({ touch }: { touch: boolean }) {
 	const buffs = useSession((st) => st.buffs);
@@ -212,18 +192,16 @@ function BuffChips({ touch }: { touch: boolean }) {
 	const list = activeBuffs(buffs, now);
 	if (!list.length) return null;
 	return (
-		<div className="flex max-w-[316px] flex-wrap gap-1.5">
+		<div className="flex max-w-[256px] flex-wrap items-center gap-1.5">
 			{list.map((b) => (
-				<button
+				<span
 					key={b.kind}
-					type="button"
-					onClick={() => togglePanel('shop')}
-					title="Bình đang dùng — mở Cửa hàng (H)"
-					className={`ui-plank pointer-events-auto flex h-7 items-center gap-1.5 rounded-full px-2.5 font-extrabold tabular-nums text-parchment hover:brightness-110 ${touch ? 'text-chip' : 'text-note'}`}
+					title="Bình đang dùng — mua thêm ở quầy Bram (quảng trường Thistlewood)"
+					className={`ui-plank pointer-events-auto flex h-7 items-center gap-1.5 rounded-full px-2.5 font-extrabold tabular-nums text-parchment ${touch ? 'text-chip' : 'text-note'}`}
 				>
 					<span className="text-sky">{buffLabel(b.kind, b.mult)}</span>
 					<span>{fmtRemaining(b.remaining)}</span>
-				</button>
+				</span>
 			))}
 		</div>
 	);
@@ -479,8 +457,10 @@ export function Hud() {
 					{/* Hai cột xếp chồng thay cho toạ độ cứng: trái = bảng tên (+ chat trên màn cảm ứng), phải = bản đồ nhỏ → nhiệm vụ → thông báo. */}
 					<div ref={leftCol} className="absolute left-[max(12px,env(safe-area-inset-left))] top-[max(12px,env(safe-area-inset-top))] flex flex-col items-start gap-2">
 						<PlayerFrame touch={touch} compact={touch && !low} slim={low} />
-						<DailyChip touch={touch} />
-						<BuffChips touch={touch} />
+						<div className="flex items-center gap-2">
+							<CalendarButton touch={touch} />
+							<BuffChips touch={touch} />
+						</div>
 						{touch && <ChatBox placement="stack" />}
 					</div>
 					<div className="absolute right-[max(12px,env(safe-area-inset-right))] top-[max(12px,env(safe-area-inset-top))] flex flex-col items-end gap-4">

@@ -74,7 +74,7 @@ import { GEAR_ART } from './gearArt';
 import { buildCodex, npcKey } from './codex';
 import { isSharedZone } from '@aether/sim/mobs';
 import { CHRONICLER } from '@aether/sim/rewards';
-import { buffMults, SHOP } from '@aether/sim/shop';
+import { buffMults, MERCHANT_NPCS, SHOP } from '@aether/sim/shop';
 import type { MobView } from '@aether/protocol';
 import { GIFT_ITEMS } from './items';
 import { activeBuffs, giftText } from './rewards';
@@ -929,6 +929,8 @@ export class Game {
 			n.actor?.view.set('idle', directionOf(this.player.x - n.x, this.player.y - n.y));
 			// Bia Danh Vọng: mở bảng thành tựu (máy chủ giữ tiến độ + kim cương). Chơi một mình thì chỉ đọc chữ trên bia.
 			if (n.key === CHRONICLER.npc && this.online) return void useGameStore.getState().setPanel('glory');
+			// Bram: quầy Cửa hàng kim cương (Bram không giao nhiệm vụ nào — có thì nhiệm vụ phải được ưu tiên trước quầy).
+			if (MERCHANT_NPCS.includes(n.key) && this.online) return void useGameStore.getState().setPanel('shop');
 			this.story.talk(n.key);
 			return;
 		}
@@ -1442,7 +1444,7 @@ export class Game {
 		const tiers = this.story.talentTiers();
 		const target = this.canAct() ? this.nearestInteractable() : null;
 		// Vật thể (bia đá cổ) thì "Xem", người thì "Nói chuyện với".
-		const npcVerb = (key: string) => (STORY.npcs[key]?.prop ? 'Xem' : 'Nói chuyện với');
+		const npcVerb = (key: string) => (MERCHANT_NPCS.includes(key) && this.online ? 'Mua hàng của' : STORY.npcs[key]?.prop ? 'Xem' : 'Nói chuyện với');
 		const hint = !target ? null : target.kind === 'npc' ? `${npcVerb(target.npc.key)} ${this.story.npcName(target.npc.key)}` : `Nhặt ${target.pickup.loot ? itemDef(target.pickup.item).name : (ITEM_NAME[target.pickup.item] ?? target.pickup.item)}`;
 		useGameStore.setState({
 			fps: Math.round(ticker.FPS),

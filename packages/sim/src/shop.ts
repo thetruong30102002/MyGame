@@ -10,6 +10,14 @@
  * Trước K4 (máy chủ tính sát thương / EXP) hiệu ứng áp ở client — chỉ PvE: EXP hạ quái, sát thương lên quái, sát thương nhận từ quái.
  */
 import type { BuffKind } from '@aether/protocol';
+import type { NpcSpot } from './rewards.ts';
+
+/**
+ * Người bán: Bram — thương nhân lữ hành ở quảng trường Thistlewood (chủ dự án 08/10/2026: "cửa hàng không phải ở UI người dùng,
+ * cần đi mua ở NPC"). Máy chủ chỉ bán khi người chơi đứng gần chỗ này. Bram có hai khoá NPC theo tuổi (cùng chỗ đứng).
+ */
+export const MERCHANT = { npc: 'bram', map: 'human/town', spot: 'plaza', dx: -110, dy: -40, range: 240 } as const satisfies NpcSpot;
+export const MERCHANT_NPCS: readonly string[] = ['bram', 'merchant_bram'];
 
 export interface ShopItem {
 	id: string;

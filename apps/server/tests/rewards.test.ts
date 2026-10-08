@@ -100,14 +100,14 @@ try {
 	const a = join_(0);
 	test('vào game: nhận số dư ví + điểm danh hôm nay (chưa điểm danh, quà ngày 1)', () => {
 		assert.deepEqual(a.last('wallet'), { t: 'wallet', diamonds: 0 });
-		assert.deepEqual(a.last('daily')!.daily, { day: '2026-10-08', done: false, streak: 0, next: checkinGift(1) });
+		assert.deepEqual(a.last('daily')!.daily, { day: '2026-10-08', done: false, streak: 0, next: checkinGift(1), month: [] });
 	});
 
 	test('điểm danh: quà + ví + trạng thái mới; lần hai trong ngày bị chặn, không cộng thêm', () => {
 		a.push({ t: 'checkin' });
 		assert.deepEqual(a.last('gift'), { t: 'gift', reason: 'checkin', title: 'Điểm danh ngày 1', gift: checkinGift(1) });
 		assert.deepEqual(a.last('wallet'), { t: 'wallet', diamonds: 1 });
-		assert.deepEqual(a.last('daily')!.daily, { day: '2026-10-08', done: true, streak: 1, next: checkinGift(2) });
+		assert.deepEqual(a.last('daily')!.daily, { day: '2026-10-08', done: true, streak: 1, next: checkinGift(2), month: ['2026-10-08'] });
 		a.push({ t: 'checkin' });
 		assert.equal(a.count('gift'), 1);
 		assert.match(a.last('system')!.text, /đã điểm danh rồi/);
@@ -126,6 +126,7 @@ try {
 		assert.equal(again.last('gift')!.title, 'Điểm danh ngày 1');
 		assert.equal(store.diamonds(an), 3, 'mỗi ngày đúng 1 kim cương');
 		assert.deepEqual(store.checkinState(an), { lastDay: '2026-10-11', streak: 1, total: 3 });
+		assert.deepEqual(again.last('daily')!.daily.month, ['2026-10-08', '2026-10-09', '2026-10-11'], 'khung lịch: các ngày đã điểm danh trong tháng');
 	});
 
 	const b = join_(1);

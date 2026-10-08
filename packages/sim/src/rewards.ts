@@ -95,5 +95,15 @@ export function killStats(counts: Record<string, number>): Pick<GoalStats, 'kill
 	return { kills, bosses };
 }
 
-/** NPC nhận quà thành tựu: Bia Danh Vọng ở quảng trường Thistlewood. Máy chủ chỉ trao quà khi người chơi đứng trong `range`. */
-export const CHRONICLER = { npc: 'chronicler', map: 'human/town', spot: 'plaza', dx: 110, dy: -40, range: 240 } as const;
+/** Chỗ đứng của một NPC dịch vụ: địa điểm `spot` của map + lệch (dx, dy). Máy chủ chỉ phục vụ người đứng trong `range` px. */
+export interface NpcSpot {
+	npc: string;
+	map: string;
+	spot: string;
+	dx: number;
+	dy: number;
+	range: number;
+}
+
+/** NPC nhận quà thành tựu: Bia Danh Vọng ở quảng trường Thistlewood (đối xứng với quầy của Bram). */
+export const CHRONICLER = { npc: 'chronicler', map: 'human/town', spot: 'plaza', dx: 110, dy: -40, range: 240 } as const satisfies NpcSpot;

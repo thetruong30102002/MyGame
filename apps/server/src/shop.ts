@@ -1,13 +1,20 @@
 import type { ServerMessage } from '@aether/protocol';
-import { BUFF_MAX_MS, buffPower, SHOP } from '@aether/sim/shop';
+import { BUFF_MAX_MS, buffPower, MERCHANT, SHOP } from '@aether/sim/shop';
 import type { Store } from './db.ts';
+import { nearNpc } from './maps.ts';
+
+/** Phần thế giới cửa hàng cần: gửi tin + người chơi đang đứng đâu (chỉ bán khi đứng cạnh Bram). */
+export interface ShopHost {
+	send(player: string, msg: ServerMessage): void;
+	where(player: string): { map: string; x: number; y: number } | null;
+}
 
 /** Nhịp trừ giờ chơi của bình (ms) — đủ mịn cho đồng hồ phút:giây ở client (client tự đếm lùi giữa hai nhịp). */
 export const BUFF_TICK_MS = 5000;
 
 /**
- * Cửa hàng kim cương + bình thời hạn (K1 — docs/ke-hoach-kim-cuong.md). Giá theo danh mục CỦA MÁY CHỦ (`@aether/sim/shop`);
- * kim cương trừ và bình ghi trong một transaction. Thời gian bình chỉ trôi lúc người chơi online: vào game bắt đầu đếm, mỗi
+ * Cửa hàng kim cương + bình thời hạn (K1 — docs/ke-hoach-kim-cuong.md), bán ở quầy Bram (`MERCHANT` — đứng xa thì không bán).
+ * Giá theo danh mục CỦA MÁY CHỦ (`@aether/sim/shop`); kim cương trừ và bình ghi trong một transaction. Thời gian bình chỉ trôi lúc người chơi online: vào game bắt đầu đếm, mỗi
  * `BUFF_TICK_MS` trừ phần đã chơi, rời game trừ nốt.
  */
 export class Shop {
@@ -16,9 +23,14 @@ export class Shop {
 
 	constructor(
 		private readonly store: Store,
-		private readonly send: (player: string, msg: ServerMessage) => void,
+		private readonly host: ShopHost,
+		private readonly mapsDir: string,
 		private readonly now: () => number = Date.now,
 	) {}
+
+	private send(player: string, msg: ServerMessage): void {
+		this.host.send(player, msg);
+	}
 
 	/** Vừa vào game: bắt đầu đếm giờ + gửi bình đang có. */
 	online(player: string): void {
@@ -40,6 +52,7 @@ export class Shop {
 	buy(player: string, raw: unknown): void {
 		const item = SHOP.find((x) => x.id === String(raw ?? ''));
 		if (!item) return;
+		if (!nearNpc(this.mapsDir, this.host.where(player), MERCHANT)) return this.send(player, { t: 'system', text: 'Hãy tới quầy của Bram ở quảng trường Thistlewood để mua hàng' });
 		// Trừ giờ đã chơi TRƯỚC khi so bình đang có / cộng thời gian — không thì phần chơi từ nhịp trước được tính lại.
 		this.spend(player);
 		const r = this.store.buyBuff(player, { id: item.id, price: item.price, kind: item.buff.kind, mult: item.buff.mult, ms: item.buff.minutes * 60_000 }, buffPower, BUFF_MAX_MS);

@@ -1,7 +1,7 @@
 import type { ClientMessage, DailyView, GoalView, ServerMessage } from '@aether/protocol';
 import { checkinGift, checkinSlot, CHRONICLER, dayBefore, GOALS, killStats, nextStreak, vnDay, type GoalStats } from '@aether/sim/rewards';
 import type { Store } from './db.ts';
-import { mapExists, spotOf } from './maps.ts';
+import { mapExists, nearNpc } from './maps.ts';
 
 /** Phần thế giới mà ví / quà cần: gửi tin + người chơi đang đứng đâu. */
 export interface RewardsHost {
@@ -46,7 +46,8 @@ export class Rewards {
 		const done = s.lastDay === today;
 		// Chuỗi đang SỐNG: điểm danh hôm nay hoặc hôm qua; bỏ một ngày là đứt (hiện 0, lần kế bắt đầu lại từ ngày 1).
 		const streak = done || s.lastDay === dayBefore(today) ? s.streak : 0;
-		return { day: today, done, streak, next: checkinGift(done ? streak + 1 : nextStreak(s.lastDay, s.streak, today)) };
+		const month = this.store.checkinDays(player, today.slice(0, 7));
+		return { day: today, done, streak, next: checkinGift(done ? streak + 1 : nextStreak(s.lastDay, s.streak, today)), month };
 	}
 
 	stats(player: string): GoalStats {
@@ -77,7 +78,7 @@ export class Rewards {
 	private claim(player: string, id: string): void {
 		const g = GOALS.find((x) => x.id === id);
 		if (!g) return;
-		if (!this.nearChronicler(player)) return this.host.send(player, { t: 'system', text: 'Hãy tới Bia Danh Vọng ở quảng trường Thistlewood để nhận quà thành tựu' });
+		if (!nearNpc(this.mapsDir, this.host.where(player), CHRONICLER)) return this.host.send(player, { t: 'system', text: 'Hãy tới Bia Danh Vọng ở quảng trường Thistlewood để nhận quà thành tựu' });
 		if (this.stats(player)[g.kind] < g.target) return this.host.send(player, { t: 'system', text: `Chưa đạt mục tiêu "${g.title}"` });
 		const balance = this.store.claimGoal(player, g.id, g.diamonds);
 		if (balance !== null) {
@@ -85,12 +86,5 @@ export class Rewards {
 			this.host.send(player, { t: 'wallet', diamonds: balance });
 		}
 		this.host.send(player, { t: 'goals', list: this.goals(player) });
-	}
-
-	private nearChronicler(player: string): boolean {
-		const at = this.host.where(player);
-		const spot = spotOf(this.mapsDir, CHRONICLER.map, CHRONICLER.spot);
-		if (!at || !spot || at.map !== CHRONICLER.map) return false;
-		return Math.hypot(at.x - (spot.x + CHRONICLER.dx), at.y - (spot.y + CHRONICLER.dy)) <= CHRONICLER.range;
 	}
 }

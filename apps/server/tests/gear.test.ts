@@ -53,6 +53,7 @@ const store = {
 	// Ví + điểm danh (K1): ví rỗng, chưa điểm danh, thám hiểm không ghi.
 	diamonds: () => 0,
 	checkinState: () => ({ lastDay: null, streak: 0, total: 0 }),
+	checkinDays: () => [],
 	visit: () => {},
 	buffs: () => [],
 	spendBuffs: () => 0,
