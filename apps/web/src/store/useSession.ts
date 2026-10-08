@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import type { CharacterInfo, Gender, SocialState } from '@aether/protocol';
+import type { BuffView, CharacterInfo, DailyView, Gender, GoalView, SocialState } from '@aether/protocol';
 import { api, ApiError } from '@/net/api';
 import { OnlineSession } from '@/net/OnlineSession';
 
@@ -43,6 +43,14 @@ interface SessionState {
 	chat: ChatLine[];
 	/** Bạn bè / lời mời / chặn (máy chủ đẩy nguyên khối). */
 	social: SocialState;
+	/** Số kim cương trong ví (máy chủ đẩy sau khi vào game và mỗi lần đổi) — null = chưa biết (máy chủ bản cũ). */
+	diamonds: number | null;
+	/** Điểm danh hôm nay (máy chủ đẩy lúc vào game + sau mỗi lần điểm danh). */
+	daily: DailyView | null;
+	/** Tiến độ thành tựu — chỉ có sau khi xin (mở Bia Danh Vọng). */
+	goals: GoalView[] | null;
+	/** Bình thời hạn đang hiệu lực + lúc nhận (Date.now) — giây còn lại tính lùi từ mốc này (`activeBuffs`). */
+	buffs: { list: BuffView[]; at: number } | null;
 	/** Đang nhắn riêng cho ai (ô nhập chat gửi tin riêng tới người này) — null = chat map. */
 	whisperTo: PersonRef | null;
 	/** Người vừa nhắn riêng cho mình gần nhất — lệnh `/r` trả lời người này. */
@@ -66,6 +74,9 @@ interface SessionState {
 }
 
 let chatId = 0;
+
+/** Ví / điểm danh / thành tựu của nhân vật trước không được lọt sang lượt chơi mới. */
+const NO_REWARDS = { diamonds: null, daily: null, goals: null, buffs: null };
 
 function readStored(key: string): string | null {
 	try {
@@ -109,6 +120,10 @@ export const useSession = create<SessionState>((set, get) => {
 		connected: false,
 		chat: [],
 		social: EMPTY_SOCIAL,
+		diamonds: null,
+		daily: null,
+		goals: null,
+		buffs: null,
 		whisperTo: null,
 		lastWhisper: null,
 		setWhisperTo: (whisperTo) => set({ whisperTo }),
@@ -145,7 +160,7 @@ export const useSession = create<SessionState>((set, get) => {
 			const { token, online } = get();
 			online?.close();
 			writeToken(null);
-			set({ token: null, characters: [], online: null, screen: 'auth', chat: [], notice: null, social: EMPTY_SOCIAL, whisperTo: null, lastWhisper: null });
+			set({ token: null, characters: [], online: null, screen: 'auth', chat: [], notice: null, social: EMPTY_SOCIAL, ...NO_REWARDS, whisperTo: null, lastWhisper: null });
 			if (token) await api.logout(token).catch(() => undefined);
 		},
 		createCharacter: async (name, gender) => {
@@ -176,7 +191,7 @@ export const useSession = create<SessionState>((set, get) => {
 			const token = get().token;
 			if (!token) return;
 			const online = new OnlineSession(token, character);
-			set({ online, screen: 'game', chat: [], error: null, notice: null, social: EMPTY_SOCIAL, whisperTo: null, lastWhisper: null });
+			set({ online, screen: 'game', chat: [], error: null, notice: null, social: EMPTY_SOCIAL, ...NO_REWARDS, whisperTo: null, lastWhisper: null });
 		},
 		leaveGame: async (notice) => {
 			const { online, token } = get();

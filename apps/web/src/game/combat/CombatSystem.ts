@@ -629,6 +629,11 @@ export class CombatSystem {
 	time = 0;
 	/** Giây còn lại của hit-stop: Game làm chậm thế giới trong khoảng này cho đòn đánh có "lực". */
 	hitStop = 0;
+	/**
+	 * Bình thời hạn mua bằng kim cương (K1 — `@aether/sim/shop`), Game đặt theo bình còn hiệu lực. Chỉ PvE, áp ở client tới K4:
+	 * `exp` nhân EXP hạ quái, `dmg` nhân sát thương lên quái, `guard` nhân sát thương nhận từ quái. 1 = không có bình.
+	 */
+	potion = { exp: 1, dmg: 1, guard: 1 };
 	/** Loé màn hình: màu + cường độ, Game vẽ lớp phủ. */
 	screenFlash = { color: 0xffffff, alpha: 0 };
 	/** Vị trí kỹ năng (index) đang GIỮ phím — Game cập nhật mỗi frame; đòn của phím đang giữ đứng chờ ở frame cuối. */
@@ -2655,7 +2660,7 @@ export class CombatSystem {
 		if (pc.dead || pc.iframes > 0) return;
 		// Tâm Tĩnh (Thủy Thần 4): đứng yên đủ lâu hoặc đang giữ thế thì nhận ít hơn.
 		const calm = this.fx.calm < 1 && (pc.guard || this.stillT >= GUARD.still) ? this.fx.calm : 1;
-		const dmg = Math.max(1, Math.round(amount * (0.9 + Math.random() * 0.2) * this.fx.damageTaken * calm - pc.def * this.fx.defense * 0.5));
+		const dmg = Math.max(1, Math.round(amount * (0.9 + Math.random() * 0.2) * this.fx.damageTaken * calm * this.potion.guard - pc.def * this.fx.defense * 0.5));
 		pc.hp -= dmg;
 		pc.lastHurt = this.time;
 		pc.iframes = 0.35;
@@ -3227,6 +3232,7 @@ export class CombatSystem {
 	 */
 	private damage(f: Fighter, amount: number, color: number, crit: boolean, fromBurn = false, snap?: { burning: boolean; frozen: boolean }): void {
 		if (f.dead) return;
+		if (this.potion.dmg !== 1) amount = Math.max(1, Math.round(amount * this.potion.dmg));
 		f.flash = 0.09;
 		f.shownBar = 3;
 		this.float(f.actor.x + (Math.random() - 0.5) * 16, f.actor.y - f.actor.height - 12, `${amount}${crit ? '!' : ''}`, color, crit ? 20 : 14);
@@ -3292,7 +3298,7 @@ export class CombatSystem {
 		if (!rewarded) return;
 		this.pc.coins += f.stats.coins;
 		this.hooks.toast(`+${f.stats.coins} xu`, 'loot');
-		this.grantExp(f.stats.exp);
+		this.grantExp(Math.round(f.stats.exp * this.potion.exp));
 		this.hooks.enemyKilled(f);
 	}
 

@@ -6,6 +6,7 @@ import { useSession } from '@/store/useSession';
 import { CharacterFriendsTab } from './CharacterPanelFriends';
 import { CharacterInventoryTab } from './CharacterPanelInventory';
 import { CharacterSettingsTab } from './CharacterPanelSettings';
+import { CharacterShopTab } from './CharacterPanelShop';
 import { CodexTab } from './CodexTab';
 import { CharacterStatsTab } from './CharacterPanelStats';
 import { CharacterTalentsTab } from './CharacterPanelTalents';
@@ -14,18 +15,19 @@ import { useTouchDevice } from './TouchControls';
 import { useMediaQuery } from './useMediaQuery';
 
 /** Mỗi thẻ một icon PixelLab hiện đúng 1× (cỡ gốc trong public/assets/ui/ui.json) — tab bìa sổ có hình, đỡ phải đọc chữ. */
-/** Thẻ chỉ có CHỮ (chủ dự án 08/10/2026: bỏ icon trái tim / ngôi sao / ba lô — 6 thẻ cùng một kiểu). */
+/** Thẻ chỉ có CHỮ (chủ dự án 08/10/2026: bỏ icon trái tim / ngôi sao / ba lô — mọi thẻ cùng một kiểu). */
 const TABS: { id: PanelId; label: string; key: string; code: string }[] = [
 	{ id: 'character', label: 'Nhân vật', key: 'C', code: 'KeyC' },
 	{ id: 'talents', label: 'Tiềm năng', key: 'P', code: 'KeyP' },
 	{ id: 'inventory', label: 'Kho đồ', key: 'I', code: 'KeyI' },
 	{ id: 'codex', label: 'Thư viện', key: 'B', code: 'KeyB' },
 	{ id: 'friends', label: 'Bạn bè', key: 'F', code: 'KeyF' },
+	{ id: 'shop', label: 'Cửa hàng', key: 'H', code: 'KeyH' },
 	{ id: 'settings', label: 'Cài đặt', key: 'O', code: 'KeyO' },
 ];
 
 /**
- * Phím C / P / I / F / O / Esc không được cướp phím khi đang GÕ CHỮ (chat, ô mời kết bạn). Ô tích / thanh kéo của thẻ Cài đặt
+ * Phím C / P / I / B / F / H / O / Esc không được cướp phím khi đang GÕ CHỮ (chat, ô mời kết bạn). Ô tích / thanh kéo của thẻ Cài đặt
  * cũng là `<input>` nhưng không gõ chữ — coi là đang gõ thì Esc không đóng được bảng sau khi vừa bấm một ô tích.
  */
 const NOT_TYPING = new Set(['checkbox', 'radio', 'range', 'button', 'submit', 'reset', 'color']);
@@ -57,6 +59,8 @@ export function CharacterPanel() {
 	// (lớp `max-height:500px` bên dưới) — xuống hàng là mất thêm 50px của khoảng ~150–270px nội dung còn lại.
 	const compact = useMediaQuery('(max-width: 639px), (max-height: 500px)');
 	const visible = !!panel && ready && scene === 'play' && !story;
+	// Bảng không thuộc Hành trang (Bia Danh Vọng) tự vẽ ở component riêng.
+	const mine = TABS.some((t) => t.id === panel);
 
 	useEffect(() => {
 		if (panel && (story || scene !== 'play' || !ready)) setPanel(null);
@@ -66,7 +70,7 @@ export function CharacterPanel() {
 	useEffect(() => {
 		if (!visible) return;
 		activeTab.current?.focus({ preventScroll: true });
-		// Điện thoại: hàng 6 thẻ là dải vuốt ngang — thẻ đang chọn (mở bằng nút ngoài HUD, vd Cài đặt) phải lọt vào tầm nhìn.
+		// Điện thoại: hàng thẻ là dải vuốt ngang — thẻ đang chọn (mở bằng nút ngoài HUD, vd Cài đặt) phải lọt vào tầm nhìn.
 		activeTab.current?.scrollIntoView({ block: 'nearest', inline: 'nearest' });
 	}, [visible, panel]);
 
@@ -84,7 +88,7 @@ export function CharacterPanel() {
 		return () => window.removeEventListener('keydown', onKey);
 	}, []);
 
-	if (!visible || !panel) return null;
+	if (!visible || !panel || !mine) return null;
 	const active = TABS.find((t) => t.id === panel) ?? TABS[0]!;
 	const close = (): void => setPanel(null);
 
@@ -155,6 +159,7 @@ export function CharacterPanel() {
 					{panel === 'inventory' && <CharacterInventoryTab />}
 					{panel === 'codex' && <CodexTab />}
 					{panel === 'friends' && <CharacterFriendsTab />}
+					{panel === 'shop' && <CharacterShopTab />}
 					{panel === 'settings' && <CharacterSettingsTab />}
 				</div>
 				{/* z-40: trên mọi lớp dính đáy của tab (cột chi tiết z-5, thanh "Bước kế tiếp" z-20, sheet điện thoại z-30) — thiếu nó thì báo "Học" / "Đã mặc" nằm khuất sau chính sheet vừa bấm. */}

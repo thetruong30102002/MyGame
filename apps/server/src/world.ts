@@ -4,6 +4,8 @@ import { RateLimiter } from './auth.ts';
 import type { Store } from './db.ts';
 import { Social } from './social.ts';
 import { MobRegistry, mapZonesFromDisk } from './mobs.ts';
+import { Rewards } from './rewards.ts';
+import { BUFF_TICK_MS, Shop } from './shop.ts';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -48,10 +50,15 @@ export class World {
 	private readonly timer: NodeJS.Timeout;
 	readonly social: Social;
 	readonly mobs: MobRegistry;
+	readonly rewards: Rewards;
+	readonly shop: Shop;
+	private readonly buffTimer: NodeJS.Timeout;
 
 	constructor(
 		private readonly store: Store,
 		zonesOf = mapZonesFromDisk(MAPS_DIR),
+		mapsDir = MAPS_DIR,
+		now: () => number = Date.now,
 	) {
 		this.timer = setInterval(() => {
 			this.broadcastSnapshots();
@@ -71,6 +78,31 @@ export class World {
 			},
 			zonesOf,
 		);
+		this.rewards = new Rewards(
+			store,
+			{
+				send: (id, msg) => {
+					const c = this.conns.get(id);
+					if (c) send(c.ws, msg);
+				},
+				// Chỉ tính chỗ đứng khi đã có gói vị trí ở map hiện tại (`sprite` đặt lại khi sang map).
+				where: (id) => {
+					const c = this.conns.get(id);
+					return c && c.view.sprite ? { map: c.map, x: c.view.x, y: c.view.y } : null;
+				},
+			},
+			mapsDir,
+			now,
+		);
+		this.shop = new Shop(
+			store,
+			(id, msg) => {
+				const c = this.conns.get(id);
+				if (c) send(c.ws, msg);
+			},
+			now,
+		);
+		this.buffTimer = setInterval(() => this.shop.tick(), BUFF_TICK_MS);
 		this.social = new Social(store, {
 			presence: (id) => {
 				const c = this.conns.get(id);
@@ -89,6 +121,7 @@ export class World {
 
 	stop(): void {
 		clearInterval(this.timer);
+		clearInterval(this.buffTimer);
 	}
 
 	/** Kết nối mới: chờ tin `hello` trong 5 giây, không có thì đóng. */
@@ -158,6 +191,9 @@ export class World {
 		send(ws, { t: 'welcome', you: ch.id, players: others.map((c) => c.view) });
 		// Sau `welcome`: client đã sẵn sàng nhận trạng thái bạn bè + tin nhắn riêng chờ giao.
 		this.social.online(ch.id);
+		this.rewards.online(ch.id);
+		this.shop.online(ch.id);
+		this.rewards.visit(ch.id, conn.map);
 		console.log(`+ ${ch.name} (${this.conns.size} online)`);
 		return conn;
 	}
@@ -212,6 +248,14 @@ export class World {
 			case 'mobAggro':
 				if (!c.mobPos.allow('mobAggro')) return;
 				return this.mobs.aggro(c.view.id, String(msg.id ?? ''));
+			case 'checkin':
+			case 'goals':
+			case 'goalClaim':
+				if (!c.social.allow('rewards')) return send(c.ws, { t: 'system', text: 'Thao tác nhanh quá, chậm lại chút nhé' });
+				return this.rewards.handle(c.view.id, msg);
+			case 'shopBuy':
+				if (!c.social.allow('shop')) return send(c.ws, { t: 'system', text: 'Thao tác nhanh quá, chậm lại chút nhé' });
+				return this.shop.buy(c.view.id, msg.item);
 			case 'mobAct':
 				if (!c.mobActs.allow('mobAct')) return;
 				return this.mobs.act(c.view.id, String(msg.id ?? ''), msg.act);
@@ -267,6 +311,7 @@ export class World {
 		c.dirty = false;
 		const others = this.inMap(map).filter((o) => o !== c && o.view.sprite);
 		send(c.ws, { t: 'welcome', you: c.view.id, players: others.map((o) => o.view) });
+		this.rewards.visit(c.view.id, map);
 		this.social.presenceChanged(c.view.id);
 	}
 
@@ -298,6 +343,7 @@ export class World {
 
 	private leave(c: Conn): void {
 		this.conns.delete(c.view.id);
+		this.shop.offline(c.view.id);
 		this.mobs.unsubscribe(c.view.id);
 		for (const o of this.inMap(c.map)) send(o.ws, { t: 'leave', id: c.view.id });
 		this.social.presenceChanged(c.view.id);

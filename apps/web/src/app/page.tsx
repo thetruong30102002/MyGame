@@ -8,6 +8,7 @@ import { CharacterPanel } from '@/components/CharacterPanel';
 import { CharacterSelect } from '@/components/CharacterSelect';
 import { ChatBox } from '@/components/ChatBox';
 import { GameCanvas } from '@/components/GameCanvas';
+import { GloryPanel } from '@/components/GloryPanel';
 import { Hud } from '@/components/Hud';
 import { DialogueBox, StoryScenes } from '@/components/StoryUI';
 import { TouchControls, useTouchDevice } from '@/components/TouchControls';
@@ -38,6 +39,7 @@ export default function Home() {
 					{!touch && <ChatBox placement="bottom" />}
 					<WorldMap />
 					<CharacterPanel />
+					<GloryPanel />
 					<DialogueBox />
 					<StoryScenes />
 				</>

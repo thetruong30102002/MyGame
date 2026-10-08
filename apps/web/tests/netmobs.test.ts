@@ -226,6 +226,38 @@ const revive = (x: number) => {
 	combat.netKill(boss, false);
 }
 
+// 8) K1: bình kim cương (áp ở client tới K4) — EXP hạ quái ×, sát thương lên quái ×.
+{
+	const rnd = Math.random;
+	Math.random = () => 0.5;
+	try {
+		revive(40);
+		combat.pc.level = 5;
+		combat.pc.exp = 0;
+		const exp = ENEMY_STATS.mob_zombie_001!.exp;
+		Object.assign(combat.potion, { exp: 3, dmg: 1, guard: 1 });
+		combat.netKill(mob('g:k:0', 75, false), true);
+		assert.equal(combat.pc.exp, exp * 3, 'EXP hạ quái ×3');
+		Object.assign(combat.potion, { exp: 1 });
+		const hitWith = (dmg: number): number => {
+			combat.potion.dmg = dmg;
+			const f = mob(`g:k:${dmg}`, 75, false);
+			combat.pc.cooldowns.clear();
+			combat.cast(0, { x: 100, y: 100 - p.chest });
+			tick(30);
+			const n = hits.filter(([id]) => id === f.net!.id).reduce((a, [, x]) => a + x, 0);
+			combat.netKill(f, false);
+			return n;
+		};
+		const base = hitWith(1);
+		const boosted = hitWith(1.2);
+		assert.ok(base > 0 && Math.abs(boosted - Math.round(base * 1.2)) <= 1, `sát thương lên quái +20% (${base} → ${boosted})`);
+		combat.potion.dmg = 1;
+	} finally {
+		Math.random = rnd;
+	}
+}
+
 console.log(
-	'✔ netmobs.test: con rối theo máy chủ + không tự đánh + xin làm chủ, đòn trúng báo máy chủ không tự gục, thưởng chỉ khi được tính công, làm chủ thì AI chạy + phát động tác; M3.2b: nhát / đạn / vùng nổ của chủ khác trúng người máy này, khống chế đồng bộ hai chiều, boss nhắm người khác',
+	'✔ netmobs.test: con rối theo máy chủ + không tự đánh + xin làm chủ, đòn trúng báo máy chủ không tự gục, thưởng chỉ khi được tính công, làm chủ thì AI chạy + phát động tác; M3.2b: nhát / đạn / vùng nổ của chủ khác trúng người máy này, khống chế đồng bộ hai chiều, boss nhắm người khác; K1: bình EXP / sát thương',
 );

@@ -22,6 +22,7 @@ npm run dev                                     # http://localhost:3100  (/lab =
 npm run assets:character -- player_mage_001     # dựng lại 1 nhân vật từ spec
 npm run assets:map                              # dựng gói vùng Human Kingdom (đồ vật + map)
 npm run assets:pixler -- quota                  # quy trình sinh nhân vật Pixler nhiều ngày
+cd apps/server && npx tsx src/grant.ts "<tên>" 10   # quản trị: cộng kim cương (số âm = trừ, bỏ số = xem ví)
 ```
 
 | Phím | Tác dụng |
@@ -31,6 +32,7 @@ npm run assets:pixler -- quota                  # quy trình sinh nhân vật Pi
 | 1 · 2 · 3 · 4 | Kỹ năng (Pháp sư: Hoả Cầu · Thuỷ Tiễn · Phong Nhận · Hồi Phục) |
 | Space | Né (bất tử ngắn, 25 stamina) |
 | E | Nói chuyện / nhặt đồ / qua thoại |
+| H | Cửa hàng kim cương |
 | R | Bình hồi phục |
 
 ### Chơi trên điện thoại
@@ -112,6 +114,7 @@ Phản ứng nguyên tố: **Thuỷ** vào mục tiêu đang cháy → *Hơi Nư
 | 9 Inventory | ◐ mới có xu + bình hồi phục; túi đồ/trang bị chưa làm |
 | 10 Quest | ✔ Chương 0: 4 nhiệm vụ + lời tựa + kết chương, lưu/tải `localStorage` |
 | 11 Online | ◐ M1 xong: đăng nhập, tạo nhân vật nam/nữ (thay Lior trong truyện), thấy nhau, chat, lưu trên máy chủ. Kế hoạch: [`docs/online-va-build.md`](docs/online-va-build.md) |
+| Kim cương | ◐ K1: ví ở máy chủ + nhật ký, điểm danh mỗi ngày, Bia Danh Vọng (thành tựu), Cửa hàng (phím H) bán bình EXP / chiến đấu. Chưa nạp tiền thật — [`docs/ke-hoach-kim-cuong.md`](docs/ke-hoach-kim-cuong.md) |
 | 12–13 | chưa làm (tối ưu asset, mobile) |
 
 Cốt truyện: [`docs/story.md`](docs/story.md). Đội hình nhân vật và lý do loại: [`docs/asset-pipeline.md`](docs/asset-pipeline.md).

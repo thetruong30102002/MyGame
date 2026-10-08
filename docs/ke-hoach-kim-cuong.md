@@ -74,7 +74,54 @@ pháp lý trước bước K2. Trước đó chỉ chạy ví + cửa hàng vớ
     client tự báo.
 - Giai đoạn: điểm danh + NPC Thành tựu (mục tiêu đếm được) vào **K1**; mục tiêu theo số quái / boss bật ở **K4** (sau M3).
 
+## Tiến độ
+
+- **K1a — ĐÃ LÀM (08/10/2026): ví + điểm danh + Bia Danh Vọng.**
+  - **Ví ở máy chủ**: bảng `wallets` + `diamond_ledger` (`apps/server/src/db.ts`); mọi thay đổi qua MỘT transaction ghi nhật ký,
+    `ref` duy nhất chống cộng trùng (điểm danh `checkin:<nhân vật>:<ngày>`, thành tựu `goal:<nhân vật>:<mục tiêu>`, sau này mã
+    giao dịch nạp). Client chỉ nhận số dư (`wallet`) — sau `welcome` và sau mỗi lần đổi.
+  - **Quản trị (thử, chưa thu tiền)**: `cd apps/server && npx tsx src/grant.ts "<tên nhân vật>" <số> [lý do]` cộng / trừ (số âm)
+    có ghi nhật ký; bỏ số = xem số dư + 10 dòng nhật ký. Chạy được khi máy chủ đang bật (SQLite WAL); người đang online thấy số
+    mới ở lần đổi ví kế hoặc lần vào game sau.
+  - **Điểm danh** (`@aether/sim/rewards`): ngày theo giờ Việt Nam (sang ngày lúc 0 giờ, đồng hồ máy chủ); mỗi ngày đúng **1 kim
+    cương** + xu tăng theo vòng 7 ngày (30 → 90) + 1 bình hồi phục (ngày 7: 3 bình); bỏ một ngày là chuỗi về ngày 1. Xu + bình
+    còn nằm trong bản lưu client (tới M3.3) nên máy chủ gửi `gift`, client tự cộng. HUD: nút "Điểm danh" dưới khung tên chỉ
+    hiện khi hôm nay chưa nhận; số kim cương ghi "KC" cạnh xu (chưa có icon PixelLab).
+  - **Bia Danh Vọng** (NPC dịch vụ `chronicler`, `apps/web/src/game/story/services.ts`): đứng ở quảng trường Thistlewood, đối xứng
+    với Bram; hình TẠM là đồ vật `rune_stone`. Bấm E mở bảng: vòng quà điểm danh 7 ngày + mục tiêu theo nhóm, tiến độ, nút Nhận.
+    Máy chủ chỉ trao quà khi người chơi đứng trong 240px quanh bia và đã đạt mốc.
+  - **Mục tiêu đếm THẬT ở máy chủ**: hạ quái / boss dùng chung (bảng `kill_counts` của M3.2 — quái riêng không tính), số map đã
+    đặt chân tới (ghi lúc vào game / sang map, chỉ map có file), số bạn hiện có. Cấp nhân vật CHƯA làm mục tiêu (cấp còn do client
+    báo — chờ M3.3). Lưu ý: số quái hạ đã đếm được từ M3.2 nên mục tiêu săn quái / boss bật luôn ở K1 (kế hoạch cũ để ở K4);
+    đòn trúng vẫn do client báo, máy chủ kiểm tầm + trần.
+  - Test: `apps/server/tests/rewards.test.ts` (10 ca, CSDL thật + đồng hồ giả), `apps/web/tests/rewards.test.ts`; thử thật trên
+    máy chủ thử (:3201) bằng trình duyệt cả máy tính lẫn điện thoại dọc: điểm danh → +1 KC, +30 xu, +1 bình; bảng mở ở bia.
+- **K1b — ĐÃ LÀM (08/10/2026): Cửa hàng kim cương + bình thời hạn.**
+  - **Danh mục + giá** ở `packages/sim/src/shop.ts` (một chỗ duy nhất; máy chủ đọc giá của chính nó, client gửi giá cũng bỏ qua).
+    Giá: bản tạm đầu đặt theo 1 kim cương / ngày điểm danh, rồi chủ dự án 08/10/2026 **"đắt gấp đôi lên"** → giá dưới:
+
+    | Món | Tác dụng | Giá |
+    |---|---|---|
+    | Bình Kinh Nghiệm ×2 / ×2 (lớn) | EXP hạ quái ×2 · 30 phút / 1 giờ | 6 / 10 KC |
+    | Bình Kinh Nghiệm ×3 / ×3 (lớn) | EXP hạ quái ×3 · 30 phút / 1 giờ | 10 / 16 KC |
+    | Bình Cuồng Lực / (mạnh) | sát thương lên quái +10% / +20% · 30 phút | 6 / 12 KC |
+    | Bình Hộ Thân / (mạnh) | sát thương nhận từ quái −10% / −20% · 30 phút | 6 / 12 KC |
+
+  - **Máy chủ** (`apps/server/src/shop.ts`, bảng `buffs`): trừ kim cương + ghi bình trong MỘT transaction (nhật ký `shop:<món>`).
+    Mỗi loại một bình: cùng mức → cộng giờ (trần 5 giờ), mạnh hơn → thay, yếu hơn → từ chối (không trừ). Thời gian chỉ trôi lúc
+    online (trừ mỗi 5 giây + lúc rời game); hết giờ thì xoá và báo client.
+  - **Hiệu ứng áp ở client** (tới K4): `CombatSystem.potion` — EXP hạ quái (không nhân EXP nhiệm vụ), sát thương lên quái (cả quái
+    dùng chung — số báo máy chủ đã nhân), sát thương nhận từ quái. Client tự đếm lùi, hết giờ là thôi áp ngay.
+  - **Giao diện**: thẻ **Cửa hàng (phím H)** trong Hành trang (số dư, bình đang dùng, danh sách món; bấm Mua hai lần để chắc); HUD
+    hiện đồng hồ bình dưới khung tên ("EXP ×2 29:41"), bấm mở thẻ Cửa hàng.
+  - Test: `apps/server/tests/shop.test.ts` (7 ca), `apps/web/tests/netmobs.test.ts` mục 8 (EXP ×3, sát thương +20%),
+    `apps/web/tests/rewards.test.ts`; thử thật trên máy chủ thử (giá cũ): mua trừ đúng giá, đồng hồ HUD chạy.
+- **Còn lại**: icon kim cương + icon bình (PixelLab — 08/10/2026 lượt miễn phí đang bị khoá "free generations are temporarily
+  unavailable", cần token trả phí); mỹ phẩm (K3); bình hồi máu nhanh / tăng rơi đồ (chưa có hệ rơi đồ); bản bình yếu hơn mua
+  bằng xu / rơi ở boss (mục 2).
+
 ## 7. Câu hỏi còn mở
 
 1. Hướng nạp: chuyển khoản VietQR (cá nhân) hay cổng thanh toán (cần doanh nghiệp)? Có làm app điện thoại không?
-2. Bình chiến đấu mạnh tới đâu (+10% hay +20%)? Mạnh quá là "nạp để thắng" — người không nạp dễ bỏ game.
+2. Bình chiến đấu mạnh tới đâu (+10% hay +20%)? Mạnh quá là "nạp để thắng" — người không nạp dễ bỏ game. (K1b đang bán cả hai
+   mức — đổi thì sửa `packages/sim/src/shop.ts`.)

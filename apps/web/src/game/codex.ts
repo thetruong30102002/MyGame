@@ -81,6 +81,7 @@ export const NPC_LORE: Record<string, string> = {
 	Bram: 'Thương nhân lữ hành dựng quầy ở quảng trường. Bán bình mật ong, đồ đi đường — và kể đủ chuyện về thế giới rộng hơn rừng Mossvale.',
 	Aldric: 'Bạn thuở nhỏ của Lior, "hiệp sĩ tự phong" với thanh Kiếm Sấm Sét bằng gỗ. Lớn lên canh cổng bắc thật. Hai đứa từng ngoéo tay đi đánh Quỷ vương.',
 	'Bia đá cổ': 'Tấm bia phủ rêu ở cổng nam Nghĩa địa Hoàng Hôn, khắc những dòng chữ đã mòn gần hết.',
+	'Bia Danh Vọng': 'Tấm bia đá giữa quảng trường Thistlewood, khắc tên những người làm nên chuyện: săn quái, hạ boss, đi khắp các vùng, kết bạn. Đạt mục tiêu thì tới đây nhận kim cương.',
 };
 
 const NPC_PREFIX = 'npc:';

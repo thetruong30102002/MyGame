@@ -1,7 +1,7 @@
 import { mkdirSync } from 'node:fs';
 import { dirname } from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
-import type { CharacterInfo, CharacterProgress, Gender } from '@aether/protocol';
+import type { BuffKind, BuffView, CharacterInfo, CharacterProgress, Gender } from '@aether/protocol';
 
 /**
  * Lưu trữ bằng SQLite có sẵn trong Node (`node:sqlite`) — không cần cài máy chủ CSDL riêng. Đủ cho vài
@@ -73,6 +73,48 @@ export class Store {
 				monster TEXT NOT NULL,
 				n INTEGER NOT NULL,
 				PRIMARY KEY (character_id, monster)
+			);
+			-- Ví kim cương (K1 — docs/ke-hoach-kim-cuong.md): số dư + nhật ký, mọi thay đổi qua \`addDiamonds\` trong MỘT
+			-- transaction. \`ref\` duy nhất: cùng một giao dịch (điểm danh một ngày, một thành tựu, sau này một lần nạp) không cộng hai lần.
+			CREATE TABLE IF NOT EXISTS wallets (
+				character_id TEXT PRIMARY KEY REFERENCES characters(id) ON DELETE CASCADE,
+				diamonds INTEGER NOT NULL DEFAULT 0
+			);
+			CREATE TABLE IF NOT EXISTS diamond_ledger (
+				id INTEGER PRIMARY KEY,
+				character_id TEXT NOT NULL REFERENCES characters(id) ON DELETE CASCADE,
+				delta INTEGER NOT NULL,
+				balance INTEGER NOT NULL,
+				reason TEXT NOT NULL,
+				ref TEXT UNIQUE,
+				at INTEGER NOT NULL
+			);
+			CREATE INDEX IF NOT EXISTS diamond_ledger_char ON diamond_ledger(character_id);
+			CREATE TABLE IF NOT EXISTS checkins (
+				character_id TEXT PRIMARY KEY REFERENCES characters(id) ON DELETE CASCADE,
+				last_day TEXT NOT NULL,
+				streak INTEGER NOT NULL,
+				total INTEGER NOT NULL
+			);
+			CREATE TABLE IF NOT EXISTS goals_claimed (
+				character_id TEXT NOT NULL REFERENCES characters(id) ON DELETE CASCADE,
+				goal TEXT NOT NULL,
+				at INTEGER NOT NULL,
+				PRIMARY KEY (character_id, goal)
+			);
+			-- Bình thời hạn mua bằng kim cương: mỗi loại một bình, \`remaining_ms\` chỉ trừ lúc người chơi online.
+			CREATE TABLE IF NOT EXISTS buffs (
+				character_id TEXT NOT NULL REFERENCES characters(id) ON DELETE CASCADE,
+				kind TEXT NOT NULL,
+				mult REAL NOT NULL,
+				remaining_ms INTEGER NOT NULL,
+				PRIMARY KEY (character_id, kind)
+			);
+			CREATE TABLE IF NOT EXISTS visited_maps (
+				character_id TEXT NOT NULL REFERENCES characters(id) ON DELETE CASCADE,
+				map TEXT NOT NULL,
+				at INTEGER NOT NULL,
+				PRIMARY KEY (character_id, map)
 			);
 		`);
 	}
@@ -257,6 +299,124 @@ export class Store {
 	killCounts(characterId: string): Record<string, number> {
 		const rows = this.db.prepare('SELECT monster, n FROM kill_counts WHERE character_id = ?').all(characterId) as { monster: string; n: number }[];
 		return Object.fromEntries(rows.map((r) => [r.monster, r.n]));
+	}
+
+	diamonds(characterId: string): number {
+		const row = this.db.prepare('SELECT diamonds FROM wallets WHERE character_id = ?').get(characterId) as { diamonds: number } | undefined;
+		return row?.diamonds ?? 0;
+	}
+
+	/**
+	 * Cộng / trừ kim cương + ghi nhật ký trong MỘT transaction. Trả số dư mới; null = trừ quá số dư, hoặc `ref` đã dùng (giao
+	 * dịch lặp — vd webhook nạp gửi hai lần).
+	 */
+	addDiamonds(characterId: string, delta: number, reason: string, ref: string | null = null): number | null {
+		let out: number | null = null;
+		this.tx(() => {
+			out = this.applyDiamonds(characterId, delta, reason, ref);
+		});
+		return out;
+	}
+
+	/** Nhật ký kim cương gần nhất trước. */
+	diamondLedger(characterId: string, limit = 20): { delta: number; balance: number; reason: string; at: number }[] {
+		return this.db.prepare('SELECT delta, balance, reason, at FROM diamond_ledger WHERE character_id = ? ORDER BY id DESC LIMIT ?').all(characterId, limit) as {
+			delta: number;
+			balance: number;
+			reason: string;
+			at: number;
+		}[];
+	}
+
+	checkinState(characterId: string): { lastDay: string | null; streak: number; total: number } {
+		const row = this.db.prepare('SELECT last_day, streak, total FROM checkins WHERE character_id = ?').get(characterId) as { last_day: string; streak: number; total: number } | undefined;
+		return row ? { lastDay: row.last_day, streak: row.streak, total: row.total } : { lastDay: null, streak: 0, total: 0 };
+	}
+
+	/** Điểm danh ngày `day` (chuỗi mới `streak`) + cộng kim cương — một transaction. Trả số dư mới; null = ngày đó đã điểm danh. */
+	checkin(characterId: string, day: string, streak: number, diamonds: number): number | null {
+		let out: number | null = null;
+		this.tx(() => {
+			const cur = this.checkinState(characterId);
+			if (cur.lastDay === day) return;
+			this.db
+				.prepare('INSERT INTO checkins (character_id, last_day, streak, total) VALUES (?, ?, ?, 1) ON CONFLICT(character_id) DO UPDATE SET last_day = excluded.last_day, streak = excluded.streak, total = total + 1')
+				.run(characterId, day, streak);
+			out = this.applyDiamonds(characterId, diamonds, 'checkin', `checkin:${characterId}:${day}`);
+		});
+		return out;
+	}
+
+	claimedGoals(characterId: string): string[] {
+		return (this.db.prepare('SELECT goal FROM goals_claimed WHERE character_id = ?').all(characterId) as { goal: string }[]).map((r) => r.goal);
+	}
+
+	/** Nhận quà thành tựu `goal` + cộng kim cương — một transaction. Trả số dư mới; null = đã nhận rồi. */
+	claimGoal(characterId: string, goal: string, diamonds: number): number | null {
+		let out: number | null = null;
+		this.tx(() => {
+			if (this.db.prepare('SELECT 1 FROM goals_claimed WHERE character_id = ? AND goal = ?').get(characterId, goal)) return;
+			this.db.prepare('INSERT INTO goals_claimed (character_id, goal, at) VALUES (?, ?, ?)').run(characterId, goal, Date.now());
+			out = this.applyDiamonds(characterId, diamonds, `goal:${goal}`, `goal:${characterId}:${goal}`);
+		});
+		return out;
+	}
+
+	visit(characterId: string, map: string): void {
+		this.db.prepare('INSERT OR IGNORE INTO visited_maps (character_id, map, at) VALUES (?, ?, ?)').run(characterId, map, Date.now());
+	}
+
+	visitedCount(characterId: string): number {
+		return (this.db.prepare('SELECT COUNT(*) AS n FROM visited_maps WHERE character_id = ?').get(characterId) as { n: number }).n;
+	}
+
+	buffs(characterId: string): BuffView[] {
+		const rows = this.db.prepare('SELECT kind, mult, remaining_ms FROM buffs WHERE character_id = ? AND remaining_ms > 0 ORDER BY kind').all(characterId) as { kind: BuffKind; mult: number; remaining_ms: number }[];
+		return rows.map((r) => ({ kind: r.kind, mult: r.mult, remaining: Math.ceil(r.remaining_ms / 1000) }));
+	}
+
+	/**
+	 * Mua bình (một transaction): bình cùng loại MẠNH hơn đang chạy → 'weaker' (không trừ gì); thiếu kim cương → 'poor'; cùng mức
+	 * thì cộng thời gian (trần `maxMs`), mạnh hơn thì thay hẳn. `power`: độ mạnh để so (`@aether/sim/shop` `buffPower`).
+	 */
+	buyBuff(
+		characterId: string,
+		item: { id: string; price: number; kind: BuffKind; mult: number; ms: number },
+		power: (mult: number) => number,
+		maxMs: number,
+	): { balance: number } | 'weaker' | 'poor' {
+		let out: { balance: number } | 'weaker' | 'poor' = 'poor';
+		this.tx(() => {
+			const cur = this.db.prepare('SELECT mult, remaining_ms FROM buffs WHERE character_id = ? AND kind = ? AND remaining_ms > 0').get(characterId, item.kind) as { mult: number; remaining_ms: number } | undefined;
+			if (cur && power(cur.mult) > power(item.mult)) return void (out = 'weaker');
+			const balance = this.applyDiamonds(characterId, -item.price, `shop:${item.id}`, null);
+			if (balance === null) return void (out = 'poor');
+			const ms = cur && power(cur.mult) === power(item.mult) ? Math.min(maxMs, cur.remaining_ms + item.ms) : item.ms;
+			this.db
+				.prepare('INSERT INTO buffs (character_id, kind, mult, remaining_ms) VALUES (?, ?, ?, ?) ON CONFLICT(character_id, kind) DO UPDATE SET mult = excluded.mult, remaining_ms = excluded.remaining_ms')
+				.run(characterId, item.kind, item.mult, ms);
+			out = { balance };
+		});
+		return out;
+	}
+
+	/** Trừ `ms` giờ chơi khỏi mọi bình của nhân vật; trả số bình vừa hết (đã xoá). */
+	spendBuffs(characterId: string, ms: number): number {
+		let expired = 0;
+		this.tx(() => {
+			this.db.prepare('UPDATE buffs SET remaining_ms = remaining_ms - ? WHERE character_id = ?').run(Math.max(0, Math.round(ms)), characterId);
+			expired = Number(this.db.prepare('DELETE FROM buffs WHERE character_id = ? AND remaining_ms <= 0').run(characterId).changes);
+		});
+		return expired;
+	}
+
+	private applyDiamonds(characterId: string, delta: number, reason: string, ref: string | null): number | null {
+		if (ref && this.db.prepare('SELECT 1 FROM diamond_ledger WHERE ref = ?').get(ref)) return null;
+		const next = this.diamonds(characterId) + Math.trunc(delta);
+		if (next < 0) return null;
+		this.db.prepare('INSERT INTO wallets (character_id, diamonds) VALUES (?, ?) ON CONFLICT(character_id) DO UPDATE SET diamonds = excluded.diamonds').run(characterId, next);
+		this.db.prepare('INSERT INTO diamond_ledger (character_id, delta, balance, reason, ref, at) VALUES (?, ?, ?, ?, ?, ?)').run(characterId, Math.trunc(delta), next, reason, ref, Date.now());
+		return next;
 	}
 
 	private clearRequests(a: string, b: string): void {

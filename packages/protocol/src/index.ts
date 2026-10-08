@@ -182,6 +182,40 @@ export type MobAct =
 	/** Boss gọi vùng nổ ở (x, y). */
 	| { k: 'aoe'; x: number; y: number };
 
+// ---- Ví kim cương, điểm danh, thành tựu (K1 — luật ở `@aether/sim/rewards`) -----------------------------------------------
+
+/** Một phần quà: kim cương vào ví ở MÁY CHỦ; xu + bình hồi phục client tự cộng vào tiến độ (tới M3.3). */
+export interface GiftView {
+	diamonds: number;
+	coins: number;
+	potions: number;
+}
+
+/** Điểm danh hôm nay: `day` = ngày giờ Việt Nam, `streak` = chuỗi ngày liên tiếp tính tới lần gần nhất, `next` = quà kế. */
+export interface DailyView {
+	day: string;
+	done: boolean;
+	streak: number;
+	next: GiftView;
+}
+
+/** Tiến độ một thành tựu (tên / mốc / quà đọc từ `GOALS` dùng chung theo `id`). */
+export interface GoalView {
+	id: string;
+	progress: number;
+	claimed: boolean;
+}
+
+/** Loại bình thời hạn mua bằng kim cương (danh mục ở `@aether/sim/shop`). */
+export type BuffKind = 'exp' | 'dmg' | 'guard';
+
+/** Một bình đang hiệu lực: `remaining` = giây chơi online còn lại (máy chủ đếm, chỉ trừ lúc online). */
+export interface BuffView {
+	kind: BuffKind;
+	mult: number;
+	remaining: number;
+}
+
 /** Khống chế / suy yếu trên quái (danh sách khoá ở `@aether/sim/mobs` `MOB_CC_KEYS`). */
 export type MobCcKey = 'freeze' | 'stun' | 'air' | 'slow' | 'chill' | 'frost' | 'armor' | 'sunder' | 'miss' | 'daze';
 
@@ -240,7 +274,15 @@ export type ClientMessage =
 	/** Chủ quái `id` báo động tác đánh của nó (máy chủ chỉ nhận từ chủ, phát cho người khác). */
 	| { t: 'mobAct'; id: string; act: MobAct }
 	/** Mình vừa khống chế quái `id` (hoặc quái mình làm chủ đổi khống chế) — máy chủ phát cho người khác trong map. */
-	| { t: 'mobCc'; id: string; cc: MobCc };
+	| { t: 'mobCc'; id: string; cc: MobCc }
+	/** Điểm danh hôm nay (máy chủ chặn lần thứ hai trong ngày). */
+	| { t: 'checkin' }
+	/** Xin tiến độ thành tựu. */
+	| { t: 'goals' }
+	/** Nhận quà thành tựu `id` (phải đứng cạnh Bia Danh Vọng). */
+	| { t: 'goalClaim'; id: string }
+	/** Mua món `item` ở Cửa hàng kim cương — giá theo danh mục CỦA MÁY CHỦ. */
+	| { t: 'shopBuy'; item: string };
 
 export type ServerMessage =
 	| { t: 'welcome'; you: string; players: PlayerView[] }
@@ -271,4 +313,14 @@ export type ServerMessage =
 	| { t: 'mobSpawn'; mob: MobView }
 	| { t: 'mobOwner'; id: string; owner: string | null }
 	| { t: 'mobAct'; id: string; act: MobAct }
-	| { t: 'mobCc'; id: string; cc: MobCc };
+	| { t: 'mobCc'; id: string; cc: MobCc }
+	/** Số kim cương trong ví (sau `welcome` và sau mỗi lần đổi). */
+	| { t: 'wallet'; diamonds: number }
+	| { t: 'daily'; daily: DailyView }
+	| { t: 'goals'; list: GoalView[] }
+	/** Vừa nhận quà — kim cương đã vào ví; client cộng xu + bình hồi phục rồi lưu. */
+	| { t: 'gift'; reason: 'checkin' | 'goal'; title: string; gift: GiftView }
+	/** Bình đang hiệu lực (sau `welcome`, sau khi mua, khi một bình hết giờ). */
+	| { t: 'buffs'; list: BuffView[] }
+	/** Vừa mua xong món `item` (kim cương đã trừ — tin `wallet` + `buffs` đi kèm). */
+	| { t: 'bought'; item: string };

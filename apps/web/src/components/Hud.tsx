@@ -12,6 +12,10 @@ import { SkillBar } from './SkillBar';
 import { useTouchDevice } from './TouchControls';
 import { useMediaQuery } from './useMediaQuery';
 import { useGameStore, type PanelId } from '@/store/useGameStore';
+import { buffLabel, fmtRemaining } from '@aether/sim/shop';
+import { activeBuffs } from '@/game/rewards';
+import { useSession } from '@/store/useSession';
+import { useNow } from './useNow';
 
 /**
  * Thanh máu/MP/thể lực/EXP: rãnh gỗ viền đen 2px, ruột màu phẳng lấy theo icon PixelLab (`--color-hp`…) qua biến `--fill`.
@@ -103,6 +107,7 @@ function PlayerFrame({ touch, compact, slim = false }: { touch: boolean; compact
 	const portrait = useGameStore((st) => st.playerPortrait);
 	const hud = useGameStore((st) => st.hud);
 	const unspent = useGameStore((st) => st.talents.unspent);
+	const diamonds = useSession((st) => st.diamonds);
 	// Tranh cũ là ảnh nguyên người khổ lớn, phải cắt lấy đầu; ảnh mặt của pipeline thì vừa khung sẵn.
 	const legacy = /\/(lior|hero-female)\.png$/.test(portrait);
 	const [name, ...rest] = s.name.split(' · ');
@@ -117,7 +122,17 @@ function PlayerFrame({ touch, compact, slim = false }: { touch: boolean; compact
 	);
 	// Điện thoại xoay ngang (`slim`): khung hẹp — bỏ nhãn con đường (đã có trong bảng Nhân vật) để tên không bị cắt.
 	const subEl = sub && !slim ? <span className="ui-tag min-w-0 shrink truncate bg-gold/20 leading-[1.45] text-gold-hi">{sub}</span> : null;
-	const coins = <span className="ml-auto shrink-0 text-note font-extrabold tabular-nums text-gold-hi">{s.coins} xu</span>;
+	// Kim cương (K1): số máy chủ đẩy — máy chủ bản cũ không gửi thì ẩn. Chưa có icon PixelLab nên ghi chữ "KC" như "xu".
+	const coins = (
+		<span className="ml-auto flex shrink-0 items-baseline gap-1.5 text-note font-extrabold tabular-nums">
+			<span className="text-gold-hi">{s.coins} xu</span>
+			{diamonds !== null && (
+				<span className="text-sky" title="Kim cương — nhận khi điểm danh và ở Bia Danh Vọng">
+					{diamonds} KC
+				</span>
+			)}
+		</span>
+	);
 	const bar = touch ? 'touch' : 'main';
 	return (
 		// Bấm vào bất kỳ chỗ nào trên khung (chân dung, tên, thanh máu) là mở bảng Nhân vật — trong đó có tab Kho đồ / Tiềm năng.
@@ -155,6 +170,61 @@ function PlayerFrame({ touch, compact, slim = false }: { touch: boolean; compact
 				<Bar value={s.exp} max={s.expNext} fill="var(--color-exp)" size="thin" />
 			</div>
 			{badgeOnFrame && <TalentBadge unspent={unspent} touch={false} />}
+		</div>
+	);
+}
+
+/**
+ * Nút điểm danh dưới khung tên (K1): chỉ hiện khi hôm nay (giờ Việt Nam, máy chủ tính) chưa điểm danh. Bấm một lần là ẩn ngay,
+ * chờ máy chủ trả trạng thái mới — quà hiện bằng thông báo. Máy chủ chặn lần thứ hai nên bấm đúp cũng không nhận đôi.
+ */
+function DailyChip({ touch }: { touch: boolean }) {
+	const online = useSession((st) => st.online);
+	const daily = useSession((st) => st.daily);
+	const connected = useSession((st) => st.connected);
+	// Ghi lại đúng bản trạng thái lúc bấm: máy chủ trả bản mới (đã điểm danh, hoặc lỗi) thì nút theo bản mới.
+	const [sentFor, setSentFor] = useState<typeof daily>(null);
+	if (!online || !daily || daily.done || sentFor === daily) return null;
+	return (
+		<button
+			type="button"
+			disabled={!connected}
+			onClick={() => {
+				online.checkin();
+				setSentFor(daily);
+			}}
+			title={`Điểm danh mỗi ngày: +${daily.next.diamonds} kim cương, ${daily.next.coins} xu, ${daily.next.potions} Bình hồi phục`}
+			className={`ui-plank pointer-events-auto relative flex items-center gap-2 rounded-full pl-3 pr-1.5 font-extrabold text-parchment ring-2 ring-gold transition-[filter] before:absolute before:-inset-1 enabled:hover:brightness-110 disabled:opacity-60 ${touch ? 'h-9 text-note' : 'h-9 text-body'}`}
+		>
+			<span className="leading-[1.45]">Điểm danh{daily.streak > 0 ? ` · chuỗi ${daily.streak} ngày` : ''}</span>
+			<span className="ui-tag bg-sky text-ink-brown">+{daily.next.diamonds} KC</span>
+		</button>
+	);
+}
+
+/**
+ * Bình kim cương đang dùng (K1): nhãn + đồng hồ đếm lùi giờ chơi (chưa có icon PixelLab — chữ trên thẻ gỗ). Bấm mở thẻ
+ * Cửa hàng. Không có bình thì không vẽ gì.
+ */
+function BuffChips({ touch }: { touch: boolean }) {
+	const buffs = useSession((st) => st.buffs);
+	const now = useNow(1000, !!buffs?.list.length);
+	const list = activeBuffs(buffs, now);
+	if (!list.length) return null;
+	return (
+		<div className="flex max-w-[316px] flex-wrap gap-1.5">
+			{list.map((b) => (
+				<button
+					key={b.kind}
+					type="button"
+					onClick={() => togglePanel('shop')}
+					title="Bình đang dùng — mở Cửa hàng (H)"
+					className={`ui-plank pointer-events-auto flex h-7 items-center gap-1.5 rounded-full px-2.5 font-extrabold tabular-nums text-parchment hover:brightness-110 ${touch ? 'text-chip' : 'text-note'}`}
+				>
+					<span className="text-sky">{buffLabel(b.kind, b.mult)}</span>
+					<span>{fmtRemaining(b.remaining)}</span>
+				</button>
+			))}
 		</div>
 	);
 }
@@ -409,6 +479,8 @@ export function Hud() {
 					{/* Hai cột xếp chồng thay cho toạ độ cứng: trái = bảng tên (+ chat trên màn cảm ứng), phải = bản đồ nhỏ → nhiệm vụ → thông báo. */}
 					<div ref={leftCol} className="absolute left-[max(12px,env(safe-area-inset-left))] top-[max(12px,env(safe-area-inset-top))] flex flex-col items-start gap-2">
 						<PlayerFrame touch={touch} compact={touch && !low} slim={low} />
+						<DailyChip touch={touch} />
+						<BuffChips touch={touch} />
 						{touch && <ChatBox placement="stack" />}
 					</div>
 					<div className="absolute right-[max(12px,env(safe-area-inset-right))] top-[max(12px,env(safe-area-inset-top))] flex flex-col items-end gap-4">

@@ -50,6 +50,12 @@ const store = {
 	requests: () => [],
 	blockedIds: () => [],
 	takeWhispers: () => [],
+	// Ví + điểm danh (K1): ví rỗng, chưa điểm danh, thám hiểm không ghi.
+	diamonds: () => 0,
+	checkinState: () => ({ lastDay: null, streak: 0, total: 0 }),
+	visit: () => {},
+	buffs: () => [],
+	spendBuffs: () => 0,
 } as unknown as Store;
 
 const world = new World(store);

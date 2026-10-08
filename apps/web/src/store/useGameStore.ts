@@ -224,8 +224,11 @@ export interface PlayerSpriteView {
 	gear?: FigureGearView[];
 }
 
-/** Bảng đang mở (dừng điều khiển nhân vật như lúc đọc thoại). Chỉ một bảng một lúc, và không cùng lúc với bản đồ lớn. */
-export type PanelId = 'character' | 'talents' | 'inventory' | 'codex' | 'friends' | 'settings';
+/**
+ * Bảng đang mở (dừng điều khiển nhân vật như lúc đọc thoại). Chỉ một bảng một lúc, và không cùng lúc với bản đồ lớn.
+ * `glory` (Bia Danh Vọng) không phải thẻ của Hành trang — chỉ mở khi bấm E ở bia (`GloryPanel`).
+ */
+export type PanelId = 'character' | 'talents' | 'inventory' | 'codex' | 'friends' | 'shop' | 'settings' | 'glory';
 
 /**
  * Yêu cầu từ giao diện xuống game: mỗi lần tăng `seq`, Game nghe và thực hiện.

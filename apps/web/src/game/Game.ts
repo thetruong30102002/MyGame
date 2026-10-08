@@ -1,5 +1,5 @@
 import { Assets, Container, Graphics, Sprite, Text, type Application, type Texture, type Ticker } from 'pixi.js';
-import { cleanGearView, type PlayerView } from '@aether/protocol';
+import { cleanGearView, type GiftView, type PlayerView } from '@aether/protocol';
 import type { OnlineSession } from '@/net/OnlineSession';
 import { onlineStoryStorage } from '@/net/onlineStoryStorage';
 import { useSession } from '@/store/useSession';
@@ -73,8 +73,11 @@ import { baseOfOutfit, decodeGear, defaultStance, encodeGear, figureGear, gearPi
 import { GEAR_ART } from './gearArt';
 import { buildCodex, npcKey } from './codex';
 import { isSharedZone } from '@aether/sim/mobs';
+import { CHRONICLER } from '@aether/sim/rewards';
+import { buffMults, SHOP } from '@aether/sim/shop';
 import type { MobView } from '@aether/protocol';
 import { GIFT_ITEMS } from './items';
+import { activeBuffs, giftText } from './rewards';
 import { crossesExit, EDGE_DIR, exitGoal, type MapExit } from './world/exits';
 import { MapWorld } from './world/MapWorld';
 import { loadWorldIndex, type WorldIndex } from './world/WorldIndex';
@@ -924,6 +927,8 @@ export class Game {
 		if (target.kind === 'npc') {
 			const n = target.npc;
 			n.actor?.view.set('idle', directionOf(this.player.x - n.x, this.player.y - n.y));
+			// Bia Danh Vọng: mở bảng thành tựu (máy chủ giữ tiến độ + kim cương). Chơi một mình thì chỉ đọc chữ trên bia.
+			if (n.key === CHRONICLER.npc && this.online) return void useGameStore.getState().setPanel('glory');
 			this.story.talk(n.key);
 			return;
 		}
@@ -1225,6 +1230,15 @@ export class Game {
 				}
 			},
 			system: (text) => chat({ name: '', text, self: false, system: true }),
+			wallet: (diamonds) => useSession.setState({ diamonds }),
+			daily: (daily) => useSession.setState({ daily }),
+			goals: (goals) => useSession.setState({ goals }),
+			gift: (m) => this.receiveGift(m.reason, m.title, m.gift),
+			buffs: (list) => {
+				useSession.setState({ buffs: { list, at: Date.now() } });
+				this.applyBuffs();
+			},
+			bought: (item) => useGameStore.getState().toast(`Đã mua ${SHOP.find((x) => x.id === item)?.name ?? item}`, 'loot'),
 			kicked: (reason) => {
 				// Màn chọn nhân vật hiện lại lý do: toast trong game biến mất ngay khi game bị gỡ.
 				void useSession.getState().leaveGame(reason);
@@ -1415,7 +1429,14 @@ export class Game {
 		o.send({ t: 'move', ...msg });
 	}
 
+	/** Bình thời hạn còn hiệu lực → hệ số trong CombatSystem (gọi mỗi nhịp HUD: bình hết giờ ở máy này là thôi áp ngay). */
+	private applyBuffs(): void {
+		const m = buffMults(activeBuffs(useSession.getState().buffs, Date.now()));
+		Object.assign(this.combat.potion, { exp: m.exp, dmg: m.dmg, guard: m.guard });
+	}
+
 	private pushHud(ticker: Ticker): void {
+		this.applyBuffs();
 		const pc = this.combat.pc;
 		const now = performance.now();
 		const tiers = this.story.talentTiers();
@@ -1711,6 +1732,18 @@ export class Game {
 		this.persist();
 		if (r.overflow > 0 && opts.drop !== false) this.dropItem(id, r.overflow);
 		return r.overflow;
+	}
+
+	/**
+	 * Quà điểm danh / thành tựu từ máy chủ (K1): kim cương đã vào ví ở máy chủ (tin `wallet` đi kèm), xu + bình hồi phục còn ở
+	 * bản lưu client (tới M3.3) nên cộng ở đây qua `grantItem` — lưu luôn.
+	 */
+	private receiveGift(reason: 'checkin' | 'goal', title: string, gift: GiftView): void {
+		if (gift.coins > 0) this.grantItem('coins', gift.coins);
+		if (gift.potions > 0) this.grantItem('potion', gift.potions);
+		const text = giftText(gift);
+		useGameStore.getState().toast(reason === 'goal' ? `Thành tựu: ${title}` : `${title}: ${text}`, reason === 'goal' ? 'level' : 'loot');
+		if (reason === 'goal' && text) useGameStore.getState().toast(text, 'loot');
 	}
 
 	/**

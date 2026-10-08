@@ -1,4 +1,4 @@
-import type { CharacterInfo, CharacterProgress, ClientMessage, MobAct, MobCc, MobMove, MobView, PlayerView, ServerMessage, SocialState, WhisperMessage } from '@aether/protocol';
+import type { BuffView, CharacterInfo, CharacterProgress, ClientMessage, DailyView, GoalView, MobAct, MobCc, MobMove, MobView, PlayerView, ServerMessage, SocialState, WhisperMessage } from '@aether/protocol';
 import { api, serverUrl } from './api';
 
 export interface OnlineHandlers {
@@ -25,6 +25,15 @@ export interface OnlineHandlers {
 	mobOwner(id: string, owner: string | null): void;
 	mobAct(id: string, act: MobAct): void;
 	mobCc(id: string, cc: MobCc): void;
+	/** Ví kim cương, điểm danh, thành tựu (K1 — máy chủ bản cũ không gửi). */
+	wallet(diamonds: number): void;
+	daily(d: DailyView): void;
+	goals(list: GoalView[]): void;
+	/** Vừa nhận quà: kim cương đã vào ví ở máy chủ, xu + bình hồi phục máy này tự cộng. */
+	gift(m: Extract<ServerMessage, { t: 'gift' }>): void;
+	/** Bình thời hạn đang hiệu lực / vừa mua xong một món ở Cửa hàng kim cương. */
+	buffs(list: BuffView[]): void;
+	bought(item: string): void;
 	kicked(reason: string): void;
 	status(online: boolean): void;
 }
@@ -91,6 +100,12 @@ export class OnlineSession {
 			else if (m.t === 'mobOwner') h.mobOwner?.(m.id, m.owner);
 			else if (m.t === 'mobAct') h.mobAct?.(m.id, m.act);
 			else if (m.t === 'mobCc') h.mobCc?.(m.id, m.cc);
+			else if (m.t === 'wallet') h.wallet?.(m.diamonds);
+			else if (m.t === 'daily') h.daily?.(m.daily);
+			else if (m.t === 'goals') h.goals?.(m.list);
+			else if (m.t === 'gift') h.gift?.(m);
+			else if (m.t === 'buffs') h.buffs?.(m.list);
+			else if (m.t === 'bought') h.bought?.(m.item);
 			else if (m.t === 'kicked') {
 				this.closed = true;
 				h.kicked?.(m.reason);
@@ -135,6 +150,25 @@ export class OnlineSession {
 	/** Nhắn riêng tới id, hoặc `line` = phần sau `/w ` (máy chủ tự tách tên có khoảng trắng). */
 	whisper(target: { to: string; text: string } | { line: string }): void {
 		this.send({ t: 'whisper', ...target });
+	}
+
+	/** Điểm danh hôm nay (máy chủ chặn lần thứ hai trong ngày). */
+	checkin(): void {
+		this.send({ t: 'checkin' });
+	}
+
+	/** Xin tiến độ thành tựu / nhận quà một thành tựu (phải đứng cạnh Bia Danh Vọng). */
+	goals(): void {
+		this.send({ t: 'goals' });
+	}
+
+	claimGoal(id: string): void {
+		this.send({ t: 'goalClaim', id });
+	}
+
+	/** Mua món `item` ở Cửa hàng kim cương (máy chủ tính giá). */
+	shopBuy(item: string): void {
+		this.send({ t: 'shopBuy', item });
 	}
 
 	/** Lưu "mềm": gộp nhiều lần gọi liền nhau thành một gói WebSocket. */
