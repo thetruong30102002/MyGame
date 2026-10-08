@@ -79,9 +79,11 @@ tailscale funnel --https=8443 off                                # gỡ link cũ
   `NEXT_PUBLIC_SERVER_URL=/game npm run build` trong Git Bash**: nó đổi giá trị thành
   `C:/Program Files/Git/game`, build vẫn qua nhưng mọi lời gọi API báo "Không kết nối được máy chủ game"
   (đã dẫm 06/10/2026). `next.config.ts` nay chặn giá trị dạng đường dẫn Windows ngay lúc build.
-- Bản triển khai nằm ở `apps/web/.next-funnel`, KHÔNG phải `.next`: `next build` thường (kiểm tra, agent build thử)
-  ghi đè `.next`, mà `next start` đang đọc thư mục bị ghi đè thì tự thoát — trang 8443 sập giữa chừng (đã dẫm
-  07/10/2026). Hai lệnh `build:funnel`/`start:funnel` cùng đặt `AETHER_DIST_DIR=.next-funnel`, đừng chạy `next start` trần.
+- Bản triển khai build XEN KẼ hai thư mục `apps/web/.next-funnel` ↔ `.next-funnel-b` (`scripts/funnelDir.mjs`): `build:funnel` luôn
+  ghi vào thư mục KHÔNG đang chạy rồi mới ghi tên nó vào `apps/web/.funnel-current`; `start:funnel` đọc file đó. Nhờ vậy build
+  lúc đang có người chơi không làm sập bản đang phục vụ (đã dẫm 07/10/2026 khi build đè thư mục đang chạy), build lỗi thì bản cũ
+  chạy tiếp. Cập nhật = `build:funnel` xong → tắt `start:funnel` cũ → chạy lại (gián đoạn ~1 giây). Đừng chạy `next start` trần.
+- Log khi chạy nền (08/10/2026): web `apps/web/funnel.log`, máy chủ game `apps/server/data/server.log`.
 - Funnel chỉ mở được cổng **443, 8443, 10000**; Aether dùng 443 (chính) + 8443 (link cũ), còn trống **10000**. Chia sẻ thì
   luôn gửi link 443 — cổng lạ dễ bị mạng chặn.
 - Muốn tên riêng (`aether.tail024813.ts.net`) thì phải có node Tailscale thứ hai (máy khác hoặc container). Tailscale

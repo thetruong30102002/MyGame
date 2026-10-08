@@ -1,6 +1,8 @@
 node_modules/
 .next/
 .next-funnel/
+.next-funnel-b/
+apps/web/.funnel-current
 .next-devtest/
 out/
 dist/
