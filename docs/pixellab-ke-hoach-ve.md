@@ -3,16 +3,20 @@
 Chủ dự án mua gói **Tier 1** ($12/tháng: 2.000 lượt, 8 job song song, mở `transfer_outfit`) và **vẫn dùng song song** các
 token miễn phí. Lượt gói KHÔNG cộng dồn sang tháng sau → khi có token trả phí thì vẽ một mạch theo danh sách dưới.
 
-## Phân bổ lượt — MỘT gói 24$ (5.000 lượt), ưu tiên nhân vật người chơi + boss (chủ dự án chốt 08/10/2026)
+## Phân bổ lượt — 3 mốc, ~2 gói 24$ (chủ dự án chốt 08/10/2026)
 
-Chủ dự án: "tập trung vào nhân vật của người dùng và boss", "cân đối 5000 image của gói 24 đô", "sẽ làm full trước". Danh sách đầy đủ
-(vùng / map / quái / boss / rồng / trang bị) + ngân sách từng hạng mục + ba đợt vẽ + bàn giao: **`docs/the-gioi-aether.md`** (nguồn
-số liệu duy nhất — các con số cũ ở file này và ở `docs/ke-hoach-the-gioi.md` mục 4 là ước tính trước khi cắt, KHÔNG dùng).
+Danh sách đầy đủ (vùng / map + phác thảo / quái / boss / rồng / skill nhân vật / trang bị) + ngân sách từng mốc + phần còn thiếu +
+bàn giao: **`docs/the-gioi-aether.md`** (nguồn số liệu duy nhất — các con số cũ ở file này và ở `docs/ke-hoach-the-gioi.md` mục 4
+là ước tính trước khi chia mốc, KHÔNG dùng).
 
-Tóm tắt (chủ dự án 08/10/2026: "đồ đạc và nhân vật để sau — làm xong quái, các map và boss, full rồng trước"; "rồng 3 chiêu, boss khu
-1 chiêu, boss chúa 2 chiêu, đừng thay màu quái — quái thường nên đa dạng"): gói này ~4.600 / 5.000 lượt — map + giao diện ~450, quái
-thường ~690 (46 loại, mỗi loại một hình riêng), boss ~1.920 (28 boss mới; boss chúa 2 chiêu, boss khu 1 chiêu), 7 rồng × 3 chiêu ~1.540;
-dự phòng ~400. Nhân vật người chơi + trang bị hiện trên người (~1.250) để gói sau.
+Tóm tắt (chủ dự án: "chia giai đoạn thành 3 mốc, ưu tiên vẽ trước đủ skill nhân vật thật chi tiết, đòn vung tay… 1/3 số quái, 1/3
+map, 1/3 boss"; "rồng 3 chiêu, boss khu 1 chiêu, boss chúa 2 chiêu"; quái thường mỗi loại một hình riêng):
+- **Mốc 1** ~2.967: skill nhân vật ~1.592 (24 động tác mới, icon + hiệu ứng riêng 37 skill đang tạm, 8 tuyệt kỹ, 17 hiệu ứng phụ)
+  + vùng 1–4 (map, 16 quái, 10 boss + chiêu, Phong Long).
+- **Mốc 2** ~1.605: vùng 5–7 + Băng / Hoả / Thuỷ Long — vẽ cùng gói thứ nhất nếu còn lượt (gói 1 ≈ 4.572, dự phòng ~428).
+- **Mốc 3** ~2.655: vùng 8–10 + Địa / Quang / Hắc Long + trang bị hiện trên người + tóc (gói thứ hai, dư ~2.345).
+- Còn thiếu sau 3 mốc (~3.340): NPC trạm + toà thành 9 vùng, Long Huyệt, Thần Long + điều ước, tóc bản bé, thêm kiểu trang bị,
+  skin, icon kho đồ, chân dung Thư viện, đồ vật cốt truyện vùng 2–10.
 
 ## Phân việc
 

@@ -1,8 +1,8 @@
 # Thế giới Aether — vùng, map, quái, boss, trang bị, ngân sách PixelLab
 
 > FILE SINH TỰ ĐỘNG từ `docs/tools/the-gioi-aether.py` — sửa dữ liệu ở đó rồi chạy lại (sinh cả bản HTML). Soạn 08/10/2026,
-> MỘT gói PixelLab 24$ (5.000 lượt): làm trước **map, quái, boss, đủ 7 rồng**; nhân vật người chơi + trang bị để gói sau (chủ dự án
-> 08/10/2026). Trạng thái: **chờ chủ dự án chốt**.
+> chia **3 mốc** (chủ dự án 08/10/2026): Mốc 1 = skill nhân vật thật chi tiết + vùng 1–4; Mốc 2 = vùng 5–7 + 3 rồng; Mốc 3 = vùng 8–10
+> + 3 rồng + nhân vật / trang bị. Trạng thái: **chờ chủ dự án chốt**.
 
 ## Bàn giao — đọc trước khi làm tiếp (agent / người sau)
 
@@ -24,13 +24,17 @@ https://claude.ai/artifact/VTrVtPJHXUtETsssKRcx9K). Không sửa tay hai file si
 
 1. Chủ dự án chốt danh sách (mục Cần chốt) → mua gói 24$ → thêm token trả phí vào CUỐI `PIXELLAB_TOKENS` trong `.env.local`
    (chủ dự án tự thêm). Kiểm số dư trước khi vẽ: `cd packages/asset-pipeline && npx tsx src/cli.ts pixellab balances` (miễn phí).
-   Vẽ theo ba đợt ở mục Ngân sách: **map + quái → boss → 7 rồng** (chủ dự án: nhân vật + đồ đạc để sau); đợt sau chỉ bắt đầu khi đợt
-   trước đạt. Lượt miễn phí của PixelLab đang khoá (08/10/2026).
-2. **Hang Gargoyle** (map thứ 7 vùng 1) rồi **vùng 2 → 10** theo hình vừa vẽ: map dựng bằng pipeline (`npm run assets:map -- <vùng>`,
+   Vẽ theo **3 mốc** (mục 3 mốc vẽ): **Mốc 1** skill nhân vật thật chi tiết (24 động tác — chuỗi chém, vung tay phóng phép, lướt, đỡ,
+   xoay… — icon + hiệu ứng riêng từng skill, 8 tuyệt kỹ) + vùng 1–4 + Phong Long → **Mốc 2** vùng 5–7 + 3 rồng (cùng gói nếu còn lượt)
+   → **Mốc 3** vùng 8–10 + 3 rồng + nhân vật / trang bị (gói thứ hai). Mốc sau chỉ bắt đầu khi mốc trước đạt. Động tác mới ghép vào
+   `apps/web/src/game/combat` (SkillVfx, ghi chú TẠM từng skill) — mỗi động tác phải có điểm gắn vũ khí / mũ cho từng khung.
+   Lượt miễn phí của PixelLab đang khoá (08/10/2026).
+2. **Hang Gargoyle** (map thứ 7 vùng 1) rồi **vùng 2 → 10** theo hình vừa vẽ và phác thảo map (`docs/phac-thao-map/`, sinh từ
+   `docs/tools/sketch.py` — chỉ là bố cục): map dựng bằng pipeline (`npm run assets:map -- <vùng>`,
    khai vùng ở `packages/asset-pipeline/src/maps/regions.ts`), bật `ready: true` ở `packages/sim/src/regions.ts`; boss + chiêu + rồng
    (Long Huyệt, boss thế giới dùng chung — `docs/ke-hoach-the-gioi.md` mục 2.1, 2.2).
 3. **M3.3b**: túi đồ + trang bị ở máy chủ, rơi đồ (máy chủ quyết), nhật ký kinh tế.
-4. Gói sau — **nhân vật người chơi + trang bị** (yêu cầu bắt buộc: mặc món nào hiện đúng món đó — kiếm, trượng, mũ, áo, quần, giày,
+4. Mốc 3 — **nhân vật người chơi + trang bị** (yêu cầu bắt buộc: mặc món nào hiện đúng món đó — kiếm, trượng, mũ, áo, quần, giày,
    găng): pipeline tách bộ đồ PixelLab so với nhân vật gốc → cắt 4 lớp theo vùng thân → `apps/web/src/game/gearArt.ts` /
    `gearLayers.ts`. Làm thử 1 kiểu trước.
 5. Việc nhỏ chờ làm: báo cáo tin chat + lọc từ tục, bảng xếp hạng, trang quản trị (kim cương / nhật ký / tin bị báo cáo).
@@ -58,9 +62,187 @@ https://claude.ai/artifact/VTrVtPJHXUtETsssKRcx9K). Không sửa tay hai file si
 - **10 vùng**, mỗi vùng 7 map: 1 trạm (làng hoặc toà thành — nơi ở có NPC dịch vụ, nhiệm vụ), 5 map săn, 1 thánh địa → **70 map** (đã có 6 ở vùng 1).
 - Quái thường: **46 loại vẽ mới**, mỗi loại một hình riêng (không dùng bản đổi màu) + 4 loại đã có ở vùng 1. Mỗi map săn một loại quái, sinh theo bầy.
 - Boss: **30 boss vùng** (2 boss khu + 1 boss chúa mỗi vùng; vẽ mới 28) + **7 rồng nguyên tố** (boss thêm, map phụ Long Huyệt).
-- PixelLab gói này: **~4.600 / 5.000 lượt** (map, quái, boss, rồng) → còn ~400 lượt dự phòng. Nhân vật + trang bị: gói sau (~1.250 lượt).
+- Skill nhân vật: **24 động tác mới**, 37 skill vẽ lại hình riêng (đang mượn hình), 8 tuyệt kỹ, 17 hiệu ứng phụ (~1.592 lượt).
+- PixelLab: Mốc 1 **~2.967 / 5.000** → dư ~2.033; đề xuất vẽ luôn Mốc 2 (~1.605) cùng gói → ~4.572
+  (còn ~428 để vẽ lại). Mốc 3 (~2.655) sang gói 24$ thứ hai. Cả game ≈ 2 gói 24$.
 
-## Trang bị hiện trên người (BẮT BUỘC — làm ở gói sau)
+## Skill nhân vật (Mốc 1 — vẽ trước)
+
+Hiện có 44 skill: 7 có hình PixelLab, **37 đang mượn hình khác (TẠM)**. Nhân vật mới có idle, walk (8 hướng),
+MỘT nhát attack, MỘT kiểu cast (4 hướng) → mọi skill vung cùng một kiểu. Mốc 1 vẽ đủ các mục dưới.
+
+### 24 động tác nhân vật (3 hướng + lật gương × 2 giới tính, ~30 lượt / động tác)
+
+| Động tác | Dùng cho | Số | Lượt |
+|---|---|---|---|
+| Đòn kiếm thường: vung ngang → vung ngược → đâm tới (thay nhát "attack" duy nhất hiện có) | Trảm, Hàn Băng Trảm | 3 | 90 |
+| Vung tay phóng phép (một tay đẩy ra, đạn bay thẳng) | Tia Aether, Hoả Cầu, Thuỷ Tiễn, Phong Nhận, Băng Tiễn, Đá Văng, Phong Bạo | 1 | 30 |
+| Giơ trượng niệm (vòng phép dưới chân) | Suối Lành, Vòng Lửa, Lốc Xoáy, Băng Địa, Gương Băng, Vòi Rồng | 1 | 30 |
+| Hai tay đẩy về trước (sóng, nón, tường) | Bộc Hoả, Sóng Dữ, Tường Lửa | 1 | 30 |
+| Chỉ tay lên trời gọi (mưa, sét, thiên thạch, mưa băng, lở đá) | Thiên Thạch, Gọi Mưa, Lôi Vũ, Mưa Băng, Lở Đá, Băng Trụ | 1 | 30 |
+| Dậm chân / áp tay xuống đất | Địa Chấn, Gai Đá, Tường Đá | 1 | 30 |
+| Dồn lực: giơ kiếm qua đầu, tụ sáng | Nhất Kích | 1 | 30 |
+| Bổ kiếm từ trên xuống đất | Phá Giáp, Địa Liệt Trảm | 1 | 30 |
+| Lướt tới đâm xuyên | Đột Kích | 1 | 30 |
+| Lướt ngang (né, nhấp nháy bất tử ngắn) | Lướt Chém, Lướt Gió, né của Bắc Thần | 1 | 30 |
+| Giữ thế: kiếm ngang trước ngực (lặp) | Thế Tĩnh | 1 | 30 |
+| Đỡ → phản: gạt kiếm rồi chém trả | Lưu Thủy Phản, Dòng Chảy Ngược, phản đòn nội tại | 1 | 30 |
+| Xoay một vòng chém quanh người | Xoáy Nước, Phong Kiếm Cuồng Vũ | 1 | 30 |
+| Chuỗi 4 nhát nhanh | Liên Hoàn | 1 | 30 |
+| Vung kiếm phóng khí (nhát chém dài bắn ra) | Lưỡi Sóng, Liệt Hoả Trảm, Thuỷ Long Trảm | 1 | 30 |
+| Phóng kiếm + bắt kiếm quay về | Phi Kiếm | 1 | 30 |
+| Ảnh bộ: tan thành bóng → hiện sau lưng | Ảnh Bộ, Ngàn Bóng | 1 | 30 |
+| Tuyệt kỹ: lơ lửng, hai tay giơ cao niệm | 8 tuyệt kỹ mốc 10 | 1 | 30 |
+| Trúng đòn giật lùi · gục · đứng dậy hồi sinh | mọi lúc bị đánh / chết / hồi sinh | 3 | 90 |
+| Uống bình | bình máu, EXP, chiến đấu | 1 | 30 |
+
+Động tác vẽ trên nhân vật gốc (chưa mặc đồ); vũ khí / mũ / áo choàng gắn bằng code theo điểm bàn tay / đầu từng khung — pipeline
+phải ghi điểm gắn cho mọi khung mới. Lớp trang bị thân làm ở Mốc 3, sau khi động tác đã chốt.
+
+### 44 skill — từng skill cần vẽ gì
+
+| Nhóm | Skill | Hệ · kiểu · bậc | Hình | Động tác | Cần vẽ | Lượt |
+|---|---|---|---|---|---|---|
+| Cơ bản | Tia Aether | Aether · đạn | có | Vung tay phóng phép (một tay đẩy ra, đạn bay thẳng) | Đã có hình PixelLab — chỉ cần động tác mới | — |
+| Kiếm — đòn gốc + hợp phủ nguyên tố | Trảm | Kiếm · cận chiến · bậc 1 | có | Đòn kiếm thường: vung ngang → vung ngược → đâm tới (thay nhát "attack" duy nhất hiện có) | Đã có hình PixelLab — chỉ cần động tác mới | — |
+| Kiếm — đòn gốc + hợp phủ nguyên tố | Liệt Hoả Trảm | Hoả · hình nón · bậc 5 | **tạm** | Vung kiếm phóng khí (nhát chém dài bắn ra) | icon Liệt Hoả Trảm + VFX nhát chém lửa hình nón | 14 |
+| Kiếm — đòn gốc + hợp phủ nguyên tố | Thuỷ Long Trảm | Thuỷ · đường thẳng · bậc 5 | **tạm** | Vung kiếm phóng khí (nhát chém dài bắn ra) | icon Thuỷ Long Trảm + VFX rồng nước chạy theo nhát chém | 14 |
+| Kiếm — đòn gốc + hợp phủ nguyên tố | Phong Kiếm Cuồng Vũ | Phong · vùng · bậc 5 | **tạm** | Xoay một vòng chém quanh người | icon Phong Kiếm Cuồng Vũ + VFX vòng lưỡi gió xoay quanh người (đang: vòng gió + vệt chém xanh xoay mỗi nhịp) + động tác xoay kiếm | 16 |
+| Kiếm — đòn gốc + hợp phủ nguyên tố | Hàn Băng Trảm | Băng · cận chiến · bậc 5 | **tạm** | Đòn kiếm thường: vung ngang → vung ngược → đâm tới (thay nhát "attack" duy nhất hiện có) | icon Hàn Băng Trảm + VFX nhát chém băng | 10 |
+| Kiếm — đòn gốc + hợp phủ nguyên tố | Địa Liệt Trảm | Thổ · đường thẳng · bậc 5 | **tạm** | Bổ kiếm từ trên xuống đất | icon Địa Liệt Trảm; gai đá dùng chung `rock_spikes` (chờ lượt) + động tác bổ kiếm xuống đất | 8 |
+| Kiếm — Kiếm Thần (tấn công) | Nhất Kích | Kiếm · cận chiến · bậc 3 | **tạm** | Dồn lực: giơ kiếm qua đầu, tụ sáng | icon Nhất Kích + động tác dồn lực (giơ kiếm qua đầu — đang đứng idle + tia sáng tụ) + vệt chém nặng khổ lớn | 10 |
+| Kiếm — Kiếm Thần (tấn công) | Đột Kích | Kiếm · lướt · bậc 5 | **tạm** | Lướt tới đâm xuyên | icon Đột Kích + động tác lướt tới (đang trượt sprite idle) + vệt chém xuyên riêng | 10 |
+| Kiếm — Kiếm Thần (tấn công) | Phá Giáp | Kiếm · cận chiến · bậc 6 | **tạm** | Bổ kiếm từ trên xuống đất | icon Phá Giáp + VFX giáp vỡ (mảnh giáp văng) + động tác bổ kiếm nặng từ trên xuống | 10 |
+| Kiếm — Kiếm Thần (tấn công) | Lưỡi Sóng | Kiếm · đạn · bậc 8 | **tạm** | Vung kiếm phóng khí (nhát chém dài bắn ra) | icon Lưỡi Sóng + VFX luồng kiếm bay (lưỡi liềm ánh bạc kéo vệt, lặp) + động tác vung kiếm phóng khí | 14 |
+| Kiếm — Thủy Thần (giữ thế, phản đòn) | Thế Tĩnh | Kiếm · giữ thế · bậc 3 | **tạm** | Giữ thế: kiếm ngang trước ngực (lặp) | icon Thế Tĩnh + động tác giữ thế (đang đứng idle + vòng nước dưới chân, sprite nhuộm xanh nhạt) + hiệu ứng gạt đòn | 12 |
+| Kiếm — Thủy Thần (giữ thế, phản đòn) | Lưu Thủy Phản | Kiếm · giữ thế · bậc 5 | **tạm** | Đỡ → phản: gạt kiếm rồi chém trả | icon Lưu Thủy Phản + động tác đỡ → phản (đang dùng attack sẵn có) + vòng báo cửa sổ đỡ riêng + đạn phản ngược | 12 |
+| Kiếm — Thủy Thần (giữ thế, phản đòn) | Dòng Chảy Ngược | Kiếm · khiên · bậc 6 | **tạm** | Đỡ → phản: gạt kiếm rồi chém trả | icon Dòng Chảy Ngược + động tác gạt kiếm (đang dùng attack sẵn có theo hướng viên đạn) + VFX dòng nước cuốn đạn bay ngược | 14 |
+| Kiếm — Thủy Thần (giữ thế, phản đòn) | Xoáy Nước | Kiếm · xoay · bậc 8 | **tạm** | Xoay một vòng chém quanh người | icon Xoáy Nước + động tác xoay một vòng (3 hướng × 2 giới tính) + VFX xoáy nước quanh người | 12 |
+| Kiếm — Bắc Thần (nhanh, lướt) | Lướt Chém | Kiếm · lướt · bậc 3 | **tạm** | Lướt ngang (né, nhấp nháy bất tử ngắn) | icon Lướt Chém + động tác lướt ngang (3 hướng × 2 giới tính; đang trượt sprite + nhấp nháy i-frame) | 10 |
+| Kiếm — Bắc Thần (nhanh, lướt) | Ảnh Bộ | Kiếm · dịch chuyển · bậc 5 | **tạm** | Ảnh bộ: tan thành bóng → hiện sau lưng | icon Ảnh Bộ + động tác ảnh bộ (tan thành bóng → hiện sau lưng; đang dịch tức thời + khói bóng) | 10 |
+| Kiếm — Bắc Thần (nhanh, lướt) | Liên Hoàn | Kiếm · cận chiến · bậc 6 | **tạm** | Chuỗi 4 nhát nhanh | icon Liên Hoàn + động tác chuỗi 4 nhát (đang: attack sẵn có một lần + 4 vệt chém luân phiên) | 10 |
+| Kiếm — Bắc Thần (nhanh, lướt) | Phi Kiếm | Kiếm · đạn · bậc 8 | **tạm** | Phóng kiếm + bắt kiếm quay về | icon Phi Kiếm + đạn thanh kiếm xoay (8 góc) + động tác phóng / bắt kiếm | 14 |
+| Phép Hoả | Hoả Cầu | Hoả · đạn · bậc 1 | có | Vung tay phóng phép (một tay đẩy ra, đạn bay thẳng) | Đã có hình PixelLab — chỉ cần động tác mới | — |
+| Phép Hoả | Vòng Lửa | Hoả · nổ quanh mình · bậc 3 | **tạm** | Giơ trượng niệm (vòng phép dưới chân) | icon Vòng Lửa; vòng lửa dùng lại fire_ring phóng ×2 (đạt) — chưa cần VFX riêng | 14 |
+| Phép Hoả | Bộc Hoả | Hoả · nổ chỗ chọn · bậc 5 | **tạm** | Hai tay đẩy về trước (sóng, nón, tường) | icon Bộc Hoả + VFX nổ lớn khổ 128 (vẽ cùng đợt meteor) | 16 |
+| Phép Hoả | Tường Lửa | Hoả · tường · bậc 6 | **tạm** | Hai tay đẩy về trước (sóng, nón, tường) | icon Tường Lửa + VFX tường lửa (dải lửa đứng lặp, khổ ~128×64) — đang xếp ngọn `flame` ×2 mỗi 26px | 14 |
+| Phép Hoả | Thiên Thạch | Hoả · nổ chỗ chọn · bậc 8 | **tạm** | Chỉ tay lên trời gọi (mưa, sét, thiên thạch, mưa băng, lở đá) | icon Thiên Thạch; VFX `meteor` chờ lượt (khổ 160) — đang: cầu lửa ×3 rơi + vòng lửa ×3 + nổ ×3 | 16 |
+| Phép Thuỷ | Thuỷ Tiễn | Thuỷ · đạn · bậc 1 | có | Vung tay phóng phép (một tay đẩy ra, đạn bay thẳng) | Đã có hình PixelLab — chỉ cần động tác mới | — |
+| Phép Thuỷ | Suối Lành | Hồi máu · hồi máu · bậc 3 | có | Giơ trượng niệm (vòng phép dưới chân) | Đã có hình PixelLab — chỉ cần động tác mới | — |
+| Phép Thuỷ | Sóng Dữ | Thuỷ · hình nón · bậc 5 | **tạm** | Hai tay đẩy về trước (sóng, nón, tường) | icon Sóng Dữ + VFX sóng hình nón (chưa xếp lịch) | 14 |
+| Phép Thuỷ | Gọi Mưa | Thuỷ · vùng · bậc 6 | **tạm** | Chỉ tay lên trời gọi (mưa, sét, thiên thạch, mưa băng, lở đá) | icon Gọi Mưa; VFX `rain_cloud` đang xếp lịch — đang: mây steam nhuộm xám + giọt (hạt) + bắn nước | 16 |
+| Phép Thuỷ | Lôi Vũ | Thuỷ · vùng · bậc 8 | **tạm** | Chỉ tay lên trời gọi (mưa, sét, thiên thạch, mưa băng, lở đá) | icon Lôi Vũ; VFX `lightning_strike` đang xếp lịch — đang: cột sáng nhuộm xanh; mây dùng chung Gọi Mưa | 16 |
+| Phép Phong | Phong Nhận | Phong · đạn · bậc 1 | có | Vung tay phóng phép (một tay đẩy ra, đạn bay thẳng) | Đã có hình PixelLab — chỉ cần động tác mới | — |
+| Phép Phong | Lốc Xoáy | Phong · vùng · bậc 3 | **tạm** | Giơ trượng niệm (vòng phép dưới chân) | icon Lốc Xoáy; VFX `tornado` đang xếp lịch — phễu chồng wind_spin chỉ là tạm | 16 |
+| Phép Phong | Lướt Gió | Phong · lướt · bậc 5 | **tạm** | Lướt ngang (né, nhấp nháy bất tử ngắn) | icon Lướt Gió + động tác lướt (3 hướng × 2 giới tính) + vệt gió riêng | 10 |
+| Phép Phong | Phong Bạo | Phong · đạn · bậc 6 | **tạm** | Vung tay phóng phép (một tay đẩy ra, đạn bay thẳng) | icon Phong Bạo + lưỡi gió riêng (đang dùng lốc nhỏ wind_spin như Phong Nhận) | 14 |
+| Phép Phong | Vòi Rồng | Phong · vùng · bậc 8 | **tạm** | Giơ trượng niệm (vòng phép dưới chân) | icon Vòi Rồng; VFX `tornado` đang xếp lịch — Vòi Rồng = bản phóng ×2 của Lốc Xoáy | 6 |
+| Phép Băng | Băng Tiễn | Băng · đạn · bậc 1 | có | Vung tay phóng phép (một tay đẩy ra, đạn bay thẳng) | Đã có hình PixelLab — chỉ cần động tác mới | — |
+| Phép Băng | Băng Địa | Băng · vùng · bậc 3 | **tạm** | Giơ trượng niệm (vòng phép dưới chân) | icon Băng Địa + VFX mặt băng phủ đất (chưa xếp lịch) | 16 |
+| Phép Băng | Băng Trụ | Băng · cột · bậc 5 | **tạm** | Chỉ tay lên trời gọi (mưa, sét, thiên thạch, mưa băng, lở đá) | icon Băng Trụ; VFX `ice_pillar` đang xếp lịch — cột ghép từ mũi băng chỉ là tạm | 14 |
+| Phép Băng | Gương Băng | Băng · khiên · bậc 6 | **tạm** | Giơ trượng niệm (vòng phép dưới chân) | icon Gương Băng + VFX khiên băng (vòm băng trong suốt quanh người, lặp) + băng vỡ khi phản đạn | 14 |
+| Phép Băng | Mưa Băng | Băng · mưa đạn · bậc 8 | **tạm** | Chỉ tay lên trời gọi (mưa, sét, thiên thạch, mưa băng, lở đá) | icon Mưa Băng; VFX `ice_rain` chờ lượt — đang: mũi băng ×2 rơi + băng vỡ (bản PixelLab phát ở mỗi mũi thứ 3) | 16 |
+| Phép Thổ | Đá Văng | Thổ · đạn · bậc 1 | **tạm** | Vung tay phóng phép (một tay đẩy ra, đạn bay thẳng) | icon Đá Văng + đạn đá bay + vỡ đá (≈5 lượt, kế hoạch GĐ1) | 14 |
+| Phép Thổ | Địa Chấn | Thổ · nổ quanh mình · bậc 3 | **tạm** | Dậm chân / áp tay xuống đất | icon Địa Chấn + sóng chấn mặt đất + động tác dậm đất | 14 |
+| Phép Thổ | Gai Đá | Thổ · đường thẳng · bậc 5 | **tạm** | Dậm chân / áp tay xuống đất | icon Gai Đá; VFX `rock_spikes` chờ lượt | 14 |
+| Phép Thổ | Tường Đá | Thổ · tường · bậc 6 | **tạm** | Dậm chân / áp tay xuống đất | icon Tường Đá + VFX tường đá (trồi → đứng → vỡ, khổ ~128×64) — đang: mây steam nhuộm nâu đứng thành khối đá | 14 |
+| Phép Thổ | Lở Đá | Thổ · mưa đạn · bậc 8 | **tạm** | Chỉ tay lên trời gọi (mưa, sét, thiên thạch, mưa băng, lở đá) | icon Lở Đá + VFX đá tảng rơi vỡ (chưa khai ở pipeline — chưa xếp lịch) | 16 |
+
+### 8 tuyệt kỹ mốc 10 (chưa có trong game)
+
+| Tuyệt kỹ | Nhánh | Hình | Lượt |
+|---|---|---|---|
+| Phán Quyết | Kiếm Thần | ngàn thanh kiếm ánh sáng cắm xuống cả vùng | 30 |
+| Thiên Tĩnh | Thủy Thần | 5 giây bất động như mặt hồ, mọi đòn đánh vào bị phản lại | 30 |
+| Ngàn Bóng | Bắc Thần | 3 bóng phân thân cùng lao vào chém 6 giây (bóng = nhân vật nhuộm tối bằng code) | 30 |
+| Phượng Hoàng | Hoả | phượng lửa bay xuyên màn hình (sprite phượng bay + vệt lửa) | 30 |
+| Đại Hồng Thuỷ | Thuỷ | sóng thần quét ngang màn hình | 30 |
+| Thiên Phong | Phong | bão quanh mình 6 giây, hút và chém quái | 30 |
+| Kỷ Băng Hà | Băng | sóng băng đóng băng cả vùng | 30 |
+| Sơn Thần | Thổ | người khổng lồ đá chiến đấu cùng 10 giây (cần nhân vật triệu hồi riêng: đi, đánh, trồi lên, vỡ) | 60 |
+
+### 17 hiệu ứng nội tại / phản ứng nguyên tố (~6 lượt mỗi cái)
+
+- `earth_hit` — VFX vỡ đá khi trúng
+- `whirlpool_surge` — VFX xoáy nước lớn (bản mạnh sau khi đỡ đòn)
+- `press_max` — VFX khí thế bừng lên quanh người (vàng)
+- `rage_aura` — VFX hào quang đỏ bám người khi máu thấp
+- `riposte` — VFX nhát phản chí mạng + động tác phản kiếm sau cú né
+- `lake_heal` — VFX mặt hồ lặng sóng quanh chân (hồi máu)
+- `momentum` — VFX vệt gió bạc bám kiếm
+- `blur_evade` — VFX bóng mờ tách khỏi người khi né (tàn ảnh) + icon chỉ số "Né hoàn toàn" ở bảng Nhân vật (đang mượn frame shadow_5 — `SkillIcon.ICON_FRAME.evade`)
+- `ember_burst` — VFX xác quái nổ tung lửa tro
+- `shatter_burst` — VFX khối băng vỡ văng mảnh
+- `spring_heal` — VFX hồi máu kiểu giọt nước xanh lá
+- `mountain_heal` — VFX hào quang đá (nâu vàng) quanh chân
+- `eye_haste` — VFX vệt gió bám chân
+- `react_mud` — VFX bùn bắn + vũng bùn
+- `react_lava` — VFX dung nham
+- `react_sandstorm` — VFX lốc cát
+- `react_shatter` — VFX băng vỡ vụn
+
+## 3 mốc vẽ — ngân sách PixelLab
+
+Mốc sau chỉ bắt đầu khi mốc trước đạt. Gói 24$ = 5.000 lượt / tháng, lượt không dùng hết trong tháng thì mất.
+
+| Mốc | Nhóm | Hạng mục | Lượt |
+|---|---|---|---|
+| **Mốc 1** — Skill nhân vật chi tiết + vùng 1–4 (~2.967) | Skill nhân vật (chi tiết) | 24 động tác nhân vật × ~30 lượt (3 hướng + lật gương × 2 giới tính; gồm vẽ lại) — chuỗi đòn kiếm, vung tay phóng phép, lướt, đỡ, xoay… | 720 |
+|  | Skill nhân vật (chi tiết) | Icon skill: 37 skill đang mượn icon + 8 tuyệt kỹ × ~2 lượt | 90 |
+|  | Skill nhân vật (chi tiết) | Hiệu ứng riêng của 37 skill đang tạm (đạn bay 8 góc + nổ khi trúng; vùng / mưa: mở → lặp → tan) | 410 |
+|  | Skill nhân vật (chi tiết) | 8 tuyệt kỹ mốc 10 — hiệu ứng khổ lớn nhiều pha (Sơn Thần kèm người khổng lồ đá) | 270 |
+|  | Skill nhân vật (chi tiết) | 17 hiệu ứng nội tại + phản ứng nguyên tố × ~6 lượt | 102 |
+|  | Map — vùng 1–4 | Đồ vật / nhà / cây / trạm 3 vùng mới × ~40 lượt + Hang Gargoyle (vùng 1) + giao diện (gian hàng, tranh lục địa, icon kim cương / lịch / 6 bình) | 195 |
+|  | Quái thường — vùng 1–4 | 16 loại vẽ mới × ~15 lượt (mỗi loại một hình riêng) | 240 |
+|  | Boss — vùng 1–4 | 10 boss vẽ mới × ~40 lượt (4 hướng + lật gương; đi, đánh, niệm, gục) | 400 |
+|  | Boss — vùng 1–4 | Boss chúa: 4 boss × 2 chiêu × ~30 lượt | 240 |
+|  | Boss — vùng 1–4 | Boss khu: 8 boss × 1 chiêu × ~10 lượt | 80 |
+|  | Rồng | Phong Long × ~220 lượt (sprite lớn 192–256px, động tác + 3 chiêu) | 220 |
+| **Mốc 2** — Vùng 5–7 + 3 rồng (~1.605) | Map — vùng 5–7 | Đồ vật / nhà / cây / trạm 3 vùng mới × ~40 lượt | 120 |
+|  | Quái thường — vùng 5–7 | 15 loại vẽ mới × ~15 lượt (mỗi loại một hình riêng) | 225 |
+|  | Boss — vùng 5–7 | 9 boss vẽ mới × ~40 lượt (4 hướng + lật gương; đi, đánh, niệm, gục) | 360 |
+|  | Boss — vùng 5–7 | Boss chúa: 3 boss × 2 chiêu × ~30 lượt | 180 |
+|  | Boss — vùng 5–7 | Boss khu: 6 boss × 1 chiêu × ~10 lượt | 60 |
+|  | Rồng | Băng Long, Hoả Long, Thuỷ Long × ~220 lượt (sprite lớn 192–256px, động tác + 3 chiêu) | 660 |
+| **Mốc 3** — Vùng 8–10 + 3 rồng + nhân vật / trang bị (~2.655) | Map — vùng 8–10 | Đồ vật / nhà / cây / trạm 3 vùng mới × ~40 lượt | 120 |
+|  | Quái thường — vùng 8–10 | 15 loại vẽ mới × ~15 lượt (mỗi loại một hình riêng) | 225 |
+|  | Boss — vùng 8–10 | 9 boss vẽ mới × ~40 lượt (4 hướng + lật gương; đi, đánh, niệm, gục) | 360 |
+|  | Boss — vùng 8–10 | Boss chúa: 3 boss × 2 chiêu × ~30 lượt | 180 |
+|  | Boss — vùng 8–10 | Boss khu: 6 boss × 1 chiêu × ~10 lượt | 60 |
+|  | Rồng | Địa Long, Quang Long, Hắc Long × ~220 lượt (sprite lớn 192–256px, động tác + 3 chiêu) | 660 |
+|  | Nhân vật + trang bị hiện trên người | Trang bị lớp thân: 4 kiểu hình × 2 giới tính × ~95 lượt (một bộ đồ → cắt 4 lớp áo / quần / giày / găng; phủ cả các động tác mới ở Mốc 1) | 760 |
+|  | Nhân vật + trang bị hiện trên người | Trang bị gắn: 24 kiểu (kiếm, trượng, khiên, mũ, áo choàng) × ~2 lượt | 50 |
+|  | Nhân vật + trang bị hiện trên người | Kiểu tóc: 2 kiểu mới × 2 giới tính (bản 16 tuổi) + phủ động tác mới | 240 |
+| **Cộng 3 mốc** | | | **~7.227** |
+
+**Còn dư:** Mốc 1 ≈ 2.967 → dư ~2.033. Đề xuất: gói 24$ thứ nhất = Mốc 1 + Mốc 2 (~4.572, còn ~428
+để vẽ lại); gói thứ hai = Mốc 3 (~2.655, còn ~2.345 để thêm kiểu hình trang bị / vẽ lại).
+
+## Sau Mốc 3 còn thiếu gì
+
+Chưa nằm trong mốc nào (~3.340 lượt); phần "cần để vùng chơi được" ~900 — chơi được bằng hình TẠM ghi
+trong bảng. Gói 24$ thứ hai sau Mốc 3 còn ~2.345 → đủ phần "cần" + phần lớn "nên có".
+
+| Nhóm | Hạng mục | Ưu tiên | Lượt ước | Trước khi có hình |
+|---|---|---|---|---|
+| NPC | NPC trạm 9 vùng mới: người bán, người giao nhiệm vụ, người ghi sử, giữ cột dịch chuyển — 4 NPC × 9 vùng × ~14 lượt (sprite 4 hướng + chân dung hội thoại) | cần để vùng chơi được | 500 | TẠM: NPC vùng 1 (Bram, Elin, Garrick, Mirelle, Aldric) đổi màu / đổi đồ gắn |
+| NPC | NPC chính trị ở 4 toà thành (vua / tộc trưởng, quan, lính gác) — 3 NPC × 4 thành × ~14 lượt | cần để vùng chơi được | 170 | TẠM: lính / quan từ NPC vùng 1 đổi màu |
+| NPC | Thợ rèn / thợ may / thợ cắt tóc ở vùng lớn (3 vùng × 3 NPC) | nên có | 130 | dùng chung người bán |
+| Rồng | 7 Long Huyệt (map phụ của rồng): đồ vật + nền riêng × ~20 lượt | cần để vùng chơi được | 140 | TẠM: dựng từ đồ vật của vùng chứa nó |
+| Rồng | Thần Long (sprite rất lớn + cảnh triệu hồi khi đủ 7 Long Châu) | nên có | 150 | chưa làm tính năng |
+| Rồng | Điều ước Thần Long: rồng con thú cưng (~40), thú cưỡi rồng có người ngồi (~200), skin Long Kỵ Sĩ × 2 giới tính (~190) | làm thêm | 430 | chưa làm tính năng |
+| Nhân vật | Kiểu tóc bản bé 4–8 tuổi (A1 cần cả hai mốc tuổi): 2 kiểu × 2 giới tính | nên có | 200 | bé chỉ có kiểu gốc + đổi màu tóc (0 lượt) |
+| Nhân vật | Thêm 4 kiểu hình trang bị (giáp hiếm, set đồ rơi từ boss / rồng) — 4 kiểu đầu dùng chung cả 100 cấp là ít | nên có | 760 | đồ khác cấp dùng chung kiểu hình, độ hiếm nhuộm màu |
+| Nhân vật | Skin mỹ phẩm bán bằng kim cương (K3): mỗi skin × 2 giới tính ~95 — đề xuất 3 skin đầu | làm thêm | 290 | chưa mở bán |
+| Giao diện | Icon kho đồ: mỗi kiểu trang bị 1 icon (4 kiểu × 4 lớp + 24 đồ gắn + nhẫn / dây chuyền) + icon nguyên liệu rơi từ quái mới | cần để vùng chơi được | 90 | TẠM: icon E1 có sẵn đổi màu |
+| Giao diện | Sách Thư viện (9-slice), icon Bạn bè / Cài đặt, bảng xếp hạng, khung chọn nhân vật | nên có | 40 | khung gỗ / giấy sẵn có |
+| Thư viện | Chân dung quái / boss cho Thư viện (sách quái vật): 46 quái + 37 boss / rồng × ~2 lượt | nên có | 170 | TẠM: phóng sprite đứng của quái |
+| Cốt truyện | Đồ vật nhiệm vụ + cảnh cắt cảnh của cốt truyện vùng 2–10 (chưa viết) — ước ~30 / vùng | nên có | 270 | viết cốt truyện xong mới biết |
+| **Cộng** | | | **~3.340** | |
+
+Ngoài PixelLab: Âm thanh + nhạc nền từng vùng (PixelLab không làm); Cốt truyện + lời thoại + nhiệm vụ vùng 2–10 (viết tay); Chỉ số, AI, chiêu của 46 quái + 28 boss + 7 rồng trong code (cân bằng sau khi có hình).
+
+## Trang bị hiện trên người (BẮT BUỘC — Mốc 3)
 
 Mặc món nào thì nhân vật hiện đúng món đó — cầm kiếm nào, cầm trượng nào, đội mũ nào, áo, quần, giày, găng nào đều thấy trên người,
 người chơi khác cũng thấy. Mỗi lúc cầm một vũ khí: chém thì cầm kiếm, niệm phép thì cầm trượng.
@@ -91,7 +273,7 @@ Chú thích cột Hình: **vẽ mới** = PixelLab vẽ (mỗi loại quái mộ
 "cần chiêu mới" = có hình, thiếu hiệu ứng chiêu. Boss khu ở hang ổ trong map săn (hồi sinh theo giờ); boss chúa ở thánh địa,
 hạ xong mới mở vùng kế.
 
-### Vùng 1 · Thung lũng Thistlewood
+### Vùng 1 · Thung lũng Thistlewood — Mốc 1
 
 - Cấp 1–10 · hệ vùng Bóng tối · quái yếu Hoả, Aether · Đang chơi được (6/7 map)
 - Nơi ở (làng): **Thị trấn Thistlewood** — Quê nhà của Lior: nhiệm vụ tuổi thơ và tuổi 16 bắt đầu ở đây.
@@ -108,7 +290,13 @@ hạ xong mới mở vùng kế.
 |  |  | Gargoyle Đá · boss khu | **vẽ mới** |  |
 | Đá Phong Ấn | Thánh địa | Quỷ vương rừng sâu · boss chúa | có hình · cần chiêu mới | đã có |
 
-### Vùng 2 · Đầm lầy Mù Sương
+Sơ đồ nối 7 map + phác thảo (bố cục để duyệt, không phải hình trong game):
+
+![Sơ đồ vùng 1](phac-thao-map/vung-1.svg)
+
+<img src="../apps/web/public/assets/maps/human/town.minimap.png" alt="Thistlewood" width="240"> <img src="../apps/web/public/assets/maps/human/mossvale.minimap.png" alt="Rừng Mossvale" width="240"> <img src="../apps/web/public/assets/maps/human/graveyard.minimap.png" alt="Nghĩa địa Hoàng Hôn" width="240"> <img src="../apps/web/public/assets/maps/human/bonehills.minimap.png" alt="Đồi Xương Trắng" width="240"> <img src="../apps/web/public/assets/maps/human/cliffs.minimap.png" alt="Vách Gargoyle" width="240"> <img src="phac-thao-map/vung-1-map-6.svg" alt="Hang Gargoyle" width="240"> <img src="../apps/web/public/assets/maps/human/shrine.minimap.png" alt="Đá Phong Ấn" width="240">
+
+### Vùng 2 · Đầm lầy Mù Sương — Mốc 1
 
 - Cấp 10–20 · hệ vùng Thuỷ / độc · quái yếu Thổ, Phong · Chưa có map
 - Nơi ở (làng): **Làng nhà sàn Lau Xám** — Dân đầm lầy sống trên nhà sàn, nhờ người lạ dẹp quái và tìm thuốc giải độc.
@@ -125,7 +313,13 @@ hạ xong mới mở vùng kế.
 |  |  | Phù thuỷ đầm · boss khu | **vẽ mới** |  |
 | Hồ Hydra | Thánh địa | Hydra bùn · boss chúa | **vẽ mới** | chưa có |
 
-### Vùng 3 · Sa mạc Hồng Cát
+Sơ đồ nối 7 map + phác thảo (bố cục để duyệt, không phải hình trong game):
+
+![Sơ đồ vùng 2](phac-thao-map/vung-2.svg)
+
+<img src="phac-thao-map/vung-2-map-1.svg" alt="Làng nhà sàn Lau Xám" width="240"> <img src="phac-thao-map/vung-2-map-2.svg" alt="Bãi Lau Sậy" width="240"> <img src="phac-thao-map/vung-2-map-3.svg" alt="Kênh Đỉa" width="240"> <img src="phac-thao-map/vung-2-map-4.svg" alt="Rừng Ngập Nấm" width="240"> <img src="phac-thao-map/vung-2-map-5.svg" alt="Đầm Rắn Nước" width="240"> <img src="phac-thao-map/vung-2-map-6.svg" alt="Vực Sương Xanh" width="240"> <img src="phac-thao-map/vung-2-map-7.svg" alt="Hồ Hydra" width="240">
+
+### Vùng 3 · Sa mạc Hồng Cát — Mốc 1
 
 - Cấp 20–30 · hệ vùng Thổ / Hoả · quái yếu Thuỷ, Băng · Chưa có map
 - Nơi ở (toà thành): **Thành ốc đảo Sahrin** — Vương quốc sa mạc: các tộc tranh nguồn nước, triều đình giao nhiệm vụ.
@@ -142,7 +336,13 @@ hạ xong mới mở vùng kế.
 |  |  | Pharaoh xác ướp · boss khu | **vẽ mới** |  |
 | Hố Cát Nuốt | Thánh địa | Sâu cát khổng lồ · boss chúa | **vẽ mới** | chưa có |
 
-### Vùng 4 · Cao nguyên Gió Hú
+Sơ đồ nối 7 map + phác thảo (bố cục để duyệt, không phải hình trong game):
+
+![Sơ đồ vùng 3](phac-thao-map/vung-3.svg)
+
+<img src="phac-thao-map/vung-3-map-1.svg" alt="Thành ốc đảo Sahrin" width="240"> <img src="phac-thao-map/vung-3-map-2.svg" alt="Cồn Cát Đỏ" width="240"> <img src="phac-thao-map/vung-3-map-3.svg" alt="Hẻm Rắn" width="240"> <img src="phac-thao-map/vung-3-map-4.svg" alt="Lăng Mộ Cát" width="240"> <img src="phac-thao-map/vung-3-map-5.svg" alt="Vách Kền Kền" width="240"> <img src="phac-thao-map/vung-3-map-6.svg" alt="Phế tích Đá Đỏ" width="240"> <img src="phac-thao-map/vung-3-map-7.svg" alt="Hố Cát Nuốt" width="240">
+
+### Vùng 4 · Cao nguyên Gió Hú — Mốc 1
 
 - Cấp 30–40 · hệ vùng Phong · quái yếu Thổ · Chưa có map
 - Nơi ở (làng): **Làng Cối Xay Gió** — Làng trên cao nguyên, giữ đền thờ trên mây.
@@ -160,7 +360,13 @@ hạ xong mới mở vùng kế.
 |  |  | Pháp sư gió · boss khu | **vẽ mới** |  |
 | Đền Trên Mây | Thánh địa | Rồng gió · boss chúa | **vẽ mới** | chưa có |
 
-### Vùng 5 · Lãnh nguyên Băng Giá
+Sơ đồ nối 7 map + phác thảo (bố cục để duyệt, không phải hình trong game):
+
+![Sơ đồ vùng 4](phac-thao-map/vung-4.svg)
+
+<img src="phac-thao-map/vung-4-map-1.svg" alt="Làng Cối Xay Gió" width="240"> <img src="phac-thao-map/vung-4-map-2.svg" alt="Đồi Cỏ Cao" width="240"> <img src="phac-thao-map/vung-4-map-3.svg" alt="Vách Chim Ưng" width="240"> <img src="phac-thao-map/vung-4-map-4.svg" alt="Thung Lũng Tiên" width="240"> <img src="phac-thao-map/vung-4-map-5.svg" alt="Bãi Đá Bay" width="240"> <img src="phac-thao-map/vung-4-map-6.svg" alt="Đường Lên Đền Mây" width="240"> <img src="phac-thao-map/vung-4-map-7.svg" alt="Đền Trên Mây" width="240">
+
+### Vùng 5 · Lãnh nguyên Băng Giá — Mốc 2
 
 - Cấp 40–50 · hệ vùng Băng · quái yếu Hoả · Chưa có map
 - Nơi ở (làng): **Làng gỗ Tuyết Phong** — Thợ săn và thợ mỏ băng sống qua mùa đông dài.
@@ -178,7 +384,13 @@ hạ xong mới mở vùng kế.
 | Hang Gấu | Săn | Gấu băng | **vẽ mới** | chưa có |
 | Ngai Băng | Thánh địa | Băng long · boss chúa | **vẽ mới** | chưa có |
 
-### Vùng 6 · Núi lửa Hoả Sơn
+Sơ đồ nối 7 map + phác thảo (bố cục để duyệt, không phải hình trong game):
+
+![Sơ đồ vùng 5](phac-thao-map/vung-5.svg)
+
+<img src="phac-thao-map/vung-5-map-1.svg" alt="Làng gỗ Tuyết Phong" width="240"> <img src="phac-thao-map/vung-5-map-2.svg" alt="Rừng Thông Tuyết" width="240"> <img src="phac-thao-map/vung-5-map-3.svg" alt="Hồ Băng" width="240"> <img src="phac-thao-map/vung-5-map-4.svg" alt="Đèo Người Tuyết" width="240"> <img src="phac-thao-map/vung-5-map-5.svg" alt="Bờ Biển Băng" width="240"> <img src="phac-thao-map/vung-5-map-6.svg" alt="Hang Gấu" width="240"> <img src="phac-thao-map/vung-5-map-7.svg" alt="Ngai Băng" width="240">
+
+### Vùng 6 · Núi lửa Hoả Sơn — Mốc 2
 
 - Cấp 50–60 · hệ vùng Hoả · quái yếu Thuỷ, Băng · Chưa có map
 - Nơi ở (toà thành): **Pháo đài người lùn Đe Đỏ** — Hội đồng người lùn: rèn binh khí, đổi lấy nhiệm vụ trong lòng núi.
@@ -196,7 +408,13 @@ hạ xong mới mở vùng kế.
 |  |  | Salamander · boss khu | **vẽ mới** |  |
 | Lõi Núi Lửa | Thánh địa | Hoả thần · boss chúa | **vẽ mới** | chưa có |
 
-### Vùng 7 · Quần đảo San Hô
+Sơ đồ nối 7 map + phác thảo (bố cục để duyệt, không phải hình trong game):
+
+![Sơ đồ vùng 6](phac-thao-map/vung-6.svg)
+
+<img src="phac-thao-map/vung-6-map-1.svg" alt="Pháo đài Đe Đỏ" width="240"> <img src="phac-thao-map/vung-6-map-2.svg" alt="Bãi Đá Đen" width="240"> <img src="phac-thao-map/vung-6-map-3.svg" alt="Sông Dung Nham" width="240"> <img src="phac-thao-map/vung-6-map-4.svg" alt="Hang Dơi Lửa" width="240"> <img src="phac-thao-map/vung-6-map-5.svg" alt="Lò Rèn Bỏ Hoang" width="240"> <img src="phac-thao-map/vung-6-map-6.svg" alt="Miệng Núi" width="240"> <img src="phac-thao-map/vung-6-map-7.svg" alt="Lõi Núi Lửa" width="240">
+
+### Vùng 7 · Quần đảo San Hô — Mốc 2
 
 - Cấp 60–70 · hệ vùng Thuỷ · quái yếu Phong, Thổ · Chưa có map
 - Nơi ở (làng): **Cảng chài San Hô** — Làng chài và thương thuyền, tin đồn về tàu ma.
@@ -214,7 +432,13 @@ hạ xong mới mở vùng kế.
 |  |  | Thuyền trưởng ma · boss khu | **vẽ mới** |  |
 | Vực Kraken | Thánh địa | Kraken · boss chúa | **vẽ mới** | chưa có |
 
-### Vùng 8 · Rừng Nấm Ngầm
+Sơ đồ nối 7 map + phác thảo (bố cục để duyệt, không phải hình trong game):
+
+![Sơ đồ vùng 7](phac-thao-map/vung-7.svg)
+
+<img src="phac-thao-map/vung-7-map-1.svg" alt="Cảng chài San Hô" width="240"> <img src="phac-thao-map/vung-7-map-2.svg" alt="Bãi Cát Trắng" width="240"> <img src="phac-thao-map/vung-7-map-3.svg" alt="Rạn San Hô" width="240"> <img src="phac-thao-map/vung-7-map-4.svg" alt="Đảo Cướp Biển" width="240"> <img src="phac-thao-map/vung-7-map-5.svg" alt="Đầm Người Cá" width="240"> <img src="phac-thao-map/vung-7-map-6.svg" alt="Bãi Tàu Đắm" width="240"> <img src="phac-thao-map/vung-7-map-7.svg" alt="Vực Kraken" width="240">
+
+### Vùng 8 · Rừng Nấm Ngầm — Mốc 3
 
 - Cấp 70–80 · hệ vùng Thổ · quái yếu Phong · Chưa có map
 - Nơi ở (làng): **Làng người nấm Ánh Tím** — Tộc người nấm dưới lòng đất, chỉ tin người đã giúp họ.
@@ -232,7 +456,13 @@ hạ xong mới mở vùng kế.
 |  |  | Vua người nấm · boss khu | **vẽ mới** |  |
 | Lòng Đất Sâu | Thánh địa | Rồng đất · boss chúa | **vẽ mới** | chưa có |
 
-### Vùng 9 · Phế tích Aether
+Sơ đồ nối 7 map + phác thảo (bố cục để duyệt, không phải hình trong game):
+
+![Sơ đồ vùng 8](phac-thao-map/vung-8.svg)
+
+<img src="phac-thao-map/vung-8-map-1.svg" alt="Làng người nấm Ánh Tím" width="240"> <img src="phac-thao-map/vung-8-map-2.svg" alt="Rừng Nấm Khổng Lồ" width="240"> <img src="phac-thao-map/vung-8-map-3.svg" alt="Hang Nhện" width="240"> <img src="phac-thao-map/vung-8-map-4.svg" alt="Mạch Tinh Thể" width="240"> <img src="phac-thao-map/vung-8-map-5.svg" alt="Hang Bọ Đèn" width="240"> <img src="phac-thao-map/vung-8-map-6.svg" alt="Điện Nấm" width="240"> <img src="phac-thao-map/vung-8-map-7.svg" alt="Lòng Đất Sâu" width="240">
+
+### Vùng 9 · Phế tích Aether — Mốc 3
 
 - Cấp 80–90 · hệ vùng Aether / thép (kháng phép) · quái yếu Kiếm · Chưa có map
 - Nơi ở (toà thành): **Toà thành Aether cổ** — Tàn dư triều đình pháp sư xưa — các phe tranh nhau di sản Aether.
@@ -250,7 +480,13 @@ hạ xong mới mở vùng kế.
 |  |  | Hiệp sĩ đầu lâu · boss khu | **vẽ mới** |  |
 | Điện Aether | Thánh địa | Đại pháp sư sa đoạ · boss chúa | **vẽ mới** | chưa có |
 
-### Vùng 10 · Vực Hư Không
+Sơ đồ nối 7 map + phác thảo (bố cục để duyệt, không phải hình trong game):
+
+![Sơ đồ vùng 9](phac-thao-map/vung-9.svg)
+
+<img src="phac-thao-map/vung-9-map-1.svg" alt="Toà thành Aether cổ" width="240"> <img src="phac-thao-map/vung-9-map-2.svg" alt="Phố Đổ Nát" width="240"> <img src="phac-thao-map/vung-9-map-3.svg" alt="Xưởng Máy Cổ" width="240"> <img src="phac-thao-map/vung-9-map-4.svg" alt="Thư Viện Bay" width="240"> <img src="phac-thao-map/vung-9-map-5.svg" alt="Tháp Pháp Sư" width="240"> <img src="phac-thao-map/vung-9-map-6.svg" alt="Xưởng Rối" width="240"> <img src="phac-thao-map/vung-9-map-7.svg" alt="Điện Aether" width="240">
+
+### Vùng 10 · Vực Hư Không — Mốc 3
 
 - Cấp 90–100 · hệ vùng Bóng tối / hỗn hợp · quái yếu Aether, Hoả · Chưa có map
 - Nơi ở (toà thành): **Thành trì Hư Không** — Tiền đồn cuối cùng trước Ma vương — liên quân các vùng đóng ở đây.
@@ -268,6 +504,12 @@ hạ xong mới mở vùng kế.
 |  |  | Mẹ quỷ · boss khu | **vẽ mới** |  |
 | Ngai Ma Vương | Thánh địa | Ma vương · boss chúa (trùm cuối) | **vẽ mới** | chưa có |
 
+Sơ đồ nối 7 map + phác thảo (bố cục để duyệt, không phải hình trong game):
+
+![Sơ đồ vùng 10](phac-thao-map/vung-10.svg)
+
+<img src="phac-thao-map/vung-10-map-1.svg" alt="Thành trì Hư Không" width="240"> <img src="phac-thao-map/vung-10-map-2.svg" alt="Đảo Trôi Tím" width="240"> <img src="phac-thao-map/vung-10-map-3.svg" alt="Khe Nứt" width="240"> <img src="phac-thao-map/vung-10-map-4.svg" alt="Rừng Bóng" width="240"> <img src="phac-thao-map/vung-10-map-5.svg" alt="Nghĩa Trang Hư Không" width="240"> <img src="phac-thao-map/vung-10-map-6.svg" alt="Hang Ma Sói" width="240"> <img src="phac-thao-map/vung-10-map-7.svg" alt="Ngai Ma Vương" width="240">
+
 ## 7 rồng nguyên tố
 
 Boss thêm ngoài 3 boss vùng; map phụ Long Huyệt, cần cấp 40; chỉ người đánh đòn cuối nhận Long Châu (mở tuyệt kỹ mốc 10); đủ 7 Long
@@ -283,36 +525,11 @@ Châu triệu hồi Thần Long. Chi tiết cơ chế: `docs/ke-hoach-the-gioi.m
 | Quang Long | Thiên Huy | Vùng 9 · tháp ma pháp đổ nát | ~90 | Aether — kháng phép, yếu Kiếm | tia sáng quét, khiên phản phép, nhân bản ảnh rồng |
 | Hắc Long | Vô Tận | Vùng 10 · khe nứt trước cổng thành Ma vương | ~95 | Hắc ám — yếu Aether, Hoả | hố hư không hút người chơi, bóng rồng tách làm ba |
 
-## Ngân sách PixelLab — một gói 24$ (5.000 lượt)
-
-| Nhóm | Hạng mục | Lượt |
-|---|---|---|
-| Map + giao diện | Đồ vật / nhà / cây 9 vùng (4 tấm 3×3 mỗi vùng), 9 trạm, tranh lục địa, gian hàng, icon (kim cương, lịch, 6 bình) | 450 |
-| Quái thường (đa dạng — mỗi loại một hình riêng) | 46 loại vẽ mới × ~15 lượt (chế độ thường 1 lượt đủ 8 hướng; đi / đánh 4 hướng + lật gương) — không dùng bản đổi màu | 690 |
-| Boss | 28 boss vẽ mới × ~40 lượt (4 hướng + lật gương; đi, đánh, niệm, gục) | 1.120 |
-|  | Boss chúa: 10 boss × 2 chiêu riêng × ~30 lượt (gồm Quỷ vương) | 600 |
-|  | Boss khu: 20 boss × 1 chiêu riêng × ~10 lượt (gồm Vua Lich) | 200 |
-| Rồng | 7 rồng nguyên tố × ~220 lượt (sprite lớn 192–256px, 4 hướng + lật gương, động tác + 3 chiêu) | 1.540 |
-| **Cộng** | | **~4.600** (dự phòng ~400) |
-
-Vẽ theo ba đợt (đợt sau chỉ bắt đầu khi đợt trước đạt).
-
-- **Đợt 1 — map + quái** (~1.140 lượt): Đồ vật, nhà, cây của 9 vùng; 9 trạm; tranh lục địa; gian hàng; icon; 46 loại quái thường mới (mỗi loại một hình riêng).
-- **Đợt 2 — boss** (~1.920 lượt): Vùng 1 trước: Gargoyle Đá + chiêu Quỷ vương / Vua Lich; 27 boss vùng 2–10 — boss chúa 2 chiêu, boss khu 1 chiêu.
-- **Đợt 3 — 7 rồng** (~1.540 lượt): Phong, Băng, Hoả, Thuỷ, Địa, Quang, Hắc Long — sprite lớn + 3 chiêu mỗi con.
-
-**Để gói sau — nhân vật người chơi + trang bị** (~1.250 lượt):
-
-- Hiệu ứng skill: mỗi hệ một bộ niệm / đạn / nổ dùng chung (7 hệ), 8 tuyệt kỹ mốc 10, 9 phản ứng nguyên tố — 450
-- Trang bị lớp thân: 4 kiểu hình × 2 giới tính × ~50 lượt (một bộ đồ → cắt 4 lớp áo / quần / giày / găng) — 400
-- Trang bị gắn: 24 kiểu (kiếm, trượng, khiên, mũ, áo choàng) × ~2 lượt — 50
-- Kiểu tóc: 2 kiểu mới × 2 giới tính (bản 16 tuổi) — 200
-- Động tác riêng: lướt, giữ thế, phân thân, phóng kiếm — 150
-
 ## Cần chốt
 
-1. Tên 10 vùng, nơi ở (làng / toà thành) và tên map — tên vùng 2–10 là đề xuất.
-2. Danh sách 46 loại quái thường (mỗi loại vẽ riêng, không dùng bản đổi màu). Đổi so với kế hoạch cũ cho khỏi trùng dáng: vùng 8 "dơi" → Bọ đèn ngầm, "golem đá" → Rùa đá rêu; vùng 9 "gargoyle cổ" → Rối gỗ ma thuật; vùng 1 thêm Dơi hang (Hang Gargoyle).
-3. Chiêu: boss chúa 2 chiêu, boss khu 1 chiêu, rồng 3 chiêu (chủ dự án chốt 08/10/2026). Tên boss + chiêu chính của rồng (mục Rồng).
-4. Nhân vật người chơi + trang bị để gói sau (~1.250 lượt). Khi làm: 4 kiểu hình bộ đồ cắt 4 lớp áo / quần / giày / găng, đồ gắn 24 kiểu; dây chuyền / nhẫn chỉ hiện ở kho đồ.
-5. Gói 24$ (5.000 lượt) dùng ~4.600, dự phòng ~400 lượt để vẽ lại.
+1. Mốc 1 = skill nhân vật chi tiết (23 động tác, 37 skill vẽ lại hình riêng, 8 tuyệt kỹ, 17 hiệu ứng phụ) + vùng 1–4. Danh sách động tác ở mục Skill nhân vật — thêm / bớt động tác nào?
+2. Mốc 1 dùng ~2.967 lượt → gói 24$ còn dư. Đề xuất: còn lượt thì vẽ luôn Mốc 2 trong cùng gói (lượt không dùng hết trong tháng thì mất); Mốc 3 sang gói sau.
+3. Tên 10 vùng, nơi ở (làng / toà thành) và tên map — tên vùng 2–10 là đề xuất. Bản phác thảo từng map ở mỗi vùng chỉ là bố cục (đường, bầy quái, hang ổ boss, lối ra) để duyệt.
+4. Danh sách 46 loại quái thường (mỗi loại vẽ riêng, không dùng bản đổi màu). Đổi so với kế hoạch cũ cho khỏi trùng dáng: vùng 8 "dơi" → Bọ đèn ngầm, "golem đá" → Rùa đá rêu; vùng 9 "gargoyle cổ" → Rối gỗ ma thuật; vùng 1 thêm Dơi hang (Hang Gargoyle).
+5. Chiêu: boss chúa 2 chiêu, boss khu 1 chiêu, rồng 3 chiêu (chủ dự án chốt 08/10/2026). Tên boss + chiêu chính của rồng (mục Rồng).
+6. Trang bị hiện trên người + tóc làm ở Mốc 3, SAU khi động tác đã chốt (lớp đồ phải phủ mọi khung động tác). 4 kiểu hình bộ đồ cắt 4 lớp áo / quần / giày / găng, đồ gắn 24 kiểu; dây chuyền / nhẫn chỉ hiện ở kho đồ.
