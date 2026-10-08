@@ -105,6 +105,13 @@ Icon thẻ **Bạn bè** + **Cài đặt** của bảng Hành trang (08/10/2026 
 
 **Icon kim cương + icon lịch điểm danh** (08/10/2026, K1 — `docs/ke-hoach-kim-cuong.md`): đang dùng hình TẠM vẽ tay `public/assets/ui/icon_diamond.png` (44×36) và `icon_calendar.png` (40×40); vẽ cùng nét tấm icon I1 (`icon_coins`…) rồi ghi đè hai file. Thêm icon từng loại bình kim cương (EXP, Cuồng Lực, Hộ Thân) cho đồng hồ bình trên HUD.
 
+**Gian hàng của người bán** (08/10/2026, chủ dự án: "shop sơ sài quá, phải gian hàng — chờ PixelLab render xong thì update vào kệ"):
+bảng quầy (`apps/web/src/components/ShopPanel.tsx`) đã là gian hàng có kệ nhưng hình TẠM — (1) nền gian hàng: mái vải sọc + kệ gỗ
+2 tầng, khoảng trống giữa các tầng để đặt món (tấm 9-slice hoặc ảnh khổ ~640×360); (2) icon từng món đặt lên kệ: 6 bình kim cương
+(EXP ×2, ×3, Cuồng Lực thường / mạnh, Hộ Thân thường / mạnh — đang dùng `icon_potion` đổi sắc); (3) chân dung / nửa người của người
+bán đứng sau quầy (Bram có sẵn sprite). Có hình thì thay đúng chỗ ghi TẠM trong file. Cùng đợt: **cột dịch chuyển** ở trạm (đang mượn
+đèn đá `stone_lantern`) và **Bia Danh Vọng** (đang mượn `rune_stone`).
+
 **Cuốn sách Thư viện** (08/10/2026): hai trang giấy cũ mở ra + bìa da + gáy, dải đánh dấu (3 màu), khung chân dung — đang dùng khung
 UI gỗ / giấy sẵn có (`components/CodexBook.tsx`). Vẽ dạng tấm 9-slice (`ui` pipeline) để co giãn theo màn hình.
 

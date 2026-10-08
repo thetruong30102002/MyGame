@@ -129,6 +129,11 @@ pháp lý trước bước K2. Trước đó chỉ chạy ví + cửa hàng vớ
     trên HUD (cạnh icon lịch), chỉ để xem.
   - **Icon TẠM vẽ tay** (PixelLab đang khoá lượt miễn phí): `public/assets/ui/icon_diamond.png` (22×18 ×2) và `icon_calendar.png`
     (20×20 ×2) — có hình PixelLab thì thay đúng hai file này (giữ cỡ, hoặc sửa `width`/`height` ở chỗ dùng).
+- **K1d — gian hàng (08/10/2026, chủ dự án: "shop sơ sài quá, phải gian hàng… chứ cứ dọc dọc toàn chữ thì không giống game")**:
+  quầy giờ là gian hàng — món bày thành ô trên các tầng kệ gỗ theo nhóm (Bình kinh nghiệm · Bình chiến đấu), nhãn góc ×2 / +20%,
+  giá kim cương dưới mỗi ô; chọn món thì thẻ chi tiết (máy tính: bên phải; điện thoại: dải dính đáy) hiện mô tả, thời hạn, bình
+  đang dùng cùng loại và nút Mua. Icon bình TẠM = `icon_potion` đổi sắc theo loại; nền gian hàng + icon thật chờ PixelLab.
+  Người bán theo vùng (`MERCHANTS`) dùng chung quầy này — tiêu đề theo tên người bán.
 - **Còn lại**: icon kim cương / lịch / bình bằng PixelLab (cần token trả phí); mỹ phẩm (K3); bình hồi máu nhanh / tăng rơi đồ (chưa
   có hệ rơi đồ); bản bình yếu hơn mua bằng xu / rơi ở boss (mục 2).
 
