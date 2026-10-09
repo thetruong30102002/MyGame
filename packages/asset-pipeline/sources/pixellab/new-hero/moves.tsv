@@ -1,0 +1,25 @@
+# thế	động tác	khung	mô tả chuyển động (v3)
+sword	attack	8	swings the longsword in a wide horizontal slash from behind the body to the front, follows through, then returns to ready stance
+sword	backslash	8	reverse backhand slash: swings the longsword back across the body in a rising diagonal arc from front to behind, then recovers to ready stance
+sword	thrust	8	steps forward and thrusts the longsword straight ahead in a quick powerful stab, then pulls back to ready stance
+sword	charge	8	raises the longsword high above the head with both hands, gathering power, body tense, holding the raised pose
+sword	smash	8	lifts the longsword overhead and smashes it straight down onto the ground in a heavy strike, then straightens up
+sword	lunge	8	dashes forward low and fast with the longsword extended straight ahead, piercing, then stops and straightens
+sword	block	6	holds the longsword horizontally in front of the chest in a firm defensive guard stance, steady breathing
+sword	parry	8	quickly raises the longsword diagonally to deflect a blow, then immediately counter-slashes forward
+sword	spin	10	spins around in a full circle with the longsword extended, slashing all around the body, then stops facing forward
+sword	flurry	12	four very fast consecutive sword slashes: horizontal slash, reverse slash, diagonal downward slash, then a quick thrust
+sword	wave	8	winds up and swings the longsword in a powerful wide diagonal slash, ending in a long follow-through pose
+sword	fling	12	throws the longsword forward spinning through the air with the right arm extended, waits empty-handed, then catches the returning sword
+sword	vanish	8	crouches low and leaps forward in a very fast dash, then lands in a low ready stance with the sword
+staff	cast	8	swings the staff from behind and points it straight forward to cast a spell, holds the pose, then lowers it
+staff	throw	8	thrusts the free left palm forward to hurl a magic projectile while holding the staff in the right hand, then recovers
+staff	channel	6	holds the staff upright in front with both hands, channeling magic, body swaying slightly, steady loop
+staff	push	8	pushes both hands forward strongly together with the staff to release a magic wave, then recovers
+staff	skycall	8	raises the staff high toward the sky to call magic down from above, holds it up, then lowers it
+staff	stomp	8	stomps one foot hard on the ground while slamming the butt of the staff down onto the ground, then recovers
+staff	ultimate	12	rises onto tiptoes, raises both arms high with the staff above the head, chanting a powerful spell, body glowing with power
+base	dodge	6	quick side-step dash sideways leaning low, then returns to standing
+base	hit	6	gets struck in the chest, recoils backward one step with head jerking back, then recovers
+base	death	8	knees buckle and the body collapses, falling backward onto the ground and lying still
+base	drink	8	lifts a small red potion bottle to the mouth and drinks it, then lowers the bottle

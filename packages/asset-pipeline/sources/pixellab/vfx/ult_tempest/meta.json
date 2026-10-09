@@ -1,0 +1,31 @@
+{
+	"id": "ult_tempest",
+	"kind": "loop",
+	"canvas": {
+		"w": 192,
+		"h": 192
+	},
+	"first": {
+		"prompt": "a giant tempest storm vortex swirling around an empty center, jade wind bands, sharp wind blades, crackling lightning and storm clouds, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "e6914104-b50b-42d1-8ab1-6854dd472bf3"
+	},
+	"action": "the tempest spins violently around its center, wind blades and lightning whirl through it, seamless loop",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "1c72bde3-c63e-4482-b5e1-3393d80e35c1",
+	"createdAt": "2026-10-09T12:23:08.423Z",
+	"token": 1
+}

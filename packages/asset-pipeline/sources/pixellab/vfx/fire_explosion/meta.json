@@ -1,0 +1,34 @@
+{
+	"id": "fire_explosion",
+	"kind": "burst",
+	"canvas": {
+		"w": 128,
+		"h": 128
+	},
+	"first": {
+		"prompt": "big fire explosion just starting, blinding yellow-white core with thick orange and red flames and dark smoke edges, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "9a3ad735-7ee2-4a28-8e6e-39cab9b1d81f",
+		"drawn": "first_drawn.png"
+	},
+	"action": "a huge fireball explosion billows outward with roiling flames and flying embers, then turns into black smoke that rises and fades away",
+	"frameCount": 10,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png",
+		"frame_009.png",
+		"frame_010.png"
+	],
+	"animateJobId": "fda687a2-4833-4341-9c8a-f304848ed7da",
+	"createdAt": "2026-10-09T10:51:04.770Z",
+	"token": 1
+}

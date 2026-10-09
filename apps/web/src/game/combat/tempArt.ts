@@ -64,6 +64,15 @@ export interface TempArt {
 	tick?: ArtLayer[];
 	/** Bản PixelLab sẽ thay `look`. */
 	final: PendingVfxId | null;
+	/**
+	 * Lớp TẠM vẫn phát kèm khi đã có bản PixelLab (`final` chỉ là một phần của hình: giáp vỡ của Phá Giáp vẫn cần vệt chém, xoáy
+	 * nước vẫn cần nước bắn). Thiếu = bản PixelLab thay trọn `look`.
+	 */
+	finalExtra?: ArtLayer[];
+	/** Đạn bản PixelLab — atlas có thì thay `shot` (`CombatSystem.shotOf`). */
+	finalShot?: ArtLayer;
+	/** Lớp báo trước / bám người bản PixelLab — chỉ thay `charge` khi atlas có ĐỦ mọi hiệu ứng trong danh sách. */
+	finalCharge?: ArtLayer[];
 	/** Cách phát bản PixelLab khi đã có (nhấc, cỡ…). */
 	finalLook?: Omit<ArtLayer, 'id'>;
 	/**
@@ -102,14 +111,14 @@ export const TEMP_ART: Record<string, TempArt> = {
 			{ id: 'fire_burst', blend: 'add', scale: 2, lift: 36 },
 			{ id: 'fire_flash', blend: 'add', scale: 2, lift: 20 },
 		],
-		final: null,
+		final: 'fire_explosion', finalLook: { lift: 40 },
 		todo: 'icon Bộc Hoả + VFX nổ lớn khổ 128 (vẽ cùng đợt meteor)',
 	},
 	tidal_wave: {
 		name: 'Sóng Dữ',
 		icon: 'water_splash_3',
 		look: [{ id: 'water_wave', scale: 3, aim: true, lift: 18 }, { id: 'water_splash', scale: 2, lift: 10 }],
-		final: null,
+		final: 'tidal_wave', finalLook: { aim: true, lift: 18 },
 		todo: 'icon Sóng Dữ + VFX sóng hình nón (chưa xếp lịch)',
 	},
 	cyclone: {
@@ -134,7 +143,7 @@ export const TEMP_ART: Record<string, TempArt> = {
 		name: 'Lướt Gió',
 		icon: 'wind_burst_4',
 		look: [{ id: 'slash', tint: 0xbaf5cf, aim: true, lift: 26 }, { id: 'wind_burst', lift: 20 }],
-		final: null,
+		final: 'wind_trail', finalLook: { aim: true, lift: 26 }, finalExtra: [{ id: 'wind_burst', lift: 20 }],
 		todo: 'icon Lướt Gió + động tác lướt (3 hướng × 2 giới tính) + vệt gió riêng',
 	},
 	frost_field: {
@@ -144,7 +153,7 @@ export const TEMP_ART: Record<string, TempArt> = {
 			{ id: 'magic_circle', layer: 'ground', tint: 0xc4f1ff, scale: 3, fps: 12, alpha: 0.85 },
 			{ id: 'frost', alpha: 0.8, lift: 18, fps: 10 },
 		],
-		final: null,
+		final: 'frost_field', finalLook: { layer: 'ground' }, finalExtra: [{ id: 'frost', alpha: 0.8, lift: 18, fps: 10 }],
 		todo: 'icon Băng Địa + VFX mặt băng phủ đất (chưa xếp lịch)',
 	},
 	ice_spire: {
@@ -170,7 +179,7 @@ export const TEMP_ART: Record<string, TempArt> = {
 		icon: 'dust_1',
 		shot: { id: 'arcane_orb', tint: 0xb8905a },
 		look: [{ id: 'steam', tint: EARTH_DARK, lift: 6 }],
-		final: null,
+		final: 'rock_burst', finalLook: { lift: 12 }, finalShot: { id: 'rock_shot' },
 		todo: 'icon Đá Văng + đạn đá bay + vỡ đá (≈5 lượt, kế hoạch GĐ1)',
 	},
 	quake: {
@@ -180,7 +189,7 @@ export const TEMP_ART: Record<string, TempArt> = {
 			{ id: 'water_ring', layer: 'ground', tint: EARTH_DARK, scale: 3, fps: 16 },
 			{ id: 'steam', tint: EARTH, scale: 2, lift: 14 },
 		],
-		final: null,
+		final: 'quake_wave', finalLook: { layer: 'ground' },
 		todo: 'icon Địa Chấn + sóng chấn mặt đất + động tác dậm đất',
 	},
 	stone_spikes: {
@@ -199,7 +208,7 @@ export const TEMP_ART: Record<string, TempArt> = {
 	earth_hit: {
 		name: 'Trúng đòn Thổ',
 		look: [{ id: 'dust', tint: EARTH, scale: 2 }],
-		final: null,
+		final: 'rock_burst', finalLook: { lift: 24 },
 		todo: 'VFX vỡ đá khi trúng',
 	},
 	// ——— Kiếm 3 lưu phái (lượt B). Chưa có động tác riêng: dùng animation attack sẵn có + dời sprite / alpha ———
@@ -212,14 +221,14 @@ export const TEMP_ART: Record<string, TempArt> = {
 			{ id: 'slash', tint: STEEL, scale: 2, aim: true, lift: 30, fps: 26 },
 			{ id: 'crit_flash', blend: 'add', lift: 30, alpha: 0.8 },
 		],
-		final: null,
+		final: 'heavy_slash', finalLook: { aim: true, lift: 30, blend: 'add' }, finalExtra: [{ id: 'dust', layer: 'ground', scale: 2 }], finalCharge: [{ id: 'gold_aura', blend: 'add', fit: true, lift: 30 }],
 		todo: 'icon Nhất Kích + động tác dồn lực (giơ kiếm qua đầu — đang đứng idle + tia sáng tụ) + vệt chém nặng khổ lớn',
 	},
 	pierce_rush: {
 		name: 'Đột Kích',
 		icon: 'slash_4',
 		look: [{ id: 'slash', tint: STEEL, aim: true, lift: 26, fps: 30 }, { id: 'dust', lift: 6 }],
-		final: null,
+		final: 'pierce_slash', finalLook: { aim: true, lift: 26, blend: 'add' }, finalExtra: [{ id: 'dust', lift: 6 }],
 		todo: 'icon Đột Kích + động tác lướt tới (đang trượt sprite idle) + vệt chém xuyên riêng',
 	},
 	calm_stance: {
@@ -227,7 +236,7 @@ export const TEMP_ART: Record<string, TempArt> = {
 		icon: 'water_ring_2',
 		charge: [{ id: 'water_ring', layer: 'ground', tint: 0xd8f4ff, alpha: 0.85, fps: 12, loop: true }],
 		look: [{ id: 'crit_flash', blend: 'add', tint: 0xd8f4ff }, { id: 'water_splash', tint: 0xeaf8ff }],
-		final: null,
+		final: 'parry_flash', finalLook: { lift: 30, blend: 'add' }, finalExtra: [{ id: 'water_splash', tint: 0xeaf8ff }], finalCharge: [{ id: 'water_guard', layer: 'ground', fps: 10, loop: true }],
 		todo: 'icon Thế Tĩnh + động tác giữ thế (đang đứng idle + vòng nước dưới chân, sprite nhuộm xanh nhạt) + hiệu ứng gạt đòn',
 	},
 	flowing_counter: {
@@ -239,7 +248,7 @@ export const TEMP_ART: Record<string, TempArt> = {
 		],
 		look: [{ id: 'water_splash', scale: 2, tint: 0xeaf8ff }, { id: 'crit_flash', blend: 'add', tint: 0xbff4ff, scale: 2 }],
 		shot: { id: 'water_wave', tint: 0xeaf8ff },
-		final: null,
+		final: 'parry_flash', finalLook: { lift: 30, blend: 'add', scale: 2 }, finalExtra: [{ id: 'water_splash', scale: 2, tint: 0xeaf8ff }],
 		todo: 'icon Lưu Thủy Phản + động tác đỡ → phản (đang dùng attack sẵn có) + vòng báo cửa sổ đỡ riêng + đạn phản ngược',
 	},
 	side_slash: {
@@ -254,7 +263,7 @@ export const TEMP_ART: Record<string, TempArt> = {
 		icon: 'shadow_3',
 		charge: [{ id: 'shadow', lift: 30, alpha: 0.9 }, { id: 'dust', lift: 6 }],
 		look: [{ id: 'shadow', lift: 30, alpha: 0.8 }, { id: 'crit_flash', blend: 'add', lift: 30 }],
-		final: null,
+		final: 'shadow_smoke', finalLook: { lift: 30 }, finalExtra: [{ id: 'crit_flash', blend: 'add', lift: 30 }], finalCharge: [{ id: 'shadow_smoke', lift: 30 }],
 		todo: 'icon Ảnh Bộ + động tác ảnh bộ (tan thành bóng → hiện sau lưng; đang dịch tức thời + khói bóng)',
 	},
 	// ——— Kiếm pháp nguyên tố (Kiếm 5 + nguyên tố 5) ———
@@ -262,14 +271,14 @@ export const TEMP_ART: Record<string, TempArt> = {
 		name: 'Liệt Hoả Trảm',
 		icon: 'fire_flash_4',
 		look: [{ id: 'fire_flash', blend: 'add', scale: 2, aim: true, lift: 26 }, { id: 'flame', blend: 'add', lift: 18 }],
-		final: null,
+		final: 'fire_slash', finalLook: { aim: true, lift: 26 },
 		todo: 'icon Liệt Hoả Trảm + VFX nhát chém lửa hình nón',
 	},
 	water_dragon_slash: {
 		name: 'Thuỷ Long Trảm',
 		icon: 'water_wave_2',
 		look: [{ id: 'water_wave', scale: 2, aim: true, lift: 20 }, { id: 'water_splash', lift: 8 }],
-		final: null,
+		final: 'water_dragon', finalLook: { aim: true, lift: 22 },
 		todo: 'icon Thuỷ Long Trảm + VFX rồng nước chạy theo nhát chém',
 	},
 	gale_blade_dance: {
@@ -279,7 +288,7 @@ export const TEMP_ART: Record<string, TempArt> = {
 			{ id: 'water_ring', layer: 'ground', tint: 0xbaf5cf, scale: 2, fps: 12, alpha: 0.55 },
 			{ id: 'wind_spin', scale: 2, lift: 34, fps: 18, alpha: 0.8 },
 		],
-		final: null,
+		final: 'wind_blade_ring', finalLook: { lift: 18 },
 		todo: 'icon Phong Kiếm Cuồng Vũ + VFX vòng lưỡi gió xoay quanh người (đang: vòng gió + vệt chém xanh xoay mỗi nhịp) + động tác xoay kiếm',
 	},
 	frost_cleave: {
@@ -290,7 +299,7 @@ export const TEMP_ART: Record<string, TempArt> = {
 			{ id: 'slash', tint: 0xc4f1ff, scale: 2, aim: true, lift: 30, fps: 26 },
 			{ id: 'frost', lift: 30, alpha: 0.8 },
 		],
-		final: null,
+		final: 'ice_slash', finalLook: { aim: true, lift: 30 }, finalExtra: [{ id: 'ice_burst', layer: 'ground', lift: 2 }],
 		todo: 'icon Hàn Băng Trảm + VFX nhát chém băng',
 	},
 	earth_rend: {
@@ -329,8 +338,9 @@ export const TEMP_ART: Record<string, TempArt> = {
 			{ id: 'fire_flash', blend: 'add', scale: 2, lift: 30 },
 		],
 		final: 'meteor',
-		finalLook: { lift: 60 },
-		finalImpact: 3,
+		// Bản vẽ 09/10/2026: thiên thạch lao từ góc trên trái, nổ ở khung 5, tâm nổ lệch phải ~12% khung → dịch trái bù.
+		finalLook: { dx: -16, lift: 52 },
+		finalImpact: 5,
 		todo: 'icon Thiên Thạch; VFX `meteor` chờ lượt (khổ 160) — đang: cầu lửa ×3 rơi + vòng lửa ×3 + nổ ×3',
 	},
 	call_rain: {
@@ -367,7 +377,7 @@ export const TEMP_ART: Record<string, TempArt> = {
 		icon: 'wind_burst_3',
 		shot: { id: 'wind_spin', tint: 0xd8fbe6 },
 		look: [{ id: 'wind_burst', scale: 2, lift: 26, fps: 22 }],
-		final: null,
+		final: null, finalShot: { id: 'wind_blade' },
 		todo: 'icon Phong Bạo + lưỡi gió riêng (đang dùng lốc nhỏ wind_spin như Phong Nhận)',
 	},
 	tornado: {
@@ -397,7 +407,7 @@ export const TEMP_ART: Record<string, TempArt> = {
 		],
 		look: [{ id: 'ice_burst', fps: 24 }, { id: 'crit_flash', tint: ICE, blend: 'add', fps: 30, alpha: 0.85 }],
 		shot: { id: 'ice_shard', tint: 0xe8fbff },
-		final: null,
+		final: 'ice_shatter', finalLook: { lift: 30, fps: 24 }, finalCharge: [{ id: 'ice_dome', lift: 30, fps: 10, loop: true }],
 		todo: 'icon Gương Băng + VFX khiên băng (vòm băng trong suốt quanh người, lặp) + băng vỡ khi phản đạn',
 	},
 	ice_rain: {
@@ -409,7 +419,7 @@ export const TEMP_ART: Record<string, TempArt> = {
 		look: [{ id: 'ice_burst', lift: 10, fps: 24 }, { id: 'frost', lift: 18, fps: 16, alpha: 0.8 }],
 		final: 'ice_rain',
 		finalLook: { lift: 50 },
-		finalImpact: 2,
+		finalImpact: 3,
 		todo: 'icon Mưa Băng; VFX `ice_rain` chờ lượt — đang: mũi băng ×2 rơi + băng vỡ (bản PixelLab phát ở mỗi mũi thứ 3)',
 	},
 	stone_wall: {
@@ -434,7 +444,7 @@ export const TEMP_ART: Record<string, TempArt> = {
 			{ id: 'steam', tint: EARTH_DARK, scale: 2, lift: 24, fps: 20 },
 			{ id: 'dust', tint: EARTH, scale: 2, lift: 6, fps: 18 },
 		],
-		final: null,
+		final: 'rockslide', finalLook: { lift: 48 }, finalImpact: 4,
 		todo: 'icon Lở Đá + VFX đá tảng rơi vỡ (chưa khai ở pipeline — chưa xếp lịch)',
 	},
 	// ——— GĐ3 lượt B: mốc 6 / 8 của 3 lưu phái Kiếm. Chưa có động tác riêng: attack sẵn có + vệt chém / nhuộm / xoay ———
@@ -447,7 +457,7 @@ export const TEMP_ART: Record<string, TempArt> = {
 			{ id: 'slash', tint: 0xffd9a0, scale: 2, aim: true, lift: 30, fps: 24 },
 			{ id: 'blood_hit', scale: 2, lift: 30, fps: 22 },
 		],
-		final: null,
+		final: 'armor_shatter', finalLook: { lift: 30 }, finalExtra: [{ id: 'slash', tint: 0xffd9a0, scale: 2, aim: true, lift: 30, fps: 24 }],
 		todo: 'icon Phá Giáp + VFX giáp vỡ (mảnh giáp văng) + động tác bổ kiếm nặng từ trên xuống',
 	},
 	blade_wave: {
@@ -456,7 +466,7 @@ export const TEMP_ART: Record<string, TempArt> = {
 		// Luồng kiếm = vệt chém ×2 bay theo hướng (đạn xoay theo hướng bay); có phủ phép thì nhuộm màu hệ. Gió kiếm ở mũi lúc vung.
 		shot: { id: 'slash', tint: STEEL, scale: 2, aim: true },
 		look: [{ id: 'wind_burst', tint: 0xe8f0ff, lift: 26, fps: 24, alpha: 0.8 }],
-		final: null,
+		final: null, finalShot: { id: 'blade_wave', aim: true },
 		todo: 'icon Lưỡi Sóng + VFX luồng kiếm bay (lưỡi liềm ánh bạc kéo vệt, lặp) + động tác vung kiếm phóng khí',
 	},
 	backflow: {
@@ -469,7 +479,7 @@ export const TEMP_ART: Record<string, TempArt> = {
 		],
 		look: [{ id: 'slash', tint: 0xeaf8ff, aim: true, fps: 30 }, { id: 'water_splash', tint: 0xeaf8ff, fps: 24 }],
 		shot: { id: 'water_wave', tint: 0xeaf8ff },
-		final: null,
+		final: 'parry_flash', finalLook: { blend: 'add' }, finalExtra: [{ id: 'water_splash', tint: 0xeaf8ff, fps: 24 }], finalCharge: [{ id: 'water_guard', layer: 'ground', fps: 12, loop: true }],
 		todo: 'icon Dòng Chảy Ngược + động tác gạt kiếm (đang dùng attack sẵn có theo hướng viên đạn) + VFX dòng nước cuốn đạn bay ngược',
 	},
 	whirlpool: {
@@ -480,14 +490,14 @@ export const TEMP_ART: Record<string, TempArt> = {
 			{ id: 'water_ring', layer: 'ground', tint: 0xbfe8ff, scale: 3, fps: 16 },
 			{ id: 'water_splash', scale: 2, lift: 24, fps: 22 },
 		],
-		final: null,
+		final: 'whirlpool', finalLook: { layer: 'ground' }, finalExtra: [{ id: 'water_splash', scale: 2, lift: 24, fps: 22 }],
 		todo: 'icon Xoáy Nước + động tác xoay một vòng (3 hướng × 2 giới tính) + VFX xoáy nước quanh người',
 	},
 	/** Xoáy Nước tung ngay sau khi đỡ đòn: lớp loé thêm. */
 	whirlpool_surge: {
 		name: 'Xoáy Nước (sau khi đỡ)',
 		look: [{ id: 'crit_flash', tint: 0xbff4ff, blend: 'add', scale: 2, lift: 30 }, { id: 'water_splash', tint: 0xeaf8ff, scale: 3, lift: 20, fps: 20 }],
-		final: null,
+		final: 'whirlpool', finalLook: { layer: 'ground', fps: 16 }, finalExtra: [{ id: 'crit_flash', tint: 0xbff4ff, blend: 'add', scale: 2, lift: 30 }],
 		todo: 'VFX xoáy nước lớn (bản mạnh sau khi đỡ đòn)',
 	},
 	chain_slash: {
@@ -504,20 +514,20 @@ export const TEMP_ART: Record<string, TempArt> = {
 		// Kiếm bay = lốc nhỏ wind_spin nhuộm bạc xoay tít; loé ở tay lúc phóng và lúc bắt lại.
 		shot: { id: 'wind_spin', tint: 0xe8eef8, spin: 22 },
 		look: [{ id: 'crit_flash', tint: STEEL, blend: 'add', lift: 30, alpha: 0.7 }],
-		final: null,
+		final: null, finalShot: { id: 'flying_sword', spin: 22 },
 		todo: 'icon Phi Kiếm + đạn thanh kiếm xoay (8 góc) + động tác phóng / bắt kiếm',
 	},
 	// ——— bị động mốc 7 / 9 của 3 lưu phái Kiếm ———
 	press_max: {
 		name: 'Thế Áp Đảo (đủ 5 lần)',
 		look: [{ id: 'crit_flash', tint: 0xffe28a, blend: 'add', lift: 34 }],
-		final: null,
+		final: 'gold_aura', finalLook: { lift: 30, blend: 'add' },
 		todo: 'VFX khí thế bừng lên quanh người (vàng)',
 	},
 	rage_aura: {
 		name: 'Bất Khuất (dưới 30% máu)',
 		look: [{ id: 'fire_flash', tint: 0xff7070, blend: 'add', lift: 30, alpha: 0.6 }, { id: 'dust', layer: 'ground', tint: 0xb84a4a, alpha: 0.8 }],
-		final: null,
+		final: 'red_aura', finalLook: { lift: 30, blend: 'add', alpha: 0.8 },
 		todo: 'VFX hào quang đỏ bám người khi máu thấp',
 	},
 	riposte: {
@@ -531,7 +541,7 @@ export const TEMP_ART: Record<string, TempArt> = {
 	lake_heal: {
 		name: 'Mặt Hồ Phẳng (hồi khi phản đòn)',
 		look: [{ id: 'water_ring', layer: 'ground', tint: 0xb4ffd6, fps: 16, alpha: 0.75 }, { id: 'sparkle', tint: 0xbff4ff, blend: 'add', lift: 34, fps: 18, alpha: 0.7 }],
-		final: null,
+		final: 'lake_ripple', finalLook: { layer: 'ground' }, finalExtra: [{ id: 'sparkle', tint: 0xbff4ff, blend: 'add', lift: 34, fps: 18, alpha: 0.7 }],
 		todo: 'VFX mặt hồ lặng sóng quanh chân (hồi máu)',
 	},
 	momentum: {
@@ -554,25 +564,25 @@ export const TEMP_ART: Record<string, TempArt> = {
 			{ id: 'fire_burst', blend: 'add', lift: 30, fps: 22 },
 			{ id: 'flame', blend: 'add', lift: 18, fps: 14 },
 		],
-		final: null,
+		final: 'ember_burst', finalLook: { lift: 30 },
 		todo: 'VFX xác quái nổ tung lửa tro',
 	},
 	shatter_burst: {
 		name: 'Vỡ Vụn (nổ vụn băng)',
 		look: [{ id: 'ice_burst', scale: 2, lift: 30, fps: 22 }, { id: 'frost', lift: 30, fps: 18, alpha: 0.8 }],
-		final: null,
+		final: 'ice_shatter', finalLook: { lift: 30 },
 		todo: 'VFX khối băng vỡ văng mảnh',
 	},
 	spring_heal: {
 		name: 'Mạch Nguồn (hồi trong mưa)',
 		look: [{ id: 'water_ring', layer: 'ground', tint: 0xb4ffd6, fps: 16, alpha: 0.7 }, { id: 'sparkle', tint: 0x9fffb0, blend: 'add', lift: 34, fps: 18, alpha: 0.7 }],
-		final: null,
+		final: 'heal_drops', finalLook: { lift: 30, blend: 'add' },
 		todo: 'VFX hồi máu kiểu giọt nước xanh lá',
 	},
 	mountain_heal: {
 		name: 'Núi Thiêng (hồi khi đứng yên)',
 		look: [{ id: 'dust', layer: 'ground', tint: EARTH, fps: 12, alpha: 0.8 }, { id: 'sparkle', tint: 0xffe7a8, blend: 'add', lift: 34, fps: 16, alpha: 0.6 }],
-		final: null,
+		final: 'earth_aura', finalLook: { layer: 'ground' },
 		todo: 'VFX hào quang đá (nâu vàng) quanh chân',
 	},
 	eye_haste: {
@@ -582,10 +592,10 @@ export const TEMP_ART: Record<string, TempArt> = {
 		todo: 'VFX vệt gió bám chân',
 	},
 	// ——— phản ứng Thổ (kế hoạch mục 2.5) — phát giữa thân mục tiêu ———
-	react_mud: { name: 'Bùn Lầy', look: [{ id: 'water_splash', tint: 0x8a6a40, scale: 2 }, { id: 'water_ring', layer: 'ground', tint: 0x8a6a40, lift: -30 }], final: null, todo: 'VFX bùn bắn + vũng bùn' },
-	react_lava: { name: 'Dung Nham', look: [{ id: 'fire_burst', tint: 0xff7a3a, blend: 'add', scale: 2 }, { id: 'flame', tint: 0xff5a1a, blend: 'add', scale: 2 }], final: null, todo: 'VFX dung nham' },
-	react_sandstorm: { name: 'Bão Cát', look: [{ id: 'wind_burst', tint: 0xe2c27a, scale: 2 }, { id: 'steam', tint: 0xe2c27a }], final: null, todo: 'VFX lốc cát' },
-	react_shatter: { name: 'Vỡ Vụn', look: [{ id: 'ice_burst', scale: 2 }, { id: 'crit_flash', tint: 0xc9f2ff, blend: 'add' }], final: null, todo: 'VFX băng vỡ vụn' },
+	react_mud: { name: 'Bùn Lầy', look: [{ id: 'water_splash', tint: 0x8a6a40, scale: 2 }, { id: 'water_ring', layer: 'ground', tint: 0x8a6a40, lift: -30 }], final: 'mud_splash', finalLook: { lift: 20 }, todo: 'VFX bùn bắn + vũng bùn' },
+	react_lava: { name: 'Dung Nham', look: [{ id: 'fire_burst', tint: 0xff7a3a, blend: 'add', scale: 2 }, { id: 'flame', tint: 0xff5a1a, blend: 'add', scale: 2 }], final: 'lava_burst', finalLook: { lift: 20 }, todo: 'VFX dung nham' },
+	react_sandstorm: { name: 'Bão Cát', look: [{ id: 'wind_burst', tint: 0xe2c27a, scale: 2 }, { id: 'steam', tint: 0xe2c27a }], final: 'sandstorm', finalLook: { lift: 40 }, todo: 'VFX lốc cát' },
+	react_shatter: { name: 'Vỡ Vụn', look: [{ id: 'ice_burst', scale: 2 }, { id: 'crit_flash', tint: 0xc9f2ff, blend: 'add' }], final: 'ice_shatter', finalLook: { lift: 30 }, todo: 'VFX băng vỡ vụn' },
 };
 
 /** Icon tạm của kỹ năng (frame atlas không có tiền tố `vfx/`), hoặc frame giữa của bản PixelLab nếu atlas đã có. */

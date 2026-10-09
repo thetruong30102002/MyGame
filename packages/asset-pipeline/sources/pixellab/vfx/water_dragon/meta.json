@@ -1,0 +1,31 @@
+{
+	"id": "water_dragon",
+	"kind": "burst",
+	"canvas": {
+		"w": 160,
+		"h": 160
+	},
+	"first": {
+		"prompt": "a serpentine dragon made of flowing clear blue water charging to the right with open jaws, splashing spray behind it, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "cf9924ef-78af-4840-9a1c-7b9a5acc6664"
+	},
+	"action": "the water dragon surges forward to the right with its body rippling, jaws snapping, then it bursts into splashing water and fades away",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "2d442196-9d79-4fa8-994e-25d83dfd7d6d",
+	"createdAt": "2026-10-09T11:06:03.612Z",
+	"token": 1
+}

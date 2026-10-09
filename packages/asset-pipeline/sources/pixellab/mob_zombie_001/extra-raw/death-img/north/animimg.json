@@ -1,0 +1,8 @@
+{
+	"input": "sources/pixellab/mob_zombie_001/Idle/rotations/north.png",
+	"action": "staggers and collapses face down onto the ground, lying still",
+	"frames": 8,
+	"jobId": "2bb97377-bdaa-4662-85a9-f820fbc283e7",
+	"token": 1,
+	"createdAt": "2026-10-09T11:50:39.569Z"
+}

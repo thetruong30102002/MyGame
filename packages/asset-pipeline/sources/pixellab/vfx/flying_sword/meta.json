@@ -1,0 +1,27 @@
+{
+	"id": "flying_sword",
+	"kind": "loop",
+	"canvas": {
+		"w": 48,
+		"h": 48
+	},
+	"first": {
+		"prompt": "a steel longsword with a glowing pale blue edge lying horizontally pointing to the right, faint light trail, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "76b23dff-5da4-4e32-86b0-b57f39bdd69d"
+	},
+	"action": "the sword glows and pulses with a faint trail shimmering behind it, seamless loop",
+	"frameCount": 4,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png"
+	],
+	"animateJobId": "718f5b2a-40f4-48a9-8ec1-b83ffc8e99e3",
+	"createdAt": "2026-10-09T11:20:46.614Z",
+	"token": 1
+}

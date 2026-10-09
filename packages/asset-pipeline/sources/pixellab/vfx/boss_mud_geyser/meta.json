@@ -1,0 +1,33 @@
+{
+	"id": "boss_mud_geyser",
+	"kind": "burst",
+	"canvas": {
+		"w": 160,
+		"h": 160
+	},
+	"first": {
+		"prompt": "a geyser of thick brown swamp mud erupting straight up from a bubbling mud pool, reeds and water spray, base at the bottom of the frame, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "3af9ca66-1e8a-49bf-a47a-c4336ba759a5"
+	},
+	"action": "the mud geyser blasts upward and splashes down in heavy mud blobs all around, then sinks back into a bubbling pool that fades",
+	"frameCount": 10,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png",
+		"frame_009.png",
+		"frame_010.png"
+	],
+	"animateJobId": "717d73a1-a490-4756-b665-b3122e060a00",
+	"createdAt": "2026-10-09T11:15:17.526Z",
+	"token": 1
+}

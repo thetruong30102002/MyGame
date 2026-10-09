@@ -1,0 +1,31 @@
+{
+	"id": "fire_slash",
+	"kind": "burst",
+	"canvas": {
+		"w": 128,
+		"h": 128
+	},
+	"first": {
+		"prompt": "wide fan-shaped cone of fire sweeping to the right, a crescent sword slash made of roaring orange and yellow flames with embers, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "a6210c26-f856-4b7a-8dca-5698950e1ea9"
+	},
+	"action": "the fiery slash sweeps forward to the right spreading flames in a cone, embers scatter, then the flames die out",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "7ace576d-e459-4d19-b4b0-f3a8a8a8a835",
+	"createdAt": "2026-10-09T11:05:21.070Z",
+	"token": 1
+}

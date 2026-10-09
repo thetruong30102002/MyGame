@@ -1,0 +1,27 @@
+{
+	"id": "blade_wave",
+	"kind": "loop",
+	"canvas": {
+		"w": 64,
+		"h": 64
+	},
+	"first": {
+		"prompt": "glowing silver crescent sword wave flying to the right with a shimmering trail behind it, pixel art game effect, lineless, limited palette, isolated on a fully transparent background, no ground, no scenery, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "2086934e-6dd9-4d1f-8db7-d438c44c7098"
+	},
+	"action": "the crescent sword wave glides forward shimmering, its trail rippling, seamless loop",
+	"frameCount": 4,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png"
+	],
+	"animateJobId": "8635daef-b059-41b4-8d2e-772cc68ca41a",
+	"createdAt": "2026-10-09T11:15:07.476Z",
+	"token": 1
+}

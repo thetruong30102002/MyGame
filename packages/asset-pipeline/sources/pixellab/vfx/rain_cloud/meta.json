@@ -1,0 +1,31 @@
+{
+	"id": "rain_cloud",
+	"kind": "loop",
+	"canvas": {
+		"w": 160,
+		"h": 160
+	},
+	"first": {
+		"prompt": "dark blue-grey storm cloud with heavy rain streaks pouring down beneath it, small puddles splashing below, three-quarter top-down view, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "5869f8bc-180e-4e82-aecd-b9f9a089f8e9"
+	},
+	"action": "the storm cloud churns and rolls while heavy rain keeps pouring down and splashing, seamless loop",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "0af2f61f-cb84-4c0e-a17e-d6862ecfc94a",
+	"createdAt": "2026-10-09T10:34:44.949Z",
+	"token": 1
+}

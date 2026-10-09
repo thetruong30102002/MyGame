@@ -1,0 +1,9 @@
+# thế	động tác	khung	mô tả chuyển động (v3) — bé 6 tuổi tập kiếm gỗ / trượng tập
+sword	attack	8	swings the small wooden sword in a horizontal slash from behind the body to the front, then returns to ready stance
+sword	backslash	8	swings the small wooden sword back across the body in a rising diagonal backhand slash, then recovers
+sword	thrust	8	steps forward and pokes the small wooden sword straight ahead, then pulls back
+staff	cast	8	swings the small staff from behind and points it straight forward to cast a spell, holds, then lowers it
+staff	throw	8	pushes the free left palm forward to throw a small magic spark while holding the staff, then recovers
+base	hit	6	gets bumped in the chest, stumbles back one step with head jerking back, then recovers
+base	death	8	knees buckle and the child collapses backward onto the ground, lying still
+base	drink	8	lifts a small red potion bottle to the mouth with both hands and drinks it, then lowers the bottle

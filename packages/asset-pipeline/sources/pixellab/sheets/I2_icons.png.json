@@ -1,0 +1,20 @@
+{
+	"description": "A sprite sheet of NINE separate game UI icons arranged in a 3 by 3 grid, each centered in its own cell: sparkling blue diamond gem, small leather-bound calendar with a red ribbon bookmark, small round glass potion bottle of glowing green liquid with a golden x2 star badge, tall glass potion bottle of glowing green liquid with a large golden star, round potion bottle of glowing red liquid with a small flame emblem, big ornate potion bottle of blazing red liquid with flame wings, round potion bottle of glowing blue liquid with a small shield emblem, big ornate potion bottle of shining blue liquid with a golden shield, two little smiling heads side by side (friends), chunky pixel art icons in the same style as the reference, thick dark outline, soft cel shading, every icon fully separate on a plain flat solid bright magenta (#FF00FF) chroma-key background with wide empty space around it, no text, no letters, no numbers",
+	"width": 192,
+	"height": 192,
+	"no_background": false,
+	"seed": 4,
+	"style_options": {
+		"color_palette": true,
+		"outline": true,
+		"shading": true,
+		"detail": true
+	},
+	"style_image": {
+		"path": "D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/I1_icons.png",
+		"usage_description": "Copy the art style of these icons exactly: chunky pixel art, thick dark outline, soft cel shading, warm palette. Draw NEW icons, not these ones."
+	},
+	"jobId": "7e5be290-eff4-4c3c-93d5-47bda210a11e",
+	"token": 1,
+	"createdAt": "2026-10-09T10:59:46.107Z"
+}

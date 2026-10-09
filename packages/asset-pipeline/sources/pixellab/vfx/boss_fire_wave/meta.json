@@ -1,0 +1,31 @@
+{
+	"id": "boss_fire_wave",
+	"kind": "burst",
+	"canvas": {
+		"w": 160,
+		"h": 160
+	},
+	"first": {
+		"prompt": "a wide wave of dark red demonic fire rushing to the right along the ground, black smoke on top, embers, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "e9dddfb1-5f9f-48f2-aabc-5deac46d9fb8"
+	},
+	"action": "the demonic fire wave surges forward to the right engulfing the ground, then burns out into smoke and embers",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "8a0ce125-ea0e-4058-bb8f-f55d25b62d5b",
+	"createdAt": "2026-10-09T10:59:13.891Z",
+	"token": 1
+}

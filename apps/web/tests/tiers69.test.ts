@@ -738,9 +738,11 @@ const fixRandom = <T>(v: number, run: () => T): T => {
 	assert.ok(!q.inner.projectiles.some((x) => x.ghost), 'có bản PixelLab: không bắn vật rơi tạm');
 	assert.ok(q.plays.some((x) => x.id === 'magic_circle'), 'vẫn có vòng báo dưới đất');
 	const lead = TEMP_ART.meteor!.finalImpact! / 18;
-	q.tick(Math.ceil((0.8 - lead) * 60) + 1);
+	const early = Math.ceil((0.8 - lead) * 60) + 1;
+	q.tick(early);
 	assert.ok(q.plays.some((x) => x.id === 'meteor') && full(qc), `clip phát trước lúc nổ ${lead.toFixed(2)}s`);
-	q.tick(12);
+	// Tới ngay sau mốc 0,8s (đã tick `early` nhịp) — độ sớm lấy theo khung va chạm thật của bản vẽ nên không cố định.
+	q.tick(Math.ceil(0.8 * 60) - early + 2);
 	assert.ok(!full(qc), 'nổ đúng 0,8s');
 	assert.equal(q.plays.filter((x) => x.id === 'meteor').length, 1, 'phát đúng một lần');
 	assert.ok(!q.plays.some((x) => x.id === 'fire_ring'), 'không phát hình tạm');

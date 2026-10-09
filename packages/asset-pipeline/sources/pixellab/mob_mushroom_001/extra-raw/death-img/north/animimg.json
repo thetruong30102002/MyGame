@@ -1,0 +1,8 @@
+{
+	"input": "sources/pixellab/mob_mushroom_001/Idle/rotations/north.png",
+	"action": "wobbles, wilts and topples over onto the ground, lying still",
+	"frames": 8,
+	"jobId": "76ccb597-be3b-4dd9-a398-b3598d945eda",
+	"token": 1,
+	"createdAt": "2026-10-09T11:15:43.734Z"
+}

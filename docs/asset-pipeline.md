@@ -70,6 +70,31 @@ là bắt buộc, không phải làm cho có: 3 nhân vật qua cổng tự đ�
   - `miner`: cuốc mất giữa chu kỳ đi
   - `alchemist`: lọ thuốc hiện ở vài frame và đổi màu
 
+## Gói PixelLab trả phí (09/10/2026) — cách vẽ đã chạy thật
+
+Token #1 = Tier 2 (5.000 lượt / tháng, **10 job song song**). Số liệu và bẫy đã đo:
+
+- **Động tác cầm vũ khí vẽ trên PHIÊN BẢN cầm sẵn vũ khí** (`create_character_state`: "holding a steel longsword / wooden staff",
+  10–25 lượt / bản), không vẽ trên thân tay không: vũ khí liền tay suốt chuỗi khung. Gói tải về của nhóm chứa MỌI phiên bản;
+  `PixelLabSource.animationFiles` tìm tên động tác ở mọi phiên bản (đứng / đi vẫn của phiên bản đầu). Game ẩn lớp vũ khí gắn ngoài
+  ở các động tác này (`gearArt.BAKED_HELD` sinh từ `MoveDef.wield`).
+- **v3 hơn pixminimax** cho động tác người (so cùng prompt vung kiếm: v3 thân chuyển động, kiếm quét liền; pixminimax kiếm "nhảy
+  cóc", thân đứng). v3 trả **khung nới** (×1,375 làm tròn bội 4: 64→88, 80→108) với nhân vật ở giữa → `padToLargest` đệm mọi khung
+  về khổ lớn nhất trước `alignToIdle`; spec khai ô đủ chứa (người 112×112 chân y=100, bé 96×96 chân y=84).
+- `pixellab animate … --together`: gửi mọi hướng trong MỘT lệnh. Gặp giới hạn 10 job giữa chừng thì máy chủ **nhận thiếu hướng
+  mà không báo lỗi** (dòng `cost: N generations (2/dir x 2)`) → luôn chạy lượt bù (chạy lại đúng lệnh: hướng đã có trong gói tải về
+  tự bỏ qua). Hết ô thì gói trả phí báo "Maximum 10 concurrent background jobs" (khác "job slots" của gói Free) — `callWhenFree`
+  nhận cả hai.
+- Hiệu ứng: vẽ khung đầu (`--first-only`) → **đo** hướng rồi mới animate. Vệt chém / sóng / đạn quy ước bụng lồi hoặc đầu mũi quay
+  sang **phải (+x)**; ĐO bằng tâm ngang hàng giữa so với hai đầu mút, đừng ngắm — đã nhìn nhầm một lần (`fire_slash`).
+- Hiệu ứng đã vẽ nhưng game chưa dùng khai `later: true` ở `VFX` → để ngoài atlas (atlas giữ ≤ 4096, mọi người chơi đều tải).
+- Spec mới: `pixellab.reverse` (động tác = động tác khác phát ngược, vd `revive` ← `death`), `pixellab.drop` (loại khung theo số),
+  `quality.driftAnims` (ngưỡng lệch cao riêng cho động tác cố ý đổi dáng), `quality.minSilhouette` (ô nới cho khung v3 thì quái nhỏ
+  cần sàn thấp hơn 0,45). Động tác nằm (`death`, `revive`) chỉ kiểm trần chiều cao.
+- Atlas nhân vật xếp **kệ** (không còn lưới 8 hàng / animation): 25 động tác × khung 112 với lưới cũ cao ~24.000px.
+- Funnel phục vụ thẳng `apps/web/public` → dựng thử: `AETHER_WEB_ASSETS=<thư mục nháp> npx tsx src/cli.ts character <id>` (chép
+  `manifest.json` vào thư mục nháp trước).
+
 ## Còn nợ / bước tiếp
 
 - ~~Sprite nữ vẽ bằng mã nguồn (`src/manual/renderPlayerFemale.ts`, `assets:player-female`)~~ — đã GỠ 07/10/2026:

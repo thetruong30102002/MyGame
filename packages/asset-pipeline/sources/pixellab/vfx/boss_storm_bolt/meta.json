@@ -1,0 +1,31 @@
+{
+	"id": "boss_storm_bolt",
+	"kind": "burst",
+	"canvas": {
+		"w": 128,
+		"h": 128
+	},
+	"first": {
+		"prompt": "a crackling blue lightning bolt striking down with glowing storm feathers scattered around the impact, white sparks, pixel art game effect, lineless, limited palette, isolated on a fully transparent background, no ground, no scenery, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "64fd91da-46b7-41af-94db-7464337c7c3e"
+	},
+	"action": "the lightning strikes down with a flash, charged feathers scatter outward crackling, then the sparks fizzle and fade",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "c08650ba-83ba-4d7e-842f-d31d4cf58e81",
+	"createdAt": "2026-10-09T11:20:56.244Z",
+	"token": 1
+}

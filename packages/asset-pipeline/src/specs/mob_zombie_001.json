@@ -1,12 +1,12 @@
 {
 	"identity": {
 		"characterId": "mob_zombie_001",
-		"hair": "dark_messy",
-		"eyes": "glowing_yellow",
-		"skin": "grey_green",
-		"outfit": "torn_peasant_rags",
+		"hair": "none",
+		"eyes": "monster",
+		"skin": "monster",
+		"outfit": "none",
 		"weapon": "none",
-		"palette": "undead_01"
+		"palette": "region1_mob_01"
 	},
 	"displayName": "Xác sống",
 	"role": "monster",
@@ -19,10 +19,10 @@
 		"mirrorWest": true
 	},
 	"frameSize": {
-		"width": 80,
-		"height": 88
+		"width": 120,
+		"height": 120
 	},
-	"baselineY": 84,
+	"baselineY": 108,
 	"animations": {
 		"idle": {
 			"fps": 6,
@@ -31,25 +31,53 @@
 		},
 		"walk": {
 			"fps": 10,
-			"minFrames": 6,
+			"minFrames": 4,
 			"maxFrames": 8
+		},
+		"attack": {
+			"fps": 14,
+			"minFrames": 4,
+			"maxFrames": 12,
+			"optional": true,
+			"hitFrame": 4
+		},
+		"death": {
+			"fps": 10,
+			"minFrames": 4,
+			"maxFrames": 12,
+			"optional": true
 		}
 	},
 	"cleanup": {
 		"alignToIdle": true
 	},
 	"quality": {
-		"maxHeightDrift": 0.15
+		"maxHeightDrift": 0.25,
+		"minSilhouette": 0.2,
+		"driftAnims": {
+			"attack": 0.35,
+			"death": 0.9
+		},
+		"weaponAnims": {
+			"animations": [
+				"idle",
+				"walk",
+				"attack",
+				"death"
+			],
+			"reason": "09/10/2026, duyệt bằng mắt từng con: quái có hạt / khí bay quanh thân (bào tử, gió cuộn, sỏi bay, mây, sương, tia lửa) và đòn đánh v3 có hiệu ứng — chủ ý, nên miễn kiểm bóng liền khối + màu lạ; các phép kiểm khác giữ nguyên."
+		}
 	},
 	"provisional": [
-		"S",
-		"SW",
-		"W",
-		"NW",
-		"N",
+		"SE",
 		"NE",
-		"E",
-		"SE"
+		"SW",
+		"NW"
 	],
-	"notes": "PixelLab Pro Flash (06/10/2026), ảnh mẫu phong cách = Lior bé (chép nét/bóng, không chép bảng màu). Quái khoảng trống Mossvale (16 tuổi). Idle tạm ảnh xoay tĩnh."
+	"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template mannequin, khổ vẽ 80px; ảnh mẫu nét = nấm rừng. Vùng 1. Mô tả: a shambling rotting zombie villager facing the viewer, grey-green decaying skin, torn ragged brown peasant clothes, messy dark hair, glowing yellow eyes, arms reaching forward. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 112px.",
+	"review": {
+		"status": "approved",
+		"date": "09/10/2026",
+		"notes": "Duyệt bằng mắt 3 hướng xoay + đi / đứng / đánh / gục (contact sheet hướng Đông + ảnh xoay S/E/N). Trước đây quái này CHƯA có atlas trong game (map vùng 1 đặt mà không có hình)."
+	}
 }

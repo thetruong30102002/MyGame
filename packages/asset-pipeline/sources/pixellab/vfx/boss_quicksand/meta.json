@@ -1,0 +1,31 @@
+{
+	"id": "boss_quicksand",
+	"kind": "loop",
+	"canvas": {
+		"w": 160,
+		"h": 160
+	},
+	"first": {
+		"prompt": "a swirling quicksand vortex in golden desert sand seen from directly above, spiral grooves pulling inward, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "30edaeb3-b4de-48fb-8d84-131e690dde1d"
+	},
+	"action": "the quicksand vortex spins and sucks sand into its center, grains sliding inward, seamless loop",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "f512a5dc-dffc-403f-bc1d-5fa89fbd83ee",
+	"createdAt": "2026-10-09T11:22:29.649Z",
+	"token": 1
+}

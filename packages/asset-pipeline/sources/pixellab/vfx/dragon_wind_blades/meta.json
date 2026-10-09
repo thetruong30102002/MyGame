@@ -1,0 +1,33 @@
+{
+	"id": "dragon_wind_blades",
+	"kind": "burst",
+	"canvas": {
+		"w": 160,
+		"h": 160
+	},
+	"first": {
+		"prompt": "many crescent blades of glowing pale green wind raining down from the sky onto a patch of ground, small cuts in the earth, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "2f9e13a8-8fcb-40c2-a135-b7f8290706bf"
+	},
+	"action": "the wind blades slash down onto the ground one after another, kicking up dust and leaves, then they fade away",
+	"frameCount": 10,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png",
+		"frame_009.png",
+		"frame_010.png"
+	],
+	"animateJobId": "ba1d70f3-2d09-47e7-a11a-4d3309e3b49e",
+	"createdAt": "2026-10-09T11:32:24.135Z",
+	"token": 1
+}

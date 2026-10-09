@@ -1,0 +1,27 @@
+{
+	"id": "wind_blade",
+	"kind": "loop",
+	"canvas": {
+		"w": 48,
+		"h": 48
+	},
+	"first": {
+		"prompt": "small sharp crescent blade of pale green wind flying to the right, thin wind streaks behind it, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "95d14d9d-2b2b-44a7-9298-6fe1bbe0d1ac"
+	},
+	"action": "the wind blade spins and whooshes forward, streaks fluttering, seamless loop",
+	"frameCount": 4,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png"
+	],
+	"animateJobId": "85806033-da49-445b-9d13-5073b62f6b0e",
+	"createdAt": "2026-10-09T11:10:05.739Z",
+	"token": 1
+}

@@ -1,0 +1,29 @@
+{
+	"id": "wind_blade_ring",
+	"kind": "loop",
+	"canvas": {
+		"w": 128,
+		"h": 128
+	},
+	"first": {
+		"prompt": "ring of spinning pale green wind blades circling around an empty center, seen from above at an angle, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "45d15c25-5e01-45d9-a5c0-26f9dfffec52"
+	},
+	"action": "the wind blades spin rapidly around the circle, slicing the air, seamless loop",
+	"frameCount": 6,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png"
+	],
+	"animateJobId": "c5fb2441-ad49-41f5-811b-18f7c55a8f2d",
+	"createdAt": "2026-10-09T11:07:49.137Z",
+	"token": 1
+}

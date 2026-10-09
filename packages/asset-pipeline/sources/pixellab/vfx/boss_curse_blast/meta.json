@@ -1,0 +1,33 @@
+{
+	"id": "boss_curse_blast",
+	"kind": "burst",
+	"canvas": {
+		"w": 160,
+		"h": 160
+	},
+	"first": {
+		"prompt": "a glowing purple necromantic curse sigil circle on the ground with skull runes, violet light rising from it, base at the bottom of the frame, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "5a0c410e-c2ea-4dce-9df5-109004a6b31d"
+	},
+	"action": "the curse sigil glows brighter and erupts in a column of violet ghostly flames with wailing skull shapes, then fades into purple mist",
+	"frameCount": 10,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png",
+		"frame_009.png",
+		"frame_010.png"
+	],
+	"animateJobId": "08198a60-6d2c-400b-99f7-19a2f96854f7",
+	"createdAt": "2026-10-09T11:04:53.749Z",
+	"token": 1
+}

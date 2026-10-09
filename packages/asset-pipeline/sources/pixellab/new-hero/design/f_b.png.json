@@ -1,0 +1,20 @@
+{
+	"description": "Full body chibi anime pixel art game sprite, 16-year-old young woman adventurer facing the viewer, standing straight, arms relaxed at sides, empty hands. Shoulder-length black hair with a short side braid, bright red-orange eyes, confident face. Simple beginner outfit: light grey cotton shirt, sleeveless brown travel jerkin, short red neck scarf, wide leather belt, dark navy-grey shorts over leggings, brown boots, cloth wrist wraps.",
+	"width": 80,
+	"height": 80,
+	"no_background": true,
+	"seed": 23,
+	"style_options": {
+		"color_palette": false,
+		"outline": true,
+		"detail": true,
+		"shading": true
+	},
+	"style_image": {
+		"path": "D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/player_hero_adult_f/Idle/rotations/south.png",
+		"usage_description": "Copy ONLY the drawing style: chibi anime proportions (big head, big eyes), crisp black pixel outline, shading and detail level. Do NOT copy the colors, hair or clothing — the new character must look like a different person."
+	},
+	"jobId": "ade13f7c-958f-4fb8-a85d-59ab12a04e7b",
+	"token": 1,
+	"createdAt": "2026-10-09T09:45:47.211Z"
+}

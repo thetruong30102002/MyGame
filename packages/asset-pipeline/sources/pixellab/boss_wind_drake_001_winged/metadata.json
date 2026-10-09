@@ -1,0 +1,36 @@
+{
+  "group_id": "bb64f75d-c1f6-4943-978f-71b879a93b4d",
+  "states": [
+    {
+      "character": {
+        "id": "07f8cbc4-8b50-473c-b4c0-2fb61f8338bd",
+        "name": "Idle",
+        "prompt": "Chibi RPG monster pixel art sprite, a sleek wind drake boss hovering facing the viewer, slender pale jade-green dragon with feathered wings, long whip tail, cloud-like white mane, swirling wind currents around its body, glowing cyan eyes",
+        "size": {
+          "width": 160,
+          "height": 160
+        },
+        "template_id": "custom",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-10-09T10:39:51.746734+00:00"
+      },
+      "folder": "Idle",
+      "frames": {
+        "rotations": {
+          "south": "Idle/rotations/south.png",
+          "south-east": "Idle/rotations/south-east.png",
+          "east": "Idle/rotations/east.png",
+          "north-east": "Idle/rotations/north-east.png",
+          "north": "Idle/rotations/north.png",
+          "north-west": "Idle/rotations/north-west.png",
+          "west": "Idle/rotations/west.png",
+          "south-west": "Idle/rotations/south-west.png"
+        },
+        "animations": {}
+      }
+    }
+  ],
+  "export_version": "3.1",
+  "export_date": "2026-10-09T10:48:12.992290"
+}

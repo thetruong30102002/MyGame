@@ -1,0 +1,31 @@
+{
+	"id": "ult_still_lake",
+	"kind": "loop",
+	"canvas": {
+		"w": 160,
+		"h": 160
+	},
+	"first": {
+		"prompt": "a perfectly calm mirror-like circle of water with a translucent glowing reflective dome barrier above it, serene silver-blue light, empty center, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "d1a559f1-86c0-4b54-a881-08a299324d90"
+	},
+	"action": "the mirror dome shimmers calmly, gentle ripples spread on the water surface, reflections glide across the barrier, seamless loop",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "bb26d322-4769-4515-9fab-d18775526006",
+	"createdAt": "2026-10-09T12:18:52.939Z",
+	"token": 1
+}

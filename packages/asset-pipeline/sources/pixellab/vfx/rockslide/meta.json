@@ -1,0 +1,33 @@
+{
+	"id": "rockslide",
+	"kind": "burst",
+	"canvas": {
+		"w": 160,
+		"h": 160
+	},
+	"first": {
+		"prompt": "big brown boulders tumbling down from the top of the frame toward a patch of ground, dust and pebbles, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "eaa48464-caf3-4de9-bf76-b294ef622949"
+	},
+	"action": "the boulders crash down onto the ground one after another, shattering into rubble and dust clouds, then the dust fades",
+	"frameCount": 10,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png",
+		"frame_009.png",
+		"frame_010.png"
+	],
+	"animateJobId": "64b5ac4c-7a1c-4469-a1a6-c96ea357569b",
+	"createdAt": "2026-10-09T11:15:48.617Z",
+	"token": 1
+}

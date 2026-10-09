@@ -28,6 +28,29 @@
 				},
 				"walk": {
 					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
 				}
 			},
 			"source": {
@@ -91,6 +114,29 @@
 				},
 				"walk": {
 					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
 				}
 			},
 			"source": {
@@ -132,21 +178,21 @@
 			"role": "player",
 			"identity": {
 				"characterId": "player_lior_child_f",
-				"hair": "silver_side_ponytail",
-				"eyes": "blue",
+				"hair": "chestnut_high_ponytail",
+				"eyes": "amber",
 				"skin": "light",
-				"outfit": "navy_hooded_capelet_gold_trim_blue_tunic_dress",
-				"weapon": "none_weapon_layer",
-				"palette": "fantasy_blue_01"
+				"outfit": "kid_linen_blouse_vest_green_scarf_skirt",
+				"weapon": "baked_in_training_sword_staff_states",
+				"palette": "starter_earth_01"
 			},
 			"atlas": "characters/player_lior_child_f/player_lior_child_f.json",
 			"frameSize": {
-				"width": 64,
-				"height": 64
+				"width": 96,
+				"height": 96
 			},
 			"anchor": {
 				"x": 0.5,
-				"y": 0.9375
+				"y": 0.875
 			},
 			"animations": {
 				"idle": {
@@ -156,9 +202,33 @@
 					"fps": 10
 				},
 				"attack": {
-					"fps": 11,
-					"frames": 4,
-					"hitFrame": 2,
+					"fps": 22,
+					"frames": 8,
+					"hitFrame": 3,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"backslash": {
+					"fps": 22,
+					"frames": 8,
+					"hitFrame": 3,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"thrust": {
+					"fps": 22,
+					"frames": 8,
+					"hitFrame": 4,
 					"loop": false,
 					"directions": [
 						"S",
@@ -168,12 +238,68 @@
 					]
 				},
 				"cast": {
-					"fps": 15,
+					"fps": 20,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"throw": {
+					"fps": 16,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"hit": {
+					"fps": 14,
 					"frames": 6,
 					"loop": false,
 					"directions": [
 						"S",
 						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"revive": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"drink": {
+					"fps": 12,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
 						"E"
 					]
 				}
@@ -188,8 +314,8 @@
 					"attributionRequired": false
 				}
 			},
-			"notes": "PixelLab Pro Flash (05/10/2026), ảnh mẫu phong cách = Lior bé. Thay bản vẽ tay tạm cùng ID. Que gỗ gỡ khỏi thân (removeThin); ở hướng SE còn nét que mảnh vắt qua chân (trùng thân, không gỡ tự động được). Idle tạm ảnh xoay tĩnh; hướng chưa có walk tạm ảnh tĩnh nhún 1px.",
-			"bodyHeight": 52,
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1): bản 6 tuổi của nhân vật người chơi mới (cùng tóc nâu, mắt hổ phách, khăn xanh rêu). Thay bản tóc bạc (nay là NPC npc_silver_child*). Động tác v3 trên phiên bản Sword / Staff cùng nhóm (khung nới 88 → ô 96); revive = death phát ngược.",
+			"bodyHeight": 53,
 			"portrait": "portraits/player_lior_child_f.png",
 			"directions": [
 				"S",
@@ -201,37 +327,28 @@
 				"E",
 				"SE"
 			],
-			"provisional": [
-				"S",
-				"SW",
-				"W",
-				"NW",
-				"N",
-				"NE",
-				"E",
-				"SE"
-			]
+			"provisional": []
 		},
 		"player_lior_child": {
-			"displayName": "Lior (bé)",
+			"displayName": "Nhân vật chính (bé trai)",
 			"role": "player",
 			"identity": {
 				"characterId": "player_lior_child",
-				"hair": "silver",
-				"eyes": "blue",
+				"hair": "chestnut_messy",
+				"eyes": "amber",
 				"skin": "light",
-				"outfit": "navy_hooded_capelet_gold_trim_blue_tunic",
-				"weapon": "none_weapon_layer",
-				"palette": "fantasy_blue_01"
+				"outfit": "kid_linen_tunic_vest_green_scarf_shorts",
+				"weapon": "baked_in_training_sword_staff_states",
+				"palette": "starter_earth_01"
 			},
 			"atlas": "characters/player_lior_child/player_lior_child.json",
 			"frameSize": {
-				"width": 64,
-				"height": 64
+				"width": 96,
+				"height": 96
 			},
 			"anchor": {
 				"x": 0.5,
-				"y": 0.9375
+				"y": 0.875
 			},
 			"animations": {
 				"idle": {
@@ -241,13 +358,38 @@
 					"fps": 10
 				},
 				"attack": {
-					"fps": 11,
-					"frames": 4,
-					"hitFrame": 2,
+					"fps": 22,
+					"frames": 8,
+					"hitFrame": 3,
 					"loop": false,
 					"directions": [
 						"S",
 						"W",
+						"N",
+						"E"
+					]
+				},
+				"backslash": {
+					"fps": 22,
+					"frames": 8,
+					"hitFrame": 3,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"thrust": {
+					"fps": 22,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
 						"E"
 					]
 				},
@@ -258,6 +400,62 @@
 					"directions": [
 						"S",
 						"W",
+						"N",
+						"E"
+					]
+				},
+				"throw": {
+					"fps": 16,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"hit": {
+					"fps": 14,
+					"frames": 6,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"revive": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"drink": {
+					"fps": 12,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
 						"E"
 					]
 				}
@@ -272,8 +470,8 @@
 					"attributionRequired": false
 				}
 			},
-			"notes": "PixelLab Pro Flash theo 3 ảnh mẫu chibi của chủ dự án (02/10/2026), walk = mẫu walking-8-frames (S, SE, E, NE, N; phía tây lật gương). Que gỗ gỡ khỏi thân (removeThin): thân tay không, vũ khí là lớp riêng. Idle tạm là ảnh xoay tĩnh; hướng nào chưa có walk thì tạm ảnh tĩnh nhún 1px.",
-			"bodyHeight": 51,
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1): bản 6 tuổi của nhân vật người chơi mới (cùng tóc nâu, mắt hổ phách, khăn xanh rêu). Thay bản tóc bạc (nay là NPC npc_silver_child*). Động tác v3 trên phiên bản Sword / Staff cùng nhóm (khung nới 88 → ô 96); revive = death phát ngược.",
+			"bodyHeight": 54,
 			"portrait": "portraits/player_lior_child.png",
 			"directions": [
 				"S",
@@ -285,16 +483,7 @@
 				"E",
 				"SE"
 			],
-			"provisional": [
-				"S",
-				"SW",
-				"W",
-				"NW",
-				"N",
-				"NE",
-				"E",
-				"SE"
-			]
+			"provisional": []
 		},
 		"npc_elin_001": {
 			"displayName": "Elin Ashvale",
@@ -553,21 +742,21 @@
 			"role": "player",
 			"identity": {
 				"characterId": "player_hero_adult",
-				"hair": "silver_spiky",
-				"eyes": "blue",
+				"hair": "chestnut_messy",
+				"eyes": "amber",
 				"skin": "light",
-				"outfit": "navy_hooded_travel_coat_gold_trim",
-				"weapon": "none_weapon_layer",
-				"palette": "fantasy_blue_01"
+				"outfit": "starter_linen_tunic_leather_vest_green_scarf",
+				"weapon": "baked_in_sword_staff_states",
+				"palette": "starter_earth_01"
 			},
 			"atlas": "characters/player_hero_adult/player_hero_adult.json",
 			"frameSize": {
-				"width": 80,
-				"height": 88
+				"width": 112,
+				"height": 112
 			},
 			"anchor": {
 				"x": 0.5,
-				"y": 0.9545454545454546
+				"y": 0.8928571428571429
 			},
 			"animations": {
 				"idle": {
@@ -577,9 +766,148 @@
 					"fps": 10
 				},
 				"attack": {
-					"fps": 11,
-					"frames": 4,
+					"fps": 22,
+					"frames": 8,
+					"hitFrame": 3,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"backslash": {
+					"fps": 22,
+					"frames": 8,
+					"hitFrame": 3,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"thrust": {
+					"fps": 22,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"charge": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"smash": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"lunge": {
+					"fps": 16,
+					"frames": 8,
+					"hitFrame": 3,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"block": {
+					"fps": 8,
+					"frames": 6,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"parry": {
+					"fps": 16,
+					"frames": 8,
 					"hitFrame": 2,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"spin": {
+					"fps": 18,
+					"frames": 10,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"flurry": {
+					"fps": 20,
+					"frames": 12,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"wave": {
+					"fps": 16,
+					"frames": 8,
+					"hitFrame": 3,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"fling": {
+					"fps": 16,
+					"frames": 12,
+					"hitFrame": 3,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"vanish": {
+					"fps": 16,
+					"frames": 8,
 					"loop": false,
 					"directions": [
 						"S",
@@ -590,6 +918,127 @@
 				},
 				"cast": {
 					"fps": 20,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"throw": {
+					"fps": 16,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"channel": {
+					"fps": 8,
+					"frames": 6,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"push": {
+					"fps": 16,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"skycall": {
+					"fps": 14,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"stomp": {
+					"fps": 14,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"ultimate": {
+					"fps": 12,
+					"frames": 12,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"dodge": {
+					"fps": 16,
+					"frames": 6,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"hit": {
+					"fps": 14,
+					"frames": 6,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"revive": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"drink": {
+					"fps": 12,
 					"frames": 8,
 					"loop": false,
 					"directions": [
@@ -610,8 +1059,8 @@
 					"attributionRequired": false
 				}
 			},
-			"notes": "PixelLab Pro Flash (06/10/2026), ảnh mẫu phong cách = Lior bé (chép nét/bóng, không chép bảng màu). Tạo lại trên token #4 từ ảnh hướng S của bản đầu (khung đầu giữ nguyên). Tay không: vũ khí là lớp riêng. Idle tạm ảnh xoay tĩnh.",
-			"bodyHeight": 77,
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1). Thiết kế người chơi mới thay bản tóc bạc (nay là NPC npc_silver_*). Thân mặc đồ tân thủ để giáp các bậc phủ lên (Mốc 3); tóc nâu trung tính để đổi màu bằng code. Động tác: v3 8–12 khung trên phiên bản Sword / Staff cùng nhóm (khung nới 108 → đệm + chuẩn hoá vào ô 112); revive = death phát ngược.",
+			"bodyHeight": 75,
 			"portrait": "portraits/player_hero_adult.png",
 			"directions": [
 				"S",
@@ -623,16 +1072,7 @@
 				"E",
 				"SE"
 			],
-			"provisional": [
-				"S",
-				"SW",
-				"W",
-				"NW",
-				"N",
-				"NE",
-				"E",
-				"SE"
-			]
+			"provisional": []
 		},
 		"mob_skeleton_archer_001": {
 			"displayName": "Cung thủ xương",
@@ -661,6 +1101,29 @@
 				},
 				"walk": {
 					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
 				}
 			},
 			"source": {
@@ -765,21 +1228,21 @@
 			"role": "player",
 			"identity": {
 				"characterId": "player_hero_adult_f",
-				"hair": "silver_high_side_ponytail",
-				"eyes": "blue",
+				"hair": "chestnut_high_ponytail",
+				"eyes": "amber",
 				"skin": "light",
-				"outfit": "navy_hooded_travel_coat_gold_trim",
-				"weapon": "none_weapon_layer",
-				"palette": "fantasy_blue_01"
+				"outfit": "starter_linen_blouse_laced_vest_green_scarf_skirt",
+				"weapon": "baked_in_sword_staff_states",
+				"palette": "starter_earth_01"
 			},
 			"atlas": "characters/player_hero_adult_f/player_hero_adult_f.json",
 			"frameSize": {
-				"width": 80,
-				"height": 88
+				"width": 112,
+				"height": 112
 			},
 			"anchor": {
 				"x": 0.5,
-				"y": 0.9545454545454546
+				"y": 0.8928571428571429
 			},
 			"animations": {
 				"idle": {
@@ -789,9 +1252,148 @@
 					"fps": 10
 				},
 				"attack": {
-					"fps": 11,
-					"frames": 4,
+					"fps": 22,
+					"frames": 8,
+					"hitFrame": 3,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"backslash": {
+					"fps": 22,
+					"frames": 8,
+					"hitFrame": 3,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"thrust": {
+					"fps": 22,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"charge": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"smash": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"lunge": {
+					"fps": 16,
+					"frames": 8,
+					"hitFrame": 3,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"block": {
+					"fps": 8,
+					"frames": 6,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"parry": {
+					"fps": 16,
+					"frames": 8,
 					"hitFrame": 2,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"spin": {
+					"fps": 18,
+					"frames": 10,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"flurry": {
+					"fps": 20,
+					"frames": 12,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"wave": {
+					"fps": 16,
+					"frames": 8,
+					"hitFrame": 3,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"fling": {
+					"fps": 16,
+					"frames": 12,
+					"hitFrame": 3,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"vanish": {
+					"fps": 16,
+					"frames": 8,
 					"loop": false,
 					"directions": [
 						"S",
@@ -802,6 +1404,127 @@
 				},
 				"cast": {
 					"fps": 20,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"throw": {
+					"fps": 16,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"channel": {
+					"fps": 8,
+					"frames": 6,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"push": {
+					"fps": 16,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"skycall": {
+					"fps": 14,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"stomp": {
+					"fps": 14,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"ultimate": {
+					"fps": 12,
+					"frames": 12,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"dodge": {
+					"fps": 16,
+					"frames": 6,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"hit": {
+					"fps": 14,
+					"frames": 6,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"revive": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"drink": {
+					"fps": 12,
 					"frames": 8,
 					"loop": false,
 					"directions": [
@@ -822,8 +1545,8 @@
 					"attributionRequired": false
 				}
 			},
-			"notes": "PixelLab Pro Flash (06/10/2026), ảnh mẫu phong cách = Lior bé (chép nét/bóng, không chép bảng màu). Tạo lại trên token #4 từ ảnh hướng S của bản đầu. Tay không: vũ khí là lớp riêng. Idle tạm ảnh xoay tĩnh.",
-			"bodyHeight": 71,
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1). Thiết kế người chơi mới thay bản tóc bạc (nay là NPC npc_silver_*). Thân mặc đồ tân thủ để giáp các bậc phủ lên (Mốc 3); tóc nâu trung tính để đổi màu bằng code. Động tác: v3 8–12 khung trên phiên bản Sword / Staff cùng nhóm (khung nới 108 → đệm + chuẩn hoá vào ô 112); revive = death phát ngược.",
+			"bodyHeight": 72,
 			"portrait": "portraits/player_hero_adult_f.png",
 			"directions": [
 				"S",
@@ -835,16 +1558,7 @@
 				"E",
 				"SE"
 			],
-			"provisional": [
-				"S",
-				"SW",
-				"W",
-				"NW",
-				"N",
-				"NE",
-				"E",
-				"SE"
-			]
+			"provisional": []
 		},
 		"npc_aldric_001": {
 			"displayName": "Aldric",
@@ -907,6 +1621,594 @@
 				"NE",
 				"E",
 				"SE"
+			]
+		},
+		"npc_silver_youth": {
+			"displayName": "NPC (hình người chơi cũ): Nhân vật chính (16 tuổi, nam)",
+			"role": "npc",
+			"identity": {
+				"characterId": "npc_silver_youth",
+				"hair": "silver_spiky",
+				"eyes": "blue",
+				"skin": "light",
+				"outfit": "navy_hooded_travel_coat_gold_trim",
+				"weapon": "none_weapon_layer",
+				"palette": "fantasy_blue_01"
+			},
+			"atlas": "characters/npc_silver_youth/npc_silver_youth.json",
+			"frameSize": {
+				"width": 80,
+				"height": 88
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9545454545454546
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 11,
+					"frames": 4,
+					"hitFrame": 2,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"cast": {
+					"fps": 20,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash (06/10/2026), ảnh mẫu phong cách = Lior bé (chép nét/bóng, không chép bảng màu). Tạo lại trên token #4 từ ảnh hướng S của bản đầu (khung đầu giữ nguyên). Tay không: vũ khí là lớp riêng. Idle tạm ảnh xoay tĩnh. — 09/10/2026: thay bằng nhân vật người chơi mới (gói PixelLab trả phí), bản này chuyển thành NPC (id cũ player_hero_adult).",
+			"bodyHeight": 77,
+			"portrait": "portraits/npc_silver_youth.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			]
+		},
+		"npc_silver_youth_f": {
+			"displayName": "NPC (hình người chơi cũ): Nhân vật chính (16 tuổi, nữ)",
+			"role": "npc",
+			"identity": {
+				"characterId": "npc_silver_youth_f",
+				"hair": "silver_high_side_ponytail",
+				"eyes": "blue",
+				"skin": "light",
+				"outfit": "navy_hooded_travel_coat_gold_trim",
+				"weapon": "none_weapon_layer",
+				"palette": "fantasy_blue_01"
+			},
+			"atlas": "characters/npc_silver_youth_f/npc_silver_youth_f.json",
+			"frameSize": {
+				"width": 80,
+				"height": 88
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9545454545454546
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 11,
+					"frames": 4,
+					"hitFrame": 2,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"cast": {
+					"fps": 20,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash (06/10/2026), ảnh mẫu phong cách = Lior bé (chép nét/bóng, không chép bảng màu). Tạo lại trên token #4 từ ảnh hướng S của bản đầu. Tay không: vũ khí là lớp riêng. Idle tạm ảnh xoay tĩnh. — 09/10/2026: thay bằng nhân vật người chơi mới (gói PixelLab trả phí), bản này chuyển thành NPC (id cũ player_hero_adult_f).",
+			"bodyHeight": 71,
+			"portrait": "portraits/npc_silver_youth_f.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			]
+		},
+		"npc_silver_child": {
+			"displayName": "NPC (hình người chơi cũ): Lior (bé)",
+			"role": "npc",
+			"identity": {
+				"characterId": "npc_silver_child",
+				"hair": "silver",
+				"eyes": "blue",
+				"skin": "light",
+				"outfit": "navy_hooded_capelet_gold_trim_blue_tunic",
+				"weapon": "none_weapon_layer",
+				"palette": "fantasy_blue_01"
+			},
+			"atlas": "characters/npc_silver_child/npc_silver_child.json",
+			"frameSize": {
+				"width": 64,
+				"height": 64
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9375
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 11,
+					"frames": 4,
+					"hitFrame": 2,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"cast": {
+					"fps": 20,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash theo 3 ảnh mẫu chibi của chủ dự án (02/10/2026), walk = mẫu walking-8-frames (S, SE, E, NE, N; phía tây lật gương). Que gỗ gỡ khỏi thân (removeThin): thân tay không, vũ khí là lớp riêng. Idle tạm là ảnh xoay tĩnh; hướng nào chưa có walk thì tạm ảnh tĩnh nhún 1px. — 09/10/2026: thay bằng nhân vật người chơi mới (gói PixelLab trả phí), bản này chuyển thành NPC (id cũ player_lior_child).",
+			"bodyHeight": 51,
+			"portrait": "portraits/npc_silver_child.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			]
+		},
+		"npc_silver_child_f": {
+			"displayName": "NPC (hình người chơi cũ): Nhân vật chính (bé gái)",
+			"role": "npc",
+			"identity": {
+				"characterId": "npc_silver_child_f",
+				"hair": "silver_side_ponytail",
+				"eyes": "blue",
+				"skin": "light",
+				"outfit": "navy_hooded_capelet_gold_trim_blue_tunic_dress",
+				"weapon": "none_weapon_layer",
+				"palette": "fantasy_blue_01"
+			},
+			"atlas": "characters/npc_silver_child_f/npc_silver_child_f.json",
+			"frameSize": {
+				"width": 64,
+				"height": 64
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9375
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 11,
+					"frames": 4,
+					"hitFrame": 2,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"cast": {
+					"fps": 15,
+					"frames": 6,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash (05/10/2026), ảnh mẫu phong cách = Lior bé. Thay bản vẽ tay tạm cùng ID. Que gỗ gỡ khỏi thân (removeThin); ở hướng SE còn nét que mảnh vắt qua chân (trùng thân, không gỡ tự động được). Idle tạm ảnh xoay tĩnh; hướng chưa có walk tạm ảnh tĩnh nhún 1px. — 09/10/2026: thay bằng nhân vật người chơi mới (gói PixelLab trả phí), bản này chuyển thành NPC (id cũ player_lior_child_f).",
+			"bodyHeight": 52,
+			"portrait": "portraits/npc_silver_child_f.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			]
+		},
+		"mob_zombie_001": {
+			"displayName": "Xác sống",
+			"role": "monster",
+			"identity": {
+				"characterId": "mob_zombie_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region1_mob_01"
+			},
+			"atlas": "characters/mob_zombie_001/mob_zombie_001.json",
+			"frameSize": {
+				"width": 120,
+				"height": 120
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template mannequin, khổ vẽ 80px; ảnh mẫu nét = nấm rừng. Vùng 1. Mô tả: a shambling rotting zombie villager facing the viewer, grey-green decaying skin, torn ragged brown peasant clothes, messy dark hair, glowing yellow eyes, arms reaching forward. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 112px.",
+			"bodyHeight": 46,
+			"portrait": "portraits/mob_zombie_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"mob_gargoyle_001": {
+			"displayName": "Gargoyle đá",
+			"role": "monster",
+			"identity": {
+				"characterId": "mob_gargoyle_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region1_mob_01"
+			},
+			"atlas": "characters/mob_gargoyle_001/mob_gargoyle_001.json",
+			"frameSize": {
+				"width": 120,
+				"height": 120
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 80px; ảnh mẫu nét = nấm rừng. Vùng 1. Mô tả: a small crouching stone gargoyle facing the viewer, grey weathered stone skin with cracks and moss, small bat wings, curved horns, glowing red eyes, sharp claws. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 112px.",
+			"bodyHeight": 47,
+			"portrait": "portraits/mob_gargoyle_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"boss_lich_001": {
+			"displayName": "Vua Lich (boss khu)",
+			"role": "boss",
+			"identity": {
+				"characterId": "boss_lich_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region1_mob_01"
+			},
+			"atlas": "characters/boss_lich_001/boss_lich_001.json",
+			"frameSize": {
+				"width": 160,
+				"height": 160
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.925
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template mannequin, khổ vẽ 112px; ảnh mẫu nét = Quỷ vương. Vùng 1. Mô tả: a skeletal lich king boss facing the viewer, gaunt skull face with glowing violet eyes, jagged bone crown, tattered dark purple and black royal robes with gold trim, holding a gnarled staff topped with a glowing purple skull orb, wisps of purple ghostly mist around him. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 156px.",
+			"bodyHeight": 93,
+			"portrait": "portraits/boss_lich_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
 			]
 		}
 	}

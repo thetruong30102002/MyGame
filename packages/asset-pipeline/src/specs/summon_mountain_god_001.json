@@ -1,0 +1,78 @@
+{
+	"identity": {
+		"characterId": "summon_mountain_god_001",
+		"hair": "none",
+		"eyes": "monster",
+		"skin": "monster",
+		"outfit": "none",
+		"weapon": "none",
+		"palette": "region0_mob_01"
+	},
+	"displayName": "Sơn Thần (triệu hồi tuyệt kỹ Thổ)",
+	"role": "npc",
+	"provider": "pixellab",
+	"pixellab": {
+		"animations": {
+			"idle": "idle",
+			"walk": "walk"
+		},
+		"mirrorWest": true
+	},
+	"frameSize": {
+		"width": 184,
+		"height": 184
+	},
+	"baselineY": 172,
+	"animations": {
+		"idle": {
+			"fps": 6,
+			"minFrames": 4,
+			"maxFrames": 8
+		},
+		"walk": {
+			"fps": 10,
+			"minFrames": 4,
+			"maxFrames": 8
+		},
+		"attack": {
+			"fps": 14,
+			"minFrames": 4,
+			"maxFrames": 12,
+			"optional": true,
+			"hitFrame": 4
+		},
+		"death": {
+			"fps": 10,
+			"minFrames": 4,
+			"maxFrames": 12,
+			"optional": true
+		}
+	},
+	"cleanup": {
+		"alignToIdle": true
+	},
+	"quality": {
+		"maxHeightDrift": 0.25,
+		"minSilhouette": 0.2,
+		"driftAnims": {
+			"attack": 0.35,
+			"death": 0.9
+		},
+		"weaponAnims": {
+			"animations": [
+				"idle",
+				"walk",
+				"attack",
+				"death"
+			],
+			"reason": "09/10/2026, duyệt bằng mắt từng con: quái có hạt / khí bay quanh thân (bào tử, gió cuộn, sỏi bay, mây, sương, tia lửa) và đòn đánh v3 có hiệu ứng — chủ ý, nên miễn kiểm bóng liền khối + màu lạ; các phép kiểm khác giữ nguyên."
+		}
+	},
+	"provisional": [
+		"SE",
+		"NE",
+		"SW",
+		"NW"
+	],
+	"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template mannequin, khổ vẽ 128px; ảnh mẫu nét = nấm rừng. Vùng 0. Mô tả: a towering ancient stone giant guardian summoned from the earth facing the viewer, massive body of mossy brown granite boulders, glowing golden rune cracks across its chest and arms, crystal shards on its shoulders, small glowing amber eyes, huge fists. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 176px."
+}

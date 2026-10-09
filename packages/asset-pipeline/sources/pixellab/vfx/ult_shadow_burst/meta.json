@@ -1,0 +1,32 @@
+{
+	"id": "ult_shadow_burst",
+	"kind": "burst",
+	"canvas": {
+		"w": 128,
+		"h": 128
+	},
+	"first": {
+		"prompt": "a burst of dark violet shadow afterimages and black smoke streaks exploding outward from an empty center, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "8baa813e-aa04-4f7a-a2f8-a7a8dbdb6e1d",
+		"drawn": "first_drawn.png"
+	},
+	"action": "shadow afterimages and smoke streaks burst outward in all directions, then they dissolve into darkness and fade",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "2aa9cefe-a413-4d7f-aeb4-62a9753ab85e",
+	"createdAt": "2026-10-09T12:20:07.539Z",
+	"token": 1
+}

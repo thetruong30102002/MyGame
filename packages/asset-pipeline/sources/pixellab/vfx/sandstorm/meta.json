@@ -1,0 +1,31 @@
+{
+	"id": "sandstorm",
+	"kind": "burst",
+	"canvas": {
+		"w": 128,
+		"h": 128
+	},
+	"first": {
+		"prompt": "small swirling sandstorm vortex of golden sand and dust, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "0b22d9e1-83ae-4b88-88b7-a1f1404f0126"
+	},
+	"action": "the sand vortex whirls violently, sand grains and dust spiral around, then it scatters and fades away",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "816ecc54-1ef3-4c47-b65b-10944b98584d",
+	"createdAt": "2026-10-09T11:33:33.667Z",
+	"token": 1
+}

@@ -4,13 +4,13 @@
 			"id": "anim-idle",
 			"label": "Animation idle: đủ 8 hướng, 4–8 frame",
 			"status": "pass",
-			"detail": " · TẠM ảnh tĩnh: S, SW, W, NW, N, NE, E, SE"
+			"detail": "S:4 SW:4 W:4 NW:4 N:4 NE:4 E:4 SE:4"
 		},
 		{
 			"id": "anim-walk",
 			"label": "Animation walk: đủ 8 hướng, 6–8 frame",
 			"status": "pass",
-			"detail": " · TẠM ảnh tĩnh: S, SW, W, NW, N, NE, E, SE"
+			"detail": "S:8 SW:8 W:8 NW:8 N:8 NE:8 E:8 SE:8"
 		},
 		{
 			"id": "no-empty-frames",
@@ -20,7 +20,7 @@
 		},
 		{
 			"id": "dimensions",
-			"label": "Đúng kích thước 80×88",
+			"label": "Đúng kích thước 112×112",
 			"status": "pass",
 			"detail": "mọi frame đúng cỡ"
 		},
@@ -40,13 +40,13 @@
 			"id": "no-blur",
 			"label": "Không nhoè: số màu/frame và tỉ lệ chuyển màu li ti",
 			"status": "pass",
-			"detail": "tối đa 67 màu/frame (ngưỡng 128), micro-step 0.1% (ngưỡng 12%)"
+			"detail": "tối đa 34 màu/frame (ngưỡng 128), micro-step 0.0% (ngưỡng 12%)"
 		},
 		{
 			"id": "silhouette-size",
 			"label": "Silhouette đủ lớn để đọc được (45–95% chiều cao canvas)",
 			"status": "pass",
-			"detail": "cao 70–75px trên 88px"
+			"detail": "cao 70–75px trên 112px"
 		},
 		{
 			"id": "silhouette-solid",
@@ -70,54 +70,390 @@
 			"id": "anatomy",
 			"label": "Duyệt bằng mắt: giải phẫu, vũ khí/trang phục/tóc không đổi giữa frame",
 			"status": "pass",
-			"detail": "06/10/2026: Duyệt bằng mắt 8 hướng đứng + đi (đi thật 5 hướng S/SE/E/NE/N, phía tây lật gương): tóc bạc dựng, mắt xanh, áo khoác xanh than viền vàng, áo trong xanh nhạt, quần nâu, bao tay da nhất quán; tay không, không vật lạ."
+			"detail": "09/10/2026: Duyệt bằng mắt từng động tác (E/S/N + lật gương tây): 25 động tác — 13 kiếm trên phiên bản Sword, 7 phép trên phiên bản Staff, lướt / trúng đòn / gục / uống bình trên thân tay không; revive = gục phát ngược. Kiếm thép, trượng gỗ đầu pha lê xanh liền tay suốt chuỗi khung; tóc, khăn xanh rêu, áo vải + gi-lê nhất quán. Khung lạ đã chấp nhận ghi ở quality.allowForeign."
 		}
 	],
 	"stats": {
 		"frames": 96,
-		"maxColorsPerFrame": 67,
-		"microStepRatio": 0.0006028811986840188
+		"maxColorsPerFrame": 34,
+		"microStepRatio": 0
 	},
 	"optional": [
 		{
 			"animation": "attack",
 			"direction": "S",
-			"frames": 4,
+			"frames": 8,
 			"passed": true,
 			"failed": []
 		},
 		{
 			"animation": "attack",
 			"direction": "N",
-			"frames": 4,
+			"frames": 8,
 			"passed": true,
 			"failed": []
 		},
 		{
 			"animation": "attack",
 			"direction": "E",
-			"frames": 4,
+			"frames": 8,
 			"passed": true,
 			"failed": []
 		},
 		{
 			"animation": "attack",
 			"direction": "W",
-			"frames": 4,
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "backslash",
+			"direction": "S",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "backslash",
+			"direction": "N",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "backslash",
+			"direction": "E",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "backslash",
+			"direction": "W",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "thrust",
+			"direction": "S",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "thrust",
+			"direction": "N",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "thrust",
+			"direction": "E",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "thrust",
+			"direction": "W",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "charge",
+			"direction": "S",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "charge",
+			"direction": "N",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "charge",
+			"direction": "E",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "charge",
+			"direction": "W",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "smash",
+			"direction": "S",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "smash",
+			"direction": "N",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "smash",
+			"direction": "E",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "smash",
+			"direction": "W",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "lunge",
+			"direction": "S",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "lunge",
+			"direction": "N",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "lunge",
+			"direction": "E",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "lunge",
+			"direction": "W",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "block",
+			"direction": "S",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "block",
+			"direction": "N",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "block",
+			"direction": "E",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "block",
+			"direction": "W",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "parry",
+			"direction": "S",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "parry",
+			"direction": "N",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "parry",
+			"direction": "E",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "parry",
+			"direction": "W",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "spin",
+			"direction": "S",
+			"frames": 10,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "spin",
+			"direction": "N",
+			"frames": 10,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "spin",
+			"direction": "E",
+			"frames": 10,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "spin",
+			"direction": "W",
+			"frames": 10,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "flurry",
+			"direction": "S",
+			"frames": 12,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "flurry",
+			"direction": "N",
+			"frames": 12,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "flurry",
+			"direction": "E",
+			"frames": 12,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "flurry",
+			"direction": "W",
+			"frames": 12,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "wave",
+			"direction": "S",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "wave",
+			"direction": "N",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "wave",
+			"direction": "E",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "wave",
+			"direction": "W",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "fling",
+			"direction": "S",
+			"frames": 12,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "fling",
+			"direction": "N",
+			"frames": 12,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "fling",
+			"direction": "E",
+			"frames": 12,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "fling",
+			"direction": "W",
+			"frames": 12,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "vanish",
+			"direction": "S",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "vanish",
+			"direction": "N",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "vanish",
+			"direction": "E",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "vanish",
+			"direction": "W",
+			"frames": 8,
 			"passed": true,
 			"failed": []
 		},
 		{
 			"animation": "cast",
 			"direction": "S",
-			"frames": 5,
+			"frames": 8,
 			"passed": true,
 			"failed": []
 		},
 		{
 			"animation": "cast",
 			"direction": "N",
-			"frames": 5,
+			"frames": 8,
 			"passed": true,
 			"failed": []
 		},
@@ -130,6 +466,314 @@
 		},
 		{
 			"animation": "cast",
+			"direction": "W",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "throw",
+			"direction": "S",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "throw",
+			"direction": "N",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "throw",
+			"direction": "E",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "throw",
+			"direction": "W",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "channel",
+			"direction": "S",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "channel",
+			"direction": "N",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "channel",
+			"direction": "E",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "channel",
+			"direction": "W",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "push",
+			"direction": "S",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "push",
+			"direction": "N",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "push",
+			"direction": "E",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "push",
+			"direction": "W",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "skycall",
+			"direction": "S",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "skycall",
+			"direction": "N",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "skycall",
+			"direction": "E",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "skycall",
+			"direction": "W",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "stomp",
+			"direction": "S",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "stomp",
+			"direction": "N",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "stomp",
+			"direction": "E",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "stomp",
+			"direction": "W",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "ultimate",
+			"direction": "S",
+			"frames": 12,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "ultimate",
+			"direction": "N",
+			"frames": 12,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "ultimate",
+			"direction": "E",
+			"frames": 12,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "ultimate",
+			"direction": "W",
+			"frames": 12,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "dodge",
+			"direction": "S",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "dodge",
+			"direction": "N",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "dodge",
+			"direction": "E",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "dodge",
+			"direction": "W",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "hit",
+			"direction": "S",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "hit",
+			"direction": "N",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "hit",
+			"direction": "E",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "hit",
+			"direction": "W",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "death",
+			"direction": "S",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "death",
+			"direction": "N",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "death",
+			"direction": "E",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "death",
+			"direction": "W",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "revive",
+			"direction": "S",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "revive",
+			"direction": "N",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "revive",
+			"direction": "E",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "revive",
+			"direction": "W",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "drink",
+			"direction": "S",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "drink",
+			"direction": "N",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "drink",
+			"direction": "E",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "drink",
 			"direction": "W",
 			"frames": 8,
 			"passed": true,

@@ -1,0 +1,32 @@
+{
+	"id": "lava_burst",
+	"kind": "burst",
+	"canvas": {
+		"w": 96,
+		"h": 96
+	},
+	"first": {
+		"prompt": "bubbling molten lava just starting to erupt, glowing orange cracks in black rock, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "ff691f5a-a585-4200-b9ee-efb58f231a03",
+		"drawn": "first_drawn.png"
+	},
+	"action": "molten lava erupts in glowing blobs and splashes, black crust cracks, then it cools and fades away",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "e3e390e1-dc57-4999-ad73-8afba41603f9",
+	"createdAt": "2026-10-09T11:30:49.825Z",
+	"token": 1
+}

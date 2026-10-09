@@ -1,0 +1,33 @@
+{
+	"id": "ult_judgment",
+	"kind": "burst",
+	"canvas": {
+		"w": 192,
+		"h": 192
+	},
+	"first": {
+		"prompt": "hundreds of swords of radiant golden light raining down from the sky and stabbing into the ground, divine glow, base at the bottom of the frame, pixel art game effect, lineless, limited palette, isolated on a fully transparent background, no ground, no scenery, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "535bd64c-ddd9-409b-9e63-8807a8bb5136"
+	},
+	"action": "the golden light swords rain down one after another and plunge into the ground in bursts of holy light, then they shatter into sparkles and fade",
+	"frameCount": 10,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png",
+		"frame_009.png",
+		"frame_010.png"
+	],
+	"animateJobId": "e268b393-80c0-46b9-ae98-8f1041e080d1",
+	"createdAt": "2026-10-09T12:18:10.358Z",
+	"token": 1
+}

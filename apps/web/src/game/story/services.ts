@@ -46,4 +46,40 @@ export const SERVICE_NPCS: Record<string, NpcDef> = {
 		ages: [0, 99],
 		idle: ['«Tên những người làm nên chuyện được khắc ở đây.»', '«Chỉ người chơi trực tuyến mới được ghi danh.»'],
 	},
+	/**
+	 * Cặp anh em lữ hành tóc bạc (chủ dự án 09/10/2026): hình nhân vật người chơi CŨ, nay người chơi có hình mới nên hai bộ tóc
+	 * bạc thành NPC trò chuyện ở quảng trường — lúc nhỏ đi theo cha mẹ ghé chợ, mười sáu tuổi tự đi khắp lục địa.
+	 */
+	traveler_sein_child: {
+		name: 'Sein',
+		title: 'Cậu bé lữ khách',
+		sprite: 'npc_silver_child',
+		at: { spot: 'plaza', dx: -36, dy: 96 },
+		ages: [0, 15],
+		idle: ['Bọn tớ theo đoàn buôn của cha, mai lại đi rồi.', 'Ngoài kia có đầm lầy toàn nhà sàn đấy! Cha kể vậy.'],
+	},
+	traveler_sera_child: {
+		name: 'Sera',
+		title: 'Cô bé lữ khách',
+		sprite: 'npc_silver_child_f',
+		at: { spot: 'plaza', dx: 8, dy: 96 },
+		ages: [0, 15],
+		idle: ['Tóc tớ với anh Sein giống mẹ, ai cũng nhìn.', 'Cậu có biết sa mạc phía nam có toà thành ốc đảo không?'],
+	},
+	traveler_sein: {
+		name: 'Sein',
+		title: 'Lữ khách tóc bạc',
+		sprite: 'npc_silver_youth',
+		at: { spot: 'plaza', dx: -36, dy: 96 },
+		ages: [16, 99],
+		idle: ['Lại gặp nhau rồi! Bọn ta vừa từ cao nguyên Gió Hú về — gió trên đó thổi bay cả mũ.', 'Đi đâu cũng nhớ ghé cột dịch chuyển, đỡ mỏi chân lắm.'],
+	},
+	traveler_sera: {
+		name: 'Sera',
+		title: 'Nữ lữ khách tóc bạc',
+		sprite: 'npc_silver_youth_f',
+		at: { spot: 'plaza', dx: 8, dy: 96 },
+		ages: [16, 99],
+		idle: ['Anh Sein cứ đòi đi săn rồng phương Đông. Ta thì chỉ muốn vẽ lại bản đồ lục địa.', 'Đầm lầy Mù Sương có ếch độc to bằng cái thúng, cẩn thận đấy.'],
+	},
 };

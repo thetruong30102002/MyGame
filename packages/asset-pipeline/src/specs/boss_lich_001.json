@@ -1,14 +1,14 @@
 {
 	"identity": {
 		"characterId": "boss_lich_001",
-		"hair": "none_cracked_crown",
-		"eyes": "glowing_green",
-		"skin": "bone",
-		"outfit": "tattered_purple_royal_robe_gold_trim",
-		"weapon": "bone_staff_green_crystal",
-		"palette": "undead_royal_01"
+		"hair": "none",
+		"eyes": "monster",
+		"skin": "monster",
+		"outfit": "none",
+		"weapon": "none",
+		"palette": "region1_mob_01"
 	},
-	"displayName": "Vua Lich",
+	"displayName": "Vua Lich (boss khu)",
 	"role": "boss",
 	"provider": "pixellab",
 	"pixellab": {
@@ -19,10 +19,10 @@
 		"mirrorWest": true
 	},
 	"frameSize": {
-		"width": 96,
-		"height": 104
+		"width": 160,
+		"height": 160
 	},
-	"baselineY": 100,
+	"baselineY": 148,
 	"animations": {
 		"idle": {
 			"fps": 6,
@@ -31,25 +31,53 @@
 		},
 		"walk": {
 			"fps": 10,
-			"minFrames": 6,
+			"minFrames": 4,
 			"maxFrames": 8
+		},
+		"attack": {
+			"fps": 14,
+			"minFrames": 4,
+			"maxFrames": 12,
+			"optional": true,
+			"hitFrame": 4
+		},
+		"death": {
+			"fps": 10,
+			"minFrames": 4,
+			"maxFrames": 12,
+			"optional": true
 		}
 	},
 	"cleanup": {
 		"alignToIdle": true
 	},
 	"quality": {
-		"maxHeightDrift": 0.15
+		"maxHeightDrift": 0.25,
+		"minSilhouette": 0.2,
+		"driftAnims": {
+			"attack": 0.35,
+			"death": 0.9
+		},
+		"weaponAnims": {
+			"animations": [
+				"idle",
+				"walk",
+				"attack",
+				"death"
+			],
+			"reason": "09/10/2026, duyệt bằng mắt từng con: quái có hạt / khí bay quanh thân (bào tử, gió cuộn, sỏi bay, mây, sương, tia lửa) và đòn đánh v3 có hiệu ứng — chủ ý, nên miễn kiểm bóng liền khối + màu lạ; các phép kiểm khác giữ nguyên."
+		}
 	},
 	"provisional": [
-		"S",
-		"SW",
-		"W",
-		"NW",
-		"N",
+		"SE",
 		"NE",
-		"E",
-		"SE"
+		"SW",
+		"NW"
 	],
-	"notes": "PixelLab Pro Flash (07/10/2026), cùng ảnh mẫu phong cách với xác sống/gargoyle. Boss vùng Nghĩa địa Hoàng Hôn, canh hầm mộ; khung 96 như Quỷ vương. Idle tạm ảnh xoay tĩnh."
+	"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template mannequin, khổ vẽ 112px; ảnh mẫu nét = Quỷ vương. Vùng 1. Mô tả: a skeletal lich king boss facing the viewer, gaunt skull face with glowing violet eyes, jagged bone crown, tattered dark purple and black royal robes with gold trim, holding a gnarled staff topped with a glowing purple skull orb, wisps of purple ghostly mist around him. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 156px.",
+	"review": {
+		"status": "approved",
+		"date": "09/10/2026",
+		"notes": "Duyệt bằng mắt 3 hướng xoay + đi / đứng / đánh / gục (contact sheet hướng Đông + ảnh xoay S/E/N). Trước đây quái này CHƯA có atlas trong game (map vùng 1 đặt mà không có hình)."
+	}
 }

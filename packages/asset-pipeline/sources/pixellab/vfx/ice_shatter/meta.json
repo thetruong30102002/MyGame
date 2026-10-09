@@ -1,0 +1,32 @@
+{
+	"id": "ice_shatter",
+	"kind": "burst",
+	"canvas": {
+		"w": 96,
+		"h": 96
+	},
+	"first": {
+		"prompt": "solid block of ice just starting to crack, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "a5b670fe-2a19-4eec-b5fb-e6ad9623e6a2",
+		"drawn": "first_drawn.png"
+	},
+	"action": "the ice block shatters into many sharp crystal shards flying outward with frost mist, then they fade away",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "75993136-e37c-4164-87c1-c32e3140017d",
+	"createdAt": "2026-10-09T11:36:49.446Z",
+	"token": 1
+}

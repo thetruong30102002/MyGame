@@ -863,7 +863,7 @@ HANDOFF = """## Bàn giao — đọc trước khi làm tiếp (agent / người 
 `docs/the-gioi-aether.md` (file này) lẫn trang `docs/the-gioi-aether.html` (đăng lại trang: Artifact
 https://claude.ai/artifact/VTrVtPJHXUtETsssKRcx9K). Không sửa tay hai file sinh ra.
 
-### Trạng thái (08/10/2026)
+### Trạng thái (09/10/2026)
 
 | Phần | Trạng thái | Tài liệu |
 |---|---|---|
@@ -871,17 +871,33 @@ https://claude.ai/artifact/VTrVtPJHXUtETsssKRcx9K). Không sửa tay hai file si
 | Chat: kênh Map / Thế giới (3 kim cương / tin) / Riêng, tab riêng từng người | ✔ | `docs/ke-hoach-xa-hoi.md` |
 | Khung nhiều vùng T0b: 10 vùng, đi xuyên vùng, cổng vùng, cột dịch chuyển, nơi ở + người bán theo vùng | ✔ (chỉ vùng 1 có map) | `docs/ke-hoach-the-gioi.md` mục 5.1 |
 | M3.3a: cấp / EXP / xu / bình do máy chủ giữ | ✔ | `docs/ke-hoach-m3-may-chu-chien-dau.md` |
-| Hình PixelLab theo danh sách này | ✘ kế hoạch 3 mốc ĐÃ CHỐT (08/10/2026), chờ chủ dự án mua gói 24$ | file này + `docs/pixellab-ke-hoach-ve.md` |
+| Hình PixelLab Mốc 1 — gói trả phí (token #1, Tier 2: 5.000 lượt, 10 job song song) | ◐ phần lớn đã vẽ 09/10/2026 (~2.300 lượt) — xem mục "Mốc 1 đã vẽ" ngay dưới | file này + `docs/asset-pipeline.md` mục Gói trả phí |
+| Nhân vật người chơi mới (tóc nâu, đồ tân thủ) + 25 động tác / 9 động tác bản bé + hiệu ứng skill + chiêu Quỷ vương / Vua Lich + quái vùng 1 có đánh / gục | ✔ ĐÃ LÊN GAME THẬT 09/10/2026 (bản cũ tóc bạc → NPC lữ hành Sein / Sera ở quảng trường) | `apps/web/src/game/combat/tempArt.ts`, `CombatSystem.ts` |
+
+### Mốc 1 đã vẽ (09/10/2026, token #1)
+
+- **Nhân vật người chơi** thay hẳn: 16 tuổi nam / nữ (ô 112×112) — 13 động tác kiếm vẽ trên phiên bản cầm kiếm, 7 động tác phép trên
+  phiên bản cầm trượng, lướt / trúng đòn / gục / uống bình (+ đứng dậy = gục phát ngược); bé trai / bé gái (ô 96×96) — 3 nhát kiếm gỗ,
+  niệm / vung tay bằng trượng tập, trúng đòn, gục, uống bình. ĐÃ lên game. Nguồn: `sources/pixellab/player_*` (gói nhóm có mọi
+  phiên bản), vẽ thêm thì animate trên id `player_hero_v2_*` / `player_child_v2_*` (registry).
+- **Hiệu ứng**: 7 hiệu ứng skill lớn (lốc, cột băng, mưa băng, mây mưa, sét, thiên thạch, gai đá) + 35 hiệu ứng riêng skill / nội tại /
+  phản ứng + 5 vệt chém kiếm phủ phép từng hệ (`slash_<hệ>`) — ĐÃ lên game (`TEMP_ART.final / finalShot / finalCharge / finalExtra`).
+  Chiêu boss: Quỷ vương `boss_hellfire`, Vua Lich `boss_curse_blast` (lên game) + 14 chiêu boss vùng 2–4, 3 chiêu Phong Long, 7 tuyệt kỹ
+  mốc 10 — vẽ xong, khai `later: true` (ngoài atlas) tới khi nối vào game.
+- **Quái / boss**: 16 quái vùng 1–4 + 10 boss + xác sống / gargoyle / Vua Lich vùng 1 (trước nay CHƯA có atlas) — đủ đi / đứng / đánh /
+  gục 3 hướng; nấm, xương xạ thủ, Quỷ vương thêm đánh + gục (animimg). Lên game: 6 con vùng 1. Còn lại có spec, chờ map.
+- **Rồng phương Đông** (chủ dự án: MỌI rồng là rồng phương Đông, không cánh): Phong Long trắng ngọc trai + Rồng gió (rồng non) — đủ
+  động tác. Sơn Thần (triệu hồi tuyệt kỹ Thổ): có hình, đi / đứng bằng template bị lệch dáng → vẽ lại bằng v3 khi làm GĐ4.
+- **Map vùng 2–4**: 12 công trình / cây + 9 tấm đồ vật 3×3 (`sources/pixellab/objects/`, `sheets/SW*`, `DS*`, `HL*`) + 2 tấm đồ hang
+  (`CV1`, `CV2`) cho Hang Gargoyle. Tranh lục địa 688×384: `sources/pixellab/world/continent.png`. Icon I2 / I3 (kim cương, lịch,
+  6 bình kim cương, Bạn bè, Cài đặt…) — CHƯA nối (component đang gắn cứng cỡ ảnh tạm).
 
 ### Việc kế tiếp (thứ tự đề xuất)
 
-1. Kế hoạch đã chốt (08/10/2026: "kế hoạch ổn"; mục Cần chốt chỉ còn để tinh chỉnh) → chủ dự án mua gói 24$ → thêm token trả phí vào CUỐI `PIXELLAB_TOKENS` trong `.env.local`
-   (chủ dự án tự thêm). Kiểm số dư trước khi vẽ: `cd packages/asset-pipeline && npx tsx src/cli.ts pixellab balances` (miễn phí).
-   Vẽ theo **3 mốc** (mục 3 mốc vẽ): **Mốc 1** skill nhân vật thật chi tiết (24 động tác — chuỗi chém, vung tay phóng phép, lướt, đỡ,
-   xoay… — icon + hiệu ứng riêng từng skill, 8 tuyệt kỹ) + vùng 1–4 + Phong Long → **Mốc 2** vùng 5–7 + 3 rồng (cùng gói nếu còn lượt)
-   → **Mốc 3** vùng 8–10 + 3 rồng + nhân vật / trang bị (gói thứ hai). Mốc sau chỉ bắt đầu khi mốc trước đạt. Động tác mới ghép vào
-   `apps/web/src/game/combat` (SkillVfx, ghi chú TẠM từng skill) — mỗi động tác phải có điểm gắn vũ khí / mũ cho từng khung.
-   Lượt miễn phí của PixelLab đang khoá (08/10/2026).
+1. **Nối phần đã vẽ còn lại**: icon I2 / I3 vào UI (sửa cỡ ảnh ở `Hud`, `ShopPanel`, `BagGrid`, `CalendarPanel`, `ServiceWindow`);
+   tranh lục địa → bản đồ tổng phím M (`docs/ke-hoach-the-gioi.md` mục 3.1: khai toạ độ 10 vùng trên tranh); chiêu thứ hai cho boss
+   chúa. Còn ~2.700 lượt gói tháng này (hết hạn cuối tháng, không cộng dồn): vẽ tiếp **Mốc 2** (vùng 5–7 + Băng / Hoả / Thuỷ Long
+   — rồng phương Đông cùng khuôn Phong Long).
 2. **Hang Gargoyle** (map thứ 7 vùng 1) rồi **vùng 2 → 10** theo hình vừa vẽ và phác thảo map (`docs/phac-thao-map/`, sinh từ
    `docs/tools/sketch.py` — chỉ là bố cục): map dựng bằng pipeline (`npm run assets:map -- <vùng>`,
    khai vùng ở `packages/asset-pipeline/src/maps/regions.ts`), bật `ready: true` ở `packages/sim/src/regions.ts`; boss + chiêu + rồng
@@ -936,7 +952,7 @@ md = []
 md.append('# Thế giới Aether — vùng, map, quái, boss, trang bị, ngân sách PixelLab\n')
 md.append('> FILE SINH TỰ ĐỘNG từ `docs/tools/the-gioi-aether.py` — sửa dữ liệu ở đó rồi chạy lại (sinh cả bản HTML). Soạn 08/10/2026,')
 md.append('> chia **3 mốc** (chủ dự án 08/10/2026): Mốc 1 = skill nhân vật thật chi tiết + vùng 1–4; Mốc 2 = vùng 5–7 + 3 rồng; Mốc 3 = vùng 8–10')
-md.append('> + 3 rồng + nhân vật / trang bị. Trạng thái: **đã chốt 08/10/2026, chờ mua gói 24$**.\n')
+md.append('> + 3 rồng + nhân vật / trang bị. Trạng thái: **Mốc 1 phần lớn đã vẽ + lên game 09/10/2026 (gói trả phí token #1)**.\n')
 md.append(HANDOFF)
 md.append('## Tóm tắt\n')
 md.append('- **10 vùng**, mỗi vùng 7 map: 1 trạm (làng hoặc toà thành — nơi ở có NPC dịch vụ, nhiệm vụ), 5 map săn, 1 thánh địa → **70 map** (đã có 6 ở vùng 1).')

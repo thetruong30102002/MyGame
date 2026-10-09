@@ -1,0 +1,31 @@
+{
+	"id": "boss_toxic_pool",
+	"kind": "burst",
+	"canvas": {
+		"w": 128,
+		"h": 128
+	},
+	"first": {
+		"prompt": "big splash of bubbling toxic green poison slime landing on the ground, purple bubbles, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "d71f37e6-4f19-4ee5-b578-7891978bdd1c"
+	},
+	"action": "the toxic slime splashes outward into a bubbling poison puddle with rising green fumes, then it dries up and fades",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "6f91e5f5-0832-4393-af27-1e5bfc92673a",
+	"createdAt": "2026-10-09T11:07:05.663Z",
+	"token": 1
+}

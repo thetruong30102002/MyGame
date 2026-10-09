@@ -1,0 +1,31 @@
+{
+	"id": "boss_wind_spiral",
+	"kind": "burst",
+	"canvas": {
+		"w": 128,
+		"h": 128
+	},
+	"first": {
+		"prompt": "a powerful spiral blast of white and teal wind swirling to the right with sharp wind blades, small leaves, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "7bae9b1a-bc72-46ff-81dc-eea89d3a50fd"
+	},
+	"action": "the wind spiral blasts forward to the right twisting violently, wind blades slice, then it disperses and fades",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "ec13ecb2-d8ab-4200-9592-daf87b8aef51",
+	"createdAt": "2026-10-09T11:25:02.242Z",
+	"token": 1
+}

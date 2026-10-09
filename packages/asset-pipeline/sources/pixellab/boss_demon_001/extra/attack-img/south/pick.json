@@ -1,0 +1,14 @@
+{
+	"from": "extra-raw/attack-img/south",
+	"frames": [
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8
+	],
+	"note": "09/10/2026 animimg gói trả phí: bỏ khung 0 (ảnh xoay đầu vào), giữ đủ 8 khung"
+}

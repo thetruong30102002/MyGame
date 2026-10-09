@@ -1,0 +1,32 @@
+{
+	"id": "mud_splash",
+	"kind": "burst",
+	"canvas": {
+		"w": 96,
+		"h": 96
+	},
+	"first": {
+		"prompt": "thick brown mud splash just starting, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "2d351459-2534-4abe-8b47-d71d7deda01f",
+		"drawn": "first_drawn.png"
+	},
+	"action": "thick brown mud splashes outward in blobs and droplets, then forms a mud puddle that fades away",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "b11f73ab-3c22-4f34-98ae-fc3deabe5c0c",
+	"createdAt": "2026-10-09T11:31:02.306Z",
+	"token": 1
+}

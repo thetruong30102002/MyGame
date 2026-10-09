@@ -1,0 +1,32 @@
+{
+	"id": "ember_burst",
+	"kind": "burst",
+	"canvas": {
+		"w": 96,
+		"h": 96
+	},
+	"first": {
+		"prompt": "burst of glowing orange embers and grey ash just starting, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "e0ff34c3-9d2c-44b9-89e6-99a862251126",
+		"drawn": "first_drawn.png"
+	},
+	"action": "glowing orange and red fire embers burst outward with grey ash and small flames, sparks scatter, then they die out and fade away, colors stay orange red yellow and grey",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "df8704f4-01ae-4e62-aeb1-0b49e87cd3f5",
+	"createdAt": "2026-10-09T11:41:05.992Z",
+	"token": 1
+}

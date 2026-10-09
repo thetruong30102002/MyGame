@@ -1,0 +1,10 @@
+{
+	"tool": "create_image_pro",
+	"description": "Top-down fantasy RPG world map of one large continent surrounded by deep blue ocean, pixel art, seen from above like an old adventure map, ten clearly distinct regions with soft natural borders: CENTER: green grassy valley with a small village of red-roofed houses, mossy forest and a small graveyard; SOUTHWEST: dark murky green swamp with misty bogs and reeds; SOUTH: red-orange sand desert with dunes, an oasis and red stone ruins; WEST: dark forest of giant glowing blue-purple mushrooms with cave entrances; NORTHWEST: ancient ruined white stone city with broken towers and glowing magic pillars; NORTH: white snowy tundra with frozen lakes and icy mountains; NORTHEAST: high windy green plateau with cliffs, windmills and a temple in the clouds; EAST: black volcanic mountains with a big erupting volcano and rivers of glowing lava; SOUTHEAST: tropical coral islands archipelago with white beaches and a shipwreck in turquoise water; FAR NORTHEAST CORNER, off the coast: floating dark islands over a glowing purple void rift. Dirt roads connect the central village to every region. Rich detail, vivid saturated colors, clean pixel art, no text, no labels, no letters, no compass, no border frame",
+	"width": 688,
+	"height": 384,
+	"no_background": false,
+	"jobId": "b09fbcfd-1346-4997-b776-9e7dd3200962",
+	"token": 1,
+	"createdAt": "2026-10-09T11:00:00.279Z"
+}

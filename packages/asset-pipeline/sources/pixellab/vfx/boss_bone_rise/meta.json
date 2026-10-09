@@ -1,0 +1,31 @@
+{
+	"id": "boss_bone_rise",
+	"kind": "burst",
+	"canvas": {
+		"w": 128,
+		"h": 128
+	},
+	"first": {
+		"prompt": "skeletal hands and bones bursting up out of cracked dark earth, green ghostly glow, base at the bottom of the frame, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "1df0c5fa-7de0-4296-9fe6-f495ea23bdb5"
+	},
+	"action": "bony hands claw up out of the ground grabbing at the air, dirt flies, then they crumble back into the earth",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "0f24b935-6b2f-424c-a1ed-3c2fc9436fa2",
+	"createdAt": "2026-10-09T11:02:07.129Z",
+	"token": 1
+}

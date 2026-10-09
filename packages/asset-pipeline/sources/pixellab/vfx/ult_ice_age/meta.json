@@ -1,0 +1,33 @@
+{
+	"id": "ult_ice_age",
+	"kind": "burst",
+	"canvas": {
+		"w": 192,
+		"h": 192
+	},
+	"first": {
+		"prompt": "a massive wave of ice spreading across the ground from the center, tall jagged ice crystals and frozen spikes erupting, freezing mist, seen from above at an angle, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "0d8fd47d-cfa5-4b0d-9c5b-01af8d8e7425"
+	},
+	"action": "the ice age wave spreads outward freezing the ground, huge ice spikes burst up everywhere, mist swirls, then the ice cracks and shatters into glittering shards that fade",
+	"frameCount": 10,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png",
+		"frame_009.png",
+		"frame_010.png"
+	],
+	"animateJobId": "2de08187-96fa-487e-ad76-00b024773e85",
+	"createdAt": "2026-10-09T12:25:07.186Z",
+	"token": 1
+}

@@ -1,0 +1,15 @@
+{
+ "description": "Chibi RPG world boss pixel art sprite facing the viewer, Phong Long the ancient majestic wind dragon: authentic traditional Chinese eastern long dragon, absolutely NO wings, extremely long serpentine snake-like scaled body coiling in an S-curve, deer-like branching antlers, long flowing whiskers from the snout, flowing mane and a spiky fin crest running along its spine, four short legs each with sharp eagle-like claws, flame-like tufts of fur at the elbows, tail ending in a flowing tuft, pearl-white and pale jade scales, silver mane, clutching a glowing pale green wind pearl in one front claw, glowing sky-blue eyes, swirling white clouds around its coils",
+ "width": 192,
+ "height": 192,
+ "no_background": true,
+ "seed": 7,
+ "style_image_path": "D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/boss_demon_001/Idle/rotations/south.png",
+ "style_usage": "Copy ONLY the drawing style: chibi RPG boss look, crisp black pixel outline, shading and detail level. Do NOT copy the colors or the shape of the reference.",
+ "style_options": {
+  "color_palette": false,
+  "outline": true,
+  "detail": true,
+  "shading": true
+ }
+}

@@ -1,0 +1,33 @@
+{
+	"id": "boss_hellfire",
+	"kind": "burst",
+	"canvas": {
+		"w": 160,
+		"h": 160
+	},
+	"first": {
+		"prompt": "a towering pillar of hellfire erupting straight up out of a cracked glowing crater in the ground, crimson and black flames with bright orange core, base at the bottom of the frame, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "c10e13f9-ee12-47bc-9335-766cc2ffd20a"
+	},
+	"action": "the hellfire pillar bursts up from the cracking ground, roars upward with swirling dark flames, then collapses into embers and black smoke that fades",
+	"frameCount": 10,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png",
+		"frame_009.png",
+		"frame_010.png"
+	],
+	"animateJobId": "d0fde1c7-97a1-46d2-8e85-e949b016454a",
+	"createdAt": "2026-10-09T10:59:49.008Z",
+	"token": 1
+}

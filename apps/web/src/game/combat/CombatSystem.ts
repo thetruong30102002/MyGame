@@ -168,6 +168,8 @@ export interface Fighter {
 	flash: number;
 	dead: boolean;
 	deathT: number;
+	/** Động tác gục đang diễn (atlas có `death`): nằm ở khung cuối rồi mới mờ dần; null = mờ ngay như cũ. */
+	deathPose: { timing: ActionTiming } | null;
 	respawnT: number;
 	shownBar: number;
 	attacks: number;
@@ -311,6 +313,8 @@ interface Telegraph {
 	t: number;
 	total: number;
 	damage: number;
+	/** Hình nổ riêng của boss tung chiêu (`BOSS_AOE_LOOK`) — thiếu = vòng tối dùng chung. */
+	look?: BossAoeLook;
 }
 
 interface FloatText {
@@ -529,6 +533,17 @@ const IMPACT_VFX: Record<ShotKind, VfxId> = {
 	earth: 'dust',
 };
 const GLOWS = new Set<ShotKind>(['fire', 'aether', 'shadow', 'water', 'ice']);
+/**
+ * Vệt chém kiếm PHỦ PHÉP (chủ dự án 09/10/2026: "đủ hiệu ứng chém khi bọc nguyên tố, thật hoành tráng"): vệt PixelLab riêng
+ * từng hệ + một chớp nguyên tố ở đầu vệt. Atlas chưa có thì giữ vệt trắng nhuộm màu như cũ.
+ */
+const ENCHANT_SLASH: Partial<Record<Element, { id: VfxId; spark: VfxId; glow?: boolean }>> = {
+	fire: { id: 'slash_fire', spark: 'fire_flash', glow: true },
+	water: { id: 'slash_water', spark: 'water_splash' },
+	wind: { id: 'slash_wind', spark: 'wind_burst' },
+	ice: { id: 'slash_ice', spark: 'frost' },
+	earth: { id: 'slash_earth', spark: 'dust' },
+};
 /** Đạn vẽ "mũi hướng sang phải": xoay theo hướng bay. Còn lại (cầu lửa, cầu phép, lốc gió) tròn nên không xoay. */
 const AIMED_SHOTS = new Set<ShotKind>(['water', 'arrow', 'ice']);
 /** Đóng băng khi Băng trúng mục tiêu ướt (giây); boss chỉ bị một nửa — không để trận boss thành đứng chém bao cát. */
@@ -546,6 +561,34 @@ const ENCHANT_ELEMENT: Record<EnchantId, Element> = { fire: 'fire', water: 'wate
 const PUSH_SECONDS = 0.16;
 /** Vùng nổ của boss: bán kính, giây báo trước, hệ số sức đánh, tầm nhắm. */
 const BOSS_AOE = { r: 84, seconds: 1.1, power: 1.8, range: 360 } as const;
+
+interface BossAoeLook {
+	id: VfxId;
+	/** Nhấc khỏi điểm nổ (px): cột / phun trào vẽ chân ở đáy khung nên nhấc ~nửa chiều cao; vũng trên đất để 0 + `ground`. */
+	lift: number;
+	ground?: boolean;
+	blend?: 'add';
+	fps?: number;
+}
+
+/**
+ * Chiêu vùng riêng từng boss (Mốc 1, 09/10/2026 — hình PixelLab `packages/asset-pipeline/src/vfx/pixellabVfx.ts`): cùng luật
+ * báo trước + sát thương của `BOSS_AOE`, chỉ đổi hình nổ. Atlas chưa có hình của boss đó thì giữ vòng tối dùng chung.
+ */
+const BOSS_AOE_LOOK: Partial<Record<string, BossAoeLook>> = {
+	boss_demon_001: { id: 'boss_hellfire', lift: 66 },
+	boss_lich_001: { id: 'boss_curse_blast', lift: 66 },
+	boss_stone_gargoyle_001: { id: 'boss_stone_slam', lift: 30 },
+	boss_mother_frog_001: { id: 'boss_toxic_pool', lift: 34 },
+	boss_swamp_witch_001: { id: 'boss_hex', lift: 40, blend: 'add' },
+	boss_mud_hydra_001: { id: 'boss_mud_geyser', lift: 66 },
+	boss_scorpion_queen_001: { id: 'boss_venom_spray', lift: 24 },
+	boss_pharaoh_001: { id: 'boss_ankh_curse', lift: 50 },
+	boss_sandworm_001: { id: 'boss_sand_eruption', lift: 66 },
+	boss_storm_eagle_001: { id: 'boss_storm_bolt', lift: 50, blend: 'add' },
+	boss_wind_mage_001: { id: 'boss_wind_spiral', lift: 40 },
+	boss_wind_drake_001: { id: 'boss_gale_storm', lift: 66 },
+};
 /** Nhát chém nhắm người KHÁC (quái dùng chung): người chơi máy này phải đứng trong nón ±72° phía trước quái mới trúng. */
 const MELEE_CONE_COS = 0.3;
 /** Khống chế chỉ gửi khi dài hơn mức máy khác đã biết chừng này giây (tránh gửi vụn mỗi frame). */
@@ -1016,7 +1059,9 @@ export class CombatSystem {
 		const w = ENCHANT_FX.wind;
 		const len = Math.hypot(dx, dy) || 1;
 		const [ux, uy] = [dx / len, dy / len];
-		this.fire({ x: x + ux * 22, y: y + uy * 22, vx: ux * w.bladeSpeed, vy: uy * w.bladeSpeed, life: w.bladeRange / w.bladeSpeed, team: 'player', damage: damage * w.bladePower, element: 'wind', pierce: false });
+		// Lưỡi gió PixelLab (`wind_blade`, vẽ hướng sang phải) nếu atlas đã có — không thì đạn gió dùng chung.
+		const look = this.vfx.frames('wind_blade').length > 0 ? { id: 'wind_blade' as const, aim: true } : undefined;
+		this.fire({ x: x + ux * 22, y: y + uy * 22, vx: ux * w.bladeSpeed, vy: uy * w.bladeSpeed, life: w.bladeRange / w.bladeSpeed, team: 'player', damage: damage * w.bladePower, element: 'wind', pierce: false, look });
 	}
 
 	/** Phủ Hoả mốc 7: nổ nhỏ quanh mục tiêu đầu tiên trúng nhát được nổ (hệ Hoả, không khống chế). */
@@ -1096,6 +1141,7 @@ export class CombatSystem {
 			flash: 0,
 			dead: false,
 			deathT: 0,
+			deathPose: null,
 			respawnT: 0,
 			shownBar: 0,
 			attacks: 0,
@@ -1345,7 +1391,7 @@ export class CombatSystem {
 			// Đạn KIẾM (Lưỡi Sóng, Phi Kiếm): mang hệ phủ phép (hình nhuộm màu hệ), tính một nhát cho Thế Áp Đảo / phủ Thổ.
 			const sword = isSwordSkill(skill);
 			const el = enchant ?? skill.element;
-			const look = TEMP_ART[skill.id]?.shot;
+			const look = this.shotOf(skill.id);
 			const fx = sword ? mergeFx(this.hitFxOf(skill), this.swingFx(enchant)) : this.hitFxOf(skill);
 			// Phong Bạo: `count` lưỡi toả quạt quanh hướng nhắm, cách nhau `spread` độ (một lưỡi = bắn thẳng như cũ).
 			const n = Math.max(1, skill.count ?? 1);
@@ -1524,7 +1570,7 @@ export class CombatSystem {
 				const sx = ox + dx * 18;
 				const sy = oy + dy * 18;
 				delay = Math.max(0.12, Math.hypot(at.x - sx, at.y - sy) / skill.lob);
-				this.fire({ x: sx, y: sy, vx: (at.x - sx) / delay, vy: (at.y - sy) / delay, life: delay, team: 'player', damage: 0, element: skill.element, pierce: false, ghost: true, look: TEMP_ART[skill.id]?.shot });
+				this.fire({ x: sx, y: sy, vx: (at.x - sx) / delay, vy: (at.y - sy) / delay, life: delay, team: 'player', damage: 0, element: skill.element, pierce: false, ghost: true, look: this.shotOf(skill.id) });
 			}
 			// Bản PixelLab tự có cảnh vật rơi (`finalImpact`): bỏ vật rơi tạm, phát clip sớm để frame va chạm trùng lúc nổ.
 			const fallFinal = !!skill.fall && this.finalReady(skill.id);
@@ -1532,7 +1578,7 @@ export class CombatSystem {
 				// Thiên Thạch: vật rơi chéo từ trời (chỉ là hình) + vòng báo co đúng hết lúc rơi — người chơi thấy chỗ sắp nổ.
 				const sx = at.x - 110;
 				const sy = at.y - FALL_HEIGHT * 2;
-				if (!fallFinal) this.fire({ x: sx, y: sy, vx: (at.x - sx) / delay, vy: (at.y - sy) / delay, life: delay, team: 'player', damage: 0, element: skill.element, pierce: false, ghost: true, look: TEMP_ART[skill.id]?.shot });
+				if (!fallFinal) this.fire({ x: sx, y: sy, vx: (at.x - sx) / delay, vy: (at.y - sy) / delay, life: delay, team: 'player', damage: 0, element: skill.element, pierce: false, ghost: true, look: this.shotOf(skill.id) });
 				this.playArt(skill.id, at.x, at.y, dx, dy, undefined, { part: 'charge', span: delay });
 			}
 			if (fallFinal) this.schedule(Math.max(0, delay - this.finalLead(skill.id)), () => this.playArt(skill.id, at.x, at.y, dx, dy));
@@ -1577,6 +1623,12 @@ export class CombatSystem {
 		return !!f && this.vfx.frames(f).length > 0;
 	}
 
+	/** Đạn của kỹ năng: bản PixelLab (`finalShot`) nếu atlas đã có, không thì hình tạm (`shot`). */
+	private shotOf(key: string): ArtLayer | undefined {
+		const art = TEMP_ART[key];
+		return art?.finalShot && this.vfx.frames(art.finalShot.id).length > 0 ? art.finalShot : art?.shot;
+	}
+
 	/** Bản PixelLab có cảnh vật rơi: từ lúc phát tới frame va chạm (`TempArt.finalImpact`) mất bao giây. */
 	private finalLead(key: string): number {
 		const art = TEMP_ART[key];
@@ -1596,12 +1648,15 @@ export class CombatSystem {
 		const part = o.part ?? 'look';
 		const at = (l: Omit<ArtLayer, 'id'>): VfxOptions =>
 			o.follow ? { follow: o.follow, followOffset: { x: l.dx ?? 0, y: -(l.lift ?? 0) } } : {};
-		if (part === 'look' && art.final && this.finalReady(key)) {
+		const finalOn = part === 'look' && !!art.final && this.finalReady(key);
+		if (finalOn) {
 			const l = art.finalLook ?? {};
-			this.vfx.play(art.final, x + (l.dx ?? 0), y - (l.lift ?? 0), { ...layerOptions(l, aim), duration: duration ?? o.span, ...at(l), depthY: y });
-			return;
+			this.vfx.play(art.final!, x + (l.dx ?? 0), y - (l.lift ?? 0), { ...layerOptions(l, aim), duration: duration ?? o.span, ...at(l), depthY: y });
 		}
-		for (const l of (part === 'charge' ? art.charge : part === 'tick' ? art.tick : art.look) ?? []) {
+		// Lớp bám người bản PixelLab (`finalCharge`) chỉ dùng khi atlas có ĐỦ mọi hiệu ứng của nó — thiếu một thì giữ trọn bộ tạm.
+		const chargeFinal = part === 'charge' && !!art.finalCharge?.length && art.finalCharge.every((l) => this.vfx.frames(l.id).length > 0);
+		const layers = finalOn ? art.finalExtra : part === 'charge' ? (chargeFinal ? art.finalCharge : art.charge) : part === 'tick' ? art.tick : art.look;
+		for (const l of layers ?? []) {
 			// `depthY` = chân vật trên mặt đất: lớp 'world' xếp chiều sâu chung với nhân vật theo nó (lớp khác bỏ qua).
 			const opts: VfxOptions = { ...layerOptions(l, aim), duration: duration ?? l.hold, ...at(l), depthY: y };
 			// Lớp lặp / đứng yên kéo suốt thời lượng đi kèm (thế đỡ, khiên, tường); lớp thường chỉ phát một lượt (lúc trồi).
@@ -1750,7 +1805,7 @@ export class CombatSystem {
 		const fall = Math.max(0.05, skill.delay ?? 0.3);
 		const fx = this.hitFxOf(skill);
 		const final = this.finalReady(skill.id);
-		const shot = TEMP_ART[skill.id]?.shot;
+		const shot = this.shotOf(skill.id);
 		this.playArt(skill.id, x, y, dx, dy, undefined, { part: 'charge', span: span + fall });
 		scatterPoints(n, skill.radius ?? 150).forEach((o, i) => {
 			const px = x + o.x;
@@ -2029,7 +2084,7 @@ export class CombatSystem {
 			const sp = Math.hypot(shot.vx, shot.vy) || 1;
 			this.swingAt(directionOf(-shot.vx, -shot.vy));
 			this.playArt(o.art, shot.x, shot.y, -shot.vx, -shot.vy);
-			this.fire({ x: shot.x, y: shot.y, vx: (-shot.vx / sp) * 420, vy: (-shot.vy / sp) * 420, life: 0.9, team: 'player', damage: o.damage, element: o.element, pierce: false, look: TEMP_ART[o.art]?.shot, crit: o.crit });
+			this.fire({ x: shot.x, y: shot.y, vx: (-shot.vx / sp) * 420, vy: (-shot.vy / sp) * 420, life: 0.9, team: 'player', damage: o.damage, element: o.element, pierce: false, look: this.shotOf(o.art), crit: o.crit });
 		}
 		this.onCounter();
 	}
@@ -2464,8 +2519,12 @@ export class CombatSystem {
 			a.view.sprite.tint = f.flash > 0 ? 0xff9a9a : winding || (f.freeze > 0 ? 0x7fcfff : f.stun > 0 ? 0xfff0a8 : f.chill > 0 ? 0xb8ecff : f.slow > 0 ? 0xd9b98a : 0xffffff);
 			if (f.dead) {
 				f.deathT += dt;
-				a.root.alpha = Math.max(0, 1 - f.deathT / 0.7);
-				a.root.y = Math.round(a.y + f.deathT * 14);
+				// Có động tác gục: diễn hết (đứng ở khung cuối) rồi mới mờ — mờ ngay thì không ai kịp thấy quái ngã.
+				const pose = f.deathPose;
+				if (pose) a.view.seekAction(Math.min(f.deathT, pose.timing.dur - 0.01));
+				const fade = Math.max(0, f.deathT - (pose ? pose.timing.dur + 0.25 : 0));
+				a.root.alpha = Math.max(0, 1 - fade / 0.7);
+				a.root.y = Math.round(a.y + fade * 14);
 				if (respawnDelay(f) !== null && !f.net) {
 					f.respawnT -= dt;
 					// Boss vùng hết giờ mà người chơi còn đứng trong vùng canh thì chờ tiếp — không hiện ra sát cạnh rồi đánh ngay.
@@ -2623,7 +2682,7 @@ export class CombatSystem {
 				if (f.aoeTimer <= 0 && dist < BOSS_AOE.range) {
 					f.aoeTimer = enraged ? 5 : 7;
 					const t = this.aoeTarget(f);
-					this.telegraph(t.x, t.y, BOSS_AOE.r, BOSS_AOE.seconds, f.stats.atk * BOSS_AOE.power);
+					this.telegraph(t.x, t.y, BOSS_AOE.r, BOSS_AOE.seconds, f.stats.atk * BOSS_AOE.power, f.actor.id);
 					if (f.net?.owned) this.hooks.netAct?.(f, { k: 'aoe', x: Math.round(t.x), y: Math.round(t.y) });
 				}
 			}
@@ -2960,7 +3019,7 @@ export class CombatSystem {
 		const v = o ? aimVelocity(pr.x, pr.y, o.actor.x, o.actor.y - o.actor.chest, REFLECT_SPEED) : aimVelocity(pr.x, pr.y, pr.x - pr.vx, pr.y - pr.vy, REFLECT_SPEED);
 		this.playArt(w.skillId, pr.x, pr.y, v.vx, v.vy);
 		this.hitStop = Math.max(this.hitStop, 0.04);
-		const look = TEMP_ART[w.skillId]?.shot;
+		const look = this.shotOf(w.skillId);
 		if (w.sword) {
 			const p = this.player;
 			const [sx, sy] = [pr.x - p.x, pr.y - (p.y - p.chest)];
@@ -3337,6 +3396,9 @@ export class CombatSystem {
 		f.hp = 0;
 		f.dead = true;
 		f.deathT = 0;
+		const v = a.view;
+		const fall = v.hasAction('death', v.direction) ? v.actionTiming('death', v.direction, Infinity) : null;
+		f.deathPose = fall && v.playAction('death', v.direction, { timing: fall, external: true }) ? { timing: fall } : null;
 		f.respawnT = respawnDelay(f) ?? 0;
 		f.engaged = false;
 		f.burn = 0;
@@ -3429,7 +3491,7 @@ export class CombatSystem {
 			if (!plan || !a.view.playAction('attack', dir, { timing: plan.timing, external: false })) f.windup = act.s;
 			return;
 		}
-		if (act.k === 'aoe') return this.telegraph(act.x, act.y, BOSS_AOE.r, BOSS_AOE.seconds, f.stats.atk * BOSS_AOE.power);
+		if (act.k === 'aoe') return this.telegraph(act.x, act.y, BOSS_AOE.r, BOSS_AOE.seconds, f.stats.atk * BOSS_AOE.power, f.actor.id);
 		f.windup = 0;
 		if (!a.view.busy) a.lunge(act.nx, act.ny, act.k === 'shot' ? 3 : 10);
 		if (act.k === 'shot') return this.enemyShot(f, act.nx, act.ny, act.x, act.y);
@@ -3519,11 +3581,12 @@ export class CombatSystem {
 		const a = Math.random() * Math.PI * 2;
 		const r = Math.random() * f.home.radius * 0.7;
 		Object.assign(f.actor, { x: f.home.x + Math.cos(a) * r, y: f.home.y + Math.sin(a) * r });
+		if (f.deathPose) f.actor.view.endAction();
 		f.dead = false;
 		f.hp = f.hpMax;
 		this.endSwing(f);
 		// Sống lại như con mới sinh: không mang trạng thái ướt/lạnh/đang đánh từ kiếp trước (boss vùng: nhịp AoE từ đầu).
-		Object.assign(f, { engaged: false, burn: 0, wet: 0, chill: 0, frost: 0, freeze: 0, flash: 0, windup: 0, attacks: 0, deathT: 0, shownBar: 0, attackTimer: 1 + Math.random(), aoeTimer: 6 });
+		Object.assign(f, { engaged: false, burn: 0, wet: 0, chill: 0, frost: 0, freeze: 0, flash: 0, windup: 0, attacks: 0, deathT: 0, deathPose: null, shownBar: 0, attackTimer: 1 + Math.random(), aoeTimer: 6 });
 		Object.assign(f, { stun: 0, air: 0, airTotal: 0, slow: 0, slowMult: 1, armor: 0, sunder: 0, miss: 0, daze: 0, iced: false, dust: 0, burnPower: 1, push: null });
 		Object.assign(f, { freezeImmune: 0, iceDepth: 0, emberDepth: 0, route: null, frostHits: { n: 0, at: -99 } });
 		f.actor.view.sprite.y = 0;
@@ -3540,13 +3603,14 @@ export class CombatSystem {
 		for (const f of this.enemies) if (!f.dead && Math.hypot(f.actor.x - x, (f.actor.y - y) * 1.4) < 86) this.damage(f, Math.round(damage * this.vulnerability(f)), 0xffa23d, false);
 	}
 
-	private telegraph(x: number, y: number, r: number, seconds: number, damage: number): void {
+	private telegraph(x: number, y: number, r: number, seconds: number, damage: number, boss?: string): void {
 		const g = new Graphics();
 		const ring = new Sprite(this.vfx.frames('dark_ring_warn')[0]);
 		ring.anchor.set(0.5);
 		ring.position.set(Math.round(x), Math.round(y));
 		this.groundFx.addChild(g, ring);
-		this.telegraphs.push({ ring, g, x, y, r, t: seconds, total: seconds, damage });
+		const look = boss ? BOSS_AOE_LOOK[boss] : undefined;
+		this.telegraphs.push({ ring, g, x, y, r, t: seconds, total: seconds, damage, look: look && this.vfx.frames(look.id).length ? look : undefined });
 	}
 
 	private updateTelegraphs(dt: number): void {
@@ -3558,9 +3622,14 @@ export class CombatSystem {
 			t.g.clear();
 			t.g.ellipse(t.x, t.y, t.r * k, t.r * 0.55 * k).fill({ color: 0xff2a4a, alpha: 0.22 });
 			if (t.t <= 0) {
-				this.vfx.play('dark_ring', t.x, t.y, { layer: 'ground', fps: 22 });
-				this.vfx.play('shadow', t.x, t.y - 40, { fps: 18 });
-				this.vfx.play('fire_burst', t.x, t.y - 30, { blend: 'add', fps: 20, tint: 0xff7aa0 });
+				if (t.look) {
+					const l = t.look;
+					this.vfx.play(l.id, t.x, t.y - l.lift, { fps: l.fps ?? 16, ...(l.ground ? { layer: 'ground' as const } : {}), ...(l.blend ? { blend: l.blend } : {}) });
+				} else {
+					this.vfx.play('dark_ring', t.x, t.y, { layer: 'ground', fps: 22 });
+					this.vfx.play('shadow', t.x, t.y - 40, { fps: 18 });
+					this.vfx.play('fire_burst', t.x, t.y - 30, { blend: 'add', fps: 20, tint: 0xff7aa0 });
+				}
 				this.flashScreen(0xff3355, 0.28);
 				this.hooks.shake(5, 0.35);
 				this.hitStop = Math.max(this.hitStop, 0.08);
@@ -3586,6 +3655,12 @@ export class CombatSystem {
 		const len = Math.hypot(dx, dy) || 1;
 		const nx = dx / len;
 		const ny = dy / len;
+		const art = ENCHANT_SLASH[element];
+		if (art && this.vfx.frames(art.id).length > 0) {
+			this.vfx.play(art.id, x + nx * 46, y + ny * 32, { rotation: Math.atan2(ny, nx), flipY: this.swing < 0, fps: 28 });
+			this.vfx.play(art.spark, x + nx * 64, y + ny * 44, { fps: 24, ...(art.glow ? { blend: 'add' as const } : {}) });
+			return;
+		}
 		const tint = element === 'fire' ? 0xffa64d : element === 'steel' ? 0xf4f7ff : ELEMENT_TINT[element];
 		this.vfx.play('slash', x + nx * 40, y + ny * 28, { rotation: Math.atan2(ny, nx), flipY: this.swing < 0, tint, fps: 32, blend: element === 'fire' ? 'add' : 'normal' });
 		if (element === 'fire') this.vfx.play('fire_flash', x + nx * 54, y + ny * 36, { blend: 'add', fps: 24 });

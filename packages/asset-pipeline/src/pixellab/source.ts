@@ -74,18 +74,39 @@ export class PixelLabSource {
 	 * vật bị khoá), để riêng ngoài gói nên tải lại gói không đè mất.
 	 */
 	animationFiles(name: string, dir: Direction): string[] {
-		const anim = this.state.frames.animations[name] as unknown;
+		// Động tác cầm vũ khí vẽ trên PHIÊN BẢN cùng nhóm (Sword / Staff — create_character_state): gói tải về chứa mọi
+		// phiên bản, ảnh xoay + đứng / đi vẫn lấy của phiên bản đầu (tay không).
+		const anim = this.meta.states.map((s) => s.frames.animations[name] as unknown).find((a) => a && typeof a === 'object');
 		if (!anim || typeof anim !== 'object') return this.extraFiles(name, dir);
 		const byDir = (anim as Record<string, unknown>)[PL_DIR[dir]];
 		if (Array.isArray(byDir)) return byDir.filter((f): f is string => typeof f === 'string');
 		if (byDir && typeof byDir === 'object' && Array.isArray((byDir as { frames?: unknown }).frames)) return (byDir as { frames: string[] }).frames;
+		return this.folderFiles(name, dir);
+	}
+
+	/**
+	 * Hướng vẽ bù vào một NHÓM KHÁC cùng tên (lệnh `--together` bị nhận thiếu hướng rồi chạy lại): metadata chỉ liệt kê một nhóm
+	 * cho mỗi tên, nhưng thư mục `<phiên bản>/animations/<tên>/<hướng>/` trên đĩa đã gộp mọi lần tải — lấy khung từ đó.
+	 */
+	private folderFiles(name: string, dir: Direction): string[] {
+		for (const s of this.meta.states) {
+			const rel = `${s.folder}/animations/${name}/${PL_DIR[dir]}`;
+			const abs = join(this.dir, rel);
+			if (!existsSync(abs)) continue;
+			const files = readdirSync(abs)
+				.filter((f) => /^frame_\d+\.png$/.test(f))
+				.sort()
+				.map((f) => `${rel}/${f}`);
+			if (files.length) return files;
+		}
 		return [];
 	}
 
 	animationNames(): string[] {
 		const extra = join(this.dir, 'extra');
-		const extras = existsSync(extra) ? readdirSync(extra).filter((n) => !(n in this.state.frames.animations)) : [];
-		return [...Object.keys(this.state.frames.animations), ...extras];
+		const names = [...new Set(this.meta.states.flatMap((s) => Object.keys(s.frames.animations)))];
+		const extras = existsSync(extra) ? readdirSync(extra).filter((n) => !names.includes(n)) : [];
+		return [...names, ...extras];
 	}
 
 	private extraFiles(name: string, dir: Direction): string[] {
@@ -126,10 +147,11 @@ export class PixelLabSource {
 				const files = this.animationFiles(name, from);
 				if (!files.length) return [];
 				const list = files.map((f) => (from === dir ? this.png(f) : flipX(this.png(f))));
-				// Chế độ v3 có thể trả canvas NỚI RỘNG (khác cỡ ảnh xoay): chưa có bước căn đầu–thân thì bỏ bản đó
-				// và thử tên kế — một bản hỏng không được làm mất bản đối chứng hợp lệ của cùng hướng.
-				if (isOptional && list.some((img) => img.width !== size.width || img.height !== size.height)) {
-					console.log(`  ⚠ bỏ ${anim}/${dir} (${name}): khác cỡ ảnh xoay (${list[0]!.width}×${list[0]!.height} ≠ ${size.width}×${size.height}), chưa hỗ trợ`);
+				// Chế độ v3 trả canvas NỚI RỘNG, nhân vật nằm giữa (đo 09/10/2026: 80 → 108, lệch 14px mỗi bên) → nhận,
+				// `padToLargest` đệm mọi khung về cùng khổ. Khung NHỎ hơn / lệch lẻ thì không biết đặt đâu → bỏ, thử tên kế.
+				const odd = (img: RGBAImage) => img.width < size.width || img.height < size.height || (img.width - size.width) % 2 || (img.height - size.height) % 2;
+				if (isOptional && list.some(odd)) {
+					console.log(`  ⚠ bỏ ${anim}/${dir} (${name}): khổ ${list[0]!.width}×${list[0]!.height} không đặt được quanh ảnh xoay ${size.width}×${size.height}`);
 					return [];
 				}
 				return list;

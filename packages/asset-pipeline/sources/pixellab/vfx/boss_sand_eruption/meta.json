@@ -1,0 +1,33 @@
+{
+	"id": "boss_sand_eruption",
+	"kind": "burst",
+	"canvas": {
+		"w": 160,
+		"h": 160
+	},
+	"first": {
+		"prompt": "a massive eruption of golden sand bursting up from the desert floor, rocks and dust flying, base at the bottom of the frame, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "e5f340a9-903e-4799-b44d-79b838ced778"
+	},
+	"action": "the sand erupts violently upward in a huge plume, rocks fly out, then the sand pours back down and the dust drifts away",
+	"frameCount": 10,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png",
+		"frame_009.png",
+		"frame_010.png"
+	],
+	"animateJobId": "3182718b-8e26-40cd-a351-131dc5273517",
+	"createdAt": "2026-10-09T11:18:40.067Z",
+	"token": 1
+}

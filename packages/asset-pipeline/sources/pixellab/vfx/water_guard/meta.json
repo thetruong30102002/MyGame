@@ -1,0 +1,29 @@
+{
+	"id": "water_guard",
+	"kind": "loop",
+	"canvas": {
+		"w": 96,
+		"h": 96
+	},
+	"first": {
+		"prompt": "ring of clear blue water flowing in a circle seen from directly above, gentle splashes, empty center, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "58b12019-6314-4fb4-9ea6-e380c302181f"
+	},
+	"action": "the water ring swirls around in a circle, ripples and droplets moving with it, seamless loop",
+	"frameCount": 6,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png"
+	],
+	"animateJobId": "85354cd1-8905-4153-a7fa-aca3c314264c",
+	"createdAt": "2026-10-09T11:01:42.901Z",
+	"token": 1
+}

@@ -1,0 +1,29 @@
+{
+	"id": "pierce_slash",
+	"kind": "burst",
+	"canvas": {
+		"w": 128,
+		"h": 128
+	},
+	"first": {
+		"prompt": "long straight horizontal piercing thrust streak of white-silver light pointing to the right with a sharp bright tip, pixel art game effect, lineless, limited palette, isolated on a fully transparent background, no ground, no scenery, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "cad4ca8b-2514-44a2-aaac-009eb8dba1c2"
+	},
+	"action": "the piercing streak shoots forward to the right with a flash, then thins out and fades away",
+	"frameCount": 6,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png"
+	],
+	"animateJobId": "449a1777-fdcd-4894-86ff-e4670bca6d2d",
+	"createdAt": "2026-10-09T10:59:37.096Z",
+	"token": 1
+}

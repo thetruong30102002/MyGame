@@ -1,0 +1,29 @@
+{
+	"id": "ice_slash",
+	"kind": "burst",
+	"canvas": {
+		"w": 96,
+		"h": 96
+	},
+	"first": {
+		"prompt": "vertical crescent sword slash arc made of ice, convex side facing right, pale cyan and white with frost shards breaking off, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "d4765229-e772-4890-9001-3797e3773b69"
+	},
+	"action": "the icy slash arc sweeps from top to bottom, frost shards scatter, then it shatters into sparkles and fades",
+	"frameCount": 6,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png"
+	],
+	"animateJobId": "a7db365b-1451-480a-bf34-ebfa49c826c9",
+	"createdAt": "2026-10-09T11:08:14.450Z",
+	"token": 1
+}

@@ -418,7 +418,7 @@ export const useGameStore = create<GameState>((set, get) => ({
 	toasts: [],
 	scene: 'intro',
 	interactHint: null,
-	playerPortrait: '/assets/portraits/lior-child.png',
+	playerPortrait: '/assets/portraits/player_lior_child.png',
 	portraits: {},
 	hud: 'minimal',
 	mapInfo: null,

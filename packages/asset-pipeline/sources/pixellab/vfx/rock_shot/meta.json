@@ -1,0 +1,27 @@
+{
+	"id": "rock_shot",
+	"kind": "loop",
+	"canvas": {
+		"w": 40,
+		"h": 40
+	},
+	"first": {
+		"prompt": "jagged chunk of brown rock flying to the right, small pebbles and a short dust trail behind it on the left, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "fed6a365-7467-4467-ab8f-b934b8ebba31"
+	},
+	"action": "the rock tumbles and spins while flying, dust trailing behind, seamless loop",
+	"frameCount": 4,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png"
+	],
+	"animateJobId": "bd3febef-5cf6-4944-b788-ea51e18a65aa",
+	"createdAt": "2026-10-09T10:48:48.264Z",
+	"token": 1
+}

@@ -1,12 +1,12 @@
 {
 	"identity": {
 		"characterId": "player_lior_child_f",
-		"hair": "silver_side_ponytail",
-		"eyes": "blue",
+		"hair": "chestnut_high_ponytail",
+		"eyes": "amber",
 		"skin": "light",
-		"outfit": "navy_hooded_capelet_gold_trim_blue_tunic_dress",
-		"weapon": "none_weapon_layer",
-		"palette": "fantasy_blue_01"
+		"outfit": "kid_linen_blouse_vest_green_scarf_skirt",
+		"weapon": "baked_in_training_sword_staff_states",
+		"palette": "starter_earth_01"
 	},
 	"displayName": "Nhân vật chính (bé gái)",
 	"role": "player",
@@ -14,24 +14,18 @@
 	"pixellab": {
 		"animations": {
 			"idle": "idle",
-			"walk": "walk",
-			"attack": [
-				"attack-sword",
-				"attack-swing",
-				"attack-img"
-			],
-			"cast": [
-				"cast",
-				"cast-img"
-			]
+			"walk": "walk"
 		},
-		"mirrorWest": true
+		"mirrorWest": true,
+		"reverse": {
+			"revive": "death"
+		}
 	},
 	"frameSize": {
-		"width": 64,
-		"height": 64
+		"width": 96,
+		"height": 96
 	},
-	"baselineY": 60,
+	"baselineY": 84,
 	"animations": {
 		"idle": {
 			"fps": 6,
@@ -44,50 +38,106 @@
 			"maxFrames": 8
 		},
 		"attack": {
-			"fps": 17,
+			"fps": 16,
 			"minFrames": 4,
-			"maxFrames": 12,
+			"maxFrames": 16,
 			"optional": true,
 			"durationMs": 360,
-			"hitFrame": 2
+			"hitFrame": 3
+		},
+		"backslash": {
+			"fps": 16,
+			"minFrames": 4,
+			"maxFrames": 16,
+			"optional": true,
+			"durationMs": 360,
+			"hitFrame": 3
+		},
+		"thrust": {
+			"fps": 16,
+			"minFrames": 4,
+			"maxFrames": 16,
+			"optional": true,
+			"durationMs": 360,
+			"hitFrame": 4
 		},
 		"cast": {
-			"fps": 20,
+			"fps": 18,
 			"minFrames": 4,
-			"maxFrames": 12,
+			"maxFrames": 16,
 			"optional": true,
 			"durationMs": 400
+		},
+		"throw": {
+			"fps": 16,
+			"minFrames": 4,
+			"maxFrames": 16,
+			"optional": true
+		},
+		"hit": {
+			"fps": 14,
+			"minFrames": 4,
+			"maxFrames": 16,
+			"optional": true
+		},
+		"death": {
+			"fps": 10,
+			"minFrames": 4,
+			"maxFrames": 16,
+			"optional": true
+		},
+		"revive": {
+			"fps": 10,
+			"minFrames": 4,
+			"maxFrames": 16,
+			"optional": true
+		},
+		"drink": {
+			"fps": 12,
+			"minFrames": 4,
+			"maxFrames": 16,
+			"optional": true
 		}
 	},
 	"cleanup": {
-		"removeThin": {
-			"minY": 30,
-			"minLength": 4,
-			"woodRatio": 0.7
-		},
-		"alignToIdle": true,
-		"keepThinIn": [
-			"attack",
-			"cast"
-		]
+		"alignToIdle": true
 	},
 	"quality": {
-		"maxHeightDrift": 0.15
+		"maxHeightDrift": 0.15,
+		"weaponAnims": {
+			"animations": [
+				"attack",
+				"backslash",
+				"thrust",
+				"cast",
+				"throw",
+				"drink"
+			],
+			"reason": "09/10/2026: động tác vẽ trên phiên bản cầm kiếm gỗ tập / trượng tập (quà của cha mẹ) — vũ khí là chủ ý."
+		},
+		"driftAnims": {
+			"vanish": 0.35,
+			"push": 0.25,
+			"smash": 0.3,
+			"charge": 0.3,
+			"lunge": 0.3,
+			"dodge": 0.3,
+			"death": 0.9,
+			"revive": 0.9,
+			"hit": 0.3,
+			"ultimate": 0.3,
+			"stomp": 0.25,
+			"skycall": 0.3,
+			"spin": 0.25,
+			"flurry": 0.25
+		},
+		"minSilhouette": 0.4
 	},
-	"provisional": [
-		"S",
-		"SW",
-		"W",
-		"NW",
-		"N",
-		"NE",
-		"E",
-		"SE"
-	],
-	"notes": "PixelLab Pro Flash (05/10/2026), ảnh mẫu phong cách = Lior bé. Thay bản vẽ tay tạm cùng ID. Que gỗ gỡ khỏi thân (removeThin); ở hướng SE còn nét que mảnh vắt qua chân (trùng thân, không gỡ tự động được). Idle tạm ảnh xoay tĩnh; hướng chưa có walk tạm ảnh tĩnh nhún 1px.",
+	"provisional": [],
+	"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1): bản 6 tuổi của nhân vật người chơi mới (cùng tóc nâu, mắt hổ phách, khăn xanh rêu). Thay bản tóc bạc (nay là NPC npc_silver_child*). Động tác v3 trên phiên bản Sword / Staff cùng nhóm (khung nới 88 → ô 96); revive = death phát ngược.",
 	"review": {
 		"status": "approved",
-		"date": "06/10/2026",
-		"notes": "Duyệt bằng mắt 8 hướng sau khi gỡ que: cùng bộ với Lior (tóc bạc, áo choàng ngắn nẹp vàng), đuôi tóc lệch nhất quán giữa các hướng."
+		"date": "09/10/2026",
+		"notes": "Duyệt bằng mắt 8 hướng đứng/đi + đánh 3 nhát (kiếm gỗ tập), niệm / vung tay phóng (trượng tập), trúng đòn, gục, uống bình (E/S/N, phía tây lật gương): tóc nâu, mắt hổ phách, khăn xanh rêu, áo vải + gi-lê nhất quán giữa khung; vũ khí liền tay; vị trí chân ổn định sau căn."
 	}
 }

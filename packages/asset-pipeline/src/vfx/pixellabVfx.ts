@@ -227,6 +227,377 @@ Object.assign(PIXELLAB_VFX_PRESETS, {
 	},
 });
 
+// Hiệu ứng RIÊNG từng skill / nội tại / phản ứng (09/10/2026, gói PixelLab trả phí — Mốc 1 `docs/the-gioi-aether.md`): khung
+// đầu Pro Flash, vẽ đúng màu (game không tô tint). Hiệu ứng xoay theo hướng đòn (vệt chém, sóng, đạn) vẽ HƯỚNG SANG PHẢI (+x);
+// hiệu ứng mặt đất vẽ nhìn từ trên xuống (pipeline ép dẹt bằng `squashY`).
+Object.assign(PIXELLAB_VFX_PRESETS, {
+	rock_shot: {
+		first: `jagged chunk of brown rock flying to the right, small pebbles and a short dust trail behind it on the left, ${STYLE}`,
+		action: 'the rock tumbles and spins while flying, dust trailing behind, seamless loop',
+		frames: 4,
+	},
+	rock_burst: {
+		first: `brown rock just starting to shatter on impact, cracked stone core with a few chips, ${STYLE}`,
+		action: 'the rock smashes apart into flying stone chunks, pebbles and a cloud of dust, then the dust settles and fades away',
+		frames: 8,
+		firstScale: 0.5,
+	},
+	fire_explosion: {
+		first: `big fire explosion just starting, blinding yellow-white core with thick orange and red flames and dark smoke edges, ${STYLE}`,
+		action: 'a huge fireball explosion billows outward with roiling flames and flying embers, then turns into black smoke that rises and fades away',
+		frames: 10,
+		firstScale: 0.5,
+	},
+	tidal_wave: {
+		first: `a big curling blue ocean wave rushing to the right, white foam crest, widening like a cone toward the right, spray droplets, ${STYLE}`,
+		action: 'the wave surges forward to the right, curls over and crashes into foam and spray, then fades away',
+		frames: 8,
+	},
+	wind_trail: {
+		first: `long horizontal streak of pale green wind lines and a few spinning leaves, trailing behind toward the left, ${STYLE}`,
+		action: 'the wind streak whooshes from left to right, leaves swirl along it, then it thins out and fades away',
+		frames: 6,
+	},
+	frost_field: {
+		first: `circular patch of frozen ground seen from directly above, cracked blue-white ice with sharp frost crystals around the rim, ${STYLE}`,
+		action: 'frost spreads outward across the ground, ice crystals sparkle and grow, then the ice cracks and melts away',
+		frames: 8,
+		firstScale: 0.6,
+	},
+	quake_wave: {
+		first: `circular ring of cracked earth seen from directly above, brown dirt chunks and dust bursting outward, ${STYLE}`,
+		action: 'a shockwave ring bursts outward through the ground, cracks spread, dirt and rocks jump up, then the dust settles and fades away',
+		frames: 8,
+		firstScale: 0.5,
+	},
+	heavy_slash: {
+		first: `huge thick vertical crescent sword slash arc, convex side facing right, blazing golden-white light with sparks, sharp tips at top and bottom, ${GLOW}`,
+		action: 'the heavy slash arc slams down from top to bottom with a flash and sparks, then thins out and fades away',
+		frames: 6,
+	},
+	pierce_slash: {
+		first: `long straight horizontal piercing thrust streak of white-silver light pointing to the right with a sharp bright tip, ${GLOW}`,
+		action: 'the piercing streak shoots forward to the right with a flash, then thins out and fades away',
+		frames: 6,
+	},
+	water_guard: {
+		first: `ring of clear blue water flowing in a circle seen from directly above, gentle splashes, empty center, ${STYLE}`,
+		action: 'the water ring swirls around in a circle, ripples and droplets moving with it, seamless loop',
+		frames: 6,
+	},
+	parry_flash: {
+		first: `bright white and pale blue clash spark star of a sword deflection, sharp sparks flying outward, ${GLOW}`,
+		action: 'the clash spark flashes brightly, sparks fly outward, then it shrinks and fades away',
+		frames: 6,
+		firstScale: 0.5,
+	},
+	shadow_smoke: {
+		first: `puff of dark purple-black shadow smoke with wispy tendrils, ${STYLE}`,
+		action: 'the shadow smoke puffs outward, wisps curl and swirl, then it dissolves and fades away',
+		frames: 8,
+		firstScale: 0.6,
+	},
+	fire_slash: {
+		first: `wide fan-shaped cone of fire sweeping to the right, a crescent sword slash made of roaring orange and yellow flames with embers, ${STYLE}`,
+		action: 'the fiery slash sweeps forward to the right spreading flames in a cone, embers scatter, then the flames die out',
+		frames: 8,
+	},
+	water_dragon: {
+		first: `a serpentine dragon made of flowing clear blue water charging to the right with open jaws, splashing spray behind it, ${STYLE}`,
+		action: 'the water dragon surges forward to the right with its body rippling, jaws snapping, then it bursts into splashing water and fades away',
+		frames: 8,
+	},
+	wind_blade_ring: {
+		first: `ring of spinning pale green wind blades circling around an empty center, seen from above at an angle, ${STYLE}`,
+		action: 'the wind blades spin rapidly around the circle, slicing the air, seamless loop',
+		frames: 6,
+	},
+	ice_slash: {
+		first: `vertical crescent sword slash arc made of ice, convex side facing right, pale cyan and white with frost shards breaking off, ${STYLE}`,
+		action: 'the icy slash arc sweeps from top to bottom, frost shards scatter, then it shatters into sparkles and fades',
+		frames: 6,
+	},
+	fire_wall: {
+		first: `a wide wall of tall roaring flames standing in a horizontal row on the ground, side view, flames filling the lower part of the frame, ${STYLE}`,
+		action: 'the wall of flames roars and flickers, tongues of fire licking upward, embers rising, seamless loop',
+		frames: 6,
+	},
+	wind_blade: {
+		first: `small sharp crescent blade of pale green wind flying to the right, thin wind streaks behind it, ${STYLE}`,
+		action: 'the wind blade spins and whooshes forward, streaks fluttering, seamless loop',
+		frames: 4,
+	},
+	ice_dome: {
+		first: `translucent dome shield made of pale blue ice crystal panels around an empty center, glints of light, ${STYLE}`,
+		action: 'the ice dome shimmers, light glints sweep across its crystal panels, frost sparkles drift, seamless loop',
+		frames: 6,
+	},
+	stone_wall: {
+		first: `a thick wall of rough brown stone blocks standing on cracked ground, side view, base at the bottom of the frame, ${STYLE}`,
+		action: 'the stone wall rises up out of the cracking ground, rubble falling off, then it stands firm with dust settling',
+		frames: 8,
+	},
+	rockslide: {
+		first: `big brown boulders tumbling down from the top of the frame toward a patch of ground, dust and pebbles, ${STYLE}`,
+		action: 'the boulders crash down onto the ground one after another, shattering into rubble and dust clouds, then the dust fades',
+		frames: 10,
+	},
+	armor_shatter: {
+		first: `steel armor plate cracking apart with bright sparks, ${STYLE}`,
+		action: 'the armor plate shatters into flying metal shards and sparks, then the pieces fall and fade away',
+		frames: 6,
+		firstScale: 0.6,
+	},
+	blade_wave: {
+		first: `glowing silver crescent sword wave flying to the right with a shimmering trail behind it, ${GLOW}`,
+		action: 'the crescent sword wave glides forward shimmering, its trail rippling, seamless loop',
+		frames: 4,
+	},
+	whirlpool: {
+		first: `swirling whirlpool of deep blue water seen from directly above, white foam spiral arms around a dark center, ${STYLE}`,
+		action: 'the whirlpool spins around its center, foam spiral arms turning, spray flying off, seamless loop',
+		frames: 8,
+	},
+	flying_sword: {
+		first: `a steel longsword with a glowing pale blue edge lying horizontally pointing to the right, faint light trail, ${STYLE}`,
+		action: 'the sword glows and pulses with a faint trail shimmering behind it, seamless loop',
+		frames: 4,
+	},
+	gold_aura: {
+		first: `golden aura flames rising in a ring around an empty center, bright sparks, ${GLOW}`,
+		action: 'the golden aura flares up powerfully, flames rising and sparks shooting up, then it settles and fades',
+		frames: 8,
+	},
+	red_aura: {
+		first: `crimson red aura flames flickering in a ring around an empty center, dark red sparks, ${GLOW}`,
+		action: 'the crimson aura flickers and burns steadily, flames licking upward, seamless loop',
+		frames: 6,
+	},
+	lake_ripple: {
+		first: `calm circular ripples on clear blue water seen from directly above, gentle light reflections, ${STYLE}`,
+		action: 'ripples spread outward in calm rings, light reflections shimmer, then the water stills and fades',
+		frames: 8,
+		firstScale: 0.6,
+	},
+	ember_burst: {
+		first: `burst of glowing orange embers and grey ash just starting, ${STYLE}`,
+		action: 'fiery embers and ash explode outward, sparks scatter and float, then they die out and fade away',
+		frames: 8,
+		firstScale: 0.5,
+	},
+	heal_drops: {
+		first: `soft green healing water droplets and small sparkles, ${GLOW}`,
+		action: 'green healing droplets and sparkles rise upward gently, glimmering, then fade away',
+		frames: 8,
+	},
+	earth_aura: {
+		first: `ring of golden-brown earth energy glowing on the ground seen from above at an angle, small pebbles floating up, ${STYLE}`,
+		action: 'the earth energy ring glows brighter, pebbles float upward, then it dims and fades away',
+		frames: 8,
+	},
+	mud_splash: {
+		first: `thick brown mud splash just starting, ${STYLE}`,
+		action: 'thick brown mud splashes outward in blobs and droplets, then forms a mud puddle that fades away',
+		frames: 8,
+		firstScale: 0.5,
+	},
+	lava_burst: {
+		first: `bubbling molten lava just starting to erupt, glowing orange cracks in black rock, ${STYLE}`,
+		action: 'molten lava erupts in glowing blobs and splashes, black crust cracks, then it cools and fades away',
+		frames: 8,
+		firstScale: 0.5,
+	},
+	sandstorm: {
+		first: `small swirling sandstorm vortex of golden sand and dust, ${STYLE}`,
+		action: 'the sand vortex whirls violently, sand grains and dust spiral around, then it scatters and fades away',
+		frames: 8,
+	},
+	ice_shatter: {
+		first: `solid block of ice just starting to crack, ${STYLE}`,
+		action: 'the ice block shatters into many sharp crystal shards flying outward with frost mist, then they fade away',
+		frames: 8,
+		firstScale: 0.5,
+	},
+});
+
+// Chiêu boss vùng 1–4 (09/10/2026, Mốc 1): mỗi boss một hình nổ riêng thay vòng tối dùng chung (`CombatSystem.BOSS_AOE_LOOK`),
+// boss chúa thêm chiêu thứ hai. Vẽ đúng màu; chiêu xoay theo hướng (hơi thở, sóng lửa) vẽ HƯỚNG SANG PHẢI.
+Object.assign(PIXELLAB_VFX_PRESETS, {
+	boss_hellfire: {
+		first: `a towering pillar of hellfire erupting straight up out of a cracked glowing crater in the ground, crimson and black flames with bright orange core, base at the bottom of the frame, ${STYLE}`,
+		action: 'the hellfire pillar bursts up from the cracking ground, roars upward with swirling dark flames, then collapses into embers and black smoke that fades',
+		frames: 10,
+	},
+	boss_fire_wave: {
+		first: `a wide wave of dark red demonic fire rushing to the right along the ground, black smoke on top, embers, ${STYLE}`,
+		action: 'the demonic fire wave surges forward to the right engulfing the ground, then burns out into smoke and embers',
+		frames: 8,
+	},
+	boss_curse_blast: {
+		first: `a glowing purple necromantic curse sigil circle on the ground with skull runes, violet light rising from it, base at the bottom of the frame, ${STYLE}`,
+		action: 'the curse sigil glows brighter and erupts in a column of violet ghostly flames with wailing skull shapes, then fades into purple mist',
+		frames: 10,
+	},
+	boss_bone_rise: {
+		first: `skeletal hands and bones bursting up out of cracked dark earth, green ghostly glow, base at the bottom of the frame, ${STYLE}`,
+		action: 'bony hands claw up out of the ground grabbing at the air, dirt flies, then they crumble back into the earth',
+		frames: 8,
+	},
+	boss_stone_slam: {
+		first: `heavy stone fist slamming the ground creating a crater with jagged rock shards flying up, grey dust, ${STYLE}`,
+		action: 'the ground cracks from the stone slam, rock shards burst upward in a ring, then dust settles and fades',
+		frames: 8,
+		firstScale: 0.6,
+	},
+	boss_toxic_pool: {
+		first: `big splash of bubbling toxic green poison slime landing on the ground, purple bubbles, ${STYLE}`,
+		action: 'the toxic slime splashes outward into a bubbling poison puddle with rising green fumes, then it dries up and fades',
+		frames: 8,
+	},
+	boss_hex: {
+		first: `a glowing green witch hex rune circle with a ghostly skull in the middle, swirling green wisps, ${GLOW}`,
+		action: 'the hex rune flares, the ghostly skull screams and bursts into green flames and wisps, then fades away',
+		frames: 8,
+	},
+	boss_mud_geyser: {
+		first: `a geyser of thick brown swamp mud erupting straight up from a bubbling mud pool, reeds and water spray, base at the bottom of the frame, ${STYLE}`,
+		action: 'the mud geyser blasts upward and splashes down in heavy mud blobs all around, then sinks back into a bubbling pool that fades',
+		frames: 10,
+	},
+	boss_venom_spray: {
+		first: `a spray of glowing purple venom droplets splashing on the ground, sizzling poison, ${STYLE}`,
+		action: 'venom splashes outward in sizzling purple droplets and fumes, then the puddles evaporate and fade',
+		frames: 8,
+		firstScale: 0.6,
+	},
+	boss_ankh_curse: {
+		first: `a glowing turquoise ancient Egyptian ankh symbol rising over a swirl of golden sand, hieroglyph runes circling, ${STYLE}`,
+		action: 'the turquoise ankh flares with power, sand swirls up in a spiral and explodes outward with glowing hieroglyphs, then settles and fades',
+		frames: 10,
+	},
+	boss_sand_eruption: {
+		first: `a massive eruption of golden sand bursting up from the desert floor, rocks and dust flying, base at the bottom of the frame, ${STYLE}`,
+		action: 'the sand erupts violently upward in a huge plume, rocks fly out, then the sand pours back down and the dust drifts away',
+		frames: 10,
+	},
+	boss_quicksand: {
+		first: `a swirling quicksand vortex in golden desert sand seen from directly above, spiral grooves pulling inward, ${STYLE}`,
+		action: 'the quicksand vortex spins and sucks sand into its center, grains sliding inward, seamless loop',
+		frames: 8,
+	},
+	boss_storm_bolt: {
+		first: `a crackling blue lightning bolt striking down with glowing storm feathers scattered around the impact, white sparks, ${GLOW}`,
+		action: 'the lightning strikes down with a flash, charged feathers scatter outward crackling, then the sparks fizzle and fade',
+		frames: 8,
+	},
+	boss_wind_spiral: {
+		first: `a powerful spiral blast of white and teal wind swirling to the right with sharp wind blades, small leaves, ${STYLE}`,
+		action: 'the wind spiral blasts forward to the right twisting violently, wind blades slice, then it disperses and fades',
+		frames: 8,
+	},
+	boss_wind_breath: {
+		first: `a wide cone of swirling jade-green dragon wind breath blowing to the right, white cloud streaks and wind blades, ${STYLE}`,
+		action: 'the dragon wind breath roars forward to the right widening like a cone, cloud streaks whip, then it disperses and fades',
+		frames: 8,
+	},
+	boss_gale_storm: {
+		first: `a huge swirling storm cyclone of jade-green wind and white clouds with debris and leaves orbiting, narrow at the ground and wide at the top, ${STYLE}`,
+		action: 'the storm cyclone spins violently, clouds and debris whirl around it, seamless loop',
+		frames: 8,
+	},
+});
+
+// Chiêu của Phong Long Tuyệt Vân (09/10/2026, Mốc 1): đáp xuống tạo lốc, bão gió đẩy ra mép vực, mưa lưỡi gió.
+// Vẽ đúng màu; bão gió xoay theo hướng nên vẽ HƯỚNG SANG PHẢI.
+Object.assign(PIXELLAB_VFX_PRESETS, {
+	dragon_wind_landing: {
+		first: `a huge ring of swirling jade and white wind shockwave bursting outward along the ground with a cyclone rising in the middle, cloud puffs and flying leaves, base at the bottom of the frame, ${STYLE}`,
+		action: 'the wind shockwave explodes outward from the landing point while a cyclone spirals upward, clouds and leaves whirl, then it all disperses and fades',
+		frames: 10,
+	},
+	dragon_gale_push: {
+		first: `a massive sweeping gale of jade-green wind rushing to the right like a wall, white cloud streaks, leaves and pebbles carried in it, ${STYLE}`,
+		action: 'the giant gale sweeps forward to the right with tremendous force, cloud streaks whipping, then it disperses and fades',
+		frames: 8,
+	},
+	dragon_wind_blades: {
+		first: `many crescent blades of glowing pale green wind raining down from the sky onto a patch of ground, small cuts in the earth, ${STYLE}`,
+		action: 'the wind blades slash down onto the ground one after another, kicking up dust and leaves, then they fade away',
+		frames: 10,
+	},
+});
+
+// Tuyệt kỹ mốc 10 (09/10/2026, Mốc 1 — vẽ trước, logic làm ở GĐ4 `docs/ke-hoach-nguyen-to.md`): khổ 160–192, Pro Flash.
+// Vẽ đúng màu; phượng hoàng / sóng thần bay ngang màn hình nên vẽ HƯỚNG SANG PHẢI.
+Object.assign(PIXELLAB_VFX_PRESETS, {
+	ult_judgment: {
+		first: `hundreds of swords of radiant golden light raining down from the sky and stabbing into the ground, divine glow, base at the bottom of the frame, ${GLOW}`,
+		action: 'the golden light swords rain down one after another and plunge into the ground in bursts of holy light, then they shatter into sparkles and fade',
+		frames: 10,
+	},
+	ult_still_lake: {
+		first: `a perfectly calm mirror-like circle of water with a translucent glowing reflective dome barrier above it, serene silver-blue light, empty center, ${STYLE}`,
+		action: 'the mirror dome shimmers calmly, gentle ripples spread on the water surface, reflections glide across the barrier, seamless loop',
+		frames: 8,
+	},
+	ult_shadow_burst: {
+		first: `a burst of dark violet shadow afterimages and black smoke streaks exploding outward from an empty center, ${STYLE}`,
+		action: 'shadow afterimages and smoke streaks burst outward in all directions, then they dissolve into darkness and fade',
+		frames: 8,
+		firstScale: 0.6,
+	},
+	ult_phoenix: {
+		first: `a majestic phoenix made of living flames flying to the right with huge wings spread, long flowing tail of fire and embers trailing behind it on the left, ${STYLE}`,
+		action: 'the fire phoenix flaps its burning wings powerfully while flying forward, flames streaming and embers scattering, seamless loop',
+		frames: 8,
+	},
+	ult_tsunami: {
+		first: `a colossal towering tsunami wave rushing to the right, dark deep blue water with huge white foam crest curling over, spray and debris, ${STYLE}`,
+		action: 'the giant tsunami surges forward to the right, crests and crashes down in an enormous explosion of water and foam, then the water drains away and fades',
+		frames: 10,
+	},
+	ult_tempest: {
+		first: `a giant tempest storm vortex swirling around an empty center, jade wind bands, sharp wind blades, crackling lightning and storm clouds, ${STYLE}`,
+		action: 'the tempest spins violently around its center, wind blades and lightning whirl through it, seamless loop',
+		frames: 8,
+	},
+	ult_ice_age: {
+		first: `a massive wave of ice spreading across the ground from the center, tall jagged ice crystals and frozen spikes erupting, freezing mist, seen from above at an angle, ${STYLE}`,
+		action: 'the ice age wave spreads outward freezing the ground, huge ice spikes burst up everywhere, mist swirls, then the ice cracks and shatters into glittering shards that fade',
+		frames: 10,
+	},
+});
+
+// Vệt chém kiếm PHỦ PHÉP từng hệ (09/10/2026, chủ dự án: "đủ hiệu ứng chém khi bọc nguyên tố, thật hoành tráng"):
+// thay vệt trắng nhuộm màu (`CombatSystem.slashFx`). Cùng quy ước `slash`: vệt DỌC, bụng lồi quay sang PHẢI (+x).
+Object.assign(PIXELLAB_VFX_PRESETS, {
+	slash_fire: {
+		first: `huge vertical crescent sword slash arc made of roaring fire, convex side facing right, thick blazing core tapering to sharp tips at top and bottom, orange and yellow flames licking off its edge, embers and sparks flying, ${STYLE}`,
+		action: 'the fiery slash arc sweeps from top to bottom in a blaze, flames roar along its edge and embers scatter, then it burns out into sparks and smoke',
+		frames: 8,
+	},
+	slash_water: {
+		first: `huge vertical crescent sword slash arc made of rushing clear blue water, convex side facing right, thick in the middle tapering to sharp tips, white foam crest and splashing droplets, ${STYLE}`,
+		action: 'the water slash arc sweeps from top to bottom like a crashing wave, foam and droplets spray outward, then it splashes apart and fades',
+		frames: 8,
+	},
+	slash_wind: {
+		first: `huge vertical crescent sword slash arc made of swirling pale green wind, convex side facing right, layered wind streaks tapering to sharp tips, spinning leaves caught in it, ${STYLE}`,
+		action: 'the wind slash arc whips from top to bottom with a gust, streaks spiral and leaves scatter, then it disperses and fades',
+		frames: 8,
+	},
+	slash_ice: {
+		first: `huge vertical crescent sword slash arc made of glittering ice, convex side facing right, thick translucent cyan crystal tapering to sharp tips, frost mist and ice shards breaking off, ${STYLE}`,
+		action: 'the icy slash arc sweeps from top to bottom freezing the air, ice shards burst off and frost mist swirls, then it shatters into glittering sparkles',
+		frames: 8,
+	},
+	slash_earth: {
+		first: `huge vertical crescent sword slash arc made of jagged brown stone and dirt, convex side facing right, heavy rocky edge tapering to sharp tips, pebbles and dust flying off it, ${STYLE}`,
+		action: 'the earthen slash arc slams from top to bottom with crushing weight, rocks and pebbles fly off and dust bursts, then it crumbles into dust that settles',
+		frames: 8,
+	},
+});
+
 /** Hiệu ứng KHÔNG vẽ riêng mà mượn khung PixelLab của hiệu ứng khác (`dark_ring_warn` = khung đầu của `dark_ring`). */
 export const PIXELLAB_VFX_ALIAS: Record<string, string> = { dark_ring_warn: 'dark_ring' };
 

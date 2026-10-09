@@ -1,0 +1,31 @@
+{
+	"id": "boss_wind_breath",
+	"kind": "burst",
+	"canvas": {
+		"w": 160,
+		"h": 160
+	},
+	"first": {
+		"prompt": "a wide cone of swirling jade-green dragon wind breath blowing to the right, white cloud streaks and wind blades, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "b158b97c-794c-4bf8-99bd-fda86cb27a86"
+	},
+	"action": "the dragon wind breath roars forward to the right widening like a cone, cloud streaks whip, then it disperses and fades",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "1ad75a11-6b4d-4fa3-b04b-d17415adde1c",
+	"createdAt": "2026-10-09T11:25:30.532Z",
+	"token": 1
+}

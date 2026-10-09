@@ -14,7 +14,13 @@
 	"pixellab": {
 		"animations": {
 			"idle": "idle",
-			"walk": "walk"
+			"walk": "walk",
+			"attack": [
+				"attack-img"
+			],
+			"death": [
+				"death-img"
+			]
 		},
 		"mirrorWest": true
 	},
@@ -33,13 +39,30 @@
 			"fps": 10,
 			"minFrames": 6,
 			"maxFrames": 8
+		},
+		"attack": {
+			"fps": 14,
+			"minFrames": 4,
+			"maxFrames": 12,
+			"optional": true,
+			"hitFrame": 4
+		},
+		"death": {
+			"fps": 10,
+			"minFrames": 4,
+			"maxFrames": 12,
+			"optional": true
 		}
 	},
 	"cleanup": {
 		"alignToIdle": true
 	},
 	"quality": {
-		"maxHeightDrift": 0.15
+		"maxHeightDrift": 0.15,
+		"driftAnims": {
+			"death": 0.75,
+			"attack": 0.25
+		}
 	},
 	"provisional": [
 		"S",

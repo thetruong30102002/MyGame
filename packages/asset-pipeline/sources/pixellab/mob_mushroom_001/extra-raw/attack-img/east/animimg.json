@@ -1,0 +1,8 @@
+{
+	"input": "sources/pixellab/mob_mushroom_001/Idle/rotations/east.png",
+	"action": "hops forward and headbutts with its big red cap, then hops back",
+	"frames": 8,
+	"jobId": "fd2a8a0f-2ead-4c74-b375-462dfea72408",
+	"token": 1,
+	"createdAt": "2026-10-09T10:59:17.200Z"
+}

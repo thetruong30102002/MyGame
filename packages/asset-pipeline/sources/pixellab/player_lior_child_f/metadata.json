@@ -1,11 +1,11 @@
 {
-  "group_id": "fc587af6-b3d8-483a-a055-eac9e5de748e",
+  "group_id": "ad7ef762-2d6c-46cf-9b21-efa51f227753",
   "states": [
     {
       "character": {
-        "id": "9b616f75-23e0-493e-b49d-4ed0c6fd1738",
+        "id": "4959f165-94f1-4566-9de2-8d9cee4326db",
         "name": "Idle",
-        "prompt": "5-year-old girl hero, the female counterpart of the reference boy, same chibi anime pixel art style. Long silver-white hair with pale blue-grey shading, tied in a side ponytail with a small dark navy ribbon, soft bangs over the forehead. Big bright blue eyes, small cute face. Wears the same dark navy blue short hooded cloak (capelet over the shoulders) with gold trim edges and a small gold clasp at the neck, a blue tunic dress underneath reaching mid-thigh, brown leather belt with a small gold buckle, dark leggings, brown boots. Holds a small wooden stick in her right hand. Black single-color outline, cel shading.",
+        "prompt": "6-year-old little girl, chibi anime style, chestnut-brown hair in a high ponytail with side bangs, big amber eyes, off-white linen blouse, small laced brown vest, dark green scarf, belt, short dark brown skirt over black leggings, brown leather boots, empty hands",
         "size": {
           "width": 64,
           "height": 64
@@ -13,7 +13,7 @@
         "template_id": "mannequin",
         "directions": 8,
         "view": "low top-down",
-        "created_at": "2026-10-05T04:32:53.403185+00:00"
+        "created_at": "2026-10-09T09:49:41.572309+00:00"
       },
       "folder": "Idle",
       "frames": {
@@ -39,6 +39,36 @@
               "Idle/animations/walk/east/frame_006.png",
               "Idle/animations/walk/east/frame_007.png"
             ],
+            "north": [
+              "Idle/animations/walk/north/frame_000.png",
+              "Idle/animations/walk/north/frame_001.png",
+              "Idle/animations/walk/north/frame_002.png",
+              "Idle/animations/walk/north/frame_003.png",
+              "Idle/animations/walk/north/frame_004.png",
+              "Idle/animations/walk/north/frame_005.png",
+              "Idle/animations/walk/north/frame_006.png",
+              "Idle/animations/walk/north/frame_007.png"
+            ],
+            "south-east": [
+              "Idle/animations/walk/south-east/frame_000.png",
+              "Idle/animations/walk/south-east/frame_001.png",
+              "Idle/animations/walk/south-east/frame_002.png",
+              "Idle/animations/walk/south-east/frame_003.png",
+              "Idle/animations/walk/south-east/frame_004.png",
+              "Idle/animations/walk/south-east/frame_005.png",
+              "Idle/animations/walk/south-east/frame_006.png",
+              "Idle/animations/walk/south-east/frame_007.png"
+            ],
+            "north-east": [
+              "Idle/animations/walk/north-east/frame_000.png",
+              "Idle/animations/walk/north-east/frame_001.png",
+              "Idle/animations/walk/north-east/frame_002.png",
+              "Idle/animations/walk/north-east/frame_003.png",
+              "Idle/animations/walk/north-east/frame_004.png",
+              "Idle/animations/walk/north-east/frame_005.png",
+              "Idle/animations/walk/north-east/frame_006.png",
+              "Idle/animations/walk/north-east/frame_007.png"
+            ],
             "south": [
               "Idle/animations/walk/south/frame_000.png",
               "Idle/animations/walk/south/frame_001.png",
@@ -49,11 +79,353 @@
               "Idle/animations/walk/south/frame_006.png",
               "Idle/animations/walk/south/frame_007.png"
             ]
+          },
+          "idle": {
+            "south": [
+              "Idle/animations/idle/south/frame_000.png",
+              "Idle/animations/idle/south/frame_001.png",
+              "Idle/animations/idle/south/frame_002.png",
+              "Idle/animations/idle/south/frame_003.png"
+            ],
+            "east": [
+              "Idle/animations/idle/east/frame_000.png",
+              "Idle/animations/idle/east/frame_001.png",
+              "Idle/animations/idle/east/frame_002.png",
+              "Idle/animations/idle/east/frame_003.png"
+            ],
+            "south-east": [
+              "Idle/animations/idle/south-east/frame_000.png",
+              "Idle/animations/idle/south-east/frame_001.png",
+              "Idle/animations/idle/south-east/frame_002.png",
+              "Idle/animations/idle/south-east/frame_003.png"
+            ],
+            "north": [
+              "Idle/animations/idle/north/frame_000.png",
+              "Idle/animations/idle/north/frame_001.png",
+              "Idle/animations/idle/north/frame_002.png",
+              "Idle/animations/idle/north/frame_003.png"
+            ],
+            "north-east": [
+              "Idle/animations/idle/north-east/frame_000.png",
+              "Idle/animations/idle/north-east/frame_001.png",
+              "Idle/animations/idle/north-east/frame_002.png",
+              "Idle/animations/idle/north-east/frame_003.png"
+            ]
+          },
+          "death": {
+            "north": [
+              "Idle/animations/death/north/frame_000.png",
+              "Idle/animations/death/north/frame_001.png",
+              "Idle/animations/death/north/frame_002.png",
+              "Idle/animations/death/north/frame_003.png",
+              "Idle/animations/death/north/frame_004.png",
+              "Idle/animations/death/north/frame_005.png",
+              "Idle/animations/death/north/frame_006.png",
+              "Idle/animations/death/north/frame_007.png"
+            ],
+            "south": [
+              "Idle/animations/death/south/frame_000.png",
+              "Idle/animations/death/south/frame_001.png",
+              "Idle/animations/death/south/frame_002.png",
+              "Idle/animations/death/south/frame_003.png",
+              "Idle/animations/death/south/frame_004.png",
+              "Idle/animations/death/south/frame_005.png",
+              "Idle/animations/death/south/frame_006.png",
+              "Idle/animations/death/south/frame_007.png"
+            ],
+            "east": [
+              "Idle/animations/death/east/frame_000.png",
+              "Idle/animations/death/east/frame_001.png",
+              "Idle/animations/death/east/frame_002.png",
+              "Idle/animations/death/east/frame_003.png",
+              "Idle/animations/death/east/frame_004.png",
+              "Idle/animations/death/east/frame_005.png",
+              "Idle/animations/death/east/frame_006.png",
+              "Idle/animations/death/east/frame_007.png"
+            ]
+          },
+          "hit": {
+            "east": [
+              "Idle/animations/hit/east/frame_000.png",
+              "Idle/animations/hit/east/frame_001.png",
+              "Idle/animations/hit/east/frame_002.png",
+              "Idle/animations/hit/east/frame_003.png",
+              "Idle/animations/hit/east/frame_004.png",
+              "Idle/animations/hit/east/frame_005.png"
+            ],
+            "south": [
+              "Idle/animations/hit/south/frame_000.png",
+              "Idle/animations/hit/south/frame_001.png",
+              "Idle/animations/hit/south/frame_002.png",
+              "Idle/animations/hit/south/frame_003.png",
+              "Idle/animations/hit/south/frame_004.png",
+              "Idle/animations/hit/south/frame_005.png"
+            ],
+            "north": [
+              "Idle/animations/hit/north/frame_000.png",
+              "Idle/animations/hit/north/frame_001.png",
+              "Idle/animations/hit/north/frame_002.png",
+              "Idle/animations/hit/north/frame_003.png",
+              "Idle/animations/hit/north/frame_004.png",
+              "Idle/animations/hit/north/frame_005.png"
+            ]
+          },
+          "drink": {
+            "south": [
+              "Idle/animations/drink/south/frame_000.png",
+              "Idle/animations/drink/south/frame_001.png",
+              "Idle/animations/drink/south/frame_002.png",
+              "Idle/animations/drink/south/frame_003.png",
+              "Idle/animations/drink/south/frame_004.png",
+              "Idle/animations/drink/south/frame_005.png",
+              "Idle/animations/drink/south/frame_006.png",
+              "Idle/animations/drink/south/frame_007.png"
+            ],
+            "north": [
+              "Idle/animations/drink/north/frame_000.png",
+              "Idle/animations/drink/north/frame_001.png",
+              "Idle/animations/drink/north/frame_002.png",
+              "Idle/animations/drink/north/frame_003.png",
+              "Idle/animations/drink/north/frame_004.png",
+              "Idle/animations/drink/north/frame_005.png",
+              "Idle/animations/drink/north/frame_006.png",
+              "Idle/animations/drink/north/frame_007.png"
+            ],
+            "east": [
+              "Idle/animations/drink/east/frame_000.png",
+              "Idle/animations/drink/east/frame_001.png",
+              "Idle/animations/drink/east/frame_002.png",
+              "Idle/animations/drink/east/frame_003.png",
+              "Idle/animations/drink/east/frame_004.png",
+              "Idle/animations/drink/east/frame_005.png",
+              "Idle/animations/drink/east/frame_006.png",
+              "Idle/animations/drink/east/frame_007.png"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "character": {
+        "id": "1e2a645f-4b82-47af-801f-30e85662db54",
+        "name": "Sword",
+        "prompt": "6-year-old little girl, chibi anime style, chestnut-brown hair in a high ponytail with side bangs, big amber eyes, off-white linen blouse, small laced brown vest, dark green scarf, belt, short dark brown skirt over black leggings, brown leather boots, empty hands",
+        "size": {
+          "width": 64,
+          "height": 64
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-10-09T10:13:08.330556+00:00"
+      },
+      "folder": "Sword",
+      "frames": {
+        "rotations": {
+          "south": "Sword/rotations/south.png",
+          "south-east": "Sword/rotations/south-east.png",
+          "east": "Sword/rotations/east.png",
+          "north-east": "Sword/rotations/north-east.png",
+          "north": "Sword/rotations/north.png",
+          "north-west": "Sword/rotations/north-west.png",
+          "west": "Sword/rotations/west.png",
+          "south-west": "Sword/rotations/south-west.png"
+        },
+        "animations": {
+          "thrust": {
+            "south": [
+              "Sword/animations/thrust/south/frame_000.png",
+              "Sword/animations/thrust/south/frame_001.png",
+              "Sword/animations/thrust/south/frame_002.png",
+              "Sword/animations/thrust/south/frame_003.png",
+              "Sword/animations/thrust/south/frame_004.png",
+              "Sword/animations/thrust/south/frame_005.png",
+              "Sword/animations/thrust/south/frame_006.png",
+              "Sword/animations/thrust/south/frame_007.png"
+            ],
+            "north": [
+              "Sword/animations/thrust/north/frame_000.png",
+              "Sword/animations/thrust/north/frame_001.png",
+              "Sword/animations/thrust/north/frame_002.png",
+              "Sword/animations/thrust/north/frame_003.png",
+              "Sword/animations/thrust/north/frame_004.png",
+              "Sword/animations/thrust/north/frame_005.png",
+              "Sword/animations/thrust/north/frame_006.png",
+              "Sword/animations/thrust/north/frame_007.png"
+            ],
+            "east": [
+              "Sword/animations/thrust/east/frame_000.png",
+              "Sword/animations/thrust/east/frame_001.png",
+              "Sword/animations/thrust/east/frame_002.png",
+              "Sword/animations/thrust/east/frame_003.png",
+              "Sword/animations/thrust/east/frame_004.png",
+              "Sword/animations/thrust/east/frame_005.png",
+              "Sword/animations/thrust/east/frame_006.png",
+              "Sword/animations/thrust/east/frame_007.png"
+            ]
+          },
+          "backslash": {
+            "south": [
+              "Sword/animations/backslash/south/frame_000.png",
+              "Sword/animations/backslash/south/frame_001.png",
+              "Sword/animations/backslash/south/frame_002.png",
+              "Sword/animations/backslash/south/frame_003.png",
+              "Sword/animations/backslash/south/frame_004.png",
+              "Sword/animations/backslash/south/frame_005.png",
+              "Sword/animations/backslash/south/frame_006.png",
+              "Sword/animations/backslash/south/frame_007.png"
+            ],
+            "north": [
+              "Sword/animations/backslash/north/frame_000.png",
+              "Sword/animations/backslash/north/frame_001.png",
+              "Sword/animations/backslash/north/frame_002.png",
+              "Sword/animations/backslash/north/frame_003.png",
+              "Sword/animations/backslash/north/frame_004.png",
+              "Sword/animations/backslash/north/frame_005.png",
+              "Sword/animations/backslash/north/frame_006.png",
+              "Sword/animations/backslash/north/frame_007.png"
+            ],
+            "east": [
+              "Sword/animations/backslash/east/frame_000.png",
+              "Sword/animations/backslash/east/frame_001.png",
+              "Sword/animations/backslash/east/frame_002.png",
+              "Sword/animations/backslash/east/frame_003.png",
+              "Sword/animations/backslash/east/frame_004.png",
+              "Sword/animations/backslash/east/frame_005.png",
+              "Sword/animations/backslash/east/frame_006.png",
+              "Sword/animations/backslash/east/frame_007.png"
+            ]
+          },
+          "attack": {
+            "east": [
+              "Sword/animations/attack/east/frame_000.png",
+              "Sword/animations/attack/east/frame_001.png",
+              "Sword/animations/attack/east/frame_002.png",
+              "Sword/animations/attack/east/frame_003.png",
+              "Sword/animations/attack/east/frame_004.png",
+              "Sword/animations/attack/east/frame_005.png",
+              "Sword/animations/attack/east/frame_006.png",
+              "Sword/animations/attack/east/frame_007.png"
+            ],
+            "south": [
+              "Sword/animations/attack/south/frame_000.png",
+              "Sword/animations/attack/south/frame_001.png",
+              "Sword/animations/attack/south/frame_002.png",
+              "Sword/animations/attack/south/frame_003.png",
+              "Sword/animations/attack/south/frame_004.png",
+              "Sword/animations/attack/south/frame_005.png",
+              "Sword/animations/attack/south/frame_006.png",
+              "Sword/animations/attack/south/frame_007.png"
+            ],
+            "north": [
+              "Sword/animations/attack/north/frame_000.png",
+              "Sword/animations/attack/north/frame_001.png",
+              "Sword/animations/attack/north/frame_002.png",
+              "Sword/animations/attack/north/frame_003.png",
+              "Sword/animations/attack/north/frame_004.png",
+              "Sword/animations/attack/north/frame_005.png",
+              "Sword/animations/attack/north/frame_006.png",
+              "Sword/animations/attack/north/frame_007.png"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "character": {
+        "id": "a4d15e55-d60e-42cd-b748-67873ab0b197",
+        "name": "Staff",
+        "prompt": "6-year-old little girl, chibi anime style, chestnut-brown hair in a high ponytail with side bangs, big amber eyes, off-white linen blouse, small laced brown vest, dark green scarf, belt, short dark brown skirt over black leggings, brown leather boots, empty hands",
+        "size": {
+          "width": 64,
+          "height": 64
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-10-09T10:13:16.410497+00:00"
+      },
+      "folder": "Staff",
+      "frames": {
+        "rotations": {
+          "south": "Staff/rotations/south.png",
+          "south-east": "Staff/rotations/south-east.png",
+          "east": "Staff/rotations/east.png",
+          "north-east": "Staff/rotations/north-east.png",
+          "north": "Staff/rotations/north.png",
+          "north-west": "Staff/rotations/north-west.png",
+          "west": "Staff/rotations/west.png",
+          "south-west": "Staff/rotations/south-west.png"
+        },
+        "animations": {
+          "throw": {
+            "east": [
+              "Staff/animations/throw/east/frame_000.png",
+              "Staff/animations/throw/east/frame_001.png",
+              "Staff/animations/throw/east/frame_002.png",
+              "Staff/animations/throw/east/frame_003.png",
+              "Staff/animations/throw/east/frame_004.png",
+              "Staff/animations/throw/east/frame_005.png",
+              "Staff/animations/throw/east/frame_006.png",
+              "Staff/animations/throw/east/frame_007.png"
+            ],
+            "south": [
+              "Staff/animations/throw/south/frame_000.png",
+              "Staff/animations/throw/south/frame_001.png",
+              "Staff/animations/throw/south/frame_002.png",
+              "Staff/animations/throw/south/frame_003.png",
+              "Staff/animations/throw/south/frame_004.png",
+              "Staff/animations/throw/south/frame_005.png",
+              "Staff/animations/throw/south/frame_006.png",
+              "Staff/animations/throw/south/frame_007.png"
+            ],
+            "north": [
+              "Staff/animations/throw/north/frame_000.png",
+              "Staff/animations/throw/north/frame_001.png",
+              "Staff/animations/throw/north/frame_002.png",
+              "Staff/animations/throw/north/frame_003.png",
+              "Staff/animations/throw/north/frame_004.png",
+              "Staff/animations/throw/north/frame_005.png",
+              "Staff/animations/throw/north/frame_006.png",
+              "Staff/animations/throw/north/frame_007.png"
+            ]
+          },
+          "cast": {
+            "east": [
+              "Staff/animations/cast/east/frame_000.png",
+              "Staff/animations/cast/east/frame_001.png",
+              "Staff/animations/cast/east/frame_002.png",
+              "Staff/animations/cast/east/frame_003.png",
+              "Staff/animations/cast/east/frame_004.png",
+              "Staff/animations/cast/east/frame_005.png",
+              "Staff/animations/cast/east/frame_006.png",
+              "Staff/animations/cast/east/frame_007.png"
+            ],
+            "north": [
+              "Staff/animations/cast/north/frame_000.png",
+              "Staff/animations/cast/north/frame_001.png",
+              "Staff/animations/cast/north/frame_002.png",
+              "Staff/animations/cast/north/frame_003.png",
+              "Staff/animations/cast/north/frame_004.png",
+              "Staff/animations/cast/north/frame_005.png",
+              "Staff/animations/cast/north/frame_006.png",
+              "Staff/animations/cast/north/frame_007.png"
+            ],
+            "south": [
+              "Staff/animations/cast/south/frame_000.png",
+              "Staff/animations/cast/south/frame_001.png",
+              "Staff/animations/cast/south/frame_002.png",
+              "Staff/animations/cast/south/frame_003.png",
+              "Staff/animations/cast/south/frame_004.png",
+              "Staff/animations/cast/south/frame_005.png",
+              "Staff/animations/cast/south/frame_006.png",
+              "Staff/animations/cast/south/frame_007.png"
+            ]
           }
         }
       }
     }
   ],
   "export_version": "3.1",
-  "export_date": "2026-10-06T09:33:28.966184"
+  "export_date": "2026-10-09T12:13:08.325524"
 }

@@ -5,7 +5,7 @@ import { annotateAtlas } from './atlas/gearAnchors.js';
 import { contactSheet, packAtlas } from './atlas/packAtlas.js';
 import { describeSecret, loadEnv } from './env.js';
 import { decodePng, readPng, writePng } from './image/rgba.js';
-import { alignToIdle, eraseRegions, removeForeignObjects, removeThinProtrusions, type EraseRule, type ThinOptions } from './normalize/cleanup.js';
+import { alignToIdle, eraseRegions, padToLargest, removeForeignObjects, removeThinProtrusions, type EraseRule, type ThinOptions } from './normalize/cleanup.js';
 import { flatten, mapFrames, normalizeCharacter, type AnimationFrames } from './normalize/PixelStyleNormalizer.js';
 import { applyPalette, buildPalette } from './normalize/palette.js';
 import { applyRecolor, type RecolorRule } from './normalize/recolor.js';
@@ -52,7 +52,8 @@ import { blit, createImage, crop, fill, opaqueBounds, scaleNearest, type RGBAIma
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');
 const CACHE = join(ROOT, '.asset-cache');
-const WEB_ASSETS = join(ROOT, 'apps/web/public/assets');
+// Funnel phục vụ thẳng `apps/web/public` → dựng THỬ thì trỏ biến này ra thư mục nháp, không thì người chơi thật thấy ngay bản dở.
+const WEB_ASSETS = process.env.AETHER_WEB_ASSETS ? resolve(process.env.AETHER_WEB_ASSETS) : join(ROOT, 'apps/web/public/assets');
 const REPORTS = join(ROOT, 'packages/asset-pipeline/reports');
 
 interface CharacterSpec {
@@ -70,6 +71,10 @@ interface CharacterSpec {
 		 * Khoá là animation của game (loại mọi tên) hoặc tên PixelLab (`"attack-sword": ["E"]` → E rơi về tên kế).
 		 */
 		reject?: Partial<Record<string, Direction[]>>;
+		/** Động tác = động tác khác phát NGƯỢC (vd `{ "revive": "death" }`: đứng dậy = gục quay ngược) — 0 lượt vẽ. */
+		reverse?: Partial<Record<AnimationName, AnimationName>>;
+		/** Khung bị LOẠI khi duyệt (PixelLab vẽ lạc): `{ "thrust": { "E": [2, 3] } }` — số thứ tự khung trong gói tải về. */
+		drop?: Partial<Record<AnimationName, Partial<Record<Direction, number[]>>>>;
 	};
 	sourceRef?: string;
 	prompt?: string;
@@ -93,7 +98,15 @@ interface CharacterSpec {
 	/** Ép mọi frame về một bảng màu chung `size` màu (ảnh sinh AI dùng 240–256 màu). */
 	paletteLock?: { size: number };
 	/** `weaponAnims`: động tác có vũ khí đã duyệt bằng mắt, kèm lý do (xem `QualityGateOptions.weaponAnims`). */
-	quality?: { allowForeign?: QualityGateOptions['allowForeign']; maxHeightDrift?: number; weaponAnims?: { animations: AnimationName[]; reason: string } };
+	quality?: {
+		allowForeign?: QualityGateOptions['allowForeign'];
+		maxHeightDrift?: number;
+		weaponAnims?: { animations: AnimationName[]; reason: string };
+		/** Ngưỡng lệch chiều cao RIÊNG cho động tác cố ý đổi dáng (ngồi thụp + lao, gục, nhảy) — chỉ cổng tầng 2 (động tác tuỳ chọn). */
+		driftAnims?: Partial<Record<AnimationName, number>>;
+		/** Tỉ lệ chiều cao bóng tối thiểu so với ô (mặc định 0,45) — quái nhỏ trong ô nới cho khung v3. */
+		minSilhouette?: number;
+	};
 	review?: VisualReview;
 	/** Bộ hướng của nhân vật (mặc định 8). */
 	directions?: Direction[];
@@ -133,8 +146,24 @@ async function loadRawFrames(spec: CharacterSpec): Promise<{ raw: AnimationFrame
 		const anims = Object.keys(spec.animations) as AnimationName[];
 		const src = new PixelLabSource(join(PIXELLAB_SOURCES, spec.identity.characterId));
 		const map = spec.pixellab?.animations ?? {};
+		const reverse = spec.pixellab?.reverse ?? {};
+		const raw = src.frames(Object.fromEntries(anims.filter((a) => !reverse[a]).map((a) => [a, map[a] ?? a])), spec.provisional ?? [], spec.pixellab?.mirrorWest, spec.pixellab?.reject, optional);
+		// Loại khung theo danh sách duyệt TRƯỚC khi lật phía tây / phát ngược — hướng tây là bản lật nên phải loại cùng số.
+		for (const [anim, byDir] of Object.entries(spec.pixellab?.drop ?? {}) as [AnimationName, Partial<Record<Direction, number[]>>][]) {
+			for (const [dir, idx] of Object.entries(byDir) as [Direction, number[]][]) {
+				const mirror = ({ E: 'W', SE: 'SW', NE: 'NW' } as Partial<Record<Direction, Direction>>)[dir];
+				for (const d of spec.pixellab?.mirrorWest && mirror ? [dir, mirror] : [dir]) {
+					const list = raw[anim]?.[d];
+					if (list) raw[anim]![d] = list.filter((_, i) => !idx.includes(i));
+				}
+			}
+		}
+		for (const [anim, from] of Object.entries(reverse) as [AnimationName, AnimationName][]) {
+			const dirs = raw[from];
+			if (dirs) raw[anim] = Object.fromEntries(Object.entries(dirs).map(([d, list]) => [d, [...(list ?? [])].reverse()]));
+		}
 		return {
-			raw: src.frames(Object.fromEntries(anims.map((a) => [a, map[a] ?? a])), spec.provisional ?? [], spec.pixellab?.mirrorWest, spec.pixellab?.reject, optional),
+			raw,
 			license: { name: 'PixelLab Terms of Service', url: 'https://pixellab.ai/termsofservice', commercialUse: true, attributionRequired: false },
 			source: `pixellab:${src.state.character.id}`,
 		};
@@ -173,6 +202,11 @@ async function buildCharacter(specPath: string): Promise<boolean> {
 		const r = removeThinProtrusions(pickAnims(raw, (a) => !keep.has(a)), spec.cleanup.removeThin);
 		raw = { ...r.frames, ...pickAnims(raw, (a) => keep.has(a)) };
 		console.log(`  gỡ vật cầm tay mảnh: xoá ${r.removedPixels} px (chừa: ${[...keep].join(', ') || 'không'})`);
+	}
+	const padded = padToLargest(raw);
+	if (padded.size) {
+		raw = padded.frames;
+		console.log(`  đệm mọi khung về ${padded.size.width}×${padded.size.height} (động tác v3 có canvas nới rộng)`);
 	}
 	if (spec.cleanup?.alignToIdle) {
 		const r = alignToIdle(raw);
@@ -284,6 +318,9 @@ function gateOptions(spec: CharacterSpec): QualityGateOptions {
 		canvas: spec.frameSize,
 		allowForeign: spec.quality?.allowForeign,
 		maxHeightDrift: spec.quality?.maxHeightDrift,
+		minSilhouette: spec.quality?.minSilhouette,
+		// Quái có hạt / khí bay quanh thân khai cả idle / walk ở đây (đã duyệt bằng mắt) — người chơi chỉ khai động tác vũ khí.
+		weaponAnims: spec.quality?.weaponAnims?.animations,
 		review: spec.review,
 		directions: spec.directions,
 		provisional: spec.provisional,
@@ -309,7 +346,8 @@ function gateOptional(id: string, frames: AnimationFrames, spec: CharacterSpec):
 			const r = runQualityGate(id, { idle: frames.idle ?? {}, [anim]: { [dir]: list } }, {
 				canvas: spec.frameSize,
 				allowForeign: spec.quality?.allowForeign,
-				maxHeightDrift: spec.quality?.maxHeightDrift,
+				maxHeightDrift: spec.quality?.driftAnims?.[anim] ?? spec.quality?.maxHeightDrift,
+				minSilhouette: spec.quality?.minSilhouette,
 				weaponAnims: spec.quality?.weaponAnims?.animations,
 				directions: [dir],
 				provisional: [],
@@ -397,14 +435,16 @@ interface RegistryEntry {
 const PL_DIR_NAMES = Object.values(PL_DIR);
 
 /** Lượt PixelLab ước tính cho MỘT hướng. v3 tính trên canvas sinh ra (hình nới ~1,375 lần mỗi chiều). */
-function animateCost(o: { template?: string; frames: number }, size: { width: number; height: number }): number {
+function animateCost(o: { template?: string; mode?: string; frames: number }, size: { width: number; height: number }): number {
 	if (o.template) return 1;
+	// pixminimax tính theo thời gian sinh: 64–96px ≈ 1 lượt mỗi 8 khung (bảng giá trong mô tả công cụ).
+	if (o.mode === 'pixminimax') return Math.max(1, Math.ceil(o.frames / 8));
 	return Math.max(1, Math.ceil((size.width * 1.375 * (size.height * 1.375) * o.frames) / 65536));
 }
 
 /**
- * `pixellab animate <id> <anim> (--template <mẫu> [--action "..."] [--freedom N] | --mode v3 --action "..." [--frames N])
- *   [--name <tên-PixelLab>] [--force] [--dry] [hướng…]`
+ * `pixellab animate <id> <anim> (--template <mẫu> [--action "..."] [--freedom N] | --mode v3|pixminimax --action "..." [--frames N])
+ *   [--name <tên-PixelLab>] [--together] [--force] [--dry] [hướng…]`
  * Vẽ động tác TỪNG hướng bằng đúng token sở hữu nhân vật (gói Free chạy 1 lệnh một lúc), chờ xong rồi gửi
  * hướng kế, cuối cùng tải lại gói. Mặc định `east south north` — phía tây lật gương, hướng chéo game lấy hướng kề.
  * Hướng đã có trong gói ĐÃ TẢI VỀ (đúng tên) thì bỏ qua — trừ khi `--force`: vẽ lại hướng xấu sau khi đã
@@ -417,7 +457,13 @@ async function animate(id: string | undefined, rest: string[], tokens: string[],
 	if (!id || !entry) throw new Error(`Chưa có ${id} trong sources/pixellab/registry.json`);
 	if (!anim) throw new Error('Thiếu tên động tác (vd cast, attack)');
 	// `--dry` thắng ở mọi vị trí, và cờ cần giá trị không nuốt token `--…`: `--action --dry` là LỖI, không phải lệnh thật.
-	const opt: { template?: string; mode?: string; action?: string; freedom?: number; frames: number; name: string; dry: boolean; force: boolean } = { frames: 6, name: anim, dry: flags.includes('--dry'), force: false };
+	const opt: { template?: string; mode?: string; action?: string; freedom?: number; frames: number; name: string; dry: boolean; force: boolean; together: boolean } = {
+		frames: 6,
+		name: anim,
+		dry: flags.includes('--dry'),
+		force: false,
+		together: false,
+	};
 	const dirs: string[] = [];
 	for (let i = 0; i < flags.length; i += 1) {
 		const f = flags[i]!;
@@ -428,6 +474,7 @@ async function animate(id: string | undefined, rest: string[], tokens: string[],
 		};
 		if (f === '--dry') continue;
 		else if (f === '--force') opt.force = true;
+		else if (f === '--together') opt.together = true;
 		else if (f === '--template') opt.template = value();
 		else if (f === '--mode') opt.mode = value();
 		else if (f === '--action') opt.action = value();
@@ -437,9 +484,11 @@ async function animate(id: string | undefined, rest: string[], tokens: string[],
 		else if (PL_DIR_NAMES.includes(f)) dirs.push(f);
 		else throw new Error(`Không hiểu "${f}" (hướng hợp lệ: ${PL_DIR_NAMES.join(' ')})`);
 	}
-	if (!opt.template && opt.mode !== 'v3') throw new Error('Cần --template <mẫu> hoặc --mode v3 --action "..."');
+	if (!opt.template && opt.mode !== 'v3' && opt.mode !== 'pixminimax') throw new Error('Cần --template <mẫu> hoặc --mode v3|pixminimax --action "..."');
 	// Number('8x') = NaN lọt mọi phép so sánh (NaN < 4 là false) → phải kiểm số nguyên tường minh.
 	if (opt.mode === 'v3' && (!opt.action || !Number.isInteger(opt.frames) || opt.frames < 4 || opt.frames > 16 || opt.frames % 2)) throw new Error('v3 cần --action và --frames chẵn 4–16');
+	// pixminimax: gói trả phí (Tier 1+), số khung bội của 4 tới 40.
+	if (opt.mode === 'pixminimax' && (!opt.action || !Number.isInteger(opt.frames) || opt.frames < 4 || opt.frames > 40 || opt.frames % 4)) throw new Error('pixminimax cần --action và --frames bội 4 (4–40)');
 	if (opt.freedom !== undefined && (!Number.isInteger(opt.freedom) || opt.freedom < 0 || opt.freedom > 900)) throw new Error('--freedom phải là số nguyên 0–900');
 	if (opt.force && !dirs.length) throw new Error('--force cần ghi rõ hướng vẽ lại (vd south) — không vẽ lại cả bộ mặc định');
 
@@ -458,7 +507,7 @@ async function animate(id: string | undefined, rest: string[], tokens: string[],
 		return false;
 	});
 	const cost = animateCost(opt, size);
-	const how = opt.template ? `template ${opt.template}` : `v3 ${opt.frames} frame`;
+	const how = opt.template ? `template ${opt.template}` : `${opt.mode} ${opt.frames} frame`;
 	console.log(`token #${entry.token} · ${id} · ${opt.name} (${how}, canvas ${size.width}×${size.height})`);
 	for (const d of todo) console.log(`  #${entry.token} → ${d.padEnd(10)} ≈ ${cost} lượt`);
 	console.log(`  Tổng ≈ ${cost * todo.length} lượt${opt.dry ? ' (--dry: không gửi gì)' : ''}`);
@@ -468,16 +517,17 @@ async function animate(id: string | undefined, rest: string[], tokens: string[],
 	if (!token) throw new Error(`Thiếu token #${entry.token} trong PIXELLAB_TOKENS`);
 	const mcp = new PixelLabMcp(token);
 	let group = entry.groups?.[opt.name] ?? (opt.name === 'walk' ? entry.walkGroup : undefined);
-	for (const d of todo) {
+	// `--together` (gói trả phí, nhiều ô lệnh): gửi mọi hướng trong MỘT lệnh rồi chờ một lần; gói Free thì từng hướng một.
+	for (const batch of opt.together ? [todo] : todo.map((d) => [d])) {
 		const text = await callWhenFree(mcp, 'animate_character', {
 			character_id: entry.uuid,
-			directions: [d],
+			directions: batch,
 			animation_name: opt.name,
 			...(group ? { animation_group_id: group } : {}),
 			...(opt.template
 				? { template_animation_id: opt.template, ...(opt.action ? { action_description: opt.action } : {}), ...(opt.freedom !== undefined ? { ai_freedom: opt.freedom } : {}) }
 				: // Bỏ frame tham chiếu (ảnh đứng) khỏi chuỗi: động tác một lần mà frame 0 đứng yên là chậm một nhịp.
-					{ mode: 'v3', action_description: opt.action, frame_count: opt.frames, keep_first_frame: false }),
+					{ mode: opt.mode, action_description: opt.action, frame_count: opt.frames, keep_first_frame: false }),
 		});
 		const created = /group: ([0-9a-f-]{36})/.exec(text)?.[1];
 		if (created && !group) {
@@ -485,7 +535,8 @@ async function animate(id: string | undefined, rest: string[], tokens: string[],
 			entry.groups = { ...entry.groups, [opt.name]: created };
 			writeRegistry(id, entry);
 		}
-		console.log(`  ${id} ${opt.name}/${d} → ${mcp.label}`);
+		const charged = /cost[^\n]*/i.exec(text)?.[0];
+		console.log(`  ${id} ${opt.name}/${batch.join(',')} → ${mcp.label}${charged ? ` · ${charged}` : ''}`);
 		await waitCharacter(mcp, entry.uuid);
 	}
 	const files = await downloadPixelLab(PIXELLAB_SOURCES, id, entry.uuid);
@@ -906,14 +957,18 @@ async function waitCharacter(mcp: PixelLabMcp, uuid: string): Promise<void> {
 	throw new Error(`[${mcp.label}] chờ nhân vật ${uuid} quá 2 giờ`);
 }
 
-/** Gói Free chỉ có 1 ô lệnh: lệnh trước chưa xong thì máy chủ từ chối ("job slots") → chờ rồi gửi lại. */
+/**
+ * Hết ô lệnh thì máy chủ từ chối → chờ rồi gửi lại. Gói Free (1 ô) báo "job slots"; gói trả phí báo "Maximum 10 concurrent
+ * background jobs" — thiếu mẫu này thì lệnh chạy hàng loạt bị bỏ ngang (đã dẫm 09/10/2026).
+ */
 async function callWhenFree(mcp: PixelLabMcp, tool: string, args: Record<string, unknown>): Promise<string> {
 	for (let attempt = 0; ; attempt += 1) {
 		try {
 			return await mcp.call(tool, args);
 		} catch (e) {
 			// Lệnh đang chiếm ô có thể không hiện trong list_jobs (animation xếp hàng) → chờ theo nhịp cố định.
-			if (attempt >= 40 || !/job slots/.test(String(e))) throw e;
+			// Gói trả phí chạy hàng loạt lệnh song song nên có thể chờ ô trống lâu — tối đa ~2 giờ.
+			if (attempt >= 240 || !/job slots|concurrent background jobs/i.test(String(e))) throw e;
 			if (attempt === 0) console.log(`  (${mcp.label} đang bận lệnh khác — chờ xong rồi gửi lại)`);
 			await sleep(30_000);
 		}
@@ -1165,6 +1220,12 @@ async function buildVfx(): Promise<void> {
 	const byPixelLab: string[] = [];
 	const legacy: string[] = [];
 	for (const def of VFX) {
+		// Vẽ sẵn nhưng game chưa dùng (tuyệt kỹ, chiêu rồng / boss của vùng chưa có map): để ngoài atlas — mọi người chơi đều
+		// tải tấm atlas này, và cạnh atlas phải ≤ 4096. Nối vào game thì bỏ cờ `later`.
+		if (def.later) {
+			console.log(`  … ${def.id}: chưa dùng trong game (later) — để ngoài atlas`);
+			continue;
+		}
 		const pl = loadPixelLabVfx(VFX_PIXELLAB_SOURCES, def);
 		let frames: RGBAImage[];
 		if (pl.status === 'ok') {

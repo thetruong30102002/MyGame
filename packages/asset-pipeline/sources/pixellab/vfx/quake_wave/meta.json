@@ -1,0 +1,32 @@
+{
+	"id": "quake_wave",
+	"kind": "burst",
+	"canvas": {
+		"w": 160,
+		"h": 160
+	},
+	"first": {
+		"prompt": "circular ring of cracked earth seen from directly above, brown dirt chunks and dust bursting outward, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "3d6c1090-19fe-4233-9489-15d12d1145a3",
+		"drawn": "first_drawn.png"
+	},
+	"action": "a shockwave ring bursts outward through the ground, cracks spread, dirt and rocks jump up, then the dust settles and fades away",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "e84701bc-38d4-4d9b-8aa7-e5290c6c72f0",
+	"createdAt": "2026-10-09T10:58:36.664Z",
+	"token": 1
+}

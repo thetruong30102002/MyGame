@@ -1,12 +1,12 @@
 {
 	"identity": {
 		"characterId": "player_hero_adult",
-		"hair": "silver_spiky",
-		"eyes": "blue",
+		"hair": "chestnut_messy",
+		"eyes": "amber",
 		"skin": "light",
-		"outfit": "navy_hooded_travel_coat_gold_trim",
-		"weapon": "none_weapon_layer",
-		"palette": "fantasy_blue_01"
+		"outfit": "starter_linen_tunic_leather_vest_green_scarf",
+		"weapon": "baked_in_sword_staff_states",
+		"palette": "starter_earth_01"
 	},
 	"displayName": "Nhân vật chính (16 tuổi, nam)",
 	"role": "player",
@@ -16,22 +16,20 @@
 			"idle": "idle",
 			"walk": "walk",
 			"attack": [
-				"attack-sword",
-				"attack-swing",
-				"attack-img"
-			],
-			"cast": [
-				"cast",
-				"cast-img"
+				"attack",
+				"attack-v3"
 			]
 		},
-		"mirrorWest": true
+		"mirrorWest": true,
+		"reverse": {
+			"revive": "death"
+		}
 	},
 	"frameSize": {
-		"width": 80,
-		"height": 88
+		"width": 112,
+		"height": 112
 	},
-	"baselineY": 84,
+	"baselineY": 100,
 	"animations": {
 		"idle": {
 			"fps": 6,
@@ -44,19 +42,166 @@
 			"maxFrames": 8
 		},
 		"attack": {
-			"fps": 17,
+			"fps": 16,
 			"minFrames": 4,
-			"maxFrames": 12,
+			"maxFrames": 16,
 			"optional": true,
 			"durationMs": 360,
+			"hitFrame": 3
+		},
+		"backslash": {
+			"fps": 16,
+			"minFrames": 4,
+			"maxFrames": 16,
+			"optional": true,
+			"durationMs": 360,
+			"hitFrame": 3
+		},
+		"thrust": {
+			"fps": 16,
+			"minFrames": 4,
+			"maxFrames": 16,
+			"optional": true,
+			"durationMs": 360,
+			"hitFrame": 4
+		},
+		"charge": {
+			"fps": 10,
+			"minFrames": 4,
+			"maxFrames": 16,
+			"optional": true
+		},
+		"smash": {
+			"fps": 14,
+			"minFrames": 4,
+			"maxFrames": 16,
+			"optional": true,
+			"hitFrame": 4
+		},
+		"lunge": {
+			"fps": 16,
+			"minFrames": 4,
+			"maxFrames": 16,
+			"optional": true,
+			"hitFrame": 3
+		},
+		"block": {
+			"fps": 8,
+			"minFrames": 4,
+			"maxFrames": 16,
+			"optional": true
+		},
+		"parry": {
+			"fps": 16,
+			"minFrames": 4,
+			"maxFrames": 16,
+			"optional": true,
 			"hitFrame": 2
 		},
-		"cast": {
+		"spin": {
+			"fps": 18,
+			"minFrames": 4,
+			"maxFrames": 16,
+			"optional": true
+		},
+		"flurry": {
 			"fps": 20,
 			"minFrames": 4,
-			"maxFrames": 12,
+			"maxFrames": 16,
+			"optional": true
+		},
+		"wave": {
+			"fps": 16,
+			"minFrames": 4,
+			"maxFrames": 16,
+			"optional": true,
+			"hitFrame": 3
+		},
+		"fling": {
+			"fps": 16,
+			"minFrames": 4,
+			"maxFrames": 16,
+			"optional": true,
+			"hitFrame": 3
+		},
+		"vanish": {
+			"fps": 16,
+			"minFrames": 4,
+			"maxFrames": 16,
+			"optional": true
+		},
+		"cast": {
+			"fps": 18,
+			"minFrames": 4,
+			"maxFrames": 16,
 			"optional": true,
 			"durationMs": 400
+		},
+		"throw": {
+			"fps": 16,
+			"minFrames": 4,
+			"maxFrames": 16,
+			"optional": true
+		},
+		"channel": {
+			"fps": 8,
+			"minFrames": 4,
+			"maxFrames": 16,
+			"optional": true
+		},
+		"push": {
+			"fps": 16,
+			"minFrames": 4,
+			"maxFrames": 16,
+			"optional": true
+		},
+		"skycall": {
+			"fps": 14,
+			"minFrames": 4,
+			"maxFrames": 16,
+			"optional": true
+		},
+		"stomp": {
+			"fps": 14,
+			"minFrames": 4,
+			"maxFrames": 16,
+			"optional": true
+		},
+		"ultimate": {
+			"fps": 12,
+			"minFrames": 4,
+			"maxFrames": 16,
+			"optional": true
+		},
+		"dodge": {
+			"fps": 16,
+			"minFrames": 4,
+			"maxFrames": 16,
+			"optional": true
+		},
+		"hit": {
+			"fps": 14,
+			"minFrames": 4,
+			"maxFrames": 16,
+			"optional": true
+		},
+		"death": {
+			"fps": 10,
+			"minFrames": 4,
+			"maxFrames": 16,
+			"optional": true
+		},
+		"revive": {
+			"fps": 10,
+			"minFrames": 4,
+			"maxFrames": 16,
+			"optional": true
+		},
+		"drink": {
+			"fps": 12,
+			"minFrames": 4,
+			"maxFrames": 16,
+			"optional": true
 		}
 	},
 	"cleanup": {
@@ -67,25 +212,51 @@
 		"weaponAnims": {
 			"animations": [
 				"attack",
-				"cast"
+				"backslash",
+				"thrust",
+				"charge",
+				"smash",
+				"lunge",
+				"block",
+				"parry",
+				"spin",
+				"flurry",
+				"wave",
+				"fling",
+				"vanish",
+				"cast",
+				"throw",
+				"channel",
+				"push",
+				"skycall",
+				"stomp",
+				"ultimate",
+				"drink"
 			],
-			"reason": "07/10/2026 duyệt bằng mắt từng khung: kiếm thép/trượng vẽ bằng animate_image (pixellab animimg) mang màu không có trên thân và lưỡi kiếm tách khỏi tay — là chủ ý, không phải vật lạ. Khung có tia phép PixelLab tự vẽ đã bỏ bằng pickExtra."
+			"reason": "09/10/2026: động tác vẽ trên PHIÊN BẢN cầm kiếm / trượng (create_character_state, gói trả phí) — bình thuốc đỏ lúc uống, kiếm thép, trượng gỗ đầu pha lê xanh là chủ ý, không phải vật lạ."
+		},
+		"driftAnims": {
+			"vanish": 0.35,
+			"push": 0.25,
+			"smash": 0.3,
+			"charge": 0.3,
+			"lunge": 0.3,
+			"dodge": 0.3,
+			"death": 0.9,
+			"revive": 0.9,
+			"hit": 0.3,
+			"ultimate": 0.3,
+			"stomp": 0.25,
+			"skycall": 0.3,
+			"spin": 0.25,
+			"flurry": 0.25
 		}
 	},
-	"provisional": [
-		"S",
-		"SW",
-		"W",
-		"NW",
-		"N",
-		"NE",
-		"E",
-		"SE"
-	],
-	"notes": "PixelLab Pro Flash (06/10/2026), ảnh mẫu phong cách = Lior bé (chép nét/bóng, không chép bảng màu). Tạo lại trên token #4 từ ảnh hướng S của bản đầu (khung đầu giữ nguyên). Tay không: vũ khí là lớp riêng. Idle tạm ảnh xoay tĩnh.",
+	"provisional": [],
+	"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1). Thiết kế người chơi mới thay bản tóc bạc (nay là NPC npc_silver_*). Thân mặc đồ tân thủ để giáp các bậc phủ lên (Mốc 3); tóc nâu trung tính để đổi màu bằng code. Động tác: v3 8–12 khung trên phiên bản Sword / Staff cùng nhóm (khung nới 108 → đệm + chuẩn hoá vào ô 112); revive = death phát ngược.",
 	"review": {
 		"status": "approved",
-		"date": "06/10/2026",
-		"notes": "Duyệt bằng mắt 8 hướng đứng + đi (đi thật 5 hướng S/SE/E/NE/N, phía tây lật gương): tóc bạc dựng, mắt xanh, áo khoác xanh than viền vàng, áo trong xanh nhạt, quần nâu, bao tay da nhất quán; tay không, không vật lạ."
+		"date": "09/10/2026",
+		"notes": "Duyệt bằng mắt từng động tác (E/S/N + lật gương tây): 25 động tác — 13 kiếm trên phiên bản Sword, 7 phép trên phiên bản Staff, lướt / trúng đòn / gục / uống bình trên thân tay không; revive = gục phát ngược. Kiếm thép, trượng gỗ đầu pha lê xanh liền tay suốt chuỗi khung; tóc, khăn xanh rêu, áo vải + gi-lê nhất quán. Khung lạ đã chấp nhận ghi ở quality.allowForeign."
 	}
 }

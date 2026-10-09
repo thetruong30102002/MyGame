@@ -1,0 +1,32 @@
+{
+	"id": "lake_ripple",
+	"kind": "burst",
+	"canvas": {
+		"w": 96,
+		"h": 96
+	},
+	"first": {
+		"prompt": "calm circular ripples on clear blue water seen from directly above, gentle light reflections, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "dd63f748-898d-4abf-ac57-d6c1c2c35931",
+		"drawn": "first_drawn.png"
+	},
+	"action": "ripples spread outward in calm rings, light reflections shimmer, then the water stills and fades",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "bd2bf9ca-cf4b-4313-af0a-962452bf58fb",
+	"createdAt": "2026-10-09T11:24:53.360Z",
+	"token": 1
+}

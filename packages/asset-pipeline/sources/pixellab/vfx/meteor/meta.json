@@ -1,0 +1,33 @@
+{
+	"id": "meteor",
+	"kind": "burst",
+	"canvas": {
+		"w": 160,
+		"h": 160
+	},
+	"first": {
+		"prompt": "blazing meteor of molten rock wrapped in orange and yellow flames streaking down diagonally from the top left toward the ground, long fiery trail, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "459f1fe5-f6c2-4727-8910-adb316c5f3c7"
+	},
+	"action": "the flaming meteor plunges down, slams into the ground and explodes into a huge fireball with flying rocks and embers, then smoke rises and fades",
+	"frameCount": 10,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png",
+		"frame_009.png",
+		"frame_010.png"
+	],
+	"animateJobId": "9b5d4d9f-aaa7-42e3-9948-205fdd7e8ded",
+	"createdAt": "2026-10-09T10:42:45.819Z",
+	"token": 1
+}

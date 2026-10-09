@@ -1,24 +1,4 @@
 {
-	"player_lior_child": {
-		"uuid": "bfde505a-9d0a-4fd3-8161-b15e18810210",
-		"token": 0,
-		"walkGroup": "d5b60105-a84b-4a04-9162-cdf0884c4c42"
-	},
-	"player_lior_child_f": {
-		"uuid": "9b616f75-23e0-493e-b49d-4ed0c6fd1738",
-		"token": 0,
-		"walkGroup": "8ec324b2-5cd6-4e4e-85a3-26069d6103c4"
-	},
-	"player_hero_adult": {
-		"uuid": "44d6bc45-7028-4687-84c7-c923a0939361",
-		"token": 4,
-		"walkGroup": "70087aa5-fefe-41f8-a58d-facfb3cf4640"
-	},
-	"player_hero_adult_f": {
-		"uuid": "3df2d528-15bf-46c0-89f7-bfb829cb3735",
-		"token": 4,
-		"walkGroup": "62f6cdb1-dc6c-4930-a439-64f9ab08f07c"
-	},
 	"npc_elin_001": {
 		"uuid": "56677596-54c7-4355-82cb-05bb58492f11",
 		"token": 1,
@@ -64,8 +44,520 @@
 		"token": 4,
 		"walkGroup": "541fff4f-2cce-4501-80ff-b2fb6bf67932"
 	},
-	"boss_lich_001": {
+	"player_hero_v2_m": {
+		"uuid": "2ad3d59f-4cc7-479f-8427-e7a53b698187",
+		"token": 1,
+		"groups": {
+			"walk": "3b38a005-32e2-4262-ae88-82d40820a555",
+			"idle": "1304e675-5eb8-4280-9746-65b601b6719d",
+			"dodge": "240832e4-2d56-44a3-bea6-41797511a064",
+			"death": "631a989b-b97d-42eb-895b-47c74bbcf9a4",
+			"hit": "07ff0471-bfb3-4dec-ba48-9ce2e1de6f98",
+			"drink": "28b16f61-0ed5-42df-9bbc-8e75e8d21534"
+		}
+	},
+	"player_hero_v2_f": {
+		"uuid": "d02b54ad-6644-42a8-9aaf-229c0f7afb9b",
+		"token": 1,
+		"groups": {
+			"walk": "c1a74501-a9fc-44b3-a2ef-aa792f266849",
+			"idle": "f519347c-3103-4c32-a8c5-5699740e59e2",
+			"dodge": "e027367a-ac65-48a4-a994-191b69d79c62",
+			"death": "617ab946-97b7-4ede-bcdb-66daa1d79aba",
+			"hit": "6d9a0bb0-ec2b-48bc-95cf-cf4931f08c76",
+			"drink": "f50aba31-cb50-43aa-bbf8-9eb717d8f990"
+		}
+	},
+	"player_child_v2_m": {
+		"uuid": "ab4386b7-41a1-4047-a9fa-140de3dd3143",
+		"token": 1,
+		"groups": {
+			"walk": "88dd029c-9ce1-47d7-b4df-ac695994dedb",
+			"idle": "c474d416-a754-4253-a74d-9b5ae87ff02c",
+			"death": "1d9f694c-f3e2-4894-8269-13c3f44618bd",
+			"drink": "844dcbb4-d5f3-4814-b5c3-4dd509c5eb31",
+			"hit": "739f80e8-37cf-4550-8690-61c93295f968"
+		}
+	},
+	"player_child_v2_f": {
+		"uuid": "4959f165-94f1-4566-9de2-8d9cee4326db",
+		"token": 1,
+		"groups": {
+			"walk": "0ffb4050-00ff-4410-b899-1cf6fb9558ce",
+			"idle": "7ee90cd7-4bdb-48c4-a74f-5a797145c869",
+			"hit": "b95e1f9e-bbe9-4ad5-83d4-c509e3254343",
+			"death": "b5240a27-f828-4f8b-8647-49cb0665338e",
+			"drink": "e9738db0-28ec-493c-af68-9ba37fbe7f4a"
+		}
+	},
+	"player_hero_v2_m_sword": {
+		"uuid": "019f9871-347f-4d6b-92a1-5486ccfcde64",
+		"token": 1,
+		"groups": {
+			"attack-v3": "c510a472-4080-4c0c-b7e2-588438f82af6",
+			"attack-pm": "2ed8c7c4-b331-4cbb-9dad-fc807a085d9a",
+			"attack": "cbd844c7-2b09-4e0e-8943-7787f046ce08",
+			"backslash": "339cb488-6326-47f5-ad2f-7a64f01aa492",
+			"thrust": "248e5c0f-8486-4fbd-8314-c11d593fcbdc",
+			"charge": "eb6828b6-4928-462e-9671-6d194df2b7bf",
+			"lunge": "674184b4-c80d-41b1-8557-586b54a0f9bf",
+			"block": "13e3c982-b554-42a2-b89f-068035602e22",
+			"smash": "37e7745f-5e97-4d31-93f7-76c26e1ac29c",
+			"parry": "726d83a3-9a1e-4a26-b00c-cfac7e47c680",
+			"spin": "8596fbd2-7835-40c3-8568-3d8ed3af36cd",
+			"wave": "ff82d37f-ffb3-457e-8409-cfd6c021fb26",
+			"flurry": "89319537-17c8-404a-bf9a-1448d9281eb6",
+			"fling": "f445ffc9-e8dc-4811-8e79-a80c3e1df350",
+			"vanish": "dd1393f6-19c2-4b0f-8df2-12dfaf9068e2"
+		}
+	},
+	"player_hero_v2_f_sword": {
+		"uuid": "607dba58-a029-4487-89fa-4d4d484fe78c",
+		"token": 1,
+		"groups": {
+			"backslash": "28126663-1f5f-4b1d-9f76-82e67ac8676e",
+			"thrust": "9a35f81d-395a-439a-a9ea-edaf01503681",
+			"attack": "3cce624d-ec62-48be-b292-fd9f3cc737a7",
+			"lunge": "5be9a6ba-2f80-4366-9dd1-068da0ade7c7",
+			"smash": "e2436f6f-dc6c-4319-9cc3-25902fb2b16b",
+			"charge": "d3009e71-d26b-4fc2-8382-77d15bb04620",
+			"spin": "552079e3-28bc-47c1-8c66-b78297ff9322",
+			"parry": "fcf4f089-89f6-4e1c-9a16-efdc30c920c3",
+			"block": "9ef29a6b-08f7-43f9-9ba7-d168ddaef30d",
+			"wave": "ca3666e4-6b5d-4d87-91aa-900c3c5b9623",
+			"flurry": "458cd933-011d-483d-b368-9a177fcb2754",
+			"fling": "65330db8-1a71-4788-8fa9-47a9c5f90119",
+			"vanish": "9f5a92dc-0277-4d44-99b1-f1f521d56b32"
+		}
+	},
+	"player_hero_v2_m_staff": {
+		"uuid": "6305c410-a5af-4cea-b911-123639b03544",
+		"token": 1,
+		"groups": {
+			"throw": "d4679975-9365-4bd6-8ee5-20c6bf97d351",
+			"cast": "8e85aed1-7f39-4d7e-9ec8-7eaa30b6046f",
+			"channel": "1eaacbc0-a7ed-4091-b895-be5f07f511e2",
+			"stomp": "3fdea69c-7863-4d2f-8bac-66c05b718029",
+			"skycall": "26b7b59f-70c0-460c-82d0-9be7c5db9f10",
+			"push": "8d9ddddf-3cac-4133-b625-cd546df310e1",
+			"ultimate": "14ddadd9-acd2-4cea-a67e-5c4aecba148e"
+		}
+	},
+	"player_hero_v2_f_staff": {
+		"uuid": "28390746-d592-4d0e-9448-ce5c78600d62",
+		"token": 1,
+		"groups": {
+			"throw": "2093b7c3-7ea8-4856-8d74-21ceeb88d942",
+			"channel": "9a083f4d-08dd-4aa1-a075-f0fec4541244",
+			"cast": "e76884cf-60aa-46b2-8023-fee72d7567e9",
+			"push": "59ee9791-1a50-43c6-9af8-764adcc411cb",
+			"stomp": "cf17ff89-bd74-43ed-ada9-441cbd793b97",
+			"ultimate": "ae8cc488-3b7e-442f-a09e-29eff764344f",
+			"skycall": "5df8ce9a-f38c-4538-bc62-da4faae15226"
+		}
+	},
+	"npc_silver_youth": {
+		"uuid": "44d6bc45-7028-4687-84c7-c923a0939361",
+		"token": 4,
+		"walkGroup": "70087aa5-fefe-41f8-a58d-facfb3cf4640"
+	},
+	"npc_silver_youth_f": {
+		"uuid": "3df2d528-15bf-46c0-89f7-bfb829cb3735",
+		"token": 4,
+		"walkGroup": "62f6cdb1-dc6c-4930-a439-64f9ab08f07c"
+	},
+	"npc_silver_child_f": {
+		"uuid": "9b616f75-23e0-493e-b49d-4ed0c6fd1738",
+		"token": 0,
+		"walkGroup": "8ec324b2-5cd6-4e4e-85a3-26069d6103c4"
+	},
+	"npc_silver_child": {
+		"uuid": "bfde505a-9d0a-4fd3-8161-b15e18810210",
+		"token": 0,
+		"walkGroup": "d5b60105-a84b-4a04-9162-cdf0884c4c42"
+	},
+	"player_hero_adult": {
+		"uuid": "2ad3d59f-4cc7-479f-8427-e7a53b698187",
+		"token": 1,
+		"note": "nhóm gồm Idle + Sword + Staff — tải một lần đủ mọi động tác; vẽ thêm thì animate trên id player_hero_v2_m(_sword|_staff)"
+	},
+	"player_hero_adult_f": {
+		"uuid": "d02b54ad-6644-42a8-9aaf-229c0f7afb9b",
+		"token": 1,
+		"note": "như player_hero_adult"
+	},
+	"player_child_v2_m_sword": {
+		"uuid": "3463028f-b9da-4307-8f8d-e855e6da7130",
+		"token": 1,
+		"groups": {
+			"backslash": "3babd0a5-f114-407d-8346-1e26d1830488",
+			"attack": "d6cf1929-4fbb-47fc-9ff8-1525c7ede012",
+			"thrust": "557c7227-0b64-429d-a48c-8037a370104a"
+		}
+	},
+	"player_child_v2_f_sword": {
+		"uuid": "1e2a645f-4b82-47af-801f-30e85662db54",
+		"token": 1,
+		"groups": {
+			"attack": "b89853b0-def2-4676-b7cf-a73a5d2719bb",
+			"backslash": "555dfb05-f7c5-4e16-b379-971ecb4b8770",
+			"thrust": "10d6de2a-a0b4-4472-88b0-cad3676951e0"
+		}
+	},
+	"player_child_v2_m_staff": {
+		"uuid": "a6bf56e2-513a-4bc4-b14a-711daf38bfe7",
+		"token": 1,
+		"groups": {
+			"throw": "eac914a0-4cc9-465a-8bd5-1b63d683dcab",
+			"cast": "f51734e6-a784-4fa0-99bb-254a35445d1e"
+		}
+	},
+	"player_child_v2_f_staff": {
+		"uuid": "a4d15e55-d60e-42cd-b748-67873ab0b197",
+		"token": 1,
+		"groups": {
+			"throw": "63e9c097-a538-4e22-84bb-51a021e66228",
+			"cast": "b6118558-5245-4952-9a62-9a783b19b46f"
+		}
+	},
+	"player_lior_child": {
+		"uuid": "ab4386b7-41a1-4047-a9fa-140de3dd3143",
+		"token": 1,
+		"note": "nhóm gồm Idle + Sword + Staff — vẽ thêm thì animate trên id player_child_v2_m(_sword|_staff)"
+	},
+	"player_lior_child_f": {
+		"uuid": "4959f165-94f1-4566-9de2-8d9cee4326db",
+		"token": 1,
+		"note": "như player_lior_child"
+	},
+	"mob_cave_bat_001": {
+		"uuid": "6982833c-beb0-4465-9a3d-65afa3fa7faa",
+		"token": 1,
+		"groups": {
+			"walk": "7d34d279-a628-45cc-bc3c-22bef937b3ae",
+			"idle": "14e22498-a746-49b7-8eae-9b9618026261",
+			"attack": "3f00acec-d3e4-44a8-ac30-cb7c15bdd7e0",
+			"death": "a0bfa7d0-fffc-4328-a2ff-47c490f150c0"
+		}
+	},
+	"mob_wind_wolf_001": {
+		"uuid": "e68f6023-3eb0-4bbd-969f-165a49ffda84",
+		"token": 1,
+		"groups": {
+			"walk": "45b38cb3-2e80-494c-b5eb-89cda7e439c5",
+			"idle": "5ac3bb61-2c3b-4ccd-918a-ff0fdd808aab",
+			"attack": "eb3ce132-78a6-4ace-985a-28585cc94af5",
+			"death": "ce5552b9-50e5-4835-b855-74a75e58226b"
+		}
+	},
+	"mob_poison_frog_001": {
+		"uuid": "748f03e1-269a-4a83-ac86-0763b996c4f5",
+		"token": 1,
+		"groups": {
+			"walk": "2f664e57-34a9-4c43-abc2-c15b456476db",
+			"idle": "a8e02387-aba9-4bcb-b192-68ba86fe04cf",
+			"attack": "af6b43b0-b809-413a-a0f2-a68b8de2c5d9",
+			"death": "9c11b4f4-eec9-4bc0-9ca4-208653ba40e7"
+		}
+	},
+	"mob_swamp_leech_001": {
+		"uuid": "6b1d02d7-e05b-414c-b8a2-d681724b7201",
+		"token": 1,
+		"groups": {
+			"walk": "1fadcfbd-da90-45e7-9310-380d59c25878",
+			"idle": "b7305c6e-fe22-4561-91b4-f589a307ac85",
+			"attack": "bf8cd033-805d-4f41-9692-dfb21b44eede",
+			"death": "d78e4fb3-cfdb-4d58-a8b9-272af406dd38"
+		}
+	},
+	"mob_glow_mushroom_001": {
+		"uuid": "3d714fef-7b38-45d7-b14d-8f72ae5d1890",
+		"token": 1,
+		"groups": {
+			"walk": "1894796e-0f1c-4b48-9f1d-fabf58dd8901",
+			"idle": "75748b25-cb2e-4e17-91b5-9b5014091147",
+			"attack": "7f56c064-5754-4af7-b0e0-aa3ca0cdaf53",
+			"death": "527cfba3-b081-4a2e-bd9a-69cb14bd2e9d"
+		}
+	},
+	"mob_water_snake_001": {
+		"uuid": "3cd52755-ffb5-4e8e-a839-44d4df8b9eed",
+		"token": 1,
+		"groups": {
+			"walk": "badf85e1-1ce4-41fb-96c0-f3eef76a99b7",
+			"idle": "13d13e59-a81d-429c-b5c9-d37c69d16251",
+			"attack": "5daaf799-3f58-4281-b7fb-969b2639d1ac",
+			"death": "11c4489a-dc61-4e3b-8c26-82d68485453a"
+		}
+	},
+	"mob_mummy_001": {
+		"uuid": "ed970ee9-9ec2-4a47-ac3c-cd633c033164",
+		"token": 1,
+		"groups": {
+			"walk": "2924d647-6184-4518-a835-de4ce0f257d1",
+			"idle": "3e93a5db-ccc9-4ee0-bc15-45d19f756615",
+			"attack": "d4f332dd-646b-4a39-8cb0-054530d9cdeb",
+			"death": "f5909bd2-e647-4ed6-a3aa-50a904babff0"
+		}
+	},
+	"mob_hawk_001": {
+		"uuid": "f551ee47-5690-45dd-9ab3-ca6f44b723c9",
+		"token": 1,
+		"groups": {
+			"walk": "d9d491bd-3e63-4acc-9fb0-2f2ac2824583",
+			"idle": "687f6b0a-9efb-46c0-a389-4f7195fc615d",
+			"attack": "e32da16b-7658-404f-89da-5d4d43dd6e9f",
+			"death": "444ecc3a-7e47-41a9-908e-cf653c92c39b"
+		}
+	},
+	"boss_stone_gargoyle_001": {
+		"uuid": "bfc66fc9-0d7b-4fed-8177-e4b61cc5c3df",
+		"token": 1,
+		"groups": {
+			"walk": "43d80082-5ac0-42fd-801a-b5883d7b7d06",
+			"idle": "a96c6aca-87b3-4738-8116-cede28803662",
+			"attack": "4321a956-f8b5-4bb2-918f-e80b939e4153",
+			"death": "8241de83-3ed9-4c26-907c-8fbbc6b396aa"
+		}
+	},
+	"boss_mud_hydra_001": {
+		"uuid": "7f1028b8-494a-473a-b54a-e12aed791502",
+		"token": 1,
+		"groups": {
+			"walk": "fde9f394-286d-4c45-a4c2-f39f6c105af5",
+			"idle": "dc0d72bf-4f69-432c-97d4-539c77804ec4",
+			"attack": "d0717d80-6cc7-477a-be9f-6b79ad880aa1",
+			"death": "3e50af5f-676c-4cba-a635-4842c504447d"
+		}
+	},
+	"mob_mud_merfolk_001": {
+		"uuid": "2bb93ab1-74d4-4ec6-bb5d-3f5674c92f78",
+		"token": 1,
+		"groups": {
+			"idle": "1d682177-a007-4209-9b18-45b2ae3dbe8c",
+			"attack": "51cd1a96-d084-408f-ae9e-ee5c9aaf1014",
+			"death": "9290a35f-3f09-436f-9bff-fb8b1f353060",
+			"walk": "6a7d256e-8304-47bd-9b53-8fce43a90851"
+		}
+	},
+	"mob_scorpion_001": {
+		"uuid": "ccbca16d-6dd9-4f97-9801-5cc30747acc3",
+		"token": 1,
+		"groups": {
+			"walk": "f63d2232-1e64-4ba8-85fd-ae6a2ea8ed39",
+			"idle": "4a78c1e8-d4d0-4592-a60e-bfc364093c89",
+			"attack": "f0ec026b-c4ef-48d5-8c91-6de20c8ae7ae",
+			"death": "365d3322-bc20-46fb-9e4f-4a7a3f2ddce8"
+		}
+	},
+	"mob_sand_snake_001": {
+		"uuid": "75f28ac9-1888-470c-b5f0-db9930817b05",
+		"token": 1,
+		"groups": {
+			"walk": "78ea082c-a137-43c3-9dee-60e166e94692",
+			"idle": "58350d4b-3d0b-42f1-91c8-d89cf66d8e62",
+			"attack": "47a6ec31-c201-415f-83c0-5bb4555b692e",
+			"death": "ae5e2551-0cf2-483b-a5b8-e7d314cdc188"
+		}
+	},
+	"mob_vulture_001": {
+		"uuid": "10bde2f7-fb67-4d8a-bd15-e5289112d8b3",
+		"token": 1,
+		"groups": {
+			"walk": "78007d74-40ce-4594-9bae-65a33a2ff013",
+			"idle": "f39894a6-8bc6-40c2-8093-11a5156d4126",
+			"attack": "2e8435fe-9cb2-47b4-b668-b24ef16374bf",
+			"death": "76282d33-9377-4d71-8d36-c47360336d0f"
+		}
+	},
+	"mob_sand_spirit_001": {
+		"uuid": "62d0edb5-e29e-4562-a1ac-8f315e45abf0",
+		"token": 1,
+		"groups": {
+			"walk": "2ba2611b-aa86-4a4d-81f4-5bcfe3c41845",
+			"idle": "b0d0cbe1-d088-4d08-ab67-f3ff68ff94df",
+			"attack": "a297ca44-1681-47a8-b8b2-4c22eef1d6b3",
+			"death": "e44ae594-3002-44ca-85a0-6ac079636ca3"
+		}
+	},
+	"mob_wind_fairy_001": {
+		"uuid": "ada88187-7b7e-484d-8d20-ec76f4e6c2ab",
+		"token": 1,
+		"groups": {
+			"walk": "bb79be8c-f829-4100-87f1-9ad597ef0e43",
+			"idle": "573373a1-50d3-40f7-8b10-1130e8e00f0f",
+			"attack": "38ab24a3-ca9d-42ac-9482-fb6b10b0e64e",
+			"death": "c04b4159-f17d-4746-8ee6-3cf4be7cfecf"
+		}
+	},
+	"mob_flying_rock_001": {
+		"uuid": "83fa45c6-0f07-4737-8b7a-136baea9de2c",
+		"token": 1,
+		"groups": {
+			"walk": "33300279-5e55-49c2-82bc-4f8f16aa4869",
+			"idle": "1115f7bd-777a-4dbd-a3db-2584dfad5305",
+			"attack": "959630dd-f054-4bb4-bf8d-a6bb13733ce8",
+			"death": "6ff8f6fb-631c-48ea-ade1-b89ed04c03b3"
+		}
+	},
+	"mob_wind_goblin_001": {
+		"uuid": "7002f1c8-6585-499c-99db-757261a34a55",
+		"token": 1,
+		"groups": {
+			"walk": "b328e9c3-da0c-493d-b75a-c4a3d3e26443",
+			"idle": "bcb9d723-911b-4013-be18-3aedd3f8fbc6",
+			"attack": "b2e8272d-1f4d-48f4-9d97-b0198a6dd854",
+			"death": "7cd09589-ca28-4f4d-bca2-a4043c88e09a"
+		}
+	},
+	"boss_mother_frog_001": {
+		"uuid": "972e95e6-a54e-4567-9d99-9bc765c3fc25",
+		"token": 1,
+		"groups": {
+			"walk": "193c9c8d-0e62-46f9-a7b4-f8c24c825fba",
+			"idle": "b617610f-1880-4614-b539-6228e3332037",
+			"attack": "4a3607de-d4af-4fdc-b187-d4a714bb4f27",
+			"death": "c00f7ad7-80fb-4a68-a33a-3d14a2dab5f9"
+		}
+	},
+	"boss_swamp_witch_001": {
+		"uuid": "ea6a5fe3-cf26-4c63-9b7d-2a610d19430d",
+		"token": 1,
+		"groups": {
+			"walk": "017f6c37-a244-418a-8f4f-e51c3ee44eab",
+			"idle": "e83e5730-f044-43c5-aa2a-df0603a5d977",
+			"attack": "dd6083ed-7674-4332-84ab-f4730b6996b0",
+			"death": "03642050-b28f-4652-afbb-5d7c4e377e11"
+		}
+	},
+	"boss_scorpion_queen_001": {
+		"uuid": "f80de827-c575-41d6-b786-210e36024404",
+		"token": 1,
+		"groups": {
+			"walk": "ae7202d2-e999-4273-96e4-8a1335977669",
+			"idle": "71f6a2bd-3e33-409a-a6ba-5b58339fed8a",
+			"attack": "f651b85b-a7e9-4b7d-bbcc-5c74ce309097",
+			"death": "adc1f072-43b4-4737-9e8a-c25648c34897"
+		}
+	},
+	"boss_pharaoh_001": {
+		"uuid": "1cbc1092-0f61-4c00-8940-a889755758e2",
+		"token": 1,
+		"groups": {
+			"walk": "dcc23dd3-7233-4bd4-ab14-0a167bcc228f",
+			"idle": "c0485d46-9967-42cc-918e-d4b75a8ae8b7",
+			"attack": "c1f795c4-d856-441a-bdc2-6b3075983e69",
+			"death": "81dab9fa-1c15-4b2f-8fd5-586ae4a33a6a"
+		}
+	},
+	"boss_sandworm_001": {
+		"uuid": "5f84fa7f-0b72-4993-8df6-9f62ff8716d9",
+		"token": 1,
+		"groups": {
+			"walk": "55edb230-8b3d-4858-9799-2e1506d04da2",
+			"idle": "3920a002-cf59-4267-a0fe-cecd3e1ea831",
+			"attack": "fe7704c2-214c-4f90-9183-979d8f1fd107",
+			"death": "9d47cfd5-330b-4679-a90f-3886b1325a9d"
+		}
+	},
+	"boss_storm_eagle_001": {
+		"uuid": "c00b8ed6-9d41-4833-b01e-1bc4959a6cc4",
+		"token": 1,
+		"groups": {
+			"walk": "479640f3-cb69-4372-8af1-1d704e7fdd35",
+			"idle": "2d55c088-ba21-4ee4-80e3-55e27d2e237d",
+			"attack": "b78c3c54-f88c-40ad-99f0-958e0cc80306",
+			"death": "73c453b6-cf55-4cab-a5c2-9550c6566f5e"
+		}
+	},
+	"boss_wind_mage_001": {
+		"uuid": "34669ca3-d3ae-4c79-81d3-ab41ec3b93a6",
+		"token": 1,
+		"groups": {
+			"walk": "f716f9c4-a48c-4e93-80ea-5402574e168f",
+			"idle": "f00b4c2c-fd8f-438a-bf21-944f49136704",
+			"attack": "9c75a7bc-9b97-4c8f-9b89-9f4243ce4273",
+			"death": "15a7711b-eeb9-455c-879f-c46528dde5a7"
+		}
+	},
+	"summon_mountain_god_001": {
+		"uuid": "9432c843-ae79-4af9-a19d-8e628479127a",
+		"token": 1,
+		"groups": {
+			"walk": "2346eeaa-01a7-46a4-a850-d1e6bba3d582",
+			"attack": "247c0cc2-644b-42e7-8d92-7597c97bfcbe",
+			"death": "d5669c45-5d6d-4ec9-a3c4-7e019f3788db",
+			"idle": "8817b9e3-08e0-47d4-a90f-e9a39ca1babd"
+		}
+	},
+	"mob_zombie_001": {
+		"uuid": "a9a297c3-0c45-4159-8928-d2613cccc719",
+		"token": 1,
+		"groups": {
+			"walk": "520bcf47-d769-4ca2-9a88-735f0bc28aa0",
+			"idle": "ae92ddfb-96dc-4322-84c6-c81176728469",
+			"attack": "c0eb1f5e-d3e2-438a-a225-f7f7acab3beb",
+			"death": "5b208a44-be77-416a-b922-6e97a610ef01"
+		}
+	},
+	"mob_gargoyle_001": {
+		"uuid": "b9e5b05d-b507-4fd3-b787-a78dba7436af",
+		"token": 1,
+		"groups": {
+			"walk": "a30dd670-573e-44c1-a2c1-44f763bd2df6",
+			"idle": "a3fe2af7-23f6-42dc-b45a-03678076e056",
+			"attack": "0ccf625b-c5d1-4822-b00e-73061bff099b",
+			"death": "2b19aabd-06d2-4ae2-bb6f-886b86be0213"
+		}
+	},
+	"dragon_wind_001_winged": {
+		"uuid": "217ed1f4-42dc-4d37-ac19-492198302869",
+		"token": 1,
+		"groups": {
+			"walk": "5092fa60-d1d2-48c0-bb5e-76a8a2fa761e"
+		},
+		"note": "09/10/2026 bỏ: có cánh, không phải rồng phương Đông (chủ dự án: mọi rồng thống nhất kiểu phương Đông)"
+	},
+	"boss_wind_drake_001_winged": {
+		"uuid": "07f8cbc4-8b50-473c-b4c0-2fb61f8338bd",
+		"token": 1,
+		"note": "09/10/2026 bỏ: có cánh, không phải rồng phương Đông (chủ dự án: mọi rồng thống nhất kiểu phương Đông)"
+	},
+	"dragon_wind_001": {
+		"uuid": "1098da52-64ee-4931-b3f0-51db086ed551",
+		"token": 1,
+		"note": "rồng phương Đông (không cánh) — chủ dự án 09/10/2026",
+		"groups": {
+			"walk": "887a6828-969d-48f8-a8d6-b6827aceded7",
+			"idle": "08a4bc4c-d250-4ae9-abc6-6728e387196c",
+			"attack": "8cc0915a-d30b-4f24-89d1-e8eceb668453",
+			"death": "1dd0a1b8-3244-40cf-8566-9230070ead3c"
+		}
+	},
+	"boss_wind_drake_001": {
+		"uuid": "30c8edcc-89a4-4302-8fae-d8459d134a44",
+		"token": 1,
+		"note": "rồng phương Đông (không cánh) — chủ dự án 09/10/2026",
+		"groups": {
+			"walk": "d0111274-5b90-4655-b26f-d620f4f9d2bb",
+			"idle": "1ce5ccea-beb9-4c3a-9683-e00312c6086e",
+			"attack": "a8420467-936a-4ec1-bd69-29929cfc5071",
+			"death": "ab1e61bd-6810-4fbc-941e-c1845c46da04"
+		}
+	},
+	"boss_lich_001_old": {
 		"uuid": "baab2dc2-6604-44a2-a3ed-ea377862a753",
-		"token": 14
+		"token": 14,
+		"note": "gói cũ (token #14) không tải được (HTTP 400, 09/10/2026) — vẽ lại bằng token trả phí"
+	},
+	"boss_lich_001": {
+		"uuid": "c8a804dc-2544-4ebd-8de3-1169d93a45c0",
+		"token": 1,
+		"groups": {
+			"walk": "57a052d0-1fd0-42e0-9968-8a7039a9012c",
+			"idle": "d8c5c9d5-7f1e-4f85-a15f-2c7dfc1b4a12",
+			"attack": "24600eee-c8d3-4b29-a7ff-9bc69d1d8845",
+			"death": "a8d42f63-edfe-4f2f-9b97-fc17f7cffe80"
+		}
 	}
 }

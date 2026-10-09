@@ -15,6 +15,8 @@ export interface VfxDef {
 	squashY?: number;
 	kind: 'burst' | 'loop' | 'still';
 	frames: number;
+	/** Đã vẽ nhưng game CHƯA dùng → không đóng vào atlas (atlas giữ ≤ 4096 và nhẹ cho mọi người chơi). Nối vào game thì bỏ. */
+	later?: true;
 }
 
 const E = (n: string): string => `effects/effects_particles_${n}.png`;
@@ -56,6 +58,77 @@ export const VFX: VfxDef[] = [
 	{ id: 'tornado', size: 160, kind: 'loop', frames: 8 },
 	{ id: 'meteor', size: 160, kind: 'burst', frames: 10 },
 	{ id: 'rock_spikes', size: 128, kind: 'burst', frames: 8 },
+	// Hiệu ứng riêng từng skill / nội tại / phản ứng (09/10/2026, gói trả phí) — chỉ có bản PixelLab.
+	{ id: 'rock_shot', size: 40, kind: 'loop', frames: 4 },
+	{ id: 'rock_burst', size: 72, kind: 'burst', frames: 8 },
+	{ id: 'fire_explosion', size: 128, kind: 'burst', frames: 10 },
+	{ id: 'tidal_wave', size: 128, kind: 'burst', frames: 8 },
+	{ id: 'wind_trail', size: 96, kind: 'burst', frames: 6 },
+	{ id: 'frost_field', size: 160, squashY: 0.55, kind: 'burst', frames: 8 },
+	{ id: 'quake_wave', size: 160, squashY: 0.55, kind: 'burst', frames: 8 },
+	{ id: 'heavy_slash', size: 128, kind: 'burst', frames: 6 },
+	{ id: 'pierce_slash', size: 128, kind: 'burst', frames: 6 },
+	{ id: 'water_guard', size: 96, squashY: 0.55, kind: 'loop', frames: 6 },
+	{ id: 'parry_flash', size: 64, kind: 'burst', frames: 6 },
+	{ id: 'shadow_smoke', size: 80, kind: 'burst', frames: 8 },
+	{ id: 'fire_slash', size: 128, kind: 'burst', frames: 8 },
+	{ id: 'water_dragon', size: 160, kind: 'burst', frames: 8 },
+	{ id: 'wind_blade_ring', size: 128, squashY: 0.6, kind: 'loop', frames: 6 },
+	{ id: 'ice_slash', size: 96, kind: 'burst', frames: 6 },
+	{ id: 'fire_wall', size: 128, kind: 'loop', frames: 6 },
+	{ id: 'wind_blade', size: 48, kind: 'loop', frames: 4 },
+	{ id: 'ice_dome', size: 96, kind: 'loop', frames: 6 },
+	{ id: 'stone_wall', size: 128, kind: 'burst', frames: 8 },
+	{ id: 'rockslide', size: 160, kind: 'burst', frames: 10 },
+	{ id: 'armor_shatter', size: 64, kind: 'burst', frames: 6 },
+	{ id: 'blade_wave', size: 64, kind: 'loop', frames: 4 },
+	{ id: 'whirlpool', size: 128, squashY: 0.55, kind: 'loop', frames: 8 },
+	{ id: 'flying_sword', size: 48, kind: 'loop', frames: 4 },
+	{ id: 'gold_aura', size: 96, kind: 'burst', frames: 8 },
+	{ id: 'red_aura', size: 96, kind: 'loop', frames: 6 },
+	{ id: 'lake_ripple', size: 96, squashY: 0.55, kind: 'burst', frames: 8 },
+	{ id: 'ember_burst', size: 96, kind: 'burst', frames: 8 },
+	{ id: 'heal_drops', size: 64, kind: 'burst', frames: 8 },
+	{ id: 'earth_aura', size: 96, squashY: 0.6, kind: 'burst', frames: 8 },
+	{ id: 'mud_splash', size: 96, kind: 'burst', frames: 8 },
+	{ id: 'lava_burst', size: 96, kind: 'burst', frames: 8 },
+	{ id: 'sandstorm', size: 128, kind: 'burst', frames: 8 },
+	{ id: 'ice_shatter', size: 96, kind: 'burst', frames: 8 },
+	// Chiêu boss vùng 1–4 (09/10/2026) — chỉ có bản PixelLab.
+	{ id: 'boss_hellfire', size: 160, kind: 'burst', frames: 10 },
+	{ id: 'boss_fire_wave', size: 160, kind: 'burst', frames: 8, later: true },
+	{ id: 'boss_curse_blast', size: 160, kind: 'burst', frames: 10 },
+	{ id: 'boss_bone_rise', size: 128, kind: 'burst', frames: 8, later: true },
+	{ id: 'boss_stone_slam', size: 128, kind: 'burst', frames: 8, later: true },
+	{ id: 'boss_toxic_pool', size: 128, kind: 'burst', frames: 8, later: true },
+	{ id: 'boss_hex', size: 128, kind: 'burst', frames: 8, later: true },
+	{ id: 'boss_mud_geyser', size: 160, kind: 'burst', frames: 10, later: true },
+	{ id: 'boss_venom_spray', size: 128, kind: 'burst', frames: 8, later: true },
+	{ id: 'boss_ankh_curse', size: 128, kind: 'burst', frames: 10, later: true },
+	{ id: 'boss_sand_eruption', size: 160, kind: 'burst', frames: 10, later: true },
+	{ id: 'boss_quicksand', size: 160, squashY: 0.55, kind: 'loop', frames: 8, later: true },
+	{ id: 'boss_storm_bolt', size: 128, kind: 'burst', frames: 8, later: true },
+	{ id: 'boss_wind_spiral', size: 128, kind: 'burst', frames: 8, later: true },
+	{ id: 'boss_wind_breath', size: 160, kind: 'burst', frames: 8, later: true },
+	{ id: 'boss_gale_storm', size: 160, kind: 'loop', frames: 8, later: true },
+	// Chiêu Phong Long (09/10/2026) — chỉ có bản PixelLab.
+	{ id: 'dragon_wind_landing', size: 192, kind: 'burst', frames: 10, later: true },
+	{ id: 'dragon_gale_push', size: 192, kind: 'burst', frames: 8, later: true },
+	{ id: 'dragon_wind_blades', size: 160, kind: 'burst', frames: 10, later: true },
+	// Tuyệt kỹ mốc 10 (09/10/2026) — vẽ trước, chưa dùng trong game (logic GĐ4).
+	{ id: 'ult_judgment', size: 192, kind: 'burst', frames: 10, later: true },
+	{ id: 'ult_still_lake', size: 160, kind: 'loop', frames: 8, later: true },
+	{ id: 'ult_shadow_burst', size: 128, kind: 'burst', frames: 8, later: true },
+	{ id: 'ult_phoenix', size: 192, kind: 'loop', frames: 8, later: true },
+	{ id: 'ult_tsunami', size: 192, kind: 'burst', frames: 10, later: true },
+	{ id: 'ult_tempest', size: 192, kind: 'loop', frames: 8, later: true },
+	{ id: 'ult_ice_age', size: 192, kind: 'burst', frames: 10, later: true },
+	// Vệt chém kiếm phủ phép từng hệ (09/10/2026) — `CombatSystem.slashFx`.
+	{ id: 'slash_fire', size: 128, kind: 'burst', frames: 8 },
+	{ id: 'slash_water', size: 128, kind: 'burst', frames: 8 },
+	{ id: 'slash_wind', size: 128, kind: 'burst', frames: 8 },
+	{ id: 'slash_ice', size: 128, kind: 'burst', frames: 8 },
+	{ id: 'slash_earth', size: 128, kind: 'burst', frames: 8 },
 ];
 
 /**

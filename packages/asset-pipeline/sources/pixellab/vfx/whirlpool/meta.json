@@ -1,0 +1,31 @@
+{
+	"id": "whirlpool",
+	"kind": "loop",
+	"canvas": {
+		"w": 128,
+		"h": 128
+	},
+	"first": {
+		"prompt": "swirling whirlpool of deep blue water seen from directly above, white foam spiral arms around a dark center, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "860f1794-4a3e-4d93-8847-576ad7adbda1"
+	},
+	"action": "the whirlpool spins around its center, foam spiral arms turning, spray flying off, seamless loop",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "1451db43-1098-4ae1-8333-aa9bbc6ca557",
+	"createdAt": "2026-10-09T11:18:32.838Z",
+	"token": 1
+}

@@ -1,0 +1,20 @@
+{
+	"description": "Full body chibi anime pixel art game sprite, 6-year-old little girl facing the viewer, standing straight, arms relaxed at sides, empty hands. Chestnut-brown hair in a high ponytail with side bangs, big warm amber eyes, cheerful face. Simple village kid clothes: off-white linen blouse, small laced brown vest, dark green scarf, belt, short dark brown skirt over black leggings, brown leather boots.",
+	"width": 64,
+	"height": 64,
+	"no_background": true,
+	"seed": 37,
+	"style_options": {
+		"color_palette": false,
+		"outline": true,
+		"detail": true,
+		"shading": true
+	},
+	"style_image": {
+		"path": "D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/player_lior_child_f/Idle/rotations/south.png",
+		"usage_description": "Copy ONLY the drawing style and the small-child chibi body proportions (very big head, short body), black pixel outline, shading and detail level. Do NOT copy the colors, hair or clothing."
+	},
+	"jobId": "5611fe0c-2820-4d4b-bf36-de6130c88779",
+	"token": 1,
+	"createdAt": "2026-10-09T09:48:42.045Z"
+}

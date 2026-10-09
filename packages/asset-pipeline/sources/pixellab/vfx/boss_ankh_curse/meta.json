@@ -1,0 +1,33 @@
+{
+	"id": "boss_ankh_curse",
+	"kind": "burst",
+	"canvas": {
+		"w": 128,
+		"h": 128
+	},
+	"first": {
+		"prompt": "a glowing turquoise ancient Egyptian ankh symbol rising over a swirl of golden sand, hieroglyph runes circling, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "9f22c08b-29e1-470d-a5e5-9456eeb32d0f"
+	},
+	"action": "the turquoise ankh flares with power, sand swirls up in a spiral and explodes outward with glowing hieroglyphs, then settles and fades",
+	"frameCount": 10,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png",
+		"frame_009.png",
+		"frame_010.png"
+	],
+	"animateJobId": "66e2a5ff-7891-4cc6-9334-ff41561b7441",
+	"createdAt": "2026-10-09T11:17:53.599Z",
+	"token": 1
+}

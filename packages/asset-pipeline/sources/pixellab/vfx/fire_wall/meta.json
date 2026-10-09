@@ -1,0 +1,29 @@
+{
+	"id": "fire_wall",
+	"kind": "loop",
+	"canvas": {
+		"w": 128,
+		"h": 128
+	},
+	"first": {
+		"prompt": "a wide wall of tall roaring flames standing in a horizontal row on the ground, side view, flames filling the lower part of the frame, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "f1d2fc4f-d2ba-443d-bf1c-8266c9014bbd"
+	},
+	"action": "the wall of flames roars and flickers, tongues of fire licking upward, embers rising, seamless loop",
+	"frameCount": 6,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png"
+	],
+	"animateJobId": "23e0eec6-2019-427c-b005-0e0eb1aebc5f",
+	"createdAt": "2026-10-09T11:11:28.412Z",
+	"token": 1
+}

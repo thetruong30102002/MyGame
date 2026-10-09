@@ -46,7 +46,12 @@ export interface QualityGateOptions {
 	 * tách khỏi bàn tay → miễn phép kiểm "vật lạ" và "liền khối" cho các animation này. Idle/walk vẫn kiểm đủ.
 	 */
 	weaponAnims?: readonly AnimationName[];
+	/** Tỉ lệ chiều cao bóng tối thiểu so với ô (mặc định 0,45) — ô nới rộng cho khung v3 thì quái nhỏ cần ngưỡng thấp hơn. */
+	minSilhouette?: number;
 }
+
+/** Động tác NẰM (gục, đứng dậy): bóng thấp là đúng — chỉ kiểm trần chiều cao, không kiểm sàn. */
+const LOW_POSE = new Set<AnimationName>(['death', 'revive']);
 
 /**
  * Cổng chất lượng — chạy SAU chuẩn hoá/dọn dẹp, trên đúng dữ liệu sẽ đóng vào atlas.
@@ -99,14 +104,16 @@ export function runQualityGate(characterId: string, frames: AnimationFrames, opt
 	const colorLimit = opts.maxColorsPerFrame ?? 128;
 	add('no-blur', 'Không nhoè: số màu/frame và tỉ lệ chuyển màu li ti', maxColors <= colorLimit && micro < 0.12, `tối đa ${maxColors} màu/frame (ngưỡng ${colorLimit}), micro-step ${(micro * 100).toFixed(1)}% (ngưỡng 12%)`);
 
-	const heights = list.flatMap(({ img }) => {
+	const sized = list.flatMap(({ anim, img }) => {
 		const b = opaqueBounds(img);
-		return b ? [b.y1 - b.y0] : [];
+		return b ? [{ h: b.y1 - b.y0, low: LOW_POSE.has(anim) }] : [];
 	});
-	const minH = Math.min(...heights);
-	const maxH = Math.max(...heights);
-	const ratioOk = minH >= opts.canvas.height * 0.45 && maxH <= opts.canvas.height * 0.95;
-	add('silhouette-size', 'Silhouette đủ lớn để đọc được (45–95% chiều cao canvas)', ratioOk, `cao ${minH}–${maxH}px trên ${opts.canvas.height}px`);
+	const standing = sized.filter((x) => !x.low);
+	const minH = Math.min(...(standing.length ? standing : sized).map((x) => x.h));
+	const maxH = Math.max(...sized.map((x) => x.h));
+	const floor = opts.minSilhouette ?? 0.45;
+	const ratioOk = (standing.length === 0 || minH >= opts.canvas.height * floor) && maxH <= opts.canvas.height * 0.95;
+	add('silhouette-size', `Silhouette đủ lớn để đọc được (${Math.round(floor * 100)}–95% chiều cao canvas)`, ratioOk, `cao ${minH}–${maxH}px trên ${opts.canvas.height}px`);
 
 	const fragments = list.filter(({ anim, img }) => !opts.weaponAnims?.includes(anim) && opaqueBounds(img) !== null && mainComponentShare(img) < 0.97);
 	add('silhouette-solid', 'Silhouette liền khối (không mảnh rời)', fragments.length === 0, fragments.length ? fragments.slice(0, 6).map((f) => `${f.anim}/${f.dir}#${f.i}`).join(', ') : 'mọi frame liền khối');

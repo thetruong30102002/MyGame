@@ -1,3 +1,4 @@
+import { MOVES } from '@aether/sim/moves';
 import type { Direction } from './assets/AssetManifest';
 
 /**
@@ -65,13 +66,13 @@ export const GEAR_ART: Record<string, GearArt> = {
 export const OUTFITS: Record<string, Partial<Record<string, string>>> = {};
 
 /**
- * Động tác mà atlas đã VẼ LIỀN vũ khí trong tay (attack của người lớn cầm kiếm, cast cầm trượng — xem atlas): lớp đồ
- * cầm tay ẩn trong lúc diễn, không thì hai thanh kiếm chồng nhau. Vẽ lại động tác tay không thì bỏ khỏi bảng.
+ * Động tác mà atlas đã VẼ LIỀN vũ khí trong tay: lớp đồ cầm tay ẩn trong lúc diễn, không thì hai thanh kiếm chồng nhau.
+ * Từ 09/10/2026 mọi động tác có thế cầm (`MoveDef.wield` kiếm / trượng) được vẽ trên phiên bản nhân vật CẦM SẴN vũ khí
+ * (PixelLab create_character_state) → ẩn hết; động tác thân (trúng đòn, gục, uống bình, lướt né) vẫn hiện lớp đồ.
  */
-export const BAKED_HELD: Partial<Record<string, readonly GearLayerSlot[]>> = {
-	attack: ['main', 'off'],
-	cast: ['main', 'off'],
-};
+export const BAKED_HELD: Partial<Record<string, readonly GearLayerSlot[]>> = Object.fromEntries(
+	MOVES.filter((m) => m.wield).map((m) => [m.id, ['main', 'off'] as const]),
+);
 
 /** Hướng khung hình → ảnh dùng + có lật gương không (hướng tây = lật hướng đông). */
 export const VIEW_OF: Record<Direction, { view: GearArtView; mirror: boolean }> = {

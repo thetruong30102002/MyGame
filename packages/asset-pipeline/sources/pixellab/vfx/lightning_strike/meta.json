@@ -1,0 +1,31 @@
+{
+	"id": "lightning_strike",
+	"kind": "burst",
+	"canvas": {
+		"w": 160,
+		"h": 160
+	},
+	"first": {
+		"prompt": "huge jagged lightning bolt striking down from the top of the frame onto the ground, blinding white core with electric blue and violet edges, crackling sparks at the impact, pixel art game effect, lineless, limited palette, isolated on a fully transparent background, no ground, no scenery, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "e04d3265-cef6-4edf-8fd0-11a8c79d658f"
+	},
+	"action": "a lightning bolt crashes down from above, flashes blindingly bright, branches crackle outward with electric sparks at the impact point, then flickers and fades away",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "e0a5615e-555f-49b9-a216-40a5d8ed66ce",
+	"createdAt": "2026-10-09T10:37:30.045Z",
+	"token": 1
+}

@@ -1,0 +1,8 @@
+{
+	"input": "sources/pixellab/mob_skeleton_archer_001/Idle/rotations/east.png",
+	"action": "draws the bow back fully and looses an arrow forward, then lowers the bow",
+	"frames": 8,
+	"jobId": "56dfc0fb-178a-45c5-a278-83af1b55495a",
+	"token": 1,
+	"createdAt": "2026-10-09T11:19:06.229Z"
+}

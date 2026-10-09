@@ -1,0 +1,31 @@
+{
+	"id": "boss_hex",
+	"kind": "burst",
+	"canvas": {
+		"w": 128,
+		"h": 128
+	},
+	"first": {
+		"prompt": "a glowing green witch hex rune circle with a ghostly skull in the middle, swirling green wisps, pixel art game effect, lineless, limited palette, isolated on a fully transparent background, no ground, no scenery, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "d8a10ca2-305c-489e-9b50-bb407fe01c09"
+	},
+	"action": "the hex rune flares, the ghostly skull screams and bursts into green flames and wisps, then fades away",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "24410605-a70c-4cd9-b3a1-f7b84140eb9f",
+	"createdAt": "2026-10-09T11:09:23.320Z",
+	"token": 1
+}

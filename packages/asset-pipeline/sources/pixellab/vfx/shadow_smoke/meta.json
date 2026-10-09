@@ -1,0 +1,32 @@
+{
+	"id": "shadow_smoke",
+	"kind": "burst",
+	"canvas": {
+		"w": 80,
+		"h": 80
+	},
+	"first": {
+		"prompt": "big billowing puff of dark purple-black shadow smoke with wispy curling tendrils, filling most of the frame, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "3ef91bd9-6e14-4634-b6cd-01eca11457a8",
+		"drawn": "first_drawn.png"
+	},
+	"action": "the shadow smoke puffs outward, wisps curl and swirl, then it dissolves and fades away",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "4dad9261-3c9c-4ad6-9920-4ba2562017a5",
+	"createdAt": "2026-10-09T11:42:22.096Z",
+	"token": 1
+}

@@ -1,0 +1,31 @@
+{
+	"id": "slash_water",
+	"kind": "burst",
+	"canvas": {
+		"w": 128,
+		"h": 128
+	},
+	"first": {
+		"prompt": "huge vertical crescent sword slash arc made of rushing clear blue water, convex side facing right, thick in the middle tapering to sharp tips, white foam crest and splashing droplets, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "255d9e62-e696-4901-b133-87fc96678fb4"
+	},
+	"action": "the water slash arc sweeps from top to bottom like a crashing wave, foam and droplets spray outward, then it splashes apart and fades",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "d432cb79-fbf0-4cf1-b033-dbe8a0069e68",
+	"createdAt": "2026-10-09T11:28:06.868Z",
+	"token": 1
+}

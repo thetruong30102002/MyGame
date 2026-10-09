@@ -1,0 +1,32 @@
+{
+	"id": "boss_venom_spray",
+	"kind": "burst",
+	"canvas": {
+		"w": 128,
+		"h": 128
+	},
+	"first": {
+		"prompt": "a spray of glowing purple venom droplets splashing on the ground, sizzling poison, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "e275eb19-24f7-47ca-8828-41b6c5ac3048",
+		"drawn": "first_drawn.png"
+	},
+	"action": "venom splashes outward in sizzling purple droplets and fumes, then the puddles evaporate and fade",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "f6d63b5f-172c-4fd0-ae30-aa2d25d251bf",
+	"createdAt": "2026-10-09T11:14:05.393Z",
+	"token": 1
+}

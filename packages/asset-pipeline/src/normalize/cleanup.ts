@@ -211,6 +211,33 @@ export function removeThinProtrusions(frames: AnimationFrames, opts: ThinOptions
  * làm phần đầu–thân (60% trên của ảnh đứng, ít đổi nhất khi bước) khớp nhất, lấy TRUNG VỊ cho cả chu kỳ
  * để giữ nguyên nhịp nhún của từng frame.
  */
+/**
+ * Đệm mọi khung về khổ LỚN NHẤT, đặt giữa: động tác v3 của PixelLab trả canvas nới rộng (80 → 108) với nhân vật ở giữa, còn
+ * ảnh xoay / đứng / đi giữ khổ gốc. Phải chạy TRƯỚC `alignToIdle` (so ảnh cần cùng khổ) và chuẩn hoá (lấy khổ một khung mẫu).
+ */
+export function padToLargest(frames: AnimationFrames): { frames: AnimationFrames; size: { width: number; height: number } | null } {
+	let width = 0;
+	let height = 0;
+	eachFrame(frames, (img) => {
+		width = Math.max(width, img.width);
+		height = Math.max(height, img.height);
+	});
+	let mixed = false;
+	eachFrame(frames, (img) => {
+		if (img.width !== width || img.height !== height) mixed = true;
+	});
+	if (!mixed) return { frames, size: null };
+	const out = mapFrames(frames, (img) => {
+		if (img.width === width && img.height === height) return img;
+		const big = { width, height, data: new Uint8Array(width * height * 4) };
+		const ox = Math.floor((width - img.width) / 2);
+		const oy = Math.floor((height - img.height) / 2);
+		for (let y = 0; y < img.height; y += 1) big.data.set(img.data.subarray(y * img.width * 4, (y + 1) * img.width * 4), ((y + oy) * width + ox) * 4);
+		return big;
+	});
+	return { frames: out, size: { width, height } };
+}
+
 export function alignToIdle(frames: AnimationFrames, maxShift = 6): { frames: AnimationFrames; shifts: Record<string, [number, number]> } {
 	const shifts: Record<string, [number, number]> = {};
 	const out: AnimationFrames = { ...frames };

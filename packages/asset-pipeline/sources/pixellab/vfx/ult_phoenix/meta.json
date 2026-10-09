@@ -1,0 +1,31 @@
+{
+	"id": "ult_phoenix",
+	"kind": "loop",
+	"canvas": {
+		"w": 192,
+		"h": 192
+	},
+	"first": {
+		"prompt": "a majestic phoenix made of living flames flying to the right with huge wings spread, long flowing tail of fire and embers trailing behind it on the left, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "097267de-ad79-4be2-a2d4-9df3df6ef01d"
+	},
+	"action": "the fire phoenix flaps its burning wings powerfully while flying forward, flames streaming and embers scattering, seamless loop",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "0f95f6de-82f2-4f13-a596-e935814b435f",
+	"createdAt": "2026-10-09T12:21:10.909Z",
+	"token": 1
+}

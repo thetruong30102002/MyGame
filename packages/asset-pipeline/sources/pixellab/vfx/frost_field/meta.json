@@ -1,0 +1,32 @@
+{
+	"id": "frost_field",
+	"kind": "burst",
+	"canvas": {
+		"w": 160,
+		"h": 160
+	},
+	"first": {
+		"prompt": "circular patch of frozen ground seen from directly above, cracked blue-white ice with sharp frost crystals around the rim, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "f583870e-2d22-4a68-bfc0-15e6d3001034",
+		"drawn": "first_drawn.png"
+	},
+	"action": "frost spreads outward across the ground, ice crystals sparkle and grow, then the ice cracks and melts away",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "8b3f99e2-fb00-4544-be37-38ebffa9a068",
+	"createdAt": "2026-10-09T10:54:42.286Z",
+	"token": 1
+}

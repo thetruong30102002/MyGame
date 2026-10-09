@@ -1,0 +1,8 @@
+{
+	"input": "sources/pixellab/mob_zombie_001/Idle/rotations/south.png",
+	"action": "lurches forward and claws down with both rotting arms, then straightens",
+	"frames": 8,
+	"jobId": "965221e3-283f-4d01-867d-34f7ad19117c",
+	"token": 1,
+	"createdAt": "2026-10-09T11:39:24.396Z"
+}

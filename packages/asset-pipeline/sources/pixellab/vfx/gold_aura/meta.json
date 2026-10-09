@@ -1,0 +1,31 @@
+{
+	"id": "gold_aura",
+	"kind": "burst",
+	"canvas": {
+		"w": 96,
+		"h": 96
+	},
+	"first": {
+		"prompt": "golden aura flames rising in a ring around an empty center, bright sparks, pixel art game effect, lineless, limited palette, isolated on a fully transparent background, no ground, no scenery, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "229b6edf-6ff4-4f44-aeb5-abc3f8ea8def"
+	},
+	"action": "the golden aura flares up powerfully, flames rising and sparks shooting up, then it settles and fades",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "e542c78d-4673-49e3-9cff-8edbe72c51df",
+	"createdAt": "2026-10-09T11:23:43.350Z",
+	"token": 1
+}

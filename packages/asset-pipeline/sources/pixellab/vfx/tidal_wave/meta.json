@@ -1,0 +1,31 @@
+{
+	"id": "tidal_wave",
+	"kind": "burst",
+	"canvas": {
+		"w": 128,
+		"h": 128
+	},
+	"first": {
+		"prompt": "a big curling blue ocean wave rushing to the right, white foam crest, widening like a cone toward the right, spray droplets, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "141ae10c-b8dc-4444-b34e-a2816feccdfb"
+	},
+	"action": "the wave surges forward to the right, curls over and crashes into foam and spray, then fades away",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "8f2a1665-8657-4295-b7f7-fec3881799f0",
+	"createdAt": "2026-10-09T10:51:25.672Z",
+	"token": 1
+}

@@ -1,0 +1,31 @@
+{
+	"id": "boss_gale_storm",
+	"kind": "loop",
+	"canvas": {
+		"w": 160,
+		"h": 160
+	},
+	"first": {
+		"prompt": "a huge swirling storm cyclone of jade-green wind and white clouds with debris and leaves orbiting, narrow at the ground and wide at the top, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "f71e8f26-162e-4e69-9bfc-d177e5f6dda0"
+	},
+	"action": "the storm cyclone spins violently, clouds and debris whirl around it, seamless loop",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "11a3da32-3e05-4672-a4bf-499a97286d6a",
+	"createdAt": "2026-10-09T11:27:17.453Z",
+	"token": 1
+}

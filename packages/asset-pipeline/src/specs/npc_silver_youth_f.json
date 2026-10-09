@@ -1,0 +1,91 @@
+{
+	"identity": {
+		"characterId": "npc_silver_youth_f",
+		"hair": "silver_high_side_ponytail",
+		"eyes": "blue",
+		"skin": "light",
+		"outfit": "navy_hooded_travel_coat_gold_trim",
+		"weapon": "none_weapon_layer",
+		"palette": "fantasy_blue_01"
+	},
+	"displayName": "NPC (hình người chơi cũ): Nhân vật chính (16 tuổi, nữ)",
+	"role": "npc",
+	"provider": "pixellab",
+	"pixellab": {
+		"animations": {
+			"idle": "idle",
+			"walk": "walk",
+			"attack": [
+				"attack-sword",
+				"attack-swing",
+				"attack-img"
+			],
+			"cast": [
+				"cast",
+				"cast-img"
+			]
+		},
+		"mirrorWest": true
+	},
+	"frameSize": {
+		"width": 80,
+		"height": 88
+	},
+	"baselineY": 84,
+	"animations": {
+		"idle": {
+			"fps": 6,
+			"minFrames": 4,
+			"maxFrames": 8
+		},
+		"walk": {
+			"fps": 10,
+			"minFrames": 6,
+			"maxFrames": 8
+		},
+		"attack": {
+			"fps": 17,
+			"minFrames": 4,
+			"maxFrames": 12,
+			"optional": true,
+			"durationMs": 360,
+			"hitFrame": 2
+		},
+		"cast": {
+			"fps": 20,
+			"minFrames": 4,
+			"maxFrames": 12,
+			"optional": true,
+			"durationMs": 400
+		}
+	},
+	"cleanup": {
+		"alignToIdle": true
+	},
+	"quality": {
+		"maxHeightDrift": 0.15,
+		"weaponAnims": {
+			"animations": [
+				"attack",
+				"cast"
+			],
+			"reason": "07/10/2026 duyệt bằng mắt từng khung: kiếm thép/trượng vẽ bằng animate_image (pixellab animimg) mang màu không có trên thân và lưỡi kiếm tách khỏi tay — là chủ ý, không phải vật lạ. Khung có tia phép PixelLab tự vẽ đã bỏ bằng pickExtra."
+		}
+	},
+	"provisional": [
+		"S",
+		"SW",
+		"W",
+		"NW",
+		"N",
+		"NE",
+		"E",
+		"SE"
+	],
+	"notes": "PixelLab Pro Flash (06/10/2026), ảnh mẫu phong cách = Lior bé (chép nét/bóng, không chép bảng màu). Tạo lại trên token #4 từ ảnh hướng S của bản đầu. Tay không: vũ khí là lớp riêng. Idle tạm ảnh xoay tĩnh. — 09/10/2026: thay bằng nhân vật người chơi mới (gói PixelLab trả phí), bản này chuyển thành NPC (id cũ player_hero_adult_f).",
+	"review": {
+		"status": "approved",
+		"date": "06/10/2026",
+		"notes": "Duyệt bằng mắt 8 hướng đứng + đi: tóc bạc buộc đuôi ngựa ruy băng xanh than, áo khoác xanh than viền vàng nhất quán; walk S/N VẼ LẠI 06/10 (bản đầu S có frame quay lưng, N mất đuôi tóc) — nay S nhìn thẳng cả 8 frame, N giữ đuôi tóc; phía tây lật gương. Tay không."
+	}
+}

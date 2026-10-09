@@ -1,0 +1,32 @@
+{
+	"id": "rock_burst",
+	"kind": "burst",
+	"canvas": {
+		"w": 72,
+		"h": 72
+	},
+	"first": {
+		"prompt": "brown rock just starting to shatter on impact, cracked stone core with a few chips, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "0b22802e-8e54-45a9-bb6d-2c03b266a574",
+		"drawn": "first_drawn.png"
+	},
+	"action": "the brown rock smashes apart into flying brown stone chunks, grey pebbles and a cloud of brown dust, then the dust settles and fades away, colors stay brown and grey",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "a69af242-6ba7-4816-8ae8-8e123d226340",
+	"createdAt": "2026-10-09T11:39:44.939Z",
+	"token": 1
+}

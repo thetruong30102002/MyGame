@@ -83,6 +83,8 @@ export const NPC_LORE: Record<string, string> = {
 	'Bia đá cổ': 'Tấm bia phủ rêu ở cổng nam Nghĩa địa Hoàng Hôn, khắc những dòng chữ đã mòn gần hết.',
 	'Cột dịch chuyển': 'Cột đá cổ ở trạm của mỗi vùng. Đã đặt chân tới trạm nào thì từ cột này dịch chuyển về đó được, trả ít xu.',
 	'Bia Danh Vọng': 'Tấm bia đá giữa quảng trường Thistlewood, khắc tên những người làm nên chuyện: săn quái, hạ boss, đi khắp các vùng, kết bạn. Đạt mục tiêu thì tới đây nhận kim cương.',
+	Sein: 'Lữ khách tóc bạc, anh của Sera. Thuở nhỏ theo đoàn buôn của cha ghé chợ Thistlewood; mười sáu tuổi tự đi khắp lục địa, mơ một ngày săn được rồng phương Đông.',
+	Sera: 'Lữ khách tóc bạc, em của Sein. Mang theo cuốn sổ vẽ, đi tới đâu ghi lại bản đồ tới đó — muốn tự tay vẽ trọn lục địa Aether.',
 };
 
 const NPC_PREFIX = 'npc:';

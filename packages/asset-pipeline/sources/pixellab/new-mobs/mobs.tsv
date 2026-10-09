@@ -1,0 +1,17 @@
+# id	khổ	template	vùng	tên	mô tả (khung đầu, nhìn thẳng về phía người xem)
+mob_cave_bat_001	64	custom	1	Dơi hang	a small cave bat facing the viewer, hovering with leathery dark purple-grey wings spread, big pointy ears, glowing red eyes, tiny fangs, fluffy grey belly
+mob_poison_frog_001	64	custom	2	Ếch độc	a fat poison dart frog sitting facing the viewer, bright toxic green skin with purple spots, bulging yellow eyes, puffed throat sac, dripping green slime
+mob_swamp_leech_001	64	custom	2	Đỉa đầm	a giant swamp leech rearing up facing the viewer, slimy dark olive-brown segmented body, round sucker mouth ringed with tiny teeth, glistening wet highlights
+mob_glow_mushroom_001	72	mannequin	2	Nấm phát quang	a walking glowing mushroom creature facing the viewer, wide teal cap with glowing cyan spots, pale bioluminescent stem body with short arms and legs, sleepy glowing eyes, spores floating around
+mob_water_snake_001	72	custom	2	Rắn nước	a coiled water snake raising its head facing the viewer, dark blue-green scales with pale yellow belly, fin-like frills on its head, flicking forked tongue, wet sheen
+mob_mud_merfolk_001	80	mannequin	2	Người cá bùn	a hunched swamp mud merfolk warrior facing the viewer, muddy green-brown scaly skin, fish head with fin crest, webbed hands holding a crude bone trident, seaweed draped on shoulders
+mob_scorpion_001	72	custom	3	Bọ cạp	a desert scorpion facing the viewer, glossy red-orange armored shell, two big pincers raised, segmented tail curled up over its back with a glowing stinger
+mob_sand_snake_001	72	custom	3	Rắn cát	a desert sand snake raising its hooded head facing the viewer, sandy yellow scales with dark brown diamond pattern, cobra hood, fangs bared, sand trickling off its body
+mob_mummy_001	80	mannequin	3	Xác ướp	a shambling mummy facing the viewer, wrapped in dirty yellowed bandages with loose trailing strips, one glowing orange eye showing, arms stretched forward, gold scarab amulet on chest
+mob_vulture_001	72	custom	3	Kền kền	a desert vulture standing facing the viewer with wings half spread, dark brown ragged feathers, bald pink wrinkled head and neck, white feather ruff collar, hooked beak
+mob_sand_spirit_001	80	custom	3	Linh hồn cát	a floating sand spirit facing the viewer, a ghostly humanoid upper body made of swirling golden sand that dissolves into a whirlwind tail below, glowing turquoise eyes, ancient gold ornaments floating around it
+mob_wind_wolf_001	80	dog	4	Sói gió	a lean wild wind wolf standing on four legs facing the viewer, pale grey-teal fur streaked with white, wispy wind swirls around its tail and ankles, glowing pale green eyes, bared fangs
+mob_hawk_001	72	custom	4	Chim ưng	a fierce highland hawk hovering facing the viewer with wings spread wide, brown and cream barred feathers, sharp yellow talons, hooked beak, piercing golden eyes
+mob_wind_fairy_001	64	mannequin	4	Tiên gió	a tiny mischievous wind fairy hovering facing the viewer, pale green skin, leaf-shaped translucent wings, white flowing hair like a breeze, dress made of leaves, swirling wind ribbons around her
+mob_flying_rock_001	80	custom	4	Đá bay	a floating rock golem chunk facing the viewer, a jagged grey-brown boulder with mossy top hovering in the air, glowing pale blue rune cracks forming an angry face, small pebbles orbiting around it
+mob_wind_goblin_001	72	mannequin	4	Yêu tinh gió	a small wind goblin facing the viewer, green skin, long pointed ears, mischievous grin, ragged sky-blue tunic and scarf flapping in the wind, holding a little pinwheel spear
