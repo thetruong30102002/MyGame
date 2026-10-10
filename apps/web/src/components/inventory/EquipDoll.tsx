@@ -5,7 +5,7 @@ import { EQUIP_SLOTS, SLOT_NAME, SLOT_SHORT, type EquipSlotId } from '@/game/equ
 import { SLOT_SILHOUETTE } from '@/game/items';
 import type { EquipSlotView, PlayerSpriteView } from '@/store/useGameStore';
 import { dollDoubleUnequips, type FirstClick } from './dollClick';
-import { ItemIcon, rarityClass, SlotSilhouette, type InvMode } from './invShared';
+import { CELL, ItemIcon, rarityClass, SlotSilhouette, type InvMode } from './invShared';
 import { PlayerFigure } from './PlayerFigure';
 
 const LEFT: EquipSlotId[] = ['head', 'body', 'hands', 'legs', 'feet'];
@@ -53,8 +53,9 @@ export interface DollProps {
 
 /**
  * Búp bê: tiêu đề "Trang bị · đang mặc n/10 ô", rồi 5 ô trái (theo thân người từ trên xuống) · sân khấu giấy lõm có nhân
- * vật · 5 ô phải. Ô đá đúng 58×57 (luật viền 9 mảnh: chỉ 58×57 hoặc 90×88), tên ô in DƯỚI ô; ô có đồ mang vòng màu độ
- * hiếm, ô trống mờ đi một chút. Sân khấu KHÔNG dùng vòng phép tối làm bục. Màn thấp: chỉ lưới, không tiêu đề.
+ * vật · 5 ô phải. Ô mềm 58×58 cùng kiểu ô túi (`CELL`, 10/10/2026 thay ô đá đinh tán), tên ô in DƯỚI ô; ô có đồ lòng kem phớt
+ * màu độ hiếm, ô trống là ô lõm. Sân khấu: giấy lõm bo tròn, không viền, KHÔNG dùng vòng phép tối làm bục. Màn thấp: chỉ
+ * lưới, không tiêu đề.
  */
 export function EquipDoll({ mode, equipment, targets, selected, sprite, name, sub, fine, onSlot, onSlotDouble, onHover }: DollProps) {
 	const stageRef = useRef<HTMLDivElement>(null);
@@ -95,11 +96,12 @@ export function EquipDoll({ mode, equipment, targets, selected, sprite, name, su
 					}}
 					onPointerEnter={(e) => e.pointerType === 'mouse' && onHover(it?.uid ?? null)}
 					onPointerLeave={(e) => e.pointerType === 'mouse' && onHover(null)}
-					className={`ui-slot relative h-[57px] w-[58px] shrink-0 cursor-pointer ${it ? rarityClass(it.rarity) : 'opacity-85'} ${target ? 'inv-target' : on ? 'outline-[3px] outline-offset-1 outline-ink-brown' : 'hover:brightness-110'}`}
+					data-full={it ? '' : undefined}
+					className={`${CELL} ${it ? rarityClass(it.rarity) : ''} ${target ? 'inv-target' : ''}`}
 				>
 					{it ? <ItemIcon item={it} /> : <SlotSilhouette src={SLOT_SILHOUETTE[slot]} fallback={null} />}
 				</button>
-				<span aria-hidden className={`w-full truncate text-center text-[11px] leading-[13px] font-extrabold ${target ? 'text-amber' : it ? 'text-ink-brown' : 'text-ink-faint'}`}>
+				<span aria-hidden className={`w-full truncate text-center text-[11px] leading-[13px] font-extrabold ${target ? 'text-amber' : it ? 'text-ink-soft' : 'text-ink-faint'}`}>
 					{caption(slot)}
 				</span>
 			</div>
@@ -117,7 +119,7 @@ export function EquipDoll({ mode, equipment, targets, selected, sprite, name, su
 		<div className={low ? 'grid grid-cols-[130px_minmax(0,1fr)_130px] gap-x-1.5' : 'grid grid-cols-[64px_minmax(0,1fr)_64px] gap-x-1.5 sm:gap-x-2.5'}>
 			{side(LEFT, 'Trang phục')}
 			{/* Lớp trong `absolute`: hình không bao giờ đẩy cao hàng lưới — cỡ sân khấu chỉ do hai cột ô quyết, nên phép đo không tự nuôi nhau. */}
-			<div ref={stageRef} className="relative min-w-0 overflow-hidden rounded-[10px] border-2 border-paper-line bg-[linear-gradient(var(--color-paper-sunk),#e3c48f)]">
+			<div ref={stageRef} className="relative min-w-0 overflow-hidden rounded-[16px] bg-[linear-gradient(#f6e6c6,#ecd5a8)] shadow-[inset_0_1px_4px_rgb(107_74_43/0.16)]">
 				<div className="absolute inset-0 flex flex-col items-center justify-end px-1 pt-2 pb-2">
 					<PlayerFigure sprite={sprite} maxW={stage.w} maxH={stage.h} reserve={low ? 12 : 52} kMax={low ? 2 : 4} alt={name} />
 					{!low && (

@@ -1,0 +1,17 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a cone-shaped fan of blue water spraying outward, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"init_image_strength": 140,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/water.png",
+	"init_image_path": "sources/pixellab/skill-icons-v2/init/tidal_wave.init.png",
+	"jobId": "3b0f0f77-c725-47b8-80cc-26183cf64f4b",
+	"token": 1,
+	"createdAt": "2026-10-09T19:23:59.010Z"
+}

@@ -103,6 +103,17 @@ Token #1 = Tier 2 (5.000 lượt / tháng, **10 job song song**). Số liệu v�
   base64 — đề bài dễ đọc ở `objects/<tên>/args.json` (`style_image_path`). Ảnh mẫu phải lọt khung vẽ (không co giãn): cây →
   `style/tree_ref.png`, công trình / đá → `objects/house_stone/house_stone.png`. Duyệt: cắt thử bằng `loadSheetCell`, xếp cạnh nhân
   vật + cây sồi trên nền màu biome rồi mới dựng map.
+  TẤM Ô RỘNG (C1_chapter1, 10/10/2026, 6 lượt): vẫn 192×192 nhưng lưới **2 cột × 3 hàng** (ô 96×64) cho món rộng (lều, thuyền) —
+  đề bài tả theo hàng ("top row left: …; top row right: …; middle row left: …") → đúng ô ngay lần đầu dù ảnh mẫu N1 là 3×3. Món
+  vẽ lấn đường lưới vài điểm (đỉnh mặt đồng hồ, ngọn lau) → đuôi `+<px>` nới ô khi cắt (`sheet:C1_chapter1#2@2x3+3`, `props/sheet.ts`);
+  đo trước bằng hộp bao từng cụm sau `keyMagenta`. Thêm đồ vật vào map cũ mà không xáo map: ép đặt (`force`, không gọi `rand`) ở
+  chỗ chưa có đồ vật, món rải ngẫu nhiên mới thì đặt SAU `sprinkleDecals` — so diff JSON: chỉ thêm, không mất món nào.
+- **Vẽ lại hướng hỏng của quái** (10/10/2026, 3 lượt): đánh N dơi hang (`attack2` — bản đầu quay mặt ra trước + vệt sáng xanh, ô
+  đỏ lạ): v3 8 khung `"seen from behind, facing away from the viewer the whole time, the face is never visible; …; nothing glows, no
+  flashes, no light, no particles, no effects"`; đi N Gargoyle Đá (`walk2` — mẫu `walking-8-frames` thường vẽ cánh ĐEN dù ảnh xoay
+  cánh đá xám): v3 8 khung `"walking in place seen from behind, … the folded wings stay pale grey granite like the rest of the body,
+  same colors as the reference in every frame"` (2 lượt ở canvas 128). Spec khai `attack: ["attack2", "attack"]` / `walk: ["walk2",
+  "walk"]`; tấm duyệt `reports/<id>/redo-review-*.png` (vạch chân đỏ, so bản cũ).
 
 ### Vũ khí vẽ liền thân — đứng / đi cầm kiếm, cầm trượng (10/10/2026)
 
@@ -126,6 +137,10 @@ tuổi cầm kiếm thép + trượng gỗ đầu pha lê xanh, bản bé cầm 
   ra sau giữa chừng → mô tả chặt: `"standing still (in side profile facing right the whole time, the head does not turn), idle
   breathing only, eyes open, holding …, the <vũ khí> stays still at the same angle in every frame, no swinging, no magic effects"`.
   CLI: `pixellab animate <id> <tên> --template <mẫu> --mode skeleton-v3 …`. Tấm duyệt: `reports/<id>/held-review-{idle,walk}.png`.
+  Vẽ lại sau (10/10/2026, 1 lượt / hướng, đạt ngay): đứng trượng S 16 tuổi nam (`idle-staff2` — bản đầu NHẮM MẮT cả 4 khung) thêm
+  `"eyes open the whole time and never closed"` + giữ trượng `"on the left side of the picture"` như bản cũ; đứng kiếm E bé trai
+  (`idle-sword2` — bản đầu cúi đầu, tóc che mặt) thêm `"the head stays upright looking straight ahead and never looks down"`. Tấm
+  `reports/<id>/redo-review-{idlestaff,idlesword}.png`; atlas 16 tuổi vẫn 1238 ô (thay khung, không thêm).
 - Atlas 16 tuổi thêm 192 khung → 1112 khung 112px: xếp kệ thường cao 4106px > 4096 → `packAtlas` bẻ chuỗi qua hàng khi hết cột
   (3992×3650); atlas vốn vừa thì xếp y như cũ. Thêm khung cũng làm đổi tỉ lệ "màu hiếm" của kiểm vật lạ (bé gái: bóng chân đi S#4
   bị gắn cờ → `quality.allowForeign`).
@@ -204,6 +219,24 @@ bóng chuyển sắc, mà hiện ở ô 16–32px phải thu ⅓ nên nát. Bộ
 - Ngân sách: 143 lượt token #1 (thử 18 + vẽ đủ 86 + vẽ lại 39). Còn chưa ưng (vẽ lại nếu dư lượt): `tidal_wave` (hình nón
   nước giống tam giác), `spare:aether:3` (hai quả cầu + tia lửa, rối — chưa dùng), `future:earth:10` (đống đá, nắm đấm khó nhận),
   `calm_stance` ≈ `future:sword:10:thuy_than` (cùng vòm ngọc), thanh mảnh ở ½ (`pierce_rush`, `ice_spire`, `earth_rend`).
+- **Vẽ lại lượt 2** (10/10/2026, 10 lượt): 7 icon, mỗi icon so cũ / mới ở 1× + ½ cạnh cả cột cây chiêu (`_duyet/ve-lai-2-so-sanh.png`,
+  `_duyet/ve-lai-2-cot.png`), bản cũ chuyển `_ung-vien/`, bảng khoá ghi `redrawn`. `tidal_wave` → bọt nước toé (khác 3 icon sóng
+  cuộn của cột Thuỷ); `future:earth:10` → đầu người đá mắt vàng (dễ đọc hơn nắm đấm ở 32px); `calm_stance` → khiên diều ngọc + kiếm
+  (vòm ngọc giờ chỉ còn ở Thiên Tĩnh); `whirlpool` → vòng nước ngọc dày + kiếm (vẫn bố cục "kiếm trong vòng" như `gale_blade_dance`
+  nhưng khác màu / độ đặc); `pierce_rush` → mũi lao thép đặc (img2img 200 từ vệt VFX `pierce_slash` kéo dày + kiếm t2 xoay 45° —
+  `init/pierce_rush.v3.init.png`); `ice_spire` → cụm pha lê băng (đúng VFX cột băng); `earth_rend` → kiếm cắm tảng đá nứt. Bẫy mới:
+  đề bài chữ "kiếm + vệt" ra thanh kiếm chéo y như `slash`; img2img từ ảnh KHÔNG viền (khung VFX) ra icon mất viền đen, lốm đốm
+  (whirlpool i140 — loại). Còn chưa ưng: `earth_rend` thân kiếm vẫn mảnh (tảng đá đỡ khối), `whirlpool` như trên, `spare:aether:3`.
+
+## Tranh lục địa — bản đồ tổng phím M (10/10/2026)
+
+- Nguồn `sources/pixellab/world/continent.png` (688×384, `create_image_pro` token #1, đề bài `continent.png.json`). Lệnh
+  `npm run assets:world` kiểm khổ 688×384 (khổ mà toạ độ 10 vùng ở `apps/web/src/game/world/worldAtlas.ts` đo trên đó) + ảnh kín,
+  rồi chép NGUYÊN file sang `assets/ui/world-continent.png` — không nén lại, web hiện 1× / 2× nét pixel.
+- Dựng thử: `AETHER_WEB_ASSETS=D:/nttrg/pixel/.aether-stage/assets npm run assets:world` — đường dẫn TUYỆT ĐỐI: lệnh chạy trong
+  thư mục gói pipeline nên đường dẫn tương đối ghi lạc sang `packages/asset-pipeline/.aether-stage`.
+- Vẽ lại tranh: giữ khổ + bố cục hướng (docs/ke-hoach-the-gioi.md mục 3.1), đo lại `CONTINENT_PLACES` trên ảnh lưới; test
+  `apps/web/tests/worldmap.test.ts` bắt lệch hướng / chồng vùng / ảnh web khác ảnh nguồn.
 
 ## Còn nợ / bước tiếp
 

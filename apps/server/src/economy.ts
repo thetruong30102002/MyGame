@@ -25,6 +25,9 @@ export interface EconomyHost {
  * Nguồn: quái dùng chung (máy chủ tự tính công — M3.2), quái riêng client báo (chỉ loại có trên map đang đứng, có nhịp trần; boss cốt
  * truyện một lần), nhiệm vụ (thưởng theo dữ liệu truyện dùng chung, mỗi nhiệm vụ một lần), quà điểm danh. Tiêu: tẩy điểm, dịch chuyển,
  * uống bình — client làm ngay, máy chủ trừ (thiếu thì bỏ qua, client nhận lại số thật).
+ *
+ * Trang quản trị (`AdminOps`) là cửa thứ hai: tính số mới từ `current` (bộ nhớ nếu đang online), ghi chung một transaction với kim cương /
+ * điểm thưởng / nhật ký (`Store.adminGrant` — cùng câu ghi + `eco_ledger` của `saveEco`), xong mới `adminApplied` vào bộ nhớ + gửi `eco`.
  */
 export class Economy {
 	private readonly eco = new Map<string, Eco>();
@@ -40,11 +43,11 @@ export class Economy {
 		private readonly now: () => number = Date.now,
 	) {}
 
-	/** Vừa vào game: nạp số của CSDL (bản lưu cũ client tự ghi được kẹp lại) và gửi cho client. */
+	/** Vừa vào game: nạp số của CSDL (bản lưu cũ client tự ghi được kẹp lại) và gửi cho client, kèm điểm tiềm năng thưởng. */
 	online(player: string): void {
 		const e = cleanEco(this.store.ecoOf(player));
 		this.eco.set(player, e);
-		this.host.send(player, { t: 'eco', ...e });
+		this.host.send(player, { t: 'eco', ...e, bonusPoints: this.store.bonusPoints(player) });
 	}
 
 	offline(player: string): void {
@@ -53,6 +56,22 @@ export class Economy {
 
 	get(player: string): Eco | undefined {
 		return this.eco.get(player);
+	}
+
+	/** Số đang chạy: bộ nhớ nếu nhân vật đang online (nguồn của mọi lần đổi kế tiếp), không thì CSDL (kẹp như lúc vào game). */
+	current(player: string): Eco {
+		return this.eco.get(player) ?? cleanEco(this.store.ecoOf(player));
+	}
+
+	/**
+	 * Trang quản trị vừa ghi xong (`Store.adminGrant` — một transaction cùng kim cương, điểm thưởng, nhật ký): nhân vật ĐANG ONLINE nhận
+	 * số mới vào bộ nhớ (không thì lần đổi kế — hạ quái, uống bình — ghi đè bằng số cũ) + tin `eco` ngay, kèm điểm tiềm năng thưởng và
+	 * lý do (`gain.reason = 'admin'`). Offline thì thôi: lần vào game sau đọc từ CSDL.
+	 */
+	adminApplied(player: string, next: Eco, gain: EcoGain, bonusPoints: number): void {
+		if (!this.eco.has(player)) return;
+		this.eco.set(player, next);
+		this.host.send(player, { t: 'eco', ...next, gain, bonusPoints });
 	}
 
 	/**

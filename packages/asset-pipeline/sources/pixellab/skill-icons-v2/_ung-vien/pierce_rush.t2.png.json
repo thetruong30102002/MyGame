@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a broad steel sword thrusting to the right inside a big white arrow-shaped speed streak, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/sword.png",
+	"jobId": "2998c87c-d838-4117-b3b2-f6ff57aa91dd",
+	"token": 1,
+	"createdAt": "2026-10-10T02:16:21.511Z"
+}

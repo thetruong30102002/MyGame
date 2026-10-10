@@ -12,7 +12,9 @@ lại (đồ hoạ PixelLab). Xong thì tự deploy.
 - Logic thuần: `apps/web/src/game/combat/talents.ts` (cây `TREE`, giá `TIER_COST`, `tiersFrom`, `addTier`,
   `depthBonus`, `aetherScale`, `reactionBonus`, `passiveEffects` + `PASSIVE`, phủ phép `canEnchant`, thanh 10 ô
   `defaultLoadout`/`normalizeLoadout`/`placeSkill`/`assignSlot`).
-- Điểm giữ `pointsForLevel`; cấp tối đa thiết kế 40 = 47 điểm (`MAX_LEVEL`, chưa chặn cấp trong game). Điểm cộng vào
+- Điểm giữ `pointsForLevel`; cấp tối đa thiết kế 40 = 47 điểm (`MAX_LEVEL`, chưa chặn cấp trong game). Từ 10/10/2026 có thêm
+  **điểm tiềm năng thưởng** do trang quản trị cộng (`progress.bonusPoints`, máy chủ giữ): tổng điểm = `talentPoints(cấp, thưởng)` —
+  mọi chỗ tính điểm (`unspent` / `addTier` nhận thêm `bonus`, `StoryDirector.bonusPoints`) phải cộng, quên là nạp lại bị cắt mốc. Điểm cộng vào
   **nhánh** (Kiếm · Hoả · Thuỷ · Phong · Băng · Thổ), 10 mốc; giá mốc 2→10: 1·2·2·3·3·4·4·5·5. Mở nhánh: GĐ1 = mốc 1 miễn
   phí; **từ 10/10/2026 mở nhánh chỉ là được phép học — mốc 1 nguyên tố (phép đầu) tốn 1 điểm, Kiếm giữ mốc 1 miễn phí**
   (`docs/ke-hoach-nguyen-to.md` mục 7 "Mốc 1 nguyên tố học bằng điểm").
@@ -62,7 +64,7 @@ gradient xanh tím cũ:
 | Lớp | Dùng cho |
 | --- | --- |
 | `.ui-frame` | cửa sổ/bảng lớn (bảng nhân vật, bản đồ lớn, thẻ đăng nhập, hộp thoại) — viền gỗ 18px góc vàng |
-| `.ui-slot` | ô skill, ô vật phẩm, ô chân dung — viền đá 13px |
+| `.ui-slot` | ô skill, ô vật phẩm cửa hàng, ô chân dung — viền đá 13px (kho đồ dùng ô mềm `.inv-cell` từ 10/10/2026 — mục cuối) |
 | `.ui-btn` | nút chính (gỗ, chữ giấy da) — cao tối thiểu 39px |
 | `.ui-banner` | dải tiêu đề cuộn giấy (chữ nâu mực, font display) |
 | `.ui-panel` | khung nhẹ viền 1px cho chỗ chật (toast, chip, thanh nhỏ) — đã đổi sang tông gỗ + vàng cũ |
@@ -106,3 +108,22 @@ Chủ dự án: "khối giao diện chưa hợp lý, thư viện phải là mộ
 - Cài đặt: nút cao 44px trên điện thoại.
 - Đã kiểm bằng trình duyệt: máy tính 1280×720; điện thoại dọc 375×812, 360×740; xoay ngang 740×360 (màn chọn nhân vật, HUD, bảng
   Hành trang đủ 6 thẻ, cây + tấm chi tiết, Thư viện mục lục / trang, Kho đồ, Bạn bè, Cài đặt, bản đồ lớn).
+
+## Giao diện MỀM cho kho đồ (10/10/2026)
+
+Chủ dự án: "kho đồ vẫn AI quá, cần làm mềm mại hơn — không cần dùng PixelLab vẽ nữa". Làm bằng CSS (không vẽ art mới; icon
+vật phẩm PixelLab giữ nguyên, hiện 1×):
+
+- **Kho đồ bỏ ô đá đinh tán** `.ui-slot` (vẫn dùng ở HUD / thanh kỹ năng / cửa hàng / chân dung): ô búp bê, ô túi, ô ở thẻ chi
+  tiết cùng một kiểu `.inv-cell` 58×58 — giấy lõm bo 10px, viền 1px nâu sữa (`--color-line-soft`), ô có đồ lòng kem. Độ hiếm:
+  viền mảnh + lòng ô phớt màu bậc + vệt màu 3px ở đáy ô (`inv-r-*`); bỏ vòng màu 2px và viền 1px chói quanh icon. Đang chọn:
+  viền + vòng hổ phách mờ; ô đích trên búp bê: vòng hổ phách "thở"; món hợp ô trống: viền nét đứt; rê chuột: nhấc 1px.
+- Thẻ kem `.inv-card` (bảng chỉ số, thẻ món), khay `.inv-well`, nút chính `.inv-btn` (hổ phách — thay nút gỗ `.ui-btn` trong kho
+  đồ), thanh sức chứa `.inv-meter`, nhãn phớt màu `softTag()` (`invShared.tsx`). Khối CSS ở cuối `globals.css`.
+- **Dùng chung cả game**: `.ui-chip` viền 1px nâu sữa, bo 12px, bóng mờ nhẹ, đang bật nền mật ong; `.ui-tabs` / `.ui-tab` thành
+  rãnh giấy lõm + thẻ đang mở là viên kem nổi nhẹ (bảng Hành trang, ô đăng nhập); vòng focus bàn phím màu hổ phách thay vòng
+  đen-trắng. Đây là ngoại lệ có chủ ý của luật "chỉ bóng cứng, không blur".
+- CÒN nguyên kiểu cũ (làm tiếp nếu chủ dự án muốn cả cửa sổ cùng mềm): khung gỗ cửa sổ `.ui-frame` (dùng chung mọi cửa sổ),
+  chân dung đá + thanh máu viền đen ở thẻ Nhân vật, toast nâu đậm, nút gỗ `.ui-btn` ở các thẻ / cửa sổ khác.
+- Kiểm: phòng thử `/lab/inventory?demo=1` (`&isel=<id>` chọn món trong túi, `&islot=<ô>` bấm ô búp bê) ở 1280×860, 390×844,
+  320×640, 844×390 + mọi thẻ của bảng Hành trang; nhấp đúp mặc / tháo chạy đúng.

@@ -22,7 +22,8 @@ npm run dev                                     # http://localhost:3100  (/lab =
 npm run assets:character -- player_mage_001     # dựng lại 1 nhân vật từ spec
 npm run assets:map                              # dựng gói vùng Human Kingdom (đồ vật + map)
 npm run assets:pixler -- quota                  # quy trình sinh nhân vật Pixler nhiều ngày
-cd apps/server && npx tsx src/grant.ts "<tên>" 10   # quản trị: cộng kim cương (số âm = trừ, bỏ số = xem ví)
+cd apps/server && npx tsx src/admin.ts add <tài khoản>   # quản trị: cấp quyền vào trang /admin (xem mục Quản trị)
+cd apps/server && npx tsx src/grant.ts "<tên>" 10   # lệnh cũ: cộng kim cương (số âm = trừ, bỏ số = xem ví)
 ```
 
 | Phím | Tác dụng |
@@ -46,6 +47,37 @@ cd apps/server && npx tsx src/grant.ts "<tên>" 10   # quản trị: cộng kim 
   bên phải, nút **Nói / Nhặt** khi đứng cạnh NPC hay vật phẩm. **Chạm vào bản đồ** = bắn đòn cơ bản về chỗ chạm.
   Không có chuột thì đòn bắn tự ngắm mục tiêu gần nhất. Khung thoại: chạm để qua.
 - Bảng Dev ẩn trên điện thoại cho đỡ chật; thêm `?dev` vào URL để hiện lại.
+
+### Quản trị: trang `/admin` (cộng tiền, điểm cho nhân vật)
+
+Trang web `/admin` (bản Funnel: `https://admin.tail024813.ts.net/admin`; web thử: `http://localhost:3102/admin`) — KHÔNG có lối vào
+từ menu game, chỉ vào bằng đường dẫn. Dùng chung phiên đăng nhập của game (đã vào game thì mở là dùng; chưa thì đăng nhập ngay ở
+trang). Tìm nhân vật theo tên nhân vật / tên tài khoản → thẻ số hiện tại (xu, kim cương, bình hồi phục, cấp + EXP, điểm tiềm năng
+thưởng, đang online?) → cộng / trừ từng loại, đặt cấp, lý do BẮT BUỘC → hộp xác nhận tóm tắt trước → sau → kết quả + nhật ký.
+
+- **Cấp quyền** theo TÀI KHOẢN — mặc định không ai có quyền; có hiệu lực ngay, không cần khởi động lại máy chủ:
+
+  ```bash
+  cd apps/server
+  npx tsx src/admin.ts add <tài khoản>       # cấp quyền (tên đăng nhập, không phải tên nhân vật)
+  npx tsx src/admin.ts remove <tài khoản>    # thu quyền
+  npx tsx src/admin.ts list                  # ai đang có quyền
+  # CSDL thử: thêm AETHER_DB=data/test.db (mặc định là CSDL THẬT data/aether.db)
+  ```
+
+- **Biên độ mỗi lần**: xu ±1.000.000 · kim cương ±100.000 · bình ±999 · EXP ±10.000.000 · điểm tiềm năng ±200 · đặt cấp 1–100
+  (EXP về 0, đặt trước rồi mới cộng EXP). Không bao giờ âm: trừ quá số đang có thì về 0. Chặn dồn dập: 120 lời gọi / phút mỗi địa
+  chỉ, 30 lần cộng / phút mỗi tài khoản quản trị.
+- **Người đang online nhận ngay** (số vào bộ nhớ kinh tế của máy chủ + tin `eco` / `wallet`; game báo "Quản trị: <lý do>"); offline
+  thì thấy ở lần vào game sau. Trừ EXP lùi theo tổng EXP (có thể xuống cấp).
+- **Điểm tiềm năng thưởng** do máy chủ giữ (`progress.bonusPoints`) — cộng vào điểm theo cấp ở bảng Tiềm năng, không theo trần cấp
+  40; bản lưu của client không ghi đè được. Trừ điểm thưởng đã tiêu thì game tự hạ mốc cho vừa.
+- **Nhật ký**: mỗi trường đổi một dòng ở bảng `admin_log` (quản trị, nhân vật, trường, trước → sau, lý do, lúc) — xem cuối trang
+  `/admin`; kèm dòng ở `eco_ledger` / `diamond_ledger` với lý do `admin:<tài khoản quản trị>:<lý do>`.
+- API (cùng kiểu xác thực `Authorization: Bearer <token>`, nhận cả `/game/api/...`): `GET /api/admin/me`, `GET /api/admin/characters?q=`,
+  `POST /api/admin/grant`, `GET /api/admin/log?limit=` — chưa đăng nhập 401, không có quyền 403.
+- **Triển khai lần đầu**: sao lưu `apps/server/data/aether.db` (máy chủ tự thêm bảng `admins` + `admin_log` lúc khởi động), khởi
+  động lại máy chủ game + `build:funnel` / `start:funnel`, rồi cấp quyền bằng lệnh trên (CSDL thật).
 
 ### Chia sẻ ra internet qua Tailscale Funnel
 
@@ -123,7 +155,7 @@ Phản ứng nguyên tố: **Thuỷ** vào mục tiêu đang cháy → *Hơi Nư
 | 9 Inventory | ◐ mới có xu + bình hồi phục; túi đồ/trang bị chưa làm |
 | 10 Quest | ✔ Chương 0: 4 nhiệm vụ + lời tựa + kết chương, lưu/tải `localStorage` |
 | 11 Online | ◐ M1 xong: đăng nhập, tạo nhân vật nam/nữ (thay Lior trong truyện), thấy nhau, chat, lưu trên máy chủ. Kế hoạch: [`docs/online-va-build.md`](docs/online-va-build.md) |
-| Kim cương | ◐ K1: ví ở máy chủ + nhật ký, điểm danh mỗi ngày, Bia Danh Vọng (thành tựu), quầy kim cương của Bram bán bình EXP / chiến đấu, icon lịch mở cửa sổ điểm danh. Chưa nạp tiền thật — [`docs/ke-hoach-kim-cuong.md`](docs/ke-hoach-kim-cuong.md) |
+| Kim cương | ◐ K1: ví ở máy chủ + nhật ký, điểm danh mỗi ngày, Bia Danh Vọng (thành tựu), quầy kim cương của Bram bán bình EXP / chiến đấu, icon lịch mở cửa sổ điểm danh, trang quản trị `/admin` (cộng tiền / điểm + nhật ký). Chưa nạp tiền thật — [`docs/ke-hoach-kim-cuong.md`](docs/ke-hoach-kim-cuong.md) |
 | 12–13 | chưa làm (tối ưu asset, mobile) |
 
 **Bắt đầu đọc / làm tiếp (người hay agent): [`docs/the-gioi-aether.md`](docs/the-gioi-aether.md)** — mục Bàn giao (trạng thái, việc

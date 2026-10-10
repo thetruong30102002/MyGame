@@ -19,6 +19,7 @@
     "assets:map": "npm run map -w @aether/asset-pipeline",
     "assets:vfx": "npm run vfx -w @aether/asset-pipeline",
     "assets:ui": "npm run ui -w @aether/asset-pipeline",
+    "assets:world": "npm run world -w @aether/asset-pipeline",
     "assets:skill-icons": "npm run skill-icons -w @aether/asset-pipeline"
   }
 }

@@ -1,6 +1,6 @@
 {
 	"tool": "create_image_pixflux",
-	"description": "one tall jagged ice pillar rising from the ground, simple chunky game icon",
+	"description": "a cluster of thick jagged ice crystal spikes bursting up from the ground, the middle one tallest, simple chunky game icon",
 	"width": 32,
 	"height": 32,
 	"no_background": true,
@@ -9,7 +9,7 @@
 	"detail": "low detail",
 	"seed": 4242,
 	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/ice.png",
-	"jobId": "f797a7f6-904b-42ac-b509-60c2d9e8e8d7",
+	"jobId": "eeed9972-be53-4532-b7ad-ab52d086f0f5",
 	"token": 1,
-	"createdAt": "2026-10-09T19:19:08.019Z"
+	"createdAt": "2026-10-10T02:16:42.976Z"
 }

@@ -70,7 +70,7 @@
 			"id": "anatomy",
 			"label": "Duyệt bằng mắt: giải phẫu, vũ khí/trang phục/tóc không đổi giữa frame",
 			"status": "pass",
-			"detail": "10/10/2026: Duyệt bằng mắt contact sheet đứng / đi 8 hướng + đánh / gục S-E-N để nạp vào Hang Gargoyle (thiết kế 12 map vùng 1). LOẠI attack/N: dơi quay mặt ra trước + vệt sáng xanh và ô đỏ lạ ở khung 2–3 (lỗi PixelLab) — đánh hướng bắc không có động tác, chờ vẽ lại. Còn lại đạt. Dùng dơi cho Hang vẫn CHỜ CHỦ DỰ ÁN DUYỆT (thiết kế: không duyệt thì Hang dùng mob_gargoyle_001)."
+			"detail": "10/10/2026: Duyệt bằng mắt contact sheet đứng / đi 8 hướng + đánh / gục S-E-N để nạp vào Hang Gargoyle (thiết kế 12 map vùng 1). LOẠI attack/N: dơi quay mặt ra trước + vệt sáng xanh và ô đỏ lạ ở khung 2–3 (lỗi PixelLab) — đánh hướng bắc không có động tác, chờ vẽ lại. Còn lại đạt. Dùng dơi cho Hang vẫn CHỜ CHỦ DỰ ÁN DUYỆT (thiết kế: không duyệt thì Hang dùng mob_gargoyle_001). | 10/10/2026 (vẽ lại, 1 lượt token #1): đánh hướng bắc = `attack2` N — v3 8 khung mô tả chặt (\"seen from behind, facing away from the viewer the whole time, the face is never visible; swoops forward and bites, then flaps back… nothing glows, no flashes… no effects\"): nhìn từ sau suốt chuỗi, không lộ mặt, không vệt sáng; duyệt tấm `reports/mob_cave_bat_001/redo-review-attack.png` (vạch chân đỏ) — đạt, bỏ `reject.attack N`."
 		}
 	],
 	"stats": {
@@ -82,6 +82,13 @@
 		{
 			"animation": "attack",
 			"direction": "S",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "attack",
+			"direction": "N",
 			"frames": 8,
 			"passed": true,
 			"failed": []

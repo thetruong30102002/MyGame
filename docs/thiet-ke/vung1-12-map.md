@@ -510,6 +510,15 @@ Tổng 16 id.
 > `R1_ruins`, `B1_bonehills` (6 lượt / tấm, ảnh mẫu N1, đúng thứ tự ô đã khai) + 5 món `objects/tree_dead`, `tree_pine_dry`, `crypt`,
 > `cliff_rock`, `ruin_arch` (6 lượt / món, đề bài `objects/<món>/args.json`). Dựng lại map vùng 1 không phải sửa code; Nghĩa địa,
 > Đồi Xương, Vách, Mộ Vô Danh, Luỹ, Hẻm Cửa Sông hết trống. Bản thử `.aether-stage/assets`, chờ lên game. Còn tuỳ chọn: tấm C1_chapter1.
+>
+> **Cập nhật 10/10/2026 — tấm C1_chapter1 ĐÃ VẼ** (6 lượt token #1, đề bài `sheets/C1_chapter1.png.json`): 192×192 lưới **2 cột × 3
+> hàng** (ô rộng 96×64 cho lều / thuyền) thay vì 3×2 — 6 id khai ở `humanKingdom.ts`: `small_hut` (lều gỗ 81×43), `rowboat` (đi xuyên,
+> nằm trên nước), `brass_meter`, `beehive`, `reed_clump` (đi xuyên), `mooring_post`. Đặt: cỗ máy đo ngay `brass_meter_spot` (Gian Đá
+> Ghi Tên); lều ở góc đông vườn bà goá (giữa hàng chậu cây và ghế / xe cút kít); thuyền neo trên mặt nước cạnh đầu Bến sông + cọc
+> buộc ở góc bến; lau sậy rải sát mép nước Bãi Bồi (9) và bờ tây Hẻm Cửa Sông (8) — rải SAU decal; BA thùng ong ở bãi trống phía
+> tây nhà Ashvale (Thistlewood, trên sân sau), ép đặt sau mọi món cũ. Diff JSON 12 map: chỉ THÊM 23 đồ vật (town 3, riverflats 11,
+> rivergate 8, nameless 1, gargoyle_cave 1), không mất món nào, địa điểm / khu quái / lối / địa hình / decal / world.json không đổi.
+> Ảnh xem trước: `packages/asset-pipeline/reports/map-preview/c1-*.png`.
 
 - BẮT BUỘC: 0 lượt PixelLab mới cho cả 12 map.
 - ĐÃ VẼ, chỉ cần nạp (0 lượt):
@@ -521,7 +530,7 @@ Tổng 16 id.
 - 5 đồ vật lẻ tree_dead, crypt, tree_pine_dry, cliff_rock, ruin_arch: CHƯA có đề bài và chưa vào hàng đợi. Cần thêm vào queue.sh: Pro Flash nhìn chính diện, ảnh mẫu tree_oak_front / N1, khoảng 4–6 lượt mỗi món.
 - Atlas hiện chỉ có 36 món, nên Nghĩa địa / Đồi Xương / Vách gần như trống.
 - Map mới phụ thuộc bộ này: Mộ Vô Danh (G1, tree_dead) và Luỹ Hiệp Sĩ (R1, B1, ruin_arch, tree_pine_dry) dựng ở ĐỢT 2. Hẻm Cửa Sông và khe hang ở Vách đẹp hơn khi có cliff_rock / ruin_arch / R1, nhưng dựng được ngay.
-- TUỲ CHỌN (không bắt buộc): MỘT tấm Pro Flash 'C1_chapter1', lưới 3×2, ảnh mẫu N1, khoảng 6–8 lượt cả tấm. Gồm:
+- TUỲ CHỌN (không bắt buộc): MỘT tấm Pro Flash 'C1_chapter1', lưới 3×2, ảnh mẫu N1, khoảng 6–8 lượt cả tấm. (ĐÃ VẼ 10/10/2026, lưới 2×3 ô rộng, 6 lượt — xem cập nhật đầu mục.) Gồm:
 - brass_meter: cỗ máy đo Aether bằng đồng cắm xuống đất, kim và bánh răng, ám khói. Đặt ở Gian Đá Ghi Tên.
 - beehive: thùng ong nhà Ashvale, cho cảnh 'kiểm ba thùng ong' của Chương 1.
 - small_hut: lều gỗ nhỏ của bà goá ở Mộ Vô Danh, để khỏi dùng lại nhà độc bản của thị trấn.
@@ -596,4 +605,4 @@ Câu đầu hé lộ đã có người tới trước, tức người dùng cỗ
 - Một hình dùng ở 2–3 cấp nên người chơi khó phân biệt bầy mạnh với bầy yếu; nhãn 'Cấp N' là bắt buộc. Nấm cấp 5–6 ở Vết Rạn có thể trông như quái tân thủ. Lý do truyện là nấm nhiễm sợi đỏ; không dùng bản đổi màu (luật dự án). Thư viện vẫn một trang mỗi loại.
 - Tải máy chủ: quái dùng chung tăng khoảng 120 con (Bãi Bồi 8, Vết Rạn 26, Mộ Vô Danh 26, Luỹ 18, Hang 20 + boss, Hẻm 22). Sổ quái chỉ dựng map khi có người vào, nhưng vẫn nên đo khi đông người.
 - Vùng 2 chưa có map nên lối Hẻm → swamp/hub báo 'đang xây dựng'. Đó là hành vi đúng, nhưng người cấp 10 đã hạ Quỷ vương sẽ chạm trần nội dung ở đây. Hướng ra vùng 2 (tây nam qua Hẻm) khác bản phác thảo cũ đặt ở Đá Phong Ấn, cần chủ dự án duyệt.
-- Mộ Vô Danh có NPC dân thường (bà goá) đứng trong map có xác sống. Vườn cách bầy gần nhất 14,8 ô là đủ an toàn, nhưng khi viết nhiệm vụ phụ phải đặt NPC đúng điểm widow_garden. Chưa vẽ small_hut thì vườn không có nhà.
+- Mộ Vô Danh có NPC dân thường (bà goá) đứng trong map có xác sống. Vườn cách bầy gần nhất 14,8 ô là đủ an toàn, nhưng khi viết nhiệm vụ phụ phải đặt NPC đúng điểm widow_garden. Chưa vẽ small_hut thì vườn không có nhà. (10/10/2026: đã có lều `small_hut` từ tấm C1 — lều thấp 81×43, thấp hơn nhân vật, đọc như lều nhỏ / chái gỗ; muốn nhà to hơn thì vẽ món lẻ Pro Flash ~160×192.)

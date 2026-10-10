@@ -1,3 +1,4 @@
+import { cleanBonusPoints } from '@/game/combat/talents';
 import type { SaveData, StoryStorage } from '@/game/story/StoryDirector';
 import type { OnlineSession } from './OnlineSession';
 
@@ -27,5 +28,8 @@ export function onlineStoryStorage(s: OnlineSession): StoryStorage {
 			Object.assign(s.progress, { story: null, introSeen: false, level: 1, exp: 0, coins: 0, potions: 0, x: -1, y: -1 });
 			await s.flush();
 		},
+		// Điểm tiềm năng thưởng: máy chủ giữ (danh sách nhân vật lúc vào game, tin `eco` khi quản trị đổi — Game ghi vào `progress`).
+		// Đọc mỗi lần gọi: StoryDirector / bảng Tiềm năng luôn theo số mới nhất.
+		bonusPoints: () => cleanBonusPoints(s.progress.bonusPoints),
 	};
 }

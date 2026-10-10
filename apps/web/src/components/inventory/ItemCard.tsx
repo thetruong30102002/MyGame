@@ -4,7 +4,7 @@ import { Fragment, type ReactNode, type Ref } from 'react';
 import { KIND_NAME, RARITY_NAME, SLOT_NAME, STAT_KEYS, STAT_NAME, type EquipSlotId } from '@/game/equipment';
 import type { EquipSlotView, InventoryItem, PlayerStats } from '@/store/useGameStore';
 import { fmtNum } from '../CharacterPanelParts';
-import { compareLines, fmtShown, ItemIcon, KIND_TEXT, RARITY_COLOR, rarityClass, signedStat, slotText, targetSlot, type CompareLine, type InvMode } from './invShared';
+import { CELL, compareLines, fmtShown, ItemIcon, KIND_TEXT, RARITY_COLOR, rarityClass, signedStat, slotText, softTag, targetSlot, type CompareLine, type InvMode } from './invShared';
 
 /** Động từ theo chỗ đeo: vũ khí "cầm", trang sức "đeo", còn lại "mặc". */
 const verbOf = (it: InventoryItem): string => (it.equipKind === 'weapon' || it.equipKind === 'offhand' ? 'đang cầm' : it.equipKind === 'ring' || it.equipKind === 'neck' ? 'đang đeo' : 'đang mặc');
@@ -38,7 +38,7 @@ function CompareTable({ lines }: { lines: CompareLine[] }) {
 				{lines.map((l) => {
 					const d = l.after - l.before;
 					return (
-						<tr key={l.key} className="border-t border-paper-line leading-5">
+						<tr key={l.key} className="border-t border-line-soft/70 leading-5">
 							<td className="py-0.5">{l.label}</td>
 							<td className="py-0.5 text-right font-extrabold whitespace-nowrap tabular-nums">
 								{fmtShown(l.key, l.before)} → {fmtShown(l.key, l.after)}
@@ -55,7 +55,7 @@ function CompareTable({ lines }: { lines: CompareLine[] }) {
 /** Bảng thông tin "nhãn: giá trị" — thẻ rộng (≥ 28rem) xếp 2 cặp mỗi hàng, thẻ hẹp (sheet điện thoại) 1 cặp. */
 function Facts({ rows }: { rows: [string, ReactNode][] }) {
 	return (
-		<dl className="mt-2 grid grid-cols-[auto_minmax(0,1fr)] gap-x-3 gap-y-0.5 border-y border-paper-line py-1.5 text-[13px] leading-[20px] @md:grid-cols-[auto_minmax(0,1fr)_auto_minmax(0,1fr)]">
+		<dl className="mt-2 grid grid-cols-[auto_minmax(0,1fr)] gap-x-3 gap-y-0.5 border-y border-line-soft/70 py-1.5 text-[13px] leading-[20px] @md:grid-cols-[auto_minmax(0,1fr)_auto_minmax(0,1fr)]">
 			{rows.map(([k, v]) => (
 				<Fragment key={k}>
 					<dt className="font-bold whitespace-nowrap text-ink-soft">{k}</dt>
@@ -67,10 +67,11 @@ function Facts({ rows }: { rows: [string, ReactNode][] }) {
 }
 
 /**
- * Thẻ chi tiết một món: ô 58 viền màu độ hiếm + tên (màu độ hiếm) + nhãn bậc / Kỷ vật / Đang mặc; bảng thông tin (loại, ô
- * mặc, yêu cầu cấp — đủ hay thiếu, ràng buộc); thuộc tính tự thân của món ("Tấn công +6"); so sánh trên bảng nhân vật
- * (món trong túi: "So với … đang cầm" 27 → 33 · +6; món đang mặc: "Nếu tháo ra"); tác dụng, mô tả; nút theo ngữ cảnh
- * (Trang bị / Thay / Tháo / Uống) và chip Thôi. Mọi thao tác đi qua `request` — thẻ không tự sửa state.
+ * Thẻ chi tiết một món: ô mềm 58 phớt màu độ hiếm + tên (màu độ hiếm) + nhãn bậc / Kỷ vật / Đang mặc (viên phớt màu, không
+ * viền); bảng thông tin (loại, ô mặc, yêu cầu cấp — đủ hay thiếu, ràng buộc); thuộc tính tự thân của món ("Tấn công +6"); so
+ * sánh trên bảng nhân vật (món trong túi: "So với … đang cầm" 27 → 33 · +6; món đang mặc: "Nếu tháo ra"); tác dụng, mô tả;
+ * nút hổ phách theo ngữ cảnh (Trang bị / Thay / Tháo / Uống — `.inv-btn`) và chip Thôi. Mọi thao tác đi qua `request` — thẻ
+ * không tự sửa state.
  */
 export function ItemCard({ mode, item: it, preview, equipment, stats, bagFull, touch, primaryRef, onEquip, onUnequip, onPotion, onClose, onBack }: CardProps) {
 	const equippedAt = it.equippedAt ?? null;
@@ -95,7 +96,7 @@ export function ItemCard({ mode, item: it, preview, equipment, stats, bagFull, t
 			facts.push(['Còn lại', `${fmtNum(it.count)} bình`]);
 			// Chồng ảo dựng từ `player.potions` — không tính vào sức chứa túi (`bagUsed`).
 			facts.push(['Trong túi', 'Không chiếm ô']);
-			if (!touch) facts.push(['Phím tắt', <kbd key="r" className="ui-key">R</kbd>]);
+			if (!touch) facts.push(['Phím tắt', <kbd key="r" className="ui-key border border-[rgb(122_85_52/0.35)] bg-cream text-ink-brown">R</kbd>]);
 		} else if (it.count > 1) facts.push(['Số lượng', fmtNum(it.count)]);
 	}
 
@@ -107,7 +108,7 @@ export function ItemCard({ mode, item: it, preview, equipment, stats, bagFull, t
 				{own.length ? (
 					<p className="mt-0.5 flex flex-wrap gap-1">
 						{own.map((k) => (
-							<span key={k} className="ui-tag h-6 border-2 border-paper-line bg-paper-hi px-2 text-ink-brown">
+							<span key={k} className="ui-tag h-6 bg-[rgb(122_85_52/0.09)] px-2.5 text-ink-brown">
 								{STAT_NAME[k]} <b className={`ml-1 ${tone(it.stats![k]!)}`}>{signedStat(it.stats![k]!, k)}</b>
 							</span>
 						))}
@@ -142,7 +143,7 @@ export function ItemCard({ mode, item: it, preview, equipment, stats, bagFull, t
 		);
 		if (slot) {
 			action = (
-				<button ref={primaryRef} type="button" className={`ui-btn min-w-[96px] ${big}`} disabled={lacking} onClick={() => onEquip(it.uid)}>
+				<button ref={primaryRef} type="button" className={`inv-btn min-w-[96px] ${big}`} disabled={lacking} onClick={() => onEquip(it.uid)}>
 					{lacking ? `Cần cấp ${it.levelReq}` : prev ? 'Thay' : `Trang bị vào ${SLOT_NAME[slot]}`}
 				</button>
 			);
@@ -160,7 +161,7 @@ export function ItemCard({ mode, item: it, preview, equipment, stats, bagFull, t
 			);
 		}
 		action = (
-			<button ref={primaryRef} type="button" className={`ui-btn min-w-[96px] ${big}`} disabled={bagFull} onClick={() => onUnequip(equippedAt)}>
+			<button ref={primaryRef} type="button" className={`inv-btn min-w-[96px] ${big}`} disabled={bagFull} onClick={() => onUnequip(equippedAt)}>
 				Tháo
 			</button>
 		);
@@ -169,7 +170,7 @@ export function ItemCard({ mode, item: it, preview, equipment, stats, bagFull, t
 		const hpFull = stats.hp >= stats.hpMax;
 		if (it.usable) {
 			action = (
-				<button ref={primaryRef} type="button" className={`ui-btn min-w-[96px] ${big}`} disabled={it.count <= 0 || hpFull} onClick={onPotion}>
+				<button ref={primaryRef} type="button" className={`inv-btn min-w-[96px] ${big}`} disabled={it.count <= 0 || hpFull} onClick={onPotion}>
 					Uống một bình
 				</button>
 			);
@@ -179,7 +180,7 @@ export function ItemCard({ mode, item: it, preview, equipment, stats, bagFull, t
 
 	const head = (
 		<div className="flex items-center gap-2.5">
-			<div className={`ui-slot relative h-[57px] w-[58px] shrink-0 ${rarityClass(it.rarity)}`}>
+			<div data-full="" className={`${CELL} ${rarityClass(it.rarity)}`}>
 				<ItemIcon item={it} />
 			</div>
 			<div className="min-w-0 flex-1">
@@ -188,13 +189,13 @@ export function ItemCard({ mode, item: it, preview, equipment, stats, bagFull, t
 				</p>
 				<p className="mt-0.5 flex flex-wrap items-center gap-1">
 					{it.rarity && (
-						<span className="ui-tag h-5 border-2 bg-paper-hi px-1.5" style={{ color, borderColor: color }}>
+						<span className="ui-tag h-5 px-2" style={softTag(color!)}>
 							{RARITY_NAME[it.rarity]}
 						</span>
 					)}
 					<span className="text-[12px] leading-[18px] font-extrabold text-ink-soft">{it.equipKind ? KIND_NAME[it.equipKind] : KIND_TEXT[it.kind]}</span>
-					{equippedAt && <span className="ui-tag h-5 bg-[#dcebd0] px-1.5 text-leaf">{verbOf(it).replace('đang ', 'Đang ')}</span>}
-					{it.bound && <span className="ui-tag h-5 bg-honey px-1.5 text-amber">Kỷ vật</span>}
+					{equippedAt && <span className="ui-tag h-5 bg-[#dcebd0] px-2 text-leaf">{verbOf(it).replace('đang ', 'Đang ')}</span>}
+					{it.bound && <span className="ui-tag h-5 bg-honey px-2 text-amber">Kỷ vật</span>}
 				</p>
 			</div>
 			{onBack && (
@@ -217,14 +218,14 @@ export function ItemCard({ mode, item: it, preview, equipment, stats, bagFull, t
 					{it.effect}
 				</p>
 			)}
-			<p className={`${it.effect ? 'mt-1' : 'mt-2'} border-l-2 border-paper-line pl-2 text-note text-ink-soft`}>{it.desc}</p>
+			<p className={`${it.effect ? 'mt-1' : 'mt-2'} border-l-2 border-line-soft pl-2.5 text-note text-ink-soft`}>{it.desc}</p>
 			{preview ? (
 				<p className="mt-1.5 text-note text-ink-faint">{it.kind === 'equip' ? (equippedAt ? 'Nhấp để chọn · nhấp đúp để tháo' : 'Nhấp để chọn · nhấp đúp để mặc') : 'Nhấp để chọn'}</p>
 			) : mode === 'low' ? (
 				<>
 					{note && <p className="mt-1 text-note text-ink-soft">{note}</p>}
 					{/* Màn thấp chỉ ~250px chiều cao: hàng nút dính đáy vùng cuộn (bù đúng pb-5 của tab), ghi chú để ngoài cho hàng nút thấp. */}
-					<div className="sticky -bottom-5 -mx-2.5 -mb-2.5 mt-1.5 flex items-center gap-1.5 bg-paper-hi px-2.5 pt-1.5 pb-2.5">
+					<div className="sticky -bottom-5 -mx-2.5 -mb-2.5 mt-1.5 flex items-center gap-1.5 rounded-b-[13px] bg-paper-hi px-2.5 pt-1.5 pb-2.5">
 						{action}
 						<button type="button" className={`ui-chip ${touch ? 'min-h-11' : ''}`} onClick={onClose}>
 							Thôi

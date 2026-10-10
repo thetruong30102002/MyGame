@@ -163,6 +163,17 @@ phút, rồng ~1–2 giờ).
   trên đó. Vùng chưa tới thì phủ sương; vùng đã tới hiện tên + cấp khuyên dùng; bấm vào vùng thì xem 12 map con (dùng
   minimap đang có) + vị trí boss đã gặp. Tranh vẽ một lần cho cả lục địa ngay từ đầu (để vị trí 10 vùng cố định), vùng
   chưa làm thì để sương.
+- **ĐÃ LÀM 10/10/2026 (chủ dự án: "cần cải tiến màn xem map để xem được map tổng")** — màn phím M (hoặc chạm bản đồ nhỏ) có
+  **3 tầng**, chuyển bằng 3 thẻ ở đầu khung (cùng kiểu thẻ Hành trang); mở lần đầu là Khu vực như cũ, sau đó nhớ tầng đã chọn tới
+  khi tải lại trang (`mapTab` của store):
+  - **Khu vực** = bản đồ map đang đứng như trước (`WorldMapArea.tsx`).
+  - **Vùng** = sơ đồ các map của vùng (`WorldMapRegion.tsx`): nút map (tên, khoảng cấp, trạm / boss chúa / boss khu), đường nối
+    theo lối thật của `world.json`, map đang đứng viền vàng + "Bạn ở đây", map CHƯA TỚI viền nét đứt + chữ nhạt (máy chủ trả mọi
+    map đã tới kèm tin `hubs` — trường `maps` mới, tuỳ chọn; máy chủ bản cũ / chơi đơn thì không làm mờ), cổng sang vùng khác là
+    nút nét đứt ghi trạng thái cổng (bấm → tầng Thế giới chọn sẵn vùng đó). Màn rộng: nút có ảnh minimap thu nhỏ; điện thoại / màn
+    thấp: nút chữ, sơ đồ cuộn trong khung, mở ra căn giữa map đang đứng.
+  - **Thế giới** = tranh lục địa (`WorldMapWorld.tsx`) — xem mục 3.1.
+  Phần "vị trí boss đã gặp" trên tầng Vùng chưa làm (nút map mới ghi boss có ở map nào).
 - Máy chủ game: id map hiện là `mapId` trong một vùng → đổi thành `vùng/map` (vd `human/town`) để ~120 map không trùng tên;
   bản lưu cũ tự thêm tiền tố `human/`.
 
@@ -186,8 +197,32 @@ Vẽ MỘT lần bằng `create_image_pro` khổ **688×384** (16:9, tối đa c
 | Góc Đông Bắc ngoài khơi (đảo trôi) | 10 Vực Hư Không |
 
 Vẽ xong: duyệt bằng mắt (đủ 10 vùng, đúng hướng, không chữ), rồi khai toạ độ tâm + vùng bao từng vùng (tỉ lệ 0–1 theo ảnh)
-trong dữ liệu bản đồ tổng → làm UI phím M (mục 3). Hiện xếp hàng chờ vì PixelLab đang khoá lượt miễn phí; có token trả
-phí thì vẽ bằng token đó.
+trong dữ liệu bản đồ tổng → làm UI phím M (mục 3). ~~Hiện xếp hàng chờ vì PixelLab đang khoá lượt miễn phí~~ — ĐÃ VẼ 09/10/2026
+(token #1, `continent.png` + đề bài `continent.png.json`, đúng bố cục bảng trên).
+
+**ĐÃ NỐI vào game 10/10/2026 (tầng Thế giới của màn phím M — dựng vào bản thử, CHƯA lên bản thật):**
+
+- **Ảnh vào web**: `npm run assets:world` (pipeline, lệnh `world`) kiểm khổ 688×384 + ảnh kín rồi chép NGUYÊN file sang
+  `assets/ui/world-continent.png` (tên file mới). Dựng thử: `AETHER_WEB_ASSETS=D:/nttrg/pixel/.aether-stage/assets npm run
+  assets:world` (đường dẫn TUYỆT ĐỐI — lệnh chạy trong thư mục gói pipeline, đường dẫn tương đối sẽ ghi lạc vào đó). Triển khai =
+  chép `.aether-stage/assets/ui/world-continent.png` sang `apps/web/public/assets/ui/` (hoặc chạy lệnh không đặt biến).
+- **Toạ độ 10 vùng**: `apps/web/src/game/world/worldAtlas.ts` — `CONTINENT_PLACES[vùng] = { center, outline }`, tỉ lệ 0–1 theo
+  ảnh: `center` = tâm (nhãn tên + cấp, dấu "Bạn ở đây"), `outline` = đường bao (đa giác theo chiều kim đồng hồ; hai vùng kề nhau
+  DÙNG CHUNG đỉnh ở đường ranh) dùng để bắt rê / chạm, viền tô sáng và làm tối vùng chưa mở. Đo trên ảnh lưới 0,025 (ranh = dãy núi
+  / sông vẽ sẵn trong tranh). Vẽ lại tranh khác bố cục thì đo lại ở đây; test `apps/web/tests/worldmap.test.ts` kiểm đủ 10 vùng
+  khớp `regions.ts`, trong 0–1, đúng hướng bảng trên, tâm nằm trong đường bao của chính vùng đó và không lọt vùng khác, các đường
+  bao không chồng nhau, ảnh trong web giống từng byte ảnh nguồn. Hệ của vùng (thẻ vùng ghi "Nguyên tố") khai ở `regions.ts`
+  (`element`), điều kiện cổng dạng cấu trúc `regionNeeds` (cổng vùng `regionGate` dùng chung).
+- **Hiển thị**: tranh hiện nguyên lần — 2× khi cả tranh lẫn thẻ vùng vừa màn (≈ màn 1920×1080 trở lên), không thì 1×; thiếu chỗ
+  (điện thoại) thì cuộn trong khung, mở ra căn giữa vùng đang đứng; `image-rendering: pixelated`. Đè lên bằng GIAO DIỆN (không vẽ
+  art): nhãn chữ tên + cấp trên nền sẫm trong mờ, "Bạn ở đây", viền vàng vùng đang ở / đang rê, vùng chưa mở làm tối nhẹ bằng một
+  bản sao ảnh cắt theo đường bao (`clip-path: path()` gộp mọi vùng thành một đường — không lộ khe) + lọc màu: đang xây dựng tối hơn
+  vùng đã có map mà cổng còn đóng. Rê / chạm vùng → thẻ nhỏ: tên, thứ tự + cấp, nguyên tố + hệ quái yếu, nơi ở + một câu giới
+  thiệu, trạng thái (Bạn đang ở đây / Đã mở / Cần cấp 10 + hạ Quỷ vương rừng sâu / Đang xây dựng). Thẻ nằm dưới tranh khi dư chỗ
+  (máy tính, điện thoại dọc — chưa rê vùng nào thì là thẻ vùng đang đứng), màn ngang thấp thì đè lên góc tranh xa vùng đang xem.
+  Chuột: bấm vùng đang mở → tầng Vùng của vùng đó; cảm ứng: chạm lần đầu chọn, chạm lại (hoặc nút "Xem các map") mới sang.
+- **Phòng thử** (chỉ dev): `/lab/map?tab=area|region|world&map=human/graveyard&level=12&kills=boss_demon_001&visited=town,mossvale&ready=swamp&pick=swamp`
+  — dữ liệu người chơi giả, map + ảnh thật, không cần đăng nhập.
 
 ## 4. Hình cho mỗi vùng (PixelLab) + chi phí lượt
 
@@ -216,7 +251,7 @@ ghi rõ chỗ nào đang tạm.
    chủ chấp nhận id mới + chuyển bản lưu.
 2. **Cổng vùng + điều kiện mở** (boss chúa vùng trước, cấp tối thiểu) + màn chuyển vùng.
 3. **Cột dịch chuyển** ở trạm + danh sách trạm đã tới (lưu ở máy chủ).
-4. **Bản đồ tổng** (UI): tranh lục địa + sương + bấm vùng xem map con.
+4. **Bản đồ tổng** (UI): tranh lục địa + sương + bấm vùng xem map con — ĐÃ LÀM 10/10/2026 (mục 3, 3.1: màn phím M ba tầng).
 5. **Kháng / yếu hệ của quái** (`ENEMY_STATS.resist`): nhân sát thương theo hệ — để mỗi vùng có lý do đổi build/phủ phép.
 6. **Bảng cấp vùng**: cấp quái, exp, xu, bảng rơi đồ theo vùng (nối với kế hoạch đồ đạc/kinh tế).
 7. **Công cụ dựng map vùng mới** trong pipeline: khung 12 map + bộ đồ vật của vùng → map JSON + minimap (pipeline `map` đang
@@ -245,7 +280,7 @@ ghi rõ chỗ nào đang tạm.
 - Thử thật (máy chủ thử + vùng THỬ tạm chép từ Đá Phong Ấn, xoá sau khi thử): cổng báo "đang xây dựng", sang vùng thử có màn chuyển
   vùng + minimap / tên khu / lối đúng vùng, quay lại vùng 1, cột dịch chuyển mở bảng. Test: `apps/server/tests/regions.test.ts`,
   `packages/asset-pipeline/tests/maps.test.ts`.
-- **Chưa làm**: bản đồ tổng (chờ tranh lục địa PixelLab), bảng cấp / rơi đồ theo vùng (mục 5.6 — làm cùng vùng 2), dẫn đường nhiệm
+- **Chưa làm**: ~~bản đồ tổng~~ (đã làm 10/10/2026 — mục 3.1), bảng cấp / rơi đồ theo vùng (mục 5.6 — làm cùng vùng 2), dẫn đường nhiệm
   vụ XUYÊN vùng (tìm đường hiện trong một vùng; nhiệm vụ mới chỉ có ở vùng 1).
 
 ## 5.2 Vùng 1 — 12 map (thiết kế chốt 10/10/2026) — Tiến độ
@@ -302,7 +337,7 @@ Thiết kế: `docs/thiet-ke/vung1-12-map.md` (+ `.json`). 12 map, 14 cạnh tro
 
 | Bước | Nội dung | Phụ thuộc hình |
 |---|---|---|
-| T0a | **Tranh lục địa** (mục 3.1) + UI bản đồ tổng (phím M, sương phủ vùng chưa làm) — làm ĐẦU TIÊN | tranh lục địa (1 lần) |
+| T0a | **Tranh lục địa** (mục 3.1) + UI bản đồ tổng (phím M, sương phủ vùng chưa làm) — ✔ tranh vẽ 09/10, màn M ba tầng 10/10/2026 (bản thử) | tranh lục địa (1 lần) |
 | T0b | Phần code dùng chung còn lại (mục 5) | — |
 | T1 | Hoàn thiện vùng 1 lên **12 map** (thiết kế 10/10/2026): ĐỢT 1 đã dựng 10/10/2026 (mục 5.2); ĐỢT 2 chờ tấm G1 / R1 / B1 + 5 món lẻ | 0 lượt bắt buộc (hình đã vẽ) + nợ G1 / R1 / B1 |
 | T2 | Vùng 2 Đầm lầy Mù Sương (gần nhất về cấp, khác hẳn vùng 1 về màu) | ~240 + ~550 |

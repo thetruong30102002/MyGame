@@ -115,6 +115,8 @@ export function buildNameless(meta: Record<string, PropMeta>, decalIds: string[]
 		['wheelbarrow', 42, 34.6],
 	] as const)
 		L.place(id, px(x), px(y), { force: true });
+	// Lều gỗ nhỏ của bà goá (tấm C1) ở góc đông vườn, giữa hàng chậu cây và ghế / xe cút kít — không dùng nhà độc bản của thị trấn.
+	L.place('small_hut', px(42) + 10, px(33) + 14, { force: true });
 
 	// Miệng Đường hầm của Đoàn (mép bắc): hai tảng đá hang + hai đuốc hai bên đường.
 	L.place('cave_boulder', px(30) + 10, px(1) + 6, { force: true });

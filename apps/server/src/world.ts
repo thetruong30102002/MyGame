@@ -158,6 +158,19 @@ export class World {
 		return this.conns.size;
 	}
 
+	/** Nhân vật `id` đang online? (trang quản trị hiện trạng thái). */
+	isOnline(id: string): boolean {
+		return this.conns.has(id);
+	}
+
+	/** Gửi một tin cho nhân vật đang online (trang quản trị: ví kim cương mới). false = không online. */
+	notify(id: string, msg: ServerMessage): boolean {
+		const c = this.conns.get(id);
+		if (!c) return false;
+		send(c.ws, msg);
+		return true;
+	}
+
 	stop(): void {
 		clearInterval(this.timer);
 		clearInterval(this.buffTimer);

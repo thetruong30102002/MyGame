@@ -17,7 +17,8 @@ import { startTalentsMock } from './talentsMock';
  * `equip` / `unequip` / `use_potion` xử lý bằng CHÍNH các hàm thuần của `game/equipment.ts` như Game làm.
  * Tham số: `?sprite=player_lior_child` (mặc định player_hero_adult) · `?demo=1` thêm đồ VÍ DỤ có chỉ số (hình tạm = ảnh
  * kiếm/trượng tân thủ) để xem bảng so sánh · `?level=14&path=sword|mage` · `?isel=lab_iron_sword` (id hoặc uid) chọn sẵn
- * một món trong túi — chụp bảng chỉ số ở chế độ so sánh "trước → sau".
+ * một món trong túi — chụp bảng chỉ số ở chế độ so sánh "trước → sau" · `?islot=body` bấm sẵn một ô búp bê (món đang mặc →
+ * thẻ "Tháo"; ô trống → lọc nhanh đồ hợp ô).
  * `?game=1`: chạy GAME THẬT ở chế độ chơi đơn (bản lưu localStorage của trình duyệt, không đăng nhập, không đụng máy chủ)
  * — kiểm chuyển bản lưu cũ và đường Game ↔ kho đồ bằng `__aether.gear()` / `equip()` / `unequip()` / `giveItem()`.
  */
@@ -171,14 +172,17 @@ function MockPanel() {
 	}, []);
 	// Thẻ Tiềm năng giả + mở thẳng thẻ: `?talents=demo|fork|full|new&tab=talents&tview=…&tsel=…` (xem talentsMock.ts).
 	useEffect(() => startTalentsMock(new URLSearchParams(location.search)), []);
-	// `?isel=`: chờ túi đồ vẽ xong rồi bấm hộ ô của món đó (như `tsel` của thẻ Tiềm năng).
+	// `?isel=`: chờ túi đồ vẽ xong rồi bấm hộ ô của món đó (như `tsel` của thẻ Tiềm năng). `?islot=body`: bấm hộ ô búp bê
+	// (ô có đồ → thẻ "Tháo"; ô trống → lọc nhanh, món hợp ô viền nét đứt).
 	useEffect(() => {
-		const want = new URLSearchParams(location.search).get('isel');
-		if (!want) return undefined;
+		const q = new URLSearchParams(location.search);
+		const want = q.get('isel');
+		const slot = q.get('islot');
+		if (!want && !slot) return undefined;
 		let tries = 0;
 		const t = window.setInterval(() => {
-			const it = useGameStore.getState().inventory.find((x) => x.id === want || x.uid === want);
-			const el = it ? document.querySelector<HTMLElement>(`[data-uid="${CSS.escape(it.uid)}"]`) : null;
+			const it = want ? useGameStore.getState().inventory.find((x) => x.id === want || x.uid === want) : null;
+			const el = slot ? document.querySelector<HTMLElement>(`[data-slot="${CSS.escape(slot)}"]`) : it ? document.querySelector<HTMLElement>(`[data-uid="${CSS.escape(it.uid)}"]`) : null;
 			tries += 1;
 			if (el) el.click();
 			if (el || tries > 40) window.clearInterval(t);

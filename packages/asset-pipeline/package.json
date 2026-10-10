@@ -12,6 +12,7 @@
     "pixellab": "tsx src/cli.ts pixellab",
     "map": "tsx src/cli.ts map",
     "ui": "tsx src/cli.ts ui",
+    "world": "tsx src/cli.ts world",
     "skill-icons": "tsx src/cli.ts skill-icons",
     "vfx": "tsx src/cli.ts vfx",
     "test": "tsx tests/vfx-pixellab.test.ts && tsx tests/maps.test.ts && tsx tests/gear-anchors.test.ts && tsx tests/skill-icons.test.ts"

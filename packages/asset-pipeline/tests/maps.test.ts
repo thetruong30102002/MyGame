@@ -223,6 +223,27 @@ test('tách nền magenta + khử viền tím + bỏ mẩu lấn từ ô bên', 
 	}
 });
 
+test('ô nới `+<px>`: món vẽ lấn đường lưới vài điểm vẫn đủ hình, mẩu món ô bên trong phần nới bị bỏ', () => {
+	assert.deepEqual(parseSheetPath('sheet:C1_chapter1#2@2x3+3'), { sheet: 'C1_chapter1', index: 2, cols: 2, rows: 3, grow: 3 });
+	const dir = mkdtempSync(join(tmpdir(), 'sheet-'));
+	try {
+		// Tấm 1×2 ô 20px, nền magenta. Ô 1 (dưới): khối xám 8×10 ở y 18–27 — lấn 2px lên ô 0; ô 0 có khối xanh to ở y 2–9.
+		const s = createImage(20, 40);
+		for (let y = 0; y < 40; y += 1) for (let x = 0; x < 20; x += 1) px(s, x, y, [255, 0, 255, 255]);
+		for (let y = 18; y < 28; y += 1) for (let x = 6; x < 14; x += 1) px(s, x, y, [200, 200, 200, 255]);
+		for (let y = 2; y < 10; y += 1) for (let x = 2; x < 18; x += 1) px(s, x, y, [40, 160, 60, 255]);
+		writePng(join(dir, 'Z.png'), s);
+		assert.equal(loadSheetCell(dir, { sheet: 'Z', index: 1, cols: 1, rows: 2 }).height, 8, 'không nới: cụt 2px trên');
+		const grown = loadSheetCell(dir, { sheet: 'Z', index: 1, cols: 1, rows: 2, grow: 3 });
+		assert.equal(grown.height, 10, 'nới 3px: đủ hình');
+		assert.equal(grown.width, 8);
+		const big = loadSheetCell(dir, { sheet: 'Z', index: 1, cols: 1, rows: 2, grow: 11 });
+		assert.equal(big.height, 10, 'phần nới chạm khối xanh của ô 0 (sát mép, nhỏ hơn) → bỏ như mẩu lấn');
+	} finally {
+		rmSync(dir, { recursive: true, force: true });
+	}
+});
+
 test('ô còn nền (tách nền hỏng) bị từ chối', () => {
 	const dir = mkdtempSync(join(tmpdir(), 'sheet-'));
 	try {

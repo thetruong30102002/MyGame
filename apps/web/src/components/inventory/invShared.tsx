@@ -1,26 +1,33 @@
 'use client';
 
-import { useState, type ReactNode } from 'react';
+import { useState, type CSSProperties, type ReactNode } from 'react';
 import { SLOT_NAME, slotsFor, STAT_NAME, STAT_PERCENT, shownStat, type EquipKind, type EquipSlotId, type StatBasis, type StatKey } from '@/game/equipment';
-import { RARITY_FX } from '@/game/gearPixels';
 import type { EquipSlotView, InventoryItem } from '@/store/useGameStore';
 import { fmtNum } from '../CharacterPanelParts';
 
-/** Lòng ô đá 58×57 (viền slot.png 13px mỗi bên). */
-export const SLOT_INNER: [number, number] = [32, 31];
+/** Lòng ô mềm `.inv-cell` 58×58 (viền 1px mỗi bên) — icon 1× lớn nhất hiện nay 54×54 (trượng) vẫn lọt lòng ô. */
+export const SLOT_INNER: [number, number] = [56, 56];
+
+/** Lớp chung của MỌI ô vật phẩm trong kho đồ (búp bê, túi, thẻ chi tiết): ô giấy mềm 58×58 (globals.css khối `inv-*`). */
+export const CELL = 'inv-cell h-[58px] w-[58px] shrink-0';
 
 /** Bố cục kho đồ: máy tính, điện thoại dọc (< 640px), màn thấp (cao ≤ 500px — điện thoại xoay ngang). */
 export type InvMode = 'desktop' | 'phone' | 'low';
 
-/** Màu tên theo độ hiếm (đủ tương phản trên giấy) — cũng là màu vòng ngoài ô của lớp `inv-r-*` (globals.css). */
+/** Màu tên theo độ hiếm (đủ tương phản trên giấy) — cũng là màu chữ nhãn bậc (`rarityTag`). Ô dùng tông nhạt cùng họ (`inv-r-*`). */
 export const RARITY_COLOR: Record<string, string> = { common: 'var(--color-ink-brown)', fine: 'var(--color-leaf)', rare: '#1f5cc2', epic: 'var(--color-exp)', legendary: '#c2410c' };
 
 /**
- * Lớp ô theo độ hiếm: vòng ngoài 2px màu bậc + lòng ô ngả màu bậc (khối `inv-r-*` cuối globals.css). Đồ Thường giữ ô đá
- * nguyên — ô có màu là đồ đáng chú ý, nhìn lướt túi là thấy.
+ * Lớp ô theo độ hiếm: viền mảnh ngả màu bậc + lòng ô phớt màu bậc + vệt màu nhỏ ở đáy ô (khối `inv-*` cuối globals.css). Đồ
+ * Thường giữ ô kem — ô có màu là đồ đáng chú ý, nhìn lướt túi là thấy.
  */
 export function rarityClass(r: InventoryItem['rarity']): string {
 	return r && r !== 'common' ? `inv-r-${r}` : '';
+}
+
+/** Nhãn bậc / nhãn mềm: viên phớt màu (13% màu chữ trộn kem), không viền — thay nhãn viền màu 2px. */
+export function softTag(color: string): CSSProperties {
+	return { color, background: `color-mix(in srgb, ${color} 13%, var(--color-cream))` };
 }
 
 export const KIND_TEXT: Record<InventoryItem['kind'], string> = { equip: 'Trang bị', consumable: 'Đồ dùng được', currency: 'Tiền tệ', material: 'Nguyên liệu', quest: 'Vật phẩm nhiệm vụ' };
@@ -78,15 +85,16 @@ export function compareLines(b: StatBasis, current: Partial<Record<StatKey, numb
 }
 
 /**
- * Ảnh vật phẩm đúng 1× ở cỡ gốc, căn giữa lòng ô bằng toạ độ NGUYÊN (ảnh to hơn lòng ô thì tràn lên viền đá như đặt nổi
- * trên khay, không thu lẻ). Ảnh lỗi / rỗng (vật phẩm lạ) → ô trống + TÊN món (đặc tả mục 3, không emoji): chữ trải cả ô
- * 58×57 như chữ ô trống của búp bê nhưng sáng hơn (`parchment`) — ô có đồ không bị đọc nhầm thành ô trống.
+ * Ảnh vật phẩm đúng 1× ở cỡ gốc, căn giữa lòng ô bằng toạ độ NGUYÊN (không thu lẻ — nét pixel sắc), để NGUYÊN hình (bỏ viền
+ * 1px màu độ hiếm chói quanh icon — 10/10/2026, độ hiếm đã hiện ở lòng ô phớt màu + vệt đáy ô). Ảnh lỗi / rỗng (vật phẩm
+ * lạ) → TÊN món trong lòng ô (đặc tả mục 3, không emoji), chữ nâu đậm trên lòng kem của ô có đồ — không bị đọc nhầm thành ô
+ * trống (ô trống lõm sẫm hơn, không chữ).
  */
 export function ItemIcon({ item, box = SLOT_INNER, dim = false }: { item: Pick<InventoryItem, 'icon' | 'w' | 'h' | 'name' | 'rarity'>; box?: [number, number]; dim?: boolean }) {
 	const [broken, setBroken] = useState<string | null>(null);
 	if (!item.icon || broken === item.icon || !item.w || !item.h)
 		return (
-			<span className={`pointer-events-none absolute -inset-[13px] flex items-center justify-center overflow-hidden px-1.5 text-center text-[11px] leading-[13px] font-extrabold break-words text-parchment ${dim ? 'opacity-40' : ''}`}>
+			<span className={`pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden px-1 text-center text-[11px] leading-[13px] font-extrabold break-words text-ink-brown ${dim ? 'opacity-40' : ''}`}>
 				<span className="line-clamp-3">{item.name}</span>
 			</span>
 		);
@@ -99,20 +107,9 @@ export function ItemIcon({ item, box = SLOT_INNER, dim = false }: { item: Pick<I
 			draggable={false}
 			onError={() => setBroken(item.icon)}
 			className={`pixel-img pointer-events-none absolute max-w-none select-none ${dim ? 'opacity-40 grayscale' : ''}`}
-			style={{ left: Math.floor((box[0] - item.w) / 2), top: Math.floor((box[1] - item.h) / 2), width: item.w, height: item.h, filter: dim ? undefined : rarityOutline(item.rarity) }}
+			style={{ left: Math.floor((box[0] - item.w) / 2), top: Math.floor((box[1] - item.h) / 2), width: item.w, height: item.h }}
 		/>
 	);
-}
-
-/**
- * Viền 1px màu độ hiếm quanh icon (cùng màu với viền lớp đồ trên người — `gearPixels.RARITY_FX`), bằng 4 drop-shadow lệch
- * 1px không nhoè: không tốn art, giữ nét pixel. Thường thì không viền.
- */
-export function rarityOutline(rarity: InventoryItem['rarity']): string | undefined {
-	const fx = rarity ? RARITY_FX[rarity] : null;
-	if (!fx) return undefined;
-	const c = `rgb(${fx.color.join(' ')})`;
-	return `drop-shadow(1px 0 0 ${c}) drop-shadow(-1px 0 0 ${c}) drop-shadow(0 1px 0 ${c}) drop-shadow(0 -1px 0 ${c})`;
 }
 
 /**

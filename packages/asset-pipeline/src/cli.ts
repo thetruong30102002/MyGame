@@ -1236,6 +1236,31 @@ function buildUi(): void {
 	console.log(`  ${Object.keys(manifest).length} ảnh giao diện → ${outDir}`);
 }
 
+/** Khổ tranh lục địa mà toạ độ 10 vùng (`apps/web/src/game/world/worldAtlas.ts` — `CONTINENT`) đo trên đó. */
+const CONTINENT_SIZE = { w: 688, h: 384 };
+
+/**
+ * Tranh lục địa (bản đồ tổng phím M — docs/ke-hoach-the-gioi.md mục 3.1) → `ui/world-continent.png`. Chép NGUYÊN file (không nén
+ * lại: web hiện nguyên lần 1× / 2×) sau khi kiểm đúng khổ của toạ độ vùng và ảnh kín (tranh vẽ cả biển, không có điểm trong suốt).
+ * Vẽ lại tranh khác bố cục thì đo lại toạ độ ở `worldAtlas.ts`. Dựng thử: `AETHER_WEB_ASSETS=<thư mục nháp> npm run assets:world`.
+ */
+function buildWorld(): void {
+	const src = join(PIXELLAB_SOURCES, 'world', 'continent.png');
+	if (!existsSync(src)) throw new Error(`Thiếu tranh lục địa ${src}`);
+	const buf = readFileSync(src);
+	const img = decodePng(buf);
+	if (img.width !== CONTINENT_SIZE.w || img.height !== CONTINENT_SIZE.h) {
+		throw new Error(`Tranh lục địa ${img.width}×${img.height}, toạ độ vùng đo trên ${CONTINENT_SIZE.w}×${CONTINENT_SIZE.h} — đo lại worldAtlas.ts rồi sửa CONTINENT_SIZE`);
+	}
+	let clear = 0;
+	for (let i = 3; i < img.data.length; i += 4) if (img.data[i]! < 255) clear += 1;
+	if (clear) throw new Error(`Tranh lục địa có ${clear} điểm trong suốt — phải là ảnh kín`);
+	const out = join(WEB_ASSETS, 'ui', 'world-continent.png');
+	mkdirSync(dirname(out), { recursive: true });
+	writeFileSync(out, buf);
+	console.log(`  ✔ tranh lục địa ${img.width}×${img.height} (${Math.round(buf.length / 1024)} KB) → ${out}`);
+}
+
 /**
  * Atlas icon chiêu (`props/skillIcons.ts`) → CHỈ ghi `ui/skill-icons.png` + `ui/skill-icons.json` (không đụng ảnh giao diện
  * khác / `ui.json` như lệnh `ui`). Mặc định bộ v2: một ảnh 32×32 mỗi khoá ở `sources/pixellab/skill-icons-v2/`; `--v1` = bộ cũ
@@ -1617,6 +1642,7 @@ ${await mcp.call('get_balance').catch((e: Error) => e.message)}
 	if (cmd === 'map-overview') return buildMapOverview(args[0]);
 	if (cmd === 'vfx') return buildVfx();
 	if (cmd === 'ui') return buildUi();
+	if (cmd === 'world') return buildWorld();
 	if (cmd === 'skill-icons') return buildSkillIconAtlas(args);
 	if (cmd === 'anchors') return annotatePublished(args);
 	console.log('Lệnh: catalog | character [specId...] | anchors [id...] | pixler <quota|base|select|direction|animate> ...');

@@ -1,6 +1,6 @@
 {
 	"tool": "create_image_pixflux",
-	"description": "a steel sword inside a round white spinning slash ring, simple chunky game icon",
+	"description": "a swirling teal water whirlpool with a steel sword spinning in its center, simple chunky game icon",
 	"width": 32,
 	"height": 32,
 	"no_background": true,
@@ -9,7 +9,7 @@
 	"detail": "low detail",
 	"seed": 4242,
 	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/sword+teal.png",
-	"jobId": "8474d427-c064-4cb1-9f21-a69936c26a4b",
+	"jobId": "0c80512e-56b2-4d47-9d90-4833ca421cd5",
 	"token": 1,
-	"createdAt": "2026-10-09T19:13:49.084Z"
+	"createdAt": "2026-10-10T02:16:38.758Z"
 }

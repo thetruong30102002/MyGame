@@ -54,6 +54,12 @@ export interface CharacterProgress {
 	/** Trạng thái cốt truyện (StoryDirector.SaveData), máy chủ không đọc nội dung. */
 	story: unknown;
 	introSeen: boolean;
+	/**
+	 * Điểm tiềm năng THƯỞNG (trang quản trị cộng — 10/10/2026): MÁY CHỦ giữ như cấp / xu — gói `save` không ghi đè được
+	 * (`Store.saveProgress` giữ số trong CSDL). Client cộng vào điểm theo cấp ở mọi chỗ tính điểm (`@aether/sim/talents`
+	 * `talentPoints`). Vắng (bản lưu cũ, máy chủ bản cũ) = 0.
+	 */
+	bonusPoints?: number;
 }
 
 export interface CharacterInfo {
@@ -83,6 +89,75 @@ export interface ApiError {
 }
 /** Mỗi tài khoản MỘT nhân vật (chủ dự án 09/10/2026). Tài khoản cũ đã có nhiều hơn vẫn chơi được, chỉ không tạo thêm. */
 export const MAX_CHARACTERS = 1;
+
+// ---- Quản trị: trang /admin cộng tiền, điểm cho nhân vật (chủ dự án 10/10/2026) ----------------------------------------
+// Quyền theo TÀI KHOẢN (bảng `admins`, cấp bằng lệnh `apps/server/src/admin.ts`); API xác thực bằng phiên đăng nhập như mọi API khác.
+
+/**
+ * Biên độ MỖI lần cộng / trừ (máy chủ chặn — trang /admin kiểm trước cho đỡ gửi hỏng). Số dư không bao giờ âm: trừ quá số đang có
+ * thì về 0. Đặt cấp: 1…`MAX_LEVEL`, EXP về 0.
+ */
+export const ADMIN_LIMITS = { coins: 1_000_000, diamonds: 100_000, potions: 999, exp: 10_000_000, talentPoints: 200 } as const;
+/** Lý do bắt buộc (ghi vào nhật ký quản trị + nhật ký kinh tế), tối đa chừng này ký tự. */
+export const ADMIN_REASON_MAX = 120;
+
+/** Một nhân vật trong kết quả tìm của trang quản trị — nhân vật đang online thì số lấy từ bộ nhớ máy chủ (số đang chạy). */
+export interface AdminCharacter {
+	id: string;
+	name: string;
+	/** Tên tài khoản sở hữu. */
+	account: string;
+	level: number;
+	exp: number;
+	coins: number;
+	potions: number;
+	diamonds: number;
+	/** Điểm tiềm năng thưởng (`CharacterProgress.bonusPoints`). */
+	bonusPoints: number;
+	online: boolean;
+}
+
+/** Trường quản trị đổi được (cột `field` của nhật ký quản trị). */
+export type AdminField = 'coins' | 'diamonds' | 'potions' | 'level' | 'exp' | 'bonusPoints';
+
+/**
+ * `POST /api/admin/grant`: số CỘNG (âm = trừ) cho từng loại — vắng / 0 = không đổi. `setLevel`: đặt hẳn cấp (EXP về 0), áp TRƯỚC
+ * phần cộng EXP. `talentPoints`: điểm tiềm năng thưởng. Áp trong một transaction, mỗi trường đổi một dòng nhật ký.
+ */
+export interface AdminGrantRequest {
+	characterId: string;
+	coins?: number;
+	diamonds?: number;
+	potions?: number;
+	exp?: number;
+	setLevel?: number;
+	talentPoints?: number;
+	reason: string;
+}
+
+/** Một trường vừa đổi (trước → sau). */
+export interface AdminChange {
+	field: AdminField;
+	from: number;
+	to: number;
+}
+
+/** Kết quả một lần cộng: số mới của nhân vật + các trường đã đổi (rỗng = không có gì đổi, vd trừ khi đã ở 0). */
+export interface AdminGrantResult {
+	character: AdminCharacter;
+	changes: AdminChange[];
+}
+
+/** Một dòng nhật ký quản trị (mỗi trường đổi một dòng; các dòng cùng một lần cộng chung `at` + lý do). */
+export interface AdminLogEntry extends AdminChange {
+	id: number;
+	at: number;
+	/** Tên tài khoản quản trị. */
+	admin: string;
+	characterId: string;
+	characterName: string;
+	reason: string;
+}
 
 // ---- WebSocket --------------------------------------------------------------------------------
 
@@ -394,7 +469,7 @@ export type ClientMessage =
 	| { t: 'goalClaim'; id: string }
 	/** Mua món `item` ở Cửa hàng kim cương — giá theo danh mục CỦA MÁY CHỦ. */
 	| { t: 'shopBuy'; item: string }
-	/** Xin danh sách trạm (map trạm của các vùng) đã từng đặt chân tới — cột dịch chuyển. */
+	/** Xin danh sách trạm (map trạm của các vùng) đã từng đặt chân tới — cột dịch chuyển; trả kèm mọi map đã tới (bản đồ lớn). */
 	| { t: 'hubs' }
 	/**
 	 * M3.3a — kinh tế ở máy chủ: vừa hạ quái RIÊNG loại `type` (quái dùng chung máy chủ tự tính, không báo). `zone`: khu riêng của
@@ -451,7 +526,14 @@ export type ServerMessage =
 	| { t: 'buffs'; list: BuffView[] }
 	/** Vừa mua xong món `item` (kim cương đã trừ — tin `wallet` + `buffs` đi kèm). */
 	| { t: 'bought'; item: string }
-	/** Trạm đã từng đặt chân tới (`vùng/map`) — máy chủ ghi lúc vào game / sang map. */
-	| { t: 'hubs'; list: string[] }
-	/** Cấp / EXP / xu / bình THẬT (máy chủ giữ — M3.3a): sau `welcome` và sau mỗi thay đổi; `gain` = phần vừa nhận / tiêu. */
-	| { t: 'eco'; level: number; exp: number; coins: number; potions: number; gain?: EcoGain };
+	/**
+	 * Trạm đã từng đặt chân tới (`vùng/map`) — máy chủ ghi lúc vào game / sang map. `maps`: MỌI map đã tới (bản đồ lớn làm mờ map
+	 * chưa tới); client bản cũ bỏ qua trường này.
+	 */
+	| { t: 'hubs'; list: string[]; maps?: string[] }
+	/**
+	 * Cấp / EXP / xu / bình THẬT (máy chủ giữ — M3.3a): sau `welcome` và sau mỗi thay đổi; `gain` = phần vừa nhận / tiêu (quản trị:
+	 * `reason: 'admin'`, `what` = lý do). `bonusPoints`: điểm tiềm năng thưởng — gửi lúc vào game và khi quản trị đổi; vắng = không đổi
+	 * (client bản cũ bỏ qua trường này).
+	 */
+	| { t: 'eco'; level: number; exp: number; coins: number; potions: number; gain?: EcoGain; bonusPoints?: number };

@@ -6,7 +6,7 @@ import { BAG_SIZE, bagUsed, KIND_NAME, RARITY_NAME, RARITY_ORDER, SLOT_KIND, SLO
 import { useGameStore, type EquipSlotView, type InventoryItem } from '@/store/useGameStore';
 import { BagGrid, type BagFilter } from './inventory/BagGrid';
 import { EquipDoll } from './inventory/EquipDoll';
-import { compareLines, RARITY_COLOR, signedStat, targetSlot, type InvMode } from './inventory/invShared';
+import { compareLines, RARITY_COLOR, signedStat, softTag, targetSlot, type InvMode } from './inventory/invShared';
 import { ItemCard } from './inventory/ItemCard';
 import { StatSheet } from './inventory/StatSheet';
 import { useTouchDevice } from './TouchControls';
@@ -22,7 +22,9 @@ function useInvMode(): InvMode {
 /**
  * Tab "Kho đồ" kiểu búp bê giấy: nhân vật đứng giữa, 10 ô trang bị quanh người (Mũ · Áo · Găng · Quần · Giày | Dây chuyền ·
  * Vũ khí chính · Tay phụ · Nhẫn 1 · Nhẫn 2, tên ô in dưới ô), bảng đủ 7 chỉ số (gốc + đồ) dưới búp bê; túi đồ + thẻ chi tiết
- * bên cạnh (điện thoại: thẻ là sheet trượt từ đáy). Độ hiếm hiện bằng vòng màu + lòng ô ngả màu và màu tên.
+ * bên cạnh (điện thoại: thẻ là sheet trượt từ đáy). Độ hiếm hiện bằng viền mảnh + lòng ô phớt màu + vệt màu đáy ô và màu tên.
+ * Giao diện MỀM (chủ dự án 10/10/2026: "kho đồ vẫn AI quá"): ô giấy bo tròn viền 1px nâu sữa, thẻ kem bóng mờ, nút hổ phách —
+ * không ô đá / nút gỗ PixelLab, không viền gần đen (lớp `inv-*` cuối globals.css).
  * Chọn món trang bị trong túi → ô đích trên búp bê sáng viền; bấm ô sáng (hoặc nút Trang bị) là mặc. Chỉ chạm, không kéo
  * thả (lớp phủ đang `touch-none` cho cần gạt). Mọi thao tác đi qua `request('equip' | 'unequip' | 'use_potion')`.
  * Esc đóng thẻ trước rồi mới đóng bảng.
@@ -254,7 +256,7 @@ export function CharacterInventoryTab() {
 				</section>
 				<section aria-label={selected ? 'Chi tiết vật phẩm' : 'Túi đồ'} className="min-w-0">
 					{selected ? (
-						<div data-inv-card className="ui-paper border-bark p-2.5">
+						<div data-inv-card className="inv-card inv-card-lift p-2.5">
 							{card}
 						</div>
 					) : (
@@ -281,7 +283,7 @@ export function CharacterInventoryTab() {
 						data-inv-card
 						role="dialog"
 						aria-label={selected ? selected.name : 'Lọc theo ô'}
-						className="absolute inset-x-0 bottom-0 max-h-[60%] touch-pan-y overflow-y-auto overscroll-contain rounded-t-[14px] border-t-2 border-bark bg-paper-hi px-3 pt-1.5 pb-[max(14px,env(safe-area-inset-bottom))] shadow-[0_-6px_0_rgb(26_17_10/0.25)]"
+						className="absolute inset-x-0 bottom-0 max-h-[60%] touch-pan-y overflow-y-auto overscroll-contain rounded-t-[18px] border-t border-[rgb(150_110_60/0.25)] bg-paper-hi px-3 pt-1.5 pb-[max(14px,env(safe-area-inset-bottom))] shadow-[0_-8px_24px_rgb(26_17_10/0.18)]"
 					>
 						<div className="mx-auto mb-1.5 h-[5px] w-11 rounded-[3px] bg-paper-line" aria-hidden />
 						{card ?? (
@@ -307,11 +309,11 @@ export function CharacterInventoryTab() {
 			<section aria-label="Túi đồ" className="flex min-w-0 flex-col gap-2.5">
 				{bag}
 				{shown ? (
-					<div data-inv-card className="ui-paper border-bark p-2.5 shadow-[0_3px_0_rgb(26_17_10/0.35)]">
+					<div data-inv-card className="inv-card inv-card-lift p-3">
 						{card}
 					</div>
 				) : (
-					<div className="ui-tray flex flex-col gap-2 p-3 text-note text-ink-soft">
+					<div className="inv-well flex flex-col gap-2.5 p-3.5 text-note text-ink-soft">
 						<p className={emptyMsg ? 'font-bold text-ink-brown' : ''}>{emptyMsg ?? (fine ? 'Chạm một món để xem chi tiết và so sánh. Món trang bị: nhấp đúp để mặc ngay, nhấp đúp ô trên người để tháo.' : 'Chạm một món để xem chi tiết và so sánh với đồ đang mặc.')}</p>
 						<RarityLegend />
 						<WornList equipment={equipment} onSlot={onSlot} />
@@ -323,15 +325,15 @@ export function CharacterInventoryTab() {
 }
 
 /**
- * Chú giải độ hiếm (khay trống khi chưa chọn món): nhãn bậc cùng kiểu nhãn trên thẻ vật phẩm — chữ + viền đúng màu tên và
- * màu vòng ô (`RARITY_COLOR`). Học một lần là đọc được túi đồ.
+ * Chú giải độ hiếm (khay trống khi chưa chọn món): nhãn bậc cùng kiểu nhãn trên thẻ vật phẩm — viên phớt màu, chữ đúng màu
+ * tên (`RARITY_COLOR`, `softTag`). Học một lần là đọc được túi đồ.
  */
 function RarityLegend() {
 	return (
 		<p className="flex flex-wrap items-center gap-1.5">
 			<span className="mr-0.5 font-bold">Độ hiếm:</span>
 			{RARITY_ORDER.map((r) => (
-				<span key={r} className="ui-tag h-5 border-2 bg-paper-hi px-1.5" style={{ color: RARITY_COLOR[r], borderColor: RARITY_COLOR[r] }}>
+				<span key={r} className="ui-tag h-5 px-2" style={softTag(RARITY_COLOR[r]!)}>
 					{RARITY_NAME[r]}
 				</span>
 			))}
@@ -348,7 +350,7 @@ function RarityLegend() {
 function WornList({ equipment, onSlot }: { equipment: EquipSlotView[]; onSlot: (slot: EquipSlotId, keyboard: boolean) => void }) {
 	const worn = equipment.filter((e) => e.item);
 	return (
-		<div className="border-t-2 border-paper-line pt-2">
+		<div className="border-t border-line-soft pt-2.5">
 			<p className="font-display text-[16px] leading-[1.3] font-extrabold text-ink-brown">Đang mặc</p>
 			{worn.length ? (
 				<ul className="mt-1 flex flex-col">

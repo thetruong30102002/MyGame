@@ -34,8 +34,11 @@ export interface OnlineHandlers {
 	/** Bình thời hạn đang hiệu lực / vừa mua xong một món ở Cửa hàng kim cương. */
 	buffs(list: BuffView[]): void;
 	bought(item: string): void;
-	/** Trạm đã từng tới (`vùng/map`) — bảng cột dịch chuyển. */
-	hubs(list: string[]): void;
+	/**
+	 * Trạm đã từng tới (`vùng/map`) — bảng cột dịch chuyển. `maps`: MỌI map đã tới (bản đồ lớn làm mờ map chưa tới) — máy chủ bản
+	 * cũ không gửi.
+	 */
+	hubs(list: string[], maps?: string[]): void;
 	/** Cấp / EXP / xu / bình THẬT (máy chủ giữ — M3.3a). */
 	eco(m: Extract<ServerMessage, { t: 'eco' }>): void;
 	kicked(reason: string): void;
@@ -110,7 +113,7 @@ export class OnlineSession {
 			else if (m.t === 'gift') h.gift?.(m);
 			else if (m.t === 'buffs') h.buffs?.(m.list);
 			else if (m.t === 'bought') h.bought?.(m.item);
-			else if (m.t === 'hubs') h.hubs?.(m.list);
+			else if (m.t === 'hubs') h.hubs?.(m.list, Array.isArray(m.maps) ? m.maps : undefined);
 			else if (m.t === 'eco') h.eco?.(m);
 			else if (m.t === 'kicked') {
 				this.closed = true;
@@ -173,7 +176,7 @@ export class OnlineSession {
 		this.send({ t: 'goalClaim', id });
 	}
 
-	/** Xin danh sách trạm đã tới (cột dịch chuyển). */
+	/** Xin danh sách trạm đã tới (cột dịch chuyển) — máy chủ trả kèm mọi map đã tới (bản đồ lớn). */
 	hubs(): void {
 		this.send({ t: 'hubs' });
 	}

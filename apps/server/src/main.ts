@@ -3,6 +3,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { WebSocketServer } from 'ws';
 import { SERVER_PORT } from '@aether/protocol';
+import { AdminOps } from './adminOps.ts';
 import { Store } from './db.ts';
 import { createApi, stripMount } from './http.ts';
 import { World } from './world.ts';
@@ -11,7 +12,8 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const port = Number(process.env.PORT) || SERVER_PORT;
 const store = new Store(process.env.AETHER_DB ?? join(ROOT, 'data/aether.db'));
 const world = new World(store);
-const api = createApi(store);
+// Trang quản trị dùng chung thế giới đang chạy: nhân vật online nhận số mới ngay (bộ nhớ kinh tế + tin `eco` / `wallet`).
+const api = createApi(store, new AdminOps(store, world));
 
 const server = createServer((req, res) => void api(req, res));
 const wss = new WebSocketServer({ noServer: true, maxPayload: 96 * 1024 });

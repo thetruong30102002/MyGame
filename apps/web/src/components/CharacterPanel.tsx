@@ -32,9 +32,9 @@ const NOT_TYPING = new Set(['checkbox', 'radio', 'range', 'button', 'submit', 'r
 const typingIn = (t: EventTarget | null): boolean => t instanceof HTMLTextAreaElement || (t instanceof HTMLInputElement && !NOT_TYPING.has(t.type));
 
 /**
- * Bảng Hành trang (nhân vật / tiềm năng / kho đồ) — một cửa sổ khung gỗ lòng giấy, ba thẻ bìa sổ.
- * Điện thoại < 640px: thẻ chưa chọn chỉ còn icon (chữ vẫn đọc được bằng trình đọc màn hình), thẻ đang chọn rộng gấp
- * đôi để chữ không xuống dòng, nút Đóng lên hàng riêng.
+ * Bảng Hành trang (nhân vật / tiềm năng / kho đồ / thư viện / bạn bè / cài đặt) — một cửa sổ khung gỗ lòng giấy; hàng thẻ
+ * MỀM (10/10/2026): rãnh giấy lõm bo tròn, thẻ đang mở là viên kem nổi nhẹ, phím tắt là viên chữ nhạt (`.ui-tabs` / `.ui-tab`).
+ * Điện thoại < 640px: hàng thẻ là dải vuốt ngang trên hàng riêng, nút Đóng lên trên.
  * Phím C / P / I mở đúng thẻ (đang mở thẻ khác thì chuyển thẻ, bấm lại thẻ đang xem thì đóng), Esc đóng; cảm ứng (và
  * chuột) chạm vào khung tên ở HUD là mở thẻ Nhân vật, huy hiệu điểm tiềm năng mở thẳng thẻ Tiềm năng.
  * Lớp phủ z-15 như bản đồ lớn: trên chat và cần gạt, DƯỚI thoại/thẻ truyện z-20, và tự đóng khi truyện chen vào.
@@ -107,7 +107,7 @@ export function CharacterPanel() {
 					Hành trang · {active.label}
 				</h2>
 				<div className="ui-tabs flex-wrap px-1">
-					<div role="tablist" aria-label="Thẻ hành trang" className="flex min-w-0 items-end gap-1.5 max-[639px]:order-last max-[639px]:w-full max-[639px]:touch-pan-x max-[639px]:overflow-x-auto max-[639px]:pt-3 max-[639px]:[scrollbar-width:none]">
+					<div role="tablist" aria-label="Thẻ hành trang" className="flex min-w-0 items-center gap-1 max-[639px]:order-last max-[639px]:w-full max-[639px]:touch-pan-x max-[639px]:overflow-x-auto max-[639px]:[scrollbar-width:none]">
 						{TABS.map((t) => {
 							const on = t.id === panel;
 							return (
@@ -118,13 +118,14 @@ export function CharacterPanel() {
 									role="tab"
 									aria-selected={on}
 									onClick={() => setPanel(t.id)}
-									className="ui-tab max-[639px]:shrink-0 max-[639px]:justify-center max-[639px]:px-2"
+									className="ui-tab max-[639px]:shrink-0 max-[639px]:justify-center max-[639px]:px-3"
 								>
 									<span className="whitespace-nowrap leading-[1.45]">{t.label}</span>
-									{!touch && <kbd className="ui-key bg-ink-brown text-paper-hi max-[1023px]:hidden">{t.key}</kbd>}
+									{/* Phím tắt: viên chữ nhạt viền mảnh (bỏ ô phím nâu đậm — chủ dự án 10/10/2026 chê khối tối "AI"). */}
+									{!touch && <kbd className="ui-key h-[18px] min-w-[18px] border border-[rgb(122_85_52/0.3)] bg-transparent px-1 text-[11px] text-ink-faint max-[1023px]:hidden">{t.key}</kbd>}
 									{t.id === 'friends' && invites > 0 && (
 										<span
-											className="absolute -right-2 -top-2.5 flex h-5 min-w-5 items-center justify-center rounded-full border-2 border-paper-hi bg-[#b22911] px-1 font-sans text-[12px] font-extrabold leading-none text-paper-hi"
+											className="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full border-2 border-cream bg-[#b22911] px-1 font-sans text-[12px] font-extrabold leading-none text-paper-hi shadow-[0_1px_2px_rgb(74_46_28/0.3)]"
 											aria-label={`${invites} lời mời kết bạn`}
 										>
 											{invites}
@@ -132,7 +133,7 @@ export function CharacterPanel() {
 									)}
 									{t.id === 'talents' && unspent > 0 && (
 										<span
-											className="absolute -right-2 -top-2.5 flex h-5 min-w-5 items-center justify-center rounded-full border-2 border-paper-hi bg-[#b22911] px-1 font-sans text-[12px] font-extrabold leading-none text-paper-hi"
+											className="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full border-2 border-cream bg-[#b22911] px-1 font-sans text-[12px] font-extrabold leading-none text-paper-hi shadow-[0_1px_2px_rgb(74_46_28/0.3)]"
 											aria-label={`${unspent} điểm chưa cộng`}
 										>
 											{unspent}
@@ -142,7 +143,7 @@ export function CharacterPanel() {
 							);
 						})}
 					</div>
-					<button type="button" aria-label="Đóng bảng" title="Esc" onClick={close} className={`ui-chip mb-1.5 ml-auto ${touch ? 'min-h-11' : ''}`}>
+					<button type="button" aria-label="Đóng bảng" title="Esc" onClick={close} className={`ui-chip ml-auto ${touch ? 'min-h-11' : ''}`}>
 						Đóng
 					</button>
 				</div>

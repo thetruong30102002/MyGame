@@ -21,7 +21,6 @@ import {
 	knowsSkill,
 	MAX_TIER,
 	nextTierCost,
-	pointsForLevel,
 	resetCost,
 	skillDesc,
 	SLOT_KEYS,
@@ -32,6 +31,7 @@ import {
 	SWORD_ARTS,
 	SWORD_STYLE_INFO,
 	SWORD_STYLES,
+	talentPoints,
 	tierCap,
 	tierCost,
 	TREE,
@@ -61,6 +61,8 @@ export interface TalentsInput {
 	enchantCooldown: number;
 	/** Thanh 10 ô hiện tại (đã kẹp). */
 	loadout: Loadout;
+	/** Điểm tiềm năng thưởng (máy chủ giữ — `StoryDirector.bonusPoints`); vắng = 0 (chơi một mình, phòng thử). */
+	bonus?: number;
 }
 
 /** Kỹ năng đang biết theo thứ tự `HERO_SKILLS`: mã cốt truyện + mốc nhánh đủ + đúng lưu phái Kiếm (như `Game.knownSkills`). */
@@ -70,9 +72,10 @@ export function knownSkillIds(tiers: Tiers, isUnlocked: (unlockId: string) => bo
 
 /** Bảng tiềm năng: cây 6 nhánh (kể cả nhánh chưa mở — hiện khoá để người chơi biết còn gì phía trước), phủ phép, thanh 10 ô. */
 export function buildTalentsView(input: TalentsInput): TalentsView {
-	const { tiers, level, style, isUnlocked } = input;
+	const { tiers, level, style, isUnlocked, bonus = 0 } = input;
 	const build = describeBuild(tiers, style);
-	const points = pointsForLevel(level);
+	// Điểm theo cấp + điểm thưởng (trang quản trị): tổng, "còn lại" và mọi nút Học trên bảng đều tính chung một số.
+	const points = talentPoints(level, bonus);
 	// Giá theo nhánh: nguyên tố mốc 1 = 1 điểm (học kỹ năng đầu), Kiếm mốc 1 = 0 (Trảm có sẵn khi nhận kiếm) — `tierCost`.
 	const nodeView = (b: Branch, n: TreeNode, tier: number) => ({ tier: n.tier, kind: n.kind, name: n.name, desc: n.desc, ready: n.ready, reached: tier >= n.tier, cost: tierCost(b, n.tier), ...(n.skillId ? { skillId: n.skillId } : {}) });
 	const branches = BRANCHES.map((b) => {
@@ -132,7 +135,7 @@ export function buildTalentsView(input: TalentsInput): TalentsView {
 	return {
 		points,
 		spent: spentPoints(tiers),
-		unspent: unspent(level, tiers),
+		unspent: unspent(level, tiers, bonus),
 		buildKind: build.kind,
 		buildLabel: build.label,
 		buildDetail: build.detail,

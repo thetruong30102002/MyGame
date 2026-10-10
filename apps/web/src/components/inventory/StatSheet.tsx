@@ -97,10 +97,10 @@ export function StatSheet({ mode, stats, cmp, cmpName }: StatSheetProps) {
 			 * "gốc · đồ" xuống dưới nhãn. Mọi dòng là subgrid của CÙNG một lưới nên cột số thẳng hàng từ trên xuống dưới; số lớn
 			 * (cuối game, "1.714 → 1.854") không vừa một dòng thì riêng "gốc · đồ" của dòng đó xuống dưới nhãn, không cắt chữ.
 			 */}
-			<div className="ui-paper @container px-2 py-1">
+			<div className="inv-card @container px-2.5 py-1.5">
 				<div className="grid grid-cols-[minmax(0,1fr)_auto] gap-x-2.5 @min-[24rem]:grid-cols-[auto_minmax(0,1fr)_auto]">
 					{GROUPS.map((g, gi) => (
-						<div key={g.title} className={`col-span-full grid grid-cols-subgrid ${gi ? 'mt-1.5 @min-[24rem]:mt-1 @min-[24rem]:border-t @min-[24rem]:border-paper-line @min-[24rem]:pt-0.5' : ''}`}>
+						<div key={g.title} className={`col-span-full grid grid-cols-subgrid ${gi ? 'mt-1.5 @min-[24rem]:mt-1 @min-[24rem]:border-t @min-[24rem]:border-line-soft/70 @min-[24rem]:pt-0.5' : ''}`}>
 							<StatGroupTitle className={`col-span-full @min-[24rem]:self-center @min-[24rem]:after:hidden @min-[24rem]:[grid-column:1] ${RAIL_SPAN[g.keys.length] ?? ''}`}>{g.title}</StatGroupTitle>
 							{g.keys.map((key) => {
 								const line = lineOf(key);
@@ -110,7 +110,7 @@ export function StatSheet({ mode, stats, cmp, cmpName }: StatSheetProps) {
 									<div
 										key={key}
 										title={why(key, p.base, p.part)}
-										className={`col-span-full grid grid-cols-subgrid items-baseline rounded-[5px] px-1.5 pb-1 @min-[18rem]:pb-0 @min-[24rem]:[grid-column:2/-1] ${line && delta ? 'bg-honey' : ''}`}
+										className={`col-span-full grid grid-cols-subgrid items-baseline rounded-[8px] px-1.5 pb-1 @min-[18rem]:pb-0 @min-[24rem]:[grid-column:2/-1] ${line && delta ? 'bg-honey' : ''}`}
 									>
 										{/* Nhãn trái, "gốc · đồ" sát cột số; không đủ chỗ thì "gốc · đồ" một mình một dòng — `justify-between` đẩy về trái. */}
 										<span className="flex min-w-0 flex-wrap items-baseline justify-between gap-x-2">

@@ -5,6 +5,8 @@ import { createImage, crop, opaqueBounds, readPng, type RGBAImage } from '../ima
  * Đồ vật cắt từ TẤM PixelLab: một ảnh Pro Flash vẽ nhiều đồ vật xếp lưới (5–6 lượt cho cả tấm thay vì mỗi món 5–6
  * lượt), cùng một ảnh mẫu style nên nét đồng nhất. `path` của PropDef: `sheet:<tên tấm>#<ô>@<cột>x<hàng>`, ô đánh
  * số từ 0 theo hàng (trái → phải, trên → dưới). Tấm nằm ở `sources/pixellab/sheets/<tên>.png` (lệnh `pixellab image`).
+ * Đuôi `+<px>` (vd `#2@2x3+4`): NỚI ô ra mỗi phía `<px>` điểm ảnh khi cắt — cho món PixelLab vẽ lấn qua đường lưới vài điểm
+ * (C1: đỉnh mặt đồng hồ cỗ máy đo vượt mép trên ô 2px); mẩu món ô bên lọt vào phần nới vẫn bị bỏ như mẩu lấn thường.
  */
 export const SHEET_PREFIX = 'sheet:';
 
@@ -13,12 +15,15 @@ export interface SheetCell {
 	index: number;
 	cols: number;
 	rows: number;
+	/** Nới ô ra mỗi phía (px) khi cắt — chỉ có khi đường dẫn ghi đuôi `+<px>`. */
+	grow?: number;
 }
 
 export function parseSheetPath(path: string): SheetCell | null {
-	const m = /^sheet:([A-Za-z0-9_-]+)#(\d+)@(\d+)x(\d+)$/.exec(path);
+	const m = /^sheet:([A-Za-z0-9_-]+)#(\d+)@(\d+)x(\d+)(?:\+(\d+))?$/.exec(path);
 	if (!m) return null;
-	const cell = { sheet: m[1]!, index: Number(m[2]), cols: Number(m[3]), rows: Number(m[4]) };
+	const cell: SheetCell = { sheet: m[1]!, index: Number(m[2]), cols: Number(m[3]), rows: Number(m[4]) };
+	if (m[5]) cell.grow = Number(m[5]);
 	if (cell.index >= cell.cols * cell.rows) throw new Error(`${path}: ô ${cell.index} ngoài lưới ${cell.cols}×${cell.rows}`);
 	return cell;
 }
@@ -74,7 +79,13 @@ export function loadSheetCell(dir: string, cell: SheetCell): RGBAImage {
 	keyMagenta(sheet);
 	const cw = Math.floor(sheet.width / cell.cols);
 	const ch = Math.floor(sheet.height / cell.rows);
-	const img = crop(sheet, (cell.index % cell.cols) * cw, Math.floor(cell.index / cell.cols) * ch, cw, ch);
+	// Ô nới (`grow`) kẹp trong tấm; không nới thì y như cũ.
+	const g = cell.grow ?? 0;
+	const x0 = Math.max(0, (cell.index % cell.cols) * cw - g);
+	const y0 = Math.max(0, Math.floor(cell.index / cell.cols) * ch - g);
+	const x1 = Math.min(sheet.width, (cell.index % cell.cols) * cw + cw + g);
+	const y1 = Math.min(sheet.height, Math.floor(cell.index / cell.cols) * ch + ch + g);
+	const img = crop(sheet, x0, y0, x1 - x0, y1 - y0);
 	dropBorderSpill(img);
 	// Kiểm nền trên ô CHƯA cắt sát: món có chân vuông lấp kín góc khung sau khi cắt là bình thường.
 	const corner = (x: number, y: number) => img.data[(y * img.width + x) * 4 + 3]!;

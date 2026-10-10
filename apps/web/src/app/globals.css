@@ -26,6 +26,9 @@
 	--color-paper-hi: #fdf3dc;
 	--color-paper-sunk: #ecd3a4;
 	--color-paper-line: #c9a578;
+	/* Bộ MỀM (chủ dự án 10/10/2026 — kho đồ "AI quá"): viền mảnh nâu sữa + mặt nổi kem sáng nhất, thay viền gần đen. */
+	--color-line-soft: #d8bd90;
+	--color-cream: #fffaf0;
 	/* Mực trên giấy — tỉ lệ tương phản đo trên --color-paper; ink-brown = 11,84:1. */
 	--color-ink-soft: #6b4a2b; /* 6,47:1 (5,46 trên paper-sunk) */
 	--color-ink-faint: #7a5534; /* 5,37:1 — sàn cho chữ nhỏ */
@@ -102,7 +105,8 @@ body {
  * Lớp ui-* nằm trong `@layer components` để utility Tailwind đè được (h-*, w-*, text-*...).
  * Hai loại bề mặt: GIẤY (.ui-frame/.ui-paper/.ui-tray) cho mọi cửa sổ mở ra; GỖ PHẲNG (.ui-plank) cho HUD.
  * Khung cổ PixelLab cắt 9 mảnh (số đo ở public/assets/ui/ui.json) — viền giữ đúng 1× px gốc, tỉ lệ lẻ vỡ lưới pixel.
- * Chỉ bóng cứng không blur; nhấn nút dùng `transform` (thuộc tính `translate` đụng utility translate-* của Tailwind v4).
+ * Chỉ bóng cứng không blur — TRỪ bộ MỀM (10/10/2026: `.ui-chip`, `.ui-tab`, khối `inv-*` của kho đồ) dùng viền 1px nâu sữa +
+ * bóng mờ nhẹ. Nhấn nút dùng `transform` (thuộc tính `translate` đụng utility translate-* của Tailwind v4).
  */
 @layer components {
 	.ui-frame {
@@ -181,33 +185,52 @@ body {
 		cursor: default;
 	}
 
+	/*
+	 * Chip giấy MỀM (10/10/2026): viền 1px nâu sữa thay viền gỗ 2px + bóng cứng, bo 12px, bóng mờ nhẹ (ngoại lệ của luật bóng
+	 * cứng — chủ dự án chê khung đen "AI"). Đang bật (aria-pressed / aria-checked): nền mật ong + viền hổ phách. Focus bàn phím:
+	 * vòng hổ phách thay vòng đen-trắng của trình duyệt.
+	 */
 	.ui-chip {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
 		gap: 6px;
 		min-height: 36px;
-		padding: 0 12px;
+		padding: 0 14px;
 		white-space: nowrap;
 		background: var(--color-paper-hi);
 		color: var(--color-ink-brown);
-		border: 2px solid var(--color-bark);
-		border-radius: 6px;
+		border: 1px solid #cdae80;
+		border-radius: 12px;
 		font: 700 14px/1.2 var(--font-sans);
-		box-shadow: 0 2px 0 var(--color-bark);
+		box-shadow: 0 1px 2px rgb(74 46 28 / 0.14);
 		cursor: pointer;
+		transition:
+			background-color 0.15s,
+			border-color 0.15s,
+			box-shadow 0.15s,
+			transform 0.15s;
 	}
 	.ui-chip:hover:not(:disabled) {
-		background: #fff8e8;
+		background: var(--color-cream);
+		border-color: #b48a55;
+		box-shadow: 0 2px 6px rgb(74 46 28 / 0.16);
 	}
 	.ui-chip:active:not(:disabled) {
-		transform: translateY(2px);
-		box-shadow: none;
+		transform: translateY(1px);
+		box-shadow: 0 1px 1px rgb(74 46 28 / 0.12);
 	}
 	.ui-chip[aria-pressed='true'],
-	.ui-chip[aria-checked='true'] {
-		background: var(--color-paper-sunk);
-		box-shadow: inset 0 2px 0 rgb(74 46 28 / 0.25);
+	.ui-chip[aria-checked='true'],
+	.ui-chip[aria-pressed='true']:hover:not(:disabled),
+	.ui-chip[aria-checked='true']:hover:not(:disabled) {
+		background: #f8e2ae;
+		border-color: #d2a456;
+		box-shadow: inset 0 1px 2px rgb(138 90 18 / 0.16);
+	}
+	.ui-chip:focus-visible {
+		outline: 2px solid #c98a2b;
+		outline-offset: 2px;
 	}
 	.ui-chip:disabled {
 		opacity: 0.5;
@@ -216,10 +239,10 @@ body {
 
 	.ui-chip-danger,
 	.ui-chip-danger:hover:not(:disabled) {
-		background: #f6d6c8;
-		color: #6e1a0e;
-		border-color: var(--color-berry);
-		box-shadow: 0 2px 0 var(--color-berry);
+		background: #f8dfd4;
+		color: #7a2212;
+		border-color: #d48a76;
+		box-shadow: 0 1px 2px rgb(154 51 36 / 0.18);
 	}
 
 	.ui-tag {
@@ -246,41 +269,59 @@ body {
 		font: 800 12px/1 var(--font-sans);
 	}
 
+	/*
+	 * Thẻ MỀM (10/10/2026, thay thẻ bìa sổ viền gỗ 2px): các thẻ nằm trong một rãnh giấy lõm bo tròn (`[role=tablist]` — chính
+	 * `.ui-tabs` như ô đăng nhập, hoặc con của nó như bảng Hành trang); thẻ đang mở là viên kem nổi nhẹ (bóng mờ), thẻ khác chỉ
+	 * chữ, rê chuột ửng sáng.
+	 */
 	.ui-tabs {
 		display: flex;
-		align-items: flex-end;
-		gap: 6px;
-		border-bottom: 2px solid var(--color-wood-edge);
+		align-items: center;
+		gap: 8px;
+	}
+	.ui-tabs[role='tablist'],
+	.ui-tabs > [role='tablist'] {
+		padding: 4px;
+		border-radius: 16px;
+		background: rgb(122 85 52 / 0.1);
+		box-shadow: inset 0 1px 2px rgb(74 46 28 / 0.1);
 	}
 
 	.ui-tab {
 		position: relative;
-		margin-bottom: -2px;
-		min-height: 48px;
-		padding: 4px 12px 6px 6px;
+		min-height: 40px;
+		padding: 0 14px;
 		display: inline-flex;
 		align-items: center;
 		gap: 6px;
-		border: 2px solid var(--color-wood-edge);
-		border-bottom: 0;
-		border-radius: 10px 10px 0 0;
-		background: var(--color-paper-sunk);
+		border: 1px solid transparent;
+		border-radius: 12px;
+		background: transparent;
 		color: var(--color-ink-soft);
 		font: 800 17px/1.3 var(--font-display);
-		transform: translateY(4px);
-		transition: transform 0.15s;
+		transition:
+			background-color 0.15s,
+			color 0.15s,
+			border-color 0.15s,
+			box-shadow 0.15s;
 		cursor: pointer;
 	}
 	.ui-tab[aria-selected='true'] {
-		background: var(--color-paper);
+		background: var(--color-cream);
 		color: var(--color-ink-brown);
-		transform: none;
+		border-color: rgb(150 110 60 / 0.25);
+		box-shadow:
+			0 1px 2px rgb(74 46 28 / 0.14),
+			0 3px 10px rgb(74 46 28 / 0.1);
 		z-index: 1;
-		padding-bottom: 8px;
 	}
 	.ui-tab:hover:not([aria-selected='true']) {
-		transform: translateY(2px);
+		background: rgb(255 250 240 / 0.55);
 		color: var(--color-ink-brown);
+	}
+	.ui-tab:focus-visible {
+		outline: 2px solid rgb(201 138 43 / 0.7);
+		outline-offset: 0;
 	}
 
 	.ui-bar {
@@ -368,26 +409,205 @@ canvas.pixel-canvas {
 }
 
 /*
- * ——— Kho đồ kiểu búp bê giấy (Việc E, 08/10/2026) — khối riêng, chỉ lớp `inv-*` ———
- * Ô đích sáng viền khi đang cầm một món trang bị trong túi: viền vàng + vòng cứng (không blur), nhấp nháy bằng `steps`
- * (đổi màu viền, không động bóng). Hình nhân vật giữa kho đồ chạy 4 khung `idle_S` bằng `steps` theo biến CSS do
- * PlayerFigure đặt. Cả hai tắt khi giảm chuyển động.
+ * ——— Kho đồ MỀM (chủ dự án 10/10/2026: "kho đồ vẫn AI quá, cần làm mềm mại hơn — không cần dùng PixelLab vẽ nữa") ———
+ * Khối riêng, chỉ lớp `inv-*`. Kho đồ bỏ ô đá đinh tán (`.ui-slot` vẫn dùng ở HUD / thanh kỹ năng / cửa hàng…): ô trang bị +
+ * ô túi CÙNG một kiểu `.inv-cell` — ô giấy lõm bo 10px, viền 1px nâu sữa; ô có đồ (`data-full`) lòng kem sáng giữa để icon
+ * nổi. Khối này dùng bóng MỜ nhẹ (ngoại lệ của luật bóng cứng ở đầu file).
+ * Độ hiếm (`invShared.rarityClass` → `inv-r-*`): viền mảnh ngả màu bậc + lòng ô phớt màu bậc + vệt màu 3px ở đáy ô
+ * (`--inv-rar`), thay vòng 2px + lòng ô tối. Đồ Thường giữ ô kem.
+ * Đang chọn (aria-pressed): viền hổ phách + vòng sáng mờ. Ô đích trên búp bê (đang cầm món hợp ô): vòng hổ phách "thở" chậm.
+ * Món hợp ô trống đang lọc nhanh: viền nét đứt hổ phách. Rê chuột (chỉ máy có chuột): nhấc 1px + bóng. Mọi trạng thái ghép
+ * bóng qua `--inv-base` (bóng gốc của ô trống / ô có đồ) để không mất vệt độ hiếm.
+ * Hình nhân vật giữa kho đồ chạy 4 khung `idle_S` bằng `steps` theo biến CSS do PlayerFigure đặt. Chuyển động tắt khi giảm
+ * chuyển động.
  */
 @layer components {
-	.inv-target {
-		outline: 3px solid var(--color-gold-hi);
+	.inv-cell {
+		--inv-edge: var(--color-line-soft);
+		--inv-tint: #f5e4c1;
+		--inv-glow: var(--color-cream);
+		--inv-rar: transparent;
+		--inv-base: inset 0 1px 3px rgb(107 74 43 / 0.18);
+		position: relative;
+		border: 1px solid var(--inv-edge);
+		border-radius: 10px;
+		background: #f0dbb1;
+		box-shadow: var(--inv-base);
+		transition:
+			transform 0.15s ease,
+			box-shadow 0.15s ease,
+			border-color 0.15s ease;
+	}
+	.inv-cell[data-full] {
+		--inv-base: inset 0 -3px 0 var(--inv-rar), 0 1px 2px rgb(74 46 28 / 0.12);
+		background: radial-gradient(circle at 50% 40%, var(--inv-glow), var(--inv-tint) 80%);
+	}
+	.inv-r-fine {
+		--inv-edge: #a9c595;
+		--inv-tint: #e0ebcd;
+		--inv-glow: #f8fcef;
+		--inv-rar: #6fa45f;
+	}
+	.inv-r-rare {
+		--inv-edge: #a5bce3;
+		--inv-tint: #dbe5f6;
+		--inv-glow: #f5f8fe;
+		--inv-rar: #5a88d8;
+	}
+	.inv-r-epic {
+		--inv-edge: #c6a9e6;
+		--inv-tint: #e9def7;
+		--inv-glow: #faf6fe;
+		--inv-rar: #a06ee0;
+	}
+	.inv-r-legendary {
+		--inv-edge: #e3ac86;
+		--inv-tint: #f7dfc8;
+		--inv-glow: #fff8f0;
+		--inv-rar: #d9703a;
+	}
+	button.inv-cell {
+		cursor: pointer;
+	}
+	@media (hover: hover) {
+		button.inv-cell:hover {
+			border-color: #c29a63;
+			transform: translateY(-1px);
+			box-shadow:
+				var(--inv-base),
+				0 3px 8px rgb(74 46 28 / 0.16);
+		}
+	}
+	/* Nhấn / chạm: lún 1px (số nguyên — icon không nhoè), cả máy cảm ứng (không có rê chuột) cũng thấy phản hồi. */
+	button.inv-cell:active {
+		transform: translateY(1px);
+		box-shadow:
+			var(--inv-base),
+			inset 0 2px 4px rgb(107 74 43 / 0.22);
+	}
+	.inv-cell[aria-pressed='true'],
+	.inv-cell[aria-pressed='true']:hover {
+		border-color: #d39b3a;
+		box-shadow:
+			var(--inv-base),
+			0 0 0 3px rgb(236 186 84 / 0.45),
+			0 2px 6px rgb(120 80 20 / 0.18);
+	}
+	.inv-cell:focus-visible {
+		outline: 2px solid #c98a2b;
 		outline-offset: 2px;
-		box-shadow: 0 0 0 6px rgb(233 196 106 / 0.35);
-		animation: inv-pulse 1s steps(1, end) infinite;
+	}
+	.inv-cell.inv-fit {
+		outline: 2px dashed #cf9a45;
+		outline-offset: 2px;
+	}
+	.inv-cell.inv-target {
+		border-color: #d39b3a;
+		animation: inv-breathe 1.4s ease-in-out infinite;
 	}
 	.inv-figure {
 		animation: inv-idle calc(var(--inv-steps, 4) * 0.2s) steps(var(--inv-steps, 4), end) infinite;
 	}
+
+	/* Thẻ giấy mềm (bảng chỉ số, thẻ chi tiết món): mặt kem, viền 1px mờ, bo 14px, bóng mờ. `-lift` nổi hơn (thẻ món đang xem). */
+	.inv-card {
+		background: var(--color-paper-hi);
+		border: 1px solid rgb(150 110 60 / 0.2);
+		border-radius: 14px;
+		box-shadow:
+			0 1px 2px rgb(74 46 28 / 0.06),
+			0 4px 14px rgb(74 46 28 / 0.06);
+	}
+	.inv-card-lift {
+		box-shadow:
+			0 2px 4px rgb(74 46 28 / 0.08),
+			0 10px 24px rgb(74 46 28 / 0.1);
+	}
+	/* Khay gợi ý: giấy lõm nhạt, không viền. */
+	.inv-well {
+		background: rgb(236 211 164 / 0.45);
+		border-radius: 14px;
+	}
+
+	/* Nút chính MỀM (Trang bị / Thay / Tháo / Uống) thay nút gỗ PixelLab `.ui-btn` trong kho đồ: viên hổ phách, chữ nâu đậm. */
+	.inv-btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 6px;
+		min-height: 36px;
+		padding: 0 18px;
+		white-space: nowrap;
+		border: 1px solid #b98232;
+		border-radius: 12px;
+		background: linear-gradient(#f7cf78, #ebb24f);
+		color: #43260b;
+		font: 800 15px/1 var(--font-sans);
+		box-shadow:
+			inset 0 1px 0 rgb(255 255 255 / 0.45),
+			0 1px 2px rgb(120 70 10 / 0.22),
+			0 3px 8px rgb(120 70 10 / 0.12);
+		cursor: pointer;
+		transition:
+			filter 0.15s,
+			transform 0.15s,
+			box-shadow 0.15s;
+	}
+	@media (hover: hover) {
+		.inv-btn:hover:not(:disabled) {
+			filter: brightness(1.05);
+			transform: translateY(-1px);
+			box-shadow:
+				inset 0 1px 0 rgb(255 255 255 / 0.45),
+				0 2px 4px rgb(120 70 10 / 0.22),
+				0 6px 14px rgb(120 70 10 / 0.16);
+		}
+	}
+	.inv-btn:active:not(:disabled) {
+		transform: translateY(1px);
+		box-shadow: inset 0 1px 2px rgb(120 70 10 / 0.25);
+	}
+	.inv-btn:focus-visible {
+		outline: 2px solid #c98a2b;
+		outline-offset: 2px;
+	}
+	.inv-btn:disabled {
+		background: #ecdfc4;
+		border-color: #d3be98;
+		color: #7a6448;
+		box-shadow: none;
+		cursor: default;
+	}
+
+	/* Thanh sức chứa túi: rãnh tròn mảnh, không viền đen (thanh `.ui-bar` của HUD giữ nguyên). */
+	.inv-meter {
+		position: relative;
+		overflow: hidden;
+		height: 8px;
+		border-radius: 999px;
+		background: rgb(150 110 60 / 0.2);
+		box-shadow: inset 0 1px 1px rgb(74 46 28 / 0.12);
+	}
+	.inv-meter > i {
+		position: absolute;
+		inset: 0 auto 0 0;
+		border-radius: 999px;
+		background: var(--fill);
+		transition: width 0.2s;
+	}
 }
 
-@keyframes inv-pulse {
+@keyframes inv-breathe {
+	0%,
+	100% {
+		box-shadow:
+			var(--inv-base),
+			0 0 0 3px rgb(236 186 84 / 0.7);
+	}
 	50% {
-		outline-color: var(--color-amber);
+		box-shadow:
+			var(--inv-base),
+			0 0 0 6px rgb(236 186 84 / 0.25);
 	}
 }
 
@@ -401,36 +621,21 @@ canvas.pixel-canvas {
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.inv-target,
+	.inv-cell.inv-target,
 	.inv-figure {
 		animation: none;
 	}
-}
-
-/*
- * ——— Kho đồ làm lại chi tiết (09/10/2026) — khối riêng, lớp `inv-r-*` ———
- * Độ hiếm trên ô đá (`invShared.rarityClass`): vòng ngoài 2px màu bậc (bóng cứng, không blur — cùng màu chữ tên trên giấy
- * `RARITY_COLOR`, đủ tương phản) + lòng ô ngả màu bậc, sáng ở giữa để icon nổi. Đồ Thường giữ ô đá nguyên.
- * `.ui-slot.inv-target` khai lại SAU các lớp độ hiếm: cùng độ ưu tiên, nên ô đích đang sáng vẫn thắng vòng độ hiếm.
- */
-@layer components {
-	.ui-slot.inv-r-fine {
-		background: radial-gradient(circle at 50% 42%, #4d7a45, #263d27 78%) padding-box;
-		box-shadow: 0 0 0 2px #2f6b34;
+	.inv-cell.inv-target {
+		box-shadow:
+			var(--inv-base),
+			0 0 0 3px rgb(236 186 84 / 0.5);
 	}
-	.ui-slot.inv-r-rare {
-		background: radial-gradient(circle at 50% 42%, #3f63a3, #1f2f52 78%) padding-box;
-		box-shadow: 0 0 0 2px #1f5cc2;
+	.inv-cell,
+	.inv-btn {
+		transition: none;
 	}
-	.ui-slot.inv-r-epic {
-		background: radial-gradient(circle at 50% 42%, #6a4596, #2f1f47 78%) padding-box;
-		box-shadow: 0 0 0 2px #8d44e6;
-	}
-	.ui-slot.inv-r-legendary {
-		background: radial-gradient(circle at 50% 42%, #a8612a, #4a2612 78%) padding-box;
-		box-shadow: 0 0 0 2px #c2410c;
-	}
-	.ui-slot.inv-target {
-		box-shadow: 0 0 0 6px rgb(233 196 106 / 0.35);
+	button.inv-cell:hover,
+	.inv-btn:hover:not(:disabled) {
+		transform: none;
 	}
 }

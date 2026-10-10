@@ -1,0 +1,17 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a steel sword thrusting point-first to the right with a long white motion streak, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"init_image_strength": 140,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/sword.png",
+	"init_image_path": "sources/pixellab/skill-icons-v2/init/pierce_rush.init.png",
+	"jobId": "5e61489e-9199-42ad-acb4-db17734c7caa",
+	"token": 1,
+	"createdAt": "2026-10-09T19:21:22.275Z"
+}

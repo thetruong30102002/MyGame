@@ -9,13 +9,14 @@ import {
 	BRANCH_UNLOCK,
 	branchOpen,
 	BRANCHES,
+	cleanBonusPoints,
 	ENCHANTS,
 	fitTiers,
-	pointsForLevel,
 	pointsToTier,
 	REACTION_PAIR,
 	STYLE_TIER,
 	SWORD_STYLES,
+	talentPoints,
 	tierCap,
 	tiersFrom,
 	type Branch,
@@ -149,6 +150,11 @@ export interface StoryStorage {
 	markIntroSeen(): void;
 	/** Xoá tiến độ — chờ lưu xong rồi mới tải lại trang. */
 	reset(): Promise<void>;
+	/**
+	 * Điểm tiềm năng THƯỞNG do máy chủ giữ (trang quản trị cộng — `CharacterProgress.bonusPoints`, cập nhật qua tin `eco`). Thiếu
+	 * (chơi một mình, test) = 0.
+	 */
+	bonusPoints?(): number;
 }
 
 export const localStoryStorage: StoryStorage = {
@@ -405,14 +411,22 @@ export class StoryDirector {
 	granted: string[] = [];
 
 	/**
+	 * Điểm tiềm năng THƯỞNG (máy chủ giữ, trang quản trị cộng) — cộng vào điểm theo cấp ở MỌI chỗ tính điểm: kẹp bản lưu
+	 * (`cleanTalents`), chuyển định dạng (`migrateTalentsV2`), cộng mốc (`spendTalent`), bảng Tiềm năng (Game). Chơi một mình = 0.
+	 */
+	get bonusPoints(): number {
+		return cleanBonusPoints(StoryDirector.storage.bonusPoints?.() ?? 0);
+	}
+
+	/**
 	 * Kẹp mốc đã mua của bản lưu: máy chủ cất bản lưu nguyên khối không kiểm gì, nên đây là chốt chặn duy nhất.
 	 * Bỏ nhánh lạ và nhánh chưa mở (trả điểm lại), mỗi nhánh không vượt mốc cao nhất đã hiện thực, tổng giá không quá số
-	 * điểm của cấp hiện tại — thừa thì hạ mốc từ nhánh cuối theo thứ tự `BRANCHES`.
+	 * điểm của cấp hiện tại + điểm thưởng (`bonusPoints`) — thừa thì hạ mốc từ nhánh cuối theo thứ tự `BRANCHES`.
 	 */
 	private cleanTalents(raw: unknown, level: number): TalentSpent {
 		const src = raw && typeof raw === 'object' && !Array.isArray(raw) ? (raw as Record<string, unknown>) : {};
 		const clean: TalentSpent = {};
-		let left = pointsForLevel(level);
+		let left = talentPoints(level, this.bonusPoints);
 		for (const b of BRANCHES) {
 			if (!branchOpen(b, (id) => this.isUnlocked(id))) continue;
 			const base = baseTier(b);
@@ -430,8 +444,8 @@ export class StoryDirector {
 	 * nhánh là có mốc 1 miễn phí). Định dạng 2 ghi "mốc − 1" cho MỌI nhánh đã mở; định dạng 3 ghi số mốc đã trả điểm (Kiếm vẫn
 	 * mốc − 1, nguyên tố = mốc). Chiến lược — KHÔNG BAO GIỜ âm điểm, ưu tiên giữ nguyên mốc người chơi đang có:
 	 * 1. Mốc cũ của từng nhánh ĐÃ MỞ (bỏ nhánh lạ / chưa mở, kẹp trần đã hiện thực — như `cleanTalents`).
-	 * 2. Đủ điểm của cấp hiện tại để trả thêm giá mốc 1 (1 điểm) cho mọi nhánh nguyên tố đã mở → giữ NGUYÊN mọi mốc, chỉ bớt
-	 *    điểm chưa cộng.
+	 * 2. Đủ điểm của cấp hiện tại (+ điểm thưởng) để trả thêm giá mốc 1 (1 điểm) cho mọi nhánh nguyên tố đã mở → giữ NGUYÊN mọi
+	 *    mốc, chỉ bớt điểm chưa cộng.
 	 * 3. Thiếu → `fitTiers`: nhánh sâu nhất giữ trước, mỗi nhánh lấy mốc cao nhất ≤ mốc cũ mà điểm còn lại trả nổi. Nhánh chính
 	 *    của build giữ lâu nhất; nhánh nguyên tố chỉ có mốc 1 (chưa từng cộng điểm) mất trước — về mốc 0 (nhánh vẫn mở, học lại
 	 *    1 điểm khi có điểm); bằng nhau thì nhánh mở sau mất trước (`BRANCHES` = thứ tự mở trong cốt truyện). Điểm lẻ còn dư để
@@ -447,7 +461,7 @@ export class StoryDirector {
 			if (!branchOpen(b, (id) => this.isUnlocked(id))) continue;
 			want[b] = this.granted.includes(BRANCH_UNLOCK[b]) ? baseTier(b) : Math.min(tierCap(b), 1 + Math.max(0, Math.floor(Number(src[b]) || 0)));
 		}
-		const points = pointsForLevel(level);
+		const points = talentPoints(level, this.bonusPoints);
 		const kept = fitTiers(want, points);
 		const out: TalentSpent = {};
 		let spent = 0;
@@ -479,15 +493,15 @@ export class StoryDirector {
 	}
 
 	/**
-	 * Lên 1 mốc ở nhánh: chỉ nhánh đã mở, chưa chạm trần đã hiện thực, đủ điểm ở cấp `level`. Lên được thì lưu ngay.
-	 * Kiếm lên mốc 3 lần đầu PHẢI kèm lưu phái `style` (chọn một lần — đổi thì tẩy điểm); đã có lưu phái thì bỏ qua `style`.
+	 * Lên 1 mốc ở nhánh: chỉ nhánh đã mở, chưa chạm trần đã hiện thực, đủ điểm ở cấp `level` (+ điểm thưởng). Lên được thì lưu
+	 * ngay. Kiếm lên mốc 3 lần đầu PHẢI kèm lưu phái `style` (chọn một lần — đổi thì tẩy điểm); đã có lưu phái thì bỏ qua `style`.
 	 */
 	spendTalent(branch: Branch, level: number, style?: SwordStyle): boolean {
 		if (!BRANCHES.includes(branch)) return false;
 		const tiers = this.talentTiers();
 		const picking = branch === 'sword' && (tiers.sword ?? 0) === STYLE_TIER - 1 && !this.state.swordStyle;
 		if (picking && (!style || !SWORD_STYLES.includes(style))) return false;
-		if (addTier(level, tiers, branch, (id) => this.isUnlocked(id)) === null) return false;
+		if (addTier(level, tiers, branch, (id) => this.isUnlocked(id), this.bonusPoints) === null) return false;
 		const t = (this.state.talents ??= {});
 		t[branch] = (t[branch] ?? 0) + 1;
 		if (picking) this.state.swordStyle = style;
@@ -504,6 +518,21 @@ export class StoryDirector {
 		this.state.enchant = null;
 		delete this.state.swordStyle;
 		this.save();
+	}
+
+	/**
+	 * Tổng điểm vừa GIẢM giữa lúc chơi (quản trị trừ điểm thưởng / đặt cấp thấp hơn): kẹp lại mốc đã mua y như lúc nạp
+	 * (`cleanTalents`) để bảng không âm điểm; Kiếm tụt dưới mốc 3 thì bỏ lưu phái (phủ phép mất điều kiện — Game tắt ở
+	 * `syncTalents`). Trả true nếu có hạ mốc (đã lưu).
+	 */
+	refitTalents(level: number): boolean {
+		const cur = this.state.talents ?? {};
+		const next = this.cleanTalents(cur, level);
+		if (BRANCHES.every((b) => (next[b] ?? 0) === (cur[b] ?? 0))) return false;
+		this.state.talents = next;
+		if ((this.talentTiers().sword ?? 0) < STYLE_TIER) delete this.state.swordStyle;
+		this.save();
+		return true;
 	}
 
 	/** Lưu thanh 10 ô (Game đã kẹp hợp lệ). */

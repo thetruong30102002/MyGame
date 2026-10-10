@@ -503,6 +503,12 @@
         },
         "animations": {
           "idle-sword2": {
+            "east": [
+              "Sword/animations/idle-sword2/east/frame_000.png",
+              "Sword/animations/idle-sword2/east/frame_001.png",
+              "Sword/animations/idle-sword2/east/frame_002.png",
+              "Sword/animations/idle-sword2/east/frame_003.png"
+            ],
             "south": [
               "Sword/animations/idle-sword2/south/frame_000.png",
               "Sword/animations/idle-sword2/south/frame_001.png",
@@ -1077,5 +1083,5 @@
     }
   ],
   "export_version": "3.1",
-  "export_date": "2026-10-09T23:43:59.218125"
+  "export_date": "2026-10-10T02:36:57.652282"
 }

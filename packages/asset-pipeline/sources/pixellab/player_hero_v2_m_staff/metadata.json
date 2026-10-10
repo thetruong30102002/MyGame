@@ -2066,6 +2066,14 @@
               "Staff/animations/hit-staff2/east/frame_005.png"
             ]
           },
+          "idle-staff2": {
+            "south": [
+              "Staff/animations/idle-staff2/south/frame_000.png",
+              "Staff/animations/idle-staff2/south/frame_001.png",
+              "Staff/animations/idle-staff2/south/frame_002.png",
+              "Staff/animations/idle-staff2/south/frame_003.png"
+            ]
+          },
           "dodge-staff2": {
             "north": [
               "Staff/animations/dodge-staff2/north/frame_000.png",
@@ -2331,5 +2339,5 @@
     }
   ],
   "export_version": "3.1",
-  "export_date": "2026-10-09T23:35:34.725416"
+  "export_date": "2026-10-10T02:33:52.186130"
 }

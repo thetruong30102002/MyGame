@@ -28,6 +28,18 @@
           "south-west": "Idle/rotations/south-west.png"
         },
         "animations": {
+          "walk2": {
+            "north": [
+              "Idle/animations/walk2/north/frame_000.png",
+              "Idle/animations/walk2/north/frame_001.png",
+              "Idle/animations/walk2/north/frame_002.png",
+              "Idle/animations/walk2/north/frame_003.png",
+              "Idle/animations/walk2/north/frame_004.png",
+              "Idle/animations/walk2/north/frame_005.png",
+              "Idle/animations/walk2/north/frame_006.png",
+              "Idle/animations/walk2/north/frame_007.png"
+            ]
+          },
           "attack": {
             "south": [
               "Idle/animations/attack/south/frame_000.png",
@@ -149,5 +161,5 @@
     }
   ],
   "export_version": "3.1",
-  "export_date": "2026-10-09T11:17:07.116110"
+  "export_date": "2026-10-10T02:34:12.454933"
 }

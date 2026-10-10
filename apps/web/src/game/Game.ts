@@ -1,5 +1,5 @@
 import { Assets, Container, Graphics, Sprite, Text, type Application, type Texture, type Ticker } from 'pixi.js';
-import { cleanGearView, type GiftView, type PlayerView } from '@aether/protocol';
+import { cleanGearView, type GiftView, type PlayerView, type ServerMessage } from '@aether/protocol';
 import type { OnlineSession } from '@/net/OnlineSession';
 import { onlineStoryStorage } from '@/net/onlineStoryStorage';
 import { useSession } from '@/store/useSession';
@@ -19,6 +19,7 @@ import {
 	branchOpen,
 	BRANCHES,
 	canEnchant,
+	cleanBonusPoints,
 	defaultLoadout,
 	ENCHANT_ELEMENT_TIER,
 	ENCHANT_SWORD_TIER,
@@ -38,6 +39,7 @@ import {
 	SWORD_ARTS,
 	SWORD_STYLE_INFO,
 	SWORD_STYLES,
+	talentPoints,
 	tierCost,
 	treeOf,
 	unspent,
@@ -1326,11 +1328,8 @@ export class Game {
 				useSession.setState({ buffs: { list, at: Date.now() } });
 				this.applyBuffs();
 			},
-			hubs: (hubs) => useSession.setState({ hubs }),
-			eco: (m) => {
-				this.combat.setEconomy(m, m.gain);
-				this.persist();
-			},
+			hubs: (hubs, maps) => useSession.setState(maps ? { hubs, visitedMaps: maps } : { hubs }),
+			eco: (m) => this.receiveEco(m),
 			bought: (item) => useGameStore.getState().toast(`Đã mua ${SHOP.find((x) => x.id === item)?.name ?? item}`, 'loot'),
 			kicked: (reason) => {
 				// Màn chọn nhân vật hiện lại lý do: toast trong game biến mất ngay khi game bị gỡ.
@@ -1648,6 +1647,7 @@ export class Game {
 			enchant: this.combat.enchantment,
 			enchantCooldown: this.combat.enchantCooldown,
 			loadout: this.loadout(),
+			bonus: this.story.bonusPoints,
 		});
 	}
 
@@ -1762,6 +1762,30 @@ export class Game {
 		this.persist();
 		if (r.overflow > 0 && opts.drop !== false) this.dropItem(id, r.overflow);
 		return r.overflow;
+	}
+
+	/**
+	 * Cấp / EXP / xu / bình THẬT từ máy chủ (M3.3a) + điểm tiềm năng thưởng (`bonusPoints` — trang quản trị; vắng = không đổi), ghi
+	 * vào tiến độ phiên để StoryDirector / bảng Tiềm năng đọc. Quản trị đổi (`gain.reason = 'admin'`) thì báo lý do; tổng điểm tiềm
+	 * năng GIẢM (trừ điểm thưởng / đặt cấp thấp hơn) thì kẹp lại mốc đã mua ngay — bảng không bao giờ âm điểm.
+	 */
+	private receiveEco(m: Extract<ServerMessage, { t: 'eco' }>): void {
+		const st = useGameStore.getState();
+		const pc = this.combat.pc;
+		const before = { level: pc.level, bonus: this.story.bonusPoints };
+		if (m.bonusPoints !== undefined && this.online) this.online.progress.bonusPoints = cleanBonusPoints(m.bonusPoints);
+		this.combat.setEconomy(m, m.gain);
+		const bonus = this.story.bonusPoints;
+		if (m.gain?.reason === 'admin') {
+			st.toast(`Quản trị: ${m.gain.what}`, 'info');
+			if (m.gain.potions > 0) st.toast(`+${m.gain.potions} Bình hồi phục`, 'loot');
+		}
+		if (bonus > before.bonus) st.toast(`+${bonus - before.bonus} điểm tiềm năng thưởng`, 'level');
+		if (talentPoints(pc.level, bonus) < talentPoints(before.level, before.bonus) && this.story.refitTalents(pc.level)) {
+			this.syncTalents();
+			st.toast('Điểm tiềm năng giảm — đã hạ mốc cho vừa số điểm còn lại', 'warn');
+		}
+		this.persist();
 	}
 
 	/**
@@ -1883,7 +1907,7 @@ export class Game {
 			if (!branchOpen(branch, open)) return void st.toast(`Chưa mở nhánh ${name}`, 'warn');
 			const cost = nextTierCost(tiers, branch, open);
 			if (cost === null) return void st.toast(tier >= MAX_TIER ? `${name} đã đạt mốc tối đa` : `${name} mốc ${tier + 1} sắp có`, 'warn');
-			if (unspent(pc.level, tiers) < cost) return void st.toast(`Cần ${cost} điểm để lên ${name} mốc ${tier + 1} — lên cấp để nhận thêm`, 'warn');
+			if (unspent(pc.level, tiers, this.story.bonusPoints) < cost) return void st.toast(`Cần ${cost} điểm để lên ${name} mốc ${tier + 1} — lên cấp để nhận thêm`, 'warn');
 			// Kiếm lên mốc 3 lần đầu: phải kèm lưu phái (bảng Tiềm năng có ba nút chọn); đã có lưu phái thì bỏ qua.
 			const picking = branch === 'sword' && tier === STYLE_TIER - 1 && !this.story.swordStyle;
 			if (picking && (!r.style || !SWORD_STYLES.includes(r.style))) return void st.toast(`Kiếm mốc ${STYLE_TIER}: chọn một lưu phái ở bảng Tiềm năng`, 'warn');
@@ -1945,6 +1969,8 @@ export class Game {
 		new Image().src = mini.url;
 		useGameStore.setState({
 			mapInfo: {
+				region: this.worldIndex.region,
+				map: this.mapId,
 				url: mini.url,
 				imgW: mini.width,
 				imgH: mini.height,

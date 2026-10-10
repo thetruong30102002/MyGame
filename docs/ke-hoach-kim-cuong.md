@@ -82,7 +82,7 @@ pháp lý trước bước K2. Trước đó chỉ chạy ví + cửa hàng vớ
     giao dịch nạp). Client chỉ nhận số dư (`wallet`) — sau `welcome` và sau mỗi lần đổi.
   - **Quản trị (thử, chưa thu tiền)**: `cd apps/server && npx tsx src/grant.ts "<tên nhân vật>" <số> [lý do]` cộng / trừ (số âm)
     có ghi nhật ký; bỏ số = xem số dư + 10 dòng nhật ký. Chạy được khi máy chủ đang bật (SQLite WAL); người đang online thấy số
-    mới ở lần đổi ví kế hoặc lần vào game sau.
+    mới ở lần đổi ví kế hoặc lần vào game sau. Từ 10/10/2026 dùng trang `/admin` (K1e — người online nhận ngay, đủ mọi loại).
   - **Điểm danh** (`@aether/sim/rewards`): ngày theo giờ Việt Nam (sang ngày lúc 0 giờ, đồng hồ máy chủ); mỗi ngày đúng **1 kim
     cương** + xu tăng theo vòng 7 ngày (30 → 90) + 1 bình hồi phục (ngày 7: 3 bình); bỏ một ngày là chuỗi về ngày 1. Xu + bình
     còn nằm trong bản lưu client (tới M3.3) nên máy chủ gửi `gift`, client tự cộng. HUD: nút "Điểm danh" dưới khung tên chỉ
@@ -134,8 +134,30 @@ pháp lý trước bước K2. Trước đó chỉ chạy ví + cửa hàng vớ
   giá kim cương dưới mỗi ô; chọn món thì thẻ chi tiết (máy tính: bên phải; điện thoại: dải dính đáy) hiện mô tả, thời hạn, bình
   đang dùng cùng loại và nút Mua. Icon bình TẠM = `icon_potion` đổi sắc theo loại; nền gian hàng + icon thật chờ PixelLab.
   Người bán theo vùng (`MERCHANTS`) dùng chung quầy này — tiêu đề theo tên người bán.
+- **K1e — trang quản trị `/admin` (10/10/2026, chủ dự án: "thêm 1 trang admin để cộng tiền, điểm cho nhân vật")** — thay lệnh
+  `grant.ts` cho việc hằng ngày (lệnh cũ GIỮ NGUYÊN, vẫn chạy được). Cách dùng ở README mục Quản trị.
+  - **Quyền**: bảng `admins (account_id, granted_at)` — theo TÀI KHOẢN, mặc định không ai; cấp / thu / xem bằng
+    `npx tsx src/admin.ts add|remove|list` (`AETHER_DB` chọn CSDL). API dùng phiên đăng nhập sẵn có (Bearer) + phải có trong bảng:
+    chưa đăng nhập 401, không có quyền 403. Chặn dồn dập (`RateLimiter`): 120 lời gọi / phút mỗi địa chỉ, 30 lần cộng / phút mỗi quản trị.
+  - **API** (`apps/server/src/http.ts` + `adminOps.ts`): `GET /api/admin/me`, `GET /api/admin/characters?q=` (tên nhân vật / tài
+    khoản; số người đang online lấy từ bộ nhớ máy chủ), `POST /api/admin/grant` `{ characterId, coins?, diamonds?, potions?, exp?,
+    setLevel?, talentPoints?, reason }`, `GET /api/admin/log?limit=`. Biên độ mỗi lần ở `@aether/protocol` `ADMIN_LIMITS`; không bao
+    giờ âm (trừ quá thì về 0).
+  - **Ghi**: MỘT transaction (`Store.adminGrant`): cấp / EXP / xu / bình tính bằng `@aether/sim/economy` `applyAdminEco` (đặt cấp →
+    EXP về 0 → EXP có dấu theo tổng EXP → xu / bình kẹp) từ BỘ NHỚ của `Economy` nếu nhân vật đang online, ghi bằng đúng câu ghi +
+    `eco_ledger` của `saveEco`; kim cương qua ví + `diamond_ledger`; lý do hai sổ `admin:<tài khoản quản trị>:<lý do>`; mỗi trường
+    đổi một dòng `admin_log` (trước → sau). Xong transaction mới đưa số vào bộ nhớ + gửi `wallet` / `eco` (kèm `gain.reason = 'admin'`,
+    lý do, điểm thưởng) → game báo "Quản trị: …" ngay. Không gọi thẳng `Economy.change`: hàm đó không đặt cấp / trừ EXP được và tự mở
+    transaction riêng (không gói chung với kim cương + nhật ký được).
+  - **Điểm tiềm năng thưởng** (mới): `progress.bonusPoints` do máy chủ giữ — `saveProgress` giữ số trong CSDL (không bao giờ lấy số
+    client gửi), gửi lúc vào game (tiến độ + `eco`) và khi quản trị đổi. Client cộng vào điểm theo cấp ở mọi chỗ (`talentPoints`,
+    `unspent(…, bonus)`, `addTier(…, bonus)`, bảng Tiềm năng, `StoryDirector` kẹp bản lưu / chuyển định dạng / cộng mốc); điểm giảm
+    giữa chừng thì `refitTalents` hạ mốc cho vừa. Chơi một mình = 0.
+  - Test: `apps/server/tests/admin.test.ts` (14 ca, HTTP thật + CLI), `apps/web/tests/bonusPoints.test.ts` (9 ca); thử thật trên máy
+    chủ thử: cộng từng loại cho nhân vật đang online (game nhận ngay), mua mốc bằng điểm thưởng rồi tải lại trang — không mất.
+  - Triển khai: sao lưu `aether.db` (thêm 2 bảng), khởi động lại máy chủ game + build web, cấp quyền bằng lệnh trên CSDL thật.
 - **Còn lại**: icon kim cương / lịch / bình bằng PixelLab (cần token trả phí); mỹ phẩm (K3); bình hồi máu nhanh / tăng rơi đồ (chưa
-  có hệ rơi đồ); bản bình yếu hơn mua bằng xu / rơi ở boss (mục 2).
+  có hệ rơi đồ); bản bình yếu hơn mua bằng xu / rơi ở boss (mục 2); trang quản trị phần nạp tiền (K2: xem / hoàn nạp).
 
 ## 7. Câu hỏi còn mở
 

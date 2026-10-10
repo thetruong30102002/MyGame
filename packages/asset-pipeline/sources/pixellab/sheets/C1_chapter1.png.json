@@ -1,0 +1,20 @@
+{
+	"description": "A sprite sheet of SIX separate props arranged in a grid of 2 columns and 3 rows (two props side by side in each row), each centered in its own wide cell, in this exact order: top row left: a small low rustic wooden hut with a sloped plank roof, a plank door and one tiny window, wide and low, filling most of its cell; top row right: a small empty wooden rowboat seen from the side with two oars resting inside, wide and low, filling most of its cell width; middle row left: a soot-blackened antique brass Aether measuring machine driven into the ground on an iron spike, with a round gauge dial and needle on top and exposed brass gears on its side; middle row right: an old wooden box beehive with a sloped lid standing on a short wooden stand; bottom row left: a clump of tall green river reeds with a few brown cattails; bottom row right: a short thick weathered wooden mooring post with a rope coiled around it, drawn in straight FRONT VIEW like the reference (facing the camera, slight top-down), thick dark outline, soft cel shading, muted natural colors, every object fully separate on a plain flat solid bright magenta (#FF00FF) chroma-key background with wide empty space around it, no ground, no water, no shadow puddles, no text, no numbers, no characters",
+	"width": 192,
+	"height": 192,
+	"no_background": false,
+	"seed": 24,
+	"style_options": {
+		"color_palette": false,
+		"outline": true,
+		"shading": true,
+		"detail": false
+	},
+	"style_image": {
+		"path": "D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/N1_nature.png",
+		"usage_description": "Copy ONLY the art style of this reference: chunky chibi pixel art, thick dark outline on every shape, soft cel shading, front-facing view, one object centered in each cell. Do not copy these objects, their colors or their 3 by 3 layout."
+	},
+	"jobId": "e2bee8e5-d96d-4e06-ae21-2b8f64682cb0",
+	"token": 1,
+	"createdAt": "2026-10-10T02:48:30.467Z"
+}

@@ -299,6 +299,9 @@ export type ToastTone = 'info' | 'exp' | 'loot' | 'level' | 'warn';
 
 /** Ảnh toàn cảnh vùng (sinh từ dữ liệu map bởi pipeline) + thứ cố định để vẽ minimap / bản đồ lớn. */
 export interface MapInfo {
+	/** Map đang đứng: vùng (`human`) + id map trong vùng (`town`) — tầng Vùng / Thế giới của bản đồ lớn tô nổi chỗ này. */
+	region: string;
+	map: string;
 	url: string;
 	imgW: number;
 	imgH: number;
@@ -309,6 +312,9 @@ export interface MapInfo {
 	areas: { name: string; x: number; y: number }[];
 	landmarks: { id: string; name: string; x: number; y: number }[];
 }
+
+/** Tầng của bản đồ lớn: Khu vực = map đang đứng · Vùng = sơ đồ các map của vùng · Thế giới = tranh lục địa. */
+export type MapTab = 'area' | 'region' | 'world';
 
 export interface MapMarkers {
 	/** Chỗ làm nhiệm vụ đang hiện (null: không có chỗ để tự đi tới). `r`: bán kính vùng (vùng quái, địa điểm). */
@@ -366,6 +372,9 @@ interface GameState {
 	/** Bản đồ lớn đang mở (không dừng game). */
 	mapOpen: boolean;
 	setMapOpen: (open: boolean) => void;
+	/** Tầng đang xem của bản đồ lớn — mở lần đầu là Khu vực, sau đó nhớ tầng đã chọn tới khi tải lại trang. */
+	mapTab: MapTab;
+	setMapTab: (tab: MapTab) => void;
 	/** Bảng nhân vật / tiềm năng / kho đồ đang mở (null = không). Mở bảng thì đóng bản đồ và ngược lại. */
 	panel: PanelId | null;
 	setPanel: (panel: PanelId | null) => void;
@@ -432,6 +441,8 @@ export const useGameStore = create<GameState>((set, get) => ({
 	mapNames: {},
 	mapOpen: false,
 	setMapOpen: (mapOpen) => set(mapOpen ? { mapOpen, panel: null } : { mapOpen }),
+	mapTab: 'area',
+	setMapTab: (mapTab) => set({ mapTab }),
 	panel: null,
 	panelNpc: null,
 	setPanel: (panel) => set(panel ? { panel, mapOpen: false } : { panel }),

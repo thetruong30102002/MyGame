@@ -1042,5 +1042,77 @@
 			"w": 0,
 			"h": 0
 		}
+	},
+	"small_hut": {
+		"kind": "building",
+		"w": 81,
+		"h": 43,
+		"blocks": true,
+		"footprint": {
+			"x": -37,
+			"y": -24,
+			"w": 73,
+			"h": 24
+		}
+	},
+	"rowboat": {
+		"kind": "decor",
+		"w": 84,
+		"h": 35,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"brass_meter": {
+		"kind": "decor",
+		"w": 34,
+		"h": 59,
+		"blocks": true,
+		"footprint": {
+			"x": -9,
+			"y": -10,
+			"w": 17,
+			"h": 10
+		}
+	},
+	"beehive": {
+		"kind": "decor",
+		"w": 53,
+		"h": 54,
+		"blocks": true,
+		"footprint": {
+			"x": -21,
+			"y": -14,
+			"w": 42,
+			"h": 14
+		}
+	},
+	"reed_clump": {
+		"kind": "flower",
+		"w": 56,
+		"h": 58,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"mooring_post": {
+		"kind": "decor",
+		"w": 46,
+		"h": 45,
+		"blocks": true,
+		"footprint": {
+			"x": -9,
+			"y": -10,
+			"w": 18,
+			"h": 10
+		}
 	}
 }

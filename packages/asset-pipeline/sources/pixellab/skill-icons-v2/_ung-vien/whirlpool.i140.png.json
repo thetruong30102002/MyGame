@@ -1,0 +1,17 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a swirling teal water whirlpool spiral seen from above with white foam, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"init_image_strength": 140,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/sword+teal.png",
+	"init_image_path": "sources/pixellab/skill-icons-v2/init/whirlpool.init.png",
+	"jobId": "a30411d8-d60e-4379-8ad4-1d43a2a36721",
+	"token": 1,
+	"createdAt": "2026-10-10T02:22:00.328Z"
+}

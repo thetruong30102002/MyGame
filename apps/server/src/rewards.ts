@@ -40,7 +40,7 @@ export class Rewards {
 	handle(player: string, msg: RewardMessage): void {
 		if (msg.t === 'checkin') return this.checkin(player);
 		if (msg.t === 'goals') return this.host.send(player, { t: 'goals', list: this.goals(player) });
-		if (msg.t === 'hubs') return this.host.send(player, { t: 'hubs', list: this.hubs(player) });
+		if (msg.t === 'hubs') return this.host.send(player, { t: 'hubs', list: this.hubs(player), maps: this.store.visitedMaps(player) });
 		return this.claim(player, String(msg.id ?? ''));
 	}
 

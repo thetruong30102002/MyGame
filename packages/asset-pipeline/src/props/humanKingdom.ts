@@ -41,6 +41,8 @@ const RUINS = (i: number) => cell('R1_ruins', i, '3x3');
 const BONES = (i: number) => cell('B1_bonehills', i, '3x3');
 const CAVE = (i: number) => cell('CV1_cave_nature', i, '3x3');
 const CAVE_PROPS = (i: number) => cell('CV2_cave_props', i, '3x3');
+/** Tấm chương 1: lưới 2 cột × 3 hàng (ô rộng 96×64 cho lều / thuyền); `grow` = nới ô khi món vẽ lấn qua đường lưới (`props/sheet.ts`). */
+const CHAPTER1 = (i: number, grow = 0) => `${cell('C1_chapter1', i, '2x3')}${grow ? `+${grow}` : ''}`;
 
 export const HUMAN_KINGDOM_PROPS: PropDef[] = [
 	{ id: 'house', path: `${PL}house_cottage_front`, kind: 'building', footprint: { w: 0.9, h: 60 }, blocks: true },
@@ -145,6 +147,16 @@ export const HUMAN_KINGDOM_PROPS: PropDef[] = [
 	{ id: 'iron_chain', path: CAVE_PROPS(4), kind: 'flower', footprint: { w: 0, h: 0 }, blocks: false },
 	{ id: 'stone_altar', path: CAVE_PROPS(7), kind: 'building', footprint: { w: 0.9, h: 24 }, blocks: true },
 	{ id: 'skull_candles', path: CAVE_PROPS(8), kind: 'flower', footprint: { w: 0, h: 0 }, blocks: false },
+	// Đồ vật chương 1 (tấm C1, ảnh mẫu N1, vẽ 10/10/2026 — đề bài `sheets/C1_chapter1.png.json`): lều gỗ bà goá (Mộ Vô Danh),
+	// thuyền gỗ + cọc buộc thuyền (Bến sông, Bãi Bồi), cỗ máy đo Aether bằng đồng (Gian Đá Ghi Tên, Hang Gargoyle), thùng ong nhà
+	// Ashvale, lau sậy bờ sông. Thuyền đặt trên mặt nước nên không chặn; lau sậy đi xuyên. Cỗ máy đo (đỉnh mặt đồng hồ) và lau sậy
+	// (ngọn bông) vẽ lấn đường lưới 1–2px → cắt ô nới.
+	{ id: 'small_hut', path: CHAPTER1(0), kind: 'building', footprint: { w: 0.9, h: 24 }, blocks: true },
+	{ id: 'rowboat', path: CHAPTER1(1), kind: 'decor', footprint: { w: 0, h: 0 }, blocks: false },
+	{ id: 'brass_meter', path: CHAPTER1(2, 3), kind: 'decor', footprint: { w: 0.5, h: 10 }, blocks: true },
+	{ id: 'beehive', path: CHAPTER1(3), kind: 'decor', footprint: { w: 0.8, h: 14 }, blocks: true },
+	{ id: 'reed_clump', path: CHAPTER1(4, 2), kind: 'flower', footprint: { w: 0, h: 0 }, blocks: false },
+	{ id: 'mooring_post', path: CHAPTER1(5), kind: 'decor', footprint: { w: 0.4, h: 10 }, blocks: true },
 ];
 
 /**

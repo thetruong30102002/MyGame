@@ -1,6 +1,6 @@
 {
 	"version": 2,
-	"notes": "Icon chiêu v2 (10/10/2026): MỘT icon 32×32 mỗi khoá (file = khoá đổi \":\" thành \"-\"), create_image_pixflux nền trong suốt, viền đen một màu, basic shading, low detail, ÉP bảng màu nhánh (+ màu nhấn) — vẽ đúng cỡ hiện ở thanh kỹ năng. Khoá, thứ tự, name_vi giữ như bộ v1 (skill-icons/skill_icons.json — 10 tấm 3×3, lưu trữ). Đề bài gửi = prompt_en + style.suffix; bảng màu gửi = palettes[palette] ∪ accents[...] (PNG ở palettes/); tham số đúng từng lần vẽ ở <file>.json. chosen = bản được chọn (t1 = lần vẽ đầu, tN = vẽ lại bằng chữ, iNNN = img2img); init + init_strength = img2img từ icon v1 thu nhỏ còn 28px (init/) để giữ BỐ CỤC khi đề bài \"kiếm + hiệu ứng\" bị pixflux rút còn thanh kiếm; seed riêng (nếu có) = lần vẽ lại. Thư mục: args/ (tham số gửi), _ung-vien/ (ứng viên bị loại), _thu/ (thử 3 cách × 6 icon), _duyet/ (tấm so sánh / duyệt / ảnh trước-sau). Dựng: npm run assets:skill-icons. Xem docs/asset-pipeline.md mục Icon chiêu v2.",
+	"notes": "Icon chiêu v2 (10/10/2026): MỘT icon 32×32 mỗi khoá (file = khoá đổi \":\" thành \"-\"), create_image_pixflux nền trong suốt, viền đen một màu, basic shading, low detail, ÉP bảng màu nhánh (+ màu nhấn) — vẽ đúng cỡ hiện ở thanh kỹ năng. Khoá, thứ tự, name_vi giữ như bộ v1 (skill-icons/skill_icons.json — 10 tấm 3×3, lưu trữ). Đề bài gửi = prompt_en + style.suffix; bảng màu gửi = palettes[palette] ∪ accents[...] (PNG ở palettes/); tham số đúng từng lần vẽ ở <file>.json. chosen = bản được chọn (t1 = lần vẽ đầu, tN = vẽ lại bằng chữ, iNNN = img2img); init + init_strength = img2img từ icon v1 thu nhỏ còn 28px (init/) để giữ BỐ CỤC khi đề bài \"kiếm + hiệu ứng\" bị pixflux rút còn thanh kiếm; seed riêng (nếu có) = lần vẽ lại. Thư mục: args/ (tham số gửi), _ung-vien/ (ứng viên bị loại), _thu/ (thử 3 cách × 6 icon), _duyet/ (tấm so sánh / duyệt / ảnh trước-sau). Dựng: npm run assets:skill-icons. Xem docs/asset-pipeline.md mục Icon chiêu v2. Lượt 2 (10/10/2026, 10 lượt token #1): vẽ lại 7 icon tidal_wave, future:earth:10, calm_stance, whirlpool, pierce_rush, ice_spire, earth_rend (trường redrawn; bản cũ ở _ung-vien/, tấm so sánh _duyet/ve-lai-2-*.png).",
 	"style": {
 		"tool": "pixflux",
 		"width": 32,
@@ -149,11 +149,13 @@
 			"sheet_v1": "SK1_sword_kiem_than",
 			"palette": "sword",
 			"accents": [],
-			"prompt_en": "a steel sword thrusting point-first to the right with a long white motion streak",
+			"prompt_en": "a steel sword thrusting right through a big white arrowhead-shaped burst of speed",
 			"file": "pierce_rush.png",
-			"chosen": "i140",
-			"init": "init/pierce_rush.init.png",
-			"init_strength": 140
+			"chosen": "i200",
+			"init": "init/pierce_rush.v3.init.png",
+			"init_strength": 200,
+			"init_note": "init dựng từ vệt lao VFX pierce_slash (khung 3, kéo thành nêm 24×18) + kiếm bản rộng của ứng viên t2 xoay 45° (đều là hình PixelLab, chỉ dẫn bố cục)",
+			"redrawn": "10/10/2026 lượt 2 (bản cũ i140 → _ung-vien/)"
 		},
 		{
 			"key": "sunder_strike",
@@ -220,11 +222,10 @@
 			"accents": [
 				"teal"
 			],
-			"prompt_en": "a horizontal steel sword over a teal half-dome guard",
+			"prompt_en": "a teal kite shield with a steel sword crossed behind it",
 			"file": "calm_stance.png",
-			"chosen": "i200",
-			"init": "init/calm_stance.init.png",
-			"init_strength": 200
+			"chosen": "t2",
+			"redrawn": "10/10/2026 lượt 2 (bản cũ i200 → _ung-vien/)"
 		},
 		{
 			"key": "flowing_counter",
@@ -259,8 +260,10 @@
 			"accents": [
 				"teal"
 			],
-			"prompt_en": "a steel sword inside a round white spinning slash ring",
-			"file": "whirlpool.png"
+			"prompt_en": "a swirling teal water whirlpool with a steel sword spinning in its center",
+			"file": "whirlpool.png",
+			"chosen": "t2",
+			"redrawn": "10/10/2026 lượt 2 (bản cũ t1 → _ung-vien/)"
 		},
 		{
 			"key": "passive:sword:2",
@@ -487,8 +490,10 @@
 			"accents": [
 				"steel"
 			],
-			"prompt_en": "a sword stabbed point-down into cracked brown ground",
-			"file": "earth_rend.png"
+			"prompt_en": "a broad steel sword stabbed deep into a big cracked brown boulder",
+			"file": "earth_rend.png",
+			"chosen": "t2",
+			"redrawn": "10/10/2026 lượt 2 (bản cũ t1 → _ung-vien/)"
 		},
 		{
 			"key": "spare:sword:1",
@@ -651,11 +656,10 @@
 			"sheet_v1": "SK6_water",
 			"palette": "water",
 			"accents": [],
-			"prompt_en": "a cone-shaped fan of blue water spraying outward",
+			"prompt_en": "a big blue water splash bursting outward with white foam and flying droplets",
 			"file": "tidal_wave.png",
-			"chosen": "i140",
-			"init": "init/tidal_wave.init.png",
-			"init_strength": 140
+			"chosen": "t2",
+			"redrawn": "10/10/2026 lượt 2 (bản cũ i140 → _ung-vien/)"
 		},
 		{
 			"key": "call_rain",
@@ -835,8 +839,10 @@
 			"sheet_v1": "SK8_ice",
 			"palette": "ice",
 			"accents": [],
-			"prompt_en": "one tall jagged ice pillar rising from the ground",
-			"file": "ice_spire.png"
+			"prompt_en": "a cluster of thick jagged ice crystal spikes bursting up from the ground, the middle one tallest",
+			"file": "ice_spire.png",
+			"chosen": "t2",
+			"redrawn": "10/10/2026 lượt 2 (bản cũ t1 → _ung-vien/)"
 		},
 		{
 			"key": "ice_mirror",
@@ -1045,12 +1051,13 @@
 			"name_vi": "Sơn Thần (sắp có)",
 			"sheet_v1": "SK10_aether",
 			"palette": "earth",
-			"accents": [],
-			"prompt_en": "a huge stone golem fist bursting up from cracked ground",
+			"accents": [
+				"yellow"
+			],
+			"prompt_en": "a big blocky stone golem head with two glowing yellow eyes, front view",
 			"file": "future-earth-10.png",
-			"chosen": "i140",
-			"init": "init/future-earth-10.init.png",
-			"init_strength": 140
+			"chosen": "t2",
+			"redrawn": "10/10/2026 lượt 2 (bản cũ i140 → _ung-vien/)"
 		},
 		{
 			"key": "spare:aether:1",

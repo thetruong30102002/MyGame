@@ -1,0 +1,17 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a broad steel sword thrusting point-first to the right out of a big white burst of speed, wide motion trail behind it, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"init_image_strength": 140,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/sword.png",
+	"init_image_path": "sources/pixellab/skill-icons-v2/init/pierce_rush.v2.init.png",
+	"jobId": "6927b323-df51-49fa-8b15-34cd01526bc8",
+	"token": 1,
+	"createdAt": "2026-10-10T02:22:18.317Z"
+}

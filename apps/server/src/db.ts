@@ -1,8 +1,9 @@
 import { mkdirSync } from 'node:fs';
 import { dirname } from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
-import type { BuffKind, BuffView, CharacterInfo, CharacterProgress, Gender } from '@aether/protocol';
+import type { AdminChange, AdminField, AdminLogEntry, BuffKind, BuffView, CharacterInfo, CharacterProgress, Gender } from '@aether/protocol';
 import type { Eco } from '@aether/sim/economy';
+import { cleanBonusPoints } from '@aether/sim/talents';
 
 /**
  * Lưu trữ bằng SQLite có sẵn trong Node (`node:sqlite`) — không cần cài máy chủ CSDL riêng. Đủ cho vài
@@ -138,6 +139,27 @@ export class Store {
 				at INTEGER NOT NULL,
 				PRIMARY KEY (character_id, map)
 			);
+			-- Quản trị (trang /admin, 10/10/2026): tài khoản được cộng tiền / điểm cho nhân vật. Cấp bằng lệnh \`src/admin.ts\`, mặc định
+			-- KHÔNG ai. API đọc bảng ở mỗi lần gọi → cấp / thu quyền có hiệu lực ngay.
+			CREATE TABLE IF NOT EXISTS admins (
+				account_id INTEGER PRIMARY KEY REFERENCES accounts(id) ON DELETE CASCADE,
+				granted_at INTEGER NOT NULL
+			);
+			-- Nhật ký quản trị: MỖI trường đổi một dòng (trước → sau). Không khoá ngoại: xoá nhân vật / tài khoản thì nhật ký vẫn còn
+			-- (giữ sẵn tên để đọc).
+			CREATE TABLE IF NOT EXISTS admin_log (
+				id INTEGER PRIMARY KEY,
+				admin_id INTEGER NOT NULL,
+				admin TEXT NOT NULL,
+				character_id TEXT NOT NULL,
+				character_name TEXT NOT NULL,
+				field TEXT NOT NULL,
+				from_value INTEGER NOT NULL,
+				to_value INTEGER NOT NULL,
+				reason TEXT NOT NULL,
+				at INTEGER NOT NULL
+			);
+			CREATE INDEX IF NOT EXISTS admin_log_char ON admin_log(character_id);
 		`);
 	}
 
@@ -213,13 +235,23 @@ export class Store {
 
 	/**
 	 * Lưu tiến độ client gửi (vị trí, map, truyện…) — GIỮ NGUYÊN cấp / EXP / xu / bình đang có trong CSDL (M3.3a: máy chủ là nguồn sự
-	 * thật, ghi qua `saveEco`). Bản ghi cũ thiếu trường nào thì lấy số client gửi (chỉ lần đầu).
+	 * thật, ghi qua `saveEco`). Bản ghi cũ thiếu trường nào thì lấy số client gửi (chỉ lần đầu). Điểm tiềm năng thưởng (`bonusPoints` —
+	 * trang quản trị) cũng giữ nguyên, và KHÔNG BAO GIỜ lấy số client gửi: chưa có thì 0.
 	 */
 	saveProgress(id: string, progress: CharacterProgress): void {
 		const row = this.db.prepare(`SELECT json_extract(progress, '$.story') AS story FROM characters WHERE id = ?`).get(id) as { story: string | null } | undefined;
 		const next = keepNewerTalents(row?.story ? (JSON.parse(row.story) as unknown) : null, progress);
-		const keep = ['level', 'exp', 'coins', 'potions'].map((k) => `'$.${k}', coalesce(json_extract(progress, '$.${k}'), json_extract(?1, '$.${k}'))`).join(', ');
+		const keep = [
+			...['level', 'exp', 'coins', 'potions'].map((k) => `'$.${k}', coalesce(json_extract(progress, '$.${k}'), json_extract(?1, '$.${k}'))`),
+			`'$.bonusPoints', coalesce(json_extract(progress, '$.bonusPoints'), 0)`,
+		].join(', ');
 		this.db.prepare(`UPDATE characters SET progress = json_set(?1, ${keep}), updated_at = ?2 WHERE id = ?3`).run(JSON.stringify(next), Date.now(), id);
+	}
+
+	/** Điểm tiềm năng thưởng đang lưu (0 nếu chưa có / không có nhân vật). */
+	bonusPoints(id: string): number {
+		const row = this.db.prepare(`SELECT json_extract(progress, '$.bonusPoints') AS b FROM characters WHERE id = ?`).get(id) as { b: unknown } | undefined;
+		return cleanBonusPoints(row?.b);
 	}
 
 	/** Cấp / EXP / xu / bình đang lưu (null = không có nhân vật). */
@@ -234,17 +266,22 @@ export class Store {
 	 * Ghi cấp / EXP / xu / bình (một transaction) + một dòng nhật ký nếu có `log`. Trả false = `log.ref` đã dùng (nhiệm vụ / boss / quà
 	 * đã trao) — không đổi gì.
 	 */
-	saveEco(id: string, e: Eco, log: { reason: string; coins: number; potions: number; exp: number; ref: string | null } | null): boolean {
+	saveEco(id: string, e: Eco, log: EcoLog | null): boolean {
 		let ok = false;
 		this.tx(() => {
 			if (log?.ref && this.db.prepare('SELECT 1 FROM eco_ledger WHERE ref = ?').get(log.ref)) return;
-			this.db
-				.prepare(`UPDATE characters SET progress = json_set(progress, '$.level', ?, '$.exp', ?, '$.coins', ?, '$.potions', ?), updated_at = ? WHERE id = ?`)
-				.run(e.level, e.exp, e.coins, e.potions, Date.now(), id);
-			if (log) this.db.prepare('INSERT INTO eco_ledger (character_id, coins, potions, exp, reason, ref, at) VALUES (?, ?, ?, ?, ?, ?, ?)').run(id, log.coins, log.potions, log.exp, log.reason, log.ref, Date.now());
+			this.writeEco(id, e, log);
 			ok = true;
 		});
 		return ok;
+	}
+
+	/** Phần ghi của `saveEco` (gọi TRONG transaction) — trang quản trị dùng chung câu ghi + nhật ký (`adminGrant`). */
+	private writeEco(id: string, e: Eco, log: EcoLog | null): void {
+		this.db
+			.prepare(`UPDATE characters SET progress = json_set(progress, '$.level', ?, '$.exp', ?, '$.coins', ?, '$.potions', ?), updated_at = ? WHERE id = ?`)
+			.run(e.level, e.exp, e.coins, e.potions, Date.now(), id);
+		if (log) this.db.prepare('INSERT INTO eco_ledger (character_id, coins, potions, exp, reason, ref, at) VALUES (?, ?, ?, ?, ?, ?, ?)').run(id, log.coins, log.potions, log.exp, log.reason, log.ref, Date.now());
 	}
 
 	/** Nhật ký kinh tế gần nhất trước (quản trị / test). */
@@ -256,6 +293,94 @@ export class Store {
 			reason: string;
 			ref: string | null;
 		}[];
+	}
+
+	// ———— Quản trị (trang /admin) ————
+
+	isAdmin(accountId: number): boolean {
+		return !!this.db.prepare('SELECT 1 FROM admins WHERE account_id = ?').get(accountId);
+	}
+
+	/** Cấp / thu quyền quản trị theo tên tài khoản. null = không có tài khoản đó; false = đã ở đúng trạng thái đó từ trước. */
+	setAdmin(username: string, on: boolean): boolean | null {
+		const acc = this.account(username);
+		if (!acc) return null;
+		const r = on
+			? this.db.prepare('INSERT OR IGNORE INTO admins (account_id, granted_at) VALUES (?, ?)').run(acc.id, Date.now())
+			: this.db.prepare('DELETE FROM admins WHERE account_id = ?').run(acc.id);
+		return Number(r.changes) > 0;
+	}
+
+	/** Các tài khoản quản trị (cấp trước đứng trước). */
+	admins(): { username: string; grantedAt: number }[] {
+		const rows = this.db.prepare('SELECT a.username, m.granted_at FROM admins m JOIN accounts a ON a.id = m.account_id ORDER BY m.granted_at').all() as { username: string; granted_at: number }[];
+		return rows.map((r) => ({ username: r.username, grantedAt: r.granted_at }));
+	}
+
+	/**
+	 * Tìm nhân vật cho trang quản trị: tên nhân vật HOẶC tên tài khoản chứa `q` (không phân biệt hoa thường — như kiểm trùng tên); `q`
+	 * rỗng = các nhân vật lưu gần nhất. Số kinh tế là số THÔ trong CSDL (người gọi kẹp, hoặc lấy bộ nhớ nếu nhân vật đang online).
+	 */
+	adminSearch(q: string, limit: number): AdminRow[] {
+		const like = `%${nameKey(q.trim()).replace(/[\\%_]/g, (c) => `\\${c}`)}%`;
+		const rows = this.db.prepare(`${ADMIN_ROW_SQL} WHERE c.name_key LIKE ?1 ESCAPE '\\' OR a.username LIKE ?1 ESCAPE '\\' ORDER BY c.updated_at DESC LIMIT ?2`).all(like, limit);
+		return (rows as unknown as AdminRow[]).map(toAdminRow);
+	}
+
+	/** Một nhân vật cho trang quản trị (null = không có). */
+	adminRow(id: string): AdminRow | null {
+		const row = this.db.prepare(`${ADMIN_ROW_SQL} WHERE c.id = ?`).get(id) as unknown as AdminRow | undefined;
+		return row ? toAdminRow(row) : null;
+	}
+
+	/**
+	 * Quản trị cộng / trừ — MỘT transaction: cấp / EXP / xu / bình (số mới do `Economy` tính — nhân vật đang online thì từ bộ nhớ của nó)
+	 * ghi bằng đúng câu ghi + nhật ký `eco_ledger` của `saveEco`; kim cương qua ví (`diamond_ledger`, trừ quá số dư thì kẹp về 0); điểm
+	 * tiềm năng thưởng (`progress.bonusPoints`, kẹp 0…`TALENT_BONUS_CAP`); MỖI trường đổi một dòng `admin_log`. Lý do ở hai sổ kinh tế:
+	 * `admin:<tài khoản quản trị>:<lý do>`. Trả các trường đã đổi (trước → sau) — rỗng nếu không có gì đổi / không có nhân vật.
+	 */
+	adminGrant(id: string, g: AdminGrantWrite): AdminChange[] {
+		const changes: AdminChange[] = [];
+		const why = `admin:${g.admin.username}:${g.reason}`;
+		this.tx(() => {
+			const row = this.db.prepare('SELECT name FROM characters WHERE id = ?').get(id) as { name: string } | undefined;
+			if (!row) return;
+			if (g.eco) {
+				const { before: b, after: a } = g.eco;
+				const fields = (['level', 'exp', 'coins', 'potions'] as const).filter((k) => a[k] !== b[k]);
+				if (fields.length) {
+					this.writeEco(id, a, { reason: why, coins: a.coins - b.coins, potions: a.potions - b.potions, exp: g.eco.exp, ref: null });
+					for (const k of fields) changes.push({ field: k, from: b[k], to: a[k] });
+				}
+			}
+			if (g.diamonds) {
+				const cur = this.diamonds(id);
+				const delta = Math.max(Math.trunc(g.diamonds), -cur);
+				if (delta) changes.push({ field: 'diamonds', from: cur, to: this.applyDiamonds(id, delta, why, null)! });
+			}
+			if (g.bonusPoints) {
+				const cur = this.bonusPoints(id);
+				const next = cleanBonusPoints(cur + Math.trunc(g.bonusPoints));
+				if (next !== cur) {
+					this.db.prepare(`UPDATE characters SET progress = json_set(progress, '$.bonusPoints', ?), updated_at = ? WHERE id = ?`).run(next, Date.now(), id);
+					changes.push({ field: 'bonusPoints', from: cur, to: next });
+				}
+			}
+			const at = Date.now();
+			const log = this.db.prepare('INSERT INTO admin_log (admin_id, admin, character_id, character_name, field, from_value, to_value, reason, at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)');
+			for (const c of changes) log.run(g.admin.id, g.admin.username, id, row.name, c.field, c.from, c.to, g.reason, at);
+		});
+		return changes;
+	}
+
+	/** Nhật ký quản trị, mới nhất trước (`characterId`: chỉ một nhân vật). */
+	adminLog(limit: number, characterId?: string): AdminLogEntry[] {
+		const rows = (
+			characterId
+				? this.db.prepare('SELECT * FROM admin_log WHERE character_id = ? ORDER BY id DESC LIMIT ?').all(characterId, limit)
+				: this.db.prepare('SELECT * FROM admin_log ORDER BY id DESC LIMIT ?').all(limit)
+		) as unknown as AdminLogRow[];
+		return rows.map((r) => ({ id: r.id, at: r.at, admin: r.admin, characterId: r.character_id, characterName: r.character_name, field: r.field as AdminField, from: r.from_value, to: r.to_value, reason: r.reason }));
 	}
 
 	// ———— Xã hội ————
@@ -509,6 +634,55 @@ export class Store {
 			throw e;
 		}
 	}
+}
+
+/** Một dòng nhật ký kinh tế (`eco_ledger`) đi kèm lần ghi cấp / EXP / xu / bình. */
+type EcoLog = { reason: string; coins: number; potions: number; exp: number; ref: string | null };
+
+/** Việc ghi của một lần quản trị cộng / trừ (`Store.adminGrant`). */
+export interface AdminGrantWrite {
+	admin: { id: number; username: string };
+	reason: string;
+	/** Kinh tế trước / sau (`@aether/sim/economy` `applyAdminEco`) + tổng EXP thay đổi (có dấu) cho nhật ký kinh tế. */
+	eco?: { before: Eco; after: Eco; exp: number };
+	/** Kim cương cộng (âm = trừ). */
+	diamonds?: number;
+	/** Điểm tiềm năng thưởng cộng (âm = trừ). */
+	bonusPoints?: number;
+}
+
+/** Nhân vật cho trang quản trị: số kinh tế THÔ trong CSDL (bản lưu cũ có thể thiếu / lạ — người gọi kẹp bằng `cleanEco`). */
+export interface AdminRow {
+	id: string;
+	name: string;
+	account: string;
+	level: unknown;
+	exp: unknown;
+	coins: unknown;
+	potions: unknown;
+	diamonds: number;
+	bonusPoints: number;
+}
+
+const ADMIN_ROW_SQL = `SELECT c.id, c.name, a.username AS account, json_extract(c.progress, '$.level') AS level, json_extract(c.progress, '$.exp') AS exp,
+	json_extract(c.progress, '$.coins') AS coins, json_extract(c.progress, '$.potions') AS potions, json_extract(c.progress, '$.bonusPoints') AS bonusPoints,
+	coalesce(w.diamonds, 0) AS diamonds
+	FROM characters c JOIN accounts a ON a.id = c.account_id LEFT JOIN wallets w ON w.character_id = c.id`;
+
+function toAdminRow(r: AdminRow): AdminRow {
+	return { id: r.id, name: r.name, account: r.account, level: r.level, exp: r.exp, coins: r.coins, potions: r.potions, diamonds: Number(r.diamonds) || 0, bonusPoints: cleanBonusPoints(r.bonusPoints) };
+}
+
+interface AdminLogRow {
+	id: number;
+	admin: string;
+	character_id: string;
+	character_name: string;
+	field: string;
+	from_value: number;
+	to_value: number;
+	reason: string;
+	at: number;
 }
 
 export interface CharacterBrief {

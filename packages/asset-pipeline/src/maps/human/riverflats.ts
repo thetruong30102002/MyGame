@@ -88,6 +88,9 @@ export function buildRiverflats(meta: Record<string, PropMeta>, decalIds: string
 		['lamp', px(31) + 20, px(26) + 4],
 	] as const)
 		L.place(id, x, y, { force: true, allowRoad: true });
+	// Thuyền gỗ neo cạnh đầu bến (mặt nước cột 35–36 — bến chiếm cột 34), buộc vào cọc ở góc bến (tấm C1).
+	L.place('mooring_post', px(34) - 4, px(25) + 20, { force: true });
+	L.place('rowboat', px(35) + 26, px(25) + 12, { force: true });
 	L.place('well', px(17), px(26), { force: true });
 
 	// Biển chỉ đường ở ba lối.
@@ -139,6 +142,11 @@ export function buildRiverflats(meta: Record<string, PropMeta>, decalIds: string
 	}
 
 	L.sprinkleDecals(decalsOf(decalIds, 'd1'), 1300);
+	// Lau sậy (tấm C1, đi xuyên) sát mép nước — rải SAU decal nên dãy ngẫu nhiên của cây / đá / decal đã có không đổi.
+	for (let i = 0; i < 26; i += 1) {
+		const [tx, ty] = L.pick(bank);
+		L.place('reed_clump', Math.round((tx + L.rand()) * TILE), Math.round((ty + L.rand()) * TILE));
+	}
 
 	const zone = (h: (typeof herds)[number]): MonsterZone => ({
 		id: h.id,

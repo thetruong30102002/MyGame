@@ -250,7 +250,8 @@
 			"dodge-staff": "95dc048d-2a1a-4c84-8e2b-dd8a2ea7007b",
 			"hit-staff2": "4aa2be0e-0a75-46dd-87e2-ef4a464a1987",
 			"dodge-staff2": "73746dec-8547-4c68-9b23-be1bef9cd68a",
-			"death-staff": "ab05990d-dc78-496b-b56a-1f0e96d591cd"
+			"death-staff": "ab05990d-dc78-496b-b56a-1f0e96d591cd",
+			"idle-staff2": "5ebb7cd6-bbc7-4546-950e-0732b432af71"
 		}
 	},
 	"player_hero_v2_f_staff": {
@@ -384,7 +385,8 @@
 			"walk": "7d34d279-a628-45cc-bc3c-22bef937b3ae",
 			"idle": "14e22498-a746-49b7-8eae-9b9618026261",
 			"attack": "3f00acec-d3e4-44a8-ac30-cb7c15bdd7e0",
-			"death": "a0bfa7d0-fffc-4328-a2ff-47c490f150c0"
+			"death": "a0bfa7d0-fffc-4328-a2ff-47c490f150c0",
+			"attack2": "3bee6ad5-b57d-4624-bdb2-cf2d2d19c5fb"
 		}
 	},
 	"mob_wind_wolf_001": {
@@ -464,7 +466,8 @@
 			"walk": "43d80082-5ac0-42fd-801a-b5883d7b7d06",
 			"idle": "a96c6aca-87b3-4738-8116-cede28803662",
 			"attack": "4321a956-f8b5-4bb2-918f-e80b939e4153",
-			"death": "8241de83-3ed9-4c26-907c-8fbbc6b396aa"
+			"death": "8241de83-3ed9-4c26-907c-8fbbc6b396aa",
+			"walk2": "0ef54f59-b8cc-46e4-8fe9-35bc59ecbbea"
 		}
 	},
 	"boss_mud_hydra_001": {

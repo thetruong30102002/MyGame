@@ -46,7 +46,7 @@
 			"id": "silhouette-size",
 			"label": "Silhouette đủ lớn để đọc được (20–95% chiều cao canvas)",
 			"status": "pass",
-			"detail": "cao 73–89px trên 184px"
+			"detail": "cao 73–90px trên 184px"
 		},
 		{
 			"id": "silhouette-solid",
@@ -70,7 +70,7 @@
 			"id": "anatomy",
 			"label": "Duyệt bằng mắt: giải phẫu, vũ khí/trang phục/tóc không đổi giữa frame",
 			"status": "pass",
-			"detail": "10/10/2026: Duyệt bằng mắt contact sheet đứng / đi 8 hướng + đánh / gục S-E-N để nạp làm boss khu Hang Gargoyle (thiết kế 12 map vùng 1). Đạt; TẠM giữ walk/N dù cánh sẫm đen hơn các hướng khác (lệch màu PixelLab, cánh đá xám ở đứng / đánh) — vẽ lại khi có lượt."
+			"detail": "10/10/2026: Duyệt bằng mắt contact sheet đứng / đi 8 hướng + đánh / gục S-E-N để nạp làm boss khu Hang Gargoyle (thiết kế 12 map vùng 1). Đạt; TẠM giữ walk/N dù cánh sẫm đen hơn các hướng khác (lệch màu PixelLab, cánh đá xám ở đứng / đánh) — vẽ lại khi có lượt. | 10/10/2026 (vẽ lại, 2 lượt token #1): đi hướng bắc = `walk2` N — v3 8 khung (\"walking in place seen from behind… the folded wings stay pale grey granite like the rest of the body, same colors as the reference in every frame\"): cánh đá xám đúng màu ảnh xoay suốt chu kỳ, chân bước đều; duyệt tấm `reports/boss_stone_gargoyle_001/redo-review-walk.png` (vạch chân đỏ) — đạt. Lỗi nhẹ giữ: móng tay sáng hơn vài khung cuối."
 		}
 	],
 	"stats": {

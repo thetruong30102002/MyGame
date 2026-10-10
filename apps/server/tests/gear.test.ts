@@ -55,6 +55,7 @@ const store = {
 	checkinState: () => ({ lastDay: null, streak: 0, total: 0 }),
 	checkinDays: () => [],
 	ecoOf: () => ({ level: 20, exp: 0, coins: 0, potions: 0 }),
+	bonusPoints: () => 0,
 	saveEco: () => true,
 	visit: () => {},
 	buffs: () => [],

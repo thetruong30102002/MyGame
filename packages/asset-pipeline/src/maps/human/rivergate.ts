@@ -141,6 +141,11 @@ export function buildRivergate(meta: Record<string, PropMeta>, decalIds: string[
 	L.scatter(170, (x, y) => (L.at(Math.floor(x / TILE), Math.floor(y / TILE)) === 'g' ? L.place(L.pick(['rock_gray', 'cave_boulder', 'rock_mossy', 'boulder', 'rock_gray', 'rock_pillar']), x, y) : false));
 
 	L.sprinkleDecals(decalsOf(decalIds, 'd2'), 700);
+	// Lau sậy (tấm C1, đi xuyên) dọc mép nước bờ tây — rải SAU decal nên dãy ngẫu nhiên của đá / bụi / decal đã có không đổi.
+	for (let i = 0; i < 16; i += 1) {
+		const [tx, ty] = L.pick(bank);
+		L.place('reed_clump', Math.round((tx + L.rand()) * TILE), Math.round((ty + L.rand()) * TILE));
+	}
 
 	const zone = (h: (typeof herds)[number]): MonsterZone => ({
 		id: h.id,

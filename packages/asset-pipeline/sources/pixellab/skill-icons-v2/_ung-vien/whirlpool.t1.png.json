@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a steel sword inside a round white spinning slash ring, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/sword+teal.png",
+	"jobId": "8474d427-c064-4cb1-9f21-a69936c26a4b",
+	"token": 1,
+	"createdAt": "2026-10-09T19:13:49.084Z"
+}

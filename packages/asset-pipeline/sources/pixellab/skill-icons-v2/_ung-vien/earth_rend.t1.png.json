@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a sword stabbed point-down into cracked brown ground, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/earth+steel.png",
+	"jobId": "37852df5-e778-4ad0-8096-9a1df34f41d5",
+	"token": 1,
+	"createdAt": "2026-10-09T19:15:37.741Z"
+}

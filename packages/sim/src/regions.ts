@@ -45,12 +45,17 @@ export interface RegionDef {
 	ready: boolean;
 	/** Một câu giới thiệu trên màn chuyển vùng. */
 	intro: string;
+	/**
+	 * Hệ của vùng (docs/ke-hoach-the-gioi.md mục 2): quái của vùng thiên về hệ `name`, yếu hệ `weak` — bản đồ tổng ghi trên thẻ vùng.
+	 * Chỉ là chữ hiển thị; hệ số kháng / yếu thật khai theo từng loại quái (`ENEMY_STATS.resist`).
+	 */
+	element: { name: string; weak: string };
 }
 
 const W = { spot: 'waystone', dx: 0, dy: 0 };
 
 /** Vùng chưa có map: tạo bản ghi gọn (trạm `hub`, cột dịch chuyển ở địa điểm `waystone`, chưa mở). */
-const planned = (o: Pick<RegionDef, 'id' | 'order' | 'name' | 'levels' | 'chief' | 'settlement' | 'intro'>): RegionDef => ({ ...o, hub: 'hub', waystone: W, ready: false });
+const planned = (o: Pick<RegionDef, 'id' | 'order' | 'name' | 'levels' | 'chief' | 'settlement' | 'intro' | 'element'>): RegionDef => ({ ...o, hub: 'hub', waystone: W, ready: false });
 
 export const REGIONS: readonly RegionDef[] = [
 	{
@@ -65,6 +70,7 @@ export const REGIONS: readonly RegionDef[] = [
 		settlement: { kind: 'village', name: 'Thị trấn Thistlewood', role: 'Quê nhà của Lior: nhiệm vụ tuổi thơ và tuổi 16 bắt đầu ở đây.', services: ['shop', 'waystone'] },
 		ready: true,
 		intro: 'Đồng cỏ, rừng rêu và nghĩa địa cổ quanh thị trấn Thistlewood — nơi mọi chuyện bắt đầu.',
+		element: { name: 'Bóng tối', weak: 'Hoả, Aether' },
 	},
 	planned({
 		id: 'swamp',
@@ -74,6 +80,7 @@ export const REGIONS: readonly RegionDef[] = [
 		chief: { id: 'boss_hydra_001', name: 'Hydra bùn' },
 		settlement: { kind: 'village', name: 'Làng nhà sàn Lau Xám', role: 'Dân đầm lầy sống trên nhà sàn, nhờ người lạ dẹp quái và tìm thuốc giải độc.', services: ['shop', 'smith', 'waystone'] },
 		intro: 'Bùn, lau sậy và nhà sàn chìm trong sương xanh.',
+		element: { name: 'Thuỷ / độc', weak: 'Thổ, Phong' },
 	}),
 	planned({
 		id: 'desert',
@@ -88,6 +95,7 @@ export const REGIONS: readonly RegionDef[] = [
 			services: ['shop', 'smith', 'tailor', 'barber', 'waystone'],
 		},
 		intro: 'Cồn cát đỏ, ốc đảo và phế tích đá đỏ.',
+		element: { name: 'Thổ / Hoả', weak: 'Thuỷ, Băng' },
 	}),
 	planned({
 		id: 'highland',
@@ -97,6 +105,7 @@ export const REGIONS: readonly RegionDef[] = [
 		chief: null,
 		settlement: { kind: 'village', name: 'Làng Cối Xay Gió', role: 'Làng trên cao nguyên, giữ đền thờ trên mây.', services: ['shop', 'smith', 'waystone'] },
 		intro: 'Đồi cỏ cao, cối xay gió và đền thờ trên mây.',
+		element: { name: 'Phong', weak: 'Thổ' },
 	}),
 	planned({
 		id: 'tundra',
@@ -106,6 +115,7 @@ export const REGIONS: readonly RegionDef[] = [
 		chief: null,
 		settlement: { kind: 'village', name: 'Làng gỗ Tuyết Phong', role: 'Thợ săn và thợ mỏ băng sống qua mùa đông dài.', services: ['shop', 'smith', 'tailor', 'waystone'] },
 		intro: 'Tuyết trắng, hồ băng và những làng gỗ.',
+		element: { name: 'Băng', weak: 'Hoả' },
 	}),
 	planned({
 		id: 'volcano',
@@ -115,6 +125,7 @@ export const REGIONS: readonly RegionDef[] = [
 		chief: null,
 		settlement: { kind: 'castle', name: 'Pháo đài người lùn Đe Đỏ', role: 'Hội đồng người lùn: rèn binh khí, đổi lấy nhiệm vụ trong lòng núi.', services: ['shop', 'smith', 'waystone'] },
 		intro: 'Đá đen, sông dung nham và lò rèn người lùn.',
+		element: { name: 'Hoả', weak: 'Thuỷ, Băng' },
 	}),
 	planned({
 		id: 'isles',
@@ -124,6 +135,7 @@ export const REGIONS: readonly RegionDef[] = [
 		chief: null,
 		settlement: { kind: 'village', name: 'Cảng chài San Hô', role: 'Làng chài và thương thuyền, tin đồn về tàu ma.', services: ['shop', 'tailor', 'barber', 'waystone'] },
 		intro: 'Bãi cát, rạn san hô, làng chài và tàu đắm.',
+		element: { name: 'Thuỷ', weak: 'Phong, Thổ' },
 	}),
 	planned({
 		id: 'fungal',
@@ -133,6 +145,7 @@ export const REGIONS: readonly RegionDef[] = [
 		chief: null,
 		settlement: { kind: 'village', name: 'Làng người nấm Ánh Tím', role: 'Tộc người nấm dưới lòng đất, chỉ tin người đã giúp họ.', services: ['shop', 'smith', 'waystone'] },
 		intro: 'Hang ngầm, nấm khổng lồ phát sáng và mạch tinh thể.',
+		element: { name: 'Thổ', weak: 'Phong' },
 	}),
 	planned({
 		id: 'ruins',
@@ -147,6 +160,7 @@ export const REGIONS: readonly RegionDef[] = [
 			services: ['shop', 'smith', 'tailor', 'barber', 'waystone'],
 		},
 		intro: 'Thành cổ đổ nát, cột ma pháp và máy móc cổ.',
+		element: { name: 'Aether / thép (kháng phép)', weak: 'Kiếm' },
 	}),
 	planned({
 		id: 'void',
@@ -156,6 +170,7 @@ export const REGIONS: readonly RegionDef[] = [
 		chief: null,
 		settlement: { kind: 'castle', name: 'Thành trì Hư Không', role: 'Tiền đồn cuối cùng trước Ma vương — liên quân các vùng đóng ở đây.', services: ['shop', 'smith', 'waystone'] },
 		intro: 'Đảo trôi trên nền tím đen, khe nứt không gian.',
+		element: { name: 'Bóng tối / hỗn hợp', weak: 'Aether, Hoả' },
 	}),
 ];
 
@@ -178,15 +193,26 @@ export interface GateCtx {
 	bossKills: Readonly<Record<string, number>>;
 }
 
+/**
+ * Điều kiện mở vùng `id` (cổng vùng + thẻ vùng trên bản đồ tổng): cấp tối thiểu + boss chúa của vùng TRƯỚC (`chief` null = vùng
+ * trước chưa thiết kế boss chúa → chỉ xét cấp). null = vùng đầu (luôn mở) hoặc không có vùng này.
+ */
+export function regionNeeds(id: string): { level: number; chief: { id: string; name: string; region: string } | null } | null {
+	const r = regionDef(id);
+	if (!r || r.order === 1) return null;
+	const prev = REGIONS.find((x) => x.order === r.order - 1);
+	return { level: r.levels[0], chief: prev?.chief ? { ...prev.chief, region: prev.name } : null };
+}
+
 /** null = được vào vùng `id`; còn lại là câu giải thích vì sao chưa vào được. Vùng đầu luôn mở. */
 export function regionGate(id: string, ctx: GateCtx): string | null {
 	const r = regionDef(id);
 	if (!r) return 'Không có vùng này.';
 	if (!r.ready) return `${r.name} chưa mở — vùng đất này đang được xây dựng.`;
-	if (r.order === 1) return null;
-	if (ctx.level < r.levels[0]) return `Cần cấp ${r.levels[0]} để vào ${r.name} (bạn đang cấp ${ctx.level}).`;
-	const prev = REGIONS.find((x) => x.order === r.order - 1);
-	if (prev?.chief && !(ctx.bossKills[prev.chief.id] ?? 0)) return `Hạ ${prev.chief.name} ở ${prev.name} trước đã, rồi mới qua được ${r.name}.`;
+	const need = regionNeeds(id);
+	if (!need) return null;
+	if (ctx.level < need.level) return `Cần cấp ${need.level} để vào ${r.name} (bạn đang cấp ${ctx.level}).`;
+	if (need.chief && !(ctx.bossKills[need.chief.id] ?? 0)) return `Hạ ${need.chief.name} ở ${need.chief.region} trước đã, rồi mới qua được ${r.name}.`;
 	return null;
 }
 

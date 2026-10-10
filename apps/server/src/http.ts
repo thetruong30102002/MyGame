@@ -10,6 +10,7 @@ import {
 	type CreateCharacterRequest,
 	type Gender,
 } from '@aether/protocol';
+import { AdminError, AdminOps } from './adminOps.ts';
 import { hashPassword, newToken, RateLimiter, verifyPassword } from './auth.ts';
 import type { Store } from './db.ts';
 import { cleanProgress } from './world.ts';
@@ -33,9 +34,15 @@ class HttpError extends Error {
 /**
  * REST tối giản (không framework): đăng ký, đăng nhập, danh sách / tạo / xoá nhân vật. Xác thực bằng
  * header `Authorization: Bearer <token>` chứ không dùng cookie → không có lỗ CSRF, nên mở CORS được.
+ * Trang quản trị (`/api/admin/*`): cùng phiên đăng nhập + tài khoản phải có trong bảng `admins` (`AdminOps` — truyền bản có `World`
+ * để nhân vật đang online nhận số mới ngay; vắng = chỉ ghi CSDL).
  */
-export function createApi(store: Store) {
+export function createApi(store: Store, admin: AdminOps = new AdminOps(store)) {
 	const authLimit = new RateLimiter(10, 60_000);
+	/** Mọi lời gọi trang quản trị theo địa chỉ gửi (kể cả lời bị từ chối) — chặn dò / gọi dồn dập. */
+	const adminLimit = new RateLimiter(120, 60_000);
+	/** Lần cộng / trừ của mỗi tài khoản quản trị. */
+	const grantLimit = new RateLimiter(30, 60_000);
 
 	const routes: { method: string; path: RegExp; run: (req: IncomingMessage, m: RegExpMatchArray) => Promise<unknown> }[] = [
 		{ method: 'GET', path: /^\/api\/health$/, run: async () => ({ ok: true }) },
@@ -113,7 +120,52 @@ export function createApi(store: Store) {
 				return { ok: true };
 			},
 		},
+		// ———— Trang quản trị (/admin): cộng tiền, điểm cho nhân vật ————
+		{
+			// Chưa đăng nhập → 401 (trang hiện ô đăng nhập); đã đăng nhập thì chỉ cho biết CHÍNH tài khoản này có quyền hay không.
+			method: 'GET',
+			path: /^\/api\/admin\/me$/,
+			run: async (req) => {
+				limit(adminLimit, req);
+				const s = auth(req);
+				return { admin: admin.isAdmin(s.accountId), username: s.username };
+			},
+		},
+		{
+			method: 'GET',
+			path: /^\/api\/admin\/characters$/,
+			run: async (req) => {
+				adminAuth(req);
+				return admin.search(query(req).get('q') ?? '');
+			},
+		},
+		{
+			method: 'POST',
+			path: /^\/api\/admin\/grant$/,
+			run: async (req) => {
+				const s = adminAuth(req);
+				if (!grantLimit.allow(String(s.accountId))) throw new HttpError(429, 'Cộng nhanh quá, đợi một phút');
+				return admin.grant({ id: s.accountId, username: s.username }, await body(req));
+			},
+		},
+		{
+			method: 'GET',
+			path: /^\/api\/admin\/log$/,
+			run: async (req) => {
+				adminAuth(req);
+				const q = query(req);
+				return admin.log(q.get('limit'), q.get('characterId'));
+			},
+		},
 	];
+
+	/** Phiên hợp lệ + tài khoản có trong bảng `admins` — sai thì 401 / 403, không nói gì thêm. */
+	function adminAuth(req: IncomingMessage) {
+		limit(adminLimit, req);
+		const s = auth(req);
+		if (!admin.isAdmin(s.accountId)) throw new HttpError(403, 'Tài khoản này không có quyền quản trị');
+		return s;
+	}
 
 	function session(accountId: number, username: string) {
 		const token = newToken();
@@ -139,7 +191,7 @@ export function createApi(store: Store) {
 			try {
 				json(res, 200, await r.run(req, m));
 			} catch (e) {
-				if (e instanceof HttpError) json(res, e.status, { error: e.message });
+				if (e instanceof HttpError || e instanceof AdminError) json(res, e.status, { error: e.message });
 				else {
 					console.error(e);
 					json(res, 500, { error: 'Lỗi máy chủ' });
@@ -161,6 +213,11 @@ export function stripMount(path: string): string {
 
 function limit(rl: RateLimiter, req: IncomingMessage): void {
 	if (!rl.allow(req.socket.remoteAddress ?? '?')) throw new HttpError(429, 'Thử quá nhiều lần, đợi một phút');
+}
+
+/** Tham số trên URL (`?q=…&limit=…`). */
+function query(req: IncomingMessage): URLSearchParams {
+	return new URL(req.url ?? '/', 'http://x').searchParams;
 }
 
 export function bearer(req: IncomingMessage): string | null {

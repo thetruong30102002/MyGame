@@ -1,4 +1,14 @@
-import { SERVER_PORT, type AuthResponse, type CharacterInfo, type CharacterProgress, type Gender } from '@aether/protocol';
+import {
+	SERVER_PORT,
+	type AdminCharacter,
+	type AdminGrantRequest,
+	type AdminGrantResult,
+	type AdminLogEntry,
+	type AuthResponse,
+	type CharacterInfo,
+	type CharacterProgress,
+	type Gender,
+} from '@aether/protocol';
 
 /**
  * Địa chỉ máy chủ game. Mặc định cùng host với trang web, cổng 3200 — mở bằng IP LAN trên điện thoại
@@ -46,4 +56,15 @@ export const api = {
 	deleteCharacter: (token: string, id: string) => call<{ ok: true }>(`/api/characters/${id}`, 'DELETE', token),
 	/** `keepalive`: vẫn gửi trọn khi trang đang đóng / tải lại. */
 	saveProgress: (token: string, id: string, progress: CharacterProgress) => call<{ ok: true }>(`/api/characters/${id}/progress`, 'PUT', token, { progress }, true),
+};
+
+/**
+ * Trang quản trị (/admin): cùng phiên đăng nhập của game. Máy chủ kiểm phiên + quyền ở MỌI lời gọi — 401 chưa đăng nhập / phiên hết
+ * hạn, 403 tài khoản không có quyền (`me` thì trả `admin: false`).
+ */
+export const adminApi = {
+	me: (token: string) => call<{ admin: boolean; username: string }>('/api/admin/me', 'GET', token),
+	characters: (token: string, q: string) => call<AdminCharacter[]>(`/api/admin/characters?q=${encodeURIComponent(q)}`, 'GET', token),
+	grant: (token: string, req: AdminGrantRequest) => call<AdminGrantResult>('/api/admin/grant', 'POST', token, req),
+	log: (token: string, limit = 50) => call<AdminLogEntry[]>(`/api/admin/log?limit=${limit}`, 'GET', token),
 };

@@ -70,6 +70,14 @@ export function buildTown(meta: Record<string, PropMeta>, decalIds: string[], se
 	L.place('signpost', px(47), px(24) + 4, { force: true });
 	L.place('signpost', px(25), px(2) + 10, { force: true });
 	L.place('signpost', px(25), px(49) + 10, { force: true });
+	// Ba thùng ong nhà Ashvale (tấm C1 — cảnh "kiểm ba thùng ong" của Chương 1) ở bãi trống phía tây nhà, trên sân sau. Ép đặt
+	// SAU mọi món cũ: không dời địa điểm / NPC / lối nào, chỗ này trước nay không có đồ vật nên dãy rải ngẫu nhiên không đổi.
+	for (const [x, y] of [
+		[px(4) + 2, px(20) + 24],
+		[px(5) + 12, px(21) + 2],
+		[px(6) + 30, px(20) + 24],
+	] as const)
+		L.place('beehive', x, y, { force: true });
 
 	// Giữ trống: quanh quảng trường, quanh lối sang rừng / nghĩa địa / bãi bồi, quanh chỗ đứng của NPC/nhiệm vụ.
 	L.reserve(plaza.x, plaza.y, plaza.r + 3);

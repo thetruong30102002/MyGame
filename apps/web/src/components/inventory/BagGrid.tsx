@@ -6,7 +6,7 @@ import { ITEM_INFO } from '@/game/items';
 import type { InventoryItem } from '@/store/useGameStore';
 import { useSession } from '@/store/useSession';
 import { fmtNum } from '../CharacterPanelParts';
-import { ItemIcon, rarityClass, type InvMode } from './invShared';
+import { CELL, ItemIcon, rarityClass, type InvMode } from './invShared';
 
 export type BagFilter = 'all' | 'equip' | 'use' | 'other';
 const FILTERS: { id: BagFilter; label: string }[] = [
@@ -45,8 +45,9 @@ export interface BagProps {
 }
 
 /**
- * Túi đồ: tiêu đề "Túi đồ" + thanh sức chứa "n/24 ô" + ví (xu, kim cương), chip lọc kèm số món, lưới ô 58×57. Ô có đồ là ô
- * đá + ảnh 1× (đồ từ Tốt trở lên có vòng màu độ hiếm, đồ chưa đủ cấp có nhãn "Cấp N" đỏ); ô trống là ô giấy lõm.
+ * Túi đồ: tiêu đề "Túi đồ" + thanh sức chứa "n/24 ô" + ví (xu, kim cương), chip lọc kèm số món, lưới ô mềm 58×58 (`CELL`, cùng
+ * kiểu ô búp bê). Ô có đồ lòng kem + ảnh 1× (đồ từ Tốt trở lên phớt màu độ hiếm, đồ chưa đủ cấp có nhãn "Cấp N" đỏ trong góc,
+ * chồng đồ có viên số ở góc dưới); ô trống là ô giấy lõm.
  * Thẻ "Tất cả" vẽ ĐỦ sức chứa túi (thấy ngay còn bao nhiêu chỗ); thẻ lọc chỉ vẽ món khớp. Máy tính: lưới cao tối đa 3 hàng,
  * cuộn trong (máy rộng 8 cột là vừa trọn 24 ô); điện thoại: cả tab cuộn chung; màn thấp: chỉ 2 hàng + phần đã dùng.
  */
@@ -83,8 +84,8 @@ export function BagGrid({ mode, items, coins, level, filter, onFilter, selected,
 				<h3 className="font-display text-[18px] leading-[1.3] font-extrabold whitespace-nowrap">Túi đồ</h3>
 				{/* Sức chứa: thanh + số. Bình mật ong là chồng ảo, không chiếm ô — đếm cùng phép với luật "Túi đầy" (`bagUsed`). */}
 				<span className="flex items-center gap-1.5 whitespace-nowrap" title="Ô túi đã dùng — bình mật ong không chiếm ô">
-					<span className="ui-bar h-3 w-16" aria-hidden>
-						<span className="ui-bar-fill" style={{ width: `${Math.min(100, (used / BAG_SIZE) * 100)}%`, '--fill': fill } as CSSProperties} />
+					<span className="inv-meter w-16" aria-hidden>
+						<i style={{ width: `${Math.min(100, (used / BAG_SIZE) * 100)}%`, '--fill': fill } as CSSProperties} />
 					</span>
 					<span className={`text-note font-bold tabular-nums ${full ? 'text-berry' : 'text-ink-soft'}`}>
 						{used}/{BAG_SIZE} ô{full ? ' · đầy' : ''}
@@ -112,9 +113,9 @@ export function BagGrid({ mode, items, coins, level, filter, onFilter, selected,
 					{FILTERS.map((f) => {
 						const n = f.id === 'all' ? items.length : items.filter((it) => pass(f.id, it)).length;
 						return (
-							<button key={f.id} type="button" aria-pressed={active === f.id} onClick={() => onFilter(f.id)} className={`ui-chip ${touch ? 'min-h-11' : 'min-h-[30px]'} shrink-0 gap-1 px-2 text-[13px]`}>
+							<button key={f.id} type="button" aria-pressed={active === f.id} onClick={() => onFilter(f.id)} className={`ui-chip ${touch ? 'min-h-11' : 'min-h-8'} shrink-0 gap-1.5 pr-1.5 pl-3 text-[13px]`}>
 								{f.label}
-								<span className={`text-[12px] tabular-nums ${n ? 'text-ink-soft' : 'text-ink-faint opacity-70'}`}>{n}</span>
+								<span className={`min-w-[20px] rounded-full bg-[rgb(122_85_52/0.1)] px-1.5 text-center text-[12px] leading-[18px] tabular-nums ${n ? 'text-ink-soft' : 'text-ink-faint opacity-70'}`}>{n}</span>
 							</button>
 						);
 					})}
@@ -122,18 +123,18 @@ export function BagGrid({ mode, items, coins, level, filter, onFilter, selected,
 			)}
 			{note && <p className="text-note text-ink-soft">{note}</p>}
 			{cells === 0 ? (
-				<p className="ui-tray px-3 py-2.5 text-note text-ink-soft">Không có món nào trong nhóm này.</p>
+				<p className="inv-well px-3 py-2.5 text-note text-ink-soft">Không có món nào trong nhóm này.</p>
 			) : (
 				<div
 					ref={gridRef}
 					role="group"
 					aria-label="Ô túi đồ"
 					onKeyDown={onKey}
-					className={`grid grid-cols-[repeat(auto-fill,58px)] gap-1 ${mode === 'desktop' ? '-m-1.5 max-h-[195px] overflow-y-auto p-1.5 [scrollbar-color:var(--color-paper-line)_transparent] [scrollbar-width:thin]' : mode === 'phone' ? 'justify-between gap-y-1.5' : ''}`}
+					className={`grid grid-cols-[repeat(auto-fill,58px)] gap-1.5 ${mode === 'desktop' ? '-m-1.5 max-h-[198px] overflow-y-auto p-1.5 [scrollbar-color:var(--color-paper-line)_transparent] [scrollbar-width:thin]' : mode === 'phone' ? 'justify-between' : ''}`}
 				>
 					{Array.from({ length: cells }, (_, i) => {
 						const it = shown[i];
-						if (!it) return <div key={`empty-${i}`} className="h-[57px] w-[58px] rounded-[6px] border-2 border-paper-line bg-paper-sunk" />;
+						if (!it) return <div key={`empty-${i}`} className={CELL} />;
 						const b = badgeOf(it);
 						const on = selected === it.uid;
 						const fit = fits.has(it.uid);
@@ -150,15 +151,16 @@ export function BagGrid({ mode, items, coins, level, filter, onFilter, selected,
 								onDoubleClick={() => fine && onPickDouble(it.uid)}
 								onPointerEnter={(e) => e.pointerType === 'mouse' && onHover(it.uid)}
 								onPointerLeave={(e) => e.pointerType === 'mouse' && onHover(null)}
-								className={`ui-slot relative h-[57px] w-[58px] cursor-pointer ${rarityClass(it.rarity)} ${on ? 'outline-[3px] outline-offset-2 outline-gold-hi' : fit ? 'outline-2 outline-offset-2 outline-dashed outline-amber' : 'hover:brightness-110'}`}
+								data-full=""
+								className={`${CELL} ${rarityClass(it.rarity)} ${fit && !on ? 'inv-fit' : ''}`}
 							>
 								<ItemIcon item={it} dim={it.id === 'potion' && it.count <= 0} />
 								{lack > 0 && (
-									<span aria-hidden className="pointer-events-none absolute -top-[12px] -left-[12px] rounded-[4px] border-2 border-outline bg-berry px-[3px] text-[11px] leading-[13px] font-extrabold whitespace-nowrap text-paper-hi">
+									<span aria-hidden className="pointer-events-none absolute top-[3px] left-[3px] rounded-full bg-berry/90 px-[5px] text-[11px] leading-[15px] font-extrabold whitespace-nowrap text-paper-hi shadow-[0_1px_2px_rgb(74_46_28/0.25)]">
 										Cấp {lack}
 									</span>
 								)}
-								{b && <span className="pointer-events-none absolute -right-2.5 -bottom-2.5 text-[13px] leading-none font-extrabold text-white tabular-nums text-outline">{b}</span>}
+								{b && <span className="pointer-events-none absolute right-[3px] bottom-[3px] min-w-[18px] rounded-full bg-cream/95 px-[5px] text-center text-[12px] leading-[16px] font-extrabold text-ink-brown tabular-nums shadow-[0_1px_2px_rgb(74_46_28/0.25)]">{b}</span>}
 							</button>
 						);
 					})}

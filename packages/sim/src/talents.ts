@@ -71,6 +71,24 @@ export function pointsForLevel(level: number): number {
 }
 
 /**
+ * Điểm tiềm năng THƯỞNG (trang quản trị cộng — chủ dự án 10/10/2026): MÁY CHỦ giữ ở `CharacterProgress.bonusPoints`, cộng thêm vào
+ * điểm theo cấp ở MỌI chỗ tính điểm — `talentPoints`, `unspent`, `addTier`, kẹp bản lưu ở StoryDirector (`cleanTalents`,
+ * `migrateTalentsV2`) và bảng Tiềm năng. Quên một chỗ là lần nạp sau mốc mua bằng điểm thưởng bị cắt. Không theo trần cấp 40.
+ */
+export const TALENT_BONUS_CAP = 999;
+
+/** Kẹp điểm thưởng nhận từ mạng / CSDL: số nguyên 0…`TALENT_BONUS_CAP` (số lạ / vắng = 0). */
+export function cleanBonusPoints(v: unknown): number {
+	const n = Math.floor(Number(v));
+	return Number.isFinite(n) ? Math.max(0, Math.min(TALENT_BONUS_CAP, n)) : 0;
+}
+
+/** Tổng điểm tiềm năng: theo cấp (`pointsForLevel`) + điểm thưởng `bonus` (chơi một mình = 0). */
+export function talentPoints(level: number, bonus = 0): number {
+	return pointsForLevel(level) + cleanBonusPoints(bonus);
+}
+
+/**
  * Tổng điểm để nhánh `b` đi từ lúc vừa mở lên mốc `tier`. Nguyên tố: m1 = 1, m2 = 2, m3 = 4, m4 = 6, m5 = 9 … m10 = 30;
  * Kiếm (mốc 1 miễn phí): m1 = 0, m2 = 1, m3 = 3, m4 = 5, m5 = 8 … m10 = 29.
  */
@@ -466,9 +484,9 @@ export function spentPoints(tiers: Tiers): number {
 	return BRANCHES.reduce((a, b) => a + pointsToTier(tiers[b] ?? 0, b), 0);
 }
 
-/** Còn bao nhiêu điểm chưa cộng. */
-export function unspent(level: number, tiers: Tiers): number {
-	return pointsForLevel(level) - spentPoints(tiers);
+/** Còn bao nhiêu điểm chưa cộng. `bonus`: điểm tiềm năng thưởng (`talentPoints`). */
+export function unspent(level: number, tiers: Tiers, bonus = 0): number {
+	return talentPoints(level, bonus) - spentPoints(tiers);
 }
 
 /**
@@ -482,10 +500,13 @@ export function nextTierCost(tiers: Tiers, b: Branch, isUnlocked: (unlockId: str
 	return tierCost(b, cur + 1);
 }
 
-/** Lên 1 mốc (đã mở, chưa chạm trần, đủ điểm) — trả mốc mới, hoặc null nếu không lên được. Sửa `tiers` tại chỗ. */
-export function addTier(level: number, tiers: Tiers, b: Branch, isUnlocked: (unlockId: string) => boolean): number | null {
+/**
+ * Lên 1 mốc (đã mở, chưa chạm trần, đủ điểm của cấp + điểm thưởng `bonus`) — trả mốc mới, hoặc null nếu không lên được. Sửa
+ * `tiers` tại chỗ.
+ */
+export function addTier(level: number, tiers: Tiers, b: Branch, isUnlocked: (unlockId: string) => boolean, bonus = 0): number | null {
 	const cost = nextTierCost(tiers, b, isUnlocked);
-	if (cost === null || unspent(level, tiers) < cost) return null;
+	if (cost === null || unspent(level, tiers, bonus) < cost) return null;
 	tiers[b] = Math.max(0, Math.floor(tiers[b] ?? 0)) + 1;
 	return tiers[b]!;
 }
