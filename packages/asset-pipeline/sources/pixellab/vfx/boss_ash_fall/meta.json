@@ -1,0 +1,33 @@
+{
+	"id": "boss_ash_fall",
+	"kind": "burst",
+	"canvas": {
+		"w": 160,
+		"h": 160
+	},
+	"first": {
+		"prompt": "a heavy downpour of grey ash flakes and dying orange embers splattering onto the ground in an uneven blotchy spray seen from directly above, several separate scattered ash heaps of different sizes, no ring and no circle, thin glowing red threads in the largest heaps, transparent around the splatter, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "aca10e75-9ece-42cf-9bf0-8f2c66afa888"
+	},
+	"action": "ash and embers pour down in uneven bursts and pile into scattered heaps, embers flare and turn grey, the red threads in the ash pulse, then the ash drifts away and fades",
+	"frameCount": 10,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png",
+		"frame_009.png",
+		"frame_010.png"
+	],
+	"animateJobId": "b13b8e9f-62ff-4ec3-b753-e08322d74286",
+	"createdAt": "2026-10-09T16:42:24.501Z",
+	"token": 1
+}

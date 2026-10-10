@@ -1,0 +1,17 @@
+{
+	"description": "a small gothic stone crypt mausoleum, cracked gray stone block walls, a steep dark slate roof with a stone cross on top, a heavy rusty iron double door under a pointed arch with a skull carving above it, two stone steps, dark moss and cobwebs, gloomy graveyard building, chunky chibi pixel art, thick dark outline, soft cel shading, straight front view, the whole building fully visible, no ground, no shadow, no text",
+	"width": 192,
+	"height": 192,
+	"n_directions": 1,
+	"view": "low top-down",
+	"seed": 33,
+	"name": "crypt",
+	"style_options": {
+		"color_palette": false,
+		"outline": true,
+		"shading": true,
+		"detail": false
+	},
+	"style_image_path": "D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/objects/house_stone/house_stone.png",
+	"style_usage": "Copy ONLY the art style of this reference building: chunky chibi pixel art, thick dark outline on every shape, soft cel shading, stone block texture, front-facing view, same size. Do not draw this cottage or copy its blue roof and green door."
+}

@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "three small violet daggers flying to the right in a row, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/sword+violet.png",
+	"jobId": "a2c85289-cc72-465f-a47c-012883a5c61a",
+	"token": 1,
+	"createdAt": "2026-10-09T19:24:39.705Z"
+}

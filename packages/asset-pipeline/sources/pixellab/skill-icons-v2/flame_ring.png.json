@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a flat ring of fire with an empty dark center, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/fire.png",
+	"jobId": "af0aac99-2f5b-4e14-99f6-46a14e33b4ae",
+	"token": 1,
+	"createdAt": "2026-10-09T19:15:52.402Z"
+}

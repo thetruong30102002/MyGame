@@ -1,0 +1,33 @@
+{
+	"id": "dragon_meteor",
+	"kind": "burst",
+	"canvas": {
+		"w": 160,
+		"h": 160
+	},
+	"first": {
+		"prompt": "a falling blazing fire pearl, a round orb of white-hot molten gold wrapped in a spiral of crimson dragon flames, streaking down diagonally from the upper left with a short twisting flame tail, about to hit the ground, base at the bottom of the frame, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "8bdef155-fd09-4fbe-9aa4-1898f81c6a25"
+	},
+	"action": "the fire pearl smashes into the ground and bursts into a ring of crimson and gold flames with molten droplets, leaving a glowing scorch mark that cools and fades",
+	"frameCount": 10,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png",
+		"frame_009.png",
+		"frame_010.png"
+	],
+	"animateJobId": "7cae3edb-788c-47cf-a605-00493ea64068",
+	"createdAt": "2026-10-09T16:36:53.377Z",
+	"token": 1
+}

@@ -153,24 +153,26 @@ def map_sketch(region_no, name, role, mobs, exits):
     return ''.join(out)
 
 
-# Sơ đồ nối 7 map của vùng: vị trí node theo chỉ số map (trạm 0 · săn 1–5 · thánh địa 6).
+# Sơ đồ nối 7 map của vùng (khung cũ, vùng 2–10 chưa thiết kế lại): vị trí node theo chỉ số map (trạm 0 · săn 1–5 · thánh địa 6).
+# Vùng 1 dùng khung 12 map (thiết kế 10/10/2026) — vị trí / cạnh riêng khai ở the-gioi-aether.py.
 STD_POS = {0: (70, 120), 1: (210, 60), 2: (350, 60), 6: (500, 60), 3: (210, 180), 4: (350, 150), 5: (350, 210)}
 STD_EDGES = [(0, 1), (1, 2), (2, 6), (0, 3), (3, 4), (3, 5)]
 
 
-def region_graph(region_no, maps, edges, pos, prev_region, next_region):
-    gw, gh = 600, 260
+def region_graph(region_no, maps, edges, pos, prev_region, next_region, exit_node=6, height=260):
+    """`exit_node`: map có lối sang vùng sau (khung cũ: thánh địa 6; vùng 1 bản 12 map: Hẻm Cửa Sông). `height`: cao khung vẽ."""
+    gw, gh = 600, height
     out = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {gw} {gh}" role="img" aria-label="Sơ đồ vùng {region_no}">']
     for a, b in edges:
         (x1, y1), (x2, y2) = pos[a], pos[b]
         out.append(f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="#c9a578" stroke-width="4" stroke-linecap="round"/>')
-    # Lối xuyên vùng: trạm nối thánh địa vùng trước (trên trạm), thánh địa mở lối sang vùng sau (dưới thánh địa).
+    # Lối xuyên vùng: trạm nối thánh địa vùng trước (trên trạm), map cửa vùng (`exit_node`) mở lối sang vùng sau (dưới nó).
     if prev_region:
         x, y = pos[0]
         out.append(f'<line x1="{x}" y1="{y - 20}" x2="{x}" y2="{y - 44}" stroke="#b07a12" stroke-width="3" stroke-dasharray="5 4"/>')
         out.append(f'<text x="{x - 62}" y="{y - 50}" font-size="11" font-weight="800" fill="#b07a12" text-anchor="start" font-family="Nunito, sans-serif">↑ từ {esc(prev_region)}</text>')
     if next_region:
-        x, y = pos[6]
+        x, y = pos[exit_node]
         out.append(f'<line x1="{x}" y1="{y + 20}" x2="{x}" y2="{y + 44}" stroke="#b07a12" stroke-width="3" stroke-dasharray="5 4"/>')
         out.append(f'<text x="{x + 62}" y="{y + 60}" font-size="11" font-weight="800" fill="#b07a12" text-anchor="end" font-family="Nunito, sans-serif">↓ sang {esc(next_region)}</text>')
     for i, (name, role, mobs, _st) in enumerate(maps):
@@ -186,8 +188,8 @@ def region_graph(region_no, maps, edges, pos, prev_region, next_region):
     return ''.join(out)
 
 
-def exits_for(i, edges, pos, maps, prev_region, next_region):
-    """Lối của map `i`: cạnh theo hướng tới node bên kia trên sơ đồ."""
+def exits_for(i, edges, pos, maps, prev_region, next_region, exit_node=6):
+    """Lối của map `i`: cạnh theo hướng tới node bên kia trên sơ đồ; `exit_node` = map có lối sang vùng sau."""
     out = []
     used = set()
     for a, b in edges:
@@ -205,7 +207,7 @@ def exits_for(i, edges, pos, maps, prev_region, next_region):
         side = 'W' if 'W' not in used else 'N'
         used.add(side)
         out.append((side, prev_region))
-    if i == 6 and next_region:
+    if i == exit_node and next_region:
         side = 'E' if 'E' not in used else 'N'
         out.append((side, next_region))
     return out

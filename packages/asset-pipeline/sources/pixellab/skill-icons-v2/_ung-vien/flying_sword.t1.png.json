@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a flying sword pointing right with a curved return arrow under it, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/sword+violet.png",
+	"jobId": "c7bb0d6a-1a58-4142-a135-0eabbf304ce1",
+	"token": 1,
+	"createdAt": "2026-10-09T19:14:52.254Z"
+}

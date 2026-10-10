@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a dark brown orb pulling small rocks toward it, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/earth.png",
+	"jobId": "837ed151-e48d-4ca8-a99c-f21aee5cb55f",
+	"token": 1,
+	"createdAt": "2026-10-09T19:19:49.806Z"
+}

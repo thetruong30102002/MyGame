@@ -1,0 +1,17 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a dark brown orb pulling small rocks inward toward it, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"init_image_strength": 140,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/earth.png",
+	"init_image_path": "sources/pixellab/skill-icons-v2/init/passive-earth-7.init.png",
+	"jobId": "7f1f288c-d555-4662-b070-772736f2b5ac",
+	"token": 1,
+	"createdAt": "2026-10-09T19:23:57.650Z"
+}

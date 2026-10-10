@@ -4,9 +4,29 @@
  * `TalentsView` (hợp đồng store giữ nguyên): `desc` của mốc chủ động gộp cả câu mô tả lẫn số liệu nên ở đây tách lại
  * thành `brief` (một câu) + `facts` (kiểu đòn · uy lực · MP · hồi).
  */
-import { HERO_SKILLS, powerText, skillFacts } from '../../game/combat/skills';
-import { BRANCH_NAME, DEPTH_BONUS, ENCHANT_ELEMENT_TIER, ENCHANT_SWORD_TIER, ENCHANT_UP_TIER, enchantDesc, STYLE_TIER, SWORD_ART_TIER, SWORD_STYLE_INFO } from '../../game/combat/talents';
-import type { BranchId, EnchantId, SwordStyleId, TalentsView } from '../../store/useGameStore';
+import { HERO_SKILLS, isSwordSkill, powerText, skillFacts, type SkillDef, type SkillKind } from '../../game/combat/skills';
+import {
+	BRANCH_NAME,
+	DEPTH_BONUS,
+	depthBonus,
+	ENCHANT_ELEMENT_TIER,
+	ENCHANT_SWORD_TIER,
+	ENCHANT_UP_TIER,
+	enchantDesc,
+	passiveEffects,
+	REACTION_NAME,
+	REACTION_PAIR,
+	reactionBonus,
+	REACTION_PER_TIER,
+	SKILL_NODE,
+	STYLE_TIER,
+	SWORD_ART_TIER,
+	SWORD_STYLE_INFO,
+	type Branch,
+	type SwordStyle,
+	type Tiers,
+} from '../../game/combat/talents';
+import type { BranchId, ElementId, EnchantId, SwordStyleId, TalentsView } from '../../store/useGameStore';
 import { findNode, nodeKey, nodeState, parseKey, routeTo, styleKey, type NodeState } from './treeLayout';
 
 export type NodeKind = 'active' | 'passive' | 'ult' | 'art';
@@ -191,4 +211,141 @@ export function nodeAria(i: NodeInfo): string {
 	const where = i.kind === 'art' ? `Kiếm pháp ${i.branchName}` : `${i.styleName ?? i.branchName} mốc ${i.tier}`;
 	const price = (i.state === 'next' || i.state === 'next-poor') && i.cost ? `, ${i.cost} điểm` : '';
 	return `${where}: ${i.name} (${KIND_LABEL[i.kind].toLowerCase()}, ${STATE_WORD[i.state]}${price})`;
+}
+
+// ———————————————————————————— số liệu kỹ năng cho cột chi tiết ————————————————————————————
+
+/** Mốc từng nhánh + lưu phái Kiếm đọc lại từ `TalentsView` (để gọi lại các hàm luật của `talents.ts`). */
+export function tiersOf(t: TalentsView): { tiers: Tiers; style: SwordStyle | null } {
+	const tiers: Tiers = Object.fromEntries(t.branches.map((b) => [b.branch, b.tier]));
+	return { tiers, style: t.branches.find((b) => b.branch === 'sword')?.style ?? null };
+}
+
+/** Tên kiểu đòn (ô "Kiểu" của bảng số liệu). */
+export const KIND_NAME: Record<SkillKind, string> = {
+	projectile: 'Đạn bay',
+	melee: 'Chém',
+	spin: 'Xoay chém',
+	dash: 'Lướt',
+	heal: 'Hồi máu',
+	aoe_self: 'Vùng quanh mình',
+	aoe_target: 'Vùng nhắm',
+	cone: 'Hình nón',
+	line: 'Đường thẳng',
+	pillar: 'Cột trồi',
+	zone: 'Vùng duy trì',
+	guard: 'Thế đỡ',
+	blink: 'Ra sau lưng',
+	wall: 'Tường',
+	ward: 'Khiên phản đạn',
+	barrage: 'Mưa nhiều điểm',
+};
+
+/** Tên hệ (ô "Hệ"). */
+export const ELEMENT_LABEL: Record<ElementId, string> = { aether: 'Aether', fire: 'Hoả', water: 'Thuỷ', wind: 'Phong', healing: 'Hồi phục', steel: 'Thép', ice: 'Băng', earth: 'Thổ' };
+
+export interface SkillSheet {
+	id: string;
+	element: ElementId;
+	/** "Hoả", "Thép"… */
+	elementName: string;
+	/** Đòn Kiếm: tính theo sức kiếm + Nhịp Chém; đòn thép ăn phủ phép, kiếm pháp giữ hệ riêng. */
+	blade: boolean;
+	kindName: string;
+	mp: number;
+	/** Hồi chiêu gốc và hồi chiêu với bị động ĐANG có (Nhịp Chém, Thuận Gió) — `CombatSystem.cooldownOf` trừ Đà Lướt. */
+	cooldown: number;
+	cooldownNow: number;
+	cooldownBy: string[];
+	/** Uy lực ghi theo kiểu đòn, bỏ chữ "uy lực" ("×0,25 mỗi nhịp đốt", "hồi 35% máu tối đa"). */
+	power: string;
+	/** Hệ số sau thưởng chiều sâu ("≈ ×0,3") — rỗng khi đòn không gây sát thương. */
+	powerNow: string;
+	/** Thưởng chiều sâu áp cho kỹ năng (%) và nhánh nào cho ("Hoả mốc 6"). */
+	depthPct: number;
+	depthFrom: string;
+	/** Câu tả hình dạng đòn (tầm, bán kính, thời gian…) và hiệu ứng lên mục tiêu (đẩy lùi, choáng, chí mạng…). */
+	how: string[];
+	effects: string[];
+}
+
+/**
+ * Bảng số liệu một kỹ năng, đọc thẳng từ `HERO_SKILLS` + luật `talents.ts` (không bịa số): câu tả + hiệu ứng tách bằng chính
+ * `skillFacts` của gói sim (gọi trên bản sao bỏ `hit`/`crit` → chỉ còn câu tả; đổi `kind` sang kiểu không có câu tả → chỉ
+ * còn hiệu ứng). `atTier`: mốc học của nút — nút chưa đạt thì thưởng chiều sâu tính ở mốc đó (lúc học xong nhánh ít nhất ở đó).
+ */
+export function skillSheet(t: TalentsView, id: string, atTier = 0): SkillSheet | null {
+	const s: SkillDef | undefined = HERO_SKILLS.find((d) => d.id === id);
+	if (!s) return null;
+	const { tiers, style } = tiersOf(t);
+	const fx = passiveEffects(tiers, style);
+	const sword = isSwordSkill(s);
+	const cdMul = (sword ? fx.swordCooldown : 1) * fx.cooldown;
+	const cooldownBy = [...(sword && fx.swordCooldown < 1 ? ['Nhịp Chém'] : []), ...(fx.cooldown < 1 ? ['Thuận Gió'] : [])];
+	const node = SKILL_NODE[s.id];
+	let depth = 1;
+	let depthFrom = '';
+	if (node?.art) {
+		const a = Math.max(tiers.sword ?? 0, SWORD_ART_TIER);
+		const e = Math.max(tiers[node.art] ?? 0, SWORD_ART_TIER);
+		depth = depthBonus(Math.min(a, e));
+		depthFrom = `nhánh yếu hơn: ${a <= e ? `Kiếm mốc ${a}` : `${BRANCH_NAME[node.art]} mốc ${e}`}`;
+	} else if (node) {
+		const at = Math.max(tiers[node.branch] ?? 0, atTier, node.tier);
+		depth = depthBonus(at);
+		depthFrom = `${BRANCH_NAME[node.branch]} mốc ${at}`;
+	}
+	const scaled = s.power * depth;
+	const powerNow = s.power <= 0 || depth === 1 ? '' : s.kind === 'heal' ? `≈ ${Math.round(scaled * 100)}% máu tối đa` : `≈ ×${num(scaled)}`;
+	const p = powerText(s);
+	return {
+		id: s.id,
+		element: s.element,
+		elementName: ELEMENT_LABEL[s.element],
+		blade: sword,
+		kindName: KIND_NAME[s.kind],
+		mp: s.mpCost,
+		cooldown: s.cooldown,
+		cooldownNow: Math.round(s.cooldown * cdMul * 100) / 100,
+		cooldownBy,
+		power: p.startsWith('uy lực ') ? p.slice('uy lực '.length) : p.charAt(0).toUpperCase() + p.slice(1),
+		powerNow,
+		depthPct: Math.round((depth - 1) * 100),
+		depthFrom,
+		how: skillFacts({ ...s, hit: undefined, crit: undefined }),
+		effects: skillFacts({ ...s, kind: 'heal', afterGuard: undefined }),
+	};
+}
+
+/** Số theo kiểu Việt ("0,25"). */
+export const fmtNum = (n: number): string => num(n);
+
+/** Một dòng số liệu ngắn cho danh sách: "18 MP · hồi 9s · ×0,25 mỗi nhịp đốt" (hồi chiêu đã tính bị động đang có). */
+export const statLine = (sk: SkillSheet): string => `${sk.mp ? `${sk.mp} MP` : 'không tốn MP'} · hồi ${num(sk.cooldownNow)}s · ${sk.power.charAt(0).toLowerCase()}${sk.power.slice(1)}`;
+
+export interface ReactionRow {
+	id: keyof typeof REACTION_PAIR;
+	name: string;
+	a: Branch;
+	b: Branch;
+	/** Thưởng phản ứng hiện có (%): +5% mỗi mốc trên mốc 1 của hệ yếu hơn. */
+	pct: number;
+	/** Thưởng nếu hệ yếu hơn lên thêm một mốc. */
+	nextPct: number;
+}
+
+/**
+ * Phản ứng song hệ giữa các nhánh ĐÃ HỌC (cả hai ≥ mốc 1), thưởng cao trước. Nhánh nguyên tố mở mà chưa học mốc 1 (luật
+ * 10/10/2026) chưa có phép nào để tạo phản ứng nên chưa liệt kê.
+ */
+export function reactionRows(t: TalentsView): ReactionRow[] {
+	const { tiers } = tiersOf(t);
+	const open = new Set(t.branches.filter((b) => b.unlocked && b.tier >= 1).map((b) => b.branch));
+	return (Object.entries(REACTION_PAIR) as [keyof typeof REACTION_PAIR, [Branch, Branch]][])
+		.filter(([, [a, b]]) => open.has(a) && open.has(b))
+		.map(([id, [a, b]]) => {
+			const lo = Math.min(tiers[a] ?? 0, tiers[b] ?? 0);
+			return { id, name: REACTION_NAME[id], a, b, pct: Math.round((reactionBonus(tiers, a, b) - 1) * 100), nextPct: Math.round(REACTION_PER_TIER * 100 * Math.max(0, lo)) };
+		})
+		.sort((x, y) => y.pct - x.pct);
 }

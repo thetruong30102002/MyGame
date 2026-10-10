@@ -1,0 +1,20 @@
+{
+	"description": "A sprite sheet of NINE separate game UI skill icons arranged in a 3 by 3 grid, in this order left to right then top to bottom, each centered in its own cell: a small round fireball with a short flame tail; a flat ring of fire bursting outward from an empty center; a big round fiery explosion burst with flying embers; a straight row of tall flames standing side by side like a wall; a huge flaming rock falling straight down onto a red target ring; a small hourglass with a steady flame burning inside it; a round iron furnace with white-hot fire in its open mouth; a smoldering grey ash pile with three linked ember sparks; a tall symmetric flame sigil with a glowing white-hot core. Color theme: orange, red and golden flames with dark charcoal grey accents. Chunky pixel art icons in the same style as the reference, thick dark outline, soft cel shading, bold readable silhouettes, every icon fully separate on a plain flat solid bright magenta (#FF00FF) chroma-key background with wide empty space around it, no text, no letters, no numbers, no frames, no borders",
+	"width": 192,
+	"height": 192,
+	"no_background": false,
+	"seed": 7,
+	"style_options": {
+		"color_palette": false,
+		"outline": true,
+		"shading": true,
+		"detail": true
+	},
+	"style_image": {
+		"path": "sources/pixellab/sheets/I1_icons.png",
+		"usage_description": "Copy ONLY the art style of this reference: chunky pixel art UI icons, thick dark outline, soft cel shading, one icon centered per grid cell on magenta. Do not copy these objects or their colors."
+	},
+	"jobId": "fea08a6a-55ad-49d3-8593-bb407f383f8d",
+	"token": 1,
+	"createdAt": "2026-10-09T18:08:26.607Z"
+}

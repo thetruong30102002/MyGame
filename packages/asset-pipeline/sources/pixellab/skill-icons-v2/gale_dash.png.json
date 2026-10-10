@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a long green arrow dashing to the right, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/wind.png",
+	"jobId": "6bf15a8b-d8f3-4c8a-8cbf-7cb7f9915e41",
+	"token": 1,
+	"createdAt": "2026-10-09T19:18:25.281Z"
+}

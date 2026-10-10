@@ -3,6 +3,8 @@
 Trạng thái: **ĐÃ CHỐT HƯỚNG** (07/10/2026 — chủ dự án: "làm theo ý bạn", thêm: thanh 10 ô, chỉ master được 1 nhánh). Đã thay
 phần "điểm tiềm năng cộng vào kỹ năng" ở `docs/tiem-nang-va-giao-dien.md`. **GĐ1 + GĐ1.5 + GĐ2 (lượt A + B) + GĐ3 (lượt A: mốc 6–9
 của 5 nguyên tố, lượt B: mốc 6–9 của 3 lưu phái Kiếm — mọi nhánh tới mốc 9) ĐÃ LÀM (07/10/2026)**, sửa 16 lỗi sau review (08/10/2026) — xem mục 7.
+**10/10/2026 (chủ dự án):** mở nhánh chỉ là ĐƯỢC PHÉP học — mốc 1 nguyên tố (phép đầu) tốn **1 điểm**, Kiếm giữ mốc 1 miễn phí; bài tập
+phép tuổi thơ nhận Tia Aether khi chưa học — mục 7 "Mốc 1 nguyên tố học bằng điểm".
 
 ## 1. Ý người chơi (nguyên văn rút gọn)
 
@@ -20,17 +22,18 @@ của 5 nguyên tố, lượt B: mốc 6–9 của 3 lưu phái Kiếm — mọi
 | Khái niệm | Đề xuất |
 |---|---|
 | Nhánh | Kiếm · Hoả · Thuỷ · Phong · Băng · Thổ (6 nhánh × 10 mốc = 60 mốc) |
-| Mở nhánh | Cốt truyện trao (như bây giờ): Kiếm = kiếm gỗ của cha (6 tuổi), Hoả/Thuỷ 6 tuổi, Phong/Băng 8 tuổi, **Thổ: nhiệm vụ mới ở 16 tuổi**. Mở nhánh = **mốc 1 miễn phí** (học luôn skill mốc 1). |
+| Mở nhánh | Cốt truyện trao (như bây giờ): Kiếm = kiếm gỗ của cha (6 tuổi), Hoả/Thuỷ 6 tuổi, Phong/Băng 8 tuổi, **Thổ: nhiệm vụ mới ở 16 tuổi**. Mở nhánh = **được phép học** (chủ dự án 10/10/2026): nhánh nguyên tố vừa mở ở **mốc 0**, mốc 1 (phép đầu — Hoả Cầu, Thuỷ Tiễn…) mua **1 điểm**; riêng **Kiếm có sẵn mốc 1** (Trảm) khi nhận kiếm gỗ. Trước 10/10 mở nhánh là có mốc 1 miễn phí. |
 | Điểm nhận | Giữ công thức hiện tại: 1 điểm/cấp + 1 điểm thưởng mỗi 5 cấp. **Cấp tối đa 40 → 47 điểm** |
-| Giá mốc 2→10 | **1 · 2 · 2 · 3 · 3 · 4 · 4 · 5 · 5** = **29 điểm** để max một nhánh |
-| Hệ quả ở cấp 40 | **Chỉ master được 1 nhánh** (29). Còn **18 điểm ≈ 62% một nhánh nữa**: một nhánh phụ tới mốc 7, hoặc hai nhánh phụ tới mốc 5 (xem 2.4). Nâng cấp tối đa về sau thì tăng giá mốc theo, giữ đúng tỉ lệ "1 master + ~60%". |
+| Giá mốc | Mốc 1: nguyên tố **1**, Kiếm 0 · mốc 2→10: **1 · 2 · 2 · 3 · 3 · 4 · 4 · 5 · 5** → max một nhánh: **Kiếm 29, nguyên tố 30** (`TIER_COST`, `tierCost`) |
+| Hệ quả ở cấp 40 | **Chỉ master được 1 nhánh** (29–30). Còn **17–18 điểm ≈ 60% một nhánh nữa**: một nguyên tố phụ tới mốc 7 (16), hoặc master Kiếm + hai nguyên tố mốc 5 (9 + 9), master nguyên tố + Kiếm 5 + nguyên tố 5 (8 + 9) (xem 2.4). Nâng cấp tối đa về sau thì tăng giá mốc theo, giữ đúng tỉ lệ "1 master + ~60%". |
 | Thưởng chiều sâu | Mỗi mốc đạt được: **+4% sức mạnh mọi skill của nhánh đó** (mốc 10 = +36%). Thay cho `rankPower` theo từng skill. |
 | Phạt tạp nham | **Bỏ** hệ số −15% hiện tại: rải điểm thì tự yếu vì không chạm mốc cao (không có skill mạnh, không có bị động lớn). Đơn giản, dễ hiểu hơn. |
 | Tẩy điểm | Giữ luật cũ: miễn phí tới cấp 5, sau đó 10 xu × cấp. |
 
 Giá mốc tăng dần vì skill mốc cao mạnh hơn hẳn; giá phẳng (1 điểm/mốc) thì người chơi max được 5 nhánh — không còn build.
 
-Điểm tích luỹ để tới mốc: m2 = 1 · m3 = 3 · m4 = 5 · m5 = 8 · m6 = 11 · m7 = 15 · m8 = 19 · m9 = 24 · m10 = 29.
+Điểm tích luỹ để tới mốc (`pointsToTier`): Kiếm m2 = 1 · m3 = 3 · m4 = 5 · m5 = 8 · m6 = 11 · m7 = 15 · m8 = 19 · m9 = 24 · m10 = 29;
+nguyên tố cộng thêm 1 điểm mốc 1: m1 = 1 · m2 = 2 · m3 = 4 · m5 = 9 · m7 = 16 · m9 = 25 · m10 = 30.
 
 ### 2.2 Mỗi nhánh 10 mốc: 6 chủ động + 4 bị động
 
@@ -44,7 +47,7 @@ Lý do 4 bị động: thanh kỹ năng không chứa nổi 60 skill (xem 2.4), 
 
 - **Điều kiện:** Kiếm ≥ mốc 2 và nguyên tố đó ≥ **mốc 5**. Mỗi lúc chỉ phủ **một** nguyên tố; đổi phủ có **hồi 10 giây**.
 - **Chặn lối "master Kiếm + rải mỗi nguyên tố 1 ít để lấy đủ hiệu ứng"**: nếu phủ phép chỉ cần mốc 2 (1 điểm) thì master Kiếm
-  còn 18 điểm, rải đủ 5 nguyên tố mốc 2 là có cả 5 kiểu phủ, đổi qua lại để tự gây phản ứng. Đòi **mốc 5** (8 điểm/nguyên tố)
+  còn 18 điểm, rải đủ 5 nguyên tố mốc 2 là có cả 5 kiểu phủ, đổi qua lại để tự gây phản ứng. Đòi **mốc 5** (9 điểm/nguyên tố, tính cả mốc 1)
   thì 18 điểm chỉ phủ được **tối đa 2 nguyên tố**: "Kiếm + 1–2 hệ" là một lối build, không phải lấy hết. Hồi 10 giây khi đổi
   phủ để không chém Lửa rồi đổi ngay sang Băng tự ăn Tan Chảy liên tục.
 - **Phủ phép:** mọi đòn của nhánh Kiếm mang hiệu ứng nguyên tố, mạnh dần theo mốc của nguyên tố:
@@ -74,7 +77,7 @@ Lý do 4 bị động: thanh kỹ năng không chứa nổi 60 skill (xem 2.4), 
   | Nhánh master (mốc 1, 3, 5, 6, 8, 10) | 6 |
   | Nhánh phụ tới mốc 7 (mốc 1, 3, 5, 6) | 4 |
   | Tia Aether | 1 |
-  | Mốc 1 miễn phí của các nhánh đã mở khác | 0–4 |
+  | Mốc 1 (1 điểm) của các nhánh nguyên tố khác đã học | 0–4 |
   | **Tổng** | **11–15 → phải chọn 10** |
 
   Max được 2 nhánh cũng vô ích: 2 × 6 chủ động + Aether = 13 skill mạnh mà chỉ có 10 ô — điểm dồn vào mốc 8/10 của nhánh
@@ -83,7 +86,7 @@ Lý do 4 bị động: thanh kỹ năng không chứa nổi 60 skill (xem 2.4), 
   Vậy 10 ô vừa đủ để người chơi phải bỏ bớt vài skill yếu, nhưng không bao giờ thiếu ô cho skill chính. Ít hơn (8 ô) thì
   nhánh phụ gần như không có chỗ; nhiều hơn (12 ô) thì mọi thứ đều mang theo được, chọn lựa mất ý nghĩa.
 - **Sức mạnh** (thưởng chiều sâu +4%/mốc): nhánh master **+36%**; nhánh phụ mốc 7 **+24%**; hai nhánh phụ mốc 5 **+16%** mỗi
-  nhánh; mốc 1 miễn phí **+0%**. Skill master vừa mạnh nhất vừa có bị động mốc 7/9 — là lõi của build, nhánh phụ là gia vị.
+  nhánh; mốc 1 **+0%**. Skill master vừa mạnh nhất vừa có bị động mốc 7/9 — là lõi của build, nhánh phụ là gia vị.
 
 ### 2.5 Hai nguyên tố (phản ứng)
 
@@ -348,8 +351,8 @@ Tẩy điểm xoá `swordStyle`. Trần Kiếm lên **mốc 5**; mốc 6–10 c�
   ≥ 147px, xa hang Vua Lich) → độc thoại thấy sợi màu nâu chạy dưới chân như rễ cây, vài sợi bị giật lỏng "như dây cáp rút vội
   khỏi máy", nhớ kiếp trước chưa từng về giỗ ông, đứng yên chờ sợi đất "nắm tay" → thưởng **`unlockSkill: 'earth'`** (Đá Văng).
   Rồi `y1c_stone_dummy` "Đá cho Ông Rơm": thử Đá Văng 3 lần vào hình nộm sân sau, mẹ nhận báo (+1 bình) và nhắc sang Aldric. Hai
-  nhiệm vụ **0 EXP** (thưởng là nhánh Thổ + bình) để giữ nhịp cấp đã cân (boss.test: trước Quỷ vương cấp 3 sát cấp 4). Bản lưu đã
-  qua chỗ này được `migrate` tính là xong + bù `earth` (`StoryDirector.granted` → Game đặt Đá Văng lên ô + toast một lần).
+  nhiệm vụ **0 EXP** (thưởng là nhánh Thổ + bình) để giữ nhịp cấp đã cân (boss.test: trước Quỷ vương cấp 3 sát cấp 4 — từ
+  09/10/2026 EXP nấm ×1,2 nên vừa qua mốc cấp 4). Bản lưu đã qua chỗ này được `migrate` tính là xong + bù `earth` (`StoryDirector.granted` → Game đặt Đá Văng lên ô + toast một lần).
   `Game` thêm `NpcDef.prop` (vật thể làm hình) và gợi ý "Xem …" thay "Nói chuyện với …" cho vật thể.
 - **Hình tạm làm lại**: Băng Trụ — sương / băng vỡ chuyển xuống lớp đất, cột = 3 mũi băng kéo dài theo trục (giữa 125×54, hai bên
   nghiêng) phát sau cùng, giữ 0,8s; Lốc Xoáy — phễu 4 tầng `wind_spin` hẹp → rộng, mỗi tầng một nhịp quay + bụi cuốn chân + hơi gió.
@@ -514,11 +517,51 @@ có. Nay đủ cột mốc 5 và mốc 7 (`talents.ENCHANT_UP_TIER = 7`); số �
 - Mốc 10 (vệt lửa, sóng nước, xuyên mục tiêu, vỡ băng, sóng chấn) — GĐ4 cùng tuyệt kỹ.
 - Test: `tests/enchant.test.ts` (mới).
 
+### Mốc 1 nguyên tố học bằng điểm — ĐÃ LÀM (10/10/2026)
+
+Chủ dự án: "sẽ không được free skill nguyên tố đầu tiên đâu, phải dùng điểm để học"; gỡ kẹt cốt truyện: "Bài tập phép lúc nhỏ chấp
+nhận Tia Aether (phép cơ bản) thay vì đúng chiêu đó; chiêu nguyên tố để người chơi tự học khi có điểm. Truyện vẫn kể như cũ."
+
+- **Luật** (`packages/sim/src/talents.ts`): `TIER_COST[1]` = 1; `FREE_FIRST_TIER` = Kiếm (Trảm = đòn J, nhận kiếm gỗ là chém
+  được); `baseTier(b)` = mốc lúc vừa mở (Kiếm 1, nguyên tố 0); `tierCost(b, t)`, `pointsToTier(t, b)` theo nhánh. "Nhánh đã mở, mốc
+  0" khác "nhánh chưa mở" ở mã cốt truyện (`branchOpen`), không ở số mốc → `nextTierCost(tiers, b, isUnlocked)` /
+  `addTier(level, tiers, b, isUnlocked)` nhận thêm `isUnlocked`. `knowsSkill`: chỉ kỹ năng ở mốc ≤ `baseTier` (Trảm) cần mỗi mã cốt
+  truyện; Hoả Cầu / Thuỷ Tiễn / Phong Nhận / Băng Tiễn / Đá Văng cần nhánh ≥ mốc 1.
+- **Giao diện**: nhánh nguyên tố mở mà chưa học hiện `mốc 0/10`, nút mốc 1 "Học mốc 1 · 1 điểm" (cột chi tiết, "Học được ngay",
+  chip giá trên cây, thước giá có mốc 1); thanh 10 ô chỉ nhận kỹ năng đã học (học xong mới tự lên ô nhà); mở nhánh báo "Mở nhánh
+  Hoả — học Hoả Cầu ở bảng Tiềm năng (P), 1 điểm"; tẩy điểm: Kiếm về mốc 1, nguyên tố về chưa học. Phản ứng song hệ ở bảng chỉ liệt
+  kê khi cả hai hệ đã học.
+- **Bản lưu** (`StoryDirector`, `talentsV` 2 → **3**): định dạng 3 lưu số mốc ĐÃ TRẢ ĐIỂM (Kiếm = mốc − 1, nguyên tố = mốc). Chuyển
+  bản 2 (`migrateTalentsV2`): giữ NGUYÊN mọi mốc nếu điểm của cấp đủ trả thêm 1 điểm mốc 1 cho mỗi nhánh nguyên tố đã mở; thiếu thì
+  `fitTiers` — nhánh sâu nhất giữ trước (bằng mốc: nhánh mở trước), mỗi nhánh giữ mốc cao nhất ≤ mốc cũ mà điểm còn lại trả nổi;
+  nhánh chỉ có mốc 1 (chưa từng cộng điểm) mất trước, về mốc 0 (nhánh vẫn mở). Không bao giờ âm điểm, điểm lẻ để người chơi tự
+  cộng. Nhánh vừa được bù mã ngay lần nạp đó (vd Thổ) tính từ mốc 0. Có trừ điểm / hạ mốc thì Game báo MỘT lần: banner "Luật
+  tiềm năng mới" + thông báo chi tiết (`talentsMigrationText`, để 9 giây — banner một dòng cắt chữ dài; `toast` nhận thêm thời
+  gian hiện). Trực tuyến: cấp dùng để chuyển là cấp máy chủ giữ (`onlineStoryStorage`). Bản lưu cũ có Thổ được bù lúc nạp: báo
+  "Mở nhánh Thổ" + chỗ học thay cho "học Đá Văng (phím …)" (Đá Văng chưa học thì chưa lên thanh).
+- **Cốt truyện**: bài luyện có hệ nhận thêm Tia Aether khi chưa học đủ chiêu (`StoryDirector.aetherStandsIn`): bài một hệ (Mũ cũ →
+  Hoả, Đá cho Ông Rơm → Thổ) = chưa học mốc 1 nhánh đó; bài phản ứng (Tuyết cho mẹ → Băng Giá) = chưa học mốc 1 của MỘT trong hai
+  nhánh (Thuỷ / Phong) — bắn Tia Aether thay cả bài. Học đủ rồi thì phải làm đúng bài. Ô nhiệm vụ đổi chữ theo mốc
+  (`QuestDef.objectiveTextAether`, `StoryDirector.objectiveLine`): chưa học → "Tung Tia Aether vào Ông Rơm…", học rồi → chữ gốc
+  "Tung Hoả Cầu…" (Game dựng lại ô nhiệm vụ mỗi lần `syncTalents`); lời dẫn ghi "học … ở bảng Tiềm năng (P) khi có điểm — chưa học
+  thì tung Tia Aether (K)" (sửa ở `docs/story-childhood.design.json` rồi sinh lại `childhood.ts` — `buildChildhood.py` đọc thêm
+  `objectiveTextAether`; `youth.ts` sửa tay); thoại / độc thoại giữ nguyên. Không quái / vật nào chỉ phá được bằng nguyên tố (vùng
+  1 không đặt `resist`, `elementMult` kẹp ≥ 0,25).
+- Máy chủ không đổi: không kiểm chiêu người chơi đã học (`actions.cleanCast` chỉ kiểm mã chiêu có thật).
+- Test: `talents.test.ts` (giá mốc theo nhánh, `fitTiers`, học mốc 1, chuyển bản lưu 2 → 3: mới mở Hoả / Hoả 5 + Thuỷ 1 / đã tiêu
+  hết điểm / giữ lưu phái / nạp lại không chuyển lặp), `story.test.ts` (đi hết truyện với 0 điểm, Tia Aether thay đúng 3 bài,
+  học rồi phải làm đúng bài, bỏ điểm sai nhánh vẫn qua), `talentsView.test.ts`, `talentTree.test.ts` (nhánh mở ở mốc 0); test
+  chiến đấu dựng CombatSystem với mốc 1 mọi nhánh (chưa nhận mốc nào chỉ còn Trảm + Tia Aether).
+- **Ảnh hưởng cân bằng**: đường tối thiểu tới Quỷ vương (cấp 4 = 3 điểm) nay chỉ đủ Hoả mốc 2 (Hoả Cầu + Mồi Lửa) dư 1 điểm,
+  không còn Hoả mốc 3 (Vòng Lửa) như trước; người chơi 0 điểm vẫn có Trảm + Tia Aether. `boss.test` chỉ cân chỉ số nên vẫn qua —
+  cần chơi thử lại trận Quỷ vương với Pháp sư cấp 4.
+
 ## 8. Đã chốt (07/10/2026)
 
 Chủ dự án giao quyết theo đề xuất, góp thêm: thanh kỹ năng **10 ô** và chỉ master được **1 nhánh**.
 
-1. Giá mốc 1·2·2·3·3·4·4·5·5 (29 điểm/nhánh); **cấp tối đa 40 = 47 điểm** → 1 nhánh master + ~62% nhánh nữa.
+1. Giá mốc 1·2·2·3·3·4·4·5·5 (29 điểm/nhánh); **cấp tối đa 40 = 47 điểm** → 1 nhánh master + ~62% nhánh nữa. *(10/10/2026: mốc 1
+   nguyên tố thêm 1 điểm — nguyên tố 30/nhánh, xem mục 7 "Mốc 1 nguyên tố học bằng điểm".)*
 2. Mỗi nhánh 6 chủ động + 4 bị động.
 3. Tia Aether là năng lực bẩm sinh, ngoài cây; Hồi Phục thành Thuỷ mốc 3 ("Suối Lành").
 4. **10 ô gán tự do** (J, K, 1–8); Space né, R bình máu riêng.

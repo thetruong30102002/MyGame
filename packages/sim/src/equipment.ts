@@ -37,10 +37,8 @@ export const SLOT_NAME: Record<EquipSlotId, string> = {
 };
 
 /**
- * Nhãn ngắn in giữa ô TRỐNG trên búp bê (chỗ tạm, chờ bóng mờ PixelLab — `items.SLOT_SILHOUETTE`). Lòng tối của ô chỉ
- * rộng 32px: "Nhẫn 1" 11px đậm rộng ~37px tràn lên dải sáng 2px của khung và mất nét chữ đầu/cuối (đo trên 375×812), nên
- * hai ô nhẫn chỉ ghi "Nhẫn" — SỐ ô nằm ở huy hiệu góc mà `EquipDoll` vẽ cho cả ô trống lẫn ô có đồ (ghi chú thẻ "bấm ô
- * nhẫn có số 2" vẫn chỉ đúng ô; khi có bóng mờ PixelLab hai ô nhẫn dùng chung một hình thì vẫn phân biệt được).
+ * Nhãn ngắn của ô trang bị (EquipDoll in DƯỚI ô từ 09/10/2026 — không còn chữ trong lòng ô, không còn huy hiệu số góc): "Vũ khí"
+ * thay "Vũ khí chính" cho vừa cột hẹp. Hai ô nhẫn KHÔNG dùng nhãn này — EquipDoll in đủ "Nhẫn 1" / "Nhẫn 2" từ `SLOT_NAME`.
  */
 export const SLOT_SHORT: Record<EquipSlotId, string> = { ...SLOT_NAME, main: 'Vũ khí', ring1: 'Nhẫn', ring2: 'Nhẫn' };
 

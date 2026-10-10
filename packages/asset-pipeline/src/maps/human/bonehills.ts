@@ -3,7 +3,8 @@ import { decalsOf, Layout, TILE, px, type MapData, type MonsterZone } from './co
 
 /**
  * Đồi Xương Trắng — phía đông Nghĩa địa. CHỈ một loại quái: cung thủ xương (bắn xa), mỗi bãi xương một bầy nhỏ — bầy
- * 3 con vì cả bầy cùng bắn là rất rát. Nền đất chết, xương thú khổng lồ và cờ trận rách của một trận chiến xưa.
+ * 3 con vì cả bầy cùng bắn là rất rát. Nền đất chết, xương thú khổng lồ và cờ trận rách của một trận chiến xưa. Lối tây
+ * về Nghĩa địa, lối đông sang Luỹ Hiệp Sĩ Cũ.
  */
 export const BONEHILLS_W = 44;
 export const BONEHILLS_H = 40;
@@ -19,6 +20,11 @@ export function buildBonehills(meta: Record<string, PropMeta>, decalIds: string[
 		[26, 27],
 		[26, 13],
 		[38, 13],
+	]);
+	// Nối tiếp ra mép đông (thiết kế 12 map vùng 1, 10/10/2026): dấu chân đội hiệp sĩ dẫn về Luỹ Hiệp Sĩ Cũ của họ.
+	L.path([
+		[38, 13],
+		[43, 13],
 	]);
 	// Đồi: vệt đất tối loang lổ.
 	for (const [x, y, r] of [
@@ -45,8 +51,10 @@ export function buildBonehills(meta: Record<string, PropMeta>, decalIds: string[
 		L.reserve(c.x, c.y + 1, c.r);
 	}
 	L.reserve(1, 19.5, 3);
+	L.reserve(42.5, 13.5, 3);
 
 	L.place('signpost', px(3), px(17) + 10, { force: true });
+	L.place('signpost', px(41), px(11) + 10, { force: true });
 	for (const [x, y] of [
 		[14, 17],
 		[24, 25],
@@ -77,9 +85,16 @@ export function buildBonehills(meta: Record<string, PropMeta>, decalIds: string[
 		npcs: [],
 		monsterZones: camps.map(zone),
 		boss: null,
-		spots: [{ id: 'west_entry_bh', name: 'Đường về Nghĩa địa', x: px(2), y: px(19) + 24, r: 60 }],
+		spots: [
+			{ id: 'west_entry_bh', name: 'Đường về Nghĩa địa', x: px(2), y: px(19) + 24, r: 60 },
+			{ id: 'east_gate_bh', name: 'Đường sang Luỹ Hiệp Sĩ', x: px(41), y: px(13) + 24, r: 60 },
+		],
 		dummies: [],
 		areas: [{ name: 'Đồi Xương Trắng', x0: 0, y0: 0, x1: BONEHILLS_W * TILE, y1: BONEHILLS_H * TILE }],
-		exits: [{ id: 'to_graveyard_bh', to: 'graveyard', toSpot: 'east_gate_gy', edge: 'W', ...L.exitStrip('W', 17, 22), label: 'Nghĩa địa Hoàng Hôn' }],
+		exits: [
+			{ id: 'to_graveyard_bh', to: 'graveyard', toSpot: 'east_gate_gy', edge: 'W', ...L.exitStrip('W', 17, 22), label: 'Nghĩa địa Hoàng Hôn' },
+			// Lối mới khai CUỐI mảng (thiết kế 12 map vùng 1).
+			{ id: 'to_oldfort_bh', to: 'oldfort', toSpot: 'west_entry_of', edge: 'E', ...L.exitStrip('E', 11, 16), label: 'Luỹ Hiệp Sĩ Cũ · cấp 7+' },
+		],
 	});
 }

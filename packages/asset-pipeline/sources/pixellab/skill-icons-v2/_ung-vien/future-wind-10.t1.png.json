@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a huge green storm sphere with white blades around it, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/wind.png",
+	"jobId": "922706b2-7044-4ca9-aaae-b4aa49a144a7",
+	"token": 1,
+	"createdAt": "2026-10-09T19:20:42.881Z"
+}

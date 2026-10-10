@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a pale crescent moon above a curling blue wave, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/water.png",
+	"jobId": "f3461357-2fc1-4307-85e1-7727a36c3667",
+	"token": 1,
+	"createdAt": "2026-10-09T19:17:54.470Z"
+}

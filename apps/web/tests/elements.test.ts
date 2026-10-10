@@ -259,7 +259,9 @@ function setup(o: { dummy?: boolean; tiers?: Tiers; have?: string[] } = {}) {
 	);
 	const p = new Actor('hero', fakeTextures(), 40, 100, 'S', null);
 	combat.setPlayer(p);
-	if (o.tiers) combat.setTalents(o.tiers);
+	// Luật 10/10/2026: phép mốc 1 của nguyên tố phải học bằng điểm — coi như đã học mốc 1 mọi nhánh (mốc 1 không có bị động,
+	// thưởng chiều sâu / phản ứng +0%: số liệu y như chưa nhận mốc nào), `tiers` của từng test đè lên.
+	combat.setTalents({ sword: 1, fire: 1, water: 1, wind: 1, ice: 1, earth: 1, ...o.tiers });
 	if (o.dummy) combat.addDummy(200, 100);
 	const inner = combat as unknown as Internals;
 	// Bắt chữ nổi (Trượt, Phá giáp, +máu) — `float` là private, bọc lại để đọc.

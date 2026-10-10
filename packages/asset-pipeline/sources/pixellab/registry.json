@@ -53,7 +53,40 @@
 			"dodge": "240832e4-2d56-44a3-bea6-41797511a064",
 			"death": "631a989b-b97d-42eb-895b-47c74bbcf9a4",
 			"hit": "07ff0471-bfb3-4dec-ba48-9ce2e1de6f98",
-			"drink": "28b16f61-0ed5-42df-9bbc-8e75e8d21534"
+			"drink": "28b16f61-0ed5-42df-9bbc-8e75e8d21534",
+			"cast-hand": "8549af8f-7186-4191-9519-3fb474fe7a0c",
+			"backslash-hand": "87bb2e78-a970-4c4d-bd8f-040d0e6490dd",
+			"attack-hand": "f9126d26-d4ab-455d-9cf4-85abac65722c",
+			"thrust-hand": "a0db558c-934f-43ca-967c-779bad29ab4d",
+			"charge-hand": "b884e433-5d7c-4b8d-ad82-bd254ca888b4",
+			"smash-hand": "f03a3713-36da-4077-87ed-5a5e958dd49e",
+			"block-hand": "460174e8-e95b-4864-ba4a-a018fab4a236",
+			"parry-hand": "9830f264-a556-4f5d-af98-d68f1b040f59",
+			"lunge-hand": "d5b58acb-dd19-41d1-a202-8d104fc72292",
+			"spin-hand": "ad0611f9-d5e4-4b1f-a389-baf6e530a687",
+			"flurry-hand": "94d6872b-f3d5-4ebc-a9a0-0c8794b7b29e",
+			"wave-hand": "2925849e-090b-47a2-b82d-994c83e88e58",
+			"fling-hand": "08645a25-f14f-4eb8-a2b8-0e4dcd7d5151",
+			"vanish-hand": "220b7890-7875-42d7-8337-c3b39331d59f",
+			"throw-hand": "6951fb0f-b126-4a0e-bd41-bcb9bf2ccae8",
+			"channel-hand": "7abbc4c3-3e81-432d-b889-0ac07660890c",
+			"push-hand": "360ccd88-008e-4c52-809f-99bbe311b4a8",
+			"skycall-hand": "2b644b4d-4750-45b7-95bf-2bb7292a61c4",
+			"stomp-hand": "15d64058-e1b5-4534-a204-1eb2e47c1f71",
+			"ultimate-hand": "7b796d19-5165-4f34-aaef-442608c80f90",
+			"smash-hand2": "88588c42-712a-4dbe-b620-62f636c04f70",
+			"backslash-hand2": "323fa289-8e38-445f-bc3c-497ca552db44",
+			"attack-hand2": "e3cd83b0-55fe-475d-b54d-2d48b0703fd9",
+			"push-hand2": "565ad7e2-b243-45c4-8f46-198e18ba875b",
+			"skycall-hand2": "ce67aa0b-f61c-4854-a958-f80760daf846",
+			"stomp-hand2": "1032c272-8071-4760-900e-c1dd6e6630cf",
+			"wave-hand2": "4c58d151-b72a-402b-9c1d-33a29505daae",
+			"vanish-hand2": "82490f78-e067-4e89-83c2-026498c2bfbd",
+			"lunge-hand2": "480e7f7b-fcb9-4576-aed3-c56efabe8401",
+			"block-hand2": "eb2f94d3-8c34-4dd9-8dbf-aeb463005b45",
+			"parry-hand2": "437f0684-0236-4eff-82bf-9f11f983577e",
+			"flurry-hand2": "b44c3853-5b89-4e5b-ac6f-09b1c2c2ea59",
+			"spin-hand2": "c2863f26-68d4-4e28-9ba1-7e209e6fc67c"
 		}
 	},
 	"player_hero_v2_f": {
@@ -65,7 +98,42 @@
 			"dodge": "e027367a-ac65-48a4-a994-191b69d79c62",
 			"death": "617ab946-97b7-4ede-bcdb-66daa1d79aba",
 			"hit": "6d9a0bb0-ec2b-48bc-95cf-cf4931f08c76",
-			"drink": "f50aba31-cb50-43aa-bbf8-9eb717d8f990"
+			"drink": "f50aba31-cb50-43aa-bbf8-9eb717d8f990",
+			"backslash-hand": "95c58906-b865-4824-9389-11ba0dd07e85",
+			"attack-hand": "c17671b4-adbc-489c-8153-c296d3ba9ffc",
+			"charge-hand": "98a99f43-af1b-49af-a08e-cc219eb00bd0",
+			"thrust-hand": "06da356c-6e66-43a1-af48-d958f0fc7cb3",
+			"lunge-hand": "296141ce-2b55-4af0-a6e5-09f0a12546a8",
+			"block-hand": "d8d8e46c-2494-49e0-83d1-9f7d3d386358",
+			"smash-hand": "620ad7ee-1685-4c38-8d56-7f8fb782f731",
+			"spin-hand": "a7656c22-0299-494b-8342-0c4b21a1f851",
+			"parry-hand": "937bcf69-813d-4581-b87d-3be91c3cdfc9",
+			"wave-hand": "39950e39-abcd-4115-b056-6a2bdced3ddb",
+			"flurry-hand": "3d01670f-8355-4bf7-ba10-6f6f9a914877",
+			"vanish-hand": "b379cfcf-567b-4c5a-a66a-3bb14ea5a307",
+			"cast-hand": "68d217e8-ad73-4d87-af5d-5e56d1d6b492",
+			"fling-hand": "a75f2706-a1da-4536-bcab-d98fc5a221b6",
+			"channel-hand": "c0646a0f-274b-43fc-98e2-e2116d9ae517",
+			"throw-hand": "8fb7a943-0091-4817-964f-3d002de6bdfd",
+			"push-hand": "92265094-01af-4af6-9f05-2e75c4fed1a4",
+			"skycall-hand": "afa40303-aba7-4bd8-b408-acf9cf8dc080",
+			"ultimate-hand": "d2e3550a-9485-48f7-a55e-23c982bf9427",
+			"attack-hand2": "8f2df24c-4dfa-4f45-b709-8b1b2485047b",
+			"backslash-hand2": "c932d5ba-f893-496b-8aa4-7d85e460022d",
+			"smash-hand2": "b753ee26-15b9-479f-a6ce-29a257235f44",
+			"lunge-hand2": "66b1e0fd-1a39-4cea-9f52-ee0684c2bda5",
+			"parry-hand2": "67372123-641e-4902-a468-eb6004049164",
+			"wave-hand2": "bb6a74ea-fb6c-4fe0-beec-c470e48265fc",
+			"flurry-hand2": "584d00ae-8ac1-4d7a-9e1a-0fe99ff04cb7",
+			"spin-hand2": "1e0cbbfd-415e-4ef1-95b9-da3f5b731356",
+			"fling-hand2": "ac14a0d4-a84e-4f86-9b94-641d5c2bf87a",
+			"vanish-hand2": "6ca7890a-02f6-496e-86f6-e0b75c986c8c",
+			"cast-hand2": "03ac54b6-8720-4ac8-b113-9f9a241beb53",
+			"throw-hand2": "77c805e1-ac59-43f3-bea0-e87e94ad876f",
+			"push-hand2": "7218cc0a-3123-4859-ab45-eafa24d8c088",
+			"skycall-hand2": "6fcc688d-0829-4aa4-a95a-d4654acbcbb1",
+			"ultimate-hand2": "f9e0c912-80e8-4741-8370-5bea6fe042ff",
+			"stomp-hand2": "84fc3f3c-6408-47cf-9206-dc246417be9f"
 		}
 	},
 	"player_child_v2_m": {
@@ -76,7 +144,17 @@
 			"idle": "c474d416-a754-4253-a74d-9b5ae87ff02c",
 			"death": "1d9f694c-f3e2-4894-8269-13c3f44618bd",
 			"drink": "844dcbb4-d5f3-4814-b5c3-4dd509c5eb31",
-			"hit": "739f80e8-37cf-4550-8690-61c93295f968"
+			"hit": "739f80e8-37cf-4550-8690-61c93295f968",
+			"attack-hand": "0c2a4a5f-72bb-4d9a-9fb5-d674684f05ee",
+			"backslash-hand": "6bf76a13-7831-403c-b32c-ab15b73cf02a",
+			"thrust-hand": "0a6516f8-98d1-4709-9da9-48d1e9b8388f",
+			"cast-hand": "dab5111e-e0f8-4de6-b1f2-6a01508c1f01",
+			"throw-hand": "2132265b-37d0-4d7e-a5bf-41bd4289914d",
+			"attack-hand2": "edd18a3d-2614-4d47-844d-952eee3aace8",
+			"backslash-hand2": "120bde1e-f50f-4aac-b458-b2c153c3c814",
+			"throw-hand2": "362c4d51-dcaa-42ab-a452-b60349754850",
+			"cast-hand2": "8a96b97f-2af3-46a2-9673-08ffc3cb01ef",
+			"thrust-hand2": "ac021515-2a71-420a-99c5-e613bb012bb2"
 		}
 	},
 	"player_child_v2_f": {
@@ -87,7 +165,15 @@
 			"idle": "7ee90cd7-4bdb-48c4-a74f-5a797145c869",
 			"hit": "b95e1f9e-bbe9-4ad5-83d4-c509e3254343",
 			"death": "b5240a27-f828-4f8b-8647-49cb0665338e",
-			"drink": "e9738db0-28ec-493c-af68-9ba37fbe7f4a"
+			"drink": "e9738db0-28ec-493c-af68-9ba37fbe7f4a",
+			"attack-hand": "5f4f55bb-4cbc-4203-b2b5-c36ef4b28d94",
+			"backslash-hand": "0b92c794-9125-43ae-9248-5b9c0d4e0fb5",
+			"thrust-hand": "31f5c699-5483-4f1f-a602-61f8f6f59ee6",
+			"cast-hand": "96c3e9a2-0209-4d58-87d7-04df22dbc8e8",
+			"throw-hand": "98a032f9-0b61-478e-8c3a-cfdf07011a41",
+			"attack-hand2": "c3e9aef3-5dd0-4823-84c9-424090b96479",
+			"backslash-hand2": "82269ceb-6fcc-4449-a5ec-73ecf44ae6d3",
+			"throw-hand2": "e205bd26-77d1-4b86-a8ba-4fba98513a86"
 		}
 	},
 	"player_hero_v2_m_sword": {
@@ -108,7 +194,14 @@
 			"wave": "ff82d37f-ffb3-457e-8409-cfd6c021fb26",
 			"flurry": "89319537-17c8-404a-bf9a-1448d9281eb6",
 			"fling": "f445ffc9-e8dc-4811-8e79-a80c3e1df350",
-			"vanish": "dd1393f6-19c2-4b0f-8df2-12dfaf9068e2"
+			"vanish": "dd1393f6-19c2-4b0f-8df2-12dfaf9068e2",
+			"idle-sword": "7722f7f7-c4a6-4e62-8bfa-7851bcdac1cd",
+			"walk-sword": "5342ba18-eb79-4239-bafa-a9e37be2dbdc",
+			"hit-sword": "251e2366-b0d4-4f6b-aa05-03a9fe13002a",
+			"dodge-sword": "1274674e-4027-430a-a424-062ac2c33945",
+			"hit-sword2": "09ded55d-e1d3-4d9b-8e11-7edc1dbcc720",
+			"dodge-sword2": "1c512ba0-afe6-4926-94b5-be9b0b97fe4f",
+			"death-sword": "cfc8e9ac-4ceb-4067-a4b4-fa4bd47acaae"
 		}
 	},
 	"player_hero_v2_f_sword": {
@@ -127,7 +220,16 @@
 			"wave": "ca3666e4-6b5d-4d87-91aa-900c3c5b9623",
 			"flurry": "458cd933-011d-483d-b368-9a177fcb2754",
 			"fling": "65330db8-1a71-4788-8fa9-47a9c5f90119",
-			"vanish": "9f5a92dc-0277-4d44-99b1-f1f521d56b32"
+			"vanish": "9f5a92dc-0277-4d44-99b1-f1f521d56b32",
+			"walk-sword": "6545c407-8458-464f-a243-654ed8aeae15",
+			"idle-sword": "e86dc39b-5df4-44ea-b40b-1efb77d573d1",
+			"idle-sword2": "b2995a6f-567c-4da5-bcf7-92b3e91a7076",
+			"hit-sword": "c1e8d719-11cf-45fb-8c6f-b85ccb48090a",
+			"dodge-sword": "583062a6-94a1-4652-9c4a-8187d80829e8",
+			"hit-sword2": "4af27449-0736-43d3-8350-0dcd58056099",
+			"dodge-sword2": "2823922a-59f5-4b65-a0dd-1790c02b1fbf",
+			"death-sword": "c0c380f6-e889-44b9-aced-0ab5ca70dc0d",
+			"death-sword2": "9e9625dc-e798-49c9-923c-f0661770be43"
 		}
 	},
 	"player_hero_v2_m_staff": {
@@ -140,7 +242,15 @@
 			"stomp": "3fdea69c-7863-4d2f-8bac-66c05b718029",
 			"skycall": "26b7b59f-70c0-460c-82d0-9be7c5db9f10",
 			"push": "8d9ddddf-3cac-4133-b625-cd546df310e1",
-			"ultimate": "14ddadd9-acd2-4cea-a67e-5c4aecba148e"
+			"ultimate": "14ddadd9-acd2-4cea-a67e-5c4aecba148e",
+			"walk-staff": "acbe2308-26e4-48e0-bb04-5b44a5af05d7",
+			"idle-staff": "ae7c2f82-f77d-4b4b-86e0-b4b79bd36965",
+			"walk-staff2": "c614f6da-0ab7-42df-b90e-2162a8d048d1",
+			"hit-staff": "0f1a4ae0-7172-4dcc-8397-c3882fa06317",
+			"dodge-staff": "95dc048d-2a1a-4c84-8e2b-dd8a2ea7007b",
+			"hit-staff2": "4aa2be0e-0a75-46dd-87e2-ef4a464a1987",
+			"dodge-staff2": "73746dec-8547-4c68-9b23-be1bef9cd68a",
+			"death-staff": "ab05990d-dc78-496b-b56a-1f0e96d591cd"
 		}
 	},
 	"player_hero_v2_f_staff": {
@@ -153,7 +263,17 @@
 			"push": "59ee9791-1a50-43c6-9af8-764adcc411cb",
 			"stomp": "cf17ff89-bd74-43ed-ada9-441cbd793b97",
 			"ultimate": "ae8cc488-3b7e-442f-a09e-29eff764344f",
-			"skycall": "5df8ce9a-f38c-4538-bc62-da4faae15226"
+			"skycall": "5df8ce9a-f38c-4538-bc62-da4faae15226",
+			"walk-staff": "7cf8edae-147a-4aca-9222-5e4a4a885647",
+			"idle-staff": "e64eabac-857f-4d05-aff9-c0e2a3e98ef0",
+			"walk-staff2": "3db94653-11ef-4847-a952-e9825207bb9f",
+			"hit-staff": "948427a8-03d3-4141-b328-131b41b3bb7e",
+			"dodge-staff": "c2ca0ac2-e533-42a6-941a-845bce230e18",
+			"hit-staff2": "bd5bb448-4e53-4ae9-ac75-ec3eeb6483ec",
+			"dodge-staff2": "807c7192-fe8e-4be4-a7c6-4d7d4a590a86",
+			"death-staff": "3b767fae-e97f-4f67-aa5d-b9942748e47c",
+			"death-staff2": "9284e00c-7758-4467-8b23-b284a69bc186",
+			"death-staff3": "c4e3c993-02d3-43f7-a308-fd4c8009d972"
 		}
 	},
 	"npc_silver_youth": {
@@ -192,7 +312,13 @@
 		"groups": {
 			"backslash": "3babd0a5-f114-407d-8346-1e26d1830488",
 			"attack": "d6cf1929-4fbb-47fc-9ff8-1525c7ede012",
-			"thrust": "557c7227-0b64-429d-a48c-8037a370104a"
+			"thrust": "557c7227-0b64-429d-a48c-8037a370104a",
+			"walk-sword": "7d07f745-0bc9-44fb-b280-5871568da3e7",
+			"idle-sword": "841dacef-a3ab-4a99-a7cd-06abe00cff01",
+			"idle-sword2": "07e8b311-812b-46da-b142-80854d2177e9",
+			"hit-sword": "6ec10893-e93e-451a-badd-803339b8997d",
+			"death-sword": "881307c8-290a-4c37-81dc-1e4d862cb4ad",
+			"drink-sword": "0e56af29-be56-4dd4-975d-1aa3c41a90aa"
 		}
 	},
 	"player_child_v2_f_sword": {
@@ -201,7 +327,15 @@
 		"groups": {
 			"attack": "b89853b0-def2-4676-b7cf-a73a5d2719bb",
 			"backslash": "555dfb05-f7c5-4e16-b379-971ecb4b8770",
-			"thrust": "10d6de2a-a0b4-4472-88b0-cad3676951e0"
+			"thrust": "10d6de2a-a0b4-4472-88b0-cad3676951e0",
+			"walk-sword": "be55998b-48ca-46aa-806e-9d60071a426e",
+			"idle-sword": "dcf96286-6283-4bfe-9257-10c687b42d49",
+			"idle-sword2": "c42980d4-89a3-4b23-b4fd-2b4d34f5995f",
+			"hit-sword": "b0f48ec7-c986-4bfb-a111-b8cb1abcbe61",
+			"death-sword": "4e4ae561-658a-4655-85c8-2849a595212e",
+			"drink-sword": "18c17c88-a57c-4c5b-ab94-1bcf68f07d8d",
+			"death-sword2": "9fcdddaa-9b99-4c90-82dd-2a5a25f33a37",
+			"drink-sword2": "53a0908c-1a06-4317-9510-2b3fe62be7de"
 		}
 	},
 	"player_child_v2_m_staff": {
@@ -209,7 +343,14 @@
 		"token": 1,
 		"groups": {
 			"throw": "eac914a0-4cc9-465a-8bd5-1b63d683dcab",
-			"cast": "f51734e6-a784-4fa0-99bb-254a35445d1e"
+			"cast": "f51734e6-a784-4fa0-99bb-254a35445d1e",
+			"idle-staff": "a5d44565-0c5d-4955-9b54-682639b9bc52",
+			"walk-staff": "6b5083e2-5dd8-4d68-9f09-55a145f7f9ca",
+			"idle-staff2": "d9c64bb1-9292-4169-b09b-f81689b27790",
+			"walk-staff2": "653793a3-cecd-4f01-9549-c39331de9fd1",
+			"hit-staff": "a2bd5d43-5789-48ff-ae47-2e5bd294b583",
+			"death-staff": "498f2592-5d26-4115-821c-20abfe872047",
+			"drink-staff": "959e0947-c37a-49e6-a5fc-0e1daa5e048d"
 		}
 	},
 	"player_child_v2_f_staff": {
@@ -217,7 +358,13 @@
 		"token": 1,
 		"groups": {
 			"throw": "63e9c097-a538-4e22-84bb-51a021e66228",
-			"cast": "b6118558-5245-4952-9a62-9a783b19b46f"
+			"cast": "b6118558-5245-4952-9a62-9a783b19b46f",
+			"walk-staff": "f42990e2-a72d-471d-9707-5a4dfdace4aa",
+			"idle-staff": "caa0ada6-1ed8-446b-932b-5cbd69a3b074",
+			"walk-staff2": "839ac15b-729f-467a-a996-9022217bb046",
+			"hit-staff": "f094c911-eae4-43a8-b8d2-829e4d53a088",
+			"death-staff": "bddc6e37-17c2-44ce-bbfc-ccce386ce90f",
+			"drink-staff": "a4e709eb-e050-45e2-8fa4-3c3dd242396b"
 		}
 	},
 	"player_lior_child": {
@@ -523,28 +670,6 @@
 		"token": 1,
 		"note": "09/10/2026 bỏ: có cánh, không phải rồng phương Đông (chủ dự án: mọi rồng thống nhất kiểu phương Đông)"
 	},
-	"dragon_wind_001": {
-		"uuid": "1098da52-64ee-4931-b3f0-51db086ed551",
-		"token": 1,
-		"note": "rồng phương Đông (không cánh) — chủ dự án 09/10/2026",
-		"groups": {
-			"walk": "887a6828-969d-48f8-a8d6-b6827aceded7",
-			"idle": "08a4bc4c-d250-4ae9-abc6-6728e387196c",
-			"attack": "8cc0915a-d30b-4f24-89d1-e8eceb668453",
-			"death": "1dd0a1b8-3244-40cf-8566-9230070ead3c"
-		}
-	},
-	"boss_wind_drake_001": {
-		"uuid": "30c8edcc-89a4-4302-8fae-d8459d134a44",
-		"token": 1,
-		"note": "rồng phương Đông (không cánh) — chủ dự án 09/10/2026",
-		"groups": {
-			"walk": "d0111274-5b90-4655-b26f-d620f4f9d2bb",
-			"idle": "1ce5ccea-beb9-4c3a-9683-e00312c6086e",
-			"attack": "a8420467-936a-4ec1-bd69-29929cfc5071",
-			"death": "ab1e61bd-6810-4fbc-941e-c1845c46da04"
-		}
-	},
 	"boss_lich_001_old": {
 		"uuid": "baab2dc2-6604-44a2-a3ed-ea377862a753",
 		"token": 14,
@@ -558,6 +683,393 @@
 			"idle": "d8c5c9d5-7f1e-4f85-a15f-2c7dfc1b4a12",
 			"attack": "24600eee-c8d3-4b29-a7ff-9bc69d1d8845",
 			"death": "a8d42f63-edfe-4f2f-9b97-fc17f7cffe80"
+		}
+	},
+	"mob_snow_wolf_001": {
+		"uuid": "bb86bfff-045b-4933-8401-bab88d90860e",
+		"token": 1,
+		"groups": {
+			"walk": "2130bfcf-1151-4f12-b790-f32735f787be",
+			"idle": "463d4d09-c311-4f54-9c7a-870c87cdac93",
+			"attack": "30e536d4-62ed-47b4-ad49-d83728adb550",
+			"death": "f697456c-c92a-4420-8aef-446f256fed3d"
+		}
+	},
+	"mob_ice_wisp_001": {
+		"uuid": "aaa04dd7-c630-426f-95ac-2ddc97bc2317",
+		"token": 1,
+		"groups": {
+			"walk": "38f7b21b-9408-4c01-80a0-3b85e0c854fd",
+			"idle": "f2e90d77-a4a2-44dd-b020-01966f7f8dff",
+			"attack": "89487d66-5f8d-4074-a876-e4d5aadfbdef",
+			"death": "900bcf12-bd8a-4d85-8701-f7b099b3c498",
+			"walk-fix": "4215840c-f1ae-4a5a-8746-cdf57f0815a2"
+		}
+	},
+	"mob_snowman_001": {
+		"uuid": "cf58fc3a-9df7-4b0d-962d-3a985930fb61",
+		"token": 1,
+		"groups": {
+			"walk": "2f3cfbf6-cd74-4800-9259-353eeef4a0fc",
+			"idle": "0819177c-6aba-49c2-9493-35b410bbd02a",
+			"attack": "21210fa2-c3eb-498a-8678-f03cb509eaf1",
+			"death": "c837979c-79e7-45b1-9ec6-fcddbd2827da",
+			"attack-fix": "62f9a82a-1a9b-4fb3-b36f-56dfb603029f"
+		}
+	},
+	"mob_war_penguin_001": {
+		"uuid": "d6bfcb12-953f-42a7-ba7e-33c188d38250",
+		"token": 1,
+		"groups": {
+			"walk": "ecf49ff1-ce26-4c24-ab01-506b1181b502",
+			"idle": "e43451a8-1c95-40b3-b361-46d11b8e30e3",
+			"attack": "48b33035-06cb-42aa-b90f-e4f8ebb3f6de",
+			"death": "c67642df-2af5-4839-a077-cec227208b4c"
+		}
+	},
+	"mob_ice_bear_001": {
+		"uuid": "072ca580-8b8b-488a-8544-6142a65206af",
+		"token": 1,
+		"groups": {
+			"walk": "cf46a102-1128-46bf-8a46-7e43d1a7c7e1",
+			"idle": "a79589e1-1038-47d9-b6ec-956d186c3356",
+			"attack": "6666c178-a607-4ee0-b7dd-37c02875ea2c",
+			"death": "1fe326f5-a709-4295-a8f9-a07016aa5f5f"
+		}
+	},
+	"mob_lava_lizard_001": {
+		"uuid": "85e9887b-4e46-46c3-a3ca-aa1084c2db5c",
+		"token": 1,
+		"groups": {
+			"walk": "9da7d66e-0b84-469c-9d2f-aebd26c222a0",
+			"idle": "67af0f6f-b6da-465a-9da2-d51aba4e1fa4",
+			"attack": "81d10c3e-9bbb-4d29-9031-bde399ba9ef6",
+			"death": "eca9aa4c-806d-4c9a-b70c-c0ff84f08e7e"
+		}
+	},
+	"mob_lava_golem_001": {
+		"uuid": "d62ad712-0a73-4895-b720-4199892beb93",
+		"token": 1,
+		"groups": {
+			"walk": "c6e43624-2310-4a96-a875-95da8d8ec0c8",
+			"idle": "0616f8d5-38e1-4faa-8358-56ed008ac256",
+			"attack": "a71c2810-8ced-47c6-af91-518eba9d81b6",
+			"death": "68f9dead-9e66-4fab-b8da-8c3eb44b1ad2",
+			"attack-fix": "04f2a4d0-ea03-42bd-afaa-00a247c7522d",
+			"walk-fix": "fb6d3536-a6cd-4f73-bda3-dc0f5dadbb74"
+		}
+	},
+	"mob_fire_bat_001": {
+		"uuid": "6829c422-7470-45ae-905a-289216ae4dfe",
+		"token": 1,
+		"groups": {
+			"walk": "2eb301c1-3e30-4ac7-b7e1-482ce1165e0f",
+			"idle": "a5ca6c8d-48ee-42e0-bf6a-3afee0d38b37",
+			"attack": "41b96ef6-3102-4464-bde2-3e78edcbd8af",
+			"death": "679ca6b6-1912-49d8-a3a4-6dd0e561e7aa"
+		}
+	},
+	"mob_fire_spirit_001": {
+		"uuid": "20f848f3-766e-4e25-872e-9b3dc6923916",
+		"token": 1,
+		"groups": {
+			"walk": "902f3c2e-1a65-4037-a73d-e4da9f42dbba",
+			"idle": "15fe47c7-ef3c-411d-abe7-36020e9df168",
+			"attack": "12c59f5f-7be3-47ef-9b21-1ad9eb6a5cba",
+			"death": "f7be6980-a531-42f5-a630-8c8151e997f6",
+			"attack-fix": "447253d5-5983-447f-9344-de9e1bbd3534"
+		}
+	},
+	"mob_fire_demon_001": {
+		"uuid": "d6a064ee-3751-47e2-89a4-8ea16653aef8",
+		"token": 1,
+		"groups": {
+			"walk": "c82aaf18-2779-402b-96df-961c43badbd7",
+			"idle": "c4daf2d1-8506-426a-972b-2043edd79470",
+			"attack": "6ff936ac-3003-48fb-ac52-64eec9c51946",
+			"death": "b5a7bacb-8fa5-4493-ac4b-bca634b21823",
+			"attack-fix": "7444521f-eb06-4cde-b5b9-f42fe0fe3b17",
+			"walk-fix": "6f45d749-939f-4c90-9c11-51d6da140921"
+		}
+	},
+	"mob_beach_crab_001": {
+		"uuid": "333a09e4-7ac0-4816-a94c-8868107035f1",
+		"token": 1,
+		"groups": {
+			"walk": "a8a5376c-a197-431c-87ae-31e43b370f94",
+			"idle": "feadda92-25d1-4940-a0fa-e3a4c632c5ed",
+			"attack": "c544bb7d-2711-44d2-a79a-7479109452a6",
+			"death": "69b50fde-d108-4955-aebe-d0cbced3524a"
+		}
+	},
+	"mob_reef_jellyfish_001": {
+		"uuid": "a38c3279-50e0-4c80-a5d9-07cc9b360712",
+		"token": 1,
+		"groups": {
+			"walk": "7d4c6e90-56af-4587-bcb1-485c12b007a6",
+			"idle": "72feb3f9-bd15-4337-8d1c-2d78823251ea",
+			"attack": "1cbeb8f4-01f6-4d00-b189-1986568e21a9",
+			"death": "3f949999-3edc-478d-97c3-c97d3af2ddc9",
+			"death-fix": "f9f623a3-ee02-4f58-830d-d11f4bd641e7",
+			"attack-fix": "cc6078a9-ba64-4261-ae8d-2d4ccd8bde50",
+			"idle-fix": "74a86784-f46c-4ff0-a257-f2d8c8b93d42",
+			"walk-fix": "2d9dd027-ddbf-4d51-b12e-633bf42086d2"
+		}
+	},
+	"mob_pirate_001": {
+		"uuid": "464588f3-093c-4f2c-824f-6d2dde815770",
+		"token": 1,
+		"groups": {
+			"walk": "2e966a3f-6757-40f8-b991-a5768ddd1456",
+			"idle": "b8c6a7c7-3782-4598-b5b2-168310ee537b",
+			"attack": "7acd08ed-d706-42e2-b8ce-33a1e5fe624f",
+			"death": "e0358cef-d3c0-4ee9-a374-dc5e125efb5a",
+			"attack-fix": "9fb01043-abc8-4e76-880a-59c6312570ad"
+		}
+	},
+	"mob_coral_merfolk_001": {
+		"uuid": "38babee6-cd5d-4924-a209-23a430c13f6f",
+		"token": 1,
+		"groups": {
+			"walk": "4a15a9c4-becd-4eaa-9532-2ceb08fe6da4",
+			"idle": "67b518df-30fe-422a-9016-b753e9cb6462",
+			"attack": "5811fb3c-5088-4f0b-8e08-64f42e69ff2d",
+			"death": "1667fb04-50cb-4087-be27-2da8f6c69755",
+			"death-fix": "33fcddee-0462-4bc0-bf38-455dae47db7d",
+			"attack-fix": "118c22ed-a4c0-41dc-8e9b-1260fbdaa68e"
+		}
+	},
+	"mob_wreck_octopus_001": {
+		"uuid": "64df498c-941b-4313-90be-cffe5076653d",
+		"token": 1,
+		"groups": {
+			"walk": "64ea0262-272c-4796-8fff-4ad618d2993d",
+			"idle": "631d85b8-9b63-466a-8440-abaacd737fac",
+			"attack": "bd0e613a-ca21-40db-9c6c-748eb798e6ff",
+			"death": "be492c26-aa98-49ba-b9d7-9f3f42209e44",
+			"death-fix": "0641d4f8-d3aa-4e79-933d-e1a35e643b1b"
+		}
+	},
+	"boss_ice_queen_001": {
+		"uuid": "4126abc6-5b0b-426a-a4b9-1823c44226b6",
+		"token": 1,
+		"groups": {
+			"walk": "493849d6-5a39-4399-8f9e-72ef7b80eb56",
+			"idle": "2c7d6d59-e558-4db6-9cc0-9731783f5c9c",
+			"attack": "eef78a6c-8da2-4eb7-a078-585d1e77ea00",
+			"death": "84dac378-df4d-441c-a9ab-ed62c5e033fc"
+		}
+	},
+	"boss_yeti_001": {
+		"uuid": "447bdc9d-d482-4aef-9a9f-832349e95255",
+		"token": 1,
+		"groups": {
+			"walk": "69563cc4-109f-476d-8259-3e38d4216258",
+			"idle": "195af16e-b8c0-429e-93df-ede5f44dede3",
+			"attack": "6aa72ae8-e098-4201-8b46-467c80cdee10",
+			"death": "4d84b3d7-baf9-4ea8-995a-d13acb68414f",
+			"walk-fix": "2906e0c6-6881-48bf-86a4-10926904d8d6"
+		}
+	},
+	"boss_ice_guardian_001": {
+		"uuid": "9ec4b908-5a8b-422e-b984-4b70d0ee6407",
+		"token": 1,
+		"groups": {
+			"walk": "8678c35a-9861-43e0-bd2c-6656a9395a27",
+			"idle": "0172a2f1-c5ca-4060-9129-4f1dcd3772cf",
+			"attack": "42d0348b-4c0d-4387-b412-fa2632f875f3",
+			"death": "b409ec57-7593-4d8e-a43d-bdcd385d8a37",
+			"death-fix": "c725b65f-e0c4-46cb-ae19-e1b544ba00c9"
+		}
+	},
+	"boss_ancient_lava_golem_001": {
+		"uuid": "cf3fb1f7-aa6a-4843-8d52-b65df78c3572",
+		"token": 1,
+		"groups": {
+			"walk": "3dd9aaf3-a5e2-4550-b681-599ddce15de6",
+			"idle": "3db01f8b-b209-4334-bfaf-ffb04f86ba12",
+			"attack": "b5b7379a-c6a9-46b1-8598-2e6406c07b7d",
+			"death": "4576c5d6-a7a0-4159-b7dc-2b611ba42f7f",
+			"death-fix": "625115fa-2c0b-4070-890f-a6bc657ed5a0",
+			"attack-fix": "23cd9cc2-60a7-4bfa-a24c-d0db8912f086"
+		}
+	},
+	"boss_fire_god_001": {
+		"uuid": "09c4f640-7e53-4dc3-a3fc-4edb6688c482",
+		"token": 1,
+		"groups": {
+			"walk": "68b5836a-ba89-4ebb-b4d1-fbdfdd36c87f",
+			"idle": "9c560b6f-fc04-4f40-930b-e37e5199798c",
+			"attack": "5df0df83-8ab9-4854-8cbf-da3090598164",
+			"death": "66df921e-f955-43d5-b7e1-318cfdb4c757",
+			"death-fix": "fb69c89e-d79f-45e4-a0b8-541c17807708",
+			"attack-fix": "3ffab2ef-c00e-418c-b37f-2dd5de397355",
+			"walk-fix": "813942db-89c0-4d3d-9833-c88cd5c0aea0"
+		}
+	},
+	"boss_crab_king_001": {
+		"uuid": "83606c89-166f-4139-a726-6654a01137ed",
+		"token": 1,
+		"groups": {
+			"walk": "27a6f4eb-1a55-4be2-929b-33010276a2e2",
+			"idle": "856f1d4a-3ef8-4c3d-b9fe-abfa0543fed2",
+			"attack": "caf8e48f-a930-4f76-a62b-36d583b11f0c",
+			"death": "3e4c282d-712a-487d-a572-b9692bc12860",
+			"attack-fix": "8611c007-caac-4654-9d56-d4660b10a4ed"
+		}
+	},
+	"boss_ghost_captain_001": {
+		"uuid": "4369fc0f-968e-4128-abbf-75be5fa6d862",
+		"token": 1,
+		"groups": {
+			"walk": "4a834d8d-746a-47ae-a5f3-7656a380c8ce",
+			"idle": "20a7f0bc-1400-49b3-83f6-365b572ae32f",
+			"attack": "7b157879-3670-4892-9842-eca34ac24986",
+			"death": "2c499fb7-9c15-46a5-ad65-d739dfe1732c",
+			"walk-fix": "a52c3805-7c3b-4f8b-9752-ea7345ab21a0"
+		}
+	},
+	"boss_kraken_001": {
+		"uuid": "0fc08628-6cfc-4055-8894-28f7373c2858",
+		"token": 1,
+		"groups": {
+			"walk": "f31823ee-5a06-48e2-8de9-9ad550f92213",
+			"idle": "a28a43aa-f2d8-48c1-b439-1667fa6b431b",
+			"attack": "ded06417-cd56-48c8-806d-4211e3afe8b5",
+			"death": "32c73c09-5949-49ec-bc61-8c6d29b8aa8b",
+			"attack-fix": "f462d121-2cb1-415a-91da-7a3c686fde45",
+			"death-fix": "e0c5b685-5dc4-4184-9281-940d2ba236ca"
+		}
+	},
+	"mob_lava_golem_001_rot0": {
+		"uuid": "7c60bde7-9f40-499d-91ce-6a193a2c551e",
+		"token": 1,
+		"note": "xoay hỏng — dựng lại từ cùng ảnh Nam 09/10/2026"
+	},
+	"boss_ancient_lava_golem_001_rot0": {
+		"uuid": "91c3919f-a308-4879-9023-33538bd8c908",
+		"token": 1,
+		"note": "xoay hỏng — dựng lại từ cùng ảnh Nam 09/10/2026"
+	},
+	"boss_yeti_001_rot0": {
+		"uuid": "6aaa55c1-24f4-4fbb-b53a-09c7f23d8fed",
+		"token": 1,
+		"note": "xoay hỏng — dựng lại từ cùng ảnh Nam 09/10/2026"
+	},
+	"boss_salamander_001_v1": {
+		"uuid": "df6cb73c-e78e-460f-be66-013f9a7e0702",
+		"token": 1,
+		"note": "ngoảnh 3/4, hướng Bắc co cục — vẽ lại 09/10/2026"
+	},
+	"dragon_wind_001_east": {
+		"uuid": "1098da52-64ee-4931-b3f0-51db086ed551",
+		"token": 1,
+		"note": "rồng phương Đông — BỎ 09/10/2026 (chủ dự án đổi sang rồng phương Tây)",
+		"groups": {
+			"walk": "887a6828-969d-48f8-a8d6-b6827aceded7",
+			"idle": "08a4bc4c-d250-4ae9-abc6-6728e387196c",
+			"attack": "8cc0915a-d30b-4f24-89d1-e8eceb668453",
+			"death": "1dd0a1b8-3244-40cf-8566-9230070ead3c"
+		}
+	},
+	"boss_wind_drake_001_east": {
+		"uuid": "30c8edcc-89a4-4302-8fae-d8459d134a44",
+		"token": 1,
+		"note": "rồng phương Đông — BỎ 09/10/2026 (chủ dự án đổi sang rồng phương Tây)",
+		"groups": {
+			"walk": "d0111274-5b90-4655-b26f-d620f4f9d2bb",
+			"idle": "1ce5ccea-beb9-4c3a-9683-e00312c6086e",
+			"attack": "a8420467-936a-4ec1-bd69-29929cfc5071",
+			"death": "ab1e61bd-6810-4fbc-941e-c1845c46da04"
+		}
+	},
+	"dragon_wind_001": {
+		"uuid": "58f96040-b126-488f-b84a-b6053e05ff1f",
+		"token": 1,
+		"note": "rồng phương Tây — dựng từ ảnh thiết kế đã duyệt 09/10/2026",
+		"groups": {
+			"walk": "0ee030bf-fada-4bef-b17e-a74727ec20c7",
+			"idle": "b2d887ec-f26c-48c5-97c0-8f7f2e2056b7",
+			"attack": "c032aaf0-2eb1-4856-bd4e-e2dc7ff20099",
+			"death": "d32ef616-f6c6-4755-8d63-87d70291a326"
+		}
+	},
+	"boss_wind_drake_001": {
+		"uuid": "d78678f4-1a0c-4c1f-a282-d6468f5a2cf7",
+		"token": 1,
+		"note": "rồng phương Tây — dựng từ ảnh thiết kế đã duyệt 09/10/2026",
+		"groups": {
+			"walk": "40dff398-c1eb-49b8-a1cb-c2ffea6f09ac",
+			"idle": "f127071f-bc89-4bca-b00c-178a40f92c83",
+			"attack": "dbfbc1b9-fd42-480b-8f85-d5eaca15ec0e",
+			"death": "619e8627-bf83-4b82-abef-c513751dd6b3",
+			"walk-fix": "6fdc88cc-2b5d-4319-9247-09221d589c3a"
+		}
+	},
+	"dragon_ice_001": {
+		"uuid": "ccedbc25-ff54-4d30-aa7b-6fe869a675a5",
+		"token": 1,
+		"note": "rồng phương Tây — dựng từ ảnh thiết kế đã duyệt 09/10/2026",
+		"groups": {
+			"walk": "7804d002-70e8-46e4-ac8a-39bc003bfc7a",
+			"idle": "050e46e1-c86a-4917-8c50-69562c8238d5",
+			"attack": "eb1cfc37-5f78-4cb7-82ed-7326ec0df97d",
+			"death": "13da2dd3-f699-4750-a553-846151c591e8"
+		}
+	},
+	"dragon_fire_001": {
+		"uuid": "d0815867-d16d-49e2-a85e-f2e4b77c3dfd",
+		"token": 1,
+		"note": "rồng phương Tây — dựng từ ảnh thiết kế đã duyệt 09/10/2026",
+		"groups": {
+			"walk": "3f134067-755f-4cc4-940e-cef303f281c1",
+			"idle": "d6cf9e9b-11d7-4b3f-92e2-bd16cdf799eb",
+			"attack": "f2faa452-a360-4c80-8394-9fd282fced9e",
+			"death": "acae3fde-e34a-421b-8c6a-862d9b925f07",
+			"walk-fix": "efcb75fb-7e81-448a-b082-a326ef0c4cd0"
+		}
+	},
+	"dragon_water_001": {
+		"uuid": "0badb29e-3c0b-4bdc-b503-69a9315f9c28",
+		"token": 1,
+		"note": "rồng phương Tây — dựng từ ảnh thiết kế đã duyệt 09/10/2026",
+		"groups": {
+			"walk": "230349df-8bac-44ea-8c16-999aaf4d15e9",
+			"idle": "b76974aa-908c-49ad-b344-f86564256cba",
+			"attack": "8004228f-08f6-4b15-b127-357a5eb3896d",
+			"death": "d29030dc-9ba0-4808-8c05-25e9983ee04c"
+		}
+	},
+	"boss_salamander_001_v2": {
+		"uuid": "01bdc0cb-3ef2-489d-a126-44d5a5567aea",
+		"token": 1,
+		"groups": {
+			"walk": "83b43d37-5d89-47ac-a4a9-327959364e55"
+		},
+		"note": "đuôi cuộn ra TRƯỚC ở mọi hướng (chủ dự án báo 09/10/2026) — vẽ lại đuôi sau lưng"
+	},
+	"boss_salamander_001_c0": {
+		"uuid": "556c619e-e494-471e-804a-a3218c2f575f",
+		"token": 1,
+		"note": "ứng viên: đuôi sau lưng nhưng cụt, thân như cóc"
+	},
+	"boss_salamander_001_c2": {
+		"uuid": "4344ecab-5fcc-4c0c-9774-4395f4ca80ba",
+		"token": 1,
+		"note": "ứng viên không chọn (đuôi sau lưng, chấm vàng)"
+	},
+	"boss_salamander_001": {
+		"uuid": "5166e6db-54d1-46f0-a78e-e827226d9c22",
+		"token": 1,
+		"note": "09/10/2026 vẽ lại: đuôi dài nằm SAU lưng ở cả 8 hướng (bản _v2 đuôi cuộn ra trước)",
+		"groups": {
+			"walk": "4123101b-edaf-4f5c-a6d5-c9884da63533",
+			"idle": "6624489b-1654-4acc-9822-6586e434f8f4",
+			"attack": "b651a5b1-1e84-4ca8-9fcb-a5a4e807e456",
+			"death": "230fc89e-7f77-4911-9341-b39ac7a91939",
+			"attack-fix": "4dcafd8f-d366-48df-8615-7288536c2670",
+			"death-fix": "3df5b1a2-7479-4e73-a721-2ba36bc2b2be",
+			"walk-fix": "616b6ffa-fce7-4dc1-8488-05571f71b218"
 		}
 	}
 }

@@ -1,6 +1,7 @@
 /**
- * Khung nhiều vùng (docs/ke-hoach-the-gioi.md mục 2 + 5): 10 vùng đất, mỗi vùng ~7 map, một trạm (map không quái, có cột dịch
- * chuyển), ~10 cấp, boss chúa ở thánh địa cuối vùng. Luật THUẦN dùng chung web + máy chủ. Id map đầy đủ là `vùng/map`
+ * Khung nhiều vùng (docs/ke-hoach-the-gioi.md mục 2 + 5): 10 vùng đất, mỗi vùng 12 map (chủ dự án chốt 10/10/2026 — 1 trạm + 10 map
+ * săn + 1 thánh địa; vùng 1: docs/thiet-ke/vung1-12-map.md), một trạm (map không quái, có cột dịch chuyển), ~10 cấp, boss chúa ở
+ * thánh địa cuối vùng. Luật THUẦN dùng chung web + máy chủ. Id map đầy đủ là `vùng/map`
  * (`human/town`) — map chỉ duy nhất TRONG một vùng.
  *
  * Mở vùng: đủ cấp tối thiểu của vùng + đã hạ boss chúa của vùng TRƯỚC (vùng chưa có boss chúa thì chỉ xét cấp). `ready: false` =

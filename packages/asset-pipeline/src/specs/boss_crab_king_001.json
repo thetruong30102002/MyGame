@@ -1,0 +1,82 @@
+{
+	"identity": {
+		"characterId": "boss_crab_king_001",
+		"hair": "none",
+		"eyes": "monster",
+		"skin": "monster",
+		"outfit": "none",
+		"weapon": "none",
+		"palette": "region7_mob_01"
+	},
+	"displayName": "Cua chúa (boss khu)",
+	"role": "boss",
+	"provider": "pixellab",
+	"pixellab": {
+		"animations": {
+			"idle": "idle",
+			"walk": "walk",
+			"attack": [
+				"attack-fix",
+				"attack"
+			]
+		},
+		"mirrorWest": true
+	},
+	"frameSize": {
+		"width": 184,
+		"height": 184
+	},
+	"baselineY": 172,
+	"animations": {
+		"idle": {
+			"fps": 6,
+			"minFrames": 4,
+			"maxFrames": 8
+		},
+		"walk": {
+			"fps": 10,
+			"minFrames": 4,
+			"maxFrames": 8
+		},
+		"attack": {
+			"fps": 14,
+			"minFrames": 4,
+			"maxFrames": 12,
+			"optional": true,
+			"hitFrame": 4
+		},
+		"death": {
+			"fps": 10,
+			"minFrames": 4,
+			"maxFrames": 12,
+			"optional": true
+		}
+	},
+	"cleanup": {
+		"alignToIdle": true
+	},
+	"quality": {
+		"maxHeightDrift": 0.25,
+		"minSilhouette": 0.2,
+		"driftAnims": {
+			"attack": 0.35,
+			"death": 0.9
+		},
+		"weaponAnims": {
+			"animations": [
+				"idle",
+				"walk",
+				"attack",
+				"death"
+			],
+			"reason": "09/10/2026, duyệt bằng mắt từng con: quái có hạt / khí bay quanh thân (bào tử, gió cuộn, sỏi bay, mây, sương, tia lửa) và đòn đánh v3 có hiệu ứng — chủ ý, nên miễn kiểm bóng liền khối + màu lạ; các phép kiểm khác giữ nguyên."
+		}
+	},
+	"provisional": [
+		"SE",
+		"NE",
+		"SW",
+		"NW"
+	],
+	"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 128px; ảnh mẫu nét = Quỷ vương. Vùng 7. Mô tả: a gigantic old king crab boss facing the viewer, massive slate-blue armored shell overgrown with living pink branching coral, sea anemones and barnacles, eyes on thick stalks, one enormous battle-scarred claw raised, the other claw holding a cracked glowing aqua water crystal shard protectively against its chest. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 176px."
+}

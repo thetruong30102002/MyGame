@@ -1,0 +1,31 @@
+{
+	"id": "boss_oblivion_mist",
+	"kind": "loop",
+	"canvas": {
+		"w": 160,
+		"h": 160
+	},
+	"first": {
+		"prompt": "a swirling patch of freezing pale blue-white mist on the ground seen from directly above, faint translucent ghostly shapes of faces and hands frozen inside the fog, tiny glittering ice crystals, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "54ce4458-3668-43ed-876c-a2e27240de19"
+	},
+	"action": "the freezing mist swirls slowly round and round, ghostly shapes surface and sink back into the fog, ice crystals glitter, seamless loop",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "d34af40d-cf0b-4bcd-b980-cfe9e58a58c8",
+	"createdAt": "2026-10-09T16:28:40.254Z",
+	"token": 1
+}

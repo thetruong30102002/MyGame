@@ -1,6 +1,7 @@
 // Chạy: npx tsx tests/story.test.ts — kiểm dữ liệu cốt truyện khớp map thật, rồi tự chơi hết từ 3 tuổi tới boss.
 import assert from 'node:assert/strict';
-import { HERO_SKILLS } from '../src/game/combat/skills';
+import type { ReactionId } from '../src/game/combat/CombatSystem';
+import { HERO_SKILLS, type Element } from '../src/game/combat/skills';
 
 const store = new Map<string, string>();
 (globalThis as unknown as { localStorage: Storage }).localStorage = {
@@ -114,7 +115,13 @@ for (let guard = 0; guard < 200 && !d.finished; guard += 1) {
 	const o = q.objective;
 	if (o.type === 'talk') d.talk(o.npc);
 	else if (o.type === 'pickup') d.pickup(o.item);
-	else if (o.type === 'kill') d.monsterKilled(o.monster ?? 'mob_mushroom_001');
+	else if (o.type === 'kill') {
+		// Nhiệm vụ có khu (`onGive.zone`) chỉ đếm quái của khu đó: con ở khu khác không được tính (thiết kế 12 map vùng 1).
+		const before = d.state.progress;
+		if (q.onGive?.zone) d.monsterKilled(o.monster ?? 'mob_mushroom_001', 'khu_khac');
+		assert.equal(d.state.progress, before, `${q.id}: quái ngoài khu ${q.onGive?.zone} vẫn được tính`);
+		d.monsterKilled(o.monster ?? 'mob_mushroom_001', q.onGive?.zone);
+	}
 	else if (o.type === 'practice') {
 		if (o.reaction) {
 			// Đòn đúng nguyên tố nhưng KHÔNG ra phản ứng (gió vào hình nộm khô) thì không được tính.
@@ -171,6 +178,81 @@ const swordAt = STORY.quests.findIndex((q) => q.onGive?.unlock === 'sword');
 const staffAt = STORY.quests.findIndex((q) => q.onGive?.unlock === 'staff');
 assert.ok(swordAt >= 0 && staffAt >= 0 && STORY.quests[swordAt]!.age === STORY.quests[staffAt]!.age, 'kiếm (cha) và trượng (mẹ) phải trao cùng một mốc tuổi — học song song');
 
+// 2b) Luật 10/10/2026 (chủ dự án): phép nguyên tố học bằng điểm, mở nhánh chỉ là được phép học — bài tập phép nhận Tia
+//     Aether khi người chơi CHƯA học đủ chiêu (`StoryDirector.aetherStandsIn`). Chơi hết từ 4 tuổi tới Quỷ vương KHÔNG cộng
+//     điểm nào: bài Kiếm chém bằng Trảm (có sẵn khi nhận kiếm gỗ), mọi bài phép chỉ bắn Tia Aether — không kẹt.
+{
+	const { spentPoints } = await import('../src/game/combat/talents');
+	const quiet = { dialogue() {}, reward() {}, questsChanged() {}, pickups() {}, clearPickups() {}, awakenBoss() {}, spawnZone() {}, questCompleted() {}, unlocked() {}, ageChanged() {}, chapterEnd() {} };
+	store.clear();
+	const z = new StoryDirector(STORY, quiet);
+	z.restore();
+	const viaAether: string[] = [];
+	for (let guard = 0; guard < 200 && !z.finished; guard += 1) {
+		const q = z.quest!;
+		if (!z.state.accepted && q.giver) {
+			z.talk(q.giver);
+			continue;
+		}
+		if (z.state.ready) {
+			z.talk(q.turnIn);
+			continue;
+		}
+		const o = q.objective;
+		if (o.type === 'talk') z.talk(o.npc);
+		else if (o.type === 'pickup') z.pickup(o.item);
+		else if (o.type === 'kill') z.monsterKilled(o.monster ?? 'mob_mushroom_001', q.onGive?.zone);
+		else if (o.type === 'practice') {
+			const el = o.element === 'steel' ? 'steel' : 'aether';
+			if (el === 'aether' && o.element && o.element !== 'aether' && !viaAether.includes(q.id)) viaAether.push(q.id);
+			const before = z.state.progress;
+			z.practiced(el, null);
+			assert.equal(z.state.progress, before + 1, `${q.id}: chưa học chiêu nào — Tia Aether / Trảm phải được tính`);
+		} else if (o.type === 'reach') z.reached(o.spot);
+		else if (o.type === 'boss') z.bossDefeated(o.id);
+		assert.equal(spentPoints(z.talentTiers()), 0, 'đường này không cộng điểm nào');
+	}
+	assert.ok(z.finished, 'đi hết truyện mà không học phép nguyên tố nào');
+	assert.deepEqual(viaAether, ['c6_old_hat', 'c8_snow', 'y1c_stone_dummy'], 'ba bài phép nguyên tố (Hoả Cầu, Băng Giá, Đá Văng) nhận Tia Aether');
+	for (const q of STORY.quests) {
+		const o = q.objective;
+		if (o.type !== 'practice' || !o.element || o.element === 'aether' || o.element === 'steel') continue;
+		assert.match(q.objectiveTextAether ?? '', /Tia Aether/, `${q.id}: có chữ mục tiêu lúc dùng Tia Aether`);
+		assert.doesNotMatch(q.objectiveText, /Tia Aether/, `${q.id}: chữ mục tiêu lúc đã học giữ đúng chiêu`);
+		assert.ok(q.before.some((l) => /Tia Aether/.test(l.text) && /Tiềm năng \(P\)/.test(l.text)), `${q.id}: lời dẫn chỉ chỗ học (bảng Tiềm năng) + Tia Aether thay`);
+	}
+
+	// Học rồi thì phải làm đúng bài (Tia Aether thôi tính); bỏ điểm sai nhánh / thiếu một chiêu của phản ứng → vẫn Tia Aether.
+	const at = (id: string, talents: Record<string, number>): InstanceType<typeof StoryDirector> => {
+		const i = STORY.quests.findIndex((q) => q.id === id);
+		const q = STORY.quests[i]!;
+		store.set('aether.save.v2', JSON.stringify({ version: 2, index: i, questId: id, accepted: true, ready: false, progress: 0, completed: STORY.quests.slice(0, i).map((x) => x.id), unlocked: [], age: q.age, player: { level: 10, exp: 0, coins: 0, potions: 0 }, talentsV: 3, talents }));
+		return new StoryDirector(STORY, quiet);
+	};
+	const counts = (dir: InstanceType<typeof StoryDirector>, element: Element, reaction: ReactionId | null = null): boolean => {
+		const before = dir.state.progress;
+		dir.practiced(element, reaction);
+		return dir.state.progress === before + 1;
+	};
+	const hat0 = at('c6_old_hat', {});
+	assert.equal(hat0.questViews()[0]!.objective, 'Tung Tia Aether vào Ông Rơm, tránh cái mũ (0/3)', 'chưa học Hoả Cầu: ô nhiệm vụ ghi Tia Aether');
+	assert.ok(counts(hat0, 'aether'), 'Mũ cũ: chưa học Hoả Cầu → Tia Aether');
+	const hat = at('c6_old_hat', { fire: 1 });
+	assert.equal(hat.questViews()[0]!.objective, 'Tung Hoả Cầu vào Ông Rơm, tránh cái mũ (0/3)', 'học rồi: ô nhiệm vụ ghi Hoả Cầu');
+	assert.deepEqual([hat.talentTiers().fire, counts(hat, 'aether'), counts(hat, 'fire')], [1, false, true], 'Mũ cũ: đã học Hoả Cầu → phải Hoả Cầu');
+	assert.ok(counts(at('c8_snow', { fire: 2 }), 'aether'), 'Tuyết: bỏ điểm vào Hoả (sai nhánh) → vẫn Tia Aether');
+	assert.ok(counts(at('c8_snow', { wind: 1 }), 'aether'), 'Tuyết: mới học Phong Nhận, thiếu Thuỷ Tiễn → Tia Aether');
+	assert.ok(counts(at('c8_snow', { water: 1 }), 'aether'), 'Tuyết: mới học Thuỷ Tiễn, thiếu Phong Nhận → Tia Aether');
+	const snow = at('c8_snow', { water: 1, wind: 1 });
+	assert.deepEqual([counts(snow, 'aether'), counts(snow, 'wind'), counts(snow, 'wind', 'chill')], [false, false, true], 'Tuyết: đủ hai phép → phải ra Băng Giá');
+	assert.ok(counts(at('y1c_stone_dummy', { fire: 1, water: 1, wind: 1, ice: 1 }), 'aether'), 'Đá cho Ông Rơm: chưa học Đá Văng → Tia Aether');
+	const stone = at('y1c_stone_dummy', { earth: 1 });
+	assert.deepEqual([counts(stone, 'aether'), counts(stone, 'earth')], [false, true], 'Đá cho Ông Rơm: đã học Đá Văng → phải Đá Văng');
+	assert.deepEqual([counts(at('c6_wooden_sword', {}), 'aether'), counts(at('c6_wooden_sword', {}), 'steel')], [false, true], 'bài Kiếm không nhận Tia Aether (Trảm có sẵn)');
+	store.clear();
+	console.log('✔ 0 điểm tiềm năng: đi hết truyện, bài phép nguyên tố nhận Tia Aether; học rồi thì phải làm đúng bài');
+}
+
 // 3) Bản lưu cũ (trước khi chèn "Thanh kiếm gỗ", chưa ghi questId) vẫn đúng chỗ và được bù quà.
 const legacy = (index: number, completed: string[], unlocked: string[], progress: number): void =>
 	void store.set('aether.save.v2', JSON.stringify({ version: 2, index, accepted: true, ready: false, progress, completed, unlocked, age: 6, player: { level: 2, exp: 0, coins: 0, potions: 0 } }));
@@ -190,9 +272,9 @@ store.set('aether.save.v2', JSON.stringify({ version: 2, index: 7, questId: 'y1_
 m = new StoryDirector(STORY, noop);
 assert.ok(m.isUnlocked('ice'), 'bản lưu đã qua c8_snow phải được bù Băng Tiễn');
 assert.deepEqual(m.state.talents, {}, 'bản lưu cũ chưa có điểm tiềm năng → {}');
-assert.equal(m.state.talentsV, 2, 'đánh dấu định dạng cây Nguyên tố');
+assert.equal(m.state.talentsV, 3, 'đánh dấu định dạng cây Nguyên tố (3: mốc 1 nguyên tố tốn điểm)');
 assert.equal(m.refunded, 0, 'không có điểm cũ thì không có gì để hoàn');
-assert.equal(m.talentTiers().ice, 1, 'Băng Tiễn trao bù là mốc 1 ngay');
+assert.equal(m.talentTiers().ice, 0, 'Băng trao bù = mở nhánh, mốc 0 (Băng Tiễn học bằng 1 điểm — luật 10/10/2026)');
 // Bản lưu đã qua mốc truyện mở Thổ (đang ở Aldric / Quỷ vương / đã xong chương) — từ trước khi có nhiệm vụ: được tính là
 // xong hai nhiệm vụ mới chèn và BÙ mã `earth` (lưới an toàn `migrate`), Game báo một lần qua `granted`. Đang làm "Nấm
 // Ánh Lam" thì chưa — sẽ tự đi qua nhiệm vụ đó.
@@ -205,7 +287,11 @@ assert.equal(m.quest?.id, 'y2_shadows', 'đang đánh ma vật Mossvale: vẫn �
 assert.ok(m.state.accepted && m.state.progress === 2, 'giữ tiến độ');
 assert.ok(m.state.completed.includes('y1b_grave_stele') && m.state.completed.includes('y1c_stone_dummy'), 'hai nhiệm vụ chèn phía trước coi như xong');
 assert.ok(m.isUnlocked('earth') && m.granted.includes('earth'), 'bù mã earth + báo một lần');
-assert.equal(m.talentTiers().earth, 1, 'Thổ mốc 1 ngay (Đá Văng)');
+assert.equal(m.talentTiers().earth, 0, 'Thổ bù = mở nhánh, mốc 0 (Đá Văng học bằng 1 điểm)');
+// Bản lưu định dạng 2 (mốc 1 nguyên tố miễn phí), cấp 4 = 3 điểm, chưa cộng điểm nào: Hoả / Thuỷ / Phong / Băng mỗi nhánh
+// nay tốn 1 điểm — chỉ đủ 3, nhánh mở sau (Băng) về chưa học. Thổ vừa được bù lúc nạp (bản cũ chưa từng có) không tính.
+assert.deepEqual(m.talentTiers(), { sword: 1, fire: 1, water: 1, wind: 1, ice: 0, earth: 0 });
+assert.deepEqual(m.talentsMigrated, { charged: ['fire', 'water', 'wind', 'ice'], lowered: [{ branch: 'ice', from: 1, to: 0 }], left: 0 });
 m.save();
 assert.deepEqual(new StoryDirector(STORY, noop).granted, [], 'nạp lại: không bù / báo lặp');
 store.set('aether.save.v2', JSON.stringify({ version: 2, index: 10, accepted: false, ready: false, progress: 0, completed: [...youthDone, 'y2_shadows', 'y3_demon'], unlocked: ['sword', 'staff', 'fire', 'water', 'wind', 'ice'], age: 16, player: { level: 5, exp: 0, coins: 0, potions: 0 }, talentsV: 2, talents: {} }));
@@ -221,6 +307,7 @@ console.log(`\n✔ ${STORY.quests.length} nhiệm vụ, mốc tuổi ${[STORY.qu
 //    đổi ra toạ độ trong map và tới được bằng tìm đường thật.
 {
 	const { resolveTarget, npcAnchor, STOP_NPC } = await import('../src/game/story/resolveTarget');
+	const { zoneLiveAt } = await import('@aether/sim/mobs');
 	const { exitGoal } = await import('../src/game/world/exits');
 	const town = region.maps.town!.map;
 	const spotOf = (id: string) => town.spots.find((s) => s.id === id);
@@ -247,14 +334,16 @@ console.log(`\n✔ ${STORY.quests.length} nhiệm vụ, mốc tuổi ${[STORY.qu
 		}
 		return at;
 	};
-	// Bản chép NGUYÊN VĂN `questViews` cũ (trước khi dùng chung `questTarget`) — chữ trên ô nhiệm vụ không được đổi.
+	// Bản chép NGUYÊN VĂN `questViews` cũ (trước khi dùng chung `questTarget`) — chữ trên ô nhiệm vụ không được đổi. Thêm
+	// 10/10/2026: bài luyện phép đang nhận Tia Aether (chưa học đủ chiêu) ghi `objectiveTextAether`.
 	const legacyObjective = (dir: InstanceType<typeof StoryDirector>): string => {
 		const q = dir.quest!;
 		const o = q.objective;
 		const total = o.type === 'pickup' || o.type === 'kill' || o.type === 'practice' ? o.count : 1;
 		if (!dir.state.accepted && q.giver) return `Nói chuyện với ${dir.npcName(q.giver)}`;
 		if (dir.state.ready && q.turnIn !== 'auto') return `Báo lại cho ${dir.npcName(q.turnIn)}`;
-		return q.objectiveText.replace('{n}', String(Math.min(dir.state.progress, total))).replace('{total}', String(total));
+		const text = q.objectiveTextAether && dir.aetherStandsIn(o) ? q.objectiveTextAether : q.objectiveText;
+		return text.replace('{n}', String(Math.min(dir.state.progress, total))).replace('{total}', String(total));
 	};
 	const kindOf: Record<string, string> = { talk: 'npc', pickup: 'pickup', kill: 'kill', practice: 'practice', reach: 'reach', boss: 'boss' };
 	const issues: string[] = [];
@@ -302,7 +391,7 @@ console.log(`\n✔ ${STORY.quests.length} nhiệm vụ, mốc tuổi ${[STORY.qu
 				},
 				npcName: (key) => dir.npcName(key),
 				pickups: [],
-				zones: tm.map.monsterZones.map((z) => ({ ...z, active: (!z.onDemand && q.age >= (z.fromAge ?? 0)) || z.id === q.onGive?.zone })),
+				zones: tm.map.monsterZones.map((z) => ({ ...z, active: zoneLiveAt(z, q.age) || z.id === q.onGive?.zone })),
 				dummies: tm.map.dummies,
 				boss: tm.map.boss,
 				player,
@@ -346,6 +435,7 @@ console.log(`\n✔ ${STORY.quests.length} nhiệm vụ, mốc tuổi ${[STORY.qu
 		if (!q.objective.dummy) issues.push(`${q.id}: nhiệm vụ luyện tập chưa ghi hình nộm`);
 		const said = dummyOfText(q.objectiveText);
 		if (said && q.objective.dummy !== said) issues.push(`${q.id}: chữ ghi ${said} nhưng dữ liệu là ${q.objective.dummy}`);
+		if (q.objectiveTextAether && dummyOfText(q.objectiveTextAether) !== said) issues.push(`${q.id}: chữ lúc dùng Tia Aether chỉ hình nộm khác chữ thường (${said})`);
 		const dir = new StoryDirector(STORY, noop);
 		Object.assign(dir.state, { index, age: q.age, accepted: true, ready: false, progress: 0 });
 		const want = town.dummies.find((x) => x.id === q.objective.dummy);

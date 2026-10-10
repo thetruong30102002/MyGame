@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a small green heart floating over a flat teal pond, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/sword+teal+green.png",
+	"jobId": "2c909987-0887-4e75-ae92-2c87db3131b4",
+	"token": 1,
+	"createdAt": "2026-10-09T19:14:26.662Z"
+}

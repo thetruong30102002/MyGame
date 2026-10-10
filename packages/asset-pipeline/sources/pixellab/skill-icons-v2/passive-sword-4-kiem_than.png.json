@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a golden crosshair target reticle, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/sword.png",
+	"jobId": "0bd22bdb-f0cb-4121-86dc-242e0ec71c95",
+	"token": 1,
+	"createdAt": "2026-10-09T19:13:10.476Z"
+}

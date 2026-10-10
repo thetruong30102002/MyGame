@@ -1,0 +1,17 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a chunky round brown boulder flying right with a short dust trail, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"init_image_strength": 140,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/earth.png",
+	"init_image_path": "sources/pixellab/skill-icons-v2/init/rock_throw.init.png",
+	"jobId": "5831c0d3-8c12-4e7d-a50f-a10cf9475e48",
+	"token": 1,
+	"createdAt": "2026-10-09T19:32:55.379Z"
+}

@@ -1,0 +1,17 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a bold silver swoosh curving sharply sideways in a quick dodge, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"init_image_strength": 140,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/sword.png",
+	"init_image_path": "sources/pixellab/skill-icons-v2/init/spare-aether-1.init.png",
+	"jobId": "36cb85f0-ea4b-4441-a61e-b83f970bab1f",
+	"token": 1,
+	"createdAt": "2026-10-09T19:24:36.882Z"
+}

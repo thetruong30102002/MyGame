@@ -54,6 +54,82 @@
               "Idle/animations/hit/east/frame_005.png"
             ]
           },
+          "fling-hand": {
+            "east": [
+              "Idle/animations/fling-hand/east/frame_000.png",
+              "Idle/animations/fling-hand/east/frame_001.png",
+              "Idle/animations/fling-hand/east/frame_002.png",
+              "Idle/animations/fling-hand/east/frame_003.png",
+              "Idle/animations/fling-hand/east/frame_004.png",
+              "Idle/animations/fling-hand/east/frame_005.png",
+              "Idle/animations/fling-hand/east/frame_006.png",
+              "Idle/animations/fling-hand/east/frame_007.png",
+              "Idle/animations/fling-hand/east/frame_008.png",
+              "Idle/animations/fling-hand/east/frame_009.png",
+              "Idle/animations/fling-hand/east/frame_010.png",
+              "Idle/animations/fling-hand/east/frame_011.png"
+            ],
+            "north": [
+              "Idle/animations/fling-hand/north/frame_000.png",
+              "Idle/animations/fling-hand/north/frame_001.png",
+              "Idle/animations/fling-hand/north/frame_002.png",
+              "Idle/animations/fling-hand/north/frame_003.png",
+              "Idle/animations/fling-hand/north/frame_004.png",
+              "Idle/animations/fling-hand/north/frame_005.png",
+              "Idle/animations/fling-hand/north/frame_006.png",
+              "Idle/animations/fling-hand/north/frame_007.png",
+              "Idle/animations/fling-hand/north/frame_008.png",
+              "Idle/animations/fling-hand/north/frame_009.png",
+              "Idle/animations/fling-hand/north/frame_010.png",
+              "Idle/animations/fling-hand/north/frame_011.png"
+            ],
+            "south": [
+              "Idle/animations/fling-hand/south/frame_000.png",
+              "Idle/animations/fling-hand/south/frame_001.png",
+              "Idle/animations/fling-hand/south/frame_002.png",
+              "Idle/animations/fling-hand/south/frame_003.png",
+              "Idle/animations/fling-hand/south/frame_004.png",
+              "Idle/animations/fling-hand/south/frame_005.png",
+              "Idle/animations/fling-hand/south/frame_006.png",
+              "Idle/animations/fling-hand/south/frame_007.png",
+              "Idle/animations/fling-hand/south/frame_008.png",
+              "Idle/animations/fling-hand/south/frame_009.png",
+              "Idle/animations/fling-hand/south/frame_010.png",
+              "Idle/animations/fling-hand/south/frame_011.png"
+            ]
+          },
+          "stomp-hand2": {
+            "south": [
+              "Idle/animations/stomp-hand2/south/frame_000.png",
+              "Idle/animations/stomp-hand2/south/frame_001.png",
+              "Idle/animations/stomp-hand2/south/frame_002.png",
+              "Idle/animations/stomp-hand2/south/frame_003.png",
+              "Idle/animations/stomp-hand2/south/frame_004.png",
+              "Idle/animations/stomp-hand2/south/frame_005.png",
+              "Idle/animations/stomp-hand2/south/frame_006.png",
+              "Idle/animations/stomp-hand2/south/frame_007.png"
+            ],
+            "north": [
+              "Idle/animations/stomp-hand2/north/frame_000.png",
+              "Idle/animations/stomp-hand2/north/frame_001.png",
+              "Idle/animations/stomp-hand2/north/frame_002.png",
+              "Idle/animations/stomp-hand2/north/frame_003.png",
+              "Idle/animations/stomp-hand2/north/frame_004.png",
+              "Idle/animations/stomp-hand2/north/frame_005.png",
+              "Idle/animations/stomp-hand2/north/frame_006.png",
+              "Idle/animations/stomp-hand2/north/frame_007.png"
+            ],
+            "east": [
+              "Idle/animations/stomp-hand2/east/frame_000.png",
+              "Idle/animations/stomp-hand2/east/frame_001.png",
+              "Idle/animations/stomp-hand2/east/frame_002.png",
+              "Idle/animations/stomp-hand2/east/frame_003.png",
+              "Idle/animations/stomp-hand2/east/frame_004.png",
+              "Idle/animations/stomp-hand2/east/frame_005.png",
+              "Idle/animations/stomp-hand2/east/frame_006.png",
+              "Idle/animations/stomp-hand2/east/frame_007.png"
+            ]
+          },
           "idle": {
             "north-east": [
               "Idle/animations/idle/north-east/frame_000.png",
@@ -84,6 +160,70 @@
               "Idle/animations/idle/north/frame_001.png",
               "Idle/animations/idle/north/frame_002.png",
               "Idle/animations/idle/north/frame_003.png"
+            ]
+          },
+          "stomp-hand": {
+            "east": [
+              "Idle/animations/stomp-hand/east/frame_000.png",
+              "Idle/animations/stomp-hand/east/frame_001.png",
+              "Idle/animations/stomp-hand/east/frame_002.png",
+              "Idle/animations/stomp-hand/east/frame_003.png",
+              "Idle/animations/stomp-hand/east/frame_004.png",
+              "Idle/animations/stomp-hand/east/frame_005.png",
+              "Idle/animations/stomp-hand/east/frame_006.png",
+              "Idle/animations/stomp-hand/east/frame_007.png"
+            ],
+            "north": [
+              "Idle/animations/stomp-hand/north/frame_000.png",
+              "Idle/animations/stomp-hand/north/frame_001.png",
+              "Idle/animations/stomp-hand/north/frame_002.png",
+              "Idle/animations/stomp-hand/north/frame_003.png",
+              "Idle/animations/stomp-hand/north/frame_004.png",
+              "Idle/animations/stomp-hand/north/frame_005.png",
+              "Idle/animations/stomp-hand/north/frame_006.png",
+              "Idle/animations/stomp-hand/north/frame_007.png"
+            ],
+            "south": [
+              "Idle/animations/stomp-hand/south/frame_000.png",
+              "Idle/animations/stomp-hand/south/frame_001.png",
+              "Idle/animations/stomp-hand/south/frame_002.png",
+              "Idle/animations/stomp-hand/south/frame_003.png",
+              "Idle/animations/stomp-hand/south/frame_004.png",
+              "Idle/animations/stomp-hand/south/frame_005.png",
+              "Idle/animations/stomp-hand/south/frame_006.png",
+              "Idle/animations/stomp-hand/south/frame_007.png"
+            ]
+          },
+          "vanish-hand": {
+            "north": [
+              "Idle/animations/vanish-hand/north/frame_000.png",
+              "Idle/animations/vanish-hand/north/frame_001.png",
+              "Idle/animations/vanish-hand/north/frame_002.png",
+              "Idle/animations/vanish-hand/north/frame_003.png",
+              "Idle/animations/vanish-hand/north/frame_004.png",
+              "Idle/animations/vanish-hand/north/frame_005.png",
+              "Idle/animations/vanish-hand/north/frame_006.png",
+              "Idle/animations/vanish-hand/north/frame_007.png"
+            ],
+            "south": [
+              "Idle/animations/vanish-hand/south/frame_000.png",
+              "Idle/animations/vanish-hand/south/frame_001.png",
+              "Idle/animations/vanish-hand/south/frame_002.png",
+              "Idle/animations/vanish-hand/south/frame_003.png",
+              "Idle/animations/vanish-hand/south/frame_004.png",
+              "Idle/animations/vanish-hand/south/frame_005.png",
+              "Idle/animations/vanish-hand/south/frame_006.png",
+              "Idle/animations/vanish-hand/south/frame_007.png"
+            ],
+            "east": [
+              "Idle/animations/vanish-hand/east/frame_000.png",
+              "Idle/animations/vanish-hand/east/frame_001.png",
+              "Idle/animations/vanish-hand/east/frame_002.png",
+              "Idle/animations/vanish-hand/east/frame_003.png",
+              "Idle/animations/vanish-hand/east/frame_004.png",
+              "Idle/animations/vanish-hand/east/frame_005.png",
+              "Idle/animations/vanish-hand/east/frame_006.png",
+              "Idle/animations/vanish-hand/east/frame_007.png"
             ]
           },
           "dodge": {
@@ -144,6 +284,134 @@
               "Idle/animations/drink/north/frame_007.png"
             ]
           },
+          "wave-hand": {
+            "east": [
+              "Idle/animations/wave-hand/east/frame_000.png",
+              "Idle/animations/wave-hand/east/frame_001.png",
+              "Idle/animations/wave-hand/east/frame_002.png",
+              "Idle/animations/wave-hand/east/frame_003.png",
+              "Idle/animations/wave-hand/east/frame_004.png",
+              "Idle/animations/wave-hand/east/frame_005.png",
+              "Idle/animations/wave-hand/east/frame_006.png",
+              "Idle/animations/wave-hand/east/frame_007.png"
+            ],
+            "south": [
+              "Idle/animations/wave-hand/south/frame_000.png",
+              "Idle/animations/wave-hand/south/frame_001.png",
+              "Idle/animations/wave-hand/south/frame_002.png",
+              "Idle/animations/wave-hand/south/frame_003.png",
+              "Idle/animations/wave-hand/south/frame_004.png",
+              "Idle/animations/wave-hand/south/frame_005.png",
+              "Idle/animations/wave-hand/south/frame_006.png",
+              "Idle/animations/wave-hand/south/frame_007.png"
+            ],
+            "north": [
+              "Idle/animations/wave-hand/north/frame_000.png",
+              "Idle/animations/wave-hand/north/frame_001.png",
+              "Idle/animations/wave-hand/north/frame_002.png",
+              "Idle/animations/wave-hand/north/frame_003.png",
+              "Idle/animations/wave-hand/north/frame_004.png",
+              "Idle/animations/wave-hand/north/frame_005.png",
+              "Idle/animations/wave-hand/north/frame_006.png",
+              "Idle/animations/wave-hand/north/frame_007.png"
+            ]
+          },
+          "skycall-hand": {
+            "north": [
+              "Idle/animations/skycall-hand/north/frame_000.png",
+              "Idle/animations/skycall-hand/north/frame_001.png",
+              "Idle/animations/skycall-hand/north/frame_002.png",
+              "Idle/animations/skycall-hand/north/frame_003.png",
+              "Idle/animations/skycall-hand/north/frame_004.png",
+              "Idle/animations/skycall-hand/north/frame_005.png",
+              "Idle/animations/skycall-hand/north/frame_006.png",
+              "Idle/animations/skycall-hand/north/frame_007.png"
+            ],
+            "east": [
+              "Idle/animations/skycall-hand/east/frame_000.png",
+              "Idle/animations/skycall-hand/east/frame_001.png",
+              "Idle/animations/skycall-hand/east/frame_002.png",
+              "Idle/animations/skycall-hand/east/frame_003.png",
+              "Idle/animations/skycall-hand/east/frame_004.png",
+              "Idle/animations/skycall-hand/east/frame_005.png",
+              "Idle/animations/skycall-hand/east/frame_006.png",
+              "Idle/animations/skycall-hand/east/frame_007.png"
+            ],
+            "south": [
+              "Idle/animations/skycall-hand/south/frame_000.png",
+              "Idle/animations/skycall-hand/south/frame_001.png",
+              "Idle/animations/skycall-hand/south/frame_002.png",
+              "Idle/animations/skycall-hand/south/frame_003.png",
+              "Idle/animations/skycall-hand/south/frame_004.png",
+              "Idle/animations/skycall-hand/south/frame_005.png",
+              "Idle/animations/skycall-hand/south/frame_006.png",
+              "Idle/animations/skycall-hand/south/frame_007.png"
+            ]
+          },
+          "backslash-hand2": {
+            "north": [
+              "Idle/animations/backslash-hand2/north/frame_000.png",
+              "Idle/animations/backslash-hand2/north/frame_001.png",
+              "Idle/animations/backslash-hand2/north/frame_002.png",
+              "Idle/animations/backslash-hand2/north/frame_003.png",
+              "Idle/animations/backslash-hand2/north/frame_004.png",
+              "Idle/animations/backslash-hand2/north/frame_005.png",
+              "Idle/animations/backslash-hand2/north/frame_006.png",
+              "Idle/animations/backslash-hand2/north/frame_007.png"
+            ],
+            "east": [
+              "Idle/animations/backslash-hand2/east/frame_000.png",
+              "Idle/animations/backslash-hand2/east/frame_001.png",
+              "Idle/animations/backslash-hand2/east/frame_002.png",
+              "Idle/animations/backslash-hand2/east/frame_003.png",
+              "Idle/animations/backslash-hand2/east/frame_004.png",
+              "Idle/animations/backslash-hand2/east/frame_005.png",
+              "Idle/animations/backslash-hand2/east/frame_006.png",
+              "Idle/animations/backslash-hand2/east/frame_007.png"
+            ],
+            "south": [
+              "Idle/animations/backslash-hand2/south/frame_000.png",
+              "Idle/animations/backslash-hand2/south/frame_001.png",
+              "Idle/animations/backslash-hand2/south/frame_002.png",
+              "Idle/animations/backslash-hand2/south/frame_003.png",
+              "Idle/animations/backslash-hand2/south/frame_004.png",
+              "Idle/animations/backslash-hand2/south/frame_005.png",
+              "Idle/animations/backslash-hand2/south/frame_006.png",
+              "Idle/animations/backslash-hand2/south/frame_007.png"
+            ]
+          },
+          "push-hand": {
+            "south": [
+              "Idle/animations/push-hand/south/frame_000.png",
+              "Idle/animations/push-hand/south/frame_001.png",
+              "Idle/animations/push-hand/south/frame_002.png",
+              "Idle/animations/push-hand/south/frame_003.png",
+              "Idle/animations/push-hand/south/frame_004.png",
+              "Idle/animations/push-hand/south/frame_005.png",
+              "Idle/animations/push-hand/south/frame_006.png",
+              "Idle/animations/push-hand/south/frame_007.png"
+            ],
+            "north": [
+              "Idle/animations/push-hand/north/frame_000.png",
+              "Idle/animations/push-hand/north/frame_001.png",
+              "Idle/animations/push-hand/north/frame_002.png",
+              "Idle/animations/push-hand/north/frame_003.png",
+              "Idle/animations/push-hand/north/frame_004.png",
+              "Idle/animations/push-hand/north/frame_005.png",
+              "Idle/animations/push-hand/north/frame_006.png",
+              "Idle/animations/push-hand/north/frame_007.png"
+            ],
+            "east": [
+              "Idle/animations/push-hand/east/frame_000.png",
+              "Idle/animations/push-hand/east/frame_001.png",
+              "Idle/animations/push-hand/east/frame_002.png",
+              "Idle/animations/push-hand/east/frame_003.png",
+              "Idle/animations/push-hand/east/frame_004.png",
+              "Idle/animations/push-hand/east/frame_005.png",
+              "Idle/animations/push-hand/east/frame_006.png",
+              "Idle/animations/push-hand/east/frame_007.png"
+            ]
+          },
           "walk": {
             "east": [
               "Idle/animations/walk/east/frame_000.png",
@@ -196,6 +464,110 @@
               "Idle/animations/walk/south/frame_007.png"
             ]
           },
+          "parry-hand2": {
+            "east": [
+              "Idle/animations/parry-hand2/east/frame_000.png",
+              "Idle/animations/parry-hand2/east/frame_001.png",
+              "Idle/animations/parry-hand2/east/frame_002.png",
+              "Idle/animations/parry-hand2/east/frame_003.png",
+              "Idle/animations/parry-hand2/east/frame_004.png",
+              "Idle/animations/parry-hand2/east/frame_005.png",
+              "Idle/animations/parry-hand2/east/frame_006.png",
+              "Idle/animations/parry-hand2/east/frame_007.png"
+            ]
+          },
+          "block-hand": {
+            "south": [
+              "Idle/animations/block-hand/south/frame_000.png",
+              "Idle/animations/block-hand/south/frame_001.png",
+              "Idle/animations/block-hand/south/frame_002.png",
+              "Idle/animations/block-hand/south/frame_003.png",
+              "Idle/animations/block-hand/south/frame_004.png",
+              "Idle/animations/block-hand/south/frame_005.png"
+            ],
+            "east": [
+              "Idle/animations/block-hand/east/frame_000.png",
+              "Idle/animations/block-hand/east/frame_001.png",
+              "Idle/animations/block-hand/east/frame_002.png",
+              "Idle/animations/block-hand/east/frame_003.png",
+              "Idle/animations/block-hand/east/frame_004.png",
+              "Idle/animations/block-hand/east/frame_005.png"
+            ],
+            "north": [
+              "Idle/animations/block-hand/north/frame_000.png",
+              "Idle/animations/block-hand/north/frame_001.png",
+              "Idle/animations/block-hand/north/frame_002.png",
+              "Idle/animations/block-hand/north/frame_003.png",
+              "Idle/animations/block-hand/north/frame_004.png",
+              "Idle/animations/block-hand/north/frame_005.png"
+            ]
+          },
+          "lunge-hand2": {
+            "south": [
+              "Idle/animations/lunge-hand2/south/frame_000.png",
+              "Idle/animations/lunge-hand2/south/frame_001.png",
+              "Idle/animations/lunge-hand2/south/frame_002.png",
+              "Idle/animations/lunge-hand2/south/frame_003.png",
+              "Idle/animations/lunge-hand2/south/frame_004.png",
+              "Idle/animations/lunge-hand2/south/frame_005.png",
+              "Idle/animations/lunge-hand2/south/frame_006.png",
+              "Idle/animations/lunge-hand2/south/frame_007.png"
+            ]
+          },
+          "wave-hand2": {
+            "north": [
+              "Idle/animations/wave-hand2/north/frame_000.png",
+              "Idle/animations/wave-hand2/north/frame_001.png",
+              "Idle/animations/wave-hand2/north/frame_002.png",
+              "Idle/animations/wave-hand2/north/frame_003.png",
+              "Idle/animations/wave-hand2/north/frame_004.png",
+              "Idle/animations/wave-hand2/north/frame_005.png",
+              "Idle/animations/wave-hand2/north/frame_006.png",
+              "Idle/animations/wave-hand2/north/frame_007.png"
+            ],
+            "south": [
+              "Idle/animations/wave-hand2/south/frame_000.png",
+              "Idle/animations/wave-hand2/south/frame_001.png",
+              "Idle/animations/wave-hand2/south/frame_002.png",
+              "Idle/animations/wave-hand2/south/frame_003.png",
+              "Idle/animations/wave-hand2/south/frame_004.png",
+              "Idle/animations/wave-hand2/south/frame_005.png",
+              "Idle/animations/wave-hand2/south/frame_006.png",
+              "Idle/animations/wave-hand2/south/frame_007.png"
+            ],
+            "east": [
+              "Idle/animations/wave-hand2/east/frame_000.png",
+              "Idle/animations/wave-hand2/east/frame_001.png",
+              "Idle/animations/wave-hand2/east/frame_002.png",
+              "Idle/animations/wave-hand2/east/frame_003.png",
+              "Idle/animations/wave-hand2/east/frame_004.png",
+              "Idle/animations/wave-hand2/east/frame_005.png",
+              "Idle/animations/wave-hand2/east/frame_006.png",
+              "Idle/animations/wave-hand2/east/frame_007.png"
+            ]
+          },
+          "push-hand2": {
+            "south": [
+              "Idle/animations/push-hand2/south/frame_000.png",
+              "Idle/animations/push-hand2/south/frame_001.png",
+              "Idle/animations/push-hand2/south/frame_002.png",
+              "Idle/animations/push-hand2/south/frame_003.png",
+              "Idle/animations/push-hand2/south/frame_004.png",
+              "Idle/animations/push-hand2/south/frame_005.png",
+              "Idle/animations/push-hand2/south/frame_006.png",
+              "Idle/animations/push-hand2/south/frame_007.png"
+            ],
+            "east": [
+              "Idle/animations/push-hand2/east/frame_000.png",
+              "Idle/animations/push-hand2/east/frame_001.png",
+              "Idle/animations/push-hand2/east/frame_002.png",
+              "Idle/animations/push-hand2/east/frame_003.png",
+              "Idle/animations/push-hand2/east/frame_004.png",
+              "Idle/animations/push-hand2/east/frame_005.png",
+              "Idle/animations/push-hand2/east/frame_006.png",
+              "Idle/animations/push-hand2/east/frame_007.png"
+            ]
+          },
           "death": {
             "south": [
               "Idle/animations/death/south/frame_000.png",
@@ -226,6 +598,592 @@
               "Idle/animations/death/east/frame_005.png",
               "Idle/animations/death/east/frame_006.png",
               "Idle/animations/death/east/frame_007.png"
+            ]
+          },
+          "throw-hand": {
+            "south": [
+              "Idle/animations/throw-hand/south/frame_000.png",
+              "Idle/animations/throw-hand/south/frame_001.png",
+              "Idle/animations/throw-hand/south/frame_002.png",
+              "Idle/animations/throw-hand/south/frame_003.png",
+              "Idle/animations/throw-hand/south/frame_004.png",
+              "Idle/animations/throw-hand/south/frame_005.png",
+              "Idle/animations/throw-hand/south/frame_006.png",
+              "Idle/animations/throw-hand/south/frame_007.png"
+            ],
+            "north": [
+              "Idle/animations/throw-hand/north/frame_000.png",
+              "Idle/animations/throw-hand/north/frame_001.png",
+              "Idle/animations/throw-hand/north/frame_002.png",
+              "Idle/animations/throw-hand/north/frame_003.png",
+              "Idle/animations/throw-hand/north/frame_004.png",
+              "Idle/animations/throw-hand/north/frame_005.png",
+              "Idle/animations/throw-hand/north/frame_006.png",
+              "Idle/animations/throw-hand/north/frame_007.png"
+            ],
+            "east": [
+              "Idle/animations/throw-hand/east/frame_000.png",
+              "Idle/animations/throw-hand/east/frame_001.png",
+              "Idle/animations/throw-hand/east/frame_002.png",
+              "Idle/animations/throw-hand/east/frame_003.png",
+              "Idle/animations/throw-hand/east/frame_004.png",
+              "Idle/animations/throw-hand/east/frame_005.png",
+              "Idle/animations/throw-hand/east/frame_006.png",
+              "Idle/animations/throw-hand/east/frame_007.png"
+            ]
+          },
+          "channel-hand": {
+            "north": [
+              "Idle/animations/channel-hand/north/frame_000.png",
+              "Idle/animations/channel-hand/north/frame_001.png",
+              "Idle/animations/channel-hand/north/frame_002.png",
+              "Idle/animations/channel-hand/north/frame_003.png",
+              "Idle/animations/channel-hand/north/frame_004.png",
+              "Idle/animations/channel-hand/north/frame_005.png"
+            ],
+            "east": [
+              "Idle/animations/channel-hand/east/frame_000.png",
+              "Idle/animations/channel-hand/east/frame_001.png",
+              "Idle/animations/channel-hand/east/frame_002.png",
+              "Idle/animations/channel-hand/east/frame_003.png",
+              "Idle/animations/channel-hand/east/frame_004.png",
+              "Idle/animations/channel-hand/east/frame_005.png"
+            ],
+            "south": [
+              "Idle/animations/channel-hand/south/frame_000.png",
+              "Idle/animations/channel-hand/south/frame_001.png",
+              "Idle/animations/channel-hand/south/frame_002.png",
+              "Idle/animations/channel-hand/south/frame_003.png",
+              "Idle/animations/channel-hand/south/frame_004.png",
+              "Idle/animations/channel-hand/south/frame_005.png"
+            ]
+          },
+          "ultimate-hand": {
+            "east": [
+              "Idle/animations/ultimate-hand/east/frame_000.png",
+              "Idle/animations/ultimate-hand/east/frame_001.png",
+              "Idle/animations/ultimate-hand/east/frame_002.png",
+              "Idle/animations/ultimate-hand/east/frame_003.png",
+              "Idle/animations/ultimate-hand/east/frame_004.png",
+              "Idle/animations/ultimate-hand/east/frame_005.png",
+              "Idle/animations/ultimate-hand/east/frame_006.png",
+              "Idle/animations/ultimate-hand/east/frame_007.png",
+              "Idle/animations/ultimate-hand/east/frame_008.png",
+              "Idle/animations/ultimate-hand/east/frame_009.png",
+              "Idle/animations/ultimate-hand/east/frame_010.png",
+              "Idle/animations/ultimate-hand/east/frame_011.png"
+            ],
+            "south": [
+              "Idle/animations/ultimate-hand/south/frame_000.png",
+              "Idle/animations/ultimate-hand/south/frame_001.png",
+              "Idle/animations/ultimate-hand/south/frame_002.png",
+              "Idle/animations/ultimate-hand/south/frame_003.png",
+              "Idle/animations/ultimate-hand/south/frame_004.png",
+              "Idle/animations/ultimate-hand/south/frame_005.png",
+              "Idle/animations/ultimate-hand/south/frame_006.png",
+              "Idle/animations/ultimate-hand/south/frame_007.png",
+              "Idle/animations/ultimate-hand/south/frame_008.png",
+              "Idle/animations/ultimate-hand/south/frame_009.png",
+              "Idle/animations/ultimate-hand/south/frame_010.png",
+              "Idle/animations/ultimate-hand/south/frame_011.png"
+            ],
+            "north": [
+              "Idle/animations/ultimate-hand/north/frame_000.png",
+              "Idle/animations/ultimate-hand/north/frame_001.png",
+              "Idle/animations/ultimate-hand/north/frame_002.png",
+              "Idle/animations/ultimate-hand/north/frame_003.png",
+              "Idle/animations/ultimate-hand/north/frame_004.png",
+              "Idle/animations/ultimate-hand/north/frame_005.png",
+              "Idle/animations/ultimate-hand/north/frame_006.png",
+              "Idle/animations/ultimate-hand/north/frame_007.png",
+              "Idle/animations/ultimate-hand/north/frame_008.png",
+              "Idle/animations/ultimate-hand/north/frame_009.png",
+              "Idle/animations/ultimate-hand/north/frame_010.png",
+              "Idle/animations/ultimate-hand/north/frame_011.png"
+            ]
+          },
+          "vanish-hand2": {
+            "north": [
+              "Idle/animations/vanish-hand2/north/frame_000.png",
+              "Idle/animations/vanish-hand2/north/frame_001.png",
+              "Idle/animations/vanish-hand2/north/frame_002.png",
+              "Idle/animations/vanish-hand2/north/frame_003.png",
+              "Idle/animations/vanish-hand2/north/frame_004.png",
+              "Idle/animations/vanish-hand2/north/frame_005.png",
+              "Idle/animations/vanish-hand2/north/frame_006.png",
+              "Idle/animations/vanish-hand2/north/frame_007.png"
+            ]
+          },
+          "cast-hand": {
+            "north": [
+              "Idle/animations/cast-hand/north/frame_000.png",
+              "Idle/animations/cast-hand/north/frame_001.png",
+              "Idle/animations/cast-hand/north/frame_002.png",
+              "Idle/animations/cast-hand/north/frame_003.png",
+              "Idle/animations/cast-hand/north/frame_004.png",
+              "Idle/animations/cast-hand/north/frame_005.png",
+              "Idle/animations/cast-hand/north/frame_006.png",
+              "Idle/animations/cast-hand/north/frame_007.png"
+            ],
+            "south": [
+              "Idle/animations/cast-hand/south/frame_000.png",
+              "Idle/animations/cast-hand/south/frame_001.png",
+              "Idle/animations/cast-hand/south/frame_002.png",
+              "Idle/animations/cast-hand/south/frame_003.png",
+              "Idle/animations/cast-hand/south/frame_004.png",
+              "Idle/animations/cast-hand/south/frame_005.png",
+              "Idle/animations/cast-hand/south/frame_006.png",
+              "Idle/animations/cast-hand/south/frame_007.png"
+            ],
+            "east": [
+              "Idle/animations/cast-hand/east/frame_000.png",
+              "Idle/animations/cast-hand/east/frame_001.png",
+              "Idle/animations/cast-hand/east/frame_002.png",
+              "Idle/animations/cast-hand/east/frame_003.png",
+              "Idle/animations/cast-hand/east/frame_004.png",
+              "Idle/animations/cast-hand/east/frame_005.png",
+              "Idle/animations/cast-hand/east/frame_006.png",
+              "Idle/animations/cast-hand/east/frame_007.png"
+            ]
+          },
+          "backslash-hand": {
+            "north": [
+              "Idle/animations/backslash-hand/north/frame_000.png",
+              "Idle/animations/backslash-hand/north/frame_001.png",
+              "Idle/animations/backslash-hand/north/frame_002.png",
+              "Idle/animations/backslash-hand/north/frame_003.png",
+              "Idle/animations/backslash-hand/north/frame_004.png",
+              "Idle/animations/backslash-hand/north/frame_005.png",
+              "Idle/animations/backslash-hand/north/frame_006.png",
+              "Idle/animations/backslash-hand/north/frame_007.png"
+            ],
+            "south": [
+              "Idle/animations/backslash-hand/south/frame_000.png",
+              "Idle/animations/backslash-hand/south/frame_001.png",
+              "Idle/animations/backslash-hand/south/frame_002.png",
+              "Idle/animations/backslash-hand/south/frame_003.png",
+              "Idle/animations/backslash-hand/south/frame_004.png",
+              "Idle/animations/backslash-hand/south/frame_005.png",
+              "Idle/animations/backslash-hand/south/frame_006.png",
+              "Idle/animations/backslash-hand/south/frame_007.png"
+            ],
+            "east": [
+              "Idle/animations/backslash-hand/east/frame_000.png",
+              "Idle/animations/backslash-hand/east/frame_001.png",
+              "Idle/animations/backslash-hand/east/frame_002.png",
+              "Idle/animations/backslash-hand/east/frame_003.png",
+              "Idle/animations/backslash-hand/east/frame_004.png",
+              "Idle/animations/backslash-hand/east/frame_005.png",
+              "Idle/animations/backslash-hand/east/frame_006.png",
+              "Idle/animations/backslash-hand/east/frame_007.png"
+            ]
+          },
+          "smash-hand2": {
+            "east": [
+              "Idle/animations/smash-hand2/east/frame_000.png",
+              "Idle/animations/smash-hand2/east/frame_001.png",
+              "Idle/animations/smash-hand2/east/frame_002.png",
+              "Idle/animations/smash-hand2/east/frame_003.png",
+              "Idle/animations/smash-hand2/east/frame_004.png",
+              "Idle/animations/smash-hand2/east/frame_005.png",
+              "Idle/animations/smash-hand2/east/frame_006.png",
+              "Idle/animations/smash-hand2/east/frame_007.png"
+            ]
+          },
+          "flurry-hand": {
+            "east": [
+              "Idle/animations/flurry-hand/east/frame_000.png",
+              "Idle/animations/flurry-hand/east/frame_001.png",
+              "Idle/animations/flurry-hand/east/frame_002.png",
+              "Idle/animations/flurry-hand/east/frame_003.png",
+              "Idle/animations/flurry-hand/east/frame_004.png",
+              "Idle/animations/flurry-hand/east/frame_005.png",
+              "Idle/animations/flurry-hand/east/frame_006.png",
+              "Idle/animations/flurry-hand/east/frame_007.png",
+              "Idle/animations/flurry-hand/east/frame_008.png",
+              "Idle/animations/flurry-hand/east/frame_009.png",
+              "Idle/animations/flurry-hand/east/frame_010.png",
+              "Idle/animations/flurry-hand/east/frame_011.png"
+            ],
+            "south": [
+              "Idle/animations/flurry-hand/south/frame_000.png",
+              "Idle/animations/flurry-hand/south/frame_001.png",
+              "Idle/animations/flurry-hand/south/frame_002.png",
+              "Idle/animations/flurry-hand/south/frame_003.png",
+              "Idle/animations/flurry-hand/south/frame_004.png",
+              "Idle/animations/flurry-hand/south/frame_005.png",
+              "Idle/animations/flurry-hand/south/frame_006.png",
+              "Idle/animations/flurry-hand/south/frame_007.png",
+              "Idle/animations/flurry-hand/south/frame_008.png",
+              "Idle/animations/flurry-hand/south/frame_009.png",
+              "Idle/animations/flurry-hand/south/frame_010.png",
+              "Idle/animations/flurry-hand/south/frame_011.png"
+            ],
+            "north": [
+              "Idle/animations/flurry-hand/north/frame_000.png",
+              "Idle/animations/flurry-hand/north/frame_001.png",
+              "Idle/animations/flurry-hand/north/frame_002.png",
+              "Idle/animations/flurry-hand/north/frame_003.png",
+              "Idle/animations/flurry-hand/north/frame_004.png",
+              "Idle/animations/flurry-hand/north/frame_005.png",
+              "Idle/animations/flurry-hand/north/frame_006.png",
+              "Idle/animations/flurry-hand/north/frame_007.png",
+              "Idle/animations/flurry-hand/north/frame_008.png",
+              "Idle/animations/flurry-hand/north/frame_009.png",
+              "Idle/animations/flurry-hand/north/frame_010.png",
+              "Idle/animations/flurry-hand/north/frame_011.png"
+            ]
+          },
+          "parry-hand": {
+            "south": [
+              "Idle/animations/parry-hand/south/frame_000.png",
+              "Idle/animations/parry-hand/south/frame_001.png",
+              "Idle/animations/parry-hand/south/frame_002.png",
+              "Idle/animations/parry-hand/south/frame_003.png",
+              "Idle/animations/parry-hand/south/frame_004.png",
+              "Idle/animations/parry-hand/south/frame_005.png",
+              "Idle/animations/parry-hand/south/frame_006.png",
+              "Idle/animations/parry-hand/south/frame_007.png"
+            ],
+            "east": [
+              "Idle/animations/parry-hand/east/frame_000.png",
+              "Idle/animations/parry-hand/east/frame_001.png",
+              "Idle/animations/parry-hand/east/frame_002.png",
+              "Idle/animations/parry-hand/east/frame_003.png",
+              "Idle/animations/parry-hand/east/frame_004.png",
+              "Idle/animations/parry-hand/east/frame_005.png",
+              "Idle/animations/parry-hand/east/frame_006.png",
+              "Idle/animations/parry-hand/east/frame_007.png"
+            ],
+            "north": [
+              "Idle/animations/parry-hand/north/frame_000.png",
+              "Idle/animations/parry-hand/north/frame_001.png",
+              "Idle/animations/parry-hand/north/frame_002.png",
+              "Idle/animations/parry-hand/north/frame_003.png",
+              "Idle/animations/parry-hand/north/frame_004.png",
+              "Idle/animations/parry-hand/north/frame_005.png",
+              "Idle/animations/parry-hand/north/frame_006.png",
+              "Idle/animations/parry-hand/north/frame_007.png"
+            ]
+          },
+          "thrust-hand": {
+            "south": [
+              "Idle/animations/thrust-hand/south/frame_000.png",
+              "Idle/animations/thrust-hand/south/frame_001.png",
+              "Idle/animations/thrust-hand/south/frame_002.png",
+              "Idle/animations/thrust-hand/south/frame_003.png",
+              "Idle/animations/thrust-hand/south/frame_004.png",
+              "Idle/animations/thrust-hand/south/frame_005.png",
+              "Idle/animations/thrust-hand/south/frame_006.png",
+              "Idle/animations/thrust-hand/south/frame_007.png"
+            ],
+            "east": [
+              "Idle/animations/thrust-hand/east/frame_000.png",
+              "Idle/animations/thrust-hand/east/frame_001.png",
+              "Idle/animations/thrust-hand/east/frame_002.png",
+              "Idle/animations/thrust-hand/east/frame_003.png",
+              "Idle/animations/thrust-hand/east/frame_004.png",
+              "Idle/animations/thrust-hand/east/frame_005.png",
+              "Idle/animations/thrust-hand/east/frame_006.png",
+              "Idle/animations/thrust-hand/east/frame_007.png"
+            ],
+            "north": [
+              "Idle/animations/thrust-hand/north/frame_000.png",
+              "Idle/animations/thrust-hand/north/frame_001.png",
+              "Idle/animations/thrust-hand/north/frame_002.png",
+              "Idle/animations/thrust-hand/north/frame_003.png",
+              "Idle/animations/thrust-hand/north/frame_004.png",
+              "Idle/animations/thrust-hand/north/frame_005.png",
+              "Idle/animations/thrust-hand/north/frame_006.png",
+              "Idle/animations/thrust-hand/north/frame_007.png"
+            ]
+          },
+          "spin-hand": {
+            "north": [
+              "Idle/animations/spin-hand/north/frame_000.png",
+              "Idle/animations/spin-hand/north/frame_001.png",
+              "Idle/animations/spin-hand/north/frame_002.png",
+              "Idle/animations/spin-hand/north/frame_003.png",
+              "Idle/animations/spin-hand/north/frame_004.png",
+              "Idle/animations/spin-hand/north/frame_005.png",
+              "Idle/animations/spin-hand/north/frame_006.png",
+              "Idle/animations/spin-hand/north/frame_007.png",
+              "Idle/animations/spin-hand/north/frame_008.png",
+              "Idle/animations/spin-hand/north/frame_009.png"
+            ],
+            "east": [
+              "Idle/animations/spin-hand/east/frame_000.png",
+              "Idle/animations/spin-hand/east/frame_001.png",
+              "Idle/animations/spin-hand/east/frame_002.png",
+              "Idle/animations/spin-hand/east/frame_003.png",
+              "Idle/animations/spin-hand/east/frame_004.png",
+              "Idle/animations/spin-hand/east/frame_005.png",
+              "Idle/animations/spin-hand/east/frame_006.png",
+              "Idle/animations/spin-hand/east/frame_007.png",
+              "Idle/animations/spin-hand/east/frame_008.png",
+              "Idle/animations/spin-hand/east/frame_009.png"
+            ],
+            "south": [
+              "Idle/animations/spin-hand/south/frame_000.png",
+              "Idle/animations/spin-hand/south/frame_001.png",
+              "Idle/animations/spin-hand/south/frame_002.png",
+              "Idle/animations/spin-hand/south/frame_003.png",
+              "Idle/animations/spin-hand/south/frame_004.png",
+              "Idle/animations/spin-hand/south/frame_005.png",
+              "Idle/animations/spin-hand/south/frame_006.png",
+              "Idle/animations/spin-hand/south/frame_007.png",
+              "Idle/animations/spin-hand/south/frame_008.png",
+              "Idle/animations/spin-hand/south/frame_009.png"
+            ]
+          },
+          "flurry-hand2": {
+            "north": [
+              "Idle/animations/flurry-hand2/north/frame_000.png",
+              "Idle/animations/flurry-hand2/north/frame_001.png",
+              "Idle/animations/flurry-hand2/north/frame_002.png",
+              "Idle/animations/flurry-hand2/north/frame_003.png",
+              "Idle/animations/flurry-hand2/north/frame_004.png",
+              "Idle/animations/flurry-hand2/north/frame_005.png",
+              "Idle/animations/flurry-hand2/north/frame_006.png",
+              "Idle/animations/flurry-hand2/north/frame_007.png",
+              "Idle/animations/flurry-hand2/north/frame_008.png",
+              "Idle/animations/flurry-hand2/north/frame_009.png",
+              "Idle/animations/flurry-hand2/north/frame_010.png",
+              "Idle/animations/flurry-hand2/north/frame_011.png"
+            ],
+            "south": [
+              "Idle/animations/flurry-hand2/south/frame_000.png",
+              "Idle/animations/flurry-hand2/south/frame_001.png",
+              "Idle/animations/flurry-hand2/south/frame_002.png",
+              "Idle/animations/flurry-hand2/south/frame_003.png",
+              "Idle/animations/flurry-hand2/south/frame_004.png",
+              "Idle/animations/flurry-hand2/south/frame_005.png",
+              "Idle/animations/flurry-hand2/south/frame_006.png",
+              "Idle/animations/flurry-hand2/south/frame_007.png",
+              "Idle/animations/flurry-hand2/south/frame_008.png",
+              "Idle/animations/flurry-hand2/south/frame_009.png",
+              "Idle/animations/flurry-hand2/south/frame_010.png",
+              "Idle/animations/flurry-hand2/south/frame_011.png"
+            ]
+          },
+          "charge-hand": {
+            "north": [
+              "Idle/animations/charge-hand/north/frame_000.png",
+              "Idle/animations/charge-hand/north/frame_001.png",
+              "Idle/animations/charge-hand/north/frame_002.png",
+              "Idle/animations/charge-hand/north/frame_003.png",
+              "Idle/animations/charge-hand/north/frame_004.png",
+              "Idle/animations/charge-hand/north/frame_005.png",
+              "Idle/animations/charge-hand/north/frame_006.png",
+              "Idle/animations/charge-hand/north/frame_007.png"
+            ],
+            "south": [
+              "Idle/animations/charge-hand/south/frame_000.png",
+              "Idle/animations/charge-hand/south/frame_001.png",
+              "Idle/animations/charge-hand/south/frame_002.png",
+              "Idle/animations/charge-hand/south/frame_003.png",
+              "Idle/animations/charge-hand/south/frame_004.png",
+              "Idle/animations/charge-hand/south/frame_005.png",
+              "Idle/animations/charge-hand/south/frame_006.png",
+              "Idle/animations/charge-hand/south/frame_007.png"
+            ],
+            "east": [
+              "Idle/animations/charge-hand/east/frame_000.png",
+              "Idle/animations/charge-hand/east/frame_001.png",
+              "Idle/animations/charge-hand/east/frame_002.png",
+              "Idle/animations/charge-hand/east/frame_003.png",
+              "Idle/animations/charge-hand/east/frame_004.png",
+              "Idle/animations/charge-hand/east/frame_005.png",
+              "Idle/animations/charge-hand/east/frame_006.png",
+              "Idle/animations/charge-hand/east/frame_007.png"
+            ]
+          },
+          "spin-hand2": {
+            "south": [
+              "Idle/animations/spin-hand2/south/frame_000.png",
+              "Idle/animations/spin-hand2/south/frame_001.png",
+              "Idle/animations/spin-hand2/south/frame_002.png",
+              "Idle/animations/spin-hand2/south/frame_003.png",
+              "Idle/animations/spin-hand2/south/frame_004.png",
+              "Idle/animations/spin-hand2/south/frame_005.png",
+              "Idle/animations/spin-hand2/south/frame_006.png",
+              "Idle/animations/spin-hand2/south/frame_007.png",
+              "Idle/animations/spin-hand2/south/frame_008.png",
+              "Idle/animations/spin-hand2/south/frame_009.png"
+            ],
+            "north": [
+              "Idle/animations/spin-hand2/north/frame_000.png",
+              "Idle/animations/spin-hand2/north/frame_001.png",
+              "Idle/animations/spin-hand2/north/frame_002.png",
+              "Idle/animations/spin-hand2/north/frame_003.png",
+              "Idle/animations/spin-hand2/north/frame_004.png",
+              "Idle/animations/spin-hand2/north/frame_005.png",
+              "Idle/animations/spin-hand2/north/frame_006.png",
+              "Idle/animations/spin-hand2/north/frame_007.png",
+              "Idle/animations/spin-hand2/north/frame_008.png",
+              "Idle/animations/spin-hand2/north/frame_009.png"
+            ],
+            "east": [
+              "Idle/animations/spin-hand2/east/frame_000.png",
+              "Idle/animations/spin-hand2/east/frame_001.png",
+              "Idle/animations/spin-hand2/east/frame_002.png",
+              "Idle/animations/spin-hand2/east/frame_003.png",
+              "Idle/animations/spin-hand2/east/frame_004.png",
+              "Idle/animations/spin-hand2/east/frame_005.png",
+              "Idle/animations/spin-hand2/east/frame_006.png",
+              "Idle/animations/spin-hand2/east/frame_007.png",
+              "Idle/animations/spin-hand2/east/frame_008.png",
+              "Idle/animations/spin-hand2/east/frame_009.png"
+            ]
+          },
+          "skycall-hand2": {
+            "south": [
+              "Idle/animations/skycall-hand2/south/frame_000.png",
+              "Idle/animations/skycall-hand2/south/frame_001.png",
+              "Idle/animations/skycall-hand2/south/frame_002.png",
+              "Idle/animations/skycall-hand2/south/frame_003.png",
+              "Idle/animations/skycall-hand2/south/frame_004.png",
+              "Idle/animations/skycall-hand2/south/frame_005.png",
+              "Idle/animations/skycall-hand2/south/frame_006.png",
+              "Idle/animations/skycall-hand2/south/frame_007.png"
+            ]
+          },
+          "lunge-hand": {
+            "north": [
+              "Idle/animations/lunge-hand/north/frame_000.png",
+              "Idle/animations/lunge-hand/north/frame_001.png",
+              "Idle/animations/lunge-hand/north/frame_002.png",
+              "Idle/animations/lunge-hand/north/frame_003.png",
+              "Idle/animations/lunge-hand/north/frame_004.png",
+              "Idle/animations/lunge-hand/north/frame_005.png",
+              "Idle/animations/lunge-hand/north/frame_006.png",
+              "Idle/animations/lunge-hand/north/frame_007.png"
+            ],
+            "south": [
+              "Idle/animations/lunge-hand/south/frame_000.png",
+              "Idle/animations/lunge-hand/south/frame_001.png",
+              "Idle/animations/lunge-hand/south/frame_002.png",
+              "Idle/animations/lunge-hand/south/frame_003.png",
+              "Idle/animations/lunge-hand/south/frame_004.png",
+              "Idle/animations/lunge-hand/south/frame_005.png",
+              "Idle/animations/lunge-hand/south/frame_006.png",
+              "Idle/animations/lunge-hand/south/frame_007.png"
+            ],
+            "east": [
+              "Idle/animations/lunge-hand/east/frame_000.png",
+              "Idle/animations/lunge-hand/east/frame_001.png",
+              "Idle/animations/lunge-hand/east/frame_002.png",
+              "Idle/animations/lunge-hand/east/frame_003.png",
+              "Idle/animations/lunge-hand/east/frame_004.png",
+              "Idle/animations/lunge-hand/east/frame_005.png",
+              "Idle/animations/lunge-hand/east/frame_006.png",
+              "Idle/animations/lunge-hand/east/frame_007.png"
+            ]
+          },
+          "attack-hand2": {
+            "south": [
+              "Idle/animations/attack-hand2/south/frame_000.png",
+              "Idle/animations/attack-hand2/south/frame_001.png",
+              "Idle/animations/attack-hand2/south/frame_002.png",
+              "Idle/animations/attack-hand2/south/frame_003.png",
+              "Idle/animations/attack-hand2/south/frame_004.png",
+              "Idle/animations/attack-hand2/south/frame_005.png",
+              "Idle/animations/attack-hand2/south/frame_006.png",
+              "Idle/animations/attack-hand2/south/frame_007.png"
+            ],
+            "east": [
+              "Idle/animations/attack-hand2/east/frame_000.png",
+              "Idle/animations/attack-hand2/east/frame_001.png",
+              "Idle/animations/attack-hand2/east/frame_002.png",
+              "Idle/animations/attack-hand2/east/frame_003.png",
+              "Idle/animations/attack-hand2/east/frame_004.png",
+              "Idle/animations/attack-hand2/east/frame_005.png",
+              "Idle/animations/attack-hand2/east/frame_006.png",
+              "Idle/animations/attack-hand2/east/frame_007.png"
+            ],
+            "north": [
+              "Idle/animations/attack-hand2/north/frame_000.png",
+              "Idle/animations/attack-hand2/north/frame_001.png",
+              "Idle/animations/attack-hand2/north/frame_002.png",
+              "Idle/animations/attack-hand2/north/frame_003.png",
+              "Idle/animations/attack-hand2/north/frame_004.png",
+              "Idle/animations/attack-hand2/north/frame_005.png",
+              "Idle/animations/attack-hand2/north/frame_006.png",
+              "Idle/animations/attack-hand2/north/frame_007.png"
+            ]
+          },
+          "block-hand2": {
+            "south": [
+              "Idle/animations/block-hand2/south/frame_000.png",
+              "Idle/animations/block-hand2/south/frame_001.png",
+              "Idle/animations/block-hand2/south/frame_002.png",
+              "Idle/animations/block-hand2/south/frame_003.png",
+              "Idle/animations/block-hand2/south/frame_004.png",
+              "Idle/animations/block-hand2/south/frame_005.png"
+            ]
+          },
+          "smash-hand": {
+            "east": [
+              "Idle/animations/smash-hand/east/frame_000.png",
+              "Idle/animations/smash-hand/east/frame_001.png",
+              "Idle/animations/smash-hand/east/frame_002.png",
+              "Idle/animations/smash-hand/east/frame_003.png",
+              "Idle/animations/smash-hand/east/frame_004.png",
+              "Idle/animations/smash-hand/east/frame_005.png",
+              "Idle/animations/smash-hand/east/frame_006.png",
+              "Idle/animations/smash-hand/east/frame_007.png"
+            ],
+            "north": [
+              "Idle/animations/smash-hand/north/frame_000.png",
+              "Idle/animations/smash-hand/north/frame_001.png",
+              "Idle/animations/smash-hand/north/frame_002.png",
+              "Idle/animations/smash-hand/north/frame_003.png",
+              "Idle/animations/smash-hand/north/frame_004.png",
+              "Idle/animations/smash-hand/north/frame_005.png",
+              "Idle/animations/smash-hand/north/frame_006.png",
+              "Idle/animations/smash-hand/north/frame_007.png"
+            ],
+            "south": [
+              "Idle/animations/smash-hand/south/frame_000.png",
+              "Idle/animations/smash-hand/south/frame_001.png",
+              "Idle/animations/smash-hand/south/frame_002.png",
+              "Idle/animations/smash-hand/south/frame_003.png",
+              "Idle/animations/smash-hand/south/frame_004.png",
+              "Idle/animations/smash-hand/south/frame_005.png",
+              "Idle/animations/smash-hand/south/frame_006.png",
+              "Idle/animations/smash-hand/south/frame_007.png"
+            ]
+          },
+          "attack-hand": {
+            "north": [
+              "Idle/animations/attack-hand/north/frame_000.png",
+              "Idle/animations/attack-hand/north/frame_001.png",
+              "Idle/animations/attack-hand/north/frame_002.png",
+              "Idle/animations/attack-hand/north/frame_003.png",
+              "Idle/animations/attack-hand/north/frame_004.png",
+              "Idle/animations/attack-hand/north/frame_005.png",
+              "Idle/animations/attack-hand/north/frame_006.png",
+              "Idle/animations/attack-hand/north/frame_007.png"
+            ],
+            "south": [
+              "Idle/animations/attack-hand/south/frame_000.png",
+              "Idle/animations/attack-hand/south/frame_001.png",
+              "Idle/animations/attack-hand/south/frame_002.png",
+              "Idle/animations/attack-hand/south/frame_003.png",
+              "Idle/animations/attack-hand/south/frame_004.png",
+              "Idle/animations/attack-hand/south/frame_005.png",
+              "Idle/animations/attack-hand/south/frame_006.png",
+              "Idle/animations/attack-hand/south/frame_007.png"
+            ],
+            "east": [
+              "Idle/animations/attack-hand/east/frame_000.png",
+              "Idle/animations/attack-hand/east/frame_001.png",
+              "Idle/animations/attack-hand/east/frame_002.png",
+              "Idle/animations/attack-hand/east/frame_003.png",
+              "Idle/animations/attack-hand/east/frame_004.png",
+              "Idle/animations/attack-hand/east/frame_005.png",
+              "Idle/animations/attack-hand/east/frame_006.png",
+              "Idle/animations/attack-hand/east/frame_007.png"
             ]
           }
         }
@@ -258,6 +1216,50 @@
           "south-west": "Sword/rotations/south-west.png"
         },
         "animations": {
+          "hit-sword2": {
+            "south": [
+              "Sword/animations/hit-sword2/south/frame_000.png",
+              "Sword/animations/hit-sword2/south/frame_001.png",
+              "Sword/animations/hit-sword2/south/frame_002.png",
+              "Sword/animations/hit-sword2/south/frame_003.png",
+              "Sword/animations/hit-sword2/south/frame_004.png",
+              "Sword/animations/hit-sword2/south/frame_005.png"
+            ],
+            "north": [
+              "Sword/animations/hit-sword2/north/frame_000.png",
+              "Sword/animations/hit-sword2/north/frame_001.png",
+              "Sword/animations/hit-sword2/north/frame_002.png",
+              "Sword/animations/hit-sword2/north/frame_003.png",
+              "Sword/animations/hit-sword2/north/frame_004.png",
+              "Sword/animations/hit-sword2/north/frame_005.png"
+            ]
+          },
+          "dodge-sword": {
+            "north": [
+              "Sword/animations/dodge-sword/north/frame_000.png",
+              "Sword/animations/dodge-sword/north/frame_001.png",
+              "Sword/animations/dodge-sword/north/frame_002.png",
+              "Sword/animations/dodge-sword/north/frame_003.png",
+              "Sword/animations/dodge-sword/north/frame_004.png",
+              "Sword/animations/dodge-sword/north/frame_005.png"
+            ],
+            "south": [
+              "Sword/animations/dodge-sword/south/frame_000.png",
+              "Sword/animations/dodge-sword/south/frame_001.png",
+              "Sword/animations/dodge-sword/south/frame_002.png",
+              "Sword/animations/dodge-sword/south/frame_003.png",
+              "Sword/animations/dodge-sword/south/frame_004.png",
+              "Sword/animations/dodge-sword/south/frame_005.png"
+            ],
+            "east": [
+              "Sword/animations/dodge-sword/east/frame_000.png",
+              "Sword/animations/dodge-sword/east/frame_001.png",
+              "Sword/animations/dodge-sword/east/frame_002.png",
+              "Sword/animations/dodge-sword/east/frame_003.png",
+              "Sword/animations/dodge-sword/east/frame_004.png",
+              "Sword/animations/dodge-sword/east/frame_005.png"
+            ]
+          },
           "block": {
             "north": [
               "Sword/animations/block/north/frame_000.png",
@@ -282,6 +1284,16 @@
               "Sword/animations/block/east/frame_003.png",
               "Sword/animations/block/east/frame_004.png",
               "Sword/animations/block/east/frame_005.png"
+            ]
+          },
+          "dodge-sword2": {
+            "south": [
+              "Sword/animations/dodge-sword2/south/frame_000.png",
+              "Sword/animations/dodge-sword2/south/frame_001.png",
+              "Sword/animations/dodge-sword2/south/frame_002.png",
+              "Sword/animations/dodge-sword2/south/frame_003.png",
+              "Sword/animations/dodge-sword2/south/frame_004.png",
+              "Sword/animations/dodge-sword2/south/frame_005.png"
             ]
           },
           "thrust": {
@@ -314,6 +1326,32 @@
               "Sword/animations/thrust/south/frame_005.png",
               "Sword/animations/thrust/south/frame_006.png",
               "Sword/animations/thrust/south/frame_007.png"
+            ]
+          },
+          "hit-sword": {
+            "south": [
+              "Sword/animations/hit-sword/south/frame_000.png",
+              "Sword/animations/hit-sword/south/frame_001.png",
+              "Sword/animations/hit-sword/south/frame_002.png",
+              "Sword/animations/hit-sword/south/frame_003.png",
+              "Sword/animations/hit-sword/south/frame_004.png",
+              "Sword/animations/hit-sword/south/frame_005.png"
+            ],
+            "east": [
+              "Sword/animations/hit-sword/east/frame_000.png",
+              "Sword/animations/hit-sword/east/frame_001.png",
+              "Sword/animations/hit-sword/east/frame_002.png",
+              "Sword/animations/hit-sword/east/frame_003.png",
+              "Sword/animations/hit-sword/east/frame_004.png",
+              "Sword/animations/hit-sword/east/frame_005.png"
+            ],
+            "north": [
+              "Sword/animations/hit-sword/north/frame_000.png",
+              "Sword/animations/hit-sword/north/frame_001.png",
+              "Sword/animations/hit-sword/north/frame_002.png",
+              "Sword/animations/hit-sword/north/frame_003.png",
+              "Sword/animations/hit-sword/north/frame_004.png",
+              "Sword/animations/hit-sword/north/frame_005.png"
             ]
           },
           "attack-pm": {
@@ -392,6 +1430,58 @@
               "Sword/animations/smash/east/frame_007.png"
             ]
           },
+          "walk-sword": {
+            "east": [
+              "Sword/animations/walk-sword/east/frame_000.png",
+              "Sword/animations/walk-sword/east/frame_001.png",
+              "Sword/animations/walk-sword/east/frame_002.png",
+              "Sword/animations/walk-sword/east/frame_003.png",
+              "Sword/animations/walk-sword/east/frame_004.png",
+              "Sword/animations/walk-sword/east/frame_005.png",
+              "Sword/animations/walk-sword/east/frame_006.png",
+              "Sword/animations/walk-sword/east/frame_007.png"
+            ],
+            "north": [
+              "Sword/animations/walk-sword/north/frame_000.png",
+              "Sword/animations/walk-sword/north/frame_001.png",
+              "Sword/animations/walk-sword/north/frame_002.png",
+              "Sword/animations/walk-sword/north/frame_003.png",
+              "Sword/animations/walk-sword/north/frame_004.png",
+              "Sword/animations/walk-sword/north/frame_005.png",
+              "Sword/animations/walk-sword/north/frame_006.png",
+              "Sword/animations/walk-sword/north/frame_007.png"
+            ],
+            "south-east": [
+              "Sword/animations/walk-sword/south-east/frame_000.png",
+              "Sword/animations/walk-sword/south-east/frame_001.png",
+              "Sword/animations/walk-sword/south-east/frame_002.png",
+              "Sword/animations/walk-sword/south-east/frame_003.png",
+              "Sword/animations/walk-sword/south-east/frame_004.png",
+              "Sword/animations/walk-sword/south-east/frame_005.png",
+              "Sword/animations/walk-sword/south-east/frame_006.png",
+              "Sword/animations/walk-sword/south-east/frame_007.png"
+            ],
+            "north-east": [
+              "Sword/animations/walk-sword/north-east/frame_000.png",
+              "Sword/animations/walk-sword/north-east/frame_001.png",
+              "Sword/animations/walk-sword/north-east/frame_002.png",
+              "Sword/animations/walk-sword/north-east/frame_003.png",
+              "Sword/animations/walk-sword/north-east/frame_004.png",
+              "Sword/animations/walk-sword/north-east/frame_005.png",
+              "Sword/animations/walk-sword/north-east/frame_006.png",
+              "Sword/animations/walk-sword/north-east/frame_007.png"
+            ],
+            "south": [
+              "Sword/animations/walk-sword/south/frame_000.png",
+              "Sword/animations/walk-sword/south/frame_001.png",
+              "Sword/animations/walk-sword/south/frame_002.png",
+              "Sword/animations/walk-sword/south/frame_003.png",
+              "Sword/animations/walk-sword/south/frame_004.png",
+              "Sword/animations/walk-sword/south/frame_005.png",
+              "Sword/animations/walk-sword/south/frame_006.png",
+              "Sword/animations/walk-sword/south/frame_007.png"
+            ]
+          },
           "lunge": {
             "east": [
               "Sword/animations/lunge/east/frame_000.png",
@@ -454,6 +1544,38 @@
               "Sword/animations/parry/south/frame_005.png",
               "Sword/animations/parry/south/frame_006.png",
               "Sword/animations/parry/south/frame_007.png"
+            ]
+          },
+          "idle-sword": {
+            "south-east": [
+              "Sword/animations/idle-sword/south-east/frame_000.png",
+              "Sword/animations/idle-sword/south-east/frame_001.png",
+              "Sword/animations/idle-sword/south-east/frame_002.png",
+              "Sword/animations/idle-sword/south-east/frame_003.png"
+            ],
+            "north-east": [
+              "Sword/animations/idle-sword/north-east/frame_000.png",
+              "Sword/animations/idle-sword/north-east/frame_001.png",
+              "Sword/animations/idle-sword/north-east/frame_002.png",
+              "Sword/animations/idle-sword/north-east/frame_003.png"
+            ],
+            "south": [
+              "Sword/animations/idle-sword/south/frame_000.png",
+              "Sword/animations/idle-sword/south/frame_001.png",
+              "Sword/animations/idle-sword/south/frame_002.png",
+              "Sword/animations/idle-sword/south/frame_003.png"
+            ],
+            "north": [
+              "Sword/animations/idle-sword/north/frame_000.png",
+              "Sword/animations/idle-sword/north/frame_001.png",
+              "Sword/animations/idle-sword/north/frame_002.png",
+              "Sword/animations/idle-sword/north/frame_003.png"
+            ],
+            "east": [
+              "Sword/animations/idle-sword/east/frame_000.png",
+              "Sword/animations/idle-sword/east/frame_001.png",
+              "Sword/animations/idle-sword/east/frame_002.png",
+              "Sword/animations/idle-sword/east/frame_003.png"
             ]
           },
           "spin": {
@@ -570,6 +1692,38 @@
               "Sword/animations/attack/south/frame_005.png",
               "Sword/animations/attack/south/frame_006.png",
               "Sword/animations/attack/south/frame_007.png"
+            ]
+          },
+          "death-sword": {
+            "south": [
+              "Sword/animations/death-sword/south/frame_000.png",
+              "Sword/animations/death-sword/south/frame_001.png",
+              "Sword/animations/death-sword/south/frame_002.png",
+              "Sword/animations/death-sword/south/frame_003.png",
+              "Sword/animations/death-sword/south/frame_004.png",
+              "Sword/animations/death-sword/south/frame_005.png",
+              "Sword/animations/death-sword/south/frame_006.png",
+              "Sword/animations/death-sword/south/frame_007.png"
+            ],
+            "east": [
+              "Sword/animations/death-sword/east/frame_000.png",
+              "Sword/animations/death-sword/east/frame_001.png",
+              "Sword/animations/death-sword/east/frame_002.png",
+              "Sword/animations/death-sword/east/frame_003.png",
+              "Sword/animations/death-sword/east/frame_004.png",
+              "Sword/animations/death-sword/east/frame_005.png",
+              "Sword/animations/death-sword/east/frame_006.png",
+              "Sword/animations/death-sword/east/frame_007.png"
+            ],
+            "north": [
+              "Sword/animations/death-sword/north/frame_000.png",
+              "Sword/animations/death-sword/north/frame_001.png",
+              "Sword/animations/death-sword/north/frame_002.png",
+              "Sword/animations/death-sword/north/frame_003.png",
+              "Sword/animations/death-sword/north/frame_004.png",
+              "Sword/animations/death-sword/north/frame_005.png",
+              "Sword/animations/death-sword/north/frame_006.png",
+              "Sword/animations/death-sword/north/frame_007.png"
             ]
           },
           "vanish": {
@@ -742,6 +1896,32 @@
           "south-west": "Staff/rotations/south-west.png"
         },
         "animations": {
+          "hit-staff": {
+            "north": [
+              "Staff/animations/hit-staff/north/frame_000.png",
+              "Staff/animations/hit-staff/north/frame_001.png",
+              "Staff/animations/hit-staff/north/frame_002.png",
+              "Staff/animations/hit-staff/north/frame_003.png",
+              "Staff/animations/hit-staff/north/frame_004.png",
+              "Staff/animations/hit-staff/north/frame_005.png"
+            ],
+            "east": [
+              "Staff/animations/hit-staff/east/frame_000.png",
+              "Staff/animations/hit-staff/east/frame_001.png",
+              "Staff/animations/hit-staff/east/frame_002.png",
+              "Staff/animations/hit-staff/east/frame_003.png",
+              "Staff/animations/hit-staff/east/frame_004.png",
+              "Staff/animations/hit-staff/east/frame_005.png"
+            ],
+            "south": [
+              "Staff/animations/hit-staff/south/frame_000.png",
+              "Staff/animations/hit-staff/south/frame_001.png",
+              "Staff/animations/hit-staff/south/frame_002.png",
+              "Staff/animations/hit-staff/south/frame_003.png",
+              "Staff/animations/hit-staff/south/frame_004.png",
+              "Staff/animations/hit-staff/south/frame_005.png"
+            ]
+          },
           "ultimate": {
             "east": [
               "Staff/animations/ultimate/east/frame_000.png",
@@ -876,6 +2056,26 @@
               "Staff/animations/stomp/north/frame_007.png"
             ]
           },
+          "hit-staff2": {
+            "east": [
+              "Staff/animations/hit-staff2/east/frame_000.png",
+              "Staff/animations/hit-staff2/east/frame_001.png",
+              "Staff/animations/hit-staff2/east/frame_002.png",
+              "Staff/animations/hit-staff2/east/frame_003.png",
+              "Staff/animations/hit-staff2/east/frame_004.png",
+              "Staff/animations/hit-staff2/east/frame_005.png"
+            ]
+          },
+          "dodge-staff2": {
+            "north": [
+              "Staff/animations/dodge-staff2/north/frame_000.png",
+              "Staff/animations/dodge-staff2/north/frame_001.png",
+              "Staff/animations/dodge-staff2/north/frame_002.png",
+              "Staff/animations/dodge-staff2/north/frame_003.png",
+              "Staff/animations/dodge-staff2/north/frame_004.png",
+              "Staff/animations/dodge-staff2/north/frame_005.png"
+            ]
+          },
           "push": {
             "north": [
               "Staff/animations/push/north/frame_000.png",
@@ -940,6 +2140,160 @@
               "Staff/animations/cast/north/frame_007.png"
             ]
           },
+          "dodge-staff": {
+            "north": [
+              "Staff/animations/dodge-staff/north/frame_000.png",
+              "Staff/animations/dodge-staff/north/frame_001.png",
+              "Staff/animations/dodge-staff/north/frame_002.png",
+              "Staff/animations/dodge-staff/north/frame_003.png",
+              "Staff/animations/dodge-staff/north/frame_004.png",
+              "Staff/animations/dodge-staff/north/frame_005.png"
+            ],
+            "east": [
+              "Staff/animations/dodge-staff/east/frame_000.png",
+              "Staff/animations/dodge-staff/east/frame_001.png",
+              "Staff/animations/dodge-staff/east/frame_002.png",
+              "Staff/animations/dodge-staff/east/frame_003.png",
+              "Staff/animations/dodge-staff/east/frame_004.png",
+              "Staff/animations/dodge-staff/east/frame_005.png"
+            ],
+            "south": [
+              "Staff/animations/dodge-staff/south/frame_000.png",
+              "Staff/animations/dodge-staff/south/frame_001.png",
+              "Staff/animations/dodge-staff/south/frame_002.png",
+              "Staff/animations/dodge-staff/south/frame_003.png",
+              "Staff/animations/dodge-staff/south/frame_004.png",
+              "Staff/animations/dodge-staff/south/frame_005.png"
+            ]
+          },
+          "death-staff": {
+            "north": [
+              "Staff/animations/death-staff/north/frame_000.png",
+              "Staff/animations/death-staff/north/frame_001.png",
+              "Staff/animations/death-staff/north/frame_002.png",
+              "Staff/animations/death-staff/north/frame_003.png",
+              "Staff/animations/death-staff/north/frame_004.png",
+              "Staff/animations/death-staff/north/frame_005.png",
+              "Staff/animations/death-staff/north/frame_006.png",
+              "Staff/animations/death-staff/north/frame_007.png"
+            ],
+            "east": [
+              "Staff/animations/death-staff/east/frame_000.png",
+              "Staff/animations/death-staff/east/frame_001.png",
+              "Staff/animations/death-staff/east/frame_002.png",
+              "Staff/animations/death-staff/east/frame_003.png",
+              "Staff/animations/death-staff/east/frame_004.png",
+              "Staff/animations/death-staff/east/frame_005.png",
+              "Staff/animations/death-staff/east/frame_006.png",
+              "Staff/animations/death-staff/east/frame_007.png"
+            ],
+            "south": [
+              "Staff/animations/death-staff/south/frame_000.png",
+              "Staff/animations/death-staff/south/frame_001.png",
+              "Staff/animations/death-staff/south/frame_002.png",
+              "Staff/animations/death-staff/south/frame_003.png",
+              "Staff/animations/death-staff/south/frame_004.png",
+              "Staff/animations/death-staff/south/frame_005.png",
+              "Staff/animations/death-staff/south/frame_006.png",
+              "Staff/animations/death-staff/south/frame_007.png"
+            ]
+          },
+          "walk-staff": {
+            "north": [
+              "Staff/animations/walk-staff/north/frame_000.png",
+              "Staff/animations/walk-staff/north/frame_001.png",
+              "Staff/animations/walk-staff/north/frame_002.png",
+              "Staff/animations/walk-staff/north/frame_003.png",
+              "Staff/animations/walk-staff/north/frame_004.png",
+              "Staff/animations/walk-staff/north/frame_005.png",
+              "Staff/animations/walk-staff/north/frame_006.png",
+              "Staff/animations/walk-staff/north/frame_007.png"
+            ],
+            "east": [
+              "Staff/animations/walk-staff/east/frame_000.png",
+              "Staff/animations/walk-staff/east/frame_001.png",
+              "Staff/animations/walk-staff/east/frame_002.png",
+              "Staff/animations/walk-staff/east/frame_003.png",
+              "Staff/animations/walk-staff/east/frame_004.png",
+              "Staff/animations/walk-staff/east/frame_005.png",
+              "Staff/animations/walk-staff/east/frame_006.png",
+              "Staff/animations/walk-staff/east/frame_007.png"
+            ],
+            "north-east": [
+              "Staff/animations/walk-staff/north-east/frame_000.png",
+              "Staff/animations/walk-staff/north-east/frame_001.png",
+              "Staff/animations/walk-staff/north-east/frame_002.png",
+              "Staff/animations/walk-staff/north-east/frame_003.png",
+              "Staff/animations/walk-staff/north-east/frame_004.png",
+              "Staff/animations/walk-staff/north-east/frame_005.png",
+              "Staff/animations/walk-staff/north-east/frame_006.png",
+              "Staff/animations/walk-staff/north-east/frame_007.png"
+            ],
+            "south": [
+              "Staff/animations/walk-staff/south/frame_000.png",
+              "Staff/animations/walk-staff/south/frame_001.png",
+              "Staff/animations/walk-staff/south/frame_002.png",
+              "Staff/animations/walk-staff/south/frame_003.png",
+              "Staff/animations/walk-staff/south/frame_004.png",
+              "Staff/animations/walk-staff/south/frame_005.png",
+              "Staff/animations/walk-staff/south/frame_006.png",
+              "Staff/animations/walk-staff/south/frame_007.png"
+            ],
+            "south-east": [
+              "Staff/animations/walk-staff/south-east/frame_000.png",
+              "Staff/animations/walk-staff/south-east/frame_001.png",
+              "Staff/animations/walk-staff/south-east/frame_002.png",
+              "Staff/animations/walk-staff/south-east/frame_003.png",
+              "Staff/animations/walk-staff/south-east/frame_004.png",
+              "Staff/animations/walk-staff/south-east/frame_005.png",
+              "Staff/animations/walk-staff/south-east/frame_006.png",
+              "Staff/animations/walk-staff/south-east/frame_007.png"
+            ]
+          },
+          "idle-staff": {
+            "south": [
+              "Staff/animations/idle-staff/south/frame_000.png",
+              "Staff/animations/idle-staff/south/frame_001.png",
+              "Staff/animations/idle-staff/south/frame_002.png",
+              "Staff/animations/idle-staff/south/frame_003.png"
+            ],
+            "south-east": [
+              "Staff/animations/idle-staff/south-east/frame_000.png",
+              "Staff/animations/idle-staff/south-east/frame_001.png",
+              "Staff/animations/idle-staff/south-east/frame_002.png",
+              "Staff/animations/idle-staff/south-east/frame_003.png"
+            ],
+            "north": [
+              "Staff/animations/idle-staff/north/frame_000.png",
+              "Staff/animations/idle-staff/north/frame_001.png",
+              "Staff/animations/idle-staff/north/frame_002.png",
+              "Staff/animations/idle-staff/north/frame_003.png"
+            ],
+            "north-east": [
+              "Staff/animations/idle-staff/north-east/frame_000.png",
+              "Staff/animations/idle-staff/north-east/frame_001.png",
+              "Staff/animations/idle-staff/north-east/frame_002.png",
+              "Staff/animations/idle-staff/north-east/frame_003.png"
+            ],
+            "east": [
+              "Staff/animations/idle-staff/east/frame_000.png",
+              "Staff/animations/idle-staff/east/frame_001.png",
+              "Staff/animations/idle-staff/east/frame_002.png",
+              "Staff/animations/idle-staff/east/frame_003.png"
+            ]
+          },
+          "walk-staff2": {
+            "east": [
+              "Staff/animations/walk-staff2/east/frame_000.png",
+              "Staff/animations/walk-staff2/east/frame_001.png",
+              "Staff/animations/walk-staff2/east/frame_002.png",
+              "Staff/animations/walk-staff2/east/frame_003.png",
+              "Staff/animations/walk-staff2/east/frame_004.png",
+              "Staff/animations/walk-staff2/east/frame_005.png",
+              "Staff/animations/walk-staff2/east/frame_006.png",
+              "Staff/animations/walk-staff2/east/frame_007.png"
+            ]
+          },
           "throw": {
             "north": [
               "Staff/animations/throw/north/frame_000.png",
@@ -977,5 +2331,5 @@
     }
   ],
   "export_version": "3.1",
-  "export_date": "2026-10-09T13:00:26.665130"
+  "export_date": "2026-10-09T23:37:01.024723"
 }

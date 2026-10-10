@@ -1,28 +1,34 @@
-# Kế hoạch thế giới: 10 vùng đất × 7 map (chốt khung 08/10/2026)
+# Kế hoạch thế giới: 10 vùng đất × 12 map (khung chốt 08/10/2026; 12 map / vùng chốt 10/10/2026)
 
 > Danh sách chi tiết từng vùng / map / quái / boss / rồng + trang bị + ngân sách PixelLab (một gói 24$) + bàn giao cho agent sau:
 > **`docs/the-gioi-aether.md`** (sinh từ `docs/tools/the-gioi-aether.py`, kèm trang HTML `docs/the-gioi-aether.html`).
 
 Chủ dự án 08/10/2026: thế giới có **khoảng 10 vùng đất** (băng, sa mạc, đầm lầy…). Các map đang có tính là **vùng 1**. Mỗi
-vùng **khoảng 3 boss** và **khoảng 7 map con** → **~70 map**. Luật thế giới đã chốt từ trước vẫn giữ:
+vùng **khoảng 3 boss** và **khoảng 7 map con** → **~70 map**. **Chủ dự án 10/10/2026: mỗi vùng 12 map, làm vùng 1 trước** → cả thế
+giới **~120 map** (thiết kế vùng 1: `docs/thiet-ke/vung1-12-map.md`, dữ liệu `docs/thiet-ke/vung1-12-map.json`). Luật thế giới đã
+chốt từ trước vẫn giữ:
 
 - Mỗi khu săn **chỉ MỘT loại quái**, sinh theo **bầy**.
 - Trong một vùng: đi tới mép map thì nạp map kế, có **mũi tên chỉ hướng** ở lối sang (đang chạy).
 - Mỗi vùng **một style đồng nhất**: một bộ nền, một loại cây chính, nhà/đồ vật cùng nét PixelLab, không trộn nguồn hình.
 
-## 1. Khung một vùng (7 map)
+## 1. Khung một vùng (12 map — chốt 10/10/2026, trước là 7)
 
 | Map | Số lượng | Nội dung |
 |---|---|---|
 | **Trạm** (làng / trại / cảng) | 1 | Không quái. NPC nhiệm vụ, thương nhân, thợ rèn / thợ may / thợ cắt tóc (vùng lớn), điểm hồi sinh, **cột dịch chuyển** |
-| **Map săn** | 5 | Mỗi map 1 loại quái theo bầy (5 khu bầy như map hiện tại). 2 trong 5 map có **hang ổ boss khu** ở góc (như Vua Lich ở hầm mộ Nghĩa địa) |
+| **Map săn** | 10 | Mỗi map 1 loại quái theo bầy (4–5 bầy 3–6 con). 2 trong 10 map có **hang ổ boss khu** (như Vua Lich ở hầm mộ Nghĩa địa). Vùng 1 có thêm 1 map **tuổi thơ dùng chung** với người lớn (Bãi Bồi: khu riêng cấp 1 cho 8–15 tuổi + khu 16+) |
 | **Thánh địa boss chúa** | 1 | Map nhỏ, cuối vùng, chỉ có boss chúa (như Đá Phong Ấn của Quỷ vương). Hạ boss chúa thì mở lối sang vùng kế |
 
 → **3 boss / vùng** = 2 boss khu (hồi sinh theo giờ, như `regionBoss` hiện tại) + 1 boss chúa (cốt truyện, có chiêu riêng xịn).
-→ **5 loại quái thường / vùng** → cả thế giới ~**50 loại quái + 30 boss**, cộng **7 rồng** là boss THÊM (mục 2.1).
+→ **5 loại quái thường / vùng** → cả thế giới ~**50 loại quái + 30 boss**, cộng **7 rồng** là boss THÊM (mục 2.1). Một loại quái
+dùng ở 2–3 map với **cấp theo khu** (`MonsterZone.level` → `enemyStatsAt` ở `packages/sim/src/skills.ts`, máy chủ và client dùng
+chung; nhãn tên quái hiện "Cấp N").
 
-Bố cục trong vùng: trạm ở đầu, map săn xếp thành cây 2 nhánh (giống vùng 1: Thistlewood → Mossvale → Đá Phong Ấn, và
-Thistlewood → Nghĩa địa → Đồi Xương / Vách Gargoyle), thánh địa ở cuối nhánh khó nhất.
+Bố cục trong vùng (vùng 1 làm mẫu — `docs/thiet-ke/vung1-12-map.md` mục Đồ thị lối): trạm ở giữa, các map săn nối thành **vòng
+đi được** (mọi lối nối đúng mép đối diện, lối mới của map cũ khai ở CUỐI mảng `exits`), chỉ còn thánh địa và map cửa sang vùng kế
+là cụt. Luật mới: tâm bầy cách nước ≥ 6 ô (quái đuổi thẳng — đứng sau nước là kẹt bên bờ), khu tuổi thơ có `untilAge` (EXP khu
+tuổi thơ không đưa nhân vật quá cấp 3 — `CHILD_ZONE_LEVEL_CAP`), nhiệm vụ "kill" có `onGive.zone` chỉ đếm quái của khu đó.
 
 ## 1.1 Nơi ở của mỗi vùng: làng hoặc toà thành (chủ dự án 08/10/2026)
 
@@ -67,8 +73,9 @@ một hệ để cây Nguyên tố có ý nghĩa: quái **kháng** hệ của v�
 | 9 | **Phế tích Aether** | thành cổ đổ nát, cột ma pháp, máy móc cổ | Aether / thép (kháng phép, yếu Kiếm) | hiệp sĩ ma, vệ binh máy, sách bay, pháp sư mất trí, gargoyle cổ | Hiệp sĩ đầu lâu · Cỗ máy canh giữ · **Đại pháp sư sa đoạ** |
 | 10 | **Vực Hư Không** | đảo trôi, nền tím đen, khe nứt không gian | Bóng tối / hỗn hợp | quỷ hư không, mắt bay, bóng người, ác linh, ma sói | Hiệp sĩ hư không · Mẹ quỷ · **Ma vương** (trùm cuối cốt truyện) |
 
-Vùng 1 hiện có 6 map, 2 boss, 4 loại quái thường + boss. Muốn đủ khung thì thêm **1 map săn** (gợi ý: **Hang Gargoyle**
-nối Vách Gargoyle, có boss khu Gargoyle Đá) và **1 loại quái thường**.
+Vùng 1 (10/10/2026): **12 map** theo thiết kế chốt — 6 map cũ + Bãi Bồi Brightwater, Vết Rạn Mossvale, Mộ Vô Danh, Luỹ Hiệp Sĩ
+Cũ, **Hang Gargoyle** (boss khu Gargoyle Đá + Dơi hang `mob_cave_bat_001` là loại quái thường thứ 5 — CHỜ CHỦ DỰ ÁN DUYỆT, không
+duyệt thì Hang dùng gargoyle cấp 8–9) và Hẻm Cửa Sông (lối sang vùng 2). Trạng thái ĐỢT 1 / ĐỢT 2 ở mục 5.2.
 
 ## 2.1 Bảy Rồng Nguyên Tố (chủ dự án 08/10/2026: "có đủ 7 con rồng nguyên tố, sắp xếp hợp lý")
 
@@ -89,7 +96,7 @@ bùn, Sâu cát khổng lồ — "họ hàng của rồng", báo trước).
 | **Hắc Long** | Vô Tận | 10 Vực Hư Không · khe nứt trước cổng thành Ma vương | ~95 | Hắc ám — yếu Aether, Hoả | hố hư không hút người chơi, bóng rồng tách làm ba, tắt sáng một nửa màn |
 
 Bố trí:
-- Mỗi rồng ở một **map nhỏ riêng "Long Huyệt"** (map phụ, đi vào từ một map của vùng như cột trên; KHÔNG tính vào ~7 map của
+- Mỗi rồng ở một **map nhỏ riêng "Long Huyệt"** (map phụ, đi vào từ một map của vùng như cột trên; KHÔNG tính vào 12 map của
   vùng) — sân đủ rộng cho đông người đánh rồng, không lẫn quái thường. Cả thế giới: 30 boss của các vùng + 7 rồng.
 - **Đủ cấp mới được vào Long Huyệt** (chủ dự án 08/10/2026: "đủ cấp mới được vào, đủ level để mở chiêu cuối ấy"): cổng Long
   Huyệt đòi **cấp mở chiêu cuối (mốc 10)** — chưa dùng được tuyệt kỹ thì chưa được tranh Long Châu. Hiện mốc 10 chỉ tính theo
@@ -153,10 +160,10 @@ phút, rồng ~1–2 giờ).
 - **Cột dịch chuyển ở mỗi trạm**: đã tới trạm nào thì dịch chuyển về đó được (tốn ít xu) — 10 vùng mà phải đi bộ lại thì
   chán.
 - **Bản đồ tổng (phím M / nút trên HUD)**: một tranh lục địa vẽ tay kiểu pixel (PixelLab, token trả phí), 10 vùng đặt
-  trên đó. Vùng chưa tới thì phủ sương; vùng đã tới hiện tên + cấp khuyên dùng; bấm vào vùng thì xem 7 map con (dùng
+  trên đó. Vùng chưa tới thì phủ sương; vùng đã tới hiện tên + cấp khuyên dùng; bấm vào vùng thì xem 12 map con (dùng
   minimap đang có) + vị trí boss đã gặp. Tranh vẽ một lần cho cả lục địa ngay từ đầu (để vị trí 10 vùng cố định), vùng
   chưa làm thì để sương.
-- Máy chủ game: id map hiện là `mapId` trong một vùng → đổi thành `vùng/map` (vd `human/town`) để 70 map không trùng tên;
+- Máy chủ game: id map hiện là `mapId` trong một vùng → đổi thành `vùng/map` (vd `human/town`) để ~120 map không trùng tên;
   bản lưu cũ tự thêm tiền tố `human/`.
 
 ### 3.1 Tranh lục địa — VẼ TRƯỚC (chủ dự án 08/10/2026: "vẽ trước cái map tổng xong rồi sẽ làm map dần dần")
@@ -212,7 +219,7 @@ ghi rõ chỗ nào đang tạm.
 4. **Bản đồ tổng** (UI): tranh lục địa + sương + bấm vùng xem map con.
 5. **Kháng / yếu hệ của quái** (`ENEMY_STATS.resist`): nhân sát thương theo hệ — để mỗi vùng có lý do đổi build/phủ phép.
 6. **Bảng cấp vùng**: cấp quái, exp, xu, bảng rơi đồ theo vùng (nối với kế hoạch đồ đạc/kinh tế).
-7. **Công cụ dựng map vùng mới** trong pipeline: khung 7 map + bộ đồ vật của vùng → map JSON + minimap (pipeline `map` đang
+7. **Công cụ dựng map vùng mới** trong pipeline: khung 12 map + bộ đồ vật của vùng → map JSON + minimap (pipeline `map` đang
    dựng vùng `human`, cần tham số hoá theo vùng).
 
 ## 5.1 Khung nhiều vùng — ĐÃ LÀM phần lớn T0b (08/10/2026)
@@ -229,13 +236,67 @@ ghi rõ chỗ nào đang tạm.
 - **NPC theo vùng**: `NpcDef.region` (thiếu = vùng đầu) — địa điểm trùng tên ở trạm vùng khác không kéo NPC cốt truyện vùng 1 sang.
 - **Kháng / yếu hệ** của quái: `ENEMY_STATS.resist` (hệ số theo hệ, kẹp 0,25–3) nhân vào đòn trúng + nhịp cháy. Quái vùng 1 CHƯA đặt
   (giữ cân bằng hiện tại) — quái vùng mới khai theo hệ của vùng (mục 2).
+- **Cân độ khó vùng 1 (09/10/2026)** — chủ dự án: "tăng máu quái cho khó hơn, boss cũng mạnh hơn": quái thường MÁU ×1,6 + EXP / xu
+  ×1,2; boss MÁU ×2,2, CÔNG ×1,25, nhịp đánh `attackCd` ×0,9 + EXP / xu ×1,4 (`ENEMY_STATS` — bảng thời gian hạ cũ → mới ghi ngay
+  trên bảng; máy chủ đọc chung bảng, không có trần sát thương theo máu quái). Quái / boss vùng mới cân từ mức này.
 - **Pipeline**: `npm run assets:map -- <vùng>` (mặc định `human`); vùng mới khai ở `packages/asset-pipeline/src/maps/regions.ts`. Lối
-  sang vùng khác không bắt map đích trong vùng này (kiểm chéo khi dựng vùng kia — `crossRegionExits`). Dựng lại vùng 1: không đổi byte nào.
+  sang vùng khác không bắt map đích trong vùng này (kiểm chéo khi dựng vùng kia — `crossRegionExits`). Dựng lại vùng 1 trước 10/10/2026:
+  không đổi byte nào; từ bản 12 map, 5 map cũ chỉ đổi đúng phần thiết kế cho phép (mục 5.2).
 - Thử thật (máy chủ thử + vùng THỬ tạm chép từ Đá Phong Ấn, xoá sau khi thử): cổng báo "đang xây dựng", sang vùng thử có màn chuyển
   vùng + minimap / tên khu / lối đúng vùng, quay lại vùng 1, cột dịch chuyển mở bảng. Test: `apps/server/tests/regions.test.ts`,
   `packages/asset-pipeline/tests/maps.test.ts`.
 - **Chưa làm**: bản đồ tổng (chờ tranh lục địa PixelLab), bảng cấp / rơi đồ theo vùng (mục 5.6 — làm cùng vùng 2), dẫn đường nhiệm
   vụ XUYÊN vùng (tìm đường hiện trong một vùng; nhiệm vụ mới chỉ có ở vùng 1).
+
+## 5.2 Vùng 1 — 12 map (thiết kế chốt 10/10/2026) — Tiến độ
+
+Thiết kế: `docs/thiet-ke/vung1-12-map.md` (+ `.json`). 12 map, 14 cạnh trong vùng + 1 lối sang vùng 2 (Hẻm Cửa Sông → `swamp/hub`
+điểm đến `east_gate`; khi dựng vùng 2: hub phải có địa điểm `east_gate` + lối về `human/rivergate` điểm đến `swamp_gate_vg`).
+
+**ĐỢT 1 — ĐÃ DỰNG + LÊN BẢN THẬT 10/10/2026** (12 map đang chạy trên Funnel; bản thử `.aether-stage/assets`, máy chủ thử
+:3201 chạy với `AETHER_MAPS=.aether-stage/assets/maps`):
+- Luật / dữ liệu: cấp quái theo khu (`MonsterZone.level` → `enemyStatsAt` + `ENEMY_BASE_LEVEL` ở `packages/sim/src/skills.ts`; khu
+  không khai cấp giữ nguyên `ENEMY_STATS` nên 6 map cũ không đổi số nào). Máy chủ: sổ quái nhân chỉ số theo cấp, `sharedKill` trao
+  EXP / xu theo chính con quái, `privateKill` nhận id khu + kiểm khu riêng đó trên map đang đứng, `MobView.level`. Client: sinh quái
+  theo cấp, nhãn tên "Cấp N", không sinh khu đã quá `untilAge`. Khu tuổi thơ (`fromAge` < 16) có `untilAge` ≤ 15; EXP từ khu tuổi
+  thơ không đưa nhân vật quá cấp 3 (`CHILD_ZONE_LEVEL_CAP`, cả client lẫn máy chủ). Nhiệm vụ "kill" có `onGive.zone` chỉ đếm quái
+  của khu đó (y2_shadows, c8_forest_edge). Mốc thành tựu `maps_70` → `maps_120`.
+- Quái / boss mới: Dơi hang `mob_cave_bat_001` (Hang, cấp 8–9) + boss khu Gargoyle Đá `boss_stone_gargoyle_001` (cấp 10, hồi sinh theo
+  giờ, vòng nổ `boss_stone_slam`): chỉ số, Thư viện, 3 câu thoại, atlas (duyệt bằng mắt 10/10/2026 — dơi bỏ động tác đánh hướng bắc
+  vì lỗi hình; Gargoyle Đá đi hướng bắc cánh sẫm hơn, tạm giữ), VFX vào atlas.
+- Map: 5 map cũ chỉ thêm lối (khai CUỐI mảng `exits`) / địa điểm / biển / đường (so JSON trước–sau: địa điểm, khu quái, lối cũ
+  KHÔNG đổi; Mossvale xáo lại vài bụi cây + decal sau đường mới đúng như thiết kế dự báo; Vách lát khe lên hang sau khi rải decal để
+  decal không lệch). Bãi Bồi Brightwater, Vết Rạn Mossvale, Hang Gargoyle (tấm CV1 / CV2), Hẻm Cửa Sông dựng đủ bằng hình đã có.
+- Pipeline (`validateRegion`): cấp khu nằm trong khoảng cấp vùng; tâm bầy quái thường cách nước ≥ 6 ô; khu tuổi thơ tự sinh phải có
+  `untilAge` ≤ 15; lối hai chiều ở hai mép đối diện. `world.json`: `level` từng khu + `levels` [thấp, cao] của map.
+- Test: `packages/asset-pipeline/tests/maps.test.ts` (12 map, luật mới), `apps/web/tests/nav.test.ts` (vùng kín làm cảnh — lõi đá
+  hang, bờ bên kia sông — không tính khe lẻ; điểm sinh quái đứng được; số bước từ trạm đúng thiết kế), `zonelevel.test.ts`,
+  `apps/server/tests/economy.test.ts`. Kiểm map nháp: `AETHER_WEB_ASSETS=<thư mục nháp> npx tsx tests/<tên>.test.ts` (apps/web).
+
+**ĐỢT 2 — ĐÃ VẼ + DỰNG VÀO BẢN THỬ 10/10/2026, CHƯA lên Funnel**: vẽ nợ hình vùng 1 bằng token #1 — 48 lượt (3 tấm 3×3 ×
+6 + 5 món lẻ × 6), không vẽ lại món nào:
+- Tấm `sheets/G1_graveyard.png` (bia tròn, bia chữ thập, bia vỡ, gò mộ, rào sắt, đống sọ, quan tài, đèn ma, bụi chết),
+  `R1_ruins.png` (tường đổ, tượng gargoyle, tảng đá, bậc đá, cột đổ, chậu lửa, mỏm đá, chóp đá, bia khắc rune), `B1_bonehills.png`
+  (xương sườn thú, sọ thú có sừng, đống xương, gốc cây chết, đá bạc màu, cờ trận, kiếm gãy, rào chông, cột tô-tem sọ) — đúng thứ tự
+  ô `props/humanKingdom.ts` khai sẵn (đã soi từng ô). Công thức như CV1 / CV2: ảnh mẫu `N1_nature.png`, `color_palette: false`,
+  "each small and centered in its own cell", nền magenta. Đề bài: `sources/pixellab/sheets/<tấm>.png.json`.
+- 5 đồ vật Pro Flash nhìn chính diện (`pixellab object`, 1 hướng): `tree_dead`, `tree_pine_dry` (160×192, ảnh mẫu cây sồi
+  `style/tree_ref.png`), `crypt`, `cliff_rock`, `ruin_arch` (192×192, ảnh mẫu `objects/house_stone`). Đề bài
+  `sources/pixellab/objects/<món>/args.json` (`style_image_path` → đổi thành base64 trước khi gửi: lệnh `object` gửi JSON nguyên văn).
+- Cắt sạch, cỡ hợp với nhân vật (bia ~41×42, rào sắt 58 rộng → khe giữa các đoạn 14px; tường đổ 59 rộng → khe ~21px < hộp chân 22px
+  nên tường luỹ / cổng đá vẫn kín; cây chết 122×149 ≈ cây sồi; hầm mộ 150×176; vách đá 178×158; vòm đá 148×143 đi xuyên được).
+- Dựng lại `AETHER_WEB_ASSETS=.aether-stage/assets npm run assets:map -- human` (KHÔNG sửa code): atlas 87 đồ vật + 33 decal;
+  Nghĩa địa 4 → 278 đồ vật, Đồi Xương 2 → 164, Vách 12 → 143, Mộ Vô Danh 79 → 206, Luỹ 15 → 190, Hẻm Cửa Sông 222 → 245; Hang
+  Gargoyle xáo đồ trang trí (đá R1 có hình nên nhánh dự phòng không rút thêm số ngẫu nhiên) — địa hình / địa điểm / khu quái / lối
+  của cả 12 map KHÔNG đổi (`world.json` y nguyên; town, mossvale, shrine, riverflats, mossrift giống từng byte). `validateRegion`,
+  `nav.test` (mọi điểm sinh quái đứng được, mọi địa điểm / lối tới được), `codex` / `zonelevel`, `maps.test`, test máy chủ đều đạt.
+- Máy chủ game chỉ đọc khu quái / địa điểm / boss của file map (không dùng đồ vật) → lên Funnel ĐỢT 2 KHÔNG cần khởi động lại máy
+  chủ: chép `.aether-stage/assets/maps/human/` (props.png / .json / .meta.json, 12 `<map>.json` + `.minimap.png` / `.minimap.json`,
+  `world.json`) sang `apps/web/public/assets/maps/human/` (hoặc dựng lại vào public). Người lưu vị trí trong chân đồ vật mới thì
+  vào lại ở điểm hồi sinh của map (`Game` bỏ vị trí đã lưu bị chặn).
+
+**Chủ dự án đã duyệt 10/10/2026** ("map thì cứ làm thôi"): giữ Dơi hang ở Hang Gargoyle, lối sang vùng 2 qua Hẻm Cửa Sông, giữ
+Đường hầm của Đoàn vào thẳng gian boss (boss cày tiện — theo dõi nhịp hồi sinh Gargoyle Đá).
 
 ## 6. Thứ tự triển khai
 
@@ -243,7 +304,7 @@ ghi rõ chỗ nào đang tạm.
 |---|---|---|
 | T0a | **Tranh lục địa** (mục 3.1) + UI bản đồ tổng (phím M, sương phủ vùng chưa làm) — làm ĐẦU TIÊN | tranh lục địa (1 lần) |
 | T0b | Phần code dùng chung còn lại (mục 5) | — |
-| T1 | Hoàn thiện vùng 1: thêm Hang Gargoyle + boss Gargoyle Đá + 1 loại quái → đủ 7 map, 3 boss | ~40 lượt miễn phí + boss |
+| T1 | Hoàn thiện vùng 1 lên **12 map** (thiết kế 10/10/2026): ĐỢT 1 đã dựng 10/10/2026 (mục 5.2); ĐỢT 2 chờ tấm G1 / R1 / B1 + 5 món lẻ | 0 lượt bắt buộc (hình đã vẽ) + nợ G1 / R1 / B1 |
 | T2 | Vùng 2 Đầm lầy Mù Sương (gần nhất về cấp, khác hẳn vùng 1 về màu) | ~240 + ~550 |
 | T3… | Mỗi vùng tiếp theo một lượt, theo thứ tự cấp ở bảng mục 2 | như trên |
 

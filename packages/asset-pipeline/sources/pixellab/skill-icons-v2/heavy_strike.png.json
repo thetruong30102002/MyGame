@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a huge heavy greatsword chopping straight down into a yellow impact burst, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/sword.png",
+	"jobId": "f5afb44a-a480-402c-b8d9-652029df1036",
+	"token": 1,
+	"createdAt": "2026-10-09T19:13:29.540Z"
+}

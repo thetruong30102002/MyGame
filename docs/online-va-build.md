@@ -16,6 +16,7 @@ apps/server/        Node 24 + ws + node:sqlite (không cần cài CSDL) — cổ
   src/db.ts         tài khoản · phiên đăng nhập · nhân vật (tiến độ lưu dạng JSON)
   src/http.ts       REST: /api/register · login · logout · characters (GET/POST/DELETE) · characters/:id/progress (PUT)
   src/world.ts      WebSocket /ws: vị trí 10 lần/giây, chat, lưu tiến độ, chặn dịch chuyển quá tốc độ
+  src/actions.ts    kiểm phần chiêu của tin action (mã chiêu thật, kẹp điểm nhắm) — người khác thấy chiêu, chỉ hình
 packages/protocol/  kiểu dữ liệu + luật kiểm tên dùng chung cho máy chủ và web
 apps/web/src/net/   api.ts (REST) · OnlineSession.ts (WebSocket tự nối lại, lưu mềm/lưu chắc)
 ```
@@ -26,7 +27,7 @@ apps/web/src/net/   api.ts (REST) · OnlineSession.ts (WebSocket tự nối lạ
 - Một nhân vật chỉ online ở một nơi: đăng nhập nơi khác thì bản cũ bị đẩy ra.
 - Tiến độ truyện lưu theo **từng nhân vật** trên máy chủ (`StoryDirector.storage`); chơi đơn / bài thử
   vẫn dùng localStorage như cũ.
-- Thử: `npx tsx apps/server/tests/smoke.test.ts` (12 kiểm tra) · bot thử bằng mắt: `tests/bot.ts`.
+- Thử: `npx tsx apps/server/tests/smoke.test.ts` (30 kiểm tra, chạy vào máy chủ THỬ :3201) · bot thử bằng mắt: `tests/bot.ts`.
 
 ## Các mốc
 
@@ -311,7 +312,8 @@ Chủ dự án chê cú "giật" khi đánh (sprite dịch 7px/3px về phía m�
   test `apps/web/tests/action.test.ts`.
 - **Chưa vẽ hướng nào thì đòn nổ ngay như trước** (không giật). Hướng dùng hướng kề ≤45° (E ↔ SE/NE), KHÔNG
   dùng hướng xa (E không lấy S) — vung sai hướng còn xấu hơn không vung.
-- **Online:** tin `t:'action'` (máy chủ kiểm `anim`/`dir`, tối đa 8 tin/giây) → máy khác chỉ phát hình, cùng
+- **Online:** tin `t:'action'` (máy chủ kiểm `anim`/`dir`, tối đa 8 tin/giây; từ 10/10 kèm phần CHIÊU `fx` để máy khác vẽ cả
+  hình của chiêu — mục *Thấy chiêu của nhau* ngay dưới) → máy khác phát hình, cùng
   hồi chiêu của kỹ năng nên cùng mốc. Đòn bị cắt trước khi diễn hết (né, đi, bị ngắt) gửi thêm `t:'actionEnd'`
   (tin riêng — máy chủ bản cũ bỏ qua im lặng, không bao giờ phát lại thành một cú vung) → máy kia dừng hình;
   thiếu tin đó thì máy người xem tự dừng khi người kia đang đi mà động tác đã qua mốc huỷ, hoặc lệch vị trí
@@ -380,6 +382,63 @@ npm run assets:character -- <id>
   `quality.weaponAnims` (kèm lý do) để cổng tầng 2 miễn hai phép kiểm "vật lạ"/"liền khối" cho riêng attack/cast.
 - Hiện có: Lior bé (E/S/N chém, E/S vung trượng), bản 16 tuổi nam + nữ (đủ E/S/N cả hai động tác); hướng tây lật
   gương, hướng chéo game lấy hướng kề.
+
+### Thấy chiêu của nhau: phần chiêu trong tin `action` (10/10/2026)
+
+Chủ dự án (09/10/2026): "người này phải thấy skill của người kia chơi pvp mà". Trước đó máy người xem chỉ phát ĐỘNG TÁC thân,
+mà động tác ra đòn vẽ tay không (vũ khí ẩn lúc vung, cú đánh thể hiện bằng hiệu ứng) → người kia vung tay suông.
+
+- **Giao thức** (`packages/protocol` — `ActionFx`, `cleanActionFx`, tương thích ngược hai chiều): tin `action` thêm trường TUỲ
+  CHỌN `fx` = hướng ngắm `ax`/`ay` (vector đơn vị — mịn hơn 8 hướng), điểm nhắm `tx`/`ty` (chỉ đòn đặt vùng), hệ phủ phép `el`,
+  hồi chiêu thật `cd` + hệ số nhanh `sp` (Đà Lướt — để khung chạm trùng), `boost` (Gió Sắc), cờ hình phụ `fl` (lưỡi gió phủ Phong
+  mốc 7, Xoáy Nước bùng). KHÔNG có con số sát thương nào. Mã chiêu vẫn ở `skill`. Tên / giá trị cũ giữ nguyên.
+- **Người tung** (`CombatSystem.cast` → `remoteCast.castFx`): mọi chiêu đều báo — kể cả chiêu không vung thân (lướt, giữ thế:
+  `anim` = động tác riêng của chiêu cho máy bản cũ, máy mới biết chiêu đó không vung nên chỉ vẽ hình); chiêu dồn lực (Nhất Kích)
+  báo lúc BẮT ĐẦU dồn, né / bị ngắt lúc đang dồn thì gửi `actionEnd`.
+- **Máy chủ** (`apps/server/src/actions.ts` `cleanCast`, gọi từ `World.action`): mã chiêu phải có trong `HERO_SKILLS` (lạ →
+  `skill: ''`, bỏ `fx`); `fx` sai dạng (hướng không hữu hạn / bằng 0, điểm nhắm không hữu hạn / ngoài thế giới / thiếu một toạ
+  độ) → bỏ `fx` IM LẶNG, động tác thân vẫn đi như luật cũ; điểm nhắm chỉ giữ cho đòn đặt vùng, kẹp trong tầm chiêu + `AIM_SLACK`
+  (96px) quanh vị trí máy chủ đang giữ; hệ phủ phép lạ / `cd` dài hơn hồi chiêu gốc thì bỏ riêng trường đó. Giữ trần 8 tin/giây,
+  chỉ người CÙNG map nhận, không dội về người gửi.
+- **Người xem** (`remoteCast.planRemoteCast` → `CombatSystem.echoCast`): chuẩn hoá lại (không tin dữ liệu mạng) rồi vẽ ĐÚNG các
+  hình `release` vẽ cho đòn của mình, neo vào nhân vật người kia, đúng khung chạm (cùng `hitFrame`, cùng hồi chiêu): đạn bay theo
+  hướng ngắm (chạm quái DÙNG CHUNG thì tan + hình trúng, quái riêng của máy mình thì bay xuyên; Phi Kiếm bay về tay người đó),
+  vệt chém theo hướng + màu hệ phủ phép, vòng phép dưới chân, quả cầu ở tay, vùng / cột / tường / mưa / sét ở điểm nhắm, lưỡi gió
+  xoay quanh người, vệt lướt, thế đỡ nhuộm nhân vật, pha dồn lực. CHỈ HÌNH: không sát thương, không khống chế, không đụng quái,
+  không trừ máu / MP ai, không combo / Thế Áp Đảo, không rung / khựng / loé màn hình người xem. Tin dừng tới trước khung chạm →
+  không vẽ đòn đó; đòn mới tới khi đòn cũ chưa nổ → đòn cũ nổ ngay (máy người tung chỉ cho cắt sau khung chạm). Tin dừng
+  kèm `hit: true` (máy người tung cắt SAU khung chạm — đi / đòn kế trong pha thu thế, việc rất hay gặp) → đòn chưa nổ ở máy
+  này được vẽ nốt ngay chứ không bỏ: khe giữa khung chạm và mốc cắt chỉ một frame động tác (~40–60ms), trễ mạng / hai tin tới
+  dồn là mất trắng hình của chiêu. Máy chủ chỉ chuyển `hit` khi đúng `true`; máy chủ bản cũ bỏ trường đó (người xem bỏ đòn như
+  trước). Vệt lướt chờ thêm
+  `ECHO_LAG` 0,15s cho nhân vật (trượt theo ảnh chụp vị trí) tới chỗ dừng. Đang ẩn người chơi khác (Cài đặt) hoặc người đó cách
+  xa hơn 1400px thì không vẽ hình (động tác thân vẫn chạy).
+- **Giữ hai bên khớp nhau:** sửa hình của một kiểu đòn ở `release` thì sửa cả `echoRelease` — `apps/web/tests/remoteCast.test.ts`
+  cho máy A tung TỪNG chiêu (43 chiêu, trừ Ảnh Bộ vì cần mục tiêu), chuyển tin qua JSON sang máy B, so bộ hình + đúng frame.
+- **Chưa đồng bộ** (người xem chỉ thấy thân hoặc không thấy gì): nhát phản của thế đỡ / né đúng lúc (gửi động tác không kèm
+  chiêu), lăn né, hình lúc trúng đòn của đòn cận chiến / vùng (máu quái dùng chung vẫn về qua `mobHp`, có số + nháy), các hình theo
+  trạng thái trúng của người tung (nổ phủ Hoả mốc 7, Áp Đảo, Bất Khuất). Ảnh Bộ: nhân vật người kia TRƯỢT (không nhảy) tới sau
+  lưng mục tiêu theo ảnh chụp vị trí.
+- Test: `apps/server/tests/action.test.ts` (không cần máy chủ chạy), `smoke.test.ts` (B thấy Thiên Thạch của A kèm điểm nhắm đã
+  kẹp; chiêu lạ / toạ độ vô lý bị bỏ phần chiêu), `apps/web/tests/remoteCast.test.ts`.
+- Lên bản thật: khởi động lại máy chủ 3200 + build lại web. Máy chủ bản cũ không chuyển `fx` (người xem chỉ thấy thân như
+  trước); máy khách bản cũ bỏ qua `fx`, và với chiêu không vung (lướt, giữ thế) thì phát động tác riêng của chiêu nếu atlas có.
+
+#### PvP gây sát thương — CHƯA làm, chờ chủ dự án quyết
+
+Chỗ móc: `World.action` ở máy chủ (đã có chiêu + hướng + điểm nhắm ĐÃ KIỂM, biết vị trí mọi người trong map) và
+`CombatSystem.echoRelease` ở máy người xem (hiện chỉ vẽ). Không tính trúng người ở máy khách. Cần quyết:
+
+1. **Ai tính trúng**: máy chủ (đúng hướng M3, chống gian lận — phải đưa hình học đòn `skillRules` + vị trí / thế đỡ / miễn thương
+   của người chơi lên máy chủ, bù trễ mạng) hay máy người BỊ đánh tự xét như đòn quái dùng chung M3.2b (nhanh làm, nhưng máy bị
+   đánh có thể "không nhận").
+2. **Đánh nhau ở đâu**: map / vùng PvP riêng, cờ bật–tắt PvP từng người, đấu tay đôi (mời – chấp nhận), hay mọi nơi trừ thị trấn
+   / trạm.
+3. **Số liệu PvP**: hệ số sát thương người-đánh-người (thường giảm mạnh so với PvE), khống chế giảm dần (chống choáng / đóng băng
+   liên hoàn), miễn thương sau hồi sinh, có tính phản ứng nguyên tố không.
+4. **Hậu quả khi gục**: mất gì (không mất / EXP / xu), hồi sinh ở đâu; chống đồ sát người cấp thấp (chênh cấp tối đa, vùng an toàn).
+5. **Bình kim cương** (`dmg` / `guard`) có áp trong PvP không — tránh "trả tiền là thắng".
+6. **Bạn bè / tổ đội** (M3.4) có đánh trúng nhau không.
 
 ## Thế giới nhiều map theo vùng (07/10/2026)
 

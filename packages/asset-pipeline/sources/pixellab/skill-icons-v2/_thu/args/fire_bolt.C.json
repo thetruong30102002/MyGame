@@ -1,0 +1,9 @@
+{
+	"description": "a round fireball with a short flame tail flying right, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"detail": "low detail",
+	"seed": 4242
+}

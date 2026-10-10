@@ -31,11 +31,24 @@ interface Metadata {
  */
 export async function downloadPixelLab(root: string, localId: string, uuid: string): Promise<string[]> {
 	const url = `https://api.pixellab.ai/mcp/characters/${uuid}/download`;
-	let res = await fetch(url);
+	// Lỗi mạng / 5xx của PixelLab (đã gặp 502 giữa lúc chạy hàng loạt 09/10/2026) chỉ là tạm thời: thử lại thay vì làm hỏng cả lệnh
+	// animate đã TRẢ lượt.
+	const get = async (): Promise<Response> => {
+		for (let i = 0; ; i += 1) {
+			try {
+				const r = await fetch(url);
+				if (r.status < 500 || i >= 9) return r;
+			} catch (e) {
+				if (i >= 9) throw e;
+			}
+			await new Promise((r) => setTimeout(r, 20_000));
+		}
+	};
+	let res = await get();
 	// 423 = nhân vật còn đang vẽ dở → chờ rồi thử lại, tối đa ~30 phút.
 	for (let i = 0; res.status === 423 && i < 60; i += 1) {
 		await new Promise((r) => setTimeout(r, 30_000));
-		res = await fetch(url);
+		res = await get();
 	}
 	if (!res.ok) throw new Error(`Tải gói PixelLab ${uuid} lỗi HTTP ${res.status}`);
 	const files = unzip(Buffer.from(await res.arrayBuffer()));
@@ -77,7 +90,10 @@ export class PixelLabSource {
 		// Động tác cầm vũ khí vẽ trên PHIÊN BẢN cùng nhóm (Sword / Staff — create_character_state): gói tải về chứa mọi
 		// phiên bản, ảnh xoay + đứng / đi vẫn lấy của phiên bản đầu (tay không).
 		const anim = this.meta.states.map((s) => s.frames.animations[name] as unknown).find((a) => a && typeof a === 'object');
-		if (!anim || typeof anim !== 'object') return this.extraFiles(name, dir);
+		if (!anim || typeof anim !== 'object') {
+			const onDisk = this.folderFiles(name, dir);
+			return onDisk.length ? onDisk : this.extraFiles(name, dir);
+		}
 		const byDir = (anim as Record<string, unknown>)[PL_DIR[dir]];
 		if (Array.isArray(byDir)) return byDir.filter((f): f is string => typeof f === 'string');
 		if (byDir && typeof byDir === 'object' && Array.isArray((byDir as { frames?: unknown }).frames)) return (byDir as { frames: string[] }).frames;
@@ -90,14 +106,20 @@ export class PixelLabSource {
 	 */
 	private folderFiles(name: string, dir: Direction): string[] {
 		for (const s of this.meta.states) {
-			const rel = `${s.folder}/animations/${name}/${PL_DIR[dir]}`;
-			const abs = join(this.dir, rel);
-			if (!existsSync(abs)) continue;
-			const files = readdirSync(abs)
-				.filter((f) => /^frame_\d+\.png$/.test(f))
-				.sort()
-				.map((f) => `${rel}/${f}`);
-			if (files.length) return files;
+			// Nhóm bù trùng tên bị PixelLab đổi thành `<tên>-<8 ký tự đầu id nhóm>` (đã gặp 09/10/2026: yeti `walk-69563cc4`) —
+			// không nhận thì lệnh animate tưởng còn thiếu hướng và gửi vẽ lại mãi.
+			const root = join(this.dir, s.folder, 'animations');
+			const twins = existsSync(root) ? readdirSync(root).filter((n) => n.startsWith(`${name}-`) && /^[0-9a-f]{8}$/.test(n.slice(name.length + 1))) : [];
+			for (const folder of [name, ...twins.sort()]) {
+				const rel = `${s.folder}/animations/${folder}/${PL_DIR[dir]}`;
+				const abs = join(this.dir, rel);
+				if (!existsSync(abs)) continue;
+				const files = readdirSync(abs)
+					.filter((f) => /^frame_\d+\.png$/.test(f))
+					.sort()
+					.map((f) => `${rel}/${f}`);
+				if (files.length) return files;
+			}
 		}
 		return [];
 	}

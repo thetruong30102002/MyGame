@@ -4,7 +4,7 @@
  */
 export const KEY_HINT: Record<'minimal' | 'magic' | 'full', string[]> = {
 	minimal: ['WASD đi · Shift chạy · E nói chuyện / nhặt đồ · M bản đồ', 'C nhân vật · P tiềm năng · I kho đồ'],
-	magic: ['WASD đi · J chém kiếm · K / chuột phải Tia Aether · chuột trái: gần chém, xa bắn', '1–2 phép · E nói chuyện · M bản đồ · C nhân vật · P tiềm năng · I kho đồ'],
+	magic: ['WASD đi · J chém kiếm · K / chuột phải Tia Aether · chuột trái: gần chém, xa bắn', '1–2 phép (học bằng điểm ở P) · E nói chuyện · M bản đồ · C nhân vật · P tiềm năng · I kho đồ'],
 	full: ['WASD di chuyển · Shift chạy · J chém · K Tia Aether · chuột trái: gần chém, xa bắn', '1–8 kỹ năng (gán ở Tiềm năng) · Space né · R uống thuốc · M bản đồ · C nhân vật · P tiềm năng · I kho đồ'],
 };
 

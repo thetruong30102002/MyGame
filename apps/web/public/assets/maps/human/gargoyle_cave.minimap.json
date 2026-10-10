@@ -1,0 +1,13 @@
+{
+	"map": "gargoyle_cave",
+	"image": "gargoyle_cave.minimap.png",
+	"width": 264,
+	"height": 240,
+	"downscale": 8,
+	"world": {
+		"width": 2112,
+		"height": 1920,
+		"tileSize": 48
+	},
+	"version": "7c1064f2"
+}

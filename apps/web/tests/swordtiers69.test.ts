@@ -85,8 +85,8 @@ const NEW: Record<string, [SwordStyle, number]> = {
 	for (const b of BRANCHES) {
 		assert.equal(tierCap(b), 9, `${b}: trần mốc 9`);
 		assert.equal(TREE[b][9]!.ready, false, `${b}: mốc 10 sắp có`);
-		assert.equal(nextTierCost({ [b]: 9 } as Tiers, b), null, `${b}: mốc 9 thì hết cộng`);
-		assert.equal(nextTierCost({ [b]: 8 } as Tiers, b), 5, `${b}: mốc 9 giá 5`);
+		assert.equal(nextTierCost({ [b]: 9 } as Tiers, b, all), null, `${b}: mốc 9 thì hết cộng`);
+		assert.equal(nextTierCost({ [b]: 8 } as Tiers, b, all), 5, `${b}: mốc 9 giá 5`);
 	}
 	assert.match(TREE.sword[5]!.name, /Phá Giáp · Dòng Chảy Ngược · Liên Hoàn/, 'chưa chọn lưu phái: nấc gộp tên ba lưu phái');
 	assert.equal(TREE.sword[5]!.ready && TREE.sword[8]!.ready, true);

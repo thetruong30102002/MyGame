@@ -1,0 +1,31 @@
+{
+	"id": "boss_magma_fissure",
+	"kind": "burst",
+	"canvas": {
+		"w": 144,
+		"h": 144
+	},
+	"first": {
+		"prompt": "a single long straight fissure of glowing molten lava splitting the ground and running to the right, seen from directly above, short magma jets spurting up along it, bronze rivets and basalt chips flying, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "c6edf200-c200-4d0e-b0db-862b6fdbfcd0"
+	},
+	"action": "the lava fissure tears forward to the right, magma jets spurt along its length one after another, then it cools to a dark line and fades",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "8b6843e4-632c-4e91-89f4-025bd4fedb24",
+	"createdAt": "2026-10-09T16:31:40.744Z",
+	"token": 1
+}

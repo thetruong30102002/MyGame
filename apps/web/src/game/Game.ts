@@ -5,55 +5,45 @@ import { onlineStoryStorage } from '@/net/onlineStoryStorage';
 import { useSession } from '@/store/useSession';
 import { useSettings } from '@/store/useSettings';
 import { useGameStore, type DialogueLine, type EquipSlotView, type GameRequest, type InventoryItem, type TalentsView } from '@/store/useGameStore';
-import { loadCharacter, loadManifest, type AssetManifest, type CharacterManifestEntry, type Direction } from './assets/AssetManifest';
+import { loadCharacter, loadManifest, type AssetManifest, type CharacterManifestEntry, type Direction, type HeldArt } from './assets/AssetManifest';
 import { Camera } from './camera/Camera';
 import { bossIntro, killOutcome, pickHudBoss, regionBossDormancy, regionBossDownText } from './combat/bossRules';
 import { CombatSystem, type Fighter } from './combat/CombatSystem';
+import { planRemoteCast } from './combat/remoteCast';
 import { aheadPoint } from './combat/skillRules';
 import { expForLevel, HERO_SKILLS, isGroundTarget, PATHS, type HeroPath } from './combat/skills';
 import {
 	assignSlot,
-	BRANCH_LOCK_NOTE,
 	BRANCH_NAME,
-	BRANCHES,
+	BRANCH_UNLOCK,
 	branchOpen,
+	BRANCHES,
 	canEnchant,
 	defaultLoadout,
-	depthBonus,
-	describeBuild,
 	ENCHANT_ELEMENT_TIER,
 	ENCHANT_SWORD_TIER,
 	ENCHANTS,
-	enchantDesc,
 	knowsSkill,
 	MAX_LEVEL,
 	MAX_TIER,
 	nextTierCost,
 	normalizeLoadout,
 	placeSkill,
-	pointsForLevel,
 	resetCost,
 	SKILL_NODE,
-	skillDesc,
 	SLOT_CODES,
 	SLOT_KEYS,
 	spentPoints,
 	STYLE_TIER,
-	STYLE_TREE,
-	SWORD_ART_TIER,
 	SWORD_ARTS,
 	SWORD_STYLE_INFO,
 	SWORD_STYLES,
-	TIER_COST,
-	tierCap,
-	TREE,
+	tierCost,
 	treeOf,
 	unspent,
-	type EnchantId,
 	type Loadout,
 	type SwordStyle,
 	type Tiers,
-	type TreeNode,
 } from './combat/talents';
 import { Vfx, type VfxId } from './combat/Vfx';
 import { createPixelApp, defaultZoom, fitCanvas } from './core/pixelApp';
@@ -65,14 +55,15 @@ import { setVirtualAxis, virtualInput } from './input/virtualInput';
 import { STORY } from './story/story';
 import { ageTitle, controlsForAge } from './story/ages';
 import { npcAnchor, resolveTarget, type ResolvedTarget } from './story/resolveTarget';
-import { localStoryStorage, StoryDirector } from './story/StoryDirector';
+import { localStoryStorage, StoryDirector, TALENTS_MIGRATION_TITLE, talentsMigrationText } from './story/StoryDirector';
 import { persona, personalize, setPersona } from './story/persona';
 import type { Line } from './story/storyTypes';
 import { applyGearRequest, EQUIP_SLOTS, gearBonus, itemDef, SLOT_NAME, STAT_KEYS, stackStats, zeroStats, type EquipSlotId, type ItemStack, type Stats } from './equipment';
 import { baseOfOutfit, decodeGear, defaultStance, encodeGear, figureGear, gearPieces, outfitSprite, type GearPiece } from './gearLayers';
 import { GEAR_ART } from './gearArt';
+import { buildTalentsView, ENCHANT_LABEL } from './talentsView';
 import { buildCodex, npcKey } from './codex';
-import { isSharedZone } from '@aether/sim/mobs';
+import { isChildZone, isSharedZone, zoneLiveAt } from '@aether/sim/mobs';
 import { CHRONICLER } from '@aether/sim/rewards';
 import { buffMults, MERCHANT_NPCS, SHOP } from '@aether/sim/shop';
 import { regionDef, regionGate, splitMapKey, START_REGION, WAYSTONE_COST } from '@aether/sim/regions';
@@ -93,10 +84,10 @@ const RUN_SPEED = 150;
 const ACTION_MOVE_SCALE = 0.4;
 /** Người chơi khác lệch quá chừng này (px) so với vị trí mới nhận: đang lăn né / lướt → dừng động tác ngay. */
 const REMOTE_DASH_GAP = 24;
+/** Hình chiêu của người chơi khác chỉ vẽ khi người đó cách mình trong chừng này px (≈ hơn một màn hình) — đỡ phí ở map đông. */
+const REMOTE_FX_RANGE = 1400;
 /** Mã phím → chỉ số ô trên thanh 10 ô (J, K, 1–8). Ô nào chứa kỹ năng gì do người chơi gán (`SaveData.loadout`). */
 const SKILL_KEYS: Record<string, number> = Object.fromEntries(SLOT_CODES.map((code, i) => [code, i]));
-/** Tên phủ phép (chip trên bảng Tiềm năng). */
-const ENCHANT_LABEL: Record<EnchantId, string> = { fire: 'Kiếm Lửa', water: 'Kiếm Thuỷ', wind: 'Kiếm Phong', ice: 'Kiếm Băng', earth: 'Kiếm Thổ' };
 /**
  * Giữ phím của ô J / ô K thì đánh liên tục theo nhịp hồi chiêu của kỹ năng đang gán ở ô đó. Phím số KHÔNG lặp để khỏi
  * xả MP ngoài ý muốn. Không muốn thì để mảng rỗng.
@@ -274,6 +265,8 @@ export class Game {
 	private gateToastAt = -1e9;
 	/** Đã đặt thế cầm mặc định cho người chơi chưa (một lần — sau đó thế cầm theo động tác). */
 	private stanceSet = false;
+	/** Vũ khí vẽ liền thân ở lần dựng hình kho đồ gần nhất (`undefined` = chưa dựng) — chém / niệm đổi thế thì dựng lại hình. */
+	private figureHeld: HeldArt | null | undefined = undefined;
 	private lastGearSent = '';
 	/** Món áo ở lần áp trước (null = chưa áp lần nào) — chỉ ĐỔI ÁO mới đổi sprite, không đè sprite chọn tay ở bảng Dev. */
 	private outfitBody: string | null | undefined = null;
@@ -389,7 +382,7 @@ export class Game {
 					} else {
 						// Boss vùng hồi sinh mãi: tính như một con quái cho nhiệm vụ "kill", không bao giờ chạm cốt truyện boss.
 						if (outcome === 'region-boss') useGameStore.getState().toast(regionBossDownText(f.name, this.regionBosses.get(f)?.name ?? 'hang ổ'), 'info');
-						this.story.monsterKilled(f.id);
+						this.story.monsterKilled(f.id, f.zone);
 					}
 					this.persist();
 				},
@@ -407,13 +400,13 @@ export class Game {
 				others: () => this.otherPositions(),
 				isUnlocked: (s) => this.story.isUnlocked(s),
 				practiceHit: (element, reaction) => this.story.practiced(element, reaction),
-				// Gửi ngay (không chờ nhịp 10Hz) để người khác thấy động tác khớp lúc đạn bay ra.
-				onAction: (anim, dir, skill) => this.online?.send({ t: 'action', anim, dir, skill }),
-				onActionEnd: () => this.online?.send({ t: 'actionEnd' }),
+				// Gửi ngay (không chờ nhịp 10Hz) để người khác thấy động tác + hình chiêu khớp lúc đạn bay ra.
+				onAction: (anim, dir, skill, fx) => this.online?.send({ t: 'action', anim, dir, skill, ...(fx ? { fx } : {}) }),
+				onActionEnd: (hit) => this.online?.send({ t: 'actionEnd', ...(hit ? { hit: true } : {}) }),
 				// Kinh tế ở máy chủ (M3.3a): trực tuyến thì hạ quái riêng / uống bình báo máy chủ; chơi một mình (không có phiên) tự cộng.
 				...(this.online
 					? {
-							reportKill: (type: string) => this.online?.send({ t: 'kill', type }),
+							reportKill: (type: string, zone?: string) => this.online?.send({ t: 'kill', type, ...(zone ? { zone } : {}) }),
 							potionUsed: () => this.online?.send({ t: 'potion' }),
 						}
 					: {}),
@@ -455,7 +448,7 @@ export class Game {
 		if (this.destroyed) return;
 
 		// Vùng quái theo tiến độ: tuổi thơ không có quái ở Khoảng trống; vùng "theo yêu cầu" do nhiệm vụ bật.
-		await Promise.all(world.data.monsterZones.filter((z) => !z.onDemand && this.story.state.age >= (z.fromAge ?? 0)).map((z) => this.spawnZone(z.id)));
+		await Promise.all(world.data.monsterZones.filter((z) => zoneLiveAt(z, this.story.state.age)).map((z) => this.spawnZone(z.id)));
 		if (this.destroyed) return;
 		// Lưới tìm đường dựng luôn lúc còn màn chờ (~60ms trên máy tính vì kiểm từng cạnh) — để lúc bấm ô nhiệm vụ không khựng.
 		this.nav ??= new NavGrid(world.width, world.height, (x, y, rx, ry) => world.blocked(x, y, rx, ry));
@@ -521,14 +514,28 @@ export class Game {
 				1500,
 			);
 		}
+		if (this.story.talentsMigrated) {
+			// Bản lưu cây Nguyên tố định dạng 2 (mốc 1 nguyên tố miễn phí) vừa chuyển sang luật 10/10/2026 (mốc 1 tốn 1 điểm) mà có
+			// tính thêm điểm / hạ mốc: báo MỘT lần rồi lưu — bản lưu mới mang `talentsV` 3 nên lần nạp sau không chuyển lại.
+			// Banner một dòng cắt chữ dài → tiêu đề ngắn trên banner, chi tiết ở thông báo thường (xuống dòng, để lâu cho kịp đọc).
+			const text = talentsMigrationText(this.story.talentsMigrated);
+			this.story.talentsMigrated = null;
+			this.persist();
+			setTimeout(() => {
+				const st = useGameStore.getState();
+				st.toast(TALENTS_MIGRATION_TITLE, 'level', 9000);
+				st.toast(text, 'info', 9000);
+			}, 1300);
+		}
 		this.announceGranted();
 		// Quà bù lúc nạp mà túi đầy + ô đã có đồ: StoryDirector chưa có người chơi để thả — giờ đã có, thả cạnh chân.
 		for (const o of this.story.takeOverflow()) this.dropItem(o.id, o.n);
 	}
 
 	/**
-	 * Bản lưu đã qua nhiệm vụ mới chèn phía trước (vd “Sợi tơ màu đất” mở Thổ) vừa được bù mã lúc nạp: đặt kỹ năng mốc 1
-	 * lên thanh (lần đồng bộ đầu không coi là "vừa học") và báo một lần.
+	 * Bản lưu đã qua nhiệm vụ mới chèn phía trước (vd “Sợi tơ màu đất” mở Thổ) vừa được bù mã lúc nạp và báo một lần: kỹ năng
+	 * dùng được ngay (quà kiếm / trượng) lên thanh (lần đồng bộ đầu không coi là "vừa học"); mở nhánh nguyên tố thì chỉ báo chỗ
+	 * học — mốc 1 mua bằng điểm (chủ dự án 10/10/2026).
 	 */
 	private announceGranted(): void {
 		const ids = this.story.granted;
@@ -537,11 +544,28 @@ export class Game {
 		for (const id of ids) {
 			const skill = HERO_SKILLS.find((s) => s.unlock === id);
 			const quest = STORY.quests.find((q) => q.reward.unlockSkill === id || q.onGive?.unlock === id);
-			if (!skill || !quest || !this.knownSkills().includes(skill.id)) continue;
+			if (!skill || !quest) continue;
+			if (!this.knownSkills().includes(skill.id)) {
+				setTimeout(() => this.announceBranchOpened(id, skill.name, `Bù phần thưởng “${quest.title}”: `), 1800);
+				continue;
+			}
 			this.story.setLoadout(placeSkill(this.loadout(), skill.id));
 			setTimeout(() => useGameStore.getState().toast(`Bù phần thưởng “${quest.title}”: học ${skill.name} (${this.keyLabel(skill.id)})`, 'level'), 1800);
 		}
 		this.persist();
+	}
+
+	/**
+	 * Mở nhánh nguyên tố — chỉ là ĐƯỢC PHÉP học, kỹ năng mốc 1 mua bằng điểm (chủ dự án 10/10/2026): banner ngắn "Mở nhánh Hoả"
+	 * (banner một dòng, cắt chữ dài) + thông báo thường chỉ chỗ học và giá, để lâu hơn cho kịp đọc. `prefix`: vd "Bù phần thưởng …".
+	 */
+	private announceBranchOpened(unlockId: string, skillName: string, prefix = ''): void {
+		const st = useGameStore.getState();
+		const b = BRANCHES.find((x) => BRANCH_UNLOCK[x] === unlockId);
+		// Điện thoại không có bàn phím: bảng mở bằng cách chạm khung tên, gợi ý (P) vô nghĩa (như thông báo lên cấp).
+		const keyHint = typeof matchMedia === 'function' && matchMedia('(pointer: coarse)').matches ? '' : ' (P)';
+		if (b) st.toast(`Mở nhánh ${BRANCH_NAME[b]}`, 'level');
+		st.toast(`${prefix}học ${skillName} ở bảng Tiềm năng${keyHint} khi có điểm${b ? ` — ${tierCost(b, 1)} điểm` : ''}`.replace(/^./, (c) => c.toUpperCase()), 'info', 6000);
 	}
 
 	/**
@@ -588,15 +612,18 @@ export class Game {
 		return far ? 1 : 0;
 	}
 
-	/** Thông báo vừa nhận quà (kiếm/trượng) hoặc học thêm kỹ năng, kèm phím dùng. */
+	/** Thông báo vừa nhận quà (kiếm/trượng), mở nhánh nguyên tố, hoặc học thêm kỹ năng, kèm phím dùng / chỗ học. */
 	private announceUnlock(id: string): void {
-		// Nhánh vừa mở là mốc 1 ngay: kỹ năng mốc 1 lên thanh (ô nhà), bảng tiềm năng cộng được luôn.
+		// Quà dùng được ngay (kiếm gỗ → Trảm, Kiếm mốc 1 miễn phí; trượng → Tia Aether): kỹ năng lên thanh (ô nhà). Mở nhánh
+		// nguyên tố chỉ là ĐƯỢC PHÉP học (chủ dự án 10/10/2026): mốc 1 mua bằng điểm ở bảng Tiềm năng, chưa có gì lên thanh.
 		this.syncTalents();
 		const st = useGameStore.getState();
 		const skill = this.combat.skills.find((s) => s.unlock === id);
+		const known = !!skill && this.knownSkills().includes(skill.id);
 		const gift = GIFT_ITEMS[id];
-		if (gift) st.toast(`Nhận ${gift.name}${skill ? ` — ${skill.name} (${this.keyLabel(skill.id)})` : ''}`, 'loot');
-		else if (skill) st.toast(`Học được kỹ năng mới: ${skill.name} (${this.keyLabel(skill.id)})`, 'level');
+		if (gift) st.toast(`Nhận ${gift.name}${skill && known ? ` — ${skill.name} (${this.keyLabel(skill.id)})` : ''}`, 'loot');
+		else if (skill && known) st.toast(`Học được kỹ năng mới: ${skill.name} (${this.keyLabel(skill.id)})`, 'level');
+		else if (skill) this.announceBranchOpened(id, skill.name);
 	}
 
 	/** "phím 1" nếu kỹ năng đang ở trên thanh, không thì chỉ chỗ gán. */
@@ -647,7 +674,8 @@ export class Game {
 		if (this.destroyed) return;
 		this.cancelAutoWalk('age');
 		this.shownAge = age;
-		// Lớn lên thì các phép đã học hồi nhỏ chắc chắn có (phòng bản lưu cũ). Suối Lành (Hồi Phục cũ) học bằng mốc Thuỷ 3.
+		// Lớn lên thì các nhánh mở hồi nhỏ chắc chắn đã mở (phòng bản lưu cũ) — mở là được phép học, phép nguyên tố vẫn mua bằng
+		// điểm (luật 10/10/2026). Suối Lành (Hồi Phục cũ) học bằng mốc Thuỷ 3.
 		// Qua `grantUnlock`: bản lưu thiếu kiếm gỗ / trượng tập thì có luôn món đồ (ô trống thì tự mặc).
 		if (age >= 16) for (const s of ['sword', 'staff', 'fire', 'water', 'wind', 'ice']) this.story.grantUnlock(s);
 		this.syncTalents();
@@ -673,7 +701,7 @@ export class Game {
 			if (home) Object.assign(this.player, { x: home.x, y: home.y });
 			await this.spawnNpcs(age).catch(report('NPC'));
 			if (this.destroyed) return;
-			for (const z of this.world.data.monsterZones) if (!z.onDemand && age >= (z.fromAge ?? 0)) void this.spawnZone(z.id).catch(report('quái'));
+			for (const z of this.world.data.monsterZones) if (zoneLiveAt(z, age)) void this.spawnZone(z.id).catch(report('quái'));
 			this.syncPlayerChoices();
 		} finally {
 			if (!this.destroyed) this.persist();
@@ -689,6 +717,12 @@ export class Game {
 		const label = this.makeLabel(role === 'player' ? persona().name : actor.displayName, LABEL_COLOR[role]);
 		this.labels.set(actor, label);
 		return actor;
+	}
+
+	/** Nhãn tên quái kèm "Cấp N" (thiết kế 12 map vùng 1): một hình dùng ở nhiều map với nhiều cấp, nhìn nhãn mới biết bầy mạnh / yếu. */
+	private labelEnemy(f: Fighter): void {
+		const label = this.labels.get(f.actor);
+		if (label && f.level !== null) label.text = `${f.name} · Cấp ${f.level}`;
 	}
 
 	private makeLabel(text: string, color: number): Text {
@@ -728,21 +762,24 @@ export class Game {
 	}
 
 	/**
-	 * Hình nhân vật giữa kho đồ: atlas của sprite ĐANG dùng (đúng tuổi, đúng giới tính) + các khung `idle_S` — bảng tự đo
-	 * vùng có hình và phóng nguyên lần. Gọi sau mỗi lần dựng / đổi sprite người chơi.
+	 * Hình nhân vật giữa kho đồ: atlas của sprite ĐANG dùng (đúng tuổi, đúng giới tính) + các khung đứng nhìn trước — bản cầm vũ
+	 * khí vẽ liền thân đang cầm (`idlesword_S`…) nếu có, không thì `idle_S`; bảng tự đo vùng có hình và phóng nguyên lần. Gọi sau
+	 * mỗi lần dựng / đổi sprite người chơi, đổi đồ, và khi chém / niệm làm đổi món đang cầm.
 	 */
 	private publishPlayerSprite(): void {
 		const id = this.player.id;
 		const entry = this.manifest.characters[id];
+		this.figureHeld = this.player.held;
 		if (!entry) return;
 		void loadCharacter(id)
 			.then((tex) => {
 				if (this.destroyed || this.player.id !== id) return;
-				const list = tex.frames('idle', 'S');
+				const rest = this.player.view.restingAnimation;
+				const list = tex.frames(rest, 'S');
 				const frames = list.map((t) => ({ x: t.frame.x, y: t.frame.y, w: t.frame.width, h: t.frame.height }));
-				// Lớp đồ gắn đặt theo neo của khung đứng đầu tiên — cùng luật với lớp đồ trong game.
+				// Lớp đồ gắn đặt theo neo của khung đứng đầu tiên — cùng luật với lớp đồ trong game (kiếm / trượng đã nằm trong khung).
 				const info = list[0] ? tex.frameInfo(list[0]) : undefined;
-				const gear = figureGear(this.gearPieces, info?.gear, info?.dir ?? 'S', 'idle', GEAR_ART, this.player.gearStance);
+				const gear = figureGear(this.gearPieces, info?.gear, info?.dir ?? 'S', rest, GEAR_ART, this.player.gearStance);
 				useGameStore.setState({ playerSprite: { sheet: `/assets/${entry.atlas.replace(/\.json$/, '.png')}`, frames, gear } });
 			})
 			.catch(() => useGameStore.setState({ playerSprite: null }));
@@ -825,7 +862,8 @@ export class Game {
 					// Vùng `boss: true`: boss VÙNG (thanh máu HUD, hồi sinh) — không gán `this.boss` để khỏi chặn boss cốt truyện.
 					// Bị hạ trước lần rời map mà chưa tới giờ thức thì dựng ở trạng thái đã gục, đếm nốt thời gian còn lại.
 					const dormant = z.boss ? regionBossDormancy(this.regionBossWakeAt.get(this.regionBossKey(zoneId)), this.combat.time) : 0;
-					const f = this.combat.addEnemy(actor, id, home, actor.displayName, { regionBoss: !!z.boss, dormant });
+					const f = this.combat.addEnemy(actor, id, home, actor.displayName, { regionBoss: !!z.boss, dormant, zone: zoneId, level: z.level, child: isChildZone(z) });
+					if (f) this.labelEnemy(f);
 					if (f && z.boss) this.regionBosses.set(f, { zone: zoneId, name: z.name });
 					return f;
 				}),
@@ -875,6 +913,7 @@ export class Game {
 		const actor = await this.spawn(b.characterId, b.x, b.y, 'S', home, 26);
 		if (this.destroyed || this.boss) return this.removeActor(actor);
 		this.boss = this.combat.addEnemy(actor, b.characterId, home, actor.displayName);
+		if (this.boss) this.labelEnemy(this.boss);
 		useGameStore.getState().toast('Đá phong ấn rung chuyển — ánh đỏ bùng lên…', 'warn');
 	}
 
@@ -1085,6 +1124,8 @@ export class Game {
 		this.combat.update(dt, toScreen, z, busy);
 		// CombatSystem tua động tác của người chơi SAU vòng Actor.update → đặt lại lớp đồ theo khung vừa tua (không trễ 1 khung).
 		p.syncGear();
+		// Chém / niệm đổi món đang cầm (kiếm ↔ trượng vẽ liền thân) → hình giữa kho đồ đổi theo.
+		if (p.held !== this.figureHeld) this.publishPlayerSprite();
 		const flash = this.combat.screenFlash;
 		this.flashLayer.clear();
 		if (flash.alpha > 0.01) this.flashLayer.rect(0, 0, W, H).fill({ color: flash.color, alpha: flash.alpha });
@@ -1188,20 +1229,33 @@ export class Game {
 					this.ensureRemoteSprite(r);
 				}
 			},
-			// Người khác vung kiếm/niệm phép: chỉ phát động tác (hình), sát thương vẫn do máy người đó tính.
+			// Người khác tung chiêu: phát động tác + HÌNH của chiêu (đạn, vệt chém, vùng…) neo vào nhân vật đó — chỉ hình, sát thương
+			// vẫn do máy người đó tính (PvP thật cần máy chủ tính trúng — M3, xem docs/online-va-build.md).
 			action: (m) => {
 				const r = this.remotes.get(m.id);
 				const a = r?.actor;
 				if (!r || !a) return;
 				const dir = (FACING[m.dir] ? m.dir : a.view.direction) as Direction;
 				r.view.dir = dir;
-				// Cùng hồi chiêu với máy người gửi → cùng mốc (động tác dài hơn hồi chiêu bị co như nhau).
-				const cooldown = HERO_SKILLS.find((s) => s.id === m.skill)?.cooldown ?? Infinity;
+				const cast = planRemoteCast(m.skill, m.fx);
+				// Đang ẩn người chơi khác (Cài đặt) hoặc người đó ở quá xa: không vẽ hình chiêu (động tác thân vẫn chạy cho đúng nhịp).
+				const p = this.player;
+				if (cast && useSettings.getState().showOthers && Math.hypot(a.x - p.x, a.y - p.y) <= REMOTE_FX_RANGE) return this.combat.echoCast(a, m.anim, dir, cast);
+				if (cast && !cast.body) return;
+				// Không có phần chiêu (máy chủ / máy gửi bản cũ, động tác phụ): chỉ phát động tác. Cùng hồi chiêu với máy người gửi →
+				// cùng mốc (động tác dài hơn hồi chiêu bị co như nhau).
+				const cooldown = cast?.cooldown ?? HERO_SKILLS.find((s) => s.id === m.skill)?.cooldown ?? Infinity;
 				const timing = a.view.actionTiming(m.anim, dir, cooldown);
 				if (timing) a.view.playAction(m.anim, dir, { timing, external: false });
 			},
-			// Người kia né / đi / bị ngắt giữa động tác: dừng hình theo.
-			actionEnd: (m) => this.remotes.get(m.id)?.actor?.view.cancelAction(),
+			// Người kia né / đi / bị ngắt giữa động tác (hoặc thôi dồn lực): dừng hình theo, chiêu chưa tới khung chạm không nổ — trừ khi
+			// máy người đó báo đòn đã qua khung chạm (`hit`: tin tới dồn do trễ mạng) thì vẽ nốt.
+			actionEnd: (m) => {
+				const a = this.remotes.get(m.id)?.actor;
+				if (!a) return;
+				a.view.cancelAction();
+				this.combat.cancelEcho(a, m.hit === true);
+			},
 			// Người kia đổi đồ gắn: chuẩn hoá lại ở máy mình (không tin dữ liệu mạng), vẽ lại lớp đồ.
 			gear: (m) => {
 				const r = this.remotes.get(m.id);
@@ -1313,6 +1367,7 @@ export class Game {
 		void loadCharacter(sprite).then((tex) => {
 			if (this.destroyed || this.remotes.get(r.view.id) !== r || r.loading !== sprite) return;
 			const a = new Actor(sprite, tex, r.actor?.x ?? r.tx, r.actor?.y ?? r.ty, (r.view.dir as Direction) || 'S', null);
+			if (r.actor) this.combat.forgetEcho(r.actor);
 			r.actor?.root.destroy({ children: true });
 			r.actor = a;
 			a.setGear(decodeGear(r.view.gear));
@@ -1341,11 +1396,15 @@ export class Game {
 		const actor = await this.spawn(m.type, m.x, m.y, 'S', home, 40);
 		if (this.destroyed || token !== this.mapToken || this.netMobs.has(m.id)) return void this.removeActor(actor);
 		const net = { id: m.id, owned: m.owner === me, tx: m.x, ty: m.y, dir: 'S' as Direction, anim: 'idle' as const };
-		const f = this.combat.addEnemy(actor, m.type, home, actor.displayName, { regionBoss: m.boss, dormant: m.dead ? 1 : 0, net });
-		if (!f) return void this.removeActor(actor);
-		f.hp = m.dead ? 0 : m.hp;
-		this.netMobs.set(m.id, f);
 		const zone = this.world.data.monsterZones.find((z) => z.id === m.zone);
+		// Cấp theo máy chủ (đã nhân máu / EXP theo nó); máy chủ bản cũ không gửi thì lấy cấp của khu trong map JSON.
+		const f = this.combat.addEnemy(actor, m.type, home, actor.displayName, { regionBoss: m.boss, dormant: m.dead ? 1 : 0, net, zone: m.zone, level: m.level ?? zone?.level });
+		if (!f) return void this.removeActor(actor);
+		this.labelEnemy(f);
+		// Máu tối đa theo MÁY CHỦ (nguồn sự thật): web và máy chủ lệch phiên bản bảng chỉ số thì thanh máu vẫn đúng tỉ lệ.
+		if (Number.isFinite(m.hpMax) && m.hpMax > 0) f.hpMax = m.hpMax;
+		f.hp = m.dead ? 0 : Math.min(m.hp, f.hpMax);
+		this.netMobs.set(m.id, f);
 		if (m.boss) this.regionBosses.set(f, { zone: m.zone, name: zone?.name ?? actor.displayName });
 	}
 
@@ -1419,6 +1478,7 @@ export class Game {
 	private removeRemote(id: string): void {
 		const r = this.remotes.get(id);
 		if (!r) return;
+		if (r.actor) this.combat.forgetEcho(r.actor);
 		r.actor?.root.destroy({ children: true });
 		r.label.destroy();
 		this.remotes.delete(id);
@@ -1578,86 +1638,17 @@ export class Game {
 		return this.lastBasis.value;
 	}
 
-	/** Bảng tiềm năng: cây 6 nhánh (kể cả nhánh chưa mở — hiện khoá để người chơi biết còn gì phía trước), phủ phép, thanh 10 ô. */
+	/** Bảng tiềm năng: dựng bằng hàm thuần `buildTalentsView` (phòng thử /lab/inventory?talents=demo dùng chung). */
 	private talentsView(tiers: Tiers): TalentsView {
-		const level = this.combat.pc.level;
-		const style = this.story.swordStyle;
-		const build = describeBuild(tiers, style);
-		const points = pointsForLevel(level);
-		const isUnlocked = (id: string) => this.story.isUnlocked(id);
-		const nodeView = (n: TreeNode, tier: number) => ({ tier: n.tier, kind: n.kind, name: n.name, desc: n.desc, ready: n.ready, reached: tier >= n.tier, cost: TIER_COST[n.tier] ?? 0, ...(n.skillId ? { skillId: n.skillId } : {}) });
-		const branches = BRANCHES.map((b) => {
-			const tier = tiers[b] ?? 0;
-			const unlocked = branchOpen(b, isUnlocked);
-			const first = TREE[b][0];
-			return {
-				branch: b,
-				name: BRANCH_NAME[b],
-				unlocked,
-				lockNote: unlocked ? '' : (BRANCH_LOCK_NOTE[b] ?? 'Mở theo cốt truyện'),
-				tier,
-				maxTier: MAX_TIER,
-				cap: tierCap(b),
-				bonusPct: Math.round((depthBonus(tier) - 1) * 100),
-				nextCost: nextTierCost(tiers, b),
-				iconSkill: first?.ready && first.skillId ? first.skillId : null,
-				nodes: treeOf(b, style).map((n) => nodeView(n, tier)),
-				// Kiếm: 3 lưu phái từ mốc 3 — chưa chọn thì hiện cả ba để chọn; đã chọn thì hai lưu phái kia mờ.
-				...(b === 'sword'
-					? {
-							style,
-							styleTier: STYLE_TIER,
-							styles: SWORD_STYLES.map((s) => ({ id: s, ...SWORD_STYLE_INFO[s], chosen: style === s, iconSkill: STYLE_TREE[s][0]?.skillId ?? null, nodes: STYLE_TREE[s].map((n) => nodeView(n, style === s ? tier : 0)) })),
-						}
-					: {}),
-			};
+		return buildTalentsView({
+			tiers,
+			level: this.combat.pc.level,
+			style: this.story.swordStyle,
+			isUnlocked: (id) => this.story.isUnlocked(id),
+			enchant: this.combat.enchantment,
+			enchantCooldown: this.combat.enchantCooldown,
+			loadout: this.loadout(),
 		});
-		// Kiếm pháp nguyên tố: hiện cả khi chưa đủ điều kiện (biết đường mà nuôi), kèm điều kiện + đã học chưa.
-		const arts = (Object.entries(SWORD_ARTS) as [EnchantId, string][]).flatMap(([e, id]) => {
-			const s = HERO_SKILLS.find((d) => d.id === id);
-			if (!s) return [];
-			const swordOk = (tiers.sword ?? 0) >= SWORD_ART_TIER;
-			const elementOk = (tiers[e] ?? 0) >= SWORD_ART_TIER;
-			return [
-				{
-					skillId: id,
-					name: s.name,
-					desc: skillDesc(id),
-					element: e,
-					elementName: BRANCH_NAME[e],
-					need: `Kiếm mốc ${SWORD_ART_TIER} + ${BRANCH_NAME[e]} mốc ${SWORD_ART_TIER}`,
-					swordOk,
-					elementOk,
-					learned: knowsSkill(s, tiers, isUnlocked, style),
-				},
-			];
-		});
-		const enchantOptions = ENCHANTS.map((e) => ({
-			id: e,
-			name: ENCHANT_LABEL[e],
-			ok: canEnchant(tiers, e),
-			need: `Kiếm mốc ${ENCHANT_SWORD_TIER} + ${BRANCH_NAME[e]} mốc ${ENCHANT_ELEMENT_TIER}`,
-			desc: enchantDesc(e, tiers[e] ?? 0),
-		}));
-		const lo = this.loadout();
-		return {
-			points,
-			spent: spentPoints(tiers),
-			unspent: unspent(level, tiers),
-			buildKind: build.kind,
-			buildLabel: build.label,
-			buildDetail: build.detail,
-			branches,
-			resetCost: resetCost(level),
-			// Hồi chiêu làm tròn lên giây: trùng JSON thì store không ghi (bảng không vẽ lại mỗi frame).
-			enchant: { current: this.combat.enchantment, cooldown: Math.ceil(this.combat.enchantCooldown), options: enchantOptions },
-			loadout: lo.map((skillId, slot) => ({ slot, key: SLOT_KEYS[slot]!, skillId })),
-			arts,
-			learned: this.knownSkills().flatMap((id) => {
-				const s = HERO_SKILLS.find((d) => d.id === id);
-				return s ? [{ id: s.id, name: s.name, element: s.element }] : [];
-			}),
-		};
 	}
 
 	/** Một món (trong túi hoặc đang mặc) → dòng hiển thị. id lạ hiện "Vật phẩm lạ", ảnh rỗng. */
@@ -1844,6 +1835,8 @@ export class Game {
 		if (this.knownPrev) for (const id of known) if (!this.knownPrev.has(id)) lo = placeSkill(lo, id);
 		this.knownPrev = new Set(known);
 		if (JSON.stringify(lo) !== JSON.stringify(st.loadout)) this.story.setLoadout(lo);
+		// Chữ bài luyện phép theo mốc (`StoryDirector.objectiveLine`: chưa học → "Tung Tia Aether…", học rồi → "Tung Hoả Cầu…").
+		useGameStore.setState({ quests: this.story.questViews() });
 	}
 
 	/** Kỹ năng đang biết (theo thứ tự `HERO_SKILLS`): mã cốt truyện + mốc nhánh đủ + đúng lưu phái Kiếm. */
@@ -1885,8 +1878,10 @@ export class Game {
 			// Nút Học ghi kèm mốc đích: mốc hiện tại đã khác (cú bấm thứ hai của một lần nhấp đúp, nút còn nhãn cũ tới nhịp HUD
 			// sau) thì bỏ qua lặng lẽ — không mua lố một mốc mà phải tẩy điểm (tốn xu) mới lấy lại được.
 			if (r.tier !== undefined && r.tier !== tier + 1) return;
-			if (tier < 1) return void st.toast(`Chưa mở nhánh ${name}`, 'warn');
-			const cost = nextTierCost(tiers, branch);
+			// Nhánh mở hay chưa theo mã cốt truyện, KHÔNG theo mốc: nhánh nguyên tố đã mở mà chưa học vẫn ở mốc 0 (học mốc 1 = 1 điểm).
+			const open = (id: string): boolean => this.story.isUnlocked(id);
+			if (!branchOpen(branch, open)) return void st.toast(`Chưa mở nhánh ${name}`, 'warn');
+			const cost = nextTierCost(tiers, branch, open);
 			if (cost === null) return void st.toast(tier >= MAX_TIER ? `${name} đã đạt mốc tối đa` : `${name} mốc ${tier + 1} sắp có`, 'warn');
 			if (unspent(pc.level, tiers) < cost) return void st.toast(`Cần ${cost} điểm để lên ${name} mốc ${tier + 1} — lên cấp để nhận thêm`, 'warn');
 			// Kiếm lên mốc 3 lần đầu: phải kèm lưu phái (bảng Tiềm năng có ba nút chọn); đã có lưu phái thì bỏ qua.
@@ -2023,7 +2018,7 @@ export class Game {
 			this.lastSent = '';
 			await this.spawnNpcs(this.shownAge);
 			if (this.destroyed) return;
-			for (const z of world.data.monsterZones) if (!z.onDemand && this.story.state.age >= (z.fromAge ?? 0)) void this.spawnZone(z.id).catch((e) => console.error('[map] quái', e));
+			for (const z of world.data.monsterZones) if (zoneLiveAt(z, this.story.state.age)) void this.spawnZone(z.id).catch((e) => console.error('[map] quái', e));
 			this.story.reapplyWorld();
 			this.persist();
 			if (crossing) this.announceRegion(region);

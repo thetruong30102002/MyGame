@@ -4,11 +4,12 @@ import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { pointsToTier } from '@/game/combat/talents';
 import { useGameStore, type BranchId, type SwordStyleId, type TalentsView } from '@/store/useGameStore';
 import { fmtNum } from './CharacterPanelParts';
-import { ELEMENT_STYLE } from './SkillBar';
 import { TalentBranchList } from './talents/TalentBranchList';
 import { LearnableList, TalentDetail } from './talents/TalentDetail';
 import { nodeInfo } from './talents/talentInfo';
 import { TalentLoadoutView } from './talents/TalentLoadoutView';
+import { TalentOverview } from './talents/TalentOverview';
+import { BRANCH_FILL } from './talents/TalentParts';
 import { TALENT_CSS } from './talents/talentStyles';
 import { TalentTreeGrid } from './talents/TalentTreeGrid';
 import { fitPhoneTree, layoutTree, nodeState, routeTo, styleKey, TREE_DESKTOP, TREE_FRAME, TREE_LOW, TREE_WIDE } from './talents/treeLayout';
@@ -35,19 +36,10 @@ function saveMode(m: Mode): void {
 	}
 }
 
-const BRANCH_FILL: Record<BranchId, string> = {
-	sword: ELEMENT_STYLE.steel.color,
-	fire: ELEMENT_STYLE.fire.color,
-	water: ELEMENT_STYLE.water.color,
-	wind: ELEMENT_STYLE.wind.color,
-	ice: ELEMENT_STYLE.ice.color,
-	earth: ELEMENT_STYLE.earth.color,
-};
-
 /** Thanh build: mỗi nhánh đã tiêu điểm là một khúc màu hệ (rộng theo điểm đã tiêu / tổng điểm), điểm chưa dùng là khúc sọc vàng. */
 function BuildBar({ t, className = '' }: { t: TalentsView; className?: string }) {
 	const total = Math.max(1, t.points, t.spent + Math.max(0, t.unspent));
-	const segs = t.branches.filter((b) => b.unlocked && pointsToTier(b.tier) > 0).map((b) => ({ b, pts: pointsToTier(b.tier) }));
+	const segs = t.branches.filter((b) => b.unlocked && pointsToTier(b.tier, b.branch) > 0).map((b) => ({ b, pts: pointsToTier(b.tier, b.branch) }));
 	let acc = 0;
 	const label = [...segs.map((s) => `${s.b.name} ${s.pts} điểm`), t.unspent > 0 ? `${t.unspent} điểm chưa dùng` : ''].filter(Boolean).join(', ');
 	return (
@@ -63,9 +55,10 @@ function BuildBar({ t, className = '' }: { t: TalentsView; className?: string })
 	);
 }
 
-function Legend() {
+/** Chú giải dưới lưới — `width` = bề ngang khung lưới: chú giải xuống dòng chứ không nong cột lưới (cột chi tiết bị ép hẹp). */
+function Legend({ width }: { width?: number }) {
 	return (
-		<p className="tt-legend flex flex-wrap items-center gap-x-3 gap-y-0.5 text-[12px] font-bold leading-[18px] text-ink-soft" aria-hidden>
+		<p className="tt-legend flex flex-wrap items-center gap-x-3 gap-y-0.5 text-[12px] font-bold leading-[18px] text-ink-soft" style={width ? { maxWidth: width } : undefined} aria-hidden>
 			<span>
 				<i className="lg-act" />
 				chủ động
@@ -79,8 +72,17 @@ function Legend() {
 				kiếm pháp
 			</span>
 			<span>
+				<i className="lg-ult" />
+				tuyệt kỹ
+			</span>
+			<span className="text-ink-faint">·</span>
+			<span>
 				<i className="lg-next" />
 				học được ngay
+			</span>
+			<span>
+				<i className="lg-future" />
+				chưa tới
 			</span>
 			<span>
 				<i className="lg-soon" />
@@ -95,7 +97,7 @@ function RulesList() {
 		<ul className="flex flex-col gap-1.5 text-body leading-snug text-ink-soft">
 			<li>Mỗi lần lên cấp được 1 điểm, mỗi mốc 5 cấp thưởng thêm 1. Điểm cộng vào NHÁNH, không vào từng kỹ năng.</li>
 			<li>
-				Mỗi nhánh 10 mốc. Mở nhánh (theo cốt truyện) là có <b className="text-ink-brown">mốc 1</b> miễn phí. Giá mốc 2→10: 1 · 2 · 2 · 3 · 3 · 4 · 4 · 5 · 5 (29 điểm để đầy một nhánh). Lên từng mốc một, từ trên xuống.
+				Mỗi nhánh 10 mốc. Mở nhánh (theo cốt truyện) là <b className="text-ink-brown">được phép học</b>: phép đầu của nhánh nguyên tố (mốc 1) cũng tốn 1 điểm; riêng Kiếm có sẵn mốc 1 (Trảm) khi nhận kiếm. Giá mốc 2→10: 1 · 2 · 2 · 3 · 3 · 4 · 4 · 5 · 5 (đầy một nhánh: Kiếm 29 điểm, nguyên tố 30). Lên từng mốc một, từ trên xuống.
 			</li>
 			<li>
 				<b className="text-ink-brown">Chiều sâu</b>: mỗi mốc trên mốc 1 cho +4% sức mạnh mọi kỹ năng của nhánh (mốc 10 = +36%).
@@ -115,7 +117,9 @@ function RulesList() {
 /**
  * Tab "Tiềm năng" (đặc tả cây 08/10/2026): dải đầu (điểm còn lại, lối tu luyện + thanh build, bộ chọn chế độ, tẩy điểm,
  * luật) và ba chế độ — Cây (lưới cột có đường nối + cột chi tiết / sheet), Từng nhánh (đường chính cho ngón tay), Gán ô ·
- * Phủ phép. Bấm nút trên cây chỉ CHỌN; điểm chỉ tiêu ở nút "Học" (cột bên, sheet, hàng kế tiếp, thanh đáy). Hợp đồng store
+ * Phủ phép. Làm lại 09/10/2026: cột chi tiết có bảng số liệu thật (MP, hồi chiêu sau bị động, uy lực + chiều sâu, cách
+ * đánh, hiệu ứng) + thẻ mốc kế; chưa chọn nút thì cột bên là tổng quan (học được ngay, 6 nhánh, phản ứng, phủ phép /
+ * kiếm pháp) — điện thoại đặt tổng quan dưới lưới. Bấm nút trên cây chỉ CHỌN; điểm chỉ tiêu ở nút "Học" (cột bên, sheet, hàng kế tiếp, thanh đáy). Hợp đồng store
  * giữ nguyên: `talent_add {branch}` / `{branch:'sword', style}`, `talent_reset`, `set_slot`, `set_enchant`.
  */
 export function CharacterTalentsTab({ touch }: { touch: boolean }) {
@@ -360,7 +364,9 @@ export function CharacterTalentsTab({ touch }: { touch: boolean }) {
 	const header: ReactNode = confirming ? (
 		<div className="flex min-h-[46px] shrink-0 flex-wrap items-center gap-x-3 gap-y-2 border-b-2 border-paper-line pb-2">
 			<p className="min-w-[200px] flex-1 text-body font-bold text-berry">
-				{free ? `Trả lại ${t.spent} điểm? Mọi nhánh quay về mốc 1, bỏ lưu phái Kiếm.` : `Trả lại ${t.spent} điểm và tốn ${cost} xu? Mọi nhánh quay về mốc 1, bỏ lưu phái Kiếm.`}
+				{free
+					? `Trả lại ${t.spent} điểm? Kiếm về mốc 1, nhánh nguyên tố về chưa học (học lại mốc 1 bằng điểm), bỏ lưu phái Kiếm.`
+					: `Trả lại ${t.spent} điểm và tốn ${cost} xu? Kiếm về mốc 1, nhánh nguyên tố về chưa học (học lại mốc 1 bằng điểm), bỏ lưu phái Kiếm.`}
 			</p>
 			<button
 				type="button"
@@ -435,10 +441,13 @@ export function CharacterTalentsTab({ touch }: { touch: boolean }) {
 					đã dùng {t.spent} trên {t.points}
 				</p>
 			</div>
-			<div className="flex min-w-0 flex-1 flex-col gap-0.5 pl-1" title={t.buildDetail}>
-				<p className="truncate text-[12px] leading-[14px] text-ink-soft">Lối tu luyện</p>
-				<p className="truncate font-display text-[14px] font-extrabold leading-[18px] text-ink-brown">{t.buildLabel}</p>
-				<BuildBar t={t} />
+			<div className="flex min-w-0 flex-1 flex-col gap-0.5 border-l-2 border-paper-line pl-2.5" title={t.buildDetail}>
+				<p className="flex min-w-0 items-baseline gap-1.5 leading-[18px]">
+					<span className="tt-kicker shrink-0">Lối tu luyện</span>
+					<b className="truncate font-display text-[16px] text-ink-brown">{t.buildLabel}</b>
+				</p>
+				<BuildBar t={t} className="max-w-[300px]!" />
+				<p className="truncate text-[12px] leading-4 text-ink-soft">{t.buildDetail}</p>
 			</div>
 			{seg}
 		</div>
@@ -470,8 +479,13 @@ export function CharacterTalentsTab({ touch }: { touch: boolean }) {
 	// Cột chi tiết (máy tính, màn thấp) / sheet dính đáy (điện thoại dọc).
 	const detail = info ? (
 		<TalentDetail t={t} info={info} sheet={portrait} onSelect={setSelected} onLearn={learn} onChooseStyle={chooseStyle} onAssign={assign} />
+	) : portrait ? (
+		<LearnableList t={t} sheet onSelect={setSelected} />
 	) : (
-		<LearnableList t={t} sheet={portrait} onSelect={setSelected} />
+		<>
+			<LearnableList t={t} sheet={false} onSelect={setSelected} />
+			<TalentOverview t={t} build={low} onSelect={setSelected} onLoadout={() => setMode('loadout')} />
+		</>
 	);
 
 	let body: ReactNode;
@@ -481,13 +495,16 @@ export function CharacterTalentsTab({ touch }: { touch: boolean }) {
 			<>
 				{grid}
 				<Legend />
-				<div className="sticky -bottom-5 z-20 -mx-2 -mb-5 mt-1 border-t-2 border-bark bg-paper-hi px-3 pt-2.5 pb-[max(14px,env(safe-area-inset-bottom))] shadow-[0_-3px_0_rgb(26_17_10/0.18)]">{detail}</div>
+				<div className="mt-1 rounded-[8px] border-2 border-paper-line bg-paper-hi/60 px-2.5 py-2">
+					<TalentOverview t={t} build onSelect={setSelected} onLoadout={() => setMode('loadout')} />
+				</div>
+				<div className="tt-scroll sticky -bottom-5 z-20 -mx-2 -mb-5 mt-1 max-h-[72dvh] touch-pan-y overflow-y-auto overscroll-contain border-t-2 border-bark bg-paper-hi px-3 pt-2.5 pb-[max(14px,env(safe-area-inset-bottom))] shadow-[0_-3px_0_rgb(26_17_10/0.18)]">{detail}</div>
 			</>
 		) : (
 			<div className="flex min-h-0 flex-1 gap-3">
 				<div className="flex min-h-0 shrink-0 flex-col gap-1.5">
 					{grid}
-					{!low && <Legend />}
+					{!low && <Legend width={L.width + TREE_FRAME} />}
 				</div>
 				<aside className="flex min-h-0 min-w-0 flex-1 flex-col gap-2" aria-label="Chi tiết mốc">
 					{low && (
@@ -502,13 +519,8 @@ export function CharacterTalentsTab({ touch }: { touch: boolean }) {
 							{seg}
 						</div>
 					)}
-					<div ref={asideRef} className="tt-scroll flex min-h-0 flex-1 touch-pan-y flex-col gap-2 overflow-y-auto overscroll-contain pr-0.5">
+					<div ref={asideRef} className="tt-scroll flex min-h-0 flex-1 touch-pan-y flex-col gap-3 overflow-y-auto overscroll-contain pr-0.5">
 						{detail}
-						{!info && (
-							<p className="mt-auto border-t-2 border-paper-line pt-1.5 text-note text-ink-soft">
-								<b className="text-ink-brown">Lối tu luyện:</b> {t.buildLabel}
-							</p>
-						)}
 					</div>
 					{!low && <div className="shrink-0 border-t-2 border-paper-line pt-2">{tools(true)}</div>}
 				</aside>

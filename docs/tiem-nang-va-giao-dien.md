@@ -13,7 +13,9 @@ lại (đồ hoạ PixelLab). Xong thì tự deploy.
   `depthBonus`, `aetherScale`, `reactionBonus`, `passiveEffects` + `PASSIVE`, phủ phép `canEnchant`, thanh 10 ô
   `defaultLoadout`/`normalizeLoadout`/`placeSkill`/`assignSlot`).
 - Điểm giữ `pointsForLevel`; cấp tối đa thiết kế 40 = 47 điểm (`MAX_LEVEL`, chưa chặn cấp trong game). Điểm cộng vào
-  **nhánh** (Kiếm · Hoả · Thuỷ · Phong · Băng · Thổ), 10 mốc; mở nhánh = mốc 1 miễn phí; giá mốc 2→10: 1·2·2·3·3·4·4·5·5.
+  **nhánh** (Kiếm · Hoả · Thuỷ · Phong · Băng · Thổ), 10 mốc; giá mốc 2→10: 1·2·2·3·3·4·4·5·5. Mở nhánh: GĐ1 = mốc 1 miễn
+  phí; **từ 10/10/2026 mở nhánh chỉ là được phép học — mốc 1 nguyên tố (phép đầu) tốn 1 điểm, Kiếm giữ mốc 1 miễn phí**
+  (`docs/ke-hoach-nguyen-to.md` mục 7 "Mốc 1 nguyên tố học bằng điểm").
   GĐ1 chỉ cộng tới **mốc 4** (mốc cao nhất đã hiện thực — `tierCap`); mốc 3 "Sắp có" của Kiếm/Hoả/Phong/Băng vẫn đi qua được.
 - Thưởng chiều sâu +4% mỗi mốc trên mốc 1 cho mọi kỹ năng của nhánh (thay `rankPower`, mốc 1 = ×1, KHÔNG còn ×0,7).
   Tia Aether ngoài cây: ×(1 + 0,03·(cấp − 1)). Phản ứng: +5% mỗi mốc (trên mốc 1) của hệ yếu hơn — ai có cả hai hệ đều ăn.
@@ -27,7 +29,8 @@ lại (đồ hoạ PixelLab). Xong thì tự deploy.
   (`CombatSystem.setEnchant`). GĐ1 chưa ai đạt (trần mốc 4) nhưng logic + chỗ chọn đã có.
 - Thanh 10 ô J, K, 1–8 gán tự do (Space né, R bình máu riêng). Kỹ năng mới học tự vào "ô nhà" (đúng phím cũ) nếu trống.
 - Lưu (`SaveData`): `talents` = số MỐC ĐÃ MUA mỗi nhánh, `talentsV: 2`, `loadout`, `enchant`. Bản lưu thiếu `talentsV`
-  (định dạng điểm-theo-kỹ-năng cũ) → hoàn lại toàn bộ một lần + toast "Hệ tiềm năng mới — … (P)".
+  (định dạng điểm-theo-kỹ-năng cũ) → hoàn lại toàn bộ một lần + toast "Hệ tiềm năng mới — … (P)". *(10/10/2026: `talentsV: 3`
+  — nguyên tố lưu cả mốc 1 đã mua; bản 2 chuyển giữ mốc nếu đủ điểm, xem kế hoạch nguyên tố mục 7.)*
 - Tẩy điểm giữ luật cũ: miễn phí tới cấp 5, sau đó 10 xu × cấp (tẩy cũng tắt phủ phép).
 
 ## 2. Hệ Băng
@@ -37,7 +40,8 @@ lại (đồ hoạ PixelLab). Xong thì tự deploy.
   hướng bay), `ice_burst` (nổ khi trúng) — đã có trong atlas `assets/vfx`. Biểu tượng skill: khung `ice_shard_0`.
 - Mở: thưởng nhiệm vụ 8 tuổi **"Tuyết cho mẹ" (`c8_snow`)** — `unlockSkill=ice` trong bản thiết kế
   `docs/story-childhood.design.json` rồi chạy lại `buildChildhood.py` (childhood.ts SINH TỰ ĐỘNG). Thêm 1 dòng dẫn
-  truyện cuối nhiệm vụ: Lior tết hẳn sợi nước + sợi gió thành băng → "(Mở Băng Tiễn — phím 5.)". Bản lưu đã qua
+  truyện cuối nhiệm vụ: Lior tết hẳn sợi nước + sợi gió thành băng → "(Mở Băng Tiễn — phím 5.)" (10/10/2026: "Mở nhánh Băng —
+  học Băng Tiễn ở bảng Tiềm năng (P) khi có điểm."). Bản lưu đã qua
   `c8_snow` được `migrate()` trao bù tự động; lưới an toàn 16 tuổi ở Game cũng thêm `ice`.
 - Trạng thái mới **đóng băng** (`freeze`, giây): quái đứng im, không đánh/không vào thế; tô xanh băng đậm.
 - Phản ứng (thêm vào `react()`, KHÔNG đổi tên id cũ steam/burst/chill):

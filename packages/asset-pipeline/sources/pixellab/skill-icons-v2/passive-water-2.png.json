@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a heavy iron anchor dripping blue water, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/water+grey.png",
+	"jobId": "8dbb1609-0ff8-4f2c-9510-db4506977bd5",
+	"token": 1,
+	"createdAt": "2026-10-09T19:17:43.598Z"
+}

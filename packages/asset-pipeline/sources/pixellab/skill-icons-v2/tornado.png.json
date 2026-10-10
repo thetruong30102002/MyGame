@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a tall dark green tornado funnel, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/wind.png",
+	"jobId": "44433f9e-d153-41f0-9a16-4891d216db13",
+	"token": 1,
+	"createdAt": "2026-10-09T19:18:28.663Z"
+}

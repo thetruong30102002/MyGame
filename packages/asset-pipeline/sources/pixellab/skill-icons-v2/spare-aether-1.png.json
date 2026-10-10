@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a round grey-white dust cloud puff swirling, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/sword.png",
+	"jobId": "a3ae4951-012f-4687-89a2-5ef8fc72279e",
+	"token": 1,
+	"createdAt": "2026-10-09T19:30:02.414Z"
+}

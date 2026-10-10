@@ -4,28 +4,10 @@ import { Fragment, useEffect, useLayoutEffect, useRef, useState, type CSSPropert
 import { BRANCHES, SWORD_STYLE_INFO, SWORD_STYLES } from '@/game/combat/talents';
 import type { BranchId, EnchantId, SwordStyleId, TalentBranchView, TalentNodeView, TalentsView } from '@/store/useGameStore';
 import { LockGlyph, SkillIcon } from '../SkillIcon';
-import { ELEMENT_STYLE } from '../SkillBar';
-import { BranchIcon, hasNodeIcon, NodeIcon } from './TalentArt';
-import { KIND_LABEL, skillBrief } from './talentInfo';
+import { BranchIcon, hasNodeIcon, NodeIcon, StyleIcon } from './TalentArt';
+import { KIND_LABEL, skillBrief, skillSheet, statLine } from './talentInfo';
+import { BRANCH_INK, SkillStats, TierPips } from './TalentParts';
 import { artKey, edgeKind, learnableNow, nodeKey, nodeState, styleKey, type EdgeKind, type NodeState } from './treeLayout';
-
-/** Màu "đoạn đã học" theo nhánh — mực của hệ (Kiếm: mực thép), đủ tương phản trên giấy. */
-const BRANCH_INK: Record<BranchId, string> = {
-	sword: ELEMENT_STYLE.steel.ink,
-	fire: ELEMENT_STYLE.fire.ink,
-	water: ELEMENT_STYLE.water.ink,
-	wind: ELEMENT_STYLE.wind.ink,
-	ice: ELEMENT_STYLE.ice.ink,
-	earth: ELEMENT_STYLE.earth.ink,
-};
-const BRANCH_FILL: Record<BranchId, string> = {
-	sword: ELEMENT_STYLE.steel.color,
-	fire: ELEMENT_STYLE.fire.color,
-	water: ELEMENT_STYLE.water.color,
-	wind: ELEMENT_STYLE.wind.color,
-	ice: ELEMENT_STYLE.ice.color,
-	earth: ELEMENT_STYLE.earth.color,
-};
 
 /** Nét theo loại đoạn như trên cây: đã học = liền màu mực của nhánh, nấc kế = đứt hổ phách, sắp có / xem trước = đứt giấy. */
 function lineLook(kind: EdgeKind, color: string, dir: 'v' | 'h'): CSSProperties {
@@ -87,6 +69,7 @@ function TierRow({
 	const kind = n.tier >= 10 ? 'ult' : n.kind;
 	const isNext = (state === 'next' || state === 'next-poor') && !r.preview;
 	const sk = n.skillId && n.ready ? skillBrief(n.skillId) : null;
+	const sheet = n.skillId && n.ready ? skillSheet(t, n.skillId, n.tier) : null;
 	const brief = sk ? sk.brief || n.desc : n.desc;
 	const size = big ? 44 : 36;
 	const col = big ? 62 : 52;
@@ -127,8 +110,14 @@ function TierRow({
 						)}
 					</span>
 					<span className={`block text-note ${state === 'locked' || state === 'dim' ? 'text-ink-faint' : 'text-ink-soft'}`}>{brief}</span>
-					{(isNext || expanded) && sk?.facts && <span className="block text-[12px] leading-4 text-ink-faint">{sk.facts}</span>}
+					{sheet && !(isNext || expanded) && <span className="block text-[12px] leading-4 text-ink-faint tabular-nums">{statLine(sheet)}</span>}
 				</button>
+				{sheet && (isNext || expanded) && (
+					<div className="mt-1.5">
+						<SkillStats sheet={sheet} compact={!big} />
+						{!big && sheet.how.length > 0 && <p className="mt-1 text-[12px] leading-4 text-ink-soft">{[...sheet.how, ...sheet.effects].join(' · ')}</p>}
+					</div>
+				)}
 				{isNext && inlineLearn && (
 					<div className="mt-1.5 flex flex-wrap items-center gap-x-2.5 gap-y-1">
 						<button type="button" className="ui-btn" disabled={state !== 'next'} onClick={onLearn}>
@@ -338,8 +327,8 @@ export function TalentBranchList({
 					)}
 				</span>
 			</p>
-			<div className="ui-bar h-2.5 w-full max-w-[320px]">
-				<div className="ui-bar-fill" style={{ width: `${(b.tier / b.maxTier) * 100}%`, '--fill': BRANCH_FILL[b.branch] } as CSSProperties} />
+			<div className="w-full max-w-[360px]">
+				<TierPips tier={b.tier} cap={b.cap} branch={b.branch} locked={!b.unlocked} />
 			</div>
 			</div>
 			{tools}
@@ -390,7 +379,7 @@ export function TalentBranchList({
 									}}
 									className={`flex min-w-0 flex-col items-center gap-0.5 rounded-[8px] border-2 px-1 py-1.5 text-center ${chosen ? 'border-[#8a4a0a] bg-honey' : pv ? 'border-amber bg-paper-hi shadow-[0_0_0_2px_var(--color-gold-hi)]' : 'border-paper-line bg-paper'} ${other ? 'opacity-50 grayscale' : ''}`}
 								>
-									{s.iconSkill && <SkillIcon skillId={s.iconSkill} box={24} />}
+									<StyleIcon style={s.id} fallbackSkill={s.iconSkill} box={24} />
 									<b className="font-display text-[14px] leading-[18px] text-ink-brown">{s.name}</b>
 									<span className="line-clamp-3 text-[12px] leading-[15px] text-ink-soft">
 										<b>{lead}</b>

@@ -1,0 +1,17 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a steel sword with two white forward chevrons beside it, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"init_image_strength": 100,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/sword.png",
+	"init_image_path": "sources/pixellab/skill-icons-v2/init/passive-sword-2.init.png",
+	"jobId": "87afc44b-c46d-4a53-b8f5-0356b7599c62",
+	"token": 1,
+	"createdAt": "2026-10-09T19:18:41.002Z"
+}

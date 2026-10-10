@@ -12,8 +12,9 @@
     "pixellab": "tsx src/cli.ts pixellab",
     "map": "tsx src/cli.ts map",
     "ui": "tsx src/cli.ts ui",
+    "skill-icons": "tsx src/cli.ts skill-icons",
     "vfx": "tsx src/cli.ts vfx",
-    "test": "tsx tests/vfx-pixellab.test.ts && tsx tests/maps.test.ts && tsx tests/gear-anchors.test.ts"
+    "test": "tsx tests/vfx-pixellab.test.ts && tsx tests/maps.test.ts && tsx tests/gear-anchors.test.ts && tsx tests/skill-icons.test.ts"
   },
   "dependencies": {
     "pngjs": "^7.0.0"

@@ -1,0 +1,33 @@
+{
+	"id": "boss_ice_embrace",
+	"kind": "burst",
+	"canvas": {
+		"w": 128,
+		"h": 128
+	},
+	"first": {
+		"prompt": "two slender arms of translucent pale blue ice with long flowing frozen sleeves rising from frozen ground on the left and right and curving inward around an empty space like a mother's embrace, frost mist at the base, drifting snowflakes, base at the bottom of the frame, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "cdc45858-7122-4652-8e07-7734c19af54e"
+	},
+	"action": "the ice arms sweep inward and close together in a gentle tight embrace, frost crackles over them, then they crack and shatter into glittering shards that fade",
+	"frameCount": 10,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png",
+		"frame_009.png",
+		"frame_010.png"
+	],
+	"animateJobId": "48c3b819-c113-4244-9596-9db6f6689ffe",
+	"createdAt": "2026-10-09T16:29:26.083Z",
+	"token": 1
+}

@@ -1,0 +1,17 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a violet smoke puff with an arrow passing through it, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"init_image_strength": 140,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/sword+violet.png",
+	"init_image_path": "sources/pixellab/skill-icons-v2/init/passive-sword-9-bac_than.init.png",
+	"jobId": "40bafead-d83c-4456-86be-bd882f7f88ff",
+	"token": 1,
+	"createdAt": "2026-10-09T19:22:06.084Z"
+}

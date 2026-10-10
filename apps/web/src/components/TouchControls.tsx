@@ -115,7 +115,7 @@ function ActionButton({ label, code, size = 'md', skill, badge, children }: { la
 			style={{ boxShadow: glow ? `${STONE_SHADOW}, 0 0 12px -1px ${glow}, inset 0 0 10px ${glow}44` : STONE_SHADOW }}
 			className={`pointer-events-auto relative ${dim} touch-none select-none rounded-full border-2 border-gold/75 bg-[radial-gradient(circle_at_50%_32%,#4b4853,#26242c_62%,#17161b)] active:translate-y-0.5 disabled:brightness-75`}
 		>
-			<span className={`absolute inset-0 flex items-center justify-center ${locked ? 'opacity-30 grayscale' : ''}`}>{children ?? (skill ? <SkillIcon skillId={skill.id} box={size === 'lg' ? 44 : 32} /> : null)}</span>
+			<span className={`absolute inset-0 flex items-center justify-center ${locked ? 'opacity-30 grayscale' : ''}`}>{children ?? (skill ? <SkillIcon skillId={skill.id} box={size === 'lg' ? 64 : 32} /> : null)}</span>
 			{noMp && <span className="absolute inset-0 rounded-full bg-[#08122e]/60" />}
 			{pct > 0 && <span className="absolute inset-0 rounded-full bg-black/60" style={{ clipPath: `inset(${(1 - pct) * 100}% 0 0 0)` }} />}
 			{locked && (

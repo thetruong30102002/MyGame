@@ -1,0 +1,17 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a huge green storm sphere ringed by spinning white blades, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"init_image_strength": 140,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/wind.png",
+	"init_image_path": "sources/pixellab/skill-icons-v2/init/future-wind-10.init.png",
+	"jobId": "8f371ee7-8f96-48ac-8ef5-81404a33bd51",
+	"token": 1,
+	"createdAt": "2026-10-09T19:23:59.931Z"
+}

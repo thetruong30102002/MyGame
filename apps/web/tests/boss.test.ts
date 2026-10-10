@@ -178,6 +178,39 @@ function fakeTextures(): Textures {
 	assert.ok(fresh.attackTimer >= 1.4, 'có thoại thì boss chờ người chơi đọc xong');
 }
 
+// 2d) Cuồng nộ theo % máu (cân độ khó 09/10/2026: máu boss ×2,2, nhịp `attackCd` ×0,9): ngưỡng vẫn là 50% của máu tối đa MỚI,
+// cuồng nộ nhân nhịp đánh ×0,8 trên `attackCd` mới — đổi bảng chỉ số không làm lệch pha.
+{
+	const vfx = { ground: new Container(), top: new Container(), play: () => undefined, frames: () => [], update: () => undefined, clear: () => undefined };
+	const combat = new CombatSystem(
+		{
+			mover: () => undefined,
+			shake: () => undefined,
+			toast: () => undefined,
+			enemyKilled: () => undefined,
+			bossNear: () => false,
+			playerRespawn: () => ({ x: 0, y: 0 }),
+			isUnlocked: () => true,
+		},
+		{ level: 4, exp: 0, coins: 0, potions: 0 },
+		vfx as never,
+	);
+	combat.setPlayer(new Actor('hero', fakeTextures(), 3030, 0, 'S', null));
+	const home = { x: 3000, y: 0, radius: 96 };
+	const lich = combat.addEnemy(new Actor('boss_lich_001', fakeTextures(), 3000, 0, 'S', home), 'boss_lich_001', home, 'Vua Lich', { regionBoss: true })!;
+	const cd = ENEMY_STATS.boss_lich_001!.attackCd;
+	assert.equal(lich.hpMax, ENEMY_STATS.boss_lich_001!.hp, 'máu tối đa theo bảng mới');
+	// Nhát kế tiếp được hẹn lại sau bao lâu khi boss còn `frac` máu (đứng sát người chơi, tới lượt đánh).
+	const nextSwing = (frac: number): number => {
+		Object.assign(lich, { introduced: true, hp: lich.hpMax * frac, attackTimer: 0.001, aoeTimer: 99, windup: 0 });
+		combat.update(1 / 60, (x, y) => ({ x, y }), 2);
+		return lich.attackTimer;
+	};
+	assert.ok(Math.abs(nextSwing(1) - cd) < 1e-9, `đầy máu: nhịp thường ${cd}s`);
+	assert.ok(Math.abs(nextSwing(0.51) - cd) < 1e-9, 'trên 50% chưa cuồng nộ');
+	assert.ok(Math.abs(nextSwing(0.49) - cd * 0.8) < 1e-9, `dưới 50% máu mới (${Math.round(lich.hpMax / 2)}): nhịp ×0,8`);
+}
+
 // 3) Cân chỉ số tuổi 16: ước cấp người chơi theo EXP cốt truyện, rồi so đòn quái với máu/giáp người chơi.
 {
 	const sum = (qs: { reward: { exp: number } }[]) => qs.reduce((a, q) => a + q.reward.exp, 0);
@@ -190,7 +223,9 @@ function fakeTextures(): Textures {
 	assert.equal(levelAt(childhood), 2, 'vừa sang 16 tuổi: cấp 2');
 	const youthPre = YOUTH_QUESTS.filter((q) => q.objective.type !== 'boss');
 	const beforeDemon = childhood + sum(youthPre) + 5 * ENEMY_STATS.mob_mushroom_001!.exp;
-	assert.equal(levelAt(beforeDemon), 3, 'trước Quỷ vương: cấp 3 (sát cấp 4)');
+	// Cân độ khó 09/10/2026: EXP nấm ×1,2 (14 → 17) đẩy đường tối thiểu qua mốc cấp 4 (trước chỉ thiếu 3 EXP) — vừa kịp cho
+	// Quỷ vương máu ×2,2.
+	assert.equal(levelAt(beforeDemon), 4, 'trước Quỷ vương: cấp 4 (vừa qua mốc)');
 	assert.equal(levelAt(beforeDemon + sum(YOUTH_QUESTS.filter((q) => q.objective.type === 'boss')) + ENEMY_STATS.boss_demon_001!.exp), 5, 'sau Quỷ vương: cấp 5');
 
 	const player = (path: keyof typeof PATHS, lv: number) => {
@@ -216,9 +251,28 @@ function fakeTextures(): Textures {
 	}
 	const lichStats = ENEMY_STATS.boss_lich_001!;
 	assert.equal(lichStats.ranged, 'shadow', 'Lich đánh xa hệ bóng tối');
-	assert.ok(lichStats.hp >= 1100 && lichStats.hp <= 1300);
+	// Máu boss ×2,2 (09/10/2026): khoảng cũ 1100–1300 → 2420–2860; vẫn trâu hơn Quỷ vương.
+	assert.ok(lichStats.hp >= 2420 && lichStats.hp <= 2860, `Lich máu ${lichStats.hp}`);
+	assert.ok(lichStats.hp > ENEMY_STATS.boss_demon_001!.hp, 'Lich trâu hơn Quỷ vương');
 	// Đòn nặng nhất của boss là vòng AoE (atk × 1,8): Pháp sư cấp 3 vẫn sống sót ≥ 2 vòng.
 	assert.ok(maxHit(lichStats.atk * 1.8, mageLv3.def) * 2 < mageLv3.hp, 'Lich không one-shot (cả AoE)');
+
+	// 3b) Hang Gargoyle (thiết kế 12 map vùng 1, 10/10/2026): dơi hang cấp 8–9 + Gargoyle Đá (boss khu cấp 10), đánh ở cấp 8–10.
+	const gar = ENEMY_STATS.boss_stone_gargoyle_001!;
+	assert.ok(!gar.ranged && !gar.resist, 'Gargoyle Đá: cận chiến + vòng nổ boss chung, không đánh xa, không kháng hệ (quái vùng 1)');
+	assert.ok(gar.hp > lichStats.hp * 1.5 && gar.hp < lichStats.hp * 2, `trâu hơn Vua Lich ~1,7 lần (${gar.hp})`);
+	assert.ok(gar.exp > lichStats.exp && gar.coins > lichStats.coins);
+	const mageLv9 = player('mage', 9);
+	assert.ok(maxHit(gar.atk * 1.8, mageLv9.def) * 2 < mageLv9.hp, 'Pháp sư cấp 9 chịu được hai vòng nổ');
+	assert.ok(maxHit(gar.atk, mageLv9.def) / mageLv9.hp <= 0.2, `nhát vuốt ≤ 20% máu Pháp sư cấp 9 (${maxHit(gar.atk, mageLv9.def)}/${mageLv9.hp})`);
+	const bat = ENEMY_STATS.mob_cave_bat_001!;
+	const mageLv8 = player('mage', 8);
+	assert.ok(!bat.ranged && bat.speed >= 78 && bat.attackCd <= 1, 'dơi: cận chiến, nhanh ngang người đi bộ, cắn dồn');
+	assert.ok(maxHit(bat.atk, mageLv8.def) / mageLv8.hp < 0.12, 'một nhát dơi nhẹ — cả bầy dí vào mới nguy');
+	assert.ok(bat.hp < ENEMY_STATS.mob_gargoyle_001!.hp && bat.def < ENEMY_STATS.mob_gargoyle_001!.def, 'dơi giòn hơn gargoyle');
+	const garIntro = bossIntro('boss_stone_gargoyle_001', true, new Set());
+	assert.ok(garIntro && garIntro.length === 3 && /ba trăm năm/i.test(garIntro[0]!), 'Gargoyle Đá có 3 câu thoại riêng (hé lộ đã có người tới trước)');
+	assert.equal(respawnDelay({ boss: true, regionBoss: true }), REGION_BOSS_RESPAWN, 'boss khu hồi sinh theo giờ như Vua Lich');
 }
 
-console.log('✔ boss.test: boss vùng hồi sinh (cả qua đổi map, hoãn khi người chơi đứng canh), không đụng cốt truyện, chào một lần, HUD chọn đúng boss; cân chỉ số quái tuổi 16 + Vua Lich');
+console.log('✔ boss.test: boss vùng hồi sinh (cả qua đổi map, hoãn khi người chơi đứng canh), không đụng cốt truyện, chào một lần, HUD chọn đúng boss, cuồng nộ dưới 50% máu; cân chỉ số quái tuổi 16 + Vua Lich + Hang Gargoyle (dơi hang, Gargoyle Đá)');

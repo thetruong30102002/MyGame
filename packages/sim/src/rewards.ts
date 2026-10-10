@@ -71,7 +71,8 @@ export const GOALS: readonly GoalDef[] = [
 	{ id: 'maps_5', kind: 'maps', target: 5, diamonds: 1, title: 'Đặt chân tới 5 map' },
 	{ id: 'maps_10', kind: 'maps', target: 10, diamonds: 2, title: 'Đặt chân tới 10 map' },
 	{ id: 'maps_30', kind: 'maps', target: 30, diamonds: 5, title: 'Đặt chân tới 30 map' },
-	{ id: 'maps_70', kind: 'maps', target: 70, diamonds: 10, title: 'Đặt chân tới 70 map' },
+	// Mỗi vùng 12 map × 10 vùng (thiết kế 12 map vùng 1, 10/10/2026 — trước là 70 theo khung 7 map/vùng; chưa ai đạt nên đổi mã an toàn).
+	{ id: 'maps_120', kind: 'maps', target: 120, diamonds: 10, title: 'Đặt chân tới 120 map' },
 	{ id: 'friends_1', kind: 'friends', target: 1, diamonds: 1, title: 'Kết người bạn đầu tiên' },
 	{ id: 'friends_10', kind: 'friends', target: 10, diamonds: 3, title: 'Kết 10 người bạn' },
 ];

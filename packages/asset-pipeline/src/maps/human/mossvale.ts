@@ -3,7 +3,8 @@ import { decalsOf, GROUND_PLANTS, Layout, TILE, TREES, px, type MapData } from '
 
 /**
  * Rừng Mossvale: CHỈ một loại quái — nấm rừng — sống theo BẦY ở các khoảng trống (một con thấy người chơi là cả bầy
- * lao vào). Lối tây về thị trấn Thistlewood, lối bắc lên Đá Phong Ấn (Quỷ vương).
+ * lao vào). Lối tây về thị trấn Thistlewood, lối bắc lên Đá Phong Ấn (Quỷ vương), lối nam (đường theo sợi đỏ) xuống Vết Rạn
+ * Mossvale, lối bắc phần đông lên Luỹ Hiệp Sĩ Cũ.
  */
 export const MOSSVALE_W = 48;
 export const MOSSVALE_H = 44;
@@ -45,6 +46,17 @@ export function buildMossvale(meta: Record<string, PropMeta>, decalIds: string[]
 		[6, 22],
 		[6, 25],
 	]);
+	// Thiết kế 12 map vùng 1 (10/10/2026): đường theo sợi đỏ từ Khoảng trống xuống mép nam (Vết Rạn), đường lên sống núi từ
+	// Bãi nấm phía đông ra mép bắc (Luỹ Hiệp Sĩ Cũ). Cùng nhóm đường đầu hàm: khoảng trống chỉ khoét ô rừng nên không xoá đường.
+	L.path([
+		[30, 35],
+		[34, 35],
+		[34, 43],
+	]);
+	L.path([
+		[40, 9],
+		[40, 0],
+	]);
 
 	// Khoảng trống cỏ: bìa rừng (nhiệm vụ 8 tuổi), Khoảng trống Mossvale (16 tuổi) và ba bãi bầy nấm.
 	const clearings = {
@@ -62,6 +74,8 @@ export function buildMossvale(meta: Record<string, PropMeta>, decalIds: string[]
 	// Lối sang map khác + điểm nhặt nấm luôn trống cây.
 	L.reserve(1, 21.5, 3);
 	L.reserve(23.5, 1, 3);
+	L.reserve(35, 42.5, 3);
+	L.reserve(40.5, 1, 3);
 	const pickupSpots: [number, number][] = [
 		[17, 19],
 		[20, 24],
@@ -74,6 +88,8 @@ export function buildMossvale(meta: Record<string, PropMeta>, decalIds: string[]
 
 	L.place('signpost', px(3), px(19) + 10, { force: true });
 	L.place('signpost', px(26), px(2) + 10, { force: true });
+	L.place('signpost', px(37), px(41) + 10, { force: true });
+	L.place('signpost', px(37), px(2) + 10, { force: true });
 
 	// Rừng dày: một loại cây (tán được chồng nhau, gốc cách nhau ≥ 70px), rồi đá, gốc cây, dương xỉ, bụi.
 	L.scatter(1100, (x, y) => L.place(L.pick(TREES), x, y, { canopy: true }));
@@ -113,6 +129,8 @@ export function buildMossvale(meta: Record<string, PropMeta>, decalIds: string[]
 			{ id: 'forest_edge', name: 'Bìa rừng Mossvale', x: px(6), y: px(26), r: 120 },
 			{ id: 'mob_clearing', name: 'Khoảng trống Mossvale', x: px(clearings.main.x), y: px(clearings.main.y), r: 170 },
 			...pickupSpots.map(([tx, ty], i) => ({ id: `forest_spot_${i + 1}`, name: 'Rừng Mossvale', x: px(tx), y: px(ty), r: 40 })),
+			{ id: 'south_entry_mv', name: 'Đường xuống Vết Rạn', x: px(34) + 24, y: px(41), r: 60 },
+			{ id: 'northeast_entry_mv', name: 'Đường lên Luỹ Hiệp Sĩ', x: px(40) + 24, y: px(3), r: 60 },
 		],
 		dummies: [],
 		areas: [
@@ -123,6 +141,9 @@ export function buildMossvale(meta: Record<string, PropMeta>, decalIds: string[]
 		exits: [
 			{ id: 'to_town', to: 'town', toSpot: 'east_gate', edge: 'W', ...L.exitStrip('W', 18, 24), label: 'Thistlewood' },
 			{ id: 'to_shrine', to: 'shrine', toSpot: 'south_entry', edge: 'N', ...L.exitStrip('N', 20, 26), label: 'Đá Phong Ấn' },
+			// Lối mới khai CUỐI mảng (thiết kế 12 map vùng 1): xuống Vết Rạn theo sợi đỏ, lên Luỹ Hiệp Sĩ ở mép bắc phần đông.
+			{ id: 'to_mossrift', to: 'mossrift', toSpot: 'north_entry_rv', edge: 'S', ...L.exitStrip('S', 32, 37), label: 'Vết Rạn Mossvale · cấp 5+' },
+			{ id: 'to_oldfort', to: 'oldfort', toSpot: 'south_entry_of', edge: 'N', ...L.exitStrip('N', 38, 43), label: 'Luỹ Hiệp Sĩ Cũ · cấp 7+' },
 		],
 	});
 }

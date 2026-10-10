@@ -430,21 +430,98 @@ export function elementMult(stats: Pick<EnemyStats, 'resist'>, element: Element)
 /**
  * Chỉ số theo nhân vật. Nấm rừng cân cho người chơi cấp 1–2 (8 tuổi). Quái từ 16 tuổi (Nghĩa địa, Vách Gargoyle,
  * Đồi Xương) cân cho cấp 3–5: tới đó người chơi đã có ~180 EXP tuổi thơ + 480 EXP nhiệm vụ tuổi 16 + EXP diệt quái
- * (≈ cấp 2–3 lúc vừa sang 16 tuổi, cấp 3–4 sau hai nhiệm vụ đầu, cấp 5 sau Quỷ vương). Mục tiêu: một đòn của quái 16+ ăn ~8–15% máu người
- * chơi cấp 4 (nấm chỉ ~2%), cả bầy dí vào mới nguy; không đòn thường nào quá ~20% máu kể cả Pháp sư cấp 3.
+ * (≈ cấp 2–3 lúc vừa sang 16 tuổi, cấp 4 trước Quỷ vương — đường tối thiểu chỉ vừa qua mốc, cấp 5 sau Quỷ vương). Một đòn
+ * của quái thường 16+ ăn ~8–15% máu người chơi cấp 4 (nấm chỉ ~2%), cả bầy dí vào mới nguy; không đòn thường nào quá ~20%
+ * máu kể cả Pháp sư cấp 3.
+ *
+ * Cân độ khó 09/10/2026 (chủ dự án: "tăng máu quái cho khó hơn, boss cũng mạnh hơn") so với bản trước:
+ * - Quái thường: MÁU ×1,6 (làm tròn 5), công / giáp / tốc giữ nguyên; EXP + xu ×1,2 bù thời gian đánh lâu hơn.
+ * - Boss: MÁU ×2,2 (tròn 50), CÔNG ×1,25, nhịp đánh `attackCd` ×0,9 (cuồng nộ dưới 50% máu vẫn ×0,8 nữa); EXP + xu ×1,4.
+ *   Một nhát của boss lên Pháp sư cấp 4 (136 máu, giáp 6): Quỷ vương ~22 (16%), vòng nổ (công ×1,8) ~42 (31%); vòng nổ Vua
+ *   Lich ~47 (35%) — lên Pháp sư cấp 3 vẫn chịu được hai vòng.
+ * Thời gian hạ ước lượng (đứng đánh liên tục, không né, không trang bị, chí mạng 10% gốc; Kiếm sĩ = Trảm + Nhất Kích, Pháp sư
+ * = Tia Aether + Hoả Cầu, có tính MP; cấp 4 = mốc 3, cấp 10 = mốc 6 của nhánh chính) — cũ → mới:
+ * | | Kiếm sĩ cấp 4 | Pháp sư cấp 4 | Kiếm sĩ cấp 10 | Pháp sư cấp 10 |
+ * | Xác sống | 1,4 → 2,6s | 2,1 → 3,4s | 0,7 → 1,1s | 1,3 → 1,7s |
+ * | Gargoyle | 1,8 → 3,0s | 2,9 → 4,2s | 1,1 → 1,4s | 1,3 → 2,1s |
+ * | Quỷ vương | 7,1 → 15,6s | 10,1 → 22,3s | 3,7 → 8,2s | 5,0 → 10,9s |
+ * | Vua Lich | 9,3 → 20,1s | 13,0 → 28,6s | 4,9 → 10,4s | 6,3 → 13,4s |
+ * | Gargoyle Đá (mới 10/10/2026) | — → ~36s | — → ~51s | — → ~18,5s | — → ~24s |
+ * Gargoyle Đá chưa chạy mô phỏng: ước = hàng Vua Lich × tỉ lệ máu (4600 / 2650 ≈ 1,74), cộng ~2–5% vì giáp hơn 5 (nhát nhỏ của cấp
+ * 4 bị bớt nhiều hơn). Boss khu cấp 10 — đánh ở cấp 9–10, cột cấp 4 chỉ để so.
+ * Đánh thật (né, chạy vòng, đổi mục tiêu) lâu hơn bảng ~2–3 lần. Máy chủ (`apps/server/src/mobs.ts`) giữ máu theo đúng bảng này,
+ * không có trần sát thương / thời gian hạ tối thiểu nào tính theo máu quái — đổi số ở đây là đủ cho cả hai phía.
+ *
+ * Số trong bảng là chỉ số ở CẤP GỐC của loại (`ENEMY_BASE_LEVEL`); khu quái khai `level` thì dùng `enemyStatsAt` (thiết kế 12 map
+ * vùng 1, 10/10/2026 — `docs/thiet-ke/vung1-12-map.md`).
  */
 export const ENEMY_STATS: Record<string, EnemyStats> = {
-	mob_mushroom_001: { hp: 60, atk: 7, def: 1, speed: 46, aggro: 170, reach: 34, attackCd: 1.4, exp: 14, coins: 3 },
+	mob_mushroom_001: { hp: 95, atk: 7, def: 1, speed: 46, aggro: 170, reach: 34, attackCd: 1.4, exp: 17, coins: 4 },
 	// Xác sống: trâu, chậm — đánh đau nhưng chạy vòng được.
-	mob_zombie_001: { hp: 200, atk: 17, def: 4, speed: 38, aggro: 190, reach: 36, attackCd: 1.7, exp: 40, coins: 8 },
+	mob_zombie_001: { hp: 320, atk: 17, def: 4, speed: 38, aggro: 190, reach: 36, attackCd: 1.7, exp: 48, coins: 10 },
 	// Gargoyle: da đá (giáp cao), nhanh — khó nhất trong ba loại.
-	mob_gargoyle_001: { hp: 240, atk: 20, def: 8, speed: 58, aggro: 210, reach: 38, attackCd: 1.5, exp: 55, coins: 11 },
+	mob_gargoyle_001: { hp: 385, atk: 20, def: 8, speed: 58, aggro: 210, reach: 38, attackCd: 1.5, exp: 66, coins: 13 },
 	// Cung xương: giòn nhưng bắn từ xa, đứng ngoài tầm kiếm.
-	mob_skeleton_archer_001: { hp: 140, atk: 16, def: 3, speed: 44, aggro: 290, reach: 240, attackCd: 2, ranged: 'arrow', exp: 42, coins: 9 },
-	boss_demon_001: { hp: 950, atk: 20, def: 6, speed: 64, aggro: 330, reach: 46, attackCd: 1.3, ranged: 'shadow', exp: 300, coins: 120 },
+	mob_skeleton_archer_001: { hp: 225, atk: 16, def: 3, speed: 44, aggro: 290, reach: 240, attackCd: 2, ranged: 'arrow', exp: 50, coins: 11 },
+	boss_demon_001: { hp: 2100, atk: 25, def: 6, speed: 64, aggro: 330, reach: 46, attackCd: 1.17, ranged: 'shadow', exp: 420, coins: 170 },
 	// Vua Lich (boss vùng hầm mộ Nghĩa địa, hồi sinh ~3 phút): trâu hơn Quỷ vương, đi chậm, đạn bóng tối đau hơn một chút.
-	boss_lich_001: { hp: 1200, atk: 22, def: 7, speed: 52, aggro: 340, reach: 48, attackCd: 1.4, ranged: 'shadow', exp: 360, coins: 140 },
+	boss_lich_001: { hp: 2650, atk: 28, def: 7, speed: 52, aggro: 340, reach: 48, attackCd: 1.26, ranged: 'shadow', exp: 505, coins: 195 },
+	// Dơi hang (Hang Gargoyle, cấp 8–9): nhanh ngang người chơi đi bộ nên không thả diều được, giòn, cắn dồn (nhịp 1 giây).
+	mob_cave_bat_001: { hp: 330, atk: 19, def: 2, speed: 78, aggro: 240, reach: 30, attackCd: 1, exp: 70, coins: 14 },
+	// Gargoyle Đá (boss khu Hang Gargoyle, cấp 10, hồi sinh như Vua Lich): số của Vua Lich nâng từ cấp 6 lên 10 bằng `enemyStatsAt`
+	// rồi làm tròn tay. Cận chiến + vòng nổ boss dùng chung (hình `boss_stone_slam`); KHÔNG đánh xa, KHÔNG đặt `resist` (quái vùng 1).
+	boss_stone_gargoyle_001: { hp: 4600, atk: 36, def: 12, speed: 48, aggro: 320, reach: 56, attackCd: 1.4, exp: 800, coins: 290 },
 };
+
+/**
+ * Cấp GỐC của từng loại: `ENEMY_STATS` là chỉ số đúng ở cấp này. Một hình dùng ở nhiều map (nấm ở Mossvale / Bãi Bồi / Vết Rạn)
+ * nên khu quái khai `level` để cùng loại mạnh dần theo đường cấp. Boss ghi cấp để nhãn tên hiện "Cấp N" (khu boss khai đúng số này
+ * thì chỉ số giữ nguyên). Loại không có ở đây: khai `level` cũng không đổi số (không biết mốc để nhân).
+ */
+export const ENEMY_BASE_LEVEL: Readonly<Record<string, number>> = {
+	mob_mushroom_001: 2,
+	mob_zombie_001: 4,
+	mob_skeleton_archer_001: 5,
+	mob_gargoyle_001: 6,
+	mob_cave_bat_001: 8,
+	boss_demon_001: 5,
+	boss_lich_001: 6,
+	boss_stone_gargoyle_001: 10,
+};
+
+/** Chênh cấp so với cấp gốc được kẹp trong khoảng này — xa hơn nữa thì nên là loại quái khác, không kéo một hình đi mãi. */
+export const ENEMY_LEVEL_SPREAD = { min: -3, max: 6 } as const;
+
+/** Mỗi cấp chênh: máu ×1,15 (tròn 5), công ×1,09, EXP ×1,12, xu ×1,1; giáp +0,5 (làm tròn, không âm). Tốc / tầm / nhịp giữ nguyên. */
+const PER_LEVEL = { hp: 1.15, atk: 1.09, def: 0.5, exp: 1.12, coins: 1.1 } as const;
+
+/** Cấp hiện trên nhãn tên: cấp của khu nếu có, không thì cấp gốc của loại; null = loại chưa ghi cấp (nhãn chỉ có tên). */
+export function enemyLevel(type: string, level?: number): number | null {
+	if (level !== undefined && Number.isFinite(level) && level >= 1) return Math.round(level);
+	return ENEMY_BASE_LEVEL[type] ?? null;
+}
+
+/**
+ * Chỉ số của loại `type` ở cấp `level` (khu quái — `MonsterZoneDef.level`). Máy chủ (sổ quái, trao EXP / xu) và client (AI, đòn quái,
+ * chơi một mình) cùng gọi để không lệch máu / EXP. Thiếu `level` (6 map cũ), loại không có cấp gốc, hoặc đúng cấp gốc → trả NGUYÊN
+ * object của `ENEMY_STATS` (không chép). Loại lạ → undefined.
+ * Δ = cấp − cấp gốc, kẹp `ENEMY_LEVEL_SPREAD`: máu × 1,15^Δ, công × 1,09^Δ, giáp + round(0,5Δ), EXP × 1,12^Δ, xu × 1,1^Δ.
+ */
+export function enemyStatsAt(type: string, level?: number): EnemyStats | undefined {
+	const base = ENEMY_STATS[type];
+	const from = ENEMY_BASE_LEVEL[type];
+	if (!base || from === undefined || level === undefined || !Number.isFinite(level)) return base;
+	const d = Math.max(ENEMY_LEVEL_SPREAD.min, Math.min(ENEMY_LEVEL_SPREAD.max, Math.round(level) - from));
+	if (d === 0) return base;
+	return {
+		...base,
+		hp: Math.max(5, Math.round((base.hp * PER_LEVEL.hp ** d) / 5) * 5),
+		atk: Math.max(1, Math.round(base.atk * PER_LEVEL.atk ** d)),
+		def: Math.max(0, base.def + Math.round(PER_LEVEL.def * d)),
+		exp: Math.max(1, Math.round(base.exp * PER_LEVEL.exp ** d)),
+		coins: Math.max(0, Math.round(base.coins * PER_LEVEL.coins ** d)),
+	};
+}
 
 /**
  * Cấp + EXP từ bản lưu: cấp kẹp 1–`maxLevel`; EXP không vượt mức cần của cấp đó (bản lưu của đường EXP cũ có thể "thừa" EXP

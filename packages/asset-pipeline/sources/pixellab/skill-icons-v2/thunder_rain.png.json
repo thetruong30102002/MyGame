@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a dark storm cloud with a yellow lightning bolt, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/water+grey+yellow.png",
+	"jobId": "1c67de8f-ed59-416b-b461-b6cc6662ed1e",
+	"token": 1,
+	"createdAt": "2026-10-09T19:17:44.156Z"
+}

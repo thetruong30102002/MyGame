@@ -1,0 +1,1087 @@
+{
+	"version": 2,
+	"notes": "Icon chiêu v2 (10/10/2026): MỘT icon 32×32 mỗi khoá (file = khoá đổi \":\" thành \"-\"), create_image_pixflux nền trong suốt, viền đen một màu, basic shading, low detail, ÉP bảng màu nhánh (+ màu nhấn) — vẽ đúng cỡ hiện ở thanh kỹ năng. Khoá, thứ tự, name_vi giữ như bộ v1 (skill-icons/skill_icons.json — 10 tấm 3×3, lưu trữ). Đề bài gửi = prompt_en + style.suffix; bảng màu gửi = palettes[palette] ∪ accents[...] (PNG ở palettes/); tham số đúng từng lần vẽ ở <file>.json. chosen = bản được chọn (t1 = lần vẽ đầu, tN = vẽ lại bằng chữ, iNNN = img2img); init + init_strength = img2img từ icon v1 thu nhỏ còn 28px (init/) để giữ BỐ CỤC khi đề bài \"kiếm + hiệu ứng\" bị pixflux rút còn thanh kiếm; seed riêng (nếu có) = lần vẽ lại. Thư mục: args/ (tham số gửi), _ung-vien/ (ứng viên bị loại), _thu/ (thử 3 cách × 6 icon), _duyet/ (tấm so sánh / duyệt / ảnh trước-sau). Dựng: npm run assets:skill-icons. Xem docs/asset-pipeline.md mục Icon chiêu v2.",
+	"style": {
+		"tool": "pixflux",
+		"width": 32,
+		"height": 32,
+		"no_background": true,
+		"outline": "single color black outline",
+		"shading": "basic shading",
+		"detail": "low detail",
+		"seed": 4242,
+		"suffix": ", simple chunky game icon"
+	},
+	"palettes": {
+		"sword": [
+			"#1c1525",
+			"#4a5068",
+			"#8d97ad",
+			"#d5dce8",
+			"#ffffff",
+			"#c48a2c",
+			"#f2c94c",
+			"#b02a37"
+		],
+		"fire": [
+			"#1c1525",
+			"#5c1a1b",
+			"#b3261e",
+			"#e8591a",
+			"#ffa42b",
+			"#ffe066",
+			"#fff6d6",
+			"#4a3f45"
+		],
+		"water": [
+			"#1c1525",
+			"#15306b",
+			"#1f62c4",
+			"#3fa2f0",
+			"#9fdcff",
+			"#f0fbff"
+		],
+		"wind": [
+			"#1c1525",
+			"#0f4a3c",
+			"#1f8a62",
+			"#45c98d",
+			"#9ff0c8",
+			"#f0fff6"
+		],
+		"ice": [
+			"#1c1525",
+			"#1d3f73",
+			"#2f78b8",
+			"#5fc0e8",
+			"#a8e8fa",
+			"#e6fbff",
+			"#ffffff"
+		],
+		"earth": [
+			"#1c1525",
+			"#3f2716",
+			"#7a4a26",
+			"#b57b3e",
+			"#e0b878",
+			"#6e6862",
+			"#a8a097",
+			"#5b8a35"
+		],
+		"aether": [
+			"#1c1525",
+			"#2e1a5c",
+			"#5a2fb0",
+			"#9566f0",
+			"#cfb8ff",
+			"#fbf2ff",
+			"#f2c94c"
+		]
+	},
+	"accents": {
+		"steel": [
+			"#4a5068",
+			"#8d97ad",
+			"#d5dce8"
+		],
+		"teal": [
+			"#1e6b66",
+			"#3fb8a8",
+			"#a6ece0"
+		],
+		"violet": [
+			"#3b2366",
+			"#7a4ec2",
+			"#c4a8f0"
+		],
+		"red": [
+			"#8a1c22",
+			"#d6363c"
+		],
+		"green": [
+			"#3f9e3a",
+			"#8ee05a"
+		],
+		"gold": [
+			"#c48a2c",
+			"#f2c94c"
+		],
+		"yellow": [
+			"#ffe066"
+		],
+		"grey": [
+			"#4a4f5c",
+			"#8a90a0",
+			"#c9ced8"
+		],
+		"blue": [
+			"#1f62c4",
+			"#4fb4ff"
+		],
+		"brown": [
+			"#5a3a1e",
+			"#9a6a3a"
+		]
+	},
+	"icons": [
+		{
+			"key": "slash",
+			"name_vi": "Trảm",
+			"sheet_v1": "SK1_sword_kiem_than",
+			"palette": "sword",
+			"accents": [],
+			"prompt_en": "a big curved white slash arc swept by a small steel sword",
+			"file": "slash.png",
+			"chosen": "t1"
+		},
+		{
+			"key": "heavy_strike",
+			"name_vi": "Nhất Kích",
+			"sheet_v1": "SK1_sword_kiem_than",
+			"palette": "sword",
+			"accents": [],
+			"prompt_en": "a huge heavy greatsword chopping straight down into a yellow impact burst",
+			"file": "heavy_strike.png"
+		},
+		{
+			"key": "pierce_rush",
+			"name_vi": "Đột Kích",
+			"sheet_v1": "SK1_sword_kiem_than",
+			"palette": "sword",
+			"accents": [],
+			"prompt_en": "a steel sword thrusting point-first to the right with a long white motion streak",
+			"file": "pierce_rush.png",
+			"chosen": "i140",
+			"init": "init/pierce_rush.init.png",
+			"init_strength": 140
+		},
+		{
+			"key": "sunder_strike",
+			"name_vi": "Phá Giáp",
+			"sheet_v1": "SK1_sword_kiem_than",
+			"palette": "sword",
+			"accents": [],
+			"prompt_en": "a steel sword splitting an iron knight helmet cleanly in two",
+			"file": "sunder_strike.png",
+			"chosen": "i140",
+			"init": "init/sunder_strike.init.png",
+			"init_strength": 140
+		},
+		{
+			"key": "blade_wave",
+			"name_vi": "Lưỡi Sóng",
+			"sheet_v1": "SK1_sword_kiem_than",
+			"palette": "sword",
+			"accents": [],
+			"prompt_en": "a large silver crescent blade wave flying to the right",
+			"file": "blade_wave.png"
+		},
+		{
+			"key": "passive:sword:4:kiem_than",
+			"name_vi": "Mắt Tinh",
+			"sheet_v1": "SK1_sword_kiem_than",
+			"palette": "sword",
+			"accents": [],
+			"prompt_en": "a golden crosshair target reticle",
+			"file": "passive-sword-4-kiem_than.png"
+		},
+		{
+			"key": "passive:sword:7:kiem_than",
+			"name_vi": "Thế Áp Đảo",
+			"sheet_v1": "SK1_sword_kiem_than",
+			"palette": "sword",
+			"accents": [],
+			"prompt_en": "three stacked red upward chevron arrows",
+			"file": "passive-sword-7-kiem_than.png"
+		},
+		{
+			"key": "passive:sword:9:kiem_than",
+			"name_vi": "Bất Khuất",
+			"sheet_v1": "SK1_sword_kiem_than",
+			"palette": "sword",
+			"accents": [],
+			"prompt_en": "a red heart pierced by an upright steel sword",
+			"file": "passive-sword-9-kiem_than.png"
+		},
+		{
+			"key": "future:sword:10:kiem_than",
+			"name_vi": "Phán Quyết (sắp có)",
+			"sheet_v1": "SK1_sword_kiem_than",
+			"palette": "sword",
+			"accents": [],
+			"prompt_en": "three golden swords falling point-down in a fan",
+			"file": "future-sword-10-kiem_than.png"
+		},
+		{
+			"key": "calm_stance",
+			"name_vi": "Thế Tĩnh",
+			"sheet_v1": "SK2_sword_thuy_than",
+			"palette": "sword",
+			"accents": [
+				"teal"
+			],
+			"prompt_en": "a horizontal steel sword over a teal half-dome guard",
+			"file": "calm_stance.png",
+			"chosen": "i200",
+			"init": "init/calm_stance.init.png",
+			"init_strength": 200
+		},
+		{
+			"key": "flowing_counter",
+			"name_vi": "Lưu Thủy Phản",
+			"sheet_v1": "SK2_sword_thuy_than",
+			"palette": "sword",
+			"accents": [
+				"teal"
+			],
+			"prompt_en": "two crossed swords with a white spark where they clash",
+			"file": "flowing_counter.png"
+		},
+		{
+			"key": "backflow",
+			"name_vi": "Dòng Chảy Ngược",
+			"sheet_v1": "SK2_sword_thuy_than",
+			"palette": "sword",
+			"accents": [
+				"teal"
+			],
+			"prompt_en": "an upright steel sword with two teal arrows bouncing off it",
+			"file": "backflow.png",
+			"chosen": "i140",
+			"init": "init/backflow.init.png",
+			"init_strength": 140
+		},
+		{
+			"key": "whirlpool",
+			"name_vi": "Xoáy Nước",
+			"sheet_v1": "SK2_sword_thuy_than",
+			"palette": "sword",
+			"accents": [
+				"teal"
+			],
+			"prompt_en": "a steel sword inside a round white spinning slash ring",
+			"file": "whirlpool.png"
+		},
+		{
+			"key": "passive:sword:2",
+			"name_vi": "Nhịp Chém",
+			"sheet_v1": "SK2_sword_thuy_than",
+			"palette": "sword",
+			"accents": [],
+			"prompt_en": "a steel sword with two white forward chevrons beside it",
+			"file": "passive-sword-2.png",
+			"chosen": "i200",
+			"init": "init/passive-sword-2.init.png",
+			"init_strength": 200
+		},
+		{
+			"key": "passive:sword:4:thuy_than",
+			"name_vi": "Tâm Tĩnh",
+			"sheet_v1": "SK2_sword_thuy_than",
+			"palette": "sword",
+			"accents": [
+				"teal"
+			],
+			"prompt_en": "a teal lotus flower with open petals",
+			"file": "passive-sword-4-thuy_than.png"
+		},
+		{
+			"key": "passive:sword:7:thuy_than",
+			"name_vi": "Phản Đòn",
+			"sheet_v1": "SK2_sword_thuy_than",
+			"palette": "sword",
+			"accents": [
+				"teal"
+			],
+			"prompt_en": "a bold teal U-turn arrow curving back",
+			"file": "passive-sword-7-thuy_than.png"
+		},
+		{
+			"key": "passive:sword:9:thuy_than",
+			"name_vi": "Mặt Hồ Phẳng",
+			"sheet_v1": "SK2_sword_thuy_than",
+			"palette": "sword",
+			"accents": [
+				"teal",
+				"green"
+			],
+			"prompt_en": "a small green heart floating over a flat teal pond",
+			"file": "passive-sword-9-thuy_than.png"
+		},
+		{
+			"key": "future:sword:10:thuy_than",
+			"name_vi": "Thiên Tĩnh (sắp có)",
+			"sheet_v1": "SK2_sword_thuy_than",
+			"palette": "sword",
+			"accents": [
+				"teal"
+			],
+			"prompt_en": "a teal glass dome with a golden rim",
+			"file": "future-sword-10-thuy_than.png"
+		},
+		{
+			"key": "side_slash",
+			"name_vi": "Lướt Chém",
+			"sheet_v1": "SK3_sword_bac_than",
+			"palette": "sword",
+			"accents": [
+				"violet"
+			],
+			"prompt_en": "a steel sword sweeping a flat violet arc sideways",
+			"file": "side_slash.png",
+			"chosen": "i140",
+			"init": "init/side_slash.init.png",
+			"init_strength": 140
+		},
+		{
+			"key": "shadow_step",
+			"name_vi": "Ảnh Bộ",
+			"sheet_v1": "SK3_sword_bac_than",
+			"palette": "sword",
+			"accents": [
+				"violet"
+			],
+			"prompt_en": "a steel sword stabbing out of a dark purple shadow portal",
+			"file": "shadow_step.png",
+			"chosen": "i140",
+			"init": "init/shadow_step.init.png",
+			"init_strength": 140
+		},
+		{
+			"key": "chain_slash",
+			"name_vi": "Liên Hoàn",
+			"sheet_v1": "SK3_sword_bac_than",
+			"palette": "sword",
+			"accents": [
+				"violet"
+			],
+			"prompt_en": "three parallel diagonal white claw slash marks",
+			"file": "chain_slash.png",
+			"chosen": "t2"
+		},
+		{
+			"key": "flying_sword",
+			"name_vi": "Phi Kiếm",
+			"sheet_v1": "SK3_sword_bac_than",
+			"palette": "sword",
+			"accents": [
+				"violet"
+			],
+			"prompt_en": "a flying steel sword pointing right inside a violet looping return arrow",
+			"file": "flying_sword.png",
+			"chosen": "i220",
+			"init": "init/flying_sword.init.png",
+			"init_strength": 220
+		},
+		{
+			"key": "passive:sword:4:bac_than",
+			"name_vi": "Nhẹ Như Gió",
+			"sheet_v1": "SK3_sword_bac_than",
+			"palette": "sword",
+			"accents": [
+				"violet"
+			],
+			"prompt_en": "a small boot with a white wing",
+			"file": "passive-sword-4-bac_than.png"
+		},
+		{
+			"key": "passive:sword:7:bac_than",
+			"name_vi": "Đà Lướt",
+			"sheet_v1": "SK3_sword_bac_than",
+			"palette": "sword",
+			"accents": [
+				"violet"
+			],
+			"prompt_en": "two bold violet forward chevron arrows pointing right",
+			"file": "passive-sword-7-bac_than.png",
+			"chosen": "t4"
+		},
+		{
+			"key": "passive:sword:9:bac_than",
+			"name_vi": "Bóng Mờ",
+			"sheet_v1": "SK3_sword_bac_than",
+			"palette": "sword",
+			"accents": [
+				"violet"
+			],
+			"prompt_en": "a violet smoke puff with an arrow passing through it",
+			"file": "passive-sword-9-bac_than.png",
+			"chosen": "i140",
+			"init": "init/passive-sword-9-bac_than.init.png",
+			"init_strength": 140
+		},
+		{
+			"key": "future:sword:10:bac_than",
+			"name_vi": "Ngàn Bóng (sắp có)",
+			"sheet_v1": "SK3_sword_bac_than",
+			"palette": "sword",
+			"accents": [
+				"violet"
+			],
+			"prompt_en": "three dark purple shadow swords in a fan, points up",
+			"file": "future-sword-10-bac_than.png"
+		},
+		{
+			"key": "spare:sword:4",
+			"name_vi": "Dự phòng — biểu tượng lưu phái Bắc Thần (nút chọn lưu phái mốc 3)",
+			"sheet_v1": "SK3_sword_bac_than",
+			"palette": "sword",
+			"accents": [
+				"violet"
+			],
+			"prompt_en": "a violet four-point compass star with silver tips",
+			"file": "spare-sword-4.png"
+		},
+		{
+			"key": "blaze_slash",
+			"name_vi": "Liệt Hoả Trảm",
+			"sheet_v1": "SK4_sword_arts",
+			"palette": "fire",
+			"accents": [
+				"steel"
+			],
+			"prompt_en": "a steel sword swinging a wide arc of orange flames",
+			"file": "blaze_slash.png"
+		},
+		{
+			"key": "water_dragon_slash",
+			"name_vi": "Thuỷ Long Trảm",
+			"sheet_v1": "SK4_sword_arts",
+			"palette": "water",
+			"accents": [
+				"steel"
+			],
+			"prompt_en": "a steel sword releasing a curling blue water wave forward",
+			"file": "water_dragon_slash.png",
+			"chosen": "i140",
+			"init": "init/water_dragon_slash.init.png",
+			"init_strength": 140
+		},
+		{
+			"key": "gale_blade_dance",
+			"name_vi": "Phong Kiếm Cuồng Vũ",
+			"sheet_v1": "SK4_sword_arts",
+			"palette": "wind",
+			"accents": [
+				"steel"
+			],
+			"prompt_en": "an upright steel sword inside a ring of green wind blades",
+			"file": "gale_blade_dance.png"
+		},
+		{
+			"key": "frost_cleave",
+			"name_vi": "Hàn Băng Trảm",
+			"sheet_v1": "SK4_sword_arts",
+			"palette": "ice",
+			"accents": [
+				"steel"
+			],
+			"prompt_en": "an ice-crusted sword with a wide pale blue frost arc",
+			"file": "frost_cleave.png"
+		},
+		{
+			"key": "earth_rend",
+			"name_vi": "Địa Liệt Trảm",
+			"sheet_v1": "SK4_sword_arts",
+			"palette": "earth",
+			"accents": [
+				"steel"
+			],
+			"prompt_en": "a sword stabbed point-down into cracked brown ground",
+			"file": "earth_rend.png"
+		},
+		{
+			"key": "spare:sword:1",
+			"name_vi": "Dự phòng — biểu tượng ĐẦU NHÁNH Kiếm (thay SWORD_HEAD_ICON; fallback cho nút Kiếm mốc ≥ 3 chưa chọn lưu phái)",
+			"sheet_v1": "SK4_sword_arts",
+			"palette": "sword",
+			"accents": [],
+			"prompt_en": "a broad steel longsword with a gold crossguard pointing up-right",
+			"file": "spare-sword-1.png",
+			"chosen": "t6"
+		},
+		{
+			"key": "spare:sword:2",
+			"name_vi": "Dự phòng — biểu tượng lưu phái Kiếm Thần (nút chọn lưu phái mốc 3)",
+			"sheet_v1": "SK4_sword_arts",
+			"palette": "sword",
+			"accents": [],
+			"prompt_en": "a crimson diamond gem with short gold rays around it",
+			"file": "spare-sword-2.png"
+		},
+		{
+			"key": "spare:sword:3",
+			"name_vi": "Dự phòng — biểu tượng lưu phái Thủy Thần (nút chọn lưu phái mốc 3)",
+			"sheet_v1": "SK4_sword_arts",
+			"palette": "sword",
+			"accents": [
+				"teal"
+			],
+			"prompt_en": "a teal crescent moon above a flat calm water line",
+			"file": "spare-sword-3.png"
+		},
+		{
+			"key": "spare:sword:5",
+			"name_vi": "Dự phòng — Phủ phép Kiếm (ô phủ phép trống)",
+			"sheet_v1": "SK4_sword_arts",
+			"palette": "aether",
+			"accents": [
+				"red",
+				"blue",
+				"green"
+			],
+			"prompt_en": "a round gem swirling with red, blue and green magic",
+			"file": "spare-sword-5.png"
+		},
+		{
+			"key": "fire_bolt",
+			"name_vi": "Hoả Cầu",
+			"sheet_v1": "SK5_fire",
+			"palette": "fire",
+			"accents": [],
+			"prompt_en": "a round fireball with a short flame tail flying right",
+			"file": "fire_bolt.png"
+		},
+		{
+			"key": "flame_ring",
+			"name_vi": "Vòng Lửa",
+			"sheet_v1": "SK5_fire",
+			"palette": "fire",
+			"accents": [],
+			"prompt_en": "a flat ring of fire with an empty dark center",
+			"file": "flame_ring.png"
+		},
+		{
+			"key": "fire_blast",
+			"name_vi": "Bộc Hoả",
+			"sheet_v1": "SK5_fire",
+			"palette": "fire",
+			"accents": [],
+			"prompt_en": "a big round fiery explosion burst",
+			"file": "fire_blast.png"
+		},
+		{
+			"key": "fire_wall",
+			"name_vi": "Tường Lửa",
+			"sheet_v1": "SK5_fire",
+			"palette": "fire",
+			"accents": [],
+			"prompt_en": "a row of tall flames standing side by side like a wall",
+			"file": "fire_wall.png"
+		},
+		{
+			"key": "meteor",
+			"name_vi": "Thiên Thạch",
+			"sheet_v1": "SK5_fire",
+			"palette": "fire",
+			"accents": [],
+			"prompt_en": "a huge flaming boulder falling straight down, flames trailing upward",
+			"file": "meteor.png",
+			"chosen": "t5"
+		},
+		{
+			"key": "passive:fire:2",
+			"name_vi": "Mồi Lửa",
+			"sheet_v1": "SK5_fire",
+			"palette": "fire",
+			"accents": [
+				"gold"
+			],
+			"prompt_en": "a small hourglass with a flame inside it",
+			"file": "passive-fire-2.png"
+		},
+		{
+			"key": "passive:fire:4",
+			"name_vi": "Tim Lò",
+			"sheet_v1": "SK5_fire",
+			"palette": "fire",
+			"accents": [
+				"grey"
+			],
+			"prompt_en": "a burning orange heart inside a black iron furnace grate",
+			"file": "passive-fire-4.png",
+			"chosen": "t5"
+		},
+		{
+			"key": "passive:fire:7",
+			"name_vi": "Tro Tàn",
+			"sheet_v1": "SK5_fire",
+			"palette": "fire",
+			"accents": [
+				"grey"
+			],
+			"prompt_en": "a grey ash pile with three orange embers",
+			"file": "passive-fire-7.png"
+		},
+		{
+			"key": "passive:fire:9",
+			"name_vi": "Hoả Thân",
+			"sheet_v1": "SK5_fire",
+			"palette": "fire",
+			"accents": [],
+			"prompt_en": "a tall flame with a white-hot core",
+			"file": "passive-fire-9.png"
+		},
+		{
+			"key": "water_lance",
+			"name_vi": "Thuỷ Tiễn",
+			"sheet_v1": "SK6_water",
+			"palette": "water",
+			"accents": [],
+			"prompt_en": "a wavy blue water spear with a round droplet head flying right",
+			"file": "water_lance.png",
+			"chosen": "i140",
+			"init": "init/water_lance.init.png",
+			"init_strength": 140
+		},
+		{
+			"key": "heal",
+			"name_vi": "Suối Lành",
+			"sheet_v1": "SK6_water",
+			"palette": "water",
+			"accents": [
+				"green"
+			],
+			"prompt_en": "a green plus cross inside a round blue water drop",
+			"file": "heal.png"
+		},
+		{
+			"key": "tidal_wave",
+			"name_vi": "Sóng Dữ",
+			"sheet_v1": "SK6_water",
+			"palette": "water",
+			"accents": [],
+			"prompt_en": "a cone-shaped fan of blue water spraying outward",
+			"file": "tidal_wave.png",
+			"chosen": "i140",
+			"init": "init/tidal_wave.init.png",
+			"init_strength": 140
+		},
+		{
+			"key": "call_rain",
+			"name_vi": "Gọi Mưa",
+			"sheet_v1": "SK6_water",
+			"palette": "water",
+			"accents": [
+				"grey"
+			],
+			"prompt_en": "a grey rain cloud dropping blue raindrops",
+			"file": "call_rain.png"
+		},
+		{
+			"key": "thunder_rain",
+			"name_vi": "Lôi Vũ",
+			"sheet_v1": "SK6_water",
+			"palette": "water",
+			"accents": [
+				"grey",
+				"yellow"
+			],
+			"prompt_en": "a dark storm cloud with a yellow lightning bolt",
+			"file": "thunder_rain.png"
+		},
+		{
+			"key": "passive:water:2",
+			"name_vi": "Thấm Sâu",
+			"sheet_v1": "SK6_water",
+			"palette": "water",
+			"accents": [
+				"grey"
+			],
+			"prompt_en": "a heavy iron anchor dripping blue water",
+			"file": "passive-water-2.png"
+		},
+		{
+			"key": "passive:water:4",
+			"name_vi": "Huyết Thuỷ",
+			"sheet_v1": "SK6_water",
+			"palette": "water",
+			"accents": [
+				"red"
+			],
+			"prompt_en": "a blue water fang dripping one red drop",
+			"file": "passive-water-4.png"
+		},
+		{
+			"key": "passive:water:7",
+			"name_vi": "Mạch Nguồn",
+			"sheet_v1": "SK6_water",
+			"palette": "water",
+			"accents": [
+				"grey"
+			],
+			"prompt_en": "a small stone fountain bubbling blue water",
+			"file": "passive-water-7.png"
+		},
+		{
+			"key": "passive:water:9",
+			"name_vi": "Thuỷ Triều Dâng",
+			"sheet_v1": "SK6_water",
+			"palette": "water",
+			"accents": [],
+			"prompt_en": "a pale crescent moon above a curling blue wave",
+			"file": "passive-water-9.png"
+		},
+		{
+			"key": "wind_blade",
+			"name_vi": "Phong Nhận",
+			"sheet_v1": "SK7_wind",
+			"palette": "wind",
+			"accents": [],
+			"prompt_en": "a thin green crescent wind blade slicing right",
+			"file": "wind_blade.png"
+		},
+		{
+			"key": "cyclone",
+			"name_vi": "Lốc Xoáy",
+			"sheet_v1": "SK7_wind",
+			"palette": "wind",
+			"accents": [],
+			"prompt_en": "a small green spiral vortex",
+			"file": "cyclone.png"
+		},
+		{
+			"key": "gale_dash",
+			"name_vi": "Lướt Gió",
+			"sheet_v1": "SK7_wind",
+			"palette": "wind",
+			"accents": [],
+			"prompt_en": "a long green arrow dashing to the right",
+			"file": "gale_dash.png"
+		},
+		{
+			"key": "gale_fan",
+			"name_vi": "Phong Bạo",
+			"sheet_v1": "SK7_wind",
+			"palette": "wind",
+			"accents": [],
+			"prompt_en": "three green wind crescents fanning out from one point",
+			"file": "gale_fan.png"
+		},
+		{
+			"key": "tornado",
+			"name_vi": "Vòi Rồng",
+			"sheet_v1": "SK7_wind",
+			"palette": "wind",
+			"accents": [],
+			"prompt_en": "a tall dark green tornado funnel",
+			"file": "tornado.png"
+		},
+		{
+			"key": "passive:wind:2",
+			"name_vi": "Gió Sắc",
+			"sheet_v1": "SK7_wind",
+			"palette": "wind",
+			"accents": [
+				"brown"
+			],
+			"prompt_en": "a green-fletched arrow flying right",
+			"file": "passive-wind-2.png"
+		},
+		{
+			"key": "passive:wind:4",
+			"name_vi": "Thuận Gió",
+			"sheet_v1": "SK7_wind",
+			"palette": "wind",
+			"accents": [
+				"brown"
+			],
+			"prompt_en": "a white sail full of green wind",
+			"file": "passive-wind-4.png"
+		},
+		{
+			"key": "passive:wind:7",
+			"name_vi": "Mắt Bão",
+			"sheet_v1": "SK7_wind",
+			"palette": "wind",
+			"accents": [
+				"grey"
+			],
+			"prompt_en": "a green eye inside a ring of grey storm clouds",
+			"file": "passive-wind-7.png"
+		},
+		{
+			"key": "passive:wind:9",
+			"name_vi": "Gió Loạn",
+			"sheet_v1": "SK7_wind",
+			"palette": "wind",
+			"accents": [
+				"red"
+			],
+			"prompt_en": "a crooked red arrow twisted by a green gust swirl",
+			"file": "passive-wind-9.png"
+		},
+		{
+			"key": "ice_shard",
+			"name_vi": "Băng Tiễn",
+			"sheet_v1": "SK8_ice",
+			"palette": "ice",
+			"accents": [],
+			"prompt_en": "a sharp faceted ice crystal shard pointing right",
+			"file": "ice_shard.png"
+		},
+		{
+			"key": "frost_field",
+			"name_vi": "Băng Địa",
+			"sheet_v1": "SK8_ice",
+			"palette": "ice",
+			"accents": [],
+			"prompt_en": "a flat oval frozen puddle with frost spikes around its edge",
+			"file": "frost_field.png"
+		},
+		{
+			"key": "ice_spire",
+			"name_vi": "Băng Trụ",
+			"sheet_v1": "SK8_ice",
+			"palette": "ice",
+			"accents": [],
+			"prompt_en": "one tall jagged ice pillar rising from the ground",
+			"file": "ice_spire.png"
+		},
+		{
+			"key": "ice_mirror",
+			"name_vi": "Gương Băng",
+			"sheet_v1": "SK8_ice",
+			"palette": "ice",
+			"accents": [],
+			"prompt_en": "a round faceted ice mirror shield",
+			"file": "ice_mirror.png"
+		},
+		{
+			"key": "ice_rain",
+			"name_vi": "Mưa Băng",
+			"sheet_v1": "SK8_ice",
+			"palette": "ice",
+			"accents": [],
+			"prompt_en": "three big icicles falling point-down",
+			"file": "ice_rain.png"
+		},
+		{
+			"key": "passive:ice:2",
+			"name_vi": "Hàn Khí",
+			"sheet_v1": "SK8_ice",
+			"palette": "ice",
+			"accents": [],
+			"prompt_en": "a crisp six-pointed snowflake",
+			"file": "passive-ice-2.png"
+		},
+		{
+			"key": "passive:ice:4",
+			"name_vi": "Giáp Sương",
+			"sheet_v1": "SK8_ice",
+			"palette": "ice",
+			"accents": [
+				"steel"
+			],
+			"prompt_en": "a frost-covered steel chest armor",
+			"file": "passive-ice-4.png"
+		},
+		{
+			"key": "passive:ice:7",
+			"name_vi": "Hàn Tâm",
+			"sheet_v1": "SK8_ice",
+			"palette": "ice",
+			"accents": [
+				"gold"
+			],
+			"prompt_en": "a small hourglass filled with ice crystals",
+			"file": "passive-ice-7.png"
+		},
+		{
+			"key": "passive:ice:9",
+			"name_vi": "Vỡ Vụn",
+			"sheet_v1": "SK8_ice",
+			"palette": "ice",
+			"accents": [],
+			"prompt_en": "an ice cube shattering into sharp pieces",
+			"file": "passive-ice-9.png"
+		},
+		{
+			"key": "rock_throw",
+			"name_vi": "Đá Văng",
+			"sheet_v1": "SK9_earth",
+			"palette": "earth",
+			"accents": [],
+			"prompt_en": "a chunky round brown boulder flying right with a short dust trail",
+			"file": "rock_throw.png",
+			"chosen": "i140",
+			"init": "init/rock_throw.init.png",
+			"init_strength": 140
+		},
+		{
+			"key": "quake",
+			"name_vi": "Địa Chấn",
+			"sheet_v1": "SK9_earth",
+			"palette": "earth",
+			"accents": [
+				"yellow"
+			],
+			"prompt_en": "cracked brown ground splitting in a star pattern with small yellow stars",
+			"file": "quake.png",
+			"chosen": "i140",
+			"init": "init/quake.init.png",
+			"init_strength": 140
+		},
+		{
+			"key": "stone_spikes",
+			"name_vi": "Gai Đá",
+			"sheet_v1": "SK9_earth",
+			"palette": "earth",
+			"accents": [],
+			"prompt_en": "a row of sharp brown stone spikes erupting from the ground",
+			"file": "stone_spikes.png"
+		},
+		{
+			"key": "stone_wall",
+			"name_vi": "Tường Đá",
+			"sheet_v1": "SK9_earth",
+			"palette": "earth",
+			"accents": [],
+			"prompt_en": "a sturdy wall of stacked grey stone blocks",
+			"file": "stone_wall.png"
+		},
+		{
+			"key": "rockslide",
+			"name_vi": "Lở Đá",
+			"sheet_v1": "SK9_earth",
+			"palette": "earth",
+			"accents": [],
+			"prompt_en": "three heavy boulders tumbling down",
+			"file": "rockslide.png"
+		},
+		{
+			"key": "passive:earth:2",
+			"name_vi": "Đá Nặng",
+			"sheet_v1": "SK9_earth",
+			"palette": "earth",
+			"accents": [
+				"steel"
+			],
+			"prompt_en": "a heavy stone weight with an iron band",
+			"file": "passive-earth-2.png"
+		},
+		{
+			"key": "passive:earth:4",
+			"name_vi": "Da Đá",
+			"sheet_v1": "SK9_earth",
+			"palette": "earth",
+			"accents": [],
+			"prompt_en": "a round shield made of grey stone plates",
+			"file": "passive-earth-4.png"
+		},
+		{
+			"key": "passive:earth:7",
+			"name_vi": "Trọng Lực",
+			"sheet_v1": "SK9_earth",
+			"palette": "earth",
+			"accents": [],
+			"prompt_en": "a heavy dark brown stone orb with a ring of small pebbles orbiting it",
+			"file": "passive-earth-7.png",
+			"chosen": "t4"
+		},
+		{
+			"key": "passive:earth:9",
+			"name_vi": "Núi Thiêng",
+			"sheet_v1": "SK9_earth",
+			"palette": "earth",
+			"accents": [
+				"red"
+			],
+			"prompt_en": "a grey stone mountain peak with a small red heart above it",
+			"file": "passive-earth-9.png",
+			"chosen": "t7"
+		},
+		{
+			"key": "aether_bolt",
+			"name_vi": "Tia Aether",
+			"sheet_v1": "SK10_aether",
+			"palette": "aether",
+			"accents": [],
+			"prompt_en": "a violet magic energy orb flying right with a short streak trail",
+			"file": "aether_bolt.png",
+			"chosen": "t6"
+		},
+		{
+			"key": "future:fire:10",
+			"name_vi": "Phượng Hoàng (sắp có)",
+			"sheet_v1": "SK10_aether",
+			"palette": "fire",
+			"accents": [],
+			"prompt_en": "a fiery phoenix bird with wide spread wings",
+			"file": "future-fire-10.png"
+		},
+		{
+			"key": "future:water:10",
+			"name_vi": "Đại Hồng Thuỷ (sắp có)",
+			"sheet_v1": "SK10_aether",
+			"palette": "water",
+			"accents": [],
+			"prompt_en": "a towering dark blue tsunami wave curling over",
+			"file": "future-water-10.png"
+		},
+		{
+			"key": "future:wind:10",
+			"name_vi": "Thiên Phong (sắp có)",
+			"sheet_v1": "SK10_aether",
+			"palette": "wind",
+			"accents": [],
+			"prompt_en": "a huge green storm sphere ringed by spinning white blades",
+			"file": "future-wind-10.png",
+			"chosen": "i140",
+			"init": "init/future-wind-10.init.png",
+			"init_strength": 140
+		},
+		{
+			"key": "future:ice:10",
+			"name_vi": "Kỷ Băng Hà (sắp có)",
+			"sheet_v1": "SK10_aether",
+			"palette": "ice",
+			"accents": [],
+			"prompt_en": "a ring of tall ice crystals bursting outward",
+			"file": "future-ice-10.png"
+		},
+		{
+			"key": "future:earth:10",
+			"name_vi": "Sơn Thần (sắp có)",
+			"sheet_v1": "SK10_aether",
+			"palette": "earth",
+			"accents": [],
+			"prompt_en": "a huge stone golem fist bursting up from cracked ground",
+			"file": "future-earth-10.png",
+			"chosen": "i140",
+			"init": "init/future-earth-10.init.png",
+			"init_strength": 140
+		},
+		{
+			"key": "spare:aether:1",
+			"name_vi": "Dự phòng — Né (ô phím Space; thay ICON_FRAME.dodge)",
+			"sheet_v1": "SK10_aether",
+			"palette": "sword",
+			"accents": [],
+			"prompt_en": "a round grey-white dust cloud puff swirling",
+			"file": "spare-aether-1.png",
+			"chosen": "t4"
+		},
+		{
+			"key": "spare:aether:2",
+			"name_vi": "Dự phòng — Tẩy điểm tiềm năng",
+			"sheet_v1": "SK10_aether",
+			"palette": "aether",
+			"accents": [],
+			"prompt_en": "a violet crystal orb inside a circular reset arrow",
+			"file": "spare-aether-2.png"
+		},
+		{
+			"key": "spare:aether:3",
+			"name_vi": "Dự phòng — Phản ứng nguyên tố (REACTION_*)",
+			"sheet_v1": "SK10_aether",
+			"palette": "aether",
+			"accents": [
+				"red",
+				"blue"
+			],
+			"prompt_en": "a red orb and a blue orb colliding with a white spark",
+			"file": "spare-aether-3.png"
+		}
+	]
+}

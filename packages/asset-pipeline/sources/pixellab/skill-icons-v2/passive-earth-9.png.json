@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a grey stone mountain peak with a small red heart above it, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/earth+red.png",
+	"jobId": "447c3d43-9dc7-4cec-af18-dccc36f188e6",
+	"token": 1,
+	"createdAt": "2026-10-09T19:46:50.958Z"
+}

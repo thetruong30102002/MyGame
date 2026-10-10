@@ -1,0 +1,31 @@
+{
+	"id": "boss_forge_sigil",
+	"kind": "loop",
+	"canvas": {
+		"w": 160,
+		"h": 160
+	},
+	"first": {
+		"prompt": "a large glowing orange runic forge circle seen from directly above, an anvil glyph in the center, flickering flames along the ring, some runes guttering into grey ash laced with thin glowing red threads, empty transparent surroundings, pixel art game effect, lineless, limited palette, isolated on a fully transparent background, no ground, no scenery, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "b65a80c1-cc30-4d88-9201-503700f4a5dd"
+	},
+	"action": "the forge sigil pulses with heat, flames run around the ring and sparks rise from the runes, the ashen runes flicker and their red threads pulse, seamless loop",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "00406ff2-5fb6-46ad-9e6a-50cb34b654b1",
+	"createdAt": "2026-10-09T16:47:31.152Z",
+	"token": 1
+}

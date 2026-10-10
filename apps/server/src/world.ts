@@ -1,5 +1,6 @@
 import type { WebSocket } from 'ws';
 import { ACTION_ANIMS, CHAT_MAX, cleanGearView, DIRS8, MAX_LEVEL, SNAPSHOT_HZ, WORLD_CHAT_DIAMONDS, WORLD_CHAT_GAP_MS, type CharacterProgress, type ClientMessage, type PlayerView, type ServerMessage } from '@aether/protocol';
+import { cleanCast, fxAllowed } from './actions.ts';
 import { RateLimiter } from './auth.ts';
 import type { Store } from './db.ts';
 import { Social } from './social.ts';
@@ -26,6 +27,8 @@ interface Conn {
 	/** Kênh Thế giới: 1 tin / `WORLD_CHAT_GAP_MS` (chặt hơn chat map — cả server cùng đọc). */
 	worldChat: RateLimiter;
 	actions: RateLimiter;
+	/** Mốc phát HÌNH gần nhất của từng chiêu (`actions.fxAllowed`). */
+	fxLast: Map<string, number>;
 	maps: RateLimiter;
 	gears: RateLimiter;
 	/** Mời / trả lời / huỷ bạn, chặn — bấm tay nên 20 lần / 10 giây là trần chống spam. */
@@ -80,9 +83,9 @@ export class World {
 					const c = this.conns.get(id);
 					if (c) send(c.ws, msg);
 				},
-				credited: (id, type) => {
+				credited: (id, type, stats) => {
 					this.store.addKill(id, type);
-					this.economy.sharedKill(id, type);
+					this.economy.sharedKill(id, type, stats);
 				},
 			},
 			zonesOf,
@@ -213,6 +216,7 @@ export class World {
 			worldChat: new RateLimiter(1, WORLD_CHAT_GAP_MS),
 			// Nhịp đánh nhanh nhất (Trảm 0.38s) ≈ 2.6 đòn/giây; 8/giây là trần chống spam.
 			actions: new RateLimiter(8, 1000),
+			fxLast: new Map(),
 			// Chuyển map hợp lệ cách nhau ít nhất vài giây (màn tối + đi bộ); trần này chỉ chặn spam.
 			maps: new RateLimiter(10, 10_000),
 			// Đổi đồ là bấm tay trong kho đồ; 20 lần / 10 giây là trần chống spam (mỗi lần phát cho cả map).
@@ -255,7 +259,8 @@ export class World {
 			case 'actionEnd': {
 				// Ngăn riêng trong cùng bộ đếm (khoá khác): tin dừng không ăn vào trần 8 động tác/giây.
 				if (!c.view.sprite || !c.actions.allow('actionEnd')) return;
-				const out: ServerMessage = { t: 'actionEnd', id: c.view.id };
+				// `hit` (đòn đã qua khung chạm): chỉ nhận đúng `true` — máy người xem vẽ nốt chiêu thay vì bỏ.
+				const out: ServerMessage = { t: 'actionEnd', id: c.view.id, ...(msg.hit === true ? { hit: true as const } : {}) };
 				for (const o of this.inMap(c.map)) if (o !== c) send(o.ws, out);
 				return;
 			}
@@ -299,7 +304,7 @@ export class World {
 			case 'spend':
 			case 'potion':
 				if (!c.eco.allow('eco')) return;
-				if (msg.t === 'kill') return this.economy.privateKill(c.view.id, msg.type);
+				if (msg.t === 'kill') return this.economy.privateKill(c.view.id, msg.type, msg.zone);
 				if (msg.t === 'quest') return this.economy.quest(c.view.id, msg.id);
 				if (msg.t === 'spend') return this.economy.spend(c.view.id, msg.reason, msg.amount);
 				return this.economy.usePotion(c.view.id);
@@ -349,7 +354,13 @@ export class World {
 		} else c.dirty = true;
 	}
 
-	/** Phát lại động tác ra đòn cho người cùng map (chỉ phần hình — chiến đấu vẫn tính ở máy người chơi). */
+	/**
+	 * Phát lại động tác ra đòn + HÌNH của chiêu cho người cùng map (chỉ phần hình — chiến đấu vẫn tính ở máy người chơi). Mã chiêu
+	 * phải có trong bộ chiêu thật, phần chiêu (`fx`) chuẩn hoá + kẹp điểm nhắm quanh vị trí máy chủ đang giữ (`actions.cleanCast`);
+	 * sai thì bỏ phần chiêu im lặng, động tác thân vẫn đi. Không dội về người gửi.
+	 * Chỗ móc PvP (M3 — chưa làm): sát thương người-đánh-người phải do MÁY CHỦ tính tại đây (chiêu + hướng + điểm nhắm đã kiểm,
+	 * vị trí người trong map) — không bao giờ tin con số sát thương máy khách gửi.
+	 */
 	private action(c: Conn, m: Extract<ClientMessage, { t: 'action' }>): void {
 		const anim = (ACTION_ANIMS as readonly string[]).includes(m.anim) ? m.anim : null;
 		const dir = (DIRS8 as readonly string[]).includes(m.dir) ? m.dir : null;
@@ -357,7 +368,9 @@ export class World {
 		if (!anim || !dir || !c.view.sprite || !c.actions.allow('action')) return;
 		c.view.dir = dir;
 		c.dirty = true;
-		const out: ServerMessage = { t: 'action', id: c.view.id, anim, dir, skill: String(m.skill ?? '').slice(0, 24) };
+		const cast = cleanCast(m.skill, m.fx, c.view);
+		const fx = cast.fx && fxAllowed(c.fxLast, cast.skill, Date.now()) ? cast.fx : undefined;
+		const out: ServerMessage = { t: 'action', id: c.view.id, anim, dir, skill: cast.skill, ...(fx ? { fx } : {}) };
 		for (const o of this.inMap(c.map)) if (o !== c) send(o.ws, out);
 	}
 

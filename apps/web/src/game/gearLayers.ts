@@ -1,13 +1,13 @@
 import { cleanGearView, GEAR_VIEW_SLOTS, type GearView } from '@aether/protocol';
 import { wieldOf } from '@aether/sim/moves';
-import type { Direction } from './assets/AssetManifest';
+import type { Direction, HeldArt } from './assets/AssetManifest';
 import { EQUIP_SLOTS, ITEMS, RARITY_ORDER, type EquipSlotId, type GearState, type Rarity } from './equipment';
 import { BAKED_HELD, GEAR_ART, OUTFITS, VIEW_OF, type GearArt, type GearLayerSlot, type GearViewArt, type Wield } from './gearArt';
 import { GEAR_PAD, gripIn } from './gearPixels';
 
 /**
  * Luật THUẦN của lớp đồ mặc lên người (không Pixi/DOM — test bằng `npx tsx tests/gear.test.ts`): chọn điểm neo + trước/sau
- * thân theo hướng, đặt ảnh, chọn bộ trang phục, mã hoá gửi qua mạng.
+ * thân theo hướng, đặt ảnh, chọn vũ khí vẽ liền thân đang cầm, chọn bộ trang phục, mã hoá gửi qua mạng.
  */
 
 /** Neo pipeline ghi vào từng khung atlas (`frames[...].gear`, xem `packages/asset-pipeline/src/atlas/gearAnchors.ts`). */
@@ -76,12 +76,13 @@ export interface PieceLayout {
 
 /**
  * Đặt món `piece` lên khung có neo `anchors`, hướng khung `dir` (hướng của ẢNH đang hiện — động tác chưa vẽ hướng chéo dùng
- * khung hướng kề, nên lấy hướng của khung chứ không lấy hướng nhân vật đang quay). null = không vẽ: chưa có art, hoặc
- * động tác `anim` đã vẽ liền đồ cầm tay.
+ * khung hướng kề, nên lấy hướng của khung chứ không lấy hướng nhân vật đang quay). null = không vẽ: chưa có art, món VẼ LIỀN
+ * THÂN (`held` — kiếm / trượng nằm sẵn trong atlas, không dán ảnh ở bất kỳ động tác nào), hoặc động tác `anim` đã vẽ liền vũ
+ * khí (`BAKED_HELD`) nên lớp vũ khí dán ngoài phải ẩn.
  */
 export function layoutPiece(piece: Pick<GearPiece, 'slot' | 'id'>, anchors: GearAnchors, dir: Direction, anim: string, table: Record<string, GearArt> = GEAR_ART): PieceLayout | null {
 	const art = table[piece.id];
-	if (!art || art.slot !== piece.slot) return null;
+	if (!art || art.slot !== piece.slot || art.held) return null;
 	if (BAKED_HELD[anim]?.includes(piece.slot)) return null;
 	const v = viewFor(art, dir);
 	if (!v) return null;
@@ -114,6 +115,19 @@ export function wieldedPieces(pieces: readonly GearPiece[], stance: Wield, table
 		const w = table[p.id]?.wield;
 		return !w || !match || w === stance;
 	});
+}
+
+/**
+ * Vũ khí VẼ LIỀN THÂN đang cầm lúc đứng / đi (atlas `idle<held>` / `walk<held>`): cùng luật một-loại-một-lúc của `wieldedPieces` —
+ * thế kiếm + đang mặc kiếm → kiếm, thế phép + đang mặc trượng → trượng, thế không có món đúng → món đang có. null = tay không: chưa
+ * mặc vũ khí (bé 4 tuổi chưa được trao kiếm), tháo ra rồi, hoặc món đúng thế chưa có bản vẽ liền thân (dùng lớp dán nếu có ảnh).
+ */
+export function heldArt(pieces: readonly GearPiece[], stance: Wield, table: Record<string, GearArt> = GEAR_ART): HeldArt | null {
+	for (const p of wieldedPieces(pieces, stance, table)) {
+		const art = table[p.id];
+		if (art?.wield && art.held) return art.held;
+	}
+	return null;
 }
 
 /** Ô trang bị → lớp vẽ. Áo choàng chưa có ô trang bị riêng (lớp `back` để sẵn cho khi có ô). */
@@ -186,7 +200,10 @@ export interface FigureGearView {
 	front: boolean;
 }
 
-/** Cùng luật đặt lớp với game (`layoutPiece`), cho một khung tĩnh (kho đồ dùng khung đứng nhìn trước `idle_S_0`). */
+/**
+ * Cùng luật đặt lớp với game (`layoutPiece`), cho một khung tĩnh (kho đồ dùng khung đứng nhìn trước `idle_S_0`, hoặc bản cầm vũ khí
+ * `idlesword_S_0` — kiếm / trượng đã nằm trong khung nên không có lớp dán).
+ */
 export function figureGear(pieces: readonly GearPiece[], anchors: GearAnchors | undefined, dir: Direction, anim = 'idle', table: Record<string, GearArt> = GEAR_ART, stance: Wield = 'melee'): FigureGearView[] {
 	if (!anchors) return [];
 	const out: FigureGearView[] = [];

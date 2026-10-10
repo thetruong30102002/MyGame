@@ -1,0 +1,11 @@
+{
+	"description": "a steel sword stabbing out of a dark purple shadow portal, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/sword+violet.png"
+}

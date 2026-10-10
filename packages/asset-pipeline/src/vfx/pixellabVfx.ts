@@ -598,6 +598,120 @@ Object.assign(PIXELLAB_VFX_PRESETS, {
 	},
 });
 
+// Mốc 2 (09/10/2026, workflow thiết kế): chiêu boss vùng 5–7 + chiêu Băng / Hoả / Thuỷ Long. Vẽ đúng màu; hiệu ứng có hướng
+// vẽ HƯỚNG SANG PHẢI; hiệu ứng mặt đất nhìn từ trên xuống (`squashY`).
+Object.assign(PIXELLAB_VFX_PRESETS, {
+	boss_ice_embrace: {
+		first: `two slender arms of translucent pale blue ice with long flowing frozen sleeves rising from frozen ground on the left and right and curving inward around an empty space like a mother's embrace, frost mist at the base, drifting snowflakes, base at the bottom of the frame, ${STYLE}`,
+		action: 'the ice arms sweep inward and close together in a gentle tight embrace, frost crackles over them, then they crack and shatter into glittering shards that fade',
+		frames: 10,
+	},
+	boss_avalanche: {
+		first: `a huge mass of avalanche snow crashing straight down onto a spot from above, tumbling chunks of ice and rocks, white powder spray bursting outward to both sides, base at the bottom of the frame, ${STYLE}`,
+		action: 'the avalanche snow slams down and bursts outward in all directions burying the spot, powder clouds billow up, then the snow settles and the mist fades',
+		frames: 8,
+	},
+	boss_frost_roar: {
+		first: `a ring of pale cyan frost shockwave expanding outward across the ground seen from directly above, empty center, jagged frost spikes along its rim, snowflakes and tiny ice shards caught in it, ${STYLE}`,
+		action: 'the frost ring blasts outward with a second ring following, frost spikes jut up along the rims, then the rings thin out and fade',
+		frames: 8,
+		firstScale: 0.5,
+	},
+	boss_oblivion_mist: {
+		first: `a swirling patch of freezing pale blue-white mist on the ground seen from directly above, faint translucent ghostly shapes of faces and hands frozen inside the fog, tiny glittering ice crystals, ${STYLE}`,
+		action: 'the freezing mist swirls slowly round and round, ghostly shapes surface and sink back into the fog, ice crystals glitter, seamless loop',
+		frames: 8,
+	},
+	boss_magma_fissure: {
+		first: `a single long straight fissure of glowing molten lava splitting the ground and running to the right, seen from directly above, short magma jets spurting up along it, bronze rivets and basalt chips flying, ${STYLE}`,
+		action: 'the lava fissure tears forward to the right, magma jets spurt along its length one after another, then it cools to a dark line and fades',
+		frames: 8,
+	},
+	boss_lava_spit: {
+		first: `a gushing arc of molten lava globs spat to the right, bright orange and yellow with dark crust, droplets and smoke trailing, ${STYLE}`,
+		action: 'the lava stream gushes forward to the right in an arc, the globs burst into sizzling molten splashes and smoke in mid-air, then they cool and fade',
+		frames: 8,
+	},
+	boss_ash_fall: {
+		first: `a heavy downpour of grey ash flakes and dying orange embers splattering onto the ground in an uneven blotchy spray seen from directly above, several separate scattered ash heaps of different sizes, no ring and no circle, thin glowing red threads in the largest heaps, transparent around the splatter, ${STYLE}`,
+		action: 'ash and embers pour down in uneven bursts and pile into scattered heaps, embers flare and turn grey, the red threads in the ash pulse, then the ash drifts away and fades',
+		frames: 10,
+	},
+	boss_forge_sigil: {
+		first: `a large glowing orange runic forge circle seen from directly above, an anvil glyph in the center, flickering flames along the ring, some runes guttering into grey ash laced with thin glowing red threads, empty transparent surroundings, ${GLOW}`,
+		action: 'the forge sigil pulses with heat, flames run around the ring and sparks rise from the runes, the ashen runes flicker and their red threads pulse, seamless loop',
+		frames: 8,
+	},
+	boss_coral_spikes: {
+		first: `a cluster of jagged pink and white coral spikes bursting up out of cracked white sand with a pulse of glowing aqua water light and bubbles at the center, three-quarter top-down view, base at the bottom of the frame, ${STYLE}`,
+		action: 'the coral spikes thrust up out of the sand while the aqua water light pulses outward with bubbles, then the spikes crumble back into sand and the light fades',
+		frames: 8,
+	},
+	boss_ghost_lantern: {
+		first: `a ring of sickly sea-green ghost fire flaring outward, wisps of sea mist and drifting spectral sparks, a faint ghostly lantern shape with a dim yellow flame at the center, ${GLOW}`,
+		action: 'the dim yellow lantern flame flares and sends out a ring of sickly sea-green ghost fire and sea mist, wisps swirl, then it dims and fades away softly',
+		frames: 8,
+		firstScale: 0.5,
+	},
+	boss_tentacle_slam: {
+		first: `a giant crimson-purple squid tentacle with a club-shaped suckered tip bursting straight up out of splashing dark sea water and broken ship planks, base at the bottom of the frame, ${STYLE}`,
+		action: 'the huge tentacle erupts upward from the water, curls over and slams down with a big splash scattering planks and spray, then sinks back into the water and the foam fades',
+		frames: 10,
+	},
+	boss_ink_flood: {
+		first: `a wide flat splash of glossy thick black kraken ink pooled and splattered across wooden ship deck planks, seen from directly above, the planks running straight horizontally, a few cracks with dark sea water showing in the gaps, ink droplets around the rim, no rising tendrils, no smoke, nothing standing up, ${STYLE}`,
+		action: 'the glossy black ink pool spreads outward and ripples, thick bubbles swell and pop on its surface, droplets splatter at the rim, then it slowly seeps away and fades, the ink stays black the whole time',
+		frames: 10,
+		firstScale: 0.6,
+	},
+	dragon_frost_breath: {
+		first: `a wide cone of freezing pale blue frost dragon breath blowing to the right, swirling snow, sharp ice shards and glittering frost crystals inside it, ${STYLE}`,
+		action: 'the frost breath roars forward to the right widening like a cone, ice shards fly and frost crystals glitter, then it disperses into cold mist and fades',
+		frames: 8,
+	},
+	dragon_ice_pillar: {
+		first: `a huge six-sided deep sapphire-blue ice crystal column with a white frost core, falling point-first straight down into the ground, a ring of white frost and snow spray at the impact point, base at the bottom of the frame, ${STYLE}`,
+		action: 'the crystal column slams down point-first and stands in the ground, a frost ring bursts outward, then the column cracks and shatters into blue shards that fade into mist',
+		frames: 10,
+	},
+	dragon_ice_lake_crack: {
+		first: `a small star of thick chunky jagged crack lines spreading from a center point, seen from directly above, each crack 2-3 pixels wide with bright white and pale cyan edges and a dark blue water glint inside, high contrast solid unbroken lines, bold and readable at small size, no ice slab, transparent outside the cracks, ${STYLE}`,
+		action: 'the cracks race outward in all directions, dark water wells up through them with small ripples, then the cracks frost over and fade',
+		frames: 10,
+		firstScale: 0.65,
+	},
+	dragon_fire_breath: {
+		first: `a wide cone of roaring orange and golden dragon fire breath blowing to the right, white-hot core, black smoke curls and flying embers at the edges, ${STYLE}`,
+		action: 'the fire breath roars forward to the right widening like a cone, flames churn and embers scatter, then it burns out into smoke and fades',
+		frames: 8,
+	},
+	dragon_meteor: {
+		first: `a falling blazing fire pearl, a round orb of white-hot molten gold wrapped in a spiral of crimson dragon flames, streaking down diagonally from the upper left with a short twisting flame tail, about to hit the ground, base at the bottom of the frame, ${STYLE}`,
+		action: 'the fire pearl smashes into the ground and bursts into a ring of crimson and gold flames with molten droplets, leaving a glowing scorch mark that cools and fades',
+		frames: 10,
+	},
+	dragon_lava_pool: {
+		first: `an irregular round pool of glowing molten lava seen from directly above, uneven black rock crust rim, bubbling orange-yellow magma with a few dark crust plates, transparent outside the pool, ${STYLE}`,
+		action: 'the lava pool bubbles and churns, crust plates drift and crack, bubbles pop with small sparks, seamless loop',
+		frames: 8,
+	},
+	dragon_water_dive: {
+		first: `an oval whirlpool of deep blue sea water seen from a low three-quarter side view at the bottom of the frame, a short stubby spiral of sea water just starting to rise from its center no taller than a third of the frame, foam and bubbles, no creature, no head, base at the bottom of the frame, ${STYLE}`,
+		action: 'the spiral water column corkscrews upward out of the whirlpool, foam and droplets fly off the turning spiral, at the top the spray bursts open into the shape of two spread bat-like wings, then the whirlpool calms and fades',
+		frames: 10,
+	},
+	dragon_tsunami: {
+		first: `a long low wall of teal sea water surging to the right along the ground, a curling white foam lip, broken coral, seashells and splintered wooden ship planks tumbling in it, a faint glowing dragon-scale pattern on the water surface, ${STYLE}`,
+		action: 'the low sea wall sweeps forward to the right along the ground, foam churning and planks tumbling, then it crashes flat, drains away and fades',
+		frames: 10,
+	},
+	dragon_flood: {
+		first: `an irregular round patch of shallow clear teal sea water seen from directly above, soft uneven wet edge, gentle ripples, a few bubbles and foam lines, transparent outside the patch, ${STYLE}`,
+		action: 'the shallow flood water ripples and sloshes gently, foam lines drift, bubbles pop and reform, seamless loop',
+		frames: 8,
+	},
+});
+
 /** Hiệu ứng KHÔNG vẽ riêng mà mượn khung PixelLab của hiệu ứng khác (`dark_ring_warn` = khung đầu của `dark_ring`). */
 export const PIXELLAB_VFX_ALIAS: Record<string, string> = { dark_ring_warn: 'dark_ring' };
 

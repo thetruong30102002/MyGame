@@ -64,6 +64,12 @@ export const BOSS_INTRO: Record<string, readonly string[]> = {
 		'Những sợi tơ quanh ngươi sáng quá. Dưới này, thứ ánh sáng nào rồi cũng tắt.',
 		'Nằm xuống đi. Nghĩa địa này chưa bao giờ thiếu chỗ.',
 	],
+	// Câu đầu hé lộ đã có người tới trước (kẻ dùng cỗ máy đo đi qua Đường hầm của Đoàn — Chương 1 mục 6).
+	boss_stone_gargoyle_001: [
+		'Ba trăm năm canh giữ… và hôm nay đã có kẻ thứ hai tìm tới.',
+		'Tên khắc trên đá không dành cho mắt ngươi.',
+		'Đứng yên. Gian này còn chỗ cho thêm một pho tượng.',
+	],
 };
 
 /**

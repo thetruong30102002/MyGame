@@ -1,0 +1,33 @@
+{
+	"id": "dragon_water_dive",
+	"kind": "burst",
+	"canvas": {
+		"w": 160,
+		"h": 160
+	},
+	"first": {
+		"prompt": "an oval whirlpool of deep blue sea water seen from a low three-quarter side view at the bottom of the frame, a short stubby spiral of sea water just starting to rise from its center no taller than a third of the frame, foam and bubbles, no creature, no head, base at the bottom of the frame, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "1d08955e-df68-4ac2-b020-1087bb1f6d6c"
+	},
+	"action": "the spiral water column corkscrews upward out of the whirlpool, foam and droplets fly off the turning spiral, at the top the spray bursts open into the shape of two spread bat-like wings, then the whirlpool calms and fades",
+	"frameCount": 10,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png",
+		"frame_009.png",
+		"frame_010.png"
+	],
+	"animateJobId": "a9ea6e47-dfae-45c5-b1a8-31798d832148",
+	"createdAt": "2026-10-09T16:38:26.685Z",
+	"token": 1
+}

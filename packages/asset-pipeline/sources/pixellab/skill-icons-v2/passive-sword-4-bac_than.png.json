@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a small boot with a white wing, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/sword+violet.png",
+	"jobId": "665681c0-1762-4952-901f-b2a8c72409b1",
+	"token": 1,
+	"createdAt": "2026-10-09T19:14:42.437Z"
+}

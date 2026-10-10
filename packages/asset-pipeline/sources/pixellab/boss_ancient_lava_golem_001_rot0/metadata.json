@@ -1,0 +1,36 @@
+{
+  "group_id": "2112c571-62be-4dd0-afa8-2e0418d8f83e",
+  "states": [
+    {
+      "character": {
+        "id": "91c3919f-a308-4879-9023-33538bd8c908",
+        "name": "Idle",
+        "prompt": "Chibi RPG monster pixel art sprite, a colossal ancient dwarven lava golem boss facing the viewer, massive body of black basalt bound with weathered bronze plates and huge rivets, a glowing molten core visible behind a bronze grille in its chest, head carved like a stern dwarf helm with a braided stone beard, rows of short glowing rune marks carved along its arms and shoulders, right arm ending in a huge stone forge hammer, lava dripping from its joints",
+        "size": {
+          "width": 128,
+          "height": 128
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-10-09T15:07:47.143118+00:00"
+      },
+      "folder": "Idle",
+      "frames": {
+        "rotations": {
+          "south": "Idle/rotations/south.png",
+          "south-east": "Idle/rotations/south-east.png",
+          "east": "Idle/rotations/east.png",
+          "north-east": "Idle/rotations/north-east.png",
+          "north": "Idle/rotations/north.png",
+          "north-west": "Idle/rotations/north-west.png",
+          "west": "Idle/rotations/west.png",
+          "south-west": "Idle/rotations/south-west.png"
+        },
+        "animations": {}
+      }
+    }
+  ],
+  "export_version": "3.1",
+  "export_date": "2026-10-09T15:14:33.149071"
+}

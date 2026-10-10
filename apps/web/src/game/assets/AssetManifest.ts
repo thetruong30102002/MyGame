@@ -4,7 +4,20 @@ import type { GearAnchors } from '../gearLayers';
 
 export const DIRECTIONS = ['S', 'SW', 'W', 'NW', 'N', 'NE', 'E', 'SE'] as const;
 export type Direction = (typeof DIRECTIONS)[number];
-export type AnimationName = 'idle' | 'walk' | 'run' | ActionAnim;
+/**
+ * Vũ khí VẼ LIỀN THÂN (chủ dự án 10/10/2026: cầm vũ khí suốt — đứng, đi, chém, niệm): atlas người chơi có đứng / đi cầm sẵn món
+ * đó, tên animation = nền + hậu tố (`idle` + `sword` = `idlesword`) — tên khung atlas chỉ đọc được chữ a–z (`<động tác>_<hướng>_<số>`).
+ */
+export const HELD_ARTS = ['sword', 'staff'] as const;
+export type HeldArt = (typeof HELD_ARTS)[number];
+/**
+ * Động tác THÂN (không đổi thế cầm — `MoveDef.wield` null) cũng có bản vẽ trên phiên bản cầm vũ khí: trúng đòn, lướt né, gục,
+ * đứng dậy (= gục phát ngược), uống bình — `hit` + `sword` = `hitsword` (`CharacterView` chọn khi đang cầm món đó; danh sách
+ * `gearArt.HELD_BODY_ACTIONS`).
+ */
+export type HeldBodyAction = Extract<ActionAnim, 'hit' | 'dodge' | 'death' | 'revive' | 'drink'>;
+export type HeldAnimation = `${'idle' | 'walk' | HeldBodyAction}${HeldArt}`;
+export type AnimationName = 'idle' | 'walk' | 'run' | ActionAnim | HeldAnimation;
 /** Động tác một lần (không lặp) — vung kiếm, niệm phép, động tác riêng của skill (`@aether/sim/moves`). */
 export type ActionName = ActionAnim;
 

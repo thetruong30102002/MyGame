@@ -81,7 +81,8 @@ export interface CreateCharacterRequest {
 export interface ApiError {
 	error: string;
 }
-export const MAX_CHARACTERS = 4;
+/** Mỗi tài khoản MỘT nhân vật (chủ dự án 09/10/2026). Tài khoản cũ đã có nhiều hơn vẫn chơi được, chỉ không tạo thêm. */
+export const MAX_CHARACTERS = 1;
 
 // ---- WebSocket --------------------------------------------------------------------------------
 
@@ -95,6 +96,73 @@ export const ACTION_ANIMS = [
 ] as const;
 export type ActionAnim = (typeof ACTION_ANIMS)[number];
 export const DIRS8 = ['S', 'SW', 'W', 'NW', 'N', 'NE', 'E', 'SE'] as const;
+
+/**
+ * Phần CHIÊU của tin `action` (tuỳ chọn — chủ dự án 09/10/2026: "người này phải thấy skill của người kia chơi pvp mà"): đủ để
+ * máy người xem vẽ lại ĐÚNG hình của chiêu (đạn bay theo hướng ngắm, vệt chém mang hệ phủ phép, vùng / cột / tường ở điểm nhắm)
+ * neo vào nhân vật người tung. CHỈ HÌNH — không có con số sát thương nào, máy nhận không trừ máu ai. Máy chủ / máy khách bản cũ
+ * bỏ qua trường này (chỉ phát động tác thân như trước). Mã chiêu nằm ở `skill` của tin (máy chủ kiểm có trong bộ chiêu thật).
+ */
+export interface ActionFx {
+	/** Hướng ngắm đã khoá lúc bấm (vector đơn vị, 3 số lẻ) — mịn hơn 8 hướng của `dir`: đạn bay đúng góc. */
+	ax: number;
+	ay: number;
+	/** Điểm nhắm trên mặt đất (toạ độ thế giới, số nguyên) của đòn đặt vùng / cột / tường / mưa — máy chủ kẹp quanh người gửi. */
+	tx?: number;
+	ty?: number;
+	/** Hệ đang phủ lên kiếm (`fire` / `water` / `wind` / `ice` / `earth`) — vệt chém + đạn kiếm mang màu hệ. */
+	el?: string;
+	/** Hồi chiêu THẬT (giây, sau bị động) đã dùng dựng nhịp động tác — máy người xem ra cùng khung chạm. */
+	cd?: number;
+	/** Động tác nhanh hơn chừng này lần (Đà Lướt). */
+	sp?: number;
+	/** Đạn phép bay nhanh + xa hơn chừng này lần (Gió Sắc). */
+	boost?: number;
+	/** Hình phụ theo trạng thái người tung (`ACTION_FX_FLAGS`, cộng bit). */
+	fl?: number;
+}
+
+/** Bit của `ActionFx.fl`: lưỡi gió theo nhát chém (phủ Phong mốc 7), Xoáy Nước bùng (vừa đỡ đòn thành công). */
+export const ACTION_FX_FLAGS = { windBlade: 1, surge: 2 } as const;
+/** Toạ độ thế giới hợp lệ (cùng trần với gói vị trí của máy chủ). */
+export const WORLD_COORD_MAX = 20000;
+
+const fxNum = (v: unknown, lo: number, hi: number): number | undefined => (typeof v === 'number' && Number.isFinite(v) && v >= lo && v <= hi ? v : undefined);
+const round3 = (v: number): number => Math.round(v * 1000) / 1000;
+
+/**
+ * Chuẩn hoá phần chiêu nhận qua mạng (CẢ máy chủ lẫn máy khách — không tin dữ liệu mạng). null = bỏ cả phần chiêu: không phải
+ * object, hướng ngắm không phải số hữu hạn / bằng 0, điểm nhắm vô lý (không hữu hạn, ngoài thế giới, chỉ có một toạ độ). Trường
+ * phụ (`el`, `cd`, `sp`, `boost`, `fl`) sai dạng thì chỉ bỏ trường đó — máy nhận dùng số gốc của chiêu. Mã chiêu / hệ phủ phép có
+ * thật không là việc của bên gọi (gói này không biết bộ chiêu — `@aether/sim`).
+ */
+export function cleanActionFx(raw: unknown): ActionFx | null {
+	if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return null;
+	const r = raw as Record<string, unknown>;
+	const ax = fxNum(r.ax, -1e3, 1e3);
+	const ay = fxNum(r.ay, -1e3, 1e3);
+	if (ax === undefined || ay === undefined) return null;
+	const len = Math.hypot(ax, ay);
+	if (len < 1e-6) return null;
+	const out: ActionFx = { ax: round3(ax / len), ay: round3(ay / len) };
+	if (r.tx !== undefined || r.ty !== undefined) {
+		const tx = fxNum(r.tx, 0, WORLD_COORD_MAX);
+		const ty = fxNum(r.ty, 0, WORLD_COORD_MAX);
+		if (tx === undefined || ty === undefined) return null;
+		out.tx = Math.round(tx);
+		out.ty = Math.round(ty);
+	}
+	if (typeof r.el === 'string' && /^[a-z]{1,8}$/.test(r.el)) out.el = r.el;
+	const cd = fxNum(r.cd, 0.01, 60);
+	if (cd !== undefined) out.cd = round3(cd);
+	const sp = fxNum(r.sp, 1, 3);
+	if (sp !== undefined) out.sp = round3(sp);
+	const boost = fxNum(r.boost, 1, 3);
+	if (boost !== undefined) out.boost = round3(boost);
+	const fl = fxNum(r.fl, 0, 255);
+	if (fl !== undefined && Number.isInteger(fl) && fl > 0) out.fl = fl;
+	return out;
+}
 
 /**
  * Đồ GẮN lên người đang mặc (vẽ thành lớp chồng lên sprite) — thứ tự ô CỐ ĐỊNH, chỉ được THÊM ô vào CUỐI. Bộ trang phục
@@ -177,6 +245,11 @@ export interface MobView {
 	owner: string | null;
 	home: { x: number; y: number; r: number };
 	boss: boolean;
+	/**
+	 * Cấp của khu (`MonsterZoneDef.level`) — máy chủ đã nhân chỉ số theo cấp này (`enemyStatsAt`), client nhân y hệt cho AI / đòn
+	 * quái và hiện "Cấp N". Vắng = chỉ số gốc (khu không khai cấp, hoặc máy chủ bản cũ).
+	 */
+	level?: number;
 }
 
 /** Vị trí một quái: [id, x, y, hướng, động tác] — mảng cho gọn (gửi 10 lần/giây). */
@@ -273,10 +346,18 @@ export type ClientMessage =
 	| { t: 'hello'; token: string; character: string }
 	| { t: 'move'; x: number; y: number; dir: string; anim: string; sprite: string }
 	| { t: 'chat'; text: string; ch?: ChatChannel }
-	/** Vừa tung đòn: máy khác chỉ phát động tác (hình), không có sát thương. */
-	| { t: 'action'; anim: ActionAnim; dir: string; skill?: string }
-	/** Động tác vừa gửi bị cắt trước khi diễn hết (né, đi, bị ngắt): máy khác dừng hình. Tin riêng — máy chủ bản cũ bỏ qua im lặng. */
-	| { t: 'actionEnd' }
+	/**
+	 * Vừa tung đòn: máy khác chỉ phát động tác + hình của chiêu, không có sát thương. `fx` (tuỳ chọn): phần chiêu để vẽ lại hiệu
+	 * ứng (`ActionFx`). Chiêu không có động tác thân (lướt, giữ thế) vẫn gửi — `anim` là động tác riêng của chiêu cho máy bản cũ,
+	 * máy mới biết chiêu đó không vung (`SkillDef.anim` vắng) nên chỉ vẽ hình. Chiêu dồn lực (Nhất Kích) gửi lúc BẮT ĐẦU dồn.
+	 */
+	| { t: 'action'; anim: ActionAnim; dir: string; skill?: string; fx?: ActionFx }
+	/**
+	 * Động tác vừa gửi bị cắt trước khi diễn hết (né, đi, bị ngắt): máy khác dừng hình. Tin riêng — máy chủ bản cũ bỏ qua im lặng.
+	 * `hit`: đòn đã qua khung chạm (hình của chiêu ĐÃ ra ở máy người tung, chỉ cắt pha thu thế) → máy người xem vẽ nốt chiêu chưa kịp
+	 * nổ thay vì bỏ (hai tin tới dồn do trễ mạng). Vắng = cắt trước khung chạm, đòn không nổ.
+	 */
+	| { t: 'actionEnd'; hit?: boolean }
 	| { t: 'save'; progress: CharacterProgress }
 	/** Đồ gắn đang mặc vừa đổi (và gửi lại sau mỗi `welcome`). Tin riêng — máy chủ bản cũ bỏ qua im lặng. */
 	| { t: 'gear'; gear: GearView }
@@ -315,8 +396,12 @@ export type ClientMessage =
 	| { t: 'shopBuy'; item: string }
 	/** Xin danh sách trạm (map trạm của các vùng) đã từng đặt chân tới — cột dịch chuyển. */
 	| { t: 'hubs' }
-	/** M3.3a — kinh tế ở máy chủ: vừa hạ quái RIÊNG loại `type` (quái dùng chung máy chủ tự tính, không báo). */
-	| { t: 'kill'; type: string }
+	/**
+	 * M3.3a — kinh tế ở máy chủ: vừa hạ quái RIÊNG loại `type` (quái dùng chung máy chủ tự tính, không báo). `zone`: khu riêng của
+	 * con quái — máy chủ kiểm khu đó có trên map đang đứng, trao EXP / xu theo cấp của khu, chặn EXP khu tuổi thơ. Vắng (client bản
+	 * cũ) = máy chủ chọn khu riêng cấp thấp nhất có loại đó.
+	 */
+	| { t: 'kill'; type: string; zone?: string }
 	/** Vừa xong nhiệm vụ `id` — máy chủ trao thưởng theo dữ liệu truyện (một lần). */
 	| { t: 'quest'; id: string }
 	/** Tiêu `amount` xu (`reason`: tẩy điểm, dịch chuyển…). */
@@ -332,8 +417,10 @@ export type ServerMessage =
 	| { t: 'snapshot'; players: Pick<PlayerView, 'id' | 'x' | 'y' | 'dir' | 'anim' | 'sprite' | 'level'>[] }
 	| { t: 'chat'; from: string; name: string; text: string; at: number; ch?: ChatChannel }
 	| { t: 'system'; text: string }
-	| { t: 'action'; id: string; anim: ActionAnim; dir: string; skill?: string }
-	| { t: 'actionEnd'; id: string }
+	/** `fx` chỉ có khi mã chiêu có thật và phần chiêu hợp lệ (máy chủ đã chuẩn hoá + kẹp điểm nhắm quanh người gửi). */
+	| { t: 'action'; id: string; anim: ActionAnim; dir: string; skill?: string; fx?: ActionFx }
+	/** `hit` chỉ có khi đúng `true` (đòn đã qua khung chạm — xem tin `actionEnd` của máy khách). */
+	| { t: 'actionEnd'; id: string; hit?: true }
 	/** Người chơi `id` đổi đồ gắn. Client bản cũ không biết tin này → bỏ qua im lặng. */
 	| { t: 'gear'; id: string; gear: GearView }
 	| { t: 'pong'; at: number }

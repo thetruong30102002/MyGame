@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a green-fletched arrow flying right, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/wind+brown.png",
+	"jobId": "0b21d4a1-7209-4a04-977a-30afeadb815d",
+	"token": 1,
+	"createdAt": "2026-10-09T19:18:28.921Z"
+}

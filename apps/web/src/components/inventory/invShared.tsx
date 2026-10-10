@@ -1,9 +1,10 @@
 'use client';
 
 import { useState, type ReactNode } from 'react';
-import { KIND_NAME, RARITY_NAME, SLOT_NAME, slotsFor, STAT_NAME, STAT_PERCENT, shownStat, type EquipSlotId, type StatBasis, type StatKey } from '@/game/equipment';
+import { SLOT_NAME, slotsFor, STAT_NAME, STAT_PERCENT, shownStat, type EquipKind, type EquipSlotId, type StatBasis, type StatKey } from '@/game/equipment';
 import { RARITY_FX } from '@/game/gearPixels';
 import type { EquipSlotView, InventoryItem } from '@/store/useGameStore';
+import { fmtNum } from '../CharacterPanelParts';
 
 /** Lòng ô đá 58×57 (viền slot.png 13px mỗi bên). */
 export const SLOT_INNER: [number, number] = [32, 31];
@@ -11,32 +12,44 @@ export const SLOT_INNER: [number, number] = [32, 31];
 /** Bố cục kho đồ: máy tính, điện thoại dọc (< 640px), màn thấp (cao ≤ 500px — điện thoại xoay ngang). */
 export type InvMode = 'desktop' | 'phone' | 'low';
 
-/** Màu tên theo độ hiếm — chờ khung ô PixelLab theo độ hiếm thì thêm viền. */
+/** Màu tên theo độ hiếm (đủ tương phản trên giấy) — cũng là màu vòng ngoài ô của lớp `inv-r-*` (globals.css). */
 export const RARITY_COLOR: Record<string, string> = { common: 'var(--color-ink-brown)', fine: 'var(--color-leaf)', rare: '#1f5cc2', epic: 'var(--color-exp)', legendary: '#c2410c' };
 
-const KIND_TEXT: Record<InventoryItem['kind'], string> = { equip: 'Trang bị', consumable: 'Đồ dùng được', currency: 'Tiền tệ', material: 'Nguyên liệu', quest: 'Vật phẩm nhiệm vụ' };
+/**
+ * Lớp ô theo độ hiếm: vòng ngoài 2px màu bậc + lòng ô ngả màu bậc (khối `inv-r-*` cuối globals.css). Đồ Thường giữ ô đá
+ * nguyên — ô có màu là đồ đáng chú ý, nhìn lướt túi là thấy.
+ */
+export function rarityClass(r: InventoryItem['rarity']): string {
+	return r && r !== 'common' ? `inv-r-${r}` : '';
+}
 
-/** "Thường · Vũ khí chính · cấp 10" — độ hiếm, ô / loại, cấp yêu cầu. */
-export function itemSubline(it: InventoryItem): string {
-	const parts: string[] = [];
-	if (it.rarity) parts.push(RARITY_NAME[it.rarity]);
-	if (it.equipKind) {
-		const slots = slotsFor(it.equipKind);
-		parts.push(slots.length === 1 ? SLOT_NAME[slots[0]!] : KIND_NAME[it.equipKind]);
-	} else parts.push(KIND_TEXT[it.kind]);
-	if (it.levelReq) parts.push(`cấp ${it.levelReq}`);
-	return parts.join(' · ');
+export const KIND_TEXT: Record<InventoryItem['kind'], string> = { equip: 'Trang bị', consumable: 'Đồ dùng được', currency: 'Tiền tệ', material: 'Nguyên liệu', quest: 'Vật phẩm nhiệm vụ' };
+
+/** Các ô nhận loại đồ này: "Vũ khí chính" · "Nhẫn 1 / Nhẫn 2". */
+export function slotText(kind: EquipKind | undefined): string {
+	return slotsFor(kind)
+		.map((s) => SLOT_NAME[s])
+		.join(' / ');
+}
+
+/** "+6" · "−2%" — chỉ số CỘNG của một món (số tự thân, chưa nhân hệ số con đường). */
+export function signedStat(n: number, key: StatKey): string {
+	return `${n > 0 ? '+' : n < 0 ? '−' : ''}${Math.abs(n)}${STAT_PERCENT.has(key) ? '%' : ''}`;
+}
+
+/**
+ * Số trên bảng của chỉ số `key` kèm đơn vị: "140" · "12%". Tốc chạy là phần TĂNG so với tốc gốc (gốc luôn 0 — trang bị
+ * cộng % tốc chạy, `CombatSystem` nhân `1 + move/100`) nên hiện có dấu: "+8%", để "0%" không bị đọc thành đứng yên.
+ */
+export function fmtShown(key: StatKey, n: number): string {
+	if (key === 'move') return n > 0 ? `+${n}%` : n < 0 ? `−${-n}%` : '+0%';
+	return `${fmtNum(n)}${STAT_PERCENT.has(key) ? '%' : ''}`;
 }
 
 /** Ô đích khi mặc món này mà không chỉ định: ô trống đầu tiên của loại, cả hai nhẫn đầy thì Nhẫn 1 (khớp `equipment.autoSlot`). */
 export function targetSlot(it: InventoryItem, equipment: EquipSlotView[]): EquipSlotId | null {
 	const slots = slotsFor(it.equipKind);
 	return slots.find((s) => !equipment.find((e) => e.slot === s)?.item) ?? slots[0] ?? null;
-}
-
-/** "27" / "8%" — số trên bảng của chỉ số `key` khi phần cộng của trang bị là `flat`. */
-export function fmtStat(b: StatBasis, key: StatKey, flat: number): string {
-	return `${shownStat(b, key, flat)}${STAT_PERCENT.has(key) ? '%' : ''}`;
 }
 
 /** Phần chỉ số do trang bị góp, tính bằng số trên bảng (có đồ − không đồ) — "+N trang bị". */

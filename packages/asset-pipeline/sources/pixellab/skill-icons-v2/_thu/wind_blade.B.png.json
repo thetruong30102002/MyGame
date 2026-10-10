@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a thin green crescent wind blade slicing right, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/_thu/palettes/wind.png",
+	"jobId": "5ece0ac2-3c86-4c23-b6c8-a8b6ca1b2232",
+	"token": 1,
+	"createdAt": "2026-10-09T19:05:10.996Z"
+}

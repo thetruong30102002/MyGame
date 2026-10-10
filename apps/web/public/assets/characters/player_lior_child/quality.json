@@ -13,6 +13,30 @@
 			"detail": "S:8 SW:8 W:8 NW:8 N:8 NE:8 E:8 SE:8"
 		},
 		{
+			"id": "anim-idlesword",
+			"label": "Animation idlesword: đủ 8 hướng, 4–8 frame",
+			"status": "pass",
+			"detail": "S:4 SW:4 W:4 NW:4 N:4 NE:4 E:4 SE:4"
+		},
+		{
+			"id": "anim-walksword",
+			"label": "Animation walksword: đủ 8 hướng, 6–8 frame",
+			"status": "pass",
+			"detail": "S:8 SW:8 W:8 NW:8 N:8 NE:8 E:8 SE:8"
+		},
+		{
+			"id": "anim-idlestaff",
+			"label": "Animation idlestaff: đủ 8 hướng, 4–8 frame",
+			"status": "pass",
+			"detail": "S:4 SW:4 W:4 NW:4 N:4 NE:4 E:4 SE:4"
+		},
+		{
+			"id": "anim-walkstaff",
+			"label": "Animation walkstaff: đủ 8 hướng, 6–8 frame",
+			"status": "pass",
+			"detail": "S:8 SW:8 W:8 NW:8 N:8 NE:8 E:8 SE:8"
+		},
+		{
 			"id": "no-empty-frames",
 			"label": "Không có frame rỗng (ô trống trong sheet nguồn)",
 			"status": "pass",
@@ -40,13 +64,13 @@
 			"id": "no-blur",
 			"label": "Không nhoè: số màu/frame và tỉ lệ chuyển màu li ti",
 			"status": "pass",
-			"detail": "tối đa 57 màu/frame (ngưỡng 128), micro-step 0.0% (ngưỡng 12%)"
+			"detail": "tối đa 58 màu/frame (ngưỡng 128), micro-step 0.3% (ngưỡng 12%)"
 		},
 		{
 			"id": "silhouette-size",
 			"label": "Silhouette đủ lớn để đọc được (40–95% chiều cao canvas)",
 			"status": "pass",
-			"detail": "cao 46–51px trên 96px"
+			"detail": "cao 46–52px trên 96px"
 		},
 		{
 			"id": "silhouette-solid",
@@ -70,13 +94,13 @@
 			"id": "anatomy",
 			"label": "Duyệt bằng mắt: giải phẫu, vũ khí/trang phục/tóc không đổi giữa frame",
 			"status": "pass",
-			"detail": "09/10/2026: Duyệt bằng mắt 8 hướng đứng/đi + đánh 3 nhát (kiếm gỗ tập), niệm / vung tay phóng (trượng tập), trúng đòn, gục, uống bình (E/S/N, phía tây lật gương): tóc nâu, mắt hổ phách, khăn xanh rêu, áo vải + gi-lê nhất quán giữa khung; vũ khí liền tay; vị trí chân ổn định sau căn."
+			"detail": "10/10/2026: Duyệt bằng mắt 8 hướng đứng/đi + đánh 3 nhát (kiếm gỗ tập), niệm / vung tay phóng (trượng tập), trúng đòn, gục, uống bình (E/S/N, phía tây lật gương): tóc nâu, mắt hổ phách, khăn xanh rêu, áo vải + gi-lê nhất quán giữa khung; vũ khí liền tay; vị trí chân ổn định sau căn. | 10/10/2026: đứng / đi cầm kiếm gỗ + trượng tập: vũ khí liền tay mọi khung, đúng hướng. Đi trượng S, E vẽ lại v3 (`walk-staff2` — skeleton-v3 làm mất / gãy trượng), đứng trượng S = mẫu, còn lại v3 (`idle-staff2`, SE vẽ lại lần 2 vì vung trượng); đứng kiếm S vẽ lại v3 (`idle-sword2`, bản đầu kiếm xoay 45°). | 10/10/2026 (lượt 2): trúng đòn / gục / uống bình cầm kiếm gỗ + trượng tập (E/S/N + lật gương tây, tấm `reports/player_lior_child/held-review-body-*.png`): vũ khí liền tay, đúng hướng, chân trên vạch, cùng số khung bản tay không; gục: vũ khí rơi cạnh người; uống bình: một tay cầm vũ khí, tay kia cầm bình đỏ. Không phải vẽ lại hướng nào. Lỗi nhẹ giữ: gục kiếm E, N khung cuối kiếm gỗ khuất dưới người; bình lúc uống (cầm trượng, S) hồng đậm, to hơn bình bản tay không."
 		}
 	],
 	"stats": {
-		"frames": 96,
-		"maxColorsPerFrame": 57,
-		"microStepRatio": 0.000029467232437529467
+		"frames": 288,
+		"maxColorsPerFrame": 58,
+		"microStepRatio": 0.0031008557635889234
 	},
 	"optional": [
 		{
@@ -326,6 +350,230 @@
 		},
 		{
 			"animation": "drink",
+			"direction": "W",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "hitsword",
+			"direction": "S",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "hitsword",
+			"direction": "N",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "hitsword",
+			"direction": "E",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "hitsword",
+			"direction": "W",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "hitstaff",
+			"direction": "S",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "hitstaff",
+			"direction": "N",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "hitstaff",
+			"direction": "E",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "hitstaff",
+			"direction": "W",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "deathsword",
+			"direction": "S",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "deathsword",
+			"direction": "N",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "deathsword",
+			"direction": "E",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "deathsword",
+			"direction": "W",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "revivesword",
+			"direction": "S",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "revivesword",
+			"direction": "N",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "revivesword",
+			"direction": "E",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "revivesword",
+			"direction": "W",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "deathstaff",
+			"direction": "S",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "deathstaff",
+			"direction": "N",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "deathstaff",
+			"direction": "E",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "deathstaff",
+			"direction": "W",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "revivestaff",
+			"direction": "S",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "revivestaff",
+			"direction": "N",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "revivestaff",
+			"direction": "E",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "revivestaff",
+			"direction": "W",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "drinksword",
+			"direction": "S",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "drinksword",
+			"direction": "N",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "drinksword",
+			"direction": "E",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "drinksword",
+			"direction": "W",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "drinkstaff",
+			"direction": "S",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "drinkstaff",
+			"direction": "N",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "drinkstaff",
+			"direction": "E",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "drinkstaff",
 			"direction": "W",
 			"frames": 8,
 			"passed": true,

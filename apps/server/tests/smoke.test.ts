@@ -1,9 +1,11 @@
 // Thử khói máy chủ: đăng ký → tạo nhân vật → 2 người cùng vào map → thấy nhau di chuyển → chat → lưu.
 // Chạy khi máy chủ THỬ đang bật: `npx tsx tests/smoke.test.ts` (mặc định http://localhost:3201, CSDL data/test.db).
-// Mỗi lần chạy tạo 2 tài khoản t_an_*/t_binh_* — KHÔNG chạy vào máy chủ thật 3200 (đã dính 06/10/2026: 10
+// Mỗi lần chạy tạo 3 tài khoản t_an_*/t_binh_*/t_chi_* — KHÔNG chạy vào máy chủ thật 3200 (đã dính 06/10/2026: 10
 // tài khoản rác trong aether.db). Bắt buộc thì đặt ALLOW_PROD=1.
 import { WebSocket } from 'ws';
 import type { CharacterInfo, ServerMessage } from '@aether/protocol';
+import { HERO_SKILLS } from '@aether/sim/skills';
+import { AIM_SLACK } from '../src/actions.ts';
 
 const BASE = process.env.SERVER ?? 'http://localhost:3201';
 if (/:3200(?!\d)/.test(BASE) && process.env.ALLOW_PROD !== '1') {
@@ -62,10 +64,24 @@ a.ws.send(JSON.stringify({ t: 'actionEnd' }));
 await wait(200);
 check(b.inbox.some((m) => m.t === 'actionEnd' && m.id === a.ch.id), 'B nhận tin A dừng động tác giữa chừng (actionEnd)');
 check(!a.inbox.some((m) => m.t === 'actionEnd') && actions().length === 1, 'actionEnd không dội về người gửi, không thành một cú vung');
+// Thấy CHIÊU của nhau (phần `fx`): mã chiêu thật + hướng / điểm nhắm hợp lệ thì chuyển (điểm nhắm kẹp quanh A); chiêu lạ / toạ
+// độ vô lý thì bỏ phần chiêu im lặng — động tác thân vẫn tới. A đang ở (1020, 1000) theo máy chủ.
+const fxMark = actions().length;
+a.ws.send(JSON.stringify({ t: 'action', anim: 'skycall', dir: 'E', skill: 'meteor', fx: { ax: 3, ay: 4, tx: 9000, ty: 1000, el: 'fire' } }));
+a.ws.send(JSON.stringify({ t: 'action', anim: 'attack', dir: 'E', skill: 'hack_all', fx: { ax: 1, ay: 0 } }));
+a.ws.send(JSON.stringify({ t: 'action', anim: 'skycall', dir: 'E', skill: 'meteor', fx: { ax: 1, ay: 0, tx: 1e12, ty: -5 } }));
+await wait(300);
+const [met, odd, wild] = actions().slice(fxMark);
+const reach = (HERO_SKILLS.find((s) => s.id === 'meteor')?.range ?? 0) + AIM_SLACK;
+check(met?.skill === 'meteor' && met.fx?.ax === 0.6 && met.fx.ay === 0.8 && met.fx.el === 'fire' && met.fx.tx === 1020 + reach && met.fx.ty === 1000, `B thấy chiêu của A: Thiên Thạch kèm hướng ngắm + điểm nhắm đã kẹp (${JSON.stringify(met?.fx)})`);
+check(odd?.anim === 'attack' && odd.skill === '' && odd.fx === undefined, 'Chiêu lạ: bỏ mã + phần chiêu, động tác thân vẫn tới');
+check(wild?.skill === 'meteor' && wild.fx === undefined, 'Toạ độ vô lý: bỏ phần chiêu im lặng');
+check(!a.inbox.some((m) => m.t === 'action'), 'Chiêu không dội về chính người gửi');
 await wait(1100);
+const beforeBurst = actions().length;
 for (let i = 0; i < 20; i += 1) a.ws.send(JSON.stringify({ t: 'action', anim: 'attack', dir: 'S' }));
 await wait(300);
-const burst = actions().length - 1;
+const burst = actions().length - beforeBurst;
 check(burst >= 1 && burst <= 8, `Giới hạn nhịp động tác: gửi 20 tin, B nhận ${burst} (≤ 8)`);
 // Chuyển map: người ở map cũ thấy mình rời đi, mình nhận danh sách người của map mới; khác map thì không thấy nhau.
 const mark = b.inbox.length;
@@ -95,13 +111,18 @@ check(b.inbox.some((m) => m.t === 'chat' && m.text === 'xin chào'), 'B nhận c
 a.ws.send(JSON.stringify({ t: 'save', progress: { level: 3, exp: 42, coins: 7, potions: 1, map: 'human/town', x: 1020, y: 1000, story: { index: 2 }, introSeen: true } }));
 await wait(200);
 const list = await api<CharacterInfo[]>('/api/characters', 'GET', undefined, a.token);
-check(list.data[0]?.progress.level === 3 && list.data[0]?.progress.introSeen === true, 'Tiến độ đã lưu trên máy chủ');
+// Cấp / EXP / xu / bình do MÁY CHỦ giữ từ M3.3a: máy khách gửi cấp 3 cũng không nâng được — chỉ phần truyện / vị trí được lưu.
+check(list.data[0]?.progress.introSeen === true && list.data[0]?.progress.level === 1, 'Tiến độ đã lưu trên máy chủ (cấp do máy chủ giữ, máy khách không tự nâng)');
 const put = await api(`/api/characters/${a.ch.id}/progress`, 'PUT', { progress: { level: 4, exp: 1, coins: 0, potions: 0, map: 'human/town', x: -1, y: -1, story: null, introSeen: false } }, a.token);
 const after = await api<CharacterInfo[]>('/api/characters', 'GET', undefined, a.token);
-check(put.status === 200 && after.data[0]?.progress.level === 4 && after.data[0]?.progress.story === null, 'Lưu chắc qua HTTP (xoá tiến độ)');
+check(put.status === 200 && after.data[0]?.progress.story === null && after.data[0]?.progress.level === 1, 'Lưu chắc qua HTTP (xoá tiến độ truyện, cấp giữ nguyên)');
 const foreign = await api(`/api/characters/${a.ch.id}/progress`, 'PUT', { progress: { level: 99 } }, b.token);
 check(foreign.status === 404, 'Không ghi được tiến độ nhân vật của người khác');
-const dup = await api('/api/characters', 'POST', { name: a.ch.name.toUpperCase(), gender: 'male' }, b.token);
+const second = await api('/api/characters', 'POST', { name: `Hai ${stamp}`.slice(0, 16), gender: 'male' }, b.token);
+check(second.status === 400, 'Mỗi tài khoản chỉ một nhân vật (tạo thứ hai bị chặn)');
+// Trùng tên phải thử bằng tài khoản CHƯA có nhân vật — tài khoản đã có một thì bị chặn vì giới hạn trước.
+const c = await api<{ token: string }>('/api/register', 'POST', { username: `t_chi_${stamp}`, password: 'secret123' });
+const dup = await api('/api/characters', 'POST', { name: a.ch.name.toUpperCase(), gender: 'male' }, c.data.token);
 check(dup.status === 409, 'Chặn trùng tên nhân vật (không phân biệt hoa thường)');
 const bad = await api('/api/login', 'POST', { username: `t_An_${stamp}`, password: 'sai' });
 check(bad.status === 401, 'Sai mật khẩu bị từ chối');

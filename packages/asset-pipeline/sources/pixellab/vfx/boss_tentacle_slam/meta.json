@@ -1,0 +1,33 @@
+{
+	"id": "boss_tentacle_slam",
+	"kind": "burst",
+	"canvas": {
+		"w": 160,
+		"h": 160
+	},
+	"first": {
+		"prompt": "a giant crimson-purple squid tentacle with a club-shaped suckered tip bursting straight up out of splashing dark sea water and broken ship planks, base at the bottom of the frame, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "458d1268-f31c-409d-9d49-3f10c23459f6"
+	},
+	"action": "the huge tentacle erupts upward from the water, curls over and slams down with a big splash scattering planks and spray, then sinks back into the water and the foam fades",
+	"frameCount": 10,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png",
+		"frame_009.png",
+		"frame_010.png"
+	],
+	"animateJobId": "ed36dd75-2760-472f-97f9-520eddab8428",
+	"createdAt": "2026-10-09T16:52:03.250Z",
+	"token": 1
+}

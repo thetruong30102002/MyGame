@@ -1,0 +1,17 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a steel sword splitting an iron knight helmet cleanly in two, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"init_image_strength": 140,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/sword.png",
+	"init_image_path": "sources/pixellab/skill-icons-v2/init/sunder_strike.init.png",
+	"jobId": "3e6f72d5-a213-4ac2-bf0f-f093e801a410",
+	"token": 1,
+	"createdAt": "2026-10-09T19:47:25.536Z"
+}

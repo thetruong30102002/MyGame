@@ -1,0 +1,20 @@
+{
+	"description": "A sprite sheet of NINE separate small props arranged in a 3 by 3 grid, each small and centered in its own cell: ancient stone forge altar with a dying flame, giant cracked anvil carved with runes, stone pillar carved with rows of rune marks, lightning-bolt shaped steel sword stuck upright in a rock, old broken leather bellows, broken giant hammer head, strange rusted brass siphon machine with pipes drawing glowing fire out of a rock crack trailing thin glowing red threads, weathered dwarf guardian statue, stone eastern Chinese dragon head statue with antlers and long whiskers and glowing ember eyes, drawn in straight FRONT VIEW like the reference (facing the camera, slight top-down), thick dark outline, soft cel shading, every object fully separate on a plain flat solid bright magenta (#FF00FF) chroma-key background with wide empty space around it, no ground, no shadow puddles, no text, no characters",
+	"width": 192,
+	"height": 192,
+	"no_background": false,
+	"seed": 11,
+	"style_options": {
+		"color_palette": false,
+		"outline": true,
+		"shading": true,
+		"detail": false
+	},
+	"style_image": {
+		"path": "D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/N1_nature.png",
+		"usage_description": "Copy ONLY the art style of this reference: chunky chibi pixel art, thick dark outline on every shape, soft cel shading, front-facing view. Do not copy these objects or their colors."
+	},
+	"jobId": "ffe6cc99-d1d1-4104-897b-1d80c5821de4",
+	"token": 1,
+	"createdAt": "2026-10-09T15:18:41.788Z"
+}

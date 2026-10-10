@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a grey ash pile with three orange embers, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/fire+grey.png",
+	"jobId": "1d02f7b9-235e-4dd7-992e-1b971983a604",
+	"token": 1,
+	"createdAt": "2026-10-09T19:16:29.985Z"
+}

@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "three stacked red upward chevron arrows, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/sword.png",
+	"jobId": "46a45ea6-025e-4863-95ed-f5cc263354da",
+	"token": 1,
+	"createdAt": "2026-10-09T19:13:15.173Z"
+}

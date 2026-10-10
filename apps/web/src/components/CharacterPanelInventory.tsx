@@ -2,23 +2,15 @@
 
 import { useEffect, useMemo, useRef, useState, type MouseEvent, type ReactNode } from 'react';
 import { useShallow } from 'zustand/react/shallow';
-import { BAG_SIZE, bagUsed, KIND_NAME, SLOT_KIND, SLOT_NAME, slotsFor, type EquipSlotId, type StatKey } from '@/game/equipment';
-import { STAT_ICON } from '@/game/items';
-import { useGameStore, type InventoryItem } from '@/store/useGameStore';
+import { BAG_SIZE, bagUsed, KIND_NAME, RARITY_NAME, RARITY_ORDER, SLOT_KIND, SLOT_NAME, slotsFor, STAT_KEYS, STAT_NAME, type EquipSlotId } from '@/game/equipment';
+import { useGameStore, type EquipSlotView, type InventoryItem } from '@/store/useGameStore';
 import { BagGrid, type BagFilter } from './inventory/BagGrid';
 import { EquipDoll } from './inventory/EquipDoll';
-import { compareLines, fmtStat, gearPart, targetSlot, type InvMode } from './inventory/invShared';
+import { compareLines, RARITY_COLOR, signedStat, targetSlot, type InvMode } from './inventory/invShared';
 import { ItemCard } from './inventory/ItemCard';
+import { StatSheet } from './inventory/StatSheet';
 import { useTouchDevice } from './TouchControls';
 import { useMediaQuery } from './useMediaQuery';
-
-/** Bốn chỉ số dưới búp bê: số trên bảng (đã gồm trang bị) + "+N" phần của trang bị. Icon PixelLab đúng 1× (ui.json). */
-const DOLL_STATS: { key: StatKey; label: string; icon: { src: string; w: number; h: number } }[] = [
-	{ key: 'atk', label: 'Tấn công', icon: { src: STAT_ICON.attack, w: 48, h: 44 } },
-	{ key: 'mag', label: 'Phép thuật', icon: { src: STAT_ICON.magic, w: 35, h: 39 } },
-	{ key: 'def', label: 'Phòng thủ', icon: { src: STAT_ICON.defense, w: 48, h: 49 } },
-	{ key: 'hp', label: 'Máu tối đa', icon: { src: STAT_ICON.hp, w: 43, h: 38 } },
-];
 
 /** Bố cục theo cỡ màn — màn thấp (điện thoại xoay ngang) ưu tiên trước điện thoại dọc, như bảng Tiềm năng. */
 function useInvMode(): InvMode {
@@ -29,7 +21,8 @@ function useInvMode(): InvMode {
 
 /**
  * Tab "Kho đồ" kiểu búp bê giấy: nhân vật đứng giữa, 10 ô trang bị quanh người (Mũ · Áo · Găng · Quần · Giày | Dây chuyền ·
- * Vũ khí chính · Tay phụ · Nhẫn 1 · Nhẫn 2), túi đồ + thẻ so sánh bên cạnh (điện thoại: thẻ là sheet trượt từ đáy).
+ * Vũ khí chính · Tay phụ · Nhẫn 1 · Nhẫn 2, tên ô in dưới ô), bảng đủ 7 chỉ số (gốc + đồ) dưới búp bê; túi đồ + thẻ chi tiết
+ * bên cạnh (điện thoại: thẻ là sheet trượt từ đáy). Độ hiếm hiện bằng vòng màu + lòng ô ngả màu và màu tên.
  * Chọn món trang bị trong túi → ô đích trên búp bê sáng viền; bấm ô sáng (hoặc nút Trang bị) là mặc. Chỉ chạm, không kéo
  * thả (lớp phủ đang `touch-none` cho cần gạt). Mọi thao tác đi qua `request('equip' | 'unequip' | 'use_potion')`.
  * Esc đóng thẻ trước rồi mới đóng bảng.
@@ -186,9 +179,10 @@ export function CharacterInventoryTab() {
 
 	const name = stats.name.split(' · ')[0] ?? stats.name;
 	const sub = `Cấp ${stats.level}${stats.path ? ` · ${stats.path}` : stats.age > 0 ? ` · ${stats.age} tuổi` : ''}`;
-	// Chọn món trang bị trong túi: ô chỉ số dưới búp bê đổi thành "27 → 33" (so với món ở ô đích sẽ bị thay).
+	// Chọn món trang bị trong túi: dòng chỉ số dưới búp bê đổi thành "27 → 33" (so với món ở ô đích sẽ bị thay).
 	const cmpSlot = selected?.kind === 'equip' && !selected.equippedAt ? targetSlot(selected, equipment) : null;
 	const cmp = selected && cmpSlot ? compareLines(stats.gearBasis, stats.gear, selected, equipment.find((e) => e.slot === cmpSlot)?.item ?? null) : null;
+	const cmpName = selected && cmp ? { name: selected.name, color: RARITY_COLOR[selected.rarity ?? 'common']! } : null;
 
 	const emptyMsg = emptySlot ? (fits.size ? `${fits.size} món hợp ô ${SLOT_NAME[emptySlot]} — viền nét đứt trong túi.` : `Chưa có ${KIND_NAME[SLOT_KIND[emptySlot]].toLowerCase()} nào trong túi.`) : null;
 
@@ -226,60 +220,14 @@ export function CharacterInventoryTab() {
 		/>
 	);
 
-	const dollStats =
-		mode === 'low' ? (
-			<p className="mt-1.5 flex flex-wrap gap-x-3 text-note text-ink-soft">
-				{DOLL_STATS.map((d) => {
-					const line = cmp?.find((l) => l.key === d.key);
-					return (
-						<span key={d.key} className="whitespace-nowrap">
-							{d.label}{' '}
-							{line ? (
-								// Đang so sánh: "76 → 84" tô màu số sau như bản 2×2 — KHÔNG kèm "+N" (đọc thành mức đổi).
-								<b className="text-ink-brown tabular-nums">
-									{line.before} → <span className={line.after > line.before ? 'text-leaf' : line.after < line.before ? 'text-berry' : ''}>{line.after}</span>
-								</b>
-							) : (
-								<>
-									<b className="text-ink-brown tabular-nums">{fmtStat(stats.gearBasis, d.key, stats.gear[d.key] ?? 0)}</b> <GearPlus n={gearPart(stats, d.key)} />
-								</>
-							)}
-						</span>
-					);
-				})}
-			</p>
-		) : (
-			<div className="mt-2 grid grid-cols-2 gap-1">
-				{DOLL_STATS.map((d) => {
-					const line = cmp?.find((l) => l.key === d.key);
-					return (
-						<div key={d.key} className="flex min-w-0 items-center gap-1 rounded-[8px] border-2 border-paper-line bg-paper-hi px-1.5 py-0.5">
-							<span className="flex w-12 shrink-0 justify-center">
-								<img src={d.icon.src} width={d.icon.w} height={d.icon.h} alt="" draggable={false} className="pixel-img max-w-none" />
-							</span>
-							<span className="flex min-w-0 flex-col leading-[1.15]">
-								<small className="truncate text-[11px] font-bold text-ink-soft">{d.label}</small>
-								{line ? (
-									<b className="text-[16px] font-extrabold tabular-nums">
-										{line.before} → <span className={line.after > line.before ? 'text-leaf' : line.after < line.before ? 'text-berry' : ''}>{line.after}</span>
-									</b>
-								) : (
-									<b className="text-[16px] font-extrabold tabular-nums">
-										{fmtStat(stats.gearBasis, d.key, stats.gear[d.key] ?? 0)} <GearPlus n={gearPart(stats, d.key)} />
-									</b>
-								)}
-							</span>
-						</div>
-					);
-				})}
-			</div>
-		);
+	const dollStats = <StatSheet mode={mode} stats={stats} cmp={cmp} cmpName={cmpName} />;
 
 	const bag = (
 		<BagGrid
 			mode={mode}
 			items={items}
 			coins={stats.coins}
+			level={stats.level}
 			filter={filter}
 			onFilter={setFilter}
 			selected={sel}
@@ -351,7 +299,7 @@ export function CharacterInventoryTab() {
 	}
 
 	return (
-		<div ref={rootRef} className="grid grid-cols-[340px_minmax(0,1fr)] items-start gap-3.5" onClick={onBackdrop}>
+		<div ref={rootRef} className="grid grid-cols-[340px_minmax(0,1fr)] items-start gap-3.5 lg:grid-cols-[436px_minmax(0,1fr)] lg:gap-4" onClick={onBackdrop}>
 			<section aria-label="Trang bị đang mặc">
 				{doll}
 				{dollStats}
@@ -363,8 +311,10 @@ export function CharacterInventoryTab() {
 						{card}
 					</div>
 				) : (
-					<div className="ui-tray p-2.5 text-note text-ink-soft">
-						{emptyMsg ?? (fine ? 'Chạm một món để xem và so sánh. Món trang bị: nhấp đúp để mặc ngay, nhấp đúp ô trên người để tháo.' : 'Chạm một món để xem và so sánh với đồ đang mặc.')}
+					<div className="ui-tray flex flex-col gap-2 p-3 text-note text-ink-soft">
+						<p className={emptyMsg ? 'font-bold text-ink-brown' : ''}>{emptyMsg ?? (fine ? 'Chạm một món để xem chi tiết và so sánh. Món trang bị: nhấp đúp để mặc ngay, nhấp đúp ô trên người để tháo.' : 'Chạm một món để xem chi tiết và so sánh với đồ đang mặc.')}</p>
+						<RarityLegend />
+						<WornList equipment={equipment} onSlot={onSlot} />
 					</div>
 				)}
 			</section>
@@ -372,7 +322,60 @@ export function CharacterInventoryTab() {
 	);
 }
 
-/** "+0" mờ khi chưa có gì, "+2" màu lá khi trang bị đang góp. */
-function GearPlus({ n }: { n: number }) {
-	return <em className={`text-[12px] not-italic ${n > 0 ? 'text-leaf' : n < 0 ? 'text-berry' : 'text-ink-faint'}`}>{n > 0 ? `+${n}` : n < 0 ? `−${-n}` : '+0'}</em>;
+/**
+ * Chú giải độ hiếm (khay trống khi chưa chọn món): nhãn bậc cùng kiểu nhãn trên thẻ vật phẩm — chữ + viền đúng màu tên và
+ * màu vòng ô (`RARITY_COLOR`). Học một lần là đọc được túi đồ.
+ */
+function RarityLegend() {
+	return (
+		<p className="flex flex-wrap items-center gap-1.5">
+			<span className="mr-0.5 font-bold">Độ hiếm:</span>
+			{RARITY_ORDER.map((r) => (
+				<span key={r} className="ui-tag h-5 border-2 bg-paper-hi px-1.5" style={{ color: RARITY_COLOR[r], borderColor: RARITY_COLOR[r] }}>
+					{RARITY_NAME[r]}
+				</span>
+			))}
+		</p>
+	);
+}
+
+/**
+ * Danh sách đồ đang mặc (khay trống bên túi, chỉ máy tính): tên ô · tên món đúng màu độ hiếm · thuộc tính tự thân — tên đồ
+ * trên người đọc được ngay, không phải rê từng ô. Bấm một dòng = bấm ô đó trên búp bê (mở thẻ, có nút Tháo).
+ * KHÔNG xem trước khi rê chuột: thẻ xem trước thay chỗ chính khay này, dòng đang rê bị gỡ nên không bao giờ nhận
+ * `pointerleave` — thẻ kẹt lại và không còn dòng nào để bấm.
+ */
+function WornList({ equipment, onSlot }: { equipment: EquipSlotView[]; onSlot: (slot: EquipSlotId, keyboard: boolean) => void }) {
+	const worn = equipment.filter((e) => e.item);
+	return (
+		<div className="border-t-2 border-paper-line pt-2">
+			<p className="font-display text-[16px] leading-[1.3] font-extrabold text-ink-brown">Đang mặc</p>
+			{worn.length ? (
+				<ul className="mt-1 flex flex-col">
+					{worn.map(({ slot, item: it }) => {
+						const own = STAT_KEYS.filter((k) => (it!.stats?.[k] ?? 0) !== 0);
+						return (
+							<li key={slot}>
+								<button
+									type="button"
+									onClick={(e) => onSlot(slot, e.detail === 0)}
+									className="grid min-h-[26px] w-full cursor-pointer grid-cols-[88px_minmax(0,1fr)] items-center gap-x-2 rounded-[6px] px-1.5 text-left hover:bg-paper-hi focus-visible:bg-paper-hi"
+								>
+									<span className="truncate font-bold text-ink-soft">{SLOT_NAME[slot]}</span>
+									<span className="flex min-w-0 items-baseline gap-2">
+										<b className="min-w-0 truncate font-extrabold lg:max-w-[62%] lg:shrink-0" style={{ color: RARITY_COLOR[it!.rarity ?? 'common'] }}>
+											{it!.name}
+										</b>
+										<span className="hidden min-w-0 truncate text-ink-faint lg:inline">{own.length ? own.map((k) => `${STAT_NAME[k]} ${signedStat(it!.stats![k]!, k)}`).join(' · ') : it!.bound ? 'Kỷ vật' : ''}</span>
+									</span>
+								</button>
+							</li>
+						);
+					})}
+				</ul>
+			) : (
+				<p className="mt-0.5">Chưa mặc món nào — chạm ô trống trên búp bê để lọc đồ hợp ô.</p>
+			)}
+		</div>
+	);
 }

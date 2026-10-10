@@ -1,0 +1,20 @@
+{
+	"description": "A sprite sheet of NINE separate small props arranged in a 3 by 3 grid, each small and centered in its own cell: tall cracked ice pillar, cluster of ice stalagmites, glowing blue Aether crystal vein in a rock, stone wall slab with a carved coiled eastern dragon relief, small eastern stone lantern coated in frost, frozen waterfall chunk, bear den bed of straw and old bones, small snow grave mound with a tiny knitted mitten on top and a ring of ice candles, rusty brass machine stake wrapped in glowing red threads and frost, drawn in straight FRONT VIEW like the reference (facing the camera, slight top-down), thick dark outline, soft cel shading, every object fully separate on a plain flat solid bright magenta (#FF00FF) chroma-key background with wide empty space around it, no ground, no shadow puddles, no text, no characters",
+	"width": 192,
+	"height": 192,
+	"no_background": false,
+	"seed": 11,
+	"style_options": {
+		"color_palette": false,
+		"outline": true,
+		"shading": true,
+		"detail": false
+	},
+	"style_image": {
+		"path": "D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/N1_nature.png",
+		"usage_description": "Copy ONLY the art style of this reference: chunky chibi pixel art, thick dark outline on every shape, soft cel shading, front-facing view. Do not copy these objects or their colors."
+	},
+	"jobId": "c3c84812-c997-48bf-8ba1-d829450e00bc",
+	"token": 1,
+	"createdAt": "2026-10-09T15:13:50.048Z"
+}

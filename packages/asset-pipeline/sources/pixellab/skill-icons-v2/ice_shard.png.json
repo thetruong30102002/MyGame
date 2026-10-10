@@ -1,0 +1,16 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a sharp faceted ice crystal shard pointing right, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/ice.png",
+	"jobId": "6beb7854-6ac7-474d-9bb0-2e3e18048cf3",
+	"token": 1,
+	"createdAt": "2026-10-09T19:04:55.924Z",
+	"note": "bản thử B (10/10/2026) dùng làm bản chính — cùng cách vẽ v2"
+}

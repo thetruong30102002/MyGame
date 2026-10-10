@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a crooked red arrow twisted by a green gust swirl, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/wind+red.png",
+	"jobId": "a47d6b9d-2367-4b4d-9f1d-f7cc12832aae",
+	"token": 1,
+	"createdAt": "2026-10-09T19:19:06.819Z"
+}

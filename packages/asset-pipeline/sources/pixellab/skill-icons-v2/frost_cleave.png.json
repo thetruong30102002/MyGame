@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "an ice-crusted sword with a wide pale blue frost arc, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/ice+steel.png",
+	"jobId": "86e607f5-4d9e-459f-b98b-47c4ae750f92",
+	"token": 1,
+	"createdAt": "2026-10-09T19:15:46.412Z"
+}

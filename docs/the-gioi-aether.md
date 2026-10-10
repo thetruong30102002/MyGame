@@ -10,7 +10,7 @@
 `docs/the-gioi-aether.md` (file này) lẫn trang `docs/the-gioi-aether.html` (đăng lại trang: Artifact
 https://claude.ai/artifact/VTrVtPJHXUtETsssKRcx9K). Không sửa tay hai file sinh ra.
 
-### Trạng thái (09/10/2026)
+### Trạng thái (09–10/10/2026)
 
 | Phần | Trạng thái | Tài liệu |
 |---|---|---|
@@ -20,6 +20,9 @@ https://claude.ai/artifact/VTrVtPJHXUtETsssKRcx9K). Không sửa tay hai file si
 | M3.3a: cấp / EXP / xu / bình do máy chủ giữ | ✔ | `docs/ke-hoach-m3-may-chu-chien-dau.md` |
 | Hình PixelLab Mốc 1 — gói trả phí (token #1, Tier 2: 5.000 lượt, 10 job song song) | ◐ phần lớn đã vẽ 09/10/2026 (~2.300 lượt) — xem mục "Mốc 1 đã vẽ" ngay dưới | file này + `docs/asset-pipeline.md` mục Gói trả phí |
 | Nhân vật người chơi mới (tóc nâu, đồ tân thủ) + 25 động tác / 9 động tác bản bé + hiệu ứng skill + chiêu Quỷ vương / Vua Lich + quái vùng 1 có đánh / gục | ✔ ĐÃ LÊN GAME THẬT 09/10/2026 (bản cũ tóc bạc → NPC lữ hành Sein / Sera ở quảng trường) | `apps/web/src/game/combat/tempArt.ts`, `CombatSystem.ts` |
+| Vùng 1 — 12 map (chủ dự án 10/10/2026): cấp quái theo khu, khu tuổi thơ Bãi Bồi, Hang Gargoyle (Dơi hang + boss Gargoyle Đá), Hẻm Cửa Sông (lối sang vùng 2) | ✔ ĐÃ LÊN GAME THẬT 10/10/2026 — 12 map lúc 05:58, hình ĐỢT 2 (tấm G1 / R1 / B1 + 5 món lẻ, 48 lượt: Nghĩa địa, Đồi Xương, Vách, Mộ Vô Danh, Luỹ, Hẻm Cửa Sông hết trống) lúc 07:12 | `docs/thiet-ke/vung1-12-map.md`, `docs/ke-hoach-the-gioi.md` mục 5.2 |
+| Icon chiêu v2 (90 icon 32×32), kho đồ / thẻ Chỉ số bỏ icon chỉ số (chỉ giữ vàng + kim cương), chiêu nguyên tố mốc 1 học bằng 1 điểm (bài tập phép tuổi thơ nhận Tia Aether, bản lưu `talentsV` 3 + máy chủ chặn tab cũ ghi đè) | ✔ ĐÃ LÊN GAME THẬT 10/10/2026 | `docs/asset-pipeline.md` mục Icon chiêu v2, `docs/ke-hoach-nguyen-to.md` mục 7, `apps/server/src/db.ts` `keepNewerTalents` |
+| Vũ khí VẼ LIỀN THÂN (chủ dự án 10/10/2026: "cầm kiếm tự gắn vào xấu"): 4 sprite người chơi đứng / đi cầm kiếm + cầm trượng (`idlesword` / `walksword` / `idlestaff` / `walkstaff`, chọn theo thế cầm + đồ mặc), bỏ icon dán vào tay, bỏ hướng chém tay không | ✔ ĐÃ LÊN GAME THẬT 10/10/2026: đứng / đi (~175 lượt) + trúng đòn / lướt / gục (16 tuổi) và trúng đòn / gục / uống bình (bé) bản cầm (129 lượt, `hitsword`…). CÒN THIẾU uống bình bản cầm của 16 tuổi: atlas 16 tuổi đã sát 4096 → cần atlas nhiều trang hoặc cắt sát khung | `docs/asset-pipeline.md` mục "Vũ khí vẽ liền thân", `apps/web/src/game/gearArt.ts` |
 
 ### Mốc 1 đã vẽ (09/10/2026, token #1)
 
@@ -33,22 +36,32 @@ https://claude.ai/artifact/VTrVtPJHXUtETsssKRcx9K). Không sửa tay hai file si
   mốc 10 — vẽ xong, khai `later: true` (ngoài atlas) tới khi nối vào game.
 - **Quái / boss**: 16 quái vùng 1–4 + 10 boss + xác sống / gargoyle / Vua Lich vùng 1 (trước nay CHƯA có atlas) — đủ đi / đứng / đánh /
   gục 3 hướng; nấm, xương xạ thủ, Quỷ vương thêm đánh + gục (animimg). Lên game: 6 con vùng 1. Còn lại có spec, chờ map.
-- **Rồng phương Đông** (chủ dự án: MỌI rồng là rồng phương Đông, không cánh): Phong Long trắng ngọc trai + Rồng gió (rồng non) — đủ
-  động tác. Sơn Thần (triệu hồi tuyệt kỹ Thổ): có hình, đi / đứng bằng template bị lệch dáng → vẽ lại bằng v3 khi làm GĐ4.
+- **Rồng phương TÂY** (chủ dự án đổi tối 09/10/2026 — thay bản phương Đông; mọi rồng HẦM HỐ: cánh dang to, dáng dữ): Phong Long,
+  Rồng gió (rồng non), Băng Long, Hoả Long, Thuỷ Long — dựng 8 hướng từ ảnh thiết kế đã duyệt (`new-mobs/dragons_west.json`), đủ
+  đi (bay vỗ cánh) / đứng / đánh / gục. Bản phương Đông + bản có cánh cũ đổi tên `*_east` / `*_winged` (chờ xoá trên PixelLab). Sơn Thần (triệu hồi tuyệt kỹ Thổ): có hình, đi / đứng bằng template bị lệch dáng → vẽ lại bằng v3 khi làm GĐ4.
 - **Map vùng 2–4**: 12 công trình / cây + 9 tấm đồ vật 3×3 (`sources/pixellab/objects/`, `sheets/SW*`, `DS*`, `HL*`) + 2 tấm đồ hang
   (`CV1`, `CV2`) cho Hang Gargoyle. Tranh lục địa 688×384: `sources/pixellab/world/continent.png`. Icon I2 / I3 (kim cương, lịch,
   6 bình kim cương, Bạn bè, Cài đặt…) — CHƯA nối (component đang gắn cứng cỡ ảnh tạm).
+- **Icon chiêu v2** (10/10/2026 — chủ dự án chê bộ v1 "xấu, kiểu AI"): 90 icon vẽ lại ĐÚNG cỡ hiện 32×32, MỘT ảnh mỗi khoá (pixflux
+  nền trong suốt, viền đen, ép bảng màu nhánh), hiện 1× ở thanh kỹ năng / cây chiêu, ½ ở ô nhỏ. Nguồn
+  `sources/pixellab/skill-icons-v2/` (bộ tấm v1 giữ lưu trữ), dựng `npm run assets:skill-icons` — cách vẽ ở `docs/asset-pipeline.md`
+  mục Icon chiêu v2 (143 lượt).
+- **Nợ hình map vùng 1 — ĐỢT 2** (10/10/2026, 48 lượt): 3 tấm 3×3 `sheets/G1_graveyard`, `R1_ruins`, `B1_bonehills` (bia, rào sắt,
+  quan tài, đèn ma · tường đổ, tượng, chậu lửa, bia rune · xương thú, cờ trận, rào chông…) + 5 món `objects/tree_dead`,
+  `tree_pine_dry`, `crypt`, `cliff_rock`, `ruin_arch`. ĐÃ lên game 10/10/2026.
 
 ### Việc kế tiếp (thứ tự đề xuất)
 
 1. **Nối phần đã vẽ còn lại**: icon I2 / I3 vào UI (sửa cỡ ảnh ở `Hud`, `ShopPanel`, `BagGrid`, `CalendarPanel`, `ServiceWindow`);
    tranh lục địa → bản đồ tổng phím M (`docs/ke-hoach-the-gioi.md` mục 3.1: khai toạ độ 10 vùng trên tranh); chiêu thứ hai cho boss
-   chúa. Còn ~2.700 lượt gói tháng này (hết hạn cuối tháng, không cộng dồn): vẽ tiếp **Mốc 2** (vùng 5–7 + Băng / Hoả / Thuỷ Long
-   — rồng phương Đông cùng khuôn Phong Long).
-2. **Hang Gargoyle** (map thứ 7 vùng 1) rồi **vùng 2 → 10** theo hình vừa vẽ và phác thảo map (`docs/phac-thao-map/`, sinh từ
-   `docs/tools/sketch.py` — chỉ là bố cục): map dựng bằng pipeline (`npm run assets:map -- <vùng>`,
-   khai vùng ở `packages/asset-pipeline/src/maps/regions.ts`), bật `ready: true` ở `packages/sim/src/regions.ts`; boss + chiêu + rồng
-   (Long Huyệt, boss thế giới dùng chung — `docs/ke-hoach-the-gioi.md` mục 2.1, 2.2).
+   chúa. Còn ~2.700 lượt gói tháng này (hết hạn cuối tháng, không cộng dồn): **Mốc 2** (vùng 5–7 + Băng / Hoả / Thuỷ Long phương
+   Tây) đã vẽ 09–10/10/2026 — xem mục Mốc 2.
+2. **Vùng 1 — 12 map** (`docs/ke-hoach-the-gioi.md` mục 5.2): 12 map đã lên game 10/10/2026 (chủ dự án duyệt Dơi hang + hướng ra
+   vùng 2 qua Hẻm Cửa Sông + Đường hầm của Đoàn), hình ĐỢT 2 cũng đã lên game; theo dõi nhịp hồi sinh Gargoyle Đá (đường hầm vào thẳng gian boss).
+   Sau đó **vùng 2 → 10** (12 map / vùng, thiết kế như vùng 1)
+   theo hình vừa vẽ và phác thảo map (`docs/phac-thao-map/`, sinh từ `docs/tools/sketch.py` — chỉ là bố cục): map dựng bằng pipeline
+   (`npm run assets:map -- <vùng>`, khai vùng ở `packages/asset-pipeline/src/maps/regions.ts`), bật `ready: true` ở
+   `packages/sim/src/regions.ts`; boss + chiêu + rồng (Long Huyệt, boss thế giới dùng chung — `docs/ke-hoach-the-gioi.md` mục 2.1, 2.2).
 3. **M3.3b**: túi đồ + trang bị ở máy chủ, rơi đồ (máy chủ quyết), nhật ký kinh tế.
 4. Mốc 3 — **nhân vật người chơi + trang bị** (yêu cầu bắt buộc: mặc món nào hiện đúng món đó — kiếm, trượng, mũ, áo, quần, giày,
    găng): pipeline tách bộ đồ PixelLab so với nhân vật gốc → cắt 4 lớp theo vùng thân → `apps/web/src/game/gearArt.ts` /
@@ -65,7 +78,9 @@ https://claude.ai/artifact/VTrVtPJHXUtETsssKRcx9K). Không sửa tay hai file si
   `AETHER_DB=data/test.db` cho CSDL thử).
 - Triển khai (Tailscale Funnel, người chơi thật đang dùng): README mục Funnel — `build:funnel` (ghi vào thư mục KHÔNG đang chạy) →
   chạy thử bản mới ở cổng phụ → tắt + chạy lại `start:funnel` và máy chủ game. **Sao lưu `apps/server/data/aether.db` trước khi đổi
-  cách lưu dữ liệu.** Log: `apps/web/funnel.log`, `apps/server/data/server.log`.
+  cách lưu dữ liệu.** Log: `apps/web/funnel.log`, `apps/server/data/server.log`. Chạy bản thật TÁCH khỏi phiên Claude (tạo tiến trình qua
+  WMI — README mục Funnel; 10/10/2026 đóng phiên Claude làm tắt cả hai, link 502 ~4 giờ). Hình dựng thử → `.aether-stage/assets`
+  (web thử :3102 đọc trước public), triển khai = chép sang `apps/web/public/assets`.
 
 ### Luật của dự án (đừng phá)
 
@@ -75,7 +90,9 @@ https://claude.ai/artifact/VTrVtPJHXUtETsssKRcx9K). Không sửa tay hai file si
 
 ## Tóm tắt
 
-- **10 vùng**, mỗi vùng 7 map: 1 trạm (làng hoặc toà thành — nơi ở có NPC dịch vụ, nhiệm vụ), 5 map săn, 1 thánh địa → **70 map** (đã có 6 ở vùng 1).
+- **10 vùng**, mỗi vùng **12 map** (chủ dự án 10/10/2026, trước là 7): 1 trạm (làng hoặc toà thành — nơi ở có NPC dịch vụ, nhiệm vụ), 10 map săn,
+  1 thánh địa → **~120 map**. Vùng 1 đã thiết kế đủ 12 map (`docs/thiet-ke/vung1-12-map.md`; cả 12 map cùng hình
+  ĐỢT 2 đã lên game 10/10/2026); vùng 2–10 trong bảng dưới vẫn là danh sách 7 map của khung cũ — thiết kế lại lên 12 khi làm tới.
 - Quái thường: **46 loại vẽ mới**, mỗi loại một hình riêng (không dùng bản đổi màu) + 4 loại đã có ở vùng 1. Mỗi map săn một loại quái, sinh theo bầy.
 - Boss: **30 boss vùng** (2 boss khu + 1 boss chúa mỗi vùng; vẽ mới 28) + **7 rồng nguyên tố** (boss thêm, map phụ Long Huyệt).
 - Skill nhân vật: **24 động tác mới**, 37 skill vẽ lại hình riêng (đang mượn hình), 8 tuyệt kỹ, 17 hiệu ứng phụ (~1.592 lượt).
@@ -291,26 +308,31 @@ hạ xong mới mở vùng kế.
 
 ### Vùng 1 · Thung lũng Thistlewood — Mốc 1
 
-- Cấp 1–10 · hệ vùng Bóng tối · quái yếu Hoả, Aether · Đang chơi được (6/7 map)
+- Cấp 1–10 · hệ vùng Bóng tối · quái yếu Hoả, Aether · 12 map + hình ĐỢT 2 (tấm G1 / R1 / B1 + 5 món lẻ — Nghĩa địa, Đồi Xương, Vách, Mộ Vô Danh, Luỹ, Hẻm Cửa Sông hết trống) đã lên game 10/10/2026
 - Nơi ở (làng): **Thị trấn Thistlewood** — Quê nhà của Lior: nhiệm vụ tuổi thơ và tuổi 16 bắt đầu ở đây.
 
 | Map | Loại | Quái / boss | Hình | Map |
 |---|---|---|---|---|
 | Thistlewood | Trạm | — (NPC dịch vụ) | — | đã có |
-| Rừng Mossvale | Săn | Nấm rừng | có sẵn | đã có |
-| Nghĩa địa Hoàng Hôn | Săn | Xác sống | có sẵn | đã có |
+| Rừng Mossvale | Săn | Nấm rừng · cấp 1–3 | có sẵn | đã có |
+| Nghĩa địa Hoàng Hôn | Săn | Xác sống · cấp 3–5 | có sẵn | đã có |
 |  |  | Vua Lich · boss khu (hầm mộ) | có hình · cần chiêu mới |  |
-| Đồi Xương Trắng | Săn | Cung thủ xương | có sẵn | đã có |
-| Vách Gargoyle | Săn | Gargoyle đá | có sẵn | đã có |
-| Hang Gargoyle | Săn (mới) | Dơi hang | **vẽ mới** | chưa có |
-|  |  | Gargoyle Đá · boss khu | **vẽ mới** |  |
+| Đồi Xương Trắng | Săn | Cung thủ xương · cấp 4–6 | có sẵn | đã có |
+| Vách Gargoyle | Săn | Gargoyle đá · cấp 5–7 | có sẵn | đã có |
+| Hang Gargoyle | Săn (mới) | Dơi hang · cấp 8–9 · đã vẽ, chủ dự án duyệt 10/10/2026 | đã vẽ · chờ lên game | đã có |
+|  |  | Gargoyle Đá · boss khu · cấp 10 | đã vẽ · chờ lên game |  |
 | Đá Phong Ấn | Thánh địa | Quỷ vương rừng sâu · boss chúa | có hình · cần chiêu mới | đã có |
+| Bãi Bồi Brightwater | Săn (mới) · tuổi thơ + 16+ | Nấm rừng · cấp 1 (8–15 tuổi) · cấp 3–4 | có sẵn | đã có |
+| Vết Rạn Mossvale | Săn (mới) | Nấm nhiễm sợi đỏ · cấp 5–6 | có sẵn | đã có |
+| Mộ Vô Danh | Săn (mới) | Xác sống · cấp 6–7 | có sẵn | đã có |
+| Luỹ Hiệp Sĩ Cũ | Săn (mới) | Cung thủ xương · cấp 7–8 | có sẵn | đã có |
+| Hẻm Cửa Sông | Săn (mới) · cửa sang vùng 2 | Gargoyle đá · cấp 9–10 | có sẵn | đã có |
 
-Sơ đồ nối 7 map + phác thảo (bố cục để duyệt, không phải hình trong game):
+Sơ đồ nối 12 map + phác thảo (bố cục để duyệt, không phải hình trong game):
 
 ![Sơ đồ vùng 1](phac-thao-map/vung-1.svg)
 
-<img src="../apps/web/public/assets/maps/human/town.minimap.png" alt="Thistlewood" width="240"> <img src="../apps/web/public/assets/maps/human/mossvale.minimap.png" alt="Rừng Mossvale" width="240"> <img src="../apps/web/public/assets/maps/human/graveyard.minimap.png" alt="Nghĩa địa Hoàng Hôn" width="240"> <img src="../apps/web/public/assets/maps/human/bonehills.minimap.png" alt="Đồi Xương Trắng" width="240"> <img src="../apps/web/public/assets/maps/human/cliffs.minimap.png" alt="Vách Gargoyle" width="240"> <img src="phac-thao-map/vung-1-map-6.svg" alt="Hang Gargoyle" width="240"> <img src="../apps/web/public/assets/maps/human/shrine.minimap.png" alt="Đá Phong Ấn" width="240">
+<img src="../apps/web/public/assets/maps/human/town.minimap.png" alt="Thistlewood" width="240"> <img src="../apps/web/public/assets/maps/human/mossvale.minimap.png" alt="Rừng Mossvale" width="240"> <img src="../apps/web/public/assets/maps/human/graveyard.minimap.png" alt="Nghĩa địa Hoàng Hôn" width="240"> <img src="../apps/web/public/assets/maps/human/bonehills.minimap.png" alt="Đồi Xương Trắng" width="240"> <img src="../apps/web/public/assets/maps/human/cliffs.minimap.png" alt="Vách Gargoyle" width="240"> <img src="../apps/web/public/assets/maps/human/gargoyle_cave.minimap.png" alt="Hang Gargoyle" width="240"> <img src="../apps/web/public/assets/maps/human/shrine.minimap.png" alt="Đá Phong Ấn" width="240"> <img src="../apps/web/public/assets/maps/human/riverflats.minimap.png" alt="Bãi Bồi Brightwater" width="240"> <img src="../apps/web/public/assets/maps/human/mossrift.minimap.png" alt="Vết Rạn Mossvale" width="240"> <img src="../apps/web/public/assets/maps/human/nameless.minimap.png" alt="Mộ Vô Danh" width="240"> <img src="../apps/web/public/assets/maps/human/oldfort.minimap.png" alt="Luỹ Hiệp Sĩ Cũ" width="240"> <img src="../apps/web/public/assets/maps/human/rivergate.minimap.png" alt="Hẻm Cửa Sông" width="240">
 
 ### Vùng 2 · Đầm lầy Mù Sương — Mốc 1
 

@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "an ice cube shattering into sharp pieces, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/ice.png",
+	"jobId": "76802740-bbd5-4989-8d9d-e2ee16a0ae1b",
+	"token": 1,
+	"createdAt": "2026-10-09T19:19:59.301Z"
+}

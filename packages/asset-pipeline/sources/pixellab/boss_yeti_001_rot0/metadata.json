@@ -1,0 +1,36 @@
+{
+  "group_id": "c82ae744-0892-4fed-85cd-a822b85c189b",
+  "states": [
+    {
+      "character": {
+        "id": "6aaa55c1-24f4-4fbb-b53a-09c7f23d8fed",
+        "name": "Idle",
+        "prompt": "Chibi RPG monster pixel art sprite, a towering yeti boss facing the viewer, massive ape-like body covered in long shaggy blue-white fur, pale blue leathery face with a heavy brow, curved grey ram-like horns, very long arms with huge dark knuckles, icicles tangled in its fur, old claw scars across its broad chest, fierce protective glowing amber eyes",
+        "size": {
+          "width": 128,
+          "height": 128
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-10-09T15:05:55.658061+00:00"
+      },
+      "folder": "Idle",
+      "frames": {
+        "rotations": {
+          "south": "Idle/rotations/south.png",
+          "south-east": "Idle/rotations/south-east.png",
+          "east": "Idle/rotations/east.png",
+          "north-east": "Idle/rotations/north-east.png",
+          "north": "Idle/rotations/north.png",
+          "north-west": "Idle/rotations/north-west.png",
+          "west": "Idle/rotations/west.png",
+          "south-west": "Idle/rotations/south-west.png"
+        },
+        "animations": {}
+      }
+    }
+  ],
+  "export_version": "3.1",
+  "export_date": "2026-10-09T15:13:37.957490"
+}

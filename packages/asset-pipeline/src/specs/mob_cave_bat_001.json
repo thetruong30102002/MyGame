@@ -16,7 +16,12 @@
 			"idle": "idle",
 			"walk": "walk"
 		},
-		"mirrorWest": true
+		"mirrorWest": true,
+		"reject": {
+			"attack": [
+				"N"
+			]
+		}
 	},
 	"frameSize": {
 		"width": 96,
@@ -74,5 +79,10 @@
 		"SW",
 		"NW"
 	],
-	"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 64px; ảnh mẫu nét = nấm rừng. Vùng 1. Mô tả: a small cave bat facing the viewer, hovering with leathery dark purple-grey wings spread, big pointy ears, glowing red eyes, tiny fangs, fluffy grey belly. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 88px."
+	"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 64px; ảnh mẫu nét = nấm rừng. Vùng 1. Mô tả: a small cave bat facing the viewer, hovering with leathery dark purple-grey wings spread, big pointy ears, glowing red eyes, tiny fangs, fluffy grey belly. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 88px.",
+	"review": {
+		"status": "approved",
+		"date": "10/10/2026",
+		"notes": "Duyệt bằng mắt contact sheet đứng / đi 8 hướng + đánh / gục S-E-N để nạp vào Hang Gargoyle (thiết kế 12 map vùng 1). LOẠI attack/N: dơi quay mặt ra trước + vệt sáng xanh và ô đỏ lạ ở khung 2–3 (lỗi PixelLab) — đánh hướng bắc không có động tác, chờ vẽ lại. Còn lại đạt. Dùng dơi cho Hang vẫn CHỜ CHỦ DỰ ÁN DUYỆT (thiết kế: không duyệt thì Hang dùng mob_gargoyle_001)."
+	}
 }

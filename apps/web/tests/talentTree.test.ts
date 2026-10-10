@@ -22,37 +22,9 @@ import {
 } from '../src/components/talents/treeLayout';
 import { PASSIVE_TEMP, passiveTempKey } from '../src/game/combat/passiveTempArt';
 import { TEMP_ART } from '../src/game/combat/tempArt';
-import {
-	BRANCH_LOCK_NOTE,
-	BRANCH_NAME,
-	BRANCHES,
-	canEnchant,
-	depthBonus,
-	describeBuild,
-	knowsSkill,
-	MAX_TIER,
-	nextTierCost,
-	pointsForLevel,
-	resetCost,
-	spentPoints,
-	STYLE_TIER,
-	STYLE_TREE,
-	SWORD_ART_TIER,
-	SWORD_ARTS,
-	SWORD_STYLE_INFO,
-	SWORD_STYLES,
-	TIER_COST,
-	tierCap,
-	TREE,
-	treeOf,
-	unspent,
-	type Branch,
-	type EnchantId,
-	type SwordStyle,
-	type Tiers,
-	type TreeNode,
-} from '../src/game/combat/talents';
+import { BRANCHES, SLOT_COUNT, STYLE_TIER, STYLE_TREE, SWORD_ART_TIER, SWORD_ARTS, SWORD_STYLES, TIER_COST, TREE, type Branch, type SwordStyle, type Tiers } from '../src/game/combat/talents';
 import { HERO_SKILLS } from '../src/game/combat/skills';
+import { buildTalentsView } from '../src/game/talentsView';
 import type { TalentsView } from '../src/store/useGameStore';
 
 let passed = 0;
@@ -63,64 +35,13 @@ function test(name: string, fn: () => void): void {
 }
 
 /**
- * Dựng `TalentsView` y như `Game.talentsView` (cùng hàm thuần của talents.ts) — fixture cho mọi test bên dưới.
- * `tiers`: mốc từng nhánh (0 = chưa mở), `style`: lưu phái Kiếm, `level`: cấp (quyết định số điểm).
+ * Dựng `TalentsView` bằng CHÍNH hàm Game dùng (`game/talentsView.buildTalentsView`) — fixture cho mọi test bên dưới.
+ * `tiers`: mốc từng nhánh, `style`: lưu phái Kiếm, `level`: cấp (quyết định số điểm). Nhánh mốc > 0 coi như đã mở; `open`
+ * thêm nhánh ĐÃ MỞ mà chưa học (nguyên tố mốc 0 — luật 10/10/2026: mở nhánh chỉ là được phép học, mốc 1 tốn 1 điểm).
  */
-function view(tiers: Tiers, style: SwordStyle | null, level: number): TalentsView {
-	const isUnlocked = (id: string): boolean => BRANCHES.some((b) => b === id && (tiers[b] ?? 0) > 0);
-	const nodeView = (n: TreeNode, tier: number) => ({ tier: n.tier, kind: n.kind, name: n.name, desc: n.desc, ready: n.ready, reached: tier >= n.tier, cost: TIER_COST[n.tier] ?? 0, ...(n.skillId ? { skillId: n.skillId } : {}) });
-	const build = describeBuild(tiers, style);
-	return {
-		points: pointsForLevel(level),
-		spent: spentPoints(tiers),
-		unspent: unspent(level, tiers),
-		buildKind: build.kind,
-		buildLabel: build.label,
-		buildDetail: build.detail,
-		branches: BRANCHES.map((b) => {
-			const tier = tiers[b] ?? 0;
-			const unlocked = tier > 0;
-			const first = TREE[b][0];
-			return {
-				branch: b,
-				name: BRANCH_NAME[b],
-				unlocked,
-				lockNote: unlocked ? '' : (BRANCH_LOCK_NOTE[b] ?? 'Mở theo cốt truyện'),
-				tier,
-				maxTier: MAX_TIER,
-				cap: tierCap(b),
-				bonusPct: Math.round((depthBonus(tier) - 1) * 100),
-				nextCost: nextTierCost(tiers, b),
-				iconSkill: first?.ready && first.skillId ? first.skillId : null,
-				nodes: treeOf(b, style).map((n) => nodeView(n, tier)),
-				...(b === 'sword'
-					? {
-							style,
-							styleTier: STYLE_TIER,
-							styles: SWORD_STYLES.map((s) => ({ id: s, ...SWORD_STYLE_INFO[s], chosen: style === s, iconSkill: STYLE_TREE[s][0]?.skillId ?? null, nodes: STYLE_TREE[s].map((n) => nodeView(n, style === s ? tier : 0)) })),
-						}
-					: {}),
-			};
-		}),
-		resetCost: resetCost(level),
-		enchant: { current: null, cooldown: 0, options: (['fire', 'water', 'wind', 'ice', 'earth'] as EnchantId[]).map((e) => ({ id: e, name: e, ok: canEnchant(tiers, e), need: '' })) },
-		loadout: [],
-		arts: (Object.entries(SWORD_ARTS) as [EnchantId, string][]).map(([e, id]) => {
-			const s = HERO_SKILLS.find((d) => d.id === id)!;
-			return {
-				skillId: id,
-				name: s.name,
-				desc: '',
-				element: e,
-				elementName: BRANCH_NAME[e],
-				need: '',
-				swordOk: (tiers.sword ?? 0) >= SWORD_ART_TIER,
-				elementOk: (tiers[e] ?? 0) >= SWORD_ART_TIER,
-				learned: knowsSkill(s, tiers, isUnlocked, style),
-			};
-		}),
-		learned: [],
-	};
+function view(tiers: Tiers, style: SwordStyle | null, level: number, open: Branch[] = []): TalentsView {
+	const isUnlocked = (id: string): boolean => BRANCHES.some((b) => b === id && ((tiers[b] ?? 0) > 0 || open.includes(b)));
+	return buildTalentsView({ tiers, level, style, isUnlocked, enchant: null, enchantCooldown: 0, loadout: Array.from({ length: SLOT_COUNT }, () => null) });
 }
 
 /** Lòng tab trên điện thoại dọc = bề ngang màn − 64 (lề lớp phủ 6 + viền khung 18 + lề tab 8, mỗi bên); khung lưới thêm `TREE_FRAME`. */
@@ -133,12 +54,14 @@ const ALL: [string, TreeParams][] = [
 	['PHONE-320', fitPhoneTree(paneOf(320) - TREE_FRAME)],
 ];
 
-/** Cảnh giữa game của mock: Kiếm Thần 5, Hoả 5, Thuỷ 1, Phong 2, Băng 1, Thổ chưa mở. */
-const MID = view({ sword: 5, fire: 5, water: 1, wind: 2, ice: 1, earth: 0 }, 'kiem_than', 20);
-/** Ngã ba lưu phái: Kiếm 2, chưa chọn lưu phái. */
-const FORK = view({ sword: 2, fire: 1, water: 1, wind: 1, ice: 1, earth: 0 }, null, 4);
-/** Mở cả 6 nhánh, cấp cao. */
+/** Cảnh giữa game: Kiếm Thần 5, Hoả 5, Thuỷ 1, Phong 2, Băng 1, Thổ chưa mở — cấp 24 (27 điểm, đã dùng 21, còn 6). */
+const MID = view({ sword: 5, fire: 5, water: 1, wind: 2, ice: 1, earth: 0 }, 'kiem_than', 24);
+/** Ngã ba lưu phái: Kiếm 2, chưa chọn lưu phái — cấp 7 (7 điểm, đã dùng 5, còn 2). */
+const FORK = view({ sword: 2, fire: 1, water: 1, wind: 1, ice: 1, earth: 0 }, null, 7);
+/** Mở cả 6 nhánh, cấp cao (bố cục / trạng thái — không cần khớp số điểm). */
 const FULL = view({ sword: 9, fire: 9, water: 5, wind: 3, ice: 2, earth: 1 }, 'bac_than', 40);
+/** Vừa mở Kiếm + Hoả, chưa cộng điểm (cấp 3 = 2 điểm): Kiếm mốc 1 có sẵn, Hoả mốc 0 — Hoả Cầu chờ học (1 điểm). */
+const NEW = view({ sword: 1, fire: 0 }, null, 3, ['fire']);
 
 const byKey = (nodes: LaidNode[], key: string): LaidNode => {
 	const n = nodes.find((x) => x.key === key);
@@ -247,13 +170,13 @@ test('20b. fitPhoneTree: khung lưới + viền ≤ lòng tab ở 320 / 360 / 37
 // 21. Trạng thái theo fixture.
 test('21. trạng thái: ngã ba 3 nút next · lưu phái khác dim · nhánh khoá locked · !ready soon · thiếu điểm next-poor', () => {
 	const L = layoutTree(TREE_DESKTOP, FORK);
-	// FORK: cấp 4 → 3 điểm, đã dùng 1 (Kiếm 2) → còn 2 = đúng giá mốc 3.
+	// FORK: cấp 7 → 7 điểm, đã dùng 5 (Kiếm 2 = 1, mốc 1 Hoả / Thuỷ / Phong / Băng = 4) → còn 2 = đúng giá mốc 3.
 	assert.equal(FORK.unspent, 2);
 	for (const s of SWORD_STYLES) assert.equal(byKey(L.nodes, `sword:${s}:3`).state, 'next', `${s} mốc 3`);
 	for (const s of SWORD_STYLES) assert.equal(byKey(L.nodes, `sword:${s}:4`).state, 'future');
 	assert.equal(byKey(L.nodes, 'sword:2').state, 'reached');
-	// Thiếu điểm: cùng cây nhưng cấp 3 (2 điểm, đã dùng 1 → còn 1 < 2).
-	const poor = layoutTree(TREE_DESKTOP, view({ sword: 2, fire: 1, water: 1, wind: 1, ice: 1 }, null, 3));
+	// Thiếu điểm: cùng cây nhưng cấp 6 (6 điểm, đã dùng 5 → còn 1 < 2).
+	const poor = layoutTree(TREE_DESKTOP, view({ sword: 2, fire: 1, water: 1, wind: 1, ice: 1 }, null, 6));
 	for (const s of SWORD_STYLES) assert.equal(byKey(poor.nodes, `sword:${s}:3`).state, 'next-poor');
 	assert.equal(byKey(poor.nodes, 'fire:2').state, 'next', 'Hoả 2 chỉ 1 điểm');
 
@@ -276,6 +199,29 @@ test('21. trạng thái: ngã ba 3 nút next · lưu phái khác dim · nhánh k
 	assert.equal(nodeState(MID, 'fire:6'), 'next');
 	assert.equal(nodeState(MID, 'sword:bac_than:4'), 'dim');
 	assert.equal(nodeState(MID, 'earth:1'), 'locked');
+});
+
+test('21c. nhánh nguyên tố ĐÃ MỞ mà chưa học (mốc 0): mốc 1 là nấc kế 1 điểm (học được / thiếu điểm), nhánh chưa mở vẫn khoá', () => {
+	const L = layoutTree(TREE_DESKTOP, NEW);
+	assert.deepEqual([NEW.points, NEW.spent, NEW.unspent], [2, 0, 2]);
+	assert.equal(byKey(L.nodes, 'fire:1').state, 'next', 'Hoả Cầu: học được ngay');
+	assert.equal(byKey(L.nodes, 'fire:1').cost, 1, 'giá mốc 1 = 1 điểm');
+	assert.equal(byKey(L.nodes, 'fire:2').state, 'future');
+	assert.equal(byKey(L.nodes, 'sword:1').state, 'reached', 'Trảm có sẵn');
+	assert.equal(byKey(L.nodes, 'sword:1').cost, 0);
+	for (const b of ['water', 'wind', 'ice', 'earth']) assert.equal(byKey(L.nodes, `${b}:1`).state, 'locked', `${b} chưa mở`);
+	assert.equal(byKey(layoutTree(TREE_DESKTOP, view({ sword: 1, fire: 0 }, null, 1, ['fire'])).nodes, 'fire:1').state, 'next-poor', 'cấp 1 = 0 điểm: thiếu điểm');
+	assert.deepEqual(
+		learnableNow(NEW).map((s) => `${s.branch}:${s.tier}:${s.cost}`),
+		['sword:2:1', 'fire:1:1'],
+		'"Học được ngay" có Hoả Cầu (mốc 1, 1 điểm)',
+	);
+	assert.deepEqual(routeTo(NEW, 'fire:3'), { keys: ['fire:1', 'fire:2', 'fire:3'], total: 4 }, 'lộ trình tính cả giá mốc 1');
+	const fb = nodeInfo(NEW, 'fire:1')!;
+	assert.deepEqual([fb.name, fb.state, fb.cost, fb.bonusNow], ['Hoả Cầu', 'next', 1, 0]);
+	assert.equal(nodeAria(fb), 'Hoả mốc 1: Hoả Cầu (chủ động, học được, 1 điểm)');
+	assert.equal(nodeInfo(NEW, 'water:1')!.state, 'locked');
+	assert.deepEqual(TIER_COST.slice(0, 3), [0, 1, 1], 'thước giá: mốc 1 = 1 điểm (Kiếm mốc 1 có sẵn — nút luôn "đã học")');
 });
 
 test('21b. đoạn nối: lit giữa hai nút đã đạt, next từ nút đạt tới nấc kế, soon tới nút sắp có, dim với lưu phái không theo', () => {
@@ -325,7 +271,7 @@ test('22. kiếm pháp: nhánh ngang lit ⇔ elementOk; nút reached ⇔ learned
 
 // 23. learnableNow.
 test('23. learnableNow: nhánh mốc cao trước rồi giá tăng dần; bỏ nhánh khoá + nhánh chạm trần; có dòng ngã ba khi chưa chọn lưu phái', () => {
-	// MID còn: 20 → 23 điểm, đã dùng 8 + 8 + 0 + 1 + 0 = 17 → còn 6.
+	// MID còn: cấp 24 → 27 điểm, đã dùng 8 (Kiếm 5) + 9 (Hoả 5) + 1 (Thuỷ 1) + 2 (Phong 2) + 1 (Băng 1) = 21 → còn 6.
 	assert.equal(MID.unspent, 6);
 	const now = learnableNow(MID);
 	assert.deepEqual(
@@ -335,7 +281,7 @@ test('23. learnableNow: nhánh mốc cao trước rồi giá tăng dần; bỏ n
 	assert.ok(now.every((s) => s.branch !== 'earth'), 'nhánh khoá không có');
 	assert.equal(now[0]!.key, 'sword:kiem_than:6');
 	// Thiếu điểm thì không "học được ngay" nhưng vẫn là nấc kế.
-	const broke = view({ sword: 5, fire: 5, water: 1, wind: 2, ice: 1 }, 'kiem_than', 18);
+	const broke = view({ sword: 5, fire: 5, water: 1, wind: 2, ice: 1 }, 'kiem_than', 21);
 	assert.equal(broke.unspent, 3);
 	assert.ok(nextSteps(broke).length === 5 && learnableNow(broke).every((s) => s.cost <= 3));
 	// Chạm trần: Hoả 9 / Kiếm 9 không còn dòng nào.

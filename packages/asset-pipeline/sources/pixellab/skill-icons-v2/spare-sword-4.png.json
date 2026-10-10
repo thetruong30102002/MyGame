@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a violet four-point compass star with silver tips, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/sword+violet.png",
+	"jobId": "fb9bf520-2626-4a52-bd13-22cfc7a25eea",
+	"token": 1,
+	"createdAt": "2026-10-09T19:15:10.580Z"
+}

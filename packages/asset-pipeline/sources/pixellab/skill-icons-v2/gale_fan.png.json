@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "three green wind crescents fanning out from one point, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/wind.png",
+	"jobId": "57ef10b1-d37c-49ae-96ce-4b923eadc57e",
+	"token": 1,
+	"createdAt": "2026-10-09T19:18:28.195Z"
+}

@@ -1,0 +1,82 @@
+{
+	"identity": {
+		"characterId": "boss_ice_guardian_001",
+		"hair": "none",
+		"eyes": "monster",
+		"skin": "monster",
+		"outfit": "none",
+		"weapon": "none",
+		"palette": "region5_mob_01"
+	},
+	"displayName": "Nghê Băng (boss chúa)",
+	"role": "boss",
+	"provider": "pixellab",
+	"pixellab": {
+		"animations": {
+			"idle": "idle",
+			"walk": "walk",
+			"death": [
+				"death-fix",
+				"death"
+			]
+		},
+		"mirrorWest": true
+	},
+	"frameSize": {
+		"width": 224,
+		"height": 224
+	},
+	"baselineY": 212,
+	"animations": {
+		"idle": {
+			"fps": 6,
+			"minFrames": 4,
+			"maxFrames": 8
+		},
+		"walk": {
+			"fps": 10,
+			"minFrames": 4,
+			"maxFrames": 8
+		},
+		"attack": {
+			"fps": 14,
+			"minFrames": 4,
+			"maxFrames": 12,
+			"optional": true,
+			"hitFrame": 4
+		},
+		"death": {
+			"fps": 10,
+			"minFrames": 4,
+			"maxFrames": 12,
+			"optional": true
+		}
+	},
+	"cleanup": {
+		"alignToIdle": true
+	},
+	"quality": {
+		"maxHeightDrift": 0.25,
+		"minSilhouette": 0.2,
+		"driftAnims": {
+			"attack": 0.35,
+			"death": 0.9
+		},
+		"weaponAnims": {
+			"animations": [
+				"idle",
+				"walk",
+				"attack",
+				"death"
+			],
+			"reason": "09/10/2026, duyệt bằng mắt từng con: quái có hạt / khí bay quanh thân (bào tử, gió cuộn, sỏi bay, mây, sương, tia lửa) và đòn đánh v3 có hiệu ứng — chủ ý, nên miễn kiểm bóng liền khối + màu lạ; các phép kiểm khác giữ nguyên."
+		}
+	},
+	"provisional": [
+		"SE",
+		"NE",
+		"SW",
+		"NW"
+	],
+	"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 160px; ảnh mẫu nét = Quỷ vương. Vùng 5. Mô tả: a giant ice guardian lion-dog boss facing the viewer, an Asian temple guardian foo dog carved from translucent deep glacier-teal ice, standing on four sturdy legs, huge curly scroll-shaped mane and a big curly scroll-shaped tail of frosted ice, bulging glowing white eyes and a wide fanged grin, carved cloud swirl patterns on its chest, faint dark shadowy shapes frozen inside its ice body, a rusty brass machine spike jutting up from between its shoulders above its head, thin glowing red threads trailing from the spike. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 220px."
+}

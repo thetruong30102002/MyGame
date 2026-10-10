@@ -39,6 +39,8 @@ const SHRINE = (i: number) => cell('S1_shrine', i, '2x2');
 const GRAVE = (i: number) => cell('G1_graveyard', i, '3x3');
 const RUINS = (i: number) => cell('R1_ruins', i, '3x3');
 const BONES = (i: number) => cell('B1_bonehills', i, '3x3');
+const CAVE = (i: number) => cell('CV1_cave_nature', i, '3x3');
+const CAVE_PROPS = (i: number) => cell('CV2_cave_props', i, '3x3');
 
 export const HUMAN_KINGDOM_PROPS: PropDef[] = [
 	{ id: 'house', path: `${PL}house_cottage_front`, kind: 'building', footprint: { w: 0.9, h: 60 }, blocks: true },
@@ -84,6 +86,8 @@ export const HUMAN_KINGDOM_PROPS: PropDef[] = [
 	{ id: 'stone_lantern', path: SHRINE(3), kind: 'decor', footprint: { w: 0.6, h: 18 }, blocks: true },
 
 	// Vùng quái phía bắc (07/10/2026). Nghĩa địa Hoàng Hôn: tấm G1 + hầm mộ + cây chết.
+	// Tấm G1 / R1 / B1 + 5 món lẻ (cây chết, thông khô, hầm mộ, vách đá, vòm đá) vẽ 10/10/2026 — ĐỢT 2 thiết kế 12 map vùng 1; đã soi
+	// từng ô khớp thứ tự khai dưới đây. Đề bài: `sheets/<tấm>.png.json`, `objects/<món>/args.json`.
 	{ id: 'tree_dead', path: `${PL}tree_dead`, kind: 'tree', footprint: { w: 0.16, h: 14 }, blocks: true },
 	{ id: 'tree_dead_flip', path: `${PL}tree_dead`, kind: 'tree', footprint: { w: 0.16, h: 14 }, blocks: true, flip: true },
 	{ id: 'crypt', path: `${PL}crypt`, kind: 'building', footprint: { w: 0.85, h: 52 }, blocks: true },
@@ -122,6 +126,25 @@ export const HUMAN_KINGDOM_PROPS: PropDef[] = [
 	{ id: 'broken_sword', path: BONES(6), kind: 'flower', footprint: { w: 0, h: 0 }, blocks: false },
 	{ id: 'spike_barricade', path: BONES(7), kind: 'decor', footprint: { w: 0.9, h: 12 }, blocks: true },
 	{ id: 'skull_totem', path: BONES(8), kind: 'decor', footprint: { w: 0.3, h: 8 }, blocks: true },
+	// Hang Gargoyle (thiết kế 12 map vùng 1, 10/10/2026): tấm CV1 thiên nhiên hang + CV2 đồ trong hang, cùng ảnh mẫu N1.
+	// Nấm hang / vũng nước / rêu treo / xương dơi là cảnh nền, đi xuyên được (rêu treo che miệng khe bí mật).
+	{ id: 'stalagmite', path: CAVE(0), kind: 'rock', footprint: { w: 0.6, h: 16 }, blocks: true },
+	{ id: 'crystal_blue', path: CAVE(1), kind: 'rock', footprint: { w: 0.7, h: 16 }, blocks: true },
+	{ id: 'cave_boulder', path: CAVE(2), kind: 'rock', footprint: { w: 0.8, h: 20 }, blocks: true },
+	{ id: 'cave_mushrooms', path: CAVE(3), kind: 'flower', footprint: { w: 0, h: 0 }, blocks: false },
+	{ id: 'cave_puddle', path: CAVE(4), kind: 'flower', footprint: { w: 0, h: 0 }, blocks: false },
+	{ id: 'hanging_moss', path: CAVE(5), kind: 'flower', footprint: { w: 0, h: 0 }, blocks: false },
+	{ id: 'rock_pillar', path: CAVE(6), kind: 'rock', footprint: { w: 0.7, h: 18 }, blocks: true },
+	{ id: 'bat_bones', path: CAVE(7), kind: 'flower', footprint: { w: 0, h: 0 }, blocks: false },
+	{ id: 'crystal_purple', path: CAVE(8), kind: 'rock', footprint: { w: 0.6, h: 14 }, blocks: true },
+	// CV2: bỏ ô #5 (thùng gỗ — trùng `crate`) và #6 (biển hang — trùng `signpost`).
+	{ id: 'wall_torch', path: CAVE_PROPS(0), kind: 'decor', footprint: { w: 0.3, h: 8 }, blocks: true },
+	{ id: 'mine_cart', path: CAVE_PROPS(1), kind: 'decor', footprint: { w: 0.85, h: 16 }, blocks: true },
+	{ id: 'broken_beam', path: CAVE_PROPS(2), kind: 'rock', footprint: { w: 0.3, h: 10 }, blocks: true },
+	{ id: 'gargoyle_idol', path: CAVE_PROPS(3), kind: 'rock', footprint: { w: 0.7, h: 16 }, blocks: true },
+	{ id: 'iron_chain', path: CAVE_PROPS(4), kind: 'flower', footprint: { w: 0, h: 0 }, blocks: false },
+	{ id: 'stone_altar', path: CAVE_PROPS(7), kind: 'building', footprint: { w: 0.9, h: 24 }, blocks: true },
+	{ id: 'skull_candles', path: CAVE_PROPS(8), kind: 'flower', footprint: { w: 0, h: 0 }, blocks: false },
 ];
 
 /**

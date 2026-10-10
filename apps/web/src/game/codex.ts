@@ -44,27 +44,37 @@ export const MONSTER_INFO: Record<string, { name: string; kind: string; lore: st
 	mob_mushroom_001: {
 		name: 'Nấm rừng',
 		kind: 'Quái thường · rừng',
-		lore: 'Mọc thành bầy ở rừng Mossvale. Co người lại là sắp lao tới — đừng lùi, bước ngang. Lửa đốt nó cháy âm ỉ, nước làm nó trương phềnh chậm chạp.',
+		lore: 'Mọc thành bầy ở rừng Mossvale; bào tử theo sông trôi xuống Bãi Bồi Brightwater. Ở Vết Rạn Mossvale chúng nhiễm sợi đỏ, mạnh hơn hẳn mà vẫn giòn. Co người lại là sắp lao tới — đừng lùi, bước ngang. Lửa đốt nó cháy âm ỉ, nước làm nó trương phềnh chậm chạp.',
 	},
 	mob_zombie_001: {
 		name: 'Xác sống',
 		kind: 'Quái thường · nghĩa địa',
-		lore: 'Lang thang giữa các ô mộ Nghĩa địa Hoàng Hôn. Trâu và chậm, đánh rất đau nhưng chạy vòng được. Sợ lửa hơn sợ kiếm.',
+		lore: 'Lang thang giữa các ô mộ Nghĩa địa Hoàng Hôn. Ở Mộ Vô Danh ngoài hàng rào, nơi người chết không bia không tên, chúng trỗi dậy trước và dữ hơn. Trâu và chậm, đánh rất đau nhưng chạy vòng được. Sợ lửa hơn sợ kiếm.',
 	},
 	mob_skeleton_archer_001: {
 		name: 'Cung thủ xương',
 		kind: 'Quái thường · đồi xương',
-		lore: 'Đứng trên Đồi Xương Trắng bắn tên từ xa, ngoài tầm kiếm. Giòn — áp sát được là gãy vụn. Đá ném trúng thì loạng choạng.',
+		lore: 'Đứng trên Đồi Xương Trắng bắn tên từ xa, ngoài tầm kiếm; trên tường Luỹ Hiệp Sĩ Cũ cả bầy cùng bắn. Giòn — áp sát được là gãy vụn. Đá ném trúng thì loạng choạng.',
 	},
 	mob_gargoyle_001: {
 		name: 'Gargoyle đá',
 		kind: 'Quái thường · vách đá',
-		lore: 'Tượng đá sống dậy canh Vách Gargoyle. Da đá giáp dày, lao nhanh. Phá giáp trước rồi hẵng chém, hoặc đóng băng cho nó đứng yên.',
+		lore: 'Tượng đá sống dậy canh Vách Gargoyle và Cổng Đá ở Hẻm Cửa Sông — quay mặt vào thung lũng, canh người đi ra. Da đá giáp dày, lao nhanh. Phá giáp trước rồi hẵng chém, hoặc đóng băng cho nó đứng yên.',
 	},
 	boss_lich_001: {
 		name: 'Vua Lich',
 		kind: 'Boss vùng · hầm mộ',
 		lore: 'Ngự trong hầm mộ dưới Nghĩa địa Hoàng Hôn, hạ xong vài phút sau lại trỗi dậy. Bắn cầu bóng tối, triệu xương lên từ đất. Đi chậm — giữ khoảng cách và né đòn báo trước.',
+	},
+	mob_cave_bat_001: {
+		name: 'Dơi hang',
+		kind: 'Quái thường · hang',
+		lore: 'Làm tổ trên hàng tượng trong Hang Gargoyle. Sà xuống cắn rồi vọt lên trần, nhanh ngang người đi bộ nên chạy không thoát. Giòn — mấy nhát là rụng. Lửa làm cả bầy hoảng loạn.',
+	},
+	boss_stone_gargoyle_001: {
+		name: 'Gargoyle Đá',
+		kind: 'Boss vùng · hang gargoyle',
+		lore: 'Tượng canh Đoàn Ấn Ký đặt từ ba trăm năm trước để giữ Gian Đá Ghi Tên trong Hang Gargoyle; hạ xong vài phút sau lại đứng dậy. Nện hai vuốt làm nứt sàn — thấy vòng nứt dưới chân thì bước ra ngoài rồi hẵng đánh.',
 	},
 	boss_demon_001: {
 		name: 'Quỷ vương rừng sâu',

@@ -1,0 +1,171 @@
+{
+  "group_id": "0ab104ec-e7ca-49a1-a41b-5de0ed8e630c",
+  "states": [
+    {
+      "character": {
+        "id": "cf3fb1f7-aa6a-4843-8d52-b65df78c3572",
+        "name": "Idle",
+        "prompt": "a colossal ancient dwarven lava golem boss facing the viewer, massive body of black basalt bound with weathered bronze plates and huge rivets, a glowing molten core visible behind a bronze grille in its chest, head carved like a stern dwarf helm with a braided stone beard, rows of short glowing rune marks carved along its arms and shoulders, right arm ending in a huge stone forge hammer, lava dripping from its joints",
+        "size": {
+          "width": 128,
+          "height": 128
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-10-09T15:18:55.786686+00:00"
+      },
+      "folder": "Idle",
+      "frames": {
+        "rotations": {
+          "south": "Idle/rotations/south.png",
+          "south-east": "Idle/rotations/south-east.png",
+          "east": "Idle/rotations/east.png",
+          "north-east": "Idle/rotations/north-east.png",
+          "north": "Idle/rotations/north.png",
+          "north-west": "Idle/rotations/north-west.png",
+          "west": "Idle/rotations/west.png",
+          "south-west": "Idle/rotations/south-west.png"
+        },
+        "animations": {
+          "attack-fix": {
+            "south": [
+              "Idle/animations/attack-fix/south/frame_000.png",
+              "Idle/animations/attack-fix/south/frame_001.png",
+              "Idle/animations/attack-fix/south/frame_002.png",
+              "Idle/animations/attack-fix/south/frame_003.png",
+              "Idle/animations/attack-fix/south/frame_004.png",
+              "Idle/animations/attack-fix/south/frame_005.png",
+              "Idle/animations/attack-fix/south/frame_006.png",
+              "Idle/animations/attack-fix/south/frame_007.png"
+            ]
+          },
+          "idle": {
+            "south": [
+              "Idle/animations/idle/south/frame_000.png",
+              "Idle/animations/idle/south/frame_001.png",
+              "Idle/animations/idle/south/frame_002.png",
+              "Idle/animations/idle/south/frame_003.png"
+            ],
+            "east": [
+              "Idle/animations/idle/east/frame_000.png",
+              "Idle/animations/idle/east/frame_001.png",
+              "Idle/animations/idle/east/frame_002.png",
+              "Idle/animations/idle/east/frame_003.png"
+            ],
+            "north": [
+              "Idle/animations/idle/north/frame_000.png",
+              "Idle/animations/idle/north/frame_001.png",
+              "Idle/animations/idle/north/frame_002.png",
+              "Idle/animations/idle/north/frame_003.png"
+            ]
+          },
+          "walk": {
+            "north": [
+              "Idle/animations/walk/north/frame_000.png",
+              "Idle/animations/walk/north/frame_001.png",
+              "Idle/animations/walk/north/frame_002.png",
+              "Idle/animations/walk/north/frame_003.png",
+              "Idle/animations/walk/north/frame_004.png",
+              "Idle/animations/walk/north/frame_005.png"
+            ],
+            "east": [
+              "Idle/animations/walk/east/frame_000.png",
+              "Idle/animations/walk/east/frame_001.png",
+              "Idle/animations/walk/east/frame_002.png",
+              "Idle/animations/walk/east/frame_003.png",
+              "Idle/animations/walk/east/frame_004.png",
+              "Idle/animations/walk/east/frame_005.png"
+            ],
+            "south": [
+              "Idle/animations/walk/south/frame_000.png",
+              "Idle/animations/walk/south/frame_001.png",
+              "Idle/animations/walk/south/frame_002.png",
+              "Idle/animations/walk/south/frame_003.png",
+              "Idle/animations/walk/south/frame_004.png",
+              "Idle/animations/walk/south/frame_005.png"
+            ]
+          },
+          "death": {
+            "north": [
+              "Idle/animations/death/north/frame_000.png",
+              "Idle/animations/death/north/frame_001.png",
+              "Idle/animations/death/north/frame_002.png",
+              "Idle/animations/death/north/frame_003.png",
+              "Idle/animations/death/north/frame_004.png",
+              "Idle/animations/death/north/frame_005.png",
+              "Idle/animations/death/north/frame_006.png",
+              "Idle/animations/death/north/frame_007.png"
+            ],
+            "east": [
+              "Idle/animations/death/east/frame_000.png",
+              "Idle/animations/death/east/frame_001.png",
+              "Idle/animations/death/east/frame_002.png",
+              "Idle/animations/death/east/frame_003.png",
+              "Idle/animations/death/east/frame_004.png",
+              "Idle/animations/death/east/frame_005.png",
+              "Idle/animations/death/east/frame_006.png",
+              "Idle/animations/death/east/frame_007.png"
+            ],
+            "south": [
+              "Idle/animations/death/south/frame_000.png",
+              "Idle/animations/death/south/frame_001.png",
+              "Idle/animations/death/south/frame_002.png",
+              "Idle/animations/death/south/frame_003.png",
+              "Idle/animations/death/south/frame_004.png",
+              "Idle/animations/death/south/frame_005.png",
+              "Idle/animations/death/south/frame_006.png",
+              "Idle/animations/death/south/frame_007.png"
+            ]
+          },
+          "death-fix": {
+            "east": [
+              "Idle/animations/death-fix/east/frame_000.png",
+              "Idle/animations/death-fix/east/frame_001.png",
+              "Idle/animations/death-fix/east/frame_002.png",
+              "Idle/animations/death-fix/east/frame_003.png",
+              "Idle/animations/death-fix/east/frame_004.png",
+              "Idle/animations/death-fix/east/frame_005.png",
+              "Idle/animations/death-fix/east/frame_006.png",
+              "Idle/animations/death-fix/east/frame_007.png"
+            ]
+          },
+          "attack": {
+            "east": [
+              "Idle/animations/attack/east/frame_000.png",
+              "Idle/animations/attack/east/frame_001.png",
+              "Idle/animations/attack/east/frame_002.png",
+              "Idle/animations/attack/east/frame_003.png",
+              "Idle/animations/attack/east/frame_004.png",
+              "Idle/animations/attack/east/frame_005.png",
+              "Idle/animations/attack/east/frame_006.png",
+              "Idle/animations/attack/east/frame_007.png"
+            ],
+            "south": [
+              "Idle/animations/attack/south/frame_000.png",
+              "Idle/animations/attack/south/frame_001.png",
+              "Idle/animations/attack/south/frame_002.png",
+              "Idle/animations/attack/south/frame_003.png",
+              "Idle/animations/attack/south/frame_004.png",
+              "Idle/animations/attack/south/frame_005.png",
+              "Idle/animations/attack/south/frame_006.png",
+              "Idle/animations/attack/south/frame_007.png"
+            ],
+            "north": [
+              "Idle/animations/attack/north/frame_000.png",
+              "Idle/animations/attack/north/frame_001.png",
+              "Idle/animations/attack/north/frame_002.png",
+              "Idle/animations/attack/north/frame_003.png",
+              "Idle/animations/attack/north/frame_004.png",
+              "Idle/animations/attack/north/frame_005.png",
+              "Idle/animations/attack/north/frame_006.png",
+              "Idle/animations/attack/north/frame_007.png"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "export_version": "3.1",
+  "export_date": "2026-10-09T16:51:57.382104"
+}

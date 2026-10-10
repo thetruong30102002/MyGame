@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a row of tall flames standing side by side like a wall, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/fire.png",
+	"jobId": "853a2f03-1797-4ccd-ba0f-7a7eaefa9fc8",
+	"token": 1,
+	"createdAt": "2026-10-09T19:16:33.074Z"
+}

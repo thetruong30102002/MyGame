@@ -198,7 +198,7 @@ export function CharacterSelect() {
 	return (
 		<Backdrop>
 			<div className="flex w-full max-w-xl flex-col items-center">
-				<TitleBanner size="md" text={showCreate ? 'Tạo nhân vật' : 'Chọn nhân vật'} />
+				<TitleBanner size="md" text={showCreate ? 'Tạo nhân vật' : characters.length > 1 ? 'Chọn nhân vật' : 'Nhân vật của bạn'} />
 				<div className="ui-frame w-full px-3 pb-4 pt-7 sm:px-4">
 					<div className="mb-4 flex items-center justify-between gap-3 border-b-2 border-paper-line pb-3 text-body text-ink-soft">
 						<p className="min-w-0 truncate leading-[1.45]">
@@ -248,7 +248,7 @@ export function CharacterSelect() {
 									enterKeyHint="done"
 								/>
 								<p className="mb-3 text-body leading-relaxed text-ink-soft">
-									Bạn sẽ lớn lên ở thị trấn Thistlewood, giữa thế giới Aetheria. Ai gặp cũng gọi bạn bằng tên này. Chưa cần chọn nghề: kiếm hay phép, cứ đi rồi học dần.
+									Bạn sẽ lớn lên ở thị trấn Thistlewood, giữa thế giới Aetheria. Ai gặp cũng gọi bạn bằng tên này. Chưa cần chọn nghề: kiếm hay phép, cứ đi rồi học dần. Mỗi tài khoản chỉ có một nhân vật.
 								</p>
 								{formError && <Alert>{formError}</Alert>}
 								<div className="flex gap-2">
@@ -295,7 +295,7 @@ export function CharacterSelect() {
 											</div>
 											{confirming ? (
 												<div className="col-span-2 flex flex-wrap items-center gap-2">
-													<p className="w-full text-body font-bold text-berry">Xoá hẳn {c.name}? Cả hành trình sẽ mất, không lấy lại được.</p>
+													<p className="w-full text-body font-bold text-berry">Xoá hẳn {c.name}? Cả hành trình sẽ mất, không lấy lại được. Xoá xong mới tạo được nhân vật mới.</p>
 													<button type="button" autoFocus onClick={() => setConfirmId(null)} disabled={busy} className="ui-chip">
 														Giữ lại
 													</button>
@@ -313,7 +313,7 @@ export function CharacterSelect() {
 								})}
 								{freeSlots > 0 && (
 									<li className="ui-tray flex flex-col items-center justify-center gap-2 p-3">
-										<p className="text-body font-bold text-ink-soft">Còn {freeSlots} chỗ trống</p>
+										<p className="text-body font-bold text-ink-soft">Còn trống chỗ cho nhân vật</p>
 										<button type="button" onClick={() => (setCreating(true), setConfirmId(null))} disabled={busy} className="ui-chip">
 											Tạo thêm nhân vật
 										</button>

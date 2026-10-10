@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a bold teal U-turn arrow curving back, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/sword+teal.png",
+	"jobId": "0ccca425-c811-46d0-b7cf-40f77a4e1596",
+	"token": 1,
+	"createdAt": "2026-10-09T19:14:06.590Z"
+}

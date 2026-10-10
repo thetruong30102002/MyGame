@@ -1,0 +1,17 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "an upright steel sword with two teal arrows bouncing off it, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"init_image_strength": 140,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/sword+teal.png",
+	"init_image_path": "sources/pixellab/skill-icons-v2/init/backflow.init.png",
+	"jobId": "5a0ee2a6-861e-40d5-8d61-834f86f5543e",
+	"token": 1,
+	"createdAt": "2026-10-09T19:21:25.251Z"
+}

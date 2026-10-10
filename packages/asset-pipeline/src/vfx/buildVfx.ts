@@ -99,7 +99,8 @@ export const VFX: VfxDef[] = [
 	{ id: 'boss_fire_wave', size: 160, kind: 'burst', frames: 8, later: true },
 	{ id: 'boss_curse_blast', size: 160, kind: 'burst', frames: 10 },
 	{ id: 'boss_bone_rise', size: 128, kind: 'burst', frames: 8, later: true },
-	{ id: 'boss_stone_slam', size: 128, kind: 'burst', frames: 8, later: true },
+	// Gargoyle Đá (boss khu Hang Gargoyle — thiết kế 12 map vùng 1, 10/10/2026) đã vào game: `CombatSystem.BOSS_AOE_LOOK`.
+	{ id: 'boss_stone_slam', size: 128, kind: 'burst', frames: 8 },
 	{ id: 'boss_toxic_pool', size: 128, kind: 'burst', frames: 8, later: true },
 	{ id: 'boss_hex', size: 128, kind: 'burst', frames: 8, later: true },
 	{ id: 'boss_mud_geyser', size: 160, kind: 'burst', frames: 10, later: true },
@@ -129,6 +130,28 @@ export const VFX: VfxDef[] = [
 	{ id: 'slash_wind', size: 128, kind: 'burst', frames: 8 },
 	{ id: 'slash_ice', size: 128, kind: 'burst', frames: 8 },
 	{ id: 'slash_earth', size: 128, kind: 'burst', frames: 8 },
+	// Mốc 2 (09/10/2026): chiêu boss vùng 5–7 + chiêu rồng — vẽ sẵn, chưa dùng trong game.
+	{ id: 'boss_ice_embrace', size: 128, kind: 'burst', frames: 10, later: true },
+	{ id: 'boss_avalanche', size: 160, kind: 'burst', frames: 8, later: true },
+	{ id: 'boss_frost_roar', size: 160, squashY: 0.55, kind: 'burst', frames: 8, later: true },
+	{ id: 'boss_oblivion_mist', size: 160, squashY: 0.55, kind: 'loop', frames: 8, later: true },
+	{ id: 'boss_magma_fissure', size: 144, squashY: 0.55, kind: 'burst', frames: 8, later: true },
+	{ id: 'boss_lava_spit', size: 128, kind: 'burst', frames: 8, later: true },
+	{ id: 'boss_ash_fall', size: 160, squashY: 0.55, kind: 'burst', frames: 10, later: true },
+	{ id: 'boss_forge_sigil', size: 160, squashY: 0.55, kind: 'loop', frames: 8, later: true },
+	{ id: 'boss_coral_spikes', size: 128, kind: 'burst', frames: 8, later: true },
+	{ id: 'boss_ghost_lantern', size: 128, kind: 'burst', frames: 8, later: true },
+	{ id: 'boss_tentacle_slam', size: 160, kind: 'burst', frames: 10, later: true },
+	{ id: 'boss_ink_flood', size: 160, squashY: 0.55, kind: 'burst', frames: 10, later: true },
+	{ id: 'dragon_frost_breath', size: 192, kind: 'burst', frames: 8, later: true },
+	{ id: 'dragon_ice_pillar', size: 160, kind: 'burst', frames: 10, later: true },
+	{ id: 'dragon_ice_lake_crack', size: 192, squashY: 0.55, kind: 'burst', frames: 10, later: true },
+	{ id: 'dragon_fire_breath', size: 192, kind: 'burst', frames: 8, later: true },
+	{ id: 'dragon_meteor', size: 160, kind: 'burst', frames: 10, later: true },
+	{ id: 'dragon_lava_pool', size: 192, squashY: 0.55, kind: 'loop', frames: 8, later: true },
+	{ id: 'dragon_water_dive', size: 160, kind: 'burst', frames: 10, later: true },
+	{ id: 'dragon_tsunami', size: 192, kind: 'burst', frames: 10, later: true },
+	{ id: 'dragon_flood', size: 192, squashY: 0.55, kind: 'loop', frames: 8, later: true },
 ];
 
 /**

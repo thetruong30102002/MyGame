@@ -1,11 +1,12 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState, type CSSProperties, type KeyboardEvent } from 'react';
-import { SWORD_STYLE_INFO } from '@/game/combat/talents';
+import { SWORD_STYLE_INFO, TIER_COST } from '@/game/combat/talents';
 import type { BranchId, TalentsView } from '@/store/useGameStore';
 import { LockGlyph } from '../SkillIcon';
 import { BranchIcon, hasNodeIcon, NodeIcon } from './TalentArt';
-import { KIND_LABEL, nodeAria, nodeInfo, type NodeInfo } from './talentInfo';
+import { KIND_LABEL, nodeAria, nodeInfo, skillSheet, statLine, type NodeInfo } from './talentInfo';
+import { BRANCH_FILL, BRANCH_INK } from './TalentParts';
 import { type EdgeKind, type LaidEdge, type LaidNode, type TreeLayout, type TreeParams } from './treeLayout';
 
 /** Màu nét theo loại đoạn (bảng "Đường nối" của đặc tả). `--color-line-lit` chưa có trong globals.css → khai ở đây. */
@@ -117,6 +118,9 @@ export function TalentTreeGrid({
 	const bodyH = L.height - head;
 	// Bộ co cho điện thoại hẹp (`fitPhoneTree`): cột < 36px — chip giá sát nút hơn, tên nhánh ở đầu cột nhỏ lại cho vừa cột.
 	const tight = Math.min(p.swordCol, p.elemCol) < 36;
+	// Thước đủ rộng (máy tính): ghi thêm giá lên mỗi mốc dưới số mốc — giá như nhau ở mọi nhánh, trừ Kiếm mốc 1 (Trảm có sẵn
+	// khi nhận kiếm, nút đó luôn "đã học"); mốc 1 nguyên tố = 1 điểm (luật 10/10/2026).
+	const costs = p.ruler >= 20;
 	const sword = t.branches.find((b) => b.branch === 'sword');
 	// Có nhãn lưu phái (dải rẽ đủ cao): ngã ba chưa chọn thì giá nằm ở nhãn, chip giá trên ba nút mốc 3 sẽ đè lên nhãn.
 	const forkLabels = p.forkBand >= 30;
@@ -158,6 +162,7 @@ export function TalentTreeGrid({
 	const infos = useMemo(() => new Map(L.nodes.map((n) => [n.key, nodeInfo(t, n.key)])), [L, t]);
 	const tipInfo = tip ? (infos.get(tip.key) ?? null) : null;
 	const tipNode = tip ? L.nodes.find((n) => n.key === tip.key) : null;
+	const tipSheet = tipInfo?.skillId && tipInfo.ready ? skillSheet(t, tipInfo.skillId, tipInfo.tier) : null;
 	const tipLeft = (n: LaidNode): number => {
 		const right = n.x + n.size / 2 + 8;
 		return Math.max(4, right + 210 <= L.width - 4 ? right : n.x - n.size / 2 - 218);
@@ -174,7 +179,7 @@ export function TalentTreeGrid({
 			{/* Dải đầu cột: dính trên cùng vùng cuộn (điện thoại: vùng cuộn của tab có lề trên 16px nên top −16). */}
 			<div className="sticky z-[6] border-b-2 border-paper-line bg-paper-hi" style={{ top: scroll ? 0 : -16, height: head, width: L.width }}>
 				<span className="absolute left-0 top-0 flex items-center justify-center text-[11px] font-extrabold text-ink-faint" style={{ width: p.ruler, height: head - 2, writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>
-					Mốc
+					{costs ? 'Mốc · giá' : 'Mốc'}
 				</span>
 				{L.columns.map((c) => {
 					const b = t.branches.find((x) => x.branch === c.branch);
@@ -187,17 +192,34 @@ export function TalentTreeGrid({
 							type="button"
 							tabIndex={-1}
 							onClick={() => onHead(c.branch)}
-							title={b.unlocked ? `${b.name} · mốc ${b.tier}/${b.maxTier} — xem từng mốc` : b.lockNote}
+							title={b.unlocked ? `${b.name} · mốc ${b.tier}/${b.maxTier} · +${b.bonusPct}% sức mạnh — xem từng mốc` : b.lockNote}
 							className={`absolute top-0 flex flex-col items-center justify-center gap-px text-center font-sans ${tight ? 'text-[10px] tracking-[-0.02em]' : 'text-[12px]'} font-extrabold leading-[14px] ${b.unlocked ? 'text-ink-brown' : 'text-ink-faint'} ${group ? 'border-r-2 border-dashed border-paper-line' : ''} hover:bg-paper-sunk/50`}
-							style={{ left: c.x, width: c.w, height: head - 2 }}
+							style={{ left: c.x, width: c.w, height: head - 2, paddingBottom: p.head >= 64 ? 10 : 0 }}
 						>
-							<span className={`flex items-center justify-center ${b.unlocked ? '' : 'opacity-60 grayscale'}`} style={{ height: wide ? 26 : 20 }}>
-								{b.unlocked ? <BranchIcon branch={c.branch} iconSkill={b.iconSkill} box={wide ? 24 : 18} /> : <LockGlyph size={wide ? 20 : 10} />}
+							{b.unlocked && p.head >= 64 && (
+								<i aria-hidden className="tt-head-bar">
+									<i style={{ width: `${(b.tier / b.maxTier) * 100}%`, background: BRANCH_FILL[c.branch] }} />
+								</i>
+							)}
+							<span className={`flex items-center justify-center ${b.unlocked ? '' : 'opacity-60 grayscale'}`} style={{ height: wide ? 24 : 20 }}>
+								{b.unlocked ? <BranchIcon branch={c.branch} iconSkill={b.iconSkill} box={wide ? 22 : 18} /> : <LockGlyph size={wide ? 18 : 10} />}
 							</span>
-							<span className="whitespace-nowrap">
+							<span className="whitespace-nowrap" style={b.unlocked ? { color: BRANCH_INK[c.branch] } : undefined}>
 								{b.name}
-								{b.unlocked && wide && <span className="text-amber"> {group ? `${b.tier}/${b.maxTier}` : b.tier}</span>}
+								{group && b.style && wide && <span className="text-ink-soft"> · {SWORD_STYLE_INFO[b.style].name}</span>}
 							</span>
+							{wide && (
+								<span className="whitespace-nowrap text-[11px] leading-[13px] tabular-nums text-ink-soft">
+									{b.unlocked ? (
+										<>
+											<b className="text-ink-brown">{b.tier}</b>/{b.maxTier}
+											{b.bonusPct > 0 && c.w >= 60 && <b className="text-amber"> +{b.bonusPct}%</b>}
+										</>
+									) : (
+										'khoá'
+									)}
+								</span>
+							)}
 						</button>
 					);
 				})}
@@ -219,8 +241,9 @@ export function TalentTreeGrid({
 				)}
 				{L.rows.map((y, tier) =>
 					tier > 0 ? (
-						<span key={`r${tier}`} className="pointer-events-none absolute left-0 flex items-center justify-center font-sans text-[12px] font-extrabold leading-none text-ink-faint tabular-nums" style={{ top: y - head - 8, width: p.ruler, height: 16 }}>
+						<span key={`r${tier}`} className="pointer-events-none absolute left-0 flex flex-col items-center justify-center font-sans text-[12px] font-extrabold leading-none text-ink-faint tabular-nums" style={{ top: y - head - (costs ? 12 : 8), width: p.ruler, height: costs ? 24 : 16 }}>
 							{tier}
+							{costs && <span className="tt-ruler-cost">{TIER_COST[tier]}đ</span>}
 						</span>
 					) : null,
 				)}
@@ -267,6 +290,9 @@ export function TalentTreeGrid({
 						'--hy': Math.max(0, Math.floor((p.step - n.size) / 2)),
 						scrollMarginTop: head + 8,
 						scrollMarginBottom: scroll ? 8 : 200,
+						// Màu hệ cho nút đã đạt (lòng ngả màu hệ, viền mực hệ) — kiếm pháp theo nguyên tố của nó.
+						'--el': BRANCH_FILL[n.art ?? n.branch],
+						'--el-ink': BRANCH_INK[n.art ?? n.branch],
 					} as CSSProperties;
 					return (
 						<button
@@ -312,6 +338,7 @@ export function TalentTreeGrid({
 							<b className="text-ink-brown">{tipInfo.name}</b> · {tipInfo.kind === 'art' ? `Kiếm pháp ${tipInfo.branchName}` : `${tipInfo.styleName ?? tipInfo.branchName} mốc ${tipInfo.tier}`} · {KIND_LABEL[tipInfo.kind].toLowerCase()}
 						</p>
 						{tipInfo.brief && <p>{tipInfo.brief}</p>}
+						{tipSheet && <p className="text-[12px] leading-4 text-ink-faint tabular-nums">{statLine(tipSheet)}</p>}
 						{(() => {
 							const s = stateLine(tipInfo, t.unspent);
 							return s.text ? <p className={`font-extrabold ${s.tone === 'warn' ? 'text-berry' : s.tone === 'ok' ? 'text-leaf' : 'text-ink-faint'}`}>{s.text}</p> : null;

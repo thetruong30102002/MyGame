@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a green eye inside a ring of grey storm clouds, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/wind+grey.png",
+	"jobId": "dab9061d-f286-40eb-b728-95a249ae298e",
+	"token": 1,
+	"createdAt": "2026-10-09T19:18:40.360Z"
+}

@@ -1,13 +1,14 @@
 // Chạy: npx tsx tests/nav.test.ts — tìm đường + tự đi tới chỗ làm nhiệm vụ trên MỌI map thật của vùng, không cần
 // trình duyệt.
 import assert from 'node:assert/strict';
+import { zoneSpawnPoints } from '@aether/sim/mobs';
 import { slideMove, type Rect } from '../src/game/world/collision';
 import { exitGoal } from '../src/game/world/exits';
 import { NAV_CELL, type Point } from '../src/game/world/NavGrid';
 import { AutoWalk } from '../src/game/AutoWalk';
 import { npcAnchor, STOP_BOSS, STOP_DUMMY, STOP_NPC, type ResolvedTarget } from '../src/game/story/resolveTarget';
 import { STORY } from '../src/game/story/story';
-import { atlas, maps, meta, type LoadedMap } from './region';
+import { atlas, index, maps, meta, type LoadedMap } from './region';
 
 /** Tự đi bằng chính phép đi trượt trục của game ở `fps` cho tới khi xong/hỏng (tối đa 3 phút). */
 const simulate = (m: LoadedMap, from: Point, target: ResolvedTarget, fps: number): { result: string; pos: Point; frames: number } => {
@@ -109,8 +110,22 @@ for (const [mapId, m] of Object.entries(maps)) {
 				queue.push(ni);
 			}
 		}
+		// Ô trống ngoài mảng chính: KHE LẺ nếu bước chân thật lọt vào được (phải có ô xuất phát thuộc mảng chính, số ít), còn lại là
+		// VÙNG KÍN chỉ để làm cảnh — lõi đá vách hang, bờ bên kia sông của Hẻm Cửa Sông (thiết kế 12 map vùng 1): người chơi không
+		// bao giờ đứng ở đó nên không cần ô xuất phát.
+		const walkIn = m.walkIn();
+		const touchable = (i: number): boolean => {
+			const c = nav.center(i);
+			for (let y = c.y - NAV_CELL / 2; y < c.y + NAV_CELL / 2; y += 4) for (let x = c.x - NAV_CELL / 2; x < c.x + NAV_CELL / 2; x += 4) if (walkIn(x, y)) return true;
+			return false;
+		};
 		const pockets: number[] = [];
-		for (let i = 0; i < seen.length; i += 1) if (nav.walkable[i] && !seen[i]) pockets.push(i);
+		let sealed = 0;
+		for (let i = 0; i < seen.length; i += 1) {
+			if (!nav.walkable[i] || seen[i]) continue;
+			if (touchable(i)) pockets.push(i);
+			else sealed += 1;
+		}
 		// Rừng dày có nhiều khe giữa các gốc cây hơn thị trấn — ngưỡng theo tỉ lệ ô trống.
 		const limit = Math.max(30, Math.round(free * 0.01));
 		assert.ok(pockets.length <= limit, `${mapId}: lưới có ${pockets.length} ô trống bị cô lập khỏi điểm hồi sinh (ngưỡng ${limit})`);
@@ -119,7 +134,18 @@ for (const [mapId, m] of Object.entries(maps)) {
 			const st = nav.nearestWalkable(c.x, c.y);
 			assert.ok(st >= 0 && seen[st], `${mapId}: đứng ở khe lẻ ${c.x},${c.y} không có ô xuất phát thuộc mảng chính`);
 		}
-		console.log(`✔ ${mapId}: lưới ${nav.cols}×${nav.rows} ô ${NAV_CELL}px dựng trong ${buildMs.toFixed(1)}ms, ${free} ô trống, ${reached} tới được từ điểm hồi sinh (${pockets.length} ô khe lẻ), mọi cạnh đi lọt hộp chân`);
+		console.log(`✔ ${mapId}: lưới ${nav.cols}×${nav.rows} ô ${NAV_CELL}px dựng trong ${buildMs.toFixed(1)}ms, ${free} ô trống, ${reached} tới được từ điểm hồi sinh (${pockets.length} ô khe lẻ${sealed ? `, ${sealed} ô vùng kín làm cảnh` : ''}), mọi cạnh đi lọt hộp chân`);
+
+		// 2b) Điểm sinh quái của mọi khu (quái đi bằng cùng hộp chân 11×5 với người chơi): đứng được và nằm trong vùng người chơi
+		//     tới được — sinh trong chân đồ vật thì kẹt luôn (bước nào cũng còn đè chân), sinh trong vùng kín thì không ai đánh được.
+		let points = 0;
+		for (const z of map.monsterZones) {
+			for (const p of zoneSpawnPoints(z)) {
+				assert.ok(!blocked(p.x, p.y, 11, 5) && walkIn(p.x, p.y), `${mapId}: khu ${z.id} điểm sinh #${p.index} (${Math.round(p.x)},${Math.round(p.y)}) bị chặn / ngoài vùng tới được`);
+				points += 1;
+			}
+		}
+		if (points) console.log(`✔ ${mapId}: ${points} điểm sinh quái của ${map.monsterZones.length} khu đều đứng được, người chơi tới được`);
 	}
 
 	// 3) Tìm đường từ mọi chỗ xuất phát tới mọi đích người chơi có thể được dẫn tới TRÊN MAP NÀY — kể cả lối sang map.
@@ -177,10 +203,12 @@ for (const [mapId, m] of Object.entries(maps)) {
 	{
 		let seed = 20261007;
 		const rnd = (): number => (seed = (seed * 1103515245 + 12345) & 0x7fffffff) / 0x7fffffff;
+		// Chỉ điểm người chơi đứng tới được thật (vùng kín làm cảnh — lõi đá vách hang… — không ai đứng được nên không xét).
+		const walkIn = m.walkIn();
 		const anyPoint = (): Point => {
 			for (;;) {
 				const p = { x: rnd() * W, y: rnd() * H };
-				if (!blocked(p.x, p.y, 11, 5) && nav.findPath(p, { x: map.spawn.x, y: map.spawn.y, stop: 40 })?.partial === false) return p;
+				if (!blocked(p.x, p.y, 11, 5) && walkIn(p.x, p.y) && nav.findPath(p, { x: map.spawn.x, y: map.spawn.y, stop: 40 })?.partial === false) return p;
 			}
 		};
 		let n = 0;
@@ -261,5 +289,31 @@ for (const [mapId, m] of Object.entries(maps)) {
 		const r = simulate(m, from, { x: to.x, y: to.y, stop: 30, label: 'điểm thử' }, fps);
 		assert.equal(r.result, 'done', `town: ca cũ (${from.x},${from.y}) → (${to.x},${to.y}) ở ${fps} fps: "${r.result}"`);
 	}
+}
+// Đồ thị lối của vùng (dẫn đường nhiệm vụ đi theo `WorldIndex.nextExit` — lối khai trước được ưu tiên): town ↔ mossvale luôn MỘT
+// bước (nhiệm vụ trẻ em không vòng qua Bãi Bồi). Vùng 12 map (thiết kế 10/10/2026) thì thêm số bước từ trạm đúng bản thiết kế.
+{
+	assert.equal(index.nextExit('town', 'mossvale')?.to, 'mossvale', 'town → mossvale đi thẳng lối đông');
+	assert.equal(index.nextExit('mossvale', 'town')?.to, 'town', 'mossvale → town đi thẳng lối tây');
+	if (index.data.maps.riverflats) {
+		const hops = new Map<string, number>([['town', 0]]);
+		const queue = ['town'];
+		while (queue.length) {
+			const id = queue.shift()!;
+			for (const e of index.data.maps[id]!.exits) {
+				if (e.to.includes('/') || hops.has(e.to)) continue;
+				hops.set(e.to, hops.get(id)! + 1);
+				queue.push(e.to);
+			}
+		}
+		const byHops = (n: number) => [...hops].filter(([, h]) => h === n).map(([id]) => id).sort();
+		assert.deepEqual(byHops(1), ['graveyard', 'mossvale', 'riverflats']);
+		assert.deepEqual(byHops(2), ['bonehills', 'cliffs', 'mossrift', 'nameless', 'oldfort', 'rivergate', 'shrine']);
+		assert.deepEqual(byHops(3), ['gargoyle_cave']);
+		// Đường tắt: từ Luỹ về trạm qua rừng (2 lần chuyển map); từ gian boss Hang qua Đường hầm của Đoàn.
+		assert.equal(index.nextExit('oldfort', 'town')?.to, 'mossvale');
+		assert.equal(index.nextExit('gargoyle_cave', 'nameless')?.id, 'to_nameless_gc');
+		console.log(`✔ đồ thị lối: town ↔ mossvale một bước; ${hops.size} map, xa nhất ${Math.max(...hops.values())} bước từ trạm`);
+	} else console.log('✔ đồ thị lối: town ↔ mossvale một bước');
 }
 console.log('✔ nav.test');

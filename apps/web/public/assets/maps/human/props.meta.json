@@ -430,5 +430,617 @@
 			"w": 30,
 			"h": 18
 		}
+	},
+	"tree_dead": {
+		"kind": "tree",
+		"w": 122,
+		"h": 149,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 20,
+			"h": 14
+		}
+	},
+	"tree_dead_flip": {
+		"kind": "tree",
+		"w": 122,
+		"h": 149,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 20,
+			"h": 14
+		}
+	},
+	"crypt": {
+		"kind": "building",
+		"w": 150,
+		"h": 176,
+		"blocks": true,
+		"footprint": {
+			"x": -64,
+			"y": -52,
+			"w": 128,
+			"h": 52
+		}
+	},
+	"tomb_round": {
+		"kind": "rock",
+		"w": 41,
+		"h": 42,
+		"blocks": true,
+		"footprint": {
+			"x": -15,
+			"y": -12,
+			"w": 29,
+			"h": 12
+		}
+	},
+	"tomb_cross": {
+		"kind": "rock",
+		"w": 30,
+		"h": 46,
+		"blocks": true,
+		"footprint": {
+			"x": -6,
+			"y": -10,
+			"w": 12,
+			"h": 10
+		}
+	},
+	"tomb_broken": {
+		"kind": "rock",
+		"w": 41,
+		"h": 42,
+		"blocks": true,
+		"footprint": {
+			"x": -15,
+			"y": -12,
+			"w": 29,
+			"h": 12
+		}
+	},
+	"grave_mound": {
+		"kind": "decor",
+		"w": 49,
+		"h": 34,
+		"blocks": true,
+		"footprint": {
+			"x": -17,
+			"y": -12,
+			"w": 34,
+			"h": 12
+		}
+	},
+	"iron_fence": {
+		"kind": "decor",
+		"w": 58,
+		"h": 37,
+		"blocks": true,
+		"footprint": {
+			"x": -29,
+			"y": -10,
+			"w": 58,
+			"h": 10
+		}
+	},
+	"skull_pile": {
+		"kind": "flower",
+		"w": 40,
+		"h": 35,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"coffin": {
+		"kind": "decor",
+		"w": 47,
+		"h": 34,
+		"blocks": true,
+		"footprint": {
+			"x": -19,
+			"y": -12,
+			"w": 38,
+			"h": 12
+		}
+	},
+	"ghost_lantern": {
+		"kind": "decor",
+		"w": 33,
+		"h": 48,
+		"blocks": true,
+		"footprint": {
+			"x": -5,
+			"y": -8,
+			"w": 10,
+			"h": 8
+		}
+	},
+	"dead_bush": {
+		"kind": "bush",
+		"w": 47,
+		"h": 42,
+		"blocks": true,
+		"footprint": {
+			"x": -14,
+			"y": -12,
+			"w": 28,
+			"h": 12
+		}
+	},
+	"tree_pine_dry": {
+		"kind": "tree",
+		"w": 84,
+		"h": 160,
+		"blocks": true,
+		"footprint": {
+			"x": -7,
+			"y": -14,
+			"w": 13,
+			"h": 14
+		}
+	},
+	"tree_pine_dry_flip": {
+		"kind": "tree",
+		"w": 84,
+		"h": 160,
+		"blocks": true,
+		"footprint": {
+			"x": -7,
+			"y": -14,
+			"w": 13,
+			"h": 14
+		}
+	},
+	"cliff_rock": {
+		"kind": "building",
+		"w": 178,
+		"h": 158,
+		"blocks": true,
+		"footprint": {
+			"x": -80,
+			"y": -40,
+			"w": 160,
+			"h": 40
+		}
+	},
+	"cliff_rock_flip": {
+		"kind": "building",
+		"w": 178,
+		"h": 158,
+		"blocks": true,
+		"footprint": {
+			"x": -80,
+			"y": -40,
+			"w": 160,
+			"h": 40
+		}
+	},
+	"ruin_arch": {
+		"kind": "building",
+		"w": 148,
+		"h": 143,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"ruin_wall": {
+		"kind": "rock",
+		"w": 59,
+		"h": 36,
+		"blocks": true,
+		"footprint": {
+			"x": -28,
+			"y": -16,
+			"w": 56,
+			"h": 16
+		}
+	},
+	"gargoyle_statue": {
+		"kind": "rock",
+		"w": 35,
+		"h": 57,
+		"blocks": true,
+		"footprint": {
+			"x": -11,
+			"y": -14,
+			"w": 21,
+			"h": 14
+		}
+	},
+	"boulder": {
+		"kind": "rock",
+		"w": 48,
+		"h": 39,
+		"blocks": true,
+		"footprint": {
+			"x": -18,
+			"y": -20,
+			"w": 36,
+			"h": 20
+		}
+	},
+	"stone_stairs": {
+		"kind": "decor",
+		"w": 52,
+		"h": 45,
+		"blocks": true,
+		"footprint": {
+			"x": -21,
+			"y": -10,
+			"w": 42,
+			"h": 10
+		}
+	},
+	"column_fallen": {
+		"kind": "rock",
+		"w": 54,
+		"h": 28,
+		"blocks": true,
+		"footprint": {
+			"x": -25,
+			"y": -12,
+			"w": 49,
+			"h": 12
+		}
+	},
+	"brazier": {
+		"kind": "decor",
+		"w": 35,
+		"h": 51,
+		"blocks": true,
+		"footprint": {
+			"x": -9,
+			"y": -10,
+			"w": 18,
+			"h": 10
+		}
+	},
+	"rock_outcrop": {
+		"kind": "rock",
+		"w": 45,
+		"h": 52,
+		"blocks": true,
+		"footprint": {
+			"x": -18,
+			"y": -18,
+			"w": 36,
+			"h": 18
+		}
+	},
+	"rock_spire": {
+		"kind": "rock",
+		"w": 27,
+		"h": 55,
+		"blocks": true,
+		"footprint": {
+			"x": -7,
+			"y": -12,
+			"w": 14,
+			"h": 12
+		}
+	},
+	"rune_tablet": {
+		"kind": "rock",
+		"w": 36,
+		"h": 52,
+		"blocks": true,
+		"footprint": {
+			"x": -11,
+			"y": -10,
+			"w": 22,
+			"h": 10
+		}
+	},
+	"ribcage": {
+		"kind": "rock",
+		"w": 49,
+		"h": 43,
+		"blocks": true,
+		"footprint": {
+			"x": -20,
+			"y": -14,
+			"w": 39,
+			"h": 14
+		}
+	},
+	"beast_skull": {
+		"kind": "rock",
+		"w": 56,
+		"h": 53,
+		"blocks": true,
+		"footprint": {
+			"x": -20,
+			"y": -14,
+			"w": 39,
+			"h": 14
+		}
+	},
+	"bone_pile": {
+		"kind": "flower",
+		"w": 48,
+		"h": 33,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"dead_stump": {
+		"kind": "rock",
+		"w": 44,
+		"h": 41,
+		"blocks": true,
+		"footprint": {
+			"x": -13,
+			"y": -12,
+			"w": 26,
+			"h": 12
+		}
+	},
+	"pale_rocks": {
+		"kind": "rock",
+		"w": 52,
+		"h": 38,
+		"blocks": true,
+		"footprint": {
+			"x": -18,
+			"y": -14,
+			"w": 36,
+			"h": 14
+		}
+	},
+	"war_banner": {
+		"kind": "decor",
+		"w": 36,
+		"h": 53,
+		"blocks": true,
+		"footprint": {
+			"x": -4,
+			"y": -8,
+			"w": 7,
+			"h": 8
+		}
+	},
+	"broken_sword": {
+		"kind": "flower",
+		"w": 32,
+		"h": 47,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"spike_barricade": {
+		"kind": "decor",
+		"w": 51,
+		"h": 38,
+		"blocks": true,
+		"footprint": {
+			"x": -23,
+			"y": -12,
+			"w": 46,
+			"h": 12
+		}
+	},
+	"skull_totem": {
+		"kind": "decor",
+		"w": 28,
+		"h": 54,
+		"blocks": true,
+		"footprint": {
+			"x": -4,
+			"y": -8,
+			"w": 8,
+			"h": 8
+		}
+	},
+	"stalagmite": {
+		"kind": "rock",
+		"w": 31,
+		"h": 55,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -16,
+			"w": 19,
+			"h": 16
+		}
+	},
+	"crystal_blue": {
+		"kind": "rock",
+		"w": 40,
+		"h": 48,
+		"blocks": true,
+		"footprint": {
+			"x": -14,
+			"y": -16,
+			"w": 28,
+			"h": 16
+		}
+	},
+	"cave_boulder": {
+		"kind": "rock",
+		"w": 47,
+		"h": 42,
+		"blocks": true,
+		"footprint": {
+			"x": -19,
+			"y": -20,
+			"w": 38,
+			"h": 20
+		}
+	},
+	"cave_mushrooms": {
+		"kind": "flower",
+		"w": 43,
+		"h": 40,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"cave_puddle": {
+		"kind": "flower",
+		"w": 51,
+		"h": 32,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"hanging_moss": {
+		"kind": "flower",
+		"w": 39,
+		"h": 42,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"rock_pillar": {
+		"kind": "rock",
+		"w": 30,
+		"h": 50,
+		"blocks": true,
+		"footprint": {
+			"x": -11,
+			"y": -18,
+			"w": 21,
+			"h": 18
+		}
+	},
+	"bat_bones": {
+		"kind": "flower",
+		"w": 49,
+		"h": 33,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"crystal_purple": {
+		"kind": "rock",
+		"w": 28,
+		"h": 42,
+		"blocks": true,
+		"footprint": {
+			"x": -9,
+			"y": -14,
+			"w": 17,
+			"h": 14
+		}
+	},
+	"wall_torch": {
+		"kind": "decor",
+		"w": 19,
+		"h": 54,
+		"blocks": true,
+		"footprint": {
+			"x": -3,
+			"y": -8,
+			"w": 6,
+			"h": 8
+		}
+	},
+	"mine_cart": {
+		"kind": "decor",
+		"w": 48,
+		"h": 42,
+		"blocks": true,
+		"footprint": {
+			"x": -21,
+			"y": -16,
+			"w": 41,
+			"h": 16
+		}
+	},
+	"broken_beam": {
+		"kind": "rock",
+		"w": 43,
+		"h": 44,
+		"blocks": true,
+		"footprint": {
+			"x": -7,
+			"y": -10,
+			"w": 13,
+			"h": 10
+		}
+	},
+	"gargoyle_idol": {
+		"kind": "rock",
+		"w": 34,
+		"h": 46,
+		"blocks": true,
+		"footprint": {
+			"x": -12,
+			"y": -16,
+			"w": 24,
+			"h": 16
+		}
+	},
+	"iron_chain": {
+		"kind": "flower",
+		"w": 47,
+		"h": 31,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"stone_altar": {
+		"kind": "building",
+		"w": 47,
+		"h": 40,
+		"blocks": true,
+		"footprint": {
+			"x": -21,
+			"y": -24,
+			"w": 42,
+			"h": 24
+		}
+	},
+	"skull_candles": {
+		"kind": "flower",
+		"w": 43,
+		"h": 45,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
 	}
 }

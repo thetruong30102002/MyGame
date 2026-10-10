@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "three big icicles falling point-down, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/ice.png",
+	"jobId": "caafd0d5-f844-4d18-9772-7ca94351c04f",
+	"token": 1,
+	"createdAt": "2026-10-09T19:19:08.333Z"
+}

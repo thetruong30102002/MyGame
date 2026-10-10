@@ -18,8 +18,11 @@ export interface MapData {
 	decals: { id: string; x: number; y: number }[];
 	spawn: { x: number; y: number };
 	npcs: { characterId: string; x: number; y: number; facing: string; role: string }[];
-	/** `boss`: boss của vùng (1 con, có thanh máu boss) — không tính vào luật "mỗi map một loại quái". */
-	monsterZones: { id: string; name: string; x: number; y: number; radius: number; monsters: string[]; count: number; fromAge?: number; onDemand?: boolean; boss?: boolean }[];
+	/**
+	 * `boss`: boss của vùng (1 con, có thanh máu boss) — không tính vào luật "mỗi map một loại quái". `level`: cấp quái của khu
+	 * (`enemyStatsAt`, vắng = chỉ số gốc); `untilAge`: chỉ sinh tới hết tuổi này (`zoneLiveAt`) — `@aether/sim/mobs` `MonsterZoneDef`.
+	 */
+	monsterZones: { id: string; name: string; x: number; y: number; radius: number; monsters: string[]; count: number; fromAge?: number; untilAge?: number; level?: number; onDemand?: boolean; boss?: boolean }[];
 	boss: { characterId: string; x: number; y: number; radius: number } | null;
 	areas: { name: string; x0: number; y0: number; x1: number; y1: number }[];
 	spots: { id: string; name: string; x: number; y: number; r: number }[];

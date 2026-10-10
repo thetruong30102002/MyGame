@@ -1,0 +1,16 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a round fireball with a short flame tail flying right, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/fire.png",
+	"jobId": "a19967fb-03b1-4ccd-85fa-5df21fa06d98",
+	"token": 1,
+	"createdAt": "2026-10-09T19:04:33.864Z",
+	"note": "bản thử B (10/10/2026) dùng làm bản chính — cùng cách vẽ v2"
+}

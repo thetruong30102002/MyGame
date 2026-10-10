@@ -1,0 +1,515 @@
+{
+ "sheets": [
+  {
+   "sheet": "SK1_sword_kiem_than",
+   "theme": "Kiếm · lưu phái Kiếm Thần (tấn công) — bright polished steel with crimson and gold accents",
+   "icons": [
+    {
+     "key": "slash",
+     "name_vi": "Trảm",
+     "prompt_en": "a single steel sword with one white curved slash arc"
+    },
+    {
+     "key": "heavy_strike",
+     "name_vi": "Nhất Kích",
+     "prompt_en": "a huge greatsword chopping down into a white-yellow impact star"
+    },
+    {
+     "key": "pierce_rush",
+     "name_vi": "Đột Kích",
+     "prompt_en": "a sword lunging point-first along one long straight white streak"
+    },
+    {
+     "key": "sunder_strike",
+     "name_vi": "Phá Giáp",
+     "prompt_en": "a sword blade splitting an iron helmet cleanly in two"
+    },
+    {
+     "key": "blade_wave",
+     "name_vi": "Lưỡi Sóng",
+     "prompt_en": "a large pale white crescent energy wave flying to the right"
+    },
+    {
+     "key": "passive:sword:4:kiem_than",
+     "name_vi": "Mắt Tinh",
+     "prompt_en": "a gold crosshair reticle with a bright four-point star at its center"
+    },
+    {
+     "key": "passive:sword:7:kiem_than",
+     "name_vi": "Thế Áp Đảo",
+     "prompt_en": "three stacked bold red upward chevrons, a symmetric rising power symbol"
+    },
+    {
+     "key": "passive:sword:9:kiem_than",
+     "name_vi": "Bất Khuất",
+     "prompt_en": "a cracked red heart with an upright steel sword planted through it"
+    },
+    {
+     "key": "future:sword:10:kiem_than",
+     "name_vi": "Phán Quyết (sắp có)",
+     "prompt_en": "three golden light swords plunging point-down in a fan"
+    }
+   ]
+  },
+  {
+   "sheet": "SK2_sword_thuy_than",
+   "theme": "Kiếm · lưu phái Thủy Thần (tĩnh, đỡ – phản) — bright steel with soft teal and aqua accents only, no splashing water",
+   "icons": [
+    {
+     "key": "calm_stance",
+     "name_vi": "Thế Tĩnh",
+     "prompt_en": "a horizontal sword in front of a teal half-dome guard glow"
+    },
+    {
+     "key": "flowing_counter",
+     "name_vi": "Lưu Thủy Phản",
+     "prompt_en": "a sword blade crossing a red enemy claw with a white parry spark"
+    },
+    {
+     "key": "backflow",
+     "name_vi": "Dòng Chảy Ngược",
+     "prompt_en": "an upright sword deflecting two small arrows away to the sides"
+    },
+    {
+     "key": "whirlpool",
+     "name_vi": "Xoáy Nước",
+     "prompt_en": "a sword inside one full circular white slash ring"
+    },
+    {
+     "key": "passive:sword:2",
+     "name_vi": "Nhịp Chém",
+     "prompt_en": "a steel sword with two bold grey forward chevrons beside it"
+    },
+    {
+     "key": "passive:sword:4:thuy_than",
+     "name_vi": "Tâm Tĩnh",
+     "prompt_en": "a calm teal lotus flower with symmetric open petals"
+    },
+    {
+     "key": "passive:sword:7:thuy_than",
+     "name_vi": "Phản Đòn",
+     "prompt_en": "one curved teal return arrow wrapped around a gold four-point star"
+    },
+    {
+     "key": "passive:sword:9:thuy_than",
+     "name_vi": "Mặt Hồ Phẳng",
+     "prompt_en": "a small green heart resting on a flat still teal mirror disc"
+    },
+    {
+     "key": "future:sword:10:thuy_than",
+     "name_vi": "Thiên Tĩnh (sắp có)",
+     "prompt_en": "a gold-rimmed teal glass dome over a flat still mirror pool"
+    }
+   ]
+  },
+  {
+   "sheet": "SK3_sword_bac_than",
+   "theme": "Kiếm · lưu phái Bắc Thần (nhanh nhẹn, sát thủ) — bright steel with dark violet shadow and pale silver accents, no green wind",
+   "icons": [
+    {
+     "key": "side_slash",
+     "name_vi": "Lướt Chém",
+     "prompt_en": "a sword edge sweeping sideways in a flat violet-silver arc"
+    },
+    {
+     "key": "shadow_step",
+     "name_vi": "Ảnh Bộ",
+     "prompt_en": "a sword emerging point-first from a dark purple shadow portal"
+    },
+    {
+     "key": "chain_slash",
+     "name_vi": "Liên Hoàn",
+     "prompt_en": "a sword with three crossing white slash lines in front of it"
+    },
+    {
+     "key": "flying_sword",
+     "name_vi": "Phi Kiếm",
+     "prompt_en": "a flying sword pointing right with a looping return arrow behind it"
+    },
+    {
+     "key": "passive:sword:4:bac_than",
+     "name_vi": "Nhẹ Như Gió",
+     "prompt_en": "a small winged boot with a single silver swirl"
+    },
+    {
+     "key": "passive:sword:7:bac_than",
+     "name_vi": "Đà Lướt",
+     "prompt_en": "a violet dodge swoosh curving into a forward-pointing sword tip"
+    },
+    {
+     "key": "passive:sword:9:bac_than",
+     "name_vi": "Bóng Mờ",
+     "prompt_en": "a violet mist puff with an enemy arrow passing straight through it"
+    },
+    {
+     "key": "future:sword:10:bac_than",
+     "name_vi": "Ngàn Bóng (sắp có)",
+     "prompt_en": "three dark purple shadow swords fanned out with points upward"
+    },
+    {
+     "key": "spare:sword:4",
+     "name_vi": "Dự phòng — biểu tượng lưu phái Bắc Thần (nút chọn lưu phái mốc 3)",
+     "prompt_en": "a bright violet compass star with long sharp silver points"
+    }
+   ]
+  },
+  {
+   "sheet": "SK4_sword_arts",
+   "theme": "Kiếm · Kiếm pháp nguyên tố + biểu tượng chung nhánh Kiếm — mixed set: each sword keeps its own element colour (fire orange, water blue, wind green, ice cyan, earth brown); the four spare icons are plain steel, crimson-gold, teal and tri-colour",
+   "icons": [
+    {
+     "key": "blaze_slash",
+     "name_vi": "Liệt Hoả Trảm",
+     "prompt_en": "a steel sword sweeping a wide fan-shaped arc of orange flames"
+    },
+    {
+     "key": "water_dragon_slash",
+     "name_vi": "Thuỷ Long Trảm",
+     "prompt_en": "a sword slash releasing a dragon-shaped blue water jet forward"
+    },
+    {
+     "key": "gale_blade_dance",
+     "name_vi": "Phong Kiếm Cuồng Vũ",
+     "prompt_en": "small green wind blades orbiting in a ring around an upright sword"
+    },
+    {
+     "key": "frost_cleave",
+     "name_vi": "Hàn Băng Trảm",
+     "prompt_en": "a frost-crusted sword cleaving one wide icy cyan arc"
+    },
+    {
+     "key": "earth_rend",
+     "name_vi": "Địa Liệt Trảm",
+     "prompt_en": "a sword driven point-down into the ground, a crack running forward"
+    },
+    {
+     "key": "spare:sword:1",
+     "name_vi": "Dự phòng — biểu tượng ĐẦU NHÁNH Kiếm (thay SWORD_HEAD_ICON; fallback cho nút Kiếm mốc ≥ 3 chưa chọn lưu phái)",
+     "prompt_en": "a single upright steel longsword with a gold crossguard"
+    },
+    {
+     "key": "spare:sword:2",
+     "name_vi": "Dự phòng — biểu tượng lưu phái Kiếm Thần (nút chọn lưu phái mốc 3)",
+     "prompt_en": "a bold crimson diamond gem with sharp gold rays bursting out"
+    },
+    {
+     "key": "spare:sword:3",
+     "name_vi": "Dự phòng — biểu tượng lưu phái Thủy Thần (nút chọn lưu phái mốc 3)",
+     "prompt_en": "a pale teal crescent moon above one flat calm mirror line"
+    },
+    {
+     "key": "spare:sword:5",
+     "name_vi": "Dự phòng — Phủ phép Kiếm (ô phủ phép trống)",
+     "prompt_en": "a round gem glowing with swirling red, blue and green magic"
+    }
+   ]
+  },
+  {
+   "sheet": "SK5_fire",
+   "theme": "Hoả — orange, red and golden flames with dark charcoal grey accents",
+   "icons": [
+    {
+     "key": "fire_bolt",
+     "name_vi": "Hoả Cầu",
+     "prompt_en": "a small round fireball with a short flame tail"
+    },
+    {
+     "key": "flame_ring",
+     "name_vi": "Vòng Lửa",
+     "prompt_en": "a flat ring of fire bursting outward from an empty center"
+    },
+    {
+     "key": "fire_blast",
+     "name_vi": "Bộc Hoả",
+     "prompt_en": "a big round fiery explosion burst with flying embers"
+    },
+    {
+     "key": "fire_wall",
+     "name_vi": "Tường Lửa",
+     "prompt_en": "a straight row of tall flames standing side by side like a wall"
+    },
+    {
+     "key": "meteor",
+     "name_vi": "Thiên Thạch",
+     "prompt_en": "a huge flaming rock falling straight down onto a red target ring"
+    },
+    {
+     "key": "passive:fire:2",
+     "name_vi": "Mồi Lửa",
+     "prompt_en": "a small hourglass with a steady flame burning inside it"
+    },
+    {
+     "key": "passive:fire:4",
+     "name_vi": "Tim Lò",
+     "prompt_en": "a round iron furnace with white-hot fire in its open mouth"
+    },
+    {
+     "key": "passive:fire:7",
+     "name_vi": "Tro Tàn",
+     "prompt_en": "a smoldering grey ash pile with three linked ember sparks"
+    },
+    {
+     "key": "passive:fire:9",
+     "name_vi": "Hoả Thân",
+     "prompt_en": "a tall symmetric flame sigil with a glowing white-hot core"
+    }
+   ]
+  },
+  {
+   "sheet": "SK6_water",
+   "theme": "Thuỷ — deep blue and aqua water with white foam; healing in soft green",
+   "icons": [
+    {
+     "key": "water_lance",
+     "name_vi": "Thuỷ Tiễn",
+     "prompt_en": "a wavy blue water spear with a rounded droplet head"
+    },
+    {
+     "key": "heal",
+     "name_vi": "Suối Lành",
+     "prompt_en": "a glowing green plus cross inside a clear water bubble"
+    },
+    {
+     "key": "tidal_wave",
+     "name_vi": "Sóng Dữ",
+     "prompt_en": "a cone-shaped fan of water spraying outward from one point"
+    },
+    {
+     "key": "call_rain",
+     "name_vi": "Gọi Mưa",
+     "prompt_en": "a soft grey cloud dropping short blue raindrops"
+    },
+    {
+     "key": "thunder_rain",
+     "name_vi": "Lôi Vũ",
+     "prompt_en": "a black storm cloud with two big yellow lightning bolts"
+    },
+    {
+     "key": "passive:water:2",
+     "name_vi": "Thấm Sâu",
+     "prompt_en": "a heavy iron anchor dripping with blue water"
+    },
+    {
+     "key": "passive:water:4",
+     "name_vi": "Huyết Thuỷ",
+     "prompt_en": "a blue water fang dripping one red drop"
+    },
+    {
+     "key": "passive:water:7",
+     "name_vi": "Mạch Nguồn",
+     "prompt_en": "a small stone spring basin bubbling red and blue droplets"
+    },
+    {
+     "key": "passive:water:9",
+     "name_vi": "Thuỷ Triều Dâng",
+     "prompt_en": "a pale crescent moon above one small curling wave"
+    }
+   ]
+  },
+  {
+   "sheet": "SK7_wind",
+   "theme": "Phong — mint and jade green wind with white streaks",
+   "icons": [
+    {
+     "key": "wind_blade",
+     "name_vi": "Phong Nhận",
+     "prompt_en": "a thin sharp crescent of green wind slicing forward"
+    },
+    {
+     "key": "cyclone",
+     "name_vi": "Lốc Xoáy",
+     "prompt_en": "a small green spiral vortex pulling leaves into its center"
+    },
+    {
+     "key": "gale_dash",
+     "name_vi": "Lướt Gió",
+     "prompt_en": "a long green dash arrow pointing right with small wind blades"
+    },
+    {
+     "key": "gale_fan",
+     "name_vi": "Phong Bạo",
+     "prompt_en": "three green wind crescents fanning out from one point"
+    },
+    {
+     "key": "tornado",
+     "name_vi": "Vòi Rồng",
+     "prompt_en": "a tall dark green tornado funnel touching the ground"
+    },
+    {
+     "key": "passive:wind:2",
+     "name_vi": "Gió Sắc",
+     "prompt_en": "a green-fletched arrow flying along a long dashed range line"
+    },
+    {
+     "key": "passive:wind:4",
+     "name_vi": "Thuận Gió",
+     "prompt_en": "a billowing white sail full of green wind"
+    },
+    {
+     "key": "passive:wind:7",
+     "name_vi": "Mắt Bão",
+     "prompt_en": "a calm green eye inside a ring of dark storm clouds"
+    },
+    {
+     "key": "passive:wind:9",
+     "name_vi": "Gió Loạn",
+     "prompt_en": "a crooked enemy arrow twisted by a green gust swirl"
+    }
+   ]
+  },
+  {
+   "sheet": "SK8_ice",
+   "theme": "Băng — icy cyan, pale blue and frost white with crisp bright highlights",
+   "icons": [
+    {
+     "key": "ice_shard",
+     "name_vi": "Băng Tiễn",
+     "prompt_en": "a faceted angular ice crystal shard flying right"
+    },
+    {
+     "key": "frost_field",
+     "name_vi": "Băng Địa",
+     "prompt_en": "a flat oval frozen puddle with frost spikes around its rim"
+    },
+    {
+     "key": "ice_spire",
+     "name_vi": "Băng Trụ",
+     "prompt_en": "one tall jagged ice pillar thrusting up from the ground"
+    },
+    {
+     "key": "ice_mirror",
+     "name_vi": "Gương Băng",
+     "prompt_en": "a ring of faceted ice crystals with an arrow bouncing off"
+    },
+    {
+     "key": "ice_rain",
+     "name_vi": "Mưa Băng",
+     "prompt_en": "three big pale blue icicles falling point-down from above"
+    },
+    {
+     "key": "passive:ice:2",
+     "name_vi": "Hàn Khí",
+     "prompt_en": "a single crisp symmetric snowflake with a pale cyan glow"
+    },
+    {
+     "key": "passive:ice:4",
+     "name_vi": "Giáp Sương",
+     "prompt_en": "a frost-covered chestplate armor with ice crystals on its shoulders"
+    },
+    {
+     "key": "passive:ice:7",
+     "name_vi": "Hàn Tâm",
+     "prompt_en": "a small hourglass filled with frozen pale blue ice crystals"
+    },
+    {
+     "key": "passive:ice:9",
+     "name_vi": "Vỡ Vụn",
+     "prompt_en": "a solid ice cube split by a bright starburst crack"
+    }
+   ]
+  },
+  {
+   "sheet": "SK9_earth",
+   "theme": "Thổ — warm brown stone, ochre earth and grey rock with small moss green accents",
+   "icons": [
+    {
+     "key": "rock_throw",
+     "name_vi": "Đá Văng",
+     "prompt_en": "a chunky brown boulder flying right with a short dust trail"
+    },
+    {
+     "key": "quake",
+     "name_vi": "Địa Chấn",
+     "prompt_en": "cracked ground splitting in a star pattern with yellow stun stars"
+    },
+    {
+     "key": "stone_spikes",
+     "name_vi": "Gai Đá",
+     "prompt_en": "a straight row of sharp brown stone spikes erupting from the ground"
+    },
+    {
+     "key": "stone_wall",
+     "name_vi": "Tường Đá",
+     "prompt_en": "a sturdy wall of stacked grey stone blocks seen from the front"
+    },
+    {
+     "key": "rockslide",
+     "name_vi": "Lở Đá",
+     "prompt_en": "three heavy brown boulders tumbling down from above"
+    },
+    {
+     "key": "passive:earth:2",
+     "name_vi": "Đá Nặng",
+     "prompt_en": "a heavy iron-banded stone weight beside a bold outward push arrow"
+    },
+    {
+     "key": "passive:earth:4",
+     "name_vi": "Da Đá",
+     "prompt_en": "a round shield made of rough grey stone plates"
+    },
+    {
+     "key": "passive:earth:7",
+     "name_vi": "Trọng Lực",
+     "prompt_en": "a dark brown orb pulling small rocks inward toward it"
+    },
+    {
+     "key": "passive:earth:9",
+     "name_vi": "Núi Thiêng",
+     "prompt_en": "a mountain peak with a small glowing green heart at its summit"
+    }
+   ]
+  },
+  {
+   "sheet": "SK10_aether",
+   "theme": "Aether / chung + 5 tuyệt kỹ nguyên tố — mixed set: each icon keeps its own element colour (fire orange, water blue, wind green, ice cyan, earth brown, aether violet), shared gold rim highlights",
+   "icons": [
+    {
+     "key": "aether_bolt",
+     "name_vi": "Tia Aether",
+     "prompt_en": "a glowing violet aether light bolt streaking forward"
+    },
+    {
+     "key": "future:fire:10",
+     "name_vi": "Phượng Hoàng (sắp có)",
+     "prompt_en": "a phoenix-shaped flame emblem with wide spread fiery wings"
+    },
+    {
+     "key": "future:water:10",
+     "name_vi": "Đại Hồng Thuỷ (sắp có)",
+     "prompt_en": "a towering dark blue tsunami wave curling high"
+    },
+    {
+     "key": "future:wind:10",
+     "name_vi": "Thiên Phong (sắp có)",
+     "prompt_en": "a huge green storm sphere ringed by spinning white blades"
+    },
+    {
+     "key": "future:ice:10",
+     "name_vi": "Kỷ Băng Hà (sắp có)",
+     "prompt_en": "a full ring of tall jagged ice crystals bursting outward"
+    },
+    {
+     "key": "future:earth:10",
+     "name_vi": "Sơn Thần (sắp có)",
+     "prompt_en": "a huge stone golem fist bursting up from cracked ground"
+    },
+    {
+     "key": "spare:aether:1",
+     "name_vi": "Dự phòng — Né (ô phím Space; thay ICON_FRAME.dodge)",
+     "prompt_en": "a bold silver swoosh curving sharply sideways in a quick dodge"
+    },
+    {
+     "key": "spare:aether:2",
+     "name_vi": "Dự phòng — Tẩy điểm tiềm năng",
+     "prompt_en": "a violet crystal orb inside a counter-clockwise reset arrow"
+    },
+    {
+     "key": "spare:aether:3",
+     "name_vi": "Dự phòng — Phản ứng nguyên tố (REACTION_*)",
+     "prompt_en": "two small elemental orbs, red and blue, colliding in a bright spark"
+    }
+   ]
+  }
+ ],
+ "notes": "**Bộ icon cuối đã kiểm bằng mã: đủ 82 key thật, 8 icon dự phòng, 10 tấm, mỗi tấm đúng 9 icon**\n\nTôi viết một script tsx để đọc thẳng `packages/sim/src/skills.ts` và `talents.ts` rồi so với bộ icon cuối. Kết quả:\n- Có đủ 44/44 chiêu trong HERO_SKILLS.\n- Có 33 nút passive (24 trong TREE, 9 trong STYLE_TREE). Ba nút gộp Kiếm mốc 4/7/9 đã tách theo lưu phái, nên còn 30 key passive.\n- Có 13 nút active không có skillId: 5 nút gộp Kiếm mốc 3/5/6/8/10, 5 mốc 10 nguyên tố và 3 mốc 10 lưu phái. Nút gộp mốc 3/5/6/8 đã có ready=true và các chiêu bên trong đã có icon riêng, nên chỉ còn 8 key `future:*`.\n- Không thiếu key, không thừa key, không trùng key.\n- Mọi prompt dài 8–13 từ, không có chữ số, không còn chữ \"badge\" hay \"crest\".\n\nScript và bản JSON nằm ở `C:\\Users\\thetr\\AppData\\Local\\Temp\\claude\\D--pms\\d563731e-beae-4be4-91d4-176e2533931a\\scratchpad\\check.ts` và `final.json`. Chạy lại: `npx tsx check.ts final.json`, đặt thư mục làm việc ở `D:/nttrg/pixel`.\n\n**Sửa của người phản biện đã áp dụng**\n- **Hình trùng:** đã bỏ hình trùng ở mọi nhóm phản biện liệt kê: tim, khiên, giáp, mắt, mũi tên dội ngược, vệt tốc, xoáy, sóng, gai/băng/vỡ, mây, chevron và nền đất nứt.\n- **Prompt ngắn lại:** mỗi prompt chỉ còn 1 vật chính và tối đa 1 vật phụ. Đã bỏ \"badge/crest\" ở mọi icon bị động. Đã bỏ \"many/several\", \"dust/speed lines\", \"rune\", \"clock\" và \"360-degree\", vì những cụm này dễ làm sinh chữ hoặc số.\n- **Tránh vẽ nhân vật:** phượng hoàng giờ là hình ngọn lửa mang dáng phượng, còn Thủy Long Trảm là tia nước mang dáng rồng.\n- **Sửa cho khớp cơ chế:** heavy_strike, fire_blast, chain_slash, tidal_wave (hình nón) và whirlpool (vòng chém thép).\n- **Theme:** SK4 và SK10 ghi rõ là tấm trộn màu theo nguyên tố. SK2 và SK3 chỉ dùng màu làm điểm nhấn, không vẽ nước hay gió thật.\n- **Icon dự phòng:** bỏ Điểm tiềm năng (đã có `icon_star`) và ổ khoá (đã có `LockGlyph`). Né chuyển sang `spare:aether:1`. Thêm hai icon: ĐẦU NHÁNH Kiếm (`spare:sword:1`) và Phản ứng nguyên tố (`spare:aether:3`).\n\n**Chỗ tôi sửa thêm ngoài phản biện, có lý do**\n1. **Tôi không đặt icon đầu nhánh Kiếm ở SK3 như phản biện đề xuất.** Thanh kiếm thép trơn hợp tấm thép SK4 hơn. Đổi lại, huy hiệu Bắc Thần (`spare:sword:4`) chuyển sang SK3 và vẽ thành sao la bàn tím, đúng màu tấm, không trùng hình kiếm. Key và vai trò của từng icon dự phòng không đổi.\n2. **Ba huy hiệu lưu phái và Phủ phép không vẽ kiếm.** Nếu vẽ kiếm thì SK4 sẽ có 9/9 icon là kiếm. Thay bằng các hình khác hẳn nhau: Kiếm Thần là viên kim cương đỏ toả tia vàng, Thủy Thần là trăng khuyết trên mặt gương, Phủ phép là viên ngọc xoáy ba màu.\n3. **Vài sửa của phản biện lại sinh trùng mới trong cùng tấm, tôi đổi lại:**\n   - Hoả Thân dùng \"ring of fire\", trùng flame_ring. Đổi thành ngọn lửa đối xứng có lõi trắng.\n   - Hàn Tâm (khối băng bị xích) trùng Vỡ Vụn (khối băng nứt). Đổi Hàn Tâm thành đồng hồ cát đầy băng, cùng ngôn ngữ \"kéo dài thời gian\" với Mồi Lửa.\n   - Đá Nặng là tảng đá thứ ba sau rock_throw và rockslide. Đổi thành quả tạ đá đai sắt kèm mũi tên đẩy.\n   - Né và Tẩy điểm đều là mũi tên vòng. Né đổi thành vệt lượn bẻ ngang, Tẩy điểm giữ mũi tên vòng ngược chiều kim đồng hồ.\n\n**Ánh xạ cần làm khi đưa vào code**\n- **Khoá passive:** `passiveTempKey` hiện trả `'<style>:<tier>'` hoặc `'<branch>:<tier>'`. Khoá mới có dạng `passive:<branch>:<tier>[:<style>]` và `future:<branch>:<tier>[:<style>]`.\n- **Nút Kiếm mốc ≥ 3 chưa chọn lưu phái** (`hasNodeIcon` ở `TalentBranchList.tsx:77` và `TalentDetail.tsx:136`, gọi với style=undefined) phải rơi về `spare:sword:1`. Nếu không, các nút này vẫn hiện \"…\".\n- **Các khoá ICON_FRAME cũ:**\n  - `crit` (`CharacterPanelStats.tsx:108`) → `passive:sword:4:kiem_than`\n  - `evade` (`CharacterPanelStats.tsx:109`) → `passive:sword:9:bac_than`\n  - `dodge` → `spare:aether:1`\n- **Các chỗ khác:**\n  - `SWORD_HEAD_ICON` (`TalentArt.tsx:76`) → `spare:sword:1`\n  - Nút chọn lưu phái → `spare:sword:2`, `spare:sword:3`, `spare:sword:4`\n  - Ô phủ phép trống → `spare:sword:5`\n  - Phản ứng nguyên tố → `spare:aether:3`\n- `flame_slash`, `whirlwind`, `charge` trong ICON_FRAME không có trong HERO_SKILLS nên không có trong bộ này.\n- Icon đầu nhánh nguyên tố là `fire_bolt`, `water_lance`, `wind_blade`, `ice_shard`, `rock_throw` (`talentsView.ts:90`), hiện ở cỡ 18–24px. Prompt của năm icon này đã viết đơn giản nhất trong tấm.\n\n**Cách dựng prompt PixelLab cho mỗi tấm**\nGiữ thiết lập của `I1_icons.png.json`: 192×192, color_palette/outline/shading bật, detail tắt, cùng ảnh mẫu style. Câu mô tả ghép theo thứ tự:\n1. \"A sprite sheet of NINE separate game UI skill icons arranged in a 3 by 3 grid, each centered in its own cell with wide empty space around it: \"\n2. 9 prompt_en theo đúng thứ tự trong mảng (đọc trái sang phải, trên xuống dưới), nối bằng \"; \".\n3. \", \" + phần tiếng Anh của theme (sau dấu —).\n4. \", thick dark outline, soft cel shading, every icon fully separate on a plain flat solid bright magenta (#FF00FF) chroma-key background, no text, no letters, no numbers, no frame, no characters\".\n\nBắt đầu: 10/10/2026 01:00 · Kết thúc: 10/10/2026 01:04 · Tổng: 4 phút"
+}

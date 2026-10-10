@@ -1,0 +1,31 @@
+{
+	"id": "boss_lava_spit",
+	"kind": "burst",
+	"canvas": {
+		"w": 128,
+		"h": 128
+	},
+	"first": {
+		"prompt": "a gushing arc of molten lava globs spat to the right, bright orange and yellow with dark crust, droplets and smoke trailing, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "b1d0a1dc-583f-404f-bac0-882a50dcfbfe"
+	},
+	"action": "the lava stream gushes forward to the right in an arc, the globs burst into sizzling molten splashes and smoke in mid-air, then they cool and fade",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "5364bb97-bfe8-43d5-adb4-ac184f1b9a00",
+	"createdAt": "2026-10-09T16:33:49.908Z",
+	"token": 1
+}

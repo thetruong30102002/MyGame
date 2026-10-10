@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a round gem swirling with red, blue and green magic, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/aether+red+blue+green.png",
+	"jobId": "bee4a01e-fe75-47d3-902c-ef73966fe580",
+	"token": 1,
+	"createdAt": "2026-10-09T19:16:05.119Z"
+}

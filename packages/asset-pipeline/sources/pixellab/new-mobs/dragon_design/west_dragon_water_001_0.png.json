@@ -1,0 +1,20 @@
+{
+	"description": "Chibi RPG world boss pixel art sprite facing the viewer, chibi western dragon, stocky four-legged lizard body in a low wide stance on stout clawed legs, round barrel torso with pale belly scales, long curved neck, oversized chibi head with a clean smooth snout and white fangs, horns sweeping back, two bat-like leathery membrane wings raised in a tall V behind the shoulders with visible wing arm, finger bones and thumb claws, a row of dorsal spikes, long tail curling to one side toward the front ending in a sharp arrowhead tip, gentle sorrowful ocean dragon, large wings, smooth spiral conch horns, big glossy sad turquoise eyes, deep sapphire and cobalt blue glossy wet scales, cream belly, translucent turquoise membranes, dorsal spikes joined by a webbed turquoise sail fin, small coral pink coral growths and barnacles on the shoulders, calm and melancholic, thick black outline, bold readable shapes, 2-3 tone shading, no text, no background",
+	"width": 192,
+	"height": 192,
+	"no_background": true,
+	"seed": 21,
+	"style_options": {
+		"color_palette": false,
+		"outline": true,
+		"detail": true,
+		"shading": true
+	},
+	"style_image": {
+		"path": "D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/boss_demon_001/Idle/rotations/south.png",
+		"usage_description": "Copy ONLY the drawing style of this reference: chibi RPG boss pixel art, crisp thick black outline, 2-3 tone shading, detail level. Do NOT copy its colors, its pose or its body shape."
+	},
+	"jobId": "aae0eff0-eb8d-4b83-93b1-a2c74b448287",
+	"token": 1,
+	"createdAt": "2026-10-09T15:25:02.991Z"
+}

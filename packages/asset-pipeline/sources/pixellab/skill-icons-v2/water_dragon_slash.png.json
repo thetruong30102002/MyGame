@@ -1,0 +1,17 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a steel sword releasing a curling blue water wave forward, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"init_image_strength": 140,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/water+steel.png",
+	"init_image_path": "sources/pixellab/skill-icons-v2/init/water_dragon_slash.init.png",
+	"jobId": "5fe87b87-db65-4a03-bbe2-d99d60bf04cb",
+	"token": 1,
+	"createdAt": "2026-10-09T19:22:21.661Z"
+}

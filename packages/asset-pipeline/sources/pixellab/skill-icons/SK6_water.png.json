@@ -1,0 +1,20 @@
+{
+	"description": "A sprite sheet of NINE separate game UI skill icons arranged in a 3 by 3 grid, in this order left to right then top to bottom, each centered in its own cell: a wavy blue water spear with a rounded droplet head; a glowing green plus cross inside a clear water bubble; a cone-shaped fan of water spraying outward from one point; a soft grey cloud dropping short blue raindrops; a black storm cloud with two big yellow lightning bolts; a heavy iron anchor dripping with blue water; a blue water fang dripping one red drop; a small stone spring basin bubbling red and blue droplets; a pale crescent moon above one small curling wave. Color theme: deep blue and aqua water with white foam; healing in soft green. Chunky pixel art icons in the same style as the reference, thick dark outline, soft cel shading, bold readable silhouettes, every icon fully separate on a plain flat solid bright magenta (#FF00FF) chroma-key background with wide empty space around it, no text, no letters, no numbers, no frames, no borders",
+	"width": 192,
+	"height": 192,
+	"no_background": false,
+	"seed": 7,
+	"style_options": {
+		"color_palette": false,
+		"outline": true,
+		"shading": true,
+		"detail": true
+	},
+	"style_image": {
+		"path": "sources/pixellab/sheets/I1_icons.png",
+		"usage_description": "Copy ONLY the art style of this reference: chunky pixel art UI icons, thick dark outline, soft cel shading, one icon centered per grid cell on magenta. Do not copy these objects or their colors."
+	},
+	"jobId": "42c094af-d88a-4257-9e5b-ab142802a71b",
+	"token": 1,
+	"createdAt": "2026-10-09T18:08:37.458Z"
+}

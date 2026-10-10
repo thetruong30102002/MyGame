@@ -50,8 +50,8 @@ export interface QualityGateOptions {
 	minSilhouette?: number;
 }
 
-/** Động tác NẰM (gục, đứng dậy): bóng thấp là đúng — chỉ kiểm trần chiều cao, không kiểm sàn. */
-const LOW_POSE = new Set<AnimationName>(['death', 'revive']);
+/** Động tác NẰM (gục, đứng dậy — kể cả bản cầm vũ khí `deathsword`, `revivestaff`…): bóng thấp là đúng — chỉ kiểm trần chiều cao, không kiểm sàn. */
+const LOW_POSE = new Set<AnimationName>(['death', 'revive', 'deathsword', 'deathstaff', 'revivesword', 'revivestaff']);
 
 /**
  * Cổng chất lượng — chạy SAU chuẩn hoá/dọn dẹp, trên đúng dữ liệu sẽ đóng vào atlas.

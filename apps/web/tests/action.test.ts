@@ -118,6 +118,8 @@ function setup(withActions: boolean) {
 	const p = new Actor('hero', fakeTextures(withActions), 40, 100, 'S', null);
 	combat.setPlayer(p);
 	combat.addDummy(100, 100);
+	// Luật 10/10/2026: phép mốc 1 của nguyên tố phải học bằng điểm (chưa nhận mốc nào chỉ có Trảm + Tia Aether) — test ra Hoả Cầu.
+	combat.setTalents({ sword: 1, fire: 1, water: 1, wind: 1, ice: 1, earth: 1 });
 	const east = { x: 100, y: 100 - p.chest };
 	const south = { x: 40, y: 300 };
 	// Thứ tự giống Game.update: actor (CharacterView) → combat.

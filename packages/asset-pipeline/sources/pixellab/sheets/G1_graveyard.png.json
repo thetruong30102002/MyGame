@@ -1,0 +1,20 @@
+{
+	"description": "A sprite sheet of NINE separate small graveyard props arranged in a 3 by 3 grid, each small and centered in its own cell, in this exact order left to right, top to bottom: rounded gray stone tombstone; gray stone cross grave marker; cracked broken gray tombstone with a missing top corner; low mound of dark brown earth over a grave with a few dry grass tufts; wide short section of black wrought iron cemetery fence with spiked tops spanning the whole cell width; small pile of three white skulls; closed dark wooden coffin lying on the ground; old iron lantern hanging on a thin wooden post glowing with pale green ghost light; dead leafless gray thorny bush, drawn in straight FRONT VIEW like the reference (facing the camera, slight top-down), thick dark outline, soft cel shading, muted gloomy colors, every object fully separate on a plain flat solid bright magenta (#FF00FF) chroma-key background with wide empty space around it, no ground, no shadow puddles, no text, no numbers, no characters",
+	"width": 192,
+	"height": 192,
+	"no_background": false,
+	"seed": 21,
+	"style_options": {
+		"color_palette": false,
+		"outline": true,
+		"shading": true,
+		"detail": false
+	},
+	"style_image": {
+		"path": "D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/N1_nature.png",
+		"usage_description": "Copy ONLY the art style of this reference: chunky chibi pixel art, thick dark outline on every shape, soft cel shading, front-facing view, one small object centered in each cell of the 3 by 3 grid. Do not copy these objects or their colors."
+	},
+	"jobId": "6fd698b8-2de3-40d2-b3d7-926762b29893",
+	"token": 1,
+	"createdAt": "2026-10-09T23:10:52.840Z"
+}

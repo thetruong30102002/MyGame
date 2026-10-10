@@ -1,0 +1,16 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a green plus cross inside a round blue water drop, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/water+green.png",
+	"jobId": "3c6dc49e-df7c-425c-bfe9-a0a7d4bc184e",
+	"token": 1,
+	"createdAt": "2026-10-09T19:05:11.812Z",
+	"note": "bản thử B (10/10/2026) dùng làm bản chính — cùng cách vẽ v2"
+}

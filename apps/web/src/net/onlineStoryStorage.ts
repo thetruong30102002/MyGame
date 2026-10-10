@@ -6,7 +6,13 @@ export function onlineStoryStorage(s: OnlineSession): StoryStorage {
 	return {
 		load() {
 			const d = s.progress.story as SaveData | null;
-			return d && d.version === 2 ? d : null;
+			if (!d || d.version !== 2) return null;
+			// Cấp do máy chủ giữ (M3.3a): bản sao trong bản lưu truyện có thể chậm hơn — StoryDirector kẹp / chuyển điểm tiềm năng
+			// (`cleanTalents`, `migrateTalentsV2`) theo cấp THẬT, không thì chuyển bản lưu có thể hạ mốc oan. Ghi thẳng vào object
+			// (không chép): StoryDirector giữ đúng object của `progress.story` như trước.
+			const level = Number(s.progress.level);
+			if (Number.isFinite(level) && level >= 1 && d.player) d.player.level = level;
+			return d;
 		},
 		save(data) {
 			s.progress.story = data;

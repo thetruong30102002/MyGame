@@ -13,3 +13,8 @@ dist/
 packages/asset-pipeline/reports/
 apps/web/next-env.d.ts
 *.tsbuildinfo
+.aether-stage/
+__pycache__/
+# Bản lưu trữ cục bộ trước khi xoá nhân vật trên PixelLab (zip lớn) + bản .bak của hiệu ứng vẽ lại — không đưa lên git.
+packages/asset-pipeline/sources/pixellab/_archive/
+*.bak/

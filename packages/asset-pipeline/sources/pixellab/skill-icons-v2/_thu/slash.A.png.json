@@ -1,0 +1,14 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a steel sword with one curved white slash arc, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "flat shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"jobId": "453aec50-9685-43e9-b53c-fac52d871669",
+	"token": 1,
+	"createdAt": "2026-10-09T19:04:33.313Z"
+}

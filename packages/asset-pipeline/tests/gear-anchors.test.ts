@@ -83,8 +83,9 @@ test('khung trống → null; annotateAtlas ghi `gear` cho khung có hình, xoá
 	assert.equal(json.frames.b.gear, undefined);
 });
 
-// Atlas thật (nếu đã xuất): số đo kiểm bằng mắt trên ảnh debug ngày 08/10/2026 — găng tay idle_S của hero nam ở hàng
-// 45–58 (cột 21–25 và 47–52), đỉnh tóc hàng 8. Lệch quá 3px nghĩa là thuật toán (hoặc atlas) đã đổi — xem lại bằng mắt.
+// Atlas thật (nếu đã xuất): số đo kiểm bằng mắt trên ảnh debug ngày 09/10/2026 (nhân vật người chơi MỚI, ô 112×112, chân y=100) —
+// găng tay idle_S của hero nam quanh (42,71) và (69,70), đỉnh tóc hàng 26. Lệch quá 3px nghĩa là thuật toán (hoặc atlas) đã đổi —
+// xem lại bằng mắt. (Neo vai `back` đang rơi vào mặt vì khăn quàng che chỗ thắt cổ — chưa kiểm, xử khi làm áo choàng ở Mốc 3.)
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../../..');
 const atlas = join(ROOT, 'apps/web/public/assets/characters/player_hero_adult/player_hero_adult');
 if (existsSync(`${atlas}.json`)) {
@@ -93,9 +94,9 @@ if (existsSync(`${atlas}.json`)) {
 		const f = json.frames['player_hero_adult/idle_S_0']!;
 		const a = computeGearAnchors(crop(readPng(`${atlas}.png`), f.frame.x, f.frame.y, f.frame.w, f.frame.h))!;
 		const near = (p: [number, number], q: [number, number]) => Math.abs(p[0] - q[0]) <= 3 && Math.abs(p[1] - q[1]) <= 3;
-		assert.ok(near(a.handL, [21, 57]), `handL ${a.handL}`);
-		assert.ok(near(a.handR, [52, 57]), `handR ${a.handR}`);
-		assert.ok(near(a.top, [37, 8]), `top ${a.top}`);
+		assert.ok(near(a.handL, [42, 71]), `handL ${a.handL}`);
+		assert.ok(near(a.handR, [69, 70]), `handR ${a.handR}`);
+		assert.ok(near(a.top, [55, 26]), `top ${a.top}`);
 		assert.deepEqual(f.gear, a, 'atlas đã xuất phải mang đúng neo của thuật toán hiện tại (chạy `npm run assets:anchors`)');
 	});
 }

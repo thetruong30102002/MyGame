@@ -1,0 +1,20 @@
+{
+	"description": "A sprite sheet of NINE separate small props arranged in a 3 by 3 grid, each small and centered in its own cell: tall hexagonal basalt column cluster, cluster of sharp obsidian crystals, small bubbling lava pool, cluster of yellow sulfur crystals, small smoking fumarole cone, patch of glowing red fire moss, cooled lava rock with orange cracks, pile of grey ash, red fire flower, drawn in straight FRONT VIEW like the reference (facing the camera, slight top-down), thick dark outline, soft cel shading, every object fully separate on a plain flat solid bright magenta (#FF00FF) chroma-key background with wide empty space around it, no ground, no shadow puddles, no text, no characters",
+	"width": 192,
+	"height": 192,
+	"no_background": false,
+	"seed": 11,
+	"style_options": {
+		"color_palette": false,
+		"outline": true,
+		"shading": true,
+		"detail": false
+	},
+	"style_image": {
+		"path": "D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/N1_nature.png",
+		"usage_description": "Copy ONLY the art style of this reference: chunky chibi pixel art, thick dark outline on every shape, soft cel shading, front-facing view. Do not copy these objects or their colors."
+	},
+	"jobId": "4cc8b7e7-96b0-42c6-ad10-66ddbf167cb4",
+	"token": 1,
+	"createdAt": "2026-10-09T15:17:23.286Z"
+}

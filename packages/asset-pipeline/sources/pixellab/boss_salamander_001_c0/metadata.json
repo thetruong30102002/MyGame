@@ -1,0 +1,36 @@
+{
+  "group_id": "a96f51cf-5c28-4aee-a535-bd037d3a05ee",
+  "states": [
+    {
+      "character": {
+        "id": "556c619e-e494-471e-804a-a3218c2f575f",
+        "name": "Idle",
+        "prompt": "Chibi RPG monster pixel art sprite, a giant fire salamander boss facing the viewer head-on, its head pointing straight at the viewer, low wide lizard body seen from the front, four short thick legs splayed out to both sides with clawed feet planted, a long heavy tail stretching straight out BEHIND its body away from the head, in this front view the tail is hidden behind the body with only the tail tip peeking out behind one hind leg, smooth glossy jet-black skin with bright yellow-orange spots, a frill of flickering flame gills around its neck like a mane, small glowing orange eyes, symmetrical front view",
+        "size": {
+          "width": 128,
+          "height": 128
+        },
+        "template_id": "custom",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-10-09T16:00:36.226458+00:00"
+      },
+      "folder": "Idle",
+      "frames": {
+        "rotations": {
+          "south": "Idle/rotations/south.png",
+          "south-east": "Idle/rotations/south-east.png",
+          "east": "Idle/rotations/east.png",
+          "north-east": "Idle/rotations/north-east.png",
+          "north": "Idle/rotations/north.png",
+          "north-west": "Idle/rotations/north-west.png",
+          "west": "Idle/rotations/west.png",
+          "south-west": "Idle/rotations/south-west.png"
+        },
+        "animations": {}
+      }
+    }
+  ],
+  "export_version": "3.1",
+  "export_date": "2026-10-09T16:03:29.980597"
+}

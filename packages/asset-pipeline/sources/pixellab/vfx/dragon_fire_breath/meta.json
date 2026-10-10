@@ -1,0 +1,31 @@
+{
+	"id": "dragon_fire_breath",
+	"kind": "burst",
+	"canvas": {
+		"w": 192,
+		"h": 192
+	},
+	"first": {
+		"prompt": "a wide cone of roaring orange and golden dragon fire breath blowing to the right, white-hot core, black smoke curls and flying embers at the edges, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "ca78715a-f20b-4767-9d1f-1985173b96d0"
+	},
+	"action": "the fire breath roars forward to the right widening like a cone, flames churn and embers scatter, then it burns out into smoke and fades",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "e6de7f19-8b3a-4fa0-9e92-95c51888b36c",
+	"createdAt": "2026-10-09T16:35:55.107Z",
+	"token": 1
+}

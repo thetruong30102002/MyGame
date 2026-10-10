@@ -1,0 +1,20 @@
+{
+	"description": "A sprite sheet of NINE separate game UI skill icons arranged in a 3 by 3 grid, in this order left to right then top to bottom, each centered in its own cell: a thin sharp crescent of green wind slicing forward; a small green spiral vortex pulling leaves into its center; a long green dash arrow pointing right with small wind blades; three green wind crescents fanning out from one point; a tall dark green tornado funnel touching the ground; a green-fletched arrow flying along a long dashed range line; a billowing white sail full of green wind; a calm green eye inside a ring of dark storm clouds; a crooked enemy arrow twisted by a green gust swirl. Color theme: mint and jade green wind with white streaks. Chunky pixel art icons in the same style as the reference, thick dark outline, soft cel shading, bold readable silhouettes, every icon fully separate on a plain flat solid bright magenta (#FF00FF) chroma-key background with wide empty space around it, no text, no letters, no numbers, no frames, no borders",
+	"width": 192,
+	"height": 192,
+	"no_background": false,
+	"seed": 7,
+	"style_options": {
+		"color_palette": false,
+		"outline": true,
+		"shading": true,
+		"detail": true
+	},
+	"style_image": {
+		"path": "sources/pixellab/sheets/I1_icons.png",
+		"usage_description": "Copy ONLY the art style of this reference: chunky pixel art UI icons, thick dark outline, soft cel shading, one icon centered per grid cell on magenta. Do not copy these objects or their colors."
+	},
+	"jobId": "2c3259d9-18f3-4c0f-b2ec-7edd4e42175d",
+	"token": 1,
+	"createdAt": "2026-10-09T18:08:52.137Z"
+}

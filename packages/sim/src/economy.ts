@@ -44,5 +44,17 @@ export function addExp(level: number, exp: number, gain: number): { level: numbe
 	return { level: lv, exp: lv >= MAX_LEVEL ? 0 : x, levelsGained: lv - level };
 }
 
+/**
+ * Phần EXP được nhận từ một nguồn bị chặn ở cấp `cap` (khu tuổi thơ — `mobs.CHILD_ZONE_LEVEL_CAP`): nhiều nhất tới sát mốc lên cấp
+ * `cap + 1` (đứng ở cấp `cap`, thanh EXP thiếu 1). Đã quá `cap` thì 0. Dùng chung cho client (chơi một mình) và máy chủ.
+ */
+export function capExpGain(level: number, exp: number, gain: number, cap: number): number {
+	const g = Math.max(0, Math.floor(gain));
+	if (level > cap) return 0;
+	let room = expForLevel(level) - exp;
+	for (let lv = level + 1; lv <= cap; lv += 1) room += expForLevel(lv);
+	return Math.max(0, Math.min(g, room - 1));
+}
+
 /** Lý do một lần thay đổi (hiện ở client + nhật ký). */
 export type EcoReason = 'kill' | 'quest' | 'boss' | 'checkin' | 'spend' | 'potion' | 'admin';

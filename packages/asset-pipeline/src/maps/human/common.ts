@@ -37,6 +37,16 @@ export interface MonsterZone {
 	count: number;
 	/** `fromAge`: chỉ sinh khi đủ tuổi; `onDemand`: chỉ sinh khi nhiệm vụ gọi (`onGive.zone`). */
 	fromAge?: number;
+	/**
+	 * Chỉ sinh tới HẾT tuổi này (`untilAge: 15` = trẻ 8 tuổi thấy, người 16+ không thấy — `@aether/sim/mobs` `zoneLiveAt`). Khu tuổi
+	 * thơ dùng chung map với người lớn — thiết kế 12 map vùng 1, 10/10/2026.
+	 */
+	untilAge?: number;
+	/**
+	 * Cấp quái của khu (`@aether/sim` `enemyStatsAt`): cùng một loại quái ở map sau mạnh hơn. Vắng = chỉ số gốc của
+	 * `ENEMY_STATS` (6 map cũ của vùng 1 giữ nguyên số).
+	 */
+	level?: number;
 	onDemand?: boolean;
 	/** Boss của vùng (1 con, hiện thanh máu boss): KHÔNG tính vào luật "mỗi map một loại quái". */
 	boss?: boolean;
@@ -69,6 +79,18 @@ export interface MapData {
 }
 
 export const px = (t: number): number => Math.round(t * TILE + TILE / 2);
+
+/**
+ * Điểm sinh từng con của một bầy (px) — CHÉP ĐÚNG công thức `zoneSpawnPoints` của `@aether/sim/mobs` (máy chủ + client sinh quái
+ * ở đó; pipeline không phụ thuộc gói sim). `apps/web/tests/nav.test.ts` kiểm lại mọi điểm sinh bằng hàm thật của sim.
+ */
+export function herdSpawnPoints(z: Pick<MonsterZone, 'x' | 'y' | 'radius' | 'count'>): { x: number; y: number }[] {
+	return Array.from({ length: z.count }, (_, i) => {
+		const a = (i / z.count) * Math.PI * 2;
+		const r = z.radius * (0.3 + (0.6 * ((i * 37) % 10)) / 10);
+		return { x: z.x + Math.cos(a) * r, y: z.y + Math.sin(a) * r };
+	});
+}
 
 interface PlaceOpts {
 	force?: boolean;
@@ -133,6 +155,14 @@ export class Layout {
 
 	reserve(x: number, y: number, r: number): void {
 		this.keepOut.push({ x, y, r });
+	}
+
+	/**
+	 * Giữ trống chỗ sinh từng con của bầy (`herdSpawnPoints`, bán kính `r` ô quanh mỗi điểm): đồ vật đặt KHÔNG ép tránh ra. Quái
+	 * sinh trong chân đồ vật chặn thì kẹt luôn (bước nào cũng còn đè chân) — gọi TRƯỚC khi rải bia / gò mộ trong khu bầy.
+	 */
+	keepSpawnsClear(z: Pick<MonsterZone, 'x' | 'y' | 'radius' | 'count'>, r = 0.75): void {
+		for (const p of herdSpawnPoints(z)) this.reserve(p.x / TILE, p.y / TILE, r);
 	}
 
 	/** Đặt một đồ vật, neo ở giữa mép dưới (px). Kiểm chồng hình và không đè lên đường/nước (trừ khi `force`). */

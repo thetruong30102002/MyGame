@@ -1,0 +1,10 @@
+{
+	"description": "a green plus cross inside a round blue water drop, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "flat shading",
+	"detail": "low detail",
+	"seed": 4242
+}

@@ -18,11 +18,53 @@
 			"attack": [
 				"attack",
 				"attack-v3"
+			],
+			"idlesword": [
+				"idle-sword2",
+				"idle-sword"
+			],
+			"walksword": [
+				"walk-sword2",
+				"walk-sword"
+			],
+			"idlestaff": [
+				"idle-staff2",
+				"idle-staff"
+			],
+			"walkstaff": [
+				"walk-staff2",
+				"walk-staff"
+			],
+			"hitsword": [
+				"hit-sword2",
+				"hit-sword"
+			],
+			"hitstaff": [
+				"hit-staff2",
+				"hit-staff"
+			],
+			"dodgesword": [
+				"dodge-sword2",
+				"dodge-sword"
+			],
+			"dodgestaff": [
+				"dodge-staff2",
+				"dodge-staff"
+			],
+			"deathsword": [
+				"death-sword2",
+				"death-sword"
+			],
+			"deathstaff": [
+				"death-staff2",
+				"death-staff"
 			]
 		},
 		"mirrorWest": true,
 		"reverse": {
-			"revive": "death"
+			"revive": "death",
+			"revivesword": "deathsword",
+			"revivestaff": "deathstaff"
 		}
 	},
 	"frameSize": {
@@ -37,6 +79,26 @@
 			"maxFrames": 8
 		},
 		"walk": {
+			"fps": 10,
+			"minFrames": 6,
+			"maxFrames": 8
+		},
+		"idlesword": {
+			"fps": 6,
+			"minFrames": 4,
+			"maxFrames": 8
+		},
+		"walksword": {
+			"fps": 10,
+			"minFrames": 6,
+			"maxFrames": 8
+		},
+		"idlestaff": {
+			"fps": 6,
+			"minFrames": 4,
+			"maxFrames": 8
+		},
+		"walkstaff": {
 			"fps": 10,
 			"minFrames": 6,
 			"maxFrames": 8
@@ -202,6 +264,54 @@
 			"minFrames": 4,
 			"maxFrames": 16,
 			"optional": true
+		},
+		"hitsword": {
+			"fps": 14,
+			"minFrames": 4,
+			"maxFrames": 16,
+			"optional": true
+		},
+		"hitstaff": {
+			"fps": 14,
+			"minFrames": 4,
+			"maxFrames": 16,
+			"optional": true
+		},
+		"dodgesword": {
+			"fps": 16,
+			"minFrames": 4,
+			"maxFrames": 16,
+			"optional": true
+		},
+		"dodgestaff": {
+			"fps": 16,
+			"minFrames": 4,
+			"maxFrames": 16,
+			"optional": true
+		},
+		"deathsword": {
+			"fps": 10,
+			"minFrames": 4,
+			"maxFrames": 16,
+			"optional": true
+		},
+		"revivesword": {
+			"fps": 10,
+			"minFrames": 4,
+			"maxFrames": 16,
+			"optional": true
+		},
+		"deathstaff": {
+			"fps": 10,
+			"minFrames": 4,
+			"maxFrames": 16,
+			"optional": true
+		},
+		"revivestaff": {
+			"fps": 10,
+			"minFrames": 4,
+			"maxFrames": 16,
+			"optional": true
 		}
 	},
 	"cleanup": {
@@ -211,6 +321,10 @@
 		"maxHeightDrift": 0.15,
 		"weaponAnims": {
 			"animations": [
+				"idlesword",
+				"walksword",
+				"idlestaff",
+				"walkstaff",
 				"attack",
 				"backslash",
 				"thrust",
@@ -231,9 +345,17 @@
 				"skycall",
 				"stomp",
 				"ultimate",
-				"drink"
+				"drink",
+				"hitsword",
+				"hitstaff",
+				"dodgesword",
+				"dodgestaff",
+				"deathsword",
+				"revivesword",
+				"deathstaff",
+				"revivestaff"
 			],
-			"reason": "09/10/2026: động tác vẽ trên PHIÊN BẢN cầm kiếm / trượng (create_character_state, gói trả phí) — bình thuốc đỏ lúc uống, kiếm thép, trượng gỗ đầu pha lê xanh là chủ ý, không phải vật lạ."
+			"reason": "09/10/2026: động tác vẽ trên PHIÊN BẢN cầm kiếm / trượng (create_character_state, gói trả phí) — bình thuốc đỏ lúc uống, kiếm thép, trượng gỗ đầu pha lê xanh là chủ ý, không phải vật lạ. 10/10/2026: đứng / đi cầm kiếm (kiếm thép) + cầm trượng (trượng gỗ đầu pha lê xanh) vẽ trên CÙNG phiên bản — vũ khí liền tay là chủ ý. 10/10/2026 (lượt 2): trúng đòn / lướt né / gục / uống bình cầm kiếm + cầm trượng (`hitsword`… — PixelLab `hit-sword`…) vẽ trên CÙNG phiên bản Sword / Staff — vũ khí liền tay là chủ ý; lúc gục vũ khí rơi khỏi tay nằm cạnh người, đứng dậy = gục phát ngược."
 		},
 		"driftAnims": {
 			"vanish": 0.35,
@@ -249,14 +371,22 @@
 			"stomp": 0.25,
 			"skycall": 0.3,
 			"spin": 0.25,
-			"flurry": 0.25
+			"flurry": 0.25,
+			"hitsword": 0.3,
+			"hitstaff": 0.3,
+			"dodgesword": 0.3,
+			"dodgestaff": 0.3,
+			"deathsword": 0.9,
+			"revivesword": 0.9,
+			"deathstaff": 0.9,
+			"revivestaff": 0.9
 		}
 	},
 	"provisional": [],
-	"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1). Thiết kế người chơi mới thay bản tóc bạc (nay là NPC npc_silver_*). Thân mặc đồ tân thủ để giáp các bậc phủ lên (Mốc 3); tóc nâu trung tính để đổi màu bằng code. Động tác: v3 8–12 khung trên phiên bản Sword / Staff cùng nhóm (khung nới 108 → đệm + chuẩn hoá vào ô 112); revive = death phát ngược.",
+	"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1). Thiết kế người chơi mới thay bản tóc bạc (nay là NPC npc_silver_*). Thân mặc đồ tân thủ để giáp các bậc phủ lên (Mốc 3); tóc nâu trung tính để đổi màu bằng code. Động tác: v3 8–12 khung trên phiên bản Sword / Staff cùng nhóm (khung nới 108 → đệm + chuẩn hoá vào ô 112); revive = death phát ngược. | 10/10/2026 (chủ dự án: \"cầm kiếm tự gắn vào xấu\" — cầm vũ khí suốt, bỏ hướng tay không): đứng / đi cầm vũ khí vẽ trên phiên bản Sword / Staff — `idlesword` / `walksword` / `idlestaff` / `walkstaff` ← PixelLab `idle-<món>` / `walk-<món>` (`<tên>2` = vẽ lại từng hướng, ưu tiên). Đi: mẫu walking-8-frames chế độ skeleton-v3 (mẫu thường làm RƠI kiếm / trượng ở hướng ngang); đứng: mẫu breathing-idle hoặc v3 4 khung. Game chọn bản theo vũ khí đang cầm (`gearLayers.heldArt`). Bản tay không (`<động tác>-hand*`, vẽ 09/10 tối) giữ trong nguồn làm lưu trữ, spec không dùng. | 10/10/2026 (lượt 2 — chủ dự án: \"vẽ nốt\"): động tác thân cầm vũ khí vẽ trên phiên bản Sword / Staff — `<động tác>sword` / `<động tác>staff` ← PixelLab `<động tác>-sword` / `-staff` (`<tên>2` = vẽ lại từng hướng, ưu tiên); v3 cùng số khung + cùng mô tả chuyển động với bản tay không, thêm câu giữ vũ khí; gục: vũ khí rơi khỏi tay nằm cạnh người; `revive<món>` = `death<món>` phát ngược. Game diễn bản cầm khi đang cầm món đó (`CharacterView.actionArt`), thiếu bản / thiếu hướng thì bản tay không. Đã vẽ: trúng đòn, lướt né, gục (cầm kiếm + cầm trượng). Uống bình cầm vũ khí CHƯA vẽ: atlas 16 tuổi hết chỗ (1238 ô 112px, trần 36×36 = 1296 ô lề 1px) — cần atlas 2 trang trước.",
 	"review": {
 		"status": "approved",
-		"date": "09/10/2026",
-		"notes": "Duyệt bằng mắt từng động tác (E/S/N + lật gương tây): 25 động tác — 13 kiếm trên phiên bản Sword, 7 phép trên phiên bản Staff, lướt / trúng đòn / gục / uống bình trên thân tay không; revive = gục phát ngược. Kiếm thép, trượng gỗ đầu pha lê xanh liền tay suốt chuỗi khung; tóc, khăn xanh rêu, áo vải + gi-lê nhất quán. Khung lạ đã chấp nhận ghi ở quality.allowForeign."
+		"date": "10/10/2026",
+		"notes": "Duyệt bằng mắt từng động tác (E/S/N + lật gương tây): 25 động tác — 13 kiếm trên phiên bản Sword, 7 phép trên phiên bản Staff, lướt / trúng đòn / gục / uống bình trên thân tay không; revive = gục phát ngược. Kiếm thép, trượng gỗ đầu pha lê xanh liền tay suốt chuỗi khung; tóc, khăn xanh rêu, áo vải + gi-lê nhất quán. Khung lạ đã chấp nhận ghi ở quality.allowForeign. | 10/10/2026: đứng / đi cầm kiếm thép + cầm trượng (5 hướng vẽ + lật gương tây): vũ khí liền tay mọi khung, cùng dáng ảnh xoay, đúng hướng. Đi kiếm S = mẫu thường, còn lại skeleton-v3; đi trượng E vẽ lại v3 (`walk-staff2` — skeleton-v3 mất trượng 4 khung đầu); đứng kiếm = mẫu breathing-idle, đứng trượng = v3. | 10/10/2026 (lượt 2): trúng đòn / lướt / gục cầm kiếm thép + cầm trượng (E/S/N + lật gương tây, tấm `reports/player_hero_adult/held-review-body-*.png`): vũ khí liền tay đúng dáng ảnh xoay, đúng hướng, chân trên vạch, cùng số khung bản tay không; gục: vũ khí rơi nằm cạnh người, một món. Vẽ lại (`<tên>2`): trúng đòn kiếm S (kiếm vung sang tay kia), N (quay mặt ra người xem), lướt kiếm S (kiếm chuyển tay), trúng đòn trượng E (mất pha lê 2 khung, xoay 3/4), lướt trượng N (trượng nhảy sang trái). Lỗi nhẹ giữ: lướt kiếm N khung 2–3 kiếm khuất sau thân; gục kiếm N khung 6–7 kiếm khuất dưới người."
 	}
 }

@@ -89,6 +89,14 @@ tailscale funnel --https=8443 off                                # gỡ link cũ
   Services không dùng được ở đây: host của Services phải là thiết bị **gắn tag**, còn `admin` là máy đăng nhập bằng
   tài khoản (gắn tag cho nó là đổi cách máy đăng nhập). Lệnh `funnel` (1.102.2) cũng không có `--service`.
 - Funnel chỉ chuyển tiếp: tắt `next start` hoặc máy chủ game (tắt máy, đóng phiên) thì link trả 502 cho tới khi chạy lại.
+- **Chạy bản thật TÁCH khỏi phiên Claude / cửa sổ terminal** (đã dẫm 10/10/2026: web + máy chủ game chạy làm việc nền của một
+  phiên Claude, đóng phiên là cả hai tắt theo, link 502 suốt ~4 giờ). Tiến trình con của Node trên Windows nằm trong job "tắt
+  theo cha", kể cả `Start-Process`; tạo qua WMI thì cha là dịch vụ WMI nên sống độc lập (PowerShell):
+  `Invoke-CimMethod -ClassName Win32_Process -MethodName Create -Arguments @{ CommandLine = 'cmd.exe /c "npx tsx src\main.ts >> data\server.log 2>&1"'; CurrentDirectory = 'D:\nttrg\pixel\apps\server' }`
+  và tương tự `node scripts\start-funnel.mjs >> funnel.log 2>&1` ở `apps\web`. Tắt: `taskkill /PID <pid đang nghe cổng> /T /F`.
+- Triển khai hình mới: dựng thử vào `.aether-stage/assets` (web thử :3102 đọc thư mục này trước qua máy chủ tài nguyên thử
+  :3105 — `apps/web/scripts/dev-test.mjs`, `stage-assets.mjs`), duyệt xong thì chép sang `apps/web/public/assets` ngay trước khi
+  khởi động lại máy chủ game + `start:funnel` (máy chủ đọc map trong public và giữ đệm theo file — phải khởi động lại).
 - Chia sẻ bản **production**, đừng chia sẻ `next dev`: dev chậm, kèm overlay lỗi và HMR.
 
 Phản ứng nguyên tố: **Thuỷ** vào mục tiêu đang cháy → *Hơi Nước*; **Phong** vào mục tiêu đang cháy → *Bùng Lửa* (nổ lan);

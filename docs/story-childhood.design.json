@@ -235,7 +235,7 @@
    "objectiveDetail": "practice:aether:5 | dummy=dummy_backyard | onGive.unlock=staff | turnIn=mother_elin",
    "objectiveText": "Tung Tia Aether vào Ông Rơm ở sân sau ({n}/{total})",
    "rewardExp": 20,
-   "rewardOther": "unlockSkill=fire (Hoả Cầu, phím 1: Lior nhìn sợi lửa trong bếp của mẹ) · hiện thanh kỹ năng + MP · dạy nhắm chuột + K · quà của mẹ: Trượng gỗ (nhận ngay khi giao việc)",
+   "rewardOther": "unlockSkill=fire (mở nhánh Hoả — Hoả Cầu học bằng điểm tiềm năng, phím 1: Lior nhìn sợi lửa trong bếp của mẹ) · hiện thanh kỹ năng + MP · dạy nhắm chuột + K · quà của mẹ: Trượng gỗ (nhận ngay khi giao việc)",
    "dialogueBefore": [
     {
      "speaker": "narrator",
@@ -396,8 +396,9 @@
    "objectiveType": "practice",
    "objectiveDetail": "practice:fire:3 | dummy=dummy_backyard | turnIn=mother_elin",
    "objectiveText": "Tung Hoả Cầu vào Ông Rơm, tránh cái mũ ({n}/{total})",
+   "objectiveTextAether": "Tung Tia Aether vào Ông Rơm, tránh cái mũ ({n}/{total})",
    "rewardExp": 25,
-   "rewardOther": "unlockSkill=water (Thuỷ Tiễn, phím 2: Lior nhìn sợi nước trong xô nước mẹ dội) · potions=1 (Bình mật ong của mẹ) · kết mốc 6 tuổi",
+   "rewardOther": "unlockSkill=water (mở nhánh Thuỷ — Thuỷ Tiễn học bằng điểm tiềm năng, phím 2: Lior nhìn sợi nước trong xô nước mẹ dội) · potions=1 (Bình mật ong của mẹ) · kết mốc 6 tuổi",
    "dialogueBefore": [
     {
      "speaker": "mother_elin",
@@ -417,7 +418,7 @@
     },
     {
      "speaker": "narrator",
-     "line": "(Phím 1: Hoả Cầu. Tốn MP và phải chờ hồi chiêu; MP tự hồi dần.)"
+     "line": "(Nhánh Hoả đã mở: có điểm tiềm năng thì học Hoả Cầu ở bảng Tiềm năng (P) — phím 1, tốn MP và phải chờ hồi chiêu. Chưa học thì tung Tia Aether (K) vào Ông Rơm cũng được.)"
     }
    ],
    "dialogueAfter": [
@@ -431,7 +432,7 @@
     },
     {
      "speaker": "inner",
-     "line": "Phép của mẹ không lớn: một bát nước, một ngọn lửa bếp. Nhưng mẹ vừa chỉ cho tôi sợi tơ thứ ba. (Thuỷ Tiễn, phím 2.)"
+     "line": "Phép của mẹ không lớn: một bát nước, một ngọn lửa bếp. Nhưng mẹ vừa chỉ cho tôi sợi tơ thứ ba. (Mở nhánh Thuỷ — học Thuỷ Tiễn ở bảng Tiềm năng (P) khi có điểm.)"
     },
     {
      "speaker": "mother_elin",
@@ -455,7 +456,7 @@
    "objectiveDetail": "kill:mob_mushroom_001:3 | onGive.zone=mossvale_edge | turnIn=kid_aldric_forest",
    "objectiveText": "Hạ nấm rừng đang vây Aldric ở bìa rừng ({n}/{total})",
    "rewardExp": 40,
-   "rewardOther": "unlockSkill=wind (Phong Nhận, phím 3: từ bài đọc gió của cha) · potions=1 (mẹ dúi vào túi cha từ sáng) · dạy Space (lăn né) + R (uống thuốc) + Hơi Nước · lời ngoéo tay với Aldric (trả ở chương 16 tuổi)",
+   "rewardOther": "unlockSkill=wind (mở nhánh Phong — Phong Nhận học bằng điểm tiềm năng, phím 3: từ bài đọc gió của cha) · potions=1 (mẹ dúi vào túi cha từ sáng) · dạy Space (lăn né) + R (uống thuốc) + Hơi Nước · lời ngoéo tay với Aldric (trả ở chương 16 tuổi)",
    "dialogueBefore": [
     {
      "speaker": "lior",
@@ -479,7 +480,7 @@
     },
     {
      "speaker": "narrator",
-     "line": "(J: chém kiếm khi nấm áp sát · K: Tia Aether từ xa · Space: lăn né, tốn thể lực · R: uống bình mật ong của mẹ · mẹo: Hoả Cầu rồi Thuỷ Tiễn vào cùng một con nấm sẽ ra Hơi Nước!)"
+     "line": "(J: chém kiếm khi nấm áp sát · K: Tia Aether từ xa · Space: lăn né, tốn thể lực · R: uống bình mật ong của mẹ · mẹo: đã học Hoả Cầu và Thuỷ Tiễn (bảng Tiềm năng, P) thì bắn cả hai vào cùng một con nấm sẽ ra Hơi Nước!)"
     },
     {
      "speaker": "father_garrick",
@@ -525,6 +526,7 @@
    "objectiveType": "practice",
    "objectiveDetail": "practice:wind:3 | giver=null (tự nhận ngay sau c8_forest_edge) | dummy=dummy_riverside (đánh Thuỷ Tiễn trước để Ông Rơm ướt, rồi Phong Nhận → Băng Giá) | turnIn=mother_elin",
    "objectiveText": "Thuỷ Tiễn rồi Phong Nhận vào Ông Rơm bên sông ({n}/{total})",
+   "objectiveTextAether": "Tung Tia Aether vào Ông Rơm bên sông ({n}/{total})",
    "rewardExp": 50,
    "rewardOther": "Kỷ vật “Khăn len của mẹ” · ghi nhận “Lần đan đầu tiên” (nguồn gốc trong truyện của phản ứng nguyên tố) · kết thúc tuổi thơ → thẻ time-skip (ageCards[16]) → y1_mushrooms · unlockSkill=ice",
    "dialogueBefore": [
@@ -554,7 +556,7 @@
     },
     {
      "speaker": "narrator",
-     "line": "(Phím 2: Thuỷ Tiễn làm ướt · phím 3: Phong Nhận. Gió trúng mục tiêu đang ướt sẽ ra Băng Giá!)"
+     "line": "(Thuỷ Tiễn làm ướt, rồi Phong Nhận: gió trúng mục tiêu đang ướt sẽ ra Băng Giá! Học hai phép này ở bảng Tiềm năng (P) khi có điểm — chưa học đủ thì tung Tia Aether (K) vào Ông Rơm cũng được.)"
     },
     {
      "speaker": "inner",
@@ -584,7 +586,7 @@
     },
     {
      "speaker": "narrator",
-     "line": "(Khuya hôm ấy, tôi tết sợi nước với sợi gió chặt thêm một vòng nữa. Lần này chúng không bay thành tuyết mà đông lại thành một mũi băng thật, lạnh buốt trong lòng bàn tay. Mở Băng Tiễn — phím 5. Băng trúng mục tiêu ướt sẽ Đóng Băng!)"
+     "line": "(Khuya hôm ấy, tôi tết sợi nước với sợi gió chặt thêm một vòng nữa. Lần này chúng không bay thành tuyết mà đông lại thành một mũi băng thật, lạnh buốt trong lòng bàn tay. Mở nhánh Băng — học Băng Tiễn ở bảng Tiềm năng (P) khi có điểm. Băng trúng mục tiêu ướt sẽ Đóng Băng!)"
     }
    ],
    "innerMonologue": [

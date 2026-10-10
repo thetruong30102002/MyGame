@@ -1,0 +1,36 @@
+{
+  "group_id": "66fab895-4747-4871-806e-42484bc7fd93",
+  "states": [
+    {
+      "character": {
+        "id": "7c60bde7-9f40-499d-91ce-6a193a2c551e",
+        "name": "Idle",
+        "prompt": "Chibi RPG monster pixel art sprite, a lumbering magma golem facing the viewer, hunched body mostly of glowing molten orange lava with a few floating black basalt chunks as armor on its shoulders and fists, oversized lava fists, a rusted bronze dwarven collar band with one glowing rune, two bright yellow eye slits",
+        "size": {
+          "width": 80,
+          "height": 80
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-10-09T15:02:14.754541+00:00"
+      },
+      "folder": "Idle",
+      "frames": {
+        "rotations": {
+          "south": "Idle/rotations/south.png",
+          "south-east": "Idle/rotations/south-east.png",
+          "east": "Idle/rotations/east.png",
+          "north-east": "Idle/rotations/north-east.png",
+          "north": "Idle/rotations/north.png",
+          "north-west": "Idle/rotations/north-west.png",
+          "west": "Idle/rotations/west.png",
+          "south-west": "Idle/rotations/south-west.png"
+        },
+        "animations": {}
+      }
+    }
+  ],
+  "export_version": "3.1",
+  "export_date": "2026-10-09T15:14:02.416421"
+}

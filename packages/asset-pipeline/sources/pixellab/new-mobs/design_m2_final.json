@@ -1,0 +1,957 @@
+{
+ "designs": [
+  {
+   "region": "Vùng 5 · Lãnh nguyên Băng Giá (Mốc 2, chương 5 \"Bức thư đến muộn\") · trạm: Làng gỗ Tuyết Phong",
+   "mobs": [
+    {
+     "id": "mob_snow_wolf_001",
+     "size": 80,
+     "template": "dog",
+     "name_vi": "Sói tuyết",
+     "map_vi": "Rừng Thông Tuyết",
+     "desc": "a stocky heavy-set snow wolf standing on four legs facing the viewer, bulky body with thick shaggy white fur, a huge lion-like mane matted with hanging icicles around its neck and chest, a dark charcoal-grey saddle of fur over its shoulders, outer forelegs, back and tail, dark charcoal-grey mask around pale ice-blue eyes, tall pointed upright charcoal-tipped ears, long broad wolf muzzle with a black nose, short thick legs, heavy wide paws with dark claws, thick bushy tail swept to one side so it shows"
+    },
+    {
+     "id": "mob_ice_wisp_001",
+     "size": 64,
+     "template": "custom",
+     "name_vi": "Tinh linh băng",
+     "map_vi": "Hồ Băng",
+     "desc": "a small floating ice spirit facing the viewer, a six-pointed snowflake-shaped body of translucent pale cyan ice crystals, a round frosted face in the center with glowing white eyes and a tiny sad mouth, little shard-like hands, a hairline crack across its face like cracked lake ice, snow sparkles drifting around it"
+    },
+    {
+     "id": "mob_snowman_001",
+     "size": 72,
+     "template": "custom",
+     "name_vi": "Người tuyết",
+     "map_vi": "Đèo Người Tuyết",
+     "desc": "a living snowman golem facing the viewer, three lumpy stacked snowballs with patches of packed grey ice, lumps of coal for eyes with faint blue glowing pupils, jagged icicle teeth, crooked pine branch arms, a dented old miner's helmet with a dead lantern on its head, a ragged brown wool scarf"
+    },
+    {
+     "id": "mob_war_penguin_001",
+     "size": 64,
+     "template": "custom",
+     "name_vi": "Chim cánh cụt chiến",
+     "map_vi": "Bờ Biển Băng",
+     "desc": "a stout battle penguin standing upright facing the viewer, glossy black back and white belly with a yellow-orange neck patch, wearing a dented brass ship's cooking pot as a helmet, a frayed rope tied around its waist, holding a sharp icicle spear in one flipper, fierce narrowed eyes"
+    },
+    {
+     "id": "mob_ice_bear_001",
+     "size": 80,
+     "template": "custom",
+     "name_vi": "Gấu băng",
+     "map_vi": "Hang Gấu",
+     "desc": "a heavy polar ice bear standing on four legs facing the viewer, thick creamy white fur, broad head with small round ears and a black nose, a ridge of jagged glowing blue Aether crystal spikes growing out of its back and shoulders, frost-crusted paws with dark claws, drowsy half-closed glowing blue eyes"
+    }
+   ],
+   "bosses": [
+    {
+     "id": "boss_ice_queen_001",
+     "size": 112,
+     "template": "mannequin",
+     "name_vi": "Nữ hoàng băng",
+     "role": "khu",
+     "lore_vi": "Một người mẹ của làng Tuyết Phong tự đóng băng mình để giữ mặt Hồ Băng khỏi vỡ trong trận bão. Băng ăn dần trí nhớ, bà không còn nhận ra con gái đang đứng ở bờ hồ. Trong tay bà vẫn nắm chiếc găng len nhỏ của con. Hạ bà là để bà được tan ra và nghỉ: cảnh đối chiếu thẳng với mẹ Lior đang ốm ở quê.",
+     "desc": "a sorrowful ice queen boss facing the viewer, a village mother turned into living ice, opaque frosted white-blue ice skin with frost cracks, a crown of jagged icicles, long hair frozen into icicles, a simple fur-trimmed village dress glazed over with ice, ankle-length with a frosted icicle hem, a small knitted child's mitten frozen in one hand, empty glowing white eyes"
+    },
+    {
+     "id": "boss_yeti_001",
+     "size": 128,
+     "template": "mannequin",
+     "name_vi": "Yeti",
+     "role": "khu",
+     "lore_vi": "Yeti chặn Đèo Người Tuyết vì đàn con đang trú phía sau. Nó không săn người, chỉ không cho ai đi qua. Người chơi có thể đánh, hoặc dẫn đàn con qua đèo trước rồi mới đi; đây cũng là nơi Nyra và Lior cãi nhau lần đầu.",
+     "desc": "a towering yeti boss facing the viewer, massive ape-like body covered in long shaggy blue-white fur, pale blue leathery face with a heavy brow, curved grey ram-like horns, very long arms with huge dark knuckles, icicles tangled in its fur, old claw scars across its broad chest, fierce protective glowing amber eyes"
+    },
+    {
+     "id": "boss_ice_guardian_001",
+     "size": 160,
+     "template": "custom",
+     "name_vi": "Nghê Băng",
+     "role": "chua",
+     "lore_vi": "Linh thú canh cửa do Hàn Sương tạc từ băng sông băng, nằm canh trước chiếc ngai băng bỏ trống ở cửa Long Huyệt. Một mũi máy hút bằng đồng của Kiến Trúc Sư cắm giữa hai vai nó, kéo sợi đỏ về Mối Băng cho hút nhanh hơn — chính là \"việc\" mà lá thư \"Đừng phá việc của tôi\" nhắc tới. Trong thân băng của nó đông cứng những bóng mờ: những điều người ta muốn quên (Hàn Sương giữ băng để quên). Hạ Nghê Băng, mũi máy gãy, cửa Long Huyệt mở.",
+     "desc": "a giant ice guardian lion-dog boss facing the viewer, an Asian temple guardian foo dog carved from translucent deep glacier-teal ice, standing on four sturdy legs, huge curly scroll-shaped mane and a big curly scroll-shaped tail of frosted ice, bulging glowing white eyes and a wide fanged grin, carved cloud swirl patterns on its chest, faint dark shadowy shapes frozen inside its ice body, a rusty brass machine spike jutting up from between its shoulders above its head, thin glowing red threads trailing from the spike"
+    }
+   ],
+   "anims": [
+    {
+     "id": "mob_snow_wolf_001",
+     "walk": "template:walk-8-frames",
+     "idle": "template:idle",
+     "attack": "v3:lunges forward and snaps its jaws, then shakes its fur and steps back",
+     "death": "v3:yelps, staggers and collapses onto its side, lying still"
+    },
+    {
+     "id": "mob_ice_wisp_001",
+     "walk": "v3:drifts forward through the air, spinning slowly, snow sparkles trailing behind",
+     "idle": "v3:hovers in place spinning slowly, its crystal points glinting, bobbing gently",
+     "attack": "v3:spins fast and flings sharp ice shards forward, then slows down",
+     "death": "v3:the crack across its face spreads, it shatters into falling ice shards and snow that settle on the ground"
+    },
+    {
+     "id": "mob_snowman_001",
+     "walk": "v3:waddles and slides forward, its stacked snowballs wobbling, branch arms swinging",
+     "idle": "v3:stands wobbling slightly, branch arms twitching, flakes of snow falling off",
+     "attack": "v3:swings both branch arms forward and hurls a snowball, then wobbles back",
+     "death": "v3:the snowballs topple apart and collapse into a heap of snow, the helmet rolling off onto the ground"
+    },
+    {
+     "id": "mob_war_penguin_001",
+     "walk": "v3:waddles forward rocking side to side on short legs, flippers held out",
+     "idle": "v3:stands upright shifting its weight from foot to foot, head turning, spear held ready",
+     "attack": "v3:dives into a belly slide forward and stabs with the icicle spear, then pops back up",
+     "death": "v3:topples over flat onto its belly, the pot helmet falling off, lying still"
+    },
+    {
+     "id": "mob_ice_bear_001",
+     "walk": "v3:lumbers forward heavily on four legs, head swinging low, crystal ridge glinting",
+     "idle": "v3:stands breathing slowly, drowsy head nodding, back crystals pulsing faintly",
+     "attack": "v3:charges forward and rams with its crystal-spiked shoulder, then stops",
+     "death": "v3:groans, sinks down and collapses onto its side as the crystal glow fades, lying still"
+    },
+    {
+     "id": "boss_ice_queen_001",
+     "walk": "template:walking-8-frames",
+     "idle": "template:breathing-idle",
+     "attack": "v3:raises both arms and sweeps them forward, freezing mist pouring from her hands, then lowers them slowly",
+     "death": "v3:the ice cracks and melts away from her body, she sinks gently to her knees and lies down on the ground at peace"
+    },
+    {
+     "id": "boss_yeti_001",
+     "walk": "template:walking-8-frames",
+     "idle": "template:breathing-idle",
+     "attack": "v3:beats its chest, then raises both huge fists and slams them down onto the ground, then straightens",
+     "death": "v3:staggers back, drops to its knees and falls forward onto the snow, lying still"
+    },
+    {
+     "id": "boss_ice_guardian_001",
+     "walk": "v3:prowls forward heavily on four legs, its curly ice mane and tail swaying",
+     "idle": "v3:stands guard breathing slowly, mane curls shimmering, the red threads on the spike flickering",
+     "attack": "v3:rears up on its hind legs and slams both front paws down onto the ground with a roar, then settles",
+     "death": "v3:the brass spike cracks loose, deep cracks spread through its ice body and it crumbles into a heap of ice blocks and snow"
+    }
+   ],
+   "props": [
+    {
+     "kind": "obj",
+     "name": "snow_log_cabin",
+     "w": 192,
+     "h": 192,
+     "desc": "a sturdy snow village log cabin of dark round timber logs, steep wooden roof piled with thick snow and hanging icicles, stone chimney with smoke, deer antlers above the door, fur pelts hanging on the wall, warm glowing window, straight front view"
+    },
+    {
+     "kind": "obj",
+     "name": "snow_ice_throne_gate",
+     "w": 192,
+     "h": 192,
+     "desc": "an empty grand throne carved from blue glacier ice in front of a tall arched ice cave gate sealed with frost, coiled eastern dragon carvings on the arch, icicles hanging, cold mist at the base, straight front view"
+    },
+    {
+     "kind": "obj",
+     "name": "snow_icebound_ship",
+     "w": 192,
+     "h": 192,
+     "desc": "a wooden sailing ship stuck frozen in sea ice, tilted to one side, hull freshly painted dark red over old weathered wood, masts and rigging covered in icicles, torn grey sails with a dark red banner, a tarnished silver seagull figurehead on the bow, wooden cargo chests on deck, straight front view"
+    },
+    {
+     "kind": "obj",
+     "name": "snow_pine_tree",
+     "w": 160,
+     "h": 192,
+     "desc": "a tall straight symmetrical snow-laden pine tree, dark green layered branches heavy with thick snow, icicles hanging from the branch tips, straight front view"
+    },
+    {
+     "kind": "img",
+     "name": "IC1_ice_nature",
+     "w": 192,
+     "h": 192,
+     "desc": "small snow-covered pine sapling, frozen bush with icicles, snow-capped grey boulder, cluster of pale blue ice crystals, smooth snowdrift mound, frosted tree stump, cracked patch of frozen lake ice, bush with red winter berries, fallen log half buried in snow"
+    },
+    {
+     "kind": "img",
+     "name": "IC2_snow_village",
+     "w": 192,
+     "h": 192,
+     "desc": "stack of chopped firewood, wooden dog sled, rack of fur pelts drying, ice fishing hole with a wooden fishing rod and a small pile of frozen fish, pair of wooden snowshoes and skis leaning on a rack, wooden notice board with pinned blank paper notes, small mine cart full of blue ice blocks, short stone waystone pillar encased in thick ice with a faint glowing blue rune, small campfire ringed with stones"
+    },
+    {
+     "kind": "img",
+     "name": "IC3_ice_sanctum",
+     "w": 192,
+     "h": 192,
+     "desc": "tall cracked ice pillar, cluster of ice stalagmites, glowing blue Aether crystal vein in a rock, stone wall slab with a carved coiled eastern dragon relief, small eastern stone lantern coated in frost, frozen waterfall chunk, bear den bed of straw and old bones, small snow grave mound with a tiny knitted mitten on top and a ring of ice candles, rusty brass machine stake wrapped in glowing red threads and frost"
+    }
+   ],
+   "boss_vfx": [
+    {
+     "id": "boss_ice_embrace",
+     "boss_id": "boss_ice_queen_001",
+     "size": 128,
+     "kind": "burst",
+     "frames": 10,
+     "squashY": null,
+     "first": "two slender arms of translucent pale blue ice with long flowing frozen sleeves rising from frozen ground on the left and right and curving inward around an empty space like a mother's embrace, frost mist at the base, drifting snowflakes, base at the bottom of the frame",
+     "action": "the ice arms sweep inward and close together in a gentle tight embrace, frost crackles over them, then they crack and shatter into glittering shards that fade",
+     "firstScale": null,
+     "glow": false,
+     "lift": 66,
+     "ground": false
+    },
+    {
+     "id": "boss_avalanche",
+     "boss_id": "boss_yeti_001",
+     "size": 160,
+     "kind": "burst",
+     "frames": 8,
+     "squashY": null,
+     "first": "a huge mass of avalanche snow crashing straight down onto a spot from above, tumbling chunks of ice and rocks, white powder spray bursting outward to both sides, base at the bottom of the frame",
+     "action": "the avalanche snow slams down and bursts outward in all directions burying the spot, powder clouds billow up, then the snow settles and the mist fades",
+     "firstScale": null,
+     "glow": false,
+     "lift": 40,
+     "ground": false
+    },
+    {
+     "id": "boss_frost_roar",
+     "boss_id": "boss_ice_guardian_001",
+     "size": 160,
+     "kind": "burst",
+     "frames": 8,
+     "squashY": 0.55,
+     "first": "a ring of pale cyan frost shockwave expanding outward across the ground seen from directly above, empty center, jagged frost spikes along its rim, snowflakes and tiny ice shards caught in it",
+     "action": "the frost ring blasts outward with a second ring following, frost spikes jut up along the rims, then the rings thin out and fade",
+     "firstScale": 0.5,
+     "glow": false,
+     "lift": 0,
+     "ground": true
+    },
+    {
+     "id": "boss_oblivion_mist",
+     "boss_id": "boss_ice_guardian_001",
+     "size": 160,
+     "kind": "loop",
+     "frames": 8,
+     "squashY": 0.55,
+     "first": "a swirling patch of freezing pale blue-white mist on the ground seen from directly above, faint translucent ghostly shapes of faces and hands frozen inside the fog, tiny glittering ice crystals",
+     "action": "the freezing mist swirls slowly round and round, ghostly shapes surface and sink back into the fog, ice crystals glitter, seamless loop",
+     "firstScale": null,
+     "glow": false,
+     "lift": 0,
+     "ground": true
+    }
+   ],
+   "notes_vi": "Chỉ thiết kế dữ liệu: không chạy pixellab/npm, không sửa file nào.\n\nĐÃ ÁP THEO SOÁT CHÉO (đã đọc cả 16 lỗi, dưới đây là các lỗi chạm vùng 5):\n- Cross #0 (blocker, rồng khai hai lần): xoá dragon_ice_001 khỏi bosses và anims; xoá dragon_ice_breath, dragon_ice_spear_rain, dragon_lake_crack khỏi boss_vfx. Rồng Băng nay chỉ khai trong khối dragons, với các chiêu dragon_ice_breath / dragon_ice_pillar / dragon_ice_lake_crack. Vùng 5 còn đúng 1 boss chúa và 2 boss khu. Khi ghi bosses.tsv thì Hàn Sương mang nhãn \"(rồng)\" như dòng Phong Long, không ghi \"boss chúa\".\n- Cross #1 (blocker, Ngai Băng): bỏ phương án A (boss_ice_drake_001 \"Băng long\") và chốt phương án B: boss_ice_guardian_001, khổ 160, custom, role chua, name_vi \"Nghê Băng\". Desc và anims lấy nguyên văn phương án B trong notes cũ. Lore bỏ chữ \"rồng non con cháu Hàn Sương\", thay bằng \"linh thú canh cửa do Hàn Sương tạc từ băng sông băng\"; giữ câu mũi máy \"cho hút nhanh hơn\"; gắn bóng mờ trong thân băng (desc: \"faint dark shadowy shapes frozen inside its ice body\") với chủ đề quên. boss_frost_roar và boss_oblivion_mist đổi boss_id sang boss_ice_guardian_001; vòng sóng băng của frost_roar khớp đòn dậm hai chân trước. Nghê không phun từ miệng, nên không còn đụng dragon_ice_breath.\n- Cross #7 (Sói tuyết khác Sói gió) cùng phần người kiểm nêu thêm (Sói tuyết khác Gấu băng): câu đầu desc là \"a stocky heavy-set snow wolf\", vẫn giữ \"bulky\". Thêm bờm sư tử bết nhũ băng, chân ngắn dày. Mảng xám than đưa ra phía trước cho nhìn chính diện thấy được: \"over its shoulders, outer forelegs, back and tail\". Tai đổi thành \"tall pointed upright charcoal-tipped ears\" (Gấu có tai tròn nhỏ), mõm là \"long broad wolf muzzle\", đuôi là \"thick bushy tail swept to one side so it shows\". Nhờ vậy sói khác sói gió gầy vằn gió, và cũng không đọc thành gấu con.\n- Cross #8 (props trùng): IC2 thay \"barrel of salted fish\" bằng \"ice fishing hole with a wooden fishing rod and a small pile of frozen fish\", thay \"iron lantern on a wooden post\" bằng \"pair of wooden snowshoes and skis leaning on a rack\". Giữ xe mỏ băng, tấm vẫn đủ 9 món. snow_pine_tree thêm \"tall straight symmetrical\" để khác cây thông nghiêng gió của Vùng 4.\n- Cross #9 (dấu hiệu máy Kiến Trúc Sư): vùng 5 đã dùng bộ chuẩn (đồng thau gỉ cộng sợi đỏ phát sáng) ở Nghê Băng và IC3, nên không phải đổi. Các vùng 6 và 7 phải theo bộ này.\n- Cross #10 (Nữ hoàng băng và Corvin): đổi \"translucent pale blue skin\" thành \"opaque frosted white-blue ice skin with frost cracks\" cho đặc hơn, bớt vẻ hồn ma. Phần đổi màu của Corvin thuộc vùng 7.\n- Cross #13 (đòn đập xuống lặp lại): Gấu băng đổi attack thành \"charges forward and rams with its crystal-spiked shoulder, then stops\". Yeti giữ đòn đập đất theo đúng fix, vì nó khớp chiêu boss_avalanche.\n\nKHÔNG ÁP Ở BẢN NÀY, KÈM LÝ DO:\n- Cross #11 (tàu Hải Âu Bạc): fix chỉ sửa coral_silver_gull_wreck của vùng 7. snow_icebound_ship giữ nguyên để làm ảnh gốc: vùng 7 sẽ lấy ảnh này làm tham chiếu khi edit/inpaint.\n- Cross #4 (dragon_ice_lake_crack) và #15 (màu bản b của Băng Long): đều thuộc khối dragons và vùng 6, bản vùng 5 không còn chứa rồng.\n- Cross #2, #3, #5, #6, #12, #14: thuộc vùng 6, vùng 7 hoặc khối dragons, không chạm vùng 5.\n- Mẫu thứ ba trong ghi chú của khối dragons (wyrm bốn chân bọc giáp tinh thể) bị loại cùng phương án A theo cross #1.\n\nBÀN GIAO CHO BƯỚC GHI FILE (đề bài cấm sửa file nên chưa làm):\n1) Đổi tên trong tài liệu: \"Băng long\" thành \"Nghê Băng\" ở docs/cot-truyen-aether.md dòng 310 (\"Băng long giữ cửa Long Huyệt\"), dòng 311 (\"Hạ Băng long\") và dòng 317 (\"Băng long — Boss chúa canh cửa\"); the-gioi-aether.md dòng 401; ke-hoach-the-gioi.md dòng 63 và 103; docs/tools/cot_truyen_data.py. Sau đó chạy lại cot-truyen.py. Nếu bỏ sót, tên boss trong game sẽ lệch với cốt truyện.\n2) Lore rồng: khi xoá rồng khỏi bản vùng thì lore_vi mất theo, vì khối dragons không có trường này. Cần thêm lore_vi vào khối dragons:\n   - dragon_ice_001: \"Rồng nguyên tố Băng (Mốc 2), ngủ trong hang băng dưới Hồ Băng ở Long Huyệt. Hàn Sương giữ băng để quên: mắt lim dim mệt mỏi, ôm hạt châu băng trong vuốt. Hỏi Lior: 'Ngươi muốn nhớ hay muốn quên?', rồi trao Long Châu. Yếu Hoả.\" Bỏ câu \"Ba chiêu: hơi thở băng, mưa trụ băng, mặt hồ nứt\" vì tên chiêu đã đổi.\n   - dragon_fire_001, lấy từ bản vùng 6: \"Rồng thứ ba, giữ Mối Hoả ở Long Huyệt dưới miệng núi lửa. Hỏi Lior: 'Lửa có hỏi ai được ấm không?' rồi trao Long Châu.\"\n   - dragon_water_001, lấy từ bản vùng 7: \"Rồng thứ tư, nằm ở xoáy nước giữa rạn san hô (Long Huyệt, map phụ của vùng 7). 'Biển nhận mọi thứ chảy vào, kể cả người thương.' Trao Long Châu.\"\n\nGIỮ NGUYÊN: Tinh linh băng, Người tuyết, Chim cánh cụt chiến, desc Gấu băng, Yeti, boss_ice_embrace, boss_avalanche, IC1, IC3, nhà gỗ, ngai băng, tàu băng.\n\nThời gian: không đo được mốc bắt đầu (lệnh date chỉ chạy sau khi đã đọc file) · mốc đo đầu tiên 09/10/2026 21:54:27 · Kết thúc 09/10/2026 21:54:43."
+  },
+  {
+   "region": "Vùng 6 · Núi lửa Hoả Sơn (Mốc 2, chương 6 \"Lửa trong lò, lửa trong lòng\") — trạm Pháo đài người lùn Đe Đỏ",
+   "mobs": [
+    {
+     "id": "mob_lava_lizard_001",
+     "size": 64,
+     "template": "custom",
+     "name_vi": "Thằn lằn lửa",
+     "map_vi": "Bãi Đá Đen",
+     "desc": "a spiky lava lizard crouching facing the viewer, rough ash-grey and rust-red scales, a crown of short ember-crystal horns on its head, a row of glowing orange crystal spikes on its shoulders, a patch of glowing red fire moss on its head and shoulders, small flame at its tail tip, beady yellow eyes"
+    },
+    {
+     "id": "mob_lava_golem_001",
+     "size": 80,
+     "template": "mannequin",
+     "name_vi": "Golem dung nham",
+     "map_vi": "Sông Dung Nham",
+     "desc": "a lumbering magma golem facing the viewer, hunched body mostly of glowing molten orange lava with a few floating black basalt chunks as armor on its shoulders and fists, oversized lava fists, a rusted bronze dwarven collar band with one glowing rune, two bright yellow eye slits"
+    },
+    {
+     "id": "mob_fire_bat_001",
+     "size": 64,
+     "template": "custom",
+     "name_vi": "Dơi lửa",
+     "map_vi": "Hang Dơi Lửa",
+     "desc": "a fire bat hovering facing the viewer, small charcoal-black ashy body with glowing ember cracks, wings made of bright orange-yellow flame tongues instead of skin, no ears but two short curved horns, long thin whip tail ending in a glowing ember, glowing yellow eyes, wisps of smoke"
+    },
+    {
+     "id": "mob_fire_spirit_001",
+     "size": 72,
+     "template": "custom",
+     "name_vi": "Tinh linh lửa",
+     "map_vi": "Lò Rèn Bỏ Hoang",
+     "desc": "a floating forge fire spirit facing the viewer, a round plump body of bright yellow-orange living flame, a soot-blackened iron forge ring clamped around its middle, two little flame arms holding a pair of glowing blacksmith tongs, big white glowing eyes, sparks drifting up from its head"
+    },
+    {
+     "id": "mob_fire_demon_001",
+     "size": 80,
+     "template": "mannequin",
+     "name_vi": "Quỷ lửa",
+     "map_vi": "Miệng Núi",
+     "desc": "a gaunt ash fiend facing the viewer, thin hunched body of cracked ash-grey skin with glowing orange ember seams, its whole head is a burning flame with a cracked black obsidian mask for a face, no horns, long bony arms, bare clawed feet, tattered soot-black rags around its waist, holding a jagged obsidian cleaver"
+    }
+   ],
+   "bosses": [
+    {
+     "id": "boss_ancient_lava_golem_001",
+     "size": 128,
+     "template": "mannequin",
+     "name_vi": "Golem dung nham cổ",
+     "role": "khu",
+     "lore_vi": "Người canh Mối Hoả do chính người lùn rèn từ thời Giao Ước. Trên thân khắc tên những người thợ đã hiến sức, có cả tổ tiên của Hilde. Tên thợ khắc kín lưng và tràn ra cả hai tay. Hạ xong mang lõi về cho Hilde để rèn lại búa tổ tiên.",
+     "desc": "a colossal ancient dwarven lava golem boss facing the viewer, massive body of black basalt bound with weathered bronze plates and huge rivets, a glowing molten core visible behind a bronze grille in its chest, head carved like a stern dwarf helm with a braided stone beard, rows of short glowing rune marks carved along its arms and shoulders, right arm ending in a huge stone forge hammer, lava dripping from its joints"
+    },
+    {
+     "id": "boss_salamander_001",
+     "size": 128,
+     "template": "custom",
+     "name_vi": "Salamander",
+     "role": "khu",
+     "lore_vi": "Kỳ giông lửa khổng lồ nằm giữa vũng dung nham ở Miệng Núi, chặn đường tới đội tiên phong của Aldric đang bị dung nham vây. Đánh nhanh thì cứu kịp cả đội.",
+     "desc": "a giant fire salamander boss facing the viewer, long low lizard-like body curving in a C-shape with its heavy tail sweeping around in front of its body, four short thick legs splayed out to the sides with the clawed front feet planted in front, smooth glossy jet-black skin with bright yellow-orange blotches, narrow rounded head held high on a short neck, frilled gills made of flickering flames, small lidless glowing orange eyes, molten lava dripping from its jaws"
+    },
+    {
+     "id": "boss_fire_god_001",
+     "size": 160,
+     "template": "custom",
+     "name_vi": "Hoả thần",
+     "role": "chua",
+     "lore_vi": "Linh hồn lò rèn đầu tiên của người lùn, hoá điên vì Mối Hoả bị hút. Thân dưới là cột lửa bốc lên từ cái lò đá cổ nứt vỡ, ngọn lửa trên người chập chờn, có chỗ đã nguội thành tro xám len sợi đỏ. Hạ xong Lior vào Long Huyệt gặp Hoả Long Viêm Đế.",
+     "desc": "a towering fire god boss facing the viewer, a giant forge spirit whose lower body is a roaring column of flame rising out of a cracked ancient stone furnace, no legs, broad bare chest of white-hot flame, a bare-jawed face of white-hot flame, crown of roaring flames, holding a long chain whip of glowing molten iron in one hand and a blazing round bronze shield with a glowing anvil emblem in the other, patches of his fire guttering into cold grey ash laced with thin glowing red threads, furious white glowing eyes"
+    }
+   ],
+   "anims": [
+    {
+     "id": "mob_lava_lizard_001",
+     "walk": "v3:scurries forward low to the ground with quick side-to-side body wiggles, tail swishing",
+     "idle": "v3:crouches breathing, head tilting, tongue flicking, tail tip flame flickering",
+     "attack": "v3:lunges forward and snaps its jaws, spitting a small spurt of embers, then scuttles back",
+     "death": "v3:flips onto its side, its crystal spikes and tail flame dim to grey and it lies still"
+    },
+    {
+     "id": "mob_lava_golem_001",
+     "walk": "v3:lumbers forward with slow heavy stomping steps, shoulders rolling, lava fists swinging low",
+     "idle": "v3:stands hunched breathing heavily, shoulders rising and falling, lava pulsing in its cracks",
+     "attack": "v3:swings one lava fist in a wide sideways hook, magma flinging off, then recovers",
+     "death": "v3:the lava stops flowing, it slumps to its knees and crumbles into a heap of cooling black rocks"
+    },
+    {
+     "id": "mob_fire_bat_001",
+     "walk": "v3:flies forward with fast flapping flame wings, leaving a trail of smoke",
+     "idle": "v3:hovers in place with flickering wing beats, bobbing up and down",
+     "attack": "v3:swoops forward and rakes with its claws, wings flaring brighter, then flaps back",
+     "death": "v3:its flame wings burn out into smoke and the charred body falls to the ground, lying still"
+    },
+    {
+     "id": "mob_fire_spirit_001",
+     "walk": "v3:floats forward bobbing gently, flames flickering upward",
+     "idle": "v3:hovers in place, its flame body pulsing and flickering, tongs clicking",
+     "attack": "v3:swells up brightly and thrusts the glowing tongs forward, releasing a burst of sparks, then shrinks back",
+     "death": "v3:the flame body flickers and shrinks down, the iron ring drops to the ground and the fire goes out in a puff of smoke"
+    },
+    {
+     "id": "mob_fire_demon_001",
+     "walk": "template:walking-8-frames",
+     "idle": "template:breathing-idle",
+     "attack": "v3:raises the obsidian cleaver overhead and slashes down diagonally with a trail of fire, then recovers",
+     "death": "v3:its flame head dies out, it staggers and collapses face down, body crumbling into embers and ash"
+    },
+    {
+     "id": "boss_ancient_lava_golem_001",
+     "walk": "v3:stomps forward with slow ponderous steps, the hammer arm dragging and swinging, the ground shaking",
+     "idle": "v3:stands upright breathing slowly, the molten core pulsing behind the grille, rune marks flickering",
+     "attack": "v3:raises the huge hammer arm high and slams it down onto the ground with enormous force, magma bursting from its joints, then straightens",
+     "death": "v3:the molten core flickers and dims, it sinks to its knees and the basalt body cracks apart into a pile of cooling rubble and bronze plates"
+    },
+    {
+     "id": "boss_salamander_001",
+     "walk": "v3:crawls forward heavily with a sprawling side-to-side gait, long body bending, heavy tail swinging from side to side in front of it",
+     "idle": "v3:rests breathing slowly, head held high, flame gills fluttering, heavy tail shifting slightly around its body",
+     "attack": "v3:rears its head back then lunges forward, opening its jaws and spitting a gush of molten lava, then pulls back",
+     "death": "v3:its flame gills go out, it collapses flat onto its belly, the yellow blotches fade to grey and it lies still"
+    },
+    {
+     "id": "boss_fire_god_001",
+     "walk": "v3:glides forward on its column of flame, furnace base grinding, flames trailing",
+     "idle": "v3:hovers in place on its roaring flame column, chest of fire heaving, chain whip swaying, the ash patches smouldering with pulsing red threads",
+     "attack": "v3:lashes the molten chain whip in a wide horizontal arc, then pulls it back",
+     "death": "v3:the flame column gutters down into the furnace, the body collapses into cold ash"
+    }
+   ],
+   "props": [
+    {
+     "kind": "obj",
+     "name": "volcano_fortress_gate",
+     "w": 192,
+     "h": 192,
+     "desc": "a massive dwarven fortress gate carved into black volcanic rock, heavy red-hot iron double doors with a giant anvil emblem, square stone battlements, two burning braziers, red banners with an anvil sign, straight front view"
+    },
+    {
+     "kind": "obj",
+     "name": "volcano_great_forge",
+     "w": 192,
+     "h": 192,
+     "desc": "a great dwarven forge hall front, stone furnace glowing orange inside a wide arch, tall brick chimney with smoke, huge leather bellows, a big iron anvil and hammers in front, straight front view"
+    },
+    {
+     "kind": "obj",
+     "name": "volcano_dwarf_house",
+     "w": 192,
+     "h": 192,
+     "desc": "a squat sturdy dwarven stone house built into the rock, thick round arched wooden door with iron bands, copper roof turned green, chimney with a red glow, small glowing round window, straight front view"
+    },
+    {
+     "kind": "obj",
+     "name": "volcano_ash_tree",
+     "w": 192,
+     "h": 192,
+     "desc": "a charred dead tree on volcanic rock, blackened twisted trunk and bare branches with glowing orange ember cracks, a little smoke rising, grey ash at its roots, straight front view"
+    },
+    {
+     "kind": "img",
+     "name": "VL1_volcano_nature",
+     "w": 192,
+     "h": 192,
+     "desc": "tall hexagonal basalt column cluster, cluster of sharp obsidian crystals, small bubbling lava pool, cluster of yellow sulfur crystals, small smoking fumarole cone, patch of glowing red fire moss, cooled lava rock with orange cracks, pile of grey ash, red fire flower"
+    },
+    {
+     "kind": "img",
+     "name": "VL2_dwarf_fortress",
+     "w": 192,
+     "h": 192,
+     "desc": "small iron anvil on a basalt block, wooden barrel full of coal, weapon rack with axes and war hammers, stack of glowing hot iron ingots on a stone pallet, stone quenching water trough, patched refugee canvas tent, field cot with bandages, red war banner with an anvil on a pole, stone brazier with fire"
+    },
+    {
+     "kind": "img",
+     "name": "VL3_volcano_core",
+     "w": 192,
+     "h": 192,
+     "desc": "ancient stone forge altar with a dying flame, giant cracked anvil carved with runes, stone pillar carved with rows of rune marks, lightning-bolt shaped steel sword stuck upright in a rock, old broken leather bellows, broken giant hammer head, strange rusted brass siphon machine with pipes drawing glowing fire out of a rock crack trailing thin glowing red threads, weathered dwarf guardian statue, stone eastern Chinese dragon head statue with antlers and long whiskers and glowing ember eyes"
+    }
+   ],
+   "boss_vfx": [
+    {
+     "id": "boss_magma_fissure",
+     "boss_id": "boss_ancient_lava_golem_001",
+     "size": 144,
+     "kind": "burst",
+     "frames": 8,
+     "squashY": 0.55,
+     "first": "a single long straight fissure of glowing molten lava splitting the ground and running to the right, seen from directly above, short magma jets spurting up along it, bronze rivets and basalt chips flying",
+     "action": "the lava fissure tears forward to the right, magma jets spurt along its length one after another, then it cools to a dark line and fades",
+     "firstScale": null,
+     "glow": false,
+     "lift": 0,
+     "ground": true
+    },
+    {
+     "id": "boss_lava_spit",
+     "boss_id": "boss_salamander_001",
+     "size": 128,
+     "kind": "burst",
+     "frames": 8,
+     "squashY": null,
+     "first": "a gushing arc of molten lava globs spat to the right, bright orange and yellow with dark crust, droplets and smoke trailing",
+     "action": "the lava stream gushes forward to the right in an arc, the globs burst into sizzling molten splashes and smoke in mid-air, then they cool and fade",
+     "firstScale": null,
+     "glow": false,
+     "lift": 30,
+     "ground": false
+    },
+    {
+     "id": "boss_ash_fall",
+     "boss_id": "boss_fire_god_001",
+     "size": 160,
+     "kind": "burst",
+     "frames": 10,
+     "squashY": 0.55,
+     "first": "a heavy downpour of grey ash flakes and dying orange embers splattering onto the ground in an uneven blotchy spray seen from directly above, several separate scattered ash heaps of different sizes, no ring and no circle, thin glowing red threads in the largest heaps, transparent around the splatter",
+     "action": "ash and embers pour down in uneven bursts and pile into scattered heaps, embers flare and turn grey, the red threads in the ash pulse, then the ash drifts away and fades",
+     "firstScale": null,
+     "glow": false,
+     "lift": 0,
+     "ground": true
+    },
+    {
+     "id": "boss_forge_sigil",
+     "boss_id": "boss_fire_god_001",
+     "size": 160,
+     "kind": "loop",
+     "frames": 8,
+     "squashY": 0.55,
+     "first": "a large glowing orange runic forge circle seen from directly above, an anvil glyph in the center, flickering flames along the ring, some runes guttering into grey ash laced with thin glowing red threads, empty transparent surroundings",
+     "action": "the forge sigil pulses with heat, flames run around the ring and sparks rise from the runes, the ashen runes flicker and their red threads pulse, seamless loop",
+     "firstScale": null,
+     "glow": true,
+     "lift": 0,
+     "ground": true
+    }
+   ],
+   "notes_vi": "Bản Vùng 6 đã sửa theo 16 lỗi soát chéo và 6 điểm người kiểm báo còn sót. Chỉ là dữ liệu: không chạy lệnh, không sửa file.\n\n== VIỆC PHẢI LÀM Ở KHỐI DRAGONS, NGOÀI BẢN NÀY (CHẶN, cần người nhận) ==\nBản này chỉ trả designs[1], nên tôi không ghi được vào khối dragons. Tôi đã kiểm khối dragons: mục dragon_fire_001 KHÔNG có trường lore_vi. Bản vùng cũ là nơi duy nhất giữ câu lore của Viêm Đế, mà bản này đã xoá rồng khỏi vùng. Vì vậy, ở CÙNG đợt ghép bản này vào file, người ghép PHẢI thêm vào designs[3].dragons, mục dragon_fire_001, chép nguyên văn:\n\"lore_vi\": \"Rồng thứ ba, giữ Mối Hoả ở Long Huyệt dưới miệng núi lửa. Hỏi Lior: \\\"Lửa có hỏi ai được ấm không?\\\" rồi trao Long Châu.\"\nLàm cùng lúc với việc gỡ rồng của Vùng 5 và 7 (lore của dragon_ice_001 và dragon_water_001 trong bản vùng cũ cũng phải chép sang). Chưa thêm xong thì CHƯA được ghép bản này, nếu không sẽ mất lore.\n\n== LỖI CHÉO ĐÃ ÁP (theo target) ==\n1. [blocker] \"Cả 3 vùng: rồng khai hai lần\". Đã xoá dragon_fire_001 khỏi bosses và anims, và xoá 3 dòng dragon_fire_cone, dragon_meteor_rain, dragon_lava_rise (bản 160) khỏi boss_vfx. Nguồn duy nhất cho Hoả Long giờ là khối dragons, với các chiêu dragon_fire_breath, dragon_meteor, dragon_lava_rise 192. Vùng chỉ còn đúng một role 'chua' là Hoả thần. Phần lore: xem mục chặn ở trên. Khi ghi bosses.tsv thì ghi Viêm Đế với nhãn '(rồng)'.\n2. [major] \"Hoả thần so với Golem dung nham cổ\". Golem cổ giữ búa và râu đá vì gắn với lore búa tổ tiên của Hilde. Hoả thần bỏ búa, bỏ râu tết, bỏ tạp dề và cái đe xích ở thắt lưng. Thân dưới nay là cột lửa bốc lên từ cái lò đá cổ nứt, không chân. Ngực trần bằng lửa trắng, vương miện lửa, một tay cầm roi xích sắt nóng chảy, tay kia cầm khiên.\n   - Walk và idle chuyển sang v3 (lướt trên cột lửa).\n   - Attack: quất roi theo vòng cung ngang.\n   - Death: cột lửa lụi vào lò, thân sụp thành tro nguội.\n   - Phần còn sót đã sửa: khiên đổi thành 'a blazing round bronze shield with a glowing anvil emblem' để hết mâu thuẫn 'tròn mà hình mặt đe'. Bỏ 'beardless', thay bằng 'a bare-jawed face of white-hot flame', nên chữ 'beard' không còn trong prompt. Khi duyệt 2 seed, kiểm riêng điều kiện KHÔNG có râu.\n   - QUYẾT ĐỊNH RIÊNG, lỗi chéo không nêu: đổi template của Hoả thần từ mannequin sang custom. Lý do: mannequin là khung người có chân, còn desc ghi 'no legs, lower body is a column of flame', nên hai bên sẽ giằng nhau. Cả 4 động tác đều đã là v3, nên không còn cần template. Nếu pipeline bắt buộc boss chúa dùng mannequin thì trả về mannequin, nhưng phải soi kỹ xem ảnh có mọc chân không.\n3. [major] \"boss_ash_eruption so với boss_hellfire\". Đã bỏ dạng cột phun. Phần còn sót cũng đã sửa: bỏ luôn dạng 'đĩa tròn có vành than' của bản sửa trước, vì nó trùng bóng với boss_forge_sigil (cùng boss) và dragon_lava_rise (cùng vùng). Chiêu nay là tro và than rơi loang lổ thành nhiều đống rời, ghi rõ 'no ring and no circle'. Thông số: squashY 0.55, ground true, lift 0, firstScale null, frames 10, size 160.\n   - Như vậy mặt đất Vùng 6 có ba hình khác nhau: vòng rune (sigil), đống tro rải rác (ash_fall), vũng dung nham có vành đá (rồng).\n   - Id đổi thành boss_ash_fall (còn sót, đã sửa). Người kiểm đã grep: id cũ chưa có tsv, meta hay code nào tham chiếu.\n   - Sợi đỏ vẫn giữ ở đống tro lớn nhất, theo lỗi chéo 10. Nếu vẽ ra vẫn thấy giống sigil thì bỏ sợi đỏ ở chiêu này, vì sigil và thân Hoả thần đã đủ nhận diện.\n4. [major] \"boss_magma_fissure so với dragon_ice_lake_crack\". Đổi thành MỘT khe dung nham thẳng chạy SANG PHẢI từ điểm búa đập, có tia magma dọc khe, đinh tán đồng và mảnh bazan văng ra. Giữ squashY 0.55, ground true, lift 0. firstScale đổi từ 0.5 về null. Code xoay chiêu theo hướng đòn.\n5. [major] \"Salamander so với Mẹ Ếch và Thằn lằn lửa\". Desc theo câu fix: thân dài thấp uốn chữ C, đuôi nặng vòng ra phía trước, đầu tròn hẹp ngẩng trên cổ ngắn, mang lửa, mắt nhỏ không mí. Đã bỏ 'crouching' và 'broad flat head with a wide grinning mouth'.\n   - Phần còn sót đã sửa: chèn lại bốn chân, 'four short thick legs splayed out to the sides with the clawed front feet planted in front', để walk có cái mà bò và để không ra dáng rắn hay lươn (nhất là không giống bóng rồng phương Đông cuộn mình). Khi duyệt ảnh, soi riêng điều kiện không ra dáng rắn cuộn.\n   - Walk (còn sót, đã sửa): 'heavy tail swinging from side to side in front of it', khớp với tư thế đuôi trước thân trong desc. Idle: 'tail shifting slightly around its body'. Attack đổi 'wide mouth' thành 'jaws', cho khỏi gợi lại miệng rộng của Mẹ Ếch.\n   - Thằn lằn lửa giữ dạng gai pha lê xám tro, không đốm, không mang lửa. Nó vẫn có rêu lửa trên đầu và vai, vì rêu nối với nhiệm vụ phụ 'Người lính hai phe'. Rêu là mảng màu, không phải mang, nên không trùng Salamander.\n6. [minor] \"Props: VL2 so với IC2\". 'mine cart full of ore' đổi thành 'stack of glowing hot iron ingots on a stone pallet'. VL2 vẫn đủ 9 món.\n7. [minor] \"Dấu hiệu máy Kiến Trúc Sư qua 3 vùng\". Chốt bộ nhận diện là đồng thau gỉ cộng sợi đỏ phát sáng:\n   - Hoả thần: 'dark violet cracks' đổi thành 'grey ash laced with thin glowing red threads'.\n   - boss_forge_sigil: bỏ violet, rune tàn thành tro len sợi đỏ, action thêm 'red threads pulse'.\n   - boss_ash_fall: bỏ tia tím, thay bằng sợi đỏ trong đống tro.\n   - VL3: máy hút đổi thành 'rusted brass', thêm 'trailing thin glowing red threads'.\n   - Trong bản này không còn chữ violet nào.\n8. [minor] \"Tên obj Vùng 6\". Đổi thành volcano_fortress_gate, volcano_great_forge, volcano_dwarf_house, volcano_ash_tree. Tên tấm img giữ tiền tố VL như các vùng khác.\n9. [minor] \"Anims đập xuống\". Golem dung nham: attack đổi thành 'swings one lava fist in a wide sideways hook, magma flinging off, then recovers'. Walk đổi 'boulder fists' thành 'lava fists' cho khớp desc.\n   - Golem cổ giữ đòn đập búa thẳng xuống, khớp với chiêu khe nứt bắt đầu từ điểm búa đập.\n   - Trong vùng giờ có ba đòn khác hướng: đập dọc (Golem cổ), móc ngang (Golem thường), quất roi ngang (Hoả thần).\n\n== LỖI CHÉO KHÔNG CHẠM BẢN NÀY ==\n- \"Vùng 5 boss_ice_drake (phương án A)\": của Vùng 5.\n- \"Vùng 7 Kraken so với Bạch tuộc\": của Vùng 7.\n- \"Vùng 5 Sói tuyết so với Sói gió\": của Vùng 5 và 4.\n- \"Props\": chỉ phần VL2 thuộc bản này (đã áp, mục 6). Phần IC2, CR2, coral_boat_workshop, snow_pine_tree là của vùng khác.\n- \"Nữ hoàng băng so với Corvin\": của Vùng 5 và 7.\n- \"Tàu Hải Âu Bạc\": của Vùng 5 và 7.\n- \"boss_tentacle_slam / dragon_water_dive\": của Vùng 7 và khối dragons.\n- \"Khối dragons, màu bản b của Băng và Thuỷ\": của khối dragons.\n- Lỗi chéo 10 (dấu hiệu máy) cũng chạm Vùng 5, Vùng 7 và Kraken; phần đó vùng kia tự áp.\n\n== GHI CHÚ THIẾT KẾ GIỮ TỪ BẢN TRƯỚC ==\n- Thằn lằn lửa (Bãi Đá Đen): vảy xám tro pha đỏ gỉ, vương miện sừng pha lê than, gai pha lê cam trên vai, rêu lửa đỏ trên đầu và vai (nhiệm vụ phụ 'Người lính hai phe'; tấm VL1 cũng có rêu lửa).\n- Golem dung nham: thân gần như toàn dung nham. Vòng cổ đồng khắc rune người lùn cho thấy nó cùng lò với Golem cổ.\n- Golem cổ: thân bazan bọc đồng, lõi nóng chảy sau lưới đồng (lõi Hilde xin giữ), mũ trụ người lùn có râu đá, tay búa, vạch rune trên tay và vai. Dùng 'rune marks' chứ không 'names' để tránh vẽ chữ.\n- Dơi lửa: cánh là lưỡi lửa, có sừng thay tai, nên khác Dơi hang.\n- Tinh linh lửa: cầu lửa kẹp vòng sắt, cầm kìm thợ rèn. Hoả thần mới là cột lửa mọc từ lò, cầm roi và khiên, nên bóng khác hẳn tinh linh tròn nhỏ.\n- Quỷ lửa: ma tro gầy, đầu lửa đeo mặt nạ obsidian, không sừng, cầm dao obsidian.\n- Salamander: sprite không vẽ vũng dung nham. Chiêu boss_lava_spit phun SANG PHẢI và nổ giữa không trung (lift 30). 'Dung nham dâng' để dành cho Hoả Long và cơ chế đếm giờ của map.\n- boss_forge_sigil nên nối bằng blend 'add' như boss_hex.\n- Tấm VL3 có: bệ lò cổ, đe nứt, cột vạch rune, kiếm sét cắm trong đá (vật phẩm chương 10), máy hút đồng gỉ có sợi đỏ, tượng người lùn, tượng đầu rồng phương Đông (lối vào Long Huyệt).\n- Cỡ sprite: quái 64/72/80, boss khu 128, boss chúa 160, hiệu ứng 128–160. Số chiêu: mỗi boss khu 1 chiêu, boss chúa 2 chiêu. Rồng và 3 chiêu của nó nằm hết ở khối dragons."
+  },
+  {
+   "region": "Vùng 7 · Quần đảo San Hô (Mốc 2) — trạm Cảng chài San Hô",
+   "mobs": [
+    {
+     "id": "mob_beach_crab_001",
+     "size": 64,
+     "template": "custom",
+     "name_vi": "Cua",
+     "map_vi": "Bãi Cát Trắng",
+     "desc": "a wide flat beach crab facing the viewer, pale sand-white shell speckled with coral-pink dots and a few barnacles, one oversized claw and one tiny claw, round black eyes on tall stalks, a scrap of torn fishing net snagged on its shell"
+    },
+    {
+     "id": "mob_reef_jellyfish_001",
+     "size": 64,
+     "template": "custom",
+     "name_vi": "Sứa",
+     "map_vi": "Rạn San Hô",
+     "desc": "a floating translucent reef jellyfish facing the viewer, tall bell-shaped dome of pale aqua with a soft glowing blue light core inside it, small grumpy glowing eyes, long frilly pink and white tentacles hanging below, tiny blue sparks around it"
+    },
+    {
+     "id": "mob_pirate_001",
+     "size": 80,
+     "template": "mannequin",
+     "name_vi": "Cướp biển",
+     "map_vi": "Đảo Cướp Biển",
+     "desc": "a scruffy weathered old pirate sailor facing the viewer, faded red bandana with a silver seagull emblem on the front, black eyepatch, torn navy and white striped shirt, gold hoop earring, wide leather belt with a big brass buckle, holding a chipped curved cutlass"
+    },
+    {
+     "id": "mob_coral_merfolk_001",
+     "size": 80,
+     "template": "custom",
+     "name_vi": "Người cá",
+     "map_vi": "Đầm Người Cá",
+     "desc": "a proud reef merfolk guard standing upright on a curled fish tail facing the viewer, slender humanoid upper body with sea-blue skin and shimmering turquoise scales, long flowing coral-pink fin hair, pearly white shell chestplate, holding a long coral quarterstaff with a rounded knob end and a round scallop shell shield, stern golden eyes"
+    },
+    {
+     "id": "mob_wreck_octopus_001",
+     "size": 72,
+     "template": "custom",
+     "name_vi": "Bạch tuộc",
+     "map_vi": "Bãi Tàu Đắm",
+     "desc": "a round mottled sandy-orange octopus facing the viewer, bulbous head with cream spots and bright teal ring markings, big curious amber eyes, eight thick curling tentacles with pale suckers splayed out around it, one tentacle coiled around a rusty broken anchor chain, strands of green seaweed on its head"
+    }
+   ],
+   "bosses": [
+    {
+     "id": "boss_crab_king_001",
+     "size": 128,
+     "template": "custom",
+     "name_vi": "Cua chúa",
+     "role": "khu",
+     "lore_vi": "Ở Rạn San Hô, ôm mảnh Mối Thuỷ vỡ như ôm con; sứa phát sáng tụ quanh mảnh đó. Người chơi chọn hạ nó lấy mảnh hoặc để mảnh lại cho rạn.",
+     "desc": "a gigantic old king crab boss facing the viewer, massive slate-blue armored shell overgrown with living pink branching coral, sea anemones and barnacles, eyes on thick stalks, one enormous battle-scarred claw raised, the other claw holding a cracked glowing aqua water crystal shard protectively against its chest"
+    },
+    {
+     "id": "boss_ghost_captain_001",
+     "size": 112,
+     "template": "mannequin",
+     "name_vi": "Thuyền trưởng ma Corvin",
+     "role": "khu",
+     "lore_vi": "Hồn ma cha của Bram, đứng ở mũi tàu Hải Âu Bạc chờ con trai; đèn trên boong vẫn sáng mỗi đêm. Ông không đánh để thắng, mỗi đòn là một câu xin lỗi; thua trận thì tan ra khi Bram nói: \"Con nghe rồi.\"",
+     "desc": "a sorrowful ghost sea captain boss facing the viewer, translucent sickly sea-green spectral body with legs fading into faint wisps below the knees, tattered long navy captain's coat with tarnished silver buttons and a silver seagull badge, battered tricorn hat, grey beard dripping seawater, sad dim lantern-yellow glowing eyes, holding a warm glowing brass ship lantern with a dim yellow flame in one hand and a rusted cutlass lowered in the other, strands of seaweed hanging from his coat"
+    },
+    {
+     "id": "boss_kraken_001",
+     "size": 160,
+     "template": "custom",
+     "name_vi": "Kraken",
+     "role": "chua",
+     "lore_vi": "Cái bẫy của Kiến Trúc Sư ở Vực Kraken: con quái bị gắn máy móc cổ, kéo xác Hải Âu Bạc xuống vực. Trận đánh diễn ra dưới con tàu đang chìm; Zahra giữ thân tàu cho Bram, Lior và Nyra thoát, và không trở lên.",
+     "desc": "a colossal kraken boss facing the viewer, a giant squid towering upright, tall pointed arrowhead-shaped dark crimson-purple mantle with two wide triangular fins at the top, two enormous glowing yellow eyes at the base of the mantle, an ancient corroded green-tinged brass machine ring bolted around the mantle just above the eyes, tightly wrapped in thin bright glowing scarlet-red threads, pale scarred hide around the ring, a mass of thick arms plus two extra-long feeding tentacles with club-shaped tips reaching forward, splintered wooden planks caught in them, black ink dripping"
+    }
+   ],
+   "anims": [
+    {
+     "id": "mob_beach_crab_001",
+     "walk": "v3:scuttles quickly on its pointed legs, body swaying side to side, claws held up",
+     "idle": "v3:stands low to the ground, eye stalks twitching, the big claw slowly snapping open and closed",
+     "attack": "v3:lunges forward and snaps its oversized claw shut in a hard pinch, then scuttles back",
+     "death": "v3:legs curl inward and it flips over onto its back, legs twitching, then lies still"
+    },
+    {
+     "id": "mob_reef_jellyfish_001",
+     "walk": "v3:drifts forward in the air by pulsing its bell, tentacles trailing and waving behind",
+     "idle": "v3:floats in place bobbing gently, bell slowly pulsing, tentacles swaying, inner light flickering",
+     "attack": "v3:pulses toward the target and lashes its tentacles forward with a crackling flash of light, then drifts back",
+     "death": "v3:its light flickers out, the bell deflates and it sinks down, collapsing into a flat translucent puddle on the ground"
+    },
+    {
+     "id": "mob_pirate_001",
+     "walk": "template:walking-8-frames",
+     "idle": "template:breathing-idle",
+     "attack": "v3:swings the cutlass in a wide diagonal slash, then pulls back into a guard stance",
+     "death": "v3:drops the cutlass, staggers backward and falls flat onto the ground, lying still"
+    },
+    {
+     "id": "mob_coral_merfolk_001",
+     "walk": "v3:glides forward upright, its fish tail curling and pushing along the ground in smooth waves, fins flowing",
+     "idle": "v3:sways upright on its curled tail, fin hair and fins drifting gently, shield held ready",
+     "attack": "v3:raises the shell shield and thrusts the coral staff forward in a quick jab, then recoils",
+     "death": "v3:drops the coral staff and slumps down onto its side on the ground, tail going limp, lying still"
+    },
+    {
+     "id": "mob_wreck_octopus_001",
+     "walk": "v3:crawls forward by reaching and curling its tentacles in rolling waves, head bobbing",
+     "idle": "v3:sits with its head slowly bobbing, tentacles curling and uncurling, eyes blinking",
+     "attack": "v3:whips two tentacles forward in a lashing strike and squirts a puff of black ink, then pulls back",
+     "death": "v3:tentacles go limp and spread out flat, its head sags down onto the ground, lying still"
+    },
+    {
+     "id": "boss_crab_king_001",
+     "walk": "v3:scuttles forward heavily on its thick legs, one claw held close to its chest, shell rocking",
+     "idle": "v3:breathes slowly, gently rocking the glowing shard held against its chest while the big claw snaps slowly",
+     "attack": "v3:sweeps its free giant claw sideways in a wide arc, then pulls it back into guard",
+     "death": "v3:its legs give way and it sinks down onto the ground, curling its claws protectively around its chest, lying still"
+    },
+    {
+     "id": "boss_ghost_captain_001",
+     "walk": "template:walking-8-frames",
+     "idle": "template:breathing-idle",
+     "attack": "v3:raises the lantern high and swings the rusted cutlass forward in a slow heavy slash, hesitating at the end, then lowers it",
+     "death": "v3:sinks to his knees, then his body dissolves upward into drifting sea-green mist, leaving the brass lantern still glowing warm yellow on the ground"
+    },
+    {
+     "id": "boss_kraken_001",
+     "walk": "v3:surges forward on its mass of thick arms, the tall mantle bobbing, fins rippling, the two long feeding tentacles swaying ahead",
+     "idle": "v3:sways its tall mantle slowly, thick arms coiling and writhing, fins rippling, eyes blinking, the glowing red threads on the brass ring flickering",
+     "attack": "v3:shoots its two long club-tipped feeding tentacles straight forward in a fast grabbing strike, then reels them back",
+     "death": "v3:shudders as the glowing red threads on the brass ring flicker out, its arms go limp and the tall mantle topples over and collapses flat onto the ground, lying still"
+    }
+   ],
+   "props": [
+    {
+     "kind": "obj",
+     "name": "coral_fisher_cottage",
+     "w": 192,
+     "h": 192,
+     "desc": "a seaside fisherman cottage with whitewashed stone walls and pale driftwood beams, sky-blue tiled roof, fishing nets with cork floats hung across the front, seashell wind chimes, a small grill with fish over coals by the door, straight front view"
+    },
+    {
+     "kind": "obj",
+     "name": "coral_boat_workshop",
+     "w": 192,
+     "h": 192,
+     "desc": "a small seaside shipwright workshop with an open wooden shed roof, a half-built wooden boat on a slipway under it, saws and planks leaning on the wall, coils of rope, a wooden steam-bending frame with curved planks, straight front view"
+    },
+    {
+     "kind": "obj",
+     "name": "coral_fishing_pier",
+     "w": 192,
+     "h": 192,
+     "desc": "a weathered wooden fishing pier on thick posts with a small moored fishing boat beside it, mooring bollards with coiled rope, a harbor lantern post at the far end, hanging nets, straight front view"
+    },
+    {
+     "kind": "obj",
+     "name": "coral_silver_gull_wreck",
+     "w": 192,
+     "h": 192,
+     "desc": "a broken old wooden sailing ship wreck lying tilted on its side, cracked hull with peeling dark red paint over old weathered wood, covered in barnacles and seaweed, snapped mast with a tattered grey sail and a torn dark red banner, a tarnished silver seagull figurehead on the bow, one old brass lantern still glowing warm yellow on its deck, straight front view"
+    },
+    {
+     "kind": "img",
+     "name": "CR1_coral_nature",
+     "w": 192,
+     "h": 192,
+     "desc": "branching pink coral, orange sea fan coral, round blue brain coral, giant clam shell with a pearl, red starfish, spiky purple sea urchin, clump of green kelp seaweed, small coconut palm with coconuts, white beach rock with barnacles"
+    },
+    {
+     "kind": "img",
+     "name": "CR2_fishing_port",
+     "w": 192,
+     "h": 192,
+     "desc": "wooden lobster trap cage, iron ship anchor, barrel of fresh fish, red and white striped buoy, stack of empty wooden fish crates, pile of fishing nets with cork floats, wooden rack of drying fish, wooden crate of salt sacks, round fishing net wreath woven with white flowers"
+    },
+    {
+     "kind": "img",
+     "name": "CR3_kraken_abyss",
+     "w": 192,
+     "h": 192,
+     "desc": "cracked wooden ship's wheel, open wooden treasure chest full of glowing blue rune crystals, severed crimson-purple club-shaped squid tentacle tip lying limp, barnacle-covered iron cannon, broken tarnished silver seagull figurehead, old brass ship lantern with a dim warm yellow flame wrapped in faint sickly sea-green ghost mist, corroded green-tinged brass machine part tightly wrapped in thin glowing scarlet-red threads, jagged black abyss rock spire with barnacles, pile of splintered ship planks and rope"
+    }
+   ],
+   "boss_vfx": [
+    {
+     "id": "boss_coral_spikes",
+     "boss_id": "boss_crab_king_001",
+     "size": 128,
+     "kind": "burst",
+     "frames": 8,
+     "squashY": null,
+     "first": "a cluster of jagged pink and white coral spikes bursting up out of cracked white sand with a pulse of glowing aqua water light and bubbles at the center, three-quarter top-down view, base at the bottom of the frame",
+     "action": "the coral spikes thrust up out of the sand while the aqua water light pulses outward with bubbles, then the spikes crumble back into sand and the light fades",
+     "firstScale": null,
+     "glow": false,
+     "lift": 50,
+     "ground": false
+    },
+    {
+     "id": "boss_ghost_lantern",
+     "boss_id": "boss_ghost_captain_001",
+     "size": 128,
+     "kind": "burst",
+     "frames": 8,
+     "squashY": null,
+     "first": "a ring of sickly sea-green ghost fire flaring outward, wisps of sea mist and drifting spectral sparks, a faint ghostly lantern shape with a dim yellow flame at the center",
+     "action": "the dim yellow lantern flame flares and sends out a ring of sickly sea-green ghost fire and sea mist, wisps swirl, then it dims and fades away softly",
+     "firstScale": 0.5,
+     "glow": true,
+     "lift": 40,
+     "ground": false
+    },
+    {
+     "id": "boss_tentacle_slam",
+     "boss_id": "boss_kraken_001",
+     "size": 160,
+     "kind": "burst",
+     "frames": 10,
+     "squashY": null,
+     "first": "a giant crimson-purple squid tentacle with a club-shaped suckered tip bursting straight up out of splashing dark sea water and broken ship planks, base at the bottom of the frame",
+     "action": "the huge tentacle erupts upward from the water, curls over and slams down with a big splash scattering planks and spray, then sinks back into the water and the foam fades",
+     "firstScale": null,
+     "glow": false,
+     "lift": 66,
+     "ground": false
+    },
+    {
+     "id": "boss_ink_flood",
+     "boss_id": "boss_kraken_001",
+     "size": 160,
+     "kind": "burst",
+     "frames": 10,
+     "squashY": 0.55,
+     "first": "a big splash of thick black kraken ink spreading over cracked wooden ship deck planks seen from above, the planks splintering and dark sea water gushing up through the gaps",
+     "action": "the black ink spreads outward over the deck as the planks crack and cave in with sea water bubbling up, then the ink sinks away and fades",
+     "firstScale": 0.6,
+     "glow": false,
+     "lift": 0,
+     "ground": true
+    }
+   ],
+   "notes_vi": "Bản vùng 7 sau soát chéo (chương 7 \"Con tàu của cha\"). Mob giữ nguyên. Boss: Cua chúa (khu), Corvin (khu), Kraken (chúa, role 'chua' DUY NHẤT của vùng). Rồng không còn nằm trong bản vùng.\n\nÁP THEO TỪNG LỖI CHÉO (target):\n1. [blocker] \"Cả 3 vùng: bosses/anims/boss_vfx so với khối dragons\": ĐÃ ÁP. Xoá dragon_water_001 khỏi bosses và anims. Xoá dragon_tidal_wave, dragon_dive_splash, dragon_soak_rain khỏi boss_vfx. Khối dragons là nguồn duy nhất cho Thuỷ Long (bộ chiêu chốt: dragon_water_dive, dragon_tsunami, dragon_flood).\n   PHẦN CÒN SÓT do người kiểm chỉ ra (chưa đóng được trong bản này): lore Thuỷ Long trước đây chỉ nằm ở bản vùng, còn khối dragons không có trường lore_vi. Câu trả lời này chỉ trả designs[2], nên tôi KHÔNG sửa được khối dragons ở đây. Bắt buộc trong CÙNG lượt ghép bản vùng 7: thêm vào dragon_water_001 của khối dragons trường lore_vi với nguyên văn: \"Rồng thứ tư, nằm ở xoáy nước giữa rạn san hô (Long Huyệt, map phụ của vùng 7). \\\"Biển nhận mọi thứ chảy vào, kể cả người thương.\\\" Trao Long Châu.\" Làm tương tự cho dragon_ice_001 và dragon_fire_001 (lấy lore từ bản vùng 5 và vùng 6 TRƯỚC khi xoá ở đó). Khi ghi bosses.tsv thì dùng nhãn '(rồng)' như dòng Phong Long, không ghi 'boss chúa'.\n2. [major] \"boss_kraken_001 so với mob_wreck_octopus_001\": ĐÃ ÁP. Kraken thành MỰC KHỔNG LỒ: áo (mantle) nhọn hình mũi tên màu đỏ tía sẫm, hai vây tam giác trên đỉnh, hai mắt vàng to ở chân áo, nhiều tay dày cộng hai xúc tu bắt mồi dài có đầu chuỳ, ván tàu mắc trong tua, mực đen nhỏ giọt. Bạch tuộc mob giữ dạng đầu tròn cam cát, nên hai bóng dáng khác hẳn nhau. Walk sửa thành 'tall mantle bobbing' đúng như fix. Đổi chữ 'rising upright' của fix thành 'towering upright', vì vòng trước đã bỏ chữ 'rising' để model không sinh thêm mặt nước. Chiêu boss_tentacle_slam đổi tua thành 'squid tentacle with a club-shaped suckered tip'. Khúc tua cụt ở CR3 cũng đổi theo mực.\n3. [minor] \"Dấu hiệu máy Kiến Trúc Sư qua 3 vùng\": ĐÃ ÁP, kèm phần sửa của người kiểm. Desc Kraken bỏ rune xanh và bỏ chữ 'trailing'. Câu mới: vòng máy đồng thau gỉ ngả xanh, 'tightly wrapped in thin bright glowing scarlet-red threads', thêm 'pale scarred hide around the ring'. Sợi đỏ nằm trên nền đồng xanh gỉ và da sẹo nhạt nên nổi rõ, không chìm vào áo đỏ tía. Idle ('glowing red threads on the brass ring flickering') và death ('glowing red threads on the brass ring flicker out') đều bám vòng máy. CR3: mảnh máy đồng 'tightly wrapped in thin glowing scarlet-red threads', thay cho rune xanh. Hòm pha lê rune xanh ở CR3 GIỮ màu xanh, vì đó là đá ấn của Zahra chứ không phải dấu máy của Kiến Trúc Sư.\n4. [minor] \"boss_ice_queen_001 so với boss_ghost_captain_001\": ĐÃ ÁP phần Corvin. Thân thành 'translucent sickly sea-green spectral body'. Mắt thành 'sad dim lantern-yellow glowing eyes'. Phần 'fading into wisps below the knees' tôi viết thành 'legs fading into faint wisps below the knees', tức vẫn còn chân: Corvin dùng template mannequin + walking-8-frames, xoá hẳn chân thì mẫu đi bộ dễ vỡ. Lúc chết, Corvin tan thành sương xanh lục thay cho 'pale mist'. Phần Nữ hoàng băng thuộc vùng 5.\n5. [minor] \"snow_icebound_ship và coral_silver_gull_wreck\": ĐÃ ÁP. Xác tàu thêm 'peeling dark red paint over old weathered wood' và 'a torn dark red banner', giữ buồm xám như bản vùng 5. Tượng mũi đổi thành 'a tarnished silver seagull figurehead', đúng nguyên văn vùng 5. Tượng gãy ở CR3 cũng thêm 'tarnished'. Khi vẽ thì lấy ảnh snow_icebound_ship làm ảnh tham chiếu (edit/inpaint) để hai obj cùng thân tàu.\n6. [người kiểm] \"CR3 đèn ma so với Corvin và xác tàu\": ĐÃ ÁP. Thống nhất một chiếc đèn: đồng thau, lửa vàng ấm, chỉ có viền ma xanh lục bao ngoài. CR3: 'old brass ship lantern with a dim warm yellow flame wrapped in faint sickly sea-green ghost mist'. Xác tàu: 'one old brass lantern still glowing warm yellow on its deck'. Corvin: 'warm glowing brass ship lantern with a dim yellow flame'. Chiêu boss_ghost_lantern: tâm là đèn ma lửa vàng mờ, vòng lửa ma xanh lục bệnh, đổi từ 'pale teal' cho khớp thân Corvin. Death Corvin để lại 'brass lantern still glowing warm yellow'. Vậy là ở cả 4 chỗ, chiếc đèn trên boong (sợi dây nối hai anh em với cha) đều cùng một hình.\n7. [minor] \"Props trùng giữa các tấm\": ĐÃ ÁP phần vùng 7. CR2 thay 'harbor lantern post' bằng 'wooden rack of drying fish', thay 'coiled rope on a wooden mooring bollard' bằng 'stack of empty wooden fish crates'. coral_boat_workshop bỏ 'a lantern on a post', thêm 'a wooden steam-bending frame with curved planks'. Đèn trên cột giờ chỉ còn ở coral_fishing_pier (chỗ đặt Cột dịch chuyển, chỗ Bram ngồi tới sáng). Tấm CR2 vẫn đủ 9 món. 'barrel of fresh fish' giữ nguyên, vì fix chuyển bên IC2 sang lỗ câu băng.\n8. [minor] \"Anims đập xuống\": ĐÃ ÁP. Cua chúa attack thành 'sweeps its free giant claw sideways in a wide arc' (đúng fix). Kraken cũng nằm trong danh sách đập xuống nhưng fix không cho câu, nên tôi tự đổi thành đòn LAO: hai xúc tu đầu chuỳ phóng thẳng tới trước để vồ rồi thu về. Đòn này hợp với mực, và cú quật từ trên xuống vẫn còn ở chiêu boss_tentacle_slam.\n9. [minor] \"boss_tentacle_slam / dragon_water_dive so với boss_mud_geyser\": KHÔNG ÁP ở bản vùng. Fix chỉ sửa dragon_water_dive, thuộc khối dragons. boss_tentacle_slam chỉ được nêu làm bối cảnh, giữ bố cục, chỉ đổi tua sang tua mực. Sau khi xoá dragon_dive_splash khỏi vùng, trong bản vùng không còn cột nước nào trùng boss_mud_geyser.\n\nKHÔNG LIÊN QUAN VÙNG 7 (không áp): Nghê Băng thay Băng long (vùng 5); Hoả thần so với Golem cổ (vùng 6); boss_ash_eruption so với boss_hellfire (vùng 6); boss_magma_fissure (vùng 6); Salamander so với Mẹ Ếch (vùng 6); Sói tuyết so với Sói gió (vùng 5); tiền tố obj vùng 6; màu bản b của Băng Long và Thuỷ Long (khối dragons).\n\nGIỮ NGUYÊN từ vòng trước: 5 mob (Cua, Sứa, Cướp biển, Người cá, Bạch tuộc); lore 3 boss; chiêu boss_coral_spikes (lift 50, ground false); chiêu boss_ink_flood (squashY 0.55, ground true, lift 0); obj nhà chài (bếp nướng cá của Mẹ Coral), cầu tàu; tấm CR1. Số chiêu đúng luật: mỗi boss khu 1 chiêu, boss chúa Kraken 2 chiêu. Tiền tố obj coral_ và tiền tố tấm CR thống nhất."
+  },
+  {
+   "dragons": [
+    {
+     "id": "dragon_ice_001",
+     "name_vi": "Băng Long Hàn Sương",
+     "tsv_label_vi": "Băng Long Hàn Sương (rồng)",
+     "region": "Vùng 5 · Lãnh nguyên Băng Giá — Long Huyệt: hang băng dưới hồ đóng băng, sau Ngai Băng (cấp ~50, hệ Băng, yếu Hoả)",
+     "lore_vi": "Rồng thứ hai, nguyên tố Băng (Mốc 2), giữ Mối Băng trong hang băng dưới một hồ đóng băng phía sau Ngai Băng (Long Huyệt, map phụ của vùng 5). Muốn vào phải nói ra một điều mình đang cố quên (câu đố khắc trên vách Hang Gấu). Hàn Sương giữ băng để quên: mắt lim dim buồn, ôm Long Châu băng trong vuốt. Hỏi Lior: \"Ngươi muốn nhớ hay muốn quên?\" rồi trao Long Châu. Ba chiêu: hơi thở băng, cột tinh thể băng cắm xuống, mặt hồ nứt. Yếu Hoả.",
+     "size": 192,
+     "template": "custom",
+     "view": "low top-down",
+     "seeds": {
+      "a": 7,
+      "b": 19
+     },
+     "style_image_path": "D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/new-mobs/dragon_design/phong_a.png",
+     "style_usage": "Copy the drawing style and the body layout of this wingless eastern long dragon: chibi RPG boss look, crisp black pixel outline, shading, detail level, S-curve coil. Do NOT copy its colors.",
+     "style_options": {
+      "color_palette": false,
+      "outline": true,
+      "detail": true,
+      "shading": true
+     },
+     "design_prompts": [
+      "Chibi RPG world boss pixel art sprite facing the viewer, Han Suong the ancient majestic ice-element Chinese loong: authentic traditional Chinese eastern long dragon, absolutely NO wings, extremely long serpentine snake-like scaled body coiling in an S-curve, deer-like branching antlers, long flowing whiskers from the snout, flowing mane and a spiky fin crest running along its spine, four short legs each with sharp eagle-like claws, flame-like tufts of fur at the elbows, tail ending in a flowing tuft, glacier-blue scales with frost-white belly plates, pale aqua mane and a LOW row of short ice-crystal spikes lying flat along the spine, nothing rising from the shoulders, frost-white whiskers, silvery frosted antlers, clutching a glowing white-cyan ice pearl with a snowflake core in one front claw, calm half-lidded sorrowful glowing icy cyan eyes, cold mist and drifting snowflakes around its coils",
+      "Chibi RPG world boss pixel art sprite facing the viewer, Han Suong the ancient majestic ice-element Chinese loong: authentic traditional Chinese eastern long dragon, absolutely NO wings, extremely long serpentine snake-like scaled body coiling in an S-curve, deer-like branching antlers, long flowing whiskers from the snout, flowing mane and a spiky fin crest running along its spine, four short legs each with sharp eagle-like claws, flame-like tufts of fur at the elbows, tail ending in a flowing tuft, pale frost-blue scales with silvery-lavender scale rims and soft blue-violet shading, a pale cyan belly, icy cyan-blue mane and beard, a LOW row of short ice-crystal spikes lying flat along the spine, nothing rising from the shoulders, silvery frost-blue antlers, clutching a glowing white-cyan ice pearl with a snowflake core in one front claw, calm half-lidded sorrowful glowing icy cyan eyes, drifting snowflakes and thin cold mist around its coils"
+     ],
+     "char_description": "Bang Long Han Suong, ancient Chinese eastern long dragon WITHOUT wings, extremely long serpentine glacier-blue body with frost-white belly, pale aqua mane and a low row of flat ice-crystal spikes along the spine, frosted deer antlers, frost-white whiskers, four clawed legs, calm half-lidded eyes, holding a glowing white-cyan ice pearl, cold mist and snowflakes",
+     "anims": {
+      "walk": "v3:flies forward with its long serpentine body undulating in smooth waves through the air, legs tucked, mane and whiskers streaming behind, a trail of snowflakes, no wings",
+      "idle": "v3:hovers coiled in the air, its long body slowly undulating like a ribbon, mane and whiskers drifting, the pearl glowing in its claw with cold mist curling around it",
+      "attack": "v3:rears its head back, then thrusts its head forward with jaws wide open in a mighty roar, its long body coiling tighter, then recovers",
+      "death": "v3:lets out a final roar, frost cracks spread over its scales and ice shards break off, its long body goes limp and sinks down coiling onto the ground as its glow fades"
+     },
+     "vfx": [
+      {
+       "id": "dragon_frost_breath",
+       "size": 192,
+       "kind": "burst",
+       "frames": 8,
+       "squashY": null,
+       "first": "a wide cone of freezing pale blue frost dragon breath blowing to the right, swirling snow, sharp ice shards and glittering frost crystals inside it",
+       "action": "the frost breath roars forward to the right widening like a cone, ice shards fly and frost crystals glitter, then it disperses into cold mist and fades",
+       "firstScale": null,
+       "glow": false,
+       "lift": 40,
+       "ground": false
+      },
+      {
+       "id": "dragon_ice_pillar",
+       "size": 160,
+       "kind": "burst",
+       "frames": 10,
+       "squashY": null,
+       "first": "a huge six-sided deep sapphire-blue ice crystal column with a white frost core, falling point-first straight down into the ground, a ring of white frost and snow spray at the impact point, base at the bottom of the frame",
+       "action": "the crystal column slams down point-first and stands in the ground, a frost ring bursts outward, then the column cracks and shatters into blue shards that fade into mist",
+       "firstScale": null,
+       "glow": false,
+       "lift": 66,
+       "ground": false
+      },
+      {
+       "id": "dragon_ice_lake_crack",
+       "size": 192,
+       "kind": "burst",
+       "frames": 10,
+       "squashY": 0.55,
+       "first": "a web of jagged white and pale cyan cracks spreading from a small center point, seen from directly above, thin glimpses of dark blue water inside the cracks, no ice slab, transparent outside the cracks",
+       "action": "the cracks race outward in all directions, dark water wells up through them with small ripples, then the cracks frost over and fade",
+       "firstScale": 0.5,
+       "glow": false,
+       "lift": 0,
+       "ground": true
+      }
+     ]
+    },
+    {
+     "id": "dragon_fire_001",
+     "name_vi": "Hoả Long Viêm Đế",
+     "tsv_label_vi": "Hoả Long Viêm Đế (rồng)",
+     "region": "Vùng 6 · Núi lửa Hoả Sơn — Long Huyệt: miệng núi lửa, vào từ Lõi Núi Lửa (cấp ~60, hệ Hoả, yếu Thuỷ và Băng)",
+     "lore_vi": "Rồng thứ ba, giữ Mối Hoả trong Long Huyệt ở miệng núi lửa (map phụ của vùng 6, vào sau khi hạ Hoả thần ở Lõi Núi Lửa). Hỏi Lior: \"Lửa có hỏi ai được ấm không?\" rồi trao Long Châu. Bụng vàng nóng như sắt vừa ra khỏi đe, gạc sắt-đồng: gợi lò rèn người lùn và Hoả thần. Ba chiêu: phun lửa theo nón, Long Châu lửa rơi, dung nham dâng theo nhịp. Yếu Thuỷ và Băng.",
+     "size": 192,
+     "template": "custom",
+     "view": "low top-down",
+     "seeds": {
+      "a": 7,
+      "b": 19
+     },
+     "style_image_path": "D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/new-mobs/dragon_design/phong_a.png",
+     "style_usage": "Copy the drawing style and the body layout of this wingless eastern long dragon: chibi RPG boss look, crisp black pixel outline, shading, detail level, S-curve coil. Do NOT copy its colors.",
+     "style_options": {
+      "color_palette": false,
+      "outline": true,
+      "detail": true,
+      "shading": true
+     },
+     "design_prompts": [
+      "Chibi RPG world boss pixel art sprite facing the viewer, Hoa Long the ancient majestic fire-element Chinese loong: authentic traditional Chinese eastern long dragon, absolutely NO wings, extremely long serpentine snake-like scaled body coiling in an S-curve, deer-like branching antlers, long flowing whiskers from the snout, flowing mane and a spiky fin crest running along its spine, four short legs each with sharp eagle-like claws, flame-like tufts of fur at the elbows, tail ending in a flowing tuft, crimson-red scales with glowing forge-hot molten gold belly plates like metal fresh from an anvil and thin glowing lava cracks between the scales, short orange-yellow flame-colored mane and a LOW fin crest of small flame tongues lying flat along the spine, nothing rising from the shoulders, long fiery whiskers like ribbons of flame, dark iron-bronze antlers with glowing ember tips, clutching a blazing golden-orange fire pearl in one front claw, glowing molten yellow eyes, a few thin grey smoke wisps and floating sparks around its coils",
+      "Chibi RPG world boss pixel art sprite facing the viewer, Hoa Long the ancient majestic fire-element Chinese loong: authentic traditional Chinese eastern long dragon, absolutely NO wings, extremely long serpentine snake-like scaled body coiling in an S-curve, deer-like branching antlers, long flowing whiskers from the snout, flowing mane and a spiky fin crest running along its spine, four short legs each with sharp eagle-like claws, flame-like tufts of fur at the elbows, tail ending in a flowing tuft, bright vermilion-orange scales with dark red scale rims and a glowing forge-hot golden belly, short red-orange flame mane and a low flame-tipped fin crest lying along the spine, nothing rising from the shoulders, dark iron-bronze antlers with golden tips, long golden whiskers trailing embers, clutching a blazing golden-orange fire pearl in one front claw, glowing white-hot eyes, a few thin grey smoke wisps and drifting embers around its coils"
+     ],
+     "char_description": "Hoa Long Viem De, ancient Chinese eastern long dragon WITHOUT wings, extremely long serpentine crimson-red body with forge-hot molten gold belly and glowing lava cracks, short flame-colored mane and a low flat flame fin crest along the spine, dark iron-bronze deer antlers with ember tips, long fiery whiskers, four clawed legs, holding a blazing golden-orange fire pearl, thin smoke wisps and sparks",
+     "anims": {
+      "walk": "v3:flies forward with its long serpentine body undulating in smooth waves through the air, legs tucked, mane and whiskers streaming behind, a trail of sparks, no wings",
+      "idle": "v3:hovers coiled in the air, its long body slowly undulating like a ribbon, mane flickering, the pearl glowing in its claw with embers drifting up",
+      "attack": "v3:rears its head back, then thrusts its head forward with jaws wide open in a mighty roar, its long body coiling tighter, then recovers",
+      "death": "v3:lets out a final roar, its flames sputter out into black smoke, its long body goes limp and sinks down coiling onto the ground as the embers fade"
+     },
+     "vfx": [
+      {
+       "id": "dragon_fire_breath",
+       "size": 192,
+       "kind": "burst",
+       "frames": 8,
+       "squashY": null,
+       "first": "a wide cone of roaring orange and golden dragon fire breath blowing to the right, white-hot core, black smoke curls and flying embers at the edges",
+       "action": "the fire breath roars forward to the right widening like a cone, flames churn and embers scatter, then it burns out into smoke and fades",
+       "firstScale": null,
+       "glow": false,
+       "lift": 40,
+       "ground": false
+      },
+      {
+       "id": "dragon_meteor",
+       "size": 160,
+       "kind": "burst",
+       "frames": 10,
+       "squashY": null,
+       "first": "a falling blazing fire pearl, a round orb of white-hot molten gold wrapped in a spiral of crimson dragon flames, streaking down diagonally from the upper left with a short twisting flame tail, about to hit the ground, base at the bottom of the frame",
+       "action": "the fire pearl smashes into the ground and bursts into a ring of crimson and gold flames with molten droplets, leaving a glowing scorch mark that cools and fades",
+       "firstScale": null,
+       "glow": false,
+       "lift": 66,
+       "ground": false
+      },
+      {
+       "id": "dragon_lava_pool",
+       "size": 192,
+       "kind": "loop",
+       "frames": 8,
+       "squashY": 0.55,
+       "first": "an irregular round pool of glowing molten lava seen from directly above, uneven black rock crust rim, bubbling orange-yellow magma with a few dark crust plates, transparent outside the pool",
+       "action": "the lava pool bubbles and churns, crust plates drift and crack, bubbles pop with small sparks, seamless loop",
+       "firstScale": null,
+       "glow": false,
+       "lift": 0,
+       "ground": true
+      }
+     ]
+    },
+    {
+     "id": "dragon_water_001",
+     "name_vi": "Thuỷ Long Thương Hải",
+     "tsv_label_vi": "Thuỷ Long Thương Hải (rồng)",
+     "region": "Vùng 7 · Quần đảo San Hô — Long Huyệt: xoáy nước giữa rạn san hô (cấp ~70, hệ Thuỷ, yếu Phong và Thổ)",
+     "lore_vi": "Rồng thứ tư, nằm ở một xoáy nước giữa rạn san hô (Long Huyệt, map phụ của vùng 7). Nói: \"Biển nhận mọi thứ chảy vào, kể cả người thương.\" rồi trao Long Châu. Sóng của nó cuốn theo ván tàu gãy, gợi Hải Âu Bạc chìm ở Vực Kraken. Ba chiêu: lặn rồi trồi chỗ khác, sóng thần thấp quét ngang, làm ngập cả sân (mời phản ứng Băng / Lôi). Yếu Phong và Thổ.",
+     "size": 192,
+     "template": "custom",
+     "view": "low top-down",
+     "seeds": {
+      "a": 7,
+      "b": 19
+     },
+     "style_image_path": "D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/new-mobs/dragon_design/phong_a.png",
+     "style_usage": "Copy the drawing style and the body layout of this wingless eastern long dragon: chibi RPG boss look, crisp black pixel outline, shading, detail level, S-curve coil. Do NOT copy its colors.",
+     "style_options": {
+      "color_palette": false,
+      "outline": true,
+      "detail": true,
+      "shading": true
+     },
+     "design_prompts": [
+      "Chibi RPG world boss pixel art sprite facing the viewer, Thuy Long the ancient majestic water-element Chinese loong: authentic traditional Chinese eastern long dragon, absolutely NO wings, extremely long serpentine snake-like scaled body coiling in an S-curve, deer-like branching antlers, long flowing whiskers from the snout, flowing mane and a spiky fin crest running along its spine, four short legs each with sharp eagle-like claws, flame-like tufts of fur at the elbows, tail ending in a flowing tuft, deep teal-green and sea-green scales with pearly aqua belly plates, aqua-white sea-foam mane, a low fin crest of curling wave tips lying flat along the spine, nothing rising from the shoulders, long whiskers flowing like streams of water, coral-pink branching antlers like red coral, clutching a glowing deep sapphire-blue water pearl with a white swirl inside in one front claw, glowing aqua eyes, swirling water streams and bubbles around its coils",
+      "Chibi RPG world boss pixel art sprite facing the viewer, Thuy Long the ancient majestic water-element Chinese loong: authentic traditional Chinese eastern long dragon, absolutely NO wings, extremely long serpentine snake-like scaled body coiling in an S-curve, deer-like branching antlers, long flowing whiskers from the snout, flowing mane and a spiky fin crest running along its spine, four short legs each with sharp eagle-like claws, flame-like tufts of fur at the elbows, tail ending in a flowing tuft, deep navy-indigo back fading to a bright turquoise belly, translucent aqua fin crest rippling like water lying low along the spine, nothing rising from the shoulders, pale aqua foamy mane and beard, coral-red antlers, clutching a glowing deep sapphire-blue water pearl with a white swirl inside in one front claw, glowing turquoise eyes, coiling around a spiraling ring of sea water with bubbles and sea spray"
+     ],
+     "char_description": "Thuy Long Thuong Hai, ancient Chinese eastern long dragon WITHOUT wings, extremely long serpentine deep teal-green and sea-green body with pearly aqua belly, aqua-white sea-foam mane and a low flat wave fin crest along the spine, coral-pink deer antlers, long water-stream whiskers, four clawed legs, holding a glowing deep sapphire-blue water pearl, swirling water and bubbles",
+     "anims": {
+      "walk": "v3:swims forward through the air like an eel, its long serpentine body undulating in smooth waves, legs tucked, mane and whiskers streaming behind, a trail of bubbles, no wings",
+      "idle": "v3:hovers coiled in the air, its long body slowly undulating like seaweed in a current, mane and whiskers drifting, the pearl glowing in its claw with small bubbles rising",
+      "attack": "v3:rears up high, then lunges and whips its long body forward, coils tightening, then recovers",
+      "death": "v3:lets out a final roar, water pours off its body, its long body goes limp and sinks down coiling onto the ground in a spreading puddle as its glow fades"
+     },
+     "vfx": [
+      {
+       "id": "dragon_water_dive",
+       "size": 160,
+       "kind": "burst",
+       "frames": 10,
+       "squashY": null,
+       "first": "an oval whirlpool of deep blue sea water seen from a low three-quarter side view at the bottom of the frame, a short twisting spiral of sea water just beginning to corkscrew up out of its center, the faint glowing head of a serpentine dragon silhouette rising inside the spiral, foam and bubbles, base at the bottom of the frame",
+       "action": "the spiral water column corkscrews upward out of the whirlpool with the faint dragon silhouette coiling up inside it, foam and droplets fly off the turning spiral, then it bursts into spray at the top and the whirlpool calms and fades",
+       "firstScale": null,
+       "glow": false,
+       "lift": 66,
+       "ground": false
+      },
+      {
+       "id": "dragon_tsunami",
+       "size": 192,
+       "kind": "burst",
+       "frames": 10,
+       "squashY": null,
+       "first": "a long low wall of teal sea water surging to the right along the ground, a curling white foam lip, broken coral, seashells and splintered wooden ship planks tumbling in it, a faint glowing dragon-scale pattern on the water surface",
+       "action": "the low sea wall sweeps forward to the right along the ground, foam churning and planks tumbling, then it crashes flat, drains away and fades",
+       "firstScale": null,
+       "glow": false,
+       "lift": 30,
+       "ground": false
+      },
+      {
+       "id": "dragon_flood",
+       "size": 192,
+       "kind": "loop",
+       "frames": 8,
+       "squashY": 0.55,
+       "first": "an irregular round patch of shallow clear teal sea water seen from directly above, soft uneven wet edge, gentle ripples, a few bubbles and foam lines, transparent outside the patch",
+       "action": "the shallow flood water ripples and sloshes gently, foam lines drift, bubbles pop and reform, seamless loop",
+       "firstScale": null,
+       "glow": false,
+       "lift": 0,
+       "ground": true
+      }
+     ]
+    }
+   ],
+   "notes_vi": "Khối dragons (designs[3]) ĐÃ SỬA, vòng soát nốt. Phần dữ liệu vẫn chỉ nằm trong câu trả lời này: không chạy lệnh pixellab/npm, không sửa file nào. Có đọc design_m2_round1.json, cot-truyen-aether.md (chương 5–7), bảng rồng trong ke-hoach-the-gioi.md và the-gioi-aether.md, char_phong_a.json, dragon_wind_landing trong pixellabVfx.ts, và header của bosses.tsv.\n\nLưu ý về nguồn: bản designs[3] trong file JSON vẫn là bản CŨ (còn dragon_ice_breath, dragon_lava_rise, Băng b sapphire, water_dive cột thẳng). Bản trả về ở đây đã dựng lại đủ mọi chỉnh sửa của vòng trước (đổi id, lore_vi, tsv_label_vi, bỏ role, Băng b tông sáng, cột nước xoắn), rồi áp tiếp các lỗi người kiểm còn chỉ ra. Khi gộp vào file, thay TRỌN designs[3] bằng bản này, đừng trộn từng trường.\n\n== DANH SÁCH CHIÊU RỒNG CHỐT (thay cho danh sách trong fix gốc của cross) ==\nBăng {dragon_frost_breath, dragon_ice_pillar, dragon_ice_lake_crack}\nHoả {dragon_fire_breath, dragon_meteor, dragon_lava_pool}\nThuỷ {dragon_water_dive, dragon_tsunami, dragon_flood}\nFix gốc của lỗi blocker #1 còn ghi dragon_ice_breath và \"dragon_lava_rise 192\". Hai id đó KHÔNG còn. Đổi tên là CỐ Ý, để id của khối rồng không bao giờ trùng một dòng cũ của bản vùng: dragon_ice_breath (bản vùng) đổi thành dragon_frost_breath; dragon_lava_rise (vùng 160, khối 192) đổi thành dragon_lava_pool. Đã đối chiếu: 9 id trên không trùng boss_vfx còn lại của 3 vùng và không trùng preset trong buildVfx.ts/pixellabVfx.ts (preset rồng đã có chỉ là dragon_wind_landing, dragon_gale_push, dragon_wind_blades).\n\n== VIỆC Ở BẢN VÙNG (designs[0..2]), ngoài phạm vi khối này, phải làm khi gộp ==\nXoá đúng 9 dòng boss_vfx theo TÊN CŨ: dragon_ice_breath, dragon_ice_spear_rain, dragon_lake_crack (Vùng 5); dragon_fire_cone, dragon_meteor_rain, dragon_lava_rise bản 160 (Vùng 6); dragon_tidal_wave, dragon_dive_splash, dragon_soak_rain (Vùng 7). Xoá dragon_ice_001 / dragon_fire_001 / dragon_water_001 khỏi bosses và khỏi anims của từng vùng. Sau khi xoá, Vùng 5 chỉ còn một role 'chua' (boss chúa Ngai Băng). Gộp xong thì kiểm id trùng trên toàn file: gom mọi id ở mobs, bosses, anims, boss_vfx, props và dragons[].id, dragons[].vfx[].id; mỗi id chỉ được xuất hiện một lần, trừ trường hợp anims[].id trỏ về chính boss/mob của nó. Lore của 3 rồng đã chép sang khối này (lore_vi), nên xoá bản vùng không mất gì. Khi ghi bosses.tsv thì dùng tsv_label_vi, ví dụ 'Băng Long Hàn Sương (rồng)', đừng ghi 'boss chúa'.\n\n== LỖI CHÉO, XÉT THEO TARGET ==\n[ÁP] \"Cả 3 vùng: bosses/anims/boss_vfx so với khối dragons\" (blocker). Khối này là nguồn duy nhất của 3 rồng: có lore_vi và tsv_label_vi, không có role, 9 id chiêu duy nhất. Danh sách chốt đã sửa theo tên mới như trên. Phần xoá ở bản vùng xem mục ngay trên.\n[ÁP một phần, theo hướng xử lý] \"Vùng 5 · boss_ice_drake_001 'Băng long'\" (blocker). Bỏ hẳn đề xuất trước đây trong notes khối rồng là vẽ boss chúa Vùng 5 thành \"wyrm bốn chân bọc giáp tinh thể\", vì nó là hướng thứ ba mâu thuẫn với Vùng 5 và đụng gờ tinh thể của Gấu băng. Khối rồng theo phương án B của cross: boss chúa là Nghê Băng / Vệ thần Ngai Băng. Còn đổi desc, tên và boss_id của chiêu thì làm ở bản Vùng 5. Lore Băng Long chỉ nhắc \"Ngai Băng\" (tên map), không nhắc \"Băng long\", nên đổi tên boss chúa không ảnh hưởng. Về mặt chiêu: boss chúa đã bỏ đòn phun từ miệng, nên dragon_frost_breath không còn bị trùng.\n[ÁP] \"boss_tentacle_slam / dragon_water_dive so với boss_mud_geyser\". Phía rồng: dragon_water_dive thành cột nước XOẮN ỐC cuộn bóng rồng mờ, không còn là cột phụt thẳng, nên khác boss_mud_geyser. Đã sửa thêm theo người kiểm (xem mục dưới).\n[ÁP] \"Khối dragons · màu bản b của Băng Long và Thuỷ Long\". Băng b sang tông sáng. Câu chữ chốt theo người kiểm ở mục dưới (frost-blue chứ không trắng). Thuỷ b giữ navy-indigo/ngọc lam đậm.\n[KHÔNG ÁP ở khối này, không có gì phải sửa] \"Vùng 6 · boss_magma_fissure so với dragon_ice_lake_crack\". Cross chọn sửa phía Golem: khe nứt có hướng chạy sang phải. dragon_ice_lake_crack giữ mạng nứt toả từ tâm. Khi chạy, kiểm lại hai ảnh cạnh nhau.\n[KHÔNG ÁP ở khối này] \"Dấu hiệu máy Kiến Trúc Sư (sợi đỏ)\". Ba rồng cổ không hoá điên vì Mối bị hút. Trong cốt truyện, kẻ hoá điên là boss chúa (Rồng gió, Hoả thần), nên rồng không mang sợi đỏ. Thêm sợi đỏ vào rồng sẽ sai lore.\n[KHÔNG ÁP ở khối này] \"snow_icebound_ship / coral_silver_gull_wreck (Hải Âu Bạc)\". Đây là việc của obj. dragon_tsunami chỉ cuốn \"splintered wooden ship planks\", là chi tiết vài pixel. Nếu thêm sơn đỏ sẽ dễ ra vệt đỏ lạ giữa sóng teal, nên không thêm.\n[KHÔNG chạm khối này] Hoả thần/Golem cổ, boss_ash_eruption/boss_hellfire, Salamander/Mẹ Ếch, Kraken/Bạch tuộc, Sói tuyết/Sói gió, props trùng món, Nữ hoàng băng/Corvin, tiền tố obj Vùng 6, anims đập xuống. Đã đọc cả 9 lỗi này, không lỗi nào nhắc tới rồng. Riêng lỗi anims đập xuống: attack của 3 rồng là chồm đầu gầm hoặc quất thân, không phải đập xuống, nên không thuộc diện.\n\n== PHẦN NGƯỜI KIỂM CÒN CHỈ RA, ĐÃ SỬA NỐT ==\n[ÁP] \"Băng bản b so với Phong Long (phong_a.png)\". Đổi 'pale ice-white scales with silvery-lavender scale rims and a pale cyan belly' thành 'pale frost-blue scales with silvery-lavender scale rims and soft blue-violet shading, a pale cyan belly'. Bờm đổi từ pale ice-blue sang 'icy cyan-blue mane and beard' để không giống bờm bạc của Phong và để bờm tách khỏi thân. Gạc giữ 'silvery frost-blue'. Long Châu giữ đúng màu đã chốt (white-cyan, lõi bông tuyết) cho thống nhất với bản a và char_description. Quy định khi DUYỆT: bắt buộc ghép Băng b cạnh phong_a.png ở cỡ thu nhỏ (giống _so-sanh.png). Châu phải còn nổi rõ trên thân; nếu châu chìm hoặc thân vẫn đọc ra trắng thì chọn bản a. Ảnh mẫu vẫn là phong_a.png với color_palette false. Người kiểm nói đúng là cách này chỉ giảm chứ không chặn hẳn việc ăn màu, nên phép ghép cạnh nhau là bước bắt buộc, không phải tuỳ chọn.\n[ÁP] \"dragon_water_dive (phát ngược khi LẶN)\". action nay đi MỘT CHIỀU, đúng câu chữ người kiểm đưa: cột xoắn trồi lên cuộn bóng rồng, rồi bung bụi nước ở đỉnh, xoáy lặng và mờ dần. first đổi từ cột đã dựng xong thành xoáy nước với một vòng xoắn NGẮN vừa bắt đầu trồi lên, đầu bóng rồng nhô trong đó. Như vậy phát xuôi (TRỒI) đi từ xoáy lên cột rồi tan; phát ngược (LẶN) đi từ bụi nước tụ lại, cột xoắn rút xuống kéo bóng rồng chìm vào xoáy, và kết thúc ở xoáy gần lặng chứ không phải cột đứng. Giữ nguyên size 160, burst, 10 khung, lift 66, ground false. Nếu khung cuối khi LẶN vẫn còn vòng xoắn ngắn thì code cho alpha của 1–2 khung cuối mờ dần.\n[ÁP] \"dragon_ice_001 · region và lore_vi\". lore_vi theo đúng fix: '... giữ Mối Băng trong hang băng dưới một hồ đóng băng phía sau Ngai Băng (Long Huyệt, map phụ của vùng 5)'. Không còn tên map Hồ Băng. region đổi thành 'hang băng dưới hồ đóng băng, sau Ngai Băng', viết thường. Lore thêm hai ý lấy từ chương 5: câu đố khắc ở Hang Gấu, và câu hỏi \"Ngươi muốn nhớ hay muốn quên?\". Tên chiêu trong lore đổi \"mưa trụ băng\" thành \"cột tinh thể băng cắm xuống\" cho khớp dragon_ice_pillar hiện tại.\n[ÁP thêm, cùng loại lỗi] Hoả: bảng rồng ghi \"miệng núi lửa\", nhưng chương 6 có map 6 tên là \"Miệng Núi\" (Salamander), trong khi Long Huyệt vào SAU Lõi Núi Lửa (map 7). Vì vậy lore và region ghi rõ \"miệng núi lửa, vào từ Lõi Núi Lửa\" để khỏi bị đọc thành map 6. Thuỷ: chương 7 không nói Long Huyệt vào từ map nào, nên giữ \"xoáy nước giữa rạn san hô\" viết thường như bảng rồng, không gán vào map 3 Rạn San Hô hay Vực Kraken. Chỗ này cần chủ dự án chốt. Lore Thuỷ chỉ thêm ý sóng cuốn ván tàu, gợi Hải Âu Bạc chìm ở Vực Kraken, vì điều này có trong chương 7.\n[KHÔNG đổi chữ, chỉ thêm bước duyệt] \"dragon_water_dive so với dragon_wind_landing\". Làm theo đúng ý người kiểm: chưa đổi chữ. Khi duyệt, ghép dragon_water_dive cạnh dragon_wind_landing ở cỡ trong game. Nếu thu nhỏ trông lẫn thì đổi first/action sang 'a thick squat spiral column' và làm bóng rồng rõ hơn, để khác cái phễu lốc mảnh của Phong. Hiện hai chiêu đã khác nhau ở ba điểm: màu (xanh biển đậm so với ngọc bích-trắng), Phong có vòng sóng xung kích sát đất, và chỉ cột của Thuỷ có bóng rồng bên trong.\n\n== GIỮ NGUYÊN TỪ VÒNG TRƯỚC ==\nKhối thân dùng chung với phong_a giữ nguyên văn. Ảnh mẫu phong_a.png với style_options {color_palette:false, outline, detail, shading}. Seeds a=7 / b=19, size 192, custom, low top-down. Long Châu: Băng white-cyan lõi bông tuyết, Hoả golden-orange rực, Thuỷ deep sapphire-blue xoáy trắng. Cột attack chỉ có động tác, phép giao cho vfx. glow=false cho cả 9 chiêu. lift/ground: hơi thở 40/false; pillar, meteor, water_dive 66/false; tsunami 30/false; lake_crack, lava_pool, flood 0/true. char_description vẫn ghi màu của bản a; nếu chọn bản b thì chỉ thay cụm màu thân (với Băng b: 'pale frost-blue body with silvery-lavender rims and a pale cyan belly, icy cyan-blue mane').\n\nThời gian: Bắt đầu: không đo được mốc bắt đầu (lúc nhận task chưa chạy lệnh date) · Kết thúc: 09/10/2026 21:57 · Tổng: không tính được."
+  }
+ ]
+}

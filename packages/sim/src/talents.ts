@@ -3,8 +3,11 @@ import { HERO_SKILLS, powerText, skillFacts } from './skills.ts';
 
 /**
  * Cây Nguyên tố (kế hoạch `docs/ke-hoach-nguyen-to.md`, chốt 07/10/2026): điểm tiềm năng cộng vào NHÁNH, không cộng vào
- * từng kỹ năng. 6 nhánh × 10 mốc; mở nhánh (cốt truyện) = mốc 1 miễn phí; mỗi mốc trên mốc 1 tốn điểm theo `TIER_COST`
- * và cho +4% sức mạnh mọi kỹ năng của nhánh. Mỗi nhánh 6 mốc chủ động (học kỹ năng) + 4 mốc bị động.
+ * từng kỹ năng. 6 nhánh × 10 mốc; mỗi mốc tốn điểm theo `TIER_COST`, mỗi mốc trên mốc 1 cho +4% sức mạnh mọi kỹ năng
+ * của nhánh. Mỗi nhánh 6 mốc chủ động (học kỹ năng) + 4 mốc bị động.
+ * Mở nhánh (cốt truyện) = ĐƯỢC PHÉP học (chủ dự án 10/10/2026): nhánh nguyên tố vừa mở ở mốc 0, mốc 1 (kỹ năng đầu — Hoả
+ * Cầu, Thuỷ Tiễn…) mua bằng điểm như mọi mốc. Riêng Kiếm giữ mốc 1 miễn phí (`FREE_FIRST_TIER`: Trảm = đòn J, nhận kiếm
+ * gỗ là chém được).
  * Tia Aether là năng lực bẩm sinh — NGOÀI cây, mạnh dần theo cấp.
  * Thuần dữ liệu + hàm — CombatSystem/Game/HUD đọc, test node gọi thẳng (chỉ import KIỂU, không kéo Pixi vào test).
  */
@@ -32,14 +35,34 @@ export const MAX_TIER = 10;
 /** Cấp tối đa của nhân vật (100 — `@aether/protocol`, máy chủ kẹp cùng số). */
 export { MAX_LEVEL } from '@aether/protocol';
 /**
- * Điểm tiềm năng DỪNG ở cấp này: `pointsForLevel(40)` = 47 điểm = 1 nhánh master (29) + ~62% nhánh nữa — cây thiết kế cho đúng
- * số đó. Trần cấp lên 100 (08/10/2026) mà điểm cứ tăng thì cấp 100 có ~119 điểm → master 3–4 nhánh, phá luật "1 master + nhánh
- * phụ". Cấp 41–100 chỉ tăng chỉ số gốc + mở đồ bậc cao.
+ * Điểm tiềm năng DỪNG ở cấp này: `pointsForLevel(40)` = 47 điểm = 1 nhánh master (Kiếm 29, nguyên tố 30) + ~60% nhánh nữa —
+ * cây thiết kế cho đúng số đó. Trần cấp lên 100 (08/10/2026) mà điểm cứ tăng thì cấp 100 có ~119 điểm → master 3–4 nhánh, phá
+ * luật "1 master + nhánh phụ". Cấp 41–100 chỉ tăng chỉ số gốc + mở đồ bậc cao.
  */
 export const TALENT_LEVEL_CAP = 40;
 
-/** Giá để lên mốc `t` từ mốc `t − 1` (chỉ số = mốc). Mốc 1 miễn phí (mở nhánh). Tổng mốc 2→10 = 29 điểm. */
-export const TIER_COST: readonly number[] = [0, 0, 1, 2, 2, 3, 3, 4, 4, 5, 5];
+/**
+ * Giá để lên mốc `t` từ mốc `t − 1` (chỉ số = mốc) — như nhau ở mọi nhánh, trừ Kiếm mốc 1 miễn phí (`tierCost`). Mốc 1 = học
+ * kỹ năng đầu của nhánh nguyên tố: 1 điểm (chủ dự án 10/10/2026; trước đó mở nhánh là có mốc 1 miễn phí — bản lưu cũ chuyển ở
+ * `StoryDirector`, định dạng `talentsV` 3). Tổng mốc 2→10 = 29 điểm; nguyên tố cả mốc 1 = 30.
+ */
+export const TIER_COST: readonly number[] = [0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5];
+
+/**
+ * Nhánh có mốc 1 MIỄN PHÍ ngay khi mở: chỉ Kiếm (Trảm = đòn J — nhận kiếm gỗ là chém được, bài tập kiếm tuổi 6 dùng luôn).
+ * Nhánh nguyên tố: mở nhánh chỉ là được phép học, mốc 1 phải mua.
+ */
+export const FREE_FIRST_TIER: readonly Branch[] = ['sword'];
+
+/** Mốc của nhánh lúc VỪA MỞ (chưa cộng điểm nào): Kiếm 1 (Trảm có sẵn), nguyên tố 0 (chưa học gì). */
+export function baseTier(b: Branch): number {
+	return FREE_FIRST_TIER.includes(b) ? 1 : 0;
+}
+
+/** Giá lên mốc `t` của nhánh `b`: mốc nhánh có sẵn khi mở (Kiếm mốc 1) = 0, còn lại theo `TIER_COST`. */
+export function tierCost(b: Branch, t: number): number {
+	return t <= baseTier(b) ? 0 : (TIER_COST[t] ?? 0);
+}
 
 /** Điểm tiềm năng có tới cấp `level`: 1 điểm mỗi lần lên cấp + 1 điểm thưởng ở mỗi mốc 5 cấp — tính tới `TALENT_LEVEL_CAP`. */
 export function pointsForLevel(level: number): number {
@@ -47,10 +70,13 @@ export function pointsForLevel(level: number): number {
 	return lv - 1 + Math.floor(lv / 5);
 }
 
-/** Tổng điểm để một nhánh đi từ mốc 1 lên mốc `tier` (m2 = 1, m3 = 3, m4 = 5, m5 = 8 … m10 = 29). */
-export function pointsToTier(tier: number): number {
+/**
+ * Tổng điểm để nhánh `b` đi từ lúc vừa mở lên mốc `tier`. Nguyên tố: m1 = 1, m2 = 2, m3 = 4, m4 = 6, m5 = 9 … m10 = 30;
+ * Kiếm (mốc 1 miễn phí): m1 = 0, m2 = 1, m3 = 3, m4 = 5, m5 = 8 … m10 = 29.
+ */
+export function pointsToTier(tier: number, b: Branch): number {
 	let sum = 0;
-	for (let t = 2; t <= Math.min(MAX_TIER, Math.floor(tier)); t += 1) sum += TIER_COST[t]!;
+	for (let t = 1; t <= Math.min(MAX_TIER, Math.floor(tier)); t += 1) sum += tierCost(b, t);
 	return sum;
 }
 
@@ -408,27 +434,36 @@ export function tierCap(b: Branch): number {
 
 // ———————————————————————————— mốc, điểm, hệ số ————————————————————————————
 
-/** Mốc hiện tại của từng nhánh: 0 = chưa mở, 1 = vừa mở (miễn phí). */
+/**
+ * Mốc hiện tại của từng nhánh. 0 = nhánh CHƯA MỞ, hoặc nhánh nguyên tố ĐÃ MỞ mà chưa học mốc 1 — hai trường hợp phân biệt bằng
+ * `branchOpen` (mã cốt truyện), không bằng số mốc. Kiếm vừa mở = 1 (`baseTier`).
+ */
 export type Tiers = Partial<Record<Branch, number>>;
 
-/** Số mốc ĐÃ MUA mỗi nhánh (mốc − 1) — thứ được lưu (`SaveData.talents`). Mốc suy từ đây + nhánh đã mở. */
+/**
+ * Số mốc ĐÃ MUA (đã trả điểm) mỗi nhánh — thứ được lưu (`SaveData.talents`, định dạng `talentsV` 3). Kiếm = mốc − 1 (mốc 1
+ * miễn phí), nguyên tố = mốc (mốc 1 cũng phải mua). Mốc suy từ đây + nhánh đã mở (`tiersFrom`).
+ */
 export type TalentSpent = Partial<Record<Branch, number>>;
 
-/** Nhánh mở chưa: cốt truyện đã trao mã của nhánh. */
+/** Nhánh mở chưa: cốt truyện đã trao mã của nhánh — mở là ĐƯỢC PHÉP học (nguyên tố vẫn ở mốc 0 tới khi mua mốc 1). */
 export function branchOpen(b: Branch, isUnlocked: (unlockId: string) => boolean): boolean {
 	return isUnlocked(BRANCH_UNLOCK[b]);
 }
 
-/** Mốc suy từ số mốc đã mua + nhánh đã mở (kẹp ở mốc cao nhất đã hiện thực). Nhánh chưa mở = 0 dù bản lưu có số. */
+/**
+ * Mốc suy từ số mốc đã mua + nhánh đã mở: `baseTier` + số đã mua, kẹp ở mốc cao nhất đã hiện thực. Nhánh chưa mở = 0 dù bản
+ * lưu có số.
+ */
 export function tiersFrom(bought: TalentSpent, isUnlocked: (unlockId: string) => boolean): Tiers {
 	const tiers: Tiers = {};
-	for (const b of BRANCHES) tiers[b] = branchOpen(b, isUnlocked) ? Math.min(tierCap(b), 1 + Math.max(0, Math.floor(bought[b] ?? 0))) : 0;
+	for (const b of BRANCHES) tiers[b] = branchOpen(b, isUnlocked) ? Math.min(tierCap(b), baseTier(b) + Math.max(0, Math.floor(bought[b] ?? 0))) : 0;
 	return tiers;
 }
 
-/** Tổng điểm đã dùng cho các mốc hiện có. */
+/** Tổng điểm đã dùng cho các mốc hiện có (gồm mốc 1 của nhánh nguyên tố đã học). */
 export function spentPoints(tiers: Tiers): number {
-	return BRANCHES.reduce((a, b) => a + pointsToTier(tiers[b] ?? 0), 0);
+	return BRANCHES.reduce((a, b) => a + pointsToTier(tiers[b] ?? 0, b), 0);
 }
 
 /** Còn bao nhiêu điểm chưa cộng. */
@@ -436,23 +471,46 @@ export function unspent(level: number, tiers: Tiers): number {
 	return pointsForLevel(level) - spentPoints(tiers);
 }
 
-/** Giá mốc kế tiếp của nhánh; null nếu nhánh chưa mở hoặc đã tới mốc cao nhất đã hiện thực. */
-export function nextTierCost(tiers: Tiers, b: Branch): number | null {
-	const cur = tiers[b] ?? 0;
-	if (cur < 1 || cur >= tierCap(b)) return null;
-	return TIER_COST[cur + 1] ?? null;
+/**
+ * Giá mốc kế tiếp của nhánh; null nếu nhánh chưa mở (mã cốt truyện) hoặc đã tới mốc cao nhất đã hiện thực. Nhánh nguyên tố
+ * đã mở ở mốc 0 → giá mốc 1 (học kỹ năng đầu, 1 điểm).
+ */
+export function nextTierCost(tiers: Tiers, b: Branch, isUnlocked: (unlockId: string) => boolean): number | null {
+	if (!BRANCHES.includes(b) || !branchOpen(b, isUnlocked)) return null;
+	const cur = Math.max(0, Math.floor(tiers[b] ?? 0));
+	if (cur >= tierCap(b)) return null;
+	return tierCost(b, cur + 1);
 }
 
 /** Lên 1 mốc (đã mở, chưa chạm trần, đủ điểm) — trả mốc mới, hoặc null nếu không lên được. Sửa `tiers` tại chỗ. */
-export function addTier(level: number, tiers: Tiers, b: Branch): number | null {
-	if (!BRANCHES.includes(b)) return null;
-	const cost = nextTierCost(tiers, b);
+export function addTier(level: number, tiers: Tiers, b: Branch, isUnlocked: (unlockId: string) => boolean): number | null {
+	const cost = nextTierCost(tiers, b, isUnlocked);
 	if (cost === null || unspent(level, tiers) < cost) return null;
-	tiers[b] = (tiers[b] ?? 0) + 1;
+	tiers[b] = Math.max(0, Math.floor(tiers[b] ?? 0)) + 1;
 	return tiers[b]!;
 }
 
-/** Thưởng chiều sâu: +4% sức mạnh mọi kỹ năng của nhánh mỗi mốc trên mốc 1 (mốc 10 = +36%). Chưa mở = 1. */
+/**
+ * Chia lại điểm cho bản lưu không còn đủ điểm giữ mọi mốc (chuyển luật, bản lưu hỏng): nhánh SÂU nhất giữ trước (mốc muốn
+ * giữ cao hơn trước; bằng nhau theo thứ tự `BRANCHES` = thứ tự mở trong cốt truyện — nhánh mở trước giữ trước), mỗi nhánh
+ * lấy mốc cao nhất ≤ mốc muốn giữ mà điểm còn lại trả nổi (không dưới `baseTier`). Không bao giờ tiêu quá `points` → không
+ * bao giờ âm điểm. Nhánh chính của build giữ lâu nhất; nhánh chỉ có mốc 1 mất trước. Trả mốc giữ được (chỉ các nhánh có
+ * trong `want`).
+ */
+export function fitTiers(want: Tiers, points: number): Tiers {
+	const order = BRANCHES.filter((b) => want[b] !== undefined).sort((x, y) => (want[y] ?? 0) - (want[x] ?? 0) || BRANCHES.indexOf(x) - BRANCHES.indexOf(y));
+	let left = Math.max(0, points);
+	const kept: Tiers = {};
+	for (const b of order) {
+		let t = Math.max(baseTier(b), Math.min(tierCap(b), Math.floor(want[b] ?? 0)));
+		while (t > baseTier(b) && pointsToTier(t, b) > left) t -= 1;
+		kept[b] = t;
+		left -= pointsToTier(t, b);
+	}
+	return kept;
+}
+
+/** Thưởng chiều sâu: +4% sức mạnh mọi kỹ năng của nhánh mỗi mốc trên mốc 1 (mốc 10 = +36%). Mốc 0 (chưa mở / chưa học) = 1. */
 export const DEPTH_BONUS = 0.04;
 export function depthBonus(tier: number): number {
 	return 1 + DEPTH_BONUS * Math.max(0, Math.min(MAX_TIER, Math.floor(tier)) - 1);
@@ -480,9 +538,10 @@ export function skillScale(tiers: Tiers, skillId: string, level: number): number
 }
 
 /**
- * Đã học kỹ năng chưa: mã cốt truyện (nếu có) đã mở VÀ nhánh đạt mốc học. Kỹ năng mốc 1 chỉ cần mã cốt truyện (mở
- * nhánh = học luôn mốc 1) — CombatSystem chưa nhận mốc nào vẫn dùng được đòn cơ bản. Kỹ năng của lưu phái Kiếm cần đúng
- * lưu phái `style`; kiếm pháp nguyên tố cần thêm nguyên tố đó ≥ mốc 5.
+ * Đã học kỹ năng chưa: mã cốt truyện (nếu có) đã mở VÀ nhánh đạt mốc học. Kỹ năng ở mốc có sẵn khi mở nhánh (`baseTier` —
+ * chỉ Trảm, Kiếm mốc 1) chỉ cần mã cốt truyện: CombatSystem chưa nhận mốc nào vẫn chém được. Kỹ năng mốc 1 của nguyên tố (Hoả
+ * Cầu, Thuỷ Tiễn…) cần nhánh ≥ mốc 1 — đã mua bằng điểm (chủ dự án 10/10/2026). Kỹ năng của lưu phái Kiếm cần đúng lưu phái
+ * `style`; kiếm pháp nguyên tố cần thêm nguyên tố đó ≥ mốc 5.
  */
 export function knowsSkill(skill: { id: string; unlock?: string }, tiers: Tiers, isUnlocked: (unlockId: string) => boolean, style: SwordStyle | null = null): boolean {
 	if (skill.unlock && !isUnlocked(skill.unlock)) return false;
@@ -490,7 +549,7 @@ export function knowsSkill(skill: { id: string; unlock?: string }, tiers: Tiers,
 	if (!node) return true;
 	if (node.style && node.style !== style) return false;
 	if (node.art && (tiers[node.art] ?? 0) < SWORD_ART_TIER) return false;
-	return node.tier <= 1 || (tiers[node.branch] ?? 0) >= node.tier;
+	return node.tier <= baseTier(node.branch) || (tiers[node.branch] ?? 0) >= node.tier;
 }
 
 /** Hiệu ứng bị động đang có (hệ số nhân; 1 / 0 / false = chưa có). */
@@ -712,15 +771,15 @@ export function enchantDesc(e: EnchantId, tier: number): string {
 	const pct = (x: number) => `${Math.round(x * 100)}%`;
 	switch (e) {
 		case 'fire':
-			return `Gây cháy.${up ? ` Nhát thứ ${EARTH_ENCHANT.every} liên tiếp nổ nhỏ (×${ENCHANT_FX.fire.blastPower} sát thương nhát).` : ''}`;
+			return `Gây cháy.${up ? ` Nhát thứ ${EARTH_ENCHANT.every} liên tiếp nổ nhỏ (×${fmt(ENCHANT_FX.fire.blastPower)} sát thương nhát).` : ''}`;
 		case 'water':
 			return `Làm ướt, hút ${pct(up ? ENCHANT_FX.water.drainUp : ENCHANT_FX.water.drain)} sát thương thành máu.`;
 		case 'wind':
 			return `Tầm chém +${pct(ENCHANT_FX.wind.reach - 1)}, đẩy lùi nhẹ.${up ? ' Mỗi nhát chém bắn thêm một lưỡi gió.' : ''}`;
 		case 'ice':
-			return `Làm chậm; trúng ${up ? ENCHANT_FX.ice.stacksUp : ENCHANT_FX.ice.stacks} nhát liên tiếp thì đóng băng ${ENCHANT_FX.ice.freeze} giây.`;
+			return `Làm chậm; trúng ${up ? ENCHANT_FX.ice.stacksUp : ENCHANT_FX.ice.stacks} nhát liên tiếp thì đóng băng ${fmt(ENCHANT_FX.ice.freeze)} giây.`;
 		case 'earth':
-			return `Phá giáp ${EARTH_ENCHANT.armor} giây; nhát thứ ${EARTH_ENCHANT.every} liên tiếp choáng ${up ? EARTH_ENCHANT.stunUp : EARTH_ENCHANT.stun} giây.`;
+			return `Phá giáp ${fmt(EARTH_ENCHANT.armor)} giây; nhát thứ ${EARTH_ENCHANT.every} liên tiếp choáng ${fmt(up ? EARTH_ENCHANT.stunUp : EARTH_ENCHANT.stun)} giây.`;
 		default:
 			return '';
 	}

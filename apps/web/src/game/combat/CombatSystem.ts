@@ -1,5 +1,6 @@
-import type { MobAct, MobCc, MobCcKey } from '@aether/protocol';
-import { MOB_CC_KEYS } from '@aether/sim/mobs';
+import type { ActionFx, MobAct, MobCc, MobCcKey } from '@aether/protocol';
+import { capExpGain } from '@aether/sim/economy';
+import { CHILD_ZONE_LEVEL_CAP, MOB_CC_KEYS } from '@aether/sim/mobs';
 import { COMBO_WINDOW, SKILL_MOVE, SLASH_COMBO } from '@aether/sim/moves';
 import { Container, Graphics, Sprite, Text, type Texture } from 'pixi.js';
 import type { ActionName, Direction } from '../assets/AssetManifest';
@@ -57,7 +58,7 @@ import {
 	type ReactionId,
 	type WallSeg,
 } from './skillRules';
-import { cleanLevel, elementMult, ENEMY_STATS, expForLevel, HERO_SKILLS, isGroundTarget, isSwordSkill, PATHS, type Element, type EnemyStats, type HeroPath, type SkillDef, type SkillHitFx } from './skills';
+import { cleanLevel, elementMult, enemyLevel, enemyStatsAt, expForLevel, HERO_SKILLS, isGroundTarget, isSwordSkill, PATHS, type Element, type EnemyStats, type HeroPath, type SkillDef, type SkillHitFx } from './skills';
 import {
 	canEnchant,
 	depthBonus,
@@ -77,6 +78,7 @@ import {
 	type SwordStyle,
 	type Tiers,
 } from './talents';
+import { castFx, type RemoteCast } from './remoteCast';
 import { TEMP_ART, type ArtLayer } from './tempArt';
 import type { Vfx, VfxId, VfxOptions } from './Vfx';
 
@@ -107,6 +109,12 @@ export interface Fighter {
 	id: string;
 	name: string;
 	net?: NetMob;
+	/** Khu quái sinh ra con này (nhiệm vụ "kill" có `onGive.zone` chỉ đếm quái của khu đó; báo máy chủ khi hạ quái riêng). */
+	zone?: string;
+	/** Cấp hiện trên nhãn tên (`enemyLevel`: cấp của khu, không thì cấp gốc của loại); null = loại chưa ghi cấp. */
+	level: number | null;
+	/** Quái khu tuổi thơ (`isChildZone`): EXP chơi một mình không đưa nhân vật quá `CHILD_ZONE_LEVEL_CAP`. */
+	child?: boolean;
 	/** Boss (cốt truyện HOẶC vùng): thanh máu trên HUD, không theo bầy, không bị đẩy lùi, đóng băng nửa thời gian. */
 	boss: boolean;
 	/** Boss vùng (vùng quái `boss: true`): hồi sinh như quái, không báo cốt truyện — xem `bossRules.ts`. */
@@ -217,6 +225,11 @@ interface Projectile {
 	boomerang?: { back: boolean; speed: number };
 	/** Đạn KIẾM (Lưỡi Sóng, Phi Kiếm, đạn gạt ngược): trúng lần đầu thì tính một nhát cho Thế Áp Đảo. */
 	press?: boolean;
+	/**
+	 * Đạn HÌNH của người chơi khác (`echoCast`): không gây sát thương; chạm quái DÙNG CHUNG (cả hai máy cùng thấy) thì tan + hình
+	 * trúng — máy người bắn tự tính trúng; Phi Kiếm bay về tay nhân vật này.
+	 */
+	echo?: Actor;
 }
 
 /**
@@ -324,6 +337,71 @@ interface FloatText {
 	life: number;
 	vy: number;
 }
+
+/**
+ * Chiêu của NGƯỜI CHƠI KHÁC đang diễn trên máy này (`echoCast`) — CHỈ HÌNH. Cùng khuôn với đòn của mình: dồn lực (`wait`) → vào
+ * thế → khung chạm (`timing.releaseAt`: vẽ hình của chiêu) → hết. Đồng hồ là dt của game, như động tác thân của nhân vật đó
+ * (CharacterView tự chạy) — hai bên cùng mốc.
+ */
+interface Echo {
+	actor: Actor;
+	cast: RemoteCast;
+	anim: ActionName;
+	dir: Direction;
+	/** Giây dồn lực còn lại (Nhất Kích); hết thì vào động tác. */
+	wait: number;
+	started: boolean;
+	t: number;
+	/** null = không có động tác (chiêu không vung thân, atlas chưa vẽ hướng đó): vẽ hình ngay khi vào thế. */
+	timing: ActionTiming | null;
+	done: boolean;
+}
+
+/** Vùng tồn tại của người chơi khác: chỉ hình mỗi nhịp (mưa, sét, lưỡi gió xoay) — không hút, không sát thương, không làm ướt. */
+interface EchoZone {
+	skill: SkillDef;
+	actor: Actor;
+	x: number;
+	y: number;
+	r: number;
+	left: number;
+	tickLeft: number;
+	ticks: number;
+	follow: boolean;
+	spin: number;
+	vx: number;
+	vy: number;
+	/** Lôi Vũ: số tia đã đánh từng quái (chỉ để rải hình sét như `thunderVolley`). */
+	struck: Map<object, number>;
+}
+
+/** Cú lướt của người chơi khác: rắc hạt theo nhân vật, hết lướt (+ chờ nhân vật trượt tới vị trí máy chủ) thì vẽ vệt / nhát cuối. */
+interface EchoDash {
+	actor: Actor;
+	skill: SkillDef;
+	el: Element;
+	fromX: number;
+	fromY: number;
+	vx: number;
+	vy: number;
+	/** Giây lướt còn lại (như `PlayerCombat.dash.t`), rồi giây chờ nhân vật trượt tới chỗ dừng (`ECHO_LAG`). */
+	left: number;
+	lag: number;
+	spark: number;
+}
+
+/** Thế đỡ của người chơi khác: nhuộm nhân vật như thế đỡ của mình tới hết giờ (hoặc tới đòn kế / tin dừng của người đó). */
+interface EchoGuard {
+	actor: Actor;
+	kind: GuardKind;
+	t: number;
+}
+
+/**
+ * Nhân vật người khác trượt tới vị trí máy chủ phát (10 lần/giây) chậm hơn người đó chừng này giây: vệt lướt vẽ khi nhân vật
+ * trên máy này đã tới chỗ dừng.
+ */
+const ECHO_LAG = 0.15;
 
 /** Kết quả một lần bấm kỹ năng (hook QA đọc được vì sao đòn không ra). */
 export type CastResult = 'started' | 'buffered' | 'busy' | 'locked' | 'cooldown' | 'mp' | 'dead' | 'none';
@@ -435,10 +513,16 @@ export interface CombatHooks {
 	isUnlocked(skill: string): boolean;
 	/** Trúng hình nộm tập (nhiệm vụ "practice"); `reaction` = phản ứng nguyên tố vừa tạo ra, nếu có. */
 	practiceHit?(element: Element, reaction: ReactionId | null): void;
-	/** Vừa tung đòn có động tác — Game gửi cho người chơi khác (máy họ tự quyết có hình để phát hay không). */
-	onAction?(anim: ActionName, dir: Direction, skill: string): void;
-	/** Động tác bị cắt TRƯỚC khi diễn hết (né, đi, bị ngắt): máy người khác dừng hình theo. */
-	onActionEnd?(): void;
+	/**
+	 * Vừa tung đòn — Game gửi cho người chơi khác (máy họ tự quyết có hình để phát hay không). `fx`: phần chiêu để máy kia vẽ lại
+	 * hình của chiêu (`remoteCast.castFx`); vắng ở động tác không gắn chiêu (uống bình, nhát phản).
+	 */
+	onAction?(anim: ActionName, dir: Direction, skill: string, fx?: ActionFx): void;
+	/**
+	 * Động tác bị cắt TRƯỚC khi diễn hết (né, đi, bị ngắt): máy người khác dừng hình theo. `hit`: đòn đã qua khung chạm (chỉ cắt pha
+	 * thu thế) — máy kia vẽ nốt hình chiêu nếu chưa kịp nổ (tin tới dồn), thay vì bỏ.
+	 */
+	onActionEnd?(hit?: boolean): void;
 	/** Vừa lên cấp (gọi từng cấp một nếu lên nhiều cấp liền). Có hook thì Game tự báo — CombatSystem không toast nữa. */
 	levelUp?(level: number): void;
 	/** Quái dùng chung trúng đòn của MÁY NÀY (sát thương đã tính) — báo máy chủ trừ máu. */
@@ -452,10 +536,11 @@ export interface CombatHooks {
 	/** Vị trí người chơi khác cùng map (boss dùng chung nhắm vùng nổ vào bất kỳ ai, không chỉ người làm chủ nó). */
 	others?(): readonly { x: number; y: number }[];
 	/**
-	 * Kinh tế ở máy chủ (M3.3a): có hook này thì hạ quái RIÊNG không tự cộng xu / EXP mà báo máy chủ (`type` = loại quái); máy chủ trả
-	 * số thật (`setEconomy`). Quái dùng chung máy chủ tự tính công — không báo. Thiếu hook = chơi một mình, tự cộng như cũ.
+	 * Kinh tế ở máy chủ (M3.3a): có hook này thì hạ quái RIÊNG không tự cộng xu / EXP mà báo máy chủ (`type` = loại quái, `zone` = khu
+	 * của nó — máy chủ trao theo cấp của khu); máy chủ trả số thật (`setEconomy`). Quái dùng chung máy chủ tự tính công — không báo.
+	 * Thiếu hook = chơi một mình, tự cộng như cũ.
 	 */
-	reportKill?(type: string): void;
+	reportKill?(type: string, zone?: string): void;
 	/** Vừa uống một bình hồi phục (kinh tế ở máy chủ: máy chủ trừ bình). */
 	potionUsed?(): void;
 }
@@ -740,6 +825,13 @@ export class CombatSystem {
 	private guardAt = -99;
 	/** Bất Khuất frame trước có bật không — báo chữ một lần lúc vừa tụt dưới ngưỡng. */
 	private rageOn = false;
+	/** Chiêu của người chơi khác đang diễn + vùng / cú lướt / thế đỡ của họ — CHỈ HÌNH (`echoCast`). */
+	private readonly echoes: Echo[] = [];
+	private readonly echoZones: EchoZone[] = [];
+	private readonly echoDashes: EchoDash[] = [];
+	private readonly echoGuards: EchoGuard[] = [];
+	/** Chiều vệt chém luân phiên của từng người chơi khác (nhát không có động tác, chuỗi Liên Hoàn) — tách khỏi `swing` của mình. */
+	private readonly echoSwing = new WeakMap<object, number>();
 
 	constructor(
 		private readonly hooks: CombatHooks,
@@ -1056,12 +1148,17 @@ export class CombatSystem {
 	/** Phủ Phong mốc 7: nhát chém cận chiến bắn thêm một lưỡi gió theo hướng chém (không xuyên, không phủ phép thêm). */
 	private windBlade(enchant: Element | undefined, x: number, y: number, dx: number, dy: number, damage: number): void {
 		if (enchant !== 'wind' || (this.tiers.wind ?? 0) < ENCHANT_UP_TIER) return;
+		this.fireWindBlade(x, y, dx, dy, damage);
+	}
+
+	/** Bắn lưỡi gió của phủ Phong mốc 7. `echo`: lưỡi HÌNH theo nhát chém của người chơi khác (không sát thương). */
+	private fireWindBlade(x: number, y: number, dx: number, dy: number, damage: number, echo?: Actor): void {
 		const w = ENCHANT_FX.wind;
 		const len = Math.hypot(dx, dy) || 1;
 		const [ux, uy] = [dx / len, dy / len];
 		// Lưỡi gió PixelLab (`wind_blade`, vẽ hướng sang phải) nếu atlas đã có — không thì đạn gió dùng chung.
 		const look = this.vfx.frames('wind_blade').length > 0 ? { id: 'wind_blade' as const, aim: true } : undefined;
-		this.fire({ x: x + ux * 22, y: y + uy * 22, vx: ux * w.bladeSpeed, vy: uy * w.bladeSpeed, life: w.bladeRange / w.bladeSpeed, team: 'player', damage: damage * w.bladePower, element: 'wind', pierce: false, look });
+		this.fire({ x: x + ux * 22, y: y + uy * 22, vx: ux * w.bladeSpeed, vy: uy * w.bladeSpeed, life: w.bladeRange / w.bladeSpeed, team: 'player', damage: damage * w.bladePower, element: 'wind', pierce: false, look, echo });
 	}
 
 	/** Phủ Hoả mốc 7: nổ nhỏ quanh mục tiêu đầu tiên trúng nhát được nổ (hệ Hoả, không khống chế). */
@@ -1090,21 +1187,25 @@ export class CombatSystem {
 	/**
 	 * `regionBoss`: boss canh vùng (hồi sinh, không thuộc cốt truyện) — Game truyền cho vùng quái `boss: true`.
 	 * `dormant` (giây): dựng ở trạng thái ĐÃ GỤC, còn chừng ấy giây mới thức — boss vùng bị hạ trước lần đổi map.
+	 * `zone` / `level` / `child`: khu sinh ra con này, cấp của khu (chỉ số theo `enemyStatsAt` — cùng hàm máy chủ dùng), khu tuổi thơ.
 	 */
 	addEnemy(
 		actor: Actor,
 		id: string,
 		home: { x: number; y: number; radius: number },
 		name: string,
-		opts: { regionBoss?: boolean; dormant?: number; net?: NetMob } = {},
+		opts: { regionBoss?: boolean; dormant?: number; net?: NetMob; zone?: string; level?: number; child?: boolean } = {},
 	): Fighter | null {
-		const stats = ENEMY_STATS[id];
+		const stats = enemyStatsAt(id, opts.level);
 		if (!stats) return null;
 		const regionBoss = !!opts.regionBoss;
 		const f: Fighter = {
 			actor,
 			id,
 			name,
+			level: enemyLevel(id, opts.level),
+			...(opts.zone ? { zone: opts.zone } : {}),
+			...(opts.child ? { child: true } : {}),
 			boss: regionBoss || id.startsWith('boss_'),
 			regionBoss,
 			stats,
@@ -1204,6 +1305,9 @@ export class CombatSystem {
 		this.zones.length = 0;
 		this.walls.length = 0;
 		this.pending.length = 0;
+		// Chiêu của người chơi khác thuộc map cũ (người ở map mới đến qua `welcome`).
+		for (const g of this.echoGuards) g.actor.view.sprite.tint = 0xffffff;
+		for (const list of [this.echoes, this.echoZones, this.echoDashes, this.echoGuards]) list.length = 0;
 		this.pc.ward = null;
 		this.vfx.clear();
 		for (const pr of this.projectiles) {
@@ -1336,6 +1440,24 @@ export class CombatSystem {
 		dy /= len;
 		const dir = directionOf(dx, dy);
 		p.view.set(p.view.baseAnimation, dir);
+		// Phần chiêu gửi máy người khác để họ vẽ lại HÌNH của chiêu (`remoteCast.castFx`): hướng ngắm, điểm nhắm, phủ phép, nhịp.
+		const cue = castFx(skill, {
+			dx,
+			dy,
+			x: p.x,
+			y: p.y,
+			tx: aim.x,
+			ty: aim.y,
+			enchant: this.enchantment,
+			cd: fast ? cooldown * PASSIVE.momentumSpeed : cooldown,
+			sp: fast ? PASSIVE.momentumSpeed : 1,
+			boost: this.fx.windShot,
+			windBladeTier: (this.tiers.wind ?? 0) >= ENCHANT_UP_TIER,
+			afterGuard: this.time - this.guardAt <= COUNTER.after,
+		});
+		// Báo máy người khác. Chiêu không vung thân (lướt, giữ thế) vẫn báo — kèm động tác riêng của chiêu cho máy bản cũ; máy mới
+		// biết chiêu đó không vung (`SkillDef.anim` vắng) nên chỉ vẽ hình. Chiêu dồn lực báo lúc BẮT ĐẦU dồn (máy kia vẽ cả pha dồn).
+		const announce = (anim: ActionName | undefined): void => this.hooks.onAction?.(anim ?? SKILL_MOVE[skill.id] ?? 'attack', dir, skill.id, cue);
 
 		const begin = (): void => {
 			if (skill.anim === 'cast') {
@@ -1349,12 +1471,13 @@ export class CombatSystem {
 			const timing = plain && fast ? quicken(plain, PASSIVE.momentumSpeed) : plain;
 			if (anim && timing && p.view.playAction(anim, dir, { timing, external: true })) pc.action = { ...action, timing };
 			else this.release(action, false);
-			if (anim) this.hooks.onAction?.(anim, dir, skill.id);
+			if (!skill.charge) announce(anim);
 		};
 		if (skill.charge) {
 			// Dồn lực (Nhất Kích): đứng im, tia sáng tụ quanh người đúng bằng thời gian dồn — xong mới vào động tác vung.
 			pc.charging = { t: skill.charge, skill, prevCooldown, mpPaid: skill.mpCost, begin };
 			this.playArt(skill.id, p.x, p.y, dx, dy, undefined, { part: 'charge', follow: p, span: skill.charge });
+			announce(this.moveOf(skill, dir));
 			return 'started';
 		}
 		begin();
@@ -1597,6 +1720,398 @@ export class CombatSystem {
 		}
 	}
 
+	// ———————————————————————————— chiêu của người chơi khác (chỉ hình) ————————————————————————————
+
+	/**
+	 * Người chơi KHÁC vừa tung chiêu (tin `action` có phần chiêu — `remoteCast.planRemoteCast`): phát động tác thân (chiêu có vung)
+	 * + vẽ lại HÌNH của chiêu neo vào nhân vật đó, đúng khung chạm như máy người tung (cùng hồi chiêu → cùng nhịp). CHỈ HÌNH: không
+	 * sát thương, không khống chế, không đụng quái (đạn chạm quái dùng chung chỉ tan), không trừ máu / MP ai, không tính combo /
+	 * Thế Áp Đảo, không rung / khựng / loé màn hình của người xem. `anim` / `dir`: động tác + hướng trong tin.
+	 */
+	echoCast(actor: Actor, anim: ActionName, dir: Direction, cast: RemoteCast): void {
+		// Đòn trước của người này chưa tới khung chạm mà đòn mới đã tới: máy người tung chỉ cho đòn mới cắt ngang SAU khung chạm
+		// (bị huỷ thì tin dừng tới trước — TCP giữ thứ tự) → đòn trước đã nổ ở máy đó, vẽ nốt ngay. Đòn mới cũng thôi thế đỡ.
+		this.flushEcho(actor);
+		this.endEchoGuard(actor);
+		const e: Echo = { actor, cast, anim, dir, wait: cast.wait, started: false, t: 0, timing: null, done: false };
+		this.echoes.push(e);
+		if (cast.wait > 0) {
+			// Dồn lực (Nhất Kích): tia sáng tụ quanh người đúng bằng thời gian dồn — như `cast`.
+			this.playArt(cast.skill.id, actor.x, actor.y, cast.dx, cast.dy, undefined, { part: 'charge', follow: actor, span: cast.wait });
+		} else this.startEcho(e);
+	}
+
+	/**
+	 * Tin dừng của người đó (né / đi / bị ngắt trước khi diễn hết): bỏ chiêu chưa tới khung chạm — máy người tung cũng không nổ.
+	 * `hit`: máy người tung cắt SAU khung chạm (đòn đã nổ ở đó) mà ở máy này chưa tới (hai tin tới dồn do trễ mạng) → vẽ nốt ngay.
+	 */
+	cancelEcho(actor: Actor, hit = false): void {
+		if (hit) this.flushEcho(actor);
+		else for (const e of this.echoes) if (e.actor === actor) e.done = true;
+		this.endEchoGuard(actor);
+	}
+
+	/** Người chơi khác rời map / đổi hình: bỏ mọi thứ còn bám vào nhân vật cũ (hình đang phát thì phát nốt tại chỗ). */
+	forgetEcho(actor: Actor): void {
+		this.cancelEcho(actor);
+		for (const list of [this.echoZones, this.echoDashes] as { actor: Actor }[][]) {
+			for (let i = list.length - 1; i >= 0; i -= 1) if (list[i]!.actor === actor) list.splice(i, 1);
+		}
+	}
+
+	/** Vào động tác (hết dồn lực): vòng phép dưới chân / bóng để lại như `cast` + `begin`; không có động tác thì vẽ hình ngay. */
+	private startEcho(e: Echo): void {
+		const { actor: p, cast } = e;
+		const skill = cast.skill;
+		e.started = true;
+		// Ảnh Bộ: bóng để lại ở chỗ cũ (`blinkTo`) — nhân vật tự trượt tới sau lưng mục tiêu theo vị trí máy chủ phát.
+		if (skill.kind === 'blink') this.playArt(skill.id, p.x, p.y, 1, 0, undefined, { part: 'charge' });
+		if (skill.anim === 'cast') this.vfx.play('magic_circle', p.x, p.y, { layer: 'ground', tint: ELEMENT_TINT[skill.element], follow: p, fps: 24, alpha: 0.9 });
+		if (cast.body) {
+			const plain = p.view.actionTiming(e.anim, e.dir, cast.cooldown);
+			const timing = plain && cast.speed > 1 ? quicken(plain, cast.speed) : plain;
+			if (timing && p.view.playAction(e.anim, e.dir, { timing, external: false })) e.timing = timing;
+		}
+		if (!e.timing) this.releaseEcho(e);
+	}
+
+	private releaseEcho(e: Echo): void {
+		e.done = true;
+		this.echoRelease(e.cast, e.actor, !!e.timing, e.dir);
+	}
+
+	/**
+	 * Đòn chưa nổ của người này: nổ ngay (chỉ hình, không vung thân — động tác mới sắp đè lên). Chiều vệt chém vẫn theo hướng nếu
+	 * đòn có động tác — máy người tung nổ đòn đó lúc đang vung.
+	 */
+	private flushEcho(actor: Actor): void {
+		for (const e of this.echoes) {
+			if (e.actor !== actor || e.done) continue;
+			e.done = true;
+			this.echoRelease(e.cast, actor, !!e.timing, e.dir);
+		}
+	}
+
+	/**
+	 * Đồng hồ chiêu người khác: hết dồn lực → vào động tác; tới khung chạm → vẽ hình. Chỉ TIN DỪNG mới huỷ (`cancelEcho`) — không
+	 * xét động tác thân còn chạy không: lưới an toàn của Game cắt thân khi nhân vật lệch xa vị trí máy chủ (Ảnh Bộ dịch ra sau lưng
+	 * mục tiêu ngay lúc bấm), mà đòn đó vẫn nổ ở máy người tung.
+	 */
+	private updateEchoes(dt: number): void {
+		for (const e of this.echoes) {
+			if (e.done) continue;
+			if (!e.started) {
+				e.wait -= dt;
+				if (e.wait > 0) continue;
+				this.startEcho(e);
+				if (e.done) continue;
+			}
+			e.t += dt;
+			if (e.t + ACTION_EPS >= e.timing!.releaseAt) this.releaseEcho(e);
+		}
+		for (let i = this.echoes.length - 1; i >= 0; i -= 1) if (this.echoes[i]!.done) this.echoes.splice(i, 1);
+	}
+
+	/** Chiều vệt chém của người khác: theo HƯỚNG khi có động tác (như `slashFx`), không thì luân phiên RIÊNG từng người. */
+	private echoFlip(actor: Actor, animatedDir: Direction | null): boolean {
+		const s = animatedDir ? (MIRRORED_DIRS.has(animatedDir) ? -1 : 1) : -(this.echoSwing.get(actor) ?? 1);
+		this.echoSwing.set(actor, s);
+		return s < 0;
+	}
+
+	/** Điểm đặt đòn vùng của người khác: điểm nhắm trong tin (không có thì trước mặt ở `aimDist`), kẹp theo tầm như `release`. */
+	private echoTarget(c: RemoteCast, p: Actor, aimDist: number): { x: number; y: number } {
+		const d = c.skill.aimDist ?? aimDist;
+		return clampTarget(p.x, p.y, c.tx ?? p.x + c.dx * d, c.ty ?? p.y + c.dy * d, c.skill.range ?? 0);
+	}
+
+	/**
+	 * Khung chạm của chiêu người khác: vẽ ĐÚNG các hình `release` vẽ cho đòn của mình (cùng chỗ tương đối, cùng hệ, cùng lịch hẹn),
+	 * gốc là nhân vật người đó. Bỏ mọi phần trận (sát thương, khống chế, hút máu, ướt, Thế Áp Đảo) và cảm giác tay của người TUNG
+	 * (rung, khựng, loé màn hình). Sửa hình của một kiểu đòn ở `release` thì sửa cả ở đây — `tests/remoteCast.test.ts` so hai bên
+	 * theo từng chiêu.
+	 * Chỗ móc PvP (M3 — chưa làm): trúng người-đánh-người do MÁY CHỦ tính (`apps/server/src/world.ts` `action`), máy này chỉ nhận
+	 * kết quả để hiện số / trừ máu của chính mình — không tính trúng ở đây.
+	 */
+	private echoRelease(c: RemoteCast, p: Actor, animated: boolean, dir: Direction): void {
+		const { skill, dx, dy } = c;
+		const ox = p.x;
+		const oy = p.y - p.chest;
+		const kind = skill.kind;
+		const flip = (): boolean => this.echoFlip(p, animated ? dir : null);
+		const el = c.enchant ?? skill.element;
+		if (skill.anim === 'cast' && kind !== 'zone' && kind !== 'pillar' && kind !== 'wall' && kind !== 'barrage') {
+			this.vfx.play('arcane_orb', ox + dx * 16, oy + dy * 12, { tint: ELEMENT_TINT[skill.element], blend: 'add', fps: 20 });
+		}
+		if (skill.blade && kind !== 'melee') this.drawSlash(ox, oy, dx, dy, skill.element, flip());
+
+		if (kind === 'projectile') {
+			const speed = (skill.speed ?? 400) * c.boost;
+			const sword = isSwordSkill(skill);
+			const look = this.shotOf(skill.id);
+			const n = Math.max(1, skill.count ?? 1);
+			const step = ((skill.spread ?? 0) * Math.PI) / 180;
+			const base = Math.atan2(dy, dx);
+			for (let k = 0; k < n; k += 1) {
+				const ang = base + (k - (n - 1) / 2) * step;
+				const [ux, uy] = n === 1 ? [dx, dy] : [Math.cos(ang), Math.sin(ang)];
+				this.fire({
+					x: ox + ux * 18,
+					y: oy + uy * 18,
+					vx: ux * speed,
+					vy: uy * speed,
+					life: ((skill.range ?? 400) * c.boost) / speed,
+					team: 'player',
+					damage: 0,
+					element: el,
+					pierce: !!skill.pierce,
+					look: c.enchant && look ? { ...look, tint: ELEMENT_TINT[c.enchant] } : look,
+					reach: skill.width,
+					boomerang: skill.returns ? speed : undefined,
+					echo: p,
+				});
+			}
+			if (sword) this.drawSlash(ox, oy, dx, dy, el, flip());
+			if (n > 1 || sword) this.playArt(skill.id, p.x + dx * 24, p.y + dy * 16, dx, dy);
+		} else if (kind === 'melee' || kind === 'blink') {
+			this.drawSlash(ox, oy, dx, dy, el, flip());
+			if (TEMP_ART[skill.id]) this.playArt(skill.id, p.x + dx * (kind === 'blink' ? 26 : 46), p.y + dy * 30, dx, dy);
+			if (c.windBlade) this.fireWindBlade(ox, oy, dx, dy, 0, p);
+			// Liên Hoàn: các nhát sau nối đuôi, ra từ chỗ nhân vật ĐANG đứng, vệt luân phiên.
+			for (let k = 1; k < (skill.count ?? 1); k += 1) {
+				this.schedule(k * (skill.stagger ?? 0.1), () => {
+					const [qx, qy] = [p.x, p.y - p.chest];
+					this.drawSlash(qx, qy, dx, dy, el, this.echoFlip(p, null));
+					this.playArt(skill.id, p.x + dx * 46, p.y + dy * 30, dx, dy);
+					if (c.windBlade) this.fireWindBlade(qx, qy, dx, dy, 0, p);
+				});
+			}
+		} else if (kind === 'guard') {
+			const total = skill.duration ?? 1;
+			this.playArt(skill.id, p.x, p.y, dx, dy, undefined, { part: 'charge', follow: p, span: total });
+			this.float(p.x, p.y - p.height - 8, skill.guard === 'parry' ? 'Thế đỡ!' : 'Giữ thế', 0xbfeaff, 12);
+			this.echoGuards.push({ actor: p, kind: skill.guard ?? 'stance', t: total });
+		} else if (kind === 'spin') {
+			for (let k = 0; k < 4; k += 1) {
+				const ang = (k / 4) * Math.PI * 2;
+				this.vfx.play('slash', p.x + Math.cos(ang) * 34, p.y - 34 + Math.sin(ang) * 22, { rotation: ang + Math.PI / 2, tint: el === 'steel' ? 0xeaf8ff : ELEMENT_TINT[el], fps: 30 });
+			}
+			this.playArt(skill.id, p.x, p.y, dx, dy);
+			if (c.surge) {
+				this.playArt('whirlpool_surge', p.x, p.y, dx, dy);
+				this.float(p.x, p.y - p.height - 8, `${skill.name}!`, 0x9fe8ff, 15);
+			}
+		} else if (kind === 'dash') {
+			const plan = dashPlan(dx, dy, skill.range ?? 150, skill.speed ?? 640);
+			this.vfx.play('dust', p.x, p.y - 8, { fps: 20 });
+			if (skill.element === 'wind' && skill.trail) this.vfx.play('wind_burst', p.x, p.y - 26, { fps: 22 });
+			else if (!skill.trail) this.playArt(skill.id, p.x, p.y, dx, dy);
+			this.echoDashes.push({ actor: p, skill, el, fromX: p.x, fromY: p.y, vx: plan.vx, vy: plan.vy, left: plan.t, lag: ECHO_LAG, spark: 0 });
+		} else if (kind === 'ward') {
+			const total = skill.duration ?? 4;
+			this.playArt(skill.id, p.x, p.y, dx, dy, undefined, { part: 'charge', follow: p, span: total });
+			this.float(p.x, p.y - p.height - 8, skill.name, isSwordSkill(skill) ? 0xbfe8ff : ELEMENT_TINT.ice, 12);
+		} else if (kind === 'wall') {
+			const at = this.echoTarget(c, p, 110);
+			const e = wallEnds(at.x, at.y, dx, dy, skill.width ?? 80);
+			const duration = skill.duration ?? 5;
+			const len = Math.hypot(e.bx - e.ax, e.by - e.ay);
+			for (const sg of lineSegments(e.ax, e.ay, e.bx - e.ax, e.by - e.ay, len, WALL_STEP)) this.playArt(skill.id, sg.cx, sg.cy, dx, dy, undefined, { span: duration });
+			// Tường đá sụp: bụi dọc tường như `updateWalls`.
+			if (skill.element === 'earth') {
+				this.schedule(duration, () => {
+					for (const sg of lineSegments(e.ax, e.ay, e.bx - e.ax, e.by - e.ay, len, WALL_STEP * 2)) this.vfx.play('dust', sg.cx, sg.cy - 10, { tint: 0xc9a46a, scale: 2, fps: 16 });
+				});
+			}
+		} else if (kind === 'barrage') {
+			const at = this.echoTarget(c, p, 150);
+			this.barrage(skill, at.x, at.y, dx, dy, 0, true);
+		} else if (kind === 'heal') {
+			this.vfx.play('light_pillar', p.x, p.y - pillar(p), { tint: 0xb4ffc6, blend: 'add', follow: p, followOffset: { x: 0, y: -pillar(p) }, fps: 22 });
+			this.vfx.play('sparkle', p.x, p.y - p.chest - 4, { tint: 0x9fffb0, blend: 'add', fps: 20 });
+		} else if (kind === 'aoe_self') {
+			this.playArt(skill.id, p.x, p.y, dx, dy);
+		} else if (kind === 'cone') {
+			const range = skill.range ?? 160;
+			const half = skill.angle ?? 35;
+			for (let row = 0; row < 3; row += 1) {
+				const dist = range * (0.28 + row * 0.3);
+				const spread = row === 0 ? [0] : [-half * 0.55, half * 0.55];
+				for (const deg of spread) {
+					const ang = Math.atan2(dy, dx) + (deg * Math.PI) / 180;
+					const cx = p.x + Math.cos(ang) * dist;
+					const cy = p.y + Math.sin(ang) * dist;
+					this.schedule(row * 0.06, () => this.playArt(skill.id, cx, cy, Math.cos(ang), Math.sin(ang)));
+				}
+			}
+		} else if (kind === 'line') {
+			const segs = lineSegments(p.x + dx * 20, p.y + dy * 20, dx, dy, skill.range ?? 300, 34);
+			const final = this.finalReady(skill.id);
+			for (const sg of segs) {
+				if (final && sg.i % 3 !== 0) continue;
+				this.schedule((skill.delay ?? 0) + sg.i * (skill.stagger ?? 0), () => this.playArt(skill.id, sg.cx, sg.cy, dx, dy));
+			}
+		} else if (kind === 'aoe_target' || kind === 'pillar' || kind === 'zone') {
+			if (kind === 'zone' && skill.follow) return this.addEchoZone(c, p, p.x, p.y, true);
+			if (kind === 'zone' && skill.move) return this.addEchoZone(c, p, p.x + dx * 40, p.y + dy * 40, false);
+			const at = this.echoTarget(c, p, 150);
+			if (kind === 'zone') return this.addEchoZone(c, p, at.x, at.y, false);
+			let delay = skill.delay ?? 0;
+			if (skill.lob) {
+				const sx = ox + dx * 18;
+				const sy = oy + dy * 18;
+				delay = Math.max(0.12, Math.hypot(at.x - sx, at.y - sy) / skill.lob);
+				this.fire({ x: sx, y: sy, vx: (at.x - sx) / delay, vy: (at.y - sy) / delay, life: delay, team: 'player', damage: 0, element: skill.element, pierce: false, ghost: true, look: this.shotOf(skill.id) });
+			}
+			const fallFinal = !!skill.fall && this.finalReady(skill.id);
+			if (skill.fall && delay > 0) {
+				const sx = at.x - 110;
+				const sy = at.y - FALL_HEIGHT * 2;
+				if (!fallFinal) this.fire({ x: sx, y: sy, vx: (at.x - sx) / delay, vy: (at.y - sy) / delay, life: delay, team: 'player', damage: 0, element: skill.element, pierce: false, ghost: true, look: this.shotOf(skill.id) });
+				this.playArt(skill.id, at.x, at.y, dx, dy, undefined, { part: 'charge', span: delay });
+			}
+			if (fallFinal) this.schedule(Math.max(0, delay - this.finalLead(skill.id)), () => this.playArt(skill.id, at.x, at.y, dx, dy));
+			if (kind === 'pillar' && delay > 0) {
+				this.vfx.play('magic_circle', at.x, at.y, { layer: 'ground', tint: ELEMENT_TINT[skill.element], scale: 2, fps: 9 / delay, alpha: 0.75 });
+			}
+			if (!fallFinal) this.schedule(delay, () => this.playArt(skill.id, at.x, at.y, dx, dy));
+		}
+	}
+
+	/** Vùng tồn tại của người khác (`addZone` bản chỉ hình): bám người / tự đi / đứng ở điểm nhắm. */
+	private addEchoZone(c: RemoteCast, p: Actor, x: number, y: number, follow: boolean): void {
+		const skill = c.skill;
+		const duration = skill.duration ?? 2;
+		const tick = skill.tick ?? 0.5;
+		const move = follow ? 0 : (skill.move ?? 0);
+		const z: EchoZone = {
+			skill,
+			actor: p,
+			x,
+			y,
+			r: skill.radius ?? 90,
+			left: duration,
+			tickLeft: 0,
+			ticks: Math.max(1, Math.round(duration / tick)),
+			follow,
+			spin: Math.atan2(c.dy, c.dx),
+			vx: c.dx * move,
+			vy: c.dy * move,
+			struck: new Map(),
+		};
+		this.echoZones.push(z);
+		this.playArt(skill.bolts ? 'call_rain' : skill.id, x, y, c.dx, c.dy, duration, follow ? { follow: p } : move ? { follow: z } : {});
+	}
+
+	/** Nhịp hình của vùng người khác (`updateZones` bản chỉ hình): mưa rơi, sét đánh xuống quái trong vùng, lưỡi gió xoay quanh người. */
+	private updateEchoZones(dt: number): void {
+		for (let i = this.echoZones.length - 1; i >= 0; i -= 1) {
+			const z = this.echoZones[i]!;
+			z.left -= dt;
+			z.tickLeft -= dt;
+			if (z.follow) {
+				z.x = z.actor.x;
+				z.y = z.actor.y;
+			} else if (z.vx || z.vy) {
+				z.x += z.vx * dt;
+				z.y += z.vy * dt;
+			}
+			if (z.skill.rain && Math.random() < dt * 40) {
+				const ang = Math.random() * Math.PI * 2;
+				const rr = Math.sqrt(Math.random()) * z.r;
+				this.particles.spawn(z.x + Math.cos(ang) * rr, z.y + Math.sin(ang) * rr * GROUND_SQUASH - 130, this.tex.spark.water[0]!, 0, 420, 0.31);
+			}
+			if (z.tickLeft <= 0 && z.ticks > 0) {
+				z.ticks -= 1;
+				z.tickLeft += z.skill.tick ?? 0.5;
+				if (z.skill.rain) {
+					for (let k = 0; k < 3; k += 1) {
+						const ang = Math.random() * Math.PI * 2;
+						const rr = Math.sqrt(Math.random()) * z.r;
+						this.playArt(z.skill.id, z.x + Math.cos(ang) * rr, z.y + Math.sin(ang) * rr * GROUND_SQUASH, 1, 0, undefined, { part: 'tick' });
+					}
+				} else if (z.skill.bolts) this.echoBolts(z);
+				else if (z.follow) {
+					for (let k = 0; k < 2; k += 1) {
+						const ang = z.spin + k * Math.PI;
+						this.vfx.play('slash', z.x + Math.cos(ang) * z.r * 0.55, z.y - 30 + Math.sin(ang) * z.r * 0.35, { rotation: ang + Math.PI / 2, tint: ELEMENT_TINT[z.skill.element], fps: 30 });
+					}
+					z.spin += 1.15;
+				}
+			}
+			if (z.left <= 0) this.echoZones.splice(i, 1);
+		}
+	}
+
+	/** Lôi Vũ của người khác: sét đánh xuống quái trong vùng (cùng cách chọn `pickBolts`) — chỉ hình, không trúng ai. */
+	private echoBolts(z: EchoZone): void {
+		const inRain = this.echoZones.some((r) => r !== z && r.actor === z.actor && r.skill.rain && inCircle(z.x, z.y, r.x, r.y, r.r));
+		const cands = this.enemies
+			.filter((f) => !f.dead && inCircle(f.actor.x, f.actor.y, z.x, z.y, z.r, f.boss ? BOSS_PAD : BODY_PAD))
+			.map((f) => ({ x: f.actor.x, y: f.actor.y, wet: f.wet > 0, struck: z.struck.get(f) ?? 0, f }));
+		for (const i of pickBolts(cands, z.x, z.y, thunderBolts(inRain))) {
+			const c = cands[i]!;
+			z.struck.set(c.f, c.struck + 1);
+			this.playArt(z.skill.id, c.x, c.y);
+		}
+	}
+
+	/** Cú lướt của người khác: hạt dọc đường theo nhân vật; tới nơi thì vệt lướt (`trailStrike` bản chỉ hình) hoặc nhát cuối lướt. */
+	private updateEchoDashes(dt: number): void {
+		for (let i = this.echoDashes.length - 1; i >= 0; i -= 1) {
+			const d = this.echoDashes[i]!;
+			const p = d.actor;
+			const trail = !!d.skill.trail;
+			if (d.left > 0) {
+				// Đang lướt: cùng nhịp rắc hạt / vòng gió với cú lướt của mình (`update`, khối `pc.dash`).
+				const step = Math.min(dt, d.left);
+				d.left -= step;
+				if (trail && d.skill.element === 'wind') {
+					if (Math.random() < dt * 60) this.particles.spawn(p.x + (Math.random() - 0.5) * 16, p.y - 20 - Math.random() * 30, this.tex.spark.wind[Math.floor(Math.random() * 2)]!, -d.vx * 0.05, -d.vy * 0.05, 0.4);
+					d.spark -= step;
+					if (d.spark <= 0) {
+						d.spark = 0.06;
+						this.vfx.play('wind_spin', p.x, p.y - 26, { fps: 24, alpha: 0.7 });
+					}
+				} else if (trail) {
+					if (Math.random() < dt * 70) this.particles.spawn(p.x + (Math.random() - 0.5) * 12, p.y - 14 - Math.random() * 30, this.tex.spark.dust[0]!, -d.vx * 0.04, -d.vy * 0.04, 0.3);
+				} else if (Math.random() < dt * 40) this.particles.spawn(p.x, p.y - 30, this.tex.spark.dust[0]!, 0, 0, 0.25);
+			} else d.lag -= dt;
+			if (d.left > 0 || d.lag > 0) continue;
+			this.echoDashes.splice(i, 1);
+			if (trail) {
+				const len = Math.hypot(p.x - d.fromX, p.y - d.fromY);
+				if (len < 4) continue;
+				const ux = (p.x - d.fromX) / len;
+				const uy = (p.y - d.fromY) / len;
+				for (const sg of lineSegments(d.fromX, d.fromY, ux, uy, len, 42)) this.schedule(0.04 + sg.i * 0.02, () => this.playArt(d.skill.id, sg.cx, sg.cy, ux, uy));
+			} else {
+				this.drawSlash(p.x, p.y - p.chest, d.vx, d.vy, d.el, this.echoFlip(p, null));
+				this.playArt(d.skill.id, p.x, p.y, d.vx, d.vy);
+			}
+		}
+	}
+
+	/** Thế đỡ của người khác: nhuộm nhân vật như `update` nhuộm thế đỡ của mình; hết giờ trả màu. */
+	private updateEchoGuards(dt: number): void {
+		for (let i = this.echoGuards.length - 1; i >= 0; i -= 1) {
+			const g = this.echoGuards[i]!;
+			g.t -= dt;
+			g.actor.view.sprite.tint = g.kind === 'parry' ? (Math.floor(g.t * 16) % 2 ? 0x9fe8ff : 0xe4fbff) : 0xcfeeff;
+			if (g.t > 0) continue;
+			g.actor.view.sprite.tint = 0xffffff;
+			this.echoGuards.splice(i, 1);
+		}
+	}
+
+	private endEchoGuard(actor: Actor): void {
+		for (let i = this.echoGuards.length - 1; i >= 0; i -= 1) {
+			if (this.echoGuards[i]!.actor !== actor) continue;
+			actor.view.sprite.tint = 0xffffff;
+			this.echoGuards.splice(i, 1);
+		}
+	}
+
 	// ———————————————————————————— kiểu đòn vùng (GĐ2) ————————————————————————————
 
 	/** Hẹn chạy `run` sau `delay` giây trận (đứng yên khi thoại/thẻ mở như mọi thứ khác của trận). */
@@ -1799,7 +2314,7 @@ export class CombatSystem {
 	 * mỗi vật rơi `delay` giây (đạn "ma" từ trên cao) rồi nổ bán kính `width` — một mục tiêu trúng được nhiều viên. Bản
 	 * PixelLab (khổ 128) to hơn một viên nhiều: chỉ phát ở mỗi viên thứ 3.
 	 */
-	private barrage(skill: SkillDef, x: number, y: number, dx: number, dy: number, damage: number): void {
+	private barrage(skill: SkillDef, x: number, y: number, dx: number, dy: number, damage: number, echo = false): void {
 		const n = Math.max(1, skill.count ?? 10);
 		const span = skill.duration ?? 1.5;
 		const fall = Math.max(0.05, skill.delay ?? 0.3);
@@ -1818,6 +2333,8 @@ export class CombatSystem {
 			else this.schedule(t0, () => this.fire({ x: px + 18, y: py - FALL_HEIGHT, vx: -18 / fall, vy: FALL_HEIGHT / fall, life: fall, team: 'player', damage: 0, element: skill.element, pierce: false, ghost: true, look: shot }));
 			this.schedule(t0 + fall, () => {
 				if (!final) this.playArt(skill.id, px, py, dx, dy);
+				// Mưa của người chơi khác (`echoRelease`): chỉ hình.
+				if (echo) return;
 				this.strikeArea({ kind: 'circle', x: px, y: py, r: skill.width ?? 50 }, damage, skill.element, fx);
 				if (i % 3 === 0) this.hooks.shake(1.6, 0.1);
 			});
@@ -1997,8 +2514,11 @@ export class CombatSystem {
 	/** Thôi giữ thế (hết giờ, né, ra đòn khác, gục, bị ngắt): trả màu nhân vật. */
 	private endGuard(): void {
 		if (!this.pc.guard) return;
+		// Thôi giữ thế SỚM (né, ra đòn khác, bị ngắt): báo người cùng map tắt màu thế thủ — không thì máy họ giữ màu tới hết giờ.
+		const early = this.pc.guard.t > 0.05;
 		this.pc.guard = null;
 		if (this.player) this.player.view.sprite.tint = 0xffffff;
+		if (early) this.hooks.onActionEnd?.();
 	}
 
 	/**
@@ -2219,12 +2739,14 @@ export class CombatSystem {
 			pc.cooldowns.set(a.skill.id, a.prevCooldown);
 		}
 		if (a) this.stopAction(a);
-		// Đang dồn lực = chưa vào động tác: huỷ thì hoàn lại như đòn chưa tới khung chạm.
+		// Đang dồn lực = chưa vào động tác: huỷ thì hoàn lại như đòn chưa tới khung chạm. Tin `action` đã gửi lúc bắt đầu dồn →
+		// báo máy người khác bỏ cú dồn đó (không vung, không vẽ hình).
 		const c = pc.charging;
 		if (c && refund) {
 			pc.mp = Math.min(pc.mpMax, pc.mp + c.mpPaid);
 			pc.cooldowns.set(c.skill.id, c.prevCooldown);
 		}
+		if (c) this.hooks.onActionEnd?.();
 		pc.charging = null;
 		pc.buffered = null;
 		pc.pendingDodge = null;
@@ -2262,11 +2784,11 @@ export class CombatSystem {
 		return wait <= HOLD_LINGER && a.t < a.timing.dur + HOLD_LINGER;
 	}
 
-	/** Dừng hình + bỏ đòn; cắt khi động tác chưa diễn hết thì báo máy người khác dừng theo. */
+	/** Dừng hình + bỏ đòn; cắt khi động tác chưa diễn hết thì báo máy người khác dừng theo (kèm: đòn đã nổ chưa). */
 	private stopAction(a: PlayerAction): void {
 		this.player?.view.cancelAction();
 		this.pc.action = null;
-		if (a.t + ACTION_EPS < a.timing.dur) this.hooks.onActionEnd?.();
+		if (a.t + ACTION_EPS < a.timing.dur) this.hooks.onActionEnd?.(a.released);
 	}
 
 	dodge(dir: { x: number; y: number }): void {
@@ -2377,6 +2899,9 @@ export class CombatSystem {
 	 */
 	update(dt: number, toScreen: (x: number, y: number) => { x: number; y: number }, zoom: number, frozen = false): void {
 		if (frozen) {
+			// Người chơi khác vẫn vung (động tác thân của họ chạy theo dt) trong lúc thoại / bảng của mình mở: khung chạm vẫn tới đúng
+			// nhịp — hình hẹn giờ / đạn của nó đứng theo trận như mọi thứ khác.
+			this.updateEchoes(dt);
 			this.particles.update(dt);
 			// Hình có thời lượng (tường, mây, khiên, vùng) đứng theo đồng hồ trận — chỉ hình phát một lượt chạy nốt.
 			this.vfx.update(dt, true);
@@ -2493,10 +3018,14 @@ export class CombatSystem {
 
 		// Sau khối lăn né, trước quái: đòn bấm frame này (t = 0) → tới đây cộng dt, khung chạm và hiệu ứng cùng một frame.
 		if (!pc.dead) this.updateAction(dt);
+		this.updateEchoes(dt);
 		this.updateEnemies(dt);
 		this.updateDummies(dt);
 		this.updateProjectiles(dt);
 		this.updateZones(dt);
+		this.updateEchoZones(dt);
+		this.updateEchoDashes(dt);
+		this.updateEchoGuards(dt);
 		this.updateWalls(dt);
 		this.updatePending(dt);
 		this.updateTelegraphs(dt);
@@ -2844,6 +3373,8 @@ export class CombatSystem {
 		/** Phi Kiếm: tốc bay về tay (có = đạn đi–về). */
 		boomerang?: number;
 		press?: boolean;
+		/** Đạn HÌNH của người chơi khác (`Projectile.echo`). */
+		echo?: Actor;
 	}): void {
 		const vfxId = o.look?.id ?? SHOT_VFX[o.element];
 		const frames = vfxId ? this.vfx.frames(vfxId) : [];
@@ -2903,6 +3434,7 @@ export class CombatSystem {
 			crit: o.crit,
 			boomerang: o.boomerang ? { back: false, speed: o.boomerang } : undefined,
 			press: o.press,
+			echo: o.echo,
 		});
 	}
 
@@ -2925,7 +3457,8 @@ export class CombatSystem {
 				pr.life = BOOMERANG_BACK;
 			}
 			if (bm?.back) {
-				const p = this.player;
+				// Phi Kiếm của người chơi khác bay về tay NGƯỜI ĐÓ.
+				const p = pr.echo ?? this.player;
 				({ vx: pr.vx, vy: pr.vy } = aimVelocity(pr.x, pr.y, p.x, p.y - p.chest, bm.speed));
 			}
 			pr.x += pr.vx * dt;
@@ -2945,6 +3478,26 @@ export class CombatSystem {
 			let gone = pr.life <= 0 || pr.fizzle;
 			if (pr.ghost) {
 				/* chỉ là hình: bay hết đường rồi tan, đòn nổ do lịch hẹn của kỹ năng */
+			} else if (pr.echo) {
+				// Đạn HÌNH của người chơi khác: chỉ quái DÙNG CHUNG (máy người bắn cũng thấy đúng con đó) chặn đường bay — tan + hình
+				// trúng, không sát thương (máy người bắn tự tính trúng, máu quái về qua máy chủ). Quái riêng của máy này thì bay xuyên.
+				const wide = Math.max(0, (pr.reach ?? 20) - 20);
+				for (const f of this.enemies) {
+					if (gone) break;
+					if (f.dead || !f.net || pr.hit.has(f)) continue;
+					const a = f.actor;
+					if (Math.abs(a.x - pr.x) < 20 + wide + (f.boss ? 10 : 0) && pr.y > a.y - Math.round(a.height * 0.96) - wide && pr.y < a.y + 4 + wide) {
+						pr.hit.add(f);
+						this.impact(pr.element, a.x, a.y - a.chest);
+						if (!pr.pierce) gone = true;
+					}
+				}
+				const h = pr.echo;
+				if (!gone && bm?.back && Math.hypot(pr.x - h.x, pr.y - (h.y - h.chest)) < BOOMERANG_CATCH) {
+					gone = true;
+					pr.ghost = true;
+					this.playArt('flying_sword', h.x, h.y);
+				}
 			} else if (pr.team === 'player') {
 				// `reach`: nửa bề ngang trúng (luồng kiếm rộng hơn mũi tên) — nới đều cả ngang lẫn dọc thân.
 				const wide = Math.max(0, (pr.reach ?? 20) - 20);
@@ -3438,11 +3991,14 @@ export class CombatSystem {
 		if (!rewarded) return;
 		// Kinh tế ở máy chủ: quái dùng chung máy chủ tự trao (tính công), quái riêng báo máy chủ — xu / EXP về qua `setEconomy`.
 		if (this.hooks.reportKill) {
-			if (!f.net) this.hooks.reportKill(f.id);
+			if (!f.net) this.hooks.reportKill(f.id, f.zone);
 		} else {
 			this.pc.coins += f.stats.coins;
 			this.hooks.toast(`+${f.stats.coins} xu`, 'loot');
-			this.grantExp(Math.round(f.stats.exp * this.potion.exp));
+			const exp = Math.round(f.stats.exp * this.potion.exp);
+			// Khu tuổi thơ: không cày quá cấp 3 (cùng luật với `privateKill` của máy chủ).
+			const gain = f.child ? capExpGain(this.pc.level, this.pc.exp, exp, CHILD_ZONE_LEVEL_CAP) : exp;
+			if (gain > 0) this.grantExp(gain);
 		}
 		this.hooks.enemyKilled(f);
 	}
@@ -3652,17 +4208,22 @@ export class CombatSystem {
 		// Chiều vệt theo HƯỚNG đã khoá (dải frame đang phát), không theo dấu dx: ngắm gần thẳng đứng thì dx chỉ là nhiễu.
 		if (animatedDir) this.swing = MIRRORED_DIRS.has(animatedDir) ? -1 : 1;
 		else this.swing = -this.swing;
+		this.drawSlash(x, y, dx, dy, element, this.swing < 0);
+	}
+
+	/** Vẽ một vệt chém từ ngực (x, y) theo hướng (dx, dy) — không đổi trạng thái nào. `flip`: vệt vung ngược chiều (lật gương). */
+	private drawSlash(x: number, y: number, dx: number, dy: number, element: Element, flip: boolean): void {
 		const len = Math.hypot(dx, dy) || 1;
 		const nx = dx / len;
 		const ny = dy / len;
 		const art = ENCHANT_SLASH[element];
 		if (art && this.vfx.frames(art.id).length > 0) {
-			this.vfx.play(art.id, x + nx * 46, y + ny * 32, { rotation: Math.atan2(ny, nx), flipY: this.swing < 0, fps: 28 });
+			this.vfx.play(art.id, x + nx * 46, y + ny * 32, { rotation: Math.atan2(ny, nx), flipY: flip, fps: 28 });
 			this.vfx.play(art.spark, x + nx * 64, y + ny * 44, { fps: 24, ...(art.glow ? { blend: 'add' as const } : {}) });
 			return;
 		}
 		const tint = element === 'fire' ? 0xffa64d : element === 'steel' ? 0xf4f7ff : ELEMENT_TINT[element];
-		this.vfx.play('slash', x + nx * 40, y + ny * 28, { rotation: Math.atan2(ny, nx), flipY: this.swing < 0, tint, fps: 32, blend: element === 'fire' ? 'add' : 'normal' });
+		this.vfx.play('slash', x + nx * 40, y + ny * 28, { rotation: Math.atan2(ny, nx), flipY: flip, tint, fps: 32, blend: element === 'fire' ? 'add' : 'normal' });
 		if (element === 'fire') this.vfx.play('fire_flash', x + nx * 54, y + ny * 36, { blend: 'add', fps: 24 });
 	}
 

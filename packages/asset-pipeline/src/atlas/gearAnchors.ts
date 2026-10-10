@@ -43,7 +43,9 @@ const NECK_FALLBACK = 0.38;
  * - dưới 70%: vạt áo khoác loe rộng gần bằng tay (hero_adult hàng 64–66) — "đầu mút thấp nhất" rơi xuống vạt áo;
  * - trên 58%: đuôi tóc của bản nữ thò ra NGOÀI tay tới 56% (idle_S: cột 57 ở 37%, cột 49 ở 56%; mép tay cột 48) — bắt đầu sát vai thì "tay"
  *   là đuôi tóc. Cổ áo ở hướng ngang cũng thò hơn tay 1px.
- * Tay giơ cao (niệm phép, vung kiếm) nằm ngoài dải — động tác đó đã có vũ khí vẽ liền trong atlas, client ẩn lớp tay.
+ * Tay giơ cao (niệm phép, vung kiếm) nằm ngoài dải — động tác đó đã có vũ khí vẽ liền trong atlas, client ẩn lớp tay (`BAKED_HELD`).
+ * Từ 10/10/2026 kiếm / trượng vẽ liền thân cả lúc đứng / đi (`idlesword`…) nên neo tay chỉ còn dùng cho đồ dán sau này; ở khung cầm
+ * vũ khí, mép ngoài dải tay có thể rơi vào cán / lưỡi — vẫn trong khung, dưới vai (test `apps/web/tests/gear.test.ts`).
  */
 const ARM_FROM = 0.58;
 const ARM_TO = 0.7;

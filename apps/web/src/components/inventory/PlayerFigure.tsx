@@ -76,11 +76,13 @@ function measure(sp: PlayerSpriteView): Promise<Measure> {
 }
 
 /**
- * Nhân vật đứng giữa kho đồ: khung `idle_S` của CHÍNH sprite đang chơi (atlas), phóng NGUYÊN lần
+ * Nhân vật đứng giữa kho đồ: khung đứng nhìn trước của CHÍNH sprite đang chơi (atlas) — bản cầm vũ khí vẽ liền thân đang cầm
+ * (`idlesword_S`, `idlestaff_S`; tay không thì `idle_S`, Game chọn), phóng NGUYÊN lần
  * `k = floor(min((maxW − 8) / bw, (maxH − reserve) / bh))` kẹp trong [kMin, kMax], toạ độ nguyên, `pixelated`. Bốn khung đứng
- * thở chạy bằng `steps(4)` (tắt khi giảm chuyển động) khi các khung cách đều nhau trên atlas.
- * Đồ GẮN đang mặc (vũ khí, tay phụ, mũ…) vẽ chồng trước/sau thân theo CÙNG luật với game (`sprite.gear`, neo của khung đứng
- * đầu tiên). Hộp phóng tính cả phần đồ thò ra (nới đều hai bên để thân vẫn ở giữa) — kiếm không bị cắt ở mép sân khấu.
+ * thở chạy bằng `steps(4)` (tắt khi giảm chuyển động) khi các khung cách đều nhau trên atlas. Hộp bao đo trên mọi khung nên
+ * kiếm / trượng trong khung không bị cắt ở mép sân khấu.
+ * Đồ GẮN dán ngoài (mũ, tay phụ… về sau) vẽ chồng trước/sau thân theo CÙNG luật với game (`sprite.gear`, neo của khung đứng
+ * đầu tiên). Hộp phóng tính cả phần đồ thò ra (nới đều hai bên để thân vẫn ở giữa).
  * Đồ đứng yên theo khung đầu trong lúc thân thở (tay chỉ nhích ≤ 1px). Bộ trang phục thì chính là sprite (`sheet`).
  */
 export const PlayerFigure = memo(function PlayerFigure({ sprite, maxW, maxH, reserve, kMin = 2, kMax = 4, alt }: { sprite: PlayerSpriteView | null; maxW: number; maxH: number; reserve: number; kMin?: number; kMax?: number; alt: string }) {

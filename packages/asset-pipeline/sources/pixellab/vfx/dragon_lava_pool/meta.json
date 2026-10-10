@@ -1,0 +1,31 @@
+{
+	"id": "dragon_lava_pool",
+	"kind": "loop",
+	"canvas": {
+		"w": 192,
+		"h": 192
+	},
+	"first": {
+		"prompt": "an irregular round pool of glowing molten lava seen from directly above, uneven black rock crust rim, bubbling orange-yellow magma with a few dark crust plates, transparent outside the pool, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "3039766c-0acc-4514-a453-95702d33b725"
+	},
+	"action": "the lava pool bubbles and churns, crust plates drift and crack, bubbles pop with small sparks, seamless loop",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "b22d68cf-22ea-4da7-86f0-d328ea98655a",
+	"createdAt": "2026-10-09T16:37:13.124Z",
+	"token": 1
+}

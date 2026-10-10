@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a chunky brown boulder flying right with a short dust trail, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/earth.png",
+	"jobId": "4730cfca-96ef-451f-9f30-583a28a5c5d7",
+	"token": 1,
+	"createdAt": "2026-10-09T19:19:58.620Z"
+}

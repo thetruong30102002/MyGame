@@ -1,0 +1,17 @@
+{
+	"description": "a dry withered pine tree, a tall conifer with sparse drooping tiers of brownish olive-green needles, some bare dead branches, a gray-brown trunk, half dead mountain pine, chunky chibi pixel art, thick dark outline, soft cel shading, straight front view, the whole tree fully visible, no ground, no shadow, no text",
+	"width": 160,
+	"height": 192,
+	"n_directions": 1,
+	"view": "low top-down",
+	"seed": 32,
+	"name": "tree_pine_dry",
+	"style_options": {
+		"color_palette": false,
+		"outline": true,
+		"shading": true,
+		"detail": false
+	},
+	"style_image_path": "D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/style/tree_ref.png",
+	"style_usage": "Copy ONLY the art style of this reference tree: chunky chibi pixel art, thick dark outline on every shape, soft cel shading, front-facing view, same size and proportions. Do not copy its round leafy crown or green colors."
+}

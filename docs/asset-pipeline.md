@@ -76,8 +76,8 @@ Token #1 = Tier 2 (5.000 lượt / tháng, **10 job song song**). Số liệu v�
 
 - **Động tác cầm vũ khí vẽ trên PHIÊN BẢN cầm sẵn vũ khí** (`create_character_state`: "holding a steel longsword / wooden staff",
   10–25 lượt / bản), không vẽ trên thân tay không: vũ khí liền tay suốt chuỗi khung. Gói tải về của nhóm chứa MỌI phiên bản;
-  `PixelLabSource.animationFiles` tìm tên động tác ở mọi phiên bản (đứng / đi vẫn của phiên bản đầu). Game ẩn lớp vũ khí gắn ngoài
-  ở các động tác này (`gearArt.BAKED_HELD` sinh từ `MoveDef.wield`).
+  `PixelLabSource.animationFiles` tìm tên động tác ở mọi phiên bản (`idle` / `walk` tay không của phiên bản đầu; đứng / đi cầm vũ
+  khí đặt tên riêng — mục ngay dưới). Game ẩn lớp vũ khí gắn ngoài ở các động tác này (`gearArt.BAKED_HELD` sinh từ `MoveDef.wield`).
 - **v3 hơn pixminimax** cho động tác người (so cùng prompt vung kiếm: v3 thân chuyển động, kiếm quét liền; pixminimax kiếm "nhảy
   cóc", thân đứng). v3 trả **khung nới** (×1,375 làm tròn bội 4: 64→88, 80→108) với nhân vật ở giữa → `padToLargest` đệm mọi khung
   về khổ lớn nhất trước `alignToIdle`; spec khai ô đủ chứa (người 112×112 chân y=100, bé 96×96 chân y=84).
@@ -93,15 +93,129 @@ Token #1 = Tier 2 (5.000 lượt / tháng, **10 job song song**). Số liệu v�
   cần sàn thấp hơn 0,45). Động tác nằm (`death`, `revive`) chỉ kiểm trần chiều cao.
 - Atlas nhân vật xếp **kệ** (không còn lưới 8 hàng / animation): 25 động tác × khung 112 với lưới cũ cao ~24.000px.
 - Funnel phục vụ thẳng `apps/web/public` → dựng thử: `AETHER_WEB_ASSETS=<thư mục nháp> npx tsx src/cli.ts character <id>` (chép
-  `manifest.json` vào thư mục nháp trước).
+  `manifest.json` vào thư mục nháp trước). Thư mục nháp CHUNG: `.aether-stage/assets` (gitignore) — web thử :3102 đọc `/assets`
+  từ đây trước, thiếu file mới lấy public (`apps/web/scripts/stage-assets.mjs` :3105, `next.config.ts` `AETHER_STAGE_URL`); máy
+  chủ thử :3201 chạy với `AETHER_MAPS=.aether-stage/assets/maps`. Triển khai = chép nháp sang public (README mục Funnel).
+- **Đồ vật map** (10/10/2026 — ĐỢT 2 vùng 1, 48 lượt, không vẽ lại món nào): TẤM 3×3 `pixellab image 1 sheets/<tấm>.png
+  @pending/<tấm>.json` (192×192, 6 lượt): ảnh mẫu `sheets/N1_nature.png` + `color_palette: false` + "each small and centered in
+  its own cell" + nền magenta → G1 / R1 / B1 đều ra đúng thứ tự ô ngay lần đầu (công thức của CV1 / CV2). MÓN LẺ `pixellab object 1
+  <tên> @<json>` (create_object_pro_flash 1 hướng, 6 lượt ở 160×192 / 192×192): lệnh gửi JSON nguyên văn nên `style_image` phải là
+  base64 — đề bài dễ đọc ở `objects/<tên>/args.json` (`style_image_path`). Ảnh mẫu phải lọt khung vẽ (không co giãn): cây →
+  `style/tree_ref.png`, công trình / đá → `objects/house_stone/house_stone.png`. Duyệt: cắt thử bằng `loadSheetCell`, xếp cạnh nhân
+  vật + cây sồi trên nền màu biome rồi mới dựng map.
+
+### Vũ khí vẽ liền thân — đứng / đi cầm kiếm, cầm trượng (10/10/2026)
+
+Chủ dự án: "cầm kiếm tự gắn vào xấu" → nhân vật CẦM VŨ KHÍ SUỐT (đứng, đi, chém, niệm), không dán icon kiếm / trượng vào tay ở bất
+kỳ động tác nào; bỏ hướng "chém tay không" (`<động tác>-hand*` vẽ tối 09/10 giữ trong nguồn làm lưu trữ, spec không dùng). Bản 16
+tuổi cầm kiếm thép + trượng gỗ đầu pha lê xanh, bản bé cầm kiếm gỗ + trượng tập (đúng như phiên bản Sword / Staff đã vẽ).
+
+- **Tên**: PixelLab `idle-sword` / `walk-sword` / `idle-staff` / `walk-staff` vẽ trên phiên bản `player_*_v2_*_sword|staff` (KHÁC
+  `idle` / `walk` của phiên bản tay không — `PixelLabSource` tìm tên ở mọi phiên bản, trùng tên thì lấy nhầm bản tay không); vẽ lại
+  hướng hỏng thì `<tên>2` (spec khai `["idle-sword2", "idle-sword"]`, ưu tiên theo từng hướng). Atlas / game: `idlesword`, `walksword`,
+  `idlestaff`, `walkstaff` (khung atlas chỉ đọc được a–z) — animation BẮT BUỘC (cổng tầng 1, đủ 8 hướng: 5 vẽ + 3 lật gương), khai
+  trong `quality.weaponAnims`.
+- **Đo trên ảnh thật**: mẫu thường `walking-8-frames` làm RƠI vũ khí ở hướng nhìn ngang (mất cả kiếm thép 16 tuổi; trượng tập của bé
+  rơi ở mọi hướng), `breathing-idle` mất nửa trên trượng bé / mất kiếm bản nữ ở hướng ngang. Đi → `--template walking-8-frames
+  --mode skeleton-v3` (uốn chính ảnh nhân vật theo chuỗi tư thế của mẫu: kiếm giữ nguyên suốt chu kỳ, chân bước đúng nhịp mẫu; ~3
+  lượt / hướng, khung nới 64 → 80, máy chủ không trả dòng cost). Trượng MẢNH đôi khi bị uốn gãy / giấu sau lưng (5/20 hướng trượng:
+  bé trai S, E; bé gái N; 16 tuổi nam, nữ E) → vẽ lại hướng đó bằng v3 8 khung với mô tả CHẶT: `"walking in place toward the viewer,
+  steady looping walk cycle, holding the wooden training staff upright at the side in one hand, the staff stays upright in every
+  frame"` (1 lượt bé, 2 lượt 16 tuổi) — đạt cả 5. Mô tả lỏng ("holding the staff…") thì v3 quay trượng ngang lung tung. Đứng → mẫu
+  `breathing-idle` (kiếm 16 tuổi) hoặc v3 4 khung (1 lượt / hướng — trượng, kiếm gỗ bé); v3 hay vung vũ khí 45° / nhắm mắt / QUAY ĐẦU
+  ra sau giữa chừng → mô tả chặt: `"standing still (in side profile facing right the whole time, the head does not turn), idle
+  breathing only, eyes open, holding …, the <vũ khí> stays still at the same angle in every frame, no swinging, no magic effects"`.
+  CLI: `pixellab animate <id> <tên> --template <mẫu> --mode skeleton-v3 …`. Tấm duyệt: `reports/<id>/held-review-{idle,walk}.png`.
+- Atlas 16 tuổi thêm 192 khung → 1112 khung 112px: xếp kệ thường cao 4106px > 4096 → `packAtlas` bẻ chuỗi qua hàng khi hết cột
+  (3992×3650); atlas vốn vừa thì xếp y như cũ. Thêm khung cũng làm đổi tỉ lệ "màu hiếm" của kiểm vật lạ (bé gái: bóng chân đi S#4
+  bị gắn cờ → `quality.allowForeign`).
+- Vẽ xong trên phiên bản thì tải gói NHÓM về thư mục spec đọc: `pixellab download player_hero_adult <uuid phiên bản đầu>` (registry
+  `player_hero_adult` / `_f`, `player_lior_child` / `_f`). Gói chứa mọi phiên bản; soát `git status` để chắc khung động tác cũ không đổi.
+- Game (`apps/web/src/game/gearArt.ts`, `gearLayers.heldArt`, `CharacterView.setHeld`): đứng / đi chọn bản theo vũ khí đang cầm —
+  thế kiếm + mặc kiếm → `*sword`, thế phép + mặc trượng → `*staff`, thiếu món đúng thế thì cầm món đang có, không mặc vũ khí → tay
+  không; atlas chưa có bản cầm → tay không, không lỗi. Mạng vẫn gửi `idle` / `walk` (máy người xem tự chọn bản theo đồ người kia).
+  Trúng đòn / lướt / gục / uống bình có bản cầm riêng từ lượt 2 — mục ngay dưới.
+
+#### Động tác thân cầm vũ khí — trúng đòn, lướt né, gục, uống bình (10/10/2026, lượt 2)
+
+Trước đây 4 động tác này chỉ có bản tay không nên lúc diễn kiếm / trượng biến mất chốc lát. Nay vẽ trên CHÍNH phiên bản Sword /
+Staff: cùng số khung (trúng đòn / lướt 6, gục / uống 8) và cùng mô tả chuyển động với bản tay không (`sources/pixellab/new-hero/
+moves*.tsv`) để fps / thời lượng spec giữ nguyên, thêm câu giữ vũ khí. Tổng 129 lượt token #1 (lượt đầu 98 + vẽ lại 31 lượt / 19 hướng).
+
+- **Tên**: PixelLab `hit-sword` / `hit-staff`, `dodge-*` (chỉ 16 tuổi — bé không có lướt), `death-*`, `drink-*` (chỉ bé); vẽ lại
+  hướng hỏng `<tên>2` (lần 3: `<tên>3`, spec khai `["death-staff3", "death-staff2", "death-staff"]`); bản vẽ lại tệ hơn thì
+  `pixellab.reject` (bản nữ `"death-staff2": ["N"]`). Atlas /
+  game: `hitsword`, `hitstaff`, `dodgesword`, `dodgestaff`, `deathsword`, `deathstaff`, `drinksword`, `drinkstaff` + `revivesword` /
+  `revivestaff` = gục bản đó phát ngược (`pixellab.reverse`). Spec khai như bản tay không + `weaponAnims` (vũ khí là chủ ý, vũ khí
+  rơi lúc gục tách khỏi thân) + `driftAnims`; cổng chất lượng coi `death*` / `revive*` là dáng nằm (`LOW_POSE`).
+- **Mô tả v3** = mô tả bản tay không + `"…, keeps holding the steel sword in his right hand in every frame, the sword never leaves
+  his hand"`; gục: `"…; the steel sword slips out of his hand as he falls and lies on the ground beside him, there is only one sword
+  and it never comes back into his hand"` (khung cuối không mọc thêm kiếm); bé: `"… in the same hand on the same side of his body
+  in every frame …"`; uống bình (bé): `"keeps holding the small wooden sword lowered in the same hand on the same side of his body
+  the whole time, lifts a small red potion bottle to the mouth with the free hand …"`. Lượt thật (dòng `cost`): 16 tuổi 1–2 lượt /
+  hướng, bé 1.
+- **Đo trên ảnh thật** — lượt đầu 16 tuổi hỏng 10/24 hướng trúng đòn + lướt: nhìn TRƯỚC (S) kiếm thép CHUYỂN sang tay kia / vung
+  ngang ở cả 4 lần — "right hand" bị hiểu là bên phải ẢNH; nhìn SAU (N) có lần quay mặt ra người xem hoặc trượng nhảy sang bên kia;
+  nhìn ngang (E) trượng ngả ngang / mất đầu pha lê vài khung. Vẽ lại bằng mô tả theo PHÍA ẢNH + hướng nhìn → đạt cả 10 ngay lần vẽ
+  lại: S `"facing the viewer the whole time, …, keeps holding the steel sword lowered at his side on the left side of the picture in
+  every frame, blade pointing down to the lower left, the sword stays on the same side and never crosses his body, no swinging"`;
+  N `"seen from behind, facing away from the viewer the whole time, the face is never visible, …"`; E `"in side profile facing right
+  the whole time, the head does not turn, …, holds the wooden staff with the blue crystal on top vertically upright in front of him
+  in every frame, the crystal is always visible, the staff never tilts"`. Bản bé (mô tả trung tính, không nói tay phải) đạt ngay
+  trúng đòn / uống bình; gục bé gái E lần đầu NGỒI giơ kiếm → vẽ lại. Phiên bản trượng của NỮ 16 tuổi hay tự thêm hiệu ứng phép
+  (vòng lục giác sáng, lửa xanh, bắn nước, pha lê bật khỏi trượng) dù mô tả "no magic effects"; gục N bản 2 còn tệ hơn, bản 3 đạt
+  nhờ đổi hẳn cách tả: `"she simply faints: knees buckle and she slumps forward …; the wooden walking staff slips from her hand …;
+  the staff is plain wood, nothing glows, nothing splashes, no blue light, no fire, no particles, no effects at all"`.
+- **Game** (`CharacterView.actionArt`; `gearArt.HELD_BODY_ACTIONS` = mọi động tác `MoveDef.wield` null): đang cầm vũ khí vẽ liền
+  thân (`heldArt`, cùng luật đứng / đi) → diễn bản cầm món đó nếu atlas có hướng đó (hoặc hướng kề); thiếu (chưa vẽ, atlas cũ) →
+  bản tay không như trước, không lỗi. Nhịp theo spec bản cầm (manifest thiếu thì bản tay không). Áp cho người chơi mình lẫn người
+  chơi khác — tin `action` vẫn mang tên gốc (`hit`, `drink`), máy người xem chọn bản theo đồ người kia. Lưu ý: cú lăn né thường chưa
+  phát động tác nào; `dodge` chỉ diễn ở máy người xem khi máy người gửi bản cũ báo chiêu lướt.
+- **Atlas ≤ 4096**: 16 tuổi ~1240 khung 112px > 35×35 ô → `packAtlas` cho khung TRÙNG từng điểm ảnh dùng chung một ô (`revive*` =
+  `death*` ngược: −32 ô mỗi bộ) và hết chỗ thì thu lề giữa ô 2 → 1px (36×36 = 1296 ô; atlas 16 tuổi 4069×3956, 1238 / 1240 ô; bé
+  2648×2942, 808 khung — còn rộng). **Uống bình 16 tuổi
+  CHƯA vẽ**: thêm 64 khung là vượt 1296 ô — cần atlas 2 trang (`related_multi_packs`) hoặc cắt sát khung trước.
+- Tấm duyệt: `reports/<id>/held-review-body-<động tác>.png` (tay không ↔ cầm kiếm ↔ cầm trượng × E/S/N/W, vạch chân đỏ, tâm xanh).
+- Lỗi nhẹ còn lại (động tác hiếm hiện, chưa vẽ lại — ghi cả trong `review` của spec): vũ khí khuất dưới / sau người vài khung (lướt
+  kiếm N nam khung 2–3; gục kiếm N nam khung 6–7; gục kiếm E, N bé trai, gục kiếm S + trượng E bé gái ở khung cuối); gục kiếm S nữ
+  khung cuối vài sao chóng mặt trắng; trúng đòn kiếm E nữ vẫn hơi co gối; trượng nữ có vài điểm lấp lánh cạnh pha lê (như ảnh đứng).
+
+## Icon chiêu v2 (10/10/2026) — 90 icon 32×32
+
+Chủ dự án chê bộ v1 (10 tấm 3×3 `create_image_pro_flash`, icon ~64px) "xấu, kiểu AI": nhiều chi tiết, hào quang, hạt lấp lánh,
+bóng chuyển sắc, mà hiện ở ô 16–32px phải thu ⅓ nên nát. Bộ v2 vẽ ĐÚNG cỡ hiện: MỘT ảnh 32×32 mỗi khoá (giữ nguyên 90 khoá).
+
+- **Cách vẽ** (đã thử 3 cách × 6 icon, `sources/pixellab/skill-icons-v2/_thu/`): `create_image_pixflux` 32×32, `no_background`,
+  outline `single color black outline`, shading `basic shading`, detail `low detail`, seed 4242, **ÉP bảng màu nhánh**
+  (`color_image` — Kiếm thép + vàng / đỏ, Hoả đỏ-cam-vàng, Thuỷ xanh dương, Phong ngọc, Băng lam nhạt, Thổ nâu-đất son, Aether
+  tím; + màu nhấn từng icon, `palettes/`). Đề bài = MỘT vật chính + đuôi ", simple chunky game icon". Kết quả 4–10 màu / icon,
+  hình ~22–28px giữa ô. Loại: pixflux flat không ép màu (11–28 màu, nhiễu đuôi lửa), pixen (đậm nhưng 29–63 màu, nhiều điểm lẻ, tự
+  thêm mặt cho quả cầu lửa / khiên).
+- **Bẫy**: đề bài "kiếm + hiệu ứng" (vệt chém, mũi tên dội, sóng nước…) → pixflux chỉ vẽ thanh kiếm. Sửa bằng img2img:
+  `init_image` = icon v1 thu nhỏ còn 28px (`init/`), `init_image_strength` 100–220 (thường 140) — giữ BỐ CỤC v1, vẽ lại theo
+  style + bảng màu v2. Bảng khoá ghi `init` / `init_strength` / `seed` của bản được chọn; ứng viên loại ở `_ung-vien/`.
+- **Lệnh**: vẽ một ảnh `npx tsx src/cli.ts pixellab pixflux|pixen <token#> <ảnh ra.png> @args.json` (1 lượt; args nhận thêm
+  `color_image_path` / `init_image_path`; job đã trả lượt ghi `<ảnh>.pending.json` → chạy lại đúng lệnh chỉ tải tiếp). Dựng atlas
+  `npm run assets:skill-icons` (mặc định v2; `-- --v1` = bộ tấm cũ) → CHỈ ghi `public/assets/ui/skill-icons.{png,json}` + ảnh duyệt
+  `reports/skill-icons-preview.png`. Pipeline dọn nhẹ (alpha cứng, bỏ cụm rời ≤ 2 điểm, dời hộp bao vào giữa ô — không vẽ thêm),
+  xếp lưới bước 36, hộp = cả ô 32×32.
+- **Web** (`apps/web/src/components/iconFit.ts` · `skillIconFit`): chọn tỉ lệ theo phần hình (ô − lề 2px): ô 28–55 → 1× (thanh
+  kỹ năng, cây chiêu, loadout 30), 56+ → 2× (nút cảm ứng to 64), 14–27 → ½; luôn nguyên lần / 1/n, toạ độ nguyên.
+- Ngân sách: 143 lượt token #1 (thử 18 + vẽ đủ 86 + vẽ lại 39). Còn chưa ưng (vẽ lại nếu dư lượt): `tidal_wave` (hình nón
+  nước giống tam giác), `spare:aether:3` (hai quả cầu + tia lửa, rối — chưa dùng), `future:earth:10` (đống đá, nắm đấm khó nhận),
+  `calm_stance` ≈ `future:sword:10:thuy_than` (cùng vòm ngọc), thanh mảnh ở ½ (`pierce_rush`, `ice_spire`, `earth_rend`).
 
 ## Còn nợ / bước tiếp
 
 - ~~Sprite nữ vẽ bằng mã nguồn (`src/manual/renderPlayerFemale.ts`, `assets:player-female`)~~ — đã GỠ 07/10/2026:
   nhân vật nữ giờ là bản PixelLab (`player_lior_child_f`, `player_hero_adult_f`), công cụ vẽ tay không còn dùng.
 
-- **Trượng gỗ của Mage chưa có**. Nguồn vẽ trượng không nhất quán nên đã gỡ khỏi thân. Trượng sẽ là
-  **lớp trang bị riêng** (weapon layer gắn theo điểm neo tay), đúng với hệ build Sword/Staff/Bow… của game.
+- ~~**Trượng gỗ của Mage chưa có** — sẽ là lớp trang bị riêng gắn theo điểm neo tay~~ — 10/10/2026: kiếm và trượng VẼ LIỀN
+  THÂN trên phiên bản Sword / Staff (mục "Vũ khí vẽ liền thân"); lớp dán theo neo chỉ còn cho mũ / áo choàng / tay phụ về sau.
+  Vũ khí mới (kiếm sắt, cung…) = phiên bản cầm món đó + đứng / đi / động tác vẽ lại, hoặc tạm khai `views` (lớp dán).
+- **Atlas 16 tuổi đã đầy** (1238–1240 / 1296 ô 112px, 10/10/2026): uống bình cầm vũ khí bản 16 tuổi, vũ khí mới, bộ trang phục…
+  đều cần atlas NHIỀU TRANG (Pixi `meta.related_multi_packs` + `AssetManifest.loadCharacter` gộp `linkedSheets`; kho đồ đọc khung
+  đứng của trang đầu) hoặc cắt sát khung (frame `trimmed`) trước khi vẽ thêm.
 - FreePixel **không có** attack/cast/hit/death/dodge/block. Hai hướng xử lý: mua credit PixelLab để
   `animate_image` trên chính sprite đã chuẩn hoá, hoặc lấy bộ 2DHD CC0 của hormelz (xem `asset-sources.md`).
 - Boss hiện cùng cỡ với quái thường. Phóng 2× sẽ lệch mật độ pixel nên không làm; thay vào đó cần

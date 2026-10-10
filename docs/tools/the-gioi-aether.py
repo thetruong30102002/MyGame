@@ -13,18 +13,28 @@ OUT_MD = os.path.join(DOCS, 'the-gioi-aether.md')
 SKETCH_DIR = os.path.join(DOCS, 'phac-thao-map')  # SVG phác thảo cho bản Markdown
 MINIMAPS = os.path.join(DOCS, '..', 'apps', 'web', 'public', 'assets', 'maps', 'human')
 
-# trạng thái hình: 'co' = đã có trong game, 'moi' = vẽ mới, 'mau:<từ đâu>' = đổi màu (0 lượt), 'chieu' = có hình, cần chiêu mới
+# trạng thái hình: 'co' = đã có trong game, 'moi' = vẽ mới, 've' = vẽ mới ĐÃ VẼ xong (vẫn tính vào ngân sách như 'moi'),
+# 'mau:<từ đâu>' = đổi màu (0 lượt), 'chieu' = có hình, cần chiêu mới.
+# trạng thái map: 'co' = đã có trong game, 'dung' = đã dựng (pipeline + test), chờ lên game, 'dot2' = đang chạy bản gần trống, hình
+# ĐỢT 2 đã vẽ + dựng vào bản thử, chờ lên game; còn lại = chưa có map.
 REGIONS = [
-    dict(n=1, name='Thung lũng Thistlewood', lv='1–10', elem='Bóng tối', weak='Hoả, Aether', status='Đang chơi được (6/7 map)',
+    # Vùng 1 — 12 map (chủ dự án 10/10/2026, thiết kế docs/thiet-ke/vung1-12-map.md). Thứ tự = chỉ số trên sơ đồ R1_POS (6 = thánh địa).
+    dict(n=1, name='Thung lũng Thistlewood', lv='1–10', elem='Bóng tối', weak='Hoả, Aether',
+         status='12 map + hình ĐỢT 2 (tấm G1 / R1 / B1 + 5 món lẻ — Nghĩa địa, Đồi Xương, Vách, Mộ Vô Danh, Luỹ, Hẻm Cửa Sông hết trống) đã lên game 10/10/2026',
          town=('village', 'Thị trấn Thistlewood', 'Quê nhà của Lior: nhiệm vụ tuổi thơ và tuổi 16 bắt đầu ở đây.'),
          maps=[
              ('Thistlewood', 'Trạm', [], 'co'),
-             ('Rừng Mossvale', 'Săn', [('Nấm rừng', 'co')], 'co'),
-             ('Nghĩa địa Hoàng Hôn', 'Săn', [('Xác sống', 'co'), ('Vua Lich · boss khu (hầm mộ)', 'chieu')], 'co'),
-             ('Đồi Xương Trắng', 'Săn', [('Cung thủ xương', 'co')], 'co'),
-             ('Vách Gargoyle', 'Săn', [('Gargoyle đá', 'co')], 'co'),
-             ('Hang Gargoyle', 'Săn (mới)', [('Dơi hang', 'moi'), ('Gargoyle Đá · boss khu', 'moi')], 'moi'),
+             ('Rừng Mossvale', 'Săn', [('Nấm rừng · cấp 1–3', 'co')], 'co'),
+             ('Nghĩa địa Hoàng Hôn', 'Săn', [('Xác sống · cấp 3–5', 'co'), ('Vua Lich · boss khu (hầm mộ)', 'chieu')], 'co'),
+             ('Đồi Xương Trắng', 'Săn', [('Cung thủ xương · cấp 4–6', 'co')], 'co'),
+             ('Vách Gargoyle', 'Săn', [('Gargoyle đá · cấp 5–7', 'co')], 'co'),
+             ('Hang Gargoyle', 'Săn (mới)', [('Dơi hang · cấp 8–9 · đã vẽ, chủ dự án duyệt 10/10/2026', 've'), ('Gargoyle Đá · boss khu · cấp 10', 've')], 'co'),
              ('Đá Phong Ấn', 'Thánh địa', [('Quỷ vương rừng sâu · boss chúa', 'chieu')], 'co'),
+             ('Bãi Bồi Brightwater', 'Săn (mới) · tuổi thơ + 16+', [('Nấm rừng · cấp 1 (8–15 tuổi) · cấp 3–4', 'co')], 'co'),
+             ('Vết Rạn Mossvale', 'Săn (mới)', [('Nấm nhiễm sợi đỏ · cấp 5–6', 'co')], 'co'),
+             ('Mộ Vô Danh', 'Săn (mới)', [('Xác sống · cấp 6–7', 'co')], 'co'),
+             ('Luỹ Hiệp Sĩ Cũ', 'Săn (mới)', [('Cung thủ xương · cấp 7–8', 'co')], 'co'),
+             ('Hẻm Cửa Sông', 'Săn (mới) · cửa sang vùng 2', [('Gargoyle đá · cấp 9–10', 'co')], 'co'),
          ]),
     dict(n=2, name='Đầm lầy Mù Sương', lv='10–20', elem='Thuỷ / độc', weak='Thổ, Phong', status='Chưa có map',
          town=('village', 'Làng nhà sàn Lau Xám', 'Dân đầm lầy sống trên nhà sàn, nhờ người lạ dẹp quái và tìm thuốc giải độc.'),
@@ -352,22 +362,30 @@ def pill(status):
         return '<span class="pill skill">Có hình · cần chiêu mới</span>'
     if status == 'moi':
         return '<span class="pill new">Vẽ mới</span>'
+    if status == 've':
+        return '<span class="pill tint">Đã vẽ · chờ lên game</span>'
     if status.startswith('mau:'):
         return f'<span class="pill tint">Đổi màu từ {esc(status[4:])}</span>'
     return ''
 
 
-# Vùng 1 đã có map thật: dùng minimap trong game; sơ đồ nối theo map thật (Thistlewood — Mossvale — Đá Phong Ấn, Nghĩa địa → Đồi Xương /
-# Vách Gargoyle → Hang Gargoyle).
+# Vùng 1 đã có map thật: map nào đã lên game (có minimap trong apps/web/public) thì dùng minimap, chưa thì phác thảo. Sơ đồ nối theo
+# thiết kế 12 map (docs/thiet-ke/vung1-12-map.md mục Đồ thị lối): 12 nút, 14 cạnh, cửa sang vùng 2 ở Hẻm Cửa Sông.
 R1_FILES = {'Thistlewood': 'town', 'Rừng Mossvale': 'mossvale', 'Nghĩa địa Hoàng Hôn': 'graveyard', 'Đồi Xương Trắng': 'bonehills',
-            'Vách Gargoyle': 'cliffs', 'Đá Phong Ấn': 'shrine'}
-R1_POS = {0: (70, 130), 1: (210, 60), 6: (500, 60), 2: (210, 190), 3: (360, 140), 4: (360, 225), 5: (500, 225)}
-R1_EDGES = [(0, 1), (1, 6), (0, 2), (2, 3), (2, 4), (4, 5)]
+            'Vách Gargoyle': 'cliffs', 'Đá Phong Ấn': 'shrine', 'Hang Gargoyle': 'gargoyle_cave', 'Bãi Bồi Brightwater': 'riverflats',
+            'Vết Rạn Mossvale': 'mossrift', 'Mộ Vô Danh': 'nameless', 'Luỹ Hiệp Sĩ Cũ': 'oldfort', 'Hẻm Cửa Sông': 'rivergate'}
+# Chỉ số theo thứ tự maps của vùng 1: 0 town · 1 mossvale · 2 graveyard · 3 bonehills · 4 cliffs · 5 Hang · 6 shrine · 7 Bãi Bồi ·
+# 8 Vết Rạn · 9 Mộ Vô Danh · 10 Luỹ · 11 Hẻm Cửa Sông.
+R1_POS = {5: (140, 28), 4: (210, 83), 9: (70, 138), 2: (210, 138), 3: (350, 138), 10: (490, 138), 0: (210, 193), 1: (350, 193),
+          7: (210, 248), 8: (350, 248), 6: (490, 248), 11: (210, 303)}
+R1_EDGES = [(0, 2), (0, 1), (1, 6), (2, 4), (2, 3), (0, 7), (7, 8), (1, 8), (7, 11), (2, 9), (3, 10), (4, 5), (5, 9), (1, 10)]
+R1_EXIT = 11
 os.makedirs(SKETCH_DIR, exist_ok=True)
 
 
 def region_layout(r):
-    return (R1_POS, R1_EDGES) if r['n'] == 1 else (sketch.STD_POS, sketch.STD_EDGES)
+    """(vị trí nút, cạnh, map có lối sang vùng sau, cao sơ đồ)."""
+    return (R1_POS, R1_EDGES, R1_EXIT, 375) if r['n'] == 1 else (sketch.STD_POS, sketch.STD_EDGES, 6, 260)
 
 
 def region_neighbors(r):
@@ -379,17 +397,18 @@ def region_neighbors(r):
 
 def region_sketches(r):
     """[(tên map, vai trò, svg-hoặc-None, file minimap-hoặc-None)] + SVG sơ đồ vùng; ghi kèm file SVG cho bản Markdown."""
-    pos, edges = region_layout(r)
+    pos, edges, exit_node, height = region_layout(r)
     prev_r, next_r = region_neighbors(r)
-    graph = sketch.region_graph(r['n'], r['maps'], edges, pos, prev_r, next_r)
+    graph = sketch.region_graph(r['n'], r['maps'], edges, pos, prev_r, next_r, exit_node, height)
     open(os.path.join(SKETCH_DIR, f'vung-{r["n"]}.svg'), 'w', encoding='utf8', newline='').write(graph)
     out = []
     for i, (name, role, mobs, _st) in enumerate(r['maps']):
         real = R1_FILES.get(name) if r['n'] == 1 else None
-        if real:
+        # Map đã dựng nhưng chưa lên game (chưa có minimap trong public) thì vẫn vẽ phác thảo.
+        if real and os.path.exists(os.path.join(MINIMAPS, f'{real}.minimap.png')):
             out.append((name, role, None, real))
             continue
-        svg = sketch.map_sketch(r['n'], name, role, mobs, sketch.exits_for(i, edges, pos, r['maps'], prev_r, next_r))
+        svg = sketch.map_sketch(r['n'], name, role, mobs, sketch.exits_for(i, edges, pos, r['maps'], prev_r, next_r, exit_node))
         open(os.path.join(SKETCH_DIR, f'vung-{r["n"]}-map-{i + 1}.svg'), 'w', encoding='utf8', newline='').write(svg)
         out.append((name, role, svg, None))
     return graph, out
@@ -417,7 +436,7 @@ def sketch_html(r):
         herd = f'<span class="muted">bầy {esc(mob)} · 5 khu</span>' if mob else ''
         figs.append(f'<figure class="sk"><div class="sk-art">{art}</div><figcaption><b>{esc(name)}</b> · {esc(role)} {tag} {herd}</figcaption></figure>')
     return f'''<details class="sketch" open>
-    <summary>Phác thảo 7 map + sơ đồ nối</summary>
+    <summary>Phác thảo {len(maps)} map + sơ đồ nối</summary>
     <div class="graph">{graph}</div>
     <div class="sk-grid">{"".join(figs)}</div>
   </details>'''
@@ -431,7 +450,11 @@ def region_html(r):
             mob_cells = '<ul class="mobs">' + ''.join(f'<li><span class="mob{" boss" if "boss" in m else ""}">{esc(m)}</span>{pill(st)}</li>' for m, st in mobs) + '</ul>'
         else:
             mob_cells = '<span class="muted">Không có quái · NPC dịch vụ</span>'
-        map_pill = '<span class="pill have">Đã có map</span>' if mapstatus == 'co' else '<span class="pill plan">Chưa có map</span>'
+        map_pill = {
+            'co': '<span class="pill have">Đã có map</span>',
+            'dung': '<span class="pill skill">Đã dựng · chờ lên game</span>',
+            'dot2': '<span class="pill tint">Có map (gần trống) · hình ĐỢT 2 chờ lên game</span>',
+        }.get(mapstatus, '<span class="pill plan">Chưa có map</span>')
         rows.append(f'<tr><td><b>{esc(name)}</b><div class="role">{esc(role)}</div></td><td>{mob_cells}</td><td>{map_pill}</td></tr>')
     dragon = f'<p class="dragon-note">Thêm: <b>{esc(r["dragon"])}</b> ở Long Huyệt (map phụ của vùng) — xem mục Rồng.</p>' if r.get('dragon') else ''
     return f'''
@@ -464,7 +487,7 @@ def count():
         for _, _, mobs, _ in r['maps']:
             for m, st in mobs:
                 is_boss = 'boss' in m
-                if st == 'moi':
+                if st in ('moi', 've'):
                     if is_boss:
                         boss_new += 1
                     else:
@@ -482,12 +505,12 @@ def region_counts(r):
     for _, role, ms, _ in r['maps']:
         for m, st in ms:
             if 'boss' in m:
-                bosses += st == 'moi'
+                bosses += st in ('moi', 've')
                 if 'boss chúa' in m:
                     chiefs += 1
                 else:
                     zones += 1
-            elif st == 'moi':
+            elif st in ('moi', 've'):
                 mobs += 1
     return mobs, bosses, chiefs, zones
 
@@ -747,7 +770,7 @@ figure.sk figcaption {{ font-size: 13px; display: flex; flex-wrap: wrap; gap: 4p
         <div class="stat"><b>{N_ACTIONS} + {n_temp + len(ULTS)}</b><span>động tác nhân vật mới + skill / tuyệt kỹ vẽ hình riêng (Mốc 1)</span></div>
         <div class="stat"><b>~{dotnum(MOC_TOTAL[1])}</b><span>lượt Mốc 1 / 5.000 của gói 24$ → dư ~{dotnum(spare1)}</span></div>
       </div>
-      <p class="note"><b>3 mốc vẽ:</b> Mốc 1 = skill nhân vật chi tiết + vùng 1–4 · Mốc 2 = vùng 5–7 + 3 rồng · Mốc 3 = vùng 8–10 + 3 rồng + nhân vật / trang bị. Mỗi vùng có phác thảo 7 map + sơ đồ nối (bố cục để duyệt, không phải hình trong game).</p>
+      <p class="note"><b>3 mốc vẽ:</b> Mốc 1 = skill nhân vật chi tiết + vùng 1–4 · Mốc 2 = vùng 5–7 + 3 rồng · Mốc 3 = vùng 8–10 + 3 rồng + nhân vật / trang bị. Mỗi vùng có phác thảo map + sơ đồ nối (vùng 1: 12 map theo thiết kế 10/10/2026; bố cục để duyệt, không phải hình trong game).</p>
       <p class="note">Luật chung của mỗi vùng: mỗi map săn <b>chỉ một loại quái</b>, sinh theo bầy; 2 trong 5 map săn có hang ổ <b>boss khu</b> (1 chiêu riêng, hồi sinh theo giờ); <b>boss chúa</b> ở thánh địa (2 chiêu riêng), hạ xong mới mở vùng kế. Quái thường mỗi loại một hình riêng — không dùng bản đổi màu. Rồng 3 chiêu.</p>
       <div class="legend">{pill("co")}{pill("moi")}{pill("chieu")}</div>
     </section>
@@ -863,7 +886,7 @@ HANDOFF = """## Bàn giao — đọc trước khi làm tiếp (agent / người 
 `docs/the-gioi-aether.md` (file này) lẫn trang `docs/the-gioi-aether.html` (đăng lại trang: Artifact
 https://claude.ai/artifact/VTrVtPJHXUtETsssKRcx9K). Không sửa tay hai file sinh ra.
 
-### Trạng thái (09/10/2026)
+### Trạng thái (09–10/10/2026)
 
 | Phần | Trạng thái | Tài liệu |
 |---|---|---|
@@ -873,6 +896,9 @@ https://claude.ai/artifact/VTrVtPJHXUtETsssKRcx9K). Không sửa tay hai file si
 | M3.3a: cấp / EXP / xu / bình do máy chủ giữ | ✔ | `docs/ke-hoach-m3-may-chu-chien-dau.md` |
 | Hình PixelLab Mốc 1 — gói trả phí (token #1, Tier 2: 5.000 lượt, 10 job song song) | ◐ phần lớn đã vẽ 09/10/2026 (~2.300 lượt) — xem mục "Mốc 1 đã vẽ" ngay dưới | file này + `docs/asset-pipeline.md` mục Gói trả phí |
 | Nhân vật người chơi mới (tóc nâu, đồ tân thủ) + 25 động tác / 9 động tác bản bé + hiệu ứng skill + chiêu Quỷ vương / Vua Lich + quái vùng 1 có đánh / gục | ✔ ĐÃ LÊN GAME THẬT 09/10/2026 (bản cũ tóc bạc → NPC lữ hành Sein / Sera ở quảng trường) | `apps/web/src/game/combat/tempArt.ts`, `CombatSystem.ts` |
+| Vùng 1 — 12 map (chủ dự án 10/10/2026): cấp quái theo khu, khu tuổi thơ Bãi Bồi, Hang Gargoyle (Dơi hang + boss Gargoyle Đá), Hẻm Cửa Sông (lối sang vùng 2) | ✔ ĐÃ LÊN GAME THẬT 10/10/2026 — 12 map lúc 05:58, hình ĐỢT 2 (tấm G1 / R1 / B1 + 5 món lẻ, 48 lượt: Nghĩa địa, Đồi Xương, Vách, Mộ Vô Danh, Luỹ, Hẻm Cửa Sông hết trống) lúc 07:12 | `docs/thiet-ke/vung1-12-map.md`, `docs/ke-hoach-the-gioi.md` mục 5.2 |
+| Icon chiêu v2 (90 icon 32×32), kho đồ / thẻ Chỉ số bỏ icon chỉ số (chỉ giữ vàng + kim cương), chiêu nguyên tố mốc 1 học bằng 1 điểm (bài tập phép tuổi thơ nhận Tia Aether, bản lưu `talentsV` 3 + máy chủ chặn tab cũ ghi đè) | ✔ ĐÃ LÊN GAME THẬT 10/10/2026 | `docs/asset-pipeline.md` mục Icon chiêu v2, `docs/ke-hoach-nguyen-to.md` mục 7, `apps/server/src/db.ts` `keepNewerTalents` |
+| Vũ khí VẼ LIỀN THÂN (chủ dự án 10/10/2026: "cầm kiếm tự gắn vào xấu"): 4 sprite người chơi đứng / đi cầm kiếm + cầm trượng (`idlesword` / `walksword` / `idlestaff` / `walkstaff`, chọn theo thế cầm + đồ mặc), bỏ icon dán vào tay, bỏ hướng chém tay không | ✔ ĐÃ LÊN GAME THẬT 10/10/2026: đứng / đi (~175 lượt) + trúng đòn / lướt / gục (16 tuổi) và trúng đòn / gục / uống bình (bé) bản cầm (129 lượt, `hitsword`…). CÒN THIẾU uống bình bản cầm của 16 tuổi: atlas 16 tuổi đã sát 4096 → cần atlas nhiều trang hoặc cắt sát khung | `docs/asset-pipeline.md` mục "Vũ khí vẽ liền thân", `apps/web/src/game/gearArt.ts` |
 
 ### Mốc 1 đã vẽ (09/10/2026, token #1)
 
@@ -886,22 +912,32 @@ https://claude.ai/artifact/VTrVtPJHXUtETsssKRcx9K). Không sửa tay hai file si
   mốc 10 — vẽ xong, khai `later: true` (ngoài atlas) tới khi nối vào game.
 - **Quái / boss**: 16 quái vùng 1–4 + 10 boss + xác sống / gargoyle / Vua Lich vùng 1 (trước nay CHƯA có atlas) — đủ đi / đứng / đánh /
   gục 3 hướng; nấm, xương xạ thủ, Quỷ vương thêm đánh + gục (animimg). Lên game: 6 con vùng 1. Còn lại có spec, chờ map.
-- **Rồng phương Đông** (chủ dự án: MỌI rồng là rồng phương Đông, không cánh): Phong Long trắng ngọc trai + Rồng gió (rồng non) — đủ
-  động tác. Sơn Thần (triệu hồi tuyệt kỹ Thổ): có hình, đi / đứng bằng template bị lệch dáng → vẽ lại bằng v3 khi làm GĐ4.
+- **Rồng phương TÂY** (chủ dự án đổi tối 09/10/2026 — thay bản phương Đông; mọi rồng HẦM HỐ: cánh dang to, dáng dữ): Phong Long,
+  Rồng gió (rồng non), Băng Long, Hoả Long, Thuỷ Long — dựng 8 hướng từ ảnh thiết kế đã duyệt (`new-mobs/dragons_west.json`), đủ
+  đi (bay vỗ cánh) / đứng / đánh / gục. Bản phương Đông + bản có cánh cũ đổi tên `*_east` / `*_winged` (chờ xoá trên PixelLab). Sơn Thần (triệu hồi tuyệt kỹ Thổ): có hình, đi / đứng bằng template bị lệch dáng → vẽ lại bằng v3 khi làm GĐ4.
 - **Map vùng 2–4**: 12 công trình / cây + 9 tấm đồ vật 3×3 (`sources/pixellab/objects/`, `sheets/SW*`, `DS*`, `HL*`) + 2 tấm đồ hang
   (`CV1`, `CV2`) cho Hang Gargoyle. Tranh lục địa 688×384: `sources/pixellab/world/continent.png`. Icon I2 / I3 (kim cương, lịch,
   6 bình kim cương, Bạn bè, Cài đặt…) — CHƯA nối (component đang gắn cứng cỡ ảnh tạm).
+- **Icon chiêu v2** (10/10/2026 — chủ dự án chê bộ v1 "xấu, kiểu AI"): 90 icon vẽ lại ĐÚNG cỡ hiện 32×32, MỘT ảnh mỗi khoá (pixflux
+  nền trong suốt, viền đen, ép bảng màu nhánh), hiện 1× ở thanh kỹ năng / cây chiêu, ½ ở ô nhỏ. Nguồn
+  `sources/pixellab/skill-icons-v2/` (bộ tấm v1 giữ lưu trữ), dựng `npm run assets:skill-icons` — cách vẽ ở `docs/asset-pipeline.md`
+  mục Icon chiêu v2 (143 lượt).
+- **Nợ hình map vùng 1 — ĐỢT 2** (10/10/2026, 48 lượt): 3 tấm 3×3 `sheets/G1_graveyard`, `R1_ruins`, `B1_bonehills` (bia, rào sắt,
+  quan tài, đèn ma · tường đổ, tượng, chậu lửa, bia rune · xương thú, cờ trận, rào chông…) + 5 món `objects/tree_dead`,
+  `tree_pine_dry`, `crypt`, `cliff_rock`, `ruin_arch`. ĐÃ lên game 10/10/2026.
 
 ### Việc kế tiếp (thứ tự đề xuất)
 
 1. **Nối phần đã vẽ còn lại**: icon I2 / I3 vào UI (sửa cỡ ảnh ở `Hud`, `ShopPanel`, `BagGrid`, `CalendarPanel`, `ServiceWindow`);
    tranh lục địa → bản đồ tổng phím M (`docs/ke-hoach-the-gioi.md` mục 3.1: khai toạ độ 10 vùng trên tranh); chiêu thứ hai cho boss
-   chúa. Còn ~2.700 lượt gói tháng này (hết hạn cuối tháng, không cộng dồn): vẽ tiếp **Mốc 2** (vùng 5–7 + Băng / Hoả / Thuỷ Long
-   — rồng phương Đông cùng khuôn Phong Long).
-2. **Hang Gargoyle** (map thứ 7 vùng 1) rồi **vùng 2 → 10** theo hình vừa vẽ và phác thảo map (`docs/phac-thao-map/`, sinh từ
-   `docs/tools/sketch.py` — chỉ là bố cục): map dựng bằng pipeline (`npm run assets:map -- <vùng>`,
-   khai vùng ở `packages/asset-pipeline/src/maps/regions.ts`), bật `ready: true` ở `packages/sim/src/regions.ts`; boss + chiêu + rồng
-   (Long Huyệt, boss thế giới dùng chung — `docs/ke-hoach-the-gioi.md` mục 2.1, 2.2).
+   chúa. Còn ~2.700 lượt gói tháng này (hết hạn cuối tháng, không cộng dồn): **Mốc 2** (vùng 5–7 + Băng / Hoả / Thuỷ Long phương
+   Tây) đã vẽ 09–10/10/2026 — xem mục Mốc 2.
+2. **Vùng 1 — 12 map** (`docs/ke-hoach-the-gioi.md` mục 5.2): 12 map đã lên game 10/10/2026 (chủ dự án duyệt Dơi hang + hướng ra
+   vùng 2 qua Hẻm Cửa Sông + Đường hầm của Đoàn), hình ĐỢT 2 cũng đã lên game; theo dõi nhịp hồi sinh Gargoyle Đá (đường hầm vào thẳng gian boss).
+   Sau đó **vùng 2 → 10** (12 map / vùng, thiết kế như vùng 1)
+   theo hình vừa vẽ và phác thảo map (`docs/phac-thao-map/`, sinh từ `docs/tools/sketch.py` — chỉ là bố cục): map dựng bằng pipeline
+   (`npm run assets:map -- <vùng>`, khai vùng ở `packages/asset-pipeline/src/maps/regions.ts`), bật `ready: true` ở
+   `packages/sim/src/regions.ts`; boss + chiêu + rồng (Long Huyệt, boss thế giới dùng chung — `docs/ke-hoach-the-gioi.md` mục 2.1, 2.2).
 3. **M3.3b**: túi đồ + trang bị ở máy chủ, rơi đồ (máy chủ quyết), nhật ký kinh tế.
 4. Mốc 3 — **nhân vật người chơi + trang bị** (yêu cầu bắt buộc: mặc món nào hiện đúng món đó — kiếm, trượng, mũ, áo, quần, giày,
    găng): pipeline tách bộ đồ PixelLab so với nhân vật gốc → cắt 4 lớp theo vùng thân → `apps/web/src/game/gearArt.ts` /
@@ -918,7 +954,9 @@ https://claude.ai/artifact/VTrVtPJHXUtETsssKRcx9K). Không sửa tay hai file si
   `AETHER_DB=data/test.db` cho CSDL thử).
 - Triển khai (Tailscale Funnel, người chơi thật đang dùng): README mục Funnel — `build:funnel` (ghi vào thư mục KHÔNG đang chạy) →
   chạy thử bản mới ở cổng phụ → tắt + chạy lại `start:funnel` và máy chủ game. **Sao lưu `apps/server/data/aether.db` trước khi đổi
-  cách lưu dữ liệu.** Log: `apps/web/funnel.log`, `apps/server/data/server.log`.
+  cách lưu dữ liệu.** Log: `apps/web/funnel.log`, `apps/server/data/server.log`. Chạy bản thật TÁCH khỏi phiên Claude (tạo tiến trình qua
+  WMI — README mục Funnel; 10/10/2026 đóng phiên Claude làm tắt cả hai, link 502 ~4 giờ). Hình dựng thử → `.aether-stage/assets`
+  (web thử :3102 đọc trước public), triển khai = chép sang `apps/web/public/assets`.
 
 ### Luật của dự án (đừng phá)
 
@@ -939,6 +977,8 @@ def md_status(st):
         return 'có hình · cần chiêu mới'
     if st == 'moi':
         return '**vẽ mới**'
+    if st == 've':
+        return 'đã vẽ · chờ lên game'
     if st.startswith('mau:'):
         return f'đổi màu từ {st[4:]}'
     return ''
@@ -955,7 +995,9 @@ md.append('> chia **3 mốc** (chủ dự án 08/10/2026): Mốc 1 = skill nhân
 md.append('> + 3 rồng + nhân vật / trang bị. Trạng thái: **Mốc 1 phần lớn đã vẽ + lên game 09/10/2026 (gói trả phí token #1)**.\n')
 md.append(HANDOFF)
 md.append('## Tóm tắt\n')
-md.append('- **10 vùng**, mỗi vùng 7 map: 1 trạm (làng hoặc toà thành — nơi ở có NPC dịch vụ, nhiệm vụ), 5 map săn, 1 thánh địa → **70 map** (đã có 6 ở vùng 1).')
+md.append('- **10 vùng**, mỗi vùng **12 map** (chủ dự án 10/10/2026, trước là 7): 1 trạm (làng hoặc toà thành — nơi ở có NPC dịch vụ, nhiệm vụ), 10 map săn,')
+md.append('  1 thánh địa → **~120 map**. Vùng 1 đã thiết kế đủ 12 map (`docs/thiet-ke/vung1-12-map.md`; cả 12 map cùng hình')
+md.append('  ĐỢT 2 đã lên game 10/10/2026); vùng 2–10 trong bảng dưới vẫn là danh sách 7 map của khung cũ — thiết kế lại lên 12 khi làm tới.')
 md.append(f'- Quái thường: **{new_mob} loại vẽ mới**, mỗi loại một hình riêng (không dùng bản đổi màu) + 4 loại đã có ở vùng 1. Mỗi map săn một loại quái, sinh theo bầy.')
 md.append(f'- Boss: **30 boss vùng** (2 boss khu + 1 boss chúa mỗi vùng; vẽ mới {boss_new}) + **7 rồng nguyên tố** (boss thêm, map phụ Long Huyệt).')
 md.append(f'- Skill nhân vật: **{N_ACTIONS} động tác mới**, {n_temp} skill vẽ lại hình riêng (đang mượn hình), {len(ULTS)} tuyệt kỹ, {len(OTHER_FX)} hiệu ứng phụ (~{dot(skill_total)} lượt).')
@@ -1036,13 +1078,13 @@ for r in REGIONS:
         md.append(f"- Thêm: **{r['dragon']}** ở Long Huyệt (map phụ của vùng)")
     md.append('\n| Map | Loại | Quái / boss | Hình | Map |\n|---|---|---|---|---|')
     for name, role, mobs, mapstatus in r['maps']:
-        maptxt = 'đã có' if mapstatus == 'co' else 'chưa có'
+        maptxt = {'co': 'đã có', 'dung': 'đã dựng, chờ lên game', 'dot2': 'đã có (gần trống), hình ĐỢT 2 đã dựng, chờ lên game'}.get(mapstatus, 'chưa có')
         if not mobs:
             md.append(f'| {md_cell(name)} | {md_cell(role)} | — (NPC dịch vụ) | — | {maptxt} |')
         for i, (m, st) in enumerate(mobs):
             first = i == 0
             md.append(f'| {md_cell(name) if first else ""} | {md_cell(role) if first else ""} | {md_cell(m)} | {md_status(st)} | {maptxt if first else ""} |')
-    md.append(f'\nSơ đồ nối 7 map + phác thảo (bố cục để duyệt, không phải hình trong game):\n')
+    md.append(f'\nSơ đồ nối {len(r["maps"])} map + phác thảo (bố cục để duyệt, không phải hình trong game):\n')
     md.append(f'![Sơ đồ vùng {r["n"]}](phac-thao-map/vung-{r["n"]}.svg)\n')
     imgs = []
     for i, (name, _role, _svg, real) in enumerate(SKETCHES[r['n']][1]):

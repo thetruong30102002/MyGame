@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a frost-covered steel chest armor, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/ice+steel.png",
+	"jobId": "9743d58e-780b-4479-9a8c-6586b40b2d07",
+	"token": 1,
+	"createdAt": "2026-10-09T19:19:19.090Z"
+}

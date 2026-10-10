@@ -16,9 +16,12 @@ export interface WorldIndexData {
 			height: number;
 			exits: { id: string; to: string; x: number; y: number; label: string }[];
 			spots: string[];
-			zones: { id: string; monsters: string[] }[];
+			/** `level`: cấp quái của khu (vắng = chỉ số gốc). */
+			zones: { id: string; monsters: string[]; level?: number }[];
 			dummies: string[];
 			boss: string | null;
+			/** Khoảng cấp quái của map [thấp, cao] (pipeline tính từ các khu) — map an toàn / map cũ chưa dựng lại thì vắng. */
+			levels?: [number, number];
 		}
 	>;
 }

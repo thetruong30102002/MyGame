@@ -406,3 +406,31 @@ canvas.pixel-canvas {
 		animation: none;
 	}
 }
+
+/*
+ * ——— Kho đồ làm lại chi tiết (09/10/2026) — khối riêng, lớp `inv-r-*` ———
+ * Độ hiếm trên ô đá (`invShared.rarityClass`): vòng ngoài 2px màu bậc (bóng cứng, không blur — cùng màu chữ tên trên giấy
+ * `RARITY_COLOR`, đủ tương phản) + lòng ô ngả màu bậc, sáng ở giữa để icon nổi. Đồ Thường giữ ô đá nguyên.
+ * `.ui-slot.inv-target` khai lại SAU các lớp độ hiếm: cùng độ ưu tiên, nên ô đích đang sáng vẫn thắng vòng độ hiếm.
+ */
+@layer components {
+	.ui-slot.inv-r-fine {
+		background: radial-gradient(circle at 50% 42%, #4d7a45, #263d27 78%) padding-box;
+		box-shadow: 0 0 0 2px #2f6b34;
+	}
+	.ui-slot.inv-r-rare {
+		background: radial-gradient(circle at 50% 42%, #3f63a3, #1f2f52 78%) padding-box;
+		box-shadow: 0 0 0 2px #1f5cc2;
+	}
+	.ui-slot.inv-r-epic {
+		background: radial-gradient(circle at 50% 42%, #6a4596, #2f1f47 78%) padding-box;
+		box-shadow: 0 0 0 2px #8d44e6;
+	}
+	.ui-slot.inv-r-legendary {
+		background: radial-gradient(circle at 50% 42%, #a8612a, #4a2612 78%) padding-box;
+		box-shadow: 0 0 0 2px #c2410c;
+	}
+	.ui-slot.inv-target {
+		box-shadow: 0 0 0 6px rgb(233 196 106 / 0.35);
+	}
+}

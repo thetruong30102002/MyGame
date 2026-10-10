@@ -1,0 +1,17 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a flying steel sword pointing right inside a violet looping return arrow, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"init_image_strength": 140,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/sword+violet.png",
+	"init_image_path": "sources/pixellab/skill-icons-v2/init/flying_sword.init.png",
+	"jobId": "4b5cdade-cc52-412c-82ea-6b975724b3b2",
+	"token": 1,
+	"createdAt": "2026-10-09T19:22:02.717Z"
+}

@@ -4,10 +4,16 @@ import type { RGBAImage } from '../image/rgba.js';
 export const DIRECTIONS = ['S', 'SW', 'W', 'NW', 'N', 'NE', 'E', 'SE'] as const;
 export type Direction = (typeof DIRECTIONS)[number];
 
-/** Gồm các động tác riêng của skill người chơi — trùng `ACTION_ANIMS` của `packages/protocol` (test `moves` kiểm). */
+/**
+ * Gồm các động tác riêng của skill người chơi — trùng `ACTION_ANIMS` của `packages/protocol` (test `moves` kiểm) — và bản CẦM VŨ
+ * KHÍ vẽ liền thân của người chơi: đứng / đi (`idlesword`, `walkstaff`…) + động tác thân trúng đòn / lướt / gục / đứng dậy / uống
+ * bình (`hitsword`, `drinkstaff`…) — nền + món, chỉ a–z; game chọn theo vũ khí đang cầm (`apps/web/src/game/gearArt.ts`).
+ */
 export const ANIMATIONS = [
 	'idle', 'walk', 'run', 'attack', 'cast', 'hit', 'death', 'dodge', 'block', 'backslash', 'thrust', 'throw', 'channel', 'push', 'skycall',
 	'stomp', 'charge', 'smash', 'lunge', 'parry', 'spin', 'flurry', 'wave', 'fling', 'vanish', 'ultimate', 'revive', 'drink',
+	'idlesword', 'walksword', 'idlestaff', 'walkstaff',
+	'hitsword', 'hitstaff', 'dodgesword', 'dodgestaff', 'deathsword', 'deathstaff', 'revivesword', 'revivestaff', 'drinksword', 'drinkstaff',
 ] as const;
 export type AnimationName = (typeof ANIMATIONS)[number];
 

@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a sturdy wall of stacked grey stone blocks, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/earth.png",
+	"jobId": "fed81ddb-b7fb-4b65-8829-50d37146d83c",
+	"token": 1,
+	"createdAt": "2026-10-09T19:20:04.661Z"
+}

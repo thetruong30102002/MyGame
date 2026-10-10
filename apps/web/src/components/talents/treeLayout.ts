@@ -32,9 +32,10 @@ export interface TreeParams {
 /** Máy tính: 20 | 3×64 | 5×50 = 462. */
 /**
  * Màn rộng (bảng Hành trang 1040px, cửa sổ ≥ 1100 × 700 — 08/10/2026 chủ dự án chê cây "dính nhau, xấu"): 24 | 3×88 | 5×68
- * = 628. Nút to hơn ~20%, nhịp dọc 58 cho chip giá / nhãn lưu phái có chỗ thở, không đè lên nút hàng trên.
+ * = 628. Nút to hơn ~20%, nhịp dọc 58 cho chip giá / nhãn lưu phái có chỗ thở, không đè lên nút hàng trên. Đầu cột 68: icon, tên,
+ * mốc + thưởng chiều sâu và thanh tiến độ màu hệ (làm lại 09/10/2026).
  */
-export const TREE_WIDE: TreeParams = { ruler: 24, swordCol: 88, elemCol: 68, step: 58, forkBand: 44, artBand: 40, head: 60, act: 46, pas: 38, ult: 50, art: 32 };
+export const TREE_WIDE: TreeParams = { ruler: 24, swordCol: 88, elemCol: 68, step: 58, forkBand: 44, artBand: 40, head: 68, act: 46, pas: 38, ult: 50, art: 32 };
 export const TREE_DESKTOP: TreeParams = { ruler: 20, swordCol: 64, elemCol: 50, step: 42, forkBand: 36, artBand: 34, head: 52, act: 38, pas: 30, ult: 40, art: 26 };
 /**
  * Điện thoại dọc: 13 | 3×36 | 5×38 = 311. Lòng tab (nội dung) = bề ngang màn − 64 (lề lớp phủ 6 + viền khung 18 + lề tab

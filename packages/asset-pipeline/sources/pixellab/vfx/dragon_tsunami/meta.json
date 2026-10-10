@@ -1,0 +1,33 @@
+{
+	"id": "dragon_tsunami",
+	"kind": "burst",
+	"canvas": {
+		"w": 192,
+		"h": 192
+	},
+	"first": {
+		"prompt": "a long low wall of teal sea water surging to the right along the ground, a curling white foam lip, broken coral, seashells and splintered wooden ship planks tumbling in it, a faint glowing dragon-scale pattern on the water surface, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "33933586-c79e-4bef-a8bd-ba3dd3b4c2be"
+	},
+	"action": "the low sea wall sweeps forward to the right along the ground, foam churning and planks tumbling, then it crashes flat, drains away and fades",
+	"frameCount": 10,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png",
+		"frame_009.png",
+		"frame_010.png"
+	],
+	"animateJobId": "2cde3f37-1c70-4b9a-8141-3cc2d341fd1d",
+	"createdAt": "2026-10-09T16:40:07.292Z",
+	"token": 1
+}

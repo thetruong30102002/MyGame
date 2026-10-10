@@ -14,7 +14,7 @@ export const TALENT_CSS = `
 .tt-node[data-shape=art]{border-radius:4px;transform:rotate(45deg)}
 .tt-node[data-shape=art] .tt-ic{transform:rotate(-45deg)}
 .tt-node .tt-ic{display:flex;align-items:center;justify-content:center;pointer-events:none}
-.tt-node[data-state=reached]{background:var(--color-honey);border-color:#8a4a0a}
+.tt-node[data-state=reached]{background:color-mix(in srgb,var(--el,var(--color-honey)) 26%,var(--color-honey));border-color:var(--el-ink,#8a4a0a)}
 .tt-node[data-state=next]{background:var(--color-paper-hi);border-color:var(--color-amber);box-shadow:0 0 0 3px var(--color-gold-hi);animation:tt-pulse 1s steps(1,end) infinite}
 .tt-node[data-state=next-poor]{background:var(--color-paper-hi);border-color:var(--color-ink-faint)}
 .tt-node[data-state=next] .tt-ic{filter:grayscale(.6);opacity:.8}
@@ -26,7 +26,7 @@ export const TALENT_CSS = `
 .tt-node:focus-visible{outline:3px solid var(--color-amber);outline-offset:2px;z-index:3}
 .tt-node[data-route]{border-color:var(--color-amber)}
 .tt-dots{font:800 13px/1 var(--font-sans);color:var(--color-ink-faint);pointer-events:none}
-.tt-cost{position:absolute;right:-12px;top:-12px;z-index:2;padding:0 3px;border:2px solid var(--color-outline);border-radius:4px;background:var(--color-gold);color:var(--color-ink-brown);font:800 12px/14px var(--font-sans);font-variant-numeric:tabular-nums;pointer-events:none;white-space:nowrap}
+.tt-cost{position:absolute;right:-12px;top:-12px;z-index:4;padding:0 3px;border:2px solid var(--color-outline);border-radius:4px;background:var(--color-gold);color:var(--color-ink-brown);font:800 12px/14px var(--font-sans);font-variant-numeric:tabular-nums;pointer-events:none;white-space:nowrap}
 .tt-cost[data-poor]{background:#f6d6c8;color:var(--color-berry);border-color:var(--color-berry)}
 .tt-fork-label{position:absolute;z-index:3;transform:translate(-50%,-50%);padding:1px 5px;border-radius:4px;border:2px solid var(--color-paper-line);background:var(--color-paper);font:800 12px/13px var(--font-sans);text-align:center;white-space:nowrap;color:var(--color-ink-brown);pointer-events:none}
 .tt-fork-label[data-on]{background:var(--color-honey);border-color:#8a4a0a}
@@ -52,10 +52,18 @@ export const TALENT_CSS = `
 .tt-legend .lg-art{width:10px;height:10px;transform:rotate(45deg)}
 .tt-legend .lg-next{border-radius:3px;border-color:var(--color-amber);box-shadow:0 0 0 2px var(--color-gold-hi);background:var(--color-paper-hi)}
 .tt-legend .lg-soon{border-radius:3px;border-style:dashed;border-color:var(--color-paper-line);background:transparent}
+.tt-legend .lg-ult{border-radius:3px;border-style:double;border-width:4px;width:14px;height:14px}
+.tt-legend .lg-future{border-radius:3px;border-color:var(--color-paper-line);background:var(--color-paper-sunk)}
 .tt-build>i{position:absolute;top:0;bottom:0}
 .tt-build>i+i{border-left:2px solid var(--color-outline)}
 .tt-unspent{background:repeating-linear-gradient(135deg,var(--color-gold-hi) 0 4px,var(--color-gold) 4px 8px)}
 .tt-target{box-shadow:0 0 0 3px var(--color-gold-hi);animation:tt-pulse 1s steps(1,end) infinite}
+.tt-kicker{font:800 12px/16px var(--font-sans);letter-spacing:.05em;text-transform:uppercase;color:var(--color-ink-soft)}
+.tt-next-card{display:block;width:100%;text-align:left;border:2px dashed var(--color-paper-line);border-radius:8px;background:var(--color-paper-hi);padding:6px 8px;cursor:pointer}
+.tt-next-card:hover{border-color:var(--color-bark);border-style:solid}
+.tt-head-bar{position:absolute;left:8px;right:8px;bottom:3px;height:5px;border-radius:2px;background:var(--color-paper-sunk);box-shadow:0 0 0 1px var(--color-paper-line);overflow:hidden}
+.tt-head-bar>i{position:absolute;inset:0 auto 0 0;box-shadow:inset 0 -1px 0 rgb(0 0 0/.25)}
+.tt-ruler-cost{display:block;font:800 10px/11px var(--font-sans);color:var(--color-ink-faint);letter-spacing:-.02em}
 @keyframes tt-pulse{50%{box-shadow:0 0 0 3px var(--color-honey)}}
 @media (prefers-reduced-motion:reduce){.tt-node,.tt-pulse,.tt-target{animation:none!important}}
 `;

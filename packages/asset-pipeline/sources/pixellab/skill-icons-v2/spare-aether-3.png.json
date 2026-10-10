@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a red orb and a blue orb colliding with a white spark, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/aether+red+blue.png",
+	"jobId": "8c91aa2a-685a-4f38-a69d-714132b126a6",
+	"token": 1,
+	"createdAt": "2026-10-09T19:21:14.169Z"
+}

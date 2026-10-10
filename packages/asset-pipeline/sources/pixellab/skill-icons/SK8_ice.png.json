@@ -1,0 +1,20 @@
+{
+	"description": "A sprite sheet of NINE separate game UI skill icons arranged in a 3 by 3 grid, in this order left to right then top to bottom, each centered in its own cell: a faceted angular ice crystal shard flying right; a flat oval frozen puddle with frost spikes around its rim; one tall jagged ice pillar thrusting up from the ground; a ring of faceted ice crystals with an arrow bouncing off; three big pale blue icicles falling point-down from above; a single crisp symmetric snowflake with a pale cyan glow; a frost-covered chestplate armor with ice crystals on its shoulders; a small hourglass filled with frozen pale blue ice crystals; a solid ice cube split by a bright starburst crack. Color theme: icy cyan, pale blue and frost white with crisp bright highlights. Chunky pixel art icons in the same style as the reference, thick dark outline, soft cel shading, bold readable silhouettes, every icon fully separate on a plain flat solid bright magenta (#FF00FF) chroma-key background with wide empty space around it, no text, no letters, no numbers, no frames, no borders",
+	"width": 192,
+	"height": 192,
+	"no_background": false,
+	"seed": 7,
+	"style_options": {
+		"color_palette": false,
+		"outline": true,
+		"shading": true,
+		"detail": true
+	},
+	"style_image": {
+		"path": "sources/pixellab/sheets/I1_icons.png",
+		"usage_description": "Copy ONLY the art style of this reference: chunky pixel art UI icons, thick dark outline, soft cel shading, one icon centered per grid cell on magenta. Do not copy these objects or their colors."
+	},
+	"jobId": "903a8534-4480-4a55-b833-35f2fd12340b",
+	"token": 1,
+	"createdAt": "2026-10-09T18:08:39.892Z"
+}

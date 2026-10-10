@@ -1,0 +1,34 @@
+{
+	"id": "dragon_ice_lake_crack",
+	"kind": "burst",
+	"canvas": {
+		"w": 192,
+		"h": 192
+	},
+	"first": {
+		"prompt": "a small star of thick chunky jagged crack lines spreading from a center point, seen from directly above, each crack 2-3 pixels wide with bright white and pale cyan edges and a dark blue water glint inside, high contrast solid unbroken lines, bold and readable at small size, no ice slab, transparent outside the cracks, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "a94c8050-7bf6-473a-973a-cbb7259d4d9e",
+		"drawn": "first_drawn.png"
+	},
+	"action": "the cracks race outward in all directions, dark water wells up through them with small ripples, then the cracks frost over and fade",
+	"frameCount": 10,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png",
+		"frame_009.png",
+		"frame_010.png"
+	],
+	"animateJobId": "bc204cdc-c2b9-4e65-985f-84ab5e55f367",
+	"createdAt": "2026-10-09T16:54:22.644Z",
+	"token": 1
+}

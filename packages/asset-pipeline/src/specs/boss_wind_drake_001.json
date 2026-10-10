@@ -8,13 +8,16 @@
 		"weapon": "none",
 		"palette": "region4_mob_01"
 	},
-	"displayName": "Rồng gió (boss chúa)",
+	"displayName": "Rồng gió (con của Tuyệt Vân) (boss khu)",
 	"role": "boss",
 	"provider": "pixellab",
 	"pixellab": {
 		"animations": {
 			"idle": "idle",
-			"walk": "walk"
+			"walk": [
+				"walk-fix",
+				"walk"
+			]
 		},
 		"mirrorWest": true
 	},
@@ -74,5 +77,5 @@
 		"SW",
 		"NW"
 	],
-	"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 160px; ảnh mẫu nét = Quỷ vương. Vùng 4. Mô tả: a sleek wind drake boss hovering facing the viewer, slender pale jade-green dragon with feathered wings, long whip tail, cloud-like white mane, swirling wind currents around its body, glowing cyan eyes. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 220px."
+	"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 160px; ảnh mẫu nét = Quỷ vương. Vùng 4. Mô tả: chibi western dragon, stocky four-legged lizard body, long neck, big head, bat-like leathery wings with finger bones, dorsal spikes, arrowhead tail tip, young but fierce battle-hungry wind dragon, lean muscular body, large wings spread wide, sharp swept-back ivory horns, bright jade green and mint scales, white belly, translucent pale mint wing membranes, furious glowing eyes with red pinprick pupils, snarling fangs, thin glowing red threads tangled around body and wings. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 220px."
 }

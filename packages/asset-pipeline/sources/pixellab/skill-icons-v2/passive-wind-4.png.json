@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a white sail full of green wind, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/wind+brown.png",
+	"jobId": "ed24048b-c5f3-448b-91ed-f9c66268e14b",
+	"token": 1,
+	"createdAt": "2026-10-09T19:18:39.769Z"
+}

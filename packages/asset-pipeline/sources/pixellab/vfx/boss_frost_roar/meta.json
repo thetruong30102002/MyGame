@@ -1,0 +1,32 @@
+{
+	"id": "boss_frost_roar",
+	"kind": "burst",
+	"canvas": {
+		"w": 160,
+		"h": 160
+	},
+	"first": {
+		"prompt": "a ring of pale cyan frost shockwave expanding outward across the ground seen from directly above, empty center, jagged frost spikes along its rim, snowflakes and tiny ice shards caught in it, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "f5d7889e-bff4-4ce0-9ff3-cd31ae2bdb57",
+		"drawn": "first_drawn.png"
+	},
+	"action": "the frost ring blasts outward with a second ring following, frost spikes jut up along the rims, then the rings thin out and fade",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "17c4eb3a-3992-4dd5-8eef-ccfa1ebba83a",
+	"createdAt": "2026-10-09T16:28:41.372Z",
+	"token": 1
+}

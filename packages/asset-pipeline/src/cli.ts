@@ -24,6 +24,7 @@ import { renderOverview, writeMinimap } from './maps/overview.js';
 import { addOutline, downscaleMode, extractDecals, loadFreePixelImage, packShelf, propIssues, propMeta, trim, type PropMeta } from './props/buildProps.js';
 import { PIXELLAB_PREFIX } from './props/humanKingdom.js';
 import { keyMagenta, loadSheetCell, parseSheetPath, sheetPreview } from './props/sheet.js';
+import { buildSkillIcons, buildSkillIconsV2 } from './props/skillIcons.js';
 import { filledSlice, measureHollow, UI_ASSETS, type NineSlice } from './props/uiAssets.js';
 import { buildVfxFrames, VFX } from './vfx/buildVfx.js';
 import {
@@ -436,15 +437,20 @@ const PL_DIR_NAMES = Object.values(PL_DIR);
 
 /** Lượt PixelLab ước tính cho MỘT hướng. v3 tính trên canvas sinh ra (hình nới ~1,375 lần mỗi chiều). */
 function animateCost(o: { template?: string; mode?: string; frames: number }, size: { width: number; height: number }): number {
-	if (o.template) return 1;
+	// skeleton-v3 (beta): 2–4 lượt / hướng tuỳ số khung của mẫu (8 khung ≈ 3, theo trợ giúp PixelLab) — in mức TRẦN; máy chủ KHÔNG
+	// trả dòng `cost` cho chế độ này (cả mẫu thường), nên tổng in ra là ước lượng.
+	if (o.template) return o.mode === 'skeleton-v3' ? 4 : 1;
 	// pixminimax tính theo thời gian sinh: 64–96px ≈ 1 lượt mỗi 8 khung (bảng giá trong mô tả công cụ).
 	if (o.mode === 'pixminimax') return Math.max(1, Math.ceil(o.frames / 8));
 	return Math.max(1, Math.ceil((size.width * 1.375 * (size.height * 1.375) * o.frames) / 65536));
 }
 
 /**
- * `pixellab animate <id> <anim> (--template <mẫu> [--action "..."] [--freedom N] | --mode v3|pixminimax --action "..." [--frames N])
+ * `pixellab animate <id> <anim> (--template <mẫu> [--mode skeleton-v3] [--action "..."] [--freedom N] | --mode v3|pixminimax --action "..." [--frames N])
  *   [--name <tên-PixelLab>] [--together] [--force] [--dry] [hướng…]`
+ * `--template … --mode skeleton-v3`: cùng chuỗi tư thế của mẫu nhưng UỐN chính ảnh nhân vật thay vì vẽ lại từng khung — kiếm
+ * giữ nguyên suốt chu kỳ (đo 10/10/2026: mẫu thường `walking-8-frames` làm mất kiếm / trượng ở hướng ngang); trượng MẢNH thì có
+ * hướng vẫn bị uốn gãy / giấu sau lưng → vẽ lại hướng đó bằng v3 với mô tả chặt ("…the staff stays upright in every frame").
  * Vẽ động tác TỪNG hướng bằng đúng token sở hữu nhân vật (gói Free chạy 1 lệnh một lúc), chờ xong rồi gửi
  * hướng kế, cuối cùng tải lại gói. Mặc định `east south north` — phía tây lật gương, hướng chéo game lấy hướng kề.
  * Hướng đã có trong gói ĐÃ TẢI VỀ (đúng tên) thì bỏ qua — trừ khi `--force`: vẽ lại hướng xấu sau khi đã
@@ -485,6 +491,7 @@ async function animate(id: string | undefined, rest: string[], tokens: string[],
 		else throw new Error(`Không hiểu "${f}" (hướng hợp lệ: ${PL_DIR_NAMES.join(' ')})`);
 	}
 	if (!opt.template && opt.mode !== 'v3' && opt.mode !== 'pixminimax') throw new Error('Cần --template <mẫu> hoặc --mode v3|pixminimax --action "..."');
+	if (opt.template && opt.mode && opt.mode !== 'skeleton-v3') throw new Error('--template chỉ đi kèm --mode skeleton-v3 (v3 / pixminimax dùng --action, không dùng mẫu)');
 	// Number('8x') = NaN lọt mọi phép so sánh (NaN < 4 là false) → phải kiểm số nguyên tường minh.
 	if (opt.mode === 'v3' && (!opt.action || !Number.isInteger(opt.frames) || opt.frames < 4 || opt.frames > 16 || opt.frames % 2)) throw new Error('v3 cần --action và --frames chẵn 4–16');
 	// pixminimax: gói trả phí (Tier 1+), số khung bội của 4 tới 40.
@@ -507,7 +514,7 @@ async function animate(id: string | undefined, rest: string[], tokens: string[],
 		return false;
 	});
 	const cost = animateCost(opt, size);
-	const how = opt.template ? `template ${opt.template}` : `${opt.mode} ${opt.frames} frame`;
+	const how = opt.template ? `template ${opt.template}${opt.mode ? ` · ${opt.mode}` : ''}` : `${opt.mode} ${opt.frames} frame`;
 	console.log(`token #${entry.token} · ${id} · ${opt.name} (${how}, canvas ${size.width}×${size.height})`);
 	for (const d of todo) console.log(`  #${entry.token} → ${d.padEnd(10)} ≈ ${cost} lượt`);
 	console.log(`  Tổng ≈ ${cost * todo.length} lượt${opt.dry ? ' (--dry: không gửi gì)' : ''}`);
@@ -517,18 +524,28 @@ async function animate(id: string | undefined, rest: string[], tokens: string[],
 	if (!token) throw new Error(`Thiếu token #${entry.token} trong PIXELLAB_TOKENS`);
 	const mcp = new PixelLabMcp(token);
 	let group = entry.groups?.[opt.name] ?? (opt.name === 'walk' ? entry.walkGroup : undefined);
-	// `--together` (gói trả phí, nhiều ô lệnh): gửi mọi hướng trong MỘT lệnh rồi chờ một lần; gói Free thì từng hướng một.
-	for (const batch of opt.together ? [todo] : todo.map((d) => [d])) {
-		const text = await callWhenFree(mcp, 'animate_character', {
+	/** Gửi một lô hướng; trả số hướng máy chủ NHẬN (dòng `cost: … (X/dir x K)`; không có dòng cost thì coi như nhận đủ). */
+	const submit = async (batch: string[]): Promise<number> => {
+		const body = {
 			character_id: entry.uuid,
 			directions: batch,
 			animation_name: opt.name,
-			...(group ? { animation_group_id: group } : {}),
 			...(opt.template
-				? { template_animation_id: opt.template, ...(opt.action ? { action_description: opt.action } : {}), ...(opt.freedom !== undefined ? { ai_freedom: opt.freedom } : {}) }
+				? { template_animation_id: opt.template, ...(opt.mode ? { mode: opt.mode } : {}), ...(opt.action ? { action_description: opt.action } : {}), ...(opt.freedom !== undefined ? { ai_freedom: opt.freedom } : {}) }
 				: // Bỏ frame tham chiếu (ảnh đứng) khỏi chuỗi: động tác một lần mà frame 0 đứng yên là chậm một nhịp.
 					{ mode: opt.mode, action_description: opt.action, frame_count: opt.frames, keep_first_frame: false }),
-		});
+		};
+		let text: string;
+		try {
+			text = await callWhenFree(mcp, 'animate_character', { ...body, ...(group ? { animation_group_id: group } : {}) });
+		} catch (e) {
+			// Nhóm ghi trong registry mà máy chủ không có (lần gửi trước bị từ chối HẾT hướng nên nhóm không thành) → bỏ, gửi nhóm mới.
+			if (!group || !/no animation group/i.test(String(e))) throw e;
+			console.log(`  (nhóm ${group} không có trên máy chủ — bỏ khỏi registry, gửi thành nhóm mới)`);
+			dropRegistryGroup(id, opt.name);
+			group = undefined;
+			text = await callWhenFree(mcp, 'animate_character', body);
+		}
 		const created = /group: ([0-9a-f-]{36})/.exec(text)?.[1];
 		if (created && !group) {
 			group = created;
@@ -538,9 +555,45 @@ async function animate(id: string | undefined, rest: string[], tokens: string[],
 		const charged = /cost[^\n]*/i.exec(text)?.[0];
 		console.log(`  ${id} ${opt.name}/${batch.join(',')} → ${mcp.label}${charged ? ` · ${charged}` : ''}`);
 		await waitCharacter(mcp, entry.uuid);
+		const accepted = /x\s*(\d+)\)/.exec(charged ?? '')?.[1];
+		return accepted ? Math.min(batch.length, Number(accepted)) : batch.length;
+	};
+	const toDir = (pl: string) => (Object.keys(PL_DIR) as Direction[]).find((k) => PL_DIR[k] === pl)!;
+	const present = (pl: string) => new PixelLabSource(dir).animationFiles(opt.name, toDir(pl)).length > 0;
+	if (!opt.together) {
+		for (const d of todo) await submit([d]);
+		const files = await downloadPixelLab(PIXELLAB_SOURCES, id, entry.uuid);
+		console.log(`✔ ${id}: ${opt.name} ${todo.join(', ')} · tải ${files.length} file`);
+		return;
 	}
-	const files = await downloadPixelLab(PIXELLAB_SOURCES, id, entry.uuid);
-	console.log(`✔ ${id}: ${opt.name} ${todo.join(', ')} · tải ${files.length} file`);
+	// `--together` (gói trả phí, nhiều ô lệnh) TỰ LÀNH (09/10/2026, đã dẫm ở Mốc 1): máy chủ có thể nhận THIẾU hướng khi gần hết
+	// 10 ô mà không báo lỗi, và job còn xếp hàng không hiện trong get_character nên `waitCharacter` trả sớm → tải lại tới khi đủ số
+	// hướng đã nhận, rồi gửi bù hướng còn thiếu vào CÙNG nhóm (không đẻ nhóm trùng tên), tối đa 3 vòng.
+	let missing = todo;
+	for (let round = 1; round <= 3 && missing.length; round += 1) {
+		const accepted = await submit(missing);
+		const want = missing.length - accepted;
+		const deadline = Date.now() + 30 * 60 * 1000;
+		for (;;) {
+			await downloadPixelLab(PIXELLAB_SOURCES, id, entry.uuid);
+			const left = missing.filter((d) => !present(d));
+			if (left.length <= want || Date.now() > deadline) break;
+			await sleep(45_000);
+		}
+		missing = missing.filter((d) => !present(d));
+		if (missing.length) console.log(`  vòng ${round}: còn thiếu ${missing.join(', ')}${round < 3 ? ` → gửi bù vào nhóm ${group ?? '(mới)'}` : ''}`);
+	}
+	if (missing.length) {
+		process.exitCode = 3;
+		console.log(`✘ ${id}: ${opt.name} vẫn thiếu ${missing.join(', ')} sau 3 vòng`);
+	} else console.log(`✔ ${id}: ${opt.name} ${todo.join(', ')} · đủ hướng`);
+}
+
+/** Bỏ một nhóm animation khỏi registry (`writeRegistry` gộp sâu `groups` nên không xoá được khoá bằng nó). */
+function dropRegistryGroup(id: string, name: string): void {
+	const reg = readRegistry();
+	if (reg[id]?.groups) delete reg[id]!.groups![name];
+	writeFileSync(join(PIXELLAB_SOURCES, 'registry.json'), `${JSON.stringify(reg, null, '\t')}\n`);
 }
 
 /**
@@ -959,7 +1012,8 @@ async function waitCharacter(mcp: PixelLabMcp, uuid: string): Promise<void> {
 
 /**
  * Hết ô lệnh thì máy chủ từ chối → chờ rồi gửi lại. Gói Free (1 ô) báo "job slots"; gói trả phí báo "Maximum 10 concurrent
- * background jobs" — thiếu mẫu này thì lệnh chạy hàng loạt bị bỏ ngang (đã dẫm 09/10/2026).
+ * background jobs", rồi từ tối 09/10/2026 đổi thành "rate limit exceeded (10/10 jobs)" — thiếu mẫu nào thì lệnh chạy hàng loạt
+ * bị bỏ ngang (đã dẫm cả hai lần).
  */
 async function callWhenFree(mcp: PixelLabMcp, tool: string, args: Record<string, unknown>): Promise<string> {
 	for (let attempt = 0; ; attempt += 1) {
@@ -968,7 +1022,7 @@ async function callWhenFree(mcp: PixelLabMcp, tool: string, args: Record<string,
 		} catch (e) {
 			// Lệnh đang chiếm ô có thể không hiện trong list_jobs (animation xếp hàng) → chờ theo nhịp cố định.
 			// Gói trả phí chạy hàng loạt lệnh song song nên có thể chờ ô trống lâu — tối đa ~2 giờ.
-			if (attempt >= 240 || !/job slots|concurrent background jobs/i.test(String(e))) throw e;
+			if (attempt >= 240 || !/job slots|concurrent background jobs|rate limit exceeded|\d+\/\d+ jobs/i.test(String(e))) throw e;
 			if (attempt === 0) console.log(`  (${mcp.label} đang bận lệnh khác — chờ xong rồi gửi lại)`);
 			await sleep(30_000);
 		}
@@ -1180,6 +1234,34 @@ function buildUi(): void {
 `);
 	if (cut.length) writePng(join(REPORTS, 'ui-preview.png'), scaleNearest(sheetPreview(cut, 4), 2));
 	console.log(`  ${Object.keys(manifest).length} ảnh giao diện → ${outDir}`);
+}
+
+/**
+ * Atlas icon chiêu (`props/skillIcons.ts`) → CHỈ ghi `ui/skill-icons.png` + `ui/skill-icons.json` (không đụng ảnh giao diện
+ * khác / `ui.json` như lệnh `ui`). Mặc định bộ v2: một ảnh 32×32 mỗi khoá ở `sources/pixellab/skill-icons-v2/`; `--v1` = bộ cũ
+ * 10 tấm 3×3 ở `sources/pixellab/skill-icons/` (lưu trữ). Icon lỗi thì báo, bỏ icon đó — web tự rơi về icon tạm cũ.
+ * Dựng thử: `AETHER_WEB_ASSETS=<thư mục nháp> npm run skill-icons -w @aether/asset-pipeline`.
+ */
+function buildSkillIconAtlas(args: string[]): void {
+	const outDir = join(WEB_ASSETS, 'ui');
+	const previewPath = join(REPORTS, 'skill-icons-preview.png');
+	let r: { count: number; total: number; pitch: number; size: { w: number; h: number } };
+	if (args.includes('--v1')) {
+		const v1 = buildSkillIcons({ sourceDir: join(PIXELLAB_SOURCES, 'skill-icons'), outDir, previewPath });
+		for (const i of v1.issues) console.log(`  ${i.dropped ? '✘' : '⚠'} ${i.key} (${i.sheet} ô ${i.index}): ${i.reason}${i.dropped ? ' — bỏ' : ''}`);
+		r = v1;
+	} else {
+		const v2 = buildSkillIconsV2({ sourceDir: join(PIXELLAB_SOURCES, 'skill-icons-v2'), outDir, previewPath });
+		for (const i of v2.issues) console.log(`  ${i.dropped ? '✘' : '⚠'} ${i.key} (${i.file}): ${i.reason}${i.dropped ? ' — bỏ' : ''}`);
+		r = v2;
+	}
+	if (!r.count) {
+		console.log('  ✘ không có icon nào dùng được — không ghi atlas');
+		process.exitCode = 1;
+		return;
+	}
+	console.log(`  ✔ ${r.count}/${r.total} icon · bước lưới ${r.pitch}px · atlas ${r.size.w}×${r.size.h} → ${join(outDir, 'skill-icons.{png,json}')}`);
+	console.log(`  ảnh duyệt (thứ tự bảng khoá, icon bỏ để ô trống): ${previewPath}`);
 }
 
 /** Cụm decal gần như không có sắc (xám/nâu xám) → sỏi. */
@@ -1423,6 +1505,47 @@ ${await mcp.call('get_balance').catch((e: Error) => e.message)}
 			console.log(`✔ ${img!.width}×${img!.height} → ${out}`);
 			return;
 		}
+		if (sub === 'pixflux' || sub === 'pixen') {
+			// `pixellab pixflux|pixen <token#> <ảnh ra.png> @args.json [--force]`: MỘT ảnh create_image_pixflux / create_image_pixen
+			// (1 lượt — ảnh nhỏ sạch, vd icon chiêu 32×32 `sources/pixellab/skill-icons-v2/`). Tham số theo schema công cụ, thêm
+			// `color_image_path` (pixflux: PNG bảng màu ÉP, chỉ đọc màu) và `init_image_path` (pixflux img2img) — đọc thành base64.
+			// Ghi `<ảnh ra>.json` = tham số (đường dẫn thay base64) + job id. Job đã trả lượt ghi vào `<ảnh ra>.pending.json` trước
+			// khi chờ: lệnh chết giữa chừng thì chạy lại đúng lệnh → chỉ tải tiếp, không gửi job mới. Ảnh ra đã có thì bỏ qua.
+			const [, index, out, src, ...flags] = args;
+			const token = tokens[Number(index)];
+			if (!token || !out || !src?.startsWith('@')) throw new Error(`Cách dùng: pixellab ${sub} <token#> <ảnh ra.png> @args.json [--force]`);
+			const pendingPath = `${out}.pending.json`;
+			if (existsSync(out) && !flags.includes('--force') && !existsSync(pendingPath)) {
+				console.log(`  … ${out} đã có — bỏ qua (--force để vẽ lại)`);
+				return;
+			}
+			const raw = JSON.parse(readFileSync(src.slice(1), 'utf8')) as Record<string, unknown> & { color_image_path?: string; init_image_path?: string };
+			const { color_image_path: palettePath, init_image_path: initPath, ...call } = raw;
+			if (sub === 'pixen' && (palettePath || initPath)) throw new Error('pixen không nhận bảng màu ép / ảnh khởi đầu — dùng pixflux');
+			const tool = `create_image_${sub}`;
+			const mcp = new PixelLabMcp(token);
+			let jobId = existsSync(pendingPath) ? (JSON.parse(readFileSync(pendingPath, 'utf8')) as { jobId: string }).jobId : null;
+			if (jobId) console.log(`  TẢI TIẾP job ${jobId} (${pendingPath}, không tốn lượt)`);
+			else {
+				const body = { ...call };
+				if (palettePath) body.color_image_base64 = readFileSync(palettePath).toString('base64');
+				if (initPath) body.init_image_base64 = readFileSync(initPath).toString('base64');
+				const text = await callWhenFree(mcp, tool, body);
+				jobId = extractJobId(text);
+				if (!jobId) throw new Error(`Không đọc được job id: ${text.slice(0, 300)}`);
+				mkdirSync(dirname(out), { recursive: true });
+				writeFileSync(pendingPath, `${JSON.stringify({ tool, jobId, token: Number(index) })}\n`);
+				console.log(`  ${tool} (1 lượt) → job ${jobId} (${mcp.label})`);
+			}
+			const size = typeof call.width === 'number' && typeof call.height === 'number' ? { w: call.width, h: call.height } : undefined;
+			const [img] = await waitImages(mcp, jobId, 1, size);
+			writePng(out, img!);
+			const meta = { tool, ...call, ...(palettePath ? { color_image_path: palettePath } : {}), ...(initPath ? { init_image_path: initPath } : {}), jobId, token: Number(index), createdAt: new Date().toISOString() };
+			writeFileSync(`${out}.json`, `${JSON.stringify(meta, null, '\t')}\n`);
+			rmSync(pendingPath, { force: true });
+			console.log(`✔ ${img!.width}×${img!.height} → ${out}`);
+			return;
+		}
 		if (sub === 'vfx') return pixellabVfx(args.slice(1), tokens);
 		if (sub === 'animate') return animate(id, args.slice(2), tokens);
 		if (sub === 'walk') {
@@ -1485,7 +1608,7 @@ ${await mcp.call('get_balance').catch((e: Error) => e.message)}
 			console.log(`✔ đồ vật ${name} ← PixelLab ${objectId} → ${dir}`);
 			return;
 		}
-		if (sub !== 'download' || !id || !uuid) throw new Error('Cách dùng: pixellab download <id> <uuid> | balances | call <token#> <tool> <json> | animate <id> <anim> (--template <mẫu> | --mode v3 --action "...") [--name <tên>] [--dry] [hướng…] | walk <id> [hướng…] | wait <token#> | vfx <token#> <vfxId> [--model pixen|pixflux|pro_flash] [--first "..."] [--action "..."] [--size N] [--first-size N] [--frames N] [--first-image <png>] [--redraw-first] [--first-only] [--force] [--dry]');
+		if (sub !== 'download' || !id || !uuid) throw new Error('Cách dùng: pixellab download <id> <uuid> | balances | call <token#> <tool> <json> | pixflux|pixen <token#> <ảnh ra.png> @args.json [--force] | animate <id> <anim> (--template <mẫu> | --mode v3 --action "...") [--name <tên>] [--dry] [hướng…] | walk <id> [hướng…] | wait <token#> | vfx <token#> <vfxId> [--model pixen|pixflux|pro_flash] [--first "..."] [--action "..."] [--size N] [--first-size N] [--frames N] [--first-image <png>] [--redraw-first] [--first-only] [--force] [--dry]');
 		const files = await downloadPixelLab(PIXELLAB_SOURCES, id, uuid);
 		console.log(`✔ ${id}: ${files.length} file ← PixelLab ${uuid}`);
 		return;
@@ -1494,6 +1617,7 @@ ${await mcp.call('get_balance').catch((e: Error) => e.message)}
 	if (cmd === 'map-overview') return buildMapOverview(args[0]);
 	if (cmd === 'vfx') return buildVfx();
 	if (cmd === 'ui') return buildUi();
+	if (cmd === 'skill-icons') return buildSkillIconAtlas(args);
 	if (cmd === 'anchors') return annotatePublished(args);
 	console.log('Lệnh: catalog | character [specId...] | anchors [id...] | pixler <quota|base|select|direction|animate> ...');
 }

@@ -1,8 +1,8 @@
 import { Container, Graphics } from 'pixi.js';
-import type { CharacterTextures, Direction } from '../assets/AssetManifest';
+import type { CharacterTextures, Direction, HeldArt } from '../assets/AssetManifest';
 import { directionOf } from '../input/Keyboard';
 import type { Wield } from '../gearArt';
-import type { GearPiece } from '../gearLayers';
+import { heldArt, type GearPiece } from '../gearLayers';
 import { CharacterView, WALK_SPEED_REFERENCE } from './CharacterView';
 import { GearLayers } from './GearLayers';
 
@@ -32,6 +32,9 @@ export class Actor {
 	/** Lớp đồ gắn — chỉ dựng khi có món đầu tiên (quái/NPC không bao giờ có). */
 	private gearLayers: GearLayers | null = null;
 	private initialStance: Wield = 'melee';
+	/** Đầu vào của lần chọn vũ khí vẽ liền thân gần nhất (`syncHeld`). */
+	private heldFor: readonly GearPiece[] | null = null;
+	private heldStance: Wield | null = null;
 
 	constructor(
 		readonly id: string,
@@ -68,11 +71,14 @@ export class Actor {
 	update(dt: number, mover?: Mover): void {
 		if (this.wander && this.wanderEnabled) this.think(dt, mover);
 		this.view.update(dt);
-		this.gearLayers?.sync();
+		this.syncGear();
 		this.sync(dt);
 	}
 
-	/** Đồ gắn đang mặc (vẽ lớp trước/sau thân theo hướng). Danh sách rỗng = gỡ hết lớp. */
+	/**
+	 * Đồ gắn đang mặc (vẽ lớp trước/sau thân theo hướng) — kiếm / trượng vẽ liền thân thì đổi luôn bản đứng / đi cầm món đó.
+	 * Danh sách rỗng = gỡ hết lớp, đứng / đi tay không.
+	 */
 	setGear(pieces: readonly GearPiece[]): void {
 		if (!this.gearLayers) {
 			if (!pieces.length) return;
@@ -82,6 +88,7 @@ export class Actor {
 			this.root.addChild(this.gearLayers.front);
 		}
 		this.gearLayers.set(pieces);
+		this.syncHeld();
 	}
 
 	get gear(): readonly GearPiece[] {
@@ -100,11 +107,32 @@ export class Actor {
 			this.gearLayers.stance = stance;
 			this.gearLayers.sync();
 		}
+		this.syncHeld();
 	}
 
-	/** Đặt lại lớp đồ theo khung đang hiện — gọi sau khi CombatSystem tua động tác (`seekAction`) trong cùng khung hình. */
+	/**
+	 * Đặt lại lớp đồ theo khung đang hiện (thế cầm đổi theo động tác chém / niệm vừa hiện) rồi chọn vũ khí vẽ liền thân đang cầm —
+	 * gọi mỗi khung, và sau khi CombatSystem tua động tác (`seekAction`) trong cùng khung hình.
+	 */
 	syncGear(): void {
 		this.gearLayers?.sync();
+		this.syncHeld();
+	}
+
+	/** Vũ khí vẽ liền thân đang cầm (null = tay không) — kho đồ vẽ hình nhân vật cùng bản. */
+	get held(): HeldArt | null {
+		return this.view.heldArt;
+	}
+
+	/** Chạy mỗi khung: chỉ tính lại khi danh sách đồ (mảng mới mỗi lần đổi) hoặc thế cầm đổi. */
+	private syncHeld(): void {
+		const g = this.gearLayers;
+		const pieces = g?.current ?? null;
+		const stance = g?.stance ?? null;
+		if (pieces === this.heldFor && stance === this.heldStance) return;
+		this.heldFor = pieces;
+		this.heldStance = stance;
+		this.view.setHeld(g ? heldArt(g.current, g.stance) : null);
 	}
 
 	/** Lao `px` pixel theo hướng (dx, dy) rồi tự về chỗ trong ~0.12s — chỉ còn dùng cho quái (người chơi có động tác thật). */

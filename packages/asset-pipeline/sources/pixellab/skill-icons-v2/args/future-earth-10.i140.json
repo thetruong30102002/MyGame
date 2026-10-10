@@ -1,0 +1,13 @@
+{
+	"description": "a huge stone golem fist bursting up from cracked ground, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/earth.png",
+	"init_image_path": "sources/pixellab/skill-icons-v2/init/future-earth-10.init.png",
+	"init_image_strength": 140
+}

@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a steel sword sweeping a flat violet arc sideways, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/sword+violet.png",
+	"jobId": "44ed7858-ccbc-40c1-baf4-2af421556ccc",
+	"token": 1,
+	"createdAt": "2026-10-09T19:14:47.340Z"
+}

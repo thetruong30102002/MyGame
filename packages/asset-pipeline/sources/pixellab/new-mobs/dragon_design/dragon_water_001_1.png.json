@@ -1,0 +1,20 @@
+{
+	"description": "Chibi RPG world boss pixel art sprite facing the viewer, Thuy Long the ancient majestic water-element Chinese loong: authentic traditional Chinese eastern long dragon, absolutely NO wings, extremely long serpentine snake-like scaled body coiling in an S-curve, deer-like branching antlers, long flowing whiskers from the snout, flowing mane and a spiky fin crest running along its spine, four short legs each with sharp eagle-like claws, flame-like tufts of fur at the elbows, tail ending in a flowing tuft, deep navy-indigo back fading to a bright turquoise belly, translucent aqua fin crest rippling like water lying low along the spine, nothing rising from the shoulders, pale aqua foamy mane and beard, coral-red antlers, clutching a glowing deep sapphire-blue water pearl with a white swirl inside in one front claw, glowing turquoise eyes, coiling around a spiraling ring of sea water with bubbles and sea spray",
+	"width": 192,
+	"height": 192,
+	"no_background": true,
+	"seed": 19,
+	"style_options": {
+		"color_palette": false,
+		"outline": true,
+		"detail": true,
+		"shading": true
+	},
+	"style_image": {
+		"path": "D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/new-mobs/dragon_design/phong_a.png",
+		"usage_description": "Same art style AND the same authentic Chinese eastern long dragon body template as this approved reference: no wings, very long serpentine S-curved body, deer antlers, long whiskers, spinal mane, four clawed legs, holding a pearl. Change ONLY the colors, element and details described in the prompt."
+	},
+	"jobId": "04958644-ec91-46e9-b765-3651ca3778bc",
+	"token": 1,
+	"createdAt": "2026-10-09T15:01:59.681Z"
+}

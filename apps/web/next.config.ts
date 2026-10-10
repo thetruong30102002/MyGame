@@ -21,6 +21,10 @@ if (/^[A-Za-z]:[\\/]/.test(serverUrl)) {
 // `.next` và làm `next start` đang phục vụ Funnel tự thoát giữa chừng (đã dẫm 07/10/2026 — trang 8443 sập khi build thử).
 const distDir = process.env.AETHER_DIST_DIR || '.next';
 
+// Chỉ web THỬ (`scripts/dev-test.mjs`) đặt biến này: `/assets/...` lấy từ máy chủ tài nguyên thử (`scripts/stage-assets.mjs` —
+// thư mục nháp trước, thiếu thì public), xem atlas / map dựng thử mà không ghi vào `public` Funnel đang phục vụ người chơi thật.
+const stageUrl = process.env.AETHER_STAGE_URL;
+
 const config: NextConfig = {
 	reactStrictMode: true,
 	distDir,
@@ -29,6 +33,7 @@ const config: NextConfig = {
 	allowedDevOrigins: [...lanHosts, '*.local', '*.ts.net'],
 	// Nút tròn chữ N góc dưới trái đè lên khay kỹ năng/chat khi chơi thử trên dev.
 	devIndicators: false,
+	...(stageUrl ? { rewrites: async () => ({ beforeFiles: [{ source: '/assets/:path*', destination: `${stageUrl}/assets/:path*` }], afterFiles: [], fallback: [] }) } : {}),
 };
 
 export default config;

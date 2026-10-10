@@ -39,6 +39,11 @@ export interface QuestDef {
 	objective: Objective;
 	/** Dòng mục tiêu hiện trên HUD; `{n}`/`{total}` được thay bằng tiến độ. */
 	objectiveText: string;
+	/**
+	 * Bài luyện phép nguyên tố: dòng mục tiêu lúc người chơi CHƯA học đủ chiêu và bài đang nhận Tia Aether thay
+	 * (`StoryDirector.aetherStandsIn` — chủ dự án 10/10/2026: phép nguyên tố học bằng điểm). Học đủ rồi thì về `objectiveText`.
+	 */
+	objectiveTextAether?: string;
 	/** NPC để báo cáo khi xong; 'auto' = xong là tự trao thưởng. */
 	turnIn: string | 'auto';
 	reward: { exp: number; coins?: number; potions?: number; unlockSkill?: string };

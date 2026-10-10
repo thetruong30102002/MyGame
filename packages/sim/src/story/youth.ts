@@ -87,8 +87,8 @@ export const YOUTH_QUESTS: QuestDef[] = [
 		objective: { type: 'talk', npc: 'gy_stele' },
 		objectiveText: 'Tới xem bia đá cổ ở Nghĩa địa Hoàng Hôn (qua cổng bắc)',
 		turnIn: 'gy_stele',
-		// Không EXP: phần thưởng là cả nhánh Thổ. Giữ nhịp cấp đã cân (boss.test: trước Quỷ vương cấp 3, sát cấp 4 — thêm
-		// dù chỉ 3 EXP là sang cấp 4).
+		// Không EXP: phần thưởng là cả nhánh Thổ. Giữ nhịp cấp đã cân (boss.test: đường tối thiểu tới Quỷ vương vừa qua mốc
+		// cấp 4 — từ 09/10/2026 khi EXP nấm ×1,2 bù Quỷ vương máu ×2,2; trước đó là cấp 3, thiếu 3 EXP).
 		reward: { exp: 0, unlockSkill: 'earth' },
 		before: [
 			{ speaker: 'mirelle', text: 'Còn một chuyện nữa, Lior. Chuyện này ta không nhờ được ai khác.' },
@@ -105,24 +105,27 @@ export const YOUTH_QUESTS: QuestDef[] = [
 			{ speaker: 'inner', text: 'Kiếp trước, giỗ ông nội năm nào tôi cũng hẹn “năm sau con về”. Tới cuối cùng, tôi vẫn không biết mộ ông nằm ở hàng thứ mấy.' },
 			{ speaker: 'narrator', text: '(Tôi đặt tay lên mặt đá. Sợi đất không xoắn theo ngón tay như sợi lửa, cũng không chảy theo tay như sợi nước. Nó không chiều ai cả. Nó chỉ chờ xem người chạm vào có chịu đứng yên không.)' },
 			{ speaker: 'inner', text: 'Tôi đứng yên. Lâu tới mức quên cả đếm. Rồi dưới lòng bàn tay, một sợi nâu khẽ siết lại — như có ai vừa nắm lấy tay tôi.' },
-			{ speaker: 'narrator', text: '(Một hòn đá nhỏ dưới chân bia tự lăn tới mũi giày tôi. Mở nhánh Thổ — Đá Văng: ném đá, đẩy lùi. Cộng điểm Thổ ở bảng Tiềm năng (P).)' },
+			{ speaker: 'narrator', text: '(Một hòn đá nhỏ dưới chân bia tự lăn tới mũi giày tôi. Mở nhánh Thổ — học Đá Văng (ném đá, đẩy lùi) ở bảng Tiềm năng (P) khi có điểm.)' },
 		],
 	},
 	{
 		// Thử ngay kỹ năng vừa có ở chỗ an toàn (khuôn "nhận quà rồi luyện" của tuổi thơ) — không bắt đánh bầy xác sống
-		// cấp 3–5 khi người chơi mới cấp 2–3. Mẹ nhận báo cáo, nhắc sang Aldric (câu cũ của Mirelle).
+		// cấp 3–5 khi người chơi mới cấp 2–3. Mẹ nhận báo cáo, nhắc sang Aldric (câu cũ của Mirelle). Đá Văng học bằng điểm
+		// (luật 10/10/2026): chưa học thì Tia Aether thay (`StoryDirector.practiced`) — không kẹt khi chưa có / đã tiêu hết điểm.
 		id: 'y1c_stone_dummy',
 		age: 16,
 		title: 'Đá cho Ông Rơm',
 		giver: null,
 		objective: { type: 'practice', element: 'earth', count: 3, dummy: 'dummy_backyard' },
 		objectiveText: 'Về sân sau thử Đá Văng vào Ông Rơm ({n}/{total})',
+		objectiveTextAether: 'Về sân sau thử Tia Aether vào Ông Rơm ({n}/{total})',
 		turnIn: 'elin',
 		// Như trên: không EXP (giữ nhịp cấp) — mẹ dúi thêm một hũ mật.
 		reward: { exp: 0, potions: 1 },
 		before: [
 			{ speaker: 'inner', text: 'Học được phép mới mà tung bừa giữa nghĩa địa thì không phải ý hay. Phải thử ở chỗ an toàn trước đã.' },
 			{ speaker: 'inner', text: 'Ông Rơm ở sân sau nhà tôi đã sống sót qua lửa, nước, gió và băng. Thêm vài hòn đá chắc cũng không sao.' },
+			{ speaker: 'narrator', text: '(Đá Văng học ở bảng Tiềm năng (P) khi có điểm. Chưa học thì tung Tia Aether (K) vào Ông Rơm cũng được.)' },
 		],
 		onReady: [
 			{ speaker: 'inner', text: 'Phát đầu lăn lông lốc dưới đất. Phát thứ hai bay lệch, trúng ngay chậu húng quế của mẹ. Phát thứ ba trúng bụng, Ông Rơm ngả hẳn về sau rồi mới bật dậy.' },

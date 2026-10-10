@@ -216,8 +216,10 @@ export class Store {
 	 * thật, ghi qua `saveEco`). Bản ghi cũ thiếu trường nào thì lấy số client gửi (chỉ lần đầu).
 	 */
 	saveProgress(id: string, progress: CharacterProgress): void {
+		const row = this.db.prepare(`SELECT json_extract(progress, '$.story') AS story FROM characters WHERE id = ?`).get(id) as { story: string | null } | undefined;
+		const next = keepNewerTalents(row?.story ? (JSON.parse(row.story) as unknown) : null, progress);
 		const keep = ['level', 'exp', 'coins', 'potions'].map((k) => `'$.${k}', coalesce(json_extract(progress, '$.${k}'), json_extract(?1, '$.${k}'))`).join(', ');
-		this.db.prepare(`UPDATE characters SET progress = json_set(?1, ${keep}), updated_at = ?2 WHERE id = ?3`).run(JSON.stringify(progress), Date.now(), id);
+		this.db.prepare(`UPDATE characters SET progress = json_set(?1, ${keep}), updated_at = ?2 WHERE id = ?3`).run(JSON.stringify(next), Date.now(), id);
 	}
 
 	/** Cấp / EXP / xu / bình đang lưu (null = không có nhân vật). */
@@ -535,6 +537,29 @@ interface CharacterRow {
 
 function toInfo(r: CharacterRow): CharacterInfo {
 	return { id: r.id, name: r.name, gender: r.gender, createdAt: r.created_at, progress: JSON.parse(r.progress) as CharacterProgress };
+}
+
+/** Các trường tiềm năng trong bản lưu truyện (`SaveData` của web) — đi cùng nhau, đổi định dạng là đổi cả nhóm. */
+const TALENT_FIELDS = ['talents', 'talentsV', 'loadout', 'enchant', 'swordStyle'] as const;
+
+/**
+ * Phần tiềm năng KHÔNG bị bản lưu mang định dạng `talentsV` CŨ hơn ghi đè: tab mở từ trước lần triển khai đọc định dạng mới
+ * thành "hệ cũ", hoàn điểm rồi lưu lại — mất mốc đã mua (10/10/2026, định dạng 3). Khi đó giữ nguyên nhóm trường tiềm năng đang
+ * lưu, phần còn lại của truyện (nhiệm vụ, đồ…) vẫn nhận. Xoá tiến độ (`story` null) không bị chặn.
+ */
+export function keepNewerTalents(storedStory: unknown, next: CharacterProgress): CharacterProgress {
+	const s = storedStory && typeof storedStory === 'object' ? (storedStory as Record<string, unknown>) : null;
+	const n = next.story && typeof next.story === 'object' ? (next.story as Record<string, unknown>) : null;
+	if (!s || !n) return next;
+	const sv = Number(s.talentsV);
+	const nv = Number(n.talentsV);
+	if (!Number.isFinite(sv) || sv <= (Number.isFinite(nv) ? nv : 0)) return next;
+	const story: Record<string, unknown> = { ...n };
+	for (const k of TALENT_FIELDS) {
+		if (k in s) story[k] = s[k];
+		else delete story[k];
+	}
+	return { ...next, story };
 }
 
 /** Khoá so trùng tên: chữ thường + chuẩn hoá Unicode (để "Lior" và "lior", "Ánh" dựng sẵn/tổ hợp coi là một). */

@@ -178,3 +178,15 @@ export function StatBar({ value, max, fill }: { value: number; max: number; fill
 export function SectionTitle({ children }: { children: ReactNode }) {
 	return <h3 className="border-b-2 border-paper-line pb-1 font-display text-head font-extrabold text-ink-brown">{children}</h3>;
 }
+
+/**
+ * Tiêu đề một nhóm chỉ số (Sinh lực · Chiến đấu · Phụ) ở thẻ Nhân vật và bảng chỉ số kho đồ: chữ nhỏ in hoa cùng kiểu
+ * nhãn mục của thẻ Tiềm năng, kẻ một đường mảnh tới mép phải. `className` thêm chỗ đặt trong lưới.
+ */
+export function StatGroupTitle({ children, className = '' }: { children: ReactNode; className?: string }) {
+	return (
+		<h4 className={`flex items-center gap-2 text-[12px] leading-4 font-extrabold tracking-[0.04em] whitespace-nowrap text-ink-soft uppercase after:h-0.5 after:flex-1 after:rounded-full after:bg-paper-line ${className}`}>
+			{children}
+		</h4>
+	);
+}

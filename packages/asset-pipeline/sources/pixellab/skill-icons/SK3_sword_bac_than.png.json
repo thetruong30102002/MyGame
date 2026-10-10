@@ -1,0 +1,20 @@
+{
+	"description": "A sprite sheet of NINE separate game UI skill icons arranged in a 3 by 3 grid, in this order left to right then top to bottom, each centered in its own cell: a sword edge sweeping sideways in a flat violet-silver arc; a sword emerging point-first from a dark purple shadow portal; a sword with three crossing white slash lines in front of it; a flying sword pointing right with a looping return arrow behind it; a small winged boot with a single silver swirl; a violet dodge swoosh curving into a forward-pointing sword tip; a violet mist puff with an enemy arrow passing straight through it; three dark purple shadow swords fanned out with points upward; a bright violet compass star with long sharp silver points. Color theme: bright steel with dark violet shadow and pale silver accents, no green wind. Chunky pixel art icons in the same style as the reference, thick dark outline, soft cel shading, bold readable silhouettes, every icon fully separate on a plain flat solid bright magenta (#FF00FF) chroma-key background with wide empty space around it, no text, no letters, no numbers, no frames, no borders",
+	"width": 192,
+	"height": 192,
+	"no_background": false,
+	"seed": 7,
+	"style_options": {
+		"color_palette": false,
+		"outline": true,
+		"shading": true,
+		"detail": true
+	},
+	"style_image": {
+		"path": "sources/pixellab/sheets/I1_icons.png",
+		"usage_description": "Copy ONLY the art style of this reference: chunky pixel art UI icons, thick dark outline, soft cel shading, one icon centered per grid cell on magenta. Do not copy these objects or their colors."
+	},
+	"jobId": "1b3f488d-ff7f-4178-8f4b-34a055dd8a2a",
+	"token": 1,
+	"createdAt": "2026-10-09T18:07:35.099Z"
+}

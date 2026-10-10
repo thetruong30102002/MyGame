@@ -1,15 +1,16 @@
 'use client';
 
-import type { ReactNode } from 'react';
 import { MAX_LEVEL } from '@aether/protocol';
-import { ITEM_INFO, STAT_ICON } from '@/game/items';
+import { ITEM_INFO } from '@/game/items';
 import { useGameStore } from '@/store/useGameStore';
-import { fmtNum, PixelPortrait, StatBar } from './CharacterPanelParts';
+import { fmtNum, PixelPortrait, StatBar, StatGroupTitle } from './CharacterPanelParts';
 import { gearPart } from './inventory/invShared';
 import { KEY_HINT } from './keyHints';
-import { SkillIcon } from './SkillIcon';
 
-/** Icon PixelLab hiện đúng 1× ở cỡ gốc (public/assets/ui/ui.json) — không phóng/thu lẻ. */
+/**
+ * Icon PixelLab hiện đúng 1× ở cỡ gốc (public/assets/ui/ui.json) — không phóng/thu lẻ. Thẻ này chỉ còn icon xu: chủ dự án
+ * 10/10/2026 bỏ mọi icon chỉ số (máu, phép lực, tấn công, chí mạng…) khỏi cửa sổ nhân vật, chỉ giữ xu / kim cương.
+ */
 function Icon1x({ src, w, h }: { src: string; w: number; h: number }) {
 	return <img src={src} width={w} height={h} alt="" draggable={false} className="pixel-img max-w-none" />;
 }
@@ -25,35 +26,34 @@ function GearNote({ n, pct = false }: { n: number; pct?: boolean }) {
 	);
 }
 
-/** Một hàng sinh lực (Máu / Phép lực / Thể lực): cột icon 49px, nhãn + số, thanh bên dưới. Ngăn hàng bằng đường kẻ. */
-function VitalRow({ icon, label, value, bar, gear = 0 }: { icon: ReactNode; label: string; value: string; bar: { value: number; max: number; fill: string }; gear?: number }) {
+/** Một hàng sinh lực (Máu / Phép lực / Thể lực): nhãn nhỏ + phần trang bị góp bên trái, số to bên phải, thanh màu bên dưới. */
+function VitalRow({ label, value, bar, gear = 0 }: { label: string; value: string; bar: { value: number; max: number; fill: string }; gear?: number }) {
 	return (
-		<div className="flex min-h-[52px] items-center gap-2.5 border-b border-paper-line py-1.5 last:border-b-0">
-			<span className="flex w-[49px] shrink-0 justify-center">{icon}</span>
-			<div className="min-w-0 flex-1">
-				<div className="flex flex-wrap items-baseline gap-x-2">
-					<span className="font-display text-label font-extrabold">{label}</span>
-					<GearNote n={gear} />
-					<span className="ml-auto text-[18px] font-extrabold tabular-nums">{value}</span>
-				</div>
-				<StatBar {...bar} />
+		<div className="py-1">
+			<div className="flex flex-wrap items-baseline gap-x-2">
+				<span className="text-body font-bold text-ink-soft">{label}</span>
+				<GearNote n={gear} />
+				<span className="ml-auto text-[18px] leading-6 font-extrabold text-ink-brown tabular-nums">{value}</span>
 			</div>
+			<StatBar {...bar} />
 		</div>
 	);
 }
 
-/** Một ô chỉ số chiến đấu trong khay: icon 1× + nhãn + ghi chú ngắn, số to bên phải. `gear`: phần trang bị góp (0 = ẩn). */
-function CombatCell({ icon, label, note, value, gear = 0, pct = false }: { icon: ReactNode; label: string; note: string; value: string; gear?: number; pct?: boolean }) {
+/**
+ * Một dòng chỉ số: nhãn nhỏ nhạt + ghi chú ngắn (và phần trang bị góp) bên trái, số to đậm bên phải — các dòng một nhóm
+ * xếp dọc nên cột số thẳng hàng. `gear`: phần trang bị góp (0 = ẩn).
+ */
+function StatLine({ label, note, value, gear = 0, pct = false }: { label: string; note: string; value: string; gear?: number; pct?: boolean }) {
 	return (
-		<div className="flex min-h-[60px] items-center gap-2.5">
-			<span className="flex w-[57px] shrink-0 justify-center">{icon}</span>
-			<div className="min-w-0">
-				<p className="font-display text-label font-extrabold">{label}</p>
+		<div className="flex min-h-[48px] items-center gap-3 py-1">
+			<div className="min-w-0 flex-1">
+				<p className="text-body font-bold text-ink-soft">{label}</p>
 				<p className="text-note text-ink-soft">
 					{note} <GearNote n={gear} pct={pct} />
 				</p>
 			</div>
-			<span className="ml-auto text-[22px] font-extrabold tabular-nums">{value}</span>
+			<span className="shrink-0 text-[22px] leading-7 font-extrabold text-ink-brown tabular-nums">{value}</span>
 		</div>
 	);
 }
@@ -94,19 +94,30 @@ export function CharacterStatsTab({ compact, touch }: { compact: boolean; touch:
 					</div>
 				</div>
 			</section>
-			<section className="flex min-w-0 flex-1 flex-col">
-				<div>
-					<VitalRow icon={<Icon1x src={STAT_ICON.hp} w={43} h={38} />} label="Máu" value={`${s.hp} / ${s.hpMax}`} bar={{ value: s.hp, max: s.hpMax, fill: 'var(--color-hp)' }} gear={gearPart(s, 'hp')} />
-					<VitalRow icon={<Icon1x src={STAT_ICON.mp} w={31} h={46} />} label="Phép lực" value={`${s.mp} / ${s.mpMax}`} bar={{ value: s.mp, max: s.mpMax, fill: 'var(--color-mana)' }} gear={gearPart(s, 'mp')} />
-					{/* Thể lực chưa có tranh riêng: để trống cột icon, không mượn icon kỹ năng (dễ đọc nhầm). */}
-					<VitalRow icon={null} label="Thể lực" value={`${Math.round(s.stamina)} / ${s.staminaMax}`} bar={{ value: s.stamina, max: s.staminaMax, fill: 'var(--color-stamina)' }} />
+			{/* `@container`: cột chỉ số đủ rộng (≥ 26rem — cả điện thoại xoay ngang) thì Chiến đấu · Phụ đứng cạnh nhau, hẹp hơn thì xếp dọc. */}
+			<section className="@container flex min-w-0 flex-1 flex-col">
+				<StatGroupTitle>Sinh lực</StatGroupTitle>
+				<div className="mt-0.5">
+					<VitalRow label="Máu" value={`${s.hp} / ${s.hpMax}`} bar={{ value: s.hp, max: s.hpMax, fill: 'var(--color-hp)' }} gear={gearPart(s, 'hp')} />
+					<VitalRow label="Phép lực" value={`${s.mp} / ${s.mpMax}`} bar={{ value: s.mp, max: s.mpMax, fill: 'var(--color-mana)' }} gear={gearPart(s, 'mp')} />
+					<VitalRow label="Thể lực" value={`${Math.round(s.stamina)} / ${s.staminaMax}`} bar={{ value: s.stamina, max: s.staminaMax, fill: 'var(--color-stamina)' }} />
 				</div>
-				<div className="ui-tray mt-2.5 grid gap-x-4 gap-y-1 px-3 py-2.5 min-[480px]:grid-cols-2">
-					<CombatCell icon={<Icon1x src={STAT_ICON.attack} w={48} h={44} />} label="Tấn công" note={s.rage ? 'Bất Khuất: công +20%' : 'sức chém'} value={fmtNum(s.attack)} gear={gearPart(s, 'atk')} />
-					<CombatCell icon={<Icon1x src={STAT_ICON.magic} w={35} h={39} />} label="Phép thuật" note={s.rage ? 'Bất Khuất: công +20%' : 'sức phép'} value={fmtNum(s.magic)} gear={gearPart(s, 'mag')} />
-					<CombatCell icon={<Icon1x src={STAT_ICON.defense} w={48} h={49} />} label="Phòng thủ" note="đỡ đòn" value={fmtNum(s.defense)} gear={gearPart(s, 'def')} />
-					<CombatCell icon={<SkillIcon skillId="crit" box={57} />} label="Chí mạng" note={`gây ×${fmtNum(s.critMult)}`} value={`${Math.round(s.critChance * 100)}%`} gear={gearPart(s, 'crit')} pct />
-					{s.evade > 0 && <CombatCell icon={<SkillIcon skillId="evade" box={57} />} label="Né hoàn toàn" note="Bóng Mờ" value={`${Math.round(s.evade * 100)}%`} />}
+				<div className="ui-tray mt-3 grid gap-x-6 gap-y-2.5 px-3 pt-2 pb-1.5 @min-[26rem]:grid-cols-2">
+					<div className="min-w-0">
+						<StatGroupTitle>Chiến đấu</StatGroupTitle>
+						<div className="divide-y divide-paper-line">
+							<StatLine label="Tấn công" note={s.rage ? 'Bất Khuất: công +20%' : 'sức chém'} value={fmtNum(s.attack)} gear={gearPart(s, 'atk')} />
+							<StatLine label="Phép thuật" note={s.rage ? 'Bất Khuất: công +20%' : 'sức phép'} value={fmtNum(s.magic)} gear={gearPart(s, 'mag')} />
+							<StatLine label="Phòng thủ" note="đỡ đòn" value={fmtNum(s.defense)} gear={gearPart(s, 'def')} />
+						</div>
+					</div>
+					<div className="min-w-0">
+						<StatGroupTitle>Phụ</StatGroupTitle>
+						<div className="divide-y divide-paper-line">
+							<StatLine label="Chí mạng" note={`gây ×${fmtNum(s.critMult)}`} value={`${Math.round(s.critChance * 100)}%`} gear={gearPart(s, 'crit')} pct />
+							{s.evade > 0 && <StatLine label="Né hoàn toàn" note="Bóng Mờ" value={`${Math.round(s.evade * 100)}%`} />}
+						</div>
+					</div>
 				</div>
 				<div className="ui-paper mt-2.5 flex flex-wrap items-center gap-3 p-3">
 					<div className="min-w-0 flex-1">

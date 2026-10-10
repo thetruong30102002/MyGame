@@ -89,7 +89,7 @@ export interface TalentNodeView {
 	ready: boolean;
 	/** Đã đạt mốc này. */
 	reached: boolean;
-	/** Giá lên mốc này từ mốc trước (mốc 1 = 0, miễn phí khi mở nhánh). */
+	/** Giá lên mốc này từ mốc trước (nguyên tố mốc 1 = 1 điểm; Kiếm mốc 1 = 0 — có sẵn khi nhận kiếm). */
 	cost: number;
 }
 
@@ -98,10 +98,11 @@ export interface TalentBranchView {
 	branch: BranchId;
 	/** 'Kiếm', 'Hoả', 'Thuỷ'… */
 	name: string;
-	/** Đã mở (cốt truyện trao, không bị khoá cứng). */
+	/** Đã mở (cốt truyện trao, không bị khoá cứng) = được phép học. Nhánh nguyên tố mở mà chưa học: `unlocked` + `tier` 0. */
 	unlocked: boolean;
 	/** Lý do khi chưa mở ("Mở theo cốt truyện", "Mở ở cốt truyện tuổi 16 — sắp có"). */
 	lockNote: string;
+	/** Mốc hiện tại (0 = chưa mở, hoặc nguyên tố đã mở mà chưa học mốc 1 — xem `unlocked`). */
 	tier: number;
 	maxTier: number;
 	/** Mốc cao nhất đã hiện thực — không cộng vượt quá. */
@@ -216,7 +217,7 @@ export interface EquipSlotView {
 	item: InventoryItem | null;
 }
 
-/** Hình nhân vật giữa kho đồ: atlas sprite đang dùng + các khung `idle_S` (toạ độ trong atlas). */
+/** Hình nhân vật giữa kho đồ: atlas sprite đang dùng + các khung đứng nhìn trước (`idle_S`, hoặc bản cầm vũ khí `idlesword_S`…). */
 export interface PlayerSpriteView {
 	sheet: string;
 	frames: { x: number; y: number; w: number; h: number }[];
@@ -385,7 +386,8 @@ interface GameState {
 	pushBeat: (beat: StoryBeat) => void;
 	/** Gọi khi một nhịp (thoại/thẻ) kết thúc → hiện nhịp kế tiếp. */
 	nextBeat: () => void;
-	toast: (text: string, tone?: ToastTone) => void;
+	/** `ms`: thời gian hiện (mặc định 3,2 giây) — câu dài cần đọc kỹ (báo chuyển bản lưu, chỗ học phép) để lâu hơn. */
+	toast: (text: string, tone?: ToastTone, ms?: number) => void;
 	setScene: (scene: GameState['scene']) => void;
 }
 
@@ -474,11 +476,11 @@ export const useGameStore = create<GameState>((set, get) => ({
 		});
 		if (beat.kind === 'card') beat.onShow?.();
 	},
-	toast: (text, tone = 'info') => {
+	toast: (text, tone = 'info', ms = 3200) => {
 		toastId += 1;
 		const id = toastId;
 		set({ toasts: [...get().toasts.slice(-4), { id, text, tone }] });
-		setTimeout(() => set({ toasts: get().toasts.filter((t) => t.id !== id) }), 3200);
+		setTimeout(() => set({ toasts: get().toasts.filter((t) => t.id !== id) }), ms);
 	},
 	setScene: (scene) => set({ scene }),
 }));

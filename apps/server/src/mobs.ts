@@ -14,18 +14,22 @@ import {
 	zoneSpawnPoints,
 	type MonsterZoneDef,
 } from '@aether/sim/mobs';
-import { ENEMY_STATS } from '@aether/sim/skills';
+import { enemyStatsAt, type EnemyStats } from '@aether/sim/skills';
 
 /** Phần thế giới mà sổ quái cần: vị trí người chơi + gửi tin. */
 export interface MobHost {
 	position(player: string): { x: number; y: number } | null;
 	send(player: string, msg: ServerMessage): void;
-	/** Một người được tính công hạ quái loại `type` (đếm cho thành tựu). */
-	credited(player: string, type: string): void;
+	/**
+	 * Một người được tính công hạ quái loại `type` (đếm cho thành tựu). `stats`: chỉ số ĐÃ nhân theo cấp của khu (`enemyStatsAt`) —
+	 * kinh tế trao EXP / xu theo đúng con quái này, không tra lại bảng gốc.
+	 */
+	credited(player: string, type: string, stats: EnemyStats): void;
 }
 
 interface Mob extends MobView {
-	stats: (typeof ENEMY_STATS)[string];
+	/** Chỉ số theo cấp của khu (`enemyStatsAt(type, zone.level)`) — máu, tốc chặn dịch chuyển, EXP / xu khi gục. */
+	stats: EnemyStats;
 	regionBoss: boolean;
 	/** Ai đã gây sát thương + lúc nào (ms) — tính công khi quái gục. */
 	hitters: Map<string, number>;
@@ -142,7 +146,7 @@ export class MobRegistry {
 		mob.respawnAt = delay === null ? Infinity : t + delay * 1000;
 		const credit = [...mob.hitters].filter(([, at]) => t - at <= MOB_CREDIT_SECONDS * 1000).map(([p]) => p);
 		mob.hitters.clear();
-		for (const p of credit) this.host.credited(p, mob.type);
+		for (const p of credit) this.host.credited(p, mob.type, mob.stats);
 		this.broadcast(m, { t: 'mobDie', id: mob.id, by: player, credit });
 	}
 
@@ -216,7 +220,7 @@ export class MobRegistry {
 		for (const z of this.zonesOf(map)) {
 			if (!isSharedZone(z)) continue;
 			for (const s of zoneSpawnPoints(z)) {
-				const stats = ENEMY_STATS[s.type];
+				const stats = enemyStatsAt(s.type, z.level);
 				if (!stats) continue;
 				const id = mobId(map, z.id, s.index);
 				const boss = !!z.boss || s.type.startsWith('boss_');
@@ -232,6 +236,7 @@ export class MobRegistry {
 					owner: null,
 					home: { x: z.x, y: z.y, r: z.radius },
 					boss,
+					...(z.level !== undefined ? { level: z.level } : {}),
 					stats,
 					regionBoss: !!z.boss,
 					hitters: new Map(),
@@ -275,5 +280,7 @@ export class MobRegistry {
 }
 
 function view(m: Mob): MobView {
-	return { id: m.id, type: m.type, zone: m.zone, x: m.x, y: m.y, hp: m.hp, hpMax: m.hpMax, dead: m.dead, owner: m.owner, home: m.home, boss: m.boss };
+	const out: MobView = { id: m.id, type: m.type, zone: m.zone, x: m.x, y: m.y, hp: m.hp, hpMax: m.hpMax, dead: m.dead, owner: m.owner, home: m.home, boss: m.boss };
+	if (m.level !== undefined) out.level = m.level;
+	return out;
 }

@@ -2,7 +2,8 @@ import type { PropMeta } from '../../props/buildProps.js';
 import { decalsOf, GROUND_PLANTS, Layout, TILE, TREES, px, type MapData } from './common.js';
 
 /**
- * Thị trấn Thistlewood + sông Brightwater: vùng AN TOÀN, không có quái. Bờ đông sông là lối sang rừng Mossvale.
+ * Thị trấn Thistlewood + sông Brightwater: vùng AN TOÀN, không có quái. Bờ đông sông là lối sang rừng Mossvale, cổng bắc lên
+ * Nghĩa địa, cổng nam xuống Bãi Bồi Brightwater (sông ra mép dưới ở cột 45–47, Bãi Bồi nhận sông đúng cột đó).
  * Toạ độ nhà/quảng trường/sông giữ như map gộp cũ (các địa điểm cốt truyện, vị trí đã lưu của người chơi không lệch).
  */
 export const TOWN_W = 50;
@@ -18,8 +19,9 @@ export function buildTown(meta: Record<string, PropMeta>, decalIds: string[], se
 
 	// Đường chính Đông–Tây (y 25–27) chạy tới tận mép đông (lối sang rừng), Bắc–Nam (x 21–23).
 	for (let x = 1; x < TOWN_W; x += 1) for (let y = 25; y <= 27; y += 1) L.set(x, y, at(x, y) === 'w' ? 'b' : 'd');
-	// Bắc–Nam chạy tới tận mép trên: lối lên Nghĩa địa Hoàng Hôn (vùng quái phía bắc).
-	for (let y = 0; y < TOWN_H - 2; y += 1) for (let x = 21; x <= 23; x += 1) L.set(x, y, 'd');
+	// Bắc–Nam chạy tới tận mép trên (lối lên Nghĩa địa Hoàng Hôn) và mép dưới (lối xuống Bãi Bồi Brightwater — thiết kế 12 map
+	// vùng 1, 10/10/2026; trước dừng ở hàng TOWN_H − 3).
+	for (let y = 0; y < TOWN_H; y += 1) for (let x = 21; x <= 23; x += 1) L.set(x, y, 'd');
 
 	// Quảng trường đá cuội hình tròn quanh giao lộ.
 	const plaza = { x: 22, y: 26, r: 5.5 };
@@ -64,14 +66,16 @@ export function buildTown(meta: Record<string, PropMeta>, decalIds: string[], se
 	L.place('wheelbarrow', px(18), px(42), { force: true });
 	for (let x = 3; x <= 11; x += 2) L.place('fence', px(x), px(46), { force: true });
 
-	// Bờ đông: biển chỉ đường sang rừng ngay đầu cầu; cổng bắc: biển lên nghĩa địa.
+	// Bờ đông: biển chỉ đường sang rừng ngay đầu cầu; cổng bắc: biển lên nghĩa địa; cổng nam: biển xuống Bãi Bồi.
 	L.place('signpost', px(47), px(24) + 4, { force: true });
 	L.place('signpost', px(25), px(2) + 10, { force: true });
+	L.place('signpost', px(25), px(49) + 10, { force: true });
 
-	// Giữ trống: quanh quảng trường, quanh lối sang rừng, quanh chỗ đứng của NPC/nhiệm vụ.
+	// Giữ trống: quanh quảng trường, quanh lối sang rừng / nghĩa địa / bãi bồi, quanh chỗ đứng của NPC/nhiệm vụ.
 	L.reserve(plaza.x, plaza.y, plaza.r + 3);
 	L.reserve(48, 26, 3);
 	L.reserve(22, 1, 3);
+	L.reserve(22, 50.5, 3);
 
 	// Cây quanh thị trấn: một loại cây PixelLab (+ lật gương, lá thu).
 	L.scatter(150, (x, y) => (x < 41 * TILE || x > 47 * TILE ? L.place(L.pick(TREES), x, y) : false));
@@ -98,6 +102,7 @@ export function buildTown(meta: Record<string, PropMeta>, decalIds: string[], se
 			{ id: 'river_bank', name: 'Bờ sông Brightwater', x: px(41), y: px(27), r: 110 },
 			{ id: 'bridge', name: 'Cầu Brightwater', x: px(44), y: px(26), r: 70 },
 			{ id: 'east_gate', name: 'Đường sang rừng Mossvale', x: px(46), y: px(26), r: 60 },
+			{ id: 'south_road', name: 'Đường xuống Bãi Bồi', x: px(22), y: px(49), r: 60 },
 			...[
 				[4, 30],
 				[11, 37],
@@ -116,6 +121,8 @@ export function buildTown(meta: Record<string, PropMeta>, decalIds: string[], se
 		exits: [
 			{ id: 'to_mossvale', to: 'mossvale', toSpot: 'west_entry', edge: 'E', ...L.exitStrip('E', 23, 29), label: 'Rừng Mossvale' },
 			{ id: 'to_graveyard', to: 'graveyard', toSpot: 'south_gate_gy', edge: 'N', ...L.exitStrip('N', 20, 24), label: 'Nghĩa địa Hoàng Hôn' },
+			// Lối mới khai CUỐI mảng: dẫn đường nhiệm vụ đi lối khai trước (town ↔ mossvale vẫn một bước).
+			{ id: 'to_riverflats', to: 'riverflats', toSpot: 'north_entry_rf', edge: 'S', ...L.exitStrip('S', 20, 24), label: 'Bãi Bồi Brightwater' },
 		],
 	});
 }

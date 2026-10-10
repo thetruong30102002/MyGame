@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a teal crescent moon above a flat calm water line, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/sword+teal.png",
+	"jobId": "7e25951a-6bc4-4f97-a0a3-fcc5bf139f30",
+	"token": 1,
+	"createdAt": "2026-10-09T19:16:06.141Z"
+}

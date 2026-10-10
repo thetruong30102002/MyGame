@@ -1,0 +1,149 @@
+[
+ {
+  "id": "boss_ice_embrace",
+  "boss_id": "boss_ice_queen_001",
+  "lift": 66,
+  "ground": false,
+  "glow": false
+ },
+ {
+  "id": "boss_avalanche",
+  "boss_id": "boss_yeti_001",
+  "lift": 40,
+  "ground": false,
+  "glow": false
+ },
+ {
+  "id": "boss_frost_roar",
+  "boss_id": "boss_ice_guardian_001",
+  "lift": 0,
+  "ground": true,
+  "glow": false
+ },
+ {
+  "id": "boss_oblivion_mist",
+  "boss_id": "boss_ice_guardian_001",
+  "lift": 0,
+  "ground": true,
+  "glow": false
+ },
+ {
+  "id": "boss_magma_fissure",
+  "boss_id": "boss_ancient_lava_golem_001",
+  "lift": 0,
+  "ground": true,
+  "glow": false
+ },
+ {
+  "id": "boss_lava_spit",
+  "boss_id": "boss_salamander_001",
+  "lift": 30,
+  "ground": false,
+  "glow": false
+ },
+ {
+  "id": "boss_ash_fall",
+  "boss_id": "boss_fire_god_001",
+  "lift": 0,
+  "ground": true,
+  "glow": false
+ },
+ {
+  "id": "boss_forge_sigil",
+  "boss_id": "boss_fire_god_001",
+  "lift": 0,
+  "ground": true,
+  "glow": true
+ },
+ {
+  "id": "boss_coral_spikes",
+  "boss_id": "boss_crab_king_001",
+  "lift": 50,
+  "ground": false,
+  "glow": false
+ },
+ {
+  "id": "boss_ghost_lantern",
+  "boss_id": "boss_ghost_captain_001",
+  "lift": 40,
+  "ground": false,
+  "glow": true
+ },
+ {
+  "id": "boss_tentacle_slam",
+  "boss_id": "boss_kraken_001",
+  "lift": 66,
+  "ground": false,
+  "glow": false
+ },
+ {
+  "id": "boss_ink_flood",
+  "boss_id": "boss_kraken_001",
+  "lift": 0,
+  "ground": true,
+  "glow": false
+ },
+ {
+  "id": "dragon_frost_breath",
+  "boss_id": null,
+  "lift": 40,
+  "ground": false,
+  "glow": false
+ },
+ {
+  "id": "dragon_ice_pillar",
+  "boss_id": null,
+  "lift": 66,
+  "ground": false,
+  "glow": false
+ },
+ {
+  "id": "dragon_ice_lake_crack",
+  "boss_id": null,
+  "lift": 0,
+  "ground": true,
+  "glow": false
+ },
+ {
+  "id": "dragon_fire_breath",
+  "boss_id": null,
+  "lift": 40,
+  "ground": false,
+  "glow": false
+ },
+ {
+  "id": "dragon_meteor",
+  "boss_id": null,
+  "lift": 66,
+  "ground": false,
+  "glow": false
+ },
+ {
+  "id": "dragon_lava_pool",
+  "boss_id": null,
+  "lift": 0,
+  "ground": true,
+  "glow": false
+ },
+ {
+  "id": "dragon_water_dive",
+  "boss_id": null,
+  "lift": 66,
+  "ground": false,
+  "glow": false
+ },
+ {
+  "id": "dragon_tsunami",
+  "boss_id": null,
+  "lift": 30,
+  "ground": false,
+  "glow": false
+ },
+ {
+  "id": "dragon_flood",
+  "boss_id": null,
+  "lift": 0,
+  "ground": true,
+  "glow": false
+ }
+]

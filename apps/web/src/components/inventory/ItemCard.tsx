@@ -1,14 +1,15 @@
 'use client';
 
-import type { ReactNode, Ref } from 'react';
-import { SLOT_NAME, STAT_NAME, STAT_PERCENT, type EquipSlotId, type StatKey } from '@/game/equipment';
+import { Fragment, type ReactNode, type Ref } from 'react';
+import { KIND_NAME, RARITY_NAME, SLOT_NAME, STAT_KEYS, STAT_NAME, type EquipSlotId } from '@/game/equipment';
 import type { EquipSlotView, InventoryItem, PlayerStats } from '@/store/useGameStore';
-import { compareLines, ItemIcon, itemSubline, RARITY_COLOR, targetSlot, type InvMode } from './invShared';
+import { fmtNum } from '../CharacterPanelParts';
+import { compareLines, fmtShown, ItemIcon, KIND_TEXT, RARITY_COLOR, rarityClass, signedStat, slotText, targetSlot, type CompareLine, type InvMode } from './invShared';
 
 /** Động từ theo chỗ đeo: vũ khí "cầm", trang sức "đeo", còn lại "mặc". */
 const verbOf = (it: InventoryItem): string => (it.equipKind === 'weapon' || it.equipKind === 'offhand' ? 'đang cầm' : it.equipKind === 'ring' || it.equipKind === 'neck' ? 'đang đeo' : 'đang mặc');
 
-const signed = (n: number, key: StatKey): string => `${n > 0 ? '+' : n < 0 ? '−' : ''}${Math.abs(n)}${STAT_PERCENT.has(key) ? '%' : ''}`;
+const tone = (n: number): string => (n > 0 ? 'text-leaf' : n < 0 ? 'text-berry' : 'text-ink-faint');
 
 export interface CardProps {
 	mode: InvMode;
@@ -29,84 +30,135 @@ export interface CardProps {
 	onBack?: () => void;
 }
 
+/** Bảng "trước → sau · chênh" (số trên bảng nhân vật, đã nhân hệ số con đường) — dùng cho cả mặc vào lẫn tháo ra. */
+function CompareTable({ lines }: { lines: CompareLine[] }) {
+	return (
+		<table className="mt-0.5 w-full border-collapse text-[14px]">
+			<tbody>
+				{lines.map((l) => {
+					const d = l.after - l.before;
+					return (
+						<tr key={l.key} className="border-t border-paper-line leading-5">
+							<td className="py-0.5">{l.label}</td>
+							<td className="py-0.5 text-right font-extrabold whitespace-nowrap tabular-nums">
+								{fmtShown(l.key, l.before)} → {fmtShown(l.key, l.after)}
+							</td>
+							<td className={`w-[76px] py-0.5 text-right font-extrabold whitespace-nowrap tabular-nums ${tone(d)}`}>{d ? signedStat(d, l.key) : 'không đổi'}</td>
+						</tr>
+					);
+				})}
+			</tbody>
+		</table>
+	);
+}
+
+/** Bảng thông tin "nhãn: giá trị" — thẻ rộng (≥ 28rem) xếp 2 cặp mỗi hàng, thẻ hẹp (sheet điện thoại) 1 cặp. */
+function Facts({ rows }: { rows: [string, ReactNode][] }) {
+	return (
+		<dl className="mt-2 grid grid-cols-[auto_minmax(0,1fr)] gap-x-3 gap-y-0.5 border-y border-paper-line py-1.5 text-[13px] leading-[20px] @md:grid-cols-[auto_minmax(0,1fr)_auto_minmax(0,1fr)]">
+			{rows.map(([k, v]) => (
+				<Fragment key={k}>
+					<dt className="font-bold whitespace-nowrap text-ink-soft">{k}</dt>
+					<dd className="min-w-0 font-extrabold text-ink-brown">{v}</dd>
+				</Fragment>
+			))}
+		</dl>
+	);
+}
+
 /**
- * Thẻ chi tiết / so sánh một món: ô 58 + tên (màu theo độ hiếm), "So với … đang cầm" + bảng "27 → 33 · +6", tác dụng,
- * mô tả, nút theo ngữ cảnh (Trang bị / Thay / Tháo / Uống) và chip Thôi. Mọi thao tác đi qua `request` — thẻ không tự sửa state.
+ * Thẻ chi tiết một món: ô 58 viền màu độ hiếm + tên (màu độ hiếm) + nhãn bậc / Kỷ vật / Đang mặc; bảng thông tin (loại, ô
+ * mặc, yêu cầu cấp — đủ hay thiếu, ràng buộc); thuộc tính tự thân của món ("Tấn công +6"); so sánh trên bảng nhân vật
+ * (món trong túi: "So với … đang cầm" 27 → 33 · +6; món đang mặc: "Nếu tháo ra"); tác dụng, mô tả; nút theo ngữ cảnh
+ * (Trang bị / Thay / Tháo / Uống) và chip Thôi. Mọi thao tác đi qua `request` — thẻ không tự sửa state.
  */
 export function ItemCard({ mode, item: it, preview, equipment, stats, bagFull, touch, primaryRef, onEquip, onUnequip, onPotion, onClose, onBack }: CardProps) {
 	const equippedAt = it.equippedAt ?? null;
 	const big = touch ? 'h-11' : '';
-	let body: ReactNode = null;
+	const color = RARITY_COLOR[it.rarity ?? 'common'];
+	const lacking = (it.levelReq ?? 0) > stats.level;
+	const facts: [string, ReactNode][] = [];
+	let compare: ReactNode = null;
 	let action: ReactNode = null;
 	let note: ReactNode = null;
+
+	// Loại đồ đã in ở dòng phụ dưới tên — bảng thông tin không lặp lại.
+	if (it.kind === 'equip') {
+		facts.push([equippedAt ? 'Đang ở ô' : 'Ô mặc', equippedAt ? SLOT_NAME[equippedAt] : slotText(it.equipKind) || '—']);
+		facts.push([
+			'Yêu cầu',
+			it.levelReq ? <span className={lacking ? 'text-berry' : 'text-leaf'}>{lacking ? `Cấp ${it.levelReq} · thiếu ${it.levelReq - stats.level} cấp` : `Cấp ${it.levelReq} · đã đủ`}</span> : 'Mọi cấp',
+		]);
+		facts.push(['Ràng buộc', it.bound ? <span className="text-amber">Kỷ vật · không bán, không vứt</span> : 'Không']);
+	} else {
+		if (it.id === 'potion') {
+			facts.push(['Còn lại', `${fmtNum(it.count)} bình`]);
+			// Chồng ảo dựng từ `player.potions` — không tính vào sức chứa túi (`bagUsed`).
+			facts.push(['Trong túi', 'Không chiếm ô']);
+			if (!touch) facts.push(['Phím tắt', <kbd key="r" className="ui-key">R</kbd>]);
+		} else if (it.count > 1) facts.push(['Số lượng', fmtNum(it.count)]);
+	}
+
+	const own = STAT_KEYS.filter((k) => (it.stats?.[k] ?? 0) !== 0);
+	const attrs =
+		it.kind === 'equip' ? (
+			<div className="mt-2">
+				<p className="text-[12px] leading-[18px] font-bold text-ink-soft">Thuộc tính của món</p>
+				{own.length ? (
+					<p className="mt-0.5 flex flex-wrap gap-1">
+						{own.map((k) => (
+							<span key={k} className="ui-tag h-6 border-2 border-paper-line bg-paper-hi px-2 text-ink-brown">
+								{STAT_NAME[k]} <b className={`ml-1 ${tone(it.stats![k]!)}`}>{signedStat(it.stats![k]!, k)}</b>
+							</span>
+						))}
+					</p>
+				) : (
+					<p className="text-note text-ink-faint">Không cộng chỉ số nào.</p>
+				)}
+			</div>
+		) : null;
 
 	if (it.kind === 'equip' && !equippedAt) {
 		const slot = targetSlot(it, equipment);
 		const prev = slot ? (equipment.find((e) => e.slot === slot)?.item ?? null) : null;
 		const lines = compareLines(stats.gearBasis, stats.gear, it, prev);
-		const lacking = (it.levelReq ?? 0) > stats.level ? `Cần cấp ${it.levelReq}` : null;
-		body = (
-			<>
-				<p className="mt-1.5 text-note text-ink-soft">
+		compare = (
+			<div className="mt-2">
+				<p className="text-note text-ink-soft">
 					{prev ? (
 						<>
-							So với <b className="text-ink-brown">{prev.name}</b> {verbOf(prev)}:
+							So với{' '}
+							<b className="font-extrabold" style={{ color: RARITY_COLOR[prev.rarity ?? 'common'] }}>
+								{prev.name}
+							</b>{' '}
+							{verbOf(prev)}:
 						</>
 					) : (
-						`Ô ${slot ? SLOT_NAME[slot] : ''} đang trống.`
+						`Ô ${slot ? SLOT_NAME[slot] : ''} đang trống — mặc vào thì:`
 					)}
 				</p>
-				{lines.length ? (
-					<table className="mt-1 w-full border-collapse text-[14px]">
-						<tbody>
-							{lines.map((l) => {
-								const d = l.after - l.before;
-								return (
-									<tr key={l.key} className="border-t border-paper-line leading-5">
-										<td className="py-0.5">{l.label}</td>
-										<td className="py-0.5 text-right font-extrabold whitespace-nowrap tabular-nums">
-											{l.before}
-											{STAT_PERCENT.has(l.key) ? '%' : ''} → {l.after}
-											{STAT_PERCENT.has(l.key) ? '%' : ''}
-										</td>
-										<td className={`w-[76px] py-0.5 text-right font-extrabold whitespace-nowrap tabular-nums ${d > 0 ? 'text-leaf' : d < 0 ? 'text-berry' : 'text-ink-faint'}`}>{d ? signed(d, l.key) : 'không đổi'}</td>
-									</tr>
-								);
-							})}
-						</tbody>
-					</table>
-				) : (
-					<p className="text-note text-ink-faint">Không cộng thêm chỉ số nào.</p>
-				)}
-			</>
+				{lines.length ? <CompareTable lines={lines} /> : <p className="text-note text-ink-faint">Bảng chỉ số không đổi.</p>}
+			</div>
 		);
 		if (slot) {
 			action = (
-				<button ref={primaryRef} type="button" className={`ui-btn min-w-[96px] ${big}`} disabled={!!lacking} onClick={() => onEquip(it.uid)}>
-					{lacking ?? (prev ? 'Thay' : `Trang bị vào ${SLOT_NAME[slot]}`)}
+				<button ref={primaryRef} type="button" className={`ui-btn min-w-[96px] ${big}`} disabled={lacking} onClick={() => onEquip(it.uid)}>
+					{lacking ? `Cần cấp ${it.levelReq}` : prev ? 'Thay' : `Trang bị vào ${SLOT_NAME[slot]}`}
 				</button>
 			);
 			const both = it.equipKind === 'ring' && equipment.filter((e) => e.slot.startsWith('ring') && e.item).length === 2;
-			note = prev ? `${prev.name} về lại túi.${both ? ' Muốn thay Nhẫn 2: bấm ô nhẫn có số 2 đang sáng.' : ''}` : null;
+			note = prev ? `${prev.name} về lại túi.${both ? ' Muốn thay Nhẫn 2: bấm ô Nhẫn 2 đang sáng.' : ''}` : null;
 		}
 	} else if (it.kind === 'equip' && equippedAt) {
-		const own = (Object.keys(STAT_NAME) as StatKey[]).filter((k) => (it.stats?.[k] ?? 0) !== 0);
-		body = (
-			<>
-				<p className="mt-1.5 text-note text-ink-soft">
-					{verbOf(it).replace('đang ', 'Đang ')} ở ô <b className="text-ink-brown">{SLOT_NAME[equippedAt]}</b>.
-				</p>
-				{own.length > 0 && (
-					<p className="mt-1 flex flex-wrap gap-1.5">
-						{own.map((k) => (
-							<span key={k} className="ui-tag border border-paper-line bg-paper-hi text-ink-brown">
-								{STAT_NAME[k]} <span className="ml-1 text-leaf">{signed(it.stats![k]!, k)}</span>
-							</span>
-						))}
-					</p>
-				)}
-			</>
-		);
+		const lines = compareLines(stats.gearBasis, stats.gear, null, it);
+		if (lines.length) {
+			compare = (
+				<div className="mt-2">
+					<p className="text-note text-ink-soft">Nếu tháo ra:</p>
+					<CompareTable lines={lines} />
+				</div>
+			);
+		}
 		action = (
 			<button ref={primaryRef} type="button" className={`ui-btn min-w-[96px] ${big}`} disabled={bagFull} onClick={() => onUnequip(equippedAt)}>
 				Tháo
@@ -115,33 +167,34 @@ export function ItemCard({ mode, item: it, preview, equipment, stats, bagFull, t
 		note = bagFull ? 'Túi đầy — dọn bớt rồi mới tháo được.' : it.effect ? `Tháo vẫn giữ ${it.effect.replace(/^Mở /, '')}.` : null;
 	} else if (it.id === 'potion') {
 		const hpFull = stats.hp >= stats.hpMax;
-		body = <p className="mt-1.5 text-note text-ink-soft">Còn {it.count} bình.</p>;
 		if (it.usable) {
 			action = (
 				<button ref={primaryRef} type="button" className={`ui-btn min-w-[96px] ${big}`} disabled={it.count <= 0 || hpFull} onClick={onPotion}>
 					Uống một bình
 				</button>
 			);
-			note = hpFull ? 'Máu đang đầy, để dành đã.' : touch ? null : (
-				<>
-					Phím <kbd className="ui-key">R</kbd>
-				</>
-			);
+			note = hpFull ? 'Máu đang đầy, để dành đã.' : it.count <= 0 ? 'Đã hết bình.' : null;
 		}
 	}
 
 	const head = (
 		<div className="flex items-center gap-2.5">
-			<div className="ui-slot relative h-[57px] w-[58px] shrink-0">
+			<div className={`ui-slot relative h-[57px] w-[58px] shrink-0 ${rarityClass(it.rarity)}`}>
 				<ItemIcon item={it} />
 			</div>
 			<div className="min-w-0 flex-1">
-				<p className="font-display text-[19px] leading-[1.25] font-extrabold" style={{ color: RARITY_COLOR[it.rarity ?? 'common'] }}>
+				<p className="font-display text-[19px] leading-[1.25] font-extrabold" style={{ color }}>
 					{it.name}
 				</p>
-				<p className="flex flex-wrap items-center gap-x-1.5 gap-y-0.5 text-[12px] leading-[18px] font-extrabold text-ink-soft">
-					<span>{itemSubline(it)}</span>
-					{it.bound && <span className="ui-tag h-[18px] bg-honey px-1.5 text-amber">Kỷ vật</span>}
+				<p className="mt-0.5 flex flex-wrap items-center gap-1">
+					{it.rarity && (
+						<span className="ui-tag h-5 border-2 bg-paper-hi px-1.5" style={{ color, borderColor: color }}>
+							{RARITY_NAME[it.rarity]}
+						</span>
+					)}
+					<span className="text-[12px] leading-[18px] font-extrabold text-ink-soft">{it.equipKind ? KIND_NAME[it.equipKind] : KIND_TEXT[it.kind]}</span>
+					{equippedAt && <span className="ui-tag h-5 bg-[#dcebd0] px-1.5 text-leaf">{verbOf(it).replace('đang ', 'Đang ')}</span>}
+					{it.bound && <span className="ui-tag h-5 bg-honey px-1.5 text-amber">Kỷ vật</span>}
 				</p>
 			</div>
 			{onBack && (
@@ -153,11 +206,18 @@ export function ItemCard({ mode, item: it, preview, equipment, stats, bagFull, t
 	);
 
 	return (
-		<>
+		<div className="@container">
 			{head}
-			{body}
-			{it.effect && <p className="mt-1.5 text-body font-bold text-ink-brown">{it.effect}</p>}
-			<p className={`${it.effect ? 'mt-0.5' : 'mt-1.5'} text-note text-ink-soft`}>{it.desc}</p>
+			{facts.length > 0 && <Facts rows={facts} />}
+			{attrs}
+			{compare}
+			{it.effect && (
+				<p className="mt-2 text-body font-bold text-ink-brown">
+					<span className="text-ink-soft">Tác dụng: </span>
+					{it.effect}
+				</p>
+			)}
+			<p className={`${it.effect ? 'mt-1' : 'mt-2'} border-l-2 border-paper-line pl-2 text-note text-ink-soft`}>{it.desc}</p>
 			{preview ? (
 				<p className="mt-1.5 text-note text-ink-faint">{it.kind === 'equip' ? (equippedAt ? 'Nhấp để chọn · nhấp đúp để tháo' : 'Nhấp để chọn · nhấp đúp để mặc') : 'Nhấp để chọn'}</p>
 			) : mode === 'low' ? (
@@ -172,7 +232,7 @@ export function ItemCard({ mode, item: it, preview, equipment, stats, bagFull, t
 					</div>
 				</>
 			) : (
-				<div className="mt-2 flex flex-wrap items-center gap-1.5">
+				<div className="mt-2.5 flex flex-wrap items-center gap-1.5">
 					{action}
 					<button type="button" className={`ui-chip ${touch ? 'min-h-11' : ''}`} onClick={onClose}>
 						Thôi
@@ -180,6 +240,6 @@ export function ItemCard({ mode, item: it, preview, equipment, stats, bagFull, t
 					{note && <span className="min-w-[96px] flex-1 text-note text-ink-soft">{note}</span>}
 				</div>
 			)}
-		</>
+		</div>
 	);
 }

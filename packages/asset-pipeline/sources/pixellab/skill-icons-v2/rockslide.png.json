@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "three heavy boulders tumbling down, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/earth.png",
+	"jobId": "4983d4e7-872c-4461-a0f9-8ecb4ca5ce25",
+	"token": 1,
+	"createdAt": "2026-10-09T19:19:45.610Z"
+}

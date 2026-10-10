@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a heavy stone weight with an iron band, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/earth+steel.png",
+	"jobId": "64b62720-1dee-4994-921e-f16a46ab23f2",
+	"token": 1,
+	"createdAt": "2026-10-09T19:20:05.123Z"
+}

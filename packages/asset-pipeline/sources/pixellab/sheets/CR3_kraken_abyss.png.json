@@ -1,0 +1,20 @@
+{
+	"description": "A sprite sheet of NINE separate small props arranged in a 3 by 3 grid, each small and centered in its own cell: cracked wooden ship's wheel, open wooden treasure chest full of glowing blue rune crystals, severed crimson-purple club-shaped squid tentacle tip lying limp, barnacle-covered iron cannon, broken tarnished silver seagull figurehead, old brass ship lantern with a dim warm yellow flame wrapped in faint sickly sea-green ghost mist, corroded green-tinged brass machine part tightly wrapped in thin glowing scarlet-red threads, jagged black abyss rock spire with barnacles, pile of splintered ship planks and rope, drawn in straight FRONT VIEW like the reference (facing the camera, slight top-down), thick dark outline, soft cel shading, every object fully separate on a plain flat solid bright magenta (#FF00FF) chroma-key background with wide empty space around it, no ground, no shadow puddles, no text, no characters",
+	"width": 192,
+	"height": 192,
+	"no_background": false,
+	"seed": 11,
+	"style_options": {
+		"color_palette": false,
+		"outline": true,
+		"shading": true,
+		"detail": false
+	},
+	"style_image": {
+		"path": "D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/N1_nature.png",
+		"usage_description": "Copy ONLY the art style of this reference: chunky chibi pixel art, thick dark outline on every shape, soft cel shading, front-facing view. Do not copy these objects or their colors."
+	},
+	"jobId": "6c0786a3-5da6-4799-9c56-2bf4633da792",
+	"token": 1,
+	"createdAt": "2026-10-09T15:24:19.442Z"
+}

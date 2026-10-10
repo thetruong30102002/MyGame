@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a round shield made of grey stone plates, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/_thu/palettes/earth.png",
+	"jobId": "70339464-e1bb-401b-9489-8e9d941848da",
+	"token": 1,
+	"createdAt": "2026-10-09T19:05:33.035Z"
+}

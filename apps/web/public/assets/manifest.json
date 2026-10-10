@@ -173,318 +173,6 @@
 				"SE"
 			]
 		},
-		"player_lior_child_f": {
-			"displayName": "Nhân vật chính (bé gái)",
-			"role": "player",
-			"identity": {
-				"characterId": "player_lior_child_f",
-				"hair": "chestnut_high_ponytail",
-				"eyes": "amber",
-				"skin": "light",
-				"outfit": "kid_linen_blouse_vest_green_scarf_skirt",
-				"weapon": "baked_in_training_sword_staff_states",
-				"palette": "starter_earth_01"
-			},
-			"atlas": "characters/player_lior_child_f/player_lior_child_f.json",
-			"frameSize": {
-				"width": 96,
-				"height": 96
-			},
-			"anchor": {
-				"x": 0.5,
-				"y": 0.875
-			},
-			"animations": {
-				"idle": {
-					"fps": 6
-				},
-				"walk": {
-					"fps": 10
-				},
-				"attack": {
-					"fps": 22,
-					"frames": 8,
-					"hitFrame": 3,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"backslash": {
-					"fps": 22,
-					"frames": 8,
-					"hitFrame": 3,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"thrust": {
-					"fps": 22,
-					"frames": 8,
-					"hitFrame": 4,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"cast": {
-					"fps": 20,
-					"frames": 8,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"throw": {
-					"fps": 16,
-					"frames": 8,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"hit": {
-					"fps": 14,
-					"frames": 6,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"death": {
-					"fps": 10,
-					"frames": 8,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"revive": {
-					"fps": 10,
-					"frames": 8,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"drink": {
-					"fps": 12,
-					"frames": 8,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				}
-			},
-			"source": {
-				"provider": "pixellab",
-				"ref": null,
-				"license": {
-					"name": "PixelLab Terms of Service",
-					"url": "https://pixellab.ai/termsofservice",
-					"commercialUse": true,
-					"attributionRequired": false
-				}
-			},
-			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1): bản 6 tuổi của nhân vật người chơi mới (cùng tóc nâu, mắt hổ phách, khăn xanh rêu). Thay bản tóc bạc (nay là NPC npc_silver_child*). Động tác v3 trên phiên bản Sword / Staff cùng nhóm (khung nới 88 → ô 96); revive = death phát ngược.",
-			"bodyHeight": 53,
-			"portrait": "portraits/player_lior_child_f.png",
-			"directions": [
-				"S",
-				"SW",
-				"W",
-				"NW",
-				"N",
-				"NE",
-				"E",
-				"SE"
-			],
-			"provisional": []
-		},
-		"player_lior_child": {
-			"displayName": "Nhân vật chính (bé trai)",
-			"role": "player",
-			"identity": {
-				"characterId": "player_lior_child",
-				"hair": "chestnut_messy",
-				"eyes": "amber",
-				"skin": "light",
-				"outfit": "kid_linen_tunic_vest_green_scarf_shorts",
-				"weapon": "baked_in_training_sword_staff_states",
-				"palette": "starter_earth_01"
-			},
-			"atlas": "characters/player_lior_child/player_lior_child.json",
-			"frameSize": {
-				"width": 96,
-				"height": 96
-			},
-			"anchor": {
-				"x": 0.5,
-				"y": 0.875
-			},
-			"animations": {
-				"idle": {
-					"fps": 6
-				},
-				"walk": {
-					"fps": 10
-				},
-				"attack": {
-					"fps": 22,
-					"frames": 8,
-					"hitFrame": 3,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"backslash": {
-					"fps": 22,
-					"frames": 8,
-					"hitFrame": 3,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"thrust": {
-					"fps": 22,
-					"frames": 8,
-					"hitFrame": 4,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"cast": {
-					"fps": 20,
-					"frames": 8,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"throw": {
-					"fps": 16,
-					"frames": 8,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"hit": {
-					"fps": 14,
-					"frames": 6,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"death": {
-					"fps": 10,
-					"frames": 8,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"revive": {
-					"fps": 10,
-					"frames": 8,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"drink": {
-					"fps": 12,
-					"frames": 8,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				}
-			},
-			"source": {
-				"provider": "pixellab",
-				"ref": null,
-				"license": {
-					"name": "PixelLab Terms of Service",
-					"url": "https://pixellab.ai/termsofservice",
-					"commercialUse": true,
-					"attributionRequired": false
-				}
-			},
-			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1): bản 6 tuổi của nhân vật người chơi mới (cùng tóc nâu, mắt hổ phách, khăn xanh rêu). Thay bản tóc bạc (nay là NPC npc_silver_child*). Động tác v3 trên phiên bản Sword / Staff cùng nhóm (khung nới 88 → ô 96); revive = death phát ngược.",
-			"bodyHeight": 54,
-			"portrait": "portraits/player_lior_child.png",
-			"directions": [
-				"S",
-				"SW",
-				"W",
-				"NW",
-				"N",
-				"NE",
-				"E",
-				"SE"
-			],
-			"provisional": []
-		},
 		"npc_elin_001": {
 			"displayName": "Elin Ashvale",
 			"role": "npc",
@@ -737,343 +425,6 @@
 				"SE"
 			]
 		},
-		"player_hero_adult": {
-			"displayName": "Nhân vật chính (16 tuổi, nam)",
-			"role": "player",
-			"identity": {
-				"characterId": "player_hero_adult",
-				"hair": "chestnut_messy",
-				"eyes": "amber",
-				"skin": "light",
-				"outfit": "starter_linen_tunic_leather_vest_green_scarf",
-				"weapon": "baked_in_sword_staff_states",
-				"palette": "starter_earth_01"
-			},
-			"atlas": "characters/player_hero_adult/player_hero_adult.json",
-			"frameSize": {
-				"width": 112,
-				"height": 112
-			},
-			"anchor": {
-				"x": 0.5,
-				"y": 0.8928571428571429
-			},
-			"animations": {
-				"idle": {
-					"fps": 6
-				},
-				"walk": {
-					"fps": 10
-				},
-				"attack": {
-					"fps": 22,
-					"frames": 8,
-					"hitFrame": 3,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"backslash": {
-					"fps": 22,
-					"frames": 8,
-					"hitFrame": 3,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"thrust": {
-					"fps": 22,
-					"frames": 8,
-					"hitFrame": 4,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"charge": {
-					"fps": 10,
-					"frames": 8,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"smash": {
-					"fps": 14,
-					"frames": 8,
-					"hitFrame": 4,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"lunge": {
-					"fps": 16,
-					"frames": 8,
-					"hitFrame": 3,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"block": {
-					"fps": 8,
-					"frames": 6,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"parry": {
-					"fps": 16,
-					"frames": 8,
-					"hitFrame": 2,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"spin": {
-					"fps": 18,
-					"frames": 10,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"flurry": {
-					"fps": 20,
-					"frames": 12,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"wave": {
-					"fps": 16,
-					"frames": 8,
-					"hitFrame": 3,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"fling": {
-					"fps": 16,
-					"frames": 12,
-					"hitFrame": 3,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"vanish": {
-					"fps": 16,
-					"frames": 8,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"cast": {
-					"fps": 20,
-					"frames": 8,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"throw": {
-					"fps": 16,
-					"frames": 8,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"channel": {
-					"fps": 8,
-					"frames": 6,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"push": {
-					"fps": 16,
-					"frames": 8,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"skycall": {
-					"fps": 14,
-					"frames": 8,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"stomp": {
-					"fps": 14,
-					"frames": 8,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"ultimate": {
-					"fps": 12,
-					"frames": 12,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"dodge": {
-					"fps": 16,
-					"frames": 6,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"hit": {
-					"fps": 14,
-					"frames": 6,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"death": {
-					"fps": 10,
-					"frames": 8,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"revive": {
-					"fps": 10,
-					"frames": 8,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"drink": {
-					"fps": 12,
-					"frames": 8,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				}
-			},
-			"source": {
-				"provider": "pixellab",
-				"ref": null,
-				"license": {
-					"name": "PixelLab Terms of Service",
-					"url": "https://pixellab.ai/termsofservice",
-					"commercialUse": true,
-					"attributionRequired": false
-				}
-			},
-			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1). Thiết kế người chơi mới thay bản tóc bạc (nay là NPC npc_silver_*). Thân mặc đồ tân thủ để giáp các bậc phủ lên (Mốc 3); tóc nâu trung tính để đổi màu bằng code. Động tác: v3 8–12 khung trên phiên bản Sword / Staff cùng nhóm (khung nới 108 → đệm + chuẩn hoá vào ô 112); revive = death phát ngược.",
-			"bodyHeight": 75,
-			"portrait": "portraits/player_hero_adult.png",
-			"directions": [
-				"S",
-				"SW",
-				"W",
-				"NW",
-				"N",
-				"NE",
-				"E",
-				"SE"
-			],
-			"provisional": []
-		},
 		"mob_skeleton_archer_001": {
 			"displayName": "Cung thủ xương",
 			"role": "monster",
@@ -1222,343 +573,6 @@
 				"E",
 				"SE"
 			]
-		},
-		"player_hero_adult_f": {
-			"displayName": "Nhân vật chính (16 tuổi, nữ)",
-			"role": "player",
-			"identity": {
-				"characterId": "player_hero_adult_f",
-				"hair": "chestnut_high_ponytail",
-				"eyes": "amber",
-				"skin": "light",
-				"outfit": "starter_linen_blouse_laced_vest_green_scarf_skirt",
-				"weapon": "baked_in_sword_staff_states",
-				"palette": "starter_earth_01"
-			},
-			"atlas": "characters/player_hero_adult_f/player_hero_adult_f.json",
-			"frameSize": {
-				"width": 112,
-				"height": 112
-			},
-			"anchor": {
-				"x": 0.5,
-				"y": 0.8928571428571429
-			},
-			"animations": {
-				"idle": {
-					"fps": 6
-				},
-				"walk": {
-					"fps": 10
-				},
-				"attack": {
-					"fps": 22,
-					"frames": 8,
-					"hitFrame": 3,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"backslash": {
-					"fps": 22,
-					"frames": 8,
-					"hitFrame": 3,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"thrust": {
-					"fps": 22,
-					"frames": 8,
-					"hitFrame": 4,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"charge": {
-					"fps": 10,
-					"frames": 8,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"smash": {
-					"fps": 14,
-					"frames": 8,
-					"hitFrame": 4,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"lunge": {
-					"fps": 16,
-					"frames": 8,
-					"hitFrame": 3,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"block": {
-					"fps": 8,
-					"frames": 6,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"parry": {
-					"fps": 16,
-					"frames": 8,
-					"hitFrame": 2,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"spin": {
-					"fps": 18,
-					"frames": 10,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"flurry": {
-					"fps": 20,
-					"frames": 12,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"wave": {
-					"fps": 16,
-					"frames": 8,
-					"hitFrame": 3,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"fling": {
-					"fps": 16,
-					"frames": 12,
-					"hitFrame": 3,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"vanish": {
-					"fps": 16,
-					"frames": 8,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"cast": {
-					"fps": 20,
-					"frames": 8,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"throw": {
-					"fps": 16,
-					"frames": 8,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"channel": {
-					"fps": 8,
-					"frames": 6,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"push": {
-					"fps": 16,
-					"frames": 8,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"skycall": {
-					"fps": 14,
-					"frames": 8,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"stomp": {
-					"fps": 14,
-					"frames": 8,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"ultimate": {
-					"fps": 12,
-					"frames": 12,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"dodge": {
-					"fps": 16,
-					"frames": 6,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"hit": {
-					"fps": 14,
-					"frames": 6,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"death": {
-					"fps": 10,
-					"frames": 8,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"revive": {
-					"fps": 10,
-					"frames": 8,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				},
-				"drink": {
-					"fps": 12,
-					"frames": 8,
-					"loop": false,
-					"directions": [
-						"S",
-						"W",
-						"N",
-						"E"
-					]
-				}
-			},
-			"source": {
-				"provider": "pixellab",
-				"ref": null,
-				"license": {
-					"name": "PixelLab Terms of Service",
-					"url": "https://pixellab.ai/termsofservice",
-					"commercialUse": true,
-					"attributionRequired": false
-				}
-			},
-			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1). Thiết kế người chơi mới thay bản tóc bạc (nay là NPC npc_silver_*). Thân mặc đồ tân thủ để giáp các bậc phủ lên (Mốc 3); tóc nâu trung tính để đổi màu bằng code. Động tác: v3 8–12 khung trên phiên bản Sword / Staff cùng nhóm (khung nới 108 → đệm + chuẩn hoá vào ô 112); revive = death phát ngược.",
-			"bodyHeight": 72,
-			"portrait": "portraits/player_hero_adult_f.png",
-			"directions": [
-				"S",
-				"SW",
-				"W",
-				"NW",
-				"N",
-				"NE",
-				"E",
-				"SE"
-			],
-			"provisional": []
 		},
 		"npc_aldric_001": {
 			"displayName": "Aldric",
@@ -2210,6 +1224,1555 @@
 				"SW",
 				"NW"
 			]
+		},
+		"mob_cave_bat_001": {
+			"displayName": "Dơi hang",
+			"role": "monster",
+			"identity": {
+				"characterId": "mob_cave_bat_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region1_mob_01"
+			},
+			"atlas": "characters/mob_cave_bat_001/mob_cave_bat_001.json",
+			"frameSize": {
+				"width": 96,
+				"height": 96
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.875
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 64px; ảnh mẫu nét = nấm rừng. Vùng 1. Mô tả: a small cave bat facing the viewer, hovering with leathery dark purple-grey wings spread, big pointy ears, glowing red eyes, tiny fangs, fluffy grey belly. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 88px.",
+			"bodyHeight": 48,
+			"portrait": "portraits/mob_cave_bat_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"boss_stone_gargoyle_001": {
+			"displayName": "Gargoyle Đá (boss khu)",
+			"role": "boss",
+			"identity": {
+				"characterId": "boss_stone_gargoyle_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region1_mob_01"
+			},
+			"atlas": "characters/boss_stone_gargoyle_001/boss_stone_gargoyle_001.json",
+			"frameSize": {
+				"width": 184,
+				"height": 184
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9347826086956522
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template mannequin, khổ vẽ 128px; ảnh mẫu nét = Quỷ vương. Vùng 1. Mô tả: a hulking stone gargoyle boss facing the viewer, cracked grey granite body with moss, huge bat-like stone wings folded, horned demonic head with glowing amber eyes, heavy clawed hands. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 176px.",
+			"bodyHeight": 92,
+			"portrait": "portraits/boss_stone_gargoyle_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"player_hero_adult": {
+			"displayName": "Nhân vật chính (16 tuổi, nam)",
+			"role": "player",
+			"identity": {
+				"characterId": "player_hero_adult",
+				"hair": "chestnut_messy",
+				"eyes": "amber",
+				"skin": "light",
+				"outfit": "starter_linen_tunic_leather_vest_green_scarf",
+				"weapon": "baked_in_sword_staff_states",
+				"palette": "starter_earth_01"
+			},
+			"atlas": "characters/player_hero_adult/player_hero_adult.json",
+			"frameSize": {
+				"width": 112,
+				"height": 112
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.8928571428571429
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"idlesword": {
+					"fps": 6
+				},
+				"walksword": {
+					"fps": 10
+				},
+				"idlestaff": {
+					"fps": 6
+				},
+				"walkstaff": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 22,
+					"frames": 8,
+					"hitFrame": 3,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"backslash": {
+					"fps": 22,
+					"frames": 8,
+					"hitFrame": 3,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"thrust": {
+					"fps": 22,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"charge": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"smash": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"lunge": {
+					"fps": 16,
+					"frames": 8,
+					"hitFrame": 3,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"block": {
+					"fps": 8,
+					"frames": 6,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"parry": {
+					"fps": 16,
+					"frames": 8,
+					"hitFrame": 2,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"spin": {
+					"fps": 18,
+					"frames": 10,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"flurry": {
+					"fps": 20,
+					"frames": 12,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"wave": {
+					"fps": 16,
+					"frames": 8,
+					"hitFrame": 3,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"fling": {
+					"fps": 16,
+					"frames": 12,
+					"hitFrame": 3,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"vanish": {
+					"fps": 16,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"cast": {
+					"fps": 20,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"throw": {
+					"fps": 16,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"channel": {
+					"fps": 8,
+					"frames": 6,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"push": {
+					"fps": 16,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"skycall": {
+					"fps": 14,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"stomp": {
+					"fps": 14,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"ultimate": {
+					"fps": 12,
+					"frames": 12,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"dodge": {
+					"fps": 16,
+					"frames": 6,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"hit": {
+					"fps": 14,
+					"frames": 6,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"revive": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"drink": {
+					"fps": 12,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"hitsword": {
+					"fps": 14,
+					"frames": 6,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"hitstaff": {
+					"fps": 14,
+					"frames": 6,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"dodgesword": {
+					"fps": 16,
+					"frames": 6,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"dodgestaff": {
+					"fps": 16,
+					"frames": 6,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"deathsword": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"revivesword": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"deathstaff": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"revivestaff": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1). Thiết kế người chơi mới thay bản tóc bạc (nay là NPC npc_silver_*). Thân mặc đồ tân thủ để giáp các bậc phủ lên (Mốc 3); tóc nâu trung tính để đổi màu bằng code. Động tác: v3 8–12 khung trên phiên bản Sword / Staff cùng nhóm (khung nới 108 → đệm + chuẩn hoá vào ô 112); revive = death phát ngược. | 10/10/2026 (chủ dự án: \"cầm kiếm tự gắn vào xấu\" — cầm vũ khí suốt, bỏ hướng tay không): đứng / đi cầm vũ khí vẽ trên phiên bản Sword / Staff — `idlesword` / `walksword` / `idlestaff` / `walkstaff` ← PixelLab `idle-<món>` / `walk-<món>` (`<tên>2` = vẽ lại từng hướng, ưu tiên). Đi: mẫu walking-8-frames chế độ skeleton-v3 (mẫu thường làm RƠI kiếm / trượng ở hướng ngang); đứng: mẫu breathing-idle hoặc v3 4 khung. Game chọn bản theo vũ khí đang cầm (`gearLayers.heldArt`). Bản tay không (`<động tác>-hand*`, vẽ 09/10 tối) giữ trong nguồn làm lưu trữ, spec không dùng. | 10/10/2026 (lượt 2 — chủ dự án: \"vẽ nốt\"): động tác thân cầm vũ khí vẽ trên phiên bản Sword / Staff — `<động tác>sword` / `<động tác>staff` ← PixelLab `<động tác>-sword` / `-staff` (`<tên>2` = vẽ lại từng hướng, ưu tiên); v3 cùng số khung + cùng mô tả chuyển động với bản tay không, thêm câu giữ vũ khí; gục: vũ khí rơi khỏi tay nằm cạnh người; `revive<món>` = `death<món>` phát ngược. Game diễn bản cầm khi đang cầm món đó (`CharacterView.actionArt`), thiếu bản / thiếu hướng thì bản tay không. Đã vẽ: trúng đòn, lướt né, gục (cầm kiếm + cầm trượng). Uống bình cầm vũ khí CHƯA vẽ: atlas 16 tuổi hết chỗ (1238 ô 112px, trần 36×36 = 1296 ô lề 1px) — cần atlas 2 trang trước.",
+			"bodyHeight": 75,
+			"portrait": "portraits/player_hero_adult.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": []
+		},
+		"player_hero_adult_f": {
+			"displayName": "Nhân vật chính (16 tuổi, nữ)",
+			"role": "player",
+			"identity": {
+				"characterId": "player_hero_adult_f",
+				"hair": "chestnut_high_ponytail",
+				"eyes": "amber",
+				"skin": "light",
+				"outfit": "starter_linen_blouse_laced_vest_green_scarf_skirt",
+				"weapon": "baked_in_sword_staff_states",
+				"palette": "starter_earth_01"
+			},
+			"atlas": "characters/player_hero_adult_f/player_hero_adult_f.json",
+			"frameSize": {
+				"width": 112,
+				"height": 112
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.8928571428571429
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"idlesword": {
+					"fps": 6
+				},
+				"walksword": {
+					"fps": 10
+				},
+				"idlestaff": {
+					"fps": 6
+				},
+				"walkstaff": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 22,
+					"frames": 8,
+					"hitFrame": 3,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"backslash": {
+					"fps": 22,
+					"frames": 8,
+					"hitFrame": 3,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"thrust": {
+					"fps": 22,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"charge": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"smash": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"lunge": {
+					"fps": 16,
+					"frames": 8,
+					"hitFrame": 3,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"block": {
+					"fps": 8,
+					"frames": 6,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"parry": {
+					"fps": 16,
+					"frames": 8,
+					"hitFrame": 2,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"spin": {
+					"fps": 18,
+					"frames": 10,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"flurry": {
+					"fps": 20,
+					"frames": 12,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"wave": {
+					"fps": 16,
+					"frames": 8,
+					"hitFrame": 3,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"fling": {
+					"fps": 16,
+					"frames": 12,
+					"hitFrame": 3,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"vanish": {
+					"fps": 16,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"cast": {
+					"fps": 20,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"throw": {
+					"fps": 16,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"channel": {
+					"fps": 8,
+					"frames": 6,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"push": {
+					"fps": 16,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"skycall": {
+					"fps": 14,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"stomp": {
+					"fps": 14,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"ultimate": {
+					"fps": 12,
+					"frames": 12,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"dodge": {
+					"fps": 16,
+					"frames": 6,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"hit": {
+					"fps": 14,
+					"frames": 6,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"revive": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"drink": {
+					"fps": 12,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"hitsword": {
+					"fps": 14,
+					"frames": 6,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"hitstaff": {
+					"fps": 14,
+					"frames": 6,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"dodgesword": {
+					"fps": 16,
+					"frames": 6,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"dodgestaff": {
+					"fps": 16,
+					"frames": 6,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"deathsword": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"revivesword": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"deathstaff": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"revivestaff": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1). Thiết kế người chơi mới thay bản tóc bạc (nay là NPC npc_silver_*). Thân mặc đồ tân thủ để giáp các bậc phủ lên (Mốc 3); tóc nâu trung tính để đổi màu bằng code. Động tác: v3 8–12 khung trên phiên bản Sword / Staff cùng nhóm (khung nới 108 → đệm + chuẩn hoá vào ô 112); revive = death phát ngược. | 10/10/2026 (chủ dự án: \"cầm kiếm tự gắn vào xấu\" — cầm vũ khí suốt, bỏ hướng tay không): đứng / đi cầm vũ khí vẽ trên phiên bản Sword / Staff — `idlesword` / `walksword` / `idlestaff` / `walkstaff` ← PixelLab `idle-<món>` / `walk-<món>` (`<tên>2` = vẽ lại từng hướng, ưu tiên). Đi: mẫu walking-8-frames chế độ skeleton-v3 (mẫu thường làm RƠI kiếm / trượng ở hướng ngang); đứng: mẫu breathing-idle hoặc v3 4 khung. Game chọn bản theo vũ khí đang cầm (`gearLayers.heldArt`). Bản tay không (`<động tác>-hand*`, vẽ 09/10 tối) giữ trong nguồn làm lưu trữ, spec không dùng. | 10/10/2026 (lượt 2 — chủ dự án: \"vẽ nốt\"): động tác thân cầm vũ khí vẽ trên phiên bản Sword / Staff — `<động tác>sword` / `<động tác>staff` ← PixelLab `<động tác>-sword` / `-staff` (`<tên>2` = vẽ lại từng hướng, ưu tiên); v3 cùng số khung + cùng mô tả chuyển động với bản tay không, thêm câu giữ vũ khí; gục: vũ khí rơi khỏi tay nằm cạnh người; `revive<món>` = `death<món>` phát ngược. Game diễn bản cầm khi đang cầm món đó (`CharacterView.actionArt`), thiếu bản / thiếu hướng thì bản tay không. Đã vẽ: trúng đòn, lướt né, gục (cầm kiếm + cầm trượng). Uống bình cầm vũ khí CHƯA vẽ: atlas 16 tuổi hết chỗ (~1240 ô 112px, trần 36×36 = 1296 ô lề 1px) — cần atlas 2 trang trước.",
+			"bodyHeight": 72,
+			"portrait": "portraits/player_hero_adult_f.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": []
+		},
+		"player_lior_child": {
+			"displayName": "Nhân vật chính (bé trai)",
+			"role": "player",
+			"identity": {
+				"characterId": "player_lior_child",
+				"hair": "chestnut_messy",
+				"eyes": "amber",
+				"skin": "light",
+				"outfit": "kid_linen_tunic_vest_green_scarf_shorts",
+				"weapon": "baked_in_training_sword_staff_states",
+				"palette": "starter_earth_01"
+			},
+			"atlas": "characters/player_lior_child/player_lior_child.json",
+			"frameSize": {
+				"width": 96,
+				"height": 96
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.875
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"idlesword": {
+					"fps": 6
+				},
+				"walksword": {
+					"fps": 10
+				},
+				"idlestaff": {
+					"fps": 6
+				},
+				"walkstaff": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 22,
+					"frames": 8,
+					"hitFrame": 3,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"backslash": {
+					"fps": 22,
+					"frames": 8,
+					"hitFrame": 3,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"thrust": {
+					"fps": 22,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"cast": {
+					"fps": 20,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"throw": {
+					"fps": 16,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"hit": {
+					"fps": 14,
+					"frames": 6,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"revive": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"drink": {
+					"fps": 12,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"hitsword": {
+					"fps": 14,
+					"frames": 6,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"hitstaff": {
+					"fps": 14,
+					"frames": 6,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"deathsword": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"revivesword": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"deathstaff": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"revivestaff": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"drinksword": {
+					"fps": 12,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"drinkstaff": {
+					"fps": 12,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1): bản 6 tuổi của nhân vật người chơi mới (cùng tóc nâu, mắt hổ phách, khăn xanh rêu). Thay bản tóc bạc (nay là NPC npc_silver_child*). Động tác v3 trên phiên bản Sword / Staff cùng nhóm (khung nới 88 → ô 96); revive = death phát ngược. | 10/10/2026 (chủ dự án: \"cầm kiếm tự gắn vào xấu\" — cầm vũ khí suốt, bỏ hướng tay không): đứng / đi cầm vũ khí vẽ trên phiên bản Sword / Staff — `idlesword` / `walksword` / `idlestaff` / `walkstaff` ← PixelLab `idle-<món>` / `walk-<món>` (`<tên>2` = vẽ lại từng hướng, ưu tiên). Đi: mẫu walking-8-frames chế độ skeleton-v3 (mẫu thường làm RƠI kiếm / trượng ở hướng ngang); đứng: mẫu breathing-idle hoặc v3 4 khung. Game chọn bản theo vũ khí đang cầm (`gearLayers.heldArt`). Bản tay không (`<động tác>-hand*`, vẽ 09/10 tối) giữ trong nguồn làm lưu trữ, spec không dùng. | 10/10/2026 (lượt 2 — chủ dự án: \"vẽ nốt\"): động tác thân cầm vũ khí vẽ trên phiên bản Sword / Staff — `<động tác>sword` / `<động tác>staff` ← PixelLab `<động tác>-sword` / `-staff` (`<tên>2` = vẽ lại từng hướng, ưu tiên); v3 cùng số khung + cùng mô tả chuyển động với bản tay không, thêm câu giữ vũ khí; gục: vũ khí rơi khỏi tay nằm cạnh người; `revive<món>` = `death<món>` phát ngược. Game diễn bản cầm khi đang cầm món đó (`CharacterView.actionArt`), thiếu bản / thiếu hướng thì bản tay không. Đã vẽ: trúng đòn, gục, uống bình (cầm kiếm gỗ + cầm trượng tập; bé không có lướt). Uống bình: một tay cầm vũ khí, tay kia cầm bình.",
+			"bodyHeight": 54,
+			"portrait": "portraits/player_lior_child.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": []
+		},
+		"player_lior_child_f": {
+			"displayName": "Nhân vật chính (bé gái)",
+			"role": "player",
+			"identity": {
+				"characterId": "player_lior_child_f",
+				"hair": "chestnut_high_ponytail",
+				"eyes": "amber",
+				"skin": "light",
+				"outfit": "kid_linen_blouse_vest_green_scarf_skirt",
+				"weapon": "baked_in_training_sword_staff_states",
+				"palette": "starter_earth_01"
+			},
+			"atlas": "characters/player_lior_child_f/player_lior_child_f.json",
+			"frameSize": {
+				"width": 96,
+				"height": 96
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.875
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"idlesword": {
+					"fps": 6
+				},
+				"walksword": {
+					"fps": 10
+				},
+				"idlestaff": {
+					"fps": 6
+				},
+				"walkstaff": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 22,
+					"frames": 8,
+					"hitFrame": 3,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"backslash": {
+					"fps": 22,
+					"frames": 8,
+					"hitFrame": 3,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"thrust": {
+					"fps": 22,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"cast": {
+					"fps": 20,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"throw": {
+					"fps": 16,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"hit": {
+					"fps": 14,
+					"frames": 6,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"revive": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"drink": {
+					"fps": 12,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"hitsword": {
+					"fps": 14,
+					"frames": 6,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"hitstaff": {
+					"fps": 14,
+					"frames": 6,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"deathsword": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"revivesword": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"deathstaff": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"revivestaff": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"drinksword": {
+					"fps": 12,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"drinkstaff": {
+					"fps": 12,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1): bản 6 tuổi của nhân vật người chơi mới (cùng tóc nâu, mắt hổ phách, khăn xanh rêu). Thay bản tóc bạc (nay là NPC npc_silver_child*). Động tác v3 trên phiên bản Sword / Staff cùng nhóm (khung nới 88 → ô 96); revive = death phát ngược. | 10/10/2026 (chủ dự án: \"cầm kiếm tự gắn vào xấu\" — cầm vũ khí suốt, bỏ hướng tay không): đứng / đi cầm vũ khí vẽ trên phiên bản Sword / Staff — `idlesword` / `walksword` / `idlestaff` / `walkstaff` ← PixelLab `idle-<món>` / `walk-<món>` (`<tên>2` = vẽ lại từng hướng, ưu tiên). Đi: mẫu walking-8-frames chế độ skeleton-v3 (mẫu thường làm RƠI kiếm / trượng ở hướng ngang); đứng: mẫu breathing-idle hoặc v3 4 khung. Game chọn bản theo vũ khí đang cầm (`gearLayers.heldArt`). Bản tay không (`<động tác>-hand*`, vẽ 09/10 tối) giữ trong nguồn làm lưu trữ, spec không dùng. | 10/10/2026 (lượt 2 — chủ dự án: \"vẽ nốt\"): động tác thân cầm vũ khí vẽ trên phiên bản Sword / Staff — `<động tác>sword` / `<động tác>staff` ← PixelLab `<động tác>-sword` / `-staff` (`<tên>2` = vẽ lại từng hướng, ưu tiên); v3 cùng số khung + cùng mô tả chuyển động với bản tay không, thêm câu giữ vũ khí; gục: vũ khí rơi khỏi tay nằm cạnh người; `revive<món>` = `death<món>` phát ngược. Game diễn bản cầm khi đang cầm món đó (`CharacterView.actionArt`), thiếu bản / thiếu hướng thì bản tay không. Đã vẽ: trúng đòn, gục, uống bình (cầm kiếm gỗ + cầm trượng tập; bé không có lướt). Uống bình: một tay cầm vũ khí, tay kia cầm bình.",
+			"bodyHeight": 53,
+			"portrait": "portraits/player_lior_child_f.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": []
 		}
 	}
 }

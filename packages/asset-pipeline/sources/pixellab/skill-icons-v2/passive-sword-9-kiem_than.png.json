@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a red heart pierced by an upright steel sword, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/sword.png",
+	"jobId": "9349ecb5-6a20-46d2-b476-53fec1b3b528",
+	"token": 1,
+	"createdAt": "2026-10-09T19:13:09.554Z"
+}

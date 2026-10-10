@@ -1,0 +1,17 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a wavy blue water spear with a round droplet head flying right, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"init_image_strength": 140,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/water.png",
+	"init_image_path": "sources/pixellab/skill-icons-v2/init/water_lance.init.png",
+	"jobId": "41253a42-1c75-497c-8469-f9914cbc574c",
+	"token": 1,
+	"createdAt": "2026-10-09T19:23:57.193Z"
+}

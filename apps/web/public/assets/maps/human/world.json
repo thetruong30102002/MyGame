@@ -20,6 +20,13 @@
 					"x": 1080,
 					"y": 24,
 					"label": "Nghĩa địa Hoàng Hôn"
+				},
+				{
+					"id": "to_riverflats",
+					"to": "riverflats",
+					"x": 1080,
+					"y": 2472,
+					"label": "Bãi Bồi Brightwater"
 				}
 			],
 			"spots": [
@@ -32,6 +39,7 @@
 				"river_bank",
 				"bridge",
 				"east_gate",
+				"south_road",
 				"herb_spot_1",
 				"herb_spot_2",
 				"herb_spot_3",
@@ -62,6 +70,20 @@
 					"x": 1128,
 					"y": 24,
 					"label": "Đá Phong Ấn"
+				},
+				{
+					"id": "to_mossrift",
+					"to": "mossrift",
+					"x": 1680,
+					"y": 2088,
+					"label": "Vết Rạn Mossvale · cấp 5+"
+				},
+				{
+					"id": "to_oldfort",
+					"to": "oldfort",
+					"x": 1968,
+					"y": 24,
+					"label": "Luỹ Hiệp Sĩ Cũ · cấp 7+"
 				}
 			],
 			"spots": [
@@ -74,7 +96,9 @@
 				"forest_spot_3",
 				"forest_spot_4",
 				"forest_spot_5",
-				"forest_spot_6"
+				"forest_spot_6",
+				"south_entry_mv",
+				"northeast_entry_mv"
 			],
 			"zones": [
 				{
@@ -157,13 +181,21 @@
 					"x": 2184,
 					"y": 1008,
 					"label": "Đồi Xương Trắng"
+				},
+				{
+					"id": "to_nameless",
+					"to": "nameless",
+					"x": 24,
+					"y": 1008,
+					"label": "Mộ Vô Danh · cấp 6+"
 				}
 			],
 			"spots": [
 				"south_gate_gy",
 				"north_gate_gy",
 				"east_gate_gy",
-				"crypt"
+				"crypt",
+				"west_gate_gy"
 			],
 			"zones": [
 				{
@@ -211,10 +243,18 @@
 					"x": 24,
 					"y": 960,
 					"label": "Nghĩa địa Hoàng Hôn"
+				},
+				{
+					"id": "to_oldfort_bh",
+					"to": "oldfort",
+					"x": 2088,
+					"y": 672,
+					"label": "Luỹ Hiệp Sĩ Cũ · cấp 7+"
 				}
 			],
 			"spots": [
-				"west_entry_bh"
+				"west_entry_bh",
+				"east_gate_bh"
 			],
 			"zones": [
 				{
@@ -262,11 +302,19 @@
 					"x": 1104,
 					"y": 1896,
 					"label": "Nghĩa địa Hoàng Hôn"
+				},
+				{
+					"id": "to_cave",
+					"to": "gargoyle_cave",
+					"x": 1248,
+					"y": 24,
+					"label": "Hang Gargoyle · cấp 8+"
 				}
 			],
 			"spots": [
 				"south_entry_cl",
-				"ruin_plaza"
+				"ruin_plaza",
+				"north_entry_cl"
 			],
 			"zones": [
 				{
@@ -302,6 +350,441 @@
 			],
 			"dummies": [],
 			"boss": null
+		},
+		"riverflats": {
+			"name": "Bãi Bồi Brightwater",
+			"width": 2400,
+			"height": 2016,
+			"exits": [
+				{
+					"id": "to_town_rf",
+					"to": "town",
+					"x": 1080,
+					"y": 24,
+					"label": "Thistlewood"
+				},
+				{
+					"id": "to_mossrift_rf",
+					"to": "mossrift",
+					"x": 2376,
+					"y": 720,
+					"label": "Vết Rạn Mossvale · cấp 5+"
+				},
+				{
+					"id": "to_rivergate_rf",
+					"to": "rivergate",
+					"x": 1080,
+					"y": 1992,
+					"label": "Hẻm Cửa Sông · cấp 9+ · đường sang vùng 2"
+				}
+			],
+			"spots": [
+				"north_entry_rf",
+				"south_entry_rf",
+				"east_entry_rf",
+				"old_landing",
+				"new_landing",
+				"low_well",
+				"rf_herb_1",
+				"rf_herb_2",
+				"rf_herb_3",
+				"rf_herb_4",
+				"willow_isle"
+			],
+			"zones": [
+				{
+					"id": "rf_orchard",
+					"monsters": [
+						"mob_mushroom_001"
+					],
+					"level": 1
+				},
+				{
+					"id": "rf_levee",
+					"monsters": [
+						"mob_mushroom_001"
+					],
+					"level": 1
+				},
+				{
+					"id": "rf_oldbed",
+					"monsters": [
+						"mob_mushroom_001"
+					],
+					"level": 3
+				},
+				{
+					"id": "rf_east_bank",
+					"monsters": [
+						"mob_mushroom_001"
+					],
+					"level": 4
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				1,
+				4
+			]
+		},
+		"mossrift": {
+			"name": "Vết Rạn Mossvale",
+			"width": 2208,
+			"height": 2016,
+			"exits": [
+				{
+					"id": "to_mossvale_rv",
+					"to": "mossvale",
+					"x": 1104,
+					"y": 24,
+					"label": "Rừng Mossvale"
+				},
+				{
+					"id": "to_riverflats_rv",
+					"to": "riverflats",
+					"x": 24,
+					"y": 1392,
+					"label": "Bãi Bồi Brightwater"
+				}
+			],
+			"spots": [
+				"north_entry_rv",
+				"west_entry_rv",
+				"rift_heart",
+				"ward_ring",
+				"red_thread_1",
+				"red_thread_2",
+				"red_thread_3",
+				"green_hollow"
+			],
+			"zones": [
+				{
+					"id": "rv_ring_nw",
+					"monsters": [
+						"mob_mushroom_001"
+					],
+					"level": 5
+				},
+				{
+					"id": "rv_ring_ne",
+					"monsters": [
+						"mob_mushroom_001"
+					],
+					"level": 5
+				},
+				{
+					"id": "rv_ring_sw",
+					"monsters": [
+						"mob_mushroom_001"
+					],
+					"level": 5
+				},
+				{
+					"id": "rv_ring_se",
+					"monsters": [
+						"mob_mushroom_001"
+					],
+					"level": 6
+				},
+				{
+					"id": "rv_heart",
+					"monsters": [
+						"mob_mushroom_001"
+					],
+					"level": 6
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				5,
+				6
+			]
+		},
+		"nameless": {
+			"name": "Mộ Vô Danh",
+			"width": 2112,
+			"height": 1920,
+			"exits": [
+				{
+					"id": "to_graveyard_nl",
+					"to": "graveyard",
+					"x": 2088,
+					"y": 960,
+					"label": "Nghĩa địa Hoàng Hôn"
+				},
+				{
+					"id": "to_cave_nl",
+					"to": "gargoyle_cave",
+					"x": 1560,
+					"y": 24,
+					"label": "Đường hầm của Đoàn · Hang Gargoyle · cấp 9+"
+				}
+			],
+			"spots": [
+				"east_entry_nl",
+				"north_entry_nl",
+				"mass_pit",
+				"lit_lantern",
+				"widow_garden",
+				"soldier_grave"
+			],
+			"zones": [
+				{
+					"id": "nl_trench_1",
+					"monsters": [
+						"mob_zombie_001"
+					],
+					"level": 6
+				},
+				{
+					"id": "nl_trench_2",
+					"monsters": [
+						"mob_zombie_001"
+					],
+					"level": 6
+				},
+				{
+					"id": "nl_trench_3",
+					"monsters": [
+						"mob_zombie_001"
+					],
+					"level": 7
+				},
+				{
+					"id": "nl_trench_4",
+					"monsters": [
+						"mob_zombie_001"
+					],
+					"level": 7
+				},
+				{
+					"id": "nl_pit",
+					"monsters": [
+						"mob_zombie_001"
+					],
+					"level": 7
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				6,
+				7
+			]
+		},
+		"oldfort": {
+			"name": "Luỹ Hiệp Sĩ Cũ",
+			"width": 2304,
+			"height": 1920,
+			"exits": [
+				{
+					"id": "to_bonehills_of",
+					"to": "bonehills",
+					"x": 24,
+					"y": 672,
+					"label": "Đồi Xương Trắng"
+				},
+				{
+					"id": "to_mossvale_of",
+					"to": "mossvale",
+					"x": 432,
+					"y": 1896,
+					"label": "Rừng Mossvale · lối tắt về Thistlewood"
+				}
+			],
+			"spots": [
+				"west_entry_of",
+				"south_entry_of",
+				"fort_keep",
+				"east_watch",
+				"seal_view"
+			],
+			"zones": [
+				{
+					"id": "of_gate",
+					"monsters": [
+						"mob_skeleton_archer_001"
+					],
+					"level": 7
+				},
+				{
+					"id": "of_rampart_n",
+					"monsters": [
+						"mob_skeleton_archer_001"
+					],
+					"level": 7
+				},
+				{
+					"id": "of_keep",
+					"monsters": [
+						"mob_skeleton_archer_001"
+					],
+					"level": 8
+				},
+				{
+					"id": "of_rampart_s",
+					"monsters": [
+						"mob_skeleton_archer_001"
+					],
+					"level": 8
+				},
+				{
+					"id": "of_tower_e",
+					"monsters": [
+						"mob_skeleton_archer_001"
+					],
+					"level": 8
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				7,
+				8
+			]
+		},
+		"gargoyle_cave": {
+			"name": "Hang Gargoyle",
+			"width": 2112,
+			"height": 1920,
+			"exits": [
+				{
+					"id": "to_cliffs_gc",
+					"to": "cliffs",
+					"x": 1488,
+					"y": 1896,
+					"label": "Vách Gargoyle"
+				},
+				{
+					"id": "to_nameless_gc",
+					"to": "nameless",
+					"x": 264,
+					"y": 1896,
+					"label": "Đường hầm của Đoàn · Mộ Vô Danh"
+				}
+			],
+			"spots": [
+				"south_entry_gc",
+				"tunnel_gc",
+				"name_hall",
+				"brass_meter_spot",
+				"cave_pool",
+				"glow_grotto"
+			],
+			"zones": [
+				{
+					"id": "gc_roost_e",
+					"monsters": [
+						"mob_cave_bat_001"
+					],
+					"level": 8
+				},
+				{
+					"id": "gc_pool",
+					"monsters": [
+						"mob_cave_bat_001"
+					],
+					"level": 8
+				},
+				{
+					"id": "gc_crystal",
+					"monsters": [
+						"mob_cave_bat_001"
+					],
+					"level": 9
+				},
+				{
+					"id": "gc_statues",
+					"monsters": [
+						"mob_cave_bat_001"
+					],
+					"level": 9
+				},
+				{
+					"id": "gc_hall",
+					"monsters": [
+						"boss_stone_gargoyle_001"
+					]
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				8,
+				9
+			]
+		},
+		"rivergate": {
+			"name": "Hẻm Cửa Sông",
+			"width": 1920,
+			"height": 2112,
+			"exits": [
+				{
+					"id": "to_riverflats_vg",
+					"to": "riverflats",
+					"x": 1056,
+					"y": 24,
+					"label": "Bãi Bồi Brightwater"
+				},
+				{
+					"id": "to_swamp_vg",
+					"to": "swamp/hub",
+					"x": 24,
+					"y": 1608,
+					"label": "Đầm lầy Mù Sương · vùng 2 · cần cấp 10 + đã hạ Quỷ vương"
+				}
+			],
+			"spots": [
+				"north_entry_vg",
+				"stone_gate",
+				"swamp_gate_vg",
+				"gorge_lookout"
+			],
+			"zones": [
+				{
+					"id": "vg_ledge_n",
+					"monsters": [
+						"mob_gargoyle_001"
+					],
+					"level": 9
+				},
+				{
+					"id": "vg_altar",
+					"monsters": [
+						"mob_gargoyle_001"
+					],
+					"level": 9
+				},
+				{
+					"id": "vg_shelf_w",
+					"monsters": [
+						"mob_gargoyle_001"
+					],
+					"level": 9
+				},
+				{
+					"id": "vg_gate",
+					"monsters": [
+						"mob_gargoyle_001"
+					],
+					"level": 10
+				},
+				{
+					"id": "vg_mouth",
+					"monsters": [
+						"mob_gargoyle_001"
+					],
+					"level": 10
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				9,
+				10
+			]
 		}
 	}
 }

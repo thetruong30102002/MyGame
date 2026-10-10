@@ -1,0 +1,31 @@
+{
+	"id": "dragon_flood",
+	"kind": "loop",
+	"canvas": {
+		"w": 192,
+		"h": 192
+	},
+	"first": {
+		"prompt": "an irregular round patch of shallow clear teal sea water seen from directly above, soft uneven wet edge, gentle ripples, a few bubbles and foam lines, transparent outside the patch, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "1c906f23-b1ca-4e02-9661-611146f9b938"
+	},
+	"action": "the shallow flood water ripples and sloshes gently, foam lines drift, bubbles pop and reform, seamless loop",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "00b69cef-c99f-4b57-89f6-d15af7187255",
+	"createdAt": "2026-10-09T16:40:24.869Z",
+	"token": 1
+}

@@ -1,6 +1,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { isSharedZone, type MonsterZoneDef } from '@aether/sim/mobs';
+import { isChildZone, isSharedZone, type MonsterZoneDef } from '@aether/sim/mobs';
+import { enemyLevel } from '@aether/sim/skills';
 import type { NpcSpot } from '@aether/sim/rewards';
 
 /** Mã map `<vùng>/<tên>` hợp lệ — chỉ chữ thường, số, gạch dưới (không cho `..` lọt ra ngoài thư mục map). */
@@ -53,30 +54,50 @@ export function nearNpc(dir: string, at: { map: string; x: number; y: number } |
 	return Math.hypot(at.x - (spot.x + npc.dx), at.y - (spot.y + npc.dy)) <= npc.range;
 }
 
-const privates = new Map<string, { zone: Map<string, number>; boss: string | null }>();
+/** Một khu RIÊNG trên map (không dùng chung): cấp + có phải khu tuổi thơ (EXP bị chặn) + các loại quái. */
+interface PrivateZone {
+	id: string;
+	level?: number;
+	child: boolean;
+	monsters: string[];
+}
+
+const privates = new Map<string, { zones: PrivateZone[]; count: Map<string, number>; boss: string | null }>();
+
+/** Quái riêng client vừa báo hạ, đã khớp với dữ liệu map. */
+export type PrivateKill = { kind: 'zone'; count: number; zone: string; level?: number; child: boolean } | { kind: 'boss' };
 
 /**
  * Quái RIÊNG có trên map (M3.3a — client báo hạ, máy chủ kiểm): `zone` = loại trong khu KHÔNG dùng chung (tuổi thơ, nhiệm vụ) kèm
- * TỔNG số con của loại đó trên map (trần số lần báo trong một nhịp hồi sinh); `boss` = boss cốt truyện của map; null = không có (quái
- * dùng chung do máy chủ tự tính công, không nhận báo từ client).
+ * TỔNG số con của loại đó trên map (trần số lần báo trong một nhịp hồi sinh), khu đã khớp + cấp của khu (EXP / xu theo
+ * `enemyStatsAt`) + khu tuổi thơ hay không (EXP chặn ở `CHILD_ZONE_LEVEL_CAP`); `boss` = boss cốt truyện của map; null = không có
+ * (quái dùng chung do máy chủ tự tính công, không nhận báo từ client).
+ * `zoneId`: khu client báo (thiết kế 12 map vùng 1) — phải là khu riêng của map này và có loại đó, sai thì null. Vắng (client bản
+ * cũ) thì lấy khu riêng CẤP THẤP NHẤT có loại đó (ít EXP nhất; ngang cấp thì khu tuổi thơ trước — bị chặn EXP).
  */
-export function privateKill(dir: string, map: string, type: string): { kind: 'zone'; count: number } | { kind: 'boss' } | null {
+export function privateKill(dir: string, map: string, type: string, zoneId?: string): PrivateKill | null {
 	const file = mapFile(dir, map);
 	if (!file) return null;
 	let p = privates.get(file);
 	if (!p) {
 		try {
 			const d = JSON.parse(readFileSync(file, 'utf8')) as { monsterZones?: MonsterZoneDef[]; boss?: { characterId: string } | null };
-			const zone = new Map<string, number>();
+			const zones = (d.monsterZones ?? []).filter((x) => !isSharedZone(x)).map((z) => ({ id: z.id, level: z.level, child: isChildZone(z), monsters: z.monsters }));
+			const count = new Map<string, number>();
 			// Khu nhiều loại quái chia đều số con (mỗi loại tính đủ `count` — trần rộng tay, vẫn chặn được báo dồn dập).
-			for (const z of (d.monsterZones ?? []).filter((x) => !isSharedZone(x))) for (const t of z.monsters) zone.set(t, (zone.get(t) ?? 0) + z.count);
-			p = { zone, boss: d.boss?.characterId ?? null };
+			for (const z of (d.monsterZones ?? []).filter((x) => !isSharedZone(x))) for (const t of z.monsters) count.set(t, (count.get(t) ?? 0) + z.count);
+			p = { zones, count, boss: d.boss?.characterId ?? null };
 		} catch {
-			p = { zone: new Map(), boss: null };
+			p = { zones: [], count: new Map(), boss: null };
 		}
 		privates.set(file, p);
 	}
 	if (p.boss === type) return { kind: 'boss' };
-	const count = p.zone.get(type);
-	return count ? { kind: 'zone', count } : null;
+	const count = p.count.get(type);
+	if (!count) return null;
+	const fits = p.zones.filter((z) => z.monsters.includes(type));
+	const lv = (z: PrivateZone): number => enemyLevel(type, z.level) ?? 0;
+	const z = zoneId ? fits.find((x) => x.id === zoneId) : [...fits].sort((a, b) => lv(a) - lv(b) || Number(b.child) - Number(a.child))[0];
+	if (!z) return null;
+	return { kind: 'zone', count, zone: z.id, ...(z.level !== undefined ? { level: z.level } : {}), child: z.child };
 }

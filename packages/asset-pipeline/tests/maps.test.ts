@@ -19,14 +19,121 @@ console.log('maps');
 const region = buildHumanRegion({}, []);
 const clone = (): MapData[] => JSON.parse(JSON.stringify(region.maps)) as MapData[];
 
-test('vùng thật đạt luật: 6 map, lối hai chiều, chỉ mục khớp', () => {
+test('vùng thật đạt luật: 12 map (thiết kế 10/10/2026), lối hai chiều, chỉ mục khớp', () => {
 	assert.deepEqual(validateRegion(region.maps), []);
-	assert.deepEqual(Object.keys(region.index.maps).sort(), ['bonehills', 'cliffs', 'graveyard', 'mossvale', 'shrine', 'town']);
-	assert.deepEqual(region.index.maps.town!.exits.map((e) => e.to).sort(), ['graveyard', 'mossvale']);
-	assert.deepEqual(region.index.maps.mossvale!.exits.map((e) => e.to).sort(), ['shrine', 'town']);
-	assert.deepEqual(region.index.maps.graveyard!.exits.map((e) => e.to).sort(), ['bonehills', 'cliffs', 'town']);
+	assert.deepEqual(Object.keys(region.index.maps).sort(), ['bonehills', 'cliffs', 'gargoyle_cave', 'graveyard', 'mossrift', 'mossvale', 'nameless', 'oldfort', 'riverflats', 'rivergate', 'shrine', 'town']);
+	const to = (id: string): string[] => region.index.maps[id]!.exits.map((e) => e.to).sort();
+	assert.deepEqual(to('town'), ['graveyard', 'mossvale', 'riverflats']);
+	assert.deepEqual(to('mossvale'), ['mossrift', 'oldfort', 'shrine', 'town']);
+	assert.deepEqual(to('graveyard'), ['bonehills', 'cliffs', 'nameless', 'town']);
+	assert.deepEqual(to('bonehills'), ['graveyard', 'oldfort']);
+	assert.deepEqual(to('cliffs'), ['gargoyle_cave', 'graveyard']);
+	assert.deepEqual(to('shrine'), ['mossvale']);
+	assert.deepEqual(to('riverflats'), ['mossrift', 'rivergate', 'town']);
+	assert.deepEqual(to('mossrift'), ['mossvale', 'riverflats']);
+	assert.deepEqual(to('nameless'), ['gargoyle_cave', 'graveyard']);
+	assert.deepEqual(to('oldfort'), ['bonehills', 'mossvale']);
+	assert.deepEqual(to('gargoyle_cave'), ['cliffs', 'nameless']);
+	assert.deepEqual(to('rivergate'), ['riverflats', 'swamp/hub']);
+	// 14 cạnh trong vùng (28 lối) + 1 lối sang vùng 2.
+	assert.equal(region.maps.reduce((n, m) => n + m.exits.length, 0), 29);
 	assert.equal(region.index.maps.shrine!.boss, 'boss_demon_001');
 	assert.ok(region.index.maps.town!.spots.includes('home') && region.index.maps.mossvale!.spots.includes('forest_edge'));
+});
+
+test('map cũ: lối CŨ giữ đầu mảng (dẫn đường nhiệm vụ đi lối khai trước — town ↔ mossvale vẫn một bước), lối mới ở cuối', () => {
+	const first = (id: string): string[] => region.maps.find((m) => m.id === id)!.exits.map((e) => e.to);
+	assert.deepEqual(first('town'), ['mossvale', 'graveyard', 'riverflats']);
+	assert.deepEqual(first('mossvale'), ['town', 'shrine', 'mossrift', 'oldfort']);
+	assert.deepEqual(first('graveyard'), ['town', 'cliffs', 'bonehills', 'nameless']);
+	assert.deepEqual(first('bonehills'), ['graveyard', 'oldfort']);
+	assert.deepEqual(first('cliffs'), ['graveyard', 'gargoyle_cave']);
+	// Dải lối cũ không xê dịch (bản lưu đứng ngay cạnh lối, nhiệm vụ dẫn tới lối).
+	const town = region.maps.find((m) => m.id === 'town')!;
+	assert.deepEqual([town.exits[0]!.x0, town.exits[0]!.y0, town.exits[1]!.x0, town.exits[1]!.y0], [2352, 1104, 960, 0]);
+});
+
+test('Hang Gargoyle: một khu boss Gargoyle Đá 1 con; quái thường là dơi hang; lối sang vùng 2 duy nhất ở Hẻm Cửa Sông', () => {
+	const cave = region.maps.find((m) => m.id === 'gargoyle_cave')!;
+	const bosses = cave.monsterZones.filter((z) => z.boss);
+	assert.equal(bosses.length, 1);
+	assert.deepEqual([bosses[0]!.monsters, bosses[0]!.count, bosses[0]!.fromAge], [['boss_stone_gargoyle_001'], 1, 16]);
+	assert.deepEqual([...new Set(cave.monsterZones.filter((z) => !z.boss).flatMap((z) => z.monsters))], ['mob_cave_bat_001']);
+	assert.deepEqual(crossRegionExits('human', region.maps), [{ from: 'human/rivergate', to: 'swamp/hub', toSpot: 'east_gate' }]);
+});
+
+test('cấp quái theo khu: map cũ không khai cấp (chỉ số gốc), map mới có; chỉ mục ghi cấp từng khu + khoảng cấp của map', () => {
+	for (const id of ['town', 'mossvale', 'shrine', 'graveyard', 'bonehills', 'cliffs']) {
+		assert.ok(region.maps.find((m) => m.id === id)!.monsterZones.every((z) => z.level === undefined), `${id}: không khai level`);
+		assert.equal(region.index.maps[id]!.levels, undefined, id);
+	}
+	const levels = (id: string) => region.index.maps[id]!.levels;
+	assert.deepEqual(
+		['riverflats', 'mossrift', 'nameless', 'oldfort', 'gargoyle_cave', 'rivergate'].map(levels),
+		[
+			[1, 4],
+			[5, 6],
+			[6, 7],
+			[7, 8],
+			[8, 9],
+			[9, 10],
+		],
+	);
+	assert.equal(region.index.maps.rivergate!.zones.find((z) => z.id === 'vg_gate')!.level, 10);
+	assert.equal(region.index.maps.gargoyle_cave!.zones.find((z) => z.id === 'gc_hall')!.level, undefined, 'boss khu dùng cấp gốc (10)');
+	// Bãi Bồi: hai bầy tuổi thơ riêng (8–15 tuổi, cấp 1) + hai bầy dùng chung 16+.
+	const rf = region.maps.find((m) => m.id === 'riverflats')!.monsterZones;
+	assert.deepEqual(
+		rf.map((z) => [z.id, z.fromAge, z.untilAge, z.level]),
+		[
+			['rf_orchard', 8, 15, 1],
+			['rf_levee', 8, 15, 1],
+			['rf_oldbed', 16, undefined, 3],
+			['rf_east_bank', 16, undefined, 4],
+		],
+	);
+});
+
+test('luật mới: cấp khu trong khoảng cấp vùng; tâm bầy cách nước ≥ 6 ô; khu tuổi thơ phải có untilAge ≤ 15', () => {
+	const a = clone();
+	a.find((m) => m.id === 'mossrift')!.monsterZones[0]!.level = 11;
+	a.find((m) => m.id === 'rivergate')!.monsterZones[0]!.level = 0;
+	const errs = validateRegion(a);
+	assert.ok(errs.some((e) => e.startsWith('mossrift') && e.includes('ngoài khoảng cấp')));
+	assert.ok(errs.some((e) => e.startsWith('rivergate') && e.includes('ngoài khoảng cấp')));
+	assert.ok(validateRegion(a, [1, 20]).every((e) => !e.startsWith('mossrift')), 'khoảng cấp vùng khác thì đạt');
+
+	// Bầy Bờ đông của Bãi Bồi dời vào cột 38 (sông hàng 30 ở cột 33–35 — cách 3 ô): bị bắt; khu boss không xét.
+	const b = clone();
+	const flats = b.find((m) => m.id === 'riverflats')!;
+	const bank = flats.monsterZones.find((z) => z.id === 'rf_east_bank')!;
+	bank.x = 38 * 48 + 24;
+	assert.ok(validateRegion(b).some((e) => e.startsWith('riverflats') && e.includes('rf_east_bank') && e.includes('cách nước')));
+	const cave = b.find((m) => m.id === 'gargoyle_cave')!;
+	const hall = cave.monsterZones.find((z) => z.boss)!;
+	Object.assign(hall, { x: 22 * 48 + 24, y: 30 * 48 + 24 });
+	assert.ok(!validateRegion(b).some((e) => e.includes('gc_hall')), 'khu boss đứng cạnh suối vẫn được');
+
+	// Khu tuổi thơ thiếu untilAge (người lớn sẽ thấy bầy cấp 1, EXP bị chặn nhầm) / untilAge 16 / không ghi tuổi.
+	const c = clone();
+	const zones = c.find((m) => m.id === 'riverflats')!.monsterZones;
+	delete zones[0]!.untilAge;
+	zones[1]!.untilAge = 16;
+	delete zones[2]!.fromAge;
+	const kidErrs = validateRegion(c).flatMap((e) => /khu tuổi thơ (\S+) .*thiếu untilAge/.exec(e)?.[1] ?? []);
+	assert.deepEqual(kidErrs, ['rf_orchard', 'rf_levee', 'rf_oldbed']);
+	// Khu nhiệm vụ (onDemand, không ghi tuổi — mossvale_edge của c8) không phải khu tự sinh: đạt.
+	assert.ok(!validateRegion(c).some((e) => e.includes('mossvale_edge')));
+	const d = clone();
+	d.find((m) => m.id === 'riverflats')!.monsterZones[0]!.untilAge = 6;
+	assert.ok(validateRegion(d).some((e) => e.includes('không bao giờ sinh')));
+});
+
+test('lối hai chiều phải ở hai mép đối diện (ra mép bắc → vào từ mép nam)', () => {
+	const a = clone();
+	const flats = a.find((m) => m.id === 'riverflats')!;
+	flats.exits.find((e) => e.to === 'town')!.edge = 'W';
+	assert.ok(validateRegion(a).some((e) => e.startsWith('town') && e.includes('to_riverflats') && e.includes('mép N')));
 });
 
 test('mỗi map chỉ một loại quái, bầy ≥ 3 con (vùng boss 1 con đứng ngoài luật)', () => {
@@ -71,7 +178,10 @@ test('lối sang vùng khác (`vùng/map`): không bắt map đích trong vùng 
 	const town = a.find((m) => m.id === 'town')!;
 	town.exits.push({ ...town.exits[0]!, id: 'to_swamp', to: 'swamp/hub', toSpot: 'west_entry' });
 	assert.deepEqual(validateRegion(a), []);
-	assert.deepEqual(crossRegionExits('human', a), [{ from: 'human/town', to: 'swamp/hub', toSpot: 'west_entry' }]);
+	assert.deepEqual(crossRegionExits('human', a), [
+		{ from: 'human/town', to: 'swamp/hub', toSpot: 'west_entry' },
+		{ from: 'human/rivergate', to: 'swamp/hub', toSpot: 'east_gate' },
+	]);
 	town.exits.at(-1)!.to = 'Swamp/../hub';
 	assert.ok(validateRegion(a).some((e) => e.includes('sai dạng vùng/map')));
 });

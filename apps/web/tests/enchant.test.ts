@@ -29,8 +29,8 @@ const near = (a: number, b: number, what: string, eps = 1e-6) => assert.ok(Math.
 	assert.match(enchantDesc('wind', 7), /lưỡi gió/);
 	assert.match(enchantDesc('ice', 5), /trúng 3 nhát/);
 	assert.match(enchantDesc('ice', 7), /trúng 2 nhát/);
-	assert.match(enchantDesc('earth', 5), /choáng 0\.5 giây/);
-	assert.match(enchantDesc('earth', 7), /choáng 0\.9 giây/);
+	assert.match(enchantDesc('earth', 5), /choáng 0,5 giây/);
+	assert.match(enchantDesc('earth', 7), /choáng 0,9 giây/);
 }
 
 // 2) Trong trận (cùng khung giả như elements.test).

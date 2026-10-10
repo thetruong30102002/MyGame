@@ -1,0 +1,17 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a steel sword stabbing out of a dark purple shadow portal, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"init_image_strength": 140,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/sword+violet.png",
+	"init_image_path": "sources/pixellab/skill-icons-v2/init/shadow_step.init.png",
+	"jobId": "ed5d0715-95ba-4949-a9b0-65c9df3a268a",
+	"token": 1,
+	"createdAt": "2026-10-09T19:21:23.599Z"
+}

@@ -4,6 +4,7 @@ import { ACTION_ANIMS } from '@aether/protocol';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import type { AnimationName } from '@/game/assets/AssetManifest';
+import { heldActionBase } from '@/game/gearArt';
 
 type Background = 'night' | 'grass' | 'parchment';
 
@@ -36,20 +37,37 @@ export function CharacterLab() {
 	const anims = meta ? Object.keys(meta.animations) : ['idle'];
 	const shown = anims.includes(anim) ? anim : 'idle';
 
+	// Mở thẳng một nhân vật / động tác bằng URL (chụp duyệt không cần bấm): `/lab?id=player_hero_adult&anim=walksword&bg=grass`.
 	useEffect(() => {
+		const q = new URLSearchParams(location.search);
+		const id = q.get('id');
+		const a = q.get('anim');
+		const b = q.get('bg');
+		if (id) setCharacterId(id);
+		if (a) setAnim(a);
+		if (b && b in BACKGROUNDS) setBg(b as Background);
+	}, []);
+
+	useEffect(() => {
+		// Đổi nhân vật nhanh (mở bằng URL: mặc định → id trên URL) thì bỏ kết quả về muộn của nhân vật trước.
+		let alive = true;
 		fetch(`/assets/characters/${characterId}/quality.json`)
 			.then((r) => (r.ok ? r.json() : null))
-			.then((q) => q && setChecks(q.checks))
-			.catch(() => setChecks([]));
+			.then((q) => alive && setChecks(q?.checks ?? []))
+			.catch(() => alive && setChecks([]));
 		fetch('/assets/manifest.json', { cache: 'no-cache' })
 			.then((r) => r.json())
 			.then((m) => {
+				if (!alive) return;
 				setMeta(m.characters[characterId] ?? null);
 				setRoster(
 					Object.entries(m.characters as Record<string, { displayName: string; role: string }>).map(([id, c]) => ({ id, name: c.displayName, role: c.role })),
 				);
 			})
-			.catch(() => setMeta(null));
+			.catch(() => alive && setMeta(null));
+		return () => {
+			alive = false;
+		};
 	}, [characterId]);
 
 	useEffect(() => {
@@ -81,8 +99,9 @@ export function CharacterLab() {
 				root.addChild(title);
 				y += label;
 				DIRECTIONS.forEach((dir, i) => {
-					// Động tác một lần chỉ hiện ở hướng đã vẽ (hướng trống = game dùng phương án dự phòng, nổ tức thì).
-					const frames = (ACTION_ANIMS as readonly string[]).includes(shown) ? tex.actionFrames(shown as AnimationName, dir) : tex.frames(shown as AnimationName, dir);
+					// Động tác một lần (kể cả bản cầm vũ khí `hitsword`…) chỉ hiện ở hướng đã vẽ (hướng trống = game dùng phương án dự phòng).
+					const once = (ACTION_ANIMS as readonly string[]).includes(shown) || heldActionBase(shown) !== null;
+					const frames = once ? tex.actionFrames(shown as AnimationName, dir) : tex.frames(shown as AnimationName, dir);
 					if (!frames) return;
 					const s = new AnimatedSprite(frames);
 					s.anchor.set(0, 0);

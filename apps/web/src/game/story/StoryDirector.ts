@@ -4,11 +4,16 @@ import { addItem, autoSlot, cleanGear, emptyGear, ITEMS, mint, STORY_GIFTS, type
 import type { Element, HeroPath } from '../combat/skills';
 import {
 	addTier,
+	baseTier,
+	BRANCH_NAME,
+	BRANCH_UNLOCK,
 	branchOpen,
 	BRANCHES,
 	ENCHANTS,
+	fitTiers,
 	pointsForLevel,
 	pointsToTier,
+	REACTION_PAIR,
 	STYLE_TIER,
 	SWORD_STYLES,
 	tierCap,
@@ -19,7 +24,7 @@ import {
 	type TalentSpent,
 	type Tiers,
 } from '../combat/talents';
-import type { Line, QuestDef, QuestTarget, StoryData } from './storyTypes';
+import type { Line, Objective, QuestDef, QuestTarget, StoryData } from './storyTypes';
 
 export interface SaveData {
 	version: 2;
@@ -36,13 +41,17 @@ export interface SaveData {
 	/** Con đường chọn năm 16 tuổi (mạnh kiếm yếu phép / mạnh phép yếu kiếm). */
 	path?: HeroPath;
 	/**
-	 * Số MỐC ĐÃ MUA mỗi nhánh của cây Nguyên tố (mốc − 1; mốc suy từ đây + nhánh đã mở). Đặt ngoài `player` vì
-	 * Game.persist ghi đè trọn object đó; thêm trường tuỳ chọn thay vì tăng `version` (tăng là mọi bản lưu bị bỏ).
-	 * Thiếu `talentsV` = định dạng CŨ (điểm theo từng kỹ năng) → hoàn lại toàn bộ khi nạp.
+	 * Số MỐC ĐÃ MUA (đã trả điểm) mỗi nhánh của cây Nguyên tố — mốc suy từ đây + nhánh đã mở (`tiersFrom`). Định dạng 3: Kiếm =
+	 * mốc − 1 (mốc 1 miễn phí), nguyên tố = mốc (mốc 1 cũng phải mua); định dạng 2 ghi mốc − 1 cho MỌI nhánh (`migrateTalentsV2`).
+	 * Đặt ngoài `player` vì Game.persist ghi đè trọn object đó; thêm trường tuỳ chọn thay vì tăng `version` (tăng là mọi bản lưu
+	 * bị bỏ). Thiếu `talentsV` = định dạng CŨ (điểm theo từng kỹ năng) → hoàn lại toàn bộ khi nạp.
 	 */
 	talents?: TalentSpent;
-	/** Phiên bản định dạng `talents`: 2 = cây Nguyên tố (07/10/2026). */
-	talentsV?: 2;
+	/**
+	 * Phiên bản định dạng `talents`: 2 = cây Nguyên tố (07/10/2026, mở nhánh = mốc 1 miễn phí); 3 = mốc 1 nguyên tố tốn điểm
+	 * (10/10/2026).
+	 */
+	talentsV?: 2 | 3;
 	/** Thanh 10 ô (J, K, 1–8): id kỹ năng hoặc null. Thiếu = Game dựng mặc định. */
 	loadout?: (string | null)[];
 	/** Phủ phép Kiếm đang chọn (null/thiếu = không phủ). */
@@ -66,8 +75,32 @@ export interface SaveData {
 /** Định dạng `gear` hiện tại. */
 export const GEAR_VERSION = 1;
 
-/** Định dạng `talents` hiện tại — bản lưu khác số này là bản CŨ, phải hoàn điểm. */
-export const TALENTS_VERSION = 2;
+/**
+ * Định dạng `talents` hiện tại. Bản lưu định dạng 2 được CHUYỂN (`migrateTalentsV2` — giữ mốc nếu đủ điểm); thiếu / số khác là
+ * hệ điểm theo kỹ năng rất cũ → hoàn điểm.
+ */
+export const TALENTS_VERSION = 3;
+
+/** Thay đổi lúc chuyển bản lưu định dạng 2 → 3 (Game báo người chơi MỘT lần — `talentsMigrationText`). */
+export interface TalentsMigration {
+	/** Nhánh nguyên tố đã mở có mốc ≥ 1 trong bản cũ — mỗi nhánh nay tính thêm giá mốc 1 (1 điểm). */
+	charged: Branch[];
+	/** Nhánh phải hạ mốc vì không đủ điểm trả thêm (mốc cũ → mốc giữ được; nguyên tố có thể về 0 = chưa học). */
+	lowered: { branch: Branch; from: number; to: number }[];
+	/** Điểm chưa cộng sau khi chuyển (≥ 0). */
+	left: number;
+}
+
+/** Tiêu đề (banner một dòng) của thông báo chuyển bản lưu 2 → 3 — chi tiết ở `talentsMigrationText`. */
+export const TALENTS_MIGRATION_TITLE = 'Luật tiềm năng mới';
+
+/** Câu chi tiết báo người chơi sau khi chuyển bản lưu 2 → 3 (thông báo thường, xuống dòng được — banner cắt chữ dài). */
+export function talentsMigrationText(m: TalentsMigration): string {
+	const head = 'Phép đầu của mỗi nhánh nguyên tố nay học bằng 1 điểm tiềm năng';
+	if (!m.lowered.length) return `${head} — đã tính lại ${m.charged.length} điểm (${m.charged.map((b) => BRANCH_NAME[b]).join(', ')}), giữ nguyên mọi mốc.`;
+	const lost = m.lowered.map((l) => (l.to > 0 || l.branch === 'sword' ? `${BRANCH_NAME[l.branch]} mốc ${l.from} → ${l.to}` : `${BRANCH_NAME[l.branch]} về chưa học`)).join(', ');
+	return `${head}. Không đủ điểm giữ hết: ${lost}${m.left > 0 ? ` — còn ${m.left} điểm` : ''}. Học lại ở bảng Tiềm năng (P) khi có điểm.`;
+}
 
 /**
  * Thứ tự nhiệm vụ của bản lưu cũ (chưa ghi `questId`) — trước khi chèn "Thanh kiếm gỗ" (06/10/2026).
@@ -97,6 +130,9 @@ export interface StoryEvents {
 }
 
 const SAVE_KEY = 'aether.save.v2';
+
+/** Hệ của đòn → nhánh nguyên tố trên cây (Aether / thép / hồi phục không thuộc nhánh nguyên tố nào). */
+const ELEMENT_BRANCH: Partial<Record<Element, Branch>> = { fire: 'fire', water: 'water', wind: 'wind', ice: 'ice', earth: 'earth' };
 
 /** Tổng điểm đã cộng trong định dạng cũ (`{ kỹ năng: điểm }`) — chỉ để báo người chơi đã hoàn bao nhiêu. */
 function oldTalentPoints(raw: unknown): number {
@@ -229,7 +265,11 @@ export class StoryDirector {
 		this.migrateGear(fresh);
 		s.index = index;
 		s.questId = ids[index];
-		if (s.talentsV !== TALENTS_VERSION) {
+		if (s.talentsV === 2) {
+			// Cây Nguyên tố bản 07/10 (mốc 1 nguyên tố miễn phí) → luật 10/10 (mốc 1 tốn điểm): giữ mốc nếu đủ điểm, báo một lần.
+			s.talents = this.migrateTalentsV2(s.talents, s.player?.level ?? 1);
+			s.talentsV = TALENTS_VERSION;
+		} else if (s.talentsV !== TALENTS_VERSION) {
 			// Bản lưu hệ cũ (điểm cộng vào từng kỹ năng): hoàn lại TOÀN BỘ một lần — đánh dấu phiên bản để không hoàn lặp.
 			this.refunded = oldTalentPoints(s.talents);
 			s.talents = {};
@@ -353,6 +393,12 @@ export class StoryDirector {
 	styleMigrated = false;
 
 	/**
+	 * Bản lưu định dạng 2 vừa được chuyển sang 3 mà có trừ điểm / hạ mốc (`migrateTalentsV2`) — Game báo MỘT lần
+	 * (`talentsMigrationText`) rồi lưu; lần nạp sau bản lưu đã mang `talentsV` 3 nên không chuyển lặp. null = không có gì để báo.
+	 */
+	talentsMigrated: TalentsMigration | null = null;
+
+	/**
 	 * Mã cốt truyện vừa được BÙ lúc nạp (bản lưu đã qua nhiệm vụ mới chèn phía trước — vd “Sợi tơ màu đất” trao `earth`).
 	 * Game báo một lần; mã đã nằm trong `unlocked` nên lần nạp sau không bù lại.
 	 */
@@ -369,13 +415,52 @@ export class StoryDirector {
 		let left = pointsForLevel(level);
 		for (const b of BRANCHES) {
 			if (!branchOpen(b, (id) => this.isUnlocked(id))) continue;
-			let tier = Math.min(tierCap(b), 1 + Math.max(0, Math.floor(Number(src[b]) || 0)));
-			while (tier > 1 && pointsToTier(tier) > left) tier -= 1;
-			if (tier <= 1) continue;
-			clean[b] = tier - 1;
-			left -= pointsToTier(tier);
+			const base = baseTier(b);
+			let tier = Math.min(tierCap(b), base + Math.max(0, Math.floor(Number(src[b]) || 0)));
+			while (tier > base && pointsToTier(tier, b) > left) tier -= 1;
+			if (tier <= base) continue;
+			clean[b] = tier - base;
+			left -= pointsToTier(tier, b);
 		}
 		return clean;
+	}
+
+	/**
+	 * Chuyển `talents` định dạng 2 → 3 (chủ dự án 10/10/2026: phép đầu của nhánh nguyên tố phải học bằng điểm — trước đó mở
+	 * nhánh là có mốc 1 miễn phí). Định dạng 2 ghi "mốc − 1" cho MỌI nhánh đã mở; định dạng 3 ghi số mốc đã trả điểm (Kiếm vẫn
+	 * mốc − 1, nguyên tố = mốc). Chiến lược — KHÔNG BAO GIỜ âm điểm, ưu tiên giữ nguyên mốc người chơi đang có:
+	 * 1. Mốc cũ của từng nhánh ĐÃ MỞ (bỏ nhánh lạ / chưa mở, kẹp trần đã hiện thực — như `cleanTalents`).
+	 * 2. Đủ điểm của cấp hiện tại để trả thêm giá mốc 1 (1 điểm) cho mọi nhánh nguyên tố đã mở → giữ NGUYÊN mọi mốc, chỉ bớt
+	 *    điểm chưa cộng.
+	 * 3. Thiếu → `fitTiers`: nhánh sâu nhất giữ trước, mỗi nhánh lấy mốc cao nhất ≤ mốc cũ mà điểm còn lại trả nổi. Nhánh chính
+	 *    của build giữ lâu nhất; nhánh nguyên tố chỉ có mốc 1 (chưa từng cộng điểm) mất trước — về mốc 0 (nhánh vẫn mở, học lại
+	 *    1 điểm khi có điểm); bằng nhau thì nhánh mở sau mất trước (`BRANCHES` = thứ tự mở trong cốt truyện). Điểm lẻ còn dư để
+	 *    người chơi tự cộng.
+	 * Nhánh vừa được BÙ mã ngay lần nạp này (`granted` — vd Thổ cho bản lưu đã qua “Sợi tơ màu đất”) chưa từng có trong bản cũ:
+	 * tính từ mốc có sẵn (`baseTier`), không trừ điểm cũng không báo "mất". Có tính thêm điểm / hạ mốc thì ghi `talentsMigrated`
+	 * để Game báo MỘT lần.
+	 */
+	private migrateTalentsV2(raw: unknown, level: number): TalentSpent {
+		const src = raw && typeof raw === 'object' && !Array.isArray(raw) ? (raw as Record<string, unknown>) : {};
+		const want: Tiers = {};
+		for (const b of BRANCHES) {
+			if (!branchOpen(b, (id) => this.isUnlocked(id))) continue;
+			want[b] = this.granted.includes(BRANCH_UNLOCK[b]) ? baseTier(b) : Math.min(tierCap(b), 1 + Math.max(0, Math.floor(Number(src[b]) || 0)));
+		}
+		const points = pointsForLevel(level);
+		const kept = fitTiers(want, points);
+		const out: TalentSpent = {};
+		let spent = 0;
+		for (const b of BRANCHES) {
+			const t = kept[b];
+			if (t === undefined) continue;
+			spent += pointsToTier(t, b);
+			if (t > baseTier(b)) out[b] = t - baseTier(b);
+		}
+		const charged = BRANCHES.filter((b) => baseTier(b) === 0 && (want[b] ?? 0) >= 1);
+		const lowered = BRANCHES.flatMap((b) => (want[b] !== undefined && (kept[b] ?? 0) < want[b]! ? [{ branch: b, from: want[b]!, to: kept[b] ?? 0 }] : []));
+		if (charged.length || lowered.length) this.talentsMigrated = { charged, lowered, left: points - spent };
+		return out;
 	}
 
 	choosePath(path: HeroPath): void {
@@ -383,7 +468,7 @@ export class StoryDirector {
 		this.save();
 	}
 
-	/** Mốc hiện tại của mọi nhánh (chưa mở = 0, vừa mở = 1). */
+	/** Mốc hiện tại của mọi nhánh (chưa mở = 0; vừa mở: Kiếm 1, nguyên tố 0 — chưa học, `baseTier`). */
 	talentTiers(): Tiers {
 		return tiersFrom(this.state.talents ?? {}, (id) => this.isUnlocked(id));
 	}
@@ -402,7 +487,7 @@ export class StoryDirector {
 		const tiers = this.talentTiers();
 		const picking = branch === 'sword' && (tiers.sword ?? 0) === STYLE_TIER - 1 && !this.state.swordStyle;
 		if (picking && (!style || !SWORD_STYLES.includes(style))) return false;
-		if (addTier(level, tiers, branch) === null) return false;
+		if (addTier(level, tiers, branch, (id) => this.isUnlocked(id)) === null) return false;
 		const t = (this.state.talents ??= {});
 		t[branch] = (t[branch] ?? 0) + 1;
 		if (picking) this.state.swordStyle = style;
@@ -491,7 +576,7 @@ export class StoryDirector {
 		let objective: string;
 		if (t?.kind === 'npc' && t.role === 'giver') objective = `Nói chuyện với ${this.npcName(t.npc)}`;
 		else if (t?.kind === 'npc' && t.role === 'turnIn') objective = `Báo lại cho ${this.npcName(t.npc)}`;
-		else objective = q.objectiveText.replace('{n}', String(Math.min(this.state.progress, this.total(q)))).replace('{total}', String(this.total(q)));
+		else objective = this.objectiveLine(q).replace('{n}', String(Math.min(this.state.progress, this.total(q)))).replace('{total}', String(this.total(q)));
 		return [{ id: q.id, title: q.title, objective, done: false }];
 	}
 
@@ -554,18 +639,56 @@ export class StoryDirector {
 		if (q?.objective.type === 'pickup' && q.objective.item === item) this.advance(q, 1);
 	}
 
-	monsterKilled(monsterId: string): void {
+	/**
+	 * Hạ quái `monsterId` của khu `zoneId`. Nhiệm vụ "kill" có `onGive.zone` CHỈ đếm quái của khu đó (thiết kế 12 map vùng 1): trước
+	 * đây y2_shadows đếm mọi con quái ở bất kỳ đâu, c8_forest_edge đếm mọi con nấm — bầy nấm tuổi thơ ở Bãi Bồi sẽ làm xong c8 ngoài
+	 * bìa rừng. Thư viện vẫn đếm mọi con.
+	 */
+	monsterKilled(monsterId: string, zoneId?: string): void {
 		const c = this.codex;
 		c.kills[monsterId] = (c.kills[monsterId] ?? 0) + 1;
 		if (!c.seen.includes(monsterId)) c.seen.push(monsterId);
 		const q = this.quest;
-		if (q?.objective.type === 'kill' && (!q.objective.monster || q.objective.monster === monsterId)) this.advance(q, 1);
+		if (q?.objective.type !== 'kill' || (q.objective.monster && q.objective.monster !== monsterId)) return;
+		if (q.onGive?.zone && q.onGive.zone !== zoneId) return;
+		this.advance(q, 1);
 	}
 
+	/**
+	 * Một đòn trúng hình nộm (`CombatSystem.practiceHit`). Bài tập tính đòn đúng hệ (`element`) + đúng phản ứng (`reaction`) như
+	 * cũ, và NHẬN THÊM Tia Aether khi người chơi chưa học đủ chiêu để làm đúng bài (`aetherStandsIn`) — chủ dự án 10/10/2026:
+	 * chiêu nguyên tố mua bằng điểm tiềm năng, bài tập phép lúc nhỏ không được kẹt khi chưa có điểm; truyện vẫn kể như cũ.
+	 */
 	practiced(element: Element, reaction: ReactionId | null = null): void {
 		const q = this.quest;
 		const o = q?.objective;
-		if (o?.type === 'practice' && (!o.element || o.element === element) && (!o.reaction || o.reaction === reaction)) this.advance(q!, 1);
+		if (o?.type !== 'practice') return;
+		const exact = (!o.element || o.element === element) && (!o.reaction || o.reaction === reaction);
+		if (exact || (element === 'aether' && this.aetherStandsIn(o))) this.advance(q!, 1);
+	}
+
+	/**
+	 * Dòng mục tiêu (chưa thay `{n}`/`{total}`): bài luyện phép đang nhận Tia Aether (chưa học đủ chiêu) thì dùng
+	 * `objectiveTextAether` ("Tung Tia Aether vào Ông Rơm…"), học đủ rồi thì về `objectiveText` ("Tung Hoả Cầu…"). Đổi mốc
+	 * (cộng / tẩy điểm) thì Game dựng lại ô nhiệm vụ để chữ theo kịp.
+	 */
+	objectiveLine(q: QuestDef): string {
+		return q.objectiveTextAether && this.aetherStandsIn(q.objective) ? q.objectiveTextAether : q.objectiveText;
+	}
+
+	/**
+	 * Bài tập đang nhận Tia Aether thay cho chiêu nguyên tố: bài cần nhánh nguyên tố mà người chơi CHƯA học mốc 1 (chưa có Hoả
+	 * Cầu / Thuỷ Tiễn…, kể cả nhánh chưa mở). Bài một hệ → nhánh của hệ đó; bài phản ứng → CẢ HAI nhánh của phản ứng (Băng Giá =
+	 * Thuỷ + Phong: thiếu một là không tự ra phản ứng được — bắn Tia Aether thay cả bài). Học đủ rồi thì phải làm đúng bài
+	 * (Tia Aether không tính nữa). Bài Kiếm ('steel'), bài Aether: không áp dụng (Trảm có sẵn khi nhận kiếm, Tia Aether bẩm sinh).
+	 */
+	aetherStandsIn(o: Objective): boolean {
+		if (o.type !== 'practice') return false;
+		const need = new Set<Branch>(o.reaction ? REACTION_PAIR[o.reaction] : []);
+		const own = o.element ? ELEMENT_BRANCH[o.element] : undefined;
+		if (own) need.add(own);
+		const tiers = this.talentTiers();
+		return [...need].some((b) => (tiers[b] ?? 0) < 1);
 	}
 
 	reached(spot: string): void {

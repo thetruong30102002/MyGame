@@ -1,0 +1,13 @@
+{
+	"description": "cracked brown ground splitting in a star pattern with small yellow stars, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/earth+yellow.png",
+	"init_image_path": "sources/pixellab/skill-icons-v2/init/quake.init.png",
+	"init_image_strength": 140
+}

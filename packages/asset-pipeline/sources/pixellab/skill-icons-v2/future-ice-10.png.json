@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a ring of tall ice crystals bursting outward, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/ice.png",
+	"jobId": "3cffd4bd-e64d-4531-9ed3-e6d4a8253f1b",
+	"token": 1,
+	"createdAt": "2026-10-09T19:21:00.660Z"
+}

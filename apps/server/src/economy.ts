@@ -1,7 +1,8 @@
 import type { EcoGain, ServerMessage } from '@aether/protocol';
-import { addExp, cleanEco, COIN_CAP, POTION_CAP, type Eco, type EcoReason } from '@aether/sim/economy';
+import { addExp, capExpGain, cleanEco, COIN_CAP, POTION_CAP, type Eco, type EcoReason } from '@aether/sim/economy';
+import { CHILD_ZONE_LEVEL_CAP } from '@aether/sim/mobs';
 import { buffMults } from '@aether/sim/shop';
-import { ENEMY_STATS } from '@aether/sim/skills';
+import { ENEMY_STATS, enemyStatsAt, type EnemyStats } from '@aether/sim/skills';
 import { questDef } from '@aether/sim/story/quests';
 import { RateLimiter } from './auth.ts';
 import type { Store } from './db.ts';
@@ -54,9 +55,12 @@ export class Economy {
 		return this.eco.get(player);
 	}
 
-	/** Quái DÙNG CHUNG gục, người này được tính công (MobRegistry): EXP (× bình EXP đang dùng) + xu theo chỉ số quái. */
-	sharedKill(player: string, type: string): void {
-		const s = ENEMY_STATS[type];
+	/**
+	 * Quái DÙNG CHUNG gục, người này được tính công (MobRegistry): EXP (× bình EXP đang dùng) + xu theo chỉ số của CHÍNH con quái đó
+	 * (`stats` — đã nhân theo cấp của khu); vắng thì theo bảng gốc của loại.
+	 */
+	sharedKill(player: string, type: string, stats?: Pick<EnemyStats, 'exp' | 'coins'>): void {
+		const s = stats ?? ENEMY_STATS[type];
 		if (!s || !this.eco.has(player)) return;
 		const exp = Math.round(s.exp * buffMults(this.store.buffs(player)).exp);
 		this.change(player, { exp, coins: s.coins }, 'kill', type);
@@ -64,19 +68,25 @@ export class Economy {
 
 	/**
 	 * Quái RIÊNG (khu tuổi thơ / nhiệm vụ / boss cốt truyện) gục ở máy người chơi: chỉ nhận loại có trong khu riêng (hoặc là boss) của
-	 * map đang đứng, trong nhịp trần; boss cốt truyện trao một lần cho mỗi nhân vật.
+	 * map đang đứng, trong nhịp trần; boss cốt truyện trao một lần cho mỗi nhân vật. `rawZone`: khu client báo — EXP / xu theo cấp của
+	 * khu (`enemyStatsAt`), khu tuổi thơ thì EXP không đưa nhân vật quá `CHILD_ZONE_LEVEL_CAP` (xu vẫn nhận).
 	 */
-	privateKill(player: string, raw: unknown): void {
+	privateKill(player: string, raw: unknown, rawZone?: unknown): void {
 		const type = String(raw ?? '');
-		const s = ENEMY_STATS[type];
 		const map = this.host.map(player);
-		if (!s || !map || !this.eco.has(player)) return;
-		const found = privateKill(this.mapsDir, map, type);
+		if (!ENEMY_STATS[type] || !map || !this.eco.has(player)) return;
+		const zone = typeof rawZone === 'string' && rawZone ? rawZone.slice(0, 64) : undefined;
+		const found = privateKill(this.mapsDir, map, type, zone);
 		if (!found) return;
 		if (found.kind === 'zone' && !this.withinRespawn(`${player}|${map}|${type}`, found.count)) return;
 		if (!this.privateKills.allow(player)) return;
-		const exp = Math.round(s.exp * buffMults(this.store.buffs(player)).exp);
+		const s = enemyStatsAt(type, found.kind === 'zone' ? found.level : undefined)!;
+		let exp = Math.round(s.exp * buffMults(this.store.buffs(player)).exp);
 		if (found.kind === 'boss') return void this.change(player, { exp, coins: s.coins }, 'boss', type, `boss:${type}`);
+		if (found.child) {
+			const cur = this.eco.get(player)!;
+			exp = capExpGain(cur.level, cur.exp, exp, CHILD_ZONE_LEVEL_CAP);
+		}
 		this.change(player, { exp, coins: s.coins }, 'kill', type);
 	}
 

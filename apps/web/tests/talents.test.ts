@@ -5,6 +5,7 @@ import {
 	addTier,
 	aetherScale,
 	assignSlot,
+	baseTier,
 	BRANCH_LOCK_NOTE,
 	BRANCH_UNLOCK,
 	BRANCHES,
@@ -13,6 +14,8 @@ import {
 	depthBonus,
 	describeBuild,
 	ENCHANT_SWAP_SECONDS,
+	fitTiers,
+	FREE_FIRST_TIER,
 	HOME_SLOT,
 	knowsSkill,
 	MAX_LEVEL,
@@ -41,6 +44,7 @@ import {
 	SWORD_STYLES,
 	TIER_COST,
 	tierCap,
+	tierCost,
 	tiersFrom,
 	TREE,
 	treeOf,
@@ -64,16 +68,27 @@ const all = (_: string) => true;
 	assert.equal(pointsForLevel(MAX_LEVEL), 47, 'cấp 41–100 không thêm điểm');
 }
 
-// 2) Giá mốc 1·2·2·3·3·4·4·5·5 — tích luỹ m2=1 … m10=29; cấp 40 chỉ master được MỘT nhánh (+18 điểm dư ≈ nhánh nữa tới mốc 7).
+// 2) Giá mốc: mốc 1 nguyên tố = 1 điểm (học phép đầu — chủ dự án 10/10/2026: mở nhánh chỉ là được phép học), Kiếm mốc 1
+//    miễn phí (Trảm có sẵn khi nhận kiếm); mốc 2→10 = 1·2·2·3·3·4·4·5·5. Tích luỹ: Kiếm m10 = 29, nguyên tố m10 = 30. Cấp 40
+//    (47 điểm) chỉ master được MỘT nhánh.
 {
-	assert.deepEqual(TIER_COST.slice(2), [1, 2, 2, 3, 3, 4, 4, 5, 5]);
-	assert.deepEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(pointsToTier), [0, 1, 3, 5, 8, 11, 15, 19, 24, 29]);
-	assert.equal(pointsToTier(99), 29, 'quá mốc 10 thì kẹp');
-	const left = pointsForLevel(TALENT_LEVEL_CAP) - pointsToTier(MAX_TIER);
-	assert.equal(left, 18);
-	assert.ok(left < pointsToTier(MAX_TIER), 'không master được nhánh thứ hai');
-	assert.ok(pointsToTier(7) <= left && pointsToTier(8) > left, 'phần dư đủ cho nhánh phụ tới mốc 7');
-	assert.ok(2 * pointsToTier(5) <= left, 'hoặc hai nhánh phụ tới mốc 5');
+	assert.deepEqual([...TIER_COST], [0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5]);
+	assert.deepEqual(FREE_FIRST_TIER, ['sword']);
+	assert.deepEqual(BRANCHES.map(baseTier), [1, 0, 0, 0, 0, 0], 'vừa mở: Kiếm mốc 1, nguyên tố mốc 0 (chưa học)');
+	assert.deepEqual([tierCost('sword', 1), tierCost('fire', 1), tierCost('sword', 2), tierCost('fire', 2), tierCost('earth', 10)], [0, 1, 1, 1, 5]);
+	const tiers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+	assert.deepEqual(tiers.map((t) => pointsToTier(t, 'sword')), [0, 1, 3, 5, 8, 11, 15, 19, 24, 29], 'Kiếm');
+	assert.deepEqual(tiers.map((t) => pointsToTier(t, 'fire')), [1, 2, 4, 6, 9, 12, 16, 20, 25, 30], 'nguyên tố: thêm 1 điểm mốc 1');
+	assert.deepEqual([pointsToTier(0, 'fire'), pointsToTier(0, 'sword')], [0, 0], 'mốc 0 = chưa tiêu gì');
+	assert.deepEqual([pointsToTier(99, 'sword'), pointsToTier(99, 'ice')], [29, 30], 'quá mốc 10 thì kẹp');
+	const pts = pointsForLevel(TALENT_LEVEL_CAP);
+	for (const main of ['sword', 'fire'] as const) {
+		const left = pts - pointsToTier(MAX_TIER, main);
+		assert.ok(left < pointsToTier(MAX_TIER, 'sword'), `master ${main}: không master được nhánh thứ hai`);
+		assert.ok(pointsToTier(7, 'water') <= left && pointsToTier(8, 'water') > left, `master ${main}: phần dư đủ cho nguyên tố phụ tới mốc 7`);
+	}
+	assert.equal(pts - pointsToTier(MAX_TIER, 'sword'), 2 * pointsToTier(5, 'fire'), 'master Kiếm (29): dư 18 = đúng hai nguyên tố tới mốc 5 (phủ phép tối đa 2 hệ)');
+	assert.equal(pts - pointsToTier(MAX_TIER, 'fire'), pointsToTier(5, 'sword') + pointsToTier(5, 'water'), 'master nguyên tố (30): dư 17 = Kiếm 5 + một nguyên tố 5');
 }
 
 // 3) Dữ liệu cây: 6 nhánh × 10 mốc, chủ động 1/3/5/6/8/10, bị động 2/4/7/9; GĐ3 hiện thực mốc 1–9 của 5 nguyên tố, Kiếm
@@ -105,50 +120,71 @@ const all = (_: string) => true;
 	assert.deepEqual([ice.id, ice.element, ice.mpCost, ice.cooldown, ice.power, ice.kind, ice.speed, ice.range, ice.unlock, ice.anim], ['ice_shard', 'ice', 9, 1.8, 1.35, 'projectile', 440, 420, 'ice', 'cast'], 'Băng Tiễn ở chỉ số 6');
 }
 
-// 4) Mốc suy từ số mốc đã mua + nhánh đã mở; Thổ mở khi có mã `earth`; kẹp ở trần đã hiện thực (mọi nhánh mốc 9).
+// 4) Mốc suy từ số mốc đã mua + nhánh đã mở (`baseTier` + số đã mua): Kiếm mở là mốc 1, nguyên tố mở là mốc 0 (chưa học);
+//    Thổ mở khi có mã `earth`; kẹp ở trần đã hiện thực (mọi nhánh mốc 9).
 {
 	const has = new Set(['sword', 'staff', 'fire', 'earth']);
 	const t = tiersFrom({ sword: 20, fire: 20, water: 3, ice: -4, earth: 5 }, (id) => has.has(id));
-	assert.deepEqual(t, { sword: 9, fire: 9, water: 0, wind: 0, ice: 0, earth: 6 });
-	assert.equal(spentPoints(t), 24 + 24 + 11);
+	assert.deepEqual(t, { sword: 9, fire: 9, water: 0, wind: 0, ice: 0, earth: 5 });
+	assert.equal(spentPoints(t), 24 + 25 + 9);
 	assert.equal(tiersFrom({ earth: 3 }, (id) => id !== 'earth').earth, 0, 'chưa có mã: Thổ 0 dù bản lưu có số');
+	assert.deepEqual(tiersFrom({}, (id) => has.has(id)), { sword: 1, fire: 0, water: 0, wind: 0, ice: 0, earth: 0 }, 'vừa mở chưa mua gì: Kiếm 1 (Trảm), Hoả / Thổ 0');
+	assert.equal(spentPoints(tiersFrom({}, (id) => has.has(id))), 0);
 }
 
-// 5) Cộng mốc: giá đúng, không vượt trần đã hiện thực, nhánh chưa mở / nhánh lạ / hết điểm thì không.
+// 5) Cộng mốc: giá đúng, không vượt trần đã hiện thực, nhánh chưa mở / nhánh lạ / hết điểm thì không. Nhánh nguyên tố ĐÃ MỞ ở
+//    mốc 0 khác nhánh CHƯA MỞ: đã mở thì nấc kế là học phép đầu (1 điểm), chưa mở thì null.
 {
-	const t: Tiers = { sword: 1, fire: 1, water: 1, earth: 0 };
-	assert.equal(addTier(1, t, 'fire'), null, 'cấp 1 chưa có điểm');
-	assert.equal(nextTierCost(t, 'fire'), 1);
-	assert.equal(addTier(2, t, 'fire'), 2, 'mốc 2 = 1 điểm');
-	assert.equal(nextTierCost(t, 'fire'), 2);
-	assert.equal(addTier(3, t, 'fire'), null, 'cấp 3 còn 1 điểm, mốc 3 cần 2');
-	assert.equal(unspent(3, t), 1);
-	assert.equal(addTier(4, t, 'fire'), 3, 'mốc 3 (Vòng Lửa)');
-	assert.equal(addTier(6, t, 'fire'), 4);
-	assert.equal(nextTierCost(t, 'fire'), 3, 'mốc 5 = 3 điểm');
-	assert.equal(addTier(7, t, 'fire'), null, 'cấp 7 = 7 điểm, mốc 5 cần tổng 8');
-	assert.equal(addTier(8, t, 'fire'), 5, 'cấp 8 = 8 điểm: Bộc Hoả');
-	assert.equal(nextTierCost(t, 'fire'), 3, 'mốc 6 = 3 điểm (GĐ3)');
-	assert.equal(addTier(9, t, 'fire'), null, 'cấp 9 = 9 điểm, mốc 6 cần tổng 11');
-	assert.equal(addTier(10, t, 'fire'), 6, 'cấp 10 = 11 điểm: Tường Lửa');
-	assert.deepEqual([7, 8, 9].map(() => addTier(40, t, 'fire')), [7, 8, 9], 'mốc 7 (Tro Tàn), 8 (Thiên Thạch), 9 (Hoả Thân)');
-	assert.equal(nextTierCost(t, 'fire'), null, 'trần GĐ3: mốc 9 (tuyệt kỹ mốc 10 — GĐ4)');
-	assert.equal(addTier(40, t, 'fire'), null);
-	assert.equal(addTier(40, t, 'sword'), 2, 'Kiếm mốc 2 (Nhịp Chém)');
+	const open = (id: string) => id !== 'earth';
+	const t: Tiers = { sword: 1, fire: 0, water: 0, earth: 0 };
+	assert.equal(nextTierCost(t, 'fire', open), 1, 'Hoả đã mở, mốc 0: học Hoả Cầu = 1 điểm');
+	assert.equal(nextTierCost(t, 'earth', open), null, 'Thổ chưa mở: không có nấc kế dù cũng mốc 0');
+	assert.equal(addTier(1, t, 'fire', open), null, 'cấp 1 chưa có điểm: chưa học được Hoả Cầu');
+	assert.equal(addTier(2, t, 'fire', open), 1, 'cấp 2 = 1 điểm: học Hoả Cầu (mốc 1)');
+	assert.equal(knowsSkill(HERO_SKILLS.find((s) => s.id === 'fire_bolt')!, t, open), true, 'mua mốc 1 là học Hoả Cầu');
+	assert.equal(nextTierCost(t, 'fire', open), 1, 'mốc 2 = 1 điểm');
+	assert.equal(addTier(2, t, 'fire', open), null, 'cấp 2 đã tiêu hết');
+	assert.equal(addTier(3, t, 'fire', open), 2, 'cấp 3 = 2 điểm: mốc 2');
+	assert.equal(nextTierCost(t, 'fire', open), 2);
+	assert.equal(addTier(4, t, 'fire', open), null, 'cấp 4 còn 1 điểm, mốc 3 cần 2');
+	assert.equal(unspent(4, t), 1);
+	assert.equal(addTier(5, t, 'fire', open), 3, 'cấp 5 = 5 điểm: mốc 3 (Vòng Lửa), tổng 4');
+	assert.equal(addTier(6, t, 'fire', open), 4, 'cấp 6 = 6 điểm: mốc 4, tổng 6');
+	assert.equal(nextTierCost(t, 'fire', open), 3, 'mốc 5 = 3 điểm');
+	assert.equal(addTier(8, t, 'fire', open), null, 'cấp 8 = 8 điểm, mốc 5 cần tổng 9');
+	assert.equal(addTier(9, t, 'fire', open), 5, 'cấp 9 = 9 điểm: Bộc Hoả');
+	assert.equal(nextTierCost(t, 'fire', open), 3, 'mốc 6 = 3 điểm (GĐ3)');
+	assert.equal(addTier(10, t, 'fire', open), null, 'cấp 10 = 11 điểm, mốc 6 cần tổng 12');
+	assert.equal(addTier(11, t, 'fire', open), 6, 'cấp 11 = 12 điểm: Tường Lửa');
+	assert.deepEqual([7, 8, 9].map(() => addTier(40, t, 'fire', open)), [7, 8, 9], 'mốc 7 (Tro Tàn), 8 (Thiên Thạch), 9 (Hoả Thân)');
+	assert.equal(nextTierCost(t, 'fire', open), null, 'trần GĐ3: mốc 9 (tuyệt kỹ mốc 10 — GĐ4)');
+	assert.equal(addTier(40, t, 'fire', open), null);
+	assert.equal(addTier(40, t, 'sword', open), 2, 'Kiếm mốc 2 (Nhịp Chém) — Kiếm mốc 1 có sẵn');
 	// Hàm thuần không biết lưu phái — chọn lưu phái ở mốc 3 do StoryDirector.spendTalent bắt (mục 13).
-	assert.equal(addTier(40, t, 'sword'), 3, 'Kiếm mốc 3');
-	assert.equal(addTier(40, t, 'sword'), 4);
-	assert.equal(addTier(40, t, 'sword'), 5);
-	assert.deepEqual([6, 7, 8].map(() => addTier(40, t, 'sword')), [6, 7, 8], 'GĐ3 lượt B: Kiếm mốc 6–8');
-	assert.equal(addTier(40, t, 'sword'), null, 'cấp 40: Hoả 9 (24) + Kiếm 8 (19) = 43 điểm, Kiếm mốc 9 cần 5 (còn 4) — chỉ master được một nhánh');
+	assert.equal(addTier(40, t, 'sword', open), 3, 'Kiếm mốc 3');
+	assert.equal(addTier(40, t, 'sword', open), 4);
+	assert.equal(addTier(40, t, 'sword', open), 5);
+	assert.deepEqual([6, 7, 8].map(() => addTier(40, t, 'sword', open)), [6, 7, 8], 'GĐ3 lượt B: Kiếm mốc 6–8');
+	assert.equal(addTier(40, t, 'sword', open), null, 'cấp 40: Hoả 9 (25) + Kiếm 8 (19) = 44 điểm, Kiếm mốc 9 cần 5 (còn 3) — chỉ master được một nhánh');
 	const k: Tiers = { sword: 8 };
-	assert.equal(addTier(40, k, 'sword'), 9, 'Kiếm mốc 9');
-	assert.equal(nextTierCost(k, 'sword'), null, 'Kiếm trần mốc 9 (tuyệt kỹ mốc 10 — GĐ4)');
-	assert.equal(addTier(40, t, 'earth'), null, 'Thổ chưa mở (chưa có mã)');
-	assert.equal(addTier(40, { sword: 0 }, 'sword'), null, 'nhánh chưa mở');
-	assert.equal(addTier(40, t, 'bogus' as Branch), null, 'nhánh lạ');
-	assert.equal(unspent(40, t), 47 - 24 - 19);
+	assert.equal(addTier(40, k, 'sword', open), 9, 'Kiếm mốc 9');
+	assert.equal(nextTierCost(k, 'sword', open), null, 'Kiếm trần mốc 9 (tuyệt kỹ mốc 10 — GĐ4)');
+	assert.equal(addTier(40, t, 'earth', open), null, 'Thổ chưa mở (chưa có mã)');
+	assert.equal(addTier(40, { sword: 0 }, 'sword', () => false), null, 'nhánh chưa mở');
+	assert.equal(addTier(40, t, 'bogus' as Branch, open), null, 'nhánh lạ');
+	assert.equal(unspent(40, t), 47 - 25 - 19);
 	assert.deepEqual([0, 1, 5, 6, 12].map(resetCost), [0, 0, 0, 60, 120], 'tẩy điểm: miễn phí tới cấp 5, sau đó 10 xu × cấp');
+	// Chia lại điểm khi không đủ giữ mọi mốc (chuyển bản lưu): nhánh sâu nhất giữ trước, nhánh chỉ có mốc 1 mất trước, không âm.
+	assert.deepEqual(fitTiers({ fire: 5, water: 1 }, 99), { fire: 5, water: 1 }, 'đủ điểm: giữ nguyên');
+	assert.deepEqual(fitTiers({ fire: 5, water: 1 }, 8), { fire: 4, water: 1 }, 'Hoả 5 (9) + Thuỷ 1 (1) với 8 điểm: Hoả 4 (6) + Thuỷ 1, dư 1');
+	assert.deepEqual(fitTiers({ sword: 2, fire: 3, water: 2, wind: 1, ice: 1 }, 5), { sword: 2, fire: 3, water: 0, wind: 0, ice: 0 }, 'nhánh sâu nhất (Hoả 3) trước, rồi Kiếm 2 (bằng mốc: nhánh mở trước)');
+	assert.deepEqual(fitTiers({ fire: 1, water: 1, wind: 1, ice: 1 }, 3), { fire: 1, water: 1, wind: 1, ice: 0 }, 'chỉ mốc 1: nhánh mở sau mất trước');
+	assert.deepEqual(fitTiers({ sword: 3, fire: 1 }, 0), { sword: 1, fire: 0 }, 'Kiếm không xuống dưới mốc có sẵn');
+	assert.deepEqual(fitTiers({ fire: 2 }, -5), { fire: 0 }, 'điểm âm coi như 0');
+	for (const [want, pts] of [[{ sword: 9, fire: 9, water: 9, ice: 9 }, 47], [{ fire: 3, wind: 7 }, 12], [{ earth: 9, sword: 2 }, 3]] as [Tiers, number][]) {
+		const kept = fitTiers(want, pts);
+		assert.ok(spentPoints(kept) <= pts, `fitTiers không bao giờ tiêu quá điểm (${JSON.stringify(want)} / ${pts})`);
+	}
 }
 
 // 6) Thưởng chiều sâu +4%/mốc trên mốc 1 (mốc 10 = +36%), thay rankPower; Tia Aether theo cấp.
@@ -187,7 +223,8 @@ const all = (_: string) => true;
 		near(reactionBonus({ sword: 4, earth: 4, [a]: 4, [b]: 3 }, b, a), 1.1, `${id}: build có thêm nhánh khác vẫn ăn`);
 	}
 	assert.equal(reactionOfPair('sword', 'fire'), null);
-	near(reactionBonus({ ice: 1, water: 1 }, 'ice', 'water'), 1, 'mốc 1 miễn phí: +0%');
+	near(reactionBonus({ ice: 1, water: 1 }, 'ice', 'water'), 1, 'mốc 1: +0%');
+	near(reactionBonus({ ice: 0, water: 5 }, 'ice', 'water'), 1, 'một hệ chưa học (mốc 0): +0%');
 	near(reactionBonus({ ice: 10, water: 10 }, 'ice', 'water'), 1.45, 'tối đa');
 }
 
@@ -251,13 +288,23 @@ const all = (_: string) => true;
 	assert.deepEqual([TREE.sword[1]!.name, TREE.water[1]!.name, TREE.water[3]!.name], ['Nhịp Chém', 'Thấm Sâu', 'Huyết Thuỷ'], 'tên bị động GĐ1.5');
 }
 
-// 9) Học kỹ năng: mốc 1 chỉ cần mã cốt truyện; Suối Lành cần Thuỷ mốc 3.
+// 9) Học kỹ năng: Trảm (Kiếm mốc 1) chỉ cần mã cốt truyện; phép mốc 1 của nguyên tố phải HỌC (nhánh ≥ mốc 1 — luật
+//    10/10/2026, mở nhánh chưa đủ); Suối Lành cần Thuỷ mốc 3; Tia Aether bẩm sinh.
 {
 	const heal = HERO_SKILLS[5]!;
 	assert.equal(knowsSkill(heal, { water: 2 }, all), false);
 	assert.equal(knowsSkill(heal, { water: 3 }, all), true);
 	assert.equal(knowsSkill(HERO_SKILLS[0]!, {}, all), true, 'Trảm: có kiếm là dùng được');
 	assert.equal(knowsSkill(HERO_SKILLS[0]!, { sword: 4 }, () => false), false, 'chưa nhận kiếm');
+	assert.equal(knowsSkill(HERO_SKILLS.find((s) => s.id === 'aether_bolt')!, {}, all), true, 'Tia Aether: có trượng là dùng được');
+	const first: Record<string, string> = { fire: 'fire_bolt', water: 'water_lance', wind: 'wind_blade', ice: 'ice_shard', earth: 'rock_throw' };
+	for (const [b, id] of Object.entries(first)) {
+		const s = HERO_SKILLS.find((x) => x.id === id)!;
+		assert.equal(knowsSkill(s, {}, all), false, `${id}: mở nhánh chưa đủ — chưa nhận mốc nào thì chưa học`);
+		assert.equal(knowsSkill(s, { [b]: 0 }, all), false, `${id}: nhánh mở ở mốc 0 = chưa học`);
+		assert.equal(knowsSkill(s, { [b]: 1 }, all), true, `${id}: mua mốc 1 là học`);
+		assert.equal(knowsSkill(s, { [b]: 1 }, (u) => u !== BRANCH_UNLOCK[b as Branch]), false, `${id}: thiếu mã cốt truyện thì không`);
+	}
 }
 
 // 10) Lối build chỉ để hiển thị (không còn thưởng/phạt theo build).
@@ -341,42 +388,47 @@ const store = new Map<string, string>();
 	let d = new StoryDirector(STORY, noop);
 	assert.equal(d.refunded, 9, 'hoàn 9 điểm cũ');
 	assert.deepEqual(d.state.talents, {});
-	assert.equal(d.state.talentsV, 2);
-	assert.deepEqual(d.talentTiers(), { sword: 1, fire: 1, water: 1, wind: 1, ice: 1, earth: 0 }, 'mọi nhánh đã mở về mốc 1 (Băng trao bù)');
+	assert.equal(d.state.talentsV, 3);
+	assert.equal(d.talentsMigrated, null, 'hoàn điểm hệ rất cũ không đi qua chuyển 2 → 3');
+	assert.deepEqual(d.talentTiers(), { sword: 1, fire: 0, water: 0, wind: 0, ice: 0, earth: 0 }, 'nhánh đã mở về mốc có sẵn: Kiếm 1, nguyên tố 0 = chưa học (Băng trao bù)');
 	d.save();
 	d = new StoryDirector(STORY, noop);
 	assert.equal(d.refunded, 0, 'nạp lại: không hoàn lặp');
 
-	// Định dạng mới: kẹp trần đã hiện thực, bỏ nhánh khoá/chưa mở, tổng giá vượt điểm thì hạ từ nhánh cuối.
-	save(6, { talentsV: 2, talents: { sword: 9, fire: 2.7, water: -3, earth: 4, bogus: 5, ice: 3 } });
+	// Định dạng 3: kẹp trần đã hiện thực, bỏ nhánh khoá/chưa mở, tổng giá vượt điểm thì hạ từ nhánh cuối.
+	save(6, { talentsV: 3, talents: { sword: 9, fire: 2.7, water: -3, earth: 4, bogus: 5, ice: 3 } });
 	d = new StoryDirector(STORY, noop);
 	assert.equal(d.refunded, 0);
-	// cấp 6 = 6 điểm: Kiếm kẹp trần mốc 9 (24 điểm) không đủ → hạ dần tới mốc 4 (5) → còn 1; Hoả muốn mốc 3 (3) → mốc 2 (1) → còn 0;
-	// Băng muốn mốc 4 → mốc 1. Thổ chưa có mã → bỏ.
+	// cấp 6 = 6 điểm: Kiếm kẹp trần mốc 9 (24 điểm) không đủ → hạ dần tới mốc 4 (5) → còn 1; Hoả muốn mốc 2 (2) → mốc 1 (1) → còn 0;
+	// Băng muốn mốc 3 → mốc 0 (chưa học). Thổ chưa có mã → bỏ.
 	assert.deepEqual(d.state.talents, { sword: 3, fire: 1 });
-	assert.deepEqual(d.talentTiers(), { sword: 4, fire: 2, water: 1, wind: 1, ice: 1, earth: 0 });
+	assert.deepEqual(d.talentTiers(), { sword: 4, fire: 1, water: 0, wind: 0, ice: 0, earth: 0 });
+	assert.ok(unspent(6, d.talentTiers()) >= 0, 'không bao giờ âm điểm');
 	assert.deepEqual([d.state.swordStyle, d.styleMigrated], ['kiem_than', true], 'Kiếm mốc 4 chưa có lưu phái → Kiếm Thần');
 	for (const bad of [null, 'rác', 7, []]) {
-		save(6, { talentsV: 2, talents: bad });
+		save(6, { talentsV: 3, talents: bad });
 		assert.deepEqual(new StoryDirector(STORY, noop).state.talents, {}, `talents hỏng (${JSON.stringify(bad)}) → {}`);
 	}
-	save(6, { talentsV: 2, talents: {}, enchant: 'lava' });
+	save(6, { talentsV: 3, talents: {}, enchant: 'lava' });
 	assert.equal(new StoryDirector(STORY, noop).state.enchant, null, 'phủ phép lạ → null');
 	store.delete('aether.save.v2');
 	d = new StoryDirector(STORY, noop);
-	assert.deepEqual([d.state.talents, d.state.talentsV, d.refunded], [{}, 2, 0], 'ván mới');
+	assert.deepEqual([d.state.talents, d.state.talentsV, d.refunded, d.talentsMigrated], [{}, 3, 0, null], 'ván mới');
 
-	save(4, { talentsV: 2, talents: {} });
+	save(4, { talentsV: 3, talents: {} });
 	d = new StoryDirector(STORY, noop);
+	assert.deepEqual([d.talentTiers().water, unspent(4, d.talentTiers())], [0, 3], 'Thuỷ đã mở mà chưa học (mốc 0), cấp 4 = 3 điểm');
+	assert.equal(d.spendTalent('water', 4), true, 'Thuỷ mốc 1: học Thuỷ Tiễn (1 điểm)');
 	assert.equal(d.spendTalent('water', 4), true, 'Thuỷ mốc 2 (1 điểm)');
-	assert.equal(d.spendTalent('water', 4), true, 'Thuỷ mốc 3 (2 điểm)');
-	assert.deepEqual(saved().talents, { water: 2 }, 'cộng xong là lưu');
-	assert.equal(d.talentTiers().water, 3);
-	assert.equal(d.spendTalent('water', 4), false, 'hết điểm (còn 0, mốc 4 cần 2)');
+	assert.deepEqual(saved().talents, { water: 2 }, 'cộng xong là lưu (định dạng 3: nguyên tố lưu đúng số mốc)');
+	assert.equal(d.talentTiers().water, 2);
+	assert.equal(d.spendTalent('water', 4), false, 'hết điểm (còn 1, mốc 3 cần 2)');
 	assert.equal(d.spendTalent('earth', 40), false, 'Thổ chưa mở');
 	assert.equal(d.spendTalent('bogus' as Branch, 40), false);
-	assert.equal(d.spendTalent('water', 6), true, 'cấp 6: Thuỷ mốc 4');
-	assert.equal(d.spendTalent('water', 8), true, 'cấp 8: Thuỷ mốc 5 (Sóng Dữ)');
+	assert.equal(d.spendTalent('water', 6), true, 'cấp 6: Thuỷ mốc 3 (Suối Lành)');
+	assert.equal(d.spendTalent('water', 8), true, 'cấp 8: Thuỷ mốc 4');
+	assert.equal(d.spendTalent('water', 8), false, 'cấp 8 = 8 điểm: mốc 5 cần tổng 9');
+	assert.equal(d.spendTalent('water', 9), true, 'cấp 9: Thuỷ mốc 5 (Sóng Dữ)');
 	assert.deepEqual([6, 7, 8, 9].map(() => d.spendTalent('water', 40)), [true, true, true, true], 'GĐ3: Thuỷ mốc 6–9 (Gọi Mưa, Mạch Nguồn, Lôi Vũ, Thuỷ Triều Dâng)');
 	assert.equal(d.talentTiers().water, 9);
 	assert.equal(d.spendTalent('water', 40), false, 'trần mốc 9');
@@ -385,10 +437,11 @@ const store = new Map<string, string>();
 	assert.deepEqual([saved().loadout, saved().enchant], [['slash', 'aether_bolt', null, null, null, 'heal', null, null, null, null], 'ice']);
 	d.resetTalents();
 	assert.deepEqual([saved().talents, saved().enchant], [{}, null], 'tẩy điểm cũng lưu và tắt phủ phép');
-	assert.equal(d.talentTiers().water, 1, 'tẩy xong về mốc 1, không mất nhánh');
+	assert.deepEqual([d.talentTiers().water, d.talentTiers().sword, d.isUnlocked('water')], [0, 1, true], 'tẩy xong: nguyên tố về chưa học (mốc 0), Kiếm mốc 1, không mất nhánh');
+	assert.equal(d.spendTalent('water', 4), true, 'tẩy xong học lại Thuỷ Tiễn được ngay');
 
 	// 13b) Kiếm 3 lưu phái: lần đầu lên mốc 3 PHẢI chọn lưu phái; đã chọn thì cộng tiếp bình thường; tẩy điểm xoá lưu phái.
-	save(10, { talentsV: 2, talents: {} });
+	save(10, { talentsV: 3, talents: {} });
 	d = new StoryDirector(STORY, noop);
 	assert.equal(d.swordStyle, null);
 	assert.equal(d.spendTalent('sword', 10), true, 'Kiếm mốc 2 (Nhịp Chém) không cần lưu phái');
@@ -438,9 +491,13 @@ const store = new Map<string, string>();
 	d = new StoryDirector(STORY, noop);
 	assert.deepEqual([d.refunded, d.styleMigrated, d.swordStyle, d.talentTiers().sword, d.talentTiers().water], [0, false, 'bac_than', 5, 3], 'bản lưu GĐ2: giữ nguyên Kiếm mốc 5 Bắc Thần');
 	assert.deepEqual(d.state.loadout, ['slash', 'aether_bolt', 'side_slash', 'shadow_step', null, null, null, null, null, null], 'thanh 10 ô giữ nguyên');
-	// Cấp 20 = 23 điểm; đã dùng 8 (Kiếm 5) + 3 (Thuỷ 3) = 11 → còn 12: Kiếm mốc 6 (3) + 7 (4) + 8 (4) = 11.
-	assert.deepEqual([6, 7, 8].map(() => d.spendTalent('sword', 20)), [true, true, true], 'cộng tiếp Kiếm mốc 6–8 (Liên Hoàn, Đà Lướt, Phi Kiếm)');
-	assert.equal(d.spendTalent('sword', 20), false, 'còn 1 điểm: chưa đủ mốc 9 (5 điểm)');
+	// Bản lưu định dạng 2 → 3: Hoả / Thuỷ / Phong đã mở nay tính thêm 1 điểm mốc 1 mỗi nhánh — cấp 20 = 23 điểm dư sức, giữ nguyên
+	// mọi mốc. Băng được BÙ mã ngay lần nạp này (bản lưu thiếu `ice`) — chưa từng có nên không tính, về mốc 0.
+	assert.deepEqual(d.talentsMigrated, { charged: ['fire', 'water', 'wind'], lowered: [], left: 9 });
+	assert.deepEqual(d.talentTiers(), { sword: 5, fire: 1, water: 3, wind: 1, ice: 0, earth: 0 });
+	// Cấp 23 = 26 điểm; đã dùng 8 (Kiếm 5) + 4 (Thuỷ 3) + 2 (mốc 1 Hoả / Phong) = 14 → còn 12: Kiếm mốc 6 (3) + 7 (4) + 8 (4) = 11.
+	assert.deepEqual([6, 7, 8].map(() => d.spendTalent('sword', 23)), [true, true, true], 'cộng tiếp Kiếm mốc 6–8 (Liên Hoàn, Đà Lướt, Phi Kiếm)');
+	assert.equal(d.spendTalent('sword', 23), false, 'còn 1 điểm: chưa đủ mốc 9 (5 điểm)');
 	assert.equal(d.spendTalent('sword', 40), true, 'cấp 40: Kiếm mốc 9 (Bóng Mờ)');
 	assert.equal(d.spendTalent('sword', 40), false, 'trần Kiếm mốc 9');
 	assert.deepEqual([(saved() as { talents: { sword: number } }).talents.sword, d.talentTiers().sword, d.swordStyle], [8, 9, 'bac_than'], 'lưu: 8 mốc đã mua = mốc 9');
@@ -450,6 +507,65 @@ const store = new Map<string, string>();
 	save(40, { talentsV: 2, talents: { sword: 6 } });
 	d = new StoryDirector(STORY, noop);
 	assert.deepEqual([d.talentTiers().sword, d.swordStyle, d.styleMigrated], [7, 'kiem_than', true], 'Kiếm mốc 7 mà thiếu lưu phái (bản lưu lạ) → Kiếm Thần như luật chuyển GĐ1');
+
+	// 13f) Chuyển bản lưu định dạng 2 → 3 (chủ dự án 10/10/2026: phép đầu nhánh nguyên tố học bằng 1 điểm; trước đó mở nhánh là
+	//      có mốc 1 miễn phí). Không bao giờ âm điểm; đủ điểm thì giữ NGUYÊN mốc (chỉ bớt điểm chưa cộng); thiếu thì nhánh sâu nhất
+	//      giữ trước, nhánh chỉ có mốc 1 mất trước; báo một lần (`talentsMigrated` → Game toast), nạp lại không chuyển lặp.
+	{
+		const { talentsMigrationText } = await import('../src/game/story/StoryDirector');
+		const fireBolt = HERO_SKILLS.find((s) => s.id === 'fire_bolt')!;
+		/** Bản lưu định dạng 2 đang ở nhiệm vụ `questId` (chưa nhận), các nhiệm vụ trước đã xong và mã của chúng có sẵn. */
+		const v2 = (questId: string, level: number, talents: Record<string, number>, extra: Record<string, unknown> = {}) => {
+			const i = STORY.quests.findIndex((q) => q.id === questId);
+			const done = STORY.quests.slice(0, i);
+			const unlocked = done.flatMap((q) => [q.reward.unlockSkill, q.onGive?.unlock]).filter((x): x is string => !!x);
+			store.set('aether.save.v2', JSON.stringify({ version: 2, index: i, questId, accepted: false, ready: false, progress: 0, completed: done.map((q) => q.id), unlocked, age: STORY.quests[i]!.age, player: { level, exp: 0, coins: 0, potions: 0 }, talentsV: 2, talents, ...extra }));
+			const dir = new StoryDirector(STORY, noop);
+			assert.ok(unspent(level, dir.talentTiers()) >= 0, `${questId} cấp ${level}: không bao giờ âm điểm`);
+			assert.equal(dir.state.talentsV, 3);
+			return dir;
+		};
+		// a) Mới mở Hoả (đang làm "Mũ cũ", cấp 1 = 0 điểm): Hoả Cầu (mốc 1 miễn phí cũ) chưa trả nổi → nhánh về mốc 0, báo.
+		d = v2('c6_old_hat', 1, {});
+		assert.deepEqual([d.talentTiers().fire, knowsSkill(fireBolt, d.talentTiers(), (u) => d.isUnlocked(u))], [0, false]);
+		assert.deepEqual(d.talentsMigrated, { charged: ['fire'], lowered: [{ branch: 'fire', from: 1, to: 0 }], left: 0 });
+		assert.match(talentsMigrationText(d.talentsMigrated!), /Hoả về chưa học/);
+		// … và bài tập "Mũ cũ" không kẹt: chưa học Hoả Cầu thì Tia Aether được tính.
+		d.talk('mother_elin');
+		d.practiced('aether');
+		assert.equal(d.state.progress, 1, 'Mũ cũ: Tia Aether thay Hoả Cầu');
+		// Cấp 2 (1 điểm): đủ trả giá mốc 1 → giữ Hoả Cầu.
+		d = v2('c6_old_hat', 2, {});
+		assert.deepEqual([d.talentTiers().fire, d.state.talents, d.talentsMigrated?.lowered, d.talentsMigrated?.left], [1, { fire: 1 }, [], 0]);
+		assert.match(talentsMigrationText(d.talentsMigrated!), /giữ nguyên mọi mốc/);
+		// b) Hoả 5 + Thuỷ 1 (đã tiêu đủ 8 điểm của cấp 8 vào Hoả): giờ cần 9 + 1 → Hoả lùi về mốc 4 (6), giữ Thuỷ Tiễn, dư 1.
+		d = v2('c8_forest_edge', 8, { fire: 4 });
+		assert.deepEqual(d.talentTiers(), { sword: 1, fire: 4, water: 1, wind: 0, ice: 0, earth: 0 });
+		assert.deepEqual(d.talentsMigrated, { charged: ['fire', 'water'], lowered: [{ branch: 'fire', from: 5, to: 4 }], left: 1 });
+		assert.match(talentsMigrationText(d.talentsMigrated!), /Hoả mốc 5 → 4.*còn 1 điểm/);
+		// … cấp 10 (11 điểm) thì đủ: giữ nguyên Hoả 5 + Thuỷ 1, chỉ bớt điểm chưa cộng (còn 1). Nạp lại không chuyển / báo lặp.
+		d = v2('c8_forest_edge', 10, { fire: 4 });
+		assert.deepEqual([d.talentTiers().fire, d.talentTiers().water, d.state.talents, d.talentsMigrated?.lowered, d.talentsMigrated?.left], [5, 1, { fire: 5, water: 1 }, [], 1]);
+		d.save();
+		d = new StoryDirector(STORY, noop);
+		assert.deepEqual([d.talentsMigrated, d.state.talents, d.talentTiers().fire], [null, { fire: 5, water: 1 }, 5], 'nạp lại: định dạng 3, không chuyển lặp');
+		// c) Điểm đã tiêu hết (cấp 5 = 5 điểm: Kiếm 2 + Hoả 3 + Thuỷ 2), mở cả Phong / Băng: nhánh sâu nhất (Hoả 3) giữ trước, rồi
+		//    Kiếm 2 (bằng mốc Thuỷ: nhánh mở trước); Thuỷ / Phong / Băng về chưa học — tiêu đúng 5 điểm, không âm.
+		d = v2('y1_mushrooms', 5, { sword: 1, fire: 2, water: 1 });
+		assert.deepEqual(d.talentTiers(), { sword: 2, fire: 3, water: 0, wind: 0, ice: 0, earth: 0 });
+		assert.equal(unspent(5, d.talentTiers()), 0);
+		assert.deepEqual(d.talentsMigrated?.lowered, [
+			{ branch: 'water', from: 2, to: 0 },
+			{ branch: 'wind', from: 1, to: 0 },
+			{ branch: 'ice', from: 1, to: 0 },
+		]);
+		// d) Kiếm sĩ Bắc Thần 4 (5 điểm) + 4 nguyên tố mốc 1 ở cấp 6 (6 điểm): Kiếm giữ nguyên cả lưu phái, Hoả giữ, còn lại về 0.
+		d = v2('y1_mushrooms', 6, { sword: 3 }, { swordStyle: 'bac_than' });
+		assert.deepEqual([d.talentTiers().sword, d.swordStyle, d.styleMigrated, d.talentTiers().fire, d.talentTiers().water], [4, 'bac_than', false, 1, 0]);
+		// e) Chưa mở nhánh nguyên tố nào (đang làm "Sợi tơ đầu tiên"): không có gì để báo.
+		d = v2('c6_first_thread', 1, {});
+		assert.equal(d.talentsMigrated, null);
+	}
 	store.clear();
 }
 
@@ -581,6 +697,9 @@ function setup(o: { dummy?: boolean } = {}) {
 	);
 	const p = new Actor('hero', fakeTextures(), 40, 100, 'S', null);
 	combat.setPlayer(p);
+	// Luật 10/10/2026: phép mốc 1 của nguyên tố phải học bằng điểm — coi như đã học mốc 1 mọi nhánh (mốc 1: không bị động,
+	// thưởng chiều sâu / phản ứng +0% — số liệu y như trước).
+	combat.setTalents({ sword: 1, fire: 1, water: 1, wind: 1, ice: 1, earth: 1 });
 	if (o.dummy !== false) combat.addDummy(100, 100);
 	const east = { x: 100, y: 100 - p.chest };
 	const tick = (dt = 1 / 60) => {
@@ -708,14 +827,14 @@ function setup(o: { dummy?: boolean } = {}) {
 // 14d) Phủ phép Kiếm: chỉ khi đủ điều kiện; đổi có hồi 10s; nhát chém mang hệ nhưng nhiệm vụ luyện kiếm vẫn nhận "steel".
 {
 	const plain = setup();
-	plain.combat.setTalents({ sword: 4, ice: 4 });
+	plain.combat.setTalents({ sword: 4, ice: 4, water: 1 });
 	assert.equal(plain.combat.setEnchant('ice'), 'locked', 'Băng mốc 4: chưa phủ được');
 	plain.shoot(3);
 	assert.equal(plain.shoot(0), 'steel:null', 'không phủ: chém thép, không phản ứng');
 	assert.ok(plain.inner.dummies[0]!.wet > 0, 'chém thép không làm khô');
 
 	const s = setup();
-	s.combat.setTalents({ sword: 2, ice: 5, fire: 5 });
+	s.combat.setTalents({ sword: 2, ice: 5, fire: 5, water: 1 });
 	assert.equal(s.combat.enchantment, null);
 	assert.equal(s.combat.setEnchant('ice'), 'ok');
 	assert.equal(s.combat.enchantment, 'ice');
@@ -857,6 +976,35 @@ function setup(o: { dummy?: boolean } = {}) {
 	near(pace(true) / pace(false), PASSIVE.frostSlow / 0.5, 'Hàn Khí: quái còn 35% tốc thay vì 50%');
 }
 
+// 14g) Luật 10/10/2026 trong trận, đi qua StoryDirector thật: đang làm "Mũ cũ" với 0 điểm → Hoả đã mở nhưng Hoả Cầu KHOÁ (chưa
+//      học); Tia Aether trúng Ông Rơm báo 'aether' và bài tập vẫn tiến. Học Hoả Cầu (cấp 2 = 1 điểm) thì Hoả Cầu dùng được.
+{
+	const { STORY } = await import('../src/game/story/story');
+	const { StoryDirector } = await import('../src/game/story/StoryDirector');
+	const quiet = { dialogue() {}, reward() {}, questsChanged() {}, pickups() {}, clearPickups() {}, awakenBoss() {}, spawnZone() {}, questCompleted() {}, unlocked() {}, ageChanged() {}, chapterEnd() {} };
+	const i = STORY.quests.findIndex((q) => q.id === 'c6_old_hat');
+	store.set('aether.save.v2', JSON.stringify({ version: 2, index: i, questId: 'c6_old_hat', accepted: true, ready: false, progress: 0, completed: STORY.quests.slice(0, i).map((q) => q.id), unlocked: [], age: 6, player: { level: 1, exp: 0, coins: 0, potions: 0 }, talentsV: 3, talents: {} }));
+	const story = new StoryDirector(STORY, quiet);
+	const s = setup();
+	s.combat.setTalents(story.talentTiers(), story.swordStyle);
+	assert.deepEqual([story.isUnlocked('fire'), story.talentTiers().fire], [true, 0], 'Hoả đã mở, mốc 0');
+	s.combat.pc.cooldowns.clear();
+	assert.equal(s.combat.cast(2, s.east), 'locked', 'Hoả Cầu chưa học: bấm là "Chưa học"');
+	assert.ok(s.toasts.some((x) => x.includes('Chưa học') && x.includes('Hoả Cầu')));
+	const hit = s.shoot(1);
+	assert.equal(hit, 'aether:null', 'Tia Aether trúng Ông Rơm');
+	story.practiced('aether', null);
+	assert.equal(story.state.progress, 1, 'bài "Mũ cũ" nhận Tia Aether');
+	assert.equal(story.spendTalent('fire', 2), true, 'cấp 2: học Hoả Cầu');
+	s.combat.setTalents(story.talentTiers(), story.swordStyle);
+	assert.equal(s.shoot(2), 'fire:null', 'học rồi thì Hoả Cầu ra đòn');
+	story.practiced('aether', null);
+	assert.equal(story.state.progress, 1, 'đã học Hoả Cầu: Tia Aether thôi tính');
+	story.practiced('fire', null);
+	assert.equal(story.state.progress, 2);
+	store.clear();
+}
+
 console.log(
-	'✔ talents.test: điểm theo cấp (cấp 40 = 47), giá mốc + trần đã hiện thực (mọi nhánh mốc 9), bản lưu GĐ2 nạp được + cộng tiếp Kiếm mốc 6–9, cây 6×10 (Suối Lành = Thuỷ 3, Thổ mở bằng mã), Kiếm 3 lưu phái (chọn ở mốc 3, tẩy = xoá, bản lưu GĐ1 Kiếm 3–4 → Kiếm Thần), kiếm pháp nguyên tố (Kiếm 5 + nguyên tố 5), thưởng +4%/mốc, Aether theo cấp, phản ứng +5%/mốc, bị động mốc 2/4 theo lưu phái (thuần + trong trận), phủ phép (điều kiện + hồi 10s), thanh 10 ô (mặc định, kẹp, đổi chỗ), hoàn điểm bản lưu cũ một lần, kẹp bản lưu mới; Băng: Đóng Băng, Tan Chảy, quái đứng im, boss nửa thời gian',
+	'✔ talents.test: điểm theo cấp (cấp 40 = 47), giá mốc (nguyên tố mốc 1 = 1 điểm, Kiếm mốc 1 miễn phí) + trần đã hiện thực (mọi nhánh mốc 9), chuyển bản lưu định dạng 2 → 3 (giữ mốc nếu đủ điểm, không âm, báo một lần), bản lưu GĐ2 nạp được + cộng tiếp Kiếm mốc 6–9, cây 6×10 (Suối Lành = Thuỷ 3, Thổ mở bằng mã), Kiếm 3 lưu phái (chọn ở mốc 3, tẩy = xoá, bản lưu GĐ1 Kiếm 3–4 → Kiếm Thần), kiếm pháp nguyên tố (Kiếm 5 + nguyên tố 5), thưởng +4%/mốc, Aether theo cấp, phản ứng +5%/mốc, bị động mốc 2/4 theo lưu phái (thuần + trong trận), phủ phép (điều kiện + hồi 10s), thanh 10 ô (mặc định, kẹp, đổi chỗ), hoàn điểm bản lưu cũ một lần, kẹp bản lưu mới; Băng: Đóng Băng, Tan Chảy, quái đứng im, boss nửa thời gian',
 );

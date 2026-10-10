@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a blue water fang dripping one red drop, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/water+red.png",
+	"jobId": "8543fcf6-b8ab-4161-9775-3d1f565793b0",
+	"token": 1,
+	"createdAt": "2026-10-09T19:17:43.628Z"
+}

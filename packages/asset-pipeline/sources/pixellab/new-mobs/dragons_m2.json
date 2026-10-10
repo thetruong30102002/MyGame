@@ -1,0 +1,224 @@
+[
+ {
+  "id": "dragon_ice_001",
+  "name_vi": "Băng Long Hàn Sương",
+  "tsv_label_vi": "Băng Long Hàn Sương (rồng)",
+  "region": "Vùng 5 · Lãnh nguyên Băng Giá — Long Huyệt: hang băng dưới hồ đóng băng, sau Ngai Băng (cấp ~50, hệ Băng, yếu Hoả)",
+  "lore_vi": "Rồng thứ hai, nguyên tố Băng (Mốc 2), giữ Mối Băng trong hang băng dưới một hồ đóng băng phía sau Ngai Băng (Long Huyệt, map phụ của vùng 5). Muốn vào phải nói ra một điều mình đang cố quên (câu đố khắc trên vách Hang Gấu). Hàn Sương giữ băng để quên: mắt lim dim buồn, ôm Long Châu băng trong vuốt. Hỏi Lior: \"Ngươi muốn nhớ hay muốn quên?\" rồi trao Long Châu. Ba chiêu: hơi thở băng, cột tinh thể băng cắm xuống, mặt hồ nứt. Yếu Hoả.",
+  "size": 192,
+  "template": "custom",
+  "view": "low top-down",
+  "seeds": {
+   "a": 7,
+   "b": 19
+  },
+  "style_image_path": "D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/new-mobs/dragon_design/phong_a.png",
+  "style_usage": "Copy the drawing style and the body layout of this wingless eastern long dragon: chibi RPG boss look, crisp black pixel outline, shading, detail level, S-curve coil. Do NOT copy its colors.",
+  "style_options": {
+   "color_palette": false,
+   "outline": true,
+   "detail": true,
+   "shading": true
+  },
+  "design_prompts": [
+   "Chibi RPG world boss pixel art sprite facing the viewer, Han Suong the ancient majestic ice-element Chinese loong: authentic traditional Chinese eastern long dragon, absolutely NO wings, extremely long serpentine snake-like scaled body coiling in an S-curve, deer-like branching antlers, long flowing whiskers from the snout, flowing mane and a spiky fin crest running along its spine, four short legs each with sharp eagle-like claws, flame-like tufts of fur at the elbows, tail ending in a flowing tuft, glacier-blue scales with frost-white belly plates, pale aqua mane and a LOW row of short ice-crystal spikes lying flat along the spine, nothing rising from the shoulders, frost-white whiskers, silvery frosted antlers, clutching a glowing white-cyan ice pearl with a snowflake core in one front claw, calm half-lidded sorrowful glowing icy cyan eyes, cold mist and drifting snowflakes around its coils",
+   "Chibi RPG world boss pixel art sprite facing the viewer, Han Suong the ancient majestic ice-element Chinese loong: authentic traditional Chinese eastern long dragon, absolutely NO wings, extremely long serpentine snake-like scaled body coiling in an S-curve, deer-like branching antlers, long flowing whiskers from the snout, flowing mane and a spiky fin crest running along its spine, four short legs each with sharp eagle-like claws, flame-like tufts of fur at the elbows, tail ending in a flowing tuft, pale frost-blue scales with silvery-lavender scale rims and soft blue-violet shading, a pale cyan belly, icy cyan-blue mane and beard, a LOW row of short ice-crystal spikes lying flat along the spine, nothing rising from the shoulders, silvery frost-blue antlers, clutching a glowing white-cyan ice pearl with a snowflake core in one front claw, calm half-lidded sorrowful glowing icy cyan eyes, drifting snowflakes and thin cold mist around its coils"
+  ],
+  "char_description": "Bang Long Han Suong, ancient Chinese eastern long dragon WITHOUT wings, extremely long serpentine glacier-blue body with frost-white belly, pale aqua mane and a low row of flat ice-crystal spikes along the spine, frosted deer antlers, frost-white whiskers, four clawed legs, calm half-lidded eyes, holding a glowing white-cyan ice pearl, cold mist and snowflakes",
+  "anims": {
+   "walk": "v3:flies forward with its long serpentine body undulating in smooth waves through the air, legs tucked, mane and whiskers streaming behind, a trail of snowflakes, no wings",
+   "idle": "v3:hovers coiled in the air, its long body slowly undulating like a ribbon, mane and whiskers drifting, the pearl glowing in its claw with cold mist curling around it",
+   "attack": "v3:rears its head back, then thrusts its head forward with jaws wide open in a mighty roar, its long body coiling tighter, then recovers",
+   "death": "v3:lets out a final roar, frost cracks spread over its scales and ice shards break off, its long body goes limp and sinks down coiling onto the ground as its glow fades"
+  },
+  "vfx": [
+   {
+    "id": "dragon_frost_breath",
+    "size": 192,
+    "kind": "burst",
+    "frames": 8,
+    "squashY": null,
+    "first": "a wide cone of freezing pale blue frost dragon breath blowing to the right, swirling snow, sharp ice shards and glittering frost crystals inside it",
+    "action": "the frost breath roars forward to the right widening like a cone, ice shards fly and frost crystals glitter, then it disperses into cold mist and fades",
+    "firstScale": null,
+    "glow": false,
+    "lift": 40,
+    "ground": false
+   },
+   {
+    "id": "dragon_ice_pillar",
+    "size": 160,
+    "kind": "burst",
+    "frames": 10,
+    "squashY": null,
+    "first": "a huge six-sided deep sapphire-blue ice crystal column with a white frost core, falling point-first straight down into the ground, a ring of white frost and snow spray at the impact point, base at the bottom of the frame",
+    "action": "the crystal column slams down point-first and stands in the ground, a frost ring bursts outward, then the column cracks and shatters into blue shards that fade into mist",
+    "firstScale": null,
+    "glow": false,
+    "lift": 66,
+    "ground": false
+   },
+   {
+    "id": "dragon_ice_lake_crack",
+    "size": 192,
+    "kind": "burst",
+    "frames": 10,
+    "squashY": 0.55,
+    "first": "a web of jagged white and pale cyan cracks spreading from a small center point, seen from directly above, thin glimpses of dark blue water inside the cracks, no ice slab, transparent outside the cracks",
+    "action": "the cracks race outward in all directions, dark water wells up through them with small ripples, then the cracks frost over and fade",
+    "firstScale": 0.5,
+    "glow": false,
+    "lift": 0,
+    "ground": true
+   }
+  ]
+ },
+ {
+  "id": "dragon_fire_001",
+  "name_vi": "Hoả Long Viêm Đế",
+  "tsv_label_vi": "Hoả Long Viêm Đế (rồng)",
+  "region": "Vùng 6 · Núi lửa Hoả Sơn — Long Huyệt: miệng núi lửa, vào từ Lõi Núi Lửa (cấp ~60, hệ Hoả, yếu Thuỷ và Băng)",
+  "lore_vi": "Rồng thứ ba, giữ Mối Hoả trong Long Huyệt ở miệng núi lửa (map phụ của vùng 6, vào sau khi hạ Hoả thần ở Lõi Núi Lửa). Hỏi Lior: \"Lửa có hỏi ai được ấm không?\" rồi trao Long Châu. Bụng vàng nóng như sắt vừa ra khỏi đe, gạc sắt-đồng: gợi lò rèn người lùn và Hoả thần. Ba chiêu: phun lửa theo nón, Long Châu lửa rơi, dung nham dâng theo nhịp. Yếu Thuỷ và Băng.",
+  "size": 192,
+  "template": "custom",
+  "view": "low top-down",
+  "seeds": {
+   "a": 7,
+   "b": 19
+  },
+  "style_image_path": "D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/new-mobs/dragon_design/phong_a.png",
+  "style_usage": "Copy the drawing style and the body layout of this wingless eastern long dragon: chibi RPG boss look, crisp black pixel outline, shading, detail level, S-curve coil. Do NOT copy its colors.",
+  "style_options": {
+   "color_palette": false,
+   "outline": true,
+   "detail": true,
+   "shading": true
+  },
+  "design_prompts": [
+   "Chibi RPG world boss pixel art sprite facing the viewer, Hoa Long the ancient majestic fire-element Chinese loong: authentic traditional Chinese eastern long dragon, absolutely NO wings, extremely long serpentine snake-like scaled body coiling in an S-curve, deer-like branching antlers, long flowing whiskers from the snout, flowing mane and a spiky fin crest running along its spine, four short legs each with sharp eagle-like claws, flame-like tufts of fur at the elbows, tail ending in a flowing tuft, crimson-red scales with glowing forge-hot molten gold belly plates like metal fresh from an anvil and thin glowing lava cracks between the scales, short orange-yellow flame-colored mane and a LOW fin crest of small flame tongues lying flat along the spine, nothing rising from the shoulders, long fiery whiskers like ribbons of flame, dark iron-bronze antlers with glowing ember tips, clutching a blazing golden-orange fire pearl in one front claw, glowing molten yellow eyes, a few thin grey smoke wisps and floating sparks around its coils",
+   "Chibi RPG world boss pixel art sprite facing the viewer, Hoa Long the ancient majestic fire-element Chinese loong: authentic traditional Chinese eastern long dragon, absolutely NO wings, extremely long serpentine snake-like scaled body coiling in an S-curve, deer-like branching antlers, long flowing whiskers from the snout, flowing mane and a spiky fin crest running along its spine, four short legs each with sharp eagle-like claws, flame-like tufts of fur at the elbows, tail ending in a flowing tuft, bright vermilion-orange scales with dark red scale rims and a glowing forge-hot golden belly, short red-orange flame mane and a low flame-tipped fin crest lying along the spine, nothing rising from the shoulders, dark iron-bronze antlers with golden tips, long golden whiskers trailing embers, clutching a blazing golden-orange fire pearl in one front claw, glowing white-hot eyes, a few thin grey smoke wisps and drifting embers around its coils"
+  ],
+  "char_description": "Hoa Long Viem De, ancient Chinese eastern long dragon WITHOUT wings, extremely long serpentine crimson-red body with forge-hot molten gold belly and glowing lava cracks, short flame-colored mane and a low flat flame fin crest along the spine, dark iron-bronze deer antlers with ember tips, long fiery whiskers, four clawed legs, holding a blazing golden-orange fire pearl, thin smoke wisps and sparks",
+  "anims": {
+   "walk": "v3:flies forward with its long serpentine body undulating in smooth waves through the air, legs tucked, mane and whiskers streaming behind, a trail of sparks, no wings",
+   "idle": "v3:hovers coiled in the air, its long body slowly undulating like a ribbon, mane flickering, the pearl glowing in its claw with embers drifting up",
+   "attack": "v3:rears its head back, then thrusts its head forward with jaws wide open in a mighty roar, its long body coiling tighter, then recovers",
+   "death": "v3:lets out a final roar, its flames sputter out into black smoke, its long body goes limp and sinks down coiling onto the ground as the embers fade"
+  },
+  "vfx": [
+   {
+    "id": "dragon_fire_breath",
+    "size": 192,
+    "kind": "burst",
+    "frames": 8,
+    "squashY": null,
+    "first": "a wide cone of roaring orange and golden dragon fire breath blowing to the right, white-hot core, black smoke curls and flying embers at the edges",
+    "action": "the fire breath roars forward to the right widening like a cone, flames churn and embers scatter, then it burns out into smoke and fades",
+    "firstScale": null,
+    "glow": false,
+    "lift": 40,
+    "ground": false
+   },
+   {
+    "id": "dragon_meteor",
+    "size": 160,
+    "kind": "burst",
+    "frames": 10,
+    "squashY": null,
+    "first": "a falling blazing fire pearl, a round orb of white-hot molten gold wrapped in a spiral of crimson dragon flames, streaking down diagonally from the upper left with a short twisting flame tail, about to hit the ground, base at the bottom of the frame",
+    "action": "the fire pearl smashes into the ground and bursts into a ring of crimson and gold flames with molten droplets, leaving a glowing scorch mark that cools and fades",
+    "firstScale": null,
+    "glow": false,
+    "lift": 66,
+    "ground": false
+   },
+   {
+    "id": "dragon_lava_pool",
+    "size": 192,
+    "kind": "loop",
+    "frames": 8,
+    "squashY": 0.55,
+    "first": "an irregular round pool of glowing molten lava seen from directly above, uneven black rock crust rim, bubbling orange-yellow magma with a few dark crust plates, transparent outside the pool",
+    "action": "the lava pool bubbles and churns, crust plates drift and crack, bubbles pop with small sparks, seamless loop",
+    "firstScale": null,
+    "glow": false,
+    "lift": 0,
+    "ground": true
+   }
+  ]
+ },
+ {
+  "id": "dragon_water_001",
+  "name_vi": "Thuỷ Long Thương Hải",
+  "tsv_label_vi": "Thuỷ Long Thương Hải (rồng)",
+  "region": "Vùng 7 · Quần đảo San Hô — Long Huyệt: xoáy nước giữa rạn san hô (cấp ~70, hệ Thuỷ, yếu Phong và Thổ)",
+  "lore_vi": "Rồng thứ tư, nằm ở một xoáy nước giữa rạn san hô (Long Huyệt, map phụ của vùng 7). Nói: \"Biển nhận mọi thứ chảy vào, kể cả người thương.\" rồi trao Long Châu. Sóng của nó cuốn theo ván tàu gãy, gợi Hải Âu Bạc chìm ở Vực Kraken. Ba chiêu: lặn rồi trồi chỗ khác, sóng thần thấp quét ngang, làm ngập cả sân (mời phản ứng Băng / Lôi). Yếu Phong và Thổ.",
+  "size": 192,
+  "template": "custom",
+  "view": "low top-down",
+  "seeds": {
+   "a": 7,
+   "b": 19
+  },
+  "style_image_path": "D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/new-mobs/dragon_design/phong_a.png",
+  "style_usage": "Copy the drawing style and the body layout of this wingless eastern long dragon: chibi RPG boss look, crisp black pixel outline, shading, detail level, S-curve coil. Do NOT copy its colors.",
+  "style_options": {
+   "color_palette": false,
+   "outline": true,
+   "detail": true,
+   "shading": true
+  },
+  "design_prompts": [
+   "Chibi RPG world boss pixel art sprite facing the viewer, Thuy Long the ancient majestic water-element Chinese loong: authentic traditional Chinese eastern long dragon, absolutely NO wings, extremely long serpentine snake-like scaled body coiling in an S-curve, deer-like branching antlers, long flowing whiskers from the snout, flowing mane and a spiky fin crest running along its spine, four short legs each with sharp eagle-like claws, flame-like tufts of fur at the elbows, tail ending in a flowing tuft, deep teal-green and sea-green scales with pearly aqua belly plates, aqua-white sea-foam mane, a low fin crest of curling wave tips lying flat along the spine, nothing rising from the shoulders, long whiskers flowing like streams of water, coral-pink branching antlers like red coral, clutching a glowing deep sapphire-blue water pearl with a white swirl inside in one front claw, glowing aqua eyes, swirling water streams and bubbles around its coils",
+   "Chibi RPG world boss pixel art sprite facing the viewer, Thuy Long the ancient majestic water-element Chinese loong: authentic traditional Chinese eastern long dragon, absolutely NO wings, extremely long serpentine snake-like scaled body coiling in an S-curve, deer-like branching antlers, long flowing whiskers from the snout, flowing mane and a spiky fin crest running along its spine, four short legs each with sharp eagle-like claws, flame-like tufts of fur at the elbows, tail ending in a flowing tuft, deep navy-indigo back fading to a bright turquoise belly, translucent aqua fin crest rippling like water lying low along the spine, nothing rising from the shoulders, pale aqua foamy mane and beard, coral-red antlers, clutching a glowing deep sapphire-blue water pearl with a white swirl inside in one front claw, glowing turquoise eyes, coiling around a spiraling ring of sea water with bubbles and sea spray"
+  ],
+  "char_description": "Thuy Long Thuong Hai, ancient Chinese eastern long dragon WITHOUT wings, extremely long serpentine deep teal-green and sea-green body with pearly aqua belly, aqua-white sea-foam mane and a low flat wave fin crest along the spine, coral-pink deer antlers, long water-stream whiskers, four clawed legs, holding a glowing deep sapphire-blue water pearl, swirling water and bubbles",
+  "anims": {
+   "walk": "v3:swims forward through the air like an eel, its long serpentine body undulating in smooth waves, legs tucked, mane and whiskers streaming behind, a trail of bubbles, no wings",
+   "idle": "v3:hovers coiled in the air, its long body slowly undulating like seaweed in a current, mane and whiskers drifting, the pearl glowing in its claw with small bubbles rising",
+   "attack": "v3:rears up high, then lunges and whips its long body forward, coils tightening, then recovers",
+   "death": "v3:lets out a final roar, water pours off its body, its long body goes limp and sinks down coiling onto the ground in a spreading puddle as its glow fades"
+  },
+  "vfx": [
+   {
+    "id": "dragon_water_dive",
+    "size": 160,
+    "kind": "burst",
+    "frames": 10,
+    "squashY": null,
+    "first": "an oval whirlpool of deep blue sea water seen from a low three-quarter side view at the bottom of the frame, a short twisting spiral of sea water just beginning to corkscrew up out of its center, the faint glowing head of a serpentine dragon silhouette rising inside the spiral, foam and bubbles, base at the bottom of the frame",
+    "action": "the spiral water column corkscrews upward out of the whirlpool with the faint dragon silhouette coiling up inside it, foam and droplets fly off the turning spiral, then it bursts into spray at the top and the whirlpool calms and fades",
+    "firstScale": null,
+    "glow": false,
+    "lift": 66,
+    "ground": false
+   },
+   {
+    "id": "dragon_tsunami",
+    "size": 192,
+    "kind": "burst",
+    "frames": 10,
+    "squashY": null,
+    "first": "a long low wall of teal sea water surging to the right along the ground, a curling white foam lip, broken coral, seashells and splintered wooden ship planks tumbling in it, a faint glowing dragon-scale pattern on the water surface",
+    "action": "the low sea wall sweeps forward to the right along the ground, foam churning and planks tumbling, then it crashes flat, drains away and fades",
+    "firstScale": null,
+    "glow": false,
+    "lift": 30,
+    "ground": false
+   },
+   {
+    "id": "dragon_flood",
+    "size": 192,
+    "kind": "loop",
+    "frames": 8,
+    "squashY": 0.55,
+    "first": "an irregular round patch of shallow clear teal sea water seen from directly above, soft uneven wet edge, gentle ripples, a few bubbles and foam lines, transparent outside the patch",
+    "action": "the shallow flood water ripples and sloshes gently, foam lines drift, bubbles pop and reform, seamless loop",
+    "firstScale": null,
+    "glow": false,
+    "lift": 0,
+    "ground": true
+   }
+  ]
+ }
+]

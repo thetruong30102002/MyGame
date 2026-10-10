@@ -1,0 +1,32 @@
+{
+	"id": "boss_ink_flood",
+	"kind": "burst",
+	"canvas": {
+		"w": 160,
+		"h": 160
+	},
+	"first": {
+		"prompt": null,
+		"image": "first.png",
+		"source": "file"
+	},
+	"action": "the glossy black ink pool spreads outward and ripples, thick bubbles swell and pop on its surface, droplets splatter at the rim, then it slowly seeps away and fades, the ink stays black the whole time",
+	"frameCount": 10,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png",
+		"frame_009.png",
+		"frame_010.png"
+	],
+	"animateJobId": "4baf51dd-6508-4155-8d80-ce3c7b6385c7",
+	"createdAt": "2026-10-09T16:48:07.829Z",
+	"token": 1
+}

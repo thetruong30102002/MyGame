@@ -1,0 +1,33 @@
+{
+	"id": "dragon_ice_pillar",
+	"kind": "burst",
+	"canvas": {
+		"w": 160,
+		"h": 160
+	},
+	"first": {
+		"prompt": "a huge six-sided deep sapphire-blue ice crystal column with a white frost core, falling point-first straight down into the ground, a ring of white frost and snow spray at the impact point, base at the bottom of the frame, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pro_flash",
+		"jobId": "6a832d10-3060-4530-acdd-3bbcdf041098"
+	},
+	"action": "the crystal column slams down point-first and stands in the ground, a frost ring bursts outward, then the column cracks and shatters into blue shards that fade into mist",
+	"frameCount": 10,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png",
+		"frame_009.png",
+		"frame_010.png"
+	],
+	"animateJobId": "6fcdc333-92e6-4af4-bcc5-0134bfb0aeac",
+	"createdAt": "2026-10-09T16:54:05.684Z",
+	"token": 1
+}

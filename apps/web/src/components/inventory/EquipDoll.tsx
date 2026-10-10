@@ -1,11 +1,11 @@
 'use client';
 
 import { useEffect, useRef, useState, type CSSProperties } from 'react';
-import { SLOT_NAME, SLOT_SHORT, type EquipSlotId } from '@/game/equipment';
+import { EQUIP_SLOTS, SLOT_NAME, SLOT_SHORT, type EquipSlotId } from '@/game/equipment';
 import { SLOT_SILHOUETTE } from '@/game/items';
 import type { EquipSlotView, PlayerSpriteView } from '@/store/useGameStore';
 import { dollDoubleUnequips, type FirstClick } from './dollClick';
-import { ItemIcon, SlotSilhouette, type InvMode } from './invShared';
+import { ItemIcon, rarityClass, SlotSilhouette, type InvMode } from './invShared';
 import { PlayerFigure } from './PlayerFigure';
 
 const LEFT: EquipSlotId[] = ['head', 'body', 'hands', 'legs', 'feet'];
@@ -28,8 +28,11 @@ const LOW_AREA: Record<EquipSlotId, string> = {
 	ring2: '3 / 2',
 };
 
-/** Số in góc CẢ HAI ô nhẫn, trống hay có đồ (nhãn ô trống chỉ ghi "Nhẫn" — `SLOT_SHORT`): ghi chú thẻ "bấm ô nhẫn có số 2" chỉ đúng ô. */
-const RING_NO: Partial<Record<EquipSlotId, string>> = { ring1: '1', ring2: '2' };
+/**
+ * Nhãn DƯỚI mỗi ô (không in vào lòng ô — chỗ đó dành cho bóng mờ PixelLab `SLOT_SILHOUETTE` và icon đồ): tên ngắn, riêng hai
+ * ô nhẫn ghi đủ số ("Nhẫn 1" / "Nhẫn 2") để ghi chú thẻ "bấm ô Nhẫn 2" chỉ đúng ô. Rộng nhất là "Dây chuyền" ≈ 58px ở 11px.
+ */
+const caption = (slot: EquipSlotId): string => (slot === 'ring1' || slot === 'ring2' ? SLOT_NAME[slot] : SLOT_SHORT[slot]);
 
 export interface DollProps {
 	mode: InvMode;
@@ -49,8 +52,9 @@ export interface DollProps {
 }
 
 /**
- * Búp bê: 5 ô trái (theo thân người từ trên xuống) · sân khấu giấy lõm có nhân vật · 5 ô phải. Ô đá đúng 58×57 (luật viền 9
- * mảnh: chỉ 58×57 hoặc 90×88). Sân khấu KHÔNG dùng vòng phép tối làm bục.
+ * Búp bê: tiêu đề "Trang bị · đang mặc n/10 ô", rồi 5 ô trái (theo thân người từ trên xuống) · sân khấu giấy lõm có nhân
+ * vật · 5 ô phải. Ô đá đúng 58×57 (luật viền 9 mảnh: chỉ 58×57 hoặc 90×88), tên ô in DƯỚI ô; ô có đồ mang vòng màu độ
+ * hiếm, ô trống mờ đi một chút. Sân khấu KHÔNG dùng vòng phép tối làm bục. Màn thấp: chỉ lưới, không tiêu đề.
  */
 export function EquipDoll({ mode, equipment, targets, selected, sprite, name, sub, fine, onSlot, onSlotDouble, onHover }: DollProps) {
 	const stageRef = useRef<HTMLDivElement>(null);
@@ -70,61 +74,50 @@ export function EquipDoll({ mode, equipment, targets, selected, sprite, name, su
 		const it = equipment.find((e) => e.slot === slot)?.item ?? null;
 		const target = targets.has(slot);
 		const on = selected === slot;
-		// Nhãn ô trống: `px-[13px]` bù đúng `-inset-[13px]` → hộp chữ = lòng tối 32px, nhãn dài ("Vũ khí", "Tay phụ") xuống
-		// 2 dòng thay vì tràn lên dải sáng 2px của khung (chữ parchment-dim trên nền giấy là mất nét).
-		const label = SLOT_SHORT[slot];
 		return (
-			<button
-				key={slot}
-				type="button"
-				title={it ? `${SLOT_NAME[slot]}: ${it.name}` : `${SLOT_NAME[slot]} — trống`}
-				aria-label={`${SLOT_NAME[slot]}: ${it ? it.name : 'trống'}${target ? ' — bấm để mặc vào đây' : ''}`}
-				aria-pressed={on}
-				data-slot={slot}
-				onClick={(e) => {
-					if (e.detail === 1) firstClick.current = { slot, uid: it?.uid ?? null, target };
-					// Cú thứ hai của nhấp đúp (máy có chuột) không chọn / lọc lại — nhấp đúp do `onDoubleClick` lo trọn.
-					if (fine && e.detail >= 2) return;
-					onSlot(slot, e.detail === 0);
-				}}
-				onDoubleClick={() => {
-					const f = firstClick.current;
-					firstClick.current = null;
-					if (fine && dollDoubleUnequips(f, slot, it?.uid ?? null)) onSlotDouble(slot);
-				}}
-				onPointerEnter={(e) => e.pointerType === 'mouse' && onHover(it?.uid ?? null)}
-				onPointerLeave={(e) => e.pointerType === 'mouse' && onHover(null)}
-				className={`ui-slot relative h-[57px] w-[58px] shrink-0 cursor-pointer ${target ? 'inv-target' : on ? 'outline-[3px] outline-offset-2 outline-ink-brown' : 'hover:brightness-110'}`}
-				style={low ? ({ gridArea: LOW_AREA[slot] } as CSSProperties) : undefined}
-			>
-				{it ? (
-					<ItemIcon item={it} />
-				) : (
-					<SlotSilhouette
-						src={SLOT_SILHOUETTE[slot]}
-						fallback={<span className="pointer-events-none absolute -inset-[13px] flex items-center justify-center px-[13px] text-center text-[11px] leading-[13px] font-extrabold text-parchment-dim">{label}</span>}
-					/>
-				)}
-				{RING_NO[slot] && (
-					<span aria-hidden className="pointer-events-none absolute -top-[11px] -right-[11px] flex h-4 min-w-4 items-center justify-center rounded-[4px] border-2 border-outline bg-parchment px-0.5 text-[11px] leading-none font-extrabold text-ink-brown tabular-nums">
-						{RING_NO[slot]}
-					</span>
-				)}
-			</button>
+			<div key={slot} className="flex w-[64px] flex-col items-center gap-[5px]" style={low ? ({ gridArea: LOW_AREA[slot] } as CSSProperties) : undefined}>
+				<button
+					type="button"
+					title={it ? `${SLOT_NAME[slot]}: ${it.name}` : `${SLOT_NAME[slot]} — trống`}
+					aria-label={`${SLOT_NAME[slot]}: ${it ? it.name : 'trống'}${target ? ' — bấm để mặc vào đây' : ''}`}
+					aria-pressed={on}
+					data-slot={slot}
+					onClick={(e) => {
+						if (e.detail === 1) firstClick.current = { slot, uid: it?.uid ?? null, target };
+						// Cú thứ hai của nhấp đúp (máy có chuột) không chọn / lọc lại — nhấp đúp do `onDoubleClick` lo trọn.
+						if (fine && e.detail >= 2) return;
+						onSlot(slot, e.detail === 0);
+					}}
+					onDoubleClick={() => {
+						const f = firstClick.current;
+						firstClick.current = null;
+						if (fine && dollDoubleUnequips(f, slot, it?.uid ?? null)) onSlotDouble(slot);
+					}}
+					onPointerEnter={(e) => e.pointerType === 'mouse' && onHover(it?.uid ?? null)}
+					onPointerLeave={(e) => e.pointerType === 'mouse' && onHover(null)}
+					className={`ui-slot relative h-[57px] w-[58px] shrink-0 cursor-pointer ${it ? rarityClass(it.rarity) : 'opacity-85'} ${target ? 'inv-target' : on ? 'outline-[3px] outline-offset-1 outline-ink-brown' : 'hover:brightness-110'}`}
+				>
+					{it ? <ItemIcon item={it} /> : <SlotSilhouette src={SLOT_SILHOUETTE[slot]} fallback={null} />}
+				</button>
+				<span aria-hidden className={`w-full truncate text-center text-[11px] leading-[13px] font-extrabold ${target ? 'text-amber' : it ? 'text-ink-brown' : 'text-ink-faint'}`}>
+					{caption(slot)}
+				</span>
+			</div>
 		);
 	};
 
 	const side = (slots: EquipSlotId[], aria: string) => (
-		<div role="group" aria-label={aria} className={low ? 'grid grid-cols-[58px_58px] grid-rows-[repeat(3,57px)] gap-1.5' : 'flex flex-col gap-2'}>
+		<div role="group" aria-label={aria} className={low ? 'grid grid-cols-[64px_64px] grid-rows-[repeat(3,auto)] gap-x-0.5 gap-y-1' : 'flex flex-col gap-1.5'}>
 			{slots.map(cell)}
 		</div>
 	);
+	const worn = equipment.filter((e) => e.item).length;
 
-	return (
-		<div className={low ? 'grid grid-cols-[122px_110px_122px] gap-x-2' : 'grid grid-cols-[58px_minmax(0,1fr)_58px] gap-x-2 sm:gap-x-3'}>
+	const grid = (
+		<div className={low ? 'grid grid-cols-[130px_minmax(0,1fr)_130px] gap-x-1.5' : 'grid grid-cols-[64px_minmax(0,1fr)_64px] gap-x-1.5 sm:gap-x-2.5'}>
 			{side(LEFT, 'Trang phục')}
 			{/* Lớp trong `absolute`: hình không bao giờ đẩy cao hàng lưới — cỡ sân khấu chỉ do hai cột ô quyết, nên phép đo không tự nuôi nhau. */}
-			<div ref={stageRef} className="relative min-w-0 overflow-hidden rounded-[10px] border-2 border-paper-line bg-paper-sunk">
+			<div ref={stageRef} className="relative min-w-0 overflow-hidden rounded-[10px] border-2 border-paper-line bg-[linear-gradient(var(--color-paper-sunk),#e3c48f)]">
 				<div className="absolute inset-0 flex flex-col items-center justify-end px-1 pt-2 pb-2">
 					<PlayerFigure sprite={sprite} maxW={stage.w} maxH={stage.h} reserve={low ? 12 : 52} kMax={low ? 2 : 4} alt={name} />
 					{!low && (
@@ -137,5 +130,20 @@ export function EquipDoll({ mode, equipment, targets, selected, sprite, name, su
 			</div>
 			{side(RIGHT, 'Vũ khí và trang sức')}
 		</div>
+	);
+	// Cây giữ NGUYÊN hình dạng khi đổi chế độ (tiêu đề chỉ bật/tắt): `useInvMode` thường ra chế độ thật sau lần vẽ đầu, mà
+	// đổi kiểu phần tử gốc thì React dựng lại sân khấu — ResizeObserver (gắn một lần) bám nút cũ, hình nhân vật mất hẳn.
+	return (
+		<>
+			{!low && (
+				<div className="mb-1.5 flex items-baseline gap-2">
+					<h3 className="font-display text-[18px] leading-[1.3] font-extrabold">Trang bị</h3>
+					<span className="text-note text-ink-soft tabular-nums">
+						đang mặc {worn}/{EQUIP_SLOTS.length} ô
+					</span>
+				</div>
+			)}
+			{grid}
+		</>
 	);
 }

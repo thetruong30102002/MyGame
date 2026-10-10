@@ -1,0 +1,13 @@
+{
+	"description": "a horizontal steel sword over a teal half-dome guard, simple chunky game icon",
+	"width": 32,
+	"height": 32,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "low detail",
+	"seed": 4242,
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/sword+teal.png",
+	"init_image_path": "sources/pixellab/skill-icons-v2/init/calm_stance.init.png",
+	"init_image_strength": 200
+}

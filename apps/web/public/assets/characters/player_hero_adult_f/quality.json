@@ -13,6 +13,30 @@
 			"detail": "S:8 SW:8 W:8 NW:8 N:8 NE:8 E:8 SE:8"
 		},
 		{
+			"id": "anim-idlesword",
+			"label": "Animation idlesword: đủ 8 hướng, 4–8 frame",
+			"status": "pass",
+			"detail": "S:4 SW:4 W:4 NW:4 N:4 NE:4 E:4 SE:4"
+		},
+		{
+			"id": "anim-walksword",
+			"label": "Animation walksword: đủ 8 hướng, 6–8 frame",
+			"status": "pass",
+			"detail": "S:8 SW:8 W:8 NW:8 N:8 NE:8 E:8 SE:8"
+		},
+		{
+			"id": "anim-idlestaff",
+			"label": "Animation idlestaff: đủ 8 hướng, 4–8 frame",
+			"status": "pass",
+			"detail": "S:4 SW:4 W:4 NW:4 N:4 NE:4 E:4 SE:4"
+		},
+		{
+			"id": "anim-walkstaff",
+			"label": "Animation walkstaff: đủ 8 hướng, 6–8 frame",
+			"status": "pass",
+			"detail": "S:8 SW:8 W:8 NW:8 N:8 NE:8 E:8 SE:8"
+		},
+		{
 			"id": "no-empty-frames",
 			"label": "Không có frame rỗng (ô trống trong sheet nguồn)",
 			"status": "pass",
@@ -40,13 +64,13 @@
 			"id": "no-blur",
 			"label": "Không nhoè: số màu/frame và tỉ lệ chuyển màu li ti",
 			"status": "pass",
-			"detail": "tối đa 35 màu/frame (ngưỡng 128), micro-step 0.1% (ngưỡng 12%)"
+			"detail": "tối đa 44 màu/frame (ngưỡng 128), micro-step 0.0% (ngưỡng 12%)"
 		},
 		{
 			"id": "silhouette-size",
 			"label": "Silhouette đủ lớn để đọc được (45–95% chiều cao canvas)",
 			"status": "pass",
-			"detail": "cao 66–72px trên 112px"
+			"detail": "cao 66–74px trên 112px"
 		},
 		{
 			"id": "silhouette-solid",
@@ -70,13 +94,13 @@
 			"id": "anatomy",
 			"label": "Duyệt bằng mắt: giải phẫu, vũ khí/trang phục/tóc không đổi giữa frame",
 			"status": "pass",
-			"detail": "09/10/2026: Duyệt bằng mắt từng động tác (E/S/N + lật gương tây): 25 động tác — 13 kiếm trên phiên bản Sword, 7 phép trên phiên bản Staff, lướt / trúng đòn / gục / uống bình trên thân tay không; revive = gục phát ngược. Kiếm thép, trượng gỗ đầu pha lê xanh liền tay suốt chuỗi khung; tóc, khăn xanh rêu, áo vải + gi-lê nhất quán. Khung lạ đã chấp nhận ghi ở quality.allowForeign."
+			"detail": "10/10/2026: Duyệt bằng mắt từng động tác (E/S/N + lật gương tây): 25 động tác — 13 kiếm trên phiên bản Sword, 7 phép trên phiên bản Staff, lướt / trúng đòn / gục / uống bình trên thân tay không; revive = gục phát ngược. Kiếm thép, trượng gỗ đầu pha lê xanh liền tay suốt chuỗi khung; tóc, khăn xanh rêu, áo vải + gi-lê nhất quán. Khung lạ đã chấp nhận ghi ở quality.allowForeign. | 10/10/2026: đứng / đi cầm kiếm thép + cầm trượng: vũ khí liền tay mọi khung, đúng hướng. Đứng kiếm E vẽ lại 2 lần (mẫu làm mất kiếm, v3 lần 1 quay đầu ra sau) → `idle-sword2` v3; đi trượng E vẽ lại v3 (`walk-staff2`). | 10/10/2026 (lượt 2): trúng đòn / lướt / gục cầm kiếm thép + cầm trượng (E/S/N + lật gương tây, tấm `reports/player_hero_adult_f/held-review-body-*.png`): vũ khí liền tay, đúng hướng, chân trên vạch, cùng số khung bản tay không; gục: vũ khí rơi nằm cạnh người. Vẽ lại: trúng đòn kiếm S (chuyển tay + điểm trắng lạ), E (co gối như đá), trúng đòn trượng E (trượng ngả ngang), S (gập người + vạch va chạm), lướt kiếm S (chuyển tay), lướt trượng S (trượng chĩa ngang), N (quay mặt ra người xem), gục kiếm S (cụm khói trắng), gục trượng E (vòng phép lục giác sáng), S (pha lê bật khỏi trượng); gục trượng N: bản 2 lửa xanh to hơn → `reject`, bản 3 (`death-staff3`) đạt. Lỗi nhẹ giữ: gục kiếm S khung cuối vài sao chóng mặt trắng; trúng đòn kiếm E vẫn hơi co gối; trượng có vài điểm lấp lánh cạnh pha lê (như ảnh đứng)."
 		}
 	],
 	"stats": {
-		"frames": 96,
-		"maxColorsPerFrame": 35,
-		"microStepRatio": 0.0013099034564482174
+		"frames": 288,
+		"maxColorsPerFrame": 44,
+		"microStepRatio": 0.0004476999411302423
 	},
 	"optional": [
 		{
@@ -774,6 +798,230 @@
 		},
 		{
 			"animation": "drink",
+			"direction": "W",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "hitsword",
+			"direction": "S",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "hitsword",
+			"direction": "N",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "hitsword",
+			"direction": "E",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "hitsword",
+			"direction": "W",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "hitstaff",
+			"direction": "S",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "hitstaff",
+			"direction": "N",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "hitstaff",
+			"direction": "E",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "hitstaff",
+			"direction": "W",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "dodgesword",
+			"direction": "S",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "dodgesword",
+			"direction": "N",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "dodgesword",
+			"direction": "E",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "dodgesword",
+			"direction": "W",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "dodgestaff",
+			"direction": "S",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "dodgestaff",
+			"direction": "N",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "dodgestaff",
+			"direction": "E",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "dodgestaff",
+			"direction": "W",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "deathsword",
+			"direction": "S",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "deathsword",
+			"direction": "N",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "deathsword",
+			"direction": "E",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "deathsword",
+			"direction": "W",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "revivesword",
+			"direction": "S",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "revivesword",
+			"direction": "N",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "revivesword",
+			"direction": "E",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "revivesword",
+			"direction": "W",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "deathstaff",
+			"direction": "S",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "deathstaff",
+			"direction": "N",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "deathstaff",
+			"direction": "E",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "deathstaff",
+			"direction": "W",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "revivestaff",
+			"direction": "S",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "revivestaff",
+			"direction": "N",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "revivestaff",
+			"direction": "E",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "revivestaff",
 			"direction": "W",
 			"frames": 8,
 			"passed": true,

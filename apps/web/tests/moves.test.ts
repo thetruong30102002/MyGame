@@ -104,6 +104,8 @@ function setup(extra: string[]) {
 	const p = new Actor('hero', fakeTextures(extra), 40, 100, 'S', null);
 	combat.setPlayer(p);
 	combat.addDummy(100, 100);
+	// Luật 10/10/2026: phép mốc 1 của nguyên tố phải học bằng điểm — test ra Hoả Cầu nên coi như đã học mốc 1 mọi nhánh.
+	combat.setTalents({ sword: 1, fire: 1, water: 1, wind: 1, ice: 1, earth: 1 });
 	const east = { x: 100, y: 100 - p.chest };
 	const tick = (n = 1, dt = 1 / 60) => {
 		for (let i = 0; i < n; i += 1) {

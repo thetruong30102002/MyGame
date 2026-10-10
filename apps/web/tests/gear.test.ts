@@ -1,12 +1,15 @@
-// Chạy: npx tsx tests/gear.test.ts — đồ mặc lên người: chọn neo + trước/sau thân theo hướng, ẩn khi động tác đã vẽ liền
-// vũ khí, chọn bộ trang phục, nhuộm/viền độ hiếm, mã hoá gửi qua mạng (tương thích ngược), neo trong atlas đã xuất.
+// Chạy: npx tsx tests/gear.test.ts — đồ mặc lên người: chọn neo + trước/sau thân theo hướng, ẩn lớp vũ khí dán ngoài trong động
+// tác đã vẽ liền vũ khí, kiếm / trượng vẽ liền thân (không dán ảnh, chọn bản đứng / đi cầm theo thế), chọn bộ trang phục, nhuộm/viền
+// độ hiếm, mã hoá gửi qua mạng (tương thích ngược), neo trong atlas đã xuất. AETHER_WEB_ASSETS = thư mục nháp → kiểm atlas dựng thử.
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { cleanGearView, GEAR_RARITY_LEVELS, GEAR_VIEW_SLOTS } from '@aether/protocol';
-import { DIRECTIONS, type Direction } from '../src/game/assets/AssetManifest';
+import { DIRECTIONS, HELD_ARTS, type Direction } from '../src/game/assets/AssetManifest';
 import { RARITY_ORDER, type GearState } from '../src/game/equipment';
-import { GEAR_ART, type GearArt } from '../src/game/gearArt';
-import { baseOfOutfit, decodeGear, defaultStance, encodeGear, figureGear, gearPieces, layoutPiece, outfitSprite, slotRule, stanceAfter, viewFor, wieldedPieces, type GearAnchors } from '../src/game/gearLayers';
+import { GEAR_ART, HELD_BODY_ACTIONS, heldAction, heldAnimation, type GearArt } from '../src/game/gearArt';
+import { baseOfOutfit, decodeGear, defaultStance, encodeGear, figureGear, gearPieces, heldArt, layoutPiece, outfitSprite, slotRule, stanceAfter, viewFor, wieldedPieces, type GearAnchors } from '../src/game/gearLayers';
 import { GEAR_PAD, gripIn, halve, prepareGearPixels, RARITY_FX, type Pixels } from '../src/game/gearPixels';
 
 let passed = 0;
@@ -71,7 +74,7 @@ test('ảnh theo hướng: S/SE/SW → S, E/W → E, chéo bắc → N; hướng
 	assert.equal(viewFor(ART.shield!, 'N')!.img.src, 'sh.png');
 });
 
-test('layoutPiece: đặt điểm nắm trùng neo (cộng dx), trả null khi id lạ / sai ô / động tác đã vẽ liền đồ cầm tay', () => {
+test('layoutPiece: đặt điểm nắm trùng neo (cộng dx), trả null khi id lạ / sai ô / động tác ra đòn (ẩn đồ cầm tay)', () => {
 	assert.deepEqual(layoutPiece({ slot: 'main', id: 'blade' }, A, 'S', 'idle', ART), { x: 21, y: 57, front: true, flip: false, img: ART.blade!.views.S });
 	assert.deepEqual(layoutPiece({ slot: 'off', id: 'shield' }, A, 'E', 'walk', ART)?.x, 52 - 4);
 	assert.equal(layoutPiece({ slot: 'main', id: 'nope' }, A, 'S', 'idle', ART), null);
@@ -80,6 +83,8 @@ test('layoutPiece: đặt điểm nắm trùng neo (cộng dx), trả null khi i
 	assert.equal(layoutPiece({ slot: 'off', id: 'shield' }, A, 'S', 'cast', ART), null, 'atlas niệm đã vẽ trượng');
 	assert.ok(layoutPiece({ slot: 'head', id: 'cap' }, A, 'S', 'attack', ART), 'mũ không bị ẩn khi chém');
 	assert.equal(layoutPiece({ slot: 'back', id: 'cloak' }, A, 'N', 'idle', ART)?.front, true);
+	const baked: Record<string, GearArt> = { blade: { ...ART.blade!, held: 'sword' } };
+	for (const anim of ['idle', 'walk', 'idlesword', 'hit', 'attack']) assert.equal(layoutPiece({ slot: 'main', id: 'blade' }, A, 'S', anim, baked), null, `vẽ liền thân: không dán ở ${anim}`);
 });
 
 test('gearPieces: chỉ món có art đúng ô; độ hiếm lấy từ danh mục; ô không có lớp (nhẫn, áo) bị bỏ', () => {
@@ -157,21 +162,27 @@ test('thu ½ kiểu pixel art: mỗi ô 2×2 giữ điểm có hình đầu tiê
 	assert.deepEqual(gripIn([12, 37], 0.5), [6 + GEAR_PAD, 19 + GEAR_PAD]);
 });
 
-test('figureGear (kho đồ): cùng luật với game — góc ảnh = neo − điểm nắm, cỡ = ảnh thu + lề viền', () => {
-	const [g] = figureGear([{ slot: 'main', id: 'sword', rarity: 'rare' }], A, 'S');
-	const img = GEAR_ART.sword!.views.S!;
-	const [gx, gy] = gripIn(img.grip, 0.5);
+test('figureGear (kho đồ): cùng luật với game — góc ảnh = neo − điểm nắm, cỡ = ảnh thu + lề viền; kiếm / trượng thật không dán', () => {
+	const icon = { src: 'sw.png', w: 49, h: 49, grip: [12, 37] as [number, number], scale: 0.5 as const, flip: true };
+	const T: Record<string, GearArt> = { blade: { slot: 'main', wield: 'melee', views: { S: icon } } };
+	const [g] = figureGear([{ slot: 'main', id: 'blade', rarity: 'rare' }], A, 'S', 'idle', T);
+	const [gx, gy] = gripIn(icon.grip, 0.5);
 	assert.equal(g!.left, A.handL[0] - gx);
 	assert.equal(g!.top, A.handL[1] - gy);
-	assert.equal(g!.w, Math.ceil(img.w / 2) + GEAR_PAD * 2);
+	assert.equal(g!.w, Math.ceil(icon.w / 2) + GEAR_PAD * 2);
 	assert.equal(g!.flip, true);
 	assert.equal(g!.front, true);
-	assert.deepEqual(figureGear([{ slot: 'main', id: 'sword', rarity: 'common' }], undefined, 'S'), [], 'atlas chưa có neo → không vẽ');
+	assert.deepEqual(figureGear([{ slot: 'main', id: 'blade', rarity: 'common' }], undefined, 'S', 'idle', T), [], 'atlas chưa có neo → không vẽ');
+	const real = [{ slot: 'main' as const, id: 'sword', rarity: 'rare' as const }, { slot: 'off' as const, id: 'staff', rarity: 'common' as const }];
+	assert.deepEqual(figureGear(real, A, 'S', 'idlesword'), [], 'kiếm / trượng nằm sẵn trong khung đứng cầm vũ khí');
 });
+
+/** Thư mục assets: public (bản người chơi đang chạy) hoặc thư mục nháp `AETHER_WEB_ASSETS` (atlas dựng thử, như tests/region.ts). */
+const ASSETS = process.env.AETHER_WEB_ASSETS ? pathToFileURL(`${resolve(process.env.AETHER_WEB_ASSETS)}/`) : new URL('../public/assets/', import.meta.url);
 
 test('atlas đã xuất: mọi khung của 4 sprite người chơi có neo hợp lệ (trong khung, tay dưới vai, đỉnh trên tâm đầu)', () => {
 	for (const id of ['player_hero_adult', 'player_hero_adult_f', 'player_lior_child', 'player_lior_child_f']) {
-		const j = JSON.parse(readFileSync(new URL(`../public/assets/characters/${id}/${id}.json`, import.meta.url), 'utf8')) as { frames: Record<string, { frame: { w: number; h: number }; gear?: GearAnchors }> };
+		const j = JSON.parse(readFileSync(new URL(`characters/${id}/${id}.json`, ASSETS), 'utf8')) as { frames: Record<string, { frame: { w: number; h: number }; gear?: GearAnchors }> };
 		for (const [name, f] of Object.entries(j.frames)) {
 			const g = f.gear;
 			assert.ok(g, `${name} thiếu neo — chạy npm run assets:anchors`);
@@ -198,6 +209,52 @@ test('thế cầm: mỗi lúc chỉ MỘT loại vũ khí — chém thì cầm k
 	const sword = [{ slot: 'main' as const, id: 'blade', rarity: 'common' as const }, { slot: 'off' as const, id: 'shield', rarity: 'common' as const }];
 	assert.deepEqual(ids(wieldedPieces(sword, 'magic', T)), ['blade', 'shield'], 'không có gậy: vẫn cầm kiếm đang mặc; khiên không phải vũ khí');
 	assert.deepEqual(figureGear(both, A, 'S', 'idle', T, 'magic').map((g) => g.src).sort(), ['h.png', 'r.png'], 'kho đồ vẽ cùng thế');
+});
+
+test('vũ khí vẽ liền thân đang cầm (đứng / đi chọn bản `idle<món>`): theo thế, thiếu món đúng thế thì món đang có, không có thì tay không', () => {
+	const sw = { slot: 'main' as const, id: 'sword', rarity: 'common' as const };
+	const st = { slot: 'off' as const, id: 'staff', rarity: 'rare' as const };
+	assert.equal(heldArt([sw, st], 'melee'), 'sword');
+	assert.equal(heldArt([sw, st], 'magic'), 'staff');
+	assert.equal(heldArt([st], 'melee'), 'staff', 'thế kiếm mà chỉ mặc trượng: cầm trượng');
+	assert.equal(heldArt([sw], 'magic'), 'sword', 'thế phép mà chỉ mặc kiếm: cầm kiếm');
+	assert.equal(heldArt([], 'melee'), null, 'chưa được trao vũ khí / tháo ra: tay không');
+	// Vũ khí đúng thế mà CHƯA có bản vẽ liền thân (chỉ có ảnh dán) → tay không + lớp dán, không cầm nhầm món kia.
+	const T: Record<string, GearArt> = { ...GEAR_ART, iron: { slot: 'main', wield: 'melee', views: { S: { src: 'i.png', w: 9, h: 20, grip: [4, 18] } } } };
+	assert.equal(heldArt([{ slot: 'main', id: 'iron', rarity: 'fine' }, st], 'melee', T), null);
+	assert.equal(heldArt([{ slot: 'main', id: 'iron', rarity: 'fine' }, st], 'magic', T), 'staff');
+	for (const h of HELD_ARTS) assert.match(heldAnimation('idle', h), /^[a-z]+$/, 'tên khung atlas chỉ a–z');
+});
+
+test('atlas đã xuất: động tác thân bản cầm vũ khí (nếu có) cùng số khung với bản tay không ở mọi hướng đã vẽ; atlas ≤ 4096', () => {
+	for (const id of ['player_hero_adult', 'player_hero_adult_f', 'player_lior_child', 'player_lior_child_f']) {
+		const j = JSON.parse(readFileSync(new URL(`characters/${id}/${id}.json`, ASSETS), 'utf8')) as { animations: Record<string, string[]>; meta: { size: { w: number; h: number } } };
+		assert.ok(j.meta.size.w <= 4096 && j.meta.size.h <= 4096, `${id}: atlas ${j.meta.size.w}×${j.meta.size.h} vượt 4096`);
+		for (const b of HELD_BODY_ACTIONS) {
+			for (const h of HELD_ARTS) {
+				for (const d of DIRECTIONS) {
+					const held = j.animations[`${heldAction(b, h)}_${d}`];
+					if (!held) continue;
+					// Cùng nhịp với bản tay không: hitFrame / thời lượng spec tính theo số khung.
+					assert.equal(held.length, j.animations[`${b}_${d}`]?.length, `${id} ${heldAction(b, h)}_${d}: số khung khác bản tay không`);
+				}
+			}
+		}
+	}
+});
+
+test('atlas đã xuất có bản cầm vũ khí thì đủ 8 hướng đứng / đi cho mỗi món (thiếu hẳn = atlas cũ, game giữ tay không)', () => {
+	for (const id of ['player_hero_adult', 'player_hero_adult_f', 'player_lior_child', 'player_lior_child_f']) {
+		const j = JSON.parse(readFileSync(new URL(`characters/${id}/${id}.json`, ASSETS), 'utf8')) as { animations: Record<string, string[]> };
+		for (const h of HELD_ARTS) {
+			for (const base of ['idle', 'walk'] as const) {
+				const anim = heldAnimation(base, h);
+				const dirs = DIRECTIONS.filter((d) => j.animations[`${anim}_${d}`]?.length);
+				if (!dirs.length) continue;
+				assert.equal(dirs.length, DIRECTIONS.length, `${id} ${anim}: có ${dirs.join(',')}`);
+			}
+		}
+	}
 });
 
 console.log(`${passed} test qua`);
