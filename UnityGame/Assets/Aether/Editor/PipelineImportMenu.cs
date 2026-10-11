@@ -11,7 +11,7 @@ using Debug = UnityEngine.Debug;
 namespace Aether.Importer
 {
     /// <summary>
-    /// Menu "Aether/Nhập dữ liệu từ pipeline": đọc apps/web/public/assets (do packages/asset-pipeline xuất) → Assets/Aether/Imported.
+    /// Menu "Aether/Nhập dữ liệu từ pipeline": đọc assets/ ở gốc repo (do packages/asset-pipeline xuất) → Assets/Aether/Imported.
     /// Chạy lại bao nhiêu lần cũng được: ảnh chỉ ghi khi khác, sprite giữ spriteID theo tên, ScriptableObject cập nhật tại chỗ.
     /// Dòng lệnh: Unity -batchmode -quit -projectPath UnityGame -executeMethod Aether.Importer.PipelineImportMenu.ImportAllBatch
     ///            [-aetherAssets &lt;thư mục assets&gt;]
@@ -20,8 +20,8 @@ namespace Aether.Importer
     {
         private const string PrefKey = "Aether.PipelineAssetsDir";
 
-        /// <summary>Mặc định: repo gốc/apps/web/public/assets (UnityGame nằm cạnh apps/).</summary>
-        public static string DefaultSourceDir => Path.GetFullPath(Path.Combine(Application.dataPath, "..", "..", "apps", "web", "public", "assets"));
+        /// <summary>Mặc định: repo gốc/assets (UnityGame nằm cạnh nó).</summary>
+        public static string DefaultSourceDir => Path.GetFullPath(Path.Combine(Application.dataPath, "..", "..", "assets"));
 
         public static string SourceDir
         {
@@ -48,7 +48,7 @@ namespace Aether.Importer
         [MenuItem("Aether/Chọn thư mục pipeline…", priority = 2)]
         private static void ChooseSource()
         {
-            var p = EditorUtility.OpenFolderPanel("Thư mục assets của pipeline (apps/web/public/assets)", SourceDir, "");
+            var p = EditorUtility.OpenFolderPanel("Thư mục assets của pipeline (assets/ ở gốc repo)", SourceDir, "");
             if (!string.IsNullOrEmpty(p)) EditorPrefs.SetString(PrefKey, p);
         }
 

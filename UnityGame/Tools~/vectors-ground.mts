@@ -1,4 +1,4 @@
-// Vector đối chiếu MẶT ĐẤT: băm SHA-1 điểm ảnh do CHÍNH groundShade.ts của web tô (renderGroundChunk) cho vài vùng của mỗi map,
+// Vector đối chiếu MẶT ĐẤT: băm SHA-1 điểm ảnh do CHÍNH groundShade.ts (packages/asset-pipeline) tô (renderGroundChunk) cho vài vùng của mỗi map,
 // cùng bảng màu lót terrainColor. Test C# (Tests~/Aether.Data.Tests) chạy GroundShader.cs cùng đầu vào và đòi ra y hệt từng byte.
 //   npx tsx UnityGame/Tools~/vectors-ground.mts
 import { createHash } from 'node:crypto';
@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url';
 import { renderGroundChunk, terrainColor, type Biome } from '../../packages/asset-pipeline/src/maps/groundShade.ts';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
-const MAPS = join(HERE, '..', '..', 'apps', 'web', 'public', 'assets', 'maps', 'human');
+const MAPS = join(HERE, '..', '..', 'assets', 'maps', 'human');
 const OUT = join(HERE, '..', 'Tests~', 'vectors');
 mkdirSync(OUT, { recursive: true });
 

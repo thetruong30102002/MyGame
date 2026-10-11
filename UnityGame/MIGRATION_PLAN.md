@@ -31,7 +31,7 @@ CLIENT bằng C# trong Unity; giữ máy chủ Node (`apps/server`), giao thức
 
 ## Làm nốt rồi xoá bản web (chủ dự án 11/10/2026: "làm nốt đi rồi xoá")
 
-Kiểm kê 11/10/2026: những gì bản web có mà Unity chưa có. Đánh dấu ✓ khi xong. Xoá `apps/web` CHỈ sau khi xong hết A–G.
+Kiểm kê 11/10/2026: những gì bản web có mà Unity chưa có. Đánh dấu ✓ khi xong. Xoá `apps/web` CHỈ sau khi xong hết A–G. **ĐÃ XOÁ 11/10/2026.**
 
 | # | Việc | Nguồn web | Trạng thái |
 |---|---|---|---|
@@ -52,11 +52,11 @@ Kiểm kê 11/10/2026: những gì bản web có mà Unity chưa có. Đánh d�
 | E1 | Thư viện (danh mục quái / boss / NPC) | `components/CodexTab.tsx`, `game/codex.ts` | ✓ 11/10/2026 (tab Thư viện phím L, `Panels.Codex.cs`, dữ liệu `@aether/sim/codex`) |
 | F1 | Bảng Tiềm năng dạng CÂY (chủ dự án: "sửa cái tiềm năng thành dạng cây tree") | — | ✓ 11/10/2026 (`Panels.Talents.cs`: gốc ở đáy, 6 nhánh, chạc lưu phái Kiếm, khung chi tiết + phủ phép + tẩy điểm; đường nối vẽ bằng uGUI — không thư viện ngoài nào hợp: Unity UI Extensions chỉ có UILineRenderer, không có cây kỹ năng) |
 | G1 | Trang quản trị `/admin` (đang là trang Next.js) → cửa sổ Quản trị trong client Unity | `app/admin`, `components/admin` | ✓ 11/10/2026 (`GameController.Admin.cs` + `Panels.Admin.cs`: nút ở tab Cài đặt chỉ hiện khi `/api/admin/me` trả có quyền; tìm nhân vật, cộng / trừ xu · kim cương · bình · EXP · điểm tiềm năng, đặt cấp, lý do bắt buộc, xem trước bằng `ApplyAdminEco`, bấm hai lần mới gửi, nhật ký. AutoTest `-aetherAdmin -aetherUser … -aetherPass …` cộng 100 xu thật trên DB thử) |
-| H1 | Dời dữ liệu dùng chung ra khỏi `apps/web`: `public/assets` (pipeline xuất, Unity nhập, máy chủ đọc map), `tempArt.ts`, `story/*`, `codex.ts`, `groundShade.ts`, `worldAtlas.ts`; sửa đường dẫn ở máy chủ, pipeline, `Tools~`, Editor importer | — | ✓ phần DỮ LIỆU 11/10/2026: `story.ts` + `services.ts` → `packages/sim/src/story/`; `groundShade.ts` + `noise.ts` → `packages/asset-pipeline/src/maps/`; `tempArt.ts` + id hiệu ứng (`vfxIds.ts`) → `UnityGame/Tools~/data/`; `codex` / `worldAtlas` → `packages/sim` (từ trước). Web giữ file chuyển tiếp. **Còn `public/assets`** — dời là trang web trên Funnel hỏng ngay nên làm ở H3 (danh sách chỗ đổi đường dẫn ở dưới) |
+| H1 | Dời dữ liệu dùng chung ra khỏi `apps/web`: `public/assets` (pipeline xuất, Unity nhập, máy chủ đọc map), `tempArt.ts`, `story/*`, `codex.ts`, `groundShade.ts`, `worldAtlas.ts`; sửa đường dẫn ở máy chủ, pipeline, `Tools~`, Editor importer | — | ✓ phần DỮ LIỆU 11/10/2026: `story.ts` + `services.ts` → `packages/sim/src/story/`; `groundShade.ts` + `noise.ts` → `packages/asset-pipeline/src/maps/`; `tempArt.ts` + id hiệu ứng (`vfxIds.ts`) → `UnityGame/Tools~/data/`; `codex` / `worldAtlas` → `packages/sim` (từ trước). Web giữ file chuyển tiếp. `public/assets` → `assets/` ở gốc repo cùng H3 (620 file, 90MB; mọi đường dẫn ở máy chủ, pipeline, Unity importer, `Tools~`, test C# đã đổi) |
 | H2 | Test web kiểm luật sim → chuyển sang `packages/sim` (giữ lưới an toàn), bỏ test chỉ của client web | `apps/web/tests` | ✓ 11/10/2026: phần LUẬT THUẦN của 7 file (talents, enchant, level, elements, swordstyles, swordtiers69, tiers69) → `packages/sim/tests`, `npm test -w @aether/sim`. 24 file còn lại kiểm client web (CombatSystem + pixi, store React, AutoWalk / StoryDirector web…) — client Unity có bản C# + vector riêng, bỏ cùng bản web |
-| H3 | Xoá `apps/web`, sửa `package.json` (dev/build), README, CLAUDE.md, tài liệu bàn giao; hạ link Funnel web (cổng 443 → không còn bản web) | — | |
+| H3 | Xoá `apps/web`, sửa `package.json` (dev/build), README, CLAUDE.md, tài liệu bàn giao; hạ link Funnel web (cổng 443 → không còn bản web) | — | ✓ 11/10/2026 (chủ dự án duyệt: xoá + khởi động lại máy chủ thật + commit trước + gỡ route Funnel "/"): commit chốt `8b018231` → sao lưu `aether.db` (`data/backup-20261011-085402`, kiểm toàn vẹn ok) → dời assets → xoá `apps/web` → khởi động lại máy chủ thật :3200 qua `scripts/khoi-dong-ban-that.ps1` (đã bỏ phần bật web :3101) → `package.json` / lockfile / README / CLAUDE.md / tài liệu bàn giao. Route Funnel `/` KHÔNG gỡ được riêng (Tailscale 1.102.2 báo "handler does not exist"; chỉ còn cách `funnel reset` + thêm lại `/game`) — để nguyên, trỏ cổng chết, vô hại |
 
-### H3 — chỗ phải đổi khi dời `apps/web/public/assets` → `assets/` (gốc repo)
+### H3 — chỗ đã đổi khi dời `apps/web/public/assets` → `assets/` (gốc repo) — XONG 11/10/2026
 
 - `packages/asset-pipeline/src/cli.ts` (`WEB_ASSETS`, biến `AETHER_WEB_ASSETS`), `src/debugMapPreview.ts` (`WEB`), `tests/gear-anchors.test.ts`.
 - `apps/server/src/world.ts` (`MAPS_DIR`, biến `AETHER_MAPS`), `apps/server/tests/regions.test.ts`, `tests/worldmaps.test.ts`.

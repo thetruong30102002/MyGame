@@ -5,7 +5,7 @@ import { join } from 'node:path';
 import { renderGroundChunk, type TerrainGrid } from './maps/groundShade.js';
 import { createImage, opaqueBounds, readPng, scaleNearest, writePng, type RGBAImage } from './image/rgba.js';
 
-const WEB = join(process.cwd(), '../../apps/web/public/assets');
+const WEB = join(process.cwd(), '../../assets');
 const map = JSON.parse(readFileSync(join(WEB, 'maps/human/town.json'), 'utf8')) as TerrainGrid & {
 	props: { id: string; x: number; y: number }[];
 	decals: { id: string; x: number; y: number }[];

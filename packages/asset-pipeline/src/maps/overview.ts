@@ -5,7 +5,7 @@ import { blit, createImage, crop, readPng, writePng, type RGBAImage } from '../i
 
 export type Biome = 'meadow' | 'deadland' | 'rocky' | 'swamp' | 'desert' | 'highland' | 'snow' | 'volcanic' | 'beach';
 
-/** Màu theo HSV — chép từ apps/web groundShade (pipeline không import được code web: khác chuẩn module). */
+/** Màu theo HSV — khớp `groundShade.ts` cùng thư mục (bản client tô mặt đất, trước ở apps/web; Unity: `GroundShader`). */
 function hsv(h: number, s: number, v: number): [number, number, number] {
 	const f = (n: number): number => {
 		const k = (n + h / 60) % 6;

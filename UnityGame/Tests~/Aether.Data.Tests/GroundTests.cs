@@ -27,7 +27,7 @@ namespace Aether.Data.Tests
         [Test]
         public void ChunksMatchTypeScript()
         {
-            var maps = Path.Combine(Root, "..", "apps", "web", "public", "assets", "maps", "human");
+            var maps = Path.Combine(Root, "..", "assets", "maps", "human");
             var bad = 0;
             foreach (var c in (JArray)Vectors["chunks"])
             {

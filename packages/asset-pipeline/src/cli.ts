@@ -53,8 +53,9 @@ import { blit, createImage, crop, fill, opaqueBounds, scaleNearest, type RGBAIma
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');
 const CACHE = join(ROOT, '.asset-cache');
-// Funnel phục vụ thẳng `apps/web/public` → dựng THỬ thì trỏ biến này ra thư mục nháp, không thì người chơi thật thấy ngay bản dở.
-const WEB_ASSETS = process.env.AETHER_WEB_ASSETS ? resolve(process.env.AETHER_WEB_ASSETS) : join(ROOT, 'apps/web/public/assets');
+// Đầu ra pipeline (`assets/` ở gốc repo — máy chủ đọc map, Unity nhập hình). Dựng THỬ thì trỏ `AETHER_ASSETS` ra thư mục nháp: máy
+// chủ thật đọc map từ đây ngay lúc chạy.
+const WEB_ASSETS = process.env.AETHER_ASSETS ? resolve(process.env.AETHER_ASSETS) : join(ROOT, 'assets');
 const REPORTS = join(ROOT, 'packages/asset-pipeline/reports');
 
 interface CharacterSpec {
@@ -1194,7 +1195,7 @@ async function buildMap(region = 'human'): Promise<void> {
 }
 
 /**
- * Ảnh giao diện cổ (khung 9 mảnh, nút, dải tiêu đề, biểu tượng) cắt từ tấm PixelLab → `public/assets/ui/` + `ui.json`.
+ * Ảnh giao diện cổ (khung 9 mảnh, nút, dải tiêu đề, biểu tượng) cắt từ tấm PixelLab → `assets/ui/` + `ui.json`.
  * Tấm nào chưa vẽ thì bỏ qua món đó (web tự dùng khung CSS dự phòng).
  */
 function buildUi(): void {
@@ -1236,13 +1237,13 @@ function buildUi(): void {
 	console.log(`  ${Object.keys(manifest).length} ảnh giao diện → ${outDir}`);
 }
 
-/** Khổ tranh lục địa mà toạ độ 10 vùng (`apps/web/src/game/world/worldAtlas.ts` — `CONTINENT`) đo trên đó. */
+/** Khổ tranh lục địa mà toạ độ 10 vùng (`packages/sim/src/worldAtlas.ts` — `CONTINENT_SIZE`) đo trên đó. */
 const CONTINENT_SIZE = { w: 688, h: 384 };
 
 /**
  * Tranh lục địa (bản đồ tổng phím M — docs/ke-hoach-the-gioi.md mục 3.1) → `ui/world-continent.png`. Chép NGUYÊN file (không nén
  * lại: web hiện nguyên lần 1× / 2×) sau khi kiểm đúng khổ của toạ độ vùng và ảnh kín (tranh vẽ cả biển, không có điểm trong suốt).
- * Vẽ lại tranh khác bố cục thì đo lại toạ độ ở `worldAtlas.ts`. Dựng thử: `AETHER_WEB_ASSETS=<thư mục nháp> npm run assets:world`.
+ * Vẽ lại tranh khác bố cục thì đo lại toạ độ ở `worldAtlas.ts`. Dựng thử: `AETHER_ASSETS=<thư mục nháp> npm run assets:world`.
  */
 function buildWorld(): void {
 	const src = join(PIXELLAB_SOURCES, 'world', 'continent.png');
@@ -1265,7 +1266,7 @@ function buildWorld(): void {
  * Atlas icon chiêu (`props/skillIcons.ts`) → CHỈ ghi `ui/skill-icons.png` + `ui/skill-icons.json` (không đụng ảnh giao diện
  * khác / `ui.json` như lệnh `ui`). Mặc định bộ v2: một ảnh 32×32 mỗi khoá ở `sources/pixellab/skill-icons-v2/`; `--v1` = bộ cũ
  * 10 tấm 3×3 ở `sources/pixellab/skill-icons/` (lưu trữ). Icon lỗi thì báo, bỏ icon đó — web tự rơi về icon tạm cũ.
- * Dựng thử: `AETHER_WEB_ASSETS=<thư mục nháp> npm run skill-icons -w @aether/asset-pipeline`.
+ * Dựng thử: `AETHER_ASSETS=<thư mục nháp> npm run skill-icons -w @aether/asset-pipeline`.
  */
 function buildSkillIconAtlas(args: string[]): void {
 	const outDir = join(WEB_ASSETS, 'ui');

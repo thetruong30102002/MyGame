@@ -10,10 +10,11 @@
 `docs/the-gioi-aether.md` (file này) lẫn trang `docs/the-gioi-aether.html` (đăng lại trang: Artifact
 https://claude.ai/artifact/VTrVtPJHXUtETsssKRcx9K). Không sửa tay hai file sinh ra.
 
-### Trạng thái (09–10/10/2026)
+### Trạng thái (09–11/10/2026)
 
 | Phần | Trạng thái | Tài liệu |
 |---|---|---|
+| **CLIENT LÀ UNITY, BẢN WEB ĐÃ XOÁ** (chủ dự án 11/10/2026: "làm nốt đi rồi xoá"): `apps/web` (Next.js + PixiJS) xoá hẳn; client duy nhất là `UnityGame/` (PC + APK) nói chuyện với cùng máy chủ qua Funnel `/game`. Đã chép đủ: bị động + phủ phép, Thủy Thần, chat / bạn bè, dịch vụ kim cương, cốt truyện + tự đi, Thư viện, bản đồ thế giới, cây Tiềm năng, cửa sổ Quản trị. Đầu ra pipeline dời ra `assets/` ở gốc repo (máy chủ đọc map ở đây). Trang Thử chiêu web → phòng Thử chiêu của Unity | ✔ 11/10/2026, máy chủ thật đã khởi động lại với luật mới | `UnityGame/MIGRATION_PLAN.md`, `UnityGame/README_UNITY.md` |
 | Kim cương K1: ví ở máy chủ, điểm danh (cửa sổ lịch), Bia Danh Vọng, quầy hàng của Bram (gian hàng có kệ), bình EXP / chiến đấu | ✔ | `docs/ke-hoach-kim-cuong.md` |
 | Chat: kênh Map / Thế giới (3 kim cương / tin) / Riêng, tab riêng từng người | ✔ | `docs/ke-hoach-xa-hoi.md` |
 | Khung nhiều vùng T0b: 10 vùng, đi xuyên vùng, cổng vùng, cột dịch chuyển, nơi ở + người bán theo vùng | ✔ (chỉ vùng 1 có map) | `docs/ke-hoach-the-gioi.md` mục 5.1 |
@@ -71,27 +72,28 @@ https://claude.ai/artifact/VTrVtPJHXUtETsssKRcx9K). Không sửa tay hai file si
    `packages/sim/src/regions.ts`; boss + chiêu + rồng (Long Huyệt, boss thế giới dùng chung — `docs/ke-hoach-the-gioi.md` mục 2.1, 2.2).
 3. **M3.3b**: túi đồ + trang bị ở máy chủ, rơi đồ (máy chủ quyết), nhật ký kinh tế.
 4. Mốc 3 — **nhân vật người chơi + trang bị** (yêu cầu bắt buộc: mặc món nào hiện đúng món đó — kiếm, trượng, mũ, áo, quần, giày,
-   găng): pipeline tách bộ đồ PixelLab so với nhân vật gốc → cắt 4 lớp theo vùng thân → `apps/web/src/game/gearArt.ts` /
-   `gearLayers.ts`. Làm thử 1 kiểu trước.
-5. Việc nhỏ chờ làm: báo cáo tin chat + lọc từ tục, bảng xếp hạng, trang quản trị phần tin bị báo cáo (trang `/admin` cộng tiền /
-   điểm + nhật ký đã có 10/10/2026).
+   găng): pipeline tách bộ đồ PixelLab so với nhân vật gốc → cắt 4 lớp theo vùng thân → client Unity (`CharacterView`, đồ cầm tay đang theo `GEAR_ART`). Làm thử 1 kiểu trước.
+5. Việc nhỏ chờ làm: báo cáo tin chat + lọc từ tục, bảng xếp hạng, cửa sổ Quản trị phần tin bị báo cáo (cửa sổ Quản trị cộng tiền /
+   điểm + nhật ký đã có trong client Unity 11/10/2026).
 
 ### Chạy / kiểm
 
-- Typecheck mọi gói: `npm run typecheck`. Test máy chủ: `cd apps/server && npx tsx tests/<tên>.test.ts` (economy, regions, chat, shop,
-  rewards, mobs, social, gear, admin). Test web: `cd apps/web && npx tsx tests/<tên>.test.ts`. Test pipeline: `npm test -w @aether/asset-pipeline`.
-- Thử thật KHÔNG đụng máy chủ thật: máy chủ thử `cd apps/server && PORT=3201 AETHER_DB=data/test.db npx tsx src/main.ts` + web
-  `node apps/web/scripts/dev-test.mjs` (cổng 3102). Tài khoản thử: `apps/server/tests/test-accounts.md`. Hook dev ở console:
-  `__aether` (teleport, goMap, interact, combat, story…). Cộng tiền / điểm thử: trang http://localhost:3102/admin (`tester1` đã có
-  quyền trong CSDL thử; cấp thêm `AETHER_DB=data/test.db npx tsx src/admin.ts add <tài khoản>`); lệnh cũ cộng kim cương
-  `npx tsx src/grant.ts "<tên>" <số>` vẫn dùng được.
-- Triển khai (Tailscale Funnel, người chơi thật đang dùng): README mục Funnel — `build:funnel` (ghi vào thư mục KHÔNG đang chạy) →
-  chạy thử bản mới ở cổng phụ → tắt + chạy lại `start:funnel` và máy chủ game. **Sao lưu `apps/server/data/aether.db` trước khi đổi
-  cách lưu dữ liệu.** Log: `apps/web/funnel.log`, `apps/server/data/server.log`. Chạy bản thật TÁCH khỏi phiên Claude (tạo tiến trình qua
-  WMI — README mục Funnel; 10/10/2026 đóng phiên Claude làm tắt cả hai, link 502 ~4 giờ). Bật lại cả hai (bỏ qua cổng đang chạy): `powershell -NoProfile -ExecutionPolicy Bypass -File scripts\khoi-dong-ban-that.ps1` — tác vụ Windows "Aether - ban that" tự gọi file này lúc đăng nhập. Hình dựng thử → `.aether-stage/assets`
-  (web thử :3102 đọc trước public), triển khai = chép sang `apps/web/public/assets`. Lần triển khai trang quản trị: sao lưu
-  `aether.db` (máy chủ tự thêm bảng `admins` + `admin_log` lúc khởi động), khởi động lại máy chủ game, rồi
-  `cd apps/server && npx tsx src/admin.ts add <tài khoản>` trên CSDL thật (mặc định không ai có quyền).
+- Typecheck mọi gói: `npm run typecheck`. Test: `npm test` (luật sim `packages/sim/tests` + pipeline); máy chủ `cd apps/server && npx tsx
+  tests/<tên>.test.ts` (economy, regions, chat, shop, rewards, mobs, social, gear, admin, pvp, worldmaps). Client Unity: `dotnet build
+  UnityGame/Tests~/EditorCompile` (biên dịch), `dotnet test UnityGame/Tests~/Aether.Core.Tests` (luật C# khớp TS từng số) — lệnh build
+  PC / APK và cờ AutoTest ở `UnityGame/README_UNITY.md`.
+- Thử thật KHÔNG đụng máy chủ thật: máy chủ thử `cd apps/server && PORT=3201 AETHER_DB=data/test.db npx tsx src/main.ts`, rồi bản
+  Unity với `-aetherOnline http://127.0.0.1:3201` (AutoTest tự đăng ký tài khoản thử; `-aetherUser`/`-aetherPass` để dùng tài khoản có
+  sẵn). Tài khoản thử: `apps/server/tests/test-accounts.md`. Quyền quản trị trên CSDL thử:
+  `AETHER_DB=data/test.db npx tsx src/admin.ts add <tài khoản>`; lệnh cũ cộng kim cương `npx tsx src/grant.ts "<tên>" <số>` vẫn dùng được.
+- Triển khai (Tailscale Funnel `/game` → :3200, người chơi thật đang dùng): **sao lưu `apps/server/data/aether.db` trước** (mẫu:
+  `VACUUM INTO 'data/backup-<ngày-giờ>/aether.db'` bằng `node:sqlite`, chạy được khi máy chủ đang mở CSDL), tắt máy chủ
+  (`taskkill /PID <pid nghe :3200> /T /F` — tắt cứng không mất gì, dữ liệu ghi thẳng vào CSDL), bật lại bằng
+  `powershell -NoProfile -ExecutionPolicy Bypass -File scripts\khoi-dong-ban-that.ps1` (tạo tiến trình qua WMI, tách khỏi phiên
+  Claude; tác vụ Windows "Aether - ban that" tự gọi lúc đăng nhập). Log `apps/server/data/server.log`. Bản PC / APK mới phát cho
+  người chơi bằng file build trong `UnityGame/Build/`.
+- Hình mới: dựng thử `AETHER_ASSETS=<thư mục nháp> npm run assets:…`, duyệt xong mới dựng vào `assets/` (máy chủ thật đọc map ở đó
+  ngay lúc chạy) → Unity `Aether/Nhập dữ liệu từ pipeline` → build lại → khởi động lại máy chủ nếu map đổi.
 
 ### Luật của dự án (đừng phá)
 
@@ -344,11 +346,11 @@ Sơ đồ nối 12 map + phác thảo (bố cục để duyệt, không phải h
 
 ![Sơ đồ vùng 1](phac-thao-map/vung-1.svg)
 
-<img src="../apps/web/public/assets/maps/human/town.minimap.png" alt="Thistlewood" width="240"> <img src="../apps/web/public/assets/maps/human/mossvale.minimap.png" alt="Rừng Mossvale" width="240"> <img src="../apps/web/public/assets/maps/human/graveyard.minimap.png" alt="Nghĩa địa Hoàng Hôn" width="240"> <img src="../apps/web/public/assets/maps/human/bonehills.minimap.png" alt="Đồi Xương Trắng" width="240"> <img src="../apps/web/public/assets/maps/human/cliffs.minimap.png" alt="Vách Gargoyle" width="240"> <img src="../apps/web/public/assets/maps/human/gargoyle_cave.minimap.png" alt="Hang Gargoyle" width="240"> <img src="../apps/web/public/assets/maps/human/shrine.minimap.png" alt="Đá Phong Ấn" width="240"> <img src="../apps/web/public/assets/maps/human/riverflats.minimap.png" alt="Bãi Bồi Brightwater" width="240"> <img src="../apps/web/public/assets/maps/human/mossrift.minimap.png" alt="Vết Rạn Mossvale" width="240"> <img src="../apps/web/public/assets/maps/human/nameless.minimap.png" alt="Mộ Vô Danh" width="240"> <img src="../apps/web/public/assets/maps/human/oldfort.minimap.png" alt="Luỹ Hiệp Sĩ Cũ" width="240"> <img src="../apps/web/public/assets/maps/human/rivergate.minimap.png" alt="Hẻm Cửa Sông" width="240">
+<img src="../assets/maps/human/town.minimap.png" alt="Thistlewood" width="240"> <img src="../assets/maps/human/mossvale.minimap.png" alt="Rừng Mossvale" width="240"> <img src="../assets/maps/human/graveyard.minimap.png" alt="Nghĩa địa Hoàng Hôn" width="240"> <img src="../assets/maps/human/bonehills.minimap.png" alt="Đồi Xương Trắng" width="240"> <img src="../assets/maps/human/cliffs.minimap.png" alt="Vách Gargoyle" width="240"> <img src="../assets/maps/human/gargoyle_cave.minimap.png" alt="Hang Gargoyle" width="240"> <img src="../assets/maps/human/shrine.minimap.png" alt="Đá Phong Ấn" width="240"> <img src="../assets/maps/human/riverflats.minimap.png" alt="Bãi Bồi Brightwater" width="240"> <img src="../assets/maps/human/mossrift.minimap.png" alt="Vết Rạn Mossvale" width="240"> <img src="../assets/maps/human/nameless.minimap.png" alt="Mộ Vô Danh" width="240"> <img src="../assets/maps/human/oldfort.minimap.png" alt="Luỹ Hiệp Sĩ Cũ" width="240"> <img src="../assets/maps/human/rivergate.minimap.png" alt="Hẻm Cửa Sông" width="240">
 
 ### Vùng 2 · Đầm lầy Mù Sương — Mốc 1
 
-- Cấp 10–20 · hệ vùng Thuỷ / độc · quái yếu Thổ, Phong · **12 map đã dựng 10/10/2026** (bộ dựng chung — `docs/ke-hoach-the-gioi.md` mục 5.3, đặc tả `packages/asset-pipeline/src/maps/worldRegions.ts`; bảng 7 map dưới là khung cũ)
+- Cấp 10–20 · hệ vùng Thuỷ / độc · quái yếu Thổ, Phong · Chưa có map
 - Nơi ở (làng): **Làng nhà sàn Lau Xám** — Dân đầm lầy sống trên nhà sàn, nhờ người lạ dẹp quái và tìm thuốc giải độc.
 
 | Map | Loại | Quái / boss | Hình | Map |
@@ -371,7 +373,7 @@ Sơ đồ nối 7 map + phác thảo (bố cục để duyệt, không phải h�
 
 ### Vùng 3 · Sa mạc Hồng Cát — Mốc 1
 
-- Cấp 20–30 · hệ vùng Thổ / Hoả · quái yếu Thuỷ, Băng · **12 map đã dựng 10/10/2026** (bộ dựng chung — `docs/ke-hoach-the-gioi.md` mục 5.3, đặc tả `packages/asset-pipeline/src/maps/worldRegions.ts`; bảng 7 map dưới là khung cũ)
+- Cấp 20–30 · hệ vùng Thổ / Hoả · quái yếu Thuỷ, Băng · Chưa có map
 - Nơi ở (toà thành): **Thành ốc đảo Sahrin** — Vương quốc sa mạc: các tộc tranh nguồn nước, triều đình giao nhiệm vụ.
 
 | Map | Loại | Quái / boss | Hình | Map |
@@ -394,7 +396,7 @@ Sơ đồ nối 7 map + phác thảo (bố cục để duyệt, không phải h�
 
 ### Vùng 4 · Cao nguyên Gió Hú — Mốc 1
 
-- Cấp 30–40 · hệ vùng Phong · quái yếu Thổ · **12 map + Long Huyệt đã dựng 10/10/2026** (bộ dựng chung — `docs/ke-hoach-the-gioi.md` mục 5.3, đặc tả `packages/asset-pipeline/src/maps/worldRegions.ts`; bảng 7 map dưới là khung cũ)
+- Cấp 30–40 · hệ vùng Phong · quái yếu Thổ · Chưa có map
 - Nơi ở (làng): **Làng Cối Xay Gió** — Làng trên cao nguyên, giữ đền thờ trên mây.
 - Thêm: **Phong Long** ở Long Huyệt (map phụ của vùng)
 
@@ -418,7 +420,7 @@ Sơ đồ nối 7 map + phác thảo (bố cục để duyệt, không phải h�
 
 ### Vùng 5 · Lãnh nguyên Băng Giá — Mốc 2
 
-- Cấp 40–50 · hệ vùng Băng · quái yếu Hoả · **12 map + Long Huyệt đã dựng 10/10/2026** (bộ dựng chung — `docs/ke-hoach-the-gioi.md` mục 5.3, đặc tả `packages/asset-pipeline/src/maps/worldRegions.ts`; bảng 7 map dưới là khung cũ)
+- Cấp 40–50 · hệ vùng Băng · quái yếu Hoả · Chưa có map
 - Nơi ở (làng): **Làng gỗ Tuyết Phong** — Thợ săn và thợ mỏ băng sống qua mùa đông dài.
 - Thêm: **Băng Long** ở Long Huyệt (map phụ của vùng)
 
@@ -442,7 +444,7 @@ Sơ đồ nối 7 map + phác thảo (bố cục để duyệt, không phải h�
 
 ### Vùng 6 · Núi lửa Hoả Sơn — Mốc 2
 
-- Cấp 50–60 · hệ vùng Hoả · quái yếu Thuỷ, Băng · **12 map + Long Huyệt đã dựng 10/10/2026** (bộ dựng chung — `docs/ke-hoach-the-gioi.md` mục 5.3, đặc tả `packages/asset-pipeline/src/maps/worldRegions.ts`; bảng 7 map dưới là khung cũ)
+- Cấp 50–60 · hệ vùng Hoả · quái yếu Thuỷ, Băng · Chưa có map
 - Nơi ở (toà thành): **Pháo đài người lùn Đe Đỏ** — Hội đồng người lùn: rèn binh khí, đổi lấy nhiệm vụ trong lòng núi.
 - Thêm: **Hoả Long** ở Long Huyệt (map phụ của vùng)
 
@@ -466,7 +468,7 @@ Sơ đồ nối 7 map + phác thảo (bố cục để duyệt, không phải h�
 
 ### Vùng 7 · Quần đảo San Hô — Mốc 2
 
-- Cấp 60–70 · hệ vùng Thuỷ · quái yếu Phong, Thổ · **12 map + Long Huyệt đã dựng 10/10/2026** (bộ dựng chung — `docs/ke-hoach-the-gioi.md` mục 5.3, đặc tả `packages/asset-pipeline/src/maps/worldRegions.ts`; bảng 7 map dưới là khung cũ)
+- Cấp 60–70 · hệ vùng Thuỷ · quái yếu Phong, Thổ · Chưa có map
 - Nơi ở (làng): **Cảng chài San Hô** — Làng chài và thương thuyền, tin đồn về tàu ma.
 - Thêm: **Thuỷ Long** ở Long Huyệt (map phụ của vùng)
 

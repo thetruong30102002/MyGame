@@ -160,7 +160,7 @@ const idx = (id: string) => {
 
 // 4) TEMP_ART: mọi kỹ năng GĐ2 có hình tạm; mọi id trỏ tới hiệu ứng CÓ trong atlas; id PixelLab sẽ thay có trong pipeline.
 {
-	const atlas = JSON.parse(readFileSync(new URL('../../../apps/web/public/assets/vfx/vfx.json', import.meta.url), 'utf8')) as { animations: Record<string, string[]>; frames: Record<string, unknown> };
+	const atlas = JSON.parse(readFileSync(new URL('../../../assets/vfx/vfx.json', import.meta.url), 'utf8')) as { animations: Record<string, string[]>; frames: Record<string, unknown> };
 	const pipeline = readFileSync(new URL('../../asset-pipeline/src/vfx/buildVfx.ts', import.meta.url), 'utf8');
 	const pipelineIds = new Set([...pipeline.matchAll(/\{\s*id:\s*'([a-z_]+)'/g)].map((m) => m[1]!));
 	assert.ok(pipelineIds.has('ice_pillar') && pipelineIds.has('rock_spikes'), 'đọc được danh sách id pipeline');

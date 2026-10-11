@@ -87,7 +87,7 @@ test('khung trống → null; annotateAtlas ghi `gear` cho khung có hình, xoá
 // găng tay idle_S của hero nam quanh (42,71) và (69,70), đỉnh tóc hàng 26. Lệch quá 3px nghĩa là thuật toán (hoặc atlas) đã đổi —
 // xem lại bằng mắt. (Neo vai `back` đang rơi vào mặt vì khăn quàng che chỗ thắt cổ — chưa kiểm, xử khi làm áo choàng ở Mốc 3.)
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../../..');
-const atlas = join(ROOT, 'apps/web/public/assets/characters/player_hero_adult/player_hero_adult');
+const atlas = join(ROOT, 'assets/characters/player_hero_adult/player_hero_adult');
 if (existsSync(`${atlas}.json`)) {
 	test('player_hero_adult idle_S_0: tay trùng găng tay, đỉnh đầu trùng đỉnh tóc, JSON đã xuất có neo khớp ảnh', () => {
 		const json = JSON.parse(readFileSync(`${atlas}.json`, 'utf8')) as { frames: Record<string, { frame: { x: number; y: number; w: number; h: number }; gear?: GearAnchors }> };

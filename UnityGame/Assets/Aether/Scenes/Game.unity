@@ -119,7 +119,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &75650115
+--- !u!1 &378003609
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,9 +127,85 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 75650118}
-  - component: {fileID: 75650117}
-  - component: {fileID: 75650116}
+  - component: {fileID: 378003613}
+  - component: {fileID: 378003612}
+  - component: {fileID: 378003611}
+  - component: {fileID: 378003610}
+  m_Layer: 0
+  m_Name: Game
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &378003610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378003609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 221f0ae0c23e28b4183c4f070e7954d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Aether.Client::Aether.Client.LoginScreen
+  game: {fileID: 378003611}
+  database: {fileID: 11400000, guid: 622abb91e2a798749b77a157607af37d, type: 2}
+--- !u!114 &378003611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378003609}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fb8fc607d8f54b4cba6f07b06514f18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Aether.Client::Aether.Client.GameController
+  database: {fileID: 11400000, guid: 622abb91e2a798749b77a157607af37d, type: 2}
+  pixelCamera: {fileID: 1677969352}
+  input: {fileID: 378003612}
+  playerCharacter: player_hero_adult
+--- !u!114 &378003612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378003609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caaefc1589cb6584e80ae3334900d088, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Aether.Client::Aether.Client.GameInput
+--- !u!4 &378003613
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378003609}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1677969351
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1677969354}
+  - component: {fileID: 1677969353}
+  - component: {fileID: 1677969352}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -137,26 +213,26 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &75650116
+--- !u!114 &1677969352
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 75650115}
+  m_GameObject: {fileID: 1677969351}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0958013670e6a040b77470060bbe6f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Aether.Client::Aether.Client.PixelCamera
   followRate: 9
---- !u!20 &75650117
+--- !u!20 &1677969353
 Camera:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 75650115}
+  m_GameObject: {fileID: 1677969351}
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
@@ -201,92 +277,16 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!4 &75650118
+--- !u!4 &1677969354
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 75650115}
+  m_GameObject: {fileID: 1677969351}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &383456350
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 383456354}
-  - component: {fileID: 383456353}
-  - component: {fileID: 383456352}
-  - component: {fileID: 383456351}
-  m_Layer: 0
-  m_Name: Game
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &383456351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 383456350}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 221f0ae0c23e28b4183c4f070e7954d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Aether.Client::Aether.Client.LoginScreen
-  game: {fileID: 383456352}
-  database: {fileID: 11400000, guid: 622abb91e2a798749b77a157607af37d, type: 2}
---- !u!114 &383456352
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 383456350}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fb8fc607d8f54b4cba6f07b06514f18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Aether.Client::Aether.Client.GameController
-  database: {fileID: 11400000, guid: 622abb91e2a798749b77a157607af37d, type: 2}
-  pixelCamera: {fileID: 75650116}
-  input: {fileID: 383456353}
-  playerCharacter: player_hero_adult
---- !u!114 &383456353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 383456350}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caaefc1589cb6584e80ae3334900d088, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Aether.Client::Aether.Client.GameInput
---- !u!4 &383456354
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 383456350}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -296,5 +296,5 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 75650118}
-  - {fileID: 383456354}
+  - {fileID: 1677969354}
+  - {fileID: 378003613}

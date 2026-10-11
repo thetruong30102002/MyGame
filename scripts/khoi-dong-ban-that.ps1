@@ -1,4 +1,4 @@
-﻿# Bật bản thật (Funnel) nếu chưa chạy: máy chủ game :3200 (CSDL thật data/aether.db) + web :3101 (thư mục build ở .funnel-current).
+﻿# Bật bản thật (Funnel /game) nếu chưa chạy: máy chủ game :3200 (CSDL thật data/aether.db). Bản web :3101 đã xoá 11/10/2026 — client là Unity.
 # Tác vụ Windows "Aether - ban that" gọi file này lúc đăng nhập (cài: scripts/cai-tu-khoi-dong.ps1); chạy tay cũng được:
 #   powershell -NoProfile -ExecutionPolicy Bypass -File scripts\khoi-dong-ban-that.ps1
 # Cổng nào đã có tiến trình nghe thì bỏ qua (chạy lại nhiều lần không sinh bản thứ hai).
@@ -16,8 +16,7 @@ function Start-Detached($cmd, $dir) {
 }
 
 $services = @(
-  @{ Name = 'may chu game'; Port = 3200; Dir = "$root\apps\server"; Cmd = 'cmd.exe /c "npx tsx src\main.ts >> data\server.log 2>&1"' },
-  @{ Name = 'web funnel';   Port = 3101; Dir = "$root\apps\web";    Cmd = 'cmd.exe /c "node scripts\start-funnel.mjs >> funnel.log 2>&1"' }
+  @{ Name = 'may chu game'; Port = 3200; Dir = "$root\apps\server"; Cmd = 'cmd.exe /c "npx tsx src\main.ts >> data\server.log 2>&1"' }
 )
 
 foreach ($s in $services) {
@@ -30,7 +29,7 @@ foreach ($s in $services) {
   }
 }
 
-# Chờ hai cổng lên (tối đa 60 giây) để log ghi rõ đã sẵn sàng hay chưa.
+# Chờ cổng lên (tối đa 60 giây) để log ghi rõ đã sẵn sàng hay chưa.
 $deadline = (Get-Date).AddSeconds(60)
-while ((Get-Date) -lt $deadline -and -not ((Test-Listening 3200) -and (Test-Listening 3101))) { Start-Sleep -Seconds 2 }
+while ((Get-Date) -lt $deadline -and -not (Test-Listening 3200)) { Start-Sleep -Seconds 2 }
 foreach ($s in $services) { Write-Log ("{0} :{1} {2}" -f $s.Name, $s.Port, $(if (Test-Listening $s.Port) { 'SAN SANG' } else { 'CHUA LEN - xem log' })) }

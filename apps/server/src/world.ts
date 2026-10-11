@@ -47,7 +47,7 @@ interface Conn {
 }
 
 /** Thư mục map của client — máy chủ đọc chung nguồn dữ liệu (`AETHER_MAPS` để đổi). */
-const MAPS_DIR = process.env.AETHER_MAPS ?? join(dirname(fileURLToPath(import.meta.url)), '../../web/public/assets/maps');
+const MAPS_DIR = process.env.AETHER_MAPS ?? join(dirname(fileURLToPath(import.meta.url)), '../../../assets/maps');
 
 /** Mã map `<vùng>/<map>` (chữ thường, số, gạch dưới) — chặn chuỗi lạ làm khoá nhóm người chơi. */
 const MAP_ID = /^[a-z0-9_]{1,20}\/[a-z0-9_]{1,20}$/;

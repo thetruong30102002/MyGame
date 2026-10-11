@@ -2,7 +2,7 @@ import { alphaAt, type RGBAImage } from '../image/rgba.js';
 
 /**
  * Ảnh giao diện (07/10/2026: chủ dự án muốn MỌI khung trong game cùng style cổ như phần còn lại) — cắt từ tấm PixelLab:
- * U1 khung cửa sổ / ô vật phẩm / nút / dải tiêu đề, I1 biểu tượng vật phẩm + chỉ số. Ra `public/assets/ui/<id>.png`
+ * U1 khung cửa sổ / ô vật phẩm / nút / dải tiêu đề, I1 biểu tượng vật phẩm + chỉ số. Ra `assets/ui/<id>.png`
  * + `ui.json` (cỡ ảnh, độ dày viền 9 mảnh). Web dùng khung bằng CSS `border-image` (co giãn không vỡ góc).
  */
 export interface UiAssetDef {

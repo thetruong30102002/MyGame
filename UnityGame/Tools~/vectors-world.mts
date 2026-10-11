@@ -1,7 +1,7 @@
 // Test vector nhóm THẾ GIỚI (va chạm, tìm đường, quái dùng chung, vùng, điểm danh, cốt truyện) sinh từ CHÍNH hàm TS của packages/sim →
 // Tests~/vectors/world.json. Test C# (Tests~/Aether.Core.Tests/WorldTests.cs) gọi hàm C# cùng đầu vào và đòi ra y hệt. Chạy ở gốc repo:
 //   npx tsx UnityGame/Tools~/vectors-world.mts
-// Map thật (apps/web/public/assets/maps/human/*.json) được NHÚNG phần va chạm (terrain + props + meta) vào vector để test C# không phụ
+// Map thật (assets/maps/human/*.json) được NHÚNG phần va chạm (terrain + props + meta) vào vector để test C# không phụ
 // thuộc file map đang bị sửa ở bản web.
 import { mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
@@ -18,7 +18,7 @@ import { YOUTH_ENDING, YOUTH_NPCS, YOUTH_QUESTS } from '../../packages/sim/src/s
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, '..', '..');
 const OUT = join(HERE, '..', 'Tests~', 'vectors');
-const MAPS = join(ROOT, 'apps/web/public/assets/maps/human');
+const MAPS = join(ROOT, 'assets/maps/human');
 mkdirSync(OUT, { recursive: true });
 
 // PRNG cố định (mulberry32) — vector tái lập được.

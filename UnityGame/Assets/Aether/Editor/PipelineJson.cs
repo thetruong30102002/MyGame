@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-// Hình dạng JSON do pipeline xuất ra (apps/web/public/assets) — chỉ các trường Importer dùng; Newtonsoft khớp tên không phân biệt hoa thường.
+// Hình dạng JSON do pipeline xuất ra (assets/ ở gốc repo) — chỉ các trường Importer dùng; Newtonsoft khớp tên không phân biệt hoa thường.
 // CS0649: trường chỉ được Newtonsoft gán qua phản chiếu.
 #pragma warning disable CS0649
 namespace Aether.Importer.Json

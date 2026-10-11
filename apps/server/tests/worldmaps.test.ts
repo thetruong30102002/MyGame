@@ -10,7 +10,7 @@ import { zoneSpawnPoints, type MonsterZoneDef } from '@aether/sim/mobs';
 import { REGIONS } from '@aether/sim/regions';
 import { ENEMY_STATS } from '@aether/sim/skills';
 
-const MAPS = join(import.meta.dirname, '../../web/public/assets/maps');
+const MAPS = join(import.meta.dirname, '../../../assets/maps');
 const STEP = 6;
 
 interface MapJson extends CollisionMap {

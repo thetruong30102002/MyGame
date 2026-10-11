@@ -1,6 +1,6 @@
 # Aether — bản Unity 2D
 
-Chuyển client game web (apps/web, Next.js + PixiJS) sang Unity 2D bằng C#. Máy chủ Node (apps/server), giao thức (packages/protocol) và
+Client DUY NHẤT của game (bản web cũ apps/web — Next.js + PixiJS — đã chép đủ sang đây rồi xoá 11/10/2026). Máy chủ Node (apps/server), giao thức (packages/protocol) và
 pipeline hình PixelLab (packages/asset-pipeline) GIỮ NGUYÊN — Unity là client mới nói chuyện với cùng máy chủ.
 
 ## Phiên bản
@@ -36,7 +36,7 @@ dotnet test UnityGame/Tests~/Aether.Core.Tests --filter TestCategory=Integration
 
 ## Unity: nhập dữ liệu, dựng scene, build
 
-Trong Editor: menu **Aether → Nhập dữ liệu từ pipeline** (đọc `apps/web/public/assets`), **Aether → Dựng GameDatabase + scene chơi**,
+Trong Editor: menu **Aether → Nhập dữ liệu từ pipeline** (đọc `assets/` ở gốc repo — đầu ra pipeline), **Aether → Dựng GameDatabase + scene chơi**,
 **Aether → Build Windows / Build Android (APK)**. Dòng lệnh (không mở giao diện):
 
 ```bash

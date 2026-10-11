@@ -11,7 +11,7 @@ DOCS = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 OUT = os.path.join(DOCS, 'the-gioi-aether.html')
 OUT_MD = os.path.join(DOCS, 'the-gioi-aether.md')
 SKETCH_DIR = os.path.join(DOCS, 'phac-thao-map')  # SVG phác thảo cho bản Markdown
-MINIMAPS = os.path.join(DOCS, '..', 'apps', 'web', 'public', 'assets', 'maps', 'human')
+MINIMAPS = os.path.join(DOCS, '..', 'assets', 'maps', 'human')
 
 # trạng thái hình: 'co' = đã có trong game, 'moi' = vẽ mới, 've' = vẽ mới ĐÃ VẼ xong (vẫn tính vào ngân sách như 'moi'),
 # 'mau:<từ đâu>' = đổi màu (0 lượt), 'chieu' = có hình, cần chiêu mới.
@@ -164,7 +164,7 @@ BODY_FAMILIES = 'Vải tân thủ · Giáp da · Giáp sắt · Áo pháp sư'
 
 # ---------------------------------------------------------------- skill nhân vật (chủ dự án 08/10/2026: "vẽ trước đủ skill nhân vật thật chi tiết, đòn vung tay…")
 # (id, tên, hệ, kiểu, nhánh, bậc, phái kiếm, 'co' = đã có hình PixelLab / 'tam' = đang mượn hình khác, cần vẽ gì) — lấy từ packages/sim (skills.ts,
-# talents.ts) + ghi chú TẠM trong apps/web/src/game/combat (SkillVfx).
+# talents.ts) + ghi chú TẠM trong UnityGame/Tools~/data/tempArt.ts (trước ở apps/web/src/game/combat — bản web đã xoá).
 SKILLS = [
     ('slash', 'Trảm', 'steel', 'melee', 'sword', 1, None, 'co', ''),
     ('aether_bolt', 'Tia Aether', 'aether', 'projectile', None, None, None, 'co', ''),
@@ -369,7 +369,7 @@ def pill(status):
     return ''
 
 
-# Vùng 1 đã có map thật: map nào đã lên game (có minimap trong apps/web/public) thì dùng minimap, chưa thì phác thảo. Sơ đồ nối theo
+# Vùng 1 đã có map thật: map nào đã lên game (có minimap trong assets/maps) thì dùng minimap, chưa thì phác thảo. Sơ đồ nối theo
 # thiết kế 12 map (docs/thiet-ke/vung1-12-map.md mục Đồ thị lối): 12 nút, 14 cạnh, cửa sang vùng 2 ở Hẻm Cửa Sông.
 R1_FILES = {'Thistlewood': 'town', 'Rừng Mossvale': 'mossvale', 'Nghĩa địa Hoàng Hôn': 'graveyard', 'Đồi Xương Trắng': 'bonehills',
             'Vách Gargoyle': 'cliffs', 'Đá Phong Ấn': 'shrine', 'Hang Gargoyle': 'gargoyle_cave', 'Bãi Bồi Brightwater': 'riverflats',
@@ -404,7 +404,7 @@ def region_sketches(r):
     out = []
     for i, (name, role, mobs, _st) in enumerate(r['maps']):
         real = R1_FILES.get(name) if r['n'] == 1 else None
-        # Map đã dựng nhưng chưa lên game (chưa có minimap trong public) thì vẫn vẽ phác thảo.
+        # Map đã dựng nhưng chưa lên game (chưa có minimap trong assets/maps) thì vẫn vẽ phác thảo.
         if real and os.path.exists(os.path.join(MINIMAPS, f'{real}.minimap.png')):
             out.append((name, role, None, real))
             continue
@@ -886,10 +886,11 @@ HANDOFF = """## Bàn giao — đọc trước khi làm tiếp (agent / người 
 `docs/the-gioi-aether.md` (file này) lẫn trang `docs/the-gioi-aether.html` (đăng lại trang: Artifact
 https://claude.ai/artifact/VTrVtPJHXUtETsssKRcx9K). Không sửa tay hai file sinh ra.
 
-### Trạng thái (09–10/10/2026)
+### Trạng thái (09–11/10/2026)
 
 | Phần | Trạng thái | Tài liệu |
 |---|---|---|
+| **CLIENT LÀ UNITY, BẢN WEB ĐÃ XOÁ** (chủ dự án 11/10/2026: "làm nốt đi rồi xoá"): `apps/web` (Next.js + PixiJS) xoá hẳn; client duy nhất là `UnityGame/` (PC + APK) nói chuyện với cùng máy chủ qua Funnel `/game`. Đã chép đủ: bị động + phủ phép, Thủy Thần, chat / bạn bè, dịch vụ kim cương, cốt truyện + tự đi, Thư viện, bản đồ thế giới, cây Tiềm năng, cửa sổ Quản trị. Đầu ra pipeline dời ra `assets/` ở gốc repo (máy chủ đọc map ở đây). Trang Thử chiêu web → phòng Thử chiêu của Unity | ✔ 11/10/2026, máy chủ thật đã khởi động lại với luật mới | `UnityGame/MIGRATION_PLAN.md`, `UnityGame/README_UNITY.md` |
 | Kim cương K1: ví ở máy chủ, điểm danh (cửa sổ lịch), Bia Danh Vọng, quầy hàng của Bram (gian hàng có kệ), bình EXP / chiến đấu | ✔ | `docs/ke-hoach-kim-cuong.md` |
 | Chat: kênh Map / Thế giới (3 kim cương / tin) / Riêng, tab riêng từng người | ✔ | `docs/ke-hoach-xa-hoi.md` |
 | Khung nhiều vùng T0b: 10 vùng, đi xuyên vùng, cổng vùng, cột dịch chuyển, nơi ở + người bán theo vùng | ✔ (chỉ vùng 1 có map) | `docs/ke-hoach-the-gioi.md` mục 5.1 |
@@ -947,27 +948,28 @@ https://claude.ai/artifact/VTrVtPJHXUtETsssKRcx9K). Không sửa tay hai file si
    `packages/sim/src/regions.ts`; boss + chiêu + rồng (Long Huyệt, boss thế giới dùng chung — `docs/ke-hoach-the-gioi.md` mục 2.1, 2.2).
 3. **M3.3b**: túi đồ + trang bị ở máy chủ, rơi đồ (máy chủ quyết), nhật ký kinh tế.
 4. Mốc 3 — **nhân vật người chơi + trang bị** (yêu cầu bắt buộc: mặc món nào hiện đúng món đó — kiếm, trượng, mũ, áo, quần, giày,
-   găng): pipeline tách bộ đồ PixelLab so với nhân vật gốc → cắt 4 lớp theo vùng thân → `apps/web/src/game/gearArt.ts` /
-   `gearLayers.ts`. Làm thử 1 kiểu trước.
-5. Việc nhỏ chờ làm: báo cáo tin chat + lọc từ tục, bảng xếp hạng, trang quản trị phần tin bị báo cáo (trang `/admin` cộng tiền /
-   điểm + nhật ký đã có 10/10/2026).
+   găng): pipeline tách bộ đồ PixelLab so với nhân vật gốc → cắt 4 lớp theo vùng thân → client Unity (`CharacterView`, đồ cầm tay đang theo `GEAR_ART`). Làm thử 1 kiểu trước.
+5. Việc nhỏ chờ làm: báo cáo tin chat + lọc từ tục, bảng xếp hạng, cửa sổ Quản trị phần tin bị báo cáo (cửa sổ Quản trị cộng tiền /
+   điểm + nhật ký đã có trong client Unity 11/10/2026).
 
 ### Chạy / kiểm
 
-- Typecheck mọi gói: `npm run typecheck`. Test máy chủ: `cd apps/server && npx tsx tests/<tên>.test.ts` (economy, regions, chat, shop,
-  rewards, mobs, social, gear, admin). Test web: `cd apps/web && npx tsx tests/<tên>.test.ts`. Test pipeline: `npm test -w @aether/asset-pipeline`.
-- Thử thật KHÔNG đụng máy chủ thật: máy chủ thử `cd apps/server && PORT=3201 AETHER_DB=data/test.db npx tsx src/main.ts` + web
-  `node apps/web/scripts/dev-test.mjs` (cổng 3102). Tài khoản thử: `apps/server/tests/test-accounts.md`. Hook dev ở console:
-  `__aether` (teleport, goMap, interact, combat, story…). Cộng tiền / điểm thử: trang http://localhost:3102/admin (`tester1` đã có
-  quyền trong CSDL thử; cấp thêm `AETHER_DB=data/test.db npx tsx src/admin.ts add <tài khoản>`); lệnh cũ cộng kim cương
-  `npx tsx src/grant.ts "<tên>" <số>` vẫn dùng được.
-- Triển khai (Tailscale Funnel, người chơi thật đang dùng): README mục Funnel — `build:funnel` (ghi vào thư mục KHÔNG đang chạy) →
-  chạy thử bản mới ở cổng phụ → tắt + chạy lại `start:funnel` và máy chủ game. **Sao lưu `apps/server/data/aether.db` trước khi đổi
-  cách lưu dữ liệu.** Log: `apps/web/funnel.log`, `apps/server/data/server.log`. Chạy bản thật TÁCH khỏi phiên Claude (tạo tiến trình qua
-  WMI — README mục Funnel; 10/10/2026 đóng phiên Claude làm tắt cả hai, link 502 ~4 giờ). Bật lại cả hai (bỏ qua cổng đang chạy): `powershell -NoProfile -ExecutionPolicy Bypass -File scripts\khoi-dong-ban-that.ps1` — tác vụ Windows "Aether - ban that" tự gọi file này lúc đăng nhập. Hình dựng thử → `.aether-stage/assets`
-  (web thử :3102 đọc trước public), triển khai = chép sang `apps/web/public/assets`. Lần triển khai trang quản trị: sao lưu
-  `aether.db` (máy chủ tự thêm bảng `admins` + `admin_log` lúc khởi động), khởi động lại máy chủ game, rồi
-  `cd apps/server && npx tsx src/admin.ts add <tài khoản>` trên CSDL thật (mặc định không ai có quyền).
+- Typecheck mọi gói: `npm run typecheck`. Test: `npm test` (luật sim `packages/sim/tests` + pipeline); máy chủ `cd apps/server && npx tsx
+  tests/<tên>.test.ts` (economy, regions, chat, shop, rewards, mobs, social, gear, admin, pvp, worldmaps). Client Unity: `dotnet build
+  UnityGame/Tests~/EditorCompile` (biên dịch), `dotnet test UnityGame/Tests~/Aether.Core.Tests` (luật C# khớp TS từng số) — lệnh build
+  PC / APK và cờ AutoTest ở `UnityGame/README_UNITY.md`.
+- Thử thật KHÔNG đụng máy chủ thật: máy chủ thử `cd apps/server && PORT=3201 AETHER_DB=data/test.db npx tsx src/main.ts`, rồi bản
+  Unity với `-aetherOnline http://127.0.0.1:3201` (AutoTest tự đăng ký tài khoản thử; `-aetherUser`/`-aetherPass` để dùng tài khoản có
+  sẵn). Tài khoản thử: `apps/server/tests/test-accounts.md`. Quyền quản trị trên CSDL thử:
+  `AETHER_DB=data/test.db npx tsx src/admin.ts add <tài khoản>`; lệnh cũ cộng kim cương `npx tsx src/grant.ts "<tên>" <số>` vẫn dùng được.
+- Triển khai (Tailscale Funnel `/game` → :3200, người chơi thật đang dùng): **sao lưu `apps/server/data/aether.db` trước** (mẫu:
+  `VACUUM INTO 'data/backup-<ngày-giờ>/aether.db'` bằng `node:sqlite`, chạy được khi máy chủ đang mở CSDL), tắt máy chủ
+  (`taskkill /PID <pid nghe :3200> /T /F` — tắt cứng không mất gì, dữ liệu ghi thẳng vào CSDL), bật lại bằng
+  `powershell -NoProfile -ExecutionPolicy Bypass -File scripts\khoi-dong-ban-that.ps1` (tạo tiến trình qua WMI, tách khỏi phiên
+  Claude; tác vụ Windows "Aether - ban that" tự gọi lúc đăng nhập). Log `apps/server/data/server.log`. Bản PC / APK mới phát cho
+  người chơi bằng file build trong `UnityGame/Build/`.
+- Hình mới: dựng thử `AETHER_ASSETS=<thư mục nháp> npm run assets:…`, duyệt xong mới dựng vào `assets/` (máy chủ thật đọc map ở đó
+  ngay lúc chạy) → Unity `Aether/Nhập dữ liệu từ pipeline` → build lại → khởi động lại máy chủ nếu map đổi.
 
 ### Luật của dự án (đừng phá)
 
@@ -1100,7 +1102,7 @@ for r in REGIONS:
     md.append(f'![Sơ đồ vùng {r["n"]}](phac-thao-map/vung-{r["n"]}.svg)\n')
     imgs = []
     for i, (name, _role, _svg, real) in enumerate(SKETCHES[r['n']][1]):
-        src = f'../apps/web/public/assets/maps/human/{real}.minimap.png' if real else f'phac-thao-map/vung-{r["n"]}-map-{i + 1}.svg'
+        src = f'../assets/maps/human/{real}.minimap.png' if real else f'phac-thao-map/vung-{r["n"]}-map-{i + 1}.svg'
         imgs.append(f'<img src="{src}" alt="{name}" width="240">')
     md.append(' '.join(imgs))
     md.append('')

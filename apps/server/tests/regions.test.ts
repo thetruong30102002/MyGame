@@ -20,7 +20,7 @@ const test = (name: string, fn: () => void): void => {
 };
 console.log('regions (máy chủ + luật dùng chung)');
 
-const MAPS = join(import.meta.dirname, '../../web/public/assets/maps');
+const MAPS = join(import.meta.dirname, '../../../assets/maps');
 
 test('10 vùng theo thứ tự, cấp liền nhau, mỗi vùng một nơi ở (làng / toà thành) có cột dịch chuyển + người bán', () => {
 	assert.equal(REGIONS.length, 10);

@@ -7,9 +7,8 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "npm run dev -w @aether/web",
     "server": "npm run dev -w @aether/server",
-    "build": "npm run build -w @aether/web",
+    "test": "npm test -w @aether/sim && npm test -w @aether/asset-pipeline",
     "assets:character": "npm run character -w @aether/asset-pipeline --",
     "assets:catalog": "npm run catalog -w @aether/asset-pipeline --",
     "assets:anchors": "npm run anchors -w @aether/asset-pipeline --",
