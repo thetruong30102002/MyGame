@@ -62,6 +62,10 @@ export const SWAMP_PROPS: PropDef[] = [
 	...tree('cypress', 'swamp_cypress_tree'),
 	recolored('cypress_deep', 'swamp_cypress_tree', [leaves('rêu lục sẫm', [40, 120], [95, 150], 1.1, 0.85)], true),
 	recolored('cypress_rust', 'swamp_cypress_tree', [leaves('rêu úa', [40, 120], [18, 44], 1.4, 1.02)]),
+	// Cây riêng của vùng (11/10/2026 — chủ dự án: "cây các vùng giống nhau quá, mỗi vùng 1 style riêng"): bản tô màu lại thay loài đang
+	// dùng chung với vùng khác (0 lượt vẽ; ke-hoach-the-gioi 5.6).
+	recolored('dead_mossy', `${PL}tree_dead`, [leaves('gỗ mục rêu', [0, 360], [78, 104], 0.55, 0.82)]),
+	recolored('dead_mossy_flip', `${PL}tree_dead`, [leaves('gỗ mục rêu', [0, 360], [78, 104], 0.55, 0.82)], true),
 	building('stilt_house', 'swamp_stilt_house', 0.8, 40),
 	building('healer_hut', 'swamp_healer_hut', 0.8, 44),
 	building('watchtower', 'swamp_watchtower', 0.6, 30),
@@ -126,6 +130,10 @@ const DS3 = (i: number) => cell('DS3_desert_tomb', i);
 export const DESERT_PROPS: PropDef[] = [
 	...tree('palm', 'desert_palm_tree'),
 	recolored('palm_dry', 'desert_palm_tree', [leaves('lá cọ khô', [60, 180], [30, 52], 1.3, 1.05)], true),
+	// Cây riêng của vùng (11/10/2026 — chủ dự án: "cây các vùng giống nhau quá, mỗi vùng 1 style riêng"): bản tô màu lại thay loài đang
+	// dùng chung với vùng khác (0 lượt vẽ; ke-hoach-the-gioi 5.6).
+	recolored('dead_bleached', `${PL}tree_dead`, [leaves('gỗ bạc nắng', [0, 360], [30, 42], 0.25, 1.38)]),
+	recolored('dead_bleached_flip', `${PL}tree_dead`, [leaves('gỗ bạc nắng', [0, 360], [30, 42], 0.25, 1.38)], true),
 	building('city_gate', 'desert_city_gate', 0.9, 40),
 	building('dome_house', 'desert_dome_house', 0.86, 56),
 	building('market_tent', 'desert_market_tent', 0.86, 40),
@@ -191,6 +199,12 @@ export const HIGHLAND_PROPS: PropDef[] = [
 	...tree('wind_pine', 'highland_wind_pine'),
 	recolored('wind_pine_gold', 'highland_wind_pine', [leaves('thông vàng thu', [60, 170], [28, 50], 1.3, 1.05)], true),
 	recolored('wind_pine_dark', 'highland_wind_pine', [leaves('thông sẫm', [60, 170], [120, 165], 1, 0.85)]),
+	// Cây riêng của vùng (11/10/2026 — chủ dự án: "cây các vùng giống nhau quá, mỗi vùng 1 style riêng"): bản tô màu lại thay loài đang
+	// dùng chung với vùng khác (0 lượt vẽ; ke-hoach-the-gioi 5.6).
+	recolored('hl_oak', 'tree_oak_front', [leaves('sồi lục lam', [50, 160], [150, 172], 1.1, 0.92)]),
+	recolored('hl_oak_flip', 'tree_oak_front', [leaves('sồi lục lam', [50, 160], [150, 172], 1.1, 0.92)], true),
+	recolored('hl_maple', 'tree_oak_front', [leaves('phong đỏ', [50, 160], [0, 14], 1.7, 0.98)]),
+	recolored('hl_maple_flip', 'tree_oak_front', [leaves('phong đỏ', [50, 160], [0, 14], 1.7, 0.98)], true),
 	building('stone_cottage', 'highland_cottage', 0.86, 56),
 	building('windmill', 'highland_windmill', 0.7, 50),
 	building('sky_shrine', 'highland_sky_shrine', 0.9, 30),
@@ -221,7 +235,7 @@ export const HIGHLAND_PROPS: PropDef[] = [
 	decor('feather_totem', HL3(6), 0.3, 10),
 	rock('sky_column', HL3(7), 0.6, 14),
 	rock('wind_rune', HL3(8), 0.6, 14),
-	...shared('signpost', 'tree', 'tree_flip', 'tree_autumn', 'tree_pine_dry', 'tree_pine_dry_flip', 'rock_mossy', 'rock_gray', 'bush', 'bush_flower', 'fern', 'wildflowers', 'boulder', 'ruin_wall', 'pillar_broken', 'stump'),
+	...shared('rune_stone', 'signpost', 'tree', 'tree_flip', 'tree_autumn', 'tree_pine_dry', 'tree_pine_dry_flip', 'rock_mossy', 'rock_gray', 'bush', 'bush_flower', 'fern', 'wildflowers', 'boulder', 'ruin_wall', 'pillar_broken', 'stump'),
 	// Đợt vẽ thêm 10/10/2026 — món chưa vẽ xong thì bộ dựng tự bỏ qua.
 	...tree('birch', 'highland_birch'),
 	...tree('red_oak', 'highland_red_oak'),
@@ -288,7 +302,7 @@ export const TUNDRA_PROPS: PropDef[] = [
 	flat('bear_den', IC3(6)),
 	decor('snow_grave', IC3(7), 0.7, 10),
 	decor('red_stake', IC3(8), 0.3, 8),
-	...shared('signpost', 'boulder', 'rock_gray', 'pale_rocks', 'stalagmite', 'crystal_blue', 'rock_pillar'),
+	...shared('rune_stone', 'signpost', 'boulder', 'rock_gray', 'pale_rocks', 'stalagmite', 'crystal_blue', 'rock_pillar'),
 	// Đợt vẽ thêm 10/10/2026 — món chưa vẽ xong thì bộ dựng tự bỏ qua.
 	...tree('frost_cedar', 'tundra_frost_cedar'),
 	...tree('winter_birch', 'tundra_winter_birch'),
@@ -323,6 +337,10 @@ export const VOLCANO_PROPS: PropDef[] = [
 	...tree('ash_tree', 'volcano_ash_tree'),
 	recolored('ash_tree_cold', 'volcano_ash_tree', [leaves('than nguội', [280, 40], [10, 20], 0.15, 0.7)], true),
 	recolored('charred_tree', `${PL}tree_dead`, [leaves('cháy đen', [0, 360], [12, 22], 0.35, 0.45)]),
+	// Cây riêng của vùng (11/10/2026 — chủ dự án: "cây các vùng giống nhau quá, mỗi vùng 1 style riêng"): bản tô màu lại thay loài đang
+	// dùng chung với vùng khác (0 lượt vẽ; ke-hoach-the-gioi 5.6).
+	recolored('ash_tree_ember', 'volcano_ash_tree', [leaves('tán than hồng', [280, 40], [18, 34], 1.5, 1.12)]),
+	recolored('ash_tree_ember_flip', 'volcano_ash_tree', [leaves('tán than hồng', [280, 40], [18, 34], 1.5, 1.12)], true),
 	building('dwarf_house', 'volcano_dwarf_house', 0.86, 56),
 	building('fortress_gate', 'volcano_fortress_gate', 0.92, 40),
 	building('great_forge', 'volcano_great_forge', 0.86, 56),
@@ -353,7 +371,7 @@ export const VOLCANO_PROPS: PropDef[] = [
 	decor('siphon_machine', VL3(6), 0.7, 14),
 	rock('dwarf_statue', VL3(7), 0.7, 16),
 	rock('dragon_head', VL3(8), 0.8, 16),
-	...shared('signpost', 'cliff_rock', 'cliff_rock_flip', 'rock_spire', 'rock_outcrop', 'boulder', 'stalagmite', 'crystal_purple', 'rock_pillar', 'skull_pile', 'bone_pile'),
+	...shared('rune_stone', 'signpost', 'cliff_rock', 'cliff_rock_flip', 'rock_spire', 'rock_outcrop', 'boulder', 'stalagmite', 'crystal_purple', 'rock_pillar', 'skull_pile', 'bone_pile'),
 	// Đợt vẽ thêm 10/10/2026 — món chưa vẽ xong thì bộ dựng tự bỏ qua.
 	...tree('ruby_tree', 'volcano_ruby_tree'),
 	...tree('petrified_tree', 'volcano_petrified_tree'),
@@ -387,6 +405,11 @@ const CR3 = (i: number) => cell('CR3_kraken_abyss', i);
 export const ISLES_PROPS: PropDef[] = [
 	...tree('palm', 'desert_palm_tree'),
 	recolored('palm_lush', 'desert_palm_tree', [leaves('cọ xanh đậm', [60, 180], [130, 160], 1.2, 0.95)], true),
+	// Cây riêng của vùng (11/10/2026 — chủ dự án: "cây các vùng giống nhau quá, mỗi vùng 1 style riêng"): bản tô màu lại thay loài đang
+	// dùng chung với vùng khác (0 lượt vẽ; ke-hoach-the-gioi 5.6).
+	recolored('palm_tropic', 'desert_palm_tree', [leaves('cọ ngọc', [60, 180], [158, 178], 1.25, 1.02)]),
+	recolored('palm_tropic_flip', 'desert_palm_tree', [leaves('cọ ngọc', [60, 180], [158, 178], 1.25, 1.02)], true),
+	{ ...shared('bush')[0]!, id: 'beach_bush', recolor: [leaves('bụi biển', [40, 160], [62, 84], 1.3, 1.1)] },
 	recolored('palm_dry', 'desert_palm_tree', [leaves('lá cọ khô', [60, 180], [30, 52], 1.3, 1.05)]),
 	building('fisher_cottage', 'coral_fisher_cottage', 0.86, 56),
 	building('boat_workshop', 'coral_boat_workshop', 0.88, 50),

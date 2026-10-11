@@ -35,6 +35,42 @@
 			"h": 14
 		}
 	},
+	"palm_tropic": {
+		"kind": "tree",
+		"w": 119,
+		"h": 165,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 19,
+			"h": 14
+		}
+	},
+	"palm_tropic_flip": {
+		"kind": "tree",
+		"w": 119,
+		"h": 165,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 19,
+			"h": 14
+		}
+	},
+	"beach_bush": {
+		"kind": "bush",
+		"w": 47,
+		"h": 43,
+		"blocks": true,
+		"footprint": {
+			"x": -14,
+			"y": -14,
+			"w": 28,
+			"h": 14
+		}
+	},
 	"palm_dry": {
 		"kind": "tree",
 		"w": 119,

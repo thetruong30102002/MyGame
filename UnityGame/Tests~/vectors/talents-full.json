@@ -1855,11 +1855,11 @@
 		"powerText": [
 			{
 				"id": "slash",
-				"out": "uy lực ×1,25"
+				"out": "uy lực ×1,97"
 			},
 			{
 				"id": "aether_bolt",
-				"out": "uy lực ×1"
+				"out": "uy lực ×1,55"
 			},
 			{
 				"id": "fire_bolt",
@@ -6514,11 +6514,11 @@
 		"skillDesc": [
 			{
 				"id": "slash",
-				"out": "Nhát chém cơ bản, giữ phím để chém liên tục. uy lực ×1,25 · không tốn MP · hồi 0,38s"
+				"out": "Nhát chém cơ bản, giữ phím để chém liên tục. uy lực ×1,97 · không tốn MP · hồi 0,6s"
 			},
 			{
 				"id": "aether_bolt",
-				"out": "Năng lực bẩm sinh: tia sáng bắn thẳng. Bắn xa 380 · uy lực ×1 · không tốn MP · hồi 0,42s"
+				"out": "Năng lực bẩm sinh: tia sáng bắn thẳng. Bắn xa 380 · uy lực ×1,55 · không tốn MP · hồi 0,65s"
 			},
 			{
 				"id": "fire_bolt",

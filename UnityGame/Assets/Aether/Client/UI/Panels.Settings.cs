@@ -5,16 +5,26 @@ namespace Aether.Client.UI
 {
     /// <summary>
     /// Tab Cài đặt: cột HIỂN THỊ (độ phân giải + chế độ màn hình trên PC — chọn rồi bấm Áp dụng; độ nét trên điện thoại — áp ngay;
-    /// giới hạn khung hình) và cột TRÒ CHƠI (thu phóng, tên trên đầu, bảng phím, kết nối), nút Lưu và thoát. Luật lưu: DisplaySettings.
+    /// giới hạn khung hình) và cột TRÒ CHƠI (thu phóng, tên trên đầu, bảng phím, thời tiết, kết nối), nút Lưu và thoát. Luật lưu: DisplaySettings.
     /// </summary>
     public sealed partial class Panels
     {
         private Vector2Int? pendingRes;
         private FullScreenMode? pendingMode;
 
+        /// <summary>Tab con của Cài đặt: chung (hiển thị + trò chơi) hoặc bảng đổi phím.</summary>
+        private bool settingsKeys;
+        private bool logoutArmed;
+
         private void BuildSettings()
         {
-            var view = Group(new Vector2(0, 0), "HIỂN THỊ", out var row);
+            SettingsTabs();
+            if (settingsKeys)
+            {
+                BuildKeys();
+                return;
+            }
+            var view = Group(new Vector2(0, -38), "HIỂN THỊ", out var row);
             if (DisplaySettings.Mobile)
             {
                 var steps = DisplaySettings.ScaleSteps;
@@ -65,7 +75,7 @@ namespace Aether.Client.UI
                 Refresh();
             });
 
-            var play = Group(new Vector2(456, 0), "TRÒ CHƠI", out var row2);
+            var play = Group(new Vector2(456, -38), "TRÒ CHƠI", out var row2);
             Selector(play, row2(), "Thu phóng màn chơi", "×" + game.Camera.Zoom, d =>
             {
                 game.Camera.SetZoom(game.Camera.Zoom + d);
@@ -73,6 +83,7 @@ namespace Aether.Client.UI
             });
             Switch(play, row2(), "Tên trên đầu nhân vật", hud.ShowNames, v => hud.ShowNames = v);
             Switch(play, row2(), "Bảng phím góc trái", hud.HelpShown, _ => hud.ToggleHelp());
+            Switch(play, row2(), "Hiệu ứng thời tiết", Weather.Enabled, v => Weather.Enabled = v);
             var y2 = row2();
             Text(play, "ModeL", new Vector2(0, 1), new Vector2(0, 0.5f), new Vector2(18, y2), new Vector2(200, 24), "Kết nối", 15, UiKit.TextMain, TextAnchor.MiddleLeft, true);
             var online = game.Online ? game.Connected ? "Trực tuyến · đã lưu" : "Đang nối lại…" : "Chơi offline (không lưu)";
@@ -82,7 +93,20 @@ namespace Aether.Client.UI
             if (game.IsAdmin)
                 GoldButton(play, "Admin", new Vector2(0, 1), new Vector2(0, 0.5f), new Vector2(10, row2()), new Vector2(418, 46), "Quản trị · cộng xu, điểm cho nhân vật", () => Show(Kind.Admin));
 
-            var quit = GoldButton(content, "Quit", new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(0, 8), new Vector2(260, 52), "Lưu và thoát game", game.QuitGame);
+            var outLabel = logoutArmed ? "Bấm lần nữa để đăng xuất" : game.Online ? "Đăng xuất" : "Về màn đăng nhập";
+            var logout = GoldButton(content, "Logout", new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(-140, 8), new Vector2(260, 52), outLabel, () =>
+            {
+                if (!logoutArmed)
+                {
+                    logoutArmed = true;
+                    Refresh();
+                    return;
+                }
+                logoutArmed = false;
+                game.Logout();
+            });
+            if (logoutArmed) logout.GetComponent<UnityEngine.UI.Image>().color = new Color(1, 0.85f, 0.6f);
+            var quit = GoldButton(content, "Quit", new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(140, 8), new Vector2(260, 52), "Lưu và thoát game", game.QuitGame);
             quit.GetComponent<UnityEngine.UI.Image>().color = new Color(1, 0.72f, 0.66f);
         }
 
@@ -94,7 +118,7 @@ namespace Aether.Client.UI
         /// <summary>Một cột cài đặt có tiêu đề; <paramref name="row"/> trả toạ độ y tâm của hàng kế tiếp.</summary>
         private RectTransform Group(Vector2 pos, string head, out Func<float> row)
         {
-            var box = Box(content, head, new Vector2(0, 1), new Vector2(0, 1), pos, new Vector2(438, 440), 0.45f);
+            var box = Box(content, head, new Vector2(0, 1), new Vector2(0, 1), pos, new Vector2(438, 426), 0.45f);
             var t = Text(box, "H", new Vector2(0, 1), new Vector2(0, 1), new Vector2(18, -12), new Vector2(300, 22), head, 14, UiStyle.Gold, TextAnchor.MiddleLeft, true);
             t.characterSpacing = 4;
             var line = UiKit.Rect(box, "Line", new Vector2(0, 1), new Vector2(0, 1), new Vector2(18, -42), new Vector2(402, 1));

@@ -48,8 +48,29 @@ dotnet build UnityGame/Tests~/EditorCompile          # kiểm biên dịch mọi
 npx tsx UnityGame/Tools~/vectors-ground.mts          # vector mặt đất → Tests~/vectors/ground.json (test: Tests~/Aether.Data.Tests)
 ```
 
+**Phát bản + tự cập nhật** (11/10/2026 — chủ dự án: "client tự động cập nhật mà không cần tải tay", "tải file exe sau sẽ cài, chọn
+đường dẫn như Ngọc Rồng"):
+
+- Mỗi lần build, `GameSetup` đánh **số bản** (phút kể từ 01/01/2026 UTC → `Application.version` = `1.0.<số>`, Android `versionCode`) và ghi
+  `Build/<windows|android>.build.json`. Bản Windows nén LZ4HC (dữ liệu thô 2,3GB → ~245MB; build thử: `AETHER_FAST_BUILD=1` bỏ nén).
+- Phát: `npx tsx UnityGame/Tools~/publish-client.mts [--notes "…"] [--min]` — gói Windows thành **bộ cài** WinRAR SFX (hộp cài chọn thư
+  mục, mặc định `%LOCALAPPDATA%\Aether Chronicle`, lối tắt màn hình + menu Start, cài xong mở game), chép APK, ghi `version.json` +
+  file vào `apps/server/data/client` (máy chủ THẬT đọc lại mỗi lần gọi — **không cần khởi động lại**). `--min` = bản tối thiểu: client cũ
+  hơn bị chặn tới khi cập nhật. Thử: `--dir apps/server/data/client-test --fast` với máy chủ thử `AETHER_CLIENT_DIR=data/client-test`.
+- Người chơi mới tải một lần: **https://admin.tail024813.ts.net/game/api/client/latest/windows** (Android: `…/latest/android`).
+  Từ đó mở game là `AutoUpdate` hỏi `/api/client/version`; có bản mới thì tự tải (thanh tiến trình), kiểm cỡ + SHA-256, chạy chính bộ
+  cài với `-s2 -d<thư mục đang cài>` sau khi game thoát → bung đè IM LẶNG đúng chỗ người chơi đã chọn rồi tự mở lại. Thư mục cần quyền
+  quản trị (Program Files) thì Windows hỏi UAC. Android: mở link tải APK (hệ điều hành bắt người dùng bấm Cài). Bỏ qua trong Editor,
+  AutoTest (`-aetherShot`), `-noUpdate`; `-updateServer <url>` hỏi máy chủ khác (thử trọn vòng trên máy chủ thử).
+- **Gỡ cài đặt**: Settings → Apps → "Aether Chronicle" (game tự ghi mục này lúc chạy bản đã cài — HKCU, không cần quyền quản trị) hoặc
+  menu Start → "Gỡ cài đặt Aether Chronicle" (`Tools~/installer/Uninstall.cmd` + `uninstall.ps1`). CHỈ xoá đúng các mục game đã cài
+  (`uninstall-files.txt` ghi lúc đóng gói — người chơi có thể cài thẳng vào thư mục chung), lối tắt trỏ vào game, mục Apps, cài đặt
+  trong game + log; tài khoản / nhân vật ở máy chủ nên không mất.
+- File chưa ký số nên Windows SmartScreen hỏi lần đầu ("More info → Run anyway").
+
 Kiểm bản build tự động: `Build/Windows/Aether.exe -aetherShot <thư mục>` → vào chơi offline, đi các hướng, chụp màn hình từng bước
 + `autotest.log` (vị trí, map, hoạt ảnh) rồi tự thoát.
+Thêm `-aetherWeather`: chụp trạm (cạnh cột dịch chuyển) + một map săn của từng vùng để soát thời tiết theo vùng (`Client/Weather.cs`).
 
 Thiết lập dự án do `GameSetup.ConfigureProject` đặt — sửa ở đó, đừng sửa tay trong Project Settings: Windows dùng **Mono** (IL2CPP
 cần Visual Studio C++), Android **IL2CPP + ARM64**, API tối thiểu 25; Input Manager CŨ (`UnityEngine.Input`); sort 2D theo trục y.

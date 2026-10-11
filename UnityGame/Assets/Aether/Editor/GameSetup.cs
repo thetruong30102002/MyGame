@@ -204,21 +204,40 @@ namespace Aether.Importer
             return Build(BuildTarget.Android, Path.Combine(BuildDir, "Android", "Aether.apk"));
         }
 
+        /// <summary>
+        /// Số bản = phút kể từ 01/01/2026 UTC lúc build — luôn tăng, vừa `bundleVersionCode` Android. Client tự cập nhật so số này
+        /// (`AutoUpdate.LocalBuild` đọc phần cuối `Application.version`); `UnityGame/Tools~/publish-client.mts` đọc file `&lt;nền tảng&gt;.build.json`.
+        /// </summary>
+        private static int StampBuild()
+        {
+            var build = (int)(DateTime.UtcNow - new DateTime(2026, 1, 1, 0, 0, 0, DateTimeKind.Utc)).TotalMinutes;
+            PlayerSettings.bundleVersion = $"1.0.{build}";
+            PlayerSettings.Android.bundleVersionCode = build;
+            return build;
+        }
+
         private static bool Build(BuildTarget target, string output)
         {
             Directory.CreateDirectory(Path.GetDirectoryName(output));
+            var build = StampBuild();
             var opts = new BuildPlayerOptions
             {
                 scenes = new[] { ScenePath },
                 locationPathName = output,
                 target = target,
                 targetGroup = BuildPipeline.GetBuildTargetGroup(target),
-                options = BuildOptions.None,
+                // PC để ảnh lớn không nén (giữ nét pixel) → dữ liệu thô 2,3GB; nén LZ4HC cả gói lúc build (giải nén nhanh khi nạp) cho bản
+                // phát bạn bè tải về (build thử: AETHER_FAST_BUILD=1 bỏ nén cho nhanh). Android đã nén ASTC.
+                options = target == BuildTarget.StandaloneWindows64 && Environment.GetEnvironmentVariable("AETHER_FAST_BUILD") != "1" ? BuildOptions.CompressWithLz4HC : BuildOptions.None,
             };
             var report = BuildPipeline.BuildPlayer(opts);
             var s = report.summary;
-            Debug.Log($"[Aether build] {target}: {s.result}, {s.totalSize / 1048576f:0.0} MB, {s.totalTime.TotalSeconds:0}s, lỗi {s.totalErrors} → {output}");
-            return s.result == BuildResult.Succeeded;
+            Debug.Log($"[Aether build] {target}: {s.result}, {s.totalSize / 1048576f:0.0} MB, {s.totalTime.TotalSeconds:0}s, lỗi {s.totalErrors}, bản {build} → {output}");
+            if (s.result != BuildResult.Succeeded) return false;
+            var platform = target == BuildTarget.Android ? "android" : "windows";
+            File.WriteAllText(Path.Combine(BuildDir, platform + ".build.json"),
+                $"{{\"build\": {build}, \"version\": \"{DateTime.Now:yyyy.MM.dd-HHmm}\", \"output\": \"{output.Replace('\\', '/')}\"}}\n");
+            return true;
         }
     }
 }

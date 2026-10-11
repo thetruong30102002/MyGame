@@ -15,7 +15,7 @@ THEME = [
     ('Câu hỏi của cả truyện', 'Khi mọi mối nối đều có giá, ta có quyền buộc người khác vào một lời hứa nhân danh điều tốt không?'),
     ('Chủ đề cá nhân', '"Để sau" → "đi ngay". Kiếp trước Minh để mọi thứ đến muộn. Kiếp này Lior học tiếp nửa sau của bài học: có mặt không có nghĩa là quyết định thay người khác.'),
     ('Hai người từ thế giới cũ', 'Lior hỏi trước khi làm, coi mỗi người là một người. Kiến Trúc Sư coi thế giới là một hệ thống, coi người là tài nguyên, coi người bản địa là "NPC". Cùng một xuất phát, hai lý tưởng ngược nhau.'),
-    ('Luật kể', 'Không phe nào hoàn toàn đúng. Mỗi lựa chọn cứu một điều và làm khó một điều khác. Bí ẩn giải bằng chứng cứ, không có giọng nói thần linh nào chỉ đường.'),
+    ('Luật kể', 'Không phe nào hoàn toàn đúng. Mỗi lựa chọn cứu một điều và làm khó một điều khác. Bí ẩn giải bằng chứng cứ, không có giọng nói thần linh nào chỉ đường — thần của mỗi vùng bị Giao Ước trói, chỉ tỉnh khi boss chúa gục, và thứ thần trao là giao kèo có giá chứ không phải lời sấm.'),
 ]
 
 # (tên, vai, điều họ giấu / vết nứt, số phận, có thể chết?)
@@ -502,6 +502,53 @@ FLAGS = [
     ('dang_fate', 'Số phận Đăng', 'C10', 'Phần kết, thái độ của Bram'),
 ]
 
+# Mười vị thần đất (chủ dự án 11/10/2026: "trong kịch bản mỗi vùng sẽ có 1 vị thần cần phải vẽ thật đẹp — mai sau sẽ bán skill nhân vật thần").
+# Luật kể vẫn giữ: thần KHÔNG chỉ đường. Giao Ước Bảy Mối buộc sợi của mỗi vùng vào một Mối nên thần của vùng bị trói, ngủ, hoặc bị chính
+# con quái chúa canh giữ; chỉ khi boss chúa gục thần mới tỉnh, và thứ thần trao là một GIAO KÈO có giá chứ không phải lời sấm.
+# (vùng, tên thần, hình dạng — để vẽ, bị trói thế nào, giao kèo / cái giá, thần kỹ — kỹ năng bán sau, hình tạm trong game)
+GODS = [
+    ('Thung lũng Thistlewood', 'Mẫu Thần Verdea', 'Người đàn bà cao bằng ba người, tóc là cỏ đồng mùa gặt, váy kết bằng tổ ong và hoa dại, quanh vai có đàn ong vàng phát sáng',
+     'Bia đá cổ ở Nghĩa địa Hoàng Hôn là bàn thờ bà. Quỷ vương giật lỏng sợi đất dưới bia để hút sức bà, nên người chết không nằm yên',
+     'Bà trả lại sợi đất cho Lior nếu Lior hứa mỗi mùa gặt về thắp hương cho người đã khuất. Quên một mùa, ong bỏ vườn mẹ',
+     'Rễ Mẹ: rễ cây trồi lên trói quái trong vùng, đồng đội đứng trong vùng hồi máu dần', 'bia đá cổ (đã có NPC "Bia đá cổ")'),
+    ('Đầm lầy Mù Sương', 'Thuỷ Thần Nereth', 'Con rắn nước trắng dài như con kênh, vảy trong như sương, mắt xanh ngọc, trên đầu mọc sừng lau sậy',
+     'Con đập của Đoàn chặn dòng nước ngầm — dòng máu của Nereth. Hydra bùn lớn lên từ chính phần thân bị chặn mục ra của thần',
+     'Nereth cho Lior đi xuyên sương không lạc, đổi lại Lior phải gánh một phần oán của người chết đuối: mỗi lần đứng trong nước sẽ nghe họ gọi',
+     'Sương Thuỷ Mạch: sương độc lan theo hướng nhắm, làm chậm và gây độc, rắn nước trắng trườn xuyên qua', 'tượng đầu rắn `serpent_head`'),
+    ('Sa mạc Hồng Cát', 'Thái Dương Thần Sahra', 'Chim ưng lửa sải cánh rộng như cổng thành, lông vàng đỏ như cát lúc hoàng hôn, đầu đội vầng mặt trời',
+     'Tên Sahrin bị đục khỏi Giao Ước; tượng nhân sư canh đền Sahra bị chôn dưới cát. Sâu cát khổng lồ nuốt ánh sáng còn sót của thần',
+     'Sahra soi rõ mọi chữ bị đục trên đá cho Lior, đổi lại Lior không bao giờ được nói dối dưới nắng: nói dối, bóng của Lior sẽ bỏ đi',
+     'Mặt Trời Rực: một cột nắng thiêu từ trên trời rơi xuống chỗ nhắm, cát quanh đó hoá thuỷ tinh', 'tượng nhân sư `sphinx`'),
+    ('Cao nguyên Gió Hú', 'Phong Thần Aeolin', 'Đại bàng trắng bốn cánh, mỗi cánh là một luồng gió có màu khác nhau, đuôi kéo thành mây',
+     'Những ngọn tháp sắt của Kiến Trúc Sư hút gió của Aeolin; Rồng gió là con của Tuyệt Vân điên lên vì thiếu gió, không phải thần',
+     'Aeolin cho Lior đôi giày gió (nhảy xa, rơi chậm), đổi lại Lior phải thả một lời hứa đang giữ trong lòng — lời ngoéo tay với Aldric bị gió mang đi mất một nửa',
+     'Cánh Bão: Lior sải bốn cánh gió lao thẳng về chỗ nhắm, hất tung mọi thứ trên đường', 'tượng chim `bird_statue`'),
+    ('Lãnh nguyên Băng Giá', 'Băng Thần Hjalma', 'Sói cái khổng lồ lông tuyết, lưng chở cả một cánh rừng thông nhỏ, hơi thở thành bão tuyết',
+     'Vệ thần Ngai Băng là xiềng xích Giao Ước đúc thành người, ngồi đè lên Hjalma để giữ mùa đông không bao giờ hết',
+     'Hjalma dạy Lior quên một nỗi đau cho nhẹ lòng, đổi lại Lior quên luôn một kỷ niệm đẹp đi kèm nó — người chơi chọn quên điều gì',
+     'Đông Chí: một vòng băng nổ quanh người đóng băng mọi kẻ trong tầm, sói tuyết hiện lên tru một tiếng', 'phù điêu `dragon_relief`'),
+    ('Núi lửa Hoả Sơn', 'Lò Thần Ignar', 'Ông thợ rèn khổng lồ thân đá nham thạch, râu là ngọn lửa, búa là một khối dung nham đông đặc, ngực có lò than đỏ rực',
+     '"Hoả thần" trong Lõi Núi Lửa là ngọn lửa lò của chính Ignar đã hoá điên khi Mối Hoả bị hút; hạ nó là trả lửa về lò cho thần',
+     'Ignar rèn lại một món đồ của Lior thành đồ thần, đổi lại một phần hơi ấm trong tay Lior ở lại trong lò: tay Lior lạnh mãi về sau',
+     'Búa Lò Thần: bóng búa khổng lồ nện xuống, nứt đất thành vết dung nham chạy dài', 'tượng thợ rèn `smith_statue`'),
+    ('Quần đảo San Hô', 'Hải Mẫu Thalassa', 'Cá voi khổng lồ lưng mọc rạn san hô và cả một làng chài nhỏ đã chìm, mắt dịu như mặt biển lặng',
+     'Mảnh Mối Thuỷ vỡ rơi xuống rạn; Kraken cuộn quanh Thalassa đang ngủ dưới vực, hút sức thần qua từng xúc tu',
+     'Thalassa trả lại người biển bắt đi một người (người chơi chọn ai trong số những người đã mất ở San Hô), đổi lại biển giữ một ký ức của người đó',
+     'Triều Dâng: sóng thần cuộn từ sau lưng tràn qua đường nhắm, cá voi trong suốt bơi giữa ngọn sóng', 'con trai khổng lồ `giant_clam`'),
+    ('Rừng Nấm Ngầm', 'Thần Nấm Mycora', 'Một rừng nấm có nghìn con mắt phát sáng nối nhau bằng mạng rễ, khi nói thì cả rừng nhấp nháy cùng nhịp',
+     'Đoàn đào hầm cắt ngang mạng rễ của Mycora, Vua người nấm là phần trí nhớ bị cắt rời của thần, tưởng mình là vua',
+     'Mycora cho Lior nghe được mọi người đang nói trong rễ (biết trước mai phục), đổi lại một sợi tóc của Lior hoá thành nấm — không gì đáng kể, cho tới chương 10',
+     'Bào Tử Nghìn Mắt: mưa bào tử phát sáng làm quái trong vùng mù và quay ra đánh nhau', '(chưa có map — chờ dựng vùng 8)'),
+    ('Phế tích Aether', 'Quang Thần Lumen', 'Hình người bằng ánh sáng trắng không có mặt, quanh người xoay bảy vòng chữ cổ của Lumeria',
+     'Ma vương Ostrin dùng chính Lumen làm nút trung tâm của Giao Ước: sức của Lumen giữ Ostrin sống ba trăm năm',
+     'Lumen cho Lior thấy sợi Aether của MỌI người, kể cả ý định của họ, đổi lại Lior không còn thấy màu nào khác ngoài màu sợi trong một ngày mỗi tháng',
+     'Thiên Quang: bảy tia sáng rơi xuống theo vòng chữ cổ, trúng ai thì người đó lộ hết điểm yếu', '(chưa có map — chờ dựng vùng 9)'),
+    ('Vực Hư Không', 'Hư Thần Nox', 'Một khoảng trống hình người, viền bằng sao, bên trong là tối tuyệt đối; có hai bàn tay sáng mờ đang buộc một nút thắt',
+     'Nox là "khoảng giữa" mà mọi Mối được buộc vào; Kiến Trúc Sư muốn dùng Nox để viết lại thế giới thành một hệ thống',
+     'Nox hỏi Lior có muốn tháo nút thắt và trả mọi thứ về như trước Giao Ước không — cái giá là không ai nhớ Lior đã từng tới',
+     'Hư Không Nuốt: một hố đen nhỏ hút mọi thứ trong vùng về tâm rồi nổ tung', '(chưa có map — chờ dựng vùng 10)'),
+]
+
 REVIEW = [
     'Thay mạch Chương 2–7 cũ (7 lục địa Varnhold, Lumeria, Nocthar…) bằng 10 vùng của kế hoạch thế giới? Giữ nền: Giao Ước Bảy Mối, đồng xu của Bram, chủ đề "để sau → đi ngay".',
     'Luật sống / chết: NPC dịch vụ (người bán, thợ rèn, thợ may, người ghi sử, cột dịch chuyển) không bao giờ chết. Người hy sinh ở chương 7 là Zahra (không làm dịch vụ), Bram sống. Đồng ý?',
@@ -510,5 +557,6 @@ REVIEW = [
     'Nyra: đồng hành, có thể thân thiết hơn tuỳ người chơi, không ép yêu đương. Thêm / bớt đồng hành nào?',
     'Mẹ ốm ở chương 5 nhưng không chết. Giữ như vậy?',
     'Bảy rồng là người giữ bảy Mối, Thần Long chính là Giao Ước; điều ước Thần Long trong game (thú cưng, thú cưỡi, skin) đi sau lựa chọn cuối.',
+    'Mười vị thần đất (mục "Mười vị thần"): mỗi vùng một thần, tỉnh lại sau khi boss chúa gục, trao giao kèo có giá; thần kỹ để bán sau (vẽ thật đẹp — kế hoạch vẽ mục "Mười vị thần"). Tên, hình dạng, giao kèo có ổn không?',
     'NPC dịch vụ mới ở trạm từng vùng (Pell, Qadir, Samir, Wenna, Hob, Bjorn, Sigrid, Hilde, Coral, Finn, Tuft, Ione, Gearwin…) — tên và nghề có ổn không? Đây cũng là danh sách NPC cần vẽ ở phần "còn thiếu" của kế hoạch vẽ.',
 ]

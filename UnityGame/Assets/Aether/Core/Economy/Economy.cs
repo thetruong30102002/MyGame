@@ -40,7 +40,7 @@ namespace Aether.Core
             if (level < 1) return _p.ExpForLevel(1);
             if (level < 1e4) return _p.ExpForLevel(level); // trên ngưỡng này Progression ép (int)/(long) có thể tràn
             var knee = _d.ExpCurveKnee;
-            return Js.Round(100 * Js.Pow(1.5, knee - 1) * Js.Pow(Math.Floor(level) / knee, 2.6));
+            return Js.Round(Js.Round(100 * Js.Pow(1.5, knee - 1) * Js.Pow(Math.Floor(level) / knee, 2.6)) * _p.ExpPace(int.MaxValue));
         }
 
         private static double Int(double v, double min, double max)

@@ -88,7 +88,7 @@ export interface ItemDef {
 	stack?: number;
 	/** Giá mua; bán = floor(price / 4). */
 	price?: number;
-	/** Tác dụng một dòng ("Mở đòn Trảm (J)"). */
+	/** Tác dụng một dòng ("Mở đòn Trảm (chuột trái)"). */
 	effect?: string;
 }
 
@@ -109,7 +109,7 @@ export const ITEMS: Record<string, ItemDef> = {
 		equip: 'weapon',
 		rarity: 'common',
 		bound: true,
-		effect: 'Mở đòn Trảm (J)',
+		effect: 'Mở đòn Trảm (chuột trái)',
 	},
 	staff: {
 		id: 'staff',
@@ -122,7 +122,7 @@ export const ITEMS: Record<string, ItemDef> = {
 		equip: 'offhand',
 		rarity: 'common',
 		bound: true,
-		effect: 'Mở Tia Aether (K)',
+		effect: 'Mở Tia Aether (chuột phải)',
 	},
 	potion: {
 		id: 'potion',

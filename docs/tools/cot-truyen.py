@@ -9,7 +9,7 @@ import sys
 TOOLS = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, TOOLS)
 sys.dont_write_bytecode = True
-from cot_truyen_data import (ARCHITECT, CAST, CHAPTERS, DEATH_RULE, EPILOGUES, FLAGS, LOGLINE, REVIEW, THEME,  # noqa: E402
+from cot_truyen_data import (ARCHITECT, CAST, CHAPTERS, DEATH_RULE, EPILOGUES, FLAGS, GODS, LOGLINE, REVIEW, THEME,  # noqa: E402
                              TWISTS)
 
 DOCS = os.path.join(TOOLS, '..')
@@ -98,6 +98,9 @@ trail_html = ''.join(f'<li><a href="#chuong-{n}">Chương {n}</a><span>{quote_ma
 twist_html = ''.join(f'<li><a href="#chuong-{n}">Chương {n}</a><span>{quote_marks(t)}</span></li>' for n, t in TWISTS)
 flags_html = ''.join(f'<tr><td><code>{esc(k)}</code><div class="role">{esc(n)}</div></td><td>{esc(s)}</td><td>{esc(u)}</td></tr>' for k, n, s, u in FLAGS)
 epi_html = ''.join(f'<div><dt>{esc(a)}</dt><dd>{quote_marks(b)}</dd></div>' for a, b in EPILOGUES)
+gods_html = ''.join(
+    f'<tr><th scope="row">{esc(g)}<br><small>{esc(r)}</small></th><td>{quote_marks(look)}</td><td>{quote_marks(bound)}</td><td>{quote_marks(pact)}</td>'
+    f'<td>{quote_marks(skill)}</td></tr>' for r, g, look, bound, pact, skill, _temp in GODS)
 review_html = ''.join(f'<li>{quote_marks(q)}</li>' for q in REVIEW)
 chapters_html = ''.join(chapter_html(c) for c in CHAPTERS)
 
@@ -243,6 +246,15 @@ ol.review, ul.creed {{ padding-left: 22px; margin: 0; display: flex; flex-direct
       <ol class="twists">{trail_html}</ol>
     </section>
 
+    <section id="muoi-vi-than">
+      <h2>Mười vị thần đất</h2>
+      <p style="max-width:72ch">Mỗi vùng một vị thần bị Giao Ước Bảy Mối trói. Thần không chỉ đường: chỉ tỉnh khi boss chúa của vùng gục, và thứ thần trao là một giao kèo có giá. Thần kỹ để bán sau — thần phải được vẽ thật đẹp.</p>
+      <div class="table-wrap" style="margin-top:12px"><table>
+        <thead><tr><th>Thần · vùng</th><th>Hình dạng (để vẽ)</th><th>Bị trói thế nào</th><th>Giao kèo · cái giá</th><th>Thần kỹ</th></tr></thead>
+        <tbody>{gods_html}</tbody>
+      </table></div>
+    </section>
+
     <section>
       <h2>10 chương theo 10 vùng</h2>
       <div class="chapters">{chapters_html}</div>
@@ -306,6 +318,12 @@ for a, b, c in ARCHITECT['vs']:
 md.append('\n**Dấu vết qua từng chương:**\n')
 for n, t in ARCHITECT['trail']:
     md.append(f'- Chương {n}: {t}')
+md.append('\n## Mười vị thần đất\n')
+md.append('Mỗi vùng một vị thần bị Giao Ước Bảy Mối trói. Thần KHÔNG chỉ đường: chỉ tỉnh khi boss chúa của vùng gục, thứ thần trao là '
+          'giao kèo có giá. Thần kỹ để bán sau — thần phải được vẽ thật đẹp (kế hoạch vẽ: `docs/pixellab-ke-hoach-ve.md` mục "Mười vị thần").\n')
+md.append('| Vùng | Thần | Hình dạng (để vẽ) | Bị trói thế nào | Giao kèo · cái giá | Thần kỹ (bán sau) | Hình tạm trong game |\n|---|---|---|---|---|---|---|')
+for r, g, look, bound, pact, skill, temp in GODS:
+    md.append(f'| {r} | **{g}** | {look} | {bound} | {pact} | {skill} | {temp} |')
 for ch in CHAPTERS:
     md.append(f"\n## Chương {ch['n']} — {ch['title']} (vùng {ch['n']}: {ch['region']})\n")
     md.append(f"*{ch['mood']}*" + (f" · rồng: **{ch['dragon']}**" if ch.get('dragon') else '') + '\n')

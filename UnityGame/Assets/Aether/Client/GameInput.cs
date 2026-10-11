@@ -23,12 +23,7 @@ namespace Aether.Client
         private const float StickRadius = 0.11f;
 
         private readonly List<KeyCode> presses = new List<KeyCode>();
-        private static readonly KeyCode[] Watched =
-        {
-            KeyCode.Space, KeyCode.Tab, KeyCode.Escape, KeyCode.E, KeyCode.R, KeyCode.J, KeyCode.K, KeyCode.L,
-            KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3, KeyCode.Alpha4, KeyCode.Alpha5, KeyCode.Alpha6, KeyCode.Alpha7, KeyCode.Alpha8, KeyCode.M, KeyCode.I,
-            KeyCode.C, KeyCode.T, KeyCode.B, KeyCode.O, KeyCode.H, KeyCode.F, KeyCode.Return, KeyCode.KeypadEnter,
-        };
+        // Phím theo dõi nhấn: theo bảng phím người chơi đặt (`KeyBinds.Watched`).
 
         /// <summary>Đang gõ chat: không ghi phím, không cho đi (khung chat đặt mỗi khung).</summary>
         public static bool Typing;
@@ -38,8 +33,15 @@ namespace Aether.Client
         private Vector2 stickAxis;
         private Texture2D dot;
 
-        /// <summary>Đang hiện cần điều khiển (máy cảm ứng).</summary>
-        public bool TouchUi => Input.touchSupported || Application.isMobilePlatform;
+        /// <summary>
+        /// Đang hiện cần điều khiển + cụm nút cảm ứng. Điện thoại: luôn hiện. PC: laptop có màn cảm ứng báo `Input.touchSupported` = true
+        /// nhưng vẫn là máy bàn phím (lỗi 11/10/2026: PC hiện cả vòng chiêu mobile) — chỉ hiện sau khi người chơi THẬT SỰ chạm màn, bấm phím
+        /// hay rê chuột là ẩn lại.
+        /// </summary>
+        public bool TouchUi => Application.isMobilePlatform || touchMode;
+
+        private bool touchMode;
+        private float lastTouchAt = -99;
 
         /// <summary>Lệnh di chuyển ép từ kịch bản kiểm tự động (AutoTest); null = đọc bàn phím / cảm ứng.</summary>
         public static MoveIntent? Scripted;
@@ -51,11 +53,11 @@ namespace Aether.Client
             var mag = stickAxis.magnitude;
             if (mag > 0.18f) return new MoveIntent { x = stickAxis.x / mag, y = stickAxis.y / mag, run = mag > 0.92f };
             float x = 0, y = 0;
-            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) y -= 1;
-            if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) y += 1;
-            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) x -= 1;
-            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) x += 1;
-            return new MoveIntent { x = Math.Sign(x), y = Math.Sign(y), run = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift) };
+            if (Input.GetKey(KeyBinds.Get(KeyBinds.Act.Up)) || Input.GetKey(KeyCode.UpArrow)) y -= 1;
+            if (Input.GetKey(KeyBinds.Get(KeyBinds.Act.Down)) || Input.GetKey(KeyCode.DownArrow)) y += 1;
+            if (Input.GetKey(KeyBinds.Get(KeyBinds.Act.Left)) || Input.GetKey(KeyCode.LeftArrow)) x -= 1;
+            if (Input.GetKey(KeyBinds.Get(KeyBinds.Act.Right)) || Input.GetKey(KeyCode.RightArrow)) x += 1;
+            return new MoveIntent { x = Math.Sign(x), y = Math.Sign(y), run = Input.GetKey(KeyBinds.Get(KeyBinds.Act.Run)) || Input.GetKey(KeyCode.RightShift) };
         }
 
         public bool Held(KeyCode k) => Input.GetKey(k);
@@ -73,8 +75,25 @@ namespace Aether.Client
 
         private void Update()
         {
-            if (!Typing) foreach (var k in Watched) if (Input.GetKeyDown(k)) presses.Add(k);
+            if (!Typing) foreach (var k in KeyBinds.Watched) if (Input.GetKeyDown(k)) presses.Add(k);
+            UpdateTouchMode();
             UpdateStick();
+        }
+
+        private void UpdateTouchMode()
+        {
+            if (Application.isMobilePlatform) return;
+            if (Input.touchCount > 0)
+            {
+                touchMode = true;
+                lastTouchAt = Time.unscaledTime;
+                return;
+            }
+            if (!touchMode) return;
+            // Windows giả lập chuột từ cú chạm — bỏ qua chuyển động chuột ngay sau khi vừa nhấc tay.
+            var mouseMoved = Time.unscaledTime - lastTouchAt > 0.5f && (Mathf.Abs(Input.GetAxisRaw("Mouse X")) + Mathf.Abs(Input.GetAxisRaw("Mouse Y")) > 0.5f);
+            var keyPressed = Input.anyKeyDown && !Input.GetMouseButtonDown(0) && !Input.GetMouseButtonDown(1) && !Input.GetMouseButtonDown(2);
+            if (mouseMoved || keyPressed) touchMode = false;
         }
 
         private void UpdateStick()

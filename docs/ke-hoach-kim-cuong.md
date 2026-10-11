@@ -164,3 +164,12 @@ pháp lý trước bước K2. Trước đó chỉ chạy ví + cửa hàng vớ
 1. Hướng nạp: chuyển khoản VietQR (cá nhân) hay cổng thanh toán (cần doanh nghiệp)? Có làm app điện thoại không?
 2. Bình chiến đấu mạnh tới đâu (+10% hay +20%)? Mạnh quá là "nạp để thắng" — người không nạp dễ bỏ game. (K1b đang bán cả hai
    mức — đổi thì sửa `packages/sim/src/shop.ts`.)
+
+## Thần kỹ — bán kỹ năng nhân vật thần (ghi 11/10/2026 — CHƯA LÀM)
+
+Chủ dự án 11/10/2026: "mai sau mình sẽ bán skill nhân vật thần". Mỗi vùng có một vị thần (`docs/cot-truyen-aether.md` mục "Mười vị thần
+đất"); gặp thần trong cốt truyện (nhiệm vụ cuối chương) mở **quyền mua** thần kỹ của thần đó bằng kim cương — chưa gặp thì không mua được,
+để món hàng gắn với hành trình. Thần kỹ là chiêu riêng (ô chiêu thứ 9–10 hoặc ô thần riêng), dùng hình thần hiện ra tung chiêu
+(`docs/pixellab-ke-hoach-ve.md` mục "Mười vị thần"). Cần chốt khi làm: giá, mạnh ngang tuyệt kỹ hay chỉ đẹp hơn (tránh trả tiền để thắng
+PvP — đề xuất: sức mạnh ngang tuyệt kỹ mốc 10, khác ở hình và hiệu ứng), hồi chiêu, có dùng trong PvP không, máy chủ kiểm quyền sở hữu.
+Trong game đã có mã mở `god_<vùng>` khi xong nhiệm vụ gặp thần (StoryDirector `GrantUnlock`) — dùng làm điều kiện mua.

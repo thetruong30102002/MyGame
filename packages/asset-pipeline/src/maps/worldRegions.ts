@@ -79,10 +79,12 @@ function standardRegion(r: StdRegion): KitRegionDef {
 			name: `${mob.herd} ${z + 1}`,
 			monster: mob.id,
 			level: z < n / 2 ? lo : hi,
-			count: k > 5 ? 5 : 4,
+			// Map săn đông hơn (chủ dự án 11/10/2026: "cần thêm quái" — ke-hoach-the-gioi 5.4): 24–28 con / map thường, 21–24 + boss ở
+			// map có hang ổ. Chỉ tăng số con mỗi bầy, KHÔNG thêm bãi — bố cục (đường, bãi, lối, địa điểm) giữ nguyên với bản cũ.
+			count: (k > 5 ? 7 : 6) + (boss ? 1 : 0),
 		}));
 		const [w, hh] = SIZES[i]!;
-		maps.push({ id: h.id, name: h.name, seed: r.seed + k, w, h: hh, role: 'hunt', theme: h.theme, zones, ...(boss ? { boss } : {}) });
+		maps.push({ id: h.id, name: h.name, seed: r.seed + k, w, h: hh, role: 'hunt', theme: h.theme, zones, treeMain: i, ...(boss ? { boss } : {}) });
 		labels[h.id] = `${h.name} · cấp ${lo}–${boss ? Math.max(hi, boss.level) : hi}`;
 	});
 	maps.push({ id: r.sanctum.id, name: r.sanctum.name, seed: r.seed + 20, w: 32, h: 28, role: 'sanctum', theme: r.sanctum.theme, boss: r.sanctum.chief });
@@ -131,9 +133,9 @@ const MARSH: KitTheme = {
 	biome: 'swamp',
 	fill: 'g',
 	road: 'd',
-	trees: ['cypress', 'cypress_flip', 'cypress_deep', 'cypress_rust', 'tree_dead', 'cypress', 'willow', 'mangrove', 'ghost_tree', 'willow'],
+	trees: ['cypress', 'cypress_flip', 'cypress_deep', 'cypress_rust', 'dead_mossy', 'cypress', 'willow', 'mangrove', 'ghost_tree', 'willow'],
 	treeDensity: 9,
-	rocks: ['mossy_log', 'rotten_stump', 'moss_bush', 'dead_swamp_tree', 'rock_mossy', 'stump', 'bush', 'dead_bush', 'exposed_roots', 'thorn_bush_swamp', 'pitcher_plant'],
+	rocks: ['mossy_log', 'rotten_stump', 'moss_bush', 'dead_swamp_tree', 'rock_mossy', 'stump', 'moss_bush', 'exposed_roots', 'thorn_bush_swamp', 'pitcher_plant'],
 	rockDensity: 5,
 	flats: ['reeds', 'cattails', 'mud_puddle', 'reeds', 'pale_mushrooms', 'lily_pads', 'fern', 'reed_clump', 'water_lily', 'swamp_fern', 'frog_eggs', 'glow_moss'],
 	flatDensity: 7,
@@ -144,7 +146,7 @@ const MARSH: KitTheme = {
 };
 const SWAMPWOOD = theme(MARSH, {
 	fill: 'f',
-	trees: ['cypress', 'cypress_flip', 'cypress_deep', 'cypress_deep', 'tree_dead_flip', 'cypress_rust', 'mangrove', 'ghost_tree', 'bamboo', 'willow'],
+	trees: ['cypress', 'cypress_flip', 'cypress_deep', 'cypress_deep', 'dead_mossy_flip', 'cypress_rust', 'mangrove', 'ghost_tree', 'bamboo', 'willow'],
 	treeDensity: 46,
 	rockDensity: 6,
 	flats: ['pale_mushrooms', 'glow_flower', 'mud_puddle', 'reeds', 'fern', 'hanging_vines', 'glow_moss', 'swamp_fern', 'rainbow_mushroom'],
@@ -161,7 +163,6 @@ export const SWAMP_REGION = standardRegion({
 		hub: {
 			buildings: ['stilt_house', 'healer_hut', 'stilt_house', 'watchtower', 'stilt_house', 'fisher_hut', 'longhouse'],
 			decor: ['fish_rack', 'clay_pot', 'pole_lantern', 'herb_basket', 'reed_bundle', 'canoe', 'mooring_post', 'bamboo_fence', 'net_rack', 'water_jar', 'cook_fire', 'dugout_canoe', 'chicken_coop', 'shell_chime', 'name_post'],
-			waystone: 'rune_stone',
 			plaza: 'd',
 		},
 	},
@@ -204,7 +205,7 @@ const DUNES: KitTheme = {
 	biome: 'desert',
 	fill: 'g',
 	road: 'd',
-	trees: ['palm', 'palm_flip', 'palm_dry', 'palm', 'tree_dead', 'acacia', 'candelabra', 'date_trio', 'dry_tree'],
+	trees: ['palm', 'palm_flip', 'palm_dry', 'palm', 'dead_bleached', 'dead_bleached_flip', 'acacia', 'candelabra', 'date_trio', 'dry_tree'],
 	treeDensity: 2.5,
 	rocks: ['red_rock', 'red_spire', 'saguaro', 'prickly_pear', 'agave', 'boulder', 'rock_outcrop', 'rock_spire', 'pale_rocks', 'red_outcrop', 'layered_rock', 'scorpion_burrow'],
 	rockDensity: 5,
@@ -226,7 +227,6 @@ export const DESERT_REGION = standardRegion({
 		hub: {
 			buildings: ['city_gate', 'dome_house', 'market_tent', 'dome_house', 'carpet_stall', 'dome_house', 'market_tent', 'palace_tower', 'adobe_house', 'pottery_stall', 'small_tent'],
 			decor: ['amphorae', 'oasis_well', 'banner_pole', 'fruit_crates', 'brass_lantern', 'spice_basket', 'potted_palm', 'camel_saddle', 'carpet_rack', 'oasis_basin', 'lantern_pole', 'oil_jars', 'market_sign', 'hand_cart'],
-			waystone: 'rune_stone',
 			plaza: 'c',
 		},
 	},
@@ -269,9 +269,9 @@ const UPLAND: KitTheme = {
 	biome: 'highland',
 	fill: 'g',
 	road: 'd',
-	trees: ['wind_pine', 'wind_pine_flip', 'wind_pine_gold', 'wind_pine_dark', 'tree', 'tree_autumn', 'tree_pine_dry', 'wind_pine', 'birch', 'red_oak', 'rhododendron', 'cliff_pine', 'birch'],
+	trees: ['wind_pine', 'wind_pine_flip', 'wind_pine_gold', 'wind_pine_dark', 'hl_oak', 'hl_oak_flip', 'hl_maple', 'hl_maple_flip', 'wind_pine', 'birch', 'red_oak', 'rhododendron', 'cliff_pine', 'birch'],
 	treeDensity: 7,
-	rocks: ['mossy_boulder', 'lichen_rock', 'cairn', 'heather', 'wind_shrub', 'rock_mossy', 'rock_gray', 'boulder', 'bush', 'bush_flower', 'stump', 'flat_stones', 'small_mossy_rock', 'broken_stump', 'blueberry_bush'],
+	rocks: ['mossy_boulder', 'lichen_rock', 'cairn', 'heather', 'wind_shrub', 'rock_mossy', 'rock_gray', 'boulder', 'heather', 'wind_shrub', 'stump', 'flat_stones', 'small_mossy_rock', 'broken_stump', 'blueberry_bush'],
 	rockDensity: 5,
 	flats: ['tall_grass', 'highland_flowers', 'small_fern', 'tumbleweed', 'tall_grass', 'fern', 'wildflowers', 'wildflower_patch', 'pampas', 'highland_mushrooms', 'bird_nest'],
 	flatDensity: 9,
@@ -297,7 +297,6 @@ export const HIGHLAND_REGION = standardRegion({
 		hub: {
 			buildings: ['stone_cottage', 'windmill', 'stone_cottage', 'stone_cottage', 'windmill', 'barn', 'chapel'],
 			decor: ['hay_cart', 'prayer_flags', 'sheep_fence', 'skep', 'water_barrel', 'millstone', 'haystack', 'wool_basket', 'stone_wall'],
-			waystone: 'wind_rune',
 			plaza: 'c',
 		},
 	},
@@ -368,7 +367,6 @@ export const TUNDRA_REGION = standardRegion({
 		hub: {
 			buildings: ['log_cabin', 'log_cabin', 'log_cabin', 'log_cabin', 'log_cabin', 'hunting_lodge', 'smokehouse', 'hide_tent'],
 			decor: ['firewood', 'dog_sled', 'pelt_rack', 'ice_fishing', 'ski_rack', 'notice_board', 'ice_cart', 'campfire', 'snowy_firewood', 'totem', 'supply_sled', 'snowy_fence', 'fire_pit', 'fish_rack_snow', 'deco_snowman', 'oil_lamp'],
-			waystone: 'ice_waystone',
 			plaza: 'c',
 		},
 	},
@@ -417,7 +415,7 @@ const ASHLAND: KitTheme = {
 	biome: 'volcanic',
 	fill: 'g',
 	road: 'c',
-	trees: ['ash_tree', 'ash_tree_flip', 'ash_tree_cold', 'charred_tree', 'ash_tree', 'ruby_tree', 'petrified_tree', 'fire_mushrooms', 'thorn_black'],
+	trees: ['ash_tree', 'ash_tree_flip', 'ash_tree_cold', 'charred_tree', 'ash_tree_ember', 'ash_tree_ember_flip', 'ash_tree', 'ruby_tree', 'petrified_tree', 'fire_mushrooms', 'thorn_black'],
 	treeDensity: 5,
 	rocks: ['basalt', 'obsidian', 'lava_rock', 'sulfur', 'fumarole', 'basalt', 'cliff_rock', 'cliff_rock_flip', 'rock_spire', 'rock_outcrop', 'boulder', 'basalt_column', 'steam_vent', 'pumice', 'fire_vein', 'rock_slab', 'obsidian_boulder', 'fire_thorn'],
 	rockDensity: 6,
@@ -439,7 +437,6 @@ export const VOLCANO_REGION = standardRegion({
 		hub: {
 			buildings: ['fortress_gate', 'dwarf_house', 'great_forge', 'dwarf_house', 'refugee_tent', 'dwarf_house', 'refugee_tent', 'forge_shop', 'bastion'],
 			decor: ['anvil', 'coal_barrel', 'weapon_rack', 'hot_ingots', 'quench_trough', 'field_cot', 'anvil_banner', 'fire_brazier', 'ore_cart', 'ore_pile', 'workbench', 'kiln', 'armor_stand', 'hot_trough'],
-			waystone: 'rune_pillar',
 			plaza: 'c',
 		},
 	},
@@ -488,9 +485,9 @@ const BEACH: KitTheme = {
 	biome: 'beach',
 	fill: 'g',
 	road: 'd',
-	trees: ['palm', 'palm_flip', 'palm_lush', 'palm_dry', 'palm_lush', 'leaning_palm', 'sea_almond', 'morning_glory', 'coast_mangrove'],
+	trees: ['palm_tropic', 'palm_tropic_flip', 'palm_lush', 'palm_lush', 'leaning_palm', 'sea_almond', 'morning_glory', 'coast_mangrove'],
 	treeDensity: 5,
-	rocks: ['beach_rock', 'brain_coral', 'pink_coral', 'sea_fan', 'giant_clam', 'coconut_palm', 'rock_gray', 'bush', 'agave', 'spiral_shell', 'oyster_rock', 'whale_ribs'],
+	rocks: ['beach_rock', 'brain_coral', 'pink_coral', 'sea_fan', 'giant_clam', 'coconut_palm', 'rock_gray', 'beach_bush', 'agave', 'spiral_shell', 'oyster_rock', 'whale_ribs'],
 	rockDensity: 5,
 	flats: ['starfish', 'urchin', 'kelp', 'net_pile', 'ship_planks', 'seaweed_pile', 'gull_nest', 'life_ring', 'net_heap', 'turtle_shell'],
 	flatDensity: 6,
@@ -510,7 +507,6 @@ export const ISLES_REGION = standardRegion({
 		hub: {
 			buildings: ['fisher_cottage', 'boat_workshop', 'fisher_cottage', 'fisher_cottage', 'fishing_pier', 'lighthouse', 'tavern', 'harbor_shed', 'lookout_hut'],
 			decor: ['lobster_trap', 'anchor', 'fish_barrel', 'buoy', 'fish_crates', 'fish_rack', 'salt_crate', 'barrel_stack', 'hook_rack', 'beacon_post', 'small_rowboat', 'rusty_anchor', 'mooring_piles'],
-			waystone: 'rune_stone',
 			plaza: 'd',
 		},
 	},

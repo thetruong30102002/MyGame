@@ -47,6 +47,54 @@
 			"h": 14
 		}
 	},
+	"hl_oak": {
+		"kind": "tree",
+		"w": 125,
+		"h": 143,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 20,
+			"h": 14
+		}
+	},
+	"hl_oak_flip": {
+		"kind": "tree",
+		"w": 125,
+		"h": 143,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 20,
+			"h": 14
+		}
+	},
+	"hl_maple": {
+		"kind": "tree",
+		"w": 125,
+		"h": 143,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 20,
+			"h": 14
+		}
+	},
+	"hl_maple_flip": {
+		"kind": "tree",
+		"w": 125,
+		"h": 143,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 20,
+			"h": 14
+		}
+	},
 	"stone_cottage": {
 		"kind": "building",
 		"w": 158,
@@ -405,6 +453,18 @@
 			"y": -14,
 			"w": 25,
 			"h": 14
+		}
+	},
+	"rune_stone": {
+		"kind": "rock",
+		"w": 46,
+		"h": 58,
+		"blocks": true,
+		"footprint": {
+			"x": -16,
+			"y": -18,
+			"w": 32,
+			"h": 18
 		}
 	},
 	"signpost": {

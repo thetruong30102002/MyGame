@@ -31,17 +31,26 @@ namespace Aether.Client.UI
         /// <summary>Đang xem lưu phái KHÁC phái đã chọn — mốc từ STYLE_TIER trở đi chỉ là xem trước.</summary>
         private bool PreviewingStyle => !string.IsNullOrEmpty(game.SwordStyle) && SwordView != game.SwordStyle;
 
-        // Khung nội dung 886×534: cây 600 bên trái, khung chi tiết 276 bên phải.
-        private const float TreeW = 600, TreeH = 534, SideW = 276, ColW = 98, Tier1Y = -404, TierGap = 37, SkillNode = 34, PassiveNode = 16;
+        // Khung nội dung 886×534: hàng tab 38 ở đầu; cây 600×496 bên trái, khung chi tiết 276 bên phải.
+        private const float TreeW = 600, TreeH = 496, SideW = 276, ColW = 98, Tier1Y = -372, TierGap = 34, SkillNode = 32, PassiveNode = 16;
 
         private static Vector2 NodePos(int col, int tier) => new Vector2(56 + col * ColW, Tier1Y + (tier - 1) * TierGap);
 
-        private static readonly Vector2 RootPos = new Vector2(TreeW / 2, -466);
+        private static readonly Vector2 RootPos = new Vector2(TreeW / 2, -432);
+
+        /// <summary>Tab con của Tiềm năng: cây (false) hoặc Gán ô · Phủ phép (true).</summary>
+        private bool talentLoadout;
 
         private void BuildTalents()
         {
+            TalentTabs();
+            if (talentLoadout)
+            {
+                BuildLoadout();
+                return;
+            }
             var pts = game.UnspentPoints;
-            var tree = Box(content, "Tree", new Vector2(0, 1), new Vector2(0, 1), Vector2.zero, new Vector2(TreeW, TreeH), 0.45f);
+            var tree = Box(content, "Tree", new Vector2(0, 1), new Vector2(0, 1), new Vector2(0, -38), new Vector2(TreeW, TreeH), 0.45f);
             var glow = UiKit.Rect(tree, "Glow", new Vector2(0.5f, 0), new Vector2(0.5f, 0.5f), new Vector2(0, 70), new Vector2(560, 260));
             UiWidgets.Radial(glow, UiStyle.Hex(0x6b4a2b, 0.28f));
             var lines = UiKit.Stretch(tree, "Lines");
@@ -64,7 +73,7 @@ namespace Aether.Client.UI
             Text(tree, "PL", new Vector2(0, 1), new Vector2(0.5f, 0.5f), RootPos + new Vector2(0, -42), new Vector2(260, 18),
                 game.InLab ? "Thử chiêu · bấm tab để đổi lưu phái" : $"điểm tiềm năng · cấp {game.Combat.Pc.Level}", 12, UiKit.TextDim, TextAnchor.MiddleCenter);
 
-            var side = Box(content, "Side", new Vector2(1, 1), new Vector2(1, 1), Vector2.zero, new Vector2(SideW, TreeH), 0.55f);
+            var side = Box(content, "Side", new Vector2(1, 1), new Vector2(1, 1), new Vector2(0, -38), new Vector2(SideW, TreeH), 0.55f);
             StyleTabs(side);
             if (choosingStyle) BuildStyleChoice(side);
             else BuildTalentDetail(side, pts);

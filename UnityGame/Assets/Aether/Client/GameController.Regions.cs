@@ -87,7 +87,8 @@ namespace Aether.Client
         /// <summary>null = được sang vùng <paramref name="target"/>; còn lại là câu giải thích.</summary>
         private string RegionGateFor(string target)
         {
-            if (online == null || target == region.region) return null;
+            // Quản trị đi được mọi vùng đã dựng (chủ dự án 11/10/2026: "Admin đi được hết các map") — máy chủ không chặn đổi vùng.
+            if (online == null || target == region.region || IsAdmin) return null;
             var to = RegionRules.RegionDef(target);
             var here = RegionRules.RegionDef(region.region);
             if (to == null) return "Không có vùng này.";

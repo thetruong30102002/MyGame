@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using Aether.Core;
 using Aether.Core.World;
@@ -25,6 +26,9 @@ namespace Aether.Client
         private bool resumeWalk;
 
         public bool AutoWalking => autoWalk != null;
+        /// <summary>Đích là MỘT MAP (bản đồ vùng → "Tự đi tới đây"), không phải mục tiêu nhiệm vụ; id map trong vùng đang đứng.</summary>
+        private string walkMap;
+
         /// <summary>Đang sang map giữa lúc tự đi (map mới dựng xong là đi tiếp).</summary>
         public bool AutoWalkResuming => resumeWalk;
         /// <summary>Lần tự đi gần nhất dừng vì gì (arrived / fail / manual / enemy / busy / dead / quest / toggle) và còn cách đích bao xa (AutoTest).</summary>
@@ -39,16 +43,74 @@ namespace Aether.Client
         public void ToggleAutoWalk()
         {
             if (autoWalk != null) CancelAutoWalk("toggle");
-            else StartAutoWalk();
+            else
+            {
+                walkMap = null;
+                StartAutoWalk();
+            }
+        }
+
+        /// <summary>Bản đồ vùng → "Tự đi tới đây": đi qua các lối (ít lần chuyển map nhất) tới map <paramref name="key"/> (`vùng/map`).</summary>
+        public void WalkToMap(string key)
+        {
+            var (r, id) = GameDatabase.SplitMapKey(key, region.region);
+            if (r != region.region)
+            {
+                hud.Toast("Map này ở vùng khác — sang vùng đó trước", "warn");
+                return;
+            }
+            if (id == HereId)
+            {
+                hud.Toast("Bạn đang ở map này", "info");
+                return;
+            }
+            CancelAutoWalk("toggle");
+            walkMap = id;
+            StartAutoWalk();
+        }
+
+        /// <summary>Quản trị: dịch chuyển thẳng tới map <paramref name="key"/> (điểm hồi sinh của map), bỏ qua cổng vùng.</summary>
+        public void AdminTeleport(string key)
+        {
+            if (!IsAdmin || changing) return;
+            CancelAutoWalk("toggle");
+            walkMap = null;
+            StartCoroutine(ChangeMap(key, null, false));
+        }
+
+        /// <summary>Map (`vùng/map`) chứa mục tiêu nhiệm vụ đang theo — bản đồ vùng đánh dấu.</summary>
+        public string QuestMapKey
+        {
+            get
+            {
+                var t = story?.Target();
+                if (t == null || map == null || region == null) return null;
+                var id = MapOfTarget(t, HereId) ?? HereId;
+                return id != null ? $"{region.region}/{id}" : null;
+            }
+        }
+
+        /// <summary>Đích hiện tại của bộ tự đi: map đã chọn trên bản đồ, không thì mục tiêu nhiệm vụ.</summary>
+        private WalkGoal WalkGoalNow() => walkMap != null ? MapGoal() : QuestGoal();
+
+        private WalkGoal MapGoal()
+        {
+            if (walkMap == null || map == null || walkMap == HereId) return null;
+            var next = NextExit(HereId, walkMap);
+            var exit = next != null ? map.def.exits.Find(e => e.id == next.id) : null;
+            return exit != null ? ExitGoal(exit, region.Find(walkMap)?.name ?? walkMap) : null;
         }
 
         public void StartAutoWalk()
         {
             if (player == null || map == null || changing || combat.Pc.Dead || hud.Blocking) return;
-            var target = QuestGoal();
+            var target = WalkGoalNow();
             if (target == null)
             {
-                hud.Toast("Nhiệm vụ này không cần đi đâu cả", "info");
+                if (walkMap != null && walkMap == HereId) hud.Toast($"Đã tới {map.def.displayName}", "info");
+                else if (walkMap != null) hud.Toast("Không tìm được đường tới map đó", "warn");
+                else hud.Toast("Nhiệm vụ này không cần đi đâu cả", "info");
+                walkMap = null;
                 return;
             }
             if (nav == null || navFor != map.def)
@@ -56,7 +118,7 @@ namespace Aether.Client
                 nav = new NavGrid(map.def.PixelWidth, map.def.PixelHeight, Blocked);
                 navFor = map.def;
             }
-            var walk = new AutoWalker(nav, QuestGoal, target, new Vec2(player.X, player.Y));
+            var walk = new AutoWalker(nav, WalkGoalNow, target, new Vec2(player.X, player.Y));
             if (!walk.Ok)
             {
                 hud.Toast("Không tìm được đường", "warn");
@@ -73,7 +135,10 @@ namespace Aether.Client
         {
             var w = autoWalk;
             if (w == null) return;
+            // Đổi nhiệm vụ không làm dừng chuyến đi tới map đã chọn trên bản đồ.
+            if (reason == "quest" && walkMap != null) return;
             autoWalk = null;
+            walkMap = null;
             LastWalkStop = reason;
             LastWalkMiss = player != null ? Math.Sqrt((player.X - w.Target.X) * (player.X - w.Target.X) + (player.Y - w.Target.Y) * (player.Y - w.Target.Y)) : -1;
             // Tới hình nộm thì quay mặt vào nó: bấm chém là trúng ngay. Không tự nói chuyện — để người chơi bấm.
@@ -157,7 +222,57 @@ namespace Aether.Client
                 var exit = next != null ? map.def.exits.Find(e => e.id == next.id) : null;
                 return exit != null ? ExitGoal(exit, region.Find(where)?.name ?? where) : null;
             }
+            if (where == null && CrossRegionGoal(t) is WalkGoal cross) return cross;
             return ResolveTarget(t);
+        }
+
+        /// <summary>
+        /// Mục tiêu nằm ở VÙNG KHÁC (nhiệm vụ mở chương mới — `@aether/sim/story/chapters`): đi tới lối sang vùng kế tiếp theo thứ tự vùng
+        /// (các vùng nối thành chuỗi 1 → 2 → … qua lối mép tây). Sang tới vùng kế thì lại tính tiếp từ đó.
+        /// </summary>
+        private WalkGoal CrossRegionGoal(QuestTarget t)
+        {
+            var target = TargetRegion(t);
+            if (target == null || target == region.region) return null;
+            var cur = RegionRules.RegionDef(region.region);
+            var dst = RegionRules.RegionDef(target);
+            if (cur == null || dst == null || cur.Order == dst.Order) return null;
+            var step = dst.Order > cur.Order ? 1 : -1;
+            var nextRegion = RegionRules.All.FirstOrDefault(r => r.Order == cur.Order + step)?.Id;
+            if (nextRegion == null) return null;
+            var prefix = nextRegion + "/";
+            var gateMap = region.maps.FirstOrDefault(e => e.exits.Exists(x => x.to.StartsWith(prefix, StringComparison.Ordinal)))?.id;
+            if (gateMap == null) return null;
+            var label = RegionRules.RegionDef(nextRegion)?.Name ?? nextRegion;
+            if (gateMap == HereId)
+            {
+                var gate = map.def.exits.Find(x => x.to.StartsWith(prefix, StringComparison.Ordinal));
+                return gate != null ? ExitGoal(gate, label) : null;
+            }
+            var next = NextExit(HereId, gateMap);
+            var exit = next != null ? map.def.exits.Find(e => e.id == next.id) : null;
+            return exit != null ? ExitGoal(exit, region.Find(gateMap)?.name ?? gateMap) : null;
+        }
+
+        /// <summary>Vùng chứa mục tiêu nhiệm vụ (NPC theo `region` của nó — vắng là vùng 1; quái theo khu quái của các vùng); null = không rõ.</summary>
+        private string TargetRegion(QuestTarget t)
+        {
+            switch (t.Kind)
+            {
+                case "npc":
+                {
+                    var d = population.NpcDefOf(t.Npc);
+                    return d?.Place == null ? null : d.Region ?? "human";
+                }
+                case "kill":
+                    if (string.IsNullOrEmpty(t.Monster)) return null;
+                    foreach (var r in database.regions)
+                        if (r != null && r.maps.Exists(m => m != null && m.zones.Exists(z => Array.IndexOf(z.monsters, t.Monster) >= 0)))
+                            return r.region;
+                    return null;
+                default:
+                    return null;
+            }
         }
 
         private string LocalMap(string to)

@@ -6,8 +6,8 @@ using UnityEngine;
 namespace Aether.Client.UI
 {
     /// <summary>
-    /// Tab Nhân vật: sân khấu (nhân vật SỐNG đứng thở trên vòng phép PixelLab, xoay được 8 hướng, 10 ô trang bị quanh người) + bảng
-    /// Lực chiến, cấp / EXP, 8 ô chỉ số (phần đồ cộng thêm ghi xanh). Khối "người + ô trang bị" dùng chung với tab Túi đồ.
+    /// Tab Nhân vật (gộp Túi đồ 11/10/2026): nhân vật SỐNG đứng thở trên vòng phép, 10 ô trang bị quanh người, Lực chiến / cấp / EXP,
+    /// 8 ô chỉ số (phần đồ cộng thêm ghi xanh), hành trang + thẻ chi tiết (`Panels.Inventory.cs`).
     /// </summary>
     public sealed partial class Panels
     {
@@ -17,36 +17,47 @@ namespace Aether.Client.UI
         private Dir8 heroDir = Dir8.S;
         private UiSpriteAnim heroAnim;
 
+        /// <summary>
+        /// Tab Nhân vật GỘP Túi đồ (chủ dự án 11/10/2026: "túi đồ và nhân vật nên để thành 1 tab thôi"): trái = người + 10 ô đang mặc + Lực
+        /// chiến / cấp / EXP; phải = 8 ô chỉ số gọn, hành trang 8×3 và thẻ chi tiết món đang chọn. Phím B (Túi đồ) mở thẳng tab này.
+        /// </summary>
         private void BuildCharacter()
         {
-            var stage = Box(content, "Stage", new Vector2(0, 1), new Vector2(0, 1), Vector2.zero, new Vector2(440, 534), 0.4f);
-            Text(stage, "Name", new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -12), new Vector2(300, 32), game.PlayerName, 24, UiStyle.GoldHi,
-                TextAnchor.MiddleCenter, true, true);
-            Text(stage, "Path", new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -44), new Vector2(300, 20), PathName(), 14, UiKit.TextDim, TextAnchor.MiddleCenter);
-            Paperdoll(stage, new Vector2(0, -420), 3, 64, 78, -84, 16, false);
-
-            var right = UiKit.Rect(content, "Right", new Vector2(0, 1), new Vector2(0, 1), new Vector2(452, 0), new Vector2(442, 534));
             var pc = game.Combat.Pc;
-            var power = Box(right, "Power", new Vector2(0, 1), new Vector2(0, 1), Vector2.zero, new Vector2(442, 108), 0.6f);
-            var pg = UiKit.Rect(power, "Glow", new Vector2(0, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(50, 0), new Vector2(150, 150));
-            UiWidgets.Radial(pg, new Color(1, 0.8f, 0.35f, 0.35f));
-            UiKit.Icon(UiKit.Rect(power, "Star", new Vector2(0, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(50, 0), new Vector2(56, 52)), hud.UiIcon("icon_star"));
-            var pl = Text(power, "PL", new Vector2(0, 1), new Vector2(0, 1), new Vector2(92, -16), new Vector2(200, 18), "LỰC CHIẾN", 13, UiStyle.Parchment, TextAnchor.MiddleLeft, true);
-            pl.characterSpacing = 6;
-            var pv = Text(power, "PV", new Vector2(0, 1), new Vector2(0, 1), new Vector2(90, -36), new Vector2(240, 50), "0", 42, UiStyle.GoldHi, TextAnchor.MiddleLeft, true, true);
-            UiAnim.CountUp(pv, Power());
-            var lv = UiKit.Rect(power, "Level", new Vector2(1, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(-56, 0), new Vector2(74, 74));
-            UiStyle.Pill(lv, UiStyle.Hex(0xe9c46a), 37);
-            var lvIn = UiKit.Rect(lv, "in", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(66, 66));
-            UiStyle.Pill(lvIn, UiStyle.Hex(0x2a1d12), 33);
-            Text(lvIn, "c", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0, 14), new Vector2(60, 16), "CẤP", 11, UiStyle.Parchment, TextAnchor.MiddleCenter, true);
-            Text(lvIn, "v", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0, -6), new Vector2(60, 34), pc.Level.ToString(), 28, UiStyle.GoldHi, TextAnchor.MiddleCenter, true, true);
+            var stage = Box(content, "Stage", new Vector2(0, 1), new Vector2(0, 1), Vector2.zero, new Vector2(300, 534), 0.4f);
+            Text(stage, "Name", new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -8), new Vector2(280, 28), game.PlayerName, 21, UiStyle.GoldHi,
+                TextAnchor.MiddleCenter, true, true);
+            Text(stage, "Path", new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -36), new Vector2(280, 18), PathName(), 12, UiKit.TextDim, TextAnchor.MiddleCenter);
+            Paperdoll(stage, new Vector2(0, -330), 2, 54, 64, -62, 12, true);
 
+            // Lực chiến + cấp + EXP dưới chân nhân vật.
+            var power = UiKit.Rect(stage, "Power", new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(0, game.UnspentPoints > 0 ? 92 : 46), new Vector2(276, 58));
+            UiStyle.Pill(power, new Color(0, 0, 0, 0.3f), 10);
+            UiKit.Icon(UiKit.Rect(power, "Star", new Vector2(0, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(28, 0), new Vector2(34, 32)), hud.UiIcon("icon_star"));
+            var pl = Text(power, "PL", new Vector2(0, 1), new Vector2(0, 1), new Vector2(52, -6), new Vector2(150, 16), "LỰC CHIẾN", 10, UiStyle.Parchment, TextAnchor.MiddleLeft, true);
+            pl.characterSpacing = 4;
+            var pv = Text(power, "PV", new Vector2(0, 1), new Vector2(0, 1), new Vector2(50, -20), new Vector2(160, 34), "0", 27, UiStyle.GoldHi, TextAnchor.MiddleLeft, true, true);
+            UiAnim.CountUp(pv, Power());
+            var lv = UiKit.Rect(power, "Level", new Vector2(1, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(-34, 0), new Vector2(50, 50));
+            UiStyle.Pill(lv, UiStyle.Hex(0xe9c46a), 25);
+            var lvIn = UiKit.Rect(lv, "in", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(44, 44));
+            UiStyle.Pill(lvIn, UiStyle.Hex(0x2a1d12), 22);
+            Text(lvIn, "c", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0, 10), new Vector2(40, 12), "CẤP", 8, UiStyle.Parchment, TextAnchor.MiddleCenter, true);
+            Text(lvIn, "v", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0, -5), new Vector2(40, 24), pc.Level.ToString(), 19, UiStyle.GoldHi, TextAnchor.MiddleCenter, true, true);
             var need = game.ExpToNext;
-            var exp = SmoothBar.Make(right, "Exp", new Vector2(0, 1), new Vector2(0, 1), new Vector2(0, -118), new Vector2(442, 20), UiStyle.Exp, 11);
+            var exp = SmoothBar.Make(stage, "Exp", new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(0, game.UnspentPoints > 0 ? 66 : 18), new Vector2(276, 18), UiStyle.Exp, 10);
             exp.Set(pc.Exp, Math.Max(1, need), need > 0 ? $"EXP  {pc.Exp:#,0} / {need:#,0}" : "Cấp tối đa");
             exp.Tick(10);
+            var pts = game.UnspentPoints;
+            if (pts > 0)
+            {
+                var b = GoldButton(stage, "GoTalents", new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(0, 10), new Vector2(276, 46), $"Cộng {pts} điểm tiềm năng", () => Show(Kind.Talents),
+                    true, hud.UiIcon("icon_star"));
+                UiWidgets.Pulse(b, 1.025f, 1.6f);
+            }
 
+            // Chỉ số gọn: 4 cột × 2 hàng.
+            var right = UiKit.Rect(content, "Right", new Vector2(0, 1), new Vector2(0, 1), new Vector2(312, 0), new Vector2(574, 534));
             var c = game.Combat;
             var g = c.Gear;
             var names = game.EquipmentRules.Tables.StatName;
@@ -59,31 +70,45 @@ namespace Aether.Client.UI
                 ("icon_defense", names["def"], pc.Def.ToString("0"), g.Def, ""),
                 ("icon_star", names["crit"], $"{c.CritRate * 100:0.#}%", g.Crit, "%"),
                 ("icon_diamond", names["move"], $"{c.MoveScaleGear * 100:0}%", g.Move, "%"),
-                ("icon_coins", "Xu", pc.Coins.ToString("#,0"), 0, ""),
+                ("icon_potion", "Bình hồi phục", pc.Potions.ToString(), 0, ""),
             };
-            for (var i = 0; i < tiles.Length; i += 1)
+            for (var k = 0; k < tiles.Length; k += 1)
             {
-                var t = tiles[i];
-                var tile = Box(right, "Stat" + i, new Vector2(0, 1), new Vector2(0, 1), new Vector2((i % 2) * 225, -150 - (i / 2) * 70), new Vector2(217, 62), 0.45f);
-                UiKit.Icon(UiKit.Rect(tile, "i", new Vector2(0, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(30, 0), new Vector2(32, 32)), hud.UiIcon(t.icon));
-                Text(tile, "l", new Vector2(0, 1), new Vector2(0, 1), new Vector2(56, -8), new Vector2(160, 18), t.label, 12, UiKit.TextDim);
-                var bonus = t.bonus > 0 ? $"  <size=13><color=#7be07f>+{t.bonus:0.#}{t.unit}</color></size>" : "";
-                Text(tile, "v", new Vector2(0, 1), new Vector2(0, 1), new Vector2(56, -26), new Vector2(160, 30), t.value + bonus, 21, UiKit.TextMain, TextAnchor.MiddleLeft, true);
+                var t = tiles[k];
+                var tile = Box(right, "Stat" + k, new Vector2(0, 1), new Vector2(0, 1), new Vector2((k % 4) * 144, -(k / 4) * 44), new Vector2(138, 40), 0.45f);
+                UiKit.Icon(UiKit.Rect(tile, "i", new Vector2(0, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(18, 0), new Vector2(22, 22)), hud.UiIcon(t.icon));
+                Text(tile, "l", new Vector2(0, 1), new Vector2(0, 1), new Vector2(34, -3), new Vector2(102, 14), t.label, 9, UiKit.TextDim);
+                var bonus = t.bonus > 0 ? $" <size=10><color=#7be07f>+{t.bonus:0.#}{t.unit}</color></size>" : "";
+                var v = Text(tile, "v", new Vector2(0, 1), new Vector2(0, 1), new Vector2(34, -16), new Vector2(102, 22), t.value + bonus, 15, UiKit.TextMain, TextAnchor.MiddleLeft, true);
+                v.enableAutoSizing = true;
+                v.fontSizeMin = 10;
+                v.fontSizeMax = 15;
             }
 
-            var pts = game.UnspentPoints;
-            if (pts > 0)
+            // Hành trang 8×3.
+            var bag = Box(right, "Bag", new Vector2(0, 1), new Vector2(0, 1), new Vector2(0, -94), new Vector2(574, 236), 0.4f);
+            var items = BagItems();
+            var size = game.EquipmentRules.Tables.BagSize;
+            UiKit.Icon(UiKit.Rect(bag, "Ic", new Vector2(0, 1), new Vector2(0.5f, 0.5f), new Vector2(26, -20), new Vector2(24, 26)), hud.UiIcon("icon_backpack"));
+            Text(bag, "T", new Vector2(0, 1), new Vector2(0, 0.5f), new Vector2(44, -20), new Vector2(240, 24),
+                $"Hành trang  <size=12><color=#b8bcc8>{items.Count} / {size}</color></size>", 16, UiStyle.Paper, TextAnchor.MiddleLeft, true);
+            Chip(bag, new Vector2(-12, -20), 140, "icon_coins", pc.Coins.ToString("#,0"), UiStyle.GoldHi);
+            const float cell = 56, gap = 6;
+            var x0 = (574 - (BagCols * cell + (BagCols - 1) * gap)) / 2;
+            for (var k = 0; k < size; k += 1)
             {
-                var b = GoldButton(right, "GoTalents", new Vector2(0, 0), new Vector2(0, 0), new Vector2(0, 6), new Vector2(442, 56), $"Cộng {pts} điểm tiềm năng", () => Show(Kind.Talents),
-                    true, hud.UiIcon("icon_star"));
-                UiWidgets.Pulse(b, 1.025f, 1.6f);
+                var pos = new Vector2(x0 + (k % BagCols) * (cell + gap), -40 - (k / BagCols) * (cell + gap));
+                if (k >= items.Count)
+                {
+                    ItemCell(bag, "Cell" + k, new Vector2(0, 1), new Vector2(0, 1), pos, cell, null, null, false);
+                    continue;
+                }
+                var (uid, def, stack, n) = items[k];
+                var rt = ItemCell(bag, "Cell" + k, new Vector2(0, 1), new Vector2(0, 1), pos, cell, def, stack, selUid == uid, n);
+                UiKit.Press(rt, () => ClickBag(uid));
             }
-            else
-            {
-                var hint = Text(right, "Hint", new Vector2(0, 0), new Vector2(0, 0), new Vector2(4, 10), new Vector2(434, 50),
-                    $"Bình hồi phục: <b>{pc.Potions}</b>   ·   Lên cấp bằng cách hạ quái, làm nhiệm vụ.\nGục trong PvP không mất gì.", 13, UiKit.TextDim);
-                hint.textWrappingMode = TMPro.TextWrappingModes.Normal;
-            }
+            var detail = Box(right, "Detail", new Vector2(0, 1), new Vector2(0, 1), new Vector2(0, -338), new Vector2(574, 196), 0.62f);
+            BuildDetail(detail, items);
         }
 
         private string PathName() =>
@@ -181,12 +206,14 @@ namespace Aether.Client.UI
             {
                 selSlot = slot;
                 selUid = null;
-                if (kind == Kind.Inventory) Refresh();
-                else Show(Kind.Inventory);
+                Refresh();
             });
         }
 
-        /// <summary>Ô đồ chung (ô trang bị, ô túi): khung sắt PixelLab, nền + vạch đáy màu độ hiếm, icon, số lượng, viền vàng khi chọn.</summary>
+        /// <summary>
+        /// Ô đồ chung (ô trang bị, ô túi): khung NÂU vẽ bằng code (11/10/2026 — chủ dự án: "không cần cái khung vuông đấy, nhìn xấu, vẽ khung
+        /// màu nâu là được"; trước là khung sắt đinh tán PixelLab `slot`), nền + vạch đáy màu độ hiếm, icon, số lượng, viền vàng khi chọn.
+        /// </summary>
         private RectTransform ItemCell(RectTransform parent, string name, Vector2 anchor, Vector2 pivot, Vector2 pos, float size, ItemDef def, ItemStack it, bool selected,
             double count = 0)
         {
@@ -197,17 +224,18 @@ namespace Aether.Client.UI
                 UiStyle.Pill(sel, UiStyle.GoldHi, 10);
                 UiWidgets.Pulse(sel, 1.04f, 1.1f);
             }
-            var back = UiKit.Rect(rt, "Back", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(size - 8, size - 8));
-            UiStyle.Pill(back, def != null ? Rarity(def.Rarity) * new Color(1, 1, 1, 0.28f) : new Color(0, 0, 0, 0.45f), 6);
+            UiStyle.Pill(rt, new Color(0.42f, 0.27f, 0.14f), 8).raycastTarget = true;
+            var well = UiKit.Rect(rt, "Well", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(size - 4, size - 4));
+            UiStyle.Pill(well, new Color(0.15f, 0.09f, 0.05f), 7);
+            var back = UiKit.Rect(rt, "Back", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(size - 6, size - 6));
+            UiStyle.Pill(back, def != null ? Rarity(def.Rarity) * new Color(1, 1, 1, 0.22f) : new Color(0.3f, 0.19f, 0.1f, 0.25f), 6);
             if (def != null)
             {
                 var hl = UiKit.Rect(back, "Glow", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(size, size));
                 UiWidgets.Radial(hl, Rarity(def.Rarity) * new Color(1, 1, 1, 0.45f));
             }
-            var frame = UiKit.Stretch(rt, "Frame");
-            UiKit.Sprite(frame, "slot", Mathf.Clamp(13f / (size * 0.2f) / 0.48f, 1.2f, 3f), true);
             if (def == null) return rt;
-            var strip = UiKit.Rect(rt, "Strip", new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(0, 6), new Vector2(size - 22, 3));
+            var strip = UiKit.Rect(rt, "Strip", new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(0, 5), new Vector2(size - 18, 3));
             UiStyle.Pill(strip, Rarity(def.Rarity), 1);
             UiKit.Icon(UiKit.Rect(rt, "Icon", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0, 1), new Vector2(size * 0.66f, size * 0.66f)), ItemSprite(def.Icon));
             var n = count > 0 ? count : it?.N ?? 0;

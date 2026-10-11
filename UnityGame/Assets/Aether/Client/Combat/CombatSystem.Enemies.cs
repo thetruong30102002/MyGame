@@ -265,8 +265,6 @@ namespace Aether.Client.Combat
             }
         }
 
-        public void BossAoe(Fighter f, double x, double y) =>
-            TelegraphAt(x, y, BossAoeR, BossAoeSeconds, f.Stats.Atk * BossAoePower);
 
         private void Respawn(Fighter f)
         {

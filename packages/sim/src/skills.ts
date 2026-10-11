@@ -157,8 +157,10 @@ export interface SkillDef {
  * Từ chỉ số 28 (GĐ3 lượt A): mốc 6 / 8 của 5 nguyên tố. Từ chỉ số 38 (GĐ3 lượt B): mốc 6 / 8 của 3 lưu phái Kiếm.
  */
 export const HERO_SKILLS: SkillDef[] = [
-	{ id: 'slash', key: 'J', name: 'Trảm', element: 'steel', mpCost: 0, cooldown: 0.38, power: 1.25, kind: 'melee', range: 74, unlock: 'sword', anim: 'attack', desc: 'Nhát chém cơ bản, giữ phím để chém liên tục.' },
-	{ id: 'aether_bolt', key: 'K', name: 'Tia Aether', element: 'aether', mpCost: 0, cooldown: 0.42, power: 1, kind: 'projectile', speed: 420, range: 380, unlock: 'staff', anim: 'cast', desc: 'Năng lực bẩm sinh: tia sáng bắn thẳng.' },
+	// Trảm 0,38 → 0,6 s, Tia Aether 0,42 → 0,65 s (chủ dự án 11/10/2026: "tốc độ đánh quá nhanh" — hoạt ảnh bị tua cho vừa hồi chiêu nên vung rất gấp);
+	// sức mỗi đòn nhân cùng tỉ lệ để sát thương / giây giữ nguyên (boss.test, thời gian hạ boss không đổi).
+	{ id: 'slash', key: 'J', name: 'Trảm', element: 'steel', mpCost: 0, cooldown: 0.6, power: 1.97, kind: 'melee', range: 74, unlock: 'sword', anim: 'attack', desc: 'Nhát chém cơ bản, giữ phím để chém liên tục.' },
+	{ id: 'aether_bolt', key: 'K', name: 'Tia Aether', element: 'aether', mpCost: 0, cooldown: 0.65, power: 1.55, kind: 'projectile', speed: 420, range: 380, unlock: 'staff', anim: 'cast', desc: 'Năng lực bẩm sinh: tia sáng bắn thẳng.' },
 	{ id: 'fire_bolt', key: '1', name: 'Hoả Cầu', element: 'fire', mpCost: 6, cooldown: 1, power: 1.4, kind: 'projectile', speed: 360, range: 400, unlock: 'fire', anim: 'cast', desc: 'Cầu lửa, gây cháy.' },
 	{ id: 'water_lance', key: '2', name: 'Thuỷ Tiễn', element: 'water', mpCost: 8, cooldown: 1.6, power: 1.3, kind: 'projectile', speed: 460, range: 420, unlock: 'water', anim: 'cast', desc: 'Mũi nước, làm ướt.' },
 	{ id: 'wind_blade', key: '3', name: 'Phong Nhận', element: 'wind', mpCost: 10, cooldown: 2.4, power: 1.1, kind: 'projectile', speed: 520, range: 460, pierce: true, unlock: 'wind', anim: 'cast', desc: 'Lưỡi gió bay xuyên mục tiêu.' },
@@ -458,6 +460,30 @@ export const EXP_CURVE_KNEE = 10;
  */
 export function expForLevel(level: number): number {
 	const lv = Math.max(1, Math.floor(level));
+	return Math.round(baseExpForLevel(lv) * expPace(lv));
+}
+
+/**
+ * Nhịp lên cấp (chủ dự án 11/10/2026: "lên cấp quá nhanh"): hệ số nhân EXP cần mỗi cấp, theo [từ cấp, hệ số]. Cấp 1–5 giữ ×1 (cốt
+ * truyện vùng 1 cân theo — boss.test: tới Quỷ vương vừa qua cấp 4), 6–10 ×1,5, từ 11 ×2,5. EXP quái rơi KHÔNG đổi (quái vùng 2–7
+ * tính theo `baseExpForLevel`) nên số quái phải hạ mỗi cấp tăng đúng bằng hệ số: vùng 2–7 từ 24 lên ~60 con / cấp. Client C# đọc
+ * bảng này (`Progression.ExpForLevel`) — đổi ở đây là đổi cả hai bên.
+ */
+export const EXP_PACE: readonly (readonly [number, number])[] = [
+	[1, 1],
+	[6, 1.5],
+	[11, 2.5],
+];
+
+export function expPace(level: number): number {
+	let m = 1;
+	for (const [from, mult] of EXP_PACE) if (level >= from) m = mult;
+	return m;
+}
+
+/** Đường EXP gốc (trước nhịp `EXP_PACE`): mốc EXP của quái thế giới tính theo đường này. */
+export function baseExpForLevel(level: number): number {
+	const lv = Math.max(1, Math.floor(level));
 	if (lv <= EXP_CURVE_KNEE) return Math.round(100 * 1.5 ** (lv - 1));
 	return Math.round(100 * 1.5 ** (EXP_CURVE_KNEE - 1) * (lv / EXP_CURVE_KNEE) ** 2.6);
 }
@@ -580,7 +606,7 @@ function worldEnemyStats(level: number, arch: WorldArchetype, rank: WorldRank, r
 		reach: rank === 'mob' ? a.reach : a.ranged ? a.reach + 40 : a.reach + 14,
 		attackCd: Math.round(a.attackCd * r.cd * 100) / 100,
 		...(a.ranged ? { ranged: a.ranged } : {}),
-		exp: Math.round((expForLevel(level) / 24) * r.exp),
+		exp: Math.round((baseExpForLevel(level) / 24) * r.exp),
 		coins: Math.round((4 + 1.2 * level) * r.coins),
 		resist: WORLD_RESIST[region],
 	};

@@ -24,7 +24,7 @@
 			"equip": "weapon",
 			"rarity": "common",
 			"bound": true,
-			"effect": "Mở đòn Trảm (J)"
+			"effect": "Mở đòn Trảm (chuột trái)"
 		},
 		"staff": {
 			"id": "staff",
@@ -37,7 +37,7 @@
 			"equip": "offhand",
 			"rarity": "common",
 			"bound": true,
-			"effect": "Mở Tia Aether (K)"
+			"effect": "Mở Tia Aether (chuột phải)"
 		},
 		"potion": {
 			"id": "potion",

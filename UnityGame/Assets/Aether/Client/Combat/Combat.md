@@ -96,3 +96,20 @@ Chép từ web để xoá bản web (`UnityGame/MIGRATION_PLAN.md` mục "Làm n
   giáp + nhát 3 choáng, Hoả mốc 7 nhát 3 nổ, Thuỷ hút máu, Phong đẩy + tầm +25% + mốc 7 lưỡi gió, Băng cộng dồn → đóng băng).
 - Lôi Vũ: mỗi nhịp `ThunderBolts` tia vào quái khác nhau (ít bị đánh → ướt → gần tâm), trong mưa của mình gấp đôi.
 - `mobCc`: khống chế mình gây trên quái dùng chung gửi đi (chỉ phần dài thêm), nhận của máy khác (`NetControl`).
+
+## Chiêu riêng từng boss vùng / rồng (11/10/2026)
+
+Chủ dự án: "kiểm tra xem các con boss vùng skill y hệt nhau vậy". Đúng là y hệt: từ bản web mọi boss chỉ có MỘT đòn (`BOSS_AOE` — một
+vòng nổ dưới chân người chơi), chỉ khác hình nổ ở 12 boss; bản Unity còn phát cứng `boss_curse_blast` (hình của Vua Lich) cho mọi boss.
+Nay `CombatSystem.Bosses.cs`: 25 boss + rồng, mỗi con 1–3 chiêu lấy từ 5 dạng dựng trên vòng báo trước sẵn có — Blast (một vòng lớn),
+Scatter (ba vòng rải nổ lần lượt), Ring (vòng rộng quanh thân boss — chạy ra), Line (dải 5 vòng từ boss qua người chơi — tránh sang
+bên), Pool (vũng rộng, báo lâu). Tổng sát thương một lượt ngang đòn cũ (1,8 × công nếu dính trọn). Chiêu chọn XÁC ĐỊNH theo toạ độ đích
+(tin mạng `aoe` chỉ có x, y) nên chủ quái và máy xem ra cùng chiêu — không đổi giao thức, máy chủ.
+Hình: 40 hình PixelLab đã vẽ từ 09–10/10/2026 (28 chiêu boss + 12 chiêu rồng) trước để `later: true` nên chưa vào game — nay vào atlas
+phụ `vfx-boss` (2047×2820, `packages/asset-pipeline` `atlas: 'boss'`), atlas chính chỉ bớt 3 hình boss chuyển sang. AutoTest
+`-aetherUi` gọi 6 boss tiêu biểu, ép tung chiêu, chụp lúc nổ + ghi máu mất.
+Kế hoạch tiếp (11/10/2026, chưa làm): thêm khung cho 40 hình (lên 12 khung) + mỗi boss một chiêu hoành tráng chuyển pha theo máu
+50% / 20% — phần Unity 0 lượt làm trước; xem `docs/pixellab-ke-hoach-ve.md` mục "Chiêu BOSS".
+Vùng báo trước chiêu (11/10/2026): bỏ vòng tím `dark_ring_warn` / `dark_ring` mọi boss dùng chung — nay `MakeZone` vẽ vòng phẳng
+theo màu chiêu (`ZoneColor`, đoán từ tên hình nổ) + đĩa lớn dần tới lúc nổ; đoạn phụ của chiêu dải chỉ nổ bụi. Hình riêng từng boss:
+phiếu duyệt trong `docs/pixellab-ke-hoach-ve.md` mục "Vùng báo trước chiêu".

@@ -217,7 +217,7 @@
 				},
 				{
 					"speaker": "narrator",
-					"text": "(Một hòn đá nhỏ dưới chân bia tự lăn tới mũi giày tôi. Mở nhánh Thổ — học Đá Văng (ném đá, đẩy lùi) ở bảng Tiềm năng (P) khi có điểm.)"
+					"text": "(Một hòn đá nhỏ dưới chân bia tự lăn tới mũi giày tôi. Mở nhánh Thổ — học Đá Văng (ném đá, đẩy lùi) ở bảng Tiềm năng (T) khi có điểm.)"
 				}
 			]
 		},
@@ -250,7 +250,7 @@
 				},
 				{
 					"speaker": "narrator",
-					"text": "(Đá Văng học ở bảng Tiềm năng (P) khi có điểm. Chưa học thì tung Tia Aether (K) vào Ông Rơm cũng được.)"
+					"text": "(Đá Văng học ở bảng Tiềm năng (T) khi có điểm. Chưa học thì tung Tia Aether (chuột phải) vào Ông Rơm cũng được.)"
 				}
 			],
 			"onReady": [
@@ -359,7 +359,24 @@
 					"text": "Sợi đỏ giờ dày như sợi thừng, rỉ ra từ dưới tảng đá phong ấn phía bắc khoảng trống. Việc cần làm thì làm ngay. Chân tôi không còn ngắn nữa."
 				}
 			],
-			"after": [],
+			"after": [
+				{
+					"speaker": "inner",
+					"text": "Con quỷ tan thành tro dưới ánh trăng. Sợi đỏ phía bắc rừng đứt phựt, như dây đàn lên quá tay."
+				},
+				{
+					"speaker": "inner",
+					"text": "Trên mu bàn tay tôi hằn lên một ký hiệu lạ: một nút thắt. Đúng hình nút thắt trên đồng xu cũ của bác Bram."
+				},
+				{
+					"speaker": "inner",
+					"text": "Trong túi áo, đồng xu nóng ran, rồi nguội dần theo nhịp tim tôi."
+				},
+				{
+					"speaker": "inner",
+					"text": "Về tới đầu cầu, tôi thấy một bóng người cầm đèn đứng chờ. Là cha. Tôi gọi trước khi cha kịp gọi."
+				}
+			],
 			"onGive": {
 				"awakenBoss": true
 			}

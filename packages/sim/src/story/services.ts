@@ -12,7 +12,8 @@ export const isWaystone = (key: string): boolean => key.startsWith('waystone_');
 
 /**
  * Cột dịch chuyển ở trạm của MỌI vùng đã mở (khung nhiều vùng — docs/ke-hoach-the-gioi.md mục 3): bấm E mở bảng các trạm đã tới.
- * Chỗ đứng lấy từ `REGIONS[].waystone` dùng chung. Hình TẠM là đồ vật `stone_lantern` (đèn đá) — có cột PixelLab vẽ thì đổi `prop`.
+ * Chỗ đứng lấy từ `REGIONS[].waystone` dùng chung. Hình THỐNG NHẤT mọi vùng = đồ vật `rune_stone` (chủ dự án chọn 11/10/2026: "cần thống
+ * nhất 1 đá dịch chuyển") — có trong bộ đồ vật của cả 7 vùng; bộ dựng map không đặt đá trang trí trùng chỗ nữa.
  */
 const WAYSTONES: Record<string, NpcDef> = Object.fromEntries(
 	REGIONS.filter((r) => r.ready).map((r) => [
@@ -21,7 +22,7 @@ const WAYSTONES: Record<string, NpcDef> = Object.fromEntries(
 			name: 'Cột dịch chuyển',
 			title: r.name,
 			sprite: null,
-			prop: 'stone_lantern',
+			prop: 'rune_stone',
 			at: { spot: r.waystone.spot, dx: r.waystone.dx, dy: r.waystone.dy },
 			ages: [0, 99],
 			region: r.id,
@@ -34,15 +35,17 @@ export const SERVICE_NPCS: Record<string, NpcDef> = {
 	...WAYSTONES,
 	/**
 	 * Bia Danh Vọng (K1 — docs/ke-hoach-kim-cuong.md): nhận quà thành tựu. Chỗ đứng lấy từ `CHRONICLER` dùng chung với máy chủ —
-	 * máy chủ chỉ trao quà khi người chơi đứng gần đúng chỗ này. Hình TẠM là đồ vật `rune_stone` có sẵn (như bia đá cổ ở Nghĩa
-	 * địa); có bia do PixelLab vẽ thì đổi `prop`. Có ở mọi tuổi (thám hiểm / bạn bè đếm từ nhỏ).
+	 * máy chủ chỉ trao quà khi người chơi đứng gần đúng chỗ này. Hình TẠM là đồ vật `rune_tablet` (phiến đá khắc chữ) — KHÔNG
+	 * dùng `rune_stone` nữa vì đó là cột dịch chuyển (11/10/2026); có bia do PixelLab vẽ thì đổi `prop`. Có ở mọi tuổi (thám hiểm / bạn bè đếm từ nhỏ).
 	 */
 	[CHRONICLER.npc]: {
 		name: 'Bia Danh Vọng',
 		title: 'Quảng trường Thistlewood',
 		sprite: null,
-		prop: 'rune_stone',
+		prop: 'rune_tablet',
 		at: { spot: CHRONICLER.spot, dx: CHRONICLER.dx, dy: CHRONICLER.dy },
+		// Chỉ ở Thistlewood: trạm các vùng khác cũng có địa điểm `plaza` nên thiếu dòng này là bia hiện ở mọi trạm (đã gặp 11/10/2026).
+		region: CHRONICLER.map.split('/')[0],
 		ages: [0, 99],
 		idle: ['«Tên những người làm nên chuyện được khắc ở đây.»', '«Chỉ người chơi trực tuyến mới được ghi danh.»'],
 	},

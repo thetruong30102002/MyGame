@@ -25,14 +25,17 @@ cd apps/server && npx tsx src/admin.ts add <tài khoản>   # quản trị: cấ
 cd apps/server && npx tsx src/grant.ts "<tên>" 10   # lệnh cũ: cộng kim cương (số âm = trừ, bỏ số = xem ví)
 ```
 
-Client Unity (nhập hình từ `assets/`, dựng scene, build PC / APK, AutoTest): **`UnityGame/README_UNITY.md`**. Bản build:
-`UnityGame/Build/Windows/Aether.exe`, `UnityGame/Build/Android/Aether.apk` (điện thoại: cài APK, đăng nhập máy chủ qua link Funnel).
+Client Unity (nhập hình từ `assets/`, dựng scene, build PC / APK, AutoTest): **`UnityGame/README_UNITY.md`**. Build xong phát bằng
+`npx tsx UnityGame/Tools~/publish-client.mts` → người chơi đang có game **tự cập nhật** lúc mở game; người mới tải bộ cài ở
+**https://admin.tail024813.ts.net/game/api/client/latest/windows** (Android: `…/latest/android`).
 
 | Phím | Tác dụng |
 | --- | --- |
 | WASD / mũi tên | Di chuyển (Shift: chạy, tốn thể lực) |
-| J · K · 1–8 | Đòn cơ bản, chiêu (thanh 10 ô); nhắm vào mục tiêu đang chọn |
-| Chuột trái / Tab | Chọn mục tiêu / đổi mục tiêu gần → xa; Esc bỏ chọn |
+| Chuột trái | Chém (giữ = chém liên tục); nhấp trúng quái thì chọn nó làm mục tiêu — không còn phím J (điện thoại: giữ nút chạm) |
+| Chuột phải | Phép thường — không còn phím K |
+| 1–8 | Chiêu trên thanh 10 ô (gán ở Tiềm năng → Gán ô · Phủ phép); nhắm vào mục tiêu đang chọn |
+| Tab | Đổi mục tiêu gần → xa; Esc bỏ chọn |
 | Space | Né |
 | E | Nói chuyện / nhặt đồ / qua thoại |
 | R | Bình hồi phục |
@@ -41,6 +44,7 @@ Client Unity (nhập hình từ `assets/`, dựng scene, build PC / APK, AutoTes
 | H | Bảng phím |
 
 Bấm ô nhiệm vụ (phải trên) = tự đi tới chỗ làm nhiệm vụ. Màn cảm ứng tự hiện cần điều khiển + cụm nút.
+Mỗi vùng có thời tiết riêng (tuyết rơi, cát bay + cỏ khô lăn, tro núi lửa, đom đóm + sương đầm lầy…) — tắt ở Cài đặt → "Hiệu ứng thời tiết".
 
 ### Quản trị: cửa sổ Quản trị trong game (cộng tiền, điểm cho nhân vật)
 

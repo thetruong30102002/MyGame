@@ -10,20 +10,27 @@ Chủ dự án 11/10/2026: **"tập trung bản lớn thôi"** — ngoại hình
 
 | Nhóm | Gồm | Lượt |
 |---|---|---|
-| Hoàn thiện vùng 1–7 | hiệu ứng chiêu người chơi (~810, mục "Hiệu ứng chiêu NGƯỜI CHƠI" — gồm đổi 4 tuyệt kỹ nguyên tố + 3 tuyệt kỹ Kiếm), lỗi hình quái / boss (~150), cây cối + đồ vật còn thiếu (~260), NPC 6 trạm + quan / lính 2 toà thành (~425) | ~1.645 |
+| Hoàn thiện vùng 1–7 | hiệu ứng chiêu người chơi (~810, mục "Hiệu ứng chiêu NGƯỜI CHƠI" — gồm đổi 4 tuyệt kỹ nguyên tố + 3 tuyệt kỹ Kiếm), lỗi hình quái / boss (~150), cây cối + đồ vật còn thiếu (~260 — gồm 24 cây mới vùng 2–7, đủ để mỗi vùng một bộ cây riêng + mỗi map một loài chủ đạo, `ke-hoach-the-gioi.md` 5.6; loài trùng giữa vùng thì tô màu lại, 0 lượt), NPC 6 trạm + quan / lính 2 toà thành (~425) | ~1.645 |
 | Vùng 8–10 + 3 rồng | map (~120), 15 quái (~225), 9 boss (~360), chiêu boss (~240), Địa / Quang / Hắc Long (~660), NPC trạm (~250), cây cối + đồ vật thêm (~145) | ~2.000 |
 | Trang bị bản lớn | 3 bộ dáng giáp (Da · Giáp thép · Giáp rồng) × 2 giới tính (~570), 5 bậc hiếm + vũ khí theo bậc bằng shader nhuộm (0), đồ dán theo điểm neo — mũ / áo choàng / giáp vai (~120), hào quang đồ Sử thi / Huyền thoại (~85), icon (~40), dự phòng (~100) | ~915 |
-| **Cộng phần cần** | | **~4.560** |
-| Nên có (bản lớn) | kiểu tóc mới 16 tuổi (~240), chân dung Thư viện (~170), Thần Long + điều ước (~580), 3 skin kim cương (~290), đồ vật cốt truyện vùng 2–10 (~270), nền Long Huyệt riêng (~140) | ~1.700 |
+| Chiêu boss vùng 1–7 làm lại (11/10/2026) | thêm khung 40 hình lên 12 khung (~480) + 25 chiêu hoành tráng (~850) — mục "Chiêu BOSS" | ~1.330 |
+| Vùng báo riêng mỗi boss (11/10/2026) | 25 boss vùng 1–7, 128 · 6 khung lặp — mục "Vùng báo trước chiêu" | ~200 |
+| Chuẩn boss mới cho vùng 8–10 (11/10/2026) | 9 boss + 3 rồng: chiêu hoành tráng (~410) + vùng báo riêng (~95), thêm vào phần "chiêu boss ~240" ở trên | ~505 |
+| Cột dịch chuyển có hoạt ảnh | 1 cột 6–8 khung, tô màu lại theo vùng (`ke-hoach-the-gioi.md` 5.4) | ~20 |
+| Mười vị thần đất (11/10/2026) | 10 thần × ~165 (nhân vật lớn 4 hướng + đứng + tung chiêu, hiệu ứng thần kỹ, chân dung, tượng thờ) — mục "Mười vị thần"; vùng 1–7 trước (7 thần ≈ 1.155) | ~1.650 |
+| **Cộng phần cần** | | **~8.265** |
+| Nên có (bản lớn) | kiểu tóc mới 16 tuổi (~240), chân dung Thư viện (~170), Thần Long + điều ước (~580), 3 skin kim cương (~290), đồ vật cốt truyện vùng 2–10 (~270), nền Long Huyệt riêng (~140) | ~1.690 |
+| Dự phòng vẽ lại món hỏng | ~5% phần trên | ~400 |
+| **TỔNG TẤT CẢ** | | **~10.350** |
 
-**Ngân sách CHỐT (chủ dự án 11/10/2026): mua thêm MỘT gói 5.000 lượt rồi DỪNG — không gia hạn, không tính lượt làm mới 09/11,
-KHÔNG tính token miễn phí** ("không tính miễn phí nữa vì bị chặn rồi" — PixelLab khoá lượt miễn phí từ 10/10; hàng chờ 43 món ở
-`sources/pixellab/pending/props2/` đã dừng, chuyển sang gói trả phí). Lượt gói không cộng dồn → dùng hết trong kỳ của gói.
-- **Phần cần ~4.560** (cả bảng trên, kể cả cây cối / đồ vật ~405 và NPC trạm ~675) → làm hết.
-- **~440 còn lại**: tóc mới 16 tuổi (~240) + nền Long Huyệt riêng (~140) + ~60 vẽ lại món hỏng.
-- **THIẾU ~1.300**: Thần Long + điều ước (~580, tính năng cũng chưa làm), 3 skin kim cương (~290), đồ vật cốt truyện vùng 2–10
-  (~270, cốt truyện chưa viết), chân dung Thư viện (~170 — tạm dùng khung đứng phóng to của quái như hiện tại).
-- Muốn bù phần thiếu thì bớt phạm vi: NPC trạm 2 / vùng thay 4 (tiết kiệm ~250), cây cối + đồ vật vùng 8–10 một nửa (~70).
+Làm đẹp map (5.4: xếp trật tự, trộn đồ, thêm quái), thời tiết (5.5) và tách 7 hình chiêu boss dùng chung = 0 lượt (code / tô màu lại).
+
+**Ngân sách (chủ dự án 11/10/2026, cập nhật tối 11/10)**: "tất cả giờ cứ vào gói token của tài khoản trả phí" — mọi món trên vẽ bằng
+token tài khoản TRẢ PHÍ, không dùng token miễn phí (PixelLab khoá lượt miễn phí từ 10/10; hàng chờ 43 món ở
+`sources/pixellab/pending/props2/` chuyển sang gói trả phí). So với gói 5.000 đã chốt trước đó: phần cần (~8.265, đã gồm 10 vị thần) thiếu **~3.265**,
+cả bảng (~10.350) thiếu **~5.350** → cần thêm khoảng một gói 5.000 nữa, hoặc bớt phạm vi (NPC trạm 2 / vùng thay 4 ≈ −250; cây cối +
+đồ vật vùng 8–10 một nửa ≈ −70; chiêu hoành tráng chỉ boss chúa + rồng ≈ −680). Lượt gói không cộng dồn → dùng hết trong kỳ của gói.
+Vẫn giữ luật phiếu duyệt trước mỗi lô (mục "Quy tắc vẽ").
 
 Trước khi tiêu lượt cho trang bị: làm thử shader nhuộm vùng trên nhân vật 16 tuổi hiện có (0 lượt) để chốt cách làm.
 
@@ -400,6 +407,117 @@ Với gói $12 (2.000 lượt) thì phần này (~810) + lỗi quái/boss (~150)
 
 Xem / duyệt chiêu trong bản Unity: nút **"Thử chiêu ›"** ở màn đăng nhập (phòng Thử chiêu — mọi nhánh mốc 10, MP vô hạn, không
 chết, hồi chiêu tức thì; `GameController.Lab.cs`).
+
+## Mười vị thần đất — VẼ THẬT ĐẸP (ghi 11/10/2026 — phiếu duyệt CHỜ chủ dự án)
+
+Chủ dự án 11/10/2026: "bổ sung trong kịch bản cốt truyện mỗi vùng sẽ có 1 vị thần cần phải vẽ thật đẹp (mai sau mình sẽ bán skill nhân
+vật thần đấy)". Kịch bản: `docs/cot-truyen-aether.md` mục "Mười vị thần đất" (tên, hình dạng, bị trói thế nào, giao kèo, thần kỹ). Trong
+game từ 11/10/2026: mỗi vùng 2–7 có nhiệm vụ cuối chương gặp thần ở thánh địa sau khi hạ boss chúa (`packages/sim/src/story/chapters.ts`);
+hình TẠM là tượng đá có sẵn của vùng (đầu rắn, nhân sư, tượng chim, phù điêu, tượng thợ rèn, con trai khổng lồ).
+
+**Quy cách mỗi thần** (thần là hàng BÁN nên làm khổ lớn nhất, chỉn chu nhất):
+- Nhân vật khổ **192–256 px**, Pro Flash, 4 hướng (S · E · N · W, lật gương cho hướng chéo), đứng thở 8 khung + **tung thần kỹ 12–16 khung**.
+- Hiệu ứng thần kỹ **256 px, 16 khung** (cùng chuẩn chiêu hoành tráng của boss), tô màu theo hệ của thần.
+- Chân dung 128 px (Thư viện, hộp thoại, cửa hàng kim cương khi bán).
+- Tượng thờ ở thánh địa (thay hình tạm), 1 khung.
+- Ước ~165 lượt / thần: nhân vật ~40 · đứng ~40 · tung chiêu ~40 · hiệu ứng ~30 · chân dung ~10 · tượng ~5.
+
+| Thần | Vùng | Hình dạng (đề bài vẽ) |
+|---|---|---|
+| Mẫu Thần Verdea | Thistlewood | người đàn bà khổng lồ, tóc cỏ đồng mùa gặt, váy tổ ong và hoa dại, đàn ong vàng phát sáng quanh vai |
+| Thuỷ Thần Nereth | Đầm lầy | rắn nước trắng dài như con kênh, vảy trong như sương, mắt xanh ngọc, sừng lau sậy |
+| Thái Dương Thần Sahra | Sa mạc | chim ưng lửa cánh rộng như cổng thành, lông vàng đỏ hoàng hôn, đội vầng mặt trời |
+| Phong Thần Aeolin | Cao nguyên | đại bàng trắng bốn cánh, mỗi cánh một luồng gió khác màu, đuôi kéo thành mây |
+| Băng Thần Hjalma | Lãnh nguyên | sói cái khổng lồ lông tuyết, lưng chở rừng thông nhỏ, hơi thở thành bão tuyết |
+| Lò Thần Ignar | Núi lửa | thợ rèn khổng lồ thân nham thạch, râu lửa, búa dung nham, ngực có lò than đỏ |
+| Hải Mẫu Thalassa | Quần đảo | cá voi khổng lồ lưng mọc rạn san hô và làng chài chìm, mắt dịu như biển lặng |
+| Thần Nấm Mycora | Rừng Nấm Ngầm | rừng nấm nghìn mắt phát sáng nối bằng mạng rễ |
+| Quang Thần Lumen | Phế tích Aether | hình người ánh sáng trắng không mặt, bảy vòng chữ cổ xoay quanh |
+| Hư Thần Nox | Vực Hư Không | khoảng trống hình người viền sao, trong tối tuyệt đối, hai bàn tay sáng buộc nút thắt |
+
+**Làm**: duyệt phiếu → vẽ thử MỘT thần (Nereth hoặc Ignar) khung đầu Pro Flash → chủ dự án xem → đạt mới vẽ tiếp. Thần kỹ (bán bằng kim
+cương) cần luật riêng: `docs/ke-hoach-kim-cuong.md` mục "Thần kỹ". Lượt (~1.650) đã cộng vào bảng tổng ở đầu file.
+
+## Chiêu BOSS — làm lại hết: thêm khung + thêm chiêu hoành tráng (ghi 11/10/2026 — CHƯA LÀM)
+
+Chủ dự án 11/10/2026: "thêm note cải tiến lại hết các skill boss, thêm frame và thêm skill hoành tráng" (chiêu người chơi đã có mục
+riêng ngay trên).
+
+**Hiện trạng** (đo atlas `assets/vfx/vfx-boss.json` + `UnityGame/Assets/Aether/Client/Combat/CombatSystem.Bosses.cs`): 25 boss vùng /
+rồng (21 boss + 4 rồng), 47 chiêu, dùng **40 hình**. Mỗi hình chỉ **8–11 khung (trung vị 9)**, khổ 72–182 px; 7 hình dùng chung cho 2
+boss (`boss_hellfire`, `boss_mud_geyser`, `boss_frost_roar`, `boss_avalanche`, `boss_forge_sigil`, `boss_ankh_curse`, `boss_oblivion_mist`).
+Mọi chiêu chỉ là một lần nổ trên vòng báo đỏ (5 dạng: Blast · Scatter · Ring · Line · Pool), không có đòn "ra mặt", không đổi pha
+theo máu → đánh boss nào cũng thấy cùng một nhịp.
+
+**Đích**:
+- **Thêm khung**: chiêu thường của boss **12 khung**, khổ 128–192 px; hình dùng chung 2 boss thì tách thành 2 hình riêng theo màu /
+  chất liệu vùng (tô màu lại trước, 0 lượt).
+- **Thêm 1 chiêu HOÀNH TRÁNG cho mỗi boss** (chiêu tuyệt kỹ, 25 cái): 3 đoạn — **gồng** (boss tụ lực, hào quang + vòng báo phủ gần
+  cả sân, 8 khung lặp) → **đòn chính** khổ **256 px, 16 khung** (VD Lich triệu cổng âm phủ, Hoả Long phun lửa quét nửa sân, Kraken
+  vòi quật khắp mặt nước, rồng Gió bổ nhào từ trên trời) → **dư chấn** nằm đất (vết cháy / băng / vũng, 8 khung). Dùng khi máu boss
+  xuống 50% và 20% (chuyển pha), có chỗ né rõ ràng (vùng an toàn chừa sẵn, hoặc lăn né đúng nhịp).
+
+**Làm theo thứ tự ít tốn lượt** (theo "Quy tắc vẽ" ở trên):
+1. **Unity, 0 lượt — làm trước**: chuyển pha theo máu (50% / 20%), chuỗi chiêu (nối 2–3 chiêu có sẵn thành một đợt), gồng có tối
+   màn + rung màn (`hooks.Shake`) + chậm thời gian ngắn, phóng to / chồng 2 hình có sẵn, hạt bay (`VfxGlow`), báo trước bằng chữ
+   tên chiêu. Luật sát thương / né vẫn theo `BossRules` (sim + máy chủ dùng chung) — đổi luật thì sửa cả hai bên.
+2. **PixelLab, phiếu duyệt trước**: tách 7 hình dùng chung (tô màu lại); làm động lại 40 hình hiện có lên 12 khung từ khung đầu cũ
+   (`animate_image`); vẽ 25 chiêu hoành tráng. Duyệt khung đầu của 1 boss mẫu (Lich hoặc Hoả Long) rồi mới làm loạt.
+
+| Việc | Khổ · khung | Lượt (ước theo đơn giá đợt trước) |
+|---|---|---|
+| Tách 7 hình dùng chung | tô màu lại | 0 |
+| Làm động lại 40 hình chiêu thường | 128–192 · 12 | ~480 |
+| 25 chiêu hoành tráng (gồng + đòn chính + dư chấn) | 128 · 8 + 256 · 16 + 192 · 8 | ~850 |
+| **Cộng** | | **~1.330** |
+
+### Vùng báo trước chiêu — MỖI BOSS MỘT KIỂU (phiếu duyệt, CHỜ chủ dự án duyệt — 11/10/2026)
+
+Chủ dự án 11/10/2026: "các boss đang có một hiệu ứng vòng tròn tím tím dưới chân giống nhau nên bỏ đi" → "nên vẽ thêm các phần đó,
+mỗi boss một kiểu". **Đã làm tạm (0 lượt)**: bỏ hẳn hình `dark_ring_warn` / `dark_ring` (vòng tím mọi boss dùng chung) — vùng báo
+nay là vòng phẳng vẽ bằng code theo MÀU CHIÊU (lửa cam, băng xanh nhạt, nước xanh dương, độc xanh lá, cát vàng, tà thuật tím…) + đĩa
+lớn dần tới lúc nổ (`CombatSystem.Bosses.cs` `MakeZone` / `ZoneColor`). Phần vẽ dưới đây thay vòng tạm đó bằng hình riêng từng boss.
+
+**Quy cách**: hình phẳng nhìn thẳng từ trên xuống, nằm sát đất, nền trong suốt, KHÔNG có nhân vật / vật nổi; **128×128, lặp 6 khung**
+(khung đầu Pro Flash → `animate_image`), viền ngoài rõ để người chơi đọc được bán kính; trong game phóng theo bán kính vùng + giữ đĩa
+"lớn dần" vẽ bằng code để biết lúc nổ. Một boss một hình dùng cho mọi chiêu của nó (chiêu dải `Line` dùng cùng hình, cỡ nhỏ).
+
+| Boss | Vùng báo riêng |
+|---|---|
+| Quỷ vương rừng sâu | vòng ngũ giác lửa địa ngục, than đỏ nứt dưới đất |
+| Vua Lich | vòng chú văn tử linh xanh lục, xương trồi ở mép |
+| Gargoyle Đá | vết nứt đá toả hình sao, bụi đá rung |
+| Mẹ Ếch | vũng nhớt độc sủi bọt, trứng ếch ở mép |
+| Phù thuỷ đầm | vòng bùa nguyền móc xương + nến tím lập loè |
+| Hydra bùn | bùn sôi lục bục, ba vệt cổ rắn ngầm |
+| Bọ cạp chúa | vệt nọc vàng lục, vân móng cào |
+| Pharaoh xác ướp | vòng chữ tượng hình vàng kim, mắt Horus ở tâm |
+| Sâu cát khổng lồ | cát xoáy lõm xuống như phễu |
+| Đại bàng bão | bóng cánh chim lượn + tia sét nhỏ chạy viền |
+| Pháp sư gió | vòng phù văn gió xoắn ốc xanh ngọc |
+| Rồng gió | xoáy mây áp xuống mặt đất, lông vũ bay |
+| Yeti | tuyết lở nén, vết chân khổng lồ |
+| Nữ hoàng băng | hoa tuyết pha lê sáu cánh lan dần |
+| Vệ thần Ngai Băng | vòng giáo băng cắm quanh, mặt băng nứt |
+| Salamander | vũng dung nham văn vảy kỳ nhông |
+| Golem dung nham cổ | khe nứt magma hình mạch, đá nóng chảy |
+| Hoả thần | ấn lò rèn lửa vàng, búa và đe khắc chìm |
+| Cua chúa | san hô nhọn trồi lên, bọt biển |
+| Thuyền trưởng ma | sương ma xanh lam + bánh lái ma khắc mờ |
+| Kraken | mực đen loang, bóng xúc tu dưới mặt nước |
+| Phong Long | ấn rồng gió, gió xé thành vệt cong |
+| Băng Long | mặt hồ đóng băng nứt hình rồng |
+| Hoả Long | ấn rồng lửa, đất cháy sém toả tia |
+| Thuỷ Long | xoáy nước sâu, vảy rồng ánh nước |
+
+**Lượt**: ~8 / boss (khung đầu + 6 khung lặp) × 25 ≈ **~200 lượt** — CHƯA có trong ngân sách gói 5.000 (cộng vào mục chiêu boss ở
+trên, hoặc lấy từ phần "~60 vẽ lại món hỏng" + bớt chỗ khác). Làm thử 1 boss (Vua Lich) → chủ dự án xem trong game → đạt mới làm 24
+cái còn lại. Boss vùng 8–10 + 3 rồng vẽ luôn vùng báo riêng khi vẽ boss.
+
+**CHƯA CÓ trong ngân sách gói 5.000** (bảng "Tổng lượt còn cần" ở đầu file — phần vùng 8–10 mới tính ~240 cho chiêu boss MỚI).
+Cần chủ dự án chọn: bớt phạm vi (VD chỉ 7 boss chúa + 4 rồng làm chiêu hoành tráng ≈ 11 × 34 ≈ 375, làm động lại chỉ hình boss
+chúa ≈ 200 → ~575), hoặc đổi chỗ với hạng "THIẾU" ở trên. Chuẩn mới (12 khung, 1 chiêu hoành tráng / boss) áp luôn cho 9 boss + 3
+rồng của vùng 8–10 khi vẽ.
 
 ## Vẽ thêm cây cối + đồ vật cho map vùng 2–7 (ghi 10/10/2026, chủ dự án: "thấy hơi ít loại cây cối và đồ vật… cần note thêm")
 

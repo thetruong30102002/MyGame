@@ -19,9 +19,10 @@ export interface VfxDef {
 	later?: true;
 	/**
 	 * Đóng vào atlas PHỤ thay vì atlas chính: `ult` = `vfx-ult.{png,json}` — tuyệt kỹ mốc 10, chỉ phòng tập `/thu-chieu` tải (chủ dự
-	 * án 10/10/2026: "mở skill 10 ở phòng tập thôi"); người chơi game thật không tải thêm byte nào.
+	 * án 10/10/2026: "mở skill 10 ở phòng tập thôi"); người chơi game thật không tải thêm byte nào. `boss` = `vfx-boss` — chiêu boss
+	 * vùng + rồng (11/10/2026, chủ dự án: "các con boss vùng skill y hệt nhau"), tách tấm để atlas chính không vượt 4096.
 	 */
-	atlas?: 'ult';
+	atlas?: 'ult' | 'boss';
 }
 
 const E = (n: string): string => `effects/effects_particles_${n}.png`;
@@ -100,27 +101,27 @@ export const VFX: VfxDef[] = [
 	{ id: 'sandstorm', size: 128, kind: 'burst', frames: 8 },
 	{ id: 'ice_shatter', size: 96, kind: 'burst', frames: 8 },
 	// Chiêu boss vùng 1–4 (09/10/2026) — chỉ có bản PixelLab.
-	{ id: 'boss_hellfire', size: 160, kind: 'burst', frames: 10 },
-	{ id: 'boss_fire_wave', size: 160, kind: 'burst', frames: 8, later: true },
-	{ id: 'boss_curse_blast', size: 160, kind: 'burst', frames: 10 },
-	{ id: 'boss_bone_rise', size: 128, kind: 'burst', frames: 8, later: true },
+	{ id: 'boss_hellfire', size: 160, kind: 'burst', frames: 10, atlas: 'boss' },
+	{ id: 'boss_fire_wave', size: 160, kind: 'burst', frames: 8, atlas: 'boss' },
+	{ id: 'boss_curse_blast', size: 160, kind: 'burst', frames: 10, atlas: 'boss' },
+	{ id: 'boss_bone_rise', size: 128, kind: 'burst', frames: 8, atlas: 'boss' },
 	// Gargoyle Đá (boss khu Hang Gargoyle — thiết kế 12 map vùng 1, 10/10/2026) đã vào game: `CombatSystem.BOSS_AOE_LOOK`.
-	{ id: 'boss_stone_slam', size: 128, kind: 'burst', frames: 8 },
-	{ id: 'boss_toxic_pool', size: 128, kind: 'burst', frames: 8, later: true },
-	{ id: 'boss_hex', size: 128, kind: 'burst', frames: 8, later: true },
-	{ id: 'boss_mud_geyser', size: 160, kind: 'burst', frames: 10, later: true },
-	{ id: 'boss_venom_spray', size: 128, kind: 'burst', frames: 8, later: true },
-	{ id: 'boss_ankh_curse', size: 128, kind: 'burst', frames: 10, later: true },
-	{ id: 'boss_sand_eruption', size: 160, kind: 'burst', frames: 10, later: true },
-	{ id: 'boss_quicksand', size: 160, squashY: 0.55, kind: 'loop', frames: 8, later: true },
-	{ id: 'boss_storm_bolt', size: 128, kind: 'burst', frames: 8, later: true },
-	{ id: 'boss_wind_spiral', size: 128, kind: 'burst', frames: 8, later: true },
-	{ id: 'boss_wind_breath', size: 160, kind: 'burst', frames: 8, later: true },
-	{ id: 'boss_gale_storm', size: 160, kind: 'loop', frames: 8, later: true },
+	{ id: 'boss_stone_slam', size: 128, kind: 'burst', frames: 8, atlas: 'boss' },
+	{ id: 'boss_toxic_pool', size: 128, kind: 'burst', frames: 8, atlas: 'boss' },
+	{ id: 'boss_hex', size: 128, kind: 'burst', frames: 8, atlas: 'boss' },
+	{ id: 'boss_mud_geyser', size: 160, kind: 'burst', frames: 10, atlas: 'boss' },
+	{ id: 'boss_venom_spray', size: 128, kind: 'burst', frames: 8, atlas: 'boss' },
+	{ id: 'boss_ankh_curse', size: 128, kind: 'burst', frames: 10, atlas: 'boss' },
+	{ id: 'boss_sand_eruption', size: 160, kind: 'burst', frames: 10, atlas: 'boss' },
+	{ id: 'boss_quicksand', size: 160, squashY: 0.55, kind: 'loop', frames: 8, atlas: 'boss' },
+	{ id: 'boss_storm_bolt', size: 128, kind: 'burst', frames: 8, atlas: 'boss' },
+	{ id: 'boss_wind_spiral', size: 128, kind: 'burst', frames: 8, atlas: 'boss' },
+	{ id: 'boss_wind_breath', size: 160, kind: 'burst', frames: 8, atlas: 'boss' },
+	{ id: 'boss_gale_storm', size: 160, kind: 'loop', frames: 8, atlas: 'boss' },
 	// Chiêu Phong Long (09/10/2026) — chỉ có bản PixelLab.
-	{ id: 'dragon_wind_landing', size: 192, kind: 'burst', frames: 10, later: true },
-	{ id: 'dragon_gale_push', size: 192, kind: 'burst', frames: 8, later: true },
-	{ id: 'dragon_wind_blades', size: 160, kind: 'burst', frames: 10, later: true },
+	{ id: 'dragon_wind_landing', size: 192, kind: 'burst', frames: 10, atlas: 'boss' },
+	{ id: 'dragon_gale_push', size: 192, kind: 'burst', frames: 8, atlas: 'boss' },
+	{ id: 'dragon_wind_blades', size: 160, kind: 'burst', frames: 10, atlas: 'boss' },
 	// Tuyệt kỹ mốc 10 (09/10/2026) — vẽ trước, chưa dùng trong game (logic GĐ4).
 	{ id: 'ult_judgment', size: 192, kind: 'burst', frames: 10, atlas: 'ult' },
 	{ id: 'ult_still_lake', size: 160, kind: 'loop', frames: 8, atlas: 'ult' },
@@ -136,27 +137,27 @@ export const VFX: VfxDef[] = [
 	{ id: 'slash_ice', size: 128, kind: 'burst', frames: 8 },
 	{ id: 'slash_earth', size: 128, kind: 'burst', frames: 8 },
 	// Mốc 2 (09/10/2026): chiêu boss vùng 5–7 + chiêu rồng — vẽ sẵn, chưa dùng trong game.
-	{ id: 'boss_ice_embrace', size: 128, kind: 'burst', frames: 10, later: true },
-	{ id: 'boss_avalanche', size: 160, kind: 'burst', frames: 8, later: true },
-	{ id: 'boss_frost_roar', size: 160, squashY: 0.55, kind: 'burst', frames: 8, later: true },
-	{ id: 'boss_oblivion_mist', size: 160, squashY: 0.55, kind: 'loop', frames: 8, later: true },
-	{ id: 'boss_magma_fissure', size: 144, squashY: 0.55, kind: 'burst', frames: 8, later: true },
-	{ id: 'boss_lava_spit', size: 128, kind: 'burst', frames: 8, later: true },
-	{ id: 'boss_ash_fall', size: 160, squashY: 0.55, kind: 'burst', frames: 10, later: true },
-	{ id: 'boss_forge_sigil', size: 160, squashY: 0.55, kind: 'loop', frames: 8, later: true },
-	{ id: 'boss_coral_spikes', size: 128, kind: 'burst', frames: 8, later: true },
-	{ id: 'boss_ghost_lantern', size: 128, kind: 'burst', frames: 8, later: true },
-	{ id: 'boss_tentacle_slam', size: 160, kind: 'burst', frames: 10, later: true },
-	{ id: 'boss_ink_flood', size: 160, squashY: 0.55, kind: 'burst', frames: 10, later: true },
-	{ id: 'dragon_frost_breath', size: 192, kind: 'burst', frames: 8, later: true },
-	{ id: 'dragon_ice_pillar', size: 160, kind: 'burst', frames: 10, later: true },
-	{ id: 'dragon_ice_lake_crack', size: 192, squashY: 0.55, kind: 'burst', frames: 10, later: true },
-	{ id: 'dragon_fire_breath', size: 192, kind: 'burst', frames: 8, later: true },
-	{ id: 'dragon_meteor', size: 160, kind: 'burst', frames: 10, later: true },
-	{ id: 'dragon_lava_pool', size: 192, squashY: 0.55, kind: 'loop', frames: 8, later: true },
-	{ id: 'dragon_water_dive', size: 160, kind: 'burst', frames: 10, later: true },
-	{ id: 'dragon_tsunami', size: 192, kind: 'burst', frames: 10, later: true },
-	{ id: 'dragon_flood', size: 192, squashY: 0.55, kind: 'loop', frames: 8, later: true },
+	{ id: 'boss_ice_embrace', size: 128, kind: 'burst', frames: 10, atlas: 'boss' },
+	{ id: 'boss_avalanche', size: 160, kind: 'burst', frames: 8, atlas: 'boss' },
+	{ id: 'boss_frost_roar', size: 160, squashY: 0.55, kind: 'burst', frames: 8, atlas: 'boss' },
+	{ id: 'boss_oblivion_mist', size: 160, squashY: 0.55, kind: 'loop', frames: 8, atlas: 'boss' },
+	{ id: 'boss_magma_fissure', size: 144, squashY: 0.55, kind: 'burst', frames: 8, atlas: 'boss' },
+	{ id: 'boss_lava_spit', size: 128, kind: 'burst', frames: 8, atlas: 'boss' },
+	{ id: 'boss_ash_fall', size: 160, squashY: 0.55, kind: 'burst', frames: 10, atlas: 'boss' },
+	{ id: 'boss_forge_sigil', size: 160, squashY: 0.55, kind: 'loop', frames: 8, atlas: 'boss' },
+	{ id: 'boss_coral_spikes', size: 128, kind: 'burst', frames: 8, atlas: 'boss' },
+	{ id: 'boss_ghost_lantern', size: 128, kind: 'burst', frames: 8, atlas: 'boss' },
+	{ id: 'boss_tentacle_slam', size: 160, kind: 'burst', frames: 10, atlas: 'boss' },
+	{ id: 'boss_ink_flood', size: 160, squashY: 0.55, kind: 'burst', frames: 10, atlas: 'boss' },
+	{ id: 'dragon_frost_breath', size: 192, kind: 'burst', frames: 8, atlas: 'boss' },
+	{ id: 'dragon_ice_pillar', size: 160, kind: 'burst', frames: 10, atlas: 'boss' },
+	{ id: 'dragon_ice_lake_crack', size: 192, squashY: 0.55, kind: 'burst', frames: 10, atlas: 'boss' },
+	{ id: 'dragon_fire_breath', size: 192, kind: 'burst', frames: 8, atlas: 'boss' },
+	{ id: 'dragon_meteor', size: 160, kind: 'burst', frames: 10, atlas: 'boss' },
+	{ id: 'dragon_lava_pool', size: 192, squashY: 0.55, kind: 'loop', frames: 8, atlas: 'boss' },
+	{ id: 'dragon_water_dive', size: 160, kind: 'burst', frames: 10, atlas: 'boss' },
+	{ id: 'dragon_tsunami', size: 192, kind: 'burst', frames: 10, atlas: 'boss' },
+	{ id: 'dragon_flood', size: 192, squashY: 0.55, kind: 'loop', frames: 8, atlas: 'boss' },
 ];
 
 /**

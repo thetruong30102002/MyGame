@@ -5,16 +5,21 @@
 // tiềm năng + Tia Aether dừng ở cấp 40, nạp bản lưu (kẹp cấp, EXP thừa), nhận EXP không vượt cấp 100.
 import assert from 'node:assert/strict';
 import { MAX_LEVEL } from '@aether/protocol';
-import { cleanLevel, EXP_CURVE_KNEE, expForLevel } from '../src/skills.ts';
+import { baseExpForLevel, cleanLevel, EXP_CURVE_KNEE, EXP_PACE, expForLevel, expPace } from '../src/skills.ts';
 import { aetherScale, pointsForLevel, TALENT_LEVEL_CAP } from '../src/talents.ts';
 
-// 1) Đường EXP: cấp ≤ 10 y như cũ; trên 10 tăng đều, không nổ số; cấp 99 vừa phải.
+// 1) Đường EXP gốc: cấp ≤ 10 y như cũ; trên 10 tăng đều, không nổ số. EXP cần = gốc × nhịp `EXP_PACE` (11/10/2026 — "lên cấp quá
+// nhanh"): cấp 1–5 không đổi (vùng 1 cân theo), 6–10 ×1,5, từ 11 ×2,5.
 {
-	for (let lv = 1; lv <= EXP_CURVE_KNEE; lv += 1) assert.equal(expForLevel(lv), Math.round(100 * 1.5 ** (lv - 1)), `cấp ${lv} giữ đường cũ`);
-	assert.equal(expForLevel(10), 3844);
-	for (let lv = 2; lv < MAX_LEVEL; lv += 1) assert.ok(expForLevel(lv) > expForLevel(lv - 1), `cấp ${lv} cần nhiều hơn cấp trước`);
-	assert.ok(expForLevel(11) / expForLevel(10) < 1.5, 'qua cấp 10 dốc mềm hơn');
-	assert.ok(expForLevel(99) > 1e6 && expForLevel(99) < 2e6, `cấp 99 ≈ 1,5 triệu (${expForLevel(99)})`);
+	for (let lv = 1; lv <= EXP_CURVE_KNEE; lv += 1) assert.equal(baseExpForLevel(lv), Math.round(100 * 1.5 ** (lv - 1)), `cấp ${lv} giữ đường gốc`);
+	for (let lv = 1; lv <= 5; lv += 1) assert.equal(expForLevel(lv), baseExpForLevel(lv), `cấp ${lv} không đổi nhịp`);
+	assert.equal(expPace(6), 1.5);
+	assert.equal(expPace(11), 2.5);
+	assert.equal(EXP_PACE[0]![0], 1);
+	assert.equal(expForLevel(10), Math.round(3844 * 1.5));
+	for (let lv = 2; lv < 100; lv += 1) assert.ok(expForLevel(lv) > expForLevel(lv - 1), `cấp ${lv} cần nhiều hơn cấp trước`);
+	assert.ok(baseExpForLevel(11) / baseExpForLevel(10) < 1.5, 'qua cấp 10 dốc mềm hơn');
+	assert.ok(expForLevel(99) > 3e6 && expForLevel(99) < 5e6, `cấp 99 ≈ 3,8 triệu (${expForLevel(99)})`);
 	assert.ok(Number.isSafeInteger(expForLevel(MAX_LEVEL)));
 }
 

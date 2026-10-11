@@ -16,7 +16,12 @@ namespace Aether.Client.UI
     /// </summary>
     public sealed class Hud : MonoBehaviour
     {
-        private static readonly string[] Keys = { "J", "K", "1", "2", "3", "4", "5", "6", "7", "8" };
+        /// <summary>Nhãn phím của ô <paramref name="i"/> theo bảng phím người chơi đặt (Cài đặt → PHÍM).</summary>
+        private static string KeyOf(int i) => KeyBinds.LabelOf(KeyBinds.Slots[i]);
+
+        private readonly List<TMP_Text> slotKeyTexts = new List<TMP_Text>();
+        private readonly List<(TMP_Text key, TMP_Text text, Func<string> k, Func<string> v)> helpRows = new List<(TMP_Text, TMP_Text, Func<string>, Func<string>)>();
+        private int keysDrawn = -1;
 
         private GameController game;
         private RectTransform root;
@@ -54,6 +59,9 @@ namespace Aether.Client.UI
         private Image minimap;
         private RectTransform dotLayer;
         private readonly List<Image> dots = new List<Image>();
+        private RectTransform signRoot;
+        private readonly List<(RectTransform rt, MapExit exit)> signs = new List<(RectTransform, MapExit)>();
+        private MapDef signsFor;
         private Image meDot;
         private TMP_Text mapName;
         private TMP_Text pvpTag;
@@ -172,6 +180,7 @@ namespace Aether.Client.UI
 
         private void Build()
         {
+            signRoot = UiKit.Stretch(root, "ExitSigns");
             plateRoot = UiKit.Stretch(root, "Plates");
             floatRoot = UiKit.Stretch(root, "Floats");
             BuildPlayerCard();
@@ -279,13 +288,17 @@ namespace Aether.Client.UI
         private void BuildSkillBar()
         {
             const float size = 52, gap = 6;
-            var width = 10 * size + 9 * gap + 20;
+            // PC: ô 1 / ô 2 (chém / phép thường) là chuột trái / phải — không chiếm chỗ trên thanh; điện thoại giữ đủ 10 ô (giữ ô để đánh).
+            var first = Application.isMobilePlatform ? 0 : 2;
+            var shown = 10 - first;
+            var width = shown * size + (shown - 1) * gap + 20;
             var bar = UiKit.Rect(root, "SkillBar", new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(0, 22), new Vector2(width, size + 18));
             UiStyle.Card(bar, UiStyle.CardKind.Hud, 14);
             for (var i = 0; i < 10; i += 1)
             {
                 var k = i;
-                var rt = UiKit.Rect(bar, "Slot" + i, new Vector2(0, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(10 + size / 2 + i * (size + gap), 0), new Vector2(size, size));
+                var rt = UiKit.Rect(bar, "Slot" + i, new Vector2(0, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(10 + size / 2 + (i - first) * (size + gap), 0), new Vector2(size, size));
+                if (i < first) rt.gameObject.SetActive(false);
                 var glowRt = UiKit.Stretch(rt, "Glow");
                 glowRt.offsetMin = new Vector2(-6, -6);
                 glowRt.offsetMax = new Vector2(6, 6);
@@ -304,7 +317,7 @@ namespace Aether.Client.UI
                 var coolText = UiKit.Label(UiKit.Stretch(rt, "CoolText"), "", 16, Color.white, TextAnchor.MiddleCenter, true);
                 var keyRt = UiKit.Rect(rt, "Key", new Vector2(1, 0), new Vector2(1, 0), new Vector2(1, -1), new Vector2(18, 15));
                 UiStyle.Pill(keyRt, new Color(0.08f, 0.05f, 0.03f, 0.9f), 5);
-                UiKit.Label(UiKit.Stretch(keyRt, "t"), Keys[i], 10, UiStyle.GoldHi, TextAnchor.MiddleCenter, true, false);
+                slotKeyTexts.Add(UiKit.Label(UiKit.Stretch(keyRt, "t"), KeyOf(i), 10, UiStyle.GoldHi, TextAnchor.MiddleCenter, true, false));
                 var slot = new Slot { Root = rt, Icon = icon, Cool = cool, CoolText = coolText, Glow = glow };
                 var press = UiKit.Press(rt, () => game.TapSlot(k), () => game.HoldSlot(k, true), () => game.HoldSlot(k, false));
                 press.Enter = () => hoverSlot = k;
@@ -370,19 +383,45 @@ namespace Aether.Client.UI
 
             helpRoot = UiKit.Rect(root, "Help", Vector2.zero, Vector2.zero, new Vector2(14, 238), new Vector2(246, 190));
             UiStyle.Card(helpRoot, UiStyle.CardKind.Hud, 12);
-            UiKit.Label(UiKit.Rect(helpRoot, "Title", new Vector2(0, 1), new Vector2(0, 1), new Vector2(12, -8), new Vector2(220, 18)), "Điều khiển  ·  H để ẩn", 12, UiStyle.GoldHi, TextAnchor.MiddleLeft, true);
-            var rows = new (string k, string v)[]
+            var title = UiKit.Label(UiKit.Rect(helpRoot, "Title", new Vector2(0, 1), new Vector2(0, 1), new Vector2(12, -8), new Vector2(220, 18)), "", 12, UiStyle.GoldHi, TextAnchor.MiddleLeft, true);
+            helpRows.Add((title, null, () => $"Điều khiển  ·  {L(KeyBinds.Act.Help)} để ẩn  ·  đổi phím: Cài đặt", null));
+            var rows = new (Func<string> k, Func<string> v)[]
             {
-                ("WASD", "đi  (Shift chạy)"), ("J  K", "chém  ·  phép"), ("1 – 8", "chiêu đã gán"), ("Space", "lăn né"),
-                ("R", "uống bình"), ("Tab", "đổi mục tiêu"), ("E", "nói chuyện"), ("C T B O", "bảng nhân vật · hoặc bấm ảnh"),
+                (() => L(KeyBinds.Act.Up) + L(KeyBinds.Act.Left) + L(KeyBinds.Act.Down) + L(KeyBinds.Act.Right), () => $"đi  ({L(KeyBinds.Act.Run)} chạy)"),
+                (() => "Chuột", () => "trái chém · phải phép thường"),
+                (() => $"{L(KeyBinds.Act.Slot1)} – {L(KeyBinds.Act.Slot8)}", () => "chiêu đã gán"),
+                (() => L(KeyBinds.Act.Dodge), () => "lăn né"),
+                (() => L(KeyBinds.Act.Potion), () => "uống bình"),
+                (() => L(KeyBinds.Act.Target), () => "đổi mục tiêu"),
+                (() => L(KeyBinds.Act.Interact), () => "nói chuyện"),
+                (() => $"{L(KeyBinds.Act.Character)} {L(KeyBinds.Act.Talents)} {L(KeyBinds.Act.Inventory)} {L(KeyBinds.Act.Settings)}", () => "bảng nhân vật · hoặc bấm ảnh"),
             };
             for (var i = 0; i < rows.Length; i += 1)
             {
                 var y = -32 - i * 19;
                 var kr = UiKit.Rect(helpRoot, "k" + i, new Vector2(0, 1), new Vector2(0, 1), new Vector2(12, y), new Vector2(58, 16));
                 UiStyle.Pill(kr, new Color(1, 1, 1, 0.1f), 5);
-                UiKit.Label(UiKit.Stretch(kr, "t"), rows[i].k, 10, UiStyle.GoldHi, TextAnchor.MiddleCenter, true, false);
-                UiKit.Label(UiKit.Rect(helpRoot, "v" + i, new Vector2(0, 1), new Vector2(0, 1), new Vector2(78, y), new Vector2(166, 16)), rows[i].v, 11, UiStyle.Parchment, TextAnchor.MiddleLeft);
+                var kt = UiKit.Label(UiKit.Stretch(kr, "t"), "", 10, UiStyle.GoldHi, TextAnchor.MiddleCenter, true, false);
+                var vt = UiKit.Label(UiKit.Rect(helpRoot, "v" + i, new Vector2(0, 1), new Vector2(0, 1), new Vector2(78, y), new Vector2(166, 16)), "", 11, UiStyle.Parchment, TextAnchor.MiddleLeft);
+                helpRows.Add((kt, vt, rows[i].k, rows[i].v));
+            }
+            RefreshKeys();
+        }
+
+        private static string L(KeyBinds.Act a) => KeyBinds.LabelOf(a);
+
+        /// <summary>Đổi phím ở Cài đặt → nhãn phím trên thanh chiêu + bảng phím vẽ lại.</summary>
+        private void RefreshKeys()
+        {
+            keysDrawn = KeyBinds.Version;
+            for (var i = 0; i < slotKeyTexts.Count; i += 1) slotKeyTexts[i].text = KeyOf(i);
+            foreach (var (key, text, k, v) in helpRows)
+            {
+                key.text = k();
+                if (text != null) text.text = v();
+                key.enableAutoSizing = true;
+                key.fontSizeMin = 7;
+                key.fontSizeMax = text != null ? 10 : 12;
             }
         }
 
@@ -538,6 +577,7 @@ namespace Aether.Client.UI
         private void LateUpdate()
         {
             if (game == null || game.Combat == null || game.Player == null) return;
+            if (keysDrawn != KeyBinds.Version) RefreshKeys();
             var dt = Time.unscaledDeltaTime;
             var pc = game.Combat.Pc;
             fade.color = new Color(fade.color.r, fade.color.g, fade.color.b, FadeAlpha);
@@ -572,6 +612,7 @@ namespace Aether.Client.UI
             potionText.text = pc.Potions.ToString();
 
             UpdateMinimap();
+            UpdateExitSigns();
             UpdateTarget(dt);
             UpdateSlots(dt);
             UpdateToasts(dt);
@@ -631,12 +672,120 @@ namespace Aether.Client.UI
             foreach (var f in game.Combat.Enemies)
                 if (!f.Dead) Put(f.Actor.X, f.Actor.Y, f.Boss ? new Color(1f, 0.3f, 0.6f) : new Color(1f, 0.35f, 0.3f), f.Boss ? 8 : 5);
             foreach (var npc in game.Population.Npcs) Put(npc.X, npc.Y, UiStyle.GoldHi, 6);
+            foreach (var e in map.exits) Put((e.x0 + e.x1) / 2, (e.y0 + e.y1) / 2, ExitCross(e) ? UiStyle.Hex(0xff9a3d) : UiStyle.Hex(0x7fe0d0), 8);
             foreach (var rp in game.Remotes.All)
                 if (rp.Actor != null) Put(rp.Actor.X, rp.Actor.Y, UiStyle.Sky, 6);
             for (var i = n; i < dots.Count; i += 1) dots[i].gameObject.SetActive(false);
             meDot.transform.SetAsLastSibling();
             meDot.rectTransform.anchoredPosition = At(game.Player.X, game.Player.Y);
         }
+
+        /// <summary>Lối sang vùng khác (không phải map cùng vùng).</summary>
+        private bool ExitCross(MapExit e) => !e.to.StartsWith(game.Map.region + "/", StringComparison.Ordinal) && e.to.Contains("/");
+
+        /// <summary>
+        /// Biển lối ra NEO TẠI LỐI như bản web (chủ dự án 11/10/2026: "gợi ý map nên để nổi ở gần điểm sang map như bản web chứ không phải
+        /// hiện chi chít trên màn hình"): mũi tên vàng đôi nhấp nhô chỉ ra mép map, đặt lùi vào trong 72px, nhãn nơi đến nổi ngay trên — trôi
+        /// theo map, ra khỏi khung nhìn là khuất (trước đây kẹp biển vào mép màn hình trong bán kính 1.100px nên lối nào cũng hiện).
+        /// Lối sang vùng khác ghi thêm điều kiện (đỏ nếu chưa đủ).
+        /// </summary>
+        private void UpdateExitSigns()
+        {
+            var map = game.Map;
+            if (map != signsFor)
+            {
+                foreach (var (rt, _) in signs) if (rt != null) Destroy(rt.gameObject);
+                signs.Clear();
+                signsFor = map;
+                if (map == null) return;
+                foreach (var e in map.exits) signs.Add((BuildSign(e), e));
+            }
+            if (map == null) return;
+            var size = root.rect.size;
+            var bob = Mathf.Sin(Time.time * 4f) * 6f;
+            foreach (var (rt, e) in signs)
+            {
+                var d = e.EdgeDir;
+                var x = (e.x0 + e.x1) / 2 - d.x * 72;
+                var y = (e.y0 + e.y1) / 2 - d.y * 72;
+                var p = ToCanvas(WorldCoords.PxToWorld(x, y));
+                var raw = p;
+                var on = !Blocking && p.x > -140 && p.x < size.x + 140 && p.y > -60 && p.y < size.y + 80;
+                rt.gameObject.SetActive(on);
+                if (!on) continue;
+                // Lối nằm sát mép map — đúng chỗ bảng phím / khung chat / bản đồ nhỏ che: lối đã trong khung nhìn thì nhích biển ra vùng trống.
+                var maxX = p.y > size.y - 400 ? size.x - 330 : size.x - 130;
+                p.x = Mathf.Clamp(p.x, 420, Mathf.Max(420, maxX));
+                p.y = Mathf.Clamp(p.y, 170, size.y - 170);
+                rt.anchoredPosition = new Vector2(Mathf.Round(p.x), Mathf.Round(p.y));
+                var arrow = (RectTransform)rt.GetChild(0);
+                var b = ToCanvas(WorldCoords.PxToWorld(x + d.x * bob, y + d.y * bob)) - raw;
+                arrow.anchoredPosition = new Vector2(Mathf.Round(b.x), Mathf.Round(b.y));
+            }
+        }
+
+        private RectTransform BuildSign(MapExit e)
+        {
+            var d = e.EdgeDir;
+            var parts = (e.label ?? e.to).Split('·');
+            var dest = parts[0].Trim();
+            string note = null;
+            var col = UiStyle.Hex(0xffd166);
+            if (ExitCross(e))
+            {
+                var (r, _) = GameDatabase.SplitMapKey(e.to, game.Map.region);
+                var gate = game.RegionGatePublic(r);
+                col = gate == null ? UiStyle.Hex(0xffc46b) : UiStyle.Hex(0xff8a7a);
+                note = gate == null ? "Sang vùng mới" : parts.Length > 2 ? string.Join(" · ", parts, 2, parts.Length - 2).Trim() : gate;
+            }
+            var rt = UiKit.Rect(signRoot, "Exit_" + e.id, Vector2.zero, new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(10, 10));
+            // Con đầu tiên là mũi tên (UpdateExitSigns nhấp nhô nó theo hướng lối).
+            var arrow = UiKit.Rect(rt, "Arrow", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(40, 30));
+            var img = UiKit.Icon(arrow, ExitArrowSprite());
+            img.color = col;
+            arrow.localRotation = Quaternion.Euler(0, 0, Mathf.Atan2(-d.y, d.x) * Mathf.Rad2Deg);
+            var plate = UiKit.Rect(rt, "Plate", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0f), new Vector2(0, 24), new Vector2(170, note != null ? 36 : 22));
+            UiStyle.Card(plate, UiStyle.CardKind.Hud, 8, false, true);
+            var t = UiKit.Label(UiKit.Stretch(plate, "t"), dest + (note != null ? $"\n<size=10><color=#{ColorUtility.ToHtmlStringRGB(col)}>{note}</color></size>" : ""),
+                12, UiStyle.Parchment, TextAnchor.MiddleCenter, true);
+            t.rectTransform.offsetMin = new Vector2(6, 2);
+            t.rectTransform.offsetMax = new Vector2(-6, -2);
+            t.enableAutoSizing = true;
+            t.fontSizeMin = 8;
+            t.fontSizeMax = 12;
+            return rt;
+        }
+
+        private static Sprite exitArrow;
+
+        /// <summary>Mũi tên đôi chỉ sang phải (xoay theo hướng lối), lõi trắng viền tối — tô màu bằng Image.color (giống mũi tên lối của bản web).</summary>
+        private static Sprite ExitArrowSprite()
+        {
+            if (exitArrow != null) return exitArrow;
+            const int w = 40, h = 30;
+            var tex = new Texture2D(w, h, TextureFormat.RGBA32, false) { filterMode = FilterMode.Point, wrapMode = TextureWrapMode.Clamp };
+            var px = new Color[w * h];
+            // Một chữ V nằm ngang (đỉnh bên phải): điểm (x, y) thuộc nét nếu |y − tâm| ≈ (đỉnh − x) trong bề dày cho trước.
+            float Chevron(int x, int y, float tip, float thick)
+            {
+                var dy = Mathf.Abs(y + 0.5f - h / 2f);
+                var dx = tip - (x + 0.5f);
+                if (dx < 0 || dy > h / 2f - 1) return -1;
+                return Mathf.Abs(dx - dy * 0.75f);
+            }
+            for (var y = 0; y < h; y += 1)
+                for (var x = 0; x < w; x += 1)
+                {
+                    var best = Mathf.Min(Pos(Chevron(x, y, 22, 0)), Pos(Chevron(x, y, 37, 0)));
+                    px[y * w + x] = best <= 3.2f ? Color.white : best <= 5.2f ? new Color(0.05f, 0.05f, 0.07f, 1) : Color.clear;
+                }
+            tex.SetPixels(px);
+            tex.Apply();
+            exitArrow = Sprite.Create(tex, new UnityEngine.Rect(0, 0, w, h), new Vector2(0.5f, 0.5f), 100);
+            return exitArrow;
+        }
+
+        private static float Pos(float v) => v < 0 ? 99 : v;
 
         private void UpdateTarget(float dt)
         {
@@ -763,7 +912,7 @@ namespace Aether.Client.UI
                 tooltip.pivot = new Vector2(0.5f, 0);
                 tooltip.sizeDelta = new Vector2(380, 84);
                 var mp = sk.MpCost > 0 ? $"  ·  <color=#7cc8ff>{sk.MpCost} MP</color>" : "";
-                tooltipText.text = $"<b><color=#ffd166>{sk.Name}</color></b>  <size=11><color=#d9c08f>[{Keys[hoverSlot]}]{mp}  ·  hồi {sk.Cooldown:0.#}s</color></size>\n{sk.Desc}";
+                tooltipText.text = $"<b><color=#ffd166>{sk.Name}</color></b>  <size=11><color=#d9c08f>[{KeyOf(hoverSlot)}]{mp}  ·  hồi {sk.Cooldown:0.#}s</color></size>\n{sk.Desc}";
                 var bar = (RectTransform)slots[hoverSlot].Root.parent;
                 tooltip.anchoredPosition = new Vector2(slots[hoverSlot].Root.anchoredPosition.x - bar.rect.width / 2, 104);
             }

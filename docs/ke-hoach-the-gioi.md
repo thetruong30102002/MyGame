@@ -353,8 +353,118 @@ Hình (Mốc 1 + 2) đã vẽ hết nên dựng luôn 6 vùng theo khung 12 map 
 - **Mở vùng** (`regions.ts`): 6 vùng `ready`, cổng = cấp vào vùng + đã hạ boss chúa vùng trước (Unity đếm ở `story.codex.kills`).
 - **Kiểm**: `apps/server/tests/worldmaps.test.ts` — đi bằng chân thật tới mọi điểm sinh quái / lối / sân boss, lối xuyên vùng hai
   chiều đúng mép, mọi loại quái có chỉ số + kháng hệ.
-- Chưa có: NPC dịch vụ ở 6 trạm (chưa vẽ), nhiệm vụ / cốt truyện vùng 2–7, chiêu riêng của boss / rồng (đang dùng đòn chung), dịch
-  chuyển giữa các trạm trong bản Unity.
+- Chưa có: NPC dịch vụ ở 6 trạm (chưa vẽ), nhiệm vụ / cốt truyện vùng 2–7. (Chiêu riêng của boss / rồng: ĐÃ LÀM 11/10/2026 —
+  `UnityGame/Assets/Aether/Client/Combat/CombatSystem.Bosses.cs`; dịch chuyển giữa các trạm: cột dịch chuyển + quản trị đã có.)
+
+## 5.4 Làm đẹp map: đồ vật lặp lại, quái thưa, xếp có trật tự — ĐÃ LÀM phần 0 lượt cho vùng 2–7 (11/10/2026)
+
+Chủ dự án: "các đồ vật ở map đang khác nhiều cái giống nhau và lặp lại cần thêm quái, đồ vật xếp có trật tự".
+
+**Hiện trạng — đo trên `assets/maps` ngày 11/10/2026** (đồ vật = mục `props` của map, không tính decal mặt đất):
+
+| Vùng | Map | Đồ vật | Số loại | 3 loại nhiều nhất chiếm | Quái thường / map (TB) |
+|---|---|---|---|---|---|
+| Thistlewood (human) | 12 | 3.701 | 91 | 24% — đá xám 309, cây 292, cây lật 277 | 16,6 |
+| Đầm lầy (swamp) | 12 | 4.026 | 49 | **36%** — 3 kiểu cây bách 558 / 519 / 376 | 14,2 |
+| Sa mạc (desert) | 12 | 3.077 | 55 | 25% — cọ 349, đá đỏ 205, cây chết 201 | 14,2 |
+| Cao nguyên (highland) | 13 | 4.118 | 56 | 21% — cỏ cao 345, thông gió 317, hoa 194 | 13,1 |
+| Lãnh nguyên (tundra) | 13 | 3.750 | 41 | **35%** — thông tuyết 565, đụn tuyết 429, thông băng lật 317 | 13,1 |
+| Núi lửa (volcano) | 13 | 3.337 | 45 | 30% — cây tro 505, bazan 264, cây cháy 246 | 13,1 |
+| Quần đảo (isles) | 13 | 2.974 | 42 | 30% — 3 kiểu cọ 438 / 229 / 223 | 13,1 |
+
+- **Đồ vật ít loại và lặp**: mỗi vùng chỉ 41–56 loại (vùng 1: 91), 3 loại phổ biến nhất chiếm 21–36% — đi đâu cũng gặp cùng một cây.
+  Bản lật (`_flip`) vẫn nhận ra là một cây. Nguyên nhân: `kit.ts` rải đồ theo nhiễu từ một bảng ngắn mỗi chủ đề, không giới hạn tỉ lệ.
+- **Xếp ngẫu nhiên, không có bố cục**: cây viền mép + "đồ điểm xuyết quanh bãi" rải đều — không có hàng cây dọc đường, rặng / lùm có
+  mép rõ, góc làng, điểm nhấn để nhớ đường. Map nào cũng na ná nhau.
+- **Quái thưa**: 13–17 con / map rộng 46–52 × 38–44 ô; mỗi map săn đúng **1 loại quái** (luật "1 loại quái / bầy" giữ, nhưng cả map chỉ
+  một bầy loại đó). Đi một vòng ít gặp quái, săn chán.
+
+**Hướng làm — theo thứ tự ít tốn lượt vẽ nhất** (luật vẽ: dùng / tô màu lại art có sẵn trước, cái gì phải vẽ mới thì gửi phiếu duyệt
+cho chủ dự án trước — `docs/pixellab-ke-hoach-ve.md`):
+1. **Xếp có trật tự** (chỉ code `packages/asset-pipeline/src/maps/kit.ts`, 0 lượt): hàng cây / cột đèn / hàng rào đều nhịp dọc đường
+   chính; rừng thành RẶNG và LÙM có mép rõ (không rải lấm tấm khắp nơi) chừa lối mòn; mỗi map 1–2 **điểm nhấn** (tàn tích, cây cổ thụ,
+   tượng, xác thuyền…) ở chỗ dễ thấy để nhớ đường; bãi quái có viền đá / bụi rõ; góc làng / trạm theo lưới nhà + sân. Khoảng cách tối
+   thiểu giữa hai đồ CÙNG loại.
+2. **Trộn đồ vật cho đều** (0 lượt): trần tỉ lệ mỗi loại (vd không loại nào quá 10–12% đồ của map), mượn đồ hợp chủ đề của vùng bên cạnh,
+   thêm decal mặt đất nhỏ (sỏi, cỏ, lá rụng) lấp chỗ trống thay vì thêm cây.
+3. **Biến thể bằng tô màu lại** (0 lượt — script đổi màu art có sẵn như luật biến thể): cây / đá / bụi thêm 2–3 tông theo khu (mép rừng
+   sẫm, bãi trống nhạt, gần nước xanh hơn), cỡ nhỏ / to.
+4. **Thêm quái** (dữ liệu `worldRegions.ts` + `WORLD_ROSTER`): map săn 20–28 con; thêm 1 bầy PHỤ khác loại (loại của map kề, cấp thấp
+   hơn 1–2) — mỗi bầy vẫn 1 loại; vài con **tinh anh** hiếm (nhiều máu, thưởng hơn) ở góc xa. Cân lại EXP / xu theo mật độ mới, giữ nhịp
+   lên cấp ~1 cấp / map săn. Máy chủ chia quái dùng chung theo khu — kiểm tải khi tăng số con.
+5. **Vẽ đồ vật mới bằng PixelLab** chỉ khi 1–4 chưa đủ: lập danh sách theo vùng (ưu tiên Đầm lầy + Lãnh nguyên — lặp nặng nhất), gửi
+   phiếu duyệt + ước lượt trước khi vẽ.
+
+**Đá / cột dịch chuyển cần vẽ đẹp hơn** (chủ dự án 11/10/2026: "cần note lại thay đổi đá dịch chuyển cần render cho đẹp hơn").
+ĐÃ THỐNG NHẤT hình (11/10/2026, chủ dự án chọn): mọi vùng dùng đúng một đồ vật `rune_stone` làm NPC cột dịch chuyển
+(`packages/sim/src/story/services.ts`); bộ dựng map thôi đặt đá trang trí riêng mỗi vùng chồng lên chỗ đó (trước: `wind_rune`,
+`ice_waystone`, `rune_pillar`… mỗi vùng một kiểu); Bia Danh Vọng đổi sang `rune_tablet` và chỉ đứng ở Thistlewood. Còn lại: cột vẫn
+không phát sáng, không hiệu ứng, cỡ như hòn đá thường nên người chơi khó nhận ra đó là chỗ dịch chuyển. Hướng làm (cùng thứ tự ít tốn lượt):
+- Unity, 0 lượt: vòng phép dưới chân (`magic_circle` đã có) xoay chậm + ánh sáng phụ (`VfxGlow`) nhấp nháy theo màu vùng, hạt bay lên,
+  nhãn "Cột dịch chuyển" nổi khi lại gần, hiệu ứng lúc dịch chuyển đi / đến (loé sáng + vòng nổ); phóng to cột so với đá thường.
+- Pipeline, 0 lượt: sân đá lát quanh cột (bệ + bậc), không đặt đồ khác sát cột.
+- PixelLab (phiếu duyệt trước): MỘT cột dịch chuyển riêng có hoạt ảnh (tinh thể / rune xoay, 6–8 khung), tô màu lại theo từng vùng
+  thay vì vẽ 7 cái (luật biến thể = tô màu lại).
+
+**Nghiệm thu (đo lại bằng cùng phép đếm trên `assets/maps`)**: 3 loại nhiều nhất ≤ 15% đồ vật mỗi vùng; ≥ 60 loại đồ / vùng; quái thường
+≥ 20 con / map săn và ≥ 2 loại / map săn; ảnh trước / sau từng vùng cho chủ dự án duyệt (Unity AutoTest `-aetherTour` hiện chụp trạm / map săn / sân boss vùng 2–7 — mở rộng ra mọi map của 7 vùng khi làm).
+Luật kiểm `validateRegion` + `apps/server/tests/worldmaps.test.ts` (đi bộ tới mọi điểm sinh quái / lối) phải còn qua sau khi xếp lại.
+
+**Đã làm 11/10/2026 (vùng 2–7, 0 lượt)**: bố cục (đường, bãi, lối, địa điểm) GIỮ NGUYÊN — đã so 72 map, 0 lệch — nên máy chủ / bản
+cũ không lệch toạ độ. (1) Quái mỗi bầy tăng → map săn 24–28 con (map có hang ổ 21–24 + boss; trước 15–20), chỉ tăng `count`, không thêm
+bãi. (2) Hàng cây loài chủ đạo đều nhịp dọc đường (cách mép đường 2 ô, ~4 ô một cây) ở map nền trống (`kit.ts`). Còn lại: bầy phụ khác
+loại + quái tinh anh (cần nới luật "một loại / map" của `validateRegion` — chờ chủ dự án), trần tỉ lệ đồ trang trí, vùng 1 (map viết tay).
+
+## 5.5 Thời tiết theo vùng — ĐÃ LÀM (11/10/2026)
+
+Chủ dự án: "mỗi vùng phủ thêm tí hiệu ứng như phủ tuyết… tuyết rơi, gió sa mạc cát bay, rơm sa mạc lăn lăn, đặc trưng mỗi vùng".
+`UnityGame/Assets/Aether/Client/Weather.cs`, chọn theo `biome` của map, 0 lượt vẽ (hạt pixel sinh trong code; cỏ khô lăn dùng
+`tumbleweed_d` có sẵn của sa mạc). Tắt được ở Cài đặt → "Hiệu ứng thời tiết"; điện thoại bớt 40% hạt.
+
+| Biome (vùng) | Hiệu ứng |
+|---|---|
+| Snow (Lãnh nguyên) | tuyết rơi 3 cỡ (gần to rơi nhanh), phủ lạnh nhẹ |
+| Desert (Sa mạc) | vệt cát + luồng cát theo cơn gió lên xuống, bụi, cỏ khô lăn nảy qua màn, phủ vàng nhẹ |
+| Volcanic (Núi lửa) | tro bay xuống, tàn lửa bốc lên nhấp nháy, phủ đỏ nhẹ |
+| Swamp (Đầm lầy) | đom đóm chớp, sương trôi, phủ xanh nhẹ |
+| Highland (Cao nguyên) | lá bay theo gió, phấn hoa |
+| Beach (Quần đảo) | lấp lánh, bụi cát nhẹ |
+| Meadow / Deadland / Rocky (vùng 1) | phấn hoa + lá / sương + tro / bụi |
+
+Kiểm: Unity AutoTest `-aetherWeather` chụp trạm (đứng cạnh cột dịch chuyển) + một map săn mỗi vùng, rồi tắt thử.
+
+## 5.6 Cây cối: mỗi vùng một kiểu riêng, mỗi map một loại cây — ĐÃ LÀM phần 0 lượt (11/10/2026)
+
+**Kết quả** (`docs/tools/dem-cay.py`): loài dùng chung nhiều vùng **9 → 0** (bản tô màu lại: `dead_mossy` Đầm lầy, `dead_bleached` Sa
+mạc, `hl_oak` / `hl_maple` Cao nguyên, `ash_tree_ember` Núi lửa, `palm_tropic` + `beach_bush` Quần đảo — `props/worldRegions.ts`);
+loài chủ đạo mỗi map (trừ trạm, vùng 2–7) trung vị **41% → 73%**, map đạt ≥ 60%: **8 → 58 / 70** (`KitMapSpec.treeMain`: map săn thứ
+i lấy loài thứ i quay vòng, ~2/3 cây + 2 loài điểm xuyết). Vẽ thêm loài mới (24 cây vùng 2–7) vẫn theo phiếu duyệt.
+
+Chủ dự án: "cần thống nhất cây của từng vùng chứ thấy cứ giống nhau quá. Nên mỗi vùng 1 style riêng và đa dạng cây cối, mỗi map 1
+loại cây". Đo hiện trạng bằng `python -I -X utf8 docs/tools/dem-cay.py` (11/10/2026, 87 map có cây, bản lật `_flip` tính chung loài):
+
+- **Map trong cùng vùng giống hệt nhau**: map nào của vùng cũng rải đúng 3–4 loài với cùng tỉ lệ (VD mọi map Núi lửa là `ash_tree` +
+  `charred_tree` + `ash_tree_cold`; mọi map Quần đảo là 4 kiểu cọ). Loài chủ đạo mỗi map chỉ chiếm trung vị **42%** (thấp nhất 18%) —
+  không map nào có "gương mặt" riêng.
+- **Vùng ít loài**: Núi lửa 3 · Sa mạc 5 · Quần đảo 5 · Lãnh nguyên 6 · vùng 1 7 · Đầm lầy 9 · Cao nguyên 10.
+- **Loài dùng chung nhiều vùng** (nên đi sang vùng khác thấy cây quen): `palm` / `palm_dry` (Sa mạc + Quần đảo), `tree` / `tree_autumn`
+  / `tree_pine_dry` / `bush_flower` (vùng 1 + Cao nguyên), `tree_dead` (vùng 1 + Sa mạc + Đầm lầy), `bush` (4 vùng), `dead_bush`.
+
+Hướng làm:
+1. **Mỗi vùng một bộ cây riêng, cùng một dáng + bảng màu** (style vùng): không loài nào dùng ở 2 vùng. Loài đang dùng chung thì vùng
+   nào "chủ" giữ, vùng kia đổi sang bản **tô màu lại** theo bảng màu vùng (luật biến thể = tô màu lại, 0 lượt) — VD cọ Quần đảo xanh
+   tươi / cọ Sa mạc khô vàng, cây chết Đầm lầy rêu xám-xanh / Sa mạc bạc trắng.
+2. **Mỗi map một loài chủ đạo ≥ 60% số cây** + 1–2 loài điểm xuyết, và hai map kề nhau KHÔNG cùng loài chủ đạo — đặt ở khai báo map
+   (`packages/asset-pipeline/src/maps/worldRegions.ts`, thêm trường kiểu `trees: { main, accents }`; bộ dựng `kit.ts` rải theo đó thay
+   cho danh sách chung của vùng). Map vùng 1 (dựng tay) chỉnh danh sách đồ vật từng map.
+3. **Đủ loài để chia**: mỗi vùng cần ≥ 5–6 loài (đủ cho các map săn + trạm + thánh địa). Thiếu thì theo thứ tự ít tốn lượt: tô màu lại
+   / lật / ghép tán–thân từ cây có sẵn của chính vùng → chỉ khi vẫn thiếu mới vẽ PixelLab, **gửi phiếu duyệt trước** (bảng cây dự kiến
+   từng vùng + số lượt), vẽ khung đầu cho duyệt rồi mới vẽ tiếp.
+4. Đi cùng mục 5.4 (đồ vật lặp lại / xếp có trật tự): cây là phần lớn đồ vật nên làm chung một lượt dựng lại map.
+
+**Nghiệm thu (đo lại bằng `docs/tools/dem-cay.py`)**: dòng "loài dùng chung nhiều vùng" = **không có**; mọi map săn có loài chủ đạo
+≥ 60%; hai map nối nhau khác loài chủ đạo; ảnh trước / sau mỗi vùng (AutoTest `-aetherTour` / `-aetherWeather`) cho chủ dự án duyệt;
+`validateRegion` + `apps/server/tests/worldmaps.test.ts` vẫn qua (cây không chặn lối / điểm sinh quái).
 
 ## 6. Thứ tự triển khai
 

@@ -20,9 +20,25 @@ namespace Aether.Core
         public long ExpForLevel(double level)
         {
             var lv = Math.Max(1, Js.FloorInt(level));
+            return (long)Js.Round(BaseExpForLevel(lv) * ExpPace(lv));
+        }
+
+        /// <summary>Đường EXP gốc (skills.ts baseExpForLevel) — trước nhịp lên cấp `EXP_PACE`.</summary>
+        public double BaseExpForLevel(int lv)
+        {
             var knee = _d.ExpCurveKnee;
-            if (lv <= knee) return (long)Js.Round(100 * Js.Pow(1.5, lv - 1));
-            return (long)Js.Round(100 * Js.Pow(1.5, knee - 1) * Js.Pow((double)lv / knee, 2.6));
+            if (lv <= knee) return Js.Round(100 * Js.Pow(1.5, lv - 1));
+            return Js.Round(100 * Js.Pow(1.5, knee - 1) * Js.Pow((double)lv / knee, 2.6));
+        }
+
+        /// <summary>skills.ts expPace: hệ số EXP cần theo bảng [từ cấp, hệ số] (11/10/2026 — "lên cấp quá nhanh").</summary>
+        public double ExpPace(int lv)
+        {
+            var m = 1.0;
+            if (_d.ExpPace != null)
+                foreach (var (from, mult) in _d.ExpPace)
+                    if (lv >= from) m = mult;
+            return m;
         }
 
         /// <summary>Cấp + EXP từ bản lưu: cấp kẹp 1…maxLevel; EXP không vượt mức cần của cấp đó; cấp tối đa thì EXP = 0.</summary>

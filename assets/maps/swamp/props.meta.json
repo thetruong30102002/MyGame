@@ -47,6 +47,30 @@
 			"h": 14
 		}
 	},
+	"dead_mossy": {
+		"kind": "tree",
+		"w": 122,
+		"h": 149,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 20,
+			"h": 14
+		}
+	},
+	"dead_mossy_flip": {
+		"kind": "tree",
+		"w": 122,
+		"h": 149,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 20,
+			"h": 14
+		}
+	},
 	"stilt_house": {
 		"kind": "building",
 		"w": 153,

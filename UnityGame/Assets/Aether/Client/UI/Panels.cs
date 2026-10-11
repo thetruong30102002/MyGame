@@ -19,7 +19,6 @@ namespace Aether.Client.UI
         private static readonly (Kind kind, string label, string key)[] Tabs =
         {
             (Kind.Character, "Nhân vật", "C"),
-            (Kind.Inventory, "Túi đồ", "B"),
             (Kind.Talents, "Tiềm năng", "T"),
             (Kind.WorldMap, "Bản đồ", "M"),
             (Kind.Friends, "Bạn bè", "F"),
@@ -65,6 +64,7 @@ namespace Aether.Client.UI
 
         public void Toggle(Kind k)
         {
+            if (k == Kind.Inventory) k = Kind.Character;
             if (kind == k) Close();
             else Show(k);
         }
@@ -79,12 +79,15 @@ namespace Aether.Client.UI
 
         public void Show(Kind k)
         {
+            // Túi đồ đã gộp vào tab Nhân vật (11/10/2026) — phím B / nút túi vẫn gọi Kind.Inventory.
+            if (k == Kind.Inventory) k = Kind.Character;
             if (k == Kind.None)
             {
                 Close();
                 return;
             }
             var fresh = window == null;
+            if (k == Kind.WorldMap && kind != Kind.WorldMap) MapOpenFresh();
             if (kind != k) OnLeaveTab();
             kind = k;
             root.gameObject.SetActive(true);
@@ -112,9 +115,23 @@ namespace Aether.Client.UI
         public void SelectTalent(string branch, int tier)
         {
             Show(Kind.Talents);
+            talentLoadout = false;
             talentSel = (branch, tier);
             Refresh();
         }
+
+        /// <summary>Phím mở tab theo bảng phím người chơi đặt (Cài đặt → PHÍM); tab không có phím thì rỗng.</summary>
+        private static string TabKey(Kind k) => k switch
+        {
+            Kind.Character => KeyBinds.LabelOf(KeyBinds.Act.Character),
+            Kind.Inventory => KeyBinds.LabelOf(KeyBinds.Act.Inventory),
+            Kind.Talents => KeyBinds.LabelOf(KeyBinds.Act.Talents),
+            Kind.WorldMap => KeyBinds.LabelOf(KeyBinds.Act.WorldMap),
+            Kind.Friends => KeyBinds.LabelOf(KeyBinds.Act.Friends),
+            Kind.Codex => KeyBinds.LabelOf(KeyBinds.Act.Codex),
+            Kind.Settings => KeyBinds.LabelOf(KeyBinds.Act.Settings),
+            _ => "",
+        };
 
         /// <summary>Dựng lại nội dung tab hiện tại (sau mặc đồ, cộng điểm…). <paramref name="slide"/>: trượt nhẹ vào như đổi tab.</summary>
         private void Refresh(bool slide = false)
@@ -130,7 +147,6 @@ namespace Aether.Client.UI
             switch (kind)
             {
                 case Kind.Character: BuildCharacter(); break;
-                case Kind.Inventory: BuildInventory(); break;
                 case Kind.Talents: BuildTalents(); break;
                 case Kind.Friends: BuildFriends(); break;
                 case Kind.Codex: BuildCodex(); break;
@@ -213,11 +229,12 @@ namespace Aether.Client.UI
                 }
                 UiKit.Label(UiKit.Rect(tab, "l", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(on ? 0 : -8, 1), new Vector2(110, 26)), t.label, 17,
                     on ? UiStyle.GoldHi : UiKit.TextDim, TextAnchor.MiddleCenter, true, on);
-                if (!on && t.key.Length > 0)
+                var tk = TabKey(t.kind);
+                if (!on && tk.Length > 0)
                 {
                     var key = UiKit.Rect(tab, "k", new Vector2(1, 0.5f), new Vector2(1, 0.5f), new Vector2(-10, 0), new Vector2(18, 18));
                     UiStyle.Pill(key, new Color(0, 0, 0, 0.3f), 4);
-                    UiKit.Label(UiKit.Stretch(key, "t"), t.key, 11, UiKit.TextDim, TextAnchor.MiddleCenter, true, false);
+                    UiKit.Label(UiKit.Stretch(key, "t"), tk, 11, UiKit.TextDim, TextAnchor.MiddleCenter, true, false).enableAutoSizing = tk.Length > 1;
                 }
                 if (t.kind == Kind.Talents && game.UnspentPoints > 0) Badge(tab, game.UnspentPoints.ToString());
                 var press = UiKit.Press(tab, () => Show(t.kind));

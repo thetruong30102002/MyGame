@@ -218,7 +218,7 @@
 			"name": "Cột dịch chuyển",
 			"title": "Thung lũng Thistlewood",
 			"sprite": null,
-			"prop": "stone_lantern",
+			"prop": "rune_stone",
 			"at": {
 				"spot": "plaza",
 				"dx": -150,
@@ -237,7 +237,7 @@
 			"name": "Cột dịch chuyển",
 			"title": "Đầm lầy Mù Sương",
 			"sprite": null,
-			"prop": "stone_lantern",
+			"prop": "rune_stone",
 			"at": {
 				"spot": "waystone",
 				"dx": 0,
@@ -256,7 +256,7 @@
 			"name": "Cột dịch chuyển",
 			"title": "Sa mạc Hồng Cát",
 			"sprite": null,
-			"prop": "stone_lantern",
+			"prop": "rune_stone",
 			"at": {
 				"spot": "waystone",
 				"dx": 0,
@@ -275,7 +275,7 @@
 			"name": "Cột dịch chuyển",
 			"title": "Cao nguyên Gió Hú",
 			"sprite": null,
-			"prop": "stone_lantern",
+			"prop": "rune_stone",
 			"at": {
 				"spot": "waystone",
 				"dx": 0,
@@ -294,7 +294,7 @@
 			"name": "Cột dịch chuyển",
 			"title": "Lãnh nguyên Băng Giá",
 			"sprite": null,
-			"prop": "stone_lantern",
+			"prop": "rune_stone",
 			"at": {
 				"spot": "waystone",
 				"dx": 0,
@@ -313,7 +313,7 @@
 			"name": "Cột dịch chuyển",
 			"title": "Núi lửa Hoả Sơn",
 			"sprite": null,
-			"prop": "stone_lantern",
+			"prop": "rune_stone",
 			"at": {
 				"spot": "waystone",
 				"dx": 0,
@@ -332,7 +332,7 @@
 			"name": "Cột dịch chuyển",
 			"title": "Quần đảo San Hô",
 			"sprite": null,
-			"prop": "stone_lantern",
+			"prop": "rune_stone",
 			"at": {
 				"spot": "waystone",
 				"dx": 0,
@@ -351,12 +351,13 @@
 			"name": "Bia Danh Vọng",
 			"title": "Quảng trường Thistlewood",
 			"sprite": null,
-			"prop": "rune_stone",
+			"prop": "rune_tablet",
 			"at": {
 				"spot": "plaza",
 				"dx": 110,
 				"dy": -40
 			},
+			"region": "human",
 			"ages": [
 				0,
 				99
@@ -436,6 +437,384 @@
 			"idle": [
 				"Anh Sein cứ đòi đi săn rồng phương Đông. Ta thì chỉ muốn vẽ lại bản đồ lục địa.",
 				"Đầm lầy Mù Sương có ếch độc to bằng cái thúng, cẩn thận đấy."
+			]
+		},
+		"nyra": {
+			"name": "Nyra",
+			"title": "Thầy thuốc đầm lầy",
+			"sprite": null,
+			"at": {
+				"spot": "__voice__"
+			},
+			"ages": [
+				99,
+				99
+			],
+			"idle": []
+		},
+		"odessa": {
+			"name": "Odessa",
+			"title": "Phù thuỷ đầm",
+			"sprite": null,
+			"at": {
+				"spot": "__voice__"
+			},
+			"ages": [
+				99,
+				99
+			],
+			"idle": []
+		},
+		"zahra": {
+			"name": "Zahra",
+			"title": "Thủ lĩnh phe nổi dậy",
+			"sprite": null,
+			"at": {
+				"spot": "__voice__"
+			},
+			"ages": [
+				99,
+				99
+			],
+			"idle": []
+		},
+		"hassim": {
+			"name": "Hassim",
+			"title": "Tể tướng Sahrin",
+			"sprite": null,
+			"at": {
+				"spot": "__voice__"
+			},
+			"ages": [
+				99,
+				99
+			],
+			"idle": []
+		},
+		"orrin": {
+			"name": "Orrin",
+			"title": "Pháp sư gió",
+			"sprite": null,
+			"at": {
+				"spot": "__voice__"
+			},
+			"ages": [
+				99,
+				99
+			],
+			"idle": []
+		},
+		"wenna": {
+			"name": "Bà Wenna",
+			"title": "Chủ cối xay",
+			"sprite": null,
+			"at": {
+				"spot": "__voice__"
+			},
+			"ages": [
+				99,
+				99
+			],
+			"idle": []
+		},
+		"kael": {
+			"name": "Kael",
+			"title": "Thợ săn Tuyết Phong",
+			"sprite": null,
+			"at": {
+				"spot": "__voice__"
+			},
+			"ages": [
+				99,
+				99
+			],
+			"idle": []
+		},
+		"hilde": {
+			"name": "Hilde",
+			"title": "Nữ vương rèn Đe Đỏ",
+			"sprite": null,
+			"at": {
+				"spot": "__voice__"
+			},
+			"ages": [
+				99,
+				99
+			],
+			"idle": []
+		},
+		"durin": {
+			"name": "Durin",
+			"title": "Em trai nữ vương",
+			"sprite": null,
+			"at": {
+				"spot": "__voice__"
+			},
+			"ages": [
+				99,
+				99
+			],
+			"idle": []
+		},
+		"grey_man": {
+			"name": "Người áo xám",
+			"title": "???",
+			"sprite": null,
+			"at": {
+				"spot": "__voice__"
+			},
+			"ages": [
+				99,
+				99
+			],
+			"idle": []
+		},
+		"maris": {
+			"name": "Maris",
+			"title": "Công chúa người cá",
+			"sprite": null,
+			"at": {
+				"spot": "__voice__"
+			},
+			"ages": [
+				99,
+				99
+			],
+			"idle": []
+		},
+		"corvin": {
+			"name": "Corvin",
+			"title": "Thuyền trưởng Hải Âu Bạc",
+			"sprite": null,
+			"at": {
+				"spot": "__voice__"
+			},
+			"ages": [
+				99,
+				99
+			],
+			"idle": []
+		},
+		"ysolde": {
+			"name": "Bà Ysolde",
+			"title": "Trưởng làng Lau Xám",
+			"sprite": "npc_mirelle_001",
+			"at": {
+				"spot": "plaza",
+				"dx": 130,
+				"dy": 70
+			},
+			"ages": [
+				16,
+				99
+			],
+			"region": "swamp",
+			"idle": [
+				"Sương hôm nay đặc. Đặc như hồi đập mới xây.",
+				"Trà trong ấm còn. Uống đi rồi hẵng nói chuyện người Rowanmere."
+			]
+		},
+		"amira": {
+			"name": "Nữ hoàng Amira",
+			"title": "Ốc đảo Sahrin",
+			"sprite": "npc_elin_001",
+			"at": {
+				"spot": "plaza",
+				"dx": 130,
+				"dy": 70
+			},
+			"ages": [
+				16,
+				99
+			],
+			"region": "desert",
+			"idle": [
+				"Nước trong giếng hoàng gia mỗi tuần thấp thêm một gang. Ta đếm từng gang.",
+				"Ở Sahrin, khách là người được uống trước. Cậu đã uống chưa?"
+			]
+		},
+		"aldric_hl": {
+			"name": "Aldric",
+			"title": "Hiệp sĩ Đoàn · Cao nguyên",
+			"sprite": "npc_aldric_001",
+			"at": {
+				"spot": "plaza",
+				"dx": 130,
+				"dy": 70
+			},
+			"ages": [
+				16,
+				99
+			],
+			"region": "highland",
+			"idle": [
+				"Huy hiệu bảy vòng nặng hơn tớ tưởng. Mà cũng có thể là tớ nhẹ đi.",
+				"Lời ngoéo tay năm tám tuổi vẫn còn nhé, Lior."
+			]
+		},
+		"bjorn": {
+			"name": "Bjorn",
+			"title": "Thợ săn già Tuyết Phong",
+			"sprite": "npc_garrick_001",
+			"at": {
+				"spot": "plaza",
+				"dx": 130,
+				"dy": 70
+			},
+			"ages": [
+				16,
+				99
+			],
+			"region": "tundra",
+			"idle": [
+				"Đọc gió trước, rồi mới đọc dấu chân. Ai dạy cậu thế? Hừm. Người đó biết việc.",
+				"Bão chưa tan. Ở lại thêm một đêm cũng chẳng chết ai."
+			]
+		},
+		"mirelle_forge": {
+			"name": "Mirelle",
+			"title": "Thầy thuốc · trạm thương binh Đe Đỏ",
+			"sprite": "npc_mirelle_001",
+			"at": {
+				"spot": "plaza",
+				"dx": 130,
+				"dy": 70
+			},
+			"ages": [
+				16,
+				99
+			],
+			"region": "volcano",
+			"idle": [
+				"Ở đây ta băng cho cả lính hai phe. Máu thì cùng một màu, Lior.",
+				"Đừng khoe vội. Câu đó ta nói từ hồi con sáu tuổi, giờ vẫn đúng."
+			]
+		},
+		"coral": {
+			"name": "Mẹ Coral",
+			"title": "Bếp lửa làng chài San Hô",
+			"sprite": "npc_elin_001",
+			"at": {
+				"spot": "plaza",
+				"dx": 130,
+				"dy": 70
+			},
+			"ages": [
+				16,
+				99
+			],
+			"region": "isles",
+			"idle": [
+				"Ăn đi rồi khóc. Đói thì khóc không ra hơi.",
+				"Biển trong tới mức thấy đáy. Mà đáy toàn tàu, con ạ."
+			]
+		},
+		"god_nereth": {
+			"name": "Thuỷ Thần Nereth",
+			"title": "Rắn trắng giữ dòng nước ngầm",
+			"sprite": null,
+			"prop": "serpent_head",
+			"at": {
+				"spot": "hydralake_lair",
+				"dy": 120
+			},
+			"ages": [
+				16,
+				99
+			],
+			"region": "swamp",
+			"idle": [
+				"«…nước nhớ mọi thứ chảy qua nó.»"
+			]
+		},
+		"god_sahra": {
+			"name": "Thái Dương Thần Sahra",
+			"title": "Chim ưng lửa mặt trời",
+			"sprite": null,
+			"prop": "sphinx",
+			"at": {
+				"spot": "devourpit_lair",
+				"dy": 120
+			},
+			"ages": [
+				16,
+				99
+			],
+			"region": "desert",
+			"idle": [
+				"«Dưới nắng, bóng của ngươi không biết nói dối.»"
+			]
+		},
+		"god_aeolin": {
+			"name": "Phong Thần Aeolin",
+			"title": "Đại bàng bốn cánh gió",
+			"sprite": null,
+			"prop": "bird_statue",
+			"at": {
+				"spot": "cloudtemple_lair",
+				"dy": 120
+			},
+			"ages": [
+				16,
+				99
+			],
+			"region": "highland",
+			"idle": [
+				"«Gió không giữ lời hứa. Gió mang lời hứa đi.»"
+			]
+		},
+		"god_hjalma": {
+			"name": "Băng Thần Hjalma",
+			"title": "Sói mẹ của mùa đông",
+			"sprite": null,
+			"prop": "dragon_relief",
+			"at": {
+				"spot": "icethrone_lair",
+				"dy": 120
+			},
+			"ages": [
+				16,
+				99
+			],
+			"region": "tundra",
+			"idle": [
+				"«Quên cũng là một cách giữ ấm.»"
+			]
+		},
+		"god_ignar": {
+			"name": "Lò Thần Ignar",
+			"title": "Người thợ rèn lửa đầu tiên",
+			"sprite": null,
+			"prop": "forge_altar",
+			"at": {
+				"spot": "volcanocore_lair",
+				"dy": 120
+			},
+			"ages": [
+				16,
+				99
+			],
+			"region": "volcano",
+			"idle": [
+				"«Lửa trong lò, lửa trong lòng. Đừng để cái nào tắt.»"
+			]
+		},
+		"god_thalassa": {
+			"name": "Hải Mẫu Thalassa",
+			"title": "Cá voi mang rạn san hô",
+			"sprite": null,
+			"prop": "giant_clam",
+			"at": {
+				"spot": "krakenabyss_lair",
+				"dy": 120
+			},
+			"ages": [
+				16,
+				99
+			],
+			"region": "isles",
+			"idle": [
+				"«Biển trả lại mọi thứ. Chỉ là không theo thứ tự ngươi muốn.»"
 			]
 		}
 	},

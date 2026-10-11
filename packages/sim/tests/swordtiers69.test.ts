@@ -112,7 +112,7 @@ const NEW: Record<string, [SwordStyle, number]> = {
 	assert.match(bt[5]!.desc, /Phóng kiếm bay xa 320, xuyên mục tiêu rồi bay về tay.*uy lực ×1,8 mỗi lượt \(đi \+ về\)/);
 	assert.match(bt[6]!.desc, /15% né hoàn toàn một đòn/);
 	assert.equal(powerText(def('chain_slash')), 'uy lực ×0,8 mỗi nhát');
-	assert.equal(powerText(def('slash')), 'uy lực ×1,25', 'Trảm giữ chữ cũ');
+	assert.equal(powerText(def('slash')), 'uy lực ×1,97', 'Trảm: uy lực theo nhịp chém mới (0,6 s)');
 	assert.deepEqual(skillFacts(def('slash')), [], 'Trảm giữ tooltip cũ');
 	assert.equal(estimateText(def('chain_slash'), 10), '≈ 10 mỗi nhát × 4');
 	assert.equal(estimateText(def('flying_sword'), 23), '≈ 23 mỗi lượt × 2 (đi + về)');

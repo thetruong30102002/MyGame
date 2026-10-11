@@ -47,6 +47,30 @@
 			"h": 14
 		}
 	},
+	"ash_tree_ember": {
+		"kind": "tree",
+		"w": 118,
+		"h": 162,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 19,
+			"h": 14
+		}
+	},
+	"ash_tree_ember_flip": {
+		"kind": "tree",
+		"w": 118,
+		"h": 162,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 19,
+			"h": 14
+		}
+	},
 	"dwarf_house": {
 		"kind": "building",
 		"w": 178,
@@ -405,6 +429,18 @@
 			"y": -16,
 			"w": 42,
 			"h": 16
+		}
+	},
+	"rune_stone": {
+		"kind": "rock",
+		"w": 46,
+		"h": 58,
+		"blocks": true,
+		"footprint": {
+			"x": -16,
+			"y": -18,
+			"w": 32,
+			"h": 18
 		}
 	},
 	"signpost": {

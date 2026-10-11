@@ -599,7 +599,7 @@ namespace Aether.Client.Combat
             {
                 foreach (var t in telegraphs) t.Done = true;
                 foreach (var p in projectiles) if (p.Team == Team.Enemy) p.Life = 0;
-                vfx.Play("dark_ring", a.X, a.Y, new VfxOpts { Layer = "ground", Fps = 12 });
+                // Không phát `dark_ring` dưới chân boss lúc gục nữa (11/10/2026: vòng tím boss nào cũng như nhau — chủ dự án bảo bỏ).
                 vfx.Play("light_pillar", a.X, a.Y - a.Height * 0.62, new VfxOpts { Add = true, Fps = 12 });
                 hooks.FlashScreen(0xffffff, 0.5f);
                 hooks.Shake(7, 0.7f);
@@ -1061,13 +1061,25 @@ namespace Aether.Client.Combat
         {
             public double X, Y, R, T, Total, Damage;
             public bool Done;
+            /// <summary>Chiêu boss phát hình lúc nổ (null = vòng tối dùng chung); <see cref="Rot"/>: góc xoay hình có hướng.</summary>
+            public BossSkill Look;
+            public bool HasLook;
+            public float Rot;
+            /// <summary>Vùng báo vẽ trên đất: viền + đĩa lớn dần tới lúc nổ (<see cref="MakeZone"/>).</summary>
+            public SpriteRenderer Edge, Fill;
+            /// <summary>Đoạn của dải chiêu có hướng: chỉ nổ bụi, hình chính phát ở đoạn giữa.</summary>
+            public bool Silent;
         }
 
-        private void TelegraphAt(double x, double y, double r, double seconds, double damage)
+        private void TelegraphAt(double x, double y, double r, double seconds, double damage) => TelegraphAt(x, y, r, seconds, damage, null, 0, false);
+
+        private void TelegraphAt(double x, double y, double r, double seconds, double damage, BossSkill look, float rot = 0) => TelegraphAt(x, y, r, seconds, damage, look, rot, true);
+
+        private void TelegraphAt(double x, double y, double r, double seconds, double damage, BossSkill look, float rot, bool boss)
         {
-            telegraphs.Add(new Telegraph { X = x, Y = y, R = r, T = seconds, Total = seconds, Damage = damage });
-            var o = new VfxOpts { Layer = "ground", Scale = (float)Math.Max(1, Math.Round(r / 48)), Hold = (float)seconds, Fit = true, Tint = 0xff6060 };
-            vfx.Play(vfx.Has("dark_ring_warn") ? "dark_ring_warn" : "dark_ring", x, y, o);
+            var t = new Telegraph { X = x, Y = y, R = r, T = seconds, Total = seconds, Damage = damage, Look = look, HasLook = boss, Rot = rot };
+            MakeZone(t, ZoneColor(look?.Look));
+            telegraphs.Add(t);
         }
 
         private void UpdateTelegraphs(float dt)
@@ -1077,13 +1089,20 @@ namespace Aether.Client.Combat
                 var t = telegraphs[i];
                 if (t.Done)
                 {
+                    DropZone(t);
                     telegraphs.RemoveAt(i);
                     continue;
                 }
                 t.T -= dt;
-                if (t.T > 0) continue;
+                if (t.T > 0)
+                {
+                    StepZone(t);
+                    continue;
+                }
+                DropZone(t);
                 telegraphs.RemoveAt(i);
-                vfx.Play(vfx.Has("boss_curse_blast") ? "boss_curse_blast" : "dark_ring", t.X, t.Y, new VfxOpts { Fps = 20 });
+                if (t.HasLook && !t.Silent) PlayBossLook(t.Look, t.X, t.Y, t.Rot);
+                else vfx.Play("dust", t.X, t.Y, new VfxOpts { Fps = 18 });
                 hooks.Shake(3, 0.25f);
                 if (!Pc.Dead && rules.InCircle(Player.X, Player.Y, t.X, t.Y, t.R)) Incoming(IncomingKind.Area, t.Damage);
             }
@@ -1101,6 +1120,7 @@ namespace Aether.Client.Combat
             foreach (var p in projectiles) UnityEngine.Object.Destroy(p.Go);
             projectiles.Clear();
             zones.Clear();
+            foreach (var t in telegraphs) DropZone(t);
             telegraphs.Clear();
             pending.Clear();
             vfx.Clear();

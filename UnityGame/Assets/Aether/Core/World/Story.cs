@@ -155,6 +155,10 @@ namespace Aether.Core.World
         public Dictionary<string, NpcDef> YouthNpcs;
         public List<QuestDef> YouthQuests;
         public string[] YouthEnding;
+        /// <summary>Thẻ kết phần đang chơi được (story/chapters.ts) — hiện sau nhiệm vụ cuối cùng; vắng thì dùng thẻ kết vùng 1.</summary>
+        public string[] ChaptersEnding;
+        /// <summary>Mạch chính vùng 1 (thần) + vùng 2–7 (story/chapters.ts).</summary>
+        public List<QuestDef> ChapterQuests;
         /// <summary>Mọi nhiệm vụ (tuổi thơ + 16 tuổi) — máy chủ cấp thưởng theo bảng này.</summary>
         public List<QuestDef> Quests;
 

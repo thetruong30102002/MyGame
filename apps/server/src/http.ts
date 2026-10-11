@@ -1,5 +1,7 @@
 import { randomUUID } from 'node:crypto';
 import type { IncomingMessage, ServerResponse } from 'node:http';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import {
 	MAX_CHARACTERS,
 	validateName,
@@ -11,11 +13,14 @@ import {
 	type Gender,
 } from '@aether/protocol';
 import { AdminError, AdminOps } from './adminOps.ts';
+import { latestFile, readClientVersion, sendClientFile } from './clientUpdate.ts';
 import { hashPassword, newToken, RateLimiter, verifyPassword } from './auth.ts';
 import type { Store } from './db.ts';
 import { cleanProgress } from './world.ts';
 
 const SESSION_TTL = 30 * 24 * 3600 * 1000;
+/** Bản phát client Unity cho tự cập nhật (`clientUpdate.ts`); máy chủ thử đặt AETHER_CLIENT_DIR riêng. */
+const CLIENT_DIR = process.env.AETHER_CLIENT_DIR ?? join(dirname(fileURLToPath(import.meta.url)), '..', 'data', 'client');
 const BODY_LIMIT = 80 * 1024;
 
 export function newProgress(): CharacterProgress {
@@ -37,7 +42,7 @@ class HttpError extends Error {
  * Trang quản trị (`/api/admin/*`): cùng phiên đăng nhập + tài khoản phải có trong bảng `admins` (`AdminOps` — truyền bản có `World`
  * để nhân vật đang online nhận số mới ngay; vắng = chỉ ghi CSDL).
  */
-export function createApi(store: Store, admin: AdminOps = new AdminOps(store)) {
+export function createApi(store: Store, admin: AdminOps = new AdminOps(store), clientDir: string = CLIENT_DIR) {
 	const authLimit = new RateLimiter(10, 60_000);
 	/** Mọi lời gọi trang quản trị theo địa chỉ gửi (kể cả lời bị từ chối) — chặn dò / gọi dồn dập. */
 	const adminLimit = new RateLimiter(120, 60_000);
@@ -46,6 +51,16 @@ export function createApi(store: Store, admin: AdminOps = new AdminOps(store)) {
 
 	const routes: { method: string; path: RegExp; run: (req: IncomingMessage, m: RegExpMatchArray) => Promise<unknown> }[] = [
 		{ method: 'GET', path: /^\/api\/health$/, run: async () => ({ ok: true }) },
+		{
+			// Tự cập nhật client: không cần đăng nhập — màn đăng nhập hỏi trước.
+			method: 'GET',
+			path: /^\/api\/client\/version$/,
+			run: async () => {
+				const v = readClientVersion(clientDir);
+				if (!v) throw new HttpError(404, 'Chưa phát bản client nào');
+				return v;
+			},
+		},
 		{
 			method: 'POST',
 			path: /^\/api\/register$/,
@@ -185,6 +200,14 @@ export function createApi(store: Store, admin: AdminOps = new AdminOps(store)) {
 		res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
 		if (req.method === 'OPTIONS') return void res.writeHead(204).end();
 		const path = stripMount(new URL(req.url ?? '/', 'http://x').pathname);
+		// File gói client (luồng nhị phân, không qua JSON): /api/client/file/<tên> hoặc /api/client/latest/<windows|android>.
+		const file = req.method === 'GET' ? path.match(/^\/api\/client\/file\/([^/]+)$/) : null;
+		const latest = req.method === 'GET' ? path.match(/^\/api\/client\/latest\/(windows|android)$/) : null;
+		if (file || latest) {
+			const name = file ? decodeURIComponent(file[1]!) : latestFile(clientDir, latest![1]!);
+			if (!name || !sendClientFile(clientDir, name, res)) json(res, 404, { error: 'Không có file này' });
+			return;
+		}
 		for (const r of routes) {
 			const m = path.match(r.path);
 			if (!m || r.method !== req.method) continue;

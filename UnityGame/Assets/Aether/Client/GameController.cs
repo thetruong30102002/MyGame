@@ -26,11 +26,6 @@ namespace Aether.Client
         private const float StaminaDrain = 22;
         private const float ActionMoveScale = 0.4f;
         private const float OccludedAlpha = 0.55f;
-        private static readonly KeyCode[] SlotKeys =
-        {
-            KeyCode.J, KeyCode.K, KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3, KeyCode.Alpha4,
-            KeyCode.Alpha5, KeyCode.Alpha6, KeyCode.Alpha7, KeyCode.Alpha8,
-        };
 
         [SerializeField] private GameDatabase database;
         [SerializeField] private PixelCamera pixelCamera;
@@ -93,6 +88,7 @@ namespace Aether.Client
             if (pixelCamera == null) pixelCamera = FindFirstObjectByType<PixelCamera>();
             if (input == null) input = gameObject.AddComponent<GameInput>();
             entities = new GameObject("Entities").transform;
+            if (pixelCamera != null) new GameObject("Weather").AddComponent<Weather>().Init(() => pixelCamera != null ? pixelCamera.Cam : null, () => Map);
         }
 
         private void Start()
@@ -282,78 +278,101 @@ namespace Aether.Client
 
         private bool Blocked(double x, double y, double rx, double ry) => map != null && map.Blocker(x, y, rx, ry);
 
+        /// <summary>Phím đã nhấn → hành động theo bảng phím người chơi đặt (`KeyBinds`, Cài đặt → PHÍM). Esc cố định: đóng / qua thoại / bỏ chọn.</summary>
         private void HandleKeys(bool talking)
         {
             foreach (var k in input.DrainPresses())
             {
+                var act = KeyBinds.Of(k);
+                if (k == KeyCode.KeypadEnter) act = KeyBinds.Act.Chat;
                 if (hud.Panels.Open)
                 {
                     if (k == KeyCode.Escape) hud.Panels.Close();
-                    else if (PanelKey(k) is UI.Panels.Kind pk) hud.Panels.Toggle(pk);
+                    else if (PanelOf(act) is UI.Panels.Kind pk) hud.Panels.Toggle(pk);
                     continue;
                 }
                 if (talking)
                 {
-                    if (k == KeyCode.E || k == KeyCode.Space || k == KeyCode.Escape || k == KeyCode.Return)
+                    if (k == KeyCode.Escape || act == KeyBinds.Act.Interact || act == KeyBinds.Act.Dodge || act == KeyBinds.Act.Chat)
                     {
                         if (hud.Cinematic.Open) hud.Cinematic.Advance();
                         else AdvanceDialog();
                     }
                     continue;
                 }
-                if (PanelKey(k) is UI.Panels.Kind open)
+                if (k == KeyCode.Escape)
+                {
+                    focus = null;
+                    continue;
+                }
+                if (PanelOf(act) is UI.Panels.Kind open)
                 {
                     hud.Panels.Show(open);
                     continue;
                 }
-                switch (k)
+                switch (act)
                 {
-                    case KeyCode.Return:
-                    case KeyCode.KeypadEnter:
+                    case KeyBinds.Act.Chat:
                         hud.Chat?.Open();
                         break;
-                    case KeyCode.Space:
+                    case KeyBinds.Act.Dodge:
                         DodgeNow();
                         break;
-                    case KeyCode.Tab:
+                    case KeyBinds.Act.Target:
                         focus = WorldPopulation.FocusCycle(Candidates(true, true), focus, player.X, player.Y);
                         break;
-                    case KeyCode.Escape:
-                        focus = null;
-                        break;
-                    case KeyCode.E:
+                    case KeyBinds.Act.Interact:
                         Interact();
                         break;
-                    case KeyCode.R:
+                    case KeyBinds.Act.Potion:
                         combat.UsePotion();
                         break;
-                    case KeyCode.H:
+                    case KeyBinds.Act.Help:
                         hud.ToggleHelp();
                         break;
                     default:
-                        var slot = Array.IndexOf(SlotKeys, k);
+                        var slot = act.HasValue ? Array.IndexOf(KeyBinds.Slots, act.Value) : -1;
                         if (slot >= 0) CastSlot(slot, false);
                         break;
                 }
             }
             if (talking) return;
-            // Giữ J / K (hoặc giữ nút cảm ứng): đánh liên tục đúng nhịp hồi chiêu.
-            for (var i = 0; i < SlotKeys.Length; i += 1)
-                if ((i < 2 && input.Held(SlotKeys[i])) || slotHeld[i]) CastSlot(i, true);
+            // Giữ phím ô 1 / ô 2 (hoặc giữ nút cảm ứng): đánh liên tục đúng nhịp hồi chiêu.
+            for (var i = 0; i < KeyBinds.Slots.Length; i += 1)
+                if ((i < 2 && input.Held(KeyBinds.Get(KeyBinds.Slots[i]))) || slotHeld[i]) CastSlot(i, true);
         }
 
-        private static UI.Panels.Kind? PanelKey(KeyCode k) => k switch
+        private static UI.Panels.Kind? PanelOf(KeyBinds.Act? a) => a switch
         {
-            KeyCode.C => UI.Panels.Kind.Character,
-            KeyCode.T => UI.Panels.Kind.Talents,
-            KeyCode.B => UI.Panels.Kind.Inventory,
-            KeyCode.I => UI.Panels.Kind.Inventory,
-            KeyCode.O => UI.Panels.Kind.Settings,
-            KeyCode.F => UI.Panels.Kind.Friends,
-            KeyCode.L => UI.Panels.Kind.Codex,
-            KeyCode.M => UI.Panels.Kind.WorldMap,
+            KeyBinds.Act.Character => UI.Panels.Kind.Character,
+            KeyBinds.Act.Talents => UI.Panels.Kind.Talents,
+            KeyBinds.Act.Inventory => UI.Panels.Kind.Inventory,
+            KeyBinds.Act.Settings => UI.Panels.Kind.Settings,
+            KeyBinds.Act.Friends => UI.Panels.Kind.Friends,
+            KeyBinds.Act.Codex => UI.Panels.Kind.Codex,
+            KeyBinds.Act.WorldMap => UI.Panels.Kind.WorldMap,
             _ => null,
         };
+
+        /// <summary>
+        /// Đăng xuất (chủ dự án 11/10/2026: "chưa có tính năng đăng xuất"): lưu chắc qua HTTP, báo máy chủ huỷ phiên (không chờ), đóng kết
+        /// nối rồi tải lại scene — về màn đăng nhập (máy chỉ nhớ máy chủ + tên đăng nhập, không nhớ phiên). Offline / Thử chiêu: về màn đầu.
+        /// </summary>
+        public void Logout()
+        {
+            if (online != null)
+            {
+                WritePosition();
+                online.Flush();
+                var api = online.Api;
+                api?.LogoutAsync().ContinueWith(t => { _ = t.Exception; });
+                online.End();
+                online = null;
+            }
+            LabMode = false;
+            GameInput.Typing = false;
+            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+        }
 
         /// <summary>Lưu chắc (HTTP) rồi thoát.</summary>
         public void QuitGame()
@@ -367,12 +386,25 @@ namespace Aether.Client
         }
 
         /// <summary>Nhấp / chạm vào thế giới (không trúng UI): chọn mục tiêu; nhấp NPC đứng gần thì nói chuyện.</summary>
+        private bool mouseHeldL, mouseHeldR;
+
+        /// <summary>
+        /// Chạm (điện thoại): chạm quái / NPC = chọn mục tiêu (nửa trái màn là cần điều khiển). Chuột (PC — chủ dự án 11/10/2026: "chém
+        /// chuột trái, phép thường là chuột phải"): trái = ô J, phải = ô K, giữ = đánh liên tục như giữ phím; nhấp trúng quái thì chọn nó
+        /// làm mục tiêu rồi mới đánh, nhấp trúng NPC thì nói chuyện (không ra đòn). Nhấp lên giao diện thì bỏ qua.
+        /// </summary>
         private void HandlePointer(bool talking)
         {
-            if (talking) return;
+            if (talking)
+            {
+                mouseHeldL = mouseHeldR = false;
+                return;
+            }
             Vector2? at = null;
+            var button = -1;
             if (UnityEngine.Input.touchCount > 0)
             {
+                mouseHeldL = mouseHeldR = false;
                 for (var i = 0; i < UnityEngine.Input.touchCount; i += 1)
                 {
                     var t = UnityEngine.Input.GetTouch(i);
@@ -381,15 +413,31 @@ namespace Aether.Client
                     at = t.position;
                 }
             }
-            else if (UnityEngine.Input.GetMouseButtonDown(0) && (EventSystem.current == null || !EventSystem.current.IsPointerOverGameObject()))
-                at = UnityEngine.Input.mousePosition;
-            if (!at.HasValue) return;
-            var w = pixelCamera.ScreenToPx(at.Value);
-            var hit = WorldPopulation.FocusAt(Candidates(true, true), w.x, w.y);
-            if (hit == null) return;
-            focus = hit;
-            if (hit is Npc n && Math.Sqrt((n.X - player.X) * (n.X - player.X) + (n.Y - player.Y) * (n.Y - player.Y)) < WorldPopulation.InteractRange * 1.5)
-                Talk(n);
+            else
+            {
+                var overUi = EventSystem.current != null && EventSystem.current.IsPointerOverGameObject();
+                if (!overUi && UnityEngine.Input.GetMouseButtonDown(0)) button = 0;
+                else if (!overUi && UnityEngine.Input.GetMouseButtonDown(1)) button = 1;
+                if (button >= 0) at = UnityEngine.Input.mousePosition;
+                mouseHeldL = UnityEngine.Input.GetMouseButton(0) && (mouseHeldL || button == 0);
+                mouseHeldR = UnityEngine.Input.GetMouseButton(1) && (mouseHeldR || button == 1);
+            }
+            if (at.HasValue)
+            {
+                var w = pixelCamera.ScreenToPx(at.Value);
+                var hit = WorldPopulation.FocusAt(Candidates(true, true), w.x, w.y);
+                if (hit is Npc n)
+                {
+                    focus = n;
+                    mouseHeldL = mouseHeldR = false;
+                    if (Math.Sqrt((n.X - player.X) * (n.X - player.X) + (n.Y - player.Y) * (n.Y - player.Y)) < WorldPopulation.InteractRange * 1.5) Talk(n);
+                    return;
+                }
+                if (hit != null) focus = hit;
+                if (button >= 0) CastSlot(button, false);
+            }
+            if (mouseHeldL) CastSlot(0, true);
+            if (mouseHeldR) CastSlot(1, true);
         }
 
         public void SetFocus(object target) => focus = target;

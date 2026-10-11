@@ -25,6 +25,9 @@ namespace Aether.Client
         private bool social;
         private bool storyRun;
         private bool adminRun;
+        private bool uiRun;
+        /// <summary>-aetherWeather: mỗi vùng chụp trạm (đứng cạnh cột dịch chuyển `rune_stone`) + một map săn — kiểm thời tiết theo vùng.</summary>
+        private bool weatherRun;
         private string loginUser, loginPass;
         private StreamWriter log;
 
@@ -52,6 +55,8 @@ namespace Aether.Client
                 t.social = Array.IndexOf(args, "-aetherSocial") >= 0;
                 t.storyRun = Array.IndexOf(args, "-aetherStory") >= 0;
                 t.adminRun = Array.IndexOf(args, "-aetherAdmin") >= 0;
+                t.uiRun = Array.IndexOf(args, "-aetherUi") >= 0;
+                t.weatherRun = Array.IndexOf(args, "-aetherWeather") >= 0;
                 return;
             }
         }
@@ -119,6 +124,14 @@ namespace Aether.Client
                 Application.Quit(0);
                 yield break;
             }
+            if (uiRun)
+            {
+                yield return UiTest(game);
+                log.WriteLine("xong");
+                log.Close();
+                Application.Quit(0);
+                yield break;
+            }
             if (adminRun)
             {
                 yield return AdminTest(game);
@@ -130,6 +143,14 @@ namespace Aether.Client
             if (social)
             {
                 yield return SocialTest(game);
+                log.WriteLine("xong");
+                log.Close();
+                Application.Quit(0);
+                yield break;
+            }
+            if (weatherRun)
+            {
+                yield return WeatherTest(game);
                 log.WriteLine("xong");
                 log.Close();
                 Application.Quit(0);
@@ -719,6 +740,142 @@ namespace Aether.Client
             yield return Shot("admin-done");
             log.WriteLine($"cộng 100 xu: {coins0} → {game.AdminPick.Coins}; máy chủ báo {game.AdminLastChanges?.Count ?? -1} thay đổi; lỗi {game.AdminError ?? "không"}; nhật ký {game.AdminLogs.Count} dòng; xu trong game {game.Combat.Pc.Coins}");
             hud.Panels.Close();
+            // Quản trị đi mọi vùng: cổng vùng bỏ qua + dịch chuyển thẳng.
+            log.WriteLine($"cổng sang sa mạc với quản trị: {game.RegionGatePublic("desert") ?? "mở"}");
+            game.AdminTeleport("desert/hub");
+            yield return new WaitForSeconds(2.5f);
+            log.WriteLine($"dịch chuyển quản trị → đang ở {game.CurrentMapKey}");
+            yield return Shot("admin-teleport");
+            // Đăng xuất: lưu, huỷ phiên, tải lại scene về màn đăng nhập.
+            game.Logout();
+            yield return new WaitForSeconds(2f);
+            log.WriteLine($"đăng xuất: phiên {(OnlineSession.Current == null ? "đã đóng" : "CÒN")}, màn đăng nhập {(FindFirstObjectByType<LoginScreen>() != null ? "có" : "KHÔNG")}");
+            yield return Shot("logout");
+        }
+
+        /// <summary>
+        /// -aetherShot dir -aetherUi (offline): bản đồ vùng (vùng 1, Đầm lầy chọn Vực Sương, Sa mạc, lục địa), tab Gán ô · Phủ phép (gán thử
+        /// rồi trả lại), Cài đặt → Phím (đổi thử ô 1 sang U rồi khôi phục), biển lối ra ở mép tây Vực Sương.
+        /// </summary>
+        private IEnumerator UiTest(GameController game)
+        {
+            var hud = FindFirstObjectByType<Aether.Client.UI.Hud>();
+            for (var i = 0; i < 40 && (hud.Cinematic.Open || hud.DialogOpen); i += 1)
+            {
+                if (hud.Cinematic.Open) hud.Cinematic.Advance();
+                else game.Interact();
+                yield return new WaitForSeconds(0.1f);
+            }
+            hud.Panels.Show(Aether.Client.UI.Panels.Kind.WorldMap);
+            yield return new WaitForSeconds(0.8f);
+            yield return Shot("ui-map-here");
+            hud.Panels.TestMap("swamp", "mistchasm", false);
+            yield return new WaitForSeconds(0.8f);
+            yield return Shot("ui-map-swamp");
+            hud.Panels.TestMap("desert", null, false);
+            yield return new WaitForSeconds(0.8f);
+            yield return Shot("ui-map-desert");
+            hud.Panels.TestMap(null, null, true);
+            yield return new WaitForSeconds(0.8f);
+            yield return Shot("ui-map-continent");
+            var lo0 = new System.Collections.Generic.List<string>(game.Loadout);
+            hud.Panels.TestLoadout(game.Loadout.Count > 1 ? game.Loadout[1] : null);
+            yield return new WaitForSeconds(0.6f);
+            yield return Shot("ui-loadout");
+            if (lo0.Count > 1 && lo0[1] != null)
+            {
+                game.AssignSlot(5, lo0[1]);
+                log.WriteLine($"gán ô: chiêu {lo0[1]} ô 2 → ô 6: [{string.Join(",", game.Loadout)}]");
+                game.AssignSlot(1, lo0[1]);
+                log.WriteLine($"trả lại ô 2: [{string.Join(",", game.Loadout)}]");
+            }
+            hud.Panels.TestSettings(false);
+            yield return new WaitForSeconds(0.6f);
+            yield return Shot("ui-settings");
+            KeyBinds.Set(KeyBinds.Act.Slot1, KeyCode.U);
+            hud.Panels.TestSettings(true);
+            yield return new WaitForSeconds(0.6f);
+            yield return Shot("ui-keys");
+            log.WriteLine($"đổi phím: ô 3 = {KeyBinds.LabelOf(KeyBinds.Act.Slot1)}, phím U thuộc {KeyBinds.Of(KeyCode.U)}, ô 1 = {KeyBinds.LabelOf(KeyBinds.Act.Attack)}");
+            KeyBinds.ResetAll();
+            log.WriteLine($"khôi phục: ô 3 = {KeyBinds.LabelOf(KeyBinds.Act.Slot1)}");
+            // Thư viện dạng sách: trang tựa + mục lục chương 1, một trải trang mục, giữa lúc lật, chương Nhân vật.
+            hud.Panels.TestBook(0, 0);
+            yield return new WaitForSeconds(0.6f);
+            yield return Shot("ui-book-title");
+            hud.Panels.TestBook(0, 1);
+            yield return new WaitForSeconds(0.12f);
+            yield return Shot("ui-book-flip");
+            yield return new WaitForSeconds(0.5f);
+            yield return Shot("ui-book-entry");
+            var nch = hud.Panels.TestBookChapters;
+            hud.Panels.TestBook(nch - 1, 1);
+            yield return new WaitForSeconds(0.6f);
+            yield return Shot("ui-book-npc");
+            log.WriteLine($"sách Thư viện: {nch} chương");
+            hud.Panels.Close();
+            yield return game.ChangeMap("swamp/mistchasm", null, false);
+            yield return new WaitForSeconds(1f);
+            var gate = game.Map.exits.Find(e => e.to.StartsWith("desert/"));
+            if (gate != null)
+            {
+                game.Combat.Pc.HpMax = game.Combat.Pc.Hp = 999999;
+                game.Player.X = gate.x1 + 160;
+                game.Player.Y = (gate.y0 + gate.y1) / 2;
+                game.Player.SyncTransform();
+                yield return new WaitForSeconds(1.2f);
+                yield return Shot("ui-exit-sign");
+                // Phím M mở thẳng tầng "Map này" của map đang đứng.
+                hud.Panels.Show(Aether.Client.UI.Panels.Kind.WorldMap);
+                yield return new WaitForSeconds(0.6f);
+                yield return Shot("ui-map-local-hunt");
+                hud.Panels.Close();
+                log.WriteLine($"Vực Sương: lối sang sa mạc ở x {gate.x0}–{gate.x1}, y {gate.y0}–{gate.y1} — {gate.label}");
+            }
+            else log.WriteLine("Vực Sương: KHÔNG có lối sang sa mạc");
+            // Đứng giữa map: biển lối chỉ hiện khi lối nằm trong khung nhìn (không còn kẹp ra mép màn hình).
+            game.Player.X = game.Map.PixelWidth / 2;
+            game.Player.Y = game.Map.PixelHeight / 2;
+            game.Player.SyncTransform();
+            yield return new WaitForSeconds(1f);
+            yield return Shot("ui-exit-middle");
+            yield return BossSkillShots(game);
+        }
+
+        /// <summary>
+        /// Chiêu riêng từng boss: gọi boss cạnh người chơi (bất tử), ép tung chiêu vùng nhắm người chơi vài lần với toạ độ khác nhau (mỗi toạ
+        /// độ ra một chiêu của boss đó), chụp lúc vòng nổ. Ghi sát thương người chơi nhận để soát cân bằng.
+        /// </summary>
+        private IEnumerator BossSkillShots(GameController game)
+        {
+            var c = game.Combat;
+            c.Pc.HpMax = c.Pc.Hp = 999999;
+            yield return game.ChangeMap("human/town", "plaza", false);
+            yield return new WaitForSeconds(1f);
+            foreach (var id in new[] { "boss_demon_001", "boss_mud_hydra_001", "boss_sandworm_001", "boss_ancient_lava_golem_001", "boss_kraken_001", "dragon_ice_001" })
+            {
+                foreach (var e in new System.Collections.Generic.List<Aether.Client.Combat.Fighter>(c.Enemies)) c.RemoveEnemy(e);
+                yield return new WaitForSeconds(0.3f);
+                var p = game.Player;
+                var f = game.Population.SpawnMob(id, p.X + 170, p.Y - 20, null, null, 0, 20);
+                if (f == null)
+                {
+                    log.WriteLine($"boss {id}: không gọi được");
+                    continue;
+                }
+                f.AoeTimer = 999;
+                for (var k = 0; k < 3; k += 1)
+                {
+                    var hp0 = c.Pc.Hp;
+                    c.BossAoe(f, p.X + k * 7, p.Y + k * 3);
+                    yield return new WaitForSeconds(1.05f);
+                    yield return Shot($"boss-{id}-{k}");
+                    yield return new WaitForSeconds(0.9f);
+                    log.WriteLine($"boss {id} lượt {k}: người chơi mất {hp0 - c.Pc.Hp:0} máu (công boss {f.Stats.Atk:0})");
+                    c.Pc.Hp = c.Pc.HpMax;
+                }
+                c.RemoveEnemy(f);
+            }
         }
 
         private IEnumerator TourTest(GameController game)
@@ -774,6 +931,57 @@ namespace Aether.Client
                     yield return Shot($"t-{region}-{tag}");
                 }
             }
+        }
+
+        private IEnumerator WeatherTest(GameController game)
+        {
+            var hud = FindFirstObjectByType<Aether.Client.UI.Hud>();
+            for (var i = 0; i < 40 && (hud.Cinematic.Open || hud.DialogOpen); i += 1)
+            {
+                if (hud.Cinematic.AwaitingChoice) hud.Cinematic.Choose("sword");
+                else if (hud.Cinematic.Open) hud.Cinematic.Advance();
+                else game.Interact();
+                yield return new WaitForSeconds(0.1f);
+            }
+            game.Combat.Pc.HpMax = game.Combat.Pc.Hp = 999999;
+            Weather.Enabled = true;
+            var stops = new System.Collections.Generic.List<(string region, string hub, string spot, float dx, float dy, string hunt)>
+            {
+                ("human", "town", "plaza", -150, 110, "mossvale"),
+            };
+            foreach (var t in TourStops) stops.Add((t.region, "hub", "waystone", 0, 0, t.hunt));
+            foreach (var (region, hub, spotId, dx, dy, hunt) in stops)
+            {
+                yield return game.ChangeMap($"{region}/{hub}", null, false);
+                yield return new WaitForSeconds(1.2f);
+                var spot = game.Map?.Spot(spotId);
+                if (spot == null)
+                {
+                    log.WriteLine($"✘ {region}/{hub}: không có địa điểm {spotId}");
+                    continue;
+                }
+                game.Player.X = spot.x + dx + 70;
+                game.Player.Y = spot.y + dy + 20;
+                game.Player.SyncTransform();
+                yield return new WaitForSeconds(3f);
+                log.WriteLine($"{region}/{hub} ({game.Map.biome}): đứng cạnh cột dịch chuyển ({spot.x + dx:0},{spot.y + dy:0}), thời tiết {CountWeather()}");
+                yield return Shot($"w-{region}-hub");
+                yield return game.ChangeMap($"{region}/{hunt}", null, false);
+                yield return new WaitForSeconds(3.5f);
+                log.WriteLine($"{region}/{hunt} ({game.Map?.biome}): thời tiết {CountWeather()}");
+                yield return Shot($"w-{region}-hunt");
+            }
+            Weather.Enabled = false;
+            yield return new WaitForSeconds(0.3f);
+            log.WriteLine($"tắt thời tiết: {CountWeather()}");
+            yield return Shot("w-off");
+            Weather.Enabled = true;
+        }
+
+        private static string CountWeather()
+        {
+            var w = FindFirstObjectByType<Weather>();
+            return w == null ? "KHÔNG có" : w.Describe();
         }
 
         private IEnumerator PvpTest(GameController game)

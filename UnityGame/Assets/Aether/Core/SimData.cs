@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -40,6 +41,8 @@ namespace Aether.Core
         public int EnemyLevelSpreadMin;
         public int EnemyLevelSpreadMax;
         public int ExpCurveKnee;
+        /// <summary>skills.ts EXP_PACE: [từ cấp, hệ số EXP cần].</summary>
+        public List<(int from, double mult)> ExpPace;
         public int TalentLevelCap;
         public int MaxTier;
         public int[] TierCost;
@@ -62,6 +65,7 @@ namespace Aether.Core
             d.EnemyLevelSpreadMin = (int)skills["ENEMY_LEVEL_SPREAD"]["min"];
             d.EnemyLevelSpreadMax = (int)skills["ENEMY_LEVEL_SPREAD"]["max"];
             d.ExpCurveKnee = (int)skills["EXP_CURVE_KNEE"];
+            d.ExpPace = skills["EXP_PACE"] is JArray pace ? pace.Select(x => ((int)x[0], (double)x[1])).ToList() : null;
 
             var t = d.Modules["talents"];
             d.TalentLevelCap = (int)t["TALENT_LEVEL_CAP"];

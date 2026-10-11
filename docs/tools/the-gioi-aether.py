@@ -949,7 +949,16 @@ https://claude.ai/artifact/VTrVtPJHXUtETsssKRcx9K). Không sửa tay hai file si
 3. **M3.3b**: túi đồ + trang bị ở máy chủ, rơi đồ (máy chủ quyết), nhật ký kinh tế.
 4. Mốc 3 — **nhân vật người chơi + trang bị** (yêu cầu bắt buộc: mặc món nào hiện đúng món đó — kiếm, trượng, mũ, áo, quần, giày,
    găng): pipeline tách bộ đồ PixelLab so với nhân vật gốc → cắt 4 lớp theo vùng thân → client Unity (`CharacterView`, đồ cầm tay đang theo `GEAR_ART`). Làm thử 1 kiểu trước.
-5. Việc nhỏ chờ làm: báo cáo tin chat + lọc từ tục, bảng xếp hạng, cửa sổ Quản trị phần tin bị báo cáo (cửa sổ Quản trị cộng tiền /
+5. **Làm đẹp map** (chủ dự án 11/10/2026: "đồ vật lặp lại, cần thêm quái, xếp có trật tự") — `docs/ke-hoach-the-gioi.md` mục 5.4:
+   xếp có trật tự + trộn đồ + tô màu lại trước (0 lượt), thêm quái (20–28 con, 2 loại / map săn), vẽ mới chỉ sau phiếu duyệt.
+   Kèm: **cột dịch chuyển ở trạm vẽ đẹp hơn** (đã thống nhất một hình `rune_stone` cho mọi vùng 11/10/2026 — còn thiếu vòng phép,
+   ánh sáng, hiệu ứng dịch chuyển).
+   Kèm: **cây mỗi vùng một kiểu riêng, mỗi map một loại cây chủ đạo** (chủ dự án 11/10/2026: "cây các vùng giống nhau quá") — mục 5.6:
+   9 loài đang dùng chung giữa các vùng, loài chủ đạo mỗi map trung vị 42%; đo bằng `docs/tools/dem-cay.py`.
+   Kèm: **chiêu boss làm lại hết** (chủ dự án 11/10/2026) — 40 hình chiêu boss / rồng mới 8–11 khung → lên 12 khung, thêm mỗi boss
+   một chiêu hoành tráng chuyển pha theo máu; phần Unity 0 lượt trước, vẽ ~1.330 lượt chưa có trong ngân sách —
+   `docs/pixellab-ke-hoach-ve.md` mục "Chiêu BOSS" (chiêu người chơi: mục "Hiệu ứng chiêu NGƯỜI CHƠI", ghi từ 10/10).
+6. Việc nhỏ chờ làm: báo cáo tin chat + lọc từ tục, bảng xếp hạng, cửa sổ Quản trị phần tin bị báo cáo (cửa sổ Quản trị cộng tiền /
    điểm + nhật ký đã có trong client Unity 11/10/2026).
 
 ### Chạy / kiểm

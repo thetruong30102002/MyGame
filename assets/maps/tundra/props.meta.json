@@ -419,6 +419,18 @@
 			"h": 8
 		}
 	},
+	"rune_stone": {
+		"kind": "rock",
+		"w": 46,
+		"h": 58,
+		"blocks": true,
+		"footprint": {
+			"x": -16,
+			"y": -18,
+			"w": 32,
+			"h": 18
+		}
+	},
 	"signpost": {
 		"kind": "decor",
 		"w": 55,

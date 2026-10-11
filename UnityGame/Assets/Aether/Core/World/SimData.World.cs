@@ -73,6 +73,11 @@ namespace Aether.Core.World
                 Story.YouthEnding = y["YOUTH_ENDING"].ToObject<string[]>();
             }
             if (m.TryGetValue("story.quests", out var q)) Story.Quests = q["QUESTS"].ToObject<List<QuestDef>>();
+            if (m.TryGetValue("story.chapters", out var c))
+            {
+                Story.ChaptersEnding = c["CHAPTERS_ENDING"]?.ToObject<string[]>();
+                Story.ChapterQuests = c["CHAPTER_QUESTS"]?.ToObject<List<QuestDef>>();
+            }
         }
     }
 }

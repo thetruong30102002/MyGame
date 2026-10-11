@@ -354,7 +354,7 @@
 				},
 				{
 					"speaker": "narrator",
-					"text": "(Nhận Trượng gỗ của mẹ · rê chuột để nhắm · phím K hoặc chuột phải để tung Tia Aether · màn cảm ứng: chạm xa nhân vật.)"
+					"text": "(Nhận Trượng gỗ của mẹ · rê chuột để nhắm · chuột phải để tung Tia Aether · màn cảm ứng: chạm xa nhân vật.)"
 				}
 			],
 			"after": [
@@ -444,7 +444,7 @@
 				},
 				{
 					"speaker": "narrator",
-					"text": "(Nhận Kiếm gỗ của cha · phím J hoặc chuột trái để chém · màn cảm ứng: chạm gần nhân vật. Kiếm chỉ trúng khi đứng sát.)"
+					"text": "(Nhận Kiếm gỗ của cha · chuột trái để chém · màn cảm ứng: chạm gần nhân vật. Kiếm chỉ trúng khi đứng sát.)"
 				}
 			],
 			"after": [
@@ -512,7 +512,7 @@
 				},
 				{
 					"speaker": "narrator",
-					"text": "(Nhánh Hoả đã mở: có điểm tiềm năng thì học Hoả Cầu ở bảng Tiềm năng (P) — phím 1, tốn MP và phải chờ hồi chiêu. Chưa học thì tung Tia Aether (K) vào Ông Rơm cũng được.)"
+					"text": "(Nhánh Hoả đã mở: có điểm tiềm năng thì học Hoả Cầu ở bảng Tiềm năng (T) — phím 1, tốn MP và phải chờ hồi chiêu. Chưa học thì tung Tia Aether (chuột phải) vào Ông Rơm cũng được.)"
 				}
 			],
 			"after": [
@@ -526,7 +526,7 @@
 				},
 				{
 					"speaker": "inner",
-					"text": "Phép của mẹ không lớn: một bát nước, một ngọn lửa bếp. Nhưng mẹ vừa chỉ cho tôi sợi tơ thứ ba. (Mở nhánh Thuỷ — học Thuỷ Tiễn ở bảng Tiềm năng (P) khi có điểm.)"
+					"text": "Phép của mẹ không lớn: một bát nước, một ngọn lửa bếp. Nhưng mẹ vừa chỉ cho tôi sợi tơ thứ ba. (Mở nhánh Thuỷ — học Thuỷ Tiễn ở bảng Tiềm năng (T) khi có điểm.)"
 				},
 				{
 					"speaker": "mother_elin",
@@ -585,7 +585,7 @@
 				},
 				{
 					"speaker": "narrator",
-					"text": "(J: chém kiếm khi nấm áp sát · K: Tia Aether từ xa · Space: lăn né, tốn thể lực · R: uống bình mật ong của mẹ · mẹo: đã học Hoả Cầu và Thuỷ Tiễn (bảng Tiềm năng, P) thì bắn cả hai vào cùng một con nấm sẽ ra Hơi Nước!)"
+					"text": "(chuột trái: chém kiếm khi nấm áp sát · chuột phải: Tia Aether từ xa · Space: lăn né, tốn thể lực · R: uống bình mật ong của mẹ · mẹo: đã học Hoả Cầu và Thuỷ Tiễn (bảng Tiềm năng, P) thì bắn cả hai vào cùng một con nấm sẽ ra Hơi Nước!)"
 				},
 				{
 					"speaker": "father_garrick",
@@ -677,7 +677,7 @@
 				},
 				{
 					"speaker": "narrator",
-					"text": "(Thuỷ Tiễn làm ướt, rồi Phong Nhận: gió trúng mục tiêu đang ướt sẽ ra Băng Giá! Học hai phép này ở bảng Tiềm năng (P) khi có điểm — chưa học đủ thì tung Tia Aether (K) vào Ông Rơm cũng được.)"
+					"text": "(Thuỷ Tiễn làm ướt, rồi Phong Nhận: gió trúng mục tiêu đang ướt sẽ ra Băng Giá! Học hai phép này ở bảng Tiềm năng (T) khi có điểm — chưa học đủ thì tung Tia Aether (chuột phải) vào Ông Rơm cũng được.)"
 				},
 				{
 					"speaker": "inner",
@@ -707,7 +707,7 @@
 				},
 				{
 					"speaker": "narrator",
-					"text": "(Khuya hôm ấy, tôi tết sợi nước với sợi gió chặt thêm một vòng nữa. Lần này chúng không bay thành tuyết mà đông lại thành một mũi băng thật, lạnh buốt trong lòng bàn tay. Mở nhánh Băng — học Băng Tiễn ở bảng Tiềm năng (P) khi có điểm. Băng trúng mục tiêu ướt sẽ Đóng Băng!)"
+					"text": "(Khuya hôm ấy, tôi tết sợi nước với sợi gió chặt thêm một vòng nữa. Lần này chúng không bay thành tuyết mà đông lại thành một mũi băng thật, lạnh buốt trong lòng bàn tay. Mở nhánh Băng — học Băng Tiễn ở bảng Tiềm năng (T) khi có điểm. Băng trúng mục tiêu ướt sẽ Đóng Băng!)"
 				}
 			],
 			"objectiveTextAether": "Tung Tia Aether vào Ông Rơm bên sông ({n}/{total})",

@@ -1004,6 +1004,20 @@
 		}
 	},
 	"EXP_CURVE_KNEE": 10,
+	"EXP_PACE": [
+		[
+			1,
+			1
+		],
+		[
+			6,
+			1.5
+		],
+		[
+			11,
+			2.5
+		]
+	],
 	"HERO_SKILLS": [
 		{
 			"id": "slash",
@@ -1011,8 +1025,8 @@
 			"name": "Trảm",
 			"element": "steel",
 			"mpCost": 0,
-			"cooldown": 0.38,
-			"power": 1.25,
+			"cooldown": 0.6,
+			"power": 1.97,
 			"kind": "melee",
 			"range": 74,
 			"unlock": "sword",
@@ -1025,8 +1039,8 @@
 			"name": "Tia Aether",
 			"element": "aether",
 			"mpCost": 0,
-			"cooldown": 0.42,
-			"power": 1,
+			"cooldown": 0.65,
+			"power": 1.55,
 			"kind": "projectile",
 			"speed": 420,
 			"range": 380,

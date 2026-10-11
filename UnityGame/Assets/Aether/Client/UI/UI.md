@@ -70,6 +70,20 @@ theo GameObject), không phải tween lặp vô hạn.
   buộc; dòng "Sẽ đổi: Xu 100 → 200 (+100)" tính bằng chính `ApplyAdminEco` của máy chủ; Áp dụng bấm hai lần; phải là nhật ký gộp
   theo từng lần cộng. Máy chủ kiểm lại mọi thứ và đẩy số mới vào game của người đang online.
 
+Điều khiển + phím (11/10/2026): **chuột trái = ô 1 (chém), chuột phải = ô 2 (phép thường)** — bỏ hẳn phím J / K, thanh chiêu PC chỉ còn
+8 ô (phím 1–8), điện thoại giữ đủ 10 ô chạm; giữ chuột = đánh liên tục; nhấp trúng quái
+thì chọn nó làm mục tiêu rồi đánh, nhấp trúng NPC thì nói chuyện. **Mọi phím đổi được** ở Cài đặt → Phím (`KeyBinds`, lưu PlayerPrefs; trùng
+phím thì hai việc đổi chỗ; cố định Esc, mũi tên, chuột) — nhãn phím trên thanh chiêu, bảng phím, tab cửa sổ tự đổi theo. **Gán chiêu vào ô** ở
+Tiềm năng → Gán ô · Phủ phép (bấm chiêu rồi bấm ô, ô có chiêu thì đổi chỗ, nút Gỡ khỏi ô) cùng thẻ **phủ phép Kiếm** đủ 5 hệ (đang phủ /
+phủ được / chưa đủ + điều kiện). Laptop màn cảm ứng: cụm nút mobile chỉ hiện sau khi chạm màn, bấm phím / rê chuột là ẩn (`GameInput.TouchUi`).
+**Đăng xuất**: Cài đặt → Chung (bấm hai lần) — lưu chắc, huỷ phiên ở máy chủ, tải lại scene về màn đăng nhập.
+
+Bản đồ (M — `Panels.WorldMap.cs`, 11/10/2026: "map vùng đang rối… để biết mà đi"): mở là bản đồ VÙNG đang đứng, mỗi map là minimap thật
+đặt theo lưới địa lý, đường nối chạy đúng chỗ lối ra, chấm vàng = mình, viền xanh + "!" = map nhiệm vụ, ◆ cam = lối sang vùng khác. Bấm map:
+quái, boss, lối theo hướng (kèm điều kiện cổng vùng), đường đi từ chỗ mình, nút **Tự đi tới đây** (bộ tự đi đi qua các lối) và **Dịch chuyển**
+cho quản trị (quản trị cũng bỏ qua cổng vùng). Trong map: **biển lối ra** neo tại lối như bản web (11/10/2026 — mũi tên vàng đôi nhấp nhô + nhãn nơi đến, chỉ hiện khi lối nằm trong khung nhìn, nhích ra khỏi chỗ HUD che; lối sang vùng khác ghi điều kiện, đỏ nếu chưa đủ);
+bản đồ nhỏ có chấm lối ra (cam = sang vùng khác).
+
 Ô nhiệm vụ (phải trên, dưới bản đồ nhỏ — `QuestTracker`): tên nhiệm vụ + việc cần làm; **bấm = tự đi** tới chỗ làm nhiệm vụ, bấm lại =
 dừng (dòng xanh "▶ Đang tự đi · …"). Bộ tự đi (`AutoWalker` + `GameController.AutoWalk.cs`, chép `AutoWalk.ts` của web) tìm đường A*
 trên `NavGrid` và bơm hướng đi như phím nên tốc độ, trượt trục, hoạt ảnh, gói vị trí y như người chơi tự đi; mục tiêu ở map khác thì đi
@@ -90,3 +104,13 @@ lấy khung đứng của chính nhân vật (chân dung PixelLab của bản nh
 - Hud KHÔNG giữ bản sao trạng thái: mỗi khung đọc từ `GameController` (`Combat.Pc`, `Focus`, `Loadout`, `Map`…).
 - Chữ hiển thị viết thẳng tiếng Việt trong code (chưa có hệ đa ngôn ngữ cho bản Unity).
 - Thêm khối mới: dựng bằng `UiKit` (Rect / Panel / Sprite / Label / MakeBar / Press) để cùng một kiểu chữ, viền, màu.
+
+**Thư viện = quyển sách** (11/10/2026, `Panels.Book.cs`): bìa da viền vàng, hai trang giấy cũ sinh trong code, dải đánh dấu chương trên đầu
+sách (mỗi vùng một chương + Nhân vật), trang tựa + mục lục rồi mỗi trang một mục; lật bằng góc trang hoặc ← → / PageUp PageDown, có
+hoạt cảnh tờ giấy lật qua gáy. Chưa gặp = bóng đen + "???". AutoTest `-aetherUi` chụp `ui-book-*`.
+
+**Bản đồ 3 tầng** (11/10/2026, `Panels.WorldMap.cs`): phím M mở thẳng **Map này** (map đang đứng phóng lớn trên giấy cũ: bầy quái + cấp +
+số con, boss, cột dịch chuyển, NPC, lối ra « » ▲ ▼ kèm nơi đến, chấm bạn; nhãn tự tránh chồng, nhãn NPC chật chỗ thì ẩn). Thanh trên:
+**Map này › Vùng › Lục địa**; lăn chuột xuống / chuột phải = ra một tầng, lăn lên = vào (map đang chọn / vùng đang ở). Tầng Vùng: nền giấy,
+đường mực đứt, huy hiệu cấp theo độ khó so với cấp mình (xám dễ · xanh vừa · cam khó · đỏ rất khó), BOSS / RỒNG, vòng sáng + cờ "Bạn ở
+đây"; bấm 2 lần vào một map = mở tầng Map của nó. Khung phải: ảnh xem trước, quái kèm chân dung / cấp / số con, lối ra, đường đi.

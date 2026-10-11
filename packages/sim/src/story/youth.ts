@@ -50,6 +50,13 @@ export const YOUTH_NPCS: Record<string, NpcDef> = {
 	},
 };
 
+export const YOUTH_ENDING: string[] = [
+	'Con quỷ tan thành tro dưới ánh trăng. Sợi đỏ phía bắc rừng đứt phựt, như dây đàn lên quá tay.',
+	'Trên mu bàn tay tôi hằn lên một ký hiệu lạ: một nút thắt. Đúng hình nút thắt trên đồng xu cũ của bác Bram.',
+	'Trong túi áo, đồng xu nóng ran, rồi nguội dần theo nhịp tim tôi.',
+	'Về tới đầu cầu, tôi thấy một bóng người cầm đèn đứng chờ. Là cha. Tôi gọi trước khi cha kịp gọi.',
+];
+
 export const YOUTH_QUESTS: QuestDef[] = [
 	{
 		id: 'y1_mushrooms',
@@ -105,7 +112,7 @@ export const YOUTH_QUESTS: QuestDef[] = [
 			{ speaker: 'inner', text: 'Kiếp trước, giỗ ông nội năm nào tôi cũng hẹn “năm sau con về”. Tới cuối cùng, tôi vẫn không biết mộ ông nằm ở hàng thứ mấy.' },
 			{ speaker: 'narrator', text: '(Tôi đặt tay lên mặt đá. Sợi đất không xoắn theo ngón tay như sợi lửa, cũng không chảy theo tay như sợi nước. Nó không chiều ai cả. Nó chỉ chờ xem người chạm vào có chịu đứng yên không.)' },
 			{ speaker: 'inner', text: 'Tôi đứng yên. Lâu tới mức quên cả đếm. Rồi dưới lòng bàn tay, một sợi nâu khẽ siết lại — như có ai vừa nắm lấy tay tôi.' },
-			{ speaker: 'narrator', text: '(Một hòn đá nhỏ dưới chân bia tự lăn tới mũi giày tôi. Mở nhánh Thổ — học Đá Văng (ném đá, đẩy lùi) ở bảng Tiềm năng (P) khi có điểm.)' },
+			{ speaker: 'narrator', text: '(Một hòn đá nhỏ dưới chân bia tự lăn tới mũi giày tôi. Mở nhánh Thổ — học Đá Văng (ném đá, đẩy lùi) ở bảng Tiềm năng (T) khi có điểm.)' },
 		],
 	},
 	{
@@ -125,7 +132,7 @@ export const YOUTH_QUESTS: QuestDef[] = [
 		before: [
 			{ speaker: 'inner', text: 'Học được phép mới mà tung bừa giữa nghĩa địa thì không phải ý hay. Phải thử ở chỗ an toàn trước đã.' },
 			{ speaker: 'inner', text: 'Ông Rơm ở sân sau nhà tôi đã sống sót qua lửa, nước, gió và băng. Thêm vài hòn đá chắc cũng không sao.' },
-			{ speaker: 'narrator', text: '(Đá Văng học ở bảng Tiềm năng (P) khi có điểm. Chưa học thì tung Tia Aether (K) vào Ông Rơm cũng được.)' },
+			{ speaker: 'narrator', text: '(Đá Văng học ở bảng Tiềm năng (T) khi có điểm. Chưa học thì tung Tia Aether (chuột phải) vào Ông Rơm cũng được.)' },
 		],
 		onReady: [
 			{ speaker: 'inner', text: 'Phát đầu lăn lông lốc dưới đất. Phát thứ hai bay lệch, trúng ngay chậu húng quế của mẹ. Phát thứ ba trúng bụng, Ông Rơm ngả hẳn về sau rồi mới bật dậy.' },
@@ -172,15 +179,11 @@ export const YOUTH_QUESTS: QuestDef[] = [
 		turnIn: 'auto',
 		reward: { exp: 300 },
 		before: [{ speaker: 'inner', text: 'Sợi đỏ giờ dày như sợi thừng, rỉ ra từ dưới tảng đá phong ấn phía bắc khoảng trống. Việc cần làm thì làm ngay. Chân tôi không còn ngắn nữa.' }],
-		after: [],
+		// Thẻ kết vùng 1 cũ (YOUTH_ENDING) nay là thoại sau trận — chương sau nối tiếp (chapters.ts).
+		after: YOUTH_ENDING.map((text) => ({ speaker: 'inner', text })),
 		onGive: { awakenBoss: true },
 	},
 ];
 
 /** Mầm bí ẩn gắn vào VẬT (nút thắt trên tay, đồng xu của Bram) chứ không phải một giọng nói/ý chí — xem docs/story.md. */
-export const YOUTH_ENDING: string[] = [
-	'Con quỷ tan thành tro dưới ánh trăng. Sợi đỏ phía bắc rừng đứt phựt, như dây đàn lên quá tay.',
-	'Trên mu bàn tay tôi hằn lên một ký hiệu lạ: một nút thắt. Đúng hình nút thắt trên đồng xu cũ của bác Bram.',
-	'Trong túi áo, đồng xu nóng ran, rồi nguội dần theo nhịp tim tôi.',
-	'Về tới đầu cầu, tôi thấy một bóng người cầm đèn đứng chờ. Là cha. Tôi gọi trước khi cha kịp gọi.',
-];
+

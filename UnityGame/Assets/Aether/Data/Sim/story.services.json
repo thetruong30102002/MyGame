@@ -4,7 +4,7 @@
 			"name": "Cột dịch chuyển",
 			"title": "Thung lũng Thistlewood",
 			"sprite": null,
-			"prop": "stone_lantern",
+			"prop": "rune_stone",
 			"at": {
 				"spot": "plaza",
 				"dx": -150,
@@ -23,7 +23,7 @@
 			"name": "Cột dịch chuyển",
 			"title": "Đầm lầy Mù Sương",
 			"sprite": null,
-			"prop": "stone_lantern",
+			"prop": "rune_stone",
 			"at": {
 				"spot": "waystone",
 				"dx": 0,
@@ -42,7 +42,7 @@
 			"name": "Cột dịch chuyển",
 			"title": "Sa mạc Hồng Cát",
 			"sprite": null,
-			"prop": "stone_lantern",
+			"prop": "rune_stone",
 			"at": {
 				"spot": "waystone",
 				"dx": 0,
@@ -61,7 +61,7 @@
 			"name": "Cột dịch chuyển",
 			"title": "Cao nguyên Gió Hú",
 			"sprite": null,
-			"prop": "stone_lantern",
+			"prop": "rune_stone",
 			"at": {
 				"spot": "waystone",
 				"dx": 0,
@@ -80,7 +80,7 @@
 			"name": "Cột dịch chuyển",
 			"title": "Lãnh nguyên Băng Giá",
 			"sprite": null,
-			"prop": "stone_lantern",
+			"prop": "rune_stone",
 			"at": {
 				"spot": "waystone",
 				"dx": 0,
@@ -99,7 +99,7 @@
 			"name": "Cột dịch chuyển",
 			"title": "Núi lửa Hoả Sơn",
 			"sprite": null,
-			"prop": "stone_lantern",
+			"prop": "rune_stone",
 			"at": {
 				"spot": "waystone",
 				"dx": 0,
@@ -118,7 +118,7 @@
 			"name": "Cột dịch chuyển",
 			"title": "Quần đảo San Hô",
 			"sprite": null,
-			"prop": "stone_lantern",
+			"prop": "rune_stone",
 			"at": {
 				"spot": "waystone",
 				"dx": 0,
@@ -137,12 +137,13 @@
 			"name": "Bia Danh Vọng",
 			"title": "Quảng trường Thistlewood",
 			"sprite": null,
-			"prop": "rune_stone",
+			"prop": "rune_tablet",
 			"at": {
 				"spot": "plaza",
 				"dx": 110,
 				"dy": -40
 			},
+			"region": "human",
 			"ages": [
 				0,
 				99

@@ -1328,6 +1328,9 @@ async function buildVfx(): Promise<void> {
 	// Atlas phụ `vfx-ult` (tuyệt kỹ mốc 10 — chỉ phòng tập tải): cùng cách đóng, chỉ khác tấm.
 	const ultItems: { id: string; img: RGBAImage }[] = [];
 	const ultAnimations: Record<string, string[]> = {};
+	// Atlas phụ `vfx-boss` (chiêu boss vùng + rồng): tách tấm để atlas chính không vượt 4096.
+	const bossItems: { id: string; img: RGBAImage }[] = [];
+	const bossAnimations: Record<string, string[]> = {};
 	const byPixelLab: string[] = [];
 	const legacy: string[] = [];
 	for (const def of VFX) {
@@ -1359,13 +1362,13 @@ async function buildVfx(): Promise<void> {
 			frames = buildVfxFrames(def, src);
 			legacy.push(def.id);
 		}
-		const ult = def.atlas === 'ult';
-		(ult ? ultAnimations : animations)[def.id] = frames.map((img, i) => {
+		const [anims, list] = def.atlas === 'ult' ? [ultAnimations, ultItems] : def.atlas === 'boss' ? [bossAnimations, bossItems] : [animations, items];
+		anims[def.id] = frames.map((img, i) => {
 			const id = `vfx/${def.id}_${i}`;
-			(ult ? ultItems : items).push({ id, img });
+			list.push({ id, img });
 			return id;
 		});
-		if (!ult) rows.push(frames);
+		if (!def.atlas) rows.push(frames);
 	}
 	const outDir = join(WEB_ASSETS, 'vfx');
 	const writeAtlas = (name: string, list: { id: string; img: RGBAImage }[], anims: Record<string, string[]>): { w: number; h: number } => {
@@ -1389,6 +1392,10 @@ async function buildVfx(): Promise<void> {
 	if (ultItems.length) {
 		const u = writeAtlas('vfx-ult', ultItems, ultAnimations);
 		console.log(`  atlas tuyệt kỹ (vfx-ult, chỉ phòng tập): ${Object.keys(ultAnimations).length} hiệu ứng, ${ultItems.length} frame → ${u.w}×${u.h}`);
+	}
+	if (bossItems.length) {
+		const b = writeAtlas('vfx-boss', bossItems, bossAnimations);
+		console.log(`  atlas chiêu boss + rồng (vfx-boss): ${Object.keys(bossAnimations).length} hiệu ứng, ${bossItems.length} frame → ${b.w}×${b.h}`);
 	}
 	console.log(`  PixelLab vẽ (${byPixelLab.length}): ${byPixelLab.join(', ') || '—'}`);
 	console.log(`  còn bản cũ sinh từ ảnh tĩnh (${legacy.length}): ${legacy.join(', ') || '—'}`);

@@ -65,7 +65,13 @@ export interface KitMapSpec {
 	theme: KitTheme;
 	zones?: readonly KitZone[];
 	boss?: KitBoss;
-	hub?: { buildings: readonly string[]; decor: readonly string[]; waystone: string; plaza: 'c' | 'd' };
+	hub?: { buildings: readonly string[]; decor: readonly string[]; plaza: 'c' | 'd' };
+	/**
+	 * Map săn: chọn loài cây CHỦ ĐẠO (chỉ số vào danh sách loài của chủ đề, quay vòng) — ~2/3 số cây là loài này + 2 loài điểm xuyết,
+	 * và hàng cây đều nhịp dọc đường (chủ dự án 11/10/2026: "mỗi map 1 loại cây", "đồ vật xếp có trật tự"; ke-hoach-the-gioi 5.4 / 5.6).
+	 * Vắng = trộn đều mọi loài như cũ (trạm, thánh địa).
+	 */
+	treeMain?: number;
 }
 
 /** Lối sang map khác của một map (do `buildKitRegion` dựng từ đồ thị lối của vùng). */
@@ -121,6 +127,8 @@ export function buildKitMap(spec: KitMapSpec, exits: readonly KitExit[], meta: R
 	// Món chủ đề chưa có ảnh (đợt vẽ thêm chưa xong) thì lọc bỏ trước — không để lượt đặt rơi vào món thiếu làm map thưa đi.
 	const has = (ids: readonly string[]): string[] => ids.filter((id) => meta[id]);
 	const t: KitTheme = { ...spec.theme, trees: has(spec.theme.trees), rocks: has(spec.theme.rocks), flats: has(spec.theme.flats), landmarks: has(spec.theme.landmarks) };
+	const mainTrees = spec.treeMain !== undefined ? dominantTrees(t.trees, spec.treeMain) : null;
+	if (mainTrees) t.trees = mainTrees.all;
 	const L = new Layout(spec.w, spec.h, spec.seed, meta, t.fill);
 	const R = (a: number, b: number): number => a + L.rand() * (b - a);
 	const Ri = (a: number, b: number): number => Math.floor(R(a, b + 1));
@@ -238,7 +246,8 @@ export function buildKitMap(spec: KitMapSpec, exits: readonly KitExit[], meta: R
 	// Trạm: nhà quanh quảng trường + cột dịch chuyển + đồ lặt vặt.
 	if (hub && spec.hub) {
 		const ws = { x: px(J.x + 2), y: px(J.y - 2) };
-		L.place(spec.hub.waystone, ws.x, ws.y, { force: true });
+		// Cột dịch chuyển là NPC dịch vụ (`rune_stone`, `@aether/sim/story/services`) đứng ở địa điểm `waystone` — không đặt thêm đá
+		// trang trí trùng chỗ (11/10/2026: mỗi vùng một kiểu đá chồng lên NPC, chủ dự án: "cần thống nhất 1 đá dịch chuyển").
 		spots.push({ id: 'waystone', name: 'Cột dịch chuyển', x: ws.x, y: ws.y + 34, r: 80 });
 		spots.push({ id: 'plaza', name: spec.name, x: px(J.x), y: px(J.y), r: 200 });
 		const roadDir = exitInfo.map(({ e }) => ({ N: -Math.PI / 2, S: Math.PI / 2, E: 0, W: Math.PI }[e.edge]));
@@ -306,6 +315,16 @@ export function buildKitMap(spec: KitMapSpec, exits: readonly KitExit[], meta: R
 	const area = spec.w * spec.h;
 	const ground = (x: number, y: number): string => L.at(Math.floor(x / TILE), Math.floor(y / TILE));
 	if (t.trees.length) {
+		// Hàng cây chủ đạo dọc đường (nền trống, map săn): ô cách mép đường đúng 2 ô, cứ ~4 ô một cây, lệch nhẹ cho khỏi cứng — đặt
+		// TRƯỚC khi rải để hàng giữ được chỗ. Chỉ thêm đồ vật (đường / bãi / lối / địa điểm đã xong ở trên) nên toạ độ khu quái không đổi.
+		if (mainTrees && t.fill === 'g') {
+			const rd = distanceField(L, isRoad);
+			for (let y = 3; y < spec.h - 3; y += 1)
+				for (let x = 3; x < spec.w - 3; x += 1) {
+					if (rd[y * spec.w + x] !== 2 || (x * 3 + y * 5) % 4 !== 0 || L.at(x, y) === 'w') continue;
+					L.place(L.pick(mainTrees.main), px(x) + R(-6, 6), px(y) + TILE / 2 + R(-4, 4), { canopy: true });
+				}
+		}
 		L.scatter(Math.round((area * t.treeDensity) / 100), (x, y) => L.place(L.pick(t.trees), x, y, { canopy: true }));
 		// Viền: cây dày trong 3 ô sát mép (trừ quanh lối — đã giữ trống) để map có bờ tự nhiên.
 		L.scatter(Math.round((spec.w + spec.h) * 9), (x, y) => {
@@ -359,6 +378,25 @@ export function buildKitMap(spec: KitMapSpec, exits: readonly KitExit[], meta: R
 		],
 		exits: mapExits,
 	});
+}
+
+/** Bản lật gương (`_flip`) cùng loài với bản gốc. */
+const species = (id: string): string => id.replace(/_flip$/, '');
+
+/**
+ * Danh sách cây có loài chủ đạo: loài thứ `k` (quay vòng) lặp lại để chiếm ~2/3 lượt rải, cộng 2 loài kế tiếp làm điểm xuyết. Map
+ * săn nối nhau mang `k` liên tiếp nên hai map kề không cùng loài chủ đạo (khi chủ đề có ≥ 2 loài).
+ */
+function dominantTrees(trees: readonly string[], k: number): { main: string[]; all: string[] } {
+	const kinds = [...new Set(trees.map(species))];
+	if (kinds.length < 2) return { main: [...new Set(trees)], all: [...trees] };
+	const mainKind = kinds[k % kinds.length]!;
+	const accents = new Set([kinds[(k + 1) % kinds.length]!, kinds[(k + 2) % kinds.length]!]);
+	accents.delete(mainKind);
+	const main = [...new Set(trees.filter((id) => species(id) === mainKind))];
+	const extra = [...new Set(trees.filter((id) => accents.has(species(id))))];
+	const reps = Math.max(1, Math.ceil(8 / main.length));
+	return { main, all: [...Array.from({ length: reps }, () => main).flat(), ...extra] };
 }
 
 /**

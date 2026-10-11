@@ -44,7 +44,7 @@ namespace Aether.Client
             s = state;
             quests = book.Quests ?? new List<QuestDef>();
             ageCards = new Dictionary<int, string[]>(book.ChildhoodAgeCards ?? new Dictionary<int, string[]>()) { [16] = book.TimeSkip ?? new string[0] };
-            ending = book.YouthEnding ?? new string[0];
+            ending = book.ChaptersEnding ?? book.YouthEnding ?? new string[0];
             this.npcName = npcName;
             this.events = events;
             this.save = save;

@@ -92,3 +92,13 @@ giờ chết. Duyệt xong thì mạch này thay phần Chương 2–7 (7 lục 
 - Engine: `StoryDirector.ts` (máy trạng thái chạy theo dữ liệu), `ages.ts` (khoá phím theo tuổi).
 - Kiểm thử: `npx tsx apps/web/tests/story.test.ts`. Test này kiểm mọi tham chiếu (NPC, địa điểm,
   vùng quái, phép) với map thật, rồi tự chơi hết từ 4 tuổi tới màn kết.
+
+## Đã lên game: mạch chính vùng 1–7 + các vị thần (11/10/2026)
+
+Chủ dự án 11/10/2026: "update nhiệm vụ, cốt truyện… mỗi vùng sẽ có 1 vị thần cần phải vẽ thật đẹp (mai sau sẽ bán skill nhân vật thần)",
+"cứ đặt NPC trước, PixelLab vẽ xong thì thay sau". `packages/sim/src/story/chapters.ts`: sau Quỷ vương là nhiệm vụ gặp **Mẫu Thần Verdea**
+ở bia đá cổ, rồi mỗi vùng 2–7 có 8 nhiệm vụ bám bản nháp `docs/cot-truyen-aether.md` (tới trạm gặp người giao việc → 3 bầy quái mỗi
+bầy một mảnh chuyện → 2 boss khu → boss chúa → gặp thần của vùng ở thánh địa). Lựa chọn rẽ nhánh, ai sống ai chết và nhiệm vụ phụ
+còn chờ duyệt (mục "Cần duyệt" của bản nháp) nên lời thoại để ngỏ ở các chỗ đó. Người giao việc mượn sprite NPC vùng 1, thần là tượng
+đá có sẵn của vùng — thay khi PixelLab vẽ xong (`docs/pixellab-ke-hoach-ve.md` mục "Mười vị thần"). Tự đi (ô nhiệm vụ) dẫn qua lối
+sang vùng kế khi mục tiêu ở vùng khác.

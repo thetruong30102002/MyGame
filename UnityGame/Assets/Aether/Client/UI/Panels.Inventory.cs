@@ -7,9 +7,9 @@ using UnityEngine;
 namespace Aether.Client.UI
 {
     /// <summary>
-    /// Tab Túi đồ: trái là người + 10 ô đang mặc (bản gọn của tab Nhân vật), phải là hành trang 8×3 (BAG_SIZE 24 của luật) + thẻ chi
-    /// tiết món đang chọn. Bấm một ô = xem, bấm đúp = làm luôn việc chính (mặc / tháo / uống). Bình hồi phục là chồng ẢO dựng từ
-    /// `Pc.Potions` (như web — HUD, phím R và máy chủ đọc con số đó), xu nằm ở ví trên đầu túi.
+    /// Hành trang (8×3, BAG_SIZE 24 của luật) + thẻ chi tiết món đang chọn — nằm trong tab Nhân vật từ 11/10/2026 (`BuildCharacter`).
+    /// Bấm một ô = xem, bấm đúp = làm luôn việc chính (mặc / tháo / uống). Bình hồi phục là chồng ẢO dựng từ `Pc.Potions` (HUD, phím R
+    /// và máy chủ đọc con số đó), xu nằm ở ví trên đầu túi.
     /// </summary>
     public sealed partial class Panels
     {
@@ -20,47 +20,6 @@ namespace Aether.Client.UI
         private string selSlot;
         private string lastClickUid;
         private float lastClickT;
-
-        private void BuildInventory()
-        {
-            var eq = Box(content, "Equip", new Vector2(0, 1), new Vector2(0, 1), Vector2.zero, new Vector2(286, 534), 0.4f);
-            Text(eq, "T", new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -10), new Vector2(260, 22), "ĐANG MẶC", 14, UiStyle.Gold, TextAnchor.MiddleCenter, true)
-                .characterSpacing = 4;
-            Paperdoll(eq, new Vector2(0, -306), 2, 54, 64, -42, 12, true);
-            var sum = Box(eq, "Bonus", new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(0, 12), new Vector2(262, 116), 0.5f);
-            Text(sum, "T", new Vector2(0, 1), new Vector2(0, 1), new Vector2(14, -10), new Vector2(240, 18), "Chỉ số từ trang bị", 13, UiStyle.Gold, TextAnchor.MiddleLeft, true);
-            var lines = StatLines(game.Combat.Gear, "   ");
-            var st = Text(sum, "S", new Vector2(0, 1), new Vector2(0, 1), new Vector2(14, -32), new Vector2(236, 76),
-                lines.Length > 0 ? lines : "Đồ khởi đầu chưa cộng chỉ số. Đồ tốt hơn rơi từ quái và boss.", 13, lines.Length > 0 ? UiStyle.Hex(0x7be07f) : UiKit.TextDim,
-                TextAnchor.UpperLeft);
-            st.textWrappingMode = TextWrappingModes.Normal;
-
-            var bag = Box(content, "Bag", new Vector2(0, 1), new Vector2(0, 1), new Vector2(298, 0), new Vector2(596, 534), 0.4f);
-            var items = BagItems();
-            var size = game.EquipmentRules.Tables.BagSize;
-            UiKit.Icon(UiKit.Rect(bag, "Ic", new Vector2(0, 1), new Vector2(0.5f, 0.5f), new Vector2(38, -26), new Vector2(32, 34)), hud.UiIcon("icon_backpack"));
-            Text(bag, "T", new Vector2(0, 1), new Vector2(0, 0.5f), new Vector2(62, -26), new Vector2(200, 26),
-                $"Hành trang  <size=14><color=#b8bcc8>{items.Count} / {size}</color></size>", 19, UiStyle.Paper, TextAnchor.MiddleLeft, true);
-            Chip(bag, new Vector2(-16, -26), 150, "icon_coins", game.Combat.Pc.Coins.ToString("#,0"), UiStyle.GoldHi);
-            Chip(bag, new Vector2(-176, -26), 92, "icon_potion", game.Combat.Pc.Potions.ToString(), UiStyle.Paper);
-
-            const float cell = 64, gap = 6;
-            var x0 = (596 - (BagCols * cell + (BagCols - 1) * gap)) / 2;
-            for (var i = 0; i < size; i += 1)
-            {
-                var pos = new Vector2(x0 + (i % BagCols) * (cell + gap), -52 - (i / BagCols) * (cell + gap));
-                if (i >= items.Count)
-                {
-                    ItemCell(bag, "Cell" + i, new Vector2(0, 1), new Vector2(0, 1), pos, cell, null, null, false);
-                    continue;
-                }
-                var (uid, def, stack, n) = items[i];
-                var rt = ItemCell(bag, "Cell" + i, new Vector2(0, 1), new Vector2(0, 1), pos, cell, def, stack, selUid == uid, n);
-                UiKit.Press(rt, () => ClickBag(uid));
-            }
-            var detail = Box(bag, "Detail", new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(0, 12), new Vector2(568, 246), 0.62f);
-            BuildDetail(detail, items);
-        }
 
         /// <summary>Đồ trong túi theo thứ tự hiển thị: chồng bình ảo trước, rồi túi thật.</summary>
         private List<(string uid, ItemDef def, ItemStack stack, double n)> BagItems()
@@ -135,32 +94,32 @@ namespace Aether.Client.UI
             }
             var rules = game.EquipmentRules;
             var t = rules.Tables;
-            ItemCell(box, "Big", new Vector2(0, 1), new Vector2(0, 1), new Vector2(18, -18), 96, def, stack, false, n);
-            Text(box, "Name", new Vector2(0, 1), new Vector2(0, 1), new Vector2(130, -16), new Vector2(420, 28), def.Name, 21, RarityText(def.Rarity), TextAnchor.MiddleLeft, true, true);
+            ItemCell(box, "Big", new Vector2(0, 1), new Vector2(0, 1), new Vector2(16, -16), 80, def, stack, false, n);
+            Text(box, "Name", new Vector2(0, 1), new Vector2(0, 1), new Vector2(112, -12), new Vector2(440, 26), def.Name, 19, RarityText(def.Rarity), TextAnchor.MiddleLeft, true, true);
             var kindName = def.Kind == "equip" && def.Equip != null && t.KindName.TryGetValue(def.Equip, out var kn) ? kn : def.Kind == "consumable" ? "Tiêu hao" : "Vật phẩm";
             var rarity = def.Rarity != null && t.RarityName.TryGetValue(def.Rarity, out var rn) ? rn : null;
             var sub = new StringBuilder(kindName);
             if (rarity != null) sub.Append("  ·  ").Append(rarity);
             if (def.Bound == true) sub.Append("  ·  Gắn với nhân vật");
             if (where != null) sub.Append("  ·  ").Append(where);
-            Text(box, "Sub", new Vector2(0, 1), new Vector2(0, 1), new Vector2(130, -44), new Vector2(420, 20), sub.ToString(), 13, UiKit.TextDim);
+            Text(box, "Sub", new Vector2(0, 1), new Vector2(0, 1), new Vector2(112, -38), new Vector2(440, 18), sub.ToString(), 12, UiKit.TextDim);
 
-            var y = -70f;
+            var y = -60f;
             if (def.Kind == "equip")
             {
                 var lines = StatLines(rules.StackStats(stack ?? new ItemStack { Id = def.Id }), "\n");
-                Text(box, "Stats", new Vector2(0, 1), new Vector2(0, 1), new Vector2(130, y), new Vector2(260, 60), lines.Length > 0 ? lines : "Không cộng chỉ số", 14,
+                Text(box, "Stats", new Vector2(0, 1), new Vector2(0, 1), new Vector2(112, y), new Vector2(260, 60), lines.Length > 0 ? lines : "Không cộng chỉ số", 14,
                     lines.Length > 0 ? UiStyle.Hex(0x7be07f) : UiKit.TextDim, TextAnchor.UpperLeft, true);
                 if (def.LevelReq is double lr && lr > game.Combat.Pc.Level)
                     Text(box, "Req", new Vector2(0, 1), new Vector2(0, 1), new Vector2(400, y), new Vector2(150, 20), $"Cần cấp {lr:0}", 13, UiStyle.Hex(0xff7a6b), TextAnchor.UpperLeft, true);
-                y -= 24 * Mathf.Max(1, lines.Split('\n').Length);
+                y -= 20 * Mathf.Max(1, lines.Split('\n').Length);
             }
             if (!string.IsNullOrEmpty(def.Effect))
             {
-                Text(box, "Fx", new Vector2(0, 1), new Vector2(0, 1), new Vector2(130, y - 2), new Vector2(420, 20), "• " + def.Effect, 14, UiStyle.GoldHi, TextAnchor.MiddleLeft, true);
+                Text(box, "Fx", new Vector2(0, 1), new Vector2(0, 1), new Vector2(112, y - 2), new Vector2(440, 20), "• " + def.Effect, 13, UiStyle.GoldHi, TextAnchor.MiddleLeft, true);
                 y -= 26;
             }
-            var desc = Text(box, "Desc", new Vector2(0, 1), new Vector2(0, 1), new Vector2(130, y - 6), new Vector2(240, 90), def.Desc ?? "", 13, UiStyle.Parchment, TextAnchor.UpperLeft);
+            var desc = Text(box, "Desc", new Vector2(0, 1), new Vector2(0, 1), new Vector2(112, y - 4), new Vector2(270, 60), def.Desc ?? "", 12, UiStyle.Parchment, TextAnchor.UpperLeft);
             desc.fontStyle = FontStyles.Italic;
             desc.textWrappingMode = TextWrappingModes.Normal;
 
@@ -171,7 +130,7 @@ namespace Aether.Client.UI
             if (label != null)
             {
                 var ok = selUid != PotionUid || game.Combat.Pc.Hp < game.Combat.Pc.HpMax;
-                GoldButton(box, "Act", new Vector2(1, 0), new Vector2(1, 0), new Vector2(-16, 16), new Vector2(160, 48), ok ? label : "Máu đang đầy", Primary, ok);
+                GoldButton(box, "Act", new Vector2(1, 0), new Vector2(1, 0), new Vector2(-14, 14), new Vector2(150, 44), ok ? label : "Máu đang đầy", Primary, ok);
             }
         }
 

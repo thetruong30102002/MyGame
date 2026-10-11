@@ -656,7 +656,7 @@
 				"tier": 1,
 				"kind": "active",
 				"name": "Trảm",
-				"desc": "Nhát chém cơ bản, giữ phím để chém liên tục. uy lực ×1,25 · không tốn MP · hồi 0,38s",
+				"desc": "Nhát chém cơ bản, giữ phím để chém liên tục. uy lực ×1,97 · không tốn MP · hồi 0,6s",
 				"ready": true,
 				"skillId": "slash"
 			},

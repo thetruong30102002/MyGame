@@ -76,6 +76,8 @@ namespace Aether.Client
             root = (RectTransform)go.transform;
             BuildBackground();
             Rebuild();
+            // Tự cập nhật: có bản mới thì tải + cài ngay (phủ màn đăng nhập), không thì không thấy gì.
+            AutoUpdate.Begin(root, PlayerPrefs.GetString(PrefServer, DefaultServer));
         }
 
         private Sprite Ui(string id) => UiKit.Sprites != null ? UiKit.Sprites.Get(id) : null;
@@ -119,7 +121,7 @@ namespace Aether.Client
             sub.fontStyle = FontStyles.Italic;
             sub.characterSpacing = 4;
             UiKit.Label(UiKit.Rect(root, "Ver", new Vector2(1, 0), new Vector2(1, 0), new Vector2(-14, 10), new Vector2(300, 18)),
-                "Bản Unity · PC / Android", 11, new Color(1, 1, 1, 0.45f), TextAnchor.MiddleRight);
+                $"Bản Unity · PC / Android · bản {AutoUpdate.LocalBuild}", 11, new Color(1, 1, 1, 0.45f), TextAnchor.MiddleRight);
         }
 
         // ———————————————————————————— ô nhập / nút ————————————————————————————

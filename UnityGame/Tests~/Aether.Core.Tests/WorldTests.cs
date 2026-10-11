@@ -406,7 +406,7 @@ namespace Aether.Core.Tests
             AssertJson(book.YouthQuests, s["youthQuests"], "youthQuests");
             AssertJson(book.YouthEnding, s["youthEnding"], "youthEnding");
             Assert.That(book.Quests.Select(q => q.Id).ToList(), Is.EqualTo(s["questIds"].ToObject<List<string>>()));
-            Assert.That(book.Quests.Count, Is.EqualTo(book.ChildhoodQuests.Count + book.YouthQuests.Count));
+            Assert.That(book.Quests.Count, Is.EqualTo(book.ChildhoodQuests.Count + book.YouthQuests.Count + (book.ChapterQuests?.Count ?? 0)));
             foreach (var x in s["questDef"]) AssertJson(book.QuestDef((string)x["id"]), x["out"], "questDef " + x["id"]);
         }
     }

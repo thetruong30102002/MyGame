@@ -164,7 +164,7 @@ namespace Aether.Client.UI
             root.gameObject.SetActive(view.HasValue);
             if (!view.HasValue) return;
             title.text = view.Value.title;
-            var text = view.Value.objective + (walking != null ? $"\n<color=#9fe39a>▶ Đang tự đi · {walking}</color>" : "\n<color=#ffffff66>bấm để tự đi</color>");
+            var text = view.Value.objective + (walking != null ? $"\n<color=#9fe39a>» Đang tự đi · {walking}</color>" : "\n<color=#ffffff66>bấm để tự đi</color>");
             objective.text = text;
             var h = 46 + Mathf.Min(56, objective.GetPreferredValues(text, 240, 100).y);
             objective.rectTransform.sizeDelta = new Vector2(240, h - 40);

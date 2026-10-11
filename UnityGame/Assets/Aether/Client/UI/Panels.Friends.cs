@@ -21,6 +21,9 @@ namespace Aether.Client.UI
 
         private void Update()
         {
+            UpdateKeyCapture();
+            BookKeys();
+            MapWheel();
             if (kind == Kind.Friends && game.SocialVersion != socialDrawn) Refresh();
             else if (kind == Kind.Admin && game.AdminVersion != adminDrawn) Refresh();
             else if (NeedsRewardsRedraw) Refresh();
@@ -184,6 +187,6 @@ namespace Aether.Client.UI
         }
 
         /// <summary>Đang gõ trong ô của cửa sổ (tên bạn…) — phím không lọt vào game / không đổi tab.</summary>
-        public bool Typing => (friendName != null && friendName.isFocused) || AdminTyping;
+        public bool Typing => (friendName != null && friendName.isFocused) || AdminTyping || keyCapture.HasValue;
     }
 }
