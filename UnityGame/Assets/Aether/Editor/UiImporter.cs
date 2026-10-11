@@ -40,12 +40,13 @@ namespace Aether.Importer
                 report.Warn("Thiếu chân dung " + relPath);
                 return null;
             }
-            return ImportSingle(file, $"{ImportUtil.Root}/Portraits/{Path.GetFileName(file)}", Vector4.zero);
+            return ImportSingle(file, $"{ImportUtil.Root}/Portraits/{Path.GetFileName(file)}", Vector4.zero, true);
         }
 
-        private static Sprite ImportSingle(string file, string assetPath, Vector4 border)
+        private static Sprite ImportSingle(string file, string assetPath, Vector4 border, bool mark = false)
         {
-            ImportUtil.CopyAsset(file, assetPath);
+            if (mark) ImportUtil.CopyAssetMarked(file, assetPath);
+            else ImportUtil.CopyAsset(file, assetPath);
             var size = ImportUtil.PngSize(file);
             SpriteSheetImport.Apply(assetPath, new TextureSpec
             {

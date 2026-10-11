@@ -66,6 +66,11 @@ namespace Aether.Client
                     break;
                 case ServerBought bo:
                 {
+                    if (bo.Item == "reset_build")
+                    {
+                        if (resetPending) ApplyBuildReset();
+                        break;
+                    }
                     var item = FindShopItem(bo.Item);
                     hud.Toast(item != null ? $"Đã mua {item.Name}" : "Đã mua", "loot");
                     break;

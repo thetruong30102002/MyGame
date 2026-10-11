@@ -34,6 +34,17 @@ namespace Aether.Client.Combat
                 if (!repeat) hooks.Toast($"Chưa học “{skill.Name}”", "warn");
                 return CastResult.Locked;
             }
+            // Kiếm pháp nguyên tố chỉ ra đòn khi lưỡi kiếm đang được Bọc Nguyên Tố.
+            if (sim.SkillNodes.TryGetValue(skill.Id, out var artNode) && artNode.Art != null && Enchantment == null)
+            {
+                if (!repeat) hooks.Toast($"“{skill.Name}” cần Bọc Nguyên Tố trước", "warn");
+                return CastResult.Locked;
+            }
+            if (skill.Kind == "imbue" && talents.ChosenElement(Tiers) == null)
+            {
+                if (!repeat) hooks.Toast("Chưa chọn nguyên tố để bọc kiếm", "warn");
+                return CastResult.Locked;
+            }
             if (CooldownLeft(skill) > 0) return CastResult.Cooldown;
             if (pc.Mp < skill.MpCost)
             {
@@ -340,6 +351,18 @@ namespace Aether.Client.Combat
                     if (!echo) Pc.Ward = new WardState { SkillId = skill.Id, T = total, Total = total, Damage = damage, Radius = skill.Radius ?? 46, Element = sword ? enchant ?? "steel" : el, Sword = sword };
                     art.Play(skill.Id, p.X, p.Y, dx, dy, 0, "charge", p, (float)total);
                     hooks.Float(p.X, p.Y - p.Height - 8, skill.Name, sword ? 0xbfe8ff : 0x9fe8ff, 12);
+                    break;
+                }
+                case "imbue":
+                {
+                    // Người khác tung: chỉ vẽ hình (không biết nguyên tố của họ — hình tạm vàng).
+                    var secs = echo ? 0 : StartImbue();
+                    var bel = echo ? null : Enchantment;
+                    var bt = bel != null && ElementTint.TryGetValue(bel, out var bct) ? bct : 0xffd27a;
+                    art.Play(skill.Id, p.X, p.Y, dx, dy, 0, "look", p);
+                    vfx.Play("sparkle", p.X, p.Y - p.Chest - 6, new VfxOpts { Tint = bt, Add = true, Follow = p, FollowOffset = new Vector2(0, -(float)p.Chest - 6), Fps = 20 });
+                    if (!echo && secs > 0)
+                        hooks.Float(p.X, p.Y - p.Height - 8, $"Bọc {(sim.BranchName.TryGetValue(bel, out var bn) ? bn : bel)} · {secs:0}s", bt, 13);
                     break;
                 }
                 case "heal":

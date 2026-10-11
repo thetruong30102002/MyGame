@@ -6,50 +6,80 @@ using Newtonsoft.Json.Linq;
 namespace Aether.Client
 {
     /// <summary>
-    /// Cây tiềm năng ở máy người chơi (StoryDirector.spendTalent của web): điểm theo cấp (+ thưởng máy chủ), lên mốc từng nhánh, chọn
-    /// lưu phái Kiếm ở mốc 3, ghi `progress.story.talents` (số mốc ĐÃ MUA, không gồm mốc có sẵn) rồi lưu — máy chủ đọc đúng chỗ này
-    /// để tính sức đánh PvP (`@aether/sim/pvp` pvpBuild, kẹp theo điểm có).
+    /// Cây tiềm năng + điểm thuộc tính ở máy người chơi: điểm theo cấp (+ thưởng máy chủ), lên mốc từng nhánh, ghi `progress.story.talents`
+    /// (số mốc ĐÃ MUA, không gồm mốc có sẵn) + `story.attrs` rồi lưu — máy chủ đọc đúng chỗ này để tính sức đánh PvP (`@aether/sim/pvp`).
+    /// Từ 11/10/2026 (định dạng `talentsV` 4): mỗi nhân vật MỘT nguyên tố, 3 lưu phái Kiếm là 3 nhánh, lớp quyết định nhánh được cộng.
     /// </summary>
     public sealed partial class GameController
     {
+        /// <summary>Định dạng bản lưu tiềm năng: 4 = lưu phái thành nhánh riêng + một nguyên tố (máy chủ chặn bản cũ ghi đè).</summary>
+        private const int TalentsFormat = 4;
+
         private JObject storyState = new JObject();
         private Func<string, bool> isUnlocked = _ => true;
         private double bonusPoints;
         private HashSet<string> knownPrev;
+        private Attributes attrRules;
 
         public Talents TalentRules => talents;
+        public Attributes AttrRules => attrRules ??= new Attributes(sim);
         public Tiers Tiers => combat.Tiers;
-        public string SwordStyle => combat.Style;
+        public string HeroPath => combat.Path;
         public double BonusPoints => bonusPoints;
         public int UnspentPoints => talents.Unspent(combat.Pc.Level, combat.Tiers, bonusPoints);
         public bool BranchOpen(string b) => talents.BranchOpen(b, isUnlocked);
-        public int? NextTierCost(string b) => talents.NextTierCost(combat.Tiers, b, isUnlocked);
+        public int? NextTierCost(string b) => talents.NextTierCost(combat.Tiers, b, isUnlocked, combat.Path);
         public int TierOf(string b) => combat.Tiers.TryGetValue(b, out var t) ? (int)t : 0;
+        public string ChosenElement => talents.ChosenElement(combat.Tiers);
 
-        /// <summary>Lên mốc tiếp theo của Kiếm cần chọn lưu phái trước (mốc STYLE_TIER lần đầu).</summary>
-        public bool NeedsStyle(string b) => b == "sword" && TierOf("sword") == sim.StyleTier - 1 && string.IsNullOrEmpty(combat.Style);
-
-        /// <summary>Cộng 1 mốc cho nhánh <paramref name="b"/> (đủ điểm, nhánh mở, chưa trần). Kiếm lên mốc 3 lần đầu phải kèm lưu phái.</summary>
-        public bool AddTier(string b, string style = null)
+        /// <summary>Cộng 1 mốc cho nhánh <paramref name="b"/> (đủ điểm, nhánh mở, lớp cho phép, nguyên tố chưa khoá).</summary>
+        public bool AddTier(string b)
         {
-            if (NeedsStyle(b) && string.IsNullOrEmpty(style)) return false;
             var t = new Tiers();
             foreach (var kv in combat.Tiers) t[kv.Key] = kv.Value;
-            if (talents.AddTier(combat.Pc.Level, t, b, isUnlocked, bonusPoints) == null) return false;
+            if (talents.AddTier(combat.Pc.Level, t, b, isUnlocked, bonusPoints, combat.Path) == null) return false;
             var bought = storyState["talents"] as JObject ?? new JObject();
             bought[b] = Math.Max(0, (double)t[b] - talents.BaseTier(b));
             storyState["talents"] = bought;
-            if (!string.IsNullOrEmpty(style) && string.IsNullOrEmpty(combat.Style)) storyState["swordStyle"] = style;
-            combat.SetTalents(t, string.IsNullOrEmpty(combat.Style) ? style : combat.Style);
+            storyState["talentsV"] = TalentsFormat;
+            combat.SetTalents(t);
             SyncKnownSkills(true);
             Save();
             return true;
         }
 
+        /// <summary>Số mốc đã mua trong bản lưu — bản lưu trước định dạng 4 (Kiếm cũ + `swordStyle`) chuyển sang nhánh phái, ghi lại.</summary>
+        private Tiers BoughtFromState()
+        {
+            var bought = new Tiers();
+            if (storyState["talents"] is JObject t)
+                foreach (var kv in t)
+                    if (kv.Value.Type == JTokenType.Integer || kv.Value.Type == JTokenType.Float)
+                        bought[kv.Key] = (double)kv.Value;
+            // Pháp sư không có nhánh Kiếm / phái: điểm đã cộng hồi tuổi thơ trả lại.
+            if (combat.Path == "mage" && storyState["talents"] is JObject tj)
+                foreach (var b in new List<string>(bought.Keys))
+                    if (!talents.PathAllowsBranch("mage", b))
+                    {
+                        bought.Remove(b);
+                        tj.Remove(b);
+                    }
+            var v = storyState["talentsV"]?.Type == JTokenType.Integer ? (int)storyState["talentsV"] : 0;
+            if (v >= TalentsFormat) return bought;
+            var style = storyState["swordStyle"]?.Type == JTokenType.String ? (string)storyState["swordStyle"] : null;
+            var moved = talents.MigrateBought(bought, style);
+            var o = new JObject();
+            foreach (var kv in moved) o[kv.Key] = kv.Value;
+            storyState["talents"] = o;
+            storyState["talentsV"] = TalentsFormat;
+            storyState.Remove("swordStyle");
+            storyState.Remove("enchant");
+            return moved;
+        }
+
         /// <summary>
-        /// Mốc tiềm năng (bản lưu + nhánh đã mở) → CombatSystem, rồi giữ thanh chiêu hợp lệ (`syncTalents` của web). Gọi sau mọi thứ
-        /// đổi được mốc: tẩy điểm, cốt truyện mở nhánh — nhánh vừa mở phải nhận ngay mốc có sẵn (Kiếm 1), không thì lần cộng đầu chỉ bù
-        /// mốc có sẵn mà không tốn điểm. Phủ phép mất điều kiện thì bỏ hẳn lựa chọn.
+        /// Mốc tiềm năng (bản lưu + nhánh đã mở) → CombatSystem, rồi giữ thanh chiêu hợp lệ. Gọi sau mọi thứ đổi được mốc: tẩy điểm,
+        /// cốt truyện mở nhánh, chọn lớp — nhánh vừa mở phải nhận ngay mốc có sẵn (Kiếm 1).
         /// </summary>
         private void SyncTalents(bool announce)
         {
@@ -58,17 +88,8 @@ namespace Aether.Client
                 SyncKnownSkills(announce);
                 return;
             }
-            var bought = new Tiers();
-            if (storyState["talents"] is JObject t) foreach (var kv in t) bought[kv.Key] = (double)kv.Value;
-            var tiers = talents.TiersFrom(bought, isUnlocked);
-            combat.SetTalents(tiers, (string)storyState["swordStyle"]);
-            var e = storyState["enchant"]?.Type == JTokenType.String ? (string)storyState["enchant"] : null;
-            if (e != null && !talents.CanEnchant(tiers, e))
-            {
-                storyState["enchant"] = null;
-                e = null;
-            }
-            combat.RestoreEnchant(e);
+            combat.SetTalents(talents.TiersFrom(BoughtFromState(), isUnlocked));
+            SyncAttrs();
             SyncKnownSkills(announce);
         }
 
@@ -91,58 +112,82 @@ namespace Aether.Client
             storyState["loadout"] = new JArray(loadout.ConvertAll(x => (object)x).ToArray());
         }
 
-        /// <summary>Phủ phép kiếm đang có tác dụng (null = kiếm thép).</summary>
+        /// <summary>Nguyên tố đang bọc lưỡi kiếm (null = kiếm thép / hết thời gian bọc).</summary>
         public string Enchantment => combat.Enchantment;
 
-        /// <summary>Chọn phủ phép (null = tắt) — chép `set_enchant` của web: báo lý do không đổi được, lưu `story.enchant`.</summary>
-        public bool SetEnchant(string e)
+        // ———————————————————————————— điểm thuộc tính ————————————————————————————
+
+        /// <summary>Điểm thuộc tính đã cộng (đã kẹp theo cấp).</summary>
+        public Dictionary<string, int> Attrs => AttrRules.Clean(storyState["attrs"], combat.Pc.Level);
+
+        public int AttrUnspent => AttrRules.Points(combat.Pc.Level) - AttrRules.Spent(Attrs);
+
+        /// <summary>Thuộc tính → CombatSystem (máu / MP / phòng thủ / thể lực tối đa, hệ số sát thương kiếm / phép).</summary>
+        private void SyncAttrs() => combat.SetAttrs(AttrRules.Bonus(storyState["attrs"], combat.Pc.Level));
+
+        /// <summary>Cộng 1 điểm vào thuộc tính <paramref name="k"/> nếu còn điểm.</summary>
+        public bool AddAttr(string k)
         {
-            var res = combat.SetEnchant(e);
-            if (res == "locked")
-            {
-                var bn = sim.BranchName.TryGetValue(e, out var n) ? n : e;
-                hud.Toast($"Cần Kiếm mốc {sim.EnchantSwordTier} và {bn} mốc {sim.EnchantElementTier} để phủ phép", "warn");
-                return false;
-            }
-            if (res == "cooldown")
-            {
-                hud.Toast($"Đổi phủ phép sau {Math.Ceiling(combat.EnchantCooldown)} giây nữa", "warn");
-                return false;
-            }
-            if (res == "same") return false;
-            storyState["enchant"] = e;
+            var next = AttrRules.Add(Attrs, k, combat.Pc.Level);
+            if (next == null) return false;
+            var o = new JObject();
+            foreach (var kv in next) o[kv.Key] = kv.Value;
+            storyState["attrs"] = o;
+            storyState["talentsV"] = TalentsFormat;
+            SyncAttrs();
             Save();
-            hud.Toast(e != null ? $"Phủ phép: {(sim.BranchName.TryGetValue(e, out var nm) ? nm : e)}" : "Đã tắt phủ phép", "info");
             return true;
         }
 
+        // ———————————————————————————— tẩy điểm ————————————————————————————
+
+        /// <summary>Số kim cương để tẩy điểm ở cấp hiện tại (miễn phí tới cấp 5).</summary>
+        public int ResetDiamonds => talents.ResetDiamonds(combat.Pc.Level);
+
+        private bool resetPending;
+
         /// <summary>
-        /// Tẩy toàn bộ mốc đã mua (`talent_reset` của web): miễn phí tới cấp 5, sau đó 10 xu × cấp. Phủ phép mất điều kiện nên tắt;
-        /// lưu phái Kiếm xoá (lên lại mốc 3 thì chọn lại — cách duy nhất để đổi lưu phái).
+        /// Tẩy toàn bộ điểm tiềm năng + thuộc tính (đổi nguyên tố đã chọn). Online: xin máy chủ trừ kim cương (`resetBuild`), xoá khi máy chủ
+        /// trả `bought reset_build`; chơi thử offline thì xoá luôn.
         /// </summary>
-        public bool ResetTalents()
+        public bool ResetBuild()
         {
-            var spent = talents.SpentPoints(combat.Tiers);
-            if (spent <= 0)
+            if (talents.SpentPoints(combat.Tiers) <= 0 && AttrRules.Spent(Attrs) <= 0)
             {
                 hud.Toast("Chưa cộng điểm nào để tẩy", "info");
                 return false;
             }
-            var cost = (long)Talents.ResetCost(combat.Pc.Level);
-            if (combat.Pc.Coins < cost)
+            var cost = ResetDiamonds;
+            if (online == null)
             {
-                hud.Toast($"Cần {cost} xu để tẩy điểm (đang có {combat.Pc.Coins})", "warn");
+                ApplyBuildReset();
+                return true;
+            }
+            if (cost > Diamonds)
+            {
+                hud.Toast($"Tẩy điểm cần {cost} kim cương (đang có {Diamonds})", "warn");
                 return false;
             }
-            combat.Pc.Coins -= cost;
-            if (cost > 0) online?.Send(new Aether.Net.ClientSpend { Reason = "talent_reset", Amount = cost });
+            resetPending = true;
+            online.Send(new Aether.Net.ClientResetBuild());
+            return true;
+        }
+
+        /// <summary>Máy chủ đã trừ kim cương (hoặc miễn phí) — xoá mốc + thuộc tính, nguyên tố được chọn lại.</summary>
+        private void ApplyBuildReset()
+        {
+            resetPending = false;
+            var spent = talents.SpentPoints(combat.Tiers) + AttrRules.Spent(Attrs);
             storyState["talents"] = new JObject();
-            storyState["enchant"] = null;
+            storyState["attrs"] = new JObject();
+            storyState["talentsV"] = TalentsFormat;
+            storyState.Remove("enchant");
             storyState.Remove("swordStyle");
+            combat.ClearImbue();
             SyncTalents(false);
             Save();
-            hud.Toast(cost > 0 ? $"Đã tẩy {spent} điểm tiềm năng (−{cost} xu)" : $"Đã tẩy {spent} điểm tiềm năng (miễn phí tới cấp 5)", "info");
-            return true;
+            hud.Toast($"Đã tẩy {spent} điểm — chọn lại nguyên tố và cộng lại điểm", "info");
+            RewardsVersion += 1;
         }
 
         /// <summary>Gán chiêu <paramref name="skillId"/> vào ô <paramref name="slot"/> (bảng Tiềm năng: bấm chiêu rồi bấm ô).</summary>

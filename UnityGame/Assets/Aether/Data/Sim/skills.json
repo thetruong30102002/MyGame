@@ -1883,6 +1883,18 @@
 			"ult": true,
 			"anim": "attack",
 			"desc": "Tuyệt kỹ: 3 bóng phân thân lao tới chỗ nhắm, chém liên tục quái ở đó suốt 6 giây."
+		},
+		{
+			"id": "imbue",
+			"name": "Bọc Nguyên Tố",
+			"element": "steel",
+			"mpCost": 15,
+			"cooldown": 25,
+			"power": 0,
+			"kind": "imbue",
+			"unlock": "sword",
+			"anim": "attack",
+			"desc": "Bọc nguyên tố đã chọn vào lưỡi kiếm trong 10–20 giây (theo mốc nguyên tố): mỗi nhát chém mang hệ đó và gây trạng thái của hệ; kiếm pháp nguyên tố chỉ dùng được khi đang bọc."
 		}
 	],
 	"PATHS": {

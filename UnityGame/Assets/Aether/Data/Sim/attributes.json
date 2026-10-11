@@ -1,0 +1,45 @@
+{
+	"ATTRS": [
+		"vit",
+		"spi",
+		"str",
+		"int",
+		"def",
+		"sta"
+	],
+	"ATTR_INFO": {
+		"vit": {
+			"name": "Sinh lực",
+			"desc": "+5 máu tối đa mỗi điểm."
+		},
+		"spi": {
+			"name": "Linh lực",
+			"desc": "+2 MP tối đa mỗi điểm."
+		},
+		"str": {
+			"name": "Sức mạnh",
+			"desc": "+0,4% sát thương đòn kiếm mỗi điểm."
+		},
+		"int": {
+			"name": "Trí tuệ",
+			"desc": "+0,4% sát thương phép mỗi điểm (cả Tia Aether)."
+		},
+		"def": {
+			"name": "Đỡ đòn",
+			"desc": "+0,4 phòng thủ mỗi điểm (giảm sát thương nhận)."
+		},
+		"sta": {
+			"name": "Thể lực",
+			"desc": "+2 thể lực tối đa mỗi điểm (Kiếm sĩ lướt né tốn thể lực)."
+		}
+	},
+	"ATTR_PER_LEVEL": 3,
+	"ATTR_PER_POINT": {
+		"vit": 5,
+		"spi": 2,
+		"str": 0.004,
+		"int": 0.004,
+		"def": 0.4,
+		"sta": 2
+	}
+}

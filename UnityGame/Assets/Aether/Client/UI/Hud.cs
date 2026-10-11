@@ -34,7 +34,6 @@ namespace Aether.Client.UI
         /// <summary>Ô nhiệm vụ góc phải.</summary>
         public QuestTracker Quest { get; private set; }
 
-        private Image portrait;
         private TMP_Text nameText;
         private TMP_Text levelText;
         private SmoothBar hpBar;
@@ -203,16 +202,12 @@ namespace Aether.Client.UI
             var press = UiKit.Press(card, () => Panels.Toggle(Panels.Kind.Character));
             press.Enter = () => face.color = Color.Lerp(faceColor, new Color(0.45f, 0.32f, 0.16f, 0.95f), 0.5f);
             press.Exit = () => face.color = faceColor;
-            var pf = UiKit.Rect(card, "PortraitFrame", new Vector2(0, 0.5f), new Vector2(0, 0.5f), new Vector2(9, 0), new Vector2(74, 74));
-            UiKit.Sprite(pf, "slot", 2.6f);
-            // Chân dung = khung đứng của nhân vật: phóng ×2 và cắt khung lấy phần đầu-vai (nhân vật đứng nhỏ trong khung 60px).
-            var clip = UiKit.Rect(pf, "Clip", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(60, 60));
-            clip.gameObject.AddComponent<RectMask2D>();
-            portrait = UiKit.Icon(UiKit.Rect(clip, "Portrait", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0, -44), new Vector2(150, 150)), null);
-            var lv = UiKit.Rect(pf, "Level", new Vector2(0.5f, 0), new Vector2(0.5f, 0.5f), new Vector2(0, 2), new Vector2(50, 18));
+            // Chủ dự án 11/10/2026: bỏ chân dung (nhỏ, không nhìn rõ) — khung chỉ còn tên + cấp và ba thanh Máu / MP / Thể lực có số.
+            nameText = UiKit.Label(UiKit.Rect(card, "Name", new Vector2(0, 1), new Vector2(0, 1), new Vector2(12, -7), new Vector2(190, 20)), "", 16, UiStyle.Parchment, TextAnchor.MiddleLeft, true);
+            var lv = UiKit.Rect(card, "Level", new Vector2(1, 1), new Vector2(1, 1), new Vector2(-12, -8), new Vector2(52, 18));
             UiStyle.Pill(lv, UiStyle.GoldHi, 9);
             levelText = UiKit.Label(UiKit.Stretch(lv, "t"), "1", 11, UiStyle.InkBrown, TextAnchor.MiddleCenter, true, false);
-            var badge = UiKit.Rect(pf, "Points", new Vector2(1, 1), new Vector2(0.5f, 0.5f), new Vector2(-4, -4), new Vector2(24, 20));
+            var badge = UiKit.Rect(card, "Points", new Vector2(1, 1), new Vector2(1, 1), new Vector2(-70, -7), new Vector2(24, 20));
             UiStyle.Pill(badge, UiStyle.Hex(0xfff1c9), 10);
             var bin = UiKit.Rect(badge, "in", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(20, 16));
             UiStyle.Pill(bin, UiStyle.Hex(0xd4341d), 8);
@@ -220,17 +215,56 @@ namespace Aether.Client.UI
             UiWidgets.Pulse(badge, 1.12f, 1.4f);
             pointsBadge = badge.gameObject;
             pointsBadge.SetActive(false);
-            nameText = UiKit.Label(UiKit.Rect(card, "Name", new Vector2(0, 1), new Vector2(0, 1), new Vector2(94, -9), new Vector2(200, 20)), "", 16, UiStyle.Parchment, TextAnchor.MiddleLeft, true);
-            hpBar = BarWithIcon(card, "Hp", -33, 18, UiStyle.Hp, "icon_hp", 11);
-            mpBar = BarWithIcon(card, "Mp", -55, 14, UiStyle.Mana, "icon_mp", 10);
-            staBar = SmoothBar.Make(card, "Stamina", new Vector2(0, 1), new Vector2(0, 1), new Vector2(116, -75), new Vector2(178, 7), UiStyle.Stamina);
+            hpBar = BarWithIcon(card, "Hp", -31, 18, UiStyle.Hp, UiIcon("icon_hp"), 11);
+            mpBar = BarWithIcon(card, "Mp", -53, 15, UiStyle.Mana, UiIcon("icon_mp"), 10);
+            staBar = BarWithIcon(card, "Stamina", -72, 13, UiStyle.Stamina, BoltSprite(), 9);
         }
 
-        private SmoothBar BarWithIcon(RectTransform card, string name, float y, float h, Color c, string icon, int textSize)
+        private SmoothBar BarWithIcon(RectTransform card, string name, float y, float h, Color c, Sprite icon, int textSize)
         {
-            var ic = UiKit.Rect(card, name + "Icon", new Vector2(0, 1), new Vector2(0.5f, 0.5f), new Vector2(104, y - h / 2), new Vector2(18, 18));
-            UiKit.Icon(ic, UiIcon(icon));
-            return SmoothBar.Make(card, name, new Vector2(0, 1), new Vector2(0, 1), new Vector2(116, y), new Vector2(178, h), c, textSize);
+            var ic = UiKit.Rect(card, name + "Icon", new Vector2(0, 1), new Vector2(0.5f, 0.5f), new Vector2(21, y - h / 2), new Vector2(18, 18));
+            UiKit.Icon(ic, icon);
+            return SmoothBar.Make(card, name, new Vector2(0, 1), new Vector2(0, 1), new Vector2(34, y), new Vector2(258, h), c, textSize);
+        }
+
+        private static Sprite bolt;
+
+        /// <summary>Icon Thể lực: tia sét pixel 12×16 vẽ bằng code (bộ icon UI chưa có — không tốn lượt PixelLab), viền tối như icon khác.</summary>
+        private static Sprite BoltSprite()
+        {
+            if (bolt != null) return bolt;
+            string[] rows =
+            {
+                "......####..",
+                ".....###....",
+                "....###.....",
+                "...###......",
+                "..###.......",
+                ".#######....",
+                "..#######...",
+                ".....###....",
+                "....###.....",
+                "...###......",
+                "..###.......",
+                ".##.........",
+            };
+            const int w = 12, h = 12;
+            var tex = new Texture2D(w, h, TextureFormat.RGBA32, false) { filterMode = FilterMode.Point, wrapMode = TextureWrapMode.Clamp };
+            var px = new Color[w * h];
+            bool On(int x, int y) => x >= 0 && y >= 0 && x < w && y < h && rows[y][x] == '#';
+            var fill = new Color(1f, 0.86f, 0.3f, 1);
+            var edge = new Color(0.16f, 0.1f, 0.04f, 1);
+            for (var y = 0; y < h; y += 1)
+                for (var x = 0; x < w; x += 1)
+                {
+                    // Hàng chuỗi đọc từ TRÊN xuống, texture đánh hàng từ DƯỚI lên.
+                    var ty = h - 1 - y;
+                    var near = On(x - 1, y) || On(x + 1, y) || On(x, y - 1) || On(x, y + 1);
+                    px[ty * w + x] = On(x, y) ? fill : near ? edge : Color.clear;
+                }
+            tex.SetPixels(px);
+            tex.Apply();
+            return bolt = Sprite.Create(tex, new UnityEngine.Rect(0, 0, w, h), new Vector2(0.5f, 0.5f), 100);
         }
 
         private void BuildTarget()
@@ -390,7 +424,7 @@ namespace Aether.Client.UI
                 (() => L(KeyBinds.Act.Up) + L(KeyBinds.Act.Left) + L(KeyBinds.Act.Down) + L(KeyBinds.Act.Right), () => $"đi  ({L(KeyBinds.Act.Run)} chạy)"),
                 (() => "Chuột", () => "trái chém · phải phép thường"),
                 (() => $"{L(KeyBinds.Act.Slot1)} – {L(KeyBinds.Act.Slot8)}", () => "chiêu đã gán"),
-                (() => L(KeyBinds.Act.Dodge), () => "lăn né"),
+                (() => L(KeyBinds.Act.Dodge), () => game.Combat?.Path == "mage" ? "lăn né (chỉ Kiếm sĩ)" : "lăn né"),
                 (() => L(KeyBinds.Act.Potion), () => "uống bình"),
                 (() => L(KeyBinds.Act.Target), () => "đổi mục tiêu"),
                 (() => L(KeyBinds.Act.Interact), () => "nói chuyện"),
@@ -567,6 +601,17 @@ namespace Aether.Client.UI
 
         // ———————————————————————————— cập nhật mỗi khung ————————————————————————————
 
+        /// <summary>Khung của một phần tử UI theo toạ độ canvas gốc ở góc trái dưới (cùng hệ với <see cref="ToCanvas"/>).</summary>
+        private Rect CanvasRectOf(RectTransform rt)
+        {
+            var c = new Vector3[4];
+            rt.GetWorldCorners(c);
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(root, c[0], null, out var a);
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(root, c[2], null, out var b);
+            var half = root.rect.size * 0.5f;
+            return Rect.MinMaxRect(a.x + half.x, a.y + half.y, b.x + half.x, b.y + half.y);
+        }
+
         private Vector2 ToCanvas(Vector3 world)
         {
             var s = cam.WorldToScreenPoint(world);
@@ -586,21 +631,17 @@ namespace Aether.Client.UI
 
             nameText.text = game.PlayerName;
             levelText.text = "Lv " + pc.Level;
-            var pts = game.UnspentPoints;
+            // Chấm đỏ: điểm tiềm năng + điểm thuộc tính chưa cộng (phòng Thử chiêu không tính).
+            var pts = game.InLab ? 0 : Math.Max(0, game.UnspentPoints) + Math.Max(0, game.AttrUnspent);
             if (pts != shownPoints)
             {
                 shownPoints = pts;
                 pointsBadge.SetActive(pts > 0);
                 pointsText.text = pts.ToString();
             }
-            if (portrait.sprite == null && game.PlayerPortrait != null)
-            {
-                portrait.sprite = game.PlayerPortrait;
-                portrait.color = Color.white;
-            }
             hpBar.Set(pc.Hp, pc.HpMax);
             mpBar.Set(pc.Mp, pc.MpMax);
-            staBar.Set(pc.Stamina, pc.StaminaMax, "");
+            staBar.Set(pc.Stamina, pc.StaminaMax);
             var need = game.ExpToNext;
             expBar.Set(pc.Exp, Math.Max(1, need), "");
             expText.text = need > 0 ? $"EXP {(int)(100.0 * pc.Exp / need)}%" : "Cấp tối đa";
@@ -713,10 +754,15 @@ namespace Aether.Client.UI
                 var on = !Blocking && p.x > -140 && p.x < size.x + 140 && p.y > -60 && p.y < size.y + 80;
                 rt.gameObject.SetActive(on);
                 if (!on) continue;
-                // Lối nằm sát mép map — đúng chỗ bảng phím / khung chat / bản đồ nhỏ che: lối đã trong khung nhìn thì nhích biển ra vùng trống.
-                var maxX = p.y > size.y - 400 ? size.x - 330 : size.x - 130;
-                p.x = Mathf.Clamp(p.x, 420, Mathf.Max(420, maxX));
-                p.y = Mathf.Clamp(p.y, 170, size.y - 170);
+                // Biển nằm ĐÚNG chỗ lối (zoom 1x: map có thể nhỏ hơn màn hình nên lối nằm giữa màn — đừng kẹp vào giữa nữa). Chỉ giữ
+                // trong màn hình (chừa thanh trên / thanh chiêu dưới) và né khung chat nếu đè lên nó.
+                p.x = Mathf.Clamp(p.x, 90, size.x - 90);
+                p.y = Mathf.Clamp(p.y, 120, size.y - 110);
+                if (Chat != null)
+                {
+                    var cr = CanvasRectOf(Chat.Box);
+                    if (p.x > cr.xMin - 90 && p.x < cr.xMax + 90 && p.y > cr.yMin - 20 && p.y < cr.yMax + 50) p.y = cr.yMax + 50;
+                }
                 rt.anchoredPosition = new Vector2(Mathf.Round(p.x), Mathf.Round(p.y));
                 var arrow = (RectTransform)rt.GetChild(0);
                 var b = ToCanvas(WorldCoords.PxToWorld(x + d.x * bob, y + d.y * bob)) - raw;

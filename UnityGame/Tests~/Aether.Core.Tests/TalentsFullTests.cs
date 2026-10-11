@@ -140,9 +140,9 @@ namespace Aether.Core.Tests
             var t = NewTalents();
             foreach (var x in Tl["treeOf"])
             {
-                var nodes = t.TreeOf((string)x["branch"], OptStr(x["style"]));
+                var nodes = t.TreeOf((string)x["branch"]);
                 var exp = (JArray)x["out"];
-                Assert.That(nodes.Count, Is.EqualTo(exp.Count), x["branch"] + " " + x["style"]);
+                Assert.That(nodes.Count, Is.EqualTo(exp.Count), (string)x["branch"]);
                 for (var i = 0; i < exp.Count; i++)
                 {
                     Assert.That(nodes[i].Tier, Is.EqualTo((int)exp[i]["tier"]));
@@ -165,13 +165,13 @@ namespace Aether.Core.Tests
             foreach (var x in Tl["nextTierCost"])
             {
                 var exp = x["out"].Type == JTokenType.Null ? (int?)null : (int)x["out"];
-                Assert.That(t.NextTierCost(TierSet(x), (string)x["branch"], Unlocker(x)), Is.EqualTo(exp), x.ToString());
+                Assert.That(t.NextTierCost(TierSet(x), (string)x["branch"], Unlocker(x), (string)x["path"]), Is.EqualTo(exp), x.ToString());
             }
             foreach (var x in Tl["addTier"])
             {
                 var tiers = TierSet(x);
-                var r = t.AddTier((double)x["level"], tiers, (string)x["branch"], Unlocker(x), (double)x["bonus"]);
-                var ctx = $"addTier t{x["t"]} {x["branch"]} lv{x["level"]} +{x["bonus"]} u{x["u"]}";
+                var r = t.AddTier((double)x["level"], tiers, (string)x["branch"], Unlocker(x), (double)x["bonus"], (string)x["path"]);
+                var ctx = $"addTier t{x["t"]} {x["branch"]} lv{x["level"]} +{x["bonus"]} u{x["u"]} {x["path"]}";
                 Assert.That(r, Is.EqualTo(x["out"].Type == JTokenType.Null ? (double?)null : (double)x["out"]), ctx);
                 AssertTiers(tiers, x["after"], ctx);
             }
@@ -194,7 +194,7 @@ namespace Aether.Core.Tests
             var t = NewTalents();
             var d = TestData.Data;
             foreach (var x in Tl["knowsSkill"])
-                Assert.That(t.KnowsSkill(d.HeroSkill((string)x["id"]), TierSet(x), Unlocker(x), OptStr(x["style"])), Is.EqualTo((bool)x["out"]), x.ToString());
+                Assert.That(t.KnowsSkill(d.HeroSkill((string)x["id"]), TierSet(x), Unlocker(x), (string)x["path"]), Is.EqualTo((bool)x["out"]), x.ToString());
         }
 
         [Test]
@@ -204,13 +204,13 @@ namespace Aether.Core.Tests
             var fields = typeof(PassiveEffects).GetFields(BindingFlags.Public | BindingFlags.Instance);
             foreach (var x in Tl["passiveEffects"])
             {
-                var pe = t.GetPassiveEffects(TierSet(x), OptStr(x["style"]));
+                var pe = t.GetPassiveEffects(TierSet(x));
                 var exp = (JObject)x["out"];
                 Assert.That(fields.Length, Is.EqualTo(exp.Count));
                 foreach (var p in exp.Properties())
                 {
                     var f = fields.Single(ff => string.Equals(ff.Name, p.Name, StringComparison.OrdinalIgnoreCase));
-                    var ctx = $"t{x["t"]} {x["style"]} {p.Name}";
+                    var ctx = $"t{x["t"]} {p.Name}";
                     if (p.Value.Type == JTokenType.Boolean) Assert.That(f.GetValue(pe), Is.EqualTo((bool)p.Value), ctx);
                     else Assert.That((double)f.GetValue(pe), Is.EqualTo((double)p.Value), ctx);
                 }
@@ -226,8 +226,8 @@ namespace Aether.Core.Tests
                 Assert.That(t.ReactionBonus(TierSet(x), (string)x["a"], (string)x["b"]), Is.EqualTo((double)x["out"]), x.ToString());
             foreach (var x in Tl["describeBuild"])
             {
-                var b = t.DescribeBuild(TierSet(x), OptStr(x["style"]));
-                var ctx = $"t{x["t"]} {x["style"]}";
+                var b = t.DescribeBuild(TierSet(x));
+                var ctx = $"t{x["t"]}";
                 Assert.That(b.Kind, Is.EqualTo((string)x["out"]["kind"]), ctx);
                 Assert.That(b.Label, Is.EqualTo((string)x["out"]["label"]), ctx);
                 Assert.That(b.Detail, Is.EqualTo((string)x["out"]["detail"]), ctx);
@@ -241,6 +241,56 @@ namespace Aether.Core.Tests
             var t = NewTalents();
             foreach (var x in Tl["enchantDesc"]) Assert.That(t.EnchantDesc((string)x["e"], (double)x["tier"]), Is.EqualTo((string)x["out"]), x.ToString());
             foreach (var x in Tl["canEnchant"]) Assert.That(t.CanEnchant(TierSet(x), (string)x["e"]), Is.EqualTo((bool)x["out"]), x.ToString());
+            foreach (var x in Tl["imbueSeconds"]) Assert.That(t.ImbueSeconds((double)x["tier"]), Is.EqualTo((double)x["out"]), x.ToString());
+            foreach (var x in Tl["resetDiamonds"]) Assert.That(t.ResetDiamonds((double)x["level"]), Is.EqualTo((int)x["out"]), x.ToString());
+        }
+
+        /// <summary>Một nguyên tố, lớp chọn nhánh / kỹ năng, chuyển bản lưu trước khi tách lưu phái (11/10/2026).</summary>
+        [Test]
+        public void ElementPathAndMigrate()
+        {
+            var t = NewTalents();
+            foreach (var x in Tl["chosenElement"]) Assert.That(t.ChosenElement(TierSet(x)), Is.EqualTo(OptStr(x["out"])), x.ToString());
+            foreach (var x in Tl["swordDepth"]) Assert.That(t.SwordDepth(TierSet(x)), Is.EqualTo((double)x["out"]), x.ToString());
+            foreach (var x in Tl["pathAllowsBranch"])
+                Assert.That(t.PathAllowsBranch((string)x["path"], (string)x["branch"]), Is.EqualTo((bool)x["out"]), x.ToString());
+            foreach (var x in Tl["pathAllowsSkill"]) Assert.That(t.PathAllowsSkill((string)x["path"], (string)x["id"]), Is.EqualTo((bool)x["out"]), x.ToString());
+            foreach (var x in Tl["migrateBought"]) AssertTiers(t.MigrateBought(TierSet(x), OptStr(x["style"])), x["out"], $"migrate t{x["t"]} {x["style"]}");
+        }
+
+        /// <summary>Điểm thuộc tính (attributes.ts).</summary>
+        [Test]
+        public void AttributesMatch()
+        {
+            var a = new Attributes(TestData.Data);
+            var av = V["attributes"];
+            foreach (var x in av["attrPoints"]) Assert.That(a.Points((double)x["level"]), Is.EqualTo((int)x["out"]), x.ToString());
+            foreach (var x in av["cleanAttrs"]) AssertAttrs(a.Clean(x["raw"], (double)x["level"]), x["out"], x.ToString());
+            foreach (var x in av["addAttr"])
+            {
+                var r = a.Add(a.Clean(x["raw"], (double)x["level"]), (string)x["k"], (double)x["level"]);
+                if (x["out"].Type == JTokenType.Null) Assert.That(r, Is.Null, x.ToString());
+                else AssertAttrs(r, x["out"], x.ToString());
+            }
+            foreach (var x in av["attrBonus"])
+            {
+                var b = a.Bonus(x["raw"], (double)x["level"]);
+                var o = x["out"];
+                var ctx = x.ToString();
+                Assert.That(b.Hp, Is.EqualTo((double)o["hp"]).Within(1e-9), ctx);
+                Assert.That(b.Mp, Is.EqualTo((double)o["mp"]).Within(1e-9), ctx);
+                Assert.That(b.Def, Is.EqualTo((double)o["def"]).Within(1e-9), ctx);
+                Assert.That(b.Stamina, Is.EqualTo((double)o["stamina"]).Within(1e-9), ctx);
+                Assert.That(b.Sword, Is.EqualTo((double)o["sword"]).Within(1e-9), ctx);
+                Assert.That(b.Magic, Is.EqualTo((double)o["magic"]).Within(1e-9), ctx);
+            }
+        }
+
+        private static void AssertAttrs(Dictionary<string, int> actual, JToken expected, string ctx)
+        {
+            var exp = (JObject)expected;
+            Assert.That(actual.Count, Is.EqualTo(exp.Count), ctx);
+            foreach (var p in exp.Properties()) Assert.That(actual.TryGetValue(p.Name, out var v) ? v : -1, Is.EqualTo((int)p.Value), ctx + " " + p.Name);
         }
 
         /// <summary>JSON → giá trị thô như JS thấy: mảng → List&lt;object&gt;, chuỗi, số, null, object → Dictionary.</summary>

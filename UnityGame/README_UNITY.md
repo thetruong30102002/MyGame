@@ -72,8 +72,8 @@ Kiểm bản build tự động: `Build/Windows/Aether.exe -aetherShot <thư m�
 + `autotest.log` (vị trí, map, hoạt ảnh) rồi tự thoát.
 Thêm `-aetherWeather`: chụp trạm (cạnh cột dịch chuyển) + một map săn của từng vùng để soát thời tiết theo vùng (`Client/Weather.cs`).
 
-Thiết lập dự án do `GameSetup.ConfigureProject` đặt — sửa ở đó, đừng sửa tay trong Project Settings: Windows dùng **Mono** (IL2CPP
-cần Visual Studio C++), Android **IL2CPP + ARM64**, API tối thiểu 25; Input Manager CŨ (`UnityEngine.Input`); sort 2D theo trục y.
+Thiết lập dự án do `GameSetup.ConfigureProject` đặt — sửa ở đó, đừng sửa tay trong Project Settings: Windows dùng **IL2CPP** từ 11/10/2026
+(cần MSVC — Visual Studio Build Tools workload C++ cài ở `D:\VS\BuildTools`, Windows SDK ở ổ C; `docs/ban-quyen.md`), Android **IL2CPP + ARM64**, API tối thiểu 25; Input Manager CŨ (`UnityEngine.Input`); sort 2D theo trục y.
 Ảnh lớn (≥1024px) trên Android nén **ASTC 4×4**, PC không nén.
 
 ## Luật chuyển

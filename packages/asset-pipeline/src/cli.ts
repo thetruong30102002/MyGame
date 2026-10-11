@@ -1,5 +1,6 @@
 import { existsSync, mkdirSync, readdirSync, readFileSync, renameSync, rmSync, writeFileSync } from 'node:fs';
-import { dirname, join, resolve } from 'node:path';
+import { dirname, join, relative, resolve } from 'node:path';
+import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { annotateAtlas } from './atlas/gearAnchors.js';
 import { contactSheet, packAtlas } from './atlas/packAtlas.js';
@@ -27,6 +28,7 @@ import { keyMagenta, loadSheetCell, parseSheetPath, sheetPreview } from './props
 import { buildSkillIcons, buildSkillIconsV2 } from './props/skillIcons.js';
 import { filledSlice, measureHollow, UI_ASSETS, type NineSlice } from './props/uiAssets.js';
 import { buildVfxFrames, VFX } from './vfx/buildVfx.js';
+import { detectMark, markKey } from './watermark/mark.js';
 import {
 	ANIMATE_PIXEL_LIMIT,
 	animateImageCost,
@@ -1444,11 +1446,52 @@ function annotatePublished(ids: string[]): void {
 	}
 }
 
+/**
+ * Dấu ẩn bản quyền (docs/ban-quyen.md):
+ *   watermark check <png…>   — ảnh nghi bị trích từ bộ cài có dấu của mình không (cần khoá ở %USERPROFILE%/.aether/mark.key)
+ *   watermark registry       — sổ đăng ký: SHA-256 + cỡ mọi hình trong assets/ → docs/ban-quyen/so-dang-ky-hinh.json (commit = mốc thời gian)
+ */
+function watermarkCmd(args: string[]): void {
+	const [sub, ...files] = args;
+	if (sub === 'check') {
+		const key = markKey(false);
+		if (!key) throw new Error('Chưa có khoá dấu ẩn (%USERPROFILE%/.aether/mark.key hoặc AETHER_MARK_KEY) — Unity tạo lúc nhập hình lần đầu.');
+		for (const f of files) {
+			const r = detectMark(readPng(f), key);
+			console.log(`${r.marked ? '✔ CÓ DẤU' : '✘ không thấy dấu'}  ${f} — ${r.pixels} điểm ảnh đặc, khớp ${(r.rate * 100).toFixed(1)}% (z = ${r.z.toFixed(1)}, lệch ${r.ox},${r.oy})`);
+		}
+		return;
+	}
+	if (sub === 'registry') {
+		const list: { path: string; sha256: string; bytes: number; width: number; height: number }[] = [];
+		const walk = (dir: string): void => {
+			for (const e of readdirSync(dir, { withFileTypes: true }).sort((x, y) => (x.name < y.name ? -1 : 1))) {
+				const full = join(dir, e.name);
+				if (e.isDirectory()) walk(full);
+				else if (e.name.endsWith('.png')) {
+					const buf = readFileSync(full);
+					const img = decodePng(buf);
+					list.push({ path: relative(ROOT, full).replace(/\\/g, '/'), sha256: createHash('sha256').update(buf).digest('hex'), bytes: buf.length, width: img.width, height: img.height });
+				}
+			}
+		};
+		walk(WEB_ASSETS);
+		const out = join(ROOT, 'docs', 'ban-quyen', 'so-dang-ky-hinh.json');
+		mkdirSync(dirname(out), { recursive: true });
+		const owner = 'Aether Chronicle — chủ dự án thetruong30102002 (github.com/thetruong30102002/MyGame)';
+		writeFileSync(out, `${JSON.stringify({ owner, note: 'Hình gốc do chủ dự án tạo (PixelLab + pipeline). Mỗi lần commit file này là một mốc thời gian sở hữu.', count: list.length, files: list }, null, '\t')}\n`);
+		console.log(`✔ sổ đăng ký ${list.length} hình → ${out}`);
+		return;
+	}
+	throw new Error('watermark check <png…> | watermark registry');
+}
+
 async function main(): Promise<void> {
 	const [cmd, ...args] = process.argv.slice(2);
 	const env = loadEnv(ROOT);
 	console.log(`(Pixler key: ${describeSecret(env.PIXELER_API_KEY)}, SpriteLab key: ${describeSecret(env.SPRITELAB_API_KEY)})`);
 	if (cmd === 'catalog') return catalog();
+	if (cmd === 'watermark') return watermarkCmd(args);
 	if (cmd === 'character') {
 		const targets = args.length ? args : ['player_lior_child'];
 		let ok = true;

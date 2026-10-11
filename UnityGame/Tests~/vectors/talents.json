@@ -5,6 +5,18 @@
 			"out": 1
 		},
 		{
+			"branch": "kiem_than",
+			"out": 0
+		},
+		{
+			"branch": "thuy_than",
+			"out": 0
+		},
+		{
+			"branch": "bac_than",
+			"out": 0
+		},
+		{
 			"branch": "fire",
 			"out": 0
 		},
@@ -83,6 +95,186 @@
 		},
 		{
 			"branch": "sword",
+			"tier": 11,
+			"out": 0
+		},
+		{
+			"branch": "kiem_than",
+			"tier": 0,
+			"out": 0
+		},
+		{
+			"branch": "kiem_than",
+			"tier": 1,
+			"out": 2
+		},
+		{
+			"branch": "kiem_than",
+			"tier": 2,
+			"out": 2
+		},
+		{
+			"branch": "kiem_than",
+			"tier": 3,
+			"out": 3
+		},
+		{
+			"branch": "kiem_than",
+			"tier": 4,
+			"out": 3
+		},
+		{
+			"branch": "kiem_than",
+			"tier": 5,
+			"out": 4
+		},
+		{
+			"branch": "kiem_than",
+			"tier": 6,
+			"out": 4
+		},
+		{
+			"branch": "kiem_than",
+			"tier": 7,
+			"out": 5
+		},
+		{
+			"branch": "kiem_than",
+			"tier": 8,
+			"out": 5
+		},
+		{
+			"branch": "kiem_than",
+			"tier": 9,
+			"out": 0
+		},
+		{
+			"branch": "kiem_than",
+			"tier": 10,
+			"out": 0
+		},
+		{
+			"branch": "kiem_than",
+			"tier": 11,
+			"out": 0
+		},
+		{
+			"branch": "thuy_than",
+			"tier": 0,
+			"out": 0
+		},
+		{
+			"branch": "thuy_than",
+			"tier": 1,
+			"out": 2
+		},
+		{
+			"branch": "thuy_than",
+			"tier": 2,
+			"out": 2
+		},
+		{
+			"branch": "thuy_than",
+			"tier": 3,
+			"out": 3
+		},
+		{
+			"branch": "thuy_than",
+			"tier": 4,
+			"out": 3
+		},
+		{
+			"branch": "thuy_than",
+			"tier": 5,
+			"out": 4
+		},
+		{
+			"branch": "thuy_than",
+			"tier": 6,
+			"out": 4
+		},
+		{
+			"branch": "thuy_than",
+			"tier": 7,
+			"out": 5
+		},
+		{
+			"branch": "thuy_than",
+			"tier": 8,
+			"out": 5
+		},
+		{
+			"branch": "thuy_than",
+			"tier": 9,
+			"out": 0
+		},
+		{
+			"branch": "thuy_than",
+			"tier": 10,
+			"out": 0
+		},
+		{
+			"branch": "thuy_than",
+			"tier": 11,
+			"out": 0
+		},
+		{
+			"branch": "bac_than",
+			"tier": 0,
+			"out": 0
+		},
+		{
+			"branch": "bac_than",
+			"tier": 1,
+			"out": 2
+		},
+		{
+			"branch": "bac_than",
+			"tier": 2,
+			"out": 2
+		},
+		{
+			"branch": "bac_than",
+			"tier": 3,
+			"out": 3
+		},
+		{
+			"branch": "bac_than",
+			"tier": 4,
+			"out": 3
+		},
+		{
+			"branch": "bac_than",
+			"tier": 5,
+			"out": 4
+		},
+		{
+			"branch": "bac_than",
+			"tier": 6,
+			"out": 4
+		},
+		{
+			"branch": "bac_than",
+			"tier": 7,
+			"out": 5
+		},
+		{
+			"branch": "bac_than",
+			"tier": 8,
+			"out": 5
+		},
+		{
+			"branch": "bac_than",
+			"tier": 9,
+			"out": 0
+		},
+		{
+			"branch": "bac_than",
+			"tier": 10,
+			"out": 0
+		},
+		{
+			"branch": "bac_than",
 			"tier": 11,
 			"out": 0
 		},
@@ -868,6 +1060,126 @@
 			"branch": "sword",
 			"tier": 12,
 			"out": 29
+		},
+		{
+			"branch": "kiem_than",
+			"tier": 0,
+			"out": 0
+		},
+		{
+			"branch": "kiem_than",
+			"tier": 1,
+			"out": 2
+		},
+		{
+			"branch": "kiem_than",
+			"tier": 2,
+			"out": 4
+		},
+		{
+			"branch": "kiem_than",
+			"tier": 3,
+			"out": 7
+		},
+		{
+			"branch": "kiem_than",
+			"tier": 5,
+			"out": 14
+		},
+		{
+			"branch": "kiem_than",
+			"tier": 7.5,
+			"out": 23
+		},
+		{
+			"branch": "kiem_than",
+			"tier": 10,
+			"out": 28
+		},
+		{
+			"branch": "kiem_than",
+			"tier": 12,
+			"out": 28
+		},
+		{
+			"branch": "thuy_than",
+			"tier": 0,
+			"out": 0
+		},
+		{
+			"branch": "thuy_than",
+			"tier": 1,
+			"out": 2
+		},
+		{
+			"branch": "thuy_than",
+			"tier": 2,
+			"out": 4
+		},
+		{
+			"branch": "thuy_than",
+			"tier": 3,
+			"out": 7
+		},
+		{
+			"branch": "thuy_than",
+			"tier": 5,
+			"out": 14
+		},
+		{
+			"branch": "thuy_than",
+			"tier": 7.5,
+			"out": 23
+		},
+		{
+			"branch": "thuy_than",
+			"tier": 10,
+			"out": 28
+		},
+		{
+			"branch": "thuy_than",
+			"tier": 12,
+			"out": 28
+		},
+		{
+			"branch": "bac_than",
+			"tier": 0,
+			"out": 0
+		},
+		{
+			"branch": "bac_than",
+			"tier": 1,
+			"out": 2
+		},
+		{
+			"branch": "bac_than",
+			"tier": 2,
+			"out": 4
+		},
+		{
+			"branch": "bac_than",
+			"tier": 3,
+			"out": 7
+		},
+		{
+			"branch": "bac_than",
+			"tier": 5,
+			"out": 14
+		},
+		{
+			"branch": "bac_than",
+			"tier": 7.5,
+			"out": 23
+		},
+		{
+			"branch": "bac_than",
+			"tier": 10,
+			"out": 28
+		},
+		{
+			"branch": "bac_than",
+			"tier": 12,
+			"out": 28
 		},
 		{
 			"branch": "fire",

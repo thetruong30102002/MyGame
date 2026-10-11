@@ -71,6 +71,25 @@ namespace Aether.Core
 
         public int StyleTier => TalentCached("STYLE_TIER", () => (int)TalentsModule["STYLE_TIER"]);
 
+        /// <summary>5 nhánh nguyên tố (ELEMENTS) — mỗi nhân vật chỉ cộng vào MỘT.</summary>
+        public string[] Elements => TalentCached("ELEMENTS", () => TalentsModule["ELEMENTS"].ToObject<string[]>());
+
+        /// <summary>3 lưu phái Kiếm là 3 nhánh riêng (STYLE_BRANCHES).</summary>
+        public string[] StyleBranches => TalentCached("STYLE_BRANCHES", () => TalentsModule["STYLE_BRANCHES"].ToObject<string[]>());
+
+        /// <summary>Mốc phái t ⇔ mốc Kiếm cũ t + STYLE_OFFSET.</summary>
+        public int StyleOffset => TalentCached("STYLE_OFFSET", () => (int)TalentsModule["STYLE_OFFSET"]);
+
+        public int StyleNeedsSword => TalentCached("STYLE_NEEDS_SWORD", () => (int)TalentsModule["STYLE_NEEDS_SWORD"]);
+
+        public int SwordArtStyleTier => TalentCached("SWORD_ART_STYLE_TIER", () => (int)TalentsModule["SWORD_ART_STYLE_TIER"]);
+
+        public int ResetDiamondsCost => TalentCached("RESET_DIAMONDS", () => (int)TalentsModule["RESET_DIAMONDS"]);
+
+        public double ImbueBaseSeconds => TalentCached("IMBUE_BASE_SECONDS", () => (double)TalentsModule["IMBUE_BASE_SECONDS"]);
+
+        public double ImbueMaxSeconds => TalentCached("IMBUE_MAX_SECONDS", () => (double)TalentsModule["IMBUE_MAX_SECONDS"]);
+
         public int UltTier => TalentCached("ULT_TIER", () => (int)TalentsModule["ULT_TIER"]);
 
         public int SwordArtTier => TalentCached("SWORD_ART_TIER", () => (int)TalentsModule["SWORD_ART_TIER"]);

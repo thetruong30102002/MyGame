@@ -11,19 +11,71 @@ import { HERO_SKILLS, powerText, skillFacts } from './skills.ts';
  * Tia Aether là năng lực bẩm sinh — NGOÀI cây, mạnh dần theo cấp.
  * Thuần dữ liệu + hàm — CombatSystem/Game/HUD đọc, test node gọi thẳng (chỉ import KIỂU, không kéo Pixi vào test).
  */
-export type Branch = 'sword' | 'fire' | 'water' | 'wind' | 'ice' | 'earth';
+export type Branch = 'sword' | 'kiem_than' | 'thuy_than' | 'bac_than' | 'fire' | 'water' | 'wind' | 'ice' | 'earth';
 
 /** Thứ tự nhánh trên bảng Tiềm năng (Kiếm trước, rồi các nguyên tố theo thứ tự mở trong cốt truyện, Thổ cuối). */
-export const BRANCHES: readonly Branch[] = ['sword', 'fire', 'water', 'wind', 'ice', 'earth'];
+export const BRANCHES: readonly Branch[] = ['sword', 'kiem_than', 'thuy_than', 'bac_than', 'fire', 'water', 'wind', 'ice', 'earth'];
 
-export const BRANCH_NAME: Record<Branch, string> = { sword: 'Kiếm', fire: 'Hoả', water: 'Thuỷ', wind: 'Phong', ice: 'Băng', earth: 'Thổ' };
+export const BRANCH_NAME: Record<Branch, string> = {
+	sword: 'Kiếm',
+	kiem_than: 'Kiếm Thần',
+	thuy_than: 'Thủy Thần',
+	bac_than: 'Bắc Thần',
+	fire: 'Hoả',
+	water: 'Thuỷ',
+	wind: 'Phong',
+	ice: 'Băng',
+	earth: 'Thổ',
+};
 
 /**
  * Nhánh → mã mở khoá trong cốt truyện (`StoryDirector.isUnlocked`). Kiếm mở bằng QUÀ (kiếm gỗ của cha) nên mã là tên
  * món quà. Thổ: mã `earth` do nhiệm vụ tuổi 16 “Sợi tơ màu đất” trao (bia đá cổ ở Nghĩa địa Hoàng Hôn — `youth.ts`);
  * bản lưu đã qua mốc truyện đó được bù mã lúc nạp (`StoryDirector.migrate`). Lưới an toàn tuổi 16 của Game KHÔNG trao Thổ.
  */
-export const BRANCH_UNLOCK: Record<Branch, string> = { sword: 'sword', fire: 'fire', water: 'water', wind: 'wind', ice: 'ice', earth: 'earth' };
+export const BRANCH_UNLOCK: Record<Branch, string> = {
+	sword: 'sword',
+	kiem_than: 'sword',
+	thuy_than: 'sword',
+	bac_than: 'sword',
+	fire: 'fire',
+	water: 'water',
+	wind: 'wind',
+	ice: 'ice',
+	earth: 'earth',
+};
+
+/**
+ * Luật lớp + nguyên tố (chủ dự án 11/10/2026): "chỉ cho chọn 1 phép nguyên tố — lúc cộng tiềm năng sẽ được chọn"; "Kiếm thì học
+ * skill tuỳ, không cần chọn phái, chỉ được tăng skill phái đó — tự do build"; "chọn Kiếm sĩ hay Pháp sư thì chỉ còn lại kiếm hoặc
+ * trượng". Nên: 3 lưu phái Kiếm là 3 NHÁNH riêng (mốc phái t tương đương mốc Kiếm cũ t + `STYLE_OFFSET`, cùng giá), mở khi Kiếm
+ * ≥ mốc `STYLE_NEEDS_SWORD`; mỗi nhân vật chỉ cộng điểm vào MỘT nhánh nguyên tố (`chosenElement`, đổi = tẩy điểm bằng kim cương);
+ * Kiếm sĩ không có nhánh phép để tung (nguyên tố chỉ để Bọc nguyên tố vào kiếm + kiếm pháp), Pháp sư không có nhánh Kiếm.
+ */
+export const ELEMENTS: readonly Branch[] = ['fire', 'water', 'wind', 'ice', 'earth'];
+export const STYLE_BRANCHES: readonly Branch[] = ['kiem_than', 'thuy_than', 'bac_than'];
+/** Mốc phái t ⇔ mốc Kiếm cũ t + 2 (giá, thưởng chiều sâu, mốc bị động giữ nguyên như trước khi tách). */
+export const STYLE_OFFSET = 2;
+/** Kiếm phải ≥ mốc này mới cộng điểm vào phái. */
+export const STYLE_NEEDS_SWORD = 2;
+export function isStyleBranch(b: string): boolean {
+	return (STYLE_BRANCHES as readonly string[]).includes(b);
+}
+export function isElementBranch(b: string): boolean {
+	return (ELEMENTS as readonly string[]).includes(b);
+}
+/** Nhánh nguyên tố đã chọn (mốc cao nhất, bằng nhau lấy theo thứ tự `ELEMENTS`); null = chưa chọn. */
+export function chosenElement(tiers: Tiers): Branch | null {
+	let best: Branch | null = null;
+	for (const e of ELEMENTS) if ((tiers[e] ?? 0) > 0 && (best === null || (tiers[e] ?? 0) > (tiers[best] ?? 0))) best = e;
+	return best;
+}
+/** Lớp nhân vật: 'none' = chưa chọn (tuổi thơ — học được cả kiếm lẫn phép). */
+export type PathId = 'none' | 'sword' | 'mage';
+/** Lớp này được cộng điểm vào nhánh `b` không: Pháp sư không có nhánh Kiếm / phái. */
+export function pathAllowsBranch(path: PathId, b: Branch): boolean {
+	return path !== 'mage' || !(b === 'sword' || isStyleBranch(b));
+}
 
 /**
  * Lời nhắc riêng khi nhánh CHƯA mở (thiếu thì bảng ghi "Mở theo cốt truyện"). Chỉ là chữ — nhánh mở hay không do mã cốt
@@ -61,7 +113,8 @@ export function baseTier(b: Branch): number {
 
 /** Giá lên mốc `t` của nhánh `b`: mốc nhánh có sẵn khi mở (Kiếm mốc 1) = 0, còn lại theo `TIER_COST`. */
 export function tierCost(b: Branch, t: number): number {
-	return t <= baseTier(b) ? 0 : (TIER_COST[t] ?? 0);
+	if (t <= baseTier(b)) return 0;
+	return TIER_COST[isStyleBranch(b) ? t + STYLE_OFFSET : t] ?? 0;
 }
 
 /** Điểm tiềm năng có tới cấp `level`: 1 điểm mỗi lần lên cấp + 1 điểm thưởng ở mỗi mốc 5 cấp — tính tới `TALENT_LEVEL_CAP`. */
@@ -118,11 +171,11 @@ const ACTIVE_TIERS = new Set([1, 3, 5, 6, 8, 10]);
 
 type NodeSpec = [name: string, desc: string, extra?: { skillId?: string; ready?: boolean }];
 
-/** `from`: mốc của phần tử đầu (cây lưu phái Kiếm bắt đầu ở mốc 3). */
-function branchNodes(specs: NodeSpec[], from = 1): TreeNode[] {
+/** `offset`: mốc phái t có kiểu (chủ động / bị động) của mốc Kiếm cũ t + offset. */
+function branchNodes(specs: NodeSpec[], offset = 0): TreeNode[] {
 	return specs.map(([name, desc, extra], i) => {
-		const tier = i + from;
-		return { tier, kind: ACTIVE_TIERS.has(tier) ? 'active' : 'passive', name, desc, ready: !!extra?.ready, ...(extra?.skillId ? { skillId: extra.skillId } : {}) };
+		const tier = i + 1;
+		return { tier, kind: ACTIVE_TIERS.has(tier + offset) ? 'active' : 'passive', name, desc, ready: !!extra?.ready, ...(extra?.skillId ? { skillId: extra.skillId } : {}) };
 	});
 }
 
@@ -276,7 +329,7 @@ export const ULT_TIER = 10;
 /** Lưu phái Kiếm — mã lưu ở `SaveData.swordStyle`: chỉ được THÊM, không đổi tên. */
 export type SwordStyle = 'kiem_than' | 'thuy_than' | 'bac_than';
 export const SWORD_STYLES: readonly SwordStyle[] = ['kiem_than', 'thuy_than', 'bac_than'];
-/** Lần đầu lên mốc này thì CHỌN lưu phái; mốc 3–10 là kỹ năng riêng của lưu phái. Đổi lưu phái = tẩy điểm. */
+/** Mốc Kiếm cũ nơi bắt đầu kỹ năng lưu phái (= mốc 1 của nhánh phái). Giữ cho dữ liệu cũ / bản lưu `swordStyle`. */
 export const STYLE_TIER = 3;
 
 /** Tên, lối chơi, phủ phép hợp (bảng 2.7) — bảng Tiềm năng hiện để người chơi chọn. */
@@ -331,33 +384,19 @@ const STYLE_SPECS: Record<SwordStyle, NodeSpec[]> = {
 	],
 };
 
-/** Cây riêng của từng lưu phái (mốc 3–10). */
+/** Cây riêng của từng lưu phái — nay là nhánh riêng, mốc 1–8 (mốc Kiếm cũ 3–10). */
 export const STYLE_TREE: Record<SwordStyle, TreeNode[]> = {
-	kiem_than: branchNodes(STYLE_SPECS.kiem_than, STYLE_TIER),
-	thuy_than: branchNodes(STYLE_SPECS.thuy_than, STYLE_TIER),
-	bac_than: branchNodes(STYLE_SPECS.bac_than, STYLE_TIER),
+	kiem_than: branchNodes(STYLE_SPECS.kiem_than, STYLE_OFFSET),
+	thuy_than: branchNodes(STYLE_SPECS.thuy_than, STYLE_OFFSET),
+	bac_than: branchNodes(STYLE_SPECS.bac_than, STYLE_OFFSET),
 };
-
-/**
- * Nấc Kiếm mốc 3–10 khi CHƯA chọn lưu phái: gộp tên ba lưu phái. `ready` khi cả ba lưu phái đã hiện thực mốc đó — nhờ vậy
- * `tierCap('sword')` = mốc cao nhất mọi lưu phái đều có (GĐ3 lượt B: mốc 9).
- */
-function styleCombined(i: number): NodeSpec {
-	const nodes = SWORD_STYLES.map((s) => STYLE_SPECS[s][i]!);
-	return [
-		nodes.map((n) => n[0]).join(' · '),
-		`Theo lưu phái chọn ở mốc ${STYLE_TIER}: ${SWORD_STYLES.map((s, k) => `${nodes[k]![0]} (${SWORD_STYLE_INFO[s].name})`).join(' · ')}.`,
-		nodes.every((n) => n[2]?.ready) ? READY : undefined,
-	];
-}
 
 /** Cây 6 nhánh × 10 mốc (tên/hiệu ứng theo bảng mục 3 của kế hoạch, đã duyệt 07/10/2026). Mốc chưa hiện thực để `ready: false`. */
 export const TREE: Record<Branch, TreeNode[]> = {
-	sword: branchNodes([
-		active('slash'),
-		['Nhịp Chém', `Tốc chém +${Math.round(PASSIVE.swordHaste * 100)}% (đòn Kiếm hồi nhanh hơn).`, READY],
-		...Array.from({ length: 8 }, (_, i) => styleCombined(i)),
-	]),
+	sword: branchNodes([active('slash'), ['Nhịp Chém', `Tốc chém +${Math.round(PASSIVE.swordHaste * 100)}% (đòn Kiếm hồi nhanh hơn).`, READY]]),
+	kiem_than: STYLE_TREE.kiem_than,
+	thuy_than: STYLE_TREE.thuy_than,
+	bac_than: STYLE_TREE.bac_than,
 	fire: branchNodes([
 		active('fire_bolt'),
 		['Mồi Lửa', `Cháy lâu hơn ${pct(PASSIVE.burn)}%.`, READY],
@@ -420,18 +459,24 @@ export const TREE: Record<Branch, TreeNode[]> = {
 	]),
 };
 
-/** Cây của một nhánh theo lưu phái: Kiếm đã chọn lưu phái = mốc 1–2 chung + mốc 3–10 của lưu phái đó. */
-export function treeOf(b: Branch, style: SwordStyle | null = null): TreeNode[] {
-	if (b !== 'sword' || !style || !STYLE_TREE[style]) return TREE[b];
-	return [...TREE.sword.slice(0, STYLE_TIER - 1), ...STYLE_TREE[style]];
+/** Cây của một nhánh (giữ chữ ký cũ cho bên gọi; lưu phái nay là nhánh riêng). */
+export function treeOf(b: Branch): TreeNode[] {
+	return TREE[b];
 }
 
 // ———————————————————————————— Kiếm pháp nguyên tố (kế hoạch 2.3) ————————————————————————————
 
-/** Kiếm ≥ mốc này VÀ nguyên tố ≥ mốc này → học kiếm pháp của nguyên tố đó (mọi lưu phái). */
+/** Nguyên tố ≥ mốc này VÀ một nhánh phái ≥ `SWORD_ART_STYLE_TIER` (= Kiếm cũ mốc 5) → học kiếm pháp của nguyên tố đó. */
 export const SWORD_ART_TIER = 5;
+export const SWORD_ART_STYLE_TIER = 3;
+/** Mốc Kiếm "sâu nhất" quy về thang cũ: max(Kiếm, phái cao nhất + 2) — thưởng chiều sâu của kiếm pháp / mô tả. */
+export function swordDepth(tiers: Tiers): number {
+	let d = tiers.sword ?? 0;
+	for (const s of STYLE_BRANCHES) if ((tiers[s] ?? 0) > 0) d = Math.max(d, (tiers[s] ?? 0) + STYLE_OFFSET);
+	return d;
+}
 /** Nguyên tố → kiếm pháp. Khai TRƯỚC `SKILL_NODE` (dựng lúc nạp module). */
-export const SWORD_ARTS: Record<Exclude<Branch, 'sword'>, string> = { fire: 'blaze_slash', water: 'water_dragon_slash', wind: 'gale_blade_dance', ice: 'frost_cleave', earth: 'earth_rend' };
+export const SWORD_ARTS: Record<'fire' | 'water' | 'wind' | 'ice' | 'earth', string> = { fire: 'blaze_slash', water: 'water_dragon_slash', wind: 'gale_blade_dance', ice: 'frost_cleave', earth: 'earth_rend' };
 
 /**
  * Kỹ năng thuộc cây → nhánh + mốc học (Tia Aether không có ở đây: bẩm sinh, ngoài cây). `style`: kỹ năng riêng của một
@@ -440,13 +485,14 @@ export const SWORD_ARTS: Record<Exclude<Branch, 'sword'>, string> = { fire: 'bla
 export interface SkillNode {
 	branch: Branch;
 	tier: number;
-	style?: SwordStyle;
-	art?: Exclude<Branch, 'sword'>;
+	art?: Branch;
+	/** Bọc nguyên tố (`imbue`): cần Kiếm ≥ mốc `tier` + nguyên tố đã chọn ≥ `ENCHANT_ELEMENT_TIER`. */
+	imbue?: true;
 }
 export const SKILL_NODE: Record<string, SkillNode> = Object.fromEntries([
 	...BRANCHES.flatMap((b) => TREE[b].flatMap((n) => (n.skillId ? [[n.skillId, { branch: b, tier: n.tier }]] : []))),
-	...SWORD_STYLES.flatMap((style) => STYLE_TREE[style].flatMap((n) => (n.skillId ? [[n.skillId, { branch: 'sword', tier: n.tier, style }]] : []))),
-	...Object.entries(SWORD_ARTS).map(([art, id]) => [id, { branch: 'sword', tier: SWORD_ART_TIER, art }]),
+	...Object.entries(SWORD_ARTS).map(([art, id]) => [id, { branch: 'sword', tier: STYLE_NEEDS_SWORD, art }]),
+	['imbue', { branch: 'sword', tier: 2, imbue: true }],
 ]);
 
 /**
@@ -483,7 +529,25 @@ export function branchOpen(b: Branch, isUnlocked: (unlockId: string) => boolean)
 export function tiersFrom(bought: TalentSpent, isUnlocked: (unlockId: string) => boolean): Tiers {
 	const tiers: Tiers = {};
 	for (const b of BRANCHES) tiers[b] = branchOpen(b, isUnlocked) ? Math.min(tierCap(b), baseTier(b) + Math.max(0, Math.floor(bought[b] ?? 0))) : 0;
+	// Một nguyên tố: bản lưu cũ học nhiều nhánh thì giữ nhánh sâu nhất, các nhánh khác về 0 (điểm tự trả lại).
+	const keep = chosenElement(tiers);
+	for (const e of ELEMENTS) if (e !== keep) tiers[e] = 0;
+	// Phái cần Kiếm mốc 2.
+	if ((tiers.sword ?? 0) < STYLE_NEEDS_SWORD) for (const s of STYLE_BRANCHES) tiers[s] = 0;
 	return tiers;
+}
+
+/**
+ * Bản lưu trước khi tách lưu phái (`talents.sword` = số mốc Kiếm đã mua, `swordStyle` = lưu phái): mốc Kiếm cũ ≥ 3 chuyển thành
+ * Kiếm mốc 2 + nhánh phái mốc (cũ − 2), cùng số điểm. Bản lưu đã có nhánh phái thì giữ nguyên.
+ */
+export function migrateBought(bought: TalentSpent, swordStyle: unknown): TalentSpent {
+	if (STYLE_BRANCHES.some((s) => (bought[s] ?? 0) > 0)) return { ...bought };
+	const n = Math.max(0, Math.floor(bought.sword ?? 0));
+	if (n <= 1) return { ...bought };
+	const out: TalentSpent = { ...bought, sword: 1 };
+	if (typeof swordStyle === 'string' && isStyleBranch(swordStyle)) out[swordStyle as Branch] = n - 1;
+	return out;
 }
 
 /** Tổng điểm đã dùng cho các mốc hiện có (gồm mốc 1 của nhánh nguyên tố đã học). */
@@ -500,8 +564,13 @@ export function unspent(level: number, tiers: Tiers, bonus = 0): number {
  * Giá mốc kế tiếp của nhánh; null nếu nhánh chưa mở (mã cốt truyện) hoặc đã tới mốc cao nhất đã hiện thực. Nhánh nguyên tố
  * đã mở ở mốc 0 → giá mốc 1 (học kỹ năng đầu, 1 điểm).
  */
-export function nextTierCost(tiers: Tiers, b: Branch, isUnlocked: (unlockId: string) => boolean): number | null {
-	if (!BRANCHES.includes(b) || !branchOpen(b, isUnlocked)) return null;
+export function nextTierCost(tiers: Tiers, b: Branch, isUnlocked: (unlockId: string) => boolean, path: PathId = 'none'): number | null {
+	if (!BRANCHES.includes(b) || !branchOpen(b, isUnlocked) || !pathAllowsBranch(path, b)) return null;
+	if (isStyleBranch(b) && (tiers.sword ?? 0) < STYLE_NEEDS_SWORD) return null;
+	if (isElementBranch(b)) {
+		const chosen = chosenElement(tiers);
+		if (chosen !== null && chosen !== b) return null;
+	}
 	const cur = Math.max(0, Math.floor(tiers[b] ?? 0));
 	if (cur >= tierCap(b)) return null;
 	return tierCost(b, cur + 1);
@@ -511,8 +580,8 @@ export function nextTierCost(tiers: Tiers, b: Branch, isUnlocked: (unlockId: str
  * Lên 1 mốc (đã mở, chưa chạm trần, đủ điểm của cấp + điểm thưởng `bonus`) — trả mốc mới, hoặc null nếu không lên được. Sửa
  * `tiers` tại chỗ.
  */
-export function addTier(level: number, tiers: Tiers, b: Branch, isUnlocked: (unlockId: string) => boolean, bonus = 0): number | null {
-	const cost = nextTierCost(tiers, b, isUnlocked);
+export function addTier(level: number, tiers: Tiers, b: Branch, isUnlocked: (unlockId: string) => boolean, bonus = 0, path: PathId = 'none'): number | null {
+	const cost = nextTierCost(tiers, b, isUnlocked, path);
 	if (cost === null || unspent(level, tiers, bonus) < cost) return null;
 	tiers[b] = Math.max(0, Math.floor(tiers[b] ?? 0)) + 1;
 	return tiers[b]!;
@@ -526,10 +595,17 @@ export function addTier(level: number, tiers: Tiers, b: Branch, isUnlocked: (unl
  * trong `want`).
  */
 export function fitTiers(want: Tiers, points: number): Tiers {
-	const order = BRANCHES.filter((b) => want[b] !== undefined).sort((x, y) => (want[y] ?? 0) - (want[x] ?? 0) || BRANCHES.indexOf(x) - BRANCHES.indexOf(y));
+	// Kiếm là cổng vào phái (1 điểm) nên giữ TRƯỚC khi có phái muốn giữ; Kiếm không đủ mốc 2 thì phái về 0.
+	const gate = STYLE_BRANCHES.some((s) => (want[s] ?? 0) > 0);
+	const rank = (b: Branch) => (gate && b === 'sword' ? MAX_TIER + 1 : (want[b] ?? 0));
+	const order = BRANCHES.filter((b) => want[b] !== undefined).sort((x, y) => rank(y) - rank(x) || BRANCHES.indexOf(x) - BRANCHES.indexOf(y));
 	let left = Math.max(0, points);
 	const kept: Tiers = {};
 	for (const b of order) {
+		if (isStyleBranch(b) && (kept.sword ?? 0) < STYLE_NEEDS_SWORD) {
+			kept[b] = 0;
+			continue;
+		}
 		let t = Math.max(baseTier(b), Math.min(tierCap(b), Math.floor(want[b] ?? 0)));
 		while (t > baseTier(b) && pointsToTier(t, b) > left) t -= 1;
 		kept[b] = t;
@@ -561,8 +637,17 @@ export function skillScale(tiers: Tiers, skillId: string, level: number): number
 	if (skillId === 'aether_bolt') return aetherScale(level);
 	const node = SKILL_NODE[skillId];
 	if (!node) return 1;
-	if (node.art) return depthBonus(Math.min(tiers.sword ?? 1, tiers[node.art] ?? 1));
+	if (node.art) return depthBonus(Math.min(swordDepth(tiers) || 1, tiers[node.art] ?? 1));
+	if (isStyleBranch(node.branch)) return depthBonus((tiers[node.branch] ?? 0) + STYLE_OFFSET);
 	return depthBonus(tiers[node.branch] ?? 1);
+}
+
+/** Lớp được dùng kỹ năng không: Kiếm sĩ chỉ kiếm (đòn Kiếm, phái, kiếm pháp, Bọc nguyên tố), Pháp sư chỉ trượng (Aether + phép). */
+export function pathAllowsSkill(path: PathId, skillId: string): boolean {
+	if (path === 'none') return true;
+	const node = SKILL_NODE[skillId];
+	const blade = skillId === 'slash' || (!!node && (node.branch === 'sword' || isStyleBranch(node.branch) || !!node.art || !!node.imbue));
+	return path === 'sword' ? blade : !blade;
 }
 
 /**
@@ -571,12 +656,16 @@ export function skillScale(tiers: Tiers, skillId: string, level: number): number
  * Cầu, Thuỷ Tiễn…) cần nhánh ≥ mốc 1 — đã mua bằng điểm (chủ dự án 10/10/2026). Kỹ năng của lưu phái Kiếm cần đúng lưu phái
  * `style`; kiếm pháp nguyên tố cần thêm nguyên tố đó ≥ mốc 5.
  */
-export function knowsSkill(skill: { id: string; unlock?: string }, tiers: Tiers, isUnlocked: (unlockId: string) => boolean, style: SwordStyle | null = null): boolean {
+export function knowsSkill(skill: { id: string; unlock?: string }, tiers: Tiers, isUnlocked: (unlockId: string) => boolean, path: PathId = 'none'): boolean {
 	if (skill.unlock && !isUnlocked(skill.unlock)) return false;
+	if (!pathAllowsSkill(path, skill.id)) return false;
 	const node = SKILL_NODE[skill.id];
 	if (!node) return true;
-	if (node.style && node.style !== style) return false;
-	if (node.art && (tiers[node.art] ?? 0) < SWORD_ART_TIER) return false;
+	if (node.art && ((tiers[node.art] ?? 0) < SWORD_ART_TIER || !STYLE_BRANCHES.some((s) => (tiers[s] ?? 0) >= SWORD_ART_STYLE_TIER))) return false;
+	if (node.imbue) {
+		const e = chosenElement(tiers);
+		if (e === null || (tiers[e] ?? 0) < ENCHANT_ELEMENT_TIER) return false;
+	}
 	return node.tier <= baseTier(node.branch) || (tiers[node.branch] ?? 0) >= node.tier;
 }
 
@@ -648,11 +737,11 @@ export interface PassiveEffects {
 	evade: number;
 }
 
-/** Bị động đang có theo mốc + lưu phái Kiếm (mốc 4 / 7 / 9 của Kiếm khác nhau theo lưu phái; chưa chọn = không có). */
-export function passiveEffects(tiers: Tiers, style: SwordStyle | null = null): PassiveEffects {
+/** Bị động đang có theo mốc (bị động lưu phái theo nhánh phái: mốc Kiếm cũ 4 / 7 / 9 = mốc phái 2 / 5 / 7). */
+export function passiveEffects(tiers: Tiers): PassiveEffects {
 	const at = (b: Branch, t: number) => (tiers[b] ?? 0) >= t;
-	/** Bị động Kiếm từ mốc 4 trở lên thuộc từng lưu phái: đúng lưu phái VÀ đủ mốc. */
-	const swordAt = (s: SwordStyle, t: number) => style === s && at('sword', t);
+	/** `t` theo thang Kiếm cũ. */
+	const swordAt = (s: SwordStyle, t: number) => at(s, t - STYLE_OFFSET);
 	const sword4 = (s: SwordStyle) => swordAt(s, 4);
 	return {
 		swordCooldown: at('sword', 2) ? 1 / (1 + PASSIVE.swordHaste) : 1,
@@ -732,8 +821,8 @@ export function reactionOfPair(a: Branch, b: Branch): ReactionId | null {
 }
 
 /**
- * Thưởng phản ứng: +5% mỗi MỐC (trên mốc 1) của hệ YẾU hơn trong cặp — phải nuôi cả hai hệ mới ăn trọn. Không còn
- * đòi "build song hệ": ai có cả hai hệ đều được.
+ * Thưởng phản ứng: +5% mỗi MỐC (trên mốc 1) của hệ YẾU hơn trong cặp. Từ 11/10/2026 mỗi nhân vật chỉ một nguyên tố nên phản ứng là
+ * lối đánh NHÓM (người khác hệ đánh cùng một con — chủ dự án: "phản ứng cứ cho các user tự phối hợp với nhau"); hàm giữ cho mô tả.
  */
 export const REACTION_PER_TIER = 0.05;
 export function reactionBonus(tiers: Tiers, a: Branch, b: Branch): number {
@@ -752,14 +841,15 @@ export interface BuildInfo {
 	detail: string;
 }
 
-/** Đọc lối build từ mốc các nhánh (không còn thưởng/phạt theo build — sức mạnh nằm ở mốc). Thuần Kiếm ghi kèm lưu phái. */
-export function describeBuild(tiers: Tiers, style: SwordStyle | null = null): BuildInfo {
-	const deep = BRANCHES.filter((b) => (tiers[b] ?? 0) >= 2).sort((x, y) => (tiers[y] ?? 0) - (tiers[x] ?? 0));
-	const part = (b: Branch) => `${BRANCH_NAME[b]} mốc ${tiers[b]} (+${Math.round((depthBonus(tiers[b] ?? 1) - 1) * 100)}%)`;
+/** Đọc lối build từ mốc các nhánh (không còn thưởng/phạt theo build — sức mạnh nằm ở mốc). */
+export function describeBuild(tiers: Tiers): BuildInfo {
+	// Kiếm (2 mốc) chỉ là cổng vào lưu phái — không tính là một "lối"; phái tính thưởng theo thang Kiếm cũ (mốc + 2).
+	const depth = (b: Branch) => (tiers[b] ?? 0) + (isStyleBranch(b) && (tiers[b] ?? 0) > 0 ? STYLE_OFFSET : 0);
+	const deep = BRANCHES.filter((b) => b !== 'sword' && (tiers[b] ?? 0) >= 2).sort((x, y) => depth(y) - depth(x));
+	const part = (b: Branch) => `${BRANCH_NAME[b]} mốc ${tiers[b]} (+${Math.round((depthBonus(depth(b)) - 1) * 100)}%)`;
 	if (!deep.length) return { kind: 'none', label: 'Chưa có lối riêng', detail: 'Cộng điểm vào một nhánh: mỗi mốc +4% sức mạnh mọi kỹ năng của nhánh đó.' };
 	if (deep.length === 1) {
-		const lp = deep[0] === 'sword' && style ? ` · ${SWORD_STYLE_INFO[style].name}` : '';
-		return { kind: 'focused', label: `Thuần ${BRANCH_NAME[deep[0]!]}${lp}`, detail: `${part(deep[0]!)}.` };
+		return { kind: 'focused', label: `Thuần ${BRANCH_NAME[deep[0]!]}`, detail: `${part(deep[0]!)}.` };
 	}
 	if (deep.length === 2) {
 		const [a, b] = deep as [Branch, Branch];
@@ -770,18 +860,36 @@ export function describeBuild(tiers: Tiers, style: SwordStyle | null = null): Bu
 	return { kind: 'spread', label: 'Đa hệ', detail: `${deep.map(part).join(', ')}. Rải điểm thì khó chạm mốc cao.` };
 }
 
-/** Tẩy điểm: miễn phí tới cấp 5 (còn đang thử build), sau đó 10 xu × cấp. */
+/** Tẩy điểm: miễn phí tới cấp 5 (còn đang thử build), sau đó 10 xu × cấp. (Cũ — nay tẩy bằng kim cương `resetDiamonds`.) */
 export function resetCost(level: number): number {
 	return level <= 5 ? 0 : 10 * level;
 }
 
+/**
+ * Tẩy điểm tiềm năng / thuộc tính bằng KIM CƯƠNG (chủ dự án 11/10/2026: "tẩy điểm tốn nhiều kim cương" — đổi nguyên tố đã chọn là
+ * một quyết định lớn). Miễn phí tới cấp 5 để thử build; máy chủ trừ ví (`resetBuild`).
+ */
+export const RESET_DIAMONDS = 40;
+export function resetDiamonds(level: number): number {
+	return level <= 5 ? 0 : RESET_DIAMONDS;
+}
+
 // ———————————————————————————— phủ phép Kiếm ————————————————————————————
 
-export type EnchantId = Exclude<Branch, 'sword'>;
+export type EnchantId = 'fire' | 'water' | 'wind' | 'ice' | 'earth';
 export const ENCHANTS: readonly EnchantId[] = ['fire', 'water', 'wind', 'ice', 'earth'];
 export const ENCHANT_SWORD_TIER = 2;
-/** Nguyên tố phải ≥ mốc 5: 18 điểm dư của một build master Kiếm chỉ phủ được tối đa 2 nguyên tố. */
-export const ENCHANT_ELEMENT_TIER = 5;
+/**
+ * Nguyên tố phải ≥ mốc này mới có Bọc nguyên tố (11/10/2026: một nguyên tố / nhân vật nên hạ từ 5 xuống 3 — 4 điểm). Bọc nguyên tố là
+ * KỸ NĂNG kích hoạt có thời gian (chủ dự án: "bọc nguyên tố vào kiếm là skill kích hoạt có thời gian"), không còn bật sẵn.
+ */
+export const ENCHANT_ELEMENT_TIER = 3;
+/** Thời gian bọc: 10 giây + 1 giây mỗi mốc nguyên tố, tối đa 20 giây. */
+export const IMBUE_BASE_SECONDS = 10;
+export const IMBUE_MAX_SECONDS = 20;
+export function imbueSeconds(elementTier: number): number {
+	return Math.min(IMBUE_MAX_SECONDS, IMBUE_BASE_SECONDS + Math.max(0, Math.floor(elementTier)));
+}
 /** Đổi phủ phép có hồi (giây): không chém Lửa rồi đổi ngay sang Băng để tự ăn Tan Chảy liên tục. */
 export const ENCHANT_SWAP_SECONDS = 10;
 
@@ -813,9 +921,9 @@ export function enchantDesc(e: EnchantId, tier: number): string {
 	}
 }
 
-/** Phủ được nguyên tố `e` lên kiếm chưa: Kiếm ≥ mốc 2 và nguyên tố đó ≥ mốc 5. */
+/** Bọc được nguyên tố `e` chưa: Kiếm ≥ mốc 2, `e` là nguyên tố đã chọn và ≥ `ENCHANT_ELEMENT_TIER`. */
 export function canEnchant(tiers: Tiers, e: EnchantId): boolean {
-	return ENCHANTS.includes(e) && (tiers.sword ?? 0) >= ENCHANT_SWORD_TIER && (tiers[e] ?? 0) >= ENCHANT_ELEMENT_TIER;
+	return ENCHANTS.includes(e) && (tiers.sword ?? 0) >= ENCHANT_SWORD_TIER && chosenElement(tiers) === e && (tiers[e] ?? 0) >= ENCHANT_ELEMENT_TIER;
 }
 
 // ———————————————————————————— thanh 10 ô ————————————————————————————
@@ -829,7 +937,7 @@ export const SLOT_CODES: readonly string[] = ['KeyJ', 'KeyK', 'Digit1', 'Digit2'
 export type Loadout = (string | null)[];
 
 /** Ô "nhà" của kỹ năng — đúng phím cũ (J kiếm, K Aether, 1–3 phép, 4 Suối Lành, 5 Băng Tiễn) để người chơi cũ khỏi tập lại. */
-export const HOME_SLOT: Record<string, number> = { slash: 0, aether_bolt: 1, fire_bolt: 2, water_lance: 3, wind_blade: 4, heal: 5, ice_shard: 6 };
+export const HOME_SLOT: Record<string, number> = { slash: 0, aether_bolt: 1, imbue: 1, fire_bolt: 2, water_lance: 3, wind_blade: 4, heal: 5, ice_shard: 6 };
 
 /** Đặt kỹ năng chưa có trên thanh vào ô nhà nếu trống, không thì ô trống đầu tiên; hết ô thì để nguyên. Trả bản mới. */
 export function placeSkill(loadout: Loadout, skillId: string): Loadout {

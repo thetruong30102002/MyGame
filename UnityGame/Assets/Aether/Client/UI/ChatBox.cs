@@ -38,6 +38,16 @@ namespace Aether.Client.UI
         private string drawnTab;
         private bool expanded = true;
         private bool touch;
+        /// <summary>Thu gọn hẳn thành một nút nhỏ (chủ dự án 11/10/2026: "thêm tính năng thu gọn chat bên trái") — nhớ qua PlayerPrefs.</summary>
+        private bool minimized;
+        private RectTransform minBtn;
+        private RectTransform pill;
+        private TMP_Text pillText;
+        private long minSince;
+        private const string MinPref = "aether.chatMin";
+
+        /// <summary>Khung chat (Hud né biển chỉ lối khỏi nó).</summary>
+        public RectTransform Box => root;
 
         /// <summary>Đang gõ trong ô nhập — game không nhận phím / không cho đi.</summary>
         public bool Typing => input != null && input.isFocused;
@@ -51,6 +61,7 @@ namespace Aether.Client.UI
             c.touch = touchUi;
             c.Build();
             g.WhisperRequested += (id, name) => c.OpenWhisper();
+            if (!touchUi && PlayerPrefs.GetInt(MinPref, 0) == 1) c.SetMinimized(true);
             if (touchUi)
             {
                 // Màn cảm ứng: nửa trái là cần điều khiển → khung chat nằm dưới thẻ nhân vật, thu gọn sẵn.
@@ -69,7 +80,7 @@ namespace Aether.Client.UI
             for (var i = 0; i < Tabs.Length; i += 1)
             {
                 var (id, label) = Tabs[i];
-                var t = UiKit.Rect(tabRow, "T" + id, new Vector2(0, 0.5f), new Vector2(0, 0.5f), new Vector2(i * 75, 0), new Vector2(72, 22));
+                var t = UiKit.Rect(tabRow, "T" + id, new Vector2(0, 0.5f), new Vector2(0, 0.5f), new Vector2(i * 68, 0), new Vector2(65, 22));
                 var bg = UiStyle.Pill(t, new Color(0, 0, 0, 0.35f), 11);
                 var lb = UiKit.Label(UiKit.Stretch(t, "l"), label, 12, UiKit.TextDim, TextAnchor.MiddleCenter, true);
                 var badge = UiKit.Rect(t, "b", new Vector2(1, 1), new Vector2(0.5f, 0.5f), new Vector2(-4, -2), new Vector2(18, 16));
@@ -128,6 +139,42 @@ namespace Aether.Client.UI
             UiKit.Label(UiKit.Stretch(toggle, "t"), "Trò chuyện", 11, UiStyle.GoldHi, TextAnchor.MiddleCenter, true);
             UiKit.Press(toggle, () => SetExpanded(!expanded)).Bouncy = false;
             toggle.gameObject.SetActive(false);
+
+            minBtn = UiKit.Rect(root, "Min", new Vector2(1, 1), new Vector2(1, 1), new Vector2(-6, -6), new Vector2(24, 22));
+            UiStyle.Pill(minBtn, new Color(0, 0, 0, 0.45f), 8);
+            UiKit.Label(UiKit.Stretch(minBtn, "t"), "–", 16, UiStyle.GoldHi, TextAnchor.MiddleCenter, true);
+            UiKit.Press(minBtn, () => SetMinimized(true)).Bouncy = false;
+            minBtn.gameObject.SetActive(!touch);
+
+            pill = UiKit.Rect(root, "Pill", new Vector2(0, 0), new Vector2(0, 0), Vector2.zero, new Vector2(150, 30));
+            UiStyle.Pill(pill, UiStyle.Hex(0x3a2c1c, 0.92f), 12).raycastTarget = true;
+            pillText = UiKit.Label(UiKit.Stretch(pill, "t"), "Trò chuyện »", 12, UiStyle.GoldHi, TextAnchor.MiddleCenter, true);
+            UiKit.Press(pill, () => SetMinimized(false)).Bouncy = false;
+            pill.gameObject.SetActive(false);
+            Redraw(true);
+        }
+
+        /// <summary>Thu gọn hẳn (chỉ còn nút "Trò chuyện", kèm số tin chưa đọc) / mở lại.</summary>
+        private void SetMinimized(bool on)
+        {
+            minimized = on;
+            var chat = game.Chat;
+            minSince = chat.Count > 0 ? chat[chat.Count - 1].Id : 0;
+            if (!touch) PlayerPrefs.SetInt(MinPref, on ? 1 : 0);
+            if (on) CloseInput();
+            foreach (Transform ch in root) ch.gameObject.SetActive(!on);
+            pill.gameObject.SetActive(on);
+            var card = root.GetComponent<Image>();
+            if (card != null) card.enabled = !on;
+            if (on) root.sizeDelta = new Vector2(150, 30);
+            else
+            {
+                SetExpanded(expanded);
+                inputRow.gameObject.SetActive(false);
+                toggle.gameObject.SetActive(touch);
+                minBtn.gameObject.SetActive(!touch);
+                pill.gameObject.SetActive(false);
+            }
             Redraw(true);
         }
 
@@ -154,6 +201,7 @@ namespace Aether.Client.UI
         /// <summary>Enter ở màn chơi: mở ô nhập (thu gọn thì mở rộng trước).</summary>
         public void Open()
         {
+            if (minimized) SetMinimized(false);
             if (!expanded) SetExpanded(true);
             inputRow.gameObject.SetActive(true);
             UpdateChip();
@@ -219,6 +267,14 @@ namespace Aether.Client.UI
             drawnVersion = game.ChatVersion;
             drawnTab = tab;
             var all = game.Chat;
+            if (minimized)
+            {
+                // Thu gọn: không đánh dấu đã đọc, nút ghi số tin mới của người khác kể từ lúc thu gọn.
+                var unread = 0;
+                foreach (var l in all) if (l.Id > minSince && !l.Self && !l.System) unread += 1;
+                pillText.text = unread > 0 ? $"Trò chuyện <color=#ff8a7a>({(unread > 99 ? "99+" : unread.ToString())})</color> »" : "Trò chuyện »";
+                return;
+            }
             var last = all.Count > 0 ? all[all.Count - 1].Id : 0;
             seen[tab] = last;
             foreach (var (id, _) in Tabs)

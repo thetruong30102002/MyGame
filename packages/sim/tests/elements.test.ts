@@ -145,8 +145,8 @@ const idx = (id: string) => {
 	assert.match(TREE.ice[4]!.desc, /24 MP/);
 	assert.equal(TREE.earth[1]!.name, 'Đá Nặng');
 	assert.equal(TREE.earth[3]!.name, 'Da Đá');
-	// Trần GĐ3: mọi nhánh mốc 9 — 5 nguyên tố (lượt A) + Kiếm 3 lưu phái (lượt B, xem tests/swordstyles.test.ts).
-	for (const b of BRANCHES) assert.equal(tierCap(b), 9, `${b}: trần`);
+	// Trần GĐ3: nguyên tố mốc 9; từ 11/10/2026 Kiếm chỉ còn mốc 1–2, ba lưu phái là ba nhánh riêng mốc 1–7 (= Kiếm cũ 3–9).
+	for (const b of BRANCHES) assert.equal(tierCap(b), b === 'sword' ? 2 : ['kiem_than', 'thuy_than', 'bac_than'].includes(b) ? 7 : 9, `${b}: trần`);
 	const ok = () => true;
 	assert.equal(knowsSkill(HERO_SKILLS[idx('flame_ring')]!, { fire: 2 }, ok), false);
 	assert.equal(knowsSkill(HERO_SKILLS[idx('flame_ring')]!, { fire: 3 }, ok), true);

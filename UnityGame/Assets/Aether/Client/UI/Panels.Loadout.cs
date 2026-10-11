@@ -17,18 +17,19 @@ namespace Aether.Client.UI
 
         private void TalentTabs()
         {
-            var tabs = new[] { (false, "Cây tiềm năng"), (true, "Gán ô · Phủ phép") };
-            for (var i = 0; i < tabs.Length; i += 1)
+            var tabs = new List<(int, string)> { (0, "Cây tiềm năng"), (1, "Gán ô · Bọc Nguyên Tố") };
+            if (game.IsAdmin) tabs.Add((2, "Kế hoạch (QTV)"));
+            for (var i = 0; i < tabs.Count; i += 1)
             {
                 var (lo, label) = tabs[i];
-                var on = lo == talentLoadout;
+                var on = lo == talentTab;
                 var tab = UiKit.Rect(content, "TT" + i, new Vector2(0, 1), new Vector2(0, 1), new Vector2(i * 168, 0), new Vector2(160, 30));
                 UiStyle.Pill(tab, on ? new Color(0.91f, 0.77f, 0.42f, 0.38f) : new Color(0, 0, 0, 0.35f), 12).raycastTarget = true;
                 Text(tab, "t", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(156, 24), label, 14, on ? UiStyle.GoldHi : UiKit.TextDim, TextAnchor.MiddleCenter, true);
                 var l = lo;
                 UiKit.Press(tab, () =>
                 {
-                    talentLoadout = l;
+                    talentTab = l;
                     loadoutHeld = null;
                     Refresh();
                 });
@@ -115,8 +116,8 @@ namespace Aether.Client.UI
             int Order(SkillDef s)
             {
                 var b = game.Sim.SkillNodes.TryGetValue(s.Id, out var n) ? n.Branch : null;
-                var i = b != null ? System.Array.IndexOf(BranchOrder, b) : -1;
-                return i < 0 ? BranchOrder.Length : i;
+                var i = b != null ? System.Array.IndexOf(game.Sim.Branches, b) : -1;
+                return i < 0 ? game.Sim.Branches.Length : i;
             }
             learned.Sort((a, b) => Order(a) != Order(b) ? Order(a) - Order(b) : 0);
             const int perRow = 12;
@@ -168,59 +169,42 @@ namespace Aether.Client.UI
             _ => UiStyle.Hex(0xd9c6ff),
         };
 
-        /// <summary>Phủ phép Kiếm: mỗi hệ một thẻ (đang phủ / phủ được / chưa đủ + mô tả hoặc điều kiện), nút Không phủ, giây hồi đổi.</summary>
+        /// <summary>
+        /// Bọc Nguyên Tố (11/10/2026 — kỹ năng kích hoạt có thời gian, thay bảng chọn phủ phép): nguyên tố đã chọn, thời gian bọc,
+        /// tác dụng lên đòn Kiếm, trạng thái hiện tại. Pháp sư: nhắc nguyên tố dùng để tung phép.
+        /// </summary>
         private void BuildEnchantCards()
         {
             var box = Box(content, "Enchant", new Vector2(0, 1), new Vector2(0, 1), new Vector2(0, -386), new Vector2(886, 148), 0.5f);
             var sim = game.Sim;
-            var cur = game.Enchantment;
-            var cool = game.Combat.EnchantCooldown;
-            Text(box, "H", new Vector2(0, 1), new Vector2(0, 1), new Vector2(14, -6), new Vector2(160, 20), "Phủ phép Kiếm", 15, UiStyle.GoldHi, TextAnchor.MiddleLeft, true);
-            var desc = Text(box, "D", new Vector2(0, 1), new Vector2(0, 1), new Vector2(150, -6), new Vector2(560, 20),
-                $"Mọi đòn Kiếm mang hệ nguyên tố và gây phản ứng như phép · một hệ mỗi lúc, đổi hồi {sim.EnchantSwapSeconds:0} giây · mốc {sim.EnchantUpTier} của hệ thì mạnh hơn" +
-                (cool > 0 ? $" · <color=#ffd166>đổi được sau {System.Math.Ceiling(cool)} giây</color>" : ""), 11, UiKit.TextDim, TextAnchor.MiddleLeft);
-            desc.textWrappingMode = TextWrappingModes.Normal;
-            var off = UiKit.Rect(box, "Off", new Vector2(1, 1), new Vector2(1, 1), new Vector2(-12, -5), new Vector2(120, 24));
-            UiStyle.Pill(off, cur == null ? new Color(0.91f, 0.77f, 0.42f, 0.38f) : new Color(0, 0, 0, 0.4f), 8).raycastTarget = true;
-            Text(off, "t", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(116, 20), cur == null ? "Đang không phủ" : "Không phủ", 12, cur == null ? UiStyle.GoldHi : UiKit.TextMain, TextAnchor.MiddleCenter, true);
-            UiKit.Press(off, () =>
+            var el = game.ChosenElement;
+            var mage = game.HeroPath == "mage";
+            var color = el != null && BranchColor.TryGetValue(el, out var bc) ? bc : UiStyle.GoldHi;
+            var name = el != null && sim.BranchName.TryGetValue(el, out var bn) ? bn : el;
+            Text(box, "H", new Vector2(0, 1), new Vector2(0, 1), new Vector2(14, -6), new Vector2(300, 22), mage ? "Nguyên tố của Pháp sư" : "Bọc Nguyên Tố", 15, UiStyle.GoldHi,
+                TextAnchor.MiddleLeft, true);
+            string body;
+            if (mage)
+                body = el == null
+                    ? "Chưa chọn nguyên tố. Cộng điểm tiềm năng vào MỘT nguyên tố — chọn xong thì bốn hệ kia khoá (đổi phải tẩy điểm bằng kim cương)."
+                    : $"Hệ <color=#{ColorUtility.ToHtmlStringRGB(color)}>{name}</color> mốc {game.TierOf(el)}. Phản ứng nguyên tố (Hơi Nước, Tan Chảy…) là lối đánh NHÓM: đánh cùng người hệ khác lên một con quái.";
+            else if (el == null)
+                body = $"Kiếm sĩ bọc nguyên tố vào lưỡi kiếm bằng kỹ năng <b>Bọc Nguyên Tố</b>: cần Kiếm mốc {sim.EnchantSwordTier} và MỘT nguyên tố mốc {sim.EnchantElementTier}. Chưa chọn nguyên tố — cộng điểm vào một nhánh nguyên tố ở bảng Tiềm năng.";
+            else
             {
-                game.SetEnchant(null);
-                Refresh();
-            });
-            var opts = sim.Enchants;
-            var w = (886f - 28 - 8 * (opts.Length - 1)) / opts.Length;
-            var sw = game.TierOf("sword");
-            for (var i = 0; i < opts.Length; i += 1)
-            {
-                var e = opts[i];
-                var ok = game.TalentRules.CanEnchant(game.Tiers, e);
-                var on = e == cur;
-                var el = game.TierOf(e);
-                var color = BranchColor.TryGetValue(e, out var bc) ? bc : UiKit.TextMain;
-                var name = sim.BranchName.TryGetValue(e, out var bn) ? bn : e;
-                var card = UiKit.Rect(box, "E" + e, new Vector2(0, 1), new Vector2(0, 1), new Vector2(14 + i * (w + 8), -34), new Vector2(w, 104));
-                UiStyle.Pill(card, on ? color * new Color(1, 1, 1, 0.45f) : new Color(0, 0, 0, ok ? 0.45f : 0.25f), 10).raycastTarget = true;
-                UiStyle.Pill(UiKit.Rect(card, "Bar", new Vector2(0, 1), new Vector2(0, 1), new Vector2(0, 0), new Vector2(5, 104)), color, 2);
-                Text(card, "N", new Vector2(0, 1), new Vector2(0, 1), new Vector2(12, -6), new Vector2(w - 90, 20), "Kiếm " + name, 14, ok ? color : UiKit.TextDim, TextAnchor.MiddleLeft, true);
-                var tag = UiKit.Rect(card, "Tag", new Vector2(1, 1), new Vector2(1, 1), new Vector2(-6, -6), new Vector2(74, 18));
-                UiStyle.Pill(tag, on ? UiStyle.Hex(0x3f9b49) : ok ? new Color(1, 1, 1, 0.12f) : new Color(0, 0, 0, 0.35f), 6);
-                Text(tag, "t", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(72, 16), on ? "Đang phủ" : ok ? "Phủ được" : "Chưa đủ", 11, on ? Color.white : ok ? UiKit.TextMain : UiKit.TextDim, TextAnchor.MiddleCenter, true);
-                var body = ok
-                    ? game.TalentRules.EnchantDesc(e, el)
-                    : $"Cần Kiếm mốc {sim.EnchantSwordTier} (đang {sw}) và {name} mốc {sim.EnchantElementTier} (đang {el}).";
-                var bt = Text(card, "B", new Vector2(0, 1), new Vector2(0, 1), new Vector2(12, -30), new Vector2(w - 18, 70), body, 11, ok ? UiStyle.Parchment : UiKit.TextDim, TextAnchor.UpperLeft);
-                bt.textWrappingMode = TextWrappingModes.Normal;
-                bt.enableAutoSizing = true;
-                bt.fontSizeMin = 8;
-                bt.fontSizeMax = 11;
-                var ee = e;
-                UiKit.Press(card, () =>
-                {
-                    game.SetEnchant(ee);
-                    Refresh();
-                });
+                var tier = game.TierOf(el);
+                var ok = game.TalentRules.CanEnchant(game.Tiers, el);
+                var secs = game.TalentRules.ImbueSeconds(tier);
+                var left = game.Combat.ImbueLeft;
+                var state = left > 0 ? $"<color=#7be07f>Đang bọc · còn {System.Math.Ceiling(left)} giây</color>" : ok ? "Sẵn sàng — gắn kỹ năng Bọc Nguyên Tố lên thanh chiêu rồi bấm" : $"<color=#c9806f>Cần Kiếm mốc {sim.EnchantSwordTier} và {name} mốc {sim.EnchantElementTier} (đang {tier})</color>";
+                body = $"Hệ <color=#{ColorUtility.ToHtmlStringRGB(color)}>{name}</color> · bọc {secs:0} giây (10 + 1 mỗi mốc, tối đa 20) · {state}\n" +
+                    $"Trong lúc bọc, mọi đòn Kiếm mang hệ {name}: {game.TalentRules.EnchantDesc(el, tier)} Kiếm pháp nguyên tố chỉ ra đòn khi đang bọc.";
             }
+            var t = Text(box, "B", new Vector2(0, 1), new Vector2(0, 1), new Vector2(14, -34), new Vector2(858, 104), body, 12, UiStyle.Parchment, TextAnchor.UpperLeft);
+            t.textWrappingMode = TextWrappingModes.Normal;
+            t.enableAutoSizing = true;
+            t.fontSizeMin = 9;
+            t.fontSizeMax = 12;
         }
     }
 }

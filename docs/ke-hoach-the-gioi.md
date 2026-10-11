@@ -466,6 +466,22 @@ Hướng làm:
 ≥ 60%; hai map nối nhau khác loài chủ đạo; ảnh trước / sau mỗi vùng (AutoTest `-aetherTour` / `-aetherWeather`) cho chủ dự án duyệt;
 `validateRegion` + `apps/server/tests/worldmaps.test.ts` vẫn qua (cây không chặn lối / điểm sinh quái).
 
+## 5.7 Map cho nguyên tố mới — GHI CHÚ (11/10/2026, chưa làm)
+
+Chủ dự án 11/10/2026: sau này thêm nguyên tố **Mộc**, **Bóng tối** (Ám ma pháp) và **Ánh sáng** — "khả năng sẽ có thêm ít nhất là 2
+map mới liên quan đến ánh sáng và bóng tối, mộc nữa". Mỗi hệ cần một nơi mở nhánh (nhiệm vụ + vị thần như các vùng hiện có) và một vùng
+mang đúng chất hệ đó:
+
+| Hệ | Vùng gợi ý | Chất riêng (cây, thời tiết, quái) |
+|---|---|---|
+| Mộc | Rừng Cổ Thụ | cây khổng lồ, dây leo, đom đóm; quái cây / tinh linh rừng |
+| Ánh sáng | Thánh Địa Bình Minh | đền trắng, cột đá, tia nắng xiên; quái thánh vệ / thiên thần đá |
+| Bóng tối | Vực Ám Ma | đất đen, sương tím, cây chết; quái bóng ma / ác linh |
+
+Dựng bằng bộ dựng chung (`packages/asset-pipeline/src/maps/kit.ts`) như vùng 2–7, theo luật mục 5.4–5.6 (mỗi vùng một bộ cây riêng,
+mỗi map một loài chủ đạo, thời tiết theo vùng). Hình mới (thần, quái, tấm nền) phải qua phiếu duyệt PixelLab. Luật nguyên tố đi kèm:
+`docs/ke-hoach-nguyen-to.md` mục 9.
+
 ## 6. Thứ tự triển khai
 
 | Bước | Nội dung | Phụ thuộc hình |

@@ -114,3 +114,26 @@ số con, boss, cột dịch chuyển, NPC, lối ra « » ▲ ▼ kèm nơi đ�
 **Map này › Vùng › Lục địa**; lăn chuột xuống / chuột phải = ra một tầng, lăn lên = vào (map đang chọn / vùng đang ở). Tầng Vùng: nền giấy,
 đường mực đứt, huy hiệu cấp theo độ khó so với cấp mình (xám dễ · xanh vừa · cam khó · đỏ rất khó), BOSS / RỒNG, vòng sáng + cờ "Bạn ở
 đây"; bấm 2 lần vào một map = mở tầng Map của nó. Khung phải: ảnh xem trước, quái kèm chân dung / cấp / số con, lối ra, đường đi.
+
+## Tiềm năng 1 cột + thuộc tính, trang Kế hoạch (QTV), chat thu gọn, biển chỉ lối (11/10/2026)
+
+- **Cây** (`Panels.Talents.cs`):
+  - Thân Kiếm 2 mốc rẽ 3 cột lưu phái. Pháp sư không có phần này.
+  - Nguyên tố: chưa chọn thì 5 cột; chọn rồi chỉ còn 1 cột.
+  - Điểm đầu tiên vào một hệ = chọn hệ, nên phải bấm hai lần, kèm cảnh báo khoá 4 hệ kia.
+  - Cột **Thuộc tính** bên phải cây: 6 dòng, nút + cộng 1 điểm.
+  - Khung phải: chi tiết mốc, dòng Bọc Nguyên Tố, nút tẩy điểm (kim cương, bấm hai lần).
+- **Tab con** `talentTab`: 0 cây · 1 Gán ô · Bọc Nguyên Tố (`Panels.Loadout.cs`, thẻ giải thích thay bảng phủ phép) · 2 **Kế hoạch (QTV)**.
+  - Tab 2 chỉ hiện khi `game.IsAdmin`, file `Panels.Roadmap.cs`.
+  - Đọc `Data/Sim/roadmap.json`, sinh từ `packages/sim/src/roadmap.ts`.
+  - Hiện % tiến độ phần game và số lượt PixelLab còn cần. **Cập nhật roadmap.ts sau mỗi đợt việc.**
+- **Chat** (`ChatBox.cs`): nút "–" góc phải thu gọn hẳn thành nút "Trò chuyện »", kèm số tin mới của người khác.
+  - Trạng thái nhớ ở PlayerPrefs `aether.chatMin`.
+  - Enter mở lại.
+- **Biển chỉ lối** (`Hud.UpdateExitSigns`): bỏ kẹp cứng x ≥ 420 / y ≥ 170. Ở zoom 1x, map nhỏ hơn màn hình nên biển từng bị kéo vào giữa.
+  - Nay biển nằm đúng chỗ lối, chỉ giữ trong màn hình.
+  - Đè lên khung chat thì nhích lên trên chat (`CanvasRectOf`).
+- **Khung nhân vật góc trái trên** (`Hud.BuildPlayerCard`, 11/10/2026): bỏ chân dung (nhỏ, không nhìn rõ).
+  - Hàng trên: tên + cấp + chấm đỏ = điểm tiềm năng + điểm thuộc tính chưa cộng.
+  - Ba thanh Máu / MP / Thể lực trải hết bề ngang, có số. Bấm vào khung vẫn mở cửa sổ Nhân vật.
+  - Icon Thể lực là tia sét pixel vẽ bằng code (`BoltSprite`), không tốn lượt PixelLab.

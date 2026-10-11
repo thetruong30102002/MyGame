@@ -40,6 +40,7 @@ namespace Aether.Net
             ["goals"] = () => new ClientGoals(),
             ["goalClaim"] = () => new ClientGoalClaim(),
             ["shopBuy"] = () => new ClientShopBuy(),
+            ["resetBuild"] = () => new ClientResetBuild(),
             ["hubs"] = () => new ClientHubs(),
             ["kill"] = () => new ClientKill(),
             ["quest"] = () => new ClientQuest(),
@@ -288,6 +289,12 @@ namespace Aether.Net
     {
         protected override string Tag => "shopBuy";
         [JsonProperty("item")] public string Item;
+    }
+
+    /// <summary>Tẩy điểm tiềm năng + thuộc tính: máy chủ trừ kim cương rồi trả <c>wallet</c> + <c>bought</c> (item reset_build).</summary>
+    public sealed class ClientResetBuild : ClientMessage
+    {
+        protected override string Tag => "resetBuild";
     }
 
     public sealed class ClientHubs : ClientMessage

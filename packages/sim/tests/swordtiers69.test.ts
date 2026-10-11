@@ -12,11 +12,13 @@ import { estimateText, HERO_SKILLS, isSwordSkill, powerText, skillFacts, type Sk
 import {
 	BRANCHES,
 	depthBonus,
+	isStyleBranch,
 	knowsSkill,
 	nextTierCost,
 	PASSIVE,
 	passiveEffects,
 	SKILL_NODE,
+	STYLE_OFFSET,
 	STYLE_TREE,
 	SWORD_STYLES,
 	tierCap,
@@ -68,13 +70,15 @@ const NEW: Record<string, [SwordStyle, number]> = {
 	);
 	for (const [id, [style, tier]] of Object.entries(NEW)) {
 		const s = def(id);
-		assert.deepEqual(SKILL_NODE[id], { branch: 'sword', tier, style }, `${id}: Kiếm mốc ${tier} của ${style}`);
+		// `tier` theo thang Kiếm cũ; từ 11/10/2026 lưu phái là nhánh riêng: mốc phái = mốc cũ − STYLE_OFFSET.
+		const st = tier - STYLE_OFFSET;
+		assert.deepEqual(SKILL_NODE[id], { branch: style, tier: st }, `${id}: ${style} mốc ${st} (Kiếm cũ ${tier})`);
 		assert.ok(s.element === 'steel' && isSwordSkill(s) && s.anim === 'attack' && !s.key, `${id}: đòn Kiếm thép (ăn phủ phép), động tác vung kiếm sẵn có, vào ô trống`);
 		const node = STYLE_TREE[style][tier - 3]!;
 		assert.deepEqual([node.skillId, node.kind, node.ready], [id, 'active', true], `${id}: cây lưu phái trỏ đúng`);
-		assert.equal(knowsSkill(s, { sword: tier }, all, style), true, `${id}: đủ mốc là học`);
-		assert.equal(knowsSkill(s, { sword: tier - 1 }, all, style), false, `${id}: chưa đủ mốc`);
-		for (const other of SWORD_STYLES.filter((x) => x !== style)) assert.equal(knowsSkill(s, { sword: 9 }, all, other), false, `${id}: lưu phái khác không học được`);
+		assert.equal(knowsSkill(s, { sword: 2, [style]: st }, all), true, `${id}: đủ mốc là học`);
+		assert.equal(knowsSkill(s, { sword: 2, [style]: st - 1 }, all), false, `${id}: chưa đủ mốc`);
+		for (const other of SWORD_STYLES.filter((x) => x !== style)) assert.equal(knowsSkill(s, { sword: 2, [other]: 7 }, all), false, `${id}: lưu phái khác không học được`);
 		assert.ok(TEMP_ART[id]?.icon && TEMP_ART[id]!.look.length && TEMP_ART[id]!.todo, `${id}: hình tạm + icon tạm + ghi chú cần vẽ`);
 	}
 	const passives: Record<SwordStyle, [string, string]> = { kiem_than: ['Thế Áp Đảo', 'Bất Khuất'], thuy_than: ['Phản Đòn', 'Mặt Hồ Phẳng'], bac_than: ['Đà Lướt', 'Bóng Mờ'] };
@@ -84,15 +88,16 @@ const NEW: Record<string, [SwordStyle, number]> = {
 		assert.equal(t[7]!.ready, false, `${st}: mốc 10 (tuyệt kỹ) vẫn "Sắp có" — GĐ4`);
 		assert.ok(['passive', 'active'].includes(t[7]!.kind));
 	}
-	// Trần mốc 9 mọi nhánh; mốc 10 vẫn "Sắp có".
-	for (const b of BRANCHES) {
-		assert.equal(tierCap(b), 9, `${b}: trần mốc 9`);
-		assert.equal(TREE[b][9]!.ready, false, `${b}: mốc 10 sắp có`);
-		assert.equal(nextTierCost({ [b]: 9 } as Tiers, b, all), null, `${b}: mốc 9 thì hết cộng`);
-		assert.equal(nextTierCost({ [b]: 8 } as Tiers, b, all), 5, `${b}: mốc 9 giá 5`);
+	// Trần mốc Kiếm cũ 9 mọi nhánh (phái: mốc 7); tuyệt kỹ vẫn "Sắp có".
+	for (const b of BRANCHES.filter((x) => x !== 'sword')) {
+		const top = isStyleBranch(b) ? 9 - STYLE_OFFSET : 9;
+		const base: Tiers = isStyleBranch(b) ? { sword: 2 } : {};
+		assert.equal(tierCap(b), top, `${b}: trần mốc ${top}`);
+		assert.equal(TREE[b][top]!.ready, false, `${b}: tuyệt kỹ sắp có`);
+		assert.equal(nextTierCost({ ...base, [b]: top } as Tiers, b, all), null, `${b}: trần thì hết cộng`);
+		assert.equal(nextTierCost({ ...base, [b]: top - 1 } as Tiers, b, all), 5, `${b}: mốc cuối giá 5`);
 	}
-	assert.match(TREE.sword[5]!.name, /Phá Giáp · Dòng Chảy Ngược · Liên Hoàn/, 'chưa chọn lưu phái: nấc gộp tên ba lưu phái');
-	assert.equal(TREE.sword[5]!.ready && TREE.sword[8]!.ready, true);
+	assert.equal(tierCap('sword'), 2, 'Kiếm chỉ còn Trảm + Nhịp Chém');
 
 	// Mô tả nấc / tooltip sinh từ số liệu.
 	const kt = STYLE_TREE.kiem_than;
@@ -127,15 +132,15 @@ const NEW: Record<string, [SwordStyle, number]> = {
 	const five: Record<SwordStyle, string> = { kiem_than: 'pierce_rush', thuy_than: 'flowing_counter', bac_than: 'shadow_step' };
 	for (const st of SWORD_STYLES) {
 		const s5 = def(five[st]);
-		const s6 = HERO_SKILLS.find((s) => SKILL_NODE[s.id]?.style === st && SKILL_NODE[s.id]?.tier === 6)!;
-		const s8 = HERO_SKILLS.find((s) => SKILL_NODE[s.id]?.style === st && SKILL_NODE[s.id]?.tier === 8)!;
+		const s6 = HERO_SKILLS.find((s) => SKILL_NODE[s.id]?.branch === st && SKILL_NODE[s.id]?.tier === 6 - STYLE_OFFSET)!;
+		const s8 = HERO_SKILLS.find((s) => SKILL_NODE[s.id]?.branch === st && SKILL_NODE[s.id]?.tier === 8 - STYLE_OFFSET)!;
 		assert.ok(perTarget(s8) >= perTarget(s5), `${st}: ${s8.name} (×${perTarget(s8).toFixed(2)}) ≥ ${s5.name} (×${perTarget(s5).toFixed(2)})`);
 		assert.ok(s8.mpCost > s5.mpCost && s8.cooldown > s5.cooldown, `${st}: mốc 8 tốn MP + hồi lâu hơn mốc 5`);
 		assert.ok(s6.mpCost < s8.mpCost && s6.cooldown <= s8.cooldown, `${st}: mốc 6 nhẹ hơn mốc 8`);
 	}
 
 	// Bị động theo lưu phái + mốc.
-	const fx = (tier: number, style: SwordStyle | null) => passiveEffects({ sword: tier }, style);
+	const fx = (tier: number, style: SwordStyle | null) => passiveEffects(style ? { sword: 2, [style]: tier - STYLE_OFFSET } : { sword: 2 });
 	const flags = (e: ReturnType<typeof fx>) => [e.press, e.rage, e.riposte, e.lake, e.momentum, e.evade];
 	assert.deepEqual(flags(fx(6, 'kiem_than')), [false, false, false, false, false, 0], 'mốc 6: chưa có bị động 7/9');
 	assert.deepEqual(flags(fx(7, 'kiem_than')), [true, false, false, false, false, 0], 'Kiếm Thần 7: Thế Áp Đảo');

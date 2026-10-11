@@ -532,7 +532,8 @@ namespace Aether.Client
             {
                 storyState["path"] = id;
                 combat.SetPath(id);
-                SyncKnownSkills(false);
+                // Lớp quyết định vũ khí: Pháp sư bỏ kiếm — điểm đã cộng vào Kiếm / phái trả lại (BoughtFromState).
+                SyncTalents(false);
                 hud.Toast($"Con đường: {(paths.TryGetValue(id, out var p) ? p.Name : id)}", "level");
                 Save();
                 NextBeat();

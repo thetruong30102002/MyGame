@@ -19,7 +19,8 @@ namespace Aether.Core
         public int TierCost(string branch, int tier)
         {
             if (tier <= BaseTier(branch)) return 0;
-            return tier >= 0 && tier < _d.TierCost.Length ? _d.TierCost[tier] : 0;
+            var i = IsStyleBranch(branch) ? tier + _d.StyleOffset : tier;
+            return i >= 0 && i < _d.TierCost.Length ? _d.TierCost[i] : 0;
         }
 
         /// <summary>Điểm theo cấp: 1 điểm mỗi lần lên cấp + 1 điểm thưởng mỗi mốc 5 cấp, tính tới trần cấp tiềm năng.</summary>

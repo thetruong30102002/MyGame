@@ -113,3 +113,23 @@ Kế hoạch tiếp (11/10/2026, chưa làm): thêm khung cho 40 hình (lên 12 
 Vùng báo trước chiêu (11/10/2026): bỏ vòng tím `dark_ring_warn` / `dark_ring` mọi boss dùng chung — nay `MakeZone` vẽ vòng phẳng
 theo màu chiêu (`ZoneColor`, đoán từ tên hình nổ) + đĩa lớn dần tới lúc nổ; đoạn phụ của chiêu dải chỉ nổ bụi. Hình riêng từng boss:
 phiếu duyệt trong `docs/pixellab-ke-hoach-ve.md` mục "Vùng báo trước chiêu".
+
+## Một nguyên tố, lớp, Bọc Nguyên Tố, điểm thuộc tính (11/10/2026)
+
+Luật ở `packages/sim/src/talents.ts` + `attributes.ts`, chép 1-1 sang `Core/Talents` + `Core/Attributes.cs` (vector `talents-full.json`
+có thêm khối `attributes`). Kế hoạch: `docs/ke-hoach-nguyen-to.md` mục 9.
+
+- **Lưu phái là nhánh riêng** (`kiem_than` / `thuy_than` / `bac_than`, 8 mốc, mốc phái t = mốc Kiếm cũ t + 2). `CombatSystem.Style` đã bỏ:
+  `SetTalents(tiers)` và `GetPassiveEffects(tiers)` không còn tham số lưu phái. Cộng tự do nhiều phái thì có bị động của cả các phái.
+- **Lớp chọn kỹ năng**: `Knows(s)` gọi `KnowsSkill(…, Path)`. Kiếm sĩ chỉ đòn kiếm, Pháp sư chỉ trượng, tuổi thơ (`none`) cả hai.
+  Chọn Pháp sư thì điểm đã cộng vào Kiếm / phái trả lại (`GameController.BoughtFromState`).
+- **Bọc Nguyên Tố** (`imbue`, kind `"imbue"`): bấm thì `StartImbue()` đặt `imbueUntil` = 10 + mốc nguyên tố giây (tối đa 20).
+  `Enchantment` chỉ trả hệ khi còn thời gian bọc. Bảng chọn phủ phép + hồi đổi 10 giây đã bỏ (`SetEnchant` / `RestoreEnchant` không còn).
+  Kiếm pháp nguyên tố bị chặn ở `Cast` nếu chưa bọc.
+- **Thuộc tính**: `SetAttrs(AttrBonus)`.
+  - `ApplyLevel` cộng máu / MP / phòng thủ / thể lực tối đa (`StaminaMax` = 100 + điểm).
+  - `SwordAtk()` / `MagicAtk()` nhân hệ số Sức mạnh / Trí tuệ, nên mọi chỗ tính sát thương ăn theo.
+  - Bản lưu `story.attrs`. Máy chủ tính PvP qua `pvpBuild` (`swordMult` / `magicMult` / `defBonus`).
+- **Bản lưu**: `talentsV` 4. Bản cũ (Kiếm cũ + `swordStyle`) chuyển bằng `MigrateBought` lúc nạp.
+  - Máy chủ giữ nhóm trường tiềm năng (thêm `attrs`) khỏi bị bản cũ ghi đè.
+  - Tẩy điểm: tin `resetBuild`. Máy chủ trừ `resetDiamonds(cấp)` kim cương rồi trả `bought reset_build`; client xoá điểm khi nhận.

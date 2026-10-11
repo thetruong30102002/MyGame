@@ -239,6 +239,13 @@ export const TEMP_ART: Record<string, TempArt> = {
 		final: 'pierce_slash', finalLook: { aim: true, lift: 26, blend: 'add' }, finalExtra: [{ id: 'dust', lift: 6 }],
 		todo: 'icon Đột Kích + động tác lướt tới (đang trượt sprite idle) + vệt chém xuyên riêng',
 	},
+	imbue: {
+		name: 'Bọc Nguyên Tố',
+		icon: 'fire_ring_2',
+		look: [{ id: 'gold_aura', blend: 'add', fit: true, lift: 30 }, { id: 'magic_circle', layer: 'ground', tint: 0xffd27a, scale: 2, alpha: 0.85 }],
+		final: null,
+		todo: 'icon Bọc Nguyên Tố (lưỡi kiếm phát sáng) + hiệu ứng lưỡi kiếm bọc theo màu hệ (lặp) lúc đang bọc',
+	},
 	calm_stance: {
 		name: 'Thế Tĩnh',
 		icon: 'water_ring_2',

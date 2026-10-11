@@ -97,10 +97,13 @@ if (only !== 'android') {
 		rmSync(extra, { recursive: true, force: true });
 		mkdirSync(extra, { recursive: true });
 		for (const f of ['Uninstall.cmd', 'uninstall.ps1']) copyFileSync(join(HERE, 'installer', f), join(extra, f));
-		const installed = [...readdirSync(join(BUILD, 'Windows')), 'Uninstall.cmd', 'uninstall.ps1'];
+		// Thư mục Unity ghi "DoNotShip" / "DontShip" KHÔNG được gửi kèm: `…_BackUpThisFolder_ButDontShipItWithYourGame` của IL2CPP là mã C++
+		// sinh từ toàn bộ code (gửi kèm = mất tác dụng IL2CPP), `…_BurstDebugInformation_DoNotShip` là thông tin gỡ lỗi.
+		const shipped = readdirSync(join(BUILD, 'Windows')).filter((n) => !/DoNotShip|DontShip/i.test(n));
+		const installed = [...shipped, 'Uninstall.cmd', 'uninstall.ps1'];
 		writeFileSync(join(extra, 'uninstall-files.txt'), `${installed.join('\r\n')}\r\n`);
 		console.log(`… Windows bản ${b.build}: đóng gói ${flag('--fast') ? '(nhanh)' : ''}…`);
-		const r = spawnSync(RAR, ['a', `-sfx${SFX}`, '-scfc', `-z${sfxScript}`, '-ep1', '-r', flag('--fast') ? '-m1' : '-m5', '-idq', dst, join(BUILD, 'Windows', '*'), join(extra, '*')], { stdio: 'inherit' });
+		const r = spawnSync(RAR, ['a', `-sfx${SFX}`, '-scfc', `-z${sfxScript}`, '-ep1', '-r', flag('--fast') ? '-m1' : '-m5', '-idq', dst, ...shipped.map((n) => join(BUILD, 'Windows', n)), join(extra, '*')], { stdio: 'inherit' });
 		rmSync(sfxScript, { force: true });
 		rmSync(extra, { recursive: true, force: true });
 		if (r.status !== 0) throw new Error(`Rar.exe lỗi (mã ${r.status})`);

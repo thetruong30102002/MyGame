@@ -1,0 +1,1904 @@
+{
+	"owner": "Aether Chronicle — chủ dự án thetruong30102002 (github.com/thetruong30102002/MyGame)",
+	"note": "Hình gốc do chủ dự án tạo (PixelLab + pipeline). Mỗi lần commit file này là một mốc thời gian sở hữu.",
+	"count": 271,
+	"files": [
+		{
+			"path": "assets/characters/boss_ancient_lava_golem_001/boss_ancient_lava_golem_001.png",
+			"sha256": "bdc99cff62338802714916ffd6aa6f94989cc4d81986afd730cc64e66ac087fa",
+			"bytes": 1356825,
+			"width": 2048,
+			"height": 2420
+		},
+		{
+			"path": "assets/characters/boss_crab_king_001/boss_crab_king_001.png",
+			"sha256": "5339da24417ad7e08a745acf5defdf845bef13b59db94c452274948a3fd6178a",
+			"bytes": 1605144,
+			"width": 2048,
+			"height": 2606
+		},
+		{
+			"path": "assets/characters/boss_demon_001/boss_demon_001.png",
+			"sha256": "f4dc0275228a950fbd8c5330ed0ae926665e164db3afbab2a347e7146fb4ebd3",
+			"bytes": 899255,
+			"width": 1276,
+			"height": 1910
+		},
+		{
+			"path": "assets/characters/boss_fire_god_001/boss_fire_god_001.png",
+			"sha256": "29225d2fc9cc8db66db5dee1a95d10aca6b3e528b870352ccd83f62e22fa229b",
+			"bytes": 2268860,
+			"width": 2488,
+			"height": 2940
+		},
+		{
+			"path": "assets/characters/boss_ghost_captain_001/boss_ghost_captain_001.png",
+			"sha256": "4370f584bc122970e691b33e6fbfe0d118b2be816663de9c5d9c94dbb3d5a8f2",
+			"bytes": 770106,
+			"width": 1784,
+			"height": 2270
+		},
+		{
+			"path": "assets/characters/boss_ice_guardian_001/boss_ice_guardian_001.png",
+			"sha256": "ca702fa686e8538e82e468f48f266db435522dc7ae2d1c89ca5390ef8c6928bc",
+			"bytes": 1427373,
+			"width": 2488,
+			"height": 3166
+		},
+		{
+			"path": "assets/characters/boss_ice_queen_001/boss_ice_queen_001.png",
+			"sha256": "dbd983d4d74c4b5e960c0969b6e85d9122fe801ee17a7ae6385a89ec80b075f1",
+			"bytes": 868767,
+			"width": 1784,
+			"height": 2270
+		},
+		{
+			"path": "assets/characters/boss_kraken_001/boss_kraken_001.png",
+			"sha256": "4b5b958fa55b961fe392cc3069f0793dc5acb15029a82240d16e2167ee0988c2",
+			"bytes": 2095162,
+			"width": 2488,
+			"height": 2940
+		},
+		{
+			"path": "assets/characters/boss_lich_001/boss_lich_001.png",
+			"sha256": "ad04aecb0d7c70d51791d5c92638f2f676703800e764a8a8271a188a19c41e57",
+			"bytes": 1291235,
+			"width": 2108,
+			"height": 3080
+		},
+		{
+			"path": "assets/characters/boss_mother_frog_001/boss_mother_frog_001.png",
+			"sha256": "fe66e59661bffc8c8396e496d10e91f5f6731702d52e2defdcf277e097950750",
+			"bytes": 997659,
+			"width": 2048,
+			"height": 2606
+		},
+		{
+			"path": "assets/characters/boss_mud_hydra_001/boss_mud_hydra_001.png",
+			"sha256": "5f26b9a3a6d64bdc70e5bfd667ae6d763f417d65c86b4496acb0668edbfb22d5",
+			"bytes": 2006604,
+			"width": 2488,
+			"height": 3166
+		},
+		{
+			"path": "assets/characters/boss_pharaoh_001/boss_pharaoh_001.png",
+			"sha256": "9a206e98032b9518261deeaaa0d350bfcb091db71041286f294f3a3d0b670f80",
+			"bytes": 722146,
+			"width": 1784,
+			"height": 2270
+		},
+		{
+			"path": "assets/characters/boss_salamander_001/boss_salamander_001.png",
+			"sha256": "768d14f683a84594849932261c20626275a65efd935bf2c6ef96b9deadd261b2",
+			"bytes": 909644,
+			"width": 2048,
+			"height": 2606
+		},
+		{
+			"path": "assets/characters/boss_sandworm_001/boss_sandworm_001.png",
+			"sha256": "5c0a8fa6e4c62014e8c64c7ed917ac451202cabb44051bede0fba6995c001811",
+			"bytes": 1516448,
+			"width": 2488,
+			"height": 3166
+		},
+		{
+			"path": "assets/characters/boss_scorpion_queen_001/boss_scorpion_queen_001.png",
+			"sha256": "8c465d8dc27cfdd544fa84b7ba7e67b0fa8a151e891376731697bf381010ca56",
+			"bytes": 1465141,
+			"width": 2048,
+			"height": 2606
+		},
+		{
+			"path": "assets/characters/boss_stone_gargoyle_001/boss_stone_gargoyle_001.png",
+			"sha256": "d4a8b1c94801f0d329bec72ec3c474c93c4a5e6b54620f7d4dc8bbb6e8edf776",
+			"bytes": 947996,
+			"width": 2048,
+			"height": 2606
+		},
+		{
+			"path": "assets/characters/boss_storm_eagle_001/boss_storm_eagle_001.png",
+			"sha256": "d8a06d757e2bbdb710310ecff6f2064bdb98e6b4cdc1e3d379adb389689fa074",
+			"bytes": 1240078,
+			"width": 2048,
+			"height": 2606
+		},
+		{
+			"path": "assets/characters/boss_swamp_witch_001/boss_swamp_witch_001.png",
+			"sha256": "14ed05a743b2a8b08a9b78062eda1d59f2dd74a9978b2a5c6b478b8dde30e866",
+			"bytes": 906170,
+			"width": 1784,
+			"height": 2270
+		},
+		{
+			"path": "assets/characters/boss_wind_drake_001/boss_wind_drake_001.png",
+			"sha256": "302c80427e2446814ef7aee37ae7a2f7ae90fed7114cfd30c9c3da92fc890e42",
+			"bytes": 3184261,
+			"width": 2488,
+			"height": 3166
+		},
+		{
+			"path": "assets/characters/boss_wind_mage_001/boss_wind_mage_001.png",
+			"sha256": "9c69b992891a3eca60c2ccc49bd627b916a0c353a82c9195efd8a4505d073a5e",
+			"bytes": 950896,
+			"width": 1784,
+			"height": 2270
+		},
+		{
+			"path": "assets/characters/boss_yeti_001/boss_yeti_001.png",
+			"sha256": "9ef429484b9dcf1eed53c91c07db9ebf6f10fb5cbcd4a7fea7ec7353c58e2f73",
+			"bytes": 1314445,
+			"width": 2048,
+			"height": 2606
+		},
+		{
+			"path": "assets/characters/dragon_fire_001/dragon_fire_001.png",
+			"sha256": "656a3ac5e67c54982351590f48e3d04a01635960b076eb35fb5e39ab8457390e",
+			"bytes": 2780746,
+			"width": 3016,
+			"height": 3838
+		},
+		{
+			"path": "assets/characters/dragon_ice_001/dragon_ice_001.png",
+			"sha256": "19ae8b673c6c76bcc4464e01ce848d13ebdd36a2e37d188ad9127926e152f84d",
+			"bytes": 3701363,
+			"width": 2742,
+			"height": 3290
+		},
+		{
+			"path": "assets/characters/dragon_water_001/dragon_water_001.png",
+			"sha256": "f43d55ca0febaee1d6bb8d7547189e6aa383e78a1b3add0b64a9e34919317c34",
+			"bytes": 5301531,
+			"width": 3016,
+			"height": 3838
+		},
+		{
+			"path": "assets/characters/dragon_wind_001/dragon_wind_001.png",
+			"sha256": "e5626e763dd254760734f9f18aa5dcf711991f2d80d222d411737908b142690d",
+			"bytes": 2991382,
+			"width": 3016,
+			"height": 3564
+		},
+		{
+			"path": "assets/characters/mob_beach_crab_001/mob_beach_crab_001.png",
+			"sha256": "552dbfc144daa898f0d44dd1c07f551344e0f6829e4d8bf18d847d27c821da9c",
+			"bytes": 302329,
+			"width": 1080,
+			"height": 1374
+		},
+		{
+			"path": "assets/characters/mob_cave_bat_001/mob_cave_bat_001.png",
+			"sha256": "1dbc212448616f14e106acfadf23d463dd266d06e45fab35bd779890271c9554",
+			"bytes": 219290,
+			"width": 1080,
+			"height": 1374
+		},
+		{
+			"path": "assets/characters/mob_coral_merfolk_001/mob_coral_merfolk_001.png",
+			"sha256": "886dde84d6e24de66afe75e78a8612ac7f78daa84959fd67a9ac94ba2d1f7f3f",
+			"bytes": 457763,
+			"width": 1344,
+			"height": 1710
+		},
+		{
+			"path": "assets/characters/mob_fire_bat_001/mob_fire_bat_001.png",
+			"sha256": "d6ac3d2b4601d378e03ea9149390f11b0deb60737ced621b59ffdfec7908406e",
+			"bytes": 279052,
+			"width": 1080,
+			"height": 1374
+		},
+		{
+			"path": "assets/characters/mob_fire_demon_001/mob_fire_demon_001.png",
+			"sha256": "bb49502d256ce812ca17b04a37c40708b0bfaef9a566569ecca1ce1a60cd34a6",
+			"bytes": 300300,
+			"width": 1344,
+			"height": 1710
+		},
+		{
+			"path": "assets/characters/mob_fire_spirit_001/mob_fire_spirit_001.png",
+			"sha256": "a98a8bbe7aa57574033233d8d9f05522fe35c0bcbb0291fb13a4b2dd1eecb609",
+			"bytes": 289539,
+			"width": 1168,
+			"height": 1486
+		},
+		{
+			"path": "assets/characters/mob_flying_rock_001/mob_flying_rock_001.png",
+			"sha256": "c5a5eab240931f8e1307f201cab61cfabf2e2d3d481b76d64b44d7a61427e0c8",
+			"bytes": 279547,
+			"width": 1344,
+			"height": 1710
+		},
+		{
+			"path": "assets/characters/mob_gargoyle_001/mob_gargoyle_001.png",
+			"sha256": "b11a09e6068ab5dbcba44cda7a1b479911ff60fe61b1e9ad33a347e4b864083a",
+			"bytes": 405804,
+			"width": 1466,
+			"height": 1832
+		},
+		{
+			"path": "assets/characters/mob_glow_mushroom_001/mob_glow_mushroom_001.png",
+			"sha256": "684c59ea24dfbf9a5b0ad87c68f64c42e2f63490eac6fda9ecbd6e301714977b",
+			"bytes": 154153,
+			"width": 1168,
+			"height": 1486
+		},
+		{
+			"path": "assets/characters/mob_hawk_001/mob_hawk_001.png",
+			"sha256": "a0004dad60d6fd430a931ee0ffcc44abc5ed7088796550282e20aa071d438474",
+			"bytes": 402630,
+			"width": 1168,
+			"height": 1486
+		},
+		{
+			"path": "assets/characters/mob_ice_bear_001/mob_ice_bear_001.png",
+			"sha256": "0217dc53e1182ba111c92180499edc85b789b7d2d5d5ca46187789c51697b5ba",
+			"bytes": 403505,
+			"width": 1344,
+			"height": 1710
+		},
+		{
+			"path": "assets/characters/mob_ice_wisp_001/mob_ice_wisp_001.png",
+			"sha256": "27dd100547c2d864fb37d0974e656cdb5b363b8af63414ac0a842e8ac6eb3cd3",
+			"bytes": 237180,
+			"width": 1080,
+			"height": 1276
+		},
+		{
+			"path": "assets/characters/mob_lava_golem_001/mob_lava_golem_001.png",
+			"sha256": "a1286707eaeb67d8c2da8504bb7180d802d7ba4889273c1f4542d3dbb8685bb4",
+			"bytes": 383363,
+			"width": 1344,
+			"height": 1588
+		},
+		{
+			"path": "assets/characters/mob_lava_lizard_001/mob_lava_lizard_001.png",
+			"sha256": "6d2d5a5f2fceff9b9537beed53d638063c49e0f3b9088e9789c59c8d7c955afa",
+			"bytes": 340180,
+			"width": 1080,
+			"height": 1374
+		},
+		{
+			"path": "assets/characters/mob_mud_merfolk_001/mob_mud_merfolk_001.png",
+			"sha256": "29f11223c7bc153f3ebefb8eb2ea64f7ce135fec0afafa0cca5cc2ff880ef244",
+			"bytes": 315151,
+			"width": 1344,
+			"height": 1710
+		},
+		{
+			"path": "assets/characters/mob_mummy_001/mob_mummy_001.png",
+			"sha256": "c765bf0c4600b4ead571b8fe4b24e46b0b5eb8bec050b22782819e0a722331db",
+			"bytes": 300495,
+			"width": 1344,
+			"height": 1710
+		},
+		{
+			"path": "assets/characters/mob_mushroom_001/mob_mushroom_001.png",
+			"sha256": "079e8f4b8bbe7ac9b836cfc6718a3475126994091ca2f0792ed27ef124c16598",
+			"bytes": 257090,
+			"width": 964,
+			"height": 1408
+		},
+		{
+			"path": "assets/characters/mob_pirate_001/mob_pirate_001.png",
+			"sha256": "1ac051cd54145ed0405ce9ec6d3882869913671bfa15e8068b502472e14bba41",
+			"bytes": 236135,
+			"width": 1344,
+			"height": 1710
+		},
+		{
+			"path": "assets/characters/mob_poison_frog_001/mob_poison_frog_001.png",
+			"sha256": "4eb806b66fe4ff2373b9f4d79cb6388c0a84f888c909e0ac468f720acdb531ca",
+			"bytes": 303985,
+			"width": 1080,
+			"height": 1374
+		},
+		{
+			"path": "assets/characters/mob_reef_jellyfish_001/mob_reef_jellyfish_001.png",
+			"sha256": "30426eecbbad43a3ba3d9f81b919dfec26f6d06187bc110cbf915ddc49f21133",
+			"bytes": 240046,
+			"width": 982,
+			"height": 1276
+		},
+		{
+			"path": "assets/characters/mob_sand_snake_001/mob_sand_snake_001.png",
+			"sha256": "bceca1701d7261a3b65e7e2a596d488a4ce7840c40b5893a5b1ce733b22d8440",
+			"bytes": 295590,
+			"width": 1168,
+			"height": 1486
+		},
+		{
+			"path": "assets/characters/mob_sand_spirit_001/mob_sand_spirit_001.png",
+			"sha256": "de6d3fc3f63ee69ffc15e849ce7453535303a09e911ec85cbce2b205d5c63bde",
+			"bytes": 360208,
+			"width": 1344,
+			"height": 1710
+		},
+		{
+			"path": "assets/characters/mob_scorpion_001/mob_scorpion_001.png",
+			"sha256": "658cb4f5d5619cd6b4c05de031bafe451eb091564d76e095bcde52e165b4e08c",
+			"bytes": 356466,
+			"width": 1168,
+			"height": 1486
+		},
+		{
+			"path": "assets/characters/mob_skeleton_archer_001/mob_skeleton_archer_001.png",
+			"sha256": "52d36a85240b29313f86397fa003f7eaff8518411bef2457144d31d1efffd0cd",
+			"bytes": 521648,
+			"width": 1150,
+			"height": 1712
+		},
+		{
+			"path": "assets/characters/mob_snow_wolf_001/mob_snow_wolf_001.png",
+			"sha256": "c80e1577bf75549beea21ee58c9baf6df78f378515273bb931fa2cd23495a645",
+			"bytes": 452037,
+			"width": 1466,
+			"height": 1954
+		},
+		{
+			"path": "assets/characters/mob_snowman_001/mob_snowman_001.png",
+			"sha256": "2ce6151afd28b2d408a41bbad361bb1aa6adf6ec8793b5497f45071aa79124ed",
+			"bytes": 495204,
+			"width": 1168,
+			"height": 1486
+		},
+		{
+			"path": "assets/characters/mob_swamp_leech_001/mob_swamp_leech_001.png",
+			"sha256": "5cf4a7024170fbe5e8f762343393874ee587f2d855580461db369af182063a6a",
+			"bytes": 344564,
+			"width": 1080,
+			"height": 1374
+		},
+		{
+			"path": "assets/characters/mob_vulture_001/mob_vulture_001.png",
+			"sha256": "4f945d7a5c988bc6249cd1dd04f1356ca9886da8301bd0252983b008320a9f5e",
+			"bytes": 295972,
+			"width": 1168,
+			"height": 1486
+		},
+		{
+			"path": "assets/characters/mob_war_penguin_001/mob_war_penguin_001.png",
+			"sha256": "3c766a91e8a5e8d2cc0a1ca23b9807f349ed2b2551db6f8ab1acf37368da38c9",
+			"bytes": 207742,
+			"width": 1080,
+			"height": 1374
+		},
+		{
+			"path": "assets/characters/mob_water_snake_001/mob_water_snake_001.png",
+			"sha256": "f2e5633a7de1b07ac2179faaa523868a9b6a65b39816de2f7d38bfaba14adbc9",
+			"bytes": 385581,
+			"width": 1168,
+			"height": 1486
+		},
+		{
+			"path": "assets/characters/mob_wind_fairy_001/mob_wind_fairy_001.png",
+			"sha256": "9afaf167e8f8c1c65ba9cc32e0983b9282608ea16dd0514a1100d10eeb48b4e7",
+			"bytes": 239955,
+			"width": 1080,
+			"height": 1374
+		},
+		{
+			"path": "assets/characters/mob_wind_goblin_001/mob_wind_goblin_001.png",
+			"sha256": "d10d76bad9f034c8285597333e0e3a950299f55764fea737918eae4639ade447",
+			"bytes": 298721,
+			"width": 1168,
+			"height": 1486
+		},
+		{
+			"path": "assets/characters/mob_wind_wolf_001/mob_wind_wolf_001.png",
+			"sha256": "1079f65b856b74871d557a12d6cfe7276f263e770cf19b1c7cb91220c1ce52c2",
+			"bytes": 483285,
+			"width": 1466,
+			"height": 1954
+		},
+		{
+			"path": "assets/characters/mob_wreck_octopus_001/mob_wreck_octopus_001.png",
+			"sha256": "a87e00ca2f62c37943af6ef89c032845a4532fc32df9c7c7a8dba53bb6d94e4f",
+			"bytes": 480520,
+			"width": 1168,
+			"height": 1486
+		},
+		{
+			"path": "assets/characters/mob_zombie_001/mob_zombie_001.png",
+			"sha256": "23a47de9e8c88e2cfda06cb23262665885c0972c94d66e923b92f1ea33ffabb9",
+			"bytes": 302653,
+			"width": 1588,
+			"height": 2320
+		},
+		{
+			"path": "assets/characters/npc_aldric_001/npc_aldric_001.png",
+			"sha256": "1b04099abc8ad3594804c613e853e75058285f9180ae0877b901cc0cb2865e45",
+			"bytes": 371487,
+			"width": 494,
+			"height": 1442
+		},
+		{
+			"path": "assets/characters/npc_aldric_child_001/npc_aldric_child_001.png",
+			"sha256": "0dd1d056c58be56ee6dc503914f1f7aea8f48a2939d0c783c6728404b284fd86",
+			"bytes": 269803,
+			"width": 594,
+			"height": 1186
+		},
+		{
+			"path": "assets/characters/npc_bram_001/npc_bram_001.png",
+			"sha256": "20ef05bc98eef84e066a39a7e7e01f212c8da6f136c172796c186304043f4244",
+			"bytes": 482959,
+			"width": 658,
+			"height": 1442
+		},
+		{
+			"path": "assets/characters/npc_elin_001/npc_elin_001.png",
+			"sha256": "24378c03ccc0f783d30e3e81ed891c092e99bbec9e9a73177e229eea1751745c",
+			"bytes": 262489,
+			"width": 658,
+			"height": 1442
+		},
+		{
+			"path": "assets/characters/npc_garrick_001/npc_garrick_001.png",
+			"sha256": "ce151dadcd2b575d1b6dfd2fe6d366f3d01f4cf2b4849e726d21d4ffbb07db58",
+			"bytes": 365259,
+			"width": 658,
+			"height": 1442
+		},
+		{
+			"path": "assets/characters/npc_mirelle_001/npc_mirelle_001.png",
+			"sha256": "1e9fb241b80909238f390634cede6dd27c6d0b30acd09b5bf36b5761856121fa",
+			"bytes": 358439,
+			"width": 658,
+			"height": 1442
+		},
+		{
+			"path": "assets/characters/npc_silver_child/npc_silver_child.png",
+			"sha256": "59b2be6b2a5a9b0fd9e248950c31f3a5b9e6d6d203c9f68715566f3f2ed32e37",
+			"bytes": 315503,
+			"width": 794,
+			"height": 992
+		},
+		{
+			"path": "assets/characters/npc_silver_child_f/npc_silver_child_f.png",
+			"sha256": "b0176e4e639dea51c42e59c66079367cdcd9de774acf4bc5f30e0c28c91c1946",
+			"bytes": 383150,
+			"width": 728,
+			"height": 992
+		},
+		{
+			"path": "assets/characters/npc_silver_youth/npc_silver_youth.png",
+			"sha256": "c424ddd8ca277482d444a5e56dc8b9e09ca909d05c432079ac12ceda895d216e",
+			"bytes": 472259,
+			"width": 1068,
+			"height": 1262
+		},
+		{
+			"path": "assets/characters/npc_silver_youth_f/npc_silver_youth_f.png",
+			"sha256": "3e04b75351bfad7deb932d74a2369dbc484d5553822f2e352402fc789b2ead90",
+			"bytes": 545022,
+			"width": 1068,
+			"height": 1442
+		},
+		{
+			"path": "assets/characters/player_hero_adult/player_hero_adult.png",
+			"sha256": "b98cbbe7185f5b416bab964bcc8f8b1c0f90f1d6f41a9eaa57c0c786338dc58a",
+			"bytes": 3842824,
+			"width": 4069,
+			"height": 3956
+		},
+		{
+			"path": "assets/characters/player_hero_adult_f/player_hero_adult_f.png",
+			"sha256": "2b34100eb9a2be9956bd2997ad307b83f6d467bc98121cc89cbaf513a61745fe",
+			"bytes": 4301741,
+			"width": 4069,
+			"height": 3956
+		},
+		{
+			"path": "assets/characters/player_lior_child/player_lior_child.png",
+			"sha256": "f3cacdf5028c5766044962338ea8bf73f79cbf324f0371aa4b45adb03e79e46c",
+			"bytes": 1669413,
+			"width": 2648,
+			"height": 2942
+		},
+		{
+			"path": "assets/characters/player_lior_child_f/player_lior_child_f.png",
+			"sha256": "173a2e44e652311be44a1549724b74bc77d2e893bd75b57117173b6636ec5d3e",
+			"bytes": 2090760,
+			"width": 2648,
+			"height": 2942
+		},
+		{
+			"path": "assets/items/iron_sword.png",
+			"sha256": "af8ea095910bbf9c0ad3b7d6d1b8955d3293dfdf2b2fb95a11c57e9535888ea0",
+			"bytes": 1770,
+			"width": 49,
+			"height": 49
+		},
+		{
+			"path": "assets/items/starter_staff.png",
+			"sha256": "aea64288e07f43b66d3d6db5bfc85bea4a9055d447ce7035c88bad3f6a28b322",
+			"bytes": 1463,
+			"width": 54,
+			"height": 54
+		},
+		{
+			"path": "assets/items/starter_sword.png",
+			"sha256": "1bf4f039ccfb049309820f135e27547c031f4146d623a6a13c933b25ee301089",
+			"bytes": 1725,
+			"width": 49,
+			"height": 49
+		},
+		{
+			"path": "assets/maps/desert/bonemesa.minimap.png",
+			"sha256": "2e28842be2cdac0e8dc1625ac577c44c0e7b5c8aeac5fa6c2b1cbd4b676cdd70",
+			"bytes": 79022,
+			"width": 312,
+			"height": 252
+		},
+		{
+			"path": "assets/maps/desert/deeptombs.minimap.png",
+			"sha256": "4a45d872a11344ec2985da0bf7a2885a726600cc422b0c4ee9b428e340fc27e5",
+			"bytes": 72845,
+			"width": 276,
+			"height": 240
+		},
+		{
+			"path": "assets/maps/desert/devourpit.minimap.png",
+			"sha256": "16c7f181754b30a9dafd8b14bad81f1895c43d47d1af95cdab1fcf29b06af6e4",
+			"bytes": 37686,
+			"width": 192,
+			"height": 168
+		},
+		{
+			"path": "assets/maps/desert/hub.minimap.png",
+			"sha256": "11e2a7faaf82e80959c18594e9deeee16a3a762290b963d81b60c8d37e6fe9e2",
+			"bytes": 71840,
+			"width": 264,
+			"height": 216
+		},
+		{
+			"path": "assets/maps/desert/props.png",
+			"sha256": "d135bfd1a73f0ba8d76cccef17b46bc32b6474edd48c6766ec060e9d03a5807b",
+			"bytes": 331786,
+			"width": 2020,
+			"height": 229
+		},
+		{
+			"path": "assets/maps/desert/reddunes.minimap.png",
+			"sha256": "89b2d6da867241eb6daa53246f4d6ebf46eac68ca991103a1c57eddbde30448d",
+			"bytes": 79867,
+			"width": 288,
+			"height": 240
+		},
+		{
+			"path": "assets/maps/desert/redruins.minimap.png",
+			"sha256": "a4feba18bcf0fa3b1d28499fae7172a350bcf125217576d75d443ffd231831b3",
+			"bytes": 83814,
+			"width": 312,
+			"height": 240
+		},
+		{
+			"path": "assets/maps/desert/sandtombs.minimap.png",
+			"sha256": "fd4aeaedea3b32101f4fb961c238e53450071924e2f1833a39bd5dade2597d31",
+			"bytes": 76931,
+			"width": 300,
+			"height": 228
+		},
+		{
+			"path": "assets/maps/desert/scorchdunes.minimap.png",
+			"sha256": "d2a5561bbfd2eb3072661893a31c1db9578f1dc7b5c5a7979f060e836af6c6b7",
+			"bytes": 79353,
+			"width": 288,
+			"height": 252
+		},
+		{
+			"path": "assets/maps/desert/snakegully.minimap.png",
+			"sha256": "3a3a4350018d7ba9fe477d5c60ce8f7e4baea7b1bdcff91b4302b8970024e507",
+			"bytes": 83830,
+			"width": 276,
+			"height": 252
+		},
+		{
+			"path": "assets/maps/desert/snakepass.minimap.png",
+			"sha256": "af79348d7e9e9141f6f039865034564f6eaf425479bfec9b986f56a81c240449",
+			"bytes": 87269,
+			"width": 300,
+			"height": 264
+		},
+		{
+			"path": "assets/maps/desert/sunkentemple.minimap.png",
+			"sha256": "a4ede861bc26788c34f3a58519e461a492251c15805c6d610ffcc88c5f0d2a27",
+			"bytes": 80809,
+			"width": 288,
+			"height": 264
+		},
+		{
+			"path": "assets/maps/desert/vulturecliff.minimap.png",
+			"sha256": "f5e75707dc7d3b3ac9c85e814a9e5c34aaf131a3789bf42f9ca35c6b67810e99",
+			"bytes": 82826,
+			"width": 276,
+			"height": 264
+		},
+		{
+			"path": "assets/maps/highland/cloudgate.minimap.png",
+			"sha256": "dd01793db2488bd9e0e98e4cea626f0ed89c9f3b4b30e7740d98a01e9e03ae27",
+			"bytes": 93874,
+			"width": 288,
+			"height": 264
+		},
+		{
+			"path": "assets/maps/highland/cloudpath.minimap.png",
+			"sha256": "a88dc3b25eb1adf46df2376426101c75d432ba05389dde1d8023b8f48269f6a3",
+			"bytes": 93272,
+			"width": 312,
+			"height": 240
+		},
+		{
+			"path": "assets/maps/highland/cloudtemple.minimap.png",
+			"sha256": "5e2d258937f2a44edcb625b3fe0835da56146d0c0483e72a66fc2d75aea720c1",
+			"bytes": 41423,
+			"width": 192,
+			"height": 168
+		},
+		{
+			"path": "assets/maps/highland/dragonpeak.minimap.png",
+			"sha256": "95daf249e483cc26578abf5088642c8f5df0314e25cd84eb29d8041e5005cbca",
+			"bytes": 56417,
+			"width": 228,
+			"height": 192
+		},
+		{
+			"path": "assets/maps/highland/fairyglade.minimap.png",
+			"sha256": "1052dc63519447a084086e7e42030e1a4eff973ee74f45d666481e21e90c15b8",
+			"bytes": 106406,
+			"width": 276,
+			"height": 240
+		},
+		{
+			"path": "assets/maps/highland/fairyvale.minimap.png",
+			"sha256": "6bc94a89050ea885197c4dafc1fadd6444841b95e1955b93dc76f6081d341bda",
+			"bytes": 109643,
+			"width": 300,
+			"height": 228
+		},
+		{
+			"path": "assets/maps/highland/floatstones.minimap.png",
+			"sha256": "be357007f5e4c6272be347c38716d0d1feb96fe53d24bcc3600d89bf0e3ae057",
+			"bytes": 95531,
+			"width": 276,
+			"height": 264
+		},
+		{
+			"path": "assets/maps/highland/hawkcliff.minimap.png",
+			"sha256": "1a7a8d50042268961cb31e5ef0059db9f1ec200c958a5f309ab39da614ba4dc5",
+			"bytes": 109717,
+			"width": 300,
+			"height": 264
+		},
+		{
+			"path": "assets/maps/highland/hawkslope.minimap.png",
+			"sha256": "f2905eec2c71f09d4bca59cc5403c4f874a1d22f65234eabe56cd9c70e1bee46",
+			"bytes": 89992,
+			"width": 276,
+			"height": 252
+		},
+		{
+			"path": "assets/maps/highland/howlridge.minimap.png",
+			"sha256": "74074ac5a0dc1377497f15887e1271b285357512e807d6cd3ce0255973ab2bc0",
+			"bytes": 91808,
+			"width": 288,
+			"height": 252
+		},
+		{
+			"path": "assets/maps/highland/hub.minimap.png",
+			"sha256": "523469af3888f5d69cd37bca4898c780ab6cb16ac14250ebc581b273c8301b9c",
+			"bytes": 67310,
+			"width": 264,
+			"height": 216
+		},
+		{
+			"path": "assets/maps/highland/props.png",
+			"sha256": "483899a143238bc58877e90c9bf91c0e22e5b87e226df5a4e01ea763348dba3c",
+			"bytes": 427676,
+			"width": 2041,
+			"height": 360
+		},
+		{
+			"path": "assets/maps/highland/skyshards.minimap.png",
+			"sha256": "df5a3e476d64be509fb5a5f35fc10b2ffd8a1d685aec69af3a548423a09e203b",
+			"bytes": 109032,
+			"width": 312,
+			"height": 252
+		},
+		{
+			"path": "assets/maps/highland/tallgrass.minimap.png",
+			"sha256": "ff381b8b0c4dcd6207e31c3aaa620308bda8951925a159d21a1056efc0a93039",
+			"bytes": 89072,
+			"width": 288,
+			"height": 240
+		},
+		{
+			"path": "assets/maps/human/bonehills.minimap.png",
+			"sha256": "a525ebe2a027a635eb5e4fd6b860a425379475b6b54288281f59fd0c76df450d",
+			"bytes": 30436,
+			"width": 264,
+			"height": 240
+		},
+		{
+			"path": "assets/maps/human/cliffs.minimap.png",
+			"sha256": "d5f43063f0fa7a24b4794632d80bd5bae45fb9e24e33def3c474892a5b34dd07",
+			"bytes": 48094,
+			"width": 264,
+			"height": 240
+		},
+		{
+			"path": "assets/maps/human/gargoyle_cave.minimap.png",
+			"sha256": "cdff56bea8f6889742d867322507e920c9f7d20b2a892571ebca6d85d2c2fbfc",
+			"bytes": 99920,
+			"width": 264,
+			"height": 240
+		},
+		{
+			"path": "assets/maps/human/graveyard.minimap.png",
+			"sha256": "d372f18a6f8447a14bf7a00a3ef9a06e52d2bdd7bb116a0250df17f930b83b7d",
+			"bytes": 64692,
+			"width": 276,
+			"height": 252
+		},
+		{
+			"path": "assets/maps/human/mossrift.minimap.png",
+			"sha256": "aa98e8df36d8e5838e2fb4463605967d516ff861cff9d14b502d9fcc6b6d486f",
+			"bytes": 127603,
+			"width": 276,
+			"height": 252
+		},
+		{
+			"path": "assets/maps/human/mossvale.minimap.png",
+			"sha256": "a88a7c189ad96100b97f14ecc56e7d8937c9ea481894e88cee4ae0fafa226d56",
+			"bytes": 144180,
+			"width": 288,
+			"height": 264
+		},
+		{
+			"path": "assets/maps/human/nameless.minimap.png",
+			"sha256": "40feca8e9f21dc0c1a92e6efc4c2d3d2589d5e540bcc216431166fe380333c31",
+			"bytes": 41050,
+			"width": 264,
+			"height": 240
+		},
+		{
+			"path": "assets/maps/human/oldfort.minimap.png",
+			"sha256": "9391159806a63fd18b0b1da6bc8a5e92336f8cddfbdeda8f727c40686df57ebe",
+			"bytes": 28924,
+			"width": 288,
+			"height": 240
+		},
+		{
+			"path": "assets/maps/human/props.png",
+			"sha256": "0b2f10160c669e4e6c5806a76eaf06e0afc7f0d725b756741a4fee474b3ba01a",
+			"bytes": 590717,
+			"width": 2047,
+			"height": 431
+		},
+		{
+			"path": "assets/maps/human/riverflats.minimap.png",
+			"sha256": "8eebd84670019b71b638ed34a25ed92403987b1cb5bf85f16ef2c5ed43601d46",
+			"bytes": 50184,
+			"width": 300,
+			"height": 252
+		},
+		{
+			"path": "assets/maps/human/rivergate.minimap.png",
+			"sha256": "7ece49abdb86f90c91faafa47b85808f9a7985649c4750a62badfc7fddd9b117",
+			"bytes": 47263,
+			"width": 240,
+			"height": 264
+		},
+		{
+			"path": "assets/maps/human/shrine.minimap.png",
+			"sha256": "a57e8317294d949f06782cfe1e3a5661d80923ee663acb7f0f6687754763f553",
+			"bytes": 46760,
+			"width": 180,
+			"height": 156
+		},
+		{
+			"path": "assets/maps/human/town.minimap.png",
+			"sha256": "1c94739bf0bc3be99c601c2d4e70461a125409d3c09481f170aa26e69b9f7560",
+			"bytes": 53823,
+			"width": 300,
+			"height": 312
+		},
+		{
+			"path": "assets/maps/isles/coralreef.minimap.png",
+			"sha256": "a396956bbfbf37cc9c31d1ef350d90e74d72ff8c15aa9d506d4962a283b99672",
+			"bytes": 103957,
+			"width": 300,
+			"height": 264
+		},
+		{
+			"path": "assets/maps/isles/crabbeach.minimap.png",
+			"sha256": "905785c5d7af06210ede3bc4742206bfb645d044d24c540e43c4bf6b43f83cc8",
+			"bytes": 75943,
+			"width": 288,
+			"height": 252
+		},
+		{
+			"path": "assets/maps/isles/hub.minimap.png",
+			"sha256": "651b503b4cf5ff037790805e8c191c87c0c3d92f52d8153d93c7a84c8052c6f7",
+			"bytes": 74552,
+			"width": 264,
+			"height": 216
+		},
+		{
+			"path": "assets/maps/isles/krakenabyss.minimap.png",
+			"sha256": "e31de24fa7b705bf78c5fa560c5b1fe1a87ef8c76b848ae2428f12fb5bbbddad",
+			"bytes": 30658,
+			"width": 192,
+			"height": 168
+		},
+		{
+			"path": "assets/maps/isles/merfolkmarsh.minimap.png",
+			"sha256": "c2112bfe6707605ad28ee92bedf31366f7acad3cd7c0867735a357a438d5c6e6",
+			"bytes": 101496,
+			"width": 312,
+			"height": 252
+		},
+		{
+			"path": "assets/maps/isles/merlagoon.minimap.png",
+			"sha256": "87d87f9a626337da6cf46556366ebdcaf6258f21c859d00cf422c5553eaddba1",
+			"bytes": 85256,
+			"width": 276,
+			"height": 264
+		},
+		{
+			"path": "assets/maps/isles/piratecove.minimap.png",
+			"sha256": "3db6dd0fd7af8b80e6a7e7bbb8b31723741ce25b4aec434a90592ac8b745d0b2",
+			"bytes": 72627,
+			"width": 300,
+			"height": 228
+		},
+		{
+			"path": "assets/maps/isles/pirateisle.minimap.png",
+			"sha256": "ea4e3b6f9139f1c713b4b7e92665142d94de3c1d3e3ee453a30713ff78d4fcd2",
+			"bytes": 76304,
+			"width": 276,
+			"height": 240
+		},
+		{
+			"path": "assets/maps/isles/props.png",
+			"sha256": "65c4d17b9063a1f8331789608ed33ba83523fb3c7bb7738be44c663f087a8c03",
+			"bytes": 353485,
+			"width": 2048,
+			"height": 225
+		},
+		{
+			"path": "assets/maps/isles/shallowreef.minimap.png",
+			"sha256": "e16e2184ce22dca1b472d8ad404fae10cbf8ae49ca674fad617b6e707c4f5f39",
+			"bytes": 87646,
+			"width": 276,
+			"height": 252
+		},
+		{
+			"path": "assets/maps/isles/tidelair.minimap.png",
+			"sha256": "401f614967b59c4ee86364b16b38fa30225d622b54db4907f070306632fe67d8",
+			"bytes": 38164,
+			"width": 228,
+			"height": 192
+		},
+		{
+			"path": "assets/maps/isles/whitesands.minimap.png",
+			"sha256": "c1b85979478b915365faa02a5565d8a33826822f6b4476c78f1e99f51f8d5e42",
+			"bytes": 56519,
+			"width": 288,
+			"height": 240
+		},
+		{
+			"path": "assets/maps/isles/wreckshore.minimap.png",
+			"sha256": "ca427adb5340914000ff4ab253401f7c97f04b9a01c848de22106b22cad6afeb",
+			"bytes": 64218,
+			"width": 312,
+			"height": 240
+		},
+		{
+			"path": "assets/maps/isles/wreckyard.minimap.png",
+			"sha256": "db70016a3123c25b7186f7bc0b9c17ee7e8375ea017d67596417e6684a919b44",
+			"bytes": 82702,
+			"width": 288,
+			"height": 264
+		},
+		{
+			"path": "assets/maps/swamp/glowhollow.minimap.png",
+			"sha256": "134e45f0d10024aac6dbd762241ae3495a87a804615176e5626b66d252b5045c",
+			"bytes": 124001,
+			"width": 276,
+			"height": 240
+		},
+		{
+			"path": "assets/maps/swamp/hub.minimap.png",
+			"sha256": "0ab53b81146f3e384fbf0b35e8e6c1ffa952084489a69339a8c5b6d64642e38f",
+			"bytes": 67644,
+			"width": 264,
+			"height": 216
+		},
+		{
+			"path": "assets/maps/swamp/hydralake.minimap.png",
+			"sha256": "e5dff89ec8515a4898aa4aaa8d8801ae4f48768eae927a952a0818b6d1fe7236",
+			"bytes": 34284,
+			"width": 192,
+			"height": 168
+		},
+		{
+			"path": "assets/maps/swamp/leechcanal.minimap.png",
+			"sha256": "b373d409e2dc9fa1372ffba9b759fe67c88076a26c32edc9a0562ae6c05a952e",
+			"bytes": 138168,
+			"width": 300,
+			"height": 264
+		},
+		{
+			"path": "assets/maps/swamp/leechditch.minimap.png",
+			"sha256": "4a219a0208e6922c4607acd326ff9736cb7827413766abd88eada153e320552c",
+			"bytes": 118893,
+			"width": 276,
+			"height": 252
+		},
+		{
+			"path": "assets/maps/swamp/mistchasm.minimap.png",
+			"sha256": "074ebf5ea0c004b61b906873342291149f0f568284a1065d42d8b1e4ee18c495",
+			"bytes": 134419,
+			"width": 288,
+			"height": 264
+		},
+		{
+			"path": "assets/maps/swamp/mistshore.minimap.png",
+			"sha256": "2c6398455551f31ea1af8f5f43722cc9808a2330142f454fb2d7e4e3cdb0a507",
+			"bytes": 102762,
+			"width": 312,
+			"height": 240
+		},
+		{
+			"path": "assets/maps/swamp/mushroomwood.minimap.png",
+			"sha256": "437197799716385350c9e0371e64889d11cf80fd3f2c4f22ac400fc533f2b23e",
+			"bytes": 116807,
+			"width": 300,
+			"height": 228
+		},
+		{
+			"path": "assets/maps/swamp/props.png",
+			"sha256": "97eda9da0ee1fe8c5099ea63969cbdcf6aa845f4f1d182ee701796ee91ccc225",
+			"bytes": 342735,
+			"width": 2039,
+			"height": 229
+		},
+		{
+			"path": "assets/maps/swamp/reedbank.minimap.png",
+			"sha256": "a85f55a3144589f3bd27a4cb09d13d70bf968c0947df2358e742b2e91ad70e51",
+			"bytes": 96928,
+			"width": 288,
+			"height": 240
+		},
+		{
+			"path": "assets/maps/swamp/reedmarsh.minimap.png",
+			"sha256": "89471946e1faa08cb4b39818e8abbb95871ef2808f8e03ab7be8c74ec70e13eb",
+			"bytes": 96222,
+			"width": 288,
+			"height": 252
+		},
+		{
+			"path": "assets/maps/swamp/serpentpool.minimap.png",
+			"sha256": "695a72900ef83320a3e43649cd858ba2541dcae8809b79c4c778281a4780f961",
+			"bytes": 109968,
+			"width": 312,
+			"height": 252
+		},
+		{
+			"path": "assets/maps/swamp/snakefen.minimap.png",
+			"sha256": "158c6b25ec34b51eff7910dc33475f5ccfa8b28861be651c7e9250798970b3f3",
+			"bytes": 90254,
+			"width": 276,
+			"height": 264
+		},
+		{
+			"path": "assets/maps/tundra/bearcave.minimap.png",
+			"sha256": "6434b650d2ce8b1e2ccd1ab73cd25ebc47c485aca493ec99bd8c91390cb408bf",
+			"bytes": 99926,
+			"width": 312,
+			"height": 240
+		},
+		{
+			"path": "assets/maps/tundra/frostlair.minimap.png",
+			"sha256": "7d4d1cc5697f0a02a1344fd1fa54fef47b35f4ba54780aa5e69597e65606530f",
+			"bytes": 52575,
+			"width": 228,
+			"height": 192
+		},
+		{
+			"path": "assets/maps/tundra/frostmere.minimap.png",
+			"sha256": "cdb552c5f786582e3fc403635e66f884ac278105dcbab7fa1b09f5642982e061",
+			"bytes": 91641,
+			"width": 276,
+			"height": 252
+		},
+		{
+			"path": "assets/maps/tundra/frozenhollow.minimap.png",
+			"sha256": "cbdc0c27f2c2994dfff58a27e46af55ae2ff00721a9c0bb894160283a9cbb5ae",
+			"bytes": 107109,
+			"width": 288,
+			"height": 264
+		},
+		{
+			"path": "assets/maps/tundra/hub.minimap.png",
+			"sha256": "2f31fef9c6b0a6cf9d5029535293f73134c365d8efee99d3972b7114e044f5e7",
+			"bytes": 74209,
+			"width": 264,
+			"height": 216
+		},
+		{
+			"path": "assets/maps/tundra/icecoast.minimap.png",
+			"sha256": "c4509648f43be57739df8399b5a27d2b9f540bdd6a0ff6a5a948077308df762b",
+			"bytes": 80619,
+			"width": 276,
+			"height": 264
+		},
+		{
+			"path": "assets/maps/tundra/icelake.minimap.png",
+			"sha256": "689d21ccf1b2dc61153f8ba3a87fcf8999df62b6d974b6a8a1529c3bbc87b054",
+			"bytes": 104166,
+			"width": 300,
+			"height": 264
+		},
+		{
+			"path": "assets/maps/tundra/icethrone.minimap.png",
+			"sha256": "695667626640adbf7f87e41ef7c9dd532812016ccf75530d666257aeeb171afb",
+			"bytes": 36154,
+			"width": 192,
+			"height": 168
+		},
+		{
+			"path": "assets/maps/tundra/penguinrocks.minimap.png",
+			"sha256": "513240ac1eeb4f0c1e6c3cf0ec2a831c267f3b287e5172ebe3de134f84ffa371",
+			"bytes": 93618,
+			"width": 312,
+			"height": 252
+		},
+		{
+			"path": "assets/maps/tundra/props.png",
+			"sha256": "48324ca3827ae3da9469b6e12df1067b98e3526ab1b32ffb2e3ce6db998b5947",
+			"bytes": 258863,
+			"width": 2006,
+			"height": 225
+		},
+		{
+			"path": "assets/maps/tundra/snowfield.minimap.png",
+			"sha256": "56046c7f2c8d45da2cc2389db019dc76a4401e2177340509c2d25b3b067cae26",
+			"bytes": 98302,
+			"width": 300,
+			"height": 228
+		},
+		{
+			"path": "assets/maps/tundra/snowmanpass.minimap.png",
+			"sha256": "df049ed3e165d86e05d8271421f88088306c3b05e0ba6976bcaec816e1a656d2",
+			"bytes": 81489,
+			"width": 276,
+			"height": 240
+		},
+		{
+			"path": "assets/maps/tundra/snowpines.minimap.png",
+			"sha256": "df9c0306350ce27563953212a5398532d113cb94508b352cc1525ed6fb5e347d",
+			"bytes": 146057,
+			"width": 288,
+			"height": 240
+		},
+		{
+			"path": "assets/maps/tundra/wolfwood.minimap.png",
+			"sha256": "35af026f40ab337b855b91ebadd5b7e0752a1a090baad4b3b0379213fce3bb6c",
+			"bytes": 138808,
+			"width": 288,
+			"height": 252
+		},
+		{
+			"path": "assets/maps/volcano/batcave.minimap.png",
+			"sha256": "99796fda406071922bbb16a452ccb19df52ddcfac7625490588ef4aa9da8de76",
+			"bytes": 78702,
+			"width": 300,
+			"height": 228
+		},
+		{
+			"path": "assets/maps/volcano/blackrock.minimap.png",
+			"sha256": "e92954736ef7e808fbad1660117b4375326ee56e0e77770573780564a71aa8e1",
+			"bytes": 77973,
+			"width": 288,
+			"height": 240
+		},
+		{
+			"path": "assets/maps/volcano/cinderflats.minimap.png",
+			"sha256": "de35389f9775033690a641edb479cc1970dab4af337d2299a5aaef58328c9f8d",
+			"bytes": 81350,
+			"width": 288,
+			"height": 252
+		},
+		{
+			"path": "assets/maps/volcano/crater.minimap.png",
+			"sha256": "0413fe48e10b0d834f74c37c26d9a7edf1adf55828c2cbc83357ebe818fb555d",
+			"bytes": 89006,
+			"width": 312,
+			"height": 240
+		},
+		{
+			"path": "assets/maps/volcano/craterrim.minimap.png",
+			"sha256": "c399d5c0c7d253429f727df58f868704866bc9f7d7f539beb9c887ebb5ef7efe",
+			"bytes": 83241,
+			"width": 288,
+			"height": 264
+		},
+		{
+			"path": "assets/maps/volcano/emberhollow.minimap.png",
+			"sha256": "0a799beb955a3a0387b8fbf8a7598066fc5bd6a31beb959ac67f2473009110a6",
+			"bytes": 78733,
+			"width": 276,
+			"height": 240
+		},
+		{
+			"path": "assets/maps/volcano/flamelair.minimap.png",
+			"sha256": "883c7265f6c3b497b20d98940af100fcf87964a8c789a8bba6054de48030c6aa",
+			"bytes": 39533,
+			"width": 228,
+			"height": 192
+		},
+		{
+			"path": "assets/maps/volcano/hub.minimap.png",
+			"sha256": "ec3a053175c62c5a22ed93eb1f73e1c2316efd768b235482609ff32f78478ac4",
+			"bytes": 58436,
+			"width": 264,
+			"height": 216
+		},
+		{
+			"path": "assets/maps/volcano/lavaford.minimap.png",
+			"sha256": "0537ae921de912ea718f9477c3d092cc914f5ea52fb4adc8f21c547281156b24",
+			"bytes": 83877,
+			"width": 276,
+			"height": 252
+		},
+		{
+			"path": "assets/maps/volcano/lavariver.minimap.png",
+			"sha256": "e4f9c8dfc029d09d7c479cac1f00b61c24be463d5d1888a77174af6dd22e547d",
+			"bytes": 89962,
+			"width": 300,
+			"height": 264
+		},
+		{
+			"path": "assets/maps/volcano/oldforge.minimap.png",
+			"sha256": "c3a7b5a3563e845f5528f0bf6c9f4d88a23faaa030e06312cb2dc1be7d743511",
+			"bytes": 88774,
+			"width": 276,
+			"height": 264
+		},
+		{
+			"path": "assets/maps/volcano/props.png",
+			"sha256": "a752ee0a7ddb090fa7ae7f9e0c8903393f665e5a60608ec3d0fe08e8e6715474",
+			"bytes": 313400,
+			"width": 2041,
+			"height": 229
+		},
+		{
+			"path": "assets/maps/volcano/runeforge.minimap.png",
+			"sha256": "9035ce4955d6fa076ef9816c0f5ff18a1262173f7e238c6e26ae26d9eaac43c9",
+			"bytes": 97249,
+			"width": 312,
+			"height": 252
+		},
+		{
+			"path": "assets/maps/volcano/volcanocore.minimap.png",
+			"sha256": "f2d06e4f64e98d2383fa1a3ce88250746eed48fa6c083cf15997129ff2001849",
+			"bytes": 30055,
+			"width": 192,
+			"height": 168
+		},
+		{
+			"path": "assets/portraits/boss_ancient_lava_golem_001.png",
+			"sha256": "87d4aa240ef2c22ebd08722c79d87e30153f89294a48e1001c2d229693521d96",
+			"bytes": 6995,
+			"width": 144,
+			"height": 144
+		},
+		{
+			"path": "assets/portraits/boss_crab_king_001.png",
+			"sha256": "1b81ca55923bf10240e13d2a039bf1cfad7af5f4c8b47f5869963cac6c4e487b",
+			"bytes": 5456,
+			"width": 144,
+			"height": 144
+		},
+		{
+			"path": "assets/portraits/boss_demon_001.png",
+			"sha256": "ff07072821642fe5f066ffb57846b3defc943bacd04102112b80d131c27f77cb",
+			"bytes": 6106,
+			"width": 144,
+			"height": 144
+		},
+		{
+			"path": "assets/portraits/boss_fire_god_001.png",
+			"sha256": "13c6ce0f94ff9c345ea5e4595b31301bcb8f7d78b774e426d9be6ce241521718",
+			"bytes": 5652,
+			"width": 144,
+			"height": 144
+		},
+		{
+			"path": "assets/portraits/boss_ghost_captain_001.png",
+			"sha256": "0d98c97a33036b901017784be1c1b9ee71d751e81d36be35e6c91c040829c1e2",
+			"bytes": 6490,
+			"width": 144,
+			"height": 144
+		},
+		{
+			"path": "assets/portraits/boss_ice_guardian_001.png",
+			"sha256": "8edd365c7a62458b5a438caa8cff61a1b0b104ff7e8926e5dd4da0871864757c",
+			"bytes": 4090,
+			"width": 144,
+			"height": 144
+		},
+		{
+			"path": "assets/portraits/boss_ice_queen_001.png",
+			"sha256": "6c77a5ef3c458bf5a998e52257d452b9ca68d1c0353d0664e7bb10593c5ce576",
+			"bytes": 4710,
+			"width": 144,
+			"height": 144
+		},
+		{
+			"path": "assets/portraits/boss_kraken_001.png",
+			"sha256": "c75fcf2b50574237e893360d1e7b6162b53569bc48023acc13c5f6581ab89265",
+			"bytes": 5309,
+			"width": 144,
+			"height": 144
+		},
+		{
+			"path": "assets/portraits/boss_lich_001.png",
+			"sha256": "6036ea773b01b969c5b239615bb49598d0bd25c794304c37c059ff0fc4fe5db7",
+			"bytes": 6513,
+			"width": 144,
+			"height": 144
+		},
+		{
+			"path": "assets/portraits/boss_mother_frog_001.png",
+			"sha256": "60339817559e1442930804414e6d5166ae24a43f0035394bafa7ff604139aef1",
+			"bytes": 5126,
+			"width": 123,
+			"height": 123
+		},
+		{
+			"path": "assets/portraits/boss_mud_hydra_001.png",
+			"sha256": "ce60132a537750766bdb62b55819a37e98db3c7cafdb422e2249e76e26fa7762",
+			"bytes": 5422,
+			"width": 144,
+			"height": 144
+		},
+		{
+			"path": "assets/portraits/boss_pharaoh_001.png",
+			"sha256": "ce9e4d1fb7785f61a83182f2df854b682d15ac6097e8b5ab578ad48494175609",
+			"bytes": 5249,
+			"width": 126,
+			"height": 126
+		},
+		{
+			"path": "assets/portraits/boss_salamander_001.png",
+			"sha256": "7d55616070c36382609c9036f56b431e5add1164ed13fc21064329ae0b788004",
+			"bytes": 2684,
+			"width": 144,
+			"height": 144
+		},
+		{
+			"path": "assets/portraits/boss_sandworm_001.png",
+			"sha256": "c820fc01581288c0395f69382c655fe724a97b2435fe28c176f2d06907da56d7",
+			"bytes": 6835,
+			"width": 144,
+			"height": 144
+		},
+		{
+			"path": "assets/portraits/boss_scorpion_queen_001.png",
+			"sha256": "a6e7ae2cdb0bab3d6e56789f37ee19a08c8606c3977046898a4a0f8a6bccf86a",
+			"bytes": 4273,
+			"width": 144,
+			"height": 144
+		},
+		{
+			"path": "assets/portraits/boss_stone_gargoyle_001.png",
+			"sha256": "7589a6cd1d45764b2c2c706b51b35b044af642025ec8b363c06adfd88d0ed5b3",
+			"bytes": 5443,
+			"width": 144,
+			"height": 144
+		},
+		{
+			"path": "assets/portraits/boss_storm_eagle_001.png",
+			"sha256": "1491f47ae1e93db4225c07db83a058e700fc572fcbba469b51f3d17b173578f1",
+			"bytes": 5397,
+			"width": 144,
+			"height": 144
+		},
+		{
+			"path": "assets/portraits/boss_swamp_witch_001.png",
+			"sha256": "2f3fff6b3baaa2fa359390bf1df7476a9f869c148ed5657ee32db0997b193883",
+			"bytes": 5583,
+			"width": 144,
+			"height": 144
+		},
+		{
+			"path": "assets/portraits/boss_wind_drake_001.png",
+			"sha256": "e0ccb9708519b2f1b96b32297bebb0c25da34e615337c28685120f5cee018c36",
+			"bytes": 3268,
+			"width": 144,
+			"height": 144
+		},
+		{
+			"path": "assets/portraits/boss_wind_mage_001.png",
+			"sha256": "a2a4bfbd42e8a8f5c893553a79939e090e10189f0f176418aeddba4cee4f3ab3",
+			"bytes": 6658,
+			"width": 144,
+			"height": 144
+		},
+		{
+			"path": "assets/portraits/boss_yeti_001.png",
+			"sha256": "ed53bdb574bfd648dfb4a0ee515ee1d839d284973866e0b985ddb8114b56a757",
+			"bytes": 7861,
+			"width": 144,
+			"height": 144
+		},
+		{
+			"path": "assets/portraits/dragon_fire_001.png",
+			"sha256": "7abe36d0701f2f82d70ee481a461df4470c16f5092d73881826224c5c13b8d7a",
+			"bytes": 3124,
+			"width": 144,
+			"height": 144
+		},
+		{
+			"path": "assets/portraits/dragon_ice_001.png",
+			"sha256": "07a575eac39640506bd2c36aa795efe9f4908ce57a5a9483a9286fc54338ff0a",
+			"bytes": 3368,
+			"width": 144,
+			"height": 144
+		},
+		{
+			"path": "assets/portraits/dragon_water_001.png",
+			"sha256": "7ad0744ad6109679de3c6c2ac38dac6950695b1ecfeb38952f856198f11aee46",
+			"bytes": 3474,
+			"width": 144,
+			"height": 144
+		},
+		{
+			"path": "assets/portraits/dragon_wind_001.png",
+			"sha256": "62c98e9805d31059bf9b67bdd303d5517cc0d14b355f6314b1dbc8329d6edacb",
+			"bytes": 2496,
+			"width": 144,
+			"height": 144
+		},
+		{
+			"path": "assets/portraits/hero-child-female.png",
+			"sha256": "534fbc1df4cafd6c3a763c36e7cf6e5ada6248aa29ff7e93b47355f1f25f84e4",
+			"bytes": 3819,
+			"width": 114,
+			"height": 114
+		},
+		{
+			"path": "assets/portraits/hero-child-male.png",
+			"sha256": "3982bf8f51575cbaa0e70312ada7afca23b5a74787eae8d3e13b0944f3d0a44d",
+			"bytes": 2709,
+			"width": 114,
+			"height": 114
+		},
+		{
+			"path": "assets/portraits/hero-female.png",
+			"sha256": "0fdb571e3ed3bf0d3754614475778c357b78f91fb420b7dd2f0de036f3839573",
+			"bytes": 1712,
+			"width": 112,
+			"height": 112
+		},
+		{
+			"path": "assets/portraits/lior-child.png",
+			"sha256": "3982bf8f51575cbaa0e70312ada7afca23b5a74787eae8d3e13b0944f3d0a44d",
+			"bytes": 2709,
+			"width": 114,
+			"height": 114
+		},
+		{
+			"path": "assets/portraits/lior.png",
+			"sha256": "5742e6db0979eab96dcaed095102dd8edbbd21421f9c1e618f541aba4b87379b",
+			"bytes": 14120,
+			"width": 128,
+			"height": 160
+		},
+		{
+			"path": "assets/portraits/mob_beach_crab_001.png",
+			"sha256": "d5e8b8cbcd4f77be12fb008baa12f4ce4c9efea27983544f13eb0a1c5278a29d",
+			"bytes": 2464,
+			"width": 90,
+			"height": 90
+		},
+		{
+			"path": "assets/portraits/mob_cave_bat_001.png",
+			"sha256": "608e33fa65250533fa1d5bfd689beafe216371be3e6b5a629d399379b785cd06",
+			"bytes": 2309,
+			"width": 90,
+			"height": 90
+		},
+		{
+			"path": "assets/portraits/mob_coral_merfolk_001.png",
+			"sha256": "7a0a817662df43e9cfc8f2dd32d37a95ce90dda90f70fbfdaeeb72156075a7b9",
+			"bytes": 5171,
+			"width": 132,
+			"height": 132
+		},
+		{
+			"path": "assets/portraits/mob_fire_bat_001.png",
+			"sha256": "335c048805ecb28e3beaf2323f59150fae615117087376f465931d10450d9635",
+			"bytes": 2497,
+			"width": 96,
+			"height": 96
+		},
+		{
+			"path": "assets/portraits/mob_fire_demon_001.png",
+			"sha256": "765169f49e19504fd19227fe6806c492093b85bc72d834102baa02c4e52c0261",
+			"bytes": 2514,
+			"width": 111,
+			"height": 111
+		},
+		{
+			"path": "assets/portraits/mob_fire_spirit_001.png",
+			"sha256": "ce5a1b49189bb22bc2cfb69ba456ccc91e5bfa05cf466d0efe776b210c7722eb",
+			"bytes": 2286,
+			"width": 126,
+			"height": 126
+		},
+		{
+			"path": "assets/portraits/mob_flying_rock_001.png",
+			"sha256": "038eaa7f57a4d7fabdf07c7cf2d84bc134f3cd91192f6b3ebdd4e0ed41526624",
+			"bytes": 2482,
+			"width": 90,
+			"height": 90
+		},
+		{
+			"path": "assets/portraits/mob_gargoyle_001.png",
+			"sha256": "8c1864abba35e08dc054b0680c76a60b82ce0b53e114f468615d1f7cec0567ff",
+			"bytes": 2038,
+			"width": 90,
+			"height": 90
+		},
+		{
+			"path": "assets/portraits/mob_glow_mushroom_001.png",
+			"sha256": "a6d23c440c9fdc9504d86af5986424649929e707f726b28fe71ff2ef0dd52651",
+			"bytes": 1920,
+			"width": 90,
+			"height": 90
+		},
+		{
+			"path": "assets/portraits/mob_hawk_001.png",
+			"sha256": "3ae14a47636476045172c9834c4fc770aa2704bd332e004889ff0300ca29d20c",
+			"bytes": 2248,
+			"width": 93,
+			"height": 93
+		},
+		{
+			"path": "assets/portraits/mob_ice_bear_001.png",
+			"sha256": "17b0e79028a5b41717b0d0059b9620bad5dac81a013b95296f26f840409591ad",
+			"bytes": 2655,
+			"width": 108,
+			"height": 108
+		},
+		{
+			"path": "assets/portraits/mob_ice_wisp_001.png",
+			"sha256": "6bf880b18f01990e4bb79816f4038136eb7f5d776091e5e0cc234a897412f1ad",
+			"bytes": 2383,
+			"width": 90,
+			"height": 90
+		},
+		{
+			"path": "assets/portraits/mob_lava_golem_001.png",
+			"sha256": "d6ecd477303b3378cc65fac836f41aafff4aee948cf41c1a9e807f4e3d0b2e36",
+			"bytes": 2625,
+			"width": 90,
+			"height": 90
+		},
+		{
+			"path": "assets/portraits/mob_lava_lizard_001.png",
+			"sha256": "a9e43f054c7f082c22c3b2a09300460451480abb946fb9db9043d0fbafaf1108",
+			"bytes": 2080,
+			"width": 90,
+			"height": 90
+		},
+		{
+			"path": "assets/portraits/mob_mud_merfolk_001.png",
+			"sha256": "8e0aa25631431abde57db07d52e181b16165d385a31572f250958b9fd49585e8",
+			"bytes": 2131,
+			"width": 90,
+			"height": 90
+		},
+		{
+			"path": "assets/portraits/mob_mummy_001.png",
+			"sha256": "3c91fe453e8bd2b7d052f7299472c7465730ee8e6f780158921e539eb678b561",
+			"bytes": 2538,
+			"width": 90,
+			"height": 90
+		},
+		{
+			"path": "assets/portraits/mob_mushroom_001.png",
+			"sha256": "d7388489eb79b1a856ee46265d35444b9d62037244c667d7d66bf054d90186cf",
+			"bytes": 1842,
+			"width": 90,
+			"height": 90
+		},
+		{
+			"path": "assets/portraits/mob_pirate_001.png",
+			"sha256": "d1819c45e484e8e4d5656a688dffcd4038244cd1b386abbdaf4a44ef41ec5cb9",
+			"bytes": 2107,
+			"width": 90,
+			"height": 90
+		},
+		{
+			"path": "assets/portraits/mob_poison_frog_001.png",
+			"sha256": "fd31ff65c037090ba496cffef8ad0e38d35067bdc96fc6dddca16887d5f038a3",
+			"bytes": 2308,
+			"width": 90,
+			"height": 90
+		},
+		{
+			"path": "assets/portraits/mob_reef_jellyfish_001.png",
+			"sha256": "727bd47737c40bf58e3e5692f600b63138edcbacebad6b4faf923dd1d25c7efc",
+			"bytes": 2555,
+			"width": 102,
+			"height": 102
+		},
+		{
+			"path": "assets/portraits/mob_sand_snake_001.png",
+			"sha256": "30eca9ffdee09fd492791c743eb89441729bbdbedea18049057961e8d7b6640e",
+			"bytes": 2772,
+			"width": 96,
+			"height": 96
+		},
+		{
+			"path": "assets/portraits/mob_sand_spirit_001.png",
+			"sha256": "9db2daf3d70ca031bdce3a3f56b10b501978c49e7a538fd6fb1ad6b2c8be346e",
+			"bytes": 3726,
+			"width": 126,
+			"height": 126
+		},
+		{
+			"path": "assets/portraits/mob_scorpion_001.png",
+			"sha256": "626500ec3340dddfc08f7ec73f41f446289c559866db40fc364434b306e75feb",
+			"bytes": 2699,
+			"width": 102,
+			"height": 102
+		},
+		{
+			"path": "assets/portraits/mob_skeleton_archer_001.png",
+			"sha256": "53ba5029fe7ee2d3a9b6e787db3c27ba72a04709398a610f287ab96c3605bf84",
+			"bytes": 3712,
+			"width": 105,
+			"height": 105
+		},
+		{
+			"path": "assets/portraits/mob_snow_wolf_001.png",
+			"sha256": "f083759caaf0c06a454cf704d36ab52c668bbb71da9823985c96d20a7d7721e9",
+			"bytes": 2004,
+			"width": 93,
+			"height": 93
+		},
+		{
+			"path": "assets/portraits/mob_snowman_001.png",
+			"sha256": "33aa2912db710d2a8b032cd79eb5a5f1993f5f6361c1f6d6cac31a207f3cd36e",
+			"bytes": 4053,
+			"width": 114,
+			"height": 114
+		},
+		{
+			"path": "assets/portraits/mob_swamp_leech_001.png",
+			"sha256": "79c8283d88d091371d356ef4a9bd070e4ba3de0431640dff6482de62c2c3e9fe",
+			"bytes": 2293,
+			"width": 99,
+			"height": 99
+		},
+		{
+			"path": "assets/portraits/mob_vulture_001.png",
+			"sha256": "f15a6f6c76d33defbe20a49cdae4155c040221b8966f2720643b0a8b798142cf",
+			"bytes": 1961,
+			"width": 90,
+			"height": 90
+		},
+		{
+			"path": "assets/portraits/mob_war_penguin_001.png",
+			"sha256": "853fbe153a2546339c340b26b608739e35615c7e08d5f38eb31ae775838b330c",
+			"bytes": 2065,
+			"width": 90,
+			"height": 90
+		},
+		{
+			"path": "assets/portraits/mob_water_snake_001.png",
+			"sha256": "72be6ef520fe8a39a1af962ec977965ae6ece9b8ec73ae0da51077fff4e41301",
+			"bytes": 2728,
+			"width": 96,
+			"height": 96
+		},
+		{
+			"path": "assets/portraits/mob_wind_fairy_001.png",
+			"sha256": "08848c7a4ace0413029b938b40226c3f9686206a54c68a8c983f77c665f0b64f",
+			"bytes": 2336,
+			"width": 90,
+			"height": 90
+		},
+		{
+			"path": "assets/portraits/mob_wind_goblin_001.png",
+			"sha256": "369c3202288ce69eda0c88b18c4e3f2efdd912374decf028e8301c2897d6ae04",
+			"bytes": 1742,
+			"width": 90,
+			"height": 90
+		},
+		{
+			"path": "assets/portraits/mob_wind_wolf_001.png",
+			"sha256": "59c3e459e5d7c9ba0a12d3c353ddee01ea7dd39dbcbdda9e6106b74b0eb42741",
+			"bytes": 2803,
+			"width": 111,
+			"height": 111
+		},
+		{
+			"path": "assets/portraits/mob_wreck_octopus_001.png",
+			"sha256": "bd6a09bbd1470d426f5eb132c44d57635ad6ae113bf473be6cf9eb3357177452",
+			"bytes": 2864,
+			"width": 96,
+			"height": 96
+		},
+		{
+			"path": "assets/portraits/mob_zombie_001.png",
+			"sha256": "5028aeca8e1796df79c5cfedb3ebbe4b99b6574a8aced5a47a673fc64654225e",
+			"bytes": 2437,
+			"width": 90,
+			"height": 90
+		},
+		{
+			"path": "assets/portraits/npc_aldric_001.png",
+			"sha256": "e396ba35cf87a84072753f8bfdebb1aed58ed391b53578b20d12afd671ff710b",
+			"bytes": 4856,
+			"width": 138,
+			"height": 138
+		},
+		{
+			"path": "assets/portraits/npc_aldric_child_001.png",
+			"sha256": "f11ec5ce7491008b3842756945a3d6cf9606a4ac95dd20a2d3f2cb1790d0855b",
+			"bytes": 3548,
+			"width": 114,
+			"height": 114
+		},
+		{
+			"path": "assets/portraits/npc_bram_001.png",
+			"sha256": "7ba796e1451515ed0a05084b61bd91846ccaeac04b42822bd87cdf2c07221adb",
+			"bytes": 5677,
+			"width": 141,
+			"height": 141
+		},
+		{
+			"path": "assets/portraits/npc_elin_001.png",
+			"sha256": "3f5178e1124b2360fd0eee0308de5a76a61912ef996a2c6491f340b2bfd6a034",
+			"bytes": 3565,
+			"width": 120,
+			"height": 120
+		},
+		{
+			"path": "assets/portraits/npc_garrick_001.png",
+			"sha256": "804ce2cc369906eff65ff2b58e1622aae91425dabc6ee47fa38508848800208f",
+			"bytes": 5309,
+			"width": 144,
+			"height": 144
+		},
+		{
+			"path": "assets/portraits/npc_mirelle_001.png",
+			"sha256": "8be0084e5a88dbfcf29196026bcac2a26dbd47adc53f9749171b75eab911c028",
+			"bytes": 4683,
+			"width": 138,
+			"height": 138
+		},
+		{
+			"path": "assets/portraits/npc_silver_child.png",
+			"sha256": "8af0b06fc39024e0fa613ea7457e811eb20583b3fe2c81c8eaf8afc06fa7112e",
+			"bytes": 2724,
+			"width": 96,
+			"height": 96
+		},
+		{
+			"path": "assets/portraits/npc_silver_child_f.png",
+			"sha256": "f8ce3434e71cd14f0ca022d5f144052552ca0534c079ece770b08d8d1ebe2260",
+			"bytes": 3597,
+			"width": 99,
+			"height": 99
+		},
+		{
+			"path": "assets/portraits/npc_silver_youth.png",
+			"sha256": "fb657efbda0875cc2665e770f58590bfbf124cddc53a19c824f905fc8f458cd3",
+			"bytes": 4290,
+			"width": 144,
+			"height": 144
+		},
+		{
+			"path": "assets/portraits/npc_silver_youth_f.png",
+			"sha256": "a204f231c91c712d4d1a395ffc22ea41ca52846ff5777fd1d888f30b56e2dec6",
+			"bytes": 5310,
+			"width": 141,
+			"height": 141
+		},
+		{
+			"path": "assets/portraits/player_hero_adult.png",
+			"sha256": "9569ab70ed98558be97e75cae5f3f3e25b29889519db48cbc497a4cc67093036",
+			"bytes": 3636,
+			"width": 141,
+			"height": 141
+		},
+		{
+			"path": "assets/portraits/player_hero_adult_f.png",
+			"sha256": "28b1b69631d1ecaba5813bb341a8ea9ff2c025a841a7f452cb93c423ef468852",
+			"bytes": 2999,
+			"width": 132,
+			"height": 132
+		},
+		{
+			"path": "assets/portraits/player_lior_child.png",
+			"sha256": "94c47193198e3986454f8e2b862e5f639f0234cbda89b9805c4ba69f9a03142d",
+			"bytes": 2365,
+			"width": 96,
+			"height": 96
+		},
+		{
+			"path": "assets/portraits/player_lior_child_f.png",
+			"sha256": "9e384804b222be18a0e0b8f7ef6b1b8154c5fe5c925c13a8c1e53c740fe9e8f4",
+			"bytes": 2621,
+			"width": 93,
+			"height": 93
+		},
+		{
+			"path": "assets/ui/banner.png",
+			"sha256": "93460b5a275a2467b5508f09b648596bd32656de933d8f8749901062784de0b7",
+			"bytes": 5721,
+			"width": 85,
+			"height": 57
+		},
+		{
+			"path": "assets/ui/button.png",
+			"sha256": "e486e13e1b1d0e5f1ccfc3732b269905906062838ab43ae502f2d07dd479eb93",
+			"bytes": 3631,
+			"width": 89,
+			"height": 39
+		},
+		{
+			"path": "assets/ui/frame.png",
+			"sha256": "f6f016f927e302a643522d222df0e06e50cf5888a61365a225a526d608e1ef44",
+			"bytes": 8210,
+			"width": 79,
+			"height": 80
+		},
+		{
+			"path": "assets/ui/icon_attack.png",
+			"sha256": "e2803b802d8b40ae599baa7e4fc342fe6ac87389d2fda791a37b8bf46fc59589",
+			"bytes": 3055,
+			"width": 48,
+			"height": 44
+		},
+		{
+			"path": "assets/ui/icon_backpack.png",
+			"sha256": "82022b8a801ecd26aabc53c925f18063734d59ace2050329ff7254def10e7f38",
+			"bytes": 2520,
+			"width": 42,
+			"height": 46
+		},
+		{
+			"path": "assets/ui/icon_calendar.png",
+			"sha256": "927f3efa8a7c9e60cfc7f4f449cd0b1ba318edea3799574374e54e9f71565b9d",
+			"bytes": 373,
+			"width": 40,
+			"height": 40
+		},
+		{
+			"path": "assets/ui/icon_coins.png",
+			"sha256": "13430ce5664f6265293a20be4d5dfdfa501dd0efdba968d3f51301defe876d13",
+			"bytes": 2617,
+			"width": 44,
+			"height": 37
+		},
+		{
+			"path": "assets/ui/icon_defense.png",
+			"sha256": "643198f51a41d73c097ff07694976bb54b6b1824cf6d92e05324df5e147356c7",
+			"bytes": 2823,
+			"width": 48,
+			"height": 49
+		},
+		{
+			"path": "assets/ui/icon_diamond.png",
+			"sha256": "990966ee2d085f61b3283f03e7fedffac945c8ab95f8484caaea117104bc0094",
+			"bytes": 358,
+			"width": 44,
+			"height": 36
+		},
+		{
+			"path": "assets/ui/icon_hp.png",
+			"sha256": "2062db628b31ff7f1be2ec91fcb9a3aa061a57e876830649ffd329bfea94c5ec",
+			"bytes": 1648,
+			"width": 43,
+			"height": 38
+		},
+		{
+			"path": "assets/ui/icon_magic.png",
+			"sha256": "2ec59c377aa3cac2bcf131b9103df64d57843ebdc2a660c31c2f69438ecbd2df",
+			"bytes": 1928,
+			"width": 35,
+			"height": 39
+		},
+		{
+			"path": "assets/ui/icon_mp.png",
+			"sha256": "df8e0974ad4ab567ac849c525697011992c88a2912827bec131d78ed816829a4",
+			"bytes": 1710,
+			"width": 31,
+			"height": 46
+		},
+		{
+			"path": "assets/ui/icon_potion.png",
+			"sha256": "7a6524b50530671a519ea23864e259426532cf99a61ffabab1b0dd74c926621e",
+			"bytes": 1907,
+			"width": 35,
+			"height": 44
+		},
+		{
+			"path": "assets/ui/icon_star.png",
+			"sha256": "a46d06aa82886baf96a27f8fb18c864982614b3e28701db0e4fdfa8245c8e6eb",
+			"bytes": 2302,
+			"width": 45,
+			"height": 42
+		},
+		{
+			"path": "assets/ui/skill-icons.png",
+			"sha256": "bf65cf7ef5da3014d64961d012532a149a65e1e5b230aa8ca4433222dcc1e356",
+			"bytes": 71022,
+			"width": 360,
+			"height": 324
+		},
+		{
+			"path": "assets/ui/slot.png",
+			"sha256": "c4a56b34cb7fad658cc8f8ec4c638227540e553fc92980a889e757ce3b4f3582",
+			"bytes": 3811,
+			"width": 58,
+			"height": 57
+		},
+		{
+			"path": "assets/ui/world-continent.png",
+			"sha256": "6c31d592dfc29cf9a8cd8e590703642d5cd1eb065f3923c90f1a433cf3aef9c9",
+			"bytes": 265547,
+			"width": 688,
+			"height": 384
+		},
+		{
+			"path": "assets/vfx/vfx-boss.png",
+			"sha256": "86d070df9d5b27c2ef87062f1d4f1d40cf074045b1cb8960fdb850bdad2c53fc",
+			"bytes": 4970496,
+			"width": 2047,
+			"height": 2820
+		},
+		{
+			"path": "assets/vfx/vfx-ult.png",
+			"sha256": "04dddff1bda8f6c2f5bb2feb03413e8029c24b138261e97bce33d8b6fd132bb2",
+			"bytes": 1590994,
+			"width": 1987,
+			"height": 953
+		},
+		{
+			"path": "assets/vfx/vfx.png",
+			"sha256": "d92de5f8a3535463ba4ecc5d7edec65f0a90f0e61de09ae75ee0f557e1b42cf8",
+			"bytes": 3063455,
+			"width": 2047,
+			"height": 2019
+		}
+	]
+}

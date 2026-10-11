@@ -17,16 +17,16 @@ namespace Aether.Client
         /// <summary>Lưu phái Kiếm của phòng Thử chiêu (null = lưu phái đầu) — AutoTest `-aetherLabStyle` để thử tuyệt kỹ Kiếm khác.</summary>
         public static string LabStyle;
 
-        private static readonly string[] LabBranches = { "sword", "fire", "water", "wind", "ice", "earth" };
-
         private void SetupLab()
         {
-            var style = LabStyle != null && System.Array.IndexOf(sim.SwordStyles, LabStyle) >= 0 ? LabStyle : sim.SwordStyles.Length > 0 ? sim.SwordStyles[0] : null;
+            // Mọi nhánh lên trần (Kiếm 2, phái 8, nguyên tố 10) — lớp "none" nên dùng được cả kiếm lẫn phép. Nguyên tố "đã chọn" (để Bọc
+            // Nguyên Tố) là LabStyle nếu là tên nguyên tố, không thì Hoả.
             var tiers = new Tiers();
-            foreach (var b in LabBranches) tiers[b] = 10;
+            foreach (var b in sim.Branches) tiers[b] = b == "sword" ? 2 : talents.IsStyleBranch(b) ? 8 : 10;
+            var pick = LabStyle != null && talents.IsElementBranch(LabStyle) ? LabStyle : "fire";
+            foreach (var e in sim.Elements) if (e != pick) tiers[e] = 9;
             combat.Pc.Level = 60;
-            combat.SetTalents(tiers, style);
-            storyState["swordStyle"] = style;
+            combat.SetTalents(tiers);
             // Ô J, K rồi phím 1–8: tuyệt kỹ trước, rồi chiêu mốc 8 của lưu phái, chiêu lớn mốc 8 nguyên tố sau.
             var want = new List<string> { "slash", "aether_bolt", "great_flood", "heaven_wind", "phoenix", "ice_age", "mountain_god" };
             foreach (var s in combat.Skills)
@@ -51,13 +51,6 @@ namespace Aether.Client
         /// <summary>Đang ở phòng Thử chiêu (offline) — bảng Tiềm năng cho đổi lưu phái Kiếm tự do.</summary>
         public bool InLab => LabMode && online == null;
 
-        /// <summary>Phòng Thử chiêu: đổi lưu phái Kiếm (tab ở bảng Tiềm năng) — dựng lại mốc + thanh chiêu theo phái mới.</summary>
-        public void SwitchLabStyle(string style)
-        {
-            if (!InLab || style == combat.Style) return;
-            LabStyle = style;
-            SetupLab();
-        }
 
         /// <summary>Mỗi khung trong phòng Thử chiêu: đầy máu / MP, xoá hồi chiêu.</summary>
         private void TickLab()

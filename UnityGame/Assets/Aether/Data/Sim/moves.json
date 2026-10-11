@@ -129,6 +129,7 @@
 	],
 	"SKILL_MOVE": {
 		"frost_cleave": "attack",
+		"imbue": "charge",
 		"aether_bolt": "throw",
 		"fire_bolt": "throw",
 		"water_lance": "throw",

@@ -9,6 +9,7 @@ import { Rewards } from './rewards.ts';
 import { BUFF_TICK_MS, Shop } from './shop.ts';
 import { Economy } from './economy.ts';
 import { newPvpState, Pvp, type PvpState } from './pvp.ts';
+import { resetDiamonds } from '@aether/sim/talents';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -334,6 +335,16 @@ export class World {
 				if (msg.t === 'quest') return this.economy.quest(c.view.id, msg.id);
 				if (msg.t === 'spend') return this.economy.spend(c.view.id, msg.reason, msg.amount);
 				return this.economy.usePotion(c.view.id);
+			case 'resetBuild': {
+				if (!c.social.allow('shop')) return send(c.ws, { t: 'system', text: 'Thao tác nhanh quá, chậm lại chút nhé' });
+				const cost = resetDiamonds(c.view.level);
+				if (cost > 0) {
+					const balance = this.store.addDiamonds(c.view.id, -cost, 'reset:build');
+					if (balance === null) return send(c.ws, { t: 'system', text: `Tẩy điểm cần ${cost} kim cương — bạn chưa đủ` });
+					send(c.ws, { t: 'wallet', diamonds: balance });
+				}
+				return send(c.ws, { t: 'bought', item: 'reset_build' });
+			}
 			case 'shopBuy':
 				if (!c.social.allow('shop')) return send(c.ws, { t: 'system', text: 'Thao tác nhanh quá, chậm lại chút nhé' });
 				return this.shop.buy(c.view.id, msg.item);

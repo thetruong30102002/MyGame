@@ -34,7 +34,7 @@ export type Element = 'aether' | 'fire' | 'water' | 'wind' | 'healing' | 'steel'
  * - `spin`: xoay chém quanh mình bán kính `radius`; `afterGuard` = nhân uy lực khi tung ngay sau khi đỡ đòn. Có `range` thì vòng
  *   xoáy cuộn TẠI CHỖ NHẮM (trong tầm `range`) thay vì quanh mình (Xoáy Nước — mốc 8, săn boss: 11/10/2026).
  */
-export type SkillKind = 'projectile' | 'melee' | 'spin' | 'dash' | 'heal' | 'aoe_self' | 'aoe_target' | 'cone' | 'line' | 'pillar' | 'zone' | 'guard' | 'blink' | 'wall' | 'ward' | 'barrage' | 'summon';
+export type SkillKind = 'projectile' | 'melee' | 'spin' | 'dash' | 'heal' | 'aoe_self' | 'aoe_target' | 'cone' | 'line' | 'pillar' | 'zone' | 'guard' | 'blink' | 'wall' | 'ward' | 'barrage' | 'summon' | 'imbue';
 
 /** Hiệu ứng khống chế đòn gây ra cho MỖI mục tiêu trúng (boss: thời lượng một nửa, không bị đẩy/hút — `skillRules`). */
 export interface SkillHitFx {
@@ -261,6 +261,8 @@ export const HERO_SKILLS: SkillDef[] = [
 	{ id: 'judgment', name: 'Phán Quyết', element: 'steel', mpCost: 50, cooldown: 40, power: 1.15, kind: 'barrage', range: 360, radius: 200, count: 28, duration: 1.6, width: 52, delay: 0.25, crit: 0.25, aimDist: 180, ult: true, anim: 'attack', desc: 'Tuyệt kỹ: ngàn thanh kiếm ánh sáng cắm xuống khắp vùng nhắm.' },
 	{ id: 'still_heaven', name: 'Thiên Tĩnh', element: 'steel', mpCost: 45, cooldown: 45, power: 4.8, kind: 'aoe_target', delay: 0.45, range: 360, aimDist: 200, radius: 170, hit: { stun: 1.5 }, ult: true, anim: 'attack', desc: 'Tuyệt kỹ: một nhát kiếm khiến chỗ nhắm lặng như mặt hồ — quái trong vùng đứng sững rồi trúng một đòn chém cực nặng.' },
 	{ id: 'thousand_shadows', name: 'Ngàn Bóng', element: 'steel', mpCost: 50, cooldown: 45, power: 0.95, kind: 'summon', count: 3, range: 360, aimDist: 200, radius: 90, duration: 6, tick: 0.4, crit: 0.3, ult: true, anim: 'attack', desc: 'Tuyệt kỹ: 3 bóng phân thân lao tới chỗ nhắm, chém liên tục quái ở đó suốt 6 giây.' },
+	// 11/10/2026 — Bọc nguyên tố thành KỸ NĂNG kích hoạt có thời gian (chủ dự án). Thời gian: `talents.imbueSeconds(mốc nguyên tố)`.
+	{ id: 'imbue', name: 'Bọc Nguyên Tố', element: 'steel', mpCost: 15, cooldown: 25, power: 0, kind: 'imbue', unlock: 'sword', anim: 'attack', desc: 'Bọc nguyên tố đã chọn vào lưỡi kiếm trong 10–20 giây (theo mốc nguyên tố): mỗi nhát chém mang hệ đó và gây trạng thái của hệ; kiếm pháp nguyên tố chỉ dùng được khi đang bọc.' },
 ];
 
 export type HeroPath = 'sword' | 'mage';

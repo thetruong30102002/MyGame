@@ -472,6 +472,11 @@ export type ClientMessage =
 	| { t: 'goalClaim'; id: string }
 	/** Mua món `item` ở Cửa hàng kim cương — giá theo danh mục CỦA MÁY CHỦ. */
 	| { t: 'shopBuy'; item: string }
+	/**
+	 * Tẩy điểm tiềm năng + thuộc tính (đổi nguyên tố đã chọn): máy chủ trừ `resetDiamonds(cấp)` kim cương (`@aether/sim/talents`) rồi
+	 * trả `wallet` + `bought` (item `reset_build`) — client xoá điểm khi nhận `bought`. Thiếu kim cương: tin `system`.
+	 */
+	| { t: 'resetBuild' }
 	/** Xin danh sách trạm (map trạm của các vùng) đã từng đặt chân tới — cột dịch chuyển; trả kèm mọi map đã tới (bản đồ lớn). */
 	| { t: 'hubs' }
 	/**

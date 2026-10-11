@@ -418,7 +418,7 @@
 			"giver": "father_garrick",
 			"objective": {
 				"type": "kill",
-				"count": 3,
+				"count": 6,
 				"monster": "mob_mushroom_001"
 			},
 			"objectiveText": "Hạ nấm rừng đang vây Aldric ở bìa rừng ({n}/{total})",
@@ -451,7 +451,7 @@
 				},
 				{
 					"speaker": "narrator",
-					"text": "(chuột trái: chém kiếm khi nấm áp sát · chuột phải: Tia Aether từ xa · Space: lăn né, tốn thể lực · R: uống bình mật ong của mẹ · mẹo: đã học Hoả Cầu và Thuỷ Tiễn (bảng Tiềm năng, P) thì bắn cả hai vào cùng một con nấm sẽ ra Hơi Nước!)"
+					"text": "(chuột trái: chém kiếm khi nấm áp sát · chuột phải: Tia Aether từ xa · Space: lăn né, tốn thể lực · R: uống bình mật ong của mẹ · mẹo: mỗi người chỉ theo được MỘT nguyên tố — sau này đánh cùng bạn khác hệ vào một con quái sẽ ra phản ứng như Hơi Nước, Băng Giá!)"
 				},
 				{
 					"speaker": "father_garrick",
@@ -507,10 +507,9 @@
 				"type": "practice",
 				"count": 3,
 				"element": "wind",
-				"dummy": "dummy_riverside",
-				"reaction": "chill"
+				"dummy": "dummy_riverside"
 			},
-			"objectiveText": "Thuỷ Tiễn rồi Phong Nhận vào Ông Rơm bên sông ({n}/{total})",
+			"objectiveText": "Cha hắt nước, con tung Phong Nhận vào Ông Rơm bên sông ({n}/{total})",
 			"turnIn": "mother_elin",
 			"reward": {
 				"exp": 50,
@@ -539,15 +538,15 @@
 				},
 				{
 					"speaker": "father_garrick",
-					"text": "Ông Rơm bên này không có mũ. Cha hết mũ cũ rồi. Nước trước. Gió sau, ngay khi nó còn ướt. Chậm là khô."
+					"text": "Ông Rơm bên này không có mũ. Cha hết mũ cũ rồi. Cha hắt nước. Con thổi gió, ngay khi nó còn ướt. Chậm là khô."
 				},
 				{
 					"speaker": "narrator",
-					"text": "(Thuỷ Tiễn làm ướt, rồi Phong Nhận: gió trúng mục tiêu đang ướt sẽ ra Băng Giá! Học hai phép này ở bảng Tiềm năng (T) khi có điểm — chưa học đủ thì tung Tia Aether (chuột phải) vào Ông Rơm cũng được.)"
+					"text": "(Cha múc nước sông hắt ướt Ông Rơm, rồi con tung Phong Nhận: gió trúng mục tiêu đang ướt sẽ ra Băng Giá — phản ứng nguyên tố là việc của HAI người cùng đánh. Chưa học Phong Nhận thì tung Tia Aether (chuột phải) vào Ông Rơm cũng được.)"
 				},
 				{
 					"speaker": "inner",
-					"text": "Lúc nãy tôi đã nắm được một sợi gió. Giờ chỉ cần tết nó với sợi nước, như mẹ tết tóc mỗi sáng."
+					"text": "Lúc nãy tôi đã nắm được một sợi gió. Cha lo sợi nước. Hai cha con, mỗi người một sợi, tết lại như mẹ tết tóc mỗi sáng."
 				}
 			],
 			"after": [
@@ -573,14 +572,14 @@
 				},
 				{
 					"speaker": "narrator",
-					"text": "(Khuya hôm ấy, tôi tết sợi nước với sợi gió chặt thêm một vòng nữa. Lần này chúng không bay thành tuyết mà đông lại thành một mũi băng thật, lạnh buốt trong lòng bàn tay. Mở nhánh Băng — học Băng Tiễn ở bảng Tiềm năng (T) khi có điểm. Băng trúng mục tiêu ướt sẽ Đóng Băng!)"
+					"text": "(Khuya hôm ấy, tôi ngồi một mình ở hiên, thử tết lại sợi nước với sợi gió. Không có cha, hai sợi cứ tuột khỏi nhau. Nhưng trong lòng bàn tay vẫn đọng lại một mũi băng nhỏ, lạnh buốt. Mở nhánh Băng — học Băng Tiễn ở bảng Tiềm năng (T) khi có điểm. Mỗi người chỉ theo được MỘT nguyên tố; muốn ra phản ứng thì đánh cùng người khác hệ.)"
 				}
 			],
 			"objectiveTextAether": "Tung Tia Aether vào Ông Rơm bên sông ({n}/{total})",
 			"onReady": [
 				{
 					"speaker": "inner",
-					"text": "Băng Giá! Ông Rơm phủ một lớp sương trắng, rồi những bông tuyết đầu tiên bay lả tả theo gió. Tôi đã đan được hai sợi tơ làm một."
+					"text": "Băng Giá! Ông Rơm phủ một lớp sương trắng, rồi những bông tuyết đầu tiên bay lả tả theo gió. Nước của cha, gió của tôi — hai sợi tơ thành một."
 				},
 				{
 					"speaker": "inner",
@@ -805,7 +804,7 @@
 			"giver": "aldric",
 			"objective": {
 				"type": "kill",
-				"count": 5
+				"count": 12
 			},
 			"objectiveText": "Hạ ma vật ở Khoảng trống Mossvale ({n}/{total})",
 			"turnIn": "aldric",
@@ -823,7 +822,7 @@
 				},
 				{
 					"speaker": "aldric",
-					"text": "Lính trong thị trấn không đủ người. Hạ năm con thôi, cho chúng biết nơi này có người canh."
+					"text": "Lính trong thị trấn không đủ người. Hạ chục con, cho chúng biết nơi này có người canh."
 				},
 				{
 					"speaker": "aldric",
@@ -843,7 +842,7 @@
 			"after": [
 				{
 					"speaker": "aldric",
-					"text": "Năm con thật à?! Cậu… cậu dùng phép kiểu gì vậy?"
+					"text": "Mười mấy con thật à?! Cậu… cậu dùng phép kiểu gì vậy?"
 				},
 				{
 					"speaker": "aldric",
@@ -1008,7 +1007,7 @@
 			"objective": {
 				"type": "kill",
 				"monster": "mob_poison_frog_001",
-				"count": 10
+				"count": 30
 			},
 			"objectiveText": "Hạ ếch độc ở Bãi Lau Sậy ({n}/{total})",
 			"turnIn": "ysolde",
@@ -1069,7 +1068,7 @@
 			"objective": {
 				"type": "kill",
 				"monster": "mob_glow_mushroom_001",
-				"count": 10
+				"count": 30
 			},
 			"objectiveText": "Dọn nấm phát quang ở Rừng Ngập Nấm ({n}/{total})",
 			"turnIn": "auto",
@@ -1113,7 +1112,7 @@
 			"objective": {
 				"type": "kill",
 				"monster": "mob_water_snake_001",
-				"count": 10
+				"count": 30
 			},
 			"objectiveText": "Hạ rắn nước quanh xác thuyền ở Đầm Rắn Nước ({n}/{total})",
 			"turnIn": "ysolde",
@@ -1398,7 +1397,7 @@
 			"objective": {
 				"type": "kill",
 				"monster": "mob_scorpion_001",
-				"count": 10
+				"count": 30
 			},
 			"objectiveText": "Hộ tống đoàn buôn nước: hạ bọ cạp ở Cồn Cát Đỏ ({n}/{total})",
 			"turnIn": "amira",
@@ -1447,7 +1446,7 @@
 			"objective": {
 				"type": "kill",
 				"monster": "mob_mummy_001",
-				"count": 10
+				"count": 30
 			},
 			"objectiveText": "Hạ xác ướp canh Lăng Mộ Cát ({n}/{total})",
 			"turnIn": "auto",
@@ -1483,7 +1482,7 @@
 			"objective": {
 				"type": "kill",
 				"monster": "mob_vulture_001",
-				"count": 10
+				"count": 30
 			},
 			"objectiveText": "Đuổi kền kền ở Vách Kền Kền ({n}/{total})",
 			"turnIn": "amira",
@@ -1744,7 +1743,7 @@
 			"objective": {
 				"type": "kill",
 				"monster": "mob_wind_wolf_001",
-				"count": 10
+				"count": 30
 			},
 			"objectiveText": "Cùng Aldric hạ sói gió ở Đồi Cỏ Cao ({n}/{total})",
 			"turnIn": "aldric_hl",
@@ -1787,7 +1786,7 @@
 			"objective": {
 				"type": "kill",
 				"monster": "mob_wind_fairy_001",
-				"count": 10
+				"count": 30
 			},
 			"objectiveText": "Ru ngủ tiên gió hoá điên ở Thung Lũng Tiên ({n}/{total})",
 			"turnIn": "auto",
@@ -1823,7 +1822,7 @@
 			"objective": {
 				"type": "kill",
 				"monster": "mob_flying_rock_001",
-				"count": 10
+				"count": 30
 			},
 			"objectiveText": "Hạ đá bay rơi xuống ở Bãi Đá Bay ({n}/{total})",
 			"turnIn": "aldric_hl",
@@ -2072,7 +2071,7 @@
 			"objective": {
 				"type": "kill",
 				"monster": "mob_snow_wolf_001",
-				"count": 10
+				"count": 30
 			},
 			"objectiveText": "Cùng Kael hạ sói tuyết ở Rừng Thông Tuyết ({n}/{total})",
 			"turnIn": "bjorn",
@@ -2119,7 +2118,7 @@
 			"objective": {
 				"type": "kill",
 				"monster": "mob_ice_wisp_001",
-				"count": 10
+				"count": 30
 			},
 			"objectiveText": "Hạ tinh linh băng ở Hồ Sương Giá ({n}/{total})",
 			"turnIn": "auto",
@@ -2155,7 +2154,7 @@
 			"objective": {
 				"type": "kill",
 				"monster": "mob_war_penguin_001",
-				"count": 10
+				"count": 30
 			},
 			"objectiveText": "Dẹp chim cánh cụt chiến quanh tàu kẹt băng ở Bờ Biển Băng ({n}/{total})",
 			"turnIn": "bjorn",
@@ -2408,7 +2407,7 @@
 			"objective": {
 				"type": "kill",
 				"monster": "mob_lava_lizard_001",
-				"count": 10
+				"count": 30
 			},
 			"objectiveText": "Hạ thằn lằn lửa ở Bãi Đá Đen ({n}/{total})",
 			"turnIn": "mirelle_forge",
@@ -2461,7 +2460,7 @@
 			"objective": {
 				"type": "kill",
 				"monster": "mob_fire_bat_001",
-				"count": 10
+				"count": 30
 			},
 			"objectiveText": "Hạ dơi lửa ở Hang Dơi Lửa ({n}/{total})",
 			"turnIn": "auto",
@@ -2501,7 +2500,7 @@
 			"objective": {
 				"type": "kill",
 				"monster": "mob_fire_spirit_001",
-				"count": 10
+				"count": 30
 			},
 			"objectiveText": "Hạ lửa tinh linh ở Lò Rèn Bỏ Hoang ({n}/{total})",
 			"turnIn": "mirelle_forge",
@@ -2742,7 +2741,7 @@
 			"objective": {
 				"type": "kill",
 				"monster": "mob_beach_crab_001",
-				"count": 10
+				"count": 30
 			},
 			"objectiveText": "Hạ cua chiếm Bãi Cát Trắng ({n}/{total})",
 			"turnIn": "coral",
@@ -2795,7 +2794,7 @@
 			"objective": {
 				"type": "kill",
 				"monster": "mob_pirate_001",
-				"count": 10
+				"count": 30
 			},
 			"objectiveText": "Hạ cướp biển ở Vịnh Cướp Biển ({n}/{total})",
 			"turnIn": "auto",
@@ -2835,7 +2834,7 @@
 			"objective": {
 				"type": "kill",
 				"monster": "mob_coral_merfolk_001",
-				"count": 10
+				"count": 30
 			},
 			"objectiveText": "Đánh ngất người cá canh Phá Người Cá ({n}/{total})",
 			"turnIn": "coral",

@@ -453,7 +453,7 @@
    "title": "Bìa rừng Mossvale",
    "giver": "father_garrick",
    "objectiveType": "kill",
-   "objectiveDetail": "kill:mob_mushroom_001:3 | onGive.zone=mossvale_edge | turnIn=kid_aldric_forest",
+   "objectiveDetail": "kill:mob_mushroom_001:6 | onGive.zone=mossvale_edge | turnIn=kid_aldric_forest",
    "objectiveText": "Hạ nấm rừng đang vây Aldric ở bìa rừng ({n}/{total})",
    "rewardExp": 40,
    "rewardOther": "unlockSkill=wind (mở nhánh Phong — Phong Nhận học bằng điểm tiềm năng, phím 3: từ bài đọc gió của cha) · potions=1 (mẹ dúi vào túi cha từ sáng) · dạy Space (lăn né) + R (uống thuốc) + Hơi Nước · lời ngoéo tay với Aldric (trả ở chương 16 tuổi)",
@@ -480,7 +480,7 @@
     },
     {
      "speaker": "narrator",
-     "line": "(chuột trái: chém kiếm khi nấm áp sát · chuột phải: Tia Aether từ xa · Space: lăn né, tốn thể lực · R: uống bình mật ong của mẹ · mẹo: đã học Hoả Cầu và Thuỷ Tiễn (bảng Tiềm năng, P) thì bắn cả hai vào cùng một con nấm sẽ ra Hơi Nước!)"
+     "line": "(chuột trái: chém kiếm khi nấm áp sát · chuột phải: Tia Aether từ xa · Space: lăn né, tốn thể lực · R: uống bình mật ong của mẹ · mẹo: mỗi người chỉ theo được MỘT nguyên tố — sau này đánh cùng bạn khác hệ vào một con quái sẽ ra phản ứng như Hơi Nước, Băng Giá!)"
     },
     {
      "speaker": "father_garrick",
@@ -524,8 +524,8 @@
    "title": "Tuyết cho mẹ",
    "giver": "null",
    "objectiveType": "practice",
-   "objectiveDetail": "practice:wind:3 | giver=null (tự nhận ngay sau c8_forest_edge) | dummy=dummy_riverside (đánh Thuỷ Tiễn trước để Ông Rơm ướt, rồi Phong Nhận → Băng Giá) | turnIn=mother_elin",
-   "objectiveText": "Thuỷ Tiễn rồi Phong Nhận vào Ông Rơm bên sông ({n}/{total})",
+   "objectiveDetail": "practice:wind:3 | giver=null (tự nhận ngay sau c8_forest_edge) | dummy=dummy_riverside (cha hắt nước cho Ông Rơm ướt, con tung Phong Nhận → Băng Giá: phản ứng là phối hợp HAI người) | turnIn=mother_elin",
+   "objectiveText": "Cha hắt nước, con tung Phong Nhận vào Ông Rơm bên sông ({n}/{total})",
    "objectiveTextAether": "Tung Tia Aether vào Ông Rơm bên sông ({n}/{total})",
    "rewardExp": 50,
    "rewardOther": "Kỷ vật “Khăn len của mẹ” · ghi nhận “Lần đan đầu tiên” (nguồn gốc trong truyện của phản ứng nguyên tố) · kết thúc tuổi thơ → thẻ time-skip (ageCards[16]) → y1_mushrooms · unlockSkill=ice",
@@ -552,15 +552,15 @@
     },
     {
      "speaker": "father_garrick",
-     "line": "Ông Rơm bên này không có mũ. Cha hết mũ cũ rồi. Nước trước. Gió sau, ngay khi nó còn ướt. Chậm là khô."
+     "line": "Ông Rơm bên này không có mũ. Cha hết mũ cũ rồi. Cha hắt nước. Con thổi gió, ngay khi nó còn ướt. Chậm là khô."
     },
     {
      "speaker": "narrator",
-     "line": "(Thuỷ Tiễn làm ướt, rồi Phong Nhận: gió trúng mục tiêu đang ướt sẽ ra Băng Giá! Học hai phép này ở bảng Tiềm năng (T) khi có điểm — chưa học đủ thì tung Tia Aether (chuột phải) vào Ông Rơm cũng được.)"
+     "line": "(Cha múc nước sông hắt ướt Ông Rơm, rồi con tung Phong Nhận: gió trúng mục tiêu đang ướt sẽ ra Băng Giá — phản ứng nguyên tố là việc của HAI người cùng đánh. Chưa học Phong Nhận thì tung Tia Aether (chuột phải) vào Ông Rơm cũng được.)"
     },
     {
      "speaker": "inner",
-     "line": "Lúc nãy tôi đã nắm được một sợi gió. Giờ chỉ cần tết nó với sợi nước, như mẹ tết tóc mỗi sáng."
+     "line": "Lúc nãy tôi đã nắm được một sợi gió. Cha lo sợi nước. Hai cha con, mỗi người một sợi, tết lại như mẹ tết tóc mỗi sáng."
     }
    ],
    "dialogueAfter": [
@@ -586,11 +586,11 @@
     },
     {
      "speaker": "narrator",
-     "line": "(Khuya hôm ấy, tôi tết sợi nước với sợi gió chặt thêm một vòng nữa. Lần này chúng không bay thành tuyết mà đông lại thành một mũi băng thật, lạnh buốt trong lòng bàn tay. Mở nhánh Băng — học Băng Tiễn ở bảng Tiềm năng (T) khi có điểm. Băng trúng mục tiêu ướt sẽ Đóng Băng!)"
+     "line": "(Khuya hôm ấy, tôi ngồi một mình ở hiên, thử tết lại sợi nước với sợi gió. Không có cha, hai sợi cứ tuột khỏi nhau. Nhưng trong lòng bàn tay vẫn đọng lại một mũi băng nhỏ, lạnh buốt. Mở nhánh Băng — học Băng Tiễn ở bảng Tiềm năng (T) khi có điểm. Mỗi người chỉ theo được MỘT nguyên tố; muốn ra phản ứng thì đánh cùng người khác hệ.)"
     }
    ],
    "innerMonologue": [
-    "Băng Giá! Ông Rơm phủ một lớp sương trắng, rồi những bông tuyết đầu tiên bay lả tả theo gió. Tôi đã đan được hai sợi tơ làm một.",
+    "Băng Giá! Ông Rơm phủ một lớp sương trắng, rồi những bông tuyết đầu tiên bay lả tả theo gió. Nước của cha, gió của tôi — hai sợi tơ thành một.",
     "Kiếp trước, sinh nhật mẹ, tôi chỉ nhắn một dòng: “Con bận, mẹ thông cảm nhé.” Mẹ trả lời bằng một trái tim. Tôi chưa bao giờ biết mẹ đã chờ bao lâu."
    ]
   }

@@ -61,25 +61,24 @@ namespace Aether.Client.UI
             var c = game.Combat;
             var g = c.Gear;
             var names = game.EquipmentRules.Tables.StatName;
-            var tiles = new (string icon, string label, string value, double bonus, string unit)[]
+            var tiles = new (string label, string value, double bonus, string unit)[]
             {
-                ("icon_hp", names["hp"], pc.HpMax.ToString("#,0"), g.Hp, ""),
-                ("icon_mp", names["mp"], pc.MpMax.ToString("#,0"), g.Mp, ""),
-                ("icon_attack", names["atk"], c.SwordAtk().ToString("0"), g.Atk, ""),
-                ("icon_magic", names["mag"], c.MagicAtk().ToString("0"), g.Mag, ""),
-                ("icon_defense", names["def"], pc.Def.ToString("0"), g.Def, ""),
-                ("icon_star", names["crit"], $"{c.CritRate * 100:0.#}%", g.Crit, "%"),
-                ("icon_diamond", names["move"], $"{c.MoveScaleGear * 100:0}%", g.Move, "%"),
-                ("icon_potion", "Bình hồi phục", pc.Potions.ToString(), 0, ""),
+                (names["hp"], pc.HpMax.ToString("#,0"), g.Hp, ""),
+                (names["mp"], pc.MpMax.ToString("#,0"), g.Mp, ""),
+                (names["atk"], c.SwordAtk().ToString("0"), g.Atk, ""),
+                (names["mag"], c.MagicAtk().ToString("0"), g.Mag, ""),
+                (names["def"], pc.Def.ToString("0"), g.Def, ""),
+                (names["crit"], $"{c.CritRate * 100:0.#}%", g.Crit, "%"),
+                (names["move"], $"{c.MoveScaleGear * 100:0}%", g.Move, "%"),
+                ("Bình hồi phục", pc.Potions.ToString(), 0, ""),
             };
             for (var k = 0; k < tiles.Length; k += 1)
             {
                 var t = tiles[k];
                 var tile = Box(right, "Stat" + k, new Vector2(0, 1), new Vector2(0, 1), new Vector2((k % 4) * 144, -(k / 4) * 44), new Vector2(138, 40), 0.45f);
-                UiKit.Icon(UiKit.Rect(tile, "i", new Vector2(0, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(18, 0), new Vector2(22, 22)), hud.UiIcon(t.icon));
-                Text(tile, "l", new Vector2(0, 1), new Vector2(0, 1), new Vector2(34, -3), new Vector2(102, 14), t.label, 9, UiKit.TextDim);
+                Text(tile, "l", new Vector2(0, 1), new Vector2(0, 1), new Vector2(10, -3), new Vector2(124, 14), t.label, 9, UiKit.TextDim);
                 var bonus = t.bonus > 0 ? $" <size=10><color=#7be07f>+{t.bonus:0.#}{t.unit}</color></size>" : "";
-                var v = Text(tile, "v", new Vector2(0, 1), new Vector2(0, 1), new Vector2(34, -16), new Vector2(102, 22), t.value + bonus, 15, UiKit.TextMain, TextAnchor.MiddleLeft, true);
+                var v = Text(tile, "v", new Vector2(0, 1), new Vector2(0, 1), new Vector2(10, -16), new Vector2(124, 22), t.value + bonus, 15, UiKit.TextMain, TextAnchor.MiddleLeft, true);
                 v.enableAutoSizing = true;
                 v.fontSizeMin = 10;
                 v.fontSizeMax = 15;

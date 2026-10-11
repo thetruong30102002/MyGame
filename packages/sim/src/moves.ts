@@ -56,6 +56,7 @@ export const COMBO_WINDOW = 0.75;
 /** Skill → động tác riêng. Skill vắng ở đây dùng thẳng `SkillDef.anim`. Trảm đi theo `SLASH_COMBO`. */
 export const SKILL_MOVE: Readonly<Record<string, ActionAnim>> = {
 	frost_cleave: 'attack',
+	imbue: 'charge',
 	aether_bolt: 'throw',
 	fire_bolt: 'throw',
 	water_lance: 'throw',

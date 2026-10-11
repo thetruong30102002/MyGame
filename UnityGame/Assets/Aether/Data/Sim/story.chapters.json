@@ -497,7 +497,7 @@
 			"objective": {
 				"type": "kill",
 				"monster": "mob_poison_frog_001",
-				"count": 10
+				"count": 30
 			},
 			"objectiveText": "Hạ ếch độc ở Bãi Lau Sậy ({n}/{total})",
 			"turnIn": "ysolde",
@@ -558,7 +558,7 @@
 			"objective": {
 				"type": "kill",
 				"monster": "mob_glow_mushroom_001",
-				"count": 10
+				"count": 30
 			},
 			"objectiveText": "Dọn nấm phát quang ở Rừng Ngập Nấm ({n}/{total})",
 			"turnIn": "auto",
@@ -602,7 +602,7 @@
 			"objective": {
 				"type": "kill",
 				"monster": "mob_water_snake_001",
-				"count": 10
+				"count": 30
 			},
 			"objectiveText": "Hạ rắn nước quanh xác thuyền ở Đầm Rắn Nước ({n}/{total})",
 			"turnIn": "ysolde",
@@ -887,7 +887,7 @@
 			"objective": {
 				"type": "kill",
 				"monster": "mob_scorpion_001",
-				"count": 10
+				"count": 30
 			},
 			"objectiveText": "Hộ tống đoàn buôn nước: hạ bọ cạp ở Cồn Cát Đỏ ({n}/{total})",
 			"turnIn": "amira",
@@ -936,7 +936,7 @@
 			"objective": {
 				"type": "kill",
 				"monster": "mob_mummy_001",
-				"count": 10
+				"count": 30
 			},
 			"objectiveText": "Hạ xác ướp canh Lăng Mộ Cát ({n}/{total})",
 			"turnIn": "auto",
@@ -972,7 +972,7 @@
 			"objective": {
 				"type": "kill",
 				"monster": "mob_vulture_001",
-				"count": 10
+				"count": 30
 			},
 			"objectiveText": "Đuổi kền kền ở Vách Kền Kền ({n}/{total})",
 			"turnIn": "amira",
@@ -1233,7 +1233,7 @@
 			"objective": {
 				"type": "kill",
 				"monster": "mob_wind_wolf_001",
-				"count": 10
+				"count": 30
 			},
 			"objectiveText": "Cùng Aldric hạ sói gió ở Đồi Cỏ Cao ({n}/{total})",
 			"turnIn": "aldric_hl",
@@ -1276,7 +1276,7 @@
 			"objective": {
 				"type": "kill",
 				"monster": "mob_wind_fairy_001",
-				"count": 10
+				"count": 30
 			},
 			"objectiveText": "Ru ngủ tiên gió hoá điên ở Thung Lũng Tiên ({n}/{total})",
 			"turnIn": "auto",
@@ -1312,7 +1312,7 @@
 			"objective": {
 				"type": "kill",
 				"monster": "mob_flying_rock_001",
-				"count": 10
+				"count": 30
 			},
 			"objectiveText": "Hạ đá bay rơi xuống ở Bãi Đá Bay ({n}/{total})",
 			"turnIn": "aldric_hl",
@@ -1561,7 +1561,7 @@
 			"objective": {
 				"type": "kill",
 				"monster": "mob_snow_wolf_001",
-				"count": 10
+				"count": 30
 			},
 			"objectiveText": "Cùng Kael hạ sói tuyết ở Rừng Thông Tuyết ({n}/{total})",
 			"turnIn": "bjorn",
@@ -1608,7 +1608,7 @@
 			"objective": {
 				"type": "kill",
 				"monster": "mob_ice_wisp_001",
-				"count": 10
+				"count": 30
 			},
 			"objectiveText": "Hạ tinh linh băng ở Hồ Sương Giá ({n}/{total})",
 			"turnIn": "auto",
@@ -1644,7 +1644,7 @@
 			"objective": {
 				"type": "kill",
 				"monster": "mob_war_penguin_001",
-				"count": 10
+				"count": 30
 			},
 			"objectiveText": "Dẹp chim cánh cụt chiến quanh tàu kẹt băng ở Bờ Biển Băng ({n}/{total})",
 			"turnIn": "bjorn",
@@ -1897,7 +1897,7 @@
 			"objective": {
 				"type": "kill",
 				"monster": "mob_lava_lizard_001",
-				"count": 10
+				"count": 30
 			},
 			"objectiveText": "Hạ thằn lằn lửa ở Bãi Đá Đen ({n}/{total})",
 			"turnIn": "mirelle_forge",
@@ -1950,7 +1950,7 @@
 			"objective": {
 				"type": "kill",
 				"monster": "mob_fire_bat_001",
-				"count": 10
+				"count": 30
 			},
 			"objectiveText": "Hạ dơi lửa ở Hang Dơi Lửa ({n}/{total})",
 			"turnIn": "auto",
@@ -1990,7 +1990,7 @@
 			"objective": {
 				"type": "kill",
 				"monster": "mob_fire_spirit_001",
-				"count": 10
+				"count": 30
 			},
 			"objectiveText": "Hạ lửa tinh linh ở Lò Rèn Bỏ Hoang ({n}/{total})",
 			"turnIn": "mirelle_forge",
@@ -2231,7 +2231,7 @@
 			"objective": {
 				"type": "kill",
 				"monster": "mob_beach_crab_001",
-				"count": 10
+				"count": 30
 			},
 			"objectiveText": "Hạ cua chiếm Bãi Cát Trắng ({n}/{total})",
 			"turnIn": "coral",
@@ -2284,7 +2284,7 @@
 			"objective": {
 				"type": "kill",
 				"monster": "mob_pirate_001",
-				"count": 10
+				"count": 30
 			},
 			"objectiveText": "Hạ cướp biển ở Vịnh Cướp Biển ({n}/{total})",
 			"turnIn": "auto",
@@ -2324,7 +2324,7 @@
 			"objective": {
 				"type": "kill",
 				"monster": "mob_coral_merfolk_001",
-				"count": 10
+				"count": 30
 			},
 			"objectiveText": "Đánh ngất người cá canh Phá Người Cá ({n}/{total})",
 			"turnIn": "coral",

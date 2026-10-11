@@ -87,7 +87,6 @@ namespace Aether.Client.Combat
         public Actor Player { get; private set; }
         public string Path { get; private set; } = "none";
         public Tiers Tiers { get; private set; } = new Tiers();
-        public string Style { get; private set; }
         public Func<string, bool> IsUnlocked = _ => true;
         public double Time { get; private set; }
         public double HitStop;
@@ -137,14 +136,23 @@ namespace Aether.Client.Combat
 
         public double CritRate => CritChance + Fx.Crit + Gear.Crit / 100;
 
-        public void SetTalents(Tiers tiers, string style)
+        public void SetTalents(Tiers tiers)
         {
             Tiers = tiers ?? new Tiers();
-            Style = style;
             RefreshPassives();
         }
 
-        public bool Knows(SkillDef s) => talents.KnowsSkill(s, Tiers, IsUnlocked, Style);
+        /// <summary>Đã học chiêu chưa — theo mốc + lớp (Kiếm sĩ chỉ đòn kiếm, Pháp sư chỉ trượng).</summary>
+        public bool Knows(SkillDef s) => talents.KnowsSkill(s, Tiers, IsUnlocked, Path);
+
+        /// <summary>Phần cộng từ điểm thuộc tính (Sinh lực, Linh lực, Sức mạnh, Trí tuệ, Đỡ đòn, Thể lực) — đã kẹp theo cấp.</summary>
+        public AttrBonus Attr { get; private set; } = new AttrBonus();
+
+        public void SetAttrs(AttrBonus a)
+        {
+            Attr = a ?? new AttrBonus();
+            ApplyLevel(false);
+        }
 
         public SkillDef Skill(string id)
         {
@@ -166,10 +174,12 @@ namespace Aether.Client.Combat
         {
             var lv = Pc.Level - 1;
             var p = PathInfo;
-            Pc.HpMax = Js.Round((p.Hp[0] + lv * p.Hp[1] + Gear.Hp) * Fx.HpMax);
-            Pc.MpMax = p.Mp[0] + lv * p.Mp[1] + Gear.Mp;
+            Pc.HpMax = Js.Round((p.Hp[0] + lv * p.Hp[1] + Gear.Hp + Attr.Hp) * Fx.HpMax);
+            Pc.MpMax = p.Mp[0] + lv * p.Mp[1] + Gear.Mp + Attr.Mp;
             Pc.Atk = p.Atk[0] + lv * p.Atk[1];
-            Pc.Def = p.Def[0] + lv * p.Def[1] + Gear.Def;
+            Pc.Def = p.Def[0] + lv * p.Def[1] + Gear.Def + Attr.Def;
+            Pc.StaminaMax = BaseStamina + Attr.Stamina;
+            if (Pc.Stamina > Pc.StaminaMax) Pc.Stamina = Pc.StaminaMax;
             if (fill || Pc.Hp > Pc.HpMax || Pc.Hp == 0) Pc.Hp = Pc.HpMax;
             if (fill || Pc.Mp > Pc.MpMax || Pc.Mp == 0) Pc.Mp = Pc.MpMax;
         }
@@ -180,9 +190,14 @@ namespace Aether.Client.Combat
             Pc.Mp = Pc.MpMax;
         }
 
-        public double SwordAtk() => Pc.Atk + Gear.Atk;
+        /// <summary>Thể lực tối đa gốc (trước điểm Thể lực).</summary>
+        private const double BaseStamina = 100;
 
-        public double MagicAtk() => Pc.Atk + Gear.Mag;
+        /// <summary>Công đòn kiếm: gốc + trang bị, nhân điểm Sức mạnh.</summary>
+        public double SwordAtk() => (Pc.Atk + Gear.Atk) * Attr.Sword;
+
+        /// <summary>Công phép: gốc + trang bị, nhân điểm Trí tuệ.</summary>
+        public double MagicAtk() => (Pc.Atk + Gear.Mag) * Attr.Magic;
 
         private double PathScale(SkillDef s) => s.Kind == "heal" ? 1 : Core.Skills.IsSwordSkill(s) ? PathInfo.Sword : PathInfo.Magic;
 

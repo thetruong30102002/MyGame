@@ -103,6 +103,8 @@ namespace Aether.Core
         public int Tier;
         public string Style;
         public string Art;
+        /// <summary>Bọc Nguyên Tố: cần Kiếm ≥ Tier + nguyên tố đã chọn ≥ ENCHANT_ELEMENT_TIER.</summary>
+        public bool Imbue;
     }
 
     /// <summary>Tên, lối chơi, phủ phép hợp của một lưu phái Kiếm (SWORD_STYLE_INFO).</summary>

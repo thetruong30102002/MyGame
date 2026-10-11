@@ -336,22 +336,19 @@ namespace Aether.Client
                 yield return new WaitForSeconds(4f);
                 foreach (var f in c.Enemies) if (!f.Dead) target = f;
             }
-            // Bảng Tiềm năng: tab 3 lưu phái Kiếm ở đầu bảng (chụp để soát bố cục).
+            // Bảng Tiềm năng: cây (3 phái trên thân Kiếm + cột nguyên tố) + điểm thuộc tính (chụp để soát bố cục).
             var hudT = FindFirstObjectByType<Aether.Client.UI.Hud>();
             hudT.Panels.Show(Aether.Client.UI.Panels.Kind.Talents);
             yield return new WaitForSeconds(0.6f);
-            yield return Shot("lab-talents-" + game.SwordStyle);
-            // Cây: chọn mốc 10 Kiếm + phủ phép Hoả → khung chi tiết + dòng phủ phép.
-            game.SetEnchant("fire");
-            hudT.Panels.SelectTalent("sword", 10);
+            yield return Shot("lab-talents");
+            // Cây: chọn mốc 8 (tuyệt kỹ) của Kiếm Thần → khung chi tiết.
+            hudT.Panels.SelectTalent("kiem_than", 8);
             yield return new WaitForSeconds(0.5f);
-            log.WriteLine($"cây tiềm năng: phủ phép đang có = {game.Enchantment ?? "tắt"}");
             yield return Shot("lab-talents-node");
-            game.SetEnchant(null);
             hudT.Panels.Close();
             yield return new WaitForSeconds(0.3f);
             // Thủy Thần: đứng sát quái, bật thế đỡ, để QUÁI đánh vào — đòn phản phải làm nó mất máu (người chơi không ra đòn nào khác).
-            if (game.SwordStyle == "thuy_than")
+            if (GameController.LabStyle == "thuy_than")
                 foreach (var id in new[] { "calm_stance", "flowing_counter" })
                 {
                     target = null;
@@ -634,8 +631,8 @@ namespace Aether.Client
             var lv0 = game.Combat.Pc.Level;
             game.Combat.Pc.Level = Math.Max(lv0, 5);
             string branch = null;
-            foreach (var b in new[] { "sword", "fire", "water", "wind", "ice", "earth" })
-                if (branch == null && game.BranchOpen(b) && game.NextTierCost(b).HasValue && !game.NeedsStyle(b)) branch = b;
+            foreach (var b in game.Sim.Branches)
+                if (branch == null && game.BranchOpen(b) && game.NextTierCost(b).HasValue) branch = b;
             var p0 = game.UnspentPoints;
             var t0 = branch != null ? game.TierOf(branch) : 0;
             var learned = branch != null && p0 > 0 && game.AddTier(branch);
@@ -643,9 +640,9 @@ namespace Aether.Client
             hud.Panels.SelectTalent(branch ?? "sword", (branch != null ? game.TierOf(branch) : 1));
             yield return new WaitForSeconds(0.6f);
             yield return Shot("talents-tree");
-            var reset = game.ResetTalents();
+            var reset = game.ResetBuild();
             yield return new WaitForSeconds(0.6f);
-            log.WriteLine($"tẩy điểm: nhánh {branch ?? "(chưa mở nhánh nào)"} mốc {t0}, điểm {p0} → học {(learned ? "được" : "không")} → {p1} → tẩy {(reset ? "được" : "không")} → điểm {game.UnspentPoints}, mốc {(branch != null ? game.TierOf(branch) : 0)}, lưu phái {game.SwordStyle ?? "—"}");
+            log.WriteLine($"tẩy điểm: nhánh {branch ?? "(chưa mở nhánh nào)"} mốc {t0}, điểm {p0} → học {(learned ? "được" : "không")} → {p1} → tẩy {(reset ? "được" : "không")} → điểm {game.UnspentPoints}, mốc {(branch != null ? game.TierOf(branch) : 0)}, nguyên tố {game.ChosenElement ?? "—"}");
             game.Combat.Pc.Level = lv0;
             hud.Panels.Close();
         }

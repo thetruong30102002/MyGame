@@ -13,7 +13,7 @@ namespace Aether.Client.Combat
     public sealed partial class CombatSystem
     {
         private PassiveEffects fx;
-        private PassiveEffects Fx => fx ??= talents.GetPassiveEffects(new Tiers(), null);
+        private PassiveEffects Fx => fx ??= talents.GetPassiveEffects(new Tiers());
         private PassiveConsts Pv => sim.Passive;
 
         private double stillT, hasteT, regenT;
@@ -35,8 +35,9 @@ namespace Aether.Client.Combat
             buffGuard = guard;
         }
 
-        private string enchantPick;
-        private double enchantReadyAt = -99;
+        /// <summary>Bọc Nguyên Tố còn tác dụng tới lúc này (thời gian trận); tổng thời gian lần bọc gần nhất (thanh đếm ngược HUD).</summary>
+        private double imbueUntil = -99;
+        public double ImbueTotal { get; private set; }
         private int comboN, comboSeq, blastArmed;
         private double comboAt = -99;
 
@@ -44,7 +45,7 @@ namespace Aether.Client.Combat
         private void RefreshPassives()
         {
             var before = Fx.HpMax;
-            fx = talents.GetPassiveEffects(Tiers, Style);
+            fx = talents.GetPassiveEffects(Tiers);
             if (Math.Abs(fx.HpMax - before) > 1e-9) ApplyLevel(false);
         }
 
@@ -287,24 +288,35 @@ namespace Aether.Client.Combat
 
         // ———————————————— phủ phép kiếm ————————————————
 
-        /// <summary>Phủ phép đang CÓ TÁC DỤNG (đã chọn và còn đủ điều kiện), null = kiếm thép.</summary>
-        public string Enchantment => enchantPick != null && talents.CanEnchant(Tiers, enchantPick) ? enchantPick : null;
-
-        public double EnchantCooldown => Math.Max(0, enchantReadyAt - Time);
-
-        /// <summary>Chọn phủ phép (null = tắt): "ok" | "same" | "locked" | "cooldown". Mỗi lần đổi hồi `ENCHANT_SWAP_SECONDS`.</summary>
-        public string SetEnchant(string e)
+        /// <summary>
+        /// Nguyên tố đang bọc lưỡi kiếm (chủ dự án 11/10/2026: "bọc nguyên tố vào kiếm là skill kích hoạt có thời gian") — chỉ trong lúc
+        /// Bọc Nguyên Tố còn hiệu lực VÀ còn đủ điều kiện (Kiếm 2 + nguyên tố đã chọn ≥ mốc 3). null = kiếm thép.
+        /// </summary>
+        public string Enchantment
         {
-            if (e == Enchantment) return "same";
-            if (e != null && !talents.CanEnchant(Tiers, e)) return "locked";
-            if (e != null && EnchantCooldown > 0) return "cooldown";
-            enchantPick = e;
-            enchantReadyAt = Time + sim.EnchantSwapSeconds;
-            return "ok";
+            get
+            {
+                if (Time >= imbueUntil) return null;
+                var e = talents.ChosenElement(Tiers);
+                return e != null && talents.CanEnchant(Tiers, e) ? e : null;
+            }
         }
 
-        /// <summary>Nạp phủ phép từ bản lưu: không tính hồi.</summary>
-        public void RestoreEnchant(string e) => enchantPick = e;
+        /// <summary>Giây Bọc Nguyên Tố còn lại (0 = không bọc).</summary>
+        public double ImbueLeft => Enchantment != null ? Math.Max(0, imbueUntil - Time) : 0;
+
+        /// <summary>Kích hoạt Bọc Nguyên Tố: 10 giây + 1 giây mỗi mốc nguyên tố (tối đa 20). Trả số giây, 0 nếu không bọc được.</summary>
+        private double StartImbue()
+        {
+            var e = talents.ChosenElement(Tiers);
+            if (e == null || !talents.CanEnchant(Tiers, e)) return 0;
+            ImbueTotal = talents.ImbueSeconds(Tiers.TryGetValue(e, out var t) ? t : 0);
+            imbueUntil = Time + ImbueTotal;
+            return ImbueTotal;
+        }
+
+        /// <summary>Huỷ bọc (đổi bản build, tẩy điểm).</summary>
+        public void ClearImbue() => imbueUntil = -99;
 
         /// <summary>Kiếm phủ phép: đòn Kiếm hệ thép mang hệ đó lên quái. null = giữ hệ gốc.</summary>
         private string EnchantOf(SkillDef s)

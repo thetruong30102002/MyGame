@@ -173,7 +173,6 @@ namespace Aether.Client
         {
             storyState = story ?? new JObject();
             bonusPoints = bonus;
-            var bought = new Tiers();
             // Online (không phải phòng Thử chiêu): có cốt truyện — nhân vật MỚI (chưa có bản lưu) bắt đầu ở tuổi của nhiệm vụ đầu
             // (4 tuổi) như web. Offline: chế độ thử — người lớn, mở hết, không cốt truyện.
             var storyMode = online != null && !LabMode;
@@ -183,15 +182,12 @@ namespace Aether.Client
                 age = this.story.Age;
             }
             else if (story != null) age = (double?)story["age"] ?? 16;
-            if (storyState["talents"] is JObject t) foreach (var kv in t) bought[kv.Key] = (double)kv.Value;
             // Đọc thẳng `unlocked` của bản lưu mỗi lần hỏi — cốt truyện mở thêm giữa lúc chơi.
             isUnlocked = !storyMode && story == null ? (Func<string, bool>)(_ => true) : id => id == null || (storyState["unlocked"] is JArray ul && ul.Any(x => (string)x == id));
             combat.IsUnlocked = isUnlocked;
             combat.SetPath((string)storyState["path"]);
-            combat.SetTalents(talents.TiersFrom(bought, isUnlocked), (string)storyState["swordStyle"]);
-            // Phủ phép kiếm đã chọn (bản lưu `story.enchant`, cùng chỗ bản web ghi) — nạp không tính hồi đổi.
-            var savedEnchant = storyState["enchant"]?.Type == JTokenType.String ? (string)storyState["enchant"] : null;
-            combat.RestoreEnchant(savedEnchant != null && Array.IndexOf(sim.Enchants, savedEnchant) >= 0 ? savedEnchant : null);
+            combat.SetTalents(talents.TiersFrom(BoughtFromState(), isUnlocked));
+            SyncAttrs();
             loadout = storyState["loadout"] is JArray lo ? lo.ToObject<List<string>>() : new List<string>();
             SyncKnownSkills(false);
         }
@@ -452,9 +448,19 @@ namespace Aether.Client
 
         public void DodgeNow()
         {
+            // Lướt né là của Kiếm sĩ (chủ dự án 11/10/2026: "chiêu bấm Space nhảy đi một đoạn chỉ cho kiếm, pháp sư sẽ không có");
+            // tuổi thơ chưa chọn đường vẫn né được (bài nấm năm 8 tuổi dạy né).
+            if (combat.Path == "mage")
+            {
+                if (UnityEngine.Time.time - dodgeDeniedAt > 3f) hud.Toast("Pháp sư không lướt né — giữ khoảng cách, dùng phép khống chế", "info");
+                dodgeDeniedAt = UnityEngine.Time.time;
+                return;
+            }
             var it = input.Intent();
             combat.Dodge(it.x, it.y);
         }
+
+        private float dodgeDeniedAt = -10;
 
         public void UsePotion() => combat.UsePotion();
 

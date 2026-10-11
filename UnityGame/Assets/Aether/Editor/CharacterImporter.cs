@@ -64,7 +64,7 @@ namespace Aether.Importer
             var folder = $"{CharactersFolder}/{id}";
             MoveLegacyFolder(id, folder);
             var png = $"{folder}/{id}.png";
-            ImportUtil.CopyAsset(pngFile, png);
+            ImportUtil.CopyAssetMarked(pngFile, png);
             var size = ImportUtil.PngSize(pngFile);
 
             var slices = new List<SliceRect>(atlas.frames.Count);

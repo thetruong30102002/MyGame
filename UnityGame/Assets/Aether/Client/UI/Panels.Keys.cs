@@ -28,7 +28,7 @@ namespace Aether.Client.UI
         public void TestLoadout(string held)
         {
             Show(Kind.Talents);
-            talentLoadout = true;
+            talentTab = 1;
             loadoutHeld = held;
             Refresh();
         }

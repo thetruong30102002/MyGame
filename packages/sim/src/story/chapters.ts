@@ -5,7 +5,7 @@ import type { Line, NpcDef, QuestDef } from './storyTypes.ts';
  * Mạch chính vùng 1 (thần) + vùng 2–7 (chủ dự án 11/10/2026: "update nhiệm vụ, cốt truyện… mỗi vùng sẽ có 1 vị thần"). Bám bản nháp
  * `docs/cot-truyen-aether.md` (chương 2–7, map + boss trùng tên map thật) nhưng CHỈ mạch chính: các lựa chọn rẽ nhánh, ai sống ai chết
  * và nhiệm vụ phụ còn chờ chủ dự án duyệt (mục "Cần duyệt") nên lời thoại để ngỏ ở những chỗ đó. Mỗi vùng 8 nhiệm vụ: tới trạm gặp
- * người giao việc → 3 bầy quái theo map (mỗi bầy một mảnh chuyện) → 2 boss khu → boss chúa → gặp THẦN của vùng ở thánh địa
+ * người giao việc → 3 bầy quái theo map (30 con mỗi bầy — chủ dự án 11/10/2026: "cần tăng số quái cần farm nhiệm vụ"; mỗi bầy một mảnh chuyện) → 2 boss khu → boss chúa → gặp THẦN của vùng ở thánh địa
  * (`docs/cot-truyen-aether.md` mục "Mười vị thần đất": thần không chỉ đường, chỉ tỉnh khi boss chúa gục, trao giao kèo có giá).
  * Hình tạm: người giao việc mượn sprite NPC vùng 1, thần là tượng đá có sẵn của vùng — kế hoạch vẽ ghi ở `docs/pixellab-ke-hoach-ve.md`.
  * Người chỉ NÓI (Nyra, Zahra, Kael…) khai NPC không chỗ đứng (`at.spot` không map nào có) để hộp thoại có tên.
@@ -168,7 +168,7 @@ const CH2: QuestDef[] = [
 			L('ysolde', 'Muốn ở lại thì làm việc. Ếch độc tràn lên bãi lau, nước mỗi năm một dâng. Đi đi, rồi về đây uống trà.'),
 		],
 	}),
-	hunt('c2_frogs', 'Cột mốc khắc hươu', 'mob_poison_frog_001', 10, 'Hạ ếch độc ở Bãi Lau Sậy', {
+	hunt('c2_frogs', 'Cột mốc khắc hươu', 'mob_poison_frog_001', 30, 'Hạ ếch độc ở Bãi Lau Sậy', {
 		giver: 'ysolde',
 		turnIn: 'ysolde',
 		level: 11,
@@ -190,7 +190,7 @@ const CH2: QuestDef[] = [
 			L('ysolde', '(Bà nhìn cha tôi rất lâu, rồi rót cho ông chén trà cuối cùng còn trong ấm.)'),
 		],
 	}),
-	hunt('c2_roofs', 'Đèn cho mái nhà chìm', 'mob_glow_mushroom_001', 10, 'Dọn nấm phát quang ở Rừng Ngập Nấm', {
+	hunt('c2_roofs', 'Đèn cho mái nhà chìm', 'mob_glow_mushroom_001', 30, 'Dọn nấm phát quang ở Rừng Ngập Nấm', {
 		level: 12,
 		part: 0.22,
 		before: [
@@ -204,7 +204,7 @@ const CH2: QuestDef[] = [
 			L('narrator', '(Nyra cắm một cây nấm phát quang lên mái nhà, làm đèn cho mộ.)'),
 		],
 	}),
-	hunt('c2_journal', 'Chữ ký "Đ."', 'mob_water_snake_001', 10, 'Hạ rắn nước quanh xác thuyền ở Đầm Rắn Nước', {
+	hunt('c2_journal', 'Chữ ký "Đ."', 'mob_water_snake_001', 30, 'Hạ rắn nước quanh xác thuyền ở Đầm Rắn Nước', {
 		turnIn: 'ysolde',
 		level: 13,
 		part: 0.22,
@@ -301,7 +301,7 @@ const CH3: QuestDef[] = [
 			L('amira', 'Đoàn buôn nước của triều đình bị cướp ba lần trong tháng. Ta cần người đi hộ tống. Người không sợ bọ cạp.'),
 		],
 	}),
-	hunt('c3_caravan', 'Kẻ cướp chia nước', 'mob_scorpion_001', 10, 'Hộ tống đoàn buôn nước: hạ bọ cạp ở Cồn Cát Đỏ', {
+	hunt('c3_caravan', 'Kẻ cướp chia nước', 'mob_scorpion_001', 30, 'Hộ tống đoàn buôn nước: hạ bọ cạp ở Cồn Cát Đỏ', {
 		giver: 'amira',
 		turnIn: 'amira',
 		level: 21,
@@ -318,7 +318,7 @@ const CH3: QuestDef[] = [
 			L('amira', 'Ngươi biết điều tệ nhất là gì không? Ta không chắc họ sai.'),
 		],
 	}),
-	hunt('c3_tombs', 'Cái tên bị đục', 'mob_mummy_001', 10, 'Hạ xác ướp canh Lăng Mộ Cát', {
+	hunt('c3_tombs', 'Cái tên bị đục', 'mob_mummy_001', 30, 'Hạ xác ướp canh Lăng Mộ Cát', {
 		level: 23,
 		part: 0.22,
 		before: [L('inner', 'Lăng Mộ Cát là nơi chôn các vị vua đã ký Giao Ước. Xác ướp vẫn canh từng bậc thềm, ba trăm năm không ngủ.')],
@@ -328,7 +328,7 @@ const CH3: QuestDef[] = [
 			L('inner', 'Vết đục còn mới hơn phần đá xung quanh. Ai đó đã xoá Sahrin khỏi Giao Ước. Không phải ba trăm năm trước. Mới đây thôi.'),
 		],
 	}),
-	hunt('c3_vultures', 'Cỗ máy "v2.1"', 'mob_vulture_001', 10, 'Đuổi kền kền ở Vách Kền Kền', {
+	hunt('c3_vultures', 'Cỗ máy "v2.1"', 'mob_vulture_001', 30, 'Đuổi kền kền ở Vách Kền Kền', {
 		turnIn: 'amira',
 		level: 24,
 		part: 0.22,
@@ -417,7 +417,7 @@ const CH4: QuestDef[] = [
 			L('wenna', '(Bà chủ cối xay dúi vào tay tôi túi bột mì cuối cùng, nói nhỏ khi Aldric quay đi.) Gió cạn từ ngày có cái tháp ấy. Đừng nói với hiệp sĩ là tôi nói.'),
 		],
 	}),
-	hunt('c4_wolves', 'Lưng tựa lưng', 'mob_wind_wolf_001', 10, 'Cùng Aldric hạ sói gió ở Đồi Cỏ Cao', {
+	hunt('c4_wolves', 'Lưng tựa lưng', 'mob_wind_wolf_001', 30, 'Cùng Aldric hạ sói gió ở Đồi Cỏ Cao', {
 		giver: 'aldric_hl',
 		turnIn: 'aldric_hl',
 		level: 31,
@@ -433,7 +433,7 @@ const CH4: QuestDef[] = [
 			L('aldric_hl', 'Lời ngoéo tay vẫn còn đó, Lior. Tớ vẫn đang đi đánh Quỷ vương thật đây. Chỉ là… dạo này tớ không chắc ai là Quỷ vương nữa.'),
 		],
 	}),
-	hunt('c4_fairies', 'Chuyện của tiên già', 'mob_wind_fairy_001', 10, 'Ru ngủ tiên gió hoá điên ở Thung Lũng Tiên', {
+	hunt('c4_fairies', 'Chuyện của tiên già', 'mob_wind_fairy_001', 30, 'Ru ngủ tiên gió hoá điên ở Thung Lũng Tiên', {
 		level: 33,
 		part: 0.22,
 		before: [L('inner', 'Tiên gió mất nhà vì gió cạn. Chúng hoá điên, quay như lá khô trong cơn lốc. Đánh cho chúng ngất đi là cách duy nhất để chúng ngủ.')],
@@ -443,7 +443,7 @@ const CH4: QuestDef[] = [
 			L('inner', '«Gió bây giờ không còn đi lối của Tuyệt Vân. Gió đi vào những cái tháp sắt.»'),
 		],
 	}),
-	hunt('c4_floatstones', 'Bản vẽ của Kiến Trúc Sư', 'mob_flying_rock_001', 10, 'Hạ đá bay rơi xuống ở Bãi Đá Bay', {
+	hunt('c4_floatstones', 'Bản vẽ của Kiến Trúc Sư', 'mob_flying_rock_001', 30, 'Hạ đá bay rơi xuống ở Bãi Đá Bay', {
 		turnIn: 'aldric_hl',
 		level: 34,
 		part: 0.22,
@@ -529,7 +529,7 @@ const CH5: QuestDef[] = [
 			L('inner', 'Tôi đứng trước cột dịch chuyển rất lâu. Rồi tôi quay lại hỏi Bjorn: "Cần dẫn đường lên hồ phải không?"'),
 		],
 	}),
-	hunt('c5_wolves', 'Đọc gió trước', 'mob_snow_wolf_001', 10, 'Cùng Kael hạ sói tuyết ở Rừng Thông Tuyết', {
+	hunt('c5_wolves', 'Đọc gió trước', 'mob_snow_wolf_001', 30, 'Cùng Kael hạ sói tuyết ở Rừng Thông Tuyết', {
 		giver: 'bjorn',
 		turnIn: 'bjorn',
 		level: 41,
@@ -546,7 +546,7 @@ const CH5: QuestDef[] = [
 			L('bjorn', 'Lần đầu tiên từ trận bão, thằng bé chịu nhờ một người. Cảm ơn cậu.'),
 		],
 	}),
-	hunt('c5_wisps', 'Người mẹ dưới mặt hồ', 'mob_ice_wisp_001', 10, 'Hạ tinh linh băng ở Hồ Sương Giá', {
+	hunt('c5_wisps', 'Người mẹ dưới mặt hồ', 'mob_ice_wisp_001', 30, 'Hạ tinh linh băng ở Hồ Sương Giá', {
 		level: 43,
 		part: 0.22,
 		before: [L('inner', 'Tinh linh băng bay quanh Hồ Sương Giá như đàn đom đóm lạnh. Ở giữa hồ, tôi thấy sợi Aether của một con người, đông cứng.')],
@@ -556,7 +556,7 @@ const CH5: QuestDef[] = [
 			L('inner', 'Mẹ tôi đang ốm. Tôi đang ở đây. Tôi nhìn cô gái đứng ở bờ hồ, và không dám nghĩ tiếp.'),
 		],
 	}),
-	hunt('c5_ship', 'Hải Âu Bạc', 'mob_war_penguin_001', 10, 'Dẹp chim cánh cụt chiến quanh tàu kẹt băng ở Bờ Biển Băng', {
+	hunt('c5_ship', 'Hải Âu Bạc', 'mob_war_penguin_001', 30, 'Dẹp chim cánh cụt chiến quanh tàu kẹt băng ở Bờ Biển Băng', {
 		turnIn: 'bjorn',
 		level: 44,
 		part: 0.22,
@@ -641,7 +641,7 @@ const CH6: QuestDef[] = [
 			L('mirelle_forge', 'Còn một người đàn ông áo xám đứng cạnh Durin. Hắn nhìn con như nhìn… ta không biết tả thế nào. Như nhìn một dòng chữ viết sai.'),
 		],
 	}),
-	hunt('c6_lizards', 'Cổng phụ trong đêm', 'mob_lava_lizard_001', 10, 'Hạ thằn lằn lửa ở Bãi Đá Đen', {
+	hunt('c6_lizards', 'Cổng phụ trong đêm', 'mob_lava_lizard_001', 30, 'Hạ thằn lằn lửa ở Bãi Đá Đen', {
 		giver: 'mirelle_forge',
 		turnIn: 'mirelle_forge',
 		level: 51,
@@ -659,7 +659,7 @@ const CH6: QuestDef[] = [
 			L('mirelle_forge', 'Ta không hiểu chuyện của con. Ta chỉ biết băng bó. Nhưng con cứ về đây, lúc nào cũng được.'),
 		],
 	}),
-	hunt('c6_bats', 'Tấm bản đồ của cha', 'mob_fire_bat_001', 10, 'Hạ dơi lửa ở Hang Dơi Lửa', {
+	hunt('c6_bats', 'Tấm bản đồ của cha', 'mob_fire_bat_001', 30, 'Hạ dơi lửa ở Hang Dơi Lửa', {
 		level: 53,
 		part: 0.22,
 		before: [L('nyra', 'Trong hang có rêu lửa trị bỏng. Đi với tôi. Mà… cho tôi mượn túi của cậu, túi tôi hết chỗ.')],
@@ -670,7 +670,7 @@ const CH6: QuestDef[] = [
 			L('inner', 'Tôi không theo. Lần này tôi không nói "để sau". Tôi nói "tớ ở đây". Rồi tôi đứng đó, chờ.'),
 		],
 	}),
-	hunt('c6_forge', 'Thanh kiếm sấm sét', 'mob_fire_spirit_001', 10, 'Hạ lửa tinh linh ở Lò Rèn Bỏ Hoang', {
+	hunt('c6_forge', 'Thanh kiếm sấm sét', 'mob_fire_spirit_001', 30, 'Hạ lửa tinh linh ở Lò Rèn Bỏ Hoang', {
 		turnIn: 'mirelle_forge',
 		level: 54,
 		part: 0.22,
@@ -752,7 +752,7 @@ const CH7: QuestDef[] = [
 			L('coral', 'Có một phụ nữ Sahrin thuê thuyền ra Bãi Tàu Đắm từ hai hôm trước. Cua chiếm bãi ngoài kia rồi, ra đó phải mở đường.'),
 		],
 	}),
-	hunt('c7_crabs', 'Mảnh đá ấn khắc "v3.0"', 'mob_beach_crab_001', 10, 'Hạ cua chiếm Bãi Cát Trắng', {
+	hunt('c7_crabs', 'Mảnh đá ấn khắc "v3.0"', 'mob_beach_crab_001', 30, 'Hạ cua chiếm Bãi Cát Trắng', {
 		giver: 'coral',
 		turnIn: 'coral',
 		level: 61,
@@ -770,7 +770,7 @@ const CH7: QuestDef[] = [
 			L('bram', '(Bác cầm mảnh đá khắc tên cha rất lâu.) Ông ấy đã ở đây.'),
 		],
 	}),
-	hunt('c7_pirates', 'Chuyến hàng cuối', 'mob_pirate_001', 10, 'Hạ cướp biển ở Vịnh Cướp Biển', {
+	hunt('c7_pirates', 'Chuyến hàng cuối', 'mob_pirate_001', 30, 'Hạ cướp biển ở Vịnh Cướp Biển', {
 		level: 63,
 		part: 0.22,
 		before: [L('inner', 'Cướp biển ở Vịnh Cướp Biển là thuỷ thủ cũ của Corvin. Họ không tin ai, trừ người đánh thắng họ.')],
@@ -781,7 +781,7 @@ const CH7: QuestDef[] = [
 			L('bram', '…Cha ta bán cả một làng để cứu một con thuyền.'),
 		],
 	}),
-	hunt('c7_merfolk', 'Không giết ai', 'mob_coral_merfolk_001', 10, 'Đánh ngất người cá canh Phá Người Cá', {
+	hunt('c7_merfolk', 'Không giết ai', 'mob_coral_merfolk_001', 30, 'Đánh ngất người cá canh Phá Người Cá', {
 		turnIn: 'coral',
 		level: 64,
 		part: 0.22,

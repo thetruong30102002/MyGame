@@ -32,7 +32,8 @@ namespace Aether.Client
             Zoom = DefaultZoom(Screen.width, Screen.height);
         }
 
-        public static int DefaultZoom(int w, int h) => Mathf.Clamp(Mathf.RoundToInt(Mathf.Min(w, h) / 540f), 1, 6);
+        /// <summary>Mặc định ×1 mọi màn hình (chủ dự án 11/10/2026: "mặc định cấu hình game nên để 1x thay vì 2x" — trước đây ×2 từ 1080p); đổi ở Cài đặt.</summary>
+        public static int DefaultZoom(int w, int h) => 1;
 
         public void SetZoom(int z) => Zoom = Mathf.Clamp(z, 1, 8);
 

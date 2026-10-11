@@ -206,19 +206,20 @@ const NEW: Record<string, [Branch, number, SkillDef['kind']]> = {
 		assert.equal(knowsSkill(def(id), { [branch]: tier }, ok), true, `${id}: đủ mốc là học`);
 	}
 	// Bị động mốc 7/9 đã hiện thực, đúng tên bảng 3.2.
-	const passives: Record<Exclude<Branch, 'sword'>, [string, string]> = {
+	const passives: Record<'fire' | 'water' | 'wind' | 'ice' | 'earth', [string, string]> = {
 		fire: ['Tro Tàn', 'Hoả Thân'],
 		water: ['Mạch Nguồn', 'Thuỷ Triều Dâng'],
 		wind: ['Mắt Bão', 'Gió Loạn'],
 		ice: ['Hàn Tâm', 'Vỡ Vụn'],
 		earth: ['Trọng Lực', 'Núi Thiêng'],
 	};
-	for (const [b, [p7, p9]] of Object.entries(passives) as [Exclude<Branch, 'sword'>, [string, string]][]) {
+	for (const [b, [p7, p9]] of Object.entries(passives) as ['fire' | 'water' | 'wind' | 'ice' | 'earth', [string, string]][]) {
 		assert.deepEqual([TREE[b][6]!.name, TREE[b][6]!.kind, TREE[b][6]!.ready], [p7, 'passive', true], `${b} mốc 7`);
 		assert.deepEqual([TREE[b][8]!.name, TREE[b][8]!.kind, TREE[b][8]!.ready], [p9, 'passive', true], `${b} mốc 9`);
 		assert.equal(TREE[b][9]!.ready, false, `${b} mốc 10 (tuyệt kỹ) vẫn "Sắp có"`);
 	}
-	assert.equal(TREE.sword.filter((n) => n.ready).length, 9, 'Kiếm cũng tới mốc 9 (GĐ3 lượt B — 3 lưu phái, xem swordstyles.test)');
+	assert.equal(TREE.sword.filter((n) => n.ready).length, 2, 'Kiếm chỉ còn 2 mốc chung; lưu phái là nhánh riêng tới mốc 7 (= Kiếm cũ 9)');
+	for (const st of ['kiem_than', 'thuy_than', 'bac_than'] as const) assert.equal(TREE[st].filter((n) => n.ready).length, 7, `${st}: mốc 1–7`);
 	// Mô tả nấc sinh từ số liệu.
 	assert.match(TREE.fire[5]!.desc, /Tường dài 160.*đốt quái áp sát.*uy lực ×0,25 mỗi nhịp đốt · 18 MP · hồi 10s/);
 	assert.match(TREE.water[5]!.desc, /không gây sát thương/);
@@ -254,8 +255,8 @@ const NEW: Record<string, [Branch, number, SkillDef['kind']]> = {
 		if (s.kind === 'zone') return Math.round((s.duration ?? 0) / (s.tick ?? 1)) * s.power;
 		return s.power;
 	};
-	const five: Record<Exclude<Branch, 'sword'>, string> = { fire: 'fire_blast', water: 'tidal_wave', wind: 'gale_dash', ice: 'ice_spire', earth: 'stone_spikes' };
-	for (const [b, id5] of Object.entries(five) as [Exclude<Branch, 'sword'>, string][]) {
+	const five: Record<'fire' | 'water' | 'wind' | 'ice' | 'earth', string> = { fire: 'fire_blast', water: 'tidal_wave', wind: 'gale_dash', ice: 'ice_spire', earth: 'stone_spikes' };
+	for (const [b, id5] of Object.entries(five) as ['fire' | 'water' | 'wind' | 'ice' | 'earth', string][]) {
 		const s5 = def(id5);
 		const s8 = HERO_SKILLS.find((s) => SKILL_NODE[s.id]?.branch === b && SKILL_NODE[s.id]?.tier === 8)!;
 		const s6 = HERO_SKILLS.find((s) => SKILL_NODE[s.id]?.branch === b && SKILL_NODE[s.id]?.tier === 6)!;
@@ -293,8 +294,8 @@ const NEW: Record<string, [Branch, number, SkillDef['kind']]> = {
 	assert.deepEqual([seven.ember, seven.spring, seven.dodgeHaste, seven.freeze, seven.gravity], [true, true, PASSIVE.eyeHaste, PASSIVE.deepFreeze, true], 'mốc 7');
 	assert.deepEqual([seven.burnDamage, seven.wetTaken, seven.gust, seven.frozenTaken, seven.hpMax], [1, 1, false, 1, 1], 'mốc 7 chưa có mốc 9');
 	near(seven.dodgeCost, PASSIVE.eyeDodge, 'Mắt Bão: né tốn 50%');
-	near(passiveEffects({ sword: 4, wind: 7 }, 'bac_than').dodgeCost, Math.min(PASSIVE.swiftDodge, PASSIVE.eyeDodge), 'Nhẹ Như Gió + Mắt Bão: lấy mức rẻ hơn (50%), không nhân chồng');
-	near(passiveEffects({ sword: 4, wind: 6 }, 'bac_than').dodgeCost, PASSIVE.swiftDodge, 'chỉ Nhẹ Như Gió: 70%');
+	near(passiveEffects({ sword: 2, bac_than: 2, wind: 7 }).dodgeCost, Math.min(PASSIVE.swiftDodge, PASSIVE.eyeDodge), 'Nhẹ Như Gió + Mắt Bão: lấy mức rẻ hơn (50%), không nhân chồng');
+	near(passiveEffects({ sword: 2, bac_than: 2, wind: 6 }).dodgeCost, PASSIVE.swiftDodge, 'chỉ Nhẹ Như Gió: 70%');
 	assert.equal(PASSIVE.shardChain, 1, 'vụn băng Đóng Băng lan tối đa 1 đợt');
 	assert.deepEqual([BOSS_FREEZE_IMMUNE, canFreeze({ freeze: 0 }), canFreeze({ boss: true, freeze: 0.1 }), canFreeze({ boss: true, freeze: 0, freezeImmune: 1 }), canFreeze({ boss: true, freeze: 0, freezeImmune: 0 }), canFreeze({ freeze: 1 })], [3, true, false, false, true, true], 'boss: đang băng / còn kháng băng thì không đóng băng lại; quái thường thì được');
 	assert.equal(lifestealHeal(5, 0.12), 1, 'hút máu trên máu THẬT mất');

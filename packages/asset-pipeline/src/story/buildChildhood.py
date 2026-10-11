@@ -122,8 +122,7 @@ for q in d['quests']:
     if m and qd['objective']['type'] == 'practice':
         qd['objective']['dummy'] = m.group(1)
     if q['id'] == 'c8_snow':
-        # Phải ra đúng phản ứng Băng Giá (Thuỷ rồi Phong) — gió trần vào hình nộm khô không tính.
-        qd['objective']['reaction'] = 'chill'
+        # 11/10/2026: mỗi nhân vật chỉ MỘT nguyên tố nên phản ứng là lối đánh NHÓM — cha hắt nước, con tung gió (không bắt tự gây Băng Giá).
         qd['onComplete'] = {'vfx': 'frost', 'spot': 'home', 'times': 10}
     quests.append(qd)
 

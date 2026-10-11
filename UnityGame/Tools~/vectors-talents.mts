@@ -4,6 +4,7 @@
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { addAttr, attrBonus, attrPoints, ATTRS, cleanAttrs } from '../../packages/sim/src/attributes.ts';
 import { estimateText, HERO_SKILLS, isGroundTarget, isSwordSkill, powerText, type SkillDef, skillFacts } from '../../packages/sim/src/skills.ts';
 import {
 	addTier,
@@ -29,7 +30,14 @@ import {
 	skillDesc,
 	skillScale,
 	spentPoints,
-	type SwordStyle,
+	type PathId,
+	chosenElement,
+	pathAllowsBranch,
+	pathAllowsSkill,
+	migrateBought,
+	imbueSeconds,
+	resetDiamonds,
+	swordDepth,
 	tierCap,
 	type Tiers,
 	tiersFrom,
@@ -73,6 +81,11 @@ const tierSets: Tiers[] = [
 	{ water: 2, ice: 2 },
 	{ sword: 6, ice: 5 },
 	{ earth: 7, fire: 7 },
+	{ sword: 2, kiem_than: 3, fire: 5 },
+	{ sword: 2, thuy_than: 7, bac_than: 2, ice: 3 },
+	{ sword: 1, bac_than: 5, wind: 9 },
+	{ sword: 2, kiem_than: 8, thuy_than: 1, earth: 4 },
+	{ kiem_than: 4, water: 6 },
 ];
 for (let i = 0; i < 20; i += 1) {
 	const t: Tiers = {};
@@ -81,7 +94,7 @@ for (let i = 0; i < 20; i += 1) {
 }
 const unlockSets: string[][] = [['sword', 'staff', 'fire', 'water', 'wind', 'ice', 'earth'], ['sword', 'fire', 'water'], []];
 const unlocker = (u: number) => (id: string) => unlockSets[u]!.includes(id);
-const styles: (SwordStyle | null)[] = [null, 'kiem_than', 'thuy_than', 'bac_than'];
+const paths: PathId[] = ['none', 'sword', 'mage'];
 const branchesX = [...BRANCHES, 'bogus' as Branch];
 const levels = [-5, 0, 1, 1.9, 2, 5, 9, 10, 20, 39, 40, 41, 77, 100];
 
@@ -168,21 +181,23 @@ const rawLoadouts: unknown[] = ['abc', 42, null, { a: 1 }, [], ['slash', 'slash'
 const talents = {
 	tierSets,
 	unlockSets,
-	treeOf: BRANCHES.flatMap((b) => [...styles, 'bogus' as SwordStyle].map((style) => ({ branch: b, style, out: treeOf(b, style).map((n) => ({ tier: n.tier, name: n.name, skillId: n.skillId ?? null, ready: n.ready })) }))),
+	treeOf: BRANCHES.map((b) => ({ branch: b, out: treeOf(b).map((n) => ({ tier: n.tier, name: n.name, skillId: n.skillId ?? null, ready: n.ready })) })),
 	tierCap: BRANCHES.map((b) => ({ branch: b, out: tierCap(b) })),
 	tiersFrom: tierSets.flatMap((t, ti) => unlockSets.map((_, u) => ({ t: ti, u, out: tiersFrom(t, unlocker(u)) }))),
 	spentPoints: tierSets.map((t, ti) => ({ t: ti, out: spentPoints(t) })),
 	unspent: tierSets.flatMap((t, ti) => [1, 5, 20, 40, 99].flatMap((level) => [0, 3, 2000].map((bonus) => ({ t: ti, level, bonus, out: unspent(level, t, bonus) })))),
-	nextTierCost: tierSets.flatMap((t, ti) => branchesX.flatMap((b) => unlockSets.map((_, u) => ({ t: ti, branch: b, u, out: nextTierCost(t, b, unlocker(u)) })))),
+	nextTierCost: tierSets.flatMap((t, ti) => branchesX.flatMap((b) => unlockSets.flatMap((_, u) => paths.map((path) => ({ t: ti, branch: b, u, path, out: nextTierCost(t, b, unlocker(u), path) }))))),
 	addTier: tierSets.flatMap((t, ti) =>
 		branchesX.flatMap((b) =>
 			[1, 10, 40].flatMap((level) =>
 				[0, 5].flatMap((bonus) =>
-					unlockSets.map((_, u) => {
-						const after = { ...t };
-						const out = addTier(level, after, b, unlocker(u), bonus);
-						return { t: ti, branch: b, level, bonus, u, out, after };
-					}),
+					unlockSets.flatMap((_, u) =>
+						paths.map((path) => {
+							const after = { ...t };
+							const out = addTier(level, after, b, unlocker(u), bonus, path);
+							return { t: ti, branch: b, level, bonus, u, path, out, after };
+						}),
+					),
 				),
 			),
 		),
@@ -191,11 +206,18 @@ const talents = {
 	depthBonus: [-3, 0, 0.5, 1, 1.9, 2, 5, 7.5, 9, 10, 11, 15].map((tier) => ({ tier, out: depthBonus(tier) })),
 	aetherScale: levels.map((level) => ({ level, out: aetherScale(level) })),
 	skillScale: tierSets.slice(0, 16).flatMap((t, ti) => [...HERO_SKILLS.map((s) => s.id), 'nope'].flatMap((id) => [1, 20, 40.7, 77].map((level) => ({ t: ti, id, level, out: skillScale(t, id, level) })))),
-	knowsSkill: tierSets.slice(0, 14).flatMap((t, ti) => HERO_SKILLS.flatMap((s) => unlockSets.flatMap((_, u) => styles.map((style) => ({ t: ti, id: s.id, u, style, out: knowsSkill(s, t, unlocker(u), style) }))))),
-	passiveEffects: tierSets.flatMap((t, ti) => [...styles, 'bogus' as SwordStyle].map((style) => ({ t: ti, style, out: passiveEffects(t, style) }))),
+	knowsSkill: tierSets.slice(0, 14).flatMap((t, ti) => HERO_SKILLS.flatMap((s) => unlockSets.flatMap((_, u) => paths.map((path) => ({ t: ti, id: s.id, u, path, out: knowsSkill(s, t, unlocker(u), path) }))))),
+	passiveEffects: tierSets.map((t, ti) => ({ t: ti, out: passiveEffects(t) })),
 	reactionOfPair: branchesX.flatMap((a) => branchesX.map((b) => ({ a, b, out: reactionOfPair(a, b) }))),
 	reactionBonus: tierSets.flatMap((t, ti) => BRANCHES.flatMap((a) => BRANCHES.map((b) => ({ t: ti, a, b, out: reactionBonus(t, a, b) })))),
-	describeBuild: tierSets.flatMap((t, ti) => styles.map((style) => ({ t: ti, style, out: describeBuild(t, style) }))),
+	describeBuild: tierSets.map((t, ti) => ({ t: ti, out: describeBuild(t) })),
+	chosenElement: tierSets.map((t, ti) => ({ t: ti, out: chosenElement(t) })),
+	swordDepth: tierSets.map((t, ti) => ({ t: ti, out: swordDepth(t) })),
+	pathAllowsBranch: paths.flatMap((path) => branchesX.map((b) => ({ path, branch: b, out: pathAllowsBranch(path, b) }))),
+	pathAllowsSkill: paths.flatMap((path) => [...HERO_SKILLS.map((s) => s.id), 'nope'].map((id) => ({ path, id, out: pathAllowsSkill(path, id) }))),
+	migrateBought: tierSets.flatMap((t, ti) => [null, 'kiem_than', 'thuy_than', 'bac_than', 'bogus'].map((style) => ({ t: ti, style, out: migrateBought(t, style) }))),
+	imbueSeconds: [-2, 0, 3, 3.7, 9, 10, 15].map((tier) => ({ tier, out: imbueSeconds(tier) })),
+	resetDiamonds: [0, 1, 5, 5.5, 6, 40, 100].map((level) => ({ level, out: resetDiamonds(level) })),
 	resetCost: [0, 1, 5, 5.5, 6, 40, 100].map((level) => ({ level, out: resetCost(level) })),
 	enchantDesc: [...ENCHANTS, 'sword', 'bogus'].flatMap((e) => [0, 4, 5, 6, 6.9, 7, 10].map((tier) => ({ e, tier, out: enchantDesc(e as never, tier) }))),
 	canEnchant: tierSets.flatMap((t, ti) => [...ENCHANTS, 'sword'].map((e) => ({ t: ti, e, out: canEnchant(t, e as never) }))),
@@ -205,9 +227,17 @@ const talents = {
 	assignSlot: loadouts.flatMap((lo) => [-1, 0, 3, 9, 10].flatMap((slot) => [null, 'slash', 'heal', 'meteor'].map((id) => ({ loadout: lo, slot, id, out: assignSlot(lo, slot, id) })))),
 };
 
-const doc = { skills, talents };
+const attrRaws: unknown[] = [undefined, null, 'rác', {}, { vit: 3 }, { vit: 2.7, spi: -1, bogus: 9, str: '3' }, { vit: 2, str: 2, sta: 5 }, { vit: 4, def: 4 }, { vit: 10, spi: 5, str: 20, int: 1, def: 5, sta: 3 }, { int: 999 }];
+const attributes = {
+	attrPoints: levels.map((level) => ({ level, out: attrPoints(level) })),
+	cleanAttrs: attrRaws.flatMap((raw) => [1, 2, 3, 10, 40].map((level) => ({ raw: raw === undefined ? null : raw, level, out: cleanAttrs(raw, level) }))),
+	addAttr: attrRaws.flatMap((raw) => [...ATTRS, 'bogus'].flatMap((k) => [1, 2, 40].map((level) => ({ raw: raw === undefined ? null : raw, k, level, out: addAttr(cleanAttrs(raw, level), k as never, level) })))),
+	attrBonus: attrRaws.flatMap((raw) => [1, 3, 40, 100].map((level) => ({ raw: raw === undefined ? null : raw, level, out: attrBonus(raw, level) }))),
+};
+
+const doc = { skills, talents, attributes };
 // JSON không có NaN/Infinity: đổi thành chuỗi (TestData.Num đọc lại).
 const json = JSON.stringify(doc, (_k, v) => (typeof v === 'number' && !Number.isFinite(v) ? String(v) : v), '\t');
 writeFileSync(join(OUT, 'talents-full.json'), `${json}\n`);
 const count = (o: Record<string, unknown>) => Object.entries(o).reduce((a, [k, v]) => a + (Array.isArray(v) && !['synth', 'tierSets', 'unlockSets'].includes(k) ? v.length : 0), 0);
-console.log(`✔ vector → ${join(OUT, 'talents-full.json')}: ${count(skills)} kỹ năng · ${count(talents)} tiềm năng`);
+console.log(`✔ vector → ${join(OUT, 'talents-full.json')}: ${count(skills)} kỹ năng · ${count(talents)} tiềm năng · ${count(attributes)} thuộc tính`);

@@ -6,111 +6,132 @@ using UnityEngine;
 namespace Aether.Client.UI
 {
     /// <summary>
-    /// Tab Tiềm năng dạng CÂY (chủ dự án 11/10/2026: "sửa cái tiềm năng thành dạng cây tree"): gốc ở đáy, 6 nhánh vươn lên (10 mốc,
-    /// mốc học chiêu to có icon, mốc bị động là chấm), đường nối tô màu nhánh tới mốc đã học, mốc kế tiếp nhấp nháy. Nhánh Kiếm rẽ
-    /// ba lưu phái ở mốc 3 (chạc phụ bấm được, tab lưu phái ở khung phải). Khung phải: chi tiết mốc + nút Học, phủ phép, tẩy điểm.
-    /// Đường nối vẽ bằng uGUI thường (không thêm thư viện). Cộng điểm ghi `progress.story.talents`; Kiếm lên mốc 3 lần đầu chọn MỘT phái.
+    /// Tab Tiềm năng dạng CÂY + điểm thuộc tính (chủ dự án 11/10/2026: "chỉ cho chọn 1 phép nguyên tố", "Kiếm học tuỳ phái — tự do build",
+    /// "cây tiềm năng chỉ còn lại 1 cột và cộng HP, MP, dame, phép, đỡ đòn"). Gốc ở đáy; thân Kiếm 2 mốc rẽ ba lưu phái (mỗi phái một cột
+    /// 8 mốc) — Pháp sư không có; nguyên tố: chưa chọn thì hiện cả 5 cột để chọn, chọn rồi chỉ còn MỘT cột. Bên phải cây: cột thuộc tính
+    /// (+ từng điểm). Khung phải: chi tiết mốc + nút Học, Bọc Nguyên Tố, tẩy điểm (kim cương).
     /// </summary>
     public sealed partial class Panels
     {
-        private static readonly string[] BranchOrder = { "sword", "fire", "water", "wind", "ice", "earth" };
         private static readonly Dictionary<string, Color> BranchColor = new Dictionary<string, Color>
         {
-            ["sword"] = UiStyle.Hex(0xc9ced8), ["fire"] = UiStyle.Hex(0xff7a3d), ["water"] = UiStyle.Hex(0x45a4f0),
-            ["wind"] = UiStyle.Hex(0x5fd08a), ["ice"] = UiStyle.Hex(0x8fe3ff), ["earth"] = UiStyle.Hex(0xc8935a),
+            ["sword"] = UiStyle.Hex(0xc9ced8), ["kiem_than"] = UiStyle.Hex(0xe8806a), ["thuy_than"] = UiStyle.Hex(0x6cc8e0), ["bac_than"] = UiStyle.Hex(0xb9a8ff),
+            ["fire"] = UiStyle.Hex(0xff7a3d), ["water"] = UiStyle.Hex(0x45a4f0), ["wind"] = UiStyle.Hex(0x5fd08a), ["ice"] = UiStyle.Hex(0x8fe3ff),
+            ["earth"] = UiStyle.Hex(0xc8935a),
         };
 
         private (string branch, int tier)? talentSel;
-        private bool choosingStyle;
-        /// <summary>Lưu phái Kiếm đang XEM — mặc định phái đã chọn; phái khác chỉ xem trước (phòng Thử chiêu: đổi luôn).</summary>
-        private string styleView;
         private bool resetArmed;
+        /// <summary>Đã bấm "Chọn hệ này" một lần (chọn nguyên tố là khoá 4 hệ kia — bấm hai lần cho chắc).</summary>
+        private string elementArmed;
 
-        private string SwordView => !string.IsNullOrEmpty(styleView) ? styleView : !string.IsNullOrEmpty(game.SwordStyle) ? game.SwordStyle : game.Sim.SwordStyles[0];
+        // Khung nội dung 886×534: hàng tab 38; cây 600×496 bên trái (cột nhánh 0–404, cột thuộc tính 408–596), khung chi tiết 276 bên phải.
+        private const float TreeW = 600, TreeH = 496, SideW = 276, ColsW = 404, Tier1Y = -372, TierGap = 34, SkillNode = 32, PassiveNode = 16;
 
-        /// <summary>Đang xem lưu phái KHÁC phái đã chọn — mốc từ STYLE_TIER trở đi chỉ là xem trước.</summary>
-        private bool PreviewingStyle => !string.IsNullOrEmpty(game.SwordStyle) && SwordView != game.SwordStyle;
+        private static Vector2 NodeAt(float x, int row) => new Vector2(x, Tier1Y + (row - 1) * TierGap);
 
-        // Khung nội dung 886×534: hàng tab 38 ở đầu; cây 600×496 bên trái, khung chi tiết 276 bên phải.
-        private const float TreeW = 600, TreeH = 496, SideW = 276, ColW = 98, Tier1Y = -372, TierGap = 34, SkillNode = 32, PassiveNode = 16;
+        private static readonly Vector2 RootPos = new Vector2(ColsW / 2, -432);
 
-        private static Vector2 NodePos(int col, int tier) => new Vector2(56 + col * ColW, Tier1Y + (tier - 1) * TierGap);
+        /// <summary>Tab con của Tiềm năng: 0 cây, 1 gán ô · Bọc Nguyên Tố, 2 kế hoạch (chỉ quản trị).</summary>
+        private int talentTab;
 
-        private static readonly Vector2 RootPos = new Vector2(TreeW / 2, -432);
-
-        /// <summary>Tab con của Tiềm năng: cây (false) hoặc Gán ô · Phủ phép (true).</summary>
-        private bool talentLoadout;
+        private Color ColorOf(string b) => BranchColor.TryGetValue(b, out var c) ? c : UiKit.TextMain;
 
         private void BuildTalents()
         {
             TalentTabs();
-            if (talentLoadout)
+            if (talentTab == 1)
             {
                 BuildLoadout();
                 return;
             }
+            if (talentTab == 2 && game.IsAdmin)
+            {
+                BuildRoadmap();
+                return;
+            }
             var pts = game.UnspentPoints;
             var tree = Box(content, "Tree", new Vector2(0, 1), new Vector2(0, 1), new Vector2(0, -38), new Vector2(TreeW, TreeH), 0.45f);
-            var glow = UiKit.Rect(tree, "Glow", new Vector2(0.5f, 0), new Vector2(0.5f, 0.5f), new Vector2(0, 70), new Vector2(560, 260));
+            var glow = UiKit.Rect(tree, "Glow", new Vector2(0, 0), new Vector2(0.5f, 0.5f), new Vector2(ColsW / 2, 70), new Vector2(380, 260));
             UiWidgets.Radial(glow, UiStyle.Hex(0x6b4a2b, 0.28f));
             var lines = UiKit.Stretch(tree, "Lines");
             var nodes = UiKit.Stretch(tree, "Nodes");
 
-            for (var bi = 0; bi < BranchOrder.Length; bi += 1)
+            // Cột: [3 phái trên thân Kiếm] + [nguyên tố: 1 cột nếu đã chọn, 5 cột nếu chưa].
+            var sim = game.Sim;
+            var showSword = game.HeroPath != "mage";
+            var chosen = game.ChosenElement;
+            var elems = new List<string>();
+            foreach (var e in sim.Elements) if (chosen == null || e == chosen) elems.Add(e);
+            var n = (showSword ? sim.StyleBranches.Length : 0) + elems.Count;
+            var colW = Mathf.Min(98, ColsW / Mathf.Max(1, n));
+            var x0 = (ColsW - colW * n) / 2 + colW / 2;
+            var ci = 0;
+            if (showSword)
             {
-                var b = BranchOrder[bi];
-                TreeLine(lines, RootPos, NodePos(bi, 1), game.BranchOpen(b) ? BranchColor[b] * new Color(1, 1, 1, 0.55f) : new Color(1, 1, 1, 0.1f), 3);
-                Branch(lines, nodes, b, bi);
+                var swordX = x0 + colW * (sim.StyleBranches.Length - 1) / 2f;
+                Branch(lines, nodes, "sword", swordX, 0, RootPos, false, colW);
+                foreach (var st in sim.StyleBranches)
+                {
+                    var x = x0 + colW * ci;
+                    Branch(lines, nodes, st, x, 2, NodeAt(swordX, 2), true, colW);
+                    ci += 1;
+                }
+            }
+            foreach (var e in elems)
+            {
+                Branch(lines, nodes, e, x0 + colW * ci, 0, RootPos, true, colW);
+                ci += 1;
             }
 
             var root = UiKit.Rect(nodes, "Root", new Vector2(0, 1), new Vector2(0.5f, 0.5f), RootPos, new Vector2(56, 56));
             UiStyle.Pill(root, pts > 0 && !game.InLab ? UiStyle.GoldHi : UiStyle.Hex(0x8a6a3a), 28);
             UiStyle.Pill(UiKit.Rect(root, "In", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(50, 50)), UiStyle.Hex(0x1a120c), 25);
-            // Phòng Thử chiêu đặt thẳng mốc 10 mọi nhánh nên điểm còn lại âm — không hiện số.
+            // Phòng Thử chiêu đặt thẳng mốc trần mọi nhánh nên điểm còn lại âm — không hiện số.
             Text(root, "P", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0, 1), new Vector2(50, 36), game.InLab ? "—" : pts.ToString(), 24,
                 pts > 0 && !game.InLab ? UiStyle.GoldHi : UiKit.TextDim, TextAnchor.MiddleCenter, true, true);
             if (pts > 0 && !game.InLab) UiWidgets.Pulse(root, 1.08f, 1.3f);
-            Text(tree, "PL", new Vector2(0, 1), new Vector2(0.5f, 0.5f), RootPos + new Vector2(0, -42), new Vector2(260, 18),
-                game.InLab ? "Thử chiêu · bấm tab để đổi lưu phái" : $"điểm tiềm năng · cấp {game.Combat.Pc.Level}", 12, UiKit.TextDim, TextAnchor.MiddleCenter);
+            var hint = game.InLab ? "Thử chiêu · mọi nhánh mốc trần"
+                : chosen == null ? $"điểm tiềm năng · cấp {game.Combat.Pc.Level} · chọn MỘT nguyên tố"
+                : $"điểm tiềm năng · cấp {game.Combat.Pc.Level}";
+            Text(tree, "PL", new Vector2(0, 1), new Vector2(0.5f, 0.5f), RootPos + new Vector2(0, -42), new Vector2(380, 18), hint, 12, UiKit.TextDim, TextAnchor.MiddleCenter);
+
+            BuildAttrs(tree);
 
             var side = Box(content, "Side", new Vector2(1, 1), new Vector2(1, 1), new Vector2(0, -38), new Vector2(SideW, TreeH), 0.55f);
-            StyleTabs(side);
-            if (choosingStyle) BuildStyleChoice(side);
-            else BuildTalentDetail(side, pts);
-            BuildEnchant(side);
+            BuildTalentDetail(side, pts);
+            BuildImbueLine(side);
             BuildReset(side);
         }
 
-        /// <summary>Một nhánh: cột 10 mốc từ dưới lên, đường nối tô màu tới mốc đã học, tên nhánh + mốc ở ngọn.</summary>
-        private void Branch(RectTransform lines, RectTransform layer, string b, int col)
+        /// <summary>
+        /// Một nhánh: các mốc từ hàng <paramref name="rowOff"/> + 1 trở lên, nối từ <paramref name="from"/>; đường nối tô màu tới mốc đã học,
+        /// mốc kế nhấp nháy, tên nhánh + mốc ở ngọn (<paramref name="label"/>; Kiếm ghi nhãn bên trái thân).
+        /// </summary>
+        private void Branch(RectTransform lines, RectTransform layer, string b, float x, int rowOff, Vector2 from, bool label, float colW)
         {
             var open = game.BranchOpen(b);
             var tier = game.TierOf(b);
-            var color = BranchColor[b];
-            var preview = b == "sword" && PreviewingStyle;
-            var styleTier = game.Sim.StyleTier;
-            var byTier = new TreeNode[11];
-            foreach (var nd in game.TalentRules.TreeOf(b, b == "sword" ? SwordView : null))
-                if (nd.Tier >= 1 && nd.Tier <= 10)
-                    byTier[nd.Tier] = nd;
-            bool Got(int t) => open && t <= tier && (!preview || t < styleTier);
-
-            for (var t = 1; t < 10; t += 1)
-            {
-                var lit = Got(t + 1);
-                TreeLine(lines, NodePos(col, t), NodePos(col, t + 1), lit ? color : new Color(1, 1, 1, 0.13f), lit ? 4 : 3);
-            }
-            if (b == "sword") SwordFork(lines, layer, col, color);
-
+            var color = ColorOf(b);
+            var tree = game.TalentRules.TreeOf(b);
             var cost = game.NextTierCost(b);
-            for (var t = 1; t <= 10; t += 1)
+            var dim = new Color(1, 1, 1, 0.13f);
+            TreeLine(lines, from, NodeAt(x, rowOff + 1), open && (tier >= 1 || b == "sword") ? color * new Color(1, 1, 1, 0.55f) : dim, 3);
+            for (var i = 0; i < tree.Count; i += 1)
             {
-                var node = byTier[t];
-                var got = Got(t);
-                var next = open && t == tier + 1 && cost.HasValue && !preview;
-                var skill = node?.SkillId != null;
+                var node = tree[i];
+                var t = node.Tier;
+                var pos = NodeAt(x, rowOff + t);
+                if (i + 1 < tree.Count)
+                {
+                    var lit = open && t + 1 <= tier;
+                    TreeLine(lines, pos, NodeAt(x, rowOff + t + 1), lit ? color : dim, lit ? 4 : 3);
+                }
+                var got = open && t <= tier;
+                var next = open && t == tier + 1 && cost.HasValue;
+                var skill = node.SkillId != null;
                 var size = skill ? SkillNode : PassiveNode;
-                var cell = UiKit.Rect(layer, b + t, new Vector2(0, 1), new Vector2(0.5f, 0.5f), NodePos(col, t), new Vector2(size, size));
+                var cell = UiKit.Rect(layer, b + t, new Vector2(0, 1), new Vector2(0.5f, 0.5f), pos, new Vector2(size, size));
                 if (talentSel.HasValue && talentSel.Value.branch == b && talentSel.Value.tier == t)
                     UiStyle.Pill(UiKit.Rect(cell, "Sel", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(size + 8, size + 8)),
                         UiStyle.GoldHi, Mathf.RoundToInt(size / 2 + 4));
@@ -132,56 +153,112 @@ namespace Aether.Client.UI
                 UiKit.Press(cell, () =>
                 {
                     talentSel = (bb, tt);
-                    choosingStyle = false;
                     resetArmed = false;
+                    elementArmed = null;
                     Refresh();
                 });
             }
 
-            var top = NodePos(col, 10);
-            var bname = game.Sim.BranchName.TryGetValue(b, out var n) ? n : b;
-            Text(layer, "H" + b, new Vector2(0, 1), new Vector2(0.5f, 0.5f), top + new Vector2(0, 44), new Vector2(96, 18), bname, 14, open ? color : UiKit.TextDim, TextAnchor.MiddleCenter, true);
-            Text(layer, "M" + b, new Vector2(0, 1), new Vector2(0.5f, 0.5f), top + new Vector2(0, 28), new Vector2(96, 14),
-                !open ? "chưa mở" : game.InLab ? $"mốc {tier}" : $"mốc {tier}/{game.TalentRules.TierCap(b)}", 11, open ? UiKit.TextDim : UiStyle.Hex(0xc9806f), TextAnchor.MiddleCenter);
-        }
-
-        /// <summary>Chạc lưu phái của Kiếm ở mốc 3: phái đang xem đi thẳng lên cột, hai phái còn lại là chạc phụ hai bên (bấm = xem phái đó).</summary>
-        private void SwordFork(RectTransform lines, RectTransform layer, int col, Color color)
-        {
-            var styleTier = game.Sim.StyleTier;
-            var from = NodePos(col, styleTier - 1);
-            var side = -1;
-            foreach (var id in game.Sim.SwordStyles)
+            var bname = game.Sim.BranchName.TryGetValue(b, out var nm) ? nm : b;
+            var sub = !open ? "chưa mở" : game.InLab ? $"mốc {tier}" : $"mốc {tier}/{game.TalentRules.TierCap(b)}";
+            if (label)
             {
-                if (id == SwordView) continue;
-                var at = NodePos(col, styleTier) + new Vector2(side * 34, -4);
-                var mine = id == game.SwordStyle;
-                TreeLine(lines, from, at, mine ? color * new Color(1, 1, 1, 0.8f) : new Color(1, 1, 1, 0.16f), 2);
-                var dot = UiKit.Rect(layer, "Fork" + id, new Vector2(0, 1), new Vector2(0.5f, 0.5f), at, new Vector2(12, 12));
-                UiStyle.Pill(dot, mine ? color : new Color(0.45f, 0.42f, 0.4f, 0.9f), 6).raycastTarget = true;
-                var sid = id;
-                UiKit.Press(dot, () => ViewStyle(sid));
-                side = -side;
+                var top = NodeAt(x, rowOff + tree.Count);
+                // Cột hẹp (8 cột lúc chưa chọn nguyên tố ≈ 50px): tên co theo bề ngang cột, không đè sang cột bên.
+                var lw = Mathf.Min(96, colW - 4);
+                var h = Text(layer, "H" + b, new Vector2(0, 1), new Vector2(0.5f, 0.5f), top + new Vector2(0, 42), new Vector2(lw, 18), bname, 13, open ? color : UiKit.TextDim,
+                    TextAnchor.MiddleCenter, true);
+                h.enableAutoSizing = true;
+                h.fontSizeMin = 7;
+                h.fontSizeMax = 13;
+                var m = Text(layer, "M" + b, new Vector2(0, 1), new Vector2(0.5f, 0.5f), top + new Vector2(0, 26), new Vector2(lw, 14), sub, 10, open ? UiKit.TextDim : UiStyle.Hex(0xc9806f),
+                    TextAnchor.MiddleCenter);
+                m.enableAutoSizing = true;
+                m.fontSizeMin = 7;
+                m.fontSizeMax = 10;
+            }
+            else
+            {
+                var mid = (NodeAt(x, rowOff + 1) + NodeAt(x, rowOff + tree.Count)) / 2;
+                Text(layer, "H" + b, new Vector2(0, 1), new Vector2(1, 0.5f), mid + new Vector2(-24, 8), new Vector2(80, 16), bname, 13, open ? color : UiKit.TextDim, TextAnchor.MiddleRight, true);
+                Text(layer, "M" + b, new Vector2(0, 1), new Vector2(1, 0.5f), mid + new Vector2(-24, -8), new Vector2(80, 14), sub, 10, UiKit.TextDim, TextAnchor.MiddleRight);
             }
         }
 
+        /// <summary>Cột điểm thuộc tính bên phải cây: mỗi thuộc tính tăng MỘT chỉ số, bấm + để cộng 1 điểm (3 điểm mỗi cấp).</summary>
+        private void BuildAttrs(RectTransform tree)
+        {
+            var rules = game.AttrRules;
+            var attrs = game.Attrs;
+            var left = game.AttrUnspent;
+            var col = UiKit.Rect(tree, "Attrs", new Vector2(0, 1), new Vector2(0, 1), new Vector2(ColsW + 4, -8), new Vector2(TreeW - ColsW - 12, TreeH - 16));
+            UiStyle.Pill(col, new Color(0, 0, 0, 0.28f), 10);
+            var w = TreeW - ColsW - 12;
+            Text(col, "H", new Vector2(0, 1), new Vector2(0, 1), new Vector2(10, -6), new Vector2(w - 20, 22), "Thuộc tính", 15, UiStyle.GoldHi, TextAnchor.MiddleLeft, true);
+            Text(col, "P", new Vector2(0, 1), new Vector2(0, 1), new Vector2(10, -28), new Vector2(w - 20, 16),
+                game.InLab ? "phòng Thử chiêu" : left > 0 ? $"<color=#ffd166>{left}</color> điểm chưa cộng · {rules.PerLevel}/cấp" : $"đã cộng hết · {rules.PerLevel} điểm mỗi cấp", 11,
+                UiKit.TextDim, TextAnchor.MiddleLeft);
+            var bonus = game.Combat.Attr;
+            var ids = rules.Ids;
+            const float rowH = 70;
+            for (var i = 0; i < ids.Length; i += 1)
+            {
+                var k = ids[i];
+                var (name, desc) = rules.Info(k);
+                var pts = attrs.TryGetValue(k, out var v) ? v : 0;
+                var y = -52 - i * rowH;
+                var row = UiKit.Rect(col, "R" + k, new Vector2(0, 1), new Vector2(0, 1), new Vector2(6, y), new Vector2(w - 12, rowH - 6));
+                UiStyle.Pill(row, new Color(0, 0, 0, 0.3f), 8);
+                Text(row, "N", new Vector2(0, 1), new Vector2(0, 1), new Vector2(8, -4), new Vector2(w - 70, 18), name, 13, UiKit.TextMain, TextAnchor.MiddleLeft, true);
+                Text(row, "V", new Vector2(0, 1), new Vector2(0, 1), new Vector2(8, -22), new Vector2(w - 70, 16), $"{pts} điểm · {AttrEffect(k, bonus)}", 11, UiStyle.Hex(0x7be07f),
+                    TextAnchor.MiddleLeft);
+                var d = Text(row, "D", new Vector2(0, 1), new Vector2(0, 1), new Vector2(8, -40), new Vector2(w - 60, 22), desc, 9, UiKit.TextDim, TextAnchor.UpperLeft);
+                d.textWrappingMode = TextWrappingModes.Normal;
+                var can = left > 0 && !game.InLab;
+                var plus = UiKit.Rect(row, "Add", new Vector2(1, 0.5f), new Vector2(1, 0.5f), new Vector2(-8, 0), new Vector2(34, 34));
+                UiStyle.Pill(plus, can ? UiStyle.GoldHi : new Color(1, 1, 1, 0.12f), 17).raycastTarget = true;
+                Text(plus, "t", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0, 1), new Vector2(30, 30), "+", 22, can ? UiStyle.InkBrown : UiKit.TextDim, TextAnchor.MiddleCenter, true);
+                var kk = k;
+                if (can)
+                    UiKit.Press(plus, () =>
+                    {
+                        if (game.AddAttr(kk)) Refresh();
+                    });
+            }
+        }
+
+        private static string AttrEffect(string k, AttrBonus b) => k switch
+        {
+            "vit" => $"+{b.Hp:0} máu",
+            "spi" => $"+{b.Mp:0} MP",
+            "str" => $"+{(b.Sword - 1) * 100:0.#}% kiếm",
+            "int" => $"+{(b.Magic - 1) * 100:0.#}% phép",
+            "def" => $"+{b.Def:0.#} phòng thủ",
+            "sta" => $"+{b.Stamina:0} thể lực",
+            _ => "",
+        };
+
         private void BuildTalentDetail(RectTransform box, int pts)
         {
-            const float top = -48;
+            const float top = -14;
             if (!talentSel.HasValue)
             {
-                var hint = Text(box, "Hint", new Vector2(0, 1), new Vector2(0, 1), new Vector2(14, top), new Vector2(SideW - 28, 140),
-                    "Bấm một mốc trên cây để xem nó làm gì rồi bấm <b>Học</b>.\n\nMốc to có icon là chiêu mới (tự lên thanh chiêu), chấm nhỏ là bị động. Điểm có thêm mỗi lần lên cấp.",
-                    13, UiKit.TextDim, TextAnchor.UpperLeft);
+                var hint = Text(box, "Hint", new Vector2(0, 1), new Vector2(0, 1), new Vector2(14, top), new Vector2(SideW - 28, 220),
+                    "Bấm một mốc trên cây để xem nó làm gì rồi bấm <b>Học</b>.\n\n" +
+                    "• Mỗi nhân vật chỉ <b>MỘT nguyên tố</b>: điểm đầu tiên cộng vào hệ nào thì 4 hệ kia khoá (đổi phải tẩy điểm).\n" +
+                    "• Kiếm sĩ: 3 lưu phái cộng tự do; nguyên tố dùng để <b>Bọc Nguyên Tố</b> vào kiếm.\n" +
+                    "• Pháp sư: chỉ trượng — Tia Aether + phép của hệ đã chọn.\n" +
+                    "• Phản ứng nguyên tố: đánh cùng người chơi hệ khác.",
+                    12, UiKit.TextDim, TextAnchor.UpperLeft);
                 hint.textWrappingMode = TextWrappingModes.Normal;
                 return;
             }
             var (b, t) = talentSel.Value;
             TreeNode node = null;
-            foreach (var nd in game.TalentRules.TreeOf(b, b == "sword" ? SwordView : null))
+            foreach (var nd in game.TalentRules.TreeOf(b))
                 if (nd.Tier == t)
                     node = nd;
-            var color = BranchColor[b];
+            var color = ColorOf(b);
             var bname = game.Sim.BranchName.TryGetValue(b, out var n) ? n : b;
             var icon = UiKit.Rect(box, "Ic", new Vector2(0, 1), new Vector2(0, 1), new Vector2(14, top), new Vector2(52, 52));
             UiStyle.Pill(icon, color, 26);
@@ -207,143 +284,89 @@ namespace Aether.Client.UI
             desc.fontSizeMin = 10;
             desc.fontSizeMax = 12;
 
+            var rules = game.TalentRules;
             var tier = game.TierOf(b);
             var open = game.BranchOpen(b);
             var cost = game.NextTierCost(b);
+            var chosen = game.ChosenElement;
+            var isElement = rules.IsElementBranch(b);
             var at = new Vector2(14, top - 218);
             string status = null;
             if (!open) status = "Nhánh chưa mở · theo cốt truyện";
-            else if (t > game.TalentRules.TierCap(b) && t > tier) status = "Mốc này sắp có";
-            else if (b == "sword" && PreviewingStyle && t >= game.Sim.StyleTier) status = "Lưu phái khác — chỉ xem";
+            else if (!rules.PathAllowsBranch(game.HeroPath, b)) status = "Pháp sư không dùng kiếm";
             else if (t <= tier) status = "Đã học";
+            else if (t > rules.TierCap(b)) status = "Mốc này sắp có";
+            else if (rules.IsStyleBranch(b) && game.TierOf("sword") < game.Sim.StyleNeedsSword) status = $"Cần Kiếm mốc {game.Sim.StyleNeedsSword} (Nhịp Chém)";
+            else if (isElement && chosen != null && chosen != b) status = "Đã chọn nguyên tố khác";
             else if (!(t == tier + 1 && cost.HasValue)) status = "Học các mốc trước";
             if (status != null)
+            {
                 Text(box, "S", new Vector2(0, 1), new Vector2(0, 1), at, new Vector2(SideW - 28, 40), status, 14,
-                    open && t <= tier && status == "Đã học" ? UiStyle.Hex(0x7be07f) : UiKit.TextDim, TextAnchor.MiddleCenter, true);
-            else
-                GoldButton(box, "Learn", new Vector2(0, 1), new Vector2(0, 1), at, new Vector2(SideW - 28, 42), cost.Value <= pts ? $"Học mốc này · {cost}" : $"Thiếu điểm · {cost}",
-                    () => Spend(b), cost.Value <= pts, hud.UiIcon("icon_star"));
+                    status == "Đã học" ? UiStyle.Hex(0x7be07f) : UiKit.TextDim, TextAnchor.MiddleCenter, true);
+                return;
+            }
+            // Điểm ĐẦU TIÊN vào một nguyên tố = chọn hệ (khoá 4 hệ kia) — bấm hai lần.
+            var choosing = isElement && chosen == null;
+            var armed = choosing && elementArmed == b;
+            var label = cost.Value > pts ? $"Thiếu điểm · {cost}" : armed ? $"Bấm lần nữa: chọn {bname}" : choosing ? $"Chọn hệ {bname} · {cost}" : $"Học mốc này · {cost}";
+            GoldButton(box, "Learn", new Vector2(0, 1), new Vector2(0, 1), at, new Vector2(SideW - 28, 42), label, () =>
+            {
+                if (choosing && elementArmed != b)
+                {
+                    elementArmed = b;
+                    Refresh();
+                    return;
+                }
+                elementArmed = null;
+                Spend(b);
+            }, cost.Value <= pts, hud.UiIcon("icon_star"));
+            if (choosing)
+            {
+                var warn = Text(box, "W", new Vector2(0, 1), new Vector2(0, 1), at + new Vector2(0, -46), new Vector2(SideW - 28, 34),
+                    $"Chọn {bname} thì 4 hệ kia khoá. Đổi hệ phải tẩy điểm ({game.ResetDiamonds} kim cương).", 10, UiStyle.Hex(0xffd166), TextAnchor.UpperLeft);
+                warn.textWrappingMode = TextWrappingModes.Normal;
+            }
         }
 
         private void Spend(string b)
         {
-            if (game.NeedsStyle(b))
-            {
-                choosingStyle = true;
-                Refresh();
-                return;
-            }
             if (!game.AddTier(b)) return;
             talentSel = (b, game.TierOf(b));
             BuildRail();
             Refresh();
         }
 
-        private void ViewStyle(string id)
+        /// <summary>Dòng Bọc Nguyên Tố (Kiếm sĩ) / nguyên tố của phép (Pháp sư) ở đáy khung phải.</summary>
+        private void BuildImbueLine(RectTransform side)
         {
-            if (game.InLab) game.SwitchLabStyle(id);
-            styleView = game.InLab ? null : id;
-            if (talentSel.HasValue && talentSel.Value.branch == "sword" && talentSel.Value.tier >= game.Sim.StyleTier) talentSel = null;
-            choosingStyle = false;
-            Refresh();
-        }
-
-        /// <summary>
-        /// Tab 3 lưu phái Kiếm ở đầu khung phải (chủ dự án 11/10/2026: "nhớ là có 3 phái kiếm nhưng chỉ thấy 1"). Đã chọn phái thì phái
-        /// khác chỉ xem trước; phòng Thử chiêu thì bấm là đổi phái luôn (dựng lại thanh chiêu).
-        /// </summary>
-        private void StyleTabs(RectTransform side)
-        {
-            var styles = game.Sim.SwordStyles;
-            const float gap = 4;
-            var w = (SideW - 28 - gap * (styles.Length - 1)) / styles.Length;
-            for (var i = 0; i < styles.Length; i += 1)
+            var el = game.ChosenElement;
+            var sim = game.Sim;
+            string info;
+            if (el == null) info = "<b>Nguyên tố</b> · chưa chọn — cộng điểm vào MỘT hệ trên cây.";
+            else
             {
-                var id = styles[i];
-                var name = game.Sim.SwordStyleInfos.TryGetValue(id, out var info) ? info.Name : id;
-                var shown = id == SwordView;
-                var mine = id == game.SwordStyle;
-                var tab = UiKit.Rect(side, "Tab" + i, new Vector2(0, 1), new Vector2(0, 1), new Vector2(14 + i * (w + gap), -10), new Vector2(w, 28));
-                UiStyle.Pill(tab, shown ? new Color(0.91f, 0.77f, 0.42f, 0.38f) : new Color(0, 0, 0, 0.35f), 14).raycastTarget = true;
-                var label = Text(tab, "t", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(w - 6, 22), mine ? $"<b>{name}</b>" : name, 12,
-                    mine ? UiStyle.GoldHi : shown ? UiKit.TextMain : UiKit.TextDim, TextAnchor.MiddleCenter);
-                label.enableAutoSizing = true;
-                label.fontSizeMin = 9;
-                label.fontSizeMax = 12;
-                var sid = id;
-                UiKit.Press(tab, () => ViewStyle(sid));
-            }
-        }
-
-        /// <summary>Kiếm lên mốc 3 lần đầu: chọn MỘT lưu phái (đổi về sau phải tẩy điểm).</summary>
-        private void BuildStyleChoice(RectTransform box)
-        {
-            Text(box, "Q", new Vector2(0, 1), new Vector2(0, 1), new Vector2(14, -46), new Vector2(SideW - 28, 40),
-                "<b>Chọn lưu phái Kiếm</b>\n<size=11>chỉ chọn một lần — đổi phải tẩy điểm</size>", 14, UiStyle.GoldHi);
-            var styles = game.Sim.SwordStyles;
-            for (var i = 0; i < styles.Length; i += 1)
-            {
-                var id = styles[i];
-                var info = game.Sim.SwordStyleInfos.TryGetValue(id, out var s) ? s : null;
-                var card = GoldButton(box, "S" + i, new Vector2(0, 1), new Vector2(0, 1), new Vector2(14, -92 - i * 70), new Vector2(SideW - 28, 64), info?.Name ?? id, () =>
+                var name = sim.BranchName.TryGetValue(el, out var bn) ? bn : el;
+                var hex = ColorUtility.ToHtmlStringRGB(ColorOf(el));
+                if (game.HeroPath == "mage") info = $"<b>Nguyên tố</b> · <color=#{hex}>{name}</color> mốc {game.TierOf(el)} — phép của hệ này.";
+                else
                 {
-                    choosingStyle = false;
-                    styleView = null;
-                    if (!game.AddTier("sword", id)) return;
-                    talentSel = ("sword", game.TierOf("sword"));
-                    BuildRail();
-                    Refresh();
-                });
-                if (info == null) continue;
-                var t = card.GetComponentInChildren<TMP_Text>();
-                t.text = $"{info.Name}\n<size=10><color=#f0dfb8>{info.Play}</color></size>";
-                t.textWrappingMode = TextWrappingModes.Normal;
-                t.rectTransform.offsetMin = new Vector2(10, 4);
-                t.rectTransform.offsetMax = new Vector2(-10, -4);
+                    var ok = game.TalentRules.CanEnchant(game.Tiers, el);
+                    var left = game.Combat.ImbueLeft;
+                    info = left > 0 ? $"<b>Bọc Nguyên Tố</b> · <color=#{hex}>{name}</color> · còn {System.Math.Ceiling(left)} giây"
+                        : ok ? $"<b>Bọc Nguyên Tố</b> · <color=#{hex}>{name}</color> {game.TalentRules.ImbueSeconds(game.TierOf(el)):0} giây — kỹ năng trên thanh chiêu"
+                        : $"<b>Bọc Nguyên Tố</b> · cần Kiếm mốc {sim.EnchantSwordTier} + <color=#{hex}>{name}</color> mốc {sim.EnchantElementTier}";
+                }
             }
-        }
-
-        /// <summary>Phủ phép kiếm: 5 hệ + Tắt. Hệ chưa đủ mốc (Kiếm + nguyên tố) mờ đi, bấm thì báo điều kiện.</summary>
-        private void BuildEnchant(RectTransform side)
-        {
-            var cur = game.Enchantment;
-            var info = cur != null
-                ? $"<b>Phủ phép</b> · {game.TalentRules.EnchantDesc(cur, game.TierOf(cur))}"
-                : $"<b>Phủ phép</b> · Kiếm mốc {game.Sim.EnchantSwordTier} + nguyên tố mốc {game.Sim.EnchantElementTier}: đòn Kiếm mang hệ đó.";
-            var it = Text(side, "EI", new Vector2(0, 0), new Vector2(0, 0), new Vector2(14, 104), new Vector2(SideW - 28, 54), info, 11, UiStyle.Parchment, TextAnchor.LowerLeft);
+            var it = Text(side, "EI", new Vector2(0, 0), new Vector2(0, 0), new Vector2(14, 60), new Vector2(SideW - 28, 44), info, 11, UiStyle.Parchment, TextAnchor.LowerLeft);
             it.textWrappingMode = TextWrappingModes.Normal;
-            var opts = new List<string>(game.Sim.Enchants) { null };
-            const float gap = 3;
-            var w = (SideW - 28 - gap * (opts.Count - 1)) / opts.Count;
-            for (var i = 0; i < opts.Count; i += 1)
-            {
-                var e = opts[i];
-                var ok = e == null || game.TalentRules.CanEnchant(game.Tiers, e);
-                var on = e == cur;
-                var c = e != null && BranchColor.TryGetValue(e, out var bc) ? bc : UiKit.TextMain;
-                var label = e == null ? "Tắt" : game.Sim.BranchName.TryGetValue(e, out var bn) ? bn : e;
-                var chip = UiKit.Rect(side, "En" + i, new Vector2(0, 0), new Vector2(0, 0), new Vector2(14 + i * (w + gap), 66), new Vector2(w, 30));
-                UiStyle.Pill(chip, on ? c * new Color(1, 1, 1, 0.5f) : new Color(0, 0, 0, ok ? 0.45f : 0.22f), 10).raycastTarget = true;
-                var t = Text(chip, "t", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(w - 2, 22), label, 11,
-                    !ok ? new Color(1, 1, 1, 0.25f) : on ? Color.white : c, TextAnchor.MiddleCenter, true);
-                t.enableAutoSizing = true;
-                t.fontSizeMin = 8;
-                t.fontSizeMax = 11;
-                var ee = e;
-                UiKit.Press(chip, () =>
-                {
-                    game.SetEnchant(ee);
-                    Refresh();
-                });
-            }
         }
 
-        /// <summary>Tẩy toàn bộ mốc đã mua (miễn phí tới cấp 5, sau đó 10 xu × cấp) — bấm hai lần cho chắc.</summary>
+        /// <summary>Tẩy toàn bộ điểm tiềm năng + thuộc tính (miễn phí tới cấp 5, sau đó kim cương) — bấm hai lần cho chắc.</summary>
         private void BuildReset(RectTransform side)
         {
             if (game.InLab) return;
-            var cost = Talents.ResetCost(game.Combat.Pc.Level);
-            var label = resetArmed ? "Bấm lần nữa để tẩy hết" : cost > 0 ? $"Tẩy điểm · {cost:0} xu" : "Tẩy điểm (miễn phí)";
+            var cost = game.ResetDiamonds;
+            var label = resetArmed ? "Bấm lần nữa để tẩy hết" : cost > 0 ? $"Tẩy điểm · {cost} kim cương" : "Tẩy điểm (miễn phí tới cấp 5)";
             var b = UiKit.Rect(side, "Reset", new Vector2(0, 0), new Vector2(0, 0), new Vector2(14, 14), new Vector2(SideW - 28, 40));
             UiStyle.Pill(b, resetArmed ? UiStyle.Hex(0x8c2a1c) : UiStyle.Hex(0x3a2c1c, 0.95f), 10).raycastTarget = true;
             Text(b, "t", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(SideW - 40, 24), label, 13, resetArmed ? Color.white : UiStyle.GoldHi,
@@ -357,12 +380,7 @@ namespace Aether.Client.UI
                     return;
                 }
                 resetArmed = false;
-                if (game.ResetTalents())
-                {
-                    talentSel = null;
-                    styleView = null;
-                    BuildRail();
-                }
+                if (game.ResetBuild()) talentSel = null;
                 Refresh();
             });
         }

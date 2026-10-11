@@ -621,3 +621,63 @@ Chủ dự án giao quyết theo đề xuất, góp thêm: thanh kỹ năng **10
 7. Thổ mở bằng một nhiệm vụ tuổi 16 ở Nghĩa địa.
 9. **Bảng skill mục 3 đã duyệt**; tuyệt kỹ Kiếm "Vạn Kiếm Quy Tông" (nghe kiếm hiệp) → **Phán Quyết**; Bộ Pháp → Nhịp Chém, Kiếm Tâm → Mắt Tinh, Kiếm Khí → Lưỡi Sóng.
 10. **Kiếm 3 lưu phái** Kiếm Thần / Thủy Thần / Bắc Thần, chọn ở mốc 3 (mục 2.7).
+
+## 9. Một nguyên tố, lớp chọn vũ khí, điểm thuộc tính — ĐANG LÀM (11/10/2026)
+
+Chủ dự án 11/10/2026:
+
+- "chỉ cho chọn 1 phép nguyên tố thôi — lúc cộng tiềm năng sẽ được chọn"
+- "Kiếm thì học skill tuỳ, không cần chọn phái — tự do build"
+- "bọc nguyên tố vào kiếm là skill kích hoạt có thời gian"
+- "chọn Kiếm sĩ hay Pháp sư thì chỉ còn lại 1 là kiếm, 2 là trượng"
+- "cây tiềm năng chỉ còn lại 1 cột và cộng HP, MP, dame, phép, đỡ đòn…"
+
+**Luật (code `packages/sim/src/talents.ts` + `attributes.ts`):**
+
+1. **Một nguyên tố mỗi nhân vật.**
+   - Khoá ở điểm đầu tiên cộng vào nhánh nguyên tố (`chosenElement`); 4 nhánh còn lại khoá.
+   - Đổi nguyên tố = tẩy điểm bằng **kim cương** (`resetDiamonds`: miễn phí tới cấp 5, sau đó 40 kim cương).
+   - Phản ứng nguyên tố thành lối đánh **NHÓM**: hai người khác hệ đánh cùng một con. Bỏ các nhiệm vụ bắt một người tự gây phản ứng.
+2. **Ba lưu phái Kiếm là ba nhánh riêng.**
+   - Kiếm chỉ còn 2 mốc: Trảm và Nhịp Chém.
+   - Kiếm Thần / Thủy Thần / Bắc Thần mỗi phái 8 mốc. Mốc phái t ứng với mốc Kiếm cũ t + 2: cùng giá, cùng thưởng chiều sâu.
+   - Cần Kiếm mốc 2 mới vào phái; cộng tự do vào phái nào cũng được.
+   - Bản lưu cũ chuyển bằng `migrateBought`: Kiếm cũ mốc n cùng `swordStyle` thành Kiếm 2 + phái n − 2, giữ nguyên số điểm.
+3. **Bọc Nguyên Tố là kỹ năng kích hoạt (`imbue`).**
+   - Cần Kiếm 2 + nguyên tố đã chọn ≥ mốc 3.
+   - Thời gian bọc: 10 giây + 1 giây mỗi mốc nguyên tố, tối đa 20 giây.
+   - Kiếm pháp nguyên tố cần nguyên tố ≥ 5 + một phái ≥ 3, và chỉ ra đòn được khi đang bọc.
+4. **Lớp chọn vũ khí** (`pathAllowsBranch` / `pathAllowsSkill`).
+   - **Kiếm sĩ**: chỉ đòn kiếm (Trảm, phái, kiếm pháp, Bọc Nguyên Tố). Nguyên tố chỉ để bọc kiếm, không tung phép. Space lướt né.
+   - **Pháp sư**: chỉ trượng (Tia Aether + phép của nguyên tố đã chọn). Không có Kiếm / phái, không lướt né.
+   - Tuổi thơ (chưa chọn lớp) học được cả hai.
+5. **Bảng Tiềm năng còn MỘT cột nguyên tố** (cột đã chọn; trước khi chọn thì hiện 5 cột để chọn).
+   - Kiếm sĩ có thêm cột Kiếm + 3 phái.
+   - Bên cạnh là **điểm thuộc tính**: 3 điểm mỗi cấp, không dừng ở cấp 40. Mỗi thuộc tính tăng MỘT chỉ số:
+
+     | Thuộc tính | Chỉ số tăng |
+     |---|---|
+     | Sinh lực | máu |
+     | Linh lực | MP |
+     | Sức mạnh | sát thương kiếm |
+     | Trí tuệ | sát thương phép |
+     | Đỡ đòn | phòng thủ |
+     | Thể lực | thể lực |
+
+   - Dồn hết vào một thuộc tính thì chỉ số đó tăng theo cấp cỡ gấp đôi gốc.
+
+**Ghi chú phát triển sau (chưa làm):**
+
+- **Ba nguyên tố mới**: **Mộc**, **Bóng tối** (Ám ma pháp), **Ánh sáng**. Mỗi hệ là một nhánh 10 mốc như 5 hệ hiện có.
+  - Thêm vào `ELEMENTS` / `Branch`. Mã lưu chỉ được THÊM.
+  - Thêm phản ứng với các hệ cũ (`REACTION_PAIR`) — vẫn là lối đánh nhóm.
+  - Mỗi hệ một nhiệm vụ / nơi mở như Thổ.
+  - Kéo theo **ít nhất 2–3 map / vùng mới**: Rừng cổ thụ cho Mộc, Thánh địa ánh sáng, Vực bóng tối. Ghi ở `docs/ke-hoach-the-gioi.md` mục 5.7.
+- **Lớp mới** (Cung, Khiên đỡ đòn, Healer): mỗi lớp là một `PathId` mới.
+  - Có nhánh vũ khí riêng.
+  - Có MỘT nguyên tố đi kèm, kích hoạt có thời gian, giống Bọc Nguyên Tố.
+  - Thêm thuộc tính riêng nếu cần (VD Khéo léo cho cung). Mỗi thuộc tính vẫn chỉ tăng một chỉ số.
+- **Câu hỏi còn mở — điểm tiềm năng dư của Pháp sư.** Cấp 40 có 47 điểm, nhưng Pháp sư chỉ có một nhánh nguyên tố (trần mốc 9 = 25 điểm), nên dư ~22 điểm. Kiếm sĩ thì tiêu hết vào phái. Hướng xử lý cần chốt:
+  - a) Pháp sư có "lưu phái phép" riêng.
+  - b) Đổi điểm tiềm năng dư thành điểm thuộc tính.
+  - c) Thêm nhánh trượng (Aether).

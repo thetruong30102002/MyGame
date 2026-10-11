@@ -115,7 +115,7 @@ namespace Aether.Client.UI
         public void SelectTalent(string branch, int tier)
         {
             Show(Kind.Talents);
-            talentLoadout = false;
+            talentTab = 0;
             talentSel = (branch, tier);
             Refresh();
         }
@@ -166,7 +166,7 @@ namespace Aether.Client.UI
             selUid = null;
             selSlot = null;
             talentSel = null;
-            choosingStyle = false;
+            elementArmed = null;
             pendingRes = null;
             pendingMode = null;
         }

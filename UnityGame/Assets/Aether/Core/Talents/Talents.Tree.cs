@@ -32,12 +32,67 @@ namespace Aether.Core
             return desc.Length > 0 ? desc + " " + tail : tail;
         }
 
-        /// <summary>Cây của nhánh theo lưu phái: Kiếm đã chọn lưu phái = mốc 1–2 chung + mốc 3–10 của lưu phái.</summary>
-        public IReadOnlyList<TreeNode> TreeOf(string b, string style = null)
+        /// <summary>Cây của một nhánh (lưu phái nay là nhánh riêng — TREE có đủ 9 nhánh).</summary>
+        public IReadOnlyList<TreeNode> TreeOf(string b) => _d.TalentTree[b];
+
+        // ———————————————————————————— một nguyên tố, lưu phái, lớp (11/10/2026) ————————————————————————————
+
+        public bool IsStyleBranch(string b) => b != null && Array.IndexOf(_d.StyleBranches, b) >= 0;
+
+        public bool IsElementBranch(string b) => b != null && Array.IndexOf(_d.Elements, b) >= 0;
+
+        /// <summary>Nhánh nguyên tố đã chọn (mốc cao nhất, bằng nhau theo thứ tự ELEMENTS); null = chưa chọn.</summary>
+        public string ChosenElement(Tiers tiers)
         {
-            if (b != "sword" || string.IsNullOrEmpty(style) || !_d.StyleTree.TryGetValue(style, out var st)) return _d.TalentTree[b];
-            return _d.TalentTree["sword"].Take(_d.StyleTier - 1).Concat(st).ToList();
+            string best = null;
+            foreach (var e in _d.Elements)
+                if ((At(tiers, e) ?? 0) > 0 && (best == null || (At(tiers, e) ?? 0) > (At(tiers, best) ?? 0))) best = e;
+            return best;
         }
+
+        /// <summary>Lớp được cộng điểm vào nhánh không: Pháp sư không có nhánh Kiếm / phái.</summary>
+        public bool PathAllowsBranch(string path, string b) => path != "mage" || !(b == "sword" || IsStyleBranch(b));
+
+        /// <summary>Lớp được dùng kỹ năng không: Kiếm sĩ chỉ đòn kiếm (Trảm, phái, kiếm pháp, Bọc nguyên tố), Pháp sư chỉ trượng.</summary>
+        public bool PathAllowsSkill(string path, string skillId)
+        {
+            if (string.IsNullOrEmpty(path) || path == "none") return true;
+            SkillNode node = null;
+            if (skillId != null) _d.SkillNodes.TryGetValue(skillId, out node);
+            var blade = skillId == "slash" || (node != null && (node.Branch == "sword" || IsStyleBranch(node.Branch) || node.Art != null || node.Imbue));
+            return path == "sword" ? blade : !blade;
+        }
+
+        /// <summary>Mốc Kiếm "sâu nhất" quy về thang cũ: max(Kiếm, phái cao nhất + STYLE_OFFSET).</summary>
+        public double SwordDepth(Tiers tiers)
+        {
+            var d = At(tiers, "sword") ?? 0;
+            foreach (var st in _d.StyleBranches)
+                if ((At(tiers, st) ?? 0) > 0) d = Math.Max(d, (At(tiers, st) ?? 0) + _d.StyleOffset);
+            return d;
+        }
+
+        /// <summary>
+        /// Bản lưu trước khi tách lưu phái: Kiếm cũ đã mua n ≥ 2 + swordStyle → Kiếm 1 đã mua (mốc 2) + phái n − 1 (mốc cũ − 2).
+        /// Bản lưu đã có nhánh phái thì giữ nguyên.
+        /// </summary>
+        public Tiers MigrateBought(Tiers bought, string swordStyle)
+        {
+            var o = new Tiers();
+            foreach (var kv in bought) o[kv.Key] = kv.Value;
+            foreach (var st in _d.StyleBranches) if ((At(bought, st) ?? 0) > 0) return o;
+            var n = Math.Max(0, Math.Floor(At(bought, "sword") ?? 0));
+            if (n <= 1) return o;
+            o["sword"] = 1;
+            if (IsStyleBranch(swordStyle)) o[swordStyle] = n - 1;
+            return o;
+        }
+
+        /// <summary>Tẩy điểm bằng kim cương: miễn phí tới cấp 5, sau đó RESET_DIAMONDS.</summary>
+        public int ResetDiamonds(double level) => level <= 5 ? 0 : _d.ResetDiamondsCost;
+
+        /// <summary>Thời gian Bọc Nguyên Tố (giây): IMBUE_BASE_SECONDS + mốc nguyên tố, tối đa IMBUE_MAX_SECONDS.</summary>
+        public double ImbueSeconds(double elementTier) => Math.Min(_d.ImbueMaxSeconds, _d.ImbueBaseSeconds + Math.Max(0, Math.Floor(elementTier)));
 
         /// <summary>Mốc cao nhất ĐÃ HIỆN THỰC của nhánh (0 = chưa có gì).</summary>
         public int TierCap(string b)
@@ -58,6 +113,10 @@ namespace Aether.Core
             var tiers = new Tiers();
             foreach (var b in _d.Branches)
                 tiers[b] = BranchOpen(b, isUnlocked) ? Math.Min(TierCap(b), BaseTier(b) + Math.Max(0, Math.Floor(At(bought, b) ?? 0))) : 0;
+            // Một nguyên tố: bản lưu cũ học nhiều nhánh thì giữ nhánh sâu nhất (điểm các nhánh kia tự trả lại).
+            var keep = ChosenElement(tiers);
+            foreach (var e in _d.Elements) if (e != keep) tiers[e] = 0;
+            if ((At(tiers, "sword") ?? 0) < _d.StyleNeedsSword) foreach (var st in _d.StyleBranches) tiers[st] = 0;
             return tiers;
         }
 
@@ -73,18 +132,24 @@ namespace Aether.Core
         public int Unspent(double level, Tiers tiers, double bonus = 0) => TalentPoints(level, bonus) - SpentPoints(tiers);
 
         /// <summary>Giá mốc kế; null nếu nhánh lạ / chưa mở / đã chạm mốc cao nhất đã hiện thực.</summary>
-        public int? NextTierCost(Tiers tiers, string b, Func<string, bool> isUnlocked)
+        public int? NextTierCost(Tiers tiers, string b, Func<string, bool> isUnlocked, string path = "none")
         {
-            if (Array.IndexOf(_d.Branches, b) < 0 || !BranchOpen(b, isUnlocked)) return null;
+            if (Array.IndexOf(_d.Branches, b) < 0 || !BranchOpen(b, isUnlocked) || !PathAllowsBranch(path, b)) return null;
+            if (IsStyleBranch(b) && (At(tiers, "sword") ?? 0) < _d.StyleNeedsSword) return null;
+            if (IsElementBranch(b))
+            {
+                var chosen = ChosenElement(tiers);
+                if (chosen != null && chosen != b) return null;
+            }
             var cur = Math.Max(0, Math.Floor(At(tiers, b) ?? 0));
             if (cur >= TierCap(b)) return null;
             return TierCost(b, (int)cur + 1);
         }
 
         /// <summary>Lên 1 mốc nếu được (sửa <paramref name="tiers"/> tại chỗ) — trả mốc mới hoặc null.</summary>
-        public double? AddTier(double level, Tiers tiers, string b, Func<string, bool> isUnlocked, double bonus = 0)
+        public double? AddTier(double level, Tiers tiers, string b, Func<string, bool> isUnlocked, double bonus = 0, string path = "none")
         {
-            var cost = NextTierCost(tiers, b, isUnlocked);
+            var cost = NextTierCost(tiers, b, isUnlocked, path);
             if (cost == null || Unspent(level, tiers, bonus) < cost.Value) return null;
             tiers[b] = Math.Max(0, Math.Floor(At(tiers, b) ?? 0)) + 1;
             return tiers[b];
@@ -97,11 +162,19 @@ namespace Aether.Core
         public Tiers FitTiers(Tiers want, double points)
         {
             var br = _d.Branches;
-            var order = br.Where(b => want.ContainsKey(b)).OrderByDescending(b => want[b]).ThenBy(b => Array.IndexOf(br, b)).ToList();
+            // Kiếm là cổng vào phái (1 điểm) nên giữ TRƯỚC khi có phái muốn giữ; Kiếm không đủ mốc 2 thì phái về 0.
+            var gate = _d.StyleBranches.Any(st => want.ContainsKey(st) && want[st] > 0);
+            double rank(string b) => gate && b == "sword" ? _d.MaxTier + 1 : want[b];
+            var order = br.Where(b => want.ContainsKey(b)).OrderByDescending(rank).ThenBy(b => Array.IndexOf(br, b)).ToList();
             var left = Math.Max(0, points);
             var kept = new Tiers();
             foreach (var b in order)
             {
+                if (IsStyleBranch(b) && (At(kept, "sword") ?? 0) < _d.StyleNeedsSword)
+                {
+                    kept[b] = 0;
+                    continue;
+                }
                 var t = Math.Max(BaseTier(b), Math.Min(TierCap(b), Math.Floor(want[b])));
                 while (t > BaseTier(b) && PointsToTier(t, b) > left) t -= 1;
                 kept[b] = t;
@@ -121,29 +194,42 @@ namespace Aether.Core
         {
             if (skillId == "aether_bolt") return AetherScale(level);
             if (skillId == null || !_d.SkillNodes.TryGetValue(skillId, out var node)) return 1;
-            if (node.Art != null) return DepthBonus(Math.Min(At(tiers, "sword") ?? 1, At(tiers, node.Art) ?? 1));
+            if (node.Art != null)
+            {
+                var sd = SwordDepth(tiers);
+                return DepthBonus(Math.Min(sd != 0 ? sd : 1, At(tiers, node.Art) ?? 1));
+            }
+            if (IsStyleBranch(node.Branch)) return DepthBonus((At(tiers, node.Branch) ?? 0) + _d.StyleOffset);
             return DepthBonus(At(tiers, node.Branch) ?? 1);
         }
 
-        /// <summary>Đã học kỹ năng chưa (mã cốt truyện + mốc nhánh + đúng lưu phái + nguyên tố của kiếm pháp).</summary>
-        public bool KnowsSkill(string id, string unlock, Tiers tiers, Func<string, bool> isUnlocked, string style = null)
+        /// <summary>
+        /// Đã học kỹ năng chưa: mã cốt truyện + lớp (<paramref name="path"/>) + mốc nhánh; kiếm pháp cần nguyên tố ≥ SWORD_ART_TIER và
+        /// một phái ≥ SWORD_ART_STYLE_TIER; Bọc Nguyên Tố cần nguyên tố đã chọn ≥ ENCHANT_ELEMENT_TIER.
+        /// </summary>
+        public bool KnowsSkill(string id, string unlock, Tiers tiers, Func<string, bool> isUnlocked, string path = "none")
         {
             if (!string.IsNullOrEmpty(unlock) && !isUnlocked(unlock)) return false;
+            if (!PathAllowsSkill(path, id)) return false;
             if (id == null || !_d.SkillNodes.TryGetValue(id, out var node)) return true;
-            if (node.Style != null && node.Style != style) return false;
-            if (node.Art != null && (At(tiers, node.Art) ?? 0) < _d.SwordArtTier) return false;
+            if (node.Art != null && ((At(tiers, node.Art) ?? 0) < _d.SwordArtTier || !_d.StyleBranches.Any(st => (At(tiers, st) ?? 0) >= _d.SwordArtStyleTier))) return false;
+            if (node.Imbue)
+            {
+                var e = ChosenElement(tiers);
+                if (e == null || (At(tiers, e) ?? 0) < _d.EnchantElementTier) return false;
+            }
             return node.Tier <= BaseTier(node.Branch) || (At(tiers, node.Branch) ?? 0) >= node.Tier;
         }
 
-        public bool KnowsSkill(SkillDef skill, Tiers tiers, Func<string, bool> isUnlocked, string style = null) =>
-            KnowsSkill(skill.Id, skill.Unlock, tiers, isUnlocked, style);
+        public bool KnowsSkill(SkillDef skill, Tiers tiers, Func<string, bool> isUnlocked, string path = "none") =>
+            KnowsSkill(skill.Id, skill.Unlock, tiers, isUnlocked, path);
 
-        /// <summary>Bị động đang có theo mốc + lưu phái Kiếm (mốc 4/7/9 Kiếm thuộc từng lưu phái).</summary>
-        public PassiveEffects GetPassiveEffects(Tiers tiers, string style = null)
+        /// <summary>Bị động đang có theo mốc (bị động lưu phái theo nhánh phái: mốc Kiếm cũ 4 / 7 / 9 = mốc phái 2 / 5 / 7).</summary>
+        public PassiveEffects GetPassiveEffects(Tiers tiers)
         {
             var P = _d.Passive;
             bool at(string b, int t) => (At(tiers, b) ?? 0) >= t;
-            bool swordAt(string s, int t) => style == s && at("sword", t);
+            bool swordAt(string s, int t) => at(s, t - _d.StyleOffset);
             bool sword4(string s) => swordAt(s, 4);
             return new PassiveEffects
             {
@@ -203,20 +289,17 @@ namespace Aether.Core
 
         // ———————————————————————————— lối build ————————————————————————————
 
-        /// <summary>Đọc lối build từ mốc các nhánh (chỉ để hiển thị). Thuần Kiếm ghi kèm lưu phái.</summary>
-        public BuildInfo DescribeBuild(Tiers tiers, string style = null)
+        /// <summary>Đọc lối build từ mốc các nhánh (chỉ để hiển thị). Kiếm (2 mốc) là cổng vào phái, không tính là một lối.</summary>
+        public BuildInfo DescribeBuild(Tiers tiers)
         {
             var names = _d.BranchName;
+            double depth(string b) => (At(tiers, b) ?? 0) + (IsStyleBranch(b) && (At(tiers, b) ?? 0) > 0 ? _d.StyleOffset : 0);
             // OrderByDescending ổn định = Array.sort ổn định của JS với comparator (y − x).
-            var deep = _d.Branches.Where(b => (At(tiers, b) ?? 0) >= 2).OrderByDescending(b => At(tiers, b) ?? 0).ToList();
-            string part(string b) => $"{names[b]} mốc {Str(At(tiers, b))} (+{Str(Js.Round((DepthBonus(At(tiers, b) ?? 1) - 1) * 100))}%)";
+            var deep = _d.Branches.Where(b => b != "sword" && (At(tiers, b) ?? 0) >= 2).OrderByDescending(depth).ToList();
+            string part(string b) => $"{names[b]} mốc {Str(At(tiers, b))} (+{Str(Js.Round((DepthBonus(depth(b)) - 1) * 100))}%)";
             if (deep.Count == 0)
                 return new BuildInfo { Kind = "none", Label = "Chưa có lối riêng", Detail = "Cộng điểm vào một nhánh: mỗi mốc +4% sức mạnh mọi kỹ năng của nhánh đó." };
-            if (deep.Count == 1)
-            {
-                var lp = deep[0] == "sword" && !string.IsNullOrEmpty(style) ? $" · {_d.SwordStyleInfos[style].Name}" : "";
-                return new BuildInfo { Kind = "focused", Label = $"Thuần {names[deep[0]]}{lp}", Detail = $"{part(deep[0])}." };
-            }
+            if (deep.Count == 1) return new BuildInfo { Kind = "focused", Label = $"Thuần {names[deep[0]]}", Detail = $"{part(deep[0])}." };
             if (deep.Count == 2)
             {
                 var a = deep[0];
@@ -256,9 +339,9 @@ namespace Aether.Core
             }
         }
 
-        /// <summary>Phủ được nguyên tố e lên kiếm chưa: Kiếm ≥ ENCHANT_SWORD_TIER và nguyên tố ≥ ENCHANT_ELEMENT_TIER.</summary>
+        /// <summary>Bọc được nguyên tố e chưa: Kiếm ≥ ENCHANT_SWORD_TIER, e là nguyên tố đã chọn và ≥ ENCHANT_ELEMENT_TIER.</summary>
         public bool CanEnchant(Tiers tiers, string e) =>
-            Array.IndexOf(_d.Enchants, e) >= 0 && (At(tiers, "sword") ?? 0) >= _d.EnchantSwordTier && (At(tiers, e) ?? 0) >= _d.EnchantElementTier;
+            Array.IndexOf(_d.Enchants, e) >= 0 && (At(tiers, "sword") ?? 0) >= _d.EnchantSwordTier && ChosenElement(tiers) == e && (At(tiers, e) ?? 0) >= _d.EnchantElementTier;
 
         // ———————————————————————————— thanh 10 ô ————————————————————————————
 

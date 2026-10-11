@@ -1,6 +1,7 @@
 import { inArea, lineSegments, scatterPoints, type Area } from './skillRules.ts';
 import { HERO_SKILLS, isSwordSkill, PATHS, type HeroPath, type SkillDef } from './skills.ts';
-import { BRANCHES, fitTiers, skillScale, talentPoints, tiersFrom, type TalentSpent, type Tiers } from './talents.ts';
+import { attrBonus } from './attributes.ts';
+import { BRANCHES, fitTiers, migrateBought, skillScale, talentPoints, tiersFrom, type TalentSpent, type Tiers } from './talents.ts';
 import { REGIONS } from './regions.ts';
 
 /**
@@ -37,6 +38,11 @@ export interface PvpBuild {
 	level: number;
 	path: HeroPath | 'none';
 	tiers: Tiers;
+	/** Hệ số sát thương kiếm / phép từ điểm thuộc tính (`attributes.attrBonus`, đã kẹp theo cấp). Vắng = 1. */
+	swordMult?: number;
+	magicMult?: number;
+	/** Phòng thủ cộng thêm từ thuộc tính Đỡ đòn. Vắng = 0. */
+	defBonus?: number;
 }
 
 /** Dựng `PvpBuild` từ tiến độ: mốc đã mua kẹp theo điểm tiềm năng của cấp (+ thưởng) — bản lưu sửa tay không tăng sức đánh. */
@@ -50,9 +56,10 @@ export function pvpBuild(level: number, story: unknown, bonusPoints = 0): PvpBui
 		if (Number.isFinite(v) && v > 0) bought[b] = Math.floor(v);
 	}
 	const lv = Math.max(1, Math.floor(Number(level) || 1));
-	const tiers = fitTiers(tiersFrom(bought, (id) => unlocked.has(id)), talentPoints(lv, bonusPoints));
+	const tiers = fitTiers(tiersFrom(migrateBought(bought, s.swordStyle), (id) => unlocked.has(id)), talentPoints(lv, bonusPoints));
 	const path = s.path === 'sword' || s.path === 'mage' ? s.path : 'none';
-	return { level: lv, path, tiers };
+	const a = attrBonus(s.attrs, lv);
+	return { level: lv, path, tiers, swordMult: a.sword, magicMult: a.magic, defBonus: a.def };
 }
 
 const statAt = (pair: [number, number], level: number): number => pair[0] + (level - 1) * pair[1];
@@ -61,10 +68,11 @@ const statAt = (pair: [number, number], level: number): number => pair[0] + (lev
 export function pvpDamage(skill: SkillDef, att: PvpBuild, def: PvpBuild, rand: () => number = Math.random): { dmg: number; crit: boolean } {
 	const p = PATHS[att.path];
 	const atk = statAt(p.atk, att.level);
-	const pathScale = skill.kind === 'heal' ? 1 : isSwordSkill(skill) ? p.sword : p.magic;
+	const sword = isSwordSkill(skill);
+	const pathScale = (skill.kind === 'heal' ? 1 : sword ? p.sword : p.magic) * ((sword ? att.swordMult : att.magicMult) ?? 1);
 	const raw = atk * skill.power * pathScale * skillScale(att.tiers, skill.id, att.level) * PVP_SCALE * (0.9 + rand() * 0.2);
 	const crit = rand() < PVP_CRIT_CHANCE + (skill.crit ?? 0);
-	const armor = statAt(PATHS[def.path].def, def.level);
+	const armor = statAt(PATHS[def.path].def, def.level) + (def.defBonus ?? 0);
 	return { dmg: Math.max(1, Math.round(raw * (crit ? PVP_CRIT_MULT : 1) - armor * 0.5)), crit };
 }
 

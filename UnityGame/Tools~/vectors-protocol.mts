@@ -157,6 +157,7 @@ const clientMessages: ClientMessage[] = [
 	{ t: 'goals' },
 	{ t: 'goalClaim', id: 'kill_100' },
 	{ t: 'shopBuy', item: 'buff_exp_30' },
+	{ t: 'resetBuild' },
 	{ t: 'hubs' },
 	{ t: 'kill', type: 'slime' },
 	{ t: 'kill', type: 'slime', zone: 'z1' },

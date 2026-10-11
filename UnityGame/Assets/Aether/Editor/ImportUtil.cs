@@ -75,6 +75,14 @@ namespace Aether.Importer
                 AssetDatabase.ImportAsset(assetPath, ImportAssetOptions.ForceUpdate | ImportAssetOptions.ForceSynchronousImport);
         }
 
+        /// <summary>Như <see cref="CopyAsset"/> nhưng đóng dấu ẩn bản quyền (`Watermark`) — hình nhân vật / chân dung.</summary>
+        public static void CopyAssetMarked(string srcFile, string assetPath)
+        {
+            var changed = WriteIfChanged(assetPath, Watermark.Mark(File.ReadAllBytes(srcFile)));
+            if (changed || AssetImporter.GetAtPath(assetPath) == null)
+                AssetDatabase.ImportAsset(assetPath, ImportAssetOptions.ForceUpdate | ImportAssetOptions.ForceSynchronousImport);
+        }
+
         public static string Sha1(byte[] bytes)
         {
             using (var sha = SHA1.Create()) return BitConverter.ToString(sha.ComputeHash(bytes)).Replace("-", "");

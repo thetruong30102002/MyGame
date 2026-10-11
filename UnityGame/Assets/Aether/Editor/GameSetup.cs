@@ -171,8 +171,10 @@ namespace Aether.Importer
             PlayerSettings.defaultScreenHeight = 900;
             PlayerSettings.resizableWindow = true;
 
-            // Windows: Mono — IL2CPP cần Visual Studio C++ (máy chưa cài). Android: IL2CPP + ARM64 (Google Play bắt 64-bit).
-            PlayerSettings.SetScriptingBackend(UnityEditor.Build.NamedBuildTarget.Standalone, ScriptingImplementation.Mono2x);
+            // Windows: IL2CPP (11/10/2026 — code thành mã máy, khó dịch ngược hơn DLL Mono; cần MSVC: Build Tools C++ ở D:\VS\BuildTools,
+            // docs/ban-quyen.md). Android: IL2CPP + ARM64 (Google Play bắt 64-bit). Stripping Minimal như Android (Newtonsoft dùng phản chiếu).
+            PlayerSettings.SetScriptingBackend(UnityEditor.Build.NamedBuildTarget.Standalone, ScriptingImplementation.IL2CPP);
+            PlayerSettings.SetManagedStrippingLevel(UnityEditor.Build.NamedBuildTarget.Standalone, ManagedStrippingLevel.Minimal);
             PlayerSettings.SetScriptingBackend(UnityEditor.Build.NamedBuildTarget.Android, ScriptingImplementation.IL2CPP);
             PlayerSettings.Android.targetArchitectures = AndroidArchitecture.ARM64;
             PlayerSettings.Android.minSdkVersion = AndroidSdkVersions.AndroidApiLevel25;
