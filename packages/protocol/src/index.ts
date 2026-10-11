@@ -159,6 +159,29 @@ export interface AdminLogEntry extends AdminChange {
 	reason: string;
 }
 
+/** Góp ý bản beta (Cài đặt → Góp ý): độ dài chữ 3…`FEEDBACK_MAX` ký tự. */
+export const FEEDBACK_MAX = 1000;
+
+export interface FeedbackRequest {
+	text: string;
+	/** Nhân vật đang chơi (nếu có) — máy chủ chỉ nhận khi thuộc đúng tài khoản. */
+	characterId?: string;
+	/** Bản client + nền tảng, để biết góp ý cho bản nào. */
+	build?: number;
+	platform?: string;
+}
+
+/** Một góp ý trong trang quản trị, mới nhất trước. */
+export interface FeedbackEntry {
+	id: number;
+	at: number;
+	username: string;
+	characterName: string | null;
+	text: string;
+	build: number | null;
+	platform: string | null;
+}
+
 // ---- WebSocket --------------------------------------------------------------------------------
 
 /**

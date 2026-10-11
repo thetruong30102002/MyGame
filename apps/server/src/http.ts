@@ -7,9 +7,11 @@ import {
 	validateName,
 	validatePassword,
 	validateUsername,
+	FEEDBACK_MAX,
 	type AuthRequest,
 	type CharacterProgress,
 	type CreateCharacterRequest,
+	type FeedbackRequest,
 	type Gender,
 } from '@aether/protocol';
 import { AdminError, AdminOps } from './adminOps.ts';
@@ -48,6 +50,8 @@ export function createApi(store: Store, admin: AdminOps = new AdminOps(store), c
 	const adminLimit = new RateLimiter(120, 60_000);
 	/** Lần cộng / trừ của mỗi tài khoản quản trị. */
 	const grantLimit = new RateLimiter(30, 60_000);
+	/** Góp ý của mỗi tài khoản: 5 lần / 10 phút. */
+	const feedbackLimit = new RateLimiter(5, 600_000);
 
 	const routes: { method: string; path: RegExp; run: (req: IncomingMessage, m: RegExpMatchArray) => Promise<unknown> }[] = [
 		{ method: 'GET', path: /^\/api\/health$/, run: async () => ({ ok: true }) },
@@ -135,6 +139,24 @@ export function createApi(store: Store, admin: AdminOps = new AdminOps(store), c
 				return { ok: true };
 			},
 		},
+		{
+			// Góp ý bản beta (Cài đặt → Góp ý): cần đăng nhập; chữ 3…FEEDBACK_MAX ký tự; tên nhân vật chỉ lấy khi thuộc đúng tài khoản.
+			method: 'POST',
+			path: /^\/api\/feedback$/,
+			run: async (req) => {
+				const s = auth(req);
+				if (!feedbackLimit.allow(String(s.accountId))) throw new HttpError(429, 'Bạn góp ý nhanh quá, đợi ít phút nhé');
+				const b = await body<FeedbackRequest>(req);
+				const text = String(b.text ?? '').replace(/\r\n?/g, '\n').trim();
+				if (text.length < 3) throw new HttpError(400, 'Góp ý ngắn quá');
+				if (text.length > FEEDBACK_MAX) throw new HttpError(400, `Góp ý tối đa ${FEEDBACK_MAX} ký tự`);
+				const ch = typeof b.characterId === 'string' ? store.character(b.characterId, s.accountId) : null;
+				const build = Number.isFinite(Number(b.build)) && Number(b.build) > 0 ? Math.floor(Number(b.build)) : null;
+				const platform = typeof b.platform === 'string' ? b.platform.slice(0, 24) : null;
+				store.addFeedback(s.accountId, s.username, ch?.name ?? null, text, build, platform);
+				return { ok: true };
+			},
+		},
 		// ———— Trang quản trị (/admin): cộng tiền, điểm cho nhân vật ————
 		{
 			// Chưa đăng nhập → 401 (trang hiện ô đăng nhập); đã đăng nhập thì chỉ cho biết CHÍNH tài khoản này có quyền hay không.
@@ -161,6 +183,15 @@ export function createApi(store: Store, admin: AdminOps = new AdminOps(store), c
 				const s = adminAuth(req);
 				if (!grantLimit.allow(String(s.accountId))) throw new HttpError(429, 'Cộng nhanh quá, đợi một phút');
 				return admin.grant({ id: s.accountId, username: s.username }, await body(req));
+			},
+		},
+		{
+			method: 'GET',
+			path: /^\/api\/admin\/feedback$/,
+			run: async (req) => {
+				adminAuth(req);
+				const n = Math.floor(Number(query(req).get('limit') ?? 100));
+				return store.feedbackList(Number.isFinite(n) ? Math.max(1, Math.min(500, n)) : 100);
 			},
 		},
 		{

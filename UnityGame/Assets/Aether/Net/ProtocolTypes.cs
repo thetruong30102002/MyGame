@@ -146,6 +146,27 @@ namespace Aether.Net
         [JsonProperty("reason", Order = 5)] public string Reason;
     }
 
+    // ---- Góp ý bản beta (Cài đặt → Góp ý) --------------------------------------------------------------------------
+
+    public sealed class FeedbackRequest
+    {
+        [JsonProperty("text")] public string Text;
+        [JsonProperty("characterId", NullValueHandling = NullValueHandling.Ignore)] public string CharacterId;
+        [JsonProperty("build", NullValueHandling = NullValueHandling.Ignore)] public int? Build;
+        [JsonProperty("platform", NullValueHandling = NullValueHandling.Ignore)] public string Platform;
+    }
+
+    public sealed class FeedbackEntry
+    {
+        [JsonProperty("id")] public long Id;
+        [JsonProperty("at")] public long At;
+        [JsonProperty("username")] public string Username;
+        [JsonProperty("characterName")] public string CharacterName;
+        [JsonProperty("text")] public string Text;
+        [JsonProperty("build")] public int? Build;
+        [JsonProperty("platform")] public string Platform;
+    }
+
     // ---- Chiến đấu / đồ gắn ------------------------------------------------------------------------------------------
 
     /// <summary>

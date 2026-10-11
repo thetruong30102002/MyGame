@@ -76,6 +76,7 @@ namespace Aether.Client
             root = (RectTransform)go.transform;
             BuildBackground();
             Rebuild();
+            if (Array.IndexOf(Environment.GetCommandLineArgs(), "-aetherShot") < 0) ShowBetaNotice();
             // Tự cập nhật: có bản mới thì tải + cài ngay (phủ màn đăng nhập), không thì không thấy gì.
             AutoUpdate.Begin(root, PlayerPrefs.GetString(PrefServer, DefaultServer));
         }
@@ -189,6 +190,37 @@ namespace Aether.Client
                 click();
             });
             return rt;
+        }
+
+        /// <summary>
+        /// Thông báo bản beta mỗi lần mở game (chủ dự án 11/10/2026: "đây là bản beta test đồ hoạ game chứ chưa đi vào hoạt động, đừng chê hãy
+        /// góp ý" + chỉ dẫn mục góp ý). Phủ cả màn (chặn bấm phía sau) tới khi bấm Đã hiểu; AutoTest (-aetherShot) bỏ qua.
+        /// </summary>
+        private void ShowBetaNotice()
+        {
+            var veil = UiKit.Stretch(root, "BetaNotice");
+            UiKit.Panel(veil, new Color(0, 0, 0, 0.72f), true);
+            var box = UiKit.Rect(veil, "Card", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(600, 360));
+            UiStyle.Card(box, UiStyle.CardKind.Hud, 18, true, true);
+            var tag = UiKit.Rect(box, "Tag", new Vector2(0.5f, 1), new Vector2(0.5f, 0.5f), new Vector2(0, -34), new Vector2(150, 26));
+            UiStyle.Pill(tag, UiStyle.Hex(0xd4341d), 13);
+            UiKit.Label(UiKit.Stretch(tag, "t"), "BẢN BETA", 14, Color.white, TextAnchor.MiddleCenter, true, false);
+            UiKit.Label(UiKit.Rect(box, "Title", new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -58), new Vector2(540, 34)),
+                "Bản thử nghiệm đồ hoạ", 24, UiStyle.GoldHi, TextAnchor.MiddleCenter, true, true);
+            var body = UiKit.Label(UiKit.Rect(box, "Body", new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -100), new Vector2(536, 150)),
+                "Aether Chronicle đang trong giai đoạn <b>thử nghiệm đồ hoạ</b> — game <b>chưa chính thức đi vào hoạt động</b>. " +
+                "Nhiều hình nhân vật, quái, hiệu ứng và bản đồ vẫn là bản tạm, sẽ được vẽ lại dần.\n\n" +
+                "Đừng chê nhé — hãy <b>góp ý</b> để game tốt hơn! Mọi góp ý đều được đọc.", 15, UiStyle.Parchment, TextAnchor.UpperCenter);
+            body.textWrappingMode = TextWrappingModes.Normal;
+            var hint = UiKit.Rect(box, "Hint", new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(0, 84), new Vector2(536, 40));
+            UiStyle.Pill(hint, new Color(0, 0, 0, 0.35f), 10);
+            UiKit.Label(UiKit.Stretch(hint, "t"), "Góp ý ở: vào game → <color=#ffd166><b>Cài đặt (phím O)</b></color> → tab <color=#ffd166><b>Góp ý</b></color>",
+                14, UiStyle.Parchment, TextAnchor.MiddleCenter, true);
+            var ok = UiKit.Rect(box, "Ok", new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(0, 22), new Vector2(200, 48));
+            UiKit.Sprite(ok, "button", 1.8f, true).color = Color.white;
+            UiKit.Label(UiKit.Stretch(ok, "t"), "Đã hiểu", 18, UiStyle.GoldHi, TextAnchor.MiddleCenter, true, true);
+            UiKit.Press(ok, () => Destroy(veil.gameObject));
+            UiAnim.Appear(box, 0.25f);
         }
 
         // ———————————————————————————— các bước ————————————————————————————

@@ -26,6 +26,7 @@ namespace Aether.Client.UI
             MapWheel();
             if (kind == Kind.Friends && game.SocialVersion != socialDrawn) Refresh();
             else if (kind == Kind.Admin && game.AdminVersion != adminDrawn) Refresh();
+            else if (kind == Kind.Settings && settingsTab == 2 && game.FeedbackVersion != feedbackDrawn) Refresh();
             else if (NeedsRewardsRedraw) Refresh();
         }
 

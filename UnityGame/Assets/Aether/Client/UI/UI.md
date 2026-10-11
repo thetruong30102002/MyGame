@@ -140,3 +140,15 @@ số con, boss, cột dịch chuyển, NPC, lối ra « » ▲ ▼ kèm nơi đ�
 - **Đổi điểm tiềm năng dư** (cột Thuộc tính, 11/10/2026):
   - Khi `game.CanConvert` (còn điểm tiềm năng mà không nhánh nào cộng tiếp được), dòng đầu cột thành nút vàng "Đổi 1 điểm tiềm năng dư → 3 điểm".
   - Nút + của Sức mạnh / Trí tuệ tắt khi đã dùng hết điểm theo cấp, vì điểm đổi ra chỉ vào Máu / MP / Thể lực / Đỡ đòn (`CanAddAttr`).
+
+## Bản beta: thông báo + góp ý (11/10/2026)
+
+Chủ dự án: "thông báo trước khi vào game đây là bản beta test đồ hoạ… đừng chê hãy góp ý, cho 1 ô nhập góp ý ở mục cài đặt".
+
+- **Thông báo** (`LoginScreen.ShowBetaNotice`): phủ màn đăng nhập mỗi lần mở game cho tới khi bấm "Đã hiểu".
+  - Nội dung: thẻ BẢN BETA, lời nhắn "đừng chê — hãy góp ý", chỉ đường "Cài đặt (phím O) → tab Góp ý".
+  - AutoTest (`-aetherShot`) bỏ qua.
+- **Cài đặt → Góp ý** (`Panels.Feedback.cs`, `settingsTab` 2):
+  - Ô nhập nhiều dòng, tối đa 1000 ký tự. Bản nháp giữ khi bảng vẽ lại. Ô nằm trong `adminFields` nên đang gõ thì game không nhận phím.
+  - Gửi `POST /api/feedback`, kèm nhân vật, số bản, nền tảng. Máy chủ chặn 5 lần / 10 phút mỗi tài khoản, lưu bảng `feedback`.
+  - Quản trị thấy thêm cột "Góp ý nhận được" (`GET /api/admin/feedback`, 100 cái mới nhất) và nút Tải lại.

@@ -12,16 +12,21 @@ namespace Aether.Client.UI
         private Vector2Int? pendingRes;
         private FullScreenMode? pendingMode;
 
-        /// <summary>Tab con của Cài đặt: chung (hiển thị + trò chơi) hoặc bảng đổi phím.</summary>
-        private bool settingsKeys;
+        /// <summary>Tab con của Cài đặt: 0 chung (hiển thị + trò chơi), 1 bảng đổi phím, 2 góp ý (bản beta).</summary>
+        private int settingsTab;
         private bool logoutArmed;
 
         private void BuildSettings()
         {
             SettingsTabs();
-            if (settingsKeys)
+            if (settingsTab == 1)
             {
                 BuildKeys();
+                return;
+            }
+            if (settingsTab == 2)
+            {
+                BuildFeedback();
                 return;
             }
             var view = Group(new Vector2(0, -38), "HIỂN THỊ", out var row);

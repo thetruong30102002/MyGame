@@ -37,24 +37,32 @@ namespace Aether.Client.UI
         public void TestSettings(bool keys)
         {
             Show(Kind.Settings);
-            settingsKeys = keys;
+            settingsTab = keys ? 1 : 0;
+            Refresh();
+        }
+
+        /// <summary>Mở thẳng Cài đặt → Góp ý (nút trên thông báo bản beta, AutoTest).</summary>
+        public void ShowFeedback()
+        {
+            Show(Kind.Settings);
+            settingsTab = 2;
             Refresh();
         }
 
         private void SettingsTabs()
         {
-            var tabs = new[] { (false, "Chung"), (true, "Phím") };
+            var tabs = new[] { (0, "Chung"), (1, "Phím"), (2, "Góp ý") };
             for (var i = 0; i < tabs.Length; i += 1)
             {
                 var (keys, label) = tabs[i];
-                var on = keys == settingsKeys;
+                var on = keys == settingsTab;
                 var tab = UiKit.Rect(content, "ST" + i, new Vector2(0, 1), new Vector2(0, 1), new Vector2(i * 128, 0), new Vector2(120, 30));
                 UiStyle.Pill(tab, on ? new Color(0.91f, 0.77f, 0.42f, 0.38f) : new Color(0, 0, 0, 0.35f), 12).raycastTarget = true;
                 Text(tab, "t", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(116, 24), label, 14, on ? UiStyle.GoldHi : UiKit.TextDim, TextAnchor.MiddleCenter, true);
                 var k = keys;
                 UiKit.Press(tab, () =>
                 {
-                    settingsKeys = k;
+                    settingsTab = k;
                     keyCapture = null;
                     Refresh();
                 });
@@ -116,7 +124,7 @@ namespace Aether.Client.UI
         private void UpdateKeyCapture()
         {
             if (!keyCapture.HasValue) return;
-            if (!Open || kind != Kind.Settings || !settingsKeys)
+            if (!Open || kind != Kind.Settings || settingsTab != 1)
             {
                 keyCapture = null;
                 return;

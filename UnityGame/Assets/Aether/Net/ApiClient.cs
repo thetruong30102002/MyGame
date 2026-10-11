@@ -80,6 +80,9 @@ namespace Aether.Net
         public Task SaveProgressAsync(string id, CharacterProgress progress, CancellationToken ct = default) =>
             CallAsync<OkResponse>($"/api/characters/{Uri.EscapeDataString(id)}/progress", HttpMethod.Put, new SaveProgressRequest { Progress = progress }, ct);
 
+        /// <summary>Gửi góp ý bản beta (cần đăng nhập; máy chủ chặn 5 lần / 10 phút).</summary>
+        public Task SendFeedbackAsync(FeedbackRequest req, CancellationToken ct = default) => CallAsync<OkResponse>("/api/feedback", HttpMethod.Post, req, ct);
+
         // ---- Quản trị -------------------------------------------------------------------------------------------------
 
         public Task<AdminMe> AdminMeAsync(CancellationToken ct = default) => CallAsync<AdminMe>("/api/admin/me", HttpMethod.Get, null, ct);
@@ -91,6 +94,9 @@ namespace Aether.Net
 
         public Task<List<AdminLogEntry>> AdminLogAsync(int limit = 50, string characterId = null, CancellationToken ct = default) =>
             CallAsync<List<AdminLogEntry>>($"/api/admin/log?limit={limit}" + (characterId != null ? "&characterId=" + Uri.EscapeDataString(characterId) : ""), HttpMethod.Get, null, ct);
+
+        public Task<List<FeedbackEntry>> AdminFeedbackAsync(int limit = 100, CancellationToken ct = default) =>
+            CallAsync<List<FeedbackEntry>>($"/api/admin/feedback?limit={limit}", HttpMethod.Get, null, ct);
 
         // ---- Lõi ------------------------------------------------------------------------------------------------------
 

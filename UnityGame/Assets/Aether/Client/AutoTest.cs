@@ -796,6 +796,15 @@ namespace Aether.Client
             log.WriteLine($"đổi phím: ô 3 = {KeyBinds.LabelOf(KeyBinds.Act.Slot1)}, phím U thuộc {KeyBinds.Of(KeyCode.U)}, ô 1 = {KeyBinds.LabelOf(KeyBinds.Act.Attack)}");
             KeyBinds.ResetAll();
             log.WriteLine($"khôi phục: ô 3 = {KeyBinds.LabelOf(KeyBinds.Act.Slot1)}");
+            // Cài đặt → Góp ý (bản beta): gửi một góp ý thử (chỉ khi online — DB thử), chụp ô nhập + danh sách (quản trị).
+            hud.Panels.ShowFeedback();
+            yield return new WaitForSeconds(0.4f);
+            if (game.Online) game.SendFeedback("AutoTest: góp ý thử từ bản " + AutoUpdate.LocalBuild);
+            var fw = 0f;
+            while (game.FeedbackBusy && fw < 5) { fw += 0.2f; yield return new WaitForSeconds(0.2f); }
+            yield return new WaitForSeconds(0.6f);
+            log.WriteLine($"góp ý: gửi {(game.FeedbackSent || game.FeedbackError == null ? "được" : "không")} — {game.FeedbackError ?? "ok"}");
+            yield return Shot("ui-feedback");
             // Thư viện dạng sách: trang tựa + mục lục chương 1, một trải trang mục, giữa lúc lật, chương Nhân vật.
             hud.Panels.TestBook(0, 0);
             yield return new WaitForSeconds(0.6f);

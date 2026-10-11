@@ -73,6 +73,15 @@
 			"doc": "ban-quyen.md"
 		},
 		{
+			"id": "beta_feedback",
+			"group": "game",
+			"name": "Bản beta: thông báo + góp ý",
+			"detail": "Thông báo beta ở màn đăng nhập, Cài đặt → Góp ý gửi lên máy chủ, QTV đọc ở cùng tab.",
+			"progress": 100,
+			"pixellab": 0,
+			"doc": "UnityGame/Assets/Aether/Client/UI/UI.md"
+		},
+		{
 			"id": "region8_10",
 			"group": "game",
 			"name": "Vùng 8–10 + 3 rồng + Long Huyệt",

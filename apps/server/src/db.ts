@@ -1,7 +1,7 @@
 import { mkdirSync } from 'node:fs';
 import { dirname } from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
-import type { AdminChange, AdminField, AdminLogEntry, BuffKind, BuffView, CharacterInfo, CharacterProgress, Gender } from '@aether/protocol';
+import type { AdminChange, AdminField, AdminLogEntry, BuffKind, FeedbackEntry, BuffView, CharacterInfo, CharacterProgress, Gender } from '@aether/protocol';
 import type { Eco } from '@aether/sim/economy';
 import { cleanBonusPoints } from '@aether/sim/talents';
 
@@ -160,6 +160,17 @@ export class Store {
 				at INTEGER NOT NULL
 			);
 			CREATE INDEX IF NOT EXISTS admin_log_char ON admin_log(character_id);
+			-- Góp ý bản beta (Cài đặt → Góp ý, 11/10/2026). Giữ sẵn tên để đọc dù tài khoản / nhân vật bị xoá.
+			CREATE TABLE IF NOT EXISTS feedback (
+				id INTEGER PRIMARY KEY,
+				account_id INTEGER NOT NULL,
+				username TEXT NOT NULL,
+				character_name TEXT,
+				text TEXT NOT NULL,
+				build INTEGER,
+				platform TEXT,
+				at INTEGER NOT NULL
+			);
 		`);
 	}
 
@@ -381,6 +392,20 @@ export class Store {
 				: this.db.prepare('SELECT * FROM admin_log ORDER BY id DESC LIMIT ?').all(limit)
 		) as unknown as AdminLogRow[];
 		return rows.map((r) => ({ id: r.id, at: r.at, admin: r.admin, characterId: r.character_id, characterName: r.character_name, field: r.field as AdminField, from: r.from_value, to: r.to_value, reason: r.reason }));
+	}
+
+	// ———— Góp ý ————
+
+	addFeedback(accountId: number, username: string, characterName: string | null, text: string, build: number | null, platform: string | null): void {
+		this.db
+			.prepare('INSERT INTO feedback (account_id, username, character_name, text, build, platform, at) VALUES (?, ?, ?, ?, ?, ?, ?)')
+			.run(accountId, username, characterName, text, build, platform, Date.now());
+	}
+
+	/** Góp ý mới nhất trước. */
+	feedbackList(limit: number): FeedbackEntry[] {
+		const rows = this.db.prepare('SELECT * FROM feedback ORDER BY id DESC LIMIT ?').all(limit) as unknown as FeedbackRow[];
+		return rows.map((r) => ({ id: r.id, at: r.at, username: r.username, characterName: r.character_name, text: r.text, build: r.build, platform: r.platform }));
 	}
 
 	// ———— Xã hội ————
@@ -671,6 +696,17 @@ const ADMIN_ROW_SQL = `SELECT c.id, c.name, a.username AS account, json_extract(
 
 function toAdminRow(r: AdminRow): AdminRow {
 	return { id: r.id, name: r.name, account: r.account, level: r.level, exp: r.exp, coins: r.coins, potions: r.potions, diamonds: Number(r.diamonds) || 0, bonusPoints: cleanBonusPoints(r.bonusPoints) };
+}
+
+interface FeedbackRow {
+	id: number;
+	account_id: number;
+	username: string;
+	character_name: string | null;
+	text: string;
+	build: number | null;
+	platform: string | null;
+	at: number;
 }
 
 interface AdminLogRow {
