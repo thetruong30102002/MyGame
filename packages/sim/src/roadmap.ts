@@ -23,7 +23,7 @@ export interface RoadmapItem {
 export const ROADMAP_UPDATED = '11/10/2026';
 
 export const ROADMAP: readonly RoadmapItem[] = [
-	{ id: 'talents_v4', group: 'game', name: 'Tiềm năng: 1 nguyên tố + lớp + thuộc tính', detail: 'Bản đầu đã chạy; còn: điểm dư của Pháp sư, cân lại số sau khi chơi thử.', progress: 85, pixellab: 0, doc: 'ke-hoach-nguyen-to.md §9' },
+	{ id: 'talents_v4', group: 'game', name: 'Tiềm năng: 1 nguyên tố + lớp + thuộc tính', detail: 'Đã chạy, kể cả đổi điểm tiềm năng dư sang Máu / MP / Thể lực / Đỡ đòn; còn: cân lại số sau khi chơi thử.', progress: 90, pixellab: 0, doc: 'ke-hoach-nguyen-to.md §9' },
 	{ id: 'region1', group: 'game', name: 'Vùng 1 — 12 map', detail: 'Đợt 1 xong; đợt 2 chờ tấm nền G1 / R1 / B1 + 5 món lẻ.', progress: 80, pixellab: 0, doc: 'ke-hoach-the-gioi.md §5.2' },
 	{ id: 'region2_7', group: 'game', name: 'Vùng 2–7 — 74 map', detail: 'Dựng bằng bộ dựng chung, cây riêng từng vùng, thời tiết; còn đồ vật / NPC trạm thật.', progress: 85, pixellab: 0, doc: 'ke-hoach-the-gioi.md §5.3–5.6' },
 	{ id: 'story', group: 'game', name: 'Cốt truyện 7 chương + 10 vị thần', detail: 'Nhiệm vụ đủ, thần / trưởng lão đang dùng hình tạm; còn thần kỹ (bán kim cương).', progress: 70, pixellab: 0, doc: 'cot-truyen-aether.md' },

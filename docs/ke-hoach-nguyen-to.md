@@ -677,7 +677,9 @@ Chủ dự án 11/10/2026:
   - Có nhánh vũ khí riêng.
   - Có MỘT nguyên tố đi kèm, kích hoạt có thời gian, giống Bọc Nguyên Tố.
   - Thêm thuộc tính riêng nếu cần (VD Khéo léo cho cung). Mỗi thuộc tính vẫn chỉ tăng một chỉ số.
-- **Câu hỏi còn mở — điểm tiềm năng dư của Pháp sư.** Cấp 40 có 47 điểm, nhưng Pháp sư chỉ có một nhánh nguyên tố (trần mốc 9 = 25 điểm), nên dư ~22 điểm. Kiếm sĩ thì tiêu hết vào phái. Hướng xử lý cần chốt:
-  - a) Pháp sư có "lưu phái phép" riêng.
-  - b) Đổi điểm tiềm năng dư thành điểm thuộc tính.
-  - c) Thêm nhánh trượng (Aether).
+- **Điểm tiềm năng dư — ĐÃ CHỐT 11/10/2026** (chủ dự án: "dư thì là cộng vào HP và MP, thể lực, phòng thủ").
+  - Pháp sư chỉ có một nhánh nguyên tố (trần mốc 9 = 25 điểm), nên cấp 40 dư ~22 điểm.
+  - Khi KHÔNG còn nhánh nào cộng tiếp, nút "Đổi 1 điểm tiềm năng dư → 3 điểm" hiện ở cột Thuộc tính. Áp cho mọi lớp.
+  - Điểm đổi ra chỉ vào Sinh lực / Linh lực / Đỡ đòn / Thể lực (`TALENT_ATTRS`). Sức mạnh / Trí tuệ chỉ lấy điểm theo cấp.
+  - Số đã đổi lưu `story.attrTalent`. PvP máy chủ trừ khỏi điểm cây, cộng vào thuộc tính. Tẩy điểm xoá luôn.
+  - Lưu ý: khi mốc 10 (tuyệt kỹ) mở ở game thật, điểm đã đổi không tự quay về — người chơi tẩy điểm nếu muốn lấy lại.

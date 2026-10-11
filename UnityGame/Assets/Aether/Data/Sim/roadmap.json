@@ -4,8 +4,8 @@
 			"id": "talents_v4",
 			"group": "game",
 			"name": "Tiềm năng: 1 nguyên tố + lớp + thuộc tính",
-			"detail": "Bản đầu đã chạy; còn: điểm dư của Pháp sư, cân lại số sau khi chơi thử.",
-			"progress": 85,
+			"detail": "Đã chạy, kể cả đổi điểm tiềm năng dư sang Máu / MP / Thể lực / Đỡ đòn; còn: cân lại số sau khi chơi thử.",
+			"progress": 90,
 			"pixellab": 0,
 			"doc": "ke-hoach-nguyen-to.md §9"
 		},

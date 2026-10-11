@@ -26,7 +26,44 @@ namespace Aether.Client
         public Tiers Tiers => combat.Tiers;
         public string HeroPath => combat.Path;
         public double BonusPoints => bonusPoints;
-        public int UnspentPoints => talents.Unspent(combat.Pc.Level, combat.Tiers, bonusPoints);
+        /// <summary>Điểm tiềm năng chưa cộng — đã trừ số điểm đổi sang thuộc tính (`story.attrTalent`).</summary>
+        public int UnspentPoints => talents.Unspent(combat.Pc.Level, combat.Tiers, bonusPoints) - Converted;
+
+        /// <summary>Số điểm tiềm năng đã đổi sang thuộc tính (kẹp theo tổng điểm tiềm năng có).</summary>
+        public int Converted
+        {
+            get
+            {
+                var t = storyState["attrTalent"];
+                var v = t != null && (t.Type == JTokenType.Integer || t.Type == JTokenType.Float) ? (double)t : 0;
+                return Attributes.CleanConverted(v, talents.TalentPoints(combat.Pc.Level, bonusPoints));
+            }
+        }
+
+        /// <summary>
+        /// Đổi được điểm tiềm năng DƯ sang thuộc tính chưa (chủ dự án 11/10/2026: "dư thì cộng vào HP, MP, thể lực, phòng thủ"): còn điểm và
+        /// KHÔNG còn nhánh nào cộng tiếp được (mọi nhánh lớp này dùng đã tới trần / khoá).
+        /// </summary>
+        public bool CanConvert
+        {
+            get
+            {
+                if (InLab || UnspentPoints <= 0) return false;
+                foreach (var b in sim.Branches) if (NextTierCost(b).HasValue) return false;
+                return true;
+            }
+        }
+
+        /// <summary>Đổi 1 điểm tiềm năng dư → <c>ATTR_FROM_TALENT</c> điểm thuộc tính (chỉ vào Máu / MP / Thể lực / Đỡ đòn).</summary>
+        public bool ConvertTalent()
+        {
+            if (!CanConvert) return false;
+            storyState["attrTalent"] = Converted + 1;
+            storyState["talentsV"] = TalentsFormat;
+            SyncAttrs();
+            Save();
+            return true;
+        }
         public bool BranchOpen(string b) => talents.BranchOpen(b, isUnlocked);
         public int? NextTierCost(string b) => talents.NextTierCost(combat.Tiers, b, isUnlocked, combat.Path);
         public int TierOf(string b) => combat.Tiers.TryGetValue(b, out var t) ? (int)t : 0;
@@ -35,6 +72,9 @@ namespace Aether.Client
         /// <summary>Cộng 1 mốc cho nhánh <paramref name="b"/> (đủ điểm, nhánh mở, lớp cho phép, nguyên tố chưa khoá).</summary>
         public bool AddTier(string b)
         {
+            // Luật thuần không biết điểm đã đổi sang thuộc tính — kiểm giá với điểm còn lại thật trước.
+            var cost = NextTierCost(b);
+            if (!cost.HasValue || cost.Value > UnspentPoints) return false;
             var t = new Tiers();
             foreach (var kv in combat.Tiers) t[kv.Key] = kv.Value;
             if (talents.AddTier(combat.Pc.Level, t, b, isUnlocked, bonusPoints, combat.Path) == null) return false;
@@ -118,17 +158,20 @@ namespace Aether.Client
         // ———————————————————————————— điểm thuộc tính ————————————————————————————
 
         /// <summary>Điểm thuộc tính đã cộng (đã kẹp theo cấp).</summary>
-        public Dictionary<string, int> Attrs => AttrRules.Clean(storyState["attrs"], combat.Pc.Level);
+        public Dictionary<string, int> Attrs => AttrRules.Clean(storyState["attrs"], combat.Pc.Level, Converted);
 
-        public int AttrUnspent => AttrRules.Points(combat.Pc.Level) - AttrRules.Spent(Attrs);
+        public int AttrUnspent => AttrRules.Points(combat.Pc.Level, Converted) - AttrRules.Spent(Attrs);
+
+        /// <summary>Cộng được 1 điểm vào <paramref name="k"/> không (Sức mạnh / Trí tuệ chỉ lấy điểm theo cấp).</summary>
+        public bool CanAddAttr(string k) => AttrRules.Add(Attrs, k, combat.Pc.Level, Converted) != null;
 
         /// <summary>Thuộc tính → CombatSystem (máu / MP / phòng thủ / thể lực tối đa, hệ số sát thương kiếm / phép).</summary>
-        private void SyncAttrs() => combat.SetAttrs(AttrRules.Bonus(storyState["attrs"], combat.Pc.Level));
+        private void SyncAttrs() => combat.SetAttrs(AttrRules.Bonus(storyState["attrs"], combat.Pc.Level, Converted));
 
         /// <summary>Cộng 1 điểm vào thuộc tính <paramref name="k"/> nếu còn điểm.</summary>
         public bool AddAttr(string k)
         {
-            var next = AttrRules.Add(Attrs, k, combat.Pc.Level);
+            var next = AttrRules.Add(Attrs, k, combat.Pc.Level, Converted);
             if (next == null) return false;
             var o = new JObject();
             foreach (var kv in next) o[kv.Key] = kv.Value;
@@ -152,7 +195,7 @@ namespace Aether.Client
         /// </summary>
         public bool ResetBuild()
         {
-            if (talents.SpentPoints(combat.Tiers) <= 0 && AttrRules.Spent(Attrs) <= 0)
+            if (talents.SpentPoints(combat.Tiers) <= 0 && AttrRules.Spent(Attrs) <= 0 && Converted <= 0)
             {
                 hud.Toast("Chưa cộng điểm nào để tẩy", "info");
                 return false;
@@ -180,6 +223,7 @@ namespace Aether.Client
             var spent = talents.SpentPoints(combat.Tiers) + AttrRules.Spent(Attrs);
             storyState["talents"] = new JObject();
             storyState["attrs"] = new JObject();
+            storyState.Remove("attrTalent");
             storyState["talentsV"] = TalentsFormat;
             storyState.Remove("enchant");
             storyState.Remove("swordStyle");

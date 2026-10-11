@@ -26,47 +26,79 @@ export const ATTR_INFO: Readonly<Record<AttrId, { name: string; desc: string }>>
 
 export const ATTR_PER_LEVEL = 3;
 
+/**
+ * Điểm tiềm năng DƯ đổi sang thuộc tính (chủ dự án 11/10/2026: "dư thì là cộng vào HP và MP, thể lực, phòng thủ") — Pháp sư chỉ có MỘT
+ * nhánh nguyên tố nên cấp 40 dư ~22 điểm. Chỉ đổi được khi không còn nhánh nào cộng tiếp (client kiểm), mỗi điểm = `ATTR_FROM_TALENT`
+ * điểm thuộc tính, và điểm đổi ra CHỈ vào `TALENT_ATTRS` (Sức mạnh / Trí tuệ chỉ lấy từ điểm theo cấp — không đẩy sát thương lên).
+ * Số điểm đã đổi lưu ở `story.attrTalent` (cùng nhóm trường tiềm năng); tẩy điểm xoá luôn.
+ */
+export const ATTR_FROM_TALENT = 3;
+export const TALENT_ATTRS: readonly AttrId[] = ['vit', 'spi', 'def', 'sta'];
+
 export type Attrs = Partial<Record<AttrId, number>>;
 
-/** Tổng điểm thuộc tính của cấp `level` (cấp 1 = 0). */
-export function attrPoints(level: number): number {
+/** Điểm thuộc tính theo cấp `level` (cấp 1 = 0). */
+export function levelAttrPoints(level: number): number {
 	return Math.max(0, Math.floor(Number(level) || 1) - 1) * ATTR_PER_LEVEL;
+}
+
+/** Kẹp số điểm tiềm năng đã đổi: số nguyên 0…`max` (lạ / vắng = 0). */
+export function cleanConverted(v: unknown, max = Infinity): number {
+	const n = Math.floor(Number(v));
+	return Number.isFinite(n) ? Math.max(0, Math.min(max, n)) : 0;
+}
+
+/** Tổng điểm thuộc tính: theo cấp + `converted` điểm tiềm năng đã đổi × `ATTR_FROM_TALENT`. */
+export function attrPoints(level: number, converted = 0): number {
+	return levelAttrPoints(level) + cleanConverted(converted) * ATTR_FROM_TALENT;
 }
 
 export function attrSpent(a: Attrs): number {
 	return ATTRS.reduce((s, k) => s + Math.max(0, Math.floor(a[k] ?? 0)), 0);
 }
 
+/** Điểm đang ở thuộc tính KHÔNG nhận điểm đổi (Sức mạnh, Trí tuệ) — không được vượt điểm theo cấp. */
+function levelOnlySpent(a: Attrs): number {
+	return ATTRS.filter((k) => !TALENT_ATTRS.includes(k)).reduce((s, k) => s + Math.max(0, Math.floor(a[k] ?? 0)), 0);
+}
+
+/** Bớt `over` điểm từ các khoá `keys`, từ khoá CUỐI lên. */
+function trim(out: Attrs, keys: readonly AttrId[], over: number): void {
+	for (let i = keys.length - 1; i >= 0 && over > 0; i -= 1) {
+		const k = keys[i]!;
+		const cut = Math.min(out[k] ?? 0, over);
+		if (cut > 0) out[k] = (out[k] ?? 0) - cut;
+		if (!out[k]) delete out[k];
+		over -= cut;
+	}
+}
+
 /**
- * Kẹp bản lưu: số nguyên ≥ 0, bỏ khoá lạ; tổng vượt điểm của cấp (bản lưu sửa tay / tụt cấp) thì bớt từ chỉ số CUỐI danh sách lên.
+ * Kẹp bản lưu: số nguyên ≥ 0, bỏ khoá lạ; Sức mạnh + Trí tuệ vượt điểm theo cấp thì bớt (Trí tuệ trước); tổng vượt điểm có (bản lưu sửa
+ * tay / tụt cấp) thì bớt từ thuộc tính CUỐI danh sách lên.
  */
-export function cleanAttrs(raw: unknown, level: number): Attrs {
+export function cleanAttrs(raw: unknown, level: number, converted = 0): Attrs {
 	const src = raw && typeof raw === 'object' ? (raw as Record<string, unknown>) : {};
 	const out: Attrs = {};
 	for (const k of ATTRS) {
 		const v = Math.floor(Number(src[k]));
 		if (Number.isFinite(v) && v > 0) out[k] = v;
 	}
-	let over = attrSpent(out) - attrPoints(level);
-	for (let i = ATTRS.length - 1; i >= 0 && over > 0; i -= 1) {
-		const k = ATTRS[i]!;
-		const cut = Math.min(out[k] ?? 0, over);
-		if (cut > 0) out[k] = (out[k] ?? 0) - cut;
-		if (!out[k]) delete out[k];
-		over -= cut;
-	}
+	trim(out, ATTRS.filter((k) => !TALENT_ATTRS.includes(k)), levelOnlySpent(out) - levelAttrPoints(level));
+	trim(out, ATTRS, attrSpent(out) - attrPoints(level, converted));
 	return out;
 }
 
-/** Cộng 1 điểm vào `k` nếu còn điểm — trả bản mới, hoặc null nếu hết điểm / khoá lạ. */
-export function addAttr(a: Attrs, k: AttrId, level: number): Attrs | null {
-	if (!ATTRS.includes(k) || attrSpent(a) >= attrPoints(level)) return null;
+/** Cộng 1 điểm vào `k` nếu còn điểm — trả bản mới, hoặc null nếu hết điểm / khoá lạ / Sức mạnh–Trí tuệ đã hết phần điểm theo cấp. */
+export function addAttr(a: Attrs, k: AttrId, level: number, converted = 0): Attrs | null {
+	if (!ATTRS.includes(k) || attrSpent(a) >= attrPoints(level, converted)) return null;
+	if (!TALENT_ATTRS.includes(k) && levelOnlySpent(a) >= levelAttrPoints(level)) return null;
 	return { ...a, [k]: Math.max(0, Math.floor(a[k] ?? 0)) + 1 };
 }
 
-/** Phần cộng thêm từ thuộc tính (đã kẹp theo cấp). */
-export function attrBonus(raw: unknown, level: number): { hp: number; mp: number; def: number; stamina: number; sword: number; magic: number } {
-	const a = cleanAttrs(raw, level);
+/** Phần cộng thêm từ thuộc tính (đã kẹp theo cấp + điểm đã đổi). */
+export function attrBonus(raw: unknown, level: number, converted = 0): { hp: number; mp: number; def: number; stamina: number; sword: number; magic: number } {
+	const a = cleanAttrs(raw, level, converted);
 	return {
 		hp: (a.vit ?? 0) * ATTR_PER_POINT.vit,
 		mp: (a.spi ?? 0) * ATTR_PER_POINT.spi,

@@ -1,6 +1,6 @@
 import { inArea, lineSegments, scatterPoints, type Area } from './skillRules.ts';
 import { HERO_SKILLS, isSwordSkill, PATHS, type HeroPath, type SkillDef } from './skills.ts';
-import { attrBonus } from './attributes.ts';
+import { attrBonus, cleanConverted } from './attributes.ts';
 import { BRANCHES, fitTiers, migrateBought, skillScale, talentPoints, tiersFrom, type TalentSpent, type Tiers } from './talents.ts';
 import { REGIONS } from './regions.ts';
 
@@ -56,9 +56,12 @@ export function pvpBuild(level: number, story: unknown, bonusPoints = 0): PvpBui
 		if (Number.isFinite(v) && v > 0) bought[b] = Math.floor(v);
 	}
 	const lv = Math.max(1, Math.floor(Number(level) || 1));
-	const tiers = fitTiers(tiersFrom(migrateBought(bought, s.swordStyle), (id) => unlocked.has(id)), talentPoints(lv, bonusPoints));
+	// Điểm tiềm năng đã đổi sang thuộc tính (`story.attrTalent`) trừ khỏi điểm cho cây, cộng vào điểm thuộc tính.
+	const pts = talentPoints(lv, bonusPoints);
+	const conv = cleanConverted(s.attrTalent, pts);
+	const tiers = fitTiers(tiersFrom(migrateBought(bought, s.swordStyle), (id) => unlocked.has(id)), pts - conv);
 	const path = s.path === 'sword' || s.path === 'mage' ? s.path : 'none';
-	const a = attrBonus(s.attrs, lv);
+	const a = attrBonus(s.attrs, lv, conv);
 	return { level: lv, path, tiers, swordMult: a.sword, magicMult: a.magic, defBonus: a.def };
 }
 

@@ -714,7 +714,7 @@ function toInfo(r: CharacterRow): CharacterInfo {
 }
 
 /** Các trường tiềm năng trong bản lưu truyện (`SaveData` của web) — đi cùng nhau, đổi định dạng là đổi cả nhóm. */
-const TALENT_FIELDS = ['talents', 'talentsV', 'loadout', 'enchant', 'swordStyle', 'attrs'] as const;
+const TALENT_FIELDS = ['talents', 'talentsV', 'loadout', 'enchant', 'swordStyle', 'attrs', 'attrTalent'] as const;
 
 /**
  * Phần tiềm năng KHÔNG bị bản lưu mang định dạng `talentsV` CŨ hơn ghi đè: tab mở từ trước lần triển khai đọc định dạng mới

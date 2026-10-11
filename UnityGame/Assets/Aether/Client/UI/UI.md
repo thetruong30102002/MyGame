@@ -137,3 +137,6 @@ số con, boss, cột dịch chuyển, NPC, lối ra « » ▲ ▼ kèm nơi đ�
   - Hàng trên: tên + cấp + chấm đỏ = điểm tiềm năng + điểm thuộc tính chưa cộng.
   - Ba thanh Máu / MP / Thể lực trải hết bề ngang, có số. Bấm vào khung vẫn mở cửa sổ Nhân vật.
   - Icon Thể lực là tia sét pixel vẽ bằng code (`BoltSprite`), không tốn lượt PixelLab.
+- **Đổi điểm tiềm năng dư** (cột Thuộc tính, 11/10/2026):
+  - Khi `game.CanConvert` (còn điểm tiềm năng mà không nhánh nào cộng tiếp được), dòng đầu cột thành nút vàng "Đổi 1 điểm tiềm năng dư → 3 điểm".
+  - Nút + của Sức mạnh / Trí tuệ tắt khi đã dùng hết điểm theo cấp, vì điểm đổi ra chỉ vào Máu / MP / Thể lực / Đỡ đòn (`CanAddAttr`).

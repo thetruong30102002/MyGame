@@ -7,6 +7,7 @@
 		"def",
 		"sta"
 	],
+	"ATTR_FROM_TALENT": 3,
 	"ATTR_INFO": {
 		"vit": {
 			"name": "Sinh lực",
@@ -41,5 +42,11 @@
 		"int": 0.004,
 		"def": 0.4,
 		"sta": 2
-	}
+	},
+	"TALENT_ATTRS": [
+		"vit",
+		"spi",
+		"def",
+		"sta"
+	]
 }

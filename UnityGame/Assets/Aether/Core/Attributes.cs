@@ -30,6 +30,16 @@ namespace Aether.Core
 
         public int PerLevel => (int)_m["ATTR_PER_LEVEL"];
 
+        /// <summary>Mỗi điểm tiềm năng DƯ đổi được bao nhiêu điểm thuộc tính (ATTR_FROM_TALENT).</summary>
+        public int FromTalent => (int)_m["ATTR_FROM_TALENT"];
+
+        private string[] _talentAttrs;
+
+        /// <summary>Thuộc tính nhận điểm đổi từ tiềm năng (Sinh lực, Linh lực, Đỡ đòn, Thể lực).</summary>
+        public string[] TalentAttrs => _talentAttrs ??= _m["TALENT_ATTRS"].ToObject<string[]>();
+
+        public bool TakesConverted(string k) => Array.IndexOf(TalentAttrs, k) >= 0;
+
         public (string Name, string Desc) Info(string id)
         {
             if (_info == null)
@@ -40,11 +50,43 @@ namespace Aether.Core
             return _info.TryGetValue(id, out var r) ? r : (id, "");
         }
 
-        /// <summary>Tổng điểm thuộc tính của cấp (cấp 1 = 0).</summary>
-        public int Points(double level)
+        /// <summary>Điểm thuộc tính theo cấp (cấp 1 = 0).</summary>
+        public int LevelPoints(double level)
         {
             var lv = Js.IsFinite(level) && level != 0 ? Js.FloorInt(level) : 1;
             return Math.Max(0, lv - 1) * PerLevel;
+        }
+
+        /// <summary>Kẹp số điểm tiềm năng đã đổi: số nguyên 0…max.</summary>
+        public static int CleanConverted(double v, double max = double.PositiveInfinity)
+        {
+            if (!Js.IsFinite(Math.Floor(v))) return 0;
+            return (int)Math.Max(0, Math.Min(max, Math.Floor(v)));
+        }
+
+        /// <summary>Tổng điểm thuộc tính: theo cấp + điểm tiềm năng đã đổi × FromTalent.</summary>
+        public int Points(double level, double converted = 0) => LevelPoints(level) + CleanConverted(converted) * FromTalent;
+
+        private int LevelOnlySpent(IReadOnlyDictionary<string, int> a)
+        {
+            var s = 0;
+            foreach (var k in Ids) if (!TakesConverted(k) && a.TryGetValue(k, out var v)) s += Math.Max(0, v);
+            return s;
+        }
+
+        /// <summary>Bớt <paramref name="over"/> điểm từ các khoá (theo thứ tự Ids, chỉ khoá thoả <paramref name="pick"/>), từ khoá CUỐI lên.</summary>
+        private void Trim(Dictionary<string, int> o, Func<string, bool> pick, int over)
+        {
+            for (var i = Ids.Length - 1; i >= 0 && over > 0; i -= 1)
+            {
+                var k = Ids[i];
+                if (!pick(k)) continue;
+                var cur = o.TryGetValue(k, out var c) ? c : 0;
+                var cut = Math.Min(cur, over);
+                if (cut > 0) o[k] = cur - cut;
+                if (o.TryGetValue(k, out var left) && left == 0) o.Remove(k);
+                over -= cut;
+            }
         }
 
         public int Spent(IReadOnlyDictionary<string, int> a)
@@ -55,7 +97,7 @@ namespace Aether.Core
         }
 
         /// <summary>Kẹp bản lưu: số nguyên ≥ 0, bỏ khoá lạ; tổng vượt điểm của cấp thì bớt từ thuộc tính CUỐI danh sách lên.</summary>
-        public Dictionary<string, int> Clean(JToken raw, double level)
+        public Dictionary<string, int> Clean(JToken raw, double level, double converted = 0)
         {
             var o = new Dictionary<string, int>();
             if (raw is JObject src)
@@ -70,23 +112,16 @@ namespace Aether.Core
                     var f = Math.Floor(v);
                     if (Js.IsFinite(f) && f > 0) o[k] = (int)f;
                 }
-            var over = Spent(o) - Points(level);
-            for (var i = Ids.Length - 1; i >= 0 && over > 0; i -= 1)
-            {
-                var k = Ids[i];
-                var cur = o.TryGetValue(k, out var c) ? c : 0;
-                var cut = Math.Min(cur, over);
-                if (cut > 0) o[k] = cur - cut;
-                if (o.TryGetValue(k, out var left) && left == 0) o.Remove(k);
-                over -= cut;
-            }
+            Trim(o, k => !TakesConverted(k), LevelOnlySpent(o) - LevelPoints(level));
+            Trim(o, _ => true, Spent(o) - Points(level, converted));
             return o;
         }
 
         /// <summary>Cộng 1 điểm vào k nếu còn điểm — trả bản mới, hoặc null nếu hết điểm / khoá lạ.</summary>
-        public Dictionary<string, int> Add(IReadOnlyDictionary<string, int> a, string k, double level)
+        public Dictionary<string, int> Add(IReadOnlyDictionary<string, int> a, string k, double level, double converted = 0)
         {
-            if (Array.IndexOf(Ids, k) < 0 || Spent(a) >= Points(level)) return null;
+            if (Array.IndexOf(Ids, k) < 0 || Spent(a) >= Points(level, converted)) return null;
+            if (!TakesConverted(k) && LevelOnlySpent(a) >= LevelPoints(level)) return null;
             var o = new Dictionary<string, int>();
             foreach (var kv in a) o[kv.Key] = kv.Value;
             o[k] = Math.Max(0, a.TryGetValue(k, out var v) ? v : 0) + 1;
@@ -94,9 +129,9 @@ namespace Aether.Core
         }
 
         /// <summary>Phần cộng thêm (đã kẹp theo cấp).</summary>
-        public AttrBonus Bonus(JToken raw, double level)
+        public AttrBonus Bonus(JToken raw, double level, double converted = 0)
         {
-            var a = Clean(raw, level);
+            var a = Clean(raw, level, converted);
             int g(string k) => a.TryGetValue(k, out var v) ? v : 0;
             var p = PerPoint;
             return new AttrBonus

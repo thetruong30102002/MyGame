@@ -227,12 +227,15 @@ const talents = {
 	assignSlot: loadouts.flatMap((lo) => [-1, 0, 3, 9, 10].flatMap((slot) => [null, 'slash', 'heal', 'meteor'].map((id) => ({ loadout: lo, slot, id, out: assignSlot(lo, slot, id) })))),
 };
 
-const attrRaws: unknown[] = [undefined, null, 'rác', {}, { vit: 3 }, { vit: 2.7, spi: -1, bogus: 9, str: '3' }, { vit: 2, str: 2, sta: 5 }, { vit: 4, def: 4 }, { vit: 10, spi: 5, str: 20, int: 1, def: 5, sta: 3 }, { int: 999 }];
+const attrRaws: unknown[] = [undefined, null, 'rác', {}, { vit: 3 }, { vit: 2.7, spi: -1, bogus: 9, str: '3' }, { vit: 2, str: 2, sta: 5 }, { vit: 4, def: 4 }, { vit: 10, spi: 5, str: 20, int: 1, def: 5, sta: 3 }, { int: 999 }, { str: 20, int: 20, vit: 10 }, { vit: 60, sta: 9 }];
+const convs = [0, 5, 22.7, -2];
 const attributes = {
-	attrPoints: levels.map((level) => ({ level, out: attrPoints(level) })),
-	cleanAttrs: attrRaws.flatMap((raw) => [1, 2, 3, 10, 40].map((level) => ({ raw: raw === undefined ? null : raw, level, out: cleanAttrs(raw, level) }))),
-	addAttr: attrRaws.flatMap((raw) => [...ATTRS, 'bogus'].flatMap((k) => [1, 2, 40].map((level) => ({ raw: raw === undefined ? null : raw, k, level, out: addAttr(cleanAttrs(raw, level), k as never, level) })))),
-	attrBonus: attrRaws.flatMap((raw) => [1, 3, 40, 100].map((level) => ({ raw: raw === undefined ? null : raw, level, out: attrBonus(raw, level) }))),
+	attrPoints: levels.flatMap((level) => convs.map((converted) => ({ level, converted, out: attrPoints(level, converted) }))),
+	cleanAttrs: attrRaws.flatMap((raw) => [1, 2, 3, 10, 40].flatMap((level) => convs.map((converted) => ({ raw: raw === undefined ? null : raw, level, converted, out: cleanAttrs(raw, level, converted) })))),
+	addAttr: attrRaws.flatMap((raw) =>
+		[...ATTRS, 'bogus'].flatMap((k) => [1, 2, 40].flatMap((level) => convs.map((converted) => ({ raw: raw === undefined ? null : raw, k, level, converted, out: addAttr(cleanAttrs(raw, level, converted), k as never, level, converted) })))),
+	),
+	attrBonus: attrRaws.flatMap((raw) => [1, 3, 40, 100].flatMap((level) => convs.map((converted) => ({ raw: raw === undefined ? null : raw, level, converted, out: attrBonus(raw, level, converted) })))),
 };
 
 const doc = { skills, talents, attributes };

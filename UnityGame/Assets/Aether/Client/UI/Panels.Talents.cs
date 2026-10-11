@@ -195,9 +195,31 @@ namespace Aether.Client.UI
             UiStyle.Pill(col, new Color(0, 0, 0, 0.28f), 10);
             var w = TreeW - ColsW - 12;
             Text(col, "H", new Vector2(0, 1), new Vector2(0, 1), new Vector2(10, -6), new Vector2(w - 20, 22), "Thuộc tính", 15, UiStyle.GoldHi, TextAnchor.MiddleLeft, true);
-            Text(col, "P", new Vector2(0, 1), new Vector2(0, 1), new Vector2(10, -28), new Vector2(w - 20, 16),
-                game.InLab ? "phòng Thử chiêu" : left > 0 ? $"<color=#ffd166>{left}</color> điểm chưa cộng · {rules.PerLevel}/cấp" : $"đã cộng hết · {rules.PerLevel} điểm mỗi cấp", 11,
-                UiKit.TextDim, TextAnchor.MiddleLeft);
+            if (game.CanConvert)
+            {
+                // Điểm tiềm năng DƯ (không còn nhánh nào cộng tiếp) → thuộc tính: 1 điểm = FromTalent điểm, chỉ vào Máu / MP / Thể lực / Đỡ đòn.
+                var cv = UiKit.Rect(col, "Convert", new Vector2(0, 1), new Vector2(0, 1), new Vector2(6, -25), new Vector2(w - 12, 22));
+                UiStyle.Pill(cv, UiStyle.GoldHi, 8).raycastTarget = true;
+                var ct = Text(cv, "t", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(w - 18, 20),
+                    $"Đổi 1 điểm tiềm năng dư → {rules.FromTalent} điểm", 11, UiStyle.InkBrown, TextAnchor.MiddleCenter, true);
+                ct.enableAutoSizing = true;
+                ct.fontSizeMin = 8;
+                ct.fontSizeMax = 11;
+                UiKit.Press(cv, () =>
+                {
+                    if (game.ConvertTalent()) Refresh();
+                });
+            }
+            else
+            {
+                var conv = game.Converted > 0 ? $" · đã đổi {game.Converted} điểm tiềm năng" : "";
+                var pt = Text(col, "P", new Vector2(0, 1), new Vector2(0, 1), new Vector2(10, -28), new Vector2(w - 20, 16),
+                    game.InLab ? "phòng Thử chiêu" : left > 0 ? $"<color=#ffd166>{left}</color> điểm chưa cộng{conv}" : $"đã cộng hết · {rules.PerLevel} điểm mỗi cấp{conv}", 11,
+                    UiKit.TextDim, TextAnchor.MiddleLeft);
+                pt.enableAutoSizing = true;
+                pt.fontSizeMin = 8;
+                pt.fontSizeMax = 11;
+            }
             var bonus = game.Combat.Attr;
             var ids = rules.Ids;
             const float rowH = 70;
@@ -214,7 +236,7 @@ namespace Aether.Client.UI
                     TextAnchor.MiddleLeft);
                 var d = Text(row, "D", new Vector2(0, 1), new Vector2(0, 1), new Vector2(8, -40), new Vector2(w - 60, 22), desc, 9, UiKit.TextDim, TextAnchor.UpperLeft);
                 d.textWrappingMode = TextWrappingModes.Normal;
-                var can = left > 0 && !game.InLab;
+                var can = !game.InLab && game.CanAddAttr(k);
                 var plus = UiKit.Rect(row, "Add", new Vector2(1, 0.5f), new Vector2(1, 0.5f), new Vector2(-8, 0), new Vector2(34, 34));
                 UiStyle.Pill(plus, can ? UiStyle.GoldHi : new Color(1, 1, 1, 0.12f), 17).raycastTarget = true;
                 Text(plus, "t", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0, 1), new Vector2(30, 30), "+", 22, can ? UiStyle.InkBrown : UiKit.TextDim, TextAnchor.MiddleCenter, true);

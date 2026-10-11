@@ -264,17 +264,18 @@ namespace Aether.Core.Tests
         {
             var a = new Attributes(TestData.Data);
             var av = V["attributes"];
-            foreach (var x in av["attrPoints"]) Assert.That(a.Points((double)x["level"]), Is.EqualTo((int)x["out"]), x.ToString());
-            foreach (var x in av["cleanAttrs"]) AssertAttrs(a.Clean(x["raw"], (double)x["level"]), x["out"], x.ToString());
+            foreach (var x in av["attrPoints"]) Assert.That(a.Points((double)x["level"], (double)x["converted"]), Is.EqualTo((int)x["out"]), x.ToString());
+            foreach (var x in av["cleanAttrs"]) AssertAttrs(a.Clean(x["raw"], (double)x["level"], (double)x["converted"]), x["out"], x.ToString());
             foreach (var x in av["addAttr"])
             {
-                var r = a.Add(a.Clean(x["raw"], (double)x["level"]), (string)x["k"], (double)x["level"]);
+                var c = (double)x["converted"];
+                var r = a.Add(a.Clean(x["raw"], (double)x["level"], c), (string)x["k"], (double)x["level"], c);
                 if (x["out"].Type == JTokenType.Null) Assert.That(r, Is.Null, x.ToString());
                 else AssertAttrs(r, x["out"], x.ToString());
             }
             foreach (var x in av["attrBonus"])
             {
-                var b = a.Bonus(x["raw"], (double)x["level"]);
+                var b = a.Bonus(x["raw"], (double)x["level"], (double)x["converted"]);
                 var o = x["out"];
                 var ctx = x.ToString();
                 Assert.That(b.Hp, Is.EqualTo((double)o["hp"]).Within(1e-9), ctx);
