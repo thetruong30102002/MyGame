@@ -76,6 +76,11 @@ export function AuthScreen() {
 						{busy ? 'Đang mở cổng…' : mode === 'login' ? 'Vào thế giới' : 'Tạo tài khoản'}
 					</button>
 				</form>
+				{/* Sân tập không cần tài khoản (`/thu-chieu`): thử chiêu các nguyên tố + lưu phái Kiếm trước khi tạo nhân vật. */}
+				<a href="/thu-chieu" className="ui-plank mt-4 flex w-full items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-center text-body font-extrabold text-parchment transition-[filter] hover:brightness-110">
+					<span aria-hidden>⚔</span>
+					Thử chiêu nguyên tố &amp; kiếm phái — không cần tài khoản
+				</a>
 			</div>
 		</Backdrop>
 	);

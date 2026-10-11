@@ -1,0 +1,778 @@
+{
+	"region": "highland",
+	"start": "hub",
+	"maps": {
+		"hub": {
+			"name": "Làng Cối Xay Gió",
+			"width": 2112,
+			"height": 1728,
+			"exits": [
+				{
+					"id": "hub_x1",
+					"to": "tallgrass",
+					"x": 1056,
+					"y": 1704,
+					"label": "Đồi Cỏ Cao · cấp 30–31"
+				},
+				{
+					"id": "hub_x2",
+					"to": "cloudpath",
+					"x": 24,
+					"y": 912,
+					"label": "Đường Lên Đền Mây · cấp 34–35"
+				},
+				{
+					"id": "hub_x3",
+					"to": "hawkcliff",
+					"x": 1056,
+					"y": 24,
+					"label": "Vách Chim Ưng · cấp 36–37"
+				},
+				{
+					"id": "hub_x4",
+					"to": "desert/sunkentemple",
+					"x": 2088,
+					"y": 912,
+					"label": "Đền Vùi Cát · Sa mạc Hồng Cát"
+				}
+			],
+			"spots": [
+				"hub_s",
+				"hub_w",
+				"hub_n",
+				"east_gate",
+				"waystone",
+				"plaza"
+			],
+			"zones": [],
+			"dummies": [],
+			"boss": null
+		},
+		"tallgrass": {
+			"name": "Đồi Cỏ Cao",
+			"width": 2304,
+			"height": 1920,
+			"exits": [
+				{
+					"id": "tallgrass_x1",
+					"to": "hub",
+					"x": 1200,
+					"y": 24,
+					"label": "Làng Cối Xay Gió"
+				},
+				{
+					"id": "tallgrass_x2",
+					"to": "hawkslope",
+					"x": 24,
+					"y": 1296,
+					"label": "Dốc Chim Ưng · cấp 31–32"
+				}
+			],
+			"spots": [
+				"tallgrass_n",
+				"tallgrass_w"
+			],
+			"zones": [
+				{
+					"id": "tallgrass_z1",
+					"monsters": [
+						"mob_wind_wolf_001"
+					],
+					"level": 30
+				},
+				{
+					"id": "tallgrass_z2",
+					"monsters": [
+						"mob_wind_wolf_001"
+					],
+					"level": 30
+				},
+				{
+					"id": "tallgrass_z3",
+					"monsters": [
+						"mob_wind_wolf_001"
+					],
+					"level": 31
+				},
+				{
+					"id": "tallgrass_z4",
+					"monsters": [
+						"mob_wind_wolf_001"
+					],
+					"level": 31
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				30,
+				31
+			]
+		},
+		"hawkslope": {
+			"name": "Dốc Chim Ưng",
+			"width": 2208,
+			"height": 2016,
+			"exits": [
+				{
+					"id": "hawkslope_x1",
+					"to": "tallgrass",
+					"x": 2184,
+					"y": 1056,
+					"label": "Đồi Cỏ Cao · cấp 30–31"
+				},
+				{
+					"id": "hawkslope_x2",
+					"to": "fairyvale",
+					"x": 24,
+					"y": 1152,
+					"label": "Thung Lũng Tiên · cấp 32–33"
+				}
+			],
+			"spots": [
+				"hawkslope_e",
+				"hawkslope_w"
+			],
+			"zones": [
+				{
+					"id": "hawkslope_z1",
+					"monsters": [
+						"mob_hawk_001"
+					],
+					"level": 31
+				},
+				{
+					"id": "hawkslope_z2",
+					"monsters": [
+						"mob_hawk_001"
+					],
+					"level": 31
+				},
+				{
+					"id": "hawkslope_z3",
+					"monsters": [
+						"mob_hawk_001"
+					],
+					"level": 32
+				},
+				{
+					"id": "hawkslope_z4",
+					"monsters": [
+						"mob_hawk_001"
+					],
+					"level": 32
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				31,
+				32
+			]
+		},
+		"fairyvale": {
+			"name": "Thung Lũng Tiên",
+			"width": 2400,
+			"height": 1824,
+			"exits": [
+				{
+					"id": "fairyvale_x1",
+					"to": "hawkslope",
+					"x": 2376,
+					"y": 912,
+					"label": "Dốc Chim Ưng · cấp 31–32"
+				},
+				{
+					"id": "fairyvale_x2",
+					"to": "floatstones",
+					"x": 1104,
+					"y": 24,
+					"label": "Bãi Đá Bay · cấp 33–34"
+				}
+			],
+			"spots": [
+				"fairyvale_e",
+				"fairyvale_n"
+			],
+			"zones": [
+				{
+					"id": "fairyvale_z1",
+					"monsters": [
+						"mob_wind_fairy_001"
+					],
+					"level": 32
+				},
+				{
+					"id": "fairyvale_z2",
+					"monsters": [
+						"mob_wind_fairy_001"
+					],
+					"level": 32
+				},
+				{
+					"id": "fairyvale_z3",
+					"monsters": [
+						"mob_wind_fairy_001"
+					],
+					"level": 33
+				},
+				{
+					"id": "fairyvale_z4",
+					"monsters": [
+						"mob_wind_fairy_001"
+					],
+					"level": 33
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				32,
+				33
+			]
+		},
+		"floatstones": {
+			"name": "Bãi Đá Bay",
+			"width": 2208,
+			"height": 2112,
+			"exits": [
+				{
+					"id": "floatstones_x1",
+					"to": "fairyvale",
+					"x": 1248,
+					"y": 2088,
+					"label": "Thung Lũng Tiên · cấp 32–33"
+				},
+				{
+					"id": "floatstones_x2",
+					"to": "cloudpath",
+					"x": 2184,
+					"y": 1344,
+					"label": "Đường Lên Đền Mây · cấp 34–35"
+				},
+				{
+					"id": "floatstones_x3",
+					"to": "fairyglade",
+					"x": 1344,
+					"y": 24,
+					"label": "Trảng Tiên Gió · cấp 37–38"
+				}
+			],
+			"spots": [
+				"floatstones_s",
+				"floatstones_e",
+				"floatstones_n"
+			],
+			"zones": [
+				{
+					"id": "floatstones_z1",
+					"monsters": [
+						"mob_flying_rock_001"
+					],
+					"level": 33
+				},
+				{
+					"id": "floatstones_z2",
+					"monsters": [
+						"mob_flying_rock_001"
+					],
+					"level": 33
+				},
+				{
+					"id": "floatstones_z3",
+					"monsters": [
+						"mob_flying_rock_001"
+					],
+					"level": 34
+				},
+				{
+					"id": "floatstones_z4",
+					"monsters": [
+						"mob_flying_rock_001"
+					],
+					"level": 34
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				33,
+				34
+			]
+		},
+		"cloudpath": {
+			"name": "Đường Lên Đền Mây",
+			"width": 2496,
+			"height": 1920,
+			"exits": [
+				{
+					"id": "cloudpath_x1",
+					"to": "floatstones",
+					"x": 24,
+					"y": 1152,
+					"label": "Bãi Đá Bay · cấp 33–34"
+				},
+				{
+					"id": "cloudpath_x2",
+					"to": "hub",
+					"x": 2472,
+					"y": 1200,
+					"label": "Làng Cối Xay Gió"
+				},
+				{
+					"id": "cloudpath_x3",
+					"to": "howlridge",
+					"x": 1440,
+					"y": 24,
+					"label": "Sống Đồi Gió Hú · cấp 35–36"
+				}
+			],
+			"spots": [
+				"cloudpath_w",
+				"cloudpath_e",
+				"cloudpath_n"
+			],
+			"zones": [
+				{
+					"id": "cloudpath_z1",
+					"monsters": [
+						"mob_wind_goblin_001"
+					],
+					"level": 34
+				},
+				{
+					"id": "cloudpath_z2",
+					"monsters": [
+						"mob_wind_goblin_001"
+					],
+					"level": 34
+				},
+				{
+					"id": "cloudpath_z3",
+					"monsters": [
+						"mob_wind_goblin_001"
+					],
+					"level": 35
+				},
+				{
+					"id": "cloudpath_z4",
+					"monsters": [
+						"mob_wind_goblin_001"
+					],
+					"level": 35
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				34,
+				35
+			]
+		},
+		"howlridge": {
+			"name": "Sống Đồi Gió Hú",
+			"width": 2304,
+			"height": 2016,
+			"exits": [
+				{
+					"id": "howlridge_x1",
+					"to": "cloudpath",
+					"x": 1200,
+					"y": 1992,
+					"label": "Đường Lên Đền Mây · cấp 34–35"
+				},
+				{
+					"id": "howlridge_x2",
+					"to": "hawkcliff",
+					"x": 2280,
+					"y": 1056,
+					"label": "Vách Chim Ưng · cấp 36–37"
+				},
+				{
+					"id": "howlridge_x3",
+					"to": "fairyglade",
+					"x": 24,
+					"y": 816,
+					"label": "Trảng Tiên Gió · cấp 37–38"
+				}
+			],
+			"spots": [
+				"howlridge_s",
+				"howlridge_e",
+				"howlridge_w"
+			],
+			"zones": [
+				{
+					"id": "howlridge_z1",
+					"monsters": [
+						"mob_wind_wolf_001"
+					],
+					"level": 35
+				},
+				{
+					"id": "howlridge_z2",
+					"monsters": [
+						"mob_wind_wolf_001"
+					],
+					"level": 35
+				},
+				{
+					"id": "howlridge_z3",
+					"monsters": [
+						"mob_wind_wolf_001"
+					],
+					"level": 36
+				},
+				{
+					"id": "howlridge_z4",
+					"monsters": [
+						"mob_wind_wolf_001"
+					],
+					"level": 36
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				35,
+				36
+			]
+		},
+		"hawkcliff": {
+			"name": "Vách Chim Ưng",
+			"width": 2400,
+			"height": 2112,
+			"exits": [
+				{
+					"id": "hawkcliff_x1",
+					"to": "howlridge",
+					"x": 24,
+					"y": 1008,
+					"label": "Sống Đồi Gió Hú · cấp 35–36"
+				},
+				{
+					"id": "hawkcliff_x2",
+					"to": "hub",
+					"x": 1152,
+					"y": 2088,
+					"label": "Làng Cối Xay Gió"
+				}
+			],
+			"spots": [
+				"hawkcliff_w",
+				"hawkcliff_s",
+				"hawkcliff_lair"
+			],
+			"zones": [
+				{
+					"id": "hawkcliff_z1",
+					"monsters": [
+						"mob_hawk_001"
+					],
+					"level": 36
+				},
+				{
+					"id": "hawkcliff_z2",
+					"monsters": [
+						"mob_hawk_001"
+					],
+					"level": 36
+				},
+				{
+					"id": "hawkcliff_z3",
+					"monsters": [
+						"mob_hawk_001"
+					],
+					"level": 37
+				},
+				{
+					"id": "hawkcliff_boss",
+					"monsters": [
+						"boss_storm_eagle_001"
+					],
+					"level": 37
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				36,
+				37
+			]
+		},
+		"fairyglade": {
+			"name": "Trảng Tiên Gió",
+			"width": 2208,
+			"height": 1920,
+			"exits": [
+				{
+					"id": "fairyglade_x1",
+					"to": "howlridge",
+					"x": 2184,
+					"y": 1008,
+					"label": "Sống Đồi Gió Hú · cấp 35–36"
+				},
+				{
+					"id": "fairyglade_x2",
+					"to": "floatstones",
+					"x": 1008,
+					"y": 1896,
+					"label": "Bãi Đá Bay · cấp 33–34"
+				},
+				{
+					"id": "fairyglade_x3",
+					"to": "skyshards",
+					"x": 1296,
+					"y": 24,
+					"label": "Mảnh Trời Vỡ · cấp 38–39"
+				}
+			],
+			"spots": [
+				"fairyglade_e",
+				"fairyglade_s",
+				"fairyglade_n"
+			],
+			"zones": [
+				{
+					"id": "fairyglade_z1",
+					"monsters": [
+						"mob_wind_fairy_001"
+					],
+					"level": 37
+				},
+				{
+					"id": "fairyglade_z2",
+					"monsters": [
+						"mob_wind_fairy_001"
+					],
+					"level": 37
+				},
+				{
+					"id": "fairyglade_z3",
+					"monsters": [
+						"mob_wind_fairy_001"
+					],
+					"level": 38
+				},
+				{
+					"id": "fairyglade_z4",
+					"monsters": [
+						"mob_wind_fairy_001"
+					],
+					"level": 38
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				37,
+				38
+			]
+		},
+		"skyshards": {
+			"name": "Mảnh Trời Vỡ",
+			"width": 2496,
+			"height": 2016,
+			"exits": [
+				{
+					"id": "skyshards_x1",
+					"to": "fairyglade",
+					"x": 1440,
+					"y": 1992,
+					"label": "Trảng Tiên Gió · cấp 37–38"
+				},
+				{
+					"id": "skyshards_x2",
+					"to": "cloudgate",
+					"x": 1584,
+					"y": 24,
+					"label": "Cổng Mây · cấp 39–40"
+				},
+				{
+					"id": "skyshards_x3",
+					"to": "dragonpeak",
+					"x": 2472,
+					"y": 816,
+					"label": "Long Huyệt Tuyệt Vân · rồng · cấp 40"
+				}
+			],
+			"spots": [
+				"skyshards_s",
+				"skyshards_n",
+				"skyshards_e"
+			],
+			"zones": [
+				{
+					"id": "skyshards_z1",
+					"monsters": [
+						"mob_flying_rock_001"
+					],
+					"level": 38
+				},
+				{
+					"id": "skyshards_z2",
+					"monsters": [
+						"mob_flying_rock_001"
+					],
+					"level": 38
+				},
+				{
+					"id": "skyshards_z3",
+					"monsters": [
+						"mob_flying_rock_001"
+					],
+					"level": 39
+				},
+				{
+					"id": "skyshards_z4",
+					"monsters": [
+						"mob_flying_rock_001"
+					],
+					"level": 39
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				38,
+				39
+			]
+		},
+		"cloudgate": {
+			"name": "Cổng Mây",
+			"width": 2304,
+			"height": 2112,
+			"exits": [
+				{
+					"id": "cloudgate_x1",
+					"to": "skyshards",
+					"x": 1392,
+					"y": 2088,
+					"label": "Mảnh Trời Vỡ · cấp 38–39"
+				},
+				{
+					"id": "cloudgate_x2",
+					"to": "cloudtemple",
+					"x": 2280,
+					"y": 1248,
+					"label": "Đền Trên Mây · boss chúa · cấp 40"
+				},
+				{
+					"id": "cloudgate_x3",
+					"to": "tundra/hub",
+					"x": 24,
+					"y": 864,
+					"label": "Lãnh nguyên Băng Giá · vùng 5 · cần cấp 40 + đã hạ Rồng gió"
+				}
+			],
+			"spots": [
+				"cloudgate_s",
+				"cloudgate_e",
+				"cloudgate_gate",
+				"cloudgate_lair"
+			],
+			"zones": [
+				{
+					"id": "cloudgate_z1",
+					"monsters": [
+						"mob_wind_goblin_001"
+					],
+					"level": 39
+				},
+				{
+					"id": "cloudgate_z2",
+					"monsters": [
+						"mob_wind_goblin_001"
+					],
+					"level": 39
+				},
+				{
+					"id": "cloudgate_z3",
+					"monsters": [
+						"mob_wind_goblin_001"
+					],
+					"level": 40
+				},
+				{
+					"id": "cloudgate_boss",
+					"monsters": [
+						"boss_wind_mage_001"
+					],
+					"level": 40
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				39,
+				40
+			]
+		},
+		"cloudtemple": {
+			"name": "Đền Trên Mây",
+			"width": 1536,
+			"height": 1344,
+			"exits": [
+				{
+					"id": "cloudtemple_x1",
+					"to": "cloudgate",
+					"x": 24,
+					"y": 672,
+					"label": "Cổng Mây · cấp 39–40"
+				}
+			],
+			"spots": [
+				"cloudtemple_w",
+				"cloudtemple_lair"
+			],
+			"zones": [
+				{
+					"id": "cloudtemple_boss",
+					"monsters": [
+						"boss_wind_drake_001"
+					],
+					"level": 40
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				40,
+				40
+			]
+		},
+		"dragonpeak": {
+			"name": "Long Huyệt Tuyệt Vân",
+			"width": 1824,
+			"height": 1536,
+			"exits": [
+				{
+					"id": "dragonpeak_x1",
+					"to": "skyshards",
+					"x": 24,
+					"y": 672,
+					"label": "Mảnh Trời Vỡ · cấp 38–39"
+				}
+			],
+			"spots": [
+				"dragonpeak_w",
+				"dragonpeak_lair"
+			],
+			"zones": [
+				{
+					"id": "dragonpeak_boss",
+					"monsters": [
+						"dragon_wind_001"
+					],
+					"level": 40
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				40,
+				40
+			]
+		}
+	}
+}

@@ -414,12 +414,15 @@ export interface PlayerView {
 	anim: string;
 	/** Đồ gắn đang mặc (`GearView`). Máy chủ bản cũ không có → thiếu trường = không vẽ lớp đồ. */
 	gear?: GearView;
+	/** Máu hiện tại / tối đa (máy người chơi báo kèm gói vị trí — để người khác vẽ thanh máu trong PvP). Vắng = client bản cũ. */
+	hp?: number;
+	hpMax?: number;
 }
 
 export type ClientMessage =
 	/** Tin đầu tiên sau khi mở kết nối: xác thực bằng token phiên (không đặt token trên URL để khỏi lọt vào log). */
 	| { t: 'hello'; token: string; character: string }
-	| { t: 'move'; x: number; y: number; dir: string; anim: string; sprite: string }
+	| { t: 'move'; x: number; y: number; dir: string; anim: string; sprite: string; hp?: number; hpMax?: number }
 	| { t: 'chat'; text: string; ch?: ChatChannel }
 	/**
 	 * Vừa tung đòn: máy khác chỉ phát động tác + hình của chiêu, không có sát thương. `fx` (tuỳ chọn): phần chiêu để vẽ lại hiệu
@@ -482,14 +485,16 @@ export type ClientMessage =
 	/** Tiêu `amount` xu (`reason`: tẩy điểm, dịch chuyển…). */
 	| { t: 'spend'; reason: string; amount: number }
 	/** Uống một bình hồi phục. */
-	| { t: 'potion' };
+	| { t: 'potion' }
+	/** PvP: mình vừa gục vì người chơi `by` (máy chủ chỉ nhận khi `by` vừa đánh trúng mình — `@aether/sim/pvp`). */
+	| { t: 'pvpDown'; by: string };
 
 export type ServerMessage =
 	| { t: 'welcome'; you: string; players: PlayerView[] }
 	| { t: 'join'; player: PlayerView }
 	| { t: 'leave'; id: string }
 	/** Chỉ gồm người chơi có thay đổi kể từ ảnh chụp trước. */
-	| { t: 'snapshot'; players: Pick<PlayerView, 'id' | 'x' | 'y' | 'dir' | 'anim' | 'sprite' | 'level'>[] }
+	| { t: 'snapshot'; players: Pick<PlayerView, 'id' | 'x' | 'y' | 'dir' | 'anim' | 'sprite' | 'level' | 'hp' | 'hpMax'>[] }
 	| { t: 'chat'; from: string; name: string; text: string; at: number; ch?: ChatChannel }
 	| { t: 'system'; text: string }
 	/** `fx` chỉ có khi mã chiêu có thật và phần chiêu hợp lệ (máy chủ đã chuẩn hoá + kẹp điểm nhắm quanh người gửi). */
@@ -536,4 +541,11 @@ export type ServerMessage =
 	 * `reason: 'admin'`, `what` = lý do). `bonusPoints`: điểm tiềm năng thưởng — gửi lúc vào game và khi quản trị đổi; vắng = không đổi
 	 * (client bản cũ bỏ qua trường này).
 	 */
-	| { t: 'eco'; level: number; exp: number; coins: number; potions: number; gain?: EcoGain; bonusPoints?: number };
+	| { t: 'eco'; level: number; exp: number; coins: number; potions: number; gain?: EcoGain; bonusPoints?: number }
+	/**
+	 * PvP: chiêu của `from` trúng `to` — MÁY CHỦ tính trúng + sát thương (`@aether/sim/pvp`). Gửi mọi người cùng map: máy `to` trừ máu
+	 * (tự xét miễn thương / thế đỡ), máy khác chỉ vẽ số + hình trúng. (kx, ky): hướng đẩy (đơn vị) từ người đánh.
+	 */
+	| { t: 'pvpHit'; from: string; to: string; skill: string; dmg: number; crit?: true; kx: number; ky: number }
+	/** PvP: `by` hạ gục `to` (dòng thông báo cho cả map). */
+	| { t: 'pvpKill'; by: string; byName: string; to: string; toName: string };

@@ -1,0 +1,14 @@
+{
+    "name": "Aether.Client",
+    "rootNamespace": "Aether.Client",
+    "references": ["Aether.Core", "Aether.Data", "Aether.Net", "UnityEngine.UI", "Unity.TextMeshPro", "LitMotion", "LitMotion.Extensions"],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": ["Newtonsoft.Json.dll"],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

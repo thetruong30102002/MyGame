@@ -78,5 +78,10 @@
 		"SW",
 		"NW"
 	],
-	"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 160px; ảnh mẫu nét = Quỷ vương. Vùng 5. Mô tả: a giant ice guardian lion-dog boss facing the viewer, an Asian temple guardian foo dog carved from translucent deep glacier-teal ice, standing on four sturdy legs, huge curly scroll-shaped mane and a big curly scroll-shaped tail of frosted ice, bulging glowing white eyes and a wide fanged grin, carved cloud swirl patterns on its chest, faint dark shadowy shapes frozen inside its ice body, a rusty brass machine spike jutting up from between its shoulders above its head, thin glowing red threads trailing from the spike. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 220px."
+	"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 160px; ảnh mẫu nét = Quỷ vương. Vùng 5. Mô tả: a giant ice guardian lion-dog boss facing the viewer, an Asian temple guardian foo dog carved from translucent deep glacier-teal ice, standing on four sturdy legs, huge curly scroll-shaped mane and a big curly scroll-shaped tail of frosted ice, bulging glowing white eyes and a wide fanged grin, carved cloud swirl patterns on its chest, faint dark shadowy shapes frozen inside its ice body, a rusty brass machine spike jutting up from between its shoulders above its head, thin glowing red threads trailing from the spike. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 220px.",
+	"review": {
+		"status": "approved",
+		"date": "10/10/2026",
+		"notes": "Duyệt bằng mắt (Claude, phiên chuyển Unity): ảnh giữa idle/walk hướng S/E/N + trọn attack E/S + death E từ contact sheet. Chủ dự án báo đã vẽ xong chiêu quái/boss trên PixelLab; đối chiếu bản tải lại 10/10/2026 khớp bản trên máy. Death gần như không ngã — yếu, vẽ lại khi rảnh."
+	}
 }

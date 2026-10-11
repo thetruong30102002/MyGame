@@ -90,5 +90,10 @@
 		"SW",
 		"NW"
 	],
-	"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template mannequin, khổ vẽ 112px; ảnh mẫu nét = Quỷ vương. Vùng 7. Mô tả: a sorrowful ghost sea captain boss facing the viewer, translucent sickly sea-green spectral body with legs fading into faint wisps below the knees, tattered long navy captain's coat with tarnished silver buttons and a silver seagull badge, battered tricorn hat, grey beard dripping seawater, sad dim lantern-yellow glowing eyes, holding a warm glowing brass ship lantern with a dim yellow flame in one hand and a rusted cutlass lowered in the other, strands of seaweed hanging from his coat. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 156px."
+	"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template mannequin, khổ vẽ 112px; ảnh mẫu nét = Quỷ vương. Vùng 7. Mô tả: a sorrowful ghost sea captain boss facing the viewer, translucent sickly sea-green spectral body with legs fading into faint wisps below the knees, tattered long navy captain's coat with tarnished silver buttons and a silver seagull badge, battered tricorn hat, grey beard dripping seawater, sad dim lantern-yellow glowing eyes, holding a warm glowing brass ship lantern with a dim yellow flame in one hand and a rusted cutlass lowered in the other, strands of seaweed hanging from his coat. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 156px.",
+	"review": {
+		"status": "approved",
+		"date": "10/10/2026",
+		"notes": "Duyệt bằng mắt (Claude, phiên chuyển Unity): ảnh giữa idle/walk hướng S/E/N + trọn attack E/S + death E từ contact sheet. Chủ dự án báo đã vẽ xong chiêu quái/boss trên PixelLab; đối chiếu bản tải lại 10/10/2026 khớp bản trên máy."
+	}
 }

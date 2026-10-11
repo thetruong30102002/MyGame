@@ -1,0 +1,737 @@
+{
+	"region": "swamp",
+	"start": "hub",
+	"maps": {
+		"hub": {
+			"name": "Làng nhà sàn Lau Xám",
+			"width": 2112,
+			"height": 1728,
+			"exits": [
+				{
+					"id": "hub_x1",
+					"to": "reedbank",
+					"x": 960,
+					"y": 1704,
+					"label": "Bãi Lau Sậy · cấp 10–11"
+				},
+				{
+					"id": "hub_x2",
+					"to": "mistshore",
+					"x": 24,
+					"y": 1008,
+					"label": "Bờ Sương · cấp 14–15"
+				},
+				{
+					"id": "hub_x3",
+					"to": "leechcanal",
+					"x": 960,
+					"y": 24,
+					"label": "Kênh Đỉa · cấp 16–17"
+				},
+				{
+					"id": "hub_x4",
+					"to": "human/rivergate",
+					"x": 2088,
+					"y": 1008,
+					"label": "Hẻm Cửa Sông · Thung lũng Thistlewood"
+				}
+			],
+			"spots": [
+				"hub_s",
+				"hub_w",
+				"hub_n",
+				"east_gate",
+				"waystone",
+				"plaza"
+			],
+			"zones": [],
+			"dummies": [],
+			"boss": null
+		},
+		"reedbank": {
+			"name": "Bãi Lau Sậy",
+			"width": 2304,
+			"height": 1920,
+			"exits": [
+				{
+					"id": "reedbank_x1",
+					"to": "hub",
+					"x": 1008,
+					"y": 24,
+					"label": "Làng nhà sàn Lau Xám"
+				},
+				{
+					"id": "reedbank_x2",
+					"to": "leechditch",
+					"x": 24,
+					"y": 768,
+					"label": "Mương Đỉa · cấp 11–12"
+				}
+			],
+			"spots": [
+				"reedbank_n",
+				"reedbank_w"
+			],
+			"zones": [
+				{
+					"id": "reedbank_z1",
+					"monsters": [
+						"mob_poison_frog_001"
+					],
+					"level": 10
+				},
+				{
+					"id": "reedbank_z2",
+					"monsters": [
+						"mob_poison_frog_001"
+					],
+					"level": 10
+				},
+				{
+					"id": "reedbank_z3",
+					"monsters": [
+						"mob_poison_frog_001"
+					],
+					"level": 11
+				},
+				{
+					"id": "reedbank_z4",
+					"monsters": [
+						"mob_poison_frog_001"
+					],
+					"level": 11
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				10,
+				11
+			]
+		},
+		"leechditch": {
+			"name": "Mương Đỉa",
+			"width": 2208,
+			"height": 2016,
+			"exits": [
+				{
+					"id": "leechditch_x1",
+					"to": "reedbank",
+					"x": 2184,
+					"y": 864,
+					"label": "Bãi Lau Sậy · cấp 10–11"
+				},
+				{
+					"id": "leechditch_x2",
+					"to": "mushroomwood",
+					"x": 24,
+					"y": 1008,
+					"label": "Rừng Ngập Nấm · cấp 12–13"
+				}
+			],
+			"spots": [
+				"leechditch_e",
+				"leechditch_w"
+			],
+			"zones": [
+				{
+					"id": "leechditch_z1",
+					"monsters": [
+						"mob_swamp_leech_001"
+					],
+					"level": 11
+				},
+				{
+					"id": "leechditch_z2",
+					"monsters": [
+						"mob_swamp_leech_001"
+					],
+					"level": 11
+				},
+				{
+					"id": "leechditch_z3",
+					"monsters": [
+						"mob_swamp_leech_001"
+					],
+					"level": 12
+				},
+				{
+					"id": "leechditch_z4",
+					"monsters": [
+						"mob_swamp_leech_001"
+					],
+					"level": 12
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				11,
+				12
+			]
+		},
+		"mushroomwood": {
+			"name": "Rừng Ngập Nấm",
+			"width": 2400,
+			"height": 1824,
+			"exits": [
+				{
+					"id": "mushroomwood_x1",
+					"to": "leechditch",
+					"x": 2376,
+					"y": 768,
+					"label": "Mương Đỉa · cấp 11–12"
+				},
+				{
+					"id": "mushroomwood_x2",
+					"to": "snakefen",
+					"x": 1344,
+					"y": 24,
+					"label": "Đầm Rắn Nước · cấp 13–14"
+				}
+			],
+			"spots": [
+				"mushroomwood_e",
+				"mushroomwood_n"
+			],
+			"zones": [
+				{
+					"id": "mushroomwood_z1",
+					"monsters": [
+						"mob_glow_mushroom_001"
+					],
+					"level": 12
+				},
+				{
+					"id": "mushroomwood_z2",
+					"monsters": [
+						"mob_glow_mushroom_001"
+					],
+					"level": 12
+				},
+				{
+					"id": "mushroomwood_z3",
+					"monsters": [
+						"mob_glow_mushroom_001"
+					],
+					"level": 13
+				},
+				{
+					"id": "mushroomwood_z4",
+					"monsters": [
+						"mob_glow_mushroom_001"
+					],
+					"level": 13
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				12,
+				13
+			]
+		},
+		"snakefen": {
+			"name": "Đầm Rắn Nước",
+			"width": 2208,
+			"height": 2112,
+			"exits": [
+				{
+					"id": "snakefen_x1",
+					"to": "mushroomwood",
+					"x": 912,
+					"y": 2088,
+					"label": "Rừng Ngập Nấm · cấp 12–13"
+				},
+				{
+					"id": "snakefen_x2",
+					"to": "mistshore",
+					"x": 2184,
+					"y": 1008,
+					"label": "Bờ Sương · cấp 14–15"
+				},
+				{
+					"id": "snakefen_x3",
+					"to": "glowhollow",
+					"x": 1344,
+					"y": 24,
+					"label": "Hõm Nấm Sáng · cấp 17–18"
+				}
+			],
+			"spots": [
+				"snakefen_s",
+				"snakefen_e",
+				"snakefen_n"
+			],
+			"zones": [
+				{
+					"id": "snakefen_z1",
+					"monsters": [
+						"mob_water_snake_001"
+					],
+					"level": 13
+				},
+				{
+					"id": "snakefen_z2",
+					"monsters": [
+						"mob_water_snake_001"
+					],
+					"level": 13
+				},
+				{
+					"id": "snakefen_z3",
+					"monsters": [
+						"mob_water_snake_001"
+					],
+					"level": 14
+				},
+				{
+					"id": "snakefen_z4",
+					"monsters": [
+						"mob_water_snake_001"
+					],
+					"level": 14
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				13,
+				14
+			]
+		},
+		"mistshore": {
+			"name": "Bờ Sương",
+			"width": 2496,
+			"height": 1920,
+			"exits": [
+				{
+					"id": "mistshore_x1",
+					"to": "snakefen",
+					"x": 24,
+					"y": 1008,
+					"label": "Đầm Rắn Nước · cấp 13–14"
+				},
+				{
+					"id": "mistshore_x2",
+					"to": "hub",
+					"x": 2472,
+					"y": 1200,
+					"label": "Làng nhà sàn Lau Xám"
+				},
+				{
+					"id": "mistshore_x3",
+					"to": "reedmarsh",
+					"x": 1344,
+					"y": 24,
+					"label": "Lau Sậy Ngập · cấp 15–16"
+				}
+			],
+			"spots": [
+				"mistshore_w",
+				"mistshore_e",
+				"mistshore_n"
+			],
+			"zones": [
+				{
+					"id": "mistshore_z1",
+					"monsters": [
+						"mob_mud_merfolk_001"
+					],
+					"level": 14
+				},
+				{
+					"id": "mistshore_z2",
+					"monsters": [
+						"mob_mud_merfolk_001"
+					],
+					"level": 14
+				},
+				{
+					"id": "mistshore_z3",
+					"monsters": [
+						"mob_mud_merfolk_001"
+					],
+					"level": 15
+				},
+				{
+					"id": "mistshore_z4",
+					"monsters": [
+						"mob_mud_merfolk_001"
+					],
+					"level": 15
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				14,
+				15
+			]
+		},
+		"reedmarsh": {
+			"name": "Lau Sậy Ngập",
+			"width": 2304,
+			"height": 2016,
+			"exits": [
+				{
+					"id": "reedmarsh_x1",
+					"to": "mistshore",
+					"x": 1152,
+					"y": 1992,
+					"label": "Bờ Sương · cấp 14–15"
+				},
+				{
+					"id": "reedmarsh_x2",
+					"to": "leechcanal",
+					"x": 2280,
+					"y": 1248,
+					"label": "Kênh Đỉa · cấp 16–17"
+				},
+				{
+					"id": "reedmarsh_x3",
+					"to": "glowhollow",
+					"x": 24,
+					"y": 1104,
+					"label": "Hõm Nấm Sáng · cấp 17–18"
+				}
+			],
+			"spots": [
+				"reedmarsh_s",
+				"reedmarsh_e",
+				"reedmarsh_w"
+			],
+			"zones": [
+				{
+					"id": "reedmarsh_z1",
+					"monsters": [
+						"mob_poison_frog_001"
+					],
+					"level": 15
+				},
+				{
+					"id": "reedmarsh_z2",
+					"monsters": [
+						"mob_poison_frog_001"
+					],
+					"level": 15
+				},
+				{
+					"id": "reedmarsh_z3",
+					"monsters": [
+						"mob_poison_frog_001"
+					],
+					"level": 16
+				},
+				{
+					"id": "reedmarsh_z4",
+					"monsters": [
+						"mob_poison_frog_001"
+					],
+					"level": 16
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				15,
+				16
+			]
+		},
+		"leechcanal": {
+			"name": "Kênh Đỉa",
+			"width": 2400,
+			"height": 2112,
+			"exits": [
+				{
+					"id": "leechcanal_x1",
+					"to": "reedmarsh",
+					"x": 24,
+					"y": 1008,
+					"label": "Lau Sậy Ngập · cấp 15–16"
+				},
+				{
+					"id": "leechcanal_x2",
+					"to": "hub",
+					"x": 960,
+					"y": 2088,
+					"label": "Làng nhà sàn Lau Xám"
+				}
+			],
+			"spots": [
+				"leechcanal_w",
+				"leechcanal_s",
+				"leechcanal_lair"
+			],
+			"zones": [
+				{
+					"id": "leechcanal_z1",
+					"monsters": [
+						"mob_swamp_leech_001"
+					],
+					"level": 16
+				},
+				{
+					"id": "leechcanal_z2",
+					"monsters": [
+						"mob_swamp_leech_001"
+					],
+					"level": 16
+				},
+				{
+					"id": "leechcanal_z3",
+					"monsters": [
+						"mob_swamp_leech_001"
+					],
+					"level": 17
+				},
+				{
+					"id": "leechcanal_boss",
+					"monsters": [
+						"boss_mother_frog_001"
+					],
+					"level": 17
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				16,
+				17
+			]
+		},
+		"glowhollow": {
+			"name": "Hõm Nấm Sáng",
+			"width": 2208,
+			"height": 1920,
+			"exits": [
+				{
+					"id": "glowhollow_x1",
+					"to": "reedmarsh",
+					"x": 2184,
+					"y": 1152,
+					"label": "Lau Sậy Ngập · cấp 15–16"
+				},
+				{
+					"id": "glowhollow_x2",
+					"to": "snakefen",
+					"x": 1200,
+					"y": 1896,
+					"label": "Đầm Rắn Nước · cấp 13–14"
+				},
+				{
+					"id": "glowhollow_x3",
+					"to": "serpentpool",
+					"x": 912,
+					"y": 24,
+					"label": "Vũng Rắn Già · cấp 18–19"
+				}
+			],
+			"spots": [
+				"glowhollow_e",
+				"glowhollow_s",
+				"glowhollow_n"
+			],
+			"zones": [
+				{
+					"id": "glowhollow_z1",
+					"monsters": [
+						"mob_glow_mushroom_001"
+					],
+					"level": 17
+				},
+				{
+					"id": "glowhollow_z2",
+					"monsters": [
+						"mob_glow_mushroom_001"
+					],
+					"level": 17
+				},
+				{
+					"id": "glowhollow_z3",
+					"monsters": [
+						"mob_glow_mushroom_001"
+					],
+					"level": 18
+				},
+				{
+					"id": "glowhollow_z4",
+					"monsters": [
+						"mob_glow_mushroom_001"
+					],
+					"level": 18
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				17,
+				18
+			]
+		},
+		"serpentpool": {
+			"name": "Vũng Rắn Già",
+			"width": 2496,
+			"height": 2016,
+			"exits": [
+				{
+					"id": "serpentpool_x1",
+					"to": "glowhollow",
+					"x": 1392,
+					"y": 1992,
+					"label": "Hõm Nấm Sáng · cấp 17–18"
+				},
+				{
+					"id": "serpentpool_x2",
+					"to": "mistchasm",
+					"x": 1296,
+					"y": 24,
+					"label": "Vực Sương Xanh · cấp 19–20"
+				}
+			],
+			"spots": [
+				"serpentpool_s",
+				"serpentpool_n"
+			],
+			"zones": [
+				{
+					"id": "serpentpool_z1",
+					"monsters": [
+						"mob_water_snake_001"
+					],
+					"level": 18
+				},
+				{
+					"id": "serpentpool_z2",
+					"monsters": [
+						"mob_water_snake_001"
+					],
+					"level": 18
+				},
+				{
+					"id": "serpentpool_z3",
+					"monsters": [
+						"mob_water_snake_001"
+					],
+					"level": 19
+				},
+				{
+					"id": "serpentpool_z4",
+					"monsters": [
+						"mob_water_snake_001"
+					],
+					"level": 19
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				18,
+				19
+			]
+		},
+		"mistchasm": {
+			"name": "Vực Sương Xanh",
+			"width": 2304,
+			"height": 2112,
+			"exits": [
+				{
+					"id": "mistchasm_x1",
+					"to": "serpentpool",
+					"x": 1440,
+					"y": 2088,
+					"label": "Vũng Rắn Già · cấp 18–19"
+				},
+				{
+					"id": "mistchasm_x2",
+					"to": "hydralake",
+					"x": 2280,
+					"y": 912,
+					"label": "Hồ Hydra · boss chúa · cấp 20"
+				},
+				{
+					"id": "mistchasm_x3",
+					"to": "desert/hub",
+					"x": 24,
+					"y": 1104,
+					"label": "Sa mạc Hồng Cát · vùng 3 · cần cấp 20 + đã hạ Hydra bùn"
+				}
+			],
+			"spots": [
+				"mistchasm_s",
+				"mistchasm_e",
+				"mistchasm_gate",
+				"mistchasm_lair"
+			],
+			"zones": [
+				{
+					"id": "mistchasm_z1",
+					"monsters": [
+						"mob_mud_merfolk_001"
+					],
+					"level": 19
+				},
+				{
+					"id": "mistchasm_z2",
+					"monsters": [
+						"mob_mud_merfolk_001"
+					],
+					"level": 19
+				},
+				{
+					"id": "mistchasm_z3",
+					"monsters": [
+						"mob_mud_merfolk_001"
+					],
+					"level": 20
+				},
+				{
+					"id": "mistchasm_boss",
+					"monsters": [
+						"boss_swamp_witch_001"
+					],
+					"level": 20
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				19,
+				20
+			]
+		},
+		"hydralake": {
+			"name": "Hồ Hydra",
+			"width": 1536,
+			"height": 1344,
+			"exits": [
+				{
+					"id": "hydralake_x1",
+					"to": "mistchasm",
+					"x": 24,
+					"y": 768,
+					"label": "Vực Sương Xanh · cấp 19–20"
+				}
+			],
+			"spots": [
+				"hydralake_w",
+				"hydralake_lair"
+			],
+			"zones": [
+				{
+					"id": "hydralake_boss",
+					"monsters": [
+						"boss_mud_hydra_001"
+					],
+					"level": 20
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				20,
+				20
+			]
+		}
+	}
+}

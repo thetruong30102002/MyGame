@@ -1,0 +1,778 @@
+{
+	"region": "volcano",
+	"start": "hub",
+	"maps": {
+		"hub": {
+			"name": "Pháo đài Đe Đỏ",
+			"width": 2112,
+			"height": 1728,
+			"exits": [
+				{
+					"id": "hub_x1",
+					"to": "blackrock",
+					"x": 1056,
+					"y": 1704,
+					"label": "Bãi Đá Đen · cấp 50–51"
+				},
+				{
+					"id": "hub_x2",
+					"to": "crater",
+					"x": 24,
+					"y": 912,
+					"label": "Miệng Núi · cấp 54–55"
+				},
+				{
+					"id": "hub_x3",
+					"to": "lavariver",
+					"x": 1056,
+					"y": 24,
+					"label": "Sông Dung Nham · cấp 56–57"
+				},
+				{
+					"id": "hub_x4",
+					"to": "tundra/frozenhollow",
+					"x": 2088,
+					"y": 912,
+					"label": "Thung Băng Lặng · Lãnh nguyên Băng Giá"
+				}
+			],
+			"spots": [
+				"hub_s",
+				"hub_w",
+				"hub_n",
+				"east_gate",
+				"waystone",
+				"plaza"
+			],
+			"zones": [],
+			"dummies": [],
+			"boss": null
+		},
+		"blackrock": {
+			"name": "Bãi Đá Đen",
+			"width": 2304,
+			"height": 1920,
+			"exits": [
+				{
+					"id": "blackrock_x1",
+					"to": "hub",
+					"x": 1248,
+					"y": 24,
+					"label": "Pháo đài Đe Đỏ"
+				},
+				{
+					"id": "blackrock_x2",
+					"to": "lavaford",
+					"x": 24,
+					"y": 960,
+					"label": "Bến Dung Nham · cấp 51–52"
+				}
+			],
+			"spots": [
+				"blackrock_n",
+				"blackrock_w"
+			],
+			"zones": [
+				{
+					"id": "blackrock_z1",
+					"monsters": [
+						"mob_lava_lizard_001"
+					],
+					"level": 50
+				},
+				{
+					"id": "blackrock_z2",
+					"monsters": [
+						"mob_lava_lizard_001"
+					],
+					"level": 50
+				},
+				{
+					"id": "blackrock_z3",
+					"monsters": [
+						"mob_lava_lizard_001"
+					],
+					"level": 51
+				},
+				{
+					"id": "blackrock_z4",
+					"monsters": [
+						"mob_lava_lizard_001"
+					],
+					"level": 51
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				50,
+				51
+			]
+		},
+		"lavaford": {
+			"name": "Bến Dung Nham",
+			"width": 2208,
+			"height": 2016,
+			"exits": [
+				{
+					"id": "lavaford_x1",
+					"to": "blackrock",
+					"x": 2184,
+					"y": 1296,
+					"label": "Bãi Đá Đen · cấp 50–51"
+				},
+				{
+					"id": "lavaford_x2",
+					"to": "batcave",
+					"x": 24,
+					"y": 1152,
+					"label": "Hang Dơi Lửa · cấp 52–53"
+				}
+			],
+			"spots": [
+				"lavaford_e",
+				"lavaford_w"
+			],
+			"zones": [
+				{
+					"id": "lavaford_z1",
+					"monsters": [
+						"mob_lava_golem_001"
+					],
+					"level": 51
+				},
+				{
+					"id": "lavaford_z2",
+					"monsters": [
+						"mob_lava_golem_001"
+					],
+					"level": 51
+				},
+				{
+					"id": "lavaford_z3",
+					"monsters": [
+						"mob_lava_golem_001"
+					],
+					"level": 52
+				},
+				{
+					"id": "lavaford_z4",
+					"monsters": [
+						"mob_lava_golem_001"
+					],
+					"level": 52
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				51,
+				52
+			]
+		},
+		"batcave": {
+			"name": "Hang Dơi Lửa",
+			"width": 2400,
+			"height": 1824,
+			"exits": [
+				{
+					"id": "batcave_x1",
+					"to": "lavaford",
+					"x": 2376,
+					"y": 1056,
+					"label": "Bến Dung Nham · cấp 51–52"
+				},
+				{
+					"id": "batcave_x2",
+					"to": "oldforge",
+					"x": 1344,
+					"y": 24,
+					"label": "Lò Rèn Bỏ Hoang · cấp 53–54"
+				}
+			],
+			"spots": [
+				"batcave_e",
+				"batcave_n"
+			],
+			"zones": [
+				{
+					"id": "batcave_z1",
+					"monsters": [
+						"mob_fire_bat_001"
+					],
+					"level": 52
+				},
+				{
+					"id": "batcave_z2",
+					"monsters": [
+						"mob_fire_bat_001"
+					],
+					"level": 52
+				},
+				{
+					"id": "batcave_z3",
+					"monsters": [
+						"mob_fire_bat_001"
+					],
+					"level": 53
+				},
+				{
+					"id": "batcave_z4",
+					"monsters": [
+						"mob_fire_bat_001"
+					],
+					"level": 53
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				52,
+				53
+			]
+		},
+		"oldforge": {
+			"name": "Lò Rèn Bỏ Hoang",
+			"width": 2208,
+			"height": 2112,
+			"exits": [
+				{
+					"id": "oldforge_x1",
+					"to": "batcave",
+					"x": 1200,
+					"y": 2088,
+					"label": "Hang Dơi Lửa · cấp 52–53"
+				},
+				{
+					"id": "oldforge_x2",
+					"to": "crater",
+					"x": 2184,
+					"y": 912,
+					"label": "Miệng Núi · cấp 54–55"
+				},
+				{
+					"id": "oldforge_x3",
+					"to": "emberhollow",
+					"x": 1152,
+					"y": 24,
+					"label": "Hốc Than Hồng · cấp 57–58"
+				}
+			],
+			"spots": [
+				"oldforge_s",
+				"oldforge_e",
+				"oldforge_n"
+			],
+			"zones": [
+				{
+					"id": "oldforge_z1",
+					"monsters": [
+						"mob_fire_spirit_001"
+					],
+					"level": 53
+				},
+				{
+					"id": "oldforge_z2",
+					"monsters": [
+						"mob_fire_spirit_001"
+					],
+					"level": 53
+				},
+				{
+					"id": "oldforge_z3",
+					"monsters": [
+						"mob_fire_spirit_001"
+					],
+					"level": 54
+				},
+				{
+					"id": "oldforge_z4",
+					"monsters": [
+						"mob_fire_spirit_001"
+					],
+					"level": 54
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				53,
+				54
+			]
+		},
+		"crater": {
+			"name": "Miệng Núi",
+			"width": 2496,
+			"height": 1920,
+			"exits": [
+				{
+					"id": "crater_x1",
+					"to": "oldforge",
+					"x": 24,
+					"y": 1104,
+					"label": "Lò Rèn Bỏ Hoang · cấp 53–54"
+				},
+				{
+					"id": "crater_x2",
+					"to": "hub",
+					"x": 2472,
+					"y": 816,
+					"label": "Pháo đài Đe Đỏ"
+				},
+				{
+					"id": "crater_x3",
+					"to": "cinderflats",
+					"x": 1488,
+					"y": 24,
+					"label": "Bãi Tro Than · cấp 55–56"
+				}
+			],
+			"spots": [
+				"crater_w",
+				"crater_e",
+				"crater_n"
+			],
+			"zones": [
+				{
+					"id": "crater_z1",
+					"monsters": [
+						"mob_fire_demon_001"
+					],
+					"level": 54
+				},
+				{
+					"id": "crater_z2",
+					"monsters": [
+						"mob_fire_demon_001"
+					],
+					"level": 54
+				},
+				{
+					"id": "crater_z3",
+					"monsters": [
+						"mob_fire_demon_001"
+					],
+					"level": 55
+				},
+				{
+					"id": "crater_z4",
+					"monsters": [
+						"mob_fire_demon_001"
+					],
+					"level": 55
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				54,
+				55
+			]
+		},
+		"cinderflats": {
+			"name": "Bãi Tro Than",
+			"width": 2304,
+			"height": 2016,
+			"exits": [
+				{
+					"id": "cinderflats_x1",
+					"to": "crater",
+					"x": 1248,
+					"y": 1992,
+					"label": "Miệng Núi · cấp 54–55"
+				},
+				{
+					"id": "cinderflats_x2",
+					"to": "lavariver",
+					"x": 2280,
+					"y": 1008,
+					"label": "Sông Dung Nham · cấp 56–57"
+				},
+				{
+					"id": "cinderflats_x3",
+					"to": "emberhollow",
+					"x": 24,
+					"y": 816,
+					"label": "Hốc Than Hồng · cấp 57–58"
+				}
+			],
+			"spots": [
+				"cinderflats_s",
+				"cinderflats_e",
+				"cinderflats_w"
+			],
+			"zones": [
+				{
+					"id": "cinderflats_z1",
+					"monsters": [
+						"mob_lava_lizard_001"
+					],
+					"level": 55
+				},
+				{
+					"id": "cinderflats_z2",
+					"monsters": [
+						"mob_lava_lizard_001"
+					],
+					"level": 55
+				},
+				{
+					"id": "cinderflats_z3",
+					"monsters": [
+						"mob_lava_lizard_001"
+					],
+					"level": 56
+				},
+				{
+					"id": "cinderflats_z4",
+					"monsters": [
+						"mob_lava_lizard_001"
+					],
+					"level": 56
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				55,
+				56
+			]
+		},
+		"lavariver": {
+			"name": "Sông Dung Nham",
+			"width": 2400,
+			"height": 2112,
+			"exits": [
+				{
+					"id": "lavariver_x1",
+					"to": "cinderflats",
+					"x": 24,
+					"y": 816,
+					"label": "Bãi Tro Than · cấp 55–56"
+				},
+				{
+					"id": "lavariver_x2",
+					"to": "hub",
+					"x": 1248,
+					"y": 2088,
+					"label": "Pháo đài Đe Đỏ"
+				}
+			],
+			"spots": [
+				"lavariver_w",
+				"lavariver_s",
+				"lavariver_lair"
+			],
+			"zones": [
+				{
+					"id": "lavariver_z1",
+					"monsters": [
+						"mob_lava_golem_001"
+					],
+					"level": 56
+				},
+				{
+					"id": "lavariver_z2",
+					"monsters": [
+						"mob_lava_golem_001"
+					],
+					"level": 56
+				},
+				{
+					"id": "lavariver_z3",
+					"monsters": [
+						"mob_lava_golem_001"
+					],
+					"level": 57
+				},
+				{
+					"id": "lavariver_boss",
+					"monsters": [
+						"boss_ancient_lava_golem_001"
+					],
+					"level": 57
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				56,
+				57
+			]
+		},
+		"emberhollow": {
+			"name": "Hốc Than Hồng",
+			"width": 2208,
+			"height": 1920,
+			"exits": [
+				{
+					"id": "emberhollow_x1",
+					"to": "cinderflats",
+					"x": 2184,
+					"y": 1056,
+					"label": "Bãi Tro Than · cấp 55–56"
+				},
+				{
+					"id": "emberhollow_x2",
+					"to": "oldforge",
+					"x": 1200,
+					"y": 1896,
+					"label": "Lò Rèn Bỏ Hoang · cấp 53–54"
+				},
+				{
+					"id": "emberhollow_x3",
+					"to": "runeforge",
+					"x": 1152,
+					"y": 24,
+					"label": "Xưởng Rune Cổ · cấp 58–59"
+				}
+			],
+			"spots": [
+				"emberhollow_e",
+				"emberhollow_s",
+				"emberhollow_n"
+			],
+			"zones": [
+				{
+					"id": "emberhollow_z1",
+					"monsters": [
+						"mob_fire_bat_001"
+					],
+					"level": 57
+				},
+				{
+					"id": "emberhollow_z2",
+					"monsters": [
+						"mob_fire_bat_001"
+					],
+					"level": 57
+				},
+				{
+					"id": "emberhollow_z3",
+					"monsters": [
+						"mob_fire_bat_001"
+					],
+					"level": 58
+				},
+				{
+					"id": "emberhollow_z4",
+					"monsters": [
+						"mob_fire_bat_001"
+					],
+					"level": 58
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				57,
+				58
+			]
+		},
+		"runeforge": {
+			"name": "Xưởng Rune Cổ",
+			"width": 2496,
+			"height": 2016,
+			"exits": [
+				{
+					"id": "runeforge_x1",
+					"to": "emberhollow",
+					"x": 1200,
+					"y": 1992,
+					"label": "Hốc Than Hồng · cấp 57–58"
+				},
+				{
+					"id": "runeforge_x2",
+					"to": "craterrim",
+					"x": 1152,
+					"y": 24,
+					"label": "Vành Miệng Núi · cấp 59–60"
+				},
+				{
+					"id": "runeforge_x3",
+					"to": "flamelair",
+					"x": 2472,
+					"y": 864,
+					"label": "Long Huyệt Viêm Đế · rồng · cấp 60"
+				}
+			],
+			"spots": [
+				"runeforge_s",
+				"runeforge_n",
+				"runeforge_e"
+			],
+			"zones": [
+				{
+					"id": "runeforge_z1",
+					"monsters": [
+						"mob_fire_spirit_001"
+					],
+					"level": 58
+				},
+				{
+					"id": "runeforge_z2",
+					"monsters": [
+						"mob_fire_spirit_001"
+					],
+					"level": 58
+				},
+				{
+					"id": "runeforge_z3",
+					"monsters": [
+						"mob_fire_spirit_001"
+					],
+					"level": 59
+				},
+				{
+					"id": "runeforge_z4",
+					"monsters": [
+						"mob_fire_spirit_001"
+					],
+					"level": 59
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				58,
+				59
+			]
+		},
+		"craterrim": {
+			"name": "Vành Miệng Núi",
+			"width": 2304,
+			"height": 2112,
+			"exits": [
+				{
+					"id": "craterrim_x1",
+					"to": "runeforge",
+					"x": 1056,
+					"y": 2088,
+					"label": "Xưởng Rune Cổ · cấp 58–59"
+				},
+				{
+					"id": "craterrim_x2",
+					"to": "volcanocore",
+					"x": 2280,
+					"y": 1008,
+					"label": "Lõi Núi Lửa · boss chúa · cấp 60"
+				},
+				{
+					"id": "craterrim_x3",
+					"to": "isles/hub",
+					"x": 24,
+					"y": 912,
+					"label": "Quần đảo San Hô · vùng 7 · cần cấp 60 + đã hạ Hoả thần"
+				}
+			],
+			"spots": [
+				"craterrim_s",
+				"craterrim_e",
+				"craterrim_gate",
+				"craterrim_lair"
+			],
+			"zones": [
+				{
+					"id": "craterrim_z1",
+					"monsters": [
+						"mob_fire_demon_001"
+					],
+					"level": 59
+				},
+				{
+					"id": "craterrim_z2",
+					"monsters": [
+						"mob_fire_demon_001"
+					],
+					"level": 59
+				},
+				{
+					"id": "craterrim_z3",
+					"monsters": [
+						"mob_fire_demon_001"
+					],
+					"level": 60
+				},
+				{
+					"id": "craterrim_boss",
+					"monsters": [
+						"boss_salamander_001"
+					],
+					"level": 60
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				59,
+				60
+			]
+		},
+		"volcanocore": {
+			"name": "Lõi Núi Lửa",
+			"width": 1536,
+			"height": 1344,
+			"exits": [
+				{
+					"id": "volcanocore_x1",
+					"to": "craterrim",
+					"x": 24,
+					"y": 480,
+					"label": "Vành Miệng Núi · cấp 59–60"
+				}
+			],
+			"spots": [
+				"volcanocore_w",
+				"volcanocore_lair"
+			],
+			"zones": [
+				{
+					"id": "volcanocore_boss",
+					"monsters": [
+						"boss_fire_god_001"
+					],
+					"level": 60
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				60,
+				60
+			]
+		},
+		"flamelair": {
+			"name": "Long Huyệt Viêm Đế",
+			"width": 1824,
+			"height": 1536,
+			"exits": [
+				{
+					"id": "flamelair_x1",
+					"to": "runeforge",
+					"x": 24,
+					"y": 576,
+					"label": "Xưởng Rune Cổ · cấp 58–59"
+				}
+			],
+			"spots": [
+				"flamelair_w",
+				"flamelair_lair"
+			],
+			"zones": [
+				{
+					"id": "flamelair_boss",
+					"monsters": [
+						"dragon_fire_001"
+					],
+					"level": 60
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				60,
+				60
+			]
+		}
+	}
+}

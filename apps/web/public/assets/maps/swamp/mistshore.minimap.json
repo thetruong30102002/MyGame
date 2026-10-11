@@ -1,0 +1,13 @@
+{
+	"map": "mistshore",
+	"image": "mistshore.minimap.png",
+	"width": 312,
+	"height": 240,
+	"downscale": 8,
+	"world": {
+		"width": 2496,
+		"height": 1920,
+		"tileSize": 48
+	},
+	"version": "dc555eac"
+}

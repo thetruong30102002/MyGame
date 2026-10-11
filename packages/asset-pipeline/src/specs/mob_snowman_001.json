@@ -78,5 +78,10 @@
 		"SW",
 		"NW"
 	],
-	"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 72px; ảnh mẫu nét = nấm rừng. Vùng 5. Mô tả: a living snowman golem facing the viewer, three lumpy stacked snowballs with patches of packed grey ice, lumps of coal for eyes with faint blue glowing pupils, jagged icicle teeth, crooked pine branch arms, a dented old miner's helmet with a dead lantern on its head, a ragged brown wool scarf. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 100px."
+	"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 72px; ảnh mẫu nét = nấm rừng. Vùng 5. Mô tả: a living snowman golem facing the viewer, three lumpy stacked snowballs with patches of packed grey ice, lumps of coal for eyes with faint blue glowing pupils, jagged icicle teeth, crooked pine branch arms, a dented old miner's helmet with a dead lantern on its head, a ragged brown wool scarf. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 100px.",
+	"review": {
+		"status": "approved",
+		"date": "10/10/2026",
+		"notes": "Duyệt bằng mắt (Claude, phiên chuyển Unity): ảnh giữa idle/walk hướng S/E/N + trọn attack E/S + death E từ contact sheet. Chủ dự án báo đã vẽ xong chiêu quái/boss trên PixelLab; đối chiếu bản tải lại 10/10/2026 khớp bản trên máy."
+	}
 }

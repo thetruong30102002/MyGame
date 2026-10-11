@@ -1,0 +1,3 @@
+object desert_candelabra @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/desert_candelabra.send.json
+object isles_leaning_palm @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/isles_leaning_palm.send.json
+object isles_tavern @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/isles_tavern.send.json

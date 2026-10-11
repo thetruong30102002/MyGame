@@ -239,6 +239,7 @@ export const KIND_NAME: Record<SkillKind, string> = {
 	wall: 'Tường',
 	ward: 'Khiên phản đạn',
 	barrage: 'Mưa nhiều điểm',
+	summon: 'Triệu hồi',
 };
 
 /** Tên hệ (ô "Hệ"). */

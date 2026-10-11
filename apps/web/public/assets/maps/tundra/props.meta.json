@@ -1,0 +1,506 @@
+{
+	"snow_pine": {
+		"kind": "tree",
+		"w": 111,
+		"h": 160,
+		"blocks": true,
+		"footprint": {
+			"x": -9,
+			"y": -14,
+			"w": 18,
+			"h": 14
+		}
+	},
+	"snow_pine_flip": {
+		"kind": "tree",
+		"w": 111,
+		"h": 160,
+		"blocks": true,
+		"footprint": {
+			"x": -9,
+			"y": -14,
+			"w": 18,
+			"h": 14
+		}
+	},
+	"frozen_pine": {
+		"kind": "tree",
+		"w": 84,
+		"h": 160,
+		"blocks": true,
+		"footprint": {
+			"x": -7,
+			"y": -14,
+			"w": 13,
+			"h": 14
+		}
+	},
+	"frozen_pine_flip": {
+		"kind": "tree",
+		"w": 84,
+		"h": 160,
+		"blocks": true,
+		"footprint": {
+			"x": -7,
+			"y": -14,
+			"w": 13,
+			"h": 14
+		}
+	},
+	"bare_tree": {
+		"kind": "tree",
+		"w": 122,
+		"h": 149,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 20,
+			"h": 14
+		}
+	},
+	"log_cabin": {
+		"kind": "building",
+		"w": 160,
+		"h": 168,
+		"blocks": true,
+		"footprint": {
+			"x": -69,
+			"y": -56,
+			"w": 138,
+			"h": 56
+		}
+	},
+	"ice_throne_gate": {
+		"kind": "building",
+		"w": 174,
+		"h": 172,
+		"blocks": true,
+		"footprint": {
+			"x": -79,
+			"y": -40,
+			"w": 157,
+			"h": 40
+		}
+	},
+	"icebound_ship": {
+		"kind": "building",
+		"w": 127,
+		"h": 178,
+		"blocks": true,
+		"footprint": {
+			"x": -48,
+			"y": -40,
+			"w": 95,
+			"h": 40
+		}
+	},
+	"pine_sapling": {
+		"kind": "bush",
+		"w": 36,
+		"h": 44,
+		"blocks": true,
+		"footprint": {
+			"x": -11,
+			"y": -12,
+			"w": 22,
+			"h": 12
+		}
+	},
+	"icicle_bush": {
+		"kind": "bush",
+		"w": 46,
+		"h": 46,
+		"blocks": true,
+		"footprint": {
+			"x": -14,
+			"y": -12,
+			"w": 28,
+			"h": 12
+		}
+	},
+	"snow_boulder": {
+		"kind": "rock",
+		"w": 46,
+		"h": 40,
+		"blocks": true,
+		"footprint": {
+			"x": -19,
+			"y": -18,
+			"w": 37,
+			"h": 18
+		}
+	},
+	"ice_crystals": {
+		"kind": "rock",
+		"w": 38,
+		"h": 42,
+		"blocks": true,
+		"footprint": {
+			"x": -14,
+			"y": -14,
+			"w": 27,
+			"h": 14
+		}
+	},
+	"snowdrift": {
+		"kind": "flower",
+		"w": 46,
+		"h": 30,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"frost_stump": {
+		"kind": "rock",
+		"w": 43,
+		"h": 37,
+		"blocks": true,
+		"footprint": {
+			"x": -13,
+			"y": -14,
+			"w": 26,
+			"h": 14
+		}
+	},
+	"frozen_patch": {
+		"kind": "flower",
+		"w": 47,
+		"h": 40,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"berry_bush": {
+		"kind": "bush",
+		"w": 47,
+		"h": 46,
+		"blocks": true,
+		"footprint": {
+			"x": -14,
+			"y": -12,
+			"w": 28,
+			"h": 12
+		}
+	},
+	"snow_log": {
+		"kind": "rock",
+		"w": 47,
+		"h": 35,
+		"blocks": true,
+		"footprint": {
+			"x": -20,
+			"y": -12,
+			"w": 40,
+			"h": 12
+		}
+	},
+	"firewood": {
+		"kind": "decor",
+		"w": 44,
+		"h": 39,
+		"blocks": true,
+		"footprint": {
+			"x": -19,
+			"y": -14,
+			"w": 37,
+			"h": 14
+		}
+	},
+	"dog_sled": {
+		"kind": "decor",
+		"w": 53,
+		"h": 37,
+		"blocks": true,
+		"footprint": {
+			"x": -23,
+			"y": -12,
+			"w": 45,
+			"h": 12
+		}
+	},
+	"pelt_rack": {
+		"kind": "decor",
+		"w": 50,
+		"h": 42,
+		"blocks": true,
+		"footprint": {
+			"x": -22,
+			"y": -12,
+			"w": 43,
+			"h": 12
+		}
+	},
+	"ice_fishing": {
+		"kind": "decor",
+		"w": 51,
+		"h": 41,
+		"blocks": true,
+		"footprint": {
+			"x": -18,
+			"y": -10,
+			"w": 36,
+			"h": 10
+		}
+	},
+	"ski_rack": {
+		"kind": "decor",
+		"w": 52,
+		"h": 52,
+		"blocks": true,
+		"footprint": {
+			"x": -22,
+			"y": -12,
+			"w": 44,
+			"h": 12
+		}
+	},
+	"notice_board": {
+		"kind": "decor",
+		"w": 49,
+		"h": 45,
+		"blocks": true,
+		"footprint": {
+			"x": -20,
+			"y": -12,
+			"w": 39,
+			"h": 12
+		}
+	},
+	"ice_cart": {
+		"kind": "decor",
+		"w": 42,
+		"h": 44,
+		"blocks": true,
+		"footprint": {
+			"x": -18,
+			"y": -14,
+			"w": 36,
+			"h": 14
+		}
+	},
+	"ice_waystone": {
+		"kind": "decor",
+		"w": 35,
+		"h": 50,
+		"blocks": true,
+		"footprint": {
+			"x": -11,
+			"y": -14,
+			"w": 21,
+			"h": 14
+		}
+	},
+	"campfire": {
+		"kind": "decor",
+		"w": 44,
+		"h": 42,
+		"blocks": true,
+		"footprint": {
+			"x": -18,
+			"y": -12,
+			"w": 35,
+			"h": 12
+		}
+	},
+	"ice_pillar": {
+		"kind": "rock",
+		"w": 34,
+		"h": 49,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -16,
+			"w": 20,
+			"h": 16
+		}
+	},
+	"ice_stalagmites": {
+		"kind": "rock",
+		"w": 45,
+		"h": 44,
+		"blocks": true,
+		"footprint": {
+			"x": -16,
+			"y": -14,
+			"w": 31,
+			"h": 14
+		}
+	},
+	"aether_vein": {
+		"kind": "rock",
+		"w": 43,
+		"h": 41,
+		"blocks": true,
+		"footprint": {
+			"x": -17,
+			"y": -18,
+			"w": 34,
+			"h": 18
+		}
+	},
+	"dragon_relief": {
+		"kind": "rock",
+		"w": 46,
+		"h": 49,
+		"blocks": true,
+		"footprint": {
+			"x": -20,
+			"y": -14,
+			"w": 39,
+			"h": 14
+		}
+	},
+	"frost_lantern": {
+		"kind": "decor",
+		"w": 32,
+		"h": 55,
+		"blocks": true,
+		"footprint": {
+			"x": -8,
+			"y": -10,
+			"w": 16,
+			"h": 10
+		}
+	},
+	"frozen_falls": {
+		"kind": "building",
+		"w": 46,
+		"h": 51,
+		"blocks": true,
+		"footprint": {
+			"x": -20,
+			"y": -20,
+			"w": 39,
+			"h": 20
+		}
+	},
+	"bear_den": {
+		"kind": "flower",
+		"w": 51,
+		"h": 45,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"snow_grave": {
+		"kind": "decor",
+		"w": 49,
+		"h": 41,
+		"blocks": true,
+		"footprint": {
+			"x": -17,
+			"y": -10,
+			"w": 34,
+			"h": 10
+		}
+	},
+	"red_stake": {
+		"kind": "decor",
+		"w": 23,
+		"h": 57,
+		"blocks": true,
+		"footprint": {
+			"x": -4,
+			"y": -8,
+			"w": 7,
+			"h": 8
+		}
+	},
+	"signpost": {
+		"kind": "decor",
+		"w": 55,
+		"h": 77,
+		"blocks": true,
+		"footprint": {
+			"x": -7,
+			"y": -10,
+			"w": 14,
+			"h": 10
+		}
+	},
+	"boulder": {
+		"kind": "rock",
+		"w": 48,
+		"h": 39,
+		"blocks": true,
+		"footprint": {
+			"x": -18,
+			"y": -20,
+			"w": 36,
+			"h": 20
+		}
+	},
+	"rock_gray": {
+		"kind": "rock",
+		"w": 43,
+		"h": 38,
+		"blocks": true,
+		"footprint": {
+			"x": -16,
+			"y": -20,
+			"w": 32,
+			"h": 20
+		}
+	},
+	"pale_rocks": {
+		"kind": "rock",
+		"w": 52,
+		"h": 38,
+		"blocks": true,
+		"footprint": {
+			"x": -18,
+			"y": -14,
+			"w": 36,
+			"h": 14
+		}
+	},
+	"stalagmite": {
+		"kind": "rock",
+		"w": 31,
+		"h": 55,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -16,
+			"w": 19,
+			"h": 16
+		}
+	},
+	"crystal_blue": {
+		"kind": "rock",
+		"w": 40,
+		"h": 48,
+		"blocks": true,
+		"footprint": {
+			"x": -14,
+			"y": -16,
+			"w": 28,
+			"h": 16
+		}
+	},
+	"rock_pillar": {
+		"kind": "rock",
+		"w": 30,
+		"h": 50,
+		"blocks": true,
+		"footprint": {
+			"x": -11,
+			"y": -18,
+			"w": 21,
+			"h": 18
+		}
+	}
+}

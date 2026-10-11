@@ -1,0 +1,130 @@
+{
+	"CHECKIN_CYCLE": 7,
+	"CHRONICLER": {
+		"npc": "chronicler",
+		"map": "human/town",
+		"spot": "plaza",
+		"dx": 110,
+		"dy": -40,
+		"range": 240
+	},
+	"GOALS": [
+		{
+			"id": "kills_100",
+			"kind": "kills",
+			"target": 100,
+			"diamonds": 1,
+			"title": "Hạ 100 quái"
+		},
+		{
+			"id": "kills_1k",
+			"kind": "kills",
+			"target": 1000,
+			"diamonds": 3,
+			"title": "Hạ 1.000 quái"
+		},
+		{
+			"id": "kills_10k",
+			"kind": "kills",
+			"target": 10000,
+			"diamonds": 5,
+			"title": "Hạ 10.000 quái"
+		},
+		{
+			"id": "kills_100k",
+			"kind": "kills",
+			"target": 100000,
+			"diamonds": 10,
+			"title": "Hạ 100.000 quái"
+		},
+		{
+			"id": "kills_1m",
+			"kind": "kills",
+			"target": 1000000,
+			"diamonds": 30,
+			"title": "Hạ 1.000.000 quái"
+		},
+		{
+			"id": "bosses_1",
+			"kind": "bosses",
+			"target": 1,
+			"diamonds": 2,
+			"title": "Hạ một boss vùng"
+		},
+		{
+			"id": "bosses_10",
+			"kind": "bosses",
+			"target": 10,
+			"diamonds": 3,
+			"title": "Hạ boss vùng 10 lần"
+		},
+		{
+			"id": "bosses_100",
+			"kind": "bosses",
+			"target": 100,
+			"diamonds": 10,
+			"title": "Hạ boss vùng 100 lần"
+		},
+		{
+			"id": "maps_5",
+			"kind": "maps",
+			"target": 5,
+			"diamonds": 1,
+			"title": "Đặt chân tới 5 map"
+		},
+		{
+			"id": "maps_10",
+			"kind": "maps",
+			"target": 10,
+			"diamonds": 2,
+			"title": "Đặt chân tới 10 map"
+		},
+		{
+			"id": "maps_30",
+			"kind": "maps",
+			"target": 30,
+			"diamonds": 5,
+			"title": "Đặt chân tới 30 map"
+		},
+		{
+			"id": "maps_120",
+			"kind": "maps",
+			"target": 120,
+			"diamonds": 10,
+			"title": "Đặt chân tới 120 map"
+		},
+		{
+			"id": "friends_1",
+			"kind": "friends",
+			"target": 1,
+			"diamonds": 1,
+			"title": "Kết người bạn đầu tiên"
+		},
+		{
+			"id": "friends_10",
+			"kind": "friends",
+			"target": 10,
+			"diamonds": 3,
+			"title": "Kết 10 người bạn"
+		}
+	],
+	"GOAL_KIND_INFO": {
+		"kills": {
+			"group": "Săn quái",
+			"note": "Quái ở khu thế giới dùng chung, được máy chủ tính công (đánh trúng trong 30 giây trước khi quái gục)."
+		},
+		"bosses": {
+			"group": "Săn boss",
+			"note": "Boss vùng dùng chung (như Vua Lich ở hầm mộ Nghĩa địa)."
+		},
+		"maps": {
+			"group": "Thám hiểm",
+			"note": "Mỗi map đặt chân tới tính một lần."
+		},
+		"friends": {
+			"group": "Bạn bè",
+			"note": "Số bạn hiện có trong danh sách."
+		}
+	},
+	"VN_OFFSET_MS": 25200000
+}

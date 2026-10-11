@@ -1,0 +1,3 @@
+object desert_date_trio @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/desert_date_trio.send.json
+object isles_sea_almond @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/isles_sea_almond.send.json
+object tundra_winter_birch @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/tundra_winter_birch.send.json

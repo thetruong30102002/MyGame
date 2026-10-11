@@ -52,8 +52,11 @@ export interface MonsterZone {
 	boss?: boolean;
 }
 
-/** Bảng màu mặt đất của map (apps/web groundShade): đồng cỏ, đất chết (nghĩa địa/đồi xương), nền đá (vách đá). */
-export type Biome = 'meadow' | 'deadland' | 'rocky';
+/**
+ * Bảng màu mặt đất của map (apps/web groundShade · Unity `GroundShader`): đồng cỏ, đất chết (nghĩa địa/đồi xương), nền đá (vách đá);
+ * vùng 2–7 (10/10/2026): đầm lầy, sa mạc (cỏ = cát), cao nguyên, tuyết (nước = hồ băng), núi lửa (nước = dung nham), bãi biển.
+ */
+export type Biome = 'meadow' | 'deadland' | 'rocky' | 'swamp' | 'desert' | 'highland' | 'snow' | 'volcanic' | 'beach';
 
 export interface MapData {
 	id: string;

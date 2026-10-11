@@ -1,0 +1,734 @@
+{
+	"wind_pine": {
+		"kind": "tree",
+		"w": 131,
+		"h": 150,
+		"blocks": true,
+		"footprint": {
+			"x": -11,
+			"y": -14,
+			"w": 21,
+			"h": 14
+		}
+	},
+	"wind_pine_flip": {
+		"kind": "tree",
+		"w": 131,
+		"h": 150,
+		"blocks": true,
+		"footprint": {
+			"x": -11,
+			"y": -14,
+			"w": 21,
+			"h": 14
+		}
+	},
+	"wind_pine_gold": {
+		"kind": "tree",
+		"w": 131,
+		"h": 150,
+		"blocks": true,
+		"footprint": {
+			"x": -11,
+			"y": -14,
+			"w": 21,
+			"h": 14
+		}
+	},
+	"wind_pine_dark": {
+		"kind": "tree",
+		"w": 131,
+		"h": 150,
+		"blocks": true,
+		"footprint": {
+			"x": -11,
+			"y": -14,
+			"w": 21,
+			"h": 14
+		}
+	},
+	"stone_cottage": {
+		"kind": "building",
+		"w": 158,
+		"h": 165,
+		"blocks": true,
+		"footprint": {
+			"x": -68,
+			"y": -56,
+			"w": 136,
+			"h": 56
+		}
+	},
+	"windmill": {
+		"kind": "building",
+		"w": 140,
+		"h": 168,
+		"blocks": true,
+		"footprint": {
+			"x": -49,
+			"y": -50,
+			"w": 98,
+			"h": 50
+		}
+	},
+	"sky_shrine": {
+		"kind": "building",
+		"w": 170,
+		"h": 152,
+		"blocks": true,
+		"footprint": {
+			"x": -77,
+			"y": -30,
+			"w": 153,
+			"h": 30
+		}
+	},
+	"tall_grass": {
+		"kind": "flower",
+		"w": 47,
+		"h": 44,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"wind_shrub": {
+		"kind": "bush",
+		"w": 53,
+		"h": 44,
+		"blocks": true,
+		"footprint": {
+			"x": -16,
+			"y": -12,
+			"w": 32,
+			"h": 12
+		}
+	},
+	"mossy_boulder": {
+		"kind": "rock",
+		"w": 46,
+		"h": 41,
+		"blocks": true,
+		"footprint": {
+			"x": -19,
+			"y": -20,
+			"w": 37,
+			"h": 20
+		}
+	},
+	"highland_flowers": {
+		"kind": "flower",
+		"w": 45,
+		"h": 41,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"small_fern": {
+		"kind": "flower",
+		"w": 48,
+		"h": 42,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"cairn": {
+		"kind": "rock",
+		"w": 42,
+		"h": 43,
+		"blocks": true,
+		"footprint": {
+			"x": -13,
+			"y": -14,
+			"w": 25,
+			"h": 14
+		}
+	},
+	"heather": {
+		"kind": "bush",
+		"w": 46,
+		"h": 42,
+		"blocks": true,
+		"footprint": {
+			"x": -14,
+			"y": -12,
+			"w": 28,
+			"h": 12
+		}
+	},
+	"tumbleweed": {
+		"kind": "flower",
+		"w": 47,
+		"h": 41,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"lichen_rock": {
+		"kind": "rock",
+		"w": 43,
+		"h": 41,
+		"blocks": true,
+		"footprint": {
+			"x": -17,
+			"y": -18,
+			"w": 34,
+			"h": 18
+		}
+	},
+	"hay_cart": {
+		"kind": "decor",
+		"w": 47,
+		"h": 43,
+		"blocks": true,
+		"footprint": {
+			"x": -20,
+			"y": -16,
+			"w": 40,
+			"h": 16
+		}
+	},
+	"prayer_flags": {
+		"kind": "decor",
+		"w": 54,
+		"h": 45,
+		"blocks": true,
+		"footprint": {
+			"x": -25,
+			"y": -8,
+			"w": 49,
+			"h": 8
+		}
+	},
+	"sheep_fence": {
+		"kind": "decor",
+		"w": 50,
+		"h": 36,
+		"blocks": true,
+		"footprint": {
+			"x": -25,
+			"y": -10,
+			"w": 50,
+			"h": 10
+		}
+	},
+	"skep": {
+		"kind": "decor",
+		"w": 37,
+		"h": 53,
+		"blocks": true,
+		"footprint": {
+			"x": -13,
+			"y": -12,
+			"w": 26,
+			"h": 12
+		}
+	},
+	"water_barrel": {
+		"kind": "decor",
+		"w": 35,
+		"h": 41,
+		"blocks": true,
+		"footprint": {
+			"x": -13,
+			"y": -14,
+			"w": 26,
+			"h": 14
+		}
+	},
+	"millstone": {
+		"kind": "decor",
+		"w": 45,
+		"h": 33,
+		"blocks": true,
+		"footprint": {
+			"x": -18,
+			"y": -12,
+			"w": 36,
+			"h": 12
+		}
+	},
+	"haystack": {
+		"kind": "decor",
+		"w": 48,
+		"h": 46,
+		"blocks": true,
+		"footprint": {
+			"x": -21,
+			"y": -18,
+			"w": 41,
+			"h": 18
+		}
+	},
+	"wool_basket": {
+		"kind": "decor",
+		"w": 42,
+		"h": 44,
+		"blocks": true,
+		"footprint": {
+			"x": -16,
+			"y": -12,
+			"w": 32,
+			"h": 12
+		}
+	},
+	"windmill_sign": {
+		"kind": "decor",
+		"w": 32,
+		"h": 47,
+		"blocks": true,
+		"footprint": {
+			"x": -5,
+			"y": -10,
+			"w": 10,
+			"h": 10
+		}
+	},
+	"floating_rock": {
+		"kind": "rock",
+		"w": 44,
+		"h": 44,
+		"blocks": true,
+		"footprint": {
+			"x": -13,
+			"y": -10,
+			"w": 26,
+			"h": 10
+		}
+	},
+	"cloud_pillar": {
+		"kind": "rock",
+		"w": 33,
+		"h": 57,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -16,
+			"w": 20,
+			"h": 16
+		}
+	},
+	"chime_arch": {
+		"kind": "building",
+		"w": 47,
+		"h": 55,
+		"blocks": true,
+		"footprint": {
+			"x": -21,
+			"y": -14,
+			"w": 42,
+			"h": 14
+		}
+	},
+	"bird_statue": {
+		"kind": "rock",
+		"w": 38,
+		"h": 46,
+		"blocks": true,
+		"footprint": {
+			"x": -12,
+			"y": -14,
+			"w": 23,
+			"h": 14
+		}
+	},
+	"wind_spiral": {
+		"kind": "rock",
+		"w": 35,
+		"h": 48,
+		"blocks": true,
+		"footprint": {
+			"x": -11,
+			"y": -14,
+			"w": 21,
+			"h": 14
+		}
+	},
+	"cloud_bench": {
+		"kind": "decor",
+		"w": 53,
+		"h": 37,
+		"blocks": true,
+		"footprint": {
+			"x": -23,
+			"y": -12,
+			"w": 45,
+			"h": 12
+		}
+	},
+	"feather_totem": {
+		"kind": "decor",
+		"w": 41,
+		"h": 52,
+		"blocks": true,
+		"footprint": {
+			"x": -6,
+			"y": -10,
+			"w": 12,
+			"h": 10
+		}
+	},
+	"sky_column": {
+		"kind": "rock",
+		"w": 31,
+		"h": 53,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 19,
+			"h": 14
+		}
+	},
+	"wind_rune": {
+		"kind": "rock",
+		"w": 42,
+		"h": 44,
+		"blocks": true,
+		"footprint": {
+			"x": -13,
+			"y": -14,
+			"w": 25,
+			"h": 14
+		}
+	},
+	"signpost": {
+		"kind": "decor",
+		"w": 55,
+		"h": 77,
+		"blocks": true,
+		"footprint": {
+			"x": -7,
+			"y": -10,
+			"w": 14,
+			"h": 10
+		}
+	},
+	"tree": {
+		"kind": "tree",
+		"w": 125,
+		"h": 143,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 20,
+			"h": 14
+		}
+	},
+	"tree_flip": {
+		"kind": "tree",
+		"w": 125,
+		"h": 143,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 20,
+			"h": 14
+		}
+	},
+	"tree_autumn": {
+		"kind": "tree",
+		"w": 125,
+		"h": 143,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 20,
+			"h": 14
+		}
+	},
+	"tree_pine_dry": {
+		"kind": "tree",
+		"w": 84,
+		"h": 160,
+		"blocks": true,
+		"footprint": {
+			"x": -7,
+			"y": -14,
+			"w": 13,
+			"h": 14
+		}
+	},
+	"tree_pine_dry_flip": {
+		"kind": "tree",
+		"w": 84,
+		"h": 160,
+		"blocks": true,
+		"footprint": {
+			"x": -7,
+			"y": -14,
+			"w": 13,
+			"h": 14
+		}
+	},
+	"rock_mossy": {
+		"kind": "rock",
+		"w": 48,
+		"h": 43,
+		"blocks": true,
+		"footprint": {
+			"x": -18,
+			"y": -22,
+			"w": 36,
+			"h": 22
+		}
+	},
+	"rock_gray": {
+		"kind": "rock",
+		"w": 43,
+		"h": 38,
+		"blocks": true,
+		"footprint": {
+			"x": -16,
+			"y": -20,
+			"w": 32,
+			"h": 20
+		}
+	},
+	"bush": {
+		"kind": "bush",
+		"w": 47,
+		"h": 43,
+		"blocks": true,
+		"footprint": {
+			"x": -14,
+			"y": -14,
+			"w": 28,
+			"h": 14
+		}
+	},
+	"bush_flower": {
+		"kind": "bush",
+		"w": 47,
+		"h": 43,
+		"blocks": true,
+		"footprint": {
+			"x": -14,
+			"y": -14,
+			"w": 28,
+			"h": 14
+		}
+	},
+	"fern": {
+		"kind": "flower",
+		"w": 46,
+		"h": 43,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"wildflowers": {
+		"kind": "flower",
+		"w": 42,
+		"h": 36,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"boulder": {
+		"kind": "rock",
+		"w": 48,
+		"h": 39,
+		"blocks": true,
+		"footprint": {
+			"x": -18,
+			"y": -20,
+			"w": 36,
+			"h": 20
+		}
+	},
+	"ruin_wall": {
+		"kind": "rock",
+		"w": 59,
+		"h": 36,
+		"blocks": true,
+		"footprint": {
+			"x": -28,
+			"y": -16,
+			"w": 56,
+			"h": 16
+		}
+	},
+	"pillar_broken": {
+		"kind": "rock",
+		"w": 49,
+		"h": 85,
+		"blocks": true,
+		"footprint": {
+			"x": -17,
+			"y": -22,
+			"w": 34,
+			"h": 22
+		}
+	},
+	"stump": {
+		"kind": "rock",
+		"w": 47,
+		"h": 37,
+		"blocks": true,
+		"footprint": {
+			"x": -14,
+			"y": -16,
+			"w": 28,
+			"h": 16
+		}
+	},
+	"cliff_pine": {
+		"kind": "tree",
+		"w": 122,
+		"h": 150,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 20,
+			"h": 14
+		}
+	},
+	"cliff_pine_flip": {
+		"kind": "tree",
+		"w": 122,
+		"h": 150,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 20,
+			"h": 14
+		}
+	},
+	"cloud_pillar_float": {
+		"kind": "rock",
+		"w": 39,
+		"h": 48,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -10,
+			"w": 20,
+			"h": 10
+		}
+	},
+	"floating_steps": {
+		"kind": "decor",
+		"w": 37,
+		"h": 43,
+		"blocks": true,
+		"footprint": {
+			"x": -13,
+			"y": -10,
+			"w": 26,
+			"h": 10
+		}
+	},
+	"bronze_bell": {
+		"kind": "decor",
+		"w": 46,
+		"h": 45,
+		"blocks": true,
+		"footprint": {
+			"x": -19,
+			"y": -12,
+			"w": 37,
+			"h": 12
+		}
+	},
+	"wind_altar": {
+		"kind": "rock",
+		"w": 36,
+		"h": 50,
+		"blocks": true,
+		"footprint": {
+			"x": -13,
+			"y": -14,
+			"w": 25,
+			"h": 14
+		}
+	},
+	"wind_spirit_statue": {
+		"kind": "rock",
+		"w": 38,
+		"h": 48,
+		"blocks": true,
+		"footprint": {
+			"x": -12,
+			"y": -14,
+			"w": 23,
+			"h": 14
+		}
+	},
+	"long_banner": {
+		"kind": "decor",
+		"w": 36,
+		"h": 56,
+		"blocks": true,
+		"footprint": {
+			"x": -6,
+			"y": -8,
+			"w": 11,
+			"h": 8
+		}
+	},
+	"incense_burner": {
+		"kind": "decor",
+		"w": 35,
+		"h": 47,
+		"blocks": true,
+		"footprint": {
+			"x": -11,
+			"y": -10,
+			"w": 21,
+			"h": 10
+		}
+	},
+	"chime_gate": {
+		"kind": "building",
+		"w": 48,
+		"h": 46,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"rune_float": {
+		"kind": "rock",
+		"w": 33,
+		"h": 45,
+		"blocks": true,
+		"footprint": {
+			"x": -9,
+			"y": -10,
+			"w": 17,
+			"h": 10
+		}
+	}
+}

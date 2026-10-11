@@ -114,7 +114,9 @@ const all = (_: string) => true;
 	const heal = HERO_SKILLS[5]!;
 	assert.deepEqual([heal.id, heal.name, heal.unlock], ['heal', 'Suối Lành', undefined], 'Suối Lành không còn mở bằng cốt truyện');
 	assert.equal(SKILL_NODE.aether_bolt, undefined, 'Tia Aether ngoài cây');
-	assert.deepEqual(TREE.earth.filter((n) => n.skillId).map((n) => n.skillId), ['rock_throw', 'quake', 'stone_spikes', 'stone_wall', 'rockslide'], 'Thổ: Đá Văng · Địa Chấn · Gai Đá · Tường Đá · Lở Đá');
+	assert.deepEqual(TREE.earth.filter((n) => n.ready && n.skillId).map((n) => n.skillId), ['rock_throw', 'quake', 'stone_spikes', 'stone_wall', 'rockslide'], 'Thổ: Đá Văng · Địa Chấn · Gai Đá · Tường Đá · Lở Đá');
+	// Mốc 10 gắn tuyệt kỹ nhưng vẫn "Sắp có" ở game thật (chỉ phòng tập dùng — 10/10/2026).
+	assert.deepEqual([TREE.earth[9]!.skillId, TREE.earth[9]!.ready], ['mountain_god', false], 'Thổ mốc 10: Sơn Thần, chưa mở ở game thật');
 	assert.match(BRANCH_LOCK_NOTE.earth ?? '', /tuổi 16/, 'Thổ chưa mở: nhắc nhiệm vụ tuổi 16 (chỉ là chữ, không khoá cứng)');
 	const ice = HERO_SKILLS[6]!;
 	assert.deepEqual([ice.id, ice.element, ice.mpCost, ice.cooldown, ice.power, ice.kind, ice.speed, ice.range, ice.unlock, ice.anim], ['ice_shard', 'ice', 9, 1.8, 1.35, 'projectile', 440, 420, 'ice', 'cast'], 'Băng Tiễn ở chỉ số 6');

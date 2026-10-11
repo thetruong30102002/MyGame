@@ -45,24 +45,20 @@ test('vùng đã mở có đủ map trên đĩa: chỉ mục `world.json` + map 
 test('id map `vùng/map`: tách được; thiếu tiền tố thì là map cùng vùng', () => {
 	assert.deepEqual(splitMapKey('swamp/hub', 'human'), { region: 'swamp', map: 'hub' });
 	assert.deepEqual(splitMapKey('mossvale', 'human'), { region: 'human', map: 'mossvale' });
-	assert.deepEqual(hubKeys(), ['human/town'], 'hiện chỉ vùng 1 đã mở');
+	// Vùng 2–7 dựng map 10/10/2026 (bộ dựng `packages/asset-pipeline/src/maps/kit`); vùng 8–10 còn đang xây.
+	assert.deepEqual(hubKeys(), ['human/town', 'swamp/hub', 'desert/hub', 'highland/hub', 'tundra/hub', 'volcano/hub', 'isles/hub']);
 });
 
 test('cổng vùng: vùng đầu luôn mở; vùng chưa có map → đang xây; đủ map thì xét cấp + boss chúa vùng trước', () => {
 	assert.equal(regionGate('human', { level: 1, bossKills: {} }), null);
-	assert.match(regionGate('swamp', { level: 99, bossKills: { boss_demon_001: 1 } })!, /đang được xây dựng/);
+	assert.match(regionGate('fungal', { level: 99, bossKills: { boss_kraken_001: 1 } })!, /đang được xây dựng/);
 	assert.match(regionGate('nowhere', { level: 1, bossKills: {} })!, /Không có vùng/);
-	// Giả lập vùng 2 đã mở (đổi tạm rồi trả lại ở `finally`): kiểm thứ tự điều kiện.
-	const swamp = regionDef('swamp')!;
-	const was = swamp.ready;
-	(swamp as { ready: boolean }).ready = true;
-	try {
-		assert.match(regionGate('swamp', { level: 9, bossKills: { boss_demon_001: 1 } })!, /Cần cấp 10/);
-		assert.match(regionGate('swamp', { level: 12, bossKills: {} })!, /Hạ Quỷ vương rừng sâu/);
-		assert.equal(regionGate('swamp', { level: 12, bossKills: { boss_demon_001: 2 } }), null);
-	} finally {
-		(swamp as { ready: boolean }).ready = was;
-	}
+	// Thứ tự điều kiện: cấp trước, rồi boss chúa vùng trước.
+	assert.match(regionGate('swamp', { level: 9, bossKills: { boss_demon_001: 1 } })!, /Cần cấp 10/);
+	assert.match(regionGate('swamp', { level: 12, bossKills: {} })!, /Hạ Quỷ vương rừng sâu/);
+	assert.equal(regionGate('swamp', { level: 12, bossKills: { boss_demon_001: 2 } }), null);
+	assert.match(regionGate('desert', { level: 25, bossKills: { boss_demon_001: 1 } })!, /Hạ Hydra bùn/);
+	assert.equal(regionGate('isles', { level: 60, bossKills: { boss_fire_god_001: 1 } }), null);
 });
 
 test('kháng / yếu hệ của quái: thiếu = ×1, có thì nhân, kẹp 0,25–3 (số nhập sai không thành bất tử)', () => {

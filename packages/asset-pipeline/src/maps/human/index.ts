@@ -71,9 +71,14 @@ export function buildHumanRegion(meta: Record<string, PropMeta>, decalIds: strin
 	];
 	const problems = validateRegion(maps);
 	if (problems.length) throw new Error(`Map vùng human sai:\n  - ${problems.join('\n  - ')}`);
-	const index: WorldIndex = {
-		region: 'human',
-		start: 'town',
+	return { maps, index: worldIndex('human', 'town', maps) };
+}
+
+/** Chỉ mục `world.json` của một vùng từ các map đã dựng (dùng chung vùng 1 và bộ dựng `maps/kit`). */
+export function worldIndex(region: string, start: string, maps: MapData[]): WorldIndex {
+	return {
+		region,
+		start,
 		maps: Object.fromEntries(
 			maps.map((m) => {
 				const levels = m.monsterZones.flatMap((z) => (z.level === undefined ? [] : [z.level]));
@@ -94,7 +99,6 @@ export function buildHumanRegion(meta: Record<string, PropMeta>, decalIds: strin
 			}),
 		),
 	};
-	return { maps, index };
 }
 
 /** Các lối sang vùng khác của một vùng (`from` = id đầy đủ map nguồn) — để kiểm chéo khi dựng vùng đích. */

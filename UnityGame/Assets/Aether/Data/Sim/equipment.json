@@ -1,0 +1,150 @@
+{
+	"BAG_SIZE": 24,
+	"EQUIP_SLOTS": [
+		"head",
+		"body",
+		"hands",
+		"legs",
+		"feet",
+		"neck",
+		"main",
+		"off",
+		"ring1",
+		"ring2"
+	],
+	"ITEMS": {
+		"sword": {
+			"id": "sword",
+			"name": "Kiếm sắt của cha",
+			"desc": "Thanh kiếm sắt cha rèn thay cho thanh kiếm gỗ năm nào. Lưỡi mài sáng bạc.",
+			"icon": "/assets/items/iron_sword.png",
+			"w": 49,
+			"h": 49,
+			"kind": "equip",
+			"equip": "weapon",
+			"rarity": "common",
+			"bound": true,
+			"effect": "Mở đòn Trảm (J)"
+		},
+		"staff": {
+			"id": "staff",
+			"name": "Trượng gỗ của mẹ",
+			"desc": "Trượng tập của mẹ hồi mười tuổi, đầu quấn sợi đồng.",
+			"icon": "/assets/items/starter_staff.png",
+			"w": 54,
+			"h": 54,
+			"kind": "equip",
+			"equip": "offhand",
+			"rarity": "common",
+			"bound": true,
+			"effect": "Mở Tia Aether (K)"
+		},
+		"potion": {
+			"id": "potion",
+			"name": "Bình mật ong",
+			"desc": "Mật ong nhà Ashvale. Uống hồi 50% máu (phím R).",
+			"icon": "/assets/ui/icon_potion.png",
+			"w": 35,
+			"h": 44,
+			"kind": "consumable",
+			"stack": 99
+		},
+		"coins": {
+			"id": "coins",
+			"name": "Xu",
+			"desc": "Tiền đồng rơi ra khi hạ quái và thưởng nhiệm vụ. Dùng để tẩy điểm tiềm năng.",
+			"icon": "/assets/ui/icon_coins.png",
+			"w": 44,
+			"h": 37,
+			"kind": "currency"
+		}
+	},
+	"KIND_NAME": {
+		"head": "Mũ",
+		"body": "Áo",
+		"hands": "Găng",
+		"legs": "Quần",
+		"feet": "Giày",
+		"neck": "Dây chuyền",
+		"weapon": "Vũ khí",
+		"offhand": "Tay phụ",
+		"ring": "Nhẫn"
+	},
+	"RARITY_NAME": {
+		"common": "Thường",
+		"fine": "Tốt",
+		"rare": "Hiếm",
+		"epic": "Sử thi",
+		"legendary": "Huyền thoại"
+	},
+	"RARITY_ORDER": [
+		"common",
+		"fine",
+		"rare",
+		"epic",
+		"legendary"
+	],
+	"SLOT_KIND": {
+		"head": "head",
+		"body": "body",
+		"hands": "hands",
+		"legs": "legs",
+		"feet": "feet",
+		"neck": "neck",
+		"main": "weapon",
+		"off": "offhand",
+		"ring1": "ring",
+		"ring2": "ring"
+	},
+	"SLOT_NAME": {
+		"head": "Mũ",
+		"body": "Áo",
+		"hands": "Găng",
+		"legs": "Quần",
+		"feet": "Giày",
+		"neck": "Dây chuyền",
+		"main": "Vũ khí chính",
+		"off": "Tay phụ",
+		"ring1": "Nhẫn 1",
+		"ring2": "Nhẫn 2"
+	},
+	"SLOT_SHORT": {
+		"head": "Mũ",
+		"body": "Áo",
+		"hands": "Găng",
+		"legs": "Quần",
+		"feet": "Giày",
+		"neck": "Dây chuyền",
+		"main": "Vũ khí",
+		"off": "Tay phụ",
+		"ring1": "Nhẫn",
+		"ring2": "Nhẫn"
+	},
+	"STAT_KEYS": [
+		"atk",
+		"mag",
+		"def",
+		"hp",
+		"mp",
+		"crit",
+		"move"
+	],
+	"STAT_NAME": {
+		"atk": "Tấn công",
+		"mag": "Phép thuật",
+		"def": "Phòng thủ",
+		"hp": "Máu tối đa",
+		"mp": "Phép lực tối đa",
+		"crit": "Chí mạng",
+		"move": "Tốc chạy"
+	},
+	"STAT_PERCENT": [
+		"crit",
+		"move"
+	],
+	"STORY_GIFTS": [
+		"sword",
+		"staff"
+	],
+	"VIRTUAL_POTION_UID": "potion"
+}

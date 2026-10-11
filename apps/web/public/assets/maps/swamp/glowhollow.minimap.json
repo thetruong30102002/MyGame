@@ -1,0 +1,13 @@
+{
+	"map": "glowhollow",
+	"image": "glowhollow.minimap.png",
+	"width": 276,
+	"height": 240,
+	"downscale": 8,
+	"world": {
+		"width": 2208,
+		"height": 1920,
+		"tileSize": 48
+	},
+	"version": "59ab23a8"
+}

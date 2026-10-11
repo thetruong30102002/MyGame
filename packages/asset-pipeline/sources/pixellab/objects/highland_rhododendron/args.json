@@ -1,0 +1,17 @@
+{
+	"description": "a large flowering rhododendron bush covered in clusters of pink and purple blossoms with dark green leaves, chunky chibi pixel art, thick dark outline, soft cel shading, straight front view, the whole tree fully visible, no ground, no shadow, no text",
+	"width": 192,
+	"height": 192,
+	"n_directions": 1,
+	"view": "low top-down",
+	"seed": 111,
+	"name": "highland_rhododendron",
+	"style_options": {
+		"color_palette": false,
+		"outline": true,
+		"shading": true,
+		"detail": false
+	},
+	"style_image_path": "D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/objects/highland_wind_pine/highland_wind_pine.png",
+	"style_usage": "Copy ONLY the art style of this reference: chunky chibi pixel art, thick dark outline on every shape, soft cel shading, front-facing view, same size. Do not copy this tree species, its shape or its colors."
+}

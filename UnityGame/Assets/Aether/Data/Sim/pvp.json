@@ -1,0 +1,21 @@
+{
+	"PVP_CRIT_CHANCE": 0.1,
+	"PVP_CRIT_MULT": 1.75,
+	"PVP_KILL_WINDOW_MS": 10000,
+	"PVP_PAD": 16,
+	"PVP_RELEASE": 0.15,
+	"PVP_SAFE_MAPS": [
+		"human/town",
+		"swamp/hub",
+		"desert/hub",
+		"highland/hub",
+		"tundra/hub",
+		"volcano/hub",
+		"isles/hub",
+		"fungal/hub",
+		"ruins/hub",
+		"void/hub"
+	],
+	"PVP_SCALE": 0.4,
+	"PVP_SPAWN_SHIELD_MS": 5000
+}

@@ -78,5 +78,10 @@
 		"SW",
 		"NW"
 	],
-	"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 128px; ảnh mẫu nét = Quỷ vương. Vùng 7. Mô tả: a gigantic old king crab boss facing the viewer, massive slate-blue armored shell overgrown with living pink branching coral, sea anemones and barnacles, eyes on thick stalks, one enormous battle-scarred claw raised, the other claw holding a cracked glowing aqua water crystal shard protectively against its chest. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 176px."
+	"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 128px; ảnh mẫu nét = Quỷ vương. Vùng 7. Mô tả: a gigantic old king crab boss facing the viewer, massive slate-blue armored shell overgrown with living pink branching coral, sea anemones and barnacles, eyes on thick stalks, one enormous battle-scarred claw raised, the other claw holding a cracked glowing aqua water crystal shard protectively against its chest. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 176px.",
+	"review": {
+		"status": "approved",
+		"date": "10/10/2026",
+		"notes": "Duyệt bằng mắt (Claude, phiên chuyển Unity): ảnh giữa idle/walk hướng S/E/N + trọn attack E/S + death E từ contact sheet. Chủ dự án báo đã vẽ xong chiêu quái/boss trên PixelLab; đối chiếu bản tải lại 10/10/2026 khớp bản trên máy."
+	}
 }

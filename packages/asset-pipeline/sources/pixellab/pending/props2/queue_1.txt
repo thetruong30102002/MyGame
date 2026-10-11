@@ -1,0 +1,2 @@
+image D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/SW4_swamp_flora.png @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/SW4_swamp_flora.json
+image D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/DS4_desert_wilds.png @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/DS4_desert_wilds.json

@@ -1,0 +1,3 @@
+object highland_birch @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/highland_birch.send.json
+object isles_coast_mangrove @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/isles_coast_mangrove.send.json
+object highland_barn @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/highland_barn.send.json

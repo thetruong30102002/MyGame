@@ -1,0 +1,1119 @@
+{
+	"AETHER_PER_LEVEL": 0.03,
+	"BRANCHES": [
+		"sword",
+		"fire",
+		"water",
+		"wind",
+		"ice",
+		"earth"
+	],
+	"BRANCH_LOCK_NOTE": {
+		"earth": "Mở ở nhiệm vụ “Sợi tơ màu đất” (tuổi 16, Nghĩa địa Hoàng Hôn)"
+	},
+	"BRANCH_NAME": {
+		"sword": "Kiếm",
+		"fire": "Hoả",
+		"water": "Thuỷ",
+		"wind": "Phong",
+		"ice": "Băng",
+		"earth": "Thổ"
+	},
+	"BRANCH_UNLOCK": {
+		"sword": "sword",
+		"fire": "fire",
+		"water": "water",
+		"wind": "wind",
+		"ice": "ice",
+		"earth": "earth"
+	},
+	"DEPTH_BONUS": 0.04,
+	"ENCHANTS": [
+		"fire",
+		"water",
+		"wind",
+		"ice",
+		"earth"
+	],
+	"ENCHANT_EARTH_STUN_TIER": 5,
+	"ENCHANT_ELEMENT_TIER": 5,
+	"ENCHANT_SWAP_SECONDS": 10,
+	"ENCHANT_SWORD_TIER": 2,
+	"ENCHANT_UP_TIER": 7,
+	"FREE_FIRST_TIER": [
+		"sword"
+	],
+	"HOME_SLOT": {
+		"slash": 0,
+		"aether_bolt": 1,
+		"fire_bolt": 2,
+		"water_lance": 3,
+		"wind_blade": 4,
+		"heal": 5,
+		"ice_shard": 6
+	},
+	"MAX_LEVEL": 100,
+	"MAX_TIER": 10,
+	"PASSIVE": {
+		"swordHaste": 0.1,
+		"crit": 0.08,
+		"calm": 0.85,
+		"swiftMove": 1.1,
+		"swiftDodge": 0.7,
+		"burn": 1.5,
+		"burning": 1.2,
+		"wet": 1.5,
+		"wetSlow": 0.9,
+		"lifesteal": 0.05,
+		"windShot": 1.2,
+		"cooldown": 0.9,
+		"moveSpeed": 1.1,
+		"chill": 1.6,
+		"frostSlow": 0.35,
+		"damageTaken": 0.9,
+		"earthCC": 1.5,
+		"defense": 1.15,
+		"emberPower": 1,
+		"emberRadius": 85,
+		"emberChain": 4,
+		"emberDelay": 0.12,
+		"burnDamage": 1.5,
+		"springHp": 0.03,
+		"springMp": 4,
+		"tideLifesteal": 0.12,
+		"tideWet": 1.15,
+		"eyeDodge": 0.5,
+		"eyeHaste": 1.15,
+		"eyeSeconds": 2,
+		"gustMiss": 0.2,
+		"gustSeconds": 3,
+		"deepFreeze": 1.5,
+		"frozenBonus": 1.4,
+		"shardPower": 0.6,
+		"shardRadius": 80,
+		"shardChain": 1,
+		"gravitySlow": 0.8,
+		"gravitySeconds": 2,
+		"gravityStunned": 1.2,
+		"mountainHp": 1.15,
+		"mountainRegen": 0.02,
+		"mountainStill": 1,
+		"pressStep": 0.05,
+		"pressMax": 5,
+		"pressWindow": 3,
+		"rageHp": 0.3,
+		"rageAtk": 1.2,
+		"rageDrain": 0.05,
+		"ripostePower": 1.6,
+		"lakeHeal": 0.05,
+		"lakeCooldown": 1,
+		"momentumHits": 3,
+		"momentumSpeed": 1.25,
+		"momentumSeconds": 3,
+		"evade": 0.15
+	},
+	"REACTION_NAME": {
+		"steam": "Hơi Nước",
+		"burst": "Bùng Lửa",
+		"chill": "Băng Giá",
+		"freeze": "Đóng Băng",
+		"melt": "Tan Chảy",
+		"mud": "Bùn Lầy",
+		"lava": "Dung Nham",
+		"sandstorm": "Bão Cát",
+		"shatter": "Vỡ Vụn"
+	},
+	"REACTION_PAIR": {
+		"steam": [
+			"fire",
+			"water"
+		],
+		"burst": [
+			"fire",
+			"wind"
+		],
+		"chill": [
+			"water",
+			"wind"
+		],
+		"freeze": [
+			"ice",
+			"water"
+		],
+		"melt": [
+			"ice",
+			"fire"
+		],
+		"mud": [
+			"earth",
+			"water"
+		],
+		"lava": [
+			"earth",
+			"fire"
+		],
+		"sandstorm": [
+			"earth",
+			"wind"
+		],
+		"shatter": [
+			"earth",
+			"ice"
+		]
+	},
+	"REACTION_PER_TIER": 0.05,
+	"SKILL_NODE": {
+		"slash": {
+			"branch": "sword",
+			"tier": 1
+		},
+		"fire_bolt": {
+			"branch": "fire",
+			"tier": 1
+		},
+		"flame_ring": {
+			"branch": "fire",
+			"tier": 3
+		},
+		"fire_blast": {
+			"branch": "fire",
+			"tier": 5
+		},
+		"fire_wall": {
+			"branch": "fire",
+			"tier": 6
+		},
+		"meteor": {
+			"branch": "fire",
+			"tier": 8
+		},
+		"phoenix": {
+			"branch": "fire",
+			"tier": 10
+		},
+		"water_lance": {
+			"branch": "water",
+			"tier": 1
+		},
+		"heal": {
+			"branch": "water",
+			"tier": 3
+		},
+		"tidal_wave": {
+			"branch": "water",
+			"tier": 5
+		},
+		"call_rain": {
+			"branch": "water",
+			"tier": 6
+		},
+		"thunder_rain": {
+			"branch": "water",
+			"tier": 8
+		},
+		"great_flood": {
+			"branch": "water",
+			"tier": 10
+		},
+		"wind_blade": {
+			"branch": "wind",
+			"tier": 1
+		},
+		"cyclone": {
+			"branch": "wind",
+			"tier": 3
+		},
+		"gale_dash": {
+			"branch": "wind",
+			"tier": 5
+		},
+		"gale_fan": {
+			"branch": "wind",
+			"tier": 6
+		},
+		"tornado": {
+			"branch": "wind",
+			"tier": 8
+		},
+		"heaven_wind": {
+			"branch": "wind",
+			"tier": 10
+		},
+		"ice_shard": {
+			"branch": "ice",
+			"tier": 1
+		},
+		"frost_field": {
+			"branch": "ice",
+			"tier": 3
+		},
+		"ice_spire": {
+			"branch": "ice",
+			"tier": 5
+		},
+		"ice_mirror": {
+			"branch": "ice",
+			"tier": 6
+		},
+		"ice_rain": {
+			"branch": "ice",
+			"tier": 8
+		},
+		"ice_age": {
+			"branch": "ice",
+			"tier": 10
+		},
+		"rock_throw": {
+			"branch": "earth",
+			"tier": 1
+		},
+		"quake": {
+			"branch": "earth",
+			"tier": 3
+		},
+		"stone_spikes": {
+			"branch": "earth",
+			"tier": 5
+		},
+		"stone_wall": {
+			"branch": "earth",
+			"tier": 6
+		},
+		"rockslide": {
+			"branch": "earth",
+			"tier": 8
+		},
+		"mountain_god": {
+			"branch": "earth",
+			"tier": 10
+		},
+		"heavy_strike": {
+			"branch": "sword",
+			"tier": 3,
+			"style": "kiem_than"
+		},
+		"pierce_rush": {
+			"branch": "sword",
+			"tier": 5,
+			"style": "kiem_than"
+		},
+		"sunder_strike": {
+			"branch": "sword",
+			"tier": 6,
+			"style": "kiem_than"
+		},
+		"blade_wave": {
+			"branch": "sword",
+			"tier": 8,
+			"style": "kiem_than"
+		},
+		"judgment": {
+			"branch": "sword",
+			"tier": 10,
+			"style": "kiem_than"
+		},
+		"calm_stance": {
+			"branch": "sword",
+			"tier": 3,
+			"style": "thuy_than"
+		},
+		"flowing_counter": {
+			"branch": "sword",
+			"tier": 5,
+			"style": "thuy_than"
+		},
+		"backflow": {
+			"branch": "sword",
+			"tier": 6,
+			"style": "thuy_than"
+		},
+		"whirlpool": {
+			"branch": "sword",
+			"tier": 8,
+			"style": "thuy_than"
+		},
+		"still_heaven": {
+			"branch": "sword",
+			"tier": 10,
+			"style": "thuy_than"
+		},
+		"side_slash": {
+			"branch": "sword",
+			"tier": 3,
+			"style": "bac_than"
+		},
+		"shadow_step": {
+			"branch": "sword",
+			"tier": 5,
+			"style": "bac_than"
+		},
+		"chain_slash": {
+			"branch": "sword",
+			"tier": 6,
+			"style": "bac_than"
+		},
+		"flying_sword": {
+			"branch": "sword",
+			"tier": 8,
+			"style": "bac_than"
+		},
+		"thousand_shadows": {
+			"branch": "sword",
+			"tier": 10,
+			"style": "bac_than"
+		},
+		"blaze_slash": {
+			"branch": "sword",
+			"tier": 5,
+			"art": "fire"
+		},
+		"water_dragon_slash": {
+			"branch": "sword",
+			"tier": 5,
+			"art": "water"
+		},
+		"gale_blade_dance": {
+			"branch": "sword",
+			"tier": 5,
+			"art": "wind"
+		},
+		"frost_cleave": {
+			"branch": "sword",
+			"tier": 5,
+			"art": "ice"
+		},
+		"earth_rend": {
+			"branch": "sword",
+			"tier": 5,
+			"art": "earth"
+		}
+	},
+	"SLOT_CODES": [
+		"KeyJ",
+		"KeyK",
+		"Digit1",
+		"Digit2",
+		"Digit3",
+		"Digit4",
+		"Digit5",
+		"Digit6",
+		"Digit7",
+		"Digit8"
+	],
+	"SLOT_COUNT": 10,
+	"SLOT_KEYS": [
+		"J",
+		"K",
+		"1",
+		"2",
+		"3",
+		"4",
+		"5",
+		"6",
+		"7",
+		"8"
+	],
+	"STYLE_TIER": 3,
+	"STYLE_TREE": {
+		"kiem_than": [
+			{
+				"tier": 3,
+				"kind": "active",
+				"name": "Nhất Kích",
+				"desc": "Dồn lực một nhịp rồi bổ một nhát nặng: trúng cả hàng trước mặt, đẩy lùi, dễ chí mạng. Chém trước mặt, tầm 96, góc 120°, dồn lực 0,3s · đẩy lùi 55 · +15% chí mạng · uy lực ×2,8 · 8 MP · hồi 4,5s",
+				"ready": true,
+				"skillId": "heavy_strike"
+			},
+			{
+				"tier": 4,
+				"kind": "passive",
+				"name": "Mắt Tinh",
+				"desc": "Chí mạng +8%.",
+				"ready": true
+			},
+			{
+				"tier": 5,
+				"kind": "active",
+				"name": "Đột Kích",
+				"desc": "Lướt thẳng tới rồi chém xuyên mọi quái dọc đường lướt. Lướt 220, không trúng đòn 0,15s, vệt chém dọc đường · +10% chí mạng · uy lực ×2,4 · 14 MP · hồi 6s",
+				"ready": true,
+				"skillId": "pierce_rush"
+			},
+			{
+				"tier": 6,
+				"kind": "active",
+				"name": "Phá Giáp",
+				"desc": "Bổ một nhát nặng làm vỡ giáp: quái trúng chịu đòn nặng hơn một lúc; quái đang bị phá giáp thì vỡ giáp thêm. Chém trước mặt, tầm 92, góc 120° · đẩy lùi 25 · phá giáp 6s · quái đang bị phá giáp: vỡ giáp 6s (nhận thêm 15%) · uy lực ×2,4 · 10 MP · hồi 6s",
+				"ready": true,
+				"skillId": "sunder_strike"
+			},
+			{
+				"tier": 7,
+				"kind": "passive",
+				"name": "Thế Áp Đảo",
+				"desc": "Mỗi nhát Kiếm trúng liên tiếp +5% sát thương đòn Kiếm (tối đa 5 lần = +25%); chém hụt hẳn hoặc 3 giây không trúng thì về 0.",
+				"ready": true
+			},
+			{
+				"tier": 8,
+				"kind": "active",
+				"name": "Lưỡi Sóng",
+				"desc": "Vung kiếm phóng một luồng kiếm bay xa, xuyên mọi quái trên đường. Luồng kiếm bay xa 440, xuyên mục tiêu · uy lực ×3 · 18 MP · hồi 8s",
+				"ready": true,
+				"skillId": "blade_wave"
+			},
+			{
+				"tier": 9,
+				"kind": "passive",
+				"name": "Bất Khuất",
+				"desc": "Dưới 30% máu: công +20%, hút máu 5% mọi sát thương gây ra.",
+				"ready": true
+			},
+			{
+				"tier": 10,
+				"kind": "active",
+				"name": "Phán Quyết",
+				"desc": "Tuyệt kỹ: ngàn thanh kiếm ánh sáng cắm xuống khắp vùng nhắm. 28 viên rơi rải trong 1,6s khắp vùng bán kính 200 tại chỗ nhắm (tầm 360), mỗi viên bán kính 52 · +25% chí mạng · uy lực ×1,15 mỗi viên · 50 MP · hồi 40s",
+				"ready": false,
+				"skillId": "judgment"
+			}
+		],
+		"thuy_than": [
+			{
+				"tier": 3,
+				"kind": "active",
+				"name": "Thế Tĩnh",
+				"desc": "Đứng yên giữ thế: đòn cận chiến đánh vào bị chặn và phản lại; đạn và đòn vùng giảm sát thương. Né hoặc bấm đòn khác để thôi giữ thế. Giữ thế 1,5s: chặn + phản đòn cận chiến, đạn/đòn vùng còn 40% · phản đòn ×1,4 · 8 MP · hồi 6s",
+				"ready": true,
+				"skillId": "calm_stance"
+			},
+			{
+				"tier": 4,
+				"kind": "passive",
+				"name": "Tâm Tĩnh",
+				"desc": "Đứng yên hoặc đang giữ thế: nhận sát thương −15%.",
+				"ready": true
+			},
+			{
+				"tier": 5,
+				"kind": "active",
+				"name": "Lưu Thủy Phản",
+				"desc": "Mở thế đỡ một nhịp ngắn (vòng sáng dưới chân): đòn đầu tiên đánh vào — kể cả đạn — bị hoá giải và phản công gấp đôi. Cửa sổ đỡ 0,6s: hoá giải một đòn (cả đạn) rồi phản · phản đòn ×2,8 · 12 MP · hồi 7s",
+				"ready": true,
+				"skillId": "flowing_counter"
+			},
+			{
+				"tier": 6,
+				"kind": "active",
+				"name": "Dòng Chảy Ngược",
+				"desc": "Giữ kiếm gạt đạn một lúc: đạn quái bay tới gần bị chém bay ngược về kẻ bắn. Gạt đạn 2,5s: đạn quái bay tới gần bị chém bay ngược về kẻ bắn · đạn phản ×2 · 10 MP · hồi 8s",
+				"ready": true,
+				"skillId": "backflow"
+			},
+			{
+				"tier": 7,
+				"kind": "passive",
+				"name": "Phản Đòn",
+				"desc": "Né đúng lúc (đòn quái chạm trong 0,12 giây sau khi bấm né) hoặc đỡ đúng lúc (Lưu Thủy Phản; Thế Tĩnh trong 0,12 giây đầu): nhát phản chắc chắn chí mạng. Né đúng lúc tự chém trả kẻ đánh (×1,6) hoặc hất đạn ngược về kẻ bắn.",
+				"ready": true
+			},
+			{
+				"tier": 8,
+				"kind": "active",
+				"name": "Xoáy Nước",
+				"desc": "Vung kiếm cuộn một xoáy nước chém tại chỗ nhắm, đẩy lùi quái quanh đó; tung ngay sau khi đỡ đòn thì mạnh hơn hẳn. Xoáy chém tại chỗ nhắm (tầm 300), bán kính 110 · vừa đỡ / gạt / phản đòn (trong 2,5s): mạnh thêm ×1,8 · đẩy lùi 60 · uy lực ×1,9 · 14 MP · hồi 8s",
+				"ready": true,
+				"skillId": "whirlpool"
+			},
+			{
+				"tier": 9,
+				"kind": "passive",
+				"name": "Mặt Hồ Phẳng",
+				"desc": "Mỗi lần phản đòn thành công (chặn-phản, đỡ-phản, gạt đạn, né đúng lúc) hồi 5% máu tối đa — tối đa một lần mỗi 1 giây.",
+				"ready": true
+			},
+			{
+				"tier": 10,
+				"kind": "active",
+				"name": "Thiên Tĩnh",
+				"desc": "Tuyệt kỹ: một nhát kiếm khiến chỗ nhắm lặng như mặt hồ — quái trong vùng đứng sững rồi trúng một đòn chém cực nặng. Vùng tại chỗ nhắm (tầm 360), bán kính 170 · choáng 1,5s · uy lực ×4,8 · 45 MP · hồi 45s",
+				"ready": false,
+				"skillId": "still_heaven"
+			}
+		],
+		"bac_than": [
+			{
+				"tier": 3,
+				"kind": "active",
+				"name": "Lướt Chém",
+				"desc": "Lướt ngang qua quái, chém mọi con đi qua; lúc lướt không trúng đòn. Lướt 140, không trúng đòn 0,3s, chém quái đi qua · uy lực ×1,6 · 6 MP · hồi 3s",
+				"ready": true,
+				"skillId": "side_slash"
+			},
+			{
+				"tier": 4,
+				"kind": "passive",
+				"name": "Nhẹ Như Gió",
+				"desc": "Tốc chạy +10%, né tốn ít thể lực hơn 30%.",
+				"ready": true
+			},
+			{
+				"tier": 5,
+				"kind": "active",
+				"name": "Ảnh Bộ",
+				"desc": "Lướt bóng ra sau lưng mục tiêu gần hướng nhắm nhất rồi chém — chắc chắn chí mạng. Ra sau lưng mục tiêu trong tầm 260 rồi chém · chắc chắn chí mạng · uy lực ×2 · 14 MP · hồi 6s",
+				"ready": true,
+				"skillId": "shadow_step"
+			},
+			{
+				"tier": 6,
+				"kind": "active",
+				"name": "Liên Hoàn",
+				"desc": "Chuỗi bốn nhát chém thật nhanh về phía trước. Chuỗi 4 nhát chém, tầm 80, góc 130° · uy lực ×0,8 mỗi nhát · 10 MP · hồi 5s",
+				"ready": true,
+				"skillId": "chain_slash"
+			},
+			{
+				"tier": 7,
+				"kind": "passive",
+				"name": "Đà Lướt",
+				"desc": "Né xong, 3 đòn Kiếm kế (trong 3 giây) nhanh hơn 25%.",
+				"ready": true
+			},
+			{
+				"tier": 8,
+				"kind": "active",
+				"name": "Phi Kiếm",
+				"desc": "Phóng kiếm bay xuyên hàng quái rồi bay về tay — quái trên đường trúng cả lúc đi lẫn lúc về. Phóng kiếm bay xa 320, xuyên mục tiêu rồi bay về tay (mỗi chiều trúng mỗi quái một lần) · uy lực ×1,8 mỗi lượt (đi + về) · 18 MP · hồi 8s",
+				"ready": true,
+				"skillId": "flying_sword"
+			},
+			{
+				"tier": 9,
+				"kind": "passive",
+				"name": "Bóng Mờ",
+				"desc": "15% né hoàn toàn một đòn (chém, đạn, đòn vùng).",
+				"ready": true
+			},
+			{
+				"tier": 10,
+				"kind": "active",
+				"name": "Ngàn Bóng",
+				"desc": "Tuyệt kỹ: 3 bóng phân thân lao tới chỗ nhắm, chém liên tục quái ở đó suốt 6 giây. 3 phân thân 6s tại chỗ nhắm (tầm 360), mỗi bóng chém mỗi 0,4s, bán kính 90 · +30% chí mạng · uy lực ×0,95 · 50 MP · hồi 45s",
+				"ready": false,
+				"skillId": "thousand_shadows"
+			}
+		]
+	},
+	"SWORD_ARTS": {
+		"fire": "blaze_slash",
+		"water": "water_dragon_slash",
+		"wind": "gale_blade_dance",
+		"ice": "frost_cleave",
+		"earth": "earth_rend"
+	},
+	"SWORD_ART_TIER": 5,
+	"SWORD_STYLES": [
+		"kiem_than",
+		"thuy_than",
+		"bac_than"
+	],
+	"SWORD_STYLE_INFO": {
+		"kiem_than": {
+			"name": "Kiếm Thần",
+			"play": "Tấn công: nhát chém nặng, chí mạng, lướt chém xuyên hàng quái.",
+			"enchants": "Hợp phủ Hoả (dồn sát thương), Thổ (phá giáp chồng phá giáp)."
+		},
+		"thuy_than": {
+			"name": "Thủy Thần",
+			"play": "Tĩnh: giữ thế, chặn và phản đòn, đứng vững thì ít mất máu.",
+			"enchants": "Hợp phủ Thuỷ (phản đòn kèm hút máu), Băng (phản đòn làm lạnh)."
+		},
+		"bac_than": {
+			"name": "Bắc Thần",
+			"play": "Nhanh nhẹn: lướt không trúng đòn, ra sau lưng, chém chí mạng.",
+			"enchants": "Hợp phủ Phong, Băng (chém nhanh cộng dồn đóng băng)."
+		}
+	},
+	"TALENT_BONUS_CAP": 999,
+	"TALENT_LEVEL_CAP": 40,
+	"TIER_COST": [
+		0,
+		1,
+		1,
+		2,
+		2,
+		3,
+		3,
+		4,
+		4,
+		5,
+		5
+	],
+	"TREE": {
+		"sword": [
+			{
+				"tier": 1,
+				"kind": "active",
+				"name": "Trảm",
+				"desc": "Nhát chém cơ bản, giữ phím để chém liên tục. uy lực ×1,25 · không tốn MP · hồi 0,38s",
+				"ready": true,
+				"skillId": "slash"
+			},
+			{
+				"tier": 2,
+				"kind": "passive",
+				"name": "Nhịp Chém",
+				"desc": "Tốc chém +10% (đòn Kiếm hồi nhanh hơn).",
+				"ready": true
+			},
+			{
+				"tier": 3,
+				"kind": "active",
+				"name": "Nhất Kích · Thế Tĩnh · Lướt Chém",
+				"desc": "Theo lưu phái chọn ở mốc 3: Nhất Kích (Kiếm Thần) · Thế Tĩnh (Thủy Thần) · Lướt Chém (Bắc Thần).",
+				"ready": true
+			},
+			{
+				"tier": 4,
+				"kind": "passive",
+				"name": "Mắt Tinh · Tâm Tĩnh · Nhẹ Như Gió",
+				"desc": "Theo lưu phái chọn ở mốc 3: Mắt Tinh (Kiếm Thần) · Tâm Tĩnh (Thủy Thần) · Nhẹ Như Gió (Bắc Thần).",
+				"ready": true
+			},
+			{
+				"tier": 5,
+				"kind": "active",
+				"name": "Đột Kích · Lưu Thủy Phản · Ảnh Bộ",
+				"desc": "Theo lưu phái chọn ở mốc 3: Đột Kích (Kiếm Thần) · Lưu Thủy Phản (Thủy Thần) · Ảnh Bộ (Bắc Thần).",
+				"ready": true
+			},
+			{
+				"tier": 6,
+				"kind": "active",
+				"name": "Phá Giáp · Dòng Chảy Ngược · Liên Hoàn",
+				"desc": "Theo lưu phái chọn ở mốc 3: Phá Giáp (Kiếm Thần) · Dòng Chảy Ngược (Thủy Thần) · Liên Hoàn (Bắc Thần).",
+				"ready": true
+			},
+			{
+				"tier": 7,
+				"kind": "passive",
+				"name": "Thế Áp Đảo · Phản Đòn · Đà Lướt",
+				"desc": "Theo lưu phái chọn ở mốc 3: Thế Áp Đảo (Kiếm Thần) · Phản Đòn (Thủy Thần) · Đà Lướt (Bắc Thần).",
+				"ready": true
+			},
+			{
+				"tier": 8,
+				"kind": "active",
+				"name": "Lưỡi Sóng · Xoáy Nước · Phi Kiếm",
+				"desc": "Theo lưu phái chọn ở mốc 3: Lưỡi Sóng (Kiếm Thần) · Xoáy Nước (Thủy Thần) · Phi Kiếm (Bắc Thần).",
+				"ready": true
+			},
+			{
+				"tier": 9,
+				"kind": "passive",
+				"name": "Bất Khuất · Mặt Hồ Phẳng · Bóng Mờ",
+				"desc": "Theo lưu phái chọn ở mốc 3: Bất Khuất (Kiếm Thần) · Mặt Hồ Phẳng (Thủy Thần) · Bóng Mờ (Bắc Thần).",
+				"ready": true
+			},
+			{
+				"tier": 10,
+				"kind": "active",
+				"name": "Phán Quyết · Thiên Tĩnh · Ngàn Bóng",
+				"desc": "Theo lưu phái chọn ở mốc 3: Phán Quyết (Kiếm Thần) · Thiên Tĩnh (Thủy Thần) · Ngàn Bóng (Bắc Thần).",
+				"ready": false
+			}
+		],
+		"fire": [
+			{
+				"tier": 1,
+				"kind": "active",
+				"name": "Hoả Cầu",
+				"desc": "Cầu lửa, gây cháy. Bắn xa 400 · uy lực ×1,4 · 6 MP · hồi 1s",
+				"ready": true,
+				"skillId": "fire_bolt"
+			},
+			{
+				"tier": 2,
+				"kind": "passive",
+				"name": "Mồi Lửa",
+				"desc": "Cháy lâu hơn 50%.",
+				"ready": true
+			},
+			{
+				"tier": 3,
+				"kind": "active",
+				"name": "Vòng Lửa",
+				"desc": "Nổ vòng lửa quanh mình, đẩy quái ra và gây cháy. Vùng quanh mình, bán kính 110 · đẩy lùi 50 · uy lực ×1,5 · 14 MP · hồi 6s",
+				"ready": true,
+				"skillId": "flame_ring"
+			},
+			{
+				"tier": 4,
+				"kind": "passive",
+				"name": "Tim Lò",
+				"desc": "+20% sát thương mọi đòn vào mục tiêu đang cháy.",
+				"ready": true
+			},
+			{
+				"tier": 5,
+				"kind": "active",
+				"name": "Bộc Hoả",
+				"desc": "Cầu lửa lớn bay tới chỗ nhắm rồi nổ lan, đốt cả nhóm. Vùng tại chỗ nhắm (tầm 360), bán kính 100 · uy lực ×2,4 · 22 MP · hồi 7s",
+				"ready": true,
+				"skillId": "fire_blast"
+			},
+			{
+				"tier": 6,
+				"kind": "active",
+				"name": "Tường Lửa",
+				"desc": "Dựng tường lửa chắn ngang chỗ nhắm: quái không đi xuyên qua, đạn quái bị chặn; quái áp sát tường bị đốt. Tường dài 160 tại chỗ nhắm (tầm 240), đứng 5s: chặn quái đi qua + chặn đạn quái, đốt quái áp sát · uy lực ×0,25 mỗi nhịp đốt · 18 MP · hồi 10s",
+				"ready": true,
+				"skillId": "fire_wall"
+			},
+			{
+				"tier": 7,
+				"kind": "passive",
+				"name": "Tro Tàn",
+				"desc": "Quái chết lúc đang cháy nổ lan lửa sang quái gần (×1 sức phép, bán kính 85) — nổ dây chuyền tối đa 4 đợt.",
+				"ready": true
+			},
+			{
+				"tier": 8,
+				"kind": "active",
+				"name": "Thiên Thạch",
+				"desc": "Gọi thiên thạch rực lửa rơi xuống chỗ nhắm, nổ cả một vùng lớn và đốt cháy. Rơi từ trời xuống chỗ nhắm (tầm 380) sau 0,8s, bán kính 150 · đẩy lùi 60 · uy lực ×3,6 · 34 MP · hồi 15s",
+				"ready": true,
+				"skillId": "meteor"
+			},
+			{
+				"tier": 9,
+				"kind": "passive",
+				"name": "Hoả Thân",
+				"desc": "Sát thương thiêu đốt +50%, kháng cháy.",
+				"ready": true
+			},
+			{
+				"tier": 10,
+				"kind": "active",
+				"name": "Phượng Hoàng",
+				"desc": "Tuyệt kỹ: phượng lửa khổng lồ bay xuyên màn hình, thiêu cháy mọi quái trên đường bay. Bắn xa 900, xuyên mục tiêu · uy lực ×4,4 · 60 MP · hồi 40s",
+				"ready": false,
+				"skillId": "phoenix"
+			}
+		],
+		"water": [
+			{
+				"tier": 1,
+				"kind": "active",
+				"name": "Thuỷ Tiễn",
+				"desc": "Mũi nước, làm ướt. Bắn xa 420 · uy lực ×1,3 · 8 MP · hồi 1,6s",
+				"ready": true,
+				"skillId": "water_lance"
+			},
+			{
+				"tier": 2,
+				"kind": "passive",
+				"name": "Thấm Sâu",
+				"desc": "Ướt lâu hơn 50% (thêm thời gian gây phản ứng); quái đang ướt chậm 10%.",
+				"ready": true
+			},
+			{
+				"tier": 3,
+				"kind": "active",
+				"name": "Suối Lành",
+				"desc": "Hồi máu, mạnh theo mốc Thuỷ. hồi 35% máu tối đa · 15 MP · hồi 6s",
+				"ready": true,
+				"skillId": "heal"
+			},
+			{
+				"tier": 4,
+				"kind": "passive",
+				"name": "Huyết Thuỷ",
+				"desc": "Hút máu: đòn hệ Thuỷ hồi máu bằng 5% sát thương gây ra.",
+				"ready": true
+			},
+			{
+				"tier": 5,
+				"kind": "active",
+				"name": "Sóng Dữ",
+				"desc": "Sóng hình nón đẩy lùi cả nhóm, làm ướt hết. Hình nón 80°, dài 190 · đẩy lùi 80 · uy lực ×1,9 · 20 MP · hồi 6s",
+				"ready": true,
+				"skillId": "tidal_wave"
+			},
+			{
+				"tier": 6,
+				"kind": "active",
+				"name": "Gọi Mưa",
+				"desc": "Gọi mây giông trút mưa một vùng: quái trong vùng ướt liên tục (mồi cho Băng và Lôi Vũ). Mưa 6s tại chỗ nhắm (tầm 280), bán kính 130: quái trong vùng ướt liên tục · không gây sát thương · 16 MP · hồi 12s",
+				"ready": true,
+				"skillId": "call_rain"
+			},
+			{
+				"tier": 7,
+				"kind": "passive",
+				"name": "Mạch Nguồn",
+				"desc": "Đứng trong mưa của mình (Gọi Mưa): mỗi giây hồi 3% máu tối đa + 4 MP.",
+				"ready": true
+			},
+			{
+				"tier": 8,
+				"kind": "active",
+				"name": "Lôi Vũ",
+				"desc": "Mây giông phóng sét xuống quái trong vùng, ưu tiên quái đang ướt; mây đứng trong mưa của chính mình thì sét dày gấp đôi. Mây giông 3s tại chỗ nhắm (tầm 320), bán kính 170, 6 nhịp × 2 tia sét (4 nếu mây trong mưa của mình), ưu tiên quái ướt · uy lực ×0,6 mỗi tia sét · 30 MP · hồi 14s",
+				"ready": true,
+				"skillId": "thunder_rain"
+			},
+			{
+				"tier": 9,
+				"kind": "passive",
+				"name": "Thuỷ Triều Dâng",
+				"desc": "Hút máu đòn Thuỷ lên 12%; quái đang ướt nhận thêm 15% sát thương từ mọi nguồn.",
+				"ready": true
+			},
+			{
+				"tier": 10,
+				"kind": "active",
+				"name": "Đại Hồng Thuỷ",
+				"desc": "Tuyệt kỹ: sóng thần dâng lên quét về phía trước, cuốn văng và làm ướt cả đám quái. Hình nón 100°, dài 520 · đẩy lùi 160 · uy lực ×3,4 · 60 MP · hồi 40s",
+				"ready": false,
+				"skillId": "great_flood"
+			}
+		],
+		"wind": [
+			{
+				"tier": 1,
+				"kind": "active",
+				"name": "Phong Nhận",
+				"desc": "Lưỡi gió bay xuyên mục tiêu. Bắn xa 460, xuyên mục tiêu · uy lực ×1,1 · 10 MP · hồi 2,4s",
+				"ready": true,
+				"skillId": "wind_blade"
+			},
+			{
+				"tier": 2,
+				"kind": "passive",
+				"name": "Gió Sắc",
+				"desc": "Phép Phong bay nhanh và xa hơn 20%.",
+				"ready": true
+			},
+			{
+				"tier": 3,
+				"kind": "active",
+				"name": "Lốc Xoáy",
+				"desc": "Lốc nhỏ tại chỗ nhắm, cuốn quái vào giữa và chém liên tục. Vùng 2,5s tại chỗ nhắm, bán kính 95, 5 nhịp, hút quái · uy lực ×0,32 mỗi nhịp · 16 MP · hồi 8s",
+				"ready": true,
+				"skillId": "cyclone"
+			},
+			{
+				"tier": 4,
+				"kind": "passive",
+				"name": "Thuận Gió",
+				"desc": "Hồi chiêu mọi kỹ năng −10%, tốc chạy +10%.",
+				"ready": true
+			},
+			{
+				"tier": 5,
+				"kind": "active",
+				"name": "Lướt Gió",
+				"desc": "Lướt xa, không trúng đòn lúc lướt; để lại lưỡi gió chém mọi quái dọc đường. Lướt 210, không trúng đòn 0,4s, vệt chém dọc đường · uy lực ×1,8 · 16 MP · hồi 5s",
+				"ready": true,
+				"skillId": "gale_dash"
+			},
+			{
+				"tier": 6,
+				"kind": "active",
+				"name": "Phong Bạo",
+				"desc": "Ba lưỡi gió toả hình quạt, xuyên mục tiêu, đẩy lùi. 3 lưỡi toả quạt 36°, bắn xa 300, xuyên mục tiêu · đẩy lùi 55 · uy lực ×1,2 mỗi lưỡi · 18 MP · hồi 7s",
+				"ready": true,
+				"skillId": "gale_fan"
+			},
+			{
+				"tier": 7,
+				"kind": "passive",
+				"name": "Mắt Bão",
+				"desc": "Né tốn ít thể lực hơn 50% (không cộng dồn với Nhẹ Như Gió); né xong tốc chạy +15% trong 2 giây.",
+				"ready": true
+			},
+			{
+				"tier": 8,
+				"kind": "active",
+				"name": "Vòi Rồng",
+				"desc": "Lốc khổng lồ đi theo hướng nhắm, cuốn quái theo và chém liên tục. Lốc đi theo hướng nhắm 385px trong 3,5s, bán kính 80, 10 nhịp, cuốn quái theo · uy lực ×0,34 mỗi nhịp · 30 MP · hồi 14s",
+				"ready": true,
+				"skillId": "tornado"
+			},
+			{
+				"tier": 9,
+				"kind": "passive",
+				"name": "Gió Loạn",
+				"desc": "Quái trúng đòn hệ Phong đánh trượt 20% trong 3 giây.",
+				"ready": true
+			},
+			{
+				"tier": 10,
+				"kind": "active",
+				"name": "Thiên Phong",
+				"desc": "Tuyệt kỹ: gọi bão lớn giáng xuống chỗ nhắm 6 giây, hút quái vào tâm bão và chém liên tục. Vùng 6s tại chỗ nhắm, bán kính 190, 20 nhịp, hút quái · uy lực ×0,42 mỗi nhịp · 60 MP · hồi 45s",
+				"ready": false,
+				"skillId": "heaven_wind"
+			}
+		],
+		"ice": [
+			{
+				"tier": 1,
+				"kind": "active",
+				"name": "Băng Tiễn",
+				"desc": "Mũi băng làm lạnh; trúng mục tiêu ướt thì Đóng Băng. Bắn xa 420 · uy lực ×1,35 · 9 MP · hồi 1,8s",
+				"ready": true,
+				"skillId": "ice_shard"
+			},
+			{
+				"tier": 2,
+				"kind": "passive",
+				"name": "Hàn Khí",
+				"desc": "Băng làm lạnh lâu hơn 60% và chậm hơn (quái còn 35% tốc).",
+				"ready": true
+			},
+			{
+				"tier": 3,
+				"kind": "active",
+				"name": "Băng Địa",
+				"desc": "Phủ băng mặt đất tại chỗ nhắm: quái trong vùng bị lạnh và chậm. Vùng 4s tại chỗ nhắm, bán kính 105, 8 nhịp · uy lực ×0,22 mỗi nhịp · 15 MP · hồi 9s",
+				"ready": true,
+				"skillId": "frost_field"
+			},
+			{
+				"tier": 4,
+				"kind": "passive",
+				"name": "Giáp Sương",
+				"desc": "Nhận sát thương −10%.",
+				"ready": true
+			},
+			{
+				"tier": 5,
+				"kind": "active",
+				"name": "Băng Trụ",
+				"desc": "Cột băng khổng lồ trồi lên tại chỗ nhắm, hất quái lên rồi đóng băng. Trồi tại chỗ nhắm (tầm 300) sau 0,5s, bán kính 75 · hất 0,5s · đóng băng 1,4s · uy lực ×2,6 · 24 MP · hồi 9s",
+				"ready": true,
+				"skillId": "ice_spire"
+			},
+			{
+				"tier": 6,
+				"kind": "active",
+				"name": "Gương Băng",
+				"desc": "Khiên băng quanh mình 4 giây: đạn quái chạm khiên bị phản ngược về kẻ bắn thành mũi băng. Khiên 4s quanh mình: phản đạn quái về kẻ bắn · đạn phản ×1,6 · 16 MP · hồi 12s",
+				"ready": true,
+				"skillId": "ice_mirror"
+			},
+			{
+				"tier": 7,
+				"kind": "passive",
+				"name": "Hàn Tâm",
+				"desc": "Thời gian đóng băng +50%.",
+				"ready": true
+			},
+			{
+				"tier": 8,
+				"kind": "active",
+				"name": "Mưa Băng",
+				"desc": "Mũi băng to rơi rải khắp một vùng: mỗi mũi làm lạnh, mục tiêu ướt thì Đóng Băng. 20 viên rơi rải trong 1,8s khắp vùng bán kính 150 tại chỗ nhắm (tầm 320), mỗi viên bán kính 48 · uy lực ×0,9 mỗi viên · 32 MP · hồi 15s",
+				"ready": true,
+				"skillId": "ice_rain"
+			},
+			{
+				"tier": 9,
+				"kind": "passive",
+				"name": "Vỡ Vụn",
+				"desc": "Đánh quái đang đóng băng +40%; băng tan hay vỡ thì nổ vụn băng (×0,6 sức phép, bán kính 80) trúng quái quanh (quái ướt bị Đóng Băng — lan tối đa 1 đợt).",
+				"ready": true
+			},
+			{
+				"tier": 10,
+				"kind": "active",
+				"name": "Kỷ Băng Hà",
+				"desc": "Tuyệt kỹ: khối băng khổng lồ rơi xuống chỗ nhắm, sóng băng nổ lan cả vùng và đóng băng mọi quái trúng. Rơi từ trời xuống chỗ nhắm (tầm 400) sau 0,7s, bán kính 210 · đóng băng 3s · uy lực ×4,4 · 60 MP · hồi 45s",
+				"ready": false,
+				"skillId": "ice_age"
+			}
+		],
+		"earth": [
+			{
+				"tier": 1,
+				"kind": "active",
+				"name": "Đá Văng",
+				"desc": "Ném đá, đẩy lùi. Bắn xa 380 · đẩy lùi 45 · uy lực ×1,35 · 8 MP · hồi 1,6s",
+				"ready": true,
+				"skillId": "rock_throw"
+			},
+			{
+				"tier": 2,
+				"kind": "passive",
+				"name": "Đá Nặng",
+				"desc": "Phép Thổ đẩy lùi xa hơn, choáng/hất lâu hơn 50%.",
+				"ready": true
+			},
+			{
+				"tier": 3,
+				"kind": "active",
+				"name": "Địa Chấn",
+				"desc": "Dậm đất, choáng nhẹ quái quanh mình. Vùng quanh mình, bán kính 105 · choáng 0,9s · uy lực ×1,3 · 14 MP · hồi 7s",
+				"ready": true,
+				"skillId": "quake"
+			},
+			{
+				"tier": 4,
+				"kind": "passive",
+				"name": "Da Đá",
+				"desc": "Phòng thủ +15%, không bị đẩy lùi.",
+				"ready": true
+			},
+			{
+				"tier": 5,
+				"kind": "active",
+				"name": "Gai Đá",
+				"desc": "Gai đá trồi theo đường thẳng, hất quái lên. Đường thẳng dài 320, rộng 56 · hất 0,4s · uy lực ×2,3 · 22 MP · hồi 7s",
+				"ready": true,
+				"skillId": "stone_spikes"
+			},
+			{
+				"tier": 6,
+				"kind": "active",
+				"name": "Tường Đá",
+				"desc": "Dựng tường đá chắn ngang chỗ nhắm: chặn đường và chặn đạn quái; đá trồi hất quái đứng trên đó sang hai bên. Tường dài 200 tại chỗ nhắm (tầm 220), đứng 7s: chặn quái đi qua + chặn đạn quái · đẩy lùi 40 · uy lực ×1,1 lúc đá trồi · 18 MP · hồi 12s",
+				"ready": true,
+				"skillId": "stone_wall"
+			},
+			{
+				"tier": 7,
+				"kind": "passive",
+				"name": "Trọng Lực",
+				"desc": "Đòn hệ Thổ làm chậm 20% trong 2 giây; quái đang choáng nhận thêm 20% sát thương.",
+				"ready": true
+			},
+			{
+				"tier": 8,
+				"kind": "active",
+				"name": "Lở Đá",
+				"desc": "Đá tảng rơi rải khắp một vùng rộng: mỗi tảng choáng ngắn quái trúng. 12 viên rơi rải trong 1,5s khắp vùng bán kính 160 tại chỗ nhắm (tầm 320), mỗi viên bán kính 58 · choáng 0,5s · uy lực ×1,2 mỗi viên · 32 MP · hồi 15s",
+				"ready": true,
+				"skillId": "rockslide"
+			},
+			{
+				"tier": 9,
+				"kind": "passive",
+				"name": "Núi Thiêng",
+				"desc": "Máu tối đa +15%; đứng yên từ 1 giây thì mỗi giây hồi 2% máu tối đa.",
+				"ready": true
+			},
+			{
+				"tier": 10,
+				"kind": "active",
+				"name": "Sơn Thần",
+				"desc": "Tuyệt kỹ: gọi người khổng lồ đá chiến đấu cùng 10 giây — tự đi tới quái gần nhất, dậm đất choáng cả vùng. Triệu hồi 10s tại chỗ nhắm (tầm 260): dậm đất mỗi 1,1s, bán kính 115 · choáng 0,7s · uy lực ×1,7 · 60 MP · hồi 50s",
+				"ready": false,
+				"skillId": "mountain_god"
+			}
+		]
+	},
+	"ULT_TIER": 10
+}

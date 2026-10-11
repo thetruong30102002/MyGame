@@ -74,5 +74,10 @@
 		"SW",
 		"NW"
 	],
-	"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template mannequin, khổ vẽ 112px; ảnh mẫu nét = Quỷ vương. Vùng 5. Mô tả: a sorrowful ice queen boss facing the viewer, a village mother turned into living ice, opaque frosted white-blue ice skin with frost cracks, a crown of jagged icicles, long hair frozen into icicles, a simple fur-trimmed village dress glazed over with ice, ankle-length with a frosted icicle hem, a small knitted child's mitten frozen in one hand, empty glowing white eyes. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 156px."
+	"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template mannequin, khổ vẽ 112px; ảnh mẫu nét = Quỷ vương. Vùng 5. Mô tả: a sorrowful ice queen boss facing the viewer, a village mother turned into living ice, opaque frosted white-blue ice skin with frost cracks, a crown of jagged icicles, long hair frozen into icicles, a simple fur-trimmed village dress glazed over with ice, ankle-length with a frosted icicle hem, a small knitted child's mitten frozen in one hand, empty glowing white eyes. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 156px.",
+	"review": {
+		"status": "approved",
+		"date": "10/10/2026",
+		"notes": "Duyệt bằng mắt (Claude, phiên chuyển Unity): ảnh giữa idle/walk hướng S/E/N + trọn attack E/S + death E từ contact sheet. Chủ dự án báo đã vẽ xong chiêu quái/boss trên PixelLab; đối chiếu bản tải lại 10/10/2026 khớp bản trên máy."
+	}
 }

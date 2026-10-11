@@ -1,17 +1,2 @@
-import { CHILDHOOD_AGE_CARDS, CHILDHOOD_NPCS, CHILDHOOD_QUESTS, PARENT_NPCS_16, PROLOGUE, TIME_SKIP } from './childhood';
-import { SERVICE_NPCS } from './services';
-import type { StoryData } from './storyTypes';
-import { YOUTH_ENDING, YOUTH_NPCS, YOUTH_QUESTS } from './youth';
-
-/** Toàn bộ cốt truyện đang chơi được: tuổi thơ (childhood.ts) → tua nhanh → 16 tuổi (youth.ts). NPC dịch vụ đứng chung (services.ts). */
-export const STORY: StoryData = {
-	prologue: PROLOGUE,
-	ageCards: { ...CHILDHOOD_AGE_CARDS, 16: TIME_SKIP },
-	npcs: { ...CHILDHOOD_NPCS, ...YOUTH_NPCS, ...PARENT_NPCS_16, ...SERVICE_NPCS },
-	quests: [...CHILDHOOD_QUESTS, ...YOUTH_QUESTS],
-	ending: YOUTH_ENDING,
-	playerByAge: [
-		{ minAge: 0, sprite: 'player_lior_child' },
-		{ minAge: 16, sprite: 'player_hero_adult' },
-	],
-};
+// Đã chuyển khỏi bản web (11/10/2026 — chuẩn bị xoá apps/web). File này chỉ chuyển tiếp cho chỗ import cũ.
+export * from '@aether/sim/story/story';

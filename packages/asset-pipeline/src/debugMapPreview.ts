@@ -2,7 +2,7 @@
 // trước/sau khi sửa đồ hoạ mà không cần mở trình duyệt. Chạy: `npx tsx src/debugMapPreview.ts [tên-ảnh]`.
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { renderGroundChunk, type TerrainGrid } from '../../../apps/web/src/game/world/groundShade.js';
+import { renderGroundChunk, type TerrainGrid } from './maps/groundShade.js';
 import { createImage, opaqueBounds, readPng, scaleNearest, writePng, type RGBAImage } from './image/rgba.js';
 
 const WEB = join(process.cwd(), '../../apps/web/public/assets');

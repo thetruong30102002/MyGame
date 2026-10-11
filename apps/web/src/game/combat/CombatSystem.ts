@@ -78,6 +78,7 @@ import {
 	type SwordStyle,
 	type Tiers,
 } from './talents';
+import type { FocusCandidate } from './focus';
 import { castFx, type RemoteCast } from './remoteCast';
 import { TEMP_ART, type ArtLayer } from './tempArt';
 import type { Vfx, VfxId, VfxOptions } from './Vfx';
@@ -543,6 +544,31 @@ export interface CombatHooks {
 	reportKill?(type: string, zone?: string): void;
 	/** Vừa uống một bình hồi phục (kinh tế ở máy chủ: máy chủ trừ bình). */
 	potionUsed?(): void;
+	/**
+	 * Tuyệt kỹ triệu hồi (Sơn Thần, Ngàn Bóng — chỉ phòng tập): bên dựng thế giới tải actor từ hình nhân vật có sẵn (`sprite`) và
+	 * gắn vào cảnh + vòng cập nhật. Thiếu hook / tải hỏng = vật triệu hồi vô hình (vẫn đánh, vẫn có hiệu ứng).
+	 */
+	spawnSummon?(sprite: string, x: number, y: number): Promise<Actor | null>;
+	/** Vật triệu hồi hết giờ / dọn map: gỡ actor đã tải bằng `spawnSummon`. */
+	despawnSummon?(actor: Actor): void;
+}
+
+/**
+ * Vật triệu hồi của tuyệt kỹ: người khổng lồ đá (Sơn Thần — tự đi tới mục tiêu gần nhất, dậm đất theo nhịp) hoặc bóng phân thân
+ * (Ngàn Bóng — mỗi nhịp lướt ra sau lưng một mục tiêu quanh người chơi rồi chém). `actor` null tới khi tải xong (hoặc không có hook).
+ */
+interface Summon {
+	kind: 'golem' | 'shadow';
+	skill: SkillDef;
+	actor: Actor | null;
+	x: number;
+	y: number;
+	left: number;
+	/** Giây tới nhịp đánh kế. */
+	cd: number;
+	damage: number;
+	fx: HitFx | undefined;
+	element: Element;
 }
 
 interface Dummy {
@@ -787,6 +813,8 @@ export class CombatSystem {
 	private readonly zones: Zone[] = [];
 	/** Tường đang đứng (Tường Lửa, Tường Đá). */
 	private readonly walls: Wall[] = [];
+	/** Vật triệu hồi của tuyệt kỹ đang sống (Sơn Thần, Ngàn Bóng). */
+	private readonly summons: Summon[] = [];
 	/** Mắt Bão: giây còn lại của lượt tăng tốc sau khi né. */
 	private hasteT = 0;
 	/** Đồng hồ hồi phục mỗi giây của bị động (Mạch Nguồn, Núi Thiêng). */
@@ -977,8 +1005,11 @@ export class CombatSystem {
 	 * đòn Kiếm kế, HUD thấy hồi chiêu ngắn lại đúng lúc đó).
 	 */
 	cooldownOf(skill: SkillDef): number {
-		return skill.cooldown * (isSwordSkill(skill) ? this.fx.swordCooldown : 1) * this.fx.cooldown * (this.momentumLive(skill) ? 1 / PASSIVE.momentumSpeed : 1);
+		return Math.min(this.cooldownCap, skill.cooldown * (isSwordSkill(skill) ? this.fx.swordCooldown : 1) * this.fx.cooldown * (this.momentumLive(skill) ? 1 / PASSIVE.momentumSpeed : 1));
 	}
+
+	/** Trần hồi chiêu (giây) — phòng tập `/thu-chieu` đặt 1 (chủ dự án 10/10/2026: "trong phòng tập skill 1s hồi chiêu"); game thật không trần. */
+	cooldownCap = Infinity;
 
 	/** Đà Lướt (Bắc Thần 7) còn áp cho đòn Kiếm này không: còn lượt và chưa quá hạn sau cú né. */
 	private momentumLive(skill: SkillDef): boolean {
@@ -1276,6 +1307,14 @@ export class CombatSystem {
 		return best;
 	}
 
+	/** Thứ chọn làm mục tiêu được (`focus.ts`): quái còn sống, đang hiện + hình nộm (cao ~64px). */
+	focusCandidates(): FocusCandidate[] {
+		const out: FocusCandidate[] = [];
+		for (const f of this.enemies) if (!f.dead && f.actor.root.alpha > 0.05) out.push({ key: f, x: f.actor.x, y: f.actor.y, h: f.actor.height });
+		for (const d of this.dummies) out.push({ key: d, x: d.x, y: d.y, h: 64 });
+		return out;
+	}
+
 	/**
 	 * Quái sống theo BẦY: cả bầy dùng chung một `home` (Game dựng một `home` cho mỗi vùng quái), nên một con thấy người
 	 * chơi hoặc trúng đòn là cả bầy cùng lao vào — không đứng nhìn đồng loại bị đánh. Boss không thuộc bầy nào.
@@ -1295,6 +1334,8 @@ export class CombatSystem {
 	clearWorld(): Actor[] {
 		for (const f of this.enemies) this.endSwing(f);
 		const actors = this.enemies.map((f) => f.actor);
+		for (const m of this.summons) if (m.actor) actors.push(m.actor);
+		this.summons.length = 0;
 		this.enemies.length = 0;
 		this.dummies.length = 0;
 		for (const t of this.telegraphs) {
@@ -1579,25 +1620,26 @@ export class CombatSystem {
 			this.playArt(skill.id, p.x, p.y, dx, dy, undefined, { part: 'charge', follow: p, span: total });
 			this.float(p.x, p.y - p.height - 8, skill.guard === 'parry' ? 'Thế đỡ!' : 'Giữ thế', 0xbfeaff, 12);
 		} else if (kind === 'spin') {
-			// Xoáy Nước: xoay chém quanh mình, đẩy lùi. Vừa đỡ / gạt / phản thành công (trong `COUNTER.after` giây) thì uy lực
-			// ×`afterGuard` + đẩy xa hơn — dùng hết cửa sổ đó (lần xoay sau phải đỡ đòn lại).
+			// Xoáy Nước: xoay chém, đẩy lùi — có `range` thì vòng xoáy cuộn TẠI CHỖ NHẮM (11/10/2026), không thì quanh mình. Vừa đỡ /
+			// gạt / phản thành công (trong `COUNTER.after` giây) thì uy lực ×`afterGuard` + đẩy xa hơn — dùng hết cửa sổ đó.
 			const el = enchant ?? skill.element;
+			const c = skill.range ? clampTarget(p.x, p.y, a.tx ?? p.x + dx * (skill.aimDist ?? 150), a.ty ?? p.y + dy * (skill.aimDist ?? 150), skill.range) : { x: p.x, y: p.y };
 			const surge = !!skill.afterGuard && this.time - this.guardAt <= COUNTER.after;
 			const base = this.hitFxOf(skill);
 			const hx = mergeFx(surge && base ? { ...base, knock: (base.knock ?? 0) * SURGE_KNOCK } : base, this.swingFx(enchant));
 			for (let k = 0; k < 4; k += 1) {
 				const ang = (k / 4) * Math.PI * 2;
-				this.vfx.play('slash', p.x + Math.cos(ang) * 34, p.y - 34 + Math.sin(ang) * 22, { rotation: ang + Math.PI / 2, tint: el === 'steel' ? 0xeaf8ff : ELEMENT_TINT[el], fps: 30 });
+				this.vfx.play('slash', c.x + Math.cos(ang) * 34, c.y - 34 + Math.sin(ang) * 22, { rotation: ang + Math.PI / 2, tint: el === 'steel' ? 0xeaf8ff : ELEMENT_TINT[el], fps: 30 });
 			}
-			this.playArt(skill.id, p.x, p.y, dx, dy);
+			this.playArt(skill.id, c.x, c.y, dx, dy);
 			if (surge) {
 				this.guardAt = -99;
-				this.playArt('whirlpool_surge', p.x, p.y, dx, dy);
+				this.playArt('whirlpool_surge', c.x, c.y, dx, dy);
 				this.float(p.x, p.y - p.height - 8, `${skill.name}!`, 0x9fe8ff, 15);
 				this.hooks.shake(2.6, 0.18);
 				this.hitStop = Math.max(this.hitStop, 0.07);
 			}
-			this.pressLanded(this.strikeArea({ kind: 'circle', x: p.x, y: p.y, r: (skill.radius ?? 90) * this.enchantReach(enchant) }, damage * (surge ? (skill.afterGuard ?? 1) : 1), el, hx, 'steel'));
+			this.pressLanded(this.strikeArea({ kind: 'circle', x: c.x, y: c.y, r: (skill.radius ?? 90) * this.enchantReach(enchant) }, damage * (surge ? (skill.afterGuard ?? 1) : 1), el, hx, 'steel'));
 		} else if (kind === 'dash') {
 			const plan = dashPlan(dx, dy, skill.range ?? 150, skill.speed ?? 640);
 			const el = enchant ?? skill.element;
@@ -1647,6 +1689,10 @@ export class CombatSystem {
 			this.strikeArea({ kind: 'circle', x: p.x, y: p.y, r: skill.radius ?? 90 }, damage, skill.element, this.hitFxOf(skill));
 			this.hooks.shake(skill.element === 'earth' ? 3.5 : 2, 0.22);
 			if (skill.element === 'fire') this.flashScreen(0xffa040, 0.12);
+		} else if (kind === 'cone' && skill.ult) {
+			this.flood(skill, p.x, p.y, dx, dy, damage);
+		} else if (kind === 'summon') {
+			this.summon(skill, a, damage, enchant);
 		} else if (kind === 'cone') {
 			const range = skill.range ?? 160;
 			const half = skill.angle ?? 35;
@@ -1696,7 +1742,8 @@ export class CombatSystem {
 				this.fire({ x: sx, y: sy, vx: (at.x - sx) / delay, vy: (at.y - sy) / delay, life: delay, team: 'player', damage: 0, element: skill.element, pierce: false, ghost: true, look: this.shotOf(skill.id) });
 			}
 			// Bản PixelLab tự có cảnh vật rơi (`finalImpact`): bỏ vật rơi tạm, phát clip sớm để frame va chạm trùng lúc nổ.
-			const fallFinal = !!skill.fall && this.finalReady(skill.id);
+			// Chỉ khi clip có khung va chạm (`finalImpact` — Thiên Thạch); Kỷ Băng Hà vẽ cảnh băng nổ, không có vật rơi trong clip.
+			const fallFinal = !!skill.fall && this.finalReady(skill.id) && this.finalLead(skill.id) > 0;
 			if (skill.fall && delay > 0) {
 				// Thiên Thạch: vật rơi chéo từ trời (chỉ là hình) + vòng báo co đúng hết lúc rơi — người chơi thấy chỗ sắp nổ.
 				const sx = at.x - 110;
@@ -1704,6 +1751,8 @@ export class CombatSystem {
 				if (!fallFinal) this.fire({ x: sx, y: sy, vx: (at.x - sx) / delay, vy: (at.y - sy) / delay, life: delay, team: 'player', damage: 0, element: skill.element, pierce: false, ghost: true, look: this.shotOf(skill.id) });
 				this.playArt(skill.id, at.x, at.y, dx, dy, undefined, { part: 'charge', span: delay });
 			}
+			// Đòn chờ tại chỗ (Thiên Tĩnh): hình báo ở chỗ nhắm trong lúc chờ.
+			if (kind === 'aoe_target' && !skill.fall && !skill.lob && delay > 0) this.playArt(skill.id, at.x, at.y, dx, dy, undefined, { part: 'charge', span: delay });
 			if (fallFinal) this.schedule(Math.max(0, delay - this.finalLead(skill.id)), () => this.playArt(skill.id, at.x, at.y, dx, dy));
 			if (kind === 'pillar' && delay > 0) {
 				// Vòng báo dưới đất trong lúc chờ trồi — người chơi thấy chỗ cột sắp lên.
@@ -1892,13 +1941,14 @@ export class CombatSystem {
 			this.float(p.x, p.y - p.height - 8, skill.guard === 'parry' ? 'Thế đỡ!' : 'Giữ thế', 0xbfeaff, 12);
 			this.echoGuards.push({ actor: p, kind: skill.guard ?? 'stance', t: total });
 		} else if (kind === 'spin') {
+			const at = skill.range ? this.echoTarget(c, p, 150) : { x: p.x, y: p.y };
 			for (let k = 0; k < 4; k += 1) {
 				const ang = (k / 4) * Math.PI * 2;
-				this.vfx.play('slash', p.x + Math.cos(ang) * 34, p.y - 34 + Math.sin(ang) * 22, { rotation: ang + Math.PI / 2, tint: el === 'steel' ? 0xeaf8ff : ELEMENT_TINT[el], fps: 30 });
+				this.vfx.play('slash', at.x + Math.cos(ang) * 34, at.y - 34 + Math.sin(ang) * 22, { rotation: ang + Math.PI / 2, tint: el === 'steel' ? 0xeaf8ff : ELEMENT_TINT[el], fps: 30 });
 			}
-			this.playArt(skill.id, p.x, p.y, dx, dy);
+			this.playArt(skill.id, at.x, at.y, dx, dy);
 			if (c.surge) {
-				this.playArt('whirlpool_surge', p.x, p.y, dx, dy);
+				this.playArt('whirlpool_surge', at.x, at.y, dx, dy);
 				this.float(p.x, p.y - p.height - 8, `${skill.name}!`, 0x9fe8ff, 15);
 			}
 		} else if (kind === 'dash') {
@@ -1963,13 +2013,16 @@ export class CombatSystem {
 				delay = Math.max(0.12, Math.hypot(at.x - sx, at.y - sy) / skill.lob);
 				this.fire({ x: sx, y: sy, vx: (at.x - sx) / delay, vy: (at.y - sy) / delay, life: delay, team: 'player', damage: 0, element: skill.element, pierce: false, ghost: true, look: this.shotOf(skill.id) });
 			}
-			const fallFinal = !!skill.fall && this.finalReady(skill.id);
+			// Chỉ khi clip có khung va chạm (`finalImpact` — Thiên Thạch); Kỷ Băng Hà vẽ cảnh băng nổ, không có vật rơi trong clip.
+			const fallFinal = !!skill.fall && this.finalReady(skill.id) && this.finalLead(skill.id) > 0;
 			if (skill.fall && delay > 0) {
 				const sx = at.x - 110;
 				const sy = at.y - FALL_HEIGHT * 2;
 				if (!fallFinal) this.fire({ x: sx, y: sy, vx: (at.x - sx) / delay, vy: (at.y - sy) / delay, life: delay, team: 'player', damage: 0, element: skill.element, pierce: false, ghost: true, look: this.shotOf(skill.id) });
 				this.playArt(skill.id, at.x, at.y, dx, dy, undefined, { part: 'charge', span: delay });
 			}
+			// Đòn chờ tại chỗ (Thiên Tĩnh): hình báo ở chỗ nhắm trong lúc chờ.
+			if (kind === 'aoe_target' && !skill.fall && !skill.lob && delay > 0) this.playArt(skill.id, at.x, at.y, dx, dy, undefined, { part: 'charge', span: delay });
 			if (fallFinal) this.schedule(Math.max(0, delay - this.finalLead(skill.id)), () => this.playArt(skill.id, at.x, at.y, dx, dy));
 			if (kind === 'pillar' && delay > 0) {
 				this.vfx.play('magic_circle', at.x, at.y, { layer: 'ground', tint: ELEMENT_TINT[skill.element], scale: 2, fps: 9 / delay, alpha: 0.75 });
@@ -2341,6 +2394,168 @@ export class CombatSystem {
 		});
 	}
 
+	/**
+	 * Đại Hồng Thuỷ (tuyệt kỹ Thuỷ): sóng thần đi từ gần ra xa — 6 nhịp nón dài dần (mỗi quái trúng một lần, đẩy văng theo hướng
+	 * sóng), hình sóng thần PixelLab (`ult_tsunami`, vẽ hướng sang phải → lật khi sóng đi sang trái) phát hai lần dọc đường sóng.
+	 */
+	private flood(skill: SkillDef, x: number, y: number, dx: number, dy: number, damage: number): void {
+		const range = skill.range ?? 500;
+		const half = skill.angle ?? 45;
+		const hitSet = new Set<object>();
+		const fx = this.hitFxOf(skill);
+		const steps = 6;
+		for (let k = 1; k <= steps; k += 1) {
+			this.schedule(k * 0.09, () => {
+				this.strikeArea({ kind: 'cone', x, y, dx, dy, range: (range * k) / steps, half }, damage, skill.element, fx, skill.element, hitSet);
+				if (k % 2 === 0) this.hooks.shake(2.4, 0.12);
+			});
+		}
+		const big = this.vfx.frames('ult_tsunami').length > 0;
+		for (const [t, d] of [
+			[0, range * 0.3],
+			[0.28, range * 0.68],
+		] as const) {
+			this.schedule(t, () => {
+				const cx = x + dx * d;
+				const cy = y + dy * d;
+				if (big) this.vfx.play('ult_tsunami', cx, cy - 60, { scale: 2, flipX: dx < 0, fps: 14, depthY: cy });
+				else this.playArt('tidal_wave', cx, cy, dx, dy);
+			});
+		}
+		this.flashScreen(0x8fd3ff, 0.18);
+	}
+
+	/**
+	 * Tuyệt kỹ triệu hồi. Sơn Thần (Thổ): người khổng lồ đá mọc lên ở chỗ nhắm, đứng `duration` giây. Ngàn Bóng (Kiếm, Bắc Thần):
+	 * `count` bóng phân thân hiện quanh người chơi. Hình: actor tải qua `hooks.spawnSummon` (Sơn Thần mượn Gargoyle Đá nhuộm màu
+	 * đất tới khi có hình riêng; bóng = bản sao nhân vật nhuộm tím mờ).
+	 */
+	private summon(skill: SkillDef, a: { dx: number; dy: number; tx?: number; ty?: number }, damage: number, enchant: Element | undefined): void {
+		const p = this.player;
+		const golem = skill.element === 'earth';
+		const n = golem ? 1 : Math.max(1, skill.count ?? 3);
+		const at = golem ? clampTarget(p.x, p.y, a.tx ?? p.x + a.dx * (skill.aimDist ?? 120), a.ty ?? p.y + a.dy * (skill.aimDist ?? 120), skill.range ?? 0) : { x: p.x, y: p.y };
+		for (let i = 0; i < n; i += 1) {
+			const ang = (i / n) * Math.PI * 2;
+			const x = golem ? at.x : p.x + Math.cos(ang) * 46;
+			const y = golem ? at.y : p.y + Math.sin(ang) * 26;
+			const m: Summon = {
+				kind: golem ? 'golem' : 'shadow',
+				skill,
+				actor: null,
+				x,
+				y,
+				left: skill.duration ?? 6,
+				cd: golem ? 0.6 : 0.15 + i * ((skill.tick ?? 0.4) / n),
+				damage,
+				fx: golem ? this.hitFxOf(skill) : undefined,
+				element: golem ? 'earth' : (enchant ?? 'steel'),
+			};
+			this.summons.push(m);
+			if (golem) {
+				this.playArt('mountain_god', x, y, a.dx, a.dy);
+				this.hooks.shake(4, 0.3);
+			} else this.vfx.play(this.vfx.frames('ult_shadow_burst').length ? 'ult_shadow_burst' : 'shadow_smoke', x, y - 30, { fps: 18 });
+			void this.hooks.spawnSummon?.(golem ? 'boss_stone_gargoyle_001' : p.id, x, y).then((actor) => {
+				if (!actor) return;
+				// Hết giờ / dọn map trước khi tải xong: gỡ luôn.
+				if (!this.summons.includes(m)) return this.hooks.despawnSummon?.(actor);
+				m.actor = actor;
+				actor.wanderEnabled = false;
+				actor.view.sprite.tint = golem ? 0xd9b47a : 0x7a5cc4;
+				actor.root.alpha = golem ? 1 : 0.72;
+				actor.x = m.x;
+				actor.y = m.y;
+			});
+		}
+		this.float(p.x, p.y - p.height - 8, skill.name, golem ? ELEMENT_TINT.earth : 0xc9b6ff, 15);
+	}
+
+	/** Vật triệu hồi: đi / lướt tới mục tiêu, đánh theo nhịp; hết giờ thì tan (bóng: khói tím, đá: bụi). */
+	private updateSummons(dt: number): void {
+		const p = this.player;
+		for (let i = this.summons.length - 1; i >= 0; i -= 1) {
+			const m = this.summons[i]!;
+			m.left -= dt;
+			m.cd -= dt;
+			if (m.left <= 0 || !p) {
+				this.vfx.play(m.kind === 'golem' ? 'dust' : 'shadow_smoke', m.x, m.y - 20, { scale: m.kind === 'golem' ? 3 : 1, tint: m.kind === 'golem' ? 0xc9a46a : undefined, fps: 16 });
+				if (m.actor) this.hooks.despawnSummon?.(m.actor);
+				this.summons.splice(i, 1);
+				continue;
+			}
+			const targets = this.focusCandidates();
+			if (m.kind === 'golem') this.golemStep(m, targets, dt);
+			else this.shadowStep(m, targets);
+			if (m.actor) {
+				m.actor.x = m.x;
+				m.actor.y = m.y;
+			}
+		}
+	}
+
+	/** Sơn Thần: đi về phía mục tiêu gần nhất (trong 360px quanh nó) — tới gần thì dậm đất choáng cả vùng; không có ai thì đứng cạnh người chơi. */
+	private golemStep(m: Summon, targets: FocusCandidate[], dt: number): void {
+		const p = this.player;
+		let best: FocusCandidate | null = null;
+		let bestD = 360;
+		for (const t of targets) {
+			const d = Math.hypot(t.x - m.x, t.y - m.y);
+			if (d < bestD) [best, bestD] = [t, d];
+		}
+		const goal = best ?? { x: p.x + 60, y: p.y };
+		const gx = goal.x - m.x;
+		const gy = goal.y - m.y;
+		const dist = Math.hypot(gx, gy);
+		const reach = best ? 70 : 50;
+		const busy = m.actor?.view.busy ?? false;
+		if (dist > reach && !busy) {
+			const step = Math.min(dist - reach, 120 * dt);
+			m.x += (gx / dist) * step;
+			m.y += (gy / dist) * step;
+			m.actor?.view.set('walk', directionOf(gx, gy));
+		} else if (!busy) m.actor?.view.set('idle', directionOf(gx || 1, gy));
+		if (!best || dist > reach + 30 || m.cd > 0) return;
+		m.cd = m.skill.tick ?? 1;
+		const dir = directionOf(gx || 1, gy);
+		const v = m.actor?.view;
+		const timing = v?.actionTiming('attack', dir, 0.6);
+		if (v && timing) v.playAction('attack', dir, { timing, external: false });
+		const cx = m.x + (gx / (dist || 1)) * 40;
+		const cy = m.y + (gy / (dist || 1)) * 40;
+		this.playArt('mountain_god', cx, cy, gx, gy);
+		this.strikeArea({ kind: 'circle', x: cx, y: cy, r: m.skill.radius ?? 110 }, m.damage, 'earth', m.fx);
+		this.hooks.shake(3.2, 0.2);
+		this.hitStop = Math.max(this.hitStop, 0.05);
+	}
+
+	/** Ngàn Bóng: mỗi nhịp một bóng lướt ra sau lưng một mục tiêu quanh người chơi (ngẫu nhiên trong tầm) rồi chém; không ai thì bám quanh người. */
+	private shadowStep(m: Summon, targets: FocusCandidate[]): void {
+		const p = this.player;
+		if (m.cd > 0) return;
+		m.cd = m.skill.tick ?? 0.4;
+		const near = targets.filter((t) => Math.hypot(t.x - p.x, t.y - p.y) <= (m.skill.range ?? 320));
+		if (!near.length) {
+			const ang = Math.random() * Math.PI * 2;
+			m.x = p.x + Math.cos(ang) * 50;
+			m.y = p.y + Math.sin(ang) * 28;
+			return;
+		}
+		const t = near[Math.floor(Math.random() * near.length)]!;
+		this.vfx.play('shadow_smoke', m.x, m.y - 24, { fps: 22, alpha: 0.8 });
+		const back = behindPoint(p.x, p.y, t.x, t.y, 30);
+		m.x = back.x + (Math.random() - 0.5) * 20;
+		m.y = back.y;
+		const dx = t.x - m.x;
+		const dy = t.y - m.y;
+		const dir = directionOf(dx, dy);
+		const v = m.actor?.view;
+		const timing = v?.actionTiming('attack', dir, 0.3);
+		if (v && timing) v.playAction('attack', dir, { timing, external: false });
+		this.slashFx(m.x, m.y - 30, dx, dy, m.element);
+		this.strikeArea({ kind: 'circle', x: t.x, y: t.y, r: m.skill.radius ?? 60 }, m.damage, m.element, undefined, 'steel', undefined, true, m.skill.crit ?? 0);
+	}
+
 	/** Vùng tồn tại: hút quái (không hút boss) + gây sát thương theo nhịp; hết giờ thì tan. */
 	private updateZones(dt: number): void {
 		for (let i = this.zones.length - 1; i >= 0; i -= 1) {
@@ -2546,7 +2761,8 @@ export class CombatSystem {
 					this.endGuard();
 					pc.iframes = Math.max(pc.iframes, GUARD.parryIframes);
 				}
-				return this.counter(g, from, shot, crit);
+				// Thiên Tĩnh: phản lại TOÀN BỘ — nhát phản cộng thêm đúng sát thương vừa hoá giải.
+				return this.counter(g, from, shot, crit, g.kind === 'still' ? amount : 0);
 			}
 			this.float(this.player.x, this.player.y - this.player.height - 26, 'Gạt', 0xbfeaff, 12);
 			// Gạt đạn / đòn vùng bằng thế đỡ cũng là "đỡ đòn" (Xoáy Nước), dù không phản.
@@ -2567,9 +2783,10 @@ export class CombatSystem {
 	 * Nhát phản của thế đỡ: đòn cận chiến → chém trả kẻ đánh; đạn (chỉ Lưu Thủy Phản) → hất ngược về phía kẻ bắn. Sát thương =
 	 * `Guard.damage` (đã tính lúc vào thế). `crit` = 1: đỡ đúng lúc (Phản Đòn).
 	 */
-	private counter(g: Guard, from: Fighter | null, shot: Projectile | null, crit = 0): void {
+	private counter(g: Guard, from: Fighter | null, shot: Projectile | null, crit = 0, reflect = 0): void {
 		const parry = g.kind === 'parry';
-		this.counterStrike({ damage: g.damage, element: g.element, art: g.skillId, strong: parry, crit, label: parry ? 'Phản đòn!' : 'Chặn!' }, from, shot);
+		const still = g.kind === 'still';
+		this.counterStrike({ damage: g.damage + reflect, element: g.element, art: g.skillId, strong: parry || still, crit, label: still ? 'Phản lại!' : parry ? 'Phản đòn!' : 'Chặn!' }, from, shot);
 	}
 
 	/**
@@ -3027,6 +3244,7 @@ export class CombatSystem {
 		this.updateEchoDashes(dt);
 		this.updateEchoGuards(dt);
 		this.updateWalls(dt);
+		this.updateSummons(dt);
 		this.updatePending(dt);
 		this.updateTelegraphs(dt);
 		this.particles.update(dt);
@@ -3389,9 +3607,11 @@ export class CombatSystem {
 		sprite.scale.set(size);
 		// Đạn có mũi (mũi nước, tên, mũi băng; luồng kiếm `look.aim`) xoay theo hướng bay.
 		sprite.rotation = AIMED_SHOTS.has(o.element) || o.look?.aim ? Math.atan2(o.vy, o.vx) : 0;
+		// Hình vẽ hướng sang phải có "đầu trên" (phượng hoàng): bay sang trái thì lật dọc để không lộn ngược.
+		if (o.look?.upright && o.vx < 0) sprite.scale.y = -size;
 		this.fxLayer.addChild(sprite);
 		let glow: Sprite | null = null;
-		if (GLOWS.has(o.element) && frames[0]) {
+		if (GLOWS.has(o.element) && frames[0] && !o.look?.upright) {
 			// Quầng sáng kiểu pixel: chính frame đó phóng NGUYÊN 2×, cộng màu, mờ — không dùng gradient mềm.
 			glow = this.spritePool.pop() ?? new Sprite();
 			glow.anchor.set(0.5);

@@ -122,8 +122,8 @@ const idx = (id: string) => {
 	for (const k of ['aoe_self', 'aoe_target', 'cone', 'line', 'dash', 'pillar', 'zone'] as SkillKind[]) assert.ok(kinds.has(k), `có kỹ năng kiểu ${k}`);
 	assert.deepEqual(
 		HERO_SKILLS.filter((s) => isGroundTarget(s)).map((s) => s.id),
-		['fire_blast', 'cyclone', 'frost_field', 'ice_spire', 'fire_wall', 'meteor', 'call_rain', 'thunder_rain', 'ice_rain', 'stone_wall', 'rockslide'],
-		'nhắm điểm trên đất (GĐ3: tường, thiên thạch, mưa, mây sét, mưa nhiều điểm — Vòi Rồng chỉ cần hướng)',
+		['fire_blast', 'cyclone', 'frost_field', 'ice_spire', 'fire_wall', 'meteor', 'call_rain', 'thunder_rain', 'ice_rain', 'stone_wall', 'rockslide', 'whirlpool', 'heaven_wind', 'ice_age', 'mountain_god', 'judgment', 'still_heaven', 'thousand_shadows'],
+		'nhắm điểm trên đất (GĐ3: tường, thiên thạch, mưa, mây sét, mưa nhiều điểm — Vòi Rồng chỉ cần hướng; 11/10/2026: Xoáy Nước + mọi tuyệt kỹ đặt vùng đánh vào chỗ nhắm)',
 	);
 	for (const s of HERO_SKILLS.filter((d) => isGroundTarget(d))) assert.ok((s.aimDist ?? 0) > 0 && (s.aimDist ?? 0) <= (s.range ?? 0), `${s.id}: tầm đặt mặc định (cảm ứng) trong tầm`);
 	assert.equal(isSwordSkill(HERO_SKILLS[idx('gale_dash')]!), false, 'Lướt Gió là phép Phong, không ăn phủ phép/hệ số kiếm');

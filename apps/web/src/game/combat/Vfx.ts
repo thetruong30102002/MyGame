@@ -1,106 +1,8 @@
 import { Assets, Container, Sprite, type Spritesheet, type Texture } from 'pixi.js';
 
-export type VfxId =
-	| 'fire_burst'
-	| 'fire_flash'
-	| 'fire_ring'
-	| 'fire_orb'
-	| 'flame'
-	| 'water_splash'
-	| 'water_ring'
-	| 'water_wave'
-	| 'wind_spin'
-	| 'wind_burst'
-	| 'frost'
-	| 'steam'
-	| 'ice_shard'
-	| 'ice_burst'
-	| 'arcane_burst'
-	| 'arcane_orb'
-	| 'sparkle'
-	| 'crit_flash'
-	| 'slash'
-	| 'magic_circle'
-	| 'dark_ring'
-	| 'dark_ring_warn'
-	| 'shadow'
-	| 'dark_orb'
-	| 'light_pillar'
-	| 'dust'
-	| 'blood_hit'
-	| PendingVfxId;
+import type { PendingVfxId, VfxId } from '../../../../../UnityGame/Tools~/data/vfxIds';
 
-/**
- * Hiệu ứng skill lớn ĐÃ KHAI ở pipeline (`packages/asset-pipeline/src/vfx/buildVfx.ts`) nhưng PixelLab chưa vẽ xong —
- * atlas chưa có thì `frames()` rỗng, bên gọi rơi về hình tạm (`tempArt.TEMP_ART`). Có bản vẽ thì tự dùng, không sửa code.
- */
-export type PendingVfxId =
-	| 'ice_pillar'
-	| 'ice_rain'
-	| 'rain_cloud'
-	| 'lightning_strike'
-	| 'tornado'
-	| 'meteor'
-	| 'rock_spikes'
-	// Hiệu ứng riêng từng skill / nội tại / phản ứng (09/10/2026, gói PixelLab trả phí).
-	| 'rock_shot'
-	| 'rock_burst'
-	| 'fire_explosion'
-	| 'tidal_wave'
-	| 'wind_trail'
-	| 'frost_field'
-	| 'quake_wave'
-	| 'heavy_slash'
-	| 'pierce_slash'
-	| 'water_guard'
-	| 'parry_flash'
-	| 'shadow_smoke'
-	| 'fire_slash'
-	| 'water_dragon'
-	| 'wind_blade_ring'
-	| 'ice_slash'
-	| 'fire_wall'
-	| 'wind_blade'
-	| 'ice_dome'
-	| 'stone_wall'
-	| 'rockslide'
-	| 'armor_shatter'
-	| 'blade_wave'
-	| 'whirlpool'
-	| 'flying_sword'
-	| 'gold_aura'
-	| 'red_aura'
-	| 'lake_ripple'
-	| 'ember_burst'
-	| 'heal_drops'
-	| 'earth_aura'
-	| 'mud_splash'
-	| 'lava_burst'
-	| 'sandstorm'
-	| 'ice_shatter'
-	// Chiêu boss vùng 1–4 (09/10/2026) — `CombatSystem.BOSS_AOE_LOOK`.
-	| 'boss_hellfire'
-	| 'boss_fire_wave'
-	| 'boss_curse_blast'
-	| 'boss_bone_rise'
-	| 'boss_stone_slam'
-	| 'boss_toxic_pool'
-	| 'boss_hex'
-	| 'boss_mud_geyser'
-	| 'boss_venom_spray'
-	| 'boss_ankh_curse'
-	| 'boss_sand_eruption'
-	| 'boss_quicksand'
-	| 'boss_storm_bolt'
-	| 'boss_wind_spiral'
-	| 'boss_wind_breath'
-	| 'boss_gale_storm'
-	// Vệt chém kiếm phủ phép từng hệ (09/10/2026) — `CombatSystem.slashFx`.
-	| 'slash_fire'
-	| 'slash_water'
-	| 'slash_wind'
-	| 'slash_ice'
-	| 'slash_earth';
+export type { PendingVfxId, VfxId };
 
 export interface VfxOptions {
 	fps?: number;
@@ -166,15 +68,26 @@ export class Vfx {
 	/** Lớp chung với nhân vật (Game gắn container thực thể — có `sortableChildren`, zIndex = y chân). null = dùng `top`. */
 	world: Container | null = null;
 	private sheet: Spritesheet | null = null;
+	/** Atlas phụ (vd `vfx-ult` của phòng tập) — tra sau atlas chính. */
+	private extras: Spritesheet[] = [];
 	private readonly free: Sprite[] = [];
 	private readonly playing: Playing[] = [];
 
-	async load(): Promise<void> {
-		this.sheet = await Assets.load<Spritesheet>('/assets/vfx/vfx.json');
+	/** `extra`: atlas phụ tải kèm (hỏng / thiếu thì bỏ qua — hiệu ứng trong đó rơi về hình tạm như chưa vẽ). */
+	async load(o: { extra?: string[] } = {}): Promise<void> {
+		const [main, ...extras] = await Promise.all([
+			Assets.load<Spritesheet>('/assets/vfx/vfx.json'),
+			...(o.extra ?? []).map((url) => Assets.load<Spritesheet>(url).catch(() => null)),
+		]);
+		this.sheet = main;
+		this.extras = extras.filter((x): x is Spritesheet => !!x);
 	}
 
 	frames(id: VfxId): Texture[] {
-		return this.sheet?.animations[id] ?? [];
+		const own = this.sheet?.animations[id];
+		if (own?.length) return own;
+		for (const x of this.extras) if (x.animations[id]?.length) return x.animations[id]!;
+		return [];
 	}
 
 	play(id: VfxId, x: number, y: number, o: VfxOptions = {}): void {

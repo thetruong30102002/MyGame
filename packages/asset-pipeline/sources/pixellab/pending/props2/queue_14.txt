@@ -1,0 +1,4 @@
+object swamp_ghost_tree @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/swamp_ghost_tree.send.json
+object volcano_petrified_tree @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/volcano_petrified_tree.send.json
+object volcano_forge_shop @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/volcano_forge_shop.send.json
+image D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/VL5_dwarf_mine.png @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/VL5_dwarf_mine.json

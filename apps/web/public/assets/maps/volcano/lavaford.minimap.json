@@ -1,0 +1,13 @@
+{
+	"map": "lavaford",
+	"image": "lavaford.minimap.png",
+	"width": 276,
+	"height": 252,
+	"downscale": 8,
+	"world": {
+		"width": 2208,
+		"height": 2016,
+		"tileSize": 48
+	},
+	"version": "c1a10632"
+}

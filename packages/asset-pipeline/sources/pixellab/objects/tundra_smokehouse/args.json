@@ -1,0 +1,17 @@
+{
+	"description": "a small snowy log smokehouse with fish hanging inside an open front, smoke from the roof, chunky chibi pixel art, thick dark outline, soft cel shading, straight front view, the whole building fully visible, no ground, no shadow, no text",
+	"width": 192,
+	"height": 192,
+	"n_directions": 1,
+	"view": "low top-down",
+	"seed": 132,
+	"name": "tundra_smokehouse",
+	"style_options": {
+		"color_palette": false,
+		"outline": true,
+		"shading": true,
+		"detail": false
+	},
+	"style_image_path": "D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/objects/snow_log_cabin/snow_log_cabin.png",
+	"style_usage": "Copy ONLY the art style of this reference: chunky chibi pixel art, thick dark outline on every shape, soft cel shading, front-facing view, same size and scale. Do not copy this exact building."
+}

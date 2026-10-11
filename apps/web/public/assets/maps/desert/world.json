@@ -1,0 +1,737 @@
+{
+	"region": "desert",
+	"start": "hub",
+	"maps": {
+		"hub": {
+			"name": "Thành ốc đảo Sahrin",
+			"width": 2112,
+			"height": 1728,
+			"exits": [
+				{
+					"id": "hub_x1",
+					"to": "reddunes",
+					"x": 1152,
+					"y": 1704,
+					"label": "Cồn Cát Đỏ · cấp 20–21"
+				},
+				{
+					"id": "hub_x2",
+					"to": "redruins",
+					"x": 24,
+					"y": 1008,
+					"label": "Phế tích Đá Đỏ · cấp 24–25"
+				},
+				{
+					"id": "hub_x3",
+					"to": "snakepass",
+					"x": 1152,
+					"y": 24,
+					"label": "Hẻm Rắn · cấp 26–27"
+				},
+				{
+					"id": "hub_x4",
+					"to": "swamp/mistchasm",
+					"x": 2088,
+					"y": 1008,
+					"label": "Vực Sương Xanh · Đầm lầy Mù Sương"
+				}
+			],
+			"spots": [
+				"hub_s",
+				"hub_w",
+				"hub_n",
+				"east_gate",
+				"waystone",
+				"plaza"
+			],
+			"zones": [],
+			"dummies": [],
+			"boss": null
+		},
+		"reddunes": {
+			"name": "Cồn Cát Đỏ",
+			"width": 2304,
+			"height": 1920,
+			"exits": [
+				{
+					"id": "reddunes_x1",
+					"to": "hub",
+					"x": 1440,
+					"y": 24,
+					"label": "Thành ốc đảo Sahrin"
+				},
+				{
+					"id": "reddunes_x2",
+					"to": "snakegully",
+					"x": 24,
+					"y": 1104,
+					"label": "Khe Rắn · cấp 21–22"
+				}
+			],
+			"spots": [
+				"reddunes_n",
+				"reddunes_w"
+			],
+			"zones": [
+				{
+					"id": "reddunes_z1",
+					"monsters": [
+						"mob_scorpion_001"
+					],
+					"level": 20
+				},
+				{
+					"id": "reddunes_z2",
+					"monsters": [
+						"mob_scorpion_001"
+					],
+					"level": 20
+				},
+				{
+					"id": "reddunes_z3",
+					"monsters": [
+						"mob_scorpion_001"
+					],
+					"level": 21
+				},
+				{
+					"id": "reddunes_z4",
+					"monsters": [
+						"mob_scorpion_001"
+					],
+					"level": 21
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				20,
+				21
+			]
+		},
+		"snakegully": {
+			"name": "Khe Rắn",
+			"width": 2208,
+			"height": 2016,
+			"exits": [
+				{
+					"id": "snakegully_x1",
+					"to": "reddunes",
+					"x": 2184,
+					"y": 1200,
+					"label": "Cồn Cát Đỏ · cấp 20–21"
+				},
+				{
+					"id": "snakegully_x2",
+					"to": "sandtombs",
+					"x": 24,
+					"y": 1248,
+					"label": "Lăng Mộ Cát · cấp 22–23"
+				}
+			],
+			"spots": [
+				"snakegully_e",
+				"snakegully_w"
+			],
+			"zones": [
+				{
+					"id": "snakegully_z1",
+					"monsters": [
+						"mob_sand_snake_001"
+					],
+					"level": 21
+				},
+				{
+					"id": "snakegully_z2",
+					"monsters": [
+						"mob_sand_snake_001"
+					],
+					"level": 21
+				},
+				{
+					"id": "snakegully_z3",
+					"monsters": [
+						"mob_sand_snake_001"
+					],
+					"level": 22
+				},
+				{
+					"id": "snakegully_z4",
+					"monsters": [
+						"mob_sand_snake_001"
+					],
+					"level": 22
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				21,
+				22
+			]
+		},
+		"sandtombs": {
+			"name": "Lăng Mộ Cát",
+			"width": 2400,
+			"height": 1824,
+			"exits": [
+				{
+					"id": "sandtombs_x1",
+					"to": "snakegully",
+					"x": 2376,
+					"y": 1008,
+					"label": "Khe Rắn · cấp 21–22"
+				},
+				{
+					"id": "sandtombs_x2",
+					"to": "vulturecliff",
+					"x": 1488,
+					"y": 24,
+					"label": "Vách Kền Kền · cấp 23–24"
+				}
+			],
+			"spots": [
+				"sandtombs_e",
+				"sandtombs_n"
+			],
+			"zones": [
+				{
+					"id": "sandtombs_z1",
+					"monsters": [
+						"mob_mummy_001"
+					],
+					"level": 22
+				},
+				{
+					"id": "sandtombs_z2",
+					"monsters": [
+						"mob_mummy_001"
+					],
+					"level": 22
+				},
+				{
+					"id": "sandtombs_z3",
+					"monsters": [
+						"mob_mummy_001"
+					],
+					"level": 23
+				},
+				{
+					"id": "sandtombs_z4",
+					"monsters": [
+						"mob_mummy_001"
+					],
+					"level": 23
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				22,
+				23
+			]
+		},
+		"vulturecliff": {
+			"name": "Vách Kền Kền",
+			"width": 2208,
+			"height": 2112,
+			"exits": [
+				{
+					"id": "vulturecliff_x1",
+					"to": "sandtombs",
+					"x": 1104,
+					"y": 2088,
+					"label": "Lăng Mộ Cát · cấp 22–23"
+				},
+				{
+					"id": "vulturecliff_x2",
+					"to": "redruins",
+					"x": 2184,
+					"y": 1200,
+					"label": "Phế tích Đá Đỏ · cấp 24–25"
+				},
+				{
+					"id": "vulturecliff_x3",
+					"to": "deeptombs",
+					"x": 1344,
+					"y": 24,
+					"label": "Mộ Đạo Sâu · cấp 27–28"
+				}
+			],
+			"spots": [
+				"vulturecliff_s",
+				"vulturecliff_e",
+				"vulturecliff_n"
+			],
+			"zones": [
+				{
+					"id": "vulturecliff_z1",
+					"monsters": [
+						"mob_vulture_001"
+					],
+					"level": 23
+				},
+				{
+					"id": "vulturecliff_z2",
+					"monsters": [
+						"mob_vulture_001"
+					],
+					"level": 23
+				},
+				{
+					"id": "vulturecliff_z3",
+					"monsters": [
+						"mob_vulture_001"
+					],
+					"level": 24
+				},
+				{
+					"id": "vulturecliff_z4",
+					"monsters": [
+						"mob_vulture_001"
+					],
+					"level": 24
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				23,
+				24
+			]
+		},
+		"redruins": {
+			"name": "Phế tích Đá Đỏ",
+			"width": 2496,
+			"height": 1920,
+			"exits": [
+				{
+					"id": "redruins_x1",
+					"to": "vulturecliff",
+					"x": 24,
+					"y": 1200,
+					"label": "Vách Kền Kền · cấp 23–24"
+				},
+				{
+					"id": "redruins_x2",
+					"to": "hub",
+					"x": 2472,
+					"y": 960,
+					"label": "Thành ốc đảo Sahrin"
+				},
+				{
+					"id": "redruins_x3",
+					"to": "scorchdunes",
+					"x": 1440,
+					"y": 24,
+					"label": "Cồn Cát Bỏng · cấp 25–26"
+				}
+			],
+			"spots": [
+				"redruins_w",
+				"redruins_e",
+				"redruins_n"
+			],
+			"zones": [
+				{
+					"id": "redruins_z1",
+					"monsters": [
+						"mob_sand_spirit_001"
+					],
+					"level": 24
+				},
+				{
+					"id": "redruins_z2",
+					"monsters": [
+						"mob_sand_spirit_001"
+					],
+					"level": 24
+				},
+				{
+					"id": "redruins_z3",
+					"monsters": [
+						"mob_sand_spirit_001"
+					],
+					"level": 25
+				},
+				{
+					"id": "redruins_z4",
+					"monsters": [
+						"mob_sand_spirit_001"
+					],
+					"level": 25
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				24,
+				25
+			]
+		},
+		"scorchdunes": {
+			"name": "Cồn Cát Bỏng",
+			"width": 2304,
+			"height": 2016,
+			"exits": [
+				{
+					"id": "scorchdunes_x1",
+					"to": "redruins",
+					"x": 1440,
+					"y": 1992,
+					"label": "Phế tích Đá Đỏ · cấp 24–25"
+				},
+				{
+					"id": "scorchdunes_x2",
+					"to": "snakepass",
+					"x": 2280,
+					"y": 1296,
+					"label": "Hẻm Rắn · cấp 26–27"
+				},
+				{
+					"id": "scorchdunes_x3",
+					"to": "deeptombs",
+					"x": 24,
+					"y": 864,
+					"label": "Mộ Đạo Sâu · cấp 27–28"
+				}
+			],
+			"spots": [
+				"scorchdunes_s",
+				"scorchdunes_e",
+				"scorchdunes_w"
+			],
+			"zones": [
+				{
+					"id": "scorchdunes_z1",
+					"monsters": [
+						"mob_scorpion_001"
+					],
+					"level": 25
+				},
+				{
+					"id": "scorchdunes_z2",
+					"monsters": [
+						"mob_scorpion_001"
+					],
+					"level": 25
+				},
+				{
+					"id": "scorchdunes_z3",
+					"monsters": [
+						"mob_scorpion_001"
+					],
+					"level": 26
+				},
+				{
+					"id": "scorchdunes_z4",
+					"monsters": [
+						"mob_scorpion_001"
+					],
+					"level": 26
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				25,
+				26
+			]
+		},
+		"snakepass": {
+			"name": "Hẻm Rắn",
+			"width": 2400,
+			"height": 2112,
+			"exits": [
+				{
+					"id": "snakepass_x1",
+					"to": "scorchdunes",
+					"x": 24,
+					"y": 1248,
+					"label": "Cồn Cát Bỏng · cấp 25–26"
+				},
+				{
+					"id": "snakepass_x2",
+					"to": "hub",
+					"x": 1392,
+					"y": 2088,
+					"label": "Thành ốc đảo Sahrin"
+				}
+			],
+			"spots": [
+				"snakepass_w",
+				"snakepass_s",
+				"snakepass_lair"
+			],
+			"zones": [
+				{
+					"id": "snakepass_z1",
+					"monsters": [
+						"mob_sand_snake_001"
+					],
+					"level": 26
+				},
+				{
+					"id": "snakepass_z2",
+					"monsters": [
+						"mob_sand_snake_001"
+					],
+					"level": 26
+				},
+				{
+					"id": "snakepass_z3",
+					"monsters": [
+						"mob_sand_snake_001"
+					],
+					"level": 27
+				},
+				{
+					"id": "snakepass_boss",
+					"monsters": [
+						"boss_scorpion_queen_001"
+					],
+					"level": 27
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				26,
+				27
+			]
+		},
+		"deeptombs": {
+			"name": "Mộ Đạo Sâu",
+			"width": 2208,
+			"height": 1920,
+			"exits": [
+				{
+					"id": "deeptombs_x1",
+					"to": "scorchdunes",
+					"x": 2184,
+					"y": 864,
+					"label": "Cồn Cát Bỏng · cấp 25–26"
+				},
+				{
+					"id": "deeptombs_x2",
+					"to": "vulturecliff",
+					"x": 1392,
+					"y": 1896,
+					"label": "Vách Kền Kền · cấp 23–24"
+				},
+				{
+					"id": "deeptombs_x3",
+					"to": "bonemesa",
+					"x": 1056,
+					"y": 24,
+					"label": "Cao Nguyên Xương · cấp 28–29"
+				}
+			],
+			"spots": [
+				"deeptombs_e",
+				"deeptombs_s",
+				"deeptombs_n"
+			],
+			"zones": [
+				{
+					"id": "deeptombs_z1",
+					"monsters": [
+						"mob_mummy_001"
+					],
+					"level": 27
+				},
+				{
+					"id": "deeptombs_z2",
+					"monsters": [
+						"mob_mummy_001"
+					],
+					"level": 27
+				},
+				{
+					"id": "deeptombs_z3",
+					"monsters": [
+						"mob_mummy_001"
+					],
+					"level": 28
+				},
+				{
+					"id": "deeptombs_z4",
+					"monsters": [
+						"mob_mummy_001"
+					],
+					"level": 28
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				27,
+				28
+			]
+		},
+		"bonemesa": {
+			"name": "Cao Nguyên Xương",
+			"width": 2496,
+			"height": 2016,
+			"exits": [
+				{
+					"id": "bonemesa_x1",
+					"to": "deeptombs",
+					"x": 1536,
+					"y": 1992,
+					"label": "Mộ Đạo Sâu · cấp 27–28"
+				},
+				{
+					"id": "bonemesa_x2",
+					"to": "sunkentemple",
+					"x": 1248,
+					"y": 24,
+					"label": "Đền Vùi Cát · cấp 29–30"
+				}
+			],
+			"spots": [
+				"bonemesa_s",
+				"bonemesa_n"
+			],
+			"zones": [
+				{
+					"id": "bonemesa_z1",
+					"monsters": [
+						"mob_vulture_001"
+					],
+					"level": 28
+				},
+				{
+					"id": "bonemesa_z2",
+					"monsters": [
+						"mob_vulture_001"
+					],
+					"level": 28
+				},
+				{
+					"id": "bonemesa_z3",
+					"monsters": [
+						"mob_vulture_001"
+					],
+					"level": 29
+				},
+				{
+					"id": "bonemesa_z4",
+					"monsters": [
+						"mob_vulture_001"
+					],
+					"level": 29
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				28,
+				29
+			]
+		},
+		"sunkentemple": {
+			"name": "Đền Vùi Cát",
+			"width": 2304,
+			"height": 2112,
+			"exits": [
+				{
+					"id": "sunkentemple_x1",
+					"to": "bonemesa",
+					"x": 960,
+					"y": 2088,
+					"label": "Cao Nguyên Xương · cấp 28–29"
+				},
+				{
+					"id": "sunkentemple_x2",
+					"to": "devourpit",
+					"x": 2280,
+					"y": 1008,
+					"label": "Hố Cát Nuốt · boss chúa · cấp 30"
+				},
+				{
+					"id": "sunkentemple_x3",
+					"to": "highland/hub",
+					"x": 24,
+					"y": 1200,
+					"label": "Cao nguyên Gió Hú · vùng 4 · cần cấp 30 + đã hạ Sâu cát khổng lồ"
+				}
+			],
+			"spots": [
+				"sunkentemple_s",
+				"sunkentemple_e",
+				"sunkentemple_gate",
+				"sunkentemple_lair"
+			],
+			"zones": [
+				{
+					"id": "sunkentemple_z1",
+					"monsters": [
+						"mob_sand_spirit_001"
+					],
+					"level": 29
+				},
+				{
+					"id": "sunkentemple_z2",
+					"monsters": [
+						"mob_sand_spirit_001"
+					],
+					"level": 29
+				},
+				{
+					"id": "sunkentemple_z3",
+					"monsters": [
+						"mob_sand_spirit_001"
+					],
+					"level": 30
+				},
+				{
+					"id": "sunkentemple_boss",
+					"monsters": [
+						"boss_pharaoh_001"
+					],
+					"level": 30
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				29,
+				30
+			]
+		},
+		"devourpit": {
+			"name": "Hố Cát Nuốt",
+			"width": 1536,
+			"height": 1344,
+			"exits": [
+				{
+					"id": "devourpit_x1",
+					"to": "sunkentemple",
+					"x": 24,
+					"y": 480,
+					"label": "Đền Vùi Cát · cấp 29–30"
+				}
+			],
+			"spots": [
+				"devourpit_w",
+				"devourpit_lair"
+			],
+			"zones": [
+				{
+					"id": "devourpit_boss",
+					"monsters": [
+						"boss_sandworm_001"
+					],
+					"level": 30
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				30,
+				30
+			]
+		}
+	}
+}

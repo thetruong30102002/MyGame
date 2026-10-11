@@ -93,5 +93,10 @@
 		"SW",
 		"NW"
 	],
-	"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 160px; ảnh mẫu nét = Quỷ vương. Vùng 6. Mô tả: a towering fire god boss facing the viewer, a giant forge spirit whose lower body is a roaring column of flame rising out of a cracked ancient stone furnace, no legs, broad bare chest of white-hot flame, a bare-jawed face of white-hot flame, crown of roaring flames, holding a long chain whip of glowing molten iron in one hand and a blazing round bronze shield with a glowing anvil emblem in the other, patches of his fire guttering into cold grey ash laced with thin glowing red threads, furious white glowing eyes. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 220px."
+	"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 160px; ảnh mẫu nét = Quỷ vương. Vùng 6. Mô tả: a towering fire god boss facing the viewer, a giant forge spirit whose lower body is a roaring column of flame rising out of a cracked ancient stone furnace, no legs, broad bare chest of white-hot flame, a bare-jawed face of white-hot flame, crown of roaring flames, holding a long chain whip of glowing molten iron in one hand and a blazing round bronze shield with a glowing anvil emblem in the other, patches of his fire guttering into cold grey ash laced with thin glowing red threads, furious white glowing eyes. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 220px.",
+	"review": {
+		"status": "approved",
+		"date": "10/10/2026",
+		"notes": "Duyệt bằng mắt (Claude, phiên chuyển Unity): ảnh giữa idle/walk hướng S/E/N + trọn attack E/S + death E từ contact sheet. Chủ dự án báo đã vẽ xong chiêu quái/boss trên PixelLab; đối chiếu bản tải lại 10/10/2026 khớp bản trên máy."
+	}
 }

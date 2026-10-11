@@ -424,7 +424,18 @@ mà động tác ra đòn vẽ tay không (vũ khí ẩn lúc vung, cú đánh t
 - Lên bản thật: khởi động lại máy chủ 3200 + build lại web. Máy chủ bản cũ không chuyển `fx` (người xem chỉ thấy thân như
   trước); máy khách bản cũ bỏ qua `fx`, và với chiêu không vung (lướt, giữ thế) thì phát động tác riêng của chiêu nếu atlas có.
 
-#### PvP gây sát thương — CHƯA làm, chờ chủ dự án quyết
+#### PvP gây sát thương — ĐÃ LÀM (10/10/2026, bản Unity), luật mặc định chờ chủ dự án chỉnh
+
+Chủ dự án 10/10/2026: "xây dựng là game pvp đó nha". Chọn: **máy chủ tính trúng** (câu 1) — `packages/sim/src/pvp.ts` (luật thuần:
+`pvpStrikes` hình học chiêu chép từ `release`, `pvpDamage`, `pvpBuild` kẹp mốc tiềm năng theo điểm có) + `apps/server/src/pvp.ts`
+(hẹn lần xét trúng từ `World.action`, xét trên vị trí máy chủ giữ lúc đó, phát `pvpHit` cả map; `pvpDown` → `pvpKill`). Máy bị đánh
+còn xét lăn né / thế đỡ. Gói vị trí kèm `hp`/`hpMax` để người khác vẽ thanh máu. Test `apps/server/tests/pvp.test.ts` (11 ca); thử
+thật hai bản Unity trên máy chủ thử: A chém, B mất 60/115 máu, A thấy máu B tụt. Mặc định cho các câu còn lại (đổi ở `pvp.ts`):
+2 — mọi map trừ map trạm của vùng (`PVP_SAFE_MAPS`); 3 — ×0,4 sát thương PvE − giáp, chí mạng như PvE, KHÔNG phản ứng / khống chế,
+miễn PvP 5 giây sau khi vào map; 4 — gục không mất gì, hồi sinh quảng trường, cả map thấy "A hạ gục B"; 5 — bình kim cương không áp
+(bản Unity chưa có bình); 6 — bạn bè vẫn đánh trúng nhau. Chi tiết client: `UnityGame/Assets/Aether/Client/Combat/Combat.md`.
+
+Ghi chép cũ (trước khi làm):
 
 Chỗ móc: `World.action` ở máy chủ (đã có chiêu + hướng + điểm nhắm ĐÃ KIỂM, biết vị trí mọi người trong map) và
 `CombatSystem.echoRelease` ở máy người xem (hiện chỉ vẽ). Không tính trúng người ở máy khách. Cần quyết:

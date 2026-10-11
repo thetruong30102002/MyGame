@@ -1,0 +1,3 @@
+object highland_cliff_pine @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/highland_cliff_pine.send.json
+object desert_palace_tower @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/desert_palace_tower.send.json
+image D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/HL5_cloud_shrine.png @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/HL5_cloud_shrine.json

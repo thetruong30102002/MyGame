@@ -1,0 +1,6 @@
+18:29 ✘ highland_cliff_pine:   Value error, Style image must fit the native canvas. Crop the reference or choose a larger supported canvas. [type=value_error, input_value={'version': 'v0.1.0+mcp',...ng': True}, 'seed': 112}, input_type=dict]     For further information visit https://errors.pydantic.dev/2.13/v/value_error 
+18:31 ✔ desert_palace_tower
+18:32 ✔ D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/HL5_cloud_shrine.png
+18:32 xong hàng
+18:33 ✔ highland_cliff_pine
+18:33 xong hàng

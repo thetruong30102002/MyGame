@@ -2774,6 +2774,4265 @@
 				"SE"
 			],
 			"provisional": []
+		},
+		"boss_ancient_lava_golem_001": {
+			"displayName": "Golem dung nham cổ (boss khu)",
+			"role": "boss",
+			"identity": {
+				"characterId": "boss_ancient_lava_golem_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region6_mob_01"
+			},
+			"atlas": "characters/boss_ancient_lava_golem_001/boss_ancient_lava_golem_001.json",
+			"frameSize": {
+				"width": 184,
+				"height": 184
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9347826086956522
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template mannequin, khổ vẽ 128px; ảnh mẫu nét = Quỷ vương. Vùng 6. Mô tả: a colossal ancient dwarven lava golem boss facing the viewer, massive body of black basalt bound with weathered bronze plates and huge rivets, a glowing molten core visible behind a bronze grille in its chest, head carved like a stern dwarf helm with a braided stone beard, rows of short glowing rune marks carved along its arms and shoulders, right arm ending in a huge stone forge hammer, lava dripping from its joints. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 176px.",
+			"bodyHeight": 109,
+			"portrait": "portraits/boss_ancient_lava_golem_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"boss_crab_king_001": {
+			"displayName": "Cua chúa (boss khu)",
+			"role": "boss",
+			"identity": {
+				"characterId": "boss_crab_king_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region7_mob_01"
+			},
+			"atlas": "characters/boss_crab_king_001/boss_crab_king_001.json",
+			"frameSize": {
+				"width": 184,
+				"height": 184
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9347826086956522
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 128px; ảnh mẫu nét = Quỷ vương. Vùng 7. Mô tả: a gigantic old king crab boss facing the viewer, massive slate-blue armored shell overgrown with living pink branching coral, sea anemones and barnacles, eyes on thick stalks, one enormous battle-scarred claw raised, the other claw holding a cracked glowing aqua water crystal shard protectively against its chest. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 176px.",
+			"bodyHeight": 107,
+			"portrait": "portraits/boss_crab_king_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"boss_fire_god_001": {
+			"displayName": "Hoả thần (boss chúa)",
+			"role": "boss",
+			"identity": {
+				"characterId": "boss_fire_god_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region6_mob_01"
+			},
+			"atlas": "characters/boss_fire_god_001/boss_fire_god_001.json",
+			"frameSize": {
+				"width": 224,
+				"height": 224
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9464285714285714
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 160px; ảnh mẫu nét = Quỷ vương. Vùng 6. Mô tả: a towering fire god boss facing the viewer, a giant forge spirit whose lower body is a roaring column of flame rising out of a cracked ancient stone furnace, no legs, broad bare chest of white-hot flame, a bare-jawed face of white-hot flame, crown of roaring flames, holding a long chain whip of glowing molten iron in one hand and a blazing round bronze shield with a glowing anvil emblem in the other, patches of his fire guttering into cold grey ash laced with thin glowing red threads, furious white glowing eyes. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 220px.",
+			"bodyHeight": 155,
+			"portrait": "portraits/boss_fire_god_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"boss_ghost_captain_001": {
+			"displayName": "Thuyền trưởng ma Corvin (boss khu)",
+			"role": "boss",
+			"identity": {
+				"characterId": "boss_ghost_captain_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region7_mob_01"
+			},
+			"atlas": "characters/boss_ghost_captain_001/boss_ghost_captain_001.json",
+			"frameSize": {
+				"width": 160,
+				"height": 160
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.925
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template mannequin, khổ vẽ 112px; ảnh mẫu nét = Quỷ vương. Vùng 7. Mô tả: a sorrowful ghost sea captain boss facing the viewer, translucent sickly sea-green spectral body with legs fading into faint wisps below the knees, tattered long navy captain's coat with tarnished silver buttons and a silver seagull badge, battered tricorn hat, grey beard dripping seawater, sad dim lantern-yellow glowing eyes, holding a warm glowing brass ship lantern with a dim yellow flame in one hand and a rusted cutlass lowered in the other, strands of seaweed hanging from his coat. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 156px.",
+			"bodyHeight": 94,
+			"portrait": "portraits/boss_ghost_captain_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"boss_ice_guardian_001": {
+			"displayName": "Nghê Băng (boss chúa)",
+			"role": "boss",
+			"identity": {
+				"characterId": "boss_ice_guardian_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region5_mob_01"
+			},
+			"atlas": "characters/boss_ice_guardian_001/boss_ice_guardian_001.json",
+			"frameSize": {
+				"width": 224,
+				"height": 224
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9464285714285714
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 160px; ảnh mẫu nét = Quỷ vương. Vùng 5. Mô tả: a giant ice guardian lion-dog boss facing the viewer, an Asian temple guardian foo dog carved from translucent deep glacier-teal ice, standing on four sturdy legs, huge curly scroll-shaped mane and a big curly scroll-shaped tail of frosted ice, bulging glowing white eyes and a wide fanged grin, carved cloud swirl patterns on its chest, faint dark shadowy shapes frozen inside its ice body, a rusty brass machine spike jutting up from between its shoulders above its head, thin glowing red threads trailing from the spike. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 220px.",
+			"bodyHeight": 127,
+			"portrait": "portraits/boss_ice_guardian_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"boss_ice_queen_001": {
+			"displayName": "Nữ hoàng băng (boss khu)",
+			"role": "boss",
+			"identity": {
+				"characterId": "boss_ice_queen_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region5_mob_01"
+			},
+			"atlas": "characters/boss_ice_queen_001/boss_ice_queen_001.json",
+			"frameSize": {
+				"width": 160,
+				"height": 160
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.925
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template mannequin, khổ vẽ 112px; ảnh mẫu nét = Quỷ vương. Vùng 5. Mô tả: a sorrowful ice queen boss facing the viewer, a village mother turned into living ice, opaque frosted white-blue ice skin with frost cracks, a crown of jagged icicles, long hair frozen into icicles, a simple fur-trimmed village dress glazed over with ice, ankle-length with a frosted icicle hem, a small knitted child's mitten frozen in one hand, empty glowing white eyes. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 156px.",
+			"bodyHeight": 91,
+			"portrait": "portraits/boss_ice_queen_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"boss_kraken_001": {
+			"displayName": "Kraken (boss chúa)",
+			"role": "boss",
+			"identity": {
+				"characterId": "boss_kraken_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region7_mob_01"
+			},
+			"atlas": "characters/boss_kraken_001/boss_kraken_001.json",
+			"frameSize": {
+				"width": 224,
+				"height": 224
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9464285714285714
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 160px; ảnh mẫu nét = Quỷ vương. Vùng 7. Mô tả: a colossal kraken boss facing the viewer, a giant squid towering upright, tall pointed arrowhead-shaped dark crimson-purple mantle with two wide triangular fins at the top, two enormous glowing yellow eyes at the base of the mantle, an ancient corroded green-tinged brass machine ring bolted around the mantle just above the eyes, tightly wrapped in thin bright glowing scarlet-red threads, pale scarred hide around the ring, a mass of thick arms plus two extra-long feeding tentacles with club-shaped tips reaching forward, splintered wooden planks caught in them, black ink dripping. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 220px.",
+			"bodyHeight": 159,
+			"portrait": "portraits/boss_kraken_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"boss_mother_frog_001": {
+			"displayName": "Mẹ Ếch (boss khu)",
+			"role": "boss",
+			"identity": {
+				"characterId": "boss_mother_frog_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region2_mob_01"
+			},
+			"atlas": "characters/boss_mother_frog_001/boss_mother_frog_001.json",
+			"frameSize": {
+				"width": 184,
+				"height": 184
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9347826086956522
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 128px; ảnh mẫu nét = Quỷ vương. Vùng 2. Mô tả: a gigantic bloated mother toad boss sitting facing the viewer, warty dark green skin with toxic purple blotches, huge mouth with long tongue, tadpole eggs clustered on her back, glowing yellow eyes. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 176px.",
+			"bodyHeight": 69,
+			"portrait": "portraits/boss_mother_frog_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"boss_mud_hydra_001": {
+			"displayName": "Hydra bùn (boss chúa)",
+			"role": "boss",
+			"identity": {
+				"characterId": "boss_mud_hydra_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region2_mob_01"
+			},
+			"atlas": "characters/boss_mud_hydra_001/boss_mud_hydra_001.json",
+			"frameSize": {
+				"width": 224,
+				"height": 224
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9464285714285714
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 160px; ảnh mẫu nét = Quỷ vương. Vùng 2. Mô tả: a three-headed mud hydra boss facing the viewer, massive body of dripping brown swamp mud and dark green scales, three long serpent necks with snapping fanged heads, reeds and roots tangled on it, glowing yellow eyes. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 220px.",
+			"bodyHeight": 130,
+			"portrait": "portraits/boss_mud_hydra_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"boss_pharaoh_001": {
+			"displayName": "Pharaoh xác ướp (boss khu)",
+			"role": "boss",
+			"identity": {
+				"characterId": "boss_pharaoh_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region3_mob_01"
+			},
+			"atlas": "characters/boss_pharaoh_001/boss_pharaoh_001.json",
+			"frameSize": {
+				"width": 160,
+				"height": 160
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.925
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template mannequin, khổ vẽ 112px; ảnh mẫu nét = Quỷ vương. Vùng 3. Mô tả: an ancient mummy pharaoh king boss facing the viewer, bandaged body with a golden death mask and striped blue-gold nemes headdress, glowing turquoise eyes, holding a crook and flail, spectral chains binding his wrists. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 156px.",
+			"bodyHeight": 75,
+			"portrait": "portraits/boss_pharaoh_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"boss_salamander_001": {
+			"displayName": "Salamander (boss khu)",
+			"role": "boss",
+			"identity": {
+				"characterId": "boss_salamander_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region6_mob_01"
+			},
+			"atlas": "characters/boss_salamander_001/boss_salamander_001.json",
+			"frameSize": {
+				"width": 184,
+				"height": 184
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9347826086956522
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 128px; ảnh mẫu nét = Quỷ vương. Vùng 6. Mô tả: a giant fire salamander boss facing the viewer head-on, its head pointing straight at the viewer, low wide lizard body seen from the front, four short thick legs splayed out to both sides with clawed feet planted, a long heavy tail stretching straight out BEHIND its body away from the head, in this front view the tail is hidden behind the body with only the tail tip peeking out behind one hind leg, smooth glossy jet-black skin with bright yellow-orange spots, a frill of flickering flame gills around its neck like a mane, small glowing orange eyes, symmetrical front view. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 176px.",
+			"bodyHeight": 112,
+			"portrait": "portraits/boss_salamander_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"boss_sandworm_001": {
+			"displayName": "Sâu cát khổng lồ (boss chúa)",
+			"role": "boss",
+			"identity": {
+				"characterId": "boss_sandworm_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region3_mob_01"
+			},
+			"atlas": "characters/boss_sandworm_001/boss_sandworm_001.json",
+			"frameSize": {
+				"width": 224,
+				"height": 224
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9464285714285714
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 160px; ảnh mẫu nét = Quỷ vương. Vùng 3. Mô tả: a colossal sandworm boss bursting up from the sand facing the viewer, segmented sandy-tan armored body, enormous round mouth with rings of jagged teeth opened wide, sand pouring off it. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 220px.",
+			"bodyHeight": 113,
+			"portrait": "portraits/boss_sandworm_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"boss_scorpion_queen_001": {
+			"displayName": "Bọ cạp chúa (boss khu)",
+			"role": "boss",
+			"identity": {
+				"characterId": "boss_scorpion_queen_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region3_mob_01"
+			},
+			"atlas": "characters/boss_scorpion_queen_001/boss_scorpion_queen_001.json",
+			"frameSize": {
+				"width": 184,
+				"height": 184
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9347826086956522
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 128px; ảnh mẫu nét = Quỷ vương. Vùng 3. Mô tả: a huge royal scorpion queen boss facing the viewer, deep crimson armored shell with faded golden royal saddle and tattered silk banner on its back, giant pincers, curled tail with a glowing venom stinger, thin and hungry. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 176px.",
+			"bodyHeight": 121,
+			"portrait": "portraits/boss_scorpion_queen_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"boss_storm_eagle_001": {
+			"displayName": "Đại bàng bão (boss khu)",
+			"role": "boss",
+			"identity": {
+				"characterId": "boss_storm_eagle_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region4_mob_01"
+			},
+			"atlas": "characters/boss_storm_eagle_001/boss_storm_eagle_001.json",
+			"frameSize": {
+				"width": 184,
+				"height": 184
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9347826086956522
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 128px; ảnh mẫu nét = Quỷ vương. Vùng 4. Mô tả: a giant storm eagle boss hovering facing the viewer with huge wings spread, dark slate-blue feathers with white tips crackling with small lightning, golden hooked beak, fierce glowing eyes. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 176px.",
+			"bodyHeight": 109,
+			"portrait": "portraits/boss_storm_eagle_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"boss_swamp_witch_001": {
+			"displayName": "Phù thuỷ đầm (boss khu)",
+			"role": "boss",
+			"identity": {
+				"characterId": "boss_swamp_witch_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region2_mob_01"
+			},
+			"atlas": "characters/boss_swamp_witch_001/boss_swamp_witch_001.json",
+			"frameSize": {
+				"width": 160,
+				"height": 160
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.925
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template mannequin, khổ vẽ 112px; ảnh mẫu nét = Quỷ vương. Vùng 2. Mô tả: an old swamp witch boss facing the viewer, hunched in a tattered moss-green cloak with a wide crooked hat, long grey hair, warty face, gnarled staff topped with a glowing green skull, fireflies around her. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 156px.",
+			"bodyHeight": 94,
+			"portrait": "portraits/boss_swamp_witch_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"boss_wind_drake_001": {
+			"displayName": "Rồng gió (con của Tuyệt Vân) (boss khu)",
+			"role": "boss",
+			"identity": {
+				"characterId": "boss_wind_drake_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region4_mob_01"
+			},
+			"atlas": "characters/boss_wind_drake_001/boss_wind_drake_001.json",
+			"frameSize": {
+				"width": 224,
+				"height": 224
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9464285714285714
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 160px; ảnh mẫu nét = Quỷ vương. Vùng 4. Mô tả: chibi western dragon, stocky four-legged lizard body, long neck, big head, bat-like leathery wings with finger bones, dorsal spikes, arrowhead tail tip, young but fierce battle-hungry wind dragon, lean muscular body, large wings spread wide, sharp swept-back ivory horns, bright jade green and mint scales, white belly, translucent pale mint wing membranes, furious glowing eyes with red pinprick pupils, snarling fangs, thin glowing red threads tangled around body and wings. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 220px.",
+			"bodyHeight": 154,
+			"portrait": "portraits/boss_wind_drake_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"boss_wind_mage_001": {
+			"displayName": "Pháp sư gió (boss khu)",
+			"role": "boss",
+			"identity": {
+				"characterId": "boss_wind_mage_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region4_mob_01"
+			},
+			"atlas": "characters/boss_wind_mage_001/boss_wind_mage_001.json",
+			"frameSize": {
+				"width": 160,
+				"height": 160
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.925
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template mannequin, khổ vẽ 112px; ảnh mẫu nét = Quỷ vương. Vùng 4. Mô tả: a renegade wind mage boss facing the viewer, tall figure in flowing white and teal robes whipping in the wind, hood with a silver mask, floating spellbook, wind spiral swirling around his raised hand. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 156px.",
+			"bodyHeight": 87,
+			"portrait": "portraits/boss_wind_mage_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"boss_yeti_001": {
+			"displayName": "Yeti (boss khu)",
+			"role": "boss",
+			"identity": {
+				"characterId": "boss_yeti_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region5_mob_01"
+			},
+			"atlas": "characters/boss_yeti_001/boss_yeti_001.json",
+			"frameSize": {
+				"width": 184,
+				"height": 184
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9347826086956522
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template mannequin, khổ vẽ 128px; ảnh mẫu nét = Quỷ vương. Vùng 5. Mô tả: a towering yeti boss facing the viewer, massive ape-like body covered in long shaggy blue-white fur, pale blue leathery face with a heavy brow, curved grey ram-like horns, very long arms with huge dark knuckles, icicles tangled in its fur, old claw scars across its broad chest, fierce protective glowing amber eyes. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 176px.",
+			"bodyHeight": 93,
+			"portrait": "portraits/boss_yeti_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"dragon_fire_001": {
+			"displayName": "Hoả Long \"Viêm Đế\" (rồng nguyên tố)",
+			"role": "boss",
+			"identity": {
+				"characterId": "dragon_fire_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region6_mob_01"
+			},
+			"atlas": "characters/dragon_fire_001/dragon_fire_001.json",
+			"frameSize": {
+				"width": 272,
+				"height": 272
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9558823529411765
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 192px; ảnh mẫu nét = Quỷ vương. Vùng 6. Mô tả: chibi western dragon, stocky four-legged lizard body, long neck, big head, bat-like leathery wings with finger bones, dorsal spikes, arrowhead tail tip, proud tyrant, burnt orange, bronze and gold scales, molten yellow belly, charcoal back plates with glowing lava seams, thick bronze horns with flame-lit tips and nose horn, ember orange glowing wings, basalt dorsal spikes, amber eyes. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 264px.",
+			"bodyHeight": 148,
+			"portrait": "portraits/dragon_fire_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"dragon_ice_001": {
+			"displayName": "Băng Long \"Hàn Sương\" (rồng nguyên tố)",
+			"role": "boss",
+			"identity": {
+				"characterId": "dragon_ice_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region5_mob_01"
+			},
+			"atlas": "characters/dragon_ice_001/dragon_ice_001.json",
+			"frameSize": {
+				"width": 272,
+				"height": 272
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9558823529411765
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"W",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 192px; ảnh mẫu nét = Quỷ vương. Vùng 5. Mô tả: chibi western dragon, stocky four-legged lizard body, long neck, big head, bat-like leathery wings with finger bones, dorsal spikes, arrowhead tail tip, ancient ice dragon tyrant, glacier-blue and frost-white scales with dark steel-blue armored plates, jagged crystal ice horns like spears, icicle spikes along the spine, frost-cracked translucent icy-blue wings with dark ribs, cold glowing cyan eyes, freezing mist from its jaws, menacing. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 264px.",
+			"bodyHeight": 184,
+			"portrait": "portraits/dragon_ice_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"dragon_water_001": {
+			"displayName": "Thuỷ Long \"Thương Hải\" (rồng nguyên tố)",
+			"role": "boss",
+			"identity": {
+				"characterId": "dragon_water_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region7_mob_01"
+			},
+			"atlas": "characters/dragon_water_001/dragon_water_001.json",
+			"frameSize": {
+				"width": 272,
+				"height": 272
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9558823529411765
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 192px; ảnh mẫu nét = Quỷ vương. Vùng 7. Mô tả: chibi western dragon, stocky four-legged lizard body, long neck, big head, bat-like leathery wings with finger bones, dorsal spikes, arrowhead tail tip, ancient sea dragon leviathan, deep ocean teal and dark navy-green scales, pale aqua belly, heavy curved horns like nautilus shells crusted with coral and barnacles, tall fin-like sail crest of spines, translucent teal webbed wings with dark ribs, glowing sea-green eyes, sea water dripping from its fangs, menacing. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 264px.",
+			"bodyHeight": 197,
+			"portrait": "portraits/dragon_water_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"dragon_wind_001": {
+			"displayName": "Phong Long \"Tuyệt Vân\" (rồng nguyên tố)",
+			"role": "boss",
+			"identity": {
+				"characterId": "dragon_wind_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region4_mob_01"
+			},
+			"atlas": "characters/dragon_wind_001/dragon_wind_001.json",
+			"frameSize": {
+				"width": 272,
+				"height": 272
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9558823529411765
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 192px; ảnh mẫu nét = Quỷ vương. Vùng 4. Mô tả: chibi western dragon, stocky four-legged lizard body, long neck, big head, bat-like leathery wings with finger bones, dorsal spikes, arrowhead tail tip, ancient matriarch, sage green and seafoam grey scales, bone white belly, four long ivory crescent horns one chipped, huge translucent pale mint wings with torn edges, rounded bone white dorsal plates, wise narrowed golden eyes, old scars. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 264px.",
+			"bodyHeight": 177,
+			"portrait": "portraits/dragon_wind_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"mob_beach_crab_001": {
+			"displayName": "Cua",
+			"role": "monster",
+			"identity": {
+				"characterId": "mob_beach_crab_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region7_mob_01"
+			},
+			"atlas": "characters/mob_beach_crab_001/mob_beach_crab_001.json",
+			"frameSize": {
+				"width": 96,
+				"height": 96
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.875
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 64px; ảnh mẫu nét = nấm rừng. Vùng 7. Mô tả: a wide flat beach crab facing the viewer, pale sand-white shell speckled with coral-pink dots and a few barnacles, one oversized claw and one tiny claw, round black eyes on tall stalks, a scrap of torn fishing net snagged on its shell. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 88px.",
+			"bodyHeight": 45,
+			"portrait": "portraits/mob_beach_crab_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"mob_coral_merfolk_001": {
+			"displayName": "Người cá",
+			"role": "monster",
+			"identity": {
+				"characterId": "mob_coral_merfolk_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region7_mob_01"
+			},
+			"atlas": "characters/mob_coral_merfolk_001/mob_coral_merfolk_001.json",
+			"frameSize": {
+				"width": 120,
+				"height": 120
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 80px; ảnh mẫu nét = nấm rừng. Vùng 7. Mô tả: a proud reef merfolk guard standing upright on a curled fish tail facing the viewer, slender humanoid upper body with sea-blue skin and shimmering turquoise scales, long flowing coral-pink fin hair, pearly white shell chestplate, holding a long coral quarterstaff with a rounded knob end and a round scallop shell shield, stern golden eyes. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 112px.",
+			"bodyHeight": 70,
+			"portrait": "portraits/mob_coral_merfolk_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"mob_fire_bat_001": {
+			"displayName": "Dơi lửa",
+			"role": "monster",
+			"identity": {
+				"characterId": "mob_fire_bat_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region6_mob_01"
+			},
+			"atlas": "characters/mob_fire_bat_001/mob_fire_bat_001.json",
+			"frameSize": {
+				"width": 96,
+				"height": 96
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.875
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 64px; ảnh mẫu nét = nấm rừng. Vùng 6. Mô tả: a fire bat hovering facing the viewer, small charcoal-black ashy body with glowing ember cracks, wings made of bright orange-yellow flame tongues instead of skin, no ears but two short curved horns, long thin whip tail ending in a glowing ember, glowing yellow eyes, wisps of smoke. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 88px.",
+			"bodyHeight": 53,
+			"portrait": "portraits/mob_fire_bat_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"mob_fire_demon_001": {
+			"displayName": "Quỷ lửa",
+			"role": "monster",
+			"identity": {
+				"characterId": "mob_fire_demon_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region6_mob_01"
+			},
+			"atlas": "characters/mob_fire_demon_001/mob_fire_demon_001.json",
+			"frameSize": {
+				"width": 120,
+				"height": 120
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template mannequin, khổ vẽ 80px; ảnh mẫu nét = nấm rừng. Vùng 6. Mô tả: a gaunt ash fiend facing the viewer, thin hunched body of cracked ash-grey skin with glowing orange ember seams, its whole head is a burning flame with a cracked black obsidian mask for a face, no horns, long bony arms, bare clawed feet, tattered soot-black rags around its waist, holding a jagged obsidian cleaver. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 112px.",
+			"bodyHeight": 63,
+			"portrait": "portraits/mob_fire_demon_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"mob_fire_spirit_001": {
+			"displayName": "Tinh linh lửa",
+			"role": "monster",
+			"identity": {
+				"characterId": "mob_fire_spirit_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region6_mob_01"
+			},
+			"atlas": "characters/mob_fire_spirit_001/mob_fire_spirit_001.json",
+			"frameSize": {
+				"width": 104,
+				"height": 104
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.8846153846153846
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 72px; ảnh mẫu nét = nấm rừng. Vùng 6. Mô tả: a floating forge fire spirit facing the viewer, a round plump body of bright yellow-orange living flame, a soot-blackened iron forge ring clamped around its middle, two little flame arms holding a pair of glowing blacksmith tongs, big white glowing eyes, sparks drifting up from its head. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 100px.",
+			"bodyHeight": 67,
+			"portrait": "portraits/mob_fire_spirit_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"mob_flying_rock_001": {
+			"displayName": "Đá bay",
+			"role": "monster",
+			"identity": {
+				"characterId": "mob_flying_rock_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region4_mob_01"
+			},
+			"atlas": "characters/mob_flying_rock_001/mob_flying_rock_001.json",
+			"frameSize": {
+				"width": 120,
+				"height": 120
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 80px; ảnh mẫu nét = nấm rừng. Vùng 4. Mô tả: a floating rock golem chunk facing the viewer, a jagged grey-brown boulder with mossy top hovering in the air, glowing pale blue rune cracks forming an angry face, small pebbles orbiting around it. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 112px.",
+			"bodyHeight": 43,
+			"portrait": "portraits/mob_flying_rock_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"mob_glow_mushroom_001": {
+			"displayName": "Nấm phát quang",
+			"role": "monster",
+			"identity": {
+				"characterId": "mob_glow_mushroom_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region2_mob_01"
+			},
+			"atlas": "characters/mob_glow_mushroom_001/mob_glow_mushroom_001.json",
+			"frameSize": {
+				"width": 104,
+				"height": 104
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.8846153846153846
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template mannequin, khổ vẽ 72px; ảnh mẫu nét = nấm rừng. Vùng 2. Mô tả: a walking glowing mushroom creature facing the viewer, wide teal cap with glowing cyan spots, pale bioluminescent stem body with short arms and legs, sleepy glowing eyes, spores floating around. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 100px.",
+			"bodyHeight": 39,
+			"portrait": "portraits/mob_glow_mushroom_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"mob_hawk_001": {
+			"displayName": "Chim ưng",
+			"role": "monster",
+			"identity": {
+				"characterId": "mob_hawk_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region4_mob_01"
+			},
+			"atlas": "characters/mob_hawk_001/mob_hawk_001.json",
+			"frameSize": {
+				"width": 104,
+				"height": 104
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.8846153846153846
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 72px; ảnh mẫu nét = nấm rừng. Vùng 4. Mô tả: a fierce highland hawk hovering facing the viewer with wings spread wide, brown and cream barred feathers, sharp yellow talons, hooked beak, piercing golden eyes. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 100px.",
+			"bodyHeight": 55,
+			"portrait": "portraits/mob_hawk_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"mob_ice_bear_001": {
+			"displayName": "Gấu băng",
+			"role": "monster",
+			"identity": {
+				"characterId": "mob_ice_bear_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region5_mob_01"
+			},
+			"atlas": "characters/mob_ice_bear_001/mob_ice_bear_001.json",
+			"frameSize": {
+				"width": 120,
+				"height": 120
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 80px; ảnh mẫu nét = nấm rừng. Vùng 5. Mô tả: a heavy polar ice bear standing on four legs facing the viewer, thick creamy white fur, broad head with small round ears and a black nose, a ridge of jagged glowing blue Aether crystal spikes growing out of its back and shoulders, frost-crusted paws with dark claws, drowsy half-closed glowing blue eyes. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 112px.",
+			"bodyHeight": 58,
+			"portrait": "portraits/mob_ice_bear_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"mob_ice_wisp_001": {
+			"displayName": "Tinh linh băng",
+			"role": "monster",
+			"identity": {
+				"characterId": "mob_ice_wisp_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region5_mob_01"
+			},
+			"atlas": "characters/mob_ice_wisp_001/mob_ice_wisp_001.json",
+			"frameSize": {
+				"width": 96,
+				"height": 96
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.875
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 64px; ảnh mẫu nét = nấm rừng. Vùng 5. Mô tả: a small floating ice spirit facing the viewer, a six-pointed snowflake-shaped body of translucent pale cyan ice crystals, a round frosted face in the center with glowing white eyes and a tiny sad mouth, little shard-like hands, a hairline crack across its face like cracked lake ice, snow sparkles drifting around it. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 88px.",
+			"bodyHeight": 44,
+			"portrait": "portraits/mob_ice_wisp_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"mob_lava_golem_001": {
+			"displayName": "Golem dung nham",
+			"role": "monster",
+			"identity": {
+				"characterId": "mob_lava_golem_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region6_mob_01"
+			},
+			"atlas": "characters/mob_lava_golem_001/mob_lava_golem_001.json",
+			"frameSize": {
+				"width": 120,
+				"height": 120
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template mannequin, khổ vẽ 80px; ảnh mẫu nét = nấm rừng. Vùng 6. Mô tả: a lumbering magma golem facing the viewer, hunched body mostly of glowing molten orange lava with a few floating black basalt chunks as armor on its shoulders and fists, oversized lava fists, a rusted bronze dwarven collar band with one glowing rune, two bright yellow eye slits. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 112px.",
+			"bodyHeight": 53,
+			"portrait": "portraits/mob_lava_golem_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"mob_lava_lizard_001": {
+			"displayName": "Thằn lằn lửa",
+			"role": "monster",
+			"identity": {
+				"characterId": "mob_lava_lizard_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region6_mob_01"
+			},
+			"atlas": "characters/mob_lava_lizard_001/mob_lava_lizard_001.json",
+			"frameSize": {
+				"width": 96,
+				"height": 96
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.875
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 64px; ảnh mẫu nét = nấm rừng. Vùng 6. Mô tả: a spiky lava lizard crouching facing the viewer, rough ash-grey and rust-red scales, a crown of short ember-crystal horns on its head, a row of glowing orange crystal spikes on its shoulders, a patch of glowing red fire moss on its head and shoulders, small flame at its tail tip, beady yellow eyes. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 88px.",
+			"bodyHeight": 48,
+			"portrait": "portraits/mob_lava_lizard_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"mob_mud_merfolk_001": {
+			"displayName": "Người cá bùn",
+			"role": "monster",
+			"identity": {
+				"characterId": "mob_mud_merfolk_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region2_mob_01"
+			},
+			"atlas": "characters/mob_mud_merfolk_001/mob_mud_merfolk_001.json",
+			"frameSize": {
+				"width": 120,
+				"height": 120
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template mannequin, khổ vẽ 80px; ảnh mẫu nét = nấm rừng. Vùng 2. Mô tả: a hunched swamp mud merfolk warrior facing the viewer, muddy green-brown scaly skin, fish head with fin crest, webbed hands holding a crude bone trident, seaweed draped on shoulders. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 112px.",
+			"bodyHeight": 51,
+			"portrait": "portraits/mob_mud_merfolk_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"mob_mummy_001": {
+			"displayName": "Xác ướp",
+			"role": "monster",
+			"identity": {
+				"characterId": "mob_mummy_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region3_mob_01"
+			},
+			"atlas": "characters/mob_mummy_001/mob_mummy_001.json",
+			"frameSize": {
+				"width": 120,
+				"height": 120
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template mannequin, khổ vẽ 80px; ảnh mẫu nét = nấm rừng. Vùng 3. Mô tả: a shambling mummy facing the viewer, wrapped in dirty yellowed bandages with loose trailing strips, one glowing orange eye showing, arms stretched forward, gold scarab amulet on chest. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 112px.",
+			"bodyHeight": 45,
+			"portrait": "portraits/mob_mummy_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"mob_pirate_001": {
+			"displayName": "Cướp biển",
+			"role": "monster",
+			"identity": {
+				"characterId": "mob_pirate_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region7_mob_01"
+			},
+			"atlas": "characters/mob_pirate_001/mob_pirate_001.json",
+			"frameSize": {
+				"width": 120,
+				"height": 120
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template mannequin, khổ vẽ 80px; ảnh mẫu nét = nấm rừng. Vùng 7. Mô tả: a scruffy weathered old pirate sailor facing the viewer, faded red bandana with a silver seagull emblem on the front, black eyepatch, torn navy and white striped shirt, gold hoop earring, wide leather belt with a big brass buckle, holding a chipped curved cutlass. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 112px.",
+			"bodyHeight": 44,
+			"portrait": "portraits/mob_pirate_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"mob_poison_frog_001": {
+			"displayName": "Ếch độc",
+			"role": "monster",
+			"identity": {
+				"characterId": "mob_poison_frog_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region2_mob_01"
+			},
+			"atlas": "characters/mob_poison_frog_001/mob_poison_frog_001.json",
+			"frameSize": {
+				"width": 96,
+				"height": 96
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.875
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 64px; ảnh mẫu nét = nấm rừng. Vùng 2. Mô tả: a fat poison dart frog sitting facing the viewer, bright toxic green skin with purple spots, bulging yellow eyes, puffed throat sac, dripping green slime. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 88px.",
+			"bodyHeight": 43,
+			"portrait": "portraits/mob_poison_frog_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"mob_reef_jellyfish_001": {
+			"displayName": "Sứa",
+			"role": "monster",
+			"identity": {
+				"characterId": "mob_reef_jellyfish_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region7_mob_01"
+			},
+			"atlas": "characters/mob_reef_jellyfish_001/mob_reef_jellyfish_001.json",
+			"frameSize": {
+				"width": 96,
+				"height": 96
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.875
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 64px; ảnh mẫu nét = nấm rừng. Vùng 7. Mô tả: a floating translucent reef jellyfish facing the viewer, tall bell-shaped dome of pale aqua with a soft glowing blue light core inside it, small grumpy glowing eyes, long frilly pink and white tentacles hanging below, tiny blue sparks around it. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 88px.",
+			"bodyHeight": 55,
+			"portrait": "portraits/mob_reef_jellyfish_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"mob_sand_snake_001": {
+			"displayName": "Rắn cát",
+			"role": "monster",
+			"identity": {
+				"characterId": "mob_sand_snake_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region3_mob_01"
+			},
+			"atlas": "characters/mob_sand_snake_001/mob_sand_snake_001.json",
+			"frameSize": {
+				"width": 104,
+				"height": 104
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.8846153846153846
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 72px; ảnh mẫu nét = nấm rừng. Vùng 3. Mô tả: a desert sand snake raising its hooded head facing the viewer, sandy yellow scales with dark brown diamond pattern, cobra hood, fangs bared, sand trickling off its body. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 100px.",
+			"bodyHeight": 56,
+			"portrait": "portraits/mob_sand_snake_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"mob_sand_spirit_001": {
+			"displayName": "Linh hồn cát",
+			"role": "monster",
+			"identity": {
+				"characterId": "mob_sand_spirit_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region3_mob_01"
+			},
+			"atlas": "characters/mob_sand_spirit_001/mob_sand_spirit_001.json",
+			"frameSize": {
+				"width": 120,
+				"height": 120
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 80px; ảnh mẫu nét = nấm rừng. Vùng 3. Mô tả: a floating sand spirit facing the viewer, a ghostly humanoid upper body made of swirling golden sand that dissolves into a whirlwind tail below, glowing turquoise eyes, ancient gold ornaments floating around it. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 112px.",
+			"bodyHeight": 70,
+			"portrait": "portraits/mob_sand_spirit_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"mob_scorpion_001": {
+			"displayName": "Bọ cạp",
+			"role": "monster",
+			"identity": {
+				"characterId": "mob_scorpion_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region3_mob_01"
+			},
+			"atlas": "characters/mob_scorpion_001/mob_scorpion_001.json",
+			"frameSize": {
+				"width": 104,
+				"height": 104
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.8846153846153846
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 72px; ảnh mẫu nét = nấm rừng. Vùng 3. Mô tả: a desert scorpion facing the viewer, glossy red-orange armored shell, two big pincers raised, segmented tail curled up over its back with a glowing stinger. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 100px.",
+			"bodyHeight": 53,
+			"portrait": "portraits/mob_scorpion_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"mob_snow_wolf_001": {
+			"displayName": "Sói tuyết",
+			"role": "monster",
+			"identity": {
+				"characterId": "mob_snow_wolf_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region5_mob_01"
+			},
+			"atlas": "characters/mob_snow_wolf_001/mob_snow_wolf_001.json",
+			"frameSize": {
+				"width": 120,
+				"height": 120
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template dog, khổ vẽ 80px; ảnh mẫu nét = nấm rừng. Vùng 5. Mô tả: a stocky heavy-set snow wolf standing on four legs facing the viewer, bulky body with thick shaggy white fur, a huge lion-like mane matted with hanging icicles around its neck and chest, a dark charcoal-grey saddle of fur over its shoulders, outer forelegs, back and tail, dark charcoal-grey mask around pale ice-blue eyes, tall pointed upright charcoal-tipped ears, long broad wolf muzzle with a black nose, short thick legs, heavy wide paws with dark claws, thick bushy tail swept to one side so it shows. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 112px.",
+			"bodyHeight": 55,
+			"portrait": "portraits/mob_snow_wolf_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"mob_snowman_001": {
+			"displayName": "Người tuyết",
+			"role": "monster",
+			"identity": {
+				"characterId": "mob_snowman_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region5_mob_01"
+			},
+			"atlas": "characters/mob_snowman_001/mob_snowman_001.json",
+			"frameSize": {
+				"width": 104,
+				"height": 104
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.8846153846153846
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 72px; ảnh mẫu nét = nấm rừng. Vùng 5. Mô tả: a living snowman golem facing the viewer, three lumpy stacked snowballs with patches of packed grey ice, lumps of coal for eyes with faint blue glowing pupils, jagged icicle teeth, crooked pine branch arms, a dented old miner's helmet with a dead lantern on its head, a ragged brown wool scarf. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 100px.",
+			"bodyHeight": 61,
+			"portrait": "portraits/mob_snowman_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"mob_swamp_leech_001": {
+			"displayName": "Đỉa đầm",
+			"role": "monster",
+			"identity": {
+				"characterId": "mob_swamp_leech_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region2_mob_01"
+			},
+			"atlas": "characters/mob_swamp_leech_001/mob_swamp_leech_001.json",
+			"frameSize": {
+				"width": 96,
+				"height": 96
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.875
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 64px; ảnh mẫu nét = nấm rừng. Vùng 2. Mô tả: a giant swamp leech rearing up facing the viewer, slimy dark olive-brown segmented body, round sucker mouth ringed with tiny teeth, glistening wet highlights. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 88px.",
+			"bodyHeight": 51,
+			"portrait": "portraits/mob_swamp_leech_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"mob_vulture_001": {
+			"displayName": "Kền kền",
+			"role": "monster",
+			"identity": {
+				"characterId": "mob_vulture_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region3_mob_01"
+			},
+			"atlas": "characters/mob_vulture_001/mob_vulture_001.json",
+			"frameSize": {
+				"width": 104,
+				"height": 104
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.8846153846153846
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 72px; ảnh mẫu nét = nấm rừng. Vùng 3. Mô tả: a desert vulture standing facing the viewer with wings half spread, dark brown ragged feathers, bald pink wrinkled head and neck, white feather ruff collar, hooked beak. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 100px.",
+			"bodyHeight": 57,
+			"portrait": "portraits/mob_vulture_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"mob_war_penguin_001": {
+			"displayName": "Chim cánh cụt chiến",
+			"role": "monster",
+			"identity": {
+				"characterId": "mob_war_penguin_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region5_mob_01"
+			},
+			"atlas": "characters/mob_war_penguin_001/mob_war_penguin_001.json",
+			"frameSize": {
+				"width": 96,
+				"height": 96
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.875
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 64px; ảnh mẫu nét = nấm rừng. Vùng 5. Mô tả: a stout battle penguin standing upright facing the viewer, glossy black back and white belly with a yellow-orange neck patch, wearing a dented brass ship's cooking pot as a helmet, a frayed rope tied around its waist, holding a sharp icicle spear in one flipper, fierce narrowed eyes. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 88px.",
+			"bodyHeight": 43,
+			"portrait": "portraits/mob_war_penguin_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"mob_water_snake_001": {
+			"displayName": "Rắn nước",
+			"role": "monster",
+			"identity": {
+				"characterId": "mob_water_snake_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region2_mob_01"
+			},
+			"atlas": "characters/mob_water_snake_001/mob_water_snake_001.json",
+			"frameSize": {
+				"width": 104,
+				"height": 104
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.8846153846153846
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 72px; ảnh mẫu nét = nấm rừng. Vùng 2. Mô tả: a coiled water snake raising its head facing the viewer, dark blue-green scales with pale yellow belly, fin-like frills on its head, flicking forked tongue, wet sheen. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 100px.",
+			"bodyHeight": 57,
+			"portrait": "portraits/mob_water_snake_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"mob_wind_fairy_001": {
+			"displayName": "Tiên gió",
+			"role": "monster",
+			"identity": {
+				"characterId": "mob_wind_fairy_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region4_mob_01"
+			},
+			"atlas": "characters/mob_wind_fairy_001/mob_wind_fairy_001.json",
+			"frameSize": {
+				"width": 96,
+				"height": 96
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.875
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template mannequin, khổ vẽ 64px; ảnh mẫu nét = nấm rừng. Vùng 4. Mô tả: a tiny mischievous wind fairy hovering facing the viewer, pale green skin, leaf-shaped translucent wings, white flowing hair like a breeze, dress made of leaves, swirling wind ribbons around her. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 88px.",
+			"bodyHeight": 44,
+			"portrait": "portraits/mob_wind_fairy_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"mob_wind_goblin_001": {
+			"displayName": "Yêu tinh gió",
+			"role": "monster",
+			"identity": {
+				"characterId": "mob_wind_goblin_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region4_mob_01"
+			},
+			"atlas": "characters/mob_wind_goblin_001/mob_wind_goblin_001.json",
+			"frameSize": {
+				"width": 104,
+				"height": 104
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.8846153846153846
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template mannequin, khổ vẽ 72px; ảnh mẫu nét = nấm rừng. Vùng 4. Mô tả: a small wind goblin facing the viewer, green skin, long pointed ears, mischievous grin, ragged sky-blue tunic and scarf flapping in the wind, holding a little pinwheel spear. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 100px.",
+			"bodyHeight": 52,
+			"portrait": "portraits/mob_wind_goblin_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"mob_wind_wolf_001": {
+			"displayName": "Sói gió",
+			"role": "monster",
+			"identity": {
+				"characterId": "mob_wind_wolf_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region4_mob_01"
+			},
+			"atlas": "characters/mob_wind_wolf_001/mob_wind_wolf_001.json",
+			"frameSize": {
+				"width": 120,
+				"height": 120
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template dog, khổ vẽ 80px; ảnh mẫu nét = nấm rừng. Vùng 4. Mô tả: a lean wild wind wolf standing on four legs facing the viewer, pale grey-teal fur streaked with white, wispy wind swirls around its tail and ankles, glowing pale green eyes, bared fangs. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 112px.",
+			"bodyHeight": 68,
+			"portrait": "portraits/mob_wind_wolf_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"mob_wreck_octopus_001": {
+			"displayName": "Bạch tuộc",
+			"role": "monster",
+			"identity": {
+				"characterId": "mob_wreck_octopus_001",
+				"hair": "none",
+				"eyes": "monster",
+				"skin": "monster",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "region7_mob_01"
+			},
+			"atlas": "characters/mob_wreck_octopus_001/mob_wreck_octopus_001.json",
+			"frameSize": {
+				"width": 104,
+				"height": 104
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.8846153846153846
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				},
+				"attack": {
+					"fps": 14,
+					"frames": 8,
+					"hitFrame": 4,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 8,
+					"loop": false,
+					"directions": [
+						"S",
+						"W",
+						"N",
+						"E"
+					]
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 72px; ảnh mẫu nét = nấm rừng. Vùng 7. Mô tả: a round mottled sandy-orange octopus facing the viewer, bulbous head with cream spots and bright teal ring markings, big curious amber eyes, eight thick curling tentacles with pale suckers splayed out around it, one tentacle coiled around a rusty broken anchor chain, strands of green seaweed on its head. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 100px.",
+			"bodyHeight": 50,
+			"portrait": "portraits/mob_wreck_octopus_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
 		}
 	}
 }

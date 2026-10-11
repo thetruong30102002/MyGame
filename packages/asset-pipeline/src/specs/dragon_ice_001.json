@@ -74,5 +74,10 @@
 		"SW",
 		"NW"
 	],
-	"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 192px; ảnh mẫu nét = Quỷ vương. Vùng 5. Mô tả: chibi western dragon, stocky four-legged lizard body, long neck, big head, bat-like leathery wings with finger bones, dorsal spikes, arrowhead tail tip, ancient ice dragon tyrant, glacier-blue and frost-white scales with dark steel-blue armored plates, jagged crystal ice horns like spears, icicle spikes along the spine, frost-cracked translucent icy-blue wings with dark ribs, cold glowing cyan eyes, freezing mist from its jaws, menacing. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 264px."
+	"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 192px; ảnh mẫu nét = Quỷ vương. Vùng 5. Mô tả: chibi western dragon, stocky four-legged lizard body, long neck, big head, bat-like leathery wings with finger bones, dorsal spikes, arrowhead tail tip, ancient ice dragon tyrant, glacier-blue and frost-white scales with dark steel-blue armored plates, jagged crystal ice horns like spears, icicle spikes along the spine, frost-cracked translucent icy-blue wings with dark ribs, cold glowing cyan eyes, freezing mist from its jaws, menacing. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 264px.",
+	"review": {
+		"status": "approved",
+		"date": "10/10/2026",
+		"notes": "Duyệt bằng mắt (Claude, phiên chuyển Unity): ảnh giữa idle/walk hướng S/E/N + trọn attack E/S + death E từ contact sheet. Chủ dự án báo đã vẽ xong chiêu quái/boss trên PixelLab; đối chiếu bản tải lại 10/10/2026 khớp bản trên máy."
+	}
 }

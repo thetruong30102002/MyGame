@@ -25,6 +25,10 @@ https://claude.ai/artifact/VTrVtPJHXUtETsssKRcx9K). Không sửa tay hai file si
 | Icon chiêu v2 (90 icon 32×32), kho đồ / thẻ Chỉ số bỏ icon chỉ số (chỉ giữ vàng + kim cương), chiêu nguyên tố mốc 1 học bằng 1 điểm (bài tập phép tuổi thơ nhận Tia Aether, bản lưu `talentsV` 3 + máy chủ chặn tab cũ ghi đè) | ✔ ĐÃ LÊN GAME THẬT 10/10/2026 | `docs/asset-pipeline.md` mục Icon chiêu v2, `docs/ke-hoach-nguyen-to.md` mục 7, `apps/server/src/db.ts` `keepNewerTalents` |
 | Vũ khí VẼ LIỀN THÂN (chủ dự án 10/10/2026: "cầm kiếm tự gắn vào xấu"): 4 sprite người chơi đứng / đi cầm kiếm + cầm trượng (`idlesword` / `walksword` / `idlestaff` / `walkstaff`, chọn theo thế cầm + đồ mặc), bỏ icon dán vào tay, bỏ hướng chém tay không | ✔ ĐÃ LÊN GAME THẬT 10/10/2026: đứng / đi (~175 lượt) + trúng đòn / lướt / gục (16 tuổi) và trúng đòn / gục / uống bình (bé) bản cầm (129 lượt, `hitsword`…). CÒN THIẾU uống bình bản cầm của 16 tuổi: atlas 16 tuổi đã sát 4096 → cần atlas nhiều trang hoặc cắt sát khung | `docs/asset-pipeline.md` mục "Vũ khí vẽ liền thân", `apps/web/src/game/gearArt.ts` |
 | Bản đồ lớn phím M — 3 tầng (chủ dự án 10/10/2026: "cải tiến màn xem map để xem được map tổng"): **Khu vực** (map đang đứng, như cũ) · **Vùng** (sơ đồ 12 map: đường nối theo lối, khoảng cấp, boss, map đang đứng, map chưa tới mờ đi, cổng sang vùng 2) · **Thế giới** (tranh lục địa PixelLab 1× / 2×, 10 vùng: nhãn, "Bạn ở đây", vùng chưa mở làm tối, thẻ vùng: cấp / nguyên tố / trạng thái cổng) — phòng thử `/lab/map` | ◐ ĐÃ DỰNG + thử ở bản thử 10/10/2026, CHƯA lên bản thật. Triển khai: chép `.aether-stage/assets/ui/world-continent.png` → `apps/web/public/assets/ui/` (hoặc `npm run assets:world`), build web, khởi động lại máy chủ game (tin `hubs` kèm `maps` = map đã tới; máy chủ cũ thì tầng Vùng không làm mờ, không lỗi) | `docs/ke-hoach-the-gioi.md` mục 3, 3.1 · `apps/web/src/game/world/worldAtlas.ts` · `apps/web/tests/worldmap.test.ts` |
+| Trang **Thử chiêu** `/thu-chieu` (chủ dự án 10/10/2026: "ở màn ngoài đăng nhập, vào game 1 trang thử nghiệm skill để người dùng thử skill của các nguyên tố, kiếm phái"): nút ở màn đăng nhập, KHÔNG cần tài khoản, không máy chủ, không lưu gì. Sân tập ở quảng trường Thistlewood (3 hình nộm, gọi quái / boss vùng 1 cùng cấp 30, dọn sân), bảng bên chọn lưu phái Kiếm + một hay nhiều nguyên tố (nhánh chọn = mốc cao nhất đã hiện thực), con đường, phủ phép; danh sách chiêu đã học bấm-rồi-chọn-phím để gán thanh 10 ô; bị động đang có; Vô hạn MP / Bất tử. Chiến đấu dùng chính `CombatSystem` | ✔ ĐÃ LÊN GAME THẬT 10/10/2026 (chỉ web — build `.next-funnel-b`) | `apps/web/src/game/SkillLab.ts`, `skillLabBuild.ts` (luật, test `apps/web/tests/skilllab.test.ts`), `apps/web/src/components/skilllab/SkillLabScreen.tsx` |
+| **Chọn mục tiêu** (chủ dự án 10/10/2026: "focus rồi dùng chiêu thay vì bấm đâu dùng ấy, focus quái có mũi tên trên đầu"; "skill k theo hướng chuột nữa, chuột chỉ là để focus"; "đổi mục tiêu sẽ là tab"; "mobile một nút hình vòng tròn 3 mũi tên"): nhấp / chạm quái (hình nộm) = chọn, KHÔNG ra đòn; Tab / nút cảm ứng vòng tròn 3 mũi tên = đổi mục tiêu gần → xa; Esc bỏ chọn; J, K, 1–8 nhắm vào mục tiêu (chưa chọn thì tự chọn con gần nhất trong 460px, không ai thì đánh thẳng hướng mặt); mũi tên đỏ nhấp nhô trên đầu + vòng dưới chân; mục tiêu chết / ra xa 900px thì bỏ | ✔ ĐÃ LÊN GAME THẬT 10/10/2026 (chỉ web). Đã thử ở phòng tập; trong game thật chưa thử được đòn bằng tài khoản thử (tester1 / tester2 đều đang là nhân vật nhỏ tuổi) — chơi thử lại bằng nhân vật 16 tuổi. Nút đổi mục tiêu đang là hình SVG tạm | `apps/web/src/game/combat/focus.ts` (test `tests/focus.test.ts`), `Game.aimFor` / `focusTarget`, `TouchControls` |
+| **Tuyệt kỹ mốc 10 — chỉ ở phòng tập** (chủ dự án 10/10/2026: "mở skill 10 ở phòng tập thôi"): 8 chiêu, game thật vẫn dừng mốc 9 | ✔ ĐÃ LÊN (trang `/thu-chieu`, atlas riêng `vfx-ult` chỉ phòng tập tải). Sơn Thần đang mượn hình Gargoyle Đá | `docs/ke-hoach-nguyen-to.md` mục GĐ4 |
+| Bản thật TỰ BẬT khi đăng nhập Windows: tác vụ "Aether - ban that" (Task Scheduler, lúc đăng nhập tài khoản đang dùng, trễ 20 giây) chạy `scripts/khoi-dong-ban-that.ps1` — bật máy chủ game :3200 + web :3101 nếu cổng chưa có ai nghe, tạo tiến trình qua WMI, log `scripts/khoi-dong-ban-that.log` | ✔ cài 10/10/2026 (máy chưa tự đăng nhập Windows: phải đăng nhập thì bản thật mới lên) | README mục Funnel |
 
 ### Mốc 1 đã vẽ (09/10/2026, token #1)
 
@@ -84,7 +88,7 @@ https://claude.ai/artifact/VTrVtPJHXUtETsssKRcx9K). Không sửa tay hai file si
 - Triển khai (Tailscale Funnel, người chơi thật đang dùng): README mục Funnel — `build:funnel` (ghi vào thư mục KHÔNG đang chạy) →
   chạy thử bản mới ở cổng phụ → tắt + chạy lại `start:funnel` và máy chủ game. **Sao lưu `apps/server/data/aether.db` trước khi đổi
   cách lưu dữ liệu.** Log: `apps/web/funnel.log`, `apps/server/data/server.log`. Chạy bản thật TÁCH khỏi phiên Claude (tạo tiến trình qua
-  WMI — README mục Funnel; 10/10/2026 đóng phiên Claude làm tắt cả hai, link 502 ~4 giờ). Hình dựng thử → `.aether-stage/assets`
+  WMI — README mục Funnel; 10/10/2026 đóng phiên Claude làm tắt cả hai, link 502 ~4 giờ). Bật lại cả hai (bỏ qua cổng đang chạy): `powershell -NoProfile -ExecutionPolicy Bypass -File scripts\khoi-dong-ban-that.ps1` — tác vụ Windows "Aether - ban that" tự gọi file này lúc đăng nhập. Hình dựng thử → `.aether-stage/assets`
   (web thử :3102 đọc trước public), triển khai = chép sang `apps/web/public/assets`. Lần triển khai trang quản trị: sao lưu
   `aether.db` (máy chủ tự thêm bảng `admins` + `admin_log` lúc khởi động), khởi động lại máy chủ game, rồi
   `cd apps/server && npx tsx src/admin.ts add <tài khoản>` trên CSDL thật (mặc định không ai có quyền).
@@ -344,7 +348,7 @@ Sơ đồ nối 12 map + phác thảo (bố cục để duyệt, không phải h
 
 ### Vùng 2 · Đầm lầy Mù Sương — Mốc 1
 
-- Cấp 10–20 · hệ vùng Thuỷ / độc · quái yếu Thổ, Phong · Chưa có map
+- Cấp 10–20 · hệ vùng Thuỷ / độc · quái yếu Thổ, Phong · **12 map đã dựng 10/10/2026** (bộ dựng chung — `docs/ke-hoach-the-gioi.md` mục 5.3, đặc tả `packages/asset-pipeline/src/maps/worldRegions.ts`; bảng 7 map dưới là khung cũ)
 - Nơi ở (làng): **Làng nhà sàn Lau Xám** — Dân đầm lầy sống trên nhà sàn, nhờ người lạ dẹp quái và tìm thuốc giải độc.
 
 | Map | Loại | Quái / boss | Hình | Map |
@@ -367,7 +371,7 @@ Sơ đồ nối 7 map + phác thảo (bố cục để duyệt, không phải h�
 
 ### Vùng 3 · Sa mạc Hồng Cát — Mốc 1
 
-- Cấp 20–30 · hệ vùng Thổ / Hoả · quái yếu Thuỷ, Băng · Chưa có map
+- Cấp 20–30 · hệ vùng Thổ / Hoả · quái yếu Thuỷ, Băng · **12 map đã dựng 10/10/2026** (bộ dựng chung — `docs/ke-hoach-the-gioi.md` mục 5.3, đặc tả `packages/asset-pipeline/src/maps/worldRegions.ts`; bảng 7 map dưới là khung cũ)
 - Nơi ở (toà thành): **Thành ốc đảo Sahrin** — Vương quốc sa mạc: các tộc tranh nguồn nước, triều đình giao nhiệm vụ.
 
 | Map | Loại | Quái / boss | Hình | Map |
@@ -390,7 +394,7 @@ Sơ đồ nối 7 map + phác thảo (bố cục để duyệt, không phải h�
 
 ### Vùng 4 · Cao nguyên Gió Hú — Mốc 1
 
-- Cấp 30–40 · hệ vùng Phong · quái yếu Thổ · Chưa có map
+- Cấp 30–40 · hệ vùng Phong · quái yếu Thổ · **12 map + Long Huyệt đã dựng 10/10/2026** (bộ dựng chung — `docs/ke-hoach-the-gioi.md` mục 5.3, đặc tả `packages/asset-pipeline/src/maps/worldRegions.ts`; bảng 7 map dưới là khung cũ)
 - Nơi ở (làng): **Làng Cối Xay Gió** — Làng trên cao nguyên, giữ đền thờ trên mây.
 - Thêm: **Phong Long** ở Long Huyệt (map phụ của vùng)
 
@@ -414,7 +418,7 @@ Sơ đồ nối 7 map + phác thảo (bố cục để duyệt, không phải h�
 
 ### Vùng 5 · Lãnh nguyên Băng Giá — Mốc 2
 
-- Cấp 40–50 · hệ vùng Băng · quái yếu Hoả · Chưa có map
+- Cấp 40–50 · hệ vùng Băng · quái yếu Hoả · **12 map + Long Huyệt đã dựng 10/10/2026** (bộ dựng chung — `docs/ke-hoach-the-gioi.md` mục 5.3, đặc tả `packages/asset-pipeline/src/maps/worldRegions.ts`; bảng 7 map dưới là khung cũ)
 - Nơi ở (làng): **Làng gỗ Tuyết Phong** — Thợ săn và thợ mỏ băng sống qua mùa đông dài.
 - Thêm: **Băng Long** ở Long Huyệt (map phụ của vùng)
 
@@ -438,7 +442,7 @@ Sơ đồ nối 7 map + phác thảo (bố cục để duyệt, không phải h�
 
 ### Vùng 6 · Núi lửa Hoả Sơn — Mốc 2
 
-- Cấp 50–60 · hệ vùng Hoả · quái yếu Thuỷ, Băng · Chưa có map
+- Cấp 50–60 · hệ vùng Hoả · quái yếu Thuỷ, Băng · **12 map + Long Huyệt đã dựng 10/10/2026** (bộ dựng chung — `docs/ke-hoach-the-gioi.md` mục 5.3, đặc tả `packages/asset-pipeline/src/maps/worldRegions.ts`; bảng 7 map dưới là khung cũ)
 - Nơi ở (toà thành): **Pháo đài người lùn Đe Đỏ** — Hội đồng người lùn: rèn binh khí, đổi lấy nhiệm vụ trong lòng núi.
 - Thêm: **Hoả Long** ở Long Huyệt (map phụ của vùng)
 
@@ -462,7 +466,7 @@ Sơ đồ nối 7 map + phác thảo (bố cục để duyệt, không phải h�
 
 ### Vùng 7 · Quần đảo San Hô — Mốc 2
 
-- Cấp 60–70 · hệ vùng Thuỷ · quái yếu Phong, Thổ · Chưa có map
+- Cấp 60–70 · hệ vùng Thuỷ · quái yếu Phong, Thổ · **12 map + Long Huyệt đã dựng 10/10/2026** (bộ dựng chung — `docs/ke-hoach-the-gioi.md` mục 5.3, đặc tả `packages/asset-pipeline/src/maps/worldRegions.ts`; bảng 7 map dưới là khung cũ)
 - Nơi ở (làng): **Cảng chài San Hô** — Làng chài và thương thuyền, tin đồn về tàu ma.
 - Thêm: **Thuỷ Long** ở Long Huyệt (map phụ của vùng)
 

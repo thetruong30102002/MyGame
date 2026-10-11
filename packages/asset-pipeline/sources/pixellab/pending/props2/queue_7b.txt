@@ -1,0 +1,1 @@
+object highland_cliff_pine @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/highland_cliff_pine.send.json

@@ -9,6 +9,7 @@ import { loadCharacter, loadManifest, type AssetManifest, type CharacterManifest
 import { Camera } from './camera/Camera';
 import { bossIntro, killOutcome, pickHudBoss, regionBossDormancy, regionBossDownText } from './combat/bossRules';
 import { CombatSystem, type Fighter } from './combat/CombatSystem';
+import { FocusMarker, focusAim, focusAt, focusCycle, focusKept, focusNearest, type FocusCandidate } from './combat/focus';
 import { planRemoteCast } from './combat/remoteCast';
 import { aheadPoint } from './combat/skillRules';
 import { expForLevel, HERO_SKILLS, isGroundTarget, PATHS, type HeroPath } from './combat/skills';
@@ -221,7 +222,9 @@ export class Game {
 	private hudTimer = 0;
 	private saveTimer = 0;
 	private area = '';
-	private readonly mouse = { x: 0, y: 0, inside: false };
+	/** Mục tiêu đang chọn (`focus.ts`): một `Fighter` hoặc hình nộm của CombatSystem; null = chưa chọn. */
+	private focus: object | null = null;
+	private readonly focusMarker = new FocusMarker();
 	private resizeObserver?: ResizeObserver;
 	private destroyed = false;
 	/** Frame trước UI có đang chặn input không — phím vừa đóng thoại không được lọt sang game. */
@@ -425,7 +428,7 @@ export class Game {
 		);
 
 		this.shownAge = this.story.state.age;
-		this.scene.addChild(world.ground.layer, world.decalLayer, this.combat.groundFx, this.entities, this.exitLayer, this.combat.fxLayer);
+		this.scene.addChild(world.ground.layer, world.decalLayer, this.combat.groundFx, this.entities, this.focusMarker.layer, this.exitLayer, this.combat.fxLayer);
 		// Hình đứng lâu trên mặt đất (khối đá Tường Đá, lửa Tường Lửa — lớp 'world') xếp chiều sâu chung với nhân vật.
 		this.vfx.world = this.entities;
 		this.app.stage.addChild(this.scene, this.labelLayer, this.combat.screenLayer, this.flashLayer, this.fadeLayer);
@@ -472,24 +475,25 @@ export class Game {
 		if (this.story.state.age >= 16 && !this.story.state.path) this.askPath();
 
 		const canvas = this.app.canvas;
-		canvas.addEventListener('pointermove', (e) => Object.assign(this.mouse, { x: e.offsetX, y: e.offsetY, inside: e.pointerType === 'mouse' }));
-		canvas.addEventListener('pointerleave', () => {
-			this.mouse.inside = false;
-		});
 		canvas.addEventListener('pointerdown', (e) => {
 			if (e.button !== 0 && e.button !== 2) return;
 			const dpr = window.devicePixelRatio || 1;
+			const wx = (e.offsetX * dpr - this.scene.x) / this.camera.zoom;
+			const wy = (e.offsetY * dpr - this.scene.y) / this.camera.zoom;
 			// Nhấp / chạm trúng người chơi khác: mở menu (nhắn riêng, kết bạn, chặn) thay vì ra đòn — chưa có PvP nên đánh
 			// vào người chơi vốn không làm gì.
-			const other = this.remoteAt((e.offsetX * dpr - this.scene.x) / this.camera.zoom, (e.offsetY * dpr - this.scene.y) / this.camera.zoom);
+			// Người đó cũng thành mục tiêu đang chọn (mũi tên trên đầu).
+			const other = this.remoteAt(wx, wy);
 			if (other && this.canAct()) {
+				this.focus = other;
 				useSession.getState().setPersonMenu({ person: { id: other.view.id, name: other.view.name }, at: { x: e.clientX, y: e.clientY } });
 				return;
 			}
-			if (!this.canAct() || !controlsForAge(this.shownAge).cast) return;
-			// Chạm màn hình: đánh về đúng chỗ chạm; chuột: theo con trỏ. Chuột phải luôn là Tia Aether (K).
-			const aim = e.pointerType !== 'mouse' ? { x: (e.offsetX * dpr - this.scene.x) / this.camera.zoom, y: (e.offsetY * dpr - this.scene.y) / this.camera.zoom } : this.aimPoint();
-			this.combat.cast(e.button === 2 ? 1 : this.basicAttackFor(aim), aim);
+			if (!this.canAct()) return;
+			// Chuột / chạm CHỈ để chọn mục tiêu (chủ dự án 10/10/2026: "skill không theo hướng chuột nữa, chuột chỉ là để focus"):
+			// trúng quái / hình nộm / NPC thì chọn nó, ra đất trống thì thôi. Ra đòn bằng phím J, K, 1–8 (nút cảm ứng) — nhắm vào mục tiêu.
+			const hit = focusAt(this.focusables(), wx, wy);
+			if (hit) this.focus = hit;
 		});
 		canvas.addEventListener('contextmenu', (e) => e.preventDefault());
 
@@ -600,18 +604,6 @@ export class Game {
 		const female = persona().gender === 'female';
 		if (this.shownAge < 16) return female ? '/assets/portraits/hero-child-female.png' : '/assets/portraits/lior-child.png';
 		return female ? '/assets/portraits/hero-female.png' : '/assets/portraits/lior.png';
-	}
-
-	/**
-	 * Chạm/nhấp chuột trái: mục tiêu gần thì chém kiếm (J), xa thì Tia Aether (K). Chưa có đủ hai món
-	 * (mới nhận một trong hai quà) thì dùng món đang có.
-	 */
-	private basicAttackFor(aim: { x: number; y: number }): number {
-		const sword = this.story.isUnlocked('sword');
-		const staff = this.story.isUnlocked('staff');
-		if (!sword || !staff) return staff ? 1 : 0;
-		const far = Math.hypot(aim.x - this.player.x, aim.y - (this.player.y - this.player.chest)) > 110;
-		return far ? 1 : 0;
 	}
 
 	/** Thông báo vừa nhận quà (kiếm/trượng), mở nhánh nguyên tố, hoặc học thêm kỹ năng, kèm phím dùng / chỗ học. */
@@ -938,29 +930,48 @@ export class Game {
 		return s.scene === 'play' && !s.dialogue && !s.card && !s.panel && !this.changing;
 	}
 
-	private aimPoint(): { x: number; y: number } {
+	/**
+	 * Mục tiêu đang chọn còn giữ được không (sống, đang hiện, chưa ra quá xa); `auto`: chưa chọn ai thì tự chọn con gần nhất
+	 * trong tầm (bấm chiêu lúc chưa chọn).
+	 */
+	private focusTarget(auto: boolean): FocusCandidate | null {
 		const p = this.player;
-		if (!this.mouse.inside) {
-			// Không có chuột (bàn phím thuần hoặc màn cảm ứng): tự ngắm mục tiêu gần nhất trong tầm, không có thì bắn thẳng hướng mặt.
-			const t = this.combat.nearestTarget(p.x, p.y, 420);
-			if (t) return { x: t.x, y: t.y - 46 };
-			const v = FACING[p.view.direction]!;
-			return { x: p.x + v[0] * 100, y: p.y - p.chest + v[1] * 100 };
+		let c = focusKept(this.focusables(), this.focus, p.x, p.y);
+		if (!c && auto) {
+			// Tự chọn khi bấm chiêu: chỉ quái / hình nộm — không tự nhắm vào người chơi khác hay NPC.
+			const cands = this.combat.focusCandidates();
+			const k = focusNearest(cands, p.x, p.y);
+			c = cands.find((x) => x.key === k) ?? null;
 		}
-		const dpr = window.devicePixelRatio || 1;
-		return { x: (this.mouse.x * dpr - this.scene.x) / this.camera.zoom, y: (this.mouse.y * dpr - this.scene.y) / this.camera.zoom };
+		this.focus = c?.key ?? null;
+		return c;
 	}
 
 	/**
-	 * Điểm nhắm cho kỹ năng `index`: đòn nhắm ĐIỂM trên đất (vùng nhắm, cột trồi, vùng tồn tại) mà không có chuột (cảm
-	 * ứng / chỉ bàn phím) thì đặt trước mặt theo hướng đang nhìn ở tầm mặc định của kỹ năng; còn lại như phép bắn.
+	 * Mọi thứ chọn làm mục tiêu được (chủ dự án 10/10/2026: "có thể focus user, npc khi bấm chuyển"): quái + hình nộm, người chơi
+	 * khác đang hiện (tắt "hiện người khác" thì thôi), NPC (có hình người, hoặc vật / quả cầu sáng đứng thay). Chưa có PvP: chiêu
+	 * nhắm vào người chơi / NPC chỉ bay về phía đó, không gây gì.
+	 */
+	private focusables(): FocusCandidate[] {
+		const out = this.combat.focusCandidates();
+		if (useSettings.getState().showOthers) for (const r of this.remotes.values()) if (r.actor) out.push({ key: r, x: r.actor.x, y: r.actor.y, h: r.actor.height });
+		for (const n of this.npcs) out.push(n.actor ? { key: n, x: n.actor.x, y: n.actor.y, h: n.actor.height } : { key: n, x: n.x, y: n.y, h: n.markerLift + 24 });
+		return out;
+	}
+
+	/**
+	 * Điểm nhắm cho kỹ năng `index`: mục tiêu đang chọn (chưa chọn thì tự chọn con gần nhất) — đòn nhắm đất rơi vào chân nó, đòn
+	 * bắn / chém nhắm giữa thân. Không có ai trong tầm thì đánh thẳng hướng mặt (đòn nhắm đất đặt trước mặt ở tầm mặc định).
 	 */
 	private aimFor(index: number): { x: number; y: number } {
 		const s = this.combat.skills[index];
-		if (!s || !isGroundTarget(s) || this.mouse.inside) return this.aimPoint();
+		const ground = !!s && isGroundTarget(s);
+		const t = this.focusTarget(true);
+		if (t) return focusAim(t, ground);
 		const p = this.player;
 		const v = FACING[p.view.direction]!;
-		return aheadPoint(p.x, p.y, v[0], v[1], s.aimDist ?? 150);
+		if (ground) return aheadPoint(p.x, p.y, v[0], v[1], s?.aimDist ?? 150);
+		return { x: p.x + v[0] * 100, y: p.y - p.chest + v[1] * 100 };
 	}
 
 	private nearestInteractable(): Interactable | null {
@@ -1078,7 +1089,9 @@ export class Game {
 					else useGameStore.getState().toast(`Ô ${SLOT_KEYS[SKILL_KEYS[k]!]} chưa gán kỹ năng — gán ở bảng Tiềm năng (P)`, 'info');
 				} else if (k === 'Space') {
 					if (can.dodge) this.combat.dodge(intent);
-				} else if (k === 'KeyE') this.interact();
+				} else if (k === 'Tab') this.focus = focusCycle(this.focusables(), this.focusTarget(false)?.key ?? null, p.x, p.y);
+				else if (k === 'Escape') this.focus = null;
+				else if (k === 'KeyE') this.interact();
 				else if (k === 'KeyR' && can.potion) this.combat.usePotion();
 			}
 			// Giữ phím: `cast` tự từ chối khi đang hồi chiêu/đang vung nên nhịp đánh đúng bằng hồi chiêu.
@@ -1136,6 +1149,7 @@ export class Game {
 		this.fadeLayer.clear();
 		if (f.alpha > 0.01) this.fadeLayer.rect(0, 0, W, H).fill({ color: 0x05060a, alpha: f.alpha });
 		this.updateExitMarkers(toScreen);
+		this.focusMarker.update(realDt, this.focusTarget(false));
 		this.world.ground.update(this.camera.view(W, H));
 		this.world.updateOcclusion({ x: p.x, y: p.y, h: p.height + 4 });
 
@@ -1587,7 +1601,8 @@ export class Game {
 						element: s.element,
 						mpCost: s.mpCost,
 						cooldown: round2(this.combat.cooldownOf(s)),
-						readyAt: now + Math.max(0, (pc.cooldowns.get(s.id) ?? 0) - this.combat.time) * 1000,
+						// 0 = sẵn sàng (không gửi "sẵn sàng lúc này": nút giữ mốc cũ sẽ tưởng còn hồi — lớp tối dày dần sau khi đã hồi xong).
+						readyAt: (pc.cooldowns.get(s.id) ?? 0) > this.combat.time ? now + ((pc.cooldowns.get(s.id) ?? 0) - this.combat.time) * 1000 : 0,
 						locked: !this.combat.knows(s),
 						school: branch ?? 'aether',
 						rank: branch ? (tiers[branch] ?? 0) : 0,

@@ -1,0 +1,4 @@
+object desert_acacia @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/desert_acacia.send.json
+object volcano_thorn_bush @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/volcano_thorn_bush.send.json
+object isles_lighthouse @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/isles_lighthouse.send.json
+image D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/CR5_harbor.png @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/CR5_harbor.json

@@ -39,63 +39,8 @@ export interface CodexProgress {
 	kills: Record<string, number>;
 }
 
-/** Tên + lời giới thiệu quái / boss (dữ liệu tay — quái mới thêm vào `ENEMY_STATS` phải khai ở đây, test kiểm đủ). */
-export const MONSTER_INFO: Record<string, { name: string; kind: string; lore: string }> = {
-	mob_mushroom_001: {
-		name: 'Nấm rừng',
-		kind: 'Quái thường · rừng',
-		lore: 'Mọc thành bầy ở rừng Mossvale; bào tử theo sông trôi xuống Bãi Bồi Brightwater. Ở Vết Rạn Mossvale chúng nhiễm sợi đỏ, mạnh hơn hẳn mà vẫn giòn. Co người lại là sắp lao tới — đừng lùi, bước ngang. Lửa đốt nó cháy âm ỉ, nước làm nó trương phềnh chậm chạp.',
-	},
-	mob_zombie_001: {
-		name: 'Xác sống',
-		kind: 'Quái thường · nghĩa địa',
-		lore: 'Lang thang giữa các ô mộ Nghĩa địa Hoàng Hôn. Ở Mộ Vô Danh ngoài hàng rào, nơi người chết không bia không tên, chúng trỗi dậy trước và dữ hơn. Trâu và chậm, đánh rất đau nhưng chạy vòng được. Sợ lửa hơn sợ kiếm.',
-	},
-	mob_skeleton_archer_001: {
-		name: 'Cung thủ xương',
-		kind: 'Quái thường · đồi xương',
-		lore: 'Đứng trên Đồi Xương Trắng bắn tên từ xa, ngoài tầm kiếm; trên tường Luỹ Hiệp Sĩ Cũ cả bầy cùng bắn. Giòn — áp sát được là gãy vụn. Đá ném trúng thì loạng choạng.',
-	},
-	mob_gargoyle_001: {
-		name: 'Gargoyle đá',
-		kind: 'Quái thường · vách đá',
-		lore: 'Tượng đá sống dậy canh Vách Gargoyle và Cổng Đá ở Hẻm Cửa Sông — quay mặt vào thung lũng, canh người đi ra. Da đá giáp dày, lao nhanh. Phá giáp trước rồi hẵng chém, hoặc đóng băng cho nó đứng yên.',
-	},
-	boss_lich_001: {
-		name: 'Vua Lich',
-		kind: 'Boss vùng · hầm mộ',
-		lore: 'Ngự trong hầm mộ dưới Nghĩa địa Hoàng Hôn, hạ xong vài phút sau lại trỗi dậy. Bắn cầu bóng tối, triệu xương lên từ đất. Đi chậm — giữ khoảng cách và né đòn báo trước.',
-	},
-	mob_cave_bat_001: {
-		name: 'Dơi hang',
-		kind: 'Quái thường · hang',
-		lore: 'Làm tổ trên hàng tượng trong Hang Gargoyle. Sà xuống cắn rồi vọt lên trần, nhanh ngang người đi bộ nên chạy không thoát. Giòn — mấy nhát là rụng. Lửa làm cả bầy hoảng loạn.',
-	},
-	boss_stone_gargoyle_001: {
-		name: 'Gargoyle Đá',
-		kind: 'Boss vùng · hang gargoyle',
-		lore: 'Tượng canh Đoàn Ấn Ký đặt từ ba trăm năm trước để giữ Gian Đá Ghi Tên trong Hang Gargoyle; hạ xong vài phút sau lại đứng dậy. Nện hai vuốt làm nứt sàn — thấy vòng nứt dưới chân thì bước ra ngoài rồi hẵng đánh.',
-	},
-	boss_demon_001: {
-		name: 'Quỷ vương rừng sâu',
-		kind: 'Boss cốt truyện · đá phong ấn',
-		lore: 'Bị phong ấn dưới tảng đá cổ sâu trong rừng Mossvale, nơi sợi tơ đỏ rỉ ra từ khe đất. Nổi giận khi mất nửa máu. Đây là lời hứa thuở nhỏ của Lior và Aldric.',
-	},
-};
-
-/** Lời giới thiệu NPC theo TÊN (một người xuất hiện ở nhiều tuổi với nhiều khoá NPC — gộp làm một mục). */
-export const NPC_LORE: Record<string, string> = {
-	'Elin Ashvale': 'Mẹ của Lior — pháp sư làng: phép chỉ đủ nhóm bếp, gọi mưa cho vườn rau. Nuôi ong sau nhà. Không hỏi con đang làm gì, chỉ đứng xem.',
-	'Garrick Ashvale': 'Cha của Lior — lính gác cũ, kiếm sĩ ít lời. Thường ngồi mài kiếm ở đầu cầu sông Brightwater. "Con gọi, cha đến."',
-	Mirelle: 'Nữ trị liệu của Thistlewood, pha thuốc ở nhà thờ. Không thấy sợi Aether, nhưng biết cách để không ai bị bỏng.',
-	Bram: 'Thương nhân lữ hành dựng quầy ở quảng trường. Bán bình mật ong, đồ đi đường — và kể đủ chuyện về thế giới rộng hơn rừng Mossvale.',
-	Aldric: 'Bạn thuở nhỏ của Lior, "hiệp sĩ tự phong" với thanh Kiếm Sấm Sét bằng gỗ. Lớn lên canh cổng bắc thật. Hai đứa từng ngoéo tay đi đánh Quỷ vương.',
-	'Bia đá cổ': 'Tấm bia phủ rêu ở cổng nam Nghĩa địa Hoàng Hôn, khắc những dòng chữ đã mòn gần hết.',
-	'Cột dịch chuyển': 'Cột đá cổ ở trạm của mỗi vùng. Đã đặt chân tới trạm nào thì từ cột này dịch chuyển về đó được, trả ít xu.',
-	'Bia Danh Vọng': 'Tấm bia đá giữa quảng trường Thistlewood, khắc tên những người làm nên chuyện: săn quái, hạ boss, đi khắp các vùng, kết bạn. Đạt mục tiêu thì tới đây nhận kim cương.',
-	Sein: 'Lữ khách tóc bạc, anh của Sera. Thuở nhỏ theo đoàn buôn của cha ghé chợ Thistlewood; mười sáu tuổi tự đi khắp lục địa, mơ một ngày săn được rồng phương Đông.',
-	Sera: 'Lữ khách tóc bạc, em của Sein. Mang theo cuốn sổ vẽ, đi tới đâu ghi lại bản đồ tới đó — muốn tự tay vẽ trọn lục địa Aether.',
-};
+export { MONSTER_INFO, NPC_LORE } from '@aether/sim/codex';
+import { MONSTER_INFO, NPC_LORE } from '@aether/sim/codex';
 
 const NPC_PREFIX = 'npc:';
 export const npcKey = (name: string): string => `${NPC_PREFIX}${name.toLocaleLowerCase('vi')}`;
@@ -165,11 +110,4 @@ export function cleanCodex(raw: unknown): CodexProgress {
 	return { seen, kills };
 }
 
-/** Gộp các khoảng tuổi của NPC thành chữ: "4–8 tuổi · từ 16 tuổi". */
-export function agesText(ages: [number, number][]): string {
-	return [...ages]
-		.sort((a, b) => a[0] - b[0])
-		.map(([a, b]) => (b >= 99 ? `từ ${a} tuổi` : a === b ? `${a} tuổi` : `${a}–${b} tuổi`))
-		.filter((t, i, all) => all.indexOf(t) === i)
-		.join(' · ');
-}
+export { agesText } from '@aether/sim/codex';

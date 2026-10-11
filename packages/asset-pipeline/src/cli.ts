@@ -1185,7 +1185,7 @@ async function buildMap(region = 'human'): Promise<void> {
 		const zones = map.monsterZones.map((z) => `${z.id}×${z.count}`).join(', ') || 'không có quái';
 		console.log(`  map ${map.id} (${map.name}): ${map.width}×${map.height} ô, ${map.props.length} đồ vật, ${map.decals.length} decal, lối → ${map.exits.map((e) => e.to).join(', ')}; ${zones}`);
 		// Ảnh xem trước (màu phẳng theo địa hình + đồ vật thật), thu nhỏ 1/4 để duyệt bố cục; cùng hàm với minimap.
-		writePng(join(REPORTS, `map-${map.id}-preview.png`), renderOverview(map, byId, 4));
+		writePng(join(REPORTS, region === 'human' ? `map-${map.id}-preview.png` : `map-${region}-${map.id}-preview.png`), renderOverview(map, byId, 4));
 		writeMinimap(outDir, map.id, map, byId);
 	}
 	writeFileSync(join(outDir, 'world.json'), `${JSON.stringify(index, null, '	')}
@@ -1324,6 +1324,9 @@ async function buildVfx(): Promise<void> {
 	const items: { id: string; img: RGBAImage }[] = [];
 	const animations: Record<string, string[]> = {};
 	const rows: RGBAImage[][] = [];
+	// Atlas phụ `vfx-ult` (tuyệt kỹ mốc 10 — chỉ phòng tập tải): cùng cách đóng, chỉ khác tấm.
+	const ultItems: { id: string; img: RGBAImage }[] = [];
+	const ultAnimations: Record<string, string[]> = {};
 	const byPixelLab: string[] = [];
 	const legacy: string[] = [];
 	for (const def of VFX) {
@@ -1355,28 +1358,37 @@ async function buildVfx(): Promise<void> {
 			frames = buildVfxFrames(def, src);
 			legacy.push(def.id);
 		}
-		animations[def.id] = frames.map((img, i) => {
+		const ult = def.atlas === 'ult';
+		(ult ? ultAnimations : animations)[def.id] = frames.map((img, i) => {
 			const id = `vfx/${def.id}_${i}`;
-			items.push({ id, img });
+			(ult ? ultItems : items).push({ id, img });
 			return id;
 		});
-		rows.push(frames);
+		if (!ult) rows.push(frames);
 	}
-	const { image, frames } = packShelf(items, 2048);
 	const outDir = join(WEB_ASSETS, 'vfx');
-	writePng(join(outDir, 'vfx.png'), image);
-	const json = {
-		frames: Object.fromEntries(
-			Object.entries(frames).map(([id, f]) => [
-				id,
-				{ frame: f, rotated: false, trimmed: false, spriteSourceSize: { x: 0, y: 0, w: f.w, h: f.h }, sourceSize: { w: f.w, h: f.h }, anchor: { x: 0.5, y: 0.5 } },
-			]),
-		),
-		animations,
-		meta: { app: '@aether/asset-pipeline', image: 'vfx.png', format: 'RGBA8888', size: { w: image.width, h: image.height }, scale: '1' },
+	const writeAtlas = (name: string, list: { id: string; img: RGBAImage }[], anims: Record<string, string[]>): { w: number; h: number } => {
+		const { image, frames } = packShelf(list, 2048);
+		writePng(join(outDir, `${name}.png`), image);
+		const json = {
+			frames: Object.fromEntries(
+				Object.entries(frames).map(([id, f]) => [
+					id,
+					{ frame: f, rotated: false, trimmed: false, spriteSourceSize: { x: 0, y: 0, w: f.w, h: f.h }, sourceSize: { w: f.w, h: f.h }, anchor: { x: 0.5, y: 0.5 } },
+				]),
+			),
+			animations: anims,
+			meta: { app: '@aether/asset-pipeline', image: `${name}.png`, format: 'RGBA8888', size: { w: image.width, h: image.height }, scale: '1' },
+		};
+		writeFileSync(join(outDir, `${name}.json`), JSON.stringify(json));
+		return { w: image.width, h: image.height };
 	};
-	writeFileSync(join(outDir, 'vfx.json'), JSON.stringify(json));
-	console.log(`  atlas hiệu ứng: ${Object.keys(animations).length} hiệu ứng, ${items.length} frame → ${image.width}×${image.height}`);
+	const main = writeAtlas('vfx', items, animations);
+	console.log(`  atlas hiệu ứng: ${Object.keys(animations).length} hiệu ứng, ${items.length} frame → ${main.w}×${main.h}`);
+	if (ultItems.length) {
+		const u = writeAtlas('vfx-ult', ultItems, ultAnimations);
+		console.log(`  atlas tuyệt kỹ (vfx-ult, chỉ phòng tập): ${Object.keys(ultAnimations).length} hiệu ứng, ${ultItems.length} frame → ${u.w}×${u.h}`);
+	}
 	console.log(`  PixelLab vẽ (${byPixelLab.length}): ${byPixelLab.join(', ') || '—'}`);
 	console.log(`  còn bản cũ sinh từ ảnh tĩnh (${legacy.length}): ${legacy.join(', ') || '—'}`);
 

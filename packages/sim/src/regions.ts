@@ -56,6 +56,11 @@ const W = { spot: 'waystone', dx: 0, dy: 0 };
 
 /** Vùng chưa có map: tạo bản ghi gọn (trạm `hub`, cột dịch chuyển ở địa điểm `waystone`, chưa mở). */
 const planned = (o: Pick<RegionDef, 'id' | 'order' | 'name' | 'levels' | 'chief' | 'settlement' | 'intro' | 'element'>): RegionDef => ({ ...o, hub: 'hub', waystone: W, ready: false });
+/**
+ * Vùng đã dựng map theo khung chung (`packages/asset-pipeline/src/maps/kit` — 10/10/2026, vùng 2–7): trạm `hub`, cột dịch chuyển ở
+ * địa điểm `waystone` của trạm.
+ */
+const built = (o: Parameters<typeof planned>[0]): RegionDef => ({ ...planned(o), ready: true });
 
 export const REGIONS: readonly RegionDef[] = [
 	{
@@ -72,22 +77,22 @@ export const REGIONS: readonly RegionDef[] = [
 		intro: 'Đồng cỏ, rừng rêu và nghĩa địa cổ quanh thị trấn Thistlewood — nơi mọi chuyện bắt đầu.',
 		element: { name: 'Bóng tối', weak: 'Hoả, Aether' },
 	},
-	planned({
+	built({
 		id: 'swamp',
 		order: 2,
 		name: 'Đầm lầy Mù Sương',
 		levels: [10, 20],
-		chief: { id: 'boss_hydra_001', name: 'Hydra bùn' },
+		chief: { id: 'boss_mud_hydra_001', name: 'Hydra bùn' },
 		settlement: { kind: 'village', name: 'Làng nhà sàn Lau Xám', role: 'Dân đầm lầy sống trên nhà sàn, nhờ người lạ dẹp quái và tìm thuốc giải độc.', services: ['shop', 'smith', 'waystone'] },
 		intro: 'Bùn, lau sậy và nhà sàn chìm trong sương xanh.',
 		element: { name: 'Thuỷ / độc', weak: 'Thổ, Phong' },
 	}),
-	planned({
+	built({
 		id: 'desert',
 		order: 3,
 		name: 'Sa mạc Hồng Cát',
 		levels: [20, 30],
-		chief: null,
+		chief: { id: 'boss_sandworm_001', name: 'Sâu cát khổng lồ' },
 		settlement: {
 			kind: 'castle',
 			name: 'Thành ốc đảo Sahrin',
@@ -97,42 +102,42 @@ export const REGIONS: readonly RegionDef[] = [
 		intro: 'Cồn cát đỏ, ốc đảo và phế tích đá đỏ.',
 		element: { name: 'Thổ / Hoả', weak: 'Thuỷ, Băng' },
 	}),
-	planned({
+	built({
 		id: 'highland',
 		order: 4,
 		name: 'Cao nguyên Gió Hú',
 		levels: [30, 40],
-		chief: null,
+		chief: { id: 'boss_wind_drake_001', name: 'Rồng gió' },
 		settlement: { kind: 'village', name: 'Làng Cối Xay Gió', role: 'Làng trên cao nguyên, giữ đền thờ trên mây.', services: ['shop', 'smith', 'waystone'] },
 		intro: 'Đồi cỏ cao, cối xay gió và đền thờ trên mây.',
 		element: { name: 'Phong', weak: 'Thổ' },
 	}),
-	planned({
+	built({
 		id: 'tundra',
 		order: 5,
 		name: 'Lãnh nguyên Băng Giá',
 		levels: [40, 50],
-		chief: null,
+		chief: { id: 'boss_ice_guardian_001', name: 'Vệ thần Ngai Băng' },
 		settlement: { kind: 'village', name: 'Làng gỗ Tuyết Phong', role: 'Thợ săn và thợ mỏ băng sống qua mùa đông dài.', services: ['shop', 'smith', 'tailor', 'waystone'] },
 		intro: 'Tuyết trắng, hồ băng và những làng gỗ.',
 		element: { name: 'Băng', weak: 'Hoả' },
 	}),
-	planned({
+	built({
 		id: 'volcano',
 		order: 6,
 		name: 'Núi lửa Hoả Sơn',
 		levels: [50, 60],
-		chief: null,
+		chief: { id: 'boss_fire_god_001', name: 'Hoả thần' },
 		settlement: { kind: 'castle', name: 'Pháo đài người lùn Đe Đỏ', role: 'Hội đồng người lùn: rèn binh khí, đổi lấy nhiệm vụ trong lòng núi.', services: ['shop', 'smith', 'waystone'] },
 		intro: 'Đá đen, sông dung nham và lò rèn người lùn.',
 		element: { name: 'Hoả', weak: 'Thuỷ, Băng' },
 	}),
-	planned({
+	built({
 		id: 'isles',
 		order: 7,
 		name: 'Quần đảo San Hô',
 		levels: [60, 70],
-		chief: null,
+		chief: { id: 'boss_kraken_001', name: 'Kraken' },
 		settlement: { kind: 'village', name: 'Cảng chài San Hô', role: 'Làng chài và thương thuyền, tin đồn về tàu ma.', services: ['shop', 'tailor', 'barber', 'waystone'] },
 		intro: 'Bãi cát, rạn san hô, làng chài và tàu đắm.',
 		element: { name: 'Thuỷ', weak: 'Phong, Thổ' },

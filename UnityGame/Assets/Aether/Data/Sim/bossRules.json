@@ -1,0 +1,20 @@
+{
+	"BOSS_INTRO": {
+		"boss_demon_001": [
+			"Kẻ… mang ánh sáng… ngươi đánh thức ta rồi.",
+			"Phong ấn này… sẽ là mồ chôn của ngươi!"
+		],
+		"boss_lich_001": [
+			"Lại một kẻ còn hơi ấm… dám bước xuống hầm mộ của ta.",
+			"Những sợi tơ quanh ngươi sáng quá. Dưới này, thứ ánh sáng nào rồi cũng tắt.",
+			"Nằm xuống đi. Nghĩa địa này chưa bao giờ thiếu chỗ."
+		],
+		"boss_stone_gargoyle_001": [
+			"Ba trăm năm canh giữ… và hôm nay đã có kẻ thứ hai tìm tới.",
+			"Tên khắc trên đá không dành cho mắt ngươi.",
+			"Đứng yên. Gian này còn chỗ cho thêm một pho tượng."
+		]
+	},
+	"MONSTER_RESPAWN": 14,
+	"REGION_BOSS_RESPAWN": 180
+}

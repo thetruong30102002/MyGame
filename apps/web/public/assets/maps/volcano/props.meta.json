@@ -1,0 +1,542 @@
+{
+	"ash_tree": {
+		"kind": "tree",
+		"w": 118,
+		"h": 162,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 19,
+			"h": 14
+		}
+	},
+	"ash_tree_flip": {
+		"kind": "tree",
+		"w": 118,
+		"h": 162,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 19,
+			"h": 14
+		}
+	},
+	"ash_tree_cold": {
+		"kind": "tree",
+		"w": 118,
+		"h": 162,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 19,
+			"h": 14
+		}
+	},
+	"charred_tree": {
+		"kind": "tree",
+		"w": 122,
+		"h": 149,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 20,
+			"h": 14
+		}
+	},
+	"dwarf_house": {
+		"kind": "building",
+		"w": 178,
+		"h": 153,
+		"blocks": true,
+		"footprint": {
+			"x": -77,
+			"y": -56,
+			"w": 153,
+			"h": 56
+		}
+	},
+	"fortress_gate": {
+		"kind": "building",
+		"w": 182,
+		"h": 146,
+		"blocks": true,
+		"footprint": {
+			"x": -84,
+			"y": -40,
+			"w": 167,
+			"h": 40
+		}
+	},
+	"great_forge": {
+		"kind": "building",
+		"w": 168,
+		"h": 171,
+		"blocks": true,
+		"footprint": {
+			"x": -72,
+			"y": -56,
+			"w": 144,
+			"h": 56
+		}
+	},
+	"basalt": {
+		"kind": "rock",
+		"w": 46,
+		"h": 48,
+		"blocks": true,
+		"footprint": {
+			"x": -19,
+			"y": -18,
+			"w": 37,
+			"h": 18
+		}
+	},
+	"obsidian": {
+		"kind": "rock",
+		"w": 47,
+		"h": 46,
+		"blocks": true,
+		"footprint": {
+			"x": -17,
+			"y": -14,
+			"w": 33,
+			"h": 14
+		}
+	},
+	"lava_pool": {
+		"kind": "decor",
+		"w": 51,
+		"h": 42,
+		"blocks": true,
+		"footprint": {
+			"x": -21,
+			"y": -12,
+			"w": 41,
+			"h": 12
+		}
+	},
+	"sulfur": {
+		"kind": "rock",
+		"w": 39,
+		"h": 43,
+		"blocks": true,
+		"footprint": {
+			"x": -14,
+			"y": -12,
+			"w": 27,
+			"h": 12
+		}
+	},
+	"fumarole": {
+		"kind": "rock",
+		"w": 45,
+		"h": 52,
+		"blocks": true,
+		"footprint": {
+			"x": -16,
+			"y": -16,
+			"w": 31,
+			"h": 16
+		}
+	},
+	"fire_moss": {
+		"kind": "flower",
+		"w": 47,
+		"h": 43,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"lava_rock": {
+		"kind": "rock",
+		"w": 46,
+		"h": 37,
+		"blocks": true,
+		"footprint": {
+			"x": -19,
+			"y": -16,
+			"w": 37,
+			"h": 16
+		}
+	},
+	"ash_pile": {
+		"kind": "flower",
+		"w": 53,
+		"h": 39,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"fire_flower": {
+		"kind": "flower",
+		"w": 42,
+		"h": 44,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"anvil": {
+		"kind": "decor",
+		"w": 37,
+		"h": 41,
+		"blocks": true,
+		"footprint": {
+			"x": -14,
+			"y": -14,
+			"w": 28,
+			"h": 14
+		}
+	},
+	"coal_barrel": {
+		"kind": "decor",
+		"w": 37,
+		"h": 47,
+		"blocks": true,
+		"footprint": {
+			"x": -14,
+			"y": -14,
+			"w": 28,
+			"h": 14
+		}
+	},
+	"weapon_rack": {
+		"kind": "decor",
+		"w": 47,
+		"h": 41,
+		"blocks": true,
+		"footprint": {
+			"x": -20,
+			"y": -12,
+			"w": 40,
+			"h": 12
+		}
+	},
+	"hot_ingots": {
+		"kind": "decor",
+		"w": 45,
+		"h": 39,
+		"blocks": true,
+		"footprint": {
+			"x": -19,
+			"y": -12,
+			"w": 38,
+			"h": 12
+		}
+	},
+	"quench_trough": {
+		"kind": "decor",
+		"w": 52,
+		"h": 35,
+		"blocks": true,
+		"footprint": {
+			"x": -22,
+			"y": -12,
+			"w": 44,
+			"h": 12
+		}
+	},
+	"refugee_tent": {
+		"kind": "building",
+		"w": 54,
+		"h": 46,
+		"blocks": true,
+		"footprint": {
+			"x": -23,
+			"y": -22,
+			"w": 46,
+			"h": 22
+		}
+	},
+	"field_cot": {
+		"kind": "decor",
+		"w": 52,
+		"h": 40,
+		"blocks": true,
+		"footprint": {
+			"x": -22,
+			"y": -10,
+			"w": 44,
+			"h": 10
+		}
+	},
+	"anvil_banner": {
+		"kind": "decor",
+		"w": 35,
+		"h": 55,
+		"blocks": true,
+		"footprint": {
+			"x": -6,
+			"y": -8,
+			"w": 11,
+			"h": 8
+		}
+	},
+	"fire_brazier": {
+		"kind": "decor",
+		"w": 35,
+		"h": 48,
+		"blocks": true,
+		"footprint": {
+			"x": -9,
+			"y": -10,
+			"w": 18,
+			"h": 10
+		}
+	},
+	"forge_altar": {
+		"kind": "building",
+		"w": 47,
+		"h": 52,
+		"blocks": true,
+		"footprint": {
+			"x": -20,
+			"y": -22,
+			"w": 40,
+			"h": 22
+		}
+	},
+	"rune_anvil": {
+		"kind": "rock",
+		"w": 56,
+		"h": 40,
+		"blocks": true,
+		"footprint": {
+			"x": -24,
+			"y": -16,
+			"w": 48,
+			"h": 16
+		}
+	},
+	"rune_pillar": {
+		"kind": "rock",
+		"w": 29,
+		"h": 59,
+		"blocks": true,
+		"footprint": {
+			"x": -8,
+			"y": -14,
+			"w": 15,
+			"h": 14
+		}
+	},
+	"thunder_sword": {
+		"kind": "decor",
+		"w": 40,
+		"h": 53,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -12,
+			"w": 20,
+			"h": 12
+		}
+	},
+	"old_bellows": {
+		"kind": "decor",
+		"w": 60,
+		"h": 41,
+		"blocks": true,
+		"footprint": {
+			"x": -26,
+			"y": -12,
+			"w": 51,
+			"h": 12
+		}
+	},
+	"hammer_head": {
+		"kind": "rock",
+		"w": 48,
+		"h": 38,
+		"blocks": true,
+		"footprint": {
+			"x": -21,
+			"y": -14,
+			"w": 41,
+			"h": 14
+		}
+	},
+	"siphon_machine": {
+		"kind": "decor",
+		"w": 45,
+		"h": 54,
+		"blocks": true,
+		"footprint": {
+			"x": -16,
+			"y": -14,
+			"w": 31,
+			"h": 14
+		}
+	},
+	"dwarf_statue": {
+		"kind": "rock",
+		"w": 41,
+		"h": 53,
+		"blocks": true,
+		"footprint": {
+			"x": -15,
+			"y": -16,
+			"w": 29,
+			"h": 16
+		}
+	},
+	"dragon_head": {
+		"kind": "rock",
+		"w": 52,
+		"h": 57,
+		"blocks": true,
+		"footprint": {
+			"x": -21,
+			"y": -16,
+			"w": 42,
+			"h": 16
+		}
+	},
+	"signpost": {
+		"kind": "decor",
+		"w": 55,
+		"h": 77,
+		"blocks": true,
+		"footprint": {
+			"x": -7,
+			"y": -10,
+			"w": 14,
+			"h": 10
+		}
+	},
+	"cliff_rock": {
+		"kind": "building",
+		"w": 178,
+		"h": 158,
+		"blocks": true,
+		"footprint": {
+			"x": -80,
+			"y": -40,
+			"w": 160,
+			"h": 40
+		}
+	},
+	"cliff_rock_flip": {
+		"kind": "building",
+		"w": 178,
+		"h": 158,
+		"blocks": true,
+		"footprint": {
+			"x": -80,
+			"y": -40,
+			"w": 160,
+			"h": 40
+		}
+	},
+	"rock_spire": {
+		"kind": "rock",
+		"w": 27,
+		"h": 55,
+		"blocks": true,
+		"footprint": {
+			"x": -7,
+			"y": -12,
+			"w": 14,
+			"h": 12
+		}
+	},
+	"rock_outcrop": {
+		"kind": "rock",
+		"w": 45,
+		"h": 52,
+		"blocks": true,
+		"footprint": {
+			"x": -18,
+			"y": -18,
+			"w": 36,
+			"h": 18
+		}
+	},
+	"boulder": {
+		"kind": "rock",
+		"w": 48,
+		"h": 39,
+		"blocks": true,
+		"footprint": {
+			"x": -18,
+			"y": -20,
+			"w": 36,
+			"h": 20
+		}
+	},
+	"stalagmite": {
+		"kind": "rock",
+		"w": 31,
+		"h": 55,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -16,
+			"w": 19,
+			"h": 16
+		}
+	},
+	"crystal_purple": {
+		"kind": "rock",
+		"w": 28,
+		"h": 42,
+		"blocks": true,
+		"footprint": {
+			"x": -9,
+			"y": -14,
+			"w": 17,
+			"h": 14
+		}
+	},
+	"rock_pillar": {
+		"kind": "rock",
+		"w": 30,
+		"h": 50,
+		"blocks": true,
+		"footprint": {
+			"x": -11,
+			"y": -18,
+			"w": 21,
+			"h": 18
+		}
+	},
+	"skull_pile": {
+		"kind": "flower",
+		"w": 40,
+		"h": 35,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"bone_pile": {
+		"kind": "flower",
+		"w": 48,
+		"h": 33,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	}
+}

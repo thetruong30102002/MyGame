@@ -1,0 +1,5 @@
+<!-- IL2CPP: giữ nguyên kiểu tin nhắn / dữ liệu giao thức — Newtonsoft dựng + điền thuộc tính bằng reflection nên trình cắt mã
+     (managed stripping) không thấy chỗ dùng và có thể xoá setter. -->
+<linker>
+  <assembly fullname="Aether.Net" preserve="all" />
+</linker>

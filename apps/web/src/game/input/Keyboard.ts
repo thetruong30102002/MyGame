@@ -26,7 +26,8 @@ export class Keyboard {
 		// Phím trong bảng/cửa sổ (role=dialog) là của bảng: chặn Space thì nút đang focus không bấm được, chặn mũi tên thì
 		// không cuộn được — mà bảng mở thì nhân vật đứng yên, game không cần phím đó.
 		if (e.target instanceof Element && e.target.closest('[role="dialog"]')) return;
-		if (e.code in KEYS || e.code === 'Space') e.preventDefault();
+		// Tab = đổi mục tiêu (`focus.ts`) — không để trình duyệt chuyển focus sang nút / ô nhập.
+		if (e.code in KEYS || e.code === 'Space' || e.code === 'Tab') e.preventDefault();
 		if (!e.repeat) this.presses.push(e.code);
 		this.down.add(e.code);
 	};

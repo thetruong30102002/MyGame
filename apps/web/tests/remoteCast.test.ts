@@ -219,7 +219,8 @@ function replay(s: SkillDef, o: { aimDir?: 'E' | 'S'; enchant?: EnchantId; extra
 	return { a, b, msg, remote };
 }
 
-const ECHOED = HERO_SKILLS.filter((s) => s.kind !== 'blink');
+// Tuyệt kỹ mốc 10 chỉ có ở phòng tập (không mạng, không ai thấy) — chưa vẽ lại cho người khác.
+const ECHOED = HERO_SKILLS.filter((s) => s.kind !== 'blink' && !s.ult);
 
 test(`${ECHOED.length} chiêu (trừ Ảnh Bộ — cần mục tiêu): máy người xem vẽ ĐÚNG bộ hình như máy người tung`, () => {
 	for (const s of ECHOED) {

@@ -1,5 +1,7 @@
 # Kế hoạch: cây Nguyên tố + Kiếm phủ phép (thay hệ "cộng điểm vào từng skill")
 
+> **10/10/2026 — sẽ BỎ chiêu dạng tường** (chủ dự án: "bỏ các skill tường đi cho các hiệu ứng xịn nhiều animation đi"): Tường Lửa (Hoả 6) → Hoả Long Phún, Tường Đá (Thổ 6) → Cự Thạch Lăn; làm cùng đợt vẽ lại hiệu ứng chiêu người chơi — chi tiết + lượt ước ở `docs/pixellab-ke-hoach-ve.md` mục "Hiệu ứng chiêu NGƯỜI CHƠI".
+
 Trạng thái: **ĐÃ CHỐT HƯỚNG** (07/10/2026 — chủ dự án: "làm theo ý bạn", thêm: thanh 10 ô, chỉ master được 1 nhánh). Đã thay
 phần "điểm tiềm năng cộng vào kỹ năng" ở `docs/tiem-nang-va-giao-dien.md`. **GĐ1 + GĐ1.5 + GĐ2 (lượt A + B) + GĐ3 (lượt A: mốc 6–9
 của 5 nguyên tố, lượt B: mốc 6–9 của 3 lưu phái Kiếm — mọi nhánh tới mốc 9) ĐÃ LÀM (07/10/2026)**, sửa 16 lỗi sau review (08/10/2026) — xem mục 7.
@@ -178,9 +180,9 @@ Phần chung: **1 Trảm** (chủ động, chém cận chiến) · **2 Nhịp Ch
 | 5 C ★ | **Đột Kích** — lướt tới chém xuyên hàng quái | **Lưu Thủy Phản** — đỡ một đòn rồi phản công gấp đôi | **Ảnh Bộ** — lướt ra sau lưng mục tiêu chém, chắc chắn chí mạng |
 | 6 C | **Phá Giáp** — đòn nặng, địch −30% phòng thủ 6s | **Dòng Chảy Ngược** — gạt đạn bay ngược về kẻ bắn | **Liên Hoàn** — chuỗi 4 nhát chém thật nhanh |
 | 7 B | **Thế Áp Đảo** — mỗi nhát trúng liên tiếp +5% sát thương (tối đa 5 lần) | **Phản Đòn** — né/đỡ đúng lúc: nhát phản công chắc chắn chí mạng | **Đà Lướt** — né xong 3 nhát chém kế nhanh hơn 25% |
-| 8 C | **Lưỡi Sóng** — luồng kiếm bay xa, xuyên mục tiêu | **Xoáy Nước** — sau khi đỡ đòn xoay chém một vòng, đẩy lùi | **Phi Kiếm** — phóng kiếm bay xuyên hàng quái rồi bay về tay |
+| 8 C | **Lưỡi Sóng** — luồng kiếm bay xa, xuyên mục tiêu | **Xoáy Nước** — cuộn xoáy nước chém tại chỗ nhắm, đẩy lùi; vừa đỡ đòn thì mạnh hơn | **Phi Kiếm** — phóng kiếm bay xuyên hàng quái rồi bay về tay |
 | 9 B | **Bất Khuất** — dưới 30% máu: +20% công, hút máu 5% | **Mặt Hồ Phẳng** — mỗi lần phản đòn thành công hồi 5% máu | **Bóng Mờ** — 15% né hoàn toàn một đòn |
-| 10 C ✦ | **Phán Quyết** — ngàn thanh kiếm ánh sáng cắm xuống cả vùng | **Thiên Tĩnh** — 5s bất động như mặt hồ, mọi đòn đánh vào bị phản lại toàn bộ | **Ngàn Bóng** — 3 bóng phân thân cùng lao vào chém 6s |
+| 10 C ✦ | **Phán Quyết** — ngàn thanh kiếm ánh sáng cắm xuống cả vùng *(sẽ đổi: **Đoạn Thiên Trảm** — lướt tới bổ một nhát khổng lồ, kết liễu)* | **Thiên Tĩnh** — chỗ nhắm lặng như mặt hồ: quái đứng sững rồi trúng một nhát chém cực nặng *(sẽ đổi: **Bạt Kiếm Thiên Tĩnh** — tra kiếm chặn đòn rồi rút kiếm chém loé, kết liễu)* | **Ngàn Bóng** — 3 bóng phân thân lao tới chỗ nhắm chém liên tục 6s *(sẽ đổi: **Vô Ảnh Liên Trảm** — 8 nhát lướt chém + nhát bổ cuối, kết liễu)* |
 
 ### 3.2 Năm nguyên tố
 
@@ -195,7 +197,7 @@ Phần chung: **1 Trảm** (chủ động, chém cận chiến) · **2 Nhịp Ch
 | 7 B | **Tro Tàn** — quái chết lúc đang cháy nổ lan lửa sang quái gần | **Mạch Nguồn** — đứng trong mưa của mình mỗi giây hồi máu + MP | **Mắt Bão** — né tốn ít thể lực 50%, né xong +15% tốc chạy 2s | **Hàn Tâm** — thời gian đóng băng +50% | **Trọng Lực** — đòn Thổ làm chậm 20%; quái đang choáng nhận thêm 20% |
 | 8 C | **Thiên Thạch** — thiên thạch rực lửa rơi, nổ vùng lớn | **Lôi Vũ** — sét từ mây đánh từng quái đang ướt | **Vòi Rồng** — lốc khổng lồ đi theo hướng nhắm, cuốn quái | **Mưa Băng** — mũi băng to rơi xuống cả vùng | **Lở Đá** — đá tảng rơi vùng rộng |
 | 9 B | **Hoả Thân** — sát thương thiêu đốt +50%, kháng cháy | **Thuỷ Triều Dâng** — hút máu lên 12%; quái ướt nhận thêm 15% từ mọi nguồn | **Gió Loạn** — quái trúng đòn Phong đánh trượt 20% trong 3s | **Vỡ Vụn** — đánh quái đóng băng +40%, băng vỡ nổ vụn trúng quái quanh | **Núi Thiêng** — máu tối đa +15%, đứng yên thì hồi máu |
-| 10 C ✦ | **Phượng Hoàng** — phượng lửa bay xuyên màn hình | **Đại Hồng Thuỷ** — sóng thần quét ngang màn hình | **Thiên Phong** — bão quanh mình 6s, hút và chém quái | **Kỷ Băng Hà** — sóng băng đóng băng cả vùng | **Sơn Thần** — người khổng lồ đá chiến đấu cùng 10s |
+| 10 C ✦ | **Phượng Hoàng** — phượng lửa bay xuyên màn hình *(sẽ đổi: **Hoả Ngục** — vụ nổ hoả lớn)* | **Đại Hồng Thuỷ** — sóng thần quét ngang màn hình *(sẽ đổi: **Thiên Lôi Đại Vũ** — mưa + sét cả vùng to)* | **Thiên Phong** — bão giáng xuống chỗ nhắm 6s, hút và chém quái *(sẽ đổi: **Chân Không Bạo** — hút vào rồi nổ gió diện rộng)* | **Kỷ Băng Hà** — khối băng rơi xuống chỗ nhắm, nổ băng đóng băng cả vùng | **Sơn Thần** — người khổng lồ đá chiến đấu cùng 10s *(sẽ đổi: **Địa Long Toản** — phóng mũi khoan đá)* |
 
 Kiếm pháp nguyên tố (Kiếm ≥ 5 và nguyên tố ≥ 5, mọi lưu phái): Liệt Hoả Trảm · Thuỷ Long Trảm · Phong Kiếm Cuồng Vũ · Hàn Băng Trảm · Địa Liệt Trảm.
 
@@ -427,7 +429,7 @@ liệu như lượt A. Mọi kỹ năng là **đòn thép** (ăn phủ phép, Nh
 | Kiếm Thần 6 · Phá Giáp | `melee` + `hit.armor/sunder` | chém tầm 92, góc 120°, ×2,4, đẩy 25, **phá giáp 6s** (phủ Thổ không làm ngắn đi); quái ĐANG bị phá giáp → **vỡ giáp** 6s (nhận thêm ×1,15) · 10 MP · hồi **6s** (÷1,1 = 5,45s < 6s: tung lại đúng lúc hết hồi chiêu là tự vỡ giáp — sửa sau review, trước đây hồi 7s) |
 | Kiếm Thần 8 · Lưỡi Sóng | `projectile` thép | luồng kiếm bay 440, xuyên, nửa bề ngang trúng 30 (đạn thường 20), ×3,0; phủ phép thì mang hệ (hình nhuộm màu hệ) · 18 MP · hồi 8s |
 | Thủy Thần 6 · Dòng Chảy Ngược | `ward` thép | gạt đạn 2,5s, bán kính 56: đạn quái chạm vào bị chém bay ngược về kẻ bắn ×2,0 (mang hệ phủ phép); không đứng im · 10 MP · hồi 8s |
-| Thủy Thần 8 · Xoáy Nước | `spin` + `afterGuard` | xoay chém quanh mình bán kính 110, ×1,9, đẩy 60; trong 2,5s sau một lần đỡ / gạt / phản: ×1,8 (≈3,4) + đẩy ×1,5, dùng hết cửa sổ · 14 MP · hồi 8s |
+| Thủy Thần 8 · Xoáy Nước | `spin` + `range` + `afterGuard` | xoáy chém tại chỗ nhắm (tầm 300; trước 11/10/2026: quanh mình) bán kính 110, ×1,9, đẩy 60; trong 2,5s sau một lần đỡ / gạt / phản: ×1,8 (≈3,4) + đẩy ×1,5, dùng hết cửa sổ · 14 MP · hồi 8s |
 | Bắc Thần 6 · Liên Hoàn | `melee` + `count` | 4 nhát cách 0,09s (xong trong 0,27s), tầm 80, góc 130°, ×0,8 mỗi nhát (3,2) — mỗi nhát tính riêng (phủ Thổ: nhát 3 choáng) · 10 MP · hồi 5s |
 | Bắc Thần 8 · Phi Kiếm | `projectile` + `returns` | kiếm bay 320, xuyên, rồi bay VỀ TAY (đuổi theo người chơi, bắt lại trong 24px, tối đa 2,5s); ×1,8 mỗi lượt — mỗi chiều trúng mỗi quái đúng một lần · 18 MP · hồi 8s |
 
@@ -555,6 +557,54 @@ nhận Tia Aether (phép cơ bản) thay vì đúng chiêu đó; chiêu nguyên 
 - **Ảnh hưởng cân bằng**: đường tối thiểu tới Quỷ vương (cấp 4 = 3 điểm) nay chỉ đủ Hoả mốc 2 (Hoả Cầu + Mồi Lửa) dư 1 điểm,
   không còn Hoả mốc 3 (Vòng Lửa) như trước; người chơi 0 điểm vẫn có Trảm + Tia Aether. `boss.test` chỉ cân chỉ số nên vẫn qua —
   cần chơi thử lại trận Quỷ vương với Pháp sư cấp 4.
+
+### GĐ4 tuyệt kỹ mốc 10 — CHỈ Ở PHÒNG TẬP (10/10/2026)
+
+Chủ dự án: "mở skill 10 ở phòng tập thôi". Game thật vẫn dừng ở mốc 9 (nút mốc 10 gắn kỹ năng nhưng `ready: false` → `tierCap` = 9,
+bảng Tiềm năng vẫn "Sắp có"); trang Thử chiêu `/thu-chieu` đặt thẳng mốc 10 (`skillLabBuild.labTiers`). Điều kiện mở ở game thật
+(cấp 40 + Long Châu, mục 2.1) chưa làm.
+
+- **8 tuyệt kỹ** (`packages/sim/src/skills.ts`, chỉ số 44–51, cờ `ult`): Phượng Hoàng (đạn xuyên khổng lồ 900px, hình
+  `ult_phoenix` lật dọc khi bay sang trái — `ArtLayer.upright`), Đại Hồng Thuỷ (`CombatSystem.flood`: 6 nhịp nón dài dần, mỗi quái
+  trúng một lần, đẩy 160, sóng thần `ult_tsunami` ×2), Thiên Phong (vùng bám người 6s, hút + chém, `ult_tempest`), Kỷ Băng Hà (vùng
+  quanh mình bán kính 240, đóng băng 3s, `ult_ice_age`) — *bản gốc 10/10/2026; 11/10/2026 đổi sang đánh vào mục tiêu, xem mục
+  "Tuyệt kỹ đánh vào mục tiêu" ngay dưới*, Sơn Thần (kiểu mới `summon`: người khổng lồ đá 10s tự đi tới mục tiêu gần
+  nhất, dậm choáng theo nhịp — MƯỢN hình Gargoyle Đá nhuộm màu đất), Phán Quyết (mưa 28 kiếm sáng, `ult_judgment` giữa vùng), Thiên
+  Tĩnh (thế đỡ mới `still` — `skillRules.guardOutcome`: hoá giải + phản MỌI đòn kể cả đạn / đòn vùng 5s, nhát phản cộng đúng sát
+  thương vừa hoá giải, `ult_still_lake`), Ngàn Bóng (`summon`: 3 bản sao nhân vật nhuộm tím, mỗi nhịp lướt ra sau lưng một mục
+  tiêu quanh người chơi rồi chém, 6s). Hồi chiêu 40–50s, MP 45–60 (phòng tập có công tắc "Bỏ hồi chiêu").
+- **Tuyệt kỹ đánh vào mục tiêu** (11/10/2026 — chủ dự án: "các skill quanh bản thân chỉ nên là các skill trước, vì săn boss mà
+  chiêu cuối và gần cuối cần vào dame mục tiêu"). Mốc 8 và mốc 10 không còn chiêu nào đánh quanh mình; chiêu quanh mình (Vòng Lửa,
+  Xoáy Kiếm…) chỉ còn ở mốc thấp. Nhắm theo mục tiêu đang chọn (tự chọn con gần nhất), không ai thì trước mặt ở `aimDist`.
+
+  | Chiêu | Trước | Sau |
+  |---|---|---|
+  | Thiên Phong (Phong 10) | `zone` bám người, bán kính 170 | `zone` tại chỗ nhắm (tầm 380), bán kính 190; 3 cột lốc quay quanh TÂM BÃO; mỗi nhịp lưỡi gió loé trong bão |
+  | Kỷ Băng Hà (Băng 10) | `aoe_self` bán kính 240, ×3,2 | `aoe_target` rơi xuống chỗ nhắm sau 0,7s (tầm 400, như Thiên Thạch: mũi băng lớn rơi + vòng báo), bán kính 210, ×4,4, đóng băng 3s |
+  | Thiên Tĩnh (Thủy Thần 10) | thế đỡ `still` 5s, phản mọi đòn | `aoe_target` tại chỗ nhắm (tầm 360) sau 0,45s: mặt hồ `ult_still_lake` hiện ở đó rồi một nhát chém ×4,8, choáng 1,5s, bán kính 170 |
+  | Ngàn Bóng (Bắc Thần 10) | 3 bóng quanh mình (aimDist 60) | 3 bóng tại chỗ nhắm (tầm 360, aimDist 200), bán kính 90; mỗi nhịp vệt chém tím ở điểm ngẫu nhiên trong vùng |
+  | Xoáy Nước (Thủy Thần 8) | `spin` quanh mình | `spin` + `range: 300`: xoáy cuộn tại chỗ nhắm, giữ nguyên `afterGuard` ×1,8 |
+
+  Phượng Hoàng, Đại Hồng Thuỷ, Sơn Thần, Phán Quyết và các chiêu mốc 8 khác vốn đã nhắm vào địch — giữ nguyên.
+  **Kế hoạch tiếp (11/10/2026)**: đổi hẳn 4 tuyệt kỹ Hoả / Thổ / Thuỷ / Phong sang Hoả Ngục, Địa Long Toản, Thiên Lôi Đại Vũ, Chân
+  Không Bạo — chuẩn "mạnh như Kỷ Băng Hà" (một mục tiêu ≈ ×4,5–5 + một khống chế, một cú nổ chính 192 px × 10–12 khung). Luật, số
+  liệu, hình cần vẽ (~106 lượt): `docs/pixellab-ke-hoach-ve.md` mục "Đổi 4 tuyệt kỹ mốc 10".
+  Phái Kiếm (cùng ngày — "các chiêu của phái kiếm nên thuần vật lý và cũng có sát thương kết liễu mạnh"): đổi cả 3 tuyệt kỹ Kiếm
+  sang đòn thép thuần (Đoạn Thiên Trảm, Bạt Kiếm Thiên Tĩnh, Vô Ảnh Liên Trảm) — mục "Đổi 3 tuyệt kỹ Kiếm" (~40 lượt).
+  **Luật chung mọi nhánh** ("không nguyên tố hay kiếm thì cũng để kết liễu boss, tranh nhau kết liễu mới gọi là săn boss"; "phải có
+  thời gian niệm"): tuyệt kỹ là đòn KẾT LIỄU — mục tiêu dưới 30% máu lúc đòn chạm: mốc 8 ×1,5, mốc 10 ×2 (quái thường dưới 15% chết
+  luôn); niệm 3s mọi tuyệt kỹ (phép lẫn Kiếm — "niệm là 3s"), sát thương là MỘT đòn tổng lúc chạm (không nhịp / không vùng
+  tồn tại — "một dame tổng chứ không phải dame theo thời gian"), cả map thấy thanh niệm, né / bị khống chế thì mất niệm; boss: người ra đòn cuối
+  ĂN HẾT (EXP, xu, tính hạ boss cho cổng vùng, rơi đồ), người đánh hộ không được gì ("kết liễu là được hết, còn lại không được gì"). Chi tiết: mục "Tuyệt kỹ = đòn KẾT LIỄU boss" ở `docs/pixellab-ke-hoach-ve.md`. Thế đỡ `still`
+  vẫn còn trong `skillRules.guardOutcome` (test giữ) nhưng không chiêu nào dùng. Kiểm bằng phòng Thử chiêu Unity
+  (`-aetherLab [-aetherLabStyle thuy_than|bac_than]`): đứng cách quái 260px, cả 6 tuyệt kỹ + Xoáy Nước đều trúng và hạ mục tiêu.
+- **Hình**: 7 hình `ult_*` (vẽ 09/10/2026) đóng ở atlas RIÊNG `assets/vfx/vfx-ult.{png,json}` (`buildVfx.ts` cờ `atlas: 'ult'`,
+  1987×953, 1,6 MB) — chỉ phòng tập tải (`Vfx.load({ extra })`), atlas chính không đổi một byte. Icon: bộ v2 khoá `future:<nhánh>:10`.
+  Vật triệu hồi: hook `CombatHooks.spawnSummon` / `despawnSummon` (phòng tập dựng actor; game thật chưa nối).
+- **Chưa có**: hình Sơn Thần riêng (người khổng lồ đá đứng / đi / dậm đất — vẽ lại bằng v3), người chơi khác thấy tuyệt kỹ (lọc khỏi
+  `remoteCast` — phòng tập không có mạng), điều kiện mở ở game thật.
+- Test: `skilllab.test.ts` (mốc 10 chỉ ở phòng tập, mỗi nhánh / lưu phái một tuyệt kỹ, Thiên Tĩnh phản mọi đòn), các test cũ khoá
+  danh sách cây / chỉ số đã nới cho tuyệt kỹ.
 
 ## 8. Đã chốt (07/10/2026)
 

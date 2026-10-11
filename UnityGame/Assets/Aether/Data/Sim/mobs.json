@@ -1,0 +1,50 @@
+{
+	"CHILD_ZONE_LEVEL_CAP": 3,
+	"MOB_ACT_RANGE": {
+		"body": 160,
+		"aoe": 480
+	},
+	"MOB_CC_CAP": {
+		"freeze": 5,
+		"stun": 3,
+		"air": 1.5,
+		"slow": 8,
+		"chill": 8,
+		"frost": 8,
+		"armor": 10,
+		"sunder": 10,
+		"miss": 8,
+		"daze": 8
+	},
+	"MOB_CC_KEYS": [
+		"freeze",
+		"stun",
+		"air",
+		"slow",
+		"chill",
+		"frost",
+		"armor",
+		"sunder",
+		"miss",
+		"daze"
+	],
+	"MOB_CREDIT_SECONDS": 30,
+	"MOB_DIRS": [
+		"N",
+		"NE",
+		"E",
+		"SE",
+		"S",
+		"SW",
+		"W",
+		"NW"
+	],
+	"MOB_HIT_RANGE": 900,
+	"MOB_OWNER_SWITCH": 60,
+	"MOB_PUSH_CAP": {
+		"speed": 2000,
+		"seconds": 0.3
+	},
+	"MOB_WIND_MAX": 1.5,
+	"SHARED_MIN_AGE": 16
+}

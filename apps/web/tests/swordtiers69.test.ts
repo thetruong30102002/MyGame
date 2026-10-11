@@ -59,7 +59,7 @@ const NEW: Record<string, [SwordStyle, number]> = {
 // 2) Dữ liệu: nối CUỐI (chỉ số 38+), đúng lưu phái / mốc, đòn thép, mô tả + tooltip sinh từ số liệu, trần mốc 9 mọi nhánh.
 {
 	assert.deepEqual(
-		HERO_SKILLS.slice(38).map((s) => s.id),
+		HERO_SKILLS.slice(38, 44).map((s) => s.id),
 		Object.keys(NEW),
 		'nối cuối, không lệch chỉ số cũ',
 	);
@@ -102,7 +102,7 @@ const NEW: Record<string, [SwordStyle, number]> = {
 	assert.match(tt[3]!.desc, /Gạt đạn 2,5s: đạn quái bay tới gần bị chém bay ngược về kẻ bắn · đạn phản ×2 · 10 MP · hồi 8s/);
 	assert.match(tt[4]!.desc, /trong 0,12 giây sau khi bấm né.*chắc chắn chí mạng.*×1,6/);
 	assert.match(tt[6]!.desc, /tối đa một lần mỗi 1 giây/, 'Mặt Hồ Phẳng: ghi hồi nội');
-	assert.match(tt[5]!.desc, /Xoay chém quanh mình, bán kính 110 · vừa đỡ \/ gạt \/ phản đòn \(trong 2,5s\): mạnh thêm ×1,8 · đẩy lùi 60 · uy lực ×1,9/);
+	assert.match(tt[5]!.desc, /Xoáy chém tại chỗ nhắm \(tầm 300\), bán kính 110 · vừa đỡ \/ gạt \/ phản đòn \(trong 2,5s\): mạnh thêm ×1,8 · đẩy lùi 60 · uy lực ×1,9/);
 	assert.match(tt[6]!.desc, /hồi 5% máu tối đa/);
 	assert.match(bt[3]!.desc, /Chuỗi 4 nhát chém, tầm 80, góc 130° · uy lực ×0,8 mỗi nhát · 10 MP · hồi 5s/);
 	assert.match(bt[4]!.desc, /Né xong, 3 đòn Kiếm kế \(trong 3 giây\) nhanh hơn 25%/);
@@ -281,7 +281,8 @@ withRandom(0.5, () => {
 		const s = setup({ tiers: { sword: tier - 1 }, style });
 		assert.equal(s.cast(id, s.east()), 'locked', `${id}: mốc ${tier - 1} chưa học`);
 		s.combat.setTalents({ sword: tier }, style);
-		const f = s.enemy(id === 'backflow' ? 'mob_skeleton_archer_001' : 'mob_zombie_001', id === 'blade_wave' || id === 'flying_sword' ? 220 : 90);
+		// Xoáy Nước cuộn tại chỗ nhắm (tầm 300) — quái đứng gần điểm nhắm.
+		const f = s.enemy(id === 'backflow' ? 'mob_skeleton_archer_001' : 'mob_zombie_001', id === 'blade_wave' || id === 'flying_sword' ? 220 : id === 'whirlpool' ? 300 : 90);
 		assert.equal(s.cast(id, s.east()), 'started', `${id}: mốc ${tier} tung được`);
 		if (id === 'backflow') s.inner.enemyShot(f, -1, 0);
 		s.tick(120);
@@ -594,20 +595,21 @@ withRandom(0.99, () => {
 	assert.equal(before - sa.hp, plain(1.4, 7), 'Thế Tĩnh 0,6s: nhát phản thường');
 });
 
-// 3h) Xoáy Nước (Thủy Thần 8): xoay chém quanh mình ×1,9 + đẩy; ngay sau một lần đỡ / gạt / phản (≤ 2,5s) thì ×1,8 và đẩy xa
-//     hơn — dùng hết cửa sổ; quá 2,5s thì thường.
+// 3h) Xoáy Nước (Thủy Thần 8): xoáy chém TẠI CHỖ NHẮM ×1,9 + đẩy (11/10/2026 — chiêu mốc 8 / 10 đánh vào mục tiêu); ngay sau
+//     một lần đỡ / gạt / phản (≤ 2,5s) thì ×1,8 và đẩy xa hơn — dùng hết cửa sổ; quá 2,5s thì thường.
 withRandom(0.5, () => {
-	const ring = (s: ReturnType<typeof setup>) => [s.enemy('mob_zombie_001', 120, 100), s.enemy('mob_zombie_001', -30, 110), s.enemy('mob_zombie_001', 40, 150)];
+	const at = { x: 240, y: 100 };
+	const ring = (s: ReturnType<typeof setup>) => [s.enemy('mob_zombie_001', 320, 100), s.enemy('mob_zombie_001', 170, 110), s.enemy('mob_zombie_001', 240, 150)];
 	const k8 = depthBonus(8);
 	const normal = armorDamage(ATK * 1.9 * k8, ZDEF, false);
 	const surge = armorDamage(ATK * 1.9 * k8 * 1.8, ZDEF, false);
 	const s = setup({ tiers: { sword: 8 }, style: 'thuy_than' });
 	const rs = ring(s);
-	const far = s.enemy('mob_zombie_001', 240, 100);
-	s.cast('whirlpool', s.east());
-	assert.deepEqual(rs.map(lost), [normal, normal, normal], 'chém cả vòng quanh mình');
+	const near = s.enemy('mob_zombie_001', 60, 100);
+	s.cast('whirlpool', at);
+	assert.deepEqual(rs.map(lost), [normal, normal, normal], 'chém cả vòng quanh chỗ nhắm');
 	assert.ok(rs.every((f) => f.push), 'đẩy lùi');
-	assert.ok(full(far), 'ngoài bán kính 110: không');
+	assert.ok(full(near), 'quái sát người nhưng xa chỗ nhắm: không');
 	const kn = Math.hypot(rs[0]!.push!.vx, rs[0]!.push!.vy);
 
 	// Sau khi đỡ (Lưu Thủy Phản phản một đòn) → mạnh hơn, rồi dùng hết.
@@ -617,12 +619,12 @@ withRandom(0.5, () => {
 	q.inner.strike(attacker, 30);
 	q.tick(30);
 	const rq = ring(q);
-	q.cast('whirlpool', q.east());
+	q.cast('whirlpool', at);
 	assert.deepEqual(rq.map(lost), [surge, surge, surge], 'vừa đỡ đòn: ×1,8');
 	assert.ok(q.floats.includes('Xoáy Nước!'));
 	assert.ok(Math.hypot(rq[0]!.push!.vx, rq[0]!.push!.vy) > kn * 1.4, 'đẩy xa hơn');
 	for (const f of rq) Object.assign(f, { hp: f.hpMax, push: null });
-	q.cast('whirlpool', q.east());
+	q.cast('whirlpool', at);
 	assert.deepEqual(rq.map(lost), [normal, normal, normal], 'đã dùng hết cửa sổ');
 
 	// Gạt đạn bằng thế đỡ (không phản) cũng tính là "đỡ"; quá 2,5s thì thôi.
@@ -631,14 +633,14 @@ withRandom(0.5, () => {
 	g.inner.incoming('shot', 20);
 	g.tick(60 * 2.6);
 	const rg = ring(g);
-	g.cast('whirlpool', g.east());
+	g.cast('whirlpool', at);
 	assert.deepEqual(rg.map(lost), [normal, normal, normal], 'quá 2,5s sau khi gạt: thường');
 	const g2 = setup({ tiers: { sword: 8 }, style: 'thuy_than' });
 	g2.cast('calm_stance', g2.east());
 	g2.inner.incoming('shot', 20);
 	g2.tick(60);
 	const rg2 = ring(g2);
-	g2.cast('whirlpool', g2.east());
+	g2.cast('whirlpool', at);
 	assert.deepEqual(rg2.map(lost), [surge, surge, surge], 'gạt đạn 1s trước: ×1,8');
 });
 

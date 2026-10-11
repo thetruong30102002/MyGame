@@ -3,7 +3,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { basename, join } from 'node:path';
 import { blit, createImage, crop, readPng, writePng, type RGBAImage } from '../image/rgba.js';
 
-export type Biome = 'meadow' | 'deadland' | 'rocky';
+export type Biome = 'meadow' | 'deadland' | 'rocky' | 'swamp' | 'desert' | 'highland' | 'snow' | 'volcanic' | 'beach';
 
 /** Màu theo HSV — chép từ apps/web groundShade (pipeline không import được code web: khác chuẩn module). */
 function hsv(h: number, s: number, v: number): [number, number, number] {
@@ -22,6 +22,13 @@ const TERRAIN_RGB: Record<string, [number, number, number]> = { g: [83, 133, 67]
 const BIOME_RGB: Record<Exclude<Biome, 'meadow'>, Record<string, [number, number, number]>> = {
 	deadland: { g: hsv(48, 0.38, 0.45), f: hsv(46, 0.27, 0.29) },
 	rocky: { g: hsv(60, 0.1, 0.47), f: hsv(205, 0.1, 0.3) },
+	// Vùng 2–7 (10/10/2026): bậc [3] cỏ / rừng / đất / đá, bậc [2] nước của bảng màu Unity `GroundShader` (núi lửa: nước = dung nham).
+	swamp: { g: hsv(80, 0.42, 0.41), f: hsv(128, 0.4, 0.25), d: hsv(36, 0.4, 0.34), c: hsv(38, 0.1, 0.56), w: hsv(165, 0.5, 0.32) },
+	desert: { g: hsv(30, 0.44, 0.79), f: hsv(21, 0.52, 0.56), d: hsv(18, 0.54, 0.53), c: hsv(36, 0.24, 0.63), w: hsv(186, 0.62, 0.52) },
+	highland: { g: hsv(85, 0.46, 0.54), f: hsv(110, 0.36, 0.36), d: hsv(30, 0.46, 0.46), c: hsv(38, 0.1, 0.56), w: hsv(210, 0.64, 0.47) },
+	snow: { g: hsv(208, 0.07, 0.85), f: hsv(209, 0.14, 0.67), d: hsv(23, 0.11, 0.56), c: hsv(210, 0.08, 0.58), w: hsv(197, 0.35, 0.69) },
+	volcanic: { g: hsv(10, 0.18, 0.24), f: hsv(10, 0.28, 0.17), d: hsv(20, 0.38, 0.34), c: hsv(220, 0.07, 0.32), w: hsv(32, 0.9, 0.95) },
+	beach: { g: hsv(44, 0.29, 0.83), f: hsv(62, 0.33, 0.56), d: hsv(35, 0.34, 0.63), c: hsv(38, 0.1, 0.56), w: hsv(190, 0.75, 0.62) },
 };
 export function terrainColor(biome: Biome | undefined, ch: string): [number, number, number] {
 	return (biome && biome !== 'meadow' ? BIOME_RGB[biome][ch] : undefined) ?? TERRAIN_RGB[ch] ?? [0, 0, 0];

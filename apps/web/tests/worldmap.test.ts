@@ -141,7 +141,8 @@ test('trạng thái vùng: đang ở / đang xây dựng / cần cấp + boss ch
 	const ctx = { level: 5, bossKills: {} };
 	assert.deepEqual(regionStatus('human', 'human', ctx), { kind: 'here' });
 	assert.equal(statusText(regionStatus('human', 'human', ctx)), 'Bạn đang ở đây');
-	assert.deepEqual(regionStatus('swamp', 'human', ctx), { kind: 'building' });
+	// Vùng 2–7 đã có map từ 10/10/2026 — "đang xây dựng" giờ chỉ còn vùng 8–10.
+	assert.deepEqual(regionStatus('void', 'human', ctx), { kind: 'building' });
 	assert.equal(statusText(regionStatus('void', 'human', ctx)), 'Đang xây dựng');
 	assert.deepEqual(regionStatus('human', 'swamp', ctx), { kind: 'open' }, 'vùng đầu luôn mở');
 	// Giả vùng 2 đã có map (đổi tạm rồi trả lại): cổng xét cấp 10 + Quỷ vương rừng sâu.

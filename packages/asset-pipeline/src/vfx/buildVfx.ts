@@ -17,6 +17,11 @@ export interface VfxDef {
 	frames: number;
 	/** Đã vẽ nhưng game CHƯA dùng → không đóng vào atlas (atlas giữ ≤ 4096 và nhẹ cho mọi người chơi). Nối vào game thì bỏ. */
 	later?: true;
+	/**
+	 * Đóng vào atlas PHỤ thay vì atlas chính: `ult` = `vfx-ult.{png,json}` — tuyệt kỹ mốc 10, chỉ phòng tập `/thu-chieu` tải (chủ dự
+	 * án 10/10/2026: "mở skill 10 ở phòng tập thôi"); người chơi game thật không tải thêm byte nào.
+	 */
+	atlas?: 'ult';
 }
 
 const E = (n: string): string => `effects/effects_particles_${n}.png`;
@@ -117,13 +122,13 @@ export const VFX: VfxDef[] = [
 	{ id: 'dragon_gale_push', size: 192, kind: 'burst', frames: 8, later: true },
 	{ id: 'dragon_wind_blades', size: 160, kind: 'burst', frames: 10, later: true },
 	// Tuyệt kỹ mốc 10 (09/10/2026) — vẽ trước, chưa dùng trong game (logic GĐ4).
-	{ id: 'ult_judgment', size: 192, kind: 'burst', frames: 10, later: true },
-	{ id: 'ult_still_lake', size: 160, kind: 'loop', frames: 8, later: true },
-	{ id: 'ult_shadow_burst', size: 128, kind: 'burst', frames: 8, later: true },
-	{ id: 'ult_phoenix', size: 192, kind: 'loop', frames: 8, later: true },
-	{ id: 'ult_tsunami', size: 192, kind: 'burst', frames: 10, later: true },
-	{ id: 'ult_tempest', size: 192, kind: 'loop', frames: 8, later: true },
-	{ id: 'ult_ice_age', size: 192, kind: 'burst', frames: 10, later: true },
+	{ id: 'ult_judgment', size: 192, kind: 'burst', frames: 10, atlas: 'ult' },
+	{ id: 'ult_still_lake', size: 160, kind: 'loop', frames: 8, atlas: 'ult' },
+	{ id: 'ult_shadow_burst', size: 128, kind: 'burst', frames: 8, atlas: 'ult' },
+	{ id: 'ult_phoenix', size: 192, kind: 'loop', frames: 8, atlas: 'ult' },
+	{ id: 'ult_tsunami', size: 192, kind: 'burst', frames: 10, atlas: 'ult' },
+	{ id: 'ult_tempest', size: 192, kind: 'loop', frames: 8, atlas: 'ult' },
+	{ id: 'ult_ice_age', size: 192, kind: 'burst', frames: 10, atlas: 'ult' },
 	// Vệt chém kiếm phủ phép từng hệ (09/10/2026) — `CombatSystem.slashFx`.
 	{ id: 'slash_fire', size: 128, kind: 'burst', frames: 8 },
 	{ id: 'slash_water', size: 128, kind: 'burst', frames: 8 },

@@ -1,0 +1,28 @@
+# Unity sinh lại được
+/.utmp/
+# Importer sinh lại từ đầu ra pipeline (`Aether/Nhập dữ liệu từ pipeline` hoặc PipelineImportMenu.ImportAllBatch)
+/Assets/Aether/Imported/
+/Assets/Aether/Imported.meta
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Mm]emoryCaptures/
+*.csproj
+*.sln
+*.suo
+*.user
+*.pidb
+*.booproj
+*.unityproj
+.vs/
+.idea/
+# test dotnet ngoài Unity
+/Tests~/**/bin/
+/Tests~/**/obj/
+!/Tests~/**/*.csproj
+# csproj của test dotnet ngoài Unity là file viết tay — giữ
+!/Tests~/**/*.csproj

@@ -31,9 +31,10 @@ export type Element = 'aether' | 'fire' | 'water' | 'wind' | 'healing' | 'steel'
  * - `projectile` hệ thép: luồng kiếm bay (Lưỡi Sóng; `width` = nửa bề ngang trúng); + `returns`: kiếm bay đi hết tầm rồi bay
  *   về tay, mỗi chiều trúng mỗi quái tối đa một lần (Phi Kiếm).
  * - `ward` hệ thép: gạt đạn — đạn quái tới gần bị chém bay ngược về kẻ bắn (Dòng Chảy Ngược; Gương Băng là bản phép).
- * - `spin`: xoay chém quanh mình bán kính `radius`; `afterGuard` = nhân uy lực khi tung ngay sau khi đỡ đòn (Xoáy Nước).
+ * - `spin`: xoay chém quanh mình bán kính `radius`; `afterGuard` = nhân uy lực khi tung ngay sau khi đỡ đòn. Có `range` thì vòng
+ *   xoáy cuộn TẠI CHỖ NHẮM (trong tầm `range`) thay vì quanh mình (Xoáy Nước — mốc 8, săn boss: 11/10/2026).
  */
-export type SkillKind = 'projectile' | 'melee' | 'spin' | 'dash' | 'heal' | 'aoe_self' | 'aoe_target' | 'cone' | 'line' | 'pillar' | 'zone' | 'guard' | 'blink' | 'wall' | 'ward' | 'barrage';
+export type SkillKind = 'projectile' | 'melee' | 'spin' | 'dash' | 'heal' | 'aoe_self' | 'aoe_target' | 'cone' | 'line' | 'pillar' | 'zone' | 'guard' | 'blink' | 'wall' | 'ward' | 'barrage' | 'summon';
 
 /** Hiệu ứng khống chế đòn gây ra cho MỖI mục tiêu trúng (boss: thời lượng một nửa, không bị đẩy/hút — `skillRules`). */
 export interface SkillHitFx {
@@ -97,8 +98,13 @@ export interface SkillDef {
 	charge?: number;
 	/** Cộng vào tỉ lệ chí mạng của đòn này (1 = chắc chắn chí mạng). */
 	crit?: number;
-	/** `guard`: kiểu thế đỡ. */
-	guard?: 'stance' | 'parry';
+	/** `guard`: kiểu thế đỡ (`still` = Thiên Tĩnh: hoá giải + phản MỌI đòn, cả đạn lẫn đòn vùng). */
+	guard?: 'stance' | 'parry' | 'still';
+	/**
+	 * Tuyệt kỹ mốc 10 (GĐ4). Chủ dự án 10/10/2026: "mở skill 10 ở phòng tập thôi" — nút mốc 10 của cây vẫn `ready: false` nên game
+	 * thật dừng ở mốc 9; chỉ trang Thử chiêu (`/thu-chieu`) cho nhánh lên mốc 10.
+	 */
+	ult?: boolean;
 	/** `zone`: vùng bám theo người chơi thay vì đặt ở điểm nhắm. */
 	follow?: boolean;
 	/**
@@ -234,12 +240,25 @@ export const HERO_SKILLS: SkillDef[] = [
 	{ id: 'blade_wave', name: 'Lưỡi Sóng', element: 'steel', mpCost: 18, cooldown: 8, power: 3, kind: 'projectile', speed: 560, range: 440, width: 30, pierce: true, anim: 'attack', desc: 'Vung kiếm phóng một luồng kiếm bay xa, xuyên mọi quái trên đường.' },
 	// Thủy Thần 6: gạt đạn 2,5s — đạn quái tới gần bị chém bay ngược về kẻ bắn ×2,0 (khuôn khiên của Gương Băng, bản kiếm).
 	{ id: 'backflow', name: 'Dòng Chảy Ngược', element: 'steel', mpCost: 10, cooldown: 8, power: 2, kind: 'ward', duration: 2.5, radius: 56, anim: 'attack', desc: 'Giữ kiếm gạt đạn một lúc: đạn quái bay tới gần bị chém bay ngược về kẻ bắn.' },
-	// Thủy Thần 8: xoay chém quanh mình ×1,9, đẩy lùi; vừa đỡ / gạt / phản đòn (trong 2,5s) thì ×1,8 (≈3,4) và đẩy xa hơn.
-	{ id: 'whirlpool', name: 'Xoáy Nước', element: 'steel', mpCost: 14, cooldown: 8, power: 1.9, kind: 'spin', radius: 110, afterGuard: 1.8, hit: { knock: 60 }, anim: 'attack', desc: 'Xoay kiếm chém một vòng, đẩy lùi quái quanh mình; tung ngay sau khi đỡ đòn thì mạnh hơn hẳn.' },
+	// Thủy Thần 8: vung kiếm cuộn một xoáy nước TẠI CHỖ NHẮM (tầm 300) ×1,9, đẩy lùi; vừa đỡ / gạt / phản đòn (trong 2,5s) thì ×1,8
+	// (≈3,4) và đẩy xa hơn. Chủ dự án 11/10/2026: chiêu mốc 8 / 10 phải đánh vào mục tiêu (săn boss) — đòn quanh mình chỉ ở mốc thấp.
+	{ id: 'whirlpool', name: 'Xoáy Nước', element: 'steel', mpCost: 14, cooldown: 8, power: 1.9, kind: 'spin', range: 300, aimDist: 160, radius: 110, afterGuard: 1.8, hit: { knock: 60 }, anim: 'attack', desc: 'Vung kiếm cuộn một xoáy nước chém tại chỗ nhắm, đẩy lùi quái quanh đó; tung ngay sau khi đỡ đòn thì mạnh hơn hẳn.' },
 	// Bắc Thần 6: chuỗi 4 nhát ×0,8 cách nhau 0,09s (3,2 một mục tiêu) — mỗi nhát tính riêng (phủ Thổ: nhát thứ 3 choáng).
 	{ id: 'chain_slash', name: 'Liên Hoàn', element: 'steel', mpCost: 10, cooldown: 5, power: 0.8, kind: 'melee', range: 80, arc: 65, count: 4, stagger: 0.09, anim: 'attack', desc: 'Chuỗi bốn nhát chém thật nhanh về phía trước.' },
 	// Bắc Thần 8: kiếm bay 320px xuyên hàng quái rồi bay về tay; ×1,8 mỗi lượt (đứng giữa đường: 3,6 cả đi lẫn về).
 	{ id: 'flying_sword', name: 'Phi Kiếm', element: 'steel', mpCost: 18, cooldown: 8, power: 1.8, kind: 'projectile', speed: 640, range: 320, width: 26, pierce: true, returns: true, anim: 'attack', desc: 'Phóng kiếm bay xuyên hàng quái rồi bay về tay — quái trên đường trúng cả lúc đi lẫn lúc về.' },
+	// Chỉ số 44–51 (GĐ4, 10/10/2026): tuyệt kỹ mốc 10 — CHỈ mở ở phòng tập (`ult`, xem trên). Hồi chiêu dài, MP lớn. 11/10/2026 (chủ dự án: "săn boss mà
+	// chiêu cuối cần vào dame mục tiêu"): MỌI tuyệt kỹ đánh vào chỗ nhắm / hướng nhắm — Thiên Phong, Kỷ Băng Hà, Thiên Tĩnh, Ngàn
+	// Bóng thôi đánh quanh mình. Hình PixelLab
+	// `ult_*` (vẽ 09/10/2026) đóng ở atlas riêng `vfx-ult` mà chỉ phòng tập tải; Sơn Thần chưa có hình riêng (mượn Gargoyle Đá).
+	{ id: 'phoenix', name: 'Phượng Hoàng', element: 'fire', mpCost: 60, cooldown: 40, power: 4.4, kind: 'projectile', speed: 470, range: 900, width: 64, pierce: true, ult: true, anim: 'cast', desc: 'Tuyệt kỹ: phượng lửa khổng lồ bay xuyên màn hình, thiêu cháy mọi quái trên đường bay.' },
+	{ id: 'great_flood', name: 'Đại Hồng Thuỷ', element: 'water', mpCost: 60, cooldown: 40, power: 3.4, kind: 'cone', range: 520, angle: 50, hit: { knock: 160 }, ult: true, anim: 'cast', desc: 'Tuyệt kỹ: sóng thần dâng lên quét về phía trước, cuốn văng và làm ướt cả đám quái.' },
+	{ id: 'heaven_wind', name: 'Thiên Phong', element: 'wind', mpCost: 60, cooldown: 45, power: 0.42, kind: 'zone', range: 380, aimDist: 220, radius: 190, duration: 6, tick: 0.3, pull: 160, ult: true, anim: 'cast', desc: 'Tuyệt kỹ: gọi bão lớn giáng xuống chỗ nhắm 6 giây, hút quái vào tâm bão và chém liên tục.' },
+	{ id: 'ice_age', name: 'Kỷ Băng Hà', element: 'ice', mpCost: 60, cooldown: 45, power: 4.4, kind: 'aoe_target', fall: true, delay: 0.7, range: 400, aimDist: 220, radius: 210, hit: { freeze: 3 }, ult: true, anim: 'cast', desc: 'Tuyệt kỹ: khối băng khổng lồ rơi xuống chỗ nhắm, sóng băng nổ lan cả vùng và đóng băng mọi quái trúng.' },
+	{ id: 'mountain_god', name: 'Sơn Thần', element: 'earth', mpCost: 60, cooldown: 50, power: 1.7, kind: 'summon', range: 260, aimDist: 120, radius: 115, duration: 10, tick: 1.1, hit: { stun: 0.7 }, ult: true, anim: 'cast', desc: 'Tuyệt kỹ: gọi người khổng lồ đá chiến đấu cùng 10 giây — tự đi tới quái gần nhất, dậm đất choáng cả vùng.' },
+	{ id: 'judgment', name: 'Phán Quyết', element: 'steel', mpCost: 50, cooldown: 40, power: 1.15, kind: 'barrage', range: 360, radius: 200, count: 28, duration: 1.6, width: 52, delay: 0.25, crit: 0.25, aimDist: 180, ult: true, anim: 'attack', desc: 'Tuyệt kỹ: ngàn thanh kiếm ánh sáng cắm xuống khắp vùng nhắm.' },
+	{ id: 'still_heaven', name: 'Thiên Tĩnh', element: 'steel', mpCost: 45, cooldown: 45, power: 4.8, kind: 'aoe_target', delay: 0.45, range: 360, aimDist: 200, radius: 170, hit: { stun: 1.5 }, ult: true, anim: 'attack', desc: 'Tuyệt kỹ: một nhát kiếm khiến chỗ nhắm lặng như mặt hồ — quái trong vùng đứng sững rồi trúng một đòn chém cực nặng.' },
+	{ id: 'thousand_shadows', name: 'Ngàn Bóng', element: 'steel', mpCost: 50, cooldown: 45, power: 0.95, kind: 'summon', count: 3, range: 360, aimDist: 200, radius: 90, duration: 6, tick: 0.4, crit: 0.3, ult: true, anim: 'attack', desc: 'Tuyệt kỹ: 3 bóng phân thân lao tới chỗ nhắm, chém liên tục quái ở đó suốt 6 giây.' },
 ];
 
 export type HeroPath = 'sword' | 'mage';
@@ -253,8 +272,8 @@ export function isSwordSkill(s: SkillDef): boolean {
 }
 
 /** Kiểu đòn cần ĐIỂM nhắm trên mặt đất (không chỉ hướng): không có chuột thì đặt trước mặt ở `aimDist`. Vòi Rồng (`move`) chỉ cần hướng. */
-export function isGroundTarget(s: Pick<SkillDef, 'kind' | 'follow' | 'move'>): boolean {
-	return s.kind === 'aoe_target' || s.kind === 'pillar' || s.kind === 'wall' || s.kind === 'barrage' || (s.kind === 'zone' && !s.follow && !s.move);
+export function isGroundTarget(s: Pick<SkillDef, 'kind' | 'follow' | 'move' | 'range'>): boolean {
+	return s.kind === 'aoe_target' || s.kind === 'pillar' || s.kind === 'wall' || s.kind === 'barrage' || s.kind === 'summon' || (s.kind === 'zone' && !s.follow && !s.move) || (s.kind === 'spin' && !!s.range);
 }
 
 const num = (n: number) => String(Number(n.toFixed(2))).replace('.', ',');
@@ -301,7 +320,7 @@ export function skillFacts(s: SkillDef): string[] {
 			);
 			break;
 		case 'spin':
-			out.push(`Xoay chém quanh mình, bán kính ${s.radius}`);
+			out.push(s.range ? `Xoáy chém tại chỗ nhắm (tầm ${s.range}), bán kính ${s.radius}` : `Xoay chém quanh mình, bán kính ${s.radius}`);
 			// "mạnh thêm" chứ không "uy lực": cuối dòng đã có "uy lực ×1,9" của nhát thường — hai chữ "uy lực" đọc như mâu thuẫn.
 			if (s.afterGuard) out.push(`vừa đỡ / gạt / phản đòn (trong ${num(COUNTER.after)}s): mạnh thêm ×${num(s.afterGuard)}`);
 			break;
@@ -317,11 +336,20 @@ export function skillFacts(s: SkillDef): string[] {
 			out.push(
 				s.guard === 'parry'
 					? `Cửa sổ đỡ ${num(s.duration ?? 0)}s: hoá giải một đòn (cả đạn) rồi phản`
-					: `Giữ thế ${num(s.duration ?? 0)}s: chặn + phản đòn cận chiến, đạn/đòn vùng còn ${Math.round(GUARD.shot * 100)}%`,
+					: s.guard === 'still'
+						? `Bất động ${num(s.duration ?? 0)}s: hoá giải + phản lại mọi đòn (chém, đạn, đòn vùng)`
+						: `Giữ thế ${num(s.duration ?? 0)}s: chặn + phản đòn cận chiến, đạn/đòn vùng còn ${Math.round(GUARD.shot * 100)}%`,
 			);
 			break;
 		case 'blink':
 			out.push(`Ra sau lưng mục tiêu trong tầm ${s.range} rồi chém`);
+			break;
+		case 'summon':
+			out.push(
+				s.element === 'earth'
+					? `Triệu hồi ${num(s.duration ?? 0)}s tại chỗ nhắm (tầm ${s.range}): dậm đất mỗi ${num(s.tick ?? 1)}s, bán kính ${s.radius}`
+					: `${s.count} phân thân ${num(s.duration ?? 0)}s tại chỗ nhắm (tầm ${s.range}), mỗi bóng chém mỗi ${num(s.tick ?? 1)}s, bán kính ${s.radius}`,
+			);
 			break;
 		case 'projectile':
 			if ((s.count ?? 1) > 1) out.push(`${s.count} lưỡi toả quạt ${(s.spread ?? 0) * ((s.count ?? 1) - 1)}°, bắn xa ${s.range}${s.pierce ? ', xuyên mục tiêu' : ''}`);
@@ -421,6 +449,148 @@ export interface EnemyStats {
 	resist?: Partial<Record<Element, number>>;
 }
 
+/** Tới cấp này giữ đường EXP cũ (×1,5 mỗi cấp) — vùng 1 cân theo nó, bản lưu cũ không bị xáo tiến độ. */
+export const EXP_CURVE_KNEE = 10;
+/**
+ * EXP để lên từ cấp `level` lên cấp kế. Cấp ≤ 10: `100 × 1,5^(cấp−1)` như cũ (cấp 10 = 3.844). Trên 10: đường mềm
+ * `3.844 × (cấp/10)^2,6` (cấp 20 ≈ 23.300, cấp 50 ≈ 252.000, cấp 99 ≈ 1,5 triệu) — đường cũ tới cấp 100 là ~10^19, không dùng
+ * được. Quái mỗi vùng sau cho EXP cao hơn nên số quái phải hạ mỗi cấp vẫn tương đương.
+ */
+export function expForLevel(level: number): number {
+	const lv = Math.max(1, Math.floor(level));
+	if (lv <= EXP_CURVE_KNEE) return Math.round(100 * 1.5 ** (lv - 1));
+	return Math.round(100 * 1.5 ** (EXP_CURVE_KNEE - 1) * (lv / EXP_CURVE_KNEE) ** 2.6);
+}
+
+/**
+ * Quái vùng 2–7 (dựng map 10/10/2026 — chủ dự án: "làm hết các vùng luôn đi"): chỉ số SINH theo cấp gốc + kiểu đánh, cân theo
+ * đà tăng của người chơi (máu / công / giáp tăng tuyến tính theo cấp — `PATHS`, sức đánh còn nhân theo mốc tiềm năng tới cấp 40):
+ * - Máu quái thường = 12 × (16 + 3·cấp) × (1 + 0,5·min(cấp, 40)/40) — cấp 10 ≈ 620 (≈ Gargoyle cấp 10 ở Hẻm Cửa Sông), cấp 40
+ *   ≈ 2.450, cấp 70 ≈ 4.070: thời gian hạ giữ ~4–5 giây đứng đánh như cuối vùng 1.
+ * - Công = 8% máu người chơi cùng cấp + nửa giáp của họ (giáp trừ một nửa) → một đòn quái thường ăn ~8% máu.
+ * - Giáp = 2 + cấp/4. EXP = EXP cần để lên cấp đó / 24 (≈ 24 con một cấp, như Dơi hang cấp 8). Xu = 4 + 1,2·cấp.
+ * Kiểu đánh nhân thêm (`WORLD_ARCHETYPE`), hệ kháng / yếu theo vùng (`WORLD_RESIST`). Boss khu ×6 máu, boss chúa ×8, rồng ×20 (đánh một mình ~40 giây; rồng để đông người).
+ */
+type WorldArchetype = 'standard' | 'brute' | 'swift' | 'tank' | 'archer' | 'caster';
+type WorldRank = 'mob' | 'boss' | 'chief' | 'dragon';
+
+const WORLD_ARCHETYPE: Record<
+	WorldArchetype,
+	{ hp: number; atk: number; def: number; speed: number; reach: number; attackCd: number; aggro: number; ranged?: 'arrow' | 'shadow' }
+> = {
+	standard: { hp: 1, atk: 1, def: 0, speed: 52, reach: 36, attackCd: 1.4, aggro: 220 },
+	// Trâu, chậm, đánh đau — chạy vòng được.
+	brute: { hp: 1.35, atk: 1.2, def: 2, speed: 40, reach: 40, attackCd: 1.7, aggro: 200 },
+	// Nhanh hơn người đi bộ, giòn, cắn dồn.
+	swift: { hp: 0.8, atk: 0.85, def: -1, speed: 74, reach: 32, attackCd: 1, aggro: 250 },
+	// Vỏ cứng: máu + giáp cao, đánh nhẹ.
+	tank: { hp: 1.6, atk: 0.9, def: 5, speed: 38, reach: 38, attackCd: 1.6, aggro: 200 },
+	archer: { hp: 0.75, atk: 0.9, def: -1, speed: 46, reach: 240, attackCd: 2, aggro: 290, ranged: 'arrow' },
+	caster: { hp: 0.8, atk: 1, def: -1, speed: 46, reach: 220, attackCd: 2, aggro: 280, ranged: 'shadow' },
+};
+
+const WORLD_RANK: Record<WorldRank, { hp: number; atk: number; def: number; exp: number; coins: number; cd: number; aggro: number }> = {
+	mob: { hp: 1, atk: 1, def: 0, exp: 1, coins: 1, cd: 1, aggro: 0 },
+	boss: { hp: 6, atk: 1.35, def: 4, exp: 12, coins: 15, cd: 0.9, aggro: 330 },
+	chief: { hp: 8, atk: 1.45, def: 6, exp: 20, coins: 25, cd: 0.9, aggro: 340 },
+	dragon: { hp: 20, atk: 1.6, def: 8, exp: 40, coins: 40, cd: 0.85, aggro: 380 },
+};
+
+/** Hệ kháng / yếu theo vùng (docs/ke-hoach-the-gioi.md mục 2 — `REGIONS.element`). */
+const WORLD_RESIST: Record<string, Partial<Record<Element, number>>> = {
+	swamp: { water: 0.75, earth: 1.25, wind: 1.25 },
+	desert: { earth: 0.75, fire: 0.8, water: 1.25, ice: 1.25 },
+	highland: { wind: 0.75, earth: 1.3 },
+	tundra: { ice: 0.7, fire: 1.3 },
+	volcano: { fire: 0.6, water: 1.25, ice: 1.25 },
+	isles: { water: 0.75, wind: 1.25, earth: 1.25 },
+};
+
+/**
+ * [loại, cấp gốc, kiểu đánh, hạng, vùng] — thứ tự theo bảng vùng ở docs/the-gioi-aether.md. Quái thường gặp ở 2 map cách nhau 5 cấp
+ * (map đầu cấp gốc −3…−2, map sau +2…+3 — `enemyStatsAt` nhân theo chênh cấp nên đặt gốc ở giữa cho hai map không chênh quá).
+ */
+const WORLD_ROSTER: readonly (readonly [string, number, WorldArchetype, WorldRank, string])[] = [
+	['mob_poison_frog_001', 13, 'standard', 'mob', 'swamp'],
+	['mob_swamp_leech_001', 14, 'brute', 'mob', 'swamp'],
+	['mob_glow_mushroom_001', 15, 'caster', 'mob', 'swamp'],
+	['mob_water_snake_001', 16, 'swift', 'mob', 'swamp'],
+	['mob_mud_merfolk_001', 17, 'archer', 'mob', 'swamp'],
+	['boss_mother_frog_001', 17, 'brute', 'boss', 'swamp'],
+	['boss_swamp_witch_001', 20, 'caster', 'boss', 'swamp'],
+	['boss_mud_hydra_001', 20, 'caster', 'chief', 'swamp'],
+	['mob_scorpion_001', 23, 'standard', 'mob', 'desert'],
+	['mob_sand_snake_001', 24, 'swift', 'mob', 'desert'],
+	['mob_mummy_001', 25, 'tank', 'mob', 'desert'],
+	['mob_vulture_001', 26, 'swift', 'mob', 'desert'],
+	['mob_sand_spirit_001', 27, 'caster', 'mob', 'desert'],
+	['boss_scorpion_queen_001', 27, 'brute', 'boss', 'desert'],
+	['boss_pharaoh_001', 30, 'caster', 'boss', 'desert'],
+	['boss_sandworm_001', 30, 'brute', 'chief', 'desert'],
+	['mob_wind_wolf_001', 33, 'swift', 'mob', 'highland'],
+	['mob_hawk_001', 34, 'swift', 'mob', 'highland'],
+	['mob_wind_fairy_001', 35, 'caster', 'mob', 'highland'],
+	['mob_flying_rock_001', 36, 'tank', 'mob', 'highland'],
+	['mob_wind_goblin_001', 37, 'archer', 'mob', 'highland'],
+	['boss_storm_eagle_001', 37, 'swift', 'boss', 'highland'],
+	['boss_wind_mage_001', 40, 'caster', 'boss', 'highland'],
+	['boss_wind_drake_001', 40, 'caster', 'chief', 'highland'],
+	['dragon_wind_001', 40, 'caster', 'dragon', 'highland'],
+	['mob_snow_wolf_001', 43, 'swift', 'mob', 'tundra'],
+	['mob_ice_wisp_001', 44, 'caster', 'mob', 'tundra'],
+	['mob_snowman_001', 45, 'brute', 'mob', 'tundra'],
+	['mob_war_penguin_001', 46, 'standard', 'mob', 'tundra'],
+	['mob_ice_bear_001', 47, 'tank', 'mob', 'tundra'],
+	['boss_ice_queen_001', 47, 'caster', 'boss', 'tundra'],
+	['boss_yeti_001', 48, 'brute', 'boss', 'tundra'],
+	['boss_ice_guardian_001', 50, 'tank', 'chief', 'tundra'],
+	['dragon_ice_001', 50, 'caster', 'dragon', 'tundra'],
+	['mob_lava_lizard_001', 53, 'standard', 'mob', 'volcano'],
+	['mob_lava_golem_001', 54, 'tank', 'mob', 'volcano'],
+	['mob_fire_bat_001', 55, 'swift', 'mob', 'volcano'],
+	['mob_fire_spirit_001', 56, 'caster', 'mob', 'volcano'],
+	['mob_fire_demon_001', 57, 'brute', 'mob', 'volcano'],
+	['boss_ancient_lava_golem_001', 57, 'tank', 'boss', 'volcano'],
+	['boss_salamander_001', 60, 'caster', 'boss', 'volcano'],
+	['boss_fire_god_001', 60, 'caster', 'chief', 'volcano'],
+	['dragon_fire_001', 60, 'caster', 'dragon', 'volcano'],
+	['mob_beach_crab_001', 63, 'tank', 'mob', 'isles'],
+	['mob_reef_jellyfish_001', 64, 'caster', 'mob', 'isles'],
+	['mob_pirate_001', 65, 'standard', 'mob', 'isles'],
+	['mob_coral_merfolk_001', 66, 'archer', 'mob', 'isles'],
+	['mob_wreck_octopus_001', 67, 'brute', 'mob', 'isles'],
+	['boss_crab_king_001', 67, 'tank', 'boss', 'isles'],
+	['boss_ghost_captain_001', 70, 'caster', 'boss', 'isles'],
+	['boss_kraken_001', 70, 'caster', 'chief', 'isles'],
+	['dragon_water_001', 70, 'caster', 'dragon', 'isles'],
+];
+
+function worldEnemyStats(level: number, arch: WorldArchetype, rank: WorldRank, region: string): EnemyStats {
+	const a = WORLD_ARCHETYPE[arch];
+	const r = WORLD_RANK[rank];
+	const power = (16 + 3 * level) * (1 + (0.5 * Math.min(level, 40)) / 40);
+	const playerHp = 115 + 14 * level;
+	const playerDef = 4 + level;
+	return {
+		hp: Math.round((12 * power * a.hp * r.hp) / 5) * 5,
+		atk: Math.round((0.08 * playerHp + 0.5 * playerDef) * a.atk * r.atk),
+		def: Math.max(0, Math.round(2 + level / 4 + a.def + r.def)),
+		speed: rank === 'mob' ? a.speed : Math.min(66, Math.round(a.speed * 1.1)),
+		aggro: rank === 'mob' ? a.aggro : Math.max(a.aggro, r.aggro),
+		reach: rank === 'mob' ? a.reach : a.ranged ? a.reach + 40 : a.reach + 14,
+		attackCd: Math.round(a.attackCd * r.cd * 100) / 100,
+		...(a.ranged ? { ranged: a.ranged } : {}),
+		exp: Math.round((expForLevel(level) / 24) * r.exp),
+		coins: Math.round((4 + 1.2 * level) * r.coins),
+		resist: WORLD_RESIST[region],
+	};
+}
+
+const WORLD_ENEMY_STATS: Record<string, EnemyStats> = Object.fromEntries(
+	WORLD_ROSTER.map(([id, lv, arch, rank, region]) => [id, worldEnemyStats(lv, arch, rank, region)]),
+);
+const WORLD_BASE_LEVEL: Record<string, number> = Object.fromEntries(WORLD_ROSTER.map(([id, lv]) => [id, lv]));
+
 /** Hệ số sát thương theo hệ của quái (`resist`), kẹp 0,25–3 để số liệu nhập sai không thành bất tử / một nhát chết. */
 export function elementMult(stats: Pick<EnemyStats, 'resist'>, element: Element): number {
 	const m = stats.resist?.[element];
@@ -471,6 +641,7 @@ export const ENEMY_STATS: Record<string, EnemyStats> = {
 	// Gargoyle Đá (boss khu Hang Gargoyle, cấp 10, hồi sinh như Vua Lich): số của Vua Lich nâng từ cấp 6 lên 10 bằng `enemyStatsAt`
 	// rồi làm tròn tay. Cận chiến + vòng nổ boss dùng chung (hình `boss_stone_slam`); KHÔNG đánh xa, KHÔNG đặt `resist` (quái vùng 1).
 	boss_stone_gargoyle_001: { hp: 4600, atk: 36, def: 12, speed: 48, aggro: 320, reach: 56, attackCd: 1.4, exp: 800, coins: 290 },
+	...WORLD_ENEMY_STATS,
 };
 
 /**
@@ -487,6 +658,7 @@ export const ENEMY_BASE_LEVEL: Readonly<Record<string, number>> = {
 	boss_demon_001: 5,
 	boss_lich_001: 6,
 	boss_stone_gargoyle_001: 10,
+	...WORLD_BASE_LEVEL,
 };
 
 /** Chênh cấp so với cấp gốc được kẹp trong khoảng này — xa hơn nữa thì nên là loại quái khác, không kéo một hình đi mãi. */
@@ -533,15 +705,3 @@ export function cleanLevel(level: number, exp: number, maxLevel: number): { leve
 	return { level: lv, exp: Math.min(expForLevel(lv) - 1, Math.max(0, Math.floor(Number(exp) || 0))) };
 }
 
-/** Tới cấp này giữ đường EXP cũ (×1,5 mỗi cấp) — vùng 1 cân theo nó, bản lưu cũ không bị xáo tiến độ. */
-export const EXP_CURVE_KNEE = 10;
-/**
- * EXP để lên từ cấp `level` lên cấp kế. Cấp ≤ 10: `100 × 1,5^(cấp−1)` như cũ (cấp 10 = 3.844). Trên 10: đường mềm
- * `3.844 × (cấp/10)^2,6` (cấp 20 ≈ 23.300, cấp 50 ≈ 252.000, cấp 99 ≈ 1,5 triệu) — đường cũ tới cấp 100 là ~10^19, không dùng
- * được. Quái mỗi vùng sau cho EXP cao hơn nên số quái phải hạ mỗi cấp vẫn tương đương.
- */
-export function expForLevel(level: number): number {
-	const lv = Math.max(1, Math.floor(level));
-	if (lv <= EXP_CURVE_KNEE) return Math.round(100 * 1.5 ** (lv - 1));
-	return Math.round(100 * 1.5 ** (EXP_CURVE_KNEE - 1) * (lv / EXP_CURVE_KNEE) ** 2.6);
-}

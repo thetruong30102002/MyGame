@@ -26,8 +26,17 @@ const check = (ok: boolean, msg: string): void => {
 	if (!ok) problems.push(msg);
 };
 
-// 1) Mọi tham chiếu phải trỏ tới thứ có thật.
-for (const [key, npc] of Object.entries(STORY.npcs)) check(spots.has(npc.at.spot), `NPC ${key} đứng ở địa điểm không có: ${npc.at.spot}`);
+// 1) Mọi tham chiếu phải trỏ tới thứ có thật. Cột dịch chuyển của vùng khác (vùng 2–7 dựng 10/10/2026) đứng ở map trạm của
+//    vùng đó — kiểm theo địa điểm của chính map trạm ấy.
+const { REGIONS } = await import('@aether/sim/regions');
+const { readFileSync } = await import('node:fs');
+const hubSpots = new Map(
+	REGIONS.filter((r) => r.ready && r.id !== 'human').map((r) => {
+		const hub = JSON.parse(readFileSync(new URL(`maps/${r.id}/${r.hub}.json`, region.ASSETS), 'utf8')) as { spots: { id: string }[] };
+		return [`waystone_${r.id}`, new Set(hub.spots.map((x) => x.id))] as const;
+	}),
+);
+for (const [key, npc] of Object.entries(STORY.npcs)) check((hubSpots.get(key) ?? spots).has(npc.at.spot), `NPC ${key} đứng ở địa điểm không có: ${npc.at.spot}`);
 // Mỗi map chỉ MỘT loại quái (chủ dự án chốt 07/10/2026), sống theo bầy. Vùng boss (1 con, thanh máu boss) đứng ngoài
 // luật này — cùng cách `validateRegion` của pipeline và chú thích `MonsterZone.boss`.
 for (const m of regionMaps) {

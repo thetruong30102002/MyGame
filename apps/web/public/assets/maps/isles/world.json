@@ -1,0 +1,778 @@
+{
+	"region": "isles",
+	"start": "hub",
+	"maps": {
+		"hub": {
+			"name": "Cảng chài San Hô",
+			"width": 2112,
+			"height": 1728,
+			"exits": [
+				{
+					"id": "hub_x1",
+					"to": "whitesands",
+					"x": 1152,
+					"y": 1704,
+					"label": "Bãi Cát Trắng · cấp 60–61"
+				},
+				{
+					"id": "hub_x2",
+					"to": "wreckshore",
+					"x": 24,
+					"y": 960,
+					"label": "Bờ Ván Vỡ · cấp 64–65"
+				},
+				{
+					"id": "hub_x3",
+					"to": "coralreef",
+					"x": 1152,
+					"y": 24,
+					"label": "Rạn San Hô · cấp 66–67"
+				},
+				{
+					"id": "hub_x4",
+					"to": "volcano/craterrim",
+					"x": 2088,
+					"y": 960,
+					"label": "Vành Miệng Núi · Núi lửa Hoả Sơn"
+				}
+			],
+			"spots": [
+				"hub_s",
+				"hub_w",
+				"hub_n",
+				"east_gate",
+				"waystone",
+				"plaza"
+			],
+			"zones": [],
+			"dummies": [],
+			"boss": null
+		},
+		"whitesands": {
+			"name": "Bãi Cát Trắng",
+			"width": 2304,
+			"height": 1920,
+			"exits": [
+				{
+					"id": "whitesands_x1",
+					"to": "hub",
+					"x": 1440,
+					"y": 24,
+					"label": "Cảng chài San Hô"
+				},
+				{
+					"id": "whitesands_x2",
+					"to": "shallowreef",
+					"x": 24,
+					"y": 1056,
+					"label": "Rạn Nông · cấp 61–62"
+				}
+			],
+			"spots": [
+				"whitesands_n",
+				"whitesands_w"
+			],
+			"zones": [
+				{
+					"id": "whitesands_z1",
+					"monsters": [
+						"mob_beach_crab_001"
+					],
+					"level": 60
+				},
+				{
+					"id": "whitesands_z2",
+					"monsters": [
+						"mob_beach_crab_001"
+					],
+					"level": 60
+				},
+				{
+					"id": "whitesands_z3",
+					"monsters": [
+						"mob_beach_crab_001"
+					],
+					"level": 61
+				},
+				{
+					"id": "whitesands_z4",
+					"monsters": [
+						"mob_beach_crab_001"
+					],
+					"level": 61
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				60,
+				61
+			]
+		},
+		"shallowreef": {
+			"name": "Rạn Nông",
+			"width": 2208,
+			"height": 2016,
+			"exits": [
+				{
+					"id": "shallowreef_x1",
+					"to": "whitesands",
+					"x": 2184,
+					"y": 912,
+					"label": "Bãi Cát Trắng · cấp 60–61"
+				},
+				{
+					"id": "shallowreef_x2",
+					"to": "piratecove",
+					"x": 24,
+					"y": 1104,
+					"label": "Vịnh Cướp Biển · cấp 62–63"
+				}
+			],
+			"spots": [
+				"shallowreef_e",
+				"shallowreef_w"
+			],
+			"zones": [
+				{
+					"id": "shallowreef_z1",
+					"monsters": [
+						"mob_reef_jellyfish_001"
+					],
+					"level": 61
+				},
+				{
+					"id": "shallowreef_z2",
+					"monsters": [
+						"mob_reef_jellyfish_001"
+					],
+					"level": 61
+				},
+				{
+					"id": "shallowreef_z3",
+					"monsters": [
+						"mob_reef_jellyfish_001"
+					],
+					"level": 62
+				},
+				{
+					"id": "shallowreef_z4",
+					"monsters": [
+						"mob_reef_jellyfish_001"
+					],
+					"level": 62
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				61,
+				62
+			]
+		},
+		"piratecove": {
+			"name": "Vịnh Cướp Biển",
+			"width": 2400,
+			"height": 1824,
+			"exits": [
+				{
+					"id": "piratecove_x1",
+					"to": "shallowreef",
+					"x": 2376,
+					"y": 1200,
+					"label": "Rạn Nông · cấp 61–62"
+				},
+				{
+					"id": "piratecove_x2",
+					"to": "merlagoon",
+					"x": 1008,
+					"y": 24,
+					"label": "Phá Người Cá · cấp 63–64"
+				}
+			],
+			"spots": [
+				"piratecove_e",
+				"piratecove_n"
+			],
+			"zones": [
+				{
+					"id": "piratecove_z1",
+					"monsters": [
+						"mob_pirate_001"
+					],
+					"level": 62
+				},
+				{
+					"id": "piratecove_z2",
+					"monsters": [
+						"mob_pirate_001"
+					],
+					"level": 62
+				},
+				{
+					"id": "piratecove_z3",
+					"monsters": [
+						"mob_pirate_001"
+					],
+					"level": 63
+				},
+				{
+					"id": "piratecove_z4",
+					"monsters": [
+						"mob_pirate_001"
+					],
+					"level": 63
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				62,
+				63
+			]
+		},
+		"merlagoon": {
+			"name": "Phá Người Cá",
+			"width": 2208,
+			"height": 2112,
+			"exits": [
+				{
+					"id": "merlagoon_x1",
+					"to": "piratecove",
+					"x": 1344,
+					"y": 2088,
+					"label": "Vịnh Cướp Biển · cấp 62–63"
+				},
+				{
+					"id": "merlagoon_x2",
+					"to": "wreckshore",
+					"x": 2184,
+					"y": 1392,
+					"label": "Bờ Ván Vỡ · cấp 64–65"
+				},
+				{
+					"id": "merlagoon_x3",
+					"to": "pirateisle",
+					"x": 1152,
+					"y": 24,
+					"label": "Đảo Cướp Biển · cấp 67–68"
+				}
+			],
+			"spots": [
+				"merlagoon_s",
+				"merlagoon_e",
+				"merlagoon_n"
+			],
+			"zones": [
+				{
+					"id": "merlagoon_z1",
+					"monsters": [
+						"mob_coral_merfolk_001"
+					],
+					"level": 63
+				},
+				{
+					"id": "merlagoon_z2",
+					"monsters": [
+						"mob_coral_merfolk_001"
+					],
+					"level": 63
+				},
+				{
+					"id": "merlagoon_z3",
+					"monsters": [
+						"mob_coral_merfolk_001"
+					],
+					"level": 64
+				},
+				{
+					"id": "merlagoon_z4",
+					"monsters": [
+						"mob_coral_merfolk_001"
+					],
+					"level": 64
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				63,
+				64
+			]
+		},
+		"wreckshore": {
+			"name": "Bờ Ván Vỡ",
+			"width": 2496,
+			"height": 1920,
+			"exits": [
+				{
+					"id": "wreckshore_x1",
+					"to": "merlagoon",
+					"x": 24,
+					"y": 1008,
+					"label": "Phá Người Cá · cấp 63–64"
+				},
+				{
+					"id": "wreckshore_x2",
+					"to": "hub",
+					"x": 2472,
+					"y": 1056,
+					"label": "Cảng chài San Hô"
+				},
+				{
+					"id": "wreckshore_x3",
+					"to": "crabbeach",
+					"x": 1344,
+					"y": 24,
+					"label": "Bãi Cua · cấp 65–66"
+				}
+			],
+			"spots": [
+				"wreckshore_w",
+				"wreckshore_e",
+				"wreckshore_n"
+			],
+			"zones": [
+				{
+					"id": "wreckshore_z1",
+					"monsters": [
+						"mob_wreck_octopus_001"
+					],
+					"level": 64
+				},
+				{
+					"id": "wreckshore_z2",
+					"monsters": [
+						"mob_wreck_octopus_001"
+					],
+					"level": 64
+				},
+				{
+					"id": "wreckshore_z3",
+					"monsters": [
+						"mob_wreck_octopus_001"
+					],
+					"level": 65
+				},
+				{
+					"id": "wreckshore_z4",
+					"monsters": [
+						"mob_wreck_octopus_001"
+					],
+					"level": 65
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				64,
+				65
+			]
+		},
+		"crabbeach": {
+			"name": "Bãi Cua",
+			"width": 2304,
+			"height": 2016,
+			"exits": [
+				{
+					"id": "crabbeach_x1",
+					"to": "wreckshore",
+					"x": 1392,
+					"y": 1992,
+					"label": "Bờ Ván Vỡ · cấp 64–65"
+				},
+				{
+					"id": "crabbeach_x2",
+					"to": "coralreef",
+					"x": 2280,
+					"y": 1008,
+					"label": "Rạn San Hô · cấp 66–67"
+				},
+				{
+					"id": "crabbeach_x3",
+					"to": "pirateisle",
+					"x": 24,
+					"y": 1152,
+					"label": "Đảo Cướp Biển · cấp 67–68"
+				}
+			],
+			"spots": [
+				"crabbeach_s",
+				"crabbeach_e",
+				"crabbeach_w"
+			],
+			"zones": [
+				{
+					"id": "crabbeach_z1",
+					"monsters": [
+						"mob_beach_crab_001"
+					],
+					"level": 65
+				},
+				{
+					"id": "crabbeach_z2",
+					"monsters": [
+						"mob_beach_crab_001"
+					],
+					"level": 65
+				},
+				{
+					"id": "crabbeach_z3",
+					"monsters": [
+						"mob_beach_crab_001"
+					],
+					"level": 66
+				},
+				{
+					"id": "crabbeach_z4",
+					"monsters": [
+						"mob_beach_crab_001"
+					],
+					"level": 66
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				65,
+				66
+			]
+		},
+		"coralreef": {
+			"name": "Rạn San Hô",
+			"width": 2400,
+			"height": 2112,
+			"exits": [
+				{
+					"id": "coralreef_x1",
+					"to": "crabbeach",
+					"x": 24,
+					"y": 1248,
+					"label": "Bãi Cua · cấp 65–66"
+				},
+				{
+					"id": "coralreef_x2",
+					"to": "hub",
+					"x": 1008,
+					"y": 2088,
+					"label": "Cảng chài San Hô"
+				}
+			],
+			"spots": [
+				"coralreef_w",
+				"coralreef_s",
+				"coralreef_lair"
+			],
+			"zones": [
+				{
+					"id": "coralreef_z1",
+					"monsters": [
+						"mob_reef_jellyfish_001"
+					],
+					"level": 66
+				},
+				{
+					"id": "coralreef_z2",
+					"monsters": [
+						"mob_reef_jellyfish_001"
+					],
+					"level": 66
+				},
+				{
+					"id": "coralreef_z3",
+					"monsters": [
+						"mob_reef_jellyfish_001"
+					],
+					"level": 67
+				},
+				{
+					"id": "coralreef_boss",
+					"monsters": [
+						"boss_crab_king_001"
+					],
+					"level": 67
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				66,
+				67
+			]
+		},
+		"pirateisle": {
+			"name": "Đảo Cướp Biển",
+			"width": 2208,
+			"height": 1920,
+			"exits": [
+				{
+					"id": "pirateisle_x1",
+					"to": "crabbeach",
+					"x": 2184,
+					"y": 1008,
+					"label": "Bãi Cua · cấp 65–66"
+				},
+				{
+					"id": "pirateisle_x2",
+					"to": "merlagoon",
+					"x": 960,
+					"y": 1896,
+					"label": "Phá Người Cá · cấp 63–64"
+				},
+				{
+					"id": "pirateisle_x3",
+					"to": "merfolkmarsh",
+					"x": 1344,
+					"y": 24,
+					"label": "Đầm Người Cá · cấp 68–69"
+				}
+			],
+			"spots": [
+				"pirateisle_e",
+				"pirateisle_s",
+				"pirateisle_n"
+			],
+			"zones": [
+				{
+					"id": "pirateisle_z1",
+					"monsters": [
+						"mob_pirate_001"
+					],
+					"level": 67
+				},
+				{
+					"id": "pirateisle_z2",
+					"monsters": [
+						"mob_pirate_001"
+					],
+					"level": 67
+				},
+				{
+					"id": "pirateisle_z3",
+					"monsters": [
+						"mob_pirate_001"
+					],
+					"level": 68
+				},
+				{
+					"id": "pirateisle_z4",
+					"monsters": [
+						"mob_pirate_001"
+					],
+					"level": 68
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				67,
+				68
+			]
+		},
+		"merfolkmarsh": {
+			"name": "Đầm Người Cá",
+			"width": 2496,
+			"height": 2016,
+			"exits": [
+				{
+					"id": "merfolkmarsh_x1",
+					"to": "pirateisle",
+					"x": 1152,
+					"y": 1992,
+					"label": "Đảo Cướp Biển · cấp 67–68"
+				},
+				{
+					"id": "merfolkmarsh_x2",
+					"to": "wreckyard",
+					"x": 1536,
+					"y": 24,
+					"label": "Bãi Tàu Đắm · cấp 69–70"
+				},
+				{
+					"id": "merfolkmarsh_x3",
+					"to": "tidelair",
+					"x": 2472,
+					"y": 1200,
+					"label": "Long Huyệt Thương Hải · rồng · cấp 70"
+				}
+			],
+			"spots": [
+				"merfolkmarsh_s",
+				"merfolkmarsh_n",
+				"merfolkmarsh_e"
+			],
+			"zones": [
+				{
+					"id": "merfolkmarsh_z1",
+					"monsters": [
+						"mob_coral_merfolk_001"
+					],
+					"level": 68
+				},
+				{
+					"id": "merfolkmarsh_z2",
+					"monsters": [
+						"mob_coral_merfolk_001"
+					],
+					"level": 68
+				},
+				{
+					"id": "merfolkmarsh_z3",
+					"monsters": [
+						"mob_coral_merfolk_001"
+					],
+					"level": 69
+				},
+				{
+					"id": "merfolkmarsh_z4",
+					"monsters": [
+						"mob_coral_merfolk_001"
+					],
+					"level": 69
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				68,
+				69
+			]
+		},
+		"wreckyard": {
+			"name": "Bãi Tàu Đắm",
+			"width": 2304,
+			"height": 2112,
+			"exits": [
+				{
+					"id": "wreckyard_x1",
+					"to": "merfolkmarsh",
+					"x": 1440,
+					"y": 2088,
+					"label": "Đầm Người Cá · cấp 68–69"
+				},
+				{
+					"id": "wreckyard_x2",
+					"to": "krakenabyss",
+					"x": 2280,
+					"y": 960,
+					"label": "Vực Kraken · boss chúa · cấp 70"
+				},
+				{
+					"id": "wreckyard_x3",
+					"to": "fungal/hub",
+					"x": 24,
+					"y": 816,
+					"label": "Rừng Nấm Ngầm · vùng 8 · đang xây dựng"
+				}
+			],
+			"spots": [
+				"wreckyard_s",
+				"wreckyard_e",
+				"wreckyard_gate",
+				"wreckyard_lair"
+			],
+			"zones": [
+				{
+					"id": "wreckyard_z1",
+					"monsters": [
+						"mob_wreck_octopus_001"
+					],
+					"level": 69
+				},
+				{
+					"id": "wreckyard_z2",
+					"monsters": [
+						"mob_wreck_octopus_001"
+					],
+					"level": 69
+				},
+				{
+					"id": "wreckyard_z3",
+					"monsters": [
+						"mob_wreck_octopus_001"
+					],
+					"level": 70
+				},
+				{
+					"id": "wreckyard_boss",
+					"monsters": [
+						"boss_ghost_captain_001"
+					],
+					"level": 70
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				69,
+				70
+			]
+		},
+		"krakenabyss": {
+			"name": "Vực Kraken",
+			"width": 1536,
+			"height": 1344,
+			"exits": [
+				{
+					"id": "krakenabyss_x1",
+					"to": "wreckyard",
+					"x": 24,
+					"y": 912,
+					"label": "Bãi Tàu Đắm · cấp 69–70"
+				}
+			],
+			"spots": [
+				"krakenabyss_w",
+				"krakenabyss_lair"
+			],
+			"zones": [
+				{
+					"id": "krakenabyss_boss",
+					"monsters": [
+						"boss_kraken_001"
+					],
+					"level": 70
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				70,
+				70
+			]
+		},
+		"tidelair": {
+			"name": "Long Huyệt Thương Hải",
+			"width": 1824,
+			"height": 1536,
+			"exits": [
+				{
+					"id": "tidelair_x1",
+					"to": "merfolkmarsh",
+					"x": 24,
+					"y": 624,
+					"label": "Đầm Người Cá · cấp 68–69"
+				}
+			],
+			"spots": [
+				"tidelair_w",
+				"tidelair_lair"
+			],
+			"zones": [
+				{
+					"id": "tidelair_boss",
+					"monsters": [
+						"dragon_water_001"
+					],
+					"level": 70
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				70,
+				70
+			]
+		}
+	}
+}

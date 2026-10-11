@@ -3,6 +3,7 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { REGIONS } from '@aether/sim/regions';
 import { agesText, buildCodex, cleanCodex, MONSTER_INFO, NPC_LORE, npcKey } from '../src/game/codex';
 import { ENEMY_STATS } from '../src/game/combat/skills';
 import { STORY } from '../src/game/story/story';
@@ -12,7 +13,18 @@ import type { WorldIndexData } from '../src/game/world/WorldIndex';
 const ASSETS = process.env.AETHER_WEB_ASSETS ?? 'public/assets';
 const world = JSON.parse(readFileSync(join(ASSETS, 'maps/human/world.json'), 'utf8')) as WorldIndexData;
 const manifest = JSON.parse(readFileSync('public/assets/manifest.json', 'utf8')) as { characters: Record<string, unknown> };
-const codex = buildCodex(world, STORY.npcs, (id) => id in manifest.characters);
+// Quái vùng 2–7 (dựng 10/10/2026) sống ở world.json của vùng đó — gộp mọi vùng đã có map (khoá `vùng/map`) để kiểm nơi ở.
+const allWorlds: WorldIndexData = {
+	...world,
+	maps: Object.assign(
+		{ ...world.maps },
+		...REGIONS.filter((r) => r.ready && r.id !== 'human').map((r) => {
+			const w = JSON.parse(readFileSync(join(ASSETS, `maps/${r.id}/world.json`), 'utf8')) as WorldIndexData;
+			return Object.fromEntries(Object.entries(w.maps).map(([k, m]) => [`${r.id}/${k}`, m]));
+		}),
+	),
+};
+const codex = buildCodex(allWorlds, STORY.npcs, (id) => id in manifest.characters);
 const get = (id: string) => codex.find((e) => e.id === id)!;
 
 for (const id of Object.keys(ENEMY_STATS)) assert.ok(MONSTER_INFO[id], `quái ${id} có tên + lời giới thiệu`);

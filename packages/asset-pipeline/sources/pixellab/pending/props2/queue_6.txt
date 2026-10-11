@@ -1,0 +1,2 @@
+object tundra_crystal_tree @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/tundra_crystal_tree.send.json
+object highland_chapel @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/highland_chapel.send.json

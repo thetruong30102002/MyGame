@@ -20,6 +20,15 @@ export const SKILL_ICON_ALIAS: Readonly<Record<string, string>> = {
 	crit: 'passive:sword:4:kiem_than',
 	// Chỉ số Né hoàn toàn = icon bị động Bóng Mờ (Bắc Thần 9).
 	evade: 'passive:sword:9:bac_than',
+	// Tuyệt kỹ mốc 10 (chỉ phòng tập): icon bộ v2 vẽ sẵn cho nút "Sắp có" của cây.
+	phoenix: 'future:fire:10',
+	great_flood: 'future:water:10',
+	heaven_wind: 'future:wind:10',
+	ice_age: 'future:ice:10',
+	mountain_god: 'future:earth:10',
+	judgment: 'future:sword:10:kiem_than',
+	still_heaven: 'future:sword:10:thuy_than',
+	thousand_shadows: 'future:sword:10:bac_than',
 };
 
 /** Đầu nhánh Kiếm (thay ảnh kiếm gỗ `SWORD_HEAD_ICON`) — cũng là icon nút Kiếm mốc ≥ 3 khi CHƯA chọn lưu phái. */

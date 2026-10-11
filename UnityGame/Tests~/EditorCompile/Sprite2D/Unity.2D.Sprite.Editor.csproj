@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Biên dịch mã nguồn gói dựng sẵn com.unity.2d.sprite (đi kèm Editor) thành Unity.2D.Sprite.Editor.dll để EditorCompile
+       kiểm được lời gọi ISpriteEditorDataProvider / SpriteDataProviderFactories đúng API thật, không cần stub. -->
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>9.0</LangVersion>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AssemblyName>Unity.2D.Sprite.Editor</AssemblyName>
+    <NoWarn>$(NoWarn);CS0618;CS0649;CS0414;CS0169;CS0067;CS0108;CS0114;CS0162;CS0219;CS0612</NoWarn>
+    <UnityEditorDir Condition="'$(UnityEditorDir)' == ''">D:\Unity\Editor\6000.3.26f1\Editor</UnityEditorDir>
+    <UnityManaged>$(UnityEditorDir)\Data\Managed\UnityEngine</UnityManaged>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(UnityEditorDir)\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.sprite\Editor\**\*.cs" />
+    <Reference Include="$(UnityManaged)\UnityEngine.*Module.dll" Private="false" />
+    <Reference Include="$(UnityManaged)\UnityEditor.*Module.dll" Private="false" />
+    <Reference Include="$(UnityManaged)\UnityEngine.dll" Private="false" />
+    <Reference Include="$(UnityManaged)\UnityEditor.dll" Private="false" />
+  </ItemGroup>
+</Project>

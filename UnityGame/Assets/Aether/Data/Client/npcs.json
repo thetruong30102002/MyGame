@@ -1,0 +1,452 @@
+{
+	"NPCS": {
+		"mother_elin": {
+			"name": "Elin Ashvale",
+			"title": "Mẹ · Pháp sư làng",
+			"sprite": "npc_elin_001",
+			"at": {
+				"spot": "home",
+				"dx": 60,
+				"dy": 16
+			},
+			"ages": [
+				4,
+				8
+			],
+			"idle": [
+				"Đi đâu thì đi, nhớ về trước bữa tối nhé, con trai.",
+				"Đi qua thùng ong thì đi chậm. Đứng yên là ong không đốt. Chạy là nó tưởng con là bông hoa biết chạy.",
+				"Có chuyện gì thì gọi người lớn. Gọi thật to vào, cả nhà mình ai cũng điếc đặc khi đang làm việc."
+			]
+		},
+		"father_garrick": {
+			"name": "Garrick Ashvale",
+			"title": "Cha · Kiếm sĩ",
+			"sprite": "npc_garrick_001",
+			"at": {
+				"spot": "river_bank",
+				"dx": -72,
+				"dy": 64
+			},
+			"ages": [
+				4,
+				8
+			],
+			"idle": [
+				"…Ừ.",
+				"(Cha giơ thanh kiếm vừa mài lên ngang mắt, ngắm lưỡi một lúc, rồi đưa chuôi cho tôi cầm thử. Nặng trịch. Hình như đó là cả một câu chuyện.)"
+			]
+		},
+		"healer_mirelle": {
+			"name": "Mirelle",
+			"title": "Nữ trị liệu",
+			"sprite": "npc_mirelle_001",
+			"at": {
+				"spot": "church",
+				"dx": 30
+			},
+			"ages": [
+				4,
+				8
+			],
+			"idle": [
+				"Ta đang pha thuốc. Đứng xa cái nồi ra, nó hay phun lắm.",
+				"Cảm ơn mẹ con giùm ta nhé. Thuốc bỏng mà thiếu mật ong nhà Ashvale thì chẳng ra gì."
+			]
+		},
+		"merchant_bram": {
+			"name": "Bram",
+			"title": "Thương nhân lữ hành",
+			"sprite": "npc_bram_001",
+			"at": {
+				"spot": "plaza",
+				"dx": -110,
+				"dy": -40
+			},
+			"ages": [
+				4,
+				8
+			],
+			"idle": [
+				"Ồ, ngài thám hiểm cao ba gang tay của Thistlewood!",
+				"Nhắn cha cháu giùm ta: tiền đá mài tháng trước. Ông ấy sẽ bảo “…Ừ.” rồi quên ngay.",
+				"Thế giới này rộng lắm, nhóc. Rộng hơn rừng Mossvale nhiều. Lớn lên cháu sẽ tự thấy."
+			]
+		},
+		"kid_aldric": {
+			"name": "Aldric",
+			"title": "Hiệp sĩ (tự phong) · 6 tuổi",
+			"sprite": "npc_aldric_child_001",
+			"at": {
+				"spot": "plaza",
+				"dx": -96,
+				"dy": 250
+			},
+			"ages": [
+				6,
+				6
+			],
+			"idle": [
+				"Đứng lại, dân làng! Ta là Hiệp sĩ Aldric, người canh giữ cái ghế đá này!",
+				"…Tổ đội của tớ đang thiếu một pháp sư. Cậu làm nhé? Không cần biết phép đâu. Tớ cũng đâu biết đánh kiếm."
+			]
+		},
+		"kid_aldric_forest": {
+			"name": "Aldric",
+			"title": "Hiệp sĩ (tự phong) · 8 tuổi",
+			"sprite": "npc_aldric_child_001",
+			"at": {
+				"spot": "forest_edge",
+				"dx": 48,
+				"dy": 120
+			},
+			"ages": [
+				8,
+				8
+			],
+			"idle": [
+				"Tớ đang canh bìa rừng. Không phải vì chân tớ còn run đâu nhé.",
+				"Thanh kiếm gỗ này tên là Kiếm Sấm Sét. Sấm thì chưa có. Sét cũng chưa."
+			]
+		},
+		"bram": {
+			"name": "Bram",
+			"title": "Thương nhân lữ hành",
+			"sprite": "npc_bram_001",
+			"at": {
+				"spot": "plaza",
+				"dx": -110,
+				"dy": -40
+			},
+			"ages": [
+				16,
+				99
+			],
+			"idle": [
+				"Hàng mới về chưa kịp xếp. Ghé lại sau nhé — mà nhớ mang theo tiền đấy!",
+				"Đồng xu ta cho cậu hồi tám tuổi… cậu vẫn giữ chứ? Thế giới này rộng lắm, Lior. Rộng hơn cái rừng Mossvale kia nhiều."
+			]
+		},
+		"aldric": {
+			"name": "Aldric",
+			"title": "Cận vệ cổng bắc",
+			"sprite": "npc_aldric_001",
+			"at": {
+				"spot": "north_gate",
+				"dy": 40
+			},
+			"ages": [
+				16,
+				99
+			],
+			"idle": [
+				"Một ngày nào đó tớ sẽ thành hiệp sĩ hoàng gia. Còn giờ thì… tớ gác cổng. Hừm."
+			]
+		},
+		"mirelle": {
+			"name": "Mirelle",
+			"title": "Nữ trị liệu",
+			"sprite": "npc_mirelle_001",
+			"at": {
+				"spot": "church",
+				"dx": 30
+			},
+			"ages": [
+				16,
+				99
+			],
+			"idle": [
+				"Ta đang pha thuốc. Nếu bị thương, cứ quay về đây."
+			]
+		},
+		"gy_stele": {
+			"name": "Bia đá cổ",
+			"title": "Nghĩa địa Hoàng Hôn",
+			"sprite": null,
+			"prop": "rune_stone",
+			"at": {
+				"spot": "south_gate_gy",
+				"dx": 24,
+				"dy": -288
+			},
+			"ages": [
+				16,
+				99
+			],
+			"idle": [
+				"«…người nằm đây đã về với đất. Đất giữ lời thay cho họ.»",
+				"«Ai còn nhớ, xin ghé qua.»"
+			]
+		},
+		"elin": {
+			"name": "Elin Ashvale",
+			"title": "Mẹ · Pháp sư làng",
+			"sprite": "npc_elin_001",
+			"at": {
+				"spot": "home",
+				"dx": 60,
+				"dy": 16
+			},
+			"ages": [
+				16,
+				99
+			],
+			"idle": [
+				"Đi rừng thì quàng cái khăn len vào. Sáng sớm bên kia sông lạnh lắm.",
+				"Và về trước bữa tối. Mười sáu tuổi hay sáu tuổi thì cũng thế."
+			]
+		},
+		"garrick": {
+			"name": "Garrick Ashvale",
+			"title": "Cha · Kiếm sĩ",
+			"sprite": "npc_garrick_001",
+			"at": {
+				"spot": "river_bank",
+				"dx": -72,
+				"dy": 64
+			},
+			"ages": [
+				16,
+				99
+			],
+			"idle": [
+				"Đủ lớn rồi. Qua cầu đi.",
+				"…Gọi. Cha đến."
+			]
+		},
+		"waystone_human": {
+			"name": "Cột dịch chuyển",
+			"title": "Thung lũng Thistlewood",
+			"sprite": null,
+			"prop": "stone_lantern",
+			"at": {
+				"spot": "plaza",
+				"dx": -150,
+				"dy": 110
+			},
+			"ages": [
+				0,
+				99
+			],
+			"region": "human",
+			"idle": [
+				"«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»"
+			]
+		},
+		"waystone_swamp": {
+			"name": "Cột dịch chuyển",
+			"title": "Đầm lầy Mù Sương",
+			"sprite": null,
+			"prop": "stone_lantern",
+			"at": {
+				"spot": "waystone",
+				"dx": 0,
+				"dy": 0
+			},
+			"ages": [
+				0,
+				99
+			],
+			"region": "swamp",
+			"idle": [
+				"«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»"
+			]
+		},
+		"waystone_desert": {
+			"name": "Cột dịch chuyển",
+			"title": "Sa mạc Hồng Cát",
+			"sprite": null,
+			"prop": "stone_lantern",
+			"at": {
+				"spot": "waystone",
+				"dx": 0,
+				"dy": 0
+			},
+			"ages": [
+				0,
+				99
+			],
+			"region": "desert",
+			"idle": [
+				"«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»"
+			]
+		},
+		"waystone_highland": {
+			"name": "Cột dịch chuyển",
+			"title": "Cao nguyên Gió Hú",
+			"sprite": null,
+			"prop": "stone_lantern",
+			"at": {
+				"spot": "waystone",
+				"dx": 0,
+				"dy": 0
+			},
+			"ages": [
+				0,
+				99
+			],
+			"region": "highland",
+			"idle": [
+				"«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»"
+			]
+		},
+		"waystone_tundra": {
+			"name": "Cột dịch chuyển",
+			"title": "Lãnh nguyên Băng Giá",
+			"sprite": null,
+			"prop": "stone_lantern",
+			"at": {
+				"spot": "waystone",
+				"dx": 0,
+				"dy": 0
+			},
+			"ages": [
+				0,
+				99
+			],
+			"region": "tundra",
+			"idle": [
+				"«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»"
+			]
+		},
+		"waystone_volcano": {
+			"name": "Cột dịch chuyển",
+			"title": "Núi lửa Hoả Sơn",
+			"sprite": null,
+			"prop": "stone_lantern",
+			"at": {
+				"spot": "waystone",
+				"dx": 0,
+				"dy": 0
+			},
+			"ages": [
+				0,
+				99
+			],
+			"region": "volcano",
+			"idle": [
+				"«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»"
+			]
+		},
+		"waystone_isles": {
+			"name": "Cột dịch chuyển",
+			"title": "Quần đảo San Hô",
+			"sprite": null,
+			"prop": "stone_lantern",
+			"at": {
+				"spot": "waystone",
+				"dx": 0,
+				"dy": 0
+			},
+			"ages": [
+				0,
+				99
+			],
+			"region": "isles",
+			"idle": [
+				"«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»"
+			]
+		},
+		"chronicler": {
+			"name": "Bia Danh Vọng",
+			"title": "Quảng trường Thistlewood",
+			"sprite": null,
+			"prop": "rune_stone",
+			"at": {
+				"spot": "plaza",
+				"dx": 110,
+				"dy": -40
+			},
+			"ages": [
+				0,
+				99
+			],
+			"idle": [
+				"«Tên những người làm nên chuyện được khắc ở đây.»",
+				"«Chỉ người chơi trực tuyến mới được ghi danh.»"
+			]
+		},
+		"traveler_sein_child": {
+			"name": "Sein",
+			"title": "Cậu bé lữ khách",
+			"sprite": "npc_silver_child",
+			"at": {
+				"spot": "plaza",
+				"dx": -36,
+				"dy": 96
+			},
+			"ages": [
+				0,
+				15
+			],
+			"idle": [
+				"Bọn tớ theo đoàn buôn của cha, mai lại đi rồi.",
+				"Ngoài kia có đầm lầy toàn nhà sàn đấy! Cha kể vậy."
+			]
+		},
+		"traveler_sera_child": {
+			"name": "Sera",
+			"title": "Cô bé lữ khách",
+			"sprite": "npc_silver_child_f",
+			"at": {
+				"spot": "plaza",
+				"dx": 8,
+				"dy": 96
+			},
+			"ages": [
+				0,
+				15
+			],
+			"idle": [
+				"Tóc tớ với anh Sein giống mẹ, ai cũng nhìn.",
+				"Cậu có biết sa mạc phía nam có toà thành ốc đảo không?"
+			]
+		},
+		"traveler_sein": {
+			"name": "Sein",
+			"title": "Lữ khách tóc bạc",
+			"sprite": "npc_silver_youth",
+			"at": {
+				"spot": "plaza",
+				"dx": -36,
+				"dy": 96
+			},
+			"ages": [
+				16,
+				99
+			],
+			"idle": [
+				"Lại gặp nhau rồi! Bọn ta vừa từ cao nguyên Gió Hú về — gió trên đó thổi bay cả mũ.",
+				"Đi đâu cũng nhớ ghé cột dịch chuyển, đỡ mỏi chân lắm."
+			]
+		},
+		"traveler_sera": {
+			"name": "Sera",
+			"title": "Nữ lữ khách tóc bạc",
+			"sprite": "npc_silver_youth_f",
+			"at": {
+				"spot": "plaza",
+				"dx": 8,
+				"dy": 96
+			},
+			"ages": [
+				16,
+				99
+			],
+			"idle": [
+				"Anh Sein cứ đòi đi săn rồng phương Đông. Ta thì chỉ muốn vẽ lại bản đồ lục địa.",
+				"Đầm lầy Mù Sương có ếch độc to bằng cái thúng, cẩn thận đấy."
+			]
+		}
+	},
+	"PLAYER_BY_AGE": [
+		{
+			"minAge": 0,
+			"sprite": "player_lior_child"
+		},
+		{
+			"minAge": 16,
+			"sprite": "player_hero_adult"
+		}
+	]
+}

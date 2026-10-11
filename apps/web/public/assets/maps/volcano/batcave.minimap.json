@@ -1,0 +1,13 @@
+{
+	"map": "batcave",
+	"image": "batcave.minimap.png",
+	"width": 300,
+	"height": 228,
+	"downscale": 8,
+	"world": {
+		"width": 2400,
+		"height": 1824,
+		"tileSize": 48
+	},
+	"version": "d8a9fee1"
+}

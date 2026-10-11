@@ -74,5 +74,10 @@
 		"SW",
 		"NW"
 	],
-	"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 160px; ảnh mẫu nét = Quỷ vương. Vùng 3. Mô tả: a colossal sandworm boss bursting up from the sand facing the viewer, segmented sandy-tan armored body, enormous round mouth with rings of jagged teeth opened wide, sand pouring off it. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 220px."
+	"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 160px; ảnh mẫu nét = Quỷ vương. Vùng 3. Mô tả: a colossal sandworm boss bursting up from the sand facing the viewer, segmented sandy-tan armored body, enormous round mouth with rings of jagged teeth opened wide, sand pouring off it. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 220px.",
+	"review": {
+		"status": "approved",
+		"date": "10/10/2026",
+		"notes": "Duyệt bằng mắt (Claude, phiên chuyển Unity): ảnh giữa idle/walk hướng S/E/N + trọn attack E/S + death E từ contact sheet. Chủ dự án báo đã vẽ xong chiêu quái/boss trên PixelLab; đối chiếu bản tải lại 10/10/2026 khớp bản trên máy."
+	}
 }

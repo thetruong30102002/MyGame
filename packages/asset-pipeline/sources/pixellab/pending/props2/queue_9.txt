@@ -1,0 +1,4 @@
+object swamp_bamboo @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/swamp_bamboo.send.json
+object volcano_fire_mushrooms @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/volcano_fire_mushrooms.send.json
+object volcano_bastion @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/volcano_bastion.send.json
+image D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/CR4_beach_shore.png @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/CR4_beach_shore.json

@@ -1,0 +1,128 @@
+{
+	"BUFF_GROUP": {
+		"exp": "Bình kinh nghiệm",
+		"dmg": "Bình chiến đấu",
+		"guard": "Bình chiến đấu"
+	},
+	"BUFF_MAX_MS": 18000000,
+	"MERCHANT": {
+		"npc": "bram",
+		"keys": [
+			"bram",
+			"merchant_bram"
+		],
+		"map": "human/town",
+		"spot": "plaza",
+		"dx": -110,
+		"dy": -40,
+		"range": 240
+	},
+	"MERCHANTS": [
+		{
+			"npc": "bram",
+			"keys": [
+				"bram",
+				"merchant_bram"
+			],
+			"map": "human/town",
+			"spot": "plaza",
+			"dx": -110,
+			"dy": -40,
+			"range": 240
+		}
+	],
+	"MERCHANT_NPCS": [
+		"bram",
+		"merchant_bram"
+	],
+	"SHOP": [
+		{
+			"id": "exp2_30",
+			"name": "Bình Kinh Nghiệm ×2",
+			"desc": "EXP hạ quái ×2 trong 30 phút chơi.",
+			"price": 6,
+			"buff": {
+				"kind": "exp",
+				"mult": 2,
+				"minutes": 30
+			}
+		},
+		{
+			"id": "exp2_60",
+			"name": "Bình Kinh Nghiệm ×2 (lớn)",
+			"desc": "EXP hạ quái ×2 trong 1 giờ chơi.",
+			"price": 10,
+			"buff": {
+				"kind": "exp",
+				"mult": 2,
+				"minutes": 60
+			}
+		},
+		{
+			"id": "exp3_30",
+			"name": "Bình Kinh Nghiệm ×3",
+			"desc": "EXP hạ quái ×3 trong 30 phút chơi.",
+			"price": 10,
+			"buff": {
+				"kind": "exp",
+				"mult": 3,
+				"minutes": 30
+			}
+		},
+		{
+			"id": "exp3_60",
+			"name": "Bình Kinh Nghiệm ×3 (lớn)",
+			"desc": "EXP hạ quái ×3 trong 1 giờ chơi.",
+			"price": 16,
+			"buff": {
+				"kind": "exp",
+				"mult": 3,
+				"minutes": 60
+			}
+		},
+		{
+			"id": "dmg10",
+			"name": "Bình Cuồng Lực",
+			"desc": "Sát thương lên quái +10% trong 30 phút chơi.",
+			"price": 6,
+			"buff": {
+				"kind": "dmg",
+				"mult": 1.1,
+				"minutes": 30
+			}
+		},
+		{
+			"id": "dmg20",
+			"name": "Bình Cuồng Lực (mạnh)",
+			"desc": "Sát thương lên quái +20% trong 30 phút chơi.",
+			"price": 12,
+			"buff": {
+				"kind": "dmg",
+				"mult": 1.2,
+				"minutes": 30
+			}
+		},
+		{
+			"id": "guard10",
+			"name": "Bình Hộ Thân",
+			"desc": "Sát thương nhận từ quái −10% trong 30 phút chơi.",
+			"price": 6,
+			"buff": {
+				"kind": "guard",
+				"mult": 0.9,
+				"minutes": 30
+			}
+		},
+		{
+			"id": "guard20",
+			"name": "Bình Hộ Thân (mạnh)",
+			"desc": "Sát thương nhận từ quái −20% trong 30 phút chơi.",
+			"price": 12,
+			"buff": {
+				"kind": "guard",
+				"mult": 0.8,
+				"minutes": 30
+			}
+		}
+	]
+}

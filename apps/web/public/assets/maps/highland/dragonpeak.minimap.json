@@ -1,0 +1,13 @@
+{
+	"map": "dragonpeak",
+	"image": "dragonpeak.minimap.png",
+	"width": 228,
+	"height": 192,
+	"downscale": 8,
+	"world": {
+		"width": 1824,
+		"height": 1536,
+		"tileSize": 48
+	},
+	"version": "6c7b4fa3"
+}

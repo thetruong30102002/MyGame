@@ -1,0 +1,50 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Kiểm biên dịch Editor Importer + Data runtime + Core NGOÀI Unity (Editor chưa mở được): cùng mức C# Unity hỗ trợ
+       (netstandard2.1, C# 9), tham chiếu DLL module của chính bản Editor 6000.3.26f1. Lệnh: dotnet build UnityGame/Tests~/EditorCompile
+       Đổi bản Editor: dotnet build -p:UnityEditorDir="<…>/Editor". -->
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>9.0</LangVersion>
+    <Nullable>disable</Nullable>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <AssemblyName>Aether.EditorCompile</AssemblyName>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <NoWarn>$(NoWarn);CS0649</NoWarn>
+    <UnityEditorDir Condition="'$(UnityEditorDir)' == ''">D:\Unity\Editor\6000.3.26f1\Editor</UnityEditorDir>
+    <UnityManaged>$(UnityEditorDir)\Data\Managed\UnityEngine</UnityManaged>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../Assets/Aether/Core/**/*.cs" />
+    <Compile Include="../../Assets/Aether/Data/Runtime/**/*.cs" />
+    <Compile Include="../../Assets/Aether/Net/**/*.cs" />
+    <Compile Include="../../Assets/Aether/Client/**/*.cs" />
+    <Compile Include="../../Assets/Aether/Editor/**/*.cs" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <ProjectReference Include="Sprite2D/Unity.2D.Sprite.Editor.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Module dùng + module Unity luôn nạp kèm (Physics, Audio…) để bắt trùng tên như UnityEngine.Collision. -->
+    <Reference Include="$(UnityManaged)\UnityEngine.CoreModule.dll" Private="false" />
+    <Reference Include="$(UnityManaged)\UnityEngine.TilemapModule.dll" Private="false" />
+    <Reference Include="$(UnityManaged)\UnityEngine.GridModule.dll" Private="false" />
+    <Reference Include="$(UnityManaged)\UnityEngine.ImageConversionModule.dll" Private="false" />
+    <Reference Include="$(UnityManaged)\UnityEngine.IMGUIModule.dll" Private="false" />
+    <Reference Include="$(UnityManaged)\UnityEditor.CoreModule.dll" Private="false" />
+    <Reference Include="$(UnityManaged)\UnityEngine.InputLegacyModule.dll" Private="false" />
+    <Reference Include="$(UnityManaged)\UnityEngine.TextRenderingModule.dll" Private="false" />
+    <Reference Include="$(UnityManaged)\UnityEngine.PhysicsModule.dll" Private="false" />
+    <Reference Include="$(UnityManaged)\UnityEngine.Physics2DModule.dll" Private="false" />
+    <Reference Include="$(UnityManaged)\UnityEngine.AudioModule.dll" Private="false" />
+    <Reference Include="$(UnityManaged)\UnityEngine.AnimationModule.dll" Private="false" />
+    <Reference Include="$(UnityManaged)\UnityEngine.UIModule.dll" Private="false" />
+    <Reference Include="$(UnityManaged)\UnityEngine.ScreenCaptureModule.dll" Private="false" />
+    <!-- uGUI là gói (com.unity.ugui): lấy bản Unity đã biên dịch trong Library — phải mở dự án bằng Unity một lần trước. -->
+    <Reference Include="../../Library/ScriptAssemblies/UnityEngine.UI.dll" Private="false" />
+    <Reference Include="../../Library/ScriptAssemblies/Unity.TextMeshPro.dll" Private="false" />
+    <Reference Include="../../Library/ScriptAssemblies/LitMotion.dll" Private="false" />
+    <Reference Include="../../Library/ScriptAssemblies/LitMotion.Extensions.dll" Private="false" />
+    <Reference Include="../../Library/ScriptAssemblies/Unity.Mathematics.dll" Private="false" />
+    <Reference Include="$(UnityManaged)\UnityEngine.TextCoreFontEngineModule.dll" Private="false" />
+    <Reference Include="$(UnityManaged)\UnityEngine.TextCoreTextEngineModule.dll" Private="false" />
+  </ItemGroup>
+</Project>

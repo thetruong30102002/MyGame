@@ -263,6 +263,13 @@ export function skillDesc(id: string): string {
 }
 
 const active = (id: string): NodeSpec => [HERO_SKILLS.find((d) => d.id === id)?.name ?? id, skillDesc(id), { skillId: id, ready: true }];
+/**
+ * Tuyệt kỹ mốc 10 (GĐ4, 10/10/2026): nút gắn kỹ năng nhưng `ready: false` — game thật không cộng điểm tới (trần nhánh vẫn mốc 9,
+ * `tierCap`), chỉ phòng tập `/thu-chieu` đặt thẳng mốc 10 (chủ dự án: "mở skill 10 ở phòng tập thôi").
+ */
+const ult = (id: string): NodeSpec => [HERO_SKILLS.find((d) => d.id === id)?.name ?? id, skillDesc(id), { skillId: id, ready: false }];
+/** Mốc của tuyệt kỹ. */
+export const ULT_TIER = 10;
 
 // ———————————————————————————— Kiếm: 3 lưu phái (kế hoạch 2.7 + bảng 3.1) ————————————————————————————
 
@@ -296,7 +303,7 @@ const STYLE_SPECS: Record<SwordStyle, NodeSpec[]> = {
 		],
 		active('blade_wave'),
 		['Bất Khuất', `Dưới ${pc100(PASSIVE.rageHp)}% máu: công +${pct(PASSIVE.rageAtk)}%, hút máu ${pc100(PASSIVE.rageDrain)}% mọi sát thương gây ra.`, READY],
-		['Phán Quyết', 'Tuyệt kỹ: ngàn thanh kiếm ánh sáng cắm xuống cả vùng.'],
+		ult('judgment'),
 	],
 	thuy_than: [
 		active('calm_stance'),
@@ -310,7 +317,7 @@ const STYLE_SPECS: Record<SwordStyle, NodeSpec[]> = {
 		],
 		active('whirlpool'),
 		['Mặt Hồ Phẳng', `Mỗi lần phản đòn thành công (chặn-phản, đỡ-phản, gạt đạn, né đúng lúc) hồi ${pc100(PASSIVE.lakeHeal)}% máu tối đa — tối đa một lần mỗi ${fmt(PASSIVE.lakeCooldown)} giây.`, READY],
-		['Thiên Tĩnh', 'Tuyệt kỹ: 5 giây bất động như mặt hồ, mọi đòn đánh vào bị phản lại toàn bộ.'],
+		ult('still_heaven'),
 	],
 	bac_than: [
 		active('side_slash'),
@@ -320,7 +327,7 @@ const STYLE_SPECS: Record<SwordStyle, NodeSpec[]> = {
 		['Đà Lướt', `Né xong, ${PASSIVE.momentumHits} đòn Kiếm kế (trong ${PASSIVE.momentumSeconds} giây) nhanh hơn ${pct(PASSIVE.momentumSpeed)}%.`, READY],
 		active('flying_sword'),
 		['Bóng Mờ', `${pc100(PASSIVE.evade)}% né hoàn toàn một đòn (chém, đạn, đòn vùng).`, READY],
-		['Ngàn Bóng', 'Tuyệt kỹ: 3 bóng phân thân cùng lao vào chém 6 giây.'],
+		ult('thousand_shadows'),
 	],
 };
 
@@ -361,7 +368,7 @@ export const TREE: Record<Branch, TreeNode[]> = {
 		['Tro Tàn', `Quái chết lúc đang cháy nổ lan lửa sang quái gần (×${fmt(PASSIVE.emberPower)} sức phép, bán kính ${PASSIVE.emberRadius}) — nổ dây chuyền tối đa ${PASSIVE.emberChain} đợt.`, READY],
 		active('meteor'),
 		['Hoả Thân', `Sát thương thiêu đốt +${pct(PASSIVE.burnDamage)}%, kháng cháy.`, READY],
-		['Phượng Hoàng', 'Tuyệt kỹ: phượng lửa bay xuyên màn hình.'],
+		ult('phoenix'),
 	]),
 	water: branchNodes([
 		active('water_lance'),
@@ -373,7 +380,7 @@ export const TREE: Record<Branch, TreeNode[]> = {
 		['Mạch Nguồn', `Đứng trong mưa của mình (Gọi Mưa): mỗi giây hồi ${pc100(PASSIVE.springHp)}% máu tối đa + ${PASSIVE.springMp} MP.`, READY],
 		active('thunder_rain'),
 		['Thuỷ Triều Dâng', `Hút máu đòn Thuỷ lên ${pc100(PASSIVE.tideLifesteal)}%; quái đang ướt nhận thêm ${pct(PASSIVE.tideWet)}% sát thương từ mọi nguồn.`, READY],
-		['Đại Hồng Thuỷ', 'Tuyệt kỹ: sóng thần quét ngang màn hình.'],
+		ult('great_flood'),
 	]),
 	wind: branchNodes([
 		active('wind_blade'),
@@ -385,7 +392,7 @@ export const TREE: Record<Branch, TreeNode[]> = {
 		['Mắt Bão', `Né tốn ít thể lực hơn ${pct(PASSIVE.eyeDodge)}% (không cộng dồn với Nhẹ Như Gió); né xong tốc chạy +${pct(PASSIVE.eyeHaste)}% trong ${PASSIVE.eyeSeconds} giây.`, READY],
 		active('tornado'),
 		['Gió Loạn', `Quái trúng đòn hệ Phong đánh trượt ${pc100(PASSIVE.gustMiss)}% trong ${PASSIVE.gustSeconds} giây.`, READY],
-		['Thiên Phong', 'Tuyệt kỹ: bão quanh mình 6 giây, hút và chém quái.'],
+		ult('heaven_wind'),
 	]),
 	ice: branchNodes([
 		active('ice_shard'),
@@ -397,7 +404,7 @@ export const TREE: Record<Branch, TreeNode[]> = {
 		['Hàn Tâm', `Thời gian đóng băng +${pct(PASSIVE.deepFreeze)}%.`, READY],
 		active('ice_rain'),
 		['Vỡ Vụn', `Đánh quái đang đóng băng +${pct(PASSIVE.frozenBonus)}%; băng tan hay vỡ thì nổ vụn băng (×${fmt(PASSIVE.shardPower)} sức phép, bán kính ${PASSIVE.shardRadius}) trúng quái quanh (quái ướt bị Đóng Băng — lan tối đa ${PASSIVE.shardChain} đợt).`, READY],
-		['Kỷ Băng Hà', 'Tuyệt kỹ: sóng băng đóng băng cả vùng.'],
+		ult('ice_age'),
 	]),
 	earth: branchNodes([
 		active('rock_throw'),
@@ -409,7 +416,7 @@ export const TREE: Record<Branch, TreeNode[]> = {
 		['Trọng Lực', `Đòn hệ Thổ làm chậm ${pct(PASSIVE.gravitySlow)}% trong ${PASSIVE.gravitySeconds} giây; quái đang choáng nhận thêm ${pct(PASSIVE.gravityStunned)}% sát thương.`, READY],
 		active('rockslide'),
 		['Núi Thiêng', `Máu tối đa +${pct(PASSIVE.mountainHp)}%; đứng yên từ ${PASSIVE.mountainStill} giây thì mỗi giây hồi ${pc100(PASSIVE.mountainRegen)}% máu tối đa.`, READY],
-		['Sơn Thần', 'Tuyệt kỹ: người khổng lồ đá chiến đấu cùng 10 giây.'],
+		ult('mountain_god'),
 	]),
 };
 

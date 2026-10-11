@@ -241,7 +241,8 @@ export function lifestealHeal(damage: number, pct: number): number {
 // ———————————————————————————— Kiếm lưu phái: thế đỡ (Thủy Thần), Ảnh Bộ (Bắc Thần) ————————————————————————————
 
 /** Thế đỡ: Thế Tĩnh giữ suốt `duration` (chặn mọi đòn cận chiến); Lưu Thủy Phản là cửa sổ ngắn, đỡ MỘT đòn rồi thôi. */
-export type GuardKind = 'stance' | 'parry';
+/** `still` = Thiên Tĩnh (tuyệt kỹ Thủy Thần): hoá giải + phản MỌI đòn — cả đạn và đòn vùng — suốt thời gian giữ. */
+export type GuardKind = 'stance' | 'parry' | 'still';
 /** Đòn của quái đánh vào người chơi: chém cận chiến / đạn bay / đòn vùng báo trước (boss dậm đất). */
 export type IncomingKind = 'melee' | 'shot' | 'area';
 
@@ -260,6 +261,7 @@ export const GUARD = {
  * tiên (cả đạn — phản ngược lại kẻ bắn) rồi tan. Đòn vùng (dậm đất) không đỡ được bằng kiếm: chỉ giảm, thế vẫn giữ.
  */
 export function guardOutcome(guard: GuardKind, attack: IncomingKind): { counter: boolean; mult: number; ends: boolean } {
+	if (guard === 'still') return { counter: true, mult: 0, ends: false };
 	if (attack === 'area') return { counter: false, mult: GUARD.shot, ends: false };
 	if (guard === 'parry') return { counter: true, mult: 0, ends: true };
 	return attack === 'melee' ? { counter: true, mult: 0, ends: false } : { counter: false, mult: GUARD.shot, ends: false };

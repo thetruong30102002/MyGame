@@ -1,0 +1,13 @@
+{
+	"map": "cloudtemple",
+	"image": "cloudtemple.minimap.png",
+	"width": 192,
+	"height": 168,
+	"downscale": 8,
+	"world": {
+		"width": 1536,
+		"height": 1344,
+		"tileSize": 48
+	},
+	"version": "7b84f9c9"
+}

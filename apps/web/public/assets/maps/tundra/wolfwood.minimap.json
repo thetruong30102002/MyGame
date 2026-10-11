@@ -1,0 +1,13 @@
+{
+	"map": "wolfwood",
+	"image": "wolfwood.minimap.png",
+	"width": 288,
+	"height": 252,
+	"downscale": 8,
+	"world": {
+		"width": 2304,
+		"height": 2016,
+		"tileSize": 48
+	},
+	"version": "4cfa902f"
+}

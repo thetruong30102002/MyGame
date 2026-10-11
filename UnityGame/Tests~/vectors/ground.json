@@ -1,0 +1,818 @@
+{
+	"chunks": [
+		{
+			"map": "bonehills",
+			"ox": 0,
+			"oy": 0,
+			"w": 160,
+			"h": 160,
+			"sha1": "4862dbe32bbf13bfdd4abe48697ecce4b604ff61"
+		},
+		{
+			"map": "bonehills",
+			"ox": 1056,
+			"oy": 960,
+			"w": 160,
+			"h": 160,
+			"sha1": "4ff99c37223bd4d6bd97691bc4d243fdbd880707"
+		},
+		{
+			"map": "bonehills",
+			"ox": 1952,
+			"oy": 1760,
+			"w": 160,
+			"h": 160,
+			"sha1": "1861d10ee43fc63f3f51b4a9f1d534fbaae1f8dc"
+		},
+		{
+			"map": "bonehills",
+			"ox": 1188,
+			"oy": 564,
+			"w": 160,
+			"h": 160,
+			"sha1": "d2f88669e9f254b87ea3741ee7dea4d499d342eb"
+		},
+		{
+			"map": "bonehills",
+			"ox": 1812,
+			"oy": 36,
+			"w": 160,
+			"h": 160,
+			"sha1": "7f6fe1d9db368eb551a7910a54d3829b50e08a41"
+		},
+		{
+			"map": "cliffs",
+			"ox": 0,
+			"oy": 0,
+			"w": 160,
+			"h": 160,
+			"sha1": "fa3ab8555444cc8a6fa47c09997bafd05af65eee"
+		},
+		{
+			"map": "cliffs",
+			"ox": 1056,
+			"oy": 960,
+			"w": 160,
+			"h": 160,
+			"sha1": "47e5ab232a406a616a004fa38577b681db1c0873"
+		},
+		{
+			"map": "cliffs",
+			"ox": 1952,
+			"oy": 1760,
+			"w": 160,
+			"h": 160,
+			"sha1": "ba51a7f815baabb5e2b5945f99a81cf6dd6d6a5f"
+		},
+		{
+			"map": "cliffs",
+			"ox": 1140,
+			"oy": 0,
+			"w": 160,
+			"h": 160,
+			"sha1": "f6a0087850cf6006eecf30ee6ff104b5801ea951"
+		},
+		{
+			"map": "cliffs",
+			"ox": 1764,
+			"oy": 36,
+			"w": 160,
+			"h": 160,
+			"sha1": "38194e92e9ce9c0470d5b2894ef7f8591e3f7f3f"
+		},
+		{
+			"map": "gargoyle_cave",
+			"ox": 0,
+			"oy": 0,
+			"w": 160,
+			"h": 160,
+			"sha1": "cd8df15903d336c262eb591b0607db110553420c"
+		},
+		{
+			"map": "gargoyle_cave",
+			"ox": 1056,
+			"oy": 960,
+			"w": 160,
+			"h": 160,
+			"sha1": "fd96f5665095717fb7a8e163ecdf4efa105b97c2"
+		},
+		{
+			"map": "gargoyle_cave",
+			"ox": 1952,
+			"oy": 1760,
+			"w": 160,
+			"h": 160,
+			"sha1": "0c43c8448da399a623608b53d6c4aa7b84a4a47a"
+		},
+		{
+			"map": "gargoyle_cave",
+			"ox": 996,
+			"oy": 276,
+			"w": 160,
+			"h": 160,
+			"sha1": "ce776b370ae56771a81259e9d62cd11a1a3037f7"
+		},
+		{
+			"map": "gargoyle_cave",
+			"ox": 660,
+			"oy": 132,
+			"w": 160,
+			"h": 160,
+			"sha1": "103710b3bbc75f319121cb7684ba0c6441da5442"
+		},
+		{
+			"map": "gargoyle_cave",
+			"ox": 372,
+			"oy": 420,
+			"w": 160,
+			"h": 160,
+			"sha1": "b7b56e1acf45721326aea49dfe1660f5f9f262d4"
+		},
+		{
+			"map": "gargoyle_cave",
+			"ox": 0,
+			"oy": 0,
+			"w": 160,
+			"h": 160,
+			"sha1": "cd8df15903d336c262eb591b0607db110553420c"
+		},
+		{
+			"map": "graveyard",
+			"ox": 0,
+			"oy": 0,
+			"w": 160,
+			"h": 160,
+			"sha1": "f7c9fd373722ce4ff0f16078029a9b22cce44ca8"
+		},
+		{
+			"map": "graveyard",
+			"ox": 1104,
+			"oy": 1008,
+			"w": 160,
+			"h": 160,
+			"sha1": "ab27354bece89b4d3c7b09640653271e2ecd95a5"
+		},
+		{
+			"map": "graveyard",
+			"ox": 2048,
+			"oy": 1856,
+			"w": 160,
+			"h": 160,
+			"sha1": "5af919de1cf3f5776a718ac6b4e4c649830cfe63"
+		},
+		{
+			"map": "graveyard",
+			"ox": 708,
+			"oy": 0,
+			"w": 160,
+			"h": 160,
+			"sha1": "6bdd60798ad47def970c6f7c13bec5f6e808a10a"
+		},
+		{
+			"map": "graveyard",
+			"ox": 996,
+			"oy": 276,
+			"w": 160,
+			"h": 160,
+			"sha1": "eb4613d62be1f96df35b1ca41a02d393fb5d8c53"
+		},
+		{
+			"map": "graveyard",
+			"ox": 1812,
+			"oy": 36,
+			"w": 160,
+			"h": 160,
+			"sha1": "821543e5f5175e47b6bc65cccc572d49dedd206b"
+		},
+		{
+			"map": "mossrift",
+			"ox": 0,
+			"oy": 0,
+			"w": 160,
+			"h": 160,
+			"sha1": "e6ae0d19f0f61f53417ebf875af14a4f6998120f"
+		},
+		{
+			"map": "mossrift",
+			"ox": 1104,
+			"oy": 1008,
+			"w": 160,
+			"h": 160,
+			"sha1": "e4f6c38df00715b1fe58b85634eacd6f7dc9b1be"
+		},
+		{
+			"map": "mossrift",
+			"ox": 2048,
+			"oy": 1856,
+			"w": 160,
+			"h": 160,
+			"sha1": "821c2c084f1fb3d0d608f33d33dff7c0fcedbefb"
+		},
+		{
+			"map": "mossrift",
+			"ox": 996,
+			"oy": 0,
+			"w": 160,
+			"h": 160,
+			"sha1": "7d000bfbc26df601508250b2865340def64937d6"
+		},
+		{
+			"map": "mossrift",
+			"ox": 996,
+			"oy": 852,
+			"w": 160,
+			"h": 160,
+			"sha1": "323f4a7cd39eb4bfefaeebdfe21866a0eb86eeb2"
+		},
+		{
+			"map": "mossrift",
+			"ox": 0,
+			"oy": 0,
+			"w": 160,
+			"h": 160,
+			"sha1": "e6ae0d19f0f61f53417ebf875af14a4f6998120f"
+		},
+		{
+			"map": "mossvale",
+			"ox": 0,
+			"oy": 0,
+			"w": 160,
+			"h": 160,
+			"sha1": "7930a6dfb0f9373f85171363579bea8596d2fd6e"
+		},
+		{
+			"map": "mossvale",
+			"ox": 1152,
+			"oy": 1056,
+			"w": 160,
+			"h": 160,
+			"sha1": "f0d16bbe5a294aa6a34e4346b19ad19c4c31158d"
+		},
+		{
+			"map": "mossvale",
+			"ox": 2144,
+			"oy": 1952,
+			"w": 160,
+			"h": 160,
+			"sha1": "cf0120b22ed4a4e0a28009cfd2ae871100d124eb"
+		},
+		{
+			"map": "mossvale",
+			"ox": 1044,
+			"oy": 0,
+			"w": 160,
+			"h": 160,
+			"sha1": "c5e4fa6de31a8f4271f2dbcb12ba9e92a507d00f"
+		},
+		{
+			"map": "mossvale",
+			"ox": 0,
+			"oy": 0,
+			"w": 160,
+			"h": 160,
+			"sha1": "7930a6dfb0f9373f85171363579bea8596d2fd6e"
+		},
+		{
+			"map": "nameless",
+			"ox": 0,
+			"oy": 0,
+			"w": 160,
+			"h": 160,
+			"sha1": "5a1f33f6a0557139bcd70ce23b36eda72afc670e"
+		},
+		{
+			"map": "nameless",
+			"ox": 1056,
+			"oy": 960,
+			"w": 160,
+			"h": 160,
+			"sha1": "e275c8186c1ddbe182bb53be5cd9507ccb8c064f"
+		},
+		{
+			"map": "nameless",
+			"ox": 1952,
+			"oy": 1760,
+			"w": 160,
+			"h": 160,
+			"sha1": "645ac01feb4d701d2c596bc873d5012bb303f5c8"
+		},
+		{
+			"map": "nameless",
+			"ox": 1476,
+			"oy": 0,
+			"w": 160,
+			"h": 160,
+			"sha1": "4de6cd16af3d9134680218848e814a167e77e3b8"
+		},
+		{
+			"map": "nameless",
+			"ox": 180,
+			"oy": 228,
+			"w": 160,
+			"h": 160,
+			"sha1": "1aa1d07251456da5f9095041e45d56cbac4c0886"
+		},
+		{
+			"map": "oldfort",
+			"ox": 0,
+			"oy": 0,
+			"w": 160,
+			"h": 160,
+			"sha1": "3dae6e8a760858d71f2a0d033af2de1609dc173e"
+		},
+		{
+			"map": "oldfort",
+			"ox": 1152,
+			"oy": 960,
+			"w": 160,
+			"h": 160,
+			"sha1": "a522f59c48f841eac668826d2890b82f15eced5b"
+		},
+		{
+			"map": "oldfort",
+			"ox": 2144,
+			"oy": 1760,
+			"w": 160,
+			"h": 160,
+			"sha1": "52c71246176cc2a546bf0aa7ea016ba6352e0498"
+		},
+		{
+			"map": "oldfort",
+			"ox": 0,
+			"oy": 564,
+			"w": 160,
+			"h": 160,
+			"sha1": "515f25a265f83b0560aaa4b812943fcd7130967f"
+		},
+		{
+			"map": "oldfort",
+			"ox": 852,
+			"oy": 324,
+			"w": 160,
+			"h": 160,
+			"sha1": "b8a94358540525f61b4a85ac0bd04125f3ae005b"
+		},
+		{
+			"map": "oldfort",
+			"ox": 132,
+			"oy": 36,
+			"w": 160,
+			"h": 160,
+			"sha1": "a3d74afd9b2b6883d3d92aa3a7ad5594de5cd2ba"
+		},
+		{
+			"map": "riverflats",
+			"ox": 0,
+			"oy": 0,
+			"w": 160,
+			"h": 160,
+			"sha1": "00b869ac9fb8a19c186eb2b0f82ce9b44de64007"
+		},
+		{
+			"map": "riverflats",
+			"ox": 1200,
+			"oy": 1008,
+			"w": 160,
+			"h": 160,
+			"sha1": "d0b978220ff7b680e515e993edd0d70c7034c7ce"
+		},
+		{
+			"map": "riverflats",
+			"ox": 2240,
+			"oy": 1856,
+			"w": 160,
+			"h": 160,
+			"sha1": "d0a6d9c4f1c9d3a8fa8747a74dbdfd0c1ac2bcc3"
+		},
+		{
+			"map": "riverflats",
+			"ox": 1812,
+			"oy": 612,
+			"w": 160,
+			"h": 160,
+			"sha1": "71772af464208d5a43967e4d4cc82b7e22748481"
+		},
+		{
+			"map": "riverflats",
+			"ox": 2100,
+			"oy": 0,
+			"w": 160,
+			"h": 160,
+			"sha1": "98f4f0eadde16a2be48936cd975bab1fa55bddfd"
+		},
+		{
+			"map": "riverflats",
+			"ox": 948,
+			"oy": 0,
+			"w": 160,
+			"h": 160,
+			"sha1": "5e4b8e5de56e064b9f7d82844ba5eb13f32edb15"
+		},
+		{
+			"map": "riverflats",
+			"ox": 372,
+			"oy": 948,
+			"w": 160,
+			"h": 160,
+			"sha1": "ac1dbe380ae72ec105192edb96a9b2c593284cfe"
+		},
+		{
+			"map": "rivergate",
+			"ox": 0,
+			"oy": 0,
+			"w": 160,
+			"h": 160,
+			"sha1": "34d5a873ea51e077572a227f629d7388e0362dd6"
+		},
+		{
+			"map": "rivergate",
+			"ox": 960,
+			"oy": 1056,
+			"w": 160,
+			"h": 160,
+			"sha1": "16569744b3ed40414d017e5aa4e1b340395772dd"
+		},
+		{
+			"map": "rivergate",
+			"ox": 1760,
+			"oy": 1952,
+			"w": 160,
+			"h": 160,
+			"sha1": "548624275a3195185614e03e840c2e2597b8da34"
+		},
+		{
+			"map": "rivergate",
+			"ox": 1380,
+			"oy": 0,
+			"w": 160,
+			"h": 160,
+			"sha1": "2fbdc285bd117c3c5f64af2065d12a0f5b7c651a"
+		},
+		{
+			"map": "rivergate",
+			"ox": 948,
+			"oy": 0,
+			"w": 160,
+			"h": 160,
+			"sha1": "a08766bec2b567e7c8626b75d29374a8269523b6"
+		},
+		{
+			"map": "rivergate",
+			"ox": 0,
+			"oy": 0,
+			"w": 160,
+			"h": 160,
+			"sha1": "34d5a873ea51e077572a227f629d7388e0362dd6"
+		},
+		{
+			"map": "shrine",
+			"ox": 0,
+			"oy": 0,
+			"w": 160,
+			"h": 160,
+			"sha1": "b6556d0fbccc10fbd81ee1c1f655dd7d0000cecf"
+		},
+		{
+			"map": "shrine",
+			"ox": 720,
+			"oy": 624,
+			"w": 160,
+			"h": 160,
+			"sha1": "5f3af4b87b729310b850477c4027ee3d48caa97f"
+		},
+		{
+			"map": "shrine",
+			"ox": 1280,
+			"oy": 1088,
+			"w": 160,
+			"h": 160,
+			"sha1": "eb355b5aaaf3c91c620b18ef18b526f166912024"
+		},
+		{
+			"map": "shrine",
+			"ox": 612,
+			"oy": 324,
+			"w": 160,
+			"h": 160,
+			"sha1": "99243c7f88926d240fc5c79ab2bbe3f91cbc148b"
+		},
+		{
+			"map": "shrine",
+			"ox": 0,
+			"oy": 0,
+			"w": 160,
+			"h": 160,
+			"sha1": "b6556d0fbccc10fbd81ee1c1f655dd7d0000cecf"
+		},
+		{
+			"map": "town",
+			"ox": 0,
+			"oy": 0,
+			"w": 160,
+			"h": 160,
+			"sha1": "af54d28b9ec2606d5f010869ab0b7a8ac497e606"
+		},
+		{
+			"map": "town",
+			"ox": 1200,
+			"oy": 1248,
+			"w": 160,
+			"h": 160,
+			"sha1": "a01215d53d6c577592d86afcd896be75ff14197d"
+		},
+		{
+			"map": "town",
+			"ox": 2240,
+			"oy": 2336,
+			"w": 160,
+			"h": 160,
+			"sha1": "eadfa5d8def23633e5f9cb4aa7cfcd433041bb28"
+		},
+		{
+			"map": "town",
+			"ox": 1956,
+			"oy": 1140,
+			"w": 160,
+			"h": 160,
+			"sha1": "41772c91c54b3b5a39abd4787d9e8b79dea964aa"
+		},
+		{
+			"map": "town",
+			"ox": 2004,
+			"oy": 0,
+			"w": 160,
+			"h": 160,
+			"sha1": "d2ce2267a238e14ecf55df0b2bc69f0db18d592d"
+		},
+		{
+			"map": "town",
+			"ox": 948,
+			"oy": 0,
+			"w": 160,
+			"h": 160,
+			"sha1": "c851920f55083a8a0a6b9caabc24de4b77e43577"
+		},
+		{
+			"map": "town",
+			"ox": 900,
+			"oy": 948,
+			"w": 160,
+			"h": 160,
+			"sha1": "ad47b631d80a24ffa065a5b34972617de6441ea4"
+		}
+	],
+	"colors": [
+		{
+			"biome": null,
+			"ch": "g",
+			"rgb": [
+				83,
+				133,
+				67
+			]
+		},
+		{
+			"biome": null,
+			"ch": "f",
+			"rgb": [
+				55,
+				88,
+				51
+			]
+		},
+		{
+			"biome": null,
+			"ch": "d",
+			"rgb": [
+				133,
+				100,
+				66
+			]
+		},
+		{
+			"biome": null,
+			"ch": "c",
+			"rgb": [
+				150,
+				145,
+				133
+			]
+		},
+		{
+			"biome": null,
+			"ch": "w",
+			"rgb": [
+				58,
+				110,
+				160
+			]
+		},
+		{
+			"biome": null,
+			"ch": "b",
+			"rgb": [
+				130,
+				92,
+				58
+			]
+		},
+		{
+			"biome": null,
+			"ch": "x",
+			"rgb": [
+				0,
+				0,
+				0
+			]
+		},
+		{
+			"biome": "meadow",
+			"ch": "g",
+			"rgb": [
+				83,
+				133,
+				67
+			]
+		},
+		{
+			"biome": "meadow",
+			"ch": "f",
+			"rgb": [
+				55,
+				88,
+				51
+			]
+		},
+		{
+			"biome": "meadow",
+			"ch": "d",
+			"rgb": [
+				133,
+				100,
+				66
+			]
+		},
+		{
+			"biome": "meadow",
+			"ch": "c",
+			"rgb": [
+				150,
+				145,
+				133
+			]
+		},
+		{
+			"biome": "meadow",
+			"ch": "w",
+			"rgb": [
+				58,
+				110,
+				160
+			]
+		},
+		{
+			"biome": "meadow",
+			"ch": "b",
+			"rgb": [
+				130,
+				92,
+				58
+			]
+		},
+		{
+			"biome": "meadow",
+			"ch": "x",
+			"rgb": [
+				0,
+				0,
+				0
+			]
+		},
+		{
+			"biome": "deadland",
+			"ch": "g",
+			"rgb": [
+				115,
+				106,
+				71
+			]
+		},
+		{
+			"biome": "deadland",
+			"ch": "f",
+			"rgb": [
+				74,
+				69,
+				54
+			]
+		},
+		{
+			"biome": "deadland",
+			"ch": "d",
+			"rgb": [
+				133,
+				100,
+				66
+			]
+		},
+		{
+			"biome": "deadland",
+			"ch": "c",
+			"rgb": [
+				150,
+				145,
+				133
+			]
+		},
+		{
+			"biome": "deadland",
+			"ch": "w",
+			"rgb": [
+				58,
+				110,
+				160
+			]
+		},
+		{
+			"biome": "deadland",
+			"ch": "b",
+			"rgb": [
+				130,
+				92,
+				58
+			]
+		},
+		{
+			"biome": "deadland",
+			"ch": "x",
+			"rgb": [
+				0,
+				0,
+				0
+			]
+		},
+		{
+			"biome": "rocky",
+			"ch": "g",
+			"rgb": [
+				120,
+				120,
+				108
+			]
+		},
+		{
+			"biome": "rocky",
+			"ch": "f",
+			"rgb": [
+				69,
+				73,
+				77
+			]
+		},
+		{
+			"biome": "rocky",
+			"ch": "d",
+			"rgb": [
+				133,
+				100,
+				66
+			]
+		},
+		{
+			"biome": "rocky",
+			"ch": "c",
+			"rgb": [
+				150,
+				145,
+				133
+			]
+		},
+		{
+			"biome": "rocky",
+			"ch": "w",
+			"rgb": [
+				58,
+				110,
+				160
+			]
+		},
+		{
+			"biome": "rocky",
+			"ch": "b",
+			"rgb": [
+				130,
+				92,
+				58
+			]
+		},
+		{
+			"biome": "rocky",
+			"ch": "x",
+			"rgb": [
+				0,
+				0,
+				0
+			]
+		}
+	]
+}

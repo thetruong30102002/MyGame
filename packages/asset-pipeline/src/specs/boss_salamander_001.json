@@ -85,5 +85,10 @@
 		"SW",
 		"NW"
 	],
-	"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 128px; ảnh mẫu nét = Quỷ vương. Vùng 6. Mô tả: a giant fire salamander boss facing the viewer head-on, its head pointing straight at the viewer, low wide lizard body seen from the front, four short thick legs splayed out to both sides with clawed feet planted, a long heavy tail stretching straight out BEHIND its body away from the head, in this front view the tail is hidden behind the body with only the tail tip peeking out behind one hind leg, smooth glossy jet-black skin with bright yellow-orange spots, a frill of flickering flame gills around its neck like a mane, small glowing orange eyes, symmetrical front view. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 176px."
+	"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 128px; ảnh mẫu nét = Quỷ vương. Vùng 6. Mô tả: a giant fire salamander boss facing the viewer head-on, its head pointing straight at the viewer, low wide lizard body seen from the front, four short thick legs splayed out to both sides with clawed feet planted, a long heavy tail stretching straight out BEHIND its body away from the head, in this front view the tail is hidden behind the body with only the tail tip peeking out behind one hind leg, smooth glossy jet-black skin with bright yellow-orange spots, a frill of flickering flame gills around its neck like a mane, small glowing orange eyes, symmetrical front view. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 176px.",
+	"review": {
+		"status": "approved",
+		"date": "10/10/2026",
+		"notes": "Duyệt bằng mắt (Claude, phiên chuyển Unity): ảnh giữa idle/walk hướng S/E/N + trọn attack E/S + death E từ contact sheet. Chủ dự án báo đã vẽ xong chiêu quái/boss trên PixelLab; đối chiếu bản tải lại 10/10/2026 khớp bản trên máy."
+	}
 }

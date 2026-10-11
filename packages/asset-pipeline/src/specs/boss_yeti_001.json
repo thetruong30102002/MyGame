@@ -77,5 +77,10 @@
 		"SW",
 		"NW"
 	],
-	"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template mannequin, khổ vẽ 128px; ảnh mẫu nét = Quỷ vương. Vùng 5. Mô tả: a towering yeti boss facing the viewer, massive ape-like body covered in long shaggy blue-white fur, pale blue leathery face with a heavy brow, curved grey ram-like horns, very long arms with huge dark knuckles, icicles tangled in its fur, old claw scars across its broad chest, fierce protective glowing amber eyes. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 176px."
+	"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template mannequin, khổ vẽ 128px; ảnh mẫu nét = Quỷ vương. Vùng 5. Mô tả: a towering yeti boss facing the viewer, massive ape-like body covered in long shaggy blue-white fur, pale blue leathery face with a heavy brow, curved grey ram-like horns, very long arms with huge dark knuckles, icicles tangled in its fur, old claw scars across its broad chest, fierce protective glowing amber eyes. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 176px.",
+	"review": {
+		"status": "approved",
+		"date": "10/10/2026",
+		"notes": "Duyệt bằng mắt (Claude, phiên chuyển Unity): ảnh giữa idle/walk hướng S/E/N + trọn attack E/S + death E từ contact sheet. Chủ dự án báo đã vẽ xong chiêu quái/boss trên PixelLab; đối chiếu bản tải lại 10/10/2026 khớp bản trên máy."
+	}
 }

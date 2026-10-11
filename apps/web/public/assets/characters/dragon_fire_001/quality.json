@@ -1,0 +1,139 @@
+{
+	"checks": [
+		{
+			"id": "anim-idle",
+			"label": "Animation idle: đủ 8 hướng, 4–8 frame",
+			"status": "pass",
+			"detail": "S:4 W:4 N:4 E:4 · TẠM ảnh tĩnh: SW, NW, NE, SE"
+		},
+		{
+			"id": "anim-walk",
+			"label": "Animation walk: đủ 8 hướng, 4–8 frame",
+			"status": "pass",
+			"detail": "S:6 W:6 N:6 E:6 · TẠM ảnh tĩnh: SW, NW, NE, SE"
+		},
+		{
+			"id": "no-empty-frames",
+			"label": "Không có frame rỗng (ô trống trong sheet nguồn)",
+			"status": "pass",
+			"detail": "mọi frame có hình"
+		},
+		{
+			"id": "dimensions",
+			"label": "Đúng kích thước 272×272",
+			"status": "pass",
+			"detail": "mọi frame đúng cỡ"
+		},
+		{
+			"id": "transparent-bg",
+			"label": "Nền trong suốt (viền canvas rỗng)",
+			"status": "pass",
+			"detail": "mọi frame có viền rỗng"
+		},
+		{
+			"id": "crisp-alpha",
+			"label": "Mép cứng: không có pixel bán trong suốt (không AA)",
+			"status": "pass",
+			"detail": "0 pixel bán trong suốt"
+		},
+		{
+			"id": "no-blur",
+			"label": "Không nhoè: số màu/frame và tỉ lệ chuyển màu li ti",
+			"status": "pass",
+			"detail": "tối đa 76 màu/frame (ngưỡng 128), micro-step 0.1% (ngưỡng 12%)"
+		},
+		{
+			"id": "silhouette-size",
+			"label": "Silhouette đủ lớn để đọc được (20–95% chiều cao canvas)",
+			"status": "pass",
+			"detail": "cao 125–148px trên 272px"
+		},
+		{
+			"id": "silhouette-solid",
+			"label": "Silhouette liền khối (không mảnh rời)",
+			"status": "pass",
+			"detail": "mọi frame liền khối"
+		},
+		{
+			"id": "proportions",
+			"label": "Tỉ lệ nhất quán giữa các frame cùng hướng (lệch cao ≤ 25%)",
+			"status": "pass",
+			"detail": "ổn định"
+		},
+		{
+			"id": "no-foreign-objects",
+			"label": "Không có vật/màu lạ chỉ xuất hiện ở vài frame (vũ khí ngẫu nhiên, đổi áo/tóc)",
+			"status": "pass",
+			"detail": "bảng màu nhất quán"
+		},
+		{
+			"id": "anatomy",
+			"label": "Duyệt bằng mắt: giải phẫu, vũ khí/trang phục/tóc không đổi giữa frame",
+			"status": "pass",
+			"detail": "10/10/2026: Duyệt bằng mắt (Claude, phiên chuyển Unity): ảnh giữa idle/walk hướng S/E/N + trọn attack E/S + death E từ contact sheet. Chủ dự án báo đã vẽ xong chiêu quái/boss trên PixelLab; đối chiếu bản tải lại 10/10/2026 khớp bản trên máy."
+		}
+	],
+	"stats": {
+		"frames": 80,
+		"maxColorsPerFrame": 76,
+		"microStepRatio": 0.001002188433827115
+	},
+	"optional": [
+		{
+			"animation": "attack",
+			"direction": "S",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "attack",
+			"direction": "N",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "attack",
+			"direction": "E",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "attack",
+			"direction": "W",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "death",
+			"direction": "S",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "death",
+			"direction": "N",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "death",
+			"direction": "E",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "death",
+			"direction": "W",
+			"frames": 8,
+			"passed": true,
+			"failed": []
+		}
+	]
+}

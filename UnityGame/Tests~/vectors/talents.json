@@ -1,0 +1,1073 @@
+{
+	"baseTier": [
+		{
+			"branch": "sword",
+			"out": 1
+		},
+		{
+			"branch": "fire",
+			"out": 0
+		},
+		{
+			"branch": "water",
+			"out": 0
+		},
+		{
+			"branch": "wind",
+			"out": 0
+		},
+		{
+			"branch": "ice",
+			"out": 0
+		},
+		{
+			"branch": "earth",
+			"out": 0
+		}
+	],
+	"tierCost": [
+		{
+			"branch": "sword",
+			"tier": 0,
+			"out": 0
+		},
+		{
+			"branch": "sword",
+			"tier": 1,
+			"out": 0
+		},
+		{
+			"branch": "sword",
+			"tier": 2,
+			"out": 1
+		},
+		{
+			"branch": "sword",
+			"tier": 3,
+			"out": 2
+		},
+		{
+			"branch": "sword",
+			"tier": 4,
+			"out": 2
+		},
+		{
+			"branch": "sword",
+			"tier": 5,
+			"out": 3
+		},
+		{
+			"branch": "sword",
+			"tier": 6,
+			"out": 3
+		},
+		{
+			"branch": "sword",
+			"tier": 7,
+			"out": 4
+		},
+		{
+			"branch": "sword",
+			"tier": 8,
+			"out": 4
+		},
+		{
+			"branch": "sword",
+			"tier": 9,
+			"out": 5
+		},
+		{
+			"branch": "sword",
+			"tier": 10,
+			"out": 5
+		},
+		{
+			"branch": "sword",
+			"tier": 11,
+			"out": 0
+		},
+		{
+			"branch": "fire",
+			"tier": 0,
+			"out": 0
+		},
+		{
+			"branch": "fire",
+			"tier": 1,
+			"out": 1
+		},
+		{
+			"branch": "fire",
+			"tier": 2,
+			"out": 1
+		},
+		{
+			"branch": "fire",
+			"tier": 3,
+			"out": 2
+		},
+		{
+			"branch": "fire",
+			"tier": 4,
+			"out": 2
+		},
+		{
+			"branch": "fire",
+			"tier": 5,
+			"out": 3
+		},
+		{
+			"branch": "fire",
+			"tier": 6,
+			"out": 3
+		},
+		{
+			"branch": "fire",
+			"tier": 7,
+			"out": 4
+		},
+		{
+			"branch": "fire",
+			"tier": 8,
+			"out": 4
+		},
+		{
+			"branch": "fire",
+			"tier": 9,
+			"out": 5
+		},
+		{
+			"branch": "fire",
+			"tier": 10,
+			"out": 5
+		},
+		{
+			"branch": "fire",
+			"tier": 11,
+			"out": 0
+		},
+		{
+			"branch": "water",
+			"tier": 0,
+			"out": 0
+		},
+		{
+			"branch": "water",
+			"tier": 1,
+			"out": 1
+		},
+		{
+			"branch": "water",
+			"tier": 2,
+			"out": 1
+		},
+		{
+			"branch": "water",
+			"tier": 3,
+			"out": 2
+		},
+		{
+			"branch": "water",
+			"tier": 4,
+			"out": 2
+		},
+		{
+			"branch": "water",
+			"tier": 5,
+			"out": 3
+		},
+		{
+			"branch": "water",
+			"tier": 6,
+			"out": 3
+		},
+		{
+			"branch": "water",
+			"tier": 7,
+			"out": 4
+		},
+		{
+			"branch": "water",
+			"tier": 8,
+			"out": 4
+		},
+		{
+			"branch": "water",
+			"tier": 9,
+			"out": 5
+		},
+		{
+			"branch": "water",
+			"tier": 10,
+			"out": 5
+		},
+		{
+			"branch": "water",
+			"tier": 11,
+			"out": 0
+		},
+		{
+			"branch": "wind",
+			"tier": 0,
+			"out": 0
+		},
+		{
+			"branch": "wind",
+			"tier": 1,
+			"out": 1
+		},
+		{
+			"branch": "wind",
+			"tier": 2,
+			"out": 1
+		},
+		{
+			"branch": "wind",
+			"tier": 3,
+			"out": 2
+		},
+		{
+			"branch": "wind",
+			"tier": 4,
+			"out": 2
+		},
+		{
+			"branch": "wind",
+			"tier": 5,
+			"out": 3
+		},
+		{
+			"branch": "wind",
+			"tier": 6,
+			"out": 3
+		},
+		{
+			"branch": "wind",
+			"tier": 7,
+			"out": 4
+		},
+		{
+			"branch": "wind",
+			"tier": 8,
+			"out": 4
+		},
+		{
+			"branch": "wind",
+			"tier": 9,
+			"out": 5
+		},
+		{
+			"branch": "wind",
+			"tier": 10,
+			"out": 5
+		},
+		{
+			"branch": "wind",
+			"tier": 11,
+			"out": 0
+		},
+		{
+			"branch": "ice",
+			"tier": 0,
+			"out": 0
+		},
+		{
+			"branch": "ice",
+			"tier": 1,
+			"out": 1
+		},
+		{
+			"branch": "ice",
+			"tier": 2,
+			"out": 1
+		},
+		{
+			"branch": "ice",
+			"tier": 3,
+			"out": 2
+		},
+		{
+			"branch": "ice",
+			"tier": 4,
+			"out": 2
+		},
+		{
+			"branch": "ice",
+			"tier": 5,
+			"out": 3
+		},
+		{
+			"branch": "ice",
+			"tier": 6,
+			"out": 3
+		},
+		{
+			"branch": "ice",
+			"tier": 7,
+			"out": 4
+		},
+		{
+			"branch": "ice",
+			"tier": 8,
+			"out": 4
+		},
+		{
+			"branch": "ice",
+			"tier": 9,
+			"out": 5
+		},
+		{
+			"branch": "ice",
+			"tier": 10,
+			"out": 5
+		},
+		{
+			"branch": "ice",
+			"tier": 11,
+			"out": 0
+		},
+		{
+			"branch": "earth",
+			"tier": 0,
+			"out": 0
+		},
+		{
+			"branch": "earth",
+			"tier": 1,
+			"out": 1
+		},
+		{
+			"branch": "earth",
+			"tier": 2,
+			"out": 1
+		},
+		{
+			"branch": "earth",
+			"tier": 3,
+			"out": 2
+		},
+		{
+			"branch": "earth",
+			"tier": 4,
+			"out": 2
+		},
+		{
+			"branch": "earth",
+			"tier": 5,
+			"out": 3
+		},
+		{
+			"branch": "earth",
+			"tier": 6,
+			"out": 3
+		},
+		{
+			"branch": "earth",
+			"tier": 7,
+			"out": 4
+		},
+		{
+			"branch": "earth",
+			"tier": 8,
+			"out": 4
+		},
+		{
+			"branch": "earth",
+			"tier": 9,
+			"out": 5
+		},
+		{
+			"branch": "earth",
+			"tier": 10,
+			"out": 5
+		},
+		{
+			"branch": "earth",
+			"tier": 11,
+			"out": 0
+		}
+	],
+	"pointsForLevel": [
+		{
+			"level": -5,
+			"out": 0
+		},
+		{
+			"level": 0,
+			"out": 0
+		},
+		{
+			"level": 0.4,
+			"out": 0
+		},
+		{
+			"level": 1,
+			"out": 0
+		},
+		{
+			"level": 1.9,
+			"out": 0
+		},
+		{
+			"level": 2,
+			"out": 1
+		},
+		{
+			"level": 5,
+			"out": 5
+		},
+		{
+			"level": 9,
+			"out": 9
+		},
+		{
+			"level": 10,
+			"out": 11
+		},
+		{
+			"level": 10.5,
+			"out": 11
+		},
+		{
+			"level": 11,
+			"out": 12
+		},
+		{
+			"level": 15,
+			"out": 17
+		},
+		{
+			"level": 20,
+			"out": 23
+		},
+		{
+			"level": 39,
+			"out": 45
+		},
+		{
+			"level": 40,
+			"out": 47
+		},
+		{
+			"level": 41,
+			"out": 47
+		},
+		{
+			"level": 50,
+			"out": 47
+		},
+		{
+			"level": 75,
+			"out": 47
+		},
+		{
+			"level": 99,
+			"out": 47
+		},
+		{
+			"level": 100,
+			"out": 47
+		},
+		{
+			"level": 150,
+			"out": 47
+		}
+	],
+	"cleanBonusPoints": [
+		{
+			"value": null,
+			"out": 0
+		},
+		{
+			"value": null,
+			"out": 0
+		},
+		{
+			"value": -3,
+			"out": 0
+		},
+		{
+			"value": 0,
+			"out": 0
+		},
+		{
+			"value": 2.7,
+			"out": 2
+		},
+		{
+			"value": 15,
+			"out": 15
+		},
+		{
+			"value": 998.9,
+			"out": 998
+		},
+		{
+			"value": 5000,
+			"out": 999
+		},
+		{
+			"value": "abc",
+			"out": 0
+		}
+	],
+	"talentPoints": [
+		{
+			"level": -5,
+			"bonus": 0,
+			"out": 0
+		},
+		{
+			"level": -5,
+			"bonus": 3,
+			"out": 3
+		},
+		{
+			"level": -5,
+			"bonus": 2000,
+			"out": 999
+		},
+		{
+			"level": 0,
+			"bonus": 0,
+			"out": 0
+		},
+		{
+			"level": 0,
+			"bonus": 3,
+			"out": 3
+		},
+		{
+			"level": 0,
+			"bonus": 2000,
+			"out": 999
+		},
+		{
+			"level": 0.4,
+			"bonus": 0,
+			"out": 0
+		},
+		{
+			"level": 0.4,
+			"bonus": 3,
+			"out": 3
+		},
+		{
+			"level": 0.4,
+			"bonus": 2000,
+			"out": 999
+		},
+		{
+			"level": 1,
+			"bonus": 0,
+			"out": 0
+		},
+		{
+			"level": 1,
+			"bonus": 3,
+			"out": 3
+		},
+		{
+			"level": 1,
+			"bonus": 2000,
+			"out": 999
+		},
+		{
+			"level": 1.9,
+			"bonus": 0,
+			"out": 0
+		},
+		{
+			"level": 1.9,
+			"bonus": 3,
+			"out": 3
+		},
+		{
+			"level": 1.9,
+			"bonus": 2000,
+			"out": 999
+		},
+		{
+			"level": 2,
+			"bonus": 0,
+			"out": 1
+		},
+		{
+			"level": 2,
+			"bonus": 3,
+			"out": 4
+		},
+		{
+			"level": 2,
+			"bonus": 2000,
+			"out": 1000
+		},
+		{
+			"level": 5,
+			"bonus": 0,
+			"out": 5
+		},
+		{
+			"level": 5,
+			"bonus": 3,
+			"out": 8
+		},
+		{
+			"level": 5,
+			"bonus": 2000,
+			"out": 1004
+		},
+		{
+			"level": 9,
+			"bonus": 0,
+			"out": 9
+		},
+		{
+			"level": 9,
+			"bonus": 3,
+			"out": 12
+		},
+		{
+			"level": 9,
+			"bonus": 2000,
+			"out": 1008
+		},
+		{
+			"level": 10,
+			"bonus": 0,
+			"out": 11
+		},
+		{
+			"level": 10,
+			"bonus": 3,
+			"out": 14
+		},
+		{
+			"level": 10,
+			"bonus": 2000,
+			"out": 1010
+		},
+		{
+			"level": 10.5,
+			"bonus": 0,
+			"out": 11
+		},
+		{
+			"level": 10.5,
+			"bonus": 3,
+			"out": 14
+		},
+		{
+			"level": 10.5,
+			"bonus": 2000,
+			"out": 1010
+		},
+		{
+			"level": 11,
+			"bonus": 0,
+			"out": 12
+		},
+		{
+			"level": 11,
+			"bonus": 3,
+			"out": 15
+		},
+		{
+			"level": 11,
+			"bonus": 2000,
+			"out": 1011
+		},
+		{
+			"level": 15,
+			"bonus": 0,
+			"out": 17
+		},
+		{
+			"level": 15,
+			"bonus": 3,
+			"out": 20
+		},
+		{
+			"level": 15,
+			"bonus": 2000,
+			"out": 1016
+		},
+		{
+			"level": 20,
+			"bonus": 0,
+			"out": 23
+		},
+		{
+			"level": 20,
+			"bonus": 3,
+			"out": 26
+		},
+		{
+			"level": 20,
+			"bonus": 2000,
+			"out": 1022
+		},
+		{
+			"level": 39,
+			"bonus": 0,
+			"out": 45
+		},
+		{
+			"level": 39,
+			"bonus": 3,
+			"out": 48
+		},
+		{
+			"level": 39,
+			"bonus": 2000,
+			"out": 1044
+		},
+		{
+			"level": 40,
+			"bonus": 0,
+			"out": 47
+		},
+		{
+			"level": 40,
+			"bonus": 3,
+			"out": 50
+		},
+		{
+			"level": 40,
+			"bonus": 2000,
+			"out": 1046
+		},
+		{
+			"level": 41,
+			"bonus": 0,
+			"out": 47
+		},
+		{
+			"level": 41,
+			"bonus": 3,
+			"out": 50
+		},
+		{
+			"level": 41,
+			"bonus": 2000,
+			"out": 1046
+		},
+		{
+			"level": 50,
+			"bonus": 0,
+			"out": 47
+		},
+		{
+			"level": 50,
+			"bonus": 3,
+			"out": 50
+		},
+		{
+			"level": 50,
+			"bonus": 2000,
+			"out": 1046
+		},
+		{
+			"level": 75,
+			"bonus": 0,
+			"out": 47
+		},
+		{
+			"level": 75,
+			"bonus": 3,
+			"out": 50
+		},
+		{
+			"level": 75,
+			"bonus": 2000,
+			"out": 1046
+		},
+		{
+			"level": 99,
+			"bonus": 0,
+			"out": 47
+		},
+		{
+			"level": 99,
+			"bonus": 3,
+			"out": 50
+		},
+		{
+			"level": 99,
+			"bonus": 2000,
+			"out": 1046
+		},
+		{
+			"level": 100,
+			"bonus": 0,
+			"out": 47
+		},
+		{
+			"level": 100,
+			"bonus": 3,
+			"out": 50
+		},
+		{
+			"level": 100,
+			"bonus": 2000,
+			"out": 1046
+		},
+		{
+			"level": 150,
+			"bonus": 0,
+			"out": 47
+		},
+		{
+			"level": 150,
+			"bonus": 3,
+			"out": 50
+		},
+		{
+			"level": 150,
+			"bonus": 2000,
+			"out": 1046
+		}
+	],
+	"pointsToTier": [
+		{
+			"branch": "sword",
+			"tier": 0,
+			"out": 0
+		},
+		{
+			"branch": "sword",
+			"tier": 1,
+			"out": 0
+		},
+		{
+			"branch": "sword",
+			"tier": 2,
+			"out": 1
+		},
+		{
+			"branch": "sword",
+			"tier": 3,
+			"out": 3
+		},
+		{
+			"branch": "sword",
+			"tier": 5,
+			"out": 8
+		},
+		{
+			"branch": "sword",
+			"tier": 7.5,
+			"out": 15
+		},
+		{
+			"branch": "sword",
+			"tier": 10,
+			"out": 29
+		},
+		{
+			"branch": "sword",
+			"tier": 12,
+			"out": 29
+		},
+		{
+			"branch": "fire",
+			"tier": 0,
+			"out": 0
+		},
+		{
+			"branch": "fire",
+			"tier": 1,
+			"out": 1
+		},
+		{
+			"branch": "fire",
+			"tier": 2,
+			"out": 2
+		},
+		{
+			"branch": "fire",
+			"tier": 3,
+			"out": 4
+		},
+		{
+			"branch": "fire",
+			"tier": 5,
+			"out": 9
+		},
+		{
+			"branch": "fire",
+			"tier": 7.5,
+			"out": 16
+		},
+		{
+			"branch": "fire",
+			"tier": 10,
+			"out": 30
+		},
+		{
+			"branch": "fire",
+			"tier": 12,
+			"out": 30
+		},
+		{
+			"branch": "water",
+			"tier": 0,
+			"out": 0
+		},
+		{
+			"branch": "water",
+			"tier": 1,
+			"out": 1
+		},
+		{
+			"branch": "water",
+			"tier": 2,
+			"out": 2
+		},
+		{
+			"branch": "water",
+			"tier": 3,
+			"out": 4
+		},
+		{
+			"branch": "water",
+			"tier": 5,
+			"out": 9
+		},
+		{
+			"branch": "water",
+			"tier": 7.5,
+			"out": 16
+		},
+		{
+			"branch": "water",
+			"tier": 10,
+			"out": 30
+		},
+		{
+			"branch": "water",
+			"tier": 12,
+			"out": 30
+		},
+		{
+			"branch": "wind",
+			"tier": 0,
+			"out": 0
+		},
+		{
+			"branch": "wind",
+			"tier": 1,
+			"out": 1
+		},
+		{
+			"branch": "wind",
+			"tier": 2,
+			"out": 2
+		},
+		{
+			"branch": "wind",
+			"tier": 3,
+			"out": 4
+		},
+		{
+			"branch": "wind",
+			"tier": 5,
+			"out": 9
+		},
+		{
+			"branch": "wind",
+			"tier": 7.5,
+			"out": 16
+		},
+		{
+			"branch": "wind",
+			"tier": 10,
+			"out": 30
+		},
+		{
+			"branch": "wind",
+			"tier": 12,
+			"out": 30
+		},
+		{
+			"branch": "ice",
+			"tier": 0,
+			"out": 0
+		},
+		{
+			"branch": "ice",
+			"tier": 1,
+			"out": 1
+		},
+		{
+			"branch": "ice",
+			"tier": 2,
+			"out": 2
+		},
+		{
+			"branch": "ice",
+			"tier": 3,
+			"out": 4
+		},
+		{
+			"branch": "ice",
+			"tier": 5,
+			"out": 9
+		},
+		{
+			"branch": "ice",
+			"tier": 7.5,
+			"out": 16
+		},
+		{
+			"branch": "ice",
+			"tier": 10,
+			"out": 30
+		},
+		{
+			"branch": "ice",
+			"tier": 12,
+			"out": 30
+		},
+		{
+			"branch": "earth",
+			"tier": 0,
+			"out": 0
+		},
+		{
+			"branch": "earth",
+			"tier": 1,
+			"out": 1
+		},
+		{
+			"branch": "earth",
+			"tier": 2,
+			"out": 2
+		},
+		{
+			"branch": "earth",
+			"tier": 3,
+			"out": 4
+		},
+		{
+			"branch": "earth",
+			"tier": 5,
+			"out": 9
+		},
+		{
+			"branch": "earth",
+			"tier": 7.5,
+			"out": 16
+		},
+		{
+			"branch": "earth",
+			"tier": 10,
+			"out": 30
+		},
+		{
+			"branch": "earth",
+			"tier": 12,
+			"out": 30
+		}
+	]
+}

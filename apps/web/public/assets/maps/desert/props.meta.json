@@ -1,0 +1,674 @@
+{
+	"palm": {
+		"kind": "tree",
+		"w": 119,
+		"h": 165,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 19,
+			"h": 14
+		}
+	},
+	"palm_flip": {
+		"kind": "tree",
+		"w": 119,
+		"h": 165,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 19,
+			"h": 14
+		}
+	},
+	"palm_dry": {
+		"kind": "tree",
+		"w": 119,
+		"h": 165,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 19,
+			"h": 14
+		}
+	},
+	"city_gate": {
+		"kind": "building",
+		"w": 162,
+		"h": 162,
+		"blocks": true,
+		"footprint": {
+			"x": -73,
+			"y": -40,
+			"w": 146,
+			"h": 40
+		}
+	},
+	"dome_house": {
+		"kind": "building",
+		"w": 142,
+		"h": 161,
+		"blocks": true,
+		"footprint": {
+			"x": -61,
+			"y": -56,
+			"w": 122,
+			"h": 56
+		}
+	},
+	"market_tent": {
+		"kind": "building",
+		"w": 166,
+		"h": 163,
+		"blocks": true,
+		"footprint": {
+			"x": -72,
+			"y": -40,
+			"w": 143,
+			"h": 40
+		}
+	},
+	"saguaro": {
+		"kind": "bush",
+		"w": 37,
+		"h": 52,
+		"blocks": true,
+		"footprint": {
+			"x": -11,
+			"y": -12,
+			"w": 22,
+			"h": 12
+		}
+	},
+	"prickly_pear": {
+		"kind": "bush",
+		"w": 49,
+		"h": 46,
+		"blocks": true,
+		"footprint": {
+			"x": -15,
+			"y": -12,
+			"w": 29,
+			"h": 12
+		}
+	},
+	"dry_shrub": {
+		"kind": "flower",
+		"w": 45,
+		"h": 43,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"red_rock": {
+		"kind": "rock",
+		"w": 44,
+		"h": 38,
+		"blocks": true,
+		"footprint": {
+			"x": -18,
+			"y": -18,
+			"w": 35,
+			"h": 18
+		}
+	},
+	"bull_skull": {
+		"kind": "flower",
+		"w": 50,
+		"h": 45,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"dune_mound": {
+		"kind": "flower",
+		"w": 46,
+		"h": 26,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"agave": {
+		"kind": "bush",
+		"w": 46,
+		"h": 45,
+		"blocks": true,
+		"footprint": {
+			"x": -14,
+			"y": -12,
+			"w": 28,
+			"h": 12
+		}
+	},
+	"cracked_earth": {
+		"kind": "flower",
+		"w": 50,
+		"h": 36,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"red_spire": {
+		"kind": "rock",
+		"w": 39,
+		"h": 49,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 20,
+			"h": 14
+		}
+	},
+	"amphorae": {
+		"kind": "decor",
+		"w": 46,
+		"h": 43,
+		"blocks": true,
+		"footprint": {
+			"x": -19,
+			"y": -14,
+			"w": 37,
+			"h": 14
+		}
+	},
+	"carpet_stall": {
+		"kind": "building",
+		"w": 54,
+		"h": 52,
+		"blocks": true,
+		"footprint": {
+			"x": -23,
+			"y": -26,
+			"w": 46,
+			"h": 26
+		}
+	},
+	"oasis_well": {
+		"kind": "decor",
+		"w": 47,
+		"h": 49,
+		"blocks": true,
+		"footprint": {
+			"x": -19,
+			"y": -22,
+			"w": 38,
+			"h": 22
+		}
+	},
+	"banner_pole": {
+		"kind": "decor",
+		"w": 32,
+		"h": 53,
+		"blocks": true,
+		"footprint": {
+			"x": -5,
+			"y": -8,
+			"w": 10,
+			"h": 8
+		}
+	},
+	"fruit_crates": {
+		"kind": "decor",
+		"w": 51,
+		"h": 44,
+		"blocks": true,
+		"footprint": {
+			"x": -22,
+			"y": -14,
+			"w": 43,
+			"h": 14
+		}
+	},
+	"brass_lantern": {
+		"kind": "decor",
+		"w": 26,
+		"h": 47,
+		"blocks": true,
+		"footprint": {
+			"x": -5,
+			"y": -10,
+			"w": 10,
+			"h": 10
+		}
+	},
+	"spice_basket": {
+		"kind": "decor",
+		"w": 45,
+		"h": 35,
+		"blocks": true,
+		"footprint": {
+			"x": -18,
+			"y": -12,
+			"w": 36,
+			"h": 12
+		}
+	},
+	"potted_palm": {
+		"kind": "decor",
+		"w": 47,
+		"h": 51,
+		"blocks": true,
+		"footprint": {
+			"x": -14,
+			"y": -12,
+			"w": 28,
+			"h": 12
+		}
+	},
+	"camel_saddle": {
+		"kind": "decor",
+		"w": 46,
+		"h": 48,
+		"blocks": true,
+		"footprint": {
+			"x": -19,
+			"y": -14,
+			"w": 37,
+			"h": 14
+		}
+	},
+	"sarcophagus": {
+		"kind": "rock",
+		"w": 32,
+		"h": 56,
+		"blocks": true,
+		"footprint": {
+			"x": -11,
+			"y": -14,
+			"w": 22,
+			"h": 14
+		}
+	},
+	"obelisk": {
+		"kind": "rock",
+		"w": 31,
+		"h": 55,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 19,
+			"h": 14
+		}
+	},
+	"sphinx": {
+		"kind": "building",
+		"w": 52,
+		"h": 42,
+		"blocks": true,
+		"footprint": {
+			"x": -24,
+			"y": -22,
+			"w": 47,
+			"h": 22
+		}
+	},
+	"hiero_pillar": {
+		"kind": "rock",
+		"w": 31,
+		"h": 55,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 19,
+			"h": 14
+		}
+	},
+	"buried_urn": {
+		"kind": "decor",
+		"w": 46,
+		"h": 37,
+		"blocks": true,
+		"footprint": {
+			"x": -16,
+			"y": -12,
+			"w": 32,
+			"h": 12
+		}
+	},
+	"stone_tablet": {
+		"kind": "rock",
+		"w": 36,
+		"h": 49,
+		"blocks": true,
+		"footprint": {
+			"x": -13,
+			"y": -12,
+			"w": 25,
+			"h": 12
+		}
+	},
+	"statue_head": {
+		"kind": "rock",
+		"w": 50,
+		"h": 45,
+		"blocks": true,
+		"footprint": {
+			"x": -20,
+			"y": -16,
+			"w": 40,
+			"h": 16
+		}
+	},
+	"scarab_block": {
+		"kind": "rock",
+		"w": 39,
+		"h": 43,
+		"blocks": true,
+		"footprint": {
+			"x": -16,
+			"y": -16,
+			"w": 31,
+			"h": 16
+		}
+	},
+	"torch_stand": {
+		"kind": "decor",
+		"w": 29,
+		"h": 53,
+		"blocks": true,
+		"footprint": {
+			"x": -6,
+			"y": -10,
+			"w": 12,
+			"h": 10
+		}
+	},
+	"rune_stone": {
+		"kind": "rock",
+		"w": 46,
+		"h": 58,
+		"blocks": true,
+		"footprint": {
+			"x": -16,
+			"y": -18,
+			"w": 32,
+			"h": 18
+		}
+	},
+	"signpost": {
+		"kind": "decor",
+		"w": 55,
+		"h": 77,
+		"blocks": true,
+		"footprint": {
+			"x": -7,
+			"y": -10,
+			"w": 14,
+			"h": 10
+		}
+	},
+	"skull_pile": {
+		"kind": "flower",
+		"w": 40,
+		"h": 35,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"tree_dead": {
+		"kind": "tree",
+		"w": 122,
+		"h": 149,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 20,
+			"h": 14
+		}
+	},
+	"boulder": {
+		"kind": "rock",
+		"w": 48,
+		"h": 39,
+		"blocks": true,
+		"footprint": {
+			"x": -18,
+			"y": -20,
+			"w": 36,
+			"h": 20
+		}
+	},
+	"rock_outcrop": {
+		"kind": "rock",
+		"w": 45,
+		"h": 52,
+		"blocks": true,
+		"footprint": {
+			"x": -18,
+			"y": -18,
+			"w": 36,
+			"h": 18
+		}
+	},
+	"rock_spire": {
+		"kind": "rock",
+		"w": 27,
+		"h": 55,
+		"blocks": true,
+		"footprint": {
+			"x": -7,
+			"y": -12,
+			"w": 14,
+			"h": 12
+		}
+	},
+	"pale_rocks": {
+		"kind": "rock",
+		"w": 52,
+		"h": 38,
+		"blocks": true,
+		"footprint": {
+			"x": -18,
+			"y": -14,
+			"w": 36,
+			"h": 14
+		}
+	},
+	"beast_skull": {
+		"kind": "rock",
+		"w": 56,
+		"h": 53,
+		"blocks": true,
+		"footprint": {
+			"x": -20,
+			"y": -14,
+			"w": 39,
+			"h": 14
+		}
+	},
+	"ribcage": {
+		"kind": "rock",
+		"w": 49,
+		"h": 43,
+		"blocks": true,
+		"footprint": {
+			"x": -20,
+			"y": -14,
+			"w": 39,
+			"h": 14
+		}
+	},
+	"dead_stump": {
+		"kind": "rock",
+		"w": 44,
+		"h": 41,
+		"blocks": true,
+		"footprint": {
+			"x": -13,
+			"y": -12,
+			"w": 26,
+			"h": 12
+		}
+	},
+	"column_fallen": {
+		"kind": "rock",
+		"w": 54,
+		"h": 28,
+		"blocks": true,
+		"footprint": {
+			"x": -25,
+			"y": -12,
+			"w": 49,
+			"h": 12
+		}
+	},
+	"ruin_wall": {
+		"kind": "rock",
+		"w": 59,
+		"h": 36,
+		"blocks": true,
+		"footprint": {
+			"x": -28,
+			"y": -16,
+			"w": 56,
+			"h": 16
+		}
+	},
+	"palace_tower": {
+		"kind": "building",
+		"w": 107,
+		"h": 174,
+		"blocks": true,
+		"footprint": {
+			"x": -43,
+			"y": -50,
+			"w": 86,
+			"h": 50
+		}
+	},
+	"rock_arch": {
+		"kind": "building",
+		"w": 55,
+		"h": 44,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"red_outcrop": {
+		"kind": "rock",
+		"w": 58,
+		"h": 50,
+		"blocks": true,
+		"footprint": {
+			"x": -25,
+			"y": -20,
+			"w": 49,
+			"h": 20
+		}
+	},
+	"tumbleweed_d": {
+		"kind": "flower",
+		"w": 43,
+		"h": 40,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"desert_flower": {
+		"kind": "flower",
+		"w": 41,
+		"h": 45,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"snake_skeleton": {
+		"kind": "flower",
+		"w": 59,
+		"h": 41,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"scorpion_burrow": {
+		"kind": "rock",
+		"w": 49,
+		"h": 38,
+		"blocks": true,
+		"footprint": {
+			"x": -17,
+			"y": -12,
+			"w": 34,
+			"h": 12
+		}
+	},
+	"sand_ripple": {
+		"kind": "flower",
+		"w": 54,
+		"h": 32,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"dry_well": {
+		"kind": "decor",
+		"w": 51,
+		"h": 41,
+		"blocks": true,
+		"footprint": {
+			"x": -21,
+			"y": -16,
+			"w": 41,
+			"h": 16
+		}
+	},
+	"layered_rock": {
+		"kind": "rock",
+		"w": 52,
+		"h": 39,
+		"blocks": true,
+		"footprint": {
+			"x": -22,
+			"y": -18,
+			"w": 44,
+			"h": 18
+		}
+	}
+}

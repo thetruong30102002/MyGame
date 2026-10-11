@@ -1,0 +1,7 @@
+﻿<Solution>
+  <Project Path="Aether.Core.csproj" />
+  <Project Path="Aether.Editor.csproj" />
+  <Project Path="Aether.Client.csproj" />
+  <Project Path="Aether.Data.csproj" />
+  <Project Path="Aether.Net.csproj" />
+</Solution>

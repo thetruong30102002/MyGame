@@ -126,6 +126,16 @@ tailscale funnel --https=8443 off                                # gỡ link cũ
   theo cha", kể cả `Start-Process`; tạo qua WMI thì cha là dịch vụ WMI nên sống độc lập (PowerShell):
   `Invoke-CimMethod -ClassName Win32_Process -MethodName Create -Arguments @{ CommandLine = 'cmd.exe /c "npx tsx src\main.ts >> data\server.log 2>&1"'; CurrentDirectory = 'D:\nttrg\pixel\apps\server' }`
   và tương tự `node scripts\start-funnel.mjs >> funnel.log 2>&1` ở `apps\web`. Tắt: `taskkill /PID <pid đang nghe cổng> /T /F`.
+- **Tự bật khi mở máy** (10/10/2026): `scripts/khoi-dong-ban-that.ps1` bật máy chủ game :3200 + web :3101 (cổng nào đã có tiến trình nghe thì
+  bỏ qua, tạo tiến trình qua WMI như trên, log `scripts/khoi-dong-ban-that.log`). Tác vụ Windows **"Aether - ban that"** gọi file đó mỗi lần
+  đăng nhập Windows (trễ 20 giây, không cần quyền quản trị). Máy chưa bật tự đăng nhập Windows nên sau khi khởi động lại phải đăng nhập thì
+  bản thật mới lên. Tailscale chạy dạng dịch vụ tự khởi động và giữ cấu hình Funnel (`--bg`).
+
+  ```powershell
+  powershell -NoProfile -ExecutionPolicy Bypass -File scripts\khoi-dong-ban-that.ps1          # bật ngay (vd sau khi tắt để cập nhật)
+  powershell -NoProfile -ExecutionPolicy Bypass -File scripts\cai-tu-khoi-dong.ps1            # cài / cài lại tác vụ
+  powershell -NoProfile -ExecutionPolicy Bypass -File scripts\cai-tu-khoi-dong.ps1 -Remove    # gỡ tác vụ
+  ```
 - Triển khai hình mới: dựng thử vào `.aether-stage/assets` (web thử :3102 đọc thư mục này trước qua máy chủ tài nguyên thử
   :3105 — `apps/web/scripts/dev-test.mjs`, `stage-assets.mjs`), duyệt xong thì chép sang `apps/web/public/assets` ngay trước khi
   khởi động lại máy chủ game + `start:funnel` (máy chủ đọc map trong public và giữ đệm theo file — phải khởi động lại).

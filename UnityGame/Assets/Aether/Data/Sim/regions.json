@@ -1,0 +1,352 @@
+{
+	"REGIONS": [
+		{
+			"id": "human",
+			"order": 1,
+			"name": "Thung lũng Thistlewood",
+			"levels": [
+				1,
+				10
+			],
+			"hub": "town",
+			"waystone": {
+				"spot": "plaza",
+				"dx": -150,
+				"dy": 110
+			},
+			"chief": {
+				"id": "boss_demon_001",
+				"name": "Quỷ vương rừng sâu"
+			},
+			"settlement": {
+				"kind": "village",
+				"name": "Thị trấn Thistlewood",
+				"role": "Quê nhà của Lior: nhiệm vụ tuổi thơ và tuổi 16 bắt đầu ở đây.",
+				"services": [
+					"shop",
+					"waystone"
+				]
+			},
+			"ready": true,
+			"intro": "Đồng cỏ, rừng rêu và nghĩa địa cổ quanh thị trấn Thistlewood — nơi mọi chuyện bắt đầu.",
+			"element": {
+				"name": "Bóng tối",
+				"weak": "Hoả, Aether"
+			}
+		},
+		{
+			"id": "swamp",
+			"order": 2,
+			"name": "Đầm lầy Mù Sương",
+			"levels": [
+				10,
+				20
+			],
+			"chief": {
+				"id": "boss_mud_hydra_001",
+				"name": "Hydra bùn"
+			},
+			"settlement": {
+				"kind": "village",
+				"name": "Làng nhà sàn Lau Xám",
+				"role": "Dân đầm lầy sống trên nhà sàn, nhờ người lạ dẹp quái và tìm thuốc giải độc.",
+				"services": [
+					"shop",
+					"smith",
+					"waystone"
+				]
+			},
+			"intro": "Bùn, lau sậy và nhà sàn chìm trong sương xanh.",
+			"element": {
+				"name": "Thuỷ / độc",
+				"weak": "Thổ, Phong"
+			},
+			"hub": "hub",
+			"waystone": {
+				"spot": "waystone",
+				"dx": 0,
+				"dy": 0
+			},
+			"ready": true
+		},
+		{
+			"id": "desert",
+			"order": 3,
+			"name": "Sa mạc Hồng Cát",
+			"levels": [
+				20,
+				30
+			],
+			"chief": {
+				"id": "boss_sandworm_001",
+				"name": "Sâu cát khổng lồ"
+			},
+			"settlement": {
+				"kind": "castle",
+				"name": "Thành ốc đảo Sahrin",
+				"role": "Vương quốc sa mạc: các tộc tranh nguồn nước, triều đình giao nhiệm vụ.",
+				"services": [
+					"shop",
+					"smith",
+					"tailor",
+					"barber",
+					"waystone"
+				]
+			},
+			"intro": "Cồn cát đỏ, ốc đảo và phế tích đá đỏ.",
+			"element": {
+				"name": "Thổ / Hoả",
+				"weak": "Thuỷ, Băng"
+			},
+			"hub": "hub",
+			"waystone": {
+				"spot": "waystone",
+				"dx": 0,
+				"dy": 0
+			},
+			"ready": true
+		},
+		{
+			"id": "highland",
+			"order": 4,
+			"name": "Cao nguyên Gió Hú",
+			"levels": [
+				30,
+				40
+			],
+			"chief": {
+				"id": "boss_wind_drake_001",
+				"name": "Rồng gió"
+			},
+			"settlement": {
+				"kind": "village",
+				"name": "Làng Cối Xay Gió",
+				"role": "Làng trên cao nguyên, giữ đền thờ trên mây.",
+				"services": [
+					"shop",
+					"smith",
+					"waystone"
+				]
+			},
+			"intro": "Đồi cỏ cao, cối xay gió và đền thờ trên mây.",
+			"element": {
+				"name": "Phong",
+				"weak": "Thổ"
+			},
+			"hub": "hub",
+			"waystone": {
+				"spot": "waystone",
+				"dx": 0,
+				"dy": 0
+			},
+			"ready": true
+		},
+		{
+			"id": "tundra",
+			"order": 5,
+			"name": "Lãnh nguyên Băng Giá",
+			"levels": [
+				40,
+				50
+			],
+			"chief": {
+				"id": "boss_ice_guardian_001",
+				"name": "Vệ thần Ngai Băng"
+			},
+			"settlement": {
+				"kind": "village",
+				"name": "Làng gỗ Tuyết Phong",
+				"role": "Thợ săn và thợ mỏ băng sống qua mùa đông dài.",
+				"services": [
+					"shop",
+					"smith",
+					"tailor",
+					"waystone"
+				]
+			},
+			"intro": "Tuyết trắng, hồ băng và những làng gỗ.",
+			"element": {
+				"name": "Băng",
+				"weak": "Hoả"
+			},
+			"hub": "hub",
+			"waystone": {
+				"spot": "waystone",
+				"dx": 0,
+				"dy": 0
+			},
+			"ready": true
+		},
+		{
+			"id": "volcano",
+			"order": 6,
+			"name": "Núi lửa Hoả Sơn",
+			"levels": [
+				50,
+				60
+			],
+			"chief": {
+				"id": "boss_fire_god_001",
+				"name": "Hoả thần"
+			},
+			"settlement": {
+				"kind": "castle",
+				"name": "Pháo đài người lùn Đe Đỏ",
+				"role": "Hội đồng người lùn: rèn binh khí, đổi lấy nhiệm vụ trong lòng núi.",
+				"services": [
+					"shop",
+					"smith",
+					"waystone"
+				]
+			},
+			"intro": "Đá đen, sông dung nham và lò rèn người lùn.",
+			"element": {
+				"name": "Hoả",
+				"weak": "Thuỷ, Băng"
+			},
+			"hub": "hub",
+			"waystone": {
+				"spot": "waystone",
+				"dx": 0,
+				"dy": 0
+			},
+			"ready": true
+		},
+		{
+			"id": "isles",
+			"order": 7,
+			"name": "Quần đảo San Hô",
+			"levels": [
+				60,
+				70
+			],
+			"chief": {
+				"id": "boss_kraken_001",
+				"name": "Kraken"
+			},
+			"settlement": {
+				"kind": "village",
+				"name": "Cảng chài San Hô",
+				"role": "Làng chài và thương thuyền, tin đồn về tàu ma.",
+				"services": [
+					"shop",
+					"tailor",
+					"barber",
+					"waystone"
+				]
+			},
+			"intro": "Bãi cát, rạn san hô, làng chài và tàu đắm.",
+			"element": {
+				"name": "Thuỷ",
+				"weak": "Phong, Thổ"
+			},
+			"hub": "hub",
+			"waystone": {
+				"spot": "waystone",
+				"dx": 0,
+				"dy": 0
+			},
+			"ready": true
+		},
+		{
+			"id": "fungal",
+			"order": 8,
+			"name": "Rừng Nấm Ngầm",
+			"levels": [
+				70,
+				80
+			],
+			"chief": null,
+			"settlement": {
+				"kind": "village",
+				"name": "Làng người nấm Ánh Tím",
+				"role": "Tộc người nấm dưới lòng đất, chỉ tin người đã giúp họ.",
+				"services": [
+					"shop",
+					"smith",
+					"waystone"
+				]
+			},
+			"intro": "Hang ngầm, nấm khổng lồ phát sáng và mạch tinh thể.",
+			"element": {
+				"name": "Thổ",
+				"weak": "Phong"
+			},
+			"hub": "hub",
+			"waystone": {
+				"spot": "waystone",
+				"dx": 0,
+				"dy": 0
+			},
+			"ready": false
+		},
+		{
+			"id": "ruins",
+			"order": 9,
+			"name": "Phế tích Aether",
+			"levels": [
+				80,
+				90
+			],
+			"chief": null,
+			"settlement": {
+				"kind": "castle",
+				"name": "Toà thành Aether cổ",
+				"role": "Tàn dư triều đình pháp sư xưa — các phe tranh nhau di sản Aether.",
+				"services": [
+					"shop",
+					"smith",
+					"tailor",
+					"barber",
+					"waystone"
+				]
+			},
+			"intro": "Thành cổ đổ nát, cột ma pháp và máy móc cổ.",
+			"element": {
+				"name": "Aether / thép (kháng phép)",
+				"weak": "Kiếm"
+			},
+			"hub": "hub",
+			"waystone": {
+				"spot": "waystone",
+				"dx": 0,
+				"dy": 0
+			},
+			"ready": false
+		},
+		{
+			"id": "void",
+			"order": 10,
+			"name": "Vực Hư Không",
+			"levels": [
+				90,
+				100
+			],
+			"chief": null,
+			"settlement": {
+				"kind": "castle",
+				"name": "Thành trì Hư Không",
+				"role": "Tiền đồn cuối cùng trước Ma vương — liên quân các vùng đóng ở đây.",
+				"services": [
+					"shop",
+					"smith",
+					"waystone"
+				]
+			},
+			"intro": "Đảo trôi trên nền tím đen, khe nứt không gian.",
+			"element": {
+				"name": "Bóng tối / hỗn hợp",
+				"weak": "Aether, Hoả"
+			},
+			"hub": "hub",
+			"waystone": {
+				"spot": "waystone",
+				"dx": 0,
+				"dy": 0
+			},
+			"ready": false
+		}
+	],
+	"START_REGION": "human",
+	"WAYSTONE_COST": 20
+}

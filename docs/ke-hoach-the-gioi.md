@@ -333,6 +333,29 @@ Thiết kế: `docs/thiet-ke/vung1-12-map.md` (+ `.json`). 12 map, 14 cạnh tro
 **Chủ dự án đã duyệt 10/10/2026** ("map thì cứ làm thôi"): giữ Dơi hang ở Hang Gargoyle, lối sang vùng 2 qua Hẻm Cửa Sông, giữ
 Đường hầm của Đoàn vào thẳng gian boss (boss cày tiện — theo dõi nhịp hồi sinh Gargoyle Đá).
 
+## 5.3 Vùng 2–7 — 74 map dựng bằng bộ dựng chung (10/10/2026 — chủ dự án: "làm hết các vùng luôn đi")
+
+Hình (Mốc 1 + 2) đã vẽ hết nên dựng luôn 6 vùng theo khung 12 map + Long Huyệt cho 4 vùng có rồng (vùng 4–7): **74 map**.
+- **Bộ dựng chung** `packages/asset-pipeline/src/maps/kit.ts`: mỗi map một đặc tả gọn (chủ đề, bầy quái, hang ổ, trạm) → đường uốn
+  lượn từ mỗi lối vào ngã ba, bãi trống cho từng bầy (cách nước ≥ 7 ô), ao / hồ / bờ biển né đường và bãi, cây viền mép, đồ điểm
+  xuyết quanh bãi, trạm có quảng trường + nhà + cột dịch chuyển (địa điểm `waystone`), thánh địa / Long Huyệt có sân + vòng cột +
+  hào nước (đầm, dung nham, hồ băng, biển). Hạt giống cố định. Luật kiểm của vùng 1 (`validateRegion`) chạy cho mọi vùng.
+- **Đặc tả 6 vùng** `packages/asset-pipeline/src/maps/worldRegions.ts` — đồ thị lối CHUẨN (sơ đồ ở đầu file): trạm ↔ vùng trước
+  (mép đông), h1…h10 theo đường cấp (mỗi map ~1 cấp, h5 và h7 vòng về trạm), thánh địa sau h10, Long Huyệt cạnh h9, h10 ra mép
+  tây sang trạm vùng kế. 5 loại quái / vùng, mỗi loại ở 2 map cách 5 cấp; boss khu ở h7 + h10 (vùng 5: h7 + h8 — Yeti ở Đèo Người
+  Tuyết). Boss chúa: Hydra bùn, Sâu cát khổng lồ, Rồng gió, **Vệ thần Ngai Băng** (`boss_ice_guardian_001` — bảng cũ ghi "Băng long",
+  đổi để Băng Long `dragon_ice_001` ở riêng Long Huyệt như mục 2.1), Hoả thần, Kraken.
+- **Đồ vật** `packages/asset-pipeline/src/props/worldRegions.ts`: 18 tấm 3×3 (SW / DS / HL / IC / VL / CR, bản `_r2` nếu có) + 24
+  công trình / cây; mượn biển chỉ đường + đá rune của vùng 1. Nền: 6 bảng màu mới (`Biome`: swamp, desert, highland, snow,
+  volcanic — nước là dung nham, beach) ở `GroundShader` Unity + màu phẳng minimap `maps/overview.ts`.
+- **Chỉ số** `packages/sim/src/skills.ts` (`WORLD_ROSTER`): sinh theo cấp gốc + kiểu đánh (thường / trâu / nhanh / giáp / cung /
+  phép), cân theo đà tăng người chơi; kháng / yếu hệ theo vùng; boss khu ×6 máu, boss chúa ×8, rồng ×20.
+- **Mở vùng** (`regions.ts`): 6 vùng `ready`, cổng = cấp vào vùng + đã hạ boss chúa vùng trước (Unity đếm ở `story.codex.kills`).
+- **Kiểm**: `apps/server/tests/worldmaps.test.ts` — đi bằng chân thật tới mọi điểm sinh quái / lối / sân boss, lối xuyên vùng hai
+  chiều đúng mép, mọi loại quái có chỉ số + kháng hệ.
+- Chưa có: NPC dịch vụ ở 6 trạm (chưa vẽ), nhiệm vụ / cốt truyện vùng 2–7, chiêu riêng của boss / rồng (đang dùng đòn chung), dịch
+  chuyển giữa các trạm trong bản Unity.
+
 ## 6. Thứ tự triển khai
 
 | Bước | Nội dung | Phụ thuộc hình |

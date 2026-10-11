@@ -1,0 +1,13 @@
+{
+	"map": "bonemesa",
+	"image": "bonemesa.minimap.png",
+	"width": 312,
+	"height": 252,
+	"downscale": 8,
+	"world": {
+		"width": 2496,
+		"height": 2016,
+		"tileSize": 48
+	},
+	"version": "023bd8a3"
+}

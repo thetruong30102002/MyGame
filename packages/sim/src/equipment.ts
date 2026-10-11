@@ -100,9 +100,9 @@ export interface ItemDef {
 export const ITEMS: Record<string, ItemDef> = {
 	sword: {
 		id: 'sword',
-		name: 'Kiếm gỗ của cha',
-		desc: 'Thanh kiếm gỗ sồi cha gọt suốt một mùa đông.',
-		icon: '/assets/items/starter_sword.png',
+		name: 'Kiếm sắt của cha',
+		desc: 'Thanh kiếm sắt cha rèn thay cho thanh kiếm gỗ năm nào. Lưỡi mài sáng bạc.',
+		icon: '/assets/items/iron_sword.png',
 		w: 49,
 		h: 49,
 		kind: 'equip',

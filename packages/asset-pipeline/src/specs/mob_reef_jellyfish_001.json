@@ -116,5 +116,10 @@
 		"SW",
 		"NW"
 	],
-	"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 64px; ảnh mẫu nét = nấm rừng. Vùng 7. Mô tả: a floating translucent reef jellyfish facing the viewer, tall bell-shaped dome of pale aqua with a soft glowing blue light core inside it, small grumpy glowing eyes, long frilly pink and white tentacles hanging below, tiny blue sparks around it. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 88px."
+	"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 64px; ảnh mẫu nét = nấm rừng. Vùng 7. Mô tả: a floating translucent reef jellyfish facing the viewer, tall bell-shaped dome of pale aqua with a soft glowing blue light core inside it, small grumpy glowing eyes, long frilly pink and white tentacles hanging below, tiny blue sparks around it. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 88px.",
+	"review": {
+		"status": "approved",
+		"date": "10/10/2026",
+		"notes": "Duyệt bằng mắt (Claude, phiên chuyển Unity): ảnh giữa idle/walk hướng S/E/N + trọn attack E/S + death E từ contact sheet. Chủ dự án báo đã vẽ xong chiêu quái/boss trên PixelLab; đối chiếu bản tải lại 10/10/2026 khớp bản trên máy."
+	}
 }

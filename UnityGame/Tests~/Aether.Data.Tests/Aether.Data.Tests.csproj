@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Đối chiếu phần thuần C# của Data/Runtime (GroundShader — tô mặt đất) với bản TS của web bằng vector Tools~/vectors-ground.mts. -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <IsPackable>false</IsPackable>
+    <Nullable>disable</Nullable>
+    <LangVersion>9.0</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../Assets/Aether/Data/Runtime/GroundShader.cs" Link="Data/GroundShader.cs" />
+    <Compile Include="../../Assets/Aether/Data/Runtime/Biome.cs" Link="Data/Biome.cs" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
+    <PackageReference Include="NUnit" Version="4.2.2" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.6.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../Aether.Core/Aether.Core.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,3 @@
+object highland_rhododendron @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/highland_rhododendron.send.json
+object swamp_longhouse @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/swamp_longhouse.send.json
+image D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/HL4_highland_meadow.png @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/HL4_highland_meadow.json

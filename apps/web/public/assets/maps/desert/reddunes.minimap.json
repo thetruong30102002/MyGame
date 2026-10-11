@@ -1,0 +1,13 @@
+{
+	"map": "reddunes",
+	"image": "reddunes.minimap.png",
+	"width": 288,
+	"height": 240,
+	"downscale": 8,
+	"world": {
+		"width": 2304,
+		"height": 1920,
+		"tileSize": 48
+	},
+	"version": "683856f4"
+}

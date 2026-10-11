@@ -78,5 +78,10 @@
 		"SW",
 		"NW"
 	],
-	"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 72px; ảnh mẫu nét = nấm rừng. Vùng 6. Mô tả: a floating forge fire spirit facing the viewer, a round plump body of bright yellow-orange living flame, a soot-blackened iron forge ring clamped around its middle, two little flame arms holding a pair of glowing blacksmith tongs, big white glowing eyes, sparks drifting up from its head. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 100px."
+	"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 72px; ảnh mẫu nét = nấm rừng. Vùng 6. Mô tả: a floating forge fire spirit facing the viewer, a round plump body of bright yellow-orange living flame, a soot-blackened iron forge ring clamped around its middle, two little flame arms holding a pair of glowing blacksmith tongs, big white glowing eyes, sparks drifting up from its head. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 100px.",
+	"review": {
+		"status": "approved",
+		"date": "10/10/2026",
+		"notes": "Duyệt bằng mắt (Claude, phiên chuyển Unity): ảnh giữa idle/walk hướng S/E/N + trọn attack E/S + death E từ contact sheet. Chủ dự án báo đã vẽ xong chiêu quái/boss trên PixelLab; đối chiếu bản tải lại 10/10/2026 khớp bản trên máy."
+	}
 }

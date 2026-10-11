@@ -1,0 +1,778 @@
+{
+	"region": "tundra",
+	"start": "hub",
+	"maps": {
+		"hub": {
+			"name": "Làng gỗ Tuyết Phong",
+			"width": 2112,
+			"height": 1728,
+			"exits": [
+				{
+					"id": "hub_x1",
+					"to": "snowpines",
+					"x": 1056,
+					"y": 1704,
+					"label": "Rừng Thông Tuyết · cấp 40–41"
+				},
+				{
+					"id": "hub_x2",
+					"to": "bearcave",
+					"x": 24,
+					"y": 960,
+					"label": "Hang Gấu · cấp 44–45"
+				},
+				{
+					"id": "hub_x3",
+					"to": "icelake",
+					"x": 1056,
+					"y": 24,
+					"label": "Hồ Băng · cấp 46–47"
+				},
+				{
+					"id": "hub_x4",
+					"to": "highland/cloudgate",
+					"x": 2088,
+					"y": 960,
+					"label": "Cổng Mây · Cao nguyên Gió Hú"
+				}
+			],
+			"spots": [
+				"hub_s",
+				"hub_w",
+				"hub_n",
+				"east_gate",
+				"waystone",
+				"plaza"
+			],
+			"zones": [],
+			"dummies": [],
+			"boss": null
+		},
+		"snowpines": {
+			"name": "Rừng Thông Tuyết",
+			"width": 2304,
+			"height": 1920,
+			"exits": [
+				{
+					"id": "snowpines_x1",
+					"to": "hub",
+					"x": 1248,
+					"y": 24,
+					"label": "Làng gỗ Tuyết Phong"
+				},
+				{
+					"id": "snowpines_x2",
+					"to": "frostmere",
+					"x": 24,
+					"y": 912,
+					"label": "Hồ Sương Giá · cấp 41–42"
+				}
+			],
+			"spots": [
+				"snowpines_n",
+				"snowpines_w"
+			],
+			"zones": [
+				{
+					"id": "snowpines_z1",
+					"monsters": [
+						"mob_snow_wolf_001"
+					],
+					"level": 40
+				},
+				{
+					"id": "snowpines_z2",
+					"monsters": [
+						"mob_snow_wolf_001"
+					],
+					"level": 40
+				},
+				{
+					"id": "snowpines_z3",
+					"monsters": [
+						"mob_snow_wolf_001"
+					],
+					"level": 41
+				},
+				{
+					"id": "snowpines_z4",
+					"monsters": [
+						"mob_snow_wolf_001"
+					],
+					"level": 41
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				40,
+				41
+			]
+		},
+		"frostmere": {
+			"name": "Hồ Sương Giá",
+			"width": 2208,
+			"height": 2016,
+			"exits": [
+				{
+					"id": "frostmere_x1",
+					"to": "snowpines",
+					"x": 2184,
+					"y": 912,
+					"label": "Rừng Thông Tuyết · cấp 40–41"
+				},
+				{
+					"id": "frostmere_x2",
+					"to": "snowfield",
+					"x": 24,
+					"y": 960,
+					"label": "Cánh Đồng Tuyết · cấp 42–43"
+				}
+			],
+			"spots": [
+				"frostmere_e",
+				"frostmere_w"
+			],
+			"zones": [
+				{
+					"id": "frostmere_z1",
+					"monsters": [
+						"mob_ice_wisp_001"
+					],
+					"level": 41
+				},
+				{
+					"id": "frostmere_z2",
+					"monsters": [
+						"mob_ice_wisp_001"
+					],
+					"level": 41
+				},
+				{
+					"id": "frostmere_z3",
+					"monsters": [
+						"mob_ice_wisp_001"
+					],
+					"level": 42
+				},
+				{
+					"id": "frostmere_z4",
+					"monsters": [
+						"mob_ice_wisp_001"
+					],
+					"level": 42
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				41,
+				42
+			]
+		},
+		"snowfield": {
+			"name": "Cánh Đồng Tuyết",
+			"width": 2400,
+			"height": 1824,
+			"exits": [
+				{
+					"id": "snowfield_x1",
+					"to": "frostmere",
+					"x": 2376,
+					"y": 816,
+					"label": "Hồ Sương Giá · cấp 41–42"
+				},
+				{
+					"id": "snowfield_x2",
+					"to": "icecoast",
+					"x": 1248,
+					"y": 24,
+					"label": "Bờ Biển Băng · cấp 43–44"
+				}
+			],
+			"spots": [
+				"snowfield_e",
+				"snowfield_n"
+			],
+			"zones": [
+				{
+					"id": "snowfield_z1",
+					"monsters": [
+						"mob_snowman_001"
+					],
+					"level": 42
+				},
+				{
+					"id": "snowfield_z2",
+					"monsters": [
+						"mob_snowman_001"
+					],
+					"level": 42
+				},
+				{
+					"id": "snowfield_z3",
+					"monsters": [
+						"mob_snowman_001"
+					],
+					"level": 43
+				},
+				{
+					"id": "snowfield_z4",
+					"monsters": [
+						"mob_snowman_001"
+					],
+					"level": 43
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				42,
+				43
+			]
+		},
+		"icecoast": {
+			"name": "Bờ Biển Băng",
+			"width": 2208,
+			"height": 2112,
+			"exits": [
+				{
+					"id": "icecoast_x1",
+					"to": "snowfield",
+					"x": 1440,
+					"y": 2088,
+					"label": "Cánh Đồng Tuyết · cấp 42–43"
+				},
+				{
+					"id": "icecoast_x2",
+					"to": "bearcave",
+					"x": 2184,
+					"y": 1200,
+					"label": "Hang Gấu · cấp 44–45"
+				},
+				{
+					"id": "icecoast_x3",
+					"to": "snowmanpass",
+					"x": 1392,
+					"y": 24,
+					"label": "Đèo Người Tuyết · cấp 47–48"
+				}
+			],
+			"spots": [
+				"icecoast_s",
+				"icecoast_e",
+				"icecoast_n"
+			],
+			"zones": [
+				{
+					"id": "icecoast_z1",
+					"monsters": [
+						"mob_war_penguin_001"
+					],
+					"level": 43
+				},
+				{
+					"id": "icecoast_z2",
+					"monsters": [
+						"mob_war_penguin_001"
+					],
+					"level": 43
+				},
+				{
+					"id": "icecoast_z3",
+					"monsters": [
+						"mob_war_penguin_001"
+					],
+					"level": 44
+				},
+				{
+					"id": "icecoast_z4",
+					"monsters": [
+						"mob_war_penguin_001"
+					],
+					"level": 44
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				43,
+				44
+			]
+		},
+		"bearcave": {
+			"name": "Hang Gấu",
+			"width": 2496,
+			"height": 1920,
+			"exits": [
+				{
+					"id": "bearcave_x1",
+					"to": "icecoast",
+					"x": 24,
+					"y": 720,
+					"label": "Bờ Biển Băng · cấp 43–44"
+				},
+				{
+					"id": "bearcave_x2",
+					"to": "hub",
+					"x": 2472,
+					"y": 1152,
+					"label": "Làng gỗ Tuyết Phong"
+				},
+				{
+					"id": "bearcave_x3",
+					"to": "wolfwood",
+					"x": 1248,
+					"y": 24,
+					"label": "Rừng Sói Tru · cấp 45–46"
+				}
+			],
+			"spots": [
+				"bearcave_w",
+				"bearcave_e",
+				"bearcave_n"
+			],
+			"zones": [
+				{
+					"id": "bearcave_z1",
+					"monsters": [
+						"mob_ice_bear_001"
+					],
+					"level": 44
+				},
+				{
+					"id": "bearcave_z2",
+					"monsters": [
+						"mob_ice_bear_001"
+					],
+					"level": 44
+				},
+				{
+					"id": "bearcave_z3",
+					"monsters": [
+						"mob_ice_bear_001"
+					],
+					"level": 45
+				},
+				{
+					"id": "bearcave_z4",
+					"monsters": [
+						"mob_ice_bear_001"
+					],
+					"level": 45
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				44,
+				45
+			]
+		},
+		"wolfwood": {
+			"name": "Rừng Sói Tru",
+			"width": 2304,
+			"height": 2016,
+			"exits": [
+				{
+					"id": "wolfwood_x1",
+					"to": "bearcave",
+					"x": 1200,
+					"y": 1992,
+					"label": "Hang Gấu · cấp 44–45"
+				},
+				{
+					"id": "wolfwood_x2",
+					"to": "icelake",
+					"x": 2280,
+					"y": 1104,
+					"label": "Hồ Băng · cấp 46–47"
+				},
+				{
+					"id": "wolfwood_x3",
+					"to": "snowmanpass",
+					"x": 24,
+					"y": 1056,
+					"label": "Đèo Người Tuyết · cấp 47–48"
+				}
+			],
+			"spots": [
+				"wolfwood_s",
+				"wolfwood_e",
+				"wolfwood_w"
+			],
+			"zones": [
+				{
+					"id": "wolfwood_z1",
+					"monsters": [
+						"mob_snow_wolf_001"
+					],
+					"level": 45
+				},
+				{
+					"id": "wolfwood_z2",
+					"monsters": [
+						"mob_snow_wolf_001"
+					],
+					"level": 45
+				},
+				{
+					"id": "wolfwood_z3",
+					"monsters": [
+						"mob_snow_wolf_001"
+					],
+					"level": 46
+				},
+				{
+					"id": "wolfwood_z4",
+					"monsters": [
+						"mob_snow_wolf_001"
+					],
+					"level": 46
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				45,
+				46
+			]
+		},
+		"icelake": {
+			"name": "Hồ Băng",
+			"width": 2400,
+			"height": 2112,
+			"exits": [
+				{
+					"id": "icelake_x1",
+					"to": "wolfwood",
+					"x": 24,
+					"y": 1152,
+					"label": "Rừng Sói Tru · cấp 45–46"
+				},
+				{
+					"id": "icelake_x2",
+					"to": "hub",
+					"x": 1056,
+					"y": 2088,
+					"label": "Làng gỗ Tuyết Phong"
+				}
+			],
+			"spots": [
+				"icelake_w",
+				"icelake_s",
+				"icelake_lair"
+			],
+			"zones": [
+				{
+					"id": "icelake_z1",
+					"monsters": [
+						"mob_ice_wisp_001"
+					],
+					"level": 46
+				},
+				{
+					"id": "icelake_z2",
+					"monsters": [
+						"mob_ice_wisp_001"
+					],
+					"level": 46
+				},
+				{
+					"id": "icelake_z3",
+					"monsters": [
+						"mob_ice_wisp_001"
+					],
+					"level": 47
+				},
+				{
+					"id": "icelake_boss",
+					"monsters": [
+						"boss_ice_queen_001"
+					],
+					"level": 47
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				46,
+				47
+			]
+		},
+		"snowmanpass": {
+			"name": "Đèo Người Tuyết",
+			"width": 2208,
+			"height": 1920,
+			"exits": [
+				{
+					"id": "snowmanpass_x1",
+					"to": "wolfwood",
+					"x": 2184,
+					"y": 1152,
+					"label": "Rừng Sói Tru · cấp 45–46"
+				},
+				{
+					"id": "snowmanpass_x2",
+					"to": "icecoast",
+					"x": 864,
+					"y": 1896,
+					"label": "Bờ Biển Băng · cấp 43–44"
+				},
+				{
+					"id": "snowmanpass_x3",
+					"to": "penguinrocks",
+					"x": 1392,
+					"y": 24,
+					"label": "Ghềnh Cánh Cụt · cấp 48–49"
+				}
+			],
+			"spots": [
+				"snowmanpass_e",
+				"snowmanpass_s",
+				"snowmanpass_n",
+				"snowmanpass_lair"
+			],
+			"zones": [
+				{
+					"id": "snowmanpass_z1",
+					"monsters": [
+						"mob_snowman_001"
+					],
+					"level": 47
+				},
+				{
+					"id": "snowmanpass_z2",
+					"monsters": [
+						"mob_snowman_001"
+					],
+					"level": 47
+				},
+				{
+					"id": "snowmanpass_z3",
+					"monsters": [
+						"mob_snowman_001"
+					],
+					"level": 48
+				},
+				{
+					"id": "snowmanpass_boss",
+					"monsters": [
+						"boss_yeti_001"
+					],
+					"level": 48
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				47,
+				48
+			]
+		},
+		"penguinrocks": {
+			"name": "Ghềnh Cánh Cụt",
+			"width": 2496,
+			"height": 2016,
+			"exits": [
+				{
+					"id": "penguinrocks_x1",
+					"to": "snowmanpass",
+					"x": 1104,
+					"y": 1992,
+					"label": "Đèo Người Tuyết · cấp 47–48"
+				},
+				{
+					"id": "penguinrocks_x2",
+					"to": "frozenhollow",
+					"x": 1248,
+					"y": 24,
+					"label": "Thung Băng Lặng · cấp 49–50"
+				},
+				{
+					"id": "penguinrocks_x3",
+					"to": "frostlair",
+					"x": 2472,
+					"y": 1008,
+					"label": "Long Huyệt Hàn Sương · rồng · cấp 50"
+				}
+			],
+			"spots": [
+				"penguinrocks_s",
+				"penguinrocks_n",
+				"penguinrocks_e"
+			],
+			"zones": [
+				{
+					"id": "penguinrocks_z1",
+					"monsters": [
+						"mob_war_penguin_001"
+					],
+					"level": 48
+				},
+				{
+					"id": "penguinrocks_z2",
+					"monsters": [
+						"mob_war_penguin_001"
+					],
+					"level": 48
+				},
+				{
+					"id": "penguinrocks_z3",
+					"monsters": [
+						"mob_war_penguin_001"
+					],
+					"level": 49
+				},
+				{
+					"id": "penguinrocks_z4",
+					"monsters": [
+						"mob_war_penguin_001"
+					],
+					"level": 49
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				48,
+				49
+			]
+		},
+		"frozenhollow": {
+			"name": "Thung Băng Lặng",
+			"width": 2304,
+			"height": 2112,
+			"exits": [
+				{
+					"id": "frozenhollow_x1",
+					"to": "penguinrocks",
+					"x": 1248,
+					"y": 2088,
+					"label": "Ghềnh Cánh Cụt · cấp 48–49"
+				},
+				{
+					"id": "frozenhollow_x2",
+					"to": "icethrone",
+					"x": 2280,
+					"y": 1296,
+					"label": "Ngai Băng · boss chúa · cấp 50"
+				},
+				{
+					"id": "frozenhollow_x3",
+					"to": "volcano/hub",
+					"x": 24,
+					"y": 864,
+					"label": "Núi lửa Hoả Sơn · vùng 6 · cần cấp 50 + đã hạ Vệ thần Ngai Băng"
+				}
+			],
+			"spots": [
+				"frozenhollow_s",
+				"frozenhollow_e",
+				"frozenhollow_gate"
+			],
+			"zones": [
+				{
+					"id": "frozenhollow_z1",
+					"monsters": [
+						"mob_ice_bear_001"
+					],
+					"level": 49
+				},
+				{
+					"id": "frozenhollow_z2",
+					"monsters": [
+						"mob_ice_bear_001"
+					],
+					"level": 49
+				},
+				{
+					"id": "frozenhollow_z3",
+					"monsters": [
+						"mob_ice_bear_001"
+					],
+					"level": 50
+				},
+				{
+					"id": "frozenhollow_z4",
+					"monsters": [
+						"mob_ice_bear_001"
+					],
+					"level": 50
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				49,
+				50
+			]
+		},
+		"icethrone": {
+			"name": "Ngai Băng",
+			"width": 1536,
+			"height": 1344,
+			"exits": [
+				{
+					"id": "icethrone_x1",
+					"to": "frozenhollow",
+					"x": 24,
+					"y": 528,
+					"label": "Thung Băng Lặng · cấp 49–50"
+				}
+			],
+			"spots": [
+				"icethrone_w",
+				"icethrone_lair"
+			],
+			"zones": [
+				{
+					"id": "icethrone_boss",
+					"monsters": [
+						"boss_ice_guardian_001"
+					],
+					"level": 50
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				50,
+				50
+			]
+		},
+		"frostlair": {
+			"name": "Long Huyệt Hàn Sương",
+			"width": 1824,
+			"height": 1536,
+			"exits": [
+				{
+					"id": "frostlair_x1",
+					"to": "penguinrocks",
+					"x": 24,
+					"y": 768,
+					"label": "Ghềnh Cánh Cụt · cấp 48–49"
+				}
+			],
+			"spots": [
+				"frostlair_w",
+				"frostlair_lair"
+			],
+			"zones": [
+				{
+					"id": "frostlair_boss",
+					"monsters": [
+						"dragon_ice_001"
+					],
+					"level": 50
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				50,
+				50
+			]
+		}
+	}
+}

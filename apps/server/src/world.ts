@@ -8,6 +8,7 @@ import { MobRegistry, mapZonesFromDisk } from './mobs.ts';
 import { Rewards } from './rewards.ts';
 import { BUFF_TICK_MS, Shop } from './shop.ts';
 import { Economy } from './economy.ts';
+import { newPvpState, Pvp, type PvpState } from './pvp.ts';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -41,6 +42,8 @@ interface Conn {
 	mobActs: RateLimiter;
 	/** Báo hạ quái riêng / xong nhiệm vụ / tiêu xu / uống bình (M3.3a). */
 	eco: RateLimiter;
+	/** Người đánh người: sức đánh suy từ tiến độ, miễn PvP sau khi vào map, ai vừa đánh trúng mình (`pvp.ts`). */
+	pvp: PvpState;
 }
 
 /** Thư mục map của client — máy chủ đọc chung nguồn dữ liệu (`AETHER_MAPS` để đổi). */
@@ -61,6 +64,7 @@ export class World {
 	readonly rewards: Rewards;
 	readonly shop: Shop;
 	readonly economy: Economy;
+	readonly pvp: Pvp;
 	private readonly buffTimer: NodeJS.Timeout;
 
 	constructor(
@@ -69,6 +73,14 @@ export class World {
 		mapsDir = MAPS_DIR,
 		private readonly now: () => number = Date.now,
 	) {
+		this.pvp = new Pvp(
+			() => this.conns.values(),
+			(id, msg) => {
+				const c = this.conns.get(id);
+				if (c) send(c.ws, msg);
+			},
+			now,
+		);
 		this.timer = setInterval(() => {
 			this.broadcastSnapshots();
 			this.mobs.tick();
@@ -240,6 +252,7 @@ export class World {
 			mobPos: new RateLimiter(25, 1000),
 			mobActs: new RateLimiter(60, 1000),
 			eco: new RateLimiter(40, 10_000, this.now),
+			pvp: newPvpState(p.story, p.bonusPoints ?? 0, this.now()),
 		};
 		this.conns.set(ch.id, conn);
 		const others = this.inMap(conn.map).filter((c) => c !== conn && c.view.sprite);
@@ -330,6 +343,9 @@ export class World {
 			case 'mobCc':
 				if (!c.mobActs.allow('mobCc')) return;
 				return this.mobs.cc(c.view.id, String(msg.id ?? ''), msg.cc);
+			case 'pvpDown':
+				if (!c.eco.allow('pvpDown')) return;
+				return this.pvp.down(c, msg.by);
 			default:
 		}
 	}
@@ -362,7 +378,15 @@ export class World {
 		}
 		c.lastMoveAt = now;
 		Object.assign(c.view, { x: Math.round(x), y: Math.round(y), dir: String(m.dir).slice(0, 2), anim: String(m.anim).slice(0, 12), sprite: String(m.sprite).slice(0, 48) });
+		// Máu máy người chơi báo (PvP: người khác vẽ thanh máu; máy chủ bỏ qua đòn của người đã gục). Số lạ thì giữ số cũ.
+		const hpMax = Number(m.hpMax);
+		const hp = Number(m.hp);
+		if (Number.isFinite(hpMax) && hpMax > 0 && hpMax < 1e6 && Number.isFinite(hp)) {
+			c.view.hpMax = Math.round(hpMax);
+			c.view.hp = Math.max(0, Math.min(c.view.hpMax, Math.round(hp)));
+		}
 		if (first) {
+			this.pvp.shield(c);
 			for (const o of this.inMap(c.map)) if (o !== c) send(o.ws, { t: 'join', player: c.view });
 		} else c.dirty = true;
 	}
@@ -385,6 +409,8 @@ export class World {
 		const fx = cast.fx && fxAllowed(c.fxLast, cast.skill, Date.now()) ? cast.fx : undefined;
 		const out: ServerMessage = { t: 'action', id: c.view.id, anim, dir, skill: cast.skill, ...(fx ? { fx } : {}) };
 		for (const o of this.inMap(c.map)) if (o !== c) send(o.ws, out);
+		// PvP: máy chủ tính trúng từ chính chiêu + hướng + điểm nhắm đã kiểm (cổng `fxAllowed` = nhịp hồi chiêu chống spam).
+		if (fx) this.pvp.cast(c, cast.skill, fx);
 	}
 
 	/**
@@ -428,6 +454,7 @@ export class World {
 		const clean = cleanProgress(p);
 		if (!clean) return;
 		this.store.saveProgress(c.view.id, clean);
+		c.pvp.story = clean.story;
 	}
 
 	private leave(c: Conn): void {
@@ -454,7 +481,7 @@ export class World {
 		for (const list of byMap.values()) {
 			const changed = list.filter((c) => c.dirty);
 			if (!changed.length) continue;
-			const players = changed.map(({ view: v }) => ({ id: v.id, x: v.x, y: v.y, dir: v.dir, anim: v.anim, sprite: v.sprite, level: v.level }));
+			const players = changed.map(({ view: v }) => ({ id: v.id, x: v.x, y: v.y, dir: v.dir, anim: v.anim, sprite: v.sprite, level: v.level, ...(v.hpMax ? { hp: v.hp, hpMax: v.hpMax } : {}) }));
 			for (const c of changed) c.dirty = false;
 			for (const c of list) {
 				const others = players.filter((p) => p.id !== c.view.id);

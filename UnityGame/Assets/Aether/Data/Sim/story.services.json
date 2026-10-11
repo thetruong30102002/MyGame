@@ -1,0 +1,228 @@
+{
+	"SERVICE_NPCS": {
+		"waystone_human": {
+			"name": "Cột dịch chuyển",
+			"title": "Thung lũng Thistlewood",
+			"sprite": null,
+			"prop": "stone_lantern",
+			"at": {
+				"spot": "plaza",
+				"dx": -150,
+				"dy": 110
+			},
+			"ages": [
+				0,
+				99
+			],
+			"region": "human",
+			"idle": [
+				"«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»"
+			]
+		},
+		"waystone_swamp": {
+			"name": "Cột dịch chuyển",
+			"title": "Đầm lầy Mù Sương",
+			"sprite": null,
+			"prop": "stone_lantern",
+			"at": {
+				"spot": "waystone",
+				"dx": 0,
+				"dy": 0
+			},
+			"ages": [
+				0,
+				99
+			],
+			"region": "swamp",
+			"idle": [
+				"«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»"
+			]
+		},
+		"waystone_desert": {
+			"name": "Cột dịch chuyển",
+			"title": "Sa mạc Hồng Cát",
+			"sprite": null,
+			"prop": "stone_lantern",
+			"at": {
+				"spot": "waystone",
+				"dx": 0,
+				"dy": 0
+			},
+			"ages": [
+				0,
+				99
+			],
+			"region": "desert",
+			"idle": [
+				"«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»"
+			]
+		},
+		"waystone_highland": {
+			"name": "Cột dịch chuyển",
+			"title": "Cao nguyên Gió Hú",
+			"sprite": null,
+			"prop": "stone_lantern",
+			"at": {
+				"spot": "waystone",
+				"dx": 0,
+				"dy": 0
+			},
+			"ages": [
+				0,
+				99
+			],
+			"region": "highland",
+			"idle": [
+				"«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»"
+			]
+		},
+		"waystone_tundra": {
+			"name": "Cột dịch chuyển",
+			"title": "Lãnh nguyên Băng Giá",
+			"sprite": null,
+			"prop": "stone_lantern",
+			"at": {
+				"spot": "waystone",
+				"dx": 0,
+				"dy": 0
+			},
+			"ages": [
+				0,
+				99
+			],
+			"region": "tundra",
+			"idle": [
+				"«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»"
+			]
+		},
+		"waystone_volcano": {
+			"name": "Cột dịch chuyển",
+			"title": "Núi lửa Hoả Sơn",
+			"sprite": null,
+			"prop": "stone_lantern",
+			"at": {
+				"spot": "waystone",
+				"dx": 0,
+				"dy": 0
+			},
+			"ages": [
+				0,
+				99
+			],
+			"region": "volcano",
+			"idle": [
+				"«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»"
+			]
+		},
+		"waystone_isles": {
+			"name": "Cột dịch chuyển",
+			"title": "Quần đảo San Hô",
+			"sprite": null,
+			"prop": "stone_lantern",
+			"at": {
+				"spot": "waystone",
+				"dx": 0,
+				"dy": 0
+			},
+			"ages": [
+				0,
+				99
+			],
+			"region": "isles",
+			"idle": [
+				"«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»"
+			]
+		},
+		"chronicler": {
+			"name": "Bia Danh Vọng",
+			"title": "Quảng trường Thistlewood",
+			"sprite": null,
+			"prop": "rune_stone",
+			"at": {
+				"spot": "plaza",
+				"dx": 110,
+				"dy": -40
+			},
+			"ages": [
+				0,
+				99
+			],
+			"idle": [
+				"«Tên những người làm nên chuyện được khắc ở đây.»",
+				"«Chỉ người chơi trực tuyến mới được ghi danh.»"
+			]
+		},
+		"traveler_sein_child": {
+			"name": "Sein",
+			"title": "Cậu bé lữ khách",
+			"sprite": "npc_silver_child",
+			"at": {
+				"spot": "plaza",
+				"dx": -36,
+				"dy": 96
+			},
+			"ages": [
+				0,
+				15
+			],
+			"idle": [
+				"Bọn tớ theo đoàn buôn của cha, mai lại đi rồi.",
+				"Ngoài kia có đầm lầy toàn nhà sàn đấy! Cha kể vậy."
+			]
+		},
+		"traveler_sera_child": {
+			"name": "Sera",
+			"title": "Cô bé lữ khách",
+			"sprite": "npc_silver_child_f",
+			"at": {
+				"spot": "plaza",
+				"dx": 8,
+				"dy": 96
+			},
+			"ages": [
+				0,
+				15
+			],
+			"idle": [
+				"Tóc tớ với anh Sein giống mẹ, ai cũng nhìn.",
+				"Cậu có biết sa mạc phía nam có toà thành ốc đảo không?"
+			]
+		},
+		"traveler_sein": {
+			"name": "Sein",
+			"title": "Lữ khách tóc bạc",
+			"sprite": "npc_silver_youth",
+			"at": {
+				"spot": "plaza",
+				"dx": -36,
+				"dy": 96
+			},
+			"ages": [
+				16,
+				99
+			],
+			"idle": [
+				"Lại gặp nhau rồi! Bọn ta vừa từ cao nguyên Gió Hú về — gió trên đó thổi bay cả mũ.",
+				"Đi đâu cũng nhớ ghé cột dịch chuyển, đỡ mỏi chân lắm."
+			]
+		},
+		"traveler_sera": {
+			"name": "Sera",
+			"title": "Nữ lữ khách tóc bạc",
+			"sprite": "npc_silver_youth_f",
+			"at": {
+				"spot": "plaza",
+				"dx": 8,
+				"dy": 96
+			},
+			"ages": [
+				16,
+				99
+			],
+			"idle": [
+				"Anh Sein cứ đòi đi săn rồng phương Đông. Ta thì chỉ muốn vẽ lại bản đồ lục địa.",
+				"Đầm lầy Mù Sương có ếch độc to bằng cái thúng, cẩn thận đấy."
+			]
+		}
+	}
+}

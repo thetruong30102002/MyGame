@@ -1,0 +1,3 @@
+object highland_red_oak @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/highland_red_oak.send.json
+object swamp_fisher_hut @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/swamp_fisher_hut.send.json
+image D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/DS5_desert_bazaar.png @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/DS5_desert_bazaar.json

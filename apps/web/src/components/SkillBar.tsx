@@ -2,9 +2,10 @@
 
 import { useEffect, useState, type ReactNode } from 'react';
 import { estimateText, HERO_SKILLS, skillFacts, type SkillDef } from '@/game/combat/skills';
-import { BRANCH_NAME } from '@/game/combat/talents';
+import { BRANCH_NAME, SLOT_KEYS } from '@/game/combat/talents';
 import { ITEM_INFO } from '@/game/items';
 import { useGameStore, type ElementId, type PlayerStats, type SkillSlot } from '@/store/useGameStore';
+import { CooldownSweep, useCooldownLeft } from './CooldownSweep';
 import { LockGlyph, PixelIcon, SkillIcon } from './SkillIcon';
 
 /**
@@ -31,21 +32,6 @@ const SKILL_DEF: Record<string, SkillDef> = Object.fromEntries(HERO_SKILLS.map((
 /** Số kiểu Việt: dấu phẩy thập phân, bỏ số 0 thừa (1,8 · 0,38 · 2). */
 function fmt(n: number, digits = 2): string {
 	return String(Number(n.toFixed(digits))).replace('.', ',');
-}
-
-function useNow(active: boolean): number {
-	const [now, setNow] = useState(() => performance.now());
-	useEffect(() => {
-		if (!active) return undefined;
-		let raf = 0;
-		const tick = (): void => {
-			setNow(performance.now());
-			raf = requestAnimationFrame(tick);
-		};
-		raf = requestAnimationFrame(tick);
-		return () => cancelAnimationFrame(raf);
-	}, [active]);
-	return now;
 }
 
 type TipAlign = 'left' | 'center' | 'right';
@@ -110,9 +96,8 @@ function estimate(s: SkillSlot, stats: PlayerStats): string | null {
 	return estimateText(def, Math.round(base * def.power * s.scale));
 }
 
-function SkillCell({ s, now, stats, unspent, align }: { s: SkillSlot; now: number; stats: PlayerStats; unspent: number; align: TipAlign }) {
-	const remain = Math.max(0, (s.readyAt - now) / 1000);
-	const pct = s.cooldown > 0 ? Math.min(1, remain / s.cooldown) : 0;
+function SkillCell({ s, stats, unspent, align }: { s: SkillSlot; stats: PlayerStats; unspent: number; align: TipAlign }) {
+	const remain = useCooldownLeft(s.readyAt);
 	const learned = !s.locked;
 	const noMp = learned && stats.mp < s.mpCost;
 	const el = ELEMENT_STYLE[s.element] ?? ELEMENT_STYLE.aether;
@@ -138,12 +123,9 @@ function SkillCell({ s, now, stats, unspent, align }: { s: SkillSlot; now: numbe
 						<LockGlyph />
 					</div>
 				)}
-				{noMp && <div className="absolute inset-0 bg-[#08122e]/65" />}
-				{pct > 0 && (
-					<div className="absolute inset-0 flex items-center justify-center bg-[#2a170b]/70 text-[14px] font-extrabold tabular-nums text-white text-outline" style={{ clipPath: `inset(${(1 - pct) * 100}% 0 0 0)` }}>
-						{remain.toFixed(1).replace('.', ',')}
-					</div>
-				)}
+				{noMp && remain <= 0 && <div className="absolute inset-0 rounded-[4px] bg-[#0b1a44]/60" />}
+				{/* Vòng quét phủ lòng ô (viền đá 13px là border của .ui-slot — khối tuyệt đối đã nằm trong viền) như mặt đồng hồ trong khung. */}
+				<CooldownSweep remain={remain} total={s.cooldown} />
 				<KeyBadge k={s.key} color={el.color} />
 				{learned && s.maxRank > 0 && (
 					// Mốc nhánh = hạt vàng nằm trên viền đá dưới (vùng trong đã chật icon). Dải rộng bằng cả ô để 10 hạt (39px) căn giữa đủ chỗ.
@@ -217,31 +199,49 @@ function PotionCell({ potions, align }: { potions: number; align: TipAlign }) {
 
 /**
  * Thanh kỹ năng máy tính (giữa đáy, rộng tối đa 780px — khung chat bên trái co theo con số này). Khay gỗ phẳng, mỗi kỹ
- * năng một ô đá: chip phím màu hệ, hạt vàng = bậc, quét hồi chiêu từ trên xuống, phủ xanh khi thiếu MP, mờ + ổ khoá khi chưa học.
- * Ngân sách bề ngang khi đủ 12 ô (thanh 10 ô J, K, 1–8 + né + bình): 12×58 + 11 khe 4px + vạch ngăn 8 + đệm 20 + viền 4 = 772px
- * ≤ 780. Trần cũ 600px (vừa 9 ô) làm ô bình máu rơi xuống một hàng RIÊNG — khay cao gấp đôi, đè lên nút của khung chat.
+ * năng một ô đá: chip phím màu hệ, hạt vàng = bậc, hồi chiêu quét kiểu kim đồng hồ + số giây (`CooldownSweep`), phủ xanh khi
+ * thiếu MP, mờ + ổ khoá khi chưa học. Ngân sách bề ngang đủ 12 ô: 12×58 + khe trong nhóm 8×2 + khe giữa nhóm 3×6 + vạch
+ * ngăn + đệm ≈ 756px ≤ 780 (vượt là ô bình rơi xuống hàng riêng, khay cao gấp đôi đè lên nút của khung chat).
  */
 export function SkillBar() {
 	const skills = useGameStore((s) => s.skills);
 	const hud = useGameStore((s) => s.hud);
 	const stats = useGameStore((s) => s.stats);
 	const unspent = useGameStore((s) => s.talents.unspent);
-	const cooling = skills.some((s) => s.readyAt > performance.now());
-	// useNow chỉ để kích vẽ lại mỗi frame khi đang hồi chiêu; mốc thời gian phải lấy NGAY lúc vẽ —
-	// dùng giá trị của hook khi nó đang nghỉ là đọc mốc cũ từ lúc mount (ra "18.4s" ảo).
-	useNow(cooling);
-	const now = performance.now();
 	const full = hud === 'full';
-	const count = skills.length + (full ? 2 : 0);
+	// Ô cố định theo phím (chủ dự án 10/10/2026: "sắp xếp hợp lý hơn"): ô 5 luôn đứng ở chỗ thứ 5, ô trống vẫn hiện (mờ) — nhìn
+	// thanh là biết phím nào đang trống. Nhóm: J K (đòn cơ bản) · 1–4 · 5–8 · Né + Bình. HUD "phép" (tuổi nhỏ) chỉ tới ô 4.
+	const groups: number[][] = full ? [[0, 1], [2, 3, 4, 5], [6, 7, 8, 9]] : [[0, 1], [2, 3, 4, 5]];
+	const count = groups.flat().length + (full ? 2 : 0);
 	const align = (i: number): TipAlign => (i < 2 ? 'left' : i >= count - 2 ? 'right' : 'center');
+	let order = 0;
+	const cell = (slot: number) => {
+		const s = skills.find((x) => x.slot === slot);
+		const i = order++;
+		return s ? <SkillCell key={slot} s={s} stats={stats} unspent={unspent} align={align(i)} /> : <EmptyCell key={slot} k={SLOT_KEYS[slot]!} />;
+	};
 	return (
-		<div className="ui-plank pointer-events-auto flex max-w-[min(780px,calc(100vw-24px))] flex-wrap items-center justify-center gap-x-1 gap-y-6 px-2.5 pt-4 pb-4">
-			{skills.map((s, i) => (
-				<SkillCell key={s.id} s={s} now={now} stats={stats} unspent={unspent} align={align(i)} />
+		<div className="ui-plank pointer-events-auto flex max-w-[min(780px,calc(100vw-24px))] flex-wrap items-center justify-center gap-x-2 gap-y-6 px-2 pt-4 pb-4">
+			{groups.map((g, gi) => (
+				<div key={gi} className="flex items-center gap-0.5">
+					{g.map(cell)}
+				</div>
 			))}
-			{full && <span className="w-2" aria-hidden />}
-			{full && <DodgeCell stamina={stats.stamina} cost={stats.dodgeStamina} align={align(skills.length)} />}
-			{full && <PotionCell potions={stats.potions} align={align(skills.length + 1)} />}
+			{full && (
+				<div className="flex items-center gap-0.5 border-l-2 border-outline/40 pl-1.5">
+					<DodgeCell stamina={stats.stamina} cost={stats.dodgeStamina} align={align(count - 2)} />
+					<PotionCell potions={stats.potions} align={align(count - 1)} />
+				</div>
+			)}
+		</div>
+	);
+}
+
+/** Ô chưa gán kỹ năng: đá mờ, chữ phím chìm giữa ô — gán ở bảng Tiềm năng (P). */
+function EmptyCell({ k }: { k: string }) {
+	return (
+		<div className={`${CELL} opacity-55`} title={`Ô ${k} trống — gán kỹ năng ở bảng Tiềm năng (P)`}>
+			<span className="absolute inset-0 flex items-center justify-center text-[13px] font-extrabold text-parchment/45">{k}</span>
 		</div>
 	);
 }

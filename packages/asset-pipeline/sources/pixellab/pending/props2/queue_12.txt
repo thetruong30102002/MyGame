@@ -1,0 +1,3 @@
+object tundra_frost_cedar @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/tundra_frost_cedar.send.json
+object desert_adobe_house @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/desert_adobe_house.send.json
+image D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/IC4_frozen_wilds.png @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/IC4_frozen_wilds.json

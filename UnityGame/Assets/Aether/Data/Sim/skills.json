@@ -1,0 +1,1939 @@
+{
+	"ENEMY_BASE_LEVEL": {
+		"mob_mushroom_001": 2,
+		"mob_zombie_001": 4,
+		"mob_skeleton_archer_001": 5,
+		"mob_gargoyle_001": 6,
+		"mob_cave_bat_001": 8,
+		"boss_demon_001": 5,
+		"boss_lich_001": 6,
+		"boss_stone_gargoyle_001": 10,
+		"mob_poison_frog_001": 13,
+		"mob_swamp_leech_001": 14,
+		"mob_glow_mushroom_001": 15,
+		"mob_water_snake_001": 16,
+		"mob_mud_merfolk_001": 17,
+		"boss_mother_frog_001": 17,
+		"boss_swamp_witch_001": 20,
+		"boss_mud_hydra_001": 20,
+		"mob_scorpion_001": 23,
+		"mob_sand_snake_001": 24,
+		"mob_mummy_001": 25,
+		"mob_vulture_001": 26,
+		"mob_sand_spirit_001": 27,
+		"boss_scorpion_queen_001": 27,
+		"boss_pharaoh_001": 30,
+		"boss_sandworm_001": 30,
+		"mob_wind_wolf_001": 33,
+		"mob_hawk_001": 34,
+		"mob_wind_fairy_001": 35,
+		"mob_flying_rock_001": 36,
+		"mob_wind_goblin_001": 37,
+		"boss_storm_eagle_001": 37,
+		"boss_wind_mage_001": 40,
+		"boss_wind_drake_001": 40,
+		"dragon_wind_001": 40,
+		"mob_snow_wolf_001": 43,
+		"mob_ice_wisp_001": 44,
+		"mob_snowman_001": 45,
+		"mob_war_penguin_001": 46,
+		"mob_ice_bear_001": 47,
+		"boss_ice_queen_001": 47,
+		"boss_yeti_001": 48,
+		"boss_ice_guardian_001": 50,
+		"dragon_ice_001": 50,
+		"mob_lava_lizard_001": 53,
+		"mob_lava_golem_001": 54,
+		"mob_fire_bat_001": 55,
+		"mob_fire_spirit_001": 56,
+		"mob_fire_demon_001": 57,
+		"boss_ancient_lava_golem_001": 57,
+		"boss_salamander_001": 60,
+		"boss_fire_god_001": 60,
+		"dragon_fire_001": 60,
+		"mob_beach_crab_001": 63,
+		"mob_reef_jellyfish_001": 64,
+		"mob_pirate_001": 65,
+		"mob_coral_merfolk_001": 66,
+		"mob_wreck_octopus_001": 67,
+		"boss_crab_king_001": 67,
+		"boss_ghost_captain_001": 70,
+		"boss_kraken_001": 70,
+		"dragon_water_001": 70
+	},
+	"ENEMY_LEVEL_SPREAD": {
+		"min": -3,
+		"max": 6
+	},
+	"ENEMY_STATS": {
+		"mob_mushroom_001": {
+			"hp": 95,
+			"atk": 7,
+			"def": 1,
+			"speed": 46,
+			"aggro": 170,
+			"reach": 34,
+			"attackCd": 1.4,
+			"exp": 17,
+			"coins": 4
+		},
+		"mob_zombie_001": {
+			"hp": 320,
+			"atk": 17,
+			"def": 4,
+			"speed": 38,
+			"aggro": 190,
+			"reach": 36,
+			"attackCd": 1.7,
+			"exp": 48,
+			"coins": 10
+		},
+		"mob_gargoyle_001": {
+			"hp": 385,
+			"atk": 20,
+			"def": 8,
+			"speed": 58,
+			"aggro": 210,
+			"reach": 38,
+			"attackCd": 1.5,
+			"exp": 66,
+			"coins": 13
+		},
+		"mob_skeleton_archer_001": {
+			"hp": 225,
+			"atk": 16,
+			"def": 3,
+			"speed": 44,
+			"aggro": 290,
+			"reach": 240,
+			"attackCd": 2,
+			"ranged": "arrow",
+			"exp": 50,
+			"coins": 11
+		},
+		"boss_demon_001": {
+			"hp": 2100,
+			"atk": 25,
+			"def": 6,
+			"speed": 64,
+			"aggro": 330,
+			"reach": 46,
+			"attackCd": 1.17,
+			"ranged": "shadow",
+			"exp": 420,
+			"coins": 170
+		},
+		"boss_lich_001": {
+			"hp": 2650,
+			"atk": 28,
+			"def": 7,
+			"speed": 52,
+			"aggro": 340,
+			"reach": 48,
+			"attackCd": 1.26,
+			"ranged": "shadow",
+			"exp": 505,
+			"coins": 195
+		},
+		"mob_cave_bat_001": {
+			"hp": 330,
+			"atk": 19,
+			"def": 2,
+			"speed": 78,
+			"aggro": 240,
+			"reach": 30,
+			"attackCd": 1,
+			"exp": 70,
+			"coins": 14
+		},
+		"boss_stone_gargoyle_001": {
+			"hp": 4600,
+			"atk": 36,
+			"def": 12,
+			"speed": 48,
+			"aggro": 320,
+			"reach": 56,
+			"attackCd": 1.4,
+			"exp": 800,
+			"coins": 290
+		},
+		"mob_poison_frog_001": {
+			"hp": 765,
+			"atk": 32,
+			"def": 5,
+			"speed": 52,
+			"aggro": 220,
+			"reach": 36,
+			"attackCd": 1.4,
+			"exp": 317,
+			"coins": 20,
+			"resist": {
+				"water": 0.75,
+				"earth": 1.25,
+				"wind": 1.25
+			}
+		},
+		"mob_swamp_leech_001": {
+			"hp": 1105,
+			"atk": 41,
+			"def": 8,
+			"speed": 40,
+			"aggro": 200,
+			"reach": 40,
+			"attackCd": 1.7,
+			"exp": 384,
+			"coins": 21,
+			"resist": {
+				"water": 0.75,
+				"earth": 1.25,
+				"wind": 1.25
+			}
+		},
+		"mob_glow_mushroom_001": {
+			"hp": 695,
+			"atk": 36,
+			"def": 5,
+			"speed": 46,
+			"aggro": 280,
+			"reach": 220,
+			"attackCd": 2,
+			"ranged": "shadow",
+			"exp": 460,
+			"coins": 22,
+			"resist": {
+				"water": 0.75,
+				"earth": 1.25,
+				"wind": 1.25
+			}
+		},
+		"mob_water_snake_001": {
+			"hp": 735,
+			"atk": 32,
+			"def": 5,
+			"speed": 74,
+			"aggro": 250,
+			"reach": 32,
+			"attackCd": 1,
+			"exp": 544,
+			"coins": 23,
+			"resist": {
+				"water": 0.75,
+				"earth": 1.25,
+				"wind": 1.25
+			}
+		},
+		"mob_mud_merfolk_001": {
+			"hp": 730,
+			"atk": 35,
+			"def": 5,
+			"speed": 46,
+			"aggro": 290,
+			"reach": 240,
+			"attackCd": 2,
+			"ranged": "arrow",
+			"exp": 636,
+			"coins": 24,
+			"resist": {
+				"water": 0.75,
+				"earth": 1.25,
+				"wind": 1.25
+			}
+		},
+		"boss_mother_frog_001": {
+			"hp": 7895,
+			"atk": 63,
+			"def": 12,
+			"speed": 44,
+			"aggro": 330,
+			"reach": 54,
+			"attackCd": 1.53,
+			"exp": 7638,
+			"coins": 366,
+			"resist": {
+				"water": 0.75,
+				"earth": 1.25,
+				"wind": 1.25
+			}
+		},
+		"boss_swamp_witch_001": {
+			"hp": 5470,
+			"atk": 59,
+			"def": 10,
+			"speed": 51,
+			"aggro": 330,
+			"reach": 260,
+			"attackCd": 1.8,
+			"ranged": "shadow",
+			"exp": 11654,
+			"coins": 420,
+			"resist": {
+				"water": 0.75,
+				"earth": 1.25,
+				"wind": 1.25
+			}
+		},
+		"boss_mud_hydra_001": {
+			"hp": 7295,
+			"atk": 63,
+			"def": 12,
+			"speed": 51,
+			"aggro": 340,
+			"reach": 260,
+			"attackCd": 1.8,
+			"ranged": "shadow",
+			"exp": 19423,
+			"coins": 700,
+			"resist": {
+				"water": 0.75,
+				"earth": 1.25,
+				"wind": 1.25
+			}
+		},
+		"mob_scorpion_001": {
+			"hp": 1315,
+			"atk": 48,
+			"def": 8,
+			"speed": 52,
+			"aggro": 220,
+			"reach": 36,
+			"attackCd": 1.4,
+			"exp": 1397,
+			"coins": 32,
+			"resist": {
+				"earth": 0.75,
+				"fire": 0.8,
+				"water": 1.25,
+				"ice": 1.25
+			}
+		},
+		"mob_sand_snake_001": {
+			"hp": 1100,
+			"atk": 43,
+			"def": 7,
+			"speed": 74,
+			"aggro": 250,
+			"reach": 32,
+			"attackCd": 1,
+			"exp": 1560,
+			"coins": 33,
+			"resist": {
+				"earth": 0.75,
+				"fire": 0.8,
+				"water": 1.25,
+				"ice": 1.25
+			}
+		},
+		"mob_mummy_001": {
+			"hp": 2295,
+			"atk": 47,
+			"def": 13,
+			"speed": 38,
+			"aggro": 200,
+			"reach": 38,
+			"attackCd": 1.6,
+			"exp": 1735,
+			"coins": 34,
+			"resist": {
+				"earth": 0.75,
+				"fire": 0.8,
+				"water": 1.25,
+				"ice": 1.25
+			}
+		},
+		"mob_vulture_001": {
+			"hp": 1195,
+			"atk": 45,
+			"def": 8,
+			"speed": 74,
+			"aggro": 250,
+			"reach": 32,
+			"attackCd": 1,
+			"exp": 1921,
+			"coins": 35,
+			"resist": {
+				"earth": 0.75,
+				"fire": 0.8,
+				"water": 1.25,
+				"ice": 1.25
+			}
+		},
+		"mob_sand_spirit_001": {
+			"hp": 1245,
+			"atk": 55,
+			"def": 8,
+			"speed": 46,
+			"aggro": 280,
+			"reach": 220,
+			"attackCd": 2,
+			"ranged": "shadow",
+			"exp": 2119,
+			"coins": 36,
+			"resist": {
+				"earth": 0.75,
+				"fire": 0.8,
+				"water": 1.25,
+				"ice": 1.25
+			}
+		},
+		"boss_scorpion_queen_001": {
+			"hp": 12610,
+			"atk": 89,
+			"def": 15,
+			"speed": 44,
+			"aggro": 330,
+			"reach": 54,
+			"attackCd": 1.53,
+			"exp": 25430,
+			"coins": 546,
+			"resist": {
+				"earth": 0.75,
+				"fire": 0.8,
+				"water": 1.25,
+				"ice": 1.25
+			}
+		},
+		"boss_pharaoh_001": {
+			"hp": 8395,
+			"atk": 81,
+			"def": 13,
+			"speed": 51,
+			"aggro": 330,
+			"reach": 260,
+			"attackCd": 1.8,
+			"ranged": "shadow",
+			"exp": 33443,
+			"coins": 600,
+			"resist": {
+				"earth": 0.75,
+				"fire": 0.8,
+				"water": 1.25,
+				"ice": 1.25
+			}
+		},
+		"boss_sandworm_001": {
+			"hp": 18890,
+			"atk": 104,
+			"def": 18,
+			"speed": 44,
+			"aggro": 340,
+			"reach": 54,
+			"attackCd": 1.53,
+			"exp": 55738,
+			"coins": 1000,
+			"resist": {
+				"earth": 0.75,
+				"fire": 0.8,
+				"water": 1.25,
+				"ice": 1.25
+			}
+		},
+		"mob_wind_wolf_001": {
+			"hp": 1560,
+			"atk": 55,
+			"def": 9,
+			"speed": 74,
+			"aggro": 250,
+			"reach": 32,
+			"attackCd": 1,
+			"exp": 3571,
+			"coins": 44,
+			"resist": {
+				"wind": 0.75,
+				"earth": 1.3
+			}
+		},
+		"mob_hawk_001": {
+			"hp": 1615,
+			"atk": 56,
+			"def": 10,
+			"speed": 74,
+			"aggro": 250,
+			"reach": 32,
+			"attackCd": 1,
+			"exp": 3859,
+			"coins": 45,
+			"resist": {
+				"wind": 0.75,
+				"earth": 1.3
+			}
+		},
+		"mob_wind_fairy_001": {
+			"hp": 1670,
+			"atk": 68,
+			"def": 10,
+			"speed": 46,
+			"aggro": 280,
+			"reach": 220,
+			"attackCd": 2,
+			"ranged": "shadow",
+			"exp": 4161,
+			"coins": 46,
+			"resist": {
+				"wind": 0.75,
+				"earth": 1.3
+			}
+		},
+		"mob_flying_rock_001": {
+			"hp": 3450,
+			"atk": 63,
+			"def": 16,
+			"speed": 38,
+			"aggro": 200,
+			"reach": 38,
+			"attackCd": 1.6,
+			"exp": 4477,
+			"coins": 47,
+			"resist": {
+				"wind": 0.75,
+				"earth": 1.3
+			}
+		},
+		"mob_wind_goblin_001": {
+			"hp": 1670,
+			"atk": 64,
+			"def": 10,
+			"speed": 46,
+			"aggro": 290,
+			"reach": 240,
+			"attackCd": 2,
+			"ranged": "arrow",
+			"exp": 4808,
+			"coins": 48,
+			"resist": {
+				"wind": 0.75,
+				"earth": 1.3
+			}
+		},
+		"boss_storm_eagle_001": {
+			"hp": 10700,
+			"atk": 82,
+			"def": 14,
+			"speed": 66,
+			"aggro": 330,
+			"reach": 46,
+			"attackCd": 0.9,
+			"exp": 57692,
+			"coins": 726,
+			"resist": {
+				"wind": 0.75,
+				"earth": 1.3
+			}
+		},
+		"boss_wind_mage_001": {
+			"hp": 11750,
+			"atk": 103,
+			"def": 15,
+			"speed": 51,
+			"aggro": 330,
+			"reach": 260,
+			"attackCd": 1.8,
+			"ranged": "shadow",
+			"exp": 70656,
+			"coins": 780,
+			"resist": {
+				"wind": 0.75,
+				"earth": 1.3
+			}
+		},
+		"boss_wind_drake_001": {
+			"hp": 15665,
+			"atk": 110,
+			"def": 17,
+			"speed": 51,
+			"aggro": 340,
+			"reach": 260,
+			"attackCd": 1.8,
+			"ranged": "shadow",
+			"exp": 117759,
+			"coins": 1300,
+			"resist": {
+				"wind": 0.75,
+				"earth": 1.3
+			}
+		},
+		"dragon_wind_001": {
+			"hp": 39170,
+			"atk": 122,
+			"def": 19,
+			"speed": 51,
+			"aggro": 380,
+			"reach": 260,
+			"attackCd": 1.7,
+			"ranged": "shadow",
+			"exp": 235518,
+			"coins": 2080,
+			"resist": {
+				"wind": 0.75,
+				"earth": 1.3
+			}
+		},
+		"mob_snow_wolf_001": {
+			"hp": 2090,
+			"atk": 69,
+			"def": 12,
+			"speed": 74,
+			"aggro": 250,
+			"reach": 32,
+			"attackCd": 1,
+			"exp": 7106,
+			"coins": 56,
+			"resist": {
+				"ice": 0.7,
+				"fire": 1.3
+			}
+		},
+		"mob_ice_wisp_001": {
+			"hp": 2130,
+			"atk": 82,
+			"def": 12,
+			"speed": 46,
+			"aggro": 280,
+			"reach": 220,
+			"attackCd": 2,
+			"ranged": "shadow",
+			"exp": 7544,
+			"coins": 57,
+			"resist": {
+				"ice": 0.7,
+				"fire": 1.3
+			}
+		},
+		"mob_snowman_001": {
+			"hp": 3670,
+			"atk": 101,
+			"def": 15,
+			"speed": 40,
+			"aggro": 200,
+			"reach": 40,
+			"attackCd": 1.7,
+			"exp": 7998,
+			"coins": 58,
+			"resist": {
+				"ice": 0.7,
+				"fire": 1.3
+			}
+		},
+		"mob_war_penguin_001": {
+			"hp": 2770,
+			"atk": 86,
+			"def": 14,
+			"speed": 52,
+			"aggro": 220,
+			"reach": 36,
+			"attackCd": 1.4,
+			"exp": 8468,
+			"coins": 59,
+			"resist": {
+				"ice": 0.7,
+				"fire": 1.3
+			}
+		},
+		"mob_ice_bear_001": {
+			"hp": 4520,
+			"atk": 79,
+			"def": 19,
+			"speed": 38,
+			"aggro": 200,
+			"reach": 38,
+			"attackCd": 1.6,
+			"exp": 8955,
+			"coins": 60,
+			"resist": {
+				"ice": 0.7,
+				"fire": 1.3
+			}
+		},
+		"boss_ice_queen_001": {
+			"hp": 13565,
+			"atk": 118,
+			"def": 17,
+			"speed": 51,
+			"aggro": 330,
+			"reach": 260,
+			"attackCd": 1.8,
+			"ranged": "shadow",
+			"exp": 107460,
+			"coins": 906,
+			"resist": {
+				"ice": 0.7,
+				"fire": 1.3
+			}
+		},
+		"boss_yeti_001": {
+			"hp": 23330,
+			"atk": 144,
+			"def": 20,
+			"speed": 44,
+			"aggro": 330,
+			"reach": 54,
+			"attackCd": 1.53,
+			"exp": 113506,
+			"coins": 924,
+			"resist": {
+				"ice": 0.7,
+				"fire": 1.3
+			}
+		},
+		"boss_ice_guardian_001": {
+			"hp": 38245,
+			"atk": 120,
+			"def": 26,
+			"speed": 42,
+			"aggro": 340,
+			"reach": 52,
+			"attackCd": 1.44,
+			"exp": 210359,
+			"coins": 1600,
+			"resist": {
+				"ice": 0.7,
+				"fire": 1.3
+			}
+		},
+		"dragon_ice_001": {
+			"hp": 47810,
+			"atk": 148,
+			"def": 22,
+			"speed": 51,
+			"aggro": 380,
+			"reach": 260,
+			"attackCd": 1.7,
+			"ranged": "shadow",
+			"exp": 420718,
+			"coins": 2560,
+			"resist": {
+				"ice": 0.7,
+				"fire": 1.3
+			}
+		},
+		"mob_lava_lizard_001": {
+			"hp": 3150,
+			"atk": 97,
+			"def": 15,
+			"speed": 52,
+			"aggro": 220,
+			"reach": 36,
+			"attackCd": 1.4,
+			"exp": 12238,
+			"coins": 68,
+			"resist": {
+				"fire": 0.6,
+				"water": 1.25,
+				"ice": 1.25
+			}
+		},
+		"mob_lava_golem_001": {
+			"hp": 5125,
+			"atk": 89,
+			"def": 21,
+			"speed": 38,
+			"aggro": 200,
+			"reach": 38,
+			"attackCd": 1.6,
+			"exp": 12848,
+			"coins": 69,
+			"resist": {
+				"fire": 0.6,
+				"water": 1.25,
+				"ice": 1.25
+			}
+		},
+		"mob_fire_bat_001": {
+			"hp": 2605,
+			"atk": 85,
+			"def": 15,
+			"speed": 74,
+			"aggro": 250,
+			"reach": 32,
+			"attackCd": 1,
+			"exp": 13476,
+			"coins": 70,
+			"resist": {
+				"fire": 0.6,
+				"water": 1.25,
+				"ice": 1.25
+			}
+		},
+		"mob_fire_spirit_001": {
+			"hp": 2650,
+			"atk": 102,
+			"def": 15,
+			"speed": 46,
+			"aggro": 280,
+			"reach": 220,
+			"attackCd": 2,
+			"ranged": "shadow",
+			"exp": 14122,
+			"coins": 71,
+			"resist": {
+				"fire": 0.6,
+				"water": 1.25,
+				"ice": 1.25
+			}
+		},
+		"mob_fire_demon_001": {
+			"hp": 4545,
+			"atk": 124,
+			"def": 18,
+			"speed": 40,
+			"aggro": 200,
+			"reach": 40,
+			"attackCd": 1.7,
+			"exp": 14787,
+			"coins": 72,
+			"resist": {
+				"fire": 0.6,
+				"water": 1.25,
+				"ice": 1.25
+			}
+		},
+		"boss_ancient_lava_golem_001": {
+			"hp": 32315,
+			"atk": 126,
+			"def": 25,
+			"speed": 42,
+			"aggro": 330,
+			"reach": 52,
+			"attackCd": 1.44,
+			"exp": 177446,
+			"coins": 1086,
+			"resist": {
+				"fire": 0.6,
+				"water": 1.25,
+				"ice": 1.25
+			}
+		},
+		"boss_salamander_001": {
+			"hp": 16935,
+			"atk": 146,
+			"def": 20,
+			"speed": 51,
+			"aggro": 330,
+			"reach": 260,
+			"attackCd": 1.8,
+			"ranged": "shadow",
+			"exp": 202761,
+			"coins": 1140,
+			"resist": {
+				"fire": 0.6,
+				"water": 1.25,
+				"ice": 1.25
+			}
+		},
+		"boss_fire_god_001": {
+			"hp": 22580,
+			"atk": 157,
+			"def": 22,
+			"speed": 51,
+			"aggro": 340,
+			"reach": 260,
+			"attackCd": 1.8,
+			"ranged": "shadow",
+			"exp": 337935,
+			"coins": 1900,
+			"resist": {
+				"fire": 0.6,
+				"water": 1.25,
+				"ice": 1.25
+			}
+		},
+		"dragon_fire_001": {
+			"hp": 56450,
+			"atk": 173,
+			"def": 24,
+			"speed": 51,
+			"aggro": 380,
+			"reach": 260,
+			"attackCd": 1.7,
+			"ranged": "shadow",
+			"exp": 675870,
+			"coins": 3040,
+			"resist": {
+				"fire": 0.6,
+				"water": 1.25,
+				"ice": 1.25
+			}
+		},
+		"mob_beach_crab_001": {
+			"hp": 5905,
+			"atk": 102,
+			"def": 23,
+			"speed": 38,
+			"aggro": 200,
+			"reach": 38,
+			"attackCd": 1.6,
+			"exp": 19182,
+			"coins": 80,
+			"resist": {
+				"water": 0.75,
+				"wind": 1.25,
+				"earth": 1.25
+			}
+		},
+		"mob_reef_jellyfish_001": {
+			"hp": 2995,
+			"atk": 115,
+			"def": 17,
+			"speed": 46,
+			"aggro": 280,
+			"reach": 220,
+			"attackCd": 2,
+			"ranged": "shadow",
+			"exp": 19984,
+			"coins": 81,
+			"resist": {
+				"water": 0.75,
+				"wind": 1.25,
+				"earth": 1.25
+			}
+		},
+		"mob_pirate_001": {
+			"hp": 3800,
+			"atk": 117,
+			"def": 18,
+			"speed": 52,
+			"aggro": 220,
+			"reach": 36,
+			"attackCd": 1.4,
+			"exp": 20806,
+			"coins": 82,
+			"resist": {
+				"water": 0.75,
+				"wind": 1.25,
+				"earth": 1.25
+			}
+		},
+		"mob_coral_merfolk_001": {
+			"hp": 2890,
+			"atk": 106,
+			"def": 18,
+			"speed": 46,
+			"aggro": 290,
+			"reach": 240,
+			"attackCd": 2,
+			"ranged": "arrow",
+			"exp": 21648,
+			"coins": 83,
+			"resist": {
+				"water": 0.75,
+				"wind": 1.25,
+				"earth": 1.25
+			}
+		},
+		"mob_wreck_octopus_001": {
+			"hp": 5275,
+			"atk": 144,
+			"def": 21,
+			"speed": 40,
+			"aggro": 200,
+			"reach": 40,
+			"attackCd": 1.7,
+			"exp": 22512,
+			"coins": 84,
+			"resist": {
+				"water": 0.75,
+				"wind": 1.25,
+				"earth": 1.25
+			}
+		},
+		"boss_crab_king_001": {
+			"hp": 37500,
+			"atk": 145,
+			"def": 28,
+			"speed": 42,
+			"aggro": 330,
+			"reach": 52,
+			"attackCd": 1.44,
+			"exp": 270138,
+			"coins": 1266,
+			"resist": {
+				"water": 0.75,
+				"wind": 1.25,
+				"earth": 1.25
+			}
+		},
+		"boss_ghost_captain_001": {
+			"hp": 19525,
+			"atk": 168,
+			"def": 23,
+			"speed": 51,
+			"aggro": 330,
+			"reach": 260,
+			"attackCd": 1.8,
+			"ranged": "shadow",
+			"exp": 302724,
+			"coins": 1320,
+			"resist": {
+				"water": 0.75,
+				"wind": 1.25,
+				"earth": 1.25
+			}
+		},
+		"boss_kraken_001": {
+			"hp": 26035,
+			"atk": 181,
+			"def": 25,
+			"speed": 51,
+			"aggro": 340,
+			"reach": 260,
+			"attackCd": 1.8,
+			"ranged": "shadow",
+			"exp": 504539,
+			"coins": 2200,
+			"resist": {
+				"water": 0.75,
+				"wind": 1.25,
+				"earth": 1.25
+			}
+		},
+		"dragon_water_001": {
+			"hp": 65090,
+			"atk": 199,
+			"def": 27,
+			"speed": 51,
+			"aggro": 380,
+			"reach": 260,
+			"attackCd": 1.7,
+			"ranged": "shadow",
+			"exp": 1009078,
+			"coins": 3520,
+			"resist": {
+				"water": 0.75,
+				"wind": 1.25,
+				"earth": 1.25
+			}
+		}
+	},
+	"EXP_CURVE_KNEE": 10,
+	"HERO_SKILLS": [
+		{
+			"id": "slash",
+			"key": "J",
+			"name": "Trảm",
+			"element": "steel",
+			"mpCost": 0,
+			"cooldown": 0.38,
+			"power": 1.25,
+			"kind": "melee",
+			"range": 74,
+			"unlock": "sword",
+			"anim": "attack",
+			"desc": "Nhát chém cơ bản, giữ phím để chém liên tục."
+		},
+		{
+			"id": "aether_bolt",
+			"key": "K",
+			"name": "Tia Aether",
+			"element": "aether",
+			"mpCost": 0,
+			"cooldown": 0.42,
+			"power": 1,
+			"kind": "projectile",
+			"speed": 420,
+			"range": 380,
+			"unlock": "staff",
+			"anim": "cast",
+			"desc": "Năng lực bẩm sinh: tia sáng bắn thẳng."
+		},
+		{
+			"id": "fire_bolt",
+			"key": "1",
+			"name": "Hoả Cầu",
+			"element": "fire",
+			"mpCost": 6,
+			"cooldown": 1,
+			"power": 1.4,
+			"kind": "projectile",
+			"speed": 360,
+			"range": 400,
+			"unlock": "fire",
+			"anim": "cast",
+			"desc": "Cầu lửa, gây cháy."
+		},
+		{
+			"id": "water_lance",
+			"key": "2",
+			"name": "Thuỷ Tiễn",
+			"element": "water",
+			"mpCost": 8,
+			"cooldown": 1.6,
+			"power": 1.3,
+			"kind": "projectile",
+			"speed": 460,
+			"range": 420,
+			"unlock": "water",
+			"anim": "cast",
+			"desc": "Mũi nước, làm ướt."
+		},
+		{
+			"id": "wind_blade",
+			"key": "3",
+			"name": "Phong Nhận",
+			"element": "wind",
+			"mpCost": 10,
+			"cooldown": 2.4,
+			"power": 1.1,
+			"kind": "projectile",
+			"speed": 520,
+			"range": 460,
+			"pierce": true,
+			"unlock": "wind",
+			"anim": "cast",
+			"desc": "Lưỡi gió bay xuyên mục tiêu."
+		},
+		{
+			"id": "heal",
+			"key": "4",
+			"name": "Suối Lành",
+			"element": "healing",
+			"mpCost": 15,
+			"cooldown": 6,
+			"power": 0.35,
+			"kind": "heal",
+			"anim": "cast",
+			"desc": "Hồi máu, mạnh theo mốc Thuỷ."
+		},
+		{
+			"id": "ice_shard",
+			"key": "5",
+			"name": "Băng Tiễn",
+			"element": "ice",
+			"mpCost": 9,
+			"cooldown": 1.8,
+			"power": 1.35,
+			"kind": "projectile",
+			"speed": 440,
+			"range": 420,
+			"unlock": "ice",
+			"anim": "cast",
+			"desc": "Mũi băng làm lạnh; trúng mục tiêu ướt thì Đóng Băng."
+		},
+		{
+			"id": "flame_ring",
+			"name": "Vòng Lửa",
+			"element": "fire",
+			"mpCost": 14,
+			"cooldown": 6,
+			"power": 1.5,
+			"kind": "aoe_self",
+			"radius": 110,
+			"hit": {
+				"knock": 50
+			},
+			"anim": "cast",
+			"desc": "Nổ vòng lửa quanh mình, đẩy quái ra và gây cháy."
+		},
+		{
+			"id": "fire_blast",
+			"name": "Bộc Hoả",
+			"element": "fire",
+			"mpCost": 22,
+			"cooldown": 7,
+			"power": 2.4,
+			"kind": "aoe_target",
+			"range": 360,
+			"radius": 100,
+			"lob": 520,
+			"aimDist": 200,
+			"anim": "cast",
+			"desc": "Cầu lửa lớn bay tới chỗ nhắm rồi nổ lan, đốt cả nhóm."
+		},
+		{
+			"id": "tidal_wave",
+			"name": "Sóng Dữ",
+			"element": "water",
+			"mpCost": 20,
+			"cooldown": 6,
+			"power": 1.9,
+			"kind": "cone",
+			"range": 190,
+			"angle": 40,
+			"hit": {
+				"knock": 80
+			},
+			"anim": "cast",
+			"desc": "Sóng hình nón đẩy lùi cả nhóm, làm ướt hết."
+		},
+		{
+			"id": "cyclone",
+			"name": "Lốc Xoáy",
+			"element": "wind",
+			"mpCost": 16,
+			"cooldown": 8,
+			"power": 0.32,
+			"kind": "zone",
+			"range": 260,
+			"radius": 95,
+			"duration": 2.5,
+			"tick": 0.5,
+			"pull": 90,
+			"aimDist": 150,
+			"anim": "cast",
+			"desc": "Lốc nhỏ tại chỗ nhắm, cuốn quái vào giữa và chém liên tục."
+		},
+		{
+			"id": "gale_dash",
+			"name": "Lướt Gió",
+			"element": "wind",
+			"mpCost": 16,
+			"cooldown": 5,
+			"power": 1.8,
+			"kind": "dash",
+			"range": 210,
+			"speed": 720,
+			"iframes": 0.4,
+			"trail": true,
+			"width": 34,
+			"desc": "Lướt xa, không trúng đòn lúc lướt; để lại lưỡi gió chém mọi quái dọc đường."
+		},
+		{
+			"id": "frost_field",
+			"name": "Băng Địa",
+			"element": "ice",
+			"mpCost": 15,
+			"cooldown": 9,
+			"power": 0.22,
+			"kind": "zone",
+			"range": 260,
+			"radius": 105,
+			"duration": 4,
+			"tick": 0.5,
+			"pull": 0,
+			"aimDist": 150,
+			"anim": "cast",
+			"desc": "Phủ băng mặt đất tại chỗ nhắm: quái trong vùng bị lạnh và chậm."
+		},
+		{
+			"id": "ice_spire",
+			"name": "Băng Trụ",
+			"element": "ice",
+			"mpCost": 24,
+			"cooldown": 9,
+			"power": 2.6,
+			"kind": "pillar",
+			"range": 300,
+			"radius": 75,
+			"delay": 0.5,
+			"hit": {
+				"launch": 0.5,
+				"freeze": 1.4
+			},
+			"aimDist": 170,
+			"anim": "cast",
+			"desc": "Cột băng khổng lồ trồi lên tại chỗ nhắm, hất quái lên rồi đóng băng."
+		},
+		{
+			"id": "rock_throw",
+			"name": "Đá Văng",
+			"element": "earth",
+			"mpCost": 8,
+			"cooldown": 1.6,
+			"power": 1.35,
+			"kind": "projectile",
+			"speed": 380,
+			"range": 380,
+			"hit": {
+				"knock": 45
+			},
+			"unlock": "earth",
+			"anim": "cast",
+			"desc": "Ném đá, đẩy lùi."
+		},
+		{
+			"id": "quake",
+			"name": "Địa Chấn",
+			"element": "earth",
+			"mpCost": 14,
+			"cooldown": 7,
+			"power": 1.3,
+			"kind": "aoe_self",
+			"radius": 105,
+			"hit": {
+				"stun": 0.9
+			},
+			"anim": "cast",
+			"desc": "Dậm đất, choáng nhẹ quái quanh mình."
+		},
+		{
+			"id": "stone_spikes",
+			"name": "Gai Đá",
+			"element": "earth",
+			"mpCost": 22,
+			"cooldown": 7,
+			"power": 2.3,
+			"kind": "line",
+			"range": 320,
+			"width": 28,
+			"delay": 0.08,
+			"stagger": 0.025,
+			"hit": {
+				"launch": 0.4
+			},
+			"anim": "cast",
+			"desc": "Gai đá trồi theo đường thẳng, hất quái lên."
+		},
+		{
+			"id": "heavy_strike",
+			"name": "Nhất Kích",
+			"element": "steel",
+			"mpCost": 8,
+			"cooldown": 4.5,
+			"power": 2.8,
+			"kind": "melee",
+			"range": 96,
+			"arc": 60,
+			"charge": 0.3,
+			"crit": 0.15,
+			"hit": {
+				"knock": 55
+			},
+			"anim": "attack",
+			"desc": "Dồn lực một nhịp rồi bổ một nhát nặng: trúng cả hàng trước mặt, đẩy lùi, dễ chí mạng."
+		},
+		{
+			"id": "pierce_rush",
+			"name": "Đột Kích",
+			"element": "steel",
+			"mpCost": 14,
+			"cooldown": 6,
+			"power": 2.4,
+			"kind": "dash",
+			"range": 220,
+			"speed": 780,
+			"iframes": 0.15,
+			"trail": true,
+			"width": 40,
+			"crit": 0.1,
+			"desc": "Lướt thẳng tới rồi chém xuyên mọi quái dọc đường lướt."
+		},
+		{
+			"id": "calm_stance",
+			"name": "Thế Tĩnh",
+			"element": "steel",
+			"mpCost": 8,
+			"cooldown": 6,
+			"power": 1.4,
+			"kind": "guard",
+			"guard": "stance",
+			"duration": 1.5,
+			"desc": "Đứng yên giữ thế: đòn cận chiến đánh vào bị chặn và phản lại; đạn và đòn vùng giảm sát thương. Né hoặc bấm đòn khác để thôi giữ thế."
+		},
+		{
+			"id": "flowing_counter",
+			"name": "Lưu Thủy Phản",
+			"element": "steel",
+			"mpCost": 12,
+			"cooldown": 7,
+			"power": 2.8,
+			"kind": "guard",
+			"guard": "parry",
+			"duration": 0.6,
+			"desc": "Mở thế đỡ một nhịp ngắn (vòng sáng dưới chân): đòn đầu tiên đánh vào — kể cả đạn — bị hoá giải và phản công gấp đôi."
+		},
+		{
+			"id": "side_slash",
+			"name": "Lướt Chém",
+			"element": "steel",
+			"mpCost": 6,
+			"cooldown": 3,
+			"power": 1.6,
+			"kind": "dash",
+			"range": 140,
+			"speed": 760,
+			"iframes": 0.3,
+			"width": 44,
+			"desc": "Lướt ngang qua quái, chém mọi con đi qua; lúc lướt không trúng đòn."
+		},
+		{
+			"id": "shadow_step",
+			"name": "Ảnh Bộ",
+			"element": "steel",
+			"mpCost": 14,
+			"cooldown": 6,
+			"power": 2,
+			"kind": "blink",
+			"range": 260,
+			"angle": 60,
+			"radius": 72,
+			"arc": 70,
+			"iframes": 0.35,
+			"crit": 1,
+			"anim": "attack",
+			"desc": "Lướt bóng ra sau lưng mục tiêu gần hướng nhắm nhất rồi chém — chắc chắn chí mạng."
+		},
+		{
+			"id": "blaze_slash",
+			"name": "Liệt Hoả Trảm",
+			"element": "fire",
+			"blade": true,
+			"mpCost": 18,
+			"cooldown": 7,
+			"power": 2.6,
+			"kind": "cone",
+			"range": 150,
+			"angle": 45,
+			"hit": {
+				"knock": 30
+			},
+			"anim": "attack",
+			"desc": "Nhát chém quét hình nón bùng lửa, đốt cháy cả nhóm."
+		},
+		{
+			"id": "water_dragon_slash",
+			"name": "Thuỷ Long Trảm",
+			"element": "water",
+			"blade": true,
+			"mpCost": 18,
+			"cooldown": 7,
+			"power": 2.4,
+			"kind": "line",
+			"range": 260,
+			"width": 30,
+			"delay": 0.05,
+			"stagger": 0.018,
+			"hit": {
+				"knock": 40,
+				"drain": 0.15
+			},
+			"anim": "attack",
+			"desc": "Nhát chém phóng sóng nước dọc đường thẳng: làm ướt, đẩy lùi và hút máu."
+		},
+		{
+			"id": "gale_blade_dance",
+			"name": "Phong Kiếm Cuồng Vũ",
+			"element": "wind",
+			"blade": true,
+			"mpCost": 20,
+			"cooldown": 9,
+			"power": 0.36,
+			"kind": "zone",
+			"follow": true,
+			"radius": 100,
+			"duration": 2.4,
+			"tick": 0.3,
+			"pull": 0,
+			"anim": "attack",
+			"desc": "Chuỗi lưỡi gió xoay quanh mình 2,4 giây, chém liên tục mọi quái áp sát."
+		},
+		{
+			"id": "frost_cleave",
+			"name": "Hàn Băng Trảm",
+			"element": "ice",
+			"blade": true,
+			"mpCost": 18,
+			"cooldown": 7,
+			"power": 2.6,
+			"kind": "melee",
+			"range": 104,
+			"arc": 70,
+			"hit": {
+				"freezeChilled": 1.6
+			},
+			"anim": "attack",
+			"desc": "Nhát chém băng rộng: mục tiêu ướt hoặc đang lạnh bị đóng băng."
+		},
+		{
+			"id": "earth_rend",
+			"name": "Địa Liệt Trảm",
+			"element": "earth",
+			"blade": true,
+			"mpCost": 18,
+			"cooldown": 8,
+			"power": 2.5,
+			"kind": "line",
+			"range": 280,
+			"width": 28,
+			"delay": 0.12,
+			"stagger": 0.022,
+			"hit": {
+				"stun": 0.8
+			},
+			"anim": "attack",
+			"desc": "Bổ kiếm xuống đất: gai đá trồi theo đường thẳng, choáng mọi quái trúng."
+		},
+		{
+			"id": "fire_wall",
+			"name": "Tường Lửa",
+			"element": "fire",
+			"mpCost": 18,
+			"cooldown": 10,
+			"power": 0.25,
+			"kind": "wall",
+			"range": 240,
+			"width": 80,
+			"duration": 5,
+			"tick": 0.5,
+			"aimDist": 110,
+			"anim": "cast",
+			"desc": "Dựng tường lửa chắn ngang chỗ nhắm: quái không đi xuyên qua, đạn quái bị chặn; quái áp sát tường bị đốt."
+		},
+		{
+			"id": "meteor",
+			"name": "Thiên Thạch",
+			"element": "fire",
+			"mpCost": 34,
+			"cooldown": 15,
+			"power": 3.6,
+			"kind": "aoe_target",
+			"fall": true,
+			"delay": 0.8,
+			"range": 380,
+			"radius": 150,
+			"hit": {
+				"knock": 60
+			},
+			"aimDist": 220,
+			"anim": "cast",
+			"desc": "Gọi thiên thạch rực lửa rơi xuống chỗ nhắm, nổ cả một vùng lớn và đốt cháy."
+		},
+		{
+			"id": "call_rain",
+			"name": "Gọi Mưa",
+			"element": "water",
+			"mpCost": 16,
+			"cooldown": 12,
+			"power": 0,
+			"kind": "zone",
+			"rain": true,
+			"range": 280,
+			"radius": 130,
+			"duration": 6,
+			"tick": 0.5,
+			"pull": 0,
+			"aimDist": 160,
+			"anim": "cast",
+			"desc": "Gọi mây giông trút mưa một vùng: quái trong vùng ướt liên tục (mồi cho Băng và Lôi Vũ)."
+		},
+		{
+			"id": "thunder_rain",
+			"name": "Lôi Vũ",
+			"element": "water",
+			"mpCost": 30,
+			"cooldown": 14,
+			"power": 0.6,
+			"kind": "zone",
+			"bolts": true,
+			"range": 320,
+			"radius": 170,
+			"duration": 3,
+			"tick": 0.5,
+			"pull": 0,
+			"aimDist": 180,
+			"anim": "cast",
+			"desc": "Mây giông phóng sét xuống quái trong vùng, ưu tiên quái đang ướt; mây đứng trong mưa của chính mình thì sét dày gấp đôi."
+		},
+		{
+			"id": "gale_fan",
+			"name": "Phong Bạo",
+			"element": "wind",
+			"mpCost": 18,
+			"cooldown": 7,
+			"power": 1.2,
+			"kind": "projectile",
+			"count": 3,
+			"spread": 18,
+			"speed": 500,
+			"range": 300,
+			"pierce": true,
+			"hit": {
+				"knock": 55
+			},
+			"anim": "cast",
+			"desc": "Ba lưỡi gió toả hình quạt, xuyên mục tiêu, đẩy lùi."
+		},
+		{
+			"id": "tornado",
+			"name": "Vòi Rồng",
+			"element": "wind",
+			"mpCost": 30,
+			"cooldown": 14,
+			"power": 0.34,
+			"kind": "zone",
+			"move": 110,
+			"radius": 80,
+			"duration": 3.5,
+			"tick": 0.35,
+			"pull": 170,
+			"anim": "cast",
+			"desc": "Lốc khổng lồ đi theo hướng nhắm, cuốn quái theo và chém liên tục."
+		},
+		{
+			"id": "ice_mirror",
+			"name": "Gương Băng",
+			"element": "ice",
+			"mpCost": 16,
+			"cooldown": 12,
+			"power": 1.6,
+			"kind": "ward",
+			"duration": 4,
+			"radius": 46,
+			"anim": "cast",
+			"desc": "Khiên băng quanh mình 4 giây: đạn quái chạm khiên bị phản ngược về kẻ bắn thành mũi băng."
+		},
+		{
+			"id": "ice_rain",
+			"name": "Mưa Băng",
+			"element": "ice",
+			"mpCost": 32,
+			"cooldown": 15,
+			"power": 0.9,
+			"kind": "barrage",
+			"range": 320,
+			"radius": 150,
+			"count": 20,
+			"duration": 1.8,
+			"width": 48,
+			"delay": 0.3,
+			"aimDist": 180,
+			"anim": "cast",
+			"desc": "Mũi băng to rơi rải khắp một vùng: mỗi mũi làm lạnh, mục tiêu ướt thì Đóng Băng."
+		},
+		{
+			"id": "stone_wall",
+			"name": "Tường Đá",
+			"element": "earth",
+			"mpCost": 18,
+			"cooldown": 12,
+			"power": 1.1,
+			"kind": "wall",
+			"range": 220,
+			"width": 100,
+			"duration": 7,
+			"hit": {
+				"knock": 40
+			},
+			"aimDist": 100,
+			"anim": "cast",
+			"desc": "Dựng tường đá chắn ngang chỗ nhắm: chặn đường và chặn đạn quái; đá trồi hất quái đứng trên đó sang hai bên."
+		},
+		{
+			"id": "rockslide",
+			"name": "Lở Đá",
+			"element": "earth",
+			"mpCost": 32,
+			"cooldown": 15,
+			"power": 1.2,
+			"kind": "barrage",
+			"range": 320,
+			"radius": 160,
+			"count": 12,
+			"duration": 1.5,
+			"width": 58,
+			"delay": 0.35,
+			"hit": {
+				"stun": 0.5
+			},
+			"aimDist": 180,
+			"anim": "cast",
+			"desc": "Đá tảng rơi rải khắp một vùng rộng: mỗi tảng choáng ngắn quái trúng."
+		},
+		{
+			"id": "sunder_strike",
+			"name": "Phá Giáp",
+			"element": "steel",
+			"mpCost": 10,
+			"cooldown": 6,
+			"power": 2.4,
+			"kind": "melee",
+			"range": 92,
+			"arc": 60,
+			"hit": {
+				"armor": 6,
+				"sunder": 6,
+				"knock": 25
+			},
+			"anim": "attack",
+			"desc": "Bổ một nhát nặng làm vỡ giáp: quái trúng chịu đòn nặng hơn một lúc; quái đang bị phá giáp thì vỡ giáp thêm."
+		},
+		{
+			"id": "blade_wave",
+			"name": "Lưỡi Sóng",
+			"element": "steel",
+			"mpCost": 18,
+			"cooldown": 8,
+			"power": 3,
+			"kind": "projectile",
+			"speed": 560,
+			"range": 440,
+			"width": 30,
+			"pierce": true,
+			"anim": "attack",
+			"desc": "Vung kiếm phóng một luồng kiếm bay xa, xuyên mọi quái trên đường."
+		},
+		{
+			"id": "backflow",
+			"name": "Dòng Chảy Ngược",
+			"element": "steel",
+			"mpCost": 10,
+			"cooldown": 8,
+			"power": 2,
+			"kind": "ward",
+			"duration": 2.5,
+			"radius": 56,
+			"anim": "attack",
+			"desc": "Giữ kiếm gạt đạn một lúc: đạn quái bay tới gần bị chém bay ngược về kẻ bắn."
+		},
+		{
+			"id": "whirlpool",
+			"name": "Xoáy Nước",
+			"element": "steel",
+			"mpCost": 14,
+			"cooldown": 8,
+			"power": 1.9,
+			"kind": "spin",
+			"range": 300,
+			"aimDist": 160,
+			"radius": 110,
+			"afterGuard": 1.8,
+			"hit": {
+				"knock": 60
+			},
+			"anim": "attack",
+			"desc": "Vung kiếm cuộn một xoáy nước chém tại chỗ nhắm, đẩy lùi quái quanh đó; tung ngay sau khi đỡ đòn thì mạnh hơn hẳn."
+		},
+		{
+			"id": "chain_slash",
+			"name": "Liên Hoàn",
+			"element": "steel",
+			"mpCost": 10,
+			"cooldown": 5,
+			"power": 0.8,
+			"kind": "melee",
+			"range": 80,
+			"arc": 65,
+			"count": 4,
+			"stagger": 0.09,
+			"anim": "attack",
+			"desc": "Chuỗi bốn nhát chém thật nhanh về phía trước."
+		},
+		{
+			"id": "flying_sword",
+			"name": "Phi Kiếm",
+			"element": "steel",
+			"mpCost": 18,
+			"cooldown": 8,
+			"power": 1.8,
+			"kind": "projectile",
+			"speed": 640,
+			"range": 320,
+			"width": 26,
+			"pierce": true,
+			"returns": true,
+			"anim": "attack",
+			"desc": "Phóng kiếm bay xuyên hàng quái rồi bay về tay — quái trên đường trúng cả lúc đi lẫn lúc về."
+		},
+		{
+			"id": "phoenix",
+			"name": "Phượng Hoàng",
+			"element": "fire",
+			"mpCost": 60,
+			"cooldown": 40,
+			"power": 4.4,
+			"kind": "projectile",
+			"speed": 470,
+			"range": 900,
+			"width": 64,
+			"pierce": true,
+			"ult": true,
+			"anim": "cast",
+			"desc": "Tuyệt kỹ: phượng lửa khổng lồ bay xuyên màn hình, thiêu cháy mọi quái trên đường bay."
+		},
+		{
+			"id": "great_flood",
+			"name": "Đại Hồng Thuỷ",
+			"element": "water",
+			"mpCost": 60,
+			"cooldown": 40,
+			"power": 3.4,
+			"kind": "cone",
+			"range": 520,
+			"angle": 50,
+			"hit": {
+				"knock": 160
+			},
+			"ult": true,
+			"anim": "cast",
+			"desc": "Tuyệt kỹ: sóng thần dâng lên quét về phía trước, cuốn văng và làm ướt cả đám quái."
+		},
+		{
+			"id": "heaven_wind",
+			"name": "Thiên Phong",
+			"element": "wind",
+			"mpCost": 60,
+			"cooldown": 45,
+			"power": 0.42,
+			"kind": "zone",
+			"range": 380,
+			"aimDist": 220,
+			"radius": 190,
+			"duration": 6,
+			"tick": 0.3,
+			"pull": 160,
+			"ult": true,
+			"anim": "cast",
+			"desc": "Tuyệt kỹ: gọi bão lớn giáng xuống chỗ nhắm 6 giây, hút quái vào tâm bão và chém liên tục."
+		},
+		{
+			"id": "ice_age",
+			"name": "Kỷ Băng Hà",
+			"element": "ice",
+			"mpCost": 60,
+			"cooldown": 45,
+			"power": 4.4,
+			"kind": "aoe_target",
+			"fall": true,
+			"delay": 0.7,
+			"range": 400,
+			"aimDist": 220,
+			"radius": 210,
+			"hit": {
+				"freeze": 3
+			},
+			"ult": true,
+			"anim": "cast",
+			"desc": "Tuyệt kỹ: khối băng khổng lồ rơi xuống chỗ nhắm, sóng băng nổ lan cả vùng và đóng băng mọi quái trúng."
+		},
+		{
+			"id": "mountain_god",
+			"name": "Sơn Thần",
+			"element": "earth",
+			"mpCost": 60,
+			"cooldown": 50,
+			"power": 1.7,
+			"kind": "summon",
+			"range": 260,
+			"aimDist": 120,
+			"radius": 115,
+			"duration": 10,
+			"tick": 1.1,
+			"hit": {
+				"stun": 0.7
+			},
+			"ult": true,
+			"anim": "cast",
+			"desc": "Tuyệt kỹ: gọi người khổng lồ đá chiến đấu cùng 10 giây — tự đi tới quái gần nhất, dậm đất choáng cả vùng."
+		},
+		{
+			"id": "judgment",
+			"name": "Phán Quyết",
+			"element": "steel",
+			"mpCost": 50,
+			"cooldown": 40,
+			"power": 1.15,
+			"kind": "barrage",
+			"range": 360,
+			"radius": 200,
+			"count": 28,
+			"duration": 1.6,
+			"width": 52,
+			"delay": 0.25,
+			"crit": 0.25,
+			"aimDist": 180,
+			"ult": true,
+			"anim": "attack",
+			"desc": "Tuyệt kỹ: ngàn thanh kiếm ánh sáng cắm xuống khắp vùng nhắm."
+		},
+		{
+			"id": "still_heaven",
+			"name": "Thiên Tĩnh",
+			"element": "steel",
+			"mpCost": 45,
+			"cooldown": 45,
+			"power": 4.8,
+			"kind": "aoe_target",
+			"delay": 0.45,
+			"range": 360,
+			"aimDist": 200,
+			"radius": 170,
+			"hit": {
+				"stun": 1.5
+			},
+			"ult": true,
+			"anim": "attack",
+			"desc": "Tuyệt kỹ: một nhát kiếm khiến chỗ nhắm lặng như mặt hồ — quái trong vùng đứng sững rồi trúng một đòn chém cực nặng."
+		},
+		{
+			"id": "thousand_shadows",
+			"name": "Ngàn Bóng",
+			"element": "steel",
+			"mpCost": 50,
+			"cooldown": 45,
+			"power": 0.95,
+			"kind": "summon",
+			"count": 3,
+			"range": 360,
+			"aimDist": 200,
+			"radius": 90,
+			"duration": 6,
+			"tick": 0.4,
+			"crit": 0.3,
+			"ult": true,
+			"anim": "attack",
+			"desc": "Tuyệt kỹ: 3 bóng phân thân lao tới chỗ nhắm, chém liên tục quái ở đó suốt 6 giây."
+		}
+	],
+	"PATHS": {
+		"none": {
+			"name": "",
+			"sword": 1,
+			"magic": 1,
+			"hp": [
+				115,
+				14
+			],
+			"mp": [
+				60,
+				6
+			],
+			"atk": [
+				16,
+				3
+			],
+			"def": [
+				4,
+				1
+			]
+		},
+		"sword": {
+			"name": "Kiếm sĩ",
+			"sword": 1.35,
+			"magic": 0.65,
+			"hp": [
+				130,
+				16
+			],
+			"mp": [
+				45,
+				4
+			],
+			"atk": [
+				17,
+				3
+			],
+			"def": [
+				6,
+				1
+			]
+		},
+		"mage": {
+			"name": "Pháp sư",
+			"sword": 0.65,
+			"magic": 1.35,
+			"hp": [
+				100,
+				12
+			],
+			"mp": [
+				70,
+				8
+			],
+			"atk": [
+				15,
+				3
+			],
+			"def": [
+				3,
+				1
+			]
+		}
+	}
+}

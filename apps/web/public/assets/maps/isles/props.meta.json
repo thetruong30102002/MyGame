@@ -1,0 +1,554 @@
+{
+	"palm": {
+		"kind": "tree",
+		"w": 119,
+		"h": 165,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 19,
+			"h": 14
+		}
+	},
+	"palm_flip": {
+		"kind": "tree",
+		"w": 119,
+		"h": 165,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 19,
+			"h": 14
+		}
+	},
+	"palm_lush": {
+		"kind": "tree",
+		"w": 119,
+		"h": 165,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 19,
+			"h": 14
+		}
+	},
+	"palm_dry": {
+		"kind": "tree",
+		"w": 119,
+		"h": 165,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 19,
+			"h": 14
+		}
+	},
+	"fisher_cottage": {
+		"kind": "building",
+		"w": 154,
+		"h": 154,
+		"blocks": true,
+		"footprint": {
+			"x": -66,
+			"y": -56,
+			"w": 132,
+			"h": 56
+		}
+	},
+	"boat_workshop": {
+		"kind": "building",
+		"w": 174,
+		"h": 152,
+		"blocks": true,
+		"footprint": {
+			"x": -77,
+			"y": -50,
+			"w": 153,
+			"h": 50
+		}
+	},
+	"fishing_pier": {
+		"kind": "building",
+		"w": 178,
+		"h": 148,
+		"blocks": true,
+		"footprint": {
+			"x": -54,
+			"y": -20,
+			"w": 107,
+			"h": 20
+		}
+	},
+	"gull_wreck": {
+		"kind": "building",
+		"w": 140,
+		"h": 174,
+		"blocks": true,
+		"footprint": {
+			"x": -53,
+			"y": -40,
+			"w": 105,
+			"h": 40
+		}
+	},
+	"pink_coral": {
+		"kind": "rock",
+		"w": 44,
+		"h": 44,
+		"blocks": true,
+		"footprint": {
+			"x": -13,
+			"y": -12,
+			"w": 26,
+			"h": 12
+		}
+	},
+	"sea_fan": {
+		"kind": "rock",
+		"w": 48,
+		"h": 44,
+		"blocks": true,
+		"footprint": {
+			"x": -15,
+			"y": -12,
+			"w": 29,
+			"h": 12
+		}
+	},
+	"brain_coral": {
+		"kind": "rock",
+		"w": 45,
+		"h": 43,
+		"blocks": true,
+		"footprint": {
+			"x": -17,
+			"y": -14,
+			"w": 34,
+			"h": 14
+		}
+	},
+	"giant_clam": {
+		"kind": "rock",
+		"w": 44,
+		"h": 41,
+		"blocks": true,
+		"footprint": {
+			"x": -18,
+			"y": -12,
+			"w": 35,
+			"h": 12
+		}
+	},
+	"starfish": {
+		"kind": "flower",
+		"w": 44,
+		"h": 40,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"urchin": {
+		"kind": "flower",
+		"w": 43,
+		"h": 40,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"kelp": {
+		"kind": "flower",
+		"w": 39,
+		"h": 47,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"coconut_palm": {
+		"kind": "bush",
+		"w": 49,
+		"h": 48,
+		"blocks": true,
+		"footprint": {
+			"x": -15,
+			"y": -12,
+			"w": 29,
+			"h": 12
+		}
+	},
+	"beach_rock": {
+		"kind": "rock",
+		"w": 45,
+		"h": 42,
+		"blocks": true,
+		"footprint": {
+			"x": -18,
+			"y": -18,
+			"w": 36,
+			"h": 18
+		}
+	},
+	"lobster_trap": {
+		"kind": "decor",
+		"w": 52,
+		"h": 39,
+		"blocks": true,
+		"footprint": {
+			"x": -21,
+			"y": -12,
+			"w": 42,
+			"h": 12
+		}
+	},
+	"anchor": {
+		"kind": "decor",
+		"w": 41,
+		"h": 47,
+		"blocks": true,
+		"footprint": {
+			"x": -13,
+			"y": -12,
+			"w": 25,
+			"h": 12
+		}
+	},
+	"fish_barrel": {
+		"kind": "decor",
+		"w": 39,
+		"h": 48,
+		"blocks": true,
+		"footprint": {
+			"x": -15,
+			"y": -14,
+			"w": 29,
+			"h": 14
+		}
+	},
+	"buoy": {
+		"kind": "decor",
+		"w": 23,
+		"h": 50,
+		"blocks": true,
+		"footprint": {
+			"x": -5,
+			"y": -10,
+			"w": 9,
+			"h": 10
+		}
+	},
+	"fish_crates": {
+		"kind": "decor",
+		"w": 47,
+		"h": 42,
+		"blocks": true,
+		"footprint": {
+			"x": -20,
+			"y": -14,
+			"w": 40,
+			"h": 14
+		}
+	},
+	"net_pile": {
+		"kind": "flower",
+		"w": 52,
+		"h": 41,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"fish_rack": {
+		"kind": "decor",
+		"w": 51,
+		"h": 43,
+		"blocks": true,
+		"footprint": {
+			"x": -21,
+			"y": -12,
+			"w": 41,
+			"h": 12
+		}
+	},
+	"salt_crate": {
+		"kind": "decor",
+		"w": 48,
+		"h": 45,
+		"blocks": true,
+		"footprint": {
+			"x": -19,
+			"y": -14,
+			"w": 38,
+			"h": 14
+		}
+	},
+	"flower_wreath": {
+		"kind": "flower",
+		"w": 46,
+		"h": 45,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"ship_wheel": {
+		"kind": "decor",
+		"w": 51,
+		"h": 52,
+		"blocks": true,
+		"footprint": {
+			"x": -16,
+			"y": -12,
+			"w": 31,
+			"h": 12
+		}
+	},
+	"rune_chest": {
+		"kind": "decor",
+		"w": 50,
+		"h": 51,
+		"blocks": true,
+		"footprint": {
+			"x": -20,
+			"y": -12,
+			"w": 40,
+			"h": 12
+		}
+	},
+	"tentacle": {
+		"kind": "flower",
+		"w": 49,
+		"h": 38,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"cannon": {
+		"kind": "decor",
+		"w": 53,
+		"h": 41,
+		"blocks": true,
+		"footprint": {
+			"x": -23,
+			"y": -14,
+			"w": 45,
+			"h": 14
+		}
+	},
+	"gull_figurehead": {
+		"kind": "rock",
+		"w": 55,
+		"h": 50,
+		"blocks": true,
+		"footprint": {
+			"x": -20,
+			"y": -12,
+			"w": 39,
+			"h": 12
+		}
+	},
+	"ghost_lantern_brass": {
+		"kind": "decor",
+		"w": 44,
+		"h": 55,
+		"blocks": true,
+		"footprint": {
+			"x": -9,
+			"y": -10,
+			"w": 18,
+			"h": 10
+		}
+	},
+	"red_machine": {
+		"kind": "decor",
+		"w": 48,
+		"h": 48,
+		"blocks": true,
+		"footprint": {
+			"x": -17,
+			"y": -12,
+			"w": 34,
+			"h": 12
+		}
+	},
+	"abyss_spire": {
+		"kind": "rock",
+		"w": 42,
+		"h": 53,
+		"blocks": true,
+		"footprint": {
+			"x": -13,
+			"y": -16,
+			"w": 25,
+			"h": 16
+		}
+	},
+	"ship_planks": {
+		"kind": "flower",
+		"w": 53,
+		"h": 41,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"rune_stone": {
+		"kind": "rock",
+		"w": 46,
+		"h": 58,
+		"blocks": true,
+		"footprint": {
+			"x": -16,
+			"y": -18,
+			"w": 32,
+			"h": 18
+		}
+	},
+	"signpost": {
+		"kind": "decor",
+		"w": 55,
+		"h": 77,
+		"blocks": true,
+		"footprint": {
+			"x": -7,
+			"y": -10,
+			"w": 14,
+			"h": 10
+		}
+	},
+	"rock_gray": {
+		"kind": "rock",
+		"w": 43,
+		"h": 38,
+		"blocks": true,
+		"footprint": {
+			"x": -16,
+			"y": -20,
+			"w": 32,
+			"h": 20
+		}
+	},
+	"bush": {
+		"kind": "bush",
+		"w": 47,
+		"h": 43,
+		"blocks": true,
+		"footprint": {
+			"x": -14,
+			"y": -14,
+			"w": 28,
+			"h": 14
+		}
+	},
+	"crate": {
+		"kind": "decor",
+		"w": 41,
+		"h": 44,
+		"blocks": true,
+		"footprint": {
+			"x": -18,
+			"y": -18,
+			"w": 35,
+			"h": 18
+		}
+	},
+	"barrel": {
+		"kind": "decor",
+		"w": 37,
+		"h": 45,
+		"blocks": true,
+		"footprint": {
+			"x": -15,
+			"y": -18,
+			"w": 30,
+			"h": 18
+		}
+	},
+	"rowboat": {
+		"kind": "decor",
+		"w": 84,
+		"h": 35,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"mooring_post": {
+		"kind": "decor",
+		"w": 46,
+		"h": 45,
+		"blocks": true,
+		"footprint": {
+			"x": -9,
+			"y": -10,
+			"w": 18,
+			"h": 10
+		}
+	},
+	"reed_clump": {
+		"kind": "flower",
+		"w": 56,
+		"h": 58,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"lily_pads": {
+		"kind": "flower",
+		"w": 50,
+		"h": 42,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"agave": {
+		"kind": "bush",
+		"w": 46,
+		"h": 45,
+		"blocks": true,
+		"footprint": {
+			"x": -14,
+			"y": -12,
+			"w": 28,
+			"h": 12
+		}
+	}
+}

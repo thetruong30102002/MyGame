@@ -86,5 +86,10 @@
 		"SW",
 		"NW"
 	],
-	"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 64px; ảnh mẫu nét = nấm rừng. Vùng 7. Mô tả: a wide flat beach crab facing the viewer, pale sand-white shell speckled with coral-pink dots and a few barnacles, one oversized claw and one tiny claw, round black eyes on tall stalks, a scrap of torn fishing net snagged on its shell. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 88px."
+	"notes": "PixelLab Pro Flash 09/10/2026, gói trả phí (token #1), template custom, khổ vẽ 64px; ảnh mẫu nét = nấm rừng. Vùng 7. Mô tả: a wide flat beach crab facing the viewer, pale sand-white shell speckled with coral-pink dots and a few barnacles, one oversized claw and one tiny claw, round black eyes on tall stalks, a scrap of torn fishing net snagged on its shell. Đi / đứng / đánh / gục 3 hướng (E/S/N), khung v3 nới 88px.",
+	"review": {
+		"status": "approved",
+		"date": "10/10/2026",
+		"notes": "Duyệt bằng mắt (Claude, phiên chuyển Unity): ảnh giữa idle/walk hướng S/E/N + trọn attack E/S + death E từ contact sheet. Chủ dự án báo đã vẽ xong chiêu quái/boss trên PixelLab; đối chiếu bản tải lại 10/10/2026 khớp bản trên máy. Hướng E/W là cua nhìn ngang (đã soi ảnh xoay 8 hướng) — đúng."
+	}
 }

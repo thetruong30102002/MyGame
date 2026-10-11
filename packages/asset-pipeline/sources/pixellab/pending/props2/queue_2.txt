@@ -1,0 +1,3 @@
+object desert_dry_tree @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/desert_dry_tree.send.json
+object isles_morning_glory @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/isles_morning_glory.send.json
+image D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/SW5_swamp_hamlet.png @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/SW5_swamp_hamlet.json
