@@ -1,0 +1,4 @@
+object sword_maple_weeping @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/sword_maple_weeping.send.json
+object sword_maple_bonsai @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/sword_maple_bonsai.send.json
+object sword_maple_ancient @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/sword_maple_ancient.send.json
+object sword_maple_cleaved @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/sword_maple_cleaved.send.json

@@ -1,0 +1,55 @@
+{
+	"identity": {
+		"characterId": "npc_ysolde_001",
+		"hair": "silver_grey_braid",
+		"eyes": "dark",
+		"skin": "tan",
+		"outfit": "grey_green_reed_shawl_brown_wrap_dress_teapot_charm",
+		"weapon": "driftwood_walking_stick",
+		"palette": "swamp_elder_01"
+	},
+	"displayName": "Ysolde",
+	"role": "npc",
+	"provider": "pixellab",
+	"pixellab": {
+		"animations": {
+			"idle": "idle"
+		},
+		"reject": {
+			"idle": [
+				"E",
+				"W",
+				"N"
+			]
+		}
+	},
+	"frameSize": {
+		"width": 80,
+		"height": 88
+	},
+	"baselineY": 84,
+	"animations": {
+		"idle": {
+			"fps": 6,
+			"minFrames": 4,
+			"maxFrames": 8
+		}
+	},
+	"cleanup": {
+		"alignToIdle": true
+	},
+	"quality": {
+		"maxHeightDrift": 0.15
+	},
+	"provisional": [
+		"W",
+		"N",
+		"E"
+	],
+	"notes": "PixelLab Pro Flash (13/10/2026, token trial #15), ảnh mẫu phong cách = Lior bé (chép nét/bóng, không chép bảng màu). Bà Ysolde, trưởng làng Lau Xám (vùng 2), thay hình mượn npc_mirelle_001. Idle = breathing-idle 4 khung × 8 hướng; E / W mất gậy, N có vệt bóng dưới chân → loại, dùng ảnh xoay tĩnh (provisional). Không lật gương: gậy cầm tay phải.",
+	"review": {
+		"status": "approved",
+		"date": "13/10/2026",
+		"notes": "Chủ dự án duyệt ảnh xoay 8 hướng trước khi làm động. Soi đứng thở: S/SE/NE/NW/SW giữ gậy + mặt dây ấm đồng nhất quán; E/W/N loại (xem notes)."
+	}
+}

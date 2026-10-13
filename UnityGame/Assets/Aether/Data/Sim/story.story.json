@@ -645,7 +645,7 @@
 			"ysolde": {
 				"name": "Bà Ysolde",
 				"title": "Trưởng làng Lau Xám",
-				"sprite": "npc_mirelle_001",
+				"sprite": "npc_ysolde_001",
 				"at": {
 					"spot": "plaza",
 					"dx": 130,

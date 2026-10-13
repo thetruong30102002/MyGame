@@ -7033,6 +7033,61 @@
 				"SW",
 				"NW"
 			]
+		},
+		"npc_ysolde_001": {
+			"displayName": "Ysolde",
+			"role": "npc",
+			"identity": {
+				"characterId": "npc_ysolde_001",
+				"hair": "silver_grey_braid",
+				"eyes": "dark",
+				"skin": "tan",
+				"outfit": "grey_green_reed_shawl_brown_wrap_dress_teapot_charm",
+				"weapon": "driftwood_walking_stick",
+				"palette": "swamp_elder_01"
+			},
+			"atlas": "characters/npc_ysolde_001/npc_ysolde_001.json",
+			"frameSize": {
+				"width": 80,
+				"height": 88
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9545454545454546
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash (13/10/2026, token trial #15), ảnh mẫu phong cách = Lior bé (chép nét/bóng, không chép bảng màu). Bà Ysolde, trưởng làng Lau Xám (vùng 2), thay hình mượn npc_mirelle_001. Idle = breathing-idle 4 khung × 8 hướng; E / W mất gậy, N có vệt bóng dưới chân → loại, dùng ảnh xoay tĩnh (provisional). Không lật gương: gậy cầm tay phải.",
+			"bodyHeight": 62,
+			"portrait": "portraits/npc_ysolde_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"W",
+				"N",
+				"E"
+			]
 		}
 	}
 }

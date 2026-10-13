@@ -1,0 +1,6 @@
+image D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/SW5_swamp_hamlet.png @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/SW5_swamp_hamlet.json
+image D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/DS5_desert_bazaar.png @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/DS5_desert_bazaar.json
+image D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/IC5_snow_camp.png @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/IC5_snow_camp.json
+image D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/VL5_dwarf_mine.png @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/VL5_dwarf_mine.json
+image D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/CR5_harbor.png @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/CR5_harbor.json
+image D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/IC4_frozen_wilds.png @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/IC4_frozen_wilds.json

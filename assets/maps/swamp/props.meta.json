@@ -575,6 +575,102 @@
 			"h": 0
 		}
 	},
+	"mangrove": {
+		"kind": "tree",
+		"w": 126,
+		"h": 155,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 20,
+			"h": 14
+		}
+	},
+	"mangrove_flip": {
+		"kind": "tree",
+		"w": 126,
+		"h": 155,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 20,
+			"h": 14
+		}
+	},
+	"willow": {
+		"kind": "tree",
+		"w": 130,
+		"h": 161,
+		"blocks": true,
+		"footprint": {
+			"x": -11,
+			"y": -14,
+			"w": 21,
+			"h": 14
+		}
+	},
+	"willow_flip": {
+		"kind": "tree",
+		"w": 130,
+		"h": 161,
+		"blocks": true,
+		"footprint": {
+			"x": -11,
+			"y": -14,
+			"w": 21,
+			"h": 14
+		}
+	},
+	"ghost_tree": {
+		"kind": "tree",
+		"w": 118,
+		"h": 169,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 19,
+			"h": 14
+		}
+	},
+	"ghost_tree_flip": {
+		"kind": "tree",
+		"w": 118,
+		"h": 169,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 19,
+			"h": 14
+		}
+	},
+	"bamboo": {
+		"kind": "tree",
+		"w": 106,
+		"h": 163,
+		"blocks": true,
+		"footprint": {
+			"x": -9,
+			"y": -14,
+			"w": 17,
+			"h": 14
+		}
+	},
+	"bamboo_flip": {
+		"kind": "tree",
+		"w": 106,
+		"h": 163,
+		"blocks": true,
+		"footprint": {
+			"x": -9,
+			"y": -14,
+			"w": 17,
+			"h": 14
+		}
+	},
 	"water_lily": {
 		"kind": "flower",
 		"w": 51,
@@ -680,6 +776,114 @@
 			"x": -11,
 			"y": -10,
 			"w": 21,
+			"h": 10
+		}
+	},
+	"boardwalk": {
+		"kind": "flower",
+		"w": 55,
+		"h": 29,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"bamboo_fence": {
+		"kind": "decor",
+		"w": 52,
+		"h": 31,
+		"blocks": true,
+		"footprint": {
+			"x": -26,
+			"y": -10,
+			"w": 52,
+			"h": 10
+		}
+	},
+	"net_rack": {
+		"kind": "decor",
+		"w": 47,
+		"h": 38,
+		"blocks": true,
+		"footprint": {
+			"x": -20,
+			"y": -12,
+			"w": 40,
+			"h": 12
+		}
+	},
+	"water_jar": {
+		"kind": "decor",
+		"w": 37,
+		"h": 38,
+		"blocks": true,
+		"footprint": {
+			"x": -13,
+			"y": -12,
+			"w": 26,
+			"h": 12
+		}
+	},
+	"cook_fire": {
+		"kind": "decor",
+		"w": 48,
+		"h": 43,
+		"blocks": true,
+		"footprint": {
+			"x": -17,
+			"y": -10,
+			"w": 34,
+			"h": 10
+		}
+	},
+	"dugout_canoe": {
+		"kind": "decor",
+		"w": 50,
+		"h": 40,
+		"blocks": true,
+		"footprint": {
+			"x": -20,
+			"y": -12,
+			"w": 40,
+			"h": 12
+		}
+	},
+	"chicken_coop": {
+		"kind": "decor",
+		"w": 50,
+		"h": 50,
+		"blocks": true,
+		"footprint": {
+			"x": -20,
+			"y": -14,
+			"w": 40,
+			"h": 14
+		}
+	},
+	"shell_chime": {
+		"kind": "decor",
+		"w": 27,
+		"h": 47,
+		"blocks": true,
+		"footprint": {
+			"x": -4,
+			"y": -8,
+			"w": 8,
+			"h": 8
+		}
+	},
+	"name_post": {
+		"kind": "decor",
+		"w": 31,
+		"h": 50,
+		"blocks": true,
+		"footprint": {
+			"x": -5,
+			"y": -10,
+			"w": 9,
 			"h": 10
 		}
 	}

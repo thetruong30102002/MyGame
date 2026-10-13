@@ -1,0 +1,7 @@
+11:38 ✔ wood_hollow_oak
+11:40 ✔ wood_firefly_tree
+11:41 ✔ light_magnolia
+11:43 ✔ dark_eye_tree
+11:43 ✘ dark_weeping_shadow:   dark_weeping_shadow → object 38dd81b3-6d50-4e00-bd59-4890ece405f4 (adea…) Tải đồ vật dark_weeping_shadow lỗi HTTP 410 
+11:45 ✔ sword_test_stump
+11:45 xong hàng

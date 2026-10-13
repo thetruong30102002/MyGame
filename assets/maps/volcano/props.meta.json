@@ -574,5 +574,317 @@
 			"w": 0,
 			"h": 0
 		}
+	},
+	"ruby_tree": {
+		"kind": "tree",
+		"w": 123,
+		"h": 166,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 20,
+			"h": 14
+		}
+	},
+	"ruby_tree_flip": {
+		"kind": "tree",
+		"w": 123,
+		"h": 166,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 20,
+			"h": 14
+		}
+	},
+	"petrified_tree": {
+		"kind": "tree",
+		"w": 119,
+		"h": 131,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 19,
+			"h": 14
+		}
+	},
+	"petrified_tree_flip": {
+		"kind": "tree",
+		"w": 119,
+		"h": 131,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 19,
+			"h": 14
+		}
+	},
+	"fire_mushrooms": {
+		"kind": "tree",
+		"w": 120,
+		"h": 156,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 19,
+			"h": 14
+		}
+	},
+	"fire_mushrooms_flip": {
+		"kind": "tree",
+		"w": 120,
+		"h": 156,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 19,
+			"h": 14
+		}
+	},
+	"thorn_black": {
+		"kind": "tree",
+		"w": 125,
+		"h": 152,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 20,
+			"h": 14
+		}
+	},
+	"thorn_black_flip": {
+		"kind": "tree",
+		"w": 125,
+		"h": 152,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 20,
+			"h": 14
+		}
+	},
+	"basalt_column": {
+		"kind": "rock",
+		"w": 42,
+		"h": 55,
+		"blocks": true,
+		"footprint": {
+			"x": -13,
+			"y": -16,
+			"w": 25,
+			"h": 16
+		}
+	},
+	"steam_vent": {
+		"kind": "rock",
+		"w": 49,
+		"h": 56,
+		"blocks": true,
+		"footprint": {
+			"x": -15,
+			"y": -12,
+			"w": 29,
+			"h": 12
+		}
+	},
+	"sulfur_pool": {
+		"kind": "decor",
+		"w": 52,
+		"h": 41,
+		"blocks": true,
+		"footprint": {
+			"x": -21,
+			"y": -12,
+			"w": 42,
+			"h": 12
+		}
+	},
+	"pumice": {
+		"kind": "rock",
+		"w": 43,
+		"h": 37,
+		"blocks": true,
+		"footprint": {
+			"x": -15,
+			"y": -12,
+			"w": 30,
+			"h": 12
+		}
+	},
+	"fire_vein": {
+		"kind": "rock",
+		"w": 46,
+		"h": 44,
+		"blocks": true,
+		"footprint": {
+			"x": -19,
+			"y": -16,
+			"w": 37,
+			"h": 16
+		}
+	},
+	"ash_crater": {
+		"kind": "flower",
+		"w": 52,
+		"h": 43,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"rock_slab": {
+		"kind": "rock",
+		"w": 35,
+		"h": 50,
+		"blocks": true,
+		"footprint": {
+			"x": -13,
+			"y": -14,
+			"w": 25,
+			"h": 14
+		}
+	},
+	"obsidian_boulder": {
+		"kind": "rock",
+		"w": 49,
+		"h": 47,
+		"blocks": true,
+		"footprint": {
+			"x": -21,
+			"y": -20,
+			"w": 42,
+			"h": 20
+		}
+	},
+	"fire_thorn": {
+		"kind": "bush",
+		"w": 40,
+		"h": 49,
+		"blocks": true,
+		"footprint": {
+			"x": -12,
+			"y": -12,
+			"w": 24,
+			"h": 12
+		}
+	},
+	"ore_cart": {
+		"kind": "decor",
+		"w": 41,
+		"h": 41,
+		"blocks": true,
+		"footprint": {
+			"x": -18,
+			"y": -14,
+			"w": 35,
+			"h": 14
+		}
+	},
+	"rail_track": {
+		"kind": "flower",
+		"w": 36,
+		"h": 33,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"iron_gate": {
+		"kind": "decor",
+		"w": 44,
+		"h": 40,
+		"blocks": true,
+		"footprint": {
+			"x": -20,
+			"y": -10,
+			"w": 40,
+			"h": 10
+		}
+	},
+	"ore_pile": {
+		"kind": "decor",
+		"w": 44,
+		"h": 37,
+		"blocks": true,
+		"footprint": {
+			"x": -18,
+			"y": -12,
+			"w": 35,
+			"h": 12
+		}
+	},
+	"smith_statue": {
+		"kind": "rock",
+		"w": 34,
+		"h": 46,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 20,
+			"h": 14
+		}
+	},
+	"workbench": {
+		"kind": "decor",
+		"w": 45,
+		"h": 34,
+		"blocks": true,
+		"footprint": {
+			"x": -19,
+			"y": -12,
+			"w": 38,
+			"h": 12
+		}
+	},
+	"hot_trough": {
+		"kind": "decor",
+		"w": 44,
+		"h": 35,
+		"blocks": true,
+		"footprint": {
+			"x": -19,
+			"y": -12,
+			"w": 37,
+			"h": 12
+		}
+	},
+	"kiln": {
+		"kind": "decor",
+		"w": 41,
+		"h": 44,
+		"blocks": true,
+		"footprint": {
+			"x": -17,
+			"y": -16,
+			"w": 33,
+			"h": 16
+		}
+	},
+	"armor_stand": {
+		"kind": "decor",
+		"w": 31,
+		"h": 47,
+		"blocks": true,
+		"footprint": {
+			"x": -8,
+			"y": -10,
+			"w": 16,
+			"h": 10
+		}
 	}
 }

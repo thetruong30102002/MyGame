@@ -1,0 +1,7 @@
+12:47 ✔ D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/HL4_highland_meadow.png
+12:48 ✔ D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/VL4_volcano_wilds.png
+12:49 ✔ D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/CR4_beach_shore.png
+12:50 ✔ isles_morning_glory
+12:51 ✔ highland_barn
+12:52 ✔ highland_chapel
+12:52 xong hàng

@@ -1,0 +1,4 @@
+object swamp_mangrove @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/swamp_mangrove.send.json
+object swamp_willow @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/swamp_willow.send.json
+object swamp_ghost_tree @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/swamp_ghost_tree.send.json
+object swamp_bamboo @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/swamp_bamboo.send.json

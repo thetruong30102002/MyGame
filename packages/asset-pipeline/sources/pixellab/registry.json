@@ -19,6 +19,10 @@
 		"token": 2,
 		"walkGroup": "93b51b8f-a55c-4daf-a844-d149ffa65649"
 	},
+	"npc_ysolde_001": {
+		"uuid": "91a3bb88-2dcd-4d55-8d5f-c457c4f20a1d",
+		"token": 15
+	},
 	"npc_bram_001": {
 		"uuid": "1f6b5f60-9146-4f6b-99b8-c167bbf813fa",
 		"token": 3,

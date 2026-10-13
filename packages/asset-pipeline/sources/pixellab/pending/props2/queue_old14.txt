@@ -1,0 +1,3 @@
+object light_white_cypress @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/light_white_cypress.send.json
+object dark_weeping_shadow @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/dark_weeping_shadow.send.json
+object sword_iron_tree @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/sword_iron_tree.send.json

@@ -1,0 +1,6 @@
+object volcano_petrified_tree @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/volcano_petrified_tree.send.json
+object volcano_fire_mushrooms @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/volcano_fire_mushrooms.send.json
+object volcano_thorn_bush @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/volcano_thorn_bush.send.json
+object isles_leaning_palm @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/isles_leaning_palm.send.json
+object isles_sea_almond @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/isles_sea_almond.send.json
+object isles_coast_mangrove @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/isles_coast_mangrove.send.json

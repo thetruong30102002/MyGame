@@ -659,6 +659,78 @@
 			"h": 16
 		}
 	},
+	"birch": {
+		"kind": "tree",
+		"w": 104,
+		"h": 157,
+		"blocks": true,
+		"footprint": {
+			"x": -9,
+			"y": -14,
+			"w": 17,
+			"h": 14
+		}
+	},
+	"birch_flip": {
+		"kind": "tree",
+		"w": 104,
+		"h": 157,
+		"blocks": true,
+		"footprint": {
+			"x": -9,
+			"y": -14,
+			"w": 17,
+			"h": 14
+		}
+	},
+	"red_oak": {
+		"kind": "tree",
+		"w": 148,
+		"h": 154,
+		"blocks": true,
+		"footprint": {
+			"x": -12,
+			"y": -14,
+			"w": 24,
+			"h": 14
+		}
+	},
+	"red_oak_flip": {
+		"kind": "tree",
+		"w": 148,
+		"h": 154,
+		"blocks": true,
+		"footprint": {
+			"x": -12,
+			"y": -14,
+			"w": 24,
+			"h": 14
+		}
+	},
+	"rhododendron": {
+		"kind": "tree",
+		"w": 156,
+		"h": 141,
+		"blocks": true,
+		"footprint": {
+			"x": -13,
+			"y": -14,
+			"w": 25,
+			"h": 14
+		}
+	},
+	"rhododendron_flip": {
+		"kind": "tree",
+		"w": 156,
+		"h": 141,
+		"blocks": true,
+		"footprint": {
+			"x": -13,
+			"y": -14,
+			"w": 25,
+			"h": 14
+		}
+	},
 	"cliff_pine": {
 		"kind": "tree",
 		"w": 122,
@@ -681,6 +753,138 @@
 			"y": -14,
 			"w": 20,
 			"h": 14
+		}
+	},
+	"barn": {
+		"kind": "building",
+		"w": 138,
+		"h": 160,
+		"blocks": true,
+		"footprint": {
+			"x": -60,
+			"y": -56,
+			"w": 119,
+			"h": 56
+		}
+	},
+	"chapel": {
+		"kind": "building",
+		"w": 141,
+		"h": 165,
+		"blocks": true,
+		"footprint": {
+			"x": -57,
+			"y": -56,
+			"w": 113,
+			"h": 56
+		}
+	},
+	"wildflower_patch": {
+		"kind": "flower",
+		"w": 47,
+		"h": 44,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"flat_stones": {
+		"kind": "rock",
+		"w": 47,
+		"h": 37,
+		"blocks": true,
+		"footprint": {
+			"x": -14,
+			"y": -12,
+			"w": 28,
+			"h": 12
+		}
+	},
+	"blueberry_bush": {
+		"kind": "bush",
+		"w": 49,
+		"h": 45,
+		"blocks": true,
+		"footprint": {
+			"x": -15,
+			"y": -12,
+			"w": 29,
+			"h": 12
+		}
+	},
+	"pampas": {
+		"kind": "flower",
+		"w": 45,
+		"h": 52,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"small_mossy_rock": {
+		"kind": "rock",
+		"w": 43,
+		"h": 32,
+		"blocks": true,
+		"footprint": {
+			"x": -15,
+			"y": -12,
+			"w": 30,
+			"h": 12
+		}
+	},
+	"highland_mushrooms": {
+		"kind": "flower",
+		"w": 41,
+		"h": 41,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"bird_nest": {
+		"kind": "flower",
+		"w": 48,
+		"h": 39,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"broken_stump": {
+		"kind": "rock",
+		"w": 47,
+		"h": 45,
+		"blocks": true,
+		"footprint": {
+			"x": -14,
+			"y": -12,
+			"w": 28,
+			"h": 12
+		}
+	},
+	"stone_wall": {
+		"kind": "decor",
+		"w": 53,
+		"h": 32,
+		"blocks": true,
+		"footprint": {
+			"x": -27,
+			"y": -10,
+			"w": 53,
+			"h": 10
 		}
 	},
 	"cloud_pillar_float": {

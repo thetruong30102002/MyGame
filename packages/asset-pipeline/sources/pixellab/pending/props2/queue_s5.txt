@@ -1,0 +1,3 @@
+image D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/WD1_ancient_forest.png @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props4/WD1_ancient_forest.json
+image D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/LT1_dawn_sanctuary.png @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props4/LT1_dawn_sanctuary.json
+image D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/DK1_shadow_abyss.png @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props4/DK1_shadow_abyss.json

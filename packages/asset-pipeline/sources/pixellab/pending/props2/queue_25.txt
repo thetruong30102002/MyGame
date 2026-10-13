@@ -1,0 +1,6 @@
+object sword_cypress_blade @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/sword_cypress_blade.send.json
+object sword_iron_tree @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/sword_iron_tree.send.json
+object tundra_winter_birch @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/tundra_winter_birch.send.json
+object tundra_crystal_tree @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/tundra_crystal_tree.send.json
+object tundra_dwarf_pine @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/tundra_dwarf_pine.send.json
+object volcano_ruby_tree @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/volcano_ruby_tree.send.json

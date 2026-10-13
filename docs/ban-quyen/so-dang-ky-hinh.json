@@ -1,7 +1,7 @@
 {
 	"owner": "Aether Chronicle — chủ dự án thetruong30102002 (github.com/thetruong30102002/MyGame)",
 	"note": "Hình gốc do chủ dự án tạo (PixelLab + pipeline). Mỗi lần commit file này là một mốc thời gian sở hữu.",
-	"count": 271,
+	"count": 273,
 	"files": [
 		{
 			"path": "assets/characters/boss_ancient_lava_golem_001/boss_ancient_lava_golem_001.png",
@@ -494,6 +494,13 @@
 			"height": 1442
 		},
 		{
+			"path": "assets/characters/npc_ysolde_001/npc_ysolde_001.png",
+			"sha256": "805c73380acf7eb2de64ad153e9484ebaca8bb625de09113fe2a84e8e2f856f6",
+			"bytes": 76713,
+			"width": 494,
+			"height": 452
+		},
+		{
 			"path": "assets/characters/player_hero_adult/player_hero_adult.png",
 			"sha256": "b98cbbe7185f5b416bab964bcc8f8b1c0f90f1d6f41a9eaa57c0c786338dc58a",
 			"bytes": 3842824,
@@ -544,190 +551,190 @@
 		},
 		{
 			"path": "assets/maps/desert/bonemesa.minimap.png",
-			"sha256": "2e28842be2cdac0e8dc1625ac577c44c0e7b5c8aeac5fa6c2b1cbd4b676cdd70",
-			"bytes": 79022,
+			"sha256": "49f3ea359aeedbc13436b20c91e7d3cc5832e6430357457512335347b1aafdf2",
+			"bytes": 78480,
 			"width": 312,
 			"height": 252
 		},
 		{
 			"path": "assets/maps/desert/deeptombs.minimap.png",
-			"sha256": "4a45d872a11344ec2985da0bf7a2885a726600cc422b0c4ee9b428e340fc27e5",
-			"bytes": 72845,
+			"sha256": "06db3dffed70ef4b518fa3ebbce2fbade0b4827fcf2394b1cf1295bd50229db6",
+			"bytes": 72663,
 			"width": 276,
 			"height": 240
 		},
 		{
 			"path": "assets/maps/desert/devourpit.minimap.png",
-			"sha256": "16c7f181754b30a9dafd8b14bad81f1895c43d47d1af95cdab1fcf29b06af6e4",
-			"bytes": 37686,
+			"sha256": "cdab378148abf02924e8393ab18ffad210ec1c3517f05c0a6637be448d5a1f07",
+			"bytes": 38846,
 			"width": 192,
 			"height": 168
 		},
 		{
 			"path": "assets/maps/desert/hub.minimap.png",
-			"sha256": "11e2a7faaf82e80959c18594e9deeee16a3a762290b963d81b60c8d37e6fe9e2",
-			"bytes": 71840,
+			"sha256": "cc0ab11b03b5806ef5d136a2b8e06c2e7ccfc8cf614736e14a618c7ff531394f",
+			"bytes": 71782,
 			"width": 264,
 			"height": 216
 		},
 		{
 			"path": "assets/maps/desert/props.png",
-			"sha256": "d135bfd1a73f0ba8d76cccef17b46bc32b6474edd48c6766ec060e9d03a5807b",
-			"bytes": 331786,
-			"width": 2020,
-			"height": 229
+			"sha256": "8a2ff299d7a6b43aa68ace0933279e084c4765897cb8c67d77f4e1df99992bbe",
+			"bytes": 488041,
+			"width": 2034,
+			"height": 365
 		},
 		{
 			"path": "assets/maps/desert/reddunes.minimap.png",
-			"sha256": "89b2d6da867241eb6daa53246f4d6ebf46eac68ca991103a1c57eddbde30448d",
-			"bytes": 79867,
+			"sha256": "f5a0e7063a155f5c104bc651a5a0b1835fac5010c51018cbda84ea7f50f7a644",
+			"bytes": 79885,
 			"width": 288,
 			"height": 240
 		},
 		{
 			"path": "assets/maps/desert/redruins.minimap.png",
-			"sha256": "a4feba18bcf0fa3b1d28499fae7172a350bcf125217576d75d443ffd231831b3",
-			"bytes": 83814,
+			"sha256": "0c9dfd1e54c1f376c951906936cdd4f7e4c586ff48407d265cc8c6c378b2a388",
+			"bytes": 78130,
 			"width": 312,
 			"height": 240
 		},
 		{
 			"path": "assets/maps/desert/sandtombs.minimap.png",
-			"sha256": "fd4aeaedea3b32101f4fb961c238e53450071924e2f1833a39bd5dade2597d31",
-			"bytes": 76931,
+			"sha256": "27320328ebcafc6b1756fcb599143b27aa14ae26696ae29a8b9850f5d3dc8480",
+			"bytes": 74972,
 			"width": 300,
 			"height": 228
 		},
 		{
 			"path": "assets/maps/desert/scorchdunes.minimap.png",
-			"sha256": "d2a5561bbfd2eb3072661893a31c1db9578f1dc7b5c5a7979f060e836af6c6b7",
-			"bytes": 79353,
+			"sha256": "c9af334f7db1cebc01be81f43bd52313dfbcb810478ff96d228c3109d967f4ff",
+			"bytes": 87446,
 			"width": 288,
 			"height": 252
 		},
 		{
 			"path": "assets/maps/desert/snakegully.minimap.png",
-			"sha256": "3a3a4350018d7ba9fe477d5c60ce8f7e4baea7b1bdcff91b4302b8970024e507",
-			"bytes": 83830,
+			"sha256": "923409b329645866fd199b32ebfebde857a3bc01a835816266fcdee9801f166e",
+			"bytes": 83318,
 			"width": 276,
 			"height": 252
 		},
 		{
 			"path": "assets/maps/desert/snakepass.minimap.png",
-			"sha256": "af79348d7e9e9141f6f039865034564f6eaf425479bfec9b986f56a81c240449",
-			"bytes": 87269,
+			"sha256": "35474a6f6e49571925f00c98f5d62341492ef49541d6216d6ee26f9c6b56710c",
+			"bytes": 80085,
 			"width": 300,
 			"height": 264
 		},
 		{
 			"path": "assets/maps/desert/sunkentemple.minimap.png",
-			"sha256": "a4ede861bc26788c34f3a58519e461a492251c15805c6d610ffcc88c5f0d2a27",
-			"bytes": 80809,
+			"sha256": "665114a0c63558ceee7c4cfbe7280cc16ede5b9a72fa25e5658cb4ee4d4539ec",
+			"bytes": 77353,
 			"width": 288,
 			"height": 264
 		},
 		{
 			"path": "assets/maps/desert/vulturecliff.minimap.png",
-			"sha256": "f5e75707dc7d3b3ac9c85e814a9e5c34aaf131a3789bf42f9ca35c6b67810e99",
-			"bytes": 82826,
+			"sha256": "f86399b8ecf11dcc583d5290f3f09b5fb7e4629be2baa67d9d888a2d736df3c3",
+			"bytes": 74463,
 			"width": 276,
 			"height": 264
 		},
 		{
 			"path": "assets/maps/highland/cloudgate.minimap.png",
-			"sha256": "dd01793db2488bd9e0e98e4cea626f0ed89c9f3b4b30e7740d98a01e9e03ae27",
-			"bytes": 93874,
+			"sha256": "640f7ea94f07820303c0d7fc7c4fe695f13e60614a920454fe596d5701ba2403",
+			"bytes": 96223,
 			"width": 288,
 			"height": 264
 		},
 		{
 			"path": "assets/maps/highland/cloudpath.minimap.png",
-			"sha256": "a88dc3b25eb1adf46df2376426101c75d432ba05389dde1d8023b8f48269f6a3",
-			"bytes": 93272,
+			"sha256": "15840ad223cf188538bb772af8423e49341502107e6a10931dc3d5c5c0e72976",
+			"bytes": 93919,
 			"width": 312,
 			"height": 240
 		},
 		{
 			"path": "assets/maps/highland/cloudtemple.minimap.png",
-			"sha256": "5e2d258937f2a44edcb625b3fe0835da56146d0c0483e72a66fc2d75aea720c1",
-			"bytes": 41423,
+			"sha256": "63abcbccf74e726cf7570baa46591df1863ef7e23d9a3ee00f6994996ae6828e",
+			"bytes": 42323,
 			"width": 192,
 			"height": 168
 		},
 		{
 			"path": "assets/maps/highland/dragonpeak.minimap.png",
-			"sha256": "95daf249e483cc26578abf5088642c8f5df0314e25cd84eb29d8041e5005cbca",
-			"bytes": 56417,
+			"sha256": "834565f4ec269fdb81d4cfff1634c1b2bc3072730bdb1be66e3cedb3baa1e179",
+			"bytes": 57062,
 			"width": 228,
 			"height": 192
 		},
 		{
 			"path": "assets/maps/highland/fairyglade.minimap.png",
-			"sha256": "1052dc63519447a084086e7e42030e1a4eff973ee74f45d666481e21e90c15b8",
-			"bytes": 106406,
+			"sha256": "b77bfcf9adf66a700ce4e45fbdef9a21c95aec205b6fb69c734e415e299c538d",
+			"bytes": 122309,
 			"width": 276,
 			"height": 240
 		},
 		{
 			"path": "assets/maps/highland/fairyvale.minimap.png",
-			"sha256": "6bc94a89050ea885197c4dafc1fadd6444841b95e1955b93dc76f6081d341bda",
-			"bytes": 109643,
+			"sha256": "132b7ffdf77f318379cd09a1bc5d49004a47e04275f8ff91a65792525b9e02d3",
+			"bytes": 109762,
 			"width": 300,
 			"height": 228
 		},
 		{
 			"path": "assets/maps/highland/floatstones.minimap.png",
-			"sha256": "be357007f5e4c6272be347c38716d0d1feb96fe53d24bcc3600d89bf0e3ae057",
-			"bytes": 95531,
+			"sha256": "ba9a06831fba8bbf47cce7b916de2d786e177bd3571171f3a8f3dc0dd6fa6cdc",
+			"bytes": 95676,
 			"width": 276,
 			"height": 264
 		},
 		{
 			"path": "assets/maps/highland/hawkcliff.minimap.png",
-			"sha256": "1a7a8d50042268961cb31e5ef0059db9f1ec200c958a5f309ab39da614ba4dc5",
-			"bytes": 109717,
+			"sha256": "015373c435d5631af8966f36b945c7fb7562075f6643a174a8f9883707610992",
+			"bytes": 114073,
 			"width": 300,
 			"height": 264
 		},
 		{
 			"path": "assets/maps/highland/hawkslope.minimap.png",
-			"sha256": "f2905eec2c71f09d4bca59cc5403c4f874a1d22f65234eabe56cd9c70e1bee46",
-			"bytes": 89992,
+			"sha256": "b65017b10d3b218009981b91f12e5fa2a4ea6b1577ff51fb7013e645ba6f634c",
+			"bytes": 90185,
 			"width": 276,
 			"height": 252
 		},
 		{
 			"path": "assets/maps/highland/howlridge.minimap.png",
-			"sha256": "74074ac5a0dc1377497f15887e1271b285357512e807d6cd3ce0255973ab2bc0",
-			"bytes": 91808,
+			"sha256": "2fbbe22f4a6abf2d4fd3f80859b35dd7eb955d1b5239254ef852b0ffb7b896d1",
+			"bytes": 89281,
 			"width": 288,
 			"height": 252
 		},
 		{
 			"path": "assets/maps/highland/hub.minimap.png",
-			"sha256": "523469af3888f5d69cd37bca4898c780ab6cb16ac14250ebc581b273c8301b9c",
-			"bytes": 67310,
+			"sha256": "68d2936247bcc0fd2517b2fd8183836311b61e18834dd1d3dd7736fee9ce43e7",
+			"bytes": 69796,
 			"width": 264,
 			"height": 216
 		},
 		{
 			"path": "assets/maps/highland/props.png",
-			"sha256": "483899a143238bc58877e90c9bf91c0e22e5b87e226df5a4e01ea763348dba3c",
-			"bytes": 427676,
-			"width": 2041,
-			"height": 360
+			"sha256": "f63566ab7f0103086ba953fda7a2e0ecfdf57f7a620b472bd8ebc58d6b08dd98",
+			"bytes": 612759,
+			"width": 2021,
+			"height": 408
 		},
 		{
 			"path": "assets/maps/highland/skyshards.minimap.png",
-			"sha256": "df5a3e476d64be509fb5a5f35fc10b2ffd8a1d685aec69af3a548423a09e203b",
-			"bytes": 109032,
+			"sha256": "c9c14044abb9147eb60081e94ab8973f322e40b0ee7c4ac7e98cf4d0d618a11d",
+			"bytes": 106091,
 			"width": 312,
 			"height": 252
 		},
 		{
 			"path": "assets/maps/highland/tallgrass.minimap.png",
-			"sha256": "ff381b8b0c4dcd6207e31c3aaa620308bda8951925a159d21a1056efc0a93039",
-			"bytes": 89072,
+			"sha256": "2a95445f082e3cd25c9a2005949f4ba5afc12f2c59bad42cc6d965d279976e19",
+			"bytes": 89257,
 			"width": 288,
 			"height": 240
 		},
@@ -824,127 +831,127 @@
 		},
 		{
 			"path": "assets/maps/isles/coralreef.minimap.png",
-			"sha256": "a396956bbfbf37cc9c31d1ef350d90e74d72ff8c15aa9d506d4962a283b99672",
-			"bytes": 103957,
+			"sha256": "644523c10694e6ae5c851b48df6a3a52077fde0ac34c0efa81ba229168cb7a84",
+			"bytes": 103786,
 			"width": 300,
 			"height": 264
 		},
 		{
 			"path": "assets/maps/isles/crabbeach.minimap.png",
-			"sha256": "905785c5d7af06210ede3bc4742206bfb645d044d24c540e43c4bf6b43f83cc8",
-			"bytes": 75943,
+			"sha256": "035bbb16d5ed0e0d7e47e4d35eab6f0fcfab4ed652268f16ca3f836ae077f619",
+			"bytes": 78183,
 			"width": 288,
 			"height": 252
 		},
 		{
 			"path": "assets/maps/isles/hub.minimap.png",
-			"sha256": "651b503b4cf5ff037790805e8c191c87c0c3d92f52d8153d93c7a84c8052c6f7",
-			"bytes": 74552,
+			"sha256": "095e23fad8db4ee421962e8b9a5ca18c65d44a8481e60e5a83e21fe07ba5f0f3",
+			"bytes": 77280,
 			"width": 264,
 			"height": 216
 		},
 		{
 			"path": "assets/maps/isles/krakenabyss.minimap.png",
-			"sha256": "e31de24fa7b705bf78c5fa560c5b1fe1a87ef8c76b848ae2428f12fb5bbbddad",
-			"bytes": 30658,
+			"sha256": "ef7d06e0f09f083ecfd9486ee7e72b237af514684182c17e75a3a4e487d78685",
+			"bytes": 31457,
 			"width": 192,
 			"height": 168
 		},
 		{
 			"path": "assets/maps/isles/merfolkmarsh.minimap.png",
-			"sha256": "c2112bfe6707605ad28ee92bedf31366f7acad3cd7c0867735a357a438d5c6e6",
-			"bytes": 101496,
+			"sha256": "0240f3364d66c275d052324b37d7244e9d58c330cc536ef586bc49989bcc3ab9",
+			"bytes": 102403,
 			"width": 312,
 			"height": 252
 		},
 		{
 			"path": "assets/maps/isles/merlagoon.minimap.png",
-			"sha256": "87d87f9a626337da6cf46556366ebdcaf6258f21c859d00cf422c5553eaddba1",
-			"bytes": 85256,
+			"sha256": "be1ea8300cc3a7e2461e1329b885d48ccd35d047b8d6dea455d5aec409de7a48",
+			"bytes": 89999,
 			"width": 276,
 			"height": 264
 		},
 		{
 			"path": "assets/maps/isles/piratecove.minimap.png",
-			"sha256": "3db6dd0fd7af8b80e6a7e7bbb8b31723741ce25b4aec434a90592ac8b745d0b2",
-			"bytes": 72627,
+			"sha256": "338aaf4f051cb50ba875350013726b3fbc287a660184c0764b1041336ebe301b",
+			"bytes": 72639,
 			"width": 300,
 			"height": 228
 		},
 		{
 			"path": "assets/maps/isles/pirateisle.minimap.png",
-			"sha256": "ea4e3b6f9139f1c713b4b7e92665142d94de3c1d3e3ee453a30713ff78d4fcd2",
-			"bytes": 76304,
+			"sha256": "8b1cccffa9d62e3604d5d49212ce60d204641de05b4f28d2ce32fbe7ab638f0c",
+			"bytes": 75588,
 			"width": 276,
 			"height": 240
 		},
 		{
 			"path": "assets/maps/isles/props.png",
-			"sha256": "65c4d17b9063a1f8331789608ed33ba83523fb3c7bb7738be44c663f087a8c03",
-			"bytes": 353485,
-			"width": 2048,
-			"height": 225
+			"sha256": "ff416b63da769b97b2433455ec173ccecc0e3b0407827e4ce7f45806697d45df",
+			"bytes": 594913,
+			"width": 2038,
+			"height": 373
 		},
 		{
 			"path": "assets/maps/isles/shallowreef.minimap.png",
-			"sha256": "e16e2184ce22dca1b472d8ad404fae10cbf8ae49ca674fad617b6e707c4f5f39",
-			"bytes": 87646,
+			"sha256": "4a737898681627dff40928f3baa665780265ef5343a6f197c9deda31dd0a880a",
+			"bytes": 87718,
 			"width": 276,
 			"height": 252
 		},
 		{
 			"path": "assets/maps/isles/tidelair.minimap.png",
-			"sha256": "401f614967b59c4ee86364b16b38fa30225d622b54db4907f070306632fe67d8",
-			"bytes": 38164,
+			"sha256": "d47a109f33e122a3aae40d93c89e07fd38ee30671bd8938e7e2a044f1ae74d15",
+			"bytes": 38552,
 			"width": 228,
 			"height": 192
 		},
 		{
 			"path": "assets/maps/isles/whitesands.minimap.png",
-			"sha256": "c1b85979478b915365faa02a5565d8a33826822f6b4476c78f1e99f51f8d5e42",
-			"bytes": 56519,
+			"sha256": "884881f611b6b2bf3112adaaf130347ace02424bc10d65f107abda31a46ec5a7",
+			"bytes": 56671,
 			"width": 288,
 			"height": 240
 		},
 		{
 			"path": "assets/maps/isles/wreckshore.minimap.png",
-			"sha256": "ca427adb5340914000ff4ab253401f7c97f04b9a01c848de22106b22cad6afeb",
-			"bytes": 64218,
+			"sha256": "52fdcc90821086efcb126d13823bb387b5dd413caae1f96def22ffad7dec3590",
+			"bytes": 71860,
 			"width": 312,
 			"height": 240
 		},
 		{
 			"path": "assets/maps/isles/wreckyard.minimap.png",
-			"sha256": "db70016a3123c25b7186f7bc0b9c17ee7e8375ea017d67596417e6684a919b44",
-			"bytes": 82702,
+			"sha256": "9b6bed576182646f37f5d0e9165e40d25514e4b5743fc01d2887cbfc8cff7348",
+			"bytes": 85899,
 			"width": 288,
 			"height": 264
 		},
 		{
 			"path": "assets/maps/swamp/glowhollow.minimap.png",
-			"sha256": "134e45f0d10024aac6dbd762241ae3495a87a804615176e5626b66d252b5045c",
-			"bytes": 124001,
+			"sha256": "05e014121afdc4b65c65b9d23d16581a1e04492a6f4a99d5c864703413ab1700",
+			"bytes": 132579,
 			"width": 276,
 			"height": 240
 		},
 		{
 			"path": "assets/maps/swamp/hub.minimap.png",
-			"sha256": "0ab53b81146f3e384fbf0b35e8e6c1ffa952084489a69339a8c5b6d64642e38f",
-			"bytes": 67644,
+			"sha256": "146cfecfbea7bb586ea30839634773ac6073a717929085d411e8028454a8e0da",
+			"bytes": 69387,
 			"width": 264,
 			"height": 216
 		},
 		{
 			"path": "assets/maps/swamp/hydralake.minimap.png",
-			"sha256": "e5dff89ec8515a4898aa4aaa8d8801ae4f48768eae927a952a0818b6d1fe7236",
-			"bytes": 34284,
+			"sha256": "c4e45cc12c67ce4cb3b129314b7c310d79d5472d3b70cae2ad0637d4a5b4b818",
+			"bytes": 34278,
 			"width": 192,
 			"height": 168
 		},
 		{
 			"path": "assets/maps/swamp/leechcanal.minimap.png",
-			"sha256": "b373d409e2dc9fa1372ffba9b759fe67c88076a26c32edc9a0562ae6c05a952e",
-			"bytes": 138168,
+			"sha256": "57b98481be52b46b49ee1d1c0d2168a9730e28412fec41b40f57c9a1039f4100",
+			"bytes": 144170,
 			"width": 300,
 			"height": 264
 		},
@@ -964,24 +971,24 @@
 		},
 		{
 			"path": "assets/maps/swamp/mistshore.minimap.png",
-			"sha256": "2c6398455551f31ea1af8f5f43722cc9808a2330142f454fb2d7e4e3cdb0a507",
-			"bytes": 102762,
+			"sha256": "1a853116c58509b185f3baf8ff4488c772c086aa2f9646c1c98d946f19248eaa",
+			"bytes": 108918,
 			"width": 312,
 			"height": 240
 		},
 		{
 			"path": "assets/maps/swamp/mushroomwood.minimap.png",
-			"sha256": "437197799716385350c9e0371e64889d11cf80fd3f2c4f22ac400fc533f2b23e",
-			"bytes": 116807,
+			"sha256": "c5a82b3b1d54146a8e5d13811c93c0a11dc75159bea572c9d9ad79004cddb7bc",
+			"bytes": 115401,
 			"width": 300,
 			"height": 228
 		},
 		{
 			"path": "assets/maps/swamp/props.png",
-			"sha256": "97eda9da0ee1fe8c5099ea63969cbdcf6aa845f4f1d182ee701796ee91ccc225",
-			"bytes": 342735,
-			"width": 2039,
-			"height": 229
+			"sha256": "137936e52318bfe79b389114a9dc28cc9769f1f96c8345564062010230936fdc",
+			"bytes": 518267,
+			"width": 2006,
+			"height": 372
 		},
 		{
 			"path": "assets/maps/swamp/reedbank.minimap.png",
@@ -992,218 +999,218 @@
 		},
 		{
 			"path": "assets/maps/swamp/reedmarsh.minimap.png",
-			"sha256": "89471946e1faa08cb4b39818e8abbb95871ef2808f8e03ab7be8c74ec70e13eb",
-			"bytes": 96222,
+			"sha256": "91d3c8513ab6a8be0482377e276a9d6aa338444835398fe367bf52a5ef780b1b",
+			"bytes": 101883,
 			"width": 288,
 			"height": 252
 		},
 		{
 			"path": "assets/maps/swamp/serpentpool.minimap.png",
-			"sha256": "695a72900ef83320a3e43649cd858ba2541dcae8809b79c4c778281a4780f961",
-			"bytes": 109968,
+			"sha256": "ea38e6f530da80ba8c3cb63e23d559b0981b5f6059350d9004413313e4286dd7",
+			"bytes": 105926,
 			"width": 312,
 			"height": 252
 		},
 		{
 			"path": "assets/maps/swamp/snakefen.minimap.png",
-			"sha256": "158c6b25ec34b51eff7910dc33475f5ccfa8b28861be651c7e9250798970b3f3",
-			"bytes": 90254,
+			"sha256": "84166bab50f7150e50b3b2df63161db8a3511799de861e42dabc3136c1426605",
+			"bytes": 89906,
 			"width": 276,
 			"height": 264
 		},
 		{
 			"path": "assets/maps/tundra/bearcave.minimap.png",
-			"sha256": "6434b650d2ce8b1e2ccd1ab73cd25ebc47c485aca493ec99bd8c91390cb408bf",
-			"bytes": 99926,
+			"sha256": "74b72b98a3a5faa6675b42909f6bfd0a62d37e8fc5735a6af8c865a78db40c93",
+			"bytes": 101318,
 			"width": 312,
 			"height": 240
 		},
 		{
 			"path": "assets/maps/tundra/frostlair.minimap.png",
-			"sha256": "7d4d1cc5697f0a02a1344fd1fa54fef47b35f4ba54780aa5e69597e65606530f",
-			"bytes": 52575,
+			"sha256": "3a40ac3e11e0dd2bcf11619a181c5ebd561b824d82b25cc34cca12d95946cb78",
+			"bytes": 56094,
 			"width": 228,
 			"height": 192
 		},
 		{
 			"path": "assets/maps/tundra/frostmere.minimap.png",
-			"sha256": "cdb552c5f786582e3fc403635e66f884ac278105dcbab7fa1b09f5642982e061",
-			"bytes": 91641,
+			"sha256": "1200fd7d1d23c6f9d9076f7eba8e14bc61559af253a0cd356c80ce821b1a8365",
+			"bytes": 91628,
 			"width": 276,
 			"height": 252
 		},
 		{
 			"path": "assets/maps/tundra/frozenhollow.minimap.png",
-			"sha256": "cbdc0c27f2c2994dfff58a27e46af55ae2ff00721a9c0bb894160283a9cbb5ae",
-			"bytes": 107109,
+			"sha256": "766d42c7dc54a6fe5810a82d94e240b239c313f9a9eabfbc9630a2ce269e9dd3",
+			"bytes": 104659,
 			"width": 288,
 			"height": 264
 		},
 		{
 			"path": "assets/maps/tundra/hub.minimap.png",
-			"sha256": "2f31fef9c6b0a6cf9d5029535293f73134c365d8efee99d3972b7114e044f5e7",
-			"bytes": 74209,
+			"sha256": "f6753689570a45d46bbaf4f847a3185e8015a29447f0449b2ba112b49668a624",
+			"bytes": 77266,
 			"width": 264,
 			"height": 216
 		},
 		{
 			"path": "assets/maps/tundra/icecoast.minimap.png",
-			"sha256": "c4509648f43be57739df8399b5a27d2b9f540bdd6a0ff6a5a948077308df762b",
-			"bytes": 80619,
+			"sha256": "d1139ec8c0a1d6e97bbee0e6ae8c36be3a28424f9bec4782be6144c3b7c123d1",
+			"bytes": 88372,
 			"width": 276,
 			"height": 264
 		},
 		{
 			"path": "assets/maps/tundra/icelake.minimap.png",
-			"sha256": "689d21ccf1b2dc61153f8ba3a87fcf8999df62b6d974b6a8a1529c3bbc87b054",
-			"bytes": 104166,
+			"sha256": "27c56ec64a49367cfdb41a1c7fc913f715b2c5d9e944f5d37f77cdd48c5f533a",
+			"bytes": 99843,
 			"width": 300,
 			"height": 264
 		},
 		{
 			"path": "assets/maps/tundra/icethrone.minimap.png",
-			"sha256": "695667626640adbf7f87e41ef7c9dd532812016ccf75530d666257aeeb171afb",
-			"bytes": 36154,
+			"sha256": "bf4d654984d85ecb00ca5e305008636cecbec19f4974d254229c2522e70f4e45",
+			"bytes": 37267,
 			"width": 192,
 			"height": 168
 		},
 		{
 			"path": "assets/maps/tundra/penguinrocks.minimap.png",
-			"sha256": "513240ac1eeb4f0c1e6c3cf0ec2a831c267f3b287e5172ebe3de134f84ffa371",
-			"bytes": 93618,
+			"sha256": "1754587a8d080d35abcb3c50c7b85bccda5096551d1c7a34f42875944a492226",
+			"bytes": 88722,
 			"width": 312,
 			"height": 252
 		},
 		{
 			"path": "assets/maps/tundra/props.png",
-			"sha256": "48324ca3827ae3da9469b6e12df1067b98e3526ab1b32ffb2e3ce6db998b5947",
-			"bytes": 258863,
-			"width": 2006,
-			"height": 225
+			"sha256": "f05f32233d1b33ac10d2500c8093ced4cf0a4cc3bd8d5dc199aa057ab095e0d7",
+			"bytes": 445038,
+			"width": 2046,
+			"height": 278
 		},
 		{
 			"path": "assets/maps/tundra/snowfield.minimap.png",
-			"sha256": "56046c7f2c8d45da2cc2389db019dc76a4401e2177340509c2d25b3b067cae26",
-			"bytes": 98302,
+			"sha256": "214fb5c4a1180a09440f8fa44cf8c8def4c844ef5fd7144bfd71040ac9d73aa8",
+			"bytes": 96220,
 			"width": 300,
 			"height": 228
 		},
 		{
 			"path": "assets/maps/tundra/snowmanpass.minimap.png",
-			"sha256": "df049ed3e165d86e05d8271421f88088306c3b05e0ba6976bcaec816e1a656d2",
-			"bytes": 81489,
+			"sha256": "28b9984432299ab6dc175f68af14af2fc82bdcf7a464036c0415e605160b5eb2",
+			"bytes": 88790,
 			"width": 276,
 			"height": 240
 		},
 		{
 			"path": "assets/maps/tundra/snowpines.minimap.png",
-			"sha256": "df9c0306350ce27563953212a5398532d113cb94508b352cc1525ed6fb5e347d",
-			"bytes": 146057,
+			"sha256": "aa4a4230e3c04a4578612f852561e2bcd401c1620d3017e05f8aa97ec9daf481",
+			"bytes": 146186,
 			"width": 288,
 			"height": 240
 		},
 		{
 			"path": "assets/maps/tundra/wolfwood.minimap.png",
-			"sha256": "35af026f40ab337b855b91ebadd5b7e0752a1a090baad4b3b0379213fce3bb6c",
-			"bytes": 138808,
+			"sha256": "c4ae160347f4291d1601fca5dbdcf91a36b1f9c85bea593ba6b2f17dbcb744da",
+			"bytes": 147996,
 			"width": 288,
 			"height": 252
 		},
 		{
 			"path": "assets/maps/volcano/batcave.minimap.png",
-			"sha256": "99796fda406071922bbb16a452ccb19df52ddcfac7625490588ef4aa9da8de76",
-			"bytes": 78702,
+			"sha256": "9f2389db71ad9671219a17913482f2fc01b4e73281912c03767f06f50be31592",
+			"bytes": 78613,
 			"width": 300,
 			"height": 228
 		},
 		{
 			"path": "assets/maps/volcano/blackrock.minimap.png",
-			"sha256": "e92954736ef7e808fbad1660117b4375326ee56e0e77770573780564a71aa8e1",
-			"bytes": 77973,
+			"sha256": "c17a91f9a95c5086cc66dc40bf08fac0e129a104fb86233ff28dba98ca610d6f",
+			"bytes": 76094,
 			"width": 288,
 			"height": 240
 		},
 		{
 			"path": "assets/maps/volcano/cinderflats.minimap.png",
-			"sha256": "de35389f9775033690a641edb479cc1970dab4af337d2299a5aaef58328c9f8d",
-			"bytes": 81350,
+			"sha256": "1b70acc80465c327cbd4a0e413e1171b7742c03d386b926fbd9e4135fdd056fc",
+			"bytes": 84150,
 			"width": 288,
 			"height": 252
 		},
 		{
 			"path": "assets/maps/volcano/crater.minimap.png",
-			"sha256": "0413fe48e10b0d834f74c37c26d9a7edf1adf55828c2cbc83357ebe818fb555d",
-			"bytes": 89006,
+			"sha256": "1f73f905525537bac37851618a2d5fd592b88aa340a5d7cf6b404342808ab6a2",
+			"bytes": 100235,
 			"width": 312,
 			"height": 240
 		},
 		{
 			"path": "assets/maps/volcano/craterrim.minimap.png",
-			"sha256": "c399d5c0c7d253429f727df58f868704866bc9f7d7f539beb9c887ebb5ef7efe",
-			"bytes": 83241,
+			"sha256": "04eea55036ef053c124193a1c4c78db83a3d82130396fc2d051c77c932067f2b",
+			"bytes": 84089,
 			"width": 288,
 			"height": 264
 		},
 		{
 			"path": "assets/maps/volcano/emberhollow.minimap.png",
-			"sha256": "0a799beb955a3a0387b8fbf8a7598066fc5bd6a31beb959ac67f2473009110a6",
-			"bytes": 78733,
+			"sha256": "d2248e06922be466bb169339d6e30ae54acd332dfabde06bda608e3c517faf2d",
+			"bytes": 82328,
 			"width": 276,
 			"height": 240
 		},
 		{
 			"path": "assets/maps/volcano/flamelair.minimap.png",
-			"sha256": "883c7265f6c3b497b20d98940af100fcf87964a8c789a8bba6054de48030c6aa",
-			"bytes": 39533,
+			"sha256": "a67c8b0c9d7f096b4719c30b7f2b12871205751d785449737d8c853c14e3cdfa",
+			"bytes": 40062,
 			"width": 228,
 			"height": 192
 		},
 		{
 			"path": "assets/maps/volcano/hub.minimap.png",
-			"sha256": "ec3a053175c62c5a22ed93eb1f73e1c2316efd768b235482609ff32f78478ac4",
-			"bytes": 58436,
+			"sha256": "1ae71131e08293cf76526993eac7625bdfedb94a1909c50d68afceb3ff109a53",
+			"bytes": 56988,
 			"width": 264,
 			"height": 216
 		},
 		{
 			"path": "assets/maps/volcano/lavaford.minimap.png",
-			"sha256": "0537ae921de912ea718f9477c3d092cc914f5ea52fb4adc8f21c547281156b24",
-			"bytes": 83877,
+			"sha256": "d0d4c75a3c2d60a4a8a3627964fb89279e871d287628793f7a88606cf898c768",
+			"bytes": 82184,
 			"width": 276,
 			"height": 252
 		},
 		{
 			"path": "assets/maps/volcano/lavariver.minimap.png",
-			"sha256": "e4f9c8dfc029d09d7c479cac1f00b61c24be463d5d1888a77174af6dd22e547d",
-			"bytes": 89962,
+			"sha256": "fe4b3959633163f6952609d95b5986ed4c4a9c7029e9b012fe9d552db78c92b6",
+			"bytes": 101900,
 			"width": 300,
 			"height": 264
 		},
 		{
 			"path": "assets/maps/volcano/oldforge.minimap.png",
-			"sha256": "c3a7b5a3563e845f5528f0bf6c9f4d88a23faaa030e06312cb2dc1be7d743511",
-			"bytes": 88774,
+			"sha256": "3b360a1a5babe749052a02248b7533f0dac164c0e50b52223748628887acbbee",
+			"bytes": 91919,
 			"width": 276,
 			"height": 264
 		},
 		{
 			"path": "assets/maps/volcano/props.png",
-			"sha256": "a752ee0a7ddb090fa7ae7f9e0c8903393f665e5a60608ec3d0fe08e8e6715474",
-			"bytes": 313400,
-			"width": 2041,
-			"height": 229
+			"sha256": "2a29bbfa86320bf3ffaf181ec3b3f0028eb5efd0b81079de7753b97f75e4b6e0",
+			"bytes": 483872,
+			"width": 2023,
+			"height": 374
 		},
 		{
 			"path": "assets/maps/volcano/runeforge.minimap.png",
-			"sha256": "9035ce4955d6fa076ef9816c0f5ff18a1262173f7e238c6e26ae26d9eaac43c9",
-			"bytes": 97249,
+			"sha256": "0166418a96e8ccd3d190fbfe74ea6874775542d028e980f081e9be13190c813b",
+			"bytes": 92715,
 			"width": 312,
 			"height": 252
 		},
 		{
 			"path": "assets/maps/volcano/volcanocore.minimap.png",
-			"sha256": "f2d06e4f64e98d2383fa1a3ce88250746eed48fa6c083cf15997129ff2001849",
-			"bytes": 30055,
+			"sha256": "e3cfb16b3a3316d9eec2bae4bc07fbb79a78ed7c13d9b40ba7affe7200f6fa40",
+			"bytes": 31235,
 			"width": 192,
 			"height": 168
 		},
@@ -1731,6 +1738,13 @@
 			"bytes": 5310,
 			"width": 141,
 			"height": 141
+		},
+		{
+			"path": "assets/portraits/npc_ysolde_001.png",
+			"sha256": "02d1a310fc0c237d8c71630ba8ef2cdad95187747e1d05127ae6728d92e7862b",
+			"bytes": 3273,
+			"width": 108,
+			"height": 108
 		},
 		{
 			"path": "assets/portraits/player_hero_adult.png",

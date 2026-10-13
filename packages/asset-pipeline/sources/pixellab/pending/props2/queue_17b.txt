@@ -1,0 +1,2 @@
+object sword_maple_red @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/sword_maple_red.send.json
+object sword_maple_gold @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/sword_maple_gold.send.json

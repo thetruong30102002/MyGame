@@ -1,0 +1,6 @@
+object swamp_fisher_hut @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/swamp_fisher_hut.send.json
+object swamp_longhouse @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/swamp_longhouse.send.json
+object desert_adobe_house @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/desert_adobe_house.send.json
+object tundra_hunting_lodge @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/tundra_hunting_lodge.send.json
+object tundra_smokehouse @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/tundra_smokehouse.send.json
+object volcano_forge_shop @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/volcano_forge_shop.send.json

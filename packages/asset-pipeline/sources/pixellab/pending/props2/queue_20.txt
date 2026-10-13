@@ -1,0 +1,6 @@
+object wood_world_sapling @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/wood_world_sapling.send.json
+object wood_fallen_log @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/wood_fallen_log.send.json
+object light_feather_tree @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/light_feather_tree.send.json
+object light_holy_sapling @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/light_holy_sapling.send.json
+object dark_lantern_tree @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/dark_lantern_tree.send.json
+object dark_bone_tree @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/dark_bone_tree.send.json

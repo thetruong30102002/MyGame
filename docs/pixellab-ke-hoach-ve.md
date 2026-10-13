@@ -18,7 +18,10 @@ Chủ dự án 11/10/2026: **"tập trung bản lớn thôi"** — ngoại hình
 | Chuẩn boss mới cho vùng 8–10 (11/10/2026) | 9 boss + 3 rồng: chiêu hoành tráng (~410) + vùng báo riêng (~95), thêm vào phần "chiêu boss ~240" ở trên | ~505 |
 | Cột dịch chuyển có hoạt ảnh | 1 cột 6–8 khung, tô màu lại theo vùng (`ke-hoach-the-gioi.md` 5.4) | ~20 |
 | Mười vị thần đất (11/10/2026) | 10 thần × ~165 (nhân vật lớn 4 hướng + đứng + tung chiêu, hiệu ứng thần kỹ, chân dung, tượng thờ) — mục "Mười vị thần"; vùng 1–7 trước (7 thần ≈ 1.155) | ~1.650 |
-| **Cộng phần cần** | | **~8.265** |
+| Cây 12 loài / vùng (13/10/2026) | 4 map nguyên tố mới ✔ đủ  + bù vùng 1–7 lên 12 loài 51 loài (~305) + vùng 8–10 36 loài (~215, trùng một phần "cây cối ~145" ở dòng vùng 8–10) — mục "Cây cối: 12 loài mỗi vùng" | ~525 |
+| Map công trình (13/10/2026) | lâu đài / kim tự tháp / pháo đài / chiến địa — 14 map × ~45 (bộ công trình `create_building_kit` + bộ nền chuyển sàn lát + 2 tấm nội thất), `ke-hoach-the-gioi.md` 5.8; thử kim tự tháp vùng 3 trước | ~630 |
+| Làng đông đúc (13/10/2026) | mỗi trạm vùng 2–10 thêm ~6 loại nhà (~36) + 3 dáng dân thường tô màu thành 5–6 người (~45); vùng 1 ~60 — `ke-hoach-the-gioi.md` 1.2. NPC dịch vụ / nhiệm vụ đã tính ở dòng NPC trạm | ~790 |
+| **Cộng phần cần** | | **~8.265** (chưa gồm dòng cây 12 loài, map công trình và làng đông đúc) |
 | Nên có (bản lớn) | kiểu tóc mới 16 tuổi (~240), chân dung Thư viện (~170), Thần Long + điều ước (~580), 3 skin kim cương (~290), đồ vật cốt truyện vùng 2–10 (~270), nền Long Huyệt riêng (~140) | ~1.690 |
 | Dự phòng vẽ lại món hỏng | ~5% phần trên | ~400 |
 | **TỔNG TẤT CẢ** | | **~10.350** |
@@ -95,6 +98,7 @@ map, 1/3 boss"; "rồng 3 chiêu, boss khu 1 chiêu, boss chúa 2 chiêu"; quái
 |---|---|---|
 | **Trả phí** | Render NẶNG làm game "xịn": hiệu ứng skill lớn 160–256px nhiều khung (12–16), tuyệt kỹ mốc 10, **chiêu thức boss**, bộ trang phục nhân vật (`create_character_state` / `transfer_outfit`), nhân vật/boss chính | Không bị khoá "free generations unavailable", 8 job cùng lúc, khổ lớn tốn nhiều lượt |
 | Miễn phí (15 token) | Việc NHẸ: tấm icon 3×3 (skill, bị động, trang bị), đồ vật/props, động tác nhỏ `animimg` của quái, đồ gắn lên người (mũ/vũ khí/khiên/áo choàng — 3 hướng/món) | Mỗi job ≤ 6 lượt, rải theo lượt thưởng mỗi ngày |
+| Trial 40 lượt (#15, #16… — chủ dự án 13/10/2026) | **CHỈ cảnh vật**: cây (thứ tự ở mục "Cây cối: 12 loài mỗi vùng"), tấm đồ vật 3×3, bộ nền chuyển sàn lát cho map công trình. Bộ công trình `create_building_kit` CẦN Tier 1 (thử 13/10/2026: "Tier 1 is required", không trừ lượt) → để token trả phí. Mỗi token ~6 cây = một lô / một vùng. KHÔNG tạo nhân vật / NPC | Nhân vật chỉ làm động tác được bằng token đã tạo ra nó, token trial cạn là mất đường thêm động tác; NPC ~14 lượt (= 2–3 cây); trial chỉ 1 job một lúc nên động tác phải gửi từng hướng. NPC để token trả phí |
 
 Token trả phí ĐÃ CÓ (09/10/2026): **token #1** trong `PIXELLAB_TOKENS` = Tier 2 (5.000 lượt / tháng, 10 job song song). Mốc 1 đã
 vẽ phần lớn trong ngày — xem `docs/the-gioi-aether.md` mục "Mốc 1 đã vẽ"; cách vẽ + bẫy: `docs/asset-pipeline.md` mục Gói trả phí.
@@ -519,6 +523,92 @@ Cần chủ dự án chọn: bớt phạm vi (VD chỉ 7 boss chúa + 4 rồng l
 chúa ≈ 200 → ~575), hoặc đổi chỗ với hạng "THIẾU" ở trên. Chuẩn mới (12 khung, 1 chiêu hoành tráng / boss) áp luôn cho 9 boss + 3
 rồng của vùng 8–10 khi vẽ.
 
+## Cây cối: 12 loài mỗi vùng — ƯU TIÊN map nguyên tố mới (chủ dự án 13/10/2026)
+
+Chủ dự án 13/10/2026: **"mỗi vùng phải 12 loại cây, và ưu tiên xây thêm cây của map mới ánh sáng, bóng tối, mộc…, lãnh địa kiếm"**.
+(Có lúc đổi sang 7–8 rồi 8 cây, sau chốt lại **"12 à thế giữ nguyên đi… 12 cây"**: MỌI vùng, kể cả 4 map nguyên tố mới, 12 loài.)
+
+- **12 loài = 12 loài VẼ RIÊNG** (ảnh PixelLab khác nhau). Bản tô màu lại / lật gương vẫn dùng để điểm xuyết nhưng không tính vào 12.
+  Một loài chỉ thuộc một vùng (luật `ke-hoach-the-gioi.md` 5.6). Mỗi map săn vẫn có một loài chủ đạo, và hai map kề nhau khác loài.
+- Đơn giá như đợt trước: Pro Flash ảnh rời nhìn thẳng ~6 lượt / loài, 160×192 (cây to / cao nguyên 192×192). Khổ canvas phải khớp ảnh mẫu style.
+- Vẫn giữ luật phiếu duyệt: mỗi lô gửi bảng loài + prompt + lượt trước khi vẽ.
+
+**Hiện có (13/10/2026, chỉ tính loài vẽ riêng)**
+
+| Vùng | Có | Đã soạn prompt, chờ vẽ (`pending/props2`) | Còn phải soạn thêm để đủ 12 |
+|---|---|---|---|
+| 1 · Vương quốc người | 3 (sồi, cây chết, thông khô) | — | 9 |
+| 2 · Đầm lầy | 5 (bách đầm, đước, liễu rủ, cây chết trắng, tre) | — | 7 |
+| 3 · Sa mạc | 5 (cọ, keo dù, xương rồng nến, chà là, cây khô) | — | 7 |
+| 4 · Cao nguyên | 5 (thông gió, bạch dương, sồi đỏ, thông vách, đỗ quyên) | — | 7 |
+| 5 · Băng giá | 5 (thông tuyết, tuyết tùng, bạch dương đông, cây băng tinh, thông lùn) | — | 7 |
+| 6 · Núi lửa | 5 (cây tro, hồng ngọc, cây hoá thạch, nấm lửa, bụi gai đen) | — | 7 |
+| 7 · Quần đảo | 5 (cọ, dừa nghiêng, bàng biển, đước bờ biển, muống biển) | — | 7 |
+| 8–10 | 0 | — | 36 |
+| Mộc · Ánh sáng · Bóng tối · Kiếm | **48 — ĐỦ (12 · 12 · 12 · 12)** | 0 đề bài đã soạn (`pending/props3/`), đang chờ ở hàng token cũ (bị khoá; tự bỏ qua món đã vẽ) | 0 |
+
+Tổng còn vẽ: **87 loài ≈ 525 lượt** (4 map mới ĐỦ · đã soạn sẵn 0 · bù vùng 1–7 51 ≈ 305 · vùng 8–10 36 ≈ 215).
+
+**Thứ tự vẽ**
+1. ~~**4 map nguyên tố mới**~~ — ✔ ĐỦ 12 loài mỗi map (13/10/2026), theo bảng dưới. Ảnh mẫu style = cây mở màn đã vẽ của chính map đó.
+2. ~~Loài đã soạn sẵn vùng 4–7~~ — ✔ xong (13/10/2026).
+3. Bù vùng 1–7 lên 12 loài (51 loài, ~305 lượt). Loài cụ thể soạn khi gửi phiếu từng vùng.
+4. Vùng 8–10 (36 loài, ~215 lượt), làm cùng lúc dựng map các vùng này.
+
+**Loài cho 4 map nguyên tố mới** — mỗi map 12 loài. ✔ = đã vẽ.
+
+| Map | 12 loài |
+|---|---|
+| Mộc · Rừng Cổ Thụ | ✔ cổ thụ khổng lồ rễ nổi · ✔ cây đa rễ phụ · ✔ dương xỉ cổ đại · ✔ sồi cổ có hốc · ✔ cây bị dây leo quấn kín · ✔ cây đom đóm phát sáng (tán ra hồng, thân vẫn xoắn giống mẫu) · ✔ cây tinh linh có mặt trên vỏ · ✔ thông đỏ (redwood) cao vút · ✔ cây hoa trắng nở rộ · ✔ thân cây đổ phủ rêu (làm cầu) · ✔ bụi hồng dại · ✔ mầm cây thế giới phát sáng xanh |
+| Ánh sáng · Thánh Địa Bình Minh | ✔ cây lá vàng kim · ✔ bạch quả · ✔ ô liu bạc · ✔ cây pha lê ánh sáng · ✔ nguyệt quế trong chậu đá · ✔ bách trắng thẳng · ✔ liễu bạc rủ ánh sáng · ✔ mộc lan trắng · ✔ cây tán lông vũ (như cánh thiên thần) · ✔ cây táo vàng · ✔ bụi huệ trắng · ✔ cây non thánh trong bồn đá có hào quang |
+| Bóng tối · Vực Ám Ma | ✔ cây chết đen vặn xoắn · ✔ cây lá tím phát sáng · ✔ cây quấn xích treo lồng sắt · ✔ cây có mắt đỏ trong hốc · ✔ cây gai đen khổng lồ · ✔ liễu đen rủ sương tím · ✔ cây hoá đá hắc diện thạch · ✔ cây ma trong suốt (ra xanh nhạt, chưa trong — chỉnh độ trong bằng code) · ✔ cây treo đèn lồng hồn xanh · ✔ bụi hoa máu đỏ đen · ✔ gốc cây nứt toác rỉ khói tím · ✔ cây thân xương |
+| Kiếm · Lãnh địa Kiếm — **tông cây phong lá đỏ / vàng** (chủ dự án 13/10/2026: "kiểu làm lá phong cây đỏ vàng") | ✔ phong đỏ có kiếm cắm cạnh gốc · ✔ phong vàng cam · ✔ phong rủ · ✔ phong bonsai trên mỏm đá · ✔ phong cổ thụ treo khiên + kiếm · ✔ phong bị chém đôi · ✔ thông có kiếm cắm · ✔ phong non lá đỏ trong chậu đá võ đường · ✔ bách cao thẳng như kiếm dựng · ✔ cây thép rỉ · ✔ gốc cây thử kiếm có kiếm cắm · ✔ bụi lau bạc như lưỡi kiếm |
+
+**Tiến độ 13/10/2026** (token trial #17, 30 lượt): ✔ cây mở màn 4 map mới, đề bài ở `sources/pixellab/pending/props3/`, ảnh ở
+`objects/<id>`, CHƯA khai vào `props/` vì map chưa dựng: `wood_ancient_giant` (cổ thụ rễ nổi, lá phát sáng) · `light_golden_tree`
+(lá vàng kim, thân ngà) · `dark_twisted_tree` (thân đen xoắn, vết nứt + khói tím) · `sword_pine` (thông có kiếm cắm; kiếm hơi nhỏ, nhìn
+như thông thường — loài sau của Lãnh địa Kiếm cần nét kiếm rõ hơn). ✔ `highland_rhododendron`, `tundra_frost_cedar` (đã dựng lại map
+highland + tundra). Token #18 (36 lượt): ✔ 6 loài phong Lãnh địa Kiếm — `sword_maple_red` (có kiếm cắm cạnh gốc) ·
+`sword_maple_gold` · `sword_maple_weeping` (rủ) · `sword_maple_bonsai` (trên mỏm đá) · `sword_maple_ancient` (treo khiên + kiếm chéo) ·
+`sword_maple_cleaved` (chém đôi); 4 loài sau lấy `sword_maple_red` làm ảnh mẫu. Token #19 (36 lượt): ✔ Mộc `wood_banyan` (đa rễ
+phụ) · `wood_fern_giant` (dương xỉ cổ đại); Ánh sáng `light_ginkgo` (bạch quả, hơi mảnh) · `light_olive_silver` (ô liu bạc); Bóng tối
+`dark_violet_glow` (lá tím phát sáng) · `dark_chained_tree` (xích + lồng sắt) — ảnh mẫu = cây mở màn của chính map. ✔ Bộ nền thử kim
+tự tháp: cát → sàn lát sa thạch, 16 ô 32px (`sources/pixellab/tilesets/pyramid_sand_paving/`, PixelLab 032b861e-5bc5-411d-b21e-2358e0257c10,
+4 lượt; ảnh gốc bộ này không viền đen). Token #20 (36 lượt): ✔ `wood_world_sapling` · `wood_fallen_log` (có nấm nhỏ) · `light_feather_tree` · `light_holy_sapling` ·
+`dark_lantern_tree` · `dark_bone_tree`. 19 loài khác đã xếp hàng nền trên token cũ #8–#14 (`queue_old*.txt`) nhưng free vẫn khoá. Token #21 (36 lượt): ✔ `sword_silver_reeds` ·
+`wood_white_blossom` (thân chép gần y cây mẫu — loài Mộc sau dặn đổi dáng thân) · `wood_wild_rose` · `light_golden_apple` ·
+`dark_cracked_stump` · `dark_blood_bush`. Token #22 (36 lượt): ✔ `light_lily_bush` · `light_crystal_tree` · `light_silver_willow` ·
+`wood_redwood` · `dark_ghost_tree` · `sword_maple_planter`. `run_queue.sh` giờ bỏ qua đồ vật đã có ảnh (tránh vẽ trùng khi token cũ mở khoá). Token #23 (36 lượt): ✔ `wood_hollow_oak` · `wood_firefly_tree` · `light_magnolia` ·
+`dark_eye_tree` · `dark_weeping_shadow` · `sword_test_stump` (`dark_weeping_shadow` lần đầu hỏng HTTP 410, gửi lại được). Dặn "không chép thân"
+không đủ — 2 loài Mộc còn lại đổi ảnh mẫu sang `wood_redwood`. Token #24 (36 lượt): ✔ `wood_vine_tree` · `wood_spirit_tree` (đổi ảnh mẫu → hết chép thân) ·
+`light_laurel_planter` · `light_white_cypress` · `dark_thorn_giant` · `dark_obsidian_tree`. **Mộc, Ánh sáng, Bóng tối đủ 12 loài.** Token #25 (36 lượt): ✔ `sword_cypress_blade` · `sword_iron_tree` (**4 map mới ĐỦ 12 loài**)
+· `tundra_winter_birch` · `tundra_crystal_tree` · `tundra_dwarf_pine` · `volcano_ruby_tree` (đã dựng lại map tundra + volcano). Token #26 (36 lượt): ✔ `volcano_petrified_tree` · `volcano_fire_mushrooms` ·
+`volcano_thorn_bush` · `isles_leaning_palm` · `isles_sea_almond` · `isles_coast_mangrove` (đã dựng lại map). Lần gửi đầu của `sword_pine` hỏng phía PixelLab ("heavy load"), không trừ lượt; gửi lại là được.
+
+Tránh trùng loài giữa các vùng: không dùng tre (Đầm lầy), nấm (vùng 8 Rừng nấm), cây chết trắng (Đầm lầy) hay cọ (Sa mạc / Quần đảo).
+
+## Đồ vật các vùng — chạy theo PHIÊN, mỗi phiên 1 token trial (chủ dự án 13/10/2026)
+
+Chủ dự án 13/10/2026: "đồ vật các vùng cần thêm" + "bạn cứ bổ sung đồ vật các vùng, tôi sẽ gửi token theo phiên, mỗi phiên 1 token".
+Mỗi phiên = 1 token trial 40 lượt ≈ 6 món (tấm 3×3 192×192 = 6 lượt, nhà / cây ảnh rời = 6 lượt). Hàng chờ từng phiên đã tạo sẵn:
+`bash sources/pixellab/pending/props2/run_queue.sh <token#> s<N>` (script tự bỏ qua món đã có ảnh). Vẽ xong: soi từng ô tấm khớp thứ tự
+khai báo → khai id ở `props/worldRegions.ts` (tấm mới `*6`, map mới) → `npm run assets:map -- <vùng>` → ghi tiến độ ở đây.
+
+✔ Token #27 (13/10/2026, 36 lượt): tấm `SW5` làng nhà sàn · `DS5` chợ sa mạc · `IC5` trại tuyết · `VL5` mỏ người lùn · `CR5` bến cảng ·
+`IC4` băng hoang — 9 ô mỗi tấm khớp thứ tự khai báo, đã dựng lại map swamp / desert / tundra / volcano / isles.
+✔ Phiên s1 — token #28 (36 lượt): `HL4` · `VL4` · `CR4` (khớp thứ tự ô) + `isles_morning_glory` + `highland_barn` · `highland_chapel`; đã dựng
+lại map highland / volcano / isles.
+
+| Phiên | Món (đề bài đã soạn) | Ghi chú |
+|---|---|---|
+| s1 | tấm `HL4` đồng cỏ cao nguyên · `VL4` núi lửa hoang · `CR4` bờ biển + cây `isles_morning_glory` + nhà `highland_barn` · `highland_chapel` | hết nợ đợt 10/10 về tấm thiên nhiên |
+| s2 | nhà `swamp_fisher_hut` · `swamp_longhouse` · `desert_adobe_house` · `tundra_hunting_lodge` · `tundra_smokehouse` · `volcano_forge_shop` | nhà đã khai sẵn trong `props/worldRegions.ts` — vẽ xong là lên map (mục 1.2 làng đông đúc) |
+| s3 | nhà `volcano_bastion` · `isles_lighthouse` · `isles_tavern` + tấm MỚI `SW6` di tích con đập · `DS6` đồ kim tự tháp · `HL6` trang trại cối xay | tấm mới cần khai id |
+| s4 | tấm MỚI `IC6` mỏ băng · `VL6` trại vây thành (chiến địa) · `CR6` vịnh hải tặc · `TW6` làng Thistlewood · `TW7` rừng Mossvale · `SD1` võ đường (Lãnh địa Kiếm) | |
+| s5 | tấm MỚI `WD1` Rừng Cổ Thụ · `LT1` Thánh Địa Bình Minh · `DK1` Vực Ám Ma + 3 món tuỳ chủ dự án (nhà làng Lau Xám…) | 4 map mới chờ dựng map |
+
+Đề bài tấm mới ở `sources/pixellab/pending/props4/` (9 món theo thứ tự ô, ảnh mẫu style `sheets/N1_nature.png` như các tấm cũ).
+
 ## Vẽ thêm cây cối + đồ vật cho map vùng 2–7 (ghi 10/10/2026, chủ dự án: "thấy hơi ít loại cây cối và đồ vật… cần note thêm")
 
 **Hiện có** (map vùng 2–7 dựng 10/10/2026 — `packages/asset-pipeline/src/props/worldRegions.ts`): mỗi vùng **1 loại cây** vẽ riêng
@@ -539,6 +629,17 @@ Vẽ xong: khai id ở `props/worldRegions.ts`, thêm vào chủ đề map ở `
 | 5 · Băng giá | tuyết tùng phủ băng lớn · bạch dương mùa đông trụi lá · cây băng tinh trong suốt · bụi thông lùn | `IC4`: tảng băng trôi nhỏ, trụ băng xanh, đá phủ tuyết lớn, cụm tinh thể băng tím, gò tuyết gió thổi, khe nứt băng, hoa tuyết, nhũ băng, xương thú đóng băng | `IC5`: lều da thú, đống củi phủ tuyết, cột totem gỗ, xe trượt chở đồ, hàng rào gỗ phủ tuyết, lò sưởi ngoài trời, giá phơi cá, người tuyết trang trí, đèn dầu |
 | 6 · Núi lửa | cây lá đỏ phát sáng (hồng ngọc) · cây đá hoá thạch · cụm nấm lửa lớn · bụi gai đen | `VL4`: cột bazan cao, khe nứt phun hơi, hồ lưu huỳnh, đá bọt, mạch tinh thể lửa, hố tro, khiên đá, tảng obsidian lớn, cây gai lửa nhỏ | `VL5`: xe goòng chở quặng, đoạn đường ray, cổng sắt nhỏ, đống quặng, tượng thợ rèn, bàn rèn, máng nước nóng, lò nung nhỏ, giá giáp |
 | 7 · Quần đảo | dừa nghiêng ra biển · bàng biển · bụi muống biển hoa tím · đước bờ biển | `CR4`: vỏ ốc lớn, rạn đá có hàu, rong biển dạt, tổ hải âu, xương cá voi, cột cờ gỗ, phao cứu sinh, đống lưới, mai rùa biển | `CR5`: cầu tàu (ngang / dọc), cọc gỗ, kho hàng nhỏ, thùng rượu, giá móc cá, cột đèn biển nhỏ, xuồng nhỏ, neo gỉ, chòi canh |
+
+**Tiến độ 13/10/2026** (token trial #15 — 40 lượt, chỉ 1 job một lúc, động tác phải gửi từng hướng): ✔ 4 cây vùng 2
+`swamp_mangrove` · `swamp_willow` · `swamp_ghost_tree` · `swamp_bamboo` (24 lượt; đã khai sẵn ở `props/worldRegions.ts`, đã dựng lại
+`assets/maps/swamp`). ✔ NPC **`npc_ysolde_001`** — Bà Ysolde, trưởng làng Lau Xám (`sources/pixellab/npc_ysolde_001`, PixelLab
+91a3bb88-2dcd-4d55-8d5f-c457c4f20a1d): ảnh xoay 8 hướng (6 lượt, đã duyệt) + đứng thở 4 khung × 8 hướng (8 lượt). Soi khung: hướng
+E / W mất gậy, hướng N khung 3–4 có vệt bóng dưới chân → khi làm spec thì loại `idle` E / W / N, dùng ảnh xoay (như `npc_bram_001`).
+✔ Đã đưa vào dữ liệu (13/10/2026): spec `src/specs/npc_ysolde_001.json`, sprite `assets/characters/npc_ysolde_001`, `chapters.ts` +
+`npcs.json` / `story.*.json` đổi sang `npc_ysolde_001`. Còn: nhập vào Unity (Aether → Nhập dữ liệu từ pipeline) khi build bản sau.
+Token trial #16 (40 lượt): ✔ 4 cây vùng 3 `desert_acacia` · `desert_candelabra` · `desert_date_trio` · `desert_dry_tree` + 2 cây vùng 4
+`highland_birch` · `highland_red_oak` (36 lượt), đã dựng lại `assets/maps/desert` + `highland`. Lệch đề: `desert_dry_tree` ra cây khô
+ĐỨNG (đề bài là thân gãy đổ), `desert_date_trio` có đế cát. Cây còn thiếu: `highland_rhododendron`, 4 cây vùng 5, 4 cây vùng 6, 4 cây vùng 7.
 
 Ưu tiên khi có lượt: **cây trước** (cây phủ nhiều diện tích nhất, lặp lại dễ thấy nhất), rồi tấm thiên nhiên, rồi tấm làng. Còn thiếu
 riêng: **NPC dịch vụ ở 6 trạm** (người bán, thợ rèn… — mục "Sau Mốc 3 còn thiếu" của `docs/the-gioi-aether.md`).

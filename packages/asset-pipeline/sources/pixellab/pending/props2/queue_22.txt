@@ -1,0 +1,6 @@
+object light_lily_bush @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/light_lily_bush.send.json
+object light_crystal_tree @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/light_crystal_tree.send.json
+object light_silver_willow @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/light_silver_willow.send.json
+object wood_redwood @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/wood_redwood.send.json
+object dark_ghost_tree @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/dark_ghost_tree.send.json
+object sword_maple_planter @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/sword_maple_planter.send.json

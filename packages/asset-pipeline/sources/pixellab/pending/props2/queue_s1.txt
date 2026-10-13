@@ -1,0 +1,6 @@
+image D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/HL4_highland_meadow.png @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/HL4_highland_meadow.json
+image D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/VL4_volcano_wilds.png @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/VL4_volcano_wilds.json
+image D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/CR4_beach_shore.png @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/CR4_beach_shore.json
+object isles_morning_glory @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/isles_morning_glory.send.json
+object highland_barn @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/highland_barn.send.json
+object highland_chapel @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/highland_chapel.send.json

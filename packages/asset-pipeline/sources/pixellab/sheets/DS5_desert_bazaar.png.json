@@ -1,0 +1,20 @@
+{
+	"description": "A sprite sheet of NINE separate small props arranged in a 3 by 3 grid, each small and centered in its own cell: pottery market stall, rack of hanging carpets, small striped cloth tent, carved stone column, tiled oasis water basin, hanging brass lanterns on a pole, large oil jars, wooden market sign, small wooden hand cart with goods, drawn in straight FRONT VIEW like the reference (facing the camera, slight top-down), thick dark outline, soft cel shading, every object fully separate on a plain flat solid bright magenta (#FF00FF) chroma-key background with wide empty space around it, no ground, no shadow puddles, no text, no characters",
+	"width": 192,
+	"height": 192,
+	"no_background": false,
+	"seed": 140,
+	"style_options": {
+		"color_palette": false,
+		"outline": true,
+		"shading": true,
+		"detail": false
+	},
+	"style_image": {
+		"path": "D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/N1_nature.png",
+		"usage_description": "Copy ONLY the art style of this reference: chunky chibi pixel art, thick dark outline on every shape, soft cel shading, front-facing view. Do not copy these objects or their colors."
+	},
+	"jobId": "debfcdb5-6d26-4cf9-860e-348ee5d39659",
+	"token": 27,
+	"createdAt": "2026-10-13T05:19:43.199Z"
+}

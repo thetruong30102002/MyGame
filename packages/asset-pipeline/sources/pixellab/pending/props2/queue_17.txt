@@ -1,0 +1,6 @@
+object wood_ancient_giant @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/wood_ancient_giant.send.json
+object light_golden_tree @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/light_golden_tree.send.json
+object dark_twisted_tree @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/dark_twisted_tree.send.json
+object sword_pine @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/sword_pine.send.json
+object highland_rhododendron @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/highland_rhododendron.send.json
+object tundra_frost_cedar @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/tundra_frost_cedar.send.json

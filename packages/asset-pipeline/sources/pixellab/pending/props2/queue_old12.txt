@@ -1,0 +1,1 @@
+object dark_ghost_tree @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/dark_ghost_tree.send.json

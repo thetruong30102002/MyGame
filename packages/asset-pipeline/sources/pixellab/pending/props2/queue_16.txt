@@ -1,0 +1,6 @@
+object desert_acacia @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/desert_acacia.send.json
+object desert_candelabra @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/desert_candelabra.send.json
+object desert_date_trio @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/desert_date_trio.send.json
+object desert_dry_tree @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/desert_dry_tree.send.json
+object highland_birch @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/highland_birch.send.json
+object highland_red_oak @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/highland_red_oak.send.json

@@ -55,6 +55,41 @@ NPC ở các vùng nữa". Nơi ở chính là map **Trạm** của vùng (bản
 | 9 | Phế tích Aether | Toà thành Aether cổ | toà thành | tàn dư triều đình pháp sư, phe phái tranh di sản |
 | 10 | Vực Hư Không | Thành trì Hư Không | toà thành | tiền đồn cuối, liên quân các vùng |
 
+## 1.2 Làng / toà thành đông đúc hơn: thêm nhà + NPC — GHI CHÚ (13/10/2026, chưa làm)
+
+Chủ dự án 13/10/2026: "ở làng nơi dân sinh sống mỗi vùng cần thêm nhiều nhà và npc nữa".
+
+**Hiện trạng (đếm trên map trạm 13/10/2026)**: vùng 2–7 mỗi trạm chỉ có **5–8 nhà, 1–5 loại** (Băng giá 5 nhà cùng một loại), và
+**3 NPC** (cột dịch chuyển, trưởng làng / người đứng đầu, vị thần vùng). Không có người bán, thợ rèn hay dân thường. Vùng 1
+Thistlewood khá hơn (11 nhà / 9 loại, nhiều NPC cốt truyện).
+
+**Mục tiêu mỗi trạm**
+
+| | Làng | Toà thành (Sahrin, Đe Đỏ, Aether cổ, Hư Không) |
+|---|---|---|
+| Nhà / công trình | **≥ 12–15 nhà, ≥ 6 loại** (nhà ở, nhà người đứng đầu, quán trọ, tiệm, xưởng / lò rèn, kho, chuồng / giàn phơi theo nghề của vùng) | ≥ 20 công trình: tường thành + cổng (bộ tường mục 5.8), cung / dinh, chợ, doanh trại, nhà dân |
+| NPC dịch vụ | người bán, thợ rèn, thầy thuốc / quán trọ, cột dịch chuyển | thêm thợ may / thợ cắt tóc, quan, lính gác cổng |
+| NPC nhiệm vụ | người đứng đầu + 2–3 người giao việc (đã có cốt truyện chương 2–7: Nyra, Pell, Hassim, Zahra, Hilde, Durin, Maris…) | vua / hội đồng + phe phái |
+| Dân thường | **5–6 người**: trẻ con, người già, nông / ngư dân theo nghề vùng, người đi chợ, lính tuần; mỗi người 2–3 câu nói `idle` | 8–10 người |
+
+Tổng mỗi làng **≈ 12–14 NPC** (hiện 3), toà thành ≈ 18–20.
+
+**Cách làm**
+- **Nhà**: Pro Flash ảnh rời nhìn thẳng như các nhà đã duyệt (`objects/<vùng>_*`), ~6 lượt / loại. Mỗi vùng thêm **~6 loại nhà** (≈ 36
+  lượt). Nhà cùng loại đặt nhiều chỗ thì lật gương / đổi màu mái (0 lượt). Đồ làng nhỏ (hàng rào, giếng, chum, giàn phơi…) đã có
+  trong các tấm `*5` của kế hoạch cây cối + đồ vật.
+- **NPC** (vẽ bằng token TRẢ PHÍ, vì nhân vật chỉ làm thêm động tác được bằng token đã tạo ra nó):
+  - NPC dịch vụ / nhiệm vụ: nhân vật riêng như Ysolde (ảnh xoay 8 hướng + đứng thở ≈ 14 lượt).
+  - Dân thường: mỗi vùng 3 dáng gốc (ảnh xoay + đứng thở ≈ 14 lượt / dáng), tô màu lại áo / tóc thành 5–6 người (0 lượt). Muốn dân
+    **đi lại** trong làng thì thêm động tác đi (+8 lượt / dáng).
+  - Ước mỗi vùng: 4 NPC dịch vụ đã có trong kế hoạch NPC trạm (dòng "NPC trạm" ở `docs/the-gioi-aether.md`) + 3 dáng dân thường ≈ 45 lượt.
+- **Code (0 lượt)**: bộ dựng `kit.ts` mở rộng khu trạm (đường làng, khoảnh vườn, hàng rào quanh nhà, quảng trường giữa); NPC dân
+  thường đứng / đi quanh một điểm, nói câu `idle` khi người chơi lại gần (cơ chế NPC + nút "E" đang có). Khai NPC ở
+  `packages/sim/src/story/` như các NPC vùng hiện có.
+- **Lượt ước (vùng 2–10)**: nhà ~36 + dân thường ~45 ≈ **~80 lượt / vùng → ~730 lượt** cho 9 vùng, chưa gồm NPC dịch vụ / nhiệm vụ đã có
+  trong kế hoạch. Vùng 1 thêm ~3 loại nhà + 3 dáng dân (~60).
+- **Thứ tự**: vùng 2 Lau Xám trước (vùng kế tiếp của người chơi), rồi lần lượt theo cấp.
+
 ## 2. Mười vùng đất (đề xuất — chủ dự án duyệt tên, thứ tự, chủ đề)
 
 Trần cấp **100** (chốt 08/10/2026) → mỗi vùng ≈ 10 cấp: vùng 1 cấp 1–10, vùng 2 cấp 10–20 … vùng 10 cấp 90–100. Mỗi vùng thiên về
@@ -457,9 +492,9 @@ Hướng làm:
 2. **Mỗi map một loài chủ đạo ≥ 60% số cây** + 1–2 loài điểm xuyết, và hai map kề nhau KHÔNG cùng loài chủ đạo — đặt ở khai báo map
    (`packages/asset-pipeline/src/maps/worldRegions.ts`, thêm trường kiểu `trees: { main, accents }`; bộ dựng `kit.ts` rải theo đó thay
    cho danh sách chung của vùng). Map vùng 1 (dựng tay) chỉnh danh sách đồ vật từng map.
-3. **Đủ loài để chia**: mỗi vùng cần ≥ 5–6 loài (đủ cho các map săn + trạm + thánh địa). Thiếu thì theo thứ tự ít tốn lượt: tô màu lại
-   / lật / ghép tán–thân từ cây có sẵn của chính vùng → chỉ khi vẫn thiếu mới vẽ PixelLab, **gửi phiếu duyệt trước** (bảng cây dự kiến
-   từng vùng + số lượt), vẽ khung đầu cho duyệt rồi mới vẽ tiếp.
+3. **Đủ loài để chia**: mỗi vùng cần **12 loài vẽ riêng** (chủ dự án 13/10/2026: "mỗi vùng phải 12 loại cây", áp cho mọi vùng kể cả
+   4 map nguyên tố mới; trước là ≥ 5–6 loài). Bản tô màu / lật không tính vào 12. Bảng hiện có / còn thiếu và thứ tự vẽ ở
+   `docs/pixellab-ke-hoach-ve.md`, mục "Cây cối: 12 loài mỗi vùng".
 4. Đi cùng mục 5.4 (đồ vật lặp lại / xếp có trật tự): cây là phần lớn đồ vật nên làm chung một lượt dựng lại map.
 
 **Nghiệm thu (đo lại bằng `docs/tools/dem-cay.py`)**: dòng "loài dùng chung nhiều vùng" = **không có**; mọi map săn có loài chủ đạo
@@ -477,10 +512,60 @@ mang đúng chất hệ đó:
 | Mộc | Rừng Cổ Thụ | cây khổng lồ, dây leo, đom đóm; quái cây / tinh linh rừng |
 | Ánh sáng | Thánh Địa Bình Minh | đền trắng, cột đá, tia nắng xiên; quái thánh vệ / thiên thần đá |
 | Bóng tối | Vực Ám Ma | đất đen, sương tím, cây chết; quái bóng ma / ác linh |
+| Kiếm | Lãnh địa Kiếm (thêm 13/10/2026) | võ đường cổ giữa rừng **phong lá đỏ / vàng**, lá rơi bay theo gió, kiếm cắm khắp nơi; quái kiếm hồn / giáp rỗng |
+
+Chủ dự án 13/10/2026: thêm **Lãnh địa Kiếm**, và **ưu tiên vẽ cây cho 4 map này trước** (mỗi map 12 loài, danh sách ở
+`docs/pixellab-ke-hoach-ve.md` mục "Cây cối: 12 loài mỗi vùng").
 
 Dựng bằng bộ dựng chung (`packages/asset-pipeline/src/maps/kit.ts`) như vùng 2–7, theo luật mục 5.4–5.6 (mỗi vùng một bộ cây riêng,
 mỗi map một loài chủ đạo, thời tiết theo vùng). Hình mới (thần, quái, tấm nền) phải qua phiếu duyệt PixelLab. Luật nguyên tố đi kèm:
 `docs/ke-hoach-nguyen-to.md` mục 9.
+
+## 5.8 Map công trình: đi VÀO lâu đài, kim tự tháp, chiến địa — GHI CHÚ (13/10/2026, chưa làm)
+
+Chủ dự án 13/10/2026: "cần thêm kế hoạch các nơi cũ, không chỉ là các map vùng… thiếu mất vào lâu đài hay vào chiến địa… thấy map hơi
+nhạt nhoà, toàn địa hình với cây. Lâu đài là như kiểu gạch đá, tường thành" + "ví dụ map sa mạc là đi vào kim tự tháp".
+
+**Vấn đề**: 12 map mỗi vùng đều là ngoài trời (nền + cây + đá rải), kể cả các "toà thành" chỉ là nhà rời đặt trên cỏ. Chưa có tường
+thành nối liền, sàn lát đá, hành lang, phòng. Luỹ Hiệp Sĩ Cũ (vùng 1) là luỹ ghép từ mảnh tường đổ và tháp rời.
+
+**Mỗi vùng (kể cả 4 map nguyên tố mới) có ít nhất 1 map công trình** để đi vào bên trong, ưu tiên gắn với cốt truyện / boss sẵn có:
+
+| Vùng | Map công trình đề xuất | Kiểu | Gắn với |
+|---|---|---|---|
+| 1 · Thistlewood | **Lâu đài Rowanmere**: tường thành gạch đá, sân trong, tháp canh, đại sảnh. Luỹ Hiệp Sĩ Cũ dựng lại bằng bộ tường thật | lâu đài + chiến địa nhỏ | Đoàn Ấn Ký, Aldric |
+| 2 · Đầm lầy | **Thân đập đá của Đoàn**: cống ngầm, phòng máy cửa xả, làng Lau Xám cũ chìm dưới đập | công trình ngầm | con đập nhấn chìm làng (chương 2) |
+| 3 · Sa mạc | **Kim tự tháp**: hành lang sa thạch, bẫy cát, phòng mộ có tranh khắc, phòng boss | hầm mộ | `boss_pharaoh_001`, `mob_mummy_001` |
+| 4 · Cao nguyên | **Đền Gió trên mây**: sân đá, hành lang cột, chuông gió, cầu treo giữa các đỉnh | đền | đền thờ trên mây của làng Cối Xay Gió |
+| 5 · Băng giá | **Cung Ngai Băng**: tường băng trong suốt, sảnh ngai | cung điện | `boss_ice_guardian_001`, `boss_ice_queen_001` |
+| 6 · Núi lửa | **Pháo đài Đe Đỏ**: tường thành đá đen, cổng sắt, lò rèn trong lòng núi; **chiến địa** ngoài chân tường lúc quân Đoàn vây thành | toà thành + chiến địa | chương vây pháo đài (Hilde / Durin) |
+| 7 · Quần đảo | **Tàu ma đắm / hang hải tặc**: boong, khoang tàu, hang đá có kho báu | tàu + hang | `boss_ghost_captain_001`, `mob_pirate_001` |
+| 8 · Rừng nấm | **Thành phố nấm ngầm**: hang đá, nhà nấm, đường hầm phát sáng | thành ngầm | làng người nấm Ánh Tím |
+| 9 · Phế tích Aether | **Toà thành Aether cổ**: tường pháp sư, thư viện, xưởng máy | toà thành | ba phe tranh di sản |
+| 10 · Hư Không | **Thành trì Hư Không**: tường thành liên quân + **chiến địa** trước cổng | toà thành + chiến địa | trận cuối của liên quân |
+| Mộc / Ánh sáng / Bóng tối / Kiếm | lòng cây thế giới · thánh đường trắng · ngục tối · **võ đường giữa rừng phong** | — | 4 map nguyên tố mới (5.7) |
+
+**Chiến địa** (vùng 1, 6, 10): bãi trận ngoài tường thành có rào chông, xe công thành, lều trại, cờ hai phe, xác giáp vỡ, hố
+cháy. Quái theo bầy đông hơn map thường, có thể dùng cho sự kiện thủ thành sau này.
+
+**Cách làm**
+- **Hình (PixelLab)**, ước mỗi map công trình khoảng 45 lượt. Bộ nền và tấm đồ vật làm được bằng token trial; bộ tường thì không:
+  - bộ công trình `create_building_kit` kiểu `square_topdown`: sàn, tường, góc trong / ngoài, cột, cổng, cầu thang (10–25 lượt). **Cần token
+    Tier 1 trở lên** (gói trial bị từ chối, thử 13/10/2026);
+  - bộ nền `create_topdown_tileset` chuyển cỏ / cát / tuyết sang sàn lát (3–4 lượt);
+  - 2 tấm đồ vật nội thất 3×3 (~16 lượt: đuốc tường, bàn thờ, quan tài, giá vũ khí, cờ…).
+
+  Tổng 14 map ≈ **~630 lượt**. Đã có: bộ nền cát → sàn lát sa thạch cho kim tự tháp (13/10/2026). Bộ tường dùng lại được giữa các vùng cùng chất liệu (tô màu lại, 0 lượt), nên thực tế ít hơn.
+- **Code (0 lượt)**:
+  - bộ dựng `kit.ts` thêm kiểu map **trong nhà**: lưới phòng + hành lang, ghép tường liền theo ô (chọn mảnh góc / thẳng theo ô kề), tối hơn và có đèn đuốc;
+  - map ngoài trời thêm **cửa vào** (cổng thành, cửa kim tự tháp) là một lối nối sang map công trình, như các lối giữa map hiện có.
+- **Chỗ của map công trình**: thay hang ổ boss chúa (map thứ 12) khi hợp chủ đề (kim tự tháp, cung Ngai Băng, tàu ma), còn lại
+  là map thứ 13 của vùng. **Chủ dự án chốt.**
+- **Thứ tự đề xuất**:
+  1. Thử 1 map: kim tự tháp vùng 3 (đúng ví dụ của chủ dự án), chốt cách ghép tường + cửa vào;
+  2. Lâu đài Rowanmere vùng 1 (khu người chơi mới, ai cũng thấy);
+  3. Pháo đài Đe Đỏ + chiến địa;
+  4. các vùng còn lại.
 
 ## 6. Thứ tự triển khai
 

@@ -1,0 +1,2 @@
+object wood_redwood @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/wood_redwood.send.json
+object light_magnolia @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/light_magnolia.send.json

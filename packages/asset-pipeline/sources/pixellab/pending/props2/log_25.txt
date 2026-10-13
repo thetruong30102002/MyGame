@@ -1,0 +1,7 @@
+11:59 ✔ sword_cypress_blade
+12:00 ✔ sword_iron_tree
+12:01 ✔ tundra_winter_birch
+12:02 ✔ tundra_crystal_tree
+12:03 ✔ tundra_dwarf_pine
+12:04 ✔ volcano_ruby_tree
+12:04 xong hàng

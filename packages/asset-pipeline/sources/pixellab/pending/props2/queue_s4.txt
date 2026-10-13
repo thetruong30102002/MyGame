@@ -1,0 +1,6 @@
+image D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/IC6_ice_mine.png @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props4/IC6_ice_mine.json
+image D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/VL6_siege_camp.png @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props4/VL6_siege_camp.json
+image D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/CR6_pirate_cove.png @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props4/CR6_pirate_cove.json
+image D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/TW6_thistle_village.png @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props4/TW6_thistle_village.json
+image D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/TW7_mossvale_wilds.png @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props4/TW7_mossvale_wilds.json
+image D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/SD1_sword_dojo.png @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props4/SD1_sword_dojo.json

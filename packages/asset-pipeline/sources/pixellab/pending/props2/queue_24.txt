@@ -1,0 +1,6 @@
+object wood_vine_tree @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/wood_vine_tree.send.json
+object wood_spirit_tree @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/wood_spirit_tree.send.json
+object light_laurel_planter @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/light_laurel_planter.send.json
+object light_white_cypress @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/light_white_cypress.send.json
+object dark_thorn_giant @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/dark_thorn_giant.send.json
+object dark_obsidian_tree @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/dark_obsidian_tree.send.json

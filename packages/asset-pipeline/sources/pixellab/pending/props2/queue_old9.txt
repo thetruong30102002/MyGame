@@ -1,0 +1,2 @@
+object wood_spirit_tree @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/wood_spirit_tree.send.json
+object light_silver_willow @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/light_silver_willow.send.json

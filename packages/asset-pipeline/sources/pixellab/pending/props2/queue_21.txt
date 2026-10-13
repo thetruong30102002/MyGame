@@ -1,0 +1,6 @@
+object sword_silver_reeds @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/sword_silver_reeds.send.json
+object wood_white_blossom @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/wood_white_blossom.send.json
+object wood_wild_rose @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/wood_wild_rose.send.json
+object light_golden_apple @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/light_golden_apple.send.json
+object dark_cracked_stump @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/dark_cracked_stump.send.json
+object dark_blood_bush @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/dark_blood_bush.send.json

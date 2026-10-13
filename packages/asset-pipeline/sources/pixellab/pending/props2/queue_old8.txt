@@ -1,0 +1,2 @@
+object dark_obsidian_tree @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/dark_obsidian_tree.send.json
+object sword_test_stump @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/sword_test_stump.send.json

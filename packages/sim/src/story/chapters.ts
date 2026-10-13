@@ -56,7 +56,7 @@ export const CHAPTER_NPCS: Record<string, NpcDef> = {
 	maris: voice('Maris', 'Công chúa người cá'),
 	corvin: voice('Corvin', 'Thuyền trưởng Hải Âu Bạc'),
 
-	ysolde: elder('swamp', 'Bà Ysolde', 'Trưởng làng Lau Xám', 'npc_mirelle_001', [
+	ysolde: elder('swamp', 'Bà Ysolde', 'Trưởng làng Lau Xám', 'npc_ysolde_001', [
 		'Sương hôm nay đặc. Đặc như hồi đập mới xây.',
 		'Trà trong ấm còn. Uống đi rồi hẵng nói chuyện người Rowanmere.',
 	]),

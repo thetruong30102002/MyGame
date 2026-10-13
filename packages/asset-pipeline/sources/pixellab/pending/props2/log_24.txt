@@ -1,0 +1,7 @@
+11:50 ✔ wood_vine_tree
+11:51 ✔ wood_spirit_tree
+11:52 ✔ light_laurel_planter
+11:53 ✔ light_white_cypress
+11:54 ✔ dark_thorn_giant
+11:55 ✔ dark_obsidian_tree
+11:55 xong hàng

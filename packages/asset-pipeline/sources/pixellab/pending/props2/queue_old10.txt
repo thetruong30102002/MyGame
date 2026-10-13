@@ -1,0 +1,5 @@
+object wood_hollow_oak @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/wood_hollow_oak.send.json
+object light_crystal_tree @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/light_crystal_tree.send.json
+object dark_eye_tree @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/dark_eye_tree.send.json
+object sword_maple_planter @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/sword_maple_planter.send.json
+object wood_vine_tree @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/wood_vine_tree.send.json

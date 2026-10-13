@@ -1,0 +1,6 @@
+object wood_banyan @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/wood_banyan.send.json
+object wood_fern_giant @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/wood_fern_giant.send.json
+object light_ginkgo @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/light_ginkgo.send.json
+object light_olive_silver @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/light_olive_silver.send.json
+object dark_violet_glow @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/dark_violet_glow.send.json
+object dark_chained_tree @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/dark_chained_tree.send.json

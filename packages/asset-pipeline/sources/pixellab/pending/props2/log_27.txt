@@ -1,0 +1,7 @@
+12:18 ✔ D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/SW5_swamp_hamlet.png
+12:19 ✔ D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/DS5_desert_bazaar.png
+12:20 ✔ D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/IC5_snow_camp.png
+12:21 ✔ D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/VL5_dwarf_mine.png
+12:22 ✔ D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/CR5_harbor.png
+12:23 ✔ D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/IC4_frozen_wilds.png
+12:23 xong hàng

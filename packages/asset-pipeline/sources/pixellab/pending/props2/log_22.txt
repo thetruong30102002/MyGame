@@ -1,0 +1,7 @@
+11:31 ✔ light_lily_bush
+11:32 ✔ light_crystal_tree
+11:33 ✔ light_silver_willow
+11:34 ✔ wood_redwood
+11:35 ✔ dark_ghost_tree
+11:36 ✔ sword_maple_planter
+11:36 xong hàng

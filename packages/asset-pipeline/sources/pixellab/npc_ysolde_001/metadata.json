@@ -1,0 +1,87 @@
+{
+  "group_id": "e8c98146-0f17-46a3-872c-2cedc7616544",
+  "states": [
+    {
+      "character": {
+        "id": "91a3bb88-2dcd-4d55-8d5f-c457c4f20a1d",
+        "name": "Idle",
+        "prompt": "Ysolde, elderly swamp village elder woman in her sixties. Long silver-grey braid with small reed beads, weathered tan skin, calm sharp eyes, gentle wrinkles. Wears a muted grey-green woven reed shawl over a dark brown wrap dress, a small bronze teapot charm hanging on her rope belt, simple woven sandals. Holds a gnarled driftwood walking stick in her right hand. Same chibi anime pixel art style as the reference: big head, black single-color outline, cel shading, low top-down view.",
+        "size": {
+          "width": 80,
+          "height": 80
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-10-13T02:15:58.573251+00:00"
+      },
+      "folder": "Idle",
+      "frames": {
+        "rotations": {
+          "south": "Idle/rotations/south.png",
+          "south-east": "Idle/rotations/south-east.png",
+          "east": "Idle/rotations/east.png",
+          "north-east": "Idle/rotations/north-east.png",
+          "north": "Idle/rotations/north.png",
+          "north-west": "Idle/rotations/north-west.png",
+          "west": "Idle/rotations/west.png",
+          "south-west": "Idle/rotations/south-west.png"
+        },
+        "animations": {
+          "idle": {
+            "south-east": [
+              "Idle/animations/idle/south-east/frame_000.png",
+              "Idle/animations/idle/south-east/frame_001.png",
+              "Idle/animations/idle/south-east/frame_002.png",
+              "Idle/animations/idle/south-east/frame_003.png"
+            ],
+            "east": [
+              "Idle/animations/idle/east/frame_000.png",
+              "Idle/animations/idle/east/frame_001.png",
+              "Idle/animations/idle/east/frame_002.png",
+              "Idle/animations/idle/east/frame_003.png"
+            ],
+            "south-west": [
+              "Idle/animations/idle/south-west/frame_000.png",
+              "Idle/animations/idle/south-west/frame_001.png",
+              "Idle/animations/idle/south-west/frame_002.png",
+              "Idle/animations/idle/south-west/frame_003.png"
+            ],
+            "north-west": [
+              "Idle/animations/idle/north-west/frame_000.png",
+              "Idle/animations/idle/north-west/frame_001.png",
+              "Idle/animations/idle/north-west/frame_002.png",
+              "Idle/animations/idle/north-west/frame_003.png"
+            ],
+            "south": [
+              "Idle/animations/idle/south/frame_000.png",
+              "Idle/animations/idle/south/frame_001.png",
+              "Idle/animations/idle/south/frame_002.png",
+              "Idle/animations/idle/south/frame_003.png"
+            ],
+            "west": [
+              "Idle/animations/idle/west/frame_000.png",
+              "Idle/animations/idle/west/frame_001.png",
+              "Idle/animations/idle/west/frame_002.png",
+              "Idle/animations/idle/west/frame_003.png"
+            ],
+            "north": [
+              "Idle/animations/idle/north/frame_000.png",
+              "Idle/animations/idle/north/frame_001.png",
+              "Idle/animations/idle/north/frame_002.png",
+              "Idle/animations/idle/north/frame_003.png"
+            ],
+            "north-east": [
+              "Idle/animations/idle/north-east/frame_000.png",
+              "Idle/animations/idle/north-east/frame_001.png",
+              "Idle/animations/idle/north-east/frame_002.png",
+              "Idle/animations/idle/north-east/frame_003.png"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "export_version": "3.1",
+  "export_date": "2026-10-13T02:36:56.630614"
+}

@@ -586,5 +586,317 @@
 			"w": 28,
 			"h": 12
 		}
+	},
+	"leaning_palm": {
+		"kind": "tree",
+		"w": 115,
+		"h": 160,
+		"blocks": true,
+		"footprint": {
+			"x": -9,
+			"y": -14,
+			"w": 18,
+			"h": 14
+		}
+	},
+	"leaning_palm_flip": {
+		"kind": "tree",
+		"w": 115,
+		"h": 160,
+		"blocks": true,
+		"footprint": {
+			"x": -9,
+			"y": -14,
+			"w": 18,
+			"h": 14
+		}
+	},
+	"sea_almond": {
+		"kind": "tree",
+		"w": 140,
+		"h": 144,
+		"blocks": true,
+		"footprint": {
+			"x": -11,
+			"y": -14,
+			"w": 22,
+			"h": 14
+		}
+	},
+	"sea_almond_flip": {
+		"kind": "tree",
+		"w": 140,
+		"h": 144,
+		"blocks": true,
+		"footprint": {
+			"x": -11,
+			"y": -14,
+			"w": 22,
+			"h": 14
+		}
+	},
+	"morning_glory": {
+		"kind": "tree",
+		"w": 139,
+		"h": 151,
+		"blocks": true,
+		"footprint": {
+			"x": -11,
+			"y": -14,
+			"w": 22,
+			"h": 14
+		}
+	},
+	"morning_glory_flip": {
+		"kind": "tree",
+		"w": 139,
+		"h": 151,
+		"blocks": true,
+		"footprint": {
+			"x": -11,
+			"y": -14,
+			"w": 22,
+			"h": 14
+		}
+	},
+	"coast_mangrove": {
+		"kind": "tree",
+		"w": 119,
+		"h": 150,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 19,
+			"h": 14
+		}
+	},
+	"coast_mangrove_flip": {
+		"kind": "tree",
+		"w": 119,
+		"h": 150,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -14,
+			"w": 19,
+			"h": 14
+		}
+	},
+	"spiral_shell": {
+		"kind": "rock",
+		"w": 46,
+		"h": 42,
+		"blocks": true,
+		"footprint": {
+			"x": -16,
+			"y": -12,
+			"w": 32,
+			"h": 12
+		}
+	},
+	"oyster_rock": {
+		"kind": "rock",
+		"w": 45,
+		"h": 41,
+		"blocks": true,
+		"footprint": {
+			"x": -18,
+			"y": -16,
+			"w": 36,
+			"h": 16
+		}
+	},
+	"seaweed_pile": {
+		"kind": "flower",
+		"w": 49,
+		"h": 40,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"gull_nest": {
+		"kind": "flower",
+		"w": 48,
+		"h": 36,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"whale_ribs": {
+		"kind": "rock",
+		"w": 47,
+		"h": 44,
+		"blocks": true,
+		"footprint": {
+			"x": -20,
+			"y": -14,
+			"w": 40,
+			"h": 14
+		}
+	},
+	"flagpole": {
+		"kind": "decor",
+		"w": 41,
+		"h": 49,
+		"blocks": true,
+		"footprint": {
+			"x": -6,
+			"y": -8,
+			"w": 12,
+			"h": 8
+		}
+	},
+	"life_ring": {
+		"kind": "flower",
+		"w": 48,
+		"h": 47,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"net_heap": {
+		"kind": "flower",
+		"w": 48,
+		"h": 45,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"turtle_shell": {
+		"kind": "flower",
+		"w": 45,
+		"h": 45,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"pier_segment": {
+		"kind": "flower",
+		"w": 47,
+		"h": 47,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"mooring_piles": {
+		"kind": "decor",
+		"w": 48,
+		"h": 33,
+		"blocks": true,
+		"footprint": {
+			"x": -21,
+			"y": -10,
+			"w": 41,
+			"h": 10
+		}
+	},
+	"harbor_shed": {
+		"kind": "building",
+		"w": 47,
+		"h": 53,
+		"blocks": true,
+		"footprint": {
+			"x": -20,
+			"y": -24,
+			"w": 40,
+			"h": 24
+		}
+	},
+	"barrel_stack": {
+		"kind": "decor",
+		"w": 44,
+		"h": 46,
+		"blocks": true,
+		"footprint": {
+			"x": -19,
+			"y": -14,
+			"w": 37,
+			"h": 14
+		}
+	},
+	"hook_rack": {
+		"kind": "decor",
+		"w": 51,
+		"h": 40,
+		"blocks": true,
+		"footprint": {
+			"x": -21,
+			"y": -12,
+			"w": 41,
+			"h": 12
+		}
+	},
+	"beacon_post": {
+		"kind": "decor",
+		"w": 19,
+		"h": 53,
+		"blocks": true,
+		"footprint": {
+			"x": -3,
+			"y": -8,
+			"w": 6,
+			"h": 8
+		}
+	},
+	"small_rowboat": {
+		"kind": "decor",
+		"w": 54,
+		"h": 41,
+		"blocks": true,
+		"footprint": {
+			"x": -22,
+			"y": -12,
+			"w": 43,
+			"h": 12
+		}
+	},
+	"rusty_anchor": {
+		"kind": "decor",
+		"w": 40,
+		"h": 50,
+		"blocks": true,
+		"footprint": {
+			"x": -12,
+			"y": -12,
+			"w": 24,
+			"h": 12
+		}
+	},
+	"lookout_hut": {
+		"kind": "building",
+		"w": 37,
+		"h": 51,
+		"blocks": true,
+		"footprint": {
+			"x": -13,
+			"y": -20,
+			"w": 26,
+			"h": 20
+		}
 	}
 }

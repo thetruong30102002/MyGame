@@ -1,0 +1,6 @@
+object volcano_bastion @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/volcano_bastion.send.json
+object isles_lighthouse @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/isles_lighthouse.send.json
+object isles_tavern @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/isles_tavern.send.json
+image D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/SW6_dam_ruins.png @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props4/SW6_dam_ruins.json
+image D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/DS6_pyramid_relics.png @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props4/DS6_pyramid_relics.json
+image D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/HL6_windmill_farm.png @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props4/HL6_windmill_farm.json

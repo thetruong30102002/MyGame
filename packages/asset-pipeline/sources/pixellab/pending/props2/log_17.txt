@@ -1,0 +1,10 @@
+10:20 ✔ wood_ancient_giant
+10:21 ✔ light_golden_tree
+10:23 ✔ dark_twisted_tree
+10:25 ✘ sword_pine:   sword_pine → object 46439287-327a-45a7-ad37-468540fdaa55 (e819…) Tải đồ vật sword_pine lỗi HTTP 410 
+10:26 ✔ highland_rhododendron
+10:28 ✔ tundra_frost_cedar
+10:28 xong hàng
+10:35 ✘ sword_maple_red: (Pixler key: đã cấu hình, SpriteLab key: chưa cấu hình) [e819…] create_object_pro_flash: error: Pro Flash creation requires 6 generations. Check your balance or reuse an existing first direction. 
+10:35 ✘ sword_maple_gold: (Pixler key: đã cấu hình, SpriteLab key: chưa cấu hình) [e819…] create_object_pro_flash: error: Pro Flash creation requires 6 generations. Check your balance or reuse an existing first direction. 
+10:35 xong hàng

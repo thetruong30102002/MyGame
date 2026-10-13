@@ -1,0 +1,6 @@
+object wood_hollow_oak @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/wood_hollow_oak.send.json
+object wood_firefly_tree @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/wood_firefly_tree.send.json
+object light_magnolia @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/light_magnolia.send.json
+object dark_eye_tree @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/dark_eye_tree.send.json
+object dark_weeping_shadow @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/dark_weeping_shadow.send.json
+object sword_test_stump @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props3/sword_test_stump.send.json
