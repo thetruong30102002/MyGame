@@ -50,6 +50,11 @@ const leaves = (name: string, from: [number, number], hueTo: [number, number], s
 });
 /** Công trình: ảnh rời PixelLab (`obj` = tên thư mục) hoặc ô lớn của tấm (`sheet:…`). */
 const building = (id: string, obj: string, w = 0.86, h = 58): PropDef => ({ id, path: obj.startsWith('sheet:') ? obj : `${PL}${obj}`, kind: 'building', footprint: { w, h }, blocks: true });
+/** Nhà ở dùng làm nhà dân (vòng nhà ngoài của trạm): bản gốc + bản lật gương `<id>_flip` cho làng khỏi lặp (0 lượt vẽ). */
+const home = (id: string, obj: string, w = 0.86, h = 58): PropDef[] => {
+	const b = building(id, obj, w, h);
+	return [b, { ...b, id: `${id}_flip`, flip: true }];
+};
 const rock = (id: string, path: string, w = 0.7, h = 16): PropDef => ({ id, path, kind: 'rock', footprint: { w, h }, blocks: true });
 const decor = (id: string, path: string, w = 0.8, h = 14): PropDef => ({ id, path, kind: 'decor', footprint: { w, h }, blocks: true });
 const bush = (id: string, path: string): PropDef => ({ id, path, kind: 'bush', footprint: { w: 0.6, h: 12 }, blocks: true });
@@ -66,7 +71,7 @@ export const SWAMP_PROPS: PropDef[] = [
 	// dùng chung với vùng khác (0 lượt vẽ; ke-hoach-the-gioi 5.6).
 	recolored('dead_mossy', `${PL}tree_dead`, [leaves('gỗ mục rêu', [0, 360], [78, 104], 0.55, 0.82)]),
 	recolored('dead_mossy_flip', `${PL}tree_dead`, [leaves('gỗ mục rêu', [0, 360], [78, 104], 0.55, 0.82)], true),
-	building('stilt_house', 'swamp_stilt_house', 0.8, 40),
+	...home('stilt_house', 'swamp_stilt_house', 0.8, 40),
 	building('healer_hut', 'swamp_healer_hut', 0.8, 44),
 	building('watchtower', 'swamp_watchtower', 0.6, 30),
 	flat('reeds', SW1(0)),
@@ -135,7 +140,7 @@ export const DESERT_PROPS: PropDef[] = [
 	recolored('dead_bleached', `${PL}tree_dead`, [leaves('gỗ bạc nắng', [0, 360], [30, 42], 0.25, 1.38)]),
 	recolored('dead_bleached_flip', `${PL}tree_dead`, [leaves('gỗ bạc nắng', [0, 360], [30, 42], 0.25, 1.38)], true),
 	building('city_gate', 'desert_city_gate', 0.9, 40),
-	building('dome_house', 'desert_dome_house', 0.86, 56),
+	...home('dome_house', 'desert_dome_house', 0.86, 56),
 	building('market_tent', 'desert_market_tent', 0.86, 40),
 	bush('saguaro', DS1(0)),
 	bush('prickly_pear', DS1(1)),
@@ -205,7 +210,7 @@ export const HIGHLAND_PROPS: PropDef[] = [
 	recolored('hl_oak_flip', 'tree_oak_front', [leaves('sồi lục lam', [50, 160], [150, 172], 1.1, 0.92)], true),
 	recolored('hl_maple', 'tree_oak_front', [leaves('phong đỏ', [50, 160], [0, 14], 1.7, 0.98)]),
 	recolored('hl_maple_flip', 'tree_oak_front', [leaves('phong đỏ', [50, 160], [0, 14], 1.7, 0.98)], true),
-	building('stone_cottage', 'highland_cottage', 0.86, 56),
+	...home('stone_cottage', 'highland_cottage', 0.86, 56),
 	building('windmill', 'highland_windmill', 0.7, 50),
 	building('sky_shrine', 'highland_sky_shrine', 0.9, 30),
 	flat('tall_grass', HL1(0)),
@@ -272,7 +277,7 @@ export const TUNDRA_PROPS: PropDef[] = [
 	recolored('frozen_pine', `${PL}tree_pine_dry`, [leaves('thông đóng băng', [0, 360], [192, 214], 0.45, 1.18)]),
 	recolored('frozen_pine_flip', `${PL}tree_pine_dry`, [leaves('thông đóng băng', [0, 360], [192, 214], 0.45, 1.18)], true),
 	recolored('bare_tree', `${PL}tree_dead`, [leaves('cành băng', [0, 360], [200, 220], 0.35, 1.2)]),
-	building('log_cabin', 'snow_log_cabin', 0.86, 56),
+	...home('log_cabin', 'snow_log_cabin', 0.86, 56),
 	building('ice_throne_gate', 'snow_ice_throne_gate', 0.9, 40),
 	building('icebound_ship', 'snow_icebound_ship', 0.75, 40),
 	bush('pine_sapling', IC1(0)),
@@ -341,7 +346,7 @@ export const VOLCANO_PROPS: PropDef[] = [
 	// dùng chung với vùng khác (0 lượt vẽ; ke-hoach-the-gioi 5.6).
 	recolored('ash_tree_ember', 'volcano_ash_tree', [leaves('tán than hồng', [280, 40], [18, 34], 1.5, 1.12)]),
 	recolored('ash_tree_ember_flip', 'volcano_ash_tree', [leaves('tán than hồng', [280, 40], [18, 34], 1.5, 1.12)], true),
-	building('dwarf_house', 'volcano_dwarf_house', 0.86, 56),
+	...home('dwarf_house', 'volcano_dwarf_house', 0.86, 56),
 	building('fortress_gate', 'volcano_fortress_gate', 0.92, 40),
 	building('great_forge', 'volcano_great_forge', 0.86, 56),
 	rock('basalt', VL1(0), 0.8, 18),
@@ -411,7 +416,7 @@ export const ISLES_PROPS: PropDef[] = [
 	recolored('palm_tropic_flip', 'desert_palm_tree', [leaves('cọ ngọc', [60, 180], [158, 178], 1.25, 1.02)], true),
 	{ ...shared('bush')[0]!, id: 'beach_bush', recolor: [leaves('bụi biển', [40, 160], [62, 84], 1.3, 1.1)] },
 	recolored('palm_dry', 'desert_palm_tree', [leaves('lá cọ khô', [60, 180], [30, 52], 1.3, 1.05)]),
-	building('fisher_cottage', 'coral_fisher_cottage', 0.86, 56),
+	...home('fisher_cottage', 'coral_fisher_cottage', 0.86, 56),
 	building('boat_workshop', 'coral_boat_workshop', 0.88, 50),
 	building('fishing_pier', 'coral_fishing_pier', 0.6, 20),
 	building('gull_wreck', 'coral_silver_gull_wreck', 0.75, 40),

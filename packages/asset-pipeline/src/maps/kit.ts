@@ -65,7 +65,11 @@ export interface KitMapSpec {
 	theme: KitTheme;
 	zones?: readonly KitZone[];
 	boss?: KitBoss;
-	hub?: { buildings: readonly string[]; decor: readonly string[]; plaza: 'c' | 'd' };
+	/**
+	 * `homes`: nhà dân rải thêm thành vòng NGOÀI quanh vòng nhà chính (chủ dự án 13/10/2026: "ở làng mỗi vùng cần thêm nhiều nhà" —
+	 * ke-hoach-the-gioi 1.2), chọn ngẫu nhiên trong danh sách (nên gồm bản lật gương `*_flip`), `homeCount` căn (mặc định 6).
+	 */
+	hub?: { buildings: readonly string[]; decor: readonly string[]; plaza: 'c' | 'd'; homes?: readonly string[]; homeCount?: number };
 	/**
 	 * Map săn: chọn loài cây CHỦ ĐẠO (chỉ số vào danh sách loài của chủ đề, quay vòng) — ~2/3 số cây là loài này + 2 loài điểm xuyết,
 	 * và hàng cây đều nhịp dọc đường (chủ dự án 11/10/2026: "mỗi map 1 loại cây", "đồ vật xếp có trật tự"; ke-hoach-the-gioi 5.4 / 5.6).
@@ -260,6 +264,17 @@ export function buildKitMap(spec: KitMapSpec, exits: readonly KitExit[], meta: R
 			for (let k = 0; k < 14; k += 1) {
 				const rr = 10.5 + k * 0.35;
 				if (L.place(bs[i]!, px(J.x + Math.cos(a) * rr), px(J.y + Math.sin(a) * rr * 0.85) + 20)) break;
+			}
+		}
+		const homes = has(spec.hub.homes ?? []);
+		const homeCount = homes.length ? (spec.hub.homeCount ?? 6) : 0;
+		for (let i = 0; i < homeCount; i += 1) {
+			let a = ((i + 0.25) / homeCount) * Math.PI * 2 + R(-0.2, 0.2);
+			for (let k = 0; k < 8 && roadDir.some((d) => Math.abs(Math.atan2(Math.sin(a - d), Math.cos(a - d))) < 0.38); k += 1) a += 0.2;
+			const id = L.pick(homes);
+			for (let k = 0; k < 14; k += 1) {
+				const rr = 16 + k * 0.4;
+				if (L.place(id, px(J.x + Math.cos(a) * rr), px(J.y + Math.sin(a) * rr * 0.8) + 20)) break;
 			}
 		}
 		if (hubDecor.length) L.scatter(260, (x, y) => (Math.hypot(x / TILE - J.x, y / TILE - J.y) < 13 ? L.place(L.pick(hubDecor), x, y) : false));

@@ -71,6 +71,18 @@
 			"h": 56
 		}
 	},
+	"log_cabin_flip": {
+		"kind": "building",
+		"w": 160,
+		"h": 168,
+		"blocks": true,
+		"footprint": {
+			"x": -69,
+			"y": -56,
+			"w": 138,
+			"h": 56
+		}
+	},
 	"ice_throne_gate": {
 		"kind": "building",
 		"w": 174,

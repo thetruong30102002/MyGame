@@ -95,6 +95,18 @@
 			"h": 56
 		}
 	},
+	"fisher_cottage_flip": {
+		"kind": "building",
+		"w": 154,
+		"h": 154,
+		"blocks": true,
+		"footprint": {
+			"x": -66,
+			"y": -56,
+			"w": 132,
+			"h": 56
+		}
+	},
 	"boat_workshop": {
 		"kind": "building",
 		"w": 174,

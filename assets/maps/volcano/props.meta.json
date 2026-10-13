@@ -83,6 +83,18 @@
 			"h": 56
 		}
 	},
+	"dwarf_house_flip": {
+		"kind": "building",
+		"w": 178,
+		"h": 153,
+		"blocks": true,
+		"footprint": {
+			"x": -77,
+			"y": -56,
+			"w": 153,
+			"h": 56
+		}
+	},
 	"fortress_gate": {
 		"kind": "building",
 		"w": 182,

@@ -83,6 +83,18 @@
 			"h": 56
 		}
 	},
+	"dome_house_flip": {
+		"kind": "building",
+		"w": 142,
+		"h": 161,
+		"blocks": true,
+		"footprint": {
+			"x": -61,
+			"y": -56,
+			"w": 122,
+			"h": 56
+		}
+	},
 	"market_tent": {
 		"kind": "building",
 		"w": 166,

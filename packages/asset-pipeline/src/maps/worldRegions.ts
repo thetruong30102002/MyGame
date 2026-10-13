@@ -162,6 +162,7 @@ export const SWAMP_REGION = standardRegion({
 		theme: theme(MARSH, { treeDensity: 5, rockDensity: 2 }),
 		hub: {
 			buildings: ['stilt_house', 'healer_hut', 'stilt_house', 'watchtower', 'stilt_house', 'fisher_hut', 'longhouse'],
+			homes: ['stilt_house', 'stilt_house_flip', 'fisher_hut', 'longhouse'],
 			decor: ['fish_rack', 'clay_pot', 'pole_lantern', 'herb_basket', 'reed_bundle', 'canoe', 'mooring_post', 'bamboo_fence', 'net_rack', 'water_jar', 'cook_fire', 'dugout_canoe', 'chicken_coop', 'shell_chime', 'name_post'],
 			plaza: 'd',
 		},
@@ -226,6 +227,7 @@ export const DESERT_REGION = standardRegion({
 		theme: theme(DUNES, { water: 'ponds', treeDensity: 6 }),
 		hub: {
 			buildings: ['city_gate', 'dome_house', 'market_tent', 'dome_house', 'carpet_stall', 'dome_house', 'market_tent', 'palace_tower', 'adobe_house', 'pottery_stall', 'small_tent'],
+			homes: ['dome_house', 'dome_house_flip', 'adobe_house', 'small_tent'],
 			decor: ['amphorae', 'oasis_well', 'banner_pole', 'fruit_crates', 'brass_lantern', 'spice_basket', 'potted_palm', 'camel_saddle', 'carpet_rack', 'oasis_basin', 'lantern_pole', 'oil_jars', 'market_sign', 'hand_cart'],
 			plaza: 'c',
 		},
@@ -296,6 +298,7 @@ export const HIGHLAND_REGION = standardRegion({
 		theme: theme(UPLAND, { treeDensity: 4 }),
 		hub: {
 			buildings: ['stone_cottage', 'windmill', 'stone_cottage', 'stone_cottage', 'windmill', 'barn', 'chapel'],
+			homes: ['stone_cottage', 'stone_cottage_flip', 'barn'],
 			decor: ['hay_cart', 'prayer_flags', 'sheep_fence', 'skep', 'water_barrel', 'millstone', 'haystack', 'wool_basket', 'stone_wall'],
 			plaza: 'c',
 		},
@@ -366,6 +369,7 @@ export const TUNDRA_REGION = standardRegion({
 		theme: theme(SNOWFIELD, { treeDensity: 5 }),
 		hub: {
 			buildings: ['log_cabin', 'log_cabin', 'log_cabin', 'log_cabin', 'log_cabin', 'hunting_lodge', 'smokehouse', 'hide_tent'],
+			homes: ['log_cabin', 'log_cabin_flip', 'hide_tent', 'smokehouse'],
 			decor: ['firewood', 'dog_sled', 'pelt_rack', 'ice_fishing', 'ski_rack', 'notice_board', 'ice_cart', 'campfire', 'snowy_firewood', 'totem', 'supply_sled', 'snowy_fence', 'fire_pit', 'fish_rack_snow', 'deco_snowman', 'oil_lamp'],
 			plaza: 'c',
 		},
@@ -436,6 +440,7 @@ export const VOLCANO_REGION = standardRegion({
 		theme: theme(ASHLAND, { water: 'none', treeDensity: 2 }),
 		hub: {
 			buildings: ['fortress_gate', 'dwarf_house', 'great_forge', 'dwarf_house', 'refugee_tent', 'dwarf_house', 'refugee_tent', 'forge_shop', 'bastion'],
+			homes: ['dwarf_house', 'dwarf_house_flip', 'refugee_tent'],
 			decor: ['anvil', 'coal_barrel', 'weapon_rack', 'hot_ingots', 'quench_trough', 'field_cot', 'anvil_banner', 'fire_brazier', 'ore_cart', 'ore_pile', 'workbench', 'kiln', 'armor_stand', 'hot_trough'],
 			plaza: 'c',
 		},
@@ -506,6 +511,7 @@ export const ISLES_REGION = standardRegion({
 		theme: theme(BEACH, { treeDensity: 6 }),
 		hub: {
 			buildings: ['fisher_cottage', 'boat_workshop', 'fisher_cottage', 'fisher_cottage', 'fishing_pier', 'lighthouse', 'tavern', 'harbor_shed', 'lookout_hut'],
+			homes: ['fisher_cottage', 'fisher_cottage_flip', 'harbor_shed'],
 			decor: ['lobster_trap', 'anchor', 'fish_barrel', 'buoy', 'fish_crates', 'fish_rack', 'salt_crate', 'barrel_stack', 'hook_rack', 'beacon_post', 'small_rowboat', 'rusty_anchor', 'mooring_piles'],
 			plaza: 'd',
 		},

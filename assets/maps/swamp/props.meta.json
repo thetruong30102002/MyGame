@@ -83,6 +83,18 @@
 			"h": 40
 		}
 	},
+	"stilt_house_flip": {
+		"kind": "building",
+		"w": 153,
+		"h": 159,
+		"blocks": true,
+		"footprint": {
+			"x": -61,
+			"y": -40,
+			"w": 122,
+			"h": 40
+		}
+	},
 	"healer_hut": {
 		"kind": "building",
 		"w": 151,

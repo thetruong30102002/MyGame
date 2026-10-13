@@ -107,6 +107,18 @@
 			"h": 56
 		}
 	},
+	"stone_cottage_flip": {
+		"kind": "building",
+		"w": 158,
+		"h": 165,
+		"blocks": true,
+		"footprint": {
+			"x": -68,
+			"y": -56,
+			"w": 136,
+			"h": 56
+		}
+	},
 	"windmill": {
 		"kind": "building",
 		"w": 140,
