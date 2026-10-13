@@ -206,7 +206,8 @@ const DUNES: KitTheme = {
 	biome: 'desert',
 	fill: 'g',
 	road: 'd',
-	trees: ['palm', 'palm_flip', 'palm_dry', 'palm', 'dead_bleached', 'dead_bleached_flip', 'acacia', 'candelabra', 'date_trio', 'dry_tree'],
+	// Không cọ / dừa (chủ dự án 13/10/2026: "sao sa mạc lại có cây dừa — nhầm lẫn rồi"): cây cọ là loài của Quần đảo; sa mạc chỉ cây khô cằn.
+	trees: ['acacia', 'acacia_flip', 'candelabra', 'candelabra_flip', 'dry_tree', 'dry_tree_flip', 'dead_bleached', 'dead_bleached_flip'],
 	treeDensity: 2.5,
 	rocks: ['red_rock', 'red_spire', 'saguaro', 'prickly_pear', 'agave', 'boulder', 'rock_outcrop', 'rock_spire', 'pale_rocks', 'red_outcrop', 'layered_rock', 'scorpion_burrow'],
 	rockDensity: 5,
