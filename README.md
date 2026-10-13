@@ -29,6 +29,10 @@ Client Unity (nhập hình từ `assets/`, dựng scene, build PC / APK, AutoTes
 `npx tsx UnityGame/Tools~/publish-client.mts` → người chơi đang có game **tự cập nhật** lúc mở game; người mới tải bộ cài ở
 **https://admin.tail024813.ts.net/game/api/client/latest/windows** (Android: `…/latest/android`).
 
+**Trang chủ game** (tin tức + nút tải PC / zip / APK): **https://admin.tail024813.ts.net/game/** — trang tĩnh `apps/server/site/` do
+máy chủ game phát (`apps/server/src/site.ts`). Thêm tin: sửa `apps/server/site/news.json` (mới nhất trước), không cần khởi động lại;
+số bản + dung lượng đọc từ `version.json` lúc mở trang. Sửa `site.ts` / `http.ts` thì phải khởi động lại máy chủ.
+
 | Phím | Tác dụng |
 | --- | --- |
 | WASD / mũi tên | Di chuyển (Shift: chạy, tốn thể lực) |

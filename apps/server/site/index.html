@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aether Chronicle — Trang chủ</title>
+<meta name="description" content="Aether Chronicle — game nhập vai pixel online: 7 vùng đất, 5 nguyên tố, Kiếm sĩ và Pháp sư. Tải bản PC và Android.">
+<link rel="icon" href="site/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+	--sky: #2f9bd6;
+	--sky-dark: #176a9e;
+	--sun: #ffc93c;
+	--sun-dark: #e08a00;
+	--wood: #6b3f1d;
+	--wood-dark: #3f220c;
+	--paper: #fff6e0;
+	--paper-line: #e9d3a3;
+	--ink: #3a2410;
+	--ink-soft: #7a5a37;
+	--red: #d9381e;
+	--green: #2f9e44;
+	--violet: #7048e8;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+	margin: 0;
+	overflow-x: hidden;
+	font-family: 'Be Vietnam Pro', system-ui, sans-serif;
+	color: var(--ink);
+	background: #1d4e73 url('site/img/continent.png') center top / 1376px auto no-repeat fixed;
+	image-rendering: auto;
+}
+a { color: inherit; }
+img.px { image-rendering: pixelated; }
+
+/* —— Thanh menu —— */
+.top {
+	position: sticky; top: 0; z-index: 10;
+	background: linear-gradient(#ffb21e, #f08a00);
+	border-bottom: 4px solid var(--wood-dark);
+	box-shadow: 0 3px 0 rgba(0,0,0,.25);
+}
+.top .in { max-width: 1120px; margin: 0 auto; display: flex; align-items: center; gap: 18px; padding: 8px 16px; }
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.logo img { width: 30px; }
+.logo b { font-weight: 900; font-size: 20px; letter-spacing: .5px; color: #fff; text-shadow: 2px 2px 0 var(--wood-dark), -1px -1px 0 var(--wood-dark), 1px -1px 0 var(--wood-dark), -1px 1px 0 var(--wood-dark); }
+.nav { display: flex; gap: 4px; margin-left: auto; flex-wrap: wrap; }
+.nav a { text-decoration: none; font-weight: 800; font-size: 14px; color: var(--wood-dark); padding: 8px 12px; border-radius: 8px; }
+.nav a:hover { background: rgba(255,255,255,.35); }
+
+/* —— Banner —— */
+.hero { position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(rgba(10,40,70,.15), rgba(10,40,70,.55) 70%, rgba(10,40,70,.85)); }
+.hero .in { position: relative; max-width: 1120px; margin: 0 auto; padding: 56px 16px 40px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: end; gap: 12px; }
+.hero .side { display: flex; justify-content: center; }
+.hero .side img { height: 230px; filter: drop-shadow(0 6px 0 rgba(0,0,0,.35)); }
+.hero .mid { text-align: center; color: #fff; min-width: 0; }
+.title {
+	margin: 0; font-weight: 900; font-size: clamp(38px, 7vw, 72px); line-height: 1; letter-spacing: 1px;
+	color: var(--sun);
+	text-shadow: 0 4px 0 var(--sun-dark), 0 8px 0 var(--wood-dark), 4px 4px 0 var(--wood-dark), -4px 4px 0 var(--wood-dark), 0 12px 18px rgba(0,0,0,.5);
+}
+.tagline { margin: 22px 0 6px; font-size: 18px; font-weight: 600; text-shadow: 0 2px 4px rgba(0,0,0,.6); }
+.beta { display: inline-block; margin-top: 6px; background: var(--red); color: #fff; font-weight: 800; font-size: 12px; padding: 3px 10px; border-radius: 99px; border: 2px solid #fff; }
+.dl { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 26px; }
+.btn {
+	display: inline-flex; align-items: center; gap: 12px; text-decoration: none;
+	padding: 12px 22px 12px 16px; border-radius: 14px; border: 3px solid var(--wood-dark);
+	font-weight: 900; color: var(--wood-dark); background: linear-gradient(#ffe27a, var(--sun) 55%, var(--sun-dark));
+	box-shadow: 0 5px 0 var(--wood-dark), 0 10px 18px rgba(0,0,0,.35); transition: transform .08s;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(3px); box-shadow: 0 2px 0 var(--wood-dark); }
+.btn .ic { width: 40px; height: 40px; border-radius: 10px; background: var(--wood-dark); color: var(--sun); display: grid; place-items: center; font-size: 22px; }
+.btn small { display: block; font-weight: 600; font-size: 12px; color: var(--wood); }
+.btn.android { background: linear-gradient(#b7f28a, #69c94a 55%, #3c9a2a); }
+.ver { margin-top: 14px; font-size: 13px; opacity: .9; }
+
+/* —— Thân trang —— */
+main { background: var(--paper); border-top: 6px solid var(--wood-dark); }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 28px 16px 40px; }
+.grid { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 22px; }
+.panel { background: #fff; border: 3px solid var(--wood); border-radius: 14px; box-shadow: 0 4px 0 var(--paper-line); overflow: hidden; }
+.panel h2 {
+	margin: 0; padding: 10px 16px; font-size: 17px; font-weight: 900; color: #fff;
+	background: linear-gradient(var(--sky), var(--sky-dark)); border-bottom: 3px solid var(--wood);
+	text-shadow: 1px 1px 0 rgba(0,0,0,.35);
+}
+.panel .body { padding: 14px 16px; }
+.tabs { display: flex; gap: 6px; padding: 10px 14px 0; flex-wrap: wrap; }
+.tabs button {
+	font: inherit; font-weight: 800; font-size: 13px; cursor: pointer; padding: 6px 12px; border-radius: 8px 8px 0 0;
+	border: 2px solid var(--paper-line); border-bottom: none; background: var(--paper); color: var(--ink-soft);
+}
+.tabs button.on { background: var(--sun); color: var(--wood-dark); border-color: var(--wood); }
+.news { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--paper-line); }
+.news li { border-bottom: 1px dashed var(--paper-line); }
+.news .head { display: flex; align-items: center; gap: 10px; padding: 12px 16px; cursor: pointer; }
+.news .head:hover { background: #fffaf0; }
+.tag { flex: none; font-size: 12px; font-weight: 800; color: #fff; padding: 2px 8px; border-radius: 6px; }
+.tag.cap-nhat { background: var(--green); }
+.tag.thong-bao { background: var(--red); }
+.tag.su-kien { background: var(--violet); }
+.news .t { font-weight: 700; flex: 1; }
+.news .d { flex: none; font-size: 13px; color: var(--ink-soft); }
+.news .more { display: none; padding: 0 16px 14px 16px; }
+.news li.open .more { display: block; }
+.news .more ul { margin: 0; padding-left: 20px; }
+.news .more li { border: 0; padding: 3px 0; line-height: 1.55; }
+
+.side .btn { width: 100%; margin-bottom: 12px; padding: 10px 14px; }
+.side .btn .ic { width: 34px; height: 34px; font-size: 18px; }
+.status { display: flex; align-items: center; gap: 10px; font-weight: 700; }
+.dot { width: 12px; height: 12px; border-radius: 50%; background: #aaa; box-shadow: 0 0 0 3px rgba(0,0,0,.08); }
+.dot.ok { background: #40c057; box-shadow: 0 0 0 3px rgba(64,192,87,.25); }
+.dot.bad { background: var(--red); }
+.muted { color: var(--ink-soft); font-size: 13px; line-height: 1.55; }
+ol.steps { margin: 6px 0 0; padding-left: 20px; font-size: 14px; line-height: 1.6; }
+.npc { display: flex; gap: 10px; align-items: flex-end; }
+.npc img { height: 74px; }
+.bubble { position: relative; background: var(--paper); border: 2px solid var(--paper-line); border-radius: 10px; padding: 8px 10px; font-size: 13px; line-height: 1.5; }
+
+/* —— Giới thiệu + ảnh —— */
+.sec-title { text-align: center; margin: 40px 0 18px; font-weight: 900; font-size: 26px; color: var(--wood-dark); }
+.sec-title span { background: var(--sun); padding: 4px 18px; border-radius: 10px; border: 3px solid var(--wood-dark); box-shadow: 0 4px 0 var(--wood-dark); }
+.features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.feat { background: #fff; border: 3px solid var(--wood); border-radius: 14px; padding: 16px; box-shadow: 0 4px 0 var(--paper-line); }
+.feat .em { font-size: 26px; }
+.feat h3 { margin: 6px 0 6px; font-size: 16px; font-weight: 900; color: var(--sky-dark); }
+.feat p { margin: 0; font-size: 14px; line-height: 1.55; color: var(--ink-soft); }
+.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.gallery figure { margin: 0; border: 3px solid var(--wood); border-radius: 12px; overflow: hidden; background: #000; box-shadow: 0 4px 0 var(--paper-line); }
+.gallery img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.gallery figcaption { background: var(--wood); color: #fff; font-size: 13px; font-weight: 700; padding: 6px 10px; }
+
+footer { background: var(--wood-dark); color: #f3dcb4; text-align: center; padding: 22px 16px; font-size: 13px; line-height: 1.7; }
+
+@media (max-width: 880px) {
+	.grid { grid-template-columns: minmax(0, 1fr); }
+	.features, .gallery { grid-template-columns: 1fr 1fr; }
+	.hero .side { display: none; }
+	.hero .in { grid-template-columns: minmax(0, 1fr); padding-top: 36px; }
+}
+@media (max-width: 560px) {
+	.features, .gallery { grid-template-columns: 1fr; }
+	.nav { display: none; }
+	.btn { width: 100%; justify-content: flex-start; }
+	.tagline { font-size: 15px; }
+	.news .head { flex-wrap: wrap; }
+	.news .t { flex-basis: 100%; order: 3; }
+}
+</style>
+</head>
+<body>
+<header class="top">
+	<div class="in">
+		<a class="logo" href="#"><img class="px" src="site/img/favicon.png" alt=""><b>AETHER CHRONICLE</b></a>
+		<nav class="nav">
+			<a href="#tin-tuc">Tin tức</a>
+			<a href="#tai-game">Tải game</a>
+			<a href="#gioi-thieu">Giới thiệu</a>
+			<a href="#hinh-anh">Hình ảnh</a>
+		</nav>
+	</div>
+</header>
+
+<section class="hero">
+	<div class="in">
+		<div class="side"><img class="px" src="site/img/hero-m.png" alt="Kiếm sĩ"></div>
+		<div class="mid">
+			<h1 class="title">AETHER<br>CHRONICLE</h1>
+			<p class="tagline">Nhập vai pixel online · 7 vùng đất · 5 nguyên tố · Kiếm sĩ &amp; Pháp sư</p>
+			<span class="beta">BẢN BETA</span>
+			<div class="dl">
+				<a class="btn" data-dl="windows" href="api/client/latest/windows"><span class="ic">⊞</span><span>TẢI CHO PC<small data-size="windows">Windows · bộ cài</small></span></a>
+				<a class="btn android" data-dl="android" href="api/client/latest/android"><span class="ic">▶</span><span>TẢI CHO ANDROID<small data-size="android">file APK</small></span></a>
+			</div>
+			<div class="ver" id="ver">Đang kiểm tra phiên bản…</div>
+		</div>
+		<div class="side"><img class="px" src="site/img/hero-f.png" alt="Pháp sư"></div>
+	</div>
+</section>
+
+<main>
+	<div class="wrap">
+		<div class="grid">
+			<section class="panel" id="tin-tuc">
+				<h2>📜 Tin tức · Cập nhật</h2>
+				<div class="tabs" id="tabs">
+					<button class="on" data-f="">Tất cả</button>
+					<button data-f="Cập nhật">Cập nhật</button>
+					<button data-f="Thông báo">Thông báo</button>
+					<button data-f="Sự kiện">Sự kiện</button>
+				</div>
+				<ul class="news" id="news"><li><div class="head"><span class="t muted">Đang tải tin…</span></div></li></ul>
+			</section>
+
+			<aside class="side" id="tai-game">
+				<section class="panel">
+					<h2>⬇ Tải game</h2>
+					<div class="body">
+						<a class="btn" href="api/client/latest/windows"><span class="ic">⊞</span><span>PC · Bộ cài exe<small data-size="windows">Windows 10 / 11</small></span></a>
+						<a class="btn" href="api/client/latest/windows-zip"><span class="ic">🗜</span><span>PC · Gói zip<small data-size="zip">khi Windows chặn file exe</small></span></a>
+						<a class="btn android" href="api/client/latest/android"><span class="ic">▶</span><span>Android · APK<small data-size="android">Android 7.1 trở lên</small></span></a>
+						<p class="muted" style="margin:0">Đã cài rồi thì chỉ cần mở game — game tự cập nhật lên bản mới nhất.</p>
+					</div>
+				</section>
+				<br>
+				<section class="panel">
+					<h2>🖥 Máy chủ</h2>
+					<div class="body">
+						<div class="status"><span class="dot" id="dot"></span><span id="srv">Đang kiểm tra…</span></div>
+						<p class="muted" id="notes" style="margin:10px 0 0"></p>
+					</div>
+				</section>
+				<br>
+				<section class="panel" id="huong-dan">
+					<h2>❓ Hướng dẫn cài</h2>
+					<div class="body">
+						<b>Máy tính (Windows)</b>
+						<ol class="steps">
+							<li>Tải <b>bộ cài exe</b>, chạy rồi chọn thư mục cài.</li>
+							<li>Windows hỏi "Windows protected your PC": bấm <b>More info → Run anyway</b>.</li>
+							<li>Bị chặn hẳn thì tải <b>gói zip</b>, giải nén, chạy <b>Aether.exe</b>.</li>
+						</ol>
+						<br>
+						<b>Điện thoại (Android)</b>
+						<ol class="steps">
+							<li>Tải file APK, mở file vừa tải.</li>
+							<li>Máy hỏi thì cho phép <b>cài ứng dụng từ nguồn này</b>, rồi bấm Cài đặt.</li>
+						</ol>
+					</div>
+				</section>
+				<br>
+				<section class="panel">
+					<h2>💬 Góp ý</h2>
+					<div class="body npc">
+						<img class="px" src="site/img/ysolde.png" alt="Bà Ysolde">
+						<div class="bubble">Gặp lỗi hay muốn góp ý? Trong game mở <b>Cài đặt (phím O) → Góp ý</b>, lời của cháu tới thẳng người làm game.</div>
+					</div>
+				</section>
+			</aside>
+		</div>
+
+		<h2 class="sec-title" id="gioi-thieu"><span>Giới thiệu</span></h2>
+		<div class="features">
+			<div class="feat"><div class="em">🗺</div><h3>7 vùng đất, hơn 80 map</h3><p>Thung lũng Thistlewood, Đầm lầy Mù Sương, Sa mạc Hồng Cát, Cao nguyên Gió Hú, Lãnh nguyên Băng Giá, Núi lửa Hoả Sơn, Quần đảo San Hô — mỗi vùng 12 map, thời tiết riêng.</p></div>
+			<div class="feat"><div class="em">⚔</div><h3>Kiếm sĩ hay Pháp sư</h3><p>Năm 16 tuổi chọn theo kiếm của cha hay phép của mẹ. Kiếm sĩ có 3 lưu phái và Bọc Nguyên Tố; Pháp sư tung phép bằng trượng.</p></div>
+			<div class="feat"><div class="em">🔥</div><h3>5 nguyên tố</h3><p>Hoả · Thuỷ · Phong · Băng · Thổ — mỗi hệ một cây tiềm năng tới tuyệt kỹ mốc 10, kết hợp ra phản ứng nguyên tố.</p></div>
+			<div class="feat"><div class="em">📖</div><h3>Cốt truyện của Lior</h3><p>Lớn lên từ tuổi thơ ở Thistlewood, đi qua 7 vùng, gặp 7 vị thần và những lựa chọn thay đổi kết cục.</p></div>
+			<div class="feat"><div class="em">🐉</div><h3>Boss và quái mỗi vùng</h3><p>Mỗi vùng có bầy quái riêng và boss canh giữ — Quỷ vương rừng sâu, Hydra bùn, Sâu cát khổng lồ, Rồng gió, Kraken…</p></div>
+			<div class="feat"><div class="em">👥</div><h3>Chơi cùng bạn bè</h3><p>Gặp người chơi khác trên map, chat kênh map / thế giới / riêng, kết bạn, đấu với nhau ở vùng PvP.</p></div>
+		</div>
+
+		<h2 class="sec-title" id="hinh-anh"><span>Hình ảnh trong game</span></h2>
+		<div class="gallery">
+			<figure><img src="site/img/shot-swamp-hub.jpg" alt="" loading="lazy"><figcaption>Làng nhà sàn Lau Xám · Đầm lầy</figcaption></figure>
+			<figure><img src="site/img/shot-desert-hub.jpg" alt="" loading="lazy"><figcaption>Thành ốc đảo Sahrin · Sa mạc</figcaption></figure>
+			<figure><img src="site/img/shot-tundra-hub.jpg" alt="" loading="lazy"><figcaption>Làng gỗ Tuyết Phong · Băng giá</figcaption></figure>
+			<figure><img src="site/img/shot-volcano-hub.jpg" alt="" loading="lazy"><figcaption>Pháo đài Đe Đỏ · Núi lửa</figcaption></figure>
+			<figure><img src="site/img/shot-isles-hub.jpg" alt="" loading="lazy"><figcaption>Cảng chài San Hô · Quần đảo</figcaption></figure>
+			<figure><img src="site/img/shot-highland-hunt.jpg" alt="" loading="lazy"><figcaption>Thung Lũng Tiên · Cao nguyên</figcaption></figure>
+		</div>
+	</div>
+</main>
+
+<footer>
+	<b>Aether Chronicle</b> — bản beta, đồ hoạ đang hoàn thiện.<br>
+	Tài khoản và nhân vật lưu trên máy chủ · Góp ý: Cài đặt (O) → Góp ý trong game.
+</footer>
+
+<script>
+(function () {
+	const mb = (n) => (n / 1048576).toFixed(0) + ' MB';
+	// Thông tin bản đang phát (cùng máy chủ game): số bản, dung lượng, ghi chú bản mới.
+	fetch('api/client/version', { cache: 'no-store' })
+		.then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+		.then((v) => {
+			const w = v.windows, a = v.android, z = w && w.zip;
+			if (w) document.querySelectorAll('[data-size="windows"]').forEach((e) => (e.textContent = 'Windows · bộ cài · ' + mb(w.size)));
+			if (z) document.querySelectorAll('[data-size="zip"]').forEach((e) => (e.textContent = 'giải nén rồi chạy · ' + mb(z.size)));
+			if (a) document.querySelectorAll('[data-size="android"]').forEach((e) => (e.textContent = 'file APK · ' + mb(a.size)));
+			document.getElementById('ver').textContent = 'Phiên bản ' + v.version + (w ? ' · PC bản ' + w.build : '') + (a ? ' · Android bản ' + a.build : '');
+			document.getElementById('dot').className = 'dot ok';
+			document.getElementById('srv').textContent = 'Máy chủ đang mở';
+			if (v.notes) document.getElementById('notes').textContent = 'Bản mới: ' + v.notes;
+		})
+		.catch(() => {
+			document.getElementById('ver').textContent = '';
+			document.getElementById('dot').className = 'dot bad';
+			document.getElementById('srv').textContent = 'Không kết nối được máy chủ';
+		});
+
+	// Tin tức từ site/news.json (mới nhất trước); bấm tiêu đề để mở nội dung, tin đầu mở sẵn.
+	const slug = (t) => t.normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/đ/g, 'd').toLowerCase().replace(/\s+/g, '-');
+	let all = [];
+	const render = (f) => {
+		const ul = document.getElementById('news');
+		ul.innerHTML = '';
+		all.filter((n) => !f || n.tag === f).forEach((n, i) => {
+			const li = document.createElement('li');
+			if (i === 0) li.className = 'open';
+			const head = document.createElement('div');
+			head.className = 'head';
+			const tag = document.createElement('span');
+			tag.className = 'tag ' + slug(n.tag);
+			tag.textContent = n.tag;
+			const t = document.createElement('span');
+			t.className = 't';
+			t.textContent = n.title;
+			const d = document.createElement('span');
+			d.className = 'd';
+			d.textContent = n.date;
+			head.append(tag, t, d);
+			head.onclick = () => li.classList.toggle('open');
+			const more = document.createElement('div');
+			more.className = 'more';
+			const body = document.createElement('ul');
+			n.body.forEach((line) => {
+				const b = document.createElement('li');
+				b.textContent = line;
+				body.append(b);
+			});
+			more.append(body);
+			li.append(head, more);
+			ul.append(li);
+		});
+		if (!ul.children.length) ul.innerHTML = '<li><div class="head"><span class="t muted">Chưa có tin nào.</span></div></li>';
+	};
+	fetch('site/news.json', { cache: 'no-store' })
+		.then((r) => r.json())
+		.then((list) => {
+			all = list;
+			render('');
+		})
+		.catch(() => (document.getElementById('news').innerHTML = '<li><div class="head"><span class="t muted">Không tải được tin tức.</span></div></li>'));
+	document.querySelectorAll('#tabs button').forEach((b) =>
+		b.addEventListener('click', () => {
+			document.querySelectorAll('#tabs button').forEach((x) => x.classList.remove('on'));
+			b.classList.add('on');
+			render(b.dataset.f);
+		}),
+	);
+})();
+</script>
+</body>
+</html>

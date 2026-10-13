@@ -16,6 +16,7 @@ import {
 } from '@aether/protocol';
 import { AdminError, AdminOps } from './adminOps.ts';
 import { latestFile, readClientVersion, sendClientFile } from './clientUpdate.ts';
+import { sendSite, siteRedirect } from './site.ts';
 import { hashPassword, newToken, RateLimiter, verifyPassword } from './auth.ts';
 import type { Store } from './db.ts';
 import { cleanProgress } from './world.ts';
@@ -230,10 +231,13 @@ export function createApi(store: Store, admin: AdminOps = new AdminOps(store), c
 		res.setHeader('Access-Control-Allow-Headers', 'Authorization, Content-Type');
 		res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
 		if (req.method === 'OPTIONS') return void res.writeHead(204).end();
-		const path = stripMount(new URL(req.url ?? '/', 'http://x').pathname);
+		const rawPath = new URL(req.url ?? '/', 'http://x').pathname;
+		const path = stripMount(rawPath);
+		// Trang chủ game (site.ts): /game → /game/, rồi trang + ảnh + tin tức.
+		if (req.method === 'GET' && (siteRedirect(rawPath, res) || sendSite(path, res))) return;
 		// File gói client (luồng nhị phân, không qua JSON): /api/client/file/<tên> hoặc /api/client/latest/<windows|android>.
 		const file = req.method === 'GET' ? path.match(/^\/api\/client\/file\/([^/]+)$/) : null;
-		const latest = req.method === 'GET' ? path.match(/^\/api\/client\/latest\/(windows|android)$/) : null;
+		const latest = req.method === 'GET' ? path.match(/^\/api\/client\/latest\/(windows-zip|windows|android)$/) : null;
 		if (file || latest) {
 			const name = file ? decodeURIComponent(file[1]!) : latestFile(clientDir, latest![1]!);
 			if (!name || !sendClientFile(clientDir, name, res)) json(res, 404, { error: 'Không có file này' });

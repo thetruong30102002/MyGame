@@ -3,7 +3,7 @@
 // đọc lại đĩa nên phát bản mới KHÔNG cần khởi động lại máy chủ. Không cần đăng nhập (màn đăng nhập hỏi trước khi có phiên).
 //   GET /api/client/version            → nội dung version.json (404 nếu chưa phát bản nào)
 //   GET /api/client/file/<tên file>    → tải một file gói (chỉ tên trong thư mục, không đường dẫn con)
-//   GET /api/client/latest/<windows|android> → tải bản mới nhất của nền tảng đó (link cố định gửi người chơi mới)
+//   GET /api/client/latest/<windows|windows-zip|android> → tải bản mới nhất của nền tảng đó (link cố định gửi người chơi mới)
 import { createReadStream, existsSync, readFileSync, statSync } from 'node:fs';
 import type { ServerResponse } from 'node:http';
 import { join, resolve } from 'node:path';
@@ -14,6 +14,8 @@ export interface ClientBuild {
 	file: string;
 	size: number;
 	sha256: string;
+	/** Gói zip cùng bản (Windows): client mới tải zip rồi tự giải nén — bộ cài exe chưa ký số bị Windows Defender chặn. */
+	zip?: { file: string; size: number; sha256: string };
 }
 
 export interface ClientVersion {
@@ -47,7 +49,7 @@ export function sendClientFile(dir: string, name: string, res: ServerResponse): 
 	const st = statSync(p);
 	if (!st.isFile()) return false;
 	res.writeHead(200, {
-		'Content-Type': name.endsWith('.apk') ? 'application/vnd.android.package-archive' : 'application/octet-stream',
+		'Content-Type': name.endsWith('.apk') ? 'application/vnd.android.package-archive' : name.endsWith('.zip') ? 'application/zip' : 'application/octet-stream',
 		'Content-Length': String(st.size),
 		'Content-Disposition': `attachment; filename="${name}"`,
 		'Cache-Control': 'no-cache',
@@ -59,6 +61,7 @@ export function sendClientFile(dir: string, name: string, res: ServerResponse): 
 /** Tên file bản mới nhất của nền tảng (windows / android) theo version.json; null nếu chưa có. */
 export function latestFile(dir: string, platform: string): string | null {
 	const v = readClientVersion(dir);
+	if (platform === 'windows-zip') return v?.windows?.zip?.file ?? null;
 	const b = platform === 'windows' ? v?.windows : platform === 'android' ? v?.android : undefined;
 	return b?.file ?? null;
 }
