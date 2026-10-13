@@ -2,6 +2,11 @@
 <html lang="vi">
 <head>
 <meta charset="utf-8">
+<script>
+	// Mở bằng …/game (thiếu "/" cuối — Funnel cắt tiền tố nên máy chủ không chuyển hướng được) thì đường dẫn tương đối site/…, api/… trỏ sai
+	// gốc → tự thêm "/" trước khi tải ảnh / tin tức.
+	if (!location.pathname.endsWith('/') && !location.pathname.endsWith('.html')) location.replace(location.pathname + '/' + location.search + location.hash);
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Aether Chronicle — Trang chủ</title>
 <meta name="description" content="Aether Chronicle — game nhập vai pixel online: 7 vùng đất, 5 nguyên tố, Kiếm sĩ và Pháp sư. Tải bản PC và Android.">
