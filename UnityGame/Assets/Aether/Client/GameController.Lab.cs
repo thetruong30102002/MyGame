@@ -19,12 +19,14 @@ namespace Aether.Client
 
         private void SetupLab()
         {
-            // Mọi nhánh lên trần (Kiếm 2, phái 8, nguyên tố 10) — lớp "none" nên dùng được cả kiếm lẫn phép. Nguyên tố "đã chọn" (để Bọc
-            // Nguyên Tố) là LabStyle nếu là tên nguyên tố, không thì Hoả.
+            // Mọi nhánh lên trần (Kiếm 2, phái 8, nguyên tố 10) — lớp "none" nên dùng được cả kiếm lẫn phép, và CẢ 5 nguyên tố mốc 10 để gán
+            // được mọi chiêu / tuyệt kỹ không cần tẩy điểm (chủ dự án 13/10/2026: "ở phòng thử chiêu thì không cần tẩy điểm, gán tất luôn").
+            // Nguyên tố "đã chọn" (Bọc Nguyên Tố) khi bằng mốc lấy hệ đầu (Hoả); AutoTest `-aetherLabStyle <nguyên tố>` hạ 4 hệ kia về 9
+            // để thử Bọc Nguyên Tố của hệ đó.
             var tiers = new Tiers();
             foreach (var b in sim.Branches) tiers[b] = b == "sword" ? 2 : talents.IsStyleBranch(b) ? 8 : 10;
-            var pick = LabStyle != null && talents.IsElementBranch(LabStyle) ? LabStyle : "fire";
-            foreach (var e in sim.Elements) if (e != pick) tiers[e] = 9;
+            if (LabStyle != null && talents.IsElementBranch(LabStyle))
+                foreach (var e in sim.Elements) if (e != LabStyle) tiers[e] = 9;
             combat.Pc.Level = 60;
             combat.SetTalents(tiers);
             // Ô J, K rồi phím 1–8: tuyệt kỹ trước, rồi chiêu mốc 8 của lưu phái, chiêu lớn mốc 8 nguyên tố sau.
