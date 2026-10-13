@@ -254,30 +254,64 @@ export function buildKitMap(spec: KitMapSpec, exits: readonly KitExit[], meta: R
 		// trang trí trùng chỗ (11/10/2026: mỗi vùng một kiểu đá chồng lên NPC, chủ dự án: "cần thống nhất 1 đá dịch chuyển").
 		spots.push({ id: 'waystone', name: 'Cột dịch chuyển', x: ws.x, y: ws.y + 34, r: 80 });
 		spots.push({ id: 'plaza', name: spec.name, x: px(J.x), y: px(J.y), r: 200 });
-		const roadDir = exitInfo.map(({ e }) => ({ N: -Math.PI / 2, S: Math.PI / 2, E: 0, W: Math.PI }[e.edge]));
+		// Xếp có QUY TẮC (chủ dự án 13/10/2026: "đồ vật, nhà cửa xếp đang không có quy tắc, xếp lại cho gọn gàng"): nhà thành DÃY hai bên
+		// các con đường thẳng toả từ quảng trường, cách đều; mỗi nhà kèm 1–2 món đồ đứng sát hông; đèn cắm đều nhịp dọc đường.
 		const bs = has(spec.hub.buildings);
-		const hubDecor = has(spec.hub.decor);
-		for (let i = 0; i < bs.length; i += 1) {
-			let a = ((i + 0.5) / bs.length) * Math.PI * 2 + R(-0.15, 0.15);
-			// Tránh hướng các con đường chính ra lối.
-			for (let k = 0; k < 8 && roadDir.some((d) => Math.abs(Math.atan2(Math.sin(a - d), Math.cos(a - d))) < 0.42); k += 1) a += 0.22;
-			for (let k = 0; k < 14; k += 1) {
-				const rr = 10.5 + k * 0.35;
-				if (L.place(bs[i]!, px(J.x + Math.cos(a) * rr), px(J.y + Math.sin(a) * rr * 0.85) + 20)) break;
-			}
-		}
 		const homes = has(spec.hub.homes ?? []);
-		const homeCount = homes.length ? (spec.hub.homeCount ?? 6) : 0;
-		for (let i = 0; i < homeCount; i += 1) {
-			let a = ((i + 0.25) / homeCount) * Math.PI * 2 + R(-0.2, 0.2);
-			for (let k = 0; k < 8 && roadDir.some((d) => Math.abs(Math.atan2(Math.sin(a - d), Math.cos(a - d))) < 0.38); k += 1) a += 0.2;
-			const id = L.pick(homes);
-			for (let k = 0; k < 14; k += 1) {
-				const rr = 16 + k * 0.4;
-				if (L.place(id, px(J.x + Math.cos(a) * rr), px(J.y + Math.sin(a) * rr * 0.8) + 20)) break;
+		const queue = [...bs, ...Array.from({ length: homes.length ? (spec.hub.homeCount ?? 6) : 0 }, (_, i) => homes[i % homes.length]!)];
+		const hubDecor = has(spec.hub.decor);
+		const lamps = hubDecor.filter((id) => /lantern|lamp|beacon|torch/.test(id));
+		const yard = hubDecor.filter((id) => !lamps.includes(id));
+		const streets = exitInfo.map(({ inner }) => {
+			const len = Math.hypot(inner.x - J.x, inner.y - J.y);
+			return { ux: (inner.x - J.x) / len, uy: (inner.y - J.y) / len, len };
+		});
+		const STEP = 5.2;
+		const slots: { x: number; y: number; ux: number; uy: number }[] = [];
+		for (let s = 7.5; s < 30; s += STEP)
+			for (const st of streets) {
+				if (s > st.len - 4) continue;
+				for (const side of [-1, 1]) {
+					const nx = -st.uy * side;
+					const ny = st.ux * side;
+					// Nhà phía dưới đường cần lùi thêm (ảnh neo ở mép dưới, mái chìa lên trên).
+					const off = 3.2 + (ny > 0.5 ? 1.4 : 0);
+					slots.push({ x: J.x + 1 + st.ux * s + nx * off, y: J.y + 1 + st.uy * s + ny * off, ux: st.ux, uy: st.uy });
+				}
 			}
+		const left: string[] = [];
+		let si = 0;
+		for (const id of queue) {
+			let done = false;
+			while (si < slots.length && !done) {
+				const sl = slots[si++]!;
+				if (!L.place(id, px(sl.x), px(sl.y))) continue;
+				done = true;
+				// Đồ sân nhà: hai bên hông, cùng hàng chân nhà.
+				for (const k of [-1, 1]) if (yard.length && L.rand() < 0.75) L.place(L.pick(yard), px(sl.x + sl.ux * k * 2.4 - sl.uy * 0), px(sl.y + sl.uy * k * 2.4) - 4);
+			}
+			if (!done) left.push(id);
 		}
-		if (hubDecor.length) L.scatter(260, (x, y) => (Math.hypot(x / TILE - J.x, y / TILE - J.y) < 13 ? L.place(L.pick(hubDecor), x, y) : false));
+		// Hết chỗ dọc đường thì xếp vòng ngoài quanh quảng trường (đều góc).
+		left.forEach((id, i) => {
+			const a = ((i + 0.5) / Math.max(1, left.length)) * Math.PI * 2;
+			for (let k = 0; k < 14; k += 1) if (L.place(id, px(J.x + Math.cos(a) * (12 + k * 0.4)), px(J.y + Math.sin(a) * (12 + k * 0.4) * 0.85) + 20)) break;
+		});
+		// Đèn dọc đường: mỗi 4 ô, so le hai bên, sát mép đường.
+		if (lamps.length)
+			for (const st of streets)
+				for (let s = 7, i = 0; s < st.len - 3; s += 4, i += 1) {
+					const side = i % 2 ? 1 : -1;
+					L.place(lamps[i % lamps.length]!, px(J.x + 1 + st.ux * s - st.uy * side * 1.9), px(J.y + 1 + st.uy * s + st.ux * side * 1.9) + 8);
+				}
+		// Quảng trường: vòng đồ trang trí đều góc ngay ngoài mép sân.
+		if (yard.length)
+			for (let i = 0; i < 8; i += 1) {
+				const a = (i / 8) * Math.PI * 2 + Math.PI / 8;
+				L.place(yard[i % yard.length]!, px(J.x + 1 + Math.cos(a) * 6.6), px(J.y + 1 + Math.sin(a) * 6.2) + 10);
+			}
+		// Lõi làng không mọc cây / đá rải ngẫu nhiên.
+		L.reserve(J.x + 1, J.y + 1, 9);
 	}
 
 	// Sân boss: vòng cột + bệ giữa.
@@ -340,7 +374,8 @@ export function buildKitMap(spec: KitMapSpec, exits: readonly KitExit[], meta: R
 					L.place(L.pick(mainTrees.main), px(x) + R(-6, 6), px(y) + TILE / 2 + R(-4, 4), { canopy: true });
 				}
 		}
-		L.scatter(Math.round((area * t.treeDensity) / 100), (x, y) => L.place(L.pick(t.trees), x, y, { canopy: true }));
+		// Khóm cùng loài (5–9 cây quanh một tâm) thay cho rải lốm đốm từng cây — rừng có mảng rõ ràng, nhìn có quy tắc.
+		clumps(L, Math.round((area * t.treeDensity) / 100), t.trees, 7, 2.6, (id, x, y) => L.place(id, x, y, { canopy: true }));
 		// Viền: cây dày trong 3 ô sát mép (trừ quanh lối — đã giữ trống) để map có bờ tự nhiên.
 		L.scatter(Math.round((spec.w + spec.h) * 9), (x, y) => {
 			const tx = x / TILE;
@@ -350,7 +385,7 @@ export function buildKitMap(spec: KitMapSpec, exits: readonly KitExit[], meta: R
 		});
 	}
 	if (t.rocks.length) {
-		L.scatter(Math.round((area * t.rockDensity) / 100), (x, y) => L.place(L.pick(t.rocks), x, y));
+		clumps(L, Math.round((area * t.rockDensity) / 100), t.rocks, 3, 1.4, (id, x, y) => L.place(id, x, y));
 		// Map ít cây: thêm viền đá sát mép cho có bờ.
 		if (t.treeDensity < 10)
 			L.scatter(Math.round((spec.w + spec.h) * (t.trees.length ? 3 : 6)), (x, y) => {
@@ -358,7 +393,7 @@ export function buildKitMap(spec: KitMapSpec, exits: readonly KitExit[], meta: R
 				return edge < 2.5 ? L.place(L.pick(t.rocks), x, y) : false;
 			});
 	}
-	if (t.flats.length) L.scatter(Math.round((area * t.flatDensity) / 100), (x, y) => (ground(x, y) === 'g' || ground(x, y) === 'f' ? L.place(L.pick(t.flats), x, y) : false));
+	if (t.flats.length) clumps(L, Math.round((area * t.flatDensity) / 100), t.flats, 4, 1.6, (id, x, y) => (ground(x, y) === 'g' || ground(x, y) === 'f' ? L.place(id, x, y) : false));
 	if (t.landmarks.length)
 		for (const c of herd)
 			for (let k = 0, made = 0; k < 40 && made < 3; k += 1) {
@@ -393,6 +428,27 @@ export function buildKitMap(spec: KitMapSpec, exits: readonly KitExit[], meta: R
 		],
 		exits: mapExits,
 	});
+}
+
+/**
+ * Rải theo KHÓM: `attempts` lượt chia thành các khóm ~`per` món quanh một tâm ngẫu nhiên (bán kính `r` ô); mỗi khóm MỘT loài
+ * (bản gốc + lật gương trộn nhau). Loài chọn theo trọng số danh sách nên loài chủ đạo của map vẫn chiếm phần lớn.
+ */
+function clumps(L: Layout, attempts: number, ids: readonly string[], per: number, r: number, put: (id: string, x: number, y: number) => boolean): void {
+	if (!ids.length) return;
+	const groups = Math.max(1, Math.round(attempts / per));
+	for (let g = 0; g < groups; g += 1) {
+		const kind = species(L.pick(ids));
+		const pool = ids.filter((id) => species(id) === kind);
+		const cx = L.rand() * L.w;
+		const cy = L.rand() * L.h;
+		const n = Math.max(1, Math.round(per * (0.7 + L.rand() * 0.6)));
+		for (let k = 0; k < Math.ceil(n * 1.3); k += 1) {
+			const a = L.rand() * Math.PI * 2;
+			const d = Math.sqrt(L.rand()) * r;
+			put(L.pick(pool), Math.round((cx + Math.cos(a) * d) * TILE), Math.round((cy + Math.sin(a) * d * 0.8) * TILE));
+		}
+	}
 }
 
 /** Bản lật gương (`_flip`) cùng loài với bản gốc. */
