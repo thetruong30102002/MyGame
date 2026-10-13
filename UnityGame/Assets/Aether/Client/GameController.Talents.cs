@@ -195,7 +195,8 @@ namespace Aether.Client
         /// </summary>
         public bool ResetBuild()
         {
-            if (talents.SpentPoints(combat.Tiers) <= 0 && AttrRules.Spent(Attrs) <= 0 && Converted <= 0)
+            // Đã chọn lớp thì tẩy được kể cả chưa cộng điểm — để đổi lớp (chủ dự án 13/10/2026: "thiếu tẩy điểm class, đang từ kiếm muốn sang pháp sư").
+            if (talents.SpentPoints(combat.Tiers) <= 0 && AttrRules.Spent(Attrs) <= 0 && Converted <= 0 && storyState["path"] == null)
             {
                 hud.Toast("Chưa cộng điểm nào để tẩy", "info");
                 return false;
@@ -216,7 +217,10 @@ namespace Aether.Client
             return true;
         }
 
-        /// <summary>Máy chủ đã trừ kim cương (hoặc miễn phí) — xoá mốc + thuộc tính, nguyên tố được chọn lại.</summary>
+        /// <summary>
+        /// Máy chủ đã trừ kim cương (hoặc miễn phí) — xoá mốc + thuộc tính, nguyên tố được chọn lại; xoá luôn LỚP (Kiếm sĩ / Pháp sư) rồi hỏi
+        /// lại ngã rẽ năm 16 tuổi — chọn lại lớp cũ cũng được.
+        /// </summary>
         private void ApplyBuildReset()
         {
             resetPending = false;
@@ -227,11 +231,15 @@ namespace Aether.Client
             storyState["talentsV"] = TalentsFormat;
             storyState.Remove("enchant");
             storyState.Remove("swordStyle");
+            var hadPath = storyState["path"] != null;
+            storyState.Remove("path");
+            combat.SetPath(null);
             combat.ClearImbue();
             SyncTalents(false);
             Save();
-            hud.Toast($"Đã tẩy {spent} điểm — chọn lại nguyên tố và cộng lại điểm", "info");
+            hud.Toast(hadPath ? $"Đã tẩy {spent} điểm — chọn lại lớp, nguyên tố rồi cộng lại điểm" : $"Đã tẩy {spent} điểm — chọn lại nguyên tố và cộng lại điểm", "info");
             RewardsVersion += 1;
+            AskPathIfNeeded();
         }
 
         /// <summary>Gán chiêu <paramref name="skillId"/> vào ô <paramref name="slot"/> (bảng Tiềm năng: bấm chiêu rồi bấm ô).</summary>

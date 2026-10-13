@@ -383,12 +383,12 @@ namespace Aether.Client.UI
             it.textWrappingMode = TextWrappingModes.Normal;
         }
 
-        /// <summary>Tẩy toàn bộ điểm tiềm năng + thuộc tính (miễn phí tới cấp 5, sau đó kim cương) — bấm hai lần cho chắc.</summary>
+        /// <summary>Tẩy toàn bộ điểm tiềm năng + thuộc tính + lớp (miễn phí tới cấp 5, sau đó kim cương) — bấm hai lần cho chắc.</summary>
         private void BuildReset(RectTransform side)
         {
             if (game.InLab) return;
             var cost = game.ResetDiamonds;
-            var label = resetArmed ? "Bấm lần nữa để tẩy hết" : cost > 0 ? $"Tẩy điểm · {cost} kim cương" : "Tẩy điểm (miễn phí tới cấp 5)";
+            var label = resetArmed ? "Bấm lần nữa để tẩy hết + chọn lại lớp" : cost > 0 ? $"Tẩy điểm / đổi lớp · {cost} kim cương" : "Tẩy điểm / đổi lớp (miễn phí tới cấp 5)";
             var b = UiKit.Rect(side, "Reset", new Vector2(0, 0), new Vector2(0, 0), new Vector2(14, 14), new Vector2(SideW - 28, 40));
             UiStyle.Pill(b, resetArmed ? UiStyle.Hex(0x8c2a1c) : UiStyle.Hex(0x3a2c1c, 0.95f), 10).raycastTarget = true;
             Text(b, "t", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(SideW - 40, 24), label, 13, resetArmed ? Color.white : UiStyle.GoldHi,

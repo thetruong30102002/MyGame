@@ -20,12 +20,12 @@ export interface RoadmapItem {
 }
 
 /** Ngày cập nhật số liệu (dd/mm/yyyy). */
-export const ROADMAP_UPDATED = '11/10/2026';
+export const ROADMAP_UPDATED = '13/10/2026';
 
 export const ROADMAP: readonly RoadmapItem[] = [
-	{ id: 'talents_v4', group: 'game', name: 'Tiềm năng: 1 nguyên tố + lớp + thuộc tính', detail: 'Đã chạy, kể cả đổi điểm tiềm năng dư sang Máu / MP / Thể lực / Đỡ đòn; còn: cân lại số sau khi chơi thử.', progress: 90, pixellab: 0, doc: 'ke-hoach-nguyen-to.md §9' },
+	{ id: 'talents_v4', group: 'game', name: 'Tiềm năng: 1 nguyên tố + lớp + thuộc tính', detail: 'Đã chạy, kể cả đổi điểm tiềm năng dư sang Máu / MP / Thể lực / Đỡ đòn; tẩy điểm giờ đổi được lớp Kiếm sĩ ↔ Pháp sư (13/10); còn: cân lại số sau khi chơi thử.', progress: 92, pixellab: 0, doc: 'ke-hoach-nguyen-to.md §9' },
 	{ id: 'region1', group: 'game', name: 'Vùng 1 — 12 map', detail: 'Đợt 1 xong; đợt 2 chờ tấm nền G1 / R1 / B1 + 5 món lẻ.', progress: 80, pixellab: 0, doc: 'ke-hoach-the-gioi.md §5.2' },
-	{ id: 'region2_7', group: 'game', name: 'Vùng 2–7 — 74 map', detail: 'Dựng bằng bộ dựng chung, cây riêng từng vùng, thời tiết; còn đồ vật / NPC trạm thật.', progress: 85, pixellab: 0, doc: 'ke-hoach-the-gioi.md §5.3–5.6' },
+	{ id: 'region2_7', group: 'game', name: 'Vùng 2–7 — 74 map', detail: 'Dựng bằng bộ dựng chung, cây riêng từng vùng, thời tiết, đồ vật đợt 13/10; còn NPC trạm thật + map công trình.', progress: 88, pixellab: 0, doc: 'ke-hoach-the-gioi.md §5.3–5.6' },
 	{ id: 'story', group: 'game', name: 'Cốt truyện 7 chương + 10 vị thần', detail: 'Nhiệm vụ đủ, thần / trưởng lão đang dùng hình tạm; còn thần kỹ (bán kim cương).', progress: 70, pixellab: 0, doc: 'cot-truyen-aether.md' },
 	{ id: 'ult10', group: 'game', name: 'Tuyệt kỹ mốc 10 ở game thật', detail: 'Chạy ở phòng Thử chiêu; còn điều kiện mở (Long Châu) + người khác thấy tuyệt kỹ.', progress: 40, pixellab: 0, doc: 'ke-hoach-nguyen-to.md §7 GĐ4' },
 	{ id: 'gear', group: 'game', name: 'Trang bị bản lớn', detail: 'Rơi đồ, độ hiếm, nhuộm theo bậc đã có; còn bộ dáng giáp + đồ dán theo điểm neo.', progress: 50, pixellab: 0, doc: 'pixellab-ke-hoach-ve.md' },
@@ -34,7 +34,11 @@ export const ROADMAP: readonly RoadmapItem[] = [
 	{ id: 'beta_feedback', group: 'game', name: 'Bản beta: thông báo + góp ý', detail: 'Thông báo beta ở màn đăng nhập, Cài đặt → Góp ý gửi lên máy chủ, QTV đọc ở cùng tab.', progress: 100, pixellab: 0, doc: 'UnityGame/Assets/Aether/Client/UI/UI.md' },
 	{ id: 'region8_10', group: 'game', name: 'Vùng 8–10 + 3 rồng + Long Huyệt', detail: 'Mới có thiết kế; chưa dựng map / quái / boss.', progress: 5, pixellab: 0, doc: 'ke-hoach-the-gioi.md' },
 	{ id: 'home', group: 'game', name: 'Nhà riêng (xây nhà, trồng cây, chăn nuôi)', detail: 'Mới có kế hoạch.', progress: 0, pixellab: 0, doc: 'ke-hoach-nha-rieng.md' },
-	{ id: 'new_elements', group: 'game', name: 'Nguyên tố Mộc · Bóng tối · Ánh sáng + 2–3 vùng', detail: 'Mới ghi chú: 3 nhánh 10 mốc, phản ứng nhóm mới, vùng Rừng Cổ Thụ / Thánh Địa / Vực Ám Ma.', progress: 0, pixellab: 0, doc: 'ke-hoach-nguyen-to.md §9' },
+	{ id: 'new_elements', group: 'game', name: 'Nguyên tố Mộc · Bóng tối · Ánh sáng', detail: 'Mới ghi chú: 3 nhánh 10 mốc, phản ứng nhóm mới, mỗi hệ một vị thần + nhiệm vụ mở nhánh.', progress: 0, pixellab: 0, doc: 'ke-hoach-nguyen-to.md §9' },
+	{ id: 'new_maps', group: 'game', name: '4 map nguyên tố mới: Rừng Cổ Thụ · Thánh Địa Bình Minh · Vực Ám Ma · Lãnh địa Kiếm', detail: 'Cây đủ 12 loài mỗi map (Lãnh địa Kiếm tông phong đỏ / vàng); còn chốt vị trí + cấp mở, dựng map, quái, đồ vật (tấm WD1 / LT1 / DK1 / SD1 đã soạn đề).', progress: 15, pixellab: 0, doc: 'ke-hoach-the-gioi.md §5.7' },
+	{ id: 'map_buildings', group: 'game', name: 'Map công trình: lâu đài, kim tự tháp, chiến địa', detail: 'Mỗi vùng ≥ 1 map đi vào bên trong (tường thành gạch đá, kim tự tháp, pháo đài + chiến địa). Có bộ nền thử kim tự tháp; còn bộ dựng map trong nhà + bộ tường (cần token trả phí).', progress: 5, pixellab: 0, doc: 'ke-hoach-the-gioi.md §5.8' },
+	{ id: 'village', group: 'game', name: 'Làng đông đúc: thêm nhà + NPC', detail: 'Vùng 2–7 mỗi làng 11–16 nhà, xếp dãy dọc đường (13/10); còn dân thường đi lại / nói chuyện + nhà riêng từng vùng.', progress: 35, pixellab: 0, doc: 'ke-hoach-the-gioi.md §1.2' },
+	{ id: 'map_order', group: 'game', name: 'Xếp map có quy tắc (nhà, đồ vật, cây)', detail: 'Vùng 2–7: nhà thành dãy, đèn đều nhịp, cây / đá / hoa thành khóm cùng loài (13/10); còn vùng 1 (map dựng tay).', progress: 70, pixellab: 0, doc: 'ke-hoach-the-gioi.md §5.4' },
 	{ id: 'new_classes', group: 'game', name: 'Lớp mới: Cung · Khiên · Healer', detail: 'Mới ghi chú: mỗi lớp một nhánh vũ khí + một nguyên tố kích hoạt có thời gian.', progress: 0, pixellab: 0, doc: 'ke-hoach-nguyen-to.md §9' },
 	{ id: 'art_r1_7', group: 'art', name: 'Hoàn thiện hình vùng 1–7', detail: 'Hiệu ứng chiêu người chơi, sửa hình quái / boss lỗi, cây + đồ vật, NPC trạm.', progress: 0, pixellab: 1645, doc: 'pixellab-ke-hoach-ve.md' },
 	{ id: 'art_boss', group: 'art', name: 'Chiêu boss vùng 1–7 + vùng báo riêng', detail: 'Thêm khung 40 hình, 25 chiêu hoành tráng, vùng báo trước chiêu cho 25 boss.', progress: 0, pixellab: 1530, doc: 'pixellab-ke-hoach-ve.md — Chiêu BOSS' },
@@ -42,7 +46,11 @@ export const ROADMAP: readonly RoadmapItem[] = [
 	{ id: 'art_r8_10', group: 'art', name: 'Vùng 8–10 + 3 rồng', detail: 'Map, 15 quái, 9 boss + chiêu, 3 rồng, NPC trạm, cây + đồ vật.', progress: 0, pixellab: 2505, doc: 'pixellab-ke-hoach-ve.md' },
 	{ id: 'art_gear', group: 'art', name: 'Trang bị bản lớn', detail: '3 bộ giáp × 2 giới tính, đồ dán, hào quang, icon.', progress: 0, pixellab: 915, doc: 'pixellab-ke-hoach-ve.md' },
 	{ id: 'art_misc', group: 'art', name: 'Nên có + dự phòng', detail: 'Kiểu tóc, chân dung Thư viện, Thần Long, skin, đồ cốt truyện, Long Huyệt, cột dịch chuyển, vẽ lại món hỏng.', progress: 0, pixellab: 2110, doc: 'pixellab-ke-hoach-ve.md' },
-	{ id: 'art_new_elements', group: 'art', name: 'Nguyên tố mới + 3 vùng (ước lượng thô)', detail: '3 nhánh hiệu ứng chiêu (~600) + 3 vùng (~2.400) — chưa lên danh sách vẽ.', progress: 0, pixellab: 3000, doc: 'ke-hoach-the-gioi.md §5.7' },
+	{ id: 'art_new_elements', group: 'art', name: 'Nguyên tố mới + 4 map (ước lượng thô)', detail: '3 nhánh hiệu ứng chiêu (~600) + quái / boss / thần / đồ vật 4 map (~2.100); cây 4 map đã xong 13/10.', progress: 10, pixellab: 2700, doc: 'ke-hoach-the-gioi.md §5.7' },
+	{ id: 'art_trees', group: 'art', name: 'Cây 12 loài mỗi vùng', detail: '81 / 168 loài (4 map mới đủ; vùng 2–7 có 5 / vùng; vùng 1 có 3; vùng 8–10 chưa).', progress: 48, pixellab: 525, doc: 'pixellab-ke-hoach-ve.md — Cây cối' },
+	{ id: 'art_props', group: 'art', name: 'Đồ vật + nhà các vùng (theo phiên token)', detail: 'Phiên s1 xong 13/10; còn s2–s5: 6 kiểu nhà làng, 3 nhà, 12 tấm mới (di tích, kim tự tháp, chiến địa, võ đường…).', progress: 25, pixellab: 125, doc: 'pixellab-ke-hoach-ve.md — Đồ vật các vùng' },
+	{ id: 'art_map_buildings', group: 'art', name: 'Map công trình (bộ tường + nền + nội thất)', detail: '14 map × ~45 lượt; bộ tường cần token trả phí (Tier 1).', progress: 2, pixellab: 630, doc: 'ke-hoach-the-gioi.md §5.8' },
+	{ id: 'art_village', group: 'art', name: 'Làng đông đúc (nhà + dân thường)', detail: 'Mỗi vùng ~6 kiểu nhà + 3 dáng dân thường tô màu thành 5–6 người.', progress: 0, pixellab: 790, doc: 'ke-hoach-the-gioi.md §1.2' },
 ];
 
 /** % chung của phần game (trung bình các mục 'game'). */
