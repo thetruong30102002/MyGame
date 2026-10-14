@@ -3,6 +3,23 @@
 Chủ dự án mua gói **Tier 1** ($12/tháng: 2.000 lượt, 8 job song song, mở `transfer_outfit`) và **vẫn dùng song song** các
 token miễn phí. Lượt gói KHÔNG cộng dồn sang tháng sau → khi có token trả phí thì vẽ một mạch theo danh sách dưới.
 
+## Kỳ gói 24$ 09/11/2026 — làm gì (chủ dự án 14/10/2026: "bỏ free đi làm toàn bộ bằng gói 24$ bản tháng 11")
+
+BỎ token trial theo phiên (hàng s3–s5 còn soạn sẵn, gộp vào gói trả phí). Mọi việc vẽ dùng **token #1** (Tier 2 Pixel Artisan,
+5.000 lượt / kỳ, nạp lại 09/11; 14/10 còn 4 lượt). Chỉ token #1 vẽ thêm động tác được cho nhân vật người chơi.
+
+| Thứ tự | Việc | Lượt |
+|---|---|---|
+| 1 | Thử 1 kiếm mới trên nhân vật nam (đứng · đi · 1 chém) → chủ dự án duyệt | ~60 |
+| 2 | Hoạt ảnh chạy (Shift), nam + nữ × tay không / kiếm / trượng × 8 hướng | ~190 |
+| 3 | Vũ khí đợt 1: 3 kiếm + 3 trượng × nam + nữ, đủ động tác + chạy | ~2.760 |
+| 4 | Skin cải trang thử (1 giới tính, có chạy) → chủ dự án duyệt | ~570 |
+| 5 | Dự phòng vẽ lại món hỏng | ~400 |
+| 6 | Còn lại: thêm 1 skin HOẶC việc cũ hiện rõ trong game (hiệu ứng chiêu người chơi, NPC trạm), hàng đồ vật s3 | ~1.000 |
+
+Trước 09/11 (0 lượt): soạn danh sách 20 vũ khí + 10 skin để duyệt; code vũ khí theo món / skin / chạy theo vũ khí. Tổng kế hoạch
+~27.150 lượt ≈ 6 kỳ gói 24$.
+
 ## Tổng lượt còn cần (chốt 11/10/2026 — bản Unity) — CHỈ LÀM BẢN LỚN
 
 Chủ dự án 11/10/2026: **"tập trung bản lớn thôi"** — ngoại hình mới (trang bị hiện trên người, kiểu tóc, skin) chỉ vẽ cho nhân vật
@@ -99,7 +116,7 @@ map, 1/3 boss"; "rồng 3 chiêu, boss khu 1 chiêu, boss chúa 2 chiêu"; quái
 |---|---|---|
 | **Trả phí** | Render NẶNG làm game "xịn": hiệu ứng skill lớn 160–256px nhiều khung (12–16), tuyệt kỹ mốc 10, **chiêu thức boss**, bộ trang phục nhân vật (`create_character_state` / `transfer_outfit`), nhân vật/boss chính | Không bị khoá "free generations unavailable", 8 job cùng lúc, khổ lớn tốn nhiều lượt |
 | Miễn phí (15 token) | Việc NHẸ: tấm icon 3×3 (skill, bị động, trang bị), đồ vật/props, động tác nhỏ `animimg` của quái, đồ gắn lên người (mũ/vũ khí/khiên/áo choàng — 3 hướng/món) | Mỗi job ≤ 6 lượt, rải theo lượt thưởng mỗi ngày |
-| Trial 40 lượt (#15, #16… — chủ dự án 13/10/2026) | **CHỈ cảnh vật**: cây (thứ tự ở mục "Cây cối: 12 loài mỗi vùng"), tấm đồ vật 3×3, bộ nền chuyển sàn lát cho map công trình. Bộ công trình `create_building_kit` CẦN Tier 1 (thử 13/10/2026: "Tier 1 is required", không trừ lượt) → để token trả phí. Mỗi token ~6 cây = một lô / một vùng. KHÔNG tạo nhân vật / NPC | Nhân vật chỉ làm động tác được bằng token đã tạo ra nó, token trial cạn là mất đường thêm động tác; NPC ~14 lượt (= 2–3 cây); trial chỉ 1 job một lúc nên động tác phải gửi từng hướng. NPC để token trả phí |
+| ~~Trial 40 lượt~~ — BỎ 14/10/2026 (chỉ dùng gói 24$) | **CHỈ cảnh vật**: cây (thứ tự ở mục "Cây cối: 12 loài mỗi vùng"), tấm đồ vật 3×3, bộ nền chuyển sàn lát cho map công trình. Bộ công trình `create_building_kit` CẦN Tier 1 (thử 13/10/2026: "Tier 1 is required", không trừ lượt) → để token trả phí. Mỗi token ~6 cây = một lô / một vùng. KHÔNG tạo nhân vật / NPC | Nhân vật chỉ làm động tác được bằng token đã tạo ra nó, token trial cạn là mất đường thêm động tác; NPC ~14 lượt (= 2–3 cây); trial chỉ 1 job một lúc nên động tác phải gửi từng hướng. NPC để token trả phí |
 
 Token trả phí ĐÃ CÓ (09/10/2026): **token #1** trong `PIXELLAB_TOKENS` = Tier 2 (5.000 lượt / tháng, 10 job song song). Mốc 1 đã
 vẽ phần lớn trong ngày — xem `docs/the-gioi-aether.md` mục "Mốc 1 đã vẽ"; cách vẽ + bẫy: `docs/asset-pipeline.md` mục Gói trả phí.
@@ -588,7 +605,7 @@ không đủ — 2 loài Mộc còn lại đổi ảnh mẫu sang `wood_redwood`
 
 Tránh trùng loài giữa các vùng: không dùng tre (Đầm lầy), nấm (vùng 8 Rừng nấm), cây chết trắng (Đầm lầy) hay cọ (Sa mạc / Quần đảo).
 
-## Đồ vật các vùng — chạy theo PHIÊN, mỗi phiên 1 token trial (chủ dự án 13/10/2026)
+## Đồ vật các vùng — hàng phiên s1…s5 (13/10/2026; từ 14/10 chạy bằng gói 24$, BỎ token trial)
 
 Chủ dự án 13/10/2026: "đồ vật các vùng cần thêm" + "bạn cứ bổ sung đồ vật các vùng, tôi sẽ gửi token theo phiên, mỗi phiên 1 token".
 Mỗi phiên = 1 token trial 40 lượt ≈ 6 món (tấm 3×3 192×192 = 6 lượt, nhà / cây ảnh rời = 6 lượt). Hàng chờ từng phiên đã tạo sẵn:
