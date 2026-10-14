@@ -13,8 +13,10 @@ import {
 	type CreateCharacterRequest,
 	type FeedbackRequest,
 	type Gender,
+	type MeResponse,
 } from '@aether/protocol';
 import { AdminError, AdminOps } from './adminOps.ts';
+import { Board, BoardError, type Viewer } from './board.ts';
 import { latestFile, readClientVersion, sendClientFile } from './clientUpdate.ts';
 import { sendSite, siteRedirect } from './site.ts';
 import { hashPassword, newToken, RateLimiter, verifyPassword } from './auth.ts';
@@ -53,6 +55,10 @@ export function createApi(store: Store, admin: AdminOps = new AdminOps(store), c
 	const grantLimit = new RateLimiter(30, 60_000);
 	/** Góp ý của mỗi tài khoản: 5 lần / 10 phút. */
 	const feedbackLimit = new RateLimiter(5, 600_000);
+	/** Bài viết trang chủ: 3 bài / 10 phút, bình luận 10 / 5 phút mỗi tài khoản. */
+	const postLimit = new RateLimiter(3, 600_000);
+	const commentLimit = new RateLimiter(10, 300_000);
+	const board = new Board(store);
 
 	const routes: { method: string; path: RegExp; run: (req: IncomingMessage, m: RegExpMatchArray) => Promise<unknown> }[] = [
 		{ method: 'GET', path: /^\/api\/health$/, run: async () => ({ ok: true }) },
@@ -158,6 +164,80 @@ export function createApi(store: Store, admin: AdminOps = new AdminOps(store), c
 				return { ok: true };
 			},
 		},
+		// ———— Trang chủ: đăng nhập, tin tức, bài viết cộng đồng (board.ts) ————
+		{
+			method: 'GET',
+			path: /^\/api\/me$/,
+			run: async (req) => {
+				const s = auth(req);
+				const characters = store.characters(s.accountId).map((c) => ({ id: c.id, name: c.name, level: c.progress.level }));
+				return { username: s.username, admin: admin.isAdmin(s.accountId), characters } satisfies MeResponse;
+			},
+		},
+		{ method: 'GET', path: /^\/api\/news$/, run: async (req) => board.news(query(req).get('limit')) },
+		{
+			method: 'GET',
+			path: /^\/api\/posts$/,
+			run: async (req) => {
+				const q = query(req);
+				return board.posts(viewer(req), q.get('limit'), q.get('before'));
+			},
+		},
+		{ method: 'GET', path: /^\/api\/posts\/(\d+)$/, run: async (req, m) => board.post(viewer(req), Number(m[1])) },
+		{
+			method: 'POST',
+			path: /^\/api\/posts$/,
+			run: async (req) => {
+				const v = viewer(req, true)!;
+				if (!postLimit.allow(String(v.accountId))) throw new HttpError(429, 'Bạn đăng bài nhanh quá, đợi ít phút nhé');
+				return board.addPost(v, await body(req));
+			},
+		},
+		{
+			method: 'POST',
+			path: /^\/api\/posts\/(\d+)\/comments$/,
+			run: async (req, m) => {
+				const v = viewer(req, true)!;
+				if (!commentLimit.allow(String(v.accountId))) throw new HttpError(429, 'Bạn bình luận nhanh quá, đợi ít phút nhé');
+				return board.addComment(v, Number(m[1]), await body(req));
+			},
+		},
+		{
+			method: 'DELETE',
+			path: /^\/api\/posts\/(\d+)$/,
+			run: async (req, m) => (board.deletePost(viewer(req, true)!, Number(m[1])), { ok: true }),
+		},
+		{
+			method: 'DELETE',
+			path: /^\/api\/comments\/(\d+)$/,
+			run: async (req, m) => (board.deleteComment(viewer(req, true)!, Number(m[1])), { ok: true }),
+		},
+		// ———— Trang quản trị: tin tức ————
+		{
+			method: 'POST',
+			path: /^\/api\/admin\/news$/,
+			run: async (req) => {
+				const s = adminAuth(req);
+				return board.addNews({ ...s, admin: true }, await body(req));
+			},
+		},
+		{
+			method: 'PUT',
+			path: /^\/api\/admin\/news\/(\d+)$/,
+			run: async (req, m) => {
+				adminAuth(req);
+				return board.updateNews(Number(m[1]), await body(req));
+			},
+		},
+		{
+			method: 'DELETE',
+			path: /^\/api\/admin\/news\/(\d+)$/,
+			run: async (req, m) => {
+				adminAuth(req);
+				board.deleteNews(Number(m[1]));
+				return { ok: true };
+			},
+		},
 		// ———— Trang quản trị (/admin): cộng tiền, điểm cho nhân vật ————
 		{
 			// Chưa đăng nhập → 401 (trang hiện ô đăng nhập); đã đăng nhập thì chỉ cho biết CHÍNH tài khoản này có quyền hay không.
@@ -214,6 +294,12 @@ export function createApi(store: Store, admin: AdminOps = new AdminOps(store), c
 		return s;
 	}
 
+	/** Người đang xem: có phiên thì kèm quyền quản trị; `required` = chưa đăng nhập thì 401. */
+	function viewer(req: IncomingMessage, required = false): Viewer | null {
+		const s = required ? auth(req) : store.sessionAccount(bearer(req) ?? '');
+		return s ? { ...s, admin: admin.isAdmin(s.accountId) } : null;
+	}
+
 	function session(accountId: number, username: string) {
 		const token = newToken();
 		store.createSession(token, accountId, SESSION_TTL);
@@ -249,7 +335,7 @@ export function createApi(store: Store, admin: AdminOps = new AdminOps(store), c
 			try {
 				json(res, 200, await r.run(req, m));
 			} catch (e) {
-				if (e instanceof HttpError || e instanceof AdminError) json(res, e.status, { error: e.message });
+				if (e instanceof HttpError || e instanceof AdminError || e instanceof BoardError) json(res, e.status, { error: e.message });
 				else {
 					console.error(e);
 					json(res, 500, { error: 'Lỗi máy chủ' });

@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="vi" data-theme="aether">
+<head>
+<meta charset="utf-8">
+<script>
+	// …/admin/ (thừa "/" cuối) thì đường dẫn tương đối api/…, site/… trỏ sai gốc → bỏ "/".
+	if (location.pathname.endsWith('/admin/')) location.replace(location.pathname.slice(0, -1) + location.search + location.hash);
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Aether Chronicle — Quản trị</title>
+<link rel="icon" href="site/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site/app.css">
+</head>
+<body class="bg-base-200 text-base-content antialiased min-h-screen">
+
+<!-- ———— Đăng nhập (dùng chung phiên với trang chủ) ———— -->
+<div id="gate" class="hidden min-h-screen grid place-items-center p-4 bg-[radial-gradient(ellipse_at_top,rgba(255,201,60,.12),transparent_60%)]">
+	<div class="card w-full max-w-sm bg-base-100 border border-white/10 shadow-2xl">
+		<div class="card-body">
+			<div class="flex items-center gap-3 mb-2"><img class="px w-10" src="site/img/favicon.png" alt=""><div><h1 class="font-black text-xl">Quản trị</h1><p class="text-xs text-base-content/60">Aether Chronicle</p></div></div>
+			<form id="login" class="space-y-3">
+				<label class="form-control"><div class="label"><span class="label-text font-semibold">Tên đăng nhập</span></div><input id="lu" class="input input-bordered" autocomplete="username" required autocapitalize="none"></label>
+				<label class="form-control"><div class="label"><span class="label-text font-semibold">Mật khẩu</span></div><input id="lp" type="password" class="input input-bordered" autocomplete="current-password" required></label>
+				<div id="login-err" class="alert alert-error py-2 text-sm" hidden></div>
+				<button class="btn btn-primary w-full">Đăng nhập</button>
+			</form>
+			<p class="text-xs text-base-content/50 mt-2">Chỉ tài khoản được cấp quyền (lệnh <code>src/admin.ts add</code>) mới vào được.</p>
+			<a href="./" class="link link-hover text-sm text-center mt-2">← Về trang chủ</a>
+		</div>
+	</div>
+</div>
+
+<div id="denied" class="hidden min-h-screen grid place-items-center p-4">
+	<div class="card w-full max-w-sm bg-base-100 border border-white/10 shadow-2xl"><div class="card-body text-center">
+		<div class="text-5xl">⛔</div><h1 class="font-black text-xl">Không có quyền</h1>
+		<p class="text-base-content/70">Tài khoản <b id="denied-name"></b> chưa được cấp quyền quản trị.</p>
+		<div class="card-actions justify-center mt-2"><a href="./" class="btn btn-ghost">Về trang chủ</a><button class="btn btn-primary" data-logout>Đổi tài khoản</button></div>
+	</div></div>
+</div>
+
+<!-- ———— Ứng dụng ———— -->
+<div id="app" class="hidden drawer lg:drawer-open">
+	<input id="nav-toggle" type="checkbox" class="drawer-toggle">
+	<div class="drawer-content flex flex-col min-h-screen">
+		<header class="navbar bg-base-100/80 backdrop-blur border-b border-white/10 sticky top-0 z-30 px-4">
+			<label for="nav-toggle" class="btn btn-ghost btn-square btn-sm lg:hidden" aria-label="Mở menu"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg></label>
+			<h1 id="page-title" class="flex-1 font-black text-xl px-2">Tài nguyên</h1>
+			<div class="dropdown dropdown-end">
+				<div tabindex="0" role="button" class="btn btn-ghost btn-sm gap-2"><span class="badge badge-primary badge-sm font-bold">ADMIN</span><span id="who"></span></div>
+				<ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-50 mt-3 w-48 p-2 shadow-2xl border border-white/10">
+					<li><a href="./">🏠 Trang chủ</a></li>
+					<li><button data-logout class="text-error">↩ Đăng xuất</button></li>
+				</ul>
+			</div>
+		</header>
+
+		<main class="p-4 lg:p-6 space-y-6 max-w-7xl w-full">
+			<!-- Số liệu nhanh -->
+			<div class="stats stats-vertical sm:stats-horizontal w-full bg-base-100 border border-white/10 shadow">
+				<div class="stat"><div class="stat-figure text-3xl">💬</div><div class="stat-title">Góp ý</div><div class="stat-value text-primary" id="st-fb">–</div><div class="stat-desc" id="st-fb-new">&nbsp;</div></div>
+				<div class="stat"><div class="stat-figure text-3xl">🗨️</div><div class="stat-title">Bài viết</div><div class="stat-value text-secondary" id="st-posts">–</div><div class="stat-desc">đang hiện trên trang chủ</div></div>
+				<div class="stat"><div class="stat-figure text-3xl">📜</div><div class="stat-title">Tin tức</div><div class="stat-value text-accent" id="st-news">–</div><div class="stat-desc">đã đăng</div></div>
+				<div class="stat"><div class="stat-figure text-3xl">🟢</div><div class="stat-title">Đang online</div><div class="stat-value text-success" id="st-online">–</div><div class="stat-desc">trong các nhân vật vừa tìm</div></div>
+			</div>
+
+			<!-- Tài nguyên -->
+			<section data-pane="res" class="grid xl:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] gap-6 items-start">
+				<div class="card bg-base-100 border border-white/10 shadow">
+					<div class="card-body p-0">
+						<form id="search" class="join w-full p-4 pb-3">
+							<input id="q" class="input input-bordered join-item flex-1 min-w-0" placeholder="Tên nhân vật hoặc tài khoản (trống = lưu gần nhất)">
+							<button class="btn btn-primary join-item">Tìm</button>
+						</form>
+						<div class="overflow-x-auto max-h-[560px]">
+							<table class="table table-pin-rows table-sm">
+								<thead><tr class="bg-base-200"><th>Nhân vật</th><th class="hidden md:table-cell">Tài khoản</th><th class="text-right">Cấp</th><th class="text-right">Xu</th><th class="text-right">KC</th><th class="text-right hidden md:table-cell">Bình</th><th class="text-right hidden md:table-cell">Điểm</th></tr></thead>
+								<tbody id="chars"></tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="card bg-base-100 border border-white/10 shadow xl:sticky xl:top-20">
+					<form id="grant" class="card-body gap-3">
+						<div class="flex items-center gap-2"><h2 class="card-title font-black flex-1">🎁 Cộng / trừ</h2><span id="g-target" class="badge badge-ghost">chưa chọn nhân vật</span></div>
+						<p class="text-sm text-base-content/60 -mt-1">Số âm = trừ · để trống = không đổi · nhân vật đang online nhận ngay.</p>
+						<div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+							<label class="form-control"><div class="label py-1"><span class="label-text text-xs font-semibold">🪙 Xu</span></div><input name="coins" class="input input-bordered input-sm" inputmode="numeric" placeholder="0"></label>
+							<label class="form-control"><div class="label py-1"><span class="label-text text-xs font-semibold">💎 Kim cương</span></div><input name="diamonds" class="input input-bordered input-sm" inputmode="numeric" placeholder="0"></label>
+							<label class="form-control"><div class="label py-1"><span class="label-text text-xs font-semibold">🧪 Bình</span></div><input name="potions" class="input input-bordered input-sm" inputmode="numeric" placeholder="0"></label>
+							<label class="form-control"><div class="label py-1"><span class="label-text text-xs font-semibold">✨ EXP</span></div><input name="exp" class="input input-bordered input-sm" inputmode="numeric" placeholder="0"></label>
+							<label class="form-control"><div class="label py-1"><span class="label-text text-xs font-semibold">⬆ Đặt cấp</span></div><input name="setLevel" class="input input-bordered input-sm" inputmode="numeric" placeholder="giữ"></label>
+							<label class="form-control"><div class="label py-1"><span class="label-text text-xs font-semibold">🌟 Điểm tiềm năng</span></div><input name="talentPoints" class="input input-bordered input-sm" inputmode="numeric" placeholder="0"></label>
+						</div>
+						<div id="presets" class="flex flex-wrap gap-2">
+							<button type="button" class="btn btn-xs btn-outline" data-p='{"coins":10000}'>+10.000 xu</button>
+							<button type="button" class="btn btn-xs btn-outline" data-p='{"diamonds":100}'>+100 KC</button>
+							<button type="button" class="btn btn-xs btn-outline" data-p='{"potions":20}'>+20 bình</button>
+							<button type="button" class="btn btn-xs btn-outline" data-p='{"talentPoints":5}'>+5 điểm</button>
+							<button type="button" class="btn btn-xs btn-ghost" data-p='{}'>Xoá ô</button>
+						</div>
+						<label class="form-control"><div class="label py-1"><span class="label-text font-semibold">Lý do (bắt buộc — ghi nhật ký)</span></div><input name="reason" class="input input-bordered" maxlength="120" placeholder="vd: Đền bù lỗi mất đồ 13/10"></label>
+						<div id="g-sum" class="alert py-2 text-sm hidden"></div>
+						<div id="g-err" class="alert alert-error py-2 text-sm" hidden></div>
+						<button id="g-go" class="btn btn-primary" disabled>Chọn nhân vật trước</button>
+					</form>
+				</div>
+			</section>
+
+			<!-- Góp ý -->
+			<section data-pane="fb" class="hidden card bg-base-100 border border-white/10 shadow">
+				<div class="card-body">
+					<div class="flex flex-wrap gap-3 items-center">
+						<input id="fb-q" class="input input-bordered input-sm flex-1 min-w-[12rem]" placeholder="Lọc theo chữ, tài khoản, nhân vật…">
+						<select id="fb-plat" class="select select-bordered select-sm"><option value="">Mọi nền tảng</option></select>
+						<button id="fb-reload" class="btn btn-sm btn-ghost">↻ Tải lại</button>
+					</div>
+					<div id="fb-list" class="mt-2 space-y-3"></div>
+				</div>
+			</section>
+
+			<!-- Tin tức -->
+			<section data-pane="news" class="hidden grid xl:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] gap-6 items-start">
+				<div class="card bg-base-100 border border-white/10 shadow"><div class="card-body"><h2 class="card-title font-black">Tin đã đăng</h2><div id="news-list" class="space-y-3"></div></div></div>
+				<div class="card bg-base-100 border border-white/10 shadow xl:sticky xl:top-20">
+					<form id="news-form" class="card-body gap-3">
+						<h2 class="card-title font-black" id="nf-title">✏️ Đăng tin mới</h2>
+						<div class="flex gap-3">
+							<select name="tag" class="select select-bordered w-36"><option>Cập nhật</option><option>Thông báo</option><option>Sự kiện</option></select>
+							<input name="title" class="input input-bordered flex-1 min-w-0" maxlength="120" placeholder="Tiêu đề" required>
+						</div>
+						<label class="form-control"><div class="label py-1"><span class="label-text font-semibold">Nội dung — mỗi dòng một gạch đầu dòng</span></div>
+							<textarea name="body" class="textarea textarea-bordered h-48 text-base leading-relaxed" placeholder="Thêm vùng mới…&#10;Sửa lỗi…"></textarea></label>
+						<div id="nf-err" class="alert alert-error py-2 text-sm" hidden></div>
+						<div class="flex gap-2"><button class="btn btn-primary flex-1" id="nf-go">Đăng tin</button><button type="button" class="btn btn-ghost hidden" id="nf-cancel">Huỷ sửa</button></div>
+					</form>
+				</div>
+			</section>
+
+			<!-- Bài viết -->
+			<section data-pane="posts" class="hidden card bg-base-100 border border-white/10 shadow">
+				<div class="card-body">
+					<div class="flex items-center"><p class="text-sm text-base-content/60 flex-1">Ẩn bài / bình luận xấu — CSDL vẫn giữ để tra lại.</p><button id="posts-reload" class="btn btn-sm btn-ghost">↻ Tải lại</button></div>
+					<div id="posts-list" class="space-y-3"></div>
+					<div class="text-center"><button id="posts-more" class="btn btn-ghost btn-sm hidden">Xem bài cũ hơn</button></div>
+				</div>
+			</section>
+
+			<!-- Nhật ký -->
+			<section data-pane="log" class="hidden card bg-base-100 border border-white/10 shadow">
+				<div class="card-body p-0">
+					<div class="flex items-center p-4 pb-2"><p class="text-sm text-base-content/60 flex-1">200 lần đổi gần nhất — mỗi loại đổi một dòng.</p><button id="log-reload" class="btn btn-sm btn-ghost">↻ Tải lại</button></div>
+					<div class="overflow-x-auto max-h-[680px]">
+						<table class="table table-pin-rows table-sm table-zebra">
+							<thead><tr class="bg-base-200"><th>Lúc</th><th>Quản trị</th><th>Nhân vật</th><th>Loại</th><th class="text-right">Trước</th><th class="text-right">Sau</th><th>Lý do</th></tr></thead>
+							<tbody id="log"></tbody>
+						</table>
+					</div>
+				</div>
+			</section>
+		</main>
+	</div>
+
+	<div class="drawer-side z-40">
+		<label for="nav-toggle" class="drawer-overlay" aria-label="Đóng menu"></label>
+		<aside class="bg-base-300 min-h-full w-64 border-r border-white/5 flex flex-col">
+			<a href="./" class="flex items-center gap-2.5 px-5 h-16 font-black"><img class="px w-8" src="site/img/favicon.png" alt=""><span>AETHER <span class="text-primary">ADMIN</span></span></a>
+			<ul id="tabs" class="menu p-3 gap-1 font-semibold text-base">
+				<li><a data-tab="res" class="active">💎 Tài nguyên</a></li>
+				<li><a data-tab="fb">💬 Góp ý <span id="fb-n" class="badge badge-error badge-sm hidden"></span></a></li>
+				<li><a data-tab="news">📜 Tin tức</a></li>
+				<li><a data-tab="posts">🗨️ Bài viết</a></li>
+				<li><a data-tab="log">📒 Nhật ký</a></li>
+			</ul>
+			<div class="mt-auto p-5 text-xs text-base-content/40">Mọi lần cộng / trừ đều ghi nhật ký kèm lý do.</div>
+		</aside>
+	</div>
+</div>
+
+<dialog id="confirm" class="modal modal-bottom sm:modal-middle">
+	<div class="modal-box border border-white/10">
+		<h3 class="font-black text-xl" id="cf-title">Xác nhận</h3>
+		<div id="cf-body" class="py-4 text-sm leading-relaxed"></div>
+		<div class="modal-action"><form method="dialog" class="flex gap-2"><button class="btn btn-ghost" value="no">Huỷ</button><button class="btn btn-primary" id="cf-ok" value="ok">Đồng ý</button></form></div>
+	</div>
+	<form method="dialog" class="modal-backdrop"><button value="no">đóng</button></form>
+</dialog>
+<div id="toasts" class="toast toast-end z-[60]"></div>
+
+<script>
+(function () {
+	const $ = (id) => document.getElementById(id);
+	const KEY = 'aether.web.token';
+	const NUM = new Intl.NumberFormat('vi-VN');
+	const TIME = new Intl.DateTimeFormat('vi-VN', { dateStyle: 'short', timeStyle: 'short' });
+	const FIELD = { coins: '🪙 Xu', diamonds: '💎 Kim cương', potions: '🧪 Bình', level: '⬆ Cấp', exp: '✨ EXP', bonusPoints: '🌟 Điểm tiềm năng' };
+	const TAG = { 'Cập nhật': 'badge-success', 'Thông báo': 'badge-error', 'Sự kiện': 'badge-accent' };
+	const TITLES = { res: 'Tài nguyên', fb: 'Góp ý người chơi', news: 'Tin tức trang chủ', posts: 'Bài viết cộng đồng', log: 'Nhật ký cộng / trừ' };
+	let token = '';
+	try { token = localStorage.getItem(KEY) || ''; } catch (e) {}
+
+	/** Gọi API (cùng máy chủ, đường dẫn tương đối) — lỗi thì ném Error mang câu báo của máy chủ. */
+	async function api(method, path, body) {
+		const r = await fetch('api/' + path, {
+			method,
+			cache: 'no-store',
+			headers: { 'Content-Type': 'application/json', ...(token ? { Authorization: 'Bearer ' + token } : {}) },
+			body: body === undefined ? undefined : JSON.stringify(body),
+		});
+		const data = await r.json().catch(() => ({}));
+		if (r.status === 401 && path !== 'login') gate();
+		if (!r.ok) throw Object.assign(new Error(data.error || 'Lỗi ' + r.status), { status: r.status });
+		return data;
+	}
+	/** Tạo phần tử; chữ người chơi gõ luôn đi qua textContent. */
+	function h(sel, props, ...kids) {
+		const [tag, ...cls] = sel.split('.');
+		const el = document.createElement(tag || 'div');
+		if (cls.length) el.className = cls.join(' ');
+		Object.assign(el, props || {});
+		kids.flat().forEach((k) => k != null && k !== false && el.append(k instanceof Node ? k : String(k)));
+		return el;
+	}
+	const toast = (text, kind) => {
+		const t = h('div.alert.shadow-xl.text-sm.font-semibold.whitespace-normal.max-w-xs.sm:max-w-sm.alert-' + (kind || 'success'), null, h('span', null, text));
+		$('toasts').append(t);
+		setTimeout(() => t.remove(), 3500);
+	};
+	const showErr = (id, msg) => {
+		$(id).textContent = msg || '';
+		$(id).hidden = !msg;
+	};
+	/** Hộp xác nhận daisyUI — trả Promise<boolean>. */
+	const confirmBox = (title, body, okLabel, danger) =>
+		new Promise((res) => {
+			$('cf-title').textContent = title;
+			$('cf-body').replaceChildren(...[].concat(body).map((b) => (b instanceof Node ? b : h('p', null, b))));
+			$('cf-ok').textContent = okLabel || 'Đồng ý';
+			$('cf-ok').className = 'btn ' + (danger ? 'btn-error' : 'btn-primary');
+			$('confirm').returnValue = '';
+			$('confirm').showModal();
+			$('confirm').addEventListener('close', () => res($('confirm').returnValue === 'ok'), { once: true });
+		});
+	const setToken = (t) => {
+		token = t;
+		try { t ? localStorage.setItem(KEY, t) : localStorage.removeItem(KEY); } catch (e) {}
+	};
+	const show = (id) => ['gate', 'denied', 'app'].forEach((x) => $(x).classList.toggle('hidden', x !== id));
+	function gate() {
+		setToken('');
+		show('gate');
+	}
+
+	async function boot() {
+		if (!token) return gate();
+		let me;
+		try { me = await api('GET', 'me'); } catch (e) { return; }
+		if (!me.admin) {
+			$('denied-name').textContent = me.username;
+			return show('denied');
+		}
+		$('who').textContent = me.username;
+		show('app');
+		search('');
+		loadFeedback();
+		loadNews();
+		loadPosts(true);
+	}
+
+	$('login').onsubmit = async (e) => {
+		e.preventDefault();
+		showErr('login-err');
+		try {
+			const r = await api('POST', 'login', { username: $('lu').value.trim().toLowerCase(), password: $('lp').value });
+			setToken(r.token);
+			$('lp').value = '';
+			boot();
+		} catch (err) {
+			showErr('login-err', err.message);
+		}
+	};
+	document.querySelectorAll('[data-logout]').forEach((b) => (b.onclick = () => {
+		api('POST', 'logout').catch(() => {});
+		gate();
+	}));
+
+	// —— Thanh bên ——
+	const go = (tab) => {
+		document.querySelectorAll('#tabs a').forEach((x) => x.classList.toggle('active', x.dataset.tab === tab));
+		document.querySelectorAll('[data-pane]').forEach((p) => p.classList.toggle('hidden', p.dataset.pane !== tab));
+		$('page-title').textContent = TITLES[tab];
+		$('nav-toggle').checked = false;
+		if (tab === 'log') loadLog();
+		if (tab === 'fb') {
+			const top = feedback.reduce((m, f) => Math.max(m, f.id), 0);
+			try { localStorage.setItem('aether.admin.fbSeen', String(top)); } catch (e) {}
+			$('fb-n').classList.add('hidden');
+		}
+		try { history.replaceState(null, '', '#' + tab); } catch (e) {}
+	};
+	$('tabs').onclick = (e) => {
+		const a = e.target.closest('a[data-tab]');
+		if (a) go(a.dataset.tab);
+	};
+
+	// —— Tài nguyên ——
+	let picked = null;
+	async function search(q) {
+		const tb = $('chars');
+		tb.replaceChildren(h('tr', null, h('td', { colSpan: 7 }, h('div.skeleton.h-8.w-full'))));
+		try {
+			const list = await api('GET', 'admin/characters?q=' + encodeURIComponent(q));
+			$('st-online').textContent = list.filter((c) => c.online).length;
+			tb.innerHTML = '';
+			if (!list.length) tb.append(h('tr', null, h('td.text-center.py-8.text-base-content/50', { colSpan: 7 }, 'Không thấy nhân vật nào')));
+			list.forEach((c) => {
+				const tr = h('tr.hover.cursor-pointer', null,
+					h('td', null, h('div.flex.items-center.gap-2', null,
+						h('span.w-2.h-2.rounded-full.shrink-0.' + (c.online ? 'bg-success' : 'bg-base-content/20'), { title: c.online ? 'Đang online' : 'Offline' }),
+						h('span.font-bold', null, c.name))),
+					h('td.hidden.md:table-cell.text-base-content/60', null, c.account),
+					h('td.text-right', null, c.level),
+					h('td.text-right.tabular-nums', null, NUM.format(c.coins)),
+					h('td.text-right.tabular-nums', null, NUM.format(c.diamonds)),
+					h('td.text-right.tabular-nums.hidden.md:table-cell', null, NUM.format(c.potions)),
+					h('td.text-right.hidden.md:table-cell', null, c.bonusPoints),
+				);
+				tr.onclick = () => pick(c, tr);
+				if (picked && picked.id === c.id) pick(c, tr);
+				tb.append(tr);
+			});
+		} catch (e) {
+			tb.replaceChildren(h('tr', null, h('td.text-error.text-center.py-6', { colSpan: 7 }, e.message)));
+		}
+	}
+	function pick(c, tr) {
+		picked = c;
+		document.querySelectorAll('#chars tr').forEach((x) => x.classList.toggle('bg-primary/15', x === tr));
+		$('g-target').className = 'badge badge-primary font-bold';
+		$('g-target').textContent = c.name + ' · cấp ' + c.level;
+		$('g-go').disabled = false;
+		$('g-go').textContent = 'Cộng / trừ cho ' + c.name;
+		summary();
+	}
+	$('search').onsubmit = (e) => {
+		e.preventDefault();
+		search($('q').value.trim());
+	};
+	const gform = $('grant');
+	const KEYS = ['coins', 'diamonds', 'potions', 'exp', 'setLevel', 'talentPoints'];
+	const gval = () => {
+		const f = new FormData(gform), out = {};
+		KEYS.forEach((k) => {
+			const v = String(f.get(k) || '').replace(/[.\s,]/g, '');
+			if (v) out[k] = Number(v);
+		});
+		out.reason = String(f.get('reason') || '').trim();
+		return out;
+	};
+	const sumLines = (v) => {
+		const sign = (n) => (n > 0 ? '+' : '') + NUM.format(n);
+		const lines = [];
+		if (v.setLevel) lines.push('Đặt cấp ' + v.setLevel);
+		[['coins', 'xu'], ['diamonds', 'kim cương'], ['potions', 'bình'], ['exp', 'EXP'], ['talentPoints', 'điểm tiềm năng']].forEach(([k, n]) => v[k] && lines.push(sign(v[k]) + ' ' + n));
+		return lines;
+	};
+	function summary() {
+		const lines = sumLines(gval());
+		$('g-sum').classList.toggle('hidden', !picked || !lines.length);
+		$('g-sum').textContent = picked ? picked.name + ': ' + lines.join(' · ') : '';
+	}
+	gform.oninput = summary;
+	$('presets').onclick = (e) => {
+		const b = e.target.closest('[data-p]');
+		if (!b) return;
+		const p = JSON.parse(b.dataset.p);
+		if (!Object.keys(p).length) KEYS.forEach((k) => (gform.elements[k].value = ''));
+		for (const k in p) gform.elements[k].value = (Number(gform.elements[k].value) || 0) + p[k];
+		summary();
+	};
+	gform.onsubmit = async (e) => {
+		e.preventDefault();
+		showErr('g-err');
+		if (!picked) return;
+		const v = gval();
+		const lines = sumLines(v);
+		if (!lines.length) return showErr('g-err', 'Chưa nhập thay đổi nào');
+		if (!v.reason) return showErr('g-err', 'Ghi lý do (bắt buộc — lưu vào nhật ký)');
+		const ok = await confirmBox('Cộng / trừ cho ' + picked.name, [
+			h('p', null, 'Tài khoản: ', h('b', null, picked.account), picked.online ? h('span.badge.badge-success.badge-sm.ml-2', null, 'đang online') : null),
+			h('ul.list-disc.pl-5.my-2.font-semibold', null, lines.map((l) => h('li', null, l))),
+			h('p.text-base-content/60', null, 'Lý do: ' + v.reason),
+		], 'Xác nhận');
+		if (!ok) return;
+		$('g-go').classList.add('loading');
+		try {
+			const r = await api('POST', 'admin/grant', { characterId: picked.id, ...v });
+			toast(r.changes.length ? '✔ ' + r.character.name + ': ' + r.changes.map((c) => FIELD[c.field] + ' ' + NUM.format(c.from) + ' → ' + NUM.format(c.to)).join(' · ') : 'Không có gì thay đổi', r.changes.length ? 'success' : 'info');
+			KEYS.forEach((k) => (gform.elements[k].value = ''));
+			picked = r.character;
+			summary();
+			search($('q').value.trim());
+		} catch (err) {
+			showErr('g-err', err.message);
+		} finally {
+			$('g-go').classList.remove('loading');
+		}
+	};
+
+	// —— Góp ý ——
+	let feedback = [], fbSeen = 0;
+	async function loadFeedback() {
+		try {
+			feedback = await api('GET', 'admin/feedback?limit=500');
+		} catch (e) {
+			$('fb-list').replaceChildren(h('div.alert.alert-error', null, e.message));
+			return;
+		}
+		try { fbSeen = Number(localStorage.getItem('aether.admin.fbSeen')) || 0; } catch (e) {}
+		const fresh = feedback.filter((f) => f.id > fbSeen).length;
+		$('st-fb').textContent = feedback.length;
+		$('st-fb-new').textContent = fresh ? fresh + ' góp ý mới' : 'đã đọc hết';
+		$('fb-n').textContent = fresh;
+		$('fb-n').classList.toggle('hidden', !fresh);
+		$('fb-plat').length = 1;
+		[...new Set(feedback.map((f) => f.platform).filter(Boolean))].forEach((p) => $('fb-plat').append(h('option', { value: p }, p)));
+		renderFeedback();
+	}
+	function renderFeedback() {
+		const q = $('fb-q').value.trim().toLowerCase(), plat = $('fb-plat').value;
+		const list = feedback.filter((f) => (!plat || f.platform === plat) && (!q || [f.text, f.username, f.characterName].join(' ').toLowerCase().includes(q)));
+		$('fb-list').replaceChildren(...(list.length ? list : [null]).map((f) =>
+			!f
+				? h('div.text-center.py-10.text-base-content/50', null, feedback.length ? 'Không có góp ý khớp bộ lọc' : 'Chưa có góp ý nào')
+				: h('div.rounded-box.bg-base-200.p-4.border.' + (f.id > fbSeen ? 'border-warning/50' : 'border-white/5'), null,
+					h('div.flex.flex-wrap.items-center.gap-2.mb-2', null,
+						h('span.font-bold', null, f.characterName || f.username),
+						f.characterName ? h('span.text-xs.text-base-content/50', null, '@' + f.username) : null,
+						f.id > fbSeen ? h('span.badge.badge-warning.badge-sm.font-bold', null, 'MỚI') : null,
+						f.platform ? h('span.badge.badge-ghost.badge-sm', null, f.platform) : null,
+						f.build ? h('span.badge.badge-ghost.badge-sm', null, 'bản ' + f.build) : null,
+						h('span.ml-auto.text-xs.text-base-content/50', null, TIME.format(f.at)),
+					),
+					h('p.whitespace-pre-wrap.break-words.leading-relaxed', null, f.text),
+				),
+		));
+	}
+	$('fb-q').oninput = renderFeedback;
+	$('fb-plat').onchange = renderFeedback;
+	$('fb-reload').onclick = loadFeedback;
+
+	// —— Tin tức ——
+	let editing = null;
+	async function loadNews() {
+		try {
+			const list = await api('GET', 'news?limit=200');
+			$('st-news').textContent = list.length;
+			$('news-list').replaceChildren(...(list.length ? list : [null]).map((n) =>
+				!n
+					? h('div.text-center.py-10.text-base-content/50', null, 'Chưa có tin nào')
+					: h('div.rounded-box.bg-base-200.p-4.border.border-white/5', null,
+						h('div.flex.flex-wrap.items-center.gap-2', null,
+							h('span.badge.badge-sm.font-bold.' + (TAG[n.tag] || 'badge-ghost'), null, n.tag),
+							h('span.font-bold.flex-1.min-w-[10rem]', null, n.title),
+							h('span.text-xs.text-base-content/50', null, n.date + ' · ' + n.author),
+							h('button.btn.btn-xs.btn-ghost', { type: 'button', onclick: () => startEdit(n) }, 'Sửa'),
+							h('button.btn.btn-xs.btn-ghost.text-error', { type: 'button', onclick: async () => {
+								if (!(await confirmBox('Xoá tin?', '"' + n.title + '" sẽ biến mất khỏi trang chủ.', 'Xoá', true))) return;
+								try { await api('DELETE', 'admin/news/' + n.id); toast('Đã xoá tin', 'info'); loadNews(); } catch (e) { toast(e.message, 'error'); }
+							} }, 'Xoá'),
+						),
+						h('ul.list-disc.pl-5.mt-2.text-sm.text-base-content/80.space-y-1', null, n.body.map((l) => h('li', null, l))),
+					),
+			));
+		} catch (e) {
+			$('news-list').replaceChildren(h('div.alert.alert-error', null, e.message));
+		}
+	}
+	const nform = $('news-form');
+	function startEdit(n) {
+		editing = n;
+		nform.elements.tag.value = n.tag;
+		nform.elements.title.value = n.title;
+		nform.elements.body.value = n.body.join('\n');
+		$('nf-title').textContent = '✏️ Sửa tin';
+		$('nf-go').textContent = 'Lưu thay đổi';
+		$('nf-cancel').classList.remove('hidden');
+		nform.scrollIntoView({ behavior: 'smooth', block: 'center' });
+	}
+	function endEdit() {
+		editing = null;
+		nform.reset();
+		$('nf-title').textContent = '✏️ Đăng tin mới';
+		$('nf-go').textContent = 'Đăng tin';
+		$('nf-cancel').classList.add('hidden');
+	}
+	$('nf-cancel').onclick = endEdit;
+	nform.onsubmit = async (e) => {
+		e.preventDefault();
+		showErr('nf-err');
+		const v = { tag: nform.elements.tag.value, title: nform.elements.title.value, body: nform.elements.body.value };
+		try {
+			await (editing ? api('PUT', 'admin/news/' + editing.id, v) : api('POST', 'admin/news', v));
+			toast(editing ? 'Đã lưu tin' : 'Đã đăng tin lên trang chủ');
+			endEdit();
+			loadNews();
+		} catch (err) {
+			showErr('nf-err', err.message);
+		}
+	};
+
+	// —— Bài viết ——
+	let lastPost = null, postCount = 0;
+	async function loadPosts(reset) {
+		const box = $('posts-list');
+		if (reset) {
+			box.innerHTML = '';
+			lastPost = null;
+			postCount = 0;
+		}
+		try {
+			const list = await api('GET', 'posts?limit=50' + (lastPost ? '&before=' + lastPost : ''));
+			postCount += list.length;
+			$('st-posts').textContent = postCount + (list.length === 50 ? '+' : '');
+			if (reset && !list.length) box.append(h('div.text-center.py-10.text-base-content/50', null, 'Chưa có bài viết nào'));
+			list.forEach((p) => box.append(postCard(p)));
+			if (list.length) lastPost = list[list.length - 1].id;
+			$('posts-more').classList.toggle('hidden', list.length < 50);
+		} catch (e) {
+			box.append(h('div.alert.alert-error', null, e.message));
+		}
+	}
+	function postCard(p) {
+		const cm = h('div.hidden.mt-3.space-y-2.border-l-2.border-white/10.pl-4');
+		const card = h('div.rounded-box.bg-base-200.p-4.border.border-white/5', null,
+			h('div.flex.flex-wrap.items-center.gap-2', null,
+				h('span.font-bold.flex-1.min-w-[10rem]', null, p.title),
+				h('span.text-xs.text-base-content/50', null, p.author + ' · ' + TIME.format(p.at)),
+				h('button.btn.btn-xs.btn-ghost', { type: 'button', onclick: () => toggleComments(p, cm) }, '💬 ' + p.comments),
+				h('button.btn.btn-xs.btn-ghost.text-error', { type: 'button', onclick: async () => {
+					if (!(await confirmBox('Ẩn bài?', '"' + p.title + '" sẽ không còn hiện trên trang chủ (CSDL vẫn giữ).', 'Ẩn bài', true))) return;
+					try { await api('DELETE', 'posts/' + p.id); card.remove(); toast('Đã ẩn bài', 'info'); } catch (e) { toast(e.message, 'error'); }
+				} }, 'Ẩn bài'),
+			),
+			h('p.whitespace-pre-wrap.break-words.text-sm.text-base-content/80.mt-2', null, p.body),
+			cm,
+		);
+		return card;
+	}
+	async function toggleComments(p, cm) {
+		if (cm.classList.toggle('hidden')) return;
+		cm.replaceChildren(h('div.skeleton.h-8.w-full'));
+		try {
+			const d = await api('GET', 'posts/' + p.id);
+			cm.replaceChildren(...(d.comments.length ? d.comments : [null]).map((c) => {
+				if (!c) return h('p.text-sm.text-base-content/50', null, 'Chưa có bình luận');
+				const row = h('div.text-sm', null,
+					h('div.flex.items-center.gap-2', null, h('b', null, c.author), h('span.text-xs.text-base-content/50', null, TIME.format(c.at)),
+						h('button.btn.btn-xs.btn-ghost.text-error.ml-auto', { type: 'button', onclick: async () => {
+							if (!(await confirmBox('Ẩn bình luận?', c.body, 'Ẩn', true))) return;
+							try { await api('DELETE', 'comments/' + c.id); row.remove(); } catch (e) { toast(e.message, 'error'); }
+						} }, 'Ẩn')),
+					h('p.whitespace-pre-wrap.break-words.text-base-content/80', null, c.body),
+				);
+				return row;
+			}));
+		} catch (e) {
+			cm.replaceChildren(h('p.text-error.text-sm', null, e.message));
+		}
+	}
+	$('posts-reload').onclick = () => loadPosts(true);
+	$('posts-more').onclick = () => loadPosts(false);
+
+	// —— Nhật ký ——
+	async function loadLog() {
+		const tb = $('log');
+		tb.replaceChildren(h('tr', null, h('td', { colSpan: 7 }, h('div.skeleton.h-8.w-full'))));
+		try {
+			const list = await api('GET', 'admin/log?limit=200');
+			tb.replaceChildren(...(list.length ? list : [null]).map((l) =>
+				!l
+					? h('tr', null, h('td.text-center.py-8.text-base-content/50', { colSpan: 7 }, 'Chưa có lần cộng / trừ nào'))
+					: h('tr', null,
+						h('td.whitespace-nowrap.text-base-content/60', null, TIME.format(l.at)),
+						h('td', null, l.admin),
+						h('td.font-bold', null, l.characterName),
+						h('td.whitespace-nowrap', null, FIELD[l.field] || l.field),
+						h('td.text-right.tabular-nums', null, NUM.format(l.from)),
+						h('td.text-right.tabular-nums.' + (l.to >= l.from ? 'text-success' : 'text-error'), null, NUM.format(l.to)),
+						h('td.text-base-content/70', null, l.reason),
+					),
+			));
+		} catch (e) {
+			tb.replaceChildren(h('tr', null, h('td.text-error.text-center.py-6', { colSpan: 7 }, e.message)));
+		}
+	}
+	$('log-reload').onclick = loadLog;
+
+	boot().then(() => {
+		const tab = location.hash.slice(1);
+		if (TITLES[tab] && !$('app').classList.contains('hidden')) go(tab);
+	});
+})();
+</script>
+</body>
+</html>

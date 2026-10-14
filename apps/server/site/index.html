@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="vi">
+<html lang="vi" data-theme="aether">
 <head>
 <meta charset="utf-8">
 <script>
@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Aether Chronicle — Trang chủ</title>
 <meta name="description" content="Aether Chronicle — game nhập vai pixel online: 7 vùng đất, 5 nguyên tố, Kiếm sĩ và Pháp sư. Tải bản PC và Android.">
-<meta name="theme-color" content="#0d2a44">
+<meta name="theme-color" content="#0d1a2a">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Aether Chronicle — nhập vai pixel online">
 <meta property="og:description" content="7 vùng đất · 5 nguyên tố · Kiếm sĩ & Pháp sư. Tải miễn phí cho PC và Android.">
@@ -18,583 +18,406 @@
 <link rel="icon" href="site/img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;800;900&display=swap" rel="stylesheet">
-<style>
-:root {
-	--night: #0d2a44;
-	--night-2: #123a5c;
-	--sky: #2f9bd6;
-	--sky-dark: #176a9e;
-	--sun: #ffc93c;
-	--sun-dark: #e08a00;
-	--wood: #6b3f1d;
-	--wood-dark: #3f220c;
-	--paper: #fff6e0;
-	--paper-2: #fbeccb;
-	--paper-line: #e9d3a3;
-	--ink: #3a2410;
-	--ink-soft: #7a5a37;
-	--red: #d9381e;
-	--green: #2f9e44;
-	--violet: #7048e8;
-	--aether: #b48cff;
-	--fire: #ff6b3d;
-	--water: #3aa0ff;
-	--wind: #4fd18b;
-	--ice: #8fe3ff;
-	--earth: #c99a5b;
-}
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 64px; }
-body {
-	margin: 0;
-	overflow-x: hidden;
-	font-family: 'Be Vietnam Pro', system-ui, sans-serif;
-	color: var(--ink);
-	background: var(--paper);
-}
-a { color: inherit; }
-img.px { image-rendering: pixelated; }
-.wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
-
-/* —— Thanh menu: trong suốt trên banner, cuộn xuống thì đặc lại —— */
-.top {
-	position: fixed; inset: 0 0 auto; z-index: 50;
-	transition: background .25s, box-shadow .25s, border-color .25s;
-	border-bottom: 3px solid transparent;
-}
-.top.solid { background: linear-gradient(#ffb21e, #f08a00); border-color: var(--wood-dark); box-shadow: 0 3px 0 rgba(0,0,0,.25); }
-.top .in { max-width: 1120px; margin: 0 auto; display: flex; align-items: center; gap: 18px; padding: 10px 16px; }
-.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-.logo img { width: 30px; }
-.logo b { font-weight: 900; font-size: 19px; letter-spacing: .5px; color: #fff; text-shadow: 2px 2px 0 var(--wood-dark), -1px -1px 0 var(--wood-dark), 1px -1px 0 var(--wood-dark), -1px 1px 0 var(--wood-dark); }
-.nav { display: flex; gap: 2px; margin-left: auto; align-items: center; }
-.nav a { text-decoration: none; font-weight: 800; font-size: 14px; color: #fff; padding: 8px 12px; border-radius: 8px; text-shadow: 0 1px 3px rgba(0,0,0,.6); }
-.top.solid .nav a { color: var(--wood-dark); text-shadow: none; }
-.nav a:hover { background: rgba(255,255,255,.22); }
-.nav a.cta { background: var(--sun); color: var(--wood-dark); text-shadow: none; border: 2px solid var(--wood-dark); box-shadow: 0 3px 0 var(--wood-dark); margin-left: 6px; }
-.top.solid .nav a.cta { background: #fff3c4; }
-.burger { display: none; margin-left: auto; background: none; border: 0; padding: 8px; cursor: pointer; }
-.burger span { display: block; width: 24px; height: 3px; margin: 4px 0; background: #fff; border-radius: 2px; box-shadow: 0 1px 2px rgba(0,0,0,.5); }
-.top.solid .burger span { background: var(--wood-dark); box-shadow: none; }
-
-/* —— Banner —— */
-.hero {
-	position: relative; overflow: hidden; min-height: min(92vh, 760px);
-	display: flex; align-items: center; background: var(--night); color: #fff;
-}
-.hero .bg {
-	position: absolute; inset: -4%; background: url('site/img/continent.png') center / cover no-repeat;
-	image-rendering: pixelated; animation: pan 46s ease-in-out infinite alternate; will-change: transform;
-}
-@keyframes pan { from { transform: scale(1.08) translate(-1.5%, -1%); } to { transform: scale(1.18) translate(1.5%, 1.5%); } }
-.hero::before {
-	content: ''; position: absolute; inset: 0; z-index: 1;
-	background:
-		radial-gradient(ellipse at 50% 42%, rgba(13,42,68,.15), rgba(13,42,68,.72) 70%),
-		linear-gradient(rgba(13,42,68,.45), rgba(13,42,68,.15) 30%, rgba(13,42,68,.9) 92%, var(--night));
-}
-#sparks { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
-.hero .in {
-	position: relative; z-index: 3; width: 100%; max-width: 1120px; margin: 0 auto; padding: 96px 16px 64px;
-	display: grid; grid-template-columns: 1fr auto 1fr; align-items: end; gap: 12px;
-}
-.hero .side { display: flex; justify-content: center; }
-.hero .side img { height: 250px; filter: drop-shadow(0 8px 0 rgba(0,0,0,.35)) drop-shadow(0 0 24px rgba(255,201,60,.25)); animation: bob 3.2s ease-in-out infinite; }
-.hero .side:last-child img { animation-delay: -1.6s; }
-@keyframes bob { 50% { transform: translateY(-10px); } }
-.hero .mid { text-align: center; min-width: 0; }
-.pill {
-	display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 99px;
-	background: rgba(8,24,40,.6); border: 1px solid rgba(255,255,255,.25); backdrop-filter: blur(6px);
-	font-size: 13px; font-weight: 700;
-}
-.title {
-	margin: 18px 0 0; font-weight: 900; font-size: clamp(42px, 8vw, 86px); line-height: .95; letter-spacing: 1px;
-	color: var(--sun);
-	text-shadow: 0 4px 0 var(--sun-dark), 0 8px 0 var(--wood-dark), 4px 4px 0 var(--wood-dark), -4px 4px 0 var(--wood-dark), 0 14px 26px rgba(0,0,0,.55);
-}
-.title .shine {
-	background: linear-gradient(100deg, #ffe48a 0%, #ffe48a 40%, #fff 50%, #ffe48a 60%, #ffe48a 100%) 0 0 / 250% 100%;
-	-webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-	animation: shine 5s linear infinite;
-}
-@keyframes shine { from { background-position: 150% 0; } to { background-position: -100% 0; } }
-.tagline { margin: 22px auto 0; max-width: 560px; font-size: 18px; font-weight: 600; line-height: 1.55; text-shadow: 0 2px 6px rgba(0,0,0,.7); }
-.dl { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 28px; }
-.btn {
-	display: inline-flex; align-items: center; gap: 12px; text-decoration: none; text-align: left;
-	padding: 12px 22px 12px 14px; border-radius: 14px; border: 3px solid var(--wood-dark);
-	font-weight: 900; color: var(--wood-dark); background: linear-gradient(#ffe27a, var(--sun) 55%, var(--sun-dark));
-	box-shadow: 0 5px 0 var(--wood-dark), 0 10px 18px rgba(0,0,0,.35); transition: transform .08s, filter .15s;
-	position: relative; overflow: hidden;
-}
-.btn::after {
-	content: ''; position: absolute; top: 0; bottom: 0; width: 40%; left: -60%;
-	background: linear-gradient(100deg, transparent, rgba(255,255,255,.55), transparent); transform: skewX(-20deg);
-}
-.btn:hover { transform: translateY(-2px); filter: brightness(1.05); }
-.btn:hover::after { animation: sweep .7s ease; }
-@keyframes sweep { to { left: 120%; } }
-.btn:active { transform: translateY(3px); box-shadow: 0 2px 0 var(--wood-dark); }
-.btn .ic { flex: none; width: 40px; height: 40px; border-radius: 10px; background: var(--wood-dark); color: var(--sun); display: grid; place-items: center; }
-.btn .ic svg { width: 22px; height: 22px; fill: currentColor; }
-.btn small { display: block; font-weight: 600; font-size: 12px; color: var(--wood); }
-.btn.android { background: linear-gradient(#b7f28a, #69c94a 55%, #3c9a2a); }
-.btn.android .ic { color: #b7f28a; }
-.btn.big { padding: 16px 28px 16px 16px; font-size: 18px; }
-.btn.big .ic { width: 48px; height: 48px; }
-.btn .rec { position: absolute; top: -1px; right: -1px; background: var(--red); color: #fff; font-size: 10px; font-weight: 900; padding: 2px 8px; border-radius: 0 10px 0 8px; display: none; }
-.btn.mine .rec { display: block; }
-.ver { margin-top: 16px; font-size: 13px; opacity: .85; }
-.scroll-hint { position: absolute; z-index: 3; left: 50%; bottom: 14px; transform: translateX(-50%); color: #fff; opacity: .7; font-size: 22px; animation: bob 1.8s ease-in-out infinite; text-decoration: none; }
-
-.dot { flex: none; width: 10px; height: 10px; border-radius: 50%; background: #aaa; }
-.dot.ok { background: #40c057; box-shadow: 0 0 0 0 rgba(64,192,87,.7); animation: ping 1.8s infinite; }
-.dot.bad { background: var(--red); }
-@keyframes ping { 70% { box-shadow: 0 0 0 9px rgba(64,192,87,0); } 100% { box-shadow: 0 0 0 0 rgba(64,192,87,0); } }
-
-/* —— Dải số liệu —— */
-.stats { position: relative; z-index: 4; margin-top: -38px; }
-.stats .row {
-	display: grid; grid-template-columns: repeat(4, 1fr);
-	background: linear-gradient(#7a4a24, var(--wood)); border: 3px solid var(--wood-dark); border-radius: 16px;
-	box-shadow: 0 6px 0 var(--wood-dark), 0 16px 30px rgba(0,0,0,.3); color: #fff;
-}
-.stat { text-align: center; padding: 16px 8px; border-left: 2px dashed rgba(255,255,255,.18); }
-.stat:first-child { border-left: 0; }
-.stat b { display: block; font-size: 34px; font-weight: 900; color: var(--sun); text-shadow: 0 3px 0 var(--wood-dark); line-height: 1.1; }
-.stat span { font-size: 13px; font-weight: 700; color: #f3dcb4; }
-
-/* —— Tiêu đề mục —— */
-section.block { padding: 64px 0 8px; }
-.sec-title { text-align: center; margin: 0 0 8px; font-weight: 900; font-size: 28px; color: var(--wood-dark); }
-.sec-title span { display: inline-block; background: var(--sun); padding: 4px 20px; border-radius: 10px; border: 3px solid var(--wood-dark); box-shadow: 0 4px 0 var(--wood-dark); }
-.sec-sub { text-align: center; margin: 16px auto 26px; max-width: 620px; color: var(--ink-soft); line-height: 1.6; }
-
-/* —— Tin tức + cột phải —— */
-.grid { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 22px; align-items: start; }
-.panel { background: #fff; border: 3px solid var(--wood); border-radius: 14px; box-shadow: 0 4px 0 var(--paper-line); overflow: hidden; }
-.panel + .panel { margin-top: 18px; }
-.panel h2 {
-	margin: 0; padding: 10px 16px; font-size: 17px; font-weight: 900; color: #fff;
-	background: linear-gradient(var(--sky), var(--sky-dark)); border-bottom: 3px solid var(--wood);
-	text-shadow: 1px 1px 0 rgba(0,0,0,.35);
-}
-.panel .body { padding: 14px 16px; }
-.tabs { display: flex; gap: 6px; padding: 10px 14px 0; flex-wrap: wrap; }
-.tabs button {
-	font: inherit; font-weight: 800; font-size: 13px; cursor: pointer; padding: 6px 12px; border-radius: 8px 8px 0 0;
-	border: 2px solid var(--paper-line); border-bottom: none; background: var(--paper); color: var(--ink-soft);
-}
-.tabs button.on { background: var(--sun); color: var(--wood-dark); border-color: var(--wood); }
-.news { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--paper-line); }
-.news > li { border-bottom: 1px dashed var(--paper-line); }
-.news .head { display: flex; align-items: center; gap: 10px; padding: 12px 16px; cursor: pointer; }
-.news .head:hover { background: #fffaf0; }
-.news .head::after { content: '▸'; flex: none; color: var(--ink-soft); transition: transform .2s; }
-.news li.open .head::after { transform: rotate(90deg); }
-.tag { flex: none; font-size: 12px; font-weight: 800; color: #fff; padding: 2px 8px; border-radius: 6px; }
-.tag.cap-nhat { background: var(--green); }
-.tag.thong-bao { background: var(--red); }
-.tag.su-kien { background: var(--violet); }
-.new { flex: none; font-size: 10px; font-weight: 900; color: var(--red); border: 2px solid var(--red); border-radius: 6px; padding: 0 5px; animation: blink 1.2s steps(2) infinite; }
-@keyframes blink { 50% { opacity: .35; } }
-.news .t { font-weight: 700; flex: 1; }
-.news .d { flex: none; font-size: 13px; color: var(--ink-soft); }
-.news .more { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .25s ease; }
-.news .more > div { overflow: hidden; }
-.news li.open .more { grid-template-rows: 1fr; }
-.news .more ul { margin: 0; padding: 0 16px 14px 36px; }
-.news .more li { padding: 3px 0; line-height: 1.55; }
-.news-foot { padding: 10px 16px; text-align: center; }
-.news-foot button { font: inherit; font-weight: 800; font-size: 13px; cursor: pointer; background: var(--paper); border: 2px solid var(--paper-line); color: var(--wood); border-radius: 8px; padding: 6px 14px; }
-
-.side .btn { width: 100%; margin-bottom: 12px; padding: 10px 14px; }
-.side .btn .ic { width: 34px; height: 34px; }
-.side .btn .ic svg { width: 18px; height: 18px; }
-.status { display: flex; align-items: center; gap: 10px; font-weight: 700; }
-.muted { color: var(--ink-soft); font-size: 13px; line-height: 1.55; }
-ol.steps { margin: 6px 0 0; padding-left: 20px; font-size: 14px; line-height: 1.6; }
-details.check { margin-top: 4px; font-size: 12px; color: var(--ink-soft); }
-details.check summary { cursor: pointer; font-weight: 700; }
-details.check code { display: block; word-break: break-all; font-size: 11px; background: var(--paper); border-radius: 6px; padding: 6px; margin-top: 4px; }
-.npc { display: flex; gap: 10px; align-items: flex-end; }
-.npc img { height: 74px; }
-.bubble { position: relative; background: var(--paper); border: 2px solid var(--paper-line); border-radius: 10px; padding: 8px 10px; font-size: 13px; line-height: 1.5; }
-
-/* —— Bản đồ thế giới —— */
-.world { background: var(--night); color: #fff; margin-top: 64px; padding: 64px 0; position: relative; }
-.world .sec-title { color: #fff; }
-.world .sec-sub { color: #b9cde0; }
-.map-wrap { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 20px; align-items: start; }
-.map {
-	position: relative; border: 4px solid var(--wood-dark); border-radius: 16px; overflow: hidden;
-	box-shadow: 0 0 0 3px var(--sun-dark), 0 18px 40px rgba(0,0,0,.5); aspect-ratio: 1376 / 768; background: #1d4e73;
-}
-.map img { display: block; width: 100%; height: 100%; }
-.pin {
-	position: absolute; transform: translate(-50%, -50%); width: 30px; height: 30px; padding: 0; cursor: pointer;
-	border-radius: 50%; border: 3px solid #fff; background: var(--c, var(--sun)); color: #fff;
-	font: 900 13px 'Be Vietnam Pro', sans-serif; display: grid; place-items: center;
-	box-shadow: 0 3px 0 rgba(0,0,0,.45), 0 0 0 0 var(--c); transition: transform .15s;
-}
-.pin::before { content: ''; position: absolute; inset: -8px; border-radius: 50%; border: 2px solid var(--c, var(--sun)); opacity: 0; animation: ring 2.4s infinite; }
-@keyframes ring { 0% { transform: scale(.6); opacity: .9; } 100% { transform: scale(1.5); opacity: 0; } }
-.pin:hover, .pin.on { transform: translate(-50%, -50%) scale(1.25); z-index: 2; }
-.pin.locked { background: #3b3f52; border-color: #9aa3b8; }
-.pin.locked::before { display: none; }
-.pin .lb {
-	position: absolute; bottom: calc(100% + 6px); left: 50%; transform: translateX(-50%); white-space: nowrap;
-	background: rgba(8,24,40,.85); padding: 3px 8px; border-radius: 6px; font-size: 12px; font-weight: 700;
-	opacity: 0; pointer-events: none; transition: opacity .15s;
-}
-.pin:hover .lb, .pin.on .lb { opacity: 1; }
-.region {
-	background: linear-gradient(#173f63, #0f2f4c); border: 3px solid #2c5e88; border-radius: 16px; overflow: hidden;
-	box-shadow: 0 10px 24px rgba(0,0,0,.35);
-}
-.region .shot { aspect-ratio: 16 / 9; background: #0a2036 center / cover no-repeat; position: relative; }
-.region .shot .lock { position: absolute; inset: 0; display: grid; place-items: center; font-size: 13px; font-weight: 800; color: #c9d4e6; background: rgba(10,26,42,.62); backdrop-filter: grayscale(1); text-shadow: 0 1px 3px #000; font-size: 15px; }
-.region .rb { padding: 14px 16px 16px; }
-.region .no { font-size: 12px; font-weight: 800; color: var(--sun); letter-spacing: .5px; }
-.region h3 { margin: 2px 0 8px; font-size: 20px; font-weight: 900; }
-.region .meta { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
-.chip { font-size: 12px; font-weight: 800; padding: 3px 9px; border-radius: 99px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18); }
-.region p { margin: 0; font-size: 14px; line-height: 1.6; color: #d4e2ef; }
-.region .home { margin-top: 10px; font-size: 13px; color: #b9cde0; }
-.region .home b { color: #fff; }
-
-/* —— Lớp nhân vật —— */
-.classes { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.cls {
-	position: relative; display: grid; grid-template-columns: 150px 1fr; gap: 14px; align-items: center;
-	border: 3px solid var(--wood); border-radius: 18px; padding: 18px; overflow: hidden;
-	box-shadow: 0 5px 0 var(--paper-line); transition: transform .2s;
-}
-.cls:hover { transform: translateY(-4px); }
-.cls.sword { background: radial-gradient(circle at 20% 60%, #ffe9b8, #fff 70%); }
-.cls.mage { background: radial-gradient(circle at 20% 60%, #e5dbff, #fff 70%); }
-.cls img { width: 100%; filter: drop-shadow(0 6px 0 rgba(0,0,0,.18)); transition: transform .25s; }
-.cls:hover img { transform: scale(1.06) translateY(-4px); }
-.cls h3 { margin: 0 0 4px; font-size: 22px; font-weight: 900; color: var(--wood-dark); }
-.cls .q { margin: 0 0 10px; font-style: italic; font-size: 14px; color: var(--ink-soft); }
-.cls ul { margin: 0; padding: 0; list-style: none; font-size: 14px; line-height: 1.5; }
-.cls li { padding: 3px 0 3px 22px; position: relative; }
-.cls li::before { content: '◆'; position: absolute; left: 2px; color: var(--sun-dark); font-size: 12px; top: 5px; }
-.cls.mage li::before { color: var(--violet); }
-
-/* —— Nguyên tố —— */
-.elems { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-top: 26px; }
-.el {
-	--c: var(--sun); text-align: center; background: #fff; border: 3px solid var(--c); border-radius: 14px; padding: 16px 8px 14px;
-	box-shadow: 0 4px 0 color-mix(in srgb, var(--c) 45%, var(--wood-dark)); transition: transform .2s, box-shadow .2s;
-}
-.el:hover { transform: translateY(-4px); box-shadow: 0 8px 0 color-mix(in srgb, var(--c) 45%, var(--wood-dark)), 0 0 26px color-mix(in srgb, var(--c) 55%, transparent); }
-.el .orb { width: 54px; height: 54px; margin: 0 auto 8px; border-radius: 50%; display: grid; place-items: center; font-size: 26px; background: radial-gradient(circle at 35% 30%, #fff, var(--c) 55%, color-mix(in srgb, var(--c) 60%, #000)); box-shadow: 0 0 18px color-mix(in srgb, var(--c) 60%, transparent); }
-.el b { display: block; font-size: 17px; font-weight: 900; color: var(--wood-dark); }
-.el span { font-size: 12px; color: var(--ink-soft); }
-
-/* —— Tính năng —— */
-.features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.feat { background: #fff; border: 3px solid var(--wood); border-radius: 14px; padding: 18px; box-shadow: 0 4px 0 var(--paper-line); transition: transform .2s; }
-.feat:hover { transform: translateY(-3px); }
-.feat .em { width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center; font-size: 24px; background: var(--paper-2); border: 2px solid var(--paper-line); }
-.feat h3 { margin: 10px 0 6px; font-size: 16px; font-weight: 900; color: var(--sky-dark); }
-.feat p { margin: 0; font-size: 14px; line-height: 1.6; color: var(--ink-soft); }
-
-/* —— Ảnh —— */
-.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-.gallery figure { margin: 0; border: 3px solid var(--wood); border-radius: 12px; overflow: hidden; background: #000; box-shadow: 0 4px 0 var(--paper-line); cursor: zoom-in; position: relative; }
-.gallery img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; transition: transform .4s; }
-.gallery figure:hover img { transform: scale(1.06); }
-.gallery figcaption { background: var(--wood); color: #fff; font-size: 13px; font-weight: 700; padding: 6px 10px; position: relative; }
-.lightbox { position: fixed; inset: 0; z-index: 100; background: rgba(5,14,24,.92); display: none; align-items: center; justify-content: center; padding: 16px; }
-.lightbox.on { display: flex; }
-.lightbox img { max-width: min(1200px, 100%); max-height: 82vh; border: 4px solid var(--wood-dark); border-radius: 12px; box-shadow: 0 0 0 3px var(--sun-dark); image-rendering: pixelated; }
-.lightbox .cap { position: absolute; left: 0; right: 0; bottom: 18px; text-align: center; color: #fff; font-weight: 700; }
-.lightbox button { position: absolute; background: rgba(255,255,255,.12); color: #fff; border: 0; width: 46px; height: 46px; border-radius: 50%; font-size: 22px; cursor: pointer; }
-.lightbox button:hover { background: rgba(255,255,255,.25); }
-.lightbox .x { top: 16px; right: 16px; }
-.lightbox .pv { left: 16px; top: 50%; transform: translateY(-50%); }
-.lightbox .nx { right: 16px; top: 50%; transform: translateY(-50%); }
-
-/* —— Kêu gọi cuối trang —— */
-.final { margin-top: 64px; background: linear-gradient(var(--sky), var(--sky-dark)); border-top: 5px solid var(--wood-dark); color: #fff; overflow: hidden; }
-.final .in { display: flex; align-items: center; gap: 28px; padding: 40px 16px; max-width: 1120px; margin: 0 auto; }
-.final img { height: 190px; flex: none; filter: drop-shadow(0 6px 0 rgba(0,0,0,.3)); animation: bob 3s ease-in-out infinite; }
-.final h2 { margin: 0 0 6px; font-size: 30px; font-weight: 900; text-shadow: 0 3px 0 var(--sky-dark), 0 4px 10px rgba(0,0,0,.3); }
-.final p { margin: 0 0 18px; font-size: 16px; line-height: 1.55; }
-.final .dl { justify-content: flex-start; margin: 0; }
-
-footer { background: var(--wood-dark); color: #f3dcb4; text-align: center; padding: 22px 16px; font-size: 13px; line-height: 1.7; }
-.totop { position: fixed; right: 16px; bottom: 16px; z-index: 40; width: 46px; height: 46px; border-radius: 12px; border: 3px solid var(--wood-dark); background: var(--sun); color: var(--wood-dark); font-size: 20px; font-weight: 900; box-shadow: 0 4px 0 var(--wood-dark); cursor: pointer; opacity: 0; pointer-events: none; transition: opacity .2s; }
-.totop.on { opacity: 1; pointer-events: auto; }
-
-/* —— Hiện dần khi cuộn tới —— */
-.reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
-.reveal.seen { opacity: 1; transform: none; }
-
-@media (max-width: 880px) {
-	.grid, .map-wrap { grid-template-columns: minmax(0, 1fr); }
-	.features, .gallery { grid-template-columns: 1fr 1fr; }
-	.classes { grid-template-columns: minmax(0, 1fr); }
-	.elems { grid-template-columns: repeat(3, 1fr); }
-	.hero .side { display: none; }
-	.hero .in { grid-template-columns: minmax(0, 1fr); }
-	.stats .row { grid-template-columns: 1fr 1fr; }
-	.stat:nth-child(3) { border-left: 0; }
-	.stat:nth-child(n+3) { border-top: 2px dashed rgba(255,255,255,.18); }
-	.pin { width: 24px; height: 24px; font-size: 11px; border-width: 2px; }
-	.pin .lb { display: none; }
-}
-@media (max-width: 700px) {
-	.nav {
-		position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0;
-		background: linear-gradient(#ffb21e, #f08a00); border-bottom: 3px solid var(--wood-dark); padding: 6px 12px 12px; display: none;
-	}
-	.nav.open { display: flex; }
-	.nav a, .top.solid .nav a { color: var(--wood-dark); text-shadow: none; padding: 12px; }
-	.nav a.cta { margin: 6px 0 0; text-align: center; }
-	.burger { display: block; }
-	.final .in { flex-direction: column; text-align: center; }
-	.final .dl { justify-content: center; }
-	.final img { height: 140px; }
-}
-@media (max-width: 560px) {
-	.features, .gallery { grid-template-columns: minmax(0, 1fr); }
-	.elems { grid-template-columns: 1fr 1fr; }
-	.el:last-child { grid-column: span 2; }
-	.cls { grid-template-columns: 96px 1fr; padding: 14px; }
-	.btn { width: 100%; }
-	.tagline { font-size: 15px; }
-	.news .head { flex-wrap: wrap; }
-	.news .t { flex-basis: 100%; order: 3; }
-	.stat b { font-size: 28px; }
-}
-@media (prefers-reduced-motion: reduce) {
-	*, *::before, *::after { animation: none !important; transition: none !important; }
-	.reveal { opacity: 1; transform: none; }
-	html { scroll-behavior: auto; }
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site/app.css">
 </head>
-<body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-	<symbol id="i-win" viewBox="0 0 24 24"><path d="M3 5.5 10.5 4.4v7.1H3zm0 13L10.5 19.6v-7H3zm8.5 1.2L21 21v-8.4h-9.5zm0-15.4v7.2H21V3z"/></symbol>
-	<symbol id="i-zip" viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6zm8 1.5V8h4.5zM9 4v2h2V4zm0 3v2h2V7zm0 3v2h2v-2zm-1 4v4h4v-4zm1.5 1.5h1v1h-1z"/></symbol>
-	<symbol id="i-and" viewBox="0 0 24 24"><path d="M7.2 8.5h9.6v8.2c0 .7-.5 1.2-1.2 1.2h-.9v2.6a1.2 1.2 0 0 1-2.4 0v-2.6h-.6v2.6a1.2 1.2 0 0 1-2.4 0v-2.6h-.9c-.7 0-1.2-.5-1.2-1.2zM5 8.6a1.2 1.2 0 0 1 2.4 0v5.1a1.2 1.2 0 0 1-2.4 0zm11.6 0a1.2 1.2 0 0 1 2.4 0v5.1a1.2 1.2 0 0 1-2.4 0zM8.3 3.3l.5-.3 1.1 1.8a5.4 5.4 0 0 1 4.2 0L15.2 3l.5.3-1.1 1.8A4.7 4.7 0 0 1 16.8 7.6H7.2a4.7 4.7 0 0 1 2.2-2.5zM10 5.6a.6.6 0 1 0 0 1.2.6.6 0 0 0 0-1.2zm4 0a.6.6 0 1 0 0 1.2.6.6 0 0 0 0-1.2z"/></symbol>
+<body class="bg-base-200 text-base-content antialiased overflow-x-hidden">
+<svg width="0" height="0" class="absolute" aria-hidden="true">
+	<symbol id="i-win" viewBox="0 0 24 24"><path fill="currentColor" d="M3 5.5 10.5 4.4v7.1H3zm0 13L10.5 19.6v-7H3zm8.5 1.2L21 21v-8.4h-9.5zm0-15.4v7.2H21V3z"/></symbol>
+	<symbol id="i-zip" viewBox="0 0 24 24"><path fill="currentColor" d="M6 2h9l5 5v15H6zm8 1.5V8h4.5zM9 4v2h2V4zm0 3v2h2V7zm0 3v2h2v-2zm-1 4v4h4v-4zm1.5 1.5h1v1h-1z"/></symbol>
+	<symbol id="i-and" viewBox="0 0 24 24"><path fill="currentColor" d="M7.2 8.5h9.6v8.2c0 .7-.5 1.2-1.2 1.2h-.9v2.6a1.2 1.2 0 0 1-2.4 0v-2.6h-.6v2.6a1.2 1.2 0 0 1-2.4 0v-2.6h-.9c-.7 0-1.2-.5-1.2-1.2zM5 8.6a1.2 1.2 0 0 1 2.4 0v5.1a1.2 1.2 0 0 1-2.4 0zm11.6 0a1.2 1.2 0 0 1 2.4 0v5.1a1.2 1.2 0 0 1-2.4 0zM8.3 3.3l.5-.3 1.1 1.8a5.4 5.4 0 0 1 4.2 0L15.2 3l.5.3-1.1 1.8A4.7 4.7 0 0 1 16.8 7.6H7.2a4.7 4.7 0 0 1 2.2-2.5zM10 5.6a.6.6 0 1 0 0 1.2.6.6 0 0 0 0-1.2zm4 0a.6.6 0 1 0 0 1.2.6.6 0 0 0 0-1.2z"/></symbol>
 </svg>
 
-<header class="top" id="top">
-	<div class="in">
-		<a class="logo" href="#"><img class="px" src="site/img/favicon.png" alt=""><b>AETHER CHRONICLE</b></a>
-		<button class="burger" id="burger" aria-label="Mở menu"><span></span><span></span><span></span></button>
-		<nav class="nav" id="nav">
-			<a href="#tin-tuc">Tin tức</a>
-			<a href="#the-gioi">Thế giới</a>
-			<a href="#lop">Lớp nhân vật</a>
-			<a href="#gioi-thieu">Giới thiệu</a>
-			<a href="#hinh-anh">Hình ảnh</a>
-			<a class="cta" href="#tai-game">⬇ Tải game</a>
+<!-- ———— Thanh menu ———— -->
+<header id="top" class="fixed inset-x-0 top-0 z-40 transition-colors duration-300">
+	<div class="navbar max-w-6xl mx-auto px-4 gap-2">
+		<div class="flex-1">
+			<a href="#" class="flex items-center gap-2 font-black tracking-wide text-base sm:text-lg whitespace-nowrap">
+				<img class="px w-7 sm:w-8" src="site/img/favicon.png" alt=""><span>AETHER <span class="text-primary">CHRONICLE</span></span>
+			</a>
+		</div>
+		<nav class="hidden lg:flex">
+			<ul class="menu menu-horizontal px-1 font-semibold">
+				<li><a href="#tin-tuc">Tin tức</a></li>
+				<li><a href="#cong-dong">Cộng đồng</a></li>
+				<li><a href="#the-gioi">Thế giới</a></li>
+				<li><a href="#lop">Lớp nhân vật</a></li>
+				<li><a href="#hinh-anh">Hình ảnh</a></li>
+			</ul>
 		</nav>
+		<a href="#tai-game" class="btn btn-primary btn-sm hidden sm:inline-flex">⬇ Tải game</a>
+		<!-- Tài khoản -->
+		<button id="login-btn" class="btn btn-ghost btn-sm border border-white/20" type="button" data-act="login">Đăng nhập</button>
+		<div id="acct" class="dropdown dropdown-end hidden">
+			<div tabindex="0" role="button" class="btn btn-ghost btn-sm gap-2 border border-white/20 normal-case">
+				<span id="acct-av" class="w-6 h-6 rounded-md grid place-items-center text-xs font-black text-white"></span>
+				<span id="acct-name" class="max-w-[8rem] truncate"></span>
+			</div>
+			<ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-50 mt-3 w-56 p-2 shadow-2xl border border-white/10">
+				<li class="menu-title">Tài khoản</li>
+				<li><button type="button" data-act="feedback">💬 Gửi góp ý</button></li>
+				<li><button type="button" data-act="post">✏️ Viết bài</button></li>
+				<li id="acct-admin" class="hidden"><a href="admin">🛡️ Trang quản trị</a></li>
+				<li><button type="button" data-act="logout" class="text-error">↩ Đăng xuất</button></li>
+			</ul>
+		</div>
+		<div class="dropdown dropdown-end lg:hidden">
+			<div tabindex="0" role="button" class="btn btn-ghost btn-sm btn-square" aria-label="Mở menu">
+				<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+			</div>
+			<ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow-2xl border border-white/10 font-semibold">
+				<li><a href="#tin-tuc">Tin tức</a></li>
+				<li><a href="#cong-dong">Cộng đồng</a></li>
+				<li><a href="#the-gioi">Thế giới</a></li>
+				<li><a href="#lop">Lớp nhân vật</a></li>
+				<li><a href="#hinh-anh">Hình ảnh</a></li>
+				<li><a href="#tai-game" class="text-primary">⬇ Tải game</a></li>
+			</ul>
+		</div>
 	</div>
 </header>
 
-<section class="hero">
-	<div class="bg"></div>
-	<canvas id="sparks"></canvas>
-	<div class="in">
-		<div class="side"><img class="px" src="site/img/hero-m.png" alt="Kiếm sĩ"></div>
-		<div class="mid">
-			<span class="pill"><span class="dot" id="dot0"></span><span id="srv0">Đang kiểm tra máy chủ…</span></span>
-			<h1 class="title"><span class="shine">AETHER</span><br><span class="shine">CHRONICLE</span></h1>
-			<p class="tagline">Lớn lên ở thung lũng Thistlewood, cầm kiếm của cha hoặc trượng của mẹ, rồi đi qua 7 vùng đất để tìm sức mạnh 5 nguyên tố.</p>
-			<div class="dl" id="dl-hero">
-				<a class="btn big" data-os="windows" href="api/client/latest/windows"><span class="rec">HỢP MÁY BẠN</span><span class="ic"><svg><use href="#i-win"/></svg></span><span>TẢI CHO PC<small data-size="windows">Windows · bộ cài</small></span></a>
-				<a class="btn big android" data-os="android" href="api/client/latest/android"><span class="rec">HỢP MÁY BẠN</span><span class="ic"><svg><use href="#i-and"/></svg></span><span>TẢI CHO ANDROID<small data-size="android">file APK</small></span></a>
+<!-- ———— Banner ———— -->
+<section class="relative overflow-hidden min-h-[min(92vh,780px)] flex items-center bg-base-300">
+	<div class="absolute -inset-[4%] bg-cover bg-center px anim-pan" style="background-image:url('site/img/continent.png')"></div>
+	<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_40%,rgba(8,18,30,.2),rgba(8,18,30,.8)_70%)]"></div>
+	<div class="absolute inset-0 bg-gradient-to-b from-base-300/60 via-transparent to-base-200"></div>
+	<canvas id="sparks" class="absolute inset-0 w-full h-full pointer-events-none"></canvas>
+	<div class="relative w-full max-w-6xl mx-auto px-4 pt-28 pb-24 grid lg:grid-cols-[1fr_auto_1fr] items-end gap-4">
+		<div class="hidden lg:flex justify-center"><img class="px h-64 anim-bob drop-shadow-[0_8px_0_rgba(0,0,0,.35)]" src="site/img/hero-m.png" alt="Kiếm sĩ"></div>
+		<div class="text-center min-w-0">
+			<div class="badge badge-lg glass border-white/15 gap-2 font-semibold py-3.5">
+				<span id="dot0" class="inline-block w-2.5 h-2.5 rounded-full bg-base-content/40"></span><span id="srv0">Đang kiểm tra máy chủ…</span>
 			</div>
-			<div class="ver" id="ver">Miễn phí · Bản beta</div>
+			<h1 class="mt-5 font-black leading-[.95] tracking-wide text-[clamp(44px,8.5vw,92px)]"><span class="gold-text">AETHER<br>CHRONICLE</span></h1>
+			<p class="mt-6 mx-auto max-w-xl text-lg font-medium text-base-content/90 [text-shadow:0_2px_8px_rgba(0,0,0,.8)]">
+				Lớn lên ở thung lũng Thistlewood, cầm kiếm của cha hoặc trượng của mẹ, rồi đi qua 7 vùng đất để tìm sức mạnh 5 nguyên tố.
+			</p>
+			<div class="dl mt-8 flex flex-wrap justify-center gap-3">
+				<a class="btn btn-primary btn-lg gap-3 shadow-lg shadow-primary/30" data-os="windows" href="api/client/latest/windows">
+					<svg class="w-6 h-6"><use href="#i-win"/></svg>
+					<span class="text-left leading-tight">Tải cho PC<br><small class="font-medium opacity-75" data-size="windows">Windows · bộ cài</small></span>
+				</a>
+				<a class="btn btn-success btn-lg gap-3 shadow-lg shadow-success/30" data-os="android" href="api/client/latest/android">
+					<svg class="w-6 h-6"><use href="#i-and"/></svg>
+					<span class="text-left leading-tight">Tải cho Android<br><small class="font-medium opacity-75" data-size="android">file APK</small></span>
+				</a>
+			</div>
+			<p id="ver" class="mt-4 text-sm text-base-content/70">Miễn phí · Bản beta</p>
 		</div>
-		<div class="side"><img class="px" src="site/img/hero-f.png" alt="Pháp sư"></div>
+		<div class="hidden lg:flex justify-center"><img class="px h-64 anim-bob [animation-delay:-1.6s] drop-shadow-[0_8px_0_rgba(0,0,0,.35)]" src="site/img/hero-f.png" alt="Pháp sư"></div>
 	</div>
-	<a class="scroll-hint" href="#tin-tuc" aria-label="Cuộn xuống">⌄</a>
 </section>
 
-<div class="stats wrap">
-	<div class="row">
-		<div class="stat"><b data-count="7">7</b><span>vùng đất đã mở</span></div>
-		<div class="stat"><b data-count="80" data-plus>80+</b><span>map để khám phá</span></div>
-		<div class="stat"><b data-count="5">5</b><span>hệ nguyên tố</span></div>
-		<div class="stat"><b data-count="2">2</b><span>lớp nhân vật</span></div>
+<!-- ———— Số liệu ———— -->
+<div class="relative z-10 max-w-6xl mx-auto px-4 -mt-14">
+	<div class="stats grid grid-flow-row grid-cols-2 sm:grid-cols-4 w-full bg-base-100 border border-white/10 shadow-2xl">
+		<div class="stat place-items-center"><div class="stat-value text-primary" data-count="7">7</div><div class="stat-desc font-semibold">vùng đất đã mở</div></div>
+		<div class="stat place-items-center"><div class="stat-value text-primary" data-count="80" data-plus>80+</div><div class="stat-desc font-semibold">map để khám phá</div></div>
+		<div class="stat place-items-center"><div class="stat-value text-primary" data-count="5">5</div><div class="stat-desc font-semibold">hệ nguyên tố</div></div>
+		<div class="stat place-items-center"><div class="stat-value text-primary" data-count="2">2</div><div class="stat-desc font-semibold">lớp nhân vật</div></div>
 	</div>
 </div>
 
 <main>
-	<section class="block wrap" id="tin-tuc">
-		<div class="grid">
-			<section class="panel reveal">
-				<h2>📜 Tin tức · Cập nhật</h2>
-				<div class="tabs" id="tabs">
-					<button class="on" data-f="">Tất cả</button>
-					<button data-f="Cập nhật">Cập nhật</button>
-					<button data-f="Thông báo">Thông báo</button>
-					<button data-f="Sự kiện">Sự kiện</button>
+	<!-- ———— Tin tức + tải game ———— -->
+	<section id="tin-tuc" class="max-w-6xl mx-auto px-4 pt-16 scroll-mt-20">
+		<div class="grid lg:grid-cols-[minmax(0,1fr)_340px] gap-6 items-start">
+			<div class="card bg-base-100 border border-white/10 shadow-xl reveal">
+				<div class="card-body p-5 sm:p-6">
+					<div class="flex flex-wrap items-center gap-3">
+						<h2 class="card-title text-2xl font-black">📜 Tin tức</h2>
+						<div role="tablist" id="tabs" class="tabs tabs-boxed tabs-sm ml-auto bg-base-200">
+							<button role="tab" class="tab tab-active" data-f="">Tất cả</button>
+							<button role="tab" class="tab" data-f="Cập nhật">Cập nhật</button>
+							<button role="tab" class="tab" data-f="Thông báo">Thông báo</button>
+							<button role="tab" class="tab" data-f="Sự kiện">Sự kiện</button>
+						</div>
+					</div>
+					<div id="news" class="mt-3 space-y-2"><div class="skeleton h-14 w-full"></div><div class="skeleton h-14 w-full"></div><div class="skeleton h-14 w-full"></div></div>
+					<div id="news-foot" class="text-center mt-2" hidden><button id="news-more" class="btn btn-ghost btn-sm">Xem tin cũ hơn</button></div>
 				</div>
-				<ul class="news" id="news"><li><div class="head"><span class="t muted">Đang tải tin…</span></div></li></ul>
-				<div class="news-foot" id="news-foot" hidden><button id="news-more">Xem tin cũ hơn</button></div>
-			</section>
+			</div>
 
-			<aside class="side reveal" id="tai-game">
-				<section class="panel">
-					<h2>⬇ Tải game</h2>
-					<div class="body">
-						<a class="btn" data-os="windows" href="api/client/latest/windows"><span class="rec">HỢP MÁY BẠN</span><span class="ic"><svg><use href="#i-win"/></svg></span><span>PC · Bộ cài exe<small data-size="windows">Windows 10 / 11</small></span></a>
-						<a class="btn" href="api/client/latest/windows-zip"><span class="ic"><svg><use href="#i-zip"/></svg></span><span>PC · Gói zip<small data-size="zip">khi Windows chặn file exe</small></span></a>
-						<a class="btn android" data-os="android" href="api/client/latest/android"><span class="rec">HỢP MÁY BẠN</span><span class="ic"><svg><use href="#i-and"/></svg></span><span>Android · APK<small data-size="android">Android 7.1 trở lên</small></span></a>
-						<p class="muted" style="margin:0">Đã cài rồi thì chỉ cần mở game — game tự cập nhật lên bản mới nhất.</p>
-						<details class="check" id="sha" hidden><summary>Mã kiểm tra file (SHA-256)</summary><div id="sha-list"></div></details>
+			<aside id="tai-game" class="space-y-5 scroll-mt-20 reveal">
+				<div class="card bg-base-100 border border-white/10 shadow-xl">
+					<div class="card-body p-5">
+						<h2 class="card-title font-black">⬇ Tải game</h2>
+						<div class="dl flex flex-col gap-2.5 mt-1">
+							<a class="btn btn-primary justify-start h-auto py-2.5 gap-3" data-os="windows" href="api/client/latest/windows"><svg class="w-5 h-5 shrink-0"><use href="#i-win"/></svg><span class="text-left leading-tight">PC · Bộ cài exe<br><small class="font-medium opacity-75" data-size="windows">Windows 10 / 11</small></span></a>
+							<a class="btn btn-outline btn-primary justify-start h-auto py-2.5 gap-3" href="api/client/latest/windows-zip"><svg class="w-5 h-5 shrink-0"><use href="#i-zip"/></svg><span class="text-left leading-tight">PC · Gói zip<br><small class="font-medium opacity-75" data-size="zip">khi Windows chặn file exe</small></span></a>
+							<a class="btn btn-success justify-start h-auto py-2.5 gap-3" data-os="android" href="api/client/latest/android"><svg class="w-5 h-5 shrink-0"><use href="#i-and"/></svg><span class="text-left leading-tight">Android · APK<br><small class="font-medium opacity-75" data-size="android">Android 7.1 trở lên</small></span></a>
+						</div>
+						<p class="text-sm text-base-content/60 mt-1">Đã cài rồi thì chỉ cần mở game — game tự cập nhật lên bản mới nhất.</p>
+						<div id="sha" class="collapse collapse-arrow bg-base-200 mt-1" hidden>
+							<input type="checkbox" aria-label="Mã kiểm tra file">
+							<div class="collapse-title text-sm font-semibold min-h-0 py-2.5">Mã kiểm tra file (SHA-256)</div>
+							<div class="collapse-content text-xs break-all space-y-2" id="sha-list"></div>
+						</div>
 					</div>
-				</section>
-				<section class="panel">
-					<h2>🖥 Máy chủ</h2>
-					<div class="body">
-						<div class="status"><span class="dot" id="dot"></span><span id="srv">Đang kiểm tra…</span></div>
-						<p class="muted" id="notes" style="margin:10px 0 0"></p>
+				</div>
+
+				<div class="card bg-base-100 border border-white/10 shadow-xl">
+					<div class="card-body p-5">
+						<div class="flex items-center gap-3">
+							<span id="dot" class="inline-block w-3 h-3 rounded-full bg-base-content/40"></span>
+							<h2 class="font-black text-lg" id="srv">Đang kiểm tra máy chủ…</h2>
+						</div>
+						<p class="text-sm text-base-content/70" id="notes"></p>
 					</div>
-				</section>
-				<section class="panel" id="huong-dan">
-					<h2>❓ Hướng dẫn cài</h2>
-					<div class="body">
-						<b>Máy tính (Windows)</b>
-						<ol class="steps">
-							<li>Tải <b>bộ cài exe</b>, chạy rồi chọn thư mục cài.</li>
-							<li>Windows hỏi "Windows protected your PC": bấm <b>More info → Run anyway</b>.</li>
-							<li>Bị chặn hẳn thì tải <b>gói zip</b>, giải nén, chạy <b>Aether.exe</b>.</li>
-						</ol>
-						<br>
-						<b>Điện thoại (Android)</b>
-						<ol class="steps">
-							<li>Tải file APK, mở file vừa tải.</li>
-							<li>Máy hỏi thì cho phép <b>cài ứng dụng từ nguồn này</b>, rồi bấm Cài đặt.</li>
-						</ol>
+				</div>
+
+				<div class="card bg-base-100 border border-white/10 shadow-xl">
+					<div class="card-body p-5 gap-2">
+						<h2 class="card-title font-black">❓ Hướng dẫn cài</h2>
+						<div class="collapse collapse-arrow bg-base-200">
+							<input type="radio" name="guide" checked aria-label="Máy tính">
+							<div class="collapse-title font-semibold">🖥️ Máy tính (Windows)</div>
+							<div class="collapse-content text-sm">
+								<ul class="steps steps-vertical">
+									<li class="step step-primary text-left"><span class="text-left">Tải <b>bộ cài exe</b>, chạy rồi chọn thư mục cài.</span></li>
+									<li class="step step-primary text-left"><span class="text-left">Windows hỏi "Windows protected your PC": bấm <b>More info → Run anyway</b>.</span></li>
+									<li class="step step-primary text-left"><span class="text-left">Bị chặn hẳn thì tải <b>gói zip</b>, giải nén, chạy <b>Aether.exe</b>.</span></li>
+								</ul>
+							</div>
+						</div>
+						<div class="collapse collapse-arrow bg-base-200">
+							<input type="radio" name="guide" aria-label="Điện thoại">
+							<div class="collapse-title font-semibold">📱 Điện thoại (Android)</div>
+							<div class="collapse-content text-sm">
+								<ul class="steps steps-vertical">
+									<li class="step step-success text-left"><span class="text-left">Tải file APK, mở file vừa tải.</span></li>
+									<li class="step step-success text-left"><span class="text-left">Máy hỏi thì cho phép <b>cài ứng dụng từ nguồn này</b>, rồi bấm Cài đặt.</span></li>
+								</ul>
+							</div>
+						</div>
 					</div>
-				</section>
-				<section class="panel">
-					<h2>💬 Góp ý</h2>
-					<div class="body npc">
-						<img class="px" src="site/img/ysolde.png" alt="Bà Ysolde">
-						<div class="bubble">Gặp lỗi hay muốn góp ý? Trong game mở <b>Cài đặt (phím O) → Góp ý</b>, lời của cháu tới thẳng người làm game.</div>
+				</div>
+
+				<div class="card bg-base-100 border border-white/10 shadow-xl">
+					<div class="card-body p-5">
+						<div class="chat chat-start">
+							<div class="chat-image avatar"><div class="w-14 rounded-xl bg-base-200 p-1"><img class="px" src="site/img/ysolde.png" alt="Bà Ysolde"></div></div>
+							<div class="chat-header font-bold mb-1">Bà Ysolde</div>
+							<div class="chat-bubble text-sm">Gặp lỗi hay muốn góp ý? Gửi ngay ở đây, lời của cháu tới thẳng người làm game.</div>
+						</div>
+						<button class="btn btn-primary btn-outline mt-2" type="button" data-act="feedback">💬 Gửi góp ý</button>
 					</div>
-				</section>
+				</div>
 			</aside>
 		</div>
 	</section>
 
-	<section class="world" id="the-gioi">
-		<div class="wrap">
-			<h2 class="sec-title reveal"><span>Lục địa Aether</span></h2>
-			<p class="sec-sub reveal">Bấm vào từng vùng trên bản đồ. 7 vùng đã mở, 3 vùng cuối đang được xây.</p>
-			<div class="map-wrap reveal">
-				<div class="map" id="map"><img class="px" src="site/img/continent.png" alt="Bản đồ lục địa Aether" loading="lazy"></div>
-				<article class="region" id="region" aria-live="polite"></article>
+	<!-- ———— Cộng đồng ———— -->
+	<section id="cong-dong" class="max-w-6xl mx-auto px-4 pt-20 scroll-mt-20">
+		<div class="text-center reveal">
+			<div class="badge badge-primary badge-outline font-bold mb-3">CỘNG ĐỒNG</div>
+			<h2 class="text-3xl sm:text-4xl font-black">Bảng tin người chơi</h2>
+			<p class="mt-3 text-base-content/70">Tìm tổ đội, hỏi đường, khoe đồ — đăng bằng tài khoản game của bạn.</p>
+		</div>
+		<div class="card bg-base-100 border border-white/10 shadow-xl mt-8 reveal">
+			<div class="card-body p-0">
+				<div class="flex flex-wrap items-center gap-3 p-5 border-b border-white/10">
+					<p id="board-who" class="flex-1 min-w-[12rem] text-base-content/70">Đăng nhập bằng tài khoản game để viết bài và bình luận.</p>
+					<button class="btn btn-primary btn-sm" type="button" data-act="post">✏️ Viết bài</button>
+				</div>
+				<div id="posts" class="divide-y divide-white/5"><div class="p-5 space-y-3"><div class="skeleton h-12 w-full"></div><div class="skeleton h-12 w-full"></div></div></div>
+				<div id="posts-foot" class="text-center p-3 border-t border-white/5" hidden><button id="posts-more" class="btn btn-ghost btn-sm">Xem bài cũ hơn</button></div>
 			</div>
 		</div>
 	</section>
 
-	<section class="block wrap" id="lop">
-		<h2 class="sec-title reveal"><span>Chọn con đường</span></h2>
-		<p class="sec-sub reveal">Năm 16 tuổi, Lior chọn theo kiếm của cha hay phép của mẹ. Lỡ chọn rồi vẫn tẩy điểm đổi lớp được.</p>
-		<div class="classes">
-			<article class="cls sword reveal">
-				<img class="px" src="site/img/hero-m.png" alt="Kiếm sĩ">
-				<div>
-					<h3>⚔ Kiếm sĩ</h3>
-					<p class="q">"Một nhát chém đúng lúc hơn trăm câu thần chú."</p>
-					<ul>
-						<li>3 lưu phái: Kiếm Thần tấn công, Thuỷ Thần phản đòn, Bắc Thần lướt nhanh</li>
-						<li>Bọc Nguyên Tố lên lưỡi kiếm</li>
-						<li>Áp sát, lướt né và phản đòn</li>
+	<!-- ———— Bản đồ lục địa ———— -->
+	<section id="the-gioi" class="mt-24 py-20 bg-base-300 scroll-mt-16 relative overflow-hidden">
+		<div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent"></div>
+		<div class="max-w-6xl mx-auto px-4">
+			<div class="text-center reveal">
+				<div class="badge badge-primary badge-outline font-bold mb-3">THẾ GIỚI</div>
+				<h2 class="text-3xl sm:text-4xl font-black">Lục địa Aether</h2>
+				<p class="mt-3 text-base-content/70">Bấm vào từng vùng trên bản đồ. 7 vùng đã mở, 3 vùng cuối đang được xây.</p>
+			</div>
+			<div class="mt-10 grid lg:grid-cols-[minmax(0,1fr)_320px] gap-6 items-start reveal">
+				<div id="map" class="relative rounded-2xl overflow-hidden ring-glow aspect-[1376/768] bg-[#1d4e73]">
+					<img class="px block w-full h-full" src="site/img/continent.png" alt="Bản đồ lục địa Aether" loading="lazy">
+				</div>
+				<article id="region" class="card bg-base-100 border-2 shadow-xl overflow-hidden" aria-live="polite"></article>
+			</div>
+		</div>
+	</section>
+
+	<!-- ———— Lớp nhân vật + nguyên tố ———— -->
+	<section id="lop" class="max-w-6xl mx-auto px-4 pt-20 scroll-mt-20">
+		<div class="text-center reveal">
+			<div class="badge badge-primary badge-outline font-bold mb-3">LỚP NHÂN VẬT</div>
+			<h2 class="text-3xl sm:text-4xl font-black">Chọn con đường</h2>
+			<p class="mt-3 text-base-content/70">Năm 16 tuổi, Lior chọn theo kiếm của cha hay phép của mẹ. Lỡ chọn rồi vẫn tẩy điểm đổi lớp được.</p>
+		</div>
+		<div class="mt-10 grid md:grid-cols-2 gap-6">
+			<article class="card sm:card-side bg-gradient-to-br from-amber-500/15 to-base-100 border border-white/10 card-hover reveal">
+				<figure class="p-6 sm:w-48 shrink-0"><img class="px h-48 drop-shadow-[0_6px_0_rgba(0,0,0,.3)]" src="site/img/hero-m.png" alt="Kiếm sĩ"></figure>
+				<div class="card-body">
+					<h3 class="card-title text-2xl font-black">⚔️ Kiếm sĩ</h3>
+					<p class="italic text-base-content/60 text-sm">"Một nhát chém đúng lúc hơn trăm câu thần chú."</p>
+					<ul class="space-y-1.5 text-sm mt-1">
+						<li>◆ 3 lưu phái: Kiếm Thần tấn công, Thuỷ Thần phản đòn, Bắc Thần lướt nhanh</li>
+						<li>◆ Bọc Nguyên Tố lên lưỡi kiếm</li>
+						<li>◆ Áp sát, lướt né và phản đòn</li>
 					</ul>
 				</div>
 			</article>
-			<article class="cls mage reveal">
-				<img class="px" src="site/img/hero-f.png" alt="Pháp sư">
-				<div>
-					<h3>✦ Pháp sư</h3>
-					<p class="q">"Gió, lửa, băng — tất cả đều nghe lời người hiểu chúng."</p>
-					<ul>
-						<li>Tung phép từ xa bằng trượng</li>
-						<li>Kết hợp nguyên tố ra phản ứng</li>
-						<li>Mỗi hệ một cây tiềm năng riêng</li>
+			<article class="card sm:card-side bg-gradient-to-br from-violet-500/20 to-base-100 border border-white/10 card-hover reveal">
+				<figure class="p-6 sm:w-48 shrink-0"><img class="px h-48 drop-shadow-[0_6px_0_rgba(0,0,0,.3)]" src="site/img/hero-f.png" alt="Pháp sư"></figure>
+				<div class="card-body">
+					<h3 class="card-title text-2xl font-black">✨ Pháp sư</h3>
+					<p class="italic text-base-content/60 text-sm">"Gió, lửa, băng — tất cả đều nghe lời người hiểu chúng."</p>
+					<ul class="space-y-1.5 text-sm mt-1">
+						<li>◆ Tung phép từ xa bằng trượng</li>
+						<li>◆ Kết hợp nguyên tố ra phản ứng</li>
+						<li>◆ Mỗi hệ một cây tiềm năng riêng</li>
 					</ul>
 				</div>
 			</article>
 		</div>
-		<div class="elems">
-			<div class="el reveal" style="--c:var(--fire)"><div class="orb">🔥</div><b>Hoả</b><span>thiêu đốt</span></div>
-			<div class="el reveal" style="--c:var(--water)"><div class="orb">💧</div><b>Thuỷ</b><span>sóng dữ</span></div>
-			<div class="el reveal" style="--c:var(--wind)"><div class="orb">🌪</div><b>Phong</b><span>nhanh như gió</span></div>
-			<div class="el reveal" style="--c:var(--ice)"><div class="orb">❄</div><b>Băng</b><span>đóng băng</span></div>
-			<div class="el reveal" style="--c:var(--earth)"><div class="orb">⛰</div><b>Thổ</b><span>vững như núi</span></div>
+		<div class="mt-6 grid grid-cols-2 sm:grid-cols-5 gap-4">
+			<div class="card bg-base-100 border border-fire/40 card-hover reveal"><div class="card-body items-center text-center p-5"><div class="w-14 h-14 rounded-full grid place-items-center text-2xl bg-fire/20 ring-2 ring-fire/60 shadow-[0_0_24px_rgba(255,107,61,.4)]">🔥</div><b class="text-lg">Hoả</b><span class="text-xs text-base-content/60">thiêu đốt</span></div></div>
+			<div class="card bg-base-100 border border-water/40 card-hover reveal"><div class="card-body items-center text-center p-5"><div class="w-14 h-14 rounded-full grid place-items-center text-2xl bg-water/20 ring-2 ring-water/60 shadow-[0_0_24px_rgba(58,160,255,.4)]">💧</div><b class="text-lg">Thuỷ</b><span class="text-xs text-base-content/60">sóng dữ</span></div></div>
+			<div class="card bg-base-100 border border-wind/40 card-hover reveal"><div class="card-body items-center text-center p-5"><div class="w-14 h-14 rounded-full grid place-items-center text-2xl bg-wind/20 ring-2 ring-wind/60 shadow-[0_0_24px_rgba(79,209,139,.4)]">🌪️</div><b class="text-lg">Phong</b><span class="text-xs text-base-content/60">nhanh như gió</span></div></div>
+			<div class="card bg-base-100 border border-ice/40 card-hover reveal"><div class="card-body items-center text-center p-5"><div class="w-14 h-14 rounded-full grid place-items-center text-2xl bg-ice/20 ring-2 ring-ice/60 shadow-[0_0_24px_rgba(143,227,255,.4)]">❄️</div><b class="text-lg">Băng</b><span class="text-xs text-base-content/60">đóng băng</span></div></div>
+			<div class="card bg-base-100 border border-earth/40 card-hover reveal col-span-2 sm:col-span-1"><div class="card-body items-center text-center p-5"><div class="w-14 h-14 rounded-full grid place-items-center text-2xl bg-earth/20 ring-2 ring-earth/60 shadow-[0_0_24px_rgba(201,154,91,.4)]">⛰️</div><b class="text-lg">Thổ</b><span class="text-xs text-base-content/60">vững như núi</span></div></div>
 		</div>
 	</section>
 
-	<section class="block wrap" id="gioi-thieu">
-		<h2 class="sec-title reveal"><span>Có gì trong game</span></h2>
-		<p class="sec-sub reveal">Một thế giới pixel online để cày, khám phá và gặp người chơi khác.</p>
-		<div class="features">
-			<div class="feat reveal"><div class="em">🗺</div><h3>7 vùng đất, hơn 80 map</h3><p>Thung lũng Thistlewood, Đầm lầy Mù Sương, Sa mạc Hồng Cát, Cao nguyên Gió Hú, Lãnh nguyên Băng Giá, Núi lửa Hoả Sơn, Quần đảo San Hô — mỗi vùng 12 map, thời tiết riêng.</p></div>
-			<div class="feat reveal"><div class="em">⚔</div><h3>Kiếm sĩ hay Pháp sư</h3><p>Năm 16 tuổi chọn theo kiếm của cha hay phép của mẹ. Kiếm sĩ có 3 lưu phái và Bọc Nguyên Tố; Pháp sư tung phép bằng trượng.</p></div>
-			<div class="feat reveal"><div class="em">🔥</div><h3>5 nguyên tố</h3><p>Hoả · Thuỷ · Phong · Băng · Thổ — mỗi hệ một cây tiềm năng tới tuyệt kỹ mốc 10, kết hợp ra phản ứng nguyên tố.</p></div>
-			<div class="feat reveal"><div class="em">📖</div><h3>Cốt truyện của Lior</h3><p>Lớn lên từ tuổi thơ ở Thistlewood, đi qua 7 vùng, gặp 7 vị thần và những lựa chọn thay đổi kết cục.</p></div>
-			<div class="feat reveal"><div class="em">🐉</div><h3>Boss và quái mỗi vùng</h3><p>Mỗi vùng có bầy quái riêng và boss canh giữ — Quỷ vương rừng sâu, Hydra bùn, Sâu cát khổng lồ, Rồng gió, Kraken…</p></div>
-			<div class="feat reveal"><div class="em">👥</div><h3>Chơi cùng bạn bè</h3><p>Gặp người chơi khác trên map, chat kênh map / thế giới / riêng, kết bạn, đấu với nhau ở vùng PvP.</p></div>
+	<!-- ———— Có gì trong game ———— -->
+	<section id="gioi-thieu" class="max-w-6xl mx-auto px-4 pt-20 scroll-mt-20">
+		<div class="text-center reveal">
+			<div class="badge badge-primary badge-outline font-bold mb-3">GIỚI THIỆU</div>
+			<h2 class="text-3xl sm:text-4xl font-black">Có gì trong game</h2>
+			<p class="mt-3 text-base-content/70">Một thế giới pixel online để cày, khám phá và gặp người chơi khác.</p>
+		</div>
+		<div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+			<div class="card bg-base-100 border border-white/10 card-hover reveal"><div class="card-body"><div class="text-3xl">🗺️</div><h3 class="card-title text-lg text-primary">7 vùng đất, hơn 80 map</h3><p class="text-sm text-base-content/70">Thung lũng Thistlewood, Đầm lầy Mù Sương, Sa mạc Hồng Cát, Cao nguyên Gió Hú, Lãnh nguyên Băng Giá, Núi lửa Hoả Sơn, Quần đảo San Hô — mỗi vùng 12 map, thời tiết riêng.</p></div></div>
+			<div class="card bg-base-100 border border-white/10 card-hover reveal"><div class="card-body"><div class="text-3xl">⚔️</div><h3 class="card-title text-lg text-primary">Kiếm sĩ hay Pháp sư</h3><p class="text-sm text-base-content/70">Năm 16 tuổi chọn theo kiếm của cha hay phép của mẹ. Kiếm sĩ có 3 lưu phái và Bọc Nguyên Tố; Pháp sư tung phép bằng trượng.</p></div></div>
+			<div class="card bg-base-100 border border-white/10 card-hover reveal"><div class="card-body"><div class="text-3xl">🔥</div><h3 class="card-title text-lg text-primary">5 nguyên tố</h3><p class="text-sm text-base-content/70">Hoả · Thuỷ · Phong · Băng · Thổ — mỗi hệ một cây tiềm năng tới tuyệt kỹ mốc 10, kết hợp ra phản ứng nguyên tố.</p></div></div>
+			<div class="card bg-base-100 border border-white/10 card-hover reveal"><div class="card-body"><div class="text-3xl">📖</div><h3 class="card-title text-lg text-primary">Cốt truyện của Lior</h3><p class="text-sm text-base-content/70">Lớn lên từ tuổi thơ ở Thistlewood, đi qua 7 vùng, gặp 7 vị thần và những lựa chọn thay đổi kết cục.</p></div></div>
+			<div class="card bg-base-100 border border-white/10 card-hover reveal"><div class="card-body"><div class="text-3xl">🐉</div><h3 class="card-title text-lg text-primary">Boss và quái mỗi vùng</h3><p class="text-sm text-base-content/70">Mỗi vùng có bầy quái riêng và boss canh giữ — Quỷ vương rừng sâu, Hydra bùn, Sâu cát khổng lồ, Rồng gió, Kraken…</p></div></div>
+			<div class="card bg-base-100 border border-white/10 card-hover reveal"><div class="card-body"><div class="text-3xl">👥</div><h3 class="card-title text-lg text-primary">Chơi cùng bạn bè</h3><p class="text-sm text-base-content/70">Gặp người chơi khác trên map, chat kênh map / thế giới / riêng, kết bạn, đấu với nhau ở vùng PvP.</p></div></div>
 		</div>
 	</section>
 
-	<section class="block wrap" id="hinh-anh">
-		<h2 class="sec-title reveal"><span>Hình ảnh trong game</span></h2>
-		<p class="sec-sub reveal">Bấm vào ảnh để xem lớn.</p>
-		<div class="gallery" id="gallery">
-			<figure class="reveal"><img src="site/img/shot-swamp-hub.jpg" alt="" loading="lazy"><figcaption>Làng nhà sàn Lau Xám · Đầm lầy</figcaption></figure>
-			<figure class="reveal"><img src="site/img/shot-desert-hub.jpg" alt="" loading="lazy"><figcaption>Thành ốc đảo Sahrin · Sa mạc</figcaption></figure>
-			<figure class="reveal"><img src="site/img/shot-tundra-hub.jpg" alt="" loading="lazy"><figcaption>Làng gỗ Tuyết Phong · Băng giá</figcaption></figure>
-			<figure class="reveal"><img src="site/img/shot-volcano-hub.jpg" alt="" loading="lazy"><figcaption>Pháo đài Đe Đỏ · Núi lửa</figcaption></figure>
-			<figure class="reveal"><img src="site/img/shot-isles-hub.jpg" alt="" loading="lazy"><figcaption>Cảng chài San Hô · Quần đảo</figcaption></figure>
-			<figure class="reveal"><img src="site/img/shot-highland-hunt.jpg" alt="" loading="lazy"><figcaption>Thung Lũng Tiên · Cao nguyên</figcaption></figure>
+	<!-- ———— Hình ảnh ———— -->
+	<section id="hinh-anh" class="max-w-6xl mx-auto px-4 pt-20 scroll-mt-20">
+		<div class="text-center reveal">
+			<div class="badge badge-primary badge-outline font-bold mb-3">HÌNH ẢNH</div>
+			<h2 class="text-3xl sm:text-4xl font-black">Hình ảnh trong game</h2>
+			<p class="mt-3 text-base-content/70">Bấm vào ảnh để xem lớn.</p>
+		</div>
+		<div id="gallery" class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+			<figure class="group relative rounded-2xl overflow-hidden border border-white/10 cursor-zoom-in reveal"><img class="w-full aspect-video object-cover transition duration-500 group-hover:scale-105" src="site/img/shot-swamp-hub.jpg" alt="" loading="lazy"><figcaption class="absolute inset-x-0 bottom-0 p-3 pt-10 bg-gradient-to-t from-black/85 to-transparent text-sm font-bold">Làng nhà sàn Lau Xám · Đầm lầy</figcaption></figure>
+			<figure class="group relative rounded-2xl overflow-hidden border border-white/10 cursor-zoom-in reveal"><img class="w-full aspect-video object-cover transition duration-500 group-hover:scale-105" src="site/img/shot-desert-hub.jpg" alt="" loading="lazy"><figcaption class="absolute inset-x-0 bottom-0 p-3 pt-10 bg-gradient-to-t from-black/85 to-transparent text-sm font-bold">Thành ốc đảo Sahrin · Sa mạc</figcaption></figure>
+			<figure class="group relative rounded-2xl overflow-hidden border border-white/10 cursor-zoom-in reveal"><img class="w-full aspect-video object-cover transition duration-500 group-hover:scale-105" src="site/img/shot-tundra-hub.jpg" alt="" loading="lazy"><figcaption class="absolute inset-x-0 bottom-0 p-3 pt-10 bg-gradient-to-t from-black/85 to-transparent text-sm font-bold">Làng gỗ Tuyết Phong · Băng giá</figcaption></figure>
+			<figure class="group relative rounded-2xl overflow-hidden border border-white/10 cursor-zoom-in reveal"><img class="w-full aspect-video object-cover transition duration-500 group-hover:scale-105" src="site/img/shot-volcano-hub.jpg" alt="" loading="lazy"><figcaption class="absolute inset-x-0 bottom-0 p-3 pt-10 bg-gradient-to-t from-black/85 to-transparent text-sm font-bold">Pháo đài Đe Đỏ · Núi lửa</figcaption></figure>
+			<figure class="group relative rounded-2xl overflow-hidden border border-white/10 cursor-zoom-in reveal"><img class="w-full aspect-video object-cover transition duration-500 group-hover:scale-105" src="site/img/shot-isles-hub.jpg" alt="" loading="lazy"><figcaption class="absolute inset-x-0 bottom-0 p-3 pt-10 bg-gradient-to-t from-black/85 to-transparent text-sm font-bold">Cảng chài San Hô · Quần đảo</figcaption></figure>
+			<figure class="group relative rounded-2xl overflow-hidden border border-white/10 cursor-zoom-in reveal"><img class="w-full aspect-video object-cover transition duration-500 group-hover:scale-105" src="site/img/shot-highland-hunt.jpg" alt="" loading="lazy"><figcaption class="absolute inset-x-0 bottom-0 p-3 pt-10 bg-gradient-to-t from-black/85 to-transparent text-sm font-bold">Thung Lũng Tiên · Cao nguyên</figcaption></figure>
 		</div>
 	</section>
 
-	<section class="final">
-		<div class="in">
-			<img class="px" src="site/img/bram.png" alt="Bram">
-			<div>
-				<h2>Hành trang sẵn rồi, lên đường thôi!</h2>
-				<p>Tải game miễn phí, tạo nhân vật và bắt đầu hành trình từ Thistlewood. Tài khoản và nhân vật lưu trên máy chủ — đổi máy vẫn chơi tiếp được.</p>
-				<div class="dl">
-					<a class="btn" data-os="windows" href="api/client/latest/windows"><span class="rec">HỢP MÁY BẠN</span><span class="ic"><svg><use href="#i-win"/></svg></span><span>TẢI CHO PC<small data-size="windows">Windows · bộ cài</small></span></a>
-					<a class="btn android" data-os="android" href="api/client/latest/android"><span class="rec">HỢP MÁY BẠN</span><span class="ic"><svg><use href="#i-and"/></svg></span><span>TẢI CHO ANDROID<small data-size="android">file APK</small></span></a>
+	<!-- ———— Kêu gọi cuối trang ———— -->
+	<section class="max-w-6xl mx-auto px-4 py-24">
+		<div class="card lg:card-side bg-gradient-to-br from-primary/25 via-base-100 to-secondary/20 border border-primary/30 shadow-2xl overflow-hidden reveal">
+			<figure class="p-8 pb-0 lg:pb-8 shrink-0"><img class="px h-48 anim-bob" src="site/img/bram.png" alt="Bram"></figure>
+			<div class="card-body justify-center">
+				<h2 class="text-3xl font-black">Hành trang sẵn rồi, lên đường thôi!</h2>
+				<p class="text-base-content/75">Tải game miễn phí, tạo nhân vật và bắt đầu hành trình từ Thistlewood. Tài khoản và nhân vật lưu trên máy chủ — đổi máy vẫn chơi tiếp được.</p>
+				<div class="dl card-actions mt-3">
+					<a class="btn btn-primary gap-2" data-os="windows" href="api/client/latest/windows"><svg class="w-5 h-5"><use href="#i-win"/></svg>Tải cho PC</a>
+					<a class="btn btn-success gap-2" data-os="android" href="api/client/latest/android"><svg class="w-5 h-5"><use href="#i-and"/></svg>Tải cho Android</a>
 				</div>
 			</div>
 		</div>
 	</section>
 </main>
 
-<footer>
-	<b>Aether Chronicle</b> — bản beta, đồ hoạ đang hoàn thiện.<br>
-	Tài khoản và nhân vật lưu trên máy chủ · Góp ý: Cài đặt (O) → Góp ý trong game.
+<footer class="footer footer-center p-8 bg-base-300 text-base-content/60 text-sm border-t border-white/5">
+	<div>
+		<p class="font-black text-base-content">AETHER <span class="text-primary">CHRONICLE</span></p>
+		<p>Bản beta, đồ hoạ đang hoàn thiện · Tài khoản và nhân vật lưu trên máy chủ.</p>
+	</div>
 </footer>
 
-<button class="totop" id="totop" aria-label="Lên đầu trang">▲</button>
+<button id="totop" class="btn btn-primary btn-circle fixed right-4 bottom-4 z-30 opacity-0 pointer-events-none transition-opacity shadow-lg" aria-label="Lên đầu trang">▲</button>
+<div id="toasts" class="toast toast-end toast-bottom z-[60]"></div>
 
-<div class="lightbox" id="lb" role="dialog" aria-modal="true">
-	<img id="lb-img" alt="">
-	<div class="cap" id="lb-cap"></div>
-	<button class="x" id="lb-x" aria-label="Đóng">✕</button>
-	<button class="pv" id="lb-pv" aria-label="Ảnh trước">‹</button>
-	<button class="nx" id="lb-nx" aria-label="Ảnh sau">›</button>
-</div>
+<!-- ———— Hộp thoại ———— -->
+<dialog id="dlg-auth" class="modal modal-bottom sm:modal-middle">
+	<div class="modal-box border border-white/10">
+		<form method="dialog"><button class="btn btn-sm btn-circle btn-ghost absolute right-3 top-3" aria-label="Đóng">✕</button></form>
+		<h3 class="font-black text-2xl" id="auth-title">Đăng nhập</h3>
+		<p class="text-sm text-base-content/60 mt-1">Dùng chung tài khoản với game.</p>
+		<div role="tablist" id="auth-seg" class="tabs tabs-boxed mt-4 bg-base-200">
+			<button type="button" role="tab" class="tab tab-active" data-mode="login">Đăng nhập</button>
+			<button type="button" role="tab" class="tab" data-mode="register">Tạo tài khoản</button>
+		</div>
+		<form id="auth-form" class="mt-4 space-y-3">
+			<label class="form-control"><div class="label"><span class="label-text font-semibold">Tên đăng nhập</span></div>
+				<input id="au" class="input input-bordered w-full" autocomplete="username" required maxlength="20" autocapitalize="none" spellcheck="false"></label>
+			<label class="form-control"><div class="label"><span class="label-text font-semibold">Mật khẩu</span></div>
+				<input id="ap" type="password" class="input input-bordered w-full" autocomplete="current-password" required maxlength="72"></label>
+			<label class="form-control" id="ap2-wrap" hidden><div class="label"><span class="label-text font-semibold">Nhập lại mật khẩu</span></div>
+				<input id="ap2" type="password" class="input input-bordered w-full" autocomplete="new-password" maxlength="72"></label>
+			<div id="auth-err" role="alert" class="alert alert-error py-2 text-sm" hidden></div>
+			<button class="btn btn-primary w-full" id="auth-go">Đăng nhập</button>
+			<p class="text-xs text-base-content/50">Tên đăng nhập 3–20 ký tự: chữ thường không dấu, số, gạch dưới. Mật khẩu 6–72 ký tự.</p>
+		</form>
+	</div>
+	<form method="dialog" class="modal-backdrop"><button>đóng</button></form>
+</dialog>
+
+<dialog id="dlg-feedback" class="modal modal-bottom sm:modal-middle">
+	<div class="modal-box border border-white/10">
+		<form method="dialog"><button class="btn btn-sm btn-circle btn-ghost absolute right-3 top-3" aria-label="Đóng">✕</button></form>
+		<h3 class="font-black text-2xl">💬 Gửi góp ý</h3>
+		<form id="fb-form" class="mt-4 space-y-3">
+			<label class="form-control"><div class="label"><span class="label-text font-semibold">Nhân vật (không bắt buộc)</span></div>
+				<select id="fb-char" class="select select-bordered w-full"></select></label>
+			<label class="form-control"><div class="label"><span class="label-text font-semibold">Góp ý, báo lỗi</span><span class="label-text-alt"><span id="fb-cnt">0</span>/1000</span></div>
+				<textarea id="fb-text" class="textarea textarea-bordered w-full h-36 text-base" maxlength="1000" placeholder="Bạn gặp lỗi gì, ở map nào? Muốn game có thêm gì?" required></textarea></label>
+			<div id="fb-err" role="alert" class="alert alert-error py-2 text-sm" hidden></div>
+			<button class="btn btn-primary w-full">Gửi góp ý</button>
+		</form>
+	</div>
+	<form method="dialog" class="modal-backdrop"><button>đóng</button></form>
+</dialog>
+
+<dialog id="dlg-post" class="modal modal-bottom sm:modal-middle">
+	<div class="modal-box border border-white/10">
+		<form method="dialog"><button class="btn btn-sm btn-circle btn-ghost absolute right-3 top-3" aria-label="Đóng">✕</button></form>
+		<h3 class="font-black text-2xl">✏️ Viết bài</h3>
+		<form id="post-form" class="mt-4 space-y-3">
+			<label class="form-control"><div class="label"><span class="label-text font-semibold">Đăng với tên</span></div>
+				<select id="pf-char" class="select select-bordered w-full"></select></label>
+			<label class="form-control"><div class="label"><span class="label-text font-semibold">Tiêu đề</span></div>
+				<input id="pf-title" class="input input-bordered w-full" maxlength="100" required></label>
+			<label class="form-control"><div class="label"><span class="label-text font-semibold">Nội dung</span><span class="label-text-alt"><span id="pf-cnt">0</span>/2000</span></div>
+				<textarea id="pf-body" class="textarea textarea-bordered w-full h-40 text-base" maxlength="2000" required></textarea></label>
+			<div id="pf-err" role="alert" class="alert alert-error py-2 text-sm" hidden></div>
+			<button class="btn btn-primary w-full">Đăng bài</button>
+		</form>
+	</div>
+	<form method="dialog" class="modal-backdrop"><button>đóng</button></form>
+</dialog>
+
+<dialog id="lb" class="modal">
+	<div class="modal-box max-w-5xl p-0 bg-black overflow-hidden">
+		<img id="lb-img" class="px w-full" alt="">
+		<div class="flex items-center gap-2 p-3 bg-base-100">
+			<button id="lb-pv" class="btn btn-sm btn-circle btn-ghost" aria-label="Ảnh trước">‹</button>
+			<p id="lb-cap" class="flex-1 text-center font-bold"></p>
+			<button id="lb-nx" class="btn btn-sm btn-circle btn-ghost" aria-label="Ảnh sau">›</button>
+			<form method="dialog"><button class="btn btn-sm btn-circle btn-ghost" aria-label="Đóng">✕</button></form>
+		</div>
+	</div>
+	<form method="dialog" class="modal-backdrop"><button>đóng</button></form>
+</dialog>
 
 <script>
 (function () {
@@ -602,30 +425,49 @@ footer { background: var(--wood-dark); color: #f3dcb4; text-align: center; paddi
 	const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 	const mb = (n) => (n / 1048576).toFixed(0) + ' MB';
 
-	// Thanh menu đặc lại khi rời banner; nút lên đầu trang; menu gập trên điện thoại.
+	/** Tạo phần tử: h('div.card.p-4', { onclick }, con…) — chữ người chơi gõ luôn đi qua textContent. */
+	function h(sel, props, ...kids) {
+		const [tag, ...cls] = sel.split('.');
+		const el = document.createElement(tag || 'div');
+		if (cls.length) el.className = cls.join(' ');
+		Object.assign(el, props || {});
+		kids.flat().forEach((k) => k != null && k !== false && el.append(k instanceof Node ? k : String(k)));
+		return el;
+	}
+	function toast(text, kind) {
+		const t = h('div.alert.shadow-xl.text-sm.font-semibold.whitespace-normal.max-w-xs.sm:max-w-sm.alert-' + (kind || 'success'), null, h('span', null, text));
+		$('toasts').append(t);
+		setTimeout(() => t.remove(), 3200);
+	}
+
+	// Thanh menu đặc lại khi rời banner; nút lên đầu trang.
 	const onScroll = () => {
-		$('top').classList.toggle('solid', scrollY > 40);
-		$('totop').classList.toggle('on', scrollY > 700);
+		const solid = scrollY > 40;
+		['glass', 'shadow-lg', 'border-b', 'border-white/10'].forEach((c) => $('top').classList.toggle(c, solid));
+		$('totop').classList.toggle('opacity-0', scrollY < 700);
+		$('totop').classList.toggle('pointer-events-none', scrollY < 700);
 	};
 	addEventListener('scroll', onScroll, { passive: true });
 	onScroll();
 	$('totop').onclick = () => scrollTo({ top: 0 });
-	$('burger').onclick = () => $('nav').classList.toggle('open');
-	$('nav').addEventListener('click', (e) => e.target.closest('a') && $('nav').classList.remove('open'));
+	// Bấm một mục trong menu thả xuống thì đóng menu (daisyUI giữ mở theo focus).
+	document.querySelectorAll('.dropdown-content a, .dropdown-content button').forEach((a) => a.addEventListener('click', () => document.activeElement.blur()));
 
-	// Gợi ý nút tải hợp máy người xem (Android → APK, còn lại → PC).
+	// Gợi ý nút tải hợp máy người xem (Android → APK, còn lại → PC): đưa lên đầu + gắn nhãn.
 	const os = /android/i.test(navigator.userAgent) ? 'android' : /windows/i.test(navigator.userAgent) ? 'windows' : '';
 	if (os) {
-		document.querySelectorAll('[data-os="' + os + '"]').forEach((b) => b.classList.add('mine'));
 		document.querySelectorAll('.dl').forEach((d) => {
-			const mine = d.querySelector('.mine');
-			if (mine) d.prepend(mine);
+			const mine = d.querySelector('[data-os="' + os + '"]');
+			if (!mine) return;
+			d.prepend(mine);
+			mine.classList.add('relative');
+			mine.append(h('span.absolute.-top-2.-right-2.badge.badge-error.badge-sm.font-bold.normal-case', null, 'hợp máy bạn'));
 		});
 	}
 
-	// Thông tin bản đang phát (cùng máy chủ game): số bản, dung lượng, ghi chú bản mới.
+	// Thông tin bản đang phát: số bản, dung lượng, ghi chú bản mới, mã kiểm tra.
 	const setSrv = (ok, text) => {
-		['dot', 'dot0'].forEach((id) => ($(id).className = 'dot ' + (ok ? 'ok' : 'bad')));
+		['dot', 'dot0'].forEach((id) => ($(id).className = 'inline-block rounded-full ' + (id === 'dot' ? 'w-3 h-3 ' : 'w-2.5 h-2.5 ') + (ok ? 'bg-success shadow-[0_0_0_4px_rgba(64,192,87,.25)] animate-pulse' : 'bg-error')));
 		$('srv').textContent = $('srv0').textContent = text;
 	};
 	fetch('api/client/version', { cache: 'no-store' })
@@ -639,91 +481,344 @@ footer { background: var(--wood-dark); color: #f3dcb4; text-align: center; paddi
 			setSrv(true, 'Máy chủ đang mở');
 			if (v.notes) $('notes').textContent = 'Bản mới: ' + v.notes;
 			const sha = [[w, 'PC exe'], [z, 'PC zip'], [a, 'Android APK']].filter((x) => x[0] && x[0].sha256);
-			if (sha.length) {
-				sha.forEach(([f, name]) => {
-					const c = document.createElement('code');
-					c.textContent = name + ' · ' + f.file + '\n' + f.sha256;
-					$('sha-list').append(c);
-				});
-				$('sha').hidden = false;
-			}
+			sha.forEach(([f, name]) => $('sha-list').append(h('div', null, h('b', null, name + ' · ' + f.file), h('code.block.opacity-70', null, f.sha256))));
+			$('sha').hidden = !sha.length;
 		})
 		.catch(() => setSrv(false, 'Không kết nối được máy chủ'));
 
-	// Tin tức từ site/news.json (mới nhất trước); bấm tiêu đề để mở nội dung, tin đầu mở sẵn; tin trong 3 ngày gắn nhãn MỚI.
-	const slug = (t) => t.normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/đ/g, 'd').toLowerCase().replace(/\s+/g, '-');
-	const fresh = (d) => {
-		const m = /^(\d+)\/(\d+)\/(\d+)$/.exec(d || '');
-		return m && Date.now() - new Date(+m[3], m[2] - 1, +m[1]) < 3 * 864e5;
+	// —— Tin tức: API (quản trị đăng ở /admin), máy chủ cũ / lỗi thì đọc news.json. Tin trong 2 ngày gắn nhãn MỚI. ——
+	const TAG = { 'Cập nhật': 'badge-success', 'Thông báo': 'badge-error', 'Sự kiện': 'badge-accent' };
+	const fresh = (n) => {
+		if (n.at) return Date.now() - n.at < 2 * 864e5;
+		const m = /^(\d+)\/(\d+)\/(\d+)$/.exec(n.date || '');
+		return m && Date.now() - new Date(+m[3], m[2] - 1, +m[1]) < 2 * 864e5;
 	};
 	const PAGE = 6;
-	let all = [], filter = '', shown = PAGE;
-	const render = () => {
-		const ul = $('news');
-		ul.innerHTML = '';
-		const list = all.filter((n) => !filter || n.tag === filter);
+	let news = [], filter = '', shown = PAGE;
+	const renderNews = () => {
+		const box = $('news');
+		box.innerHTML = '';
+		const list = news.filter((n) => !filter || n.tag === filter);
 		list.slice(0, shown).forEach((n, i) => {
-			const li = document.createElement('li');
-			if (i === 0) li.className = 'open';
-			const head = document.createElement('div');
-			head.className = 'head';
-			const tag = document.createElement('span');
-			tag.className = 'tag ' + slug(n.tag);
-			tag.textContent = n.tag;
-			const t = document.createElement('span');
-			t.className = 't';
-			t.textContent = n.title;
-			const d = document.createElement('span');
-			d.className = 'd';
-			d.textContent = n.date;
-			head.append(tag);
-			if (fresh(n.date)) {
-				const nw = document.createElement('span');
-				nw.className = 'new';
-				nw.textContent = 'MỚI';
-				head.append(nw);
-			}
-			head.append(t, d);
-			head.onclick = () => li.classList.toggle('open');
-			const more = document.createElement('div');
-			more.className = 'more';
-			const inner = document.createElement('div');
-			const body = document.createElement('ul');
-			n.body.forEach((line) => {
-				const b = document.createElement('li');
-				b.textContent = line;
-				body.append(b);
-			});
-			inner.append(body);
-			more.append(inner);
-			li.append(head, more);
-			ul.append(li);
+			const item = h('div.collapse.collapse-arrow.bg-base-200.border.border-white/5');
+			item.append(
+				h('input', { type: 'checkbox', checked: i === 0, ariaLabel: n.title }),
+				h('div.collapse-title.flex.flex-wrap.items-center.gap-x-3.gap-y-1.pr-10', null,
+					h('span.badge.badge-sm.font-bold.' + (TAG[n.tag] || 'badge-ghost'), null, n.tag),
+					fresh(n) ? h('span.badge.badge-sm.badge-warning.font-bold', null, 'MỚI') : null,
+					h('span.font-bold.flex-1.min-w-[12rem]', null, n.title),
+					h('span.text-xs.text-base-content/50', null, n.date),
+				),
+				h('div.collapse-content', null, h('ul.list-disc.pl-5.space-y-1.5.text-sm.text-base-content/85.leading-relaxed', null, n.body.map((l) => h('li', null, l)))),
+			);
+			box.append(item);
 		});
-		if (!ul.children.length) ul.innerHTML = '<li><div class="head"><span class="t muted">Chưa có tin nào.</span></div></li>';
+		if (!box.children.length) box.append(h('p.text-base-content/60.py-6.text-center', null, 'Chưa có tin nào.'));
 		$('news-foot').hidden = list.length <= shown;
 	};
-	fetch('site/news.json', { cache: 'no-store' })
-		.then((r) => r.json())
+	fetch('api/news', { cache: 'no-store' })
+		.then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+		.catch(() => fetch('site/news.json', { cache: 'no-store' }).then((r) => r.json()))
 		.then((list) => {
-			all = list;
-			render();
+			news = list;
+			renderNews();
 		})
-		.catch(() => ($('news').innerHTML = '<li><div class="head"><span class="t muted">Không tải được tin tức.</span></div></li>'));
-	document.querySelectorAll('#tabs button').forEach((b) =>
-		b.addEventListener('click', () => {
-			document.querySelectorAll('#tabs button').forEach((x) => x.classList.remove('on'));
-			b.classList.add('on');
-			filter = b.dataset.f;
-			shown = PAGE;
-			render();
-		}),
-	);
+		.catch(() => ($('news').innerHTML = '<p class="text-error py-6 text-center">Không tải được tin tức.</p>'));
+	$('tabs').onclick = (e) => {
+		const b = e.target.closest('.tab');
+		if (!b) return;
+		document.querySelectorAll('#tabs .tab').forEach((x) => x.classList.toggle('tab-active', x === b));
+		filter = b.dataset.f;
+		shown = PAGE;
+		renderNews();
+	};
 	$('news-more').onclick = () => {
 		shown += PAGE;
-		render();
+		renderNews();
 	};
 
-	// Bản đồ lục địa: toạ độ (%) của từng vùng trên continent.png; vùng 8–10 chưa mở.
+	// —— Tài khoản (dùng chung với game + trang quản trị) ——
+	const KEY = 'aether.web.token';
+	let token = '', me = null;
+	try { token = localStorage.getItem(KEY) || ''; } catch (e) {}
+	const setToken = (t) => {
+		token = t;
+		try { t ? localStorage.setItem(KEY, t) : localStorage.removeItem(KEY); } catch (e) {}
+	};
+	/** Gọi API cùng máy chủ — lỗi thì ném Error mang câu báo của máy chủ; hết phiên thì đăng xuất. */
+	async function api(method, path, body) {
+		const r = await fetch('api/' + path, {
+			method,
+			cache: 'no-store',
+			headers: { 'Content-Type': 'application/json', ...(token ? { Authorization: 'Bearer ' + token } : {}) },
+			body: body === undefined ? undefined : JSON.stringify(body),
+		});
+		const data = await r.json().catch(() => ({}));
+		if (r.status === 401 && token && path !== 'login') signedOut();
+		if (!r.ok) throw Object.assign(new Error(data.error || 'Lỗi máy chủ (' + r.status + ')'), { status: r.status });
+		return data;
+	}
+	const ago = (t) => {
+		const s = (Date.now() - t) / 1000;
+		if (s < 60) return 'vừa xong';
+		if (s < 3600) return Math.floor(s / 60) + ' phút trước';
+		if (s < 86400) return Math.floor(s / 3600) + ' giờ trước';
+		if (s < 7 * 86400) return Math.floor(s / 86400) + ' ngày trước';
+		return new Date(t).toLocaleDateString('vi-VN');
+	};
+	const AV = ['#e8590c', '#2f9e44', '#1c7ed6', '#7048e8', '#c2255c', '#0c8599', '#e67700'];
+	const avColor = (name) => {
+		let n = 0;
+		for (const ch of name) n = (n * 31 + ch.codePointAt(0)) >>> 0;
+		return AV[n % AV.length];
+	};
+	const avatar = (name, size) => h('div.avatar.placeholder', null, h('div.rounded-xl.text-white.font-black.' + (size || 'w-10'), { style: 'background:' + avColor(name) }, h('span', null, [...name][0].toUpperCase())));
+	const showErr = (id, msg) => {
+		$(id).textContent = msg || '';
+		$(id).hidden = !msg;
+	};
+
+	// Sau khi đăng nhập thì làm tiếp việc người xem định làm (góp ý / viết bài / bình luận).
+	let after = null;
+	const need = (fn) => (me ? fn() : ((after = fn), openAuth('login')));
+
+	function renderAcct() {
+		$('login-btn').classList.toggle('hidden', !!me);
+		$('acct').classList.toggle('hidden', !me);
+		if (me) {
+			$('acct-name').textContent = me.username;
+			$('acct-av').textContent = me.username[0].toUpperCase();
+			$('acct-av').style.background = avColor(me.username);
+		}
+		$('acct-admin').classList.toggle('hidden', !(me && me.admin));
+		$('board-who').textContent = me ? 'Xin chào ' + me.username + '! Chia sẻ gì với mọi người nào.' : 'Đăng nhập bằng tài khoản game để viết bài và bình luận.';
+		const opts = (sel, none) => {
+			sel.innerHTML = '';
+			if (none) sel.append(h('option', { value: '' }, none));
+			(me ? me.characters : []).forEach((c) => sel.append(h('option', { value: c.id }, c.name + ' · cấp ' + c.level)));
+			if (!sel.length) sel.append(h('option', { value: '' }, me ? me.username + ' (chưa có nhân vật)' : ''));
+		};
+		opts($('fb-char'), '— Không chọn —');
+		opts($('pf-char'));
+		renderPosts();
+	}
+	async function loadMe() {
+		if (token) {
+			try {
+				me = await api('GET', 'me');
+			} catch (e) {
+				if (e.status === 401) me = null;
+			}
+		}
+		renderAcct();
+	}
+	function signedOut() {
+		setToken('');
+		me = null;
+		renderAcct();
+	}
+	document.addEventListener('click', (e) => {
+		const b = e.target.closest('[data-act]');
+		if (!b) return;
+		const act = b.dataset.act;
+		if (act === 'login') openAuth('login');
+		if (act === 'logout') {
+			api('POST', 'logout').catch(() => {});
+			signedOut();
+			toast('Đã đăng xuất', 'info');
+		}
+		if (act === 'feedback') need(() => $('dlg-feedback').showModal());
+		if (act === 'post') need(() => $('dlg-post').showModal());
+	});
+
+	// Đăng nhập / tạo tài khoản
+	let mode = 'login';
+	function openAuth(m) {
+		setMode(m);
+		showErr('auth-err');
+		$('dlg-auth').showModal();
+	}
+	function setMode(m) {
+		mode = m;
+		document.querySelectorAll('#auth-seg .tab').forEach((b) => b.classList.toggle('tab-active', b.dataset.mode === m));
+		$('auth-title').textContent = m === 'login' ? 'Đăng nhập' : 'Tạo tài khoản';
+		$('auth-go').textContent = m === 'login' ? 'Đăng nhập' : 'Tạo tài khoản';
+		$('ap2-wrap').hidden = m === 'login';
+		$('ap2').required = m !== 'login';
+		$('ap').autocomplete = m === 'login' ? 'current-password' : 'new-password';
+	}
+	$('auth-seg').onclick = (e) => e.target.dataset.mode && setMode(e.target.dataset.mode);
+	$('auth-form').onsubmit = async (e) => {
+		e.preventDefault();
+		const u = $('au').value.trim().toLowerCase(), p = $('ap').value;
+		showErr('auth-err');
+		if (mode === 'register' && p !== $('ap2').value) return showErr('auth-err', 'Hai mật khẩu chưa khớp');
+		$('auth-go').classList.add('btn-disabled');
+		try {
+			const r = await api('POST', mode, { username: u, password: p });
+			setToken(r.token);
+			$('ap').value = $('ap2').value = '';
+			await loadMe();
+			const fn = after;
+			after = null;
+			$('dlg-auth').close();
+			toast(mode === 'login' ? 'Chào mừng trở lại, ' + me.username + '!' : 'Đã tạo tài khoản ' + me.username + ' — vào game đăng nhập bằng tài khoản này.');
+			if (fn) fn();
+		} catch (err) {
+			showErr('auth-err', err.message);
+		} finally {
+			$('auth-go').classList.remove('btn-disabled');
+		}
+	};
+	$('dlg-auth').addEventListener('close', () => (after = null));
+
+	// Góp ý
+	const counter = (input, out) => (input.oninput = () => ($(out).textContent = input.value.length));
+	counter($('fb-text'), 'fb-cnt');
+	counter($('pf-body'), 'pf-cnt');
+	$('fb-form').onsubmit = async (e) => {
+		e.preventDefault();
+		showErr('fb-err');
+		try {
+			await api('POST', 'feedback', { text: $('fb-text').value, characterId: $('fb-char').value || undefined, platform: 'web' });
+			$('fb-text').value = '';
+			$('fb-cnt').textContent = '0';
+			$('dlg-feedback').close();
+			toast('Đã gửi góp ý — cảm ơn bạn! Đội làm game đọc từng góp ý.');
+		} catch (x) {
+			showErr('fb-err', x.message);
+		}
+	};
+
+	// Viết bài
+	$('post-form').onsubmit = async (e) => {
+		e.preventDefault();
+		showErr('pf-err');
+		try {
+			const p = await api('POST', 'posts', { title: $('pf-title').value, body: $('pf-body').value, characterId: $('pf-char').value || undefined });
+			$('pf-title').value = $('pf-body').value = '';
+			$('pf-cnt').textContent = '0';
+			$('dlg-post').close();
+			posts.unshift(p);
+			comments[p.id] = [];
+			openPost = p.id;
+			renderPosts();
+			toast('Đã đăng bài');
+			$('cong-dong').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
+		} catch (x) {
+			showErr('pf-err', x.message);
+		}
+	};
+
+	// Danh sách bài + bình luận
+	const POSTS = 10;
+	let posts = [], postsOk = true, postsLoaded = false, openPost = null, more = false;
+	const comments = {};
+	async function loadPosts(reset) {
+		try {
+			const before = !reset && posts.length ? '&before=' + posts[posts.length - 1].id : '';
+			const list = await api('GET', 'posts?limit=' + POSTS + before);
+			posts = reset ? list : posts.concat(list);
+			more = list.length === POSTS;
+			postsOk = true;
+		} catch (e) {
+			postsOk = false;
+		}
+		postsLoaded = true;
+		renderPosts();
+	}
+	const delBtn = (label, ask, run) =>
+		h('button.btn.btn-ghost.btn-xs.text-error', { type: 'button', onclick: async (e) => {
+			e.stopPropagation();
+			if (!confirm(ask)) return;
+			try { await run(); } catch (x) { toast(x.message, 'error'); }
+		} }, label);
+	function renderPosts() {
+		const box = $('posts');
+		if (!postsLoaded) return;
+		box.innerHTML = '';
+		const empty = (t) => box.append(h('div.p-10.text-center.text-base-content/60', null, h('div.text-4xl.mb-2', null, '🗨️'), t));
+		if (!postsOk) empty('Chưa tải được bài viết.');
+		else if (!posts.length) empty('Chưa có bài nào — hãy là người mở hàng!');
+		posts.forEach((p) => {
+			const open = openPost === p.id;
+			const head = h('button.w-full.flex.items-center.gap-4.p-4.sm:px-5.text-left.hover:bg-base-200/60.transition-colors', { type: 'button' },
+				avatar(p.author),
+				h('div.flex-1.min-w-0', null, h('p.font-bold.truncate', null, p.title), h('p.text-xs.text-base-content/55', null, p.author + ' · ' + ago(p.at))),
+				h('span.badge.badge-ghost.gap-1.font-semibold', null, '💬 ' + p.comments),
+				h('span.text-base-content/40.text-xl.transition-transform' + (open ? '.rotate-90' : ''), null, '›'),
+			);
+			head.onclick = () => {
+				openPost = open ? null : p.id;
+				if (openPost && !comments[p.id]) loadComments(p.id);
+				renderPosts();
+			};
+			const item = h('div', null, head);
+			if (open) {
+				const body = h('div.px-4.sm:pl-[4.75rem].sm:pr-5.pb-5', null, h('p.whitespace-pre-wrap.break-words.leading-relaxed.text-base-content/90', null, p.body));
+				if (p.mine || (me && me.admin))
+					body.append(h('div.mt-2', null, delBtn('Xoá bài', 'Xoá bài "' + p.title + '"?', async () => {
+						await api('DELETE', 'posts/' + p.id);
+						posts = posts.filter((x) => x.id !== p.id);
+						renderPosts();
+						toast('Đã xoá bài', 'info');
+					})));
+				const cm = h('div.mt-4.space-y-1');
+				const list = comments[p.id];
+				if (!list) cm.append(h('div.skeleton.h-10.w-full'));
+				else if (!list.length) cm.append(h('p.text-sm.text-base-content/50', null, 'Chưa có bình luận.'));
+				(list || []).forEach((c) => {
+					cm.append(h('div.chat.chat-start', null,
+						h('div.chat-image', null, avatar(c.author, 'w-8')),
+						h('div.chat-header.text-xs.font-bold.mb-0.5', null, c.author, h('time.ml-2.opacity-50.font-normal', null, ago(c.at)),
+							c.mine || (me && me.admin) ? delBtn('Xoá', 'Xoá bình luận này?', async () => {
+								await api('DELETE', 'comments/' + c.id);
+								comments[p.id] = list.filter((x) => x.id !== c.id);
+								p.comments = Math.max(0, p.comments - 1);
+								renderPosts();
+							}) : null),
+						h('div.chat-bubble.chat-bubble-neutral.text-sm.whitespace-pre-wrap.break-words', null, c.body),
+					));
+				});
+				body.append(cm);
+				if (me) {
+					const input = h('input.input.input-bordered.input-sm.join-item.flex-1.min-w-0', { placeholder: 'Viết bình luận…', maxLength: 500 });
+					const form = h('form.join.w-full.mt-3', null, input, h('button.btn.btn-primary.btn-sm.join-item', { type: 'submit' }, 'Gửi'));
+					form.onsubmit = async (e) => {
+						e.preventDefault();
+						if (!input.value.trim()) return;
+						try {
+							const c = await api('POST', 'posts/' + p.id + '/comments', { body: input.value, characterId: $('pf-char').value || undefined });
+							(comments[p.id] = comments[p.id] || []).push(c);
+							p.comments++;
+							renderPosts();
+						} catch (x) { toast(x.message, 'error'); }
+					};
+					body.append(form);
+				} else {
+					body.append(h('button.btn.btn-ghost.btn-sm.mt-3', { type: 'button', onclick: () => openAuth('login') }, '🔑 Đăng nhập để bình luận'));
+				}
+				item.append(body);
+			}
+			box.append(item);
+		});
+		$('posts-foot').hidden = !postsOk || !more;
+	}
+	async function loadComments(id) {
+		try {
+			const d = await api('GET', 'posts/' + id);
+			comments[id] = d.comments;
+			const p = posts.find((x) => x.id === id);
+			if (p) p.comments = d.post.comments;
+		} catch (e) {
+			comments[id] = [];
+		}
+		renderPosts();
+	}
+	$('posts-more').onclick = () => loadPosts(false);
+	loadMe().then(() => loadPosts(true));
+
+	// —— Bản đồ lục địa: toạ độ (%) của từng vùng trên continent.png; vùng 8–10 chưa mở. ——
 	const REGIONS = [
 		{ n: 1, name: 'Thung lũng Thistlewood', x: 49, y: 50, lv: '1–10', el: 'Bóng tối', c: '#40c057', home: 'Thị trấn Thistlewood', text: 'Quê nhà của Lior. Nhiệm vụ tuổi thơ và năm 16 tuổi bắt đầu ở đây, giữa những con đường mòn và khu nghĩa địa cũ.' },
 		{ n: 2, name: 'Đầm lầy Mù Sương', x: 21, y: 76, lv: '10–20', el: 'Thuỷ · độc', c: '#5c940d', home: 'Làng nhà sàn Lau Xám', text: 'Dân đầm lầy sống trên nhà sàn, nhờ người lạ dẹp quái và tìm thuốc giải độc giữa màn sương không tan.', shot: 'shot-swamp-hub.jpg' },
@@ -738,62 +833,61 @@ footer { background: var(--wood-dark); color: #f3dcb4; text-align: center; paddi
 	];
 	const card = $('region');
 	const pins = REGIONS.map((r) => {
-		const b = document.createElement('button');
-		b.className = 'pin' + (r.locked ? ' locked' : '');
+		const b = h('button.pin.tooltip' + (r.locked ? '.locked' : ''), { type: 'button', ariaLabel: 'Vùng ' + r.n + ': ' + r.name }, r.locked ? '🔒' : r.n);
+		b.dataset.tip = r.name;
+		// .tooltip của daisyUI đặt position: relative → ghim lại bằng inline.
+		b.style.position = 'absolute';
+		b.style.display = 'grid';
 		b.style.left = r.x + '%';
 		b.style.top = r.y + '%';
 		b.style.setProperty('--c', r.c);
-		b.textContent = r.locked ? '🔒' : r.n;
-		const lb = document.createElement('span');
-		lb.className = 'lb';
-		lb.textContent = r.name;
-		b.append(lb);
-		b.setAttribute('aria-label', 'Vùng ' + r.n + ': ' + r.name);
-		b.onclick = () => show(r);
+		b.onclick = () => showRegion(r);
 		$('map').append(b);
 		return b;
 	});
-	const show = (r) => {
+	function showRegion(r) {
 		pins.forEach((p, i) => p.classList.toggle('on', REGIONS[i] === r));
 		// Có ảnh chụp thì dùng; chưa có thì phóng to đúng chỗ vùng đó trên bản đồ lục địa.
-		const bg = r.shot
-			? "background-image:url('site/img/" + r.shot + "')"
-			: "background-image:url('site/img/continent.png');background-size:420% auto;background-position:" + r.x + '% ' + r.y + '%;image-rendering:pixelated';
-		card.innerHTML =
-			'<div class="shot" style="' + bg + '">' + (r.locked ? '<div class="lock">🔒 Sắp mở</div>' : '') + '</div>' +
-			'<div class="rb"><div class="no">VÙNG ' + r.n + (r.locked ? ' · CHƯA MỞ' : '') + '</div><h3></h3>' +
-			'<div class="meta"><span class="chip">Cấp ' + r.lv + '</span><span class="chip">Hệ ' + r.el + '</span></div><p></p>' +
-			'<div class="home">Nơi ở: <b></b></div></div>';
-		card.querySelector('h3').textContent = r.name;
-		card.querySelector('p').textContent = r.text;
-		card.querySelector('.home b').textContent = r.home;
+		const fig = h('figure.relative.aspect-video.bg-base-300.bg-cover.bg-center');
+		fig.style.backgroundImage = "url('site/img/" + (r.shot || 'continent.png') + "')";
+		if (!r.shot) {
+			fig.style.backgroundSize = '420% auto';
+			fig.style.backgroundPosition = r.x + '% ' + r.y + '%';
+			fig.style.imageRendering = 'pixelated';
+		}
+		if (r.locked) fig.append(h('div.absolute.inset-0.grid.place-items-center.bg-base-300/70.backdrop-grayscale.font-black.text-lg', null, '🔒 Sắp mở'));
+		card.replaceChildren(fig,
+			h('div.card-body.p-5.gap-2', null,
+				h('p.text-xs.font-black.tracking-wider.text-primary', null, 'VÙNG ' + r.n + (r.locked ? ' · CHƯA MỞ' : '')),
+				h('h3.card-title.text-xl.font-black', null, r.name),
+				h('div.flex.flex-wrap.gap-2', null, h('span.badge.badge-outline', null, 'Cấp ' + r.lv), h('span.badge.badge-outline', null, 'Hệ ' + r.el)),
+				h('p.text-sm.text-base-content/75.leading-relaxed', null, r.text),
+				h('p.text-sm.text-base-content/60', null, 'Nơi ở: ', h('b.text-base-content', null, r.home)),
+			),
+		);
 		card.style.borderColor = r.c;
-	};
-	show(REGIONS[0]);
+	}
+	showRegion(REGIONS[0]);
 
-	// Ảnh lớn: bấm ảnh, ← → để chuyển, Esc để đóng.
+	// —— Ảnh lớn ——
 	const figs = [...document.querySelectorAll('#gallery figure')];
 	let cur = 0;
-	const open = (i) => {
+	const openShot = (i) => {
 		cur = (i + figs.length) % figs.length;
 		$('lb-img').src = figs[cur].querySelector('img').src;
 		$('lb-cap').textContent = figs[cur].querySelector('figcaption').textContent;
-		$('lb').classList.add('on');
+		if (!$('lb').open) $('lb').showModal();
 	};
-	const close = () => $('lb').classList.remove('on');
-	figs.forEach((f, i) => (f.onclick = () => open(i)));
-	$('lb-x').onclick = close;
-	$('lb-pv').onclick = () => open(cur - 1);
-	$('lb-nx').onclick = () => open(cur + 1);
-	$('lb').onclick = (e) => e.target === $('lb') && close();
+	figs.forEach((f, i) => (f.onclick = () => openShot(i)));
+	$('lb-pv').onclick = () => openShot(cur - 1);
+	$('lb-nx').onclick = () => openShot(cur + 1);
 	addEventListener('keydown', (e) => {
-		if (!$('lb').classList.contains('on')) return;
-		if (e.key === 'Escape') close();
-		if (e.key === 'ArrowLeft') open(cur - 1);
-		if (e.key === 'ArrowRight') open(cur + 1);
+		if (!$('lb').open) return;
+		if (e.key === 'ArrowLeft') openShot(cur - 1);
+		if (e.key === 'ArrowRight') openShot(cur + 1);
 	});
 
-	// Hiện dần khi cuộn tới + đếm số ở dải số liệu.
+	// —— Hiện dần khi cuộn tới + đếm số ——
 	const count = (el) => {
 		const to = +el.dataset.count, plus = 'plus' in el.dataset;
 		if (reduce) return;
@@ -810,7 +904,7 @@ footer { background: var(--wood-dark); color: #f3dcb4; text-align: center; paddi
 			if (!e.isIntersecting) return;
 			e.target.classList.add('seen');
 			io.unobserve(e.target);
-		}), { threshold: 0.12 });
+		}), { threshold: 0.1 });
 		document.querySelectorAll('.reveal').forEach((el, i) => {
 			el.style.transitionDelay = (i % 3) * 80 + 'ms';
 			io.observe(el);
@@ -823,7 +917,7 @@ footer { background: var(--wood-dark); color: #f3dcb4; text-align: center; paddi
 		document.querySelectorAll('[data-count]').forEach((el) => io2.observe(el));
 	} else document.querySelectorAll('.reveal').forEach((el) => el.classList.add('seen'));
 
-	// Hạt Aether bay lên trên banner (canvas, dừng khi banner khuất / người xem tắt chuyển động).
+	// —— Hạt Aether bay lên trên banner (dừng khi banner khuất / người xem tắt chuyển động) ——
 	const cv = $('sparks');
 	if (!reduce && cv.getContext) {
 		const g = cv.getContext('2d');
@@ -852,10 +946,9 @@ footer { background: var(--wood-dark); color: #f3dcb4; text-align: center; paddi
 				parts.forEach((p, i) => {
 					p.y -= p.v;
 					p.w += 0.02;
-					const x = p.x + Math.sin(p.w) * 12;
 					g.globalAlpha = p.a * Math.min(1, p.y / (H * 0.4));
 					g.fillStyle = p.c;
-					g.fillRect(Math.round(x), Math.round(p.y), p.s, p.s);
+					g.fillRect(Math.round(p.x + Math.sin(p.w) * 12), Math.round(p.y), p.s, p.s);
 					if (p.y < -10) parts[i] = spawn(false);
 				});
 			}

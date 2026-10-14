@@ -4,14 +4,19 @@ import { fileURLToPath } from 'node:url';
 import { WebSocketServer } from 'ws';
 import { SERVER_PORT } from '@aether/protocol';
 import { AdminOps } from './adminOps.ts';
+import { Board } from './board.ts';
 import { Store } from './db.ts';
 import { createApi, stripMount } from './http.ts';
+import { SITE_DIR } from './site.ts';
 import { World } from './world.ts';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const port = Number(process.env.PORT) || SERVER_PORT;
 const store = new Store(process.env.AETHER_DB ?? join(ROOT, 'data/aether.db'));
 const world = new World(store);
+// Tin tức trang chủ giờ lưu CSDL: lần đầu (bảng rỗng) nạp tin cũ từ site/news.json.
+const seeded = new Board(store).seedNews(join(SITE_DIR, 'news.json'));
+if (seeded) console.log(`Đã nạp ${seeded} tin từ site/news.json vào CSDL`);
 // Trang quản trị dùng chung thế giới đang chạy: nhân vật online nhận số mới ngay (bộ nhớ kinh tế + tin `eco` / `wallet`).
 const api = createApi(store, new AdminOps(store, world));
 

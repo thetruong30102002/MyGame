@@ -182,6 +182,75 @@ export interface FeedbackEntry {
 	platform: string | null;
 }
 
+// ---- Trang chủ: tin tức (quản trị đăng) + bài viết cộng đồng (người chơi đăng, bình luận) ----------------------------------
+
+export const NEWS_TAGS = ['Cập nhật', 'Thông báo', 'Sự kiện'] as const;
+export type NewsTag = (typeof NEWS_TAGS)[number];
+export const NEWS_TITLE_MAX = 120;
+/** Tối đa số dòng (gạch đầu dòng) một tin, mỗi dòng tối đa `NEWS_LINE_MAX` ký tự. */
+export const NEWS_LINES_MAX = 30;
+export const NEWS_LINE_MAX = 400;
+
+/** Một tin trên trang chủ, mới nhất trước. `date` dạng dd/mm/yyyy (giờ Việt Nam). */
+export interface NewsItem {
+	id: number;
+	at: number;
+	date: string;
+	tag: NewsTag;
+	title: string;
+	body: string[];
+	author: string;
+}
+
+/** `POST / PUT /api/admin/news`: nội dung là chữ nhiều dòng — mỗi dòng không rỗng thành một gạch đầu dòng. */
+export interface NewsRequest {
+	tag: NewsTag;
+	title: string;
+	body: string;
+}
+
+export const POST_TITLE_MAX = 100;
+export const POST_BODY_MAX = 2000;
+export const COMMENT_MAX = 500;
+
+/** Bài viết cộng đồng. `author`: tên nhân vật người đăng chọn (thuộc đúng tài khoản), không có nhân vật thì tên tài khoản. */
+export interface PostItem {
+	id: number;
+	at: number;
+	author: string;
+	title: string;
+	body: string;
+	comments: number;
+	/** Người đang xem là chủ bài (xoá được). */
+	mine: boolean;
+}
+
+export interface CommentItem {
+	id: number;
+	at: number;
+	author: string;
+	body: string;
+	mine: boolean;
+}
+
+export interface PostRequest {
+	title: string;
+	body: string;
+	characterId?: string;
+}
+
+export interface CommentRequest {
+	body: string;
+	characterId?: string;
+}
+
+/** `GET /api/me`: tài khoản đang đăng nhập + quyền quản trị + nhân vật (để chọn tên hiện khi đăng bài). */
+export interface MeResponse {
+	username: string;
+	admin: boolean;
+	characters: { id: string; name: string; level: number }[];
+}
+
 // ---- WebSocket --------------------------------------------------------------------------------
 
 /**

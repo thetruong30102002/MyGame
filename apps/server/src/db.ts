@@ -171,6 +171,37 @@ export class Store {
 				platform TEXT,
 				at INTEGER NOT NULL
 			);
+			-- Trang chủ (14/10/2026): tin tức do quản trị đăng (thay cho sửa tay site/news.json — lần đầu chạy nạp từ file đó, xem
+			-- main.ts). \`body\`: mảng JSON các dòng.
+			CREATE TABLE IF NOT EXISTS news (
+				id INTEGER PRIMARY KEY,
+				tag TEXT NOT NULL,
+				title TEXT NOT NULL,
+				body TEXT NOT NULL,
+				author TEXT NOT NULL,
+				at INTEGER NOT NULL
+			);
+			-- Bài viết cộng đồng + bình luận (người chơi đăng trên trang chủ). Xoá = ẩn (\`hidden\`), giữ lại để quản trị tra khi cần.
+			-- Giữ sẵn tên hiện (\`author\`) như lúc đăng.
+			CREATE TABLE IF NOT EXISTS posts (
+				id INTEGER PRIMARY KEY,
+				account_id INTEGER NOT NULL,
+				author TEXT NOT NULL,
+				title TEXT NOT NULL,
+				body TEXT NOT NULL,
+				at INTEGER NOT NULL,
+				hidden INTEGER NOT NULL DEFAULT 0
+			);
+			CREATE TABLE IF NOT EXISTS post_comments (
+				id INTEGER PRIMARY KEY,
+				post_id INTEGER NOT NULL REFERENCES posts(id) ON DELETE CASCADE,
+				account_id INTEGER NOT NULL,
+				author TEXT NOT NULL,
+				body TEXT NOT NULL,
+				at INTEGER NOT NULL,
+				hidden INTEGER NOT NULL DEFAULT 0
+			);
+			CREATE INDEX IF NOT EXISTS post_comments_post ON post_comments(post_id);
 		`);
 	}
 
@@ -406,6 +437,78 @@ export class Store {
 	feedbackList(limit: number): FeedbackEntry[] {
 		const rows = this.db.prepare('SELECT * FROM feedback ORDER BY id DESC LIMIT ?').all(limit) as unknown as FeedbackRow[];
 		return rows.map((r) => ({ id: r.id, at: r.at, username: r.username, characterName: r.character_name, text: r.text, build: r.build, platform: r.platform }));
+	}
+
+	// ———— Tin tức trang chủ ————
+
+	newsCount(): number {
+		return Number((this.db.prepare('SELECT count(*) AS n FROM news').get() as { n: number }).n);
+	}
+
+	/** Tin mới nhất trước (theo `at`, cùng lúc thì tin thêm sau trước). */
+	newsList(limit: number): NewsRow[] {
+		return this.db.prepare('SELECT * FROM news ORDER BY at DESC, id DESC LIMIT ?').all(limit) as unknown as NewsRow[];
+	}
+
+	news(id: number): NewsRow | null {
+		return (this.db.prepare('SELECT * FROM news WHERE id = ?').get(id) as unknown as NewsRow | undefined) ?? null;
+	}
+
+	addNews(tag: string, title: string, body: string[], author: string, at: number = Date.now()): number {
+		return Number(this.db.prepare('INSERT INTO news (tag, title, body, author, at) VALUES (?, ?, ?, ?, ?)').run(tag, title, JSON.stringify(body), author, at).lastInsertRowid);
+	}
+
+	/** Sửa chữ + nhãn, giữ ngày đăng. Trả false nếu không có tin đó. */
+	updateNews(id: number, tag: string, title: string, body: string[]): boolean {
+		return Number(this.db.prepare('UPDATE news SET tag = ?, title = ?, body = ? WHERE id = ?').run(tag, title, JSON.stringify(body), id).changes) > 0;
+	}
+
+	deleteNews(id: number): boolean {
+		return Number(this.db.prepare('DELETE FROM news WHERE id = ?').run(id).changes) > 0;
+	}
+
+	// ———— Bài viết cộng đồng ————
+
+	/** Bài chưa ẩn, mới nhất trước; `before` = id bài cuối trang trước (phân trang), kèm số bình luận chưa ẩn. */
+	posts(limit: number, before: number | null): PostRow[] {
+		return this.db
+			.prepare(
+				`SELECT p.*, (SELECT count(*) FROM post_comments c WHERE c.post_id = p.id AND c.hidden = 0) AS comments
+				 FROM posts p WHERE p.hidden = 0 AND p.id < ? ORDER BY p.id DESC LIMIT ?`,
+			)
+			.all(before ?? Number.MAX_SAFE_INTEGER, limit) as unknown as PostRow[];
+	}
+
+	post(id: number): PostRow | null {
+		return (
+			(this.db
+				.prepare('SELECT p.*, (SELECT count(*) FROM post_comments c WHERE c.post_id = p.id AND c.hidden = 0) AS comments FROM posts p WHERE p.id = ? AND p.hidden = 0')
+				.get(id) as unknown as PostRow | undefined) ?? null
+		);
+	}
+
+	addPost(accountId: number, author: string, title: string, body: string): number {
+		return Number(this.db.prepare('INSERT INTO posts (account_id, author, title, body, at) VALUES (?, ?, ?, ?, ?)').run(accountId, author, title, body, Date.now()).lastInsertRowid);
+	}
+
+	hidePost(id: number): boolean {
+		return Number(this.db.prepare('UPDATE posts SET hidden = 1 WHERE id = ? AND hidden = 0').run(id).changes) > 0;
+	}
+
+	comments(postId: number): CommentRow[] {
+		return this.db.prepare('SELECT * FROM post_comments WHERE post_id = ? AND hidden = 0 ORDER BY id').all(postId) as unknown as CommentRow[];
+	}
+
+	comment(id: number): CommentRow | null {
+		return (this.db.prepare('SELECT * FROM post_comments WHERE id = ? AND hidden = 0').get(id) as unknown as CommentRow | undefined) ?? null;
+	}
+
+	addComment(postId: number, accountId: number, author: string, body: string): number {
+		return Number(this.db.prepare('INSERT INTO post_comments (post_id, account_id, author, body, at) VALUES (?, ?, ?, ?, ?)').run(postId, accountId, author, body, Date.now()).lastInsertRowid);
+	}
+
+	hideComment(id: number): boolean {
+		return Number(this.db.prepare('UPDATE post_comments SET hidden = 1 WHERE id = ? AND hidden = 0').run(id).changes) > 0;
 	}
 
 	// ———— Xã hội ————
@@ -696,6 +799,35 @@ const ADMIN_ROW_SQL = `SELECT c.id, c.name, a.username AS account, json_extract(
 
 function toAdminRow(r: AdminRow): AdminRow {
 	return { id: r.id, name: r.name, account: r.account, level: r.level, exp: r.exp, coins: r.coins, potions: r.potions, diamonds: Number(r.diamonds) || 0, bonusPoints: cleanBonusPoints(r.bonusPoints) };
+}
+
+export interface NewsRow {
+	id: number;
+	tag: string;
+	title: string;
+	/** Mảng JSON các dòng. */
+	body: string;
+	author: string;
+	at: number;
+}
+
+export interface PostRow {
+	id: number;
+	account_id: number;
+	author: string;
+	title: string;
+	body: string;
+	at: number;
+	comments: number;
+}
+
+export interface CommentRow {
+	id: number;
+	post_id: number;
+	account_id: number;
+	author: string;
+	body: string;
+	at: number;
 }
 
 interface FeedbackRow {

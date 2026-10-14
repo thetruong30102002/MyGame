@@ -1,8 +1,9 @@
 // Trang chủ game (chủ dự án 13/10/2026: "thêm 1 landing page trang chủ game, tin tức cập nhật, tải các bản game — tham khảo trang Ngọc
 // Rồng Online"): trang TĨNH ở `apps/server/site/` do chính máy chủ game phát — qua Funnel là https://<máy>/game/.
 //   GET /  (hoặc /index.html)   → site/index.html
+//   GET /admin                  → site/admin.html (trang quản trị: tài nguyên, góp ý, tin tức, bài viết — quyền kiểm ở API)
 //   GET /site/<đường dẫn>       → file trong site/ (ảnh, news.json…)
-// Tin tức sửa ở `site/news.json` (mới nhất trước), không cần khởi động lại máy chủ. Nút tải dùng /api/client/latest/… (clientUpdate.ts).
+// Tin tức (14/10/2026) lưu CSDL, quản trị đăng ở /admin; `site/news.json` chỉ còn để nạp lần đầu + dự phòng khi API lỗi. Nút tải dùng /api/client/latest/… (clientUpdate.ts).
 import { createReadStream, existsSync, statSync } from 'node:fs';
 import type { ServerResponse } from 'node:http';
 import { dirname, extname, resolve, sep } from 'node:path';
@@ -27,6 +28,7 @@ const TYPES: Record<string, string> = {
 export function sendSite(path: string, res: ServerResponse, dir: string = SITE_DIR): boolean {
 	let rel: string;
 	if (path === '/' || path === '/index.html') rel = 'index.html';
+	else if (path === '/admin' || path === '/admin/') rel = 'admin.html';
 	else if (path.startsWith('/site/')) rel = decodeURIComponent(path.slice('/site/'.length));
 	else return false;
 	const p = resolve(dir, rel);

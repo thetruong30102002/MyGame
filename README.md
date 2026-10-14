@@ -29,9 +29,15 @@ Client Unity (nhập hình từ `assets/`, dựng scene, build PC / APK, AutoTes
 `npx tsx UnityGame/Tools~/publish-client.mts` → người chơi đang có game **tự cập nhật** lúc mở game; người mới tải bộ cài ở
 **https://admin.tail024813.ts.net/game/api/client/latest/windows** (Android: `…/latest/android`).
 
-**Trang chủ game** (tin tức + nút tải PC / zip / APK): **https://admin.tail024813.ts.net/game/** — trang tĩnh `apps/server/site/` do
-máy chủ game phát (`apps/server/src/site.ts`). Thêm tin: sửa `apps/server/site/news.json` (mới nhất trước), không cần khởi động lại;
-số bản + dung lượng đọc từ `version.json` lúc mở trang. Sửa `site.ts` / `http.ts` thì phải khởi động lại máy chủ.
+**Trang chủ game** (tin tức, nút tải PC / zip / APK, đăng nhập bằng tài khoản game, góp ý, bảng tin cộng đồng — viết bài + bình luận):
+**https://admin.tail024813.ts.net/game/** — trang tĩnh `apps/server/site/` do máy chủ game phát (`apps/server/src/site.ts`).
+**Trang quản trị web**: **…/game/admin** (14/10/2026) — cộng / trừ tài nguyên cho nhân vật, đọc góp ý, đăng / sửa / xoá tin tức, ẩn bài
+viết / bình luận xấu, nhật ký; quyền như cửa sổ Quản trị trong game (`src/admin.ts add`). Tin tức lưu CSDL (bảng `news`, lần đầu chạy nạp
+từ `site/news.json` — file đó chỉ còn để dự phòng khi API lỗi); bài viết ở bảng `posts` / `post_comments`, xoá = ẩn. API + luật ở
+`apps/server/src/board.ts`, test `apps/server/tests/board.test.ts`.
+Giao diện dùng **Tailwind + daisyUI** (theme `aether` ở `apps/server/site-src/tailwind.config.cjs`): sửa class trong `site/*.html` xong chạy
+`npm run build:site -w @aether/server` để build lại `site/app.css` (commit cả file đó). Sửa HTML / CSS không cần khởi động lại; sửa
+`site.ts` / `http.ts` / `board.ts` thì phải khởi động lại máy chủ.
 
 | Phím | Tác dụng |
 | --- | --- |
@@ -52,7 +58,7 @@ Mỗi vùng có thời tiết riêng (tuyết rơi, cát bay + cỏ khô lăn, t
 
 ### Quản trị: cửa sổ Quản trị trong game (cộng tiền, điểm cho nhân vật)
 
-Tài khoản có quyền thấy nút **Quản trị** ở tab Cài đặt (O) — thay trang web `/admin` cũ. Tìm nhân vật theo tên nhân vật / tên tài
+Tài khoản có quyền thấy nút **Quản trị** ở tab Cài đặt (O); trên web có thêm trang **…/game/admin** (cùng API, xem mục Trang chủ). Tìm nhân vật theo tên nhân vật / tên tài
 khoản → số hiện tại (xu, kim cương, bình hồi phục, cấp + EXP, điểm tiềm năng thưởng, đang online?) → cộng / trừ từng loại, đặt cấp,
 lý do BẮT BUỘC → dòng xem trước "trước → sau" (tính bằng đúng luật máy chủ) → bấm Áp dụng hai lần → kết quả + nhật ký.
 
