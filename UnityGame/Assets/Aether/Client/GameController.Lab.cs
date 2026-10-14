@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using Aether.Core;
+using Aether.Data;
+using UnityEngine;
 using Newtonsoft.Json.Linq;
 
 namespace Aether.Client
@@ -55,8 +57,22 @@ namespace Aether.Client
 
 
         /// <summary>Mỗi khung trong phòng Thử chiêu: đầy máu / MP, xoá hồi chiêu.</summary>
+        private RigThu rigThu;
+        private MapInstance rigMap;
+
+        /// <summary>Nhân vật ghép mảnh thử nghiệm đứng cạnh người chơi trong phòng Thử chiêu (null khi chưa dựng).</summary>
+        public RigThu RigThu => rigThu;
+
         private void TickLab()
         {
+            // Nhân vật ghép mảnh THỬ (14/10/2026): đứng bên phải người chơi ở map đang đứng; đổi map thì dựng lại cạnh chỗ mới.
+            if (player != null && map != null && !changing && rigMap != map)
+            {
+                if (rigThu != null) Destroy(rigThu.gameObject);
+                rigThu = RigThu.Spawn(entities, player.transform.position + new Vector3(90f / WorldCoords.PixelsPerUnit, 0, 0));
+                rigMap = map;
+                if (rigThu != null) hud.Toast("Bên phải: nhân vật GHÉP MẢNH thử nghiệm — đứng · đi · chém, tự đổi 3 bộ đồ", "info");
+            }
             var pc = combat.Pc;
             pc.Mp = pc.MpMax;
             if (pc.Hp < pc.HpMax) pc.Hp = pc.HpMax;

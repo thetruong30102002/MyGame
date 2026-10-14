@@ -22,6 +22,8 @@ namespace Aether.Client
         private bool tour;
         /// <summary>-aetherLab [-aetherLabStyle thuy_than|bac_than]: vào phòng Thử chiêu, đứng cách quái 260px tung từng tuyệt kỹ (+ chiêu mốc 8 lưu phái), chụp + ghi mục tiêu / quái trúng.</summary>
         private bool lab;
+        /// <summary>-aetherLab -aetherRig: chỉ chụp nhân vật ghép mảnh thử nghiệm (RigThu) rồi thoát.</summary>
+        private bool rigRun;
         private bool social;
         private bool storyRun;
         private bool adminRun;
@@ -52,6 +54,7 @@ namespace Aether.Client
                 }
                 t.tour = Array.IndexOf(args, "-aetherTour") >= 0;
                 t.lab = Array.IndexOf(args, "-aetherLab") >= 0;
+                t.rigRun = Array.IndexOf(args, "-aetherRig") >= 0;
                 t.social = Array.IndexOf(args, "-aetherSocial") >= 0;
                 t.storyRun = Array.IndexOf(args, "-aetherStory") >= 0;
                 t.adminRun = Array.IndexOf(args, "-aetherAdmin") >= 0;
@@ -286,6 +289,17 @@ namespace Aether.Client
             log.WriteLine($"phòng thử chiêu: cấp {c.Pc.Level}, thanh [{string.Join(",", game.Loadout)}]");
             yield return game.ChangeMap("human/mossvale", null, false);
             yield return new WaitForSeconds(1.5f);
+            if (rigRun)
+            {
+                // Nhân vật ghép mảnh: 10 khung/giây, mỗi bộ đồ 36 khung (đứng 8 · đi 16 · chém 16 … ) — chụp dày ở 2 lượt đầu.
+                for (var i = 0; i < 26; i += 1)
+                {
+                    yield return new WaitForSeconds(0.23f);
+                    log.WriteLine($"ghép mảnh {i}: {game.RigThu?.Caption ?? "CHƯA DỰNG"}");
+                    yield return Shot($"rig-{i:00}");
+                }
+                yield break;
+            }
             Aether.Client.Combat.Fighter target = null;
             foreach (var f in c.Enemies)
                 if (!f.Dead && (target == null || Dist(f, game) < Dist(target, game)))
@@ -688,6 +702,15 @@ namespace Aether.Client
             yield return new WaitForSeconds(1.2f);
             yield return Shot("svc-waystone");
             log.WriteLine($"cột dịch chuyển: đã tới {(game.Hubs == null ? "chưa trả lời" : string.Join(", ", game.Hubs))}");
+            // Cột ở MAP CON (14/10/2026): dịch chuyển tới map đã tới đầu tiên không phải trạm, không phải map đang đứng, rồi chụp cạnh cột.
+            var sub = game.Hubs?.Find(k => k != game.CurrentMapKey && !k.EndsWith("/hub") && k != "human/town");
+            if (sub != null)
+            {
+                game.Teleport(sub);
+                yield return new WaitForSeconds(3f);
+                log.WriteLine($"dịch chuyển tới map con {sub}: đang ở {game.CurrentMapKey}");
+                yield return Shot("waystone-submap");
+            }
             hud.Panels.Show(Aether.Client.UI.Panels.Kind.Shop);
             yield return new WaitForSeconds(0.6f);
             yield return Shot("svc-shop");
