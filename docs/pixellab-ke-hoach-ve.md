@@ -12,7 +12,7 @@ Chủ dự án 11/10/2026: **"tập trung bản lớn thôi"** — ngoại hình
 |---|---|---|
 | Hoàn thiện vùng 1–7 | hiệu ứng chiêu người chơi (~810, mục "Hiệu ứng chiêu NGƯỜI CHƠI" — gồm đổi 4 tuyệt kỹ nguyên tố + 3 tuyệt kỹ Kiếm), lỗi hình quái / boss (~150), cây cối + đồ vật còn thiếu (~260 — gồm 24 cây mới vùng 2–7, đủ để mỗi vùng một bộ cây riêng + mỗi map một loài chủ đạo, `ke-hoach-the-gioi.md` 5.6; loài trùng giữa vùng thì tô màu lại, 0 lượt), NPC 6 trạm + quan / lính 2 toà thành (~425) | ~1.645 |
 | Vùng 8–10 + 3 rồng | map (~120), 15 quái (~225), 9 boss (~360), chiêu boss (~240), Địa / Quang / Hắc Long (~660), NPC trạm (~250), cây cối + đồ vật thêm (~145) | ~2.000 |
-| Trang bị bản lớn | 3 bộ dáng giáp (Da · Giáp thép · Giáp rồng) × 2 giới tính (~570), 5 bậc hiếm + vũ khí theo bậc bằng shader nhuộm (0), đồ dán theo điểm neo — mũ / áo choàng / giáp vai (~120), hào quang đồ Sử thi / Huyền thoại (~85), icon (~40), dự phòng (~100) | ~915 |
+| ~~Trang bị bản lớn~~ — THAY 14/10/2026 | giáp / áo chỉ hiện trong kho (không vẽ); **vũ khí hiện đúng từng món** vẽ liền thân ~200 / vũ khí / ngoại hình / giới tính (20 món × 2 giới tính ≈ 8.000) + **skin cải trang** ~475 / skin (10 skin ≈ 4.750) — `the-gioi-aether.md` Việc kế tiếp 4 | ~12.750 |
 | Chiêu boss vùng 1–7 làm lại (11/10/2026) | thêm khung 40 hình lên 12 khung (~480) + 25 chiêu hoành tráng (~850) — mục "Chiêu BOSS" | ~1.330 |
 | Vùng báo riêng mỗi boss (11/10/2026) | 25 boss vùng 1–7, 128 · 6 khung lặp — mục "Vùng báo trước chiêu" | ~200 |
 | Chuẩn boss mới cho vùng 8–10 (11/10/2026) | 9 boss + 3 rồng: chiêu hoành tráng (~410) + vùng báo riêng (~95), thêm vào phần "chiêu boss ~240" ở trên | ~505 |
