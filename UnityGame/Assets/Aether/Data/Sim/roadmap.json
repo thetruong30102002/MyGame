@@ -94,7 +94,7 @@
 			"id": "region8_10",
 			"group": "game",
 			"name": "Vùng 8–10 + 3 rồng + Long Huyệt",
-			"detail": "Mới có thiết kế; chưa dựng map / quái / boss.",
+			"detail": "Lịch 14/10: sau 4 vùng nguyên tố, mỗi ngày dựng 1 vùng (ngày 7–9) bằng hình mượn + tô màu TẠM, ngày 10 lên bản thật; hình riêng vẽ bằng gói 24$ sau.",
 			"progress": 5,
 			"pixellab": 0,
 			"doc": "ke-hoach-the-gioi.md"
@@ -121,7 +121,7 @@
 			"id": "new_maps",
 			"group": "game",
 			"name": "4 map nguyên tố mới: Rừng Cổ Thụ · Thánh Địa Bình Minh · Vực Ám Ma · Lãnh địa Kiếm",
-			"detail": "Cây đủ 12 loài mỗi map (Lãnh địa Kiếm tông phong đỏ / vàng); còn chốt vị trí + cấp mở, dựng map, quái, đồ vật (tấm WD1 / LT1 / DK1 / SD1 đã soạn đề).",
+			"detail": "Chốt 14/10: mỗi hệ một VÙNG 12 map, vào bằng Cổng Nguyên Tố ở Thistlewood; cây đủ 48 loài, quái / đồ vật mượn tạm. Lịch: ngày 1 khung + cổng, ngày 2–5 mỗi ngày 1 vùng, ngày 6 lên bản thật.",
 			"progress": 15,
 			"pixellab": 0,
 			"doc": "ke-hoach-the-gioi.md §5.7"

@@ -533,6 +533,25 @@ Dựng bằng bộ dựng chung (`packages/asset-pipeline/src/maps/kit.ts`) như
 mỗi map một loài chủ đạo, thời tiết theo vùng). Hình mới (thần, quái, tấm nền) phải qua phiếu duyệt PixelLab. Luật nguyên tố đi kèm:
 `docs/ke-hoach-nguyen-to.md` mục 9.
 
+**LỊCH DỰNG — chốt 14/10/2026** (chủ dự án: "Vùng đủ 12 map", "Cổng ở Thistlewood", làm trong lúc chờ nạp lượt PixelLab 09/11,
+"mỗi ngày làm một xíu"; kèm vùng 8–10 đang khoá: "còn mấy map trước vẫn bị khóa chưa xây đâu nấm, phế tích"). 0 lượt PixelLab: cây
+4 vùng nguyên tố đã có (48 loài); đá / đồ vật / quái / boss MƯỢN của vùng khác hoặc tô màu lại, ghi rõ TẠM, có hình riêng thì thay.
+
+| Ngày | Việc |
+|---|---|
+| 1 | Khung **vùng nhánh**: 4 vùng nguyên tố trong `packages/sim/src/regions.ts` không nằm trên đường chính (điều kiện mở riêng: cấp, không cần boss chúa vùng trước); **Cổng Nguyên Tố** ở quảng trường Thistlewood (NPC dịch vụ, bảng chọn 4 vùng + điều kiện, giống cột dịch chuyển); 4 bảng màu mặt đất mới (`groundShade` + Unity `GroundShader`) |
+| 2 | **Rừng Cổ Thụ (Mộc)**: chủ đề map (12 loài cây đã vẽ), 12 map theo khung chuẩn, 5 loại quái + 2 boss khu + boss chúa MƯỢN tạm; dựng + test đi bộ |
+| 3 | **Thánh Địa Bình Minh (Ánh sáng)** — như ngày 2 |
+| 4 | **Vực Ám Ma (Bóng tối)** — như ngày 2 |
+| 5 | **Lãnh địa Kiếm** — như ngày 2 (cây phong đỏ / vàng) |
+| 6 | Build + thử ở máy chủ thử (AutoTest chụp từng vùng) → chủ dự án duyệt → lên bản thật |
+| 7–9 | **Vùng 8 Rừng Nấm Ngầm · 9 Phế tích Aether · 10 Vực Hư Không**, mỗi ngày một vùng: chưa có cây / quái riêng → mượn + tô màu lại TẠM theo chất vùng |
+| 10 | Build + thử + lên bản thật vùng 8–10 |
+
+**Cần chốt khi làm ngày 1**: cấp mở của từng vùng nguyên tố (đề xuất: theo cấp mốc mở nhánh nguyên tố đó); vùng nguyên tố có
+lối ra sang vùng nào hay cụt (đề xuất: cụt, về bằng cổng / cột dịch chuyển). Thần + nhiệm vụ mở hệ + quái / đồ vật riêng: vẽ bằng gói
+24$ sau (`pixellab-ke-hoach-ve.md`).
+
 ## 5.8 Map công trình: đi VÀO lâu đài, kim tự tháp, chiến địa — GHI CHÚ (13/10/2026, chưa làm)
 
 Chủ dự án 13/10/2026: "cần thêm kế hoạch các nơi cũ, không chỉ là các map vùng… thiếu mất vào lâu đài hay vào chiến địa… thấy map hơi
