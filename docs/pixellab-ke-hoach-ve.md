@@ -598,6 +598,8 @@ khai báo → khai id ở `props/worldRegions.ts` (tấm mới `*6`, map mới) 
 `IC4` băng hoang — 9 ô mỗi tấm khớp thứ tự khai báo, đã dựng lại map swamp / desert / tundra / volcano / isles.
 ✔ Phiên s1 — token #28 (36 lượt): `HL4` · `VL4` · `CR4` (khớp thứ tự ô) + `isles_morning_glory` + `highland_barn` · `highland_chapel`; đã dựng
 lại map highland / volcano / isles.
+◐ Phiên s2 — token #30 (14/10/2026, 40 lượt): `swamp_fisher_hut` · `swamp_longhouse` · `desert_adobe_house` · `tundra_hunting_lodge` ·
+`tundra_smokehouse` đã vẽ + lên làng (dựng lại map swamp / desert / tundra). CÒN `volcano_forge_shop` (token hết lượt) → chạy đầu phiên sau.
 
 | Phiên | Món (đề bài đã soạn) | Ghi chú |
 |---|---|---|

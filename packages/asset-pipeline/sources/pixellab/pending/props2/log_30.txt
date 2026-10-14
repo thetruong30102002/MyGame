@@ -10,3 +10,27 @@
 14:04 volcano_bastion: free đang khoá, chờ
 14:07 volcano_bastion: free đang khoá, chờ
 14:10 volcano_bastion: free đang khoá, chờ
+14:13 volcano_bastion: free đang khoá, chờ
+14:16 volcano_bastion: free đang khoá, chờ
+14:19 volcano_bastion: free đang khoá, chờ
+14:22 volcano_bastion: free đang khoá, chờ
+14:26 volcano_bastion: free đang khoá, chờ
+14:29 volcano_bastion: free đang khoá, chờ
+— phiên 14/10 11:56: chạy s1
+11:56 – D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/HL4_highland_meadow.png: đã có, bỏ qua
+11:56 – D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/VL4_volcano_wilds.png: đã có, bỏ qua
+11:56 – D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/sheets/CR4_beach_shore.png: đã có, bỏ qua
+11:56 – isles_morning_glory: đã có, bỏ qua
+11:56 – highland_barn: đã có, bỏ qua
+11:56 – highland_chapel: đã có, bỏ qua
+11:56 xong hàng
+— phiên 14/10 11:57: chạy s2
+11:57 ✔ swamp_fisher_hut
+— phiên 14/10 12:27: chạy tiếp s2
+12:27 – swamp_fisher_hut: đã có, bỏ qua
+12:28 ✔ swamp_longhouse
+12:29 ✔ desert_adobe_house
+12:31 ✔ tundra_hunting_lodge
+12:32 ✔ tundra_smokehouse
+12:32 ✘ volcano_forge_shop: (Pixler key: đã cấu hình, SpriteLab key: chưa cấu hình) [ee44…] create_object_pro_flash: error: Pro Flash creation requires 6 generations. Check your balance or reuse an existing first direction. 
+12:32 xong hàng

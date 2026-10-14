@@ -695,6 +695,18 @@
 			"h": 50
 		}
 	},
+	"adobe_house": {
+		"kind": "building",
+		"w": 142,
+		"h": 140,
+		"blocks": true,
+		"footprint": {
+			"x": -61,
+			"y": -52,
+			"w": 122,
+			"h": 52
+		}
+	},
 	"rock_arch": {
 		"kind": "building",
 		"w": 55,

@@ -623,6 +623,30 @@
 			"h": 14
 		}
 	},
+	"hunting_lodge": {
+		"kind": "building",
+		"w": 158,
+		"h": 177,
+		"blocks": true,
+		"footprint": {
+			"x": -68,
+			"y": -56,
+			"w": 136,
+			"h": 56
+		}
+	},
+	"smokehouse": {
+		"kind": "building",
+		"w": 157,
+		"h": 165,
+		"blocks": true,
+		"footprint": {
+			"x": -63,
+			"y": -44,
+			"w": 126,
+			"h": 44
+		}
+	},
 	"ice_floe": {
 		"kind": "rock",
 		"w": 43,

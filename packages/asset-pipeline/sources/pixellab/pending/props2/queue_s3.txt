@@ -1,3 +1,4 @@
+object volcano_forge_shop @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/volcano_forge_shop.send.json
 object volcano_bastion @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/volcano_bastion.send.json
 object isles_lighthouse @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/isles_lighthouse.send.json
 object isles_tavern @D:/nttrg/pixel/packages/asset-pipeline/sources/pixellab/pending/props2/isles_tavern.send.json

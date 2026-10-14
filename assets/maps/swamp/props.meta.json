@@ -683,6 +683,30 @@
 			"h": 14
 		}
 	},
+	"fisher_hut": {
+		"kind": "building",
+		"w": 152,
+		"h": 159,
+		"blocks": true,
+		"footprint": {
+			"x": -61,
+			"y": -40,
+			"w": 122,
+			"h": 40
+		}
+	},
+	"longhouse": {
+		"kind": "building",
+		"w": 185,
+		"h": 137,
+		"blocks": true,
+		"footprint": {
+			"x": -80,
+			"y": -44,
+			"w": 159,
+			"h": 44
+		}
+	},
 	"water_lily": {
 		"kind": "flower",
 		"w": 51,
