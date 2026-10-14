@@ -32,9 +32,9 @@
 
 		<!-- Nút tải: mỗi lựa chọn một hàng, cả hàng bấm được -->
 		<div class="dl mt-6 space-y-3">
-			<a data-os="windows" href="api/client/latest/windows" class="flex items-center gap-4 p-4 rounded-2xl bg-base-100 border-2 border-primary/40 card-hover">
+			<a data-os="windows" href="https://drive.google.com/drive/folders/1aXYfDoxPSySJ3k4wDbxDe5PGIrnkBHei" target="_blank" rel="noopener" class="flex items-center gap-4 p-4 rounded-2xl bg-base-100 border-2 border-primary/40 card-hover">
 				<span class="grid place-items-center w-12 h-12 rounded-xl bg-primary text-primary-content shrink-0"><svg class="i w-7 h-7"><use href="#i-win"/></svg></span>
-				<span class="flex-1 min-w-0"><span class="block font-bold text-[17px] leading-tight">PC · Bộ cài exe</span><span class="block mt-1 text-[13px] text-base-content/60" data-size="windows">Windows 10 / 11</span></span>
+				<span class="flex-1 min-w-0"><span class="block font-bold text-[17px] leading-tight">PC · Bộ cài exe</span><span class="block mt-1 text-[13px] text-base-content/60">Windows 10 / 11 · qua Google Drive</span></span>
 				<svg class="i w-6 h-6 text-primary shrink-0"><use href="#i-download"/></svg>
 			</a>
 			<a href="api/client/latest/windows-zip" class="flex items-center gap-4 p-4 rounded-2xl bg-base-100 border-2 border-white/10 card-hover">
@@ -42,9 +42,9 @@
 				<span class="flex-1 min-w-0"><span class="block font-bold text-[17px] leading-tight">PC · Gói zip</span><span class="block mt-1 text-[13px] text-base-content/60" data-size="zip">Khi Windows chặn file exe</span></span>
 				<svg class="i w-6 h-6 text-base-content/50 shrink-0"><use href="#i-download"/></svg>
 			</a>
-			<a data-os="android" href="api/client/latest/android" class="flex items-center gap-4 p-4 rounded-2xl bg-base-100 border-2 border-success/40 card-hover">
+			<a data-os="android" href="https://drive.google.com/drive/folders/1aXYfDoxPSySJ3k4wDbxDe5PGIrnkBHei" target="_blank" rel="noopener" class="flex items-center gap-4 p-4 rounded-2xl bg-base-100 border-2 border-success/40 card-hover">
 				<span class="grid place-items-center w-12 h-12 rounded-xl bg-success text-success-content shrink-0"><svg class="i w-7 h-7"><use href="#i-android"/></svg></span>
-				<span class="flex-1 min-w-0"><span class="block font-bold text-[17px] leading-tight">Android · APK</span><span class="block mt-1 text-[13px] text-base-content/60" data-size="android">Android 7.1 trở lên</span></span>
+				<span class="flex-1 min-w-0"><span class="block font-bold text-[17px] leading-tight">Android · APK</span><span class="block mt-1 text-[13px] text-base-content/60">Android 7.1 trở lên · qua Google Drive</span></span>
 				<svg class="i w-6 h-6 text-success shrink-0"><use href="#i-download"/></svg>
 			</a>
 		</div>
@@ -86,13 +86,14 @@
 	// Các bước cài: số tròn + chữ, căn đầu dòng.
 	const STEPS = {
 		win: [
-			['Tải bộ cài exe', ' ở trên, mở file vừa tải rồi chọn thư mục cài.'],
+			['Bấm "PC · Bộ cài exe"', ' ở trên → mở thư mục Google Drive, chọn Aether-Chronicle.exe, bấm nút Tải xuống. Drive báo "không quét được virus" với file lớn thì bấm Vẫn tải xuống.'],
+			['Mở file vừa tải', ' rồi chọn thư mục cài.'],
 			['Windows hiện "Windows protected your PC"', ': bấm More info → Run anyway. Game chưa ký số nên Windows cảnh báo — file vẫn an toàn.'],
 			['Bị chặn hẳn', ' (máy công ty, phần mềm diệt virus)? Tải gói zip, giải nén, chạy Aether.exe.'],
 			['Mở game', ' → Tạo tài khoản (hoặc dùng tài khoản đã tạo trên web) → tạo nhân vật.'],
 		],
 		and: [
-			['Tải file APK', ' ở trên (khoảng 180 MB — nên dùng wifi).'],
+			['Bấm "Android · APK"', ' ở trên → mở thư mục Google Drive, chọn file .apk, bấm Tải xuống (khoảng 180 MB — nên dùng wifi). Drive báo "không quét được virus" thì bấm Vẫn tải xuống.'],
 			['Mở file vừa tải', ' từ thanh thông báo hoặc ứng dụng Tệp / Files → Tải xuống.'],
 			['Máy hỏi', ' thì bật "Cho phép cài ứng dụng từ nguồn này", quay lại rồi bấm Cài đặt.'],
 			['Play Protect cảnh báo', ' "ứng dụng không rõ"? Bấm Chi tiết → Vẫn cài đặt.'],
