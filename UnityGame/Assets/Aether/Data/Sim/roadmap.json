@@ -49,7 +49,7 @@
 			"id": "gear",
 			"group": "game",
 			"name": "Trang bị bản lớn",
-			"detail": "Rơi đồ, độ hiếm, nhuộm theo bậc đã có. Chốt 14/10: đồ CHỈ hiện trong kho (icon + chỉ số), không vẽ lên người — ngoại hình nhân vật đổi bằng skin cải trang.",
+			"detail": "Rơi đồ, độ hiếm, nhuộm theo bậc đã có. Chốt 14/10: giáp / áo CHỈ hiện trong kho; VŨ KHÍ hiện đúng từng món trên tay (vẽ liền thân); ngoại hình đổi bằng skin cải trang.",
 			"progress": 80,
 			"pixellab": 0,
 			"doc": "the-gioi-aether.md — Trang bị"
@@ -223,6 +223,15 @@
 			"detail": "Mỗi skin = 1 nhân vật PixelLab vẽ trọn (tóc, mặt, trang phục; bản kiếm + trượng + tay không), mỗi skin 1 giới tính, ~475 lượt. Ước 10 skin đầu; làm 1 skin thử trước (token trả phí).",
 			"progress": 0,
 			"pixellab": 4750,
+			"doc": "the-gioi-aether.md — Việc kế tiếp 4"
+		},
+		{
+			"id": "art_weapons",
+			"group": "art",
+			"name": "Vũ khí hiện đúng từng món (vẽ liền thân)",
+			"detail": "Chốt 14/10 (phương án B): mỗi kiếm / trượng có hình riêng trên mọi động tác cầm nó, ~200 lượt / vũ khí / ngoại hình / giới tính; NHÂN theo số skin. Ước 20 vũ khí × nhân vật gốc × 2 giới tính.",
+			"progress": 0,
+			"pixellab": 8000,
 			"doc": "the-gioi-aether.md — Việc kế tiếp 4"
 		},
 		{

@@ -73,7 +73,10 @@ https://claude.ai/artifact/VTrVtPJHXUtETsssKRcx9K). Không sửa tay hai file si
 3. **M3.3b**: túi đồ + trang bị ở máy chủ, rơi đồ (máy chủ quyết), nhật ký kinh tế.
 4. Mốc 3 — **skin cải trang** (chủ dự án 14/10/2026: "đồ sẽ chỉ thấy trong kho" — trang bị KHÔNG hiện trên người): mỗi skin là
    một nhân vật PixelLab vẽ trọn (~475 lượt / skin / giới tính), bán kim cương, mặc vào thì thay ngoại hình; client chọn atlas theo
-   skin. Làm 1 skin thử trước (token trả phí). Đã loại: ghép mảnh có xương, đổi màu đồ, đồ hiện theo món.
+   skin. Làm 1 skin thử trước (token trả phí). Đã loại: ghép mảnh có xương, đổi màu đồ, giáp / áo hiện trên người.
+   **VŨ KHÍ hiện đúng từng món** (chủ dự án chọn phương án B 14/10/2026): mỗi kiếm / trượng trong kho có hình riêng, vẽ LIỀN THÂN trên
+   mọi động tác cầm nó (~200 lượt / vũ khí / ngoại hình / giới tính, đã tính hỏng). Chi phí NHÂN: (nhân vật gốc + số skin) × số vũ khí ×
+   ~200 — VD 20 vũ khí cho nhân vật gốc ≈ 4.000 lượt / giới tính, mỗi skin thêm ≈ 4.000 / giới tính → giữ ít skin, thêm vũ khí theo đợt.
 5. **Làm đẹp map** (chủ dự án 11/10/2026: "đồ vật lặp lại, cần thêm quái, xếp có trật tự") — `docs/ke-hoach-the-gioi.md` mục 5.4:
    xếp có trật tự + trộn đồ + tô màu lại trước (0 lượt), thêm quái (20–28 con, 2 loại / map săn), vẽ mới chỉ sau phiếu duyệt.
    Kèm: **cột dịch chuyển ở trạm vẽ đẹp hơn** (đã thống nhất một hình `rune_stone` cho mọi vùng 11/10/2026 — còn thiếu vòng phép,
@@ -301,7 +304,7 @@ Ngoài PixelLab: Âm thanh + nhạc nền từng vùng (PixelLab không làm); C
 
 ## Trang bị hiện trên người — ĐÃ BỎ 14/10/2026
 
-**Chủ dự án 14/10/2026 ĐỔI: "đồ sẽ chỉ thấy trong kho" — trang bị chỉ có icon + chỉ số trong túi, KHÔNG hiện trên người; nhân vật giữ thế cầm kiếm / trượng đang vẽ liền thân (theo LOẠI vũ khí, không theo món). Ngoại hình nhân vật chỉ đổi bằng SKIN CẢI TRANG bán kim cương: mỗi skin là một nhân vật PixelLab vẽ trọn (tóc, mặt, trang phục, bản cầm kiếm + trượng + tay không, ~475 lượt / skin / giới tính, mỗi skin một giới tính). Đã thử và LOẠI nhân vật ghép mảnh có xương (chê "quá xấu, khác hẳn bản vẽ của pixelab"); không đổi màu đồ.**
+**Chủ dự án 14/10/2026 ĐỔI: "đồ sẽ chỉ thấy trong kho" — trang bị chỉ có icon + chỉ số trong túi, KHÔNG hiện trên người; Ngoại hình nhân vật chỉ đổi bằng SKIN CẢI TRANG bán kim cương: mỗi skin là một nhân vật PixelLab vẽ trọn (tóc, mặt, trang phục, bản cầm kiếm + trượng + tay không, ~475 lượt / skin / giới tính, mỗi skin một giới tính). Đã thử và LOẠI nhân vật ghép mảnh có xương (chê "quá xấu, khác hẳn bản vẽ của pixelab"); không đổi màu đồ.**
 
 Kế hoạch cũ (giữ để tra cứu):
 
