@@ -44,11 +44,11 @@
 					Lớn lên ở thung lũng Thistlewood, cầm kiếm của cha hoặc trượng của mẹ, rồi đi qua 7 vùng đất để tìm sức mạnh 5 nguyên tố.
 				</p>
 				<div class="dl mt-7 grid grid-cols-1 sm:flex sm:justify-center gap-3 max-w-xs sm:max-w-none mx-auto">
-					<a class="flex items-center gap-3 h-14 px-5 rounded-xl bg-primary text-primary-content font-bold shadow-lg shadow-primary/25 active:scale-[.98] transition-transform" data-os="windows" href="api/client/latest/windows">
+					<a class="btn btn-primary btn-lg h-auto min-h-14 py-2 justify-start sm:justify-center gap-3 shadow-lg shadow-primary/25" data-os="windows" href="api/client/latest/windows">
 						<svg class="i w-6 h-6" aria-hidden="true"><use href="#i-win"/></svg>
 						<span class="flex flex-col items-start text-left"><span class="leading-tight">Tải cho PC</span><span class="text-xs font-medium opacity-75 leading-tight" data-size="windows">Windows · bộ cài</span></span>
 					</a>
-					<a class="flex items-center gap-3 h-14 px-5 rounded-xl bg-success text-success-content font-bold shadow-lg shadow-success/25 active:scale-[.98] transition-transform" data-os="android" href="api/client/latest/android">
+					<a class="btn btn-success btn-lg h-auto min-h-14 py-2 justify-start sm:justify-center gap-3 shadow-lg shadow-success/25" data-os="android" href="api/client/latest/android">
 						<svg class="i w-6 h-6" aria-hidden="true"><use href="#i-android"/></svg>
 						<span class="flex flex-col items-start text-left"><span class="leading-tight">Tải cho Android</span><span class="text-xs font-medium opacity-75 leading-tight" data-size="android">File APK</span></span>
 					</a>
@@ -73,7 +73,7 @@
 	<section class="max-w-6xl mx-auto px-4 pt-12 sm:pt-20">
 		<div class="flex items-end justify-between gap-4 reveal">
 			<div><p class="text-xs font-black tracking-widest text-primary">TIN TỨC</p><h2 class="text-2xl sm:text-3xl font-black mt-1">Có gì mới</h2></div>
-			<a href="tin-tuc" class="inline-flex items-center gap-1 h-10 text-sm font-semibold text-primary shrink-0">Tất cả <svg class="i w-4 h-4"><use href="#i-arrow"/></svg></a>
+			<a href="tin-tuc" class="btn btn-ghost btn-sm h-10 min-h-10 gap-1 px-2 text-primary shrink-0">Tất cả <svg class="i w-4 h-4"><use href="#i-arrow"/></svg></a>
 		</div>
 		<div id="news" class="mt-4 grid grid-cols-1 gap-3 md:grid-cols-3 md:gap-4">
 			<div class="skeleton h-36"></div><div class="skeleton h-36 hidden md:block"></div><div class="skeleton h-36 hidden md:block"></div>
@@ -84,7 +84,7 @@
 	<section class="max-w-6xl mx-auto px-4 pt-12 sm:pt-20">
 		<div class="flex items-end justify-between gap-4 reveal">
 			<div><p class="text-xs font-black tracking-widest text-primary">DIỄN ĐÀN</p><h2 class="text-2xl sm:text-3xl font-black mt-1">Người chơi đang bàn gì</h2></div>
-			<a href="dien-dan" class="inline-flex items-center gap-1 h-10 text-sm font-semibold text-primary shrink-0">Tất cả <svg class="i w-4 h-4"><use href="#i-arrow"/></svg></a>
+			<a href="dien-dan" class="btn btn-ghost btn-sm h-10 min-h-10 gap-1 px-2 text-primary shrink-0">Tất cả <svg class="i w-4 h-4"><use href="#i-arrow"/></svg></a>
 		</div>
 		<div class="mt-4 grid grid-cols-1 gap-3 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-4 items-start">
 			<div class="rounded-2xl bg-base-100 border border-white/10 overflow-hidden reveal">
@@ -160,6 +160,7 @@
 	</section>
 </main>
 
+<script src="site/vendor/sweetalert2.min.js"></script>
 <script src="site/common.js"></script>
 <script>
 (function () {

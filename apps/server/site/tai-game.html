@@ -53,9 +53,9 @@
 		<!-- Hướng dẫn cài -->
 		<section class="mt-10" aria-labelledby="guide-title">
 			<h2 id="guide-title" class="text-xl sm:text-2xl font-black">Hướng dẫn cài</h2>
-			<div role="tablist" id="guide-tabs" class="mt-3 grid grid-cols-2 gap-1 p-1 rounded-xl bg-base-100 border border-white/10 sm:inline-grid">
-				<button role="tab" type="button" class="inline-flex items-center justify-center gap-2 h-10 px-4 rounded-lg text-sm font-semibold" data-g="win"><svg class="i w-[18px] h-[18px]"><use href="#i-monitor"/></svg>Máy tính</button>
-				<button role="tab" type="button" class="inline-flex items-center justify-center gap-2 h-10 px-4 rounded-lg text-sm font-semibold" data-g="and"><svg class="i w-[18px] h-[18px]"><use href="#i-phone"/></svg>Android</button>
+			<div role="tablist" id="guide-tabs" class="join grid grid-cols-2 mt-3 sm:inline-grid">
+				<button role="tab" type="button" class="join-item btn gap-2" data-g="win"><svg class="i w-[18px] h-[18px]"><use href="#i-monitor"/></svg>Máy tính</button>
+				<button role="tab" type="button" class="join-item btn gap-2" data-g="and"><svg class="i w-[18px] h-[18px]"><use href="#i-phone"/></svg>Android</button>
 			</div>
 			<div class="mt-3 rounded-2xl bg-base-100 border border-white/10 p-5">
 				<ol data-guide="win" class="space-y-4"></ol>
@@ -69,16 +69,14 @@
 			<div id="faq" class="mt-3 space-y-2"></div>
 		</section>
 
-		<details id="sha" class="group mt-6 rounded-2xl bg-base-100 border border-white/10" hidden>
-			<summary class="flex items-center gap-2 min-h-12 px-4 font-semibold cursor-pointer list-none [&::-webkit-details-marker]:hidden">
-				<svg class="i w-5 h-5 text-base-content/60"><use href="#i-lock"/></svg><span class="flex-1">Mã kiểm tra file (SHA-256)</span>
-				<svg class="i w-5 h-5 text-base-content/50 transition-transform group-open:rotate-90"><use href="#i-chevron"/></svg>
-			</summary>
-			<div class="px-4 pb-4 text-xs space-y-3 break-all" id="sha-list"></div>
+		<details id="sha" class="collapse collapse-arrow mt-6 bg-base-100 border border-white/10" hidden>
+			<summary class="collapse-title font-semibold"><span class="inline-flex items-center gap-2"><svg class="i w-5 h-5 text-base-content/60"><use href="#i-lock"/></svg>Mã kiểm tra file (SHA-256)</span></summary>
+			<div class="collapse-content text-xs space-y-3 break-all" id="sha-list"></div>
 		</details>
 	</div>
 </main>
 
+<script src="site/vendor/sweetalert2.min.js"></script>
 <script src="site/common.js"></script>
 <script>
 (function () {
@@ -108,9 +106,9 @@
 	const guide = (g) => {
 		document.querySelectorAll('#guide-tabs button').forEach((t) => {
 			const on = t.dataset.g === g;
-			t.classList.toggle('bg-primary', on);
-			t.classList.toggle('text-primary-content', on);
-			t.classList.toggle('text-base-content/70', !on);
+			t.classList.toggle('btn-primary', on);
+			t.classList.toggle('btn-ghost', !on);
+			t.classList.toggle('bg-base-100', !on);
 			t.setAttribute('aria-selected', on);
 		});
 		document.querySelectorAll('[data-guide]').forEach((o) => (o.hidden = o.dataset.guide !== g));
@@ -128,10 +126,9 @@
 		['Gặp lỗi khi cài hoặc khi chơi?', 'Gửi ở trang Góp ý (chọn "Báo lỗi") — đội làm game trả lời ngay ở đó.'],
 	];
 	$('faq').replaceChildren(...FAQ.map(([q, a]) =>
-		h('details.group.rounded-2xl.bg-base-100.border.border-white/10', null,
-			h('summary.flex.items-center.gap-3.min-h-14.px-4.py-3.font-semibold.text-[15px].leading-snug.cursor-pointer.list-none.[&::-webkit-details-marker]:hidden', null,
-				h('span.flex-1', null, q), A.icon('chevron', 'w-5 h-5 text-base-content/50 transition-transform group-open:rotate-90')),
-			h('p.px-4.pb-4.-mt-1.text-[15px].leading-relaxed.text-base-content/75', null, a))));
+		h('details.collapse.collapse-arrow.bg-base-100.border.border-white/10', null,
+			h('summary.collapse-title.font-semibold.text-[15px].leading-snug', null, q),
+			h('div.collapse-content', null, h('p.text-[15px].leading-relaxed.text-base-content/75', null, a)))));
 
 	A.version
 		.then((v) => {

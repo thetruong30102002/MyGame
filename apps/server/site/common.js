@@ -2,6 +2,7 @@
 // (điện thoại), chân trang, hộp đăng nhập, toast, gọi API, trạng thái đăng nhập. Trang đặt <body data-page="…"> rồi nạp file này CUỐI
 // body, trước mã riêng của trang — mã trang dùng `window.A`. Class Tailwind viết ở đây cũng được build (tailwind.config.cjs quét site/*.js).
 // Biểu tượng: SVG nét đều (không dùng emoji — mỗi máy vẽ emoji một kiểu, to nhỏ / lệch dòng khác nhau). Trong HTML: <svg class="i"><use href="#i-tên"/></svg>.
+// Thông báo + hộp xác nhận: SweetAlert2 (site/vendor/sweetalert2.min.js — trang nạp TRƯỚC file này), nút là class daisyUI: A.toast, A.confirm.
 (function () {
 	const A = (window.A = {});
 	const $ = (A.$ = (id) => document.getElementById(id));
@@ -122,10 +123,47 @@
 		$(id).textContent = msg || '';
 		$(id).hidden = !msg;
 	};
+	// —— Thông báo + hộp xác nhận (SweetAlert2; chữ luôn đi qua titleText / text — không chèn HTML) ——
+	const SWAL = window.Swal;
+	const toaster = SWAL
+		? SWAL.mixin({
+				toast: true,
+				position: matchMedia('(min-width: 1024px)').matches ? 'bottom-end' : 'top',
+				showConfirmButton: false,
+				showCloseButton: false,
+				timer: 3200,
+				timerProgressBar: true,
+				didOpen: (t) => {
+					t.addEventListener('mouseenter', SWAL.stopTimer);
+					t.addEventListener('mouseleave', SWAL.resumeTimer);
+				},
+			})
+		: null;
+	/** Thông báo nhỏ tự tắt: kind = success | error | info | warning. */
 	A.toast = (text, kind) => {
-		const t = h('div.alert.shadow-xl.text-sm.font-semibold.whitespace-normal.text-left.max-w-[calc(100vw-2rem)].sm:max-w-sm.alert-' + (kind || 'success'), { role: 'status' }, h('span', null, text));
-		$('toasts').append(t);
-		setTimeout(() => t.remove(), 3500);
+		if (toaster) return toaster.fire({ icon: kind || 'success', titleText: text });
+		alert(text);
+	};
+	/**
+	 * Hộp xác nhận → Promise<boolean>. danger = hành động xoá / không hoàn tác (nút đỏ, mặc định chọn Huỷ).
+	 * A.confirm({ title: 'Xoá bài?', text: '…', ok: 'Xoá', danger: true })
+	 */
+	A.confirm = async ({ title, text, ok, cancel, danger }) => {
+		if (!SWAL) return confirm(title + (text ? '\n' + text : ''));
+		const r = await SWAL.fire({
+			titleText: title,
+			text: text || '',
+			icon: danger ? 'warning' : 'question',
+			showCancelButton: true,
+			confirmButtonText: ok || 'Đồng ý',
+			cancelButtonText: cancel || 'Huỷ',
+			reverseButtons: true,
+			focusCancel: !!danger,
+			buttonsStyling: false,
+			returnFocus: false,
+			customClass: { confirmButton: 'btn ' + (danger ? 'btn-error' : 'btn-primary'), cancelButton: 'btn btn-ghost border border-white/15' },
+		});
+		return r.isConfirmed;
 	};
 	/** Ô nhập tự cao theo chữ (điện thoại gõ dài không phải cuộn trong ô nhỏ). */
 	A.autosize = (ta, max) => {
@@ -277,7 +315,6 @@
 	</div>
 </nav>
 <button id="totop" class="hidden lg:flex btn btn-primary btn-circle w-11 h-11 min-h-11 fixed right-6 bottom-6 z-30 opacity-0 pointer-events-none transition-opacity shadow-lg" aria-label="Lên đầu trang">${ic('up', 'w-5 h-5')}</button>
-<div id="toasts" class="toast toast-center sm:toast-end z-[80] bottom-[calc(4.5rem+env(safe-area-inset-bottom))] lg:bottom-4"></div>
 ${sheet(
 	'dlg-more',
 	`<div class="w-10 h-1.5 rounded-full bg-base-content/20 mx-auto -mt-2 mb-4 sm:hidden"></div>
@@ -294,9 +331,9 @@ ${sheet(
 	'dlg-auth',
 	`<h3 class="font-black text-2xl" id="auth-title">Đăng nhập</h3>
 		<p class="text-sm text-base-content/60 mt-1">Dùng chung tài khoản với game.</p>
-		<div role="tablist" id="auth-seg" class="grid grid-cols-2 gap-1 p-1 mt-4 rounded-xl bg-base-200">
-			<button type="button" role="tab" class="h-10 rounded-lg font-semibold bg-primary text-primary-content" data-mode="login">Đăng nhập</button>
-			<button type="button" role="tab" class="h-10 rounded-lg font-semibold text-base-content/70" data-mode="register">Tạo tài khoản</button>
+		<div role="tablist" id="auth-seg" class="join grid grid-cols-2 mt-4">
+			<button type="button" role="tab" class="join-item btn btn-primary" data-mode="login">Đăng nhập</button>
+			<button type="button" role="tab" class="join-item btn btn-ghost bg-base-200" data-mode="register">Tạo tài khoản</button>
 		</div>
 		<form id="auth-form" class="mt-3 space-y-3">
 			<label class="block"><span class="block text-sm font-semibold mb-1.5">Tên đăng nhập</span>
@@ -369,7 +406,7 @@ ${sheet(
 		mode = m;
 		document.querySelectorAll('#auth-seg button').forEach((b) => {
 			const on = b.dataset.mode === m;
-			b.className = 'h-10 rounded-lg font-semibold ' + (on ? 'bg-primary text-primary-content' : 'text-base-content/70');
+			b.className = 'join-item btn ' + (on ? 'btn-primary' : 'btn-ghost bg-base-200');
 			b.setAttribute('aria-selected', on);
 		});
 		$('auth-title').textContent = m === 'login' ? 'Đăng nhập' : 'Tạo tài khoản';

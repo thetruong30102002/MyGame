@@ -42,6 +42,7 @@
 	</div>
 </main>
 
+<script src="site/vendor/sweetalert2.min.js"></script>
 <script src="site/common.js"></script>
 <script>
 (function () {
@@ -85,7 +86,7 @@
 					h('p.mt-1.text-[13px].text-base-content/55.leading-tight', null, A.ago(post.at) + ' · ' + new Date(post.at).toLocaleString('vi-VN', { dateStyle: 'short', timeStyle: 'short' })))),
 			h('div.mt-5.whitespace-pre-wrap.break-words.text-base.leading-relaxed.text-base-content/90', null, post.body),
 			h('div.mt-6.pt-4.border-t.border-white/10.flex.flex-wrap.items-center.gap-2', null,
-				h('a.inline-flex.items-center.h-10.px-3.5.rounded-full.bg-white/5.border.border-white/10.text-sm.text-base-content/80', { href: 'dien-dan?c=' + post.category }, A.catLabel(post.category)),
+				h('a.btn.btn-ghost.btn-sm.h-10.min-h-10.rounded-full.bg-white/5.border-white/10.font-medium', { href: 'dien-dan?c=' + post.category }, A.catLabel(post.category)),
 				h('span.flex-1'),
 				h('button.btn.btn-ghost.h-10.min-h-10.px-3.gap-1.5.font-semibold', { type: 'button', onclick: share }, A.icon('link', 'w-[18px] h-[18px]'), 'Chia sẻ'),
 				canDel ? h('button.btn.btn-ghost.h-10.min-h-10.px-3.gap-1.5.font-semibold.text-error', { type: 'button', onclick: del }, A.icon('trash', 'w-[18px] h-[18px]'), 'Xoá') : null,
@@ -108,7 +109,7 @@
 						h('p.mt-1.text-[15px].leading-relaxed.whitespace-pre-wrap.break-words', null, c.body)),
 					h('div.flex.items-center.gap-1.mt-0.5.pl-1.text-xs.text-base-content/50', null,
 						h('time', null, A.ago(c.at)),
-						canDel ? h('button.inline-flex.items-center.h-10.px-2.-my-1.text-error.font-semibold', { type: 'button', onclick: () => delComment(c) }, 'Xoá') : null)));
+						canDel ? h('button.btn.btn-ghost.btn-sm.h-10.min-h-10.px-2.-my-1.text-error', { type: 'button', onclick: () => delComment(c) }, 'Xoá') : null)));
 		}));
 		$('cform').hidden = !me;
 		$('clogin').hidden = !!me;
@@ -124,7 +125,7 @@
 		} catch (e) {}
 	}
 	async function del() {
-		if (!confirm('Xoá bài "' + post.title + '"?')) return;
+		if (!(await A.confirm({ title: 'Xoá bài viết?', text: '"' + post.title + '" sẽ không còn hiện trên diễn đàn.', ok: 'Xoá bài', danger: true }))) return;
 		try {
 			await A.api('DELETE', 'posts/' + post.id);
 			A.toast('Đã xoá bài', 'info');
@@ -134,7 +135,7 @@
 		}
 	}
 	async function delComment(c) {
-		if (!confirm('Xoá bình luận này?')) return;
+		if (!(await A.confirm({ title: 'Xoá bình luận?', text: c.body.length > 120 ? c.body.slice(0, 120) + '…' : c.body, ok: 'Xoá', danger: true }))) return;
 		try {
 			await A.api('DELETE', 'comments/' + c.id);
 			comments = comments.filter((x) => x.id !== c.id);

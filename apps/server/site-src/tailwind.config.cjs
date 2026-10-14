@@ -18,7 +18,8 @@ const extract = (content) => {
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	content: {
-		files: [path.join(__dirname, '../site/*.html'), path.join(__dirname, '../site/*.js')],
+		// AETHER_SITE_DIR: build cho thư mục site khác (xem thử) — site-src/build.mjs đặt.
+		files: ['*.html', '*.js'].map((f) => path.join(process.env.AETHER_SITE_DIR || path.join(__dirname, '../site'), f)),
 		extract: { html: extract, js: extract },
 	},
 	theme: {

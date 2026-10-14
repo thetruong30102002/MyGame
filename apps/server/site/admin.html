@@ -180,16 +180,8 @@
 	</div>
 </div>
 
-<dialog id="confirm" class="modal modal-bottom sm:modal-middle">
-	<div class="modal-box border border-white/10">
-		<h3 class="font-black text-xl" id="cf-title">Xác nhận</h3>
-		<div id="cf-body" class="py-4 text-sm leading-relaxed"></div>
-		<div class="modal-action"><form method="dialog" class="flex gap-2"><button class="btn btn-ghost" value="no">Huỷ</button><button class="btn btn-primary" id="cf-ok" value="ok">Đồng ý</button></form></div>
-	</div>
-	<form method="dialog" class="modal-backdrop"><button value="no">đóng</button></form>
-</dialog>
-<div id="toasts" class="toast toast-end z-[60]"></div>
 
+<script src="site/vendor/sweetalert2.min.js"></script>
 <script>
 (function () {
 	const $ = (id) => document.getElementById(id);
@@ -224,26 +216,30 @@
 		kids.flat().forEach((k) => k != null && k !== false && el.append(k instanceof Node ? k : String(k)));
 		return el;
 	}
-	const toast = (text, kind) => {
-		const t = h('div.alert.shadow-xl.text-sm.font-semibold.whitespace-normal.max-w-xs.sm:max-w-sm.alert-' + (kind || 'success'), null, h('span', null, text));
-		$('toasts').append(t);
-		setTimeout(() => t.remove(), 3500);
-	};
+	// Thông báo + hộp xác nhận: SweetAlert2 (nút class daisyUI; chữ qua titleText / phần tử dựng bằng textContent — không chèn HTML).
+	const toaster = Swal.mixin({ toast: true, position: 'bottom-end', showConfirmButton: false, timer: 3500, timerProgressBar: true });
+	const toast = (text, kind) => toaster.fire({ icon: kind || 'success', titleText: text });
 	const showErr = (id, msg) => {
 		$(id).textContent = msg || '';
 		$(id).hidden = !msg;
 	};
-	/** Hộp xác nhận daisyUI — trả Promise<boolean>. */
-	const confirmBox = (title, body, okLabel, danger) =>
-		new Promise((res) => {
-			$('cf-title').textContent = title;
-			$('cf-body').replaceChildren(...[].concat(body).map((b) => (b instanceof Node ? b : h('p', null, b))));
-			$('cf-ok').textContent = okLabel || 'Đồng ý';
-			$('cf-ok').className = 'btn ' + (danger ? 'btn-error' : 'btn-primary');
-			$('confirm').returnValue = '';
-			$('confirm').showModal();
-			$('confirm').addEventListener('close', () => res($('confirm').returnValue === 'ok'), { once: true });
+	/** Hộp xác nhận → Promise<boolean>; body: chữ hoặc mảng phần tử. */
+	const confirmBox = async (title, body, okLabel, danger) => {
+		const box = h('div.text-left.text-sm.leading-relaxed', null, [].concat(body).map((b) => (b instanceof Node ? b : h('p', null, b))));
+		const r = await Swal.fire({
+			titleText: title,
+			html: box,
+			icon: danger ? 'warning' : 'question',
+			showCancelButton: true,
+			confirmButtonText: okLabel || 'Đồng ý',
+			cancelButtonText: 'Huỷ',
+			reverseButtons: true,
+			focusCancel: !!danger,
+			buttonsStyling: false,
+			customClass: { confirmButton: 'btn ' + (danger ? 'btn-error' : 'btn-primary'), cancelButton: 'btn btn-ghost border border-white/15' },
 		});
+		return r.isConfirmed;
+	};
 	const setToken = (t) => {
 		token = t;
 		try { t ? localStorage.setItem(KEY, t) : localStorage.removeItem(KEY); } catch (e) {}

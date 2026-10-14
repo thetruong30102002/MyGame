@@ -48,8 +48,11 @@ Client Unity (nhập hình từ `assets/`, dựng scene, build PC / APK, AutoTes
 cột `category`); góp ý thêm cột `kind` / `status` / `reply`. API + luật ở `apps/server/src/board.ts`, test `apps/server/tests/board.test.ts`.
 Phần chung mọi trang (thanh trên / dưới, đăng nhập, gọi API, **bộ biểu tượng SVG** — `<svg class="i"><use href="#i-tên"/></svg>` hoặc `A.icon('tên')`, đừng dùng emoji làm biểu tượng vì mỗi máy vẽ một kiểu, lệch dòng) ở `site/common.js`; font Be Vietnam Pro tự phát ở `site/fonts/` (`site-src/fonts.css`, không gọi Google Fonts); thêm trang mới: tạo `site/<tên>.html` (`<body data-page>`
 + nạp `site/common.js`) và thêm tên vào `PAGES` trong `site.ts`.
-Giao diện dùng **Tailwind + daisyUI** (theme `aether` ở `apps/server/site-src/tailwind.config.cjs`): sửa class trong `site/*.html` /
-`site/common.js` xong chạy `npm run build:site -w @aether/server` để build lại `site/app.css` (commit cả file đó). Sửa HTML / CSS / JS không
+Giao diện dùng **Tailwind + daisyUI** (theme `aether` ở `apps/server/site-src/tailwind.config.cjs`) — nút, chip, tab, ô nhập, mục gập đều là
+class daisyUI (`btn`, `join`, `input`, `collapse`…); thông báo + hộp xác nhận dùng **SweetAlert2** (`A.toast(chữ, 'success'|'error'|'info')`,
+`await A.confirm({ title, text, ok, danger })` trong `site/common.js` — đừng dùng `alert` / `confirm` của trình duyệt). Sửa class trong
+`site/*.html` / `site/common.js` xong chạy `npm run build:site -w @aether/server` (`site-src/build.mjs`): build lại `site/app.css` + chép
+`site/vendor/sweetalert2.min.js` (commit cả hai). Sửa HTML / CSS / JS không
 cần khởi động lại; sửa `site.ts` / `http.ts` / `board.ts` thì phải khởi động lại máy chủ.
 
 | Phím | Tác dụng |

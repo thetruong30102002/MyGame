@@ -95,6 +95,7 @@
 	</section>
 </main>
 
+<script src="site/vendor/sweetalert2.min.js"></script>
 <script src="site/common.js"></script>
 <script>
 (function () {
@@ -124,7 +125,7 @@
 		return dot;
 	});
 	const chips = REGIONS.map((r) => {
-		const c = h('button.inline-flex.items-center.gap-2.h-10.px-3.5.rounded-full.text-sm.font-semibold.shrink-0.transition-colors', { type: 'button', role: 'tab' },
+		const c = h('button.btn.btn-sm.h-10.min-h-10.px-3.5.rounded-full.gap-2.shrink-0', { type: 'button', role: 'tab' },
 			r.locked ? A.icon('lock', 'w-3.5 h-3.5 opacity-60') : h('span.w-2.5.h-2.5.rounded-full.shrink-0', { style: 'background:' + r.c }),
 			h('span', null, (r.locked ? '' : r.n + '. ') + r.name));
 		c.onclick = () => show(r, false);
@@ -135,7 +136,7 @@
 		pins.forEach((p, i) => p.classList.toggle('on', REGIONS[i] === r));
 		chips.forEach((c, i) => {
 			const on = REGIONS[i] === r;
-			c.className = 'inline-flex items-center gap-2 h-10 px-3.5 rounded-full text-sm font-semibold shrink-0 transition-colors ' + (on ? 'bg-primary text-primary-content' : 'bg-base-100 text-base-content/75 border border-white/10');
+			c.className = 'btn btn-sm h-10 min-h-10 px-3.5 rounded-full gap-2 shrink-0 ' + (on ? 'btn-primary' : 'btn-ghost bg-base-100 border-white/10');
 			c.setAttribute('aria-selected', on);
 			if (on) $('chips').scrollTo({ left: Math.max(0, c.offsetLeft - 16), behavior: A.reduce ? 'auto' : 'smooth' });
 		});

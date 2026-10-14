@@ -25,9 +25,9 @@
 	<!-- Thanh dính: tìm + viết bài + chuyên mục (cuộn ngang) -->
 	<div class="sticky top-[calc(3.5rem+env(safe-area-inset-top))] sm:top-[calc(4rem+env(safe-area-inset-top))] z-20 bar border-y border-white/5">
 		<div class="max-w-6xl mx-auto px-4 pt-2.5 flex gap-2">
-			<label class="flex items-center gap-2 flex-1 min-w-0 h-11 px-3.5 rounded-xl bg-base-100 border border-white/10 focus-within:border-primary/60">
+			<label class="input input-bordered flex items-center gap-2 flex-1 min-w-0 h-11 min-h-11 bg-base-100">
 				<svg class="i w-[18px] h-[18px] text-base-content/50" aria-hidden="true"><use href="#i-search"/></svg>
-				<input id="q" type="search" class="flex-1 min-w-0 h-full bg-transparent outline-none text-base placeholder:text-base-content/40" placeholder="Tìm bài viết…" enterkeyhint="search" aria-label="Tìm bài viết">
+				<input id="q" type="search" class="grow min-w-0 h-full text-base" placeholder="Tìm bài viết…" enterkeyhint="search" aria-label="Tìm bài viết">
 			</label>
 			<button type="button" data-write class="btn btn-primary h-11 min-h-11 px-4 gap-1.5 shrink-0"><svg class="i w-[18px] h-[18px]" aria-hidden="true"><use href="#i-pencil"/></svg><span>Viết bài</span></button>
 		</div>
@@ -72,6 +72,7 @@
 	<form method="dialog" class="modal-backdrop"><button>đóng</button></form>
 </dialog>
 
+<script src="site/vendor/sweetalert2.min.js"></script>
 <script src="site/common.js"></script>
 <script>
 (function () {
@@ -86,7 +87,7 @@
 		const items = [['', 'Tất cả', 'list', counts ? counts.total : null]].concat(Object.entries(A.CATS).map(([id, name]) => [id, name, A.CAT_ICON[id], counts ? counts.categories[id] : null]));
 		$('cats').replaceChildren(...items.map(([id, name, icon, n]) => {
 			const on = id === cat;
-			const b = h('button.inline-flex.items-center.gap-1.5.h-10.pl-3.5.pr-3.rounded-full.text-sm.font-semibold.shrink-0.transition-colors.' + (on ? 'bg-primary.text-primary-content' : 'bg-base-100.text-base-content/75.border.border-white/10'), { type: 'button', role: 'tab', ariaSelected: on },
+			const b = h('button.btn.btn-sm.h-10.min-h-10.pl-3.5.pr-3.rounded-full.gap-1.5.shrink-0.' + (on ? 'btn-primary' : 'btn-ghost.bg-base-100.border-white/10'), { type: 'button', role: 'tab', ariaSelected: on },
 				A.icon(icon, 'w-4 h-4'), name,
 				n != null ? h('span.min-w-[1.25rem].h-5.px-1.5.rounded-full.text-[11px].leading-5.text-center.' + (on ? 'bg-primary-content/15' : 'bg-white/10'), null, n) : null);
 			b.onclick = () => {
