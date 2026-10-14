@@ -61,6 +61,8 @@ npx tsx UnityGame/Tools~/vectors-ground.mts          # vector mặt đất → T
   mục, mặc định `%LOCALAPPDATA%\Aether Chronicle`, lối tắt màn hình + menu Start, cài xong mở game), chép APK, ghi `version.json` +
   file vào `apps/server/data/client` (máy chủ THẬT đọc lại mỗi lần gọi — **không cần khởi động lại**). `--min` = bản tối thiểu: client cũ
   hơn bị chặn tới khi cập nhật. Thử: `--dir apps/server/data/client-test --fast` với máy chủ thử `AETHER_CLIENT_DIR=data/client-test`.
+  Phát bản thật xong script TỰ đẩy `Build/Aether-Chronicle.exe` + `Build/Android/Aether.apk` lên thư mục Google Drive của trang Tải game
+  (ghi đè đúng tên, `upload-drive.mts` qua rclone remote `gdrive`; tắt bằng `--no-drive`; rclone báo lỗi đăng nhập thì `rclone config reconnect gdrive:`).
 - Người chơi mới tải một lần: **https://admin.tail024813.ts.net/game/api/client/latest/windows** (Android: `…/latest/android`).
   Từ đó mở game là `AutoUpdate` hỏi `/api/client/version`; có bản mới thì tự tải (thanh tiến trình), kiểm cỡ + SHA-256, chạy chính bộ
   cài với `-s2 -d<thư mục đang cài>` sau khi game thoát → bung đè IM LẶNG đúng chỗ người chơi đã chọn rồi tự mở lại. Thư mục cần quyền

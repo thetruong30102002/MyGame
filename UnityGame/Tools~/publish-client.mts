@@ -1,5 +1,5 @@
 // Phát bản client cho TỰ CẬP NHẬT (11/10/2026): build xong (GameSetup ghi `Build/<windows|android>.build.json`) → chạy
-//   npx tsx UnityGame/Tools~/publish-client.mts [--min] [--notes "ghi chú"] [--dir <thư mục>] [--fast] [--only windows|android]
+//   npx tsx UnityGame/Tools~/publish-client.mts [--min] [--notes "ghi chú"] [--dir <thư mục>] [--fast] [--only windows|android] [--no-drive]
 // Windows: gói `Build/Windows` thành MỘT file exe CÀI ĐẶT (WinRAR SFX — chủ dự án: "tải game file exe sau sẽ cài, chọn đường dẫn ra file game
 // như Ngọc Rồng"): hộp cài cho chọn thư mục (mặc định %LOCALAPPDATA%\Aether Chronicle), tạo lối tắt màn hình + menu Start, cài xong mở game.
 // Tự cập nhật: client cũ gọi CHÍNH file này với `-s2 -d<thư mục đang cài>`; client từ 12/10/2026 tải gói `.zip` cùng nội dung (exe SFX chưa
@@ -9,6 +9,8 @@
 // Máy chủ đọc lại mỗi lần gọi → KHÔNG cần khởi động lại. Client đang chạy bản cũ mở game là tự tải + cài.
 //   --min    bản này thành bản tối thiểu: client cũ hơn bị chặn tới khi cập nhật xong (đổi luật / giao thức không tương thích)
 //   --fast   nén nhanh (-m1) cho bản thử; mặc định -m5
+//   --no-drive  KHÔNG đẩy lên Drive. Mặc định phát cho máy chủ THẬT (không `--dir`) xong là đẩy exe + apk mới lên thư mục Google Drive
+//               của trang Tải game, ghi đè đúng tên cũ (upload-drive.mts, cần rclone remote `gdrive`)
 // Giữ 2 bản gần nhất mỗi nền tảng (người đang tải dở bản trước không hỏng), xoá bản cũ hơn. Chép thêm exe ra Build/Aether-Chronicle.exe.
 import { createHash } from 'node:crypto';
 import { spawnSync } from 'node:child_process';
@@ -172,4 +174,9 @@ for (const [re, keep] of [
 		.filter((x) => x.m)
 		.sort((a, b) => Number(b.m![1]) - Number(a.m![1]));
 	for (const { f } of files.slice(2)) if (f !== keep) rmSync(join(outDir, f), { force: true });
+}
+
+if (!flag('--no-drive') && opt('--dir') === undefined) {
+	const r = spawnSync(process.execPath, ['--import', 'tsx', join(HERE, 'upload-drive.mts'), ...(only ? ['--only', only] : [])], { stdio: 'inherit' });
+	if (r.status !== 0) console.log('✘ Đẩy lên Drive lỗi — bản phát cho tự cập nhật vẫn xong; chạy lại: npx tsx UnityGame/Tools~/upload-drive.mts');
 }
