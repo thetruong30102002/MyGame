@@ -85,8 +85,8 @@ export function buildCliffs(meta: Record<string, PropMeta>, decalIds: string[], 
 	L.reserve(22.5, CLIFFS_H - 1, 3);
 	L.reserve(25.5, 1, 3);
 
-	L.scatter(60, (x, y) => L.place(L.pick(['tree_pine_dry', 'tree_pine_dry_flip', 'tree_dead']), x, y, { canopy: true }));
-	L.scatter(150, (x, y) => L.place(L.pick(['rock_outcrop', 'rock_spire', 'boulder', 'rock_gray', 'ruin_wall', 'column_fallen', 'dead_bush', 'pale_rocks']), x, y));
+	L.clumps(60, ['tree_pine_dry', 'tree_pine_dry_flip', 'tree_dead'], 5, 2.2, (id, x, y) => L.place(id, x, y, { canopy: true }));
+	L.clumps(150, ['rock_outcrop', 'rock_spire', 'boulder', 'rock_gray', 'ruin_wall', 'column_fallen', 'dead_bush', 'pale_rocks'], 3, 1.4, (id, x, y) => L.place(id, x, y));
 	L.sprinkleDecals(decalsOf(decalIds, 'd2'), 900);
 	// Lát đá khe lên hang: decal bỏ qua ô đá lát (không rút rand) nên lát trước thì mọi decal sau lệch chỗ — lát sau rồi bỏ các
 	// decal đã rơi lên khe (decal không bao giờ nằm trên đá lát), decal còn lại giữ y nguyên.

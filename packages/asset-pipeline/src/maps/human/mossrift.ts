@@ -153,7 +153,7 @@ export function buildMossrift(meta: Record<string, PropMeta>, decalIds: string[]
 		L.place(id, Math.round((heart.x + 0.5 + rr * Math.cos(a)) * TILE), Math.round((heart.y + 0.5 + rr * Math.sin(a)) * TILE));
 	}
 	// Rìa rừng: dương xỉ, bụi, đá rêu.
-	L.scatter(80, (x, y) => (fromHeart(x, y) > 13 ? L.place(L.pick(['fern', 'bush', 'rock_mossy']), x, y) : false));
+	L.clumps(80, ['fern', 'bush', 'rock_mossy'], 3, 1.4, (id, x, y) => (fromHeart(x, y) > 13 ? L.place(id, x, y) : false));
 	L.sprinkleDecals(decalsOf(decalIds, 'd2'), 1300);
 
 	const zone = (c: { id: string; name: string; x: number; y: number; r: number; level: number }, count: number): MonsterZone => ({

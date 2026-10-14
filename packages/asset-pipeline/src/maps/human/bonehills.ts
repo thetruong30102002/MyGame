@@ -62,8 +62,8 @@ export function buildBonehills(meta: Record<string, PropMeta>, decalIds: string[
 	] as const)
 		L.place('spike_barricade', px(x), px(y), { force: true });
 
-	L.scatter(70, (x, y) => L.place(L.pick(['tree_dead', 'tree_dead_flip', 'dead_stump']), x, y, { canopy: true }));
-	L.scatter(150, (x, y) => L.place(L.pick(['pale_rocks', 'bone_pile', 'bone_pile', 'broken_sword', 'dead_bush', 'boulder', 'beast_skull', 'rock_outcrop']), x, y));
+	L.clumps(70, ['tree_dead', 'tree_dead_flip', 'dead_stump'], 5, 2.2, (id, x, y) => L.place(id, x, y, { canopy: true }));
+	L.clumps(150, ['pale_rocks', 'bone_pile', 'bone_pile', 'broken_sword', 'dead_bush', 'boulder', 'beast_skull', 'rock_outcrop'], 3, 1.4, (id, x, y) => L.place(id, x, y));
 	L.sprinkleDecals(decalsOf(decalIds, 'd2'), 1400);
 
 	const zone = (c: (typeof camps)[number]): MonsterZone => ({

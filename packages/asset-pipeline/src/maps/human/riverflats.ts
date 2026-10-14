@@ -130,12 +130,12 @@ export function buildRiverflats(meta: Record<string, PropMeta>, decalIds: string
 
 	// Rải: cây (tán chồng được) chỉ ở hai rìa — x < 18 hoặc x > 42 — và cách nước ≥ 2 ô, giữa bãi để trống; bụi cỏ hoa;
 	// đá / dương xỉ / bụi sát bờ.
-	L.scatter(150, (x, y) => {
+	L.clumps(150, TREES, 6, 2.4, (id, x, y) => {
 		const tx = Math.floor(x / TILE);
 		const ty = Math.floor(y / TILE);
-		return (tx < 18 || tx > 42) && !inOrchard(tx, ty) && waterDist(tx, ty) >= 2 ? L.place(L.pick(TREES), x, y, { canopy: true }) : false;
+		return (tx < 18 || tx > 42) && !inOrchard(tx, ty) && waterDist(tx, ty) >= 2 ? L.place(id, x, y, { canopy: true }) : false;
 	});
-	L.scatter(90, (x, y) => L.place(L.pick(GROUND_PLANTS), x, y));
+	L.clumps(90, GROUND_PLANTS, 4, 1.6, (id, x, y) => L.place(id, x, y));
 	for (let i = 0; i < 40; i += 1) {
 		const [tx, ty] = L.pick(bank);
 		L.place(L.pick(['rock_mossy', 'rock_gray', 'fern', 'bush']), Math.round((tx + L.rand()) * TILE), Math.round((ty + L.rand()) * TILE));

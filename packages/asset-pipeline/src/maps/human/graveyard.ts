@@ -97,8 +97,8 @@ export function buildGraveyard(meta: Record<string, PropMeta>, decalIds: string[
 	for (const y of [16, 24, 30, 36]) L.place('ghost_lantern', px(20), px(y), { force: true });
 	L.place('ghost_lantern', px(10), px(18), { force: true });
 
-	L.scatter(170, (x, y) => L.place(L.pick(DEAD_TREES), x, y, { canopy: true }));
-	L.scatter(70, (x, y) => L.place(L.pick(['dead_bush', 'dead_bush', 'skull_pile', 'coffin', 'pale_rocks', 'skull_pile']), x, y));
+	L.clumps(170, DEAD_TREES, 5, 2.2, (id, x, y) => L.place(id, x, y, { canopy: true }));
+	L.clumps(70, ['dead_bush', 'dead_bush', 'skull_pile', 'coffin', 'pale_rocks', 'skull_pile'], 3, 1.4, (id, x, y) => L.place(id, x, y));
 	L.sprinkleDecals(decalsOf(decalIds, 'd2'), 1300);
 
 	return L.finish({

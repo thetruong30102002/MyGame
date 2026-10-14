@@ -148,8 +148,8 @@
 			"id": "map_order",
 			"group": "game",
 			"name": "Xếp map có quy tắc (nhà, đồ vật, cây)",
-			"detail": "Vùng 2–7: nhà thành dãy, đèn đều nhịp, cây / đá / hoa thành khóm cùng loài (13/10); còn vùng 1 (map dựng tay).",
-			"progress": 70,
+			"detail": "Vùng 2–7: nhà thành dãy, đèn đều nhịp, cây / đá / hoa thành khóm cùng loài (13/10). Vùng 1 (14/10): cây / đá / bụi thành khóm, hàng cây dọc lối vào Thistlewood; còn trần tỉ lệ đồ trang trí.",
+			"progress": 90,
 			"pixellab": 0,
 			"doc": "ke-hoach-the-gioi.md §5.4"
 		},

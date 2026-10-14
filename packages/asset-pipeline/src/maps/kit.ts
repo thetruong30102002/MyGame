@@ -1,5 +1,5 @@
 import type { PropMeta } from '../props/buildProps.js';
-import { decalsOf, Layout, px, TILE, type Biome, type Edge, type MapData, type MapExit, type MonsterZone } from './human/common.js';
+import { decalsOf, Layout, px, species, TILE, type Biome, type Edge, type MapData, type MapExit, type MonsterZone } from './human/common.js';
 import { MIN_WATER_GAP, validateRegion, worldIndex, type WorldIndex } from './human/index.js';
 
 /**
@@ -375,7 +375,7 @@ export function buildKitMap(spec: KitMapSpec, exits: readonly KitExit[], meta: R
 				}
 		}
 		// Khóm cùng loài (5–9 cây quanh một tâm) thay cho rải lốm đốm từng cây — rừng có mảng rõ ràng, nhìn có quy tắc.
-		clumps(L, Math.round((area * t.treeDensity) / 100), t.trees, 7, 2.6, (id, x, y) => L.place(id, x, y, { canopy: true }));
+		L.clumps(Math.round((area * t.treeDensity) / 100), t.trees, 7, 2.6, (id, x, y) => L.place(id, x, y, { canopy: true }));
 		// Viền: cây dày trong 3 ô sát mép (trừ quanh lối — đã giữ trống) để map có bờ tự nhiên.
 		L.scatter(Math.round((spec.w + spec.h) * 9), (x, y) => {
 			const tx = x / TILE;
@@ -385,7 +385,7 @@ export function buildKitMap(spec: KitMapSpec, exits: readonly KitExit[], meta: R
 		});
 	}
 	if (t.rocks.length) {
-		clumps(L, Math.round((area * t.rockDensity) / 100), t.rocks, 3, 1.4, (id, x, y) => L.place(id, x, y));
+		L.clumps(Math.round((area * t.rockDensity) / 100), t.rocks, 3, 1.4, (id, x, y) => L.place(id, x, y));
 		// Map ít cây: thêm viền đá sát mép cho có bờ.
 		if (t.treeDensity < 10)
 			L.scatter(Math.round((spec.w + spec.h) * (t.trees.length ? 3 : 6)), (x, y) => {
@@ -393,7 +393,7 @@ export function buildKitMap(spec: KitMapSpec, exits: readonly KitExit[], meta: R
 				return edge < 2.5 ? L.place(L.pick(t.rocks), x, y) : false;
 			});
 	}
-	if (t.flats.length) clumps(L, Math.round((area * t.flatDensity) / 100), t.flats, 4, 1.6, (id, x, y) => (ground(x, y) === 'g' || ground(x, y) === 'f' ? L.place(id, x, y) : false));
+	if (t.flats.length) L.clumps(Math.round((area * t.flatDensity) / 100), t.flats, 4, 1.6, (id, x, y) => (ground(x, y) === 'g' || ground(x, y) === 'f' ? L.place(id, x, y) : false));
 	if (t.landmarks.length)
 		for (const c of herd)
 			for (let k = 0, made = 0; k < 40 && made < 3; k += 1) {
@@ -429,30 +429,6 @@ export function buildKitMap(spec: KitMapSpec, exits: readonly KitExit[], meta: R
 		exits: mapExits,
 	});
 }
-
-/**
- * Rải theo KHÓM: `attempts` lượt chia thành các khóm ~`per` món quanh một tâm ngẫu nhiên (bán kính `r` ô); mỗi khóm MỘT loài
- * (bản gốc + lật gương trộn nhau). Loài chọn theo trọng số danh sách nên loài chủ đạo của map vẫn chiếm phần lớn.
- */
-function clumps(L: Layout, attempts: number, ids: readonly string[], per: number, r: number, put: (id: string, x: number, y: number) => boolean): void {
-	if (!ids.length) return;
-	const groups = Math.max(1, Math.round(attempts / per));
-	for (let g = 0; g < groups; g += 1) {
-		const kind = species(L.pick(ids));
-		const pool = ids.filter((id) => species(id) === kind);
-		const cx = L.rand() * L.w;
-		const cy = L.rand() * L.h;
-		const n = Math.max(1, Math.round(per * (0.7 + L.rand() * 0.6)));
-		for (let k = 0; k < Math.ceil(n * 1.3); k += 1) {
-			const a = L.rand() * Math.PI * 2;
-			const d = Math.sqrt(L.rand()) * r;
-			put(L.pick(pool), Math.round((cx + Math.cos(a) * d) * TILE), Math.round((cy + Math.sin(a) * d * 0.8) * TILE));
-		}
-	}
-}
-
-/** Bản lật gương (`_flip`) cùng loài với bản gốc. */
-const species = (id: string): string => id.replace(/_flip$/, '');
 
 /**
  * Danh sách cây có loài chủ đạo: loài thứ `k` (quay vòng) lặp lại để chiếm ~2/3 lượt rải, cộng 2 loài kế tiếp làm điểm xuyết. Map

@@ -133,8 +133,8 @@ export function buildOldfort(meta: Record<string, PropMeta>, decalIds: string[],
 	L.place('rune_stone', Math.round(44.4 * TILE), Math.round(2.9 * TILE), { force: true });
 	L.place('stone_lantern', Math.round(46.6 * TILE), Math.round(2.9 * TILE), { force: true });
 
-	L.scatter(40, (x, y) => (outside(x, y) ? L.place(L.pick(['tree_pine_dry', 'tree_pine_dry_flip']), x, y, { canopy: true }) : false));
-	L.scatter(80, (x, y) => (outside(x, y) ? L.place(L.pick(['boulder', 'rock_outcrop', 'pale_rocks', 'rock_spire', 'rock_gray']), x, y) : false));
+	L.clumps(40, ['tree_pine_dry', 'tree_pine_dry_flip'], 5, 2.2, (id, x, y) => (outside(x, y) ? L.place(id, x, y, { canopy: true }) : false));
+	L.clumps(80, ['boulder', 'rock_outcrop', 'pale_rocks', 'rock_spire', 'rock_gray'], 3, 1.4, (id, x, y) => (outside(x, y) ? L.place(id, x, y) : false));
 	L.sprinkleDecals(decalsOf(decalIds, 'd2'), 900);
 
 	const zone = (p: (typeof packs)[number]): MonsterZone => ({

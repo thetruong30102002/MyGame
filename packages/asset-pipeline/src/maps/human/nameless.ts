@@ -159,8 +159,8 @@ export function buildNameless(meta: Record<string, PropMeta>, decalIds: string[]
 	L.place('signpost', px(42), px(17) + 10, { force: true });
 	L.place('signpost', px(34) + 14, px(4) + 10, { force: true });
 
-	L.scatter(60, (x, y) => L.place(L.pick(DEAD_TREES), x, y, { canopy: true }));
-	L.scatter(90, (x, y) => L.place(L.pick(LITTER), x, y));
+	L.clumps(60, DEAD_TREES, 5, 2.2, (id, x, y) => L.place(id, x, y, { canopy: true }));
+	L.clumps(90, LITTER, 3, 1.4, (id, x, y) => L.place(id, x, y));
 	L.sprinkleDecals(decalsOf(decalIds, 'd2'), 1200);
 
 	const zone = (h: (typeof herds)[number]): MonsterZone => ({

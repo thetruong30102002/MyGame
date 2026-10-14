@@ -138,7 +138,7 @@ export function buildRivergate(meta: Record<string, PropMeta>, decalIds: string[
 	// Vách: đá chỉ trên ô 'f' (vách tây, gờ, bờ đông, dải nam).
 	L.scatter(900, (x, y) => (L.at(Math.floor(x / TILE), Math.floor(y / TILE)) === 'f' ? L.place(L.pick(CLIFF_ROCKS), x, y) : false));
 	// Lòng hẻm: vài tảng đá lăn rải rác.
-	L.scatter(170, (x, y) => (L.at(Math.floor(x / TILE), Math.floor(y / TILE)) === 'g' ? L.place(L.pick(['rock_gray', 'cave_boulder', 'rock_mossy', 'boulder', 'rock_gray', 'rock_pillar']), x, y) : false));
+	L.clumps(170, ['rock_gray', 'cave_boulder', 'rock_mossy', 'boulder', 'rock_gray', 'rock_pillar'], 3, 1.4, (id, x, y) => (L.at(Math.floor(x / TILE), Math.floor(y / TILE)) === 'g' ? L.place(id, x, y) : false));
 
 	L.sprinkleDecals(decalsOf(decalIds, 'd2'), 700);
 	// Lau sậy (tấm C1, đi xuyên) dọc mép nước bờ tây — rải SAU decal nên dãy ngẫu nhiên của đá / bụi / decal đã có không đổi.

@@ -85,11 +85,14 @@ export function buildTown(meta: Record<string, PropMeta>, decalIds: string[], se
 	L.reserve(22, 1, 3);
 	L.reserve(22, 50.5, 3);
 
-	// Cây quanh thị trấn: một loại cây PixelLab (+ lật gương, lá thu).
-	L.scatter(150, (x, y) => (x < 41 * TILE || x > 47 * TILE ? L.place(L.pick(TREES), x, y) : false));
+	// Hàng cây hai bên đường Bắc–Nam ngoài khu chợ (cách tim đường 4 ô, 4 ô một cây, lệch nhịp với đèn) — lối vào thị trấn có hàng
+	// cây rõ (chủ dự án 13/10/2026: "xếp lại cho gọn gàng và có quy tắc"). Trùng nhà / đồ cũ thì bỏ chỗ đó.
+	for (const y of [4, 8, 12, 16, 37, 41, 45]) for (const x of [18, 26]) L.place(y % 8 ? 'tree' : 'tree_flip', px(x), px(y) + 20);
+	// Cây quanh thị trấn thành lùm cùng loài ở các góc (một loại cây PixelLab + lật gương, lá thu).
+	L.clumps(260, TREES, 5, 2.2, (id, x, y) => (x < 41 * TILE || x > 47 * TILE ? L.place(id, x, y) : false));
 	// Bụi/cỏ hoa và đá bên bờ sông — tất cả cùng tấm thiên nhiên PixelLab.
-	L.scatter(70, (x, y) => (x < 41 * TILE ? L.place(L.pick(GROUND_PLANTS), x, y) : false));
-	L.scatter(30, (x, y) => (x > 38 * TILE ? L.place(L.pick(['rock_gray', 'rock_mossy', 'fern', 'bush']), x, y) : false));
+	L.clumps(70, GROUND_PLANTS, 4, 1.6, (id, x, y) => (x < 41 * TILE ? L.place(id, x, y) : false));
+	L.clumps(30, ['rock_gray', 'rock_mossy', 'fern', 'bush'], 3, 1.4, (id, x, y) => (x > 38 * TILE ? L.place(id, x, y) : false));
 
 	L.sprinkleDecals(decalsOf(decalIds, 'd1'), 1400);
 

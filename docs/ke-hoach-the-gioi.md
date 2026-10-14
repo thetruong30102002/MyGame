@@ -448,7 +448,12 @@ Luật kiểm `validateRegion` + `apps/server/tests/worldmaps.test.ts` (đi bộ
 **Đã làm 11/10/2026 (vùng 2–7, 0 lượt)**: bố cục (đường, bãi, lối, địa điểm) GIỮ NGUYÊN — đã so 72 map, 0 lệch — nên máy chủ / bản
 cũ không lệch toạ độ. (1) Quái mỗi bầy tăng → map săn 24–28 con (map có hang ổ 21–24 + boss; trước 15–20), chỉ tăng `count`, không thêm
 bãi. (2) Hàng cây loài chủ đạo đều nhịp dọc đường (cách mép đường 2 ô, ~4 ô một cây) ở map nền trống (`kit.ts`). Còn lại: bầy phụ khác
-loại + quái tinh anh (cần nới luật "một loại / map" của `validateRegion` — chờ chủ dự án), trần tỉ lệ đồ trang trí, vùng 1 (map viết tay).
+loại + quái tinh anh (cần nới luật "một loại / map" của `validateRegion` — chờ chủ dự án), trần tỉ lệ đồ trang trí.
+
+**Vùng 1 (14/10/2026, 0 lượt)**: 12 map dựng tay đổi rải lốm đốm → rải theo KHÓM cùng loài (`Layout.clumps` — chung với bộ dựng
+vùng 2–7): cây 5–7 / khóm, đá / xương / bia 2–3, bụi hoa 3–4; Thistlewood thêm hàng cây hai bên đường Bắc–Nam (4 ô một cây). Giữ nguyên:
+đường, bãi, lối, địa điểm, vườn táo Bãi Bồi, rừng úa theo vòng của Vết Rạn, đá lấp vách Hang Gargoyle / Hẻm Cửa Sông. Đã kiểm đi
+bằng chân tới mọi điểm đến / lối / điểm sinh quái của 12 map.
 
 ## 5.5 Thời tiết theo vùng — ĐÃ LÀM (11/10/2026)
 

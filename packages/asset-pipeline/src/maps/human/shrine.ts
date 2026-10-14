@@ -30,8 +30,8 @@ export function buildShrine(meta: Record<string, PropMeta>, decalIds: string[], 
 
 	L.reserve(seal.x, seal.y + 1, 9.5);
 	L.reserve(14.5, SHRINE_H - 1, 3);
-	L.scatter(500, (x, y) => L.place(L.pick(TREES), x, y, { canopy: true }));
-	L.scatter(40, (x, y) => L.place(L.pick(['rock_mossy', 'fern', 'stump']), x, y));
+	L.clumps(500, TREES, 7, 2.6, (id, x, y) => L.place(id, x, y, { canopy: true }));
+	L.clumps(40, ['rock_mossy', 'fern', 'stump'], 3, 1.4, (id, x, y) => L.place(id, x, y));
 	L.sprinkleDecals(decalsOf(decalIds, 'd1'), 380);
 
 	return L.finish({

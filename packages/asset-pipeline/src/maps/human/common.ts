@@ -203,6 +203,28 @@ export class Layout {
 		for (let i = 0; i < attempts; i += 1) tryPlace(Math.round(this.rand() * this.w * TILE), Math.round(this.rand() * this.h * TILE));
 	}
 
+	/**
+	 * Rải theo KHÓM (chủ dự án 13/10/2026: "xếp lại cho gọn gàng và có quy tắc"): `attempts` lượt chia thành các khóm ~`per` món quanh
+	 * một tâm ngẫu nhiên (bán kính `r` ô); mỗi khóm MỘT loài (bản gốc + lật gương trộn nhau). Loài chọn theo trọng số danh sách nên loài
+	 * nhiều nhất của map vẫn chiếm phần lớn. Dùng chung vùng 1 (map dựng tay) và bộ dựng vùng 2–7 (`maps/kit`).
+	 */
+	clumps(attempts: number, ids: readonly string[], per: number, r: number, put: (id: string, x: number, y: number) => boolean): void {
+		if (!ids.length) return;
+		const groups = Math.max(1, Math.round(attempts / per));
+		for (let g = 0; g < groups; g += 1) {
+			const kind = species(this.pick(ids));
+			const pool = ids.filter((id) => species(id) === kind);
+			const cx = this.rand() * this.w;
+			const cy = this.rand() * this.h;
+			const n = Math.max(1, Math.round(per * (0.7 + this.rand() * 0.6)));
+			for (let k = 0; k < Math.ceil(n * 1.3); k += 1) {
+				const a = this.rand() * Math.PI * 2;
+				const d = Math.sqrt(this.rand()) * r;
+				put(this.pick(pool), Math.round((cx + Math.cos(a) * d) * TILE), Math.round((cy + Math.sin(a) * d * 0.8) * TILE));
+			}
+		}
+	}
+
 	pick<T>(list: readonly T[]): T {
 		return list[Math.floor(this.rand() * list.length)]!;
 	}
@@ -247,6 +269,9 @@ export class Layout {
 		};
 	}
 }
+
+/** Bản lật gương (`_flip`) cùng loài với bản gốc. */
+export const species = (id: string): string => id.replace(/_flip$/, '');
 
 export function mulberry32(seed: number): () => number {
 	let a = seed >>> 0;

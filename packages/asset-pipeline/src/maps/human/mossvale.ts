@@ -92,9 +92,9 @@ export function buildMossvale(meta: Record<string, PropMeta>, decalIds: string[]
 	L.place('signpost', px(37), px(2) + 10, { force: true });
 
 	// Rừng dày: một loại cây (tán được chồng nhau, gốc cách nhau ≥ 70px), rồi đá, gốc cây, dương xỉ, bụi.
-	L.scatter(1100, (x, y) => L.place(L.pick(TREES), x, y, { canopy: true }));
-	L.scatter(170, (x, y) => L.place(L.pick(['rock_mossy', 'rock_gray', 'stump', 'fern', 'fern', 'bush']), x, y));
-	L.scatter(60, (x, y) => (L.at(Math.floor(x / TILE), Math.floor(y / TILE)) === 'g' ? L.place(L.pick(GROUND_PLANTS), x, y) : false));
+	L.clumps(1100, TREES, 7, 2.6, (id, x, y) => L.place(id, x, y, { canopy: true }));
+	L.clumps(170, ['rock_mossy', 'rock_gray', 'stump', 'fern', 'fern', 'bush'], 3, 1.4, (id, x, y) => L.place(id, x, y));
+	L.clumps(60, GROUND_PLANTS, 4, 1.6, (id, x, y) => (L.at(Math.floor(x / TILE), Math.floor(y / TILE)) === 'g' ? L.place(id, x, y) : false));
 
 	L.sprinkleDecals(decalsOf(decalIds, 'd1'), 1500);
 
