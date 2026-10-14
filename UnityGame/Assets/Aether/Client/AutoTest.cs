@@ -55,6 +55,7 @@ namespace Aether.Client
                 t.tour = Array.IndexOf(args, "-aetherTour") >= 0;
                 t.lab = Array.IndexOf(args, "-aetherLab") >= 0;
                 t.rigRun = Array.IndexOf(args, "-aetherRig") >= 0;
+                GameController.RigThuEnabled = t.rigRun;
                 t.social = Array.IndexOf(args, "-aetherSocial") >= 0;
                 t.storyRun = Array.IndexOf(args, "-aetherStory") >= 0;
                 t.adminRun = Array.IndexOf(args, "-aetherAdmin") >= 0;
