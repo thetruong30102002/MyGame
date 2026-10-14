@@ -2,7 +2,8 @@
 //   npx tsx UnityGame/Tools~/publish-client.mts [--min] [--notes "ghi chú"] [--dir <thư mục>] [--fast] [--only windows|android]
 // Windows: gói `Build/Windows` thành MỘT file exe CÀI ĐẶT (WinRAR SFX — chủ dự án: "tải game file exe sau sẽ cài, chọn đường dẫn ra file game
 // như Ngọc Rồng"): hộp cài cho chọn thư mục (mặc định %LOCALAPPDATA%\Aether Chronicle), tạo lối tắt màn hình + menu Start, cài xong mở game.
-// Tự cập nhật gọi CHÍNH file này với `-s2 -d<thư mục đang cài>` (AutoUpdate.cs) → bung đè im lặng đúng chỗ người chơi đã chọn.
+// Tự cập nhật: client cũ gọi CHÍNH file này với `-s2 -d<thư mục đang cài>`; client từ 12/10/2026 tải gói `.zip` cùng nội dung (exe SFX chưa
+// ký số bị Windows Defender chặn) rồi tự giải nén + chép đè (AutoUpdate.cs) → đúng chỗ người chơi đã chọn.
 // Android: chép APK. Rồi tính cỡ + SHA-256, ghi `version.json` (ghi file tạm rồi đổi tên — máy chủ không bao giờ đọc phải file dở) vào
 // thư mục bản phát của máy chủ (mặc định `apps/server/data/client` = máy chủ THẬT; thử thì `--dir apps/server/data/client-test`).
 // Máy chủ đọc lại mỗi lần gọi → KHÔNG cần khởi động lại. Client đang chạy bản cũ mở game là tự tải + cài.
@@ -41,6 +42,7 @@ interface Entry {
 	file: string;
 	size: number;
 	sha256: string;
+	zip?: { file: string; size: number; sha256: string };
 }
 
 const sha256 = (p: string): Promise<string> =>
@@ -105,9 +107,24 @@ if (only !== 'android') {
 		console.log(`… Windows bản ${b.build}: đóng gói ${flag('--fast') ? '(nhanh)' : ''}…`);
 		const r = spawnSync(RAR, ['a', `-sfx${SFX}`, '-scfc', `-z${sfxScript}`, '-ep1', '-r', flag('--fast') ? '-m1' : '-m5', '-idq', dst, ...shipped.map((n) => join(BUILD, 'Windows', n)), join(extra, '*')], { stdio: 'inherit' });
 		rmSync(sfxScript, { force: true });
-		rmSync(extra, { recursive: true, force: true });
+		const extra2 = extra;
 		if (r.status !== 0) throw new Error(`Rar.exe lỗi (mã ${r.status})`);
-		const e: Entry = { build: b.build, file, size: statSync(dst).size, sha256: await sha256(dst) };
+		// Gói zip cùng nội dung cho client mới (từ 12/10/2026): bộ cài exe SFX chưa ký số bị Windows Defender chặn (Win32 IO 225) nên
+		// client tải zip rồi tự giải nén. Client cũ vẫn dùng `file` (exe) ở trên.
+		const zipFile = `Aether-Chronicle-${b.build}.zip`;
+		const zipDst = join(outDir, zipFile);
+		rmSync(zipDst, { force: true });
+		// Rar.exe (bản console) không ghi được zip (-afzip báo "tuỳ chọn chưa biết") → dùng bsdtar có sẵn của Windows.
+		const zr = spawnSync(join(process.env.SystemRoot ?? 'C:/Windows', 'System32', 'tar.exe'), ['-a', '-c', '-f', zipDst, '-C', join(BUILD, 'Windows'), ...shipped, '-C', extra2, ...readdirSync(extra2)], { stdio: 'inherit' });
+		rmSync(extra2, { recursive: true, force: true });
+		if (zr.status !== 0) throw new Error(`tar.exe (zip) lỗi (mã ${zr.status})`);
+		const e: Entry = {
+			build: b.build,
+			file,
+			size: statSync(dst).size,
+			sha256: await sha256(dst),
+			zip: { file: zipFile, size: statSync(zipDst).size, sha256: await sha256(zipDst) },
+		};
 		next.windows = e;
 		newest = Math.max(newest, b.build);
 		next.version = b.version;
@@ -147,6 +164,7 @@ console.log(`✔ version.json → ${vPath} (bản ${String(next.version)}${flag(
 // Dọn: mỗi nền tảng giữ 2 bản mới nhất (bản đang phát + bản trước).
 for (const [re, keep] of [
 	[/^Aether-Chronicle-(\d+)\.exe$/, (next.windows as Entry | undefined)?.file],
+	[/^Aether-Chronicle-(\d+)\.zip$/, (next.windows as Entry | undefined)?.zip?.file],
 	[/^Aether-(\d+)\.apk$/, (next.android as Entry | undefined)?.file],
 ] as const) {
 	const files = readdirSync(outDir)

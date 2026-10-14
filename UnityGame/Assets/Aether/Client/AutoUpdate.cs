@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Diagnostics;
 using System.IO;
+using System.IO.Compression;
 using System.Net.Http;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
@@ -103,10 +104,15 @@ namespace Aether.Client
                 yield break;
             }
 
-            var file = (string)entry["file"];
-            var size = (long?)entry["size"] ?? 0;
-            var sha = ((string)entry["sha256"] ?? "").ToLowerInvariant();
-            var path = Path.Combine(Path.GetTempPath(), $"Aether-update-{remote}.exe");
+            // Bản có gói zip (từ 12/10/2026) thì tải zip rồi TỰ giải nén: bộ cài exe WinRAR SFX chưa ký số bị Windows Defender chặn
+            // ngay khi tải xong (Win32 IO 225 = file bị coi là virus), còn zip thì Defender không chặn. Bản cũ chỉ có exe → đường cũ.
+            var zip = entry["zip"] as JObject;
+            var src = zip ?? entry;
+            var file = (string)src["file"];
+            var size = (long?)src["size"] ?? 0;
+            var sha = ((string)src["sha256"] ?? "").ToLowerInvariant();
+            var path = Path.Combine(Path.GetTempPath(), zip != null ? $"Aether-update-{remote}.zip" : $"Aether-update-{remote}.exe");
+            var stage = Path.Combine(Path.GetTempPath(), $"Aether-stage-{remote}");
             string error = null;
             got = 0;
             var url = server + "/api/client/file/" + Uri.EscapeDataString(file ?? "");
@@ -125,10 +131,19 @@ namespace Aether.Client
                 while (!check.IsCompleted) yield return null;
                 error = check.Result;
             }
+            if (error == null && zip != null)
+            {
+                SetProgress(1, "Đang giải nén bản mới…");
+                var unzip = Task.Run(() => Extract(path, stage));
+                while (!unzip.IsCompleted) yield return null;
+                error = unzip.Result;
+                TryDelete(path);
+            }
             if (error != null)
             {
                 Debug.LogWarning("[Aether update] " + error);
                 TryDelete(path);
+                TryDeleteDir(stage);
                 if (mustUpdate)
                 {
                     status.text = error + "\nBản này quá cũ để vào game — kiểm tra mạng rồi thử lại.";
@@ -143,7 +158,8 @@ namespace Aether.Client
             }
             SetProgress(1, "Đang cài bản mới — game sẽ tự mở lại…");
             yield return new WaitForSeconds(0.6f);
-            var started = StartInstaller(path, InstallDir, out var why);
+            string why;
+            var started = zip != null ? StartCopier(stage, InstallDir, out why) : StartInstaller(path, InstallDir, out why);
             if (!started)
             {
                 status.text = "Không chạy được bộ cài: " + why;
@@ -255,6 +271,69 @@ namespace Aether.Client
             catch (Exception e)
             {
                 Debug.LogWarning("[Aether update] Không ghi được mục Apps: " + e.Message);
+            }
+        }
+
+        /// <summary>Giải nén gói zip vào thư mục tạm <paramref name="stage"/>; null = xong, còn lại là lý do.</summary>
+        private static string Extract(string zipPath, string stage)
+        {
+            try
+            {
+                TryDeleteDir(stage);
+                ZipFile.ExtractToDirectory(zipPath, stage);
+                return File.Exists(Path.Combine(stage, "Aether.exe")) ? null : "Gói cập nhật thiếu Aether.exe";
+            }
+            catch (Exception e)
+            {
+                return "Không giải nén được bản mới: " + e.Message;
+            }
+        }
+
+        /// <summary>
+        /// Chép bản đã giải nén đè lên <paramref name="dir"/> rồi mở lại game, qua một file .cmd chạy nền (game phải thoát hẳn trước —
+        /// file đang chạy bị khoá, nên `ping` đợi ~2 giây). Thư mục cần quyền quản trị thì chạy file đó bằng `-Verb RunAs` (Windows hỏi UAC).
+        /// </summary>
+        private static bool StartCopier(string stage, string dir, out string why)
+        {
+            why = null;
+            try
+            {
+                var script = Path.Combine(Path.GetTempPath(), "Aether-update.cmd");
+                File.WriteAllText(script, string.Join("\r\n",
+                    "@echo off",
+                    "chcp 65001 >nul",
+                    "ping -n 3 127.0.0.1 >nul",
+                    $"robocopy \"{stage}\" \"{dir}\" /E /R:10 /W:2 /NFL /NDL /NJH /NJS /NP >nul",
+                    $"rmdir /s /q \"{stage}\"",
+                    $"start \"\" \"{Path.Combine(dir, "Aether.exe")}\"",
+                    ""), new System.Text.UTF8Encoding(false));
+                if (CanWrite(dir))
+                    Process.Start(new ProcessStartInfo("cmd.exe", $"/c \"{script}\"") { CreateNoWindow = true, UseShellExecute = false, WindowStyle = ProcessWindowStyle.Hidden });
+                else
+                    Process.Start(new ProcessStartInfo("powershell.exe", $"-NoProfile -WindowStyle Hidden -Command \"Start-Process -FilePath '{script.Replace("'", "''")}' -WindowStyle Hidden -Verb RunAs\"")
+                    {
+                        CreateNoWindow = true,
+                        UseShellExecute = false,
+                        WindowStyle = ProcessWindowStyle.Hidden,
+                    });
+                return true;
+            }
+            catch (Exception e)
+            {
+                why = e.Message;
+                return false;
+            }
+        }
+
+        private static void TryDeleteDir(string dir)
+        {
+            try
+            {
+                if (Directory.Exists(dir)) Directory.Delete(dir, true);
+            }
+            catch (Exception)
+            {
+                // Còn file bị giữ — lần sau giải nén đè.
             }
         }
 

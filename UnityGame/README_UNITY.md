@@ -7,7 +7,11 @@ pipeline hình PixelLab (packages/asset-pipeline) GIỮ NGUYÊN — Unity là cl
 
 - Unity **6000.3.26f1** (Unity 6.3 LTS), cài ở **`D:\Unity\Editor`** (ổ C gần đầy — lần cài vào C hỏng giữa chừng) — module
   Android (SDK/NDK/JDK), iOS, Windows IL2CPP. Unity Hub đã đặt nơi cài mặc định = `D:\Unity\Editor`.
-- iOS: Unity trên Windows chỉ XUẤT project Xcode; biên dịch + ký + cài lên iPhone cần máy Mac có Xcode (hoặc dịch vụ build đám mây).
+- iOS: Unity trên Windows chỉ XUẤT project Xcode (menu Aether → Build iOS, hoặc `-executeMethod Aether.Importer.GameSetup.BuildIosBatch`
+  → `Build/iOS`); biên dịch + ký + cài lên iPhone cần máy Mac có Xcode. Đám mây: GitHub Actions `.github/workflows/build-ios.yml`
+  (chạy tay hoặc đẩy tag `ios-*`): Ubuntu nhập `assets/` + xuất Xcode (`BuildIosCiBatch`) → macOS Archive ra `.ipa` gắn vào Release.
+  Cần secrets `UNITY_LICENSE` / `UNITY_EMAIL` / `UNITY_PASSWORD`; có thêm `IOS_CERT_P12_BASE64`, `IOS_CERT_PASSWORD`,
+  `IOS_PROVISION_PROFILE_BASE64`, `IOS_TEAM_ID` (+ tuỳ chọn `IOS_EXPORT_METHOD`) thì ký, không thì ra `Aether-unsigned.ipa` (cài bằng sideload).
 
 ## Cấu trúc
 
