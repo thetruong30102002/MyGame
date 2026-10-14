@@ -10,37 +10,34 @@
 <title>Bài viết — Aether Chronicle</title>
 <meta name="theme-color" content="#0d1a2a">
 <link rel="icon" href="site/img/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" href="site/fonts/bvp-400-vietnamese.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="site/app.css">
 </head>
 <body data-page="bai-viet" class="bg-base-200 text-base-content antialiased overflow-x-hidden">
 <main id="main">
-	<div class="max-w-3xl mx-auto px-4 py-4 sm:py-8">
-		<div class="text-sm breadcrumbs text-base-content/60 py-1">
-			<ul><li><a class="py-2.5" href="dien-dan">🗨️ Diễn đàn</a></li><li><a class="py-2.5" id="crumb-cat" href="dien-dan">…</a></li></ul>
-		</div>
+	<div class="max-w-3xl mx-auto px-4 pt-3 pb-8 sm:pt-8">
+		<nav class="flex items-center gap-1 text-sm text-base-content/60 min-w-0" aria-label="Đường dẫn">
+			<a href="dien-dan" class="inline-flex items-center gap-1.5 h-10 pr-1 hover:text-base-content shrink-0"><svg class="i w-[18px] h-[18px] rotate-180"><use href="#i-arrow"/></svg>Diễn đàn</a>
+			<svg class="i w-4 h-4 opacity-50 shrink-0"><use href="#i-chevron"/></svg>
+			<a id="crumb-cat" href="dien-dan" class="inline-flex items-center h-10 px-1 hover:text-base-content min-w-0 truncate">…</a>
+		</nav>
 
-		<article id="post" class="card bg-base-100 border border-white/10 shadow-xl mt-2">
-			<div class="card-body p-5 sm:p-7 gap-4"><div class="skeleton h-10 w-2/3"></div><div class="skeleton h-4 w-1/3"></div><div class="skeleton h-32"></div></div>
+		<article id="post" class="mt-1 rounded-2xl bg-base-100 border border-white/10 p-5 sm:p-7">
+			<div class="skeleton h-8 w-3/4"></div><div class="skeleton h-4 w-1/3 mt-4"></div><div class="skeleton h-28 mt-5"></div>
 		</article>
 
 		<section id="cmt-sec" class="mt-6" hidden aria-labelledby="cmt-title">
-			<h2 id="cmt-title" class="font-black text-lg mb-3">💬 Bình luận</h2>
-			<div id="comments" class="space-y-1"></div>
-			<!-- Ô bình luận -->
-			<form id="cform" class="mt-4 card bg-base-100 border border-white/10" hidden>
-				<div class="card-body p-3 sm:p-4 gap-2">
-					<textarea id="cbody" rows="1" class="textarea textarea-bordered w-full text-base leading-relaxed min-h-12 resize-none" maxlength="500" placeholder="Viết bình luận…" aria-label="Viết bình luận"></textarea>
-					<div class="flex items-center gap-2">
-						<select id="cchar" class="select select-bordered h-10 min-h-10 text-base flex-1 min-w-0 max-w-[60%]" aria-label="Bình luận với tên"></select>
-						<span class="text-xs text-base-content/50 ml-auto"><span id="ccnt">0</span>/500</span>
-						<button class="btn btn-primary btn-sm h-10 px-5" id="cgo">Gửi</button>
-					</div>
+			<h2 id="cmt-title" class="font-bold text-[17px] mb-3">Bình luận</h2>
+			<div id="comments" class="space-y-3"></div>
+			<form id="cform" class="mt-4 rounded-2xl bg-base-100 border border-white/10 p-3" hidden>
+				<textarea id="cbody" rows="1" class="textarea textarea-bordered w-full text-base leading-relaxed min-h-12 resize-none" maxlength="500" placeholder="Viết bình luận…" aria-label="Viết bình luận"></textarea>
+				<div class="mt-2 flex items-center gap-2">
+					<select id="cchar" class="select select-bordered h-10 min-h-10 text-base flex-1 min-w-0" aria-label="Bình luận với tên"></select>
+					<span class="text-xs text-base-content/50 shrink-0"><span id="ccnt">0</span>/500</span>
+					<button class="btn btn-primary h-10 min-h-10 px-4 gap-1.5 shrink-0" id="cgo"><svg class="i w-[18px] h-[18px]"><use href="#i-send"/></svg>Gửi</button>
 				</div>
 			</form>
-			<button id="clogin" type="button" class="btn btn-ghost bg-base-100 w-full mt-4" hidden>🔑 Đăng nhập để bình luận</button>
+			<button id="clogin" type="button" class="btn bg-base-100 border-white/10 w-full mt-4 gap-2" hidden><svg class="i w-5 h-5"><use href="#i-user"/></svg>Đăng nhập để bình luận</button>
 		</section>
 	</div>
 </main>
@@ -61,51 +58,57 @@
 			render();
 		} catch (e) {
 			if (e.status === 404) notFound();
-			else $('post').replaceChildren(h('div.card-body', null, h('div.alert.alert-error', null, e.message)));
+			else $('post').replaceChildren(h('div.alert.alert-error', null, e.message));
 		}
 	}
 	function notFound() {
 		document.title = 'Không tìm thấy bài — Aether Chronicle';
 		$('crumb-cat').textContent = 'Không tìm thấy';
-		$('post').replaceChildren(h('div.card-body.items-center.text-center.py-14', null,
-			h('div.text-5xl', null, '🕳️'), h('h1.font-black.text-xl', null, 'Bài viết không còn'), h('p.text-base-content/65', null, 'Bài có thể đã bị xoá hoặc link sai.'),
-			h('a.btn.btn-primary.mt-2', { href: 'dien-dan' }, '← Về diễn đàn')));
+		$('post').replaceChildren(h('div.text-center.py-8', null,
+			A.icon('forum', 'w-12 h-12 mx-auto text-base-content/30'),
+			h('h1.mt-3.font-black.text-xl', null, 'Bài viết không còn'),
+			h('p.mt-1.text-base-content/65', null, 'Bài có thể đã bị xoá hoặc link sai.'),
+			h('a.btn.btn-primary.mt-5', { href: 'dien-dan' }, 'Về diễn đàn')));
 	}
 	function render() {
 		document.title = post.title + ' — Diễn đàn Aether Chronicle';
-		$('crumb-cat').textContent = (A.CAT_ICON[post.category] || '') + ' ' + (A.CATS[post.category] || '');
+		$('crumb-cat').replaceChildren(A.catLabel(post.category));
 		$('crumb-cat').href = 'dien-dan?c=' + post.category;
 		const me = A.me;
 		const canDel = post.mine || (me && me.admin);
-		$('post').replaceChildren(h('div.card-body.p-5.sm:p-7.gap-4', null,
+		$('post').replaceChildren(
 			h('h1.text-2xl.sm:text-3xl.font-black.leading-tight.break-words', null, post.title),
-			h('div.flex.items-center.gap-3', null,
-				A.avatar(post.author, 'w-11'),
-				h('div.min-w-0.flex-1', null, h('p.font-bold.truncate', null, post.author), h('p.text-sm.text-base-content/55', null, A.ago(post.at) + ' · ' + new Date(post.at).toLocaleString('vi-VN', { dateStyle: 'short', timeStyle: 'short' }))),
-			),
-			h('div.whitespace-pre-wrap.break-words.text-[16px].leading-relaxed.text-base-content/90', null, post.body),
-			h('div.flex.flex-wrap.items-center.gap-2.pt-3.border-t.border-white/10', null,
-				h('a.btn.btn-outline.btn-sm.h-10.min-h-10.rounded-full', { href: 'dien-dan?c=' + post.category }, (A.CAT_ICON[post.category] || '') + ' ' + (A.CATS[post.category] || '')),
+			h('div.mt-4.flex.items-center.gap-3', null,
+				A.avatar(post.author, 'w-11.h-11.text-lg'),
+				h('div.min-w-0', null,
+					h('p.font-semibold.leading-tight.truncate', null, post.author),
+					h('p.mt-1.text-[13px].text-base-content/55.leading-tight', null, A.ago(post.at) + ' · ' + new Date(post.at).toLocaleString('vi-VN', { dateStyle: 'short', timeStyle: 'short' })))),
+			h('div.mt-5.whitespace-pre-wrap.break-words.text-base.leading-relaxed.text-base-content/90', null, post.body),
+			h('div.mt-6.pt-4.border-t.border-white/10.flex.flex-wrap.items-center.gap-2', null,
+				h('a.inline-flex.items-center.h-10.px-3.5.rounded-full.bg-white/5.border.border-white/10.text-sm.text-base-content/80', { href: 'dien-dan?c=' + post.category }, A.catLabel(post.category)),
 				h('span.flex-1'),
-				h('button.btn.btn-ghost.btn-sm.h-10', { type: 'button', onclick: share }, '🔗 Chia sẻ'),
-				canDel ? h('button.btn.btn-ghost.btn-sm.h-10.text-error', { type: 'button', onclick: del }, '🗑️ Xoá') : null,
+				h('button.btn.btn-ghost.h-10.min-h-10.px-3.gap-1.5.font-semibold', { type: 'button', onclick: share }, A.icon('link', 'w-[18px] h-[18px]'), 'Chia sẻ'),
+				canDel ? h('button.btn.btn-ghost.h-10.min-h-10.px-3.gap-1.5.font-semibold.text-error', { type: 'button', onclick: del }, A.icon('trash', 'w-[18px] h-[18px]'), 'Xoá') : null,
 			),
-		));
+		);
 		renderComments();
 		$('cmt-sec').hidden = false;
 	}
 	function renderComments() {
 		const me = A.me;
-		$('cmt-title').textContent = '💬 ' + comments.length + ' bình luận';
+		$('cmt-title').textContent = comments.length ? comments.length + ' bình luận' : 'Bình luận';
 		$('comments').replaceChildren(...(comments.length ? comments : [null]).map((c) => {
-			if (!c) return h('p.text-base-content/55.py-4.text-center', null, 'Chưa có bình luận — nói gì đó đi!');
-			const mineSide = me && c.mine;
-			return h('div.chat.' + (mineSide ? 'chat-end' : 'chat-start'), null,
-				h('div.chat-image', null, A.avatar(c.author, 'w-9')),
-				h('div.chat-header.text-xs.font-bold.mb-1.flex.items-center.gap-2', null, c.author, h('time.opacity-50.font-normal', null, A.ago(c.at)),
-					c.mine || (me && me.admin) ? h('button.btn.btn-ghost.btn-sm.text-error.h-10.min-h-10.px-2', { type: 'button', onclick: () => delComment(c), ariaLabel: 'Xoá bình luận' }, 'Xoá') : null),
-				h('div.chat-bubble.text-[15px].whitespace-pre-wrap.break-words.' + (mineSide ? 'chat-bubble-primary' : 'chat-bubble-neutral'), null, c.body),
-			);
+			if (!c) return h('p.text-base-content/55.py-3.text-center.text-[15px]', null, 'Chưa có bình luận — nói gì đó đi!');
+			const canDel = c.mine || (me && me.admin);
+			return h('div.flex.gap-3', null,
+				A.avatar(c.author, 'w-9.h-9.text-sm'),
+				h('div.min-w-0.flex-1', null,
+					h('div.rounded-2xl.rounded-tl-md.px-3.5.py-2.5.' + (c.mine ? 'bg-primary/15.border.border-primary/25' : 'bg-base-100.border.border-white/10'), null,
+						h('p.text-[13px].font-semibold.leading-tight', null, c.author),
+						h('p.mt-1.text-[15px].leading-relaxed.whitespace-pre-wrap.break-words', null, c.body)),
+					h('div.flex.items-center.gap-1.mt-0.5.pl-1.text-xs.text-base-content/50', null,
+						h('time', null, A.ago(c.at)),
+						canDel ? h('button.inline-flex.items-center.h-10.px-2.-my-1.text-error.font-semibold', { type: 'button', onclick: () => delComment(c) }, 'Xoá') : null)));
 		}));
 		$('cform').hidden = !me;
 		$('clogin').hidden = !!me;

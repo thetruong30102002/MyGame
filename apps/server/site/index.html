@@ -16,155 +16,145 @@
 <meta property="og:description" content="7 vùng đất · 5 nguyên tố · Kiếm sĩ & Pháp sư. Tải miễn phí cho PC và Android.">
 <meta property="og:image" content="https://admin.tail024813.ts.net/game/site/img/continent.png">
 <link rel="icon" href="site/img/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" href="site/fonts/bvp-400-vietnamese.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="site/fonts/bvp-900-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="site/app.css">
 <link rel="preload" as="image" href="site/img/continent.png">
 </head>
 <body data-page="home" data-hero class="bg-base-200 text-base-content antialiased overflow-x-hidden">
-<svg width="0" height="0" class="absolute" aria-hidden="true">
-	<symbol id="i-win" viewBox="0 0 24 24"><path fill="currentColor" d="M3 5.5 10.5 4.4v7.1H3zm0 13L10.5 19.6v-7H3zm8.5 1.2L21 21v-8.4h-9.5zm0-15.4v7.2H21V3z"/></symbol>
-	<symbol id="i-and" viewBox="0 0 24 24"><path fill="currentColor" d="M7.2 8.5h9.6v8.2c0 .7-.5 1.2-1.2 1.2h-.9v2.6a1.2 1.2 0 0 1-2.4 0v-2.6h-.6v2.6a1.2 1.2 0 0 1-2.4 0v-2.6h-.9c-.7 0-1.2-.5-1.2-1.2zM5 8.6a1.2 1.2 0 0 1 2.4 0v5.1a1.2 1.2 0 0 1-2.4 0zm11.6 0a1.2 1.2 0 0 1 2.4 0v5.1a1.2 1.2 0 0 1-2.4 0zM8.3 3.3l.5-.3 1.1 1.8a5.4 5.4 0 0 1 4.2 0L15.2 3l.5.3-1.1 1.8A4.7 4.7 0 0 1 16.8 7.6H7.2a4.7 4.7 0 0 1 2.2-2.5zM10 5.6a.6.6 0 1 0 0 1.2.6.6 0 0 0 0-1.2zm4 0a.6.6 0 1 0 0 1.2.6.6 0 0 0 0-1.2z"/></symbol>
-</svg>
-
 <main id="main">
 	<!-- ———— Banner ———— -->
-	<section class="relative overflow-hidden min-h-[88svh] lg:min-h-[min(92vh,780px)] flex items-center bg-base-300">
+	<section class="relative overflow-hidden bg-base-300">
 		<div class="absolute -inset-[4%] bg-cover bg-center px motion-safe:anim-pan" style="background-image:url('site/img/continent.png')"></div>
-		<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_40%,rgba(8,18,30,.25),rgba(8,18,30,.85)_70%)]"></div>
+		<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_35%,rgba(8,18,30,.3),rgba(8,18,30,.88)_72%)]"></div>
 		<div class="absolute inset-0 bg-gradient-to-b from-base-300/70 via-transparent to-base-200"></div>
 		<canvas id="sparks" class="absolute inset-0 w-full h-full pointer-events-none" aria-hidden="true"></canvas>
-		<div class="relative w-full max-w-6xl mx-auto px-4 pt-[calc(5.5rem+env(safe-area-inset-top))] pb-16 sm:pb-24 grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] items-end gap-4">
-			<div class="hidden lg:flex justify-center"><img class="px h-64 anim-bob drop-shadow-[0_8px_0_rgba(0,0,0,.35)] w-auto" src="site/img/hero-m.png" alt="Kiếm sĩ" width="208" height="292"></div>
+		<div class="relative max-w-6xl mx-auto px-5 pt-[calc(5rem+env(safe-area-inset-top))] pb-10 sm:pt-28 sm:pb-24 lg:min-h-[min(92vh,780px)] grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] items-center lg:items-end gap-4">
+			<div class="hidden lg:flex justify-center"><img class="px h-64 w-auto anim-bob drop-shadow-[0_8px_0_rgba(0,0,0,.35)]" src="site/img/hero-m.png" alt="Kiếm sĩ" width="208" height="292"></div>
 			<div class="text-center min-w-0">
-				<a href="tai-game" class="inline-flex items-center h-10 rounded-full glass border border-white/15 gap-2 font-semibold text-sm px-4">
-					<span id="dot" class="inline-block w-2.5 h-2.5 rounded-full bg-base-content/40"></span><span id="srv">Đang kiểm tra máy chủ…</span>
+				<a href="tai-game" class="inline-flex items-center gap-2 h-10 px-4 rounded-full glass border border-white/15 text-sm font-semibold">
+					<span id="dot" class="w-2 h-2 rounded-full bg-base-content/40"></span><span id="srv">Đang kiểm tra máy chủ…</span>
 				</a>
-				<h1 class="mt-5 font-black leading-[.95] tracking-wide text-[clamp(42px,12vw,92px)]"><span class="gold-text">AETHER<br>CHRONICLE</span></h1>
-				<div class="lg:hidden flex justify-center items-end gap-6 mt-4" aria-hidden="true">
-					<img class="px h-28 anim-bob w-auto" src="site/img/hero-m.png" alt="" width="208" height="292">
-					<img class="px h-28 anim-bob [animation-delay:-1.6s] w-auto" src="site/img/hero-f.png" alt="" width="196" height="288">
+				<h1 class="mt-5 font-black leading-[1.08] tracking-wide text-[clamp(44px,13vw,92px)]"><span class="gold-text inline-block py-1">AETHER<br>CHRONICLE</span></h1>
+				<div class="lg:hidden flex justify-center items-end gap-8 mt-5" aria-hidden="true">
+					<img class="px h-24 w-auto anim-bob" src="site/img/hero-m.png" alt="" width="208" height="292">
+					<img class="px h-24 w-auto anim-bob [animation-delay:-1.6s]" src="site/img/hero-f.png" alt="" width="196" height="288">
 				</div>
-				<p class="mt-4 sm:mt-6 mx-auto max-w-xl text-base sm:text-lg font-medium text-base-content/90 [text-shadow:0_2px_8px_rgba(0,0,0,.8)]">
+				<p class="mt-5 mx-auto max-w-md text-[15px] sm:text-lg leading-relaxed text-base-content/85 [text-shadow:0_2px_8px_rgba(0,0,0,.8)]">
 					Lớn lên ở thung lũng Thistlewood, cầm kiếm của cha hoặc trượng của mẹ, rồi đi qua 7 vùng đất để tìm sức mạnh 5 nguyên tố.
 				</p>
-				<div class="dl mt-7 flex flex-col sm:flex-row justify-center gap-3 max-w-sm sm:max-w-none mx-auto">
-					<a class="btn btn-primary btn-lg h-16 gap-3 shadow-lg shadow-primary/30 justify-start sm:justify-center" data-os="windows" href="api/client/latest/windows">
-						<svg class="w-6 h-6 shrink-0"><use href="#i-win"/></svg>
-						<span class="text-left leading-tight">Tải cho PC<br><small class="font-medium opacity-75" data-size="windows">Windows · bộ cài</small></span>
+				<div class="dl mt-7 grid grid-cols-1 sm:flex sm:justify-center gap-3 max-w-xs sm:max-w-none mx-auto">
+					<a class="flex items-center gap-3 h-14 px-5 rounded-xl bg-primary text-primary-content font-bold shadow-lg shadow-primary/25 active:scale-[.98] transition-transform" data-os="windows" href="api/client/latest/windows">
+						<svg class="i w-6 h-6" aria-hidden="true"><use href="#i-win"/></svg>
+						<span class="flex flex-col items-start text-left"><span class="leading-tight">Tải cho PC</span><span class="text-xs font-medium opacity-75 leading-tight" data-size="windows">Windows · bộ cài</span></span>
 					</a>
-					<a class="btn btn-success btn-lg h-16 gap-3 shadow-lg shadow-success/30 justify-start sm:justify-center" data-os="android" href="api/client/latest/android">
-						<svg class="w-6 h-6 shrink-0"><use href="#i-and"/></svg>
-						<span class="text-left leading-tight">Tải cho Android<br><small class="font-medium opacity-75" data-size="android">file APK</small></span>
+					<a class="flex items-center gap-3 h-14 px-5 rounded-xl bg-success text-success-content font-bold shadow-lg shadow-success/25 active:scale-[.98] transition-transform" data-os="android" href="api/client/latest/android">
+						<svg class="i w-6 h-6" aria-hidden="true"><use href="#i-android"/></svg>
+						<span class="flex flex-col items-start text-left"><span class="leading-tight">Tải cho Android</span><span class="text-xs font-medium opacity-75 leading-tight" data-size="android">File APK</span></span>
 					</a>
 				</div>
-				<p class="mt-4 text-sm text-base-content/70"><span id="ver">Miễn phí · Bản beta</span> · <a href="tai-game" class="link link-primary">Hướng dẫn cài</a></p>
+				<p class="mt-4 text-sm text-base-content/65"><span id="ver">Miễn phí · bản beta</span> · <a href="tai-game" class="text-primary underline underline-offset-2">Hướng dẫn cài</a></p>
 			</div>
-			<div class="hidden lg:flex justify-center"><img class="px h-64 anim-bob [animation-delay:-1.6s] drop-shadow-[0_8px_0_rgba(0,0,0,.35)] w-auto" src="site/img/hero-f.png" alt="Pháp sư" width="196" height="288"></div>
+			<div class="hidden lg:flex justify-center"><img class="px h-64 w-auto anim-bob [animation-delay:-1.6s] drop-shadow-[0_8px_0_rgba(0,0,0,.35)]" src="site/img/hero-f.png" alt="Pháp sư" width="196" height="288"></div>
 		</div>
 	</section>
 
 	<!-- ———— Số liệu ———— -->
-	<div class="relative z-10 max-w-6xl mx-auto px-4 -mt-10 sm:-mt-14">
-		<div class="stats grid grid-flow-row grid-cols-2 sm:grid-cols-4 w-full bg-base-100 border border-white/10 shadow-2xl">
-			<div class="stat place-items-center py-4"><div class="stat-value text-3xl sm:text-4xl text-primary" data-count="7">7</div><div class="stat-desc font-semibold">vùng đất đã mở</div></div>
-			<div class="stat place-items-center py-4"><div class="stat-value text-3xl sm:text-4xl text-primary" data-count="80" data-plus>80+</div><div class="stat-desc font-semibold">map để khám phá</div></div>
-			<div class="stat place-items-center py-4"><div class="stat-value text-3xl sm:text-4xl text-primary" data-count="5">5</div><div class="stat-desc font-semibold">hệ nguyên tố</div></div>
-			<div class="stat place-items-center py-4"><div class="stat-value text-3xl sm:text-4xl text-primary" data-count="2">2</div><div class="stat-desc font-semibold">lớp nhân vật</div></div>
-		</div>
+	<div class="relative max-w-6xl mx-auto px-4 -mt-2 sm:-mt-12">
+		<dl class="grid grid-cols-2 sm:grid-cols-4 rounded-2xl bg-base-100 border border-white/10 shadow-xl overflow-hidden divide-white/10 [&>div]:p-4 [&>div]:text-center">
+			<div class="border-b border-r sm:border-b-0 border-white/10"><dt class="sr-only">Vùng đất</dt><dd class="text-3xl font-black text-primary leading-none">7</dd><p class="mt-1.5 text-xs font-semibold text-base-content/60">vùng đất đã mở</p></div>
+			<div class="border-b sm:border-b-0 sm:border-r border-white/10"><dt class="sr-only">Map</dt><dd class="text-3xl font-black text-primary leading-none">80+</dd><p class="mt-1.5 text-xs font-semibold text-base-content/60">map để khám phá</p></div>
+			<div class="border-r border-white/10"><dt class="sr-only">Nguyên tố</dt><dd class="text-3xl font-black text-primary leading-none">5</dd><p class="mt-1.5 text-xs font-semibold text-base-content/60">hệ nguyên tố</p></div>
+			<div><dt class="sr-only">Lớp</dt><dd class="text-3xl font-black text-primary leading-none">2</dd><p class="mt-1.5 text-xs font-semibold text-base-content/60">lớp nhân vật</p></div>
+		</dl>
 	</div>
 
 	<!-- ———— Tin mới ———— -->
-	<section class="max-w-6xl mx-auto px-4 pt-14 sm:pt-20">
+	<section class="max-w-6xl mx-auto px-4 pt-12 sm:pt-20">
 		<div class="flex items-end justify-between gap-4 reveal">
 			<div><p class="text-xs font-black tracking-widest text-primary">TIN TỨC</p><h2 class="text-2xl sm:text-3xl font-black mt-1">Có gì mới</h2></div>
-			<a href="tin-tuc" class="btn btn-ghost btn-sm h-10 min-h-10 text-primary shrink-0">Xem tất cả →</a>
+			<a href="tin-tuc" class="inline-flex items-center gap-1 h-10 text-sm font-semibold text-primary shrink-0">Tất cả <svg class="i w-4 h-4"><use href="#i-arrow"/></svg></a>
 		</div>
-		<div id="news" class="mt-5 grid grid-cols-1 gap-4 md:grid-cols-3">
-			<div class="skeleton h-40"></div><div class="skeleton h-40 hidden md:block"></div><div class="skeleton h-40 hidden md:block"></div>
+		<div id="news" class="mt-4 grid grid-cols-1 gap-3 md:grid-cols-3 md:gap-4">
+			<div class="skeleton h-36"></div><div class="skeleton h-36 hidden md:block"></div><div class="skeleton h-36 hidden md:block"></div>
 		</div>
 	</section>
 
 	<!-- ———— Diễn đàn ———— -->
-	<section class="max-w-6xl mx-auto px-4 pt-14 sm:pt-20">
+	<section class="max-w-6xl mx-auto px-4 pt-12 sm:pt-20">
 		<div class="flex items-end justify-between gap-4 reveal">
 			<div><p class="text-xs font-black tracking-widest text-primary">DIỄN ĐÀN</p><h2 class="text-2xl sm:text-3xl font-black mt-1">Người chơi đang bàn gì</h2></div>
-			<a href="dien-dan" class="btn btn-ghost btn-sm h-10 min-h-10 text-primary shrink-0">Vào diễn đàn →</a>
+			<a href="dien-dan" class="inline-flex items-center gap-1 h-10 text-sm font-semibold text-primary shrink-0">Tất cả <svg class="i w-4 h-4"><use href="#i-arrow"/></svg></a>
 		</div>
-		<div class="mt-5 grid grid-cols-1 gap-4 lg:grid-cols-[minmax(0,1fr)_320px] items-start">
-			<div class="card bg-base-100 border border-white/10 shadow-xl reveal">
-				<div id="posts" class="divide-y divide-white/5"><div class="p-4 space-y-3"><div class="skeleton h-12"></div><div class="skeleton h-12"></div><div class="skeleton h-12"></div></div></div>
+		<div class="mt-4 grid grid-cols-1 gap-3 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-4 items-start">
+			<div class="rounded-2xl bg-base-100 border border-white/10 overflow-hidden reveal">
+				<div id="posts" class="divide-y divide-white/5"><div class="p-4 space-y-3"><div class="skeleton h-12"></div><div class="skeleton h-12"></div></div></div>
 			</div>
-			<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-1 reveal">
-				<a href="dien-dan#viet" class="card bg-gradient-to-br from-primary/20 to-base-100 border border-primary/30 card-hover">
-					<div class="card-body p-5"><h3 class="card-title text-lg">✏️ Viết bài mới</h3><p class="text-sm text-base-content/70">Tìm tổ đội, hỏi đường, chia sẻ mẹo chơi.</p></div>
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3 reveal">
+				<a href="dien-dan#viet" class="flex items-center gap-4 p-4 rounded-2xl bg-gradient-to-br from-primary/20 to-base-100 border border-primary/30 card-hover">
+					<span class="grid place-items-center w-11 h-11 rounded-xl bg-primary text-primary-content shrink-0"><svg class="i w-5 h-5"><use href="#i-pencil"/></svg></span>
+					<span class="min-w-0"><span class="block font-bold">Viết bài mới</span><span class="block text-sm text-base-content/65">Tìm tổ đội, hỏi đường, chia sẻ mẹo.</span></span>
 				</a>
-				<a href="gop-y" class="card bg-base-100 border border-white/10 card-hover">
-					<div class="card-body p-5 flex-row items-center gap-4">
-						<img class="px h-16 shrink-0 w-auto" src="site/img/ysolde.png" alt="" width="148" height="224" loading="lazy">
-						<div><h3 class="font-black text-lg">💬 Góp ý · báo lỗi</h3><p class="text-sm text-base-content/70">Lời của cháu tới thẳng người làm game.</p></div>
-					</div>
+				<a href="gop-y" class="flex items-center gap-4 p-4 rounded-2xl bg-base-100 border border-white/10 card-hover">
+					<img class="px h-12 w-auto shrink-0" src="site/img/ysolde.png" alt="" width="148" height="224" loading="lazy">
+					<span class="min-w-0"><span class="block font-bold">Góp ý · báo lỗi</span><span class="block text-sm text-base-content/65">Lời của cháu tới thẳng người làm game.</span></span>
 				</a>
 			</div>
 		</div>
 	</section>
 
 	<!-- ———— Thế giới ———— -->
-	<section class="max-w-6xl mx-auto px-4 pt-14 sm:pt-20">
-		<a href="the-gioi" class="card lg:card-side bg-base-100 border border-white/10 shadow-xl overflow-hidden card-hover reveal">
-			<figure class="lg:w-3/5 bg-[#1d4e73]"><img class="px w-full aspect-[1376/768] object-cover" src="site/img/continent.png" alt="Bản đồ lục địa Aether" width="1376" height="768" loading="lazy"></figure>
-			<div class="card-body lg:w-2/5 justify-center">
+	<section class="max-w-6xl mx-auto px-4 pt-12 sm:pt-20">
+		<a href="the-gioi" class="block rounded-2xl bg-base-100 border border-white/10 overflow-hidden card-hover reveal lg:grid lg:grid-cols-[3fr_2fr]">
+			<img class="px block w-full aspect-[1376/768] object-cover bg-[#1d4e73]" src="site/img/continent.png" alt="Bản đồ lục địa Aether" width="1376" height="768" loading="lazy">
+			<div class="p-5 sm:p-8 flex flex-col justify-center">
 				<p class="text-xs font-black tracking-widest text-primary">THẾ GIỚI</p>
-				<h2 class="text-2xl sm:text-3xl font-black">Lục địa Aether</h2>
-				<p class="text-base-content/70">10 vùng đất — từ thung lũng Thistlewood tới Vực Hư Không. Mỗi vùng 12 map, thời tiết, quái và boss riêng. 7 vùng đã mở.</p>
-				<div class="flex flex-wrap gap-2 mt-1">
-					<span class="badge badge-outline">🔥 Hoả</span><span class="badge badge-outline">💧 Thuỷ</span><span class="badge badge-outline">🌪️ Phong</span><span class="badge badge-outline">❄️ Băng</span><span class="badge badge-outline">⛰️ Thổ</span>
-				</div>
-				<span class="btn btn-primary btn-outline mt-3 self-start">Khám phá bản đồ →</span>
+				<h2 class="text-2xl sm:text-3xl font-black mt-1">Lục địa Aether</h2>
+				<p class="mt-2 text-[15px] leading-relaxed text-base-content/70">10 vùng đất — từ thung lũng Thistlewood tới Vực Hư Không. Mỗi vùng 12 map, thời tiết, quái và boss riêng. 7 vùng đã mở.</p>
+				<span class="mt-4 inline-flex items-center gap-1.5 font-semibold text-primary">Khám phá bản đồ <svg class="i w-4 h-4"><use href="#i-arrow"/></svg></span>
 			</div>
 		</a>
 	</section>
 
 	<!-- ———— Lớp nhân vật ———— -->
-	<section class="max-w-6xl mx-auto px-4 pt-14 sm:pt-20">
+	<section class="max-w-6xl mx-auto px-4 pt-12 sm:pt-20">
 		<div class="reveal"><p class="text-xs font-black tracking-widest text-primary">LỚP NHÂN VẬT</p><h2 class="text-2xl sm:text-3xl font-black mt-1">Chọn con đường</h2></div>
-		<div class="mt-5 grid grid-cols-2 gap-3 sm:gap-6">
-			<a href="the-gioi#lop" class="card bg-gradient-to-br from-amber-500/15 to-base-100 border border-white/10 card-hover reveal">
-				<figure class="pt-5"><img class="px h-28 sm:h-44 w-auto" src="site/img/hero-m.png" alt="" width="208" height="292" loading="lazy"></figure>
-				<div class="card-body p-4 sm:p-6 items-center text-center"><h3 class="font-black text-lg sm:text-2xl">⚔️ Kiếm sĩ</h3><p class="text-xs sm:text-sm text-base-content/65">3 lưu phái, Bọc Nguyên Tố lên lưỡi kiếm.</p></div>
+		<div class="mt-4 grid grid-cols-2 gap-3 sm:gap-6">
+			<a href="the-gioi#lop" class="flex flex-col items-center text-center p-4 pt-5 sm:p-6 rounded-2xl bg-gradient-to-b from-amber-500/15 to-base-100 border border-white/10 card-hover reveal">
+				<img class="px h-24 sm:h-40 w-auto" src="site/img/hero-m.png" alt="" width="208" height="292" loading="lazy">
+				<h3 class="mt-3 font-black text-lg sm:text-2xl inline-flex items-center gap-2"><svg class="i w-5 h-5 text-primary"><use href="#i-sword"/></svg>Kiếm sĩ</h3>
+				<p class="mt-1 text-[13px] sm:text-sm leading-snug text-base-content/65">3 lưu phái, Bọc Nguyên Tố lên lưỡi kiếm.</p>
 			</a>
-			<a href="the-gioi#lop" class="card bg-gradient-to-br from-violet-500/20 to-base-100 border border-white/10 card-hover reveal">
-				<figure class="pt-5"><img class="px h-28 sm:h-44 w-auto" src="site/img/hero-f.png" alt="" width="196" height="288" loading="lazy"></figure>
-				<div class="card-body p-4 sm:p-6 items-center text-center"><h3 class="font-black text-lg sm:text-2xl">✨ Pháp sư</h3><p class="text-xs sm:text-sm text-base-content/65">Tung phép từ xa, kết hợp nguyên tố.</p></div>
+			<a href="the-gioi#lop" class="flex flex-col items-center text-center p-4 pt-5 sm:p-6 rounded-2xl bg-gradient-to-b from-violet-500/20 to-base-100 border border-white/10 card-hover reveal">
+				<img class="px h-24 sm:h-40 w-auto" src="site/img/hero-f.png" alt="" width="196" height="288" loading="lazy">
+				<h3 class="mt-3 font-black text-lg sm:text-2xl inline-flex items-center gap-2"><svg class="i w-5 h-5 text-accent"><use href="#i-sparkles"/></svg>Pháp sư</h3>
+				<p class="mt-1 text-[13px] sm:text-sm leading-snug text-base-content/65">Tung phép từ xa, kết hợp nguyên tố.</p>
 			</a>
 		</div>
 	</section>
 
 	<!-- ———— Hình ảnh: điện thoại lướt ngang, máy tính lưới ———— -->
-	<section class="max-w-6xl mx-auto pt-14 sm:pt-20">
+	<section class="max-w-6xl mx-auto pt-12 sm:pt-20">
 		<div class="px-4 reveal"><p class="text-xs font-black tracking-widest text-primary">HÌNH ẢNH</p><h2 class="text-2xl sm:text-3xl font-black mt-1">Trong game</h2></div>
-		<div id="gallery" class="mt-5 flex lg:grid lg:grid-cols-3 gap-3 sm:gap-4 overflow-x-auto snap-x snap-mandatory px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-			<figure class="group relative shrink-0 w-[82%] sm:w-[46%] lg:w-auto snap-center rounded-2xl overflow-hidden border border-white/10 cursor-zoom-in"><img class="w-full aspect-video object-cover transition duration-500 group-hover:scale-105" src="site/img/shot-swamp-hub.jpg" alt="Làng nhà sàn Lau Xám" width="832" height="468" loading="lazy" decoding="async"><figcaption class="absolute inset-x-0 bottom-0 p-3 pt-10 bg-gradient-to-t from-black/85 to-transparent text-sm font-bold">Làng nhà sàn Lau Xám · Đầm lầy</figcaption></figure>
-			<figure class="group relative shrink-0 w-[82%] sm:w-[46%] lg:w-auto snap-center rounded-2xl overflow-hidden border border-white/10 cursor-zoom-in"><img class="w-full aspect-video object-cover transition duration-500 group-hover:scale-105" src="site/img/shot-desert-hub.jpg" alt="Thành ốc đảo Sahrin" width="832" height="468" loading="lazy" decoding="async"><figcaption class="absolute inset-x-0 bottom-0 p-3 pt-10 bg-gradient-to-t from-black/85 to-transparent text-sm font-bold">Thành ốc đảo Sahrin · Sa mạc</figcaption></figure>
-			<figure class="group relative shrink-0 w-[82%] sm:w-[46%] lg:w-auto snap-center rounded-2xl overflow-hidden border border-white/10 cursor-zoom-in"><img class="w-full aspect-video object-cover transition duration-500 group-hover:scale-105" src="site/img/shot-tundra-hub.jpg" alt="Làng gỗ Tuyết Phong" width="832" height="468" loading="lazy" decoding="async"><figcaption class="absolute inset-x-0 bottom-0 p-3 pt-10 bg-gradient-to-t from-black/85 to-transparent text-sm font-bold">Làng gỗ Tuyết Phong · Băng giá</figcaption></figure>
-			<figure class="group relative shrink-0 w-[82%] sm:w-[46%] lg:w-auto snap-center rounded-2xl overflow-hidden border border-white/10 cursor-zoom-in"><img class="w-full aspect-video object-cover transition duration-500 group-hover:scale-105" src="site/img/shot-volcano-hub.jpg" alt="Pháo đài Đe Đỏ" width="832" height="468" loading="lazy" decoding="async"><figcaption class="absolute inset-x-0 bottom-0 p-3 pt-10 bg-gradient-to-t from-black/85 to-transparent text-sm font-bold">Pháo đài Đe Đỏ · Núi lửa</figcaption></figure>
-			<figure class="group relative shrink-0 w-[82%] sm:w-[46%] lg:w-auto snap-center rounded-2xl overflow-hidden border border-white/10 cursor-zoom-in"><img class="w-full aspect-video object-cover transition duration-500 group-hover:scale-105" src="site/img/shot-isles-hub.jpg" alt="Cảng chài San Hô" width="832" height="468" loading="lazy" decoding="async"><figcaption class="absolute inset-x-0 bottom-0 p-3 pt-10 bg-gradient-to-t from-black/85 to-transparent text-sm font-bold">Cảng chài San Hô · Quần đảo</figcaption></figure>
-			<figure class="group relative shrink-0 w-[82%] sm:w-[46%] lg:w-auto snap-center rounded-2xl overflow-hidden border border-white/10 cursor-zoom-in"><img class="w-full aspect-video object-cover transition duration-500 group-hover:scale-105" src="site/img/shot-highland-hunt.jpg" alt="Thung Lũng Tiên" width="832" height="468" loading="lazy" decoding="async"><figcaption class="absolute inset-x-0 bottom-0 p-3 pt-10 bg-gradient-to-t from-black/85 to-transparent text-sm font-bold">Thung Lũng Tiên · Cao nguyên</figcaption></figure>
+		<div id="gallery" class="no-bar mt-4 flex lg:grid lg:grid-cols-3 gap-3 sm:gap-4 overflow-x-auto snap-x snap-mandatory scroll-px-4 px-4 pb-1">
+			<figure class="group relative shrink-0 w-[85%] sm:w-[46%] lg:w-auto snap-start rounded-2xl overflow-hidden border border-white/10 cursor-zoom-in"><img class="w-full aspect-video object-cover transition duration-500 group-hover:scale-105" src="site/img/shot-swamp-hub.jpg" alt="Làng nhà sàn Lau Xám" width="832" height="468" loading="lazy" decoding="async"><figcaption class="absolute inset-x-0 bottom-0 px-3 py-2.5 pt-8 bg-gradient-to-t from-black/85 to-transparent text-sm font-semibold">Làng nhà sàn Lau Xám · Đầm lầy</figcaption></figure>
+			<figure class="group relative shrink-0 w-[85%] sm:w-[46%] lg:w-auto snap-start rounded-2xl overflow-hidden border border-white/10 cursor-zoom-in"><img class="w-full aspect-video object-cover transition duration-500 group-hover:scale-105" src="site/img/shot-desert-hub.jpg" alt="Thành ốc đảo Sahrin" width="832" height="468" loading="lazy" decoding="async"><figcaption class="absolute inset-x-0 bottom-0 px-3 py-2.5 pt-8 bg-gradient-to-t from-black/85 to-transparent text-sm font-semibold">Thành ốc đảo Sahrin · Sa mạc</figcaption></figure>
+			<figure class="group relative shrink-0 w-[85%] sm:w-[46%] lg:w-auto snap-start rounded-2xl overflow-hidden border border-white/10 cursor-zoom-in"><img class="w-full aspect-video object-cover transition duration-500 group-hover:scale-105" src="site/img/shot-tundra-hub.jpg" alt="Làng gỗ Tuyết Phong" width="832" height="468" loading="lazy" decoding="async"><figcaption class="absolute inset-x-0 bottom-0 px-3 py-2.5 pt-8 bg-gradient-to-t from-black/85 to-transparent text-sm font-semibold">Làng gỗ Tuyết Phong · Băng giá</figcaption></figure>
+			<figure class="group relative shrink-0 w-[85%] sm:w-[46%] lg:w-auto snap-start rounded-2xl overflow-hidden border border-white/10 cursor-zoom-in"><img class="w-full aspect-video object-cover transition duration-500 group-hover:scale-105" src="site/img/shot-volcano-hub.jpg" alt="Pháo đài Đe Đỏ" width="832" height="468" loading="lazy" decoding="async"><figcaption class="absolute inset-x-0 bottom-0 px-3 py-2.5 pt-8 bg-gradient-to-t from-black/85 to-transparent text-sm font-semibold">Pháo đài Đe Đỏ · Núi lửa</figcaption></figure>
+			<figure class="group relative shrink-0 w-[85%] sm:w-[46%] lg:w-auto snap-start rounded-2xl overflow-hidden border border-white/10 cursor-zoom-in"><img class="w-full aspect-video object-cover transition duration-500 group-hover:scale-105" src="site/img/shot-isles-hub.jpg" alt="Cảng chài San Hô" width="832" height="468" loading="lazy" decoding="async"><figcaption class="absolute inset-x-0 bottom-0 px-3 py-2.5 pt-8 bg-gradient-to-t from-black/85 to-transparent text-sm font-semibold">Cảng chài San Hô · Quần đảo</figcaption></figure>
+			<figure class="group relative shrink-0 w-[85%] sm:w-[46%] lg:w-auto snap-start rounded-2xl overflow-hidden border border-white/10 cursor-zoom-in"><img class="w-full aspect-video object-cover transition duration-500 group-hover:scale-105" src="site/img/shot-highland-hunt.jpg" alt="Thung Lũng Tiên" width="832" height="468" loading="lazy" decoding="async"><figcaption class="absolute inset-x-0 bottom-0 px-3 py-2.5 pt-8 bg-gradient-to-t from-black/85 to-transparent text-sm font-semibold">Thung Lũng Tiên · Cao nguyên</figcaption></figure>
 		</div>
-		<p class="px-4 mt-2 text-xs text-base-content/50 lg:hidden">← Vuốt ngang để xem thêm · chạm để phóng to</p>
+		<p class="px-4 mt-2 text-xs text-base-content/50 lg:hidden">Vuốt ngang để xem thêm · chạm để phóng to</p>
 	</section>
 
 	<!-- ———— Kêu gọi cuối trang ———— -->
-	<section class="max-w-6xl mx-auto px-4 py-14 sm:py-24">
-		<div class="card sm:card-side bg-gradient-to-br from-primary/25 via-base-100 to-secondary/20 border border-primary/30 shadow-2xl overflow-hidden reveal">
-			<figure class="pt-6 sm:p-8 shrink-0"><img class="px h-36 sm:h-48 anim-bob w-auto" src="site/img/bram.png" alt="Bram" width="192" height="284" loading="lazy"></figure>
-			<div class="card-body justify-center text-center sm:text-left">
+	<section class="max-w-6xl mx-auto px-4 py-12 sm:py-24">
+		<div class="flex flex-col sm:flex-row items-center gap-5 sm:gap-8 p-6 sm:p-10 rounded-2xl bg-gradient-to-br from-primary/25 via-base-100 to-secondary/20 border border-primary/30 text-center sm:text-left reveal">
+			<img class="px h-32 sm:h-44 w-auto anim-bob shrink-0" src="site/img/bram.png" alt="Bram" width="192" height="284" loading="lazy">
+			<div>
 				<h2 class="text-2xl sm:text-3xl font-black">Hành trang sẵn rồi, lên đường thôi!</h2>
-				<p class="text-base-content/75">Tải game miễn phí, tạo nhân vật và bắt đầu hành trình từ Thistlewood. Tài khoản lưu trên máy chủ — đổi máy vẫn chơi tiếp.</p>
-				<div class="card-actions mt-3 justify-center sm:justify-start">
-					<a class="btn btn-primary btn-wide" href="tai-game">⬇ Tải game</a>
-				</div>
+				<p class="mt-2 text-[15px] leading-relaxed text-base-content/75">Tải game miễn phí, tạo nhân vật và bắt đầu hành trình từ Thistlewood. Tài khoản lưu trên máy chủ — đổi máy vẫn chơi tiếp.</p>
+				<a class="btn btn-primary mt-5 gap-2 px-8" href="tai-game"><svg class="i w-5 h-5"><use href="#i-download"/></svg>Tải game</a>
 			</div>
 		</div>
 	</section>
@@ -181,11 +171,11 @@
 		.then((v) => {
 			A.fillSizes(v);
 			$('ver').textContent = 'Miễn phí · bản ' + v.version;
-			$('dot').className = 'inline-block w-2.5 h-2.5 rounded-full bg-success shadow-[0_0_0_4px_rgba(64,192,87,.25)] animate-pulse';
+			$('dot').className = 'w-2 h-2 rounded-full bg-success shadow-[0_0_0_3px_rgba(64,192,87,.3)]';
 			$('srv').textContent = 'Máy chủ đang mở';
 		})
 		.catch(() => {
-			$('dot').className = 'inline-block w-2.5 h-2.5 rounded-full bg-error';
+			$('dot').className = 'w-2 h-2 rounded-full bg-error';
 			$('srv').textContent = 'Không kết nối được máy chủ';
 		});
 
@@ -194,13 +184,13 @@
 		.then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
 		.catch(() => fetch('site/news.json', { cache: 'no-store' }).then((r) => r.json()))
 		.then((list) => {
-			$('news').replaceChildren(...list.slice(0, 3).map((n, i) =>
-				h('a.card.bg-base-100.border.border-white/10.card-hover' + (i ? '' : '.md:border-primary/30'), { href: 'tin-tuc' + (n.id ? '#tin-' + n.id : '') },
-					h('div.card-body.p-5.gap-2', null,
-						h('div.flex.items-center.gap-2', null, h('span.badge.badge-sm.font-bold.' + (A.NEWS_TAG_CLS[n.tag] || 'badge-ghost'), null, n.tag), h('span.text-xs.text-base-content/50', null, n.date)),
-						h('h3.font-bold.leading-snug.line-clamp-2', null, n.title),
-						h('p.text-sm.text-base-content/65.line-clamp-2', null, n.body.join(' · ')),
-					),
+			$('news').replaceChildren(...list.slice(0, 3).map((n) =>
+				h('a.block.p-4.sm:p-5.rounded-2xl.bg-base-100.border.border-white/10.card-hover', { href: 'tin-tuc' + (n.id ? '#tin-' + n.id : '') },
+					h('div.flex.items-center.gap-2', null,
+						h('span.badge.badge-sm.font-semibold.' + (A.NEWS_TAG_CLS[n.tag] || 'badge-ghost'), null, n.tag),
+						h('span.text-xs.text-base-content/50', null, n.date)),
+					h('h3.mt-2.font-bold.text-[16px].leading-snug.line-clamp-2', null, n.title),
+					h('p.mt-1.5.text-sm.leading-relaxed.text-base-content/65.line-clamp-2', null, n.body.join(' · ')),
 				)));
 		})
 		.catch(() => $('news').replaceChildren(h('p.text-base-content/60', null, 'Không tải được tin tức.')));
@@ -208,38 +198,23 @@
 	// 5 bài diễn đàn mới nhất
 	A.api('GET', 'posts?limit=5')
 		.then((list) => {
-			if (!list.length) return $('posts').replaceChildren(h('div.p-8.text-center.text-base-content/60', null, h('div.text-4xl.mb-2', null, '🗨️'), 'Chưa có bài nào — ', h('a.link.link-primary', { href: 'dien-dan#viet' }, 'mở hàng ngay!')));
+			if (!list.length)
+				return $('posts').replaceChildren(h('div.p-8.text-center.text-base-content/60', null,
+					A.icon('forum', 'w-10 h-10 mx-auto mb-2 opacity-50'), h('p', null, 'Chưa có bài nào — ', h('a.text-primary.underline', { href: 'dien-dan#viet' }, 'mở hàng ngay!'))));
 			$('posts').replaceChildren(...list.map((p) =>
-				h('a.flex.items-center.gap-3.p-4.hover:bg-base-200/60.active:bg-base-200.transition-colors', { href: 'bai-viet?id=' + p.id },
+				h('a.flex.items-center.gap-3.px-4.py-3.hover:bg-base-200/60.active:bg-base-200.transition-colors', { href: 'bai-viet?id=' + p.id },
 					A.avatar(p.author),
 					h('div.flex-1.min-w-0', null,
-						h('p.font-bold.truncate', null, p.title),
-						h('p.text-xs.text-base-content/55.truncate', null, (A.CAT_ICON[p.category] || '') + ' ' + (A.CATS[p.category] || '') + ' · ' + p.author + ' · ' + A.ago(p.at)),
-					),
-					h('span.badge.badge-ghost.gap-1.shrink-0', null, '💬 ' + p.comments),
+						h('p.font-semibold.leading-snug.truncate', null, p.title),
+						h('p.mt-0.5.flex.items-center.gap-1.5.text-xs.text-base-content/55.min-w-0', null, A.catLabel(p.category), h('span.shrink-0', null, '· ' + A.ago(p.at)))),
+					h('span.inline-flex.items-center.gap-1.text-xs.text-base-content/55.shrink-0', null, A.icon('chat', 'w-4 h-4'), p.comments),
 				)));
 		})
 		.catch(() => $('posts').replaceChildren(h('p.p-6.text-base-content/60', null, 'Chưa tải được bài viết.')));
 
 	A.lightbox([...document.querySelectorAll('#gallery figure')]);
 
-	// Đếm số ở dải số liệu
-	if (!A.reduce && 'IntersectionObserver' in window) {
-		const io = new IntersectionObserver((es) => es.forEach((e) => {
-			if (!e.isIntersecting) return;
-			io.unobserve(e.target);
-			const el = e.target, to = +el.dataset.count, plus = 'plus' in el.dataset, t0 = performance.now();
-			const step = (t) => {
-				const k = Math.min(1, (t - t0) / 1100);
-				el.textContent = Math.round(to * (1 - Math.pow(1 - k, 3))) + (plus && k === 1 ? '+' : '');
-				if (k < 1) requestAnimationFrame(step);
-			};
-			requestAnimationFrame(step);
-		}));
-		document.querySelectorAll('[data-count]').forEach((el) => io.observe(el));
-	}
-
-	// Hạt Aether bay lên trên banner (điện thoại ít hạt hơn; dừng khi banner khuất / tab ẩn / người xem tắt chuyển động)
+	// Hạt Aether bay lên trên banner (điện thoại ít hạt; dừng khi banner khuất / tab ẩn / người xem tắt chuyển động)
 	const cv = $('sparks');
 	if (!A.reduce && cv.getContext) {
 		const g = cv.getContext('2d');

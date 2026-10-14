@@ -11,81 +11,62 @@
 <meta name="description" content="Diễn đàn người chơi Aether Chronicle: tìm tổ đội, hỏi đáp, hướng dẫn, khoe đồ.">
 <meta name="theme-color" content="#0d1a2a">
 <link rel="icon" href="site/img/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" href="site/fonts/bvp-400-vietnamese.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="site/app.css">
 </head>
 <body data-page="dien-dan" class="bg-base-200 text-base-content antialiased overflow-x-hidden">
 <main id="main">
-	<section class="border-b border-white/5 bg-[radial-gradient(ellipse_at_top,rgba(255,201,60,.14),transparent_65%)]">
-		<div class="max-w-6xl mx-auto px-4 py-7 sm:py-12 flex items-end gap-4">
-			<div class="flex-1 min-w-0">
-				<p class="text-xs font-black tracking-widest text-primary">DIỄN ĐÀN</p>
-				<h1 class="text-3xl sm:text-4xl font-black mt-1">🗨️ Bảng tin người chơi</h1>
-				<p class="mt-2 text-base-content/70">Tìm tổ đội, hỏi đáp, chia sẻ mẹo — đăng bằng tài khoản game.</p>
-			</div>
-			<button class="btn btn-primary hidden sm:inline-flex" type="button" data-write>✏️ Viết bài</button>
+	<header class="max-w-6xl mx-auto px-4 pt-6 pb-4 sm:pt-12 sm:pb-6">
+		<p class="text-xs font-black tracking-widest text-primary">DIỄN ĐÀN</p>
+		<h1 class="mt-1 text-[28px] sm:text-4xl font-black leading-tight">Bảng tin người chơi</h1>
+		<p class="mt-2 text-[15px] text-base-content/65">Tìm tổ đội, hỏi đáp, chia sẻ mẹo — đăng bằng tài khoản game.</p>
+	</header>
+
+	<!-- Thanh dính: tìm + viết bài + chuyên mục (cuộn ngang) -->
+	<div class="sticky top-[calc(3.5rem+env(safe-area-inset-top))] sm:top-[calc(4rem+env(safe-area-inset-top))] z-20 bar border-y border-white/5">
+		<div class="max-w-6xl mx-auto px-4 pt-2.5 flex gap-2">
+			<label class="flex items-center gap-2 flex-1 min-w-0 h-11 px-3.5 rounded-xl bg-base-100 border border-white/10 focus-within:border-primary/60">
+				<svg class="i w-[18px] h-[18px] text-base-content/50" aria-hidden="true"><use href="#i-search"/></svg>
+				<input id="q" type="search" class="flex-1 min-w-0 h-full bg-transparent outline-none text-base placeholder:text-base-content/40" placeholder="Tìm bài viết…" enterkeyhint="search" aria-label="Tìm bài viết">
+			</label>
+			<button type="button" data-write class="btn btn-primary h-11 min-h-11 px-4 gap-1.5 shrink-0"><svg class="i w-[18px] h-[18px]" aria-hidden="true"><use href="#i-pencil"/></svg><span>Viết bài</span></button>
 		</div>
+		<div id="cats" class="no-bar max-w-6xl mx-auto px-4 py-2.5 flex gap-2 overflow-x-auto" role="tablist" aria-label="Chuyên mục"></div>
+	</div>
+
+	<section class="max-w-3xl mx-auto px-4 py-4 sm:py-8" aria-live="polite">
+		<div class="flex items-baseline justify-between gap-3 mb-3">
+			<h2 id="list-title" class="font-bold text-[17px] min-w-0 truncate">Tất cả bài viết</h2>
+			<span id="list-count" class="text-sm text-base-content/55 shrink-0"></span>
+		</div>
+		<div id="posts" class="space-y-3">
+			<div class="skeleton h-32"></div><div class="skeleton h-32"></div><div class="skeleton h-32"></div>
+		</div>
+		<div class="text-center mt-5" id="more-wrap" hidden><button id="more" class="btn bg-base-100 border-white/10 w-full sm:w-auto">Tải thêm bài</button></div>
+		<a href="gop-y" class="mt-6 flex items-center gap-3 p-4 rounded-2xl bg-base-100 border border-white/10 text-sm card-hover">
+			<span class="grid place-items-center w-10 h-10 rounded-xl bg-error/15 text-error shrink-0"><svg class="i w-5 h-5"><use href="#i-bug"/></svg></span>
+			<span class="min-w-0"><b class="block">Gặp lỗi trong game?</b><span class="text-base-content/65">Báo ở trang Góp ý để đội làm game xử lý nhanh hơn.</span></span>
+		</a>
 	</section>
-
-	<!-- Tìm + chuyên mục: dính dưới thanh trên, chuyên mục cuộn ngang trên điện thoại -->
-	<div class="sticky top-[calc(3.5rem+env(safe-area-inset-top))] sm:top-[calc(4rem+env(safe-area-inset-top))] z-20 bg-base-200/90 backdrop-blur border-b border-white/5 lg:hidden">
-		<div class="px-4 pt-2.5">
-			<label class="input input-bordered h-11 min-h-11 flex items-center gap-2 bg-base-100">
-				<span aria-hidden="true" class="opacity-60">🔍</span>
-				<input type="search" class="grow h-full text-base" placeholder="Tìm bài viết…" data-q enterkeyhint="search" aria-label="Tìm bài viết">
-			</label>
-		</div>
-		<div class="cats px-4 py-2.5 flex gap-2 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" role="tablist" aria-label="Chuyên mục"></div>
-	</div>
-
-	<div class="max-w-6xl mx-auto px-4 py-5 sm:py-8 grid grid-cols-1 lg:grid-cols-[260px_minmax(0,1fr)] gap-6 items-start">
-		<!-- Cột trái (máy tính): tìm + chuyên mục -->
-		<aside class="hidden lg:block sticky top-24 space-y-4">
-			<label class="input input-bordered flex items-center gap-2 bg-base-100">
-				<span aria-hidden="true" class="opacity-60">🔍</span>
-				<input type="search" class="grow" placeholder="Tìm bài viết…" data-q aria-label="Tìm bài viết">
-			</label>
-			<ul class="cats menu bg-base-100 rounded-box border border-white/10 p-2 gap-0.5 text-base" aria-label="Chuyên mục"></ul>
-			<a href="gop-y" class="card bg-base-100 border border-white/10 card-hover">
-				<div class="card-body p-4 text-sm"><b>🐞 Gặp lỗi?</b><span class="text-base-content/65">Báo ở trang Góp ý để đội làm game xử lý nhanh hơn.</span></div>
-			</a>
-		</aside>
-
-		<section aria-live="polite">
-			<div class="flex items-center gap-2 mb-3">
-				<h2 id="list-title" class="font-black text-lg flex-1 min-w-0 truncate">Tất cả bài viết</h2>
-				<span id="list-count" class="text-sm text-base-content/55 shrink-0"></span>
-			</div>
-			<div id="posts" class="space-y-3">
-				<div class="skeleton h-28"></div><div class="skeleton h-28"></div><div class="skeleton h-28"></div>
-			</div>
-			<div class="text-center mt-5" id="more-wrap" hidden><button id="more" class="btn btn-ghost bg-base-100 w-full sm:w-auto">Tải thêm bài</button></div>
-		</section>
-	</div>
 </main>
-
-<!-- Nút viết bài nổi (điện thoại) -->
-<button type="button" data-write class="btn btn-primary btn-circle btn-lg fixed right-4 z-30 shadow-xl shadow-primary/30 sm:hidden bottom-[calc(5rem+env(safe-area-inset-bottom))]" aria-label="Viết bài">✏️</button>
 
 <dialog id="dlg-post" class="modal modal-bottom sm:modal-middle">
 	<div class="modal-box border border-white/10 max-h-[92svh] pb-[calc(1.5rem+env(safe-area-inset-bottom))]">
-		<form method="dialog"><button class="btn btn-sm btn-circle btn-ghost absolute right-3 top-3" aria-label="Đóng">✕</button></form>
-		<h3 class="font-black text-2xl">✏️ Viết bài</h3>
-		<form id="post-form" class="mt-3 space-y-2">
+		<form method="dialog"><button class="btn btn-sm btn-circle btn-ghost absolute right-3 top-3" aria-label="Đóng"><svg class="i w-5 h-5"><use href="#i-x"/></svg></button></form>
+		<h3 class="font-black text-2xl">Viết bài</h3>
+		<form id="post-form" class="mt-4 space-y-3">
 			<div class="grid grid-cols-2 gap-3">
-				<label class="form-control"><div class="label"><span class="label-text font-semibold">Chuyên mục</span></div>
+				<label class="block min-w-0"><span class="block text-sm font-semibold mb-1.5">Chuyên mục</span>
 					<select id="pf-cat" class="select select-bordered w-full text-base"></select></label>
-				<label class="form-control"><div class="label"><span class="label-text font-semibold">Đăng với tên</span></div>
+				<label class="block min-w-0"><span class="block text-sm font-semibold mb-1.5">Đăng với tên</span>
 					<select id="pf-char" class="select select-bordered w-full text-base"></select></label>
 			</div>
-			<label class="form-control"><div class="label"><span class="label-text font-semibold">Tiêu đề</span></div>
+			<label class="block"><span class="block text-sm font-semibold mb-1.5">Tiêu đề</span>
 				<input id="pf-title" class="input input-bordered w-full text-base" maxlength="100" required enterkeyhint="next"></label>
-			<label class="form-control"><div class="label"><span class="label-text font-semibold">Nội dung</span><span class="label-text-alt"><span id="pf-cnt">0</span>/2000</span></div>
+			<label class="block"><span class="flex justify-between text-sm font-semibold mb-1.5"><span>Nội dung</span><span class="font-normal text-base-content/50"><span id="pf-cnt">0</span>/2000</span></span>
 				<textarea id="pf-body" class="textarea textarea-bordered w-full min-h-36 text-base leading-relaxed" maxlength="2000" required></textarea></label>
 			<div id="pf-err" role="alert" class="alert alert-error py-2 text-sm" hidden></div>
-			<button class="btn btn-primary w-full mt-2" id="pf-go">Đăng bài</button>
+			<button class="btn btn-primary w-full gap-2" id="pf-go"><svg class="i w-5 h-5"><use href="#i-send"/></svg>Đăng bài</button>
 		</form>
 	</div>
 	<form method="dialog" class="modal-backdrop"><button>đóng</button></form>
@@ -100,32 +81,28 @@
 	let cat = params.get('c') in A.CATS ? params.get('c') : '';
 	let q = '', posts = [], more = false, counts = null, loading = false;
 
-	// —— Chuyên mục (điện thoại: nút tròn cuộn ngang; máy tính: menu cột trái) ——
+	// —— Chuyên mục (chip cuộn ngang, cao 40px) ——
 	function renderCats() {
-		const items = [['', 'Tất cả', '📋', counts ? counts.total : null]].concat(Object.entries(A.CATS).map(([id, name]) => [id, name, A.CAT_ICON[id], counts ? counts.categories[id] : null]));
-		document.querySelectorAll('.cats').forEach((box) => {
-			const pills = box.tagName !== 'UL';
-			box.replaceChildren(...items.map(([id, name, icon, n]) => {
-				const on = id === cat;
-				const label = [h('span', { ariaHidden: 'true' }, icon), h('span.flex-1.text-left', null, name), n != null ? h('span.badge.badge-sm.' + (on ? 'badge-primary-content.bg-primary-content/20.border-0' : 'badge-ghost'), null, n) : null];
-				const btn = pills
-					? h('button.btn.btn-sm.h-10.min-h-10.rounded-full.shrink-0.gap-1.5.' + (on ? 'btn-primary' : 'btn-ghost.bg-base-100'), { type: 'button', role: 'tab', ariaSelected: on }, label)
-					: h('a.' + (on ? 'active' : 'x'), { href: '#', role: 'tab', ariaSelected: on }, label);
-				btn.onclick = (e) => {
-					e.preventDefault();
-					if (cat === id) return;
-					cat = id;
-					const u = new URL(location.href);
-					cat ? u.searchParams.set('c', cat) : u.searchParams.delete('c');
-					history.replaceState(null, '', u);
-					renderCats();
-					load(true);
-				};
-				return pills ? btn : h('li', null, btn);
-			}));
-			// Giữ chuyên mục đang chọn trong tầm nhìn khi cuộn ngang.
-			if (pills) box.querySelector('.btn-primary')?.scrollIntoView({ inline: 'nearest', block: 'nearest' });
-		});
+		const items = [['', 'Tất cả', 'list', counts ? counts.total : null]].concat(Object.entries(A.CATS).map(([id, name]) => [id, name, A.CAT_ICON[id], counts ? counts.categories[id] : null]));
+		$('cats').replaceChildren(...items.map(([id, name, icon, n]) => {
+			const on = id === cat;
+			const b = h('button.inline-flex.items-center.gap-1.5.h-10.pl-3.5.pr-3.rounded-full.text-sm.font-semibold.shrink-0.transition-colors.' + (on ? 'bg-primary.text-primary-content' : 'bg-base-100.text-base-content/75.border.border-white/10'), { type: 'button', role: 'tab', ariaSelected: on },
+				A.icon(icon, 'w-4 h-4'), name,
+				n != null ? h('span.min-w-[1.25rem].h-5.px-1.5.rounded-full.text-[11px].leading-5.text-center.' + (on ? 'bg-primary-content/15' : 'bg-white/10'), null, n) : null);
+			b.onclick = () => {
+				if (cat === id) return;
+				cat = id;
+				const u = new URL(location.href);
+				cat ? u.searchParams.set('c', cat) : u.searchParams.delete('c');
+				history.replaceState(null, '', u);
+				renderCats();
+				load(true);
+			};
+			return b;
+		}));
+		// Giữ chuyên mục đang chọn trong tầm nhìn khi cuộn ngang.
+		const sel = $('cats').querySelector('[aria-selected="true"]');
+		if (sel) $('cats').scrollLeft = Math.max(0, sel.offsetLeft - 16);
 	}
 	const loadCounts = () => A.api('GET', 'posts/counts').then((c) => ((counts = c), renderCats())).catch(() => {});
 
@@ -133,7 +110,7 @@
 	async function load(reset) {
 		if (loading) return;
 		loading = true;
-		if (reset) $('posts').replaceChildren(h('div.skeleton.h-28'), h('div.skeleton.h-28'));
+		if (reset) $('posts').replaceChildren(h('div.skeleton.h-32'), h('div.skeleton.h-32'));
 		const qs = new URLSearchParams({ limit: PAGE });
 		if (cat) qs.set('category', cat);
 		if (q) qs.set('q', q);
@@ -150,59 +127,54 @@
 		}
 	}
 	function render() {
-		$('list-title').textContent = (q ? 'Tìm "' + q + '"' : cat ? A.CAT_ICON[cat] + ' ' + A.CATS[cat] : 'Tất cả bài viết');
+		$('list-title').textContent = q ? 'Kết quả cho "' + q + '"' : cat ? A.CATS[cat] : 'Tất cả bài viết';
 		$('list-count').textContent = posts.length ? posts.length + (more ? '+' : '') + ' bài' : '';
 		if (!posts.length) {
-			$('posts').replaceChildren(h('div.card.bg-base-100.border.border-white/10', null, h('div.card-body.items-center.text-center.py-12', null,
-				h('div.text-5xl', null, q ? '🔍' : '🗨️'),
-				h('p.text-base-content/70', null, q ? 'Không thấy bài nào khớp.' : 'Chưa có bài nào ở đây.'),
-				h('button.btn.btn-primary.mt-2', { type: 'button', onclick: write }, '✏️ Viết bài đầu tiên'),
-			)));
+			$('posts').replaceChildren(h('div.rounded-2xl.bg-base-100.border.border-white/10.py-12.px-6.text-center', null,
+				A.icon(q ? 'search' : 'forum', 'w-12 h-12 mx-auto text-base-content/30'),
+				h('p.mt-3.text-base-content/70', null, q ? 'Không thấy bài nào khớp.' : 'Chưa có bài nào ở đây.'),
+				h('button.btn.btn-primary.mt-4.gap-2', { type: 'button', onclick: write }, A.icon('pencil', 'w-5 h-5'), 'Viết bài đầu tiên'),
+			));
 		} else $('posts').replaceChildren(...posts.map(card));
 		$('more-wrap').hidden = !more;
 	}
 	function card(p) {
-		return h('a.card.bg-base-100.border.border-white/10.card-hover.active:scale-[.99].transition-transform', { href: 'bai-viet?id=' + p.id },
-			h('div.card-body.p-4.sm:p-5.gap-2', null,
-				h('div.flex.items-center.gap-2.5.min-w-0', null,
-					A.avatar(p.author, 'w-9'),
-					h('div.min-w-0.flex-1', null, h('p.font-semibold.text-sm.truncate', null, p.author), h('p.text-xs.text-base-content/50', null, A.ago(p.at))),
-					h('span.badge.badge-outline.badge-sm.shrink-0.max-w-[45%].truncate', null, (A.CAT_ICON[p.category] || '') + ' ' + (A.CATS[p.category] || '')),
-				),
-				h('h3.font-black.text-lg.leading-snug.line-clamp-2.break-words', null, p.title),
-				h('p.text-sm.text-base-content/70.line-clamp-2.break-words', null, p.body),
-				h('div.flex.items-center.gap-3.text-sm.text-base-content/55.pt-1', null,
-					h('span', null, '💬 ' + p.comments + ' bình luận'),
-					p.mine ? h('span.badge.badge-primary.badge-outline.badge-sm', null, 'bài của bạn') : null,
-				),
+		return h('a.block.p-4.sm:p-5.rounded-2xl.bg-base-100.border.border-white/10.card-hover', { href: 'bai-viet?id=' + p.id },
+			h('div.flex.items-center.gap-3', null,
+				A.avatar(p.author, 'w-9.h-9.text-sm'),
+				h('div.min-w-0.flex-1', null, h('p.font-semibold.text-sm.leading-tight.truncate', null, p.author), h('p.mt-0.5.text-xs.text-base-content/50.leading-tight', null, A.ago(p.at))),
+				h('span.inline-flex.items-center.h-7.px-2.5.rounded-full.bg-white/5.border.border-white/10.text-xs.text-base-content/70.max-w-[45%].shrink-0', null, A.catLabel(p.category)),
+			),
+			h('h3.mt-3.font-bold.text-[17px].leading-snug.line-clamp-2.break-words', null, p.title),
+			h('p.mt-1.5.text-sm.leading-relaxed.text-base-content/65.line-clamp-2.break-words', null, p.body),
+			h('div.mt-3.flex.items-center.gap-3.text-[13px].text-base-content/55', null,
+				h('span.inline-flex.items-center.gap-1.5', null, A.icon('chat', 'w-4 h-4'), p.comments + ' bình luận'),
+				p.mine ? h('span.badge.badge-primary.badge-outline.badge-sm', null, 'Bài của bạn') : null,
 			),
 		);
 	}
 	$('more').onclick = () => load(false);
-	// Tải thêm tự động khi cuộn gần cuối (điện thoại không phải tìm nút).
+	// Tải thêm tự động khi cuộn gần cuối.
 	if ('IntersectionObserver' in window) new IntersectionObserver((es) => es[0].isIntersecting && more && load(false), { rootMargin: '300px' }).observe($('more-wrap'));
 
 	// —— Tìm chữ (gõ xong 0,35 giây mới tìm) ——
 	let timer;
-	document.querySelectorAll('[data-q]').forEach((inp) => {
-		inp.addEventListener('input', () => {
-			document.querySelectorAll('[data-q]').forEach((o) => o !== inp && (o.value = inp.value));
-			clearTimeout(timer);
-			timer = setTimeout(() => {
-				q = inp.value.trim();
-				load(true);
-			}, 350);
-		});
-		inp.addEventListener('keydown', (e) => e.key === 'Enter' && inp.blur());
+	$('q').addEventListener('input', () => {
+		clearTimeout(timer);
+		timer = setTimeout(() => {
+			q = $('q').value.trim();
+			load(true);
+		}, 350);
 	});
+	$('q').addEventListener('keydown', (e) => e.key === 'Enter' && $('q').blur());
 
 	// —— Viết bài ——
-	$('pf-cat').replaceChildren(...Object.entries(A.CATS).map(([id, name]) => h('option', { value: id }, A.CAT_ICON[id] + ' ' + name)));
+	$('pf-cat').replaceChildren(...Object.entries(A.CATS).map(([id, name]) => h('option', { value: id }, name)));
 	A.autosize($('pf-body'), 360);
 	$('pf-body').addEventListener('input', () => ($('pf-cnt').textContent = $('pf-body').value.length));
 	A.onMe((me) => {
-		$('pf-char').replaceChildren(...(me && me.characters.length ? me.characters.map((c) => h('option', { value: c.id }, c.name + ' · cấp ' + c.level)) : [h('option', { value: '' }, me ? me.username : '—')]));
-		if (posts.length) load(true); // cập nhật "bài của bạn"
+		$('pf-char').replaceChildren(...(me && me.characters.length ? me.characters.map((c) => h('option', { value: c.id }, c.name)) : [h('option', { value: '' }, me ? me.username : '—')]));
+		if (posts.length) load(true); // cập nhật "Bài của bạn"
 	});
 	function write() {
 		A.need(() => {
@@ -234,9 +206,10 @@
 	load(true);
 	if (location.hash === '#viet') {
 		history.replaceState(null, '', location.pathname + location.search);
-		A.onMe(function once() {
-			if (once.done) return;
-			once.done = true;
+		let done = false;
+		A.onMe(() => {
+			if (done) return;
+			done = true;
 			write();
 		});
 	}

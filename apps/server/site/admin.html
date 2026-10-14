@@ -10,9 +10,7 @@
 <meta name="robots" content="noindex">
 <title>Aether Chronicle — Quản trị</title>
 <link rel="icon" href="site/img/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" href="site/fonts/bvp-400-vietnamese.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="site/app.css">
 </head>
 <body class="bg-base-200 text-base-content antialiased min-h-screen">
@@ -219,7 +217,7 @@
 	}
 	/** Tạo phần tử; chữ người chơi gõ luôn đi qua textContent. */
 	function h(sel, props, ...kids) {
-		const [tag, ...cls] = sel.split('.');
+		const [tag, ...cls] = sel.split(/\.(?!\d)/);
 		const el = document.createElement(tag || 'div');
 		if (cls.length) el.className = cls.join(' ');
 		Object.assign(el, props || {});

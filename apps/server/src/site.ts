@@ -26,6 +26,7 @@ const TYPES: Record<string, string> = {
 	'.webp': 'image/webp',
 	'.svg': 'image/svg+xml',
 	'.ico': 'image/x-icon',
+	'.woff2': 'font/woff2',
 };
 
 /** Đường dẫn (đã bỏ tiền tố /game) là trang chủ / file của trang chủ → gửi file, trả true; không thì false. */
@@ -40,8 +41,8 @@ export function sendSite(path: string, res: ServerResponse, dir: string = SITE_D
 	if (!p.startsWith(dir + sep) || !existsSync(p) || !statSync(p).isFile()) return false;
 	const type = TYPES[extname(p).toLowerCase()];
 	if (!type) return false;
-	// Trang, dữ liệu, mã, CSS luôn hỏi lại (đổi là thấy ngay, không lệch phiên bản giữa các file); chỉ ảnh được giữ đệm.
-	const html = !type.startsWith('image/');
+	// Trang, dữ liệu, mã, CSS luôn hỏi lại (đổi là thấy ngay, không lệch phiên bản giữa các file); chỉ ảnh + font được giữ đệm.
+	const html = !type.startsWith('image/') && !type.startsWith('font/');
 	res.writeHead(200, {
 		'Content-Type': type,
 		'Content-Length': String(statSync(p).size),

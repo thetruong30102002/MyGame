@@ -11,62 +11,58 @@
 <meta name="description" content="Lục địa Aether: 10 vùng đất, lớp Kiếm sĩ và Pháp sư, 5 nguyên tố.">
 <meta name="theme-color" content="#0d1a2a">
 <link rel="icon" href="site/img/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" href="site/fonts/bvp-400-vietnamese.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="site/app.css">
 </head>
 <body data-page="the-gioi" class="bg-base-200 text-base-content antialiased overflow-x-hidden">
 <main id="main">
-	<section class="border-b border-white/5 bg-[radial-gradient(ellipse_at_top,rgba(255,201,60,.14),transparent_65%)]">
-		<div class="max-w-6xl mx-auto px-4 py-7 sm:py-12">
-			<p class="text-xs font-black tracking-widest text-primary">THẾ GIỚI</p>
-			<h1 class="text-3xl sm:text-4xl font-black mt-1">🗺️ Lục địa Aether</h1>
-			<p class="mt-2 text-base-content/70 max-w-2xl">10 vùng đất, mỗi vùng 12 map với thời tiết, quái và boss riêng. 7 vùng đã mở, 3 vùng cuối đang được xây.</p>
-		</div>
-	</section>
+	<header class="max-w-6xl mx-auto px-4 pt-6 pb-4 sm:pt-12 sm:pb-6">
+		<p class="text-xs font-black tracking-widest text-primary">THẾ GIỚI</p>
+		<h1 class="mt-1 text-[28px] sm:text-4xl font-black leading-tight">Lục địa Aether</h1>
+		<p class="mt-2 text-[15px] leading-relaxed text-base-content/65 max-w-2xl">10 vùng đất, mỗi vùng 12 map với thời tiết, quái và boss riêng. 7 vùng đã mở, 3 vùng cuối đang được xây.</p>
+	</header>
 
-	<!-- Bản đồ -->
-	<section class="max-w-6xl mx-auto px-4 pt-6 sm:pt-10">
-		<div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_320px] gap-4 sm:gap-6 items-start">
+	<!-- Bản đồ + thẻ vùng -->
+	<section class="max-w-6xl mx-auto px-4">
+		<div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_320px] gap-4 lg:gap-6 items-start">
 			<div class="min-w-0">
 				<div id="map" class="relative rounded-2xl overflow-hidden ring-glow aspect-[1376/768] bg-[#1d4e73] touch-manipulation">
 					<img class="px block w-full h-full" src="site/img/continent.png" alt="Bản đồ lục địa Aether" width="1376" height="768">
 				</div>
-				<!-- Chọn vùng bằng chip (dễ chạm hơn ghim nhỏ trên điện thoại) -->
-				<div id="chips" class="mt-3 flex gap-2 overflow-x-auto pb-1 -mx-4 px-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" role="tablist" aria-label="Chọn vùng"></div>
+				<p class="mt-2 text-xs text-base-content/50 lg:hidden">Chạm ghim trên bản đồ hoặc chọn vùng bên dưới.</p>
+				<div id="chips" class="no-bar mt-2 flex gap-2 overflow-x-auto -mx-4 px-4 py-1" role="tablist" aria-label="Chọn vùng"></div>
 			</div>
-			<article id="region" class="card bg-base-100 border-2 shadow-xl overflow-hidden scroll-mt-24" aria-live="polite"></article>
+			<article id="region" class="rounded-2xl bg-base-100 border-2 overflow-hidden scroll-mt-24" aria-live="polite"></article>
 		</div>
 	</section>
 
 	<!-- Lớp nhân vật -->
-	<section id="lop" class="max-w-6xl mx-auto px-4 pt-14 sm:pt-20 scroll-mt-20">
+	<section id="lop" class="max-w-6xl mx-auto px-4 pt-12 sm:pt-20 scroll-mt-20">
 		<p class="text-xs font-black tracking-widest text-primary">LỚP NHÂN VẬT</p>
-		<h2 class="text-2xl sm:text-3xl font-black mt-1">Chọn con đường</h2>
-		<p class="mt-2 text-base-content/70">Năm 16 tuổi, Lior chọn theo kiếm của cha hay phép của mẹ. Lỡ chọn rồi vẫn tẩy điểm đổi lớp được.</p>
-		<div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-			<article class="card sm:card-side bg-gradient-to-br from-amber-500/15 to-base-100 border border-white/10 reveal">
-				<figure class="pt-6 sm:p-6 sm:w-44 shrink-0"><img class="px h-36 sm:h-44 w-auto" src="site/img/hero-m.png" alt="Kiếm sĩ" width="208" height="292" loading="lazy"></figure>
-				<div class="card-body p-5 sm:p-6">
-					<h3 class="card-title text-2xl font-black">⚔️ Kiếm sĩ</h3>
-					<p class="italic text-base-content/60 text-sm">"Một nhát chém đúng lúc hơn trăm câu thần chú."</p>
-					<ul class="space-y-2 text-[15px] mt-1">
-						<li class="flex gap-2"><span class="text-primary">◆</span>3 lưu phái: Kiếm Thần tấn công, Thuỷ Thần phản đòn, Bắc Thần lướt nhanh</li>
-						<li class="flex gap-2"><span class="text-primary">◆</span>Bọc Nguyên Tố lên lưỡi kiếm</li>
-						<li class="flex gap-2"><span class="text-primary">◆</span>Áp sát, lướt né và phản đòn</li>
+		<h2 class="mt-1 text-2xl sm:text-3xl font-black">Chọn con đường</h2>
+		<p class="mt-2 text-[15px] leading-relaxed text-base-content/65">Năm 16 tuổi, Lior chọn theo kiếm của cha hay phép của mẹ. Lỡ chọn rồi vẫn tẩy điểm đổi lớp được.</p>
+		<div class="mt-5 grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
+			<article class="flex gap-4 p-4 sm:p-6 rounded-2xl bg-gradient-to-br from-amber-500/15 to-base-100 border border-white/10 reveal">
+				<img class="px h-28 sm:h-40 w-auto shrink-0 self-center" src="site/img/hero-m.png" alt="Kiếm sĩ" width="208" height="292" loading="lazy">
+				<div class="min-w-0">
+					<h3 class="font-black text-xl sm:text-2xl inline-flex items-center gap-2"><svg class="i w-5 h-5 text-primary"><use href="#i-sword"/></svg>Kiếm sĩ</h3>
+					<p class="mt-1 italic text-[13px] leading-snug text-base-content/55">"Một nhát chém đúng lúc hơn trăm câu thần chú."</p>
+					<ul class="mt-3 space-y-2 text-[14px] leading-snug">
+						<li class="flex gap-2.5"><span class="mt-[7px] w-1.5 h-1.5 rounded-full bg-primary shrink-0"></span><span>3 lưu phái: Kiếm Thần tấn công, Thuỷ Thần phản đòn, Bắc Thần lướt nhanh</span></li>
+						<li class="flex gap-2.5"><span class="mt-[7px] w-1.5 h-1.5 rounded-full bg-primary shrink-0"></span><span>Bọc Nguyên Tố lên lưỡi kiếm</span></li>
+						<li class="flex gap-2.5"><span class="mt-[7px] w-1.5 h-1.5 rounded-full bg-primary shrink-0"></span><span>Áp sát, lướt né và phản đòn</span></li>
 					</ul>
 				</div>
 			</article>
-			<article class="card sm:card-side bg-gradient-to-br from-violet-500/20 to-base-100 border border-white/10 reveal">
-				<figure class="pt-6 sm:p-6 sm:w-44 shrink-0"><img class="px h-36 sm:h-44 w-auto" src="site/img/hero-f.png" alt="Pháp sư" width="196" height="288" loading="lazy"></figure>
-				<div class="card-body p-5 sm:p-6">
-					<h3 class="card-title text-2xl font-black">✨ Pháp sư</h3>
-					<p class="italic text-base-content/60 text-sm">"Gió, lửa, băng — tất cả đều nghe lời người hiểu chúng."</p>
-					<ul class="space-y-2 text-[15px] mt-1">
-						<li class="flex gap-2"><span class="text-accent">◆</span>Tung phép từ xa bằng trượng</li>
-						<li class="flex gap-2"><span class="text-accent">◆</span>Kết hợp nguyên tố ra phản ứng</li>
-						<li class="flex gap-2"><span class="text-accent">◆</span>Mỗi hệ một cây tiềm năng riêng</li>
+			<article class="flex gap-4 p-4 sm:p-6 rounded-2xl bg-gradient-to-br from-violet-500/20 to-base-100 border border-white/10 reveal">
+				<img class="px h-28 sm:h-40 w-auto shrink-0 self-center" src="site/img/hero-f.png" alt="Pháp sư" width="196" height="288" loading="lazy">
+				<div class="min-w-0">
+					<h3 class="font-black text-xl sm:text-2xl inline-flex items-center gap-2"><svg class="i w-5 h-5 text-accent"><use href="#i-sparkles"/></svg>Pháp sư</h3>
+					<p class="mt-1 italic text-[13px] leading-snug text-base-content/55">"Gió, lửa, băng — tất cả đều nghe lời người hiểu chúng."</p>
+					<ul class="mt-3 space-y-2 text-[14px] leading-snug">
+						<li class="flex gap-2.5"><span class="mt-[7px] w-1.5 h-1.5 rounded-full bg-accent shrink-0"></span><span>Tung phép từ xa bằng trượng</span></li>
+						<li class="flex gap-2.5"><span class="mt-[7px] w-1.5 h-1.5 rounded-full bg-accent shrink-0"></span><span>Kết hợp nguyên tố ra phản ứng</span></li>
+						<li class="flex gap-2.5"><span class="mt-[7px] w-1.5 h-1.5 rounded-full bg-accent shrink-0"></span><span>Mỗi hệ một cây tiềm năng riêng</span></li>
 					</ul>
 				</div>
 			</article>
@@ -74,27 +70,27 @@
 	</section>
 
 	<!-- Nguyên tố -->
-	<section class="max-w-6xl mx-auto px-4 pt-14 sm:pt-20">
+	<section class="max-w-6xl mx-auto px-4 pt-12 sm:pt-20">
 		<p class="text-xs font-black tracking-widest text-primary">NGUYÊN TỐ</p>
-		<h2 class="text-2xl sm:text-3xl font-black mt-1">5 hệ sức mạnh</h2>
-		<p class="mt-2 text-base-content/70">Mỗi hệ một cây tiềm năng tới tuyệt kỹ mốc 10, kết hợp ra phản ứng nguyên tố.</p>
-		<div class="mt-6 grid grid-cols-2 sm:grid-cols-5 gap-3 sm:gap-4">
-			<div class="card bg-base-100 border border-fire/40 reveal"><div class="card-body items-center text-center p-4 sm:p-5"><div class="w-14 h-14 rounded-full grid place-items-center text-2xl bg-fire/20 ring-2 ring-fire/60 shadow-[0_0_24px_rgba(255,107,61,.4)]">🔥</div><b class="text-lg">Hoả</b><span class="text-xs text-base-content/60">thiêu đốt</span></div></div>
-			<div class="card bg-base-100 border border-water/40 reveal"><div class="card-body items-center text-center p-4 sm:p-5"><div class="w-14 h-14 rounded-full grid place-items-center text-2xl bg-water/20 ring-2 ring-water/60 shadow-[0_0_24px_rgba(58,160,255,.4)]">💧</div><b class="text-lg">Thuỷ</b><span class="text-xs text-base-content/60">sóng dữ</span></div></div>
-			<div class="card bg-base-100 border border-wind/40 reveal"><div class="card-body items-center text-center p-4 sm:p-5"><div class="w-14 h-14 rounded-full grid place-items-center text-2xl bg-wind/20 ring-2 ring-wind/60 shadow-[0_0_24px_rgba(79,209,139,.4)]">🌪️</div><b class="text-lg">Phong</b><span class="text-xs text-base-content/60">nhanh như gió</span></div></div>
-			<div class="card bg-base-100 border border-ice/40 reveal"><div class="card-body items-center text-center p-4 sm:p-5"><div class="w-14 h-14 rounded-full grid place-items-center text-2xl bg-ice/20 ring-2 ring-ice/60 shadow-[0_0_24px_rgba(143,227,255,.4)]">❄️</div><b class="text-lg">Băng</b><span class="text-xs text-base-content/60">đóng băng</span></div></div>
-			<div class="card bg-base-100 border border-earth/40 reveal col-span-2 sm:col-span-1"><div class="card-body items-center text-center p-4 sm:p-5"><div class="w-14 h-14 rounded-full grid place-items-center text-2xl bg-earth/20 ring-2 ring-earth/60 shadow-[0_0_24px_rgba(201,154,91,.4)]">⛰️</div><b class="text-lg">Thổ</b><span class="text-xs text-base-content/60">vững như núi</span></div></div>
+		<h2 class="mt-1 text-2xl sm:text-3xl font-black">5 hệ sức mạnh</h2>
+		<p class="mt-2 text-[15px] leading-relaxed text-base-content/65">Mỗi hệ một cây tiềm năng tới tuyệt kỹ mốc 10, kết hợp ra phản ứng nguyên tố.</p>
+		<div class="mt-5 grid grid-cols-5 gap-2 sm:gap-4">
+			<div class="flex flex-col items-center gap-2 py-4 rounded-2xl bg-base-100 border border-fire/30 reveal"><span class="grid place-items-center w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-fire/15 text-fire ring-2 ring-fire/50"><svg class="i w-6 h-6"><use href="#i-flame"/></svg></span><b class="text-sm sm:text-base leading-none">Hoả</b></div>
+			<div class="flex flex-col items-center gap-2 py-4 rounded-2xl bg-base-100 border border-water/30 reveal"><span class="grid place-items-center w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-water/15 text-water ring-2 ring-water/50"><svg class="i w-6 h-6"><use href="#i-drop"/></svg></span><b class="text-sm sm:text-base leading-none">Thuỷ</b></div>
+			<div class="flex flex-col items-center gap-2 py-4 rounded-2xl bg-base-100 border border-wind/30 reveal"><span class="grid place-items-center w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-wind/15 text-wind ring-2 ring-wind/50"><svg class="i w-6 h-6"><use href="#i-wind"/></svg></span><b class="text-sm sm:text-base leading-none">Phong</b></div>
+			<div class="flex flex-col items-center gap-2 py-4 rounded-2xl bg-base-100 border border-ice/30 reveal"><span class="grid place-items-center w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-ice/15 text-ice ring-2 ring-ice/50"><svg class="i w-6 h-6"><use href="#i-snow"/></svg></span><b class="text-sm sm:text-base leading-none">Băng</b></div>
+			<div class="flex flex-col items-center gap-2 py-4 rounded-2xl bg-base-100 border border-earth/30 reveal"><span class="grid place-items-center w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-earth/15 text-earth ring-2 ring-earth/50"><svg class="i w-6 h-6"><use href="#i-mountain"/></svg></span><b class="text-sm sm:text-base leading-none">Thổ</b></div>
 		</div>
 	</section>
 
 	<!-- Có gì trong game -->
-	<section class="max-w-6xl mx-auto px-4 py-14 sm:py-20">
+	<section class="max-w-6xl mx-auto px-4 py-12 sm:py-20">
 		<p class="text-xs font-black tracking-widest text-primary">GIỚI THIỆU</p>
-		<h2 class="text-2xl sm:text-3xl font-black mt-1">Có gì trong game</h2>
-		<div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-			<div class="card bg-base-100 border border-white/10 reveal"><div class="card-body p-5 flex-row gap-4"><div class="text-3xl shrink-0">📖</div><div><h3 class="font-black text-primary">Cốt truyện của Lior</h3><p class="text-sm text-base-content/70 mt-1">Lớn lên từ tuổi thơ ở Thistlewood, đi qua 7 vùng, gặp 7 vị thần và những lựa chọn thay đổi kết cục.</p></div></div></div>
-			<div class="card bg-base-100 border border-white/10 reveal"><div class="card-body p-5 flex-row gap-4"><div class="text-3xl shrink-0">🐉</div><div><h3 class="font-black text-primary">Boss và quái mỗi vùng</h3><p class="text-sm text-base-content/70 mt-1">Bầy quái riêng và boss canh giữ — Quỷ vương rừng sâu, Hydra bùn, Sâu cát khổng lồ, Rồng gió, Kraken…</p></div></div></div>
-			<div class="card bg-base-100 border border-white/10 reveal"><div class="card-body p-5 flex-row gap-4"><div class="text-3xl shrink-0">👥</div><div><h3 class="font-black text-primary">Chơi cùng bạn bè</h3><p class="text-sm text-base-content/70 mt-1">Gặp người chơi khác trên map, chat kênh map / thế giới / riêng, kết bạn, đấu nhau ở vùng PvP.</p></div></div></div>
+		<h2 class="mt-1 text-2xl sm:text-3xl font-black">Có gì trong game</h2>
+		<div class="mt-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4">
+			<div class="flex gap-4 p-4 sm:p-5 rounded-2xl bg-base-100 border border-white/10 reveal"><span class="grid place-items-center w-11 h-11 rounded-xl bg-primary/15 text-primary shrink-0"><svg class="i w-5 h-5"><use href="#i-book"/></svg></span><div class="min-w-0"><h3 class="font-bold">Cốt truyện của Lior</h3><p class="mt-1 text-sm leading-relaxed text-base-content/65">Lớn lên từ tuổi thơ ở Thistlewood, đi qua 7 vùng, gặp 7 vị thần và những lựa chọn thay đổi kết cục.</p></div></div>
+			<div class="flex gap-4 p-4 sm:p-5 rounded-2xl bg-base-100 border border-white/10 reveal"><span class="grid place-items-center w-11 h-11 rounded-xl bg-error/15 text-error shrink-0"><svg class="i w-5 h-5"><use href="#i-skull"/></svg></span><div class="min-w-0"><h3 class="font-bold">Boss và quái mỗi vùng</h3><p class="mt-1 text-sm leading-relaxed text-base-content/65">Bầy quái riêng và boss canh giữ — Quỷ vương rừng sâu, Hydra bùn, Sâu cát khổng lồ, Rồng gió, Kraken…</p></div></div>
+			<div class="flex gap-4 p-4 sm:p-5 rounded-2xl bg-base-100 border border-white/10 reveal"><span class="grid place-items-center w-11 h-11 rounded-xl bg-secondary/15 text-secondary shrink-0"><svg class="i w-5 h-5"><use href="#i-users"/></svg></span><div class="min-w-0"><h3 class="font-bold">Chơi cùng bạn bè</h3><p class="mt-1 text-sm leading-relaxed text-base-content/65">Gặp người chơi khác trên map, chat kênh map / thế giới / riêng, kết bạn, đấu nhau ở vùng PvP.</p></div></div>
 		</div>
 	</section>
 </main>
@@ -119,45 +115,48 @@
 	const card = $('region');
 	const pins = REGIONS.map((r) => {
 		// Vùng chạm 44px (ghim nhìn thấy nhỏ hơn) để ngón tay bấm trúng.
-		const b = h('button.absolute.grid.place-items-center.w-11.h-11.-translate-x-1/2.-translate-y-1/2', { type: 'button', ariaLabel: 'Vùng ' + r.n + ': ' + r.name }, h('span.pin' + (r.locked ? '.locked' : ''), { style: '--c:' + r.c }, r.locked ? '🔒' : r.n));
+		const dot = h('span.pin' + (r.locked ? '.locked' : ''), { style: '--c:' + r.c }, r.locked ? A.icon('lock', 'w-3.5 h-3.5') : r.n);
+		const b = h('button.absolute.grid.place-items-center.w-11.h-11.-translate-x-1/2.-translate-y-1/2', { type: 'button', ariaLabel: 'Vùng ' + r.n + ': ' + r.name }, dot);
 		b.style.left = r.x + '%';
 		b.style.top = r.y + '%';
 		b.onclick = () => show(r, true);
 		$('map').append(b);
-		return b;
+		return dot;
 	});
 	const chips = REGIONS.map((r) => {
-		const c = h('button.btn.btn-sm.h-10.rounded-full.shrink-0.gap-1.5.btn-ghost.bg-base-100', { type: 'button', role: 'tab' }, h('span.w-2.5.h-2.5.rounded-full', { style: 'background:' + (r.locked ? '#6b7280' : r.c) }), r.locked ? '🔒 ' + r.name : r.n + '. ' + r.name);
+		const c = h('button.inline-flex.items-center.gap-2.h-10.px-3.5.rounded-full.text-sm.font-semibold.shrink-0.transition-colors', { type: 'button', role: 'tab' },
+			r.locked ? A.icon('lock', 'w-3.5 h-3.5 opacity-60') : h('span.w-2.5.h-2.5.rounded-full.shrink-0', { style: 'background:' + r.c }),
+			h('span', null, (r.locked ? '' : r.n + '. ') + r.name));
 		c.onclick = () => show(r, false);
 		$('chips').append(c);
 		return c;
 	});
 	function show(r, fromMap) {
-		pins.forEach((p, i) => p.firstChild.classList.toggle('on', REGIONS[i] === r));
+		pins.forEach((p, i) => p.classList.toggle('on', REGIONS[i] === r));
 		chips.forEach((c, i) => {
 			const on = REGIONS[i] === r;
-			c.classList.toggle('btn-primary', on);
-			c.classList.toggle('btn-ghost', !on);
-			c.classList.toggle('bg-base-100', !on);
+			c.className = 'inline-flex items-center gap-2 h-10 px-3.5 rounded-full text-sm font-semibold shrink-0 transition-colors ' + (on ? 'bg-primary text-primary-content' : 'bg-base-100 text-base-content/75 border border-white/10');
 			c.setAttribute('aria-selected', on);
-			if (on) c.scrollIntoView({ inline: 'center', block: 'nearest', behavior: A.reduce ? 'auto' : 'smooth' });
+			if (on) $('chips').scrollTo({ left: Math.max(0, c.offsetLeft - 16), behavior: A.reduce ? 'auto' : 'smooth' });
 		});
 		// Có ảnh chụp thì dùng; chưa có thì phóng to đúng chỗ vùng đó trên bản đồ lục địa.
-		const fig = h('figure.relative.aspect-video.bg-base-300.bg-cover.bg-center');
+		const fig = h('div.relative.aspect-video.bg-base-300.bg-cover.bg-center');
 		fig.style.backgroundImage = "url('site/img/" + (r.shot || 'continent.png') + "')";
 		if (!r.shot) {
 			fig.style.backgroundSize = '420% auto';
 			fig.style.backgroundPosition = r.x + '% ' + r.y + '%';
 			fig.style.imageRendering = 'pixelated';
 		}
-		if (r.locked) fig.append(h('div.absolute.inset-0.grid.place-items-center.bg-base-300/70.backdrop-grayscale.font-black.text-lg', null, '🔒 Sắp mở'));
+		if (r.locked) fig.append(h('div.absolute.inset-0.flex.items-center.justify-center.gap-2.bg-base-300/70.backdrop-grayscale.font-bold', null, A.icon('lock', 'w-5 h-5'), 'Sắp mở'));
 		card.replaceChildren(fig,
-			h('div.card-body.p-5.gap-2', null,
+			h('div.p-5', null,
 				h('p.text-xs.font-black.tracking-wider.text-primary', null, 'VÙNG ' + r.n + (r.locked ? ' · CHƯA MỞ' : '')),
-				h('h3.card-title.text-xl.font-black', null, r.name),
-				h('div.flex.flex-wrap.gap-2', null, h('span.badge.badge-outline', null, 'Cấp ' + r.lv), h('span.badge.badge-outline', null, 'Hệ ' + r.el)),
-				h('p.text-[15px].text-base-content/80.leading-relaxed', null, r.text),
-				h('p.text-sm.text-base-content/60', null, 'Nơi ở: ', h('b.text-base-content', null, r.home)),
+				h('h3.mt-1.text-xl.font-black.leading-snug', null, r.name),
+				h('div.mt-2.flex.flex-wrap.gap-2', null,
+					h('span.inline-flex.items-center.h-7.px-2.5.rounded-full.border.border-white/15.text-xs.font-semibold', null, 'Cấp ' + r.lv),
+					h('span.inline-flex.items-center.h-7.px-2.5.rounded-full.border.border-white/15.text-xs.font-semibold', null, 'Hệ ' + r.el)),
+				h('p.mt-3.text-[15px].leading-relaxed.text-base-content/80', null, r.text),
+				h('p.mt-2.text-sm.text-base-content/60', null, 'Nơi ở: ', h('b.font-semibold.text-base-content', null, r.home)),
 			),
 		);
 		card.style.borderColor = r.c;
@@ -165,7 +164,6 @@
 		if (fromMap && innerWidth < 1024) card.scrollIntoView({ behavior: A.reduce ? 'auto' : 'smooth', block: 'nearest' });
 	}
 	show(REGIONS[0], false);
-	scrollTo(0, 0);
 	if (location.hash === '#lop') $('lop').scrollIntoView();
 })();
 </script>

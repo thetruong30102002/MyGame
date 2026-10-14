@@ -11,58 +11,56 @@
 <meta name="description" content="Báo lỗi, gửi ý tưởng cho đội làm game Aether Chronicle và xem trả lời.">
 <meta name="theme-color" content="#0d1a2a">
 <link rel="icon" href="site/img/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" href="site/fonts/bvp-400-vietnamese.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="site/app.css">
 </head>
 <body data-page="gop-y" class="bg-base-200 text-base-content antialiased overflow-x-hidden">
 <main id="main">
-	<section class="border-b border-white/5 bg-[radial-gradient(ellipse_at_top,rgba(255,201,60,.14),transparent_65%)]">
-		<div class="max-w-3xl mx-auto px-4 py-7 sm:py-12">
-			<p class="text-xs font-black tracking-widest text-primary">GÓP Ý</p>
-			<h1 class="text-3xl sm:text-4xl font-black mt-1">💬 Góp ý · báo lỗi</h1>
-			<div class="chat chat-start mt-4">
-				<div class="chat-image avatar"><div class="w-14 rounded-xl bg-base-100 p-1"><img class="px" src="site/img/ysolde.png" alt="Bà Ysolde" width="148" height="224"></div></div>
-				<div class="chat-header font-bold mb-1">Bà Ysolde</div>
-				<div class="chat-bubble text-[15px] leading-relaxed">Gặp lỗi hay muốn game có thêm gì? Kể bà nghe — lời của cháu tới thẳng người làm game, và cháu xem được trả lời ngay ở trang này.</div>
+	<div class="max-w-2xl mx-auto px-4 pt-6 pb-10 sm:pt-12">
+		<p class="text-xs font-black tracking-widest text-primary">GÓP Ý</p>
+		<h1 class="mt-1 text-[28px] sm:text-4xl font-black leading-tight">Góp ý · báo lỗi</h1>
+
+		<div class="mt-4 flex items-end gap-3">
+			<img class="px h-16 w-auto shrink-0" src="site/img/ysolde.png" alt="Bà Ysolde" width="148" height="224">
+			<div class="relative rounded-2xl rounded-bl-md bg-base-100 border border-white/10 px-4 py-3">
+				<p class="text-[13px] font-semibold text-primary">Bà Ysolde</p>
+				<p class="mt-1 text-[15px] leading-relaxed">Gặp lỗi hay muốn game có thêm gì? Kể bà nghe — cháu xem được trả lời của đội làm game ngay ở trang này.</p>
 			</div>
 		</div>
-	</section>
 
-	<div class="max-w-3xl mx-auto px-4 py-6 sm:py-8 space-y-8">
-		<form id="fb-form" class="card bg-base-100 border border-white/10 shadow-xl">
-			<div class="card-body p-5 sm:p-6 gap-4">
-				<fieldset>
-					<legend class="font-bold mb-2">Bạn muốn gửi gì?</legend>
-					<div class="grid grid-cols-3 gap-2" id="kinds">
-						<label class="kind cursor-pointer"><input type="radio" name="kind" value="loi" class="peer sr-only" checked>
-							<span class="flex flex-col items-center gap-1 p-3 rounded-box border-2 border-white/10 bg-base-200 peer-checked:border-primary peer-checked:bg-primary/10 peer-focus-visible:ring-2 ring-primary transition-colors"><span class="text-2xl" aria-hidden="true">🐞</span><span class="font-bold text-sm">Báo lỗi</span></span></label>
-						<label class="kind cursor-pointer"><input type="radio" name="kind" value="y-tuong" class="peer sr-only">
-							<span class="flex flex-col items-center gap-1 p-3 rounded-box border-2 border-white/10 bg-base-200 peer-checked:border-primary peer-checked:bg-primary/10 peer-focus-visible:ring-2 ring-primary transition-colors"><span class="text-2xl" aria-hidden="true">💡</span><span class="font-bold text-sm">Ý tưởng</span></span></label>
-						<label class="kind cursor-pointer"><input type="radio" name="kind" value="khac" class="peer sr-only">
-							<span class="flex flex-col items-center gap-1 p-3 rounded-box border-2 border-white/10 bg-base-200 peer-checked:border-primary peer-checked:bg-primary/10 peer-focus-visible:ring-2 ring-primary transition-colors"><span class="text-2xl" aria-hidden="true">💬</span><span class="font-bold text-sm">Khác</span></span></label>
-					</div>
-				</fieldset>
-				<label class="form-control">
-					<div class="label"><span class="label-text font-semibold">Nội dung</span><span class="label-text-alt"><span id="fb-cnt">0</span>/1000</span></div>
-					<textarea id="fb-text" class="textarea textarea-bordered w-full min-h-36 text-base leading-relaxed" maxlength="1000" required></textarea>
-				</label>
-				<p id="fb-hint" class="text-sm text-base-content/60 -mt-2"></p>
-				<label class="form-control">
-					<div class="label"><span class="label-text font-semibold">Nhân vật gặp chuyện (không bắt buộc)</span></div>
-					<select id="fb-char" class="select select-bordered w-full text-base"></select>
-				</label>
-				<div id="fb-err" role="alert" class="alert alert-error py-2 text-sm" hidden></div>
-				<button class="btn btn-primary w-full h-12" id="fb-go">Gửi góp ý</button>
-				<p class="text-xs text-base-content/50 text-center">Cần đăng nhập để đội làm game trả lời được bạn. Trong game: Cài đặt (O) → Góp ý.</p>
-			</div>
+		<form id="fb-form" class="mt-6 rounded-2xl bg-base-100 border border-white/10 p-4 sm:p-6 space-y-5">
+			<fieldset>
+				<legend class="text-sm font-semibold mb-2">Bạn muốn gửi gì?</legend>
+				<div class="grid grid-cols-3 gap-2">
+					<label class="cursor-pointer"><input type="radio" name="kind" value="loi" class="peer sr-only" checked>
+						<span class="flex flex-col items-center justify-center gap-1.5 h-20 rounded-xl border-2 border-white/10 bg-base-200 text-base-content/70 peer-checked:border-primary peer-checked:bg-primary/10 peer-checked:text-primary peer-focus-visible:ring-2 ring-primary transition-colors">
+							<svg class="i w-6 h-6"><use href="#i-bug"/></svg><span class="text-sm font-semibold leading-none">Báo lỗi</span></span></label>
+					<label class="cursor-pointer"><input type="radio" name="kind" value="y-tuong" class="peer sr-only">
+						<span class="flex flex-col items-center justify-center gap-1.5 h-20 rounded-xl border-2 border-white/10 bg-base-200 text-base-content/70 peer-checked:border-primary peer-checked:bg-primary/10 peer-checked:text-primary peer-focus-visible:ring-2 ring-primary transition-colors">
+							<svg class="i w-6 h-6"><use href="#i-bulb"/></svg><span class="text-sm font-semibold leading-none">Ý tưởng</span></span></label>
+					<label class="cursor-pointer"><input type="radio" name="kind" value="khac" class="peer sr-only">
+						<span class="flex flex-col items-center justify-center gap-1.5 h-20 rounded-xl border-2 border-white/10 bg-base-200 text-base-content/70 peer-checked:border-primary peer-checked:bg-primary/10 peer-checked:text-primary peer-focus-visible:ring-2 ring-primary transition-colors">
+							<svg class="i w-6 h-6"><use href="#i-chat"/></svg><span class="text-sm font-semibold leading-none">Khác</span></span></label>
+				</div>
+			</fieldset>
+			<label class="block">
+				<span class="flex justify-between text-sm font-semibold mb-1.5"><span>Nội dung</span><span class="font-normal text-base-content/50"><span id="fb-cnt">0</span>/1000</span></span>
+				<textarea id="fb-text" class="textarea textarea-bordered w-full min-h-32 text-base leading-relaxed" maxlength="1000" required></textarea>
+				<span id="fb-hint" class="block mt-1.5 text-[13px] leading-relaxed text-base-content/55"></span>
+			</label>
+			<label class="block">
+				<span class="block text-sm font-semibold mb-1.5">Nhân vật gặp chuyện <span class="font-normal text-base-content/50">(không bắt buộc)</span></span>
+				<select id="fb-char" class="select select-bordered w-full text-base"></select>
+			</label>
+			<div id="fb-err" role="alert" class="alert alert-error py-2 text-sm" hidden></div>
+			<button class="btn btn-primary w-full h-12 gap-2" id="fb-go"><svg class="i w-5 h-5"><use href="#i-send"/></svg><span id="fb-go-t">Gửi góp ý</span></button>
+			<p class="text-xs leading-relaxed text-base-content/50 text-center">Cần đăng nhập để đội làm game trả lời được bạn. Trong game: Cài đặt (O) → Góp ý.</p>
 		</form>
 
-		<section aria-labelledby="mine-title">
-			<div class="flex items-center gap-2 mb-3">
-				<h2 id="mine-title" class="font-black text-xl flex-1">📬 Góp ý của bạn</h2>
-				<button id="mine-reload" class="btn btn-ghost btn-sm" type="button" hidden>↻ Tải lại</button>
+		<section class="mt-10" aria-labelledby="mine-title">
+			<div class="flex items-center justify-between gap-2 mb-3">
+				<h2 id="mine-title" class="font-black text-xl">Góp ý của bạn</h2>
+				<button id="mine-reload" class="inline-flex items-center gap-1.5 h-10 px-3 rounded-lg text-sm font-semibold text-base-content/70 hover:bg-white/5" type="button" hidden><svg class="i w-4 h-4"><use href="#i-refresh"/></svg>Tải lại</button>
 			</div>
 			<div id="mine" class="space-y-3"></div>
 		</section>
@@ -99,7 +97,6 @@
 		try {
 			await A.api('POST', 'feedback', { text: $('fb-text').value, kind: kind(), characterId: $('fb-char').value || undefined, platform: 'web' });
 			$('fb-text').value = '';
-			$('fb-cnt').textContent = '0';
 			$('fb-text').dispatchEvent(new Event('input'));
 			A.toast('Đã gửi — cảm ơn bạn! Trả lời sẽ hiện ở mục "Góp ý của bạn".');
 			loadMine();
@@ -115,9 +112,10 @@
 		const box = $('mine');
 		if (!A.me) {
 			$('mine-reload').hidden = true;
-			return box.replaceChildren(h('div.card.bg-base-100.border.border-white/10', null, h('div.card-body.items-center.text-center', null,
-				h('p.text-base-content/70', null, 'Đăng nhập để xem lại góp ý đã gửi và trả lời của đội làm game.'),
-				h('button.btn.btn-primary.mt-2', { type: 'button', onclick: () => A.openAuth('login') }, '🔑 Đăng nhập'))));
+			return box.replaceChildren(h('div.rounded-2xl.bg-base-100.border.border-white/10.p-6.text-center', null,
+				A.icon('inbox', 'w-10 h-10 mx-auto text-base-content/30'),
+				h('p.mt-3.text-[15px].leading-relaxed.text-base-content/70', null, 'Đăng nhập để xem lại góp ý đã gửi và trả lời của đội làm game.'),
+				h('button.btn.btn-primary.mt-4.gap-2', { type: 'button', onclick: () => A.openAuth('login') }, A.icon('user', 'w-5 h-5'), 'Đăng nhập')));
 		}
 		$('mine-reload').hidden = false;
 		box.replaceChildren(h('div.skeleton.h-24'));
@@ -126,20 +124,21 @@
 			box.replaceChildren(...(list.length ? list : [null]).map((f) =>
 				!f
 					? h('p.text-base-content/55.text-center.py-6', null, 'Bạn chưa gửi góp ý nào.')
-					: h('article.card.bg-base-100.border.border-white/10', null, h('div.card-body.p-4.sm:p-5.gap-3', null,
+					: h('article.rounded-2xl.bg-base-100.border.border-white/10.p-4.sm:p-5', null,
 						h('div.flex.flex-wrap.items-center.gap-2', null,
-							h('span.badge.badge-outline', null, ({ loi: '🐞 ', 'y-tuong': '💡 ', khac: '💬 ' }[f.kind] || '') + (A.FB_KINDS[f.kind] || f.kind)),
-							h('span.badge.font-semibold.' + (A.FB_STATUS_CLS[f.status] || 'badge-ghost'), null, A.FB_STATUS[f.status] || f.status),
-							h('time.text-xs.text-base-content/50.ml-auto', null, A.ago(f.at)),
+							h('span.inline-flex.items-center.gap-1.5.h-7.px-2.5.rounded-full.bg-white/5.border.border-white/10.text-xs.font-semibold', null, A.icon(A.FB_KIND_ICON[f.kind] || 'chat', 'w-3.5 h-3.5'), A.FB_KINDS[f.kind] || f.kind),
+							h('span.badge.badge-sm.font-semibold.' + (A.FB_STATUS_CLS[f.status] || 'badge-ghost'), null, A.FB_STATUS[f.status] || f.status),
+							h('time.ml-auto.text-xs.text-base-content/50', null, A.ago(f.at)),
 						),
-						h('p.whitespace-pre-wrap.break-words.leading-relaxed', null, f.text),
+						h('p.mt-3.text-[15px].leading-relaxed.whitespace-pre-wrap.break-words', null, f.text),
 						f.reply
-							? h('div.chat.chat-start', null,
-								h('div.chat-image.avatar', null, h('div.w-9.rounded-lg.bg-base-200.p-0.5', null, h('img.px', { src: 'site/img/favicon.png', alt: '' }))),
-								h('div.chat-header.text-xs.font-bold.mb-1', null, 'Đội làm game', h('time.opacity-50.font-normal.ml-2', null, A.ago(f.replyAt))),
-								h('div.chat-bubble.chat-bubble-primary.text-[15px].whitespace-pre-wrap.break-words', null, f.reply))
+							? h('div.mt-3.flex.gap-3.p-3.rounded-xl.bg-primary/10.border.border-primary/25', null,
+								h('img.px.w-8.h-auto.shrink-0.self-start.mt-0.5', { src: 'site/img/favicon.png', alt: '' }),
+								h('div.min-w-0', null,
+									h('p.text-[13px].font-semibold.text-primary.leading-tight', null, 'Đội làm game · ' + A.ago(f.replyAt)),
+									h('p.mt-1.text-[15px].leading-relaxed.whitespace-pre-wrap.break-words', null, f.reply)))
 							: null,
-					)),
+					),
 			));
 		} catch (e) {
 			box.replaceChildren(h('div.alert.alert-error', null, e.message));
@@ -147,8 +146,8 @@
 	}
 	$('mine-reload').onclick = loadMine;
 	A.onMe((me) => {
-		$('fb-char').replaceChildren(h('option', { value: '' }, '— Không chọn —'), ...(me ? me.characters.map((c) => h('option', { value: c.id }, c.name + ' · cấp ' + c.level)) : []));
-		$('fb-go').textContent = me ? 'Gửi góp ý' : '🔑 Đăng nhập & gửi góp ý';
+		$('fb-char').replaceChildren(h('option', { value: '' }, '— Không chọn —'), ...(me ? me.characters.map((c) => h('option', { value: c.id }, c.name)) : []));
+		$('fb-go-t').textContent = me ? 'Gửi góp ý' : 'Đăng nhập & gửi góp ý';
 		loadMine();
 	});
 })();

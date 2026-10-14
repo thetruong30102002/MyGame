@@ -11,36 +11,27 @@
 <meta name="description" content="Tin cập nhật, thông báo và sự kiện của Aether Chronicle.">
 <meta name="theme-color" content="#0d1a2a">
 <link rel="icon" href="site/img/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" href="site/fonts/bvp-400-vietnamese.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="site/app.css">
 </head>
 <body data-page="tin-tuc" class="bg-base-200 text-base-content antialiased overflow-x-hidden">
 <main id="main">
-	<section class="border-b border-white/5 bg-[radial-gradient(ellipse_at_top,rgba(255,201,60,.14),transparent_65%)]">
-		<div class="max-w-3xl mx-auto px-4 py-7 sm:py-12">
-			<p class="text-xs font-black tracking-widest text-primary">TIN TỨC</p>
-			<h1 class="text-3xl sm:text-4xl font-black mt-1">📜 Cập nhật & thông báo</h1>
-			<p class="mt-2 text-base-content/70">Mọi thay đổi của game, mới nhất ở trên.</p>
-		</div>
-	</section>
+	<header class="max-w-3xl mx-auto px-4 pt-6 pb-4 sm:pt-12 sm:pb-6">
+		<p class="text-xs font-black tracking-widest text-primary">TIN TỨC</p>
+		<h1 class="mt-1 text-[28px] sm:text-4xl font-black leading-tight">Cập nhật & thông báo</h1>
+		<p class="mt-2 text-[15px] text-base-content/65">Mọi thay đổi của game, mới nhất ở trên.</p>
+	</header>
 
-	<!-- Bộ lọc: điện thoại cuộn ngang, dính dưới thanh trên -->
-	<div class="sticky top-[calc(3.5rem+env(safe-area-inset-top))] sm:top-[calc(4rem+env(safe-area-inset-top))] z-20 bg-base-200/90 backdrop-blur border-b border-white/5">
-		<div id="tabs" role="tablist" class="max-w-3xl mx-auto px-4 py-2.5 flex gap-2 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-			<button role="tab" class="btn btn-sm h-10 min-h-10 rounded-full btn-primary shrink-0" data-f="">Tất cả</button>
-			<button role="tab" class="btn btn-sm h-10 min-h-10 rounded-full btn-ghost bg-base-100 shrink-0" data-f="Cập nhật">🛠️ Cập nhật</button>
-			<button role="tab" class="btn btn-sm h-10 min-h-10 rounded-full btn-ghost bg-base-100 shrink-0" data-f="Thông báo">📢 Thông báo</button>
-			<button role="tab" class="btn btn-sm h-10 min-h-10 rounded-full btn-ghost bg-base-100 shrink-0" data-f="Sự kiện">🎉 Sự kiện</button>
-		</div>
+	<!-- Bộ lọc: cuộn ngang, dính dưới thanh trên -->
+	<div class="sticky top-[calc(3.5rem+env(safe-area-inset-top))] sm:top-[calc(4rem+env(safe-area-inset-top))] z-20 bar border-y border-white/5">
+		<div id="tabs" role="tablist" class="no-bar max-w-3xl mx-auto px-4 py-2.5 flex gap-2 overflow-x-auto"></div>
 	</div>
 
-	<div class="max-w-3xl mx-auto px-4 py-6 sm:py-8">
-		<ol id="news" class="relative space-y-5 sm:border-l-2 sm:border-white/10 sm:pl-8">
+	<div class="max-w-3xl mx-auto px-4 py-5 sm:py-8">
+		<ol id="news" class="space-y-4">
 			<li class="skeleton h-48"></li><li class="skeleton h-48"></li>
 		</ol>
-		<div class="text-center mt-6" id="more-wrap" hidden><button id="more" class="btn btn-ghost bg-base-100 w-full sm:w-auto">Xem tin cũ hơn</button></div>
+		<div class="text-center mt-6" id="more-wrap" hidden><button id="more" class="btn bg-base-100 border-white/10 w-full sm:w-auto">Xem tin cũ hơn</button></div>
 	</div>
 </main>
 
@@ -51,25 +42,37 @@
 	const PAGE = 8;
 	let news = [], filter = '', shown = PAGE;
 	const fresh = (n) => (n.at ? Date.now() - n.at < 2 * 864e5 : false);
+
+	// Chip lọc: biểu tượng + chữ, cao 40px.
+	const TABS = [['', 'Tất cả', 'list'], ['Cập nhật', 'Cập nhật', 'wrench'], ['Thông báo', 'Thông báo', 'megaphone'], ['Sự kiện', 'Sự kiện', 'sparkles']];
+	function renderTabs() {
+		$('tabs').replaceChildren(...TABS.map(([f, label, icon]) => {
+			const on = f === filter;
+			const b = h('button.inline-flex.items-center.gap-1.5.h-10.px-4.rounded-full.text-sm.font-semibold.shrink-0.transition-colors.' + (on ? 'bg-primary.text-primary-content' : 'bg-base-100.text-base-content/75.border.border-white/10'), { type: 'button', role: 'tab', ariaSelected: on }, A.icon(icon, 'w-4 h-4'), label);
+			b.onclick = () => {
+				filter = f;
+				shown = PAGE;
+				renderTabs();
+				render();
+			};
+			return b;
+		}));
+	}
 	function render() {
 		const list = news.filter((n) => !filter || n.tag === filter);
 		$('news').replaceChildren(...(list.length ? list.slice(0, shown) : [null]).map((n) =>
 			!n
 				? h('li.text-center.py-12.text-base-content/60', null, 'Chưa có tin nào ở mục này.')
-				: h('li.relative.scroll-mt-32', { id: n.id ? 'tin-' + n.id : '' },
-					// chấm mốc thời gian (máy tính)
-					h('span.hidden.sm:block.absolute.-left-[41px].top-6.w-4.h-4.rounded-full.ring-4.ring-base-200.' + (fresh(n) ? 'bg-primary' : 'bg-base-content/30')),
-					h('article.card.bg-base-100.border.border-white/10.shadow-lg', null,
-						h('div.card-body.p-5.sm:p-6.gap-3', null,
-							h('div.flex.flex-wrap.items-center.gap-2', null,
-								h('span.badge.font-bold.' + (A.NEWS_TAG_CLS[n.tag] || 'badge-ghost'), null, n.tag),
-								fresh(n) ? h('span.badge.badge-warning.font-bold', null, 'MỚI') : null,
-								h('time.text-sm.text-base-content/55', null, n.date),
-								n.id ? h('button.btn.btn-ghost.btn-sm.btn-square.w-10.h-10.min-h-10.ml-auto', { type: 'button', ariaLabel: 'Chép link tin', onclick: () => share(n) }, '🔗') : null,
-							),
-							h('h2.text-xl.sm:text-2xl.font-black.leading-snug', null, n.title),
-							h('ul.space-y-2.text-[15px].sm:text-base.text-base-content/85.leading-relaxed', null, n.body.map((l) => h('li.flex.gap-2.5', null, h('span.text-primary.shrink-0', null, '◆'), h('span', null, l)))),
+				: h('li.scroll-mt-32', { id: n.id ? 'tin-' + n.id : '' },
+					h('article.rounded-2xl.bg-base-100.border.border-white/10.p-5.sm:p-6', null,
+						h('div.flex.items-center.gap-2', null,
+							h('span.badge.badge-sm.font-semibold.' + (A.NEWS_TAG_CLS[n.tag] || 'badge-ghost'), null, n.tag),
+							fresh(n) ? h('span.badge.badge-sm.badge-warning.font-semibold', null, 'Mới') : null,
+							h('time.text-[13px].text-base-content/55', null, n.date),
+							n.id ? h('button.ml-auto.grid.place-items-center.w-10.h-10.-my-2.-mr-2.rounded-full.text-base-content/55.hover:bg-white/5', { type: 'button', ariaLabel: 'Chia sẻ tin', onclick: () => share(n) }, A.icon('link', 'w-[18px] h-[18px]')) : null,
 						),
+						h('h2.mt-3.text-xl.sm:text-2xl.font-black.leading-snug', null, n.title),
+						h('ul.mt-3.space-y-2.5', null, n.body.map((l) => h('li.flex.gap-3.text-[15px].leading-relaxed.text-base-content/85', null, h('span.mt-[9px].w-1.5.h-1.5.rounded-full.bg-primary.shrink-0'), h('span.min-w-0', null, l)))),
 					),
 				),
 		));
@@ -98,27 +101,15 @@
 			if (idx >= 0) {
 				const el = $(want);
 				el.scrollIntoView({ block: 'start' });
-				el.querySelector('article').classList.add('border-primary', 'ring-2', 'ring-primary/30');
+				el.querySelector('article').classList.add('border-primary/60', 'ring-2', 'ring-primary/25');
 			}
 		})
 		.catch(() => $('news').replaceChildren(h('li.alert.alert-error', null, 'Không tải được tin tức.')));
-	$('tabs').onclick = (e) => {
-		const b = e.target.closest('button');
-		if (!b) return;
-		document.querySelectorAll('#tabs button').forEach((x) => {
-			x.classList.toggle('btn-primary', x === b);
-			x.classList.toggle('btn-ghost', x !== b);
-			x.classList.toggle('bg-base-100', x !== b);
-			x.setAttribute('aria-selected', x === b);
-		});
-		filter = b.dataset.f;
-		shown = PAGE;
-		render();
-	};
 	$('more').onclick = () => {
 		shown += PAGE;
 		render();
 	};
+	renderTabs();
 })();
 </script>
 </body>

@@ -46,7 +46,7 @@ Client Unity (nhập hình từ `assets/`, dựng scene, build PC / APK, AutoTes
 Đăng nhập trên web dùng chung tài khoản game; quyền quản trị như cửa sổ Quản trị trong game (`src/admin.ts add`). Tin tức lưu CSDL
 (bảng `news`, lần đầu chạy nạp từ `site/news.json` — file đó chỉ còn dự phòng khi API lỗi); bài viết `posts` / `post_comments` (xoá = ẩn,
 cột `category`); góp ý thêm cột `kind` / `status` / `reply`. API + luật ở `apps/server/src/board.ts`, test `apps/server/tests/board.test.ts`.
-Phần chung mọi trang (thanh trên / dưới, đăng nhập, gọi API) ở `site/common.js`; thêm trang mới: tạo `site/<tên>.html` (`<body data-page>`
+Phần chung mọi trang (thanh trên / dưới, đăng nhập, gọi API, **bộ biểu tượng SVG** — `<svg class="i"><use href="#i-tên"/></svg>` hoặc `A.icon('tên')`, đừng dùng emoji làm biểu tượng vì mỗi máy vẽ một kiểu, lệch dòng) ở `site/common.js`; font Be Vietnam Pro tự phát ở `site/fonts/` (`site-src/fonts.css`, không gọi Google Fonts); thêm trang mới: tạo `site/<tên>.html` (`<body data-page>`
 + nạp `site/common.js`) và thêm tên vào `PAGES` trong `site.ts`.
 Giao diện dùng **Tailwind + daisyUI** (theme `aether` ở `apps/server/site-src/tailwind.config.cjs`): sửa class trong `site/*.html` /
 `site/common.js` xong chạy `npm run build:site -w @aether/server` để build lại `site/app.css` (commit cả file đó). Sửa HTML / CSS / JS không
