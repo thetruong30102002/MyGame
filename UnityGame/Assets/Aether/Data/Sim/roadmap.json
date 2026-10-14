@@ -235,6 +235,15 @@
 			"doc": "the-gioi-aether.md — Việc kế tiếp 4"
 		},
 		{
+			"id": "art_run",
+			"group": "art",
+			"name": "Hoạt ảnh chạy (giữ Shift)",
+			"detail": "Người chơi 16 tuổi nam + nữ, tay không / cầm kiếm / cầm trượng, 8 hướng; hiện đang dùng động tác đi tua nhanh. Kéo theo mỗi vũ khí +~30, mỗi skin +~95 lượt.",
+			"progress": 0,
+			"pixellab": 190,
+			"doc": "pixellab-ke-hoach-ve.md — Tổng lượt còn cần"
+		},
+		{
 			"id": "art_misc",
 			"group": "art",
 			"name": "Nên có + dự phòng",
