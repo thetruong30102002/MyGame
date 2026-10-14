@@ -83,6 +83,9 @@ export interface MapData {
 
 export const px = (t: number): number => Math.round(t * TILE + TILE / 2);
 
+/** Địa điểm cột dịch chuyển — MỌI map có một (cùng id, luật "id địa điểm không trùng" chừa riêng id này). */
+export const WAYSTONE_SPOT = 'waystone';
+
 /**
  * Điểm sinh từng con của một bầy (px) — CHÉP ĐÚNG công thức `zoneSpawnPoints` của `@aether/sim/mobs` (máy chủ + client sinh quái
  * ở đó; pipeline không phụ thuộc gói sim). `apps/web/tests/nav.test.ts` kiểm lại mọi điểm sinh bằng hàm thật của sim.
@@ -255,10 +258,50 @@ export class Layout {
 		return { x0: a, y0: H - TILE, x1: b, y1: H };
 	}
 
+	/**
+	 * Chỗ đứng cho cột dịch chuyển gần (tx, ty) ô: ô trống gần nhất (xoắn ra tới 10 ô) mà quanh đó không có đồ vật / gốc cây, không đè
+	 * vùng giữ trống (điểm sinh quái, lối), cả ô và 4 ô kề đi được. Ưu tiên nền cỏ / rừng (không đứng giữa đường), thiếu thì nhận cả
+	 * đường / đá cuội (map hang). Gọi SAU khi rải đồ — không dùng số ngẫu nhiên nên bố cục map không đổi. Trả toạ độ px (chân cột).
+	 */
+	freeSpotNear(tx: number, ty: number): { x: number; y: number } | null {
+		for (const ground of ['gf', 'gfdc']) {
+			for (let r = 0; r <= 10; r += 1)
+				for (let dy = -r; dy <= r; dy += 1)
+					for (let dx = -r; dx <= r; dx += 1) {
+						if (Math.max(Math.abs(dx), Math.abs(dy)) !== r) continue;
+						const cx = Math.round(tx) + dx;
+						const cy = Math.round(ty) + dy;
+						if (cx < 2 || cy < 2 || cx >= this.w - 2 || cy >= this.h - 2) continue;
+						if (![[0, 0], [1, 0], [-1, 0], [0, 1], [0, -1]].every(([ox, oy]) => ground.includes(this.at(cx + ox!, cy + oy!)))) continue;
+						const x = px(cx);
+						const y = px(cy) + TILE / 2 - 4;
+						if (this.keepOut.some((k) => Math.hypot(cx + 0.5 - k.x, cy + 0.5 - k.y) < k.r * 0.6)) continue;
+						const box = { x0: x - 34, y0: y - 72, x1: x + 34, y1: y + 20 };
+						if (this.boxes.some((b) => box.x0 < b.x1 && box.x1 > b.x0 && box.y0 < b.y1 && box.y1 > b.y0)) continue;
+						if (this.trunks.some((t) => Math.hypot(t.x - x, (t.y - y) * 1.4) < 64)) continue;
+						return { x, y };
+					}
+		}
+		return null;
+	}
+
 	finish(base: Omit<MapData, 'tileSize' | 'width' | 'height' | 'seed' | 'terrain' | 'props' | 'decals'>): MapData {
 		if (this.missing.size) console.log(`  ⚠ ${base.id}: bỏ qua đồ vật chưa có trong atlas: ${[...this.missing].join(', ')}`);
+		// Cột dịch chuyển ở MỌI map (chủ dự án 14/10/2026: "thêm các đá dịch chuyển ở các map con nữa"): NPC cột của vùng
+		// (`@aether/sim/story/services`) đứng ở địa điểm `waystone` của map nào có. Trạm tự khai chỗ; map khác lấy chỗ trống gần điểm vào.
+		let spots = base.spots;
+		if (!spots.some((s) => s.id === WAYSTONE_SPOT)) {
+			// Lùi vào trong map ~4 ô từ điểm vào (điểm vào sát mép): vừa tới đã thấy cột, không đứng chắn ngay lối, không bị khung giao diện che.
+			const sx = base.spawn.x / TILE - 0.5;
+			const sy = base.spawn.y / TILE - 0.5;
+			const toward = Math.hypot(this.w / 2 - sx, this.h / 2 - sy) || 1;
+			const at = this.freeSpotNear(sx + ((this.w / 2 - sx) / toward) * 4, sy + ((this.h / 2 - sy) / toward) * 4);
+			if (!at) throw new Error(`${base.id}: không tìm được chỗ trống cho cột dịch chuyển gần điểm vào`);
+			spots = [...spots, { id: WAYSTONE_SPOT, name: 'Cột dịch chuyển', x: at.x, y: at.y, r: 80 }];
+		}
 		return {
 			...base,
+			spots,
 			tileSize: TILE,
 			width: this.w,
 			height: this.h,

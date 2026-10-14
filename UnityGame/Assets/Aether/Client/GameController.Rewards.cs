@@ -157,20 +157,25 @@ namespace Aether.Client
             return false;
         }
 
-        /// <summary>Cột dịch chuyển: tới trạm `key` (`vùng/map`, đã từng tới), trả xu, đứng cạnh cột ở trạm đó. Chép `teleport` của web.</summary>
+        /// <summary>
+        /// Cột dịch chuyển: tới map `key` (`vùng/map`) có cột mà mình đã từng tới (máy chủ trả danh sách — trạm và từ 14/10/2026 mọi map
+        /// con), trả xu, đứng cạnh cột ở map đó. Chép `teleport` của web.
+        /// </summary>
         public void Teleport(string key)
         {
             var (r, mapId) = GameDatabase.SplitMapKey(key, region.region);
             var def = RegionRules.RegionDef(r);
-            if (def == null || def.Hub != mapId) return;
+            var entry = database.Region(r)?.Find(mapId);
+            if (def == null || entry == null) return;
+            var name = entry.name ?? def.Name;
             if (r == region.region && map != null && mapId == map.def.id)
             {
-                hud.Toast("Bạn đang ở trạm này rồi", "info");
+                hud.Toast("Bạn đang ở map này rồi", "info");
                 return;
             }
             if (Hubs == null || !Hubs.Contains(key))
             {
-                hud.Toast($"Chưa tới {def.Name} — phải đặt chân tới trạm một lần mới dịch chuyển được", "warn");
+                hud.Toast($"Chưa tới {name} — phải đặt chân tới một lần mới dịch chuyển được", "warn");
                 return;
             }
             var cost = (long)RegionRules.WaystoneCost;
@@ -188,7 +193,7 @@ namespace Aether.Client
             combat.Pc.Coins -= cost;
             online?.Send(new ClientSpend { Reason = "waystone", Amount = cost });
             hud.Panels.Close();
-            hud.Toast($"−{cost} xu · dịch chuyển tới {def.Name}", "info");
+            hud.Toast($"−{cost} xu · dịch chuyển tới {name}", "info");
             StartCoroutine(ChangeMap(key, def.Waystone.Spot, false));
         }
     }

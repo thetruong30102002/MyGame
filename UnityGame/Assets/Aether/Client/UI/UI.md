@@ -58,6 +58,9 @@ theo GameObject), không phải tween lặp vô hạn.
   đó 10 xu × cấp; bấm hai lần). Kiếm lên mốc 3 lần đầu: khung chi tiết đổi thành 3 thẻ lưu phái để chọn MỘT. Cộng điểm ghi
   `progress.story.talents` + lưu máy chủ (máy chủ đọc để tính sức đánh PvP); chiêu mới tự lên thanh. Đường nối vẽ bằng uGUI thường
   (`TreeLine`) — đã tra thư viện: Unity UI Extensions chỉ có UILineRenderer, không có cây kỹ năng nào còn bảo trì, không đáng thêm.
+- **Cột dịch chuyển** (cửa sổ dịch vụ, 14/10/2026 — chủ dự án: "vẫn chỉ nên để khung gỗ còn bên trong ruột là UI hiện đại dễ nhìn"): khung gỗ +
+  băng-rôn như mọi cửa sổ, ruột là tấm nền xám đá phẳng (`Ws*` màu ở `Panels.Services.cs`): cột trái 10 vùng, phải là thẻ map 3 cột
+  (vạch màu trái: vàng = trạm, đỏ = boss, xanh = đã tới, xanh lá = đang đứng), nút Dịch chuyển xanh, bấm cả thẻ. Không dùng art PixelLab trong ruột.
 - **Bản đồ** (M), **Bạn bè** (F), **Thư viện** (L), **Điểm danh**: xem `Panels.WorldMap.cs` / `Panels.Friends.cs` / `Panels.Codex.cs` /
   `Panels.Services.cs`.
 - **Cài đặt**: cột HIỂN THỊ — PC: **độ phân giải** (danh sách màn hình hỗ trợ) + chế độ (toàn màn không viền / toàn màn / cửa sổ),

@@ -33,6 +33,7 @@
 				"home",
 				"backyard",
 				"plaza",
+				"waystone",
 				"church",
 				"north_gate",
 				"north_road",
@@ -98,7 +99,8 @@
 				"forest_spot_5",
 				"forest_spot_6",
 				"south_entry_mv",
-				"northeast_entry_mv"
+				"northeast_entry_mv",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -150,7 +152,8 @@
 			],
 			"spots": [
 				"south_entry",
-				"seal_stone"
+				"seal_stone",
+				"waystone"
 			],
 			"zones": [],
 			"dummies": [],
@@ -195,7 +198,8 @@
 				"north_gate_gy",
 				"east_gate_gy",
 				"crypt",
-				"west_gate_gy"
+				"west_gate_gy",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -254,7 +258,8 @@
 			],
 			"spots": [
 				"west_entry_bh",
-				"east_gate_bh"
+				"east_gate_bh",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -314,7 +319,8 @@
 			"spots": [
 				"south_entry_cl",
 				"ruin_plaza",
-				"north_entry_cl"
+				"north_entry_cl",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -389,7 +395,8 @@
 				"rf_herb_2",
 				"rf_herb_3",
 				"rf_herb_4",
-				"willow_isle"
+				"willow_isle",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -456,7 +463,8 @@
 				"red_thread_1",
 				"red_thread_2",
 				"red_thread_3",
-				"green_hollow"
+				"green_hollow",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -528,7 +536,8 @@
 				"mass_pit",
 				"lit_lantern",
 				"widow_garden",
-				"soldier_grave"
+				"soldier_grave",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -599,7 +608,8 @@
 				"south_entry_of",
 				"fort_keep",
 				"east_watch",
-				"seal_view"
+				"seal_view",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -671,7 +681,8 @@
 				"name_hall",
 				"brass_meter_spot",
 				"cave_pool",
-				"glow_grotto"
+				"glow_grotto",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -740,7 +751,8 @@
 				"north_entry_vg",
 				"stone_gate",
 				"swamp_gate_vg",
-				"gorge_lookout"
+				"gorge_lookout",
+				"waystone"
 			],
 			"zones": [
 				{

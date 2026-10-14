@@ -145,6 +145,15 @@
 			"doc": "ke-hoach-the-gioi.md §1.2"
 		},
 		{
+			"id": "waystones",
+			"group": "game",
+			"name": "Cột dịch chuyển ở mọi map",
+			"detail": "88 map đều có cột (14/10), bảng dịch chuyển làm lại: khung gỗ + ruột hiện đại, chọn vùng → thẻ map đã tới; còn cột phát sáng / vòng phép / hiệu ứng lúc đi.",
+			"progress": 75,
+			"pixellab": 0,
+			"doc": "ke-hoach-the-gioi.md §5.4"
+		},
+		{
 			"id": "map_order",
 			"group": "game",
 			"name": "Xếp map có quy tắc (nhà, đồ vật, cây)",
@@ -156,8 +165,17 @@
 		{
 			"id": "new_classes",
 			"group": "game",
-			"name": "Lớp mới: Cung · Khiên · Healer",
-			"detail": "Mới ghi chú: mỗi lớp một nhánh vũ khí + một nguyên tố kích hoạt có thời gian.",
+			"name": "Lớp mới: Cung · Khiên",
+			"detail": "Mới ghi chú: mỗi lớp một nhánh vũ khí + một nguyên tố kích hoạt có thời gian. Bỏ lớp Healer (14/10) — thay bằng cây Hỗ trợ.",
+			"progress": 0,
+			"pixellab": 0,
+			"doc": "ke-hoach-nguyen-to.md §9"
+		},
+		{
+			"id": "support_trees",
+			"group": "game",
+			"name": "Mỗi nguyên tố 2 cây: Sát thương + Hỗ trợ",
+			"detail": "Mới ghi chú (14/10): cây Hỗ trợ riêng mỗi hệ (hồi máu, khiên, tăng sức cho mình + đồng đội); pháp sư chia điểm theo hướng buff, sát thương hoặc nửa nửa — thay lớp Healer.",
 			"progress": 0,
 			"pixellab": 0,
 			"doc": "ke-hoach-nguyen-to.md §9"
@@ -262,5 +280,5 @@
 			"doc": "ke-hoach-the-gioi.md §1.2"
 		}
 	],
-	"ROADMAP_UPDATED": "13/10/2026"
+	"ROADMAP_UPDATED": "14/10/2026"
 }

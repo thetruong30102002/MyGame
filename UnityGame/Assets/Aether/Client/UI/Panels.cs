@@ -88,6 +88,8 @@ namespace Aether.Client.UI
             }
             var fresh = window == null;
             if (k == Kind.WorldMap && kind != Kind.WorldMap) MapOpenFresh();
+            // Mở cột dịch chuyển: luôn xem vùng đang đứng trước.
+            if (k == Kind.Waystone && (fresh || kind != Kind.Waystone)) waystoneRegion = null;
             if (kind != k) OnLeaveTab();
             kind = k;
             root.gameObject.SetActive(true);

@@ -103,11 +103,11 @@ try {
 		world.accept(ws as never);
 		ws.push({ t: 'hello', token: 'tok', character: id });
 		ws.push({ t: 'hubs' });
-		assert.deepEqual(ws.last('hubs')!.list, [], 'vào game ở rừng: chưa tới trạm nào');
+		assert.deepEqual(ws.last('hubs')!.list, ['human/mossvale'], 'vào game ở rừng: map rừng có cột dịch chuyển, chưa tới trạm nào');
 		assert.deepEqual(ws.last('hubs')!.maps, ['human/mossvale'], 'kèm mọi map đã tới (bản đồ lớn làm mờ map chưa tới)');
 		ws.push({ t: 'map', map: 'human/town' });
 		ws.push({ t: 'hubs' });
-		assert.deepEqual(ws.last('hubs')!.list, ['human/town']);
+		assert.deepEqual(ws.last('hubs')!.list, ['human/town', 'human/mossvale'], 'trạm đứng đầu, map khác theo thứ tự đã tới');
 		assert.deepEqual(ws.last('hubs')!.maps, ['human/mossvale', 'human/town']);
 		assert.deepEqual(store.visitedMaps(id), ['human/mossvale', 'human/town']);
 	});

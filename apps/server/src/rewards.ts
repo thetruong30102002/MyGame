@@ -2,7 +2,10 @@ import type { ClientMessage, DailyView, GoalView, ServerMessage } from '@aether/
 import { hubKeys } from '@aether/sim/regions';
 import { checkinGift, checkinSlot, CHRONICLER, dayBefore, GOALS, killStats, nextStreak, vnDay, type GoalStats } from '@aether/sim/rewards';
 import type { Store } from './db.ts';
-import { mapExists, nearNpc } from './maps.ts';
+import { mapExists, nearNpc, spotOf } from './maps.ts';
+
+/** Địa điểm cột dịch chuyển trên map (khớp `WAYSTONE_SPOT` của pipeline). */
+const WAYSTONE_SPOT = 'waystone';
 
 /** Phần thế giới mà ví / quà cần: gửi tin + người chơi đang đứng đâu. */
 export interface RewardsHost {
@@ -54,10 +57,17 @@ export class Rewards {
 		return { day: today, done, streak, next: checkinGift(done ? streak + 1 : nextStreak(s.lastDay, s.streak, today)), month };
 	}
 
-	/** Trạm (map trạm của vùng đã mở) đã từng đặt chân tới — cột dịch chuyển chỉ đưa tới những chỗ này. */
+	/**
+	 * Map có cột dịch chuyển (địa điểm `waystone`) đã từng đặt chân tới — cột chỉ đưa tới những chỗ này. Từ 14/10/2026 mọi map có cột
+	 * (chủ dự án: "thêm các đá dịch chuyển ở các map con nữa"): trạm các vùng đứng đầu theo thứ tự vùng (client cũ chỉ dò trạm), rồi
+	 * tới các map khác theo thứ tự đã tới.
+	 */
 	hubs(player: string): string[] {
-		const been = new Set(this.store.visitedMaps(player));
-		return hubKeys().filter((k) => been.has(k));
+		const visited = this.store.visitedMaps(player);
+		const been = new Set(visited);
+		const hubs = hubKeys().filter((k) => been.has(k));
+		const rest = visited.filter((m) => !hubs.includes(m) && spotOf(this.mapsDir, m, WAYSTONE_SPOT) !== null);
+		return [...hubs, ...rest];
 	}
 
 	stats(player: string): GoalStats {

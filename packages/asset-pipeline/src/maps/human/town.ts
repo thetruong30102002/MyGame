@@ -107,6 +107,8 @@ export function buildTown(meta: Record<string, PropMeta>, decalIds: string[], se
 			{ id: 'home', name: 'Nhà Ashvale', x: px(9), y: px(22) + 30, r: 64 },
 			{ id: 'backyard', name: 'Sân sau nhà Ashvale', x: px(6), y: px(24) + 40, r: 80 },
 			{ id: 'plaza', name: 'Quảng trường Thistlewood', x: px(22), y: px(26), r: 150 },
+			// Cột dịch chuyển góc tây nam quảng trường (đúng chỗ cũ: trước đứng ở `plaza` lệch −150, +110).
+			{ id: 'waystone', name: 'Cột dịch chuyển', x: px(22) - 150, y: px(26) + 110, r: 80 },
 			{ id: 'church', name: 'Nhà thờ Thistlewood', x: px(13), y: px(13) + 40, r: 90 },
 			{ id: 'north_gate', name: 'Cổng bắc', x: px(22), y: px(5), r: 100 },
 			{ id: 'north_road', name: 'Đường lên Nghĩa địa', x: px(22), y: px(2), r: 60 },

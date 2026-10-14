@@ -646,6 +646,13 @@ namespace Aether.Client
                 map.EnsureCollision();
                 var spot = !string.IsNullOrEmpty(spotId) ? map.def.Spot(spotId) : null;
                 var at = spot != null ? new Vector2(spot.x, spot.y) : at0 ?? map.def.spawn;
+                // Tới bằng cột dịch chuyển: đứng CẠNH cột (cột cao ~58px — đứng đúng chỗ / ngay dưới thì thân người che kín cột); bên phải
+                // vướng thì đứng hẳn xuống dưới, cả hai vướng thì đứng tại cột.
+                if (spot != null && spotId == "waystone")
+                {
+                    if (!map.IsBlockedPx(at.x + 64, at.y + 8)) at += new Vector2(64, 8);
+                    else if (!map.IsBlockedPx(at.x, at.y + 90)) at.y += 90;
+                }
                 if (spot == null && at0.HasValue && map.IsBlockedPx(at.x, at.y)) at = map.def.spawn;
                 player.X = at.x;
                 player.Y = at.y;

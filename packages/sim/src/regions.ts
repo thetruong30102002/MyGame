@@ -69,8 +69,8 @@ export const REGIONS: readonly RegionDef[] = [
 		name: 'Thung lũng Thistlewood',
 		levels: [1, 10],
 		hub: 'town',
-		// Thistlewood dựng trước khi có địa điểm `waystone`: cột đứng góc tây nam quảng trường.
-		waystone: { spot: 'plaza', dx: -150, dy: 110 },
+		// Cột góc tây nam quảng trường Thistlewood (địa điểm `waystone` khai 14/10/2026 đúng chỗ cũ `plaza` −150, +110).
+		waystone: W,
 		chief: { id: 'boss_demon_001', name: 'Quỷ vương rừng sâu' },
 		settlement: { kind: 'village', name: 'Thị trấn Thistlewood', role: 'Quê nhà của Lior: nhiệm vụ tuổi thơ và tuổi 16 bắt đầu ở đây.', services: ['shop', 'waystone'] },
 		ready: true,

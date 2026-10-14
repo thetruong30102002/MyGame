@@ -1,5 +1,5 @@
 import type { PropMeta } from '../../props/buildProps.js';
-import { TILE, type Edge, type MapData } from './common.js';
+import { TILE, WAYSTONE_SPOT, type Edge, type MapData } from './common.js';
 import { buildBonehills } from './bonehills.js';
 import { buildCliffs } from './cliffs.js';
 import { buildGargoyleCave } from './gargoyle_cave.js';
@@ -127,7 +127,9 @@ export function validateRegion(maps: MapData[], levels: readonly [number, number
 	for (const m of maps) {
 		const types = new Set(m.monsterZones.filter((z) => !z.boss).flatMap((z) => z.monsters));
 		if (types.size > 1) out.push(`${m.id}: ${types.size} loại quái (${[...types].join(', ')}) — mỗi map chỉ một loại`);
-		for (const s of m.spots) unique('địa điểm', s.id, m.id);
+		// Cột dịch chuyển: mọi map có địa điểm `waystone` (NPC cột của vùng đứng ở map nào có) — id này được trùng.
+		for (const s of m.spots) if (s.id !== WAYSTONE_SPOT) unique('địa điểm', s.id, m.id);
+		if (!m.spots.some((s) => s.id === WAYSTONE_SPOT)) out.push(`${m.id}: thiếu địa điểm ${WAYSTONE_SPOT} (cột dịch chuyển)`);
 		for (const z of m.monsterZones) unique('vùng quái', z.id, m.id);
 		for (const d of m.dummies) unique('hình nộm', d.id, m.id);
 		for (const s of m.spots) if (!walkable(m, s.x, s.y)) out.push(`${m.id}: địa điểm ${s.id} nằm trên nước/ngoài map`);

@@ -70,7 +70,8 @@
 			],
 			"spots": [
 				"blackrock_n",
-				"blackrock_w"
+				"blackrock_w",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -131,7 +132,8 @@
 			],
 			"spots": [
 				"lavaford_e",
-				"lavaford_w"
+				"lavaford_w",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -192,7 +194,8 @@
 			],
 			"spots": [
 				"batcave_e",
-				"batcave_n"
+				"batcave_n",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -261,7 +264,8 @@
 			"spots": [
 				"oldforge_s",
 				"oldforge_e",
-				"oldforge_n"
+				"oldforge_n",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -330,7 +334,8 @@
 			"spots": [
 				"crater_w",
 				"crater_e",
-				"crater_n"
+				"crater_n",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -399,7 +404,8 @@
 			"spots": [
 				"cinderflats_s",
 				"cinderflats_e",
-				"cinderflats_w"
+				"cinderflats_w",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -461,7 +467,8 @@
 			"spots": [
 				"lavariver_w",
 				"lavariver_s",
-				"lavariver_lair"
+				"lavariver_lair",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -530,7 +537,8 @@
 			"spots": [
 				"emberhollow_e",
 				"emberhollow_s",
-				"emberhollow_n"
+				"emberhollow_n",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -599,7 +607,8 @@
 			"spots": [
 				"runeforge_s",
 				"runeforge_n",
-				"runeforge_e"
+				"runeforge_e",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -669,7 +678,8 @@
 				"craterrim_s",
 				"craterrim_e",
 				"craterrim_gate",
-				"craterrim_lair"
+				"craterrim_lair",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -723,7 +733,8 @@
 			],
 			"spots": [
 				"volcanocore_w",
-				"volcanocore_lair"
+				"volcanocore_lair",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -756,7 +767,8 @@
 			],
 			"spots": [
 				"flamelair_w",
-				"flamelair_lair"
+				"flamelair_lair",
+				"waystone"
 			],
 			"zones": [
 				{

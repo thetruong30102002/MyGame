@@ -70,7 +70,8 @@
 			],
 			"spots": [
 				"tallgrass_n",
-				"tallgrass_w"
+				"tallgrass_w",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -131,7 +132,8 @@
 			],
 			"spots": [
 				"hawkslope_e",
-				"hawkslope_w"
+				"hawkslope_w",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -192,7 +194,8 @@
 			],
 			"spots": [
 				"fairyvale_e",
-				"fairyvale_n"
+				"fairyvale_n",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -261,7 +264,8 @@
 			"spots": [
 				"floatstones_s",
 				"floatstones_e",
-				"floatstones_n"
+				"floatstones_n",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -330,7 +334,8 @@
 			"spots": [
 				"cloudpath_w",
 				"cloudpath_e",
-				"cloudpath_n"
+				"cloudpath_n",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -399,7 +404,8 @@
 			"spots": [
 				"howlridge_s",
 				"howlridge_e",
-				"howlridge_w"
+				"howlridge_w",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -461,7 +467,8 @@
 			"spots": [
 				"hawkcliff_w",
 				"hawkcliff_s",
-				"hawkcliff_lair"
+				"hawkcliff_lair",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -530,7 +537,8 @@
 			"spots": [
 				"fairyglade_e",
 				"fairyglade_s",
-				"fairyglade_n"
+				"fairyglade_n",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -599,7 +607,8 @@
 			"spots": [
 				"skyshards_s",
 				"skyshards_n",
-				"skyshards_e"
+				"skyshards_e",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -669,7 +678,8 @@
 				"cloudgate_s",
 				"cloudgate_e",
 				"cloudgate_gate",
-				"cloudgate_lair"
+				"cloudgate_lair",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -723,7 +733,8 @@
 			],
 			"spots": [
 				"cloudtemple_w",
-				"cloudtemple_lair"
+				"cloudtemple_lair",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -756,7 +767,8 @@
 			],
 			"spots": [
 				"dragonpeak_w",
-				"dragonpeak_lair"
+				"dragonpeak_lair",
+				"waystone"
 			],
 			"zones": [
 				{

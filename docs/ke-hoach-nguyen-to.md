@@ -673,7 +673,20 @@ Chủ dự án 11/10/2026:
   - Thêm phản ứng với các hệ cũ (`REACTION_PAIR`) — vẫn là lối đánh nhóm.
   - Mỗi hệ một nhiệm vụ / nơi mở như Thổ.
   - Kéo theo **ít nhất 2–3 map / vùng mới**: Rừng cổ thụ cho Mộc, Thánh địa ánh sáng, Vực bóng tối. Ghi ở `docs/ke-hoach-the-gioi.md` mục 5.7.
-- **Lớp mới** (Cung, Khiên đỡ đòn, Healer): mỗi lớp là một `PathId` mới.
+- **Mỗi nguyên tố có HAI cây: Sát thương + Hỗ trợ** — GHI CHÚ 14/10/2026, chưa làm (chủ dự án: "khi chọn 1 nguyên tố sẽ có 2 cây skill
+  1 bên là buff (mỗi nguyên tố 1 cây) cho người dùng theo pháp sư có thể chọn theo hướng buff hoặc sát thương hoặc nửa này nửa kia. thay vì
+  phải thêm 1 class healer").
+  - Chọn một nguyên tố là mở cả hai cây của hệ đó: **cây Sát thương** (nhánh 10 mốc hiện có) và **cây Hỗ trợ** mới (hồi máu, khiên,
+    tăng sức đánh / tốc chạy / kháng cho mình và đồng đội, giải hiệu ứng xấu) — mỗi nguyên tố một cây Hỗ trợ RIÊNG mang chất của hệ
+    (VD Thuỷ hồi máu + giải độc, Hoả tăng sát thương, Phong tăng tốc / né, Băng khiên + làm chậm kẻ đánh mình, Thổ khiên đá + giảm sát thương).
+  - Điểm tiềm năng dùng chung hai cây: dồn hết một bên (thuần sát thương / thuần hỗ trợ) hoặc chia nửa này nửa kia. Đủ điểm cho cả hai
+    lên mốc cao là không được — phải chọn hướng.
+  - Áp cho Pháp sư trước (lớp đi theo nguyên tố). Kiếm sĩ dùng phủ phép như cũ — cân nhắc sau.
+  - Việc kéo theo: `packages/sim/src/talents` thêm nhánh Hỗ trợ cho mỗi hệ (mã lưu chỉ được THÊM); chiêu nhắm đồng đội (chọn mục
+    tiêu là người chơi, vùng ảnh hưởng quanh mình); máy chủ kiểm hiệu ứng lên người khác trong PvE nhóm / PvP; bảng Tiềm năng hiện hai
+    cây cạnh nhau; hiệu ứng chiêu hỗ trợ (PixelLab — phiếu duyệt trước).
+  - **Thay cho lớp Healer** — bỏ hẳn kế hoạch thêm lớp Healer (mục dưới).
+- **Lớp mới** (Cung, Khiên đỡ đòn): mỗi lớp là một `PathId` mới. ~~Healer~~ — bỏ 14/10/2026, thay bằng cây Hỗ trợ của nguyên tố (mục trên).
   - Có nhánh vũ khí riêng.
   - Có MỘT nguyên tố đi kèm, kích hoạt có thời gian, giống Bọc Nguyên Tố.
   - Thêm thuộc tính riêng nếu cần (VD Khéo léo cho cung). Mỗi thuộc tính vẫn chỉ tăng một chỉ số.

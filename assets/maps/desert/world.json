@@ -70,7 +70,8 @@
 			],
 			"spots": [
 				"reddunes_n",
-				"reddunes_w"
+				"reddunes_w",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -131,7 +132,8 @@
 			],
 			"spots": [
 				"snakegully_e",
-				"snakegully_w"
+				"snakegully_w",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -192,7 +194,8 @@
 			],
 			"spots": [
 				"sandtombs_e",
-				"sandtombs_n"
+				"sandtombs_n",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -261,7 +264,8 @@
 			"spots": [
 				"vulturecliff_s",
 				"vulturecliff_e",
-				"vulturecliff_n"
+				"vulturecliff_n",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -330,7 +334,8 @@
 			"spots": [
 				"redruins_w",
 				"redruins_e",
-				"redruins_n"
+				"redruins_n",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -399,7 +404,8 @@
 			"spots": [
 				"scorchdunes_s",
 				"scorchdunes_e",
-				"scorchdunes_w"
+				"scorchdunes_w",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -461,7 +467,8 @@
 			"spots": [
 				"snakepass_w",
 				"snakepass_s",
-				"snakepass_lair"
+				"snakepass_lair",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -530,7 +537,8 @@
 			"spots": [
 				"deeptombs_e",
 				"deeptombs_s",
-				"deeptombs_n"
+				"deeptombs_n",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -591,7 +599,8 @@
 			],
 			"spots": [
 				"bonemesa_s",
-				"bonemesa_n"
+				"bonemesa_n",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -661,7 +670,8 @@
 				"sunkentemple_s",
 				"sunkentemple_e",
 				"sunkentemple_gate",
-				"sunkentemple_lair"
+				"sunkentemple_lair",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -715,7 +725,8 @@
 			],
 			"spots": [
 				"devourpit_w",
-				"devourpit_lair"
+				"devourpit_lair",
+				"waystone"
 			],
 			"zones": [
 				{

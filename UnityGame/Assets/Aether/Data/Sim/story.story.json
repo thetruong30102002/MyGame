@@ -267,9 +267,9 @@
 				"sprite": null,
 				"prop": "rune_stone",
 				"at": {
-					"spot": "plaza",
-					"dx": -150,
-					"dy": 110
+					"spot": "waystone",
+					"dx": 0,
+					"dy": 0
 				},
 				"ages": [
 					0,

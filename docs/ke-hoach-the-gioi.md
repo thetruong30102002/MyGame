@@ -430,6 +430,13 @@ cho chủ dự án trước — `docs/pixellab-ke-hoach-ve.md`):
 5. **Vẽ đồ vật mới bằng PixelLab** chỉ khi 1–4 chưa đủ: lập danh sách theo vùng (ưu tiên Đầm lầy + Lãnh nguyên — lặp nặng nhất), gửi
    phiếu duyệt + ước lượt trước khi vẽ.
 
+**Cột dịch chuyển ở MỌI map — ĐÃ LÀM 14/10/2026** (chủ dự án: "thêm các đá dịch chuyển ở các map con nữa. thiết kế lại UI danh sách
+map tele vẫn chỉ nên để khung gỗ còn bên trong ruột là UI hiện đại dễ nhìn"): 88 map đều có địa điểm `waystone` (`Layout.finish` tự tìm
+chỗ trống gần điểm vào — không đổi bố cục; trạm giữ chỗ cũ; luật "id địa điểm không trùng" chừa riêng id này) nên NPC cột của vùng hiện
+ở mọi map. Máy chủ `hubs` trả MỌI map có cột đã tới (trạm đứng đầu — client cũ vẫn chạy). Bảng dịch chuyển (`Panels.Services.cs`):
+khung gỗ + băng-rôn giữ nguyên, ruột là tấm nền xám đá phẳng — cột trái 10 vùng (số map đã tới / có cột, chấm xanh = vùng đang đứng),
+phải là thẻ map 3 cột (Trạm / Boss / cấp, "Bạn đang ở đây", "Chưa tới", nút Dịch chuyển; bấm cả thẻ), phí + số xu góc phải.
+
 **Đá / cột dịch chuyển cần vẽ đẹp hơn** (chủ dự án 11/10/2026: "cần note lại thay đổi đá dịch chuyển cần render cho đẹp hơn").
 ĐÃ THỐNG NHẤT hình (11/10/2026, chủ dự án chọn): mọi vùng dùng đúng một đồ vật `rune_stone` làm NPC cột dịch chuyển
 (`packages/sim/src/story/services.ts`); bộ dựng map thôi đặt đá trang trí riêng mỗi vùng chồng lên chỗ đó (trước: `wind_rune`,

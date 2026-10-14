@@ -70,7 +70,8 @@
 			],
 			"spots": [
 				"reedbank_n",
-				"reedbank_w"
+				"reedbank_w",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -131,7 +132,8 @@
 			],
 			"spots": [
 				"leechditch_e",
-				"leechditch_w"
+				"leechditch_w",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -192,7 +194,8 @@
 			],
 			"spots": [
 				"mushroomwood_e",
-				"mushroomwood_n"
+				"mushroomwood_n",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -261,7 +264,8 @@
 			"spots": [
 				"snakefen_s",
 				"snakefen_e",
-				"snakefen_n"
+				"snakefen_n",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -330,7 +334,8 @@
 			"spots": [
 				"mistshore_w",
 				"mistshore_e",
-				"mistshore_n"
+				"mistshore_n",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -399,7 +404,8 @@
 			"spots": [
 				"reedmarsh_s",
 				"reedmarsh_e",
-				"reedmarsh_w"
+				"reedmarsh_w",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -461,7 +467,8 @@
 			"spots": [
 				"leechcanal_w",
 				"leechcanal_s",
-				"leechcanal_lair"
+				"leechcanal_lair",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -530,7 +537,8 @@
 			"spots": [
 				"glowhollow_e",
 				"glowhollow_s",
-				"glowhollow_n"
+				"glowhollow_n",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -591,7 +599,8 @@
 			],
 			"spots": [
 				"serpentpool_s",
-				"serpentpool_n"
+				"serpentpool_n",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -661,7 +670,8 @@
 				"mistchasm_s",
 				"mistchasm_e",
 				"mistchasm_gate",
-				"mistchasm_lair"
+				"mistchasm_lair",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -715,7 +725,8 @@
 			],
 			"spots": [
 				"hydralake_w",
-				"hydralake_lair"
+				"hydralake_lair",
+				"waystone"
 			],
 			"zones": [
 				{

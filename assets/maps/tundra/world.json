@@ -70,7 +70,8 @@
 			],
 			"spots": [
 				"snowpines_n",
-				"snowpines_w"
+				"snowpines_w",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -131,7 +132,8 @@
 			],
 			"spots": [
 				"frostmere_e",
-				"frostmere_w"
+				"frostmere_w",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -192,7 +194,8 @@
 			],
 			"spots": [
 				"snowfield_e",
-				"snowfield_n"
+				"snowfield_n",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -261,7 +264,8 @@
 			"spots": [
 				"icecoast_s",
 				"icecoast_e",
-				"icecoast_n"
+				"icecoast_n",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -330,7 +334,8 @@
 			"spots": [
 				"bearcave_w",
 				"bearcave_e",
-				"bearcave_n"
+				"bearcave_n",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -399,7 +404,8 @@
 			"spots": [
 				"wolfwood_s",
 				"wolfwood_e",
-				"wolfwood_w"
+				"wolfwood_w",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -461,7 +467,8 @@
 			"spots": [
 				"icelake_w",
 				"icelake_s",
-				"icelake_lair"
+				"icelake_lair",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -531,7 +538,8 @@
 				"snowmanpass_e",
 				"snowmanpass_s",
 				"snowmanpass_n",
-				"snowmanpass_lair"
+				"snowmanpass_lair",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -600,7 +608,8 @@
 			"spots": [
 				"penguinrocks_s",
 				"penguinrocks_n",
-				"penguinrocks_e"
+				"penguinrocks_e",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -669,7 +678,8 @@
 			"spots": [
 				"frozenhollow_s",
 				"frozenhollow_e",
-				"frozenhollow_gate"
+				"frozenhollow_gate",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -723,7 +733,8 @@
 			],
 			"spots": [
 				"icethrone_w",
-				"icethrone_lair"
+				"icethrone_lair",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -756,7 +767,8 @@
 			],
 			"spots": [
 				"frostlair_w",
-				"frostlair_lair"
+				"frostlair_lair",
+				"waystone"
 			],
 			"zones": [
 				{

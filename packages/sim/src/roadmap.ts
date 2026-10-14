@@ -20,7 +20,7 @@ export interface RoadmapItem {
 }
 
 /** Ngày cập nhật số liệu (dd/mm/yyyy). */
-export const ROADMAP_UPDATED = '13/10/2026';
+export const ROADMAP_UPDATED = '14/10/2026';
 
 export const ROADMAP: readonly RoadmapItem[] = [
 	{ id: 'talents_v4', group: 'game', name: 'Tiềm năng: 1 nguyên tố + lớp + thuộc tính', detail: 'Đã chạy, kể cả đổi điểm tiềm năng dư sang Máu / MP / Thể lực / Đỡ đòn; tẩy điểm giờ đổi được lớp Kiếm sĩ ↔ Pháp sư (13/10); còn: cân lại số sau khi chơi thử.', progress: 92, pixellab: 0, doc: 'ke-hoach-nguyen-to.md §9' },
@@ -39,8 +39,10 @@ export const ROADMAP: readonly RoadmapItem[] = [
 	{ id: 'new_maps', group: 'game', name: '4 map nguyên tố mới: Rừng Cổ Thụ · Thánh Địa Bình Minh · Vực Ám Ma · Lãnh địa Kiếm', detail: 'Cây đủ 12 loài mỗi map (Lãnh địa Kiếm tông phong đỏ / vàng); còn chốt vị trí + cấp mở, dựng map, quái, đồ vật (tấm WD1 / LT1 / DK1 / SD1 đã soạn đề).', progress: 15, pixellab: 0, doc: 'ke-hoach-the-gioi.md §5.7' },
 	{ id: 'map_buildings', group: 'game', name: 'Map công trình: lâu đài, kim tự tháp, chiến địa', detail: 'Mỗi vùng ≥ 1 map đi vào bên trong (tường thành gạch đá, kim tự tháp, pháo đài + chiến địa). Có bộ nền thử kim tự tháp; còn bộ dựng map trong nhà + bộ tường (cần token trả phí).', progress: 5, pixellab: 0, doc: 'ke-hoach-the-gioi.md §5.8' },
 	{ id: 'village', group: 'game', name: 'Làng đông đúc: thêm nhà + NPC', detail: 'Vùng 2–7 mỗi làng 11–16 nhà, xếp dãy dọc đường (13/10); còn dân thường đi lại / nói chuyện + nhà riêng từng vùng.', progress: 35, pixellab: 0, doc: 'ke-hoach-the-gioi.md §1.2' },
+	{ id: 'waystones', group: 'game', name: 'Cột dịch chuyển ở mọi map', detail: '88 map đều có cột (14/10), bảng dịch chuyển làm lại: khung gỗ + ruột hiện đại, chọn vùng → thẻ map đã tới; còn cột phát sáng / vòng phép / hiệu ứng lúc đi.', progress: 75, pixellab: 0, doc: 'ke-hoach-the-gioi.md §5.4' },
 	{ id: 'map_order', group: 'game', name: 'Xếp map có quy tắc (nhà, đồ vật, cây)', detail: 'Vùng 2–7: nhà thành dãy, đèn đều nhịp, cây / đá / hoa thành khóm cùng loài (13/10). Vùng 1 (14/10): cây / đá / bụi thành khóm, hàng cây dọc lối vào Thistlewood; còn trần tỉ lệ đồ trang trí.', progress: 90, pixellab: 0, doc: 'ke-hoach-the-gioi.md §5.4' },
-	{ id: 'new_classes', group: 'game', name: 'Lớp mới: Cung · Khiên · Healer', detail: 'Mới ghi chú: mỗi lớp một nhánh vũ khí + một nguyên tố kích hoạt có thời gian.', progress: 0, pixellab: 0, doc: 'ke-hoach-nguyen-to.md §9' },
+	{ id: 'new_classes', group: 'game', name: 'Lớp mới: Cung · Khiên', detail: 'Mới ghi chú: mỗi lớp một nhánh vũ khí + một nguyên tố kích hoạt có thời gian. Bỏ lớp Healer (14/10) — thay bằng cây Hỗ trợ.', progress: 0, pixellab: 0, doc: 'ke-hoach-nguyen-to.md §9' },
+	{ id: 'support_trees', group: 'game', name: 'Mỗi nguyên tố 2 cây: Sát thương + Hỗ trợ', detail: 'Mới ghi chú (14/10): cây Hỗ trợ riêng mỗi hệ (hồi máu, khiên, tăng sức cho mình + đồng đội); pháp sư chia điểm theo hướng buff, sát thương hoặc nửa nửa — thay lớp Healer.', progress: 0, pixellab: 0, doc: 'ke-hoach-nguyen-to.md §9' },
 	{ id: 'art_r1_7', group: 'art', name: 'Hoàn thiện hình vùng 1–7', detail: 'Hiệu ứng chiêu người chơi, sửa hình quái / boss lỗi, cây + đồ vật, NPC trạm.', progress: 0, pixellab: 1645, doc: 'pixellab-ke-hoach-ve.md' },
 	{ id: 'art_boss', group: 'art', name: 'Chiêu boss vùng 1–7 + vùng báo riêng', detail: 'Thêm khung 40 hình, 25 chiêu hoành tráng, vùng báo trước chiêu cho 25 boss.', progress: 0, pixellab: 1530, doc: 'pixellab-ke-hoach-ve.md — Chiêu BOSS' },
 	{ id: 'art_gods', group: 'art', name: 'Mười vị thần', detail: 'Nhân vật lớn + thần kỹ + chân dung + tượng; vùng 1–7 trước (~1.155).', progress: 0, pixellab: 1650, doc: 'pixellab-ke-hoach-ve.md — Mười vị thần' },

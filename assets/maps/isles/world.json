@@ -70,7 +70,8 @@
 			],
 			"spots": [
 				"whitesands_n",
-				"whitesands_w"
+				"whitesands_w",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -131,7 +132,8 @@
 			],
 			"spots": [
 				"shallowreef_e",
-				"shallowreef_w"
+				"shallowreef_w",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -192,7 +194,8 @@
 			],
 			"spots": [
 				"piratecove_e",
-				"piratecove_n"
+				"piratecove_n",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -261,7 +264,8 @@
 			"spots": [
 				"merlagoon_s",
 				"merlagoon_e",
-				"merlagoon_n"
+				"merlagoon_n",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -330,7 +334,8 @@
 			"spots": [
 				"wreckshore_w",
 				"wreckshore_e",
-				"wreckshore_n"
+				"wreckshore_n",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -399,7 +404,8 @@
 			"spots": [
 				"crabbeach_s",
 				"crabbeach_e",
-				"crabbeach_w"
+				"crabbeach_w",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -461,7 +467,8 @@
 			"spots": [
 				"coralreef_w",
 				"coralreef_s",
-				"coralreef_lair"
+				"coralreef_lair",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -530,7 +537,8 @@
 			"spots": [
 				"pirateisle_e",
 				"pirateisle_s",
-				"pirateisle_n"
+				"pirateisle_n",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -599,7 +607,8 @@
 			"spots": [
 				"merfolkmarsh_s",
 				"merfolkmarsh_n",
-				"merfolkmarsh_e"
+				"merfolkmarsh_e",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -669,7 +678,8 @@
 				"wreckyard_s",
 				"wreckyard_e",
 				"wreckyard_gate",
-				"wreckyard_lair"
+				"wreckyard_lair",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -723,7 +733,8 @@
 			],
 			"spots": [
 				"krakenabyss_w",
-				"krakenabyss_lair"
+				"krakenabyss_lair",
+				"waystone"
 			],
 			"zones": [
 				{
@@ -756,7 +767,8 @@
 			],
 			"spots": [
 				"tidelair_w",
-				"tidelair_lair"
+				"tidelair_lair",
+				"waystone"
 			],
 			"zones": [
 				{
