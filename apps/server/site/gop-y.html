@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="vi" data-theme="aether">
+<head>
+<meta charset="utf-8">
+<script>
+	// …/gop-y/ (thừa "/" cuối) thì đường dẫn tương đối api/…, site/… trỏ sai gốc → bỏ "/".
+	if (/\/[a-z-]+\/$/.test(location.pathname) && !/\/game\/$/.test(location.pathname)) location.replace(location.pathname.slice(0, -1) + location.search + location.hash);
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Góp ý — Aether Chronicle</title>
+<meta name="description" content="Báo lỗi, gửi ý tưởng cho đội làm game Aether Chronicle và xem trả lời.">
+<meta name="theme-color" content="#0d1a2a">
+<link rel="icon" href="site/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site/app.css">
+</head>
+<body data-page="gop-y" class="bg-base-200 text-base-content antialiased overflow-x-hidden">
+<main id="main">
+	<section class="border-b border-white/5 bg-[radial-gradient(ellipse_at_top,rgba(255,201,60,.14),transparent_65%)]">
+		<div class="max-w-3xl mx-auto px-4 py-7 sm:py-12">
+			<p class="text-xs font-black tracking-widest text-primary">GÓP Ý</p>
+			<h1 class="text-3xl sm:text-4xl font-black mt-1">💬 Góp ý · báo lỗi</h1>
+			<div class="chat chat-start mt-4">
+				<div class="chat-image avatar"><div class="w-14 rounded-xl bg-base-100 p-1"><img class="px" src="site/img/ysolde.png" alt="Bà Ysolde" width="148" height="224"></div></div>
+				<div class="chat-header font-bold mb-1">Bà Ysolde</div>
+				<div class="chat-bubble text-[15px] leading-relaxed">Gặp lỗi hay muốn game có thêm gì? Kể bà nghe — lời của cháu tới thẳng người làm game, và cháu xem được trả lời ngay ở trang này.</div>
+			</div>
+		</div>
+	</section>
+
+	<div class="max-w-3xl mx-auto px-4 py-6 sm:py-8 space-y-8">
+		<form id="fb-form" class="card bg-base-100 border border-white/10 shadow-xl">
+			<div class="card-body p-5 sm:p-6 gap-4">
+				<fieldset>
+					<legend class="font-bold mb-2">Bạn muốn gửi gì?</legend>
+					<div class="grid grid-cols-3 gap-2" id="kinds">
+						<label class="kind cursor-pointer"><input type="radio" name="kind" value="loi" class="peer sr-only" checked>
+							<span class="flex flex-col items-center gap-1 p-3 rounded-box border-2 border-white/10 bg-base-200 peer-checked:border-primary peer-checked:bg-primary/10 peer-focus-visible:ring-2 ring-primary transition-colors"><span class="text-2xl" aria-hidden="true">🐞</span><span class="font-bold text-sm">Báo lỗi</span></span></label>
+						<label class="kind cursor-pointer"><input type="radio" name="kind" value="y-tuong" class="peer sr-only">
+							<span class="flex flex-col items-center gap-1 p-3 rounded-box border-2 border-white/10 bg-base-200 peer-checked:border-primary peer-checked:bg-primary/10 peer-focus-visible:ring-2 ring-primary transition-colors"><span class="text-2xl" aria-hidden="true">💡</span><span class="font-bold text-sm">Ý tưởng</span></span></label>
+						<label class="kind cursor-pointer"><input type="radio" name="kind" value="khac" class="peer sr-only">
+							<span class="flex flex-col items-center gap-1 p-3 rounded-box border-2 border-white/10 bg-base-200 peer-checked:border-primary peer-checked:bg-primary/10 peer-focus-visible:ring-2 ring-primary transition-colors"><span class="text-2xl" aria-hidden="true">💬</span><span class="font-bold text-sm">Khác</span></span></label>
+					</div>
+				</fieldset>
+				<label class="form-control">
+					<div class="label"><span class="label-text font-semibold">Nội dung</span><span class="label-text-alt"><span id="fb-cnt">0</span>/1000</span></div>
+					<textarea id="fb-text" class="textarea textarea-bordered w-full min-h-36 text-base leading-relaxed" maxlength="1000" required></textarea>
+				</label>
+				<p id="fb-hint" class="text-sm text-base-content/60 -mt-2"></p>
+				<label class="form-control">
+					<div class="label"><span class="label-text font-semibold">Nhân vật gặp chuyện (không bắt buộc)</span></div>
+					<select id="fb-char" class="select select-bordered w-full text-base"></select>
+				</label>
+				<div id="fb-err" role="alert" class="alert alert-error py-2 text-sm" hidden></div>
+				<button class="btn btn-primary w-full h-12" id="fb-go">Gửi góp ý</button>
+				<p class="text-xs text-base-content/50 text-center">Cần đăng nhập để đội làm game trả lời được bạn. Trong game: Cài đặt (O) → Góp ý.</p>
+			</div>
+		</form>
+
+		<section aria-labelledby="mine-title">
+			<div class="flex items-center gap-2 mb-3">
+				<h2 id="mine-title" class="font-black text-xl flex-1">📬 Góp ý của bạn</h2>
+				<button id="mine-reload" class="btn btn-ghost btn-sm" type="button" hidden>↻ Tải lại</button>
+			</div>
+			<div id="mine" class="space-y-3"></div>
+		</section>
+	</div>
+</main>
+
+<script src="site/common.js"></script>
+<script>
+(function () {
+	const { $, h } = A;
+	const HINT = {
+		loi: 'Kể rõ: bạn đang làm gì, ở map nào, lỗi hiện ra sao, chơi trên PC hay điện thoại.',
+		'y-tuong': 'Muốn game có thêm gì? Tính năng, vùng đất, quái, trang bị… cứ kể.',
+		khac: 'Bất cứ điều gì bạn muốn nói với đội làm game.',
+	};
+	const PH = { loi: 'VD: Ở map Đầm lầy 3, đánh Hydra bùn xong thì nhân vật kẹt không đi được…', 'y-tuong': 'VD: Mong có thú cưỡi để đi nhanh hơn giữa các vùng…', khac: 'Viết gì đó…' };
+	const kind = () => document.querySelector('[name="kind"]:checked').value;
+	const onKind = () => {
+		$('fb-hint').textContent = HINT[kind()];
+		$('fb-text').placeholder = PH[kind()];
+	};
+	document.querySelectorAll('[name="kind"]').forEach((r) => r.addEventListener('change', onKind));
+	onKind();
+	A.autosize($('fb-text'), 360);
+	$('fb-text').addEventListener('input', () => ($('fb-cnt').textContent = $('fb-text').value.length));
+
+	$('fb-form').onsubmit = (e) => {
+		e.preventDefault();
+		A.need(send);
+	};
+	async function send() {
+		A.showErr('fb-err');
+		$('fb-go').classList.add('btn-disabled');
+		try {
+			await A.api('POST', 'feedback', { text: $('fb-text').value, kind: kind(), characterId: $('fb-char').value || undefined, platform: 'web' });
+			$('fb-text').value = '';
+			$('fb-cnt').textContent = '0';
+			$('fb-text').dispatchEvent(new Event('input'));
+			A.toast('Đã gửi — cảm ơn bạn! Trả lời sẽ hiện ở mục "Góp ý của bạn".');
+			loadMine();
+			$('mine-title').scrollIntoView({ behavior: A.reduce ? 'auto' : 'smooth' });
+		} catch (x) {
+			A.showErr('fb-err', x.message);
+		} finally {
+			$('fb-go').classList.remove('btn-disabled');
+		}
+	}
+
+	async function loadMine() {
+		const box = $('mine');
+		if (!A.me) {
+			$('mine-reload').hidden = true;
+			return box.replaceChildren(h('div.card.bg-base-100.border.border-white/10', null, h('div.card-body.items-center.text-center', null,
+				h('p.text-base-content/70', null, 'Đăng nhập để xem lại góp ý đã gửi và trả lời của đội làm game.'),
+				h('button.btn.btn-primary.mt-2', { type: 'button', onclick: () => A.openAuth('login') }, '🔑 Đăng nhập'))));
+		}
+		$('mine-reload').hidden = false;
+		box.replaceChildren(h('div.skeleton.h-24'));
+		try {
+			const list = await A.api('GET', 'feedback/mine');
+			box.replaceChildren(...(list.length ? list : [null]).map((f) =>
+				!f
+					? h('p.text-base-content/55.text-center.py-6', null, 'Bạn chưa gửi góp ý nào.')
+					: h('article.card.bg-base-100.border.border-white/10', null, h('div.card-body.p-4.sm:p-5.gap-3', null,
+						h('div.flex.flex-wrap.items-center.gap-2', null,
+							h('span.badge.badge-outline', null, ({ loi: '🐞 ', 'y-tuong': '💡 ', khac: '💬 ' }[f.kind] || '') + (A.FB_KINDS[f.kind] || f.kind)),
+							h('span.badge.font-semibold.' + (A.FB_STATUS_CLS[f.status] || 'badge-ghost'), null, A.FB_STATUS[f.status] || f.status),
+							h('time.text-xs.text-base-content/50.ml-auto', null, A.ago(f.at)),
+						),
+						h('p.whitespace-pre-wrap.break-words.leading-relaxed', null, f.text),
+						f.reply
+							? h('div.chat.chat-start', null,
+								h('div.chat-image.avatar', null, h('div.w-9.rounded-lg.bg-base-200.p-0.5', null, h('img.px', { src: 'site/img/favicon.png', alt: '' }))),
+								h('div.chat-header.text-xs.font-bold.mb-1', null, 'Đội làm game', h('time.opacity-50.font-normal.ml-2', null, A.ago(f.replyAt))),
+								h('div.chat-bubble.chat-bubble-primary.text-[15px].whitespace-pre-wrap.break-words', null, f.reply))
+							: null,
+					)),
+			));
+		} catch (e) {
+			box.replaceChildren(h('div.alert.alert-error', null, e.message));
+		}
+	}
+	$('mine-reload').onclick = loadMine;
+	A.onMe((me) => {
+		$('fb-char').replaceChildren(h('option', { value: '' }, '— Không chọn —'), ...(me ? me.characters.map((c) => h('option', { value: c.id }, c.name + ' · cấp ' + c.level)) : []));
+		$('fb-go').textContent = me ? 'Gửi góp ý' : '🔑 Đăng nhập & gửi góp ý';
+		loadMine();
+	});
+})();
+</script>
+</body>
+</html>

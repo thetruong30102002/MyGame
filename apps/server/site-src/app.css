@@ -18,13 +18,15 @@
 	.ring-glow { box-shadow: 0 0 0 1px rgba(255,201,60,.35), 0 18px 40px rgba(0,0,0,.45); }
 	.card-hover { transition: transform .2s, box-shadow .2s, border-color .2s; }
 	.card-hover:hover { transform: translateY(-4px); border-color: rgba(255,201,60,.45); box-shadow: 0 14px 32px rgba(0,0,0,.4); }
+	/* Ghim vùng trên bản đồ: nằm trong nút chạm 44px (trang Thế giới). */
 	.pin {
-		position: absolute; transform: translate(-50%, -50%); width: 30px; height: 30px; border-radius: 9999px; cursor: pointer;
+		position: relative; width: 30px; height: 30px; border-radius: 9999px;
 		border: 3px solid #fff; background: var(--c); color: #fff; font-weight: 900; font-size: 13px; display: grid; place-items: center;
 		box-shadow: 0 3px 0 rgba(0,0,0,.45); transition: transform .15s;
 	}
 	.pin::before { content: ''; position: absolute; inset: -8px; border-radius: 9999px; border: 2px solid var(--c); opacity: 0; animation: ring 2.4s infinite; }
-	.pin:hover, .pin.on { transform: translate(-50%, -50%) scale(1.25); z-index: 2; }
+	button:hover > .pin, .pin.on { transform: scale(1.25); }
+	.pin.on { box-shadow: 0 0 0 4px rgba(255,201,60,.6), 0 3px 0 rgba(0,0,0,.45); }
 	.pin.locked { background: #3b3f52; border-color: #9aa3b8; }
 	.pin.locked::before { display: none; }
 	.reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
@@ -34,8 +36,12 @@
 @keyframes ring { 0% { transform: scale(.6); opacity: .9; } 100% { transform: scale(1.5); opacity: 0; } }
 @keyframes pan { from { transform: scale(1.08) translate(-1.5%, -1%); } to { transform: scale(1.18) translate(1.5%, 1.5%); } }
 @keyframes bob { 50% { transform: translateY(-10px); } }
-.anim-pan { animation: pan 46s ease-in-out infinite alternate; }
-.anim-bob { animation: bob 3.2s ease-in-out infinite; }
+@layer utilities {
+	.anim-pan { animation: pan 46s ease-in-out infinite alternate; }
+	.anim-bob { animation: bob 3.2s ease-in-out infinite; }
+}
+/* Điện thoại: bấm giữ không hiện khung xám; cuộn trang mượt, không kéo giãn ngang. */
+html { -webkit-tap-highlight-color: transparent; -webkit-text-size-adjust: 100%; overscroll-behavior-x: none; }
 @media (prefers-reduced-motion: reduce) {
 	*, *::before, *::after { animation: none !important; transition: none !important; }
 	.reveal { opacity: 1; transform: none; }

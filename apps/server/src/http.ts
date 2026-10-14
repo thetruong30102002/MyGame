@@ -8,6 +8,8 @@ import {
 	validatePassword,
 	validateUsername,
 	FEEDBACK_MAX,
+	FEEDBACK_KINDS,
+	type FeedbackKind,
 	type AuthRequest,
 	type CharacterProgress,
 	type CreateCharacterRequest,
@@ -160,8 +162,9 @@ export function createApi(store: Store, admin: AdminOps = new AdminOps(store), c
 				const ch = typeof b.characterId === 'string' ? store.character(b.characterId, s.accountId) : null;
 				const build = Number.isFinite(Number(b.build)) && Number(b.build) > 0 ? Math.floor(Number(b.build)) : null;
 				const platform = typeof b.platform === 'string' ? b.platform.slice(0, 24) : null;
-				store.addFeedback(s.accountId, s.username, ch?.name ?? null, text, build, platform);
-				return { ok: true };
+				const kind: FeedbackKind = typeof b.kind === 'string' && b.kind in FEEDBACK_KINDS ? (b.kind as FeedbackKind) : 'khac';
+				const id = store.addFeedback(s.accountId, s.username, ch?.name ?? null, text, build, platform, kind);
+				return { ok: true, id };
 			},
 		},
 		// ———— Trang chủ: đăng nhập, tin tức, bài viết cộng đồng (board.ts) ————
@@ -174,15 +177,18 @@ export function createApi(store: Store, admin: AdminOps = new AdminOps(store), c
 				return { username: s.username, admin: admin.isAdmin(s.accountId), characters } satisfies MeResponse;
 			},
 		},
+		// Góp ý của chính mình (trang Góp ý): trạng thái + lời trả lời của quản trị.
+		{ method: 'GET', path: /^\/api\/feedback\/mine$/, run: async (req) => board.myFeedback(viewer(req, true)!) },
 		{ method: 'GET', path: /^\/api\/news$/, run: async (req) => board.news(query(req).get('limit')) },
 		{
 			method: 'GET',
 			path: /^\/api\/posts$/,
 			run: async (req) => {
 				const q = query(req);
-				return board.posts(viewer(req), q.get('limit'), q.get('before'));
+				return board.posts(viewer(req), q.get('limit'), q.get('before'), q.get('category'), q.get('q'));
 			},
 		},
+		{ method: 'GET', path: /^\/api\/posts\/counts$/, run: async () => board.postCounts() },
 		{ method: 'GET', path: /^\/api\/posts\/(\d+)$/, run: async (req, m) => board.post(viewer(req), Number(m[1])) },
 		{
 			method: 'POST',
@@ -211,6 +217,15 @@ export function createApi(store: Store, admin: AdminOps = new AdminOps(store), c
 			method: 'DELETE',
 			path: /^\/api\/comments\/(\d+)$/,
 			run: async (req, m) => (board.deleteComment(viewer(req, true)!, Number(m[1])), { ok: true }),
+		},
+		// ———— Trang quản trị: trả lời / đổi trạng thái góp ý ————
+		{
+			method: 'PUT',
+			path: /^\/api\/admin\/feedback\/(\d+)$/,
+			run: async (req, m) => {
+				const s = adminAuth(req);
+				return board.updateFeedback({ ...s, admin: true }, Number(m[1]), await body(req));
+			},
 		},
 		// ———— Trang quản trị: tin tức ————
 		{

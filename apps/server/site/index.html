@@ -7,7 +7,7 @@
 	// gốc → tự thêm "/" trước khi tải ảnh / tin tức.
 	if (!location.pathname.endsWith('/') && !location.pathname.endsWith('.html')) location.replace(location.pathname + '/' + location.search + location.hash);
 </script>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Aether Chronicle — Trang chủ</title>
 <meta name="description" content="Aether Chronicle — game nhập vai pixel online: 7 vùng đất, 5 nguyên tố, Kiếm sĩ và Pháp sư. Tải bản PC và Android.">
 <meta name="theme-color" content="#0d1a2a">
@@ -20,911 +20,233 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="site/app.css">
+<link rel="preload" as="image" href="site/img/continent.png">
 </head>
-<body class="bg-base-200 text-base-content antialiased overflow-x-hidden">
+<body data-page="home" data-hero class="bg-base-200 text-base-content antialiased overflow-x-hidden">
 <svg width="0" height="0" class="absolute" aria-hidden="true">
 	<symbol id="i-win" viewBox="0 0 24 24"><path fill="currentColor" d="M3 5.5 10.5 4.4v7.1H3zm0 13L10.5 19.6v-7H3zm8.5 1.2L21 21v-8.4h-9.5zm0-15.4v7.2H21V3z"/></symbol>
-	<symbol id="i-zip" viewBox="0 0 24 24"><path fill="currentColor" d="M6 2h9l5 5v15H6zm8 1.5V8h4.5zM9 4v2h2V4zm0 3v2h2V7zm0 3v2h2v-2zm-1 4v4h4v-4zm1.5 1.5h1v1h-1z"/></symbol>
 	<symbol id="i-and" viewBox="0 0 24 24"><path fill="currentColor" d="M7.2 8.5h9.6v8.2c0 .7-.5 1.2-1.2 1.2h-.9v2.6a1.2 1.2 0 0 1-2.4 0v-2.6h-.6v2.6a1.2 1.2 0 0 1-2.4 0v-2.6h-.9c-.7 0-1.2-.5-1.2-1.2zM5 8.6a1.2 1.2 0 0 1 2.4 0v5.1a1.2 1.2 0 0 1-2.4 0zm11.6 0a1.2 1.2 0 0 1 2.4 0v5.1a1.2 1.2 0 0 1-2.4 0zM8.3 3.3l.5-.3 1.1 1.8a5.4 5.4 0 0 1 4.2 0L15.2 3l.5.3-1.1 1.8A4.7 4.7 0 0 1 16.8 7.6H7.2a4.7 4.7 0 0 1 2.2-2.5zM10 5.6a.6.6 0 1 0 0 1.2.6.6 0 0 0 0-1.2zm4 0a.6.6 0 1 0 0 1.2.6.6 0 0 0 0-1.2z"/></symbol>
 </svg>
 
-<!-- ———— Thanh menu ———— -->
-<header id="top" class="fixed inset-x-0 top-0 z-40 transition-colors duration-300">
-	<div class="navbar max-w-6xl mx-auto px-4 gap-2">
-		<div class="flex-1">
-			<a href="#" class="flex items-center gap-2 font-black tracking-wide text-base sm:text-lg whitespace-nowrap">
-				<img class="px w-7 sm:w-8" src="site/img/favicon.png" alt=""><span>AETHER <span class="text-primary">CHRONICLE</span></span>
+<main id="main">
+	<!-- ———— Banner ———— -->
+	<section class="relative overflow-hidden min-h-[88svh] lg:min-h-[min(92vh,780px)] flex items-center bg-base-300">
+		<div class="absolute -inset-[4%] bg-cover bg-center px motion-safe:anim-pan" style="background-image:url('site/img/continent.png')"></div>
+		<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_40%,rgba(8,18,30,.25),rgba(8,18,30,.85)_70%)]"></div>
+		<div class="absolute inset-0 bg-gradient-to-b from-base-300/70 via-transparent to-base-200"></div>
+		<canvas id="sparks" class="absolute inset-0 w-full h-full pointer-events-none" aria-hidden="true"></canvas>
+		<div class="relative w-full max-w-6xl mx-auto px-4 pt-[calc(5.5rem+env(safe-area-inset-top))] pb-16 sm:pb-24 grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] items-end gap-4">
+			<div class="hidden lg:flex justify-center"><img class="px h-64 anim-bob drop-shadow-[0_8px_0_rgba(0,0,0,.35)] w-auto" src="site/img/hero-m.png" alt="Kiếm sĩ" width="208" height="292"></div>
+			<div class="text-center min-w-0">
+				<a href="tai-game" class="inline-flex items-center h-10 rounded-full glass border border-white/15 gap-2 font-semibold text-sm px-4">
+					<span id="dot" class="inline-block w-2.5 h-2.5 rounded-full bg-base-content/40"></span><span id="srv">Đang kiểm tra máy chủ…</span>
+				</a>
+				<h1 class="mt-5 font-black leading-[.95] tracking-wide text-[clamp(42px,12vw,92px)]"><span class="gold-text">AETHER<br>CHRONICLE</span></h1>
+				<div class="lg:hidden flex justify-center items-end gap-6 mt-4" aria-hidden="true">
+					<img class="px h-28 anim-bob w-auto" src="site/img/hero-m.png" alt="" width="208" height="292">
+					<img class="px h-28 anim-bob [animation-delay:-1.6s] w-auto" src="site/img/hero-f.png" alt="" width="196" height="288">
+				</div>
+				<p class="mt-4 sm:mt-6 mx-auto max-w-xl text-base sm:text-lg font-medium text-base-content/90 [text-shadow:0_2px_8px_rgba(0,0,0,.8)]">
+					Lớn lên ở thung lũng Thistlewood, cầm kiếm của cha hoặc trượng của mẹ, rồi đi qua 7 vùng đất để tìm sức mạnh 5 nguyên tố.
+				</p>
+				<div class="dl mt-7 flex flex-col sm:flex-row justify-center gap-3 max-w-sm sm:max-w-none mx-auto">
+					<a class="btn btn-primary btn-lg h-16 gap-3 shadow-lg shadow-primary/30 justify-start sm:justify-center" data-os="windows" href="api/client/latest/windows">
+						<svg class="w-6 h-6 shrink-0"><use href="#i-win"/></svg>
+						<span class="text-left leading-tight">Tải cho PC<br><small class="font-medium opacity-75" data-size="windows">Windows · bộ cài</small></span>
+					</a>
+					<a class="btn btn-success btn-lg h-16 gap-3 shadow-lg shadow-success/30 justify-start sm:justify-center" data-os="android" href="api/client/latest/android">
+						<svg class="w-6 h-6 shrink-0"><use href="#i-and"/></svg>
+						<span class="text-left leading-tight">Tải cho Android<br><small class="font-medium opacity-75" data-size="android">file APK</small></span>
+					</a>
+				</div>
+				<p class="mt-4 text-sm text-base-content/70"><span id="ver">Miễn phí · Bản beta</span> · <a href="tai-game" class="link link-primary">Hướng dẫn cài</a></p>
+			</div>
+			<div class="hidden lg:flex justify-center"><img class="px h-64 anim-bob [animation-delay:-1.6s] drop-shadow-[0_8px_0_rgba(0,0,0,.35)] w-auto" src="site/img/hero-f.png" alt="Pháp sư" width="196" height="288"></div>
+		</div>
+	</section>
+
+	<!-- ———— Số liệu ———— -->
+	<div class="relative z-10 max-w-6xl mx-auto px-4 -mt-10 sm:-mt-14">
+		<div class="stats grid grid-flow-row grid-cols-2 sm:grid-cols-4 w-full bg-base-100 border border-white/10 shadow-2xl">
+			<div class="stat place-items-center py-4"><div class="stat-value text-3xl sm:text-4xl text-primary" data-count="7">7</div><div class="stat-desc font-semibold">vùng đất đã mở</div></div>
+			<div class="stat place-items-center py-4"><div class="stat-value text-3xl sm:text-4xl text-primary" data-count="80" data-plus>80+</div><div class="stat-desc font-semibold">map để khám phá</div></div>
+			<div class="stat place-items-center py-4"><div class="stat-value text-3xl sm:text-4xl text-primary" data-count="5">5</div><div class="stat-desc font-semibold">hệ nguyên tố</div></div>
+			<div class="stat place-items-center py-4"><div class="stat-value text-3xl sm:text-4xl text-primary" data-count="2">2</div><div class="stat-desc font-semibold">lớp nhân vật</div></div>
+		</div>
+	</div>
+
+	<!-- ———— Tin mới ———— -->
+	<section class="max-w-6xl mx-auto px-4 pt-14 sm:pt-20">
+		<div class="flex items-end justify-between gap-4 reveal">
+			<div><p class="text-xs font-black tracking-widest text-primary">TIN TỨC</p><h2 class="text-2xl sm:text-3xl font-black mt-1">Có gì mới</h2></div>
+			<a href="tin-tuc" class="btn btn-ghost btn-sm h-10 min-h-10 text-primary shrink-0">Xem tất cả →</a>
+		</div>
+		<div id="news" class="mt-5 grid grid-cols-1 gap-4 md:grid-cols-3">
+			<div class="skeleton h-40"></div><div class="skeleton h-40 hidden md:block"></div><div class="skeleton h-40 hidden md:block"></div>
+		</div>
+	</section>
+
+	<!-- ———— Diễn đàn ———— -->
+	<section class="max-w-6xl mx-auto px-4 pt-14 sm:pt-20">
+		<div class="flex items-end justify-between gap-4 reveal">
+			<div><p class="text-xs font-black tracking-widest text-primary">DIỄN ĐÀN</p><h2 class="text-2xl sm:text-3xl font-black mt-1">Người chơi đang bàn gì</h2></div>
+			<a href="dien-dan" class="btn btn-ghost btn-sm h-10 min-h-10 text-primary shrink-0">Vào diễn đàn →</a>
+		</div>
+		<div class="mt-5 grid grid-cols-1 gap-4 lg:grid-cols-[minmax(0,1fr)_320px] items-start">
+			<div class="card bg-base-100 border border-white/10 shadow-xl reveal">
+				<div id="posts" class="divide-y divide-white/5"><div class="p-4 space-y-3"><div class="skeleton h-12"></div><div class="skeleton h-12"></div><div class="skeleton h-12"></div></div></div>
+			</div>
+			<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-1 reveal">
+				<a href="dien-dan#viet" class="card bg-gradient-to-br from-primary/20 to-base-100 border border-primary/30 card-hover">
+					<div class="card-body p-5"><h3 class="card-title text-lg">✏️ Viết bài mới</h3><p class="text-sm text-base-content/70">Tìm tổ đội, hỏi đường, chia sẻ mẹo chơi.</p></div>
+				</a>
+				<a href="gop-y" class="card bg-base-100 border border-white/10 card-hover">
+					<div class="card-body p-5 flex-row items-center gap-4">
+						<img class="px h-16 shrink-0 w-auto" src="site/img/ysolde.png" alt="" width="148" height="224" loading="lazy">
+						<div><h3 class="font-black text-lg">💬 Góp ý · báo lỗi</h3><p class="text-sm text-base-content/70">Lời của cháu tới thẳng người làm game.</p></div>
+					</div>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- ———— Thế giới ———— -->
+	<section class="max-w-6xl mx-auto px-4 pt-14 sm:pt-20">
+		<a href="the-gioi" class="card lg:card-side bg-base-100 border border-white/10 shadow-xl overflow-hidden card-hover reveal">
+			<figure class="lg:w-3/5 bg-[#1d4e73]"><img class="px w-full aspect-[1376/768] object-cover" src="site/img/continent.png" alt="Bản đồ lục địa Aether" width="1376" height="768" loading="lazy"></figure>
+			<div class="card-body lg:w-2/5 justify-center">
+				<p class="text-xs font-black tracking-widest text-primary">THẾ GIỚI</p>
+				<h2 class="text-2xl sm:text-3xl font-black">Lục địa Aether</h2>
+				<p class="text-base-content/70">10 vùng đất — từ thung lũng Thistlewood tới Vực Hư Không. Mỗi vùng 12 map, thời tiết, quái và boss riêng. 7 vùng đã mở.</p>
+				<div class="flex flex-wrap gap-2 mt-1">
+					<span class="badge badge-outline">🔥 Hoả</span><span class="badge badge-outline">💧 Thuỷ</span><span class="badge badge-outline">🌪️ Phong</span><span class="badge badge-outline">❄️ Băng</span><span class="badge badge-outline">⛰️ Thổ</span>
+				</div>
+				<span class="btn btn-primary btn-outline mt-3 self-start">Khám phá bản đồ →</span>
+			</div>
+		</a>
+	</section>
+
+	<!-- ———— Lớp nhân vật ———— -->
+	<section class="max-w-6xl mx-auto px-4 pt-14 sm:pt-20">
+		<div class="reveal"><p class="text-xs font-black tracking-widest text-primary">LỚP NHÂN VẬT</p><h2 class="text-2xl sm:text-3xl font-black mt-1">Chọn con đường</h2></div>
+		<div class="mt-5 grid grid-cols-2 gap-3 sm:gap-6">
+			<a href="the-gioi#lop" class="card bg-gradient-to-br from-amber-500/15 to-base-100 border border-white/10 card-hover reveal">
+				<figure class="pt-5"><img class="px h-28 sm:h-44 w-auto" src="site/img/hero-m.png" alt="" width="208" height="292" loading="lazy"></figure>
+				<div class="card-body p-4 sm:p-6 items-center text-center"><h3 class="font-black text-lg sm:text-2xl">⚔️ Kiếm sĩ</h3><p class="text-xs sm:text-sm text-base-content/65">3 lưu phái, Bọc Nguyên Tố lên lưỡi kiếm.</p></div>
+			</a>
+			<a href="the-gioi#lop" class="card bg-gradient-to-br from-violet-500/20 to-base-100 border border-white/10 card-hover reveal">
+				<figure class="pt-5"><img class="px h-28 sm:h-44 w-auto" src="site/img/hero-f.png" alt="" width="196" height="288" loading="lazy"></figure>
+				<div class="card-body p-4 sm:p-6 items-center text-center"><h3 class="font-black text-lg sm:text-2xl">✨ Pháp sư</h3><p class="text-xs sm:text-sm text-base-content/65">Tung phép từ xa, kết hợp nguyên tố.</p></div>
 			</a>
 		</div>
-		<nav class="hidden lg:flex">
-			<ul class="menu menu-horizontal px-1 font-semibold">
-				<li><a href="#tin-tuc">Tin tức</a></li>
-				<li><a href="#cong-dong">Cộng đồng</a></li>
-				<li><a href="#the-gioi">Thế giới</a></li>
-				<li><a href="#lop">Lớp nhân vật</a></li>
-				<li><a href="#hinh-anh">Hình ảnh</a></li>
-			</ul>
-		</nav>
-		<a href="#tai-game" class="btn btn-primary btn-sm hidden sm:inline-flex">⬇ Tải game</a>
-		<!-- Tài khoản -->
-		<button id="login-btn" class="btn btn-ghost btn-sm border border-white/20" type="button" data-act="login">Đăng nhập</button>
-		<div id="acct" class="dropdown dropdown-end hidden">
-			<div tabindex="0" role="button" class="btn btn-ghost btn-sm gap-2 border border-white/20 normal-case">
-				<span id="acct-av" class="w-6 h-6 rounded-md grid place-items-center text-xs font-black text-white"></span>
-				<span id="acct-name" class="max-w-[8rem] truncate"></span>
-			</div>
-			<ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-50 mt-3 w-56 p-2 shadow-2xl border border-white/10">
-				<li class="menu-title">Tài khoản</li>
-				<li><button type="button" data-act="feedback">💬 Gửi góp ý</button></li>
-				<li><button type="button" data-act="post">✏️ Viết bài</button></li>
-				<li id="acct-admin" class="hidden"><a href="admin">🛡️ Trang quản trị</a></li>
-				<li><button type="button" data-act="logout" class="text-error">↩ Đăng xuất</button></li>
-			</ul>
-		</div>
-		<div class="dropdown dropdown-end lg:hidden">
-			<div tabindex="0" role="button" class="btn btn-ghost btn-sm btn-square" aria-label="Mở menu">
-				<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-			</div>
-			<ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow-2xl border border-white/10 font-semibold">
-				<li><a href="#tin-tuc">Tin tức</a></li>
-				<li><a href="#cong-dong">Cộng đồng</a></li>
-				<li><a href="#the-gioi">Thế giới</a></li>
-				<li><a href="#lop">Lớp nhân vật</a></li>
-				<li><a href="#hinh-anh">Hình ảnh</a></li>
-				<li><a href="#tai-game" class="text-primary">⬇ Tải game</a></li>
-			</ul>
-		</div>
-	</div>
-</header>
-
-<!-- ———— Banner ———— -->
-<section class="relative overflow-hidden min-h-[min(92vh,780px)] flex items-center bg-base-300">
-	<div class="absolute -inset-[4%] bg-cover bg-center px anim-pan" style="background-image:url('site/img/continent.png')"></div>
-	<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_40%,rgba(8,18,30,.2),rgba(8,18,30,.8)_70%)]"></div>
-	<div class="absolute inset-0 bg-gradient-to-b from-base-300/60 via-transparent to-base-200"></div>
-	<canvas id="sparks" class="absolute inset-0 w-full h-full pointer-events-none"></canvas>
-	<div class="relative w-full max-w-6xl mx-auto px-4 pt-28 pb-24 grid lg:grid-cols-[1fr_auto_1fr] items-end gap-4">
-		<div class="hidden lg:flex justify-center"><img class="px h-64 anim-bob drop-shadow-[0_8px_0_rgba(0,0,0,.35)]" src="site/img/hero-m.png" alt="Kiếm sĩ"></div>
-		<div class="text-center min-w-0">
-			<div class="badge badge-lg glass border-white/15 gap-2 font-semibold py-3.5">
-				<span id="dot0" class="inline-block w-2.5 h-2.5 rounded-full bg-base-content/40"></span><span id="srv0">Đang kiểm tra máy chủ…</span>
-			</div>
-			<h1 class="mt-5 font-black leading-[.95] tracking-wide text-[clamp(44px,8.5vw,92px)]"><span class="gold-text">AETHER<br>CHRONICLE</span></h1>
-			<p class="mt-6 mx-auto max-w-xl text-lg font-medium text-base-content/90 [text-shadow:0_2px_8px_rgba(0,0,0,.8)]">
-				Lớn lên ở thung lũng Thistlewood, cầm kiếm của cha hoặc trượng của mẹ, rồi đi qua 7 vùng đất để tìm sức mạnh 5 nguyên tố.
-			</p>
-			<div class="dl mt-8 flex flex-wrap justify-center gap-3">
-				<a class="btn btn-primary btn-lg gap-3 shadow-lg shadow-primary/30" data-os="windows" href="api/client/latest/windows">
-					<svg class="w-6 h-6"><use href="#i-win"/></svg>
-					<span class="text-left leading-tight">Tải cho PC<br><small class="font-medium opacity-75" data-size="windows">Windows · bộ cài</small></span>
-				</a>
-				<a class="btn btn-success btn-lg gap-3 shadow-lg shadow-success/30" data-os="android" href="api/client/latest/android">
-					<svg class="w-6 h-6"><use href="#i-and"/></svg>
-					<span class="text-left leading-tight">Tải cho Android<br><small class="font-medium opacity-75" data-size="android">file APK</small></span>
-				</a>
-			</div>
-			<p id="ver" class="mt-4 text-sm text-base-content/70">Miễn phí · Bản beta</p>
-		</div>
-		<div class="hidden lg:flex justify-center"><img class="px h-64 anim-bob [animation-delay:-1.6s] drop-shadow-[0_8px_0_rgba(0,0,0,.35)]" src="site/img/hero-f.png" alt="Pháp sư"></div>
-	</div>
-</section>
-
-<!-- ———— Số liệu ———— -->
-<div class="relative z-10 max-w-6xl mx-auto px-4 -mt-14">
-	<div class="stats grid grid-flow-row grid-cols-2 sm:grid-cols-4 w-full bg-base-100 border border-white/10 shadow-2xl">
-		<div class="stat place-items-center"><div class="stat-value text-primary" data-count="7">7</div><div class="stat-desc font-semibold">vùng đất đã mở</div></div>
-		<div class="stat place-items-center"><div class="stat-value text-primary" data-count="80" data-plus>80+</div><div class="stat-desc font-semibold">map để khám phá</div></div>
-		<div class="stat place-items-center"><div class="stat-value text-primary" data-count="5">5</div><div class="stat-desc font-semibold">hệ nguyên tố</div></div>
-		<div class="stat place-items-center"><div class="stat-value text-primary" data-count="2">2</div><div class="stat-desc font-semibold">lớp nhân vật</div></div>
-	</div>
-</div>
-
-<main>
-	<!-- ———— Tin tức + tải game ———— -->
-	<section id="tin-tuc" class="max-w-6xl mx-auto px-4 pt-16 scroll-mt-20">
-		<div class="grid lg:grid-cols-[minmax(0,1fr)_340px] gap-6 items-start">
-			<div class="card bg-base-100 border border-white/10 shadow-xl reveal">
-				<div class="card-body p-5 sm:p-6">
-					<div class="flex flex-wrap items-center gap-3">
-						<h2 class="card-title text-2xl font-black">📜 Tin tức</h2>
-						<div role="tablist" id="tabs" class="tabs tabs-boxed tabs-sm ml-auto bg-base-200">
-							<button role="tab" class="tab tab-active" data-f="">Tất cả</button>
-							<button role="tab" class="tab" data-f="Cập nhật">Cập nhật</button>
-							<button role="tab" class="tab" data-f="Thông báo">Thông báo</button>
-							<button role="tab" class="tab" data-f="Sự kiện">Sự kiện</button>
-						</div>
-					</div>
-					<div id="news" class="mt-3 space-y-2"><div class="skeleton h-14 w-full"></div><div class="skeleton h-14 w-full"></div><div class="skeleton h-14 w-full"></div></div>
-					<div id="news-foot" class="text-center mt-2" hidden><button id="news-more" class="btn btn-ghost btn-sm">Xem tin cũ hơn</button></div>
-				</div>
-			</div>
-
-			<aside id="tai-game" class="space-y-5 scroll-mt-20 reveal">
-				<div class="card bg-base-100 border border-white/10 shadow-xl">
-					<div class="card-body p-5">
-						<h2 class="card-title font-black">⬇ Tải game</h2>
-						<div class="dl flex flex-col gap-2.5 mt-1">
-							<a class="btn btn-primary justify-start h-auto py-2.5 gap-3" data-os="windows" href="api/client/latest/windows"><svg class="w-5 h-5 shrink-0"><use href="#i-win"/></svg><span class="text-left leading-tight">PC · Bộ cài exe<br><small class="font-medium opacity-75" data-size="windows">Windows 10 / 11</small></span></a>
-							<a class="btn btn-outline btn-primary justify-start h-auto py-2.5 gap-3" href="api/client/latest/windows-zip"><svg class="w-5 h-5 shrink-0"><use href="#i-zip"/></svg><span class="text-left leading-tight">PC · Gói zip<br><small class="font-medium opacity-75" data-size="zip">khi Windows chặn file exe</small></span></a>
-							<a class="btn btn-success justify-start h-auto py-2.5 gap-3" data-os="android" href="api/client/latest/android"><svg class="w-5 h-5 shrink-0"><use href="#i-and"/></svg><span class="text-left leading-tight">Android · APK<br><small class="font-medium opacity-75" data-size="android">Android 7.1 trở lên</small></span></a>
-						</div>
-						<p class="text-sm text-base-content/60 mt-1">Đã cài rồi thì chỉ cần mở game — game tự cập nhật lên bản mới nhất.</p>
-						<div id="sha" class="collapse collapse-arrow bg-base-200 mt-1" hidden>
-							<input type="checkbox" aria-label="Mã kiểm tra file">
-							<div class="collapse-title text-sm font-semibold min-h-0 py-2.5">Mã kiểm tra file (SHA-256)</div>
-							<div class="collapse-content text-xs break-all space-y-2" id="sha-list"></div>
-						</div>
-					</div>
-				</div>
-
-				<div class="card bg-base-100 border border-white/10 shadow-xl">
-					<div class="card-body p-5">
-						<div class="flex items-center gap-3">
-							<span id="dot" class="inline-block w-3 h-3 rounded-full bg-base-content/40"></span>
-							<h2 class="font-black text-lg" id="srv">Đang kiểm tra máy chủ…</h2>
-						</div>
-						<p class="text-sm text-base-content/70" id="notes"></p>
-					</div>
-				</div>
-
-				<div class="card bg-base-100 border border-white/10 shadow-xl">
-					<div class="card-body p-5 gap-2">
-						<h2 class="card-title font-black">❓ Hướng dẫn cài</h2>
-						<div class="collapse collapse-arrow bg-base-200">
-							<input type="radio" name="guide" checked aria-label="Máy tính">
-							<div class="collapse-title font-semibold">🖥️ Máy tính (Windows)</div>
-							<div class="collapse-content text-sm">
-								<ul class="steps steps-vertical">
-									<li class="step step-primary text-left"><span class="text-left">Tải <b>bộ cài exe</b>, chạy rồi chọn thư mục cài.</span></li>
-									<li class="step step-primary text-left"><span class="text-left">Windows hỏi "Windows protected your PC": bấm <b>More info → Run anyway</b>.</span></li>
-									<li class="step step-primary text-left"><span class="text-left">Bị chặn hẳn thì tải <b>gói zip</b>, giải nén, chạy <b>Aether.exe</b>.</span></li>
-								</ul>
-							</div>
-						</div>
-						<div class="collapse collapse-arrow bg-base-200">
-							<input type="radio" name="guide" aria-label="Điện thoại">
-							<div class="collapse-title font-semibold">📱 Điện thoại (Android)</div>
-							<div class="collapse-content text-sm">
-								<ul class="steps steps-vertical">
-									<li class="step step-success text-left"><span class="text-left">Tải file APK, mở file vừa tải.</span></li>
-									<li class="step step-success text-left"><span class="text-left">Máy hỏi thì cho phép <b>cài ứng dụng từ nguồn này</b>, rồi bấm Cài đặt.</span></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="card bg-base-100 border border-white/10 shadow-xl">
-					<div class="card-body p-5">
-						<div class="chat chat-start">
-							<div class="chat-image avatar"><div class="w-14 rounded-xl bg-base-200 p-1"><img class="px" src="site/img/ysolde.png" alt="Bà Ysolde"></div></div>
-							<div class="chat-header font-bold mb-1">Bà Ysolde</div>
-							<div class="chat-bubble text-sm">Gặp lỗi hay muốn góp ý? Gửi ngay ở đây, lời của cháu tới thẳng người làm game.</div>
-						</div>
-						<button class="btn btn-primary btn-outline mt-2" type="button" data-act="feedback">💬 Gửi góp ý</button>
-					</div>
-				</div>
-			</aside>
-		</div>
 	</section>
 
-	<!-- ———— Cộng đồng ———— -->
-	<section id="cong-dong" class="max-w-6xl mx-auto px-4 pt-20 scroll-mt-20">
-		<div class="text-center reveal">
-			<div class="badge badge-primary badge-outline font-bold mb-3">CỘNG ĐỒNG</div>
-			<h2 class="text-3xl sm:text-4xl font-black">Bảng tin người chơi</h2>
-			<p class="mt-3 text-base-content/70">Tìm tổ đội, hỏi đường, khoe đồ — đăng bằng tài khoản game của bạn.</p>
+	<!-- ———— Hình ảnh: điện thoại lướt ngang, máy tính lưới ———— -->
+	<section class="max-w-6xl mx-auto pt-14 sm:pt-20">
+		<div class="px-4 reveal"><p class="text-xs font-black tracking-widest text-primary">HÌNH ẢNH</p><h2 class="text-2xl sm:text-3xl font-black mt-1">Trong game</h2></div>
+		<div id="gallery" class="mt-5 flex lg:grid lg:grid-cols-3 gap-3 sm:gap-4 overflow-x-auto snap-x snap-mandatory px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+			<figure class="group relative shrink-0 w-[82%] sm:w-[46%] lg:w-auto snap-center rounded-2xl overflow-hidden border border-white/10 cursor-zoom-in"><img class="w-full aspect-video object-cover transition duration-500 group-hover:scale-105" src="site/img/shot-swamp-hub.jpg" alt="Làng nhà sàn Lau Xám" width="832" height="468" loading="lazy" decoding="async"><figcaption class="absolute inset-x-0 bottom-0 p-3 pt-10 bg-gradient-to-t from-black/85 to-transparent text-sm font-bold">Làng nhà sàn Lau Xám · Đầm lầy</figcaption></figure>
+			<figure class="group relative shrink-0 w-[82%] sm:w-[46%] lg:w-auto snap-center rounded-2xl overflow-hidden border border-white/10 cursor-zoom-in"><img class="w-full aspect-video object-cover transition duration-500 group-hover:scale-105" src="site/img/shot-desert-hub.jpg" alt="Thành ốc đảo Sahrin" width="832" height="468" loading="lazy" decoding="async"><figcaption class="absolute inset-x-0 bottom-0 p-3 pt-10 bg-gradient-to-t from-black/85 to-transparent text-sm font-bold">Thành ốc đảo Sahrin · Sa mạc</figcaption></figure>
+			<figure class="group relative shrink-0 w-[82%] sm:w-[46%] lg:w-auto snap-center rounded-2xl overflow-hidden border border-white/10 cursor-zoom-in"><img class="w-full aspect-video object-cover transition duration-500 group-hover:scale-105" src="site/img/shot-tundra-hub.jpg" alt="Làng gỗ Tuyết Phong" width="832" height="468" loading="lazy" decoding="async"><figcaption class="absolute inset-x-0 bottom-0 p-3 pt-10 bg-gradient-to-t from-black/85 to-transparent text-sm font-bold">Làng gỗ Tuyết Phong · Băng giá</figcaption></figure>
+			<figure class="group relative shrink-0 w-[82%] sm:w-[46%] lg:w-auto snap-center rounded-2xl overflow-hidden border border-white/10 cursor-zoom-in"><img class="w-full aspect-video object-cover transition duration-500 group-hover:scale-105" src="site/img/shot-volcano-hub.jpg" alt="Pháo đài Đe Đỏ" width="832" height="468" loading="lazy" decoding="async"><figcaption class="absolute inset-x-0 bottom-0 p-3 pt-10 bg-gradient-to-t from-black/85 to-transparent text-sm font-bold">Pháo đài Đe Đỏ · Núi lửa</figcaption></figure>
+			<figure class="group relative shrink-0 w-[82%] sm:w-[46%] lg:w-auto snap-center rounded-2xl overflow-hidden border border-white/10 cursor-zoom-in"><img class="w-full aspect-video object-cover transition duration-500 group-hover:scale-105" src="site/img/shot-isles-hub.jpg" alt="Cảng chài San Hô" width="832" height="468" loading="lazy" decoding="async"><figcaption class="absolute inset-x-0 bottom-0 p-3 pt-10 bg-gradient-to-t from-black/85 to-transparent text-sm font-bold">Cảng chài San Hô · Quần đảo</figcaption></figure>
+			<figure class="group relative shrink-0 w-[82%] sm:w-[46%] lg:w-auto snap-center rounded-2xl overflow-hidden border border-white/10 cursor-zoom-in"><img class="w-full aspect-video object-cover transition duration-500 group-hover:scale-105" src="site/img/shot-highland-hunt.jpg" alt="Thung Lũng Tiên" width="832" height="468" loading="lazy" decoding="async"><figcaption class="absolute inset-x-0 bottom-0 p-3 pt-10 bg-gradient-to-t from-black/85 to-transparent text-sm font-bold">Thung Lũng Tiên · Cao nguyên</figcaption></figure>
 		</div>
-		<div class="card bg-base-100 border border-white/10 shadow-xl mt-8 reveal">
-			<div class="card-body p-0">
-				<div class="flex flex-wrap items-center gap-3 p-5 border-b border-white/10">
-					<p id="board-who" class="flex-1 min-w-[12rem] text-base-content/70">Đăng nhập bằng tài khoản game để viết bài và bình luận.</p>
-					<button class="btn btn-primary btn-sm" type="button" data-act="post">✏️ Viết bài</button>
-				</div>
-				<div id="posts" class="divide-y divide-white/5"><div class="p-5 space-y-3"><div class="skeleton h-12 w-full"></div><div class="skeleton h-12 w-full"></div></div></div>
-				<div id="posts-foot" class="text-center p-3 border-t border-white/5" hidden><button id="posts-more" class="btn btn-ghost btn-sm">Xem bài cũ hơn</button></div>
-			</div>
-		</div>
-	</section>
-
-	<!-- ———— Bản đồ lục địa ———— -->
-	<section id="the-gioi" class="mt-24 py-20 bg-base-300 scroll-mt-16 relative overflow-hidden">
-		<div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent"></div>
-		<div class="max-w-6xl mx-auto px-4">
-			<div class="text-center reveal">
-				<div class="badge badge-primary badge-outline font-bold mb-3">THẾ GIỚI</div>
-				<h2 class="text-3xl sm:text-4xl font-black">Lục địa Aether</h2>
-				<p class="mt-3 text-base-content/70">Bấm vào từng vùng trên bản đồ. 7 vùng đã mở, 3 vùng cuối đang được xây.</p>
-			</div>
-			<div class="mt-10 grid lg:grid-cols-[minmax(0,1fr)_320px] gap-6 items-start reveal">
-				<div id="map" class="relative rounded-2xl overflow-hidden ring-glow aspect-[1376/768] bg-[#1d4e73]">
-					<img class="px block w-full h-full" src="site/img/continent.png" alt="Bản đồ lục địa Aether" loading="lazy">
-				</div>
-				<article id="region" class="card bg-base-100 border-2 shadow-xl overflow-hidden" aria-live="polite"></article>
-			</div>
-		</div>
-	</section>
-
-	<!-- ———— Lớp nhân vật + nguyên tố ———— -->
-	<section id="lop" class="max-w-6xl mx-auto px-4 pt-20 scroll-mt-20">
-		<div class="text-center reveal">
-			<div class="badge badge-primary badge-outline font-bold mb-3">LỚP NHÂN VẬT</div>
-			<h2 class="text-3xl sm:text-4xl font-black">Chọn con đường</h2>
-			<p class="mt-3 text-base-content/70">Năm 16 tuổi, Lior chọn theo kiếm của cha hay phép của mẹ. Lỡ chọn rồi vẫn tẩy điểm đổi lớp được.</p>
-		</div>
-		<div class="mt-10 grid md:grid-cols-2 gap-6">
-			<article class="card sm:card-side bg-gradient-to-br from-amber-500/15 to-base-100 border border-white/10 card-hover reveal">
-				<figure class="p-6 sm:w-48 shrink-0"><img class="px h-48 drop-shadow-[0_6px_0_rgba(0,0,0,.3)]" src="site/img/hero-m.png" alt="Kiếm sĩ"></figure>
-				<div class="card-body">
-					<h3 class="card-title text-2xl font-black">⚔️ Kiếm sĩ</h3>
-					<p class="italic text-base-content/60 text-sm">"Một nhát chém đúng lúc hơn trăm câu thần chú."</p>
-					<ul class="space-y-1.5 text-sm mt-1">
-						<li>◆ 3 lưu phái: Kiếm Thần tấn công, Thuỷ Thần phản đòn, Bắc Thần lướt nhanh</li>
-						<li>◆ Bọc Nguyên Tố lên lưỡi kiếm</li>
-						<li>◆ Áp sát, lướt né và phản đòn</li>
-					</ul>
-				</div>
-			</article>
-			<article class="card sm:card-side bg-gradient-to-br from-violet-500/20 to-base-100 border border-white/10 card-hover reveal">
-				<figure class="p-6 sm:w-48 shrink-0"><img class="px h-48 drop-shadow-[0_6px_0_rgba(0,0,0,.3)]" src="site/img/hero-f.png" alt="Pháp sư"></figure>
-				<div class="card-body">
-					<h3 class="card-title text-2xl font-black">✨ Pháp sư</h3>
-					<p class="italic text-base-content/60 text-sm">"Gió, lửa, băng — tất cả đều nghe lời người hiểu chúng."</p>
-					<ul class="space-y-1.5 text-sm mt-1">
-						<li>◆ Tung phép từ xa bằng trượng</li>
-						<li>◆ Kết hợp nguyên tố ra phản ứng</li>
-						<li>◆ Mỗi hệ một cây tiềm năng riêng</li>
-					</ul>
-				</div>
-			</article>
-		</div>
-		<div class="mt-6 grid grid-cols-2 sm:grid-cols-5 gap-4">
-			<div class="card bg-base-100 border border-fire/40 card-hover reveal"><div class="card-body items-center text-center p-5"><div class="w-14 h-14 rounded-full grid place-items-center text-2xl bg-fire/20 ring-2 ring-fire/60 shadow-[0_0_24px_rgba(255,107,61,.4)]">🔥</div><b class="text-lg">Hoả</b><span class="text-xs text-base-content/60">thiêu đốt</span></div></div>
-			<div class="card bg-base-100 border border-water/40 card-hover reveal"><div class="card-body items-center text-center p-5"><div class="w-14 h-14 rounded-full grid place-items-center text-2xl bg-water/20 ring-2 ring-water/60 shadow-[0_0_24px_rgba(58,160,255,.4)]">💧</div><b class="text-lg">Thuỷ</b><span class="text-xs text-base-content/60">sóng dữ</span></div></div>
-			<div class="card bg-base-100 border border-wind/40 card-hover reveal"><div class="card-body items-center text-center p-5"><div class="w-14 h-14 rounded-full grid place-items-center text-2xl bg-wind/20 ring-2 ring-wind/60 shadow-[0_0_24px_rgba(79,209,139,.4)]">🌪️</div><b class="text-lg">Phong</b><span class="text-xs text-base-content/60">nhanh như gió</span></div></div>
-			<div class="card bg-base-100 border border-ice/40 card-hover reveal"><div class="card-body items-center text-center p-5"><div class="w-14 h-14 rounded-full grid place-items-center text-2xl bg-ice/20 ring-2 ring-ice/60 shadow-[0_0_24px_rgba(143,227,255,.4)]">❄️</div><b class="text-lg">Băng</b><span class="text-xs text-base-content/60">đóng băng</span></div></div>
-			<div class="card bg-base-100 border border-earth/40 card-hover reveal col-span-2 sm:col-span-1"><div class="card-body items-center text-center p-5"><div class="w-14 h-14 rounded-full grid place-items-center text-2xl bg-earth/20 ring-2 ring-earth/60 shadow-[0_0_24px_rgba(201,154,91,.4)]">⛰️</div><b class="text-lg">Thổ</b><span class="text-xs text-base-content/60">vững như núi</span></div></div>
-		</div>
-	</section>
-
-	<!-- ———— Có gì trong game ———— -->
-	<section id="gioi-thieu" class="max-w-6xl mx-auto px-4 pt-20 scroll-mt-20">
-		<div class="text-center reveal">
-			<div class="badge badge-primary badge-outline font-bold mb-3">GIỚI THIỆU</div>
-			<h2 class="text-3xl sm:text-4xl font-black">Có gì trong game</h2>
-			<p class="mt-3 text-base-content/70">Một thế giới pixel online để cày, khám phá và gặp người chơi khác.</p>
-		</div>
-		<div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-			<div class="card bg-base-100 border border-white/10 card-hover reveal"><div class="card-body"><div class="text-3xl">🗺️</div><h3 class="card-title text-lg text-primary">7 vùng đất, hơn 80 map</h3><p class="text-sm text-base-content/70">Thung lũng Thistlewood, Đầm lầy Mù Sương, Sa mạc Hồng Cát, Cao nguyên Gió Hú, Lãnh nguyên Băng Giá, Núi lửa Hoả Sơn, Quần đảo San Hô — mỗi vùng 12 map, thời tiết riêng.</p></div></div>
-			<div class="card bg-base-100 border border-white/10 card-hover reveal"><div class="card-body"><div class="text-3xl">⚔️</div><h3 class="card-title text-lg text-primary">Kiếm sĩ hay Pháp sư</h3><p class="text-sm text-base-content/70">Năm 16 tuổi chọn theo kiếm của cha hay phép của mẹ. Kiếm sĩ có 3 lưu phái và Bọc Nguyên Tố; Pháp sư tung phép bằng trượng.</p></div></div>
-			<div class="card bg-base-100 border border-white/10 card-hover reveal"><div class="card-body"><div class="text-3xl">🔥</div><h3 class="card-title text-lg text-primary">5 nguyên tố</h3><p class="text-sm text-base-content/70">Hoả · Thuỷ · Phong · Băng · Thổ — mỗi hệ một cây tiềm năng tới tuyệt kỹ mốc 10, kết hợp ra phản ứng nguyên tố.</p></div></div>
-			<div class="card bg-base-100 border border-white/10 card-hover reveal"><div class="card-body"><div class="text-3xl">📖</div><h3 class="card-title text-lg text-primary">Cốt truyện của Lior</h3><p class="text-sm text-base-content/70">Lớn lên từ tuổi thơ ở Thistlewood, đi qua 7 vùng, gặp 7 vị thần và những lựa chọn thay đổi kết cục.</p></div></div>
-			<div class="card bg-base-100 border border-white/10 card-hover reveal"><div class="card-body"><div class="text-3xl">🐉</div><h3 class="card-title text-lg text-primary">Boss và quái mỗi vùng</h3><p class="text-sm text-base-content/70">Mỗi vùng có bầy quái riêng và boss canh giữ — Quỷ vương rừng sâu, Hydra bùn, Sâu cát khổng lồ, Rồng gió, Kraken…</p></div></div>
-			<div class="card bg-base-100 border border-white/10 card-hover reveal"><div class="card-body"><div class="text-3xl">👥</div><h3 class="card-title text-lg text-primary">Chơi cùng bạn bè</h3><p class="text-sm text-base-content/70">Gặp người chơi khác trên map, chat kênh map / thế giới / riêng, kết bạn, đấu với nhau ở vùng PvP.</p></div></div>
-		</div>
-	</section>
-
-	<!-- ———— Hình ảnh ———— -->
-	<section id="hinh-anh" class="max-w-6xl mx-auto px-4 pt-20 scroll-mt-20">
-		<div class="text-center reveal">
-			<div class="badge badge-primary badge-outline font-bold mb-3">HÌNH ẢNH</div>
-			<h2 class="text-3xl sm:text-4xl font-black">Hình ảnh trong game</h2>
-			<p class="mt-3 text-base-content/70">Bấm vào ảnh để xem lớn.</p>
-		</div>
-		<div id="gallery" class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-			<figure class="group relative rounded-2xl overflow-hidden border border-white/10 cursor-zoom-in reveal"><img class="w-full aspect-video object-cover transition duration-500 group-hover:scale-105" src="site/img/shot-swamp-hub.jpg" alt="" loading="lazy"><figcaption class="absolute inset-x-0 bottom-0 p-3 pt-10 bg-gradient-to-t from-black/85 to-transparent text-sm font-bold">Làng nhà sàn Lau Xám · Đầm lầy</figcaption></figure>
-			<figure class="group relative rounded-2xl overflow-hidden border border-white/10 cursor-zoom-in reveal"><img class="w-full aspect-video object-cover transition duration-500 group-hover:scale-105" src="site/img/shot-desert-hub.jpg" alt="" loading="lazy"><figcaption class="absolute inset-x-0 bottom-0 p-3 pt-10 bg-gradient-to-t from-black/85 to-transparent text-sm font-bold">Thành ốc đảo Sahrin · Sa mạc</figcaption></figure>
-			<figure class="group relative rounded-2xl overflow-hidden border border-white/10 cursor-zoom-in reveal"><img class="w-full aspect-video object-cover transition duration-500 group-hover:scale-105" src="site/img/shot-tundra-hub.jpg" alt="" loading="lazy"><figcaption class="absolute inset-x-0 bottom-0 p-3 pt-10 bg-gradient-to-t from-black/85 to-transparent text-sm font-bold">Làng gỗ Tuyết Phong · Băng giá</figcaption></figure>
-			<figure class="group relative rounded-2xl overflow-hidden border border-white/10 cursor-zoom-in reveal"><img class="w-full aspect-video object-cover transition duration-500 group-hover:scale-105" src="site/img/shot-volcano-hub.jpg" alt="" loading="lazy"><figcaption class="absolute inset-x-0 bottom-0 p-3 pt-10 bg-gradient-to-t from-black/85 to-transparent text-sm font-bold">Pháo đài Đe Đỏ · Núi lửa</figcaption></figure>
-			<figure class="group relative rounded-2xl overflow-hidden border border-white/10 cursor-zoom-in reveal"><img class="w-full aspect-video object-cover transition duration-500 group-hover:scale-105" src="site/img/shot-isles-hub.jpg" alt="" loading="lazy"><figcaption class="absolute inset-x-0 bottom-0 p-3 pt-10 bg-gradient-to-t from-black/85 to-transparent text-sm font-bold">Cảng chài San Hô · Quần đảo</figcaption></figure>
-			<figure class="group relative rounded-2xl overflow-hidden border border-white/10 cursor-zoom-in reveal"><img class="w-full aspect-video object-cover transition duration-500 group-hover:scale-105" src="site/img/shot-highland-hunt.jpg" alt="" loading="lazy"><figcaption class="absolute inset-x-0 bottom-0 p-3 pt-10 bg-gradient-to-t from-black/85 to-transparent text-sm font-bold">Thung Lũng Tiên · Cao nguyên</figcaption></figure>
-		</div>
+		<p class="px-4 mt-2 text-xs text-base-content/50 lg:hidden">← Vuốt ngang để xem thêm · chạm để phóng to</p>
 	</section>
 
 	<!-- ———— Kêu gọi cuối trang ———— -->
-	<section class="max-w-6xl mx-auto px-4 py-24">
-		<div class="card lg:card-side bg-gradient-to-br from-primary/25 via-base-100 to-secondary/20 border border-primary/30 shadow-2xl overflow-hidden reveal">
-			<figure class="p-8 pb-0 lg:pb-8 shrink-0"><img class="px h-48 anim-bob" src="site/img/bram.png" alt="Bram"></figure>
-			<div class="card-body justify-center">
-				<h2 class="text-3xl font-black">Hành trang sẵn rồi, lên đường thôi!</h2>
-				<p class="text-base-content/75">Tải game miễn phí, tạo nhân vật và bắt đầu hành trình từ Thistlewood. Tài khoản và nhân vật lưu trên máy chủ — đổi máy vẫn chơi tiếp được.</p>
-				<div class="dl card-actions mt-3">
-					<a class="btn btn-primary gap-2" data-os="windows" href="api/client/latest/windows"><svg class="w-5 h-5"><use href="#i-win"/></svg>Tải cho PC</a>
-					<a class="btn btn-success gap-2" data-os="android" href="api/client/latest/android"><svg class="w-5 h-5"><use href="#i-and"/></svg>Tải cho Android</a>
+	<section class="max-w-6xl mx-auto px-4 py-14 sm:py-24">
+		<div class="card sm:card-side bg-gradient-to-br from-primary/25 via-base-100 to-secondary/20 border border-primary/30 shadow-2xl overflow-hidden reveal">
+			<figure class="pt-6 sm:p-8 shrink-0"><img class="px h-36 sm:h-48 anim-bob w-auto" src="site/img/bram.png" alt="Bram" width="192" height="284" loading="lazy"></figure>
+			<div class="card-body justify-center text-center sm:text-left">
+				<h2 class="text-2xl sm:text-3xl font-black">Hành trang sẵn rồi, lên đường thôi!</h2>
+				<p class="text-base-content/75">Tải game miễn phí, tạo nhân vật và bắt đầu hành trình từ Thistlewood. Tài khoản lưu trên máy chủ — đổi máy vẫn chơi tiếp.</p>
+				<div class="card-actions mt-3 justify-center sm:justify-start">
+					<a class="btn btn-primary btn-wide" href="tai-game">⬇ Tải game</a>
 				</div>
 			</div>
 		</div>
 	</section>
 </main>
 
-<footer class="footer footer-center p-8 bg-base-300 text-base-content/60 text-sm border-t border-white/5">
-	<div>
-		<p class="font-black text-base-content">AETHER <span class="text-primary">CHRONICLE</span></p>
-		<p>Bản beta, đồ hoạ đang hoàn thiện · Tài khoản và nhân vật lưu trên máy chủ.</p>
-	</div>
-</footer>
-
-<button id="totop" class="btn btn-primary btn-circle fixed right-4 bottom-4 z-30 opacity-0 pointer-events-none transition-opacity shadow-lg" aria-label="Lên đầu trang">▲</button>
-<div id="toasts" class="toast toast-end toast-bottom z-[60]"></div>
-
-<!-- ———— Hộp thoại ———— -->
-<dialog id="dlg-auth" class="modal modal-bottom sm:modal-middle">
-	<div class="modal-box border border-white/10">
-		<form method="dialog"><button class="btn btn-sm btn-circle btn-ghost absolute right-3 top-3" aria-label="Đóng">✕</button></form>
-		<h3 class="font-black text-2xl" id="auth-title">Đăng nhập</h3>
-		<p class="text-sm text-base-content/60 mt-1">Dùng chung tài khoản với game.</p>
-		<div role="tablist" id="auth-seg" class="tabs tabs-boxed mt-4 bg-base-200">
-			<button type="button" role="tab" class="tab tab-active" data-mode="login">Đăng nhập</button>
-			<button type="button" role="tab" class="tab" data-mode="register">Tạo tài khoản</button>
-		</div>
-		<form id="auth-form" class="mt-4 space-y-3">
-			<label class="form-control"><div class="label"><span class="label-text font-semibold">Tên đăng nhập</span></div>
-				<input id="au" class="input input-bordered w-full" autocomplete="username" required maxlength="20" autocapitalize="none" spellcheck="false"></label>
-			<label class="form-control"><div class="label"><span class="label-text font-semibold">Mật khẩu</span></div>
-				<input id="ap" type="password" class="input input-bordered w-full" autocomplete="current-password" required maxlength="72"></label>
-			<label class="form-control" id="ap2-wrap" hidden><div class="label"><span class="label-text font-semibold">Nhập lại mật khẩu</span></div>
-				<input id="ap2" type="password" class="input input-bordered w-full" autocomplete="new-password" maxlength="72"></label>
-			<div id="auth-err" role="alert" class="alert alert-error py-2 text-sm" hidden></div>
-			<button class="btn btn-primary w-full" id="auth-go">Đăng nhập</button>
-			<p class="text-xs text-base-content/50">Tên đăng nhập 3–20 ký tự: chữ thường không dấu, số, gạch dưới. Mật khẩu 6–72 ký tự.</p>
-		</form>
-	</div>
-	<form method="dialog" class="modal-backdrop"><button>đóng</button></form>
-</dialog>
-
-<dialog id="dlg-feedback" class="modal modal-bottom sm:modal-middle">
-	<div class="modal-box border border-white/10">
-		<form method="dialog"><button class="btn btn-sm btn-circle btn-ghost absolute right-3 top-3" aria-label="Đóng">✕</button></form>
-		<h3 class="font-black text-2xl">💬 Gửi góp ý</h3>
-		<form id="fb-form" class="mt-4 space-y-3">
-			<label class="form-control"><div class="label"><span class="label-text font-semibold">Nhân vật (không bắt buộc)</span></div>
-				<select id="fb-char" class="select select-bordered w-full"></select></label>
-			<label class="form-control"><div class="label"><span class="label-text font-semibold">Góp ý, báo lỗi</span><span class="label-text-alt"><span id="fb-cnt">0</span>/1000</span></div>
-				<textarea id="fb-text" class="textarea textarea-bordered w-full h-36 text-base" maxlength="1000" placeholder="Bạn gặp lỗi gì, ở map nào? Muốn game có thêm gì?" required></textarea></label>
-			<div id="fb-err" role="alert" class="alert alert-error py-2 text-sm" hidden></div>
-			<button class="btn btn-primary w-full">Gửi góp ý</button>
-		</form>
-	</div>
-	<form method="dialog" class="modal-backdrop"><button>đóng</button></form>
-</dialog>
-
-<dialog id="dlg-post" class="modal modal-bottom sm:modal-middle">
-	<div class="modal-box border border-white/10">
-		<form method="dialog"><button class="btn btn-sm btn-circle btn-ghost absolute right-3 top-3" aria-label="Đóng">✕</button></form>
-		<h3 class="font-black text-2xl">✏️ Viết bài</h3>
-		<form id="post-form" class="mt-4 space-y-3">
-			<label class="form-control"><div class="label"><span class="label-text font-semibold">Đăng với tên</span></div>
-				<select id="pf-char" class="select select-bordered w-full"></select></label>
-			<label class="form-control"><div class="label"><span class="label-text font-semibold">Tiêu đề</span></div>
-				<input id="pf-title" class="input input-bordered w-full" maxlength="100" required></label>
-			<label class="form-control"><div class="label"><span class="label-text font-semibold">Nội dung</span><span class="label-text-alt"><span id="pf-cnt">0</span>/2000</span></div>
-				<textarea id="pf-body" class="textarea textarea-bordered w-full h-40 text-base" maxlength="2000" required></textarea></label>
-			<div id="pf-err" role="alert" class="alert alert-error py-2 text-sm" hidden></div>
-			<button class="btn btn-primary w-full">Đăng bài</button>
-		</form>
-	</div>
-	<form method="dialog" class="modal-backdrop"><button>đóng</button></form>
-</dialog>
-
-<dialog id="lb" class="modal">
-	<div class="modal-box max-w-5xl p-0 bg-black overflow-hidden">
-		<img id="lb-img" class="px w-full" alt="">
-		<div class="flex items-center gap-2 p-3 bg-base-100">
-			<button id="lb-pv" class="btn btn-sm btn-circle btn-ghost" aria-label="Ảnh trước">‹</button>
-			<p id="lb-cap" class="flex-1 text-center font-bold"></p>
-			<button id="lb-nx" class="btn btn-sm btn-circle btn-ghost" aria-label="Ảnh sau">›</button>
-			<form method="dialog"><button class="btn btn-sm btn-circle btn-ghost" aria-label="Đóng">✕</button></form>
-		</div>
-	</div>
-	<form method="dialog" class="modal-backdrop"><button>đóng</button></form>
-</dialog>
-
+<script src="site/common.js"></script>
 <script>
 (function () {
-	const $ = (id) => document.getElementById(id);
-	const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-	const mb = (n) => (n / 1048576).toFixed(0) + ' MB';
+	const { $, h } = A;
+	A.markMyOs();
 
-	/** Tạo phần tử: h('div.card.p-4', { onclick }, con…) — chữ người chơi gõ luôn đi qua textContent. */
-	function h(sel, props, ...kids) {
-		const [tag, ...cls] = sel.split('.');
-		const el = document.createElement(tag || 'div');
-		if (cls.length) el.className = cls.join(' ');
-		Object.assign(el, props || {});
-		kids.flat().forEach((k) => k != null && k !== false && el.append(k instanceof Node ? k : String(k)));
-		return el;
-	}
-	function toast(text, kind) {
-		const t = h('div.alert.shadow-xl.text-sm.font-semibold.whitespace-normal.max-w-xs.sm:max-w-sm.alert-' + (kind || 'success'), null, h('span', null, text));
-		$('toasts').append(t);
-		setTimeout(() => t.remove(), 3200);
-	}
-
-	// Thanh menu đặc lại khi rời banner; nút lên đầu trang.
-	const onScroll = () => {
-		const solid = scrollY > 40;
-		['glass', 'shadow-lg', 'border-b', 'border-white/10'].forEach((c) => $('top').classList.toggle(c, solid));
-		$('totop').classList.toggle('opacity-0', scrollY < 700);
-		$('totop').classList.toggle('pointer-events-none', scrollY < 700);
-	};
-	addEventListener('scroll', onScroll, { passive: true });
-	onScroll();
-	$('totop').onclick = () => scrollTo({ top: 0 });
-	// Bấm một mục trong menu thả xuống thì đóng menu (daisyUI giữ mở theo focus).
-	document.querySelectorAll('.dropdown-content a, .dropdown-content button').forEach((a) => a.addEventListener('click', () => document.activeElement.blur()));
-
-	// Gợi ý nút tải hợp máy người xem (Android → APK, còn lại → PC): đưa lên đầu + gắn nhãn.
-	const os = /android/i.test(navigator.userAgent) ? 'android' : /windows/i.test(navigator.userAgent) ? 'windows' : '';
-	if (os) {
-		document.querySelectorAll('.dl').forEach((d) => {
-			const mine = d.querySelector('[data-os="' + os + '"]');
-			if (!mine) return;
-			d.prepend(mine);
-			mine.classList.add('relative');
-			mine.append(h('span.absolute.-top-2.-right-2.badge.badge-error.badge-sm.font-bold.normal-case', null, 'hợp máy bạn'));
-		});
-	}
-
-	// Thông tin bản đang phát: số bản, dung lượng, ghi chú bản mới, mã kiểm tra.
-	const setSrv = (ok, text) => {
-		['dot', 'dot0'].forEach((id) => ($(id).className = 'inline-block rounded-full ' + (id === 'dot' ? 'w-3 h-3 ' : 'w-2.5 h-2.5 ') + (ok ? 'bg-success shadow-[0_0_0_4px_rgba(64,192,87,.25)] animate-pulse' : 'bg-error')));
-		$('srv').textContent = $('srv0').textContent = text;
-	};
-	fetch('api/client/version', { cache: 'no-store' })
-		.then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+	// Máy chủ + bản client
+	A.version
 		.then((v) => {
-			const w = v.windows, a = v.android, z = w && w.zip;
-			if (w) document.querySelectorAll('[data-size="windows"]').forEach((e) => (e.textContent = 'Windows · bộ cài · ' + mb(w.size)));
-			if (z) document.querySelectorAll('[data-size="zip"]').forEach((e) => (e.textContent = 'giải nén rồi chạy · ' + mb(z.size)));
-			if (a) document.querySelectorAll('[data-size="android"]').forEach((e) => (e.textContent = 'file APK · ' + mb(a.size)));
-			$('ver').textContent = 'Miễn phí · Phiên bản ' + v.version + (w ? ' · PC bản ' + w.build : '') + (a ? ' · Android bản ' + a.build : '');
-			setSrv(true, 'Máy chủ đang mở');
-			if (v.notes) $('notes').textContent = 'Bản mới: ' + v.notes;
-			const sha = [[w, 'PC exe'], [z, 'PC zip'], [a, 'Android APK']].filter((x) => x[0] && x[0].sha256);
-			sha.forEach(([f, name]) => $('sha-list').append(h('div', null, h('b', null, name + ' · ' + f.file), h('code.block.opacity-70', null, f.sha256))));
-			$('sha').hidden = !sha.length;
+			A.fillSizes(v);
+			$('ver').textContent = 'Miễn phí · bản ' + v.version;
+			$('dot').className = 'inline-block w-2.5 h-2.5 rounded-full bg-success shadow-[0_0_0_4px_rgba(64,192,87,.25)] animate-pulse';
+			$('srv').textContent = 'Máy chủ đang mở';
 		})
-		.catch(() => setSrv(false, 'Không kết nối được máy chủ'));
-
-	// —— Tin tức: API (quản trị đăng ở /admin), máy chủ cũ / lỗi thì đọc news.json. Tin trong 2 ngày gắn nhãn MỚI. ——
-	const TAG = { 'Cập nhật': 'badge-success', 'Thông báo': 'badge-error', 'Sự kiện': 'badge-accent' };
-	const fresh = (n) => {
-		if (n.at) return Date.now() - n.at < 2 * 864e5;
-		const m = /^(\d+)\/(\d+)\/(\d+)$/.exec(n.date || '');
-		return m && Date.now() - new Date(+m[3], m[2] - 1, +m[1]) < 2 * 864e5;
-	};
-	const PAGE = 6;
-	let news = [], filter = '', shown = PAGE;
-	const renderNews = () => {
-		const box = $('news');
-		box.innerHTML = '';
-		const list = news.filter((n) => !filter || n.tag === filter);
-		list.slice(0, shown).forEach((n, i) => {
-			const item = h('div.collapse.collapse-arrow.bg-base-200.border.border-white/5');
-			item.append(
-				h('input', { type: 'checkbox', checked: i === 0, ariaLabel: n.title }),
-				h('div.collapse-title.flex.flex-wrap.items-center.gap-x-3.gap-y-1.pr-10', null,
-					h('span.badge.badge-sm.font-bold.' + (TAG[n.tag] || 'badge-ghost'), null, n.tag),
-					fresh(n) ? h('span.badge.badge-sm.badge-warning.font-bold', null, 'MỚI') : null,
-					h('span.font-bold.flex-1.min-w-[12rem]', null, n.title),
-					h('span.text-xs.text-base-content/50', null, n.date),
-				),
-				h('div.collapse-content', null, h('ul.list-disc.pl-5.space-y-1.5.text-sm.text-base-content/85.leading-relaxed', null, n.body.map((l) => h('li', null, l)))),
-			);
-			box.append(item);
+		.catch(() => {
+			$('dot').className = 'inline-block w-2.5 h-2.5 rounded-full bg-error';
+			$('srv').textContent = 'Không kết nối được máy chủ';
 		});
-		if (!box.children.length) box.append(h('p.text-base-content/60.py-6.text-center', null, 'Chưa có tin nào.'));
-		$('news-foot').hidden = list.length <= shown;
-	};
-	fetch('api/news', { cache: 'no-store' })
+
+	// 3 tin mới nhất
+	fetch('api/news?limit=3', { cache: 'no-store' })
 		.then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
 		.catch(() => fetch('site/news.json', { cache: 'no-store' }).then((r) => r.json()))
 		.then((list) => {
-			news = list;
-			renderNews();
+			$('news').replaceChildren(...list.slice(0, 3).map((n, i) =>
+				h('a.card.bg-base-100.border.border-white/10.card-hover' + (i ? '' : '.md:border-primary/30'), { href: 'tin-tuc' + (n.id ? '#tin-' + n.id : '') },
+					h('div.card-body.p-5.gap-2', null,
+						h('div.flex.items-center.gap-2', null, h('span.badge.badge-sm.font-bold.' + (A.NEWS_TAG_CLS[n.tag] || 'badge-ghost'), null, n.tag), h('span.text-xs.text-base-content/50', null, n.date)),
+						h('h3.font-bold.leading-snug.line-clamp-2', null, n.title),
+						h('p.text-sm.text-base-content/65.line-clamp-2', null, n.body.join(' · ')),
+					),
+				)));
 		})
-		.catch(() => ($('news').innerHTML = '<p class="text-error py-6 text-center">Không tải được tin tức.</p>'));
-	$('tabs').onclick = (e) => {
-		const b = e.target.closest('.tab');
-		if (!b) return;
-		document.querySelectorAll('#tabs .tab').forEach((x) => x.classList.toggle('tab-active', x === b));
-		filter = b.dataset.f;
-		shown = PAGE;
-		renderNews();
-	};
-	$('news-more').onclick = () => {
-		shown += PAGE;
-		renderNews();
-	};
+		.catch(() => $('news').replaceChildren(h('p.text-base-content/60', null, 'Không tải được tin tức.')));
 
-	// —— Tài khoản (dùng chung với game + trang quản trị) ——
-	const KEY = 'aether.web.token';
-	let token = '', me = null;
-	try { token = localStorage.getItem(KEY) || ''; } catch (e) {}
-	const setToken = (t) => {
-		token = t;
-		try { t ? localStorage.setItem(KEY, t) : localStorage.removeItem(KEY); } catch (e) {}
-	};
-	/** Gọi API cùng máy chủ — lỗi thì ném Error mang câu báo của máy chủ; hết phiên thì đăng xuất. */
-	async function api(method, path, body) {
-		const r = await fetch('api/' + path, {
-			method,
-			cache: 'no-store',
-			headers: { 'Content-Type': 'application/json', ...(token ? { Authorization: 'Bearer ' + token } : {}) },
-			body: body === undefined ? undefined : JSON.stringify(body),
-		});
-		const data = await r.json().catch(() => ({}));
-		if (r.status === 401 && token && path !== 'login') signedOut();
-		if (!r.ok) throw Object.assign(new Error(data.error || 'Lỗi máy chủ (' + r.status + ')'), { status: r.status });
-		return data;
-	}
-	const ago = (t) => {
-		const s = (Date.now() - t) / 1000;
-		if (s < 60) return 'vừa xong';
-		if (s < 3600) return Math.floor(s / 60) + ' phút trước';
-		if (s < 86400) return Math.floor(s / 3600) + ' giờ trước';
-		if (s < 7 * 86400) return Math.floor(s / 86400) + ' ngày trước';
-		return new Date(t).toLocaleDateString('vi-VN');
-	};
-	const AV = ['#e8590c', '#2f9e44', '#1c7ed6', '#7048e8', '#c2255c', '#0c8599', '#e67700'];
-	const avColor = (name) => {
-		let n = 0;
-		for (const ch of name) n = (n * 31 + ch.codePointAt(0)) >>> 0;
-		return AV[n % AV.length];
-	};
-	const avatar = (name, size) => h('div.avatar.placeholder', null, h('div.rounded-xl.text-white.font-black.' + (size || 'w-10'), { style: 'background:' + avColor(name) }, h('span', null, [...name][0].toUpperCase())));
-	const showErr = (id, msg) => {
-		$(id).textContent = msg || '';
-		$(id).hidden = !msg;
-	};
+	// 5 bài diễn đàn mới nhất
+	A.api('GET', 'posts?limit=5')
+		.then((list) => {
+			if (!list.length) return $('posts').replaceChildren(h('div.p-8.text-center.text-base-content/60', null, h('div.text-4xl.mb-2', null, '🗨️'), 'Chưa có bài nào — ', h('a.link.link-primary', { href: 'dien-dan#viet' }, 'mở hàng ngay!')));
+			$('posts').replaceChildren(...list.map((p) =>
+				h('a.flex.items-center.gap-3.p-4.hover:bg-base-200/60.active:bg-base-200.transition-colors', { href: 'bai-viet?id=' + p.id },
+					A.avatar(p.author),
+					h('div.flex-1.min-w-0', null,
+						h('p.font-bold.truncate', null, p.title),
+						h('p.text-xs.text-base-content/55.truncate', null, (A.CAT_ICON[p.category] || '') + ' ' + (A.CATS[p.category] || '') + ' · ' + p.author + ' · ' + A.ago(p.at)),
+					),
+					h('span.badge.badge-ghost.gap-1.shrink-0', null, '💬 ' + p.comments),
+				)));
+		})
+		.catch(() => $('posts').replaceChildren(h('p.p-6.text-base-content/60', null, 'Chưa tải được bài viết.')));
 
-	// Sau khi đăng nhập thì làm tiếp việc người xem định làm (góp ý / viết bài / bình luận).
-	let after = null;
-	const need = (fn) => (me ? fn() : ((after = fn), openAuth('login')));
+	A.lightbox([...document.querySelectorAll('#gallery figure')]);
 
-	function renderAcct() {
-		$('login-btn').classList.toggle('hidden', !!me);
-		$('acct').classList.toggle('hidden', !me);
-		if (me) {
-			$('acct-name').textContent = me.username;
-			$('acct-av').textContent = me.username[0].toUpperCase();
-			$('acct-av').style.background = avColor(me.username);
-		}
-		$('acct-admin').classList.toggle('hidden', !(me && me.admin));
-		$('board-who').textContent = me ? 'Xin chào ' + me.username + '! Chia sẻ gì với mọi người nào.' : 'Đăng nhập bằng tài khoản game để viết bài và bình luận.';
-		const opts = (sel, none) => {
-			sel.innerHTML = '';
-			if (none) sel.append(h('option', { value: '' }, none));
-			(me ? me.characters : []).forEach((c) => sel.append(h('option', { value: c.id }, c.name + ' · cấp ' + c.level)));
-			if (!sel.length) sel.append(h('option', { value: '' }, me ? me.username + ' (chưa có nhân vật)' : ''));
-		};
-		opts($('fb-char'), '— Không chọn —');
-		opts($('pf-char'));
-		renderPosts();
-	}
-	async function loadMe() {
-		if (token) {
-			try {
-				me = await api('GET', 'me');
-			} catch (e) {
-				if (e.status === 401) me = null;
-			}
-		}
-		renderAcct();
-	}
-	function signedOut() {
-		setToken('');
-		me = null;
-		renderAcct();
-	}
-	document.addEventListener('click', (e) => {
-		const b = e.target.closest('[data-act]');
-		if (!b) return;
-		const act = b.dataset.act;
-		if (act === 'login') openAuth('login');
-		if (act === 'logout') {
-			api('POST', 'logout').catch(() => {});
-			signedOut();
-			toast('Đã đăng xuất', 'info');
-		}
-		if (act === 'feedback') need(() => $('dlg-feedback').showModal());
-		if (act === 'post') need(() => $('dlg-post').showModal());
-	});
-
-	// Đăng nhập / tạo tài khoản
-	let mode = 'login';
-	function openAuth(m) {
-		setMode(m);
-		showErr('auth-err');
-		$('dlg-auth').showModal();
-	}
-	function setMode(m) {
-		mode = m;
-		document.querySelectorAll('#auth-seg .tab').forEach((b) => b.classList.toggle('tab-active', b.dataset.mode === m));
-		$('auth-title').textContent = m === 'login' ? 'Đăng nhập' : 'Tạo tài khoản';
-		$('auth-go').textContent = m === 'login' ? 'Đăng nhập' : 'Tạo tài khoản';
-		$('ap2-wrap').hidden = m === 'login';
-		$('ap2').required = m !== 'login';
-		$('ap').autocomplete = m === 'login' ? 'current-password' : 'new-password';
-	}
-	$('auth-seg').onclick = (e) => e.target.dataset.mode && setMode(e.target.dataset.mode);
-	$('auth-form').onsubmit = async (e) => {
-		e.preventDefault();
-		const u = $('au').value.trim().toLowerCase(), p = $('ap').value;
-		showErr('auth-err');
-		if (mode === 'register' && p !== $('ap2').value) return showErr('auth-err', 'Hai mật khẩu chưa khớp');
-		$('auth-go').classList.add('btn-disabled');
-		try {
-			const r = await api('POST', mode, { username: u, password: p });
-			setToken(r.token);
-			$('ap').value = $('ap2').value = '';
-			await loadMe();
-			const fn = after;
-			after = null;
-			$('dlg-auth').close();
-			toast(mode === 'login' ? 'Chào mừng trở lại, ' + me.username + '!' : 'Đã tạo tài khoản ' + me.username + ' — vào game đăng nhập bằng tài khoản này.');
-			if (fn) fn();
-		} catch (err) {
-			showErr('auth-err', err.message);
-		} finally {
-			$('auth-go').classList.remove('btn-disabled');
-		}
-	};
-	$('dlg-auth').addEventListener('close', () => (after = null));
-
-	// Góp ý
-	const counter = (input, out) => (input.oninput = () => ($(out).textContent = input.value.length));
-	counter($('fb-text'), 'fb-cnt');
-	counter($('pf-body'), 'pf-cnt');
-	$('fb-form').onsubmit = async (e) => {
-		e.preventDefault();
-		showErr('fb-err');
-		try {
-			await api('POST', 'feedback', { text: $('fb-text').value, characterId: $('fb-char').value || undefined, platform: 'web' });
-			$('fb-text').value = '';
-			$('fb-cnt').textContent = '0';
-			$('dlg-feedback').close();
-			toast('Đã gửi góp ý — cảm ơn bạn! Đội làm game đọc từng góp ý.');
-		} catch (x) {
-			showErr('fb-err', x.message);
-		}
-	};
-
-	// Viết bài
-	$('post-form').onsubmit = async (e) => {
-		e.preventDefault();
-		showErr('pf-err');
-		try {
-			const p = await api('POST', 'posts', { title: $('pf-title').value, body: $('pf-body').value, characterId: $('pf-char').value || undefined });
-			$('pf-title').value = $('pf-body').value = '';
-			$('pf-cnt').textContent = '0';
-			$('dlg-post').close();
-			posts.unshift(p);
-			comments[p.id] = [];
-			openPost = p.id;
-			renderPosts();
-			toast('Đã đăng bài');
-			$('cong-dong').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
-		} catch (x) {
-			showErr('pf-err', x.message);
-		}
-	};
-
-	// Danh sách bài + bình luận
-	const POSTS = 10;
-	let posts = [], postsOk = true, postsLoaded = false, openPost = null, more = false;
-	const comments = {};
-	async function loadPosts(reset) {
-		try {
-			const before = !reset && posts.length ? '&before=' + posts[posts.length - 1].id : '';
-			const list = await api('GET', 'posts?limit=' + POSTS + before);
-			posts = reset ? list : posts.concat(list);
-			more = list.length === POSTS;
-			postsOk = true;
-		} catch (e) {
-			postsOk = false;
-		}
-		postsLoaded = true;
-		renderPosts();
-	}
-	const delBtn = (label, ask, run) =>
-		h('button.btn.btn-ghost.btn-xs.text-error', { type: 'button', onclick: async (e) => {
-			e.stopPropagation();
-			if (!confirm(ask)) return;
-			try { await run(); } catch (x) { toast(x.message, 'error'); }
-		} }, label);
-	function renderPosts() {
-		const box = $('posts');
-		if (!postsLoaded) return;
-		box.innerHTML = '';
-		const empty = (t) => box.append(h('div.p-10.text-center.text-base-content/60', null, h('div.text-4xl.mb-2', null, '🗨️'), t));
-		if (!postsOk) empty('Chưa tải được bài viết.');
-		else if (!posts.length) empty('Chưa có bài nào — hãy là người mở hàng!');
-		posts.forEach((p) => {
-			const open = openPost === p.id;
-			const head = h('button.w-full.flex.items-center.gap-4.p-4.sm:px-5.text-left.hover:bg-base-200/60.transition-colors', { type: 'button' },
-				avatar(p.author),
-				h('div.flex-1.min-w-0', null, h('p.font-bold.truncate', null, p.title), h('p.text-xs.text-base-content/55', null, p.author + ' · ' + ago(p.at))),
-				h('span.badge.badge-ghost.gap-1.font-semibold', null, '💬 ' + p.comments),
-				h('span.text-base-content/40.text-xl.transition-transform' + (open ? '.rotate-90' : ''), null, '›'),
-			);
-			head.onclick = () => {
-				openPost = open ? null : p.id;
-				if (openPost && !comments[p.id]) loadComments(p.id);
-				renderPosts();
-			};
-			const item = h('div', null, head);
-			if (open) {
-				const body = h('div.px-4.sm:pl-[4.75rem].sm:pr-5.pb-5', null, h('p.whitespace-pre-wrap.break-words.leading-relaxed.text-base-content/90', null, p.body));
-				if (p.mine || (me && me.admin))
-					body.append(h('div.mt-2', null, delBtn('Xoá bài', 'Xoá bài "' + p.title + '"?', async () => {
-						await api('DELETE', 'posts/' + p.id);
-						posts = posts.filter((x) => x.id !== p.id);
-						renderPosts();
-						toast('Đã xoá bài', 'info');
-					})));
-				const cm = h('div.mt-4.space-y-1');
-				const list = comments[p.id];
-				if (!list) cm.append(h('div.skeleton.h-10.w-full'));
-				else if (!list.length) cm.append(h('p.text-sm.text-base-content/50', null, 'Chưa có bình luận.'));
-				(list || []).forEach((c) => {
-					cm.append(h('div.chat.chat-start', null,
-						h('div.chat-image', null, avatar(c.author, 'w-8')),
-						h('div.chat-header.text-xs.font-bold.mb-0.5', null, c.author, h('time.ml-2.opacity-50.font-normal', null, ago(c.at)),
-							c.mine || (me && me.admin) ? delBtn('Xoá', 'Xoá bình luận này?', async () => {
-								await api('DELETE', 'comments/' + c.id);
-								comments[p.id] = list.filter((x) => x.id !== c.id);
-								p.comments = Math.max(0, p.comments - 1);
-								renderPosts();
-							}) : null),
-						h('div.chat-bubble.chat-bubble-neutral.text-sm.whitespace-pre-wrap.break-words', null, c.body),
-					));
-				});
-				body.append(cm);
-				if (me) {
-					const input = h('input.input.input-bordered.input-sm.join-item.flex-1.min-w-0', { placeholder: 'Viết bình luận…', maxLength: 500 });
-					const form = h('form.join.w-full.mt-3', null, input, h('button.btn.btn-primary.btn-sm.join-item', { type: 'submit' }, 'Gửi'));
-					form.onsubmit = async (e) => {
-						e.preventDefault();
-						if (!input.value.trim()) return;
-						try {
-							const c = await api('POST', 'posts/' + p.id + '/comments', { body: input.value, characterId: $('pf-char').value || undefined });
-							(comments[p.id] = comments[p.id] || []).push(c);
-							p.comments++;
-							renderPosts();
-						} catch (x) { toast(x.message, 'error'); }
-					};
-					body.append(form);
-				} else {
-					body.append(h('button.btn.btn-ghost.btn-sm.mt-3', { type: 'button', onclick: () => openAuth('login') }, '🔑 Đăng nhập để bình luận'));
-				}
-				item.append(body);
-			}
-			box.append(item);
-		});
-		$('posts-foot').hidden = !postsOk || !more;
-	}
-	async function loadComments(id) {
-		try {
-			const d = await api('GET', 'posts/' + id);
-			comments[id] = d.comments;
-			const p = posts.find((x) => x.id === id);
-			if (p) p.comments = d.post.comments;
-		} catch (e) {
-			comments[id] = [];
-		}
-		renderPosts();
-	}
-	$('posts-more').onclick = () => loadPosts(false);
-	loadMe().then(() => loadPosts(true));
-
-	// —— Bản đồ lục địa: toạ độ (%) của từng vùng trên continent.png; vùng 8–10 chưa mở. ——
-	const REGIONS = [
-		{ n: 1, name: 'Thung lũng Thistlewood', x: 49, y: 50, lv: '1–10', el: 'Bóng tối', c: '#40c057', home: 'Thị trấn Thistlewood', text: 'Quê nhà của Lior. Nhiệm vụ tuổi thơ và năm 16 tuổi bắt đầu ở đây, giữa những con đường mòn và khu nghĩa địa cũ.' },
-		{ n: 2, name: 'Đầm lầy Mù Sương', x: 21, y: 76, lv: '10–20', el: 'Thuỷ · độc', c: '#5c940d', home: 'Làng nhà sàn Lau Xám', text: 'Dân đầm lầy sống trên nhà sàn, nhờ người lạ dẹp quái và tìm thuốc giải độc giữa màn sương không tan.', shot: 'shot-swamp-hub.jpg' },
-		{ n: 3, name: 'Sa mạc Hồng Cát', x: 51, y: 79, lv: '20–30', el: 'Thổ · Hoả', c: '#f08c00', home: 'Thành ốc đảo Sahrin', text: 'Vương quốc sa mạc: các tộc tranh nguồn nước, triều đình giao nhiệm vụ.', shot: 'shot-desert-hub.jpg' },
-		{ n: 4, name: 'Cao nguyên Gió Hú', x: 72, y: 20, lv: '30–40', el: 'Phong', c: '#20c997', home: 'Làng Cối Xay Gió', text: 'Làng trên cao nguyên lộng gió, giữ ngôi đền thờ trên mây.', shot: 'shot-highland-hunt.jpg' },
-		{ n: 5, name: 'Lãnh nguyên Băng Giá', x: 44, y: 19, lv: '40–50', el: 'Băng', c: '#4dabf7', home: 'Làng gỗ Tuyết Phong', text: 'Thợ săn và thợ mỏ băng sống qua mùa đông dài giữa rừng thông tuyết phủ.', shot: 'shot-tundra-hub.jpg' },
-		{ n: 6, name: 'Núi lửa Hoả Sơn', x: 79, y: 51, lv: '50–60', el: 'Hoả', c: '#e8590c', home: 'Pháo đài người lùn Đe Đỏ', text: 'Hội đồng người lùn rèn binh khí, đổi lấy nhiệm vụ trong lòng núi lửa.', shot: 'shot-volcano-hub.jpg' },
-		{ n: 7, name: 'Quần đảo San Hô', x: 85, y: 83, lv: '60–70', el: 'Thuỷ', c: '#15aabf', home: 'Cảng chài San Hô', text: 'Làng chài và thương thuyền, cùng tin đồn về một con tàu ma.', shot: 'shot-isles-hub.jpg' },
-		{ n: 8, name: 'Rừng Nấm Ngầm', x: 14, y: 46, lv: '70–80', el: 'Thổ', c: '#7048e8', home: 'Làng người nấm Ánh Tím', text: 'Tộc người nấm dưới lòng đất, chỉ tin người đã giúp họ.', locked: true },
-		{ n: 9, name: 'Phế tích Aether', x: 18, y: 18, lv: '80–90', el: 'Aether', c: '#adb5bd', home: 'Toà thành Aether cổ', text: 'Tàn dư triều đình pháp sư xưa — các phe tranh nhau di sản Aether.', locked: true },
-		{ n: 10, name: 'Vực Hư Không', x: 92, y: 16, lv: '90–100', el: 'Bóng tối', c: '#9c36b5', home: 'Thành trì Hư Không', text: 'Tiền đồn cuối cùng trước Ma vương — liên quân các vùng đóng ở đây.', locked: true },
-	];
-	const card = $('region');
-	const pins = REGIONS.map((r) => {
-		const b = h('button.pin.tooltip' + (r.locked ? '.locked' : ''), { type: 'button', ariaLabel: 'Vùng ' + r.n + ': ' + r.name }, r.locked ? '🔒' : r.n);
-		b.dataset.tip = r.name;
-		// .tooltip của daisyUI đặt position: relative → ghim lại bằng inline.
-		b.style.position = 'absolute';
-		b.style.display = 'grid';
-		b.style.left = r.x + '%';
-		b.style.top = r.y + '%';
-		b.style.setProperty('--c', r.c);
-		b.onclick = () => showRegion(r);
-		$('map').append(b);
-		return b;
-	});
-	function showRegion(r) {
-		pins.forEach((p, i) => p.classList.toggle('on', REGIONS[i] === r));
-		// Có ảnh chụp thì dùng; chưa có thì phóng to đúng chỗ vùng đó trên bản đồ lục địa.
-		const fig = h('figure.relative.aspect-video.bg-base-300.bg-cover.bg-center');
-		fig.style.backgroundImage = "url('site/img/" + (r.shot || 'continent.png') + "')";
-		if (!r.shot) {
-			fig.style.backgroundSize = '420% auto';
-			fig.style.backgroundPosition = r.x + '% ' + r.y + '%';
-			fig.style.imageRendering = 'pixelated';
-		}
-		if (r.locked) fig.append(h('div.absolute.inset-0.grid.place-items-center.bg-base-300/70.backdrop-grayscale.font-black.text-lg', null, '🔒 Sắp mở'));
-		card.replaceChildren(fig,
-			h('div.card-body.p-5.gap-2', null,
-				h('p.text-xs.font-black.tracking-wider.text-primary', null, 'VÙNG ' + r.n + (r.locked ? ' · CHƯA MỞ' : '')),
-				h('h3.card-title.text-xl.font-black', null, r.name),
-				h('div.flex.flex-wrap.gap-2', null, h('span.badge.badge-outline', null, 'Cấp ' + r.lv), h('span.badge.badge-outline', null, 'Hệ ' + r.el)),
-				h('p.text-sm.text-base-content/75.leading-relaxed', null, r.text),
-				h('p.text-sm.text-base-content/60', null, 'Nơi ở: ', h('b.text-base-content', null, r.home)),
-			),
-		);
-		card.style.borderColor = r.c;
-	}
-	showRegion(REGIONS[0]);
-
-	// —— Ảnh lớn ——
-	const figs = [...document.querySelectorAll('#gallery figure')];
-	let cur = 0;
-	const openShot = (i) => {
-		cur = (i + figs.length) % figs.length;
-		$('lb-img').src = figs[cur].querySelector('img').src;
-		$('lb-cap').textContent = figs[cur].querySelector('figcaption').textContent;
-		if (!$('lb').open) $('lb').showModal();
-	};
-	figs.forEach((f, i) => (f.onclick = () => openShot(i)));
-	$('lb-pv').onclick = () => openShot(cur - 1);
-	$('lb-nx').onclick = () => openShot(cur + 1);
-	addEventListener('keydown', (e) => {
-		if (!$('lb').open) return;
-		if (e.key === 'ArrowLeft') openShot(cur - 1);
-		if (e.key === 'ArrowRight') openShot(cur + 1);
-	});
-
-	// —— Hiện dần khi cuộn tới + đếm số ——
-	const count = (el) => {
-		const to = +el.dataset.count, plus = 'plus' in el.dataset;
-		if (reduce) return;
-		const t0 = performance.now();
-		const step = (t) => {
-			const k = Math.min(1, (t - t0) / 1100);
-			el.textContent = Math.round(to * (1 - Math.pow(1 - k, 3))) + (plus && k === 1 ? '+' : '');
-			if (k < 1) requestAnimationFrame(step);
-		};
-		requestAnimationFrame(step);
-	};
-	if ('IntersectionObserver' in window) {
+	// Đếm số ở dải số liệu
+	if (!A.reduce && 'IntersectionObserver' in window) {
 		const io = new IntersectionObserver((es) => es.forEach((e) => {
 			if (!e.isIntersecting) return;
-			e.target.classList.add('seen');
 			io.unobserve(e.target);
-		}), { threshold: 0.1 });
-		document.querySelectorAll('.reveal').forEach((el, i) => {
-			el.style.transitionDelay = (i % 3) * 80 + 'ms';
-			io.observe(el);
-		});
-		const io2 = new IntersectionObserver((es) => es.forEach((e) => {
-			if (!e.isIntersecting) return;
-			count(e.target);
-			io2.unobserve(e.target);
+			const el = e.target, to = +el.dataset.count, plus = 'plus' in el.dataset, t0 = performance.now();
+			const step = (t) => {
+				const k = Math.min(1, (t - t0) / 1100);
+				el.textContent = Math.round(to * (1 - Math.pow(1 - k, 3))) + (plus && k === 1 ? '+' : '');
+				if (k < 1) requestAnimationFrame(step);
+			};
+			requestAnimationFrame(step);
 		}));
-		document.querySelectorAll('[data-count]').forEach((el) => io2.observe(el));
-	} else document.querySelectorAll('.reveal').forEach((el) => el.classList.add('seen'));
+		document.querySelectorAll('[data-count]').forEach((el) => io.observe(el));
+	}
 
-	// —— Hạt Aether bay lên trên banner (dừng khi banner khuất / người xem tắt chuyển động) ——
+	// Hạt Aether bay lên trên banner (điện thoại ít hạt hơn; dừng khi banner khuất / tab ẩn / người xem tắt chuyển động)
 	const cv = $('sparks');
-	if (!reduce && cv.getContext) {
+	if (!A.reduce && cv.getContext) {
 		const g = cv.getContext('2d');
 		const COLORS = ['#ffe48a', '#b48cff', '#8fe3ff', '#ffffff'];
 		let W = 0, H = 0, parts = [], live = true;
 		const size = () => {
-			const r = devicePixelRatio || 1;
+			const r = Math.min(devicePixelRatio || 1, 2);
 			W = cv.clientWidth;
 			H = cv.clientHeight;
 			cv.width = W * r;
@@ -937,11 +259,11 @@
 			w: Math.random() * Math.PI * 2, c: COLORS[(Math.random() * COLORS.length) | 0], a: 0.4 + Math.random() * 0.6,
 		});
 		size();
-		addEventListener('resize', size);
-		parts = Array.from({ length: Math.round(Math.min(70, W / 16)) }, () => spawn(true));
+		addEventListener('resize', size, { passive: true });
+		parts = Array.from({ length: Math.round(Math.min(60, W / 18)) }, () => spawn(true));
 		new IntersectionObserver((es) => (live = es[0].isIntersecting)).observe(cv);
 		const tick = () => {
-			if (live) {
+			if (live && !document.hidden) {
 				g.clearRect(0, 0, W, H);
 				parts.forEach((p, i) => {
 					p.y -= p.v;

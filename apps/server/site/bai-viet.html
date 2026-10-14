@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="vi" data-theme="aether">
+<head>
+<meta charset="utf-8">
+<script>
+	// …/bai-viet/ (thừa "/" cuối) thì đường dẫn tương đối api/…, site/… trỏ sai gốc → bỏ "/".
+	if (/\/[a-z-]+\/$/.test(location.pathname) && !/\/game\/$/.test(location.pathname)) location.replace(location.pathname.slice(0, -1) + location.search + location.hash);
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bài viết — Aether Chronicle</title>
+<meta name="theme-color" content="#0d1a2a">
+<link rel="icon" href="site/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site/app.css">
+</head>
+<body data-page="bai-viet" class="bg-base-200 text-base-content antialiased overflow-x-hidden">
+<main id="main">
+	<div class="max-w-3xl mx-auto px-4 py-4 sm:py-8">
+		<div class="text-sm breadcrumbs text-base-content/60 py-1">
+			<ul><li><a class="py-2.5" href="dien-dan">🗨️ Diễn đàn</a></li><li><a class="py-2.5" id="crumb-cat" href="dien-dan">…</a></li></ul>
+		</div>
+
+		<article id="post" class="card bg-base-100 border border-white/10 shadow-xl mt-2">
+			<div class="card-body p-5 sm:p-7 gap-4"><div class="skeleton h-10 w-2/3"></div><div class="skeleton h-4 w-1/3"></div><div class="skeleton h-32"></div></div>
+		</article>
+
+		<section id="cmt-sec" class="mt-6" hidden aria-labelledby="cmt-title">
+			<h2 id="cmt-title" class="font-black text-lg mb-3">💬 Bình luận</h2>
+			<div id="comments" class="space-y-1"></div>
+			<!-- Ô bình luận -->
+			<form id="cform" class="mt-4 card bg-base-100 border border-white/10" hidden>
+				<div class="card-body p-3 sm:p-4 gap-2">
+					<textarea id="cbody" rows="1" class="textarea textarea-bordered w-full text-base leading-relaxed min-h-12 resize-none" maxlength="500" placeholder="Viết bình luận…" aria-label="Viết bình luận"></textarea>
+					<div class="flex items-center gap-2">
+						<select id="cchar" class="select select-bordered h-10 min-h-10 text-base flex-1 min-w-0 max-w-[60%]" aria-label="Bình luận với tên"></select>
+						<span class="text-xs text-base-content/50 ml-auto"><span id="ccnt">0</span>/500</span>
+						<button class="btn btn-primary btn-sm h-10 px-5" id="cgo">Gửi</button>
+					</div>
+				</div>
+			</form>
+			<button id="clogin" type="button" class="btn btn-ghost bg-base-100 w-full mt-4" hidden>🔑 Đăng nhập để bình luận</button>
+		</section>
+	</div>
+</main>
+
+<script src="site/common.js"></script>
+<script>
+(function () {
+	const { $, h } = A;
+	const id = Number(new URLSearchParams(location.search).get('id'));
+	let post = null, comments = [];
+
+	async function load() {
+		if (!Number.isInteger(id) || id <= 0) return notFound();
+		try {
+			const d = await A.api('GET', 'posts/' + id);
+			post = d.post;
+			comments = d.comments;
+			render();
+		} catch (e) {
+			if (e.status === 404) notFound();
+			else $('post').replaceChildren(h('div.card-body', null, h('div.alert.alert-error', null, e.message)));
+		}
+	}
+	function notFound() {
+		document.title = 'Không tìm thấy bài — Aether Chronicle';
+		$('crumb-cat').textContent = 'Không tìm thấy';
+		$('post').replaceChildren(h('div.card-body.items-center.text-center.py-14', null,
+			h('div.text-5xl', null, '🕳️'), h('h1.font-black.text-xl', null, 'Bài viết không còn'), h('p.text-base-content/65', null, 'Bài có thể đã bị xoá hoặc link sai.'),
+			h('a.btn.btn-primary.mt-2', { href: 'dien-dan' }, '← Về diễn đàn')));
+	}
+	function render() {
+		document.title = post.title + ' — Diễn đàn Aether Chronicle';
+		$('crumb-cat').textContent = (A.CAT_ICON[post.category] || '') + ' ' + (A.CATS[post.category] || '');
+		$('crumb-cat').href = 'dien-dan?c=' + post.category;
+		const me = A.me;
+		const canDel = post.mine || (me && me.admin);
+		$('post').replaceChildren(h('div.card-body.p-5.sm:p-7.gap-4', null,
+			h('h1.text-2xl.sm:text-3xl.font-black.leading-tight.break-words', null, post.title),
+			h('div.flex.items-center.gap-3', null,
+				A.avatar(post.author, 'w-11'),
+				h('div.min-w-0.flex-1', null, h('p.font-bold.truncate', null, post.author), h('p.text-sm.text-base-content/55', null, A.ago(post.at) + ' · ' + new Date(post.at).toLocaleString('vi-VN', { dateStyle: 'short', timeStyle: 'short' }))),
+			),
+			h('div.whitespace-pre-wrap.break-words.text-[16px].leading-relaxed.text-base-content/90', null, post.body),
+			h('div.flex.flex-wrap.items-center.gap-2.pt-3.border-t.border-white/10', null,
+				h('a.btn.btn-outline.btn-sm.h-10.min-h-10.rounded-full', { href: 'dien-dan?c=' + post.category }, (A.CAT_ICON[post.category] || '') + ' ' + (A.CATS[post.category] || '')),
+				h('span.flex-1'),
+				h('button.btn.btn-ghost.btn-sm.h-10', { type: 'button', onclick: share }, '🔗 Chia sẻ'),
+				canDel ? h('button.btn.btn-ghost.btn-sm.h-10.text-error', { type: 'button', onclick: del }, '🗑️ Xoá') : null,
+			),
+		));
+		renderComments();
+		$('cmt-sec').hidden = false;
+	}
+	function renderComments() {
+		const me = A.me;
+		$('cmt-title').textContent = '💬 ' + comments.length + ' bình luận';
+		$('comments').replaceChildren(...(comments.length ? comments : [null]).map((c) => {
+			if (!c) return h('p.text-base-content/55.py-4.text-center', null, 'Chưa có bình luận — nói gì đó đi!');
+			const mineSide = me && c.mine;
+			return h('div.chat.' + (mineSide ? 'chat-end' : 'chat-start'), null,
+				h('div.chat-image', null, A.avatar(c.author, 'w-9')),
+				h('div.chat-header.text-xs.font-bold.mb-1.flex.items-center.gap-2', null, c.author, h('time.opacity-50.font-normal', null, A.ago(c.at)),
+					c.mine || (me && me.admin) ? h('button.btn.btn-ghost.btn-sm.text-error.h-10.min-h-10.px-2', { type: 'button', onclick: () => delComment(c), ariaLabel: 'Xoá bình luận' }, 'Xoá') : null),
+				h('div.chat-bubble.text-[15px].whitespace-pre-wrap.break-words.' + (mineSide ? 'chat-bubble-primary' : 'chat-bubble-neutral'), null, c.body),
+			);
+		}));
+		$('cform').hidden = !me;
+		$('clogin').hidden = !!me;
+	}
+	async function share() {
+		const url = location.origin + location.pathname + '?id=' + post.id;
+		try {
+			if (navigator.share) await navigator.share({ title: post.title, url });
+			else {
+				await navigator.clipboard.writeText(url);
+				A.toast('Đã chép link bài viết');
+			}
+		} catch (e) {}
+	}
+	async function del() {
+		if (!confirm('Xoá bài "' + post.title + '"?')) return;
+		try {
+			await A.api('DELETE', 'posts/' + post.id);
+			A.toast('Đã xoá bài', 'info');
+			setTimeout(() => (location.href = 'dien-dan'), 600);
+		} catch (e) {
+			A.toast(e.message, 'error');
+		}
+	}
+	async function delComment(c) {
+		if (!confirm('Xoá bình luận này?')) return;
+		try {
+			await A.api('DELETE', 'comments/' + c.id);
+			comments = comments.filter((x) => x.id !== c.id);
+			renderComments();
+		} catch (e) {
+			A.toast(e.message, 'error');
+		}
+	}
+
+	// —— Viết bình luận ——
+	A.autosize($('cbody'), 220);
+	$('cbody').addEventListener('input', () => ($('ccnt').textContent = $('cbody').value.length));
+	// Máy tính: Ctrl/⌘ + Enter để gửi.
+	$('cbody').addEventListener('keydown', (e) => e.key === 'Enter' && (e.ctrlKey || e.metaKey) && $('cform').requestSubmit());
+	$('cform').onsubmit = async (e) => {
+		e.preventDefault();
+		if (!$('cbody').value.trim()) return $('cbody').focus();
+		$('cgo').classList.add('btn-disabled');
+		try {
+			const c = await A.api('POST', 'posts/' + id + '/comments', { body: $('cbody').value, characterId: $('cchar').value || undefined });
+			comments.push(c);
+			$('cbody').value = '';
+			$('cbody').dispatchEvent(new Event('input'));
+			renderComments();
+			$('comments').lastElementChild.scrollIntoView({ block: 'nearest', behavior: A.reduce ? 'auto' : 'smooth' });
+		} catch (x) {
+			A.toast(x.message, 'error');
+		} finally {
+			$('cgo').classList.remove('btn-disabled');
+		}
+	};
+	$('clogin').onclick = () => A.need(() => $('cbody').focus());
+	A.onMe((me) => {
+		$('cchar').replaceChildren(...(me && me.characters.length ? me.characters.map((c) => h('option', { value: c.id }, c.name)) : [h('option', { value: '' }, me ? me.username : '—')]));
+		// Đăng nhập / đăng xuất → tải lại để biết bài, bình luận nào là của mình (xoá được).
+		if (post) load();
+	});
+
+	load().then(() => {
+		if (new URLSearchParams(location.search).get('moi')) {
+			A.toast('Đã đăng bài');
+			history.replaceState(null, '', location.pathname + '?id=' + id);
+		}
+	});
+})();
+</script>
+</body>
+</html>

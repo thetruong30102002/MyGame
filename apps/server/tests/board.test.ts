@@ -7,7 +7,7 @@ import { createServer, type Server } from 'node:http';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { test } from 'node:test';
-import { POST_BODY_MAX, type CommentItem, type MeResponse, type NewsItem, type PostItem } from '@aether/protocol';
+import { POST_BODY_MAX, type CommentItem, type FeedbackEntry, type MeResponse, type MyFeedback, type NewsItem, type PostItem } from '@aether/protocol';
 import { Board } from '../src/board.ts';
 import { Store } from '../src/db.ts';
 import { createApi, newProgress } from '../src/http.ts';
@@ -121,6 +121,62 @@ try {
 	test('chặn dồn dập: 3 bài / 10 phút mỗi tài khoản (tính cả lần hỏng)', async () => {
 		// tokPlayer đã dùng 3 lượt ở trên (2 lần hỏng + 1 bài; lần chưa đăng nhập không tính) → lượt thứ 4 bị chặn.
 		assert.equal((await call('POST', '/api/posts', 'tokPlayer', { title: 'Lần nữa', body: 'thử chặn' })).status, 429);
+	});
+
+	test('diễn đàn: chuyên mục (lạ → chung), lọc, tìm chữ, đếm theo chuyên mục', async () => {
+		const mk = (title: string, category?: string) => call<PostItem>('POST', '/api/posts', 'tokOther', { title, body: 'nội dung ' + title, category });
+		const a = (await mk('Đi săn Hydra', 'to-doi')).data;
+		const b = (await mk('Cách lên cấp nhanh', 'lạ')).data;
+		assert.deepEqual([a.category, b.category], ['to-doi', 'chung']);
+		const team = await call<PostItem[]>('GET', '/api/posts?category=to-doi', null);
+		assert.deepEqual(team.data.map((p) => p.title), ['Đi săn Hydra']);
+		const found = await call<PostItem[]>('GET', '/api/posts?q=' + encodeURIComponent('lên cấp'), null);
+		assert.deepEqual(found.data.map((p) => p.title), ['Cách lên cấp nhanh']);
+		const pct = await call<PostItem[]>('GET', '/api/posts?q=%25', null);
+		assert.equal(pct.data.length, 0, '"%" là chữ thường, không phải ký tự đại diện');
+		const counts = await call<{ total: number; categories: Record<string, number> }>('GET', '/api/posts/counts', null);
+		assert.equal(counts.data.categories['to-doi'], 1);
+		assert.equal(counts.data.categories['hoi-dap'], 0);
+		assert.equal(counts.data.total, Object.values(counts.data.categories).reduce((x, n) => x + n, 0));
+	});
+
+	test('góp ý: loại, xem lại của mình, quản trị trả lời + đổi trạng thái', async () => {
+		// Tài khoản mới (giới hạn 5 góp ý / 10 phút tính riêng mỗi tài khoản).
+		const acc = store.createAccount('gop_y', 'x')!;
+		store.createSession('tokFb', acc, 3600_000);
+		const sent = await call<{ id: number }>('POST', '/api/feedback', 'tokFb', { text: 'Map sa mạc hơi tối', kind: 'loi', platform: 'web' });
+		await call('POST', '/api/feedback', 'tokFb', { text: 'Loại lạ thì thành khác', kind: 'abc' });
+		assert.equal((await call('GET', '/api/feedback/mine', null)).status, 401);
+		const mine = await call<MyFeedback[]>('GET', '/api/feedback/mine', 'tokFb');
+		assert.deepEqual(mine.data.map((f) => [f.kind, f.status, f.reply]), [['khac', 'moi', null], ['loi', 'moi', null]]);
+		assert.equal((await call<MyFeedback[]>('GET', '/api/feedback/mine', 'tokOther')).data.some((f) => f.id === sent.data.id), false, 'không thấy góp ý người khác');
+		const put = (tok: string, b: unknown) => call<FeedbackEntry>('PUT', `/api/admin/feedback/${sent.data.id}`, tok, b);
+		assert.equal((await put('tokPlayer', { status: 'da-xem' })).status, 403);
+		assert.equal((await put('tokAdmin', { status: 'lạ' })).status, 400);
+		assert.equal((await put('tokAdmin', {})).status, 400);
+		const r = await put('tokAdmin', { reply: 'Cảm ơn bạn, bản sau sẽ sáng hơn' });
+		assert.deepEqual([r.data.status, r.data.reply, r.data.repliedBy], ['da-xem', 'Cảm ơn bạn, bản sau sẽ sáng hơn', 'quan_tri'], 'trả lời góp ý mới → tự thành đã xem');
+		await put('tokAdmin', { status: 'da-xu-ly' });
+		const after = (await call<MyFeedback[]>('GET', '/api/feedback/mine', 'tokFb')).data.find((f) => f.id === sent.data.id)!;
+		assert.deepEqual([after.status, after.reply], ['da-xu-ly', 'Cảm ơn bạn, bản sau sẽ sáng hơn']);
+		assert.equal((await put('tokAdmin', { reply: '' })).data.reply, null, 'chuỗi rỗng = xoá lời trả lời');
+		assert.equal((await call('PUT', '/api/admin/feedback/999999', 'tokAdmin', { status: 'da-xem' })).status, 404);
+	});
+
+	test('CSDL cũ (chưa có cột mới) mở lại vẫn chạy: cột tự thêm, dữ liệu cũ giữ nguyên', async () => {
+		const { DatabaseSync } = await import('node:sqlite');
+		const file = join(dir, 'old.db');
+		const old = new DatabaseSync(file);
+		old.exec(`CREATE TABLE posts (id INTEGER PRIMARY KEY, account_id INTEGER NOT NULL, author TEXT NOT NULL, title TEXT NOT NULL, body TEXT NOT NULL, at INTEGER NOT NULL, hidden INTEGER NOT NULL DEFAULT 0);
+			CREATE TABLE feedback (id INTEGER PRIMARY KEY, account_id INTEGER NOT NULL, username TEXT NOT NULL, character_name TEXT, text TEXT NOT NULL, build INTEGER, platform TEXT, at INTEGER NOT NULL);
+			INSERT INTO posts (account_id, author, title, body, at) VALUES (1, 'cu', 'Bài cũ', 'x', 1);
+			INSERT INTO feedback (account_id, username, text, at) VALUES (1, 'cu', 'Góp ý cũ', 1);`);
+		old.close();
+		const s2 = new Store(file);
+		assert.equal(new Board(s2).posts(null, 10, null)[0]!.category, 'chung');
+		assert.deepEqual([s2.feedbackList(5)[0]!.kind, s2.feedbackList(5)[0]!.status], ['khac', 'moi']);
+		s2.close();
+		new Store(file).close(); // mở lần hai: cột đã có thì bỏ qua, không lỗi
 	});
 
 	test('/admin trả trang quản trị', async () => {

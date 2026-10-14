@@ -162,8 +162,17 @@ export interface AdminLogEntry extends AdminChange {
 /** Góp ý bản beta (Cài đặt → Góp ý): độ dài chữ 3…`FEEDBACK_MAX` ký tự. */
 export const FEEDBACK_MAX = 1000;
 
+/** Loại góp ý (trang Góp ý trên web chọn; game chưa gửi → `khac`). */
+export const FEEDBACK_KINDS = { loi: 'Báo lỗi', 'y-tuong': 'Ý tưởng', khac: 'Khác' } as const;
+export type FeedbackKind = keyof typeof FEEDBACK_KINDS;
+/** Trạng thái quản trị đặt cho góp ý — người gửi xem được ở trang Góp ý. */
+export const FEEDBACK_STATUS = { moi: 'Mới', 'da-xem': 'Đã xem', 'da-xu-ly': 'Đã xử lý' } as const;
+export type FeedbackStatus = keyof typeof FEEDBACK_STATUS;
+export const FEEDBACK_REPLY_MAX = 1000;
+
 export interface FeedbackRequest {
 	text: string;
+	kind?: FeedbackKind;
 	/** Nhân vật đang chơi (nếu có) — máy chủ chỉ nhận khi thuộc đúng tài khoản. */
 	characterId?: string;
 	/** Bản client + nền tảng, để biết góp ý cho bản nào. */
@@ -180,6 +189,29 @@ export interface FeedbackEntry {
 	text: string;
 	build: number | null;
 	platform: string | null;
+	kind: FeedbackKind;
+	status: FeedbackStatus;
+	/** Lời quản trị trả lời (người gửi đọc ở trang Góp ý). */
+	reply: string | null;
+	replyAt: number | null;
+	repliedBy: string | null;
+}
+
+/** `GET /api/feedback/mine`: góp ý của chính tài khoản, mới nhất trước. */
+export interface MyFeedback {
+	id: number;
+	at: number;
+	kind: FeedbackKind;
+	text: string;
+	status: FeedbackStatus;
+	reply: string | null;
+	replyAt: number | null;
+}
+
+/** `PUT /api/admin/feedback/:id`: đổi trạng thái và / hoặc trả lời (chuỗi rỗng = xoá lời trả lời). */
+export interface FeedbackUpdate {
+	status?: FeedbackStatus;
+	reply?: string;
 }
 
 // ---- Trang chủ: tin tức (quản trị đăng) + bài viết cộng đồng (người chơi đăng, bình luận) ----------------------------------
@@ -209,6 +241,9 @@ export interface NewsRequest {
 	body: string;
 }
 
+/** Chuyên mục diễn đàn (id cố định — lưu CSDL; tên hiện trên web). */
+export const POST_CATEGORIES = { chung: 'Thảo luận chung', 'to-doi': 'Tìm tổ đội', 'hoi-dap': 'Hỏi đáp', 'huong-dan': 'Hướng dẫn', khoe: 'Khoe đồ' } as const;
+export type PostCategory = keyof typeof POST_CATEGORIES;
 export const POST_TITLE_MAX = 100;
 export const POST_BODY_MAX = 2000;
 export const COMMENT_MAX = 500;
@@ -217,6 +252,7 @@ export const COMMENT_MAX = 500;
 export interface PostItem {
 	id: number;
 	at: number;
+	category: PostCategory;
 	author: string;
 	title: string;
 	body: string;
@@ -236,6 +272,7 @@ export interface CommentItem {
 export interface PostRequest {
 	title: string;
 	body: string;
+	category?: PostCategory;
 	characterId?: string;
 }
 

@@ -29,15 +29,28 @@ Client Unity (nhập hình từ `assets/`, dựng scene, build PC / APK, AutoTes
 `npx tsx UnityGame/Tools~/publish-client.mts` → người chơi đang có game **tự cập nhật** lúc mở game; người mới tải bộ cài ở
 **https://admin.tail024813.ts.net/game/api/client/latest/windows** (Android: `…/latest/android`).
 
-**Trang chủ game** (tin tức, nút tải PC / zip / APK, đăng nhập bằng tài khoản game, góp ý, bảng tin cộng đồng — viết bài + bình luận):
-**https://admin.tail024813.ts.net/game/** — trang tĩnh `apps/server/site/` do máy chủ game phát (`apps/server/src/site.ts`).
-**Trang quản trị web**: **…/game/admin** (14/10/2026) — cộng / trừ tài nguyên cho nhân vật, đọc góp ý, đăng / sửa / xoá tin tức, ẩn bài
-viết / bình luận xấu, nhật ký; quyền như cửa sổ Quản trị trong game (`src/admin.ts add`). Tin tức lưu CSDL (bảng `news`, lần đầu chạy nạp
-từ `site/news.json` — file đó chỉ còn để dự phòng khi API lỗi); bài viết ở bảng `posts` / `post_comments`, xoá = ẩn. API + luật ở
-`apps/server/src/board.ts`, test `apps/server/tests/board.test.ts`.
-Giao diện dùng **Tailwind + daisyUI** (theme `aether` ở `apps/server/site-src/tailwind.config.cjs`): sửa class trong `site/*.html` xong chạy
-`npm run build:site -w @aether/server` để build lại `site/app.css` (commit cả file đó). Sửa HTML / CSS không cần khởi động lại; sửa
-`site.ts` / `http.ts` / `board.ts` thì phải khởi động lại máy chủ.
+**Trang web game** — **https://admin.tail024813.ts.net/game/** — trang tĩnh `apps/server/site/` do máy chủ game phát
+(`apps/server/src/site.ts`), chia nhiều trang (14/10/2026), tối ưu điện thoại (thanh điều hướng dưới, nút ≥ 40px, ô nhập 16px):
+
+| Trang | Đường dẫn | Nội dung |
+| --- | --- | --- |
+| Trang chủ | `…/game/` | banner + nút tải, 3 tin mới, bài diễn đàn mới, thế giới, lớp nhân vật, ảnh |
+| Tin tức | `…/game/tin-tuc` | mọi tin, lọc theo nhãn, link tới từng tin `#tin-<id>` |
+| Diễn đàn | `…/game/dien-dan` | chuyên mục (`?c=to-doi`…), tìm chữ, viết bài (`#viet`) |
+| Bài viết | `…/game/bai-viet?id=<id>` | một bài + bình luận, chia sẻ, xoá (chủ bài / quản trị) |
+| Góp ý | `…/game/gop-y` | gửi góp ý theo loại (báo lỗi / ý tưởng / khác) + xem trạng thái, trả lời của quản trị |
+| Tải game | `…/game/tai-game` | nút tải PC exe / zip / APK, hướng dẫn cài, câu hỏi thường gặp, SHA-256 |
+| Thế giới | `…/game/the-gioi` | bản đồ 10 vùng, lớp nhân vật, nguyên tố |
+| Quản trị | `…/game/admin` | cộng / trừ tài nguyên, góp ý (lọc, đổi trạng thái, trả lời), tin tức, ẩn bài / bình luận, nhật ký |
+
+Đăng nhập trên web dùng chung tài khoản game; quyền quản trị như cửa sổ Quản trị trong game (`src/admin.ts add`). Tin tức lưu CSDL
+(bảng `news`, lần đầu chạy nạp từ `site/news.json` — file đó chỉ còn dự phòng khi API lỗi); bài viết `posts` / `post_comments` (xoá = ẩn,
+cột `category`); góp ý thêm cột `kind` / `status` / `reply`. API + luật ở `apps/server/src/board.ts`, test `apps/server/tests/board.test.ts`.
+Phần chung mọi trang (thanh trên / dưới, đăng nhập, gọi API) ở `site/common.js`; thêm trang mới: tạo `site/<tên>.html` (`<body data-page>`
++ nạp `site/common.js`) và thêm tên vào `PAGES` trong `site.ts`.
+Giao diện dùng **Tailwind + daisyUI** (theme `aether` ở `apps/server/site-src/tailwind.config.cjs`): sửa class trong `site/*.html` /
+`site/common.js` xong chạy `npm run build:site -w @aether/server` để build lại `site/app.css` (commit cả file đó). Sửa HTML / CSS / JS không
+cần khởi động lại; sửa `site.ts` / `http.ts` / `board.ts` thì phải khởi động lại máy chủ.
 
 | Phím | Tác dụng |
 | --- | --- |

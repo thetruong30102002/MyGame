@@ -1,7 +1,7 @@
 import { mkdirSync } from 'node:fs';
 import { dirname } from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
-import type { AdminChange, AdminField, AdminLogEntry, BuffKind, FeedbackEntry, BuffView, CharacterInfo, CharacterProgress, Gender } from '@aether/protocol';
+import type { AdminChange, AdminField, AdminLogEntry, BuffKind, FeedbackEntry, FeedbackKind, FeedbackStatus, MyFeedback, BuffView, CharacterInfo, CharacterProgress, Gender } from '@aether/protocol';
 import type { Eco } from '@aether/sim/economy';
 import { cleanBonusPoints } from '@aether/sim/talents';
 
@@ -203,6 +203,20 @@ export class Store {
 			);
 			CREATE INDEX IF NOT EXISTS post_comments_post ON post_comments(post_id);
 		`);
+		// Cột thêm sau (14/10/2026, trang web chia nhiều trang): chuyên mục diễn đàn; loại / trạng thái / lời trả lời của góp ý.
+		this.addColumn('posts', 'category', "TEXT NOT NULL DEFAULT 'chung'");
+		this.addColumn('feedback', 'kind', "TEXT NOT NULL DEFAULT 'khac'");
+		this.addColumn('feedback', 'status', "TEXT NOT NULL DEFAULT 'moi'");
+		this.addColumn('feedback', 'reply', 'TEXT');
+		this.addColumn('feedback', 'reply_at', 'INTEGER');
+		this.addColumn('feedback', 'replied_by', 'TEXT');
+		this.db.exec('CREATE INDEX IF NOT EXISTS feedback_account ON feedback(account_id)');
+	}
+
+	/** Thêm cột vào bảng đã có (CSDL cũ) — có rồi thì bỏ qua. */
+	private addColumn(table: string, column: string, def: string): void {
+		const cols = this.db.prepare(`PRAGMA table_info(${table})`).all() as { name: string }[];
+		if (!cols.some((c) => c.name === column)) this.db.exec(`ALTER TABLE ${table} ADD COLUMN ${column} ${def}`);
 	}
 
 	close(): void {
@@ -427,16 +441,40 @@ export class Store {
 
 	// ———— Góp ý ————
 
-	addFeedback(accountId: number, username: string, characterName: string | null, text: string, build: number | null, platform: string | null): void {
-		this.db
-			.prepare('INSERT INTO feedback (account_id, username, character_name, text, build, platform, at) VALUES (?, ?, ?, ?, ?, ?, ?)')
-			.run(accountId, username, characterName, text, build, platform, Date.now());
+	addFeedback(accountId: number, username: string, characterName: string | null, text: string, build: number | null, platform: string | null, kind: FeedbackKind = 'khac'): number {
+		return Number(
+			this.db
+				.prepare('INSERT INTO feedback (account_id, username, character_name, text, build, platform, kind, at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)')
+				.run(accountId, username, characterName, text, build, platform, kind, Date.now()).lastInsertRowid,
+		);
 	}
 
 	/** Góp ý mới nhất trước. */
 	feedbackList(limit: number): FeedbackEntry[] {
 		const rows = this.db.prepare('SELECT * FROM feedback ORDER BY id DESC LIMIT ?').all(limit) as unknown as FeedbackRow[];
-		return rows.map((r) => ({ id: r.id, at: r.at, username: r.username, characterName: r.character_name, text: r.text, build: r.build, platform: r.platform }));
+		return rows.map(toFeedback);
+	}
+
+	feedback(id: number): FeedbackEntry | null {
+		const r = this.db.prepare('SELECT * FROM feedback WHERE id = ?').get(id) as unknown as FeedbackRow | undefined;
+		return r ? toFeedback(r) : null;
+	}
+
+	/** Góp ý của một tài khoản, mới nhất trước. */
+	myFeedback(accountId: number, limit: number): MyFeedback[] {
+		const rows = this.db.prepare('SELECT * FROM feedback WHERE account_id = ? ORDER BY id DESC LIMIT ?').all(accountId, limit) as unknown as FeedbackRow[];
+		return rows.map((r) => ({ id: r.id, at: r.at, kind: r.kind, text: r.text, status: r.status, reply: r.reply, replyAt: r.reply_at }));
+	}
+
+	/** Quản trị đổi trạng thái / trả lời (`reply` null = giữ nguyên, '' = xoá lời trả lời). Trả false nếu không có góp ý đó. */
+	updateFeedback(id: number, status: FeedbackStatus | null, reply: string | null, by: string): boolean {
+		if (!this.db.prepare('SELECT id FROM feedback WHERE id = ?').get(id)) return false;
+		if (status) this.db.prepare('UPDATE feedback SET status = ? WHERE id = ?').run(status, id);
+		if (reply !== null) {
+			if (reply) this.db.prepare('UPDATE feedback SET reply = ?, reply_at = ?, replied_by = ? WHERE id = ?').run(reply, Date.now(), by, id);
+			else this.db.prepare('UPDATE feedback SET reply = NULL, reply_at = NULL, replied_by = NULL WHERE id = ?').run(id);
+		}
+		return true;
 	}
 
 	// ———— Tin tức trang chủ ————
@@ -469,14 +507,26 @@ export class Store {
 
 	// ———— Bài viết cộng đồng ————
 
-	/** Bài chưa ẩn, mới nhất trước; `before` = id bài cuối trang trước (phân trang), kèm số bình luận chưa ẩn. */
-	posts(limit: number, before: number | null): PostRow[] {
+	/**
+	 * Bài chưa ẩn, mới nhất trước; `before` = id bài cuối trang trước (phân trang), `category` lọc chuyên mục, `q` tìm trong tiêu đề /
+	 * nội dung / tên người đăng (chứa chuỗi, không phân biệt hoa thường với chữ không dấu). Kèm số bình luận chưa ẩn.
+	 */
+	posts(limit: number, before: number | null, category: string | null = null, q = ''): PostRow[] {
+		const like = '%' + q.replace(/[!%_]/g, (c) => '!' + c) + '%';
 		return this.db
 			.prepare(
 				`SELECT p.*, (SELECT count(*) FROM post_comments c WHERE c.post_id = p.id AND c.hidden = 0) AS comments
-				 FROM posts p WHERE p.hidden = 0 AND p.id < ? ORDER BY p.id DESC LIMIT ?`,
+				 FROM posts p WHERE p.hidden = 0 AND p.id < ? AND (? IS NULL OR p.category = ?)
+				 AND (? = '' OR p.title LIKE ? ESCAPE '!' OR p.body LIKE ? ESCAPE '!' OR p.author LIKE ? ESCAPE '!')
+				 ORDER BY p.id DESC LIMIT ?`,
 			)
-			.all(before ?? Number.MAX_SAFE_INTEGER, limit) as unknown as PostRow[];
+			.all(before ?? Number.MAX_SAFE_INTEGER, category, category, q, like, like, like, limit) as unknown as PostRow[];
+	}
+
+	/** Số bài chưa ẩn theo chuyên mục. */
+	postCounts(): Record<string, number> {
+		const rows = this.db.prepare('SELECT category, count(*) AS n FROM posts WHERE hidden = 0 GROUP BY category').all() as { category: string; n: number }[];
+		return Object.fromEntries(rows.map((r) => [r.category, Number(r.n)]));
 	}
 
 	post(id: number): PostRow | null {
@@ -487,8 +537,10 @@ export class Store {
 		);
 	}
 
-	addPost(accountId: number, author: string, title: string, body: string): number {
-		return Number(this.db.prepare('INSERT INTO posts (account_id, author, title, body, at) VALUES (?, ?, ?, ?, ?)').run(accountId, author, title, body, Date.now()).lastInsertRowid);
+	addPost(accountId: number, author: string, title: string, body: string, category: string = 'chung'): number {
+		return Number(
+			this.db.prepare('INSERT INTO posts (account_id, author, title, body, category, at) VALUES (?, ?, ?, ?, ?, ?)').run(accountId, author, title, body, category, Date.now()).lastInsertRowid,
+		);
 	}
 
 	hidePost(id: number): boolean {
@@ -814,6 +866,7 @@ export interface NewsRow {
 export interface PostRow {
 	id: number;
 	account_id: number;
+	category: string;
 	author: string;
 	title: string;
 	body: string;
@@ -838,7 +891,29 @@ interface FeedbackRow {
 	text: string;
 	build: number | null;
 	platform: string | null;
+	kind: FeedbackKind;
+	status: FeedbackStatus;
+	reply: string | null;
+	reply_at: number | null;
+	replied_by: string | null;
 	at: number;
+}
+
+function toFeedback(r: FeedbackRow): FeedbackEntry {
+	return {
+		id: r.id,
+		at: r.at,
+		username: r.username,
+		characterName: r.character_name,
+		text: r.text,
+		build: r.build,
+		platform: r.platform,
+		kind: r.kind,
+		status: r.status,
+		reply: r.reply,
+		replyAt: r.reply_at,
+		repliedBy: r.replied_by,
+	};
 }
 
 interface AdminLogRow {

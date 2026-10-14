@@ -6,7 +6,7 @@
 	// …/admin/ (thừa "/" cuối) thì đường dẫn tương đối api/…, site/… trỏ sai gốc → bỏ "/".
 	if (location.pathname.endsWith('/admin/')) location.replace(location.pathname.slice(0, -1) + location.search + location.hash);
 </script>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex">
 <title>Aether Chronicle — Quản trị</title>
 <link rel="icon" href="site/img/favicon.png">
@@ -68,7 +68,7 @@
 			</div>
 
 			<!-- Tài nguyên -->
-			<section data-pane="res" class="grid xl:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] gap-6 items-start">
+			<section data-pane="res" class="grid grid-cols-1 xl:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] gap-6 items-start">
 				<div class="card bg-base-100 border border-white/10 shadow">
 					<div class="card-body p-0">
 						<form id="search" class="join w-full p-4 pb-3">
@@ -114,7 +114,9 @@
 			<section data-pane="fb" class="hidden card bg-base-100 border border-white/10 shadow">
 				<div class="card-body">
 					<div class="flex flex-wrap gap-3 items-center">
-						<input id="fb-q" class="input input-bordered input-sm flex-1 min-w-[12rem]" placeholder="Lọc theo chữ, tài khoản, nhân vật…">
+						<input id="fb-q" class="input input-bordered input-sm flex-1 min-w-[12rem] text-base" placeholder="Lọc theo chữ, tài khoản, nhân vật…">
+						<select id="fb-status" class="select select-bordered select-sm"><option value="">Mọi trạng thái</option><option value="moi" selected>🟡 Mới</option><option value="da-xem">🔵 Đã xem</option><option value="da-xu-ly">🟢 Đã xử lý</option></select>
+						<select id="fb-kind" class="select select-bordered select-sm"><option value="">Mọi loại</option><option value="loi">🐞 Báo lỗi</option><option value="y-tuong">💡 Ý tưởng</option><option value="khac">💬 Khác</option></select>
 						<select id="fb-plat" class="select select-bordered select-sm"><option value="">Mọi nền tảng</option></select>
 						<button id="fb-reload" class="btn btn-sm btn-ghost">↻ Tải lại</button>
 					</div>
@@ -123,7 +125,7 @@
 			</section>
 
 			<!-- Tin tức -->
-			<section data-pane="news" class="hidden grid xl:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] gap-6 items-start">
+			<section data-pane="news" class="hidden grid grid-cols-1 xl:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] gap-6 items-start">
 				<div class="card bg-base-100 border border-white/10 shadow"><div class="card-body"><h2 class="card-title font-black">Tin đã đăng</h2><div id="news-list" class="space-y-3"></div></div></div>
 				<div class="card bg-base-100 border border-white/10 shadow xl:sticky xl:top-20">
 					<form id="news-form" class="card-body gap-3">
@@ -294,11 +296,6 @@
 		$('page-title').textContent = TITLES[tab];
 		$('nav-toggle').checked = false;
 		if (tab === 'log') loadLog();
-		if (tab === 'fb') {
-			const top = feedback.reduce((m, f) => Math.max(m, f.id), 0);
-			try { localStorage.setItem('aether.admin.fbSeen', String(top)); } catch (e) {}
-			$('fb-n').classList.add('hidden');
-		}
 		try { history.replaceState(null, '', '#' + tab); } catch (e) {}
 	};
 	$('tabs').onclick = (e) => {
@@ -410,8 +407,10 @@
 		}
 	};
 
-	// —— Góp ý ——
-	let feedback = [], fbSeen = 0;
+	// —— Góp ý: lọc, đổi trạng thái, trả lời (người gửi đọc ở trang Góp ý trên web) ——
+	const KIND = { loi: '🐞 Báo lỗi', 'y-tuong': '💡 Ý tưởng', khac: '💬 Khác' };
+	const STATUS = { moi: ['Mới', 'badge-warning'], 'da-xem': ['Đã xem', 'badge-info'], 'da-xu-ly': ['Đã xử lý', 'badge-success'] };
+	let feedback = [];
 	async function loadFeedback() {
 		try {
 			feedback = await api('GET', 'admin/feedback?limit=500');
@@ -419,37 +418,65 @@
 			$('fb-list').replaceChildren(h('div.alert.alert-error', null, e.message));
 			return;
 		}
-		try { fbSeen = Number(localStorage.getItem('aether.admin.fbSeen')) || 0; } catch (e) {}
-		const fresh = feedback.filter((f) => f.id > fbSeen).length;
-		$('st-fb').textContent = feedback.length;
-		$('st-fb-new').textContent = fresh ? fresh + ' góp ý mới' : 'đã đọc hết';
-		$('fb-n').textContent = fresh;
-		$('fb-n').classList.toggle('hidden', !fresh);
 		$('fb-plat').length = 1;
 		[...new Set(feedback.map((f) => f.platform).filter(Boolean))].forEach((p) => $('fb-plat').append(h('option', { value: p }, p)));
+		counts();
 		renderFeedback();
 	}
+	function counts() {
+		const fresh = feedback.filter((f) => f.status === 'moi').length;
+		$('st-fb').textContent = feedback.length;
+		$('st-fb-new').textContent = fresh ? fresh + ' góp ý chưa xem' : 'đã xem hết';
+		$('fb-n').textContent = fresh;
+		$('fb-n').classList.toggle('hidden', !fresh);
+	}
 	function renderFeedback() {
-		const q = $('fb-q').value.trim().toLowerCase(), plat = $('fb-plat').value;
-		const list = feedback.filter((f) => (!plat || f.platform === plat) && (!q || [f.text, f.username, f.characterName].join(' ').toLowerCase().includes(q)));
-		$('fb-list').replaceChildren(...(list.length ? list : [null]).map((f) =>
-			!f
-				? h('div.text-center.py-10.text-base-content/50', null, feedback.length ? 'Không có góp ý khớp bộ lọc' : 'Chưa có góp ý nào')
-				: h('div.rounded-box.bg-base-200.p-4.border.' + (f.id > fbSeen ? 'border-warning/50' : 'border-white/5'), null,
-					h('div.flex.flex-wrap.items-center.gap-2.mb-2', null,
-						h('span.font-bold', null, f.characterName || f.username),
-						f.characterName ? h('span.text-xs.text-base-content/50', null, '@' + f.username) : null,
-						f.id > fbSeen ? h('span.badge.badge-warning.badge-sm.font-bold', null, 'MỚI') : null,
-						f.platform ? h('span.badge.badge-ghost.badge-sm', null, f.platform) : null,
-						f.build ? h('span.badge.badge-ghost.badge-sm', null, 'bản ' + f.build) : null,
-						h('span.ml-auto.text-xs.text-base-content/50', null, TIME.format(f.at)),
-					),
-					h('p.whitespace-pre-wrap.break-words.leading-relaxed', null, f.text),
-				),
-		));
+		const q = $('fb-q').value.trim().toLowerCase(), plat = $('fb-plat').value, st = $('fb-status').value, kind = $('fb-kind').value;
+		const list = feedback.filter((f) => (!plat || f.platform === plat) && (!st || f.status === st) && (!kind || f.kind === kind) && (!q || [f.text, f.username, f.characterName, f.reply].join(' ').toLowerCase().includes(q)));
+		$('fb-list').replaceChildren(...(list.length ? list : [null]).map((f) => (!f ? h('div.text-center.py-10.text-base-content/50', null, feedback.length ? 'Không có góp ý khớp bộ lọc' : 'Chưa có góp ý nào') : fbCard(f))));
+	}
+	function fbCard(f) {
+		const [stLabel, stCls] = STATUS[f.status] || [f.status, 'badge-ghost'];
+		const sel = h('select.select.select-bordered.select-xs', { ariaLabel: 'Trạng thái' }, Object.entries(STATUS).map(([k, [l]]) => h('option', { value: k, selected: k === f.status }, l)));
+		sel.onchange = () => update(f, { status: sel.value });
+		const ta = h('textarea.textarea.textarea-bordered.w-full.text-base.leading-relaxed', { rows: 3, maxLength: 1000, placeholder: 'Trả lời người gửi (hiện ở trang Góp ý của họ)…', value: f.reply || '' });
+		const replyBox = h('div.hidden.mt-3.space-y-2', null, ta, h('div.flex.gap-2.justify-end', null,
+			f.reply ? h('button.btn.btn-ghost.btn-sm.text-error', { type: 'button', onclick: () => update(f, { reply: '' }) }, 'Xoá trả lời') : null,
+			h('button.btn.btn-primary.btn-sm', { type: 'button', onclick: () => update(f, { reply: ta.value }) }, 'Gửi trả lời')));
+		return h('div.rounded-box.bg-base-200.p-4.border.' + (f.status === 'moi' ? 'border-warning/50' : 'border-white/5'), null,
+			h('div.flex.flex-wrap.items-center.gap-2.mb-2', null,
+				h('span.font-bold', null, f.characterName || f.username),
+				f.characterName ? h('span.text-xs.text-base-content/50', null, '@' + f.username) : null,
+				h('span.badge.badge-sm.badge-outline', null, KIND[f.kind] || f.kind),
+				h('span.badge.badge-sm.font-bold.' + stCls, null, stLabel),
+				f.platform ? h('span.badge.badge-ghost.badge-sm', null, f.platform) : null,
+				f.build ? h('span.badge.badge-ghost.badge-sm', null, 'bản ' + f.build) : null,
+				h('span.ml-auto.text-xs.text-base-content/50', null, TIME.format(f.at)),
+			),
+			h('p.whitespace-pre-wrap.break-words.leading-relaxed', null, f.text),
+			f.reply ? h('div.mt-3.p-3.rounded-lg.bg-primary/10.border-l-4.border-primary.text-sm', null,
+				h('p.text-xs.font-bold.text-primary.mb-1', null, '↪ ' + (f.repliedBy || 'Quản trị') + ' trả lời · ' + TIME.format(f.replyAt)),
+				h('p.whitespace-pre-wrap.break-words', null, f.reply)) : null,
+			h('div.flex.flex-wrap.items-center.gap-2.mt-3', null,
+				sel,
+				h('button.btn.btn-ghost.btn-xs', { type: 'button', onclick: () => { replyBox.classList.toggle('hidden'); ta.focus(); } }, f.reply ? '✏️ Sửa trả lời' : '↪ Trả lời'),
+			),
+			replyBox,
+		);
+	}
+	async function update(f, body) {
+		try {
+			const r = await api('PUT', 'admin/feedback/' + f.id, body);
+			Object.assign(f, r);
+			counts();
+			renderFeedback();
+			toast(body.reply !== undefined ? (body.reply ? 'Đã gửi trả lời' : 'Đã xoá trả lời') : 'Đã đổi trạng thái: ' + STATUS[r.status][0]);
+		} catch (e) {
+			toast(e.message, 'error');
+		}
 	}
 	$('fb-q').oninput = renderFeedback;
-	$('fb-plat').onchange = renderFeedback;
+	['fb-plat', 'fb-status', 'fb-kind'].forEach((id) => ($(id).onchange = renderFeedback));
 	$('fb-reload').onclick = loadFeedback;
 
 	// —— Tin tức ——
@@ -537,7 +564,8 @@
 		const cm = h('div.hidden.mt-3.space-y-2.border-l-2.border-white/10.pl-4');
 		const card = h('div.rounded-box.bg-base-200.p-4.border.border-white/5', null,
 			h('div.flex.flex-wrap.items-center.gap-2', null,
-				h('span.font-bold.flex-1.min-w-[10rem]', null, p.title),
+				h('span.badge.badge-sm.badge-outline', null, ({ chung: '💬 Thảo luận chung', 'to-doi': '⚔️ Tìm tổ đội', 'hoi-dap': '❓ Hỏi đáp', 'huong-dan': '📘 Hướng dẫn', khoe: '✨ Khoe đồ' })[p.category] || p.category),
+				h('a.font-bold.flex-1.min-w-[10rem].link-hover', { href: 'bai-viet?id=' + p.id, target: '_blank' }, p.title),
 				h('span.text-xs.text-base-content/50', null, p.author + ' · ' + TIME.format(p.at)),
 				h('button.btn.btn-xs.btn-ghost', { type: 'button', onclick: () => toggleComments(p, cm) }, '💬 ' + p.comments),
 				h('button.btn.btn-xs.btn-ghost.text-error', { type: 'button', onclick: async () => {

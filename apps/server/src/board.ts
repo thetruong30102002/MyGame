@@ -5,6 +5,9 @@
 import { readFileSync } from 'node:fs';
 import {
 	COMMENT_MAX,
+	FEEDBACK_REPLY_MAX,
+	FEEDBACK_STATUS,
+	POST_CATEGORIES,
 	NEWS_LINE_MAX,
 	NEWS_LINES_MAX,
 	NEWS_TAGS,
@@ -12,6 +15,10 @@ import {
 	POST_BODY_MAX,
 	POST_TITLE_MAX,
 	type CommentItem,
+	type FeedbackEntry,
+	type FeedbackStatus,
+	type MyFeedback,
+	type PostCategory,
 	type NewsItem,
 	type NewsTag,
 	type PostItem,
@@ -90,9 +97,20 @@ export class Board {
 
 	// ———— Bài viết + bình luận ————
 
-	posts(viewer: Viewer | null, rawLimit: unknown, rawBefore: unknown): PostItem[] {
+	/** Danh sách bài: `category` lạ / vắng = mọi chuyên mục; `q` tìm chữ (tối đa 60 ký tự). */
+	posts(viewer: Viewer | null, rawLimit: unknown, rawBefore: unknown, rawCategory?: unknown, rawQ?: unknown): PostItem[] {
 		const b = Math.floor(Number(rawBefore));
-		return this.store.posts(clampLimit(rawLimit, PAGE.fallback, PAGE.max), Number.isFinite(b) && b > 0 ? b : null).map((r) => toPost(r, viewer));
+		const q = oneLine(rawQ).slice(0, 60);
+		return this.store
+			.posts(clampLimit(rawLimit, PAGE.fallback, PAGE.max), Number.isFinite(b) && b > 0 ? b : null, category(rawCategory), q)
+			.map((r) => toPost(r, viewer));
+	}
+
+	/** Số bài theo chuyên mục (đủ mọi chuyên mục, chưa có bài = 0) + tổng. */
+	postCounts(): { total: number; categories: Record<PostCategory, number> } {
+		const raw = this.store.postCounts();
+		const categories = Object.fromEntries(Object.keys(POST_CATEGORIES).map((k) => [k, raw[k] ?? 0])) as Record<PostCategory, number>;
+		return { total: Object.values(categories).reduce((a, n) => a + n, 0), categories };
 	}
 
 	post(viewer: Viewer | null, id: number): { post: PostItem; comments: CommentItem[] } {
@@ -109,7 +127,7 @@ export class Board {
 		if (title.length > POST_TITLE_MAX) throw new BoardError(400, `Tiêu đề tối đa ${POST_TITLE_MAX} ký tự`);
 		if (body.length < 3) throw new BoardError(400, 'Nội dung ngắn quá');
 		if (body.length > POST_BODY_MAX) throw new BoardError(400, `Nội dung tối đa ${POST_BODY_MAX} ký tự`);
-		const id = this.store.addPost(viewer.accountId, this.author(viewer, b.characterId), title, body);
+		const id = this.store.addPost(viewer.accountId, this.author(viewer, b.characterId), title, body, category(b.category) ?? 'chung');
 		return toPost(this.store.post(id)!, viewer);
 	}
 
@@ -138,6 +156,30 @@ export class Board {
 		this.store.hideComment(id);
 	}
 
+	// ———— Góp ý: người gửi xem lại, quản trị đổi trạng thái / trả lời ————
+
+	myFeedback(viewer: Viewer): MyFeedback[] {
+		return this.store.myFeedback(viewer.accountId, 100);
+	}
+
+	updateFeedback(admin: Viewer, id: number, raw: unknown): FeedbackEntry {
+		const b = obj(raw);
+		let status: FeedbackStatus | null = null;
+		if (b.status !== undefined) {
+			if (typeof b.status !== 'string' || !(b.status in FEEDBACK_STATUS)) throw new BoardError(400, 'Trạng thái: ' + Object.keys(FEEDBACK_STATUS).join(' / '));
+			status = b.status as FeedbackStatus;
+		}
+		const reply = b.reply === undefined ? null : multiLine(b.reply);
+		if (reply && reply.length > FEEDBACK_REPLY_MAX) throw new BoardError(400, `Trả lời tối đa ${FEEDBACK_REPLY_MAX} ký tự`);
+		if (status === null && reply === null) throw new BoardError(400, 'Chưa có thay đổi nào');
+		// Trả lời mà chưa chọn trạng thái → coi như đã xem.
+		const cur = this.store.feedback(id);
+		if (!cur) throw new BoardError(404, 'Không có góp ý này');
+		if (reply && !status && cur.status === 'moi') status = 'da-xem';
+		this.store.updateFeedback(id, status, reply, admin.username);
+		return this.store.feedback(id)!;
+	}
+
 	/** Tên hiện: nhân vật được chọn (phải thuộc đúng tài khoản) → nhân vật đầu tiên → tên tài khoản. */
 	private author(viewer: Viewer, characterId: unknown): string {
 		const chars = this.store.characters(viewer.accountId);
@@ -157,7 +199,16 @@ function toNews(r: NewsRow): NewsItem {
 }
 
 function toPost(r: PostRow, viewer: Viewer | null): PostItem {
-	return { id: r.id, at: r.at, author: r.author, title: r.title, body: r.body, comments: Number(r.comments) || 0, mine: viewer?.accountId === r.account_id };
+	return {
+		id: r.id,
+		at: r.at,
+		category: category(r.category) ?? 'chung',
+		author: r.author,
+		title: r.title,
+		body: r.body,
+		comments: Number(r.comments) || 0,
+		mine: viewer?.accountId === r.account_id,
+	};
 }
 
 function toComment(r: CommentRow, viewer: Viewer | null): CommentItem {
@@ -180,6 +231,11 @@ export function parseNews(raw: unknown): { tag: NewsTag; title: string; body: st
 	if (body.length > NEWS_LINES_MAX) throw new BoardError(400, `Tối đa ${NEWS_LINES_MAX} dòng`);
 	if (body.some((l) => l.length > NEWS_LINE_MAX)) throw new BoardError(400, `Mỗi dòng tối đa ${NEWS_LINE_MAX} ký tự`);
 	return { tag, title, body };
+}
+
+/** Id chuyên mục hợp lệ, không thì null. */
+function category(v: unknown): PostCategory | null {
+	return typeof v === 'string' && v in POST_CATEGORIES ? (v as PostCategory) : null;
 }
 
 function obj(raw: unknown): Record<string, unknown> {

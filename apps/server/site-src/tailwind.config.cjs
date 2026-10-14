@@ -4,7 +4,7 @@ const path = require('node:path');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-	content: [path.join(__dirname, '../site/*.html')],
+	content: [path.join(__dirname, '../site/*.html'), path.join(__dirname, '../site/*.js')],
 	theme: {
 		extend: {
 			fontFamily: { sans: ['"Be Vietnam Pro"', 'system-ui', 'sans-serif'] },

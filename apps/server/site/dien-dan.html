@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="vi" data-theme="aether">
+<head>
+<meta charset="utf-8">
+<script>
+	// …/dien-dan/ (thừa "/" cuối) thì đường dẫn tương đối api/…, site/… trỏ sai gốc → bỏ "/".
+	if (/\/[a-z-]+\/$/.test(location.pathname) && !/\/game\/$/.test(location.pathname)) location.replace(location.pathname.slice(0, -1) + location.search + location.hash);
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Diễn đàn — Aether Chronicle</title>
+<meta name="description" content="Diễn đàn người chơi Aether Chronicle: tìm tổ đội, hỏi đáp, hướng dẫn, khoe đồ.">
+<meta name="theme-color" content="#0d1a2a">
+<link rel="icon" href="site/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site/app.css">
+</head>
+<body data-page="dien-dan" class="bg-base-200 text-base-content antialiased overflow-x-hidden">
+<main id="main">
+	<section class="border-b border-white/5 bg-[radial-gradient(ellipse_at_top,rgba(255,201,60,.14),transparent_65%)]">
+		<div class="max-w-6xl mx-auto px-4 py-7 sm:py-12 flex items-end gap-4">
+			<div class="flex-1 min-w-0">
+				<p class="text-xs font-black tracking-widest text-primary">DIỄN ĐÀN</p>
+				<h1 class="text-3xl sm:text-4xl font-black mt-1">🗨️ Bảng tin người chơi</h1>
+				<p class="mt-2 text-base-content/70">Tìm tổ đội, hỏi đáp, chia sẻ mẹo — đăng bằng tài khoản game.</p>
+			</div>
+			<button class="btn btn-primary hidden sm:inline-flex" type="button" data-write>✏️ Viết bài</button>
+		</div>
+	</section>
+
+	<!-- Tìm + chuyên mục: dính dưới thanh trên, chuyên mục cuộn ngang trên điện thoại -->
+	<div class="sticky top-[calc(3.5rem+env(safe-area-inset-top))] sm:top-[calc(4rem+env(safe-area-inset-top))] z-20 bg-base-200/90 backdrop-blur border-b border-white/5 lg:hidden">
+		<div class="px-4 pt-2.5">
+			<label class="input input-bordered h-11 min-h-11 flex items-center gap-2 bg-base-100">
+				<span aria-hidden="true" class="opacity-60">🔍</span>
+				<input type="search" class="grow h-full text-base" placeholder="Tìm bài viết…" data-q enterkeyhint="search" aria-label="Tìm bài viết">
+			</label>
+		</div>
+		<div class="cats px-4 py-2.5 flex gap-2 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" role="tablist" aria-label="Chuyên mục"></div>
+	</div>
+
+	<div class="max-w-6xl mx-auto px-4 py-5 sm:py-8 grid grid-cols-1 lg:grid-cols-[260px_minmax(0,1fr)] gap-6 items-start">
+		<!-- Cột trái (máy tính): tìm + chuyên mục -->
+		<aside class="hidden lg:block sticky top-24 space-y-4">
+			<label class="input input-bordered flex items-center gap-2 bg-base-100">
+				<span aria-hidden="true" class="opacity-60">🔍</span>
+				<input type="search" class="grow" placeholder="Tìm bài viết…" data-q aria-label="Tìm bài viết">
+			</label>
+			<ul class="cats menu bg-base-100 rounded-box border border-white/10 p-2 gap-0.5 text-base" aria-label="Chuyên mục"></ul>
+			<a href="gop-y" class="card bg-base-100 border border-white/10 card-hover">
+				<div class="card-body p-4 text-sm"><b>🐞 Gặp lỗi?</b><span class="text-base-content/65">Báo ở trang Góp ý để đội làm game xử lý nhanh hơn.</span></div>
+			</a>
+		</aside>
+
+		<section aria-live="polite">
+			<div class="flex items-center gap-2 mb-3">
+				<h2 id="list-title" class="font-black text-lg flex-1 min-w-0 truncate">Tất cả bài viết</h2>
+				<span id="list-count" class="text-sm text-base-content/55 shrink-0"></span>
+			</div>
+			<div id="posts" class="space-y-3">
+				<div class="skeleton h-28"></div><div class="skeleton h-28"></div><div class="skeleton h-28"></div>
+			</div>
+			<div class="text-center mt-5" id="more-wrap" hidden><button id="more" class="btn btn-ghost bg-base-100 w-full sm:w-auto">Tải thêm bài</button></div>
+		</section>
+	</div>
+</main>
+
+<!-- Nút viết bài nổi (điện thoại) -->
+<button type="button" data-write class="btn btn-primary btn-circle btn-lg fixed right-4 z-30 shadow-xl shadow-primary/30 sm:hidden bottom-[calc(5rem+env(safe-area-inset-bottom))]" aria-label="Viết bài">✏️</button>
+
+<dialog id="dlg-post" class="modal modal-bottom sm:modal-middle">
+	<div class="modal-box border border-white/10 max-h-[92svh] pb-[calc(1.5rem+env(safe-area-inset-bottom))]">
+		<form method="dialog"><button class="btn btn-sm btn-circle btn-ghost absolute right-3 top-3" aria-label="Đóng">✕</button></form>
+		<h3 class="font-black text-2xl">✏️ Viết bài</h3>
+		<form id="post-form" class="mt-3 space-y-2">
+			<div class="grid grid-cols-2 gap-3">
+				<label class="form-control"><div class="label"><span class="label-text font-semibold">Chuyên mục</span></div>
+					<select id="pf-cat" class="select select-bordered w-full text-base"></select></label>
+				<label class="form-control"><div class="label"><span class="label-text font-semibold">Đăng với tên</span></div>
+					<select id="pf-char" class="select select-bordered w-full text-base"></select></label>
+			</div>
+			<label class="form-control"><div class="label"><span class="label-text font-semibold">Tiêu đề</span></div>
+				<input id="pf-title" class="input input-bordered w-full text-base" maxlength="100" required enterkeyhint="next"></label>
+			<label class="form-control"><div class="label"><span class="label-text font-semibold">Nội dung</span><span class="label-text-alt"><span id="pf-cnt">0</span>/2000</span></div>
+				<textarea id="pf-body" class="textarea textarea-bordered w-full min-h-36 text-base leading-relaxed" maxlength="2000" required></textarea></label>
+			<div id="pf-err" role="alert" class="alert alert-error py-2 text-sm" hidden></div>
+			<button class="btn btn-primary w-full mt-2" id="pf-go">Đăng bài</button>
+		</form>
+	</div>
+	<form method="dialog" class="modal-backdrop"><button>đóng</button></form>
+</dialog>
+
+<script src="site/common.js"></script>
+<script>
+(function () {
+	const { $, h } = A;
+	const PAGE = 15;
+	const params = new URLSearchParams(location.search);
+	let cat = params.get('c') in A.CATS ? params.get('c') : '';
+	let q = '', posts = [], more = false, counts = null, loading = false;
+
+	// —— Chuyên mục (điện thoại: nút tròn cuộn ngang; máy tính: menu cột trái) ——
+	function renderCats() {
+		const items = [['', 'Tất cả', '📋', counts ? counts.total : null]].concat(Object.entries(A.CATS).map(([id, name]) => [id, name, A.CAT_ICON[id], counts ? counts.categories[id] : null]));
+		document.querySelectorAll('.cats').forEach((box) => {
+			const pills = box.tagName !== 'UL';
+			box.replaceChildren(...items.map(([id, name, icon, n]) => {
+				const on = id === cat;
+				const label = [h('span', { ariaHidden: 'true' }, icon), h('span.flex-1.text-left', null, name), n != null ? h('span.badge.badge-sm.' + (on ? 'badge-primary-content.bg-primary-content/20.border-0' : 'badge-ghost'), null, n) : null];
+				const btn = pills
+					? h('button.btn.btn-sm.h-10.min-h-10.rounded-full.shrink-0.gap-1.5.' + (on ? 'btn-primary' : 'btn-ghost.bg-base-100'), { type: 'button', role: 'tab', ariaSelected: on }, label)
+					: h('a.' + (on ? 'active' : 'x'), { href: '#', role: 'tab', ariaSelected: on }, label);
+				btn.onclick = (e) => {
+					e.preventDefault();
+					if (cat === id) return;
+					cat = id;
+					const u = new URL(location.href);
+					cat ? u.searchParams.set('c', cat) : u.searchParams.delete('c');
+					history.replaceState(null, '', u);
+					renderCats();
+					load(true);
+				};
+				return pills ? btn : h('li', null, btn);
+			}));
+			// Giữ chuyên mục đang chọn trong tầm nhìn khi cuộn ngang.
+			if (pills) box.querySelector('.btn-primary')?.scrollIntoView({ inline: 'nearest', block: 'nearest' });
+		});
+	}
+	const loadCounts = () => A.api('GET', 'posts/counts').then((c) => ((counts = c), renderCats())).catch(() => {});
+
+	// —— Danh sách bài ——
+	async function load(reset) {
+		if (loading) return;
+		loading = true;
+		if (reset) $('posts').replaceChildren(h('div.skeleton.h-28'), h('div.skeleton.h-28'));
+		const qs = new URLSearchParams({ limit: PAGE });
+		if (cat) qs.set('category', cat);
+		if (q) qs.set('q', q);
+		if (!reset && posts.length) qs.set('before', posts[posts.length - 1].id);
+		try {
+			const list = await A.api('GET', 'posts?' + qs);
+			posts = reset ? list : posts.concat(list);
+			more = list.length === PAGE;
+			render();
+		} catch (e) {
+			$('posts').replaceChildren(h('div.alert.alert-error', null, e.message));
+		} finally {
+			loading = false;
+		}
+	}
+	function render() {
+		$('list-title').textContent = (q ? 'Tìm "' + q + '"' : cat ? A.CAT_ICON[cat] + ' ' + A.CATS[cat] : 'Tất cả bài viết');
+		$('list-count').textContent = posts.length ? posts.length + (more ? '+' : '') + ' bài' : '';
+		if (!posts.length) {
+			$('posts').replaceChildren(h('div.card.bg-base-100.border.border-white/10', null, h('div.card-body.items-center.text-center.py-12', null,
+				h('div.text-5xl', null, q ? '🔍' : '🗨️'),
+				h('p.text-base-content/70', null, q ? 'Không thấy bài nào khớp.' : 'Chưa có bài nào ở đây.'),
+				h('button.btn.btn-primary.mt-2', { type: 'button', onclick: write }, '✏️ Viết bài đầu tiên'),
+			)));
+		} else $('posts').replaceChildren(...posts.map(card));
+		$('more-wrap').hidden = !more;
+	}
+	function card(p) {
+		return h('a.card.bg-base-100.border.border-white/10.card-hover.active:scale-[.99].transition-transform', { href: 'bai-viet?id=' + p.id },
+			h('div.card-body.p-4.sm:p-5.gap-2', null,
+				h('div.flex.items-center.gap-2.5.min-w-0', null,
+					A.avatar(p.author, 'w-9'),
+					h('div.min-w-0.flex-1', null, h('p.font-semibold.text-sm.truncate', null, p.author), h('p.text-xs.text-base-content/50', null, A.ago(p.at))),
+					h('span.badge.badge-outline.badge-sm.shrink-0.max-w-[45%].truncate', null, (A.CAT_ICON[p.category] || '') + ' ' + (A.CATS[p.category] || '')),
+				),
+				h('h3.font-black.text-lg.leading-snug.line-clamp-2.break-words', null, p.title),
+				h('p.text-sm.text-base-content/70.line-clamp-2.break-words', null, p.body),
+				h('div.flex.items-center.gap-3.text-sm.text-base-content/55.pt-1', null,
+					h('span', null, '💬 ' + p.comments + ' bình luận'),
+					p.mine ? h('span.badge.badge-primary.badge-outline.badge-sm', null, 'bài của bạn') : null,
+				),
+			),
+		);
+	}
+	$('more').onclick = () => load(false);
+	// Tải thêm tự động khi cuộn gần cuối (điện thoại không phải tìm nút).
+	if ('IntersectionObserver' in window) new IntersectionObserver((es) => es[0].isIntersecting && more && load(false), { rootMargin: '300px' }).observe($('more-wrap'));
+
+	// —— Tìm chữ (gõ xong 0,35 giây mới tìm) ——
+	let timer;
+	document.querySelectorAll('[data-q]').forEach((inp) => {
+		inp.addEventListener('input', () => {
+			document.querySelectorAll('[data-q]').forEach((o) => o !== inp && (o.value = inp.value));
+			clearTimeout(timer);
+			timer = setTimeout(() => {
+				q = inp.value.trim();
+				load(true);
+			}, 350);
+		});
+		inp.addEventListener('keydown', (e) => e.key === 'Enter' && inp.blur());
+	});
+
+	// —— Viết bài ——
+	$('pf-cat').replaceChildren(...Object.entries(A.CATS).map(([id, name]) => h('option', { value: id }, A.CAT_ICON[id] + ' ' + name)));
+	A.autosize($('pf-body'), 360);
+	$('pf-body').addEventListener('input', () => ($('pf-cnt').textContent = $('pf-body').value.length));
+	A.onMe((me) => {
+		$('pf-char').replaceChildren(...(me && me.characters.length ? me.characters.map((c) => h('option', { value: c.id }, c.name + ' · cấp ' + c.level)) : [h('option', { value: '' }, me ? me.username : '—')]));
+		if (posts.length) load(true); // cập nhật "bài của bạn"
+	});
+	function write() {
+		A.need(() => {
+			$('pf-cat').value = cat || 'chung';
+			A.showErr('pf-err');
+			$('dlg-post').showModal();
+		});
+	}
+	document.querySelectorAll('[data-write]').forEach((b) => (b.onclick = write));
+	$('post-form').onsubmit = async (e) => {
+		e.preventDefault();
+		A.showErr('pf-err');
+		$('pf-go').classList.add('btn-disabled');
+		try {
+			const p = await A.api('POST', 'posts', { title: $('pf-title').value, body: $('pf-body').value, category: $('pf-cat').value, characterId: $('pf-char').value || undefined });
+			$('pf-title').value = $('pf-body').value = '';
+			$('pf-cnt').textContent = '0';
+			$('dlg-post').close();
+			location.href = 'bai-viet?id=' + p.id + '&moi=1';
+		} catch (x) {
+			A.showErr('pf-err', x.message);
+		} finally {
+			$('pf-go').classList.remove('btn-disabled');
+		}
+	};
+
+	renderCats();
+	loadCounts();
+	load(true);
+	if (location.hash === '#viet') {
+		history.replaceState(null, '', location.pathname + location.search);
+		A.onMe(function once() {
+			if (once.done) return;
+			once.done = true;
+			write();
+		});
+	}
+})();
+</script>
+</body>
+</html>
