@@ -49,10 +49,10 @@
 			"id": "gear",
 			"group": "game",
 			"name": "Trang bị bản lớn",
-			"detail": "Rơi đồ, độ hiếm, nhuộm theo bậc đã có; còn bộ dáng giáp + đồ dán theo điểm neo.",
-			"progress": 50,
+			"detail": "Rơi đồ, độ hiếm, nhuộm theo bậc đã có. Chốt 14/10: đồ CHỈ hiện trong kho (icon + chỉ số), không vẽ lên người — ngoại hình nhân vật đổi bằng skin cải trang.",
+			"progress": 80,
 			"pixellab": 0,
-			"doc": "pixellab-ke-hoach-ve.md"
+			"doc": "the-gioi-aether.md — Trang bị"
 		},
 		{
 			"id": "diamond",
@@ -219,11 +219,11 @@
 		{
 			"id": "art_gear",
 			"group": "art",
-			"name": "Trang bị bản lớn",
-			"detail": "3 bộ giáp × 2 giới tính, đồ dán, hào quang, icon.",
+			"name": "Skin cải trang (bán kim cương)",
+			"detail": "Mỗi skin = 1 nhân vật PixelLab vẽ trọn (tóc, mặt, trang phục; bản kiếm + trượng + tay không), mỗi skin 1 giới tính, ~475 lượt. Ước 10 skin đầu; làm 1 skin thử trước (token trả phí).",
 			"progress": 0,
-			"pixellab": 915,
-			"doc": "pixellab-ke-hoach-ve.md"
+			"pixellab": 4750,
+			"doc": "the-gioi-aether.md — Việc kế tiếp 4"
 		},
 		{
 			"id": "art_misc",

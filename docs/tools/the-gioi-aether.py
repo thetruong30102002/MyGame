@@ -831,8 +831,9 @@ figure.sk figcaption {{ font-size: 13px; display: flex; flex-wrap: wrap; gap: 4p
     </section>
 
     <section id="trang-bi">
-      <h2>Trang bị hiện trên người <span class="pill moc3" style="vertical-align:middle">Mốc 3</span></h2>
-      <p>Mặc món nào thì nhân vật hiện đúng món đó: cầm kiếm nào, cầm trượng nào, đội mũ nào, mặc áo, quần, đi giày, đeo găng nào đều thấy trên người — cả người chơi khác cũng thấy. Mỗi lúc chỉ cầm một vũ khí: chém thì cầm kiếm, niệm phép thì cầm trượng.</p>
+      <h2>Trang bị hiện trên người <span class="pill moc3" style="vertical-align:middle">ĐÃ BỎ 14/10</span></h2>
+      <p><b>Chủ dự án 14/10/2026 ĐỔI: "đồ sẽ chỉ thấy trong kho" — trang bị chỉ có icon + chỉ số trong túi, KHÔNG hiện trên người; nhân vật giữ thế cầm kiếm / trượng đang vẽ liền thân (theo LOẠI vũ khí, không theo món). Ngoại hình nhân vật chỉ đổi bằng SKIN CẢI TRANG bán kim cương: mỗi skin là một nhân vật PixelLab vẽ trọn (tóc, mặt, trang phục, bản cầm kiếm + trượng + tay không, ~475 lượt / skin / giới tính, mỗi skin một giới tính). Đã thử và LOẠI nhân vật ghép mảnh có xương (chê "quá xấu, khác hẳn bản vẽ của pixelab"); không đổi màu đồ.</b></s></p>
+      <p style="opacity:.6"><s>Mặc món nào thì nhân vật hiện đúng món đó: cầm kiếm nào, cầm trượng nào, đội mũ nào, mặc áo, quần, đi giày, đeo găng nào đều thấy trên người — cả người chơi khác cũng thấy. Mỗi lúc chỉ cầm một vũ khí: chém thì cầm kiếm, niệm phép thì cầm trượng.</s></p>
       <div class="gear-split" style="margin-top:14px">
         <div>
           <h4>Lớp thân (vẽ theo từng khung động tác)</h4>
@@ -947,8 +948,9 @@ https://claude.ai/artifact/VTrVtPJHXUtETsssKRcx9K). Không sửa tay hai file si
    (`npm run assets:map -- <vùng>`, khai vùng ở `packages/asset-pipeline/src/maps/regions.ts`), bật `ready: true` ở
    `packages/sim/src/regions.ts`; boss + chiêu + rồng (Long Huyệt, boss thế giới dùng chung — `docs/ke-hoach-the-gioi.md` mục 2.1, 2.2).
 3. **M3.3b**: túi đồ + trang bị ở máy chủ, rơi đồ (máy chủ quyết), nhật ký kinh tế.
-4. Mốc 3 — **nhân vật người chơi + trang bị** (yêu cầu bắt buộc: mặc món nào hiện đúng món đó — kiếm, trượng, mũ, áo, quần, giày,
-   găng): pipeline tách bộ đồ PixelLab so với nhân vật gốc → cắt 4 lớp theo vùng thân → client Unity (`CharacterView`, đồ cầm tay đang theo `GEAR_ART`). Làm thử 1 kiểu trước.
+4. Mốc 3 — **skin cải trang** (chủ dự án 14/10/2026: "đồ sẽ chỉ thấy trong kho" — trang bị KHÔNG hiện trên người): mỗi skin là
+   một nhân vật PixelLab vẽ trọn (~475 lượt / skin / giới tính), bán kim cương, mặc vào thì thay ngoại hình; client chọn atlas theo
+   skin. Làm 1 skin thử trước (token trả phí). Đã loại: ghép mảnh có xương, đổi màu đồ, đồ hiện theo món.
 5. **Làm đẹp map** (chủ dự án 11/10/2026: "đồ vật lặp lại, cần thêm quái, xếp có trật tự") — `docs/ke-hoach-the-gioi.md` mục 5.4:
    xếp có trật tự + trộn đồ + tô màu lại trước (0 lượt), thêm quái (20–28 con, 2 loại / map săn), vẽ mới chỉ sau phiếu duyệt.
    Kèm: **cột dịch chuyển ở trạm vẽ đẹp hơn** (đã thống nhất một hình `rune_stone` cho mọi vùng 11/10/2026 — còn thiếu vòng phép,
@@ -1075,7 +1077,9 @@ for g, t, v, tmp, pr in MISSING:
 md.append(f'| **Cộng** | | | **~{dot(missing_total)}** | |\n')
 md.append('Ngoài PixelLab: ' + '; '.join(OUTSIDE) + '.\n')
 
-md.append('## Trang bị hiện trên người (BẮT BUỘC — Mốc 3)\n')
+md.append('## Trang bị hiện trên người — ĐÃ BỎ 14/10/2026\n')
+md.append('**Chủ dự án 14/10/2026 ĐỔI: "đồ sẽ chỉ thấy trong kho" — trang bị chỉ có icon + chỉ số trong túi, KHÔNG hiện trên người; nhân vật giữ thế cầm kiếm / trượng đang vẽ liền thân (theo LOẠI vũ khí, không theo món). Ngoại hình nhân vật chỉ đổi bằng SKIN CẢI TRANG bán kim cương: mỗi skin là một nhân vật PixelLab vẽ trọn (tóc, mặt, trang phục, bản cầm kiếm + trượng + tay không, ~475 lượt / skin / giới tính, mỗi skin một giới tính). Đã thử và LOẠI nhân vật ghép mảnh có xương (chê "quá xấu, khác hẳn bản vẽ của pixelab"); không đổi màu đồ.**\n')
+md.append('Kế hoạch cũ (giữ để tra cứu):\n')
 md.append('Mặc món nào thì nhân vật hiện đúng món đó — cầm kiếm nào, cầm trượng nào, đội mũ nào, áo, quần, giày, găng nào đều thấy trên người,')
 md.append('người chơi khác cũng thấy. Mỗi lúc cầm một vũ khí: chém thì cầm kiếm, niệm phép thì cầm trượng.\n')
 md.append('| Lớp thân | Cách hiện | Kiểu hình bản đầu |\n|---|---|---|')

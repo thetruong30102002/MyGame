@@ -14,7 +14,6 @@ https://claude.ai/artifact/VTrVtPJHXUtETsssKRcx9K). Không sửa tay hai file si
 
 | Phần | Trạng thái | Tài liệu |
 |---|---|---|
-| Trang chủ web + trang quản trị web (chủ dự án 14/10/2026: "thêm trên landing page 1 trang admin + tài nguyên cho user và xem góp ý … đăng nhập trên trang chủ, góp ý, đăng bài" + "giao diện web xấu quá cần dùng thêm thư viện UI"): `…/game/` đăng nhập / tạo tài khoản, góp ý, bảng tin cộng đồng (viết bài + bình luận); `…/game/admin` cộng / trừ tài nguyên, đọc góp ý, đăng tin, ẩn bài, nhật ký. Giao diện Tailwind + daisyUI (`npm run build:site -w @aether/server`). Mật khẩu vốn đã băm scrypt (kiểm 13/13 tài khoản) | ✔ ĐÃ LÊN 14/10/2026 (sao lưu `data/backup-20261014-*`, thêm bảng `news` / `posts` / `post_comments`). Cùng ngày ("chia page ra … góp ý, bài viết 1 page, diễn đàn … tối ưu cho mobile thật kĩ"): chia 7 trang (tin tức, diễn đàn có chuyên mục + tìm, bài viết, góp ý có trạng thái + quản trị trả lời, tải game, thế giới), thanh điều hướng dưới trên điện thoại — kiểm 51 mục bằng Playwright giả lập iPhone / Android | README mục Trang chủ, `apps/server/src/board.ts` |
 | **CLIENT LÀ UNITY, BẢN WEB ĐÃ XOÁ** (chủ dự án 11/10/2026: "làm nốt đi rồi xoá"): `apps/web` (Next.js + PixiJS) xoá hẳn; client duy nhất là `UnityGame/` (PC + APK) nói chuyện với cùng máy chủ qua Funnel `/game`. Đã chép đủ: bị động + phủ phép, Thủy Thần, chat / bạn bè, dịch vụ kim cương, cốt truyện + tự đi, Thư viện, bản đồ thế giới, cây Tiềm năng, cửa sổ Quản trị. Đầu ra pipeline dời ra `assets/` ở gốc repo (máy chủ đọc map ở đây). Trang Thử chiêu web → phòng Thử chiêu của Unity | ✔ 11/10/2026, máy chủ thật đã khởi động lại với luật mới | `UnityGame/MIGRATION_PLAN.md`, `UnityGame/README_UNITY.md` |
 | Kim cương K1: ví ở máy chủ, điểm danh (cửa sổ lịch), Bia Danh Vọng, quầy hàng của Bram (gian hàng có kệ), bình EXP / chiến đấu | ✔ | `docs/ke-hoach-kim-cuong.md` |
 | Chat: kênh Map / Thế giới (3 kim cương / tin) / Riêng, tab riêng từng người | ✔ | `docs/ke-hoach-xa-hoi.md` |
@@ -72,8 +71,9 @@ https://claude.ai/artifact/VTrVtPJHXUtETsssKRcx9K). Không sửa tay hai file si
    (`npm run assets:map -- <vùng>`, khai vùng ở `packages/asset-pipeline/src/maps/regions.ts`), bật `ready: true` ở
    `packages/sim/src/regions.ts`; boss + chiêu + rồng (Long Huyệt, boss thế giới dùng chung — `docs/ke-hoach-the-gioi.md` mục 2.1, 2.2).
 3. **M3.3b**: túi đồ + trang bị ở máy chủ, rơi đồ (máy chủ quyết), nhật ký kinh tế.
-4. Mốc 3 — **nhân vật người chơi + trang bị** (yêu cầu bắt buộc: mặc món nào hiện đúng món đó — kiếm, trượng, mũ, áo, quần, giày,
-   găng): pipeline tách bộ đồ PixelLab so với nhân vật gốc → cắt 4 lớp theo vùng thân → client Unity (`CharacterView`, đồ cầm tay đang theo `GEAR_ART`). Làm thử 1 kiểu trước.
+4. Mốc 3 — **skin cải trang** (chủ dự án 14/10/2026: "đồ sẽ chỉ thấy trong kho" — trang bị KHÔNG hiện trên người): mỗi skin là
+   một nhân vật PixelLab vẽ trọn (~475 lượt / skin / giới tính), bán kim cương, mặc vào thì thay ngoại hình; client chọn atlas theo
+   skin. Làm 1 skin thử trước (token trả phí). Đã loại: ghép mảnh có xương, đổi màu đồ, đồ hiện theo món.
 5. **Làm đẹp map** (chủ dự án 11/10/2026: "đồ vật lặp lại, cần thêm quái, xếp có trật tự") — `docs/ke-hoach-the-gioi.md` mục 5.4:
    xếp có trật tự + trộn đồ + tô màu lại trước (0 lượt), thêm quái (20–28 con, 2 loại / map săn), vẽ mới chỉ sau phiếu duyệt.
    Kèm: **cột dịch chuyển ở trạm vẽ đẹp hơn** (đã thống nhất một hình `rune_stone` cho mọi vùng 11/10/2026 — còn thiếu vòng phép,
@@ -299,7 +299,11 @@ trong bảng. Gói 24$ thứ hai sau Mốc 3 còn ~2.345 → đủ phần "cần
 
 Ngoài PixelLab: Âm thanh + nhạc nền từng vùng (PixelLab không làm); Cốt truyện + lời thoại + nhiệm vụ vùng 2–10 (viết tay); Chỉ số, AI, chiêu của 46 quái + 28 boss + 7 rồng trong code (cân bằng sau khi có hình).
 
-## Trang bị hiện trên người (BẮT BUỘC — Mốc 3)
+## Trang bị hiện trên người — ĐÃ BỎ 14/10/2026
+
+**Chủ dự án 14/10/2026 ĐỔI: "đồ sẽ chỉ thấy trong kho" — trang bị chỉ có icon + chỉ số trong túi, KHÔNG hiện trên người; nhân vật giữ thế cầm kiếm / trượng đang vẽ liền thân (theo LOẠI vũ khí, không theo món). Ngoại hình nhân vật chỉ đổi bằng SKIN CẢI TRANG bán kim cương: mỗi skin là một nhân vật PixelLab vẽ trọn (tóc, mặt, trang phục, bản cầm kiếm + trượng + tay không, ~475 lượt / skin / giới tính, mỗi skin một giới tính). Đã thử và LOẠI nhân vật ghép mảnh có xương (chê "quá xấu, khác hẳn bản vẽ của pixelab"); không đổi màu đồ.**
+
+Kế hoạch cũ (giữ để tra cứu):
 
 Mặc món nào thì nhân vật hiện đúng món đó — cầm kiếm nào, cầm trượng nào, đội mũ nào, áo, quần, giày, găng nào đều thấy trên người,
 người chơi khác cũng thấy. Mỗi lúc cầm một vũ khí: chém thì cầm kiếm, niệm phép thì cầm trượng.
