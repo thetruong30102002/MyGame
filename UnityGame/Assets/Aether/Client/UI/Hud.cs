@@ -31,6 +31,8 @@ namespace Aether.Client.UI
         public ChatBox Chat { get; private set; }
         /// <summary>Thẻ cảnh toàn màn (lời tựa, sang tuổi, ngã rẽ, hết chương).</summary>
         public Cinematic Cinematic { get; private set; }
+        /// <summary>Reusable manga panel cutscene player.</summary>
+        public MangaCutscene MangaCutscene { get; private set; }
         /// <summary>Ô nhiệm vụ góc phải.</summary>
         public QuestTracker Quest { get; private set; }
 
@@ -118,7 +120,7 @@ namespace Aether.Client.UI
         private readonly Image[] touchIcons = new Image[6];
 
         public bool DialogOpen => dialogRoot != null && dialogRoot.gameObject.activeSelf;
-        public bool Blocking => DialogOpen || (Panels != null && Panels.Open) || (Cinematic != null && Cinematic.Open);
+        public bool Blocking => DialogOpen || (Panels != null && Panels.Open) || (Cinematic != null && Cinematic.Open) || (MangaCutscene != null && MangaCutscene.Open);
         public float FadeAlpha { get; set; }
         public bool ShowNames = true;
         private GameObject pointsBadge;
@@ -154,6 +156,7 @@ namespace Aether.Client.UI
             hud.Quest = QuestTracker.Create(hud.root, g.ToggleAutoWalk);
             hud.Panels = Panels.Create(g, hud, hud.root);
             hud.Cinematic = Cinematic.Create(hud.root);
+            hud.MangaCutscene = MangaCutscene.Create(hud.root, g.Camera);
             hud.fade.transform.SetAsLastSibling();
             return hud;
         }

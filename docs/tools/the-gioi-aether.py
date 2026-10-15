@@ -884,8 +884,8 @@ print('ok', new_mob, boss_new, MOC_TOTAL, pack1)
 HANDOFF = """## Bàn giao — đọc trước khi làm tiếp (agent / người sau)
 
 **Sửa danh sách này:** sửa dữ liệu trong `docs/tools/the-gioi-aether.py` rồi chạy `python docs/tools/the-gioi-aether.py` — sinh lại CẢ
-`docs/the-gioi-aether.md` (file này) lẫn trang `docs/the-gioi-aether.html` (đăng lại trang: Artifact
-https://claude.ai/artifact/VTrVtPJHXUtETsssKRcx9K). Không sửa tay hai file sinh ra.
+`docs/the-gioi-aether.md` (file này) lẫn trang `docs/the-gioi-aether.html` (trang chỉ xem trên máy, KHÔNG đăng lên claude.ai —
+tài khoản Claude dùng chung, ai cũng thấy). Không sửa tay hai file sinh ra.
 
 ### Trạng thái (09–11/10/2026)
 

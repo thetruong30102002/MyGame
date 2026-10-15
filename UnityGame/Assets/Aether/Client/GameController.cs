@@ -291,7 +291,8 @@ namespace Aether.Client
                 {
                     if (k == KeyCode.Escape || act == KeyBinds.Act.Interact || act == KeyBinds.Act.Dodge || act == KeyBinds.Act.Chat)
                     {
-                        if (hud.Cinematic.Open) hud.Cinematic.Advance();
+                        if (hud.MangaCutscene.Open) hud.MangaCutscene.Advance();
+                        else if (hud.Cinematic.Open) hud.Cinematic.Advance();
                         else AdvanceDialog();
                     }
                     continue;
@@ -336,6 +337,13 @@ namespace Aether.Client
             // Giữ phím ô 1 / ô 2 (hoặc giữ nút cảm ứng): đánh liên tục đúng nhịp hồi chiêu.
             for (var i = 0; i < KeyBinds.Slots.Length; i += 1)
                 if ((i < 2 && input.Held(KeyBinds.Get(KeyBinds.Slots[i]))) || slotHeld[i]) CastSlot(i, true);
+        }
+
+        /// <summary>Play a reusable manga cutscene asset while the existing HUD blocking flow pauses gameplay.</summary>
+        public void PlayCutscene(UI.MangaCutsceneDefinition definition, Action onComplete = null)
+        {
+            if (hud == null || hud.MangaCutscene == null) { onComplete?.Invoke(); return; }
+            hud.MangaCutscene.Play(definition, onComplete);
         }
 
         private static UI.Panels.Kind? PanelOf(KeyBinds.Act? a) => a switch
