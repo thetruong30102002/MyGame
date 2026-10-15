@@ -143,6 +143,23 @@ tailscale funnel --https=8443 off                                # gỡ link cũ
   ```
 - **Cập nhật máy chủ thật**: sao lưu CSDL trước (`VACUUM INTO` bằng `node:sqlite` chạy được khi máy chủ đang mở CSDL — mẫu ở
   `docs/the-gioi-aether.md` mục Chạy / kiểm), `taskkill` tiến trình nghe :3200, chạy lại `scripts\khoi-dong-ban-that.ps1`.
+- **Cài / cập nhật từ Git trên máy `admin`** (máy đang chạy Tailscale Funnel): mở PowerShell, vào thư mục repo và kéo code mới.
+  Nếu `package-lock.json` thay đổi thì cài lại gói; nếu có thay đổi cấu trúc CSDL, sao lưu `apps/server/data/aether.db` trước khi
+  chạy phiên bản mới. Sau đó khởi động lại server bằng script bên dưới. Không cần cấu hình lại Funnel nếu địa chỉ vẫn là
+  `https://admin.tail024813.ts.net/game`.
+
+  ```powershell
+  cd D:\nttrg\pixel
+  git pull
+  npm install                         # chạy khi dependency / package-lock.json thay đổi
+  $serverPid = (Get-NetTCPConnection -State Listen -LocalPort 3200).OwningProcess | Select-Object -First 1
+  taskkill /PID $serverPid /T /F      # dừng bản cũ để script có thể bật bản mới
+  powershell -NoProfile -ExecutionPolicy Bypass -File scripts\khoi-dong-ban-that.ps1
+  ```
+
+  Script bật server chạy nền và chờ cổng 3200 sẵn sàng. Kiểm tra `https://admin.tail024813.ts.net/game`
+  hoặc xem log tại `apps/server/data/server.log`. Nếu máy `admin` vừa khởi động lại, cần đăng nhập Windows để tác vụ tự chạy server;
+  Tailscale Funnel cần đang hoạt động và máy phải có mạng. Người chơi tiếp tục dùng URL `/game` ở trên.
 - Triển khai hình mới: dựng thử `AETHER_ASSETS=<thư mục nháp> npm run assets:…`, duyệt xong mới dựng vào `assets/` — **máy chủ thật
   đọc map trong `assets/maps` ngay lúc chạy** và giữ đệm theo file, nên đổi map thì khởi động lại máy chủ; hình mới vào game qua
   Unity `Aether/Nhập dữ liệu từ pipeline` rồi build lại PC / APK.
