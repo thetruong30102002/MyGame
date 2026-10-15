@@ -55,6 +55,7 @@ namespace Aether.Net
         public GameSocket(Uri uri, string token, string characterId)
         {
             _uri = uri ?? throw new ArgumentNullException(nameof(uri));
+            TlsTrust.Install();
             _token = token;
             _characterId = characterId;
         }

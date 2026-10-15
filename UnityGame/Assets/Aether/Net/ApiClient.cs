@@ -35,6 +35,7 @@ namespace Aether.Net
         public ApiClient(string baseUrl, HttpClient http = null)
         {
             BaseUrl = (baseUrl ?? throw new ArgumentNullException(nameof(baseUrl))).TrimEnd('/');
+            TlsTrust.Install();
             _ownsHttp = http == null;
             _http = http ?? new HttpClient { Timeout = TimeSpan.FromSeconds(20) };
         }
@@ -112,7 +113,7 @@ namespace Aether.Net
             }
             catch (Exception e) when (!(e is OperationCanceledException) || !ct.IsCancellationRequested)
             {
-                throw new ApiException(0, "Không kết nối được máy chủ game — máy chủ đã bật chưa?", e);
+                throw new ApiException(0, "Không kết nối được máy chủ game — máy chủ đã bật chưa?\n(" + Describe(e) + ")", e);
             }
             using (res)
             {
@@ -133,6 +134,15 @@ namespace Aether.Net
                 }
                 return data == null ? default : data.ToObject<T>(ProtocolJson.Serializer);
             }
+        }
+
+        /// <summary>Lỗi gốc ngắn gọn (lỗi trong cùng + lý do từ chối chứng chỉ nếu có) để người chơi chụp màn hình gửi lại.</summary>
+        private static string Describe(Exception e)
+        {
+            var inner = e;
+            while (inner.InnerException != null) inner = inner.InnerException;
+            var why = TlsTrust.LastRejection;
+            return inner.GetType().Name + ": " + inner.Message + (why != null ? " — " + why : "");
         }
 
         public void Dispose()
