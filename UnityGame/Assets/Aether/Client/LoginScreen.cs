@@ -20,9 +20,18 @@ namespace Aether.Client
     /// </summary>
     public sealed class LoginScreen : MonoBehaviour
     {
-        public const string DefaultServer = "https://admin.tail024813.ts.net/game";
+        public const string DefaultServer = "https://nttrg-2.tail024813.ts.net/game";
         private const string PrefServer = "aether.server";
+        private const string PreviousServer = "https://admin.tail024813.ts.net/game";
         private const string PrefUser = "aether.user";
+
+        private static string GetServerPreference()
+        {
+            var saved = PlayerPrefs.GetString(PrefServer, "").Trim();
+            if (string.IsNullOrEmpty(saved) || string.Equals(saved.TrimEnd('/'), PreviousServer, StringComparison.OrdinalIgnoreCase))
+                return DefaultServer;
+            return saved;
+        }
 
         [SerializeField] private GameController game;
         [SerializeField] private GameDatabase database;
@@ -78,7 +87,7 @@ namespace Aether.Client
             Rebuild();
             if (Array.IndexOf(Environment.GetCommandLineArgs(), "-aetherShot") < 0) ShowBetaNotice();
             // Tự cập nhật: có bản mới thì tải + cài ngay (phủ màn đăng nhập), không thì không thấy gì.
-            AutoUpdate.Begin(root, PlayerPrefs.GetString(PrefServer, DefaultServer));
+            AutoUpdate.Begin(root, GetServerPreference());
         }
 
         private Sprite Ui(string id) => UiKit.Sprites != null ? UiKit.Sprites.Get(id) : null;
@@ -228,7 +237,7 @@ namespace Aether.Client
         private void Rebuild()
         {
             var keepUser = user != null ? user.text : PlayerPrefs.GetString(PrefUser, "");
-            var keepServer = server != null ? server.text : PlayerPrefs.GetString(PrefServer, DefaultServer);
+            var keepServer = server != null ? server.text : GetServerPreference();
             if (card != null) Destroy(card.gameObject);
             var h = step == Step.Login ? 330 : step == Step.Register ? 400 : step == Step.Create ? 380 : 140 + Math.Max(1, characters.Count) * 76;
             if (showServer && (step == Step.Login || step == Step.Register)) h += 66;
@@ -386,7 +395,7 @@ namespace Aether.Client
             if (u.Length == 0) throw new ApiException(0, "Bạn chưa gõ tên đăng nhập");
             if (pass.text.Length == 0) throw new ApiException(0, "Bạn chưa gõ mật khẩu");
             if (register && pass2 != null && pass2.text != pass.text) throw new ApiException(0, "Hai lần gõ mật khẩu chưa giống nhau");
-            var url = (server != null && server.text.Trim().Length > 0 ? server.text : PlayerPrefs.GetString(PrefServer, DefaultServer)).Trim().TrimEnd('/');
+            var url = (server != null && server.text.Trim().Length > 0 ? server.text : GetServerPreference()).Trim().TrimEnd('/');
             api?.Dispose();
             api = new ApiClient(url);
             var res = register ? await api.RegisterAsync(u, pass.text) : await api.LoginAsync(u, pass.text);
