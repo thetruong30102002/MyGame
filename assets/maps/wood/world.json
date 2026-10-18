@@ -1,0 +1,798 @@
+{
+	"region": "wood",
+	"start": "hub",
+	"maps": {
+		"hub": {
+			"name": "Làng Rễ Ngàn Năm",
+			"width": 2112,
+			"height": 1728,
+			"exits": [
+				{
+					"id": "hub_x1",
+					"to": "h1",
+					"x": 24,
+					"y": 1008,
+					"label": "Bãi Dương Xỉ"
+				},
+				{
+					"id": "hub_x2",
+					"to": "h5",
+					"x": 1056,
+					"y": 24,
+					"label": "Suối Đom Đóm"
+				},
+				{
+					"id": "hub_x3",
+					"to": "h7",
+					"x": 2088,
+					"y": 1008,
+					"label": "Rừng Thông Đỏ"
+				},
+				{
+					"id": "hub_x4",
+					"to": "human/element_gate",
+					"x": 1056,
+					"y": 1704,
+					"label": "Cổng Nguyên Tố · Thistlewood"
+				}
+			],
+			"spots": [
+				"hub_w",
+				"hub_n",
+				"hub_e",
+				"entry",
+				"waystone",
+				"plaza"
+			],
+			"zones": [],
+			"dummies": [],
+			"boss": null
+		},
+		"h1": {
+			"name": "Bãi Dương Xỉ",
+			"width": 2304,
+			"height": 1920,
+			"exits": [
+				{
+					"id": "h1_x1",
+					"to": "hub",
+					"x": 2280,
+					"y": 816,
+					"label": "Làng Rễ Ngàn Năm"
+				},
+				{
+					"id": "h1_x2",
+					"to": "h2",
+					"x": 960,
+					"y": 24,
+					"label": "Lối Đa Rễ Phụ"
+				}
+			],
+			"spots": [
+				"h1_e",
+				"h1_n",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h1_z1",
+					"monsters": [
+						"mob_poison_frog_001"
+					],
+					"level": 21
+				},
+				{
+					"id": "h1_z2",
+					"monsters": [
+						"mob_poison_frog_001"
+					],
+					"level": 21
+				},
+				{
+					"id": "h1_z3",
+					"monsters": [
+						"mob_poison_frog_001"
+					],
+					"level": 21
+				},
+				{
+					"id": "h1_z4",
+					"monsters": [
+						"mob_poison_frog_001"
+					],
+					"level": 21
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				21,
+				21
+			]
+		},
+		"h2": {
+			"name": "Lối Đa Rễ Phụ",
+			"width": 2208,
+			"height": 2016,
+			"exits": [
+				{
+					"id": "h2_x1",
+					"to": "h1",
+					"x": 912,
+					"y": 1992,
+					"label": "Bãi Dương Xỉ"
+				},
+				{
+					"id": "h2_x2",
+					"to": "h3",
+					"x": 1008,
+					"y": 24,
+					"label": "Vườn Hoa Trắng"
+				}
+			],
+			"spots": [
+				"h2_s",
+				"h2_n",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h2_z1",
+					"monsters": [
+						"mob_swamp_leech_001"
+					],
+					"level": 22
+				},
+				{
+					"id": "h2_z2",
+					"monsters": [
+						"mob_swamp_leech_001"
+					],
+					"level": 22
+				},
+				{
+					"id": "h2_z3",
+					"monsters": [
+						"mob_swamp_leech_001"
+					],
+					"level": 22
+				},
+				{
+					"id": "h2_z4",
+					"monsters": [
+						"mob_swamp_leech_001"
+					],
+					"level": 22
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				22,
+				22
+			]
+		},
+		"h3": {
+			"name": "Vườn Hoa Trắng",
+			"width": 2400,
+			"height": 1824,
+			"exits": [
+				{
+					"id": "h3_x1",
+					"to": "h2",
+					"x": 1056,
+					"y": 1800,
+					"label": "Lối Đa Rễ Phụ"
+				},
+				{
+					"id": "h3_x2",
+					"to": "h4",
+					"x": 2376,
+					"y": 816,
+					"label": "Rừng Sồi Rỗng"
+				}
+			],
+			"spots": [
+				"h3_s",
+				"h3_e",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h3_z1",
+					"monsters": [
+						"mob_glow_mushroom_001"
+					],
+					"level": 23
+				},
+				{
+					"id": "h3_z2",
+					"monsters": [
+						"mob_glow_mushroom_001"
+					],
+					"level": 23
+				},
+				{
+					"id": "h3_z3",
+					"monsters": [
+						"mob_glow_mushroom_001"
+					],
+					"level": 23
+				},
+				{
+					"id": "h3_z4",
+					"monsters": [
+						"mob_glow_mushroom_001"
+					],
+					"level": 23
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				23,
+				23
+			]
+		},
+		"h4": {
+			"name": "Rừng Sồi Rỗng",
+			"width": 2208,
+			"height": 2112,
+			"exits": [
+				{
+					"id": "h4_x1",
+					"to": "h3",
+					"x": 24,
+					"y": 1200,
+					"label": "Vườn Hoa Trắng"
+				},
+				{
+					"id": "h4_x2",
+					"to": "h5",
+					"x": 960,
+					"y": 2088,
+					"label": "Suối Đom Đóm"
+				},
+				{
+					"id": "h4_x3",
+					"to": "h8",
+					"x": 2184,
+					"y": 1152,
+					"label": "Thung Lũng Dây Leo"
+				}
+			],
+			"spots": [
+				"h4_w",
+				"h4_s",
+				"h4_e",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h4_z1",
+					"monsters": [
+						"mob_water_snake_001"
+					],
+					"level": 24
+				},
+				{
+					"id": "h4_z2",
+					"monsters": [
+						"mob_water_snake_001"
+					],
+					"level": 24
+				},
+				{
+					"id": "h4_z3",
+					"monsters": [
+						"mob_water_snake_001"
+					],
+					"level": 24
+				},
+				{
+					"id": "h4_z4",
+					"monsters": [
+						"mob_water_snake_001"
+					],
+					"level": 24
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				24,
+				24
+			]
+		},
+		"h5": {
+			"name": "Suối Đom Đóm",
+			"width": 2496,
+			"height": 1920,
+			"exits": [
+				{
+					"id": "h5_x1",
+					"to": "h4",
+					"x": 1056,
+					"y": 24,
+					"label": "Rừng Sồi Rỗng"
+				},
+				{
+					"id": "h5_x2",
+					"to": "hub",
+					"x": 1200,
+					"y": 1896,
+					"label": "Làng Rễ Ngàn Năm"
+				},
+				{
+					"id": "h5_x3",
+					"to": "h6",
+					"x": 2472,
+					"y": 768,
+					"label": "Đồi Hồng Dại"
+				}
+			],
+			"spots": [
+				"h5_n",
+				"h5_s",
+				"h5_e",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h5_z1",
+					"monsters": [
+						"mob_mud_merfolk_001"
+					],
+					"level": 25
+				},
+				{
+					"id": "h5_z2",
+					"monsters": [
+						"mob_mud_merfolk_001"
+					],
+					"level": 25
+				},
+				{
+					"id": "h5_z3",
+					"monsters": [
+						"mob_mud_merfolk_001"
+					],
+					"level": 25
+				},
+				{
+					"id": "h5_z4",
+					"monsters": [
+						"mob_mud_merfolk_001"
+					],
+					"level": 25
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				25,
+				25
+			]
+		},
+		"h6": {
+			"name": "Đồi Hồng Dại",
+			"width": 2304,
+			"height": 2016,
+			"exits": [
+				{
+					"id": "h6_x1",
+					"to": "h5",
+					"x": 24,
+					"y": 1344,
+					"label": "Suối Đom Đóm"
+				},
+				{
+					"id": "h6_x2",
+					"to": "h7",
+					"x": 1152,
+					"y": 1992,
+					"label": "Rừng Thông Đỏ"
+				},
+				{
+					"id": "h6_x3",
+					"to": "h8",
+					"x": 1296,
+					"y": 24,
+					"label": "Thung Lũng Dây Leo"
+				}
+			],
+			"spots": [
+				"h6_w",
+				"h6_s",
+				"h6_n",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h6_z1",
+					"monsters": [
+						"mob_poison_frog_001"
+					],
+					"level": 26
+				},
+				{
+					"id": "h6_z2",
+					"monsters": [
+						"mob_poison_frog_001"
+					],
+					"level": 26
+				},
+				{
+					"id": "h6_z3",
+					"monsters": [
+						"mob_poison_frog_001"
+					],
+					"level": 26
+				},
+				{
+					"id": "h6_z4",
+					"monsters": [
+						"mob_poison_frog_001"
+					],
+					"level": 26
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				26,
+				26
+			]
+		},
+		"h7": {
+			"name": "Rừng Thông Đỏ",
+			"width": 2400,
+			"height": 2112,
+			"exits": [
+				{
+					"id": "h7_x1",
+					"to": "h6",
+					"x": 1248,
+					"y": 24,
+					"label": "Đồi Hồng Dại"
+				},
+				{
+					"id": "h7_x2",
+					"to": "hub",
+					"x": 24,
+					"y": 864,
+					"label": "Làng Rễ Ngàn Năm"
+				},
+				{
+					"id": "to_worldtree",
+					"to": "worldtree",
+					"x": 2376,
+					"y": 1080,
+					"label": "Lòng Cây Thế Giới"
+				}
+			],
+			"spots": [
+				"h7_n",
+				"h7_w",
+				"h7_lair",
+				"waystone",
+				"worldtree_outside"
+			],
+			"zones": [
+				{
+					"id": "h7_z1",
+					"monsters": [
+						"mob_swamp_leech_001"
+					],
+					"level": 27
+				},
+				{
+					"id": "h7_z2",
+					"monsters": [
+						"mob_swamp_leech_001"
+					],
+					"level": 27
+				},
+				{
+					"id": "h7_z3",
+					"monsters": [
+						"mob_swamp_leech_001"
+					],
+					"level": 27
+				},
+				{
+					"id": "h7_boss",
+					"monsters": [
+						"boss_mother_frog_001"
+					],
+					"level": 27
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				27,
+				27
+			]
+		},
+		"h8": {
+			"name": "Thung Lũng Dây Leo",
+			"width": 2208,
+			"height": 1920,
+			"exits": [
+				{
+					"id": "h8_x1",
+					"to": "h6",
+					"x": 960,
+					"y": 1896,
+					"label": "Đồi Hồng Dại"
+				},
+				{
+					"id": "h8_x2",
+					"to": "h4",
+					"x": 24,
+					"y": 864,
+					"label": "Rừng Sồi Rỗng"
+				},
+				{
+					"id": "h8_x3",
+					"to": "h9",
+					"x": 2184,
+					"y": 1200,
+					"label": "Cầu Thân Cây Đổ"
+				}
+			],
+			"spots": [
+				"h8_s",
+				"h8_w",
+				"h8_e",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h8_z1",
+					"monsters": [
+						"mob_glow_mushroom_001"
+					],
+					"level": 28
+				},
+				{
+					"id": "h8_z2",
+					"monsters": [
+						"mob_glow_mushroom_001"
+					],
+					"level": 28
+				},
+				{
+					"id": "h8_z3",
+					"monsters": [
+						"mob_glow_mushroom_001"
+					],
+					"level": 28
+				},
+				{
+					"id": "h8_z4",
+					"monsters": [
+						"mob_glow_mushroom_001"
+					],
+					"level": 28
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				28,
+				28
+			]
+		},
+		"h9": {
+			"name": "Cầu Thân Cây Đổ",
+			"width": 2496,
+			"height": 2016,
+			"exits": [
+				{
+					"id": "h9_x1",
+					"to": "h8",
+					"x": 24,
+					"y": 912,
+					"label": "Thung Lũng Dây Leo"
+				},
+				{
+					"id": "h9_x2",
+					"to": "h10",
+					"x": 2472,
+					"y": 864,
+					"label": "Vườn Tinh Linh"
+				}
+			],
+			"spots": [
+				"h9_w",
+				"h9_e",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h9_z1",
+					"monsters": [
+						"mob_water_snake_001"
+					],
+					"level": 29
+				},
+				{
+					"id": "h9_z2",
+					"monsters": [
+						"mob_water_snake_001"
+					],
+					"level": 29
+				},
+				{
+					"id": "h9_z3",
+					"monsters": [
+						"mob_water_snake_001"
+					],
+					"level": 29
+				},
+				{
+					"id": "h9_z4",
+					"monsters": [
+						"mob_water_snake_001"
+					],
+					"level": 29
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				29,
+				29
+			]
+		},
+		"h10": {
+			"name": "Vườn Tinh Linh",
+			"width": 2304,
+			"height": 2112,
+			"exits": [
+				{
+					"id": "h10_x1",
+					"to": "h9",
+					"x": 24,
+					"y": 960,
+					"label": "Cầu Thân Cây Đổ"
+				},
+				{
+					"id": "h10_x2",
+					"to": "sanctum",
+					"x": 1344,
+					"y": 2088,
+					"label": "Mầm Cây Thế Giới"
+				}
+			],
+			"spots": [
+				"h10_w",
+				"h10_s",
+				"h10_lair",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h10_z1",
+					"monsters": [
+						"mob_mud_merfolk_001"
+					],
+					"level": 30
+				},
+				{
+					"id": "h10_z2",
+					"monsters": [
+						"mob_mud_merfolk_001"
+					],
+					"level": 30
+				},
+				{
+					"id": "h10_z3",
+					"monsters": [
+						"mob_mud_merfolk_001"
+					],
+					"level": 30
+				},
+				{
+					"id": "h10_boss",
+					"monsters": [
+						"boss_swamp_witch_001"
+					],
+					"level": 30
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				30,
+				30
+			]
+		},
+		"sanctum": {
+			"name": "Mầm Cây Thế Giới",
+			"width": 1536,
+			"height": 1344,
+			"exits": [
+				{
+					"id": "sanctum_x1",
+					"to": "h10",
+					"x": 864,
+					"y": 24,
+					"label": "Vườn Tinh Linh"
+				}
+			],
+			"spots": [
+				"sanctum_n",
+				"sanctum_lair",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "sanctum_boss",
+					"monsters": [
+						"boss_mud_hydra_001"
+					],
+					"level": 30
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				30,
+				30
+			]
+		},
+		"worldtree": {
+			"name": "Lòng Cây Thế Giới",
+			"width": 1920,
+			"height": 1728,
+			"exits": [
+				{
+					"id": "to_h7",
+					"to": "h7",
+					"x": 24,
+					"y": 888,
+					"label": "Rừng Thông Đỏ"
+				}
+			],
+			"spots": [
+				"worldtree_entry",
+				"waystone",
+				"worldtree_room1",
+				"worldtree_room2",
+				"worldtree_room3"
+			],
+			"zones": [
+				{
+					"id": "worldtree_z1",
+					"monsters": [
+						"mob_glow_mushroom_001"
+					],
+					"level": 28
+				},
+				{
+					"id": "worldtree_z2",
+					"monsters": [
+						"mob_glow_mushroom_001"
+					],
+					"level": 28
+				},
+				{
+					"id": "worldtree_z3",
+					"monsters": [
+						"mob_glow_mushroom_001"
+					],
+					"level": 28
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				28,
+				28
+			]
+		}
+	}
+}

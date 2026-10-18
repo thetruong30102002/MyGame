@@ -35,6 +35,7 @@ namespace Aether.Core.World
     /// <summary>Một vùng đất (regions.ts RegionDef).</summary>
     public sealed class RegionDef
     {
+        [JsonProperty("branch", DefaultValueHandling = DefaultValueHandling.Ignore)] public bool Branch;
         [JsonProperty("id")] public string Id;
         /// <summary>Thứ tự trên đường chơi (1 = vùng đầu).</summary>
         [JsonProperty("order")] public int Order;
@@ -103,7 +104,7 @@ namespace Aether.Core.World
         {
             var r = RegionDef(id);
             if (r == null || r.Order == 1) return null;
-            var prev = All.FirstOrDefault(x => x.Order == r.Order - 1);
+            var prev = r.Branch ? null : All.FirstOrDefault(x => x.Order == r.Order - 1);
             return new RegionNeed
             {
                 Level = r.Levels[0],

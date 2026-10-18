@@ -1,0 +1,13 @@
+{
+	"map": "wind_temple",
+	"image": "wind_temple.minimap.png",
+	"width": 240,
+	"height": 216,
+	"downscale": 8,
+	"world": {
+		"width": 1920,
+		"height": 1728,
+		"tileSize": 48
+	},
+	"version": "8edc2872"
+}

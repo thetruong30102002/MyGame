@@ -20,13 +20,14 @@ const test = (name: string, fn: () => void): void => {
 };
 console.log('regions (máy chủ + luật dùng chung)');
 
-const MAPS = join(import.meta.dirname, '../../../assets/maps');
+const MAPS = process.env.AETHER_MAPS ?? join(import.meta.dirname, '../../../assets/maps');
 
 test('10 vùng theo thứ tự, cấp liền nhau, mỗi vùng một nơi ở (làng / toà thành) có cột dịch chuyển + người bán', () => {
-	assert.equal(REGIONS.length, 10);
-	assert.deepEqual(REGIONS.map((r) => r.order), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-	assert.equal(new Set(REGIONS.map((r) => r.id)).size, 10);
-	for (let i = 1; i < REGIONS.length; i += 1) assert.equal(REGIONS[i]!.levels[0], REGIONS[i - 1]!.levels[1], `${REGIONS[i]!.id}: cấp vào = cấp rời vùng trước`);
+	assert.equal(REGIONS.length, 13);
+	const main = REGIONS.filter(r => !r.branch);
+	assert.deepEqual(main.map((r) => r.order), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+	assert.equal(new Set(REGIONS.map((r) => r.id)).size, 13);
+	for (let i = 1; i < main.length; i += 1) assert.equal(main[i]!.levels[0], main[i - 1]!.levels[1], `${REGIONS[i]!.id}: cấp vào = cấp rời vùng trước`);
 	for (const r of REGIONS) {
 		assert.ok(['village', 'castle'].includes(r.settlement.kind), r.id);
 		assert.ok(r.settlement.services.includes('waystone') && r.settlement.services.includes('shop'), `${r.id}: có cột + người bán`);
@@ -46,12 +47,13 @@ test('id map `vùng/map`: tách được; thiếu tiền tố thì là map cùng
 	assert.deepEqual(splitMapKey('swamp/hub', 'human'), { region: 'swamp', map: 'hub' });
 	assert.deepEqual(splitMapKey('mossvale', 'human'), { region: 'human', map: 'mossvale' });
 	// Vùng 2–7 dựng map 10/10/2026 (bộ dựng `packages/asset-pipeline/src/maps/kit`); vùng 8–10 còn đang xây.
-	assert.deepEqual(hubKeys(), ['human/town', 'swamp/hub', 'desert/hub', 'highland/hub', 'tundra/hub', 'volcano/hub', 'isles/hub']);
+	assert.deepEqual(hubKeys(), ['human/town', 'swamp/hub', 'desert/hub', 'highland/hub', 'tundra/hub', 'volcano/hub', 'isles/hub', 'fungal/hub', 'ruins/hub', 'void/hub', 'wood/hub', 'light/hub', 'dark/hub']);
 });
 
 test('cổng vùng: vùng đầu luôn mở; vùng chưa có map → đang xây; đủ map thì xét cấp + boss chúa vùng trước', () => {
 	assert.equal(regionGate('human', { level: 1, bossKills: {} }), null);
-	assert.match(regionGate('fungal', { level: 99, bossKills: { boss_kraken_001: 1 } })!, /đang được xây dựng/);
+	assert.equal(regionGate('fungal', { level: 99, bossKills: { boss_kraken_001: 1 } }), null);
+	assert.match(regionGate('fungal', { level: 69, bossKills: { boss_kraken_001: 1 } })!, /Cần cấp 70/);
 	assert.match(regionGate('nowhere', { level: 1, bossKills: {} })!, /Không có vùng/);
 	// Thứ tự điều kiện: cấp trước, rồi boss chúa vùng trước.
 	assert.match(regionGate('swamp', { level: 9, bossKills: { boss_demon_001: 1 } })!, /Cần cấp 10/);
@@ -118,3 +120,11 @@ try {
 }
 
 console.log(`${passed} test qua`);
+
+test('ba vùng nhánh chỉ kiểm cấp, không cần boss tuyến chính', () => {
+ for (const id of ['wood','light','dark']) {
+  const r = regionDef(id)!;
+  assert.equal(regionGate(id, {level:r.levels[0],bossKills:{}}), null);
+  assert.match(regionGate(id, {level:r.levels[0]-1,bossKills:{}})!, /Cần cấp/);
+ }
+});

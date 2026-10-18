@@ -1,0 +1,798 @@
+{
+	"region": "light",
+	"start": "hub",
+	"maps": {
+		"hub": {
+			"name": "Trạm Bình Minh",
+			"width": 2112,
+			"height": 1728,
+			"exits": [
+				{
+					"id": "hub_x1",
+					"to": "h1",
+					"x": 1152,
+					"y": 1704,
+					"label": "Đại Lộ Bạch Quả"
+				},
+				{
+					"id": "hub_x2",
+					"to": "h5",
+					"x": 24,
+					"y": 912,
+					"label": "Lối Mộc Lan"
+				},
+				{
+					"id": "hub_x3",
+					"to": "h7",
+					"x": 1152,
+					"y": 24,
+					"label": "Vườn Hoa Huệ"
+				},
+				{
+					"id": "hub_x4",
+					"to": "human/element_gate",
+					"x": 2088,
+					"y": 912,
+					"label": "Cổng Nguyên Tố · Thistlewood"
+				}
+			],
+			"spots": [
+				"hub_s",
+				"hub_w",
+				"hub_n",
+				"entry",
+				"waystone",
+				"plaza"
+			],
+			"zones": [],
+			"dummies": [],
+			"boss": null
+		},
+		"h1": {
+			"name": "Đại Lộ Bạch Quả",
+			"width": 2304,
+			"height": 1920,
+			"exits": [
+				{
+					"id": "h1_x1",
+					"to": "hub",
+					"x": 1344,
+					"y": 24,
+					"label": "Trạm Bình Minh"
+				},
+				{
+					"id": "h1_x2",
+					"to": "h2",
+					"x": 24,
+					"y": 1008,
+					"label": "Vườn Ô Liu Bạc"
+				}
+			],
+			"spots": [
+				"h1_n",
+				"h1_w",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h1_z1",
+					"monsters": [
+						"mob_wind_wolf_001"
+					],
+					"level": 31
+				},
+				{
+					"id": "h1_z2",
+					"monsters": [
+						"mob_wind_wolf_001"
+					],
+					"level": 31
+				},
+				{
+					"id": "h1_z3",
+					"monsters": [
+						"mob_wind_wolf_001"
+					],
+					"level": 31
+				},
+				{
+					"id": "h1_z4",
+					"monsters": [
+						"mob_wind_wolf_001"
+					],
+					"level": 31
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				31,
+				31
+			]
+		},
+		"h2": {
+			"name": "Vườn Ô Liu Bạc",
+			"width": 2208,
+			"height": 2016,
+			"exits": [
+				{
+					"id": "h2_x1",
+					"to": "h1",
+					"x": 2184,
+					"y": 1152,
+					"label": "Đại Lộ Bạch Quả"
+				},
+				{
+					"id": "h2_x2",
+					"to": "h3",
+					"x": 24,
+					"y": 1152,
+					"label": "Bờ Liễu Ánh Trăng"
+				}
+			],
+			"spots": [
+				"h2_e",
+				"h2_w",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h2_z1",
+					"monsters": [
+						"mob_hawk_001"
+					],
+					"level": 32
+				},
+				{
+					"id": "h2_z2",
+					"monsters": [
+						"mob_hawk_001"
+					],
+					"level": 32
+				},
+				{
+					"id": "h2_z3",
+					"monsters": [
+						"mob_hawk_001"
+					],
+					"level": 32
+				},
+				{
+					"id": "h2_z4",
+					"monsters": [
+						"mob_hawk_001"
+					],
+					"level": 32
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				32,
+				32
+			]
+		},
+		"h3": {
+			"name": "Bờ Liễu Ánh Trăng",
+			"width": 2400,
+			"height": 1824,
+			"exits": [
+				{
+					"id": "h3_x1",
+					"to": "h2",
+					"x": 2376,
+					"y": 1104,
+					"label": "Vườn Ô Liu Bạc"
+				},
+				{
+					"id": "h3_x2",
+					"to": "h4",
+					"x": 1200,
+					"y": 24,
+					"label": "Vườn Táo Hoàng Kim"
+				}
+			],
+			"spots": [
+				"h3_e",
+				"h3_n",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h3_z1",
+					"monsters": [
+						"mob_wind_fairy_001"
+					],
+					"level": 33
+				},
+				{
+					"id": "h3_z2",
+					"monsters": [
+						"mob_wind_fairy_001"
+					],
+					"level": 33
+				},
+				{
+					"id": "h3_z3",
+					"monsters": [
+						"mob_wind_fairy_001"
+					],
+					"level": 33
+				},
+				{
+					"id": "h3_z4",
+					"monsters": [
+						"mob_wind_fairy_001"
+					],
+					"level": 33
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				33,
+				33
+			]
+		},
+		"h4": {
+			"name": "Vườn Táo Hoàng Kim",
+			"width": 2208,
+			"height": 2112,
+			"exits": [
+				{
+					"id": "h4_x1",
+					"to": "h3",
+					"x": 1008,
+					"y": 2088,
+					"label": "Bờ Liễu Ánh Trăng"
+				},
+				{
+					"id": "h4_x2",
+					"to": "h5",
+					"x": 2184,
+					"y": 1008,
+					"label": "Lối Mộc Lan"
+				},
+				{
+					"id": "h4_x3",
+					"to": "h8",
+					"x": 1200,
+					"y": 24,
+					"label": "Sân Nguyệt Quế"
+				}
+			],
+			"spots": [
+				"h4_s",
+				"h4_e",
+				"h4_n",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h4_z1",
+					"monsters": [
+						"mob_flying_rock_001"
+					],
+					"level": 34
+				},
+				{
+					"id": "h4_z2",
+					"monsters": [
+						"mob_flying_rock_001"
+					],
+					"level": 34
+				},
+				{
+					"id": "h4_z3",
+					"monsters": [
+						"mob_flying_rock_001"
+					],
+					"level": 34
+				},
+				{
+					"id": "h4_z4",
+					"monsters": [
+						"mob_flying_rock_001"
+					],
+					"level": 34
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				34,
+				34
+			]
+		},
+		"h5": {
+			"name": "Lối Mộc Lan",
+			"width": 2496,
+			"height": 1920,
+			"exits": [
+				{
+					"id": "h5_x1",
+					"to": "h4",
+					"x": 24,
+					"y": 1248,
+					"label": "Vườn Táo Hoàng Kim"
+				},
+				{
+					"id": "h5_x2",
+					"to": "hub",
+					"x": 2472,
+					"y": 1248,
+					"label": "Trạm Bình Minh"
+				},
+				{
+					"id": "h5_x3",
+					"to": "h6",
+					"x": 1536,
+					"y": 24,
+					"label": "Đồi Bách Trắng"
+				}
+			],
+			"spots": [
+				"h5_w",
+				"h5_e",
+				"h5_n",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h5_z1",
+					"monsters": [
+						"mob_wind_goblin_001"
+					],
+					"level": 35
+				},
+				{
+					"id": "h5_z2",
+					"monsters": [
+						"mob_wind_goblin_001"
+					],
+					"level": 35
+				},
+				{
+					"id": "h5_z3",
+					"monsters": [
+						"mob_wind_goblin_001"
+					],
+					"level": 35
+				},
+				{
+					"id": "h5_z4",
+					"monsters": [
+						"mob_wind_goblin_001"
+					],
+					"level": 35
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				35,
+				35
+			]
+		},
+		"h6": {
+			"name": "Đồi Bách Trắng",
+			"width": 2304,
+			"height": 2016,
+			"exits": [
+				{
+					"id": "h6_x1",
+					"to": "h5",
+					"x": 1056,
+					"y": 1992,
+					"label": "Lối Mộc Lan"
+				},
+				{
+					"id": "h6_x2",
+					"to": "h7",
+					"x": 2280,
+					"y": 912,
+					"label": "Vườn Hoa Huệ"
+				},
+				{
+					"id": "h6_x3",
+					"to": "h8",
+					"x": 24,
+					"y": 1296,
+					"label": "Sân Nguyệt Quế"
+				}
+			],
+			"spots": [
+				"h6_s",
+				"h6_e",
+				"h6_w",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h6_z1",
+					"monsters": [
+						"mob_wind_wolf_001"
+					],
+					"level": 36
+				},
+				{
+					"id": "h6_z2",
+					"monsters": [
+						"mob_wind_wolf_001"
+					],
+					"level": 36
+				},
+				{
+					"id": "h6_z3",
+					"monsters": [
+						"mob_wind_wolf_001"
+					],
+					"level": 36
+				},
+				{
+					"id": "h6_z4",
+					"monsters": [
+						"mob_wind_wolf_001"
+					],
+					"level": 36
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				36,
+				36
+			]
+		},
+		"h7": {
+			"name": "Vườn Hoa Huệ",
+			"width": 2400,
+			"height": 2112,
+			"exits": [
+				{
+					"id": "h7_x1",
+					"to": "h6",
+					"x": 24,
+					"y": 1296,
+					"label": "Đồi Bách Trắng"
+				},
+				{
+					"id": "h7_x2",
+					"to": "hub",
+					"x": 1344,
+					"y": 2088,
+					"label": "Trạm Bình Minh"
+				},
+				{
+					"id": "to_cathedral",
+					"to": "cathedral",
+					"x": 1224,
+					"y": 24,
+					"label": "Thánh Đường Trắng"
+				}
+			],
+			"spots": [
+				"h7_w",
+				"h7_s",
+				"h7_lair",
+				"waystone",
+				"cathedral_outside"
+			],
+			"zones": [
+				{
+					"id": "h7_z1",
+					"monsters": [
+						"mob_hawk_001"
+					],
+					"level": 37
+				},
+				{
+					"id": "h7_z2",
+					"monsters": [
+						"mob_hawk_001"
+					],
+					"level": 37
+				},
+				{
+					"id": "h7_z3",
+					"monsters": [
+						"mob_hawk_001"
+					],
+					"level": 37
+				},
+				{
+					"id": "h7_boss",
+					"monsters": [
+						"boss_storm_eagle_001"
+					],
+					"level": 37
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				37,
+				37
+			]
+		},
+		"h8": {
+			"name": "Sân Nguyệt Quế",
+			"width": 2208,
+			"height": 1920,
+			"exits": [
+				{
+					"id": "h8_x1",
+					"to": "h6",
+					"x": 2184,
+					"y": 1104,
+					"label": "Đồi Bách Trắng"
+				},
+				{
+					"id": "h8_x2",
+					"to": "h4",
+					"x": 1200,
+					"y": 1896,
+					"label": "Vườn Táo Hoàng Kim"
+				},
+				{
+					"id": "h8_x3",
+					"to": "h9",
+					"x": 1248,
+					"y": 24,
+					"label": "Rừng Lông Vũ"
+				}
+			],
+			"spots": [
+				"h8_e",
+				"h8_s",
+				"h8_n",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h8_z1",
+					"monsters": [
+						"mob_wind_fairy_001"
+					],
+					"level": 38
+				},
+				{
+					"id": "h8_z2",
+					"monsters": [
+						"mob_wind_fairy_001"
+					],
+					"level": 38
+				},
+				{
+					"id": "h8_z3",
+					"monsters": [
+						"mob_wind_fairy_001"
+					],
+					"level": 38
+				},
+				{
+					"id": "h8_z4",
+					"monsters": [
+						"mob_wind_fairy_001"
+					],
+					"level": 38
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				38,
+				38
+			]
+		},
+		"h9": {
+			"name": "Rừng Lông Vũ",
+			"width": 2496,
+			"height": 2016,
+			"exits": [
+				{
+					"id": "h9_x1",
+					"to": "h8",
+					"x": 1152,
+					"y": 1992,
+					"label": "Sân Nguyệt Quế"
+				},
+				{
+					"id": "h9_x2",
+					"to": "h10",
+					"x": 1152,
+					"y": 24,
+					"label": "Lối Cây Pha Lê"
+				}
+			],
+			"spots": [
+				"h9_s",
+				"h9_n",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h9_z1",
+					"monsters": [
+						"mob_flying_rock_001"
+					],
+					"level": 39
+				},
+				{
+					"id": "h9_z2",
+					"monsters": [
+						"mob_flying_rock_001"
+					],
+					"level": 39
+				},
+				{
+					"id": "h9_z3",
+					"monsters": [
+						"mob_flying_rock_001"
+					],
+					"level": 39
+				},
+				{
+					"id": "h9_z4",
+					"monsters": [
+						"mob_flying_rock_001"
+					],
+					"level": 39
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				39,
+				39
+			]
+		},
+		"h10": {
+			"name": "Lối Cây Pha Lê",
+			"width": 2304,
+			"height": 2112,
+			"exits": [
+				{
+					"id": "h10_x1",
+					"to": "h9",
+					"x": 1152,
+					"y": 2088,
+					"label": "Rừng Lông Vũ"
+				},
+				{
+					"id": "h10_x2",
+					"to": "sanctum",
+					"x": 2280,
+					"y": 1056,
+					"label": "Thánh Địa Mầm Sáng"
+				}
+			],
+			"spots": [
+				"h10_s",
+				"h10_e",
+				"h10_lair",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h10_z1",
+					"monsters": [
+						"mob_wind_goblin_001"
+					],
+					"level": 40
+				},
+				{
+					"id": "h10_z2",
+					"monsters": [
+						"mob_wind_goblin_001"
+					],
+					"level": 40
+				},
+				{
+					"id": "h10_z3",
+					"monsters": [
+						"mob_wind_goblin_001"
+					],
+					"level": 40
+				},
+				{
+					"id": "h10_boss",
+					"monsters": [
+						"boss_wind_mage_001"
+					],
+					"level": 40
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				40,
+				40
+			]
+		},
+		"sanctum": {
+			"name": "Thánh Địa Mầm Sáng",
+			"width": 1536,
+			"height": 1344,
+			"exits": [
+				{
+					"id": "sanctum_x1",
+					"to": "h10",
+					"x": 24,
+					"y": 576,
+					"label": "Lối Cây Pha Lê"
+				}
+			],
+			"spots": [
+				"sanctum_w",
+				"sanctum_lair",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "sanctum_boss",
+					"monsters": [
+						"boss_wind_drake_001"
+					],
+					"level": 40
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				40,
+				40
+			]
+		},
+		"cathedral": {
+			"name": "Thánh Đường Trắng",
+			"width": 1920,
+			"height": 1728,
+			"exits": [
+				{
+					"id": "to_h7",
+					"to": "h7",
+					"x": 984,
+					"y": 1704,
+					"label": "Vườn Hoa Huệ"
+				}
+			],
+			"spots": [
+				"cathedral_entry",
+				"waystone",
+				"cathedral_room1",
+				"cathedral_room2",
+				"cathedral_room3"
+			],
+			"zones": [
+				{
+					"id": "cathedral_z1",
+					"monsters": [
+						"mob_wind_goblin_001"
+					],
+					"level": 38
+				},
+				{
+					"id": "cathedral_z2",
+					"monsters": [
+						"mob_wind_goblin_001"
+					],
+					"level": 38
+				},
+				{
+					"id": "cathedral_z3",
+					"monsters": [
+						"mob_wind_goblin_001"
+					],
+					"level": 38
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				38,
+				38
+			]
+		}
+	}
+}

@@ -81,6 +81,46 @@
 			"sha1": "38194e92e9ce9c0470d5b2894ef7f8591e3f7f3f"
 		},
 		{
+			"map": "element_gate",
+			"ox": 0,
+			"oy": 0,
+			"w": 160,
+			"h": 160,
+			"sha1": "a4113be7bc2d6474a3d5bfa92104a91f95cf9694"
+		},
+		{
+			"map": "element_gate",
+			"ox": 1152,
+			"oy": 1152,
+			"w": 160,
+			"h": 160,
+			"sha1": "9be97f86a74605cfb5746755d4955dae07e1a0b3"
+		},
+		{
+			"map": "element_gate",
+			"ox": 2144,
+			"oy": 2144,
+			"w": 160,
+			"h": 160,
+			"sha1": "675055794fe8b9f42c8763af018588d4b5cc3584"
+		},
+		{
+			"map": "element_gate",
+			"ox": 996,
+			"oy": 0,
+			"w": 160,
+			"h": 160,
+			"sha1": "afa8ae62337d6b0e4f71ecaace17f8fc10222098"
+		},
+		{
+			"map": "element_gate",
+			"ox": 900,
+			"oy": 852,
+			"w": 160,
+			"h": 160,
+			"sha1": "adcd77ad0f5ea41df86d7750c2f05c165239000f"
+		},
+		{
 			"map": "gargoyle_cave",
 			"ox": 0,
 			"oy": 0,
@@ -342,15 +382,15 @@
 			"oy": 564,
 			"w": 160,
 			"h": 160,
-			"sha1": "515f25a265f83b0560aaa4b812943fcd7130967f"
+			"sha1": "a85b2ffdeab83a372ca73cda413b268f4b7f7c5d"
 		},
 		{
 			"map": "oldfort",
-			"ox": 852,
-			"oy": 324,
+			"ox": 1044,
+			"oy": 0,
 			"w": 160,
 			"h": 160,
-			"sha1": "b8a94358540525f61b4a85ac0bd04125f3ae005b"
+			"sha1": "573b5edd4e6229a8bb25f17d79ccf22c4cba40c6"
 		},
 		{
 			"map": "oldfort",
@@ -463,6 +503,38 @@
 			"w": 160,
 			"h": 160,
 			"sha1": "34d5a873ea51e077572a227f629d7388e0362dd6"
+		},
+		{
+			"map": "rowanmere",
+			"ox": 0,
+			"oy": 0,
+			"w": 160,
+			"h": 160,
+			"sha1": "1c53fd3d255f84dd1b22890f7d3f3553b32f04a2"
+		},
+		{
+			"map": "rowanmere",
+			"ox": 960,
+			"oy": 864,
+			"w": 160,
+			"h": 160,
+			"sha1": "8fa76b733291472ca9b74ccee6647017eb926b18"
+		},
+		{
+			"map": "rowanmere",
+			"ox": 1760,
+			"oy": 1568,
+			"w": 160,
+			"h": 160,
+			"sha1": "91ae46fac40e4b2a374d60853f050ec72fa805c2"
+		},
+		{
+			"map": "rowanmere",
+			"ox": 660,
+			"oy": 0,
+			"w": 160,
+			"h": 160,
+			"sha1": "6f59d3b04bb62f6075f2633f888be3f6e46278a0"
 		},
 		{
 			"map": "shrine",
@@ -807,6 +879,195 @@
 		},
 		{
 			"biome": "rocky",
+			"ch": "x",
+			"rgb": [
+				0,
+				0,
+				0
+			]
+		},
+		{
+			"biome": "wood",
+			"ch": "g",
+			"rgb": [
+				29,
+				56,
+				42
+			]
+		},
+		{
+			"biome": "wood",
+			"ch": "f",
+			"rgb": [
+				50,
+				99,
+				65
+			]
+		},
+		{
+			"biome": "wood",
+			"ch": "d",
+			"rgb": [
+				133,
+				100,
+				66
+			]
+		},
+		{
+			"biome": "wood",
+			"ch": "c",
+			"rgb": [
+				150,
+				145,
+				133
+			]
+		},
+		{
+			"biome": "wood",
+			"ch": "w",
+			"rgb": [
+				58,
+				110,
+				160
+			]
+		},
+		{
+			"biome": "wood",
+			"ch": "b",
+			"rgb": [
+				130,
+				92,
+				58
+			]
+		},
+		{
+			"biome": "wood",
+			"ch": "x",
+			"rgb": [
+				0,
+				0,
+				0
+			]
+		},
+		{
+			"biome": "light",
+			"ch": "g",
+			"rgb": [
+				150,
+				143,
+				114
+			]
+		},
+		{
+			"biome": "light",
+			"ch": "f",
+			"rgb": [
+				110,
+				107,
+				80
+			]
+		},
+		{
+			"biome": "light",
+			"ch": "d",
+			"rgb": [
+				133,
+				100,
+				66
+			]
+		},
+		{
+			"biome": "light",
+			"ch": "c",
+			"rgb": [
+				150,
+				145,
+				133
+			]
+		},
+		{
+			"biome": "light",
+			"ch": "w",
+			"rgb": [
+				58,
+				110,
+				160
+			]
+		},
+		{
+			"biome": "light",
+			"ch": "b",
+			"rgb": [
+				130,
+				92,
+				58
+			]
+		},
+		{
+			"biome": "light",
+			"ch": "x",
+			"rgb": [
+				0,
+				0,
+				0
+			]
+		},
+		{
+			"biome": "dark",
+			"ch": "g",
+			"rgb": [
+				53,
+				43,
+				61
+			]
+		},
+		{
+			"biome": "dark",
+			"ch": "f",
+			"rgb": [
+				36,
+				25,
+				41
+			]
+		},
+		{
+			"biome": "dark",
+			"ch": "d",
+			"rgb": [
+				133,
+				100,
+				66
+			]
+		},
+		{
+			"biome": "dark",
+			"ch": "c",
+			"rgb": [
+				150,
+				145,
+				133
+			]
+		},
+		{
+			"biome": "dark",
+			"ch": "w",
+			"rgb": [
+				58,
+				110,
+				160
+			]
+		},
+		{
+			"biome": "dark",
+			"ch": "b",
+			"rgb": [
+				130,
+				92,
+				58
+			]
+		},
+		{
+			"biome": "dark",
 			"ch": "x",
 			"rgb": [
 				0,

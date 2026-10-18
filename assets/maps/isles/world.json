@@ -190,12 +190,20 @@
 					"x": 1008,
 					"y": 24,
 					"label": "Phá Người Cá · cấp 63–64"
+				},
+				{
+					"id": "to_ghost_ship",
+					"to": "ghost_ship",
+					"x": 1224,
+					"y": 1800,
+					"label": "Khoang tàu ma"
 				}
 			],
 			"spots": [
 				"piratecove_e",
 				"piratecove_n",
-				"waystone"
+				"waystone",
+				"ghost_ship_outside"
 			],
 			"zones": [
 				{
@@ -671,7 +679,7 @@
 					"to": "fungal/hub",
 					"x": 24,
 					"y": 816,
-					"label": "Rừng Nấm Ngầm · vùng 8 · đang xây dựng"
+					"label": "Rừng Nấm Ngầm · vùng 8 · cần cấp 70 + đã hạ Kraken"
 				}
 			],
 			"spots": [
@@ -784,6 +792,56 @@
 			"levels": [
 				70,
 				70
+			]
+		},
+		"ghost_ship": {
+			"name": "Khoang tàu ma",
+			"width": 1920,
+			"height": 1728,
+			"exits": [
+				{
+					"id": "to_piratecove",
+					"to": "piratecove",
+					"x": 984,
+					"y": 24,
+					"label": "Vịnh Cướp Biển"
+				}
+			],
+			"spots": [
+				"ghost_ship_entry",
+				"waystone",
+				"ghost_ship_room1",
+				"ghost_ship_room2",
+				"ghost_ship_room3"
+			],
+			"zones": [
+				{
+					"id": "ghost_ship_z1",
+					"monsters": [
+						"mob_pirate_001"
+					],
+					"level": 68
+				},
+				{
+					"id": "ghost_ship_z2",
+					"monsters": [
+						"mob_pirate_001"
+					],
+					"level": 68
+				},
+				{
+					"id": "ghost_ship_z3",
+					"monsters": [
+						"mob_pirate_001"
+					],
+					"level": 68
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				68,
+				68
 			]
 		}
 	}

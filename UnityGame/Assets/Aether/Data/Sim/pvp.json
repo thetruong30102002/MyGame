@@ -14,7 +14,10 @@
 		"isles/hub",
 		"fungal/hub",
 		"ruins/hub",
-		"void/hub"
+		"void/hub",
+		"wood/hub",
+		"light/hub",
+		"dark/hub"
 	],
 	"PVP_SCALE": 0.4,
 	"PVP_SPAWN_SHIELD_MS": 5000

@@ -1,0 +1,13 @@
+{
+	"map": "element_gate",
+	"image": "element_gate.minimap.png",
+	"width": 288,
+	"height": 288,
+	"downscale": 8,
+	"world": {
+		"width": 2304,
+		"height": 2304,
+		"tileSize": 48
+	},
+	"version": "ff9bcfb0"
+}

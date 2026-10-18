@@ -598,6 +598,33 @@ cháy. Quái theo bầy đông hơn map thường, có thể dùng cho sự ki�
   3. Pháo đài Đe Đỏ + chiến địa;
   4. các vùng còn lại.
 
+## 5.9 Đợt map và công trình 17/10/2026
+
+Ưu tiên mới của chủ dự án: hoàn thiện map, công trình và nội dung vùng trước túi đồ máy chủ. Không làm lại hình nhân vật.
+
+- Đã dựng vùng 8 Rừng Nấm Ngầm, 9 Phế tích Aether, 10 Vực Hư Không: mỗi vùng 1 trạm, 10 map săn và 1 thánh địa. Đường xuyên vùng nối từ Bãi Tàu Đắm của Quần đảo tới Hư Không; vùng cuối không có lối dẫn ra vùng không tồn tại. Cấp lần lượt 70–80, 80–90, 90–100.
+- Ba vùng này dùng TẠM bộ cây, đồ vật, quái và boss của Đầm lầy / Cao nguyên / Núi lửa, với biome, tên địa điểm, hạt giống và cấp riêng. **Chưa có quái/boss riêng, ba rồng mới, Long Huyệt hoặc nhiệm vụ truyện hoàn chỉnh.** Boss chúa riêng của vùng 8–10 vẫn chưa định danh (`chief: null`); sau cổng vùng 8 yêu cầu Kraken, cổng vùng 9–10 kiểm cấp như thiết kế cũ.
+- Bộ dựng `maps/buildings.ts` thêm 10 công trình. Mỗi nơi có ba phòng được đặt tên, hành lang, tường gạch chặn chân, cột dịch chuyển và lối về. Sơ đồ các phòng khác nhau; tàu ma có sàn gỗ. Rowanmere là khu an toàn, các công trình khác có ba bầy quái, mỗi bầy sáu con cùng loại, cấp theo vùng.
+
+| Vùng | Công trình | Vào từ |
+|---|---|---|
+| human | Lâu đài Rowanmere | Luỹ Hiệp Sĩ Cũ (`oldfort`) |
+| swamp | Thân đập đá của Đoàn | `leechcanal` |
+| desert | Kim tự tháp Sa Thạch | Mộ Đạo Sâu (`deeptombs`) |
+| highland | Nội điện Đền Gió | `cloudpath` |
+| tundra | Cung Ngai Băng | `snowmanpass` |
+| volcano | Pháo đài Đe Đỏ | `oldforge` |
+| isles | Khoang tàu ma | Vịnh Cướp Biển (`piratecove`) |
+| fungal | Thành phố nấm ngầm | Hẻm Địa Y (`h7`) |
+| ruins | Thư viện thành Aether | Trại Khảo Cổ (`h7`) |
+| void | Nội thành Hư Không | Luỹ Cờ Tàn (`h7`) |
+
+Tổng cộng **134 map cho 10 vùng chính**. Bộ dựng giữ nguyên các địa điểm và bầy quái cũ; mở hành lang tới lối công trình, bắc cầu nếu cắt qua nước và dọn chân đồ vật chắn hành lang. Tường mới dùng ký tự `#`: TS và C# cùng kiểm va chạm; Unity tô gạch có mạch vữa, minimap dùng nền tối; thời tiết ngoài trời tắt trong công trình. Chưa dùng bộ building-kit PixelLab hoặc tiêu lượt vẽ mới.
+
+Kiểm tra: `npm run typecheck`, `npm test`, `npx tsx apps/server/tests/worldmaps.test.ts`, `npx tsx apps/server/tests/regions.test.ts`. Test công trình kiểm cả đường đi với hộp chân thật, điểm vào, phòng, cột dịch chuyển và tường; bộ worldmaps kiểm mọi điểm sinh quái và lối xuyên vùng. Có thể đặt `AETHER_MAPS` để kiểm thư mục bản nháp trước khi thay dữ liệu project.
+
+Còn làm tiếp: bốn vùng nguyên tố và Cổng Nguyên Tố (§5.7), bộ hình công trình riêng và chiến địa ngoài thành, NPC/thoại/nhiệm vụ cho công trình, ba rồng vùng cuối, cân nhịp chiến đấu thực tế và duyệt hình trong game. Đợt này cập nhật dữ liệu project; chưa phát EXE/APK hoặc khởi động lại máy chủ thật.
+
 ## 6. Thứ tự triển khai
 
 | Bước | Nội dung | Phụ thuộc hình |
@@ -647,3 +674,24 @@ vẽ PixelLab (danh sách NHẸ). Test `tests/codex.test.ts`.
      hoặc giảm dốc — cân lại cùng lúc.
 2. Tên + thứ tự 10 vùng ở mục 2 có giữ không, có vùng nào muốn thay (vd rừng tre phương Đông, thành phố trên mây)?
 3. Bản đồ tổng: một lục địa liền hay nhiều đảo / châu lục?
+
+## 5.10 Ba vùng Mộc · Ánh sáng · Bóng tối (17/10/2026)
+
+Đã dựng bằng 36 ảnh cây PixelLab có sẵn trong `sources/pixellab/objects/`: mỗi vùng dùng đủ 12 loài, mỗi map có loài chủ đạo theo tên khu. Không sinh thêm ảnh nhân vật.
+
+| Vùng | Cấp tạm | Map ngoài trời | Công trình đi vào được |
+|---|---|---|---|
+| Rừng Cổ Thụ (`wood`) | 20–30 | 12 | Lòng Cây Thế Giới |
+| Thánh Địa Bình Minh (`light`) | 30–40 | 12 | Thánh Đường Trắng |
+| Vực Ám Ma (`dark`) | 40–50 | 12 | Ngục Vĩnh Dạ |
+
+- Vùng nhánh độc lập: điều kiện chỉ là cấp, không cần boss tuyến chính. Luật TypeScript và C# cùng đọc trường `branch`.
+- Lối vào: phía **tây Thistlewood → Sân Cổng Nguyên Tố**. Sân có ba lối đi bộ, đi/về hai chiều, biển chỉ tên và cấp. Đây là sân cổng đi bộ; NPC chọn vùng bằng hội thoại trong kế hoạch vẫn chưa làm.
+- Có trạm nghỉ, cột dịch chuyển, người bán tự sinh theo vùng, 10 map săn, thánh địa, công trình ba phòng. Màn bản đồ lục địa có nút xem từng vùng nhánh.
+- Nền Mộc xanh rêu, Ánh sáng ngà vàng, Bóng tối tím than; Unity có đom đóm/lá, bụi sáng, sương tím tương ứng. Trong công trình tắt thời tiết.
+- Nhà, đá, đồ trang trí, quái và boss đang **mượn tạm** từ đầm lầy/cao nguyên/núi lửa. Hệ số chiến đấu vẫn theo loài gốc; chưa thêm nguyên tố chiến đấu, thần hoặc nhiệm vụ mở hệ. Lãnh địa Kiếm chưa dựng trong đợt này.
+- Tổng cộng thêm 40 map (36 ngoài trời + 3 công trình + sân cổng), project có 174 map. Mã dựng ở `maps/elemental.ts`, bộ cây ở `props/elemental.ts`; tái sinh bằng `npm run assets:map -- wood` (tương tự `light`, `dark`, `human`).
+- Kiểm tra: typecheck, npm test, 16 bài cây/công trình, đường đi bằng hộp chân thật đến điểm đến/bãi quái/lối ra và cổng hai chiều; kiểm điều kiện cấp vùng nhánh. Đã xuất dữ liệu sim và vector đối chiếu C#; máy hiện không có .NET SDK để chạy bộ NUnit.
+- Chưa phát hành EXE/APK mới hoặc khởi động lại server thật cho đợt ba vùng này; bản Windows trước đó chưa chứa các map này.
+
+Unity ImportAllBatch đã hoàn tất, thoát mã 0, không có cảnh báo; các map và bộ cây mới đã vào tài nguyên Unity.

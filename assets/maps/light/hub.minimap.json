@@ -1,0 +1,13 @@
+{
+	"map": "hub",
+	"image": "hub.minimap.png",
+	"width": 264,
+	"height": 216,
+	"downscale": 8,
+	"world": {
+		"width": 2112,
+		"height": 1728,
+		"tileSize": 48
+	},
+	"version": "a8baed74"
+}

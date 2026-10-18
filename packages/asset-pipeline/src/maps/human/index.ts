@@ -122,7 +122,7 @@ export function validateRegion(maps: MapData[], levels: readonly [number, number
 	};
 	const walkable = (m: MapData, x: number, y: number): boolean => {
 		const t = m.terrain[Math.floor(y / m.tileSize)]?.[Math.floor(x / m.tileSize)];
-		return !!t && t !== 'w';
+		return !!t && t !== 'w' && t !== '#';
 	};
 	for (const m of maps) {
 		const types = new Set(m.monsterZones.filter((z) => !z.boss).flatMap((z) => z.monsters));

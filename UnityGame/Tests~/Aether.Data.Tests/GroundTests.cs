@@ -22,7 +22,17 @@ namespace Aether.Data.Tests
 
         private static JObject Vectors => JObject.Parse(File.ReadAllText(Path.Combine(Root, "Tests~", "vectors", "ground.json")));
 
-        private static Biome ParseBiome(string b) => b == "deadland" ? Biome.Deadland : b == "rocky" ? Biome.Rocky : Biome.Meadow;
+        private static Biome ParseBiome(string b) => Enum.TryParse<Biome>(b, true, out var biome) ? biome : Biome.Meadow;
+
+        [Test]
+        public void MasonryMatchesPipelineAndUnderlay()
+        {
+            var shader = new GroundShader(48, 1, 1, 1, new[] { "#" }, Biome.Meadow);
+            var mortar = shader.Shade(0, 0);
+            var brick = shader.Shade(8, 8);
+            Assert.That(new[] { mortar.R, mortar.G, mortar.B }, Is.EqualTo(new byte[] { 31, 28, 25 }));
+            Assert.That(new[] { brick.R, brick.G, brick.B }, Is.EqualTo(new byte[] { 67, 64, 61 }));
+        }
 
         [Test]
         public void ChunksMatchTypeScript()

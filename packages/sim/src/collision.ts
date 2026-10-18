@@ -55,7 +55,7 @@ export function isBlocked(data: CollisionMap, solids: Solids, x: number, y: numb
 	const t = data.tileSize;
 	if (box.x0 < 0 || box.y0 < 0 || box.x1 > data.width * t || box.y1 > data.height * t) return true;
 	for (let ty = Math.floor(box.y0 / t); ty <= Math.floor(box.y1 / t); ty += 1) {
-		for (let tx = Math.floor(box.x0 / t); tx <= Math.floor(box.x1 / t); tx += 1) if (data.terrain[ty]?.[tx] === 'w') return true;
+		for (let tx = Math.floor(box.x0 / t); tx <= Math.floor(box.x1 / t); tx += 1) if ((data.terrain[ty]?.[tx] === 'w' || data.terrain[ty]?.[tx] === '#')) return true;
 	}
 	for (let gy = Math.floor(box.y0 / GRID); gy <= Math.floor(box.y1 / GRID); gy += 1) {
 		for (let gx = Math.floor(box.x0 / GRID); gx <= Math.floor(box.x1 / GRID); gx += 1) {

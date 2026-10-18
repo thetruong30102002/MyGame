@@ -20,7 +20,7 @@ export interface RoadmapItem {
 }
 
 /** Ngày cập nhật số liệu (dd/mm/yyyy). */
-export const ROADMAP_UPDATED = '14/10/2026';
+export const ROADMAP_UPDATED = '17/10/2026';
 
 export const ROADMAP: readonly RoadmapItem[] = [
 	{ id: 'talents_v4', group: 'game', name: 'Tiềm năng: 1 nguyên tố + lớp + thuộc tính', detail: 'Đã chạy, kể cả đổi điểm tiềm năng dư sang Máu / MP / Thể lực / Đỡ đòn; tẩy điểm giờ đổi được lớp Kiếm sĩ ↔ Pháp sư (13/10); còn: cân lại số sau khi chơi thử.', progress: 92, pixellab: 0, doc: 'ke-hoach-nguyen-to.md §9' },
@@ -33,7 +33,7 @@ export const ROADMAP: readonly RoadmapItem[] = [
 	{ id: 'asset_protect', group: 'game', name: 'Bảo vệ tài nguyên (dấu ẩn, IL2CPP)', detail: 'Dấu ẩn hình nhân vật + sổ đăng ký + IL2CPP cả Windows lẫn Android đã có; còn tải hàng kim cương (thần kỹ, skin) theo quyền sở hữu.', progress: 75, pixellab: 0, doc: 'ban-quyen.md' },
 	{ id: 'landing', group: 'game', name: 'Trang chủ game (tin tức + tải game)', detail: 'https://nttrg-2.tail024813.ts.net/game/ — tin tức theo nhãn, nút tải PC / zip / APK kèm số bản + dung lượng, trạng thái máy chủ, hướng dẫn cài (13/10). Tin mới: sửa apps/server/site/news.json.', progress: 100, pixellab: 0, doc: 'README.md' },
 	{ id: 'beta_feedback', group: 'game', name: 'Bản beta: thông báo + góp ý', detail: 'Thông báo beta ở màn đăng nhập, Cài đặt → Góp ý gửi lên máy chủ, QTV đọc ở cùng tab.', progress: 100, pixellab: 0, doc: 'UnityGame/Assets/Aether/Client/UI/UI.md' },
-	{ id: 'region8_10', group: 'game', name: 'Vùng 8–10 + 3 rồng + Long Huyệt', detail: 'Lịch 14/10: sau 4 vùng nguyên tố, mỗi ngày dựng 1 vùng (ngày 7–9) bằng hình mượn + tô màu TẠM, ngày 10 lên bản thật; hình riêng vẽ bằng gói 24$ sau.', progress: 5, pixellab: 0, doc: 'ke-hoach-the-gioi.md' },
+	{ id: 'region8_10', group: 'game', name: 'Vùng 8–10 + 3 rồng + Long Huyệt', detail: '17/10: đã dựng 36 map chính + 3 công trình, nối đường từ Quần đảo, cấp 70–100. Hình và quái mượn TẠM; còn boss riêng, 3 rồng, Long Huyệt, nhiệm vụ và kiểm chơi thật.', progress: 45, pixellab: 0, doc: 'ke-hoach-the-gioi.md' },
 	{ id: 'home', group: 'game', name: 'Nhà riêng (xây nhà, trồng cây, chăn nuôi)', detail: 'Mới có kế hoạch.', progress: 0, pixellab: 0, doc: 'ke-hoach-nha-rieng.md' },
 	{ id: 'new_elements', group: 'game', name: 'Nguyên tố Mộc · Bóng tối · Ánh sáng', detail: 'Mới ghi chú: 3 nhánh 10 mốc, phản ứng nhóm mới, mỗi hệ một vị thần + nhiệm vụ mở nhánh.', progress: 0, pixellab: 0, doc: 'ke-hoach-nguyen-to.md §9' },
 	{ id: 'new_maps', group: 'game', name: '4 map nguyên tố mới: Rừng Cổ Thụ · Thánh Địa Bình Minh · Vực Ám Ma · Lãnh địa Kiếm', detail: 'Chốt 14/10: mỗi hệ một VÙNG 12 map, vào bằng Cổng Nguyên Tố ở Thistlewood; cây đủ 48 loài, quái / đồ vật mượn tạm. Lịch: ngày 1 khung + cổng, ngày 2–5 mỗi ngày 1 vùng, ngày 6 lên bản thật.', progress: 15, pixellab: 0, doc: 'ke-hoach-the-gioi.md §5.7' },

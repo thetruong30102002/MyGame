@@ -259,13 +259,21 @@
 					"x": 1152,
 					"y": 24,
 					"label": "Hốc Than Hồng · cấp 57–58"
+				},
+				{
+					"id": "to_red_anvil",
+					"to": "red_anvil",
+					"x": 24,
+					"y": 1080,
+					"label": "Pháo đài Đe Đỏ"
 				}
 			],
 			"spots": [
 				"oldforge_s",
 				"oldforge_e",
 				"oldforge_n",
-				"waystone"
+				"waystone",
+				"red_anvil_outside"
 			],
 			"zones": [
 				{
@@ -784,6 +792,56 @@
 			"levels": [
 				60,
 				60
+			]
+		},
+		"red_anvil": {
+			"name": "Pháo đài Đe Đỏ",
+			"width": 1920,
+			"height": 1728,
+			"exits": [
+				{
+					"id": "to_oldforge",
+					"to": "oldforge",
+					"x": 1896,
+					"y": 888,
+					"label": "Lò Rèn Bỏ Hoang"
+				}
+			],
+			"spots": [
+				"red_anvil_entry",
+				"waystone",
+				"red_anvil_room1",
+				"red_anvil_room2",
+				"red_anvil_room3"
+			],
+			"zones": [
+				{
+					"id": "red_anvil_z1",
+					"monsters": [
+						"mob_fire_demon_001"
+					],
+					"level": 58
+				},
+				{
+					"id": "red_anvil_z2",
+					"monsters": [
+						"mob_fire_demon_001"
+					],
+					"level": 58
+				},
+				{
+					"id": "red_anvil_z3",
+					"monsters": [
+						"mob_fire_demon_001"
+					],
+					"level": 58
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				58,
+				58
 			]
 		}
 	}

@@ -3,7 +3,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { basename, join } from 'node:path';
 import { blit, createImage, crop, readPng, writePng, type RGBAImage } from '../image/rgba.js';
 
-export type Biome = 'meadow' | 'deadland' | 'rocky' | 'swamp' | 'desert' | 'highland' | 'snow' | 'volcanic' | 'beach';
+export type Biome = 'wood' | 'light' | 'dark' | 'meadow' | 'deadland' | 'rocky' | 'swamp' | 'desert' | 'highland' | 'snow' | 'volcanic' | 'beach';
 
 /** Màu theo HSV — khớp `groundShade.ts` cùng thư mục (bản client tô mặt đất, trước ở apps/web; Unity: `GroundShader`). */
 function hsv(h: number, s: number, v: number): [number, number, number] {
@@ -18,8 +18,11 @@ function hsv(h: number, s: number, v: number): [number, number, number] {
  * Màu phẳng từng loại địa hình theo vùng — PHẢI khớp `terrainColor` của apps/web groundShade (bậc giữa dải cỏ/nền
  * rừng của bảng màu vùng); sửa bảng màu bên đó thì sửa cả đây.
  */
-const TERRAIN_RGB: Record<string, [number, number, number]> = { g: [83, 133, 67], f: [55, 88, 51], d: [133, 100, 66], c: [150, 145, 133], w: [58, 110, 160], b: [130, 92, 58] };
+const TERRAIN_RGB: Record<string, [number, number, number]> = { '#': [64, 61, 58], g: [83, 133, 67], f: [55, 88, 51], d: [133, 100, 66], c: [150, 145, 133], w: [58, 110, 160], b: [130, 92, 58] };
 const BIOME_RGB: Record<Exclude<Biome, 'meadow'>, Record<string, [number, number, number]>> = {
+	wood: { g: [29,56,42], f: [50,99,65] },
+	light: { g: [150,143,114], f: [110,107,80] },
+	dark: { g: [53,43,61], f: [36,25,41] },
 	deadland: { g: hsv(48, 0.38, 0.45), f: hsv(46, 0.27, 0.29) },
 	rocky: { g: hsv(60, 0.1, 0.47), f: hsv(205, 0.1, 0.3) },
 	// Vùng 2–7 (10/10/2026): bậc [3] cỏ / rừng / đất / đá, bậc [2] nước của bảng màu Unity `GroundShader` (núi lửa: nước = dung nham).

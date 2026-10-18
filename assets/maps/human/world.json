@@ -27,6 +27,13 @@
 					"x": 1080,
 					"y": 2472,
 					"label": "Bãi Bồi Brightwater"
+				},
+				{
+					"id": "to_element_gate",
+					"to": "element_gate",
+					"x": 24,
+					"y": 1272,
+					"label": "Cổng Nguyên Tố"
 				}
 			],
 			"spots": [
@@ -44,7 +51,8 @@
 				"herb_spot_1",
 				"herb_spot_2",
 				"herb_spot_3",
-				"herb_spot_4"
+				"herb_spot_4",
+				"element_gate_outside"
 			],
 			"zones": [],
 			"dummies": [
@@ -601,6 +609,13 @@
 					"x": 432,
 					"y": 1896,
 					"label": "Rừng Mossvale · lối tắt về Thistlewood"
+				},
+				{
+					"id": "to_rowanmere",
+					"to": "rowanmere",
+					"x": 1176,
+					"y": 24,
+					"label": "Lâu đài Rowanmere"
 				}
 			],
 			"spots": [
@@ -609,7 +624,8 @@
 				"fort_keep",
 				"east_watch",
 				"seal_view",
-				"waystone"
+				"waystone",
+				"rowanmere_outside"
 			],
 			"zones": [
 				{
@@ -797,6 +813,76 @@
 				9,
 				10
 			]
+		},
+		"element_gate": {
+			"name": "Sân Cổng Nguyên Tố",
+			"width": 2304,
+			"height": 2304,
+			"exits": [
+				{
+					"id": "element_gate_x1",
+					"to": "town",
+					"x": 2280,
+					"y": 1200,
+					"label": "Thistlewood"
+				},
+				{
+					"id": "element_gate_x2",
+					"to": "wood/hub",
+					"x": 1104,
+					"y": 24,
+					"label": "Rừng Cổ Thụ · cấp 20"
+				},
+				{
+					"id": "element_gate_x3",
+					"to": "light/hub",
+					"x": 24,
+					"y": 1200,
+					"label": "Thánh Địa Bình Minh · cấp 30"
+				},
+				{
+					"id": "element_gate_x4",
+					"to": "dark/hub",
+					"x": 1104,
+					"y": 2280,
+					"label": "Vực Ám Ma · cấp 40"
+				}
+			],
+			"spots": [
+				"element_gate_entry",
+				"wood_gate",
+				"light_gate",
+				"dark_gate",
+				"waystone",
+				"element_plaza"
+			],
+			"zones": [],
+			"dummies": [],
+			"boss": null
+		},
+		"rowanmere": {
+			"name": "Lâu đài Rowanmere",
+			"width": 1920,
+			"height": 1728,
+			"exits": [
+				{
+					"id": "to_oldfort",
+					"to": "oldfort",
+					"x": 984,
+					"y": 1704,
+					"label": "Luỹ Hiệp Sĩ Cũ"
+				}
+			],
+			"spots": [
+				"rowanmere_entry",
+				"waystone",
+				"rowanmere_room1",
+				"rowanmere_room2",
+				"rowanmere_room3"
+			],
+			"zones": [],
+			"dummies": [],
+			"boss": null
 		}
 	}
 }

@@ -12,5 +12,8 @@ namespace Aether.Data
         Snow,
         Volcanic,
         Beach,
+        Wood,
+        Light,
+        Dark,
     }
 }

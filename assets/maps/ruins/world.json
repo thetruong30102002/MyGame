@@ -1,0 +1,806 @@
+{
+	"region": "ruins",
+	"start": "hub",
+	"maps": {
+		"hub": {
+			"name": "Toà thành Aether cổ",
+			"width": 2112,
+			"height": 1728,
+			"exits": [
+				{
+					"id": "hub_x1",
+					"to": "h1",
+					"x": 1104,
+					"y": 1704,
+					"label": "Đại Lộ Đổ Nát · cấp 81"
+				},
+				{
+					"id": "hub_x2",
+					"to": "h5",
+					"x": 24,
+					"y": 912,
+					"label": "Thư Viện Ngoài · cấp 85"
+				},
+				{
+					"id": "hub_x3",
+					"to": "h7",
+					"x": 1104,
+					"y": 24,
+					"label": "Trại Khảo Cổ · cấp 87"
+				},
+				{
+					"id": "hub_x4",
+					"to": "fungal/h10",
+					"x": 2088,
+					"y": 912,
+					"label": "Trở về vùng trước"
+				}
+			],
+			"spots": [
+				"hub_s",
+				"hub_w",
+				"hub_n",
+				"east_gate",
+				"waystone",
+				"plaza"
+			],
+			"zones": [],
+			"dummies": [],
+			"boss": null
+		},
+		"h1": {
+			"name": "Đại Lộ Đổ Nát",
+			"width": 2304,
+			"height": 1920,
+			"exits": [
+				{
+					"id": "h1_x1",
+					"to": "hub",
+					"x": 960,
+					"y": 24,
+					"label": "Toà thành Aether cổ"
+				},
+				{
+					"id": "h1_x2",
+					"to": "h2",
+					"x": 24,
+					"y": 768,
+					"label": "Vườn Tượng Vỡ · cấp 82"
+				}
+			],
+			"spots": [
+				"h1_n",
+				"h1_w",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h1_z1",
+					"monsters": [
+						"mob_wind_wolf_001"
+					],
+					"level": 81
+				},
+				{
+					"id": "h1_z2",
+					"monsters": [
+						"mob_wind_wolf_001"
+					],
+					"level": 81
+				},
+				{
+					"id": "h1_z3",
+					"monsters": [
+						"mob_wind_wolf_001"
+					],
+					"level": 80
+				},
+				{
+					"id": "h1_z4",
+					"monsters": [
+						"mob_wind_wolf_001"
+					],
+					"level": 80
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				80,
+				81
+			]
+		},
+		"h2": {
+			"name": "Vườn Tượng Vỡ",
+			"width": 2208,
+			"height": 2016,
+			"exits": [
+				{
+					"id": "h2_x1",
+					"to": "h1",
+					"x": 2184,
+					"y": 768,
+					"label": "Đại Lộ Đổ Nát · cấp 81"
+				},
+				{
+					"id": "h2_x2",
+					"to": "h3",
+					"x": 24,
+					"y": 1296,
+					"label": "Quảng Trường Rune · cấp 83"
+				}
+			],
+			"spots": [
+				"h2_e",
+				"h2_w",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h2_z1",
+					"monsters": [
+						"mob_hawk_001"
+					],
+					"level": 81
+				},
+				{
+					"id": "h2_z2",
+					"monsters": [
+						"mob_hawk_001"
+					],
+					"level": 81
+				},
+				{
+					"id": "h2_z3",
+					"monsters": [
+						"mob_hawk_001"
+					],
+					"level": 82
+				},
+				{
+					"id": "h2_z4",
+					"monsters": [
+						"mob_hawk_001"
+					],
+					"level": 82
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				81,
+				82
+			]
+		},
+		"h3": {
+			"name": "Quảng Trường Rune",
+			"width": 2400,
+			"height": 1824,
+			"exits": [
+				{
+					"id": "h3_x1",
+					"to": "h2",
+					"x": 2376,
+					"y": 1008,
+					"label": "Vườn Tượng Vỡ · cấp 82"
+				},
+				{
+					"id": "h3_x2",
+					"to": "h4",
+					"x": 960,
+					"y": 24,
+					"label": "Khu Xưởng Cổ · cấp 84"
+				}
+			],
+			"spots": [
+				"h3_e",
+				"h3_n",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h3_z1",
+					"monsters": [
+						"mob_wind_fairy_001"
+					],
+					"level": 83
+				},
+				{
+					"id": "h3_z2",
+					"monsters": [
+						"mob_wind_fairy_001"
+					],
+					"level": 83
+				},
+				{
+					"id": "h3_z3",
+					"monsters": [
+						"mob_wind_fairy_001"
+					],
+					"level": 82
+				},
+				{
+					"id": "h3_z4",
+					"monsters": [
+						"mob_wind_fairy_001"
+					],
+					"level": 82
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				82,
+				83
+			]
+		},
+		"h4": {
+			"name": "Khu Xưởng Cổ",
+			"width": 2208,
+			"height": 2112,
+			"exits": [
+				{
+					"id": "h4_x1",
+					"to": "h3",
+					"x": 1248,
+					"y": 2088,
+					"label": "Quảng Trường Rune · cấp 83"
+				},
+				{
+					"id": "h4_x2",
+					"to": "h5",
+					"x": 2184,
+					"y": 1008,
+					"label": "Thư Viện Ngoài · cấp 85"
+				},
+				{
+					"id": "h4_x3",
+					"to": "h8",
+					"x": 1296,
+					"y": 24,
+					"label": "Tháp Đồng Hồ · cấp 88"
+				}
+			],
+			"spots": [
+				"h4_s",
+				"h4_e",
+				"h4_n",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h4_z1",
+					"monsters": [
+						"mob_flying_rock_001"
+					],
+					"level": 83
+				},
+				{
+					"id": "h4_z2",
+					"monsters": [
+						"mob_flying_rock_001"
+					],
+					"level": 83
+				},
+				{
+					"id": "h4_z3",
+					"monsters": [
+						"mob_flying_rock_001"
+					],
+					"level": 84
+				},
+				{
+					"id": "h4_z4",
+					"monsters": [
+						"mob_flying_rock_001"
+					],
+					"level": 84
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				83,
+				84
+			]
+		},
+		"h5": {
+			"name": "Thư Viện Ngoài",
+			"width": 2496,
+			"height": 1920,
+			"exits": [
+				{
+					"id": "h5_x1",
+					"to": "h4",
+					"x": 24,
+					"y": 864,
+					"label": "Khu Xưởng Cổ · cấp 84"
+				},
+				{
+					"id": "h5_x2",
+					"to": "hub",
+					"x": 2472,
+					"y": 1152,
+					"label": "Toà thành Aether cổ"
+				},
+				{
+					"id": "h5_x3",
+					"to": "h6",
+					"x": 1248,
+					"y": 24,
+					"label": "Cầu Dẫn Năng Lượng · cấp 86"
+				}
+			],
+			"spots": [
+				"h5_w",
+				"h5_e",
+				"h5_n",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h5_z1",
+					"monsters": [
+						"mob_wind_goblin_001"
+					],
+					"level": 85
+				},
+				{
+					"id": "h5_z2",
+					"monsters": [
+						"mob_wind_goblin_001"
+					],
+					"level": 85
+				},
+				{
+					"id": "h5_z3",
+					"monsters": [
+						"mob_wind_goblin_001"
+					],
+					"level": 84
+				},
+				{
+					"id": "h5_z4",
+					"monsters": [
+						"mob_wind_goblin_001"
+					],
+					"level": 84
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				84,
+				85
+			]
+		},
+		"h6": {
+			"name": "Cầu Dẫn Năng Lượng",
+			"width": 2304,
+			"height": 2016,
+			"exits": [
+				{
+					"id": "h6_x1",
+					"to": "h5",
+					"x": 1104,
+					"y": 1992,
+					"label": "Thư Viện Ngoài · cấp 85"
+				},
+				{
+					"id": "h6_x2",
+					"to": "h7",
+					"x": 2280,
+					"y": 1152,
+					"label": "Trại Khảo Cổ · cấp 87"
+				},
+				{
+					"id": "h6_x3",
+					"to": "h8",
+					"x": 24,
+					"y": 1104,
+					"label": "Tháp Đồng Hồ · cấp 88"
+				}
+			],
+			"spots": [
+				"h6_s",
+				"h6_e",
+				"h6_w",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h6_z1",
+					"monsters": [
+						"mob_wind_wolf_001"
+					],
+					"level": 85
+				},
+				{
+					"id": "h6_z2",
+					"monsters": [
+						"mob_wind_wolf_001"
+					],
+					"level": 85
+				},
+				{
+					"id": "h6_z3",
+					"monsters": [
+						"mob_wind_wolf_001"
+					],
+					"level": 86
+				},
+				{
+					"id": "h6_z4",
+					"monsters": [
+						"mob_wind_wolf_001"
+					],
+					"level": 86
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				85,
+				86
+			]
+		},
+		"h7": {
+			"name": "Trại Khảo Cổ",
+			"width": 2400,
+			"height": 2112,
+			"exits": [
+				{
+					"id": "h7_x1",
+					"to": "h6",
+					"x": 24,
+					"y": 1152,
+					"label": "Cầu Dẫn Năng Lượng · cấp 86"
+				},
+				{
+					"id": "h7_x2",
+					"to": "hub",
+					"x": 1392,
+					"y": 2088,
+					"label": "Toà thành Aether cổ"
+				},
+				{
+					"id": "to_aether_archive",
+					"to": "aether_archive",
+					"x": 1224,
+					"y": 24,
+					"label": "Thư viện thành Aether"
+				}
+			],
+			"spots": [
+				"h7_w",
+				"h7_s",
+				"h7_lair",
+				"waystone",
+				"aether_archive_outside"
+			],
+			"zones": [
+				{
+					"id": "h7_z1",
+					"monsters": [
+						"mob_hawk_001"
+					],
+					"level": 87
+				},
+				{
+					"id": "h7_z2",
+					"monsters": [
+						"mob_hawk_001"
+					],
+					"level": 87
+				},
+				{
+					"id": "h7_z3",
+					"monsters": [
+						"mob_hawk_001"
+					],
+					"level": 86
+				},
+				{
+					"id": "h7_boss",
+					"monsters": [
+						"boss_storm_eagle_001"
+					],
+					"level": 87
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				86,
+				87
+			]
+		},
+		"h8": {
+			"name": "Tháp Đồng Hồ",
+			"width": 2208,
+			"height": 1920,
+			"exits": [
+				{
+					"id": "h8_x1",
+					"to": "h6",
+					"x": 2184,
+					"y": 816,
+					"label": "Cầu Dẫn Năng Lượng · cấp 86"
+				},
+				{
+					"id": "h8_x2",
+					"to": "h4",
+					"x": 1248,
+					"y": 1896,
+					"label": "Khu Xưởng Cổ · cấp 84"
+				},
+				{
+					"id": "h8_x3",
+					"to": "h9",
+					"x": 1248,
+					"y": 24,
+					"label": "Hành Lang Pháp Sư · cấp 89"
+				}
+			],
+			"spots": [
+				"h8_e",
+				"h8_s",
+				"h8_n",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h8_z1",
+					"monsters": [
+						"mob_wind_fairy_001"
+					],
+					"level": 87
+				},
+				{
+					"id": "h8_z2",
+					"monsters": [
+						"mob_wind_fairy_001"
+					],
+					"level": 87
+				},
+				{
+					"id": "h8_z3",
+					"monsters": [
+						"mob_wind_fairy_001"
+					],
+					"level": 88
+				},
+				{
+					"id": "h8_z4",
+					"monsters": [
+						"mob_wind_fairy_001"
+					],
+					"level": 88
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				87,
+				88
+			]
+		},
+		"h9": {
+			"name": "Hành Lang Pháp Sư",
+			"width": 2496,
+			"height": 2016,
+			"exits": [
+				{
+					"id": "h9_x1",
+					"to": "h8",
+					"x": 1008,
+					"y": 1992,
+					"label": "Tháp Đồng Hồ · cấp 88"
+				},
+				{
+					"id": "h9_x2",
+					"to": "h10",
+					"x": 1152,
+					"y": 24,
+					"label": "Cổng Thành Cổ · cấp 90"
+				}
+			],
+			"spots": [
+				"h9_s",
+				"h9_n",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h9_z1",
+					"monsters": [
+						"mob_flying_rock_001"
+					],
+					"level": 89
+				},
+				{
+					"id": "h9_z2",
+					"monsters": [
+						"mob_flying_rock_001"
+					],
+					"level": 89
+				},
+				{
+					"id": "h9_z3",
+					"monsters": [
+						"mob_flying_rock_001"
+					],
+					"level": 88
+				},
+				{
+					"id": "h9_z4",
+					"monsters": [
+						"mob_flying_rock_001"
+					],
+					"level": 88
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				88,
+				89
+			]
+		},
+		"h10": {
+			"name": "Cổng Thành Cổ",
+			"width": 2304,
+			"height": 2112,
+			"exits": [
+				{
+					"id": "h10_x1",
+					"to": "h9",
+					"x": 1152,
+					"y": 2088,
+					"label": "Hành Lang Pháp Sư · cấp 89"
+				},
+				{
+					"id": "h10_x2",
+					"to": "sanctum",
+					"x": 2280,
+					"y": 1392,
+					"label": "Lõi Di Sản Aether · cấp 90"
+				},
+				{
+					"id": "h10_x3",
+					"to": "void/hub",
+					"x": 24,
+					"y": 1056,
+					"label": "Đường sang Vực Hư Không"
+				}
+			],
+			"spots": [
+				"h10_s",
+				"h10_e",
+				"h10_gate",
+				"h10_lair",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h10_z1",
+					"monsters": [
+						"mob_wind_goblin_001"
+					],
+					"level": 89
+				},
+				{
+					"id": "h10_z2",
+					"monsters": [
+						"mob_wind_goblin_001"
+					],
+					"level": 89
+				},
+				{
+					"id": "h10_z3",
+					"monsters": [
+						"mob_wind_goblin_001"
+					],
+					"level": 90
+				},
+				{
+					"id": "h10_boss",
+					"monsters": [
+						"boss_wind_mage_001"
+					],
+					"level": 90
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				89,
+				90
+			]
+		},
+		"sanctum": {
+			"name": "Lõi Di Sản Aether",
+			"width": 1536,
+			"height": 1344,
+			"exits": [
+				{
+					"id": "sanctum_x1",
+					"to": "h10",
+					"x": 24,
+					"y": 576,
+					"label": "Cổng Thành Cổ · cấp 90"
+				}
+			],
+			"spots": [
+				"sanctum_w",
+				"sanctum_lair",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "sanctum_boss",
+					"monsters": [
+						"boss_wind_drake_001"
+					],
+					"level": 90
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				90,
+				90
+			]
+		},
+		"aether_archive": {
+			"name": "Thư viện thành Aether",
+			"width": 1920,
+			"height": 1728,
+			"exits": [
+				{
+					"id": "to_h7",
+					"to": "h7",
+					"x": 984,
+					"y": 1704,
+					"label": "Trại Khảo Cổ"
+				}
+			],
+			"spots": [
+				"aether_archive_entry",
+				"waystone",
+				"aether_archive_room1",
+				"aether_archive_room2",
+				"aether_archive_room3"
+			],
+			"zones": [
+				{
+					"id": "aether_archive_z1",
+					"monsters": [
+						"mob_wind_goblin_001"
+					],
+					"level": 88
+				},
+				{
+					"id": "aether_archive_z2",
+					"monsters": [
+						"mob_wind_goblin_001"
+					],
+					"level": 88
+				},
+				{
+					"id": "aether_archive_z3",
+					"monsters": [
+						"mob_wind_goblin_001"
+					],
+					"level": 88
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				88,
+				88
+			]
+		}
+	}
+}

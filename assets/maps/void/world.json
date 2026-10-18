@@ -1,0 +1,798 @@
+{
+	"region": "void",
+	"start": "hub",
+	"maps": {
+		"hub": {
+			"name": "Thành trì Hư Không",
+			"width": 2112,
+			"height": 1728,
+			"exits": [
+				{
+					"id": "hub_x1",
+					"to": "h1",
+					"x": 1104,
+					"y": 1704,
+					"label": "Tiền Tuyến Liên Quân · cấp 91"
+				},
+				{
+					"id": "hub_x2",
+					"to": "h5",
+					"x": 24,
+					"y": 960,
+					"label": "Khe Nứt Câm Lặng · cấp 95"
+				},
+				{
+					"id": "hub_x3",
+					"to": "h7",
+					"x": 1104,
+					"y": 24,
+					"label": "Luỹ Cờ Tàn · cấp 97"
+				},
+				{
+					"id": "hub_x4",
+					"to": "ruins/h10",
+					"x": 2088,
+					"y": 960,
+					"label": "Trở về vùng trước"
+				}
+			],
+			"spots": [
+				"hub_s",
+				"hub_w",
+				"hub_n",
+				"east_gate",
+				"waystone",
+				"plaza"
+			],
+			"zones": [],
+			"dummies": [],
+			"boss": null
+		},
+		"h1": {
+			"name": "Tiền Tuyến Liên Quân",
+			"width": 2304,
+			"height": 1920,
+			"exits": [
+				{
+					"id": "h1_x1",
+					"to": "hub",
+					"x": 1248,
+					"y": 24,
+					"label": "Thành trì Hư Không"
+				},
+				{
+					"id": "h1_x2",
+					"to": "h2",
+					"x": 24,
+					"y": 720,
+					"label": "Bãi Giáp Vỡ · cấp 92"
+				}
+			],
+			"spots": [
+				"h1_n",
+				"h1_w",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h1_z1",
+					"monsters": [
+						"mob_lava_lizard_001"
+					],
+					"level": 91
+				},
+				{
+					"id": "h1_z2",
+					"monsters": [
+						"mob_lava_lizard_001"
+					],
+					"level": 91
+				},
+				{
+					"id": "h1_z3",
+					"monsters": [
+						"mob_lava_lizard_001"
+					],
+					"level": 90
+				},
+				{
+					"id": "h1_z4",
+					"monsters": [
+						"mob_lava_lizard_001"
+					],
+					"level": 90
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				90,
+				91
+			]
+		},
+		"h2": {
+			"name": "Bãi Giáp Vỡ",
+			"width": 2208,
+			"height": 2016,
+			"exits": [
+				{
+					"id": "h2_x1",
+					"to": "h1",
+					"x": 2184,
+					"y": 1344,
+					"label": "Tiền Tuyến Liên Quân · cấp 91"
+				},
+				{
+					"id": "h2_x2",
+					"to": "h3",
+					"x": 24,
+					"y": 1152,
+					"label": "Vành Đai Tro Tím · cấp 93"
+				}
+			],
+			"spots": [
+				"h2_e",
+				"h2_w",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h2_z1",
+					"monsters": [
+						"mob_lava_golem_001"
+					],
+					"level": 91
+				},
+				{
+					"id": "h2_z2",
+					"monsters": [
+						"mob_lava_golem_001"
+					],
+					"level": 91
+				},
+				{
+					"id": "h2_z3",
+					"monsters": [
+						"mob_lava_golem_001"
+					],
+					"level": 92
+				},
+				{
+					"id": "h2_z4",
+					"monsters": [
+						"mob_lava_golem_001"
+					],
+					"level": 92
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				91,
+				92
+			]
+		},
+		"h3": {
+			"name": "Vành Đai Tro Tím",
+			"width": 2400,
+			"height": 1824,
+			"exits": [
+				{
+					"id": "h3_x1",
+					"to": "h2",
+					"x": 2376,
+					"y": 816,
+					"label": "Bãi Giáp Vỡ · cấp 92"
+				},
+				{
+					"id": "h3_x2",
+					"to": "h4",
+					"x": 1440,
+					"y": 24,
+					"label": "Trạm Tiếp Tế Cũ · cấp 94"
+				}
+			],
+			"spots": [
+				"h3_e",
+				"h3_n",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h3_z1",
+					"monsters": [
+						"mob_fire_bat_001"
+					],
+					"level": 93
+				},
+				{
+					"id": "h3_z2",
+					"monsters": [
+						"mob_fire_bat_001"
+					],
+					"level": 93
+				},
+				{
+					"id": "h3_z3",
+					"monsters": [
+						"mob_fire_bat_001"
+					],
+					"level": 92
+				},
+				{
+					"id": "h3_z4",
+					"monsters": [
+						"mob_fire_bat_001"
+					],
+					"level": 92
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				92,
+				93
+			]
+		},
+		"h4": {
+			"name": "Trạm Tiếp Tế Cũ",
+			"width": 2208,
+			"height": 2112,
+			"exits": [
+				{
+					"id": "h4_x1",
+					"to": "h3",
+					"x": 1344,
+					"y": 2088,
+					"label": "Vành Đai Tro Tím · cấp 93"
+				},
+				{
+					"id": "h4_x2",
+					"to": "h5",
+					"x": 2184,
+					"y": 864,
+					"label": "Khe Nứt Câm Lặng · cấp 95"
+				},
+				{
+					"id": "h4_x3",
+					"to": "h8",
+					"x": 960,
+					"y": 24,
+					"label": "Cầu Qua Vực · cấp 98"
+				}
+			],
+			"spots": [
+				"h4_s",
+				"h4_e",
+				"h4_n",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h4_z1",
+					"monsters": [
+						"mob_fire_spirit_001"
+					],
+					"level": 93
+				},
+				{
+					"id": "h4_z2",
+					"monsters": [
+						"mob_fire_spirit_001"
+					],
+					"level": 93
+				},
+				{
+					"id": "h4_z3",
+					"monsters": [
+						"mob_fire_spirit_001"
+					],
+					"level": 94
+				},
+				{
+					"id": "h4_z4",
+					"monsters": [
+						"mob_fire_spirit_001"
+					],
+					"level": 94
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				93,
+				94
+			]
+		},
+		"h5": {
+			"name": "Khe Nứt Câm Lặng",
+			"width": 2496,
+			"height": 1920,
+			"exits": [
+				{
+					"id": "h5_x1",
+					"to": "h4",
+					"x": 24,
+					"y": 912,
+					"label": "Trạm Tiếp Tế Cũ · cấp 94"
+				},
+				{
+					"id": "h5_x2",
+					"to": "hub",
+					"x": 2472,
+					"y": 912,
+					"label": "Thành trì Hư Không"
+				},
+				{
+					"id": "h5_x3",
+					"to": "h6",
+					"x": 1152,
+					"y": 24,
+					"label": "Đảo Đá Vỡ · cấp 96"
+				}
+			],
+			"spots": [
+				"h5_w",
+				"h5_e",
+				"h5_n",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h5_z1",
+					"monsters": [
+						"mob_fire_demon_001"
+					],
+					"level": 95
+				},
+				{
+					"id": "h5_z2",
+					"monsters": [
+						"mob_fire_demon_001"
+					],
+					"level": 95
+				},
+				{
+					"id": "h5_z3",
+					"monsters": [
+						"mob_fire_demon_001"
+					],
+					"level": 94
+				},
+				{
+					"id": "h5_z4",
+					"monsters": [
+						"mob_fire_demon_001"
+					],
+					"level": 94
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				94,
+				95
+			]
+		},
+		"h6": {
+			"name": "Đảo Đá Vỡ",
+			"width": 2304,
+			"height": 2016,
+			"exits": [
+				{
+					"id": "h6_x1",
+					"to": "h5",
+					"x": 1392,
+					"y": 1992,
+					"label": "Khe Nứt Câm Lặng · cấp 95"
+				},
+				{
+					"id": "h6_x2",
+					"to": "h7",
+					"x": 2280,
+					"y": 1104,
+					"label": "Luỹ Cờ Tàn · cấp 97"
+				},
+				{
+					"id": "h6_x3",
+					"to": "h8",
+					"x": 24,
+					"y": 1152,
+					"label": "Cầu Qua Vực · cấp 98"
+				}
+			],
+			"spots": [
+				"h6_s",
+				"h6_e",
+				"h6_w",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h6_z1",
+					"monsters": [
+						"mob_lava_lizard_001"
+					],
+					"level": 95
+				},
+				{
+					"id": "h6_z2",
+					"monsters": [
+						"mob_lava_lizard_001"
+					],
+					"level": 95
+				},
+				{
+					"id": "h6_z3",
+					"monsters": [
+						"mob_lava_lizard_001"
+					],
+					"level": 96
+				},
+				{
+					"id": "h6_z4",
+					"monsters": [
+						"mob_lava_lizard_001"
+					],
+					"level": 96
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				95,
+				96
+			]
+		},
+		"h7": {
+			"name": "Luỹ Cờ Tàn",
+			"width": 2400,
+			"height": 2112,
+			"exits": [
+				{
+					"id": "h7_x1",
+					"to": "h6",
+					"x": 24,
+					"y": 1200,
+					"label": "Đảo Đá Vỡ · cấp 96"
+				},
+				{
+					"id": "h7_x2",
+					"to": "hub",
+					"x": 1488,
+					"y": 2088,
+					"label": "Thành trì Hư Không"
+				},
+				{
+					"id": "to_void_fortress",
+					"to": "void_fortress",
+					"x": 1224,
+					"y": 24,
+					"label": "Nội thành Hư Không"
+				}
+			],
+			"spots": [
+				"h7_w",
+				"h7_s",
+				"h7_lair",
+				"waystone",
+				"void_fortress_outside"
+			],
+			"zones": [
+				{
+					"id": "h7_z1",
+					"monsters": [
+						"mob_lava_golem_001"
+					],
+					"level": 97
+				},
+				{
+					"id": "h7_z2",
+					"monsters": [
+						"mob_lava_golem_001"
+					],
+					"level": 97
+				},
+				{
+					"id": "h7_z3",
+					"monsters": [
+						"mob_lava_golem_001"
+					],
+					"level": 96
+				},
+				{
+					"id": "h7_boss",
+					"monsters": [
+						"boss_ancient_lava_golem_001"
+					],
+					"level": 97
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				96,
+				97
+			]
+		},
+		"h8": {
+			"name": "Cầu Qua Vực",
+			"width": 2208,
+			"height": 1920,
+			"exits": [
+				{
+					"id": "h8_x1",
+					"to": "h6",
+					"x": 2184,
+					"y": 768,
+					"label": "Đảo Đá Vỡ · cấp 96"
+				},
+				{
+					"id": "h8_x2",
+					"to": "h4",
+					"x": 864,
+					"y": 1896,
+					"label": "Trạm Tiếp Tế Cũ · cấp 94"
+				},
+				{
+					"id": "h8_x3",
+					"to": "h9",
+					"x": 1008,
+					"y": 24,
+					"label": "Đường Hành Quân Cuối · cấp 99"
+				}
+			],
+			"spots": [
+				"h8_e",
+				"h8_s",
+				"h8_n",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h8_z1",
+					"monsters": [
+						"mob_fire_bat_001"
+					],
+					"level": 97
+				},
+				{
+					"id": "h8_z2",
+					"monsters": [
+						"mob_fire_bat_001"
+					],
+					"level": 97
+				},
+				{
+					"id": "h8_z3",
+					"monsters": [
+						"mob_fire_bat_001"
+					],
+					"level": 98
+				},
+				{
+					"id": "h8_z4",
+					"monsters": [
+						"mob_fire_bat_001"
+					],
+					"level": 98
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				97,
+				98
+			]
+		},
+		"h9": {
+			"name": "Đường Hành Quân Cuối",
+			"width": 2496,
+			"height": 2016,
+			"exits": [
+				{
+					"id": "h9_x1",
+					"to": "h8",
+					"x": 1584,
+					"y": 1992,
+					"label": "Cầu Qua Vực · cấp 98"
+				},
+				{
+					"id": "h9_x2",
+					"to": "h10",
+					"x": 1488,
+					"y": 24,
+					"label": "Cổng Hư Không · cấp 100"
+				}
+			],
+			"spots": [
+				"h9_s",
+				"h9_n",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h9_z1",
+					"monsters": [
+						"mob_fire_spirit_001"
+					],
+					"level": 99
+				},
+				{
+					"id": "h9_z2",
+					"monsters": [
+						"mob_fire_spirit_001"
+					],
+					"level": 99
+				},
+				{
+					"id": "h9_z3",
+					"monsters": [
+						"mob_fire_spirit_001"
+					],
+					"level": 98
+				},
+				{
+					"id": "h9_z4",
+					"monsters": [
+						"mob_fire_spirit_001"
+					],
+					"level": 98
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				98,
+				99
+			]
+		},
+		"h10": {
+			"name": "Cổng Hư Không",
+			"width": 2304,
+			"height": 2112,
+			"exits": [
+				{
+					"id": "h10_x1",
+					"to": "h9",
+					"x": 960,
+					"y": 2088,
+					"label": "Đường Hành Quân Cuối · cấp 99"
+				},
+				{
+					"id": "h10_x2",
+					"to": "sanctum",
+					"x": 2280,
+					"y": 1056,
+					"label": "Tâm Vực Hỗn Mang · cấp 100"
+				}
+			],
+			"spots": [
+				"h10_s",
+				"h10_e",
+				"h10_lair",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h10_z1",
+					"monsters": [
+						"mob_fire_demon_001"
+					],
+					"level": 99
+				},
+				{
+					"id": "h10_z2",
+					"monsters": [
+						"mob_fire_demon_001"
+					],
+					"level": 99
+				},
+				{
+					"id": "h10_z3",
+					"monsters": [
+						"mob_fire_demon_001"
+					],
+					"level": 100
+				},
+				{
+					"id": "h10_boss",
+					"monsters": [
+						"boss_salamander_001"
+					],
+					"level": 100
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				99,
+				100
+			]
+		},
+		"sanctum": {
+			"name": "Tâm Vực Hỗn Mang",
+			"width": 1536,
+			"height": 1344,
+			"exits": [
+				{
+					"id": "sanctum_x1",
+					"to": "h10",
+					"x": 24,
+					"y": 576,
+					"label": "Cổng Hư Không · cấp 100"
+				}
+			],
+			"spots": [
+				"sanctum_w",
+				"sanctum_lair",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "sanctum_boss",
+					"monsters": [
+						"boss_fire_god_001"
+					],
+					"level": 100
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				100,
+				100
+			]
+		},
+		"void_fortress": {
+			"name": "Nội thành Hư Không",
+			"width": 1920,
+			"height": 1728,
+			"exits": [
+				{
+					"id": "to_h7",
+					"to": "h7",
+					"x": 984,
+					"y": 1704,
+					"label": "Luỹ Cờ Tàn"
+				}
+			],
+			"spots": [
+				"void_fortress_entry",
+				"waystone",
+				"void_fortress_room1",
+				"void_fortress_room2",
+				"void_fortress_room3"
+			],
+			"zones": [
+				{
+					"id": "void_fortress_z1",
+					"monsters": [
+						"mob_fire_demon_001"
+					],
+					"level": 98
+				},
+				{
+					"id": "void_fortress_z2",
+					"monsters": [
+						"mob_fire_demon_001"
+					],
+					"level": 98
+				},
+				{
+					"id": "void_fortress_z3",
+					"monsters": [
+						"mob_fire_demon_001"
+					],
+					"level": 98
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				98,
+				98
+			]
+		}
+	}
+}

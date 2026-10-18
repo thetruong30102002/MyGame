@@ -532,6 +532,13 @@
 					"x": 1392,
 					"y": 24,
 					"label": "Ghềnh Cánh Cụt · cấp 48–49"
+				},
+				{
+					"id": "to_ice_palace",
+					"to": "ice_palace",
+					"x": 24,
+					"y": 984,
+					"label": "Cung Ngai Băng"
 				}
 			],
 			"spots": [
@@ -539,7 +546,8 @@
 				"snowmanpass_s",
 				"snowmanpass_n",
 				"snowmanpass_lair",
-				"waystone"
+				"waystone",
+				"ice_palace_outside"
 			],
 			"zones": [
 				{
@@ -784,6 +792,56 @@
 			"levels": [
 				50,
 				50
+			]
+		},
+		"ice_palace": {
+			"name": "Cung Ngai Băng",
+			"width": 1920,
+			"height": 1728,
+			"exits": [
+				{
+					"id": "to_snowmanpass",
+					"to": "snowmanpass",
+					"x": 1896,
+					"y": 888,
+					"label": "Đèo Người Tuyết"
+				}
+			],
+			"spots": [
+				"ice_palace_entry",
+				"waystone",
+				"ice_palace_room1",
+				"ice_palace_room2",
+				"ice_palace_room3"
+			],
+			"zones": [
+				{
+					"id": "ice_palace_z1",
+					"monsters": [
+						"mob_snowman_001"
+					],
+					"level": 48
+				},
+				{
+					"id": "ice_palace_z2",
+					"monsters": [
+						"mob_snowman_001"
+					],
+					"level": 48
+				},
+				{
+					"id": "ice_palace_z3",
+					"monsters": [
+						"mob_snowman_001"
+					],
+					"level": 48
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				48,
+				48
 			]
 		}
 	}

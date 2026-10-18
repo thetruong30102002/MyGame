@@ -27,6 +27,8 @@ export interface Settlement {
 }
 
 export interface RegionDef {
+	/** Vùng nhánh: chỉ kiểm cấp, không phụ thuộc boss đường chính. */
+	branch?: boolean;
 	id: string;
 	/** Thứ tự trên đường chơi (1 = vùng đầu). */
 	order: number;
@@ -142,7 +144,7 @@ export const REGIONS: readonly RegionDef[] = [
 		intro: 'Bãi cát, rạn san hô, làng chài và tàu đắm.',
 		element: { name: 'Thuỷ', weak: 'Phong, Thổ' },
 	}),
-	planned({
+	built({
 		id: 'fungal',
 		order: 8,
 		name: 'Rừng Nấm Ngầm',
@@ -152,7 +154,7 @@ export const REGIONS: readonly RegionDef[] = [
 		intro: 'Hang ngầm, nấm khổng lồ phát sáng và mạch tinh thể.',
 		element: { name: 'Thổ', weak: 'Phong' },
 	}),
-	planned({
+	built({
 		id: 'ruins',
 		order: 9,
 		name: 'Phế tích Aether',
@@ -167,7 +169,7 @@ export const REGIONS: readonly RegionDef[] = [
 		intro: 'Thành cổ đổ nát, cột ma pháp và máy móc cổ.',
 		element: { name: 'Aether / thép (kháng phép)', weak: 'Kiếm' },
 	}),
-	planned({
+	built({
 		id: 'void',
 		order: 10,
 		name: 'Vực Hư Không',
@@ -177,6 +179,9 @@ export const REGIONS: readonly RegionDef[] = [
 		intro: 'Đảo trôi trên nền tím đen, khe nứt không gian.',
 		element: { name: 'Bóng tối / hỗn hợp', weak: 'Aether, Hoả' },
 	}),
+	{ ...built({"id":"wood","name":"Rừng Cổ Thụ","order":11,"levels":[20,30],"chief":null,"settlement":{"kind":"village","name":"Rừng Cổ Thụ","role":"Trạm nghỉ vùng nguyên tố; cổng dẫn về Thistlewood.","services":["shop","waystone"]},"intro":"Vùng nhánh Rừng Cổ Thụ — đi qua Cổng Nguyên Tố phía tây Thistlewood.","element":{"name":"Mộc","weak":"Theo từng loài quái"}}), branch: true },
+	{ ...built({"id":"light","name":"Thánh Địa Bình Minh","order":12,"levels":[30,40],"chief":null,"settlement":{"kind":"village","name":"Thánh Địa Bình Minh","role":"Trạm nghỉ vùng nguyên tố; cổng dẫn về Thistlewood.","services":["shop","waystone"]},"intro":"Vùng nhánh Thánh Địa Bình Minh — đi qua Cổng Nguyên Tố phía tây Thistlewood.","element":{"name":"Ánh sáng","weak":"Theo từng loài quái"}}), branch: true },
+	{ ...built({"id":"dark","name":"Vực Ám Ma","order":13,"levels":[40,50],"chief":null,"settlement":{"kind":"village","name":"Vực Ám Ma","role":"Trạm nghỉ vùng nguyên tố; cổng dẫn về Thistlewood.","services":["shop","waystone"]},"intro":"Vùng nhánh Vực Ám Ma — đi qua Cổng Nguyên Tố phía tây Thistlewood.","element":{"name":"Bóng tối","weak":"Theo từng loài quái"}}), branch: true },
 ];
 
 /** Vùng đầu tiên — bản lưu không có / sai vùng thì về đây. */
@@ -205,7 +210,7 @@ export interface GateCtx {
 export function regionNeeds(id: string): { level: number; chief: { id: string; name: string; region: string } | null } | null {
 	const r = regionDef(id);
 	if (!r || r.order === 1) return null;
-	const prev = REGIONS.find((x) => x.order === r.order - 1);
+	const prev = r.branch ? undefined : REGIONS.find((x) => x.order === r.order - 1);
 	return { level: r.levels[0], chief: prev?.chief ? { ...prev.chief, region: prev.name } : null };
 }
 

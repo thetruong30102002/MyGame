@@ -84,7 +84,7 @@ namespace Aether.Client
             if (cam == null && camOf != null) cam = camOf();
             if (cam == null || mapOf == null) return;
             var map = mapOf();
-            var on = Enabled;
+            var on = Enabled && (map == null || map.terrain == null || map.terrain.Length == 0 || !map.terrain[0].Contains("#"));
             if (map != drawnFor || on != drawnEnabled) Rebuild(map, on);
             if (map == null || !on) return;
             var dt = Mathf.Min(Time.deltaTime, 0.1f);
@@ -132,6 +132,21 @@ namespace Aether.Client
             Color? haze = null;
             switch (map.biome)
             {
+                case Biome.Wood:
+                    Add(Kind.Firefly, 28);
+                    Add(Kind.Leaf, 12);
+                    haze = new Color(0.3f, 0.7f, 0.45f, 0.04f);
+                    break;
+                case Biome.Light:
+                    Add(Kind.Sparkle, 26);
+                    Add(Kind.Pollen, 16);
+                    haze = new Color(1f, 0.9f, 0.65f, 0.04f);
+                    break;
+                case Biome.Dark:
+                    Add(Kind.Mist, 10);
+                    Add(Kind.Ash, 18);
+                    haze = new Color(0.4f, 0.2f, 0.6f, 0.09f);
+                    break;
                 case Biome.Snow:
                     Add(Kind.Snow, 170);
                     haze = new Color(0.78f, 0.86f, 1f, 0.08f);

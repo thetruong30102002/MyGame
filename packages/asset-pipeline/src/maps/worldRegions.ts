@@ -553,5 +553,5 @@ export const ISLES_REGION = standardRegion({
 		boss: { name: 'Long Huyệt Thương Hải', monster: 'dragon_water_001', level: 70, ring: ['brain_coral', 'abyss_spire', 'pink_coral'], center: 'giant_clam' },
 	},
 	prev: { to: 'volcano/craterrim', toSpot: 'craterrim_gate', label: 'Vành Miệng Núi · Núi lửa Hoả Sơn' },
-	next: { to: 'fungal/hub', toSpot: 'east_gate', label: 'Rừng Nấm Ngầm · vùng 8 · đang xây dựng' },
+	next: { to: 'fungal/hub', toSpot: 'east_gate', label: 'Rừng Nấm Ngầm · vùng 8 · cần cấp 70 + đã hạ Kraken' },
 });

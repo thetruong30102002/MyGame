@@ -133,6 +133,120 @@
 				"«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»"
 			]
 		},
+		"waystone_fungal": {
+			"name": "Cột dịch chuyển",
+			"title": "Rừng Nấm Ngầm",
+			"sprite": null,
+			"prop": "rune_stone",
+			"at": {
+				"spot": "waystone",
+				"dx": 0,
+				"dy": 0
+			},
+			"ages": [
+				0,
+				99
+			],
+			"region": "fungal",
+			"idle": [
+				"«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»"
+			]
+		},
+		"waystone_ruins": {
+			"name": "Cột dịch chuyển",
+			"title": "Phế tích Aether",
+			"sprite": null,
+			"prop": "rune_stone",
+			"at": {
+				"spot": "waystone",
+				"dx": 0,
+				"dy": 0
+			},
+			"ages": [
+				0,
+				99
+			],
+			"region": "ruins",
+			"idle": [
+				"«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»"
+			]
+		},
+		"waystone_void": {
+			"name": "Cột dịch chuyển",
+			"title": "Vực Hư Không",
+			"sprite": null,
+			"prop": "rune_stone",
+			"at": {
+				"spot": "waystone",
+				"dx": 0,
+				"dy": 0
+			},
+			"ages": [
+				0,
+				99
+			],
+			"region": "void",
+			"idle": [
+				"«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»"
+			]
+		},
+		"waystone_wood": {
+			"name": "Cột dịch chuyển",
+			"title": "Rừng Cổ Thụ",
+			"sprite": null,
+			"prop": "rune_stone",
+			"at": {
+				"spot": "waystone",
+				"dx": 0,
+				"dy": 0
+			},
+			"ages": [
+				0,
+				99
+			],
+			"region": "wood",
+			"idle": [
+				"«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»"
+			]
+		},
+		"waystone_light": {
+			"name": "Cột dịch chuyển",
+			"title": "Thánh Địa Bình Minh",
+			"sprite": null,
+			"prop": "rune_stone",
+			"at": {
+				"spot": "waystone",
+				"dx": 0,
+				"dy": 0
+			},
+			"ages": [
+				0,
+				99
+			],
+			"region": "light",
+			"idle": [
+				"«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»"
+			]
+		},
+		"waystone_dark": {
+			"name": "Cột dịch chuyển",
+			"title": "Vực Ám Ma",
+			"sprite": null,
+			"prop": "rune_stone",
+			"at": {
+				"spot": "waystone",
+				"dx": 0,
+				"dy": 0
+			},
+			"ages": [
+				0,
+				99
+			],
+			"region": "dark",
+			"idle": [
+				"«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»"
+			]
+		},
 		"chronicler": {
 			"name": "Bia Danh Vọng",
 			"title": "Quảng trường Thistlewood",

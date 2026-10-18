@@ -236,6 +236,18 @@ namespace Aether.Data.Ground
             OwnFlat = true,
         };
 
+        private static readonly Palette Wood = Meadow.With(
+            new[] { new Rgb(8,15,12), new Rgb(15,28,22), new Rgb(22,42,32), new Rgb(29,56,42), new Rgb(36,70,51), new Rgb(44,84,60), new Rgb(51,98,68) },
+            new[] { new Rgb(29,57,40), new Rgb(36,71,49), new Rgb(43,85,57), new Rgb(50,99,65), new Rgb(57,113,72), new Rgb(64,128,79), new Rgb(71,142,85) }, Meadow.Petals, Meadow.Leaf, Meadow.Moss);
+
+        private static readonly Palette Light = Meadow.With(
+            new[] { new Rgb(108,106,82), new Rgb(122,118,93), new Rgb(136,131,104), new Rgb(150,143,114), new Rgb(164,155,125), new Rgb(179,167,136), new Rgb(193,179,146) },
+            new[] { new Rgb(67,68,49), new Rgb(82,81,60), new Rgb(96,94,70), new Rgb(110,107,80), new Rgb(124,120,90), new Rgb(138,132,101), new Rgb(152,144,111) }, Meadow.Petals, Meadow.Leaf, Meadow.Moss);
+
+        private static readonly Palette Dark = Meadow.With(
+            new[] { new Rgb(17,13,19), new Rgb(29,23,33), new Rgb(41,33,47), new Rgb(53,43,61), new Rgb(64,53,75), new Rgb(75,62,89), new Rgb(86,72,103) },
+            new[] { new Rgb(14,9,15), new Rgb(14,9,15), new Rgb(24,17,27), new Rgb(36,25,41), new Rgb(47,34,55), new Rgb(58,43,69), new Rgb(69,51,83) }, Meadow.Petals, Meadow.Leaf, Meadow.Moss);
+
         private static Palette PaletteOf(Biome b) => b switch
         {
             Biome.Deadland => Deadland,
@@ -246,12 +258,16 @@ namespace Aether.Data.Ground
             Biome.Snow => Snow,
             Biome.Volcanic => Volcanic,
             Biome.Beach => Beach,
+            Biome.Wood => Wood,
+            Biome.Light => Light,
+            Biome.Dark => Dark,
             _ => Meadow,
         };
 
         /// <summary>Màu lót một ô / màu phẳng minimap (UNDERLAY_MEADOW + bậc giữa dải cỏ/rừng của biome) — terrainColor().</summary>
         public static Rgb TerrainColor(Biome biome, char ch)
         {
+            if (ch == '#') return new Rgb(64, 61, 58);
             if (biome != Biome.Meadow)
             {
                 var p = PaletteOf(biome);
@@ -275,7 +291,7 @@ namespace Aether.Data.Ground
 
         private const int G = 0, F = 1, D = 2, C = 3, W = 4, B = 5;
 
-        private static int Code(char ch) => ch == 'g' ? G : ch == 'f' ? F : ch == 'd' ? D : ch == 'c' ? C : ch == 'w' ? W : ch == 'b' ? B : W;
+        private static int Code(char ch) => ch == 'g' ? G : ch == 'f' ? F : ch == 'd' ? D : (ch == 'c' || ch == '#') ? C : ch == 'w' ? W : ch == 'b' ? B : W;
 
         // Ngọn cỏ 7×6 (hàng cuối là gốc) và sỏi — y hệt BLADES / PEBBLES.
         private static readonly string[][] Blades =
@@ -295,6 +311,7 @@ namespace Aether.Data.Ground
             new[] { ".lm", "lmd" },
         };
 
+        private readonly string[] terrain;
         private readonly int width;
         private readonly int height;
         private readonly byte[] kinds;
@@ -310,6 +327,7 @@ namespace Aether.Data.Ground
 
         public GroundShader(int tileSize, int width, int height, int seed, string[] terrain, Biome biome)
         {
+            this.terrain = terrain;
             this.width = width;
             this.height = height;
             this.seed = seed;
@@ -374,6 +392,15 @@ namespace Aether.Data.Ground
 
         public Rgb Shade(int x, int y)
         {
+            var tx = Clamp(FloorDiv(x, T), 0, width - 1);
+            var ty = Clamp(FloorDiv(y, T), 0, height - 1);
+            if (terrain[ty][tx] == '#')
+            {
+                // Tường gạch có mạch vữa so le; cùng công thức với pipeline.
+                var mortar = y % 16 < 2 || (x + (y / 16 % 2) * 16) % 32 < 2;
+                var level = mortar ? 31 : 64 + ((x / 4 + y / 4) % 3) * 3;
+                return new Rgb(level, level - 3, level - 6);
+            }
             if (OnBridge(x, y)) return Bridge(x, y);
             Sample(x, y);
             switch (k)

@@ -329,13 +329,21 @@
 					"x": 1440,
 					"y": 24,
 					"label": "Sống Đồi Gió Hú · cấp 35–36"
+				},
+				{
+					"id": "to_wind_temple",
+					"to": "wind_temple",
+					"x": 1272,
+					"y": 1896,
+					"label": "Nội điện Đền Gió"
 				}
 			],
 			"spots": [
 				"cloudpath_w",
 				"cloudpath_e",
 				"cloudpath_n",
-				"waystone"
+				"waystone",
+				"wind_temple_outside"
 			],
 			"zones": [
 				{
@@ -784,6 +792,56 @@
 			"levels": [
 				40,
 				40
+			]
+		},
+		"wind_temple": {
+			"name": "Nội điện Đền Gió",
+			"width": 1920,
+			"height": 1728,
+			"exits": [
+				{
+					"id": "to_cloudpath",
+					"to": "cloudpath",
+					"x": 984,
+					"y": 24,
+					"label": "Đường Lên Đền Mây"
+				}
+			],
+			"spots": [
+				"wind_temple_entry",
+				"waystone",
+				"wind_temple_room1",
+				"wind_temple_room2",
+				"wind_temple_room3"
+			],
+			"zones": [
+				{
+					"id": "wind_temple_z1",
+					"monsters": [
+						"mob_wind_goblin_001"
+					],
+					"level": 38
+				},
+				{
+					"id": "wind_temple_z2",
+					"monsters": [
+						"mob_wind_goblin_001"
+					],
+					"level": 38
+				},
+				{
+					"id": "wind_temple_z3",
+					"monsters": [
+						"mob_wind_goblin_001"
+					],
+					"level": 38
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				38,
+				38
 			]
 		}
 	}

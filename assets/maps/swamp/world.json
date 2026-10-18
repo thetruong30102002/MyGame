@@ -462,13 +462,21 @@
 					"x": 960,
 					"y": 2088,
 					"label": "Làng nhà sàn Lau Xám"
+				},
+				{
+					"id": "to_stone_dam",
+					"to": "stone_dam",
+					"x": 1224,
+					"y": 24,
+					"label": "Thân đập đá của Đoàn"
 				}
 			],
 			"spots": [
 				"leechcanal_w",
 				"leechcanal_s",
 				"leechcanal_lair",
-				"waystone"
+				"waystone",
+				"stone_dam_outside"
 			],
 			"zones": [
 				{
@@ -742,6 +750,56 @@
 			"levels": [
 				20,
 				20
+			]
+		},
+		"stone_dam": {
+			"name": "Thân đập đá của Đoàn",
+			"width": 1920,
+			"height": 1728,
+			"exits": [
+				{
+					"id": "to_leechcanal",
+					"to": "leechcanal",
+					"x": 984,
+					"y": 1704,
+					"label": "Kênh Đỉa"
+				}
+			],
+			"spots": [
+				"stone_dam_entry",
+				"waystone",
+				"stone_dam_room1",
+				"stone_dam_room2",
+				"stone_dam_room3"
+			],
+			"zones": [
+				{
+					"id": "stone_dam_z1",
+					"monsters": [
+						"mob_swamp_leech_001"
+					],
+					"level": 18
+				},
+				{
+					"id": "stone_dam_z2",
+					"monsters": [
+						"mob_swamp_leech_001"
+					],
+					"level": 18
+				},
+				{
+					"id": "stone_dam_z3",
+					"monsters": [
+						"mob_swamp_leech_001"
+					],
+					"level": 18
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				18,
+				18
 			]
 		}
 	}

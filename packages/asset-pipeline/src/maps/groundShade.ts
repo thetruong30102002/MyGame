@@ -10,7 +10,7 @@ export interface TerrainGrid {
 	biome?: Biome;
 }
 
-export type Biome = 'meadow' | 'deadland' | 'rocky';
+export type Biome = 'wood' | 'light' | 'dark' | 'meadow' | 'deadland' | 'rocky';
 
 type RGB = [number, number, number];
 
@@ -50,6 +50,9 @@ const DRY_LEAF = [hsv(30, 0.45, 0.42), hsv(22, 0.5, 0.36), hsv(40, 0.4, 0.48)];
  */
 const PALETTES: Record<Biome, Palette> = {
 	meadow: MEADOW,
+	wood: { ...MEADOW, grass: [[8,15,12],[15,28,22],[22,42,32],[29,56,42],[36,70,51],[44,84,60],[51,98,68]], forest: [[29,57,40],[36,71,49],[43,85,57],[50,99,65],[57,113,72],[64,128,79],[71,142,85]] },
+	light: { ...MEADOW, grass: [[108,106,82],[122,118,93],[136,131,104],[150,143,114],[164,155,125],[179,167,136],[193,179,146]], forest: [[67,68,49],[82,81,60],[96,94,70],[110,107,80],[124,120,90],[138,132,101],[152,144,111]] },
+	dark: { ...MEADOW, grass: [[17,13,19],[29,23,33],[41,33,47],[53,43,61],[64,53,75],[75,62,89],[86,72,103]], forest: [[14,9,15],[14,9,15],[24,17,27],[36,25,41],[47,34,55],[58,43,69],[69,51,83]] },
 	deadland: {
 		...MEADOW,
 		grass: [hsv(60, 0.38, 0.24), hsv(56, 0.38, 0.31), hsv(52, 0.38, 0.38), hsv(48, 0.38, 0.45), hsv(45, 0.36, 0.52), hsv(42, 0.34, 0.6), hsv(40, 0.3, 0.68)],
@@ -71,6 +74,7 @@ const PALETTES: Record<Biome, Palette> = {
 /** Màu lót một ô (khi chunk chưa sinh kịp) và màu phẳng của minimap — bậc giữa của từng dải trong bảng màu vùng. */
 const UNDERLAY_MEADOW: Record<string, RGB> = { g: [83, 133, 67], f: [55, 88, 51], d: [133, 100, 66], c: [150, 145, 133], w: [58, 110, 160], b: [130, 92, 58] };
 export function terrainColor(biome: Biome | undefined, ch: string): RGB {
+	if (ch === '#') return [64, 61, 58];
 	if (!biome || biome === 'meadow') return UNDERLAY_MEADOW[ch] ?? [0, 0, 0];
 	const p = PALETTES[biome];
 	if (ch === 'g') return p.grass[3]!;
@@ -84,7 +88,7 @@ const D = 2;
 const C = 3;
 const W = 4;
 const B = 5;
-const CODE: Record<string, number> = { g: G, f: F, d: D, c: C, w: W, b: B };
+const CODE: Record<string, number> = { g: G, f: F, d: D, c: C, w: W, b: B, '#': C };
 
 /**
  * Ngọn cỏ 7×6, hàng cuối là gốc. l = ngọn sáng, m = thân, d = bóng ở gốc. Rải theo lưới lệch ngẫu nhiên
@@ -169,6 +173,11 @@ export class GroundShader {
 	}
 
 	shade(x: number, y: number): RGB {
+        if (this.map.terrain[Math.max(0, Math.min(this.map.height - 1, Math.floor(y / this.T)))]?.[Math.max(0, Math.min(this.map.width - 1, Math.floor(x / this.T)))] === '#') {
+            const mortar = y % 16 < 2 || (x + (Math.floor(y / 16) % 2) * 16) % 32 < 2;
+            const level = mortar ? 31 : 64 + ((Math.floor(x / 4) + Math.floor(y / 4)) % 3) * 3;
+            return [level, level - 3, level - 6];
+        }
 		if (this.onBridge(x, y)) return this.bridge(x, y);
 		this.sample(x, y);
 		switch (this.k) {

@@ -287,6 +287,16 @@ namespace Aether.Client.UI
                     Refresh();
                 });
             }
+            var branchIndex = 0;
+            foreach (var r in game.RegionRulesPublic.All.Where(r => r.Branch))
+            {
+                var (_, color, sub) = RegionState(r);
+                var tag = UiKit.Rect(content, "Branch" + r.Id, new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2((branchIndex++ - 1) * 275, 26), new Vector2(266, 34));
+                UiStyle.Pill(tag, new Color(0.04f, 0.03f, 0.02f, 0.9f), 8).raycastTarget = true;
+                UiKit.Label(UiKit.Stretch(tag, "Name"), r.Name + " · " + sub, 12, color, TextAnchor.MiddleCenter);
+                var rid = r.Id;
+                UiKit.Press(tag, () => { mapRegion = rid; mapContinent = false; mapLevel = 1; mapPick = null; Refresh(); });
+            }
             Text(content, "Hint", new Vector2(0, 0), new Vector2(0, 0), new Vector2(0, 2), new Vector2(886, 20),
                 "Bấm một vùng để xem bản đồ · vàng = đang ở · xanh = vào được · đỏ = chưa đủ điều kiện · xám = đang xây dựng", 12, UiKit.TextDim);
         }

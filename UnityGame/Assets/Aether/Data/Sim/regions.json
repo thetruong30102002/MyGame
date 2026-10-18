@@ -278,7 +278,7 @@
 				"dx": 0,
 				"dy": 0
 			},
-			"ready": false
+			"ready": true
 		},
 		{
 			"id": "ruins",
@@ -312,7 +312,7 @@
 				"dx": 0,
 				"dy": 0
 			},
-			"ready": false
+			"ready": true
 		},
 		{
 			"id": "void",
@@ -344,7 +344,103 @@
 				"dx": 0,
 				"dy": 0
 			},
-			"ready": false
+			"ready": true
+		},
+		{
+			"id": "wood",
+			"name": "Rừng Cổ Thụ",
+			"order": 11,
+			"levels": [
+				20,
+				30
+			],
+			"chief": null,
+			"settlement": {
+				"kind": "village",
+				"name": "Rừng Cổ Thụ",
+				"role": "Trạm nghỉ vùng nguyên tố; cổng dẫn về Thistlewood.",
+				"services": [
+					"shop",
+					"waystone"
+				]
+			},
+			"intro": "Vùng nhánh Rừng Cổ Thụ — đi qua Cổng Nguyên Tố phía tây Thistlewood.",
+			"element": {
+				"name": "Mộc",
+				"weak": "Theo từng loài quái"
+			},
+			"hub": "hub",
+			"waystone": {
+				"spot": "waystone",
+				"dx": 0,
+				"dy": 0
+			},
+			"ready": true,
+			"branch": true
+		},
+		{
+			"id": "light",
+			"name": "Thánh Địa Bình Minh",
+			"order": 12,
+			"levels": [
+				30,
+				40
+			],
+			"chief": null,
+			"settlement": {
+				"kind": "village",
+				"name": "Thánh Địa Bình Minh",
+				"role": "Trạm nghỉ vùng nguyên tố; cổng dẫn về Thistlewood.",
+				"services": [
+					"shop",
+					"waystone"
+				]
+			},
+			"intro": "Vùng nhánh Thánh Địa Bình Minh — đi qua Cổng Nguyên Tố phía tây Thistlewood.",
+			"element": {
+				"name": "Ánh sáng",
+				"weak": "Theo từng loài quái"
+			},
+			"hub": "hub",
+			"waystone": {
+				"spot": "waystone",
+				"dx": 0,
+				"dy": 0
+			},
+			"ready": true,
+			"branch": true
+		},
+		{
+			"id": "dark",
+			"name": "Vực Ám Ma",
+			"order": 13,
+			"levels": [
+				40,
+				50
+			],
+			"chief": null,
+			"settlement": {
+				"kind": "village",
+				"name": "Vực Ám Ma",
+				"role": "Trạm nghỉ vùng nguyên tố; cổng dẫn về Thistlewood.",
+				"services": [
+					"shop",
+					"waystone"
+				]
+			},
+			"intro": "Vùng nhánh Vực Ám Ma — đi qua Cổng Nguyên Tố phía tây Thistlewood.",
+			"element": {
+				"name": "Bóng tối",
+				"weak": "Theo từng loài quái"
+			},
+			"hub": "hub",
+			"waystone": {
+				"spot": "waystone",
+				"dx": 0,
+				"dy": 0
+			},
+			"ready": true,
+			"branch": true
 		}
 	],
 	"START_REGION": "human",

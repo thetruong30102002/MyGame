@@ -14,6 +14,18 @@ namespace Aether.Core.Tests
     /// </summary>
     public class WorldTests
     {
+        [Test]
+        public void MasonryBlocksFeetButDoorRemainsWalkable()
+        {
+            var map = new CollisionMap { TileSize = 48, Width = 5, Height = 3,
+                Terrain = new[] { "#####", "#ccc#", "##c##" } };
+            var solids = new Solids();
+            Assert.That(Collision.IsBlocked(map, solids, 24, 24, 11, 5), Is.True);
+            Assert.That(Collision.IsBlocked(map, solids, 120, 72, 11, 5), Is.False);
+            Assert.That(Collision.IsBlocked(map, solids, 120, 120, 11, 5), Is.False);
+            Assert.That(Collision.IsBlocked(map, solids, 48, 72, 11, 5), Is.True);
+        }
+
         private static JObject _v;
         private static JObject V => _v ??= TestData.Vectors("world");
         /// <summary>Số trong vector. Số nguyên vượt long (Newtonsoft giữ BigInteger, ép double bị CẮT) thì đọc lại từ chữ để làm tròn đúng.</summary>

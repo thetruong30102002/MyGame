@@ -532,13 +532,21 @@
 					"x": 1056,
 					"y": 24,
 					"label": "Cao Nguyên Xương · cấp 28–29"
+				},
+				{
+					"id": "to_pyramid",
+					"to": "pyramid",
+					"x": 24,
+					"y": 984,
+					"label": "Kim tự tháp Sa Thạch"
 				}
 			],
 			"spots": [
 				"deeptombs_e",
 				"deeptombs_s",
 				"deeptombs_n",
-				"waystone"
+				"waystone",
+				"pyramid_outside"
 			],
 			"zones": [
 				{
@@ -742,6 +750,56 @@
 			"levels": [
 				30,
 				30
+			]
+		},
+		"pyramid": {
+			"name": "Kim tự tháp Sa Thạch",
+			"width": 1920,
+			"height": 1728,
+			"exits": [
+				{
+					"id": "to_deeptombs",
+					"to": "deeptombs",
+					"x": 1896,
+					"y": 888,
+					"label": "Mộ Đạo Sâu"
+				}
+			],
+			"spots": [
+				"pyramid_entry",
+				"waystone",
+				"pyramid_room1",
+				"pyramid_room2",
+				"pyramid_room3"
+			],
+			"zones": [
+				{
+					"id": "pyramid_z1",
+					"monsters": [
+						"mob_mummy_001"
+					],
+					"level": 28
+				},
+				{
+					"id": "pyramid_z2",
+					"monsters": [
+						"mob_mummy_001"
+					],
+					"level": 28
+				},
+				{
+					"id": "pyramid_z3",
+					"monsters": [
+						"mob_mummy_001"
+					],
+					"level": 28
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				28,
+				28
 			]
 		}
 	}

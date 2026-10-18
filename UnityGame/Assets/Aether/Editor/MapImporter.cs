@@ -195,6 +195,9 @@ namespace Aether.Importer
             "highland" => Biome.Highland,
             "snow" => Biome.Snow,
             "volcanic" => Biome.Volcanic,
+            "wood" => Biome.Wood,
+            "light" => Biome.Light,
+            "dark" => Biome.Dark,
             "beach" => Biome.Beach,
             _ => Biome.Meadow,
         };
@@ -514,7 +517,7 @@ namespace Aether.Importer
     internal static class TerrainTiles
     {
         private const string Folder = ImportUtil.Root + "/Tiles";
-        private static readonly char[] Chars = { 'g', 'f', 'd', 'c', 'w', 'b' };
+        private static readonly char[] Chars = { 'g', 'f', 'd', 'c', 'w', 'b', '#' };
 
         public static Dictionary<char, Tile> Ensure(Biome biome)
         {
@@ -522,7 +525,7 @@ namespace Aether.Importer
             var result = new Dictionary<char, Tile>();
             foreach (var ch in Chars)
             {
-                var path = $"{Folder}/{biome.ToString().ToLowerInvariant()}_{ch}.asset";
+                var path = $"{Folder}/{biome.ToString().ToLowerInvariant()}_{(ch == '#' ? "wall" : ch.ToString())}.asset";
                 var tile = AssetDatabase.LoadAssetAtPath<Tile>(path);
                 if (tile == null)
                 {

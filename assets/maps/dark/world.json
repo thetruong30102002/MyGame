@@ -1,0 +1,798 @@
+{
+	"region": "dark",
+	"start": "hub",
+	"maps": {
+		"hub": {
+			"name": "Trại Đèn Tím",
+			"width": 2112,
+			"height": 1728,
+			"exits": [
+				{
+					"id": "hub_x1",
+					"to": "h1",
+					"x": 2088,
+					"y": 960,
+					"label": "Rừng Thân Xoắn"
+				},
+				{
+					"id": "hub_x2",
+					"to": "h5",
+					"x": 1056,
+					"y": 1704,
+					"label": "Rừng Mắt Đêm"
+				},
+				{
+					"id": "hub_x3",
+					"to": "h7",
+					"x": 24,
+					"y": 960,
+					"label": "Thung Lũng Bóng Rủ"
+				},
+				{
+					"id": "hub_x4",
+					"to": "human/element_gate",
+					"x": 1056,
+					"y": 24,
+					"label": "Cổng Nguyên Tố · Thistlewood"
+				}
+			],
+			"spots": [
+				"hub_e",
+				"hub_s",
+				"hub_w",
+				"entry",
+				"waystone",
+				"plaza"
+			],
+			"zones": [],
+			"dummies": [],
+			"boss": null
+		},
+		"h1": {
+			"name": "Rừng Thân Xoắn",
+			"width": 2304,
+			"height": 1920,
+			"exits": [
+				{
+					"id": "h1_x1",
+					"to": "hub",
+					"x": 24,
+					"y": 1008,
+					"label": "Trại Đèn Tím"
+				},
+				{
+					"id": "h1_x2",
+					"to": "h2",
+					"x": 1296,
+					"y": 1896,
+					"label": "Hẻm Cây Xích"
+				}
+			],
+			"spots": [
+				"h1_w",
+				"h1_s",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h1_z1",
+					"monsters": [
+						"mob_lava_lizard_001"
+					],
+					"level": 41
+				},
+				{
+					"id": "h1_z2",
+					"monsters": [
+						"mob_lava_lizard_001"
+					],
+					"level": 41
+				},
+				{
+					"id": "h1_z3",
+					"monsters": [
+						"mob_lava_lizard_001"
+					],
+					"level": 41
+				},
+				{
+					"id": "h1_z4",
+					"monsters": [
+						"mob_lava_lizard_001"
+					],
+					"level": 41
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				41,
+				41
+			]
+		},
+		"h2": {
+			"name": "Hẻm Cây Xích",
+			"width": 2208,
+			"height": 2016,
+			"exits": [
+				{
+					"id": "h2_x1",
+					"to": "h1",
+					"x": 1056,
+					"y": 24,
+					"label": "Rừng Thân Xoắn"
+				},
+				{
+					"id": "h2_x2",
+					"to": "h3",
+					"x": 1248,
+					"y": 1992,
+					"label": "Bãi Gốc Nứt"
+				}
+			],
+			"spots": [
+				"h2_n",
+				"h2_s",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h2_z1",
+					"monsters": [
+						"mob_lava_golem_001"
+					],
+					"level": 42
+				},
+				{
+					"id": "h2_z2",
+					"monsters": [
+						"mob_lava_golem_001"
+					],
+					"level": 42
+				},
+				{
+					"id": "h2_z3",
+					"monsters": [
+						"mob_lava_golem_001"
+					],
+					"level": 42
+				},
+				{
+					"id": "h2_z4",
+					"monsters": [
+						"mob_lava_golem_001"
+					],
+					"level": 42
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				42,
+				42
+			]
+		},
+		"h3": {
+			"name": "Bãi Gốc Nứt",
+			"width": 2400,
+			"height": 1824,
+			"exits": [
+				{
+					"id": "h3_x1",
+					"to": "h2",
+					"x": 1440,
+					"y": 24,
+					"label": "Hẻm Cây Xích"
+				},
+				{
+					"id": "h3_x2",
+					"to": "h4",
+					"x": 24,
+					"y": 864,
+					"label": "Vườn Máu"
+				}
+			],
+			"spots": [
+				"h3_n",
+				"h3_w",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h3_z1",
+					"monsters": [
+						"mob_fire_bat_001"
+					],
+					"level": 43
+				},
+				{
+					"id": "h3_z2",
+					"monsters": [
+						"mob_fire_bat_001"
+					],
+					"level": 43
+				},
+				{
+					"id": "h3_z3",
+					"monsters": [
+						"mob_fire_bat_001"
+					],
+					"level": 43
+				},
+				{
+					"id": "h3_z4",
+					"monsters": [
+						"mob_fire_bat_001"
+					],
+					"level": 43
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				43,
+				43
+			]
+		},
+		"h4": {
+			"name": "Vườn Máu",
+			"width": 2208,
+			"height": 2112,
+			"exits": [
+				{
+					"id": "h4_x1",
+					"to": "h3",
+					"x": 2184,
+					"y": 1200,
+					"label": "Bãi Gốc Nứt"
+				},
+				{
+					"id": "h4_x2",
+					"to": "h5",
+					"x": 1008,
+					"y": 24,
+					"label": "Rừng Mắt Đêm"
+				},
+				{
+					"id": "h4_x3",
+					"to": "h8",
+					"x": 24,
+					"y": 1152,
+					"label": "Rừng Ma Trắng"
+				}
+			],
+			"spots": [
+				"h4_e",
+				"h4_n",
+				"h4_w",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h4_z1",
+					"monsters": [
+						"mob_fire_spirit_001"
+					],
+					"level": 44
+				},
+				{
+					"id": "h4_z2",
+					"monsters": [
+						"mob_fire_spirit_001"
+					],
+					"level": 44
+				},
+				{
+					"id": "h4_z3",
+					"monsters": [
+						"mob_fire_spirit_001"
+					],
+					"level": 44
+				},
+				{
+					"id": "h4_z4",
+					"monsters": [
+						"mob_fire_spirit_001"
+					],
+					"level": 44
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				44,
+				44
+			]
+		},
+		"h5": {
+			"name": "Rừng Mắt Đêm",
+			"width": 2496,
+			"height": 1920,
+			"exits": [
+				{
+					"id": "h5_x1",
+					"to": "h4",
+					"x": 1248,
+					"y": 1896,
+					"label": "Vườn Máu"
+				},
+				{
+					"id": "h5_x2",
+					"to": "hub",
+					"x": 1344,
+					"y": 24,
+					"label": "Trại Đèn Tím"
+				},
+				{
+					"id": "h5_x3",
+					"to": "h6",
+					"x": 24,
+					"y": 1152,
+					"label": "Lối Cây Xương"
+				}
+			],
+			"spots": [
+				"h5_s",
+				"h5_n",
+				"h5_w",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h5_z1",
+					"monsters": [
+						"mob_fire_demon_001"
+					],
+					"level": 45
+				},
+				{
+					"id": "h5_z2",
+					"monsters": [
+						"mob_fire_demon_001"
+					],
+					"level": 45
+				},
+				{
+					"id": "h5_z3",
+					"monsters": [
+						"mob_fire_demon_001"
+					],
+					"level": 45
+				},
+				{
+					"id": "h5_z4",
+					"monsters": [
+						"mob_fire_demon_001"
+					],
+					"level": 45
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				45,
+				45
+			]
+		},
+		"h6": {
+			"name": "Lối Cây Xương",
+			"width": 2304,
+			"height": 2016,
+			"exits": [
+				{
+					"id": "h6_x1",
+					"to": "h5",
+					"x": 2280,
+					"y": 864,
+					"label": "Rừng Mắt Đêm"
+				},
+				{
+					"id": "h6_x2",
+					"to": "h7",
+					"x": 1056,
+					"y": 24,
+					"label": "Thung Lũng Bóng Rủ"
+				},
+				{
+					"id": "h6_x3",
+					"to": "h8",
+					"x": 912,
+					"y": 1992,
+					"label": "Rừng Ma Trắng"
+				}
+			],
+			"spots": [
+				"h6_e",
+				"h6_n",
+				"h6_s",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h6_z1",
+					"monsters": [
+						"mob_lava_lizard_001"
+					],
+					"level": 46
+				},
+				{
+					"id": "h6_z2",
+					"monsters": [
+						"mob_lava_lizard_001"
+					],
+					"level": 46
+				},
+				{
+					"id": "h6_z3",
+					"monsters": [
+						"mob_lava_lizard_001"
+					],
+					"level": 46
+				},
+				{
+					"id": "h6_z4",
+					"monsters": [
+						"mob_lava_lizard_001"
+					],
+					"level": 46
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				46,
+				46
+			]
+		},
+		"h7": {
+			"name": "Thung Lũng Bóng Rủ",
+			"width": 2400,
+			"height": 2112,
+			"exits": [
+				{
+					"id": "h7_x1",
+					"to": "h6",
+					"x": 1008,
+					"y": 2088,
+					"label": "Lối Cây Xương"
+				},
+				{
+					"id": "h7_x2",
+					"to": "hub",
+					"x": 2376,
+					"y": 912,
+					"label": "Trại Đèn Tím"
+				},
+				{
+					"id": "to_dungeon",
+					"to": "dungeon",
+					"x": 1224,
+					"y": 24,
+					"label": "Ngục Vĩnh Dạ"
+				}
+			],
+			"spots": [
+				"h7_s",
+				"h7_e",
+				"h7_lair",
+				"waystone",
+				"dungeon_outside"
+			],
+			"zones": [
+				{
+					"id": "h7_z1",
+					"monsters": [
+						"mob_lava_golem_001"
+					],
+					"level": 47
+				},
+				{
+					"id": "h7_z2",
+					"monsters": [
+						"mob_lava_golem_001"
+					],
+					"level": 47
+				},
+				{
+					"id": "h7_z3",
+					"monsters": [
+						"mob_lava_golem_001"
+					],
+					"level": 47
+				},
+				{
+					"id": "h7_boss",
+					"monsters": [
+						"boss_ancient_lava_golem_001"
+					],
+					"level": 47
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				47,
+				47
+			]
+		},
+		"h8": {
+			"name": "Rừng Ma Trắng",
+			"width": 2208,
+			"height": 1920,
+			"exits": [
+				{
+					"id": "h8_x1",
+					"to": "h6",
+					"x": 1104,
+					"y": 24,
+					"label": "Lối Cây Xương"
+				},
+				{
+					"id": "h8_x2",
+					"to": "h4",
+					"x": 2184,
+					"y": 768,
+					"label": "Vườn Máu"
+				},
+				{
+					"id": "h8_x3",
+					"to": "h9",
+					"x": 24,
+					"y": 912,
+					"label": "Đồi Gai Đen"
+				}
+			],
+			"spots": [
+				"h8_n",
+				"h8_e",
+				"h8_w",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h8_z1",
+					"monsters": [
+						"mob_fire_bat_001"
+					],
+					"level": 48
+				},
+				{
+					"id": "h8_z2",
+					"monsters": [
+						"mob_fire_bat_001"
+					],
+					"level": 48
+				},
+				{
+					"id": "h8_z3",
+					"monsters": [
+						"mob_fire_bat_001"
+					],
+					"level": 48
+				},
+				{
+					"id": "h8_z4",
+					"monsters": [
+						"mob_fire_bat_001"
+					],
+					"level": 48
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				48,
+				48
+			]
+		},
+		"h9": {
+			"name": "Đồi Gai Đen",
+			"width": 2496,
+			"height": 2016,
+			"exits": [
+				{
+					"id": "h9_x1",
+					"to": "h8",
+					"x": 2472,
+					"y": 1008,
+					"label": "Rừng Ma Trắng"
+				},
+				{
+					"id": "h9_x2",
+					"to": "h10",
+					"x": 24,
+					"y": 912,
+					"label": "Lối Hắc Diện"
+				}
+			],
+			"spots": [
+				"h9_e",
+				"h9_w",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h9_z1",
+					"monsters": [
+						"mob_fire_spirit_001"
+					],
+					"level": 49
+				},
+				{
+					"id": "h9_z2",
+					"monsters": [
+						"mob_fire_spirit_001"
+					],
+					"level": 49
+				},
+				{
+					"id": "h9_z3",
+					"monsters": [
+						"mob_fire_spirit_001"
+					],
+					"level": 49
+				},
+				{
+					"id": "h9_z4",
+					"monsters": [
+						"mob_fire_spirit_001"
+					],
+					"level": 49
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				49,
+				49
+			]
+		},
+		"h10": {
+			"name": "Lối Hắc Diện",
+			"width": 2304,
+			"height": 2112,
+			"exits": [
+				{
+					"id": "h10_x1",
+					"to": "h9",
+					"x": 2280,
+					"y": 1152,
+					"label": "Đồi Gai Đen"
+				},
+				{
+					"id": "h10_x2",
+					"to": "sanctum",
+					"x": 912,
+					"y": 24,
+					"label": "Điện Tím Vĩnh Dạ"
+				}
+			],
+			"spots": [
+				"h10_e",
+				"h10_n",
+				"h10_lair",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "h10_z1",
+					"monsters": [
+						"mob_fire_demon_001"
+					],
+					"level": 50
+				},
+				{
+					"id": "h10_z2",
+					"monsters": [
+						"mob_fire_demon_001"
+					],
+					"level": 50
+				},
+				{
+					"id": "h10_z3",
+					"monsters": [
+						"mob_fire_demon_001"
+					],
+					"level": 50
+				},
+				{
+					"id": "h10_boss",
+					"monsters": [
+						"boss_salamander_001"
+					],
+					"level": 50
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				50,
+				50
+			]
+		},
+		"sanctum": {
+			"name": "Điện Tím Vĩnh Dạ",
+			"width": 1536,
+			"height": 1344,
+			"exits": [
+				{
+					"id": "sanctum_x1",
+					"to": "h10",
+					"x": 672,
+					"y": 1320,
+					"label": "Lối Hắc Diện"
+				}
+			],
+			"spots": [
+				"sanctum_s",
+				"sanctum_lair",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "sanctum_boss",
+					"monsters": [
+						"boss_fire_god_001"
+					],
+					"level": 50
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				50,
+				50
+			]
+		},
+		"dungeon": {
+			"name": "Ngục Vĩnh Dạ",
+			"width": 1920,
+			"height": 1728,
+			"exits": [
+				{
+					"id": "to_h7",
+					"to": "h7",
+					"x": 984,
+					"y": 1704,
+					"label": "Thung Lũng Bóng Rủ"
+				}
+			],
+			"spots": [
+				"dungeon_entry",
+				"waystone",
+				"dungeon_room1",
+				"dungeon_room2",
+				"dungeon_room3"
+			],
+			"zones": [
+				{
+					"id": "dungeon_z1",
+					"monsters": [
+						"mob_fire_demon_001"
+					],
+					"level": 48
+				},
+				{
+					"id": "dungeon_z2",
+					"monsters": [
+						"mob_fire_demon_001"
+					],
+					"level": 48
+				},
+				{
+					"id": "dungeon_z3",
+					"monsters": [
+						"mob_fire_demon_001"
+					],
+					"level": 48
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				48,
+				48
+			]
+		}
+	}
+}

@@ -1,4 +1,4 @@
-// Chạy: npx tsx tests/worldmaps.test.ts — map của MỌI vùng đã mở (vùng 2–7 dựng bằng bộ dựng chung `packages/asset-pipeline/src/
+// Chạy: npx tsx tests/worldmaps.test.ts — map của MỌI vùng đã mở (vùng 2–10 dựng bằng bộ dựng chung `packages/asset-pipeline/src/
 // maps/kit`, 10/10/2026): đi bằng CHÂN THẬT (hộp chân 11×5 như client, va chạm `@aether/sim/collision`) từ điểm vào đầu tiên tới
 // được mọi điểm đến, lối ra, điểm sinh quái, tâm sân boss; lối xuyên vùng hai chiều đúng mép đối diện; quái + boss có chỉ số.
 import assert from 'node:assert/strict';
@@ -10,7 +10,7 @@ import { zoneSpawnPoints, type MonsterZoneDef } from '@aether/sim/mobs';
 import { REGIONS } from '@aether/sim/regions';
 import { ENEMY_STATS } from '@aether/sim/skills';
 
-const MAPS = join(import.meta.dirname, '../../../assets/maps');
+const MAPS = process.env.AETHER_MAPS ?? join(import.meta.dirname, '../../../assets/maps');
 const STEP = 6;
 
 interface MapJson extends CollisionMap {
@@ -72,7 +72,21 @@ function reachable(map: MapJson, meta: Record<string, PropFootprint>, x: number,
 	};
 }
 
-test('vùng 2–7: mọi điểm đến / lối / điểm sinh quái / sân boss tới được bằng chân từ lối vào đầu tiên', () => {
+test('Thistlewood: tới sân cổng và cả ba lối nguyên tố bằng chân', () => {
+	const meta = read<Record<string, PropFootprint>>('human', 'props.meta.json');
+	for (const id of ['town', 'element_gate']) {
+		const m = read<MapJson>('human', `${id}.json`);
+		const ok = reachable(m, meta, m.spots[0]!.x, m.spots[0]!.y);
+		for (const s of m.spots) assert.ok(ok(s.x, s.y), `${id}: ${s.id}`);
+		for (const e of m.exits) {
+			const to = e.to.includes('/') ? e.to.split('/') : ['human', e.to];
+			const dest = read<MapJson>(to[0]!, `${to[1]}.json`);
+			assert.ok(dest.spots.some(s => s.id === e.toSpot), `${id}: ${e.to}#${e.toSpot}`);
+		}
+	}
+});
+
+test('vùng 2–10: mọi điểm đến / lối / điểm sinh quái / sân boss tới được bằng chân từ lối vào đầu tiên', () => {
 	const problems: string[] = [];
 	for (const r of regions) {
 		const meta = read<Record<string, PropFootprint>>(r.id, 'props.meta.json');
@@ -99,7 +113,7 @@ test('vùng 2–7: mọi điểm đến / lối / điểm sinh quái / sân boss
 	assert.deepEqual(problems, []);
 });
 
-test('vùng 2–7: lối xuyên vùng hai chiều, đúng mép đối diện, điểm đến có thật', () => {
+test('vùng 2–10: lối xuyên vùng hai chiều, đúng mép đối diện, điểm đến có thật', () => {
 	const human = (id: string): MapJson => read<MapJson>('human', `${id}.json`);
 	const get = (key: string): MapJson | undefined => all.get(key) ?? (key.startsWith('human/') ? human(key.slice(6)) : undefined);
 	let cross = 0;
@@ -115,12 +129,12 @@ test('vùng 2–7: lối xuyên vùng hai chiều, đúng mép đối diện, đ
 			assert.equal(back!.edge, OPP[e.edge], `${key} ra mép ${e.edge}, ${e.to} về mép ${back!.edge}`);
 		}
 	}
-	assert.equal(cross, 11, 'vùng 1→2 … 6→7: 6 lối vào trạm + 5 lối ra map cửa (lối ra của vùng 7 dẫn tới vùng 8 chưa dựng)');
+	assert.equal(cross, 2 * regions.filter(r => !r.branch).length - 1 + regions.filter(r => r.branch).length, 'vùng 1→2 … 6→7: 6 lối vào trạm + 5 lối ra map cửa (lối ra của vùng 7 dẫn tới vùng 8 chưa dựng)');
 });
 
-test('vùng 2–7: mọi loại quái / boss trên map có chỉ số + kháng hệ', () => {
+test('vùng 2–10: mọi loại quái / boss trên map có chỉ số + kháng hệ', () => {
 	const missing = new Set<string>();
 	for (const m of all.values()) for (const z of m.monsterZones) for (const t of z.monsters) if (!ENEMY_STATS[t]?.resist) missing.add(t);
 	assert.deepEqual([...missing], []);
-	for (const r of regions) assert.ok(r.chief && [...all.values()].some((m) => m.monsterZones.some((z) => z.monsters.includes(r.chief!.id))), `${r.id}: boss chúa ${r.chief?.id} có trên map`);
+	for (const r of regions.filter((r) => r.chief)) assert.ok(r.chief && [...all.values()].some((m) => m.monsterZones.some((z) => z.monsters.includes(r.chief!.id))), `${r.id}: boss chúa ${r.chief?.id} có trên map`);
 });

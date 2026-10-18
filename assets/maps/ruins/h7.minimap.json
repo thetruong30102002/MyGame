@@ -1,0 +1,13 @@
+{
+	"map": "h7",
+	"image": "h7.minimap.png",
+	"width": 300,
+	"height": 264,
+	"downscale": 8,
+	"world": {
+		"width": 2400,
+		"height": 2112,
+		"tileSize": 48
+	},
+	"version": "9cc73cea"
+}

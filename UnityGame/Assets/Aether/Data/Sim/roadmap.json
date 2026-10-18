@@ -94,8 +94,8 @@
 			"id": "region8_10",
 			"group": "game",
 			"name": "Vùng 8–10 + 3 rồng + Long Huyệt",
-			"detail": "Lịch 14/10: sau 4 vùng nguyên tố, mỗi ngày dựng 1 vùng (ngày 7–9) bằng hình mượn + tô màu TẠM, ngày 10 lên bản thật; hình riêng vẽ bằng gói 24$ sau.",
-			"progress": 5,
+			"detail": "17/10: đã dựng 36 map chính + 3 công trình, nối đường từ Quần đảo, cấp 70–100. Hình và quái mượn TẠM; còn boss riêng, 3 rồng, Long Huyệt, nhiệm vụ và kiểm chơi thật.",
+			"progress": 45,
 			"pixellab": 0,
 			"doc": "ke-hoach-the-gioi.md"
 		},
@@ -298,5 +298,5 @@
 			"doc": "ke-hoach-the-gioi.md §1.2"
 		}
 	],
-	"ROADMAP_UPDATED": "14/10/2026"
+	"ROADMAP_UPDATED": "17/10/2026"
 }

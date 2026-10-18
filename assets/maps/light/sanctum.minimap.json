@@ -1,0 +1,13 @@
+{
+	"map": "sanctum",
+	"image": "sanctum.minimap.png",
+	"width": 192,
+	"height": 168,
+	"downscale": 8,
+	"world": {
+		"width": 1536,
+		"height": 1344,
+		"tileSize": 48
+	},
+	"version": "db19ead3"
+}

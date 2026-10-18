@@ -112,7 +112,7 @@ namespace Aether.Core.World
                 if (terrain == null || ty < 0 || ty >= terrain.Length || terrain[ty] == null) continue;
                 var row = terrain[ty];
                 for (var tx = Cell(x0, t); tx <= Cell(x1, t); tx += 1)
-                    if (tx >= 0 && tx < row.Length && row[tx] == 'w') return true;
+                    if (tx >= 0 && tx < row.Length && (row[tx] == 'w' || row[tx] == '#')) return true;
             }
             for (var gy = Cell(y0, Grid); gy <= Cell(y1, Grid); gy += 1)
             {

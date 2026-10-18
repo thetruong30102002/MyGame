@@ -31,7 +31,7 @@ for (const file of readdirSync(MAPS).filter((f) => f.endsWith('.json') && !f.inc
 		chunks.push({ map: file.replace('.json', ''), ox, oy, w, h, sha1: createHash('sha1').update(px).digest('hex') });
 	}
 }
-const biomes: (Biome | undefined)[] = [undefined, 'meadow', 'deadland', 'rocky'];
+const biomes: (Biome | undefined)[] = [undefined, 'meadow', 'deadland', 'rocky', 'wood', 'light', 'dark'];
 const colors = biomes.flatMap((b) => [...'gfdcwbx'].map((ch) => ({ biome: b ?? null, ch, rgb: terrainColor(b, ch) })));
 writeFileSync(join(OUT, 'ground.json'), `${JSON.stringify({ chunks, colors }, null, '\t')}\n`);
 console.log(`✔ vector mặt đất → ${OUT}/ground.json: ${chunks.length} vùng · ${colors.length} màu lót`);
