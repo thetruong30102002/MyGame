@@ -48,6 +48,8 @@ namespace Aether.Client
         public SpriteRenderer Renderer => sr;
         public DirFrames ShownFrames => shown;
         public int ShownFrame => frame;
+        /// <summary>Nhánh hiển thị thử nghiệm; null giữ nguyên bản game hiện có.</summary>
+        public MannequinView Mannequin { get; internal set; }
 
         private void Awake() => sr = GetComponent<SpriteRenderer>();
 
@@ -103,6 +105,7 @@ namespace Aether.Client
         /// <summary>Nhịp động tác cho hướng <paramref name="d"/>, co theo hồi chiêu; null = chưa vẽ hướng đó.</summary>
         public ActionTiming? ActionTimingFor(string action, Dir8 d, double cooldown)
         {
+            if (Mannequin != null && Mannequin.TryTiming(action, d, cooldown, out var modularTiming)) return modularTiming;
             action = HeldAction(action, d);
             var f = def != null ? def.ActionFrames(action, d) : null;
             return f == null ? (ActionTiming?)null : ActionClock.TimingFor(def.Find(action), action, cooldown, f.frames.Length);
@@ -196,6 +199,14 @@ namespace Aether.Client
             frame = f;
             sr.sprite = shown.frames[f];
             sr.flipX = shown.flipX;
+            if (Mannequin != null) Mannequin.Render(anim, dir, f);
+        }
+
+        public void RefreshFrame()
+        {
+            var saved = frame;
+            frame = -1;
+            if (saved >= 0) Apply(saved);
         }
 
         private string Resolve(string a)

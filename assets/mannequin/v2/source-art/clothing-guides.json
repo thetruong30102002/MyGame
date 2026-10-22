@@ -1,0 +1,390 @@
+{
+  "version": 1,
+  "poses": {
+    "7/NW": {
+      "bootLeft": 88,
+      "bootRight": 88,
+      "waist": 77,
+      "splitX": 56
+    },
+    "7/NE": {
+      "bootLeft": 88,
+      "bootRight": 88,
+      "waist": 77,
+      "splitX": 56
+    },
+    "7/W": {
+      "bootLeft": 88,
+      "bootRight": 88,
+      "waist": 77,
+      "splitX": 56
+    },
+    "0/W": {
+      "bootLeft": 87,
+      "bootRight": 87,
+      "waist": 73,
+      "splitX": 56
+    },
+    "1/NE": {
+      "bootLeft": 87,
+      "bootRight": 87,
+      "waist": 74,
+      "splitX": 56
+    },
+    "3/S": {
+      "bootLeft": 86,
+      "bootRight": 86,
+      "waist": 73,
+      "splitX": 56
+    },
+    "5/SE": {
+      "bootLeft": 88,
+      "bootRight": 88,
+      "waist": 77,
+      "splitX": 56
+    },
+    "2/S": {
+      "bootLeft": 87,
+      "bootRight": 87,
+      "waist": 74,
+      "splitX": 56
+    },
+    "7/N": {
+      "bootLeft": 88,
+      "bootRight": 88,
+      "waist": 77,
+      "splitX": 56
+    },
+    "6/SW": {
+      "bootLeft": 87,
+      "bootRight": 87,
+      "waist": 75,
+      "splitX": 56
+    },
+    "6/S": {
+      "bootLeft": 87,
+      "bootRight": 87,
+      "waist": 75,
+      "splitX": 56
+    },
+    "1/S": {
+      "bootLeft": 87,
+      "bootRight": 87,
+      "waist": 74,
+      "splitX": 56
+    },
+    "6/SE": {
+      "bootLeft": 87,
+      "bootRight": 87,
+      "waist": 75,
+      "splitX": 56
+    },
+    "7/E": {
+      "bootLeft": 88,
+      "bootRight": 88,
+      "waist": 77,
+      "splitX": 56
+    },
+    "5/NW": {
+      "bootLeft": 88,
+      "bootRight": 88,
+      "waist": 77,
+      "splitX": 56
+    },
+    "1/NW": {
+      "bootLeft": 87,
+      "bootRight": 87,
+      "waist": 74,
+      "splitX": 56
+    },
+    "0/S": {
+      "bootLeft": 87,
+      "bootRight": 87,
+      "waist": 73,
+      "splitX": 56
+    },
+    "6/E": {
+      "bootLeft": 87,
+      "bootRight": 87,
+      "waist": 75,
+      "splitX": 56
+    },
+    "6/NW": {
+      "bootLeft": 87,
+      "bootRight": 87,
+      "waist": 75,
+      "splitX": 56
+    },
+    "7/SE": {
+      "bootLeft": 88,
+      "bootRight": 88,
+      "waist": 77,
+      "splitX": 56
+    },
+    "1/N": {
+      "bootLeft": 87,
+      "bootRight": 87,
+      "waist": 74,
+      "splitX": 56
+    },
+    "3/NE": {
+      "bootLeft": 86,
+      "bootRight": 86,
+      "waist": 73,
+      "splitX": 56
+    },
+    "5/N": {
+      "bootLeft": 88,
+      "bootRight": 88,
+      "waist": 77,
+      "splitX": 56
+    },
+    "4/N": {
+      "bootLeft": 88,
+      "bootRight": 88,
+      "waist": 76,
+      "splitX": 56
+    },
+    "3/E": {
+      "bootLeft": 86,
+      "bootRight": 86,
+      "waist": 73,
+      "splitX": 56
+    },
+    "3/SE": {
+      "bootLeft": 86,
+      "bootRight": 86,
+      "waist": 73,
+      "splitX": 56
+    },
+    "7/SW": {
+      "bootLeft": 88,
+      "bootRight": 88,
+      "waist": 77,
+      "splitX": 56
+    },
+    "5/E": {
+      "bootLeft": 88,
+      "bootRight": 88,
+      "waist": 77,
+      "splitX": 56
+    },
+    "0/N": {
+      "bootLeft": 87,
+      "bootRight": 87,
+      "waist": 73,
+      "splitX": 56
+    },
+    "6/N": {
+      "bootLeft": 87,
+      "bootRight": 87,
+      "waist": 75,
+      "splitX": 56
+    },
+    "6/W": {
+      "bootLeft": 87,
+      "bootRight": 87,
+      "waist": 75,
+      "splitX": 56
+    },
+    "5/NE": {
+      "bootLeft": 88,
+      "bootRight": 88,
+      "waist": 77,
+      "splitX": 56
+    },
+    "3/NW": {
+      "bootLeft": 86,
+      "bootRight": 86,
+      "waist": 73,
+      "splitX": 56
+    },
+    "6/NE": {
+      "bootLeft": 87,
+      "bootRight": 87,
+      "waist": 75,
+      "splitX": 56
+    },
+    "4/SW": {
+      "bootLeft": 88,
+      "bootRight": 88,
+      "waist": 76,
+      "splitX": 56
+    },
+    "5/SW": {
+      "bootLeft": 88,
+      "bootRight": 88,
+      "waist": 77,
+      "splitX": 56
+    },
+    "2/E": {
+      "bootLeft": 87,
+      "bootRight": 87,
+      "waist": 74,
+      "splitX": 56
+    },
+    "3/N": {
+      "bootLeft": 86,
+      "bootRight": 86,
+      "waist": 73,
+      "splitX": 56
+    },
+    "0/E": {
+      "bootLeft": 87,
+      "bootRight": 87,
+      "waist": 73,
+      "splitX": 56
+    },
+    "4/W": {
+      "bootLeft": 88,
+      "bootRight": 88,
+      "waist": 76,
+      "splitX": 56
+    },
+    "1/W": {
+      "bootLeft": 87,
+      "bootRight": 87,
+      "waist": 74,
+      "splitX": 56
+    },
+    "1/SW": {
+      "bootLeft": 87,
+      "bootRight": 87,
+      "waist": 74,
+      "splitX": 56
+    },
+    "0/NW": {
+      "bootLeft": 87,
+      "bootRight": 87,
+      "waist": 73,
+      "splitX": 56
+    },
+    "2/W": {
+      "bootLeft": 87,
+      "bootRight": 87,
+      "waist": 74,
+      "splitX": 56
+    },
+    "4/NW": {
+      "bootLeft": 88,
+      "bootRight": 88,
+      "waist": 76,
+      "splitX": 56
+    },
+    "2/N": {
+      "bootLeft": 87,
+      "bootRight": 87,
+      "waist": 74,
+      "splitX": 56
+    },
+    "1/SE": {
+      "bootLeft": 87,
+      "bootRight": 87,
+      "waist": 74,
+      "splitX": 56
+    },
+    "4/NE": {
+      "bootLeft": 88,
+      "bootRight": 88,
+      "waist": 76,
+      "splitX": 56
+    },
+    "0/SE": {
+      "bootLeft": 87,
+      "bootRight": 87,
+      "waist": 73,
+      "splitX": 56
+    },
+    "3/SW": {
+      "bootLeft": 86,
+      "bootRight": 86,
+      "waist": 73,
+      "splitX": 56
+    },
+    "4/S": {
+      "bootLeft": 88,
+      "bootRight": 88,
+      "waist": 76,
+      "splitX": 56
+    },
+    "5/S": {
+      "bootLeft": 88,
+      "bootRight": 88,
+      "waist": 77,
+      "splitX": 56
+    },
+    "0/SW": {
+      "bootLeft": 87,
+      "bootRight": 87,
+      "waist": 73,
+      "splitX": 56
+    },
+    "2/NE": {
+      "bootLeft": 87,
+      "bootRight": 87,
+      "waist": 74,
+      "splitX": 56
+    },
+    "0/NE": {
+      "bootLeft": 87,
+      "bootRight": 87,
+      "waist": 73,
+      "splitX": 56
+    },
+    "4/E": {
+      "bootLeft": 88,
+      "bootRight": 88,
+      "waist": 76,
+      "splitX": 56
+    },
+    "5/W": {
+      "bootLeft": 88,
+      "bootRight": 88,
+      "waist": 77,
+      "splitX": 56
+    },
+    "2/SW": {
+      "bootLeft": 87,
+      "bootRight": 87,
+      "waist": 74,
+      "splitX": 56
+    },
+    "3/W": {
+      "bootLeft": 86,
+      "bootRight": 86,
+      "waist": 73,
+      "splitX": 56
+    },
+    "1/E": {
+      "bootLeft": 87,
+      "bootRight": 87,
+      "waist": 74,
+      "splitX": 56
+    },
+    "7/S": {
+      "bootLeft": 88,
+      "bootRight": 88,
+      "waist": 77,
+      "splitX": 56
+    },
+    "2/SE": {
+      "bootLeft": 87,
+      "bootRight": 87,
+      "waist": 74,
+      "splitX": 56
+    },
+    "4/SE": {
+      "bootLeft": 88,
+      "bootRight": 88,
+      "waist": 76,
+      "splitX": 56
+    },
+    "2/NW": {
+      "bootLeft": 87,
+      "bootRight": 87,
+      "waist": 74,
+      "splitX": 56
+    }
+  },
+  "notes": "Ranh eo va co ung theo pose native; sash xanh ngoc thuoc ao. Can xem contact sheet khi sua nguon."
+}

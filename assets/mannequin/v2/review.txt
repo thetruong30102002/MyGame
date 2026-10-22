@@ -1,0 +1,1 @@
+Nhân vật mới 64 pose nguồn / 8 hướng. Idle tĩnh, walk 3 pose, attack và cast mỗi loại 2 pose + recovery idle. Khung giữ lặp là chủ ý, KHÔNG phải 8 pose vẽ khác nhau. Neo/grip/joint gợi ý CHƯA duyệt thủ công. Không có hit/death riêng. Pipeline này không kiểm Unity runtime; kết quả chạy thực xem docs/mannequin-v2-delivery.md.

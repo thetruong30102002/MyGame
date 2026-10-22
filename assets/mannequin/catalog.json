@@ -1,0 +1,6850 @@
+{
+	"version": 1,
+	"template": "adult-112-authored-v1",
+	"frameSize": [
+		112,
+		112
+	],
+	"ppu": 48,
+	"anchor": [
+		56,
+		100
+	],
+	"directions": [
+		"S",
+		"SW",
+		"W",
+		"NW",
+		"N",
+		"NE",
+		"E",
+		"SE"
+	],
+	"outfits": [
+		{
+			"id": "starter",
+			"name": "Bộ tân thủ"
+		}
+	],
+	"weapons": [
+		{
+			"id": "sword",
+			"name": "Kiếm Nguyệt Cương",
+			"action": "attack",
+			"skill": "slash",
+			"fps": 22,
+			"hitFrame": 3,
+			"hands": 1
+		},
+		{
+			"id": "staff",
+			"name": "Trượng Aether",
+			"action": "cast",
+			"skill": "aether_bolt",
+			"fps": 20,
+			"hitFrame": 3,
+			"hands": 1
+		}
+	],
+	"identities": [
+		{
+			"id": "player_hero_adult",
+			"name": "Nam",
+			"texture": "player_hero_adult",
+			"sequences": [
+				{
+					"action": "idle",
+					"direction": "S",
+					"fps": 6,
+					"hitFrame": -1,
+					"frames": [
+						{
+							"name": "idle_S_0",
+							"index": 0,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								44
+							],
+							"grip": [
+								66,
+								65
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/idle_S_0",
+							"hash": "8c4af7e931b98325254e4d3ac5b949a568122ac97d2a33db7e3b2691e2c2a81e",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_S_1",
+							"index": 5,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								43
+							],
+							"grip": [
+								66,
+								64
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/idle_S_1",
+							"hash": "a1925ccee54e275b41e009ae1426f36fb2d95b15e5dd562a478a4bc7faae580f",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_S_2",
+							"index": 10,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								56,
+								44
+							],
+							"grip": [
+								66,
+								65
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/idle_S_2",
+							"hash": "4f05933c74cc480f22eee512eae3f777b0b981b1113e7268f0e4cf0f0bb56a91",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_S_3",
+							"index": 15,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								44
+							],
+							"grip": [
+								66,
+								66
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/idle_S_3",
+							"hash": "eaeb838696022a579941cc7074b4085c519ad65c27a48b8651661436e77037e3",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "idle",
+					"direction": "SW",
+					"fps": 6,
+					"hitFrame": -1,
+					"frames": [
+						{
+							"name": "idle_SW_0",
+							"index": 20,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								44
+							],
+							"grip": [
+								61,
+								62
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/idle_SW_0",
+							"hash": "ceabb14d667af17d175eb3a33994e5be08eea07a045797d9caf9178d6c26224c",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_SW_1",
+							"index": 25,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								56,
+								43
+							],
+							"grip": [
+								62,
+								60
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/idle_SW_1",
+							"hash": "2ad8d32aa8576518839c186890b5052cb22664361ae4399de55c781141380378",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_SW_2",
+							"index": 30,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								56,
+								42
+							],
+							"grip": [
+								62,
+								58
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/idle_SW_2",
+							"hash": "18ff075a71d42f184b7fdbf1897bb993c0fc67f11c1cf9fb876ea07c9031c48b",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_SW_3",
+							"index": 35,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								56,
+								43
+							],
+							"grip": [
+								61,
+								59
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/idle_SW_3",
+							"hash": "98f49f7fbda0f62a54ec069dcfaaa0ae3b5e760cb1a0839a22d0b9d29e1a248d",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "idle",
+					"direction": "W",
+					"fps": 6,
+					"hitFrame": -1,
+					"frames": [
+						{
+							"name": "idle_W_0",
+							"index": 40,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								45
+							],
+							"grip": [
+								49,
+								52
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/idle_W_0",
+							"hash": "80e9cd3f7a0411a7e3c1fb650d43f5794440046c4641c62b704815ef40ce81e6",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_W_1",
+							"index": 45,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								45
+							],
+							"grip": [
+								50,
+								47
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/idle_W_1",
+							"hash": "3d63acdf43386f69a9361e2d512d1766c624c811a221940b10a7a197ca55de6f",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_W_2",
+							"index": 50,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								54,
+								44
+							],
+							"grip": [
+								49,
+								51
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/idle_W_2",
+							"hash": "060f692d9ce62eb8f7c57dd6e1795a5ebaa4787ef6adbc3736bb0f7428642d45",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_W_3",
+							"index": 55,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								45
+							],
+							"grip": [
+								50,
+								54
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/idle_W_3",
+							"hash": "305e45bd54addd9f89dff8d6cdef8c5c41d33d6ec168794ded07dfd620a9932e",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "idle",
+					"direction": "NW",
+					"fps": 6,
+					"hitFrame": -1,
+					"frames": [
+						{
+							"name": "idle_NW_0",
+							"index": 60,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								54,
+								44
+							],
+							"grip": [
+								64,
+								67
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/idle_NW_0",
+							"hash": "3538c8524e3f8f4a63bea30eaef4a9fa7656818a90d586555fa6ba745236c6f6",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_NW_1",
+							"index": 65,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								43
+							],
+							"grip": [
+								63,
+								66
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/idle_NW_1",
+							"hash": "4cf8a5f37359ef53e485b19ff5bcf518eae180d6925161e2c5d009e12f527f88",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_NW_2",
+							"index": 70,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								41
+							],
+							"grip": [
+								64,
+								67
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/idle_NW_2",
+							"hash": "9d229470a3dceaa0aaf49f1bd6617ff0ebb9407ee9afced39c0ff4c01145611b",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_NW_3",
+							"index": 75,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								43
+							],
+							"grip": [
+								64,
+								66
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/idle_NW_3",
+							"hash": "09fd7cb84b4a0d8818a85dfabb821ccd50ac0f3f0d99625074b8e8ef4493b0d4",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "idle",
+					"direction": "N",
+					"fps": 6,
+					"hitFrame": -1,
+					"frames": [
+						{
+							"name": "idle_N_0",
+							"index": 80,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								56,
+								43
+							],
+							"grip": [
+								66,
+								65
+							],
+							"weaponOrder": -1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/idle_N_0",
+							"hash": "5a4e4203423e3d57977601f03cd7d16e27cd06e02646c67709d9302fbf1d9fff",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_N_1",
+							"index": 85,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								43
+							],
+							"grip": [
+								66,
+								65
+							],
+							"weaponOrder": -1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/idle_N_1",
+							"hash": "8067815f12800fe81bc2036c9f89e566dc45275c366844746947dccb29ac7697",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_N_2",
+							"index": 90,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								43
+							],
+							"grip": [
+								66,
+								65
+							],
+							"weaponOrder": -1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/idle_N_2",
+							"hash": "7c5256cfda8c53030d4a320ab1a5ef229bef2a909ba1698cfb30dc8ae9d76805",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_N_3",
+							"index": 95,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								56,
+								43
+							],
+							"grip": [
+								66,
+								67
+							],
+							"weaponOrder": -1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/idle_N_3",
+							"hash": "8ba5f5b6ad12c3a5eb928e7e002091210f8a5357414a0765b53cd964f58e0e1c",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "idle",
+					"direction": "NE",
+					"fps": 6,
+					"hitFrame": -1,
+					"frames": [
+						{
+							"name": "idle_NE_0",
+							"index": 100,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								44
+							],
+							"grip": [
+								64,
+								62
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/idle_NE_0",
+							"hash": "e10890977455bd1dd668b1404fdec995cf05ea4d9e06c1779bbe1065850b2de3",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_NE_1",
+							"index": 105,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								56,
+								43
+							],
+							"grip": [
+								62,
+								57
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/idle_NE_1",
+							"hash": "73d4e04aa1c1bb4cbedae1d986d7c5337daa5e3e6c8c47aef2463e88bfb8dd40",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_NE_2",
+							"index": 110,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								41
+							],
+							"grip": [
+								62,
+								54
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/idle_NE_2",
+							"hash": "450c497f0e6ba2cede451b556c641ffe904e8febf47612d182c082747141d044",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_NE_3",
+							"index": 115,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								43
+							],
+							"grip": [
+								63,
+								52
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/idle_NE_3",
+							"hash": "27246ac1958fd8f51ee1df981d1b07a160c69d402c3d4a802e763d7b3f32be59",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "idle",
+					"direction": "E",
+					"fps": 6,
+					"hitFrame": -1,
+					"frames": [
+						{
+							"name": "idle_E_0",
+							"index": 120,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								45
+							],
+							"grip": [
+								62,
+								52
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/idle_E_0",
+							"hash": "0145ecabbb6fb84cc79d4cd328d73ac588f91d50790a4083666e31ce273774c6",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_E_1",
+							"index": 125,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								56,
+								45
+							],
+							"grip": [
+								61,
+								47
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/idle_E_1",
+							"hash": "452c5f9e4c1d40647a672864f39befa6df31df216db213c9b25f49a3fea6334b",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_E_2",
+							"index": 130,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								44
+							],
+							"grip": [
+								62,
+								51
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/idle_E_2",
+							"hash": "afd30604157ec0291be5da977b391fb51dff771d6070cd6d7245466c034a8985",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_E_3",
+							"index": 135,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								56,
+								45
+							],
+							"grip": [
+								61,
+								54
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/idle_E_3",
+							"hash": "18e67f12699acf7d7379ea099e511a0d0eda86ec772a768904428d9b56fb9f40",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "idle",
+					"direction": "SE",
+					"fps": 6,
+					"hitFrame": -1,
+					"frames": [
+						{
+							"name": "idle_SE_0",
+							"index": 140,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								44
+							],
+							"grip": [
+								62,
+								54
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/idle_SE_0",
+							"hash": "8582588c7faad6414008ff6aa4d06e1d5115f353c20795575866f17a7af5d27b",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_SE_1",
+							"index": 145,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								56,
+								43
+							],
+							"grip": [
+								61,
+								50
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/idle_SE_1",
+							"hash": "c5ced32c8f61a7f2dcbc1e3b1fdb15c3f05a9f7e168f5e324b50c3fe5462cc75",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_SE_2",
+							"index": 150,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								56,
+								42
+							],
+							"grip": [
+								62,
+								52
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/idle_SE_2",
+							"hash": "58eb9452c6db24be529d35e6bc8c6b4015e2eb78fa3ea7b236206788012c82c9",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_SE_3",
+							"index": 155,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								56,
+								43
+							],
+							"grip": [
+								62,
+								54
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/idle_SE_3",
+							"hash": "ade534d590db70abfbe0188e45a8283493891e756cb4d3252a700d274107e4c6",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "walk",
+					"direction": "S",
+					"fps": 10,
+					"hitFrame": -1,
+					"frames": [
+						{
+							"name": "walk_S_0",
+							"index": 160,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								46
+							],
+							"grip": [
+								66,
+								71
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_S_0",
+							"hash": "b9906e7080d221faf375d0cf223b474ab3ef470b7b7cee69fcfd421885782b03",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_S_1",
+							"index": 165,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								56,
+								45
+							],
+							"grip": [
+								66,
+								72
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_S_1",
+							"hash": "20fb55f8670ab72b3dff17d49c9e06583062c036bd8037edbbf3954724a25510",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_S_2",
+							"index": 170,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								44
+							],
+							"grip": [
+								66,
+								69
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_S_2",
+							"hash": "e30cce4d3b6179ed91f7386e489e6899d775e7f26825a06d4898f8c84205afa4",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_S_3",
+							"index": 175,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								45
+							],
+							"grip": [
+								65,
+								65
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_S_3",
+							"hash": "11fcd3625a5a28f9ffd9c62ed48b7950433f720d34e5f279c840c03f05ae3786",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_S_4",
+							"index": 180,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								56,
+								54
+							],
+							"grip": [
+								66,
+								70
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_S_4",
+							"hash": "7c5546fbf42d9564cb37238965d4f6f35543470d295ecb063c7fe9210b2fccac",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_S_5",
+							"index": 185,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								56,
+								45
+							],
+							"grip": [
+								67,
+								67
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_S_5",
+							"hash": "2a3751456d737f31b6113b9cbfa49f17bb2f0e2b360e1558566db28fc092edd2",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_S_6",
+							"index": 190,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								56,
+								42
+							],
+							"grip": [
+								68,
+								66
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_S_6",
+							"hash": "ff7d1e2a814795a488e1d8408bb0e279b62957d1d5ed8722657fc2788078f818",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_S_7",
+							"index": 195,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								45
+							],
+							"grip": [
+								68,
+								69
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_S_7",
+							"hash": "d1241cb7fb1365b75be6881eb5b8996fc0e9b7fe9cf9ad01b39f70bb76fda0a2",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "walk",
+					"direction": "SW",
+					"fps": 10,
+					"hitFrame": -1,
+					"frames": [
+						{
+							"name": "walk_SW_0",
+							"index": 200,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								45
+							],
+							"grip": [
+								61,
+								60
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_SW_0",
+							"hash": "f1caa92ee7f4880a43cb5b834aa4550cf7a7956e08c3bd0465add983d7987673",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_SW_1",
+							"index": 205,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								54,
+								46
+							],
+							"grip": [
+								61,
+								63
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_SW_1",
+							"hash": "ac1be8781b22fac1c43b8f2bc72af7142dc5993edf0f9bff1dcd4d9738964bcf",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_SW_2",
+							"index": 210,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								45
+							],
+							"grip": [
+								61,
+								58
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_SW_2",
+							"hash": "3c21cc7a06b3d17b17b7ab17596c74d73c35dd31f04b5abf1f4721b674de7921",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_SW_3",
+							"index": 215,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								45
+							],
+							"grip": [
+								61,
+								62
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_SW_3",
+							"hash": "3951ff1c98ea366f25d86cde390467e8acb01b2657ae17474dd779a610c1ea26",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_SW_4",
+							"index": 220,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								45
+							],
+							"grip": [
+								63,
+								66
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_SW_4",
+							"hash": "ee714bc0a35cabf056cf1f8aab6cf1d16b91d5bed799f9643901901c017c52d9",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_SW_5",
+							"index": 225,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								54,
+								45
+							],
+							"grip": [
+								64,
+								67
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_SW_5",
+							"hash": "3b2620d0abbf217e7fec2b7f437913d8b1cf0e343112a0a2c65c81fd995289cc",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_SW_6",
+							"index": 230,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								45
+							],
+							"grip": [
+								66,
+								70
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_SW_6",
+							"hash": "402348e5abcf5b39e2051eecf20cce39dd172d22d4bdb6644476c9fd21586a0b",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_SW_7",
+							"index": 235,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								45
+							],
+							"grip": [
+								63,
+								67
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_SW_7",
+							"hash": "85f21a3e311f64021a0747690cc1edf87fad0a33975c4c4f903b499356bb7581",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "walk",
+					"direction": "W",
+					"fps": 10,
+					"hitFrame": -1,
+					"frames": [
+						{
+							"name": "walk_W_0",
+							"index": 240,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								44
+							],
+							"grip": [
+								49,
+								49
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_W_0",
+							"hash": "c071fb17133126166ed6367b3a760b7283046a36d1629e08e940c7028ff886e8",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_W_1",
+							"index": 245,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								44
+							],
+							"grip": [
+								49,
+								53
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_W_1",
+							"hash": "2afa01fbc49a02e5ae290c3eafb993be132b221632951294fb250bc2e0d3f901",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_W_2",
+							"index": 250,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								44
+							],
+							"grip": [
+								48,
+								53
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_W_2",
+							"hash": "c51073cd75bf0ba3772b99dda56fef89bb38073ed39a38d3b28d3a86c16c1a88",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_W_3",
+							"index": 255,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								44
+							],
+							"grip": [
+								49,
+								50
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_W_3",
+							"hash": "70c6edddbd4dcbf4e55a3dee62186e065af0d5b44622cd7e77641601ec2e1222",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_W_4",
+							"index": 260,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								44
+							],
+							"grip": [
+								49,
+								46
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_W_4",
+							"hash": "3a9d066b7fbbb15dcc36714f7a8d3d7009eb06506f5cbb33130d4ec1bc4f8fdc",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_W_5",
+							"index": 265,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								44
+							],
+							"grip": [
+								45,
+								66
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_W_5",
+							"hash": "0fa5b20b370eb9d52d83202a05c676aba8c96aca5b78a215f61bd7dcb9315a83",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_W_6",
+							"index": 270,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								44
+							],
+							"grip": [
+								43,
+								63
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_W_6",
+							"hash": "62fcfe6c5de4fda4a0acff6a7490ffa8fff64768e46c99e6a781e644e2b89e08",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_W_7",
+							"index": 275,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								44
+							],
+							"grip": [
+								49,
+								55
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_W_7",
+							"hash": "38d65ee9c181ea5b28cb3803006fdb5fd2bd60778d25f46de5e1519d979ffc21",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "walk",
+					"direction": "NW",
+					"fps": 10,
+					"hitFrame": -1,
+					"frames": [
+						{
+							"name": "walk_NW_0",
+							"index": 280,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								54,
+								44
+							],
+							"grip": [
+								60,
+								59
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_NW_0",
+							"hash": "936560b96e3aa1c5df262d68d8c65266adc19cf57a57efe2b8acdf1c5db452a3",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_NW_1",
+							"index": 285,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								53,
+								44
+							],
+							"grip": [
+								64,
+								65
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_NW_1",
+							"hash": "6fbd39200fe0d0b831168dcde500c43f1df1f996d8e262145a44b251753562ca",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_NW_2",
+							"index": 290,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								44
+							],
+							"grip": [
+								65,
+								68
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_NW_2",
+							"hash": "afb5b773b789358d995d570edf68c4d0c677ee9f60df2e91715cadcc362d54ef",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_NW_3",
+							"index": 295,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								54,
+								44
+							],
+							"grip": [
+								62,
+								66
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_NW_3",
+							"hash": "c93ec000aa38e7ff39f658700a98b62eb1d71403eae63839840a33ef10aeb278",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_NW_4",
+							"index": 300,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								53,
+								43
+							],
+							"grip": [
+								60,
+								54
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_NW_4",
+							"hash": "32a5ffcf0ede2de590cb24ae5f445e52463d7c64a320773b2d0d6cae6ea91d45",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_NW_5",
+							"index": 305,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								44
+							],
+							"grip": [
+								61,
+								60
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_NW_5",
+							"hash": "cccf35c21c9b392d7a95b8d219815c54d935ec460da45eb58b8654315e5a9adb",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_NW_6",
+							"index": 310,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								44
+							],
+							"grip": [
+								63,
+								77
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_NW_6",
+							"hash": "2abe3dd219c1212a080b656be91562bc1f5f17678f1541fd76e5cfa39ec16e24",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_NW_7",
+							"index": 315,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								56,
+								44
+							],
+							"grip": [
+								61,
+								59
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_NW_7",
+							"hash": "7a82d6656b43e6348383ded4a2adb2719058d84c8b0225e323796a00544fd1e2",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "walk",
+					"direction": "N",
+					"fps": 10,
+					"hitFrame": -1,
+					"frames": [
+						{
+							"name": "walk_N_0",
+							"index": 320,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								56,
+								42
+							],
+							"grip": [
+								69,
+								73
+							],
+							"weaponOrder": -1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_N_0",
+							"hash": "6f040f12b348e695f3bd225e35dfc1dfd9481b25e041a4b822916e614d46293d",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_N_1",
+							"index": 325,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								56,
+								42
+							],
+							"grip": [
+								68,
+								67
+							],
+							"weaponOrder": -1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_N_1",
+							"hash": "29ce77e7109d8634b5b98e449fcd923245be2c14ce781d02fad6b63b91e49842",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_N_2",
+							"index": 330,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								56,
+								42
+							],
+							"grip": [
+								69,
+								67
+							],
+							"weaponOrder": -1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_N_2",
+							"hash": "8d20de3d8bbeb76a66158a586fbbd0b2a2b68cf31bab7e8c5b241c259cf8ce0e",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_N_3",
+							"index": 335,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								43
+							],
+							"grip": [
+								69,
+								69
+							],
+							"weaponOrder": -1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_N_3",
+							"hash": "9608c8be1acb85e21b96710b481fd72a70d00fd72460e2cf81c18edf1ef6f9ed",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_N_4",
+							"index": 340,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								56,
+								42
+							],
+							"grip": [
+								69,
+								71
+							],
+							"weaponOrder": -1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_N_4",
+							"hash": "93547ae0c52ce2e64fd33d6f9ee4bac9327a29e1170ac22ebbe1fd98db3a2699",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_N_5",
+							"index": 345,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								42
+							],
+							"grip": [
+								69,
+								73
+							],
+							"weaponOrder": -1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_N_5",
+							"hash": "2e5f4688310fee718b4a08271472099ad012a77bb678fc430bf4ef620a4165a0",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_N_6",
+							"index": 350,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								56,
+								42
+							],
+							"grip": [
+								67,
+								71
+							],
+							"weaponOrder": -1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_N_6",
+							"hash": "a6e9115b12f342847ba9ba0651cf47d7522370abdb9aa50f218663faea1f0f03",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_N_7",
+							"index": 355,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								42
+							],
+							"grip": [
+								68,
+								70
+							],
+							"weaponOrder": -1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_N_7",
+							"hash": "2c8dae8645abc8f0972861da502dcc0f02f6af20cc8a83b66dbfa97e2c30efdd",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "walk",
+					"direction": "NE",
+					"fps": 10,
+					"hitFrame": -1,
+					"frames": [
+						{
+							"name": "walk_NE_0",
+							"index": 360,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								44
+							],
+							"grip": [
+								63,
+								60
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_NE_0",
+							"hash": "03b28555269c414865300d10f7f42e2968fd0707e6265e725958fbcbd6c2c425",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_NE_1",
+							"index": 365,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								58,
+								44
+							],
+							"grip": [
+								67,
+								69
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_NE_1",
+							"hash": "0bcd25dc688432440a602104b18cb2188e141f7571843b6532ec1c35ad8f7aaf",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_NE_2",
+							"index": 370,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								56,
+								44
+							],
+							"grip": [
+								67,
+								69
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_NE_2",
+							"hash": "511b8c82f366ade4ec4827e9ea43ce144f742b0366ae7f109125c2773b7a3ee8",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_NE_3",
+							"index": 375,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								44
+							],
+							"grip": [
+								63,
+								58
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_NE_3",
+							"hash": "676693aaeefa1d27aae08d8d001c8824203e0c2906c21ee8d5385db8d970737d",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_NE_4",
+							"index": 380,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								58,
+								43
+							],
+							"grip": [
+								63,
+								57
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_NE_4",
+							"hash": "871e9a6d92de665e6949264fd007d18e0a1af323f99478c55bda5fcbc690e1b8",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_NE_5",
+							"index": 385,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								56,
+								44
+							],
+							"grip": [
+								62,
+								59
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_NE_5",
+							"hash": "2d04cc65a53c7fd7b742531ab28514817ce5db7402c8fbe269541e11d5349b78",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_NE_6",
+							"index": 390,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								56,
+								44
+							],
+							"grip": [
+								61,
+								55
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_NE_6",
+							"hash": "e9aa9e661617703ebe561938c876c75c8dc5644607565fead5591bac472bf4da",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_NE_7",
+							"index": 395,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								44
+							],
+							"grip": [
+								62,
+								62
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_NE_7",
+							"hash": "75aec5c33c391670a33a8db22e502b66abc1162cc340cc6fdae752159738619c",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "walk",
+					"direction": "E",
+					"fps": 10,
+					"hitFrame": -1,
+					"frames": [
+						{
+							"name": "walk_E_0",
+							"index": 400,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								44
+							],
+							"grip": [
+								62,
+								49
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_E_0",
+							"hash": "d487ea64ece9f929aecba9a26a89c4fd4c4061bbce325486e486191dfbc986cc",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_E_1",
+							"index": 405,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								44
+							],
+							"grip": [
+								62,
+								53
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_E_1",
+							"hash": "5afa0a31dc3bb329267768f644f208b422e48ed79c6aa56635e58642abd9ecbb",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_E_2",
+							"index": 410,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								44
+							],
+							"grip": [
+								63,
+								53
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_E_2",
+							"hash": "aa098ba37bf22c0d0dac6673ab4492244ffe80fae0a5f93a258feacb21249d93",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_E_3",
+							"index": 415,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								44
+							],
+							"grip": [
+								62,
+								50
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_E_3",
+							"hash": "da1ea5b1ce99c5bf64ea18326582a7bc8fd2a1a2bac3182d21b6416536fe0b6c",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_E_4",
+							"index": 420,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								44
+							],
+							"grip": [
+								62,
+								46
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_E_4",
+							"hash": "64e2a489b6f9381c5465748c7331ee7580fd9ac046436242144638792b407b0f",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_E_5",
+							"index": 425,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								44
+							],
+							"grip": [
+								66,
+								66
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_E_5",
+							"hash": "6cbe84742784c2bc34c96c06ca21d2bee62ec40a75853bfb1ee919c293e02de4",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_E_6",
+							"index": 430,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								44
+							],
+							"grip": [
+								68,
+								63
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_E_6",
+							"hash": "999bc497eb4c484d6e6342229a01486bb289073c5483baba05165a2db0467c16",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_E_7",
+							"index": 435,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								44
+							],
+							"grip": [
+								62,
+								55
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_E_7",
+							"hash": "956cdb97a0e6b5c416735f67f3695d17ff73589c6899a215614351fe1a71d8fb",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "walk",
+					"direction": "SE",
+					"fps": 10,
+					"hitFrame": -1,
+					"frames": [
+						{
+							"name": "walk_SE_0",
+							"index": 440,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								45
+							],
+							"grip": [
+								64,
+								61
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_SE_0",
+							"hash": "5eb7e82a62940bf8f84d1a93c0f5ed02e3c42854a3fe713fa0e529e9a21a790f",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_SE_1",
+							"index": 445,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								46
+							],
+							"grip": [
+								63,
+								58
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_SE_1",
+							"hash": "fa13b4c0d10bd1576dc1704e0da0573cdeaccf1e0338308e7450aa3844c2e108",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_SE_2",
+							"index": 450,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								45
+							],
+							"grip": [
+								62,
+								56
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_SE_2",
+							"hash": "ccb13fdc6f850b553aecc1e485b40f491af321736c914aa53b5dea5f42c508c3",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_SE_3",
+							"index": 455,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								45
+							],
+							"grip": [
+								63,
+								54
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_SE_3",
+							"hash": "67147874bcbdf12ca74676036264bebfb06bf0ee2988cb820cc9cd1d27927973",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_SE_4",
+							"index": 460,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								45
+							],
+							"grip": [
+								67,
+								69
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_SE_4",
+							"hash": "0cf8c1370e1650b626a55d23c598cbbce9c72f78aa1ee0133f7b1569b5ce97bd",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_SE_5",
+							"index": 465,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								58,
+								45
+							],
+							"grip": [
+								72,
+								71
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_SE_5",
+							"hash": "d576923573ebc2dde2fa4265b351bc0014921b155f137b7cb3008276622543f0",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_SE_6",
+							"index": 470,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								45
+							],
+							"grip": [
+								73,
+								70
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_SE_6",
+							"hash": "142b1b41d858eda6e9b8d40686c5b5f68e51ca160e93d26c6c48b1f6c7a5d96e",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_SE_7",
+							"index": 475,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								45
+							],
+							"grip": [
+								70,
+								71
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult/player_hero_adult.json#player_hero_adult/walk_SE_7",
+							"hash": "85ec19f967bd4ba21dcde09193dcd8dd77d9d44f92ae543edaacc4f603c61ca5",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "attack",
+					"direction": "S",
+					"fps": 22,
+					"hitFrame": 3,
+					"frames": [
+						{
+							"name": "attack_S_0",
+							"index": 480,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								43
+							],
+							"grip": [
+								67,
+								66
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/attack-hand2/south/frame_000.png",
+							"hash": "9e7ccac7925d2016d233fb8b5a07ecdcb7d7325b6567776442b2708681c4eb62",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_S_1",
+							"index": 485,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								53,
+								43
+							],
+							"grip": [
+								70,
+								70
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/attack-hand2/south/frame_001.png",
+							"hash": "fcf7cd0af7c0c76f40fc1f05495250fcf3c1e1a6cd02a9a9e8edfc038f3201b5",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_S_2",
+							"index": 490,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								52,
+								44
+							],
+							"grip": [
+								58,
+								51
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/attack-hand2/south/frame_002.png",
+							"hash": "07bdd36af33704321b35cdfc21cb9b6acb1a961f41e96aeab61a882c2122bc75",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_S_3",
+							"index": 495,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								54,
+								44
+							],
+							"grip": [
+								59,
+								45
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/attack-hand2/south/frame_003.png",
+							"hash": "4837edd16d88722aab97f7ac7ca5310e9066a776efe40ad8f8f3859ae331d0e4",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_S_4",
+							"index": 500,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								54,
+								44
+							],
+							"grip": [
+								59,
+								45
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/attack-hand2/south/frame_004.png",
+							"hash": "2ba0de5f2307db9498ff709d5c46310c02ea394307f7c81a6d384374df9d9059",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_S_5",
+							"index": 505,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								45
+							],
+							"grip": [
+								59,
+								52
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/attack-hand2/south/frame_005.png",
+							"hash": "39b7f5388d193c07dce2ac3388c5bcc6a24b130668a491b3f63adf4755512462",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_S_6",
+							"index": 510,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								56,
+								44
+							],
+							"grip": [
+								77,
+								69
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/attack-hand2/south/frame_006.png",
+							"hash": "d22f220cbf70431fb150ef4d5a8e37206457b871de6cb8823abca99a3952292f",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_S_7",
+							"index": 515,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								56,
+								43
+							],
+							"grip": [
+								74,
+								69
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/attack-hand2/south/frame_007.png",
+							"hash": "98ebfb25930098b58dd6f0e0c94ccaaac028b22b5bfe1e9f52571688dffdb62d",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "attack",
+					"direction": "W",
+					"fps": 22,
+					"hitFrame": 3,
+					"frames": [
+						{
+							"name": "attack_W_0",
+							"index": 520,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								54,
+								44
+							],
+							"grip": [
+								49,
+								51
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/attack-hand2/east/frame_000.png#mirror",
+							"hash": "d825b4dc441c861986dc9aa0533f98be65d4221510a54e21100f6fd56b24e4b0",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_W_1",
+							"index": 525,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								54,
+								44
+							],
+							"grip": [
+								49,
+								47
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/attack-hand2/east/frame_001.png#mirror",
+							"hash": "b79ad0d20edba42d71694c0a4dba304823d0890fd68abfdce247fba78bfad446",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_W_2",
+							"index": 530,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								54,
+								44
+							],
+							"grip": [
+								41,
+								69
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/attack-hand2/east/frame_002.png#mirror",
+							"hash": "da7f98bf96f7304574b013e39e1a85ff81ee7468396f34b5eda3abe6892d0a26",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_W_3",
+							"index": 535,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								45
+							],
+							"grip": [
+								34,
+								63
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/attack-hand2/east/frame_003.png#mirror",
+							"hash": "e5160eb2e47256af4e82ded38e42f1fc830b97a5c7c401c2fa0481650e1d1c12",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_W_4",
+							"index": 540,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								45
+							],
+							"grip": [
+								33,
+								58
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/attack-hand2/east/frame_004.png#mirror",
+							"hash": "8a284de2c9fae678bae75192b7db4267929972e9dc90dd877972f79689a49402",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_W_5",
+							"index": 545,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								59,
+								45
+							],
+							"grip": [
+								37,
+								57
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/attack-hand2/east/frame_005.png#mirror",
+							"hash": "c95c6fef1e8a35c3ff9046459627f7d50d3f8b5fb3d77bb05bcce113b4de692d",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_W_6",
+							"index": 550,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								45
+							],
+							"grip": [
+								36,
+								59
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/attack-hand2/east/frame_006.png#mirror",
+							"hash": "12dc981ff20f7a4bd3df9a767b4b8e4bc58f72c4e29803d71a636521b8ad3b40",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_W_7",
+							"index": 555,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								54,
+								47
+							],
+							"grip": [
+								32,
+								60
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/attack-hand2/east/frame_007.png#mirror",
+							"hash": "411a536c34b4082f18097acc8c386b540e7a6a681ef59c305b036ddf34bc6dbb",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "attack",
+					"direction": "N",
+					"fps": 22,
+					"hitFrame": 3,
+					"frames": [
+						{
+							"name": "attack_N_0",
+							"index": 560,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								54,
+								41
+							],
+							"grip": [
+								67,
+								66
+							],
+							"weaponOrder": -1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/attack-hand2/north/frame_000.png",
+							"hash": "7356f83ecb5681cac74446017fcd08ef4b868c2705adc5f1d776fda6320d956c",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_N_1",
+							"index": 565,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								43
+							],
+							"grip": [
+								63,
+								50
+							],
+							"weaponOrder": -1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/attack-hand2/north/frame_001.png",
+							"hash": "a242589b836c53ba242ec147d9d29efb1dc20bd1008a84d7d30b5a19b68693aa",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_N_2",
+							"index": 570,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								56,
+								42
+							],
+							"grip": [
+								63,
+								73
+							],
+							"weaponOrder": -1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/attack-hand2/north/frame_002.png",
+							"hash": "707d6550132e0b0299a95681c1d8dc5198d206da66c521451ff4c871ea4c288e",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_N_3",
+							"index": 575,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								42
+							],
+							"grip": [
+								68,
+								49
+							],
+							"weaponOrder": -1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/attack-hand2/north/frame_003.png",
+							"hash": "7272031d9187c5666444719ebbb595a96d6b3057d1ff4b1a18bfdfdee4d75681",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_N_4",
+							"index": 580,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								42
+							],
+							"grip": [
+								80,
+								52
+							],
+							"weaponOrder": -1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/attack-hand2/north/frame_004.png",
+							"hash": "6f535b8f74423dc8320ed9e29959a12d67baf69476988b72d03809ff5a7da022",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_N_5",
+							"index": 585,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								44
+							],
+							"grip": [
+								82,
+								58
+							],
+							"weaponOrder": -1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/attack-hand2/north/frame_005.png",
+							"hash": "dccf939e415e52add816899e9d0451a8f90e2556e1477197a467476a343a65e9",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_N_6",
+							"index": 590,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								43
+							],
+							"grip": [
+								79,
+								65
+							],
+							"weaponOrder": -1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/attack-hand2/north/frame_006.png",
+							"hash": "c3f25f2ef42229b636d8eeddf6d43b0c247d7bab0bf5db86776393b7ac54d7fb",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_N_7",
+							"index": 595,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								41
+							],
+							"grip": [
+								70,
+								68
+							],
+							"weaponOrder": -1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/attack-hand2/north/frame_007.png",
+							"hash": "88ee5eb850bc88fe38ac8e085503bed1afc4eac95897764bf0fd40e700790445",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "attack",
+					"direction": "E",
+					"fps": 22,
+					"hitFrame": 3,
+					"frames": [
+						{
+							"name": "attack_E_0",
+							"index": 600,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								44
+							],
+							"grip": [
+								62,
+								51
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/attack-hand2/east/frame_000.png",
+							"hash": "70a927b22b89ea7a5adfdd6860fdf4d924811892ebbcfdd9575d32e1ae1a7037",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_E_1",
+							"index": 605,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								44
+							],
+							"grip": [
+								62,
+								47
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/attack-hand2/east/frame_001.png",
+							"hash": "853039018e9bcadb9c0e742abd4ee29bc84e9bfb56058700539a59018e69d9ad",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_E_2",
+							"index": 610,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								44
+							],
+							"grip": [
+								70,
+								69
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/attack-hand2/east/frame_002.png",
+							"hash": "63ab566a8014d7f184a2e43d241e603e2e3d39d94f3db43560cfa2cad69f8b75",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_E_3",
+							"index": 615,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								45
+							],
+							"grip": [
+								78,
+								63
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/attack-hand2/east/frame_003.png",
+							"hash": "9891cf072c5e4a20579af43a4367c19132bda5faca026b5b455ca22673fdfe4f",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_E_4",
+							"index": 620,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								54,
+								45
+							],
+							"grip": [
+								79,
+								58
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/attack-hand2/east/frame_004.png",
+							"hash": "a94d200f06fc8c7927e3d914f849ee61649088faad6efa3b9d3e1771581cdaac",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_E_5",
+							"index": 625,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								52,
+								45
+							],
+							"grip": [
+								74,
+								57
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/attack-hand2/east/frame_005.png",
+							"hash": "6b904ae2b84a72a1b1485dbcc851908971217a6c6f3a48947eed5ce98253ca35",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_E_6",
+							"index": 630,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								54,
+								45
+							],
+							"grip": [
+								76,
+								59
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/attack-hand2/east/frame_006.png",
+							"hash": "5fe90a79b382a174f2eadbccde5034e8d088fd901dc76009a06cb342d78af76c",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_E_7",
+							"index": 635,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								47
+							],
+							"grip": [
+								79,
+								60
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/attack-hand2/east/frame_007.png",
+							"hash": "1a0a4565f87b5b2c1b4942657ee20661377d9d4a3a385f9020808dedc9f8db4e",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "cast",
+					"direction": "S",
+					"fps": 20,
+					"hitFrame": 3,
+					"frames": [
+						{
+							"name": "cast_S_0",
+							"index": 640,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								54,
+								42
+							],
+							"grip": [
+								66,
+								64
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/cast-hand/south/frame_000.png",
+							"hash": "b1589808215f2bda8d0377ef54bb6fe378598b3daa583687c8e0baecad93a8ae",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_S_1",
+							"index": 645,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								54,
+								42
+							],
+							"grip": [
+								67,
+								66
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/cast-hand/south/frame_001.png",
+							"hash": "1f12ba464d0265116115c66d45d859ad76ed77b1e9cc0690193ce543590bbc42",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_S_2",
+							"index": 650,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								54,
+								44
+							],
+							"grip": [
+								72,
+								65
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/cast-hand/south/frame_002.png",
+							"hash": "c333cf485e06a9390b95ebb1a5e982081832dcb7036806e53ae2506b24b53354",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_S_3",
+							"index": 655,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								54,
+								46
+							],
+							"grip": [
+								67,
+								59
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/cast-hand/south/frame_003.png",
+							"hash": "836da74dbcb201a4760605319b883b8b646c84dc71cc3487af1f1ea59f8dde5d",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_S_4",
+							"index": 660,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								54,
+								46
+							],
+							"grip": [
+								60,
+								50
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/cast-hand/south/frame_004.png",
+							"hash": "236544ba8f9c5b0aa8b4b133661b9740aa215af2347a7bd2e17976a38592db02",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_S_5",
+							"index": 665,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								54,
+								46
+							],
+							"grip": [
+								70,
+								61
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/cast-hand/south/frame_005.png",
+							"hash": "4cfac19b8ab626295fe5e26973168099179bbc69f9ba1e1ca8a2dee312b8c361",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_S_6",
+							"index": 670,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								45
+							],
+							"grip": [
+								75,
+								64
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/cast-hand/south/frame_006.png",
+							"hash": "57dd61241fd0df25efd6093a115e39fe180b5086d490336447d3e1c95d5ee4f0",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_S_7",
+							"index": 675,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								56,
+								45
+							],
+							"grip": [
+								71,
+								70
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/cast-hand/south/frame_007.png",
+							"hash": "07d59be8c6f9c19fc01013c0e68e6eba456bfd0154b24a856d1e4ac2d4718ac4",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "cast",
+					"direction": "W",
+					"fps": 20,
+					"hitFrame": 3,
+					"frames": [
+						{
+							"name": "cast_W_0",
+							"index": 680,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								56,
+								42
+							],
+							"grip": [
+								49,
+								46
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/cast-hand/east/frame_000.png#mirror",
+							"hash": "98cef5d5eeaa030ccc2640b8b6442ac28c44b676caf7b232e24383ca8276ea19",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_W_1",
+							"index": 685,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								42
+							],
+							"grip": [
+								41,
+								71
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/cast-hand/east/frame_001.png#mirror",
+							"hash": "d6b737feb1171e96fb94d53f8f460110458dafdf0118283605e16979039306d4",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_W_2",
+							"index": 690,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								53,
+								42
+							],
+							"grip": [
+								32,
+								59
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/cast-hand/east/frame_002.png#mirror",
+							"hash": "96a313d769e98e651a6c03682eaa4e09fd4e66dbe57306515188e01471e2cc5d",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_W_3",
+							"index": 695,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								52,
+								43
+							],
+							"grip": [
+								29,
+								51
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/cast-hand/east/frame_003.png#mirror",
+							"hash": "71f504ca5d626f860be09d98036c0186756f1cdd893fa563bd472b8184678fc7",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_W_4",
+							"index": 700,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								51,
+								45
+							],
+							"grip": [
+								29,
+								51
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/cast-hand/east/frame_004.png#mirror",
+							"hash": "df0011acb4abd4a9f7e19cdc97cbe535e6dd86a3be5d0718bc0fd8b8440d8c23",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_W_5",
+							"index": 705,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								51,
+								45
+							],
+							"grip": [
+								29,
+								52
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/cast-hand/east/frame_005.png#mirror",
+							"hash": "3cbf862077a0cd577a3d7c0ffc89b7d99b6ae1ae9644e6986c43c42228821284",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_W_6",
+							"index": 710,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								52,
+								44
+							],
+							"grip": [
+								33,
+								50
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/cast-hand/east/frame_006.png#mirror",
+							"hash": "cd94018e0c1dfc931042d2fa75333b15489546488074f4d685ea6558a1573b0c",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_W_7",
+							"index": 715,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								56,
+								42
+							],
+							"grip": [
+								49,
+								46
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/cast-hand/east/frame_007.png#mirror",
+							"hash": "355a22d04e97138222bb5b2e3092d3edc68b9dc509affec99caa289d8abd025d",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "cast",
+					"direction": "N",
+					"fps": 20,
+					"hitFrame": 3,
+					"frames": [
+						{
+							"name": "cast_N_0",
+							"index": 720,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								41
+							],
+							"grip": [
+								66,
+								64
+							],
+							"weaponOrder": -1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/cast-hand/north/frame_000.png",
+							"hash": "7aed6db867539d2de54bf0345119cb38389b3871102f86c9cafa33f9cebce97a",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_N_1",
+							"index": 725,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								41
+							],
+							"grip": [
+								65,
+								65
+							],
+							"weaponOrder": -1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/cast-hand/north/frame_001.png",
+							"hash": "5d3d7d57d7dfe7505e0c818db5792cc13c1cff64ba07f92863517a7822b66688",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_N_2",
+							"index": 730,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								42
+							],
+							"grip": [
+								80,
+								61
+							],
+							"weaponOrder": -1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/cast-hand/north/frame_002.png",
+							"hash": "42dbda47bd31a529f2bbacd766c431f790438ef88a152194612287362db06b05",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_N_3",
+							"index": 735,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								43
+							],
+							"grip": [
+								83,
+								57
+							],
+							"weaponOrder": -1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/cast-hand/north/frame_003.png",
+							"hash": "e9433076374d808ecb08f8ca7660139b0ea719827352f807d19505c90293b5d8",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_N_4",
+							"index": 740,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								43
+							],
+							"grip": [
+								82,
+								56
+							],
+							"weaponOrder": -1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/cast-hand/north/frame_004.png",
+							"hash": "c45f35438f3d3efe6dfc0abadbb514b4128984fa793cba8a3f14135d95b84f95",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_N_5",
+							"index": 745,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								43
+							],
+							"grip": [
+								80,
+								58
+							],
+							"weaponOrder": -1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/cast-hand/north/frame_005.png",
+							"hash": "1917c0e1628969914b67e31cb8b1f8359dd184267a72d9a948e860968b2ca9f1",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_N_6",
+							"index": 750,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								56,
+								41
+							],
+							"grip": [
+								73,
+								67
+							],
+							"weaponOrder": -1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/cast-hand/north/frame_006.png",
+							"hash": "22ee77c7369da6ddfae4fee22d32e83b629ce0e4ee9457d56454e1e90874923e",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_N_7",
+							"index": 755,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								41
+							],
+							"grip": [
+								66,
+								64
+							],
+							"weaponOrder": -1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/cast-hand/north/frame_007.png",
+							"hash": "53cb7ccdccd7021b02b1cb8e117ca541031d2af09e5fe82192a8d66ff4838427",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "cast",
+					"direction": "E",
+					"fps": 20,
+					"hitFrame": 3,
+					"frames": [
+						{
+							"name": "cast_E_0",
+							"index": 760,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								56,
+								42
+							],
+							"grip": [
+								62,
+								46
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/cast-hand/east/frame_000.png",
+							"hash": "2c873a3ee75e23454c2f42c67f14ddaf7970895ec6f06a2cf43eba6908c590fe",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_E_1",
+							"index": 765,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								42
+							],
+							"grip": [
+								70,
+								71
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/cast-hand/east/frame_001.png",
+							"hash": "caa09e503b8328719da586b7af1628633d5b8c04d8d8595614666eb1ec4420aa",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_E_2",
+							"index": 770,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								59,
+								42
+							],
+							"grip": [
+								79,
+								59
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/cast-hand/east/frame_002.png",
+							"hash": "7c844e5beb03cc50b4e3cf09b4949c7eb64e5dcb86e3f33a42e47d39f77e2bc7",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_E_3",
+							"index": 775,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								60,
+								43
+							],
+							"grip": [
+								82,
+								51
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/cast-hand/east/frame_003.png",
+							"hash": "e4b2ada4ede9eb199bde4a4a70cd7bfd75c8328fdce74d56c4a552c9566ddcbb",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_E_4",
+							"index": 780,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								60,
+								45
+							],
+							"grip": [
+								82,
+								51
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/cast-hand/east/frame_004.png",
+							"hash": "46dddeb1871b59f037c121e0a407a451afc4b9817435b907b0c27f345e2cf790",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_E_5",
+							"index": 785,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								60,
+								45
+							],
+							"grip": [
+								82,
+								52
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/cast-hand/east/frame_005.png",
+							"hash": "a7c810b7062d48451ab970cdba1a0f9daaa2262a42562f7eb5c343299ec1e6ef",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_E_6",
+							"index": 790,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								60,
+								44
+							],
+							"grip": [
+								78,
+								50
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/cast-hand/east/frame_006.png",
+							"hash": "2fc8a572c61ffab22546459664d0db167b4be5301c2f9199d8fd2436f865aeaa",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_E_7",
+							"index": 795,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								56,
+								42
+							],
+							"grip": [
+								62,
+								46
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_m/Idle/animations/cast-hand/east/frame_007.png",
+							"hash": "11c5b38620c8f0c5a4f65fb2c531f7f862fd99fe75ede86f48f01973a815e7db",
+							"anchorsReviewed": false
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": "player_hero_adult_f",
+			"name": "Nữ",
+			"texture": "player_hero_adult_f",
+			"sequences": [
+				{
+					"action": "idle",
+					"direction": "S",
+					"fps": 6,
+					"hitFrame": -1,
+					"frames": [
+						{
+							"name": "idle_S_0",
+							"index": 0,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								59,
+								54
+							],
+							"grip": [
+								64,
+								67
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/idle_S_0",
+							"hash": "3b875b8ab65b16227a8871d8aab085147b10dc5a25b41551da50c5d0fa134c87",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_S_1",
+							"index": 5,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								56,
+								62
+							],
+							"grip": [
+								64,
+								70
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/idle_S_1",
+							"hash": "4633355bbe18c0f33e6dde9607e848a61740a1000ffe8b85bd13b6738a9bfbce",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_S_2",
+							"index": 10,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								58,
+								54
+							],
+							"grip": [
+								64,
+								66
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/idle_S_2",
+							"hash": "80a5cca1a22f05109d1f99c956cc2d38753b57d9df0724abd5079a2aa93e5045",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_S_3",
+							"index": 15,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								53
+							],
+							"grip": [
+								64,
+								68
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/idle_S_3",
+							"hash": "a7352a930845aae1b976a903565073376b3f7a9e698385d37dc09add423d4fd8",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "idle",
+					"direction": "SW",
+					"fps": 6,
+					"hitFrame": -1,
+					"frames": [
+						{
+							"name": "idle_SW_0",
+							"index": 20,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								49
+							],
+							"grip": [
+								61,
+								65
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/idle_SW_0",
+							"hash": "9e50cefbe134b8c37655c5c484ef506f68aa6060ea22b33b75358398aceb6fea",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_SW_1",
+							"index": 25,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								53,
+								52
+							],
+							"grip": [
+								61,
+								69
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/idle_SW_1",
+							"hash": "8242c0bd94363bba60b6ebd8a1ad6e819ee8e59d1eb940e5646448859fad944a",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_SW_2",
+							"index": 30,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								53,
+								51
+							],
+							"grip": [
+								62,
+								64
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/idle_SW_2",
+							"hash": "22d3c0125160284c8bd2f4ba623f233e12aa78e83e669175cd412d26d28bf2d0",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_SW_3",
+							"index": 35,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								53,
+								55
+							],
+							"grip": [
+								61,
+								66
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/idle_SW_3",
+							"hash": "052e548ed9085e771c3e00ed7a36e4b5f727564e5fe2ba6a85426ef5fd8bf0d4",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "idle",
+					"direction": "W",
+					"fps": 6,
+					"hitFrame": -1,
+					"frames": [
+						{
+							"name": "idle_W_0",
+							"index": 40,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								62,
+								53
+							],
+							"grip": [
+								50,
+								65
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/idle_W_0",
+							"hash": "37a897f7c574b1a1e8f5928772e6117073ac1150cb0cdbaf51c84b538b34cba5",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_W_1",
+							"index": 45,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								61,
+								52
+							],
+							"grip": [
+								51,
+								62
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/idle_W_1",
+							"hash": "cf0a7ba6ee60f6e9749e479650ffaa6f2b52a216e09d14e1ea0245352eab7709",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_W_2",
+							"index": 50,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								62,
+								53
+							],
+							"grip": [
+								51,
+								64
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/idle_W_2",
+							"hash": "5e5f5b2adf5f7e82d595ad6ec065cdc6308579c8432b2c2bba54ac8470c37171",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_W_3",
+							"index": 55,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								61,
+								52
+							],
+							"grip": [
+								51,
+								61
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/idle_W_3",
+							"hash": "c52ea72ebdb5e2c6a71d1e2502537b7de851aaa2d72e30059dd8a7a307e1df31",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "idle",
+					"direction": "NW",
+					"fps": 6,
+					"hitFrame": -1,
+					"frames": [
+						{
+							"name": "idle_NW_0",
+							"index": 60,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								62,
+								51
+							],
+							"grip": [
+								75,
+								55
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/idle_NW_0",
+							"hash": "284de24a4dd841c451aee92ab1246fdeca811ae89356fbb0ede2de33e974da31",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_NW_1",
+							"index": 65,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								63,
+								51
+							],
+							"grip": [
+								75,
+								55
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/idle_NW_1",
+							"hash": "3d740cbac51500f5646b16ae97a6a262e8ab5e7acf14469f47c7340d80789be3",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_NW_2",
+							"index": 70,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								65,
+								51
+							],
+							"grip": [
+								77,
+								57
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/idle_NW_2",
+							"hash": "38538ee0a6bc2b9107cd362774dc73b848bb09a7c7eeca751c11d3b67665eb70",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_NW_3",
+							"index": 75,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								63,
+								49
+							],
+							"grip": [
+								75,
+								53
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/idle_NW_3",
+							"hash": "756613f894ad9c7f9de94cfd776ba3da67b6a0a39e3519bb0536f3eb47e0b219",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "idle",
+					"direction": "N",
+					"fps": 6,
+					"hitFrame": -1,
+					"frames": [
+						{
+							"name": "idle_N_0",
+							"index": 80,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								47,
+								55
+							],
+							"grip": [
+								65,
+								71
+							],
+							"weaponOrder": -1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/idle_N_0",
+							"hash": "4149bbf21826a2e749d47773665ebe915b3966594738a7e8696a73b7a98d283e",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_N_1",
+							"index": 85,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								47,
+								52
+							],
+							"grip": [
+								64,
+								69
+							],
+							"weaponOrder": -1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/idle_N_1",
+							"hash": "0e9adc3843e3732b3892a1a04c2fa1a4c9ddd251823a6c9fcad0a0a0c6a66bf0",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_N_2",
+							"index": 90,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								47,
+								56
+							],
+							"grip": [
+								64,
+								70
+							],
+							"weaponOrder": -1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/idle_N_2",
+							"hash": "24b78419bfb7bb4517aea0e8338fe9022b9509c40d8900adcb3e4cf45886c7fe",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_N_3",
+							"index": 95,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								47,
+								56
+							],
+							"grip": [
+								64,
+								70
+							],
+							"weaponOrder": -1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/idle_N_3",
+							"hash": "8fed20fa36ccde5ddcc07915c12a514b12c8153d43ffffcd918fb119b7da48ff",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "idle",
+					"direction": "NE",
+					"fps": 6,
+					"hitFrame": -1,
+					"frames": [
+						{
+							"name": "idle_NE_0",
+							"index": 100,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								49,
+								51
+							],
+							"grip": [
+								62,
+								64
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/idle_NE_0",
+							"hash": "edd2a4fe3e97e00ba897b8b6704751a294729dca7157cae177a178f4e92da151",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_NE_1",
+							"index": 105,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								48,
+								51
+							],
+							"grip": [
+								61,
+								68
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/idle_NE_1",
+							"hash": "8153997058c8c0afc4b9f4da0985e08998ac2ebad7ebe0208e3cb37a844fa05e",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_NE_2",
+							"index": 110,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								46,
+								51
+							],
+							"grip": [
+								60,
+								66
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/idle_NE_2",
+							"hash": "832c2c1866524d9631f2ef4b67df45205bf2027357356dc95f5f8bb8b195c352",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_NE_3",
+							"index": 115,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								49,
+								49
+							],
+							"grip": [
+								60,
+								63
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/idle_NE_3",
+							"hash": "f1d7fac2ef15ec0d8e5972c841012e4bbdf2110917955d9f5bdd8ac65d208bb5",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "idle",
+					"direction": "E",
+					"fps": 6,
+					"hitFrame": -1,
+					"frames": [
+						{
+							"name": "idle_E_0",
+							"index": 120,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								50,
+								53
+							],
+							"grip": [
+								61,
+								65
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/idle_E_0",
+							"hash": "98ba8d4e20000c8551fb9debb966560ca217ac71d742be34b57e2d7fb9f4a883",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_E_1",
+							"index": 125,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								51,
+								52
+							],
+							"grip": [
+								60,
+								62
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/idle_E_1",
+							"hash": "e5cb31aaf9f5bc30ad77e51dddcf6df4f61593d74b3da494936c40dc270bbacf",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_E_2",
+							"index": 130,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								50,
+								53
+							],
+							"grip": [
+								60,
+								64
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/idle_E_2",
+							"hash": "7b124a4f73423600e88f236bf33e88ac2c9107c3ac6d5e59eba2397e630b16ee",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_E_3",
+							"index": 135,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								51,
+								52
+							],
+							"grip": [
+								60,
+								61
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/idle_E_3",
+							"hash": "a63d4fae25b4a6338ae6c86c20d96b0c8206b9a74731702bbc28bda9719c2e5e",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "idle",
+					"direction": "SE",
+					"fps": 6,
+					"hitFrame": -1,
+					"frames": [
+						{
+							"name": "idle_SE_0",
+							"index": 140,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								49
+							],
+							"grip": [
+								62,
+								64
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/idle_SE_0",
+							"hash": "b350e96fe289d87593e59784c61769ebd7570432b0a56e003464fe08e4754c4a",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_SE_1",
+							"index": 145,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								58,
+								52
+							],
+							"grip": [
+								63,
+								67
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/idle_SE_1",
+							"hash": "e0296c3e44f49439bde2ab053fc8ca6f722d7812504bfda56c07409bc10fc5be",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_SE_2",
+							"index": 150,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								59,
+								51
+							],
+							"grip": [
+								65,
+								69
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/idle_SE_2",
+							"hash": "750aa20b657e917d6983bc861137a5946ccc103f33397fae6e8e6249f998cd0c",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "idle_SE_3",
+							"index": 155,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								59,
+								55
+							],
+							"grip": [
+								62,
+								65
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/idle_SE_3",
+							"hash": "a51c8f1e3d9b83478f39a166eceb5b2cd9c36cab5424be40bf8a282862c36175",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "walk",
+					"direction": "S",
+					"fps": 10,
+					"hitFrame": -1,
+					"frames": [
+						{
+							"name": "walk_S_0",
+							"index": 160,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								59,
+								55
+							],
+							"grip": [
+								64,
+								69
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_S_0",
+							"hash": "2f112cf55c61cc9d8cbced8d0a2f37238842e4777083d2928defb80255db302d",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_S_1",
+							"index": 165,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								59,
+								57
+							],
+							"grip": [
+								64,
+								68
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_S_1",
+							"hash": "aeb6e80575bb0765e920bc0af8bd69e0ed510e290625b9d8067bd7186dd307e8",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_S_2",
+							"index": 170,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								59,
+								56
+							],
+							"grip": [
+								63,
+								67
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_S_2",
+							"hash": "ea566e99ffdfe5adc4e4abf44fa87d38090c32cd2c173d938d28c03c1d4ccf11",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_S_3",
+							"index": 175,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								59,
+								54
+							],
+							"grip": [
+								63,
+								70
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_S_3",
+							"hash": "9d23bef750d09260f19fe953aeeedca918fd7e0f6d1c7b065d861fc1b8b5de05",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_S_4",
+							"index": 180,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								59,
+								56
+							],
+							"grip": [
+								63,
+								68
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_S_4",
+							"hash": "1ef98a2b10d373e19e802fe22df721a0336758f5541b2b688fb56361cd081c9c",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_S_5",
+							"index": 185,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								59,
+								56
+							],
+							"grip": [
+								66,
+								72
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_S_5",
+							"hash": "33a56d042a0d47572b205a34b4b3439a7762cbcc9ad85f191e15a6e82600e9e1",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_S_6",
+							"index": 190,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								59,
+								56
+							],
+							"grip": [
+								63,
+								68
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_S_6",
+							"hash": "d5fc0e3b110a06315d4dff531c92608a549ae8724ccc2447cfae6ec1f9c275a8",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_S_7",
+							"index": 195,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								59,
+								56
+							],
+							"grip": [
+								65,
+								69
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_S_7",
+							"hash": "fb99201facad66c39ca20acdc22bf43e23dbb25675c38bf0b1ae332fdb4c197a",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "walk",
+					"direction": "SW",
+					"fps": 10,
+					"hitFrame": -1,
+					"frames": [
+						{
+							"name": "walk_SW_0",
+							"index": 200,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								53
+							],
+							"grip": [
+								61,
+								67
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_SW_0",
+							"hash": "df4a1239e447978e7237fe2085c59573c795c146e5772f8f41b63016ae497a13",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_SW_1",
+							"index": 205,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								57
+							],
+							"grip": [
+								62,
+								79
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_SW_1",
+							"hash": "13287a7d6f691ae5fad31152bdc145e8de3433f02aac7203d8b534921e2097a7",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_SW_2",
+							"index": 210,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								56
+							],
+							"grip": [
+								62,
+								78
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_SW_2",
+							"hash": "19d748f603cf277dca4d47d6372e0855bf0c78efc0e9b156c2d5c7eb72598440",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_SW_3",
+							"index": 215,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								54
+							],
+							"grip": [
+								61,
+								71
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_SW_3",
+							"hash": "202b4b95bbc97a542df358af0599f882857eda1535e5b639718a1d26a4302d24",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_SW_4",
+							"index": 220,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								56,
+								57
+							],
+							"grip": [
+								62,
+								69
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_SW_4",
+							"hash": "f92ad202bda85cbb2960524945760a39f3975f2c9d2ba707e7f2a385d0095887",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_SW_5",
+							"index": 225,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								56,
+								57
+							],
+							"grip": [
+								63,
+								72
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_SW_5",
+							"hash": "ea5ec28add2376995c36066b87f579df7649a63333db2a578db83b57573062ef",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_SW_6",
+							"index": 230,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								56,
+								54
+							],
+							"grip": [
+								63,
+								67
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_SW_6",
+							"hash": "74ea74ef9e1157d605a97c5e98ab833883bdffb3000758f76755c2ff48e4eab9",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_SW_7",
+							"index": 235,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								56,
+								54
+							],
+							"grip": [
+								61,
+								70
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_SW_7",
+							"hash": "43879880090d232c784b10af5427ed800aa9ba809c6d233ccfdc802ac2f2870d",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "walk",
+					"direction": "W",
+					"fps": 10,
+					"hitFrame": -1,
+					"frames": [
+						{
+							"name": "walk_W_0",
+							"index": 240,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								61,
+								53
+							],
+							"grip": [
+								51,
+								73
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_W_0",
+							"hash": "c851134cb3f51e3f071ac64cac3281561f8b68dfc3568e049b674fea921c41f9",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_W_1",
+							"index": 245,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								61,
+								53
+							],
+							"grip": [
+								47,
+								77
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_W_1",
+							"hash": "25c771b245292504ceb3e046c5971e63eb4a6eafa8adf473e1be138ad80827cf",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_W_2",
+							"index": 250,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								61,
+								53
+							],
+							"grip": [
+								48,
+								76
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_W_2",
+							"hash": "08d5bec011cd23b25e4db44785fe0b189a1720f71e85f82db91b80db90de7431",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_W_3",
+							"index": 255,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								61,
+								52
+							],
+							"grip": [
+								51,
+								71
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_W_3",
+							"hash": "970ee9b3ff66ad7c4f8b1eb0208a2358a3977177de3a0e198b5a4c15aea5e2ef",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_W_4",
+							"index": 260,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								61,
+								53
+							],
+							"grip": [
+								50,
+								70
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_W_4",
+							"hash": "7d0eca97313b21445d653b8753482cea88a9a402fec3c407fba537026b7f4a57",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_W_5",
+							"index": 265,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								61,
+								53
+							],
+							"grip": [
+								42,
+								69
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_W_5",
+							"hash": "81363653653250119942e083457811c5c28c1a1bb5c75942312b1fb15e4829fa",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_W_6",
+							"index": 270,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								62,
+								53
+							],
+							"grip": [
+								42,
+								67
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_W_6",
+							"hash": "1ca2c4626054891df6db9826e8f0dd712635f7d44ba6ece6aba81c85aa9242e5",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_W_7",
+							"index": 275,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								62,
+								53
+							],
+							"grip": [
+								47,
+								67
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_W_7",
+							"hash": "d5027a592874ab0c8701243793b3ec0d5cb2777e79ecb23a1b64194ef9735281",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "walk",
+					"direction": "NW",
+					"fps": 10,
+					"hitFrame": -1,
+					"frames": [
+						{
+							"name": "walk_NW_0",
+							"index": 280,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								62,
+								51
+							],
+							"grip": [
+								75,
+								57
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_NW_0",
+							"hash": "9b6c80229212f18879ca400737f2090cab56ac4654476ac29eb704268df395ee",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_NW_1",
+							"index": 285,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								64,
+								52
+							],
+							"grip": [
+								75,
+								55
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_NW_1",
+							"hash": "9c3e0352992c47516238fbafd816b9bf367bde679b12808c964bbf1a8cd69a83",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_NW_2",
+							"index": 290,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								65,
+								52
+							],
+							"grip": [
+								76,
+								55
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_NW_2",
+							"hash": "eb01d494c2a1fc9adf5248fab586887a0a66423ca76e5643c40d49c8f934469d",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_NW_3",
+							"index": 295,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								65,
+								52
+							],
+							"grip": [
+								75,
+								56
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_NW_3",
+							"hash": "695e256262fa65adf77f2d31e9e9daa543cd2796e735b88976275b8577a57948",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_NW_4",
+							"index": 300,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								63,
+								51
+							],
+							"grip": [
+								76,
+								58
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_NW_4",
+							"hash": "94e7a3fb23c0c9f9166cbad2c905b6646f3f580831e3ea8a194f3a9f703b9242",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_NW_5",
+							"index": 305,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								65,
+								52
+							],
+							"grip": [
+								76,
+								58
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_NW_5",
+							"hash": "263ddbb27a845197877da797aade96a03a5533ff7940a29469eec37f0410b0c6",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_NW_6",
+							"index": 310,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								65,
+								52
+							],
+							"grip": [
+								73,
+								60
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_NW_6",
+							"hash": "3ea61c54e6d406a59067d9a8b90f05abc28ac021e0c77b0f8224355a6fbec92a",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_NW_7",
+							"index": 315,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								64,
+								51
+							],
+							"grip": [
+								75,
+								55
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_NW_7",
+							"hash": "73910521f050973cfe3bf7c70412fdc23c7ee8000589c304ef61704970c17bd0",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "walk",
+					"direction": "N",
+					"fps": 10,
+					"hitFrame": -1,
+					"frames": [
+						{
+							"name": "walk_N_0",
+							"index": 320,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								48,
+								57
+							],
+							"grip": [
+								65,
+								69
+							],
+							"weaponOrder": -1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_N_0",
+							"hash": "7ac1da25fc939b1ef0c2052a0ca75e829e61f84116f457953cb50bc17c842a4b",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_N_1",
+							"index": 325,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								48,
+								57
+							],
+							"grip": [
+								65,
+								69
+							],
+							"weaponOrder": -1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_N_1",
+							"hash": "dbcb05f9b97125e48bf6a131f497ee1936bc77d48e0f0e3e7863e7b97ea51725",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_N_2",
+							"index": 330,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								53,
+								65
+							],
+							"grip": [
+								66,
+								69
+							],
+							"weaponOrder": -1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_N_2",
+							"hash": "c82242ab8f0d37d681482adac7181795784b09e7ab853171d8253ebc63ea3c99",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_N_3",
+							"index": 335,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								52,
+								65
+							],
+							"grip": [
+								65,
+								69
+							],
+							"weaponOrder": -1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_N_3",
+							"hash": "ec59d0d8db18495880c39a4610b6eaa0f7678664054d44f036b9b31be8017690",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_N_4",
+							"index": 340,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								48,
+								56
+							],
+							"grip": [
+								65,
+								70
+							],
+							"weaponOrder": -1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_N_4",
+							"hash": "302256c1852cb5346a397dbd8e48b884c472e8475cafb7c363e70178b6b4756d",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_N_5",
+							"index": 345,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								48,
+								56
+							],
+							"grip": [
+								65,
+								71
+							],
+							"weaponOrder": -1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_N_5",
+							"hash": "fe23cad161ba6babba8749b6d915aa50cafefc035ed04b085d78563940a84e7d",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_N_6",
+							"index": 350,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								48,
+								56
+							],
+							"grip": [
+								64,
+								71
+							],
+							"weaponOrder": -1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_N_6",
+							"hash": "ac2e351e47a380a77a4befd3582c301be691b6c04710a322f7ecd884ddad32de",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_N_7",
+							"index": 355,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								47,
+								56
+							],
+							"grip": [
+								64,
+								71
+							],
+							"weaponOrder": -1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_N_7",
+							"hash": "aac185d6eba68c67897f2307fc3d850e6aed1ecbe745579f0a96d1a7af658ee5",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "walk",
+					"direction": "NE",
+					"fps": 10,
+					"hitFrame": -1,
+					"frames": [
+						{
+							"name": "walk_NE_0",
+							"index": 360,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								49,
+								51
+							],
+							"grip": [
+								63,
+								65
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_NE_0",
+							"hash": "4248f4ddbbc8dc791f6ce5db330797a9986ef8f125237ecb14618e15d9aa5f28",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_NE_1",
+							"index": 365,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								47,
+								52
+							],
+							"grip": [
+								64,
+								68
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_NE_1",
+							"hash": "ba64d295f48f1ac40f00b9f2d3496fb1874b7bf446b45e229d1abcfd18e30acb",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_NE_2",
+							"index": 370,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								47,
+								52
+							],
+							"grip": [
+								65,
+								68
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_NE_2",
+							"hash": "6d17759458cf8028269166a7d5f1c702daec841ac9960324c04f2cd940d7a439",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_NE_3",
+							"index": 375,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								47,
+								52
+							],
+							"grip": [
+								62,
+								69
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_NE_3",
+							"hash": "b6b163949e15f430da29ea5d07955302481101123577c4e85e440d0819a3cc96",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_NE_4",
+							"index": 380,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								49,
+								51
+							],
+							"grip": [
+								61,
+								63
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_NE_4",
+							"hash": "a940e6fc0380549b133fbba33ae2aeab8678e2d789e93984e59b1ad6bb121df6",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_NE_5",
+							"index": 385,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								47,
+								52
+							],
+							"grip": [
+								60,
+								68
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_NE_5",
+							"hash": "16bafa6f68a219d39156b989d2e1847a71b18f49e19935ed9519af7c855eacc4",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_NE_6",
+							"index": 390,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								47,
+								52
+							],
+							"grip": [
+								60,
+								70
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_NE_6",
+							"hash": "36fdaa7b699ec933a52e67d162429dd04ce8b9971663328d2e07f33970727b6a",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_NE_7",
+							"index": 395,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								48,
+								51
+							],
+							"grip": [
+								61,
+								66
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_NE_7",
+							"hash": "3e6ed8e60fb0735f4bcb833a428a8e0546c00be2c7afc80a59c7a85caaaf6204",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "walk",
+					"direction": "E",
+					"fps": 10,
+					"hitFrame": -1,
+					"frames": [
+						{
+							"name": "walk_E_0",
+							"index": 400,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								51,
+								53
+							],
+							"grip": [
+								60,
+								73
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_E_0",
+							"hash": "b3c3a83f01753f8a57080a9184b492f9f05f80223d98cbade07d6e85daa4faf6",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_E_1",
+							"index": 405,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								51,
+								53
+							],
+							"grip": [
+								64,
+								77
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_E_1",
+							"hash": "644423d32ca6d948bff751c4bfed05db989c82572512eb1facefe420378a5ef7",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_E_2",
+							"index": 410,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								50,
+								53
+							],
+							"grip": [
+								64,
+								76
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_E_2",
+							"hash": "b26fadc3c21a4b9485106e3410f7e174fd551f2df42ca958fd744bbab1874a23",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_E_3",
+							"index": 415,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								50,
+								52
+							],
+							"grip": [
+								60,
+								71
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_E_3",
+							"hash": "df79dd5c6e819ad6909314636955f7d4ad256b1301c64f141026897f783c7782",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_E_4",
+							"index": 420,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								51,
+								53
+							],
+							"grip": [
+								61,
+								70
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_E_4",
+							"hash": "98d85b1eda99720a8a68c769c540316e3a54e20c71a38b88f3990d96696a57b0",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_E_5",
+							"index": 425,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								50,
+								53
+							],
+							"grip": [
+								69,
+								69
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_E_5",
+							"hash": "533e88ac03a1e66d0e3f1a82d2e3c6b089385ccc8756fc05beb1fa9190de241f",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_E_6",
+							"index": 430,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								50,
+								53
+							],
+							"grip": [
+								69,
+								67
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_E_6",
+							"hash": "8c8e25e2bf57e06d6c371d1f8e718d35f104f75f1390a7e7c4d1ffbc490a361b",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_E_7",
+							"index": 435,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								50,
+								53
+							],
+							"grip": [
+								64,
+								67
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_E_7",
+							"hash": "d6b229d7bf39b145bc14f9076cef2bccbb98e0c9c17d88bb41c20266d228a79a",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "walk",
+					"direction": "SE",
+					"fps": 10,
+					"hitFrame": -1,
+					"frames": [
+						{
+							"name": "walk_SE_0",
+							"index": 440,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								53
+							],
+							"grip": [
+								67,
+								72
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_SE_0",
+							"hash": "b57dfe7044023930fcdc67656b51815b20d0d1ec980f00368b99280728141fac",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_SE_1",
+							"index": 445,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								57
+							],
+							"grip": [
+								62,
+								67
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_SE_1",
+							"hash": "b964cf868f278694cdd8f43c8f793f3067d6347326b31d3121b1eb94588913a3",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_SE_2",
+							"index": 450,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								56
+							],
+							"grip": [
+								62,
+								65
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_SE_2",
+							"hash": "09a32108c7d01611c1b4b5f6c79888ea5060fb3774d941b655b1185fb586f90b",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_SE_3",
+							"index": 455,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								54,
+								54
+							],
+							"grip": [
+								64,
+								71
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_SE_3",
+							"hash": "e1d4ade2ab71e19f04e4d6b32391f1858af4161a5e22fbeb2f30d20d7ab02ae7",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_SE_4",
+							"index": 460,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								57
+							],
+							"grip": [
+								67,
+								71
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_SE_4",
+							"hash": "b29a6909b1980ad2dc262967521981e39990a4779da46f687dc79e47dc141852",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_SE_5",
+							"index": 465,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								56,
+								57
+							],
+							"grip": [
+								71,
+								72
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_SE_5",
+							"hash": "dbe970f423312e5d149d5774cef76a3f56b68ae900fdfcc9ea26485a516adcd6",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_SE_6",
+							"index": 470,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								54
+							],
+							"grip": [
+								74,
+								71
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_SE_6",
+							"hash": "f5a328723a9b3cc6117a24b99dcdb82745002464340eb5db78d265f6bccda487",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "walk_SE_7",
+							"index": 475,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								54
+							],
+							"grip": [
+								69,
+								71
+							],
+							"weaponOrder": 1,
+							"source": "assets/characters/player_hero_adult_f/player_hero_adult_f.json#player_hero_adult_f/walk_SE_7",
+							"hash": "92b260b9dd2fd136278722b22427949bbafc3a8b73bf82f62812890d540add7e",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "attack",
+					"direction": "S",
+					"fps": 22,
+					"hitFrame": 3,
+					"frames": [
+						{
+							"name": "attack_S_0",
+							"index": 480,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								58,
+								50
+							],
+							"grip": [
+								70,
+								59
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/attack-hand2/south/frame_000.png",
+							"hash": "df4712588a1243844ab1f90c85efd8bede808fa6a94194132ba7e4720293bb28",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_S_1",
+							"index": 485,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								59,
+								47
+							],
+							"grip": [
+								72,
+								59
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/attack-hand2/south/frame_001.png",
+							"hash": "2513e0956146e64cf53233ca802a665a36d8b0badabd61583f5f148ccdedd21d",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_S_2",
+							"index": 490,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								62,
+								51
+							],
+							"grip": [
+								76,
+								53
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/attack-hand2/south/frame_002.png",
+							"hash": "31f8d52e70201290ce1934d6b27527c1343a0450fcc0c1e78aa7e664e46a9b2b",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_S_3",
+							"index": 495,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								59,
+								47
+							],
+							"grip": [
+								74,
+								55
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/attack-hand2/south/frame_003.png",
+							"hash": "69c24b9031f2abc5e6d81b3b2be159ef5a8c3bd0b263dfc6c423b196e5301812",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_S_4",
+							"index": 500,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								61,
+								59
+							],
+							"grip": [
+								63,
+								75
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/attack-hand2/south/frame_004.png",
+							"hash": "627af52bc45eea5a1b03e4d8d26fc072dddaea09ffb671a113d44b82f8f2e42e",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_S_5",
+							"index": 505,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								60,
+								53
+							],
+							"grip": [
+								75,
+								63
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/attack-hand2/south/frame_005.png",
+							"hash": "64246863d5325670a4da64c6e6aa21a2dd3c22ddb0fec4166965cde8a534b6ff",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_S_6",
+							"index": 510,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								58,
+								55
+							],
+							"grip": [
+								73,
+								65
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/attack-hand2/south/frame_006.png",
+							"hash": "b35e60c45eb3ead92a15d245a0e30da2b0fb46047f0f4689dc7810ccf02b75e8",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_S_7",
+							"index": 515,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								52
+							],
+							"grip": [
+								69,
+								56
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/attack-hand2/south/frame_007.png",
+							"hash": "d36bb0dc31997b59950f7cc388840f9a0dd5c8787c3fb12b033a45dbddd8c198",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "attack",
+					"direction": "W",
+					"fps": 22,
+					"hitFrame": 3,
+					"frames": [
+						{
+							"name": "attack_W_0",
+							"index": 520,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								58,
+								52
+							],
+							"grip": [
+								48,
+								70
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/attack-hand/east/frame_000.png#mirror",
+							"hash": "9e72d5312cd6a22a2a73cf5d60aa37f187f844c550b5fac1e4fb369b1116cda0",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_W_1",
+							"index": 525,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								59,
+								63
+							],
+							"grip": [
+								41,
+								68
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/attack-hand/east/frame_001.png#mirror",
+							"hash": "631d3628473a7c095766f7574ded2865584b818705a77f331c5d0c75cbf07fb9",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_W_2",
+							"index": 530,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								62,
+								56
+							],
+							"grip": [
+								36,
+								64
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/attack-hand/east/frame_002.png#mirror",
+							"hash": "7e515d755880cd41f8cfd62992d800ccd007ec1d839ca2df568970a49e651686",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_W_3",
+							"index": 535,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								53,
+								57
+							],
+							"grip": [
+								34,
+								62
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/attack-hand/east/frame_003.png#mirror",
+							"hash": "c695198f058cd0a69f90effbd3e1ee3945f0bb181feb4f5dbcad313e4ee1b46a",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_W_4",
+							"index": 540,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								52,
+								57
+							],
+							"grip": [
+								34,
+								67
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/attack-hand/east/frame_004.png#mirror",
+							"hash": "00a65dfbde85d2b640b9e62bc4378d001d5d0bcd440c0818fb67547fbb46a8c5",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_W_5",
+							"index": 545,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								61,
+								57
+							],
+							"grip": [
+								33,
+								65
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/attack-hand/east/frame_005.png#mirror",
+							"hash": "f6607b7f5005b2e065fd47d0520270686f6819cddc07cf3d834494b6dc20276d",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_W_6",
+							"index": 550,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								58,
+								57
+							],
+							"grip": [
+								34,
+								64
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/attack-hand/east/frame_006.png#mirror",
+							"hash": "50a8cdf32ba00dcb2addca193944287e364730166247047b2677e3ee0721eb1c",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_W_7",
+							"index": 555,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								58,
+								56
+							],
+							"grip": [
+								42,
+								70
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/attack-hand/east/frame_007.png#mirror",
+							"hash": "8b2048e3c6fcd3ec2a336bc840d8db0c7bffba1b467b064a251547bb865397c5",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "attack",
+					"direction": "N",
+					"fps": 22,
+					"hitFrame": 3,
+					"frames": [
+						{
+							"name": "attack_N_0",
+							"index": 560,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								49,
+								49
+							],
+							"grip": [
+								73,
+								70
+							],
+							"weaponOrder": -1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/attack-hand/north/frame_000.png",
+							"hash": "2a6a97e37d9d12b82ea17623c279ec22302f88e017f6869df224117819706dda",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_N_1",
+							"index": 565,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								49,
+								54
+							],
+							"grip": [
+								79,
+								63
+							],
+							"weaponOrder": -1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/attack-hand/north/frame_001.png",
+							"hash": "13c5a852a405d82d8f59b8879be5b65393e63f90c5d3593ccca088f8204fb0f2",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_N_2",
+							"index": 570,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								53,
+								54
+							],
+							"grip": [
+								80,
+								59
+							],
+							"weaponOrder": -1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/attack-hand/north/frame_002.png",
+							"hash": "d419bd9aabd6e2d158018cdbee84b303bc2dc469f3cb8c14949e8c49cef4bff1",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_N_3",
+							"index": 575,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								52,
+								64
+							],
+							"grip": [
+								60,
+								69
+							],
+							"weaponOrder": -1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/attack-hand/north/frame_003.png",
+							"hash": "73d4e237c0677b39219d1d86dcb5bda9164320e2ffa8323ba82e8b66614150e4",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_N_4",
+							"index": 580,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								62,
+								63
+							],
+							"grip": [
+								60,
+								69
+							],
+							"weaponOrder": -1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/attack-hand/north/frame_004.png",
+							"hash": "3aa7e8e65e5ed6ec77c92978ae15a63f5a531b26614c58509173db45dfc5c275",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_N_5",
+							"index": 585,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								49,
+								52
+							],
+							"grip": [
+								81,
+								60
+							],
+							"weaponOrder": -1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/attack-hand/north/frame_005.png",
+							"hash": "1fa1001a26649e532976f3c917325b00786aa5b6e9049ae48367cdee33429a2e",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_N_6",
+							"index": 590,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								49,
+								55
+							],
+							"grip": [
+								78,
+								65
+							],
+							"weaponOrder": -1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/attack-hand/north/frame_006.png",
+							"hash": "688d5da27fbbeeca23a5ee901a7579519330c3619fc6231d539f18f74634c39e",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_N_7",
+							"index": 595,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								49,
+								54
+							],
+							"grip": [
+								70,
+								72
+							],
+							"weaponOrder": -1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/attack-hand/north/frame_007.png",
+							"hash": "08d20e902f0bcaef9f6dff763fcf673670c3006f321d8f7cac2020e576c18cbd",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "attack",
+					"direction": "E",
+					"fps": 22,
+					"hitFrame": 3,
+					"frames": [
+						{
+							"name": "attack_E_0",
+							"index": 600,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								53,
+								52
+							],
+							"grip": [
+								64,
+								70
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/attack-hand/east/frame_000.png",
+							"hash": "7e0653efa8bf7127da17c716b701f8a93e589d64ef50ae5811f0838e2d6508b7",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_E_1",
+							"index": 605,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								53,
+								63
+							],
+							"grip": [
+								70,
+								68
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/attack-hand/east/frame_001.png",
+							"hash": "f60fa119810bcbaad7ed1b234a6f9f9380f11c9850b107d03a1c558555008573",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_E_2",
+							"index": 610,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								50,
+								56
+							],
+							"grip": [
+								75,
+								64
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/attack-hand/east/frame_002.png",
+							"hash": "12d149d52e57ed69210d3fd7badaed734a20eb91f2d101371bf1485920aeb6bc",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_E_3",
+							"index": 615,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								58,
+								57
+							],
+							"grip": [
+								77,
+								62
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/attack-hand/east/frame_003.png",
+							"hash": "4ad6e361eb589eb3c1ac5e4ea80b4b118af7ed071c8d4afa8d47ed9244f7ea20",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_E_4",
+							"index": 620,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								59,
+								57
+							],
+							"grip": [
+								77,
+								67
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/attack-hand/east/frame_004.png",
+							"hash": "840a826a5cad9cea367515f8f7ba05a2f85f5a5d348d7462fd6bbf5e65327990",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_E_5",
+							"index": 625,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								50,
+								57
+							],
+							"grip": [
+								78,
+								65
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/attack-hand/east/frame_005.png",
+							"hash": "47cfa752be66668bf5f190606b43331499bb760415ad0f380c11113e4da2aa11",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_E_6",
+							"index": 630,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								54,
+								57
+							],
+							"grip": [
+								77,
+								64
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/attack-hand/east/frame_006.png",
+							"hash": "98b36bcc3c64e3d607a52db718fe331b78597eb8515b77cc0722430eb159af32",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "attack_E_7",
+							"index": 635,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								54,
+								56
+							],
+							"grip": [
+								70,
+								70
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/attack-hand/east/frame_007.png",
+							"hash": "4c4aef88ee0976d369d5e3c6b86b519a216f9978a2dd89175a8f028dc113fddd",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "cast",
+					"direction": "S",
+					"fps": 20,
+					"hitFrame": 3,
+					"frames": [
+						{
+							"name": "cast_S_0",
+							"index": 640,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								58,
+								52
+							],
+							"grip": [
+								62,
+								68
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/cast-hand/south/frame_000.png",
+							"hash": "ae5d9110a7bf233e40e90c14d27f35cf9b4f74be3dec01dd2ebfb7a09653649b",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_S_1",
+							"index": 645,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								58,
+								54
+							],
+							"grip": [
+								63,
+								66
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/cast-hand/south/frame_001.png",
+							"hash": "e4f04b507f7ebd91a170f4a43104540ac5616734fd65b78560685dfdd5794e83",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_S_2",
+							"index": 650,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								54,
+								45
+							],
+							"grip": [
+								75,
+								51
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/cast-hand/south/frame_002.png",
+							"hash": "2b9ec187886e1efd314e34d7b88c6122f341acfcf6cba249ca959236ff53b532",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_S_3",
+							"index": 655,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								59,
+								55
+							],
+							"grip": [
+								75,
+								60
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/cast-hand/south/frame_003.png",
+							"hash": "8a5b87d479996871483468db3462e5446246a2c27b04985b314431a27ed707cf",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_S_4",
+							"index": 660,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								58,
+								52
+							],
+							"grip": [
+								71,
+								56
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/cast-hand/south/frame_004.png",
+							"hash": "a9ad0c7b2201782b9745948b144b0a373a236609945642ef67128b99351f7e2f",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_S_5",
+							"index": 665,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								58,
+								63
+							],
+							"grip": [
+								60,
+								77
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/cast-hand/south/frame_005.png",
+							"hash": "3414ad853ae86b615c07d38976ef32ec8c2302f3d2f3d0d3f569ce546a32e593",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_S_6",
+							"index": 670,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								58
+							],
+							"grip": [
+								60,
+								76
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/cast-hand/south/frame_006.png",
+							"hash": "231a240c0ba43980bfd42418c0de6d9b52d99d9653f3a9e3214d550fdc52ea08",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_S_7",
+							"index": 675,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								57,
+								58
+							],
+							"grip": [
+								60,
+								76
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/cast-hand/south/frame_007.png",
+							"hash": "ad6e5c9cd81df29ec93527a418b0a38530e270befe2bc3b8c759de1b5af27c66",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "cast",
+					"direction": "W",
+					"fps": 20,
+					"hitFrame": 3,
+					"frames": [
+						{
+							"name": "cast_W_0",
+							"index": 680,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								61,
+								55
+							],
+							"grip": [
+								50,
+								68
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/cast-hand/east/frame_000.png#mirror",
+							"hash": "bcbf8da039c569910d454b6a6d3b1cf6cdc5b787c328b677fdb597da3f6a1771",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_W_1",
+							"index": 685,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								54,
+								46
+							],
+							"grip": [
+								50,
+								60
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/cast-hand/east/frame_001.png#mirror",
+							"hash": "bd52453e9eb5a6b7652561daef0a15b5e2bce89f5573829d9302751fb35ee468",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_W_2",
+							"index": 690,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								59,
+								65
+							],
+							"grip": [
+								49,
+								70
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/cast-hand/east/frame_002.png#mirror",
+							"hash": "463307d5e1140a5841815383a6336d27443cd7b72560f942a8fb0cea97540290",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_W_3",
+							"index": 695,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								56,
+								51
+							],
+							"grip": [
+								31,
+								58
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/cast-hand/east/frame_003.png#mirror",
+							"hash": "7408704306f85a5c9b3e3e240619f56299ad8670418b459bbdbe608c2482b38d",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_W_4",
+							"index": 700,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								59,
+								65
+							],
+							"grip": [
+								49,
+								70
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/cast-hand/east/frame_004.png#mirror",
+							"hash": "b8e26224cd1b8c03f8092650c7596c605388726673657f00aea41f940d2d5804",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_W_5",
+							"index": 705,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								58,
+								64
+							],
+							"grip": [
+								49,
+								70
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/cast-hand/east/frame_005.png#mirror",
+							"hash": "29e1fc865e41eff02b9dcff00575f9d1711503ea6fc44bb2eb89281df6af92da",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_W_6",
+							"index": 710,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								58,
+								65
+							],
+							"grip": [
+								49,
+								70
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/cast-hand/east/frame_006.png#mirror",
+							"hash": "b2dff0ed149ae6fdcae319781c045f802b5d735fbb24ef5a2dd2e15ce2fd5e02",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_W_7",
+							"index": 715,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								59,
+								55
+							],
+							"grip": [
+								50,
+								72
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/cast-hand/east/frame_007.png#mirror",
+							"hash": "c6d7f1a71a5cac4a385e1424ba89ad8e0d3df903dab114cdb247040a2b62a7e1",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "cast",
+					"direction": "N",
+					"fps": 20,
+					"hitFrame": 3,
+					"frames": [
+						{
+							"name": "cast_N_0",
+							"index": 720,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								45,
+								51
+							],
+							"grip": [
+								66,
+								70
+							],
+							"weaponOrder": -1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/cast-hand/north/frame_000.png",
+							"hash": "c4607b511cb3d97103d1f5467f5a23c4673454509e05bb67a23e281b4ece8e29",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_N_1",
+							"index": 725,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								48,
+								51
+							],
+							"grip": [
+								72,
+								72
+							],
+							"weaponOrder": -1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/cast-hand/north/frame_001.png",
+							"hash": "b199de36443d12cf395045ad0ba8c91b5bb34e2803456f46f309655b8b593eb9",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_N_2",
+							"index": 730,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								50,
+								52
+							],
+							"grip": [
+								82,
+								61
+							],
+							"weaponOrder": -1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/cast-hand/north/frame_002.png",
+							"hash": "b70aec7171c10824f36460c62a08419183b294e826f6789b0ea6f311ce367e59",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_N_3",
+							"index": 735,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								52,
+								48
+							],
+							"grip": [
+								77,
+								59
+							],
+							"weaponOrder": -1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/cast-hand/north/frame_003.png",
+							"hash": "4fc250635f43b969aafddf8038fe82320f477f827a21ddaf387dcbc8674b488f",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_N_4",
+							"index": 740,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								52,
+								48
+							],
+							"grip": [
+								77,
+								59
+							],
+							"weaponOrder": -1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/cast-hand/north/frame_004.png",
+							"hash": "453f134980340965b9ebd27d9172c3de695770b242becf73c71de65146ff4acd",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_N_5",
+							"index": 745,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								52,
+								50
+							],
+							"grip": [
+								83,
+								60
+							],
+							"weaponOrder": -1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/cast-hand/north/frame_005.png",
+							"hash": "ef35f02c65d98232656fb78a02ac59669f53a742a32b367aef609c673cbb3308",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_N_6",
+							"index": 750,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								49,
+								53
+							],
+							"grip": [
+								83,
+								59
+							],
+							"weaponOrder": -1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/cast-hand/north/frame_006.png",
+							"hash": "6e47f1a61f030d893730e4f120bc7b947267f8b19e6b03e3045fc1aa70f3b5a4",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_N_7",
+							"index": 755,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								53,
+								55
+							],
+							"grip": [
+								77,
+								67
+							],
+							"weaponOrder": -1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/cast-hand/north/frame_007.png",
+							"hash": "11dbccfe85618d6276866fde33f7012e1121b23a8d5daca318c8ade6095cf75e",
+							"anchorsReviewed": false
+						}
+					]
+				},
+				{
+					"action": "cast",
+					"direction": "E",
+					"fps": 20,
+					"hitFrame": 3,
+					"frames": [
+						{
+							"name": "cast_E_0",
+							"index": 760,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								51,
+								55
+							],
+							"grip": [
+								61,
+								68
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/cast-hand/east/frame_000.png",
+							"hash": "35f706e66d5be294088d02bdfefcaac306b758fb7c2955f47b634a4db9886b5f",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_E_1",
+							"index": 765,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								58,
+								46
+							],
+							"grip": [
+								61,
+								60
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/cast-hand/east/frame_001.png",
+							"hash": "917427db3b3c7145bd290162003444004811d0e7f1b981e3b928d2492bd35c60",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_E_2",
+							"index": 770,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								52,
+								65
+							],
+							"grip": [
+								62,
+								70
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/cast-hand/east/frame_002.png",
+							"hash": "7754e8d17e78111c681a6f867737095d411f264f2b8be7034d6515eeb8c73315",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_E_3",
+							"index": 775,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								55,
+								51
+							],
+							"grip": [
+								80,
+								58
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/cast-hand/east/frame_003.png",
+							"hash": "de95d52006adfd29ab8710662341fec88a3d11e36839b624eb56c4be8cebef8e",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_E_4",
+							"index": 780,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								53,
+								65
+							],
+							"grip": [
+								62,
+								70
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/cast-hand/east/frame_004.png",
+							"hash": "2a329ce3136d773de08d251fe9e1175cc720837f744c95e25b784cd8c831df5c",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_E_5",
+							"index": 785,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								54,
+								64
+							],
+							"grip": [
+								62,
+								70
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/cast-hand/east/frame_005.png",
+							"hash": "73b5ec7965c4304cb8afe3fa5a7973ac23db90cbc28e4bd4df778d38bad09f61",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_E_6",
+							"index": 790,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								53,
+								65
+							],
+							"grip": [
+								62,
+								70
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/cast-hand/east/frame_006.png",
+							"hash": "54d7420e9408e5e2bab891cab9f40e4dd1fa1d264c3467b68d38cc73691bfd4c",
+							"anchorsReviewed": false
+						},
+						{
+							"name": "cast_E_7",
+							"index": 795,
+							"root": [
+								56,
+								100
+							],
+							"neck": [
+								52,
+								55
+							],
+							"grip": [
+								61,
+								72
+							],
+							"weaponOrder": 1,
+							"source": "packages/asset-pipeline/sources/pixellab/player_hero_v2_f/Idle/animations/cast-hand/east/frame_007.png",
+							"hash": "2c80290d186b33a8790cdc70a3f97a7b0080288405abd4558aebe5a7159e9bf5",
+							"anchorsReviewed": false
+						}
+					]
+				}
+			]
+		}
+	],
+	"reviewRequired": true
+}

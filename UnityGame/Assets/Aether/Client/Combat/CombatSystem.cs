@@ -74,6 +74,7 @@ namespace Aether.Client.Combat
         private readonly ICombatHooks hooks;
         private readonly Transform fxRoot;
         private readonly List<Projectile> projectiles = new List<Projectile>();
+        internal int ActiveProjectileCount => projectiles.Count;
         private readonly List<Zone> zones = new List<Zone>();
         private readonly List<Telegraph> telegraphs = new List<Telegraph>();
         private readonly List<(double at, Action run)> pending = new List<(double, Action)>();

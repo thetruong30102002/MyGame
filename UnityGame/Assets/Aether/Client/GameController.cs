@@ -399,7 +399,7 @@ namespace Aether.Client
         /// </summary>
         private void HandlePointer(bool talking)
         {
-            if (talking)
+            if (talking || OverMannequinPanel(UnityEngine.Input.mousePosition))
             {
                 mouseHeldL = mouseHeldR = false;
                 return;
@@ -412,6 +412,7 @@ namespace Aether.Client
                 for (var i = 0; i < UnityEngine.Input.touchCount; i += 1)
                 {
                     var t = UnityEngine.Input.GetTouch(i);
+                    if (OverMannequinPanel(t.position)) continue;
                     if (t.phase != TouchPhase.Began || t.position.x < Screen.width * 0.45f) continue;
                     if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject(t.fingerId)) continue;
                     at = t.position;

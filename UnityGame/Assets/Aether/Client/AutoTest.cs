@@ -12,7 +12,7 @@ namespace Aether.Client
     /// hình từng bước + ghi vị trí vào <c>autotest.log</c>, rồi thoát. Không có tham số thì không làm gì.
     /// Thêm <c>-aetherOnline &lt;url máy chủ THỬ&gt;</c>: tự đăng ký một tài khoản thử ngẫu nhiên, tạo nhân vật, vào game qua mạng.
     /// </summary>
-    public sealed class AutoTest : MonoBehaviour
+    public sealed partial class AutoTest : MonoBehaviour
     {
         private string dir;
         private string onlineUrl;
@@ -24,6 +24,7 @@ namespace Aether.Client
         private bool lab;
         /// <summary>-aetherLab -aetherRig: chỉ chụp nhân vật ghép mảnh thử nghiệm (RigThu) rồi thoát.</summary>
         private bool rigRun;
+        private bool mannequinRun;
         private bool social;
         private bool storyRun;
         private bool adminRun;
@@ -55,6 +56,7 @@ namespace Aether.Client
                 t.tour = Array.IndexOf(args, "-aetherTour") >= 0;
                 t.lab = Array.IndexOf(args, "-aetherLab") >= 0;
                 t.rigRun = Array.IndexOf(args, "-aetherRig") >= 0;
+                t.mannequinRun = Array.IndexOf(args, "-aetherMannequin") >= 0;
                 GameController.RigThuEnabled = t.rigRun;
                 t.social = Array.IndexOf(args, "-aetherSocial") >= 0;
                 t.storyRun = Array.IndexOf(args, "-aetherStory") >= 0;
@@ -290,6 +292,11 @@ namespace Aether.Client
             log.WriteLine($"phòng thử chiêu: cấp {c.Pc.Level}, thanh [{string.Join(",", game.Loadout)}]");
             yield return game.ChangeMap("human/mossvale", null, false);
             yield return new WaitForSeconds(1.5f);
+            if (mannequinRun)
+            {
+                yield return MannequinTest(game);
+                yield break;
+            }
             if (rigRun)
             {
                 // Nhân vật ghép mảnh: 10 khung/giây, mỗi bộ đồ 36 khung (đứng 8 · đi 16 · chém 16 … ) — chụp dày ở 2 lượt đầu.

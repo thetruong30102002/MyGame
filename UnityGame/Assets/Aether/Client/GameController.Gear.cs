@@ -90,6 +90,7 @@ namespace Aether.Client
         /// <summary>Món cầm lúc đứng / đi — luật ở <see cref="HeldWeapons"/>.</summary>
         private void UpdateHeld()
         {
+            if (player != null && player.View.Mannequin != null) { player.View.SetHeld(null); return; }
             if (player != null) player.View.SetHeld(HeldWeapons.Resolve(WornIds(), stance));
         }
 

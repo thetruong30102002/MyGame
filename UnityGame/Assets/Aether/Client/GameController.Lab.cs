@@ -49,7 +49,8 @@ namespace Aether.Client
             storyState["loadout"] = new JArray(loadout.ConvertAll(x => (object)x).ToArray());
             knownPrev = null;
             SyncKnownSkills(false);
-            hud.Toast("Phòng Thử chiêu: mọi nhánh mốc 10 · MP vô hạn · không chết · hồi chiêu tức thì", "info");
+            LabCharacterOptions = UI.LabCharacterPanel.Create(hud.Root, this);
+            hud.Toast("Phòng Thử chiêu: mọi nhánh mốc 10 · chọn Ngân Lam mới ở bảng Thử nhân vật", "info");
         }
 
         /// <summary>Đang ở phòng Thử chiêu (offline) — bảng Tiềm năng cho đổi lưu phái Kiếm tự do.</summary>
@@ -68,6 +69,7 @@ namespace Aether.Client
 
         private void TickLab()
         {
+            TickMannequinLab();
             // Nhân vật ghép mảnh THỬ (14/10/2026) — chủ dự án chê "quá xấu, khác hẳn bản vẽ của pixelab": TẮT, chỉ dựng khi AutoTest
             // `-aetherRig` bật cờ dưới (giữ code để tra cứu, xem commit 2be0fe82).
             if (RigThuEnabled && player != null && map != null && !changing && rigMap != map)
