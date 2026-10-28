@@ -49,7 +49,9 @@ U="/d/Unity/Editor/6000.3.26f1/Editor/Unity.exe"
 "$U" -batchmode -nographics -quit -projectPath "D:\nttrg\pixel\UnityGame" -executeMethod HavenLord.Importer.GameSetup.BuildWindowsBatch -logFile win.log
 "$U" -batchmode -nographics -quit -projectPath "D:\nttrg\pixel\UnityGame" -buildTarget Android -executeMethod HavenLord.Importer.GameSetup.BuildAndroidBatch -logFile android.log
 "$U" -batchmode -nographics -quit -projectPath "D:\truong\MyGame\UnityGame" -buildTarget WebGL -executeMethod HavenLord.Importer.GameSetup.BuildWebGLBatch -logFile webgl.log
-#   WebGL (28/10/2026): tự nhập lại từ assets/ rồi build ra Build/WebGL; chép sang apps/server/data/webgl là máy chủ phát ở /game/play/.
+#   WebGL (28/10/2026): tự nhập lại từ assets/ rồi build HAI bản: Build/WebGL (PC, ảnh BC7) và Build/WebGL-mobile (điện thoại, ảnh ASTC 6×6
+#   ≤2048px — iPhone không hiểu BC7, giải nén ra RGBA ~1,8GB thì Safari giết tab). Chép Build/WebGL → apps/server/data/webgl và
+#   Build/WebGL-mobile → apps/server/data/webgl/m: máy chủ phát /game/play/ và /game/play/m/, trang PC tự chuyển điện thoại sang m/.
 #   Mạng đi qua fetch/WebSocket trình duyệt (Net/WebGLBridge.cs + Net/Plugins/WebGL/HavenLordNet.jslib), ảnh lớn nén BC7.
 dotnet build UnityGame/Tests~/EditorCompile          # kiểm biên dịch mọi asmdef với DLL Unity thật, không cần mở Unity
 npx tsx UnityGame/Tools~/vectors-ground.mts          # vector mặt đất → Tests~/vectors/ground.json (test: Tests~/HavenLord.Data.Tests)

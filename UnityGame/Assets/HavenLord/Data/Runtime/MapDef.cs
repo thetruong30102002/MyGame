@@ -137,16 +137,38 @@ namespace HavenLord.Data
         public List<MapPlacement> dummies = new List<MapPlacement>();
         public List<MapExit> exits = new List<MapExit>();
 
-        public PropCatalog propCatalog;
         public Sprite minimap;
         public int minimapDownscale;
-        /// <summary>Prefab dựng từ map (Tilemap nền + mặt đất nướng sẵn + đồ vật).</summary>
-        public GameObject prefab;
-        /// <summary>Mặt đất nướng sẵn (ảnh vuông `groundChunkPx`, toạ độ px góc trên-trái), decal đã nướng vào đây.</summary>
-        public List<GroundChunk> groundChunks = new List<GroundChunk>();
+        /// <summary>Đường dẫn <see cref="MapArt"/> trong Resources ("MapArt/&lt;vùng&gt;/&lt;id&gt;") — prefab, mặt đất, đồ vật nạp khi cần,
+        /// không theo GameDatabase lên bộ nhớ lúc mở game.</summary>
+        public string artResource;
         public int groundChunkPx;
         /// <summary>Chữ ký dữ liệu lúc nướng — Importer so để bỏ qua nướng lại khi map không đổi.</summary>
         public string groundBakeSignature;
+
+        [NonSerialized] private MapArt art;
+        private static readonly List<GroundChunk> NoChunks = new List<GroundChunk>();
+
+        /// <summary>Phần nặng của map, nạp lần đầu cần tới (null nếu chưa nhập).</summary>
+        public MapArt Art
+        {
+            get
+            {
+                if (art == null && !string.IsNullOrEmpty(artResource)) art = Resources.Load<MapArt>(artResource);
+                return art;
+            }
+        }
+
+        /// <summary>Prefab dựng từ map (Tilemap nền + mặt đất nướng sẵn + đồ vật).</summary>
+        public GameObject prefab => Art != null ? Art.prefab : null;
+
+        /// <summary>Mặt đất nướng sẵn (ảnh vuông `groundChunkPx`, toạ độ px góc trên-trái), decal đã nướng vào đây.</summary>
+        public List<GroundChunk> groundChunks => Art != null ? Art.groundChunks : NoChunks;
+
+        public PropCatalog propCatalog => Art != null ? Art.propCatalog : null;
+
+        /// <summary>Thả phần nặng (rời map); ảnh thật sự được giải phóng ở lượt Resources.UnloadUnusedAssets kế tiếp.</summary>
+        public void ReleaseArt() => art = null;
 
         public float PixelWidth => width * tileSize;
 

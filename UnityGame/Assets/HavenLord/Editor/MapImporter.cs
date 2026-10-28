@@ -209,6 +209,9 @@ namespace HavenLord.Importer
             if (!string.IsNullOrEmpty(m.id) && m.id != id) report.Warn($"Map {file}: id \"{m.id}\" khác tên file — dùng tên file");
             var folder = $"{r.folder}/{id}";
             var def = ImportUtil.LoadOrCreate<MapDef>($"{folder}/{id}.asset");
+            // Phần nặng (prefab, mặt đất, đồ vật) ở Resources để client nạp theo map, không nạp cả thế giới lúc mở game.
+            def.artResource = $"MapArt/{r.name}/{id}";
+            var art = ImportUtil.LoadOrCreate<MapArt>($"{ImportUtil.Root}/Resources/{def.artResource}.asset");
             def.id = id;
             def.displayName = m.name;
             def.region = r.name;
@@ -246,13 +249,14 @@ namespace HavenLord.Importer
             {
                 id = e.id, to = e.to, toSpot = e.toSpot, edge = e.edge, x0 = (float)e.x0, y0 = (float)e.y0, x1 = (float)e.x1, y1 = (float)e.y1, label = e.label,
             }).ToList();
-            def.propCatalog = r.catalog;
+            art.propCatalog = r.catalog;
             foreach (var p in def.props)
                 if (r.catalog.Find(p.id)?.prefab == null) report.Warn($"Map {id}: đồ vật \"{p.id}\" không có ảnh/meta — không đặt");
 
             ImportMinimap(r, def, report);
-            BakeGround(r, def, m, report);
-            def.prefab = BuildMapPrefab(def, $"{folder}/{id}.prefab");
+            BakeGround(r, def, art, m, report);
+            art.prefab = BuildMapPrefab(def, art, $"{folder}/{id}.prefab");
+            EditorUtility.SetDirty(art);
             EditorUtility.SetDirty(def);
             report.Count("Map");
             return def;
@@ -290,11 +294,11 @@ namespace HavenLord.Importer
 
         // ---------- Mặt đất ----------
 
-        private static void BakeGround(Region r, MapDef def, MapJson m, ImportReport report)
+        private static void BakeGround(Region r, MapDef def, MapArt art, MapJson m, ImportReport report)
         {
             var folder = $"{r.folder}/{def.id}/Ground";
             var sig = ImportUtil.Sha1(JsonConvert.SerializeObject(new { BakeVersion, ChunkPx, m.tileSize, m.width, m.height, m.seed, m.biome, m.terrain, m.decals, r.propsHash }));
-            if (def.groundBakeSignature == sig && def.groundChunks.Count > 0 && def.groundChunks.All(c => c.sprite != null)) return;
+            if (def.groundBakeSignature == sig && art.groundChunks.Count > 0 && art.groundChunks.All(c => c.sprite != null)) return;
 
             int W = m.width * m.tileSize, H = m.height * m.tileSize;
             var rgba = new byte[W * H * 4];
@@ -357,7 +361,7 @@ namespace HavenLord.Importer
                     var p = AssetDatabase.GUIDToAssetPath(guid);
                     if (!keep.Contains(p)) AssetDatabase.DeleteAsset(p);
                 }
-            def.groundChunks = chunks;
+            art.groundChunks = chunks;
             def.groundChunkPx = ChunkPx;
             def.groundBakeSignature = sig;
             report.Count("Ảnh mặt đất", chunks.Count);
@@ -409,7 +413,7 @@ namespace HavenLord.Importer
 
         // ---------- Prefab ----------
 
-        private static GameObject BuildMapPrefab(MapDef def, string path)
+        private static GameObject BuildMapPrefab(MapDef def, MapArt art, string path)
         {
             var root = new GameObject(def.id);
             try
@@ -442,7 +446,7 @@ namespace HavenLord.Importer
 
                 var ground = new GameObject("Ground");
                 ground.transform.SetParent(root.transform, false);
-                foreach (var c in def.groundChunks)
+                foreach (var c in art.groundChunks)
                 {
                     if (c.sprite == null) continue;
                     var go = new GameObject($"ground_{c.ox / Math.Max(1, def.groundChunkPx)}_{c.oy / Math.Max(1, def.groundChunkPx)}");
@@ -457,7 +461,7 @@ namespace HavenLord.Importer
                 props.transform.SetParent(root.transform, false);
                 foreach (var p in def.props)
                 {
-                    var prefab = def.propCatalog != null ? def.propCatalog.Find(p.id)?.prefab : null;
+                    var prefab = art.propCatalog != null ? art.propCatalog.Find(p.id)?.prefab : null;
                     if (prefab == null) continue;
                     var go = (GameObject)PrefabUtility.InstantiatePrefab(prefab, props.transform);
                     go.transform.localPosition = WorldCoords.PxToWorld(p.x, p.y);

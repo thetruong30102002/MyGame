@@ -41,7 +41,10 @@ namespace HavenLord.Importer
         private static void BuildIosMenu() => BuildIos();
 
         [MenuItem("Haven Lord/Build WebGL (chơi trên trình duyệt)", priority = 43)]
-        private static void BuildWebGLMenu() => BuildWebGL();
+        private static void BuildWebGLMenu()
+        {
+            if (BuildWebGL()) BuildWebGLMobile();
+        }
 
         public static void SetupBatch() => Batch(Setup);
 
@@ -76,9 +79,11 @@ namespace HavenLord.Importer
         /// cho ảnh nén BC7 ngay lần nhập đầu, khỏi nhập hai lần.</summary>
         public static void BuildWebGLBatch() => Batch(() =>
         {
+            SpriteSheetImport.SetWebGLMobile(false);
             PipelineImportMenu.Run(PipelineImportMenu.SourceDir, false);
             Setup();
             if (!BuildWebGL()) throw new Exception("Build WebGL lỗi");
+            if (!BuildWebGLMobile()) throw new Exception("Build WebGL điện thoại lỗi");
         });
 
         private static void Batch(Action a)
@@ -240,8 +245,28 @@ namespace HavenLord.Importer
         /// Bản chơi trên trình duyệt (chủ dự án 28/10/2026), máy chủ game phát ở /game/play/ (apps/server/src/play.ts). Mạng đi qua
         /// fetch / WebSocket của trình duyệt (Net/WebGLBridge.cs). Nén gzip sẵn — máy chủ gửi kèm Content-Encoding nên không cần giải nén
         /// bằng JS; tên file theo mã băm để bản mới không dính đệm cũ. Ảnh lớn nén BC7 (SpriteSheetImport), trần bộ nhớ 4GB.
+        /// Bản điện thoại riêng: <see cref="BuildWebGLMobile"/>.
         /// </summary>
-        public static bool BuildWebGL()
+        public static bool BuildWebGL() => BuildWebGL(false);
+
+        /// <summary>
+        /// Bản WebGL cho điện thoại → Build/WebGL-mobile, máy chủ phát ở /game/play/m/ (trang PC tự chuyển sang khi GPU hiểu ASTC mà không hiểu
+        /// BC7). Ảnh ASTC 6×6 tối đa 2048px, trần bộ nhớ 2GB. Xong thì trả ảnh về chế độ PC.
+        /// </summary>
+        public static bool BuildWebGLMobile()
+        {
+            try
+            {
+                SpriteSheetImport.SetWebGLMobile(true);
+                return BuildWebGL(true);
+            }
+            finally
+            {
+                SpriteSheetImport.SetWebGLMobile(false);
+            }
+        }
+
+        private static bool BuildWebGL(bool mobile)
         {
             PlayerSettings.SetManagedStrippingLevel(UnityEditor.Build.NamedBuildTarget.WebGL, ManagedStrippingLevel.Minimal);
             PlayerSettings.WebGL.compressionFormat = WebGLCompressionFormat.Gzip;
@@ -249,10 +274,10 @@ namespace HavenLord.Importer
             PlayerSettings.WebGL.nameFilesAsHashes = true;
             PlayerSettings.WebGL.dataCaching = true;
             PlayerSettings.WebGL.exceptionSupport = WebGLExceptionSupport.ExplicitlyThrownExceptionsOnly;
-            PlayerSettings.WebGL.maximumMemorySize = 4096;
+            PlayerSettings.WebGL.maximumMemorySize = mobile ? 2048 : 4096;
             // Assets/WebGLTemplates/HavenLord: khung game phủ kín cửa sổ, thanh tải tiếng Việt.
             PlayerSettings.WebGL.template = "PROJECT:HavenLord";
-            return Build(BuildTarget.WebGL, Path.Combine(BuildDir, "WebGL"));
+            return Build(BuildTarget.WebGL, Path.Combine(BuildDir, mobile ? "WebGL-mobile" : "WebGL"));
         }
 
         /// <summary>Windows không ra được .ipa: xuất project Xcode, máy Mac mở `Unity-iPhone.xcodeproj` rồi Archive → .ipa.</summary>
@@ -295,7 +320,7 @@ namespace HavenLord.Importer
             var s = report.summary;
             Debug.Log($"[HavenLord build] {target}: {s.result}, {s.totalSize / 1048576f:0.0} MB, {s.totalTime.TotalSeconds:0}s, lỗi {s.totalErrors}, bản {build} → {output}");
             if (s.result != BuildResult.Succeeded) return false;
-            var platform = target == BuildTarget.Android ? "android" : target == BuildTarget.iOS ? "ios" : target == BuildTarget.WebGL ? "webgl" : "windows";
+            var platform = target == BuildTarget.Android ? "android" : target == BuildTarget.iOS ? "ios" : target == BuildTarget.WebGL ? (SpriteSheetImport.WebGLMobile ? "webgl-mobile" : "webgl") : "windows";
             File.WriteAllText(Path.Combine(BuildDir, platform + ".build.json"),
                 $"{{\"build\": {build}, \"version\": \"{DateTime.Now:yyyy.MM.dd-HHmm}\", \"output\": \"{output.Replace('\\', '/')}\"}}\n");
             return true;

@@ -2,6 +2,7 @@
 //   GET /play            → chuyển sang /play/ (đường dẫn tương đối Build/…, TemplateData/… mới đúng)
 //   GET /play/           → index.html của bản build
 //   GET /play/<file>     → file trong thư mục bản WebGL (mặc định data/webgl, đổi bằng HAVENLORD_PLAY_DIR)
+//   GET /play/m/         → bản điện thoại (ảnh ASTC nhẹ) ở data/webgl/m — trang PC tự chuyển sang khi là điện thoại
 // Unity nén sẵn gzip (`*.gz`): gửi kèm Content-Encoding để trình duyệt tự giải nén, Content-Type theo đuôi gốc, và X-Decoded-Length = cỡ sau
 // giải nén (trình duyệt đếm byte đã giải nén) để màn tải hiện đúng "đã tải / tổng MB".
 import { closeSync, createReadStream, existsSync, openSync, readSync, statSync } from 'node:fs';
@@ -41,11 +42,19 @@ export function sendPlay(rawPath: string, path: string, res: ServerResponse, req
 		return true;
 	}
 	if (!path.startsWith('/play/')) return false;
-	const rel = decodeURIComponent(path.slice('/play/'.length)) || 'index.html';
+	let rel = decodeURIComponent(path.slice('/play/'.length));
+	// Thư mục (bản điện thoại m/): thiếu gạch chéo cuối thì chuyển, có thì gửi index.html bên trong.
+	const dir = resolve(PLAY_DIR, rel);
+	if (rel && !rel.endsWith('/') && dir.startsWith(PLAY_DIR + sep) && existsSync(dir) && statSync(dir).isDirectory()) {
+		res.writeHead(301, { Location: rawPath + '/' }).end();
+		return true;
+	}
+	if (rel === '' || rel.endsWith('/')) rel += 'index.html';
 	const p = resolve(PLAY_DIR, rel);
 	if (!p.startsWith(PLAY_DIR + sep) || !existsSync(p) || !statSync(p).isFile()) {
-		if (rel === 'index.html') res.writeHead(503, { 'Content-Type': 'text/plain; charset=utf-8' }).end('Bản chơi trên web chưa được phát.');
-		return rel === 'index.html';
+		const index = rel.endsWith('index.html');
+		if (index) res.writeHead(503, { 'Content-Type': 'text/plain; charset=utf-8' }).end('Bản chơi trên web chưa được phát.');
+		return index;
 	}
 	const gz = p.endsWith('.gz');
 	const type = TYPES[extname(gz ? p.slice(0, -3) : p).toLowerCase()];

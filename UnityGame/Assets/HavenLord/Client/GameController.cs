@@ -645,6 +645,7 @@ namespace HavenLord.Client
                     yield break;
                 }
                 combat.Interrupt();
+                var oldDef = map != null ? map.def : null;
                 if (map != null) Destroy(map.gameObject);
                 region = idx;
                 var go = Instantiate(entry.map.prefab);
@@ -671,6 +672,12 @@ namespace HavenLord.Client
                 netMobs.Clear();
                 focus = null;
                 database.ReleaseCharacters(new[] { playerCharacter });
+                // Thả ảnh map cũ (MapArt) — nhất là bản WebGL điện thoại, giữ ảnh nhiều map là Safari giết tab.
+                if (oldDef != null && oldDef != map.def)
+                {
+                    oldDef.ReleaseArt();
+                    StartCoroutine(UnloadUnusedNextFrame());
+                }
                 population.Populate(map.def, region.region, age, online != null);
                 areaName = map.def.AreaAt(at.x, at.y);
                 PvpHere = !SafeMaps().Contains(idx.region + "/" + mapId);
@@ -696,6 +703,13 @@ namespace HavenLord.Client
         {
             yield return null;
             StartCoroutine(ChangeMap(region.start, null, true));
+        }
+
+        /// <summary>Đợi map cũ bị Destroy xong (cuối khung) rồi mới dọn ảnh không còn ai dùng.</summary>
+        private IEnumerator UnloadUnusedNextFrame()
+        {
+            yield return null;
+            Resources.UnloadUnusedAssets();
         }
 
         private HashSet<string> safeMaps;

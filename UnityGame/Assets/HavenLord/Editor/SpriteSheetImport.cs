@@ -30,6 +30,44 @@ namespace HavenLord.Importer
     /// <summary>Đặt TextureImporter + cắt sprite bằng ISpriteEditorDataProvider (API Sprite Editor của Unity 6, thay spritesheet cũ).</summary>
     internal static class SpriteSheetImport
     {
+        /// <summary>
+        /// Bản WebGL cho điện thoại (chủ dự án 28/10/2026: iPhone tải xong lại tự tải lại trang): GPU điện thoại không hiểu BC7 nên Unity giải nén
+        /// ảnh về RGBA (~1,8GB) và Safari giết tab. Bật cờ này thì ảnh lớn cho WebGL nén ASTC 6×6 (3,56 bit/px, iPhone / Android đọc thẳng)
+        /// và tối đa 2048px. Đổi cờ bằng <see cref="SetWebGLMobile"/> để áp lại cho mọi ảnh đã nhập.
+        /// </summary>
+        public static bool WebGLMobile { get; private set; }
+
+        private const int WebGLMobileMaxSize = 2048;
+
+        private static bool CompressWebGL(TextureImporter ti, bool big, int maxSize) => WebGLMobile
+            ? Compress(ti, "WebGL", big ? TextureImporterFormat.ASTC_6x6 : TextureImporterFormat.RGBA32, big, Math.Min(maxSize, WebGLMobileMaxSize))
+            : Compress(ti, "WebGL", big ? TextureImporterFormat.BC7 : TextureImporterFormat.RGBA32, big, maxSize);
+
+        /// <summary>Đổi chế độ ảnh WebGL (PC BC7 ↔ điện thoại ASTC) cho mọi ảnh trong Imported; cỡ gốc và ảnh lớn/nhỏ đọc lại từ mục Android.</summary>
+        public static void SetWebGLMobile(bool mobile)
+        {
+            WebGLMobile = mobile;
+            var changed = new List<TextureImporter>();
+            foreach (var guid in AssetDatabase.FindAssets("t:Texture2D", new[] { ImportUtil.Root }))
+            {
+                if (!(AssetImporter.GetAtPath(AssetDatabase.GUIDToAssetPath(guid)) is TextureImporter ti)) continue;
+                var android = ti.GetPlatformTextureSettings("Android");
+                if (!android.overridden) continue;
+                if (CompressWebGL(ti, android.format == TextureImporterFormat.ASTC_4x4, android.maxTextureSize)) changed.Add(ti);
+            }
+            if (changed.Count == 0) return;
+            AssetDatabase.StartAssetEditing();
+            try
+            {
+                foreach (var ti in changed) ti.SaveAndReimport();
+            }
+            finally
+            {
+                AssetDatabase.StopAssetEditing();
+            }
+            Debug.Log($"[HavenLord] Ảnh WebGL chế độ {(mobile ? "điện thoại (ASTC 6×6, ≤2048px)" : "PC (BC7)")}: nhập lại {changed.Count} ảnh");
+        }
+
         public static void Apply(string assetPath, TextureSpec spec, IList<SliceRect> slices)
         {
             var ti = AssetImporter.GetAtPath(assetPath) as TextureImporter;
@@ -79,11 +117,11 @@ namespace HavenLord.Importer
             Set(ti.maxTextureSize, spec.maxSize, v => ti.maxTextureSize = v);
 
             // Android: ảnh lớn (atlas nhân vật ~4096² ≈ 64MB không nén) nén ASTC 4×4 (8 bit/px, giữ nét pixel) cho đỡ RAM máy;
-            // ảnh nhỏ giữ không nén. WebGL tương tự nhưng BC7 (cùng 8 bit/px, trình duyệt máy tính hỗ trợ; thiếu thì Unity tự giải nén).
-            // PC không đổi.
+            // ảnh nhỏ giữ không nén. WebGL tương tự nhưng BC7 (cùng 8 bit/px, trình duyệt máy tính hỗ trợ; thiếu thì Unity tự giải nén),
+            // bản điện thoại ASTC 6×6 (WebGLMobile). PC không đổi.
             var big = spec.maxSize >= 1024;
             changed |= Compress(ti, "Android", big ? TextureImporterFormat.ASTC_4x4 : TextureImporterFormat.RGBA32, big, spec.maxSize);
-            changed |= Compress(ti, "WebGL", big ? TextureImporterFormat.BC7 : TextureImporterFormat.RGBA32, big, spec.maxSize);
+            changed |= CompressWebGL(ti, big, spec.maxSize);
 
             var s = new TextureImporterSettings();
             ti.ReadTextureSettings(s);
