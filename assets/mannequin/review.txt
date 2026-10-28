@@ -1,4 +1,0 @@
-player_hero_adult: 24 chuỗi, 160 pose; neo tay và ranh đầu CHƯA duyệt thủ công.
-player_hero_adult_f: 24 chuỗi, 160 pose; neo tay và ranh đầu CHƯA duyệt thủ công.
-Bộ Dạ Ngân cũ đã loại khỏi catalog; sprite đứng mới ở rework/ chưa đủ hướng chéo/đi/đánh.
-NGUỒN attack-hand2/east của nam đổi dáng về phía Nam giữa chuỗi: chưa đạt duyệt hướng.

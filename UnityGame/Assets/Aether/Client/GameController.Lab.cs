@@ -58,26 +58,8 @@ namespace Aether.Client
 
 
         /// <summary>Mỗi khung trong phòng Thử chiêu: đầy máu / MP, xoá hồi chiêu.</summary>
-        /// <summary>Bật nhân vật ghép mảnh thử nghiệm (chỉ AutoTest `-aetherRig`).</summary>
-        public static bool RigThuEnabled;
-
-        private RigThu rigThu;
-        private MapInstance rigMap;
-
-        /// <summary>Nhân vật ghép mảnh thử nghiệm đứng cạnh người chơi trong phòng Thử chiêu (null khi chưa dựng).</summary>
-        public RigThu RigThu => rigThu;
-
         private void TickLab()
         {
-            TickMannequinLab();
-            // Nhân vật ghép mảnh THỬ (14/10/2026) — chủ dự án chê "quá xấu, khác hẳn bản vẽ của pixelab": TẮT, chỉ dựng khi AutoTest
-            // `-aetherRig` bật cờ dưới (giữ code để tra cứu, xem commit 2be0fe82).
-            if (RigThuEnabled && player != null && map != null && !changing && rigMap != map)
-            {
-                if (rigThu != null) Destroy(rigThu.gameObject);
-                rigThu = RigThu.Spawn(entities, player.transform.position + new Vector3(90f / WorldCoords.PixelsPerUnit, 0, 0));
-                rigMap = map;
-            }
             var pc = combat.Pc;
             pc.Mp = pc.MpMax;
             if (pc.Hp < pc.HpMax) pc.Hp = pc.HpMax;

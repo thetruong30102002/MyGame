@@ -1,7 +1,0 @@
-{
-  "tool": "built-in image_gen",
-  "prompt": "Edit the FIRST image, the exact 2 by 2 sheet of four rear-left-facing swordsman poses. The SECOND image shows the immediately preceding four attack phases; its bottom-right cell is the impact pose to continue. Fix ONLY the TOP-LEFT pose in the first image (phase8). It currently lifts the blade up-left too early. Redraw its arms/sword into a LOW FOLLOW-THROUGH continuous from that previous impact: both hands firmly clasp the same hilt in front of the lower torso, elbows connected naturally, blade extending DOWN-LEFT below hand level. Keep the same rear three-quarter LEFT-facing torso/head, same crouched leg stance, same skull/face/hair dimensions and exact detailed pixel style. The sword tip must be lower than the hands, not pointing upward. Maintain its original full-figure size, original cell center and feet baseline. Preserve all other three cells exactly: phase9 recovery may lift sword, phases10/11 are idle. Do not move/recompose the sheet or change camera scale, outfit, anatomy, hair, palette, lighting or fine pixel details. No new facial expression, no front-facing body, no new costume or large collar button. All elements are one continuous figure with a rigid straight steel sword naturally held inside the gloved hands. Transparent background, sharp opaque pixel clusters, no blur/effects/text/shadow. Only top-left motion correction.",
-  "input": "references/NW-poses8-11.png",
-  "output": "raw/NW-2-r2.png",
-  "consumedOnly": "cell 0 → attack-NW-8"
-}

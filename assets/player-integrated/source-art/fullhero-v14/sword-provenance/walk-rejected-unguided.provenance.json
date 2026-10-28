@@ -1,9 +1,0 @@
-{
-  "tool": "builtin image_gen",
-  "promptFile": "walk.prompt.txt",
-  "reference": "../master-sword-reference.png",
-  "generatedOriginal": "C:/Users/thetr/.codex/generated_images/01a167e6-b5df-7072-9dac-6aaa4b029c43/exec-02e70d35-70df-421e-8441-255192c7a644.png",
-  "projectCopy": "walk-rejected-unguided.png",
-  "status": "rejected",
-  "reason": "East row keeps similar leading leg across most frames; front row switches sword to opposite hand on some frames. Requires exact pose guide redraw. Do not consume as final walking source."
-}

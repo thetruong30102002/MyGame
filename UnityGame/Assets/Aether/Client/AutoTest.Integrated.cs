@@ -13,7 +13,7 @@ namespace Aether.Client
         {
             if (view?.Def == null || (view.Def.id != GameController.IntegratedCharacterId && PlayerRoster.Find(view.Def.id) == null) || view.Renderer.sprite == null)
             { Fail("Nhân vật Lữ khách mới chưa là mặc định"); return false; }
-            if (view.Mannequin != null || view.GetComponent<MannequinView>() != null || view.GetComponentsInChildren<SpriteRenderer>(true).Length != 1)
+            if (view.GetComponentsInChildren<SpriteRenderer>(true).Length != 1)
             { Fail("Nhân vật hoàn chỉnh vẫn ghép đầu / tóc / đồ / vũ khí rời"); return false; }
             var sprite = view.Renderer.sprite;
             if (sprite.pixelsPerUnit != 48 || view.Def.frameSize != new Vector2Int(144, 144)

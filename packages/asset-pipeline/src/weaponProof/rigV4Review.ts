@@ -1,4 +1,0 @@
-import {readFileSync} from 'node:fs';import {join,resolve} from 'node:path';import {readPng,writePng,createImage,crop,blit,scaleNearest} from '../image/rgba.js';import {DIRECTIONS} from './rigV4Core.js';
-const root=resolve(import.meta.dirname,'../../../..'),stage=join(root,'.aether-stage/player-rig-v4'),c=JSON.parse(readFileSync(join(root,'packages/asset-pipeline/sources/player-rig-v4/runtime-catalog.json'),'utf8'));
-for(const t of c.tiers)for(const g of ['male','female'])for(const[action,n]of [['idle',0],['walk',2],['run',3],['attack',6],['attack',8]]as const){const board=createImage(152*4,216*2);for(const[i,d]of DIRECTIONS.entries()){const im=readPng(join(stage,'frames',t.id,g,d,action,n+'-assembled.png'));blit(board,crop(im,68,64,152,216),i%4*152,Math.floor(i/4)*216);}writePng(join(stage,'review',t.id+'-'+g+'-'+action+n+'-eight-2x.png'),scaleNearest(board,2));}
-console.log('Đã xuất30 bảng8 hướng, giữ pixel nguyên; hàng S/SW/W/NW rồi N/NE/E/SE.');

@@ -44,11 +44,10 @@ namespace Aether.Client
         /// <summary>Mặc món <paramref name="uid"/> trong túi vào ô hợp với nó (ô trống trước). false + thông báo lý do nếu không mặc được.</summary>
         public bool EquipFromBag(string uid)
         {
-            if (mannequin != null && LabCharacterBusy) return false;
             var it = gear.Bag.Find(x => x.Uid == uid);
             var def = it != null ? equipment.ItemDef(it.Id) : null;
             if (def == null || def.Kind != "equip") return false;
-            // Vũ khí mannequin dùng ô chính để hình cầm và kỹ năng khớp với món đang mặc.
+            // Kiếm Nguyệt Thạch / trượng Aether luôn vào ô chính để hình cầm và kỹ năng khớp với món đang mặc.
             var slot = it.Id == "moonsteel_sword" || it.Id == "aether_staff"
                 ? "main" : equipment.AutoSlot(def.Equip, gear.Equip);
             var r = equipment.EquipItem(gear, uid, slot, combat.Pc.Level, age);
@@ -65,7 +64,6 @@ namespace Aether.Client
 
         public bool Unequip(string slot)
         {
-            if (mannequin != null && LabCharacterBusy) return false;
             var r = equipment.UnequipItem(gear, slot);
             if (!r.Ok)
             {
@@ -81,12 +79,8 @@ namespace Aether.Client
         private void ApplyGear()
         {
             combat.SetGear(equipment.GearBonus(gear));
-            SyncSwordWardrobeGear();
-            SyncMannequinGear();
             UpdateHeld();
             SendGearView();
-            if (mannequin != null && hud?.Panels != null && hud.Panels.Current == UI.Panels.Kind.Character)
-                hud.Panels.Show(UI.Panels.Kind.Character);
         }
 
         private IEnumerable<string> WornIds()
@@ -99,7 +93,6 @@ namespace Aether.Client
         /// <summary>Món cầm lúc đứng / đi — luật ở <see cref="HeldWeapons"/>.</summary>
         private void UpdateHeld()
         {
-            if (player != null && player.View.Mannequin != null) { SyncMannequinGear(); player.View.SetHeld(null); return; }
             if (player != null) player.View.SetHeld(HeldWeapons.Resolve(WornIds(), stance), stance);
         }
 

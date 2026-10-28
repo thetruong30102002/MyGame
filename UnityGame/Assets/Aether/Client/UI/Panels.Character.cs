@@ -17,7 +17,6 @@ namespace Aether.Client.UI
 
         private Dir8 heroDir = Dir8.S;
         private UiSpriteAnim heroAnim;
-        private int paperdollScale = 2;
 
         /// <summary>
         /// Tab Nhân vật GỘP Túi đồ (chủ dự án 11/10/2026: "túi đồ và nhân vật nên để thành 1 tab thôi"): trái = người + 10 ô đang mặc + Lực
@@ -137,7 +136,6 @@ namespace Aether.Client.UI
         /// </summary>
         private void Paperdoll(RectTransform box, Vector2 feet, int scale, float slotSize, float step, float top, float side, bool compact)
         {
-            paperdollScale = scale;
             var glowSize = Mathf.Min(240, 120 * scale);
             var glow = UiKit.Rect(box, "Glow", new Vector2(0.5f, 1), new Vector2(0.5f, 0.5f), feet + new Vector2(0, 40 * scale), new Vector2(glowSize, glowSize));
             UiWidgets.Radial(glow, new Color(1, 0.78f, 0.4f, 0.12f));
@@ -182,11 +180,6 @@ namespace Aether.Client.UI
 
         private void ShowHero()
         {
-            if(game.SwordWardrobeActive)
-            {
-                heroAnim.enabled=false;var projection=heroAnim.GetComponent<SwordWardrobePaperdoll>()??heroAnim.gameObject.AddComponent<SwordWardrobePaperdoll>();projection.Show(game.SwordWardrobe,heroDir,paperdollScale*.5f);return;
-            }
-            heroAnim.GetComponent<SwordWardrobePaperdoll>()?.Hide();heroAnim.enabled=true;heroAnim.GetComponent<Image>().color=Color.white;
             heroAnim.GetComponent<Image>().enabled = true;
             var def = game.Player != null ? game.Player.View.Def : null;
             if (def == null || heroAnim == null) return;

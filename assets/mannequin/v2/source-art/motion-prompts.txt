@@ -1,9 +1,0 @@
-22/10/2026 — ImageGen, nền trong suốt, tham chiếu warden-sheet.png.
-
-warden-walk-frames.png: 8 cột theo thứ tự S SW W NW N NE E SE; 4 hàng là bốn pha bước chân liên tiếp. Giữ Ngân Lam tóc bạc, áo xanh đậm/choàng trắng/dải vải xanh ngọc, cùng tỷ lệ và chân; bàn tay cầm chuôi rõ ràng nhưng không vẽ kiếm vào thân để vũ khí vẫn là lớp riêng.
-
-warden-attack-frames.png: Cùng nhân vật và thứ tự 8 hướng; 4 hàng là lấy đà, chuyển trọng tâm, chém ra và thu tay. Tay cầm kiếm rõ; không vẽ kiếm vào body. Chân và trang phục nhất quán, nền trong suốt.
-
-warden-cast-frames.png: Cùng nhân vật và thứ tự 8 hướng; 4 hàng là tụ lực trước ngực, ngắm, phóng từ lòng bàn tay, hồi thế. Không vẽ trượng hoặc chưởng rời vào body. Nền trong suốt.
-
-Nguồn ảnh do ImageGen trả về 1774 × 887. Pipeline dùng các dải y riêng cho từng sheet và chuyển về ô game 112 × 112 bằng nearest-neighbor, alpha cứng; không ghép lưỡi kiếm vào body.

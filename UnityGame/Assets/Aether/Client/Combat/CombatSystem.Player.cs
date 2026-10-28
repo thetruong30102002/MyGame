@@ -122,9 +122,6 @@ namespace Aether.Client.Combat
         private string MoveOf(SkillDef skill, Dir8 dir)
         {
             if (string.IsNullOrEmpty(skill.Anim)) return null;
-            var mannequin = Player.View.Mannequin;
-            if (mannequin != null && skill.Id == mannequin.SelectedWeapon.skill)
-                return mannequin.BasicAction(skill.Id, skill.Anim, dir);
             skillMove.TryGetValue(skill.Id, out var move);
             if (skill.Id == "slash" && slashCombo.Length > 0)
             {

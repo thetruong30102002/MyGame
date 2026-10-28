@@ -1,9 +1,0 @@
-{
-  "artApproved": false,
-  "releaseApproved": false,
-  "pilot": "walk-sword-E-pilot01.png",
-  "pilotRejected": "Leg contacts repeat and head proportions are not reliably locked to idle.",
-  "headFitRejected": "Gray-cluster fitting proposes enlarging some movement sheets by 7-19%; hair color clusters are not a safe measure of full head outline. These results must never be assembled for release.",
-  "pointSampling": "Added explicit nearest sampling option to native trace renderer. It avoids an extra interpolation pass but does not repair inconsistent source anatomy.",
-  "nextRequired": "Redraw full motion poses against fixed original head/shoulder/waist landmarks, validate full silhouette at native resolution before any build."
-}

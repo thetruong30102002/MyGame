@@ -1,7 +1,0 @@
-{
-  "file": "player_staff_m01-walk-five.png",
-  "accepted": false,
-  "includedInUsableAnimations": false,
-  "reason": "Five-direction packed-sheet pilot failed facing invariants: southeast looks frontward; east faces left; northeast and north are insufficiently distinct. Actor count alone is not a motion-quality gate.",
-  "nextApproach": "Author each direction separately against its exact character master, as in the approved V17 pipeline. Do not reuse the pilot as a ready walk animation."
-}

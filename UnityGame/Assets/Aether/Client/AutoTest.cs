@@ -23,17 +23,13 @@ namespace Aether.Client
         private bool tour;
         /// <summary>-aetherLab [-aetherLabStyle thuy_than|bac_than]: vào phòng Thử chiêu, đứng cách quái 260px tung từng tuyệt kỹ (+ chiêu mốc 8 lưu phái), chụp + ghi mục tiêu / quái trúng.</summary>
         private bool lab;
-        /// <summary>-aetherLab -aetherRig: chỉ chụp nhân vật ghép mảnh thử nghiệm (RigThu) rồi thoát.</summary>
-        private bool rigRun;
-        private bool mannequinRun;
+        /// <summary>-aetherIntegrated: kiểm nhân vật liền thân trong phòng Thử chiêu (cầm kiếm / trượng, 8 hướng, đòn thử).</summary>
+        private bool integratedRun;
         private bool social;
         private bool storyRun;
         private bool adminRun;
         private bool uiRun;
         private bool rosterRun;
-        private bool swordTrialRun;
-        private bool playerRigRun;
-        private bool swordWardrobeRun;
         /// <summary>-aetherWeather: mỗi vùng chụp trạm (đứng cạnh cột dịch chuyển `rune_stone`) + một map săn — kiểm thời tiết theo vùng.</summary>
         private bool weatherRun;
         private string loginUser, loginPass;
@@ -61,14 +57,7 @@ namespace Aether.Client
                 }
                 t.tour = Array.IndexOf(args, "-aetherTour") >= 0;
                 t.lab = Array.IndexOf(args, "-aetherLab") >= 0;
-                t.swordTrialRun = Array.IndexOf(args, "-aetherSwordTrial") >= 0;
-                if (t.swordTrialRun) t.lab = true;
-                t.playerRigRun = Array.IndexOf(args, "-aetherPlayerRigV3") >= 0;
-                t.swordWardrobeRun=Array.IndexOf(args,"-aetherSwordWardrobeV4")>=0;
-                if (t.playerRigRun||t.swordWardrobeRun) t.lab = true;
-                t.rigRun = Array.IndexOf(args, "-aetherRig") >= 0;
-                t.mannequinRun = Array.IndexOf(args, "-aetherIntegrated") >= 0 || Array.IndexOf(args, "-aetherMannequin") >= 0;
-                GameController.RigThuEnabled = t.rigRun;
+                t.integratedRun = Array.IndexOf(args, "-aetherIntegrated") >= 0;
                 t.social = Array.IndexOf(args, "-aetherSocial") >= 0;
                 t.storyRun = Array.IndexOf(args, "-aetherStory") >= 0;
                 t.adminRun = Array.IndexOf(args, "-aetherAdmin") >= 0;
@@ -135,22 +124,6 @@ namespace Aether.Client
             yield return new WaitForSeconds(2.5f);
             if (game == null || game.Player == null) { Fail("Không nạp được nhân vật mặc định mới"); yield break; }
             if (!VerifyCompleteCharacter(game.Player.View)) yield break;
-            if(swordWardrobeRun)
-            {
-                yield return SwordWardrobeTest(game);if(failed)yield break;log.WriteLine("xong");log.Close();Application.Quit(0);yield break;
-            }
-            if(playerRigRun)
-            {
-                yield return PlayerRigTest(game);
-                if(failed)yield break;
-                log.WriteLine("xong");log.Close();Application.Quit(0);yield break;
-            }
-            if (swordTrialRun)
-            {
-                yield return SwordTrialTest(game);
-                if (failed) yield break;
-                log.WriteLine("xong"); log.Close(); Application.Quit(0); yield break;
-            }
             if (rosterRun)
             {
                 yield return RosterTest(game);
@@ -337,20 +310,9 @@ namespace Aether.Client
             log.WriteLine($"phòng thử chiêu: cấp {c.Pc.Level}, thanh [{string.Join(",", game.Loadout)}]");
             yield return game.ChangeMap("human/mossvale", null, false);
             yield return new WaitForSeconds(1.5f);
-            if (mannequinRun)
+            if (integratedRun)
             {
                 yield return IntegratedCharacterTest(game);
-                yield break;
-            }
-            if (rigRun)
-            {
-                // Nhân vật ghép mảnh: 10 khung/giây, mỗi bộ đồ 36 khung (đứng 8 · đi 16 · chém 16 … ) — chụp dày ở 2 lượt đầu.
-                for (var i = 0; i < 26; i += 1)
-                {
-                    yield return new WaitForSeconds(0.23f);
-                    log.WriteLine($"ghép mảnh {i}: {game.RigThu?.Caption ?? "CHƯA DỰNG"}");
-                    yield return Shot($"rig-{i:00}");
-                }
                 yield break;
             }
             Aether.Client.Combat.Fighter target = null;

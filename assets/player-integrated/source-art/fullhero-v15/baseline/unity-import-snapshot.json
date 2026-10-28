@@ -1,7 +1,0 @@
-{
-  "sourceAtlasSha256": "40dce78a1230d0ef0a1cd9dbf43992aa75febd7812f1b43a71eda757b1920153",
-  "sourceProofSha256": "913784058d71c2b0f26fecf7bb4814fa2c6512a14a0d3ba0f6fcff2a84815fbc",
-  "releaseReceiptCharacterSha256": "913784058d71c2b0f26fecf7bb4814fa2c6512a14a0d3ba0f6fcff2a84815fbc",
-  "unityMarkedSha256": "55f100fcd852dc3b7c8f23026dec2abcc8be88d800732a5e8aa636a087326e14",
-  "explanation": "Imported PNG is Watermark.Mark output; source and imported differ only blue channel LSB at opaque pixels. No secret key read."
-}

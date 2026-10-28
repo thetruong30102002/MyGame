@@ -1,9 +1,0 @@
-{
-  "attack-E-7": {"bladeSearch": [174, 210, 288, 288], "reason": "Dò nhầm viền áo choàng; lấy riêng vùng lưỡi ngoài bàn tay."},
-  "attack-E-8": {"bladeSearch": [176, 203, 288, 288], "reason": "Dò nhầm giáp/cổ; lấy vùng lưỡi đang bổ xuống."},
-  "attack-E-9": {"bladeSearch": [171, 195, 288, 288], "reason": "Dò nhầm cổ áo; lưỡi nằm ngoài bàn tay phía dưới phải."},
-  "attack-SE-8": {"bladeSearch": [191, 198, 288, 288], "reason": "Dò nhầm viền áo choàng; tách đúng lưỡi ngoài tay."},
-  "attack-SE-9": {"bladeSearch": [171, 191, 288, 288], "reason": "Dò nhầm viền áo; khôi phục điểm nắm thật ở bàn tay."},
-  "attack-SW-2": {"grip": [111, 147], "tip": [192, 66], "behindBody": true, "bladeHiddenInterval": [10, 35], "reason": "Chuôi ở hai bàn tay cạnh mặt; đoạn giữa lưỡi bị đầu/tóc che. Không dùng chân đoạn lưỡi trên tóc làm điểm nắm."},
-  "attack-W-2": {"grip": [107, 147], "tip": [180, 73], "behindBody": true, "bladeHiddenInterval": [10, 35], "reason": "Kiếm đi sau đầu; khôi phục trục từ bàn tay tới mũi, giữ nguyên tóc ở đoạn bị khuất."}
-}
