@@ -44,6 +44,23 @@ năng xem nhà người khác chứ không thao tác được."
 - Xây công trình chức năng tốn **gỗ, đá, sắt** — lấy từ khai thác ở các vùng (chặt cây, đập đá: nút E ở điểm khai thác trên
   map săn, hồi sau vài phút) + rơi từ quái.
 
+### 2.1b Bên trong nhà — các phòng (chốt 28/10/2026)
+
+Nhà có **bên ngoài** (khuôn viên, sân vườn, công trình) và **bên trong** (vào cửa nhà chính sang map trong nhà). Bên trong chia phòng, mở thêm theo cấp nhà; chủ nhà đặt / xoay / cất nội thất và đồ trang trí từng phòng như ngoài sân; bạn bè vào xem được cả trong nhà, không thao tác.
+
+| Cấp nhà | Phòng mở thêm |
+|---|---|
+| 1 | Phòng khách kiêm phòng ngủ |
+| 2 | Bếp |
+| 3 | Phòng ngủ riêng, kho |
+| 4 | Phòng trưng bày (châu báu, đồ mê cung) |
+| 5 | Tầng 2 hoặc sân thượng |
+
+- Tường / sàn / cửa / cửa sổ / cầu thang theo 3 phong cách (gỗ, đá, sang); khung phòng do code ghép từ bộ tường – sàn, không vẽ nguyên phòng.
+- Nội thất theo phòng (giường, tủ, bàn ghế, sofa, lò sưởi, kệ sách, bếp lò, tủ kính, bệ tượng…) và đồ treo tường / đồ nhỏ (tranh, đồng hồ, cờ, bình hoa, nến, chậu cây, thảm). Món xoay được vẽ thêm hướng, không xoay ảnh pixel bằng code.
+- Động tác trong nhà (ngồi ghế, nằm giường) là tuỳ chọn, vẽ trên thân nền + bộ đồ làm vườn chung như động tác sinh hoạt.
+- Ánh sáng ngày / đêm trong nhà làm bằng code.
+
 ### 2.2 Trồng trọt
 
 - Ô vườn: **cuốc → gieo → tưới → chờ → thu**. Cây lớn theo **giờ thật của máy chủ** (offline vẫn lớn), 4 giai đoạn hình.
@@ -132,6 +149,40 @@ Nhiên liệu là đầu vào tiêu hao của những công thức có yêu cầ
 
 ## 4. Hình (PixelLab) + chi phí lượt
 
+### 4.1 Dự toán mới 28/10/2026 (thay bảng 08/10 bên dưới)
+
+Mọi lượt là lượt **trả phí** (PixelLab khoá lượt miễn phí từ 10/10). Đơn giá: tấm đồ vật 3×3 ~6 lượt, công trình ~10, vật nuôi ~40, động tác người 8 hướng ~3 lượt/hướng; đã cộng ~30% vẽ lại. Số món là giả định để dự tính, chốt danh mục thì tính lại.
+
+**Động tác sinh hoạt** (cuốc, tưới, gieo, câu cá, cho ăn) chỉ vẽ trên **thân nền nam / nữ + một bộ đồ làm vườn chung**: lúc làm việc nhà nhân vật tự hiện bộ này (đầu vẫn là đầu người chơi). Không vẽ trên từng bộ class (sẽ thêm ~37.000 lượt).
+
+| Hạng mục | Giả định | Lượt |
+|---|---|---|
+| Công trình ngoài: nhà chính 5 cấp, kho, chuồng, bếp, lò rèn, khung cửi, giếng, bù nhìn | ~12 công trình | ~120 |
+| Nền khuôn viên (đất, lối đi, vườn) | | ~50 |
+| Đồ trang trí sân vườn (hàng rào, đèn, hoa, tượng, cờ, ghế đá, đài phun nước) | ~50 món | ~50 |
+| Trong nhà: tường / sàn / cửa / cửa sổ / cầu thang | 3 phong cách | ~80 |
+| Nội thất theo phòng | ~140 món | ~120 |
+| Đồ treo tường, đồ nhỏ | ~50 món | ~50 |
+| Thêm hướng xoay cho đồ xoay được | ~60 món × 2 hướng | ~105 |
+| Động tác trong nhà ngồi / nằm (tuỳ chọn) | thân nền + bộ làm vườn | ~50 |
+| **Cộng nhà (ngoài + trong)** | | **~625** |
+| Động tác cuốc, tưới, gieo, cho ăn | 2 thân × 4 động tác × 8 hướng | ~500 |
+| Cây trồng 4 giai đoạn + icon nông sản | ~30 cây (~3 / vùng) | ~90 |
+| Vật nuôi (gà, bò, cừu, ong + thú vùng): đứng, đi, ăn | ~6 loài | ~240 |
+| Icon nguyên liệu, món ăn, nhiên liệu | ~60 icon | ~40 |
+| **Cộng trồng trọt / chăn nuôi / chế tạo** | | **~870** |
+| Hồ câu chung: bờ, cầu gỗ, chỗ câu, hiệu ứng nước | | ~60 |
+| Cá, cần câu, phao, mồi | ~30 loại cá | ~40 |
+| Động tác câu cá | 2 thân × 8 hướng | ~125 |
+| **Cộng hồ câu** | | **~225** |
+| Quầy chợ | | ~30 |
+| Mê cung: nền, đồ vật, rương, đồ trang trí sưu tầm | ~6 kiểu mê cung | ~300 |
+| **Tổng nhóm nhà riêng** | | **~2.050** |
+
+Ghép cùng tháng với phiên 1 nhân vật (~2.700) được ~4.750, sát trần gói 5.000 → dời mê cung (~300) sang tháng sau để chừa ~500 lượt dự phòng.
+
+### 4.2 Dự toán lịch sử 08/10 (không dùng)
+
 **Lưu ý 26/10/2026:** bảng chi phí dưới đây là ước lượng lịch sử 08/10, chưa bao gồm hồ câu chung và danh mục nhân vật hiện nay; không dùng làm dự toán mới. Cần bổ sung hình hồ / cầu câu, cá / cần câu / phao, nhiên liệu, công trình chế biến và động tác sinh hoạt. Các động tác phải theo ngoại hình vẽ liền, đúng tỉ lệ và độ nét của bộ nhân vật đang dùng; không mặc nhiên coi 4 nhân vật cũ là toàn bộ phạm vi.
 
 Map trang trại cùng style vùng 1 (nhà chính diện viền đen, cây lá như Thistlewood) — dùng chung bộ đồ vật vùng 1 cho nền.
@@ -186,3 +237,4 @@ Mỗi vùng mới (`docs/ke-hoach-the-gioi.md`) mang thêm: hạt giống, con g
 - Đã bổ sung chợ giao thương và 5 nhóm hàng: lúa mì, cây giống, cá, lưu niệm, trang trí nhà; nối với kho và quyền sở hữu ở máy chủ.
 - Đã bổ sung mê cung là nguồn kiếm châu báu, vàng và đồ trang trí; đồ mang về nhà trưng bày hoặc đưa ra chợ nếu được phép trao đổi.
 - Đã cập nhật danh sách việc phát triển; chưa hiện thực map, dữ liệu hay gameplay, chưa thay đổi DB người chơi.
+- 28/10/2026: thêm bên trong nhà (phòng mở theo cấp nhà, nội thất / trang trí từng phòng, đồ xoay được) và dự toán lượt PixelLab mới ~2.050 lượt (mục 4.1); động tác sinh hoạt chỉ vẽ trên thân nền + bộ đồ làm vườn chung.
