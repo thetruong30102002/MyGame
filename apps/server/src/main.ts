@@ -1,9 +1,11 @@
+import { existsSync } from 'node:fs';
 import { createServer } from 'node:http';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { WebSocketServer } from 'ws';
 import { SERVER_PORT } from '@havenlord/protocol';
 import { AdminOps } from './adminOps.ts';
+import { seedAdmin } from './adminSeed.ts';
 import { Board } from './board.ts';
 import { Store } from './db.ts';
 import { dbPath } from './dbPath.ts';
@@ -13,7 +15,12 @@ import { World } from './world.ts';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const port = Number(process.env.PORT) || SERVER_PORT;
+// Biến môi trường riêng của máy (mật khẩu quản trị tổng…), không commit.
+const ENV_FILE = join(ROOT, '.env.local');
+if (existsSync(ENV_FILE)) process.loadEnvFile(ENV_FILE);
 const store = new Store(dbPath());
+const seededAdmin = await seedAdmin(store);
+if (seededAdmin) console.log(`Tài khoản quản trị tổng: ${seededAdmin}`);
 const world = new World(store);
 // Tin tức trang chủ giờ lưu CSDL: lần đầu (bảng rỗng) nạp tin cũ từ site/news.json.
 const seeded = new Board(store).seedNews(join(SITE_DIR, 'news.json'));

@@ -119,6 +119,9 @@ lý do BẮT BUỘC → dòng xem trước "trước → sau" (tính bằng đú
   npx tsx src/admin.ts list                  # ai đang có quyền
   # CSDL thử: thêm HAVENLORD_DB=data/test.db (mặc định là CSDL THẬT data/havenlord.db)
   ```
+- **Quản trị tổng tạo sẵn:** mỗi lần khởi động, máy chủ tạo tài khoản `admin` (đổi tên bằng `HAVENLORD_ADMIN_USER`) và cấp quyền nếu CSDL chưa có.
+  Mật khẩu lấy từ `HAVENLORD_ADMIN_PASS`, đặt trong `apps/server/.env.local` (gitignore, máy chủ tự nạp). Repo công khai nên KHÔNG ghi mật khẩu vào file commit.
+  Tài khoản đã có thì không ghi đè mật khẩu.
 
 - **Biên độ mỗi lần**: xu ±1.000.000 · kim cương ±100.000 · bình ±999 · EXP ±10.000.000 · điểm tiềm năng ±200 · đặt cấp 1–100
   (EXP về 0, đặt trước rồi mới cộng EXP). Không bao giờ âm: trừ quá số đang có thì về 0. Chặn dồn dập: 120 lời gọi / phút mỗi địa
