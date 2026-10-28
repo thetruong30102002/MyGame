@@ -6,7 +6,7 @@ Luật chủ dự án (08/10/2026):
 - Truyện dài, nhiều drama, đi theo từng map.
 """
 
-LOGLINE = ('Lior sống kiếp thứ hai với đôi mắt thấy sợi Aether. Thắng Quỷ vương ở tuổi 16 chỉ là mở màn: bảy rồng giữ bảy Mối của một giao '
+LOGLINE = ('Lior sống kiếp thứ hai với đôi mắt thấy sợi Haven. Thắng Quỷ vương ở tuổi 16 chỉ là mở màn: bảy rồng giữ bảy Mối của một giao '
            'ước ba trăm năm đang hút cạn những vùng đất rìa, trong đó có quê nhà. Người giữ nút trung tâm là Ma vương Ostrin, đã quá mệt để '
            'chết. Kẻ giữ ông sống là Kiến Trúc Sư, một người cũng từ thế giới cũ tới như Lior. Ở thế giới cũ, hắn là người đã giữ Minh ở lại '
            'văn phòng trong cái đêm Minh không bao giờ về nhà được nữa.')
@@ -20,17 +20,17 @@ THEME = [
 
 # (tên, vai, điều họ giấu / vết nứt, số phận, có thể chết?)
 CAST = [
-    ('Lior Ashvale', 'Người chơi · 16 tuổi trở lên', 'Mang ký ức của Minh, lập trình viên chết trong đêm mưa ở văn phòng. Thấy sợi Aether từ lúc chào đời. Trên tay hằn dấu nút sau trận Quỷ vương.', 'Tuỳ người chơi', 'người chơi'),
+    ('Lior Ashvale', 'Người chơi · 16 tuổi trở lên', 'Mang ký ức của Minh, lập trình viên chết trong đêm mưa ở văn phòng. Thấy sợi Haven từ lúc chào đời. Trên tay hằn dấu nút sau trận Quỷ vương.', 'Tuỳ người chơi', 'người chơi'),
     ('Garrick Ashvale', 'Cha · thợ săn', 'Hai mươi năm trước là trinh sát dẫn đường cho Đoàn Ấn Ký đắp đập trong Đầm lầy Mù Sương. Con đập nhấn chìm làng Lau Xám cũ. Dấu khắc con hươu của ông vẫn còn trên cột mốc.', 'Sống. Có mặt trong liên quân ở chương 10', 'không'),
     ('Elin Ashvale', 'Mẹ · người nuôi ong', 'Không có phép. Bà ngoại của bà nằm trong danh sách "người hiến sức" của Giao Ước. Đổ bệnh ở chương 5 khi sợi đỏ len vào tổ ong.', 'Sống. Bức thư của mẹ là cảnh cuối', 'không'),
     ('Bram', 'Thương nhân · người bán ở mọi trạm', 'Cựu cận vệ thành Sahrin, đào ngũ đêm mẹ bị xử vì chống bán mạch nước. Cha ông là thuyền trưởng Corvin buôn lậu đá ấn. Đồng xu hình nút là của mẹ ông.', 'Sống (NPC bán hàng). Mất em gái ở chương 7, làm quân nhu cho liên quân ở chương 10', 'không — NPC dịch vụ'),
-    ('Mirelle', 'Nữ trị liệu Thistlewood', 'Em trai bà, Caelum, thấy sợi Aether như Lior và được Học viện đưa đi năm 12 tuổi. Vết sẹo bỏng trên tay bà là do cậu. Vì thế bà dạy "thả ra mà không làm ai bỏng mới khó".', 'Sống. Chọn chữa hay buông em trai ở chương 9', 'không'),
+    ('Mirelle', 'Nữ trị liệu Thistlewood', 'Em trai bà, Caelum, thấy sợi Haven như Lior và được Học viện đưa đi năm 12 tuổi. Vết sẹo bỏng trên tay bà là do cậu. Vì thế bà dạy "thả ra mà không làm ai bỏng mới khó".', 'Sống. Chọn chữa hay buông em trai ở chương 9', 'không'),
     ('Aldric', 'Bạn thân · hiệp sĩ', 'Muốn đủ mạnh để không ai phải bị hiến tế. Theo Đoàn Ấn Ký cuối chương 1, bị Đoàn bỏ rơi ở chương 8, nhận sợi hư không từ tay Kiến Trúc Sư ở chương 9.', 'Thành Hiệp sĩ hư không ở chương 10: cứu được hoặc chết trong tay Lior', 'có (tuỳ lựa chọn)'),
     ('Nyra', 'Đồng hành · thầy thuốc độc dược', 'Con gái Phù thuỷ đầm. Cha cô chết đuối khi con đập vỡ làng. Lanh lợi, chua ngoa, ghét người Rowanmere. Không biết người dẫn đường đắp đập chính là cha của Lior.', 'Sống. Ở lại hay bỏ đi tuỳ việc Lior có nói thật không', 'không'),
     ('Zahra', 'Em gái Bram · thủ lĩnh phe nổi dậy Sahrin', 'Mười lăm năm không tha thứ cho anh trai. Đi tìm con tàu của cha để lấy lại đá ấn của Sahrin.', 'Chết ở chương 7, giữ thân tàu đắm cho Bram và Lior thoát', 'có — không làm dịch vụ'),
     ('Valen Hắc Thệ', 'Hiệp sĩ trưởng Đoàn Ấn Ký', 'Trẻ mồ côi từ một vùng bị hút cạn. Tin rằng giữ nút bằng mọi giá cứu được nhiều người nhất. Trung thành với Ostrin, khinh Kiến Trúc Sư.', 'Bị Kiến Trúc Sư giết ở cuối chương 9', 'có'),
     ('Ostrin', 'Ma vương · người bản địa', 'Pháp sư Lumeria ba trăm năm trước. Lập Giao Ước Bảy Mối để cứu lục địa khỏi đứt gãy, rồi tự buộc mình làm nút trung tâm. Ba thế kỷ hút sức vùng rìa biến ông thành Ma vương. Ông muốn chết từ lâu; Kiến Trúc Sư không cho.', 'Chương 10', 'có'),
-    ('Kiến Trúc Sư (Đăng)', 'Kẻ từ thế giới cũ · tay phải của Ma vương', 'Ở thế giới cũ là Trần Hải Đăng, trưởng nhóm của Minh, người giao việc lúc 11 giờ đêm và nói "mai gọi mẹ cũng được". Tới Aetheria trước Lior hai mươi năm. Coi thế giới là hệ thống chờ tối ưu, coi người bản địa là "NPC". Dựng lại máy móc cổ để hút Mối hiệu quả hơn.', 'Trận cuối (giai đoạn 2 của Ma vương). Liên quân xử', 'có'),
+    ('Kiến Trúc Sư (Đăng)', 'Kẻ từ thế giới cũ · tay phải của Ma vương', 'Ở thế giới cũ là Trần Hải Đăng, trưởng nhóm của Minh, người giao việc lúc 11 giờ đêm và nói "mai gọi mẹ cũng được". Tới Haven trước Lior hai mươi năm. Coi thế giới là hệ thống chờ tối ưu, coi người bản địa là "NPC". Dựng lại máy móc cổ để hút Mối hiệu quả hơn.', 'Trận cuối (giai đoạn 2 của Ma vương). Liên quân xử', 'có'),
     ('Caelum', 'Em trai Mirelle · Đại pháp sư sa đoạ', 'Thấy sợi như Lior. Học trò cũ của Kiến Trúc Sư. Muốn thay Ostrin làm nút để cứu quê chị mình.', 'Sống hoặc chết theo lựa chọn của Mirelle ở chương 9', 'có'),
     ('Bảy rồng nguyên tố', 'Người giữ bảy Mối', 'Mỗi rồng giữ một Mối của Giao Ước; Long Châu là phần "đồng ý" của một vùng. Rồng không trao quyền, chỉ hỏi Lior một câu.', 'Gom đủ 7 Long Châu → Thần Long thức dậy', 'không (boss thế giới hồi sinh)'),
 ]
@@ -47,15 +47,15 @@ DEATH_RULE = [
 ARCHITECT = dict(
     intro=('Trần Hải Đăng, 38 tuổi, trưởng nhóm của Minh. Đêm đó anh giao thêm một tính năng lúc 11 giờ, nói "mai gọi mẹ cũng được, việc này '
            'phải xong trước 8 giờ sáng". Một năm trước Minh, Đăng gục ở chính văn phòng ấy. Thời gian giữa hai thế giới không khớp: Đăng mở mắt '
-           'ở Lumeria trước Lior hai mươi năm, trong thân một đứa trẻ mồ côi, và cũng thấy sợi Aether.'),
+           'ở Lumeria trước Lior hai mươi năm, trong thân một đứa trẻ mồ côi, và cũng thấy sợi Haven.'),
     creed=[
         'Thế giới là một hệ thống. Hệ thống tốt thì không cần hỏi ý ai.',
         'Người bản địa sinh ra, sống, chết theo kịch bản. Họ là NPC. Tài nguyên thì phải dùng cho hết.',
         'Làm chậm là tội lỗi duy nhất. Hắn không chết vì làm việc, hắn chết vì người khác làm chậm.',
-        'Muốn sửa thứ gì thì phải nắm quyền quản trị nó. Mục tiêu cuối: lấy nút trung tâm khỏi Ostrin, thành người quản trị duy nhất của Aetheria.',
+        'Muốn sửa thứ gì thì phải nắm quyền quản trị nó. Mục tiêu cuối: lấy nút trung tâm khỏi Ostrin, thành người quản trị duy nhất của Haven.',
     ],
     vs=[
-        ('Thấy sợi Aether', 'Để hiểu người khác đang nối với ai', 'Để tìm chỗ rút sức hiệu quả nhất'),
+        ('Thấy sợi Haven', 'Để hiểu người khác đang nối với ai', 'Để tìm chỗ rút sức hiệu quả nhất'),
         ('"Để sau"', 'Là điều Lior hối hận nhất', 'Là điều hắn không bao giờ cho phép, kể cả với người khác'),
         ('Người bản địa', 'Là người, có quyền nói không', 'Là NPC, có chỉ số'),
         ('Máy móc cổ', 'Phá hoặc trả cho dân dùng', 'Dựng lại, đánh số phiên bản, tối ưu'),
@@ -78,7 +78,7 @@ ARCHITECT = dict(
 )
 
 # Mỗi chương = một vùng.
-#   maps: (tên map — trùng the-gioi-aether.py, chuyện xảy ra, mục tiêu chơi)
+#   maps: (tên map — trùng the-gioi-haven.py, chuyện xảy ra, mục tiêu chơi)
 #   services: NPC dịch vụ ở trạm (KHÔNG BAO GIỜ chết)
 #   side: nhiệm vụ phụ (tên, người giao, chuyện)
 CHAPTERS = [
@@ -134,7 +134,7 @@ CHAPTERS = [
              ('Đầm Rắn Nước', 'Rắn nước tụ quanh xác thuyền của đội đắp đập. Trong hòm có nhật ký đội trưởng: "Trinh sát G. dẫn lối an toàn qua đầm. Làng phía dưới đã được báo." Làng chưa từng được báo. Trang cuối có một chữ ký khác, lạ, viết bằng chữ Lior chưa thấy ở thế giới này: "Đ."',
               'Hạ rắn nước, lấy nhật ký trong xác thuyền.'),
              ('Vực Sương Xanh', 'Phù thuỷ đầm Odessa, mẹ của Nyra, dùng sương giữ quái khỏi làng, nhưng cũng nuôi Hydra để một ngày trả thù Rowanmere. Thấy Garrick, bà gọi thẳng: "Kẻ khắc hươu." Garrick muốn quỳ xuống nhận tội trước mặt Nyra.',
-              'Vượt sương (sợi Aether chỉ đường), đánh Phù thuỷ đầm. Chọn để cha thú nhận hay ngăn lại.'),
+              'Vượt sương (sợi Haven chỉ đường), đánh Phù thuỷ đầm. Chọn để cha thú nhận hay ngăn lại.'),
              ('Hồ Hydra', 'Hydra bùn lớn lên từ xác làng cũ dưới đáy hồ và từ hai mươi năm oán hận. Mỗi đầu bị chém mọc lại cho tới khi Lior thấy sợi nối nó với cửa cống.',
               'Cắt sợi nối ở 3 cửa cống trong trận, hạ Hydra bùn. Chọn số phận con đập.'),
          ],
@@ -170,7 +170,7 @@ CHAPTERS = [
              ('Hẻm Rắn', 'Hang ổ phe nổi dậy. Zahra tháo mặt nạ: cô là em gái Bram. "Anh ấy về muộn mười lăm năm." Bọ cạp chúa là thú cưỡi cũ của hoàng gia, bị bỏ đói khi triều đình bán nước.',
               'Lấy lòng phe nổi dậy: hạ rắn cát quanh giếng bí mật, đối mặt Bọ cạp chúa.'),
              ('Lăng Mộ Cát', 'Lăng các vua đã ký Giao Ước. Tường khắc lời hứa: Sahrin được một ghế trong hội đồng Bảy Mối. Tên Sahrin đã bị đục khỏi đá, vết đục còn mới hơn phần đá xung quanh.',
-              'Hạ xác ướp canh lăng, đọc tường khắc (sợi Aether làm hiện chữ bị đục).'),
+              'Hạ xác ướp canh lăng, đọc tường khắc (sợi Haven làm hiện chữ bị đục).'),
              ('Vách Kền Kền', 'Kền kền ăn xác một đội lính của nữ hoàng. Thư trong túi đội trưởng chứng minh Tể tướng Hassim cố tình đưa họ vào chỗ chết để mở đường hút nước. Ông phản bội cả nữ hoàng. Cạnh xác là một cỗ máy khoan khắc "v2.1".',
               'Đuổi kền kền, lấy thư, chép ký hiệu trên cỗ máy.'),
              ('Phế tích Đá Đỏ', 'Linh hồn cát canh bản Giao Ước gốc. Pharaoh xác ướp là vị vua Sahrin đầu tiên ký vào đó, bị trói hồn ba trăm năm để giữ bản gốc.',
@@ -246,7 +246,7 @@ CHAPTERS = [
               'Qua đèo: đánh Yeti, hoặc dẫn đàn con qua đèo trước.'),
              ('Bờ Biển Băng', 'Chim cánh cụt chiến giữ bãi. Một con tàu băng của Đoàn chở Long Châu bị kẹt. Bram đọc tên khắc trên thân tàu và bỗng im bặt: "Hải Âu Bạc", tàu của cha ông. Ai đó đã sơn lại tên con tàu, nhưng vết khắc cũ vẫn còn.',
               'Hạ chim cánh cụt chiến quanh tàu, lục hòm tàu (tìm được hải đồ về San Hô).'),
-             ('Hang Gấu', 'Gấu băng ngủ đông trên một mạch Aether. Trong hang có câu đố của Hàn Sương khắc trên vách: muốn vào Long Huyệt phải nói ra một điều mình đang cố quên.',
+             ('Hang Gấu', 'Gấu băng ngủ đông trên một mạch Haven. Trong hang có câu đố của Hàn Sương khắc trên vách: muốn vào Long Huyệt phải nói ra một điều mình đang cố quên.',
               'Đi qua hang không đánh thức gấu mẹ (hoặc đánh), giải câu đố.'),
              ('Ngai Băng', 'Băng long giữ cửa Long Huyệt. Vào trong là Hàn Sương, con rồng giữ băng để quên.',
               'Hạ Băng long, vào Long Huyệt.'),
@@ -353,7 +353,7 @@ CHAPTERS = [
               'Chữa (có Nyra) hoặc hạ người nấm nhiễm sợi đỏ.'),
              ('Hang Nhện', 'Nhện chúa giăng tơ quanh đội của Aldric. Đội bị Đoàn bỏ lại, chỉ còn bốn người (hoặc một, nếu tới muộn). Aldric bị thương ở chân vẫn đứng chắn trước lính của mình.',
               'Hạ nhện hang, phá tơ, đánh Nhện chúa, cứu đội.'),
-             ('Mạch Tinh Thể', 'Đoàn khai thác tinh thể Aether bằng máy khoan "v3.0", hút cạn cả rừng. Aldric đọc được lệnh của Valen: "Đội này là mồi. Không cần đón." Phía dưới là chữ ký phê duyệt thứ hai: Kiến Trúc Sư.',
+             ('Mạch Tinh Thể', 'Đoàn khai thác tinh thể Haven bằng máy khoan "v3.0", hút cạn cả rừng. Aldric đọc được lệnh của Valen: "Đội này là mồi. Không cần đón." Phía dưới là chữ ký phê duyệt thứ hai: Kiến Trúc Sư.',
               'Hạ sâu tinh thể, phá 3 máy khoan.'),
              ('Hang Bọ Đèn', 'Dưới ánh bọ đèn, Aldric nói câu thật nhất của cậu: "Tớ muốn đủ mạnh để không ai phải bị hiến nữa. Kể cả nếu phải tự hiến mình." Từ bóng tối, Kiến Trúc Sư bước ra, vỗ tay chậm rãi: "Tôi cho cậu được điều đó."',
               'Hạ bọ đèn ngầm; cảnh thoại ba người.'),
@@ -379,12 +379,12 @@ CHAPTERS = [
          camp='Aldric và Lior nằm ngửa nhìn trần hang đầy bọ đèn, như nhìn trời sao ở Thistlewood. Aldric hỏi: "Gã áo xám nói chuyện với cậu bằng thứ tiếng gì vậy?" Lior im lâu, rồi kể. Lần đầu tiên có người ở thế giới này nghe Lior kể về Minh mà không hỏi lại. Aldric chỉ nói: "Vậy cậu đánh hắn trước tớ nhé. Hắn là Quỷ vương của cậu."',
          ending='Mirelle biến mất khỏi trạm. Bà để lại vòng tay trị liệu và một dòng: "Ta đi tìm Caelum. Lần này ta không để sau."',
          letter='Con trai bà goá về tới Thistlewood, chân tập tễnh. Cả thị trấn ra đầu cầu đón. Mẹ viết: "Cha con đứng ở đó với chiếc đèn, dù trời còn sáng."'),
-    dict(n=9, region='Phế tích Aether', title='Hai chị em, một vết bỏng', mood='Sự thật · đồng hương', dragon='Quang Long Thiên Huy',
+    dict(n=9, region='Phế tích Haven', title='Hai chị em, một vết bỏng', mood='Sự thật · đồng hương', dragon='Quang Long Thiên Huy',
          opening='Thành cổ của các pháp sư không có ai ở, nhưng đèn vẫn sáng: đèn điện. Lior đứng chết lặng trước một bóng đèn sợi đốt treo trên cột đá, thứ đồ không thể có ở thế giới này. Bên dưới có biển gỗ khắc chữ quốc ngữ: "Khu vực thử nghiệm. Không phận sự miễn vào."',
          core='Thành cổ là xưởng của Kiến Trúc Sư. Lior đọc nhật ký của Ostrin, rồi đứng trước mặt người đã giữ Minh ở lại văn phòng đêm ấy. Mirelle tìm thấy em trai, nhưng em trai bà định làm nút thay Ostrin.',
          services=[('Thủ thư Ione', 'người ghi sử, bán sách phép'), ('Gearwin', 'Hội Thợ Máy, nâng cấp phụ kiện'), ('Cột dịch chuyển', 'trước cổng Thư Viện Bay')],
          maps=[
-             ('Toà thành Aether cổ', 'Ba phe tranh di sản: Học giả Thư viện muốn công bố mọi thứ, Đoàn muốn khoá lại, Hội Thợ Máy muốn bán máy của Kiến Trúc Sư. Người giữ cổng hỏi Lior: "Ngươi theo phe nào?"',
+             ('Toà thành Haven cổ', 'Ba phe tranh di sản: Học giả Thư viện muốn công bố mọi thứ, Đoàn muốn khoá lại, Hội Thợ Máy muốn bán máy của Kiến Trúc Sư. Người giữ cổng hỏi Lior: "Ngươi theo phe nào?"',
               'Gặp ba phe, vào thành (không bắt buộc chọn phe).'),
              ('Phố Đổ Nát', 'Hiệp sĩ ma của Đoàn đầu tiên đánh lại trận chiến ba trăm năm trước, mỗi đêm một lần, không bao giờ thắng.',
               'Hạ hiệp sĩ ma, đọc 4 tấm bia trận.'),
@@ -396,7 +396,7 @@ CHAPTERS = [
               'Hạ pháp sư mất trí; cảnh đối mặt Đăng (không đánh được, hắn dịch chuyển đi).'),
              ('Xưởng Rối', 'Rối gỗ ma thuật diễn lại cảnh lập Giao Ước, rồi cảnh mười lăm năm trước: Đăng quỳ trước ngai Ostrin, xin được "giúp". Hiệp sĩ đầu lâu là chỉ huy đầu tiên của Đoàn, bị Ostrin kết tội vì dám nói không. Hắn kể Valen cũng là trẻ mồ côi của một vùng bị hút cạn.',
               'Hạ rối gỗ, đánh Hiệp sĩ đầu lâu.'),
-             ('Điện Aether', 'Caelum, Đại pháp sư sa đoạ, muốn thay Ostrin làm nút để cứu Thistlewood, quê của chị mình. Đăng dạy cậu cách làm. Cái giá là trở thành một Ostrin khác, và rơi vào tay Đăng.',
+             ('Điện Haven', 'Caelum, Đại pháp sư sa đoạ, muốn thay Ostrin làm nút để cứu Thistlewood, quê của chị mình. Đăng dạy cậu cách làm. Cái giá là trở thành một Ostrin khác, và rơi vào tay Đăng.',
               'Hạ Đại pháp sư sa đoạ; Mirelle quyết định số phận em.'),
          ],
          bosses=[
@@ -453,7 +453,7 @@ CHAPTERS = [
          ]),
          choice2=('Số phận Đăng (sau khi thua)', [
              ('Để liên quân xử', 'Đúng với điều Lior học được: không quyết thay người khác', 'Có phe đòi xử tử. Lior phải đứng xem, không được chen vào'),
-             ('Cho hắn một kiếp thứ hai như mình', 'Đăng mất khả năng thấy sợi, làm thợ máy ở Toà thành Aether cổ, sống như người thường', 'Nhiều người không tha thứ cho Lior. Bram không nói chuyện với Lior suốt phần kết'),
+             ('Cho hắn một kiếp thứ hai như mình', 'Đăng mất khả năng thấy sợi, làm thợ máy ở Toà thành Haven cổ, sống như người thường', 'Nhiều người không tha thứ cho Lior. Bram không nói chuyện với Lior suốt phần kết'),
          ]),
          camp='Đêm trước trận cuối, cả nhóm ngồi quanh một đống lửa nhỏ ở mép vực: Garrick, Nyra (nếu còn), Bram, Mirelle, Orrin. Garrick nói nhiều nhất từ trước tới giờ: ông kể đêm vỡ đập. Không ai ngắt lời. Khi ông nói xong, Nyra (nếu đã biết từ chương 2) đưa ông chén nước của cô. Lior thổi sáo, bài hát của kiếp trước, giờ cả nhóm đã thuộc.',
          ending='Phần kết: Lior nhận một lá thư của mẹ. Không có phép, chỉ có giấy và mùi sáp ong. Người chơi đọc ngay hoặc cất đi để đọc ở nơi an toàn; truyện không chấm điểm lựa chọn ấy. Trên khung cửa nhà có một vạch khắc mới. Bài hát viết dở từ kiếp trước được thổi trọn trên cây sáo sậy.',
@@ -469,7 +469,7 @@ EPILOGUES = [
     ('Aldric', 'Nếu được cứu: cậu trả kiếm cho Đoàn, mở một trường kiếm ở Thistlewood, treo thanh kiếm gỗ trên cửa. Nếu chết: thanh kiếm gỗ nằm trên mộ cậu ở Đá Phong Ấn, nơi hai đứa ngồi nhìn thị trấn.'),
     ('Nyra', 'Nếu ở lại đến cuối: cô mở tiệm thuốc ở Lau Xám, thư từ với Lior mỗi tháng, chua ngoa như cũ. Nếu đã bỏ đi: lá thư duy nhất cô gửi tới vào ngày cuối, chỉ một dòng: "Tớ biết rồi. Tớ đang nghĩ."'),
     ('Ostrin', 'Kết chính: được ngủ, lần đầu sau ba trăm năm. Long Huyệt của bảy rồng mở cửa cho mọi vùng.'),
-    ('Đăng', 'Tuỳ lựa chọn: bị liên quân xử, hoặc làm thợ máy ở Toà thành Aether cổ. Ở kết thứ hai, có một cảnh ngắn: hắn tắt đèn xưởng lúc 6 giờ chiều và về nhà. Không ai biết hắn có nghĩ gì không.'),
+    ('Đăng', 'Tuỳ lựa chọn: bị liên quân xử, hoặc làm thợ máy ở Toà thành Haven cổ. Ở kết thứ hai, có một cảnh ngắn: hắn tắt đèn xưởng lúc 6 giờ chiều và về nhà. Không ai biết hắn có nghĩ gì không.'),
 ]
 
 # Những cú lật chính (chương lộ ra).
@@ -479,7 +479,7 @@ TWISTS = [
     (3, 'Bram là kẻ đào ngũ của Sahrin. Thủ lĩnh phe nổi dậy là em gái ông. Máy móc khắc số phiên bản của thế giới cũ.'),
     (4, 'Aldric là hiệp sĩ của Đoàn. Hai người bạn rút kiếm với nhau.'),
     (5, 'Có một người khác từ thế giới cũ, và người đó biết Lior.'),
-    (6, 'Mirelle có một em trai thấy sợi Aether. Người đưa cậu đi năm xưa là Kiến Trúc Sư.'),
+    (6, 'Mirelle có một em trai thấy sợi Haven. Người đưa cậu đi năm xưa là Kiến Trúc Sư.'),
     (7, 'Zahra chết trong cái bẫy của Kiến Trúc Sư. Bram và em gái làm lành ở khoảnh khắc cuối.'),
     (8, 'Đoàn cố tình dùng đội của Aldric làm mồi, có chữ ký của Kiến Trúc Sư. Hắn hứa cho Aldric sức mạnh.'),
     (9, 'Kiến Trúc Sư là anh Đăng, trưởng nhóm của Minh. Ma vương Ostrin là người bản địa bị giữ sống như một cục pin. Đăng giết Valen.'),
@@ -539,9 +539,9 @@ GODS = [
      'Đoàn đào hầm cắt ngang mạng rễ của Mycora, Vua người nấm là phần trí nhớ bị cắt rời của thần, tưởng mình là vua',
      'Mycora cho Lior nghe được mọi người đang nói trong rễ (biết trước mai phục), đổi lại một sợi tóc của Lior hoá thành nấm — không gì đáng kể, cho tới chương 10',
      'Bào Tử Nghìn Mắt: mưa bào tử phát sáng làm quái trong vùng mù và quay ra đánh nhau', '(chưa có map — chờ dựng vùng 8)'),
-    ('Phế tích Aether', 'Quang Thần Lumen', 'Hình người bằng ánh sáng trắng không có mặt, quanh người xoay bảy vòng chữ cổ của Lumeria',
+    ('Phế tích Haven', 'Quang Thần Lumen', 'Hình người bằng ánh sáng trắng không có mặt, quanh người xoay bảy vòng chữ cổ của Lumeria',
      'Ma vương Ostrin dùng chính Lumen làm nút trung tâm của Giao Ước: sức của Lumen giữ Ostrin sống ba trăm năm',
-     'Lumen cho Lior thấy sợi Aether của MỌI người, kể cả ý định của họ, đổi lại Lior không còn thấy màu nào khác ngoài màu sợi trong một ngày mỗi tháng',
+     'Lumen cho Lior thấy sợi Haven của MỌI người, kể cả ý định của họ, đổi lại Lior không còn thấy màu nào khác ngoài màu sợi trong một ngày mỗi tháng',
      'Thiên Quang: bảy tia sáng rơi xuống theo vòng chữ cổ, trúng ai thì người đó lộ hết điểm yếu', '(chưa có map — chờ dựng vùng 9)'),
     ('Vực Hư Không', 'Hư Thần Nox', 'Một khoảng trống hình người, viền bằng sao, bên trong là tối tuyệt đối; có hai bàn tay sáng mờ đang buộc một nút thắt',
      'Nox là "khoảng giữa" mà mọi Mối được buộc vào; Kiến Trúc Sư muốn dùng Nox để viết lại thế giới thành một hệ thống',

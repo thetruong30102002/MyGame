@@ -24,7 +24,7 @@ Ngày: **26/10/2026**. Trạng thái: **bản thiết kế triển khai**, chưa
 | Núi lửa Hoả Sơn | Thành bang công nghiệp; Hội đồng Lò Rèn | `volcano/red_anvil` | Pháo đài bazan cao, cầu thép, lò rèn và đường vận quặng. |
 | Quần đảo San Hô | Liên bang cảng đảo; Đại diện cảng và cộng đồng rạn | `isles/hub` | Nhà cảng nhiều tầng, đài hải đăng và chợ cá dọc cầu tàu. |
 | Rừng Nấm Ngầm | Thành phố cộng sinh dưới đất; Đại hội các cụm nấm | `fungal/undercity` | Nhà thân nấm nhiều tầng, cầu sợi nấm, đèn bào tử; bộ cảnh riêng. |
-| Phế tích Aether | Khu khảo cổ liên vùng; Viện Khảo Cổ và hội bảo tồn | `ruins/aether_archive` | Tháp đá vỡ cao, cơ cấu cổ, đường khảm và thư khố; bỏ cây/cối xay mượn. |
+| Phế tích Haven | Khu khảo cổ liên vùng; Viện Khảo Cổ và hội bảo tồn | `ruins/haven_archive` | Tháp đá vỡ cao, cơ cấu cổ, đường khảm và thư khố; bỏ cây/cối xay mượn. |
 | Vực Hư Không | Tiền tuyến liên vùng; Bộ chỉ huy Liên quân Biên Giới | `void/void_fortress` | Thành trì trên đá nổi, neo ma pháp, trạm quân y và cổng khe nứt. |
 | Rừng Cổ Thụ | Cộng đồng thành rừng; Hội Thủ Lâm và đại diện vườn | `wood/worldtree` | Nhà ôm thân cây cao, cầu rễ, vườn treo và xưởng cây giống. |
 | Thánh Địa Bình Minh | Thánh thành học thuật; Học viện Bình Minh | `light/cathedral` | Tháp đá sáng, mái kính, sân học viện và vườn pha lê. |
@@ -131,7 +131,7 @@ Danh sách tổ chức mới là đề xuất; cần triển khai quest/NPC riê
 - Đầu mối: Nuôi nấm thực phẩm tại vườn hang.
 - Đầu mối: Tìm vật phẩm phát quang trong mê cung rễ nấm.
 
-### Phế tích Aether
+### Phế tích Haven
 
 - Hàng đi: bản sao tư liệu, hiện vật có giấy nguồn. Hàng cần: thực phẩm, công cụ, vật liệu bảo tồn. Đây là nền kinh tế truyện, chưa phải thêm item/giá vào shop.
 - Định hướng mới: Thiết kế mới: Vành đai phế tích nhiều niên đại, giữ khoảng trống gợi quy mô cổ thành. Nhân vật đời cũ chỉ phân vai NPC sau khi biên soạn lại.
@@ -180,7 +180,7 @@ Tọa độ 0–100 dưới đây dành cho sơ đồ thiết kế; không áp l
 | Núi lửa Hoả Sơn | surface | 86 | 55 | Thềm dung nham và hệ mỏ; nhà ở tách khỏi luồng lò nóng. |
 | Quần đảo San Hô | surface | 83 | 83 | Quần đảo nhiệt đới, rạn san hô và lối xuống hang biển. |
 | Rừng Nấm Ngầm | underground | 20 | 54 | Đô thị nấm ngầm, không dùng cây đầm lầy làm cây chủ đạo. |
-| Phế tích Aether | surface | 20 | 25 | Vành đai phế tích nhiều niên đại, giữ khoảng trống gợi quy mô cổ thành. |
+| Phế tích Haven | surface | 20 | 25 | Vành đai phế tích nhiều niên đại, giữ khoảng trống gợi quy mô cổ thành. |
 | Vực Hư Không | sky | 87 | 22 | Vùng rạn không gian riêng, không đồng nhất miền Bóng tối. |
 | Rừng Cổ Thụ | surface | 33 | 37 | Rừng cổ đa tầng với bộ cây, rễ và đồ cảnh Mộc riêng. |
 | Thánh Địa Bình Minh | surface | 50 | 28 | Bậc thềm sáng, kiến trúc cao và khoảng sân rõ ràng. |
@@ -233,10 +233,10 @@ Thiên Thành theo yêu cầu chủ dự án: một lâu đài trên không, m�
 
 ### Bốn chương hé lộ
 
-#### 1. Khởi nguyên Aether
+#### 1. Khởi nguyên Haven
 
 Điều kiện: Bản ghi Đồng Bằng, Niên luân Cổ Thụ, Bản chép Bình Minh, Bản khắc Đèn Đêm.
-Hé lộ: Nơi hội tụ đầu tiên của vật chất và dòng Aether hình thành thế giới. Thần Tri Thức lưu giữ dấu vết khởi nguyên; chi tiết nguồn gốc cuối cùng còn là bản thảo.
+Hé lộ: Nơi hội tụ đầu tiên của vật chất và dòng Haven hình thành thế giới. Thần Tri Thức lưu giữ dấu vết khởi nguyên; chi tiết nguồn gốc cuối cùng còn là bản thảo.
 > Mỗi miền đất giữ một phần của lịch sử.
 > Hãy đối chiếu những gì tìm thấy với bản ghi tại thư khố.
 Câu hỏi cho người chơi: Người chơi sẽ mang tri thức này về giúp cộng đồng như thế nào?
@@ -279,7 +279,7 @@ Nhật ký: Đã đọc bản ghi nghiên cứu của chương 4. Nội dung đa
 - **Lịch giếng Ốc Đảo** (`sahrin_seat`) tại `desert/pyramid`: Nguồn nghiên cứu đề xuất trong hướng mới; chưa đặt nhiệm vụ hay vật phẩm vào game.
 - **Bản đo Trạm Gió** (`wind_measure`) tại `highland/wind_temple`: Nguồn nghiên cứu đề xuất trong hướng mới; chưa đặt nhiệm vụ hay vật phẩm vào game.
 - **Hợp kim Lò Rèn** (`forge_contract`) tại `volcano/red_anvil`: Nguồn nghiên cứu đề xuất trong hướng mới; chưa đặt nhiệm vụ hay vật phẩm vào game.
-- **Bản ghi Cổ Thành** (`archive_machine`) tại `ruins/aether_archive`: Nguồn nghiên cứu đề xuất trong hướng mới; chưa đặt nhiệm vụ hay vật phẩm vào game.
+- **Bản ghi Cổ Thành** (`archive_machine`) tại `ruins/haven_archive`: Nguồn nghiên cứu đề xuất trong hướng mới; chưa đặt nhiệm vụ hay vật phẩm vào game.
 - **Mẫu rạn Không Gian** (`fracture_memory`) tại `void/void_fortress`: Nguồn nghiên cứu đề xuất trong hướng mới; chưa đặt nhiệm vụ hay vật phẩm vào game.
 
 ### Luật cần giữ

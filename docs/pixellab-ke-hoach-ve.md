@@ -29,7 +29,7 @@ Chủ dự án 11/10/2026: **"tập trung bản lớn thôi"** — ngoại hình
 |---|---|---|
 | Hoàn thiện vùng 1–7 | hiệu ứng chiêu người chơi (~810, mục "Hiệu ứng chiêu NGƯỜI CHƠI" — gồm đổi 4 tuyệt kỹ nguyên tố + 3 tuyệt kỹ Kiếm), lỗi hình quái / boss (~150), cây cối + đồ vật còn thiếu (~260 — gồm 24 cây mới vùng 2–7, đủ để mỗi vùng một bộ cây riêng + mỗi map một loài chủ đạo, `ke-hoach-the-gioi.md` 5.6; loài trùng giữa vùng thì tô màu lại, 0 lượt), NPC 6 trạm + quan / lính 2 toà thành (~425) | ~1.645 |
 | Vùng 8–10 + 3 rồng | map (~120), 15 quái (~225), 9 boss (~360), chiêu boss (~240), Địa / Quang / Hắc Long (~660), NPC trạm (~250), cây cối + đồ vật thêm (~145) | ~2.000 |
-| ~~Trang bị bản lớn~~ — THAY 14/10/2026 | giáp / áo chỉ hiện trong kho (không vẽ); **vũ khí hiện đúng từng món** vẽ liền thân ~200 / vũ khí / ngoại hình / giới tính (20 món × 2 giới tính ≈ 8.000) + **skin cải trang** ~475 / skin (10 skin ≈ 4.750) — `the-gioi-aether.md` Việc kế tiếp 4 | ~12.750 |
+| ~~Trang bị bản lớn~~ — THAY 14/10/2026 | giáp / áo chỉ hiện trong kho (không vẽ); **vũ khí hiện đúng từng món** vẽ liền thân ~200 / vũ khí / ngoại hình / giới tính (20 món × 2 giới tính ≈ 8.000) + **skin cải trang** ~475 / skin (10 skin ≈ 4.750) — `the-gioi-haven.md` Việc kế tiếp 4 | ~12.750 |
 | **Hoạt ảnh CHẠY** (chủ dự án 14/10/2026: "phải vẽ hoạt ảnh chạy nhanh khi bấm shift") | người chơi 16 tuổi nam + nữ × 3 bản (tay không · cầm kiếm · cầm trượng) × 8 hướng = 48 hướng, v3 ~8 khung (~3 lượt / hướng ở 112px) + ~30% vẽ hỏng. Kéo theo: mỗi vũ khí mới +~30 lượt / giới tính (200 → ~230), mỗi skin +~95. Code đã gọi `run` khi giữ Shift (`GameController` → `CharacterView.Set`), thiếu hình thì dùng `walk` tua nhanh; cần thêm chọn `runsword` / `runstaff` theo vũ khí như `walksword` | ~190 |
 | Chiêu boss vùng 1–7 làm lại (11/10/2026) | thêm khung 40 hình lên 12 khung (~480) + 25 chiêu hoành tráng (~850) — mục "Chiêu BOSS" | ~1.330 |
 | Vùng báo riêng mỗi boss (11/10/2026) | 25 boss vùng 1–7, 128 · 6 khung lặp — mục "Vùng báo trước chiêu" | ~200 |
@@ -98,7 +98,7 @@ tính, và lý do không làm được bằng art có sẵn. Chỉ vẽ những 
 ## Phân bổ lượt — 3 mốc, ~2 gói 24$ (chủ dự án chốt 08/10/2026)
 
 Danh sách đầy đủ (vùng / map + phác thảo / quái / boss / rồng / skill nhân vật / trang bị) + ngân sách từng mốc + phần còn thiếu +
-bàn giao: **`docs/the-gioi-aether.md`** (nguồn số liệu duy nhất — các con số cũ ở file này và ở `docs/ke-hoach-the-gioi.md` mục 4
+bàn giao: **`docs/the-gioi-haven.md`** (nguồn số liệu duy nhất — các con số cũ ở file này và ở `docs/ke-hoach-the-gioi.md` mục 4
 là ước tính trước khi chia mốc, KHÔNG dùng).
 
 Tóm tắt (chủ dự án: "chia giai đoạn thành 3 mốc, ưu tiên vẽ trước đủ skill nhân vật thật chi tiết, đòn vung tay… 1/3 số quái, 1/3
@@ -119,7 +119,7 @@ map, 1/3 boss"; "rồng 3 chiêu, boss khu 1 chiêu, boss chúa 2 chiêu"; quái
 | ~~Trial 40 lượt~~ — BỎ 14/10/2026 (chỉ dùng gói 24$) | **CHỈ cảnh vật**: cây (thứ tự ở mục "Cây cối: 12 loài mỗi vùng"), tấm đồ vật 3×3, bộ nền chuyển sàn lát cho map công trình. Bộ công trình `create_building_kit` CẦN Tier 1 (thử 13/10/2026: "Tier 1 is required", không trừ lượt) → để token trả phí. Mỗi token ~6 cây = một lô / một vùng. KHÔNG tạo nhân vật / NPC | Nhân vật chỉ làm động tác được bằng token đã tạo ra nó, token trial cạn là mất đường thêm động tác; NPC ~14 lượt (= 2–3 cây); trial chỉ 1 job một lúc nên động tác phải gửi từng hướng. NPC để token trả phí |
 
 Token trả phí ĐÃ CÓ (09/10/2026): **token #1** trong `PIXELLAB_TOKENS` = Tier 2 (5.000 lượt / tháng, 10 job song song). Mốc 1 đã
-vẽ phần lớn trong ngày — xem `docs/the-gioi-aether.md` mục "Mốc 1 đã vẽ"; cách vẽ + bẫy: `docs/asset-pipeline.md` mục Gói trả phí.
+vẽ phần lớn trong ngày — xem `docs/the-gioi-haven.md` mục "Mốc 1 đã vẽ"; cách vẽ + bẫy: `docs/asset-pipeline.md` mục Gói trả phí.
 
 ## Danh sách vẽ NẶNG (token trả phí, theo thứ tự)
 
@@ -139,14 +139,14 @@ vẽ phần lớn trong ngày — xem `docs/the-gioi-aether.md` mục "Mốc 1 �
    | 5 nguyên tố × 6 chủ động (mốc 1, 3, 5, 6, 8, 10) | 30 | Hoả Cầu → Phượng Hoàng, Thuỷ Tiễn → Đại Hồng Thuỷ… |
    | Kiếm: Trảm + 3 lưu phái × 5 chủ động | 16 | vệt chém, lướt, giữ thế, phân thân, phóng kiếm |
    | Kiếm pháp nguyên tố | 5 | Liệt Hoả Trảm… |
-   | Tia Aether + Suối Lành | 2 | |
+   | Tia Haven + Suối Lành | 2 | |
    | Phản ứng (Hơi Nước, Bùng Lửa, Băng Giá, Đóng Băng, Tan Chảy, Bùn Lầy, Dung Nham, Bão Cát, Vỡ Vụn) | 9 | hiệu ứng nổ khi kết hợp |
    | Hiệu ứng bị động nhìn thấy (Tro Tàn nổ, Mạch Nguồn hồi, khiên Gương Băng…) | ~8 | |
 
    ≈ 70 hiệu ứng, phần lớn 2 phần (bay + trúng) → **~900–1.100 lượt**. Cộng chiêu boss (~150) + bộ trang phục (~400) ≈
    1.500–1.650 lượt: vừa trong 2.000 lượt/tháng của Tier 1 nhưng không dư nhiều → vẽ theo thứ tự ưu tiên dưới, xấu thì vẽ
    lại bằng phần dư; thiếu thì chuyển phần còn lại sang tháng sau.
-   Thứ tự: skill mốc 1–5 người chơi dùng nhiều nhất (Trảm, Tia Aether, Hoả Cầu, Thuỷ Tiễn, Phong Nhận, Băng Tiễn, Đá Văng,
+   Thứ tự: skill mốc 1–5 người chơi dùng nhiều nhất (Trảm, Tia Haven, Hoả Cầu, Thuỷ Tiễn, Phong Nhận, Băng Tiễn, Đá Văng,
    Suối Lành) → phản ứng → mốc 5 ★ → mốc 6–8 → kiếm pháp → mốc 10 (tuyệt kỹ).
 3. **Hiệu ứng skill lớn** (đang chờ ở hàng đợi miễn phí → chuyển sang token trả phí, vẽ khổ to hơn): `ice_pillar`,
    `lightning_strike`, `rain_cloud`, `tornado`, `meteor`, `ice_rain`, `rock_spikes`; thêm tường lửa, tường đá, gương băng,
@@ -254,7 +254,7 @@ Chủ dự án 10/10/2026: "hiệu ứng skill boss khá đẹp nhưng của use
 nhiều animation đi"; "thêm vào kế hoạch".
 
 **Vì sao chưa đạt** (đo trên atlas `assets/vfx/vfx.json`): chiêu boss vẽ 100–150 px, **11 khung** (`boss_hellfire` 103×155,
-`boss_curse_blast` 130×143); còn các chiêu người chơi dùng NHIỀU NHẤT là hình đợt đầu, bé và ít khung — đạn Tia Aether `arcane_orb`
+`boss_curse_blast` 130×143); còn các chiêu người chơi dùng NHIỀU NHẤT là hình đợt đầu, bé và ít khung — đạn Tia Haven `arcane_orb`
 **20×20, 4 khung** (chấm xám), Hoả Cầu `fire_orb` **17×14, 3 khung**, Thuỷ Tiễn `water_wave` 34×29 ×4, Phong Nhận `wind_blade` 31×18
 ×4, Băng Tiễn `ice_shard` 25×27 ×4, Đá Văng `rock_shot` 34×20 ×4; nổ khi trúng 36–52 px; nhát chém thường `slash` là vệt trắng mảnh
 49×89, 5 khung.
@@ -283,7 +283,7 @@ số khung); "đạt" = đã ngang hình boss, chỉ soát lại.
 | Ưu tiên | Chiêu | Hiện tại | Vẽ | Khổ · khung | Lượt |
 |---|---|---|---|---|---|
 | A | Trảm (combo 3 nhát) | `slash` 49×89×5 vệt trắng mảnh | 3 vệt chém cong (ngang, chéo lên, bổ) ánh bạc + tia lửa | 128 · 8 mỗi nhát | 36 |
-| A | Tia Aether | `arcane_orb` 20×20×4 + nổ 38×39 | đạn cầu sợi tơ tím xoáy (lặp) + nổ sợi tơ toả hình hoa | 64 · 8 / 112 · 12 | 24 |
+| A | Tia Haven | `arcane_orb` 20×20×4 + nổ 38×39 | đạn cầu sợi tơ tím xoáy (lặp) + nổ sợi tơ toả hình hoa | 64 · 8 / 112 · 12 | 24 |
 | A | Hoả Cầu | `fire_orb` 17×14×3 + nổ 45×39 | cầu lửa lõi trắng, lưỡi lửa cuộn + nổ lửa nấm nhỏ | 64 · 8 / 128 · 12 | 24 |
 | A | Thuỷ Tiễn | `water_wave` 34×29×4 + 36×27 | mũi giáo nước bọt xoáy + toé nước vương miện | 64 · 8 / 112 · 12 | 24 |
 | A | Phong Nhận | `wind_spin` / `wind_blade` 31×18×4 | lưỡi gió lưỡi liềm vệt xanh + nổ gió xoáy | 64 · 8 / 112 · 12 | 24 |
@@ -433,7 +433,7 @@ chết, hồi chiêu tức thì; `GameController.Lab.cs`).
 ## Mười vị thần đất — VẼ THẬT ĐẸP (ghi 11/10/2026 — phiếu duyệt CHỜ chủ dự án)
 
 Chủ dự án 11/10/2026: "bổ sung trong kịch bản cốt truyện mỗi vùng sẽ có 1 vị thần cần phải vẽ thật đẹp (mai sau mình sẽ bán skill nhân
-vật thần đấy)". Kịch bản: `docs/cot-truyen-aether.md` mục "Mười vị thần đất" (tên, hình dạng, bị trói thế nào, giao kèo, thần kỹ). Trong
+vật thần đấy)". Kịch bản: `docs/cot-truyen-haven.md` mục "Mười vị thần đất" (tên, hình dạng, bị trói thế nào, giao kèo, thần kỹ). Trong
 game từ 11/10/2026: mỗi vùng 2–7 có nhiệm vụ cuối chương gặp thần ở thánh địa sau khi hạ boss chúa (`packages/sim/src/story/chapters.ts`);
 hình TẠM là tượng đá có sẵn của vùng (đầu rắn, nhân sư, tượng chim, phù điêu, tượng thợ rèn, con trai khổng lồ).
 
@@ -454,7 +454,7 @@ hình TẠM là tượng đá có sẵn của vùng (đầu rắn, nhân sư, t�
 | Lò Thần Ignar | Núi lửa | thợ rèn khổng lồ thân nham thạch, râu lửa, búa dung nham, ngực có lò than đỏ |
 | Hải Mẫu Thalassa | Quần đảo | cá voi khổng lồ lưng mọc rạn san hô và làng chài chìm, mắt dịu như biển lặng |
 | Thần Nấm Mycora | Rừng Nấm Ngầm | rừng nấm nghìn mắt phát sáng nối bằng mạng rễ |
-| Quang Thần Lumen | Phế tích Aether | hình người ánh sáng trắng không mặt, bảy vòng chữ cổ xoay quanh |
+| Quang Thần Lumen | Phế tích Haven | hình người ánh sáng trắng không mặt, bảy vòng chữ cổ xoay quanh |
 | Hư Thần Nox | Vực Hư Không | khoảng trống hình người viền sao, trong tối tuyệt đối, hai bàn tay sáng buộc nút thắt |
 
 **Làm**: duyệt phiếu → vẽ thử MỘT thần (Nereth hoặc Ignar) khung đầu Pro Flash → chủ dự án xem → đạt mới vẽ tiếp. Thần kỹ (bán bằng kim
@@ -656,10 +656,10 @@ Vẽ xong: khai id ở `props/worldRegions.ts`, thêm vào chủ đề map ở `
 91a3bb88-2dcd-4d55-8d5f-c457c4f20a1d): ảnh xoay 8 hướng (6 lượt, đã duyệt) + đứng thở 4 khung × 8 hướng (8 lượt). Soi khung: hướng
 E / W mất gậy, hướng N khung 3–4 có vệt bóng dưới chân → khi làm spec thì loại `idle` E / W / N, dùng ảnh xoay (như `npc_bram_001`).
 ✔ Đã đưa vào dữ liệu (13/10/2026): spec `src/specs/npc_ysolde_001.json`, sprite `assets/characters/npc_ysolde_001`, `chapters.ts` +
-`npcs.json` / `story.*.json` đổi sang `npc_ysolde_001`. Còn: nhập vào Unity (Aether → Nhập dữ liệu từ pipeline) khi build bản sau.
+`npcs.json` / `story.*.json` đổi sang `npc_ysolde_001`. Còn: nhập vào Unity (Haven → Nhập dữ liệu từ pipeline) khi build bản sau.
 Token trial #16 (40 lượt): ✔ 4 cây vùng 3 `desert_acacia` · `desert_candelabra` · `desert_date_trio` · `desert_dry_tree` + 2 cây vùng 4
 `highland_birch` · `highland_red_oak` (36 lượt), đã dựng lại `assets/maps/desert` + `highland`. Lệch đề: `desert_dry_tree` ra cây khô
 ĐỨNG (đề bài là thân gãy đổ), `desert_date_trio` có đế cát. Cây còn thiếu: `highland_rhododendron`, 4 cây vùng 5, 4 cây vùng 6, 4 cây vùng 7.
 
 Ưu tiên khi có lượt: **cây trước** (cây phủ nhiều diện tích nhất, lặp lại dễ thấy nhất), rồi tấm thiên nhiên, rồi tấm làng. Còn thiếu
-riêng: **NPC dịch vụ ở 6 trạm** (người bán, thợ rèn… — mục "Sau Mốc 3 còn thiếu" của `docs/the-gioi-aether.md`).
+riêng: **NPC dịch vụ ở 6 trạm** (người bán, thợ rèn… — mục "Sau Mốc 3 còn thiếu" của `docs/the-gioi-haven.md`).

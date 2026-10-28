@@ -50,7 +50,7 @@ class FakeWs {
 	}
 }
 
-const dir = mkdtempSync(join(tmpdir(), 'aether-social-'));
+const dir = mkdtempSync(join(tmpdir(), 'havenlord-social-'));
 const store = new Store(join(dir, 'social.db'));
 const world = new World(store);
 const ids: Record<string, string> = {};

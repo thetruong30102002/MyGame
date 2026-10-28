@@ -216,7 +216,7 @@ export function buildGargoyleCave(meta: Record<string, PropMeta>, decalIds: stri
 	}
 	L.place('skull_candles', px(12.5), px(27) + 8, { force: true });
 	L.place('skull_candles', px(15.5), px(27) + 8, { force: true });
-	// Cỗ máy đo Aether bằng đồng còn ấm (tấm C1) đúng chỗ `brass_meter_spot` — người dùng nó vừa rời đi qua Đường hầm của Đoàn.
+	// Cỗ máy đo Haven bằng đồng còn ấm (tấm C1) đúng chỗ `brass_meter_spot` — người dùng nó vừa rời đi qua Đường hầm của Đoàn.
 	// Lệch trái 8px để mặt đồng hồ không đè chân bia ghi tên phía trên.
 	L.place('brass_meter', px(17) - 8, px(27) + 20, { force: true });
 

@@ -494,7 +494,7 @@
 				"out": true
 			},
 			{
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"out": false
 			},
 			{
@@ -880,7 +880,7 @@
 				"out": false
 			},
 			{
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"out": false
 			},
 			{
@@ -1266,7 +1266,7 @@
 				"out": []
 			},
 			{
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"out": [
 					"Bắn xa 380"
 				]
@@ -1870,7 +1870,7 @@
 				"out": "uy lực ×1,97"
 			},
 			{
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"out": "uy lực ×1,55"
 			},
 			{
@@ -2297,47 +2297,47 @@
 				"out": "≈ 2.5 sát thương"
 			},
 			{
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"hit": 0,
 				"out": "≈ 0 sát thương"
 			},
 			{
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"hit": 7,
 				"out": "≈ 7 sát thương"
 			},
 			{
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"hit": 12.5,
 				"out": "≈ 12.5 sát thương"
 			},
 			{
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"hit": 33,
 				"out": "≈ 33 sát thương"
 			},
 			{
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"hit": 1234,
 				"out": "≈ 1234 sát thương"
 			},
 			{
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"hit": 0.30000000000000004,
 				"out": "≈ 0.30000000000000004 sát thương"
 			},
 			{
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"hit": -3.5,
 				"out": "≈ -3.5 sát thương"
 			},
 			{
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"hit": 1e-7,
 				"out": "≈ 1e-7 sát thương"
 			},
 			{
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"hit": 2.5,
 				"out": "≈ 2.5 sát thương"
 			},
@@ -6578,7 +6578,7 @@
 				"out": "Nhát chém cơ bản, giữ phím để chém liên tục. uy lực ×1,97 · không tốn MP · hồi 0,6s"
 			},
 			{
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"out": "Năng lực bẩm sinh: tia sáng bắn thẳng. Bắn xa 380 · uy lực ×1,55 · không tốn MP · hồi 0,65s"
 			},
 			{
@@ -409184,7 +409184,7 @@
 				"out": 1.3599999999999999
 			}
 		],
-		"aetherScale": [
+		"havenScale": [
 			{
 				"level": -5,
 				"out": 1
@@ -409269,25 +409269,25 @@
 			},
 			{
 				"t": 0,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 1,
 				"out": 1
 			},
 			{
 				"t": 0,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 20,
 				"out": 1.5699999999999998
 			},
 			{
 				"t": 0,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 40.7,
 				"out": 2.17
 			},
 			{
 				"t": 0,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 77,
 				"out": 2.17
 			},
@@ -410565,25 +410565,25 @@
 			},
 			{
 				"t": 1,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 1,
 				"out": 1
 			},
 			{
 				"t": 1,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 20,
 				"out": 1.5699999999999998
 			},
 			{
 				"t": 1,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 40.7,
 				"out": 2.17
 			},
 			{
 				"t": 1,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 77,
 				"out": 2.17
 			},
@@ -411861,25 +411861,25 @@
 			},
 			{
 				"t": 2,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 1,
 				"out": 1
 			},
 			{
 				"t": 2,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 20,
 				"out": 1.5699999999999998
 			},
 			{
 				"t": 2,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 40.7,
 				"out": 2.17
 			},
 			{
 				"t": 2,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 77,
 				"out": 2.17
 			},
@@ -413157,25 +413157,25 @@
 			},
 			{
 				"t": 3,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 1,
 				"out": 1
 			},
 			{
 				"t": 3,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 20,
 				"out": 1.5699999999999998
 			},
 			{
 				"t": 3,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 40.7,
 				"out": 2.17
 			},
 			{
 				"t": 3,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 77,
 				"out": 2.17
 			},
@@ -414453,25 +414453,25 @@
 			},
 			{
 				"t": 4,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 1,
 				"out": 1
 			},
 			{
 				"t": 4,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 20,
 				"out": 1.5699999999999998
 			},
 			{
 				"t": 4,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 40.7,
 				"out": 2.17
 			},
 			{
 				"t": 4,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 77,
 				"out": 2.17
 			},
@@ -415749,25 +415749,25 @@
 			},
 			{
 				"t": 5,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 1,
 				"out": 1
 			},
 			{
 				"t": 5,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 20,
 				"out": 1.5699999999999998
 			},
 			{
 				"t": 5,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 40.7,
 				"out": 2.17
 			},
 			{
 				"t": 5,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 77,
 				"out": 2.17
 			},
@@ -417045,25 +417045,25 @@
 			},
 			{
 				"t": 6,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 1,
 				"out": 1
 			},
 			{
 				"t": 6,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 20,
 				"out": 1.5699999999999998
 			},
 			{
 				"t": 6,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 40.7,
 				"out": 2.17
 			},
 			{
 				"t": 6,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 77,
 				"out": 2.17
 			},
@@ -418341,25 +418341,25 @@
 			},
 			{
 				"t": 7,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 1,
 				"out": 1
 			},
 			{
 				"t": 7,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 20,
 				"out": 1.5699999999999998
 			},
 			{
 				"t": 7,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 40.7,
 				"out": 2.17
 			},
 			{
 				"t": 7,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 77,
 				"out": 2.17
 			},
@@ -419637,25 +419637,25 @@
 			},
 			{
 				"t": 8,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 1,
 				"out": 1
 			},
 			{
 				"t": 8,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 20,
 				"out": 1.5699999999999998
 			},
 			{
 				"t": 8,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 40.7,
 				"out": 2.17
 			},
 			{
 				"t": 8,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 77,
 				"out": 2.17
 			},
@@ -420933,25 +420933,25 @@
 			},
 			{
 				"t": 9,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 1,
 				"out": 1
 			},
 			{
 				"t": 9,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 20,
 				"out": 1.5699999999999998
 			},
 			{
 				"t": 9,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 40.7,
 				"out": 2.17
 			},
 			{
 				"t": 9,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 77,
 				"out": 2.17
 			},
@@ -422229,25 +422229,25 @@
 			},
 			{
 				"t": 10,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 1,
 				"out": 1
 			},
 			{
 				"t": 10,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 20,
 				"out": 1.5699999999999998
 			},
 			{
 				"t": 10,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 40.7,
 				"out": 2.17
 			},
 			{
 				"t": 10,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 77,
 				"out": 2.17
 			},
@@ -423525,25 +423525,25 @@
 			},
 			{
 				"t": 11,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 1,
 				"out": 1
 			},
 			{
 				"t": 11,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 20,
 				"out": 1.5699999999999998
 			},
 			{
 				"t": 11,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 40.7,
 				"out": 2.17
 			},
 			{
 				"t": 11,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 77,
 				"out": 2.17
 			},
@@ -424821,25 +424821,25 @@
 			},
 			{
 				"t": 12,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 1,
 				"out": 1
 			},
 			{
 				"t": 12,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 20,
 				"out": 1.5699999999999998
 			},
 			{
 				"t": 12,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 40.7,
 				"out": 2.17
 			},
 			{
 				"t": 12,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 77,
 				"out": 2.17
 			},
@@ -426117,25 +426117,25 @@
 			},
 			{
 				"t": 13,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 1,
 				"out": 1
 			},
 			{
 				"t": 13,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 20,
 				"out": 1.5699999999999998
 			},
 			{
 				"t": 13,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 40.7,
 				"out": 2.17
 			},
 			{
 				"t": 13,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 77,
 				"out": 2.17
 			},
@@ -427413,25 +427413,25 @@
 			},
 			{
 				"t": 14,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 1,
 				"out": 1
 			},
 			{
 				"t": 14,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 20,
 				"out": 1.5699999999999998
 			},
 			{
 				"t": 14,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 40.7,
 				"out": 2.17
 			},
 			{
 				"t": 14,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 77,
 				"out": 2.17
 			},
@@ -428709,25 +428709,25 @@
 			},
 			{
 				"t": 15,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 1,
 				"out": 1
 			},
 			{
 				"t": 15,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 20,
 				"out": 1.5699999999999998
 			},
 			{
 				"t": 15,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 40.7,
 				"out": 2.17
 			},
 			{
 				"t": 15,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"level": 77,
 				"out": 2.17
 			},
@@ -430046,63 +430046,63 @@
 			},
 			{
 				"t": 0,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 0,
 				"path": "none",
 				"out": true
 			},
 			{
 				"t": 0,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 0,
 				"path": "sword",
 				"out": false
 			},
 			{
 				"t": 0,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 0,
 				"path": "mage",
 				"out": true
 			},
 			{
 				"t": 0,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 1,
 				"path": "none",
 				"out": false
 			},
 			{
 				"t": 0,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 1,
 				"path": "sword",
 				"out": false
 			},
 			{
 				"t": 0,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 1,
 				"path": "mage",
 				"out": false
 			},
 			{
 				"t": 0,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 2,
 				"path": "none",
 				"out": false
 			},
 			{
 				"t": 0,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 2,
 				"path": "sword",
 				"out": false
 			},
 			{
 				"t": 0,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 2,
 				"path": "mage",
 				"out": false
@@ -433385,63 +433385,63 @@
 			},
 			{
 				"t": 1,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 0,
 				"path": "none",
 				"out": true
 			},
 			{
 				"t": 1,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 0,
 				"path": "sword",
 				"out": false
 			},
 			{
 				"t": 1,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 0,
 				"path": "mage",
 				"out": true
 			},
 			{
 				"t": 1,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 1,
 				"path": "none",
 				"out": false
 			},
 			{
 				"t": 1,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 1,
 				"path": "sword",
 				"out": false
 			},
 			{
 				"t": 1,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 1,
 				"path": "mage",
 				"out": false
 			},
 			{
 				"t": 1,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 2,
 				"path": "none",
 				"out": false
 			},
 			{
 				"t": 1,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 2,
 				"path": "sword",
 				"out": false
 			},
 			{
 				"t": 1,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 2,
 				"path": "mage",
 				"out": false
@@ -436724,63 +436724,63 @@
 			},
 			{
 				"t": 2,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 0,
 				"path": "none",
 				"out": true
 			},
 			{
 				"t": 2,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 0,
 				"path": "sword",
 				"out": false
 			},
 			{
 				"t": 2,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 0,
 				"path": "mage",
 				"out": true
 			},
 			{
 				"t": 2,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 1,
 				"path": "none",
 				"out": false
 			},
 			{
 				"t": 2,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 1,
 				"path": "sword",
 				"out": false
 			},
 			{
 				"t": 2,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 1,
 				"path": "mage",
 				"out": false
 			},
 			{
 				"t": 2,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 2,
 				"path": "none",
 				"out": false
 			},
 			{
 				"t": 2,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 2,
 				"path": "sword",
 				"out": false
 			},
 			{
 				"t": 2,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 2,
 				"path": "mage",
 				"out": false
@@ -440063,63 +440063,63 @@
 			},
 			{
 				"t": 3,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 0,
 				"path": "none",
 				"out": true
 			},
 			{
 				"t": 3,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 0,
 				"path": "sword",
 				"out": false
 			},
 			{
 				"t": 3,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 0,
 				"path": "mage",
 				"out": true
 			},
 			{
 				"t": 3,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 1,
 				"path": "none",
 				"out": false
 			},
 			{
 				"t": 3,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 1,
 				"path": "sword",
 				"out": false
 			},
 			{
 				"t": 3,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 1,
 				"path": "mage",
 				"out": false
 			},
 			{
 				"t": 3,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 2,
 				"path": "none",
 				"out": false
 			},
 			{
 				"t": 3,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 2,
 				"path": "sword",
 				"out": false
 			},
 			{
 				"t": 3,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 2,
 				"path": "mage",
 				"out": false
@@ -443402,63 +443402,63 @@
 			},
 			{
 				"t": 4,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 0,
 				"path": "none",
 				"out": true
 			},
 			{
 				"t": 4,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 0,
 				"path": "sword",
 				"out": false
 			},
 			{
 				"t": 4,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 0,
 				"path": "mage",
 				"out": true
 			},
 			{
 				"t": 4,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 1,
 				"path": "none",
 				"out": false
 			},
 			{
 				"t": 4,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 1,
 				"path": "sword",
 				"out": false
 			},
 			{
 				"t": 4,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 1,
 				"path": "mage",
 				"out": false
 			},
 			{
 				"t": 4,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 2,
 				"path": "none",
 				"out": false
 			},
 			{
 				"t": 4,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 2,
 				"path": "sword",
 				"out": false
 			},
 			{
 				"t": 4,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 2,
 				"path": "mage",
 				"out": false
@@ -446741,63 +446741,63 @@
 			},
 			{
 				"t": 5,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 0,
 				"path": "none",
 				"out": true
 			},
 			{
 				"t": 5,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 0,
 				"path": "sword",
 				"out": false
 			},
 			{
 				"t": 5,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 0,
 				"path": "mage",
 				"out": true
 			},
 			{
 				"t": 5,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 1,
 				"path": "none",
 				"out": false
 			},
 			{
 				"t": 5,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 1,
 				"path": "sword",
 				"out": false
 			},
 			{
 				"t": 5,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 1,
 				"path": "mage",
 				"out": false
 			},
 			{
 				"t": 5,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 2,
 				"path": "none",
 				"out": false
 			},
 			{
 				"t": 5,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 2,
 				"path": "sword",
 				"out": false
 			},
 			{
 				"t": 5,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 2,
 				"path": "mage",
 				"out": false
@@ -450080,63 +450080,63 @@
 			},
 			{
 				"t": 6,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 0,
 				"path": "none",
 				"out": true
 			},
 			{
 				"t": 6,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 0,
 				"path": "sword",
 				"out": false
 			},
 			{
 				"t": 6,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 0,
 				"path": "mage",
 				"out": true
 			},
 			{
 				"t": 6,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 1,
 				"path": "none",
 				"out": false
 			},
 			{
 				"t": 6,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 1,
 				"path": "sword",
 				"out": false
 			},
 			{
 				"t": 6,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 1,
 				"path": "mage",
 				"out": false
 			},
 			{
 				"t": 6,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 2,
 				"path": "none",
 				"out": false
 			},
 			{
 				"t": 6,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 2,
 				"path": "sword",
 				"out": false
 			},
 			{
 				"t": 6,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 2,
 				"path": "mage",
 				"out": false
@@ -453419,63 +453419,63 @@
 			},
 			{
 				"t": 7,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 0,
 				"path": "none",
 				"out": true
 			},
 			{
 				"t": 7,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 0,
 				"path": "sword",
 				"out": false
 			},
 			{
 				"t": 7,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 0,
 				"path": "mage",
 				"out": true
 			},
 			{
 				"t": 7,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 1,
 				"path": "none",
 				"out": false
 			},
 			{
 				"t": 7,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 1,
 				"path": "sword",
 				"out": false
 			},
 			{
 				"t": 7,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 1,
 				"path": "mage",
 				"out": false
 			},
 			{
 				"t": 7,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 2,
 				"path": "none",
 				"out": false
 			},
 			{
 				"t": 7,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 2,
 				"path": "sword",
 				"out": false
 			},
 			{
 				"t": 7,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 2,
 				"path": "mage",
 				"out": false
@@ -456758,63 +456758,63 @@
 			},
 			{
 				"t": 8,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 0,
 				"path": "none",
 				"out": true
 			},
 			{
 				"t": 8,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 0,
 				"path": "sword",
 				"out": false
 			},
 			{
 				"t": 8,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 0,
 				"path": "mage",
 				"out": true
 			},
 			{
 				"t": 8,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 1,
 				"path": "none",
 				"out": false
 			},
 			{
 				"t": 8,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 1,
 				"path": "sword",
 				"out": false
 			},
 			{
 				"t": 8,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 1,
 				"path": "mage",
 				"out": false
 			},
 			{
 				"t": 8,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 2,
 				"path": "none",
 				"out": false
 			},
 			{
 				"t": 8,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 2,
 				"path": "sword",
 				"out": false
 			},
 			{
 				"t": 8,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 2,
 				"path": "mage",
 				"out": false
@@ -460097,63 +460097,63 @@
 			},
 			{
 				"t": 9,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 0,
 				"path": "none",
 				"out": true
 			},
 			{
 				"t": 9,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 0,
 				"path": "sword",
 				"out": false
 			},
 			{
 				"t": 9,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 0,
 				"path": "mage",
 				"out": true
 			},
 			{
 				"t": 9,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 1,
 				"path": "none",
 				"out": false
 			},
 			{
 				"t": 9,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 1,
 				"path": "sword",
 				"out": false
 			},
 			{
 				"t": 9,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 1,
 				"path": "mage",
 				"out": false
 			},
 			{
 				"t": 9,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 2,
 				"path": "none",
 				"out": false
 			},
 			{
 				"t": 9,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 2,
 				"path": "sword",
 				"out": false
 			},
 			{
 				"t": 9,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 2,
 				"path": "mage",
 				"out": false
@@ -463436,63 +463436,63 @@
 			},
 			{
 				"t": 10,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 0,
 				"path": "none",
 				"out": true
 			},
 			{
 				"t": 10,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 0,
 				"path": "sword",
 				"out": false
 			},
 			{
 				"t": 10,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 0,
 				"path": "mage",
 				"out": true
 			},
 			{
 				"t": 10,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 1,
 				"path": "none",
 				"out": false
 			},
 			{
 				"t": 10,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 1,
 				"path": "sword",
 				"out": false
 			},
 			{
 				"t": 10,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 1,
 				"path": "mage",
 				"out": false
 			},
 			{
 				"t": 10,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 2,
 				"path": "none",
 				"out": false
 			},
 			{
 				"t": 10,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 2,
 				"path": "sword",
 				"out": false
 			},
 			{
 				"t": 10,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 2,
 				"path": "mage",
 				"out": false
@@ -466775,63 +466775,63 @@
 			},
 			{
 				"t": 11,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 0,
 				"path": "none",
 				"out": true
 			},
 			{
 				"t": 11,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 0,
 				"path": "sword",
 				"out": false
 			},
 			{
 				"t": 11,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 0,
 				"path": "mage",
 				"out": true
 			},
 			{
 				"t": 11,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 1,
 				"path": "none",
 				"out": false
 			},
 			{
 				"t": 11,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 1,
 				"path": "sword",
 				"out": false
 			},
 			{
 				"t": 11,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 1,
 				"path": "mage",
 				"out": false
 			},
 			{
 				"t": 11,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 2,
 				"path": "none",
 				"out": false
 			},
 			{
 				"t": 11,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 2,
 				"path": "sword",
 				"out": false
 			},
 			{
 				"t": 11,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 2,
 				"path": "mage",
 				"out": false
@@ -470114,63 +470114,63 @@
 			},
 			{
 				"t": 12,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 0,
 				"path": "none",
 				"out": true
 			},
 			{
 				"t": 12,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 0,
 				"path": "sword",
 				"out": false
 			},
 			{
 				"t": 12,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 0,
 				"path": "mage",
 				"out": true
 			},
 			{
 				"t": 12,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 1,
 				"path": "none",
 				"out": false
 			},
 			{
 				"t": 12,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 1,
 				"path": "sword",
 				"out": false
 			},
 			{
 				"t": 12,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 1,
 				"path": "mage",
 				"out": false
 			},
 			{
 				"t": 12,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 2,
 				"path": "none",
 				"out": false
 			},
 			{
 				"t": 12,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 2,
 				"path": "sword",
 				"out": false
 			},
 			{
 				"t": 12,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 2,
 				"path": "mage",
 				"out": false
@@ -473453,63 +473453,63 @@
 			},
 			{
 				"t": 13,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 0,
 				"path": "none",
 				"out": true
 			},
 			{
 				"t": 13,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 0,
 				"path": "sword",
 				"out": false
 			},
 			{
 				"t": 13,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 0,
 				"path": "mage",
 				"out": true
 			},
 			{
 				"t": 13,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 1,
 				"path": "none",
 				"out": false
 			},
 			{
 				"t": 13,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 1,
 				"path": "sword",
 				"out": false
 			},
 			{
 				"t": 13,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 1,
 				"path": "mage",
 				"out": false
 			},
 			{
 				"t": 13,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 2,
 				"path": "none",
 				"out": false
 			},
 			{
 				"t": 13,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 2,
 				"path": "sword",
 				"out": false
 			},
 			{
 				"t": 13,
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"u": 2,
 				"path": "mage",
 				"out": false
@@ -501835,7 +501835,7 @@
 			},
 			{
 				"path": "none",
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"out": true
 			},
 			{
@@ -502105,7 +502105,7 @@
 			},
 			{
 				"path": "sword",
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"out": false
 			},
 			{
@@ -502375,7 +502375,7 @@
 			},
 			{
 				"path": "mage",
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"out": true
 			},
 			{
@@ -506712,10 +506712,10 @@
 					null,
 					null
 				],
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"out": [
 					null,
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -506756,7 +506756,7 @@
 			{
 				"loadout": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -506769,7 +506769,7 @@
 				"id": "slash",
 				"out": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -506783,7 +506783,7 @@
 			{
 				"loadout": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -506796,7 +506796,7 @@
 				"id": "heal",
 				"out": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -506810,7 +506810,7 @@
 			{
 				"loadout": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -506823,7 +506823,7 @@
 				"id": "meteor",
 				"out": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					"meteor",
 					null,
 					null,
@@ -506837,7 +506837,7 @@
 			{
 				"loadout": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -506850,7 +506850,7 @@
 				"id": "ice_shard",
 				"out": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -506864,7 +506864,7 @@
 			{
 				"loadout": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -506874,10 +506874,10 @@
 					null,
 					null
 				],
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"out": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -506891,7 +506891,7 @@
 			{
 				"loadout": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -506904,7 +506904,7 @@
 				"id": "quake",
 				"out": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					"quake",
 					null,
 					null,
@@ -507036,7 +507036,7 @@
 					"cyclone",
 					"tidal_wave"
 				],
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"out": [
 					"meteor",
 					"heal",
@@ -507128,10 +507128,10 @@
 				"loadout": [
 					"slash"
 				],
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"out": [
 					"slash",
-					"aether_bolt"
+					"haven_bolt"
 				]
 			},
 			{
@@ -507264,10 +507264,10 @@
 					null,
 					null
 				],
-				"id": "aether_bolt",
+				"id": "haven_bolt",
 				"out": [
 					null,
-					"aether_bolt",
+					"haven_bolt",
 					"heal",
 					null,
 					null,
@@ -507325,11 +507325,11 @@
 			{
 				"known": [
 					"slash",
-					"aether_bolt"
+					"haven_bolt"
 				],
 				"out": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -507349,7 +507349,7 @@
 					"water_lance",
 					"wind_blade",
 					"ice_shard",
-					"aether_bolt",
+					"haven_bolt",
 					"quake",
 					"cyclone",
 					"tidal_wave",
@@ -507363,7 +507363,7 @@
 					"wind_blade",
 					"heal",
 					"ice_shard",
-					"aether_bolt",
+					"haven_bolt",
 					"quake",
 					"cyclone"
 				]
@@ -507371,7 +507371,7 @@
 			{
 				"known": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					"fire_bolt",
 					"water_lance",
 					"wind_blade",
@@ -507426,7 +507426,7 @@
 				],
 				"out": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					"fire_bolt",
 					"water_lance",
 					"wind_blade",
@@ -507448,7 +507448,7 @@
 				"raw": "abc",
 				"known": [
 					"slash",
-					"aether_bolt"
+					"haven_bolt"
 				],
 				"out": null
 			},
@@ -507462,7 +507462,7 @@
 					"water_lance",
 					"wind_blade",
 					"ice_shard",
-					"aether_bolt",
+					"haven_bolt",
 					"quake",
 					"cyclone",
 					"tidal_wave",
@@ -507474,7 +507474,7 @@
 				"raw": "abc",
 				"known": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					"fire_bolt",
 					"water_lance",
 					"wind_blade",
@@ -507538,7 +507538,7 @@
 				"raw": 42,
 				"known": [
 					"slash",
-					"aether_bolt"
+					"haven_bolt"
 				],
 				"out": null
 			},
@@ -507552,7 +507552,7 @@
 					"water_lance",
 					"wind_blade",
 					"ice_shard",
-					"aether_bolt",
+					"haven_bolt",
 					"quake",
 					"cyclone",
 					"tidal_wave",
@@ -507564,7 +507564,7 @@
 				"raw": 42,
 				"known": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					"fire_bolt",
 					"water_lance",
 					"wind_blade",
@@ -507628,7 +507628,7 @@
 				"raw": null,
 				"known": [
 					"slash",
-					"aether_bolt"
+					"haven_bolt"
 				],
 				"out": null
 			},
@@ -507642,7 +507642,7 @@
 					"water_lance",
 					"wind_blade",
 					"ice_shard",
-					"aether_bolt",
+					"haven_bolt",
 					"quake",
 					"cyclone",
 					"tidal_wave",
@@ -507654,7 +507654,7 @@
 				"raw": null,
 				"known": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					"fire_bolt",
 					"water_lance",
 					"wind_blade",
@@ -507722,7 +507722,7 @@
 				},
 				"known": [
 					"slash",
-					"aether_bolt"
+					"haven_bolt"
 				],
 				"out": null
 			},
@@ -507738,7 +507738,7 @@
 					"water_lance",
 					"wind_blade",
 					"ice_shard",
-					"aether_bolt",
+					"haven_bolt",
 					"quake",
 					"cyclone",
 					"tidal_wave",
@@ -507752,7 +507752,7 @@
 				},
 				"known": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					"fire_bolt",
 					"water_lance",
 					"wind_blade",
@@ -507827,7 +507827,7 @@
 				"raw": [],
 				"known": [
 					"slash",
-					"aether_bolt"
+					"haven_bolt"
 				],
 				"out": [
 					null,
@@ -507852,7 +507852,7 @@
 					"water_lance",
 					"wind_blade",
 					"ice_shard",
-					"aether_bolt",
+					"haven_bolt",
 					"quake",
 					"cyclone",
 					"tidal_wave",
@@ -507875,7 +507875,7 @@
 				"raw": [],
 				"known": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					"fire_bolt",
 					"water_lance",
 					"wind_blade",
@@ -507977,7 +507977,7 @@
 				],
 				"known": [
 					"slash",
-					"aether_bolt"
+					"haven_bolt"
 				],
 				"out": [
 					"slash",
@@ -508010,7 +508010,7 @@
 					"water_lance",
 					"wind_blade",
 					"ice_shard",
-					"aether_bolt",
+					"haven_bolt",
 					"quake",
 					"cyclone",
 					"tidal_wave",
@@ -508041,7 +508041,7 @@
 				],
 				"known": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					"fire_bolt",
 					"water_lance",
 					"wind_blade",
@@ -508149,7 +508149,7 @@
 				],
 				"known": [
 					"slash",
-					"aether_bolt"
+					"haven_bolt"
 				],
 				"out": [
 					null,
@@ -508185,7 +508185,7 @@
 					"water_lance",
 					"wind_blade",
 					"ice_shard",
-					"aether_bolt",
+					"haven_bolt",
 					"quake",
 					"cyclone",
 					"tidal_wave",
@@ -508219,7 +508219,7 @@
 				],
 				"known": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					"fire_bolt",
 					"water_lance",
 					"wind_blade",
@@ -508288,7 +508288,7 @@
 			{
 				"raw": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -508315,7 +508315,7 @@
 			{
 				"raw": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -508327,11 +508327,11 @@
 				],
 				"known": [
 					"slash",
-					"aether_bolt"
+					"haven_bolt"
 				],
 				"out": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -508345,7 +508345,7 @@
 			{
 				"raw": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -508363,7 +508363,7 @@
 					"water_lance",
 					"wind_blade",
 					"ice_shard",
-					"aether_bolt",
+					"haven_bolt",
 					"quake",
 					"cyclone",
 					"tidal_wave",
@@ -508371,7 +508371,7 @@
 				],
 				"out": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -508385,7 +508385,7 @@
 			{
 				"raw": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -508397,7 +508397,7 @@
 				],
 				"known": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					"fire_bolt",
 					"water_lance",
 					"wind_blade",
@@ -508452,7 +508452,7 @@
 				],
 				"out": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -508505,7 +508505,7 @@
 				],
 				"known": [
 					"slash",
-					"aether_bolt"
+					"haven_bolt"
 				],
 				"out": [
 					null,
@@ -508541,7 +508541,7 @@
 					"water_lance",
 					"wind_blade",
 					"ice_shard",
-					"aether_bolt",
+					"haven_bolt",
 					"quake",
 					"cyclone",
 					"tidal_wave",
@@ -508575,7 +508575,7 @@
 				],
 				"known": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					"fire_bolt",
 					"water_lance",
 					"wind_blade",
@@ -508665,7 +508665,7 @@
 				],
 				"known": [
 					"slash",
-					"aether_bolt"
+					"haven_bolt"
 				],
 				"out": [
 					"slash",
@@ -508692,7 +508692,7 @@
 					"water_lance",
 					"wind_blade",
 					"ice_shard",
-					"aether_bolt",
+					"haven_bolt",
 					"quake",
 					"cyclone",
 					"tidal_wave",
@@ -508717,7 +508717,7 @@
 				],
 				"known": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					"fire_bolt",
 					"water_lance",
 					"wind_blade",
@@ -508825,7 +508825,7 @@
 				],
 				"known": [
 					"slash",
-					"aether_bolt"
+					"haven_bolt"
 				],
 				"out": [
 					null,
@@ -508861,7 +508861,7 @@
 					"water_lance",
 					"wind_blade",
 					"ice_shard",
-					"aether_bolt",
+					"haven_bolt",
 					"quake",
 					"cyclone",
 					"tidal_wave",
@@ -508895,7 +508895,7 @@
 				],
 				"known": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					"fire_bolt",
 					"water_lance",
 					"wind_blade",
@@ -508972,7 +508972,7 @@
 					"cyclone",
 					"rock_throw",
 					"stone_wall",
-					"aether_bolt",
+					"haven_bolt",
 					"tornado",
 					"frost_cleave",
 					"gale_dash",
@@ -509003,7 +509003,7 @@
 					"cyclone",
 					"rock_throw",
 					"stone_wall",
-					"aether_bolt",
+					"haven_bolt",
 					"tornado",
 					"frost_cleave",
 					"gale_dash",
@@ -509011,7 +509011,7 @@
 				],
 				"known": [
 					"slash",
-					"aether_bolt"
+					"haven_bolt"
 				],
 				"out": [
 					null,
@@ -509023,7 +509023,7 @@
 					null,
 					null,
 					null,
-					"aether_bolt"
+					"haven_bolt"
 				]
 			},
 			{
@@ -509037,7 +509037,7 @@
 					"cyclone",
 					"rock_throw",
 					"stone_wall",
-					"aether_bolt",
+					"haven_bolt",
 					"tornado",
 					"frost_cleave",
 					"gale_dash",
@@ -509051,7 +509051,7 @@
 					"water_lance",
 					"wind_blade",
 					"ice_shard",
-					"aether_bolt",
+					"haven_bolt",
 					"quake",
 					"cyclone",
 					"tidal_wave",
@@ -509067,7 +509067,7 @@
 					"cyclone",
 					null,
 					null,
-					"aether_bolt"
+					"haven_bolt"
 				]
 			},
 			{
@@ -509081,7 +509081,7 @@
 					"cyclone",
 					"rock_throw",
 					"stone_wall",
-					"aether_bolt",
+					"haven_bolt",
 					"tornado",
 					"frost_cleave",
 					"gale_dash",
@@ -509089,7 +509089,7 @@
 				],
 				"known": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					"fire_bolt",
 					"water_lance",
 					"wind_blade",
@@ -509152,7 +509152,7 @@
 					"cyclone",
 					"rock_throw",
 					"stone_wall",
-					"aether_bolt"
+					"haven_bolt"
 				]
 			}
 		],
@@ -509720,7 +509720,7 @@
 			{
 				"loadout": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -509734,7 +509734,7 @@
 				"id": null,
 				"out": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -509748,7 +509748,7 @@
 			{
 				"loadout": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -509762,7 +509762,7 @@
 				"id": "slash",
 				"out": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -509776,7 +509776,7 @@
 			{
 				"loadout": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -509790,7 +509790,7 @@
 				"id": "heal",
 				"out": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -509804,7 +509804,7 @@
 			{
 				"loadout": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -509818,7 +509818,7 @@
 				"id": "meteor",
 				"out": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -509832,7 +509832,7 @@
 			{
 				"loadout": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -509846,7 +509846,7 @@
 				"id": null,
 				"out": [
 					null,
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -509860,7 +509860,7 @@
 			{
 				"loadout": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -509874,7 +509874,7 @@
 				"id": "slash",
 				"out": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -509888,7 +509888,7 @@
 			{
 				"loadout": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -509902,7 +509902,7 @@
 				"id": "heal",
 				"out": [
 					"heal",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -509916,7 +509916,7 @@
 			{
 				"loadout": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -509930,7 +509930,7 @@
 				"id": "meteor",
 				"out": [
 					"meteor",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -509944,7 +509944,7 @@
 			{
 				"loadout": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -509958,7 +509958,7 @@
 				"id": null,
 				"out": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -509972,7 +509972,7 @@
 			{
 				"loadout": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -509986,7 +509986,7 @@
 				"id": "slash",
 				"out": [
 					null,
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					"slash",
 					null,
@@ -510000,7 +510000,7 @@
 			{
 				"loadout": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -510014,7 +510014,7 @@
 				"id": "heal",
 				"out": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					"heal",
 					null,
@@ -510028,7 +510028,7 @@
 			{
 				"loadout": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -510042,7 +510042,7 @@
 				"id": "meteor",
 				"out": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					"meteor",
 					null,
@@ -510056,7 +510056,7 @@
 			{
 				"loadout": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -510070,7 +510070,7 @@
 				"id": null,
 				"out": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -510084,7 +510084,7 @@
 			{
 				"loadout": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -510098,7 +510098,7 @@
 				"id": "slash",
 				"out": [
 					null,
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -510112,7 +510112,7 @@
 			{
 				"loadout": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -510126,7 +510126,7 @@
 				"id": "heal",
 				"out": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -510140,7 +510140,7 @@
 			{
 				"loadout": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -510154,7 +510154,7 @@
 				"id": "meteor",
 				"out": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -510168,7 +510168,7 @@
 			{
 				"loadout": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -510182,7 +510182,7 @@
 				"id": null,
 				"out": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -510196,7 +510196,7 @@
 			{
 				"loadout": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -510210,7 +510210,7 @@
 				"id": "slash",
 				"out": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -510224,7 +510224,7 @@
 			{
 				"loadout": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -510238,7 +510238,7 @@
 				"id": "heal",
 				"out": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -510252,7 +510252,7 @@
 			{
 				"loadout": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,
@@ -510266,7 +510266,7 @@
 				"id": "meteor",
 				"out": [
 					"slash",
-					"aether_bolt",
+					"haven_bolt",
 					null,
 					null,
 					null,

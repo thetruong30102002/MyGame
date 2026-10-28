@@ -12,7 +12,7 @@ import { Board } from '../src/board.ts';
 import { Store } from '../src/db.ts';
 import { createApi, newProgress } from '../src/http.ts';
 
-const dir = mkdtempSync(join(tmpdir(), 'aether-board-'));
+const dir = mkdtempSync(join(tmpdir(), 'havenlord-board-'));
 const store = new Store(join(dir, 'b.db'));
 const api = createApi(store);
 const server: Server = createServer((req, res) => void api(req, res));

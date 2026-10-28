@@ -3,10 +3,10 @@ import type { Line, NpcDef, QuestDef } from './storyTypes.ts';
 
 /**
  * Mạch chính vùng 1 (thần) + vùng 2–7 (chủ dự án 11/10/2026: "update nhiệm vụ, cốt truyện… mỗi vùng sẽ có 1 vị thần"). Bám bản nháp
- * `docs/cot-truyen-aether.md` (chương 2–7, map + boss trùng tên map thật) nhưng CHỈ mạch chính: các lựa chọn rẽ nhánh, ai sống ai chết
+ * `docs/cot-truyen-haven.md` (chương 2–7, map + boss trùng tên map thật) nhưng CHỈ mạch chính: các lựa chọn rẽ nhánh, ai sống ai chết
  * và nhiệm vụ phụ còn chờ chủ dự án duyệt (mục "Cần duyệt") nên lời thoại để ngỏ ở những chỗ đó. Mỗi vùng 8 nhiệm vụ: tới trạm gặp
  * người giao việc → 3 bầy quái theo map (30 con mỗi bầy — chủ dự án 11/10/2026: "cần tăng số quái cần farm nhiệm vụ"; mỗi bầy một mảnh chuyện) → 2 boss khu → boss chúa → gặp THẦN của vùng ở thánh địa
- * (`docs/cot-truyen-aether.md` mục "Mười vị thần đất": thần không chỉ đường, chỉ tỉnh khi boss chúa gục, trao giao kèo có giá).
+ * (`docs/cot-truyen-haven.md` mục "Mười vị thần đất": thần không chỉ đường, chỉ tỉnh khi boss chúa gục, trao giao kèo có giá).
  * Hình tạm: người giao việc mượn sprite NPC vùng 1, thần là tượng đá có sẵn của vùng — kế hoạch vẽ ghi ở `docs/pixellab-ke-hoach-ve.md`.
  * Người chỉ NÓI (Nyra, Zahra, Kael…) khai NPC không chỗ đứng (`at.spot` không map nào có) để hộp thoại có tên.
  */
@@ -241,7 +241,7 @@ const CH2: QuestDef[] = [
 		part: 0.35,
 		coins: 300,
 		before: [
-			L('inner', 'Sương ở Vực Sương Xanh dày tới mức tôi không thấy tay mình. Nhưng sợi Aether thì vẫn thấy. Tôi đi theo sợi.'),
+			L('inner', 'Sương ở Vực Sương Xanh dày tới mức tôi không thấy tay mình. Nhưng sợi Haven thì vẫn thấy. Tôi đi theo sợi.'),
 			L('odessa', 'Người Rowanmere. Và… kẻ khắc hươu. Hai mươi năm, cuối cùng mi cũng dám bước vào sương của ta.'),
 			L('father_garrick', 'Odessa. Tôi—'),
 			L('odessa', 'Im! Mi nói câu đó muộn hai mươi năm rồi.'),
@@ -324,7 +324,7 @@ const CH3: QuestDef[] = [
 		before: [L('inner', 'Lăng Mộ Cát là nơi chôn các vị vua đã ký Giao Ước. Xác ướp vẫn canh từng bậc thềm, ba trăm năm không ngủ.')],
 		after: [
 			L('narrator', '(Tường lăng khắc lời hứa: "Sahrin được một ghế trong hội đồng Bảy Mối." Ngay chỗ tên Sahrin là một vết đục.)'),
-			L('inner', 'Tôi chạm vào vết đục. Sợi Aether quanh đó vẫn nhớ hình con chữ, như vết lõm trên gối còn nhớ đầu người.'),
+			L('inner', 'Tôi chạm vào vết đục. Sợi Haven quanh đó vẫn nhớ hình con chữ, như vết lõm trên gối còn nhớ đầu người.'),
 			L('inner', 'Vết đục còn mới hơn phần đá xung quanh. Ai đó đã xoá Sahrin khỏi Giao Ước. Không phải ba trăm năm trước. Mới đây thôi.'),
 		],
 	}),
@@ -549,7 +549,7 @@ const CH5: QuestDef[] = [
 	hunt('c5_wisps', 'Người mẹ dưới mặt hồ', 'mob_ice_wisp_001', 30, 'Hạ tinh linh băng ở Hồ Sương Giá', {
 		level: 43,
 		part: 0.22,
-		before: [L('inner', 'Tinh linh băng bay quanh Hồ Sương Giá như đàn đom đóm lạnh. Ở giữa hồ, tôi thấy sợi Aether của một con người, đông cứng.')],
+		before: [L('inner', 'Tinh linh băng bay quanh Hồ Sương Giá như đàn đom đóm lạnh. Ở giữa hồ, tôi thấy sợi Haven của một con người, đông cứng.')],
 		after: [
 			L('kael', 'Trưởng làng kể, có một người mẹ trong làng tự đóng băng mình để giữ mặt hồ khỏi vỡ. Từ đó bà thành Nữ hoàng băng.'),
 			L('kael', 'Bà không còn nhận ra con gái mình nữa. Con gái bà ngày nào cũng ra bờ hồ đứng.'),
@@ -602,7 +602,7 @@ const CH5: QuestDef[] = [
 		level: 50,
 		part: 0.55,
 		potions: 3,
-		before: [L('inner', 'Vệ thần Ngai Băng ngồi đè lên một thứ gì đó. Sợi Aether dưới ngai không phải của nó. Nó là xiềng xích được đúc thành người.')],
+		before: [L('inner', 'Vệ thần Ngai Băng ngồi đè lên một thứ gì đó. Sợi Haven dưới ngai không phải của nó. Nó là xiềng xích được đúc thành người.')],
 		after: [
 			L('narrator', '(Vệ thần vỡ thành trăm mảnh băng. Dưới ngai, một phù điêu hình sói khổng lồ bắt đầu thở ra hơi lạnh.)'),
 		],
@@ -713,7 +713,7 @@ const CH6: QuestDef[] = [
 		level: 60,
 		part: 0.55,
 		potions: 3,
-		before: [L('inner', 'Người lùn gọi nó là Hoả thần. Nhưng sợi Aether của nó rách nát, quay cuồng. Một vị thần không có sợi rách như thế. Đây là ngọn lửa đã hoá điên.')],
+		before: [L('inner', 'Người lùn gọi nó là Hoả thần. Nhưng sợi Haven của nó rách nát, quay cuồng. Một vị thần không có sợi rách như thế. Đây là ngọn lửa đã hoá điên.')],
 		after: [
 			L('narrator', '(Ngọn lửa điên co lại, chui vào một bệ lò rèn đá ở giữa sân. Bệ lò đỏ rực lên, như có ai vừa thổi bễ.)'),
 		],

@@ -67,7 +67,7 @@ namespace HavenLord.Client.UI
             swordBg.color = game.IntegratedHeld == "sword" ? selected : UiKit.Ink;
             staffBg.color = game.IntegratedHeld == "staff" ? selected : UiKit.Ink;
             for (var d = 0; d < 8; d++) directionImages[d].color = d == (int)game.Player.View.Direction ? selected : UiKit.Ink;
-            state.text = game.LabCharacterBusy ? "Đang thi triển" : game.IntegratedHeld == "staff" ? "Trượng · phép Aether" : game.IntegratedHeld == "sword" ? "Kiếm · chém" : "Tay không";
+            state.text = game.LabCharacterBusy ? "Đang thi triển" : game.IntegratedHeld == "staff" ? "Trượng · phép Haven" : game.IntegratedHeld == "sword" ? "Kiếm · chém" : "Tay không";
         }
     }
 }

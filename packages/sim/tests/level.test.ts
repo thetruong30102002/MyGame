@@ -2,11 +2,11 @@
 // tạm `UnityGame/Tools~/data/tempArt.ts`). Phần chạy CombatSystem của web bỏ cùng bản web — client Unity có test C# + vector riêng.
 // Chạy: npx tsx tests/level.test.ts (trong packages/sim) hoặc `npm test -w @havenlord/sim`.
 // Chạy: npx tsx tests/level.test.ts — trần cấp 100 (chốt 08/10/2026): đường EXP (giữ nguyên tới cấp 10, mềm sau đó), điểm
-// tiềm năng + Tia Aether dừng ở cấp 40, nạp bản lưu (kẹp cấp, EXP thừa), nhận EXP không vượt cấp 100.
+// tiềm năng + Tia Haven dừng ở cấp 40, nạp bản lưu (kẹp cấp, EXP thừa), nhận EXP không vượt cấp 100.
 import assert from 'node:assert/strict';
 import { MAX_LEVEL } from '@havenlord/protocol';
 import { baseExpForLevel, cleanLevel, EXP_CURVE_KNEE, EXP_PACE, expForLevel, expPace } from '../src/skills.ts';
-import { aetherScale, pointsForLevel, TALENT_LEVEL_CAP } from '../src/talents.ts';
+import { havenScale, pointsForLevel, TALENT_LEVEL_CAP } from '../src/talents.ts';
 
 // 1) Đường EXP gốc: cấp ≤ 10 y như cũ; trên 10 tăng đều, không nổ số. EXP cần = gốc × nhịp `EXP_PACE` (11/10/2026 — "lên cấp quá
 // nhanh"): cấp 1–5 không đổi (vùng 1 cân theo), 6–10 ×1,5, từ 11 ×2,5.
@@ -23,13 +23,13 @@ import { aetherScale, pointsForLevel, TALENT_LEVEL_CAP } from '../src/talents.ts
 	assert.ok(Number.isSafeInteger(expForLevel(MAX_LEVEL)));
 }
 
-// 2) Điểm tiềm năng + Tia Aether dừng ở cấp 40.
+// 2) Điểm tiềm năng + Tia Haven dừng ở cấp 40.
 {
 	assert.equal(TALENT_LEVEL_CAP, 40);
 	assert.equal(pointsForLevel(41), pointsForLevel(40));
 	assert.equal(pointsForLevel(100), 47);
-	assert.ok(Math.abs(aetherScale(40) - 2.17) < 1e-9);
-	assert.equal(aetherScale(100), aetherScale(40));
+	assert.ok(Math.abs(havenScale(40) - 2.17) < 1e-9);
+	assert.equal(havenScale(100), havenScale(40));
 }
 
 // 3) Nạp bản lưu: kẹp cấp 1–100; EXP thừa (bản lưu của đường cũ / sửa tay) giữ sát mốc lên cấp; cấp 100 thì EXP 0.

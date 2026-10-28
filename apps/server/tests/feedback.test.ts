@@ -10,7 +10,7 @@ import { FEEDBACK_MAX, type FeedbackEntry } from '@havenlord/protocol';
 import { Store } from '../src/db.ts';
 import { createApi, newProgress } from '../src/http.ts';
 
-const dir = mkdtempSync(join(tmpdir(), 'aether-feedback-'));
+const dir = mkdtempSync(join(tmpdir(), 'havenlord-feedback-'));
 const store = new Store(join(dir, 'f.db'));
 const api = createApi(store);
 const server: Server = createServer((req, res) => void api(req, res));

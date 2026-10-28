@@ -1,5 +1,5 @@
 {
-	"AETHER_PER_LEVEL": 0.03,
+	"HAVEN_PER_LEVEL": 0.03,
 	"BRANCHES": [
 		"sword",
 		"kiem_than",
@@ -61,7 +61,7 @@
 	],
 	"HOME_SLOT": {
 		"slash": 0,
-		"aether_bolt": 1,
+		"haven_bolt": 1,
 		"imbue": 1,
 		"fire_bolt": 2,
 		"water_lance": 3,

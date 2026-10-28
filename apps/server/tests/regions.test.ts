@@ -93,7 +93,7 @@ class FakeWs {
 	}
 }
 
-const dir = mkdtempSync(join(tmpdir(), 'aether-regions-'));
+const dir = mkdtempSync(join(tmpdir(), 'havenlord-regions-'));
 const store = new Store(join(dir, 'g.db'));
 const world = new World(store, () => []);
 try {

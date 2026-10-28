@@ -300,7 +300,7 @@ export const TUNDRA_PROPS: PropDef[] = [
 	decor('campfire', IC2(8), 0.8, 12),
 	rock('ice_pillar', IC3(0), 0.6, 16),
 	rock('ice_stalagmites', IC3(1), 0.7, 14),
-	rock('aether_vein', IC3(2), 0.8, 18),
+	rock('haven_vein', IC3(2), 0.8, 18),
 	rock('dragon_relief', IC3(3), 0.85, 14),
 	decor('frost_lantern', IC3(4), 0.5, 10),
 	building('frozen_falls', IC3(5), 0.85, 20),

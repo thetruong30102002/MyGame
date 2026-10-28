@@ -3,8 +3,8 @@ import {readFileSync,writeFileSync,mkdirSync,copyFileSync} from 'node:fs';
 import {resolve} from 'node:path';
 import {WORLD_DESIGN} from '../packages/sim/src/worldDesign.ts';
 const archive=resolve('docs/archive/2026-10-26-ancien-univers');mkdirSync(archive,{recursive:true});
-for(const file of ['story.md','story-arc.md','cot-truyen-aether.md']){
- try{const src=resolve('docs',file),old=readFileSync(src,'utf8');if(!old.includes('Tài liệu đã nghỉ sử dụng')){copyFileSync(src,resolve(archive,file));writeFileSync(src,'# Tài liệu đã nghỉ sử dụng\n\nBản truyện cũ được lưu tại [kho lịch sử](archive/2026-10-26-ancien-univers/'+file+'). Không dùng làm nội dung hiện hành.\n\nNguồn mới: [Định hướng Aether](dinh-huong-aether.md) và [kế hoạch tổng](ke-hoach-nang-cap-the-gioi.md).\n');}}catch{}
+for(const file of ['story.md','story-arc.md','cot-truyen-haven.md']){
+ try{const src=resolve('docs',file),old=readFileSync(src,'utf8');if(!old.includes('Tài liệu đã nghỉ sử dụng')){copyFileSync(src,resolve(archive,file));writeFileSync(src,'# Tài liệu đã nghỉ sử dụng\n\nBản truyện cũ được lưu tại [kho lịch sử](archive/2026-10-26-ancien-univers/'+file+'). Không dùng làm nội dung hiện hành.\n\nNguồn mới: [Định hướng Haven](dinh-huong-haven.md) và [kế hoạch tổng](ke-hoach-nang-cap-the-gioi.md).\n');}}catch{}
 }
 const src=resolve('packages/sim/src/worldDesign.ts'),old=readFileSync(src,'utf8');
 if(!old.includes('2026-10-26-roster-reboot'))copyFileSync(src,resolve(archive,'worldDesign.ts.txt'));
@@ -51,7 +51,7 @@ const layout=WORLD_DESIGN.layout.map(p=>({...p,geography:concepts[p.id]?.[3]||'L
 const relations=WORLD_DESIGN.relations.map(r=>({...r,reason:r.kind==='trade'?'Trao đổi nguồn hàng đặc trưng và mở đường vận chuyển.':r.kind==='alliance'?'Hợp tác bảo vệ sinh cảnh và an toàn dân cư.':'Khác biệt về quyền khai thác và sử dụng tài nguyên.',pressure:'Giải quyết bằng nhiệm vụ mới theo vùng; chưa triển khai phe trong gameplay.'}));
 const evidence=WORLD_DESIGN.evidence.map((e,i)=>({...e,name:['Bản ghi Đồng Bằng','Niên luân Cổ Thụ','Bản chép Bình Minh','Bản khắc Đèn Đêm','Sổ luồng Bến Nước','Lịch giếng Ốc Đảo','Bản đo Trạm Gió','Hợp kim Lò Rèn','Bản ghi Cổ Thành','Mẫu rạn Không Gian'][i],note:'Nguồn nghiên cứu đề xuất trong hướng mới; chưa đặt nhiệm vụ hay vật phẩm vào game.'}));
 const chapterRows=[
- ['origin','Khởi nguyên Aether','Nơi hội tụ đầu tiên của vật chất và dòng Aether hình thành thế giới. Thần Tri Thức lưu giữ dấu vết khởi nguyên; chi tiết nguồn gốc cuối cùng còn là bản thảo.'],
+ ['origin','Khởi nguyên Haven','Nơi hội tụ đầu tiên của vật chất và dòng Haven hình thành thế giới. Thần Tri Thức lưu giữ dấu vết khởi nguyên; chi tiết nguồn gốc cuối cùng còn là bản thảo.'],
  ['pact','Tám dòng thiên phú','Bóng tối, Ánh sáng, Mộc, Thủy, Hỏa, Thổ, Phong và Băng là tám thiên phú. Cấp 10 phát hiện đúng một nguyên tố, xác suất đều 12,5%; class và giới tính không quyết định nguyên tố.'],
  ['burden','Những thành phố và đường giao thương','Các cộng đồng xây thành, phát triển nghề và trao đổi tài nguyên theo môi trường. Khuôn viên, chợ và các mê cung kết nối đời sống người chơi với lịch sử từng vùng.'],
  ['memory','Tri thức trên tầng mây','Những bản ghi từ mọi vùng hội tụ ở Thiên Thành. Người chơi khám phá nguyên nhân các vết rạn và tự lựa chọn vai trò của mình; diễn biến và kết thúc sẽ được viết theo hướng mới.'],

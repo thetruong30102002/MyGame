@@ -31,7 +31,7 @@
 			"intro": "Đồng cỏ, rừng rêu và nghĩa địa cổ quanh thị trấn Thistlewood — nơi mọi chuyện bắt đầu.",
 			"element": {
 				"name": "Bóng tối",
-				"weak": "Hoả, Aether"
+				"weak": "Hoả, Haven"
 			}
 		},
 		{
@@ -283,7 +283,7 @@
 		{
 			"id": "ruins",
 			"order": 9,
-			"name": "Phế tích Aether",
+			"name": "Phế tích Haven",
 			"levels": [
 				80,
 				90
@@ -291,8 +291,8 @@
 			"chief": null,
 			"settlement": {
 				"kind": "castle",
-				"name": "Toà thành Aether cổ",
-				"role": "Tàn dư triều đình pháp sư xưa — các phe tranh nhau di sản Aether.",
+				"name": "Toà thành Haven cổ",
+				"role": "Tàn dư triều đình pháp sư xưa — các phe tranh nhau di sản Haven.",
 				"services": [
 					"shop",
 					"smith",
@@ -303,7 +303,7 @@
 			},
 			"intro": "Thành cổ đổ nát, cột ma pháp và máy móc cổ.",
 			"element": {
-				"name": "Aether / thép (kháng phép)",
+				"name": "Haven / thép (kháng phép)",
 				"weak": "Kiếm"
 			},
 			"hub": "hub",
@@ -336,7 +336,7 @@
 			"intro": "Đảo trôi trên nền tím đen, khe nứt không gian.",
 			"element": {
 				"name": "Bóng tối / hỗn hợp",
-				"weak": "Aether, Hoả"
+				"weak": "Haven, Hoả"
 			},
 			"hub": "hub",
 			"waystone": {

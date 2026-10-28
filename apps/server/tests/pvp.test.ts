@@ -100,7 +100,7 @@ test('đạn không xuyên chỉ trúng người GẦN nhất trên đường ba
 	const a = r.add('a', 500, 500);
 	r.add('near', 620, 500);
 	r.add('far', 760, 500);
-	r.pvp.cast(a, 'aether_bolt', { ax: 1, ay: 0 });
+	r.pvp.cast(a, 'haven_bolt', { ax: 1, ay: 0 });
 	r.flush();
 	assert.deepEqual(r.hits('a').map((m) => m.to), ['near']);
 });

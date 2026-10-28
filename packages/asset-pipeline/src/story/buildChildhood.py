@@ -88,9 +88,9 @@ for q in d['quests']:
         'before': lines(q['dialogueBefore']),
         'after': lines(q['dialogueAfter']),
     }
-    # Bài luyện phép nguyên tố: dòng mục tiêu lúc chưa học đủ chiêu, bài nhận Tia Aether thay (luật 10/10/2026).
-    if q.get('objectiveTextAether'):
-        qd['objectiveTextAether'] = q['objectiveTextAether']
+    # Bài luyện phép nguyên tố: dòng mục tiêu lúc chưa học đủ chiêu, bài nhận Tia Haven thay (luật 10/10/2026).
+    if q.get('objectiveTextHaven'):
+        qd['objectiveTextHaven'] = q['objectiveTextHaven']
     other = q['rewardOther']
     m = re.search(r'unlockSkill=([a-z]+)', other)
     if m:

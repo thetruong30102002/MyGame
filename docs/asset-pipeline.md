@@ -202,7 +202,7 @@ bóng chuyển sắc, mà hiện ở ô 16–32px phải thu ⅓ nên nát. Bộ
 
 - **Cách vẽ** (đã thử 3 cách × 6 icon, `sources/pixellab/skill-icons-v2/_thu/`): `create_image_pixflux` 32×32, `no_background`,
   outline `single color black outline`, shading `basic shading`, detail `low detail`, seed 4242, **ÉP bảng màu nhánh**
-  (`color_image` — Kiếm thép + vàng / đỏ, Hoả đỏ-cam-vàng, Thuỷ xanh dương, Phong ngọc, Băng lam nhạt, Thổ nâu-đất son, Aether
+  (`color_image` — Kiếm thép + vàng / đỏ, Hoả đỏ-cam-vàng, Thuỷ xanh dương, Phong ngọc, Băng lam nhạt, Thổ nâu-đất son, Haven
   tím; + màu nhấn từng icon, `palettes/`). Đề bài = MỘT vật chính + đuôi ", simple chunky game icon". Kết quả 4–10 màu / icon,
   hình ~22–28px giữa ô. Loại: pixflux flat không ép màu (11–28 màu, nhiễu đuôi lửa), pixen (đậm nhưng 29–63 màu, nhiều điểm lẻ, tự
   thêm mặt cho quả cầu lửa / khiên).
@@ -217,7 +217,7 @@ bóng chuyển sắc, mà hiện ở ô 16–32px phải thu ⅓ nên nát. Bộ
 - **Web** (`apps/web/src/components/iconFit.ts` · `skillIconFit`): chọn tỉ lệ theo phần hình (ô − lề 2px): ô 28–55 → 1× (thanh
   kỹ năng, cây chiêu, loadout 30), 56+ → 2× (nút cảm ứng to 64), 14–27 → ½; luôn nguyên lần / 1/n, toạ độ nguyên.
 - Ngân sách: 143 lượt token #1 (thử 18 + vẽ đủ 86 + vẽ lại 39). Còn chưa ưng (vẽ lại nếu dư lượt): `tidal_wave` (hình nón
-  nước giống tam giác), `spare:aether:3` (hai quả cầu + tia lửa, rối — chưa dùng), `future:earth:10` (đống đá, nắm đấm khó nhận),
+  nước giống tam giác), `spare:haven:3` (hai quả cầu + tia lửa, rối — chưa dùng), `future:earth:10` (đống đá, nắm đấm khó nhận),
   `calm_stance` ≈ `future:sword:10:thuy_than` (cùng vòm ngọc), thanh mảnh ở ½ (`pierce_rush`, `ice_spire`, `earth_rend`).
 - **Vẽ lại lượt 2** (10/10/2026, 10 lượt): 7 icon, mỗi icon so cũ / mới ở 1× + ½ cạnh cả cột cây chiêu (`_duyet/ve-lai-2-so-sanh.png`,
   `_duyet/ve-lai-2-cot.png`), bản cũ chuyển `_ung-vien/`, bảng khoá ghi `redrawn`. `tidal_wave` → bọt nước toé (khác 3 icon sóng
@@ -226,7 +226,7 @@ bóng chuyển sắc, mà hiện ở ô 16–32px phải thu ⅓ nên nát. Bộ
   nhưng khác màu / độ đặc); `pierce_rush` → mũi lao thép đặc (img2img 200 từ vệt VFX `pierce_slash` kéo dày + kiếm t2 xoay 45° —
   `init/pierce_rush.v3.init.png`); `ice_spire` → cụm pha lê băng (đúng VFX cột băng); `earth_rend` → kiếm cắm tảng đá nứt. Bẫy mới:
   đề bài chữ "kiếm + vệt" ra thanh kiếm chéo y như `slash`; img2img từ ảnh KHÔNG viền (khung VFX) ra icon mất viền đen, lốm đốm
-  (whirlpool i140 — loại). Còn chưa ưng: `earth_rend` thân kiếm vẫn mảnh (tảng đá đỡ khối), `whirlpool` như trên, `spare:aether:3`.
+  (whirlpool i140 — loại). Còn chưa ưng: `earth_rend` thân kiếm vẫn mảnh (tảng đá đỡ khối), `whirlpool` như trên, `spare:haven:3`.
 
 ## Tranh lục địa — bản đồ tổng phím M (10/10/2026)
 

@@ -11,7 +11,7 @@
 //   --fast   nén nhanh (-m1) cho bản thử; mặc định -m5
 //   --no-drive  KHÔNG đẩy lên Drive. Mặc định phát cho máy chủ THẬT (không `--dir`) xong là đẩy exe + apk mới lên thư mục Google Drive
 //               của trang Tải game, ghi đè đúng tên cũ (upload-drive.mts, cần rclone remote `gdrive`)
-// Giữ 2 bản gần nhất mỗi nền tảng (người đang tải dở bản trước không hỏng), xoá bản cũ hơn. Chép thêm exe ra Build/HavenLord-Setup.exe (tên cũ Aether-Chronicle.exe.
+// Giữ 2 bản gần nhất mỗi nền tảng (người đang tải dở bản trước không hỏng), xoá bản cũ hơn. Chép thêm exe ra Build/HavenLord-Setup.exe.
 import { createHash } from 'node:crypto';
 import { spawnSync } from 'node:child_process';
 import { copyFileSync, createReadStream, existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, realpathSync, renameSync, rmSync, statSync, writeFileSync } from 'node:fs';
@@ -66,7 +66,7 @@ const removeInstallerTemp = (directory: string): void => {
 	const root = realpathSync(tmpdir());
 	const target = realpathSync(directory);
 	const inside = relative(root, target);
-	if (!inside || inside === '..' || inside.startsWith(`..${process.platform === 'win32' ? '\\' : '/'}`) || isAbsolute(inside) || dirname(target) !== root || !basename(target).startsWith('aether-installer-')) {
+	if (!inside || inside === '..' || inside.startsWith(`..${process.platform === 'win32' ? '\\' : '/'}`) || isAbsolute(inside) || dirname(target) !== root || !basename(target).startsWith('havenlord-installer-')) {
 		throw new Error(`Refusing installer cleanup outside the temporary installer directory: ${target}`);
 	}
 	rmSync(target, { recursive: true, force: true });
@@ -83,7 +83,7 @@ if (only !== 'android') {
 	else {
 		const file = `HavenLord-${b.build}.exe`;
 		const dst = join(outDir, file);
-		const sfxScript = join(tmpdir(), `aether-sfx-${process.pid}.txt`);
+		const sfxScript = join(tmpdir(), `havenlord-sfx-${process.pid}.txt`);
 		writeFileSync(
 			sfxScript,
 			[
@@ -108,7 +108,7 @@ if (only !== 'android') {
 		rmSync(dst, { force: true });
 		// Trình gỡ cài đặt (Tools~/installer) + danh sách mục game đã cài — trình gỡ CHỈ xoá đúng các mục này (người chơi có thể cài
 		// thẳng vào thư mục chung như C:\Games).
-		const extra = mkdtempSync(join(tmpdir(), 'aether-installer-'));
+		const extra = mkdtempSync(join(tmpdir(), 'havenlord-installer-'));
 		for (const f of ['Uninstall.cmd', 'uninstall.ps1']) copyFileSync(join(HERE, 'installer', f), join(extra, f));
 		// Thư mục Unity ghi "DoNotShip" / "DontShip" KHÔNG được gửi kèm: `…_BackUpThisFolder_ButDontShipItWithYourGame` của IL2CPP là mã C++
 		// sinh từ toàn bộ code (gửi kèm = mất tác dụng IL2CPP), `…_BurstDebugInformation_DoNotShip` là thông tin gỡ lỗi.
@@ -174,9 +174,9 @@ console.log(`✔ version.json → ${vPath} (bản ${String(next.version)}${flag(
 
 // Dọn: mỗi nền tảng giữ 2 bản mới nhất (bản đang phát + bản trước).
 for (const [re, keep] of [
-	[/^(?:HavenLord|Aether-Chronicle)-(\d+)\.exe$/, (next.windows as Entry | undefined)?.file],
-	[/^(?:HavenLord|Aether-Chronicle)-(\d+)\.zip$/, (next.windows as Entry | undefined)?.zip?.file],
-	[/^(?:HavenLord|Aether)-(\d+)\.apk$/, (next.android as Entry | undefined)?.file],
+	[/^HavenLord-(\d+)\.exe$/, (next.windows as Entry | undefined)?.file],
+	[/^HavenLord-(\d+)\.zip$/, (next.windows as Entry | undefined)?.zip?.file],
+	[/^(?:HavenLord|Haven)-(\d+)\.apk$/, (next.android as Entry | undefined)?.file],
 ] as const) {
 	const files = readdirSync(outDir)
 		.map((f) => ({ f, m: f.match(re) }))

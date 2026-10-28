@@ -1,5 +1,4 @@
 {
-	"tool": "create_image_pixflux",
 	"description": "a violet crystal orb inside a circular reset arrow, simple chunky game icon",
 	"width": 32,
 	"height": 32,
@@ -8,8 +7,5 @@
 	"shading": "basic shading",
 	"detail": "low detail",
 	"seed": 4242,
-	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/aether.png",
-	"jobId": "86f873d8-7ac1-4f17-8688-e3c124d1b9cb",
-	"token": 1,
-	"createdAt": "2026-10-09T19:21:13.523Z"
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/haven.png"
 }

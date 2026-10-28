@@ -8,7 +8,7 @@ import { HERO_SKILLS, powerText, skillFacts } from './skills.ts';
  * Mở nhánh (cốt truyện) = ĐƯỢC PHÉP học (chủ dự án 10/10/2026): nhánh nguyên tố vừa mở ở mốc 0, mốc 1 (kỹ năng đầu — Hoả
  * Cầu, Thuỷ Tiễn…) mua bằng điểm như mọi mốc. Riêng Kiếm giữ mốc 1 miễn phí (`FREE_FIRST_TIER`: Trảm = đòn J, nhận kiếm
  * gỗ là chém được).
- * Tia Aether là năng lực bẩm sinh — NGOÀI cây, mạnh dần theo cấp.
+ * Tia Haven là năng lực bẩm sinh — NGOÀI cây, mạnh dần theo cấp.
  * Thuần dữ liệu + hàm — CombatSystem/Game/HUD đọc, test node gọi thẳng (chỉ import KIỂU, không kéo Pixi vào test).
  */
 export type Branch = 'sword' | 'kiem_than' | 'thuy_than' | 'bac_than' | 'fire' | 'water' | 'wind' | 'ice' | 'earth';
@@ -479,7 +479,7 @@ export function swordDepth(tiers: Tiers): number {
 export const SWORD_ARTS: Record<'fire' | 'water' | 'wind' | 'ice' | 'earth', string> = { fire: 'blaze_slash', water: 'water_dragon_slash', wind: 'gale_blade_dance', ice: 'frost_cleave', earth: 'earth_rend' };
 
 /**
- * Kỹ năng thuộc cây → nhánh + mốc học (Tia Aether không có ở đây: bẩm sinh, ngoài cây). `style`: kỹ năng riêng của một
+ * Kỹ năng thuộc cây → nhánh + mốc học (Tia Haven không có ở đây: bẩm sinh, ngoài cây). `style`: kỹ năng riêng của một
  * lưu phái Kiếm. `art`: kiếm pháp nguyên tố — cần thêm nguyên tố đó ≥ `SWORD_ART_TIER`.
  */
 export interface SkillNode {
@@ -621,20 +621,20 @@ export function depthBonus(tier: number): number {
 }
 
 /**
- * Tia Aether — năng lực bẩm sinh, ngoài cây: mạnh dần theo cấp (+3% mỗi cấp trên cấp 1; cấp 40 = ×2,17) — DỪNG ở cấp 40 như
- * điểm tiềm năng: sức đánh gốc đã tăng theo cấp, nhân thêm theo cấp tới 100 là Tia Aether ×3,97 vượt hẳn mọi kỹ năng cây.
+ * Tia Haven — năng lực bẩm sinh, ngoài cây: mạnh dần theo cấp (+3% mỗi cấp trên cấp 1; cấp 40 = ×2,17) — DỪNG ở cấp 40 như
+ * điểm tiềm năng: sức đánh gốc đã tăng theo cấp, nhân thêm theo cấp tới 100 là Tia Haven ×3,97 vượt hẳn mọi kỹ năng cây.
  */
-export const AETHER_PER_LEVEL = 0.03;
-export function aetherScale(level: number): number {
-	return 1 + AETHER_PER_LEVEL * (Math.min(TALENT_LEVEL_CAP, Math.max(1, Math.floor(level))) - 1);
+export const HAVEN_PER_LEVEL = 0.03;
+export function havenScale(level: number): number {
+	return 1 + HAVEN_PER_LEVEL * (Math.min(TALENT_LEVEL_CAP, Math.max(1, Math.floor(level))) - 1);
 }
 
 /**
- * Hệ số của một kỹ năng theo cây (Aether không thuộc cây → dùng `aetherScale`). Kiếm pháp nguyên tố ăn thưởng chiều sâu
+ * Hệ số của một kỹ năng theo cây (Haven không thuộc cây → dùng `havenScale`). Kiếm pháp nguyên tố ăn thưởng chiều sâu
  * của nhánh YẾU hơn giữa Kiếm và nguyên tố đó (như thưởng phản ứng: phải nuôi cả hai).
  */
 export function skillScale(tiers: Tiers, skillId: string, level: number): number {
-	if (skillId === 'aether_bolt') return aetherScale(level);
+	if (skillId === 'haven_bolt') return havenScale(level);
 	const node = SKILL_NODE[skillId];
 	if (!node) return 1;
 	if (node.art) return depthBonus(Math.min(swordDepth(tiers) || 1, tiers[node.art] ?? 1));
@@ -642,7 +642,7 @@ export function skillScale(tiers: Tiers, skillId: string, level: number): number
 	return depthBonus(tiers[node.branch] ?? 1);
 }
 
-/** Lớp được dùng kỹ năng không: Kiếm sĩ chỉ kiếm (đòn Kiếm, phái, kiếm pháp, Bọc nguyên tố), Pháp sư chỉ trượng (Aether + phép). */
+/** Lớp được dùng kỹ năng không: Kiếm sĩ chỉ kiếm (đòn Kiếm, phái, kiếm pháp, Bọc nguyên tố), Pháp sư chỉ trượng (Haven + phép). */
 export function pathAllowsSkill(path: PathId, skillId: string): boolean {
 	if (path === 'none') return true;
 	const node = SKILL_NODE[skillId];
@@ -936,8 +936,8 @@ export const SLOT_CODES: readonly string[] = ['KeyJ', 'KeyK', 'Digit1', 'Digit2'
 /** Ô gán tự do: id kỹ năng hoặc null (trống). Luôn đủ `SLOT_COUNT` phần tử. */
 export type Loadout = (string | null)[];
 
-/** Ô "nhà" của kỹ năng — đúng phím cũ (J kiếm, K Aether, 1–3 phép, 4 Suối Lành, 5 Băng Tiễn) để người chơi cũ khỏi tập lại. */
-export const HOME_SLOT: Record<string, number> = { slash: 0, aether_bolt: 1, imbue: 1, fire_bolt: 2, water_lance: 3, wind_blade: 4, heal: 5, ice_shard: 6 };
+/** Ô "nhà" của kỹ năng — đúng phím cũ (J kiếm, K Haven, 1–3 phép, 4 Suối Lành, 5 Băng Tiễn) để người chơi cũ khỏi tập lại. */
+export const HOME_SLOT: Record<string, number> = { slash: 0, haven_bolt: 1, imbue: 1, fire_bolt: 2, water_lance: 3, wind_blade: 4, heal: 5, ice_shard: 6 };
 
 /** Đặt kỹ năng chưa có trên thanh vào ô nhà nếu trống, không thì ô trống đầu tiên; hết ô thì để nguyên. Trả bản mới. */
 export function placeSkill(loadout: Loadout, skillId: string): Loadout {

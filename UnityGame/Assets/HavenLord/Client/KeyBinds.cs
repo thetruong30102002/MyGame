@@ -5,7 +5,7 @@ using UnityEngine;
 namespace HavenLord.Client
 {
     /// <summary>
-    /// Phím tắt người chơi đổi được (chủ dự án 11/10/2026: "cài đặt nút trong cài đặt") — Cài đặt → PHÍM. Lưu PlayerPrefs `aether.key.<hành
+    /// Phím tắt người chơi đổi được (chủ dự án 11/10/2026: "cài đặt nút trong cài đặt") — Cài đặt → PHÍM. Lưu PlayerPrefs `havenlord.key.<hành
     /// động>`; gán một phím đang thuộc hành động khác thì HAI hành động đổi phím cho nhau (không để một phím làm hai việc). Cố định, không
     /// đổi: Esc (đóng / bỏ chọn), phím mũi tên + Shift phải (đi / chạy dự phòng), Enter bàn phím số (mở chat). Ô 1 (chém) / ô 2 (phép
     /// thường) KHÔNG có phím (chủ dự án 11/10/2026: "bỏ j k đi vì bây giờ là chuột trái chuột phải") — PC dùng chuột trái / phải, điện thoại

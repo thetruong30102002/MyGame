@@ -1,4 +1,4 @@
-# Sinh docs/the-gioi-aether.html (danh sách vùng / map / quái / boss / trang bị / ngân sách PixelLab) — sửa dữ liệu ở đây rồi chạy: python docs/tools/the-gioi-aether.py
+# Sinh docs/the-gioi-haven.html (danh sách vùng / map / quái / boss / trang bị / ngân sách PixelLab) — sửa dữ liệu ở đây rồi chạy: python docs/tools/the-gioi-haven.py
 import base64
 import html
 import os
@@ -8,8 +8,8 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import sketch  # noqa: E402
 
 DOCS = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
-OUT = os.path.join(DOCS, 'the-gioi-aether.html')
-OUT_MD = os.path.join(DOCS, 'the-gioi-aether.md')
+OUT = os.path.join(DOCS, 'the-gioi-haven.html')
+OUT_MD = os.path.join(DOCS, 'the-gioi-haven.md')
 SKETCH_DIR = os.path.join(DOCS, 'phac-thao-map')  # SVG phác thảo cho bản Markdown
 MINIMAPS = os.path.join(DOCS, '..', 'assets', 'maps', 'human')
 
@@ -19,7 +19,7 @@ MINIMAPS = os.path.join(DOCS, '..', 'assets', 'maps', 'human')
 # ĐỢT 2 đã vẽ + dựng vào bản thử, chờ lên game; còn lại = chưa có map.
 REGIONS = [
     # Vùng 1 — 12 map (chủ dự án 10/10/2026, thiết kế docs/thiet-ke/vung1-12-map.md). Thứ tự = chỉ số trên sơ đồ R1_POS (6 = thánh địa).
-    dict(n=1, name='Thung lũng Thistlewood', lv='1–10', elem='Bóng tối', weak='Hoả, Aether',
+    dict(n=1, name='Thung lũng Thistlewood', lv='1–10', elem='Bóng tối', weak='Hoả, Haven',
          status='12 map + hình ĐỢT 2 (tấm G1 / R1 / B1 + 5 món lẻ — Nghĩa địa, Đồi Xương, Vách, Mộ Vô Danh, Luỹ, Hẻm Cửa Sông hết trống) đã lên game 10/10/2026',
          town=('village', 'Thị trấn Thistlewood', 'Quê nhà của Lior: nhiệm vụ tuổi thơ và tuổi 16 bắt đầu ở đây.'),
          maps=[
@@ -113,18 +113,18 @@ REGIONS = [
              ('Điện Nấm', 'Săn', [('Rùa đá rêu', 'moi'), ('Vua người nấm · boss khu', 'moi')], 'moi'),
              ('Lòng Đất Sâu', 'Thánh địa', [('Rồng đất · boss chúa', 'moi')], 'moi'),
          ]),
-    dict(n=9, name='Phế tích Aether', lv='80–90', elem='Aether / thép (kháng phép)', weak='Kiếm', status='Chưa có map', dragon='Quang Long',
-         town=('castle', 'Toà thành Aether cổ', 'Tàn dư triều đình pháp sư xưa — các phe tranh nhau di sản Aether.'),
+    dict(n=9, name='Phế tích Haven', lv='80–90', elem='Haven / thép (kháng phép)', weak='Kiếm', status='Chưa có map', dragon='Quang Long',
+         town=('castle', 'Toà thành Haven cổ', 'Tàn dư triều đình pháp sư xưa — các phe tranh nhau di sản Haven.'),
          maps=[
-             ('Toà thành Aether cổ', 'Trạm (toà thành)', [], 'moi'),
+             ('Toà thành Haven cổ', 'Trạm (toà thành)', [], 'moi'),
              ('Phố Đổ Nát', 'Săn', [('Hiệp sĩ ma', 'moi')], 'moi'),
              ('Xưởng Máy Cổ', 'Săn', [('Vệ binh máy', 'moi'), ('Cỗ máy canh giữ · boss khu', 'moi')], 'moi'),
              ('Thư Viện Bay', 'Săn', [('Sách bay', 'moi')], 'moi'),
              ('Tháp Pháp Sư', 'Săn', [('Pháp sư mất trí', 'moi')], 'moi'),
              ('Xưởng Rối', 'Săn', [('Rối gỗ ma thuật', 'moi'), ('Hiệp sĩ đầu lâu · boss khu', 'moi')], 'moi'),
-             ('Điện Aether', 'Thánh địa', [('Đại pháp sư sa đoạ · boss chúa', 'moi')], 'moi'),
+             ('Điện Haven', 'Thánh địa', [('Đại pháp sư sa đoạ · boss chúa', 'moi')], 'moi'),
          ]),
-    dict(n=10, name='Vực Hư Không', lv='90–100', elem='Bóng tối / hỗn hợp', weak='Aether, Hoả', status='Chưa có map', dragon='Hắc Long',
+    dict(n=10, name='Vực Hư Không', lv='90–100', elem='Bóng tối / hỗn hợp', weak='Haven, Hoả', status='Chưa có map', dragon='Hắc Long',
          town=('castle', 'Thành trì Hư Không', 'Tiền đồn cuối cùng trước Ma vương — liên quân các vùng đóng ở đây.'),
          maps=[
              ('Thành trì Hư Không', 'Trạm (toà thành)', [], 'moi'),
@@ -143,8 +143,8 @@ DRAGONS = [
     ('Hoả Long', 'Viêm Đế', 6, 'miệng núi lửa', '~60', 'Hoả — yếu Thuỷ, Băng', 'phun lửa theo nón, mưa thiên thạch, dung nham dâng'),
     ('Thuỷ Long', 'Thương Hải', 7, 'xoáy nước giữa rạn san hô', '~70', 'Thuỷ — yếu Phong, Thổ', 'lặn / trồi chỗ khác, sóng thần, làm ướt cả sân'),
     ('Địa Long', 'Thạch Cốt', 8, 'đáy hang tinh thể', '~80', 'Thổ — yếu Phong', 'trồi lên dưới chân, gai đá, giáp đá phải phá'),
-    ('Quang Long', 'Thiên Huy', 9, 'tháp ma pháp đổ nát', '~90', 'Aether — kháng phép, yếu Kiếm', 'tia sáng quét, khiên phản phép, nhân bản ảnh rồng'),
-    ('Hắc Long', 'Vô Tận', 10, 'khe nứt trước cổng thành Ma vương', '~95', 'Hắc ám — yếu Aether, Hoả', 'hố hư không hút người chơi, bóng rồng tách làm ba'),
+    ('Quang Long', 'Thiên Huy', 9, 'tháp ma pháp đổ nát', '~90', 'Haven — kháng phép, yếu Kiếm', 'tia sáng quét, khiên phản phép, nhân bản ảnh rồng'),
+    ('Hắc Long', 'Vô Tận', 10, 'khe nứt trước cổng thành Ma vương', '~95', 'Hắc ám — yếu Haven, Hoả', 'hố hư không hút người chơi, bóng rồng tách làm ba'),
 ]
 
 GEAR_BODY = [
@@ -167,7 +167,7 @@ BODY_FAMILIES = 'Vải tân thủ · Giáp da · Giáp sắt · Áo pháp sư'
 # talents.ts) + ghi chú TẠM trong UnityGame/Tools~/data/tempArt.ts (trước ở apps/web/src/game/combat — bản web đã xoá).
 SKILLS = [
     ('slash', 'Trảm', 'steel', 'melee', 'sword', 1, None, 'co', ''),
-    ('aether_bolt', 'Tia Aether', 'aether', 'projectile', None, None, None, 'co', ''),
+    ('haven_bolt', 'Tia Haven', 'haven', 'projectile', None, None, None, 'co', ''),
     ('fire_bolt', 'Hoả Cầu', 'fire', 'projectile', 'fire', 1, None, 'co', ''),
     ('water_lance', 'Thuỷ Tiễn', 'water', 'projectile', 'water', 1, None, 'co', ''),
     ('wind_blade', 'Phong Nhận', 'wind', 'projectile', 'wind', 1, None, 'co', ''),
@@ -271,7 +271,7 @@ ACTIONS = [
     ('potion', 'Uống bình', 1),
 ]
 SKILL_ACTION = {
-    'slash': 'combo', 'frost_cleave': 'combo', 'aether_bolt': 'throw', 'fire_bolt': 'throw', 'water_lance': 'throw', 'wind_blade': 'throw',
+    'slash': 'combo', 'frost_cleave': 'combo', 'haven_bolt': 'throw', 'fire_bolt': 'throw', 'water_lance': 'throw', 'wind_blade': 'throw',
     'ice_shard': 'throw', 'rock_throw': 'throw', 'gale_fan': 'throw', 'heal': 'staff', 'flame_ring': 'staff', 'cyclone': 'staff',
     'frost_field': 'staff', 'ice_mirror': 'staff', 'tornado': 'staff', 'fire_blast': 'push', 'tidal_wave': 'push', 'fire_wall': 'push',
     'meteor': 'sky', 'call_rain': 'sky', 'thunder_rain': 'sky', 'ice_rain': 'sky', 'rockslide': 'sky', 'ice_spire': 'sky',
@@ -286,7 +286,7 @@ VFX_COST = dict(melee=8, projectile=12, heal=8, aoe_self=12, aoe_target=14, cone
 VFX_SHARED = {'tornado': 4, 'earth_rend': 6}  # dùng chung VFX của Lốc Xoáy / Gai Đá, chỉ thêm biến thể
 ICON_COST = 2
 FX_COST = 6
-ELEM_VI = dict(steel='Kiếm', aether='Aether', fire='Hoả', water='Thuỷ', wind='Phong', ice='Băng', earth='Thổ', healing='Hồi máu')
+ELEM_VI = dict(steel='Kiếm', haven='Haven', fire='Hoả', water='Thuỷ', wind='Phong', ice='Băng', earth='Thổ', healing='Hồi máu')
 KIND_VI = dict(melee='cận chiến', projectile='đạn', heal='hồi máu', aoe_self='nổ quanh mình', aoe_target='nổ chỗ chọn', cone='hình nón',
                zone='vùng', dash='lướt', pillar='cột', line='đường thẳng', guard='giữ thế', blink='dịch chuyển', wall='tường', ward='khiên',
                barrage='mưa đạn', spin='xoay')
@@ -643,7 +643,7 @@ body_rows = ''.join(f'<tr><td><b>{esc(a)}</b></td><td>{esc(c)}</td><td>{esc(BODY
 attach_rows = ''.join(f'<tr><td><b>{esc(a)}</b></td><td>{esc(c)}</td><td class="num">{n} kiểu</td></tr>' for a, n, c in GEAR_ATTACH)
 questions_html = ''.join(f'<li>{esc(q)}</li>' for q in QUESTIONS)
 
-page = f'''<title>Thế giới Aether</title>
+page = f'''<title>Thế giới Haven</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:wght@600;700;800&family=Nunito:wght@500;600;700;800&display=swap">
 <style>
@@ -759,8 +759,8 @@ figure.sk figcaption {{ font-size: 13px; display: flex; flex-wrap: wrap; gap: 4p
   </nav>
   <main>
     <section id="tom-tat">
-      <h1>Thế giới Aether</h1><p><b>Hướng hiện hành 26/10/2026:</b> xem dinh-huong-aether.md và admin React. Nội dung dưới là kiểm kê và bàn giao lịch sử; cốt truyện cũ đã lưu trữ, không dùng làm giới thiệu hiện hành.</p>
-      <p class="lead">Danh sách vùng, map (kèm phác thảo), quái, boss, rồng, skill nhân vật và trang bị cần vẽ — chia <b>3 mốc</b>: Mốc 1 vẽ trước đủ skill nhân vật thật chi tiết + 1/3 thế giới (vùng 1–4). Soạn 08/10/2026. Bản Markdown cùng nội dung + phần bàn giao cho agent: <code>docs/the-gioi-aether.md</code>.</p>
+      <h1>Thế giới Haven</h1><p><b>Hướng hiện hành 26/10/2026:</b> xem dinh-huong-haven.md và admin React. Nội dung dưới là kiểm kê và bàn giao lịch sử; cốt truyện cũ đã lưu trữ, không dùng làm giới thiệu hiện hành.</p>
+      <p class="lead">Danh sách vùng, map (kèm phác thảo), quái, boss, rồng, skill nhân vật và trang bị cần vẽ — chia <b>3 mốc</b>: Mốc 1 vẽ trước đủ skill nhân vật thật chi tiết + 1/3 thế giới (vùng 1–4). Soạn 08/10/2026. Bản Markdown cùng nội dung + phần bàn giao cho agent: <code>docs/the-gioi-haven.md</code>.</p>
       <span class="status-line">Đã chốt 08/10/2026 — chờ mua gói PixelLab 24$</span>
       <div class="stats">
         <div class="stat"><b>10</b><span>vùng · mỗi vùng 1 trạm (làng / toà thành) + 5 map săn + 1 thánh địa</span></div>
@@ -883,8 +883,8 @@ print('ok', new_mob, boss_new, MOC_TOTAL, pack1)
 
 HANDOFF = """## Bàn giao — đọc trước khi làm tiếp (agent / người sau)
 
-**Sửa danh sách này:** sửa dữ liệu trong `docs/tools/the-gioi-aether.py` rồi chạy `python docs/tools/the-gioi-aether.py` — sinh lại CẢ
-`docs/the-gioi-aether.md` (file này) lẫn trang `docs/the-gioi-aether.html` (trang chỉ xem trên máy, KHÔNG đăng lên claude.ai —
+**Sửa danh sách này:** sửa dữ liệu trong `docs/tools/the-gioi-haven.py` rồi chạy `python docs/tools/the-gioi-haven.py` — sinh lại CẢ
+`docs/the-gioi-haven.md` (file này) lẫn trang `docs/the-gioi-haven.html` (trang chỉ xem trên máy, KHÔNG đăng lên claude.ai —
 tài khoản Claude dùng chung, ai cũng thấy). Không sửa tay hai file sinh ra.
 
 ### Trạng thái (09–11/10/2026)
@@ -900,13 +900,13 @@ tài khoản Claude dùng chung, ai cũng thấy). Không sửa tay hai file sin
 | Hình PixelLab Mốc 1 — gói trả phí (token #1, Tier 2: 5.000 lượt, 10 job song song) | ◐ phần lớn đã vẽ 09/10/2026 (~2.300 lượt) — xem mục "Mốc 1 đã vẽ" ngay dưới | file này + `docs/asset-pipeline.md` mục Gói trả phí |
 | Nhân vật người chơi mới (tóc nâu, đồ tân thủ) + 25 động tác / 9 động tác bản bé + hiệu ứng skill + chiêu Quỷ vương / Vua Lich + quái vùng 1 có đánh / gục | ✔ ĐÃ LÊN GAME THẬT 09/10/2026 (bản cũ tóc bạc → NPC lữ hành Sein / Sera ở quảng trường) | `apps/web/src/game/combat/tempArt.ts`, `CombatSystem.ts` |
 | Vùng 1 — 12 map (chủ dự án 10/10/2026): cấp quái theo khu, khu tuổi thơ Bãi Bồi, Hang Gargoyle (Dơi hang + boss Gargoyle Đá), Hẻm Cửa Sông (lối sang vùng 2) | ✔ ĐÃ LÊN GAME THẬT 10/10/2026 — 12 map lúc 05:58, hình ĐỢT 2 (tấm G1 / R1 / B1 + 5 món lẻ, 48 lượt: Nghĩa địa, Đồi Xương, Vách, Mộ Vô Danh, Luỹ, Hẻm Cửa Sông hết trống) lúc 07:12 | `docs/thiet-ke/vung1-12-map.md`, `docs/ke-hoach-the-gioi.md` mục 5.2 |
-| Icon chiêu v2 (90 icon 32×32), kho đồ / thẻ Chỉ số bỏ icon chỉ số (chỉ giữ vàng + kim cương), chiêu nguyên tố mốc 1 học bằng 1 điểm (bài tập phép tuổi thơ nhận Tia Aether, bản lưu `talentsV` 3 + máy chủ chặn tab cũ ghi đè) | ✔ ĐÃ LÊN GAME THẬT 10/10/2026 | `docs/asset-pipeline.md` mục Icon chiêu v2, `docs/ke-hoach-nguyen-to.md` mục 7, `apps/server/src/db.ts` `keepNewerTalents` |
+| Icon chiêu v2 (90 icon 32×32), kho đồ / thẻ Chỉ số bỏ icon chỉ số (chỉ giữ vàng + kim cương), chiêu nguyên tố mốc 1 học bằng 1 điểm (bài tập phép tuổi thơ nhận Tia Haven, bản lưu `talentsV` 3 + máy chủ chặn tab cũ ghi đè) | ✔ ĐÃ LÊN GAME THẬT 10/10/2026 | `docs/asset-pipeline.md` mục Icon chiêu v2, `docs/ke-hoach-nguyen-to.md` mục 7, `apps/server/src/db.ts` `keepNewerTalents` |
 | Vũ khí VẼ LIỀN THÂN (chủ dự án 10/10/2026: "cầm kiếm tự gắn vào xấu"): 4 sprite người chơi đứng / đi cầm kiếm + cầm trượng (`idlesword` / `walksword` / `idlestaff` / `walkstaff`, chọn theo thế cầm + đồ mặc), bỏ icon dán vào tay, bỏ hướng chém tay không | ✔ ĐÃ LÊN GAME THẬT 10/10/2026: đứng / đi (~175 lượt) + trúng đòn / lướt / gục (16 tuổi) và trúng đòn / gục / uống bình (bé) bản cầm (129 lượt, `hitsword`…). CÒN THIẾU uống bình bản cầm của 16 tuổi: atlas 16 tuổi đã sát 4096 → cần atlas nhiều trang hoặc cắt sát khung | `docs/asset-pipeline.md` mục "Vũ khí vẽ liền thân", `apps/web/src/game/gearArt.ts` |
 | Bản đồ lớn phím M — 3 tầng (chủ dự án 10/10/2026: "cải tiến màn xem map để xem được map tổng"): **Khu vực** (map đang đứng, như cũ) · **Vùng** (sơ đồ 12 map: đường nối theo lối, khoảng cấp, boss, map đang đứng, map chưa tới mờ đi, cổng sang vùng 2) · **Thế giới** (tranh lục địa PixelLab 1× / 2×, 10 vùng: nhãn, "Bạn ở đây", vùng chưa mở làm tối, thẻ vùng: cấp / nguyên tố / trạng thái cổng) — phòng thử `/lab/map` | ◐ ĐÃ DỰNG + thử ở bản thử 10/10/2026, CHƯA lên bản thật. Triển khai: chép `.havenlord-stage/assets/ui/world-continent.png` → `apps/web/public/assets/ui/` (hoặc `npm run assets:world`), build web, khởi động lại máy chủ game (tin `hubs` kèm `maps` = map đã tới; máy chủ cũ thì tầng Vùng không làm mờ, không lỗi) | `docs/ke-hoach-the-gioi.md` mục 3, 3.1 · `apps/web/src/game/world/worldAtlas.ts` · `apps/web/tests/worldmap.test.ts` |
 | Trang **Thử chiêu** `/thu-chieu` (chủ dự án 10/10/2026: "ở màn ngoài đăng nhập, vào game 1 trang thử nghiệm skill để người dùng thử skill của các nguyên tố, kiếm phái"): nút ở màn đăng nhập, KHÔNG cần tài khoản, không máy chủ, không lưu gì. Sân tập ở quảng trường Thistlewood (3 hình nộm, gọi quái / boss vùng 1 cùng cấp 30, dọn sân), bảng bên chọn lưu phái Kiếm + một hay nhiều nguyên tố (nhánh chọn = mốc cao nhất đã hiện thực), con đường, phủ phép; danh sách chiêu đã học bấm-rồi-chọn-phím để gán thanh 10 ô; bị động đang có; Vô hạn MP / Bất tử. Chiến đấu dùng chính `CombatSystem` | ✔ ĐÃ LÊN GAME THẬT 10/10/2026 (chỉ web — build `.next-funnel-b`) | `apps/web/src/game/SkillLab.ts`, `skillLabBuild.ts` (luật, test `apps/web/tests/skilllab.test.ts`), `apps/web/src/components/skilllab/SkillLabScreen.tsx` |
 | **Chọn mục tiêu** (chủ dự án 10/10/2026: "focus rồi dùng chiêu thay vì bấm đâu dùng ấy, focus quái có mũi tên trên đầu"; "skill k theo hướng chuột nữa, chuột chỉ là để focus"; "đổi mục tiêu sẽ là tab"; "mobile một nút hình vòng tròn 3 mũi tên"): nhấp / chạm quái (hình nộm) = chọn, KHÔNG ra đòn; Tab / nút cảm ứng vòng tròn 3 mũi tên = đổi mục tiêu gần → xa; Esc bỏ chọn; J, K, 1–8 nhắm vào mục tiêu (chưa chọn thì tự chọn con gần nhất trong 460px, không ai thì đánh thẳng hướng mặt); mũi tên đỏ nhấp nhô trên đầu + vòng dưới chân; mục tiêu chết / ra xa 900px thì bỏ | ✔ ĐÃ LÊN GAME THẬT 10/10/2026 (chỉ web). Đã thử ở phòng tập; trong game thật chưa thử được đòn bằng tài khoản thử (tester1 / tester2 đều đang là nhân vật nhỏ tuổi) — chơi thử lại bằng nhân vật 16 tuổi. Nút đổi mục tiêu đang là hình SVG tạm | `apps/web/src/game/combat/focus.ts` (test `tests/focus.test.ts`), `Game.aimFor` / `focusTarget`, `TouchControls` |
 | **Tuyệt kỹ mốc 10 — chỉ ở phòng tập** (chủ dự án 10/10/2026: "mở skill 10 ở phòng tập thôi"): 8 chiêu, game thật vẫn dừng mốc 9 | ✔ ĐÃ LÊN (trang `/thu-chieu`, atlas riêng `vfx-ult` chỉ phòng tập tải). Sơn Thần đang mượn hình Gargoyle Đá | `docs/ke-hoach-nguyen-to.md` mục GĐ4 |
-| Bản thật TỰ BẬT khi đăng nhập Windows: tác vụ "Aether - ban that" (Task Scheduler, lúc đăng nhập tài khoản đang dùng, trễ 20 giây) chạy `scripts/khoi-dong-ban-that.ps1` — bật máy chủ game :3200 + web :3101 nếu cổng chưa có ai nghe, tạo tiến trình qua WMI, log `scripts/khoi-dong-ban-that.log` | ✔ cài 10/10/2026 (máy chưa tự đăng nhập Windows: phải đăng nhập thì bản thật mới lên) | README mục Funnel |
+| Bản thật TỰ BẬT khi đăng nhập Windows: tác vụ "Haven - ban that" (Task Scheduler, lúc đăng nhập tài khoản đang dùng, trễ 20 giây) chạy `scripts/khoi-dong-ban-that.ps1` — bật máy chủ game :3200 + web :3101 nếu cổng chưa có ai nghe, tạo tiến trình qua WMI, log `scripts/khoi-dong-ban-that.log` | ✔ cài 10/10/2026 (máy chưa tự đăng nhập Windows: phải đăng nhập thì bản thật mới lên) | README mục Funnel |
 
 ### Mốc 1 đã vẽ (09/10/2026, token #1)
 
@@ -980,7 +980,7 @@ tài khoản Claude dùng chung, ai cũng thấy). Không sửa tay hai file sin
   `VACUUM INTO 'data/backup-<ngày-giờ>/havenlord.db'` bằng `node:sqlite`, chạy được khi máy chủ đang mở CSDL), tắt máy chủ
   (`taskkill /PID <pid nghe :3200> /T /F` — tắt cứng không mất gì, dữ liệu ghi thẳng vào CSDL), bật lại bằng
   `powershell -NoProfile -ExecutionPolicy Bypass -File scripts\khoi-dong-ban-that.ps1` (tạo tiến trình qua WMI, tách khỏi phiên
-  Claude; tác vụ Windows "Aether - ban that" tự gọi lúc đăng nhập). Log `apps/server/data/server.log`. Bản PC / APK mới phát cho
+  Claude; tác vụ Windows "Haven - ban that" tự gọi lúc đăng nhập). Log `apps/server/data/server.log`. Bản PC / APK mới phát cho
   người chơi bằng file build trong `UnityGame/Build/`.
 - Hình mới: dựng thử `HAVENLORD_ASSETS=<thư mục nháp> npm run assets:…`, duyệt xong mới dựng vào `assets/` (máy chủ thật đọc map ở đó
   ngay lúc chạy) → Unity `Haven Lord/Nhập dữ liệu từ pipeline` → build lại → khởi động lại máy chủ nếu map đổi.
@@ -1017,9 +1017,9 @@ def dot(n):
 
 
 md = []
-md.append('# Thế giới Aether — vùng, map, quái, boss, trang bị, ngân sách PixelLab\n')
-md.append('> **Ưu tiên 26/10/2026:** hướng mới tại [dinh-huong-aether.md](dinh-huong-aether.md). Admin đã chuyển React; web dùng 30 tạo hình/5 class/8 nguyên tố. Truyện cũ lưu trữ, nhân vật cũ dành cho NPC sau này. Phần dưới là bàn giao lịch sử và kiểm kê kỹ thuật, không là cốt truyện mới.\n')
-md.append('> FILE SINH TỰ ĐỘNG từ `docs/tools/the-gioi-aether.py` — sửa dữ liệu ở đó rồi chạy lại (sinh cả bản HTML). Soạn 08/10/2026,')
+md.append('# Thế giới Haven — vùng, map, quái, boss, trang bị, ngân sách PixelLab\n')
+md.append('> **Ưu tiên 26/10/2026:** hướng mới tại [dinh-huong-haven.md](dinh-huong-haven.md). Admin đã chuyển React; web dùng 30 tạo hình/5 class/8 nguyên tố. Truyện cũ lưu trữ, nhân vật cũ dành cho NPC sau này. Phần dưới là bàn giao lịch sử và kiểm kê kỹ thuật, không là cốt truyện mới.\n')
+md.append('> FILE SINH TỰ ĐỘNG từ `docs/tools/the-gioi-haven.py` — sửa dữ liệu ở đó rồi chạy lại (sinh cả bản HTML). Soạn 08/10/2026,')
 md.append('> chia **3 mốc** (chủ dự án 08/10/2026): Mốc 1 = skill nhân vật thật chi tiết + vùng 1–4; Mốc 2 = vùng 5–7 + 3 rồng; Mốc 3 = vùng 8–10')
 md.append('> + 3 rồng + nhân vật / trang bị. Trạng thái: **Mốc 1 phần lớn đã vẽ + lên game 09/10/2026 (gói trả phí token #1)**.\n')
 md.append(HANDOFF)

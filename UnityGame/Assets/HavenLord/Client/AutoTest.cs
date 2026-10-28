@@ -408,7 +408,7 @@ namespace HavenLord.Client
 
         /// <summary>
         /// -havenOnline url -havenStory: nhân vật MỚI chơi cốt truyện từ đầu — xem lời tựa / thẻ tuổi, tự tới NPC nói chuyện, nhặt vật,
-        /// tung Tia Aether / Trảm vào hình nộm… tới hết nhiệm vụ kill đầu tiên. Ghi từng bước (nhiệm vụ, tuổi, mục tiêu).
+        /// tung Tia Haven / Trảm vào hình nộm… tới hết nhiệm vụ kill đầu tiên. Ghi từng bước (nhiệm vụ, tuổi, mục tiêu).
         /// </summary>
         /// <summary>Giữ đầy máu trong lúc thử tự đi (bị đánh thì tự đi dừng — đúng luật, nhưng làm hỏng phép đo đường).</summary>
         private static void KeepHp(GameController game) => game.Combat.Pc.Hp = game.Combat.Pc.HpMax;
@@ -573,7 +573,7 @@ namespace HavenLord.Client
                     p.Y = d.Actor.Y;
                     p.SyncTransform();
                     game.SetFocus(d);
-                    var want = q.Objective.Element == "steel" ? "slash" : "aether_bolt";
+                    var want = q.Objective.Element == "steel" ? "slash" : "haven_bolt";
                     var slot = -1;
                     for (var i = 0; i < game.Loadout.Count; i += 1) if (game.Loadout[i] == want) slot = i;
                     if (slot < 0)

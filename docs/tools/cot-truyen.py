@@ -1,6 +1,6 @@
-# Sinh docs/cot-truyen-aether.html + docs/cot-truyen-aether.md (cốt truyện 10 vùng × 7 map, bản chờ duyệt) — sửa dữ liệu ở
+# Sinh docs/cot-truyen-haven.html + docs/cot-truyen-haven.md (cốt truyện 10 vùng × 7 map, bản chờ duyệt) — sửa dữ liệu ở
 # docs/tools/cot_truyen_data.py rồi chạy:  python docs/tools/cot-truyen.py
-# Tên vùng / map / boss phải trùng docs/tools/the-gioi-aether.py (script tự kiểm và báo tên lệch).
+# Tên vùng / map / boss phải trùng docs/tools/the-gioi-haven.py (script tự kiểm và báo tên lệch).
 import html
 import os
 import re
@@ -13,11 +13,11 @@ from cot_truyen_data import (ARCHITECT, CAST, CHAPTERS, DEATH_RULE, EPILOGUES, F
                              TWISTS)
 
 DOCS = os.path.join(TOOLS, '..')
-OUT = os.path.join(DOCS, 'cot-truyen-aether.html')
-OUT_MD = os.path.join(DOCS, 'cot-truyen-aether.md')
+OUT = os.path.join(DOCS, 'cot-truyen-haven.html')
+OUT_MD = os.path.join(DOCS, 'cot-truyen-haven.md')
 
 # ---------------------------------------------------------------- kiểm tên với kế hoạch thế giới
-WORLD = open(os.path.join(TOOLS, 'the-gioi-aether.py'), encoding='utf8').read()
+WORLD = open(os.path.join(TOOLS, 'the-gioi-haven.py'), encoding='utf8').read()
 missing = []
 for ch in CHAPTERS:
     if f"name='{ch['region']}'" not in WORLD:
@@ -33,7 +33,7 @@ for ch in CHAPTERS:
             missing.append(f"boss {b} (vùng {ch['n']})")
 assert len(CHAPTERS) == 10 and all(len(ch['maps']) == 7 for ch in CHAPTERS), 'mỗi vùng đủ 7 map'
 if missing:
-    raise SystemExit('Tên lệch với the-gioi-aether.py: ' + '; '.join(missing))
+    raise SystemExit('Tên lệch với the-gioi-haven.py: ' + '; '.join(missing))
 
 
 def esc(s):
@@ -108,7 +108,7 @@ page = f'''<title>Biên Niên Bảy Mối</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,600;0,700;0,800;1,500&family=Nunito:wght@500;600;700;800&display=swap">
 <style>
-/* Bố cục: sổ cốt truyện một cột (mục lục dính trái trên màn rộng); giấy da + mực đỏ son cho cú lật, cùng bộ màu với trang Thế giới Aether. */
+/* Bố cục: sổ cốt truyện một cột (mục lục dính trái trên màn rộng); giấy da + mực đỏ son cho cú lật, cùng bộ màu với trang Thế giới Haven. */
 :root {{
   --paper: #f5e3c0; --paper-hi: #fcf2dc; --paper-sunk: #e9cf9f; --line: #c9a578;
   --ink: #34200f; --ink-soft: #6b4a2b; --wood: #4a2e1c; --gold: #a8740e; --blood: #9a2b1f; --sea: #1f5a7a; --leaf: #2f6b34;
@@ -290,10 +290,10 @@ open(OUT, 'w', encoding='utf8', newline='').write(page)
 
 # ---------------------------------------------------------------- bản Markdown (cho agent làm tiếp)
 md = ['# Biên Niên Bảy Mối — cốt truyện 10 vùng × 7 map (BẢN NHÁP 2 chờ duyệt)\n',
-      '> FILE SINH TỰ ĐỘNG từ `docs/tools/cot-truyen.py` + dữ liệu `docs/tools/cot_truyen_data.py` (cùng trang `docs/cot-truyen-aether.html`)',
+      '> FILE SINH TỰ ĐỘNG từ `docs/tools/cot-truyen.py` + dữ liệu `docs/tools/cot_truyen_data.py` (cùng trang `docs/cot-truyen-haven.html`)',
       '> — sửa dữ liệu rồi chạy lại. Soạn 08/10/2026 theo yêu cầu chủ dự án: "cốt truyện thật nhiều drama, hay, vào theo các map";',
       '> bản 2: NPC dịch vụ không bao giờ chết, Ma vương là người bản địa cấu kết với kẻ từ thế giới cũ, dài thêm ~80%. Tên vùng / map /',
-      '> boss khớp `docs/the-gioi-aether.md` (script tự kiểm). Nền giữ từ `docs/story.md` + `docs/story-arc.md`; khi được duyệt, mạch này',
+      '> boss khớp `docs/the-gioi-haven.md` (script tự kiểm). Nền giữ từ `docs/story.md` + `docs/story-arc.md`; khi được duyệt, mạch này',
       '> thay phần Chương 2–7 (7 lục địa) của story-arc.\n',
       LOGLINE + '\n']
 for a, b in THEME:

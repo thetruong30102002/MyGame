@@ -19,7 +19,7 @@ const test = async (name: string, fn: () => void | Promise<void>): Promise<void>
 };
 console.log('clientUpdate (tự cập nhật client)');
 
-const dir = mkdtempSync(join(tmpdir(), 'aether-client-'));
+const dir = mkdtempSync(join(tmpdir(), 'havenlord-client-'));
 const clientDir = join(dir, 'client');
 const store = new Store(join(dir, 'a.db'));
 const api = createApi(store, new AdminOps(store), clientDir);

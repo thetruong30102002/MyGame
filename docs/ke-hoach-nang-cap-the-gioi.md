@@ -1,4 +1,4 @@
-# Kế hoạch tổng — tái thiết thế giới và phát triển Aether
+# Kế hoạch tổng — tái thiết thế giới và phát triển Haven
 
 ## Chốt hiện hành — thân nền đồ lót và chọn nghề qua NPC
 
@@ -47,7 +47,7 @@ Chủ dự án đồng ý hướng 5 tộc × 5 class bằng lớp rời (đầu
 
 ## Hướng mới ngày 26/10/2026
 
-Nguồn nội dung hiện hành: [Định hướng Aether](dinh-huong-aether.md). Truyện cũ đã lưu trữ; nhân vật đời cũ sau này thành NPC. Phạm vi mới48 tạo hình gốc: bốn tộc, mỗi tộc6 nam +6 nữ; mỗi tạo hình hỗ trợ năm bộ vũ khí. 8 nguyên tố phát hiện cấp 10 với tỷ lệ đều; khuôn viên, chợ, hồ câu và mê cung là hướng phát triển đã chốt. Chỉ các nội dung đã hoàn thiện mới được công bố là đã phát hành.
+Nguồn nội dung hiện hành: [Định hướng Haven](dinh-huong-haven.md). Truyện cũ đã lưu trữ; nhân vật đời cũ sau này thành NPC. Phạm vi mới48 tạo hình gốc: bốn tộc, mỗi tộc6 nam +6 nữ; mỗi tạo hình hỗ trợ năm bộ vũ khí. 8 nguyên tố phát hiện cấp 10 với tỷ lệ đều; khuôn viên, chợ, hồ câu và mê cung là hướng phát triển đã chốt. Chỉ các nội dung đã hoàn thiện mới được công bố là đã phát hành.
 
 ## Ưu tiên thực hiện — nhân vật trước (chốt 26/10/2026)
 
@@ -125,7 +125,7 @@ Giữ tuyến khởi đầu Thistlewood → các vùng theo cấp; sắp lại v
 
 Thành ốc đảo dự kiến có quân chủ, danh tính chưa chốt; Đe Đỏ là pháo đài hội đồng người lùn; Phế tích là toà thành triều đại đã sụp; Hư Không là thành trì liên quân. Đề xuất thánh thành ở vùng Sáng và thành trú ẩn vùng Tối, không biến tất cả làng thành cung vua. Mỗi phe có vùng ảnh hưởng, mục tiêu, đồng minh/đối thủ và quan hệ buôn bán; chưa thêm cơ chế PvP phe hoặc thuế trước khi thiết kế.
 
-**Thiên Thành Khởi Nguyên** là tên tạm. Vẽ quần đảo mây với một lâu đài lớn ở tầng trên của tranh tổng, đường lên riêng có điều kiện; bên trong có đại thư viện và điện khởi nguyên. Vị thần ở đó lưu giữ tri thức của mọi vùng và ký ức khởi nguyên. Chia tiết lộ thành chương: nguồn thế giới → nguyên tố → triều đại Aether → rạn nứt hiện tại. Điều kiện mở, danh tính thần, quan hệ với thần cũ và phần bí mật cuối chưa chốt. Public web chỉ teaser; admin giữ bản kế hoạch đầy đủ.
+**Thiên Thành Khởi Nguyên** là tên tạm. Vẽ quần đảo mây với một lâu đài lớn ở tầng trên của tranh tổng, đường lên riêng có điều kiện; bên trong có đại thư viện và điện khởi nguyên. Vị thần ở đó lưu giữ tri thức của mọi vùng và ký ức khởi nguyên. Chia tiết lộ thành chương: nguồn thế giới → nguyên tố → triều đại Haven → rạn nứt hiện tại. Điều kiện mở, danh tính thần, quan hệ với thần cũ và phần bí mật cuối chưa chốt. Public web chỉ teaser; admin giữ bản kế hoạch đầy đủ.
 
 Tranh bản đồ tổng phải có tầng đất/biển/mây, 13 vùng đọc được, ranh giới địa hình, tuyến giao thông, thành chính và biểu tượng Thiên Thành. Chữ và ghim ở lớp UI, không để AI vẽ chữ trong ảnh. Thay tranh cũ đồng thời ở Unity và web sau khi ghim khớp.
 
@@ -166,12 +166,12 @@ Phần dưới gồm brief từng vùng, số liệu audit boss và checklist c�
 
 Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. Mỗi tộc3 đầu nam+3 đầu nữ khác tóc,3 bộ đồ nền để chọn độc lập. Mỗi bộ có thân vừa dáng nam/nữ. Tổng24 bộ đầu,12 thiết kế đồ/24 bộ thân,18 tổ hợp đầu–đồ mỗi tộc và72 tổ hợp cho4 tộc; không phải72 nhân vật vẽ liền độc lập. Hỗ trợ5 vũ khí thành360 tổ hợp ngoại hình–vũ khí. Avatar nguyên đầu gồm mặt+tóc+tai/sừng và CỔ DA, tuyệt đối không dính áo/cổ áo/áo choàng/trang sức. Cổ áo thuộc thân đồ và che theo frame. Khóa khối đầu/mắt/má/cằm/cổ theo master, không scale theo bounds tóc, bộ đồ hoặc từng hành động. Hợp đồng chung phiên bản rig/hướng/pose/PPU/root/neo cổ/lớp che, tương thích tộc/dáng/màu da đầu–cổ–tay; không gắn một đầu đứng tĩnh cho mọi hoạt động. Xem [đặc tả hiện hành](thiet-ke/nhan-vat-ghep-da-vu-khi.md). Các hạn mức40/48 dưới đây là lịch sử.
 
-<!-- aether-plan:start -->
+<!-- havenlord-plan:start -->
 ```json
 {
   "version": 1,
   "updated": "2026-10-28",
-  "title": "Tái thiết thế giới Aether",
+  "title": "Tái thiết thế giới Haven",
   "scope": "Tiến độ của kế hoạch nâng cấp này; không phải % hoàn thành toàn bộ game.",
   "method": "Mỗi việc = tổng trọng số các mốc đã hoàn thành / tổng trọng số mốc. Tổng = trung bình có trọng số khối lượng việc. Chỉ tích mốc khi có bằng chứng; không tự tăng theo thời gian.",
   "groups": [
@@ -897,13 +897,13 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
     },
     {
       "id": "ruins",
-      "name": "Phế tích Aether",
-      "hubName": "Toà thành Aether cổ",
+      "name": "Phế tích Haven",
+      "hubName": "Toà thành Haven cổ",
       "hubKey": "ruins/hub",
       "mapCount": 13,
       "hub": {
         "key": "ruins/hub",
-        "name": "Toà thành Aether cổ",
+        "name": "Toà thành Haven cổ",
         "biome": "rocky",
         "props": 233,
         "propTypes": 44,
@@ -4706,7 +4706,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
           "label": "Đối chiếu hướng mới và vị trí chính quyền",
           "weight": 10,
           "done": true,
-          "evidence": "26/10/2026: docs/dinh-huong-aether.md và packages/sim/src/worldDesign.ts; các chính quyền và tên tổ chức mới là đề xuất, danh tính vua chưa chốt."
+          "evidence": "26/10/2026: docs/dinh-huong-haven.md và packages/sim/src/worldDesign.ts; các chính quyền và tên tổ chức mới là đề xuất, danh tính vua chưa chốt."
         },
         {
           "label": "Thiết kế và dữ liệu vùng / phe / quan hệ",
@@ -6027,8 +6027,8 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
     {
       "id": "hub-ruins",
       "group": "Trung tâm vùng",
-      "name": "Toà thành Aether cổ — xây lại trung tâm",
-      "detail": "Đá cẩm thạch rạn, đồng cổ, rune lam; tòa thành Aether đổ nát nhưng hùng vĩ, khu phục dựng của học giả. Cột gãy, tượng triều đại, đồng hồ thiên văn, máy cổ, bàn khai quật và kho di vật. Giữ nhà nhỏ cũ làm nhà phụ. Đề xuất 8–12 nhà chính, 2 điểm nhấn cao, 3 cụm sinh hoạt; điều chỉnh theo map, không rải prop kín đường. Dự tính PixelLab 28/10: ~190 lượt trả phí (8–12 nhà chính, 2 điểm nhấn, cụm sinh hoạt + NPC; đã cộng ~30% vẽ lại).",
+      "name": "Toà thành Haven cổ — xây lại trung tâm",
+      "detail": "Đá cẩm thạch rạn, đồng cổ, rune lam; tòa thành Haven đổ nát nhưng hùng vĩ, khu phục dựng của học giả. Cột gãy, tượng triều đại, đồng hồ thiên văn, máy cổ, bàn khai quật và kho di vật. Giữ nhà nhỏ cũ làm nhà phụ. Đề xuất 8–12 nhà chính, 2 điểm nhấn cao, 3 cụm sinh hoạt; điều chỉnh theo map, không rải prop kín đường. Dự tính PixelLab 28/10: ~190 lượt trả phí (8–12 nhà chính, 2 điểm nhấn, cụm sinh hoạt + NPC; đã cộng ~30% vẽ lại).",
       "weight": 6,
       "phase": 2,
       "region": "ruins",
@@ -6067,7 +6067,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
     {
       "id": "env-ruins",
       "group": "Cảnh quan",
-      "name": "Phế tích Aether — toàn bộ map",
+      "name": "Phế tích Haven — toàn bộ map",
       "detail": "Đang dùng cây màu và cối xay highland; cảnh chưa đọc ra thành cổ. Rà từng map, vẽ cây/đá/đồ vùng riêng, thêm sinh hoạt và khoảng nghỉ; kiểm lại 13 map ở zoom chơi thật. Dự tính PixelLab 28/10: ~200 lượt trả phí (thay cả bộ cảnh cốt lõi: cây, đá, nhà, nền; đã cộng ~30% vẽ lại).",
       "weight": 5,
       "phase": 2,
@@ -6106,7 +6106,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
     {
       "id": "mob-ruins",
       "group": "Quái và boss",
-      "name": "Phế tích Aether — thêm quái",
+      "name": "Phế tích Haven — thêm quái",
       "detail": "Đề xuất ít nhất 3 loài mới: Lính cơ giới, thư linh, tượng rune tuần tra. Vẽ đủ đứng/đi/đánh/trúng đòn/gục, ghép spawn và cân bằng; giữ giới hạn tổng quái và hiệu năng. Dự tính PixelLab 28/10: ~120 lượt trả phí (3 loài × ~40: đứng/đi/đánh/trúng đòn/gục; đã cộng ~30% vẽ lại).",
       "weight": 4,
       "phase": 4,
@@ -6145,7 +6145,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
     {
       "id": "newboss-ruins",
       "group": "Quái và boss",
-      "name": "Phế tích Aether — boss mới",
+      "name": "Phế tích Haven — boss mới",
       "detail": "Ý tưởng: Nhiếp Chính Cơ Giới. Thiết kế đấu trường, đòn báo trước và phần thưởng riêng; tên/chỉ số cần duyệt, chưa được vẽ hoặc gắn vào game. Dự tính PixelLab 28/10: ~150 lượt trả phí (boss + chiêu + vùng báo trước; đã cộng ~30% vẽ lại).",
       "weight": 5,
       "phase": 4,
@@ -8620,7 +8620,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
           "label": "Nguồn và triển khai",
           "weight": 60,
           "done": true,
-          "evidence": "React TSX trong apps/server/site-src/admin; bundle nội bộ có hash. Dữ liệu hướng mới docs/dinh-huong-aether.md và 240 ảnh native có hash đối chiếu."
+          "evidence": "React TSX trong apps/server/site-src/admin; bundle nội bộ có hash. Dữ liệu hướng mới docs/dinh-huong-haven.md và 240 ảnh native có hash đối chiếu."
         },
         {
           "label": "Kiểm thử và cập nhật link thật",
@@ -8645,7 +8645,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
           "label": "Nguồn và triển khai",
           "weight": 60,
           "done": true,
-          "evidence": "React TSX trong apps/server/site-src/admin; bundle nội bộ có hash. Dữ liệu hướng mới docs/dinh-huong-aether.md và 240 ảnh native có hash đối chiếu."
+          "evidence": "React TSX trong apps/server/site-src/admin; bundle nội bộ có hash. Dữ liệu hướng mới docs/dinh-huong-haven.md và 240 ảnh native có hash đối chiếu."
         },
         {
           "label": "Kiểm thử và cập nhật link thật",
@@ -8875,7 +8875,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "id": "web-art-direction",
       "group": "Web và công bố",
       "name": "Thiết kế lại toàn bộ web và admin với nhận diện riêng",
-      "detail": "Yêu cầu 26/10: giao diện hiện tại nhìn quá khuôn mẫu, cần làm lại toàn bộ cả web công khai lẫn admin. Hướng đã đổi theo yêu cầu mới: tham khảo cổng game Knight Age (http://knightageonline.com/?c=anow&p=0), khung gọn giữa nền xám, đầu trang nâu/vàng, nền giấy, banner cảnh pixel và tin tức kiểu cổng MMORPG cổ điển. Dùng ảnh Aether, không lấy logo/ảnh của trang mẫu; có thể dùng thư viện UI. Giữ React SPA, đăng nhập, bản nháp, quyền admin và các API đang hoạt động. Thử responsive và kiểm link Tailscale trước khi chốt.",
+      "detail": "Yêu cầu 26/10: giao diện hiện tại nhìn quá khuôn mẫu, cần làm lại toàn bộ cả web công khai lẫn admin. Hướng đã đổi theo yêu cầu mới: tham khảo cổng game Knight Age (http://knightageonline.com/?c=anow&p=0), khung gọn giữa nền xám, đầu trang nâu/vàng, nền giấy, banner cảnh pixel và tin tức kiểu cổng MMORPG cổ điển. Dùng ảnh Haven, không lấy logo/ảnh của trang mẫu; có thể dùng thư viện UI. Giữ React SPA, đăng nhập, bản nháp, quyền admin và các API đang hoạt động. Thử responsive và kiểm link Tailscale trước khi chốt.",
       "weight": 3,
       "phase": 1,
       "region": null,
@@ -8888,7 +8888,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
           "label": "Chốt hướng mỹ thuật và cấu trúc nội dung mới",
           "weight": 15,
           "done": true,
-          "evidence": "26/10: đổi theo cổng Knight Age chủ dự án chọn: nền xám, viền nâu/vàng, giấy sáng, banner pixel Aether; không dùng logo/ảnh trang mẫu."
+          "evidence": "26/10: đổi theo cổng Knight Age chủ dự án chọn: nền xám, viền nâu/vàng, giấy sáng, banner pixel Haven; không dùng logo/ảnh trang mẫu."
         },
         {
           "label": "Dựng shell, trang chủ, thư viện nhân vật và các trang công khai",
@@ -9667,7 +9667,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
         "region": "ruins",
         "government": "Khu khảo cổ liên vùng",
         "authority": "Viện Khảo Cổ và hội bảo tồn",
-        "seatMap": "ruins/aether_archive",
+        "seatMap": "ruins/haven_archive",
         "factions": [
           "lumerian_archive",
           "relic_claimants"
@@ -9972,7 +9972,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       },
       {
         "id": "ruins",
-        "name": "Phế tích Aether",
+        "name": "Phế tích Haven",
         "shortName": "Phế tích",
         "layer": "surface",
         "x": 20,
@@ -10140,7 +10140,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
         "id": "archive_machine",
         "name": "Bản ghi Cổ Thành",
         "region": "ruins",
-        "map": "ruins/aether_archive",
+        "map": "ruins/haven_archive",
         "note": "Nguồn nghiên cứu đề xuất trong hướng mới; chưa đặt nhiệm vụ hay vật phẩm vào game."
       },
       {
@@ -10155,14 +10155,14 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       {
         "id": "origin",
         "order": 1,
-        "title": "Khởi nguyên Aether",
+        "title": "Khởi nguyên Haven",
         "requires": [
           "old_coin",
           "root_record",
           "dawn_copy",
           "night_copy"
         ],
-        "revelation": "Nơi hội tụ đầu tiên của vật chất và dòng Aether hình thành thế giới. Thần Tri Thức lưu giữ dấu vết khởi nguyên; chi tiết nguồn gốc cuối cùng còn là bản thảo.",
+        "revelation": "Nơi hội tụ đầu tiên của vật chất và dòng Haven hình thành thế giới. Thần Tri Thức lưu giữ dấu vết khởi nguyên; chi tiết nguồn gốc cuối cùng còn là bản thảo.",
         "keeper": [
           "Mỗi miền đất giữ một phần của lịch sử.",
           "Hãy đối chiếu những gì tìm thấy với bản ghi tại thư khố."
@@ -10410,4 +10410,4 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
   }
 }
 ```
-<!-- aether-plan:end -->
+<!-- havenlord-plan:end -->

@@ -276,9 +276,9 @@ const NEW: Record<string, [Branch, number, SkillDef['kind']]> = {
 	}
 
 	// Gán được vào 10 ô: học xong tự lên ô trống, giữ ô cũ.
-	const lo = defaultLoadout(['slash', 'aether_bolt', 'fire_bolt']);
+	const lo = defaultLoadout(['slash', 'haven_bolt', 'fire_bolt']);
 	const lo2 = placeSkill(placeSkill(lo, 'meteor'), 'fire_wall');
-	assert.deepEqual(lo2.slice(0, 5), ['slash', 'aether_bolt', 'fire_bolt', 'meteor', 'fire_wall']);
+	assert.deepEqual(lo2.slice(0, 5), ['slash', 'haven_bolt', 'fire_bolt', 'meteor', 'fire_wall']);
 }
 
 // 4) Bị động mốc 7 / 9 (thuần).

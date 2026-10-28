@@ -47,8 +47,8 @@ namespace HavenLord.Client
             var it = gear.Bag.Find(x => x.Uid == uid);
             var def = it != null ? equipment.ItemDef(it.Id) : null;
             if (def == null || def.Kind != "equip") return false;
-            // Kiếm Nguyệt Thạch / trượng Aether luôn vào ô chính để hình cầm và kỹ năng khớp với món đang mặc.
-            var slot = it.Id == "moonsteel_sword" || it.Id == "aether_staff"
+            // Kiếm Nguyệt Thạch / trượng Haven luôn vào ô chính để hình cầm và kỹ năng khớp với món đang mặc.
+            var slot = it.Id == "moonsteel_sword" || it.Id == "haven_staff"
                 ? "main" : equipment.AutoSlot(def.Equip, gear.Equip);
             var r = equipment.EquipItem(gear, uid, slot, combat.Pc.Level, age);
             if (!r.Ok)

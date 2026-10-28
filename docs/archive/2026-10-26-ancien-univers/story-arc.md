@@ -1,4 +1,4 @@
-# Aether Chronicle — trục truyện dài
+# Haven Lord — trục truyện dài
 
 > **26/10/2026:** Thiên Thành và thần tri thức theo yêu cầu mới được phát triển tại [bản thiết kế mới](thiet-ke/chinh-tri-dia-ly-thien-thanh.md).
 > Câu cũ bên dưới “không có thần linh bí mật giải thích mọi thứ” được thay bằng đối thoại và thư khố tại lâu đài trên không. Lịch sử có thể được hé lộ đầy đủ, còn lựa chọn tương lai vẫn thuộc người chơi. Không tự đổi nhiệm vụ gia đình hoặc kết cục NPC theo bản thiết kế này.
@@ -14,30 +14,30 @@ Một người từng luôn hẹn “để mai” được sống thêm một đ
 Truyện giữ ba nguyên tắc:
 
 - Không có lựa chọn nào biến người chơi thành người tốt hoặc xấu. Mỗi lựa chọn bảo vệ một điều và khiến một điều khác khó hơn.
-- Bí ẩn Aether được giải bằng chứng cứ, lịch sử và quan hệ giữa người sống; không có thần linh bí mật giải thích mọi thứ.
+- Bí ẩn Haven được giải bằng chứng cứ, lịch sử và quan hệ giữa người sống; không có thần linh bí mật giải thích mọi thứ.
 - Năng lực nhìn thấy sợi chỉ giúp nhận ra liên hệ, không cho biết ai đúng, ai nói dối hay nên quyết định thế nào.
 
 ## Sự thật nền của thế giới
 
-### Aether là quan hệ, không phải nhiên liệu vô tận
+### Haven là quan hệ, không phải nhiên liệu vô tận
 
-Aether lưu chuyển qua đất, sinh vật, ký ức và những lời hứa được giữ bằng hành động. Pháp sư có thể chạm vào dòng chảy, nhưng mỗi lần bẻ dòng đều chuyển gánh nặng sang nơi khác: đất cằn, mùa màng lệch nhịp, người sống kiệt sức, hoặc một phong ấn yếu đi. Phép thuật mạnh không miễn phí; cái giá thường đến chậm và rơi lên người không có mặt lúc niệm phép.
+Haven lưu chuyển qua đất, sinh vật, ký ức và những lời hứa được giữ bằng hành động. Pháp sư có thể chạm vào dòng chảy, nhưng mỗi lần bẻ dòng đều chuyển gánh nặng sang nơi khác: đất cằn, mùa màng lệch nhịp, người sống kiệt sức, hoặc một phong ấn yếu đi. Phép thuật mạnh không miễn phí; cái giá thường đến chậm và rơi lên người không có mặt lúc niệm phép.
 
 Phản ứng nguyên tố trong game là biểu hiện nhỏ của nguyên lý này. Nước gặp lửa có thể tạo hơi nước; gió đưa lửa đi xa hơn; nhưng dùng gió để ép một dòng nước lệch khỏi lòng sông sẽ khiến nơi khác thiếu nước. Luật chơi có thể thưởng cho phối hợp nguyên tố, còn truyện dạy người chơi quan sát nơi cái giá xuất hiện.
 
 ### Lịch sử bị kể thiếu một nửa
 
-Ba thế kỷ trước, các vùng đã cùng lập **Giao Ước Bảy Mối** để ngăn một chuỗi đứt gãy Aether. Họ kết bảy Ấn Ký thành một nút liên lục địa, chia sẻ sức mạnh để cứu mùa màng và giữ các vết nứt khép lại.
+Ba thế kỷ trước, các vùng đã cùng lập **Giao Ước Bảy Mối** để ngăn một chuỗi đứt gãy Haven. Họ kết bảy Ấn Ký thành một nút liên lục địa, chia sẻ sức mạnh để cứu mùa màng và giữ các vết nứt khép lại.
 
 Giao ước cứu hàng triệu người, nhưng quyền quyết định dần tập trung vào những nơi giữ các Ấn Ký. Một số cộng đồng không đồng ý bị ràng buộc mà không có tiếng nói. Cuộc chiến sau đó được lịch sử vương quốc gọi là **Chiến tranh Ấn Ký**; những người thua cuộc bị ghi thành kẻ phá hoại. Cả hai phía đã cứu người, cưỡng ép người khác và che giấu hậu quả.
 
-Nút trung tâm không bị một kẻ thù duy nhất phá. Nó đang mục đi vì nhiều thế hệ tiếp tục rút sức từ các vùng bị xem là ngoại vi mà không sửa phần nứt. Ma vật xuất hiện ở nơi dòng Aether bị ép quá lâu. Có sinh vật hung dữ và nguy hiểm thật; nguồn gốc của chúng không khiến nạn nhân phải tha thứ hay sống cạnh chúng.
+Nút trung tâm không bị một kẻ thù duy nhất phá. Nó đang mục đi vì nhiều thế hệ tiếp tục rút sức từ các vùng bị xem là ngoại vi mà không sửa phần nứt. Ma vật xuất hiện ở nơi dòng Haven bị ép quá lâu. Có sinh vật hung dữ và nguy hiểm thật; nguồn gốc của chúng không khiến nạn nhân phải tha thứ hay sống cạnh chúng.
 
 ### Đồng xu, dấu nút và người chơi
 
-Đồng xu Bram trao là một **khóa ghi nhớ**: nó giữ hình dạng ban đầu của một mối nối, không chứa linh hồn hay lời tiên tri. Dấu nút hiện trên tay người chơi sau trận Quỷ vương là phản ứng của một dòng Aether không tìm được đường về mạng lưới.
+Đồng xu Bram trao là một **khóa ghi nhớ**: nó giữ hình dạng ban đầu của một mối nối, không chứa linh hồn hay lời tiên tri. Dấu nút hiện trên tay người chơi sau trận Quỷ vương là phản ứng của một dòng Haven không tìm được đường về mạng lưới.
 
-Minh nhìn thấy sợi chỉ từ lúc sinh ra vì tâm trí đến từ ngoài vòng Aetheria. Điều đó cho Minh một góc nhìn lạ, không phải định mệnh cứu thế. Minh vẫn có thể hiểu sai, gây tổn thương và phải nhờ người bản địa kiểm chứng điều mình thấy.
+Minh nhìn thấy sợi chỉ từ lúc sinh ra vì tâm trí đến từ ngoài vòng Haven. Điều đó cho Minh một góc nhìn lạ, không phải định mệnh cứu thế. Minh vẫn có thể hiểu sai, gây tổn thương và phải nhờ người bản địa kiểm chứng điều mình thấy.
 
 ## Nhân vật và vết nứt bên trong
 
@@ -79,7 +79,7 @@ Người chơi thu thập ba loại bằng chứng, thay vì chỉ hạ quái:
 - **Bằng chứng đời sống:** hỏi người nuôi ong, người kéo nước và Mirelle về những thay đổi qua nhiều mùa. Họ không đồng ý với nhau vì mỗi nhà chịu ảnh hưởng khác nhau.
 - **Bằng chứng lịch sử:** Bram cho xem bản đồ cũ có bảy điểm nối. Một điểm bị tẩy khỏi bản đồ Rowanmere nhưng vẫn còn trong bản sao của thương nhân.
 
-Nhiệm vụ chiến đấu bảo vệ đội sửa bờ khỏi sinh vật bị dòng Aether xô lệch. Có thể đánh bật chúng, dụ chúng khỏi nguồn nước, hoặc dùng phản ứng nguyên tố để dựng đường thoát. Mục tiêu không yêu cầu giết hết mọi sinh vật trong vùng.
+Nhiệm vụ chiến đấu bảo vệ đội sửa bờ khỏi sinh vật bị dòng Haven xô lệch. Có thể đánh bật chúng, dụ chúng khỏi nguồn nước, hoặc dùng phản ứng nguyên tố để dựng đường thoát. Mục tiêu không yêu cầu giết hết mọi sinh vật trong vùng.
 
 ### Hồi III — Quyết định tại bến sông
 
@@ -104,7 +104,7 @@ Aldric không tự động đi theo. Nếu người chơi tôn trọng việc Al
 
 ### Chương 2 — Người ở phía bên kia đồng cỏ (Varnhold)
 
-Một đoàn người Varnhold đang đưa gia đình khỏi vùng đất cạn Aether. Rowanmere gọi họ là dân du mục gây rối; trưởng đoàn gọi người Rowanmere là kẻ dựng đập rồi bỏ đi. Cả hai có bằng chứng đúng và chỗ mù của riêng mình.
+Một đoàn người Varnhold đang đưa gia đình khỏi vùng đất cạn Haven. Rowanmere gọi họ là dân du mục gây rối; trưởng đoàn gọi người Rowanmere là kẻ dựng đập rồi bỏ đi. Cả hai có bằng chứng đúng và chỗ mù của riêng mình.
 
 Người chơi phải giúp một khu định cư tìm cách chia nước qua mùa khô. Nếu chỉ giải quyết trận đánh, nguồn nước vẫn cạn. Nếu chỉ thương lượng, những người mất gia súc vẫn không có thức ăn. Aldric có thể nhìn thấy việc giữ lời hứa trẻ con khác với tuân lệnh một lá cờ.
 
@@ -132,7 +132,7 @@ Các đảo trôi vì mỗi cộng đồng điều chỉnh luồng gió theo l�
 
 ### Chương 7 — Vùng Thất Lạc
 
-Nơi đây lưu lại cách Aether vận hành trước khi Giao Ước Bảy Mối ra đời. Minh hiểu vì sao mình nhìn được các sợi: người từ ngoài mạng lưới có thể nhận ra những liên kết mà cư dân đã coi là tự nhiên. Điều đó không khiến Minh thành người duy nhất có thể sửa thế giới; cư dân mới là người biết họ muốn sống trong thế giới nào.
+Nơi đây lưu lại cách Haven vận hành trước khi Giao Ước Bảy Mối ra đời. Minh hiểu vì sao mình nhìn được các sợi: người từ ngoài mạng lưới có thể nhận ra những liên kết mà cư dân đã coi là tự nhiên. Điều đó không khiến Minh thành người duy nhất có thể sửa thế giới; cư dân mới là người biết họ muốn sống trong thế giới nào.
 
 ## Kết thúc dự kiến
 

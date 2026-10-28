@@ -16,12 +16,10 @@ namespace HavenLord.Importer
     public static class Watermark
     {
         public const int Tile = 16;
-        // Mã định dạng dấu đã nhúng trong ảnh phát hành — GIỮ tên cũ khi đổi tên dự án, đổi là không dò được dấu ảnh cũ.
-        private const string Domain = "AETHER-MARK-v1";
+        private const string Domain = "HAVENLORD-MARK-v1";
         private static bool[] table;
 
-        /// <summary>Khoá bí mật: biến môi trường HAVENLORD_MARK_KEY (hex), không thì file %USERPROFILE%/.havenlord/mark.key (tạo ngẫu nhiên lần đầu;
-        /// máy còn khoá ở chỗ cũ %USERPROFILE%/.aether/mark.key trước khi đổi tên dự án thì chép sang chỗ mới, giữ nguyên khoá).</summary>
+        /// <summary>Khoá bí mật: biến môi trường HAVENLORD_MARK_KEY (hex), không thì file %USERPROFILE%/.havenlord/mark.key (tạo ngẫu nhiên lần đầu).</summary>
         public static byte[] Key()
         {
             var env = Environment.GetEnvironmentVariable("HAVENLORD_MARK_KEY");
@@ -31,12 +29,6 @@ namespace HavenLord.Importer
             var file = Path.Combine(dir, "mark.key");
             if (File.Exists(file)) return FromHex(File.ReadAllText(file).Trim());
             Directory.CreateDirectory(dir);
-            var legacy = Path.Combine(home, ".aether", "mark.key");
-            if (File.Exists(legacy))
-            {
-                File.Copy(legacy, file);
-                return FromHex(File.ReadAllText(file).Trim());
-            }
             var k = new byte[32];
             using (var rng = RandomNumberGenerator.Create()) rng.GetBytes(k);
             File.WriteAllText(file, BitConverter.ToString(k).Replace("-", "").ToLowerInvariant());
@@ -51,7 +43,7 @@ namespace HavenLord.Importer
             return b;
         }
 
-        /// <summary>Bit của ô (x mod 16, y mod 16): bit thấp của byte đầu HMAC-SHA256(khoá, "AETHER-MARK-v1:x,y").</summary>
+        /// <summary>Bit của ô (x mod 16, y mod 16): bit thấp của byte đầu HMAC-SHA256(khoá, "HAVENLORD-MARK-v1:x,y").</summary>
         private static bool[] Table()
         {
             if (table != null) return table;

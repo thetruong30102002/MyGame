@@ -500,7 +500,7 @@ Tổng 16 id.
 - apps/web/src/game/codex.ts MONSTER_INFO: thêm mob_cave_bat_001 và boss_stone_gargoyle_001 (codex test bắt buộc). Sửa lore 'nơi gặp' của 4 quái cũ: nấm thêm Bãi Bồi / Vết Rạn; xác sống thêm Mộ Vô Danh; cung xương thêm Luỹ Hiệp Sĩ; gargoyle thêm Hẻm Cửa Sông.
 - Tài liệu:
 - docs/ke-hoach-the-gioi.md mục 1: khung vùng 7 → 12 map = 1 trạm + 10 săn (1 map tuổi thơ, 2 map có boss khu) + 1 thánh địa; tổng ~120 map.
-- docs/tools/the-gioi-aether.py: vùng 1 có 12 dòng; Hang Gargoyle ghi 'Dơi hang · đã vẽ'.
+- docs/tools/the-gioi-haven.py: vùng 1 có 12 dòng; Hang Gargoyle ghi 'Dơi hang · đã vẽ'.
 - docs/tools/sketch.py: 12 nút, 14 cạnh. Chạy lại để sinh .md / .html và docs/phac-thao-map/vung-1.svg.
 - packages/sim/src/regions.ts: chú thích '~7 map' sửa thành 12.
 
@@ -531,7 +531,7 @@ Tổng 16 id.
 - Atlas hiện chỉ có 36 món, nên Nghĩa địa / Đồi Xương / Vách gần như trống.
 - Map mới phụ thuộc bộ này: Mộ Vô Danh (G1, tree_dead) và Luỹ Hiệp Sĩ (R1, B1, ruin_arch, tree_pine_dry) dựng ở ĐỢT 2. Hẻm Cửa Sông và khe hang ở Vách đẹp hơn khi có cliff_rock / ruin_arch / R1, nhưng dựng được ngay.
 - TUỲ CHỌN (không bắt buộc): MỘT tấm Pro Flash 'C1_chapter1', lưới 3×2, ảnh mẫu N1, khoảng 6–8 lượt cả tấm. (ĐÃ VẼ 10/10/2026, lưới 2×3 ô rộng, 6 lượt — xem cập nhật đầu mục.) Gồm:
-- brass_meter: cỗ máy đo Aether bằng đồng cắm xuống đất, kim và bánh răng, ám khói. Đặt ở Gian Đá Ghi Tên.
+- brass_meter: cỗ máy đo Haven bằng đồng cắm xuống đất, kim và bánh răng, ám khói. Đặt ở Gian Đá Ghi Tên.
 - beehive: thùng ong nhà Ashvale, cho cảnh 'kiểm ba thùng ong' của Chương 1.
 - small_hut: lều gỗ nhỏ của bà goá ở Mộ Vô Danh, để khỏi dùng lại nhà độc bản của thị trấn.
 - rowboat: thuyền gỗ neo ở Bến sông.

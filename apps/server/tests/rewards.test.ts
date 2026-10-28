@@ -67,7 +67,7 @@ class FakeWs {
 	}
 }
 
-const dir = mkdtempSync(join(tmpdir(), 'aether-rewards-'));
+const dir = mkdtempSync(join(tmpdir(), 'havenlord-rewards-'));
 const store = new Store(join(dir, 'r.db'));
 // 10:00 sáng 08/10/2026 giờ Việt Nam.
 let clock = Date.UTC(2026, 9, 8, 3, 0, 0);

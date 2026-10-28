@@ -59,7 +59,7 @@
 	.no-bar::-webkit-scrollbar { display: none; }
 }
 
-/* —— SweetAlert2 (hộp xác nhận + thông báo) theo theme Aether; nút dùng class daisyUI (buttonsStyling: false trong common.js) —— */
+/* —— SweetAlert2 (hộp xác nhận + thông báo) theo theme Haven; nút dùng class daisyUI (buttonsStyling: false trong common.js) —— */
 .swal2-container { padding: 1rem; }
 .swal2-container.swal2-backdrop-show { background: rgba(5, 14, 24, .72); }
 .swal2-popup { font-family: inherit; width: min(26rem, 100%); padding: 1.5rem 1.25rem 1.25rem; background: #122236; color: #e4ecf5; border: 1px solid rgba(255,255,255,.1); border-radius: 1.25rem; box-shadow: 0 24px 60px rgba(0,0,0,.5); }

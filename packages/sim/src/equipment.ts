@@ -128,7 +128,7 @@ export const ITEMS: Record<string, ItemDef> = {
 		equip: 'offhand',
 		rarity: 'common',
 		bound: true,
-		effect: 'Mở Tia Aether (chuột phải)',
+		effect: 'Mở Tia Haven (chuột phải)',
 	},
 	// Bộ Ngân Lam: cùng id với các lớp sprite trong catalog mannequin để kho đồ quyết định hình đang mặc.
 	jacket_navy: { id: 'jacket_navy', name: 'Áo xanh Ngân Lam', desc: 'Áo choàng xanh đậm của hộ vệ Ngân Lam.', icon: '/assets/items/jacket_navy.png', w: 48, h: 48, kind: 'equip', equip: 'body', rarity: 'common', bound: true },
@@ -145,7 +145,7 @@ export const ITEMS: Record<string, ItemDef> = {
 	dragon_legs: { id: 'dragon_legs', name: 'Quần Long Vệ', desc: 'Quần tối có giáp gối viền vàng.', icon: '/assets/items/dragon_legs.png', w: 48, h: 48, kind: 'equip', equip: 'legs', rarity: 'rare', bound: true },
 	dragon_boots: { id: 'dragon_boots', name: 'Ủng Long Vệ', desc: 'Ủng thép tối màu viền vàng.', icon: '/assets/items/dragon_boots.png', w: 48, h: 48, kind: 'equip', equip: 'feet', rarity: 'rare', bound: true },
 	moonsteel_sword: { id: 'moonsteel_sword', name: 'Kiếm Nguyệt Cương', desc: 'Lưỡi thép bạc khắc rãnh lam, đốc trăng vàng và ngọc xanh; cầm khi đánh Trảm.', icon: '/assets/items/moonsteel_sword.png', w: 48, h: 48, kind: 'equip', equip: 'weapon', rarity: 'rare', bound: true },
-	aether_staff: { id: 'aether_staff', name: 'Trượng Aether', desc: 'Trượng của Ngân Lam; cầm khi niệm Tia Aether.', icon: '/assets/items/aether_staff.png', w: 48, h: 48, kind: 'equip', equip: 'weapon', rarity: 'rare', bound: true },
+	haven_staff: { id: 'haven_staff', name: 'Trượng Haven', desc: 'Trượng của Ngân Lam; cầm khi niệm Tia Haven.', icon: '/assets/items/haven_staff.png', w: 48, h: 48, kind: 'equip', equip: 'weapon', rarity: 'rare', bound: true },
 	potion: {
 		id: 'potion',
 		name: 'Bình mật ong',

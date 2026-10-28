@@ -253,8 +253,8 @@ namespace HavenLord.Core.Tests
         {
             using var a = new ApiClient("http://localhost:3201/");
             Assert.That(a.WebSocketUri.ToString(), Is.EqualTo("ws://localhost:3201/ws"));
-            using var b = new ApiClient("https://aether.example.ts.net/game");
-            Assert.That(b.WebSocketUri.ToString(), Is.EqualTo("wss://aether.example.ts.net/game/ws"));
+            using var b = new ApiClient("https://havenlord.example.ts.net/game");
+            Assert.That(b.WebSocketUri.ToString(), Is.EqualTo("wss://havenlord.example.ts.net/game/ws"));
         }
 
         /// <summary>

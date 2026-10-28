@@ -1,6 +1,6 @@
 import { COUNTER, GUARD, SUNDER_TAKEN, THUNDER } from './skillRules.ts';
 
-export type Element = 'aether' | 'fire' | 'water' | 'wind' | 'healing' | 'steel' | 'ice' | 'earth';
+export type Element = 'haven' | 'fire' | 'water' | 'wind' | 'healing' | 'steel' | 'ice' | 'earth';
 
 /**
  * Kiểu đòn (CombatSystem áp theo kiểu, số liệu nằm ở `SkillDef`):
@@ -144,7 +144,7 @@ export interface SkillDef {
 
 /**
  * Bộ kỹ năng của nhân vật chính. Cha là kiếm sĩ, mẹ là pháp sư → từ 6 tuổi học SONG SONG: Trảm bằng kiếm gỗ cha tặng
- * (`sword`), Tia Aether bằng trượng tập mẹ tặng (`staff`), các phép nguyên tố mốc 1, Suối Lành (Thuỷ mốc 3 — học bằng
+ * (`sword`), Tia Haven bằng trượng tập mẹ tặng (`staff`), các phép nguyên tố mốc 1, Suối Lành (Thuỷ mốc 3 — học bằng
  * điểm tiềm năng, không có `unlock`), Băng Tiễn (8 tuổi, tết nước + gió thành băng). Nhánh + mốc học của từng kỹ năng ở
  * `talents.TREE`; `key` chỉ là phím MẶC ĐỊNH (thanh 10 ô gán tự do — `talents.HOME_SLOT`). Mười sáu tuổi chọn con đường
  * (`PATHS`) — không khoá kỹ năng nào, chỉ đổi mạnh/yếu.
@@ -157,10 +157,10 @@ export interface SkillDef {
  * Từ chỉ số 28 (GĐ3 lượt A): mốc 6 / 8 của 5 nguyên tố. Từ chỉ số 38 (GĐ3 lượt B): mốc 6 / 8 của 3 lưu phái Kiếm.
  */
 export const HERO_SKILLS: SkillDef[] = [
-	// Trảm 0,38 → 0,6 s, Tia Aether 0,42 → 0,65 s (chủ dự án 11/10/2026: "tốc độ đánh quá nhanh" — hoạt ảnh bị tua cho vừa hồi chiêu nên vung rất gấp);
+	// Trảm 0,38 → 0,6 s, Tia Haven 0,42 → 0,65 s (chủ dự án 11/10/2026: "tốc độ đánh quá nhanh" — hoạt ảnh bị tua cho vừa hồi chiêu nên vung rất gấp);
 	// sức mỗi đòn nhân cùng tỉ lệ để sát thương / giây giữ nguyên (boss.test, thời gian hạ boss không đổi).
 	{ id: 'slash', key: 'J', name: 'Trảm', element: 'steel', mpCost: 0, cooldown: 0.6, power: 1.97, kind: 'melee', range: 74, unlock: 'sword', anim: 'attack', desc: 'Nhát chém cơ bản, giữ phím để chém liên tục.' },
-	{ id: 'aether_bolt', key: 'K', name: 'Tia Aether', element: 'aether', mpCost: 0, cooldown: 0.65, power: 1.55, kind: 'projectile', speed: 420, range: 380, unlock: 'staff', anim: 'cast', desc: 'Năng lực bẩm sinh: tia sáng bắn thẳng.' },
+	{ id: 'haven_bolt', key: 'K', name: 'Tia Haven', element: 'haven', mpCost: 0, cooldown: 0.65, power: 1.55, kind: 'projectile', speed: 420, range: 380, unlock: 'staff', anim: 'cast', desc: 'Năng lực bẩm sinh: tia sáng bắn thẳng.' },
 	{ id: 'fire_bolt', key: '1', name: 'Hoả Cầu', element: 'fire', mpCost: 6, cooldown: 1, power: 1.4, kind: 'projectile', speed: 360, range: 400, unlock: 'fire', anim: 'cast', desc: 'Cầu lửa, gây cháy.' },
 	{ id: 'water_lance', key: '2', name: 'Thuỷ Tiễn', element: 'water', mpCost: 8, cooldown: 1.6, power: 1.3, kind: 'projectile', speed: 460, range: 420, unlock: 'water', anim: 'cast', desc: 'Mũi nước, làm ướt.' },
 	{ id: 'wind_blade', key: '3', name: 'Phong Nhận', element: 'wind', mpCost: 10, cooldown: 2.4, power: 1.1, kind: 'projectile', speed: 520, range: 460, pierce: true, unlock: 'wind', anim: 'cast', desc: 'Lưỡi gió bay xuyên mục tiêu.' },
@@ -535,7 +535,7 @@ const WORLD_RESIST: Record<string, Partial<Record<Element, number>>> = {
 };
 
 /**
- * [loại, cấp gốc, kiểu đánh, hạng, vùng] — thứ tự theo bảng vùng ở docs/the-gioi-aether.md. Quái thường gặp ở 2 map cách nhau 5 cấp
+ * [loại, cấp gốc, kiểu đánh, hạng, vùng] — thứ tự theo bảng vùng ở docs/the-gioi-haven.md. Quái thường gặp ở 2 map cách nhau 5 cấp
  * (map đầu cấp gốc −3…−2, map sau +2…+3 — `enemyStatsAt` nhân theo chênh cấp nên đặt gốc ở giữa cho hai map không chênh quá).
  */
 const WORLD_ROSTER: readonly (readonly [string, number, WorldArchetype, WorldRank, string])[] = [
@@ -638,7 +638,7 @@ export function elementMult(stats: Pick<EnemyStats, 'resist'>, element: Element)
  *   Một nhát của boss lên Pháp sư cấp 4 (136 máu, giáp 6): Quỷ vương ~22 (16%), vòng nổ (công ×1,8) ~42 (31%); vòng nổ Vua
  *   Lich ~47 (35%) — lên Pháp sư cấp 3 vẫn chịu được hai vòng.
  * Thời gian hạ ước lượng (đứng đánh liên tục, không né, không trang bị, chí mạng 10% gốc; Kiếm sĩ = Trảm + Nhất Kích, Pháp sư
- * = Tia Aether + Hoả Cầu, có tính MP; cấp 4 = mốc 3, cấp 10 = mốc 6 của nhánh chính) — cũ → mới:
+ * = Tia Haven + Hoả Cầu, có tính MP; cấp 4 = mốc 3, cấp 10 = mốc 6 của nhánh chính) — cũ → mới:
  * | | Kiếm sĩ cấp 4 | Pháp sư cấp 4 | Kiếm sĩ cấp 10 | Pháp sư cấp 10 |
  * | Xác sống | 1,4 → 2,6s | 2,1 → 3,4s | 0,7 → 1,1s | 1,3 → 1,7s |
  * | Gargoyle | 1,8 → 3,0s | 2,9 → 4,2s | 1,1 → 1,4s | 1,3 → 2,1s |

@@ -12,7 +12,7 @@ lại (đồ hoạ PixelLab). Xong thì tự deploy.
 > **đã bỏ**. Luật mới ở **`docs/ke-hoach-nguyen-to.md`** (mục 2, 3, 8); dưới đây chỉ tóm phần đã hiện thực ở GĐ1.
 
 - Logic thuần: `apps/web/src/game/combat/talents.ts` (cây `TREE`, giá `TIER_COST`, `tiersFrom`, `addTier`,
-  `depthBonus`, `aetherScale`, `reactionBonus`, `passiveEffects` + `PASSIVE`, phủ phép `canEnchant`, thanh 10 ô
+  `depthBonus`, `havenScale`, `reactionBonus`, `passiveEffects` + `PASSIVE`, phủ phép `canEnchant`, thanh 10 ô
   `defaultLoadout`/`normalizeLoadout`/`placeSkill`/`assignSlot`).
 - Điểm giữ `pointsForLevel`; cấp tối đa thiết kế 40 = 47 điểm (`MAX_LEVEL`, chưa chặn cấp trong game). Từ 10/10/2026 có thêm
   **điểm tiềm năng thưởng** do trang quản trị cộng (`progress.bonusPoints`, máy chủ giữ): tổng điểm = `talentPoints(cấp, thưởng)` —
@@ -22,7 +22,7 @@ lại (đồ hoạ PixelLab). Xong thì tự deploy.
   (`docs/ke-hoach-nguyen-to.md` mục 7 "Mốc 1 nguyên tố học bằng điểm").
   GĐ1 chỉ cộng tới **mốc 4** (mốc cao nhất đã hiện thực — `tierCap`); mốc 3 "Sắp có" của Kiếm/Hoả/Phong/Băng vẫn đi qua được.
 - Thưởng chiều sâu +4% mỗi mốc trên mốc 1 cho mọi kỹ năng của nhánh (thay `rankPower`, mốc 1 = ×1, KHÔNG còn ×0,7).
-  Tia Aether ngoài cây: ×(1 + 0,03·(cấp − 1)). Phản ứng: +5% mỗi mốc (trên mốc 1) của hệ yếu hơn — ai có cả hai hệ đều ăn.
+  Tia Haven ngoài cây: ×(1 + 0,03·(cấp − 1)). Phản ứng: +5% mỗi mốc (trên mốc 1) của hệ yếu hơn — ai có cả hai hệ đều ăn.
 - **Hồi Phục → Suối Lành, Thuỷ mốc 3** (id vẫn `heal`, bỏ `unlock`); nhiệm vụ "Nấm Ánh Lam" không trao kỹ năng nữa.
 - Bị động mốc 2 (chỉ chính nguyên tố) + mốc 4 (bị động chung) — số liệu ở `PASSIVE`: Bộ Pháp tốc chém +10% · Kiếm Tâm
   chí mạng +8% · Mồi Lửa cháy lâu +50% · Tim Lò +20% vào mục tiêu đang cháy · Thấm Ướt ướt lâu +50% · Dòng Chảy hồi MP
@@ -75,7 +75,7 @@ Màu (`@theme`): `wood`, `wood-deep`, `wood-edge`, `parchment`, `ink-brown`, `go
 (Cormorant Garamond — có dấu tiếng Việt). Ảnh pixel: lớp `pixel-img`, chỉ phóng NGUYÊN lần kích thước gốc.
 
 Hợp đồng dữ liệu (store `apps/web/src/store/useGameStore.ts`): `stats` (thêm attack, magic, defense, critChance,
-critMult, path, age), `skills[]` (các ô ĐÃ GÁN của thanh 10 ô: key/code/slot của ô, school = nhánh hoặc 'aether',
+critMult, path, age), `skills[]` (các ô ĐÃ GÁN của thanh 10 ô: key/code/slot của ô, school = nhánh hoặc 'haven',
 rank = mốc nhánh), `talents` (TalentsView: branches, enchant, loadout, learned), `inventory` (InventoryItem[]), `panel` +
 `setPanel` (character | talents | inventory; mở bảng thì đóng bản đồ, bảng mở thì nhân vật đứng yên như lúc đọc thoại),
 `request(kind, payload?)` → `gameRequest` (talent_add {branch} / talent_reset / use_potion / set_slot {slot, skillId} /

@@ -3,7 +3,7 @@
 	"start": "hub",
 	"maps": {
 		"hub": {
-			"name": "Toà thành Aether cổ",
+			"name": "Toà thành Haven cổ",
 			"width": 2112,
 			"height": 1728,
 			"exits": [
@@ -58,7 +58,7 @@
 					"to": "hub",
 					"x": 960,
 					"y": 24,
-					"label": "Toà thành Aether cổ"
+					"label": "Toà thành Haven cổ"
 				},
 				{
 					"id": "h1_x2",
@@ -321,7 +321,7 @@
 					"to": "hub",
 					"x": 2472,
 					"y": 1152,
-					"label": "Toà thành Aether cổ"
+					"label": "Toà thành Haven cổ"
 				},
 				{
 					"id": "h5_x3",
@@ -461,14 +461,14 @@
 					"to": "hub",
 					"x": 1392,
 					"y": 2088,
-					"label": "Toà thành Aether cổ"
+					"label": "Toà thành Haven cổ"
 				},
 				{
-					"id": "to_aether_archive",
-					"to": "aether_archive",
+					"id": "to_haven_archive",
+					"to": "haven_archive",
 					"x": 1224,
 					"y": 24,
-					"label": "Thư viện thành Aether"
+					"label": "Thư viện thành Haven"
 				}
 			],
 			"spots": [
@@ -476,7 +476,7 @@
 				"h7_s",
 				"h7_lair",
 				"waystone",
-				"aether_archive_outside"
+				"haven_archive_outside"
 			],
 			"zones": [
 				{
@@ -664,7 +664,7 @@
 					"to": "sanctum",
 					"x": 2280,
 					"y": 1392,
-					"label": "Lõi Di Sản Aether · cấp 90"
+					"label": "Lõi Di Sản Haven · cấp 90"
 				},
 				{
 					"id": "h10_x3",
@@ -719,7 +719,7 @@
 			]
 		},
 		"sanctum": {
-			"name": "Lõi Di Sản Aether",
+			"name": "Lõi Di Sản Haven",
 			"width": 1536,
 			"height": 1344,
 			"exits": [
@@ -752,8 +752,8 @@
 				90
 			]
 		},
-		"aether_archive": {
-			"name": "Thư viện thành Aether",
+		"haven_archive": {
+			"name": "Thư viện thành Haven",
 			"width": 1920,
 			"height": 1728,
 			"exits": [
@@ -766,29 +766,29 @@
 				}
 			],
 			"spots": [
-				"aether_archive_entry",
+				"haven_archive_entry",
 				"waystone",
-				"aether_archive_room1",
-				"aether_archive_room2",
-				"aether_archive_room3"
+				"haven_archive_room1",
+				"haven_archive_room2",
+				"haven_archive_room3"
 			],
 			"zones": [
 				{
-					"id": "aether_archive_z1",
+					"id": "haven_archive_z1",
 					"monsters": [
 						"mob_wind_goblin_001"
 					],
 					"level": 88
 				},
 				{
-					"id": "aether_archive_z2",
+					"id": "haven_archive_z2",
 					"monsters": [
 						"mob_wind_goblin_001"
 					],
 					"level": 88
 				},
 				{
-					"id": "aether_archive_z3",
+					"id": "haven_archive_z3",
 					"monsters": [
 						"mob_wind_goblin_001"
 					],

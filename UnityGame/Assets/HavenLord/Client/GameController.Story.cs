@@ -46,8 +46,8 @@ namespace HavenLord.Client
         private void CreateStory()
         {
             story = new StoryDirector(storyState, sim.WorldData.Story, NpcName, this, Save);
-            story.AetherStandsIn = AetherStandsIn;
-            combat.PracticeHit = (el, r) => story?.Practiced(el, r, AetherStandsIn);
+            story.HavenStandsIn = HavenStandsIn;
+            combat.PracticeHit = (el, r) => story?.Practiced(el, r, HavenStandsIn);
         }
 
         private string NpcName(string key) => population?.NpcDefOf(key)?.Name ?? key;
@@ -445,8 +445,8 @@ namespace HavenLord.Client
                 hud.Toast($"Mở nhánh {bn} — học phép đầu ở bảng Tiềm năng (T)", "level");
         }
 
-        /// <summary>Bài luyện phép đang nhận Tia Aether thay chiêu nguyên tố (chưa học mốc 1 của nhánh cần) — `aetherStandsIn` web.</summary>
-        private bool AetherStandsIn(Objective o)
+        /// <summary>Bài luyện phép đang nhận Tia Haven thay chiêu nguyên tố (chưa học mốc 1 của nhánh cần) — `havenStandsIn` web.</summary>
+        private bool HavenStandsIn(Objective o)
         {
             if (o.Type != "practice") return false;
             var need = new HashSet<string>();
@@ -457,7 +457,7 @@ namespace HavenLord.Client
                         need.Add(a);
                         need.Add(b);
                     }
-            if (!string.IsNullOrEmpty(o.Element) && o.Element != "steel" && o.Element != "aether" && o.Element != "heal") need.Add(o.Element);
+            if (!string.IsNullOrEmpty(o.Element) && o.Element != "steel" && o.Element != "haven" && o.Element != "heal") need.Add(o.Element);
             foreach (var b in need) if (TierOf(b) < 1) return true;
             return false;
         }

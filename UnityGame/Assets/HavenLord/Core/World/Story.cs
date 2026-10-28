@@ -89,8 +89,8 @@ namespace HavenLord.Core.World
         [JsonProperty("objective")] public Objective Objective;
         /// <summary>Dòng mục tiêu trên HUD; `{n}`/`{total}` thay bằng tiến độ.</summary>
         [JsonProperty("objectiveText")] public string ObjectiveText;
-        /// <summary>Dòng mục tiêu khi chưa học đủ chiêu và bài nhận Tia Aether thay.</summary>
-        [JsonProperty("objectiveTextAether", NullValueHandling = NullValueHandling.Ignore)] public string ObjectiveTextAether;
+        /// <summary>Dòng mục tiêu khi chưa học đủ chiêu và bài nhận Tia Haven thay.</summary>
+        [JsonProperty("objectiveTextHaven", NullValueHandling = NullValueHandling.Ignore)] public string ObjectiveTextHaven;
         /// <summary>NPC báo cáo khi xong; "auto" = tự trao thưởng.</summary>
         [JsonProperty("turnIn")] public string TurnIn;
         [JsonProperty("reward")] public QuestReward Reward;

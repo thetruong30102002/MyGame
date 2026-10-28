@@ -33,13 +33,13 @@ namespace HavenLord.Client.Combat
 
         public static readonly Dictionary<string, int> ElementTint = new Dictionary<string, int>
         {
-            ["aether"] = 0xc9b6ff, ["fire"] = 0xffb35c, ["water"] = 0x8fd3ff, ["wind"] = 0xbaf5cf,
+            ["haven"] = 0xc9b6ff, ["fire"] = 0xffb35c, ["water"] = 0x8fd3ff, ["wind"] = 0xbaf5cf,
             ["healing"] = 0x9fffb0, ["steel"] = 0xffffff, ["ice"] = 0xc4f1ff, ["earth"] = 0xd9b47a,
         };
 
         private static readonly Dictionary<string, string> ShotVfx = new Dictionary<string, string>
         {
-            ["fire"] = "fire_orb", ["water"] = "water_wave", ["wind"] = "wind_spin", ["aether"] = "arcane_orb",
+            ["fire"] = "fire_orb", ["water"] = "water_wave", ["wind"] = "wind_spin", ["haven"] = "arcane_orb",
             ["ice"] = "ice_shard", ["shadow"] = "dark_orb", ["earth"] = "rock_shot", ["steel"] = "flying_sword",
             // TẠM: mũi tên của cung thủ — chưa có hình PixelLab riêng, mượn mũi băng nhuộm nâu (Combat.md).
             ["arrow"] = "ice_shard",
@@ -47,7 +47,7 @@ namespace HavenLord.Client.Combat
 
         private static readonly Dictionary<string, string> ImpactVfx = new Dictionary<string, string>
         {
-            ["fire"] = "fire_burst", ["water"] = "water_splash", ["wind"] = "wind_burst", ["aether"] = "arcane_burst",
+            ["fire"] = "fire_burst", ["water"] = "water_splash", ["wind"] = "wind_burst", ["haven"] = "arcane_burst",
             ["ice"] = "ice_burst", ["steel"] = "blood_hit", ["healing"] = "sparkle", ["arrow"] = "dust", ["shadow"] = "shadow",
             ["earth"] = "dust",
         };
@@ -713,7 +713,7 @@ namespace HavenLord.Client.Combat
         private void Impact(string element, double x, double y, float alpha = 1, bool hero = false)
         {
             if (!ImpactVfx.TryGetValue(element, out var id)) id = "dust";
-            var o = new VfxOpts { Fps = 26, Alpha = alpha, Add = element == "fire" || element == "aether", Scale = hero ? 1.5f : 1 };
+            var o = new VfxOpts { Fps = 26, Alpha = alpha, Add = element == "fire" || element == "haven", Scale = hero ? 1.5f : 1 };
             if (element == "earth") o.Tint = 0xc49a62;
             vfx.Play(id, x, y, o);
             if (!hero) return;
@@ -827,7 +827,7 @@ namespace HavenLord.Client.Combat
             var tint = look?.Tint ?? (element == "arrow" ? 0xc8a070 : (int?)null);
             if (tint.HasValue) sr.color = VfxPlayer.ColorOf(tint.Value);
             var size = Mathf.Max(1, Mathf.Round(look?.Scale ?? 1));
-            // Đạn người chơi vẽ bé (Hoả Cầu 17 px, Tia Aether 20 px…): phóng nguyên ×2 cho rõ, giữ nét pixel.
+            // Đạn người chơi vẽ bé (Hoả Cầu 17 px, Tia Haven 20 px…): phóng nguyên ×2 cho rõ, giữ nét pixel.
             var spritePx = frames.Length > 0 && frames[0] != null ? Mathf.Max(frames[0].rect.width, frames[0].rect.height) : 0;
             if (team == Team.Player && size < 2 && spritePx > 0 && spritePx < 40) size = 2;
             go.transform.localScale = new Vector3(size, look != null && look.Upright && vx < 0 ? -size : size, 1);

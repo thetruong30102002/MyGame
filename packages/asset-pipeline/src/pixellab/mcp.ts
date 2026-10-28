@@ -76,7 +76,7 @@ export class PixelLabMcp {
 	}
 
 	private async initialize(): Promise<void> {
-		await this.rpc('initialize', { protocolVersion: '2025-06-18', capabilities: {}, clientInfo: { name: 'aether-asset-pipeline', version: '0.1.0' } });
+		await this.rpc('initialize', { protocolVersion: '2025-06-18', capabilities: {}, clientInfo: { name: 'havenlord-asset-pipeline', version: '0.1.0' } });
 		await this.post({ jsonrpc: '2.0', method: 'notifications/initialized' });
 	}
 

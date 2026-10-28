@@ -67,7 +67,7 @@ class FakeWs {
 	}
 }
 
-const dir = mkdtempSync(join(tmpdir(), 'aether-admin-'));
+const dir = mkdtempSync(join(tmpdir(), 'havenlord-admin-'));
 const dbPath = join(dir, 'a.db');
 const store = new Store(dbPath);
 const world = new World(store, () => []);

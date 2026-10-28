@@ -2,7 +2,7 @@ import type { KitBoss, KitMapSpec, KitRegionDef, KitTheme, KitZone } from './kit
 
 /**
  * Vùng 2–7 theo KHUNG 12 map (docs/ke-hoach-the-gioi.md mục 1; tên map săn đầu tiên của mỗi loại quái + boss theo bảng vùng ở
- * docs/the-gioi-aether.md, map lặp lại thứ hai đặt tên mới). Đồ thị lối CHUẨN (mọi vùng như nhau — toạ độ ô lưới, x sang đông, y
+ * docs/the-gioi-haven.md, map lặp lại thứ hai đặt tên mới). Đồ thị lối CHUẨN (mọi vùng như nhau — toạ độ ô lưới, x sang đông, y
  * xuống nam):
  *
  *   h10(-2,-3) ── thánh địa(-1,-3)            h10: lối TÂY sang trạm vùng kế
@@ -355,7 +355,7 @@ const SNOWFIELD: KitTheme = {
 	rockDensity: 5,
 	flats: ['snowdrift', 'frozen_patch', 'snowdrift', 'snow_mound', 'ice_crevasse', 'frost_flower', 'frozen_bones'],
 	flatDensity: 5,
-	landmarks: ['ice_pillar', 'ice_stalagmites', 'frost_lantern', 'snow_grave', 'aether_vein', 'purple_ice', 'ice_spire'],
+	landmarks: ['ice_pillar', 'ice_stalagmites', 'frost_lantern', 'snow_grave', 'haven_vein', 'purple_ice', 'ice_spire'],
 	water: 'none',
 	sign: 'signpost',
 };
@@ -387,7 +387,7 @@ export const TUNDRA_REGION = standardRegion({
 		{ id: 'frostmere', name: 'Hồ Sương Giá', theme: theme(SNOWFIELD, { water: 'lakes' }) },
 		{ id: 'snowfield', name: 'Cánh Đồng Tuyết', theme: SNOWFIELD },
 		{ id: 'icecoast', name: 'Bờ Biển Băng', theme: theme(SNOWFIELD, { water: 'coast', landmarks: ['icebound_ship', 'ice_crystals', 'snow_log'] }) },
-		{ id: 'bearcave', name: 'Hang Gấu', theme: theme(SNOWFIELD, { rockDensity: 10, rocks: ['snow_boulder', 'ice_stalagmites', 'ice_crystals', 'stalagmite', 'crystal_blue', 'rock_pillar'], landmarks: ['bear_den', 'ice_stalagmites', 'aether_vein'] }) },
+		{ id: 'bearcave', name: 'Hang Gấu', theme: theme(SNOWFIELD, { rockDensity: 10, rocks: ['snow_boulder', 'ice_stalagmites', 'ice_crystals', 'stalagmite', 'crystal_blue', 'rock_pillar'], landmarks: ['bear_den', 'ice_stalagmites', 'haven_vein'] }) },
 		{ id: 'wolfwood', name: 'Rừng Sói Tru', theme: PINEWOOD },
 		{ id: 'icelake', name: 'Hồ Băng', theme: theme(SNOWFIELD, { water: 'lakes' }) },
 		{ id: 'snowmanpass', name: 'Đèo Người Tuyết', theme: theme(SNOWFIELD, { rockDensity: 9 }) },
@@ -407,7 +407,7 @@ export const TUNDRA_REGION = standardRegion({
 	dragon: {
 		id: 'frostlair',
 		name: 'Long Huyệt Hàn Sương',
-		theme: theme(SNOWFIELD, { rocks: ['ice_stalagmites', 'ice_pillar', 'aether_vein'] }),
+		theme: theme(SNOWFIELD, { rocks: ['ice_stalagmites', 'ice_pillar', 'haven_vein'] }),
 		boss: { name: 'Long Huyệt Hàn Sương', monster: 'dragon_ice_001', level: 50, ring: ['ice_pillar', 'ice_stalagmites', 'dragon_relief'], center: 'frozen_falls' },
 	},
 	prev: { to: 'highland/cloudgate', toSpot: 'cloudgate_gate', label: 'Cổng Mây · Cao nguyên Gió Hú' },

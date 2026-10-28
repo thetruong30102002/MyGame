@@ -5,7 +5,7 @@ import {join} from 'node:path';
 import {createServer} from 'node:http';
 import {Store} from '../src/db.ts';
 import {createApi} from '../src/http.ts';
-const dir=mkdtempSync(join(tmpdir(),'aether-archive-')),store=new Store(join(dir,'test.db'));
+const dir=mkdtempSync(join(tmpdir(),'havenlord-archive-')),store=new Store(join(dir,'test.db'));
 store.createSession('admin',store.createAccount('archive_admin','x')!,3600000);store.setAdmin('archive_admin',true);
 store.createSession('player',store.createAccount('archive_player','x')!,3600000);
 const id=store.addNews('Thông báo','Bản tin cũ',['Lưu để tra cứu'],'Admin');

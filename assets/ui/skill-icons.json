@@ -485,7 +485,7 @@
 		"w": 32,
 		"h": 32
 	},
-	"aether_bolt": {
+	"haven_bolt": {
 		"x": 36,
 		"y": 288,
 		"w": 32,
@@ -521,19 +521,19 @@
 		"w": 32,
 		"h": 32
 	},
-	"spare:aether:1": {
+	"spare:haven:1": {
 		"x": 252,
 		"y": 288,
 		"w": 32,
 		"h": 32
 	},
-	"spare:aether:2": {
+	"spare:haven:2": {
 		"x": 288,
 		"y": 288,
 		"w": 32,
 		"h": 32
 	},
-	"spare:aether:3": {
+	"spare:haven:3": {
 		"x": 324,
 		"y": 288,
 		"w": 32,

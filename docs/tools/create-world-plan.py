@@ -16,7 +16,7 @@ designs = [
 ('volcano','Bazan đen, đồng đỏ, thép; pháo đài Đe Đỏ nhiều tầng, lò rèn đại và đường vận quặng.','Xe mỏ, băng chuyền, bể tôi, ống khói, tời nâng, khu chợ thợ rèn.','Hội đồng người lùn và các gia tộc lò rèn; ghế hội đồng trong pháo đài, không tự thêm vua.','Bọ than, hộ vệ xỉ thép, thằn lằn lò nung.','Cự Tượng Đe Đỏ','Tối và nhiều đốm tương phản; gom ánh lửa theo cụm, làm rõ đường đi.'),
 ('isles','Gỗ tàu, đá san hô, vải trắng lam; cảng nhiều tầng, hải đăng và nhà hội hàng hải.','Cầu tàu, cần cẩu, kho muối, thuyền neo, chợ hải sản, quán cảng.','Hội đồng cảng, liên đoàn thương thuyền và phe hải tặc ngoài đảo.','Cá kiếm chân cạn, thủy thủ nguyền, sứa giáp.','Hải Xà San Hô','Phong cách biển có sẵn; thiếu tuyến cảng làm điểm nhấn đô thị đông đúc.'),
 ('fungal','Hang nhiều tầng, nấm khổng lồ tím lam; nhà mọc từ thân nấm, cầu tơ bào tử, đại sảnh vòm nấm.','Vườn bào tử, đèn sinh học, xe quặng tinh thể, bàn chế thuốc, giỏ thu hoạch.','Hội Bào Tử của người nấm; văn hóa cộng sinh, không bê nhà sàn và liễu đầm lầy.','Nấm khiên, sâu bào tử, dơi tinh thể.','Mẫu Thể Bào Tử','Đang dùng biome swamp, cây liễu/đước/nhà sàn và boss Hydra; phải thay bộ cảnh cốt lõi.'),
-('ruins','Đá cẩm thạch rạn, đồng cổ, rune lam; tòa thành Aether đổ nát nhưng hùng vĩ, khu phục dựng của học giả.','Cột gãy, tượng triều đại, đồng hồ thiên văn, máy cổ, bàn khai quật và kho di vật.','Hội Khảo Cổ, hậu duệ triều đình và kẻ buôn di vật tranh di sản; phế vương là bí ẩn, không xác nhận vua còn sống.','Lính cơ giới, thư linh, tượng rune tuần tra.','Nhiếp Chính Cơ Giới','Đang dùng cây màu và cối xay highland; cảnh chưa đọc ra thành cổ.'),
+('ruins','Đá cẩm thạch rạn, đồng cổ, rune lam; tòa thành Haven đổ nát nhưng hùng vĩ, khu phục dựng của học giả.','Cột gãy, tượng triều đại, đồng hồ thiên văn, máy cổ, bàn khai quật và kho di vật.','Hội Khảo Cổ, hậu duệ triều đình và kẻ buôn di vật tranh di sản; phế vương là bí ẩn, không xác nhận vua còn sống.','Lính cơ giới, thư linh, tượng rune tuần tra.','Nhiếp Chính Cơ Giới','Đang dùng cây màu và cối xay highland; cảnh chưa đọc ra thành cổ.'),
 ('void','Đảo đá lơ lửng, kiến trúc gãy, cầu năng lượng có giới hạn; thành trì liên quân trong không gian rách.','Neo không gian, kho tiếp tế, tháp canh, lều quân y, mảnh kiến trúc treo.','Liên quân các vùng đóng tiền đồn; phe Hư Không đối địch ngoài tuyến phòng thủ.','Ký sinh khe nứt, chiến binh rỗng, mắt hư vô.','Kẻ Nuốt Chân Trời','Hiện gần biến thể núi lửa; thiếu khoảng không, đảo nổi và kết cấu siêu thực.'),
 ('wood','Rễ cây đại thụ, gỗ sống, đá phủ rêu; nhà ôm thân cây và đại sảnh nhiều tầng bằng cành đan.','Vườn dược, cầu rễ, giọt nhựa, hoa lớn, tổ chim, bàn chạm gỗ.','Hội Thủ Lâm và sứ giả tinh linh; quyền lực gắn với Cây Thế Giới.','Hươu mầm, hộ vệ vỏ cây, nhện dây leo.','Thủ Hộ Rễ Ngàn Năm','Có cây riêng nhưng nhà và boss vẫn thuộc đầm lầy; cây phủ kín nhiều đường.'),
 ('light','Đá trắng ngà, vàng nhạt, kính màu; thành thánh có tháp cao, bậc thềm, thư viện và thánh đường.','Đài nước, vườn huệ, chợ kinh sách, cờ lễ, sảnh cứu trợ và đèn pha lê.','Giáo hội Bình Minh quản lý thánh địa; xung đột học giả/giáo quyền là đề xuất, không coi ánh sáng luôn thiện.','Hộ vệ kính, sư tử nhật quang, linh tượng lạc ánh.','Chấp Chính Nhật Luân','Có cây vàng riêng nhưng nhà và boss gió còn mượn; nền sáng chưa có kiến trúc tương xứng.'),
@@ -29,7 +29,7 @@ def task(id,group,name,detail,weight=3,phase=1,region=None,done=False,depends=No
         depends=depends or [],steps=[dict(label=l,weight=w,done=done,evidence='Kiểm kê 26/10/2026: .havenlord-stage/world-renewal/' if done else '') for l,w in labels]))
 task('audit','Chuẩn bị','Kiểm kê 174 map và 25 boss','Đã xem ảnh minimap của 174 map và 13 trung tâm; kiểm đếm ảnh frame bằng hash RGBA, không chỉ số slot. Chưa phải nghiệm thu trong Unity.',2,0,done=True,steps=[('Dữ liệu và ảnh tổng quan',100)])
 task('style','Chuẩn bị','Chốt quy chuẩn mỹ thuật và tỷ lệ','Duyệt một phố mẫu với người chơi gốc để chốt pixel, cửa, tầng nhà, ánh sáng và khử nhiễu.',3,1,depends=['audit'])
-task('politics','Cốt truyện','Bản đồ chính trị, vua và phe phái','Vua Sahrin; hội đồng Đe Đỏ; triều đình cổ Aether; liên quân Hư Không. Duyệt thêm phe của Mộc, Sáng, Tối và quan hệ thương mại/xung đột.',4,1,depends=['audit'])
+task('politics','Cốt truyện','Bản đồ chính trị, vua và phe phái','Vua Sahrin; hội đồng Đe Đỏ; triều đình cổ Haven; liên quân Hư Không. Duyệt thêm phe của Mộc, Sáng, Tối và quan hệ thương mại/xung đột.',4,1,depends=['audit'])
 task('sky-lore','Cốt truyện','Thiên Thành và vị thần tri thức','Lâu đài trên không có một vị thần; hé lộ tri thức thế giới và lịch sử khởi nguyên. Tên, ngoại hình, điều kiện lên và các chương tiết lộ còn là đề xuất.',5,1,depends=['politics'])
 for rid,arch,props,politics,mobs,boss,issue in designs:
     r=next(x for x in audit['regions'] if x['id']==rid)
@@ -53,11 +53,11 @@ task('market','Tính năng đã chốt','Chợ giao thương','Lúa mì, cây gi
 task('mazes','Tính năng đã chốt','Mê cung châu báu','Nhiều mê cung có vàng, châu báu và đồ trang trí nhà; thiết kế số lượng, theme, tổ đội và bảng rơi riêng.',7,7,depends=['home'])
 task('cast30','Nhân vật','30 nhân vật liền vũ khí','5 class ×6 (3 nam/3 nữ). Chưa coi số ảnh nguồn là nhân vật đã phát hành. Cần đủ chuyển động, QA tỷ lệ/độ nét và build rồi mới reset DB theo đợt phát hành đã yêu cầu.',10,2)
 task('web','Web và công bố','Làm lại portal game và bảng tiến độ','Giao diện fantasy trên PC/điện thoại; kế hoạch riêng admin, nội dung công khai chia hiện có/đang làm. Chỉ hoàn thành sau kiểm thử và lên link thật.',3,1,steps=[('Thiết kế',10),('Triển khai',45),('Kiểm thử',20),('Phát hành',25)])
-data={'version':1,'updated':'2026-10-26','title':'Tái thiết thế giới Aether','scope':'Tiến độ của kế hoạch nâng cấp này; không phải % hoàn thành toàn bộ game.',
+data={'version':1,'updated':'2026-10-26','title':'Tái thiết thế giới Haven','scope':'Tiến độ của kế hoạch nâng cấp này; không phải % hoàn thành toàn bộ game.',
       'method':'Mỗi việc = tổng trọng số các mốc đã hoàn thành / tổng trọng số mốc. Tổng = trung bình có trọng số khối lượng việc. Chỉ tích mốc khi có bằng chứng; không tự tăng theo thời gian.',
       'groups':['Chuẩn bị','Trung tâm vùng','Cảnh quan','Quái và boss','Boss cũ','Cốt truyện','Bản đồ tổng','Nghiệm thu','Tính năng đã chốt','Nhân vật','Web và công bố'],
       'totals':audit['totals'],'regions':audit['regions'],'bosses':audit['bosses'],'tasks':tasks}
-head='''# Kế hoạch tổng — tái thiết thế giới và phát triển Aether
+head='''# Kế hoạch tổng — tái thiết thế giới và phát triển Haven
 
 Ngày lập: **26/10/2026**. File này là nguồn tiến độ duy nhất cho tab **Kế hoạch** trên trang quản trị web. Chưa có asset mới của đợt tái thiết này được vẽ hoặc phát hành. Không dùng % cũ của bản đồ đã có để tính vào phần vẽ lại.
 
@@ -96,7 +96,7 @@ Giữ tuyến khởi đầu Thistlewood → các vùng theo cấp; sắp lại v
 
 Sahrin là thành của vua sa mạc; Đe Đỏ là pháo đài hội đồng người lùn; Phế tích là toà thành triều đại đã sụp; Hư Không là thành trì liên quân. Đề xuất thánh thành ở vùng Sáng và thành trú ẩn vùng Tối, không biến tất cả làng thành cung vua. Mỗi phe có vùng ảnh hưởng, mục tiêu, đồng minh/đối thủ và quan hệ buôn bán; chưa thêm cơ chế PvP phe hoặc thuế trước khi thiết kế.
 
-**Thiên Thành Khởi Nguyên** là tên tạm. Vẽ quần đảo mây với một lâu đài lớn ở tầng trên của tranh tổng, đường lên riêng có điều kiện; bên trong có đại thư viện và điện khởi nguyên. Vị thần ở đó lưu giữ tri thức của mọi vùng và ký ức khởi nguyên. Chia tiết lộ thành chương: nguồn thế giới → nguyên tố → triều đại Aether → rạn nứt hiện tại. Điều kiện mở, danh tính thần, quan hệ với thần cũ và phần bí mật cuối chưa chốt. Public web chỉ teaser; admin giữ bản kế hoạch đầy đủ.
+**Thiên Thành Khởi Nguyên** là tên tạm. Vẽ quần đảo mây với một lâu đài lớn ở tầng trên của tranh tổng, đường lên riêng có điều kiện; bên trong có đại thư viện và điện khởi nguyên. Vị thần ở đó lưu giữ tri thức của mọi vùng và ký ức khởi nguyên. Chia tiết lộ thành chương: nguồn thế giới → nguyên tố → triều đại Haven → rạn nứt hiện tại. Điều kiện mở, danh tính thần, quan hệ với thần cũ và phần bí mật cuối chưa chốt. Public web chỉ teaser; admin giữ bản kế hoạch đầy đủ.
 
 Tranh bản đồ tổng phải có tầng đất/biển/mây, 13 vùng đọc được, ranh giới địa hình, tuyến giao thông, thành chính và biểu tượng Thiên Thành. Chữ và ghim ở lớp UI, không để AI vẽ chữ trong ảnh. Thay tranh cũ đồng thời ở Unity và web sau khi ghim khớp.
 
@@ -125,7 +125,7 @@ Mốc mỗi đầu việc có trọng số tổng 100; chỉ tích `done` kèm `
 
 Phần dưới gồm brief từng vùng, số liệu audit boss và checklist công việc. `architecture/life/politics/newMobs/newBoss` là đề xuất; `finding`, kích thước và số frame là hiện trạng kiểm kê. Art mới để 0% tới khi thực hiện. Web chỉ có quyền đọc; sửa file này và bấm tải lại để cập nhật.
 
-<!-- aether-plan:start -->
+<!-- havenlord-plan:start -->
 '''
-target.write_text(head+'```json\n'+json.dumps(data,ensure_ascii=False,indent=2)+'\n```\n<!-- aether-plan:end -->\n',encoding='utf-8')
+target.write_text(head+'```json\n'+json.dumps(data,ensure_ascii=False,indent=2)+'\n```\n<!-- havenlord-plan:end -->\n',encoding='utf-8')
 print(str(target), len(tasks),'đầu việc')

@@ -1034,10 +1034,10 @@
 			"desc": "Nhát chém cơ bản, giữ phím để chém liên tục."
 		},
 		{
-			"id": "aether_bolt",
+			"id": "haven_bolt",
 			"key": "K",
-			"name": "Tia Aether",
-			"element": "aether",
+			"name": "Tia Haven",
+			"element": "haven",
 			"mpCost": 0,
 			"cooldown": 0.65,
 			"power": 1.55,

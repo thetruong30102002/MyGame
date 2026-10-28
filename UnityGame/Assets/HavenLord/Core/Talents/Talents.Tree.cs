@@ -186,13 +186,13 @@ namespace HavenLord.Core
         /// <summary>Thưởng chiều sâu: +DEPTH_BONUS mỗi mốc trên mốc 1 (mốc 0 = 1).</summary>
         public double DepthBonus(double tier) => 1 + _d.DepthBonusPerTier * Math.Max(0, Math.Min(_d.MaxTier, Math.Floor(tier)) - 1);
 
-        /// <summary>Tia Aether: +AETHER_PER_LEVEL mỗi cấp trên cấp 1, dừng ở trần cấp tiềm năng.</summary>
-        public double AetherScale(double level) => 1 + _d.AetherPerLevel * (Math.Min(_d.TalentLevelCap, Math.Max(1, Math.Floor(level))) - 1);
+        /// <summary>Tia Haven: +HAVEN_PER_LEVEL mỗi cấp trên cấp 1, dừng ở trần cấp tiềm năng.</summary>
+        public double HavenScale(double level) => 1 + _d.HavenPerLevel * (Math.Min(_d.TalentLevelCap, Math.Max(1, Math.Floor(level))) - 1);
 
         /// <summary>Hệ số kỹ năng theo cây; kiếm pháp ăn thưởng của nhánh YẾU hơn giữa Kiếm và nguyên tố đó.</summary>
         public double SkillScale(Tiers tiers, string skillId, double level)
         {
-            if (skillId == "aether_bolt") return AetherScale(level);
+            if (skillId == "haven_bolt") return HavenScale(level);
             if (skillId == null || !_d.SkillNodes.TryGetValue(skillId, out var node)) return 1;
             if (node.Art != null)
             {

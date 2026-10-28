@@ -54,7 +54,7 @@ class FakeWs {
 }
 
 const ZONES: MonsterZoneDef[] = [{ id: 'gy_a', x: 400, y: 400, radius: 120, monsters: ['mob_zombie_001'], count: 3, fromAge: 16 }];
-const dir = mkdtempSync(join(tmpdir(), 'aether-eco-'));
+const dir = mkdtempSync(join(tmpdir(), 'havenlord-eco-'));
 const store = new Store(join(dir, 'e.db'));
 let clock = 1_000_000;
 const world = new World(store, (map) => (map === 'human/graveyard' ? ZONES : []), undefined, () => clock);
@@ -83,7 +83,7 @@ try {
 
 	test('bản lưu tiềm năng định dạng CŨ hơn (tab mở từ trước lần triển khai) không ghi đè được phần tiềm năng mới; phần truyện khác vẫn lưu', () => {
 		const p = store.character(me, acc)!.progress;
-		const v3 = { talents: { fire: 2, sword: 1 }, talentsV: 3, loadout: ['slash', 'aether_bolt', 'fire_bolt'], swordStyle: 'kiem_than', index: 4 };
+		const v3 = { talents: { fire: 2, sword: 1 }, talentsV: 3, loadout: ['slash', 'haven_bolt', 'fire_bolt'], swordStyle: 'kiem_than', index: 4 };
 		store.saveProgress(me, { ...p, story: v3 });
 		// Tab cũ: hoàn điểm (talents rỗng, định dạng 2), bỏ lưu phái, thanh ô trống — nhưng nhiệm vụ đi tiếp.
 		store.saveProgress(me, { ...p, story: { talents: {}, talentsV: 2, loadout: [], index: 5 } });
@@ -196,7 +196,7 @@ try {
 // Cấp quái theo khu + khu tuổi thơ (thiết kế 12 map vùng 1, 10/10/2026): map giả trong thư mục tạm (dạng y hệt map JSON client) —
 // bãi bồi có 2 khu tuổi thơ cấp 1 (riêng), 1 khu nhiệm vụ 16+ cấp 6 (riêng), 1 khu dùng chung cấp 3.
 {
-	const root = mkdtempSync(join(tmpdir(), 'aether-eco-lv-'));
+	const root = mkdtempSync(join(tmpdir(), 'havenlord-eco-lv-'));
 	const mapsDir = join(root, 'maps');
 	mkdirSync(join(mapsDir, 'human'), { recursive: true });
 	const RF: MonsterZoneDef[] = [

@@ -68,7 +68,7 @@
 			"#a8a097",
 			"#5b8a35"
 		],
-		"aether": [
+		"haven": [
 			"#1c1525",
 			"#2e1a5c",
 			"#5a2fb0",
@@ -529,7 +529,7 @@
 			"key": "spare:sword:5",
 			"name_vi": "Dự phòng — Phủ phép Kiếm (ô phủ phép trống)",
 			"sheet_v1": "SK4_sword_arts",
-			"palette": "aether",
+			"palette": "haven",
 			"accents": [
 				"red",
 				"blue",
@@ -998,19 +998,19 @@
 			"chosen": "t7"
 		},
 		{
-			"key": "aether_bolt",
-			"name_vi": "Tia Aether",
-			"sheet_v1": "SK10_aether",
-			"palette": "aether",
+			"key": "haven_bolt",
+			"name_vi": "Tia Haven",
+			"sheet_v1": "SK10_haven",
+			"palette": "haven",
 			"accents": [],
 			"prompt_en": "a violet magic energy orb flying right with a short streak trail",
-			"file": "aether_bolt.png",
+			"file": "haven_bolt.png",
 			"chosen": "t6"
 		},
 		{
 			"key": "future:fire:10",
 			"name_vi": "Phượng Hoàng (sắp có)",
-			"sheet_v1": "SK10_aether",
+			"sheet_v1": "SK10_haven",
 			"palette": "fire",
 			"accents": [],
 			"prompt_en": "a fiery phoenix bird with wide spread wings",
@@ -1019,7 +1019,7 @@
 		{
 			"key": "future:water:10",
 			"name_vi": "Đại Hồng Thuỷ (sắp có)",
-			"sheet_v1": "SK10_aether",
+			"sheet_v1": "SK10_haven",
 			"palette": "water",
 			"accents": [],
 			"prompt_en": "a towering dark blue tsunami wave curling over",
@@ -1028,7 +1028,7 @@
 		{
 			"key": "future:wind:10",
 			"name_vi": "Thiên Phong (sắp có)",
-			"sheet_v1": "SK10_aether",
+			"sheet_v1": "SK10_haven",
 			"palette": "wind",
 			"accents": [],
 			"prompt_en": "a huge green storm sphere ringed by spinning white blades",
@@ -1040,7 +1040,7 @@
 		{
 			"key": "future:ice:10",
 			"name_vi": "Kỷ Băng Hà (sắp có)",
-			"sheet_v1": "SK10_aether",
+			"sheet_v1": "SK10_haven",
 			"palette": "ice",
 			"accents": [],
 			"prompt_en": "a ring of tall ice crystals bursting outward",
@@ -1049,7 +1049,7 @@
 		{
 			"key": "future:earth:10",
 			"name_vi": "Sơn Thần (sắp có)",
-			"sheet_v1": "SK10_aether",
+			"sheet_v1": "SK10_haven",
 			"palette": "earth",
 			"accents": [
 				"yellow"
@@ -1060,35 +1060,35 @@
 			"redrawn": "10/10/2026 lượt 2 (bản cũ i140 → _ung-vien/)"
 		},
 		{
-			"key": "spare:aether:1",
+			"key": "spare:haven:1",
 			"name_vi": "Dự phòng — Né (ô phím Space; thay ICON_FRAME.dodge)",
-			"sheet_v1": "SK10_aether",
+			"sheet_v1": "SK10_haven",
 			"palette": "sword",
 			"accents": [],
 			"prompt_en": "a round grey-white dust cloud puff swirling",
-			"file": "spare-aether-1.png",
+			"file": "spare-haven-1.png",
 			"chosen": "t4"
 		},
 		{
-			"key": "spare:aether:2",
+			"key": "spare:haven:2",
 			"name_vi": "Dự phòng — Tẩy điểm tiềm năng",
-			"sheet_v1": "SK10_aether",
-			"palette": "aether",
+			"sheet_v1": "SK10_haven",
+			"palette": "haven",
 			"accents": [],
 			"prompt_en": "a violet crystal orb inside a circular reset arrow",
-			"file": "spare-aether-2.png"
+			"file": "spare-haven-2.png"
 		},
 		{
-			"key": "spare:aether:3",
+			"key": "spare:haven:3",
 			"name_vi": "Dự phòng — Phản ứng nguyên tố (REACTION_*)",
-			"sheet_v1": "SK10_aether",
-			"palette": "aether",
+			"sheet_v1": "SK10_haven",
+			"palette": "haven",
 			"accents": [
 				"red",
 				"blue"
 			],
 			"prompt_en": "a red orb and a blue orb colliding with a white spark",
-			"file": "spare-aether-3.png"
+			"file": "spare-haven-3.png"
 		}
 	]
 }

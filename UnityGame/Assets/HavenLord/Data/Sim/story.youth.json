@@ -120,7 +120,7 @@
 				},
 				{
 					"speaker": "mirelle",
-					"text": "Giờ thì nhìn vào sợi Aether quanh vết thương — đừng kéo, hãy vuốt cho chúng thẳng lại. Như vậy."
+					"text": "Giờ thì nhìn vào sợi Haven quanh vết thương — đừng kéo, hãy vuốt cho chúng thẳng lại. Như vậy."
 				},
 				{
 					"speaker": "mirelle",
@@ -233,7 +233,7 @@
 				"dummy": "dummy_backyard"
 			},
 			"objectiveText": "Về sân sau thử Đá Văng vào Ông Rơm ({n}/{total})",
-			"objectiveTextAether": "Về sân sau thử Tia Aether vào Ông Rơm ({n}/{total})",
+			"objectiveTextHaven": "Về sân sau thử Tia Haven vào Ông Rơm ({n}/{total})",
 			"turnIn": "elin",
 			"reward": {
 				"exp": 0,
@@ -250,7 +250,7 @@
 				},
 				{
 					"speaker": "narrator",
-					"text": "(Đá Văng học ở bảng Tiềm năng (T) khi có điểm. Chưa học thì tung Tia Aether (chuột phải) vào Ông Rơm cũng được.)"
+					"text": "(Đá Văng học ở bảng Tiềm năng (T) khi có điểm. Chưa học thì tung Tia Haven (chuột phải) vào Ông Rơm cũng được.)"
 				}
 			],
 			"onReady": [

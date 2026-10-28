@@ -254,7 +254,7 @@ namespace HavenLord.Client.UI
             var size = Atlas["CONTINENT_SIZE"];
             var iw = (float?)size?["width"] ?? 688f;
             var ih = (float?)size?["height"] ?? 384f;
-            MapTabs("Lục địa Aether");
+            MapTabs("Lục địa Haven");
             const float w = 820;
             var h = w * ih / iw;
             var frame = Box(content, "Art", new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -42), new Vector2(w + 8, h + 8), 0.6f);

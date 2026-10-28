@@ -151,7 +151,7 @@ export const HUMAN_KINGDOM_PROPS: PropDef[] = [
 	{ id: 'stone_altar', path: CAVE_PROPS(7), kind: 'building', footprint: { w: 0.9, h: 24 }, blocks: true },
 	{ id: 'skull_candles', path: CAVE_PROPS(8), kind: 'flower', footprint: { w: 0, h: 0 }, blocks: false },
 	// Đồ vật chương 1 (tấm C1, ảnh mẫu N1, vẽ 10/10/2026 — đề bài `sheets/C1_chapter1.png.json`): lều gỗ bà goá (Mộ Vô Danh),
-	// thuyền gỗ + cọc buộc thuyền (Bến sông, Bãi Bồi), cỗ máy đo Aether bằng đồng (Gian Đá Ghi Tên, Hang Gargoyle), thùng ong nhà
+	// thuyền gỗ + cọc buộc thuyền (Bến sông, Bãi Bồi), cỗ máy đo Haven bằng đồng (Gian Đá Ghi Tên, Hang Gargoyle), thùng ong nhà
 	// Ashvale, lau sậy bờ sông. Thuyền đặt trên mặt nước nên không chặn; lau sậy đi xuyên. Cỗ máy đo (đỉnh mặt đồng hồ) và lau sậy
 	// (ngọn bông) vẽ lấn đường lưới 1–2px → cắt ô nới.
 	{ id: 'small_hut', path: CHAPTER1(0), kind: 'building', footprint: { w: 0.9, h: 24 }, blocks: true },

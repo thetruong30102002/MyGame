@@ -8,6 +8,6 @@
 	"detail": "low detail",
 	"seed": 4242,
 	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/sword.png",
-	"init_image_path": "sources/pixellab/skill-icons-v2/init/spare-aether-1.init.png",
+	"init_image_path": "sources/pixellab/skill-icons-v2/init/spare-haven-1.init.png",
 	"init_image_strength": 140
 }

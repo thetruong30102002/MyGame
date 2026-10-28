@@ -44,7 +44,7 @@ apps/web/src/net/   api.ts (REST) · OnlineSession.ts (WebSocket tự nối lạ
 Chủ dự án chốt: **cha là kiếm sĩ, mẹ là pháp sư — cả hai năng lực tầm trung** (cha "lính gác cũ", mẹ "pháp sư
 làng": phép chỉ đủ nhóm bếp, gọi mưa nhỏ, không làm nổi tuyết).
 
-- **6 tuổi học SONG SONG**: mẹ tặng *Trượng gỗ* (mở Tia Aether, phím **K**) khi giao "Sợi tơ đầu tiên"; cha
+- **6 tuổi học SONG SONG**: mẹ tặng *Trượng gỗ* (mở Tia Haven, phím **K**) khi giao "Sợi tơ đầu tiên"; cha
   tặng *Kiếm gỗ* (mở Trảm, phím **J**) ở nhiệm vụ mới "Thanh kiếm gỗ". Quà trao NGAY lúc giao việc
   (`onGive.unlock`) để tập luôn. Bộ kỹ năng chung `HERO_SKILLS` (J, K, 1–3 phép, 4 Hồi Phục); chuột trái /
   chạm màn hình: mục tiêu gần thì chém, xa thì bắn; chuột phải luôn là K.
@@ -63,7 +63,7 @@ làng": phép chỉ đủ nhóm bếp, gọi mưa nhỏ, không làm nổi tuy�
 | Kiếm gỗ tân thủ | `create_object_pro_flash`, 1 hướng, ~64×64 (≥5 lượt) | thanh kiếm gỗ sồi trẻ con, chuôi quấn da cũ, nét viền đen như nhân vật; nền trong suốt → `assets/items/starter_sword.png` |
 | Trượng tập tân thủ | như trên | trượng gỗ ngắn, đầu quấn sợi đồng xỉn → `assets/items/starter_staff.png` |
 | Nhà KHÁC NHAU (không đổi màu mái) | `create_object_pro_flash`, ~192×192 (6–7 lượt/căn), ảnh mẫu = nhà đã duyệt (cắt sát) | lò rèn, tiệm tạp hoá của Bram, quán trọ 2 tầng, nhà đá mái lợp đá, nhà trại mái rạ, cổng thành; gỡ hết `house_blue`/`house_green` |
-| Hiệu ứng kỹ năng | PixelLab `create_image_pixen` (1 lượt) + `animate_image` (KHÔNG tự vẽ bằng code) | Trảm, Tia Aether, Hoả Cầu, Thuỷ Tiễn, Phong Nhận, Hồi Phục, nổ trúng đích — lệnh `pixellab vfx`, xem mục ngay dưới |
+| Hiệu ứng kỹ năng | PixelLab `create_image_pixen` (1 lượt) + `animate_image` (KHÔNG tự vẽ bằng code) | Trảm, Tia Haven, Hoả Cầu, Thuỷ Tiễn, Phong Nhận, Hồi Phục, nổ trúng đích — lệnh `pixellab vfx`, xem mục ngay dưới |
 
 #### Hiệu ứng kỹ năng do PixelLab vẽ (logic xong 07/10/2026, chưa tiêu lượt)
 
@@ -143,8 +143,8 @@ transparent background, chibi RPG style, no character, no text*.
 | 1 | `slash` | Trảm, đòn kiếm, quái chém | burst · 92 · 6 | vệt chém lưỡi liềm DỌC, bụng quay phải, trắng-bạc nhạt (bị tint) | quét nhanh trên → dưới rồi mảnh dần và tan |
 | 2 | `fire_orb` | Hoả Cầu (đạn) | loop · 24 · 4 | quả cầu lửa nhỏ, lõi vàng, lửa cam-đỏ | cháy phập phồng, lửa lay quanh lõi, lặp liền |
 | 3 | `fire_burst` | nổ lửa trúng đích | burst · 64 · 8 (khung đầu 32) | vụ nổ lửa vừa bắt đầu, lõi vàng trắng | bùng ra thành lửa lớn rồi vỡ thành tàn lửa, khói và tan |
-| 4 | `arcane_orb` | Tia Aether (đạn), quả cầu lúc niệm | loop · 24 · 4 | quả cầu lõi trắng, quầng tím rất nhạt (bị tint lúc niệm) | phập phồng phát sáng, năng lượng xoáy bên trong |
-| 5 | `arcane_burst` | nổ Aether trúng đích | burst · 52 · 8 (khung đầu 28) | vụ nổ phép tím vừa bắt đầu | bùng thành vòng tia lửa + ký tự phép rồi tan thành hạt |
+| 4 | `arcane_orb` | Tia Haven (đạn), quả cầu lúc niệm | loop · 24 · 4 | quả cầu lõi trắng, quầng tím rất nhạt (bị tint lúc niệm) | phập phồng phát sáng, năng lượng xoáy bên trong |
+| 5 | `arcane_burst` | nổ Haven trúng đích | burst · 52 · 8 (khung đầu 28) | vụ nổ phép tím vừa bắt đầu | bùng thành vòng tia lửa + ký tự phép rồi tan thành hạt |
 | 6 | `water_wave` | Thuỷ Tiễn (đạn) | loop · 36 · 4 | mũi tên nước xanh, bọt trắng, hướng sang phải | nước gợn cuộn khi bay, vệt bọt rung, lặp liền |
 | 7 | `water_splash` | nổ nước trúng đích | burst · 52 · 8 (khung đầu 28) | bọt nước vừa bắt đầu bắn | bắn tung thành giọt rồi rơi và biến mất |
 | 8 | `wind_spin` | Phong Nhận (đạn) | loop · 40 · 4 | lưỡi gió lưỡi liềm xanh nhạt-trắng | xoay nhanh, các vệt gió quay tròn, lặp liền |
@@ -181,7 +181,7 @@ lựa chọn, không phải danh sách để cày cho đủ. (Từ 06/10/2026 th
 | Song đoản | 2 nhát nhanh | chí mạng, né |
 | Thương | đâm xa tầm trung | giữ khoảng cách, xuyên |
 | Cung | bắn xa vật lý | sát thương từ xa, cần ngắm |
-| Trượng phép | tia Aether | khuếch đại phép nguyên tố (cơ chế phản ứng hiện có) |
+| Trượng phép | tia Haven | khuếch đại phép nguyên tố (cơ chế phản ứng hiện có) |
 
 - Mỗi vũ khí có **độ thông thạo 1–10**, tăng khi dùng chính vũ khí đó. Mỗi bậc mở thêm chiêu của vũ khí.
 - **Tổng thông thạo có trần** (đề xuất 30). Muốn nâng vũ khí mới khi đã chạm trần thì phải **quên bớt**

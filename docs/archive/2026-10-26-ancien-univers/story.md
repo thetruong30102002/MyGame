@@ -1,4 +1,4 @@
-# Cốt truyện — *Aether Chronicle: Kiếp Thứ Hai*
+# Cốt truyện — *Haven Lord: Kiếp Thứ Hai*
 
 Cốt truyện **gốc** của game. Nó mượn *cảm giác* của dòng isekai chuyển sinh: được sống lại từ
 đầu, tâm hồn người lớn trong thân trẻ con, lớn lên trong một gia đình, học phép từ thuở nhỏ, rồi
@@ -18,16 +18,16 @@ Bản thiết kế gốc, kể cả danh sách điểm đã sửa: [`story-child
 cùng của anh là *"Mai mình gọi cho mẹ. Mai, chắc chắn."* Kiếp này, mỗi lần được gọi, Lior đáp ngay.
 Truyện không nói ra bằng lời thề; hành động của từng nhiệm vụ tự nói.
 
-## Thế giới: Aetheria
+## Thế giới: Haven
 
-Mọi sự sống chảy trên những **sợi Aether** vô hình. Phép thuật là chạm, xoắn và đan các sợi ấy.
+Mọi sự sống chảy trên những **sợi Haven** vô hình. Phép thuật là chạm, xoắn và đan các sợi ấy.
 Bảy vùng lớn (khớp 7 region của game):
 
 | Vùng | Tên trong game | Một dòng |
 | --- | --- | --- |
 | Human Kingdom | **Vương quốc Rowanmere** | Đồng cỏ, lâu đài, những thị trấn nhỏ ven rừng — nơi bắt đầu |
 | Beast Continent | **Đại lục Varnhold** | Thảo nguyên và rừng đại thụ của các tộc thú nhân |
-| Demon Continent | **Ma lục Nocthar** | Đất đá đen dưới mặt trăng đỏ, nơi Aether bị bẻ cong |
+| Demon Continent | **Ma lục Nocthar** | Đất đá đen dưới mặt trăng đỏ, nơi Haven bị bẻ cong |
 | Magic Empire | **Đế quốc Lumeria** | Thành phố tháp pháp sư, học viện ma pháp lớn nhất |
 | Dragon Lands | **Long địa Drakemoor** | Núi lửa và vực sâu, nơi rồng canh giữ "lời thề cổ" |
 | Floating Islands | **Quần đảo Aerith** | Đảo trôi trên mây, nối bằng cầu gió |
@@ -39,13 +39,13 @@ Bảy vùng lớn (khớp 7 region của game):
 
 - **Kiếp trước — Minh, 29 tuổi**: lập trình viên ca đêm, gục xuống bàn phím một đêm mưa.
 - **Kiếp này — Lior Ashvale**: chào đời ở **Thistlewood**, thị trấn nhỏ bên sông Brightwater, ven
-  rừng **Mossvale**. Từ khi mở mắt đã **nhìn thấy sợi Aether** (*Aether Sight*). Đây là lý do Lior đan
+  rừng **Mossvale**. Từ khi mở mắt đã **nhìn thấy sợi Haven** (*Haven Sight*). Đây là lý do Lior đan
   được hai nguyên tố vào nhau (cơ chế phản ứng nguyên tố trong game). Lior là con một.
 - Cha **Garrick Ashvale**: thợ săn ít nói ("Cha không giỏi nói. Nên cha khắc."). Dạy đọc dấu chân
   thú, đọc gió và lăn né. **Không dạy kiếm.**
 - Mẹ **Elin Ashvale**: **người nuôi ong**, không có phép, không làm nghề chữa bệnh. Lior thấy sợi lửa
   trong bếp và sợi nước trong xô nước của mẹ.
-- **Mirelle**: nữ trị liệu ở nhà thờ, hàng xóm. **Không thấy sợi Aether, không phải thầy dạy phép.**
+- **Mirelle**: nữ trị liệu ở nhà thờ, hàng xóm. **Không thấy sợi Haven, không phải thầy dạy phép.**
   Bà chỉ dạy hai điều an toàn và tính cách thận trọng ("Thấy sợi thì dễ. Thả ra mà không làm ai bỏng
   mới khó."). Năm 16 tuổi bà mới dạy phép Hồi Phục.
 - **Aldric**: bạn cùng tuổi, hiệp sĩ tự phong với Kiếm Sấm Sét bằng gỗ. Lời ngoéo tay năm 8 tuổi:
@@ -60,12 +60,12 @@ Bảy vùng lớn (khớp 7 region của game):
 | --- | --- | --- | --- |
 | 4 | **Những sợi tơ trong vườn mẹ** | Hái 3 cỏ Sương Bạc có sợi tơ sáng (cho thùng ong mới) | WASD, E |
 | 4 | **Gọi cha về ăn tối** | Ra bờ sông gọi cha, vạch khắc đầu tiên trên khung cửa | Shift |
-| 6 | **Sợi tơ đầu tiên** | 5 Tia Aether vào Ông Rơm (bia tập cung của cha) | J, chuột · mở Hoả Cầu |
+| 6 | **Sợi tơ đầu tiên** | 5 Tia Haven vào Ông Rơm (bia tập cung của cha) | J, chuột · mở Hoả Cầu |
 | 6 | **Mũ cũ. Đừng cháy.** | 3 Hoả Cầu vào Ông Rơm (cái mũ cũ của cha bốc lửa) | 1 · mở Thuỷ Tiễn |
 | 8 | **Bìa rừng Mossvale** | Hạ 3 nấm, tìm Aldric chạy vào rừng "diệt rồng" | Space, R · mở Phong Nhận |
 | 8 | **Tuyết cho mẹ** | Thuỷ rồi Phong vào Ông Rơm bên sông → *Băng Giá* → tuyết rơi trên mái nhà | 3, phản ứng nguyên tố |
 | 16 | **Nấm Ánh Lam** | 3 nấm phát sáng cho Mirelle | (Suối Lành học bằng mốc Thuỷ 3) |
-| 16 | **Sợi tơ màu đất** | Xem bia đá cổ ở đầu lối vào Nghĩa địa Hoàng Hôn (Mirelle nhờ) — thấy sợi Aether màu đất | mở nhánh Thổ (Đá Văng) |
+| 16 | **Sợi tơ màu đất** | Xem bia đá cổ ở đầu lối vào Nghĩa địa Hoàng Hôn (Mirelle nhờ) — thấy sợi Haven màu đất | mở nhánh Thổ (Đá Văng) |
 | 16 | **Đá cho Ông Rơm** | 3 Đá Văng vào Ông Rơm sân sau, mẹ nhận báo | — |
 | 16 | **Bóng đen trong rừng** | Hạ 5 ma vật (Aldric giao) | — |
 | 16 | **Ác quỷ thức giấc** | Hạ Quỷ vương | → màn kết |
@@ -81,7 +81,7 @@ Phần sau Chương Mở Đầu được phát triển trong [`story-arc.md`](st
 động cơ và chuyển biến của dàn nhân vật, lựa chọn có cái giá cụ thể, cùng khung nội dung cho Chương 1–7
 và kết thúc. Đây là thiết kế cốt truyện; các chương này chưa được triển khai thành nhiệm vụ trong game.
 
-**Bản nháp mới (08/10/2026, chờ duyệt): [`cot-truyen-aether.md`](cot-truyen-aether.md)** — *Biên Niên Bảy Mối*, 10 chương theo 10 vùng
+**Bản nháp mới (08/10/2026, chờ duyệt): [`cot-truyen-haven.md`](cot-truyen-haven.md)** — *Biên Niên Bảy Mối*, 10 chương theo 10 vùng
 × 7 map của kế hoạch thế giới, nhiều drama hơn (bí mật của Garrick, Zahra hy sinh, Aldric thành Hiệp sĩ hư không; Ma vương Ostrin là
 người bản địa, cấu kết với Kiến Trúc Sư Đăng, trưởng nhóm cũ của Minh ở thế giới cũ). Luật: NPC dịch vụ (bán hàng, nâng cấp…) không bao
 giờ chết. Duyệt xong thì mạch này thay phần Chương 2–7 (7 lục địa) ở trên. Sinh từ `docs/tools/cot-truyen.py` +
@@ -100,7 +100,7 @@ giờ chết. Duyệt xong thì mạch này thay phần Chương 2–7 (7 lục 
 
 Chủ dự án 11/10/2026: "update nhiệm vụ, cốt truyện… mỗi vùng sẽ có 1 vị thần cần phải vẽ thật đẹp (mai sau sẽ bán skill nhân vật thần)",
 "cứ đặt NPC trước, PixelLab vẽ xong thì thay sau". `packages/sim/src/story/chapters.ts`: sau Quỷ vương là nhiệm vụ gặp **Mẫu Thần Verdea**
-ở bia đá cổ, rồi mỗi vùng 2–7 có 8 nhiệm vụ bám bản nháp `docs/cot-truyen-aether.md` (tới trạm gặp người giao việc → 3 bầy quái mỗi
+ở bia đá cổ, rồi mỗi vùng 2–7 có 8 nhiệm vụ bám bản nháp `docs/cot-truyen-haven.md` (tới trạm gặp người giao việc → 3 bầy quái mỗi
 bầy một mảnh chuyện → 2 boss khu → boss chúa → gặp thần của vùng ở thánh địa). Lựa chọn rẽ nhánh, ai sống ai chết và nhiệm vụ phụ
 còn chờ duyệt (mục "Cần duyệt" của bản nháp) nên lời thoại để ngỏ ở các chỗ đó. Người giao việc mượn sprite NPC vùng 1, thần là tượng
 đá có sẵn của vùng — thay khi PixelLab vẽ xong (`docs/pixellab-ke-hoach-ve.md` mục "Mười vị thần"). Tự đi (ô nhiệm vụ) dẫn qua lối

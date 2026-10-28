@@ -6,8 +6,6 @@
 param([switch]$Remove)
 $ErrorActionPreference = 'Stop'
 $name = 'Haven Lord - ban that'
-# Tác vụ tên cũ trước khi đổi tên dự án (28/10/2026) — gỡ để không chạy hai lần.
-Unregister-ScheduledTask -TaskName 'Aether - ban that' -Confirm:$false -ErrorAction SilentlyContinue
 
 if ($Remove) {
   Unregister-ScheduledTask -TaskName $name -Confirm:$false -ErrorAction SilentlyContinue

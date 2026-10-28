@@ -25,7 +25,7 @@ packages/protocol/        kiểu dữ liệu dùng chung client ↔ máy chủ
 packages/sim/             luật + dữ liệu game dùng chung (chiêu, tiềm năng, quái, cốt truyện, vùng…) — Unity xuất JSON từ đây
 packages/asset-pipeline/  Node CLI: PixelLab → chuẩn hoá → cổng chất lượng → atlas / map / UI / hiệu ứng
 assets/                   ĐẦU RA của pipeline (atlas, manifest.json, maps/*.json, ui, vfx) — máy chủ đọc map, Unity nhập hình
-docs/                     kế hoạch, cốt truyện, bàn giao (docs/the-gioi-aether.md)
+docs/                     kế hoạch, cốt truyện, bàn giao (docs/the-gioi-haven.md)
 ```
 
 ## Chạy
@@ -63,7 +63,7 @@ Client Unity (nhập hình từ `assets/`, dựng scene, build PC / APK, AutoTes
 cột `category`); góp ý thêm cột `kind` / `status` / `reply`. API + luật ở `apps/server/src/board.ts`, test `apps/server/tests/board.test.ts`.
 Phần chung mọi trang (thanh trên / dưới, đăng nhập, gọi API, **bộ biểu tượng SVG** — `<svg class="i"><use href="#i-tên"/></svg>` hoặc `A.icon('tên')`, đừng dùng emoji làm biểu tượng vì mỗi máy vẽ một kiểu, lệch dòng) ở `site/common.js`; font Be Vietnam Pro tự phát ở `site/fonts/` (`site-src/fonts.css`, không gọi Google Fonts); thêm trang mới: tạo `site/<tên>.html` (`<body data-page>`
 + nạp `site/common.js`) và thêm tên vào `PAGES` trong `site.ts`.
-Giao diện dùng **Tailwind + daisyUI** (theme `aether` ở `apps/server/site-src/tailwind.config.cjs`) — nút, chip, tab, ô nhập, mục gập đều là
+Giao diện dùng **Tailwind + daisyUI** (theme `haven` ở `apps/server/site-src/tailwind.config.cjs`) — nút, chip, tab, ô nhập, mục gập đều là
 class daisyUI (`btn`, `join`, `input`, `collapse`…); thông báo + hộp xác nhận dùng **SweetAlert2** (`A.toast(chữ, 'success'|'error'|'info')`,
 `await A.confirm({ title, text, ok, danger })` trong `site/common.js` — đừng dùng `alert` / `confirm` của trình duyệt). Sửa class trong
 `site/*.html` / `site/common.js` xong chạy `npm run build:site -w @havenlord/server` (`site-src/build.mjs`): build lại `site/app.css` + chép
@@ -174,7 +174,7 @@ tailscale funnel --https=8443 off                                # gỡ link cũ
   powershell -NoProfile -ExecutionPolicy Bypass -File scripts\cai-tu-khoi-dong.ps1 -Remove    # gỡ tác vụ
   ```
 - **Cập nhật máy chủ thật**: sao lưu CSDL trước (`VACUUM INTO` bằng `node:sqlite` chạy được khi máy chủ đang mở CSDL — mẫu ở
-  `docs/the-gioi-aether.md` mục Chạy / kiểm), `taskkill` tiến trình nghe :3200, chạy lại `scripts\khoi-dong-ban-that.ps1`.
+  `docs/the-gioi-haven.md` mục Chạy / kiểm), `taskkill` tiến trình nghe :3200, chạy lại `scripts\khoi-dong-ban-that.ps1`.
 - **Cài / cập nhật từ Git trên máy `admin`** (máy đang chạy Tailscale Funnel): mở PowerShell, vào thư mục repo và kéo code mới.
   Nếu `package-lock.json` thay đổi thì cài lại gói; nếu có thay đổi cấu trúc CSDL, sao lưu `apps/server/data/havenlord.db` trước khi
   chạy phiên bản mới. Sau đó khởi động lại server bằng script bên dưới. Không cần cấu hình lại Funnel nếu địa chỉ vẫn là
@@ -217,7 +217,7 @@ Phản ứng nguyên tố: **Thuỷ** vào mục tiêu đang cháy → *Hơi Nư
 | Kim cương | ◐ K1: ví ở máy chủ + nhật ký, điểm danh mỗi ngày, Bia Danh Vọng (thành tựu), quầy kim cương của Bram bán bình EXP / chiến đấu, icon lịch mở cửa sổ điểm danh, cửa sổ Quản trị trong game (cộng tiền / điểm + nhật ký). Chưa nạp tiền thật — [`docs/ke-hoach-kim-cuong.md`](docs/ke-hoach-kim-cuong.md) |
 | 12–13 | chưa làm (tối ưu asset, mobile) |
 
-**Bắt đầu đọc / làm tiếp (người hay agent): [`docs/the-gioi-aether.md`](docs/the-gioi-aether.md)** — mục Bàn giao (trạng thái, việc
+**Bắt đầu đọc / làm tiếp (người hay agent): [`docs/the-gioi-haven.md`](docs/the-gioi-haven.md)** — mục Bàn giao (trạng thái, việc
 kế tiếp, lệnh chạy / kiểm / triển khai, luật dự án) + danh sách vùng / map / quái / boss / trang bị + ngân sách PixelLab.
 
 Cốt truyện: [`docs/story.md`](docs/story.md). Đội hình nhân vật và lý do loại: [`docs/asset-pipeline.md`](docs/asset-pipeline.md).

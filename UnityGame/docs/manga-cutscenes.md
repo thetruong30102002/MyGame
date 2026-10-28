@@ -5,7 +5,7 @@ Hệ thống nằm ở `Assets/HavenLord/Client/`: `MangaCutsceneDefinition` gi�
 ## Tạo cutscene
 
 1. Mở project `UnityGame` bằng Unity 6.3 LTS và chờ import script/shader.
-2. Trong Project, chọn **Create → Aether → Manga Cutscene**. Đặt tên asset, ví dụ `Intro_Manga`.
+2. Trong Project, chọn **Create → Haven → Manga Cutscene**. Đặt tên asset, ví dụ `Intro_Manga`.
 3. Trong Inspector, đặt `Panels` thành số khung cần dùng. Mỗi khung có thể cấu hình:
    - `Image`: ảnh panel; import pixel art với **Filter Mode: Point**. Shader `Assets/HavenLord/Client/Resources/MangaGrayscaleUI.shader` chuyển ảnh sang đen trắng khi hiển thị.
    - `Speaker`, `Dialogue`, `Sound Effect` (chữ hiệu ứng), và `Sound` (AudioClip).
@@ -32,4 +32,4 @@ Có thể gọi `Play()` trên `MangaCutsceneTrigger` từ một sự kiện tư
 3. Dùng phím tương tác/né (thường là E/Space theo cấu hình phím) hoặc bấm màn hình để qua từng panel. Xác nhận thoại, SFX, speed lines, rung camera, transition và lớp mờ trở lại hoạt động.
 4. Đi lại sau khi cảnh kết thúc để xác nhận gameplay đã được mở khóa. Với `Play Once` tắt, rời collider rồi bước vào lại để kiểm tra phát lại.
 
-Game được dựng từ dữ liệu nhập sẵn; không cần chạy lại **Aether → Dựng GameDatabase + scene chơi** chỉ để sử dụng asset cutscene.
+Game được dựng từ dữ liệu nhập sẵn; không cần chạy lại **Haven → Dựng GameDatabase + scene chơi** chỉ để sử dụng asset cutscene.

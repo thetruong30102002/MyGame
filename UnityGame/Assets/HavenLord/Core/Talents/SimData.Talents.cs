@@ -99,7 +99,7 @@ namespace HavenLord.Core
 
         public double DepthBonusPerTier => TalentCached("DEPTH_BONUS", () => (double)TalentsModule["DEPTH_BONUS"]);
 
-        public double AetherPerLevel => TalentCached("AETHER_PER_LEVEL", () => (double)TalentsModule["AETHER_PER_LEVEL"]);
+        public double HavenPerLevel => TalentCached("HAVEN_PER_LEVEL", () => (double)TalentsModule["HAVEN_PER_LEVEL"]);
 
         /// <summary>REACTION_PAIR theo thứ tự khai (reactionOfPair duyệt đúng thứ tự này).</summary>
         public IReadOnlyList<(string Id, string A, string B)> ReactionPairs =>

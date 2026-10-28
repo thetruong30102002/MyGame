@@ -227,7 +227,7 @@ Object.assign(PIXELLAB_VFX_PRESETS, {
 	},
 });
 
-// Hiệu ứng RIÊNG từng skill / nội tại / phản ứng (09/10/2026, gói PixelLab trả phí — Mốc 1 `docs/the-gioi-aether.md`): khung
+// Hiệu ứng RIÊNG từng skill / nội tại / phản ứng (09/10/2026, gói PixelLab trả phí — Mốc 1 `docs/the-gioi-haven.md`): khung
 // đầu Pro Flash, vẽ đúng màu (game không tô tint). Hiệu ứng xoay theo hướng đòn (vệt chém, sóng, đạn) vẽ HƯỚNG SANG PHẢI (+x);
 // hiệu ứng mặt đất vẽ nhìn từ trên xuống (pipeline ép dẹt bằng `squashY`).
 Object.assign(PIXELLAB_VFX_PRESETS, {

@@ -368,7 +368,7 @@
 		},
 		"waystone_ruins": {
 			"name": "Cột dịch chuyển",
-			"title": "Phế tích Aether",
+			"title": "Phế tích Haven",
 			"sprite": null,
 			"prop": "rune_stone",
 			"at": {

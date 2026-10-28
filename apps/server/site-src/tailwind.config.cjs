@@ -33,7 +33,7 @@ module.exports = {
 		logs: false,
 		themes: [
 			{
-				// Đêm Aether: vàng kim trên nền xanh đêm, hợp ảnh pixel + bản đồ lục địa.
+				// Đêm Haven: vàng kim trên nền xanh đêm, hợp ảnh pixel + bản đồ lục địa.
 				havenlord: {
 					primary: '#e7c581',
 					'primary-content': '#2a1606',

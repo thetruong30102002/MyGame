@@ -19,7 +19,7 @@ Hàng bán bằng kim cương (thần kỹ, skin) sau này nên tải theo quy�
 
 **Nguyên lý**
 - Đổi bit thấp nhất kênh xanh lam của mọi điểm ảnh đặc (alpha 255) theo mẫu 16×16.
-- Mẫu sinh từ khoá bí mật: `HMAC-SHA256(khoá, "AETHER-MARK-v1:x,y")`, toạ độ PNG gốc trái-trên.
+- Mẫu sinh từ khoá bí mật: `HMAC-SHA256(khoá, "HAVENLORD-MARK-v1:x,y")`, toạ độ PNG gốc trái-trên.
 - Màu lệch tối đa 1/255, mắt không thấy.
 - Mẫu lặp khắp ảnh, nên ai cắt lẻ từng khung ra khỏi atlas thì vẫn dò được (thử đủ 256 độ lệch).
 

@@ -129,7 +129,7 @@ namespace HavenLord.Client
             UiAnim.Appear(banner, 0.5f);
             var subBg = UiKit.Rect(root, "SubBg", new Vector2(0.5f, 1), new Vector2(0.5f, 0.5f), new Vector2(0, -166), new Vector2(250, 30));
             UiStyle.Pill(subBg, new Color(0.08f, 0.05f, 0.03f, 0.7f), 15);
-            var sub = UiKit.Label(UiKit.Stretch(subBg, "t"), "Thế giới Aether", 16, UiStyle.Parchment, TextAnchor.MiddleCenter, false);
+            var sub = UiKit.Label(UiKit.Stretch(subBg, "t"), "Thế giới Haven", 16, UiStyle.Parchment, TextAnchor.MiddleCenter, false);
             sub.fontStyle = FontStyles.Italic;
             sub.characterSpacing = 4;
             UiKit.Label(UiKit.Rect(root, "Ver", new Vector2(1, 0), new Vector2(1, 0), new Vector2(-14, 10), new Vector2(300, 18)),

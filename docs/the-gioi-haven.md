@@ -1,15 +1,15 @@
-# Thế giới Aether — vùng, map, quái, boss, trang bị, ngân sách PixelLab
+# Thế giới Haven — vùng, map, quái, boss, trang bị, ngân sách PixelLab
 
-> **Ưu tiên 26/10/2026:** hướng mới tại [dinh-huong-aether.md](dinh-huong-aether.md). Admin đã chuyển React; web dùng 30 tạo hình/5 class/8 nguyên tố. Truyện cũ lưu trữ, nhân vật cũ dành cho NPC sau này. Phần dưới là bàn giao lịch sử và kiểm kê kỹ thuật, không là cốt truyện mới.
+> **Ưu tiên 26/10/2026:** hướng mới tại [dinh-huong-haven.md](dinh-huong-haven.md). Admin đã chuyển React; web dùng 30 tạo hình/5 class/8 nguyên tố. Truyện cũ lưu trữ, nhân vật cũ dành cho NPC sau này. Phần dưới là bàn giao lịch sử và kiểm kê kỹ thuật, không là cốt truyện mới.
 
-> FILE SINH TỰ ĐỘNG từ `docs/tools/the-gioi-aether.py` — sửa dữ liệu ở đó rồi chạy lại (sinh cả bản HTML). Soạn 08/10/2026,
+> FILE SINH TỰ ĐỘNG từ `docs/tools/the-gioi-haven.py` — sửa dữ liệu ở đó rồi chạy lại (sinh cả bản HTML). Soạn 08/10/2026,
 > chia **3 mốc** (chủ dự án 08/10/2026): Mốc 1 = skill nhân vật thật chi tiết + vùng 1–4; Mốc 2 = vùng 5–7 + 3 rồng; Mốc 3 = vùng 8–10
 > + 3 rồng + nhân vật / trang bị. Trạng thái: **Mốc 1 phần lớn đã vẽ + lên game 09/10/2026 (gói trả phí token #1)**.
 
 ## Bàn giao — đọc trước khi làm tiếp (agent / người sau)
 
-**Sửa danh sách này:** sửa dữ liệu trong `docs/tools/the-gioi-aether.py` rồi chạy `python docs/tools/the-gioi-aether.py` — sinh lại CẢ
-`docs/the-gioi-aether.md` (file này) lẫn trang `docs/the-gioi-aether.html` (trang chỉ xem trên máy, KHÔNG đăng lên claude.ai —
+**Sửa danh sách này:** sửa dữ liệu trong `docs/tools/the-gioi-haven.py` rồi chạy `python docs/tools/the-gioi-haven.py` — sinh lại CẢ
+`docs/the-gioi-haven.md` (file này) lẫn trang `docs/the-gioi-haven.html` (trang chỉ xem trên máy, KHÔNG đăng lên claude.ai —
 tài khoản Claude dùng chung, ai cũng thấy). Không sửa tay hai file sinh ra.
 
 ### Trạng thái (09–11/10/2026)
@@ -25,13 +25,13 @@ tài khoản Claude dùng chung, ai cũng thấy). Không sửa tay hai file sin
 | Hình PixelLab Mốc 1 — gói trả phí (token #1, Tier 2: 5.000 lượt, 10 job song song) | ◐ phần lớn đã vẽ 09/10/2026 (~2.300 lượt) — xem mục "Mốc 1 đã vẽ" ngay dưới | file này + `docs/asset-pipeline.md` mục Gói trả phí |
 | Nhân vật người chơi mới (tóc nâu, đồ tân thủ) + 25 động tác / 9 động tác bản bé + hiệu ứng skill + chiêu Quỷ vương / Vua Lich + quái vùng 1 có đánh / gục | ✔ ĐÃ LÊN GAME THẬT 09/10/2026 (bản cũ tóc bạc → NPC lữ hành Sein / Sera ở quảng trường) | `apps/web/src/game/combat/tempArt.ts`, `CombatSystem.ts` |
 | Vùng 1 — 12 map (chủ dự án 10/10/2026): cấp quái theo khu, khu tuổi thơ Bãi Bồi, Hang Gargoyle (Dơi hang + boss Gargoyle Đá), Hẻm Cửa Sông (lối sang vùng 2) | ✔ ĐÃ LÊN GAME THẬT 10/10/2026 — 12 map lúc 05:58, hình ĐỢT 2 (tấm G1 / R1 / B1 + 5 món lẻ, 48 lượt: Nghĩa địa, Đồi Xương, Vách, Mộ Vô Danh, Luỹ, Hẻm Cửa Sông hết trống) lúc 07:12 | `docs/thiet-ke/vung1-12-map.md`, `docs/ke-hoach-the-gioi.md` mục 5.2 |
-| Icon chiêu v2 (90 icon 32×32), kho đồ / thẻ Chỉ số bỏ icon chỉ số (chỉ giữ vàng + kim cương), chiêu nguyên tố mốc 1 học bằng 1 điểm (bài tập phép tuổi thơ nhận Tia Aether, bản lưu `talentsV` 3 + máy chủ chặn tab cũ ghi đè) | ✔ ĐÃ LÊN GAME THẬT 10/10/2026 | `docs/asset-pipeline.md` mục Icon chiêu v2, `docs/ke-hoach-nguyen-to.md` mục 7, `apps/server/src/db.ts` `keepNewerTalents` |
+| Icon chiêu v2 (90 icon 32×32), kho đồ / thẻ Chỉ số bỏ icon chỉ số (chỉ giữ vàng + kim cương), chiêu nguyên tố mốc 1 học bằng 1 điểm (bài tập phép tuổi thơ nhận Tia Haven, bản lưu `talentsV` 3 + máy chủ chặn tab cũ ghi đè) | ✔ ĐÃ LÊN GAME THẬT 10/10/2026 | `docs/asset-pipeline.md` mục Icon chiêu v2, `docs/ke-hoach-nguyen-to.md` mục 7, `apps/server/src/db.ts` `keepNewerTalents` |
 | Vũ khí VẼ LIỀN THÂN (chủ dự án 10/10/2026: "cầm kiếm tự gắn vào xấu"): 4 sprite người chơi đứng / đi cầm kiếm + cầm trượng (`idlesword` / `walksword` / `idlestaff` / `walkstaff`, chọn theo thế cầm + đồ mặc), bỏ icon dán vào tay, bỏ hướng chém tay không | ✔ ĐÃ LÊN GAME THẬT 10/10/2026: đứng / đi (~175 lượt) + trúng đòn / lướt / gục (16 tuổi) và trúng đòn / gục / uống bình (bé) bản cầm (129 lượt, `hitsword`…). CÒN THIẾU uống bình bản cầm của 16 tuổi: atlas 16 tuổi đã sát 4096 → cần atlas nhiều trang hoặc cắt sát khung | `docs/asset-pipeline.md` mục "Vũ khí vẽ liền thân", `apps/web/src/game/gearArt.ts` |
 | Bản đồ lớn phím M — 3 tầng (chủ dự án 10/10/2026: "cải tiến màn xem map để xem được map tổng"): **Khu vực** (map đang đứng, như cũ) · **Vùng** (sơ đồ 12 map: đường nối theo lối, khoảng cấp, boss, map đang đứng, map chưa tới mờ đi, cổng sang vùng 2) · **Thế giới** (tranh lục địa PixelLab 1× / 2×, 10 vùng: nhãn, "Bạn ở đây", vùng chưa mở làm tối, thẻ vùng: cấp / nguyên tố / trạng thái cổng) — phòng thử `/lab/map` | ◐ ĐÃ DỰNG + thử ở bản thử 10/10/2026, CHƯA lên bản thật. Triển khai: chép `.havenlord-stage/assets/ui/world-continent.png` → `apps/web/public/assets/ui/` (hoặc `npm run assets:world`), build web, khởi động lại máy chủ game (tin `hubs` kèm `maps` = map đã tới; máy chủ cũ thì tầng Vùng không làm mờ, không lỗi) | `docs/ke-hoach-the-gioi.md` mục 3, 3.1 · `apps/web/src/game/world/worldAtlas.ts` · `apps/web/tests/worldmap.test.ts` |
 | Trang **Thử chiêu** `/thu-chieu` (chủ dự án 10/10/2026: "ở màn ngoài đăng nhập, vào game 1 trang thử nghiệm skill để người dùng thử skill của các nguyên tố, kiếm phái"): nút ở màn đăng nhập, KHÔNG cần tài khoản, không máy chủ, không lưu gì. Sân tập ở quảng trường Thistlewood (3 hình nộm, gọi quái / boss vùng 1 cùng cấp 30, dọn sân), bảng bên chọn lưu phái Kiếm + một hay nhiều nguyên tố (nhánh chọn = mốc cao nhất đã hiện thực), con đường, phủ phép; danh sách chiêu đã học bấm-rồi-chọn-phím để gán thanh 10 ô; bị động đang có; Vô hạn MP / Bất tử. Chiến đấu dùng chính `CombatSystem` | ✔ ĐÃ LÊN GAME THẬT 10/10/2026 (chỉ web — build `.next-funnel-b`) | `apps/web/src/game/SkillLab.ts`, `skillLabBuild.ts` (luật, test `apps/web/tests/skilllab.test.ts`), `apps/web/src/components/skilllab/SkillLabScreen.tsx` |
 | **Chọn mục tiêu** (chủ dự án 10/10/2026: "focus rồi dùng chiêu thay vì bấm đâu dùng ấy, focus quái có mũi tên trên đầu"; "skill k theo hướng chuột nữa, chuột chỉ là để focus"; "đổi mục tiêu sẽ là tab"; "mobile một nút hình vòng tròn 3 mũi tên"): nhấp / chạm quái (hình nộm) = chọn, KHÔNG ra đòn; Tab / nút cảm ứng vòng tròn 3 mũi tên = đổi mục tiêu gần → xa; Esc bỏ chọn; J, K, 1–8 nhắm vào mục tiêu (chưa chọn thì tự chọn con gần nhất trong 460px, không ai thì đánh thẳng hướng mặt); mũi tên đỏ nhấp nhô trên đầu + vòng dưới chân; mục tiêu chết / ra xa 900px thì bỏ | ✔ ĐÃ LÊN GAME THẬT 10/10/2026 (chỉ web). Đã thử ở phòng tập; trong game thật chưa thử được đòn bằng tài khoản thử (tester1 / tester2 đều đang là nhân vật nhỏ tuổi) — chơi thử lại bằng nhân vật 16 tuổi. Nút đổi mục tiêu đang là hình SVG tạm | `apps/web/src/game/combat/focus.ts` (test `tests/focus.test.ts`), `Game.aimFor` / `focusTarget`, `TouchControls` |
 | **Tuyệt kỹ mốc 10 — chỉ ở phòng tập** (chủ dự án 10/10/2026: "mở skill 10 ở phòng tập thôi"): 8 chiêu, game thật vẫn dừng mốc 9 | ✔ ĐÃ LÊN (trang `/thu-chieu`, atlas riêng `vfx-ult` chỉ phòng tập tải). Sơn Thần đang mượn hình Gargoyle Đá | `docs/ke-hoach-nguyen-to.md` mục GĐ4 |
-| Bản thật TỰ BẬT khi đăng nhập Windows: tác vụ "Aether - ban that" (Task Scheduler, lúc đăng nhập tài khoản đang dùng, trễ 20 giây) chạy `scripts/khoi-dong-ban-that.ps1` — bật máy chủ game :3200 + web :3101 nếu cổng chưa có ai nghe, tạo tiến trình qua WMI, log `scripts/khoi-dong-ban-that.log` | ✔ cài 10/10/2026 (máy chưa tự đăng nhập Windows: phải đăng nhập thì bản thật mới lên) | README mục Funnel |
+| Bản thật TỰ BẬT khi đăng nhập Windows: tác vụ "Haven - ban that" (Task Scheduler, lúc đăng nhập tài khoản đang dùng, trễ 20 giây) chạy `scripts/khoi-dong-ban-that.ps1` — bật máy chủ game :3200 + web :3101 nếu cổng chưa có ai nghe, tạo tiến trình qua WMI, log `scripts/khoi-dong-ban-that.log` | ✔ cài 10/10/2026 (máy chưa tự đăng nhập Windows: phải đăng nhập thì bản thật mới lên) | README mục Funnel |
 
 ### Mốc 1 đã vẽ (09/10/2026, token #1)
 
@@ -105,7 +105,7 @@ tài khoản Claude dùng chung, ai cũng thấy). Không sửa tay hai file sin
   `VACUUM INTO 'data/backup-<ngày-giờ>/havenlord.db'` bằng `node:sqlite`, chạy được khi máy chủ đang mở CSDL), tắt máy chủ
   (`taskkill /PID <pid nghe :3200> /T /F` — tắt cứng không mất gì, dữ liệu ghi thẳng vào CSDL), bật lại bằng
   `powershell -NoProfile -ExecutionPolicy Bypass -File scripts\khoi-dong-ban-that.ps1` (tạo tiến trình qua WMI, tách khỏi phiên
-  Claude; tác vụ Windows "Aether - ban that" tự gọi lúc đăng nhập). Log `apps/server/data/server.log`. Bản PC / APK mới phát cho
+  Claude; tác vụ Windows "Haven - ban that" tự gọi lúc đăng nhập). Log `apps/server/data/server.log`. Bản PC / APK mới phát cho
   người chơi bằng file build trong `UnityGame/Build/`.
 - Hình mới: dựng thử `HAVENLORD_ASSETS=<thư mục nháp> npm run assets:…`, duyệt xong mới dựng vào `assets/` (máy chủ thật đọc map ở đó
   ngay lúc chạy) → Unity `Haven Lord/Nhập dữ liệu từ pipeline` → build lại → khởi động lại máy chủ nếu map đổi.
@@ -138,7 +138,7 @@ MỘT nhát attack, MỘT kiểu cast (4 hướng) → mọi skill vung cùng m�
 | Động tác | Dùng cho | Số | Lượt |
 |---|---|---|---|
 | Đòn kiếm thường: vung ngang → vung ngược → đâm tới (thay nhát "attack" duy nhất hiện có) | Trảm, Hàn Băng Trảm | 3 | 90 |
-| Vung tay phóng phép (một tay đẩy ra, đạn bay thẳng) | Tia Aether, Hoả Cầu, Thuỷ Tiễn, Phong Nhận, Băng Tiễn, Đá Văng, Phong Bạo | 1 | 30 |
+| Vung tay phóng phép (một tay đẩy ra, đạn bay thẳng) | Tia Haven, Hoả Cầu, Thuỷ Tiễn, Phong Nhận, Băng Tiễn, Đá Văng, Phong Bạo | 1 | 30 |
 | Giơ trượng niệm (vòng phép dưới chân) | Suối Lành, Vòng Lửa, Lốc Xoáy, Băng Địa, Gương Băng, Vòi Rồng | 1 | 30 |
 | Hai tay đẩy về trước (sóng, nón, tường) | Bộc Hoả, Sóng Dữ, Tường Lửa | 1 | 30 |
 | Chỉ tay lên trời gọi (mưa, sét, thiên thạch, mưa băng, lở đá) | Thiên Thạch, Gọi Mưa, Lôi Vũ, Mưa Băng, Lở Đá, Băng Trụ | 1 | 30 |
@@ -165,7 +165,7 @@ phải ghi điểm gắn cho mọi khung mới. Lớp trang bị thân làm ở 
 
 | Nhóm | Skill | Hệ · kiểu · bậc | Hình | Động tác | Cần vẽ | Lượt |
 |---|---|---|---|---|---|---|
-| Cơ bản | Tia Aether | Aether · đạn | có | Vung tay phóng phép (một tay đẩy ra, đạn bay thẳng) | Đã có hình PixelLab — chỉ cần động tác mới | — |
+| Cơ bản | Tia Haven | Haven · đạn | có | Vung tay phóng phép (một tay đẩy ra, đạn bay thẳng) | Đã có hình PixelLab — chỉ cần động tác mới | — |
 | Kiếm — đòn gốc + hợp phủ nguyên tố | Trảm | Kiếm · cận chiến · bậc 1 | có | Đòn kiếm thường: vung ngang → vung ngược → đâm tới (thay nhát "attack" duy nhất hiện có) | Đã có hình PixelLab — chỉ cần động tác mới | — |
 | Kiếm — đòn gốc + hợp phủ nguyên tố | Liệt Hoả Trảm | Hoả · hình nón · bậc 5 | **tạm** | Vung kiếm phóng khí (nhát chém dài bắn ra) | icon Liệt Hoả Trảm + VFX nhát chém lửa hình nón | 14 |
 | Kiếm — đòn gốc + hợp phủ nguyên tố | Thuỷ Long Trảm | Thuỷ · đường thẳng · bậc 5 | **tạm** | Vung kiếm phóng khí (nhát chém dài bắn ra) | icon Thuỷ Long Trảm + VFX rồng nước chạy theo nhát chém | 14 |
@@ -341,7 +341,7 @@ hạ xong mới mở vùng kế.
 
 ### Vùng 1 · Thung lũng Thistlewood — Mốc 1
 
-- Cấp 1–10 · hệ vùng Bóng tối · quái yếu Hoả, Aether · 12 map + hình ĐỢT 2 (tấm G1 / R1 / B1 + 5 món lẻ — Nghĩa địa, Đồi Xương, Vách, Mộ Vô Danh, Luỹ, Hẻm Cửa Sông hết trống) đã lên game 10/10/2026
+- Cấp 1–10 · hệ vùng Bóng tối · quái yếu Hoả, Haven · 12 map + hình ĐỢT 2 (tấm G1 / R1 / B1 + 5 món lẻ — Nghĩa địa, Đồi Xương, Vách, Mộ Vô Danh, Luỹ, Hẻm Cửa Sông hết trống) đã lên game 10/10/2026
 - Nơi ở (làng): **Thị trấn Thistlewood** — Quê nhà của Lior: nhiệm vụ tuổi thơ và tuổi 16 bắt đầu ở đây.
 
 | Map | Loại | Quái / boss | Hình | Map |
@@ -533,15 +533,15 @@ Sơ đồ nối 7 map + phác thảo (bố cục để duyệt, không phải h�
 
 <img src="phac-thao-map/vung-8-map-1.svg" alt="Làng người nấm Ánh Tím" width="240"> <img src="phac-thao-map/vung-8-map-2.svg" alt="Rừng Nấm Khổng Lồ" width="240"> <img src="phac-thao-map/vung-8-map-3.svg" alt="Hang Nhện" width="240"> <img src="phac-thao-map/vung-8-map-4.svg" alt="Mạch Tinh Thể" width="240"> <img src="phac-thao-map/vung-8-map-5.svg" alt="Hang Bọ Đèn" width="240"> <img src="phac-thao-map/vung-8-map-6.svg" alt="Điện Nấm" width="240"> <img src="phac-thao-map/vung-8-map-7.svg" alt="Lòng Đất Sâu" width="240">
 
-### Vùng 9 · Phế tích Aether — Mốc 3
+### Vùng 9 · Phế tích Haven — Mốc 3
 
-- Cấp 80–90 · hệ vùng Aether / thép (kháng phép) · quái yếu Kiếm · Chưa có map
-- Nơi ở (toà thành): **Toà thành Aether cổ** — Tàn dư triều đình pháp sư xưa — các phe tranh nhau di sản Aether.
+- Cấp 80–90 · hệ vùng Haven / thép (kháng phép) · quái yếu Kiếm · Chưa có map
+- Nơi ở (toà thành): **Toà thành Haven cổ** — Tàn dư triều đình pháp sư xưa — các phe tranh nhau di sản Haven.
 - Thêm: **Quang Long** ở Long Huyệt (map phụ của vùng)
 
 | Map | Loại | Quái / boss | Hình | Map |
 |---|---|---|---|---|
-| Toà thành Aether cổ | Trạm (toà thành) | — (NPC dịch vụ) | — | chưa có |
+| Toà thành Haven cổ | Trạm (toà thành) | — (NPC dịch vụ) | — | chưa có |
 | Phố Đổ Nát | Săn | Hiệp sĩ ma | **vẽ mới** | chưa có |
 | Xưởng Máy Cổ | Săn | Vệ binh máy | **vẽ mới** | chưa có |
 |  |  | Cỗ máy canh giữ · boss khu | **vẽ mới** |  |
@@ -549,17 +549,17 @@ Sơ đồ nối 7 map + phác thảo (bố cục để duyệt, không phải h�
 | Tháp Pháp Sư | Săn | Pháp sư mất trí | **vẽ mới** | chưa có |
 | Xưởng Rối | Săn | Rối gỗ ma thuật | **vẽ mới** | chưa có |
 |  |  | Hiệp sĩ đầu lâu · boss khu | **vẽ mới** |  |
-| Điện Aether | Thánh địa | Đại pháp sư sa đoạ · boss chúa | **vẽ mới** | chưa có |
+| Điện Haven | Thánh địa | Đại pháp sư sa đoạ · boss chúa | **vẽ mới** | chưa có |
 
 Sơ đồ nối 7 map + phác thảo (bố cục để duyệt, không phải hình trong game):
 
 ![Sơ đồ vùng 9](phac-thao-map/vung-9.svg)
 
-<img src="phac-thao-map/vung-9-map-1.svg" alt="Toà thành Aether cổ" width="240"> <img src="phac-thao-map/vung-9-map-2.svg" alt="Phố Đổ Nát" width="240"> <img src="phac-thao-map/vung-9-map-3.svg" alt="Xưởng Máy Cổ" width="240"> <img src="phac-thao-map/vung-9-map-4.svg" alt="Thư Viện Bay" width="240"> <img src="phac-thao-map/vung-9-map-5.svg" alt="Tháp Pháp Sư" width="240"> <img src="phac-thao-map/vung-9-map-6.svg" alt="Xưởng Rối" width="240"> <img src="phac-thao-map/vung-9-map-7.svg" alt="Điện Aether" width="240">
+<img src="phac-thao-map/vung-9-map-1.svg" alt="Toà thành Haven cổ" width="240"> <img src="phac-thao-map/vung-9-map-2.svg" alt="Phố Đổ Nát" width="240"> <img src="phac-thao-map/vung-9-map-3.svg" alt="Xưởng Máy Cổ" width="240"> <img src="phac-thao-map/vung-9-map-4.svg" alt="Thư Viện Bay" width="240"> <img src="phac-thao-map/vung-9-map-5.svg" alt="Tháp Pháp Sư" width="240"> <img src="phac-thao-map/vung-9-map-6.svg" alt="Xưởng Rối" width="240"> <img src="phac-thao-map/vung-9-map-7.svg" alt="Điện Haven" width="240">
 
 ### Vùng 10 · Vực Hư Không — Mốc 3
 
-- Cấp 90–100 · hệ vùng Bóng tối / hỗn hợp · quái yếu Aether, Hoả · Chưa có map
+- Cấp 90–100 · hệ vùng Bóng tối / hỗn hợp · quái yếu Haven, Hoả · Chưa có map
 - Nơi ở (toà thành): **Thành trì Hư Không** — Tiền đồn cuối cùng trước Ma vương — liên quân các vùng đóng ở đây.
 - Thêm: **Hắc Long** ở Long Huyệt (map phụ của vùng)
 
@@ -593,8 +593,8 @@ Châu triệu hồi Thần Long. Chi tiết cơ chế: `docs/ke-hoach-the-gioi.m
 | Hoả Long | Viêm Đế | Vùng 6 · miệng núi lửa | ~60 | Hoả — yếu Thuỷ, Băng | phun lửa theo nón, mưa thiên thạch, dung nham dâng |
 | Thuỷ Long | Thương Hải | Vùng 7 · xoáy nước giữa rạn san hô | ~70 | Thuỷ — yếu Phong, Thổ | lặn / trồi chỗ khác, sóng thần, làm ướt cả sân |
 | Địa Long | Thạch Cốt | Vùng 8 · đáy hang tinh thể | ~80 | Thổ — yếu Phong | trồi lên dưới chân, gai đá, giáp đá phải phá |
-| Quang Long | Thiên Huy | Vùng 9 · tháp ma pháp đổ nát | ~90 | Aether — kháng phép, yếu Kiếm | tia sáng quét, khiên phản phép, nhân bản ảnh rồng |
-| Hắc Long | Vô Tận | Vùng 10 · khe nứt trước cổng thành Ma vương | ~95 | Hắc ám — yếu Aether, Hoả | hố hư không hút người chơi, bóng rồng tách làm ba |
+| Quang Long | Thiên Huy | Vùng 9 · tháp ma pháp đổ nát | ~90 | Haven — kháng phép, yếu Kiếm | tia sáng quét, khiên phản phép, nhân bản ảnh rồng |
+| Hắc Long | Vô Tận | Vùng 10 · khe nứt trước cổng thành Ma vương | ~95 | Hắc ám — yếu Haven, Hoả | hố hư không hút người chơi, bóng rồng tách làm ba |
 
 ## Cần chốt
 

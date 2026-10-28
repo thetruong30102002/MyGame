@@ -19,14 +19,14 @@ const fixture=(weight:number,done:boolean):PlanTask=>({id:'t',group:'g',name:'n'
 assert.equal(planProgress([fixture(1,true),fixture(3,false)]),25);
 assert.equal(planProgress([]),0);
 assert.equal(planProgress([fixture(2,true)]),100);
-const modified=(fn:(p:ReturnType<typeof parsePlan>)=>void)=>{const p=parsePlan(snapshot.markdown);fn(p);return '<!-- aether-plan:start -->\n```json\n'+JSON.stringify(p)+'\n```\n<!-- aether-plan:end -->';};
+const modified=(fn:(p:ReturnType<typeof parsePlan>)=>void)=>{const p=parsePlan(snapshot.markdown);fn(p);return '<!-- havenlord-plan:start -->\n```json\n'+JSON.stringify(p)+'\n```\n<!-- havenlord-plan:end -->';};
 assert.throws(()=>parsePlan(modified(p=>{p.tasks[0]!.steps[0]!.evidence='';})),/Mốc/);
 assert.throws(()=>parsePlan(modified(p=>{p.tasks[0]!.weight=-1;})),/Đầu việc/);
 assert.throws(()=>parsePlan(modified(p=>{p.tasks[0]!.steps[0]!.weight=90;})),/Mốc/);
 assert.throws(()=>parsePlan(modified(p=>{p.tasks[0]!.depends=['khong-ton-tai'];})),/Phụ thuộc/);
 assert.throws(()=>parsePlan(modified(p=>{p.tasks[1]!.id=p.tasks[0]!.id;})),/Đầu việc/);
 
-const dir=mkdtempSync(join(tmpdir(),'aether-plan-'));
+const dir=mkdtempSync(join(tmpdir(),'havenlord-plan-'));
 const store=new Store(join(dir,'test.db'));
 const acc=store.createAccount('admin_plan','unused')!;
 store.setAdmin('admin_plan',true);

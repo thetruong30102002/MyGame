@@ -118,7 +118,7 @@ if ([int]$taskEntry.build -lt $MinimumBuild) { throw 'Máy chủ chưa phát b�
 if ($taskCurrentBuild -ge [int]$taskEntry.build) { Write-Output 'Client hiện tại đã bằng hoặc mới hơn bản phát hành.'; return }
 
 # Lưu gói và sao lưu trên ổ D nếu có, tránh ghi các file lớn vào TEMP ổ C.
-$taskWorkBase = if ($WorkDir) { [IO.Path]::GetFullPath($WorkDir) } elseif (Test-Path -LiteralPath 'D:\' -PathType Container) { 'D:\AetherUpdateRepair' } else { Join-Path ([IO.Directory]::GetParent($taskInstall).FullName) 'AetherUpdateRepair' }
+$taskWorkBase = if ($WorkDir) { [IO.Path]::GetFullPath($WorkDir) } elseif (Test-Path -LiteralPath 'D:\' -PathType Container) { 'D:\HavenLordUpdateRepair' } else { Join-Path ([IO.Directory]::GetParent($taskInstall).FullName) 'HavenLordUpdateRepair' }
 $taskRun = Join-Path $taskWorkBase ((Get-Date -Format 'yyyyMMdd-HHmmss') + '-' + [Guid]::NewGuid().ToString('N'))
 $taskStage = Join-Path $taskRun 'extracted'; $taskBackup = Join-Path $taskRun 'backup'
 New-Item -ItemType Directory -Path $taskStage, $taskBackup -Force | Out-Null

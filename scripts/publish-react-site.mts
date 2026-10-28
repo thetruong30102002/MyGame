@@ -12,7 +12,7 @@ const before=counts(source);await backup(source,target);source.close();
 const copy=new DatabaseSync(target,{readOnly:true});if(Object.values(copy.prepare('PRAGMA integrity_check').get()!)[0]!=='ok')throw Error('Backup không hợp lệ');copy.close();
 writeFileSync(resolve(dir,'release-backup.json'),JSON.stringify({backup:target,integrity:'ok',sha256:createHash('sha256').update(readFileSync(target)).digest('hex'),before,reset:false},null,2));
 const {Store}=await import('../apps/server/src/db.ts');const store=new Store(path);
-const current=[{tag:'Thông báo',title:'Aether mới: 30 tạo hình, 5 class và thế giới tiếp theo',date:'26/10/2026',body:[
+const current=[{tag:'Thông báo',title:'Haven mới: 30 tạo hình, 5 class và thế giới tiếp theo',date:'26/10/2026',body:[
  'Cẩm nang mới giới thiệu 30 tạo hình thuộc Kiếm sĩ, Pháp sư, Cung thủ, Thương sĩ và Vệ sĩ. Mỗi class có 3 nam và 3 nữ, tóc, trang phục và một vũ khí được vẽ liền. Có thể xem ảnh native ở 8 hướng trên mục Thế giới.',
  'Hướng mới dành bộ nhân vật đời cũ cho các vai NPC. Nội dung giới thiệu và tuyến truyện cũ đã được lưu trữ. Bộ chuyển động mới đang hoàn thiện; lần cập nhật web này chưa phát hành toàn bộ 30 nhân vật trong client.',
  'Thiên phú dự kiến phát hiện một trong 8 nguyên tố ở cấp 10, tỷ lệ đều 12,5%. Thế giới tiếp tục phát triển khuôn viên và nhà riêng, hồ câu bạn bè, chợ giao thương, mê cung, thành thị và Thiên Thành giữ tri thức khởi nguyên.',

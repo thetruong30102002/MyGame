@@ -115,7 +115,7 @@
 			"equip": "offhand",
 			"rarity": "common",
 			"bound": true,
-			"effect": "Mở Tia Aether (chuột phải)"
+			"effect": "Mở Tia Haven (chuột phải)"
 		},
 		"jacket_navy": {
 			"id": "jacket_navy",
@@ -285,11 +285,11 @@
 			"rarity": "rare",
 			"bound": true
 		},
-		"aether_staff": {
-			"id": "aether_staff",
-			"name": "Trượng Aether",
-			"desc": "Trượng của Ngân Lam; cầm khi niệm Tia Aether.",
-			"icon": "/assets/items/aether_staff.png",
+		"haven_staff": {
+			"id": "haven_staff",
+			"name": "Trượng Haven",
+			"desc": "Trượng của Ngân Lam; cầm khi niệm Tia Haven.",
+			"icon": "/assets/items/haven_staff.png",
 			"w": 48,
 			"h": 48,
 			"kind": "equip",

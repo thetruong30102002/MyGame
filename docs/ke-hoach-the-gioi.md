@@ -4,7 +4,7 @@
 > Đã kiểm kê 13 vùng / 174 map / 25 boss. Vẽ lại các trung tâm, bộ cảnh riêng, thêm quái/boss, chính trị và lâu đài trên không có vị thần hé lộ tri thức/khởi nguyên. Các số lượng/ngân sách bên dưới thuộc khung cũ, không phải tiến độ vẽ lại đợt mới.
 
 > Danh sách chi tiết từng vùng / map / quái / boss / rồng + trang bị + ngân sách PixelLab (một gói 24$) + bàn giao cho agent sau:
-> **`docs/the-gioi-aether.md`** (sinh từ `docs/tools/the-gioi-aether.py`, kèm trang HTML `docs/the-gioi-aether.html`).
+> **`docs/the-gioi-haven.md`** (sinh từ `docs/tools/the-gioi-haven.py`, kèm trang HTML `docs/the-gioi-haven.html`).
 
 Chủ dự án 08/10/2026: thế giới có **khoảng 10 vùng đất** (băng, sa mạc, đầm lầy…). Các map đang có tính là **vùng 1**. Mỗi
 vùng **khoảng 3 boss** và **khoảng 7 map con** → **~70 map**. **Chủ dự án 10/10/2026: mỗi vùng 12 map, làm vùng 1 trước** → cả thế
@@ -55,7 +55,7 @@ NPC ở các vùng nữa". Nơi ở chính là map **Trạm** của vùng (bản
 | 6 | Núi lửa Hoả Sơn | Pháo đài người lùn Đe Đỏ | toà thành | hội đồng người lùn, rèn binh khí |
 | 7 | Quần đảo San Hô | Cảng chài San Hô | làng | làng chài, thương thuyền, tin đồn tàu ma |
 | 8 | Rừng Nấm Ngầm | Làng người nấm Ánh Tím | làng | tộc người nấm dưới lòng đất |
-| 9 | Phế tích Aether | Toà thành Aether cổ | toà thành | tàn dư triều đình pháp sư, phe phái tranh di sản |
+| 9 | Phế tích Haven | Toà thành Haven cổ | toà thành | tàn dư triều đình pháp sư, phe phái tranh di sản |
 | 10 | Vực Hư Không | Thành trì Hư Không | toà thành | tiền đồn cuối, liên quân các vùng |
 
 ## 1.2 Làng / toà thành đông đúc hơn: thêm nhà + NPC — GHI CHÚ (13/10/2026, chưa làm)
@@ -68,7 +68,7 @@ Thistlewood khá hơn (11 nhà / 9 loại, nhiều NPC cốt truyện).
 
 **Mục tiêu mỗi trạm**
 
-| | Làng | Toà thành (Sahrin, Đe Đỏ, Aether cổ, Hư Không) |
+| | Làng | Toà thành (Sahrin, Đe Đỏ, Haven cổ, Hư Không) |
 |---|---|---|
 | Nhà / công trình | **≥ 12–15 nhà, ≥ 6 loại** (nhà ở, nhà người đứng đầu, quán trọ, tiệm, xưởng / lò rèn, kho, chuồng / giàn phơi theo nghề của vùng) | ≥ 20 công trình: tường thành + cổng (bộ tường mục 5.8), cung / dinh, chợ, doanh trại, nhà dân |
 | NPC dịch vụ | người bán, thợ rèn, thầy thuốc / quán trọ, cột dịch chuyển | thêm thợ may / thợ cắt tóc, quan, lính gác cổng |
@@ -85,7 +85,7 @@ Tổng mỗi làng **≈ 12–14 NPC** (hiện 3), toà thành ≈ 18–20.
   - NPC dịch vụ / nhiệm vụ: nhân vật riêng như Ysolde (ảnh xoay 8 hướng + đứng thở ≈ 14 lượt).
   - Dân thường: mỗi vùng 3 dáng gốc (ảnh xoay + đứng thở ≈ 14 lượt / dáng), tô màu lại áo / tóc thành 5–6 người (0 lượt). Muốn dân
     **đi lại** trong làng thì thêm động tác đi (+8 lượt / dáng).
-  - Ước mỗi vùng: 4 NPC dịch vụ đã có trong kế hoạch NPC trạm (dòng "NPC trạm" ở `docs/the-gioi-aether.md`) + 3 dáng dân thường ≈ 45 lượt.
+  - Ước mỗi vùng: 4 NPC dịch vụ đã có trong kế hoạch NPC trạm (dòng "NPC trạm" ở `docs/the-gioi-haven.md`) + 3 dáng dân thường ≈ 45 lượt.
 - **Code (0 lượt)**: bộ dựng `kit.ts` mở rộng khu trạm (đường làng, khoảnh vườn, hàng rào quanh nhà, quảng trường giữa); NPC dân
   thường đứng / đi quanh một điểm, nói câu `idle` khi người chơi lại gần (cơ chế NPC + nút "E" đang có). Khai NPC ở
   `packages/sim/src/story/` như các NPC vùng hiện có.
@@ -100,7 +100,7 @@ một hệ để cây Nguyên tố có ý nghĩa: quái **kháng** hệ của v�
 
 | # | Vùng | Địa hình / style | Hệ của vùng (quái yếu) | Quái thường (gợi ý) | Boss (2 khu + chúa) |
 |---|---|---|---|---|---|
-| 1 | **Thung lũng Thistlewood** (đang có) | đồng cỏ, rừng rêu, nghĩa địa, vách đá | Bóng tối (yếu Hoả/Aether) | nấm, zombie, xương cung, gargoyle, + 1 | Vua Lich · **Gargoyle Đá** (mới) · Quỷ vương rừng sâu (chúa) |
+| 1 | **Thung lũng Thistlewood** (đang có) | đồng cỏ, rừng rêu, nghĩa địa, vách đá | Bóng tối (yếu Hoả/Haven) | nấm, zombie, xương cung, gargoyle, + 1 | Vua Lich · **Gargoyle Đá** (mới) · Quỷ vương rừng sâu (chúa) |
 | 2 | **Đầm lầy Mù Sương** | bùn, lau sậy, nhà sàn, sương xanh | Thuỷ / độc (yếu Thổ, Phong) | ếch độc, đỉa, người cá bùn, nấm phát quang, rắn nước | Mẹ Ếch · Phù thuỷ đầm · **Hydra bùn** |
 | 3 | **Sa mạc Hồng Cát** | cồn cát, ốc đảo, phế tích đá đỏ | Thổ / Hoả (yếu Thuỷ, Băng) | bọ cạp, rắn cát, xác ướp, kền kền, linh hồn cát | Bọ cạp chúa · Pharaoh xác ướp · **Sâu cát khổng lồ** |
 | 4 | **Cao nguyên Gió Hú** | đồi cỏ cao, cối xay gió, đền trên mây | Phong (yếu Thổ) | sói gió, chim ưng, tiên gió, đá bay, yêu tinh gió | Đại bàng bão · Pháp sư gió · **Rồng gió** |
@@ -108,7 +108,7 @@ một hệ để cây Nguyên tố có ý nghĩa: quái **kháng** hệ của v�
 | 6 | **Núi lửa Hoả Sơn** | đá đen, sông dung nham, lò rèn người lùn | Hoả (yếu Thuỷ, Băng) | thằn lằn lửa, tinh linh lửa, golem dung nham, dơi lửa, quỷ lửa | Golem dung nham · Salamander · **Hoả thần** |
 | 7 | **Quần đảo San Hô** | bãi cát, rạn san hô, làng chài, tàu đắm | Thuỷ (yếu Phong, Thổ) | cua, cướp biển, sứa, người cá, bạch tuộc | Thuyền trưởng ma · Cua chúa · **Kraken** |
 | 8 | **Rừng Nấm Ngầm** | hang ngầm, nấm khổng lồ phát quang, mạch tinh thể | Thổ (yếu Phong) | nhện hang, người nấm, sâu tinh thể, dơi, golem đá | Nhện chúa · Vua người nấm · **Rồng đất** |
-| 9 | **Phế tích Aether** | thành cổ đổ nát, cột ma pháp, máy móc cổ | Aether / thép (kháng phép, yếu Kiếm) | hiệp sĩ ma, vệ binh máy, sách bay, pháp sư mất trí, gargoyle cổ | Hiệp sĩ đầu lâu · Cỗ máy canh giữ · **Đại pháp sư sa đoạ** |
+| 9 | **Phế tích Haven** | thành cổ đổ nát, cột ma pháp, máy móc cổ | Haven / thép (kháng phép, yếu Kiếm) | hiệp sĩ ma, vệ binh máy, sách bay, pháp sư mất trí, gargoyle cổ | Hiệp sĩ đầu lâu · Cỗ máy canh giữ · **Đại pháp sư sa đoạ** |
 | 10 | **Vực Hư Không** | đảo trôi, nền tím đen, khe nứt không gian | Bóng tối / hỗn hợp | quỷ hư không, mắt bay, bóng người, ác linh, ma sói | Hiệp sĩ hư không · Mẹ quỷ · **Ma vương** (trùm cuối cốt truyện) |
 
 Vùng 1 (10/10/2026): **12 map** theo thiết kế chốt — 6 map cũ + Bãi Bồi Brightwater, Vết Rạn Mossvale, Mộ Vô Danh, Luỹ Hiệp Sĩ
@@ -117,7 +117,7 @@ duyệt thì Hang dùng gargoyle cấp 8–9) và Hẻm Cửa Sông (lối sang 
 
 ## 2.1 Bảy Rồng Nguyên Tố (chủ dự án 08/10/2026: "có đủ 7 con rồng nguyên tố, sắp xếp hợp lý")
 
-Bảy rồng = 5 nguyên tố của cây (Hoả · Thuỷ · Phong · Băng · Thổ) + **Aether** (năng lực bẩm sinh của nhân vật chính) + **Hắc ám /
+Bảy rồng = 5 nguyên tố của cây (Hoả · Thuỷ · Phong · Băng · Thổ) + **Haven** (năng lực bẩm sinh của nhân vật chính) + **Hắc ám /
 Hư Không** (hệ của quái và Ma vương). Rồng là **boss THÊM** (chủ dự án 08/10/2026: "đấy là các con boss thêm, mỗi khu vực 3 boss
 thì giữ nguyên") — vùng 4–10 mỗi vùng có thêm một rồng NGOÀI 3 boss ở bảng mục 2. Rồng đặt ở vùng **có cùng hệ** để cảnh,
 quái và rồng ăn khớp; thứ tự gặp tăng dần theo cấp. Vùng 1–3 không có rồng (người chơi chưa đủ mạnh; boss chúa vùng 2–3 là Hydra
@@ -130,8 +130,8 @@ bùn, Sâu cát khổng lồ — "họ hàng của rồng", báo trước).
 | **Hoả Long** | Viêm Đế | 6 Núi lửa Hoả Sơn · miệng núi lửa | ~60 | Hoả — yếu Thuỷ, Băng | phun lửa theo nón, mưa thiên thạch, dung nham dâng theo nhịp |
 | **Thuỷ Long** | Thương Hải | 7 Quần đảo San Hô · xoáy nước giữa rạn san hô | ~70 | Thuỷ — yếu Phong, Thổ | lặn / trồi chỗ khác, sóng thần quét ngang, làm ướt cả sân (mời phản ứng Băng / Lôi) |
 | **Địa Long** | Thạch Cốt | 8 Rừng Nấm Ngầm · đáy hang tinh thể | ~80 | Thổ — yếu Phong | đào đất trồi lên dưới chân, gai đá theo đường thẳng, giáp đá phải phá |
-| **Quang Long** | Thiên Huy | 9 Phế tích Aether · tháp ma pháp đổ nát | ~90 | Aether — kháng phép, yếu Kiếm | tia sáng quét, khiên phản phép (phải đổi sang Kiếm), nhân bản ảnh rồng |
-| **Hắc Long** | Vô Tận | 10 Vực Hư Không · khe nứt trước cổng thành Ma vương | ~95 | Hắc ám — yếu Aether, Hoả | hố hư không hút người chơi, bóng rồng tách làm ba, tắt sáng một nửa màn |
+| **Quang Long** | Thiên Huy | 9 Phế tích Haven · tháp ma pháp đổ nát | ~90 | Haven — kháng phép, yếu Kiếm | tia sáng quét, khiên phản phép (phải đổi sang Kiếm), nhân bản ảnh rồng |
+| **Hắc Long** | Vô Tận | 10 Vực Hư Không · khe nứt trước cổng thành Ma vương | ~95 | Hắc ám — yếu Haven, Hoả | hố hư không hút người chơi, bóng rồng tách làm ba, tắt sáng một nửa màn |
 
 Bố trí:
 - Mỗi rồng ở một **map nhỏ riêng "Long Huyệt"** (map phụ, đi vào từ một map của vùng như cột trên; KHÔNG tính vào 12 map của
@@ -231,7 +231,7 @@ Vẽ MỘT lần bằng `create_image_pro` khổ **688×384** (16:9, tối đa c
 | Đông | 6 Núi lửa Hoả Sơn |
 | Đông Nam (đảo) | 7 Quần đảo San Hô |
 | Tây | 8 Rừng Nấm Ngầm |
-| Tây Bắc | 9 Phế tích Aether |
+| Tây Bắc | 9 Phế tích Haven |
 | Góc Đông Bắc ngoài khơi (đảo trôi) | 10 Vực Hư Không |
 
 Vẽ xong: duyệt bằng mắt (đủ 10 vùng, đúng hướng, không chữ), rồi khai toạ độ tâm + vùng bao từng vùng (tỉ lệ 0–1 theo ảnh)
@@ -548,7 +548,7 @@ mỗi map một loài chủ đạo, thời tiết theo vùng). Hình mới (th�
 | 4 | **Vực Ám Ma (Bóng tối)** — như ngày 2 |
 | 5 | **Lãnh địa Kiếm** — như ngày 2 (cây phong đỏ / vàng) |
 | 6 | Build + thử ở máy chủ thử (AutoTest chụp từng vùng) → chủ dự án duyệt → lên bản thật |
-| 7–9 | **Vùng 8 Rừng Nấm Ngầm · 9 Phế tích Aether · 10 Vực Hư Không**, mỗi ngày một vùng: chưa có cây / quái riêng → mượn + tô màu lại TẠM theo chất vùng |
+| 7–9 | **Vùng 8 Rừng Nấm Ngầm · 9 Phế tích Haven · 10 Vực Hư Không**, mỗi ngày một vùng: chưa có cây / quái riêng → mượn + tô màu lại TẠM theo chất vùng |
 | 10 | Build + thử + lên bản thật vùng 8–10 |
 
 **Cần chốt khi làm ngày 1**: cấp mở của từng vùng nguyên tố (đề xuất: theo cấp mốc mở nhánh nguyên tố đó); vùng nguyên tố có
@@ -575,7 +575,7 @@ thành nối liền, sàn lát đá, hành lang, phòng. Luỹ Hiệp Sĩ Cũ (v
 | 6 · Núi lửa | **Pháo đài Đe Đỏ**: tường thành đá đen, cổng sắt, lò rèn trong lòng núi; **chiến địa** ngoài chân tường lúc quân Đoàn vây thành | toà thành + chiến địa | chương vây pháo đài (Hilde / Durin) |
 | 7 · Quần đảo | **Tàu ma đắm / hang hải tặc**: boong, khoang tàu, hang đá có kho báu | tàu + hang | `boss_ghost_captain_001`, `mob_pirate_001` |
 | 8 · Rừng nấm | **Thành phố nấm ngầm**: hang đá, nhà nấm, đường hầm phát sáng | thành ngầm | làng người nấm Ánh Tím |
-| 9 · Phế tích Aether | **Toà thành Aether cổ**: tường pháp sư, thư viện, xưởng máy | toà thành | ba phe tranh di sản |
+| 9 · Phế tích Haven | **Toà thành Haven cổ**: tường pháp sư, thư viện, xưởng máy | toà thành | ba phe tranh di sản |
 | 10 · Hư Không | **Thành trì Hư Không**: tường thành liên quân + **chiến địa** trước cổng | toà thành + chiến địa | trận cuối của liên quân |
 | Mộc / Ánh sáng / Bóng tối / Kiếm | lòng cây thế giới · thánh đường trắng · ngục tối · **võ đường giữa rừng phong** | — | 4 map nguyên tố mới (5.7) |
 
@@ -605,7 +605,7 @@ cháy. Quái theo bầy đông hơn map thường, có thể dùng cho sự ki�
 
 Ưu tiên mới của chủ dự án: hoàn thiện map, công trình và nội dung vùng trước túi đồ máy chủ. Không làm lại hình nhân vật.
 
-- Đã dựng vùng 8 Rừng Nấm Ngầm, 9 Phế tích Aether, 10 Vực Hư Không: mỗi vùng 1 trạm, 10 map săn và 1 thánh địa. Đường xuyên vùng nối từ Bãi Tàu Đắm của Quần đảo tới Hư Không; vùng cuối không có lối dẫn ra vùng không tồn tại. Cấp lần lượt 70–80, 80–90, 90–100.
+- Đã dựng vùng 8 Rừng Nấm Ngầm, 9 Phế tích Haven, 10 Vực Hư Không: mỗi vùng 1 trạm, 10 map săn và 1 thánh địa. Đường xuyên vùng nối từ Bãi Tàu Đắm của Quần đảo tới Hư Không; vùng cuối không có lối dẫn ra vùng không tồn tại. Cấp lần lượt 70–80, 80–90, 90–100.
 - Ba vùng này dùng TẠM bộ cây, đồ vật, quái và boss của Đầm lầy / Cao nguyên / Núi lửa, với biome, tên địa điểm, hạt giống và cấp riêng. **Chưa có quái/boss riêng, ba rồng mới, Long Huyệt hoặc nhiệm vụ truyện hoàn chỉnh.** Boss chúa riêng của vùng 8–10 vẫn chưa định danh (`chief: null`); sau cổng vùng 8 yêu cầu Kraken, cổng vùng 9–10 kiểm cấp như thiết kế cũ.
 - Bộ dựng `maps/buildings.ts` thêm 10 công trình. Mỗi nơi có ba phòng được đặt tên, hành lang, tường gạch chặn chân, cột dịch chuyển và lối về. Sơ đồ các phòng khác nhau; tàu ma có sàn gỗ. Rowanmere là khu an toàn, các công trình khác có ba bầy quái, mỗi bầy sáu con cùng loại, cấp theo vùng.
 
@@ -619,7 +619,7 @@ cháy. Quái theo bầy đông hơn map thường, có thể dùng cho sự ki�
 | volcano | Pháo đài Đe Đỏ | `oldforge` |
 | isles | Khoang tàu ma | Vịnh Cướp Biển (`piratecove`) |
 | fungal | Thành phố nấm ngầm | Hẻm Địa Y (`h7`) |
-| ruins | Thư viện thành Aether | Trại Khảo Cổ (`h7`) |
+| ruins | Thư viện thành Haven | Trại Khảo Cổ (`h7`) |
 | void | Nội thành Hư Không | Luỹ Cờ Tàn (`h7`) |
 
 Tổng cộng **134 map cho 10 vùng chính**. Bộ dựng giữ nguyên các địa điểm và bầy quái cũ; mở hành lang tới lối công trình, bắc cầu nếu cắt qua nước và dọn chân đồ vật chắn hành lang. Tường mới dùng ký tự `#`: TS và C# cùng kiểm va chạm; Unity tô gạch có mạch vữa, minimap dùng nền tối; thời tiết ngoài trời tắt trong công trình. Chưa dùng bộ building-kit PixelLab hoặc tiêu lượt vẽ mới.
@@ -666,14 +666,14 @@ vẽ PixelLab (danh sách NHẸ). Test `tests/codex.test.ts`.
      kênh một con rồng) hoặc rút giờ hồi sinh không (mục 2.2)?
 
 1. ~~Trần cấp~~ — **ĐÃ CHỐT + ĐÃ LÀM 08/10/2026: trần 100** (≈10 cấp / vùng). Đã code: `MAX_LEVEL` 100 ở `@havenlord/protocol` (máy chủ
-   kẹp theo), `TALENT_LEVEL_CAP` 40, `expForLevel` cũ tới cấp 10 rồi `3.844 × (cấp/10)^2,6`, Tia Aether kẹp ở 40, `cleanLevel` khi
+   kẹp theo), `TALENT_LEVEL_CAP` 40, `expForLevel` cũ tới cấp 10 rồi `3.844 × (cấp/10)^2,6`, Tia Haven kẹp ở 40, `cleanLevel` khi
    nạp bản lưu (EXP thừa giữ sát mốc, không nhảy cấp), thanh EXP đầy + "Cấp tối đa". Test `tests/level.test.ts`. Ghi chú gốc:
    - `talents.MAX_LEVEL` 40 → 100 và **ép trần thật** (hiện chỉ là hằng, chưa chỗ nào chặn).
    - `pointsForLevel` **dừng ở cấp 40** (`min(level, 40)`): cây Nguyên tố thiết kế cho đúng số điểm cấp 40, không thì cấp 100
      có ~119 điểm → master 3–4 nhánh, phá luật "1 master + nhánh phụ".
    - Đường EXP mới: `expForLevel` hiện là `100 × 1,5^(cấp−1)` (cấp 40 ≈ 7,4 × 10⁸, cấp 100 ≈ 10¹⁹ — không dùng được) → đổi
      sang dạng đa thức theo bảng cấp vùng; quy đổi exp của bản lưu cũ theo % cấp hiện tại để không ai tụt cấp.
-   - Cấp 41–100: tăng chỉ số gốc (máu, công, thủ), mở đồ bậc cao theo vùng; Tia Aether mạnh theo cấp thì kẹp hệ số ở cấp 40
+   - Cấp 41–100: tăng chỉ số gốc (máu, công, thủ), mở đồ bậc cao theo vùng; Tia Haven mạnh theo cấp thì kẹp hệ số ở cấp 40
      hoặc giảm dốc — cân lại cùng lúc.
 2. Tên + thứ tự 10 vùng ở mục 2 có giữ không, có vùng nào muốn thay (vd rừng tre phương Đông, thành phố trên mây)?
 3. Bản đồ tổng: một lục địa liền hay nhiều đảo / châu lục?

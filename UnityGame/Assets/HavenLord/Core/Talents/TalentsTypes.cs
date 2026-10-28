@@ -28,7 +28,7 @@ namespace HavenLord.Core
         public string Id;
         public string Key;
         public string Name;
-        /// <summary>aether | fire | water | wind | healing | steel | ice | earth.</summary>
+        /// <summary>haven | fire | water | wind | healing | steel | ice | earth.</summary>
         public string Element;
         public double MpCost;
         public double Cooldown;

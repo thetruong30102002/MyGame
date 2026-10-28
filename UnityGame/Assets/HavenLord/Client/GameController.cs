@@ -95,7 +95,7 @@ namespace HavenLord.Client
         {
             if (database == null)
             {
-                Debug.LogError("[HavenLord] GameController thiếu GameDatabase — chạy menu Haven Lord/Nhập dữ liệu từ pipeline rồi Aether/Dựng scene chơi.");
+                Debug.LogError("[HavenLord] GameController thiếu GameDatabase — chạy menu Haven Lord/Nhập dữ liệu từ pipeline rồi Haven/Dựng scene chơi.");
                 return;
             }
             sim = SimData.Load(database.SimModuleTexts());

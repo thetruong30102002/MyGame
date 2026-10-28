@@ -15,7 +15,7 @@ namespace HavenLord.Client
             ("sword", 1, "melee", "sword"),
             ("staff", 2, "magic", "staff"),
             ("moonsteel_sword", 1, "melee", "sword"),
-            ("aether_staff", 1, "magic", "staff"),
+            ("haven_staff", 1, "magic", "staff"),
             ("swordsman_blade_1", 1, "melee", "sword"),
             ("swordsman_blade_5", 1, "melee", "sword"),
             ("swordsman_blade_10", 1, "melee", "sword"),

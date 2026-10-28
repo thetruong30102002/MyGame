@@ -8,7 +8,7 @@ import { addAttr, attrBonus, attrPoints, ATTRS, cleanAttrs } from '../../package
 import { estimateText, HERO_SKILLS, isGroundTarget, isSwordSkill, powerText, type SkillDef, skillFacts } from '../../packages/sim/src/skills.ts';
 import {
 	addTier,
-	aetherScale,
+	havenScale,
 	assignSlot,
 	type Branch,
 	BRANCHES,
@@ -170,12 +170,12 @@ const skills = {
 // ——— talents.ts ———
 const loadouts: (string | null)[][] = [
 	Array(10).fill(null),
-	['slash', 'aether_bolt', null, null, null, null, null, null, null, null],
+	['slash', 'haven_bolt', null, null, null, null, null, null, null, null],
 	['meteor', 'heal', 'slash', 'fire_bolt', 'water_lance', 'wind_blade', 'ice_shard', 'quake', 'cyclone', 'tidal_wave'],
 	['slash'],
 	[null, null, 'heal', null, null, 'meteor', null, null, null, null],
 ];
-const knownLists = [[], ['slash', 'aether_bolt'], ['heal', 'meteor', 'slash', 'fire_bolt', 'water_lance', 'wind_blade', 'ice_shard', 'aether_bolt', 'quake', 'cyclone', 'tidal_wave', 'rockslide'], HERO_SKILLS.map((s) => s.id)];
+const knownLists = [[], ['slash', 'haven_bolt'], ['heal', 'meteor', 'slash', 'fire_bolt', 'water_lance', 'wind_blade', 'ice_shard', 'haven_bolt', 'quake', 'cyclone', 'tidal_wave', 'rockslide'], HERO_SKILLS.map((s) => s.id)];
 const rawLoadouts: unknown[] = ['abc', 42, null, { a: 1 }, [], ['slash', 'slash', 7, null, 'heal', 'meteor', 'nope'], ...loadouts, Array.from({ length: 14 }, () => pick(HERO_SKILLS).id)];
 
 const talents = {
@@ -204,7 +204,7 @@ const talents = {
 	),
 	fitTiers: tierSets.flatMap((t, ti) => [0, 3, 10, 12.5, 29, 47, 100, -5].map((points) => ({ t: ti, points, out: fitTiers(t, points) }))),
 	depthBonus: [-3, 0, 0.5, 1, 1.9, 2, 5, 7.5, 9, 10, 11, 15].map((tier) => ({ tier, out: depthBonus(tier) })),
-	aetherScale: levels.map((level) => ({ level, out: aetherScale(level) })),
+	havenScale: levels.map((level) => ({ level, out: havenScale(level) })),
 	skillScale: tierSets.slice(0, 16).flatMap((t, ti) => [...HERO_SKILLS.map((s) => s.id), 'nope'].flatMap((id) => [1, 20, 40.7, 77].map((level) => ({ t: ti, id, level, out: skillScale(t, id, level) })))),
 	knowsSkill: tierSets.slice(0, 14).flatMap((t, ti) => HERO_SKILLS.flatMap((s) => unlockSets.flatMap((_, u) => paths.map((path) => ({ t: ti, id: s.id, u, path, out: knowsSkill(s, t, unlocker(u), path) }))))),
 	passiveEffects: tierSets.map((t, ti) => ({ t: ti, out: passiveEffects(t) })),
@@ -221,7 +221,7 @@ const talents = {
 	resetCost: [0, 1, 5, 5.5, 6, 40, 100].map((level) => ({ level, out: resetCost(level) })),
 	enchantDesc: [...ENCHANTS, 'sword', 'bogus'].flatMap((e) => [0, 4, 5, 6, 6.9, 7, 10].map((tier) => ({ e, tier, out: enchantDesc(e as never, tier) }))),
 	canEnchant: tierSets.flatMap((t, ti) => [...ENCHANTS, 'sword'].map((e) => ({ t: ti, e, out: canEnchant(t, e as never) }))),
-	placeSkill: loadouts.flatMap((lo) => ['slash', 'heal', 'meteor', 'ice_shard', 'aether_bolt', 'quake'].map((id) => ({ loadout: lo, id, out: placeSkill(lo, id) }))),
+	placeSkill: loadouts.flatMap((lo) => ['slash', 'heal', 'meteor', 'ice_shard', 'haven_bolt', 'quake'].map((id) => ({ loadout: lo, id, out: placeSkill(lo, id) }))),
 	defaultLoadout: knownLists.map((known) => ({ known, out: defaultLoadout(known) })),
 	normalizeLoadout: rawLoadouts.flatMap((raw) => knownLists.map((known) => ({ raw, known, out: normalizeLoadout(raw, known) }))),
 	assignSlot: loadouts.flatMap((lo) => [-1, 0, 3, 9, 10].flatMap((slot) => [null, 'slash', 'heal', 'meteor'].map((id) => ({ loadout: lo, slot, id, out: assignSlot(lo, slot, id) })))),

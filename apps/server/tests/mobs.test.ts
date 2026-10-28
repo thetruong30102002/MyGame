@@ -179,7 +179,7 @@ test('khống chế (M3.2b): người đứng gần gửi được, kẹp trần
 	const { Store } = await import('../src/db.ts');
 	const { World } = await import('../src/world.ts');
 	const { newProgress } = await import('../src/http.ts');
-	const dir = mkdtempSync(join(tmpdir(), 'aether-mobs-'));
+	const dir = mkdtempSync(join(tmpdir(), 'havenlord-mobs-'));
 	const store = new Store(join(dir, 'm.db'));
 	const world = new World(store, (map) => (map === 'human/graveyard' ? ZONES : []));
 	try {

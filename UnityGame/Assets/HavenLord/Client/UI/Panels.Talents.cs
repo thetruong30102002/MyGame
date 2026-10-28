@@ -269,7 +269,7 @@ namespace HavenLord.Client.UI
                     "Bấm một mốc trên cây để xem nó làm gì rồi bấm <b>Học</b>.\n\n" +
                     "• Mỗi nhân vật chỉ <b>MỘT nguyên tố</b>: điểm đầu tiên cộng vào hệ nào thì 4 hệ kia khoá (đổi phải tẩy điểm).\n" +
                     "• Kiếm sĩ: 3 lưu phái cộng tự do; nguyên tố dùng để <b>Bọc Nguyên Tố</b> vào kiếm.\n" +
-                    "• Pháp sư: chỉ trượng — Tia Aether + phép của hệ đã chọn.\n" +
+                    "• Pháp sư: chỉ trượng — Tia Haven + phép của hệ đã chọn.\n" +
                     "• Phản ứng nguyên tố: đánh cùng người chơi hệ khác.",
                     12, UiKit.TextDim, TextAnchor.UpperLeft);
                 hint.textWrappingMode = TextWrappingModes.Normal;

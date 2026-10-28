@@ -17,7 +17,7 @@ function lateRegion(base: KitRegionDef, region: string, level: number, names: re
 		labels: Object.fromEntries(maps.map((m, i) => [rename.get(m.id)!, `${names[i]}${i ? ` · cấp ${Math.min(level + i, level + 10)}` : ''}`])),
 		cross: [
 			{ map: 'hub', edge: 'E', to: prev, toSpot: prev === 'isles/wreckyard' ? 'wreckyard_gate' : 'h10_gate', label: 'Trở về vùng trước', spot: 'east_gate', spotName: 'Cổng vào vùng' },
-			...(next ? [{ map: 'h10', edge: 'W' as const, to: `${next}/hub`, toSpot: 'east_gate', label: `Đường sang ${next === 'ruins' ? 'Phế tích Aether' : 'Vực Hư Không'}`, spot: 'h10_gate', spotName: 'Lối ra khỏi vùng' }] : []),
+			...(next ? [{ map: 'h10', edge: 'W' as const, to: `${next}/hub`, toSpot: 'east_gate', label: `Đường sang ${next === 'ruins' ? 'Phế tích Haven' : 'Vực Hư Không'}`, spot: 'h10_gate', spotName: 'Lối ra khỏi vùng' }] : []),
 		],
 	};
 }
@@ -27,7 +27,7 @@ export const FUNGAL_REGION = lateRegion(SWAMP_REGION, 'fungal', 70, [
 ], 'isles/wreckyard', 'ruins');
 
 export const RUINS_REGION = lateRegion(HIGHLAND_REGION, 'ruins', 80, [
-	'Toà thành Aether cổ', 'Đại Lộ Đổ Nát', 'Vườn Tượng Vỡ', 'Quảng Trường Rune', 'Khu Xưởng Cổ', 'Thư Viện Ngoài', 'Cầu Dẫn Năng Lượng', 'Trại Khảo Cổ', 'Tháp Đồng Hồ', 'Hành Lang Pháp Sư', 'Cổng Thành Cổ', 'Lõi Di Sản Aether',
+	'Toà thành Haven cổ', 'Đại Lộ Đổ Nát', 'Vườn Tượng Vỡ', 'Quảng Trường Rune', 'Khu Xưởng Cổ', 'Thư Viện Ngoài', 'Cầu Dẫn Năng Lượng', 'Trại Khảo Cổ', 'Tháp Đồng Hồ', 'Hành Lang Pháp Sư', 'Cổng Thành Cổ', 'Lõi Di Sản Haven',
 ], 'fungal/h10', 'void');
 
 export const VOID_REGION = lateRegion(VOLCANO_REGION, 'void', 90, [

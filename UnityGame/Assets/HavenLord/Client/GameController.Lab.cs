@@ -32,7 +32,7 @@ namespace HavenLord.Client
             combat.Pc.Level = 60;
             combat.SetTalents(tiers);
             // Ô J, K rồi phím 1–8: tuyệt kỹ trước, rồi chiêu mốc 8 của lưu phái, chiêu lớn mốc 8 nguyên tố sau.
-            var want = new List<string> { "slash", "aether_bolt", "great_flood", "heaven_wind", "phoenix", "ice_age", "mountain_god" };
+            var want = new List<string> { "slash", "haven_bolt", "great_flood", "heaven_wind", "phoenix", "ice_age", "mountain_god" };
             foreach (var s in combat.Skills)
                 if (s.Ult == true && !want.Contains(s.Id) && combat.Knows(s))
                     want.Add(s.Id);

@@ -6,7 +6,7 @@ import {createServer} from 'node:http';
 import {sendSite,siteRedirect} from '../src/site.ts';
 import {Store} from '../src/db.ts';
 import {createApi} from '../src/http.ts';
-const dir=mkdtempSync(join(tmpdir(),'aether-site-cache-'));mkdirSync(join(dir,'react'));
+const dir=mkdtempSync(join(tmpdir(),'havenlord-site-cache-'));mkdirSync(join(dir,'react'));
 const content='export const text='+JSON.stringify('dữ liệu dùng chung;'.repeat(2000))+';';writeFileSync(join(dir,'react/portal-ABCD1234.js'),content);
 const server=createServer((req,res)=>{if(siteRedirect(req.url!,res)||sendSite(new URL(req.url!,'http://x').pathname,res,dir,req))return;res.writeHead(404).end();});await new Promise<void>(r=>server.listen(0,'127.0.0.1',r));
 const base='http://127.0.0.1:'+(server.address() as {port:number}).port;

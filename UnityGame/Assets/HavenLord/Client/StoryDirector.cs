@@ -64,8 +64,8 @@ namespace HavenLord.Client
 
         public QuestDef Quest => Index >= 0 && Index < quests.Count ? quests[Index] : null;
 
-        /// <summary>Bài luyện phép đang nhận Tia Aether thay chiêu nguyên tố (Game tính theo mốc) — đổi chữ mục tiêu cho khớp.</summary>
-        public Func<Objective, bool> AetherStandsIn = _ => false;
+        /// <summary>Bài luyện phép đang nhận Tia Haven thay chiêu nguyên tố (Game tính theo mốc) — đổi chữ mục tiêu cho khớp.</summary>
+        public Func<Objective, bool> HavenStandsIn = _ => false;
         public bool Finished => Index >= quests.Count;
         public bool IsUnlocked(string id) => UnlockedArr.Any(t => (string)t == id);
         private bool IsCompleted(string id) => Completed.Any(t => (string)t == id);
@@ -131,7 +131,7 @@ namespace HavenLord.Client
             else if (t?.Kind == "npc" && t.Role == "turnIn") objective = $"Báo lại cho {npcName(t.Npc)}";
             else
             {
-                var line = !string.IsNullOrEmpty(q.ObjectiveTextAether) && AetherStandsIn(q.Objective) ? q.ObjectiveTextAether : q.ObjectiveText ?? "";
+                var line = !string.IsNullOrEmpty(q.ObjectiveTextHaven) && HavenStandsIn(q.Objective) ? q.ObjectiveTextHaven : q.ObjectiveText ?? "";
                 objective = line.Replace("{n}", Math.Min(Progress, Total(q)).ToString()).Replace("{total}", Total(q).ToString());
             }
             return (q.Title, objective);
@@ -212,16 +212,16 @@ namespace HavenLord.Client
         }
 
         /// <summary>
-        /// Một đòn trúng hình nộm: đúng hệ + đúng phản ứng thì tính; chưa học đủ chiêu cho bài phép thì nhận Tia Aether thay
-        /// (<paramref name="aetherStandsIn"/> do Game tính theo mốc tiềm năng — `aetherStandsIn` của web).
+        /// Một đòn trúng hình nộm: đúng hệ + đúng phản ứng thì tính; chưa học đủ chiêu cho bài phép thì nhận Tia Haven thay
+        /// (<paramref name="havenStandsIn"/> do Game tính theo mốc tiềm năng — `havenStandsIn` của web).
         /// </summary>
-        public void Practiced(string element, string reaction, Func<Objective, bool> aetherStandsIn)
+        public void Practiced(string element, string reaction, Func<Objective, bool> havenStandsIn)
         {
             var q = Quest;
             var o = q?.Objective;
             if (o?.Type != "practice") return;
             var exact = (string.IsNullOrEmpty(o.Element) || o.Element == element) && (string.IsNullOrEmpty(o.Reaction) || o.Reaction == reaction);
-            if (exact || (element == "aether" && aetherStandsIn(o))) Advance(q, 1);
+            if (exact || (element == "haven" && havenStandsIn(o))) Advance(q, 1);
         }
 
         public void Reached(string spot)

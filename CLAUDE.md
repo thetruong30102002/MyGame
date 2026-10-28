@@ -10,7 +10,7 @@
 
 <!-- project-rename-haven-lord -->
 
-**Đổi tên dự án28/10/2026: Aether Chronicle → Haven Lord, cả mã nội bộ.** Unity `Assets/HavenLord`, namespace/assembly `HavenLord.*`, productName "Haven Lord", exe `HavenLord.exe`, APK `com.nttrg.havenlord`; npm `@havenlord/*`; CSDL thật `apps/server/data/havenlord.db` (máy chủ tự đổi tên `aether.db` cũ lần khởi động đầu, `apps/server/src/dbPath.ts`); biến môi trường `HAVENLORD_*`; cờ AutoTest `-haven…`; thư mục nháp `.havenlord-stage`; khoá dấu ẩn `~/.havenlord/mark.key`. **GIỮ** "Aether" là tên thế giới trong cốt truyện (Thế giới Aether, Tia Aether, Phế tích Aether) và mọi ID dữ liệu (nguyên tố `aether`, `aether_bolt`, `aether_staff`…), mã dấu ẩn `AETHER-MARK-v1`, dấu khối `aether-plan` trong file kế hoạch. Bản Haven Lord là cài mới: người chơi Windows/Android cũ không tự cập nhật sang được.
+**Tên dự án: Haven Lord, cả mã nội bộ — không còn tên cũ ở bất cứ đâu (chốt28/10/2026), đừng thêm lại.** Unity `Assets/HavenLord`, namespace/assembly `HavenLord.*`, productName "Haven Lord", exe `HavenLord.exe`, APK `com.nttrg.havenlord`; npm `@havenlord/*`; CSDL thật `apps/server/data/havenlord.db`; biến môi trường `HAVENLORD_*`; cờ AutoTest `-haven…`; thư mục nháp `.havenlord-stage`; khoá dấu ẩn `~/.havenlord/mark.key`, mã dấu `HAVENLORD-MARK-v1`; dấu khối `havenlord-plan` trong file kế hoạch. Tên thế giới trong cốt truyện là **Haven** (Thế giới Haven, Tia Haven, Phế tích Haven, nguyên tố `haven`, `haven_bolt`, `haven_staff`, map `haven_archive`…). CSDL đã xoá sạch28/10/2026 (không còn người chơi), bắt đầu lại từ trống.
 
 <!-- pixellab-heads-redraw -->
 
@@ -42,7 +42,7 @@ Chốt hiện hành27/10: tạo nhân vật chọn tộc và nguyên đầu; m�
 
 
 
-Đọc trước khi làm: **`docs/the-gioi-aether.md`** mục *Bàn giao* (trạng thái, việc kế tiếp, lệnh chạy / kiểm / triển khai, luật dự án),
+Đọc trước khi làm: **`docs/the-gioi-haven.md`** mục *Bàn giao* (trạng thái, việc kế tiếp, lệnh chạy / kiểm / triển khai, luật dự án),
 rồi `README.md`. Kế hoạch từng mảng ở `docs/ke-hoach-*.md` (mỗi file có mục Tiến độ ghi việc đã làm).
 
 - Monorepo: `UnityGame/` (client Unity PC + APK, đọc `UnityGame/README_UNITY.md`), `apps/server` (Node + ws + SQLite),

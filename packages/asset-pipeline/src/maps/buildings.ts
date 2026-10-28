@@ -23,7 +23,7 @@ export const BUILDINGS: Record<string, BuildingSpec> = {
 	tundra: { id: 'ice_palace', name: 'Cung Ngai Băng', from: 'snowmanpass', rooms: ['Kho lương băng giá', 'Hành lang thánh vệ', 'Đại sảnh ngai băng'], decor: ['ice_pillar', 'oil_lamp', 'ice_throne_gate'], monster: 'mob_snowman_001', level: 48 },
 	volcano: { id: 'red_anvil', name: 'Pháo đài Đe Đỏ', from: 'oldforge', rooms: ['Kho vũ khí', 'Xưởng rèn trong núi', 'Đại sảnh Đe Đỏ'], decor: ['weapon_rack', 'anvil_banner', 'forge_altar', 'coal_barrel'], monster: 'mob_fire_demon_001', level: 58 },
 	fungal: { id: 'undercity', name: 'Thành phố nấm ngầm', from: 'h7', rooms: ['Kho bào tử', 'Phòng ghi chép Ánh Tím', 'Sảnh mạch tinh thể'], decor: ['mossy_pillar', 'sunken_altar', 'vine_column'], monster: 'mob_glow_mushroom_001', level: 78 },
-	ruins: { id: 'aether_archive', name: 'Thư viện thành Aether', from: 'h7', rooms: ['Kho bản khắc', 'Xưởng máy cổ', 'Đại sảnh pháp sư'], decor: ['sky_column', 'wind_altar', 'bird_statue'], monster: 'mob_wind_goblin_001', level: 88 },
+	ruins: { id: 'haven_archive', name: 'Thư viện thành Haven', from: 'h7', rooms: ['Kho bản khắc', 'Xưởng máy cổ', 'Đại sảnh pháp sư'], decor: ['sky_column', 'wind_altar', 'bird_statue'], monster: 'mob_wind_goblin_001', level: 88 },
 	void: { id: 'void_fortress', name: 'Nội thành Hư Không', from: 'h7', rooms: ['Kho tiếp tế liên quân', 'Phòng chỉ huy tiền tuyến', 'Đại sảnh thành trì'], decor: ['weapon_rack', 'rune_pillar', 'forge_altar'], monster: 'mob_fire_demon_001', level: 98 },
 	isles: { id: 'ghost_ship', name: 'Khoang tàu ma', from: 'piratecove', rooms: ['Khoang hàng đắm', 'Kho báu hải tặc', 'Phòng thuyền trưởng'], decor: ['barrel', 'rune_chest', 'fish_crates', 'red_machine'], monster: 'mob_pirate_001', level: 68 },
 };
@@ -75,7 +75,7 @@ export function attachBuilding(maps: MapData[], spec: BuildingSpec, meta: Record
 	const roomRows: Record<string, readonly [number, number]> = {
 		rowanmere: [17, 17], stone_dam: [12, 24], pyramid: [24, 15], wind_temple: [13, 25],
 		ice_palace: [24, 24], red_anvil: [13, 23], ghost_ship: [12, 24],
-		undercity: [22, 12], aether_archive: [15, 24], void_fortress: [25, 13],
+		undercity: [22, 12], haven_archive: [15, 24], void_fortress: [25, 13],
 	};
 	const [leftY, rightY] = roomRows[spec.id] ?? [15, 15];
 	const centers = [[8, leftY], [31, rightY], [20, 5]] as const;

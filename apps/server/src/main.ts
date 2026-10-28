@@ -13,7 +13,7 @@ import { World } from './world.ts';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const port = Number(process.env.PORT) || SERVER_PORT;
-const store = new Store(dbPath(true));
+const store = new Store(dbPath());
 const world = new World(store);
 // Tin tức trang chủ giờ lưu CSDL: lần đầu (bảng rỗng) nạp tin cũ từ site/news.json.
 const seeded = new Board(store).seedNews(join(SITE_DIR, 'news.json'));

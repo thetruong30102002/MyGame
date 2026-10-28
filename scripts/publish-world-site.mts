@@ -18,7 +18,7 @@ if(Object.values(integrity!)[0]!=='ok')throw Error('Backup không qua integrity_
 const metadata={backup:target,sha256:createHash('sha256').update(readFileSync(target)).digest('hex'),integrity:'ok',before,reset:false};
 writeFileSync(resolve(dir,'web-release-backup.json'),JSON.stringify(metadata,null,2));
 const db=new DatabaseSync(path);db.exec('PRAGMA busy_timeout=5000');
-const title='Cổng game mới & những bước tiếp theo của Aether';
+const title='Cổng game mới & những bước tiếp theo của Haven';
 const body=[
  'Trang chủ, cẩm nang thế giới và các trang cộng đồng khoác giao diện rừng đêm và vàng cổ, dễ đọc trên máy tính lẫn điện thoại. Các link tải và hướng dẫn cập nhật vẫn ở mục Tải game.',
  'Đợt phát triển tiếp theo tập trung vào trung tâm vùng đông đúc hơn, kiến trúc đặc trưng và cảnh quan riêng cho Rừng Nấm, Phế tích cùng các miền nguyên tố. Đây là kế hoạch đang thiết kế, chưa phải nội dung mới có trong bản game đang tải.',

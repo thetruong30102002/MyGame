@@ -11,7 +11,7 @@
 - [Nguyên tác web, chương5 — Kiếm thuật và Ma thuật](https://ncode.syosetu.com/n9669bk/6/): Kiếm Thần lấy tốc độ và tiên cơ để kết thúc đối thủ; Thủy Thần gạt đỡ rồi phản công; Bắc Thần dùng ứng biến, môi trường và kỹ thuật sinh tồn trong thực chiến.
 - [Nguyên tác web — Sự ra đời của Kiếm Vương mới](https://ncode.syosetu.com/n9669bk/157/): mô tả việc kiểm soát lưỡi kiếm, truyền lực từ bước chân và thân người vào một nhát chém nhanh.
 
-**Tên chiêu, phân chia10 mốc và hiệu ứng gameplay dưới đây là đề xuất riêng cho Aether.** Không phải bảng chiêu chính thức trích từ truyện. Các mốc3/6/9 bị động là bố trí đề xuất. **Chủ dự án chốt: chiêu cuối (số10) luôn dồn sát thương trong một nhịp ngắn để săn boss.** Sát thương chính không trải thành nhiều nhịp duy trì, không lấy thời gian đứng trong vùng hiệu ứng hoặc trạng thái cường hóa kéo dài làm nguồn sát thương chính. Tham khảo bảng tuyệt kỹ cập nhật ở `docs/ke-hoach-nguyen-to.md` mục10.2.1.
+**Tên chiêu, phân chia10 mốc và hiệu ứng gameplay dưới đây là đề xuất riêng cho Haven.** Không phải bảng chiêu chính thức trích từ truyện. Các mốc3/6/9 bị động là bố trí đề xuất. **Chủ dự án chốt: chiêu cuối (số10) luôn dồn sát thương trong một nhịp ngắn để săn boss.** Sát thương chính không trải thành nhiều nhịp duy trì, không lấy thời gian đứng trong vùng hiệu ứng hoặc trạng thái cường hóa kéo dài làm nguồn sát thương chính. Tham khảo bảng tuyệt kỹ cập nhật ở `docs/ke-hoach-nguyen-to.md` mục10.2.1.
 
 ## 1. Thủy Thần — gạt lực, giữ thế, phản công
 

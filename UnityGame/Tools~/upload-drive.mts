@@ -1,7 +1,6 @@
 // Đẩy bản build mới lên thư mục Google Drive mà trang Tải game trỏ tới (chủ dự án 14/10/2026: "tự upload 2 file build mới exe với apk vào drive"):
 //   npx tsx UnityGame/Tools~/upload-drive.mts [--only windows|android]
-// `publish-client.mts --drive` tự gọi file này sau khi phát. Tên trên Drive CỐ ĐỊNH (`HavenLord-Setup.exe`, `HavenLord.apk` — đổi từ `Aether-Chronicle.exe` / `Aether.apk`
-// khi đổi tên dự án 28/10/2026; file tên cũ trên Drive xoá tay): ghi đè giữ nguyên file id nên link chia sẻ từng file không đổi; file giống hệt (cỡ + giờ sửa) thì rclone bỏ qua.
+// `publish-client.mts --drive` tự gọi file này sau khi phát. Tên trên Drive CỐ ĐỊNH (`HavenLord-Setup.exe`, `HavenLord.apk`): ghi đè giữ nguyên file id nên link chia sẻ từng file không đổi; file giống hệt (cỡ + giờ sửa) thì rclone bỏ qua.
 // Nguồn: `Build/HavenLord-Setup.exe` (publish-client chép ra) và `Build/Android/HavenLord.apk`.
 // Dùng rclone, remote `gdrive` gốc ở đúng thư mục Drive — tạo một lần (mở trình duyệt đăng nhập Google):
 //   rclone config create gdrive drive scope=drive root_folder_id=1aXYfDoxPSySJ3k4wDbxDe5PGIrnkBHei

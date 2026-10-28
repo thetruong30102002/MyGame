@@ -52,7 +52,7 @@ a.ws.send(JSON.stringify({ t: 'move', x: 5000, y: 5000, dir: 'E', anim: 'walk', 
 await wait(300);
 check(!b.inbox.some((m) => m.t === 'snapshot' && m.players.some((p) => p.x === 5000)), 'Máy chủ chặn dịch chuyển gian lận');
 const actions = () => b.inbox.filter((m): m is Extract<ServerMessage, { t: 'action' }> => m.t === 'action');
-a.ws.send(JSON.stringify({ t: 'action', anim: 'cast', dir: 'E', skill: 'aether_bolt' }));
+a.ws.send(JSON.stringify({ t: 'action', anim: 'cast', dir: 'E', skill: 'haven_bolt' }));
 await wait(200);
 check(actions().some((m) => m.id === a.ch.id && m.anim === 'cast' && m.dir === 'E'), 'B thấy A vung tay niệm phép (action cast/E)');
 check(!a.inbox.some((m) => m.t === 'action'), 'Không dội động tác về chính người gửi');

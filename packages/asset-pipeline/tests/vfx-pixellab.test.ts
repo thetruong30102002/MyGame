@@ -27,7 +27,7 @@ import {
 	type PixelLabVfxMeta,
 } from '../src/vfx/pixellabVfx.js';
 
-const root = mkdtempSync(join(tmpdir(), 'aether-vfx-test-'));
+const root = mkdtempSync(join(tmpdir(), 'havenlord-vfx-test-'));
 let passed = 0;
 function test(name: string, fn: () => void): void {
 	fn();

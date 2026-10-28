@@ -1,7 +1,7 @@
 import type { ActionAnim } from '@havenlord/protocol';
 
 /**
- * Động tác nhân vật người chơi (Mốc 1 kế hoạch vẽ — `docs/the-gioi-aether.md` mục Skill nhân vật). Mỗi skill gọi đúng động tác của
+ * Động tác nhân vật người chơi (Mốc 1 kế hoạch vẽ — `docs/the-gioi-haven.md` mục Skill nhân vật). Mỗi skill gọi đúng động tác của
  * nó; atlas chưa vẽ động tác đó (hướng đó) thì game tự dùng động tác sẵn có của skill (`SkillDef.anim`: attack / cast) — có hình
  * PixelLab chỉ cần thêm animation trùng tên vào spec nhân vật (`packages/asset-pipeline/src/specs/player_hero_adult*.json`), không
  * sửa code. Tên chỉ gồm chữ thường a–z: khung trong atlas đặt tên `<động tác>_<hướng>_<số>`.
@@ -57,7 +57,7 @@ export const COMBO_WINDOW = 0.75;
 export const SKILL_MOVE: Readonly<Record<string, ActionAnim>> = {
 	frost_cleave: 'attack',
 	imbue: 'charge',
-	aether_bolt: 'throw',
+	haven_bolt: 'throw',
 	fire_bolt: 'throw',
 	water_lance: 'throw',
 	wind_blade: 'throw',

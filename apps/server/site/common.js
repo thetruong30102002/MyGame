@@ -177,7 +177,7 @@
 
 	// —— Phiên đăng nhập (dùng chung với game + trang quản trị) ——
 	const KEY = 'havenlord.web.token';
-	try { const old = localStorage.getItem('aether.web.token'); if (old && !localStorage.getItem(KEY)) localStorage.setItem(KEY, old); localStorage.removeItem('aether.web.token'); } catch { /* chế độ riêng tư */ }
+	try { const old = localStorage.getItem('haven.web.token'); if (old && !localStorage.getItem(KEY)) localStorage.setItem(KEY, old); localStorage.removeItem('haven.web.token'); } catch { /* chế độ riêng tư */ }
 	let token = '';
 	try { token = localStorage.getItem(KEY) || ''; } catch (e) {}
 	const setToken = (t) => {

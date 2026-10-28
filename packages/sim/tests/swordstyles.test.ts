@@ -46,7 +46,7 @@ const def = (id: string) => HERO_SKILLS[idx(id)]!;
 {
 	assert.deepEqual(
 		HERO_SKILLS.slice(0, 17).map((s) => s.id),
-		['slash', 'aether_bolt', 'fire_bolt', 'water_lance', 'wind_blade', 'heal', 'ice_shard', 'flame_ring', 'fire_blast', 'tidal_wave', 'cyclone', 'gale_dash', 'frost_field', 'ice_spire', 'rock_throw', 'quake', 'stone_spikes'],
+		['slash', 'haven_bolt', 'fire_bolt', 'water_lance', 'wind_blade', 'heal', 'ice_shard', 'flame_ring', 'fire_blast', 'tidal_wave', 'cyclone', 'gale_dash', 'frost_field', 'ice_spire', 'rock_throw', 'quake', 'stone_spikes'],
 		'chỉ số cũ không lệch (thanh kỹ năng / máy người khác tra theo chỉ số)',
 	);
 	for (const id of ['heavy_strike', 'pierce_rush', 'calm_stance', 'flowing_counter', 'side_slash', 'shadow_step']) {

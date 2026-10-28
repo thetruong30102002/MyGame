@@ -10,7 +10,7 @@ namespace HavenLord.Client
     /// Thời tiết đặc trưng từng vùng (chủ dự án 11/10/2026: "mỗi vùng phủ thêm tí hiệu ứng… tuyết rơi, gió sa mạc cát bay, rơm sa mạc lăn lăn,
     /// đặc trưng mỗi vùng"). Toàn bộ là hạt pixel sinh trong code (0 lượt vẽ) + cỏ khô lăn dùng sprite `tumbleweed_d` có sẵn của sa mạc; theo
     /// `MapDef.biome`. Hạt neo theo THẾ GIỚI (camera đi thì cảnh trôi đúng chiều) và quấn vòng quanh khung nhìn nên mật độ trên màn luôn đều.
-    /// Kèm lớp phủ màu rất nhẹ theo vùng. Tắt được ở Cài đặt (`Enabled`, PlayerPrefs `aether.weather`); điện thoại giảm số hạt.
+    /// Kèm lớp phủ màu rất nhẹ theo vùng. Tắt được ở Cài đặt (`Enabled`, PlayerPrefs `havenlord.weather`); điện thoại giảm số hạt.
     /// Cỡ hạt tính theo px game (art 1:1 ở thu phóng ×1): hạt 1px đo thử gần như vô hình ở ×1 nên hạt nhỏ nhất là 2px.
     /// </summary>
     public sealed class Weather : MonoBehaviour

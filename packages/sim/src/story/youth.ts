@@ -76,7 +76,7 @@ export const YOUTH_QUESTS: QuestDef[] = [
 		progress: [{ speaker: 'mirelle', text: 'Nấm Ánh Lam mọc dưới bóng cây lớn trong rừng, bên kia sông. Ánh xanh lam rất dễ nhận ra.' }],
 		after: [
 			{ speaker: 'mirelle', text: 'Đủ ba cây, lại còn tươi nữa. Giỏi lắm.' },
-			{ speaker: 'mirelle', text: 'Giờ thì nhìn vào sợi Aether quanh vết thương — đừng kéo, hãy vuốt cho chúng thẳng lại. Như vậy.' },
+			{ speaker: 'mirelle', text: 'Giờ thì nhìn vào sợi Haven quanh vết thương — đừng kéo, hãy vuốt cho chúng thẳng lại. Như vậy.' },
 			{ speaker: 'mirelle', text: 'Phép này cần dòng nước trong tay con đủ sâu. Luyện Thuỷ thêm đi, tới lúc tự khắc vuốt được.' },
 			{ speaker: 'narrator', text: '(Suối Lành — phép hồi máu — học được khi nhánh Thuỷ đạt mốc 3. Cộng điểm ở bảng Tiềm năng.)' },
 			// Câu "Aldric đang tìm con" chuyển sang cuối "Đá cho Ông Rơm" (mẹ nhắc) — Mirelle còn nhờ việc ở Nghĩa địa.
@@ -118,21 +118,21 @@ export const YOUTH_QUESTS: QuestDef[] = [
 	{
 		// Thử ngay kỹ năng vừa có ở chỗ an toàn (khuôn "nhận quà rồi luyện" của tuổi thơ) — không bắt đánh bầy xác sống
 		// cấp 3–5 khi người chơi mới cấp 2–3. Mẹ nhận báo cáo, nhắc sang Aldric (câu cũ của Mirelle). Đá Văng học bằng điểm
-		// (luật 10/10/2026): chưa học thì Tia Aether thay (`StoryDirector.practiced`) — không kẹt khi chưa có / đã tiêu hết điểm.
+		// (luật 10/10/2026): chưa học thì Tia Haven thay (`StoryDirector.practiced`) — không kẹt khi chưa có / đã tiêu hết điểm.
 		id: 'y1c_stone_dummy',
 		age: 16,
 		title: 'Đá cho Ông Rơm',
 		giver: null,
 		objective: { type: 'practice', element: 'earth', count: 3, dummy: 'dummy_backyard' },
 		objectiveText: 'Về sân sau thử Đá Văng vào Ông Rơm ({n}/{total})',
-		objectiveTextAether: 'Về sân sau thử Tia Aether vào Ông Rơm ({n}/{total})',
+		objectiveTextHaven: 'Về sân sau thử Tia Haven vào Ông Rơm ({n}/{total})',
 		turnIn: 'elin',
 		// Như trên: không EXP (giữ nhịp cấp) — mẹ dúi thêm một hũ mật.
 		reward: { exp: 0, potions: 1 },
 		before: [
 			{ speaker: 'inner', text: 'Học được phép mới mà tung bừa giữa nghĩa địa thì không phải ý hay. Phải thử ở chỗ an toàn trước đã.' },
 			{ speaker: 'inner', text: 'Ông Rơm ở sân sau nhà tôi đã sống sót qua lửa, nước, gió và băng. Thêm vài hòn đá chắc cũng không sao.' },
-			{ speaker: 'narrator', text: '(Đá Văng học ở bảng Tiềm năng (T) khi có điểm. Chưa học thì tung Tia Aether (chuột phải) vào Ông Rơm cũng được.)' },
+			{ speaker: 'narrator', text: '(Đá Văng học ở bảng Tiềm năng (T) khi có điểm. Chưa học thì tung Tia Haven (chuột phải) vào Ông Rơm cũng được.)' },
 		],
 		onReady: [
 			{ speaker: 'inner', text: 'Phát đầu lăn lông lốc dưới đất. Phát thứ hai bay lệch, trúng ngay chậu húng quế của mẹ. Phát thứ ba trúng bụng, Ông Rơm ngả hẳn về sau rồi mới bật dậy.' },

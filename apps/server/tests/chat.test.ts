@@ -42,7 +42,7 @@ class FakeWs {
 	}
 }
 
-const dir = mkdtempSync(join(tmpdir(), 'aether-chat-'));
+const dir = mkdtempSync(join(tmpdir(), 'havenlord-chat-'));
 const store = new Store(join(dir, 'c.db'));
 const world = new World(store, () => []);
 const people: [string, number, string][] = [

@@ -1,4 +1,4 @@
-"""Phác thảo map cho trang Thế giới Aether (SVG, sinh tất định theo tên map — chạy lại ra đúng hình cũ).
+"""Phác thảo map cho trang Thế giới Haven (SVG, sinh tất định theo tên map — chạy lại ra đúng hình cũ).
 
 Không phải hình trong game: chỉ là bản phác bố cục để chủ dự án duyệt trước khi dựng map thật bằng pipeline
 (`npm run assets:map -- <vùng>`). Mỗi map: nền theo địa hình vùng, mảng cây / đá / cồn, đường đi, bầy quái (vòng đỏ), hang ổ boss khu,
@@ -154,7 +154,7 @@ def map_sketch(region_no, name, role, mobs, exits):
 
 
 # Sơ đồ nối 7 map của vùng (khung cũ, vùng 2–10 chưa thiết kế lại): vị trí node theo chỉ số map (trạm 0 · săn 1–5 · thánh địa 6).
-# Vùng 1 dùng khung 12 map (thiết kế 10/10/2026) — vị trí / cạnh riêng khai ở the-gioi-aether.py.
+# Vùng 1 dùng khung 12 map (thiết kế 10/10/2026) — vị trí / cạnh riêng khai ở the-gioi-haven.py.
 STD_POS = {0: (70, 120), 1: (210, 60), 2: (350, 60), 6: (500, 60), 3: (210, 180), 4: (350, 150), 5: (350, 210)}
 STD_EDGES = [(0, 1), (1, 2), (2, 6), (0, 3), (3, 4), (3, 5)]
 

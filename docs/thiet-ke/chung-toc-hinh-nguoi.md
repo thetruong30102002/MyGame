@@ -23,9 +23,9 @@ Loài tai cụ thể của Thú nhân và kiểu sừng Ma tộc cần duyệt. 
 
 ## Tham khảo trên mạng và đề xuất riêng
 
-- [Miqo'te — trang chính thức FFXIV](https://eu.finalfantasyxiv.com/a_realm_reborn/sp/world/races/miqo-te/) mô tả tai nổi bật và đuôi họ mèo. Dùng làm tham khảo cách nhận diện người có đặc điểm thú; không lấy lịch sử, tên riêng hay bộ đồ của game đó làm nội dung Aether.
-- [Hướng dẫn FFXIV của PlayStation](https://www.playstation.com/en-il/editorial/final-fantasy-xiv-an-absolute-beginners-guide/) mô tả Elezen với tai nhọn và dáng thanh. Aether ưu tiên giữ tỷ lệ người đã duyệt, không tự chuyển sang thân dài hơn theo mẫu tham khảo.
-- [Tiefling — D&D Beyond, bản Legacy](https://www.dndbeyond.com/species/7-tiefling) mô tả dáng gần người, sừng/đuôi và các sắc da gồm màu da người, sắc đỏ. Đây là tham khảo về dấu hiệu ma tộc hình người, không phải luật màu da hay cơ chế cho Aether.
+- [Miqo'te — trang chính thức FFXIV](https://eu.finalfantasyxiv.com/a_realm_reborn/sp/world/races/miqo-te/) mô tả tai nổi bật và đuôi họ mèo. Dùng làm tham khảo cách nhận diện người có đặc điểm thú; không lấy lịch sử, tên riêng hay bộ đồ của game đó làm nội dung Haven.
+- [Hướng dẫn FFXIV của PlayStation](https://www.playstation.com/en-il/editorial/final-fantasy-xiv-an-absolute-beginners-guide/) mô tả Elezen với tai nhọn và dáng thanh. Haven ưu tiên giữ tỷ lệ người đã duyệt, không tự chuyển sang thân dài hơn theo mẫu tham khảo.
+- [Tiefling — D&D Beyond, bản Legacy](https://www.dndbeyond.com/species/7-tiefling) mô tả dáng gần người, sừng/đuôi và các sắc da gồm màu da người, sắc đỏ. Đây là tham khảo về dấu hiệu ma tộc hình người, không phải luật màu da hay cơ chế cho Haven.
 - **Tím khói/tím lam cho da Ma tộc là đề xuất theo yêu cầu chủ dự án**, không coi mô tả tóc tím trong tài liệu Tiefling là bằng chứng da tím. Có thể thử bảng màu riêng: tím khói `#8F7CA8`, tím lam `#6E7FA3`, đỏ tro `#A57479`. Các màu này chưa được duyệt mỹ thuật; cần đủ màu sáng/tối và thử trên nền map thật.
 
 ## Liền mạch theo frame và kiểu tóc

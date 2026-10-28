@@ -19,7 +19,7 @@ export const ATTR_INFO: Readonly<Record<AttrId, { name: string; desc: string }>>
 	vit: { name: 'Sinh lực', desc: `+${ATTR_PER_POINT.vit} máu tối đa mỗi điểm.` },
 	spi: { name: 'Linh lực', desc: `+${ATTR_PER_POINT.spi} MP tối đa mỗi điểm.` },
 	str: { name: 'Sức mạnh', desc: `+${String(Math.round(ATTR_PER_POINT.str * 1000) / 10).replace('.', ',')}% sát thương đòn kiếm mỗi điểm.` },
-	int: { name: 'Trí tuệ', desc: `+${String(Math.round(ATTR_PER_POINT.int * 1000) / 10).replace('.', ',')}% sát thương phép mỗi điểm (cả Tia Aether).` },
+	int: { name: 'Trí tuệ', desc: `+${String(Math.round(ATTR_PER_POINT.int * 1000) / 10).replace('.', ',')}% sát thương phép mỗi điểm (cả Tia Haven).` },
 	def: { name: 'Đỡ đòn', desc: `+${String(ATTR_PER_POINT.def).replace('.', ',')} phòng thủ mỗi điểm (giảm sát thương nhận).` },
 	sta: { name: 'Thể lực', desc: `+${ATTR_PER_POINT.sta} thể lực tối đa mỗi điểm (Kiếm sĩ lướt né tốn thể lực).` },
 };

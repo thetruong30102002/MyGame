@@ -1,4 +1,4 @@
-# Web Aether
+# Web Haven
 
 Toàn bộ cổng web là **một ứng dụng React/TypeScript**: một root, khung header/menu/footer dùng chung, điều hướng bằng History API. Trang chủ, tin tức, diễn đàn, bài viết, góp ý, tải game, thế giới và admin không tải lại document khi bấm link nội bộ. Client chơi game vẫn là Unity.
 
@@ -23,4 +23,4 @@ Preview dùng cổng **3201** và DB `.havenlord-stage/world-renewal/site-previe
 
 Tin cũ có cờ `archived`; API công khai chỉ trả tin đang hiển thị. Admin xem được cả hai và có nút lưu trữ/hiện lại. Migration thêm cột giữ dữ liệu cũ. `publish-react-site.mts` sao lưu SQLite online và kiểm integrity trước khi chuyển tin; không reset tài khoản/nhân vật. Không tự chạy lại script công bố để đăng tin ngoài yêu cầu chủ dự án.
 
-Hướng nội dung hiện hành: `docs/dinh-huong-aether.md`. Kế hoạch và %: `docs/ke-hoach-nang-cap-the-gioi.md`. Bản truyện cũ đã lưu ở `docs/archive`; nhiệm vụ Unity cũ chưa chuyển đổi trong đợt web này, có đầu việc riêng trong kế hoạch.
+Hướng nội dung hiện hành: `docs/dinh-huong-haven.md`. Kế hoạch và %: `docs/ke-hoach-nang-cap-the-gioi.md`. Bản truyện cũ đã lưu ở `docs/archive`; nhiệm vụ Unity cũ chưa chuyển đổi trong đợt web này, có đầu việc riêng trong kế hoạch.

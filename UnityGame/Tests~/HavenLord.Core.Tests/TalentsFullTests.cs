@@ -183,7 +183,7 @@ namespace HavenLord.Core.Tests
         {
             var t = NewTalents();
             foreach (var x in Tl["depthBonus"]) Assert.That(t.DepthBonus((double)x["tier"]), Is.EqualTo((double)x["out"]), x.ToString());
-            foreach (var x in Tl["aetherScale"]) Assert.That(t.AetherScale((double)x["level"]), Is.EqualTo((double)x["out"]), x.ToString());
+            foreach (var x in Tl["havenScale"]) Assert.That(t.HavenScale((double)x["level"]), Is.EqualTo((double)x["out"]), x.ToString());
             foreach (var x in Tl["skillScale"])
                 Assert.That(t.SkillScale(TierSet(x), (string)x["id"], (double)x["level"]), Is.EqualTo((double)x["out"]), x.ToString());
         }

@@ -1,6 +1,6 @@
 {
-	"map": "aether_archive",
-	"image": "aether_archive.minimap.png",
+	"map": "haven_archive",
+	"image": "haven_archive.minimap.png",
 	"width": 240,
 	"height": 216,
 	"downscale": 8,

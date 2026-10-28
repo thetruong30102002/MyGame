@@ -471,7 +471,7 @@ export const POLITICAL_REGIONS: readonly PoliticalRegion[] = [
 		"region": "ruins",
 		"government": "Khu khảo cổ liên vùng",
 		"authority": "Viện Khảo Cổ và hội bảo tồn",
-		"seatMap": "ruins/aether_archive",
+		"seatMap": "ruins/haven_archive",
 		"factions": [
 			"lumerian_archive",
 			"relic_claimants"
@@ -776,7 +776,7 @@ export const WORLD_LAYOUT: readonly WorldPin[] = [
 	},
 	{
 		"id": "ruins",
-		"name": "Phế tích Aether",
+		"name": "Phế tích Haven",
 		"shortName": "Phế tích",
 		"layer": "surface",
 		"x": 20,
@@ -954,7 +954,7 @@ export const ARCHIVE_EVIDENCE: readonly ArchiveEvidence[] = [
 		"id": "archive_machine",
 		"name": "Bản ghi Cổ Thành",
 		"region": "ruins",
-		"map": "ruins/aether_archive",
+		"map": "ruins/haven_archive",
 		"note": "Nguồn nghiên cứu đề xuất trong hướng mới; chưa đặt nhiệm vụ hay vật phẩm vào game."
 	},
 	{
@@ -973,14 +973,14 @@ export const ARCHIVE_CHAPTERS: readonly ArchiveChapter[] = [
 	{
 		"id": "origin",
 		"order": 1,
-		"title": "Khởi nguyên Aether",
+		"title": "Khởi nguyên Haven",
 		"requires": [
 			"old_coin",
 			"root_record",
 			"dawn_copy",
 			"night_copy"
 		],
-		"revelation": "Nơi hội tụ đầu tiên của vật chất và dòng Aether hình thành thế giới. Thần Tri Thức lưu giữ dấu vết khởi nguyên; chi tiết nguồn gốc cuối cùng còn là bản thảo.",
+		"revelation": "Nơi hội tụ đầu tiên của vật chất và dòng Haven hình thành thế giới. Thần Tri Thức lưu giữ dấu vết khởi nguyên; chi tiết nguồn gốc cuối cùng còn là bản thảo.",
 		"keeper": [
 			"Mỗi miền đất giữ một phần của lịch sử.",
 			"Hãy đối chiếu những gì tìm thấy với bản ghi tại thư khố."

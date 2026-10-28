@@ -156,10 +156,10 @@
 			"objective": {
 				"type": "practice",
 				"count": 5,
-				"element": "aether",
+				"element": "haven",
 				"dummy": "dummy_backyard"
 			},
-			"objectiveText": "Tung Tia Aether vào Ông Rơm ở sân sau ({n}/{total})",
+			"objectiveText": "Tung Tia Haven vào Ông Rơm ở sân sau ({n}/{total})",
 			"turnIn": "mother_elin",
 			"reward": {
 				"exp": 20,
@@ -188,7 +188,7 @@
 				},
 				{
 					"speaker": "healer_mirelle",
-					"text": "Sợi tơ. Ta biết sợi Aether là gì, sách nào cũng vẽ. Nhưng ta là thầy thuốc, không phải pháp sư. Sợi con thấy, ta không thấy."
+					"text": "Sợi tơ. Ta biết sợi Haven là gì, sách nào cũng vẽ. Nhưng ta là thầy thuốc, không phải pháp sư. Sợi con thấy, ta không thấy."
 				},
 				{
 					"speaker": "healer_mirelle",
@@ -220,7 +220,7 @@
 				},
 				{
 					"speaker": "narrator",
-					"text": "(Nhận Trượng gỗ của mẹ · rê chuột để nhắm · chuột phải để tung Tia Aether · màn cảm ứng: chạm xa nhân vật.)"
+					"text": "(Nhận Trượng gỗ của mẹ · rê chuột để nhắm · chuột phải để tung Tia Haven · màn cảm ứng: chạm xa nhân vật.)"
 				}
 			],
 			"after": [
@@ -242,7 +242,7 @@
 				},
 				{
 					"speaker": "narrator",
-					"text": "(Trong bếp, sợi Aether quanh ngọn lửa xoắn lại như lò xo. Tôi đưa tay ra, và một sợi xoắn theo ngón tay tôi.)"
+					"text": "(Trong bếp, sợi Haven quanh ngọn lửa xoắn lại như lò xo. Tôi đưa tay ra, và một sợi xoắn theo ngón tay tôi.)"
 				},
 				{
 					"speaker": "mother_elin",
@@ -378,7 +378,7 @@
 				},
 				{
 					"speaker": "narrator",
-					"text": "(Nhánh Hoả đã mở: có điểm tiềm năng thì học Hoả Cầu ở bảng Tiềm năng (T) — phím 1, tốn MP và phải chờ hồi chiêu. Chưa học thì tung Tia Aether (chuột phải) vào Ông Rơm cũng được.)"
+					"text": "(Nhánh Hoả đã mở: có điểm tiềm năng thì học Hoả Cầu ở bảng Tiềm năng (T) — phím 1, tốn MP và phải chờ hồi chiêu. Chưa học thì tung Tia Haven (chuột phải) vào Ông Rơm cũng được.)"
 				}
 			],
 			"after": [
@@ -403,7 +403,7 @@
 					"text": "(Tối đó, cha đứng nhìn cái mũ cháy xém rất lâu.) …Mũ cũ."
 				}
 			],
-			"objectiveTextAether": "Tung Tia Aether vào Ông Rơm, tránh cái mũ ({n}/{total})",
+			"objectiveTextHaven": "Tung Tia Haven vào Ông Rơm, tránh cái mũ ({n}/{total})",
 			"onReady": [
 				{
 					"speaker": "inner",
@@ -451,7 +451,7 @@
 				},
 				{
 					"speaker": "narrator",
-					"text": "(chuột trái: chém kiếm khi nấm áp sát · chuột phải: Tia Aether từ xa · Space: lăn né, tốn thể lực · R: uống bình mật ong của mẹ · mẹo: mỗi người chỉ theo được MỘT nguyên tố — sau này đánh cùng bạn khác hệ vào một con quái sẽ ra phản ứng như Hơi Nước, Băng Giá!)"
+					"text": "(chuột trái: chém kiếm khi nấm áp sát · chuột phải: Tia Haven từ xa · Space: lăn né, tốn thể lực · R: uống bình mật ong của mẹ · mẹo: mỗi người chỉ theo được MỘT nguyên tố — sau này đánh cùng bạn khác hệ vào một con quái sẽ ra phản ứng như Hơi Nước, Băng Giá!)"
 				},
 				{
 					"speaker": "father_garrick",
@@ -542,7 +542,7 @@
 				},
 				{
 					"speaker": "narrator",
-					"text": "(Cha múc nước sông hắt ướt Ông Rơm, rồi con tung Phong Nhận: gió trúng mục tiêu đang ướt sẽ ra Băng Giá — phản ứng nguyên tố là việc của HAI người cùng đánh. Chưa học Phong Nhận thì tung Tia Aether (chuột phải) vào Ông Rơm cũng được.)"
+					"text": "(Cha múc nước sông hắt ướt Ông Rơm, rồi con tung Phong Nhận: gió trúng mục tiêu đang ướt sẽ ra Băng Giá — phản ứng nguyên tố là việc của HAI người cùng đánh. Chưa học Phong Nhận thì tung Tia Haven (chuột phải) vào Ông Rơm cũng được.)"
 				},
 				{
 					"speaker": "inner",
@@ -575,7 +575,7 @@
 					"text": "(Khuya hôm ấy, tôi ngồi một mình ở hiên, thử tết lại sợi nước với sợi gió. Không có cha, hai sợi cứ tuột khỏi nhau. Nhưng trong lòng bàn tay vẫn đọng lại một mũi băng nhỏ, lạnh buốt. Mở nhánh Băng — học Băng Tiễn ở bảng Tiềm năng (T) khi có điểm. Mỗi người chỉ theo được MỘT nguyên tố; muốn ra phản ứng thì đánh cùng người khác hệ.)"
 				}
 			],
-			"objectiveTextAether": "Tung Tia Aether vào Ông Rơm bên sông ({n}/{total})",
+			"objectiveTextHaven": "Tung Tia Haven vào Ông Rơm bên sông ({n}/{total})",
 			"onReady": [
 				{
 					"speaker": "inner",
@@ -635,7 +635,7 @@
 				},
 				{
 					"speaker": "mirelle",
-					"text": "Giờ thì nhìn vào sợi Aether quanh vết thương — đừng kéo, hãy vuốt cho chúng thẳng lại. Như vậy."
+					"text": "Giờ thì nhìn vào sợi Haven quanh vết thương — đừng kéo, hãy vuốt cho chúng thẳng lại. Như vậy."
 				},
 				{
 					"speaker": "mirelle",
@@ -748,7 +748,7 @@
 				"dummy": "dummy_backyard"
 			},
 			"objectiveText": "Về sân sau thử Đá Văng vào Ông Rơm ({n}/{total})",
-			"objectiveTextAether": "Về sân sau thử Tia Aether vào Ông Rơm ({n}/{total})",
+			"objectiveTextHaven": "Về sân sau thử Tia Haven vào Ông Rơm ({n}/{total})",
 			"turnIn": "elin",
 			"reward": {
 				"exp": 0,
@@ -765,7 +765,7 @@
 				},
 				{
 					"speaker": "narrator",
-					"text": "(Đá Văng học ở bảng Tiềm năng (T) khi có điểm. Chưa học thì tung Tia Aether (chuột phải) vào Ông Rơm cũng được.)"
+					"text": "(Đá Văng học ở bảng Tiềm năng (T) khi có điểm. Chưa học thì tung Tia Haven (chuột phải) vào Ông Rơm cũng được.)"
 				}
 			],
 			"onReady": [
@@ -1219,7 +1219,7 @@
 			"before": [
 				{
 					"speaker": "inner",
-					"text": "Sương ở Vực Sương Xanh dày tới mức tôi không thấy tay mình. Nhưng sợi Aether thì vẫn thấy. Tôi đi theo sợi."
+					"text": "Sương ở Vực Sương Xanh dày tới mức tôi không thấy tay mình. Nhưng sợi Haven thì vẫn thấy. Tôi đi theo sợi."
 				},
 				{
 					"speaker": "odessa",
@@ -1466,7 +1466,7 @@
 				},
 				{
 					"speaker": "inner",
-					"text": "Tôi chạm vào vết đục. Sợi Aether quanh đó vẫn nhớ hình con chữ, như vết lõm trên gối còn nhớ đầu người."
+					"text": "Tôi chạm vào vết đục. Sợi Haven quanh đó vẫn nhớ hình con chữ, như vết lõm trên gối còn nhớ đầu người."
 				},
 				{
 					"speaker": "inner",
@@ -2128,7 +2128,7 @@
 			"before": [
 				{
 					"speaker": "inner",
-					"text": "Tinh linh băng bay quanh Hồ Sương Giá như đàn đom đóm lạnh. Ở giữa hồ, tôi thấy sợi Aether của một con người, đông cứng."
+					"text": "Tinh linh băng bay quanh Hồ Sương Giá như đàn đom đóm lạnh. Ở giữa hồ, tôi thấy sợi Haven của một con người, đông cứng."
 				}
 			],
 			"after": [
@@ -2294,7 +2294,7 @@
 			"before": [
 				{
 					"speaker": "inner",
-					"text": "Vệ thần Ngai Băng ngồi đè lên một thứ gì đó. Sợi Aether dưới ngai không phải của nó. Nó là xiềng xích được đúc thành người."
+					"text": "Vệ thần Ngai Băng ngồi đè lên một thứ gì đó. Sợi Haven dưới ngai không phải của nó. Nó là xiềng xích được đúc thành người."
 				}
 			],
 			"after": [
@@ -2628,7 +2628,7 @@
 			"before": [
 				{
 					"speaker": "inner",
-					"text": "Người lùn gọi nó là Hoả thần. Nhưng sợi Aether của nó rách nát, quay cuồng. Một vị thần không có sợi rách như thế. Đây là ngọn lửa đã hoá điên."
+					"text": "Người lùn gọi nó là Hoả thần. Nhưng sợi Haven của nó rách nát, quay cuồng. Một vị thần không có sợi rách như thế. Đây là ngọn lửa đã hoá điên."
 				}
 			],
 			"after": [

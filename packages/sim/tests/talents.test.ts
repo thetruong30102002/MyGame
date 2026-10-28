@@ -6,7 +6,7 @@
 import assert from 'node:assert/strict';
 import {
 	addTier,
-	aetherScale,
+	havenScale,
 	assignSlot,
 	baseTier,
 	BRANCH_LOCK_NOTE,
@@ -126,7 +126,7 @@ const all = (_: string) => true;
 	assert.deepEqual(SKILL_NODE.heal, { branch: 'water', tier: 3 }, 'Suối Lành = Thuỷ mốc 3');
 	const heal = HERO_SKILLS[5]!;
 	assert.deepEqual([heal.id, heal.name, heal.unlock], ['heal', 'Suối Lành', undefined], 'Suối Lành không còn mở bằng cốt truyện');
-	assert.equal(SKILL_NODE.aether_bolt, undefined, 'Tia Aether ngoài cây');
+	assert.equal(SKILL_NODE.haven_bolt, undefined, 'Tia Haven ngoài cây');
 	assert.deepEqual(TREE.earth.filter((n) => n.ready && n.skillId).map((n) => n.skillId), ['rock_throw', 'quake', 'stone_spikes', 'stone_wall', 'rockslide'], 'Thổ: Đá Văng · Địa Chấn · Gai Đá · Tường Đá · Lở Đá');
 	assert.deepEqual([TREE.earth[9]!.skillId, TREE.earth[9]!.ready], ['mountain_god', false], 'Thổ mốc 10: Sơn Thần, chưa mở ở game thật');
 	assert.match(BRANCH_LOCK_NOTE.earth ?? '', /tuổi 16/, 'Thổ chưa mở: nhắc nhiệm vụ tuổi 16 (chỉ là chữ, không khoá cứng)');
@@ -219,7 +219,7 @@ const all = (_: string) => true;
 	}
 }
 
-// 6) Thưởng chiều sâu +4%/mốc trên mốc 1 (mốc 10 = +36%), thay rankPower; Tia Aether theo cấp.
+// 6) Thưởng chiều sâu +4%/mốc trên mốc 1 (mốc 10 = +36%), thay rankPower; Tia Haven theo cấp.
 {
 	near(depthBonus(0), 1, 'chưa mở');
 	near(depthBonus(1), 1, 'mốc 1');
@@ -229,10 +229,10 @@ const all = (_: string) => true;
 	near(skillScale({ fire: 4 }, 'fire_bolt', 1), 1.12, 'Hoả Cầu theo mốc Hoả');
 	near(skillScale({ water: 3 }, 'heal', 1), 1.08, 'Suối Lành theo mốc Thuỷ');
 	near(skillScale({}, 'slash', 1), 1, 'chưa có mốc');
-	near(skillScale({ sword: 9 }, 'aether_bolt', 1), 1, 'Aether không ăn mốc nhánh nào');
-	near(aetherScale(1), 1, 'Aether cấp 1');
-	near(aetherScale(11), 1.3, 'Aether +3%/cấp');
-	near(skillScale({}, 'aether_bolt', 40), 1 + 0.03 * 39, 'Aether cấp 40');
+	near(skillScale({ sword: 9 }, 'haven_bolt', 1), 1, 'Haven không ăn mốc nhánh nào');
+	near(havenScale(1), 1, 'Haven cấp 1');
+	near(havenScale(11), 1.3, 'Haven +3%/cấp');
+	near(skillScale({}, 'haven_bolt', 40), 1 + 0.03 * 39, 'Haven cấp 40');
 }
 
 // 7) Phản ứng: +5% mỗi mốc (trên mốc 1) của hệ yếu hơn — không còn đòi "build song hệ", bỏ +6%/điểm cũ.
@@ -324,14 +324,14 @@ const all = (_: string) => true;
 }
 
 // 9) Học kỹ năng: Trảm (Kiếm mốc 1) chỉ cần mã cốt truyện; phép mốc 1 của nguyên tố phải HỌC (nhánh ≥ mốc 1 — luật
-//    10/10/2026, mở nhánh chưa đủ); Suối Lành cần Thuỷ mốc 3; Tia Aether bẩm sinh.
+//    10/10/2026, mở nhánh chưa đủ); Suối Lành cần Thuỷ mốc 3; Tia Haven bẩm sinh.
 {
 	const heal = HERO_SKILLS[5]!;
 	assert.equal(knowsSkill(heal, { water: 2 }, all), false);
 	assert.equal(knowsSkill(heal, { water: 3 }, all), true);
 	assert.equal(knowsSkill(HERO_SKILLS[0]!, {}, all), true, 'Trảm: có kiếm là dùng được');
 	assert.equal(knowsSkill(HERO_SKILLS[0]!, { sword: 4 }, () => false), false, 'chưa nhận kiếm');
-	assert.equal(knowsSkill(HERO_SKILLS.find((s) => s.id === 'aether_bolt')!, {}, all), true, 'Tia Aether: có trượng là dùng được');
+	assert.equal(knowsSkill(HERO_SKILLS.find((s) => s.id === 'haven_bolt')!, {}, all), true, 'Tia Haven: có trượng là dùng được');
 	const first: Record<string, string> = { fire: 'fire_bolt', water: 'water_lance', wind: 'wind_blade', ice: 'ice_shard', earth: 'rock_throw' };
 	for (const [b, id] of Object.entries(first)) {
 		const s = HERO_SKILLS.find((x) => x.id === id)!;
@@ -385,13 +385,13 @@ const all = (_: string) => true;
 	assert.deepEqual([...SLOT_CODES], ['KeyJ', 'KeyK', 'Digit1', 'Digit2', 'Digit3', 'Digit4', 'Digit5', 'Digit6', 'Digit7', 'Digit8']);
 	for (const s of HERO_SKILLS.filter((d) => d.key)) assert.equal(SLOT_KEYS[HOME_SLOT[s.id]!], s.key, `${s.id}: ô nhà = phím cũ`);
 	for (const s of HERO_SKILLS.filter((d) => !d.key && d.id !== 'imbue')) assert.equal(HOME_SLOT[s.id], undefined, `${s.id}: kỹ năng GĐ2 không có ô nhà — vào ô trống đầu tiên`);
-	assert.equal(HOME_SLOT.imbue, 1, 'Bọc nguyên tố: ô K của Kiếm sĩ (Pháp sư dùng ô K cho Tia Aether)');
-	assert.equal(placeSkill(defaultLoadout(['slash', 'aether_bolt', 'fire_bolt', 'water_lance', 'wind_blade', 'heal', 'ice_shard']), 'flame_ring')[7], 'flame_ring', 'Vòng Lửa vào ô 6 (trống đầu tiên)');
-	const known = ['slash', 'aether_bolt', 'fire_bolt', 'water_lance', 'wind_blade', 'ice_shard'];
-	assert.deepEqual(defaultLoadout(known), ['slash', 'aether_bolt', 'fire_bolt', 'water_lance', 'wind_blade', null, 'ice_shard', null, null, null], 'mặc định J=Trảm, K=Tia Aether, rồi đúng phím cũ');
+	assert.equal(HOME_SLOT.imbue, 1, 'Bọc nguyên tố: ô K của Kiếm sĩ (Pháp sư dùng ô K cho Tia Haven)');
+	assert.equal(placeSkill(defaultLoadout(['slash', 'haven_bolt', 'fire_bolt', 'water_lance', 'wind_blade', 'heal', 'ice_shard']), 'flame_ring')[7], 'flame_ring', 'Vòng Lửa vào ô 6 (trống đầu tiên)');
+	const known = ['slash', 'haven_bolt', 'fire_bolt', 'water_lance', 'wind_blade', 'ice_shard'];
+	assert.deepEqual(defaultLoadout(known), ['slash', 'haven_bolt', 'fire_bolt', 'water_lance', 'wind_blade', null, 'ice_shard', null, null, null], 'mặc định J=Trảm, K=Tia Haven, rồi đúng phím cũ');
 	assert.deepEqual(defaultLoadout([]), Array(10).fill(null));
-	// Mới mở trượng trước kiếm: Aether vẫn vào ô K, không chiếm ô J.
-	assert.deepEqual(defaultLoadout(['aether_bolt']).slice(0, 2), [null, 'aether_bolt']);
+	// Mới mở trượng trước kiếm: Haven vẫn vào ô K, không chiếm ô J.
+	assert.deepEqual(defaultLoadout(['haven_bolt']).slice(0, 2), [null, 'haven_bolt']);
 
 	const saved = ['heal', 'slash', 'slash', 'bogus', 7, 'fire_bolt'];
 	assert.deepEqual(normalizeLoadout(saved, known), [null, 'slash', null, null, null, 'fire_bolt', null, null, null, null], 'mất Suối Lành / id lạ / trùng → ô trống');
@@ -457,10 +457,10 @@ const all = (_: string) => true;
 	assert.equal(knowsSkill(HERO_SKILLS.find((x) => x.id === 'frost_cleave')!, { sword: 2, kiem_than: 3, fire: 5 }, all), false, 'mỗi kiếm pháp đúng nguyên tố của nó');
 }
 
-// 14) Lớp → vũ khí: Kiếm sĩ chỉ đòn kiếm (Trảm, phái, kiếm pháp, Bọc nguyên tố), Pháp sư chỉ trượng (Tia Aether + phép).
+// 14) Lớp → vũ khí: Kiếm sĩ chỉ đòn kiếm (Trảm, phái, kiếm pháp, Bọc nguyên tố), Pháp sư chỉ trượng (Tia Haven + phép).
 {
 	const blade = ['slash', 'heavy_strike', 'blaze_slash', 'imbue'];
-	const staff = ['aether_bolt', 'fire_bolt', 'heal', 'ice_shard'];
+	const staff = ['haven_bolt', 'fire_bolt', 'heal', 'ice_shard'];
 	for (const id of blade) assert.deepEqual([pathAllowsSkill('sword', id), pathAllowsSkill('mage', id), pathAllowsSkill('none', id)], [true, false, true], id);
 	for (const id of staff) assert.deepEqual([pathAllowsSkill('sword', id), pathAllowsSkill('mage', id), pathAllowsSkill('none', id)], [false, true, true], id);
 	const slash = HERO_SKILLS[0]!;

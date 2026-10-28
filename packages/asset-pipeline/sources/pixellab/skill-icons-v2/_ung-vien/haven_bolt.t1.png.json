@@ -1,4 +1,5 @@
 {
+	"tool": "create_image_pixflux",
 	"description": "a violet light bolt streaking to the right, simple chunky game icon",
 	"width": 32,
 	"height": 32,
@@ -7,5 +8,8 @@
 	"shading": "basic shading",
 	"detail": "low detail",
 	"seed": 4242,
-	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/aether.png"
+	"color_image_path": "sources/pixellab/skill-icons-v2/palettes/haven.png",
+	"jobId": "474467db-4a5c-49a7-adeb-165545230a67",
+	"token": 1,
+	"createdAt": "2026-10-09T19:20:34.756Z"
 }

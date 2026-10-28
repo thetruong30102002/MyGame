@@ -23,10 +23,10 @@ const planPath=join(root,'docs/ke-hoach-nang-cap-the-gioi.md');
 const markdown=readFileSync(planPath,'utf8');const p=parsePlan(markdown);
 for(const region of p.regions){const design=WORLD_DESIGN.regions.find(r=>r.region===region.id);if(design){region.politics=design.government+'; '+design.authority+'. '+design.continuity;region.chief=design.authority;region.architecture=design.tension;region.life=design.questHooks.join(' ');}}
 const politics=p.tasks.find(t=>t.id==='politics');
-if(politics){politics.detail='Bản thiết kế mới cho 13 vùng, 20 tổ chức đề xuất và 13 quan hệ; bỏ các nhân vật/quyền kế vị từ truyện cũ. Đã đối chiếu vị trí map thật; chưa đặt NPC hoặc mở nhiệm vụ.';for(const step of politics.steps)if(step.evidence.includes('Amira'))step.evidence='26/10/2026: docs/dinh-huong-aether.md và packages/sim/src/worldDesign.ts; các chính quyền và tên tổ chức mới là đề xuất, danh tính vua chưa chốt.';}
+if(politics){politics.detail='Bản thiết kế mới cho 13 vùng, 20 tổ chức đề xuất và 13 quan hệ; bỏ các nhân vật/quyền kế vị từ truyện cũ. Đã đối chiếu vị trí map thật; chưa đặt NPC hoặc mở nhiệm vụ.';for(const step of politics.steps)if(step.evidence.includes('Amira'))step.evidence='26/10/2026: docs/dinh-huong-haven.md và packages/sim/src/worldDesign.ts; các chính quyền và tên tổ chức mới là đề xuất, danh tính vua chưa chốt.';}
 const next={...p,worldDesign:snapshot};
 const encoded=JSON.stringify(next,null,2);
-const result=markdown.replace(/(<!-- aether-plan:start -->\s*```json\s*)[\s\S]*?(\s*```\s*<!-- aether-plan:end -->)/,(_,a,b)=>a+encoded+b);
+const result=markdown.replace(/(<!-- havenlord-plan:start -->\s*```json\s*)[\s\S]*?(\s*```\s*<!-- havenlord-plan:end -->)/,(_,a,b)=>a+encoded+b);
 parsePlan(result);writeFileSync(planPath,result);
 
 const lines=[

@@ -131,7 +131,7 @@ số con, boss, cột dịch chuyển, NPC, lối ra « » ▲ ▼ kèm nơi đ�
   - Đọc `Data/Sim/roadmap.json`, sinh từ `packages/sim/src/roadmap.ts`.
   - Hiện % tiến độ phần game và số lượt PixelLab còn cần. **Cập nhật roadmap.ts sau mỗi đợt việc.**
 - **Chat** (`ChatBox.cs`): nút "–" góc phải thu gọn hẳn thành nút "Trò chuyện »", kèm số tin mới của người khác.
-  - Trạng thái nhớ ở PlayerPrefs `aether.chatMin`.
+  - Trạng thái nhớ ở PlayerPrefs `havenlord.chatMin`.
   - Enter mở lại.
 - **Biển chỉ lối** (`Hud.UpdateExitSigns`): bỏ kẹp cứng x ≥ 420 / y ≥ 170. Ở zoom 1x, map nhỏ hơn màn hình nên biển từng bị kéo vào giữa.
   - Nay biển nằm đúng chỗ lối, chỉ giữ trong màn hình.

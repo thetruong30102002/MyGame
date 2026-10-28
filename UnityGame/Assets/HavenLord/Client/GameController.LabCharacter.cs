@@ -20,7 +20,7 @@ namespace HavenLord.Client
             stance = held == "staff" ? "magic" : "melee";
             UpdateHeld();
             // Phòng thử chọn chiêu cơ bản chuẩn, không đổi túi đồ hay chỉ số cộng thêm.
-            if (loadout.Count > 0) loadout[0] = held == "staff" ? "aether_bolt" : "slash";
+            if (loadout.Count > 0) loadout[0] = held == "staff" ? "haven_bolt" : "slash";
             return player.View.Held == held;
         }
 

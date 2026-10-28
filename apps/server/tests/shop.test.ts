@@ -52,7 +52,7 @@ class FakeWs {
 	}
 }
 
-const dir = mkdtempSync(join(tmpdir(), 'aether-shop-'));
+const dir = mkdtempSync(join(tmpdir(), 'havenlord-shop-'));
 const store = new Store(join(dir, 's.db'));
 let clock = 1_000_000;
 const MIN = 60_000;
