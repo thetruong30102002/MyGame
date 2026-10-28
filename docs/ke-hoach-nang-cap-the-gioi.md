@@ -4,6 +4,10 @@
 
 CHỐT HIỆN HÀNH27/10: tạo nhân vật chọn TỘC → ĐẦU, mặc đồ lót tối giản (nam quần, nữ áo+quần), chạy/đi nói chuyện NPC để chọn nghề rồi nhận bộ đồ+vũ khí. Đợt đầu5 class có5 bộ đồ cơ bản+5 vũ khí cơ bản; không còn bộ vải tân thủ riêng. Tháo bộ đồ trở về thân đồ lót, giữ đầu/tộc. Mỗi tộc3 đầu nam+3 đầu nữ khác tóc,4 tộc=24 bộ đầu. Bỏ hạn mức3 bộ/tộc hoặc3 bộ/class và phép nhân72/360 trước đó. Ba nhóm tài nguyên: nguyên đầu (mặt+tóc+tai/sừng+cổ DA), thân mặc bộ đồ, vũ khí. Cổ áo/áo choàng thuộc thân, không dính avatar. Một dáng thân THON CHUNG NAM/NỮ: vai/eo/chi gọn, giữ chiều cao/khối đầu/neo cổ, không vẽ riêng một thân đô khi ghép đầu nữ. Khóa khối đầu/mắt/má/cằm/cổ; chung rig/hướng/pose/PPU/root/neo cổ/lớp che; không scale theo tóc/bộ/frame hoặc dùng một đầu đứng tĩnh cho mọi hoạt động. Đầu mọi tộc ghép chung mọi bộ class; da hở thân/tay khớp da đầu. Thú nhân chỉ phần đầu, KHÔNG ĐUÔI/animation đuôi. Bộ đồ chỉ vẽ đứng/đi/chạy/đánh của class hỗ trợ, không nhân qua5 class. Vũ khí+bộ đồ cùng class/animationFamilyId. Thân trang phục thay nguyên thân đồ lót, không chồng hai bộ. Thân nền đồ lót dùng chung khi chưa có/tháo đồ, cần pose tương thích hành động đang hỗ trợ. Bộ xanh V7 được chọn làm thiết kế cơ bản kiếm sĩ, vẽ lại thon; hai đầu nam hiện có tiếp tục dùng. Đổi nghề có phí phải đổi đồng bộ class, tẩy phân bổ điểm skill nghề cũ/hoàn điểm để học nghề mới, thay bộ skill/passive, cập nhật thanh chiêu và cặp đồ–vũ khí/animation. Máy chủ kiểm điểm thực/chiêu hợp lệ và giao dịch phí/nghề/skill/đồ đồng bộ, tránh mất phí hoặc còn skill nghề cũ. Loại tiền, mức phí, giới hạn đổi, xử lý đồ cũ và việc tẩy điểm chỉ số cơ thể chưa chốt; không tự đặt phí/loại tiền. Nguyên tố vẫn theo thiên phú cấp10, không tự reroll khi đổi nghề. Xem [đặc tả hiện hành](thiet-ke/nhan-vat-ghep-da-vu-khi.md). Các hạn mức2/3 bộ và48/72/360 phía dưới là lịch sử đã thay.
 
+## Ghi chú mới 28/10 — tách thân, đầu, vũ khí vẽ bằng PixelLab
+
+Chủ dự án đồng ý hướng 5 tộc × 5 class bằng lớp rời (đầu việc `pixellab-layered-character-pilot`, 0%). Vẽ liền mọi tổ hợp cần khoảng 52.800 frame; tách lớp chỉ cần khoảng 3.500 frame thân (10 thân) + 240 hình đầu + khoảng 80 hình vũ khí. PixelLab không xuất lớp nên tách bằng pipeline: thân gốc nam/nữ mặc đồ class bằng transfer_outfit, chuyển động bằng skeleton, đầu mẫu cắt sạch theo đường cổ; đầu 30 × 8 hướng theo head-standard.json chỉ dịch theo neo cổ; vũ khí vẽ sẵn khoảng 16 góc đặt vào điểm nắm, có lớp ngón tay che chuôi. Làm mẫu thử Kiếm sĩ (nam + nữ, 2 đầu Nhân tộc/Ma tộc, đi + chém 15 frame) trong Unity, so hai NPC tóc trắng, đạt mới mở rộng. Các bản thử mannequin/rig/weapon-proof cũ đã dọn ngày 28/10 để làm mới hoàn toàn.
+
 ## Hướng mới ngày 26/10/2026
 
 Nguồn nội dung hiện hành: [Định hướng Aether](dinh-huong-aether.md). Truyện cũ đã lưu trữ; nhân vật đời cũ sau này thành NPC. Phạm vi mới48 tạo hình gốc: bốn tộc, mỗi tộc6 nam +6 nữ; mỗi tạo hình hỗ trợ năm bộ vũ khí. 8 nguyên tố phát hiện cấp 10 với tỷ lệ đều; khuôn viên, chợ, hồ câu và mê cung là hướng phát triển đã chốt. Chỉ các nội dung đã hoàn thiện mới được công bố là đã phát hành.
@@ -129,7 +133,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
 ```json
 {
   "version": 1,
-  "updated": "2026-10-27",
+  "updated": "2026-10-28",
   "title": "Tái thiết thế giới Aether",
   "scope": "Tiến độ của kế hoạch nâng cấp này; không phải % hoàn thành toàn bộ game.",
   "method": "Mỗi việc = tổng trọng số các mốc đã hoàn thành / tổng trọng số mốc. Tổng = trung bình có trọng số khối lượng việc. Chỉ tích mốc khi có bằng chứng; không tự tăng theo thời gian.",
@@ -8264,6 +8268,56 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
           "evidence": ""
         }
       ]
+    },
+    {
+      "id": "pixellab-layered-character-pilot",
+      "group": "Nhân vật",
+      "name": "Tách thân–đầu–vũ khí vẽ bằng PixelLab — mẫu thử Kiếm sĩ",
+      "detail": "Ghi 28/10 theo đồng ý của chủ dự án: 5 tộc × 5 class làm bằng lớp rời thân–đầu–vũ khí, không vẽ liền từng tổ hợp. Vẽ liền 30 đầu × 5 class ≈ 52.800 frame; tách lớp ≈ 10 thân (5 class × nam/nữ, 8 hướng, ~44 frame: đứng/đi/chạy/chém 15/trúng đòn/gục) ≈ 3.500 frame + 30 đầu × 8 hướng (240) + 5 vũ khí × ~16 góc (~80). PixelLab chỉ vẽ nhân vật liền khối, không xuất lớp: tách bằng pipeline sau khi vẽ. Thân: một thân gốc nam + một thân gốc nữ, mặc đồ từng class lên đúng thân gốc (transfer_outfit) để giữ chiều cao/vai/neo cổ; đầu mẫu trọc trên thân phải cắt sạch theo đường cổ cố định (cấm vẽ/ghép đè hai đầu); chuyển động bằng skeleton (animate_with_skeleton_v3) để mọi frame chung khung xương, neo cổ không trôi. Đầu: 30 đầu × 8 hướng cùng cỡ khối mặt theo head-standard.json, ghép vào neo cổ từng frame thân; đầu chỉ dịch theo cổ, không nghiêng/cúi theo đòn. Vũ khí: thân vẽ tay nắm trống; vũ khí vẽ sẵn ~16 góc, mỗi frame chọn góc gần nhất đặt vào điểm nắm, thêm lớp ngón tay che chuôi; không xoay ảnh pixel bằng code. Rủi ro chính: PixelLab lệch vai/cổ áo/tay giữa các frame; cổ áo phải che cổ khớp từng frame, nếu không đầu hở hoặc thụt. Thử nhỏ trước: Kiếm sĩ, thân nam + nữ, 2 đầu (Nhân tộc + Ma tộc có sừng), đi + chém 15 frame; ráp vào Unity, xem cỡ thật trên nền map, so độ nét hai NPC tóc trắng; đạt mới mở 4 class và 28 đầu còn lại. Bản thử mannequin/rig v2–v4/weapon-proof cũ đã dọn 28/10 (commit 07f6ec87) để làm mới hoàn toàn.",
+      "weight": 6,
+      "phase": 2,
+      "region": null,
+      "depends": [],
+      "steps": [
+        {
+          "label": "Chốt hợp đồng lớp: neo cổ, điểm nắm, thứ tự lớp, canvas/PPU/root theo head-standard",
+          "weight": 10,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Mẫu PixelLab: thân gốc nam/nữ Kiếm sĩ, đi + chém 15 frame, cắt sạch đầu mẫu",
+          "weight": 20,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Mẫu 2 đầu (Nhân tộc, Ma tộc có sừng) × 8 hướng; kiếm ~16 góc + lớp ngón tay",
+          "weight": 15,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Ráp trong Unity, kiểm 0,5×/1× trên nền map, so 2 NPC tóc trắng; chủ dự án duyệt",
+          "weight": 15,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Mở rộng 5 class × nam/nữ, 30 đầu, 5 vũ khí cơ bản",
+          "weight": 25,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "QA đủ hướng/frame, build PC/Android và phát hành",
+          "weight": 15,
+          "done": false,
+          "evidence": ""
+        }
+      ],
+      "requiresNewArt": true,
+      "priority": 1
     },
     {
       "id": "web",
