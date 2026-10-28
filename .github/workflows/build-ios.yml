@@ -34,13 +34,13 @@ jobs:
           projectPath: UnityGame
           unityVersion: ${{ env.UNITY_VERSION }}
           targetPlatform: iOS
-          buildMethod: Aether.Importer.GameSetup.BuildIosCiBatch
+          buildMethod: HavenLord.Importer.GameSetup.BuildIosCiBatch
           buildsPath: UnityGame/Build
           allowDirtyBuild: true
       - name: Nén project Xcode
         run: |
           sudo chown -R "$USER" UnityGame/Build
-          rm -rf UnityGame/Build/iOS/Aether_BurstDebugInformation_DoNotShip
+          rm -rf UnityGame/Build/iOS/HavenLord_BurstDebugInformation_DoNotShip
           tar -C UnityGame/Build -cf xcode-project.tar iOS
       - uses: actions/upload-artifact@v4
         with:
@@ -86,12 +86,12 @@ jobs:
         run: |
           if [ "$SIGNED" = "true" ]; then
             xcodebuild -project Unity-iPhone.xcodeproj -scheme Unity-iPhone -configuration Release \
-              -archivePath $RUNNER_TEMP/Aether.xcarchive archive \
+              -archivePath $RUNNER_TEMP/HavenLord.xcarchive archive \
               CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM=${{ secrets.IOS_TEAM_ID }} \
               PROVISIONING_PROFILE_SPECIFIER="$PROFILE_NAME" CODE_SIGN_IDENTITY="Apple Distribution"
           else
             xcodebuild -project Unity-iPhone.xcodeproj -scheme Unity-iPhone -configuration Release \
-              -archivePath $RUNNER_TEMP/Aether.xcarchive archive \
+              -archivePath $RUNNER_TEMP/HavenLord.xcarchive archive \
               CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY=""
           fi
       - name: Xuất .ipa
@@ -104,13 +104,13 @@ jobs:
           <key>method</key><string>${{ secrets.IOS_EXPORT_METHOD || 'ad-hoc' }}</string>
           <key>teamID</key><string>${{ secrets.IOS_TEAM_ID }}</string>
           <key>signingStyle</key><string>manual</string>
-          <key>provisioningProfiles</key><dict><key>com.nttrg.aether</key><string>$PROFILE_NAME</string></dict>
+          <key>provisioningProfiles</key><dict><key>com.nttrg.havenlord</key><string>$PROFILE_NAME</string></dict>
           </dict></plist>
           P
-            xcodebuild -exportArchive -archivePath $RUNNER_TEMP/Aether.xcarchive -exportOptionsPlist $RUNNER_TEMP/export.plist -exportPath out
+            xcodebuild -exportArchive -archivePath $RUNNER_TEMP/HavenLord.xcarchive -exportOptionsPlist $RUNNER_TEMP/export.plist -exportPath out
           else
-            mkdir Payload && cp -R $RUNNER_TEMP/Aether.xcarchive/Products/Applications/*.app Payload/
-            zip -qry out/Aether-unsigned.ipa Payload
+            mkdir Payload && cp -R $RUNNER_TEMP/HavenLord.xcarchive/Products/Applications/*.app Payload/
+            zip -qry out/HavenLord-unsigned.ipa Payload
           fi
           ls -la out
       - uses: softprops/action-gh-release@v2

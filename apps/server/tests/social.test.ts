@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import { mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { MAX_FRIENDS, type ServerMessage, type SocialState } from '@aether/protocol';
+import { MAX_FRIENDS, type ServerMessage, type SocialState } from '@havenlord/protocol';
 import { Store } from '../src/db.ts';
 import { newProgress } from '../src/http.ts';
 import { World } from '../src/world.ts';

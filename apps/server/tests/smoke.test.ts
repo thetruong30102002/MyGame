@@ -1,10 +1,10 @@
 // Thử khói máy chủ: đăng ký → tạo nhân vật → 2 người cùng vào map → thấy nhau di chuyển → chat → lưu.
 // Chạy khi máy chủ THỬ đang bật: `npx tsx tests/smoke.test.ts` (mặc định http://localhost:3201, CSDL data/test.db).
 // Mỗi lần chạy tạo 3 tài khoản t_an_*/t_binh_*/t_chi_* — KHÔNG chạy vào máy chủ thật 3200 (đã dính 06/10/2026: 10
-// tài khoản rác trong aether.db). Bắt buộc thì đặt ALLOW_PROD=1.
+// tài khoản rác trong havenlord.db). Bắt buộc thì đặt ALLOW_PROD=1.
 import { WebSocket } from 'ws';
-import type { CharacterInfo, ServerMessage } from '@aether/protocol';
-import { HERO_SKILLS } from '@aether/sim/skills';
+import type { CharacterInfo, ServerMessage } from '@havenlord/protocol';
+import { HERO_SKILLS } from '@havenlord/sim/skills';
 import { AIM_SLACK } from '../src/actions.ts';
 
 const BASE = process.env.SERVER ?? 'http://localhost:3201';

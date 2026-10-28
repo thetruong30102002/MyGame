@@ -9,7 +9,7 @@
  * - mua bình YẾU hơn → máy chủ từ chối (khỏi phí kim cương).
  * Trước K4 (máy chủ tính sát thương / EXP) hiệu ứng áp ở client — chỉ PvE: EXP hạ quái, sát thương lên quái, sát thương nhận từ quái.
  */
-import type { BuffKind } from '@aether/protocol';
+import type { BuffKind } from '@havenlord/protocol';
 import type { NpcSpot } from './rewards.ts';
 
 /**

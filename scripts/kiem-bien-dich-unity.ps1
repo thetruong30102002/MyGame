@@ -2,10 +2,10 @@
 $ErrorActionPreference = 'Stop'
 $taskRoot = Split-Path -Parent $PSScriptRoot
 $taskProject = Join-Path $taskRoot 'UnityGame'
-$taskOutput = Join-Path $taskRoot '.aether-stage/kiem-bien-dich'
+$taskOutput = Join-Path $taskRoot '.havenlord-stage/kiem-bien-dich'
 New-Item -ItemType Directory -Force -Path $taskOutput | Out-Null
-$taskClientRsp = Get-ChildItem -LiteralPath (Join-Path $taskProject 'Library/Bee/artifacts') -Recurse -Filter 'Aether.Client.rsp' | Sort-Object LastWriteTime -Descending | Select-Object -First 1
-$taskEditorRsp = Get-ChildItem -LiteralPath (Join-Path $taskProject 'Library/Bee/artifacts') -Recurse -Filter 'Aether.Editor.rsp' | Sort-Object LastWriteTime -Descending | Select-Object -First 1
+$taskClientRsp = Get-ChildItem -LiteralPath (Join-Path $taskProject 'Library/Bee/artifacts') -Recurse -Filter 'HavenLord.Client.rsp' | Sort-Object LastWriteTime -Descending | Select-Object -First 1
+$taskEditorRsp = Get-ChildItem -LiteralPath (Join-Path $taskProject 'Library/Bee/artifacts') -Recurse -Filter 'HavenLord.Editor.rsp' | Sort-Object LastWriteTime -Descending | Select-Object -First 1
 if (-not $taskClientRsp -or -not $taskEditorRsp) { throw 'Cần Library/Bee của dự án đã mở bằng Unity ít nhất một lần.' }
 $taskEditorDir = $null
 foreach ($taskLine in (Get-Content -LiteralPath $taskClientRsp.FullName)) {
@@ -20,11 +20,11 @@ try {
         $taskOriginal = if ($taskKind -eq 'Client') { $taskClientRsp } else { $taskEditorRsp }
         $taskLines = @(Get-Content -LiteralPath $taskOriginal.FullName | Where-Object { $_ -notmatch '^[-/](out|refout|analyzer|additionalfile):' -and $_ -notmatch '^".*\.cs"$' })
         if ($taskKind -eq 'Editor') {
-            $taskLines = $taskLines | ForEach-Object { if ($_ -match '^-r:.*Aether\.Client(\.ref)?\.dll"$') { '-r:"' + (Join-Path $taskOutput 'Aether.Client.ref.dll') + '"' } else { $_ } }
+            $taskLines = $taskLines | ForEach-Object { if ($_ -match '^-r:.*Aether\.Client(\.ref)?\.dll"$') { '-r:"' + (Join-Path $taskOutput 'HavenLord.Client.ref.dll') + '"' } else { $_ } }
         }
         $taskLines += '-out:"' + (Join-Path $taskOutput ('Aether.' + $taskKind + '.dll')) + '"'
         $taskLines += '-refout:"' + (Join-Path $taskOutput ('Aether.' + $taskKind + '.ref.dll')) + '"'
-        $taskSourceDir = Join-Path $taskProject ('Assets/Aether/' + $taskKind)
+        $taskSourceDir = Join-Path $taskProject ('Assets/HavenLord/' + $taskKind)
         $taskLines += Get-ChildItem -LiteralPath $taskSourceDir -Recurse -Filter '*.cs' | ForEach-Object { '"' + $_.FullName + '"' }
         $taskRspPath = Join-Path $taskOutput ($taskKind.ToLowerInvariant() + '.rsp')
         Set-Content -LiteralPath $taskRspPath -Value $taskLines -Encoding UTF8

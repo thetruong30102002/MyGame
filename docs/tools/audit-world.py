@@ -5,7 +5,7 @@ from collections import Counter, defaultdict
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parents[2]
-OUT = ROOT / '.aether-stage/world-renewal'
+OUT = ROOT / '.havenlord-stage/world-renewal'
 OUT.mkdir(parents=True, exist_ok=True)
 read = lambda p: json.loads(p.read_text(encoding='utf-8-sig'))
 regions = read(OUT / 'regions.json')

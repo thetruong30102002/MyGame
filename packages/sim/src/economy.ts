@@ -2,7 +2,7 @@
  * Kinh tế ở máy chủ (M3.3a — docs/ke-hoach-m3-may-chu-chien-dau.md): cấp, EXP, xu, bình hồi phục do MÁY CHỦ giữ; client chỉ báo ý định
  * (hạ quái riêng, xong nhiệm vụ, tiêu xu, uống bình) và vẽ theo số máy chủ gửi. Luật thuần dùng chung (máy chủ tính, test node).
  */
-import { MAX_LEVEL } from '@aether/protocol';
+import { MAX_LEVEL } from '@havenlord/protocol';
 import { expForLevel } from './skills.ts';
 
 export interface Eco {

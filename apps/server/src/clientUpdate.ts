@@ -1,5 +1,5 @@
 // Tự cập nhật client Unity (chủ dự án 11/10/2026: "client tự động cập nhật mà không cần tải tay xuống"). Bản phát nằm ở thư mục
-// `data/client` (đổi bằng AETHER_CLIENT_DIR): `version.json` + các file gói do `UnityGame/Tools~/publish-client.mts` chép vào. Mọi lời gọi
+// `data/client` (đổi bằng HAVENLORD_CLIENT_DIR): `version.json` + các file gói do `UnityGame/Tools~/publish-client.mts` chép vào. Mọi lời gọi
 // đọc lại đĩa nên phát bản mới KHÔNG cần khởi động lại máy chủ. Không cần đăng nhập (màn đăng nhập hỏi trước khi có phiên).
 //   GET /api/client/version            → nội dung version.json (404 nếu chưa phát bản nào)
 //   GET /api/client/file/<tên file>    → tải một file gói (chỉ tên trong thư mục, không đường dẫn con)

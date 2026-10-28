@@ -2,7 +2,7 @@ import {useState} from 'react';
 import {useLoad} from '../admin/api';
 import {RosterGallery} from '../roster';
 import {roleArt,UiIcon} from '../ui';
-import type {NewsItem,PostItem} from '@aether/protocol';
+import type {NewsItem,PostItem} from '@havenlord/protocol';
 import type {ClientVersion} from '../../src/clientUpdate';
 export function HomeCover(){
  const [role,setRole]=useState('sword'),selected=roleArt.find(r=>r.id===role)!,{data:version}=useLoad<ClientVersion>('api/client/version'),{data:health}=useLoad('api/health'),{data:news,error}=useLoad<NewsItem[]>('api/news?limit=200'),{data:posts}=useLoad<PostItem[]>('api/posts?limit=20&q=&category=&before=');

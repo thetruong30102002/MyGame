@@ -1,4 +1,4 @@
-import type { ActionAnim } from '@aether/protocol';
+import type { ActionAnim } from '@havenlord/protocol';
 
 /**
  * Động tác nhân vật người chơi (Mốc 1 kế hoạch vẽ — `docs/the-gioi-aether.md` mục Skill nhân vật). Mỗi skill gọi đúng động tác của

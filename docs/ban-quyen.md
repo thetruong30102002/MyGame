@@ -24,7 +24,7 @@ Hàng bán bằng kim cương (thần kỹ, skin) sau này nên tải theo quy�
 - Mẫu lặp khắp ảnh, nên ai cắt lẻ từng khung ra khỏi atlas thì vẫn dò được (thử đủ 256 độ lệch).
 
 **Khoá**
-- Nằm ở `%USERPROFILE%\.aether\mark.key` (64 ký tự hex), hoặc biến môi trường `AETHER_MARK_KEY`.
+- Nằm ở `%USERPROFILE%\.havenlord\mark.key` (64 ký tự hex), hoặc biến môi trường `HAVENLORD_MARK_KEY`.
 - Unity tạo ngẫu nhiên lần nhập đầu tiên.
 - **Khoá KHÔNG nằm trong repo.** Repo công khai thì người khác biết thuật toán nhưng không biết khoá, nên không xoá dấu có chủ đích được.
 - **Sao lưu file khoá** (USB / kho mật khẩu). Mất khoá là mất khả năng chứng minh. Đổi khoá thì phải nhập lại + build lại.
@@ -68,7 +68,7 @@ Test: `packages/asset-pipeline/tests/watermark.test.ts`:
 ## 3. IL2CPP cho bản Windows (đã làm 11/10/2026)
 
 - Android build IL2CPP từ trước.
-- Windows trước đây là Mono: `Aether_Data/Managed/*.dll` mở bằng dnSpy / ILSpy là đọc gần nguyên mã C#. Nay IL2CPP, đặt ở `GameSetup.Setup`, stripping Minimal.
+- Windows trước đây là Mono: `HavenLord_Data/Managed/*.dll` mở bằng dnSpy / ILSpy là đọc gần nguyên mã C#. Nay IL2CPP, đặt ở `GameSetup.Setup`, stripping Minimal.
 - Cần MSVC trên máy build: **Visual Studio Build Tools 18**, workload `Microsoft.VisualStudio.Workload.VCTools`, cài ở `D:\VS\BuildTools` (bộ đệm `D:\VS\Cache`).
   - Ổ C hết chỗ nên không cài vào bản Community có sẵn ở C.
   - Windows SDK 10.0.26100 vẫn nằm ở ổ C (trình cài VS không cho đổi).

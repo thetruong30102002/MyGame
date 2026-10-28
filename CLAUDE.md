@@ -6,7 +6,11 @@
 
 **CHỐT MỚI NHẤT27/10: bắt chọn class ngay lúc tạo nhân vật, cấp1 đồ và1 vũ khí cơ bản đúng class. BỎ cởi đồ/thân nền đồ lót, ngừng vẽ thân đồ lót/tấn công5 vũ khí trên thân không đồ. Hình luôn tối thiểu bộ cơ bản của class; thay/bỏ trang bị quay về bộ cơ bản. Đồ chỉ đi/chạy/đánh theo class của nó; đầu và vũ khí vẫn tách riêng. Nữ nhỏ nhắn thanh hơn nhưng giữ chuẩn đầu/neo cổ chung. Chỉ thị này thay các đoạn đồ lót/NPC chọn nghề bên dưới, không reset DB.**
 
-# Aether Chronicle — hướng dẫn cho agent
+# Haven Lord — hướng dẫn cho agent
+
+<!-- project-rename-haven-lord -->
+
+**Đổi tên dự án28/10/2026: Aether Chronicle → Haven Lord, cả mã nội bộ.** Unity `Assets/HavenLord`, namespace/assembly `HavenLord.*`, productName "Haven Lord", exe `HavenLord.exe`, APK `com.nttrg.havenlord`; npm `@havenlord/*`; CSDL thật `apps/server/data/havenlord.db` (máy chủ tự đổi tên `aether.db` cũ lần khởi động đầu, `apps/server/src/dbPath.ts`); biến môi trường `HAVENLORD_*`; cờ AutoTest `-haven…`; thư mục nháp `.havenlord-stage`; khoá dấu ẩn `~/.havenlord/mark.key`. **GIỮ** "Aether" là tên thế giới trong cốt truyện (Thế giới Aether, Tia Aether, Phế tích Aether) và mọi ID dữ liệu (nguyên tố `aether`, `aether_bolt`, `aether_staff`…), mã dấu ẩn `AETHER-MARK-v1`, dấu khối `aether-plan` trong file kế hoạch. Bản Haven Lord là cài mới: người chơi Windows/Android cũ không tự cập nhật sang được.
 
 <!-- pixellab-heads-redraw -->
 
@@ -45,9 +49,9 @@ rồi `README.md`. Kế hoạch từng mảng ở `docs/ke-hoach-*.md` (mỗi fi
   `packages/protocol`, `packages/sim` (luật + dữ liệu dùng chung client / máy chủ), `packages/asset-pipeline` (xuất ra `assets/`).
   Bản web `apps/web` đã xoá 11/10/2026 — đừng dựng lại.
 - Có người chơi thật trên link Tailscale Funnel: thử tính năng ở máy chủ THỬ (:3201, `data/test.db`), không ở máy chủ thật (:3200);
-  triển khai theo README mục Funnel, sao lưu `apps/server/data/aether.db` trước khi đổi cách lưu dữ liệu.
+  triển khai theo README mục Funnel, sao lưu `apps/server/data/havenlord.db` trước khi đổi cách lưu dữ liệu.
 - Tiếng Việt cho chú thích, tài liệu, chữ trong game, commit message.
-- Mỗi khi thêm hoặc sửa kế hoạch theo yêu cầu chủ dự án: cập nhật nguồn `docs/ke-hoach-nang-cap-the-gioi.md`, chạy `npm run build:site -w @aether/server`, rồi kiểm API admin trên link Tailscale thật có đúng ID/nội dung kế hoạch mới. Không chỉ lưu ghi chú trên máy. Giữ % theo việc đã nghiệm thu; ghi chú mới chưa làm phải ở 0%. Không cần restart máy chủ chỉ vì sửa file kế hoạch.
+- Mỗi khi thêm hoặc sửa kế hoạch theo yêu cầu chủ dự án: cập nhật nguồn `docs/ke-hoach-nang-cap-the-gioi.md`, chạy `npm run build:site -w @havenlord/server`, rồi kiểm API admin trên link Tailscale thật có đúng ID/nội dung kế hoạch mới. Không chỉ lưu ghi chú trên máy. Giữ % theo việc đã nghiệm thu; ghi chú mới chưa làm phải ở 0%. Không cần restart máy chủ chỉ vì sửa file kế hoạch.
 
 ## Vẽ nhân vật — đọc trước mỗi lượt sinh ảnh
 

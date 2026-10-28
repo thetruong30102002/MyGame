@@ -4,9 +4,9 @@ import assert from 'node:assert/strict';
 import { mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import type { ServerMessage } from '@aether/protocol';
-import { isSharedZone, mobId, zoneSpawnPoints, type MonsterZoneDef } from '@aether/sim/mobs';
-import { ENEMY_STATS } from '@aether/sim/skills';
+import type { ServerMessage } from '@havenlord/protocol';
+import { isSharedZone, mobId, zoneSpawnPoints, type MonsterZoneDef } from '@havenlord/sim/mobs';
+import { ENEMY_STATS } from '@havenlord/sim/skills';
 import { MonsterZoneFixture } from './mobFixture.ts';
 import { MobRegistry } from '../src/mobs.ts';
 

@@ -84,8 +84,8 @@ export function pathAllowsBranch(path: PathId, b: Branch): boolean {
 export const BRANCH_LOCK_NOTE: Partial<Record<Branch, string>> = { earth: 'Mở ở nhiệm vụ “Sợi tơ màu đất” (tuổi 16, Nghĩa địa Hoàng Hôn)' };
 
 export const MAX_TIER = 10;
-/** Cấp tối đa của nhân vật (100 — `@aether/protocol`, máy chủ kẹp cùng số). */
-export { MAX_LEVEL } from '@aether/protocol';
+/** Cấp tối đa của nhân vật (100 — `@havenlord/protocol`, máy chủ kẹp cùng số). */
+export { MAX_LEVEL } from '@havenlord/protocol';
 /**
  * Điểm tiềm năng DỪNG ở cấp này: `pointsForLevel(40)` = 47 điểm = 1 nhánh master (Kiếm 29, nguyên tố 30) + ~60% nhánh nữa —
  * cây thiết kế cho đúng số đó. Trần cấp lên 100 (08/10/2026) mà điểm cứ tăng thì cấp 100 có ~119 điểm → master 3–4 nhánh, phá

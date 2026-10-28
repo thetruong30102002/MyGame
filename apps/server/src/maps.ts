@@ -1,8 +1,8 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { isChildZone, isSharedZone, type MonsterZoneDef } from '@aether/sim/mobs';
-import { enemyLevel } from '@aether/sim/skills';
-import type { NpcSpot } from '@aether/sim/rewards';
+import { isChildZone, isSharedZone, type MonsterZoneDef } from '@havenlord/sim/mobs';
+import { enemyLevel } from '@havenlord/sim/skills';
+import type { NpcSpot } from '@havenlord/sim/rewards';
 
 /** Mã map `<vùng>/<tên>` hợp lệ — chỉ chữ thường, số, gạch dưới (không cho `..` lọt ra ngoài thư mục map). */
 const MAP_ID = /^[a-z0-9_]{1,24}\/[a-z0-9_]{1,40}$/;

@@ -1,6 +1,6 @@
-// Phần LUẬT THUẦN tách từ apps/web/tests/swordtiers69.test.ts (11/10/2026, chuẩn bị xoá bản web): chỉ hàm của @aether/sim (+ bảng hình
+// Phần LUẬT THUẦN tách từ apps/web/tests/swordtiers69.test.ts (11/10/2026, chuẩn bị xoá bản web): chỉ hàm của @havenlord/sim (+ bảng hình
 // tạm `UnityGame/Tools~/data/tempArt.ts`). Phần chạy CombatSystem của web bỏ cùng bản web — client Unity có test C# + vector riêng.
-// Chạy: npx tsx tests/swordtiers69.test.ts (trong packages/sim) hoặc `npm test -w @aether/sim`.
+// Chạy: npx tsx tests/swordtiers69.test.ts (trong packages/sim) hoặc `npm test -w @havenlord/sim`.
 // Chạy: npx tsx tests/swordtiers69.test.ts — GĐ3 lượt B: mốc 6–9 của 3 lưu phái Kiếm (bảng 3.1). Luật thuần (đúng lúc, cộng
 // dồn, ngưỡng máu), dữ liệu + mô tả sinh từ số liệu, trần mốc 9 mọi nhánh, và chạy thật trong CombatSystem: Phá Giáp (phá
 // giáp + vỡ giáp chồng lên), Thế Áp Đảo (cộng dồn / về 0), Lưỡi Sóng (xuyên, rộng, mang phủ phép), Bất Khuất, Dòng Chảy Ngược

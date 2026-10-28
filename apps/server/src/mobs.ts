@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import type { MobMove, MobView, ServerMessage } from '@aether/protocol';
-import { respawnDelay } from '@aether/sim/bossRules';
+import type { MobMove, MobView, ServerMessage } from '@havenlord/protocol';
+import { respawnDelay } from '@havenlord/sim/bossRules';
 import {
 	cleanMobAct,
 	cleanMobCc,
@@ -13,8 +13,8 @@ import {
 	mobId,
 	zoneSpawnPoints,
 	type MonsterZoneDef,
-} from '@aether/sim/mobs';
-import { enemyStatsAt, type EnemyStats } from '@aether/sim/skills';
+} from '@havenlord/sim/mobs';
+import { enemyStatsAt, type EnemyStats } from '@havenlord/sim/skills';
 
 /** Phần thế giới mà sổ quái cần: vị trí người chơi + gửi tin. */
 export interface MobHost {

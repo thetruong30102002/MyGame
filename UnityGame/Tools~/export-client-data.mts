@@ -7,7 +7,7 @@ import { TEMP_ART } from './data/tempArt.ts';
 import { STORY } from '../../packages/sim/src/story/story.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
-const out = join(here, '..', 'Assets', 'Aether', 'Data', 'Client');
+const out = join(here, '..', 'Assets', 'HavenLord', 'Data', 'Client');
 mkdirSync(out, { recursive: true });
 writeFileSync(join(out, 'tempArt.json'), `${JSON.stringify({ TEMP_ART }, null, '\t')}\n`);
 console.log(`tempArt.json: ${Object.keys(TEMP_ART).length} mục`);

@@ -1,5 +1,5 @@
 // Test vector nhóm THẾ GIỚI (va chạm, tìm đường, quái dùng chung, vùng, điểm danh, cốt truyện) sinh từ CHÍNH hàm TS của packages/sim →
-// Tests~/vectors/world.json. Test C# (Tests~/Aether.Core.Tests/WorldTests.cs) gọi hàm C# cùng đầu vào và đòi ra y hệt. Chạy ở gốc repo:
+// Tests~/vectors/world.json. Test C# (Tests~/HavenLord.Core.Tests/WorldTests.cs) gọi hàm C# cùng đầu vào và đòi ra y hệt. Chạy ở gốc repo:
 //   npx tsx UnityGame/Tools~/vectors-world.mts
 // Map thật (assets/maps/human/*.json) được NHÚNG phần va chạm (terrain + props + meta) vào vector để test C# không phụ
 // thuộc file map đang bị sửa ở bản web.

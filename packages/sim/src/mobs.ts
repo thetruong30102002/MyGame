@@ -1,4 +1,4 @@
-import type { MobAct, MobCc, MobCcKey } from '@aether/protocol';
+import type { MobAct, MobCc, MobCcKey } from '@havenlord/protocol';
 
 /**
  * Quái DÙNG CHUNG giữa người chơi (M3.2 — docs/ke-hoach-m3-may-chu-chien-dau.md). Luật thuần cho cả máy chủ (giữ sổ quái)

@@ -2,7 +2,7 @@
 // liệu giả và socket giả. Kiểm tương thích ngược hai chiều: client cũ (không gửi `gear`) với máy chủ mới, và gói `gear`
 // sai dạng bị bỏ.
 import assert from 'node:assert/strict';
-import { cleanGearView, GEAR_VIEW_SLOTS, type CharacterInfo, type ServerMessage } from '@aether/protocol';
+import { cleanGearView, GEAR_VIEW_SLOTS, type CharacterInfo, type ServerMessage } from '@havenlord/protocol';
 import type { Store } from '../src/db.ts';
 import { World } from '../src/world.ts';
 

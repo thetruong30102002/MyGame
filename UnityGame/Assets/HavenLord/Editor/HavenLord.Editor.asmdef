@@ -1,0 +1,14 @@
+{
+    "name": "HavenLord.Editor",
+    "rootNamespace": "HavenLord.Importer",
+    "references": ["HavenLord.Core", "HavenLord.Data", "HavenLord.Net", "HavenLord.Client", "Unity.2D.Sprite.Editor"],
+    "includePlatforms": ["Editor"],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": ["Newtonsoft.Json.dll"],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

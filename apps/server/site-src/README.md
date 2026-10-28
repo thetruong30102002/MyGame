@@ -12,14 +12,14 @@ Toàn bộ cổng web là **một ứng dụng React/TypeScript**: một root, k
 Chạy tại gốc dự án:
 
 ```powershell
-npm run typecheck:site -w @aether/server
-npm run build:site -w @aether/server
+npm run typecheck:site -w @havenlord/server
+npm run build:site -w @havenlord/server
 npx tsx --test apps/server/tests/news-archive.test.ts apps/server/tests/developmentPlan.test.ts
 npx tsx --test apps/server/tests/query-cache.test.ts apps/server/tests/site-performance.test.ts
 npx tsx scripts/preview-world-site.mts
 ```
 
-Preview dùng cổng **3201** và DB `.aether-stage/world-renewal/site-preview.db`, không dùng DB thật. `seed-react-preview.mts` tạo dữ liệu UI chỉ trong DB này. Không chạy thử cấp tài nguyên trên bản thật.
+Preview dùng cổng **3201** và DB `.havenlord-stage/world-renewal/site-preview.db`, không dùng DB thật. `seed-react-preview.mts` tạo dữ liệu UI chỉ trong DB này. Không chạy thử cấp tài nguyên trên bản thật.
 
 Tin cũ có cờ `archived`; API công khai chỉ trả tin đang hiển thị. Admin xem được cả hai và có nút lưu trữ/hiện lại. Migration thêm cột giữ dữ liệu cũ. `publish-react-site.mts` sao lưu SQLite online và kiểm integrity trước khi chuyển tin; không reset tài khoản/nhân vật. Không tự chạy lại script công bố để đăng tin ngoài yêu cầu chủ dự án.
 

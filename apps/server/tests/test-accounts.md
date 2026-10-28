@@ -5,7 +5,7 @@
 | tester1 | OBlxl1X2 | Ánh Dương (nữ) — **có quyền quản trị** trong `data/test.db` (10/10/2026, `src/admin.ts add tester1`): thử trang `/admin` |
 | tester2 | OBlxl1X2 | Minh Khôi (nam) — tài khoản thường (thử màn "không có quyền quản trị") |
 
-## Tài khoản thử của chủ dự án (CẢ CSDL thật `data/aether.db` lẫn `data/test.db`)
+## Tài khoản thử của chủ dự án (CẢ CSDL thật `data/havenlord.db` lẫn `data/test.db`)
 
 Tạo 06/10/2026 theo yêu cầu của chủ dự án, bằng `npx tsx src/seed.ts admin admin` (script bỏ qua luật mật
 khẩu ≥ 6 ký tự của form đăng ký; đăng nhập không kiểm độ dài nên vẫn vào được). Đây là tài khoản người chơi

@@ -1,7 +1,7 @@
-import { cleanActionFx, type ActionFx } from '@aether/protocol';
-import { clampTarget } from '@aether/sim/skillRules';
-import { HERO_SKILLS, isGroundTarget, type SkillDef } from '@aether/sim/skills';
-import { ENCHANTS } from '@aether/sim/talents';
+import { cleanActionFx, type ActionFx } from '@havenlord/protocol';
+import { clampTarget } from '@havenlord/sim/skillRules';
+import { HERO_SKILLS, isGroundTarget, type SkillDef } from '@havenlord/sim/skills';
+import { ENCHANTS } from '@havenlord/sim/talents';
 
 const SKILLS: ReadonlyMap<string, SkillDef> = new Map(HERO_SKILLS.map((s) => [s.id, s]));
 

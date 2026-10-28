@@ -83,7 +83,7 @@ tính, và lý do không làm được bằng art có sẵn. Chỉ vẽ những 
 - Vẽ khung đầu (Pro Flash) → xem ảnh tĩnh phóng to + đặt thử trong game → ĐẠT mới làm động. Hỏng một phần thì `inpaint` / sửa
   prompt, không vẽ lại cả hình.
 - Làm động đúng số khung cần (lặp 8, nổ 10–12, không hơn); chọn khung tốt (`select_object_frames`), bỏ khung hỏng thay vì vẽ lại.
-- Hình đầu tiên của mỗi loại phải duyệt trong phòng Thử chiêu Unity (`-aetherLab`) trước khi vẽ các hình cùng loại — sai cách vẽ
+- Hình đầu tiên của mỗi loại phải duyệt trong phòng Thử chiêu Unity (`-havenLab`) trước khi vẽ các hình cùng loại — sai cách vẽ
   thì sửa cho cả loạt, không để sai hàng loạt.
 - Ghi mọi job vào `packages/asset-pipeline/sources/pixellab/registry.json` (không vẽ trùng); mỗi lô ghi lượt dự tính vs thực tế — lệch quá 20% thì DỪNG
   xem lại trước khi vẽ tiếp.
@@ -465,7 +465,7 @@ cương) cần luật riêng: `docs/ke-hoach-kim-cuong.md` mục "Thần kỹ". 
 Chủ dự án 11/10/2026: "thêm note cải tiến lại hết các skill boss, thêm frame và thêm skill hoành tráng" (chiêu người chơi đã có mục
 riêng ngay trên).
 
-**Hiện trạng** (đo atlas `assets/vfx/vfx-boss.json` + `UnityGame/Assets/Aether/Client/Combat/CombatSystem.Bosses.cs`): 25 boss vùng /
+**Hiện trạng** (đo atlas `assets/vfx/vfx-boss.json` + `UnityGame/Assets/HavenLord/Client/Combat/CombatSystem.Bosses.cs`): 25 boss vùng /
 rồng (21 boss + 4 rồng), 47 chiêu, dùng **40 hình**. Mỗi hình chỉ **8–11 khung (trung vị 9)**, khổ 72–182 px; 7 hình dùng chung cho 2
 boss (`boss_hellfire`, `boss_mud_geyser`, `boss_frost_roar`, `boss_avalanche`, `boss_forge_sigil`, `boss_ankh_curse`, `boss_oblivion_mist`).
 Mọi chiêu chỉ là một lần nổ trên vòng báo đỏ (5 dạng: Blast · Scatter · Ring · Line · Pool), không có đòn "ra mặt", không đổi pha

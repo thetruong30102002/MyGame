@@ -1,5 +1,5 @@
-import type { ServerMessage } from '@aether/protocol';
-import { BUFF_MAX_MS, buffPower, MERCHANTS, SHOP } from '@aether/sim/shop';
+import type { ServerMessage } from '@havenlord/protocol';
+import { BUFF_MAX_MS, buffPower, MERCHANTS, SHOP } from '@havenlord/sim/shop';
 import type { Store } from './db.ts';
 import { nearNpc } from './maps.ts';
 
@@ -14,7 +14,7 @@ export const BUFF_TICK_MS = 5000;
 
 /**
  * Cửa hàng kim cương + bình thời hạn (K1 — docs/ke-hoach-kim-cuong.md), bán ở quầy của người bán hàng các vùng (`MERCHANTS` — đứng xa thì không bán).
- * Giá theo danh mục CỦA MÁY CHỦ (`@aether/sim/shop`); kim cương trừ và bình ghi trong một transaction. Thời gian bình chỉ trôi lúc người chơi online: vào game bắt đầu đếm, mỗi
+ * Giá theo danh mục CỦA MÁY CHỦ (`@havenlord/sim/shop`); kim cương trừ và bình ghi trong một transaction. Thời gian bình chỉ trôi lúc người chơi online: vào game bắt đầu đếm, mỗi
  * `BUFF_TICK_MS` trừ phần đã chơi, rời game trừ nốt.
  */
 export class Shop {

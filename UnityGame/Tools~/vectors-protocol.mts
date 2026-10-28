@@ -1,5 +1,5 @@
 // Test vector nhóm "protocol" (packages/protocol/src/index.ts) sinh từ CHÍNH hàm TypeScript → Tests~/vectors/protocol.json.
-// Test C#: Tests~/Aether.Core.Tests/ProtocolTests.cs (Aether.Net). Chạy ở gốc repo:
+// Test C#: Tests~/HavenLord.Core.Tests/ProtocolTests.cs (HavenLord.Net). Chạy ở gốc repo:
 //   npx tsx UnityGame/Tools~/vectors-protocol.mts
 // Gồm: hằng, validateName / validateUsername / validatePassword, cleanActionFx, cleanGearView, và MẪU TIN NHẮN mọi loại `t`
 // (khai kiểu ClientMessage / ServerMessage nên sai khoá là tsc báo) — C# đọc rồi ghi lại phải ra đúng chuỗi JSON.stringify.

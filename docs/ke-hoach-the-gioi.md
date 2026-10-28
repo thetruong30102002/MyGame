@@ -241,9 +241,9 @@ trong dữ liệu bản đồ tổng → làm UI phím M (mục 3). ~~Hiện x�
 **ĐÃ NỐI vào game 10/10/2026 (tầng Thế giới của màn phím M — dựng vào bản thử, CHƯA lên bản thật):**
 
 - **Ảnh vào web**: `npm run assets:world` (pipeline, lệnh `world`) kiểm khổ 688×384 + ảnh kín rồi chép NGUYÊN file sang
-  `assets/ui/world-continent.png` (tên file mới). Dựng thử: `AETHER_WEB_ASSETS=D:/nttrg/pixel/.aether-stage/assets npm run
+  `assets/ui/world-continent.png` (tên file mới). Dựng thử: `HAVENLORD_WEB_ASSETS=D:/nttrg/pixel/.havenlord-stage/assets npm run
   assets:world` (đường dẫn TUYỆT ĐỐI — lệnh chạy trong thư mục gói pipeline, đường dẫn tương đối sẽ ghi lạc vào đó). Triển khai =
-  chép `.aether-stage/assets/ui/world-continent.png` sang `apps/web/public/assets/ui/` (hoặc chạy lệnh không đặt biến).
+  chép `.havenlord-stage/assets/ui/world-continent.png` sang `apps/web/public/assets/ui/` (hoặc chạy lệnh không đặt biến).
 - **Toạ độ 10 vùng**: `apps/web/src/game/world/worldAtlas.ts` — `CONTINENT_PLACES[vùng] = { center, outline }`, tỉ lệ 0–1 theo
   ảnh: `center` = tâm (nhãn tên + cấp, dấu "Bạn ở đây"), `outline` = đường bao (đa giác theo chiều kim đồng hồ; hai vùng kề nhau
   DÙNG CHUNG đỉnh ở đường ranh) dùng để bắt rê / chạm, viền tô sáng và làm tối vùng chưa mở. Đo trên ảnh lưới 0,025 (ranh = dãy núi
@@ -326,8 +326,8 @@ ghi rõ chỗ nào đang tạm.
 Thiết kế: `docs/thiet-ke/vung1-12-map.md` (+ `.json`). 12 map, 14 cạnh trong vùng + 1 lối sang vùng 2 (Hẻm Cửa Sông → `swamp/hub`
 điểm đến `east_gate`; khi dựng vùng 2: hub phải có địa điểm `east_gate` + lối về `human/rivergate` điểm đến `swamp_gate_vg`).
 
-**ĐỢT 1 — ĐÃ DỰNG + LÊN BẢN THẬT 10/10/2026** (12 map đang chạy trên Funnel; bản thử `.aether-stage/assets`, máy chủ thử
-:3201 chạy với `AETHER_MAPS=.aether-stage/assets/maps`):
+**ĐỢT 1 — ĐÃ DỰNG + LÊN BẢN THẬT 10/10/2026** (12 map đang chạy trên Funnel; bản thử `.havenlord-stage/assets`, máy chủ thử
+:3201 chạy với `HAVENLORD_MAPS=.havenlord-stage/assets/maps`):
 - Luật / dữ liệu: cấp quái theo khu (`MonsterZone.level` → `enemyStatsAt` + `ENEMY_BASE_LEVEL` ở `packages/sim/src/skills.ts`; khu
   không khai cấp giữ nguyên `ENEMY_STATS` nên 6 map cũ không đổi số nào). Máy chủ: sổ quái nhân chỉ số theo cấp, `sharedKill` trao
   EXP / xu theo chính con quái, `privateKill` nhận id khu + kiểm khu riêng đó trên map đang đứng, `MobView.level`. Client: sinh quái
@@ -344,7 +344,7 @@ Thiết kế: `docs/thiet-ke/vung1-12-map.md` (+ `.json`). 12 map, 14 cạnh tro
   `untilAge` ≤ 15; lối hai chiều ở hai mép đối diện. `world.json`: `level` từng khu + `levels` [thấp, cao] của map.
 - Test: `packages/asset-pipeline/tests/maps.test.ts` (12 map, luật mới), `apps/web/tests/nav.test.ts` (vùng kín làm cảnh — lõi đá
   hang, bờ bên kia sông — không tính khe lẻ; điểm sinh quái đứng được; số bước từ trạm đúng thiết kế), `zonelevel.test.ts`,
-  `apps/server/tests/economy.test.ts`. Kiểm map nháp: `AETHER_WEB_ASSETS=<thư mục nháp> npx tsx tests/<tên>.test.ts` (apps/web).
+  `apps/server/tests/economy.test.ts`. Kiểm map nháp: `HAVENLORD_WEB_ASSETS=<thư mục nháp> npx tsx tests/<tên>.test.ts` (apps/web).
 
 **ĐỢT 2 — ĐÃ VẼ + DỰNG VÀO BẢN THỬ 10/10/2026, CHƯA lên Funnel**: vẽ nợ hình vùng 1 bằng token #1 — 48 lượt (3 tấm 3×3 ×
 6 + 5 món lẻ × 6), không vẽ lại món nào:
@@ -358,13 +358,13 @@ Thiết kế: `docs/thiet-ke/vung1-12-map.md` (+ `.json`). 12 map, 14 cạnh tro
   `sources/pixellab/objects/<món>/args.json` (`style_image_path` → đổi thành base64 trước khi gửi: lệnh `object` gửi JSON nguyên văn).
 - Cắt sạch, cỡ hợp với nhân vật (bia ~41×42, rào sắt 58 rộng → khe giữa các đoạn 14px; tường đổ 59 rộng → khe ~21px < hộp chân 22px
   nên tường luỹ / cổng đá vẫn kín; cây chết 122×149 ≈ cây sồi; hầm mộ 150×176; vách đá 178×158; vòm đá 148×143 đi xuyên được).
-- Dựng lại `AETHER_WEB_ASSETS=.aether-stage/assets npm run assets:map -- human` (KHÔNG sửa code): atlas 87 đồ vật + 33 decal;
+- Dựng lại `HAVENLORD_WEB_ASSETS=.havenlord-stage/assets npm run assets:map -- human` (KHÔNG sửa code): atlas 87 đồ vật + 33 decal;
   Nghĩa địa 4 → 278 đồ vật, Đồi Xương 2 → 164, Vách 12 → 143, Mộ Vô Danh 79 → 206, Luỹ 15 → 190, Hẻm Cửa Sông 222 → 245; Hang
   Gargoyle xáo đồ trang trí (đá R1 có hình nên nhánh dự phòng không rút thêm số ngẫu nhiên) — địa hình / địa điểm / khu quái / lối
   của cả 12 map KHÔNG đổi (`world.json` y nguyên; town, mossvale, shrine, riverflats, mossrift giống từng byte). `validateRegion`,
   `nav.test` (mọi điểm sinh quái đứng được, mọi địa điểm / lối tới được), `codex` / `zonelevel`, `maps.test`, test máy chủ đều đạt.
 - Máy chủ game chỉ đọc khu quái / địa điểm / boss của file map (không dùng đồ vật) → lên Funnel ĐỢT 2 KHÔNG cần khởi động lại máy
-  chủ: chép `.aether-stage/assets/maps/human/` (props.png / .json / .meta.json, 12 `<map>.json` + `.minimap.png` / `.minimap.json`,
+  chủ: chép `.havenlord-stage/assets/maps/human/` (props.png / .json / .meta.json, 12 `<map>.json` + `.minimap.png` / `.minimap.json`,
   `world.json`) sang `apps/web/public/assets/maps/human/` (hoặc dựng lại vào public). Người lưu vị trí trong chân đồ vật mới thì
   vào lại ở điểm hồi sinh của map (`Game` bỏ vị trí đã lưu bị chặn).
 
@@ -392,7 +392,7 @@ Hình (Mốc 1 + 2) đã vẽ hết nên dựng luôn 6 vùng theo khung 12 map 
 - **Kiểm**: `apps/server/tests/worldmaps.test.ts` — đi bằng chân thật tới mọi điểm sinh quái / lối / sân boss, lối xuyên vùng hai
   chiều đúng mép, mọi loại quái có chỉ số + kháng hệ.
 - Chưa có: NPC dịch vụ ở 6 trạm (chưa vẽ), nhiệm vụ / cốt truyện vùng 2–7. (Chiêu riêng của boss / rồng: ĐÃ LÀM 11/10/2026 —
-  `UnityGame/Assets/Aether/Client/Combat/CombatSystem.Bosses.cs`; dịch chuyển giữa các trạm: cột dịch chuyển + quản trị đã có.)
+  `UnityGame/Assets/HavenLord/Client/Combat/CombatSystem.Bosses.cs`; dịch chuyển giữa các trạm: cột dịch chuyển + quản trị đã có.)
 
 ## 5.4 Làm đẹp map: đồ vật lặp lại, quái thưa, xếp có trật tự — ĐÃ LÀM phần 0 lượt cho vùng 2–7 (11/10/2026)
 
@@ -452,7 +452,7 @@ không phát sáng, không hiệu ứng, cỡ như hòn đá thường nên ngư
   thay vì vẽ 7 cái (luật biến thể = tô màu lại).
 
 **Nghiệm thu (đo lại bằng cùng phép đếm trên `assets/maps`)**: 3 loại nhiều nhất ≤ 15% đồ vật mỗi vùng; ≥ 60 loại đồ / vùng; quái thường
-≥ 20 con / map săn và ≥ 2 loại / map săn; ảnh trước / sau từng vùng cho chủ dự án duyệt (Unity AutoTest `-aetherTour` hiện chụp trạm / map săn / sân boss vùng 2–7 — mở rộng ra mọi map của 7 vùng khi làm).
+≥ 20 con / map săn và ≥ 2 loại / map săn; ảnh trước / sau từng vùng cho chủ dự án duyệt (Unity AutoTest `-havenTour` hiện chụp trạm / map săn / sân boss vùng 2–7 — mở rộng ra mọi map của 7 vùng khi làm).
 Luật kiểm `validateRegion` + `apps/server/tests/worldmaps.test.ts` (đi bộ tới mọi điểm sinh quái / lối) phải còn qua sau khi xếp lại.
 
 **Đã làm 11/10/2026 (vùng 2–7, 0 lượt)**: bố cục (đường, bãi, lối, địa điểm) GIỮ NGUYÊN — đã so 72 map, 0 lệch — nên máy chủ / bản
@@ -468,7 +468,7 @@ bằng chân tới mọi điểm đến / lối / điểm sinh quái của 12 ma
 ## 5.5 Thời tiết theo vùng — ĐÃ LÀM (11/10/2026)
 
 Chủ dự án: "mỗi vùng phủ thêm tí hiệu ứng như phủ tuyết… tuyết rơi, gió sa mạc cát bay, rơm sa mạc lăn lăn, đặc trưng mỗi vùng".
-`UnityGame/Assets/Aether/Client/Weather.cs`, chọn theo `biome` của map, 0 lượt vẽ (hạt pixel sinh trong code; cỏ khô lăn dùng
+`UnityGame/Assets/HavenLord/Client/Weather.cs`, chọn theo `biome` của map, 0 lượt vẽ (hạt pixel sinh trong code; cỏ khô lăn dùng
 `tumbleweed_d` có sẵn của sa mạc). Tắt được ở Cài đặt → "Hiệu ứng thời tiết"; điện thoại bớt 40% hạt.
 
 | Biome (vùng) | Hiệu ứng |
@@ -481,7 +481,7 @@ Chủ dự án: "mỗi vùng phủ thêm tí hiệu ứng như phủ tuyết… 
 | Beach (Quần đảo) | lấp lánh, bụi cát nhẹ |
 | Meadow / Deadland / Rocky (vùng 1) | phấn hoa + lá / sương + tro / bụi |
 
-Kiểm: Unity AutoTest `-aetherWeather` chụp trạm (đứng cạnh cột dịch chuyển) + một map săn mỗi vùng, rồi tắt thử.
+Kiểm: Unity AutoTest `-havenWeather` chụp trạm (đứng cạnh cột dịch chuyển) + một map săn mỗi vùng, rồi tắt thử.
 
 ## 5.6 Cây cối: mỗi vùng một kiểu riêng, mỗi map một loại cây — ĐÃ LÀM phần 0 lượt (11/10/2026)
 
@@ -513,7 +513,7 @@ Hướng làm:
 4. Đi cùng mục 5.4 (đồ vật lặp lại / xếp có trật tự): cây là phần lớn đồ vật nên làm chung một lượt dựng lại map.
 
 **Nghiệm thu (đo lại bằng `docs/tools/dem-cay.py`)**: dòng "loài dùng chung nhiều vùng" = **không có**; mọi map săn có loài chủ đạo
-≥ 60%; hai map nối nhau khác loài chủ đạo; ảnh trước / sau mỗi vùng (AutoTest `-aetherTour` / `-aetherWeather`) cho chủ dự án duyệt;
+≥ 60%; hai map nối nhau khác loài chủ đạo; ảnh trước / sau mỗi vùng (AutoTest `-havenTour` / `-havenWeather`) cho chủ dự án duyệt;
 `validateRegion` + `apps/server/tests/worldmaps.test.ts` vẫn qua (cây không chặn lối / điểm sinh quái).
 
 ## 5.7 Map cho nguyên tố mới — GHI CHÚ (11/10/2026, chưa làm)
@@ -624,7 +624,7 @@ cháy. Quái theo bầy đông hơn map thường, có thể dùng cho sự ki�
 
 Tổng cộng **134 map cho 10 vùng chính**. Bộ dựng giữ nguyên các địa điểm và bầy quái cũ; mở hành lang tới lối công trình, bắc cầu nếu cắt qua nước và dọn chân đồ vật chắn hành lang. Tường mới dùng ký tự `#`: TS và C# cùng kiểm va chạm; Unity tô gạch có mạch vữa, minimap dùng nền tối; thời tiết ngoài trời tắt trong công trình. Chưa dùng bộ building-kit PixelLab hoặc tiêu lượt vẽ mới.
 
-Kiểm tra: `npm run typecheck`, `npm test`, `npx tsx apps/server/tests/worldmaps.test.ts`, `npx tsx apps/server/tests/regions.test.ts`. Test công trình kiểm cả đường đi với hộp chân thật, điểm vào, phòng, cột dịch chuyển và tường; bộ worldmaps kiểm mọi điểm sinh quái và lối xuyên vùng. Có thể đặt `AETHER_MAPS` để kiểm thư mục bản nháp trước khi thay dữ liệu project.
+Kiểm tra: `npm run typecheck`, `npm test`, `npx tsx apps/server/tests/worldmaps.test.ts`, `npx tsx apps/server/tests/regions.test.ts`. Test công trình kiểm cả đường đi với hộp chân thật, điểm vào, phòng, cột dịch chuyển và tường; bộ worldmaps kiểm mọi điểm sinh quái và lối xuyên vùng. Có thể đặt `HAVENLORD_MAPS` để kiểm thư mục bản nháp trước khi thay dữ liệu project.
 
 Còn làm tiếp: bốn vùng nguyên tố và Cổng Nguyên Tố (§5.7), bộ hình công trình riêng và chiến địa ngoài thành, NPC/thoại/nhiệm vụ cho công trình, ba rồng vùng cuối, cân nhịp chiến đấu thực tế và duyệt hình trong game. Đợt này cập nhật dữ liệu project; chưa phát EXE/APK hoặc khởi động lại máy chủ thật.
 
@@ -665,7 +665,7 @@ vẽ PixelLab (danh sách NHẸ). Test `tests/codex.test.ts`.
    - người dứt điểm đã có viên Long Châu đó: vẫn nhận (thêm một viên dư) hay rơi cho người khác? Đông người thì có tách "kênh" (mỗi
      kênh một con rồng) hoặc rút giờ hồi sinh không (mục 2.2)?
 
-1. ~~Trần cấp~~ — **ĐÃ CHỐT + ĐÃ LÀM 08/10/2026: trần 100** (≈10 cấp / vùng). Đã code: `MAX_LEVEL` 100 ở `@aether/protocol` (máy chủ
+1. ~~Trần cấp~~ — **ĐÃ CHỐT + ĐÃ LÀM 08/10/2026: trần 100** (≈10 cấp / vùng). Đã code: `MAX_LEVEL` 100 ở `@havenlord/protocol` (máy chủ
    kẹp theo), `TALENT_LEVEL_CAP` 40, `expForLevel` cũ tới cấp 10 rồi `3.844 × (cấp/10)^2,6`, Tia Aether kẹp ở 40, `cleanLevel` khi
    nạp bản lưu (EXP thừa giữ sát mốc, không nhảy cấp), thanh EXP đầy + "Cấp tối đa". Test `tests/level.test.ts`. Ghi chú gốc:
    - `talents.MAX_LEVEL` 40 → 100 và **ép trần thật** (hiện chỉ là hằng, chưa chỗ nào chặn).

@@ -599,7 +599,7 @@ bảng Tiềm năng vẫn "Sắp có"); trang Thử chiêu `/thu-chieu` đặt t
   tồn tại — "một dame tổng chứ không phải dame theo thời gian"), cả map thấy thanh niệm, né / bị khống chế thì mất niệm; boss: người ra đòn cuối
   ĂN HẾT (EXP, xu, tính hạ boss cho cổng vùng, rơi đồ), người đánh hộ không được gì ("kết liễu là được hết, còn lại không được gì"). Chi tiết: mục "Tuyệt kỹ = đòn KẾT LIỄU boss" ở `docs/pixellab-ke-hoach-ve.md`. Thế đỡ `still`
   vẫn còn trong `skillRules.guardOutcome` (test giữ) nhưng không chiêu nào dùng. Kiểm bằng phòng Thử chiêu Unity
-  (`-aetherLab [-aetherLabStyle thuy_than|bac_than]`): đứng cách quái 260px, cả 6 tuyệt kỹ + Xoáy Nước đều trúng và hạ mục tiêu.
+  (`-havenLab [-havenLabStyle thuy_than|bac_than]`): đứng cách quái 260px, cả 6 tuyệt kỹ + Xoáy Nước đều trúng và hạ mục tiêu.
 - **Hình**: 7 hình `ult_*` (vẽ 09/10/2026) đóng ở atlas RIÊNG `assets/vfx/vfx-ult.{png,json}` (`buildVfx.ts` cờ `atlas: 'ult'`,
   1987×953, 1,6 MB) — chỉ phòng tập tải (`Vfx.load({ extra })`), atlas chính không đổi một byte. Icon: bộ v2 khoá `future:<nhánh>:10`.
   Vật triệu hồi: hook `CombatHooks.spawnSummon` / `despawnSummon` (phòng tập dựng actor; game thật chưa nối).

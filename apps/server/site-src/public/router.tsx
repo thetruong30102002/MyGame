@@ -31,7 +31,7 @@ export function Router({ children, prefetch }: {
         return; const old = new URL(current.current.url); if (next.name === 'admin' && parseRoute(location.href)?.name === 'admin' && next.hash)
         return; e.preventDefault(); navigate(next.url); }; const hover = (e: Event) => { const a = (e.target as Element).closest<HTMLAnchorElement>('a[href]'); if (a)
         prefetch(a.href); }; document.addEventListener('click', click); document.addEventListener('pointerover', hover, { passive: true }); document.addEventListener('focusin', hover); return () => { document.removeEventListener('click', click); document.removeEventListener('pointerover', hover); document.removeEventListener('focusin', hover); }; }, [prefetch]);
-    useLayoutEffect(() => { window.dispatchEvent(new Event('aether:navigation')); if (initial.current) {
+    useLayoutEffect(() => { window.dispatchEvent(new Event('havenlord:navigation')); if (initial.current) {
         initial.current = false;
         if (!route.hash)
             return;

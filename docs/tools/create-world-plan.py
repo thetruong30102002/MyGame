@@ -5,7 +5,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 target = ROOT / 'docs/ke-hoach-nang-cap-the-gioi.md'
 if target.exists(): raise SystemExit('File đã tồn tại; sửa trực tiếp kế hoạch để giữ tiến độ.')
-audit = json.loads((ROOT/'.aether-stage/world-renewal/audit.json').read_text(encoding='utf-8'))
+audit = json.loads((ROOT/'.havenlord-stage/world-renewal/audit.json').read_text(encoding='utf-8'))
 # Brief mỹ thuật và chính trị là đề xuất triển khai; tên vùng và yêu cầu chủ dự án là đã chốt.
 designs = [
 ('human','Gỗ sồi, đá kem, mái ngói xanh rêu; nhà phố 2–3 tầng, nhà hội và tháp chuông.','Xe hàng, giếng, bảng hội, lò bánh, vườn rau, quán trọ có khách.','Hội đồng thị trấn, lãnh chúa địa phương; không đặt cung vua vào làng khởi đầu.','Linh cẩu đồng, bù nhìn ma, kỵ sĩ rừng tha hóa.','Cổ Thụ Nguyền Rủa','Quảng trường trống; cây và nhà nhỏ rải thưa, thiếu tuyến sinh hoạt.'),
@@ -26,7 +26,7 @@ tasks=[]
 def task(id,group,name,detail,weight=3,phase=1,region=None,done=False,depends=None,steps=None):
     labels=steps or [('Thiết kế và thông số',10),('Vẽ / triển khai',45),('Ghép vào game / web',25),('Kiểm thử và nghiệm thu',20)]
     tasks.append(dict(id=id,group=group,name=name,detail=detail,weight=weight,phase=phase,region=region,
-        depends=depends or [],steps=[dict(label=l,weight=w,done=done,evidence='Kiểm kê 26/10/2026: .aether-stage/world-renewal/' if done else '') for l,w in labels]))
+        depends=depends or [],steps=[dict(label=l,weight=w,done=done,evidence='Kiểm kê 26/10/2026: .havenlord-stage/world-renewal/' if done else '') for l,w in labels]))
 task('audit','Chuẩn bị','Kiểm kê 174 map và 25 boss','Đã xem ảnh minimap của 174 map và 13 trung tâm; kiểm đếm ảnh frame bằng hash RGBA, không chỉ số slot. Chưa phải nghiệm thu trong Unity.',2,0,done=True,steps=[('Dữ liệu và ảnh tổng quan',100)])
 task('style','Chuẩn bị','Chốt quy chuẩn mỹ thuật và tỷ lệ','Duyệt một phố mẫu với người chơi gốc để chốt pixel, cửa, tầng nhà, ánh sáng và khử nhiễu.',3,1,depends=['audit'])
 task('politics','Cốt truyện','Bản đồ chính trị, vua và phe phái','Vua Sahrin; hội đồng Đe Đỏ; triều đình cổ Aether; liên quân Hư Không. Duyệt thêm phe của Mộc, Sáng, Tối và quan hệ thương mại/xung đột.',4,1,depends=['audit'])
@@ -78,7 +78,7 @@ Rừng Nấm dùng lại nền/cây/nhà sàn đầm lầy. Phế tích dùng l�
 
 25 boss đều có ít nhất một chuỗi dưới ngưỡng mới (idle <4, đi/đánh/gục <6 ảnh khác nhau). **Phần lớn đòn đánh hướng chính đã có 8 ảnh thật**, thiếu nhiều ở hướng chéo tạm và chuỗi đi; không được gọi tất cả boss là chỉ có một frame. Ưu tiên Quỷ vương 96×104 và Golem dung nham có chuỗi hướng chính dưới 4 ảnh; rồi Hoả thần, Kraken, nhóm rồng. Đếm bằng hash RGBA của ảnh cắt từ atlas, không tính số key trỏ cùng một ô là frame mới.
 
-Bằng chứng và cách chạy lại: `npx tsx scripts/audit-world-plan.mts`, `python docs/tools/audit-world.py`; ảnh và JSON ở `.aether-stage/world-renewal/`. Không sửa atlas game khi audit.
+Bằng chứng và cách chạy lại: `npx tsx scripts/audit-world-plan.mts`, `python docs/tools/audit-world.py`; ảnh và JSON ở `.havenlord-stage/world-renewal/`. Không sửa atlas game khi audit.
 
 ## Chuẩn mỹ thuật và nghiệm thu
 

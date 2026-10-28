@@ -2,17 +2,18 @@ import { createServer } from 'node:http';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { WebSocketServer } from 'ws';
-import { SERVER_PORT } from '@aether/protocol';
+import { SERVER_PORT } from '@havenlord/protocol';
 import { AdminOps } from './adminOps.ts';
 import { Board } from './board.ts';
 import { Store } from './db.ts';
+import { dbPath } from './dbPath.ts';
 import { createApi, stripMount } from './http.ts';
 import { SITE_DIR } from './site.ts';
 import { World } from './world.ts';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const port = Number(process.env.PORT) || SERVER_PORT;
-const store = new Store(process.env.AETHER_DB ?? join(ROOT, 'data/aether.db'));
+const store = new Store(dbPath(true));
 const world = new World(store);
 // Tin tức trang chủ giờ lưu CSDL: lần đầu (bảng rỗng) nạp tin cũ từ site/news.json.
 const seeded = new Board(store).seedNews(join(SITE_DIR, 'news.json'));
@@ -46,7 +47,7 @@ const heartbeat = setInterval(() => {
 	}
 }, 20_000);
 
-server.listen(port, () => console.log(`Aether server: http://localhost:${port}  (ws: /ws)`));
+server.listen(port, () => console.log(`Haven Lord server: http://localhost:${port}  (ws: /ws)`));
 
 function shutdown(): void {
 	clearInterval(heartbeat);

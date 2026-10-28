@@ -92,10 +92,10 @@ Token #1 = Tier 2 (5.000 lượt / tháng, **10 job song song**). Số liệu v�
   `quality.driftAnims` (ngưỡng lệch cao riêng cho động tác cố ý đổi dáng), `quality.minSilhouette` (ô nới cho khung v3 thì quái nhỏ
   cần sàn thấp hơn 0,45). Động tác nằm (`death`, `revive`) chỉ kiểm trần chiều cao.
 - Atlas nhân vật xếp **kệ** (không còn lưới 8 hàng / animation): 25 động tác × khung 112 với lưới cũ cao ~24.000px.
-- Funnel phục vụ thẳng `apps/web/public` → dựng thử: `AETHER_WEB_ASSETS=<thư mục nháp> npx tsx src/cli.ts character <id>` (chép
-  `manifest.json` vào thư mục nháp trước). Thư mục nháp CHUNG: `.aether-stage/assets` (gitignore) — web thử :3102 đọc `/assets`
-  từ đây trước, thiếu file mới lấy public (`apps/web/scripts/stage-assets.mjs` :3105, `next.config.ts` `AETHER_STAGE_URL`); máy
-  chủ thử :3201 chạy với `AETHER_MAPS=.aether-stage/assets/maps`. Triển khai = chép nháp sang public (README mục Funnel).
+- Funnel phục vụ thẳng `apps/web/public` → dựng thử: `HAVENLORD_WEB_ASSETS=<thư mục nháp> npx tsx src/cli.ts character <id>` (chép
+  `manifest.json` vào thư mục nháp trước). Thư mục nháp CHUNG: `.havenlord-stage/assets` (gitignore) — web thử :3102 đọc `/assets`
+  từ đây trước, thiếu file mới lấy public (`apps/web/scripts/stage-assets.mjs` :3105, `next.config.ts` `HAVENLORD_STAGE_URL`); máy
+  chủ thử :3201 chạy với `HAVENLORD_MAPS=.havenlord-stage/assets/maps`. Triển khai = chép nháp sang public (README mục Funnel).
 - **Đồ vật map** (10/10/2026 — ĐỢT 2 vùng 1, 48 lượt, không vẽ lại món nào): TẤM 3×3 `pixellab image 1 sheets/<tấm>.png
   @pending/<tấm>.json` (192×192, 6 lượt): ảnh mẫu `sheets/N1_nature.png` + `color_palette: false` + "each small and centered in
   its own cell" + nền magenta → G1 / R1 / B1 đều ra đúng thứ tự ô ngay lần đầu (công thức của CV1 / CV2). MÓN LẺ `pixellab object 1
@@ -233,8 +233,8 @@ bóng chuyển sắc, mà hiện ở ô 16–32px phải thu ⅓ nên nát. Bộ
 - Nguồn `sources/pixellab/world/continent.png` (688×384, `create_image_pro` token #1, đề bài `continent.png.json`). Lệnh
   `npm run assets:world` kiểm khổ 688×384 (khổ mà toạ độ 10 vùng ở `apps/web/src/game/world/worldAtlas.ts` đo trên đó) + ảnh kín,
   rồi chép NGUYÊN file sang `assets/ui/world-continent.png` — không nén lại, web hiện 1× / 2× nét pixel.
-- Dựng thử: `AETHER_WEB_ASSETS=D:/nttrg/pixel/.aether-stage/assets npm run assets:world` — đường dẫn TUYỆT ĐỐI: lệnh chạy trong
-  thư mục gói pipeline nên đường dẫn tương đối ghi lạc sang `packages/asset-pipeline/.aether-stage`.
+- Dựng thử: `HAVENLORD_WEB_ASSETS=D:/nttrg/pixel/.havenlord-stage/assets npm run assets:world` — đường dẫn TUYỆT ĐỐI: lệnh chạy trong
+  thư mục gói pipeline nên đường dẫn tương đối ghi lạc sang `packages/asset-pipeline/.havenlord-stage`.
 - Vẽ lại tranh: giữ khổ + bố cục hướng (docs/ke-hoach-the-gioi.md mục 3.1), đo lại `CONTINENT_PLACES` trên ảnh lưới; test
   `apps/web/tests/worldmap.test.ts` bắt lệch hướng / chồng vùng / ảnh web khác ảnh nguồn.
 

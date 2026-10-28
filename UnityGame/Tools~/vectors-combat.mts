@@ -1,5 +1,5 @@
 // Test vector nhóm "combat" (skillRules.ts, bossRules.ts, moves.ts) sinh từ CHÍNH hàm TS → Tests~/vectors/combat.json.
-// Test C# (Tests~/Aether.Core.Tests/CombatTests.cs) gọi bản C# cùng đầu vào và đòi ra y hệt. Chạy ở gốc repo:
+// Test C# (Tests~/HavenLord.Core.Tests/CombatTests.cs) gọi bản C# cùng đầu vào và đòi ra y hệt. Chạy ở gốc repo:
 //   npx tsx UnityGame/Tools~/vectors-combat.mts
 // Đầu vào ngẫu nhiên dùng PRNG có seed (mulberry32) để file vector ổn định giữa các lần chạy.
 import { mkdirSync, writeFileSync } from 'node:fs';

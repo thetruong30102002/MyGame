@@ -2,18 +2,17 @@
 //   npx tsx src/admin.ts add <tên tài khoản>      → cấp quyền
 //   npx tsx src/admin.ts remove <tên tài khoản>   → thu quyền
 //   npx tsx src/admin.ts list                     → các tài khoản đang có quyền
-// Mặc định KHÔNG ai có quyền. CSDL theo AETHER_DB (mặc định data/aether.db — máy chủ THẬT; thử thì AETHER_DB=data/test.db). Chạy được
+// Mặc định KHÔNG ai có quyền. CSDL theo HAVENLORD_DB (mặc định data/havenlord.db — máy chủ THẬT; thử thì HAVENLORD_DB=data/test.db). Chạy được
 // khi máy chủ đang bật (SQLite WAL); máy chủ đọc bảng `admins` ở mỗi lần gọi API nên cấp / thu có hiệu lực ngay, không cần khởi động lại.
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { Store } from './db.ts';
+import { dbPath } from './dbPath.ts';
 
 const [cmd, rawName] = process.argv.slice(2);
 if (cmd !== 'list' && !((cmd === 'add' || cmd === 'remove') && rawName)) {
 	console.error('Cách dùng: npx tsx src/admin.ts add|remove <tên tài khoản>   ·   npx tsx src/admin.ts list');
 	process.exit(1);
 }
-const store = new Store(process.env.AETHER_DB ?? join(dirname(fileURLToPath(import.meta.url)), '..', 'data/aether.db'));
+const store = new Store(dbPath());
 try {
 	if (cmd === 'list') {
 		const list = store.admins();

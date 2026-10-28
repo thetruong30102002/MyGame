@@ -78,7 +78,7 @@
 	};
 	const ic = (name, cls) => `<svg class="i ${cls || ''}" aria-hidden="true"><use href="#i-${name}"/></svg>`;
 
-	// —— Dữ liệu dùng chung (khớp @aether/protocol) ——
+	// —— Dữ liệu dùng chung (khớp @havenlord/protocol) ——
 	A.CATS = { chung: 'Thảo luận chung', 'to-doi': 'Tìm tổ đội', 'hoi-dap': 'Hỏi đáp', 'huong-dan': 'Hướng dẫn', khoe: 'Khoe đồ' };
 	A.CAT_ICON = { chung: 'chat', 'to-doi': 'sword', 'hoi-dap': 'help', 'huong-dan': 'book', khoe: 'sparkles' };
 	A.FB_KINDS = { loi: 'Báo lỗi', 'y-tuong': 'Ý tưởng', khac: 'Khác' };
@@ -176,7 +176,8 @@
 	};
 
 	// —— Phiên đăng nhập (dùng chung với game + trang quản trị) ——
-	const KEY = 'aether.web.token';
+	const KEY = 'havenlord.web.token';
+	try { const old = localStorage.getItem('aether.web.token'); if (old && !localStorage.getItem(KEY)) localStorage.setItem(KEY, old); localStorage.removeItem('aether.web.token'); } catch { /* chế độ riêng tư */ }
 	let token = '';
 	try { token = localStorage.getItem(KEY) || ''; } catch (e) {}
 	const setToken = (t) => {
@@ -258,7 +259,7 @@
 	<div class="max-w-6xl mx-auto px-3 sm:px-4 h-14 sm:h-16 flex items-center gap-2">
 		<a href="./" class="flex items-center h-10 gap-2 font-black tracking-wide whitespace-nowrap mr-auto min-w-0">
 			<img class="px w-7 h-auto sm:w-8" src="site/img/favicon.png" alt="" width="44" height="36">
-			<span class="flex flex-col sm:flex-row sm:gap-1.5 leading-[1.1] sm:leading-none text-[13px] sm:text-lg"><span>AETHER</span><span class="text-primary">CHRONICLE</span></span>
+			<span class="flex flex-col sm:flex-row sm:gap-1.5 leading-[1.1] sm:leading-none text-[13px] sm:text-lg"><span>HAVEN</span><span class="text-primary">LORD</span></span>
 		</a>
 		<nav class="hidden lg:block" aria-label="Chính">
 			<ul class="flex items-center gap-1 font-semibold text-[15px]">
@@ -295,7 +296,7 @@
 		`<footer class="bg-base-300 border-t border-white/5 text-sm text-base-content/60">
 	<div class="max-w-6xl mx-auto px-4 py-10 grid gap-8 sm:grid-cols-3">
 		<div>
-			<p class="font-black text-base text-base-content">AETHER <span class="text-primary">CHRONICLE</span></p>
+			<p class="font-black text-base text-base-content">HAVEN <span class="text-primary">LORD</span></p>
 			<p class="mt-2 leading-relaxed">Nhập vai pixel online · bản beta, đồ hoạ đang hoàn thiện. Tài khoản và nhân vật lưu trên máy chủ.</p>
 		</div>
 		<nav aria-label="Trang" class="grid grid-cols-2 gap-x-4">

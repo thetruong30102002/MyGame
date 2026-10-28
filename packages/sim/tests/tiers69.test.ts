@@ -1,6 +1,6 @@
-// Phần LUẬT THUẦN tách từ apps/web/tests/tiers69.test.ts (11/10/2026, chuẩn bị xoá bản web): chỉ hàm của @aether/sim (+ bảng hình
+// Phần LUẬT THUẦN tách từ apps/web/tests/tiers69.test.ts (11/10/2026, chuẩn bị xoá bản web): chỉ hàm của @havenlord/sim (+ bảng hình
 // tạm `UnityGame/Tools~/data/tempArt.ts`). Phần chạy CombatSystem của web bỏ cùng bản web — client Unity có test C# + vector riêng.
-// Chạy: npx tsx tests/tiers69.test.ts (trong packages/sim) hoặc `npm test -w @aether/sim`.
+// Chạy: npx tsx tests/tiers69.test.ts (trong packages/sim) hoặc `npm test -w @havenlord/sim`.
 // Chạy: npx tsx tests/tiers69.test.ts — GĐ3 cây Nguyên tố: mốc 6–9 của 5 nguyên tố (bảng 3.2). Hàm thuần (tường, sét chọn
 // quái ướt, điểm rơi, chậm, trượt, bị động) + chạy thật trong CombatSystem: tường chặn đi / đạn + hết hạn, Tường Lửa đốt,
 // Tường Đá hất, Gương Băng phản đạn, Gọi Mưa ướt liên tục + Lôi Vũ (sét ưu tiên quái ướt, dày gấp đôi trong mưa) + Mạch

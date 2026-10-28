@@ -58,7 +58,7 @@ export interface CharacterProgress {
 	introSeen: boolean;
 	/**
 	 * Điểm tiềm năng THƯỞNG (trang quản trị cộng — 10/10/2026): MÁY CHỦ giữ như cấp / xu — gói `save` không ghi đè được
-	 * (`Store.saveProgress` giữ số trong CSDL). Client cộng vào điểm theo cấp ở mọi chỗ tính điểm (`@aether/sim/talents`
+	 * (`Store.saveProgress` giữ số trong CSDL). Client cộng vào điểm theo cấp ở mọi chỗ tính điểm (`@havenlord/sim/talents`
 	 * `talentPoints`). Vắng (bản lưu cũ, máy chủ bản cũ) = 0.
 	 */
 	bonusPoints?: number;
@@ -344,7 +344,7 @@ const round3 = (v: number): number => Math.round(v * 1000) / 1000;
  * Chuẩn hoá phần chiêu nhận qua mạng (CẢ máy chủ lẫn máy khách — không tin dữ liệu mạng). null = bỏ cả phần chiêu: không phải
  * object, hướng ngắm không phải số hữu hạn / bằng 0, điểm nhắm vô lý (không hữu hạn, ngoài thế giới, chỉ có một toạ độ). Trường
  * phụ (`el`, `cd`, `sp`, `boost`, `fl`) sai dạng thì chỉ bỏ trường đó — máy nhận dùng số gốc của chiêu. Mã chiêu / hệ phủ phép có
- * thật không là việc của bên gọi (gói này không biết bộ chiêu — `@aether/sim`).
+ * thật không là việc của bên gọi (gói này không biết bộ chiêu — `@havenlord/sim`).
  */
 export function cleanActionFx(raw: unknown): ActionFx | null {
 	if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return null;
@@ -440,7 +440,7 @@ export interface WhisperMessage {
 	at: number;
 }
 
-// ---- Quái dùng chung (M3.2 — luật ở `@aether/sim/mobs`) -----------------------------------------------------
+// ---- Quái dùng chung (M3.2 — luật ở `@havenlord/sim/mobs`) -----------------------------------------------------
 
 /** Một con quái dùng chung như máy chủ giữ. `owner`: người chơi đang chạy AI cho nó (null = chưa ai, đứng yên). */
 export interface MobView {
@@ -479,7 +479,7 @@ export type MobAct =
 	/** Boss gọi vùng nổ ở (x, y). */
 	| { k: 'aoe'; x: number; y: number };
 
-// ---- Ví kim cương, điểm danh, thành tựu (K1 — luật ở `@aether/sim/rewards`) -----------------------------------------------
+// ---- Ví kim cương, điểm danh, thành tựu (K1 — luật ở `@havenlord/sim/rewards`) -----------------------------------------------
 
 /** Một phần quà: kim cương vào ví ở MÁY CHỦ; xu + bình hồi phục client tự cộng vào tiến độ (tới M3.3). */
 export interface GiftView {
@@ -519,7 +519,7 @@ export interface EcoGain {
 	what: string;
 }
 
-/** Loại bình thời hạn mua bằng kim cương (danh mục ở `@aether/sim/shop`). */
+/** Loại bình thời hạn mua bằng kim cương (danh mục ở `@havenlord/sim/shop`). */
 export type BuffKind = 'exp' | 'dmg' | 'guard';
 
 /** Một bình đang hiệu lực: `remaining` = giây chơi online còn lại (máy chủ đếm, chỉ trừ lúc online). */
@@ -529,7 +529,7 @@ export interface BuffView {
 	remaining: number;
 }
 
-/** Khống chế / suy yếu trên quái (danh sách khoá ở `@aether/sim/mobs` `MOB_CC_KEYS`). */
+/** Khống chế / suy yếu trên quái (danh sách khoá ở `@havenlord/sim/mobs` `MOB_CC_KEYS`). */
 export type MobCcKey = 'freeze' | 'stun' | 'air' | 'slow' | 'chill' | 'frost' | 'armor' | 'sunder' | 'miss' | 'daze';
 
 /** Giây còn lại của từng khống chế + mức chậm + cú đẩy [vx, vy, giây] — người gây ra gửi cho chủ quái (AI) và mọi máy khác. */
@@ -608,7 +608,7 @@ export type ClientMessage =
 	/** Mua món `item` ở Cửa hàng kim cương — giá theo danh mục CỦA MÁY CHỦ. */
 	| { t: 'shopBuy'; item: string }
 	/**
-	 * Tẩy điểm tiềm năng + thuộc tính (đổi nguyên tố đã chọn): máy chủ trừ `resetDiamonds(cấp)` kim cương (`@aether/sim/talents`) rồi
+	 * Tẩy điểm tiềm năng + thuộc tính (đổi nguyên tố đã chọn): máy chủ trừ `resetDiamonds(cấp)` kim cương (`@havenlord/sim/talents`) rồi
 	 * trả `wallet` + `bought` (item `reset_build`) — client xoá điểm khi nhận `bought`. Thiếu kim cương: tin `system`.
 	 */
 	| { t: 'resetBuild' }
@@ -626,7 +626,7 @@ export type ClientMessage =
 	| { t: 'spend'; reason: string; amount: number }
 	/** Uống một bình hồi phục. */
 	| { t: 'potion' }
-	/** PvP: mình vừa gục vì người chơi `by` (máy chủ chỉ nhận khi `by` vừa đánh trúng mình — `@aether/sim/pvp`). */
+	/** PvP: mình vừa gục vì người chơi `by` (máy chủ chỉ nhận khi `by` vừa đánh trúng mình — `@havenlord/sim/pvp`). */
 	| { t: 'pvpDown'; by: string };
 
 export type ServerMessage =
@@ -683,7 +683,7 @@ export type ServerMessage =
 	 */
 	| { t: 'eco'; level: number; exp: number; coins: number; potions: number; gain?: EcoGain; bonusPoints?: number }
 	/**
-	 * PvP: chiêu của `from` trúng `to` — MÁY CHỦ tính trúng + sát thương (`@aether/sim/pvp`). Gửi mọi người cùng map: máy `to` trừ máu
+	 * PvP: chiêu của `from` trúng `to` — MÁY CHỦ tính trúng + sát thương (`@havenlord/sim/pvp`). Gửi mọi người cùng map: máy `to` trừ máu
 	 * (tự xét miễn thương / thế đỡ), máy khác chỉ vẽ số + hình trúng. (kx, ky): hướng đẩy (đơn vị) từ người đánh.
 	 */
 	| { t: 'pvpHit'; from: string; to: string; skill: string; dmg: number; crit?: true; kx: number; ky: number }

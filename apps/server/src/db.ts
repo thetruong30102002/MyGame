@@ -1,10 +1,10 @@
 import { mkdirSync } from 'node:fs';
 import { dirname } from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
-import type { AdminChange, AdminField, AdminLogEntry, BuffKind, FeedbackEntry, FeedbackKind, FeedbackStatus, MyFeedback, BuffView, CharacterInfo, CharacterProgress, Gender } from '@aether/protocol';
-import type { Eco } from '@aether/sim/economy';
-import { cleanBonusPoints } from '@aether/sim/talents';
-import { playerModel, defaultPlayerModel } from '@aether/protocol';
+import type { AdminChange, AdminField, AdminLogEntry, BuffKind, FeedbackEntry, FeedbackKind, FeedbackStatus, MyFeedback, BuffView, CharacterInfo, CharacterProgress, Gender } from '@havenlord/protocol';
+import type { Eco } from '@havenlord/sim/economy';
+import { cleanBonusPoints } from '@havenlord/sim/talents';
+import { playerModel, defaultPlayerModel } from '@havenlord/protocol';
 
 /**
  * Lưu trữ bằng SQLite có sẵn trong Node (`node:sqlite`) — không cần cài máy chủ CSDL riêng. Đủ cho vài
@@ -767,7 +767,7 @@ export class Store {
 
 	/**
 	 * Mua bình (một transaction): bình cùng loại MẠNH hơn đang chạy → 'weaker' (không trừ gì); thiếu kim cương → 'poor'; cùng mức
-	 * thì cộng thời gian (trần `maxMs`), mạnh hơn thì thay hẳn. `power`: độ mạnh để so (`@aether/sim/shop` `buffPower`).
+	 * thì cộng thời gian (trần `maxMs`), mạnh hơn thì thay hẳn. `power`: độ mạnh để so (`@havenlord/sim/shop` `buffPower`).
 	 */
 	buyBuff(
 		characterId: string,
@@ -832,7 +832,7 @@ type EcoLog = { reason: string; coins: number; potions: number; exp: number; ref
 export interface AdminGrantWrite {
 	admin: { id: number; username: string };
 	reason: string;
-	/** Kinh tế trước / sau (`@aether/sim/economy` `applyAdminEco`) + tổng EXP thay đổi (có dấu) cho nhật ký kinh tế. */
+	/** Kinh tế trước / sau (`@havenlord/sim/economy` `applyAdminEco`) + tổng EXP thay đổi (có dấu) cho nhật ký kinh tế. */
 	eco?: { before: Eco; after: Eco; exp: number };
 	/** Kim cương cộng (âm = trừ). */
 	diamonds?: number;

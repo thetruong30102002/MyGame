@@ -1,2 +1,2 @@
 @echo off
-start "" "%~dp0UnityGame\Build\Windows\Aether.exe" -noUpdate
+start "" "%~dp0UnityGame\Build\Windows\HavenLord.exe" -noUpdate

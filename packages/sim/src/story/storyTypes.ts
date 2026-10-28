@@ -76,7 +76,7 @@ export interface NpcDef {
 	at: { spot: string; dx?: number; dy?: number };
 	/** Chỉ xuất hiện trong các khoảng tuổi này. */
 	ages: [number, number];
-	/** Vùng của chỗ đứng (`@aether/sim/regions`) — địa điểm chỉ duy nhất trong một vùng. Thiếu = vùng đầu (`human`). */
+	/** Vùng của chỗ đứng (`@havenlord/sim/regions`) — địa điểm chỉ duy nhất trong một vùng. Thiếu = vùng đầu (`human`). */
 	region?: string;
 	idle: string[];
 }

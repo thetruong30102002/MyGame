@@ -7,18 +7,18 @@
     <LangVersion>9.0</LangVersion>
     <Nullable>disable</Nullable>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
-    <AssemblyName>Aether.EditorCompile</AssemblyName>
+    <AssemblyName>HavenLord.EditorCompile</AssemblyName>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <NoWarn>$(NoWarn);CS0649</NoWarn>
     <UnityEditorDir Condition="'$(UnityEditorDir)' == ''">D:\Unity\Editor\6000.3.26f1\Editor</UnityEditorDir>
     <UnityManaged>$(UnityEditorDir)\Data\Managed\UnityEngine</UnityManaged>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="../../Assets/Aether/Core/**/*.cs" />
-    <Compile Include="../../Assets/Aether/Data/Runtime/**/*.cs" />
-    <Compile Include="../../Assets/Aether/Net/**/*.cs" />
-    <Compile Include="../../Assets/Aether/Client/**/*.cs" />
-    <Compile Include="../../Assets/Aether/Editor/**/*.cs" />
+    <Compile Include="../../Assets/HavenLord/Core/**/*.cs" />
+    <Compile Include="../../Assets/HavenLord/Data/Runtime/**/*.cs" />
+    <Compile Include="../../Assets/HavenLord/Net/**/*.cs" />
+    <Compile Include="../../Assets/HavenLord/Client/**/*.cs" />
+    <Compile Include="../../Assets/HavenLord/Editor/**/*.cs" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <ProjectReference Include="Sprite2D/Unity.2D.Sprite.Editor.csproj" />
   </ItemGroup>

@@ -12,7 +12,7 @@ import { DESERT_REGION, HIGHLAND_REGION, ISLES_REGION, SWAMP_REGION, TUNDRA_REGI
 /**
  * Vùng dựng được bằng lệnh `map <vùng>` (khung nhiều vùng — docs/ke-hoach-the-gioi.md mục 5.7): bộ đồ vật + tấm decal của vùng
  * và hàm dựng các map + chỉ mục `world.json`. Vùng mới: thêm thư mục `maps/<vùng>/` (cùng khung với `maps/human/`) + bộ đồ vật ở
- * `props/`, rồi khai ở đây. Id vùng trùng `@aether/sim/regions`.
+ * `props/`, rồi khai ở đây. Id vùng trùng `@havenlord/sim/regions`.
  */
 export interface RegionBuild {
 	props: typeof HUMAN_KINGDOM_PROPS;

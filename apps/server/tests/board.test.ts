@@ -7,7 +7,7 @@ import { createServer, type Server } from 'node:http';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { test } from 'node:test';
-import { POST_BODY_MAX, type CommentItem, type FeedbackEntry, type MeResponse, type MyFeedback, type NewsItem, type PostItem } from '@aether/protocol';
+import { POST_BODY_MAX, type CommentItem, type FeedbackEntry, type MeResponse, type MyFeedback, type NewsItem, type PostItem } from '@havenlord/protocol';
 import { Board } from '../src/board.ts';
 import { Store } from '../src/db.ts';
 import { createApi, newProgress } from '../src/http.ts';

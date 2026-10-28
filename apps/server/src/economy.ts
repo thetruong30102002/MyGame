@@ -1,14 +1,14 @@
-import type { EcoGain, ServerMessage } from '@aether/protocol';
-import { addExp, capExpGain, cleanEco, COIN_CAP, POTION_CAP, type Eco, type EcoReason } from '@aether/sim/economy';
-import { CHILD_ZONE_LEVEL_CAP } from '@aether/sim/mobs';
-import { buffMults } from '@aether/sim/shop';
-import { ENEMY_STATS, enemyStatsAt, type EnemyStats } from '@aether/sim/skills';
-import { questDef } from '@aether/sim/story/quests';
+import type { EcoGain, ServerMessage } from '@havenlord/protocol';
+import { addExp, capExpGain, cleanEco, COIN_CAP, POTION_CAP, type Eco, type EcoReason } from '@havenlord/sim/economy';
+import { CHILD_ZONE_LEVEL_CAP } from '@havenlord/sim/mobs';
+import { buffMults } from '@havenlord/sim/shop';
+import { ENEMY_STATS, enemyStatsAt, type EnemyStats } from '@havenlord/sim/skills';
+import { questDef } from '@havenlord/sim/story/quests';
 import { RateLimiter } from './auth.ts';
 import type { Store } from './db.ts';
 import { privateKill } from './maps.ts';
 
-/** Quái thường hồi sinh sau ~14 giây (`@aether/sim/bossRules` `respawnDelay`) — nhịp tính trần số lần báo hạ quái riêng. */
+/** Quái thường hồi sinh sau ~14 giây (`@havenlord/sim/bossRules` `respawnDelay`) — nhịp tính trần số lần báo hạ quái riêng. */
 const RESPAWN_MS = 14_000;
 
 /** Phần thế giới mà kinh tế cần: gửi tin + map người chơi đang đứng (kiểm quái riêng có trên map đó). */

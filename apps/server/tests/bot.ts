@@ -1,7 +1,7 @@
 // Người chơi máy (dev): đăng nhập tester2, đi vòng quanh một điểm và chat — để thử bằng mắt phần online.
 // `npx tsx tests/bot.ts <x> <y> [giây]` khi máy chủ đang chạy.
 import { WebSocket } from 'ws';
-import type { CharacterInfo } from '@aether/protocol';
+import type { CharacterInfo } from '@havenlord/protocol';
 
 const BASE = 'http://localhost:3200';
 const [cx, cy, secs] = [Number(process.argv[2] ?? 1000), Number(process.argv[3] ?? 1000), Number(process.argv[4] ?? 20)];

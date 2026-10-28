@@ -1,13 +1,13 @@
 # Cutscene manga trong Unity
 
-Hệ thống nằm ở `Assets/Aether/Client/`: `MangaCutsceneDefinition` giữ dữ liệu cảnh, `MangaCutscene` phát trên HUD, và `MangaCutsceneTrigger` là vùng kích hoạt tuỳ chọn. Khi cảnh chạy, HUD khóa lệnh di chuyển và chiến đấu qua cơ chế `Blocking` hiện có; camera dùng lại hiệu ứng rung `PixelCamera`. Sau cảnh, lớp phủ mờ dần để trở lại gameplay.
+Hệ thống nằm ở `Assets/HavenLord/Client/`: `MangaCutsceneDefinition` giữ dữ liệu cảnh, `MangaCutscene` phát trên HUD, và `MangaCutsceneTrigger` là vùng kích hoạt tuỳ chọn. Khi cảnh chạy, HUD khóa lệnh di chuyển và chiến đấu qua cơ chế `Blocking` hiện có; camera dùng lại hiệu ứng rung `PixelCamera`. Sau cảnh, lớp phủ mờ dần để trở lại gameplay.
 
 ## Tạo cutscene
 
 1. Mở project `UnityGame` bằng Unity 6.3 LTS và chờ import script/shader.
 2. Trong Project, chọn **Create → Aether → Manga Cutscene**. Đặt tên asset, ví dụ `Intro_Manga`.
 3. Trong Inspector, đặt `Panels` thành số khung cần dùng. Mỗi khung có thể cấu hình:
-   - `Image`: ảnh panel; import pixel art với **Filter Mode: Point**. Shader `Assets/Aether/Client/Resources/MangaGrayscaleUI.shader` chuyển ảnh sang đen trắng khi hiển thị.
+   - `Image`: ảnh panel; import pixel art với **Filter Mode: Point**. Shader `Assets/HavenLord/Client/Resources/MangaGrayscaleUI.shader` chuyển ảnh sang đen trắng khi hiển thị.
    - `Speaker`, `Dialogue`, `Sound Effect` (chữ hiệu ứng), và `Sound` (AudioClip).
    - `Duration`: thời gian tối thiểu nếu khung không có thoại. Khung có thoại chờ người chơi bấm tiếp.
    - `Close Up`, `Speed Lines`, `Shake Strength` / `Shake Duration`, và `Transition` (`Cut`, `Fade`, `SlideUp`, `Zoom`).
@@ -27,7 +27,7 @@ Có thể gọi `Play()` trên `MangaCutsceneTrigger` từ một sự kiện tư
 
 ## Chạy thử trong Unity
 
-1. Mở scene `Assets/Aether/Scenes/Game.unity` và nhấn Play. HUD và player được dựng lúc chạy.
+1. Mở scene `Assets/HavenLord/Scenes/Game.unity` và nhấn Play. HUD và player được dựng lúc chạy.
 2. Đặt vùng collider ở vị trí dễ tới trên map; gán asset cutscene. Bước nhân vật vào vùng để chạy thử.
 3. Dùng phím tương tác/né (thường là E/Space theo cấu hình phím) hoặc bấm màn hình để qua từng panel. Xác nhận thoại, SFX, speed lines, rung camera, transition và lớp mờ trở lại hoạt động.
 4. Đi lại sau khi cảnh kết thúc để xác nhận gameplay đã được mở khóa. Với `Play Once` tắt, rời collider rồi bước vào lại để kiểm tra phát lại.

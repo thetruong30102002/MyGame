@@ -2,7 +2,7 @@
  * Điểm danh + thành tựu (K1 — docs/ke-hoach-kim-cuong.md). Luật thuần dùng chung: MÁY CHỦ quyết ai nhận gì (ngày theo giờ
  * máy chủ, đếm từ dữ liệu máy chủ tự ghi), client chỉ dùng để hiện chữ / tiến độ.
  */
-import type { GiftView } from '@aether/protocol';
+import type { GiftView } from '@havenlord/protocol';
 
 /** Ngày tính theo giờ Việt Nam (UTC+7) — sang ngày mới lúc 0 giờ VN, không theo đồng hồ máy người chơi. */
 export const VN_OFFSET_MS = 7 * 3600_000;

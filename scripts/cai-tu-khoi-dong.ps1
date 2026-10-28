@@ -1,11 +1,13 @@
-﻿# Cài tác vụ Windows "Aether - ban that": mỗi lần đăng nhập Windows (bật máy) tự chạy scripts/khoi-dong-ban-that.ps1
+﻿# Cài tác vụ Windows "Haven Lord - ban that": mỗi lần đăng nhập Windows (bật máy) tự chạy scripts/khoi-dong-ban-that.ps1
 # (máy chủ game :3200 + web Funnel :3101). Không cần quyền quản trị — tác vụ chạy dưới tài khoản đang dùng.
 #   powershell -NoProfile -ExecutionPolicy Bypass -File scripts\cai-tu-khoi-dong.ps1           # cài / cài lại
 #   powershell -NoProfile -ExecutionPolicy Bypass -File scripts\cai-tu-khoi-dong.ps1 -Remove   # gỡ
 # Tailscale Funnel tự giữ cấu hình (--bg) qua khởi động lại, không cần cài gì thêm.
 param([switch]$Remove)
 $ErrorActionPreference = 'Stop'
-$name = 'Aether - ban that'
+$name = 'Haven Lord - ban that'
+# Tác vụ tên cũ trước khi đổi tên dự án (28/10/2026) — gỡ để không chạy hai lần.
+Unregister-ScheduledTask -TaskName 'Aether - ban that' -Confirm:$false -ErrorAction SilentlyContinue
 
 if ($Remove) {
   Unregister-ScheduledTask -TaskName $name -Confirm:$false -ErrorAction SilentlyContinue
@@ -24,5 +26,5 @@ $settings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoi
 $principal = New-ScheduledTaskPrincipal -UserId $user -LogonType Interactive -RunLevel Limited
 
 Register-ScheduledTask -TaskName $name -Action $action -Trigger $trigger -Settings $settings -Principal $principal `
-  -Description 'Aether Chronicle: bat may chu game :3200 + web Funnel :3101 khi dang nhap (scripts/khoi-dong-ban-that.ps1).' -Force | Out-Null
+  -Description 'Haven Lord: bat may chu game :3200 + web Funnel :3101 khi dang nhap (scripts/khoi-dong-ban-that.ps1).' -Force | Out-Null
 Write-Output "Da cai tac vu '$name' (luc dang nhap $user, tre 20 giay)."

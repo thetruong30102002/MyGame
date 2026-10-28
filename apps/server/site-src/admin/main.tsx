@@ -149,9 +149,9 @@ function Comments({ id }: {
     return <div className="ra-comments"><Failure error={error}/>{data?.comments.map(c => <article key={c.id}><small>{c.author} · {date(c.at)}</small><p>{c.body}</p><MutateButton confirmText={'Ẩn bình luận của ' + c.author + '?'} work={() => api('api/comments/' + c.id, { method: 'DELETE' })} onDone={reload}>Ẩn bình luận</MutateButton></article>)}{data?.comments.length === 0 && <p>Chưa có bình luận.</p>}</div>;
 }
 function LogPage() { const [id, setId] = useState(''), filter = useDeferredValue(id), { data, error, reload } = useLoad<Log[]>('api/admin/log?limit=200&characterId=' + encodeURIComponent(filter)); return <Panel title="Nhật ký điều chỉnh"><div className="ra-filters"><input placeholder="Lọc ID nhân vật" aria-label="ID nhân vật" value={id} onChange={e => setId(e.target.value)}/><button onClick={reload}>Tải lại</button></div><Failure error={error}/>{!data && <Notice>Đang tải…</Notice>}<div className="ra-table"><table><thead><tr>{['Thời điểm', 'Quản trị', 'Nhân vật', 'Thay đổi', 'Lý do'].map(h => <th key={h}>{h}</th>)}</tr></thead><tbody>{data?.map((l, i) => <tr key={l.id || i}><td>{date(l.at)}</td><td>{l.admin}</td><td>{l.characterName}</td><td>{l.field}: {l.from} → {l.to}</td><td>{l.reason}</td></tr>)}</tbody></table></div>{data?.length === 0 && <Notice>Chưa có điều chỉnh.</Notice>}</Panel>; }
-function AccessFrame({children}:{children:ReactNode}){return <div className="ra-access"><aside><Brand href="./" admin/><div><span className="ra-eyebrow">PHÁT TRIỂN MỘT THẾ GIỚI</span><h1>AETHER<br/><span>STUDIO.</span></h1><p>Từ một điểm ảnh,<br/>đến những hành trình.</p></div><div className="ra-access-art"><img src="site/media/roster/player_staff_m01/S.png" width="336" height="336" alt="Tinh Vân — Pháp sư"/><span>HỒ SƠ LỮ HÀNH / 01</span></div></aside><div className="ra-access-form">{children}</div></div>}
+function AccessFrame({children}:{children:ReactNode}){return <div className="ra-access"><aside><Brand href="./" admin/><div><span className="ra-eyebrow">PHÁT TRIỂN MỘT THẾ GIỚI</span><h1>HAVEN LORD<br/><span>STUDIO.</span></h1><p>Từ một điểm ảnh,<br/>đến những hành trình.</p></div><div className="ra-access-art"><img src="site/media/roster/player_staff_m01/S.png" width="336" height="336" alt="Tinh Vân — Pháp sư"/><span>HỒ SƠ LỮ HÀNH / 01</span></div></aside><div className="ra-access-form">{children}</div></div>}
 export default function App() {
-    const [token, setToken] = useState(() => localStorage.getItem('aether.web.token') || ''), [user, setUser] = useState<{
+    const [token, setToken] = useState(() => localStorage.getItem('havenlord.web.token') || ''), [user, setUser] = useState<{
         username: string;
         admin: boolean;
     }>(), [authError, setAuthError] = useState(''), [checking, setChecking] = useState(!!token), [tab, setTab] = useState(() => tabs.some(([id]) => id === location.hash.slice(1)) ? location.hash.slice(1) : 'plan'), [visited, setVisited] = useState<string[]>([tab]), [pending, startTransition] = useTransition();
@@ -160,8 +160,8 @@ export default function App() {
         const data = await r.json();
         if (!r.ok) {
             if (r.status === 401) {
-                localStorage.removeItem('aether.web.token');
-                window.dispatchEvent(new Event('aether:session'));
+                localStorage.removeItem('havenlord.web.token');
+                window.dispatchEvent(new Event('havenlord:session'));
                 setToken('');
                 setUser(undefined);
             }
@@ -171,11 +171,11 @@ export default function App() {
         }
         return data;
     }, [token]);
-    useEffect(() => { const sync = () => { const next = localStorage.getItem('aether.web.token') || ''; if (next !== token) {
+    useEffect(() => { const sync = () => { const next = localStorage.getItem('havenlord.web.token') || ''; if (next !== token) {
         cacheFor(api).clear();
         setToken(next);
         setUser(undefined);
-    } }; window.addEventListener('aether:session', sync); window.addEventListener('storage', sync); return () => { window.removeEventListener('aether:session', sync); window.removeEventListener('storage', sync); }; }, [token, api]);
+    } }; window.addEventListener('havenlord:session', sync); window.addEventListener('storage', sync); return () => { window.removeEventListener('havenlord:session', sync); window.removeEventListener('storage', sync); }; }, [token, api]);
     useEffect(() => { if (!user?.admin)
         return; ['api/admin/plan?view=dashboard', 'api/admin/characters?q=', 'api/admin/feedback?limit=500', 'api/admin/news', 'api/posts?limit=20&q=&category=&before=', 'api/admin/log?limit=200&characterId=', 'site/roster.json'].forEach(path => void cacheFor(api).load(path).catch(() => { })); }, [user?.admin, api]);
     useEffect(() => {
@@ -213,8 +213,8 @@ export default function App() {
         }
         catch { }
         cacheFor(api).clear();
-        localStorage.removeItem('aether.web.token');
-        window.dispatchEvent(new Event('aether:session'));
+        localStorage.removeItem('havenlord.web.token');
+        window.dispatchEvent(new Event('havenlord:session'));
         setToken('');
         setUser(undefined);
         setVisited(['plan']);
@@ -230,8 +230,8 @@ export default function App() {
             const d = await r.json();
             if (!r.ok)
                 throw Error(d.error || 'Đăng nhập thất bại');
-            localStorage.setItem('aether.web.token', d.token);
-            window.dispatchEvent(new Event('aether:session'));
+            localStorage.setItem('havenlord.web.token', d.token);
+            window.dispatchEvent(new Event('havenlord:session'));
             setToken(d.token);
         }
         catch (e) {
@@ -244,5 +244,5 @@ export default function App() {
         return <AccessFrame><Panel title="Cổng quản trị Aether"><p>Kế hoạch phát triển và vận hành thế giới.</p>{token ? <><Notice>{checking ? 'Đang xác minh phiên…' : authError || 'Chưa kết nối được máy chủ.'}</Notice>{!checking && <button onClick={() => void logout()}>Đổi tài khoản</button>}</> : <form onSubmit={login}><label>Tên đăng nhập<input name="username" autoComplete="username" required/></label><label>Mật khẩu<input name="password" type="password" autoComplete="current-password" required/></label><Failure error={authError}/><button className="primary" disabled={checking}>Đăng nhập</button></form>}<a href="./">← Về trang chủ</a></Panel></AccessFrame>;
     if (!user.admin)
         return <AccessFrame><Panel title="Không có quyền quản trị"><p>Tài khoản {user.username} chưa được cấp quyền.</p><button onClick={() => void logout()}>Đổi tài khoản</button><a href="./">Về trang chủ</a></Panel></AccessFrame>;
-    return <ApiContext value={api}><div className="ra-layout"><aside className="ra-sidebar"><Brand href="./" admin/><span className="ra-sidebar-label">KHÔNG GIAN LÀM GAME</span><nav aria-label="Quản trị">{tabs.map(([id,label])=><a key={id} href={'#'+id} aria-current={tab===id?'page':undefined}><UiIcon name={tabIcons[id]!}/><span>{label}</span>{tab===id&&<span className="ra-nav-dot"/>}</a>)}</nav><div className="ra-sidebar-end"><span className="ra-sidebar-label">AETHER / STUDIO</span><p>Một nguồn kế hoạch.<br/>Từng bước thành thế giới.</p><a href="./">Mở cổng game<UiIcon name="external"/></a></div></aside><div className="ra-workspace"><header className="ra-topbar"><div className="ra-breadcrumb"><span>Aether Studio</span><UiIcon name="chevron"/><strong>{tabs.find(([id])=>id===tab)?.[1]}</strong></div><div className="ra-topbar-account"><span className="ra-environment">{['127.0.0.1','localhost'].includes(location.hostname)?'THỬ NGHIỆM':'VẬN HÀNH'}</span><AccountMenu username={user.username} admin onLogout={()=>void logout()}/></div></header><main className="ra-main" aria-busy={pending}>{visited.map(id=><div key={id} data-pane={id} hidden={tab!==id}>{pages[id]}</div>)}</main><footer className="ra-footer"><span>AETHER CHRONICLE / STUDIO</span><span>Kế hoạch và nội dung được cập nhật theo từng phần hoàn thiện.</span></footer></div></div></ApiContext>;
+    return <ApiContext value={api}><div className="ra-layout"><aside className="ra-sidebar"><Brand href="./" admin/><span className="ra-sidebar-label">KHÔNG GIAN LÀM GAME</span><nav aria-label="Quản trị">{tabs.map(([id,label])=><a key={id} href={'#'+id} aria-current={tab===id?'page':undefined}><UiIcon name={tabIcons[id]!}/><span>{label}</span>{tab===id&&<span className="ra-nav-dot"/>}</a>)}</nav><div className="ra-sidebar-end"><span className="ra-sidebar-label">HAVEN LORD / STUDIO</span><p>Một nguồn kế hoạch.<br/>Từng bước thành thế giới.</p><a href="./">Mở cổng game<UiIcon name="external"/></a></div></aside><div className="ra-workspace"><header className="ra-topbar"><div className="ra-breadcrumb"><span>Aether Studio</span><UiIcon name="chevron"/><strong>{tabs.find(([id])=>id===tab)?.[1]}</strong></div><div className="ra-topbar-account"><span className="ra-environment">{['127.0.0.1','localhost'].includes(location.hostname)?'THỬ NGHIỆM':'VẬN HÀNH'}</span><AccountMenu username={user.username} admin onLogout={()=>void logout()}/></div></header><main className="ra-main" aria-busy={pending}>{visited.map(id=><div key={id} data-pane={id} hidden={tab!==id}>{pages[id]}</div>)}</main><footer className="ra-footer"><span>HAVEN LORD / STUDIO</span><span>Kế hoạch và nội dung được cập nhật theo từng phần hoàn thiện.</span></footer></div></div></ApiContext>;
 }

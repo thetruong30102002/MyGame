@@ -433,7 +433,7 @@ còn xét lăn né / thế đỡ. Gói vị trí kèm `hp`/`hpMax` để ngườ
 thật hai bản Unity trên máy chủ thử: A chém, B mất 60/115 máu, A thấy máu B tụt. Mặc định cho các câu còn lại (đổi ở `pvp.ts`):
 2 — mọi map trừ map trạm của vùng (`PVP_SAFE_MAPS`); 3 — ×0,4 sát thương PvE − giáp, chí mạng như PvE, KHÔNG phản ứng / khống chế,
 miễn PvP 5 giây sau khi vào map; 4 — gục không mất gì, hồi sinh quảng trường, cả map thấy "A hạ gục B"; 5 — bình kim cương không áp
-(bản Unity chưa có bình); 6 — bạn bè vẫn đánh trúng nhau. Chi tiết client: `UnityGame/Assets/Aether/Client/Combat/Combat.md`.
+(bản Unity chưa có bình); 6 — bạn bè vẫn đánh trúng nhau. Chi tiết client: `UnityGame/Assets/HavenLord/Client/Combat/Combat.md`.
 
 Ghi chép cũ (trước khi làm):
 

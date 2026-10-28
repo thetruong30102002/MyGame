@@ -4,7 +4,7 @@ import { createServer } from 'node:http';
 import { once } from 'node:events';
 import { test } from 'node:test';
 import { WebSocket, WebSocketServer } from 'ws';
-import { PLAYER_MODELS, type CharacterInfo, type ServerMessage } from '@aether/protocol';
+import { PLAYER_MODELS, type CharacterInfo, type ServerMessage } from '@havenlord/protocol';
 import { Store } from '../src/db.ts';
 import { createApi, newProgress } from '../src/http.ts';
 import { World } from '../src/world.ts';

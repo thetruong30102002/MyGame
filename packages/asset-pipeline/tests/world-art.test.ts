@@ -37,7 +37,7 @@ test('chặn ảnh phóng cũ, sai khổ và bảng màu quá nhiễu',()=>{
 	assert.match(worldArtIssues(createImage(64,64),proof).join(';'),/rỗng/);
 });
 test('thiếu bản vẽ trả trạng thái chờ; không tải bù ảnh ngoài hoặc đọc đường dẫn tùy ý',()=>{
-	assert.equal(loadWorldArt(join(root,'.aether-stage/nonexistent-world-art'),INN.sourceId),null);
+	assert.equal(loadWorldArt(join(root,'.havenlord-stage/nonexistent-world-art'),INN.sourceId),null);
 	assert.throws(()=>loadWorldArt(root,'../../outside'),/chuẩn mỹ thuật/);
 });
 test('mẫu mới không có: nhà trọ giữ nguyên vị trí sản xuất',()=>{

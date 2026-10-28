@@ -1,16 +1,16 @@
 // Chạy: npx tsx tests/worldmaps.test.ts — map của MỌI vùng đã mở (vùng 2–10 dựng bằng bộ dựng chung `packages/asset-pipeline/src/
-// maps/kit`, 10/10/2026): đi bằng CHÂN THẬT (hộp chân 11×5 như client, va chạm `@aether/sim/collision`) từ điểm vào đầu tiên tới
+// maps/kit`, 10/10/2026): đi bằng CHÂN THẬT (hộp chân 11×5 như client, va chạm `@havenlord/sim/collision`) từ điểm vào đầu tiên tới
 // được mọi điểm đến, lối ra, điểm sinh quái, tâm sân boss; lối xuyên vùng hai chiều đúng mép đối diện; quái + boss có chỉ số.
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { test } from 'node:test';
-import { buildSolids, isBlocked, type CollisionMap, type PropFootprint } from '@aether/sim/collision';
-import { zoneSpawnPoints, type MonsterZoneDef } from '@aether/sim/mobs';
-import { REGIONS } from '@aether/sim/regions';
-import { ENEMY_STATS } from '@aether/sim/skills';
+import { buildSolids, isBlocked, type CollisionMap, type PropFootprint } from '@havenlord/sim/collision';
+import { zoneSpawnPoints, type MonsterZoneDef } from '@havenlord/sim/mobs';
+import { REGIONS } from '@havenlord/sim/regions';
+import { ENEMY_STATS } from '@havenlord/sim/skills';
 
-const MAPS = process.env.AETHER_MAPS ?? join(import.meta.dirname, '../../../assets/maps');
+const MAPS = process.env.HAVENLORD_MAPS ?? join(import.meta.dirname, '../../../assets/maps');
 const STEP = 6;
 
 interface MapJson extends CollisionMap {

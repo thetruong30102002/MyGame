@@ -1,5 +1,5 @@
 // Vector đối chiếu MẶT ĐẤT: băm SHA-1 điểm ảnh do CHÍNH groundShade.ts (packages/asset-pipeline) tô (renderGroundChunk) cho vài vùng của mỗi map,
-// cùng bảng màu lót terrainColor. Test C# (Tests~/Aether.Data.Tests) chạy GroundShader.cs cùng đầu vào và đòi ra y hệt từng byte.
+// cùng bảng màu lót terrainColor. Test C# (Tests~/HavenLord.Data.Tests) chạy GroundShader.cs cùng đầu vào và đòi ra y hệt từng byte.
 //   npx tsx UnityGame/Tools~/vectors-ground.mts
 import { createHash } from 'node:crypto';
 import { mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';

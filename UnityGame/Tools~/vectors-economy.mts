@@ -1,5 +1,5 @@
 // Test vector nhóm "economy" (equipment.ts, economy.ts, shop.ts, rewards.ts) sinh từ CHÍNH hàm TypeScript → Tests~/vectors/economy.json.
-// Test C#: Tests~/Aether.Core.Tests/EconomyTests.cs. Chạy ở gốc repo:
+// Test C#: Tests~/HavenLord.Core.Tests/EconomyTests.cs. Chạy ở gốc repo:
 //   npx tsx UnityGame/Tools~/vectors-economy.mts
 // ITEMS thật chỉ có 4 món chỉ số 0 → script THÊM đồ thử (TEST_ITEMS) vào ITEMS ngay trong tiến trình này (không sửa file nào) để phủ
 // chỉ số / cấp / tuổi / nhẫn / chồng; danh sách đồ thử ghi kèm vector để test C# dựng cùng danh mục.

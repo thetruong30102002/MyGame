@@ -1,7 +1,7 @@
 ﻿<Solution>
-  <Project Path="Aether.Core.csproj" />
-  <Project Path="Aether.Editor.csproj" />
-  <Project Path="Aether.Client.csproj" />
-  <Project Path="Aether.Data.csproj" />
-  <Project Path="Aether.Net.csproj" />
+  <Project Path="HavenLord.Core.csproj" />
+  <Project Path="HavenLord.Editor.csproj" />
+  <Project Path="HavenLord.Client.csproj" />
+  <Project Path="HavenLord.Data.csproj" />
+  <Project Path="HavenLord.Net.csproj" />
 </Solution>

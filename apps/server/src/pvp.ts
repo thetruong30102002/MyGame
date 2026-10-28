@@ -1,6 +1,6 @@
-import type { ActionFx, ServerMessage } from '@aether/protocol';
-import { pvpAllowedOn, pvpBuild, pvpDamage, pvpInStrike, pvpStrikes, PVP_KILL_WINDOW_MS, PVP_SPAWN_SHIELD_MS, type PvpBuild, type PvpStrike } from '@aether/sim/pvp';
-import { HERO_SKILLS, type SkillDef } from '@aether/sim/skills';
+import type { ActionFx, ServerMessage } from '@havenlord/protocol';
+import { pvpAllowedOn, pvpBuild, pvpDamage, pvpInStrike, pvpStrikes, PVP_KILL_WINDOW_MS, PVP_SPAWN_SHIELD_MS, type PvpBuild, type PvpStrike } from '@havenlord/sim/pvp';
+import { HERO_SKILLS, type SkillDef } from '@havenlord/sim/skills';
 
 const SKILLS: ReadonlyMap<string, SkillDef> = new Map(HERO_SKILLS.map((s) => [s.id, s]));
 
@@ -24,7 +24,7 @@ export const newPvpState = (story: unknown, bonus: number, now: number): PvpStat
 const buildOf = (p: PvpPlayer): PvpBuild => pvpBuild(p.view.level, p.pvp.story, p.pvp.bonus);
 
 /**
- * Người đánh người trên máy chủ (`@aether/sim/pvp`): mỗi chiêu hợp lệ ở map cho phép PvP → hẹn các lần xét trúng theo hình học
+ * Người đánh người trên máy chủ (`@havenlord/sim/pvp`): mỗi chiêu hợp lệ ở map cho phép PvP → hẹn các lần xét trúng theo hình học
  * của chiêu, xét trên vị trí máy chủ giữ LÚC ĐÓ (đứng ra khỏi vùng kịp là né được), tính sát thương, phát `pvpHit` cho cả map.
  * Máy bị đánh tự trừ máu (còn xét né / thế đỡ của nó) và báo `pvpDown` khi gục.
  */

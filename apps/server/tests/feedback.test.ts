@@ -6,7 +6,7 @@ import { createServer, type Server } from 'node:http';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { test } from 'node:test';
-import { FEEDBACK_MAX, type FeedbackEntry } from '@aether/protocol';
+import { FEEDBACK_MAX, type FeedbackEntry } from '@havenlord/protocol';
 import { Store } from '../src/db.ts';
 import { createApi, newProgress } from '../src/http.ts';
 

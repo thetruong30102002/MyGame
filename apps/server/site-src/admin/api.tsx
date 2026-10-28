@@ -15,7 +15,7 @@ export function useLoad<T>(path: string) {
     const state = useSyncExternalStore(subscribe, snapshot);
     useEffect(() => { const timer = setTimeout(() => void cache.load(path).catch(() => { }), /[?&](q|characterId)=[^&]+/.test(path) ? 200 : 0); return () => clearTimeout(timer); }, [cache, path]);
     useEffect(() => { const fresh = () => { if (document.visibilityState === 'visible')
-        void cache.load(path).catch(() => { }); }; window.addEventListener('focus', fresh); window.addEventListener('aether:navigation', fresh); return () => { window.removeEventListener('focus', fresh); window.removeEventListener('aether:navigation', fresh); }; }, [cache, path]);
+        void cache.load(path).catch(() => { }); }; window.addEventListener('focus', fresh); window.addEventListener('havenlord:navigation', fresh); return () => { window.removeEventListener('focus', fresh); window.removeEventListener('havenlord:navigation', fresh); }; }, [cache, path]);
     const reload = useCallback(() => { void cache.load(path, true).catch(() => { }); }, [cache, path]);
     return { ...state, reload };
 }

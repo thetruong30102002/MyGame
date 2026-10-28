@@ -1,5 +1,5 @@
 // Build trang web: CSS (Tailwind + daisyUI + SweetAlert2) → site/app.css, chép thư viện JS → site/vendor/.
-// Chạy: npm run build:site -w @aether/server   (tuỳ chọn: node site-src/build.mjs <thư mục site khác> — dùng khi xem thử)
+// Chạy: npm run build:site -w @havenlord/server   (tuỳ chọn: node site-src/build.mjs <thư mục site khác> — dùng khi xem thử)
 import { execFileSync } from 'node:child_process';
 import { copyFileSync, mkdirSync,readFileSync,writeFileSync } from 'node:fs';
 import { build } from 'esbuild';
@@ -11,7 +11,7 @@ const here = dirname(fileURLToPath(import.meta.url));
 const site = resolve(process.argv[2] ?? join(here, '../site'));
 const require = createRequire(import.meta.url);
 const tw = require.resolve('tailwindcss/lib/cli.js');
-const env = { ...process.env, AETHER_SITE_DIR: site };
+const env = { ...process.env, HAVENLORD_SITE_DIR: site };
 const bundle=await build({entryPoints:{portal:join(here,'public/portal.tsx')},outdir:join(site,'react'),entryNames:'[name]-[hash]',assetNames:'[name]-[hash]',chunkNames:'shared-[hash]',loader:{'.html':'text'},bundle:true,splitting:true,minify:true,format:'esm',target:['es2022'],jsx:'automatic',metafile:true,define:{'process.env.NODE_ENV':'"production"'}});
 const outputs=Object.entries(bundle.metafile.outputs);
 const entry=(name)=>outputs.find(([,meta])=>meta.entryPoint?.replaceAll('\\','/').endsWith(name));

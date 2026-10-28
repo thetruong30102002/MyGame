@@ -13,6 +13,8 @@ dist/
 packages/asset-pipeline/reports/
 apps/web/next-env.d.ts
 *.tsbuildinfo
+.havenlord-stage/
+# Thư mục nháp tên cũ trước khi đổi tên dự án (28/10/2026) — phần còn bị khoá thì xoá tay.
 .aether-stage/
 __pycache__/
 # Bản lưu trữ cục bộ trước khi xoá nhân vật trên PixelLab (zip lớn) + bản .bak của hiệu ứng vẽ lại — không đưa lên git.

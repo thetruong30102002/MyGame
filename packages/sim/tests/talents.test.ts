@@ -1,6 +1,6 @@
-// Phần LUẬT THUẦN tách từ apps/web/tests/talents.test.ts (11/10/2026, chuẩn bị xoá bản web): chỉ hàm của @aether/sim (+ bảng hình
+// Phần LUẬT THUẦN tách từ apps/web/tests/talents.test.ts (11/10/2026, chuẩn bị xoá bản web): chỉ hàm của @havenlord/sim (+ bảng hình
 // tạm `UnityGame/Tools~/data/tempArt.ts`). Phần chạy CombatSystem của web bỏ cùng bản web — client Unity có test C# + vector riêng.
-// Chạy: npx tsx tests/talents.test.ts (trong packages/sim) hoặc `npm test -w @aether/sim`.
+// Chạy: npx tsx tests/talents.test.ts (trong packages/sim) hoặc `npm test -w @havenlord/sim`.
 // Chạy: npx tsx tests/talents.test.ts — cây Nguyên tố (hàm thuần + lưu ở StoryDirector), bị động mốc 2/4, phủ phép Kiếm,
 // thanh 10 ô, và hệ Băng / phản ứng trong trận.
 import assert from 'node:assert/strict';

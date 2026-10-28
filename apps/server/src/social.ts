@@ -1,4 +1,4 @@
-import { CHAT_MAX, FRIEND_REQUEST_TTL, MAX_FRIENDS, NAME_MAX, WHISPER_KEEP, WHISPER_TTL, type ClientMessage, type ServerMessage, type SocialPerson, type SocialState, type WhisperMessage } from '@aether/protocol';
+import { CHAT_MAX, FRIEND_REQUEST_TTL, MAX_FRIENDS, NAME_MAX, WHISPER_KEEP, WHISPER_TTL, type ClientMessage, type ServerMessage, type SocialPerson, type SocialState, type WhisperMessage } from '@havenlord/protocol';
 import type { CharacterBrief, Store } from './db.ts';
 
 /** Lời mời đang chờ một người gửi đi tối đa — chặn rải lời mời hàng loạt. */

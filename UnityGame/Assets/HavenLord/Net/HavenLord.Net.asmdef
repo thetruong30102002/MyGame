@@ -1,0 +1,14 @@
+{
+    "name": "HavenLord.Net",
+    "rootNamespace": "HavenLord.Net",
+    "references": ["HavenLord.Core"],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": ["Newtonsoft.Json.dll"],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": true
+}

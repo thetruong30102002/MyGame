@@ -22,7 +22,7 @@ import {
 	type NewsItem,
 	type NewsTag,
 	type PostItem,
-} from '@aether/protocol';
+} from '@havenlord/protocol';
 import type { CommentRow, NewsRow, PostRow, Store } from './db.ts';
 
 export class BoardError extends Error {
@@ -98,7 +98,7 @@ export class Board {
 			// 12:00 giờ Việt Nam (UTC+7) của ngày ghi trong file.
 			const at = Date.UTC(+m[3]!, +m[2]! - 1, +m[1]!, 5);
 			const tag = (NEWS_TAGS as readonly string[]).includes(it.tag) ? it.tag : NEWS_TAGS[0];
-			this.store.addNews(tag, it.title, it.body.map(String), 'Aether', at);
+			this.store.addNews(tag, it.title, it.body.map(String), 'Haven Lord', at);
 			n++;
 		}
 		return n;

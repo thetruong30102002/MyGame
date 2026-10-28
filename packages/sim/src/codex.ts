@@ -46,7 +46,7 @@ export const MONSTER_INFO: Record<string, { name: string; kind: string; lore: st
 		kind: 'Boss cốt truyện · đá phong ấn',
 		lore: 'Bị phong ấn dưới tảng đá cổ sâu trong rừng Mossvale, nơi sợi tơ đỏ rỉ ra từ khe đất. Nổi giận khi mất nửa máu. Đây là lời hứa thuở nhỏ của Lior và Aldric.',
 	},
-	// Vùng 2–7 + 4 rồng nguyên tố (dựng 10/10/2026 — chỉ số trong `WORLD_ROSTER` của @aether/sim/skills).
+	// Vùng 2–7 + 4 rồng nguyên tố (dựng 10/10/2026 — chỉ số trong `WORLD_ROSTER` của @havenlord/sim/skills).
 	mob_poison_frog_001: {
 		name: 'Ếch độc',
 		kind: 'Quái thường · Bãi Lau Sậy',

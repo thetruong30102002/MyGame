@@ -97,7 +97,7 @@ export function packAtlas(frames: AnimationFrames, imageName: string, anchorY: n
 	const json: PixiSpritesheetJson = {
 		frames: {},
 		animations: {},
-		meta: { app: '@aether/asset-pipeline', version: '1', image: imageName, format: 'RGBA8888', size: { w: width, h: height }, scale: '1' },
+		meta: { app: '@havenlord/asset-pipeline', version: '1', image: imageName, format: 'RGBA8888', size: { w: width, h: height }, scale: '1' },
 	};
 	const drawn = new Set<string>();
 	runs.forEach(({ anim, dir, list, keys }) => {

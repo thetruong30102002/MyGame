@@ -38,12 +38,12 @@ export interface MonsterZone {
 	/** `fromAge`: chỉ sinh khi đủ tuổi; `onDemand`: chỉ sinh khi nhiệm vụ gọi (`onGive.zone`). */
 	fromAge?: number;
 	/**
-	 * Chỉ sinh tới HẾT tuổi này (`untilAge: 15` = trẻ 8 tuổi thấy, người 16+ không thấy — `@aether/sim/mobs` `zoneLiveAt`). Khu tuổi
+	 * Chỉ sinh tới HẾT tuổi này (`untilAge: 15` = trẻ 8 tuổi thấy, người 16+ không thấy — `@havenlord/sim/mobs` `zoneLiveAt`). Khu tuổi
 	 * thơ dùng chung map với người lớn — thiết kế 12 map vùng 1, 10/10/2026.
 	 */
 	untilAge?: number;
 	/**
-	 * Cấp quái của khu (`@aether/sim` `enemyStatsAt`): cùng một loại quái ở map sau mạnh hơn. Vắng = chỉ số gốc của
+	 * Cấp quái của khu (`@havenlord/sim` `enemyStatsAt`): cùng một loại quái ở map sau mạnh hơn. Vắng = chỉ số gốc của
 	 * `ENEMY_STATS` (6 map cũ của vùng 1 giữ nguyên số).
 	 */
 	level?: number;
@@ -87,7 +87,7 @@ export const px = (t: number): number => Math.round(t * TILE + TILE / 2);
 export const WAYSTONE_SPOT = 'waystone';
 
 /**
- * Điểm sinh từng con của một bầy (px) — CHÉP ĐÚNG công thức `zoneSpawnPoints` của `@aether/sim/mobs` (máy chủ + client sinh quái
+ * Điểm sinh từng con của một bầy (px) — CHÉP ĐÚNG công thức `zoneSpawnPoints` của `@havenlord/sim/mobs` (máy chủ + client sinh quái
  * ở đó; pipeline không phụ thuộc gói sim). `apps/web/tests/nav.test.ts` kiểm lại mọi điểm sinh bằng hàm thật của sim.
  */
 export function herdSpawnPoints(z: Pick<MonsterZone, 'x' | 'y' | 'radius' | 'count'>): { x: number; y: number }[] {
@@ -288,7 +288,7 @@ export class Layout {
 	finish(base: Omit<MapData, 'tileSize' | 'width' | 'height' | 'seed' | 'terrain' | 'props' | 'decals'>): MapData {
 		if (this.missing.size) console.log(`  ⚠ ${base.id}: bỏ qua đồ vật chưa có trong atlas: ${[...this.missing].join(', ')}`);
 		// Cột dịch chuyển ở MỌI map (chủ dự án 14/10/2026: "thêm các đá dịch chuyển ở các map con nữa"): NPC cột của vùng
-		// (`@aether/sim/story/services`) đứng ở địa điểm `waystone` của map nào có. Trạm tự khai chỗ; map khác lấy chỗ trống gần điểm vào.
+		// (`@havenlord/sim/story/services`) đứng ở địa điểm `waystone` của map nào có. Trạm tự khai chỗ; map khác lấy chỗ trống gần điểm vào.
 		let spots = base.spots;
 		if (!spots.some((s) => s.id === WAYSTONE_SPOT)) {
 			// Lùi vào trong map ~4 ô từ điểm vào (điểm vào sát mép): vừa tới đã thấy cột, không đứng chắn ngay lối, không bị khung giao diện che.

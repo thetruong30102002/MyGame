@@ -1,5 +1,5 @@
 // CSS trang web (site/*.html + site/common.js): Tailwind + daisyUI, build ra site/app.css (chỉ gồm class đang dùng).
-// Sửa giao diện xong chạy: npm run build:site -w @aether/server
+// Sửa giao diện xong chạy: npm run build:site -w @havenlord/server
 const path = require('node:path');
 
 /**
@@ -18,8 +18,8 @@ const extract = (content) => {
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	content: {
-		// AETHER_SITE_DIR: build cho thư mục site khác (xem thử) — site-src/build.mjs đặt.
-		files: [...['*.html', '*.js'].map((f) => path.join(process.env.AETHER_SITE_DIR || path.join(__dirname, '../site'), f)),path.join(__dirname,'**/*.{tsx,html}')],
+		// HAVENLORD_SITE_DIR: build cho thư mục site khác (xem thử) — site-src/build.mjs đặt.
+		files: [...['*.html', '*.js'].map((f) => path.join(process.env.HAVENLORD_SITE_DIR || path.join(__dirname, '../site'), f)),path.join(__dirname,'**/*.{tsx,html}')],
 		extract: { html: extract, js: extract },
 	},
 	theme: {
@@ -34,7 +34,7 @@ module.exports = {
 		themes: [
 			{
 				// Đêm Aether: vàng kim trên nền xanh đêm, hợp ảnh pixel + bản đồ lục địa.
-				aether: {
+				havenlord: {
 					primary: '#e7c581',
 					'primary-content': '#2a1606',
 					secondary: '#2f9bd6',

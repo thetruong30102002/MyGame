@@ -3,8 +3,8 @@
 // + kẹp điểm nhắm quanh người gửi, tin sai thì bỏ phần chiêu im lặng (động tác thân vẫn đi), chỉ người CÙNG map nhận, không dội
 // về người gửi, giới hạn nhịp giữ nguyên; client cũ (không gửi `fx`) vẫn như trước.
 import assert from 'node:assert/strict';
-import type { CharacterInfo, ServerMessage } from '@aether/protocol';
-import { HERO_SKILLS } from '@aether/sim/skills';
+import type { CharacterInfo, ServerMessage } from '@havenlord/protocol';
+import { HERO_SKILLS } from '@havenlord/sim/skills';
 import { AIM_SLACK, cleanCast, FX_COOLDOWN_RATIO, fxAllowed } from '../src/actions.ts';
 import type { Store } from '../src/db.ts';
 import { World } from '../src/world.ts';

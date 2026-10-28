@@ -1,5 +1,5 @@
-import { ADMIN_LIMITS, ADMIN_REASON_MAX, MAX_LEVEL, type AdminCharacter, type AdminGrantResult, type AdminLogEntry, type EcoGain, type ServerMessage } from '@aether/protocol';
-import { applyAdminEco, cleanEco, totalExp, type Eco } from '@aether/sim/economy';
+import { ADMIN_LIMITS, ADMIN_REASON_MAX, MAX_LEVEL, type AdminCharacter, type AdminGrantResult, type AdminLogEntry, type EcoGain, type ServerMessage } from '@havenlord/protocol';
+import { applyAdminEco, cleanEco, totalExp, type Eco } from '@havenlord/sim/economy';
 import type { AdminRow, Store } from './db.ts';
 import type { Economy } from './economy.ts';
 

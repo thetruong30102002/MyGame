@@ -2,16 +2,15 @@
 //   npx tsx src/grant.ts "<tên nhân vật>" <số> [lý do]
 //   npx tsx src/grant.ts "<tên nhân vật>"          → xem số dư + 10 dòng nhật ký gần nhất
 // Máy chủ đang chạy vẫn dùng chung CSDL (SQLite WAL); người chơi đang online thấy số mới ở lần đổi ví kế / lần vào game sau.
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { Store } from './db.ts';
+import { dbPath } from './dbPath.ts';
 
 const [name, amount, ...why] = process.argv.slice(2);
 if (!name) {
 	console.error('Cách dùng: npx tsx src/grant.ts "<tên nhân vật>" [số] [lý do]');
 	process.exit(1);
 }
-const store = new Store(process.env.AETHER_DB ?? join(dirname(fileURLToPath(import.meta.url)), '..', 'data/aether.db'));
+const store = new Store(dbPath());
 try {
 	const ch = store.briefByName(name);
 	if (!ch) {

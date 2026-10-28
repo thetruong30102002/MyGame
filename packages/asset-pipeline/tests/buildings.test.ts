@@ -8,7 +8,7 @@ import { regionBuild } from '../src/maps/regions.js';
 import { GroundShader } from '../src/maps/groundShade.js';
 import { ELEMENT_TREES } from '../src/props/elemental.js';
 
-const root = process.env.AETHER_MAPS ?? join(import.meta.dirname, '../../../assets/maps');
+const root = process.env.HAVENLORD_MAPS ?? join(import.meta.dirname, '../../../assets/maps');
 for (const [region, trees] of Object.entries(ELEMENT_TREES)) test(`${region}: đủ 12 loài cây thật, 12 map ngoài trời và một công trình`, () => {
 	const meta = JSON.parse(readFileSync(join(root, region, 'props.meta.json'), 'utf8'));
 	const { maps } = regionBuild(region).build(meta, []);

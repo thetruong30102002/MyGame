@@ -12,11 +12,11 @@ for(const r of REGIONS){const folder=join(root,'assets/maps',r.id);const index=J
 const topology=auditWorldConnections(maps);
 if(topology.errors.length||topology.unreachable.length)throw Error('Cổng thế giới chưa hợp lệ: '+JSON.stringify(topology));
 const snapshot={...WORLD_DESIGN,topology};
-const dir=join(root,'.aether-stage/world-renewal');mkdirSync(dir,{recursive:true});
+const dir=join(root,'.havenlord-stage/world-renewal');mkdirSync(dir,{recursive:true});
 writeFileSync(join(dir,'world-design.json'),JSON.stringify(snapshot,null,2));
 writeFileSync(join(dir,'world-topology.json'),JSON.stringify(topology,null,2));
 // Chỉ thêm JSON module mới, không xuất lại các module nhân vật/chiêu đang dở.
-const unityDir=join(root,'UnityGame/Assets/Aether/Data/Sim');mkdirSync(unityDir,{recursive:true});
+const unityDir=join(root,'UnityGame/Assets/HavenLord/Data/Sim');mkdirSync(unityDir,{recursive:true});
 writeFileSync(join(unityDir,'worldDesign.json'),JSON.stringify({WORLD_DESIGN},null,'\t')+'\n');
 
 const planPath=join(root,'docs/ke-hoach-nang-cap-the-gioi.md');

@@ -1,6 +1,6 @@
-// Phần LUẬT THUẦN tách từ apps/web/tests/enchant.test.ts (11/10/2026, chuẩn bị xoá bản web): chỉ hàm của @aether/sim (+ bảng hình
+// Phần LUẬT THUẦN tách từ apps/web/tests/enchant.test.ts (11/10/2026, chuẩn bị xoá bản web): chỉ hàm của @havenlord/sim (+ bảng hình
 // tạm `UnityGame/Tools~/data/tempArt.ts`). Phần chạy CombatSystem của web bỏ cùng bản web — client Unity có test C# + vector riêng.
-// Chạy: npx tsx tests/enchant.test.ts (trong packages/sim) hoặc `npm test -w @aether/sim`.
+// Chạy: npx tsx tests/enchant.test.ts (trong packages/sim) hoặc `npm test -w @havenlord/sim`.
 // Chạy: npx tsx tests/enchant.test.ts — phủ phép Kiếm theo mốc nguyên tố (kế hoạch 2.3): phần THÊM ngoài việc đòn kiếm
 // mang hệ — Hoả 7 nổ nhát 3, Thuỷ hút 3% / 6%, Phong tầm +25% + đẩy + lưỡi gió (7), Băng cộng dồn 3 / 2 nhát → đóng băng,
 // Thổ 7 choáng lâu hơn. Phủ Thổ mốc 5 (phá giáp + nhát 3 choáng) ở tests/elements.test.ts.

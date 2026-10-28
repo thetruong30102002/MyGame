@@ -1,4 +1,4 @@
-# Aether Chronicle
+# Haven Lord
 
 <!-- rig-v2-scope -->
 
@@ -66,7 +66,7 @@ Phần chung mọi trang (thanh trên / dưới, đăng nhập, gọi API, **b�
 Giao diện dùng **Tailwind + daisyUI** (theme `aether` ở `apps/server/site-src/tailwind.config.cjs`) — nút, chip, tab, ô nhập, mục gập đều là
 class daisyUI (`btn`, `join`, `input`, `collapse`…); thông báo + hộp xác nhận dùng **SweetAlert2** (`A.toast(chữ, 'success'|'error'|'info')`,
 `await A.confirm({ title, text, ok, danger })` trong `site/common.js` — đừng dùng `alert` / `confirm` của trình duyệt). Sửa class trong
-`site/*.html` / `site/common.js` xong chạy `npm run build:site -w @aether/server` (`site-src/build.mjs`): build lại `site/app.css` + chép
+`site/*.html` / `site/common.js` xong chạy `npm run build:site -w @havenlord/server` (`site-src/build.mjs`): build lại `site/app.css` + chép
 `site/vendor/sweetalert2.min.js` (commit cả hai). Sửa HTML / CSS / JS không
 cần khởi động lại; sửa `site.ts` / `http.ts` / `board.ts` thì phải khởi động lại máy chủ.
 
@@ -80,7 +80,7 @@ Kiểm: `npx tsx apps/server/tests/developmentPlan.test.ts`; audit hiện trạn
 Công việc đầu tiên của đợt tái thiết: [chuẩn mỹ thuật Thistlewood](docs/thiet-ke/thistlewood-chuan-my-thuat.md).
 Thước nhân vật PixelLab danh nghĩa 75px / PPU 48; nhà mẫu 336×440, cửa 56×104; nhà cũ giữ làm khu phụ.
 Nguồn nhà mới dùng tiền tố `worldart:` và cổng tỷ lệ/hash/alpha/palette trong `packages/asset-pipeline/src/props/worldArt.ts`.
-Chưa có ảnh mới đã duyệt thì pipeline giữ bố cục cũ; không build/phát hành khối hình học thay nhà. Kiểm bằng `npm run test:world-style -w @aether/asset-pipeline`.
+Chưa có ảnh mới đã duyệt thì pipeline giữ bố cục cũ; không build/phát hành khối hình học thay nhà. Kiểm bằng `npm run test:world-style -w @havenlord/asset-pipeline`.
 
 Việc không cần sinh ảnh (26/10): [chính trị, địa lý và Thiên Thành](docs/thiet-ke/chinh-tri-dia-ly-thien-thanh.md), nguồn `packages/sim/src/worldDesign.ts`.
 Admin → Kế hoạch có sơ đồ SVG tương tác, hồ sơ 13 vùng/20 phe/13 quan hệ, bốn chương thư khố và kết quả rà 174 map/424 lối.
@@ -117,7 +117,7 @@ lý do BẮT BUỘC → dòng xem trước "trước → sau" (tính bằng đú
   npx tsx src/admin.ts add <tài khoản>       # cấp quyền (tên đăng nhập, không phải tên nhân vật)
   npx tsx src/admin.ts remove <tài khoản>    # thu quyền
   npx tsx src/admin.ts list                  # ai đang có quyền
-  # CSDL thử: thêm AETHER_DB=data/test.db (mặc định là CSDL THẬT data/aether.db)
+  # CSDL thử: thêm HAVENLORD_DB=data/test.db (mặc định là CSDL THẬT data/havenlord.db)
   ```
 
 - **Biên độ mỗi lần**: xu ±1.000.000 · kim cương ±100.000 · bình ±999 · EXP ±10.000.000 · điểm tiềm năng ±200 · đặt cấp 1–100
@@ -134,16 +134,16 @@ lý do BẮT BUỘC → dòng xem trước "trước → sau" (tính bằng đú
 
 ### Chia sẻ ra internet qua Tailscale Funnel
 
-Cổng Funnel trên máy `admin` — **chỉ còn Aether**. Client Unity (PC / APK) gọi máy chủ game qua `/game`:
+Cổng Funnel trên máy `admin` — **chỉ còn Haven Lord**. Client Unity (PC / APK) gọi máy chủ game qua `/game`:
 
 | Địa chỉ | Trỏ vào | Ghi chú |
 | --- | --- | --- |
-| **`https://nttrg-2.tail024813.ts.net/game`** (443) | `127.0.0.1:3200` — máy chủ game (REST + WebSocket `/game/ws`), CSDL `apps/server/data/aether.db` | **Địa chỉ máy chủ điền ở màn đăng nhập** |
+| **`https://nttrg-2.tail024813.ts.net/game`** (443) | `127.0.0.1:3200` — máy chủ game (REST + WebSocket `/game/ws`), CSDL `apps/server/data/havenlord.db` | **Địa chỉ máy chủ điền ở màn đăng nhập** |
 | `https://nttrg-2.tail024813.ts.net:8443/game` | như trên | Link cũ. Cổng 8443 bị nhiều mạng ở Việt Nam chặn (mạng công ty, 4G, wifi công cộng) |
 | `…/` (443, 8443) | `127.0.0.1:3101` — bản web cũ, **đã xoá**, cổng không còn ai nghe | Route còn sót: Tailscale 1.102.2 không gỡ riêng được route `/` (`--set-path=/ off` báo "handler does not exist"); gỡ hẳn phải `tailscale funnel reset` rồi thêm lại hai route `/game` bên dưới (đường vào game đứt vài giây) |
 
 ```bash
-npm run start -w @aether/server                                  # máy chủ game (CSDL thật), cổng 3200
+npm run start -w @havenlord/server                                  # máy chủ game (CSDL thật), cổng 3200
 tailscale funnel --bg --https=443 --set-path=/game http://127.0.0.1:3200
 tailscale funnel --bg --https=8443 --set-path=/game http://127.0.0.1:3200     # link cũ, tuỳ chọn
 tailscale funnel --https=8443 off                                # gỡ link cũ 8443
@@ -153,8 +153,8 @@ tailscale funnel --https=8443 off                                # gỡ link cũ
   `C:/Program Files/Git/game` (đã dẫm 02/10/2026). Nếu buộc dùng Git Bash thì thêm `MSYS_NO_PATHCONV=1`.
 - Máy chủ game nhận cả `/api/...` lẫn `/game/api/...` (tương tự `/ws` và `/game/ws`), nên Funnel cắt hay không cắt tiền tố thì vẫn chạy.
 - Log máy chủ game: `apps/server/data/server.log`.
-- Funnel chỉ mở được cổng **443, 8443, 10000**; Aether dùng 443 (chính) + 8443 (link cũ), còn trống **10000**.
-- Muốn tên riêng (`aether.tail024813.ts.net`) thì phải có node Tailscale thứ hai (máy khác hoặc container). Tailscale
+- Funnel chỉ mở được cổng **443, 8443, 10000**; Haven Lord dùng 443 (chính) + 8443 (link cũ), còn trống **10000**.
+- Muốn tên riêng (`havenlord.tail024813.ts.net`) thì phải có node Tailscale thứ hai (máy khác hoặc container). Tailscale
   Services không dùng được ở đây: host của Services phải là thiết bị **gắn tag**, còn `admin` là máy đăng nhập bằng
   tài khoản. Lệnh `funnel` (1.102.2) cũng không có `--service`.
 - Funnel chỉ chuyển tiếp: tắt máy chủ game (tắt máy, đóng phiên) thì link trả 502 cho tới khi chạy lại.
@@ -164,7 +164,7 @@ tailscale funnel --https=8443 off                                # gỡ link cũ
   `Invoke-CimMethod -ClassName Win32_Process -MethodName Create -Arguments @{ CommandLine = 'cmd.exe /c "npx tsx src\main.ts >> data\server.log 2>&1"'; CurrentDirectory = 'D:\nttrg\pixel\apps\server' }`.
   Tắt: `taskkill /PID <pid đang nghe cổng> /T /F` (tắt cứng không mất gì — máy chủ ghi thẳng vào CSDL khi có thay đổi).
 - **Tự bật khi mở máy** (10/10/2026): `scripts/khoi-dong-ban-that.ps1` bật máy chủ game :3200 (cổng đã có tiến trình nghe thì bỏ qua,
-  tạo tiến trình qua WMI như trên, log `scripts/khoi-dong-ban-that.log`). Tác vụ Windows **"Aether - ban that"** gọi file đó mỗi lần
+  tạo tiến trình qua WMI như trên, log `scripts/khoi-dong-ban-that.log`). Tác vụ Windows **"Haven Lord - ban that"** gọi file đó mỗi lần
   đăng nhập Windows (trễ 20 giây, không cần quyền quản trị). Máy chưa bật tự đăng nhập Windows nên sau khi khởi động lại phải đăng nhập thì
   bản thật mới lên. Tailscale chạy dạng dịch vụ tự khởi động và giữ cấu hình Funnel (`--bg`).
 
@@ -176,7 +176,7 @@ tailscale funnel --https=8443 off                                # gỡ link cũ
 - **Cập nhật máy chủ thật**: sao lưu CSDL trước (`VACUUM INTO` bằng `node:sqlite` chạy được khi máy chủ đang mở CSDL — mẫu ở
   `docs/the-gioi-aether.md` mục Chạy / kiểm), `taskkill` tiến trình nghe :3200, chạy lại `scripts\khoi-dong-ban-that.ps1`.
 - **Cài / cập nhật từ Git trên máy `admin`** (máy đang chạy Tailscale Funnel): mở PowerShell, vào thư mục repo và kéo code mới.
-  Nếu `package-lock.json` thay đổi thì cài lại gói; nếu có thay đổi cấu trúc CSDL, sao lưu `apps/server/data/aether.db` trước khi
+  Nếu `package-lock.json` thay đổi thì cài lại gói; nếu có thay đổi cấu trúc CSDL, sao lưu `apps/server/data/havenlord.db` trước khi
   chạy phiên bản mới. Sau đó khởi động lại server bằng script bên dưới. Không cần cấu hình lại Funnel nếu địa chỉ vẫn là
   `https://nttrg-2.tail024813.ts.net/game`.
 
@@ -192,9 +192,9 @@ tailscale funnel --https=8443 off                                # gỡ link cũ
   Script bật server chạy nền và chờ cổng 3200 sẵn sàng. Kiểm tra `https://nttrg-2.tail024813.ts.net/game`
   hoặc xem log tại `apps/server/data/server.log`. Nếu máy `admin` vừa khởi động lại, cần đăng nhập Windows để tác vụ tự chạy server;
   Tailscale Funnel cần đang hoạt động và máy phải có mạng. Người chơi tiếp tục dùng URL `/game` ở trên.
-- Triển khai hình mới: dựng thử `AETHER_ASSETS=<thư mục nháp> npm run assets:…`, duyệt xong mới dựng vào `assets/` — **máy chủ thật
+- Triển khai hình mới: dựng thử `HAVENLORD_ASSETS=<thư mục nháp> npm run assets:…`, duyệt xong mới dựng vào `assets/` — **máy chủ thật
   đọc map trong `assets/maps` ngay lúc chạy** và giữ đệm theo file, nên đổi map thì khởi động lại máy chủ; hình mới vào game qua
-  Unity `Aether/Nhập dữ liệu từ pipeline` rồi build lại PC / APK.
+  Unity `Haven Lord/Nhập dữ liệu từ pipeline` rồi build lại PC / APK.
 
 Phản ứng nguyên tố: **Thuỷ** vào mục tiêu đang cháy → *Hơi Nước*; **Phong** vào mục tiêu đang cháy → *Bùng Lửa* (nổ lan);
 **Phong** vào mục tiêu đang ướt → *Băng Giá* (làm chậm).
@@ -223,6 +223,6 @@ kế tiếp, lệnh chạy / kiểm / triển khai, luật dự án) + danh sác
 Cốt truyện: [`docs/story.md`](docs/story.md). Đội hình nhân vật và lý do loại: [`docs/asset-pipeline.md`](docs/asset-pipeline.md).
 Lịch sinh nhân vật Pixler theo quota: [`docs/pixler-plan.md`](docs/pixler-plan.md).
 
-Kiểm thử: `npm test` (luật sim + pipeline), test máy chủ trong `apps/server/tests`, client Unity `dotnet test UnityGame/Tests~/Aether.Core.Tests` + AutoTest (`-aetherShot <thư mục>` kèm `-aetherStory` / `-aetherLab` / `-aetherSocial` / `-aetherAdmin` — `UnityGame/README_UNITY.md`).
+Kiểm thử: `npm test` (luật sim + pipeline), test máy chủ trong `apps/server/tests`, client Unity `dotnet test UnityGame/Tests~/HavenLord.Core.Tests` + AutoTest (`-havenShot <thư mục>` kèm `-havenStory` / `-havenLab` / `-havenSocial` / `-havenAdmin` — `UnityGame/README_UNITY.md`).
 
 

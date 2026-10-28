@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Biên dịch CHÍNH mã nguồn Assets/HavenLord/Net (dùng chung với Unity) ngoài Unity — cùng mức netstandard2.1 + C# 9 như HavenLord.Core. -->
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>9.0</LangVersion>
+    <Nullable>disable</Nullable>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <RootNamespace>HavenLord.Net</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../Assets/HavenLord/Net/**/*.cs" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../HavenLord.Core/HavenLord.Core.csproj" />
+  </ItemGroup>
+</Project>

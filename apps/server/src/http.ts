@@ -18,7 +18,7 @@ import {
 	type FeedbackRequest,
 	type Gender,
 	type MeResponse,
-} from '@aether/protocol';
+} from '@havenlord/protocol';
 import { AdminError, AdminOps } from './adminOps.ts';
 import { Board, BoardError, type Viewer } from './board.ts';
 import { latestFile, readClientVersion, sendClientFile } from './clientUpdate.ts';
@@ -30,8 +30,8 @@ import type { Store } from './db.ts';
 import { cleanProgress } from './world.ts';
 
 const SESSION_TTL = 30 * 24 * 3600 * 1000;
-/** Bản phát client Unity cho tự cập nhật (`clientUpdate.ts`); máy chủ thử đặt AETHER_CLIENT_DIR riêng. */
-const CLIENT_DIR = process.env.AETHER_CLIENT_DIR ?? join(dirname(fileURLToPath(import.meta.url)), '..', 'data', 'client');
+/** Bản phát client Unity cho tự cập nhật (`clientUpdate.ts`); máy chủ thử đặt HAVENLORD_CLIENT_DIR riêng. */
+const CLIENT_DIR = process.env.HAVENLORD_CLIENT_DIR ?? join(dirname(fileURLToPath(import.meta.url)), '..', 'data', 'client');
 const BODY_LIMIT = 80 * 1024;
 
 export function newProgress(): CharacterProgress {

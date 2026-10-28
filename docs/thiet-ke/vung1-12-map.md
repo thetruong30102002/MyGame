@@ -332,7 +332,7 @@ RẢI
 - signpost ở 2 lối. Decal d2 ×1200.
 
 Phụ thuộc G1 / B1 / tree_dead đang chờ vẽ. Thiếu hình thì Layout bỏ trống. Vườn bà goá, đèn và miệng hầm đã có hình. Dựng ở ĐỢT 2.
-> Ghi chú 10/10/2026: G1 / B1 / tree_dead ĐÃ VẼ, dựng lại 79 → 206 đồ vật (bản thử `.aether-stage/assets`, chờ lên game) — mục Hình cần vẽ.
+> Ghi chú 10/10/2026: G1 / B1 / tree_dead ĐÃ VẼ, dựng lại 79 → 206 đồ vật (bản thử `.havenlord-stage/assets`, chờ lên game) — mục Hình cần vẽ.
 
 ### Luỹ Hiệp Sĩ Cũ (oldfort) — MỚI · hunt
 
@@ -509,7 +509,7 @@ Tổng 16 id.
 > **Cập nhật 10/10/2026 — ĐỢT 2 xong**: nợ cũ đã vẽ hết bằng token #1, 48 lượt, không vẽ lại món nào: 3 tấm `sheets/G1_graveyard`,
 > `R1_ruins`, `B1_bonehills` (6 lượt / tấm, ảnh mẫu N1, đúng thứ tự ô đã khai) + 5 món `objects/tree_dead`, `tree_pine_dry`, `crypt`,
 > `cliff_rock`, `ruin_arch` (6 lượt / món, đề bài `objects/<món>/args.json`). Dựng lại map vùng 1 không phải sửa code; Nghĩa địa,
-> Đồi Xương, Vách, Mộ Vô Danh, Luỹ, Hẻm Cửa Sông hết trống. Bản thử `.aether-stage/assets`, chờ lên game. Còn tuỳ chọn: tấm C1_chapter1.
+> Đồi Xương, Vách, Mộ Vô Danh, Luỹ, Hẻm Cửa Sông hết trống. Bản thử `.havenlord-stage/assets`, chờ lên game. Còn tuỳ chọn: tấm C1_chapter1.
 >
 > **Cập nhật 10/10/2026 — tấm C1_chapter1 ĐÃ VẼ** (6 lượt token #1, đề bài `sheets/C1_chapter1.png.json`): 192×192 lưới **2 cột × 3
 > hàng** (ô rộng 96×64 cho lều / thuyền) thay vì 3×2 — 6 id khai ở `humanKingdom.ts`: `small_hut` (lều gỗ 81×43), `rowboat` (đi xuyên,
@@ -562,7 +562,7 @@ Nấm cấp cao giòn hơn nên ít EXP mỗi con, nhưng hạ nhanh hơn khoả
 - apps/server/src/mobs.ts ensure(): `stats = enemyStatsAt(type, z.level)`, lưu level lên con quái.
 - economy.sharedKill: nhận EXP / xu từ chỉ số ĐÃ nhân lấy thẳng trên con quái (MobRegistry truyền mob.stats), không tra lại ENEMY_STATS.
 - privateKill: nhận thêm zone id từ client, kiểm khu riêng đó trên map đang đứng, trao EXP theo zone.level.
-- @aether/protocol MobView: thêm `level`.
+- @havenlord/protocol MobView: thêm `level`.
 - Có test máy chủ cho khu có level.
 - Client:
 - Game.spawnZone và đường quái mạng (tìm khu theo m.zone) truyền level vào CombatSystem.addEnemy (thêm opts.level).

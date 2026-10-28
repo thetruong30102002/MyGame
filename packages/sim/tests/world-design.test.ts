@@ -49,7 +49,7 @@ test('audit bắt đích sai, điểm đến thiếu và lối chỉ có một c
 	const a=auditWorldConnections(m,'a/start');assert.equal(a.errors.length,3);
 });
 test('bản xuất Unity và bản trên admin khớp nguồn thiết kế',()=>{
-	const unity=JSON.parse(readFileSync(join(root,'UnityGame/Assets/Aether/Data/Sim/worldDesign.json'),'utf8'));
+	const unity=JSON.parse(readFileSync(join(root,'UnityGame/Assets/HavenLord/Data/Sim/worldDesign.json'),'utf8'));
 	assert.deepEqual(unity.WORLD_DESIGN,WORLD_DESIGN);
 	const markdown=readFileSync(join(root,'docs/ke-hoach-nang-cap-the-gioi.md'),'utf8');
 	const plan=JSON.parse(markdown.split('```json')[1]!.split('```')[0]!);

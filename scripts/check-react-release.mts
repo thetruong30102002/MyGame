@@ -14,4 +14,4 @@ for(const page of ['','admin','the-gioi','tin-tuc','tai-game','dien-dan','gop-y'
 for(const old of ['plan.js','world-design.js'])assert.equal((await fetch(base+'site/'+old)).status,404);
 const news=await (await fetch(base+'api/news?limit=200')).json();assert.equal(news.length,1);assert.equal(news[0].title,'Aether mới: 30 tạo hình, 5 class và thế giới tiếp theo');
 const report={checkedAt:new Date().toISOString(),base,reactFiles:manifest.files.length,characters:30,roles:5,imagesVerified:paths.length,news:news.length,legacyScripts:404,playerDataChanged:false};
-writeFileSync('.aether-stage/admin-react/live-assets-check.json',JSON.stringify(report,null,2));console.log(JSON.stringify(report));
+writeFileSync('.havenlord-stage/admin-react/live-assets-check.json',JSON.stringify(report,null,2));console.log(JSON.stringify(report));

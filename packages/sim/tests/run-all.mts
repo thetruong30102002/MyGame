@@ -1,4 +1,4 @@
-// Chạy lần lượt mọi tests/*.test.ts của @aether/sim trong một tiến trình (`npm test -w @aether/sim`). Test nào ném lỗi là dừng.
+// Chạy lần lượt mọi tests/*.test.ts của @havenlord/sim trong một tiến trình (`npm test -w @havenlord/sim`). Test nào ném lỗi là dừng.
 import { readdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';

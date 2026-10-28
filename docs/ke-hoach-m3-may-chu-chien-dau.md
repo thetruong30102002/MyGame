@@ -45,14 +45,14 @@ nhất; độ trễ mạng với đòn cận chiến (cần dự đoán tốt); 
 
 ## Tiến độ
 
-- **M3.1a — ĐÃ LÀM (08/10/2026)**: gói `packages/sim` (`@aether/sim/<module>`) chứa luật thuần dùng chung — `skillRules`,
-  `skills`, `talents`, `bossRules`, `equipment` (chuyển nguyên file; web giữ file cũ dạng `export * from '@aether/sim/…'` nên
+- **M3.1a — ĐÃ LÀM (08/10/2026)**: gói `packages/sim` (`@havenlord/sim/<module>`) chứa luật thuần dùng chung — `skillRules`,
+  `skills`, `talents`, `bossRules`, `equipment` (chuyển nguyên file; web giữ file cũ dạng `export * from '@havenlord/sim/…'` nên
   không import nào phải đổi). `ReactionId` chuyển từ `CombatSystem` sang `skillRules`. Máy chủ (NodeNext) đọc được gói: import
   tương đối trong gói ghi đuôi `.ts`; web bật `allowImportingTsExtensions` + `transpilePackages`. Mọi test cũ qua, Next build qua.
 - **M3.1b — ĐÃ LÀM (08/10/2026)**: `collision` + `NavGrid` chuyển sang `sim` (máy chủ dựng va chạm / tìm đường từ map JSON).
 - **M3.2a — ĐÃ LÀM (08/10/2026): quái dùng chung.** Cách làm khác bản thảo ở mục 3 (chép AI sang máy chủ = viết lại ~3.300 dòng):
   - **Máy chủ giữ "sổ quái" theo map** (`apps/server/src/mobs.ts`): khu nào dùng chung = khu thế giới người lớn (`fromAge` ≥ 16,
-    không `onDemand` — `@aether/sim/mobs`); chỗ sinh tất định (cùng công thức client); máu, sống / chết, hồi sinh (14 giây /
+    không `onDemand` — `@havenlord/sim/mobs`); chỗ sinh tất định (cùng công thức client); máu, sống / chết, hồi sinh (14 giây /
     boss vùng 3 phút), **ai được tính công** (mọi người gây sát thương trong 30 giây), **đếm số lần hạ** vào bảng `kill_counts`
     (nền cho NPC Thành tựu phát kim cương).
   - **Một người chơi làm "chủ" mỗi con** và chạy AI sẵn có của client, báo vị trí 10 lần/giây; người khác thấy con rối đi theo.
@@ -73,7 +73,7 @@ nhất; độ trễ mạng với đòn cận chiến (cần dự đoán tốt); 
     quái của mình, nên chủ quái sửa client cũng không đánh mạnh người khác được. Con rối diễn động tác đánh như quái thật.
   - **Boss dùng chung nhắm vùng nổ vào bất kỳ ai** trong 360px (cả người chơi máy khác), không chỉ người làm chủ.
   - **Khống chế** (`mobCc`): khi khống chế trên quái dùng chung TĂNG ở máy nào (đòn của mình lên con rối, hay quái mình làm chủ)
-    thì máy đó gửi phần tăng; máy chủ kiểm người gửi đứng trong 900px, kẹp trần (`@aether/sim/mobs` `MOB_CC_CAP`, cú đẩy ≤ 2000px/s
+    thì máy đó gửi phần tăng; máy chủ kiểm người gửi đứng trong 900px, kẹp trần (`@havenlord/sim/mobs` `MOB_CC_CAP`, cú đẩy ≤ 2000px/s
     · 0,3 giây) rồi phát cho mọi người khác. Chủ áp vào AI (đóng băng / choáng / hất thì đứng im, chậm, đánh trượt, bị đẩy thật);
     máy khác thấy màu + ăn phá giáp / vỡ giáp cho đòn của mình. Đồng bộ: đóng băng, choáng, hất, chậm, lạnh, lạnh sâu, phá giáp,
     vỡ giáp, Bão Cát, Gió Loạn. **Không** đồng bộ ướt / cháy / bụi đất: đó là nguyên liệu phản ứng của riêng người gây ra
@@ -85,7 +85,7 @@ nhất; độ trễ mạng với đòn cận chiến (cần dự đoán tốt); 
   - Giới hạn còn lại: phá băng sớm (Tan Chảy, Vỡ Vụn của Thổ) chỉ xảy ra ở máy người đánh — máy khác còn băng tới hết giờ; người
     có Vỡ Vụn (Băng 9) thấy băng do người khác gây ra tan cũng nổ vụn băng của mình (coi như phần thưởng đánh chung).
 - **M3.3a — ĐÃ LÀM (08/10/2026): cấp / EXP / xu / bình hồi phục ở máy chủ.**
-  - **Máy chủ là nguồn sự thật** (`apps/server/src/economy.ts`, luật thuần `@aether/sim/economy`): gói `save` / PUT tiến độ của client
+  - **Máy chủ là nguồn sự thật** (`apps/server/src/economy.ts`, luật thuần `@havenlord/sim/economy`): gói `save` / PUT tiến độ của client
     KHÔNG ghi đè được bốn số này (`Store.saveProgress` giữ nguyên trong CSDL). Vào game và mỗi lần đổi máy chủ gửi `eco` (số thật + phần
     vừa nhận); client vẽ theo (`CombatSystem.setEconomy` — lên cấp diễn từng cấp như trước). Bản lưu cũ: số client tự ghi trước đó được
     nhận một lần làm số khởi đầu (kẹp khoảng hợp lệ).

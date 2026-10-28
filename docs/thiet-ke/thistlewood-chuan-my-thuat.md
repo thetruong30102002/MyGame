@@ -42,7 +42,7 @@ Giữ nguyên điểm hồi sinh, các spot nhiệm vụ/cốt truyện, quảng
 1. Vẽ bằng imagegen, prompt ở thư mục nguồn. Lưu ảnh được chọn vào workspace, giữ nguyên bản sinh ban đầu. Nếu cần chuẩn hóa lưới/palette để xuất game thì lưu thành bản riêng và so lại chi tiết, không làm nhòe.
 2. Tạo `image.png` đúng lưới native và `asset.json` theo kiểu `WorldArtProof` trong `src/props/worldArt.ts`. Ghi hash SHA-256 ảnh, cửa/footprint, thước nhân vật, bằng chứng xem 1×/2×. Chỉ đặt `artReviewed=true` sau khi xem ảnh thật.
 3. Loader chỉ nhận source đã khai, chặn ảnh sai khổ, sai tỷ lệ cửa, sai chân neo, alpha mềm, palette quá nhiễu, thiếu duyệt hoặc hash sai. Không tìm ảnh thay thế từ Internet.
-4. Chạy `npm run test:world-style -w @aether/asset-pipeline`; dựng vào thư mục thử bằng `AETHER_ASSETS`, sau đó mới nhập map mẫu vào Unity. Asset mới phải được pipeline đóng atlas; không vá riêng PNG hoặc JSON đầu ra sản xuất.
+4. Chạy `npm run test:world-style -w @havenlord/asset-pipeline`; dựng vào thư mục thử bằng `HAVENLORD_ASSETS`, sau đó mới nhập map mẫu vào Unity. Asset mới phải được pipeline đóng atlas; không vá riêng PNG hoặc JSON đầu ra sản xuất.
 5. Trong Unity: cùng nhân vật gốc đứng trước cửa, đi ngang hiên, đi ra sau mái, kiểm đè hình, culling và camera ở zoom chơi thật. Chụp 1×/2×, PC và Android. Chỉ sau bước này mới chốt mẫu và dùng làm chuẩn vẽ hàng loạt.
 
 ## Tiến độ và trở ngại

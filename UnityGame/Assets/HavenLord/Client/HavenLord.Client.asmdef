@@ -1,0 +1,14 @@
+{
+    "name": "HavenLord.Client",
+    "rootNamespace": "HavenLord.Client",
+    "references": ["HavenLord.Core", "HavenLord.Data", "HavenLord.Net", "UnityEngine.UI", "Unity.TextMeshPro", "LitMotion", "LitMotion.Extensions"],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": ["Newtonsoft.Json.dll"],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

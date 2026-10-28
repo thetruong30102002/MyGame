@@ -1,4 +1,4 @@
-// Bộ số mẫu (test vector) sinh từ CHÍNH hàm TypeScript của packages/sim → Tests~/vectors/*.json. Test C# (Tests~/Aether.Core.Tests)
+// Bộ số mẫu (test vector) sinh từ CHÍNH hàm TypeScript của packages/sim → Tests~/vectors/*.json. Test C# (Tests~/HavenLord.Core.Tests)
 // gọi hàm C# cùng đầu vào và đòi ra đúng y hệt — đây là phép đối chiếu bản C# với luật gốc. Chạy ở gốc repo:
 //   npx tsx UnityGame/Tools~/export-test-vectors.mts
 import { mkdirSync, writeFileSync } from 'node:fs';

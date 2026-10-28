@@ -15,7 +15,8 @@ export function planProgress(tasks: PlanTask[]): number {
 	return weight ? Math.round(tasks.reduce((n,t) => n+taskProgress(t)*t.weight,0)/weight*10)/10 : 0;
 }
 export function parsePlan(markdown: string): DevelopmentPlan {
-	const block = markdown.match(/<!-- aether-plan:start -->\s*```json\s*([\s\S]*?)\s*```\s*<!-- aether-plan:end -->/);
+	// Dấu khối nhận cả tên cũ `aether-plan` (trước đổi tên dự án 28/10/2026) để file kế hoạch đọc được bằng máy chủ bản cũ lẫn mới.
+	const block = markdown.match(/<!-- (?:havenlord|aether)-plan:start -->\s*```json\s*([\s\S]*?)\s*```\s*<!-- (?:havenlord|aether)-plan:end -->/);
 	if (!block) throw new Error('Kế hoạch thiếu khối tiến độ');
 	const p = JSON.parse(block[1]!) as DevelopmentPlan;
 	if (p.version !== 1 || !Array.isArray(p.tasks) || !p.tasks.length || !Array.isArray(p.groups)) throw new Error('Kế hoạch sai định dạng');

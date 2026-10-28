@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Aether/Scenes/Game.unity
+    path: Assets/HavenLord/Scenes/Game.unity
     guid: f720f77b6a957254aa735c8169cb17ae
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

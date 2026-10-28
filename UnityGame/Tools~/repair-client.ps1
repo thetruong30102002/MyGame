@@ -20,8 +20,8 @@ Add-Type -AssemblyName System.IO.Compression.FileSystem
 function Resolve-ClientFolder([string]$Candidate) {
     if ([string]::IsNullOrWhiteSpace($Candidate)) { return $null }
     $taskPath = [IO.Path]::GetFullPath($Candidate.Trim().Trim('"'))
-    if ((Test-Path -LiteralPath (Join-Path $taskPath 'Aether.exe') -PathType Leaf) -and
-        (Test-Path -LiteralPath (Join-Path $taskPath 'Aether_Data') -PathType Container)) {
+    if ((Test-Path -LiteralPath (Join-Path $taskPath 'HavenLord.exe') -PathType Leaf) -and
+        (Test-Path -LiteralPath (Join-Path $taskPath 'HavenLord_Data') -PathType Container)) {
         return (Get-Item -LiteralPath $taskPath).FullName.TrimEnd('\')
     }
     return $null
@@ -29,26 +29,26 @@ function Resolve-ClientFolder([string]$Candidate) {
 function Find-ClientFolder {
     if ($InstallDir) {
         $taskFound = Resolve-ClientFolder $InstallDir
-        if (-not $taskFound) { throw 'Thư mục đã chọn phải chứa cả Aether.exe và Aether_Data.' }
+        if (-not $taskFound) { throw 'Thư mục đã chọn phải chứa cả HavenLord.exe và HavenLord_Data.' }
         return $taskFound
     }
     foreach ($taskLocation in @($PSScriptRoot, (Get-Location).Path)) {
         $taskFound = Resolve-ClientFolder $taskLocation
         if ($taskFound) { return $taskFound }
     }
-    $taskRunning = @(Get-CimInstance Win32_Process -Filter "Name='Aether.exe'" -ErrorAction SilentlyContinue |
+    $taskRunning = @(Get-CimInstance Win32_Process -Filter "Name='HavenLord.exe'" -ErrorAction SilentlyContinue |
         ForEach-Object { if ($_.ExecutablePath) { Resolve-ClientFolder ([IO.Path]::GetDirectoryName($_.ExecutablePath)) } } |
         Where-Object { $_ } | Select-Object -Unique)
     if ($taskRunning.Count -eq 1) { return $taskRunning[0] }
     if ($taskRunning.Count -gt 1) { throw 'Đang mở game ở nhiều thư mục. Chạy lại với -InstallDir "thư mục game cần sửa".' }
-    $taskRegistration = Get-ItemProperty -LiteralPath 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\AetherChronicle' -ErrorAction SilentlyContinue
+    $taskRegistration = Get-ItemProperty -LiteralPath 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\HavenLord' -ErrorAction SilentlyContinue
     $taskFound = Resolve-ClientFolder $taskRegistration.InstallLocation
     if ($taskFound) { return $taskFound }
-    $taskFound = Resolve-ClientFolder (Join-Path $env:LOCALAPPDATA 'Aether Chronicle')
+    $taskFound = Resolve-ClientFolder (Join-Path $env:LOCALAPPDATA 'Haven Lord')
     if ($taskFound) { return $taskFound }
-    if ($CheckOnly) { throw 'Chưa tìm thấy client. Truyền -InstallDir "thư mục chứa Aether.exe".' }
-    $taskFound = Resolve-ClientFolder (Read-Host 'Nhập thư mục đang chứa Aether.exe của bạn')
-    if (-not $taskFound) { throw 'Không tìm thấy Aether.exe và Aether_Data trong thư mục đã nhập.' }
+    if ($CheckOnly) { throw 'Chưa tìm thấy client. Truyền -InstallDir "thư mục chứa HavenLord.exe".' }
+    $taskFound = Resolve-ClientFolder (Read-Host 'Nhập thư mục đang chứa HavenLord.exe của bạn')
+    if (-not $taskFound) { throw 'Không tìm thấy HavenLord.exe và HavenLord_Data trong thư mục đã nhập.' }
     return $taskFound
 }
 function Get-ChildPath([string]$Root, [string]$Relative) {
@@ -98,13 +98,13 @@ if (-not $taskZip -or $taskZip.file -notmatch '^[A-Za-z0-9._-]{1,120}\.zip$' -or
     [long]$taskZip.size -le 0 -or $taskZip.sha256 -notmatch '^[a-fA-F0-9]{64}$' -or [int]$taskEntry.build -le 0) {
     throw 'Máy chủ chưa cung cấp gói Windows ZIP có mã SHA-256 hợp lệ.'
 }
-$taskCurrentVersion = (Get-Item -LiteralPath (Join-Path $taskInstall 'Aether.exe')).VersionInfo.ProductVersion
+$taskCurrentVersion = (Get-Item -LiteralPath (Join-Path $taskInstall 'HavenLord.exe')).VersionInfo.ProductVersion
 $taskCurrentBuild = 0
 $taskVersionSource = 'unknown'
-# Aether.exe thật mang phiên bản UNITY (6000.x), không phải Application.version.
+# HavenLord.exe thật mang phiên bản UNITY (6000.x), không phải Application.version.
 # Chỉ tin dấu 1.0.<build>, hoặc DisplayVersion của đúng thư mục đang sửa.
 if ($taskCurrentVersion -match '^1\.0\.(\d+)$') { $taskCurrentBuild = [int]$Matches[1]; $taskVersionSource = 'application-product-version' }
-$taskRegistration = Get-ItemProperty -LiteralPath 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\AetherChronicle' -ErrorAction SilentlyContinue
+$taskRegistration = Get-ItemProperty -LiteralPath 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\HavenLord' -ErrorAction SilentlyContinue
 if ($taskCurrentBuild -eq 0 -and $taskRegistration -and $taskRegistration.DisplayVersion -match '^1\.0\.(\d+)$') {
     $taskRegisteredBuild = [int]$Matches[1]
     $taskRegisteredFolder = Resolve-ClientFolder $taskRegistration.InstallLocation
@@ -152,11 +152,11 @@ if ($taskWorkDrive.AvailableFreeSpace -lt $taskRequiredWork -or $taskInstallDriv
     throw 'Ổ đĩa chưa đủ chỗ để giải nén và giữ bản sao lưu. Game cũ chưa bị thay đổi.'
 }
 [IO.Compression.ZipFile]::ExtractToDirectory($taskZipPath, $taskStage)
-if (-not (Resolve-ClientFolder $taskStage)) { throw 'Gói cập nhật thiếu Aether.exe hoặc Aether_Data; game cũ chưa bị thay đổi.' }
+if (-not (Resolve-ClientFolder $taskStage)) { throw 'Gói cập nhật thiếu HavenLord.exe hoặc HavenLord_Data; game cũ chưa bị thay đổi.' }
 
 # Chỉ đóng nhẹ nhàng đúng client trong thư mục đích; không tắt tiến trình khác.
-$taskExe = Join-Path $taskInstall 'Aether.exe'
-foreach ($taskRunning in @(Get-CimInstance Win32_Process -Filter "Name='Aether.exe'" -ErrorAction SilentlyContinue)) {
+$taskExe = Join-Path $taskInstall 'HavenLord.exe'
+foreach ($taskRunning in @(Get-CimInstance Win32_Process -Filter "Name='HavenLord.exe'" -ErrorAction SilentlyContinue)) {
     if ($taskRunning.ExecutablePath -and [string]::Equals([IO.Path]::GetFullPath($taskRunning.ExecutablePath), $taskExe, [StringComparison]::OrdinalIgnoreCase)) {
         $taskProcess = Get-Process -Id $taskRunning.ProcessId -ErrorAction SilentlyContinue
         if ($taskProcess -and -not $taskProcess.HasExited) {

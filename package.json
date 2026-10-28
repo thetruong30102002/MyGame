@@ -1,5 +1,5 @@
 {
-  "name": "aether-chronicle",
+  "name": "haven-lord",
   "private": true,
   "version": "0.1.0",
   "workspaces": [
@@ -7,18 +7,18 @@
     "packages/*"
   ],
   "scripts": {
-    "server": "npm run dev -w @aether/server",
-    "test": "npm test -w @aether/sim && npm test -w @aether/asset-pipeline",
-    "assets:character": "npm run character -w @aether/asset-pipeline --",
-    "assets:catalog": "npm run catalog -w @aether/asset-pipeline --",
-    "assets:anchors": "npm run anchors -w @aether/asset-pipeline --",
+    "server": "npm run dev -w @havenlord/server",
+    "test": "npm test -w @havenlord/sim && npm test -w @havenlord/asset-pipeline",
+    "assets:character": "npm run character -w @havenlord/asset-pipeline --",
+    "assets:catalog": "npm run catalog -w @havenlord/asset-pipeline --",
+    "assets:anchors": "npm run anchors -w @havenlord/asset-pipeline --",
     "typecheck": "npm run typecheck --workspaces --if-present",
-    "assets:pixler": "npm run pixler -w @aether/asset-pipeline --",
-    "assets:pixellab": "npm run pixellab -w @aether/asset-pipeline --",
-    "assets:map": "npm run map -w @aether/asset-pipeline",
-    "assets:vfx": "npm run vfx -w @aether/asset-pipeline",
-    "assets:ui": "npm run ui -w @aether/asset-pipeline",
-    "assets:world": "npm run world -w @aether/asset-pipeline",
-    "assets:skill-icons": "npm run skill-icons -w @aether/asset-pipeline"
+    "assets:pixler": "npm run pixler -w @havenlord/asset-pipeline --",
+    "assets:pixellab": "npm run pixellab -w @havenlord/asset-pipeline --",
+    "assets:map": "npm run map -w @havenlord/asset-pipeline",
+    "assets:vfx": "npm run vfx -w @havenlord/asset-pipeline",
+    "assets:ui": "npm run ui -w @havenlord/asset-pipeline",
+    "assets:world": "npm run world -w @havenlord/asset-pipeline",
+    "assets:skill-icons": "npm run skill-icons -w @havenlord/asset-pipeline"
   }
 }

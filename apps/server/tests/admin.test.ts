@@ -9,11 +9,11 @@ import { createServer, type Server } from 'node:http';
 import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { ADMIN_LIMITS, MAX_LEVEL, type AdminCharacter, type AdminGrantResult, type AdminLogEntry, type ServerMessage } from '@aether/protocol';
-import { addExp, applyAdminEco, fromTotalExp, shiftExp, totalExp } from '@aether/sim/economy';
-import { expForLevel } from '@aether/sim/skills';
-import { questDef } from '@aether/sim/story/quests';
-import { TALENT_BONUS_CAP } from '@aether/sim/talents';
+import { ADMIN_LIMITS, MAX_LEVEL, type AdminCharacter, type AdminGrantResult, type AdminLogEntry, type ServerMessage } from '@havenlord/protocol';
+import { addExp, applyAdminEco, fromTotalExp, shiftExp, totalExp } from '@havenlord/sim/economy';
+import { expForLevel } from '@havenlord/sim/skills';
+import { questDef } from '@havenlord/sim/story/quests';
+import { TALENT_BONUS_CAP } from '@havenlord/sim/talents';
 import { AdminOps } from '../src/adminOps.ts';
 import { Store } from '../src/db.ts';
 import { createApi, newProgress } from '../src/http.ts';
@@ -304,7 +304,7 @@ try {
 {
 	const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 	const cli = (...args: string[]) => {
-		const r = spawnSync(process.execPath, ['--import', 'tsx', 'src/admin.ts', ...args], { cwd: root, env: { ...process.env, AETHER_DB: dbPath }, encoding: 'utf8' });
+		const r = spawnSync(process.execPath, ['--import', 'tsx', 'src/admin.ts', ...args], { cwd: root, env: { ...process.env, HAVENLORD_DB: dbPath }, encoding: 'utf8' });
 		return { code: r.status, out: `${r.stdout}${r.stderr}` };
 	};
 	const check = new Store(dbPath);

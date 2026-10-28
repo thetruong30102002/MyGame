@@ -1,5 +1,5 @@
 // Test vector nhóm "talents": phần còn lại của packages/sim/src/talents.ts + phần chữ của skills.ts, sinh từ CHÍNH hàm TS gốc →
-// Tests~/vectors/talents-full.json. Test C#: Tests~/Aether.Core.Tests/TalentsFullTests.cs. Chạy ở gốc repo:
+// Tests~/vectors/talents-full.json. Test C#: Tests~/HavenLord.Core.Tests/TalentsFullTests.cs. Chạy ở gốc repo:
 //   npx tsx UnityGame/Tools~/vectors-talents.mts
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';

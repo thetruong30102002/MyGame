@@ -14,7 +14,7 @@ import { fileURLToPath } from 'node:url';
 /** Trang con: /<tên> → site/<tên>.html. */
 const PAGES = new Set(['admin', 'tin-tuc', 'dien-dan', 'bai-viet', 'gop-y', 'tai-game', 'the-gioi']);
 
-export const SITE_DIR = process.env.AETHER_SITE_DIR ? resolve(process.env.AETHER_SITE_DIR) : resolve(dirname(fileURLToPath(import.meta.url)), '..', 'site');
+export const SITE_DIR = process.env.HAVENLORD_SITE_DIR ? resolve(process.env.HAVENLORD_SITE_DIR) : resolve(dirname(fileURLToPath(import.meta.url)), '..', 'site');
 const compressedFiles=new Map<string,{etag:string;data:Buffer}>();
 
 const TYPES: Record<string, string> = {
@@ -62,7 +62,7 @@ export function sendSite(path: string, res: ServerResponse, dir: string = SITE_D
 
 /** `/game` (không gạch chéo cuối) → chuyển sang `/game/` để đường dẫn tương đối trong trang (site/…, api/…) đúng. */
 export function siteRedirect(rawPath: string, res: ServerResponse): boolean {
-	const url=new URL(rawPath,'http://aether'),path=url.pathname;
+	const url=new URL(rawPath,'http://havenlord'),path=url.pathname;
 	if(path==='/game'){res.writeHead(301,{Location:'/game/'+url.search}).end();return true;}
 	const name=path.replace(/^\/game(?=\/)/,'').replace(/^\/|\/$/g,'');
 	if(!path.endsWith('/')||!PAGES.has(name))return false;

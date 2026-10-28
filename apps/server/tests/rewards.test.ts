@@ -1,12 +1,12 @@
 // Chạy: npx tsx tests/rewards.test.ts — ví kim cương, điểm danh, thành tựu ở Bia Danh Vọng (K1 — docs/ke-hoach-kim-cuong.md).
-// Luật thuần (`@aether/sim/rewards`) + CSDL SQLite THẬT trong thư mục tạm + World với socket giả và đồng hồ giả (sang ngày theo
+// Luật thuần (`@havenlord/sim/rewards`) + CSDL SQLite THẬT trong thư mục tạm + World với socket giả và đồng hồ giả (sang ngày theo
 // giờ Việt Nam). Map đọc từ thư mục map thật của client. Không cần máy chủ đang chạy.
 import assert from 'node:assert/strict';
 import { mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import type { ServerMessage } from '@aether/protocol';
-import { checkinGift, checkinSlot, CHRONICLER, dayBefore, GOALS, killStats, nextStreak, vnDay } from '@aether/sim/rewards';
+import type { ServerMessage } from '@havenlord/protocol';
+import { checkinGift, checkinSlot, CHRONICLER, dayBefore, GOALS, killStats, nextStreak, vnDay } from '@havenlord/sim/rewards';
 import { Store } from '../src/db.ts';
 import { newProgress } from '../src/http.ts';
 import { World } from '../src/world.ts';

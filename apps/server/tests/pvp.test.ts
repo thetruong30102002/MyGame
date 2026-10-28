@@ -3,9 +3,9 @@
 // khỏi vùng kịp là né được), thị trấn an toàn, miễn PvP sau khi vào map, đạn không xuyên chỉ trúng người gần nhất, sát thương
 // theo cấp / con đường / mốc tiềm năng (kẹp theo điểm có — bản lưu sửa tay không tăng sức đánh), báo gục chỉ nhận từ người vừa đánh.
 import assert from 'node:assert/strict';
-import type { ServerMessage } from '@aether/protocol';
-import { PVP_KILL_WINDOW_MS, PVP_SCALE, PVP_SPAWN_SHIELD_MS, pvpAllowedOn, pvpBuild, pvpDamage, pvpStrikes } from '@aether/sim/pvp';
-import { HERO_SKILLS, PATHS } from '@aether/sim/skills';
+import type { ServerMessage } from '@havenlord/protocol';
+import { PVP_KILL_WINDOW_MS, PVP_SCALE, PVP_SPAWN_SHIELD_MS, pvpAllowedOn, pvpBuild, pvpDamage, pvpStrikes } from '@havenlord/sim/pvp';
+import { HERO_SKILLS, PATHS } from '@havenlord/sim/skills';
 import { newPvpState, Pvp, type PvpPlayer } from '../src/pvp.ts';
 
 let passed = 0;

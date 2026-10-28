@@ -250,7 +250,7 @@ export function buildKitMap(spec: KitMapSpec, exits: readonly KitExit[], meta: R
 	// Trạm: nhà quanh quảng trường + cột dịch chuyển + đồ lặt vặt.
 	if (hub && spec.hub) {
 		const ws = { x: px(J.x + 2), y: px(J.y - 2) };
-		// Cột dịch chuyển là NPC dịch vụ (`rune_stone`, `@aether/sim/story/services`) đứng ở địa điểm `waystone` — không đặt thêm đá
+		// Cột dịch chuyển là NPC dịch vụ (`rune_stone`, `@havenlord/sim/story/services`) đứng ở địa điểm `waystone` — không đặt thêm đá
 		// trang trí trùng chỗ (11/10/2026: mỗi vùng một kiểu đá chồng lên NPC, chủ dự án: "cần thống nhất 1 đá dịch chuyển").
 		spots.push({ id: 'waystone', name: 'Cột dịch chuyển', x: ws.x, y: ws.y + 34, r: 80 });
 		spots.push({ id: 'plaza', name: spec.name, x: px(J.x), y: px(J.y), r: 200 });

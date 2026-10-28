@@ -56,9 +56,9 @@ import { blit, createImage, crop, fill, opaqueBounds, scaleNearest, type RGBAIma
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');
 const CACHE = join(ROOT, '.asset-cache');
-// Đầu ra pipeline (`assets/` ở gốc repo — máy chủ đọc map, Unity nhập hình). Dựng THỬ thì trỏ `AETHER_ASSETS` ra thư mục nháp: máy
+// Đầu ra pipeline (`assets/` ở gốc repo — máy chủ đọc map, Unity nhập hình). Dựng THỬ thì trỏ `HAVENLORD_ASSETS` ra thư mục nháp: máy
 // chủ thật đọc map từ đây ngay lúc chạy.
-const WEB_ASSETS = process.env.AETHER_ASSETS ? resolve(process.env.AETHER_ASSETS) : join(ROOT, 'assets');
+const WEB_ASSETS = process.env.HAVENLORD_ASSETS ? resolve(process.env.HAVENLORD_ASSETS) : join(ROOT, 'assets');
 const REPORTS = join(ROOT, 'packages/asset-pipeline/reports');
 
 interface CharacterSpec {
@@ -1183,7 +1183,7 @@ async function buildMap(region = 'human'): Promise<void> {
 			{ frame: f, rotated: false, trimmed: false, spriteSourceSize: { x: 0, y: 0, w: f.w, h: f.h }, sourceSize: { w: f.w, h: f.h }, anchor: { x: 0.5, y: 1 } },
 		]),
 	);
-	writeFileSync(join(outDir, 'props.json'), JSON.stringify({ frames: anchors, meta: { app: '@aether/asset-pipeline', image: 'props.png', format: 'RGBA8888', size: { w: image.width, h: image.height }, scale: '1' } }));
+	writeFileSync(join(outDir, 'props.json'), JSON.stringify({ frames: anchors, meta: { app: '@havenlord/asset-pipeline', image: 'props.png', format: 'RGBA8888', size: { w: image.width, h: image.height }, scale: '1' } }));
 	writeFileSync(join(outDir, 'props.meta.json'), JSON.stringify(meta, null, '	'));
 	console.log(`  atlas đồ vật: ${Object.keys(meta).length} đồ vật + ${decalIds.length} decal → ${image.width}×${image.height}`);
 
@@ -1251,7 +1251,7 @@ const CONTINENT_SIZE = { w: 688, h: 384 };
 /**
  * Tranh lục địa (bản đồ tổng phím M — docs/ke-hoach-the-gioi.md mục 3.1) → `ui/world-continent.png`. Chép NGUYÊN file (không nén
  * lại: web hiện nguyên lần 1× / 2×) sau khi kiểm đúng khổ của toạ độ vùng và ảnh kín (tranh vẽ cả biển, không có điểm trong suốt).
- * Vẽ lại tranh khác bố cục thì đo lại toạ độ ở `worldAtlas.ts`. Dựng thử: `AETHER_ASSETS=<thư mục nháp> npm run assets:world`.
+ * Vẽ lại tranh khác bố cục thì đo lại toạ độ ở `worldAtlas.ts`. Dựng thử: `HAVENLORD_ASSETS=<thư mục nháp> npm run assets:world`.
  */
 function buildWorld(): void {
 	const src = join(PIXELLAB_SOURCES, 'world', 'continent.png');
@@ -1274,7 +1274,7 @@ function buildWorld(): void {
  * Atlas icon chiêu (`props/skillIcons.ts`) → CHỈ ghi `ui/skill-icons.png` + `ui/skill-icons.json` (không đụng ảnh giao diện
  * khác / `ui.json` như lệnh `ui`). Mặc định bộ v2: một ảnh 32×32 mỗi khoá ở `sources/pixellab/skill-icons-v2/`; `--v1` = bộ cũ
  * 10 tấm 3×3 ở `sources/pixellab/skill-icons/` (lưu trữ). Icon lỗi thì báo, bỏ icon đó — web tự rơi về icon tạm cũ.
- * Dựng thử: `AETHER_ASSETS=<thư mục nháp> npm run skill-icons -w @aether/asset-pipeline`.
+ * Dựng thử: `HAVENLORD_ASSETS=<thư mục nháp> npm run skill-icons -w @havenlord/asset-pipeline`.
  */
 function buildSkillIconAtlas(args: string[]): void {
 	const outDir = join(WEB_ASSETS, 'ui');
@@ -1390,7 +1390,7 @@ async function buildVfx(): Promise<void> {
 				]),
 			),
 			animations: anims,
-			meta: { app: '@aether/asset-pipeline', image: `${name}.png`, format: 'RGBA8888', size: { w: image.width, h: image.height }, scale: '1' },
+			meta: { app: '@havenlord/asset-pipeline', image: `${name}.png`, format: 'RGBA8888', size: { w: image.width, h: image.height }, scale: '1' },
 		};
 		writeFileSync(join(outDir, `${name}.json`), JSON.stringify(json));
 		return { w: image.width, h: image.height };
@@ -1454,14 +1454,14 @@ function annotatePublished(ids: string[]): void {
 
 /**
  * Dấu ẩn bản quyền (docs/ban-quyen.md):
- *   watermark check <png…>   — ảnh nghi bị trích từ bộ cài có dấu của mình không (cần khoá ở %USERPROFILE%/.aether/mark.key)
+ *   watermark check <png…>   — ảnh nghi bị trích từ bộ cài có dấu của mình không (cần khoá ở %USERPROFILE%/.havenlord/mark.key)
  *   watermark registry       — sổ đăng ký: SHA-256 + cỡ mọi hình trong assets/ → docs/ban-quyen/so-dang-ky-hinh.json (commit = mốc thời gian)
  */
 function watermarkCmd(args: string[]): void {
 	const [sub, ...files] = args;
 	if (sub === 'check') {
 		const key = markKey(false);
-		if (!key) throw new Error('Chưa có khoá dấu ẩn (%USERPROFILE%/.aether/mark.key hoặc AETHER_MARK_KEY) — Unity tạo lúc nhập hình lần đầu.');
+		if (!key) throw new Error('Chưa có khoá dấu ẩn (%USERPROFILE%/.havenlord/mark.key hoặc HAVENLORD_MARK_KEY) — Unity tạo lúc nhập hình lần đầu.');
 		for (const f of files) {
 			const r = detectMark(readPng(f), key);
 			console.log(`${r.marked ? '✔ CÓ DẤU' : '✘ không thấy dấu'}  ${f} — ${r.pixels} điểm ảnh đặc, khớp ${(r.rate * 100).toFixed(1)}% (z = ${r.z.toFixed(1)}, lệch ${r.ox},${r.oy})`);
@@ -1484,7 +1484,7 @@ function watermarkCmd(args: string[]): void {
 		walk(WEB_ASSETS);
 		const out = join(ROOT, 'docs', 'ban-quyen', 'so-dang-ky-hinh.json');
 		mkdirSync(dirname(out), { recursive: true });
-		const owner = 'Aether Chronicle — chủ dự án thetruong30102002 (github.com/thetruong30102002/MyGame)';
+		const owner = 'Haven Lord — chủ dự án thetruong30102002 (github.com/thetruong30102002/MyGame)';
 		writeFileSync(out, `${JSON.stringify({ owner, note: 'Hình gốc do chủ dự án tạo (PixelLab + pipeline). Mỗi lần commit file này là một mốc thời gian sở hữu.', count: list.length, files: list }, null, '\t')}\n`);
 		console.log(`✔ sổ đăng ký ${list.length} hình → ${out}`);
 		return;

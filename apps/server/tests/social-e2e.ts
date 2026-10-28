@@ -1,9 +1,9 @@
 // Thử đầu–cuối phần xã hội với máy chủ THỬ đang bật (mặc định :3201 — KHÔNG chạy vào máy chủ thật 3200): 2 tài khoản mới
 // đăng ký, tạo nhân vật, vào game qua WebSocket thật, kết bạn, nhắn riêng online + offline.
-// `PORT=3201 AETHER_DB=<file tạm> npx tsx src/main.ts` rồi `npx tsx tests/social-e2e.ts`.
+// `PORT=3201 HAVENLORD_DB=<file tạm> npx tsx src/main.ts` rồi `npx tsx tests/social-e2e.ts`.
 import assert from 'node:assert/strict';
 import { WebSocket } from 'ws';
-import type { CharacterInfo, ServerMessage } from '@aether/protocol';
+import type { CharacterInfo, ServerMessage } from '@havenlord/protocol';
 
 const BASE = process.env.SERVER ?? 'http://localhost:3201';
 if (/:3200(?!\d)/.test(BASE)) throw new Error('Không chạy vào máy chủ thật :3200');

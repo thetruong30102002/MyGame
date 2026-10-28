@@ -1,6 +1,6 @@
-// Phần LUẬT THUẦN tách từ apps/web/tests/elements.test.ts (11/10/2026, chuẩn bị xoá bản web): chỉ hàm của @aether/sim (+ bảng hình
+// Phần LUẬT THUẦN tách từ apps/web/tests/elements.test.ts (11/10/2026, chuẩn bị xoá bản web): chỉ hàm của @havenlord/sim (+ bảng hình
 // tạm `UnityGame/Tools~/data/tempArt.ts`). Phần chạy CombatSystem của web bỏ cùng bản web — client Unity có test C# + vector riêng.
-// Chạy: npx tsx tests/elements.test.ts (trong packages/sim) hoặc `npm test -w @aether/sim`.
+// Chạy: npx tsx tests/elements.test.ts (trong packages/sim) hoặc `npm test -w @havenlord/sim`.
 // Chạy: npx tsx tests/elements.test.ts — GĐ2 cây Nguyên tố (lượt A): kiểu đòn mới (vùng quanh mình, vùng nhắm, nón,
 // đường thẳng, lướt, cột trồi, vùng tồn tại có hút), trạng thái mới (choáng, hất, phá giáp, trượt, chậm nặng, đẩy lùi;
 // boss một nửa), 4 phản ứng Thổ, bị động Thấm Sâu / Huyết Thuỷ / Đá Nặng / Da Đá, phủ Thổ, trần mốc, bảng TEMP_ART.

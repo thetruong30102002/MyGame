@@ -1,5 +1,5 @@
-﻿# Bật bản thật (Funnel /game) nếu chưa chạy: máy chủ game :3200 (CSDL thật data/aether.db). Bản web :3101 đã xoá 11/10/2026 — client là Unity.
-# Tác vụ Windows "Aether - ban that" gọi file này lúc đăng nhập (cài: scripts/cai-tu-khoi-dong.ps1); chạy tay cũng được:
+﻿# Bật bản thật (Funnel /game) nếu chưa chạy: máy chủ game :3200 (CSDL thật data/havenlord.db). Bản web :3101 đã xoá 11/10/2026 — client là Unity.
+# Tác vụ Windows "Haven Lord - ban that" gọi file này lúc đăng nhập (cài: scripts/cai-tu-khoi-dong.ps1); chạy tay cũng được:
 #   powershell -NoProfile -ExecutionPolicy Bypass -File scripts\khoi-dong-ban-that.ps1
 # Cổng nào đã có tiến trình nghe thì bỏ qua (chạy lại nhiều lần không sinh bản thứ hai).
 # Tạo tiến trình qua WMI: cha là dịch vụ WMI nên không tắt theo cửa sổ / phiên Claude đã gọi (README mục Funnel, đã dẫm 10/10/2026).

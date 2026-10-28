@@ -1,4 +1,4 @@
-import type { MonsterZoneDef } from '@aether/sim/mobs';
+import type { MonsterZoneDef } from '@havenlord/sim/mobs';
 
 /** Khu quái giả cho test sổ quái: 3 xác sống (dùng chung), 1 boss vùng (dùng chung), 1 khu nhiệm vụ (riêng — bị bỏ). */
 export const MonsterZoneFixture: MonsterZoneDef[] = [

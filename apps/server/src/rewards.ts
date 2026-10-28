@@ -1,6 +1,6 @@
-import type { ClientMessage, DailyView, GoalView, ServerMessage } from '@aether/protocol';
-import { hubKeys } from '@aether/sim/regions';
-import { checkinGift, checkinSlot, CHRONICLER, dayBefore, GOALS, killStats, nextStreak, vnDay, type GoalStats } from '@aether/sim/rewards';
+import type { ClientMessage, DailyView, GoalView, ServerMessage } from '@havenlord/protocol';
+import { hubKeys } from '@havenlord/sim/regions';
+import { checkinGift, checkinSlot, CHRONICLER, dayBefore, GOALS, killStats, nextStreak, vnDay, type GoalStats } from '@havenlord/sim/rewards';
 import type { Store } from './db.ts';
 import { mapExists, nearNpc, spotOf } from './maps.ts';
 

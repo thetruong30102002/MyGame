@@ -1,5 +1,5 @@
 {
-  "name": "@aether/server",
+  "name": "@havenlord/server",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -12,8 +12,8 @@
     "publish:plan": "node site-src/publish-plan.mjs"
   },
   "dependencies": {
-    "@aether/protocol": "*",
-    "@aether/sim": "*",
+    "@havenlord/protocol": "*",
+    "@havenlord/sim": "*",
     "@radix-ui/react-dropdown-menu": "^2.2.1",
     "@radix-ui/react-tabs": "^1.2.1",
     "lucide-react": "^1.61.0",

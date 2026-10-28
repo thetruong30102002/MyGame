@@ -15,9 +15,9 @@ import { buildTown } from './town.js';
 
 export type { MapData, MapExit, MonsterZone } from './common.js';
 
-/** Khoảng cấp của vùng human — khớp `levels` của vùng `human` ở `@aether/sim/regions` (pipeline không phụ thuộc gói sim). */
+/** Khoảng cấp của vùng human — khớp `levels` của vùng `human` ở `@havenlord/sim/regions` (pipeline không phụ thuộc gói sim). */
 export const HUMAN_LEVELS: readonly [number, number] = [1, 10];
-/** Tuổi bắt đầu có quái dùng chung — khớp `SHARED_MIN_AGE` của `@aether/sim/mobs`: khu bắt đầu sớm hơn là khu tuổi thơ. */
+/** Tuổi bắt đầu có quái dùng chung — khớp `SHARED_MIN_AGE` của `@havenlord/sim/mobs`: khu bắt đầu sớm hơn là khu tuổi thơ. */
 const ADULT_AGE = 16;
 /** Tâm bầy quái thường phải cách ô nước gần nhất ít nhất chừng này ô (quái đuổi thẳng, đứng sau nước là kẹt bên bờ). */
 export const MIN_WATER_GAP = 6;

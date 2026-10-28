@@ -1,8 +1,8 @@
 // Đẩy bản build mới lên thư mục Google Drive mà trang Tải game trỏ tới (chủ dự án 14/10/2026: "tự upload 2 file build mới exe với apk vào drive"):
 //   npx tsx UnityGame/Tools~/upload-drive.mts [--only windows|android]
-// `publish-client.mts --drive` tự gọi file này sau khi phát. Tên trên Drive CỐ ĐỊNH (`Aether-Chronicle.exe`, `Aether.apk` — như chủ dự án
-// tải tay lần đầu): ghi đè giữ nguyên file id nên link chia sẻ từng file không đổi; file giống hệt (cỡ + giờ sửa) thì rclone bỏ qua.
-// Nguồn: `Build/Aether-Chronicle.exe` (publish-client chép ra) và `Build/Android/Aether.apk`.
+// `publish-client.mts --drive` tự gọi file này sau khi phát. Tên trên Drive CỐ ĐỊNH (`HavenLord-Setup.exe`, `HavenLord.apk` — đổi từ `Aether-Chronicle.exe` / `Aether.apk`
+// khi đổi tên dự án 28/10/2026; file tên cũ trên Drive xoá tay): ghi đè giữ nguyên file id nên link chia sẻ từng file không đổi; file giống hệt (cỡ + giờ sửa) thì rclone bỏ qua.
+// Nguồn: `Build/HavenLord-Setup.exe` (publish-client chép ra) và `Build/Android/HavenLord.apk`.
 // Dùng rclone, remote `gdrive` gốc ở đúng thư mục Drive — tạo một lần (mở trình duyệt đăng nhập Google):
 //   rclone config create gdrive drive scope=drive root_folder_id=1aXYfDoxPSySJ3k4wDbxDe5PGIrnkBHei
 import { spawnSync } from 'node:child_process';
@@ -28,8 +28,8 @@ const findRclone = (): string => {
 const RCLONE = findRclone();
 
 const jobs: [string, string][] = [];
-if (only !== 'android') jobs.push([join(BUILD, 'Aether-Chronicle.exe'), 'Aether-Chronicle.exe']);
-if (only !== 'windows') jobs.push([join(BUILD, 'Android', 'Aether.apk'), 'Aether.apk']);
+if (only !== 'android') jobs.push([join(BUILD, 'HavenLord-Setup.exe'), 'HavenLord-Setup.exe']);
+if (only !== 'windows') jobs.push([join(BUILD, 'Android', 'HavenLord.apk'), 'HavenLord.apk']);
 
 let failed = false;
 for (const [src, name] of jobs) {

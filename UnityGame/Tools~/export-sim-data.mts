@@ -1,5 +1,5 @@
 // Xuất MỌI hằng số dữ liệu của packages/sim (chiêu, quái, cây tiềm năng, đồ, vùng, cửa hàng, nhiệm vụ…) ra JSON cho Unity đọc
-// (Assets/Aether/Data/Sim/<module>.json). Bản TS vẫn là NGUỒN DUY NHẤT trong thời gian chuyển: sửa luật/dữ liệu ở sim rồi chạy lại:
+// (Assets/HavenLord/Data/Sim/<module>.json). Bản TS vẫn là NGUỒN DUY NHẤT trong thời gian chuyển: sửa luật/dữ liệu ở sim rồi chạy lại:
 //   npx tsx UnityGame/Tools~/export-sim-data.mts      (ở gốc repo)
 // Hàm bị bỏ qua (luật viết lại bằng C#, đối chiếu bằng test vector — xem export-test-vectors.mts).
 import { mkdirSync, readdirSync, writeFileSync } from 'node:fs';
@@ -8,7 +8,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const SIM = join(ROOT, 'packages/sim/src');
-const OUT = join(ROOT, 'UnityGame/Assets/Aether/Data/Sim');
+const OUT = join(ROOT, 'UnityGame/Assets/HavenLord/Data/Sim');
 mkdirSync(OUT, { recursive: true });
 
 /**

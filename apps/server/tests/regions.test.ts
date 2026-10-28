@@ -4,10 +4,10 @@ import assert from 'node:assert/strict';
 import { existsSync, mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import type { ServerMessage } from '@aether/protocol';
-import { hubKeys, REGIONS, regionDef, regionGate, splitMapKey, START_REGION } from '@aether/sim/regions';
-import { MERCHANTS } from '@aether/sim/shop';
-import { elementMult } from '@aether/sim/skills';
+import type { ServerMessage } from '@havenlord/protocol';
+import { hubKeys, REGIONS, regionDef, regionGate, splitMapKey, START_REGION } from '@havenlord/sim/regions';
+import { MERCHANTS } from '@havenlord/sim/shop';
+import { elementMult } from '@havenlord/sim/skills';
 import { Store } from '../src/db.ts';
 import { newProgress } from '../src/http.ts';
 import { World } from '../src/world.ts';
@@ -20,7 +20,7 @@ const test = (name: string, fn: () => void): void => {
 };
 console.log('regions (máy chủ + luật dùng chung)');
 
-const MAPS = process.env.AETHER_MAPS ?? join(import.meta.dirname, '../../../assets/maps');
+const MAPS = process.env.HAVENLORD_MAPS ?? join(import.meta.dirname, '../../../assets/maps');
 
 test('10 vùng theo thứ tự, cấp liền nhau, mỗi vùng một nơi ở (làng / toà thành) có cột dịch chuyển + người bán', () => {
 	assert.equal(REGIONS.length, 13);

@@ -1,5 +1,5 @@
 import type { WebSocket } from 'ws';
-import { ACTION_ANIMS, CHAT_MAX, cleanGearView, DIRS8, MAX_LEVEL, SNAPSHOT_HZ, WORLD_CHAT_DIAMONDS, WORLD_CHAT_GAP_MS, type CharacterProgress, type ClientMessage, type PlayerView, type ServerMessage } from '@aether/protocol';
+import { ACTION_ANIMS, CHAT_MAX, cleanGearView, DIRS8, MAX_LEVEL, SNAPSHOT_HZ, WORLD_CHAT_DIAMONDS, WORLD_CHAT_GAP_MS, type CharacterProgress, type ClientMessage, type PlayerView, type ServerMessage } from '@havenlord/protocol';
 import { cleanCast, fxAllowed } from './actions.ts';
 import { RateLimiter } from './auth.ts';
 import type { Store } from './db.ts';
@@ -9,7 +9,7 @@ import { Rewards } from './rewards.ts';
 import { BUFF_TICK_MS, Shop } from './shop.ts';
 import { Economy } from './economy.ts';
 import { newPvpState, Pvp, type PvpState } from './pvp.ts';
-import { resetDiamonds } from '@aether/sim/talents';
+import { resetDiamonds } from '@havenlord/sim/talents';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -48,8 +48,8 @@ interface Conn {
 	pvp: PvpState;
 }
 
-/** Thư mục map của client — máy chủ đọc chung nguồn dữ liệu (`AETHER_MAPS` để đổi). */
-const MAPS_DIR = process.env.AETHER_MAPS ?? join(dirname(fileURLToPath(import.meta.url)), '../../../assets/maps');
+/** Thư mục map của client — máy chủ đọc chung nguồn dữ liệu (`HAVENLORD_MAPS` để đổi). */
+const MAPS_DIR = process.env.HAVENLORD_MAPS ?? join(dirname(fileURLToPath(import.meta.url)), '../../../assets/maps');
 
 /** Mã map `<vùng>/<map>` (chữ thường, số, gạch dưới) — chặn chuỗi lạ làm khoá nhóm người chơi. */
 const MAP_ID = /^[a-z0-9_]{1,20}\/[a-z0-9_]{1,20}$/;

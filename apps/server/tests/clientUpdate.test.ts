@@ -36,8 +36,8 @@ try {
 	const { mkdirSync } = await import('node:fs');
 	mkdirSync(clientDir, { recursive: true });
 	const bytes = Buffer.from('MZ-ban-thu-'.repeat(1000));
-	writeFileSync(join(clientDir, 'Aether-Chronicle-100.exe'), bytes);
-	const v: ClientVersion = { version: '2026.10.11-1330', minBuild: 90, windows: { build: 100, file: 'Aether-Chronicle-100.exe', size: bytes.length, sha256: 'x' } };
+	writeFileSync(join(clientDir, 'HavenLord-100.exe'), bytes);
+	const v: ClientVersion = { version: '2026.10.11-1330', minBuild: 90, windows: { build: 100, file: 'HavenLord-100.exe', size: bytes.length, sha256: 'x' } };
 	writeFileSync(join(clientDir, 'version.json'), JSON.stringify(v));
 
 	await test('phát bản (chép file + version.json) → đọc được ngay, không đăng nhập, cả dạng /game/api', async () => {
@@ -49,7 +49,7 @@ try {
 	});
 
 	await test('tải file gói đúng byte + Content-Length; link cố định /latest/windows trả cùng file', async () => {
-		for (const p of ['/api/client/file/Aether-Chronicle-100.exe', '/game/api/client/latest/windows']) {
+		for (const p of ['/api/client/file/HavenLord-100.exe', '/game/api/client/latest/windows']) {
 			const r = await fetch(BASE + p);
 			assert.equal(r.status, 200);
 			assert.equal(r.headers.get('content-length'), String(bytes.length));

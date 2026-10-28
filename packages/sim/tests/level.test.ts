@@ -1,10 +1,10 @@
-// Phần LUẬT THUẦN tách từ apps/web/tests/level.test.ts (11/10/2026, chuẩn bị xoá bản web): chỉ hàm của @aether/sim (+ bảng hình
+// Phần LUẬT THUẦN tách từ apps/web/tests/level.test.ts (11/10/2026, chuẩn bị xoá bản web): chỉ hàm của @havenlord/sim (+ bảng hình
 // tạm `UnityGame/Tools~/data/tempArt.ts`). Phần chạy CombatSystem của web bỏ cùng bản web — client Unity có test C# + vector riêng.
-// Chạy: npx tsx tests/level.test.ts (trong packages/sim) hoặc `npm test -w @aether/sim`.
+// Chạy: npx tsx tests/level.test.ts (trong packages/sim) hoặc `npm test -w @havenlord/sim`.
 // Chạy: npx tsx tests/level.test.ts — trần cấp 100 (chốt 08/10/2026): đường EXP (giữ nguyên tới cấp 10, mềm sau đó), điểm
 // tiềm năng + Tia Aether dừng ở cấp 40, nạp bản lưu (kẹp cấp, EXP thừa), nhận EXP không vượt cấp 100.
 import assert from 'node:assert/strict';
-import { MAX_LEVEL } from '@aether/protocol';
+import { MAX_LEVEL } from '@havenlord/protocol';
 import { baseExpForLevel, cleanLevel, EXP_CURVE_KNEE, EXP_PACE, expForLevel, expPace } from '../src/skills.ts';
 import { aetherScale, pointsForLevel, TALENT_LEVEL_CAP } from '../src/talents.ts';
 
