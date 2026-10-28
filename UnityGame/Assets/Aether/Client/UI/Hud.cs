@@ -198,12 +198,12 @@ namespace Aether.Client.UI
 
         private void BuildPlayerCard()
         {
-            var card = UiKit.Rect(root, "PlayerCard", new Vector2(0, 1), new Vector2(0, 1), new Vector2(14, -14), new Vector2(304, 94));
+            var card = UiKit.Rect(root, "PlayerCard", new Vector2(0, 1), new Vector2(0, 1), new Vector2(18, -18), new Vector2(280, 100));
             var face = UiStyle.Card(card, UiStyle.CardKind.Hud, 12);
             // Bấm cả khung nhân vật = mở cửa sổ tổng (chủ dự án 10/10/2026 bỏ hàng nút menu; phím C / B / T / O vẫn mở thẳng tab).
             var faceColor = face.color;
             var press = UiKit.Press(card, () => Panels.Toggle(Panels.Kind.Character));
-            press.Enter = () => face.color = Color.Lerp(faceColor, new Color(0.45f, 0.32f, 0.16f, 0.95f), 0.5f);
+            press.Enter = () => face.color = UiStyle.SurfaceRaised;
             press.Exit = () => face.color = faceColor;
             // Chủ dự án 11/10/2026: bỏ chân dung (nhỏ, không nhìn rõ) — khung chỉ còn tên + cấp và ba thanh Máu / MP / Thể lực có số.
             nameText = UiKit.Label(UiKit.Rect(card, "Name", new Vector2(0, 1), new Vector2(0, 1), new Vector2(12, -7), new Vector2(190, 20)), "", 16, UiStyle.Parchment, TextAnchor.MiddleLeft, true);
@@ -218,16 +218,16 @@ namespace Aether.Client.UI
             UiWidgets.Pulse(badge, 1.12f, 1.4f);
             pointsBadge = badge.gameObject;
             pointsBadge.SetActive(false);
-            hpBar = BarWithIcon(card, "Hp", -31, 18, UiStyle.Hp, UiIcon("icon_hp"), 11);
-            mpBar = BarWithIcon(card, "Mp", -53, 15, UiStyle.Mana, UiIcon("icon_mp"), 10);
-            staBar = BarWithIcon(card, "Stamina", -72, 13, UiStyle.Stamina, BoltSprite(), 9);
+            hpBar = BarWithIcon(card, "Hp", -34, 19, UiStyle.Hp, UiIcon("icon_hp"), 11);
+            mpBar = BarWithIcon(card, "Mp", -60, 13, UiStyle.Mana, UiIcon("icon_mp"), 9);
+            staBar = BarWithIcon(card, "Stamina", -82, 6, UiStyle.Stamina, BoltSprite(), 0);
         }
 
         private SmoothBar BarWithIcon(RectTransform card, string name, float y, float h, Color c, Sprite icon, int textSize)
         {
             var ic = UiKit.Rect(card, name + "Icon", new Vector2(0, 1), new Vector2(0.5f, 0.5f), new Vector2(21, y - h / 2), new Vector2(18, 18));
             UiKit.Icon(ic, icon);
-            return SmoothBar.Make(card, name, new Vector2(0, 1), new Vector2(0, 1), new Vector2(34, y), new Vector2(258, h), c, textSize);
+            return SmoothBar.Make(card, name, new Vector2(0, 1), new Vector2(0, 1), new Vector2(34, y), new Vector2(card.sizeDelta.x - 46, h), c, textSize, 3);
         }
 
         private static Sprite bolt;
@@ -275,7 +275,7 @@ namespace Aether.Client.UI
             targetRoot = UiKit.Rect(root, "Target", new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -14), new Vector2(360, 60));
             targetFace = UiStyle.Card(targetRoot, UiStyle.CardKind.Hud, 12);
             var pf = UiKit.Rect(targetRoot, "Face", new Vector2(0, 0.5f), new Vector2(0, 0.5f), new Vector2(6, 0), new Vector2(50, 50));
-            UiKit.Sprite(pf, "slot", 3.2f);
+            UiStyle.Pill(pf, UiStyle.SurfaceWell, 5);
             targetPortrait = UiKit.Icon(UiKit.Rect(pf, "P", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(40, 40)), null);
             targetName = UiKit.Label(UiKit.Rect(targetRoot, "Name", new Vector2(0, 1), new Vector2(0, 1), new Vector2(64, -8), new Vector2(200, 20)), "", 15, UiStyle.Parchment, TextAnchor.MiddleLeft, true);
             var lv = UiKit.Rect(targetRoot, "Lv", new Vector2(1, 1), new Vector2(1, 1), new Vector2(-10, -9), new Vector2(48, 18));
@@ -340,7 +340,7 @@ namespace Aether.Client.UI
                 glowRt.offsetMin = new Vector2(-6, -6);
                 glowRt.offsetMax = new Vector2(6, 6);
                 var glow = UiStyle.Pill(glowRt, new Color(1f, 0.85f, 0.4f, 0), 14);
-                UiKit.Sprite(rt, "slot", 3f);
+                UiStyle.Card(rt, UiStyle.CardKind.Dark, 5, false, true);
                 var icon = UiKit.Icon(UiKit.Rect(rt, "Icon", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(size - 14, size - 14)), null);
                 var coolRt = UiKit.Rect(rt, "Cool", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(size - 12, size - 12));
                 var cool = coolRt.gameObject.AddComponent<Image>();
@@ -380,8 +380,8 @@ namespace Aether.Client.UI
         {
             toastRoot = UiKit.Rect(root, "Toasts", new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -92), new Vector2(600, 220));
             bannerRoot = UiKit.Rect(root, "Banner", new Vector2(0.5f, 1), new Vector2(0.5f, 0.5f), new Vector2(0, -168), new Vector2(460, 78));
-            UiKit.Sprite(bannerRoot, "banner", 1.5f);
-            bannerText = UiKit.Label(UiKit.Stretch(bannerRoot, "t"), "", 22, UiStyle.InkBrown, TextAnchor.MiddleCenter, true, false);
+            UiStyle.Card(bannerRoot, UiStyle.CardKind.Chip, 5);
+            bannerText = UiKit.Label(UiKit.Stretch(bannerRoot, "t"), "", 22, UiStyle.GoldHi, TextAnchor.MiddleCenter, true, false);
             bannerText.characterSpacing = 2;
             bannerRoot.gameObject.SetActive(false);
         }
@@ -391,7 +391,7 @@ namespace Aether.Client.UI
             dialogRoot = UiKit.Rect(root, "Dialog", new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(0, 112), new Vector2(720, 158));
             UiStyle.Card(dialogRoot, UiStyle.CardKind.Paper, 14, true, true);
             var pf = UiKit.Rect(dialogRoot, "PortraitFrame", new Vector2(0, 0.5f), new Vector2(0, 0.5f), new Vector2(16, 0), new Vector2(124, 124));
-            UiKit.Sprite(pf, "frame", 2.4f);
+            UiStyle.Pill(pf, UiStyle.SurfaceWell, 5);
             dialogPortrait = UiKit.Icon(UiKit.Rect(pf, "P", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(100, 100)), null);
             dialogName = UiKit.Label(UiKit.Rect(dialogRoot, "Name", new Vector2(0, 1), new Vector2(0, 1), new Vector2(156, -14), new Vector2(300, 24)), "", 19, UiStyle.InkBrown, TextAnchor.MiddleLeft, true, false);
             dialogTitle = UiKit.Label(UiKit.Rect(dialogRoot, "Title", new Vector2(0, 1), new Vector2(0, 1), new Vector2(156, -37), new Vector2(400, 18)), "", 12, UiStyle.InkSoft, TextAnchor.MiddleLeft, false, false);

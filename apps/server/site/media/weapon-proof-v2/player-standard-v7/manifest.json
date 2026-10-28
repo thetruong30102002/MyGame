@@ -1,0 +1,25 @@
+{
+  "version": 7,
+  "status": "idle-head-swap-review",
+  "artApproved": false,
+  "productionEnabled": false,
+  "headCount": 2,
+  "direction": "S",
+  "completeMotion": false,
+  "attackTargetFrames": 15,
+  "completeAttack": false,
+  "completeEightDirections": false,
+  "weaponSeparatedInThisProof": false,
+  "bodySha256": "552d6a573e06198e4b7d1ba0b4c69f363b0adaba3b9ac9f2490d981ebcc92b7b",
+  "swapBodySha256": "552d6a573e06198e4b7d1ba0b4c69f363b0adaba3b9ac9f2490d981ebcc92b7b",
+  "canvas": [
+    288,
+    288
+  ],
+  "root": [
+    144,
+    256
+  ],
+  "ppu": 96,
+  "assetRevision": 1793073000307
+}

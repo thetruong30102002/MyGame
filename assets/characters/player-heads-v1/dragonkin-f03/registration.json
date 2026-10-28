@@ -1,0 +1,191 @@
+{
+  "headId": "dragonkin-f03",
+  "status": "exported-pending-art-review",
+  "sourceSha256": "d93a647dcebb1bca8f98618d56b1075c364bfe44d473eb5a14286f16cadc8463",
+  "sourceSize": [
+    1774,
+    887
+  ],
+  "eyeAnchors": {
+    "left": 170,
+    "right": 282,
+    "y": 303,
+    "bbox": {
+      "x0": 64,
+      "y0": 90,
+      "x1": 384,
+      "y1": 419
+    }
+  },
+  "geometry": {
+    "scale": 0.14173228346456693,
+    "sourceCheekSpan": [
+      163,
+      289
+    ],
+    "sourceCheekY": 338,
+    "sourceFaceCenter": 226,
+    "registrationBasis": "frontal-cheek-width18px-not-hair"
+  },
+  "scale": 0.14173228346456693,
+  "scaleSharedAcrossDirections": true,
+  "perDirectionScale": false,
+  "wholeHead": true,
+  "includesClothing": false,
+  "registrations": [
+    {
+      "direction": "S",
+      "sourceNeck": [
+        222.47222222222223,
+        401.77777777777777
+      ],
+      "scale": 0.14173228346456693,
+      "neck": [
+        40,
+        62
+      ],
+      "bounds": {
+        "x0": 18,
+        "y0": 18,
+        "x1": 63,
+        "y1": 65
+      },
+      "neckCovered": true
+    },
+    {
+      "direction": "SW",
+      "sourceNeck": [
+        221.5,
+        403.8888888888889
+      ],
+      "scale": 0.14173228346456693,
+      "neck": [
+        40,
+        62
+      ],
+      "bounds": {
+        "x0": 17,
+        "y0": 20,
+        "x1": 64,
+        "y1": 65
+      },
+      "neckCovered": true
+    },
+    {
+      "direction": "W",
+      "sourceNeck": [
+        212.5,
+        403.8888888888889
+      ],
+      "scale": 0.14173228346456693,
+      "neck": [
+        40,
+        62
+      ],
+      "bounds": {
+        "x0": 18,
+        "y0": 20,
+        "x1": 66,
+        "y1": 65
+      },
+      "neckCovered": true
+    },
+    {
+      "direction": "NW",
+      "sourceNeck": [
+        243.5,
+        403.8888888888889
+      ],
+      "scale": 0.14173228346456693,
+      "neck": [
+        40,
+        62
+      ],
+      "bounds": {
+        "x0": 18,
+        "y0": 20,
+        "x1": 61,
+        "y1": 65
+      },
+      "neckCovered": true
+    },
+    {
+      "direction": "N",
+      "sourceNeck": [
+        227,
+        362.8888888888889
+      ],
+      "scale": 0.14173228346456693,
+      "neck": [
+        40,
+        62
+      ],
+      "bounds": {
+        "x0": 19,
+        "y0": 18,
+        "x1": 63,
+        "y1": 65
+      },
+      "neckCovered": true
+    },
+    {
+      "direction": "NE",
+      "sourceNeck": [
+        217,
+        362.8888888888889
+      ],
+      "scale": 0.14173228346456693,
+      "neck": [
+        40,
+        62
+      ],
+      "bounds": {
+        "x0": 18,
+        "y0": 19,
+        "x1": 64,
+        "y1": 65
+      },
+      "neckCovered": true
+    },
+    {
+      "direction": "E",
+      "sourceNeck": [
+        233.5,
+        362.8888888888889
+      ],
+      "scale": 0.14173228346456693,
+      "neck": [
+        40,
+        62
+      ],
+      "bounds": {
+        "x0": 14,
+        "y0": 20,
+        "x1": 63,
+        "y1": 65
+      },
+      "neckCovered": true
+    },
+    {
+      "direction": "SE",
+      "sourceNeck": [
+        238,
+        364.8888888888889
+      ],
+      "scale": 0.14173228346456693,
+      "neck": [
+        40,
+        62
+      ],
+      "bounds": {
+        "x0": 17,
+        "y0": 18,
+        "x1": 62,
+        "y1": 65
+      },
+      "neckCovered": true
+    }
+  ],
+  "completeMotion": false,
+  "productionEnabled": false
+}

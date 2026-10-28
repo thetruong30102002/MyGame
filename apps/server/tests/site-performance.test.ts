@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import {mkdtempSync,writeFileSync,rmSync,mkdirSync} from 'node:fs';
+import {join} from 'node:path';
+import {tmpdir} from 'node:os';
+import {createServer} from 'node:http';
+import {sendSite,siteRedirect} from '../src/site.ts';
+import {Store} from '../src/db.ts';
+import {createApi} from '../src/http.ts';
+const dir=mkdtempSync(join(tmpdir(),'aether-site-cache-'));mkdirSync(join(dir,'react'));
+const content='export const text='+JSON.stringify('dữ liệu dùng chung;'.repeat(2000))+';';writeFileSync(join(dir,'react/portal-ABCD1234.js'),content);
+const server=createServer((req,res)=>{if(siteRedirect(req.url!,res)||sendSite(new URL(req.url!,'http://x').pathname,res,dir,req))return;res.writeHead(404).end();});await new Promise<void>(r=>server.listen(0,'127.0.0.1',r));
+const base='http://127.0.0.1:'+(server.address() as {port:number}).port;
+try{const raw=await fetch(base+'/site/react/portal-ABCD1234.js',{headers:{'Accept-Encoding':'identity'}});assert.equal(await raw.text(),content);assert.match(raw.headers.get('cache-control')!,/immutable/);const encoded=await fetch(base+'/site/react/portal-ABCD1234.js',{headers:{'Accept-Encoding':'gzip'}});assert.equal(encoded.headers.get('content-encoding'),'gzip');assert.equal(await encoded.text(),content);assert(Number(encoded.headers.get('content-length'))<Number(raw.headers.get('content-length'))/3);const notModified=await fetch(base+'/site/react/portal-ABCD1234.js',{headers:{'If-None-Match':raw.headers.get('etag')!}});assert.equal(notModified.status,304);for(const path of ['/game/admin/?x=1','/admin/?x=1','/game?x=1']){const r=await fetch(base+path,{redirect:'manual'});assert.equal(r.status,301);assert(r.headers.get('location')!.endsWith('?x=1'));}}finally{await new Promise<void>(r=>server.close(()=>r()));}
+const store=new Store(join(dir,'test.db'));store.createSession('admin',store.createAccount('perf_admin','x')!,3600000);store.setAdmin('perf_admin',true);const api=createApi(store),apiServer=createServer((req,res)=>void api(req,res));await new Promise<void>(r=>apiServer.listen(0,'127.0.0.1',r));const apiBase='http://127.0.0.1:'+(apiServer.address() as {port:number}).port;
+try{assert.equal((await fetch(apiBase+'/api/admin/plan?view=dashboard')).status,401);const headers={Authorization:'Bearer admin','Accept-Encoding':'gzip'},full=await fetch(apiBase+'/api/admin/plan',{headers}),small=await fetch(apiBase+'/api/admin/plan?view=dashboard',{headers});assert.equal(small.headers.get('content-encoding'),'gzip');assert.equal(small.headers.get('cache-control'),'no-store');const a=await full.json(),b=await small.json();assert(a.markdown);assert(!('markdown'in b));assert.deepEqual(b.tasks,a.tasks);assert.equal(b.progress,a.progress);assert(Number(small.headers.get('content-length'))<Number(full.headers.get('content-length')));console.log('PASS: gzip, cache immutable/304, chuyển URL có query, dashboard nhẹ hơn và vẫn riêng admin.');}finally{await new Promise<void>(r=>apiServer.close(()=>r()));store.close();rmSync(dir,{recursive:true,force:true});}

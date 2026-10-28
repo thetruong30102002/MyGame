@@ -1,4 +1,5 @@
 import type { RecolorRule } from '../normalize/recolor.js';
+import { THISTLEWOOD_INN, WORLD_ART_PREFIX } from './worldArt.js';
 
 /**
  * Đồ vật của vùng Human Kingdom — TOÀN BỘ do PixelLab vẽ cùng một nét (chủ dự án chốt 07/10/2026: map phải đồng
@@ -45,6 +46,8 @@ const CAVE_PROPS = (i: number) => cell('CV2_cave_props', i, '3x3');
 const CHAPTER1 = (i: number, grow = 0) => `${cell('C1_chapter1', i, '2x3')}${grow ? `+${grow}` : ''}`;
 
 export const HUMAN_KINGDOM_PROPS: PropDef[] = [
+	// Chỉ xuất hiện khi ảnh mới đã vẽ và qua cổng tỷ lệ; nhà trọ cũ vẫn giữ trong atlas.
+	{ id: THISTLEWOOD_INN.id, path: WORLD_ART_PREFIX + THISTLEWOOD_INN.sourceId, kind: 'building', footprint: { w: 312 / 336, h: 80 }, blocks: true },
 	{ id: 'house', path: `${PL}house_cottage_front`, kind: 'building', footprint: { w: 0.9, h: 60 }, blocks: true },
 	{ id: 'church', path: `${PL}church_front`, kind: 'building', footprint: { w: 0.9, h: 64 }, blocks: true },
 	{ id: 'house_forge', path: `${PL}house_forge`, kind: 'building', footprint: { w: 0.82, h: 60 }, blocks: true },

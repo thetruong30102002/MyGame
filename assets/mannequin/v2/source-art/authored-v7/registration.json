@@ -1,0 +1,1026 @@
+[
+  {
+    "sex": "male",
+    "direction": "S",
+    "phase": 0,
+    "sourceWaist": 91,
+    "waist": 87,
+    "neck": 64
+  },
+  {
+    "sex": "male",
+    "direction": "S",
+    "phase": 1,
+    "sourceWaist": 94,
+    "waist": 87,
+    "neck": 64
+  },
+  {
+    "sex": "male",
+    "direction": "S",
+    "phase": 2,
+    "sourceWaist": 92,
+    "waist": 87,
+    "neck": 64
+  },
+  {
+    "sex": "male",
+    "direction": "S",
+    "phase": 3,
+    "sourceWaist": 92,
+    "waist": 87,
+    "neck": 64
+  },
+  {
+    "sex": "male",
+    "direction": "S",
+    "phase": 4,
+    "sourceWaist": 91,
+    "waist": 87,
+    "neck": 64
+  },
+  {
+    "sex": "male",
+    "direction": "S",
+    "phase": 5,
+    "sourceWaist": 92,
+    "waist": 87,
+    "neck": 64
+  },
+  {
+    "sex": "male",
+    "direction": "S",
+    "phase": 6,
+    "sourceWaist": 92,
+    "waist": 87,
+    "neck": 64
+  },
+  {
+    "sex": "male",
+    "direction": "S",
+    "phase": 7,
+    "sourceWaist": 91,
+    "waist": 87,
+    "neck": 64
+  },
+  {
+    "sex": "male",
+    "direction": "W",
+    "phase": 0,
+    "sourceWaist": 91,
+    "waist": 89,
+    "neck": 66
+  },
+  {
+    "sex": "male",
+    "direction": "W",
+    "phase": 1,
+    "sourceWaist": 93,
+    "waist": 89,
+    "neck": 66
+  },
+  {
+    "sex": "male",
+    "direction": "W",
+    "phase": 2,
+    "sourceWaist": 92,
+    "waist": 89,
+    "neck": 66
+  },
+  {
+    "sex": "male",
+    "direction": "W",
+    "phase": 3,
+    "sourceWaist": 91,
+    "waist": 89,
+    "neck": 66
+  },
+  {
+    "sex": "male",
+    "direction": "W",
+    "phase": 4,
+    "sourceWaist": 91,
+    "waist": 89,
+    "neck": 66
+  },
+  {
+    "sex": "male",
+    "direction": "W",
+    "phase": 5,
+    "sourceWaist": 92,
+    "waist": 89,
+    "neck": 66
+  },
+  {
+    "sex": "male",
+    "direction": "W",
+    "phase": 6,
+    "sourceWaist": 91,
+    "waist": 89,
+    "neck": 66
+  },
+  {
+    "sex": "male",
+    "direction": "W",
+    "phase": 7,
+    "sourceWaist": 91,
+    "waist": 89,
+    "neck": 66
+  },
+  {
+    "sex": "male",
+    "direction": "N",
+    "phase": 0,
+    "sourceWaist": 89,
+    "waist": 87,
+    "neck": 65
+  },
+  {
+    "sex": "male",
+    "direction": "N",
+    "phase": 1,
+    "sourceWaist": 89,
+    "waist": 87,
+    "neck": 65
+  },
+  {
+    "sex": "male",
+    "direction": "N",
+    "phase": 2,
+    "sourceWaist": 90,
+    "waist": 87,
+    "neck": 65
+  },
+  {
+    "sex": "male",
+    "direction": "N",
+    "phase": 3,
+    "sourceWaist": 89,
+    "waist": 87,
+    "neck": 65
+  },
+  {
+    "sex": "male",
+    "direction": "N",
+    "phase": 4,
+    "sourceWaist": 89,
+    "waist": 87,
+    "neck": 65
+  },
+  {
+    "sex": "male",
+    "direction": "N",
+    "phase": 5,
+    "sourceWaist": 89,
+    "waist": 87,
+    "neck": 65
+  },
+  {
+    "sex": "male",
+    "direction": "N",
+    "phase": 6,
+    "sourceWaist": 89,
+    "waist": 87,
+    "neck": 65
+  },
+  {
+    "sex": "male",
+    "direction": "N",
+    "phase": 7,
+    "sourceWaist": 89,
+    "waist": 87,
+    "neck": 65
+  },
+  {
+    "sex": "male",
+    "direction": "SW",
+    "phase": 0,
+    "sourceWaist": 92,
+    "waist": 87,
+    "neck": 66
+  },
+  {
+    "sex": "male",
+    "direction": "SW",
+    "phase": 1,
+    "sourceWaist": 94,
+    "waist": 87,
+    "neck": 66
+  },
+  {
+    "sex": "male",
+    "direction": "SW",
+    "phase": 2,
+    "sourceWaist": 95,
+    "waist": 87,
+    "neck": 66
+  },
+  {
+    "sex": "male",
+    "direction": "SW",
+    "phase": 3,
+    "sourceWaist": 92,
+    "waist": 87,
+    "neck": 66
+  },
+  {
+    "sex": "male",
+    "direction": "SW",
+    "phase": 4,
+    "sourceWaist": 92,
+    "waist": 87,
+    "neck": 66
+  },
+  {
+    "sex": "male",
+    "direction": "SW",
+    "phase": 5,
+    "sourceWaist": 91,
+    "waist": 87,
+    "neck": 66
+  },
+  {
+    "sex": "male",
+    "direction": "SW",
+    "phase": 6,
+    "sourceWaist": 92,
+    "waist": 87,
+    "neck": 66
+  },
+  {
+    "sex": "male",
+    "direction": "SW",
+    "phase": 7,
+    "sourceWaist": 92,
+    "waist": 87,
+    "neck": 66
+  },
+  {
+    "sex": "male",
+    "direction": "NW",
+    "phase": 0,
+    "sourceWaist": 91,
+    "waist": 87,
+    "neck": 64
+  },
+  {
+    "sex": "male",
+    "direction": "NW",
+    "phase": 1,
+    "sourceWaist": 91,
+    "waist": 87,
+    "neck": 64
+  },
+  {
+    "sex": "male",
+    "direction": "NW",
+    "phase": 2,
+    "sourceWaist": 89,
+    "waist": 87,
+    "neck": 64
+  },
+  {
+    "sex": "male",
+    "direction": "NW",
+    "phase": 3,
+    "sourceWaist": 90,
+    "waist": 87,
+    "neck": 64
+  },
+  {
+    "sex": "male",
+    "direction": "NW",
+    "phase": 4,
+    "sourceWaist": 91,
+    "waist": 87,
+    "neck": 64
+  },
+  {
+    "sex": "male",
+    "direction": "NW",
+    "phase": 5,
+    "sourceWaist": 90,
+    "waist": 87,
+    "neck": 64
+  },
+  {
+    "sex": "male",
+    "direction": "NW",
+    "phase": 6,
+    "sourceWaist": 90,
+    "waist": 87,
+    "neck": 64
+  },
+  {
+    "sex": "male",
+    "direction": "NW",
+    "phase": 7,
+    "sourceWaist": 90,
+    "waist": 87,
+    "neck": 64
+  },
+  {
+    "sex": "male",
+    "direction": "E",
+    "phase": 0,
+    "sourceWaist": 91,
+    "waist": 89,
+    "neck": 66
+  },
+  {
+    "sex": "male",
+    "direction": "SE",
+    "phase": 0,
+    "sourceWaist": 92,
+    "waist": 87,
+    "neck": 65
+  },
+  {
+    "sex": "male",
+    "direction": "NE",
+    "phase": 0,
+    "sourceWaist": 91,
+    "waist": 87,
+    "neck": 64
+  },
+  {
+    "sex": "male",
+    "direction": "E",
+    "phase": 1,
+    "sourceWaist": 93,
+    "waist": 89,
+    "neck": 66
+  },
+  {
+    "sex": "male",
+    "direction": "SE",
+    "phase": 1,
+    "sourceWaist": 94,
+    "waist": 87,
+    "neck": 65
+  },
+  {
+    "sex": "male",
+    "direction": "NE",
+    "phase": 1,
+    "sourceWaist": 91,
+    "waist": 87,
+    "neck": 64
+  },
+  {
+    "sex": "male",
+    "direction": "E",
+    "phase": 2,
+    "sourceWaist": 92,
+    "waist": 89,
+    "neck": 66
+  },
+  {
+    "sex": "male",
+    "direction": "SE",
+    "phase": 2,
+    "sourceWaist": 95,
+    "waist": 87,
+    "neck": 65
+  },
+  {
+    "sex": "male",
+    "direction": "NE",
+    "phase": 2,
+    "sourceWaist": 89,
+    "waist": 87,
+    "neck": 64
+  },
+  {
+    "sex": "male",
+    "direction": "E",
+    "phase": 3,
+    "sourceWaist": 91,
+    "waist": 89,
+    "neck": 66
+  },
+  {
+    "sex": "male",
+    "direction": "SE",
+    "phase": 3,
+    "sourceWaist": 92,
+    "waist": 87,
+    "neck": 65
+  },
+  {
+    "sex": "male",
+    "direction": "NE",
+    "phase": 3,
+    "sourceWaist": 90,
+    "waist": 87,
+    "neck": 64
+  },
+  {
+    "sex": "male",
+    "direction": "E",
+    "phase": 4,
+    "sourceWaist": 91,
+    "waist": 89,
+    "neck": 66
+  },
+  {
+    "sex": "male",
+    "direction": "SE",
+    "phase": 4,
+    "sourceWaist": 92,
+    "waist": 87,
+    "neck": 65
+  },
+  {
+    "sex": "male",
+    "direction": "NE",
+    "phase": 4,
+    "sourceWaist": 91,
+    "waist": 87,
+    "neck": 64
+  },
+  {
+    "sex": "male",
+    "direction": "E",
+    "phase": 5,
+    "sourceWaist": 92,
+    "waist": 89,
+    "neck": 66
+  },
+  {
+    "sex": "male",
+    "direction": "SE",
+    "phase": 5,
+    "sourceWaist": 91,
+    "waist": 87,
+    "neck": 65
+  },
+  {
+    "sex": "male",
+    "direction": "NE",
+    "phase": 5,
+    "sourceWaist": 90,
+    "waist": 87,
+    "neck": 64
+  },
+  {
+    "sex": "male",
+    "direction": "E",
+    "phase": 6,
+    "sourceWaist": 91,
+    "waist": 89,
+    "neck": 66
+  },
+  {
+    "sex": "male",
+    "direction": "SE",
+    "phase": 6,
+    "sourceWaist": 92,
+    "waist": 87,
+    "neck": 65
+  },
+  {
+    "sex": "male",
+    "direction": "NE",
+    "phase": 6,
+    "sourceWaist": 90,
+    "waist": 87,
+    "neck": 64
+  },
+  {
+    "sex": "male",
+    "direction": "E",
+    "phase": 7,
+    "sourceWaist": 91,
+    "waist": 89,
+    "neck": 66
+  },
+  {
+    "sex": "male",
+    "direction": "SE",
+    "phase": 7,
+    "sourceWaist": 92,
+    "waist": 87,
+    "neck": 65
+  },
+  {
+    "sex": "male",
+    "direction": "NE",
+    "phase": 7,
+    "sourceWaist": 90,
+    "waist": 87,
+    "neck": 64
+  },
+  {
+    "sex": "female",
+    "direction": "S",
+    "phase": 0,
+    "sourceWaist": 92,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "S",
+    "phase": 1,
+    "sourceWaist": 92,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "S",
+    "phase": 2,
+    "sourceWaist": 93,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "S",
+    "phase": 3,
+    "sourceWaist": 94,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "S",
+    "phase": 4,
+    "sourceWaist": 92,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "S",
+    "phase": 5,
+    "sourceWaist": 91,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "S",
+    "phase": 6,
+    "sourceWaist": 91,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "S",
+    "phase": 7,
+    "sourceWaist": 92,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "W",
+    "phase": 0,
+    "sourceWaist": 93,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "W",
+    "phase": 1,
+    "sourceWaist": 91,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "W",
+    "phase": 2,
+    "sourceWaist": 93,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "W",
+    "phase": 3,
+    "sourceWaist": 93,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "W",
+    "phase": 4,
+    "sourceWaist": 93,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "W",
+    "phase": 5,
+    "sourceWaist": 92,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "W",
+    "phase": 6,
+    "sourceWaist": 94,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "W",
+    "phase": 7,
+    "sourceWaist": 92,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "N",
+    "phase": 0,
+    "sourceWaist": 90,
+    "waist": 87,
+    "neck": 66
+  },
+  {
+    "sex": "female",
+    "direction": "N",
+    "phase": 1,
+    "sourceWaist": 90,
+    "waist": 87,
+    "neck": 66
+  },
+  {
+    "sex": "female",
+    "direction": "N",
+    "phase": 2,
+    "sourceWaist": 90,
+    "waist": 87,
+    "neck": 66
+  },
+  {
+    "sex": "female",
+    "direction": "N",
+    "phase": 3,
+    "sourceWaist": 90,
+    "waist": 87,
+    "neck": 66
+  },
+  {
+    "sex": "female",
+    "direction": "N",
+    "phase": 4,
+    "sourceWaist": 90,
+    "waist": 87,
+    "neck": 66
+  },
+  {
+    "sex": "female",
+    "direction": "N",
+    "phase": 5,
+    "sourceWaist": 90,
+    "waist": 87,
+    "neck": 66
+  },
+  {
+    "sex": "female",
+    "direction": "N",
+    "phase": 6,
+    "sourceWaist": 90,
+    "waist": 87,
+    "neck": 66
+  },
+  {
+    "sex": "female",
+    "direction": "N",
+    "phase": 7,
+    "sourceWaist": 90,
+    "waist": 87,
+    "neck": 66
+  },
+  {
+    "sex": "female",
+    "direction": "SW",
+    "phase": 0,
+    "sourceWaist": 94,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "SW",
+    "phase": 1,
+    "sourceWaist": 95,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "SW",
+    "phase": 2,
+    "sourceWaist": 94,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "SW",
+    "phase": 3,
+    "sourceWaist": 94,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "SW",
+    "phase": 4,
+    "sourceWaist": 94,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "SW",
+    "phase": 5,
+    "sourceWaist": 93,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "SW",
+    "phase": 6,
+    "sourceWaist": 94,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "SW",
+    "phase": 7,
+    "sourceWaist": 94,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "NW",
+    "phase": 0,
+    "sourceWaist": 92,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "NW",
+    "phase": 1,
+    "sourceWaist": 90,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "NW",
+    "phase": 2,
+    "sourceWaist": 91,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "NW",
+    "phase": 3,
+    "sourceWaist": 91,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "NW",
+    "phase": 4,
+    "sourceWaist": 92,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "NW",
+    "phase": 5,
+    "sourceWaist": 91,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "NW",
+    "phase": 6,
+    "sourceWaist": 91,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "NW",
+    "phase": 7,
+    "sourceWaist": 92,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "E",
+    "phase": 0,
+    "sourceWaist": 93,
+    "waist": 90,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "SE",
+    "phase": 0,
+    "sourceWaist": 94,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "NE",
+    "phase": 0,
+    "sourceWaist": 92,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "E",
+    "phase": 1,
+    "sourceWaist": 91,
+    "waist": 90,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "SE",
+    "phase": 1,
+    "sourceWaist": 95,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "NE",
+    "phase": 1,
+    "sourceWaist": 90,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "E",
+    "phase": 2,
+    "sourceWaist": 93,
+    "waist": 90,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "SE",
+    "phase": 2,
+    "sourceWaist": 94,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "NE",
+    "phase": 2,
+    "sourceWaist": 91,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "E",
+    "phase": 3,
+    "sourceWaist": 93,
+    "waist": 90,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "SE",
+    "phase": 3,
+    "sourceWaist": 94,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "NE",
+    "phase": 3,
+    "sourceWaist": 91,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "E",
+    "phase": 4,
+    "sourceWaist": 93,
+    "waist": 90,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "SE",
+    "phase": 4,
+    "sourceWaist": 94,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "NE",
+    "phase": 4,
+    "sourceWaist": 92,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "E",
+    "phase": 5,
+    "sourceWaist": 92,
+    "waist": 90,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "SE",
+    "phase": 5,
+    "sourceWaist": 93,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "NE",
+    "phase": 5,
+    "sourceWaist": 91,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "E",
+    "phase": 6,
+    "sourceWaist": 94,
+    "waist": 90,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "SE",
+    "phase": 6,
+    "sourceWaist": 94,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "NE",
+    "phase": 6,
+    "sourceWaist": 91,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "E",
+    "phase": 7,
+    "sourceWaist": 92,
+    "waist": 90,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "SE",
+    "phase": 7,
+    "sourceWaist": 94,
+    "waist": 87,
+    "neck": 67
+  },
+  {
+    "sex": "female",
+    "direction": "NE",
+    "phase": 7,
+    "sourceWaist": 92,
+    "waist": 87,
+    "neck": 67
+  }
+]

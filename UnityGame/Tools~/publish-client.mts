@@ -14,9 +14,9 @@
 // Giữ 2 bản gần nhất mỗi nền tảng (người đang tải dở bản trước không hỏng), xoá bản cũ hơn. Chép thêm exe ra Build/Aether-Chronicle.exe.
 import { createHash } from 'node:crypto';
 import { spawnSync } from 'node:child_process';
-import { copyFileSync, createReadStream, existsSync, mkdirSync, readdirSync, readFileSync, renameSync, rmSync, statSync, writeFileSync } from 'node:fs';
+import { copyFileSync, createReadStream, existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, realpathSync, renameSync, rmSync, statSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { dirname, join, resolve } from 'node:path';
+import { basename, dirname, isAbsolute, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -61,6 +61,17 @@ const readBuild = (platform: string): BuildInfo | null => {
 	return existsSync(p) ? (JSON.parse(readFileSync(p, 'utf8')) as BuildInfo) : null;
 };
 
+/** Only remove the unique installer directory allocated by this run, inside the OS temp directory. */
+const removeInstallerTemp = (directory: string): void => {
+	const root = realpathSync(tmpdir());
+	const target = realpathSync(directory);
+	const inside = relative(root, target);
+	if (!inside || inside === '..' || inside.startsWith(`..${process.platform === 'win32' ? '\\' : '/'}`) || isAbsolute(inside) || dirname(target) !== root || !basename(target).startsWith('aether-installer-')) {
+		throw new Error(`Refusing installer cleanup outside the temporary installer directory: ${target}`);
+	}
+	rmSync(target, { recursive: true, force: true });
+};
+
 const vPath = join(outDir, 'version.json');
 const current = existsSync(vPath) ? (JSON.parse(readFileSync(vPath, 'utf8')) as Record<string, unknown>) : {};
 const next: Record<string, unknown> = { ...current };
@@ -97,9 +108,7 @@ if (only !== 'android') {
 		rmSync(dst, { force: true });
 		// Trình gỡ cài đặt (Tools~/installer) + danh sách mục game đã cài — trình gỡ CHỈ xoá đúng các mục này (người chơi có thể cài
 		// thẳng vào thư mục chung như C:\Games).
-		const extra = join(tmpdir(), `aether-installer-${process.pid}`);
-		rmSync(extra, { recursive: true, force: true });
-		mkdirSync(extra, { recursive: true });
+		const extra = mkdtempSync(join(tmpdir(), 'aether-installer-'));
 		for (const f of ['Uninstall.cmd', 'uninstall.ps1']) copyFileSync(join(HERE, 'installer', f), join(extra, f));
 		// Thư mục Unity ghi "DoNotShip" / "DontShip" KHÔNG được gửi kèm: `…_BackUpThisFolder_ButDontShipItWithYourGame` của IL2CPP là mã C++
 		// sinh từ toàn bộ code (gửi kèm = mất tác dụng IL2CPP), `…_BurstDebugInformation_DoNotShip` là thông tin gỡ lỗi.
@@ -118,7 +127,7 @@ if (only !== 'android') {
 		rmSync(zipDst, { force: true });
 		// Rar.exe (bản console) không ghi được zip (-afzip báo "tuỳ chọn chưa biết") → dùng bsdtar có sẵn của Windows.
 		const zr = spawnSync(join(process.env.SystemRoot ?? 'C:/Windows', 'System32', 'tar.exe'), ['-a', '-c', '-f', zipDst, '-C', join(BUILD, 'Windows'), ...shipped, '-C', extra2, ...readdirSync(extra2)], { stdio: 'inherit' });
-		rmSync(extra2, { recursive: true, force: true });
+		removeInstallerTemp(extra2);
 		if (zr.status !== 0) throw new Error(`tar.exe (zip) lỗi (mã ${zr.status})`);
 		const e: Entry = {
 			build: b.build,

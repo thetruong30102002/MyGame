@@ -1,0 +1,28 @@
+[
+  {
+    "file": "underwear/male/master.png",
+    "gender": "male",
+    "action": "master",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/player-rig-v4/navy-guard/male/master.png"
+    ],
+    "prompt": "Edit reference into a clean HEADLESS/WEAPONLESS BASE BODY sprite master for a modular RPG. Keep EXACTLY the same adult masculine limb proportions, body height, four poses and registration. REMOVE every piece of armor, coat, tunic, sleeves, gloves, boots, belts and EVERY sword/hilt/blade/pommel pixel. Draw a slender adult human body wearing ONLY plain opaque charcoal athletic undershorts. Nonsexual functional game mannequin, no exposed genitalia, no suggestive pose, bare feet, bare hands. Warm light skin, crisp PixelLab-style pixel-art anatomy with clean modest muscle planes, no exaggerated muscles, no body hair; no plastic mannequin joints. The body ends at a clean SHORT neck socket level, no long skin neck stalk, absolutely NO head/face/hair/ears/horns. Four columns one row:1 standing right fist near hip grasping imaginary hilt;2 calm walking contact empty right fist;3 two hands clasp imaginary hilt above empty head slot;4 two-handed overhead downward attack follow-through with hands low. Body behind any removed sword is complete, no blade holes. Raised hands must remain naturally clasped, no weapons. Same body size in all4 poses; keep collar-to-sole size from reference as neck-socket-to-sole size. Genuine transparent alpha background, no labels/shadows/effects."
+  },
+  {
+    "file": "underwear/female/master.png",
+    "gender": "female",
+    "action": "master",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/player-rig-v4/navy-guard/female/master.png"
+    ],
+    "prompt": "Edit reference into a clean HEADLESS/WEAPONLESS BASE BODY sprite master for a modular RPG. Keep EXACTLY same adult feminine limb proportions, height, four poses and registration. REMOVE every armor/coat/tunic/sleeve/glove/boot/belt and EVERY sword/hilt/blade/pommel. Draw slender adult human feminine body wearing ONLY a plain opaque charcoal sports bra and opaque charcoal athletic undershorts, functional modest game underwear, NOT lingerie. No nudity, exposed nipples/genitalia, suggestive pose or sexual emphasis. Bare feet/hands, warm light skin, crisp PixelLab-style pixel-art anatomy and clean modest planes. No exaggerated breasts or hips, same overall size as male. Short neck socket only, NO long neck stalk, absolutely NO head/face/hair/ears/horns. Four columns one row:1 neutral right fist hip grasping imaginary hilt;2 calm walking contact;3 two hands clasp imaginary hilt overhead above EMPTY head slot;4 overhead cleave follow-through fists low. No weapon at all. Draw body behind removed weapons completely. Real transparent alpha, no labels/background/shadows/glow."
+  },
+  {
+    "file": "swords-clean-source.png",
+    "action": "weapon-clean",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/player-rig-v4/swords-source.png"
+    ],
+    "prompt": "Precise background extraction for a game sprite atlas. Keep EXACTLY the same8 isolated sword designs, perspective views, positions, scale, grip shapes and crisp pixel edges from the reference. Remove EVERY background gradient, gray halo, brown glow, black backdrop, effect and shadow. Outside the actual solid outlined sword silhouettes must be genuinely FULLY TRANSPARENT alpha0. Do NOT draw a new background or checkerboard into the image. Do not soften edges or add glow. Keep all8 actual swords complete including black grips and dark outlines. Weapon-only PNG with clean empty transparent gutters."
+  }
+]

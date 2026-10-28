@@ -1,0 +1,17 @@
+{
+  "id": "player_bow_m01-shoot-NE",
+  "character": "player_bow_m01",
+  "classId": "bow",
+  "direction": "NE",
+  "action": "shoot",
+  "frames": 12,
+  "fps": 16,
+  "master": "action-references/player_bow_m01/NE-master.png",
+  "prompt": "Use Image1 as the exact complete male bow character master. Draw 12 sequential shoot frames in back-right three-quarter direction. 12 phases: master, raise bow, string hand approaches, nock one arrow, half draw, full draw, aim, release, free-hand follow-through, lower bow, return, master. Bow is one rigid held weapon; string connects both tips and bends naturally when drawn. Layout 4 columns by 3 rows, order left to right then down. All frames are complete hair/face/body/clothes/hands/one weapon drawings. Match master face, hair shape, fitted outfit, limb lengths and body proportions, approximately75 native pixels crown to sole and23px head width on144px logical canvas, root72/128. Keep a SINGLE physical camera scale and palette across phases; crouching does not enlarge the actor. Hands visibly enclose grip, weapon remains the same rigid shape and same anatomical hand across all frames. Generous blank margins including above sword tips and beside spear thrusts. Crisp detailed game pixel clusters, transparent background, no blur, gradient smoothing, detached parts, body overlays, extra weapons, text, motion trails or ground circles. Camera never changes within this sheet. Treat Image1 as the exact complete identity, fitted outfit, weapon design and camera orientation. Landscape 4 columns x 3 rows, exactly twelve equally sized cells, ONE complete actor per cell. No separate VFX or motion streaks. Frame 1 and frame 12 match the supplied standing master. Fixed camera scale, body length, sharpness and head size. Keep crown around 40% of cell height and soles around 90%, leaving the upper 35% completely empty for weapon arcs; weapons must never touch borders. Every cell is a single time step of ONE attack, never a turnaround. EXACT FACING EVERY CELL: back-right three-quarter, back dominant, gaze UP-RIGHT. Every weapon, every pose remains fully inside its own cell with generous 12% clear side margins. On overhead sword phases blade stays fully inside top 10% margin.",
+  "status": "generated",
+  "artApproved": false,
+  "tool": "built-in-imagegen",
+  "reference": "action-references/player_bow_m01/NE-master.png",
+  "output": "motion/player_bow_m01-shoot-NE.png",
+  "sourceSha256": "296827998aeebeb0ab3cb4bf67824781f9348ba80b61a1dd77823bb162c7ab3a"
+}

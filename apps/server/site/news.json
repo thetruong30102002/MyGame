@@ -1,62 +1,13 @@
 [
-	{
-		"date": "13/10/2026",
-		"tag": "Cập nhật",
-		"title": "Đổi lớp Kiếm sĩ ↔ Pháp sư, làng đông đúc hơn, cây cối mới",
-		"body": [
-			"Tẩy điểm giờ đổi được cả lớp: tẩy xong chọn lại Kiếm sĩ hay Pháp sư (chọn lại lớp cũ cũng được). Miễn phí tới cấp 5.",
-			"Phòng Thử chiêu: cả 5 nguyên tố mốc 10 — gán được mọi chiêu, mọi tuyệt kỹ, không cần tẩy điểm.",
-			"Làng vùng 2–7 có thêm nhà (11–16 nhà mỗi làng), xếp thành dãy dọc đường; đèn cắm đều hai bên.",
-			"Cây mọc thành khóm cùng loài, thêm nhiều loài cây và đồ vật mới cho Đầm lầy, Cao nguyên, Băng giá, Núi lửa, Quần đảo.",
-			"Sa mạc không còn cây dừa — chỉ còn keo dù, xương rồng, cây khô.",
-			"Bà Ysolde, trưởng làng Lau Xám, có hình riêng."
-		]
-	},
-	{
-		"date": "12/10/2026",
-		"tag": "Thông báo",
-		"title": "Bản beta: góp ý ngay trong game",
-		"body": [
-			"Mở game sẽ thấy thông báo bản thử nghiệm đồ hoạ. Gặp lỗi hay có ý kiến: Cài đặt (phím O) → Góp ý, gửi thẳng cho đội làm game.",
-			"Thêm gói cài dạng zip cho máy Windows bị Windows Defender chặn file exe."
-		]
-	},
-	{
-		"date": "11/10/2026",
-		"tag": "Cập nhật",
-		"title": "Cốt truyện vùng 1–7 và 7 vị thần",
-		"body": [
-			"Cốt truyện của Lior qua 7 vùng đất, mỗi vùng một vị thần và chuỗi nhiệm vụ riêng.",
-			"Bản đồ 3 tầng (phím M): khu vực · vùng · thế giới. Thư viện dạng sách (phím B): quái, boss, nhân vật đã gặp.",
-			"Gộp bảng Nhân vật và Túi đồ."
-		]
-	},
-	{
-		"date": "11/10/2026",
-		"tag": "Cập nhật",
-		"title": "Tiềm năng mới: một nguyên tố, chọn lớp, thuộc tính",
-		"body": [
-			"Năm 16 tuổi chọn con đường: theo kiếm của cha (Kiếm sĩ) hay phép của mẹ (Pháp sư).",
-			"Mỗi nhân vật theo một nguyên tố: Hoả · Thuỷ · Phong · Băng · Thổ. Kiếm sĩ có 3 lưu phái và Bọc Nguyên Tố vào kiếm.",
-			"Điểm tiềm năng dư đổi được sang Máu / MP / Thể lực / Đỡ đòn."
-		]
-	},
-	{
-		"date": "11/10/2026",
-		"tag": "Thông báo",
-		"title": "Game chuyển hẳn sang bản tải về",
-		"body": [
-			"Aether Chronicle giờ chơi bằng bản tải về cho máy tính Windows và điện thoại Android, tự cập nhật mỗi khi mở game.",
-			"Tài khoản và nhân vật lưu trên máy chủ — đổi máy vẫn giữ nguyên."
-		]
-	},
-	{
-		"date": "10/10/2026",
-		"tag": "Cập nhật",
-		"title": "Thung lũng Thistlewood đủ 12 map",
-		"body": [
-			"Vùng 1 mở đủ 12 map: Nghĩa địa, Đồi Xương, Luỹ Hiệp Sĩ Cũ, Hang Gargoyle (Dơi hang + boss Gargoyle Đá)…",
-			"Hẻm Cửa Sông là lối sang vùng 2 — Đầm lầy Mù Sương."
-		]
-	}
+  {
+    "tag": "Thông báo",
+    "title": "Aether mới: 30 tạo hình, 5 class và thế giới tiếp theo",
+    "date": "26/10/2026",
+    "body": [
+      "Cẩm nang mới giới thiệu 30 tạo hình thuộc Kiếm sĩ, Pháp sư, Cung thủ, Thương sĩ và Vệ sĩ. Mỗi class có 3 nam và 3 nữ, tóc, trang phục và một vũ khí được vẽ liền. Có thể xem ảnh native ở 8 hướng trên mục Thế giới.",
+      "Hướng mới dành bộ nhân vật đời cũ cho các vai NPC. Nội dung giới thiệu và tuyến truyện cũ đã được lưu trữ. Bộ chuyển động mới đang hoàn thiện; lần cập nhật web này chưa phát hành toàn bộ 30 nhân vật trong client.",
+      "Thiên phú dự kiến phát hiện một trong 8 nguyên tố ở cấp 10, tỷ lệ đều 12,5%. Thế giới tiếp tục phát triển khuôn viên và nhà riêng, hồ câu bạn bè, chợ giao thương, mê cung, thành thị và Thiên Thành giữ tri thức khởi nguyên.",
+      "Trang quản trị chuyển sang React, bổ sung thư viện nhân vật và lưu trữ bản tin. Các link tải/cập nhật client vẫn hoạt động; dữ liệu người chơi được giữ nguyên."
+    ]
+  }
 ]

@@ -1,0 +1,12 @@
+{
+  "id": "player_spear_f01-thrust-N",
+  "prompt": "Image1 is the target complete female character, exact identity: long midnight-blue high ponytail, soft side fringe; ivory and royal-blue fitted lancer armor, silver trims, navy trousers and dark boots; one long royal-blue lance with slender silver blade and gold ring fittings. Image2 is ONLY the twelve-pose movement and back camera reference. Draw Image1 performing Image2's exact pose sequence, NOT Image2's red costume or black hair. Twelve complete wholebody pixel sprites, 4 columns3rows, transparent. Back view in ALL cells, no face. Spear thrusts STRAIGHT AWAY FROM CAMERA along depth, never across page. Both gripping hands IN FRONT of waist are hidden behind torso. Spear point recedes beyond shoulder, blade and shaft mostly occluded by body at impact, correct near/far ordering. One unchanged rigid spear. Fixed slender adult body and head size; hair and fitted outfit stay Image1. Same body length and crisp RPG pixel clusters in every phase. No grid lines, effects, ghost limbs, floating parts or extra weapons. Full actor and weapon safely within each cell.",
+  "references": [
+    "action-references/player_spear_f01/N-master.png",
+    "motion/player_spear_m01-thrust-N-r2.png"
+  ],
+  "tool": "built-in-imagegen",
+  "status": "generated",
+  "output": "motion/player_spear_f01-thrust-N-r2.png",
+  "sourceSha256": "6dc511b159da0897329540983fe28a5f38f6a0475c89a4ce0b451337bb624289"
+}

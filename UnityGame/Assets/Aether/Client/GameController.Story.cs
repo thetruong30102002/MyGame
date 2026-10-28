@@ -505,7 +505,9 @@ namespace Aether.Client
                 combat.SetPlayer(player);
                 playerPortrait = PortraitOf(def);
                 Destroy(old.gameObject);
+                mannequin = null;
             }
+            ApplySavedAppearance();
             UpdateHeld();
             SendGearView(true);
             yield return ChangeMap(CurrentMapKey, null, false, at);

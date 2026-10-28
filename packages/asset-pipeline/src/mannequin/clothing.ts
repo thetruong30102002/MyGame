@@ -2,12 +2,56 @@
 import { createImage, getPixel, setPixel, type RGBA, type RGBAImage } from '../image/rgba.js';
 
 export const garmentSlots = [
- {id:'upper',name:'Áo',order:2,items:[{id:'jacket_navy',name:'Áo xanh'},{id:'jacket_wine',name:'Áo đỏ rượu'},{id:'cuirass_silver',name:'Giáp bạc'},{id:'vest_leather',name:'Áo da đinh tán'}]},
- {id:'pants',name:'Quần',order:1,items:[{id:'pants_dark',name:'Quần tối'},{id:'pants_linen',name:'Quần sáng'},{id:'pants_mail',name:'Giáp chân lưới'}]},
- {id:'boots',name:'Giày',order:0,items:[{id:'boots_brown',name:'Ủng nâu'},{id:'boots_black',name:'Ủng đen'},{id:'boots_plate',name:'Ủng thép'}]},
+ {id:'upper',name:'Áo',equipSlot:'body',order:2,items:[{id:'jacket_navy',name:'Áo xanh'},{id:'jacket_wine',name:'Áo đỏ rượu'},{id:'cuirass_silver',name:'Giáp bạc'},{id:'vest_leather',name:'Áo da đinh tán'},{id:'dragon_guard',name:'Giáp Long Vệ'}]},
+ {id:'pants',name:'Quần',equipSlot:'legs',order:1,items:[{id:'pants_dark',name:'Quần tối'},{id:'pants_linen',name:'Quần sáng'},{id:'pants_mail',name:'Giáp chân lưới'},{id:'dragon_legs',name:'Quần Long Vệ'}]},
+ {id:'boots',name:'Giày',equipSlot:'feet',order:0,items:[{id:'boots_brown',name:'Ủng nâu'},{id:'boots_black',name:'Ủng đen'},{id:'boots_plate',name:'Ủng thép'},{id:'dragon_boots',name:'Ủng Long Vệ'}]},
 ];
 export type ClothingGuide = { waist: number; bootLeft: number; bootRight: number; splitX: number; hipLeft?:number; hipRight?:number; spread?:number };
 export type Garments = { base:RGBAImage; upper:RGBAImage; pants:RGBAImage; boots:RGBAImage };
+
+/** Cơ thể nam từ bản vẽ AI tám hướng, đưa lên lưới pose hiện hành. Chỉ mặc quần đùi. */
+export function underwear(pieces:Garments, guide:ClothingGuide, neck:number,hand:[number,number],template:RGBAImage,direction:number,idle:boolean):RGBAImage {
+ const out=createImage(112,112),waist=guide.waist;
+ const shorts:RGBA[]=[[24,25,28,255],[35,37,41,255],[49,50,53,255]];
+ const skinShades:RGBA[]=[[111,69,53,255],[145,91,65,255],[174,115,81,255],[205,149,108,255]];
+ const leftHand=hand[0]<56;
+ let other:[number,number]=[leftHand?72:40,waist+1],best=-Infinity;
+ for(let y=neck+8;y<=waist+9;y++)for(let x=0;x<112;x++) {
+  const c=getPixel(pieces.base,x,y);
+  if(!skin(c)||Math.abs(x-56)<9||(leftHand?x<56:x>56))continue;
+  const score=y+Math.abs(x-56)*.5;
+  if(score>best){best=score;other=[x,y];}
+ }
+ const distanceToArm=(x:number,y:number,start:[number,number],end:[number,number]):number => {
+  const vx=end[0]-start[0],vy=end[1]-start[1],length=vx*vx+vy*vy;
+  const t=length?Math.max(0,Math.min(1,((x-start[0])*vx+(y-start[1])*vy)/length)):0;
+  return Math.hypot(x-start[0]-t*vx,y-start[1]-t*vy);
+ };
+ const weaponShoulder:[number,number]=[leftHand?47:65,neck+6];
+ const otherShoulder:[number,number]=[leftHand?65:47,neck+6];
+ for(let y=0;y<112;y++)for(let x=0;x<112;x++) {
+  const bare=getPixel(pieces.base,x,y),upper=getPixel(pieces.upper,x,y),pants=getPixel(pieces.pants,x,y),boots=getPixel(pieces.boots,x,y);
+  // Cắt nền ở silhouette nguồn: không để tay/chân trần thò ra cạnh áo hoặc ủng.
+  if(!bare[3]&&!upper[3]&&!pants[3]&&!boots[3])continue;
+  const painted=getPixel(template,direction*112+x,y);
+  const shade=x<52?1:x<59?3:2;
+  const skinColor=skinShades[shade]!;
+  if(idle&&y>neck&&painted[3])setPixel(out,x,y,painted);
+  if(!idle) {
+   const torso=y>neck&&y<waist+1&&Math.abs(x-56)<=9;
+   const armA=distanceToArm(x,y,weaponShoulder,hand)<=3.5;
+   const armB=distanceToArm(x,y,otherShoulder,other)<=3.5;
+   if(torso)setPixel(out,x,y,painted[3]?painted:skinColor);
+   if(armA||armB)setPixel(out,x,y,skinColor);
+   if(y>=waist&&y<waist+9&&Math.abs(x-56)<8)setPixel(out,x,y,shorts[x<53?0:x<59?1:2]!);
+   if(pants[3])setPixel(out,x,y,y<waist+11?shorts[x<55?0:x<61?1:2]!:skinColor);
+   if(boots[3])setPixel(out,x,y,skinColor);
+  }
+  // Bàn tay của pose chuyển động luôn bám điểm cầm vũ khí, nhưng không mang pixel găng cũ.
+  if(!idle&&bare[3]&&(Math.hypot(x-hand[0],y-hand[1])<8||Math.hypot(x-other[0],y-other[1])<8))setPixel(out,x,y,skinColor);
+ }
+ return out;
+}
 
 function skin(c:RGBA):boolean {
  const [r,g,b,a]=c;

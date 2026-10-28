@@ -1,0 +1,16 @@
+{
+  "id": "player_shield_f02-bash-NE",
+  "character": "player_shield_f02",
+  "classId": "shield",
+  "direction": "NE",
+  "action": "bash",
+  "frames": 12,
+  "fps": 16,
+  "master": "action-references/player_shield_f02/NE-master.png",
+  "prompt": "Use Image1 as the exact complete female shield character master. Draw 12 sequential bash frames in back-right three-quarter direction. 12 phases: master, widen stance, bend knees, raise shield, brace, drive hip forward, decisive forearm shield bash, impact hold, withdraw shield, settle, return, master. Shield strapped firmly to ONE forearm, free hand remains empty. Layout 4 columns by 3 rows, order left to right then down. All frames are complete hair/face/body/clothes/hands/one weapon drawings. Match master face, hair shape, fitted outfit, limb lengths and body proportions, approximately75 native pixels crown to sole and23px head width on144px logical canvas, root72/128. Keep a SINGLE physical camera scale and palette across phases; crouching does not enlarge the actor. Hands visibly enclose grip, weapon remains the same rigid shape and same anatomical hand across all frames. Generous blank margins including above sword tips and beside spear thrusts. Crisp detailed game pixel clusters, transparent background, no blur, gradient smoothing, detached parts, body overlays, extra weapons, text, motion trails or ground circles. Camera never changes within this sheet. Treat Image1 as the exact complete identity, fitted outfit, weapon design and camera orientation. Landscape 4 columns x 3 rows, exactly twelve equally sized cells, ONE complete actor per cell. No separate VFX or motion streaks. Frame 1 and frame 12 match the supplied standing master. Fixed camera scale, body length, sharpness and head size. Keep crown around 40% of cell height and soles around 90%, leaving the upper 35% completely empty for weapon arcs; weapons must never touch borders. Every cell is a single time step of ONE attack, never a turnaround. ALL TWELVE FRAMES: Back-right three-quarter, attack UP-RIGHT away from viewer. Far hand occluded. Preserve slender adult build and fitted original outfit. Shield role carries ONLY the one shield, free hand empty. Same weapon physical size throughout. All weapon tips safely inside cell borders.",
+  "status": "generated",
+  "artApproved": false,
+  "tool": "built-in-imagegen",
+  "output": "motion/player_shield_f02-bash-NE.png",
+  "sourceSha256": "437fa89a8bb01c6717334be25d2abed53936cd7fef3eae7c32b25eb87009ee3a"
+}

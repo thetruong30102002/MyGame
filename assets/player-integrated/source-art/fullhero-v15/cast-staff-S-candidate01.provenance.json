@@ -1,0 +1,15 @@
+{
+  "provider": "builtin-imagegen",
+  "candidate": true,
+  "artApproved": false,
+  "image": "cast-staff-S-candidate01.png",
+  "sha256": "017de6dc5765eb651ce6bcf53be2b37a8fa3f0c6894a4138352b4326d507fd8b",
+  "size": [
+    1448,
+    1086
+  ],
+  "source": "C:/Users/thetr/.codex/generated_images/01a16c8a-ffb6-7611-8579-3f9f031ae987/exec-6bd439ad-13e4-474c-8eee-2c90cd314a4a.png",
+  "prompt": "cast-staff-S-candidate01.prompt.txt",
+  "editTarget": "references/template-staff-S-12cast-poses.png",
+  "notes": "12completeS-castposes from whole-idle locked4x3target; pending explicit geometry and native sharpness comparison. No source production export."
+}

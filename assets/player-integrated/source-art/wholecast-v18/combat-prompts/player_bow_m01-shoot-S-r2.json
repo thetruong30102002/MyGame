@@ -1,0 +1,12 @@
+{
+  "id": "player_bow_m01-shoot-S",
+  "prompt": "Edit target Image2, this 12-frame archer sheet. Image1 is the exact original character and body scale. Correct the SHOOTING DIRECTION ONLY: the archer must aim the ARROW DIRECTLY AT THE CAMERA, straight toward viewer, NOT across the page. Imagine viewer is the target. Bow GRIP hand is extended TOWARD the camera, visually foreshortened near the CENTER of the chest; string hand anchors at the cheek. The arrowhead faces directly AT US and is a small point; we must NEVER see a long horizontal arrow shaft or a sideways stretched aiming arm. The bow limbs stand VERTICALLY near the body center; from this angle the bow is NARROW and EDGE-ON. Face looks straight toward us. Twelve sequential phases: relaxed, raise, grip, nock, half draw TOWARD CAMERA, full draw TOWARD CAMERA, hold aiming AT VIEWER, release AT VIEWER, follow through, lower, return, relaxed. Keep transparent background, exact four columns three rows, original green/cream ranger design, brown hair, one goldleaf bow. Complete fullbody pixel characters, identical head/body scale throughout. Hands contact bow or string correctly. No effects, labels, motion streaks, extra weapons or arrows floating beside actor. Whole actor remains safely inside cell.",
+  "tool": "built-in-imagegen",
+  "references": [
+    "action-references/player_bow_m01/S-master.png",
+    "motion/player_bow_m01-shoot-S.png"
+  ],
+  "status": "generated",
+  "output": "motion/player_bow_m01-shoot-S-r2.png",
+  "sourceSha256": "b4ba5e0b9a54a20a333d7eece804783bc47bb1046ff2554d07f139f57507b472"
+}

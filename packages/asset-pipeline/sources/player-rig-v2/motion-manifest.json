@@ -1,0 +1,1573 @@
+{
+  "version": 2,
+  "status": "S-motion-layer-candidates",
+  "genders": 2,
+  "walkFramesPerGender": 8,
+  "attackFramesPerGender": 15,
+  "productionEnabled": false,
+  "artApproved": false,
+  "records": [
+    {
+      "version": 2,
+      "gender": "male",
+      "sourceScale": 0.3177570093457944,
+      "perFrameScale": false,
+      "canvas": [
+        288,
+        288
+      ],
+      "ppu": 96,
+      "directions": [
+        "S"
+      ],
+      "walkFrames": 8,
+      "attackFrames": 15,
+      "completeEightDirections": false,
+      "productionEnabled": false,
+      "artApproved": false,
+      "weaponSeparated": false,
+      "frames": [
+        {
+          "id": "walk-00",
+          "action": "walk",
+          "index": 0,
+          "source": "walk-0-source.png",
+          "slot": 0,
+          "scale": 0.3177570093457944,
+          "sourceFace": {
+            "cx": 253.5,
+            "jaw": 527
+          },
+          "headOffset": [
+            0,
+            4
+          ],
+          "neck": [
+            144,
+            158
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 140,
+          "bounds": {
+            "x0": 80,
+            "y0": 109,
+            "x1": 179,
+            "y1": 257
+          },
+          "headOcclusion": false,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "walk-01",
+          "action": "walk",
+          "index": 1,
+          "source": "walk-0-source.png",
+          "slot": 1,
+          "scale": 0.3177570093457944,
+          "sourceFace": {
+            "cx": 696.5,
+            "jaw": 505
+          },
+          "headOffset": [
+            0,
+            -3
+          ],
+          "neck": [
+            144,
+            151
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 140,
+          "bounds": {
+            "x0": 79,
+            "y0": 109,
+            "x1": 180,
+            "y1": 257
+          },
+          "headOcclusion": false,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "walk-02",
+          "action": "walk",
+          "index": 2,
+          "source": "walk-0-source.png",
+          "slot": 2,
+          "scale": 0.3177570093457944,
+          "sourceFace": {
+            "cx": 1114.5,
+            "jaw": 524
+          },
+          "headOffset": [
+            0,
+            3
+          ],
+          "neck": [
+            144,
+            157
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 140,
+          "bounds": {
+            "x0": 80,
+            "y0": 109,
+            "x1": 178,
+            "y1": 257
+          },
+          "headOcclusion": false,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "walk-03",
+          "action": "walk",
+          "index": 3,
+          "source": "walk-0-source.png",
+          "slot": 3,
+          "scale": 0.3177570093457944,
+          "sourceFace": {
+            "cx": 1545.5,
+            "jaw": 528
+          },
+          "headOffset": [
+            0,
+            4
+          ],
+          "neck": [
+            144,
+            158
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 140,
+          "bounds": {
+            "x0": 80,
+            "y0": 109,
+            "x1": 182,
+            "y1": 257
+          },
+          "headOcclusion": false,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "walk-04",
+          "action": "walk",
+          "index": 4,
+          "source": "walk-1-source.png",
+          "slot": 0,
+          "scale": 0.3177570093457944,
+          "sourceFace": {
+            "cx": 257,
+            "jaw": 525
+          },
+          "headOffset": [
+            0,
+            3
+          ],
+          "neck": [
+            144,
+            157
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 140,
+          "bounds": {
+            "x0": 86,
+            "y0": 110,
+            "x1": 171,
+            "y1": 257
+          },
+          "headOcclusion": false,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "walk-05",
+          "action": "walk",
+          "index": 5,
+          "source": "walk-1-source.png",
+          "slot": 1,
+          "scale": 0.3177570093457944,
+          "sourceFace": {
+            "cx": 698,
+            "jaw": 525
+          },
+          "headOffset": [
+            0,
+            3
+          ],
+          "neck": [
+            144,
+            157
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 140,
+          "bounds": {
+            "x0": 87,
+            "y0": 109,
+            "x1": 172,
+            "y1": 257
+          },
+          "headOcclusion": false,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "walk-06",
+          "action": "walk",
+          "index": 6,
+          "source": "walk-1-source.png",
+          "slot": 2,
+          "scale": 0.3177570093457944,
+          "sourceFace": {
+            "cx": 1112.5,
+            "jaw": 526
+          },
+          "headOffset": [
+            0,
+            4
+          ],
+          "neck": [
+            144,
+            158
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 140,
+          "bounds": {
+            "x0": 86,
+            "y0": 109,
+            "x1": 175,
+            "y1": 257
+          },
+          "headOcclusion": false,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "walk-07",
+          "action": "walk",
+          "index": 7,
+          "source": "walk-1-source.png",
+          "slot": 3,
+          "scale": 0.3177570093457944,
+          "sourceFace": {
+            "cx": 1550.5,
+            "jaw": 527
+          },
+          "headOffset": [
+            0,
+            4
+          ],
+          "neck": [
+            144,
+            158
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 140,
+          "bounds": {
+            "x0": 87,
+            "y0": 109,
+            "x1": 172,
+            "y1": 256
+          },
+          "headOcclusion": false,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "attack-00",
+          "action": "attack",
+          "index": 0,
+          "source": "attack-0-source.png",
+          "slot": 0,
+          "scale": 0.3177570093457944,
+          "sourceFace": {
+            "cx": 252.5,
+            "jaw": 511
+          },
+          "headOffset": [
+            0,
+            -1
+          ],
+          "neck": [
+            144,
+            153
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 110,
+          "bounds": {
+            "x0": 76,
+            "y0": 112,
+            "x1": 181,
+            "y1": 257
+          },
+          "headOcclusion": false,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "attack-01",
+          "action": "attack",
+          "index": 1,
+          "source": "attack-0-source.png",
+          "slot": 1,
+          "scale": 0.3177570093457944,
+          "sourceFace": {
+            "cx": 699,
+            "jaw": 529
+          },
+          "headOffset": [
+            0,
+            5
+          ],
+          "neck": [
+            144,
+            159
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 95,
+          "bounds": {
+            "x0": 76,
+            "y0": 112,
+            "x1": 181,
+            "y1": 257
+          },
+          "headOcclusion": true,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "attack-02",
+          "action": "attack",
+          "index": 2,
+          "source": "attack-0-source.png",
+          "slot": 2,
+          "scale": 0.3177570093457944,
+          "sourceFace": {
+            "cx": 1126,
+            "jaw": 523
+          },
+          "headOffset": [
+            0,
+            3
+          ],
+          "neck": [
+            144,
+            157
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 90,
+          "bounds": {
+            "x0": 80,
+            "y0": 79,
+            "x1": 179,
+            "y1": 257
+          },
+          "headOcclusion": true,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "attack-03",
+          "action": "attack",
+          "index": 3,
+          "source": "attack-0-source.png",
+          "slot": 3,
+          "scale": 0.3177570093457944,
+          "sourceFace": {
+            "cx": 1555.5,
+            "jaw": 529
+          },
+          "headOffset": [
+            0,
+            5
+          ],
+          "neck": [
+            144,
+            159
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 85,
+          "bounds": {
+            "x0": 110,
+            "y0": 43,
+            "x1": 183,
+            "y1": 257
+          },
+          "headOcclusion": true,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "attack-04",
+          "action": "attack",
+          "index": 4,
+          "source": "attack-1-source.png",
+          "slot": 0,
+          "scale": 0.3177570093457944,
+          "sourceFace": {
+            "cx": 205,
+            "jaw": 526
+          },
+          "headOffset": [
+            0,
+            4
+          ],
+          "neck": [
+            144,
+            158
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 75,
+          "bounds": {
+            "x0": 110,
+            "y0": 47,
+            "x1": 179,
+            "y1": 258
+          },
+          "headOcclusion": true,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "attack-05",
+          "action": "attack",
+          "index": 5,
+          "source": "attack-1-source.png",
+          "slot": 1,
+          "scale": 0.3177570093457944,
+          "sourceFace": {
+            "cx": 648,
+            "jaw": 526
+          },
+          "headOffset": [
+            0,
+            4
+          ],
+          "neck": [
+            144,
+            158
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 70,
+          "bounds": {
+            "x0": 109,
+            "y0": 21,
+            "x1": 180,
+            "y1": 259
+          },
+          "headOcclusion": true,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "attack-06",
+          "action": "attack",
+          "index": 6,
+          "source": "attack-1-source.png",
+          "slot": 2,
+          "scale": 0.3177570093457944,
+          "sourceFace": {
+            "cx": 1093,
+            "jaw": 527
+          },
+          "headOffset": [
+            0,
+            4
+          ],
+          "neck": [
+            144,
+            158
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 110,
+          "bounds": {
+            "x0": 108,
+            "y0": 16,
+            "x1": 184,
+            "y1": 257
+          },
+          "headOcclusion": true,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "attack-07",
+          "action": "attack",
+          "index": 7,
+          "source": "attack-1-source.png",
+          "slot": 3,
+          "scale": 0.3177570093457944,
+          "sourceFace": {
+            "cx": 1560,
+            "jaw": 526
+          },
+          "headOffset": [
+            0,
+            4
+          ],
+          "neck": [
+            144,
+            158
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 40,
+          "bounds": {
+            "x0": 106,
+            "y0": 52,
+            "x1": 187,
+            "y1": 258
+          },
+          "headOcclusion": true,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "attack-08",
+          "action": "attack",
+          "index": 8,
+          "source": "attack-2-source.png",
+          "slot": 0,
+          "scale": 0.3177570093457944,
+          "sourceFace": {
+            "cx": 236,
+            "jaw": 529
+          },
+          "headOffset": [
+            0,
+            5
+          ],
+          "neck": [
+            144,
+            159
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 25,
+          "bounds": {
+            "x0": 103,
+            "y0": 111,
+            "x1": 184,
+            "y1": 257
+          },
+          "headOcclusion": false,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "attack-09",
+          "action": "attack",
+          "index": 9,
+          "source": "attack-2-source.png",
+          "slot": 1,
+          "scale": 0.3177570093457944,
+          "sourceFace": {
+            "cx": 675,
+            "jaw": 520
+          },
+          "headOffset": [
+            0,
+            2
+          ],
+          "neck": [
+            144,
+            156
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 30,
+          "bounds": {
+            "x0": 91,
+            "y0": 122,
+            "x1": 190,
+            "y1": 258
+          },
+          "headOcclusion": false,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "attack-10",
+          "action": "attack",
+          "index": 10,
+          "source": "attack-2-source.png",
+          "slot": 2,
+          "scale": 0.3177570093457944,
+          "sourceFace": {
+            "cx": 1118.5,
+            "jaw": 520
+          },
+          "headOffset": [
+            0,
+            2
+          ],
+          "neck": [
+            144,
+            156
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 45,
+          "bounds": {
+            "x0": 91,
+            "y0": 122,
+            "x1": 187,
+            "y1": 261
+          },
+          "headOcclusion": false,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "attack-11",
+          "action": "attack",
+          "index": 11,
+          "source": "attack-2-source.png",
+          "slot": 3,
+          "scale": 0.3177570093457944,
+          "sourceFace": {
+            "cx": 1553.5,
+            "jaw": 500
+          },
+          "headOffset": [
+            0,
+            -4
+          ],
+          "neck": [
+            144,
+            150
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 65,
+          "bounds": {
+            "x0": 91,
+            "y0": 114,
+            "x1": 187,
+            "y1": 257
+          },
+          "headOcclusion": false,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "attack-12",
+          "action": "attack",
+          "index": 12,
+          "source": "attack-3-source.png",
+          "slot": 0,
+          "scale": 0.3177570093457944,
+          "sourceFace": {
+            "cx": 266.5,
+            "jaw": 524
+          },
+          "headOffset": [
+            0,
+            3
+          ],
+          "neck": [
+            144,
+            157
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 70,
+          "bounds": {
+            "x0": 83,
+            "y0": 112,
+            "x1": 182,
+            "y1": 257
+          },
+          "headOcclusion": false,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "attack-13",
+          "action": "attack",
+          "index": 13,
+          "source": "attack-3-source.png",
+          "slot": 1,
+          "scale": 0.3177570093457944,
+          "sourceFace": {
+            "cx": 702.5,
+            "jaw": 526
+          },
+          "headOffset": [
+            0,
+            4
+          ],
+          "neck": [
+            144,
+            158
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 75,
+          "bounds": {
+            "x0": 82,
+            "y0": 112,
+            "x1": 175,
+            "y1": 257
+          },
+          "headOcclusion": false,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "attack-14",
+          "action": "attack",
+          "index": 14,
+          "source": "attack-3-source.png",
+          "slot": 2,
+          "scale": 0.3177570093457944,
+          "sourceFace": {
+            "cx": 1121,
+            "jaw": 527
+          },
+          "headOffset": [
+            0,
+            4
+          ],
+          "neck": [
+            144,
+            158
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 100,
+          "bounds": {
+            "x0": 85,
+            "y0": 112,
+            "x1": 173,
+            "y1": 257
+          },
+          "headOcclusion": false,
+          "layerMaskStatus": "candidate-needs-art-review"
+        }
+      ]
+    },
+    {
+      "version": 2,
+      "gender": "female",
+      "sourceScale": 0.3333333333333333,
+      "perFrameScale": false,
+      "canvas": [
+        288,
+        288
+      ],
+      "ppu": 96,
+      "directions": [
+        "S"
+      ],
+      "walkFrames": 8,
+      "attackFrames": 15,
+      "completeEightDirections": false,
+      "productionEnabled": false,
+      "artApproved": false,
+      "weaponSeparated": false,
+      "frames": [
+        {
+          "id": "walk-00",
+          "action": "walk",
+          "index": 0,
+          "source": "walk-0-source.png",
+          "slot": 0,
+          "scale": 0.3333333333333333,
+          "sourceFace": {
+            "cx": 232.5,
+            "jaw": 526
+          },
+          "headOffset": [
+            0,
+            8
+          ],
+          "neck": [
+            144,
+            162
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 140,
+          "bounds": {
+            "x0": 89,
+            "y0": 113,
+            "x1": 176,
+            "y1": 256
+          },
+          "headOcclusion": false,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "walk-01",
+          "action": "walk",
+          "index": 1,
+          "source": "walk-0-source.png",
+          "slot": 1,
+          "scale": 0.3333333333333333,
+          "sourceFace": {
+            "cx": 690.5,
+            "jaw": 525
+          },
+          "headOffset": [
+            0,
+            8
+          ],
+          "neck": [
+            144,
+            162
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 140,
+          "bounds": {
+            "x0": 87,
+            "y0": 113,
+            "x1": 176,
+            "y1": 256
+          },
+          "headOcclusion": false,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "walk-02",
+          "action": "walk",
+          "index": 2,
+          "source": "walk-0-source.png",
+          "slot": 2,
+          "scale": 0.3333333333333333,
+          "sourceFace": {
+            "cx": 1117,
+            "jaw": 527
+          },
+          "headOffset": [
+            0,
+            8
+          ],
+          "neck": [
+            144,
+            162
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 140,
+          "bounds": {
+            "x0": 89,
+            "y0": 113,
+            "x1": 176,
+            "y1": 256
+          },
+          "headOcclusion": false,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "walk-03",
+          "action": "walk",
+          "index": 3,
+          "source": "walk-0-source.png",
+          "slot": 3,
+          "scale": 0.3333333333333333,
+          "sourceFace": {
+            "cx": 1561.5,
+            "jaw": 514
+          },
+          "headOffset": [
+            0,
+            4
+          ],
+          "neck": [
+            144,
+            158
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 140,
+          "bounds": {
+            "x0": 91,
+            "y0": 113,
+            "x1": 179,
+            "y1": 256
+          },
+          "headOcclusion": false,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "walk-04",
+          "action": "walk",
+          "index": 4,
+          "source": "walk-1-source.png",
+          "slot": 0,
+          "scale": 0.3333333333333333,
+          "sourceFace": {
+            "cx": 245.5,
+            "jaw": 529
+          },
+          "headOffset": [
+            0,
+            9
+          ],
+          "neck": [
+            144,
+            163
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 140,
+          "bounds": {
+            "x0": 77,
+            "y0": 99,
+            "x1": 175,
+            "y1": 256
+          },
+          "headOcclusion": false,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "walk-05",
+          "action": "walk",
+          "index": 5,
+          "source": "walk-1-source.png",
+          "slot": 1,
+          "scale": 0.3333333333333333,
+          "sourceFace": {
+            "cx": 682.5,
+            "jaw": 529
+          },
+          "headOffset": [
+            0,
+            9
+          ],
+          "neck": [
+            144,
+            163
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 140,
+          "bounds": {
+            "x0": 80,
+            "y0": 100,
+            "x1": 178,
+            "y1": 256
+          },
+          "headOcclusion": false,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "walk-06",
+          "action": "walk",
+          "index": 6,
+          "source": "walk-1-source.png",
+          "slot": 2,
+          "scale": 0.3333333333333333,
+          "sourceFace": {
+            "cx": 1133.5,
+            "jaw": 529
+          },
+          "headOffset": [
+            0,
+            9
+          ],
+          "neck": [
+            144,
+            163
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 140,
+          "bounds": {
+            "x0": 77,
+            "y0": 99,
+            "x1": 169,
+            "y1": 256
+          },
+          "headOcclusion": false,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "walk-07",
+          "action": "walk",
+          "index": 7,
+          "source": "walk-1-source.png",
+          "slot": 3,
+          "scale": 0.3333333333333333,
+          "sourceFace": {
+            "cx": 1563.5,
+            "jaw": 527
+          },
+          "headOffset": [
+            0,
+            8
+          ],
+          "neck": [
+            144,
+            162
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 140,
+          "bounds": {
+            "x0": 81,
+            "y0": 99,
+            "x1": 182,
+            "y1": 256
+          },
+          "headOcclusion": false,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "attack-00",
+          "action": "attack",
+          "index": 0,
+          "source": "attack-0-source.png",
+          "slot": 0,
+          "scale": 0.3333333333333333,
+          "sourceFace": {
+            "cx": 237.5,
+            "jaw": 499
+          },
+          "headOffset": [
+            0,
+            -1
+          ],
+          "neck": [
+            144,
+            153
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 110,
+          "bounds": {
+            "x0": 86,
+            "y0": 115,
+            "x1": 179,
+            "y1": 260
+          },
+          "headOcclusion": false,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "attack-01",
+          "action": "attack",
+          "index": 1,
+          "source": "attack-0-source.png",
+          "slot": 1,
+          "scale": 0.3333333333333333,
+          "sourceFace": {
+            "cx": 713.5,
+            "jaw": 504
+          },
+          "headOffset": [
+            0,
+            1
+          ],
+          "neck": [
+            144,
+            155
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 95,
+          "bounds": {
+            "x0": 72,
+            "y0": 105,
+            "x1": 177,
+            "y1": 260
+          },
+          "headOcclusion": true,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "attack-02",
+          "action": "attack",
+          "index": 2,
+          "source": "attack-0-source.png",
+          "slot": 2,
+          "scale": 0.3333333333333333,
+          "sourceFace": {
+            "cx": 1128.5,
+            "jaw": 497
+          },
+          "headOffset": [
+            0,
+            -2
+          ],
+          "neck": [
+            144,
+            152
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 90,
+          "bounds": {
+            "x0": 80,
+            "y0": 68,
+            "x1": 178,
+            "y1": 260
+          },
+          "headOcclusion": true,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "attack-03",
+          "action": "attack",
+          "index": 3,
+          "source": "attack-0-source.png",
+          "slot": 3,
+          "scale": 0.3333333333333333,
+          "sourceFace": {
+            "cx": 1568,
+            "jaw": 497
+          },
+          "headOffset": [
+            0,
+            -2
+          ],
+          "neck": [
+            144,
+            152
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 85,
+          "bounds": {
+            "x0": 107,
+            "y0": 30,
+            "x1": 176,
+            "y1": 260
+          },
+          "headOcclusion": true,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "attack-04",
+          "action": "attack",
+          "index": 4,
+          "source": "attack-1-source.png",
+          "slot": 0,
+          "scale": 0.3333333333333333,
+          "sourceFace": {
+            "cx": 227,
+            "jaw": 515
+          },
+          "headOffset": [
+            0,
+            4
+          ],
+          "neck": [
+            144,
+            158
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 75,
+          "bounds": {
+            "x0": 110,
+            "y0": 42,
+            "x1": 180,
+            "y1": 261
+          },
+          "headOcclusion": true,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "attack-05",
+          "action": "attack",
+          "index": 5,
+          "source": "attack-1-source.png",
+          "slot": 1,
+          "scale": 0.3333333333333333,
+          "sourceFace": {
+            "cx": 670.5,
+            "jaw": 526
+          },
+          "headOffset": [
+            0,
+            8
+          ],
+          "neck": [
+            144,
+            162
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 70,
+          "bounds": {
+            "x0": 111,
+            "y0": 9,
+            "x1": 179,
+            "y1": 261
+          },
+          "headOcclusion": true,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "attack-06",
+          "action": "attack",
+          "index": 6,
+          "source": "attack-1-source.png",
+          "slot": 2,
+          "scale": 0.3333333333333333,
+          "sourceFace": {
+            "cx": 1107.5,
+            "jaw": 524
+          },
+          "headOffset": [
+            0,
+            7
+          ],
+          "neck": [
+            144,
+            161
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 110,
+          "bounds": {
+            "x0": 106,
+            "y0": 0,
+            "x1": 185,
+            "y1": 260
+          },
+          "headOcclusion": true,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "attack-07",
+          "action": "attack",
+          "index": 7,
+          "source": "attack-1-source.png",
+          "slot": 3,
+          "scale": 0.3333333333333333,
+          "sourceFace": {
+            "cx": 1551.5,
+            "jaw": 508
+          },
+          "headOffset": [
+            0,
+            2
+          ],
+          "neck": [
+            144,
+            156
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 40,
+          "bounds": {
+            "x0": 113,
+            "y0": 44,
+            "x1": 188,
+            "y1": 261
+          },
+          "headOcclusion": true,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "attack-08",
+          "action": "attack",
+          "index": 8,
+          "source": "attack-2-source.png",
+          "slot": 0,
+          "scale": 0.3333333333333333,
+          "sourceFace": {
+            "cx": 230,
+            "jaw": 525
+          },
+          "headOffset": [
+            0,
+            8
+          ],
+          "neck": [
+            144,
+            162
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 25,
+          "bounds": {
+            "x0": 102,
+            "y0": 110,
+            "x1": 182,
+            "y1": 259
+          },
+          "headOcclusion": false,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "attack-09",
+          "action": "attack",
+          "index": 9,
+          "source": "attack-2-source.png",
+          "slot": 1,
+          "scale": 0.3333333333333333,
+          "sourceFace": {
+            "cx": 663.5,
+            "jaw": 514
+          },
+          "headOffset": [
+            0,
+            4
+          ],
+          "neck": [
+            144,
+            158
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 30,
+          "bounds": {
+            "x0": 92,
+            "y0": 118,
+            "x1": 201,
+            "y1": 260
+          },
+          "headOcclusion": false,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "attack-10",
+          "action": "attack",
+          "index": 10,
+          "source": "attack-2-source.png",
+          "slot": 2,
+          "scale": 0.3333333333333333,
+          "sourceFace": {
+            "cx": 1115.5,
+            "jaw": 513
+          },
+          "headOffset": [
+            0,
+            4
+          ],
+          "neck": [
+            144,
+            158
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 45,
+          "bounds": {
+            "x0": 84,
+            "y0": 118,
+            "x1": 194,
+            "y1": 261
+          },
+          "headOcclusion": false,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "attack-11",
+          "action": "attack",
+          "index": 11,
+          "source": "attack-2-source.png",
+          "slot": 3,
+          "scale": 0.3333333333333333,
+          "sourceFace": {
+            "cx": 1558,
+            "jaw": 492
+          },
+          "headOffset": [
+            0,
+            -3
+          ],
+          "neck": [
+            144,
+            151
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 65,
+          "bounds": {
+            "x0": 90,
+            "y0": 110,
+            "x1": 190,
+            "y1": 259
+          },
+          "headOcclusion": false,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "attack-12",
+          "action": "attack",
+          "index": 12,
+          "source": "attack-3-source.png",
+          "slot": 0,
+          "scale": 0.3333333333333333,
+          "sourceFace": {
+            "cx": 233,
+            "jaw": 499
+          },
+          "headOffset": [
+            0,
+            -1
+          ],
+          "neck": [
+            144,
+            153
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 70,
+          "bounds": {
+            "x0": 88,
+            "y0": 116,
+            "x1": 183,
+            "y1": 257
+          },
+          "headOcclusion": false,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "attack-13",
+          "action": "attack",
+          "index": 13,
+          "source": "attack-3-source.png",
+          "slot": 1,
+          "scale": 0.3333333333333333,
+          "sourceFace": {
+            "cx": 688,
+            "jaw": 501
+          },
+          "headOffset": [
+            0,
+            0
+          ],
+          "neck": [
+            144,
+            154
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 75,
+          "bounds": {
+            "x0": 86,
+            "y0": 116,
+            "x1": 180,
+            "y1": 257
+          },
+          "headOcclusion": false,
+          "layerMaskStatus": "candidate-needs-art-review"
+        },
+        {
+          "id": "attack-14",
+          "action": "attack",
+          "index": 14,
+          "source": "attack-3-source.png",
+          "slot": 2,
+          "scale": 0.3333333333333333,
+          "sourceFace": {
+            "cx": 1104,
+            "jaw": 498
+          },
+          "headOffset": [
+            0,
+            -1
+          ],
+          "neck": [
+            144,
+            153
+          ],
+          "root": [
+            144,
+            256
+          ],
+          "durationMs": 100,
+          "bounds": {
+            "x0": 88,
+            "y0": 116,
+            "x1": 176,
+            "y1": 257
+          },
+          "headOcclusion": false,
+          "layerMaskStatus": "candidate-needs-art-review"
+        }
+      ]
+    }
+  ]
+}

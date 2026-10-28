@@ -1,184 +1,259 @@
-// Nhân vật mới: pose nguyên khối vẽ mới, vũ khí rời; không đọc atlas người chơi hiện hành.
+// Drawn pose pairs: no anatomical recolouring, limb deformation or generated tweens.
 import { createHash } from 'node:crypto';
-import { readFileSync, writeFileSync } from 'node:fs';
-import { resolve, join } from 'node:path';
-import { blit, createImage, getPixel, readPng, setPixel, writePng, scaleNearest, opaqueBounds, type RGBAImage } from '../image/rgba.js';
-import { weaponFrame } from './art.js';
-import { splitGarments, garmentVariant, garmentSlots, type ClothingGuide } from './clothing.js';
-import { exportEquipmentKit, loadEquipmentKit, upperEquipment, legEquipment } from './equipment.js';
-import { handContact, handOcclusion, staffSeed } from './contacts.js';
+import { readFileSync,writeFileSync } from 'node:fs';
+import { resolve,join } from 'node:path';
+import { blit,createImage,crop,getPixel,setPixel,readPng,writePng,scaleNearest,opaqueBounds,type RGBAImage,type RGBA } from '../image/rgba.js';
+import { weaponFrame,type Point } from './art.js';
+import { splitGarments,garmentVariant,garmentSlots,type ClothingGuide } from './clothing.js';
+import { handOcclusion } from './contacts.js';
 
-const root = resolve(import.meta.dirname, '../../../..');
-const out = join(root, 'assets/mannequin/v2');
-const sheetPath = join(out, 'source-art/warden-sheet.png');
-const source = readPng(sheetPath);
-const layout = JSON.parse(readFileSync(join(out, 'source-art/layout.json'), 'utf8'));
-const clothingGuides = JSON.parse(readFileSync(join(out,'source-art/clothing-guides.json'),'utf8')).poses as Record<string,ClothingGuide>;
-const kit=loadEquipmentKit(out);exportEquipmentKit(out,kit);
-if (source.width !== layout.width || source.height !== layout.height) throw new Error('Sheet khác kích thước layout đã kiểm');
-const directions = ['S', 'SW', 'W', 'NW', 'N', 'NE', 'E', 'SE'];
-const id = 'aether_warden';
-type Point = [number, number];
-type Annotation = { grip: Point; neck: Point; weaponOrder: number; reviewed: boolean };
-const overrides: Record<string, Annotation> = JSON.parse(readFileSync(join(out, 'source-art/anchors.json'), 'utf8'));
-const gripRows: Point[][] = [
- [[43,105],[51,104],[58,105],[50,103],[49,106],[91,104],[93,105],[97,105]],
- [[42,100],[43,95],[48,99],[50,99],[49,103],[93,99],[100,97],[98,100]],
- [[43,105],[51,104],[58,105],[50,103],[49,106],[91,104],[93,105],[97,105]],
- [[42,100],[43,95],[48,99],[50,99],[49,103],[100,94],[100,97],[105,98]],
- [[56,22],[50,18],[60,20],[48,20],[50,23],[101,22],[103,22],[100,22]],
- [[30,57],[20,59],[22,60],[27,73],[32,77],[115,63],[116,60],[120,57]],
- [[53,72],[63,72],[60,75],[50,76],[50,76],[100,75],[90,75],[65,75]],
- [[83,74],[83,74],[77,76],[63,77],[52,78],[83,76],[70,76],[65,75]],
+const root=resolve(import.meta.dirname,'../../../..'),out=join(root,'assets/mannequin/v2');
+const art=join(out,'source-art/authored-v4'),id='aether_warden';
+const layout=JSON.parse(readFileSync(join(art,'layout.json'),'utf8'));
+const directions:string[]=layout.directions;
+const hash=(bytes:Uint8Array)=>createHash('sha256').update(bytes).digest('hex');
+const fileHash=(path:string)=>hash(readFileSync(path));
+const cells:RGBAImage[]=[],names:string[]=[],garments=new Map<string,RGBAImage>();
+const pad=(image:RGBAImage)=>{if(image.width===144)return image;const canvas=createImage(144,144);blit(canvas,image,16,24);return canvas;};
+const add=(name:string,image:RGBAImage)=>{if(names.includes(name))throw new Error('Trùng sprite '+name);names.push(name);cells.push(pad(image));};
+const idleSeeds:Point[]=[[42,79],[43,78],[49,76],[44,76],[43,79],[65,76],[68,75],[70,78]];
+const runSeeds:Point[]=[[42,69],[41,69],[44,67],[44,69],[42,71],[67,69],[70,67],[72,70]];
+const attackSeeds:Point[][]=[
+ [[41,79],[41,77],[45,75],[43,76],[44,79],[68,77],[69,75],[70,78]],
+ [[52,76],[43,77],[44,75],[44,76],[44,77],[68,76],[69,75],[68,77]],
+ [[53,77],[44,76],[44,74],[44,75],[44,77],[69,76],[69,74],[68,77]],
+ [[69,69],[39,69],[35,70],[36,70],[69,70],[77,69],[78,69],[73,69]],
+ [[73,68],[34,68],[33,70],[33,70],[76,67],[79,69],[81,69],[78,68]],
+ [[51,77],[42,78],[45,76],[44,76],[44,78],[68,78],[69,77],[69,78]],
+ [[42,79],[42,78],[45,76],[44,76],[44,79],[68,78],[69,77],[70,79]],
 ];
-const poses: RGBAImage[][] = [];
-const preview = createImage(8 * 112, 8 * 112);
-for (let row = 0; row < 8; row++) {
- const images: RGBAImage[] = [];
- for (let dir = 0; dir < 8; dir++) {
-  const rect = layout.rects[row * 8 + dir];
-  const origin = rect.origin;
-  if (rect.direction !== directions[dir] || rect.row !== row) throw new Error('Sai thứ tự hướng/layout');
-  const img = createImage(112,112);
-  // Tỷ lệ duy nhất; root tác giả khai trong layout đã kiểm, không tự dò bbox khi build.
-  for (let y = 0; y < 112; y++) for (let x = 0; x < 112; x++) {
-   const sx = Math.floor((x - 56) / layout.scale + origin[0]);
-   const sy = Math.floor((y - 100) / layout.scale + origin[1]);
-   if (sx < 0 || sx >= rect.w || sy < 0 || sy >= rect.h) continue;
-   const c = getPixel(source, rect.x + sx, rect.y + sy);
-   if (c[3] >= 220) setPixel(img,x,y,[c[0],c[1],c[2],255]);
-  }
-  const bounds = opaqueBounds(img);
-  if (!bounds || bounds.x0 < 5 || bounds.x1 > 107 || bounds.y1 > 103) throw new Error(`Pose trống/tràn ${row}/${directions[dir]}`);
-  images.push(img); blit(preview,img,dir*112,row*112);
+const castSeeds:Point[][]=[
+ [[63,65],[60,66],[57,67],[50,67],[44,71],[58,67],[61,66],[61,66]],
+ [[66,66],[63,67],[62,67],[48,70],[43,73],[51,68],[52,67],[43,70]],
+ [[72,70],[65,72],[64,72],[45,72],[43,74],[50,72],[48,72],[43,73]],
+ idleSeeds,
+];
+const skin=(c:RGBA)=>c[3]>0&&c[0]>100&&c[0]-c[1]>24&&c[1]-c[2]>12;
+function ownerAt(originals:RGBAImage[],x:number,y:number,guide:ClothingGuide):number {
+ for(let slot=0;slot<3;slot++)if(getPixel(originals[slot]!,x,y)[3])return slot;
+ let owner=-1,best=Infinity;
+ for(let dy=-7;dy<=7;dy++)for(let dx=-7;dx<=7;dx++) {
+  const distance=dx*dx+dy*dy;if(distance>=best)continue;
+  for(let slot=0;slot<3;slot++)if(getPixel(originals[slot]!,x+dx,y+dy)[3]){owner=slot;best=distance;break;}
  }
- poses.push(images);
+ return owner>=0?owner:y<guide.waist?0:y<guide.bootLeft?1:2;
 }
-writePng(join(out,'poses-2x.png'),scaleNearest(preview,2));
-const swordSource = readPng(join(root,'assets/mannequin/parts/moonsteel-sword.png'));
-const sword = createImage(10,34);
-for(let y=0;y<34;y++)for(let x=0;x<10;x++)setPixel(sword,x,y,getPixel(swordSource,Math.floor(x*swordSource.width/10),Math.floor(y*swordSource.height/34)));
-const staff = readPng(join(root,'assets/mannequin/parts/aether-staff.png'));
+function leatherCoat(source:RGBAImage):RGBAImage {
+ const image=createImage(112,112);
+ for(let y=0;y<112;y++)for(let x=0;x<112;x++) {
+  const c=getPixel(source,x,y);if(!c[3])continue;
+  const gold=c[0]>c[1]*1.15&&c[1]>c[2]*1.15;
+  if(gold)setPixel(image,x,y,c);
+  else {const light=(c[0]+c[1]+c[2])/3;setPixel(image,x,y,[Math.min(235,Math.round(light*.95+20)),Math.round(light*.64+11),Math.round(light*.42+9),255]);}
+ }
+ return image;
+}
+/** Clothing dye must not turn the same character's silver hair red or brown. */
+function keepIdentityColors(variant:RGBAImage,source:RGBAImage,neck:number,facing:string):RGBAImage {
+ const d=directions.indexOf(facing);
+ for(let y=0;y<=neck;y++)for(let x=35;x<=77;x++) {
+  const c=getPixel(source,x,y);if(!c[3])continue;
+  const neutral=Math.min(c[0],c[1],c[2])>=30&&Math.max(c[0],c[1],c[2])-Math.min(c[0],c[1],c[2])<45&&Math.abs(c[0]-c[1])<20;
+  const back=d>=1&&d<=3?x>=58:d>=5?x<=54:d===4?x>=45&&x<=67:false;
+  const teal=back&&c[1]-c[0]>25&&c[2]-c[0]>40&&c[1]>70;
+  if(neutral||teal)setPixel(variant,x,y,c);
+ }
+ return variant;
+}
+
+/** The same palm pixel must exist in both drawn bodies. No arbitrary alpha on a sleeve. */
+function sharedPalm(clothed:RGBAImage,bare:RGBAImage,metal:RGBAImage,gold:RGBAImage,seed:Point):Point {
+ let best=Infinity,selected:Point|undefined;
+ for(let dy=-10;dy<=10;dy++)for(let dx=-10;dx<=10;dx++) {
+  const x=seed[0]+dx,y=seed[1]+dy,a=getPixel(clothed,x,y),b=getPixel(bare,x,y);
+  if(!a[3]||!skin(b)||!getPixel(metal,x,y)[3]||!getPixel(gold,x,y)[3])continue;
+  const score=dx*dx+dy*dy+(skin(a)?0:7);
+  if(score<best){best=score;selected=[x,y];}
+ }
+ if(!selected)throw new Error('Không có bàn tay chung gần '+seed);
+ return selected;
+}
+
+/** Register one rigid hilt through both authored fists, never rotate it to fit. */
+function twoPalms(body:RGBAImage,seed:Point,angle:number,label:string,skinHands:boolean):Point[] {
+ const ax=Math.cos(angle*Math.PI/180),ay=Math.sin(angle*Math.PI/180);
+ let selected:Point[]|undefined,best=Infinity;
+ for(const span of [6,5,4,7])for(let dy=-5;dy<=5;dy++)for(let dx=-5;dx<=5;dx++) {
+  const a:Point=[seed[0]+dx,seed[1]+dy],b:Point=[Math.round(a[0]-ax*span),Math.round(a[1]-ay*span)];
+  if(![a,b].every(p=>getPixel(body,...p)[3]&&(!skinHands||skin(getPixel(body,...p)))))continue;
+  const score=dx*dx+dy*dy+(span-6)**2*.5;if(score<best){best=score;selected=[a,b];}
+ }
+ if(!selected)throw new Error('Hai nắm tay không cùng chuôi: '+label+' gần '+seed);
+ return selected;
+}
+
+type DrawnPose={key:string;action:string;phase:number;direction:string;headDirection:string;body:RGBAImage;head:RGBAImage;bare:RGBAImage;metal:RGBAImage;gold:RGBAImage;grip:Point;swordHands:Point[];swordHandSets:Point[][];swordAngle?:number;swordHandsVisible:boolean;neck:Point;guide:ClothingGuide;garmentPrefix:string;handPrefix:string;sourceRow:number};
+const drawn=new Map<string,DrawnPose>();
+const basePreview=createImage(8*112,24*112),gearPreview=createImage(5*112,8*112);
+const actionPreviews:Record<string,RGBAImage>={};
+const loadouts=[['jacket_navy','pants_dark','boots_brown'],['cuirass_silver','pants_mail','boots_plate'],['vest_leather','pants_linen','boots_black'],['jacket_wine','pants_mail','boots_plate'],['dragon_guard','dragon_legs','dragon_boots']];
+const sourceHashes:Record<string,string>={};
+for(const action of ['idle','walk','run','attack','cast'])for(const kind of ['clothed','bare','silver','gold'])sourceHashes[`${action}-${kind}.png`]=fileHash(join(art,`${action}-${kind}.png`));
+
+for(const [sourceRow,record] of layout.poses.entries()) {
+ const {action,phase,direction}=record,d=directions.indexOf(direction);
+ const clothed=readPng(join(art,`${action}_${phase}_${direction}_clothed.png`));
+ const bareFull=readPng(join(art,`${action}_${phase}_${direction}_bare.png`));
+ const metalFull=readPng(join(art,`${action}_${phase}_${direction}_silver.png`));
+ const goldFull=readPng(join(art,`${action}_${phase}_${direction}_gold.png`));
+ // Keep each authored head/neck with its complete upper-body pose. Never graft
+ // a different idle head over a turning neck or cut a raised arm out as hair.
+ const body=clothed,bare=bareFull,head=createImage(112,112),metal=metalFull,gold=goldFull;
+ const neck:Point=[56,record.neck];
+ const headDirection=record.headDirection??direction;
+ let seed:Point=action==='attack'?attackSeeds[phase]![d]!:action==='cast'?castSeeds[phase]![d]!:action==='run'?runSeeds[d]!:idleSeeds[d]!;
+ // The two fists are authored around one marked hilt, not guessed from a
+ // face-coloured pixel above the neck. Keep the painted blade axis intact.
+ const swordHandSets:Point[][]=action==='attack'?[body,bare,metal,gold].map((image,i)=>record.swordHandsVisible===false?record.swordHands.map((p:Point)=>p):twoPalms(image,record.swordHands[0],record.swordAngle,`${phase}/${direction}/${i}`,i<2)):[];
+ const swordHands=swordHandSets[0]??[];
+ const grip=action==='attack'?swordHands[0]!:sharedPalm(clothed,bareFull,metalFull,goldFull,seed);
+ const guide:ClothingGuide={waist:record.waist,bootLeft:record.boot,bootRight:record.boot,splitX:56,hipLeft:45,hipRight:68,spread:9};
+ const key=`${action}_${phase}_${direction}`,garmentPrefix='clothing_'+key,handPrefix='hands_'+key;
+ const pieces=splitGarments(body,guide);
+ // Exposed fingers/gloves in a clothed pose travel with that sleeve, so there is no second arm underneath.
+ blit(pieces.upper,pieces.base,0,0);
+ const originals=[pieces.upper,pieces.pants,pieces.boots];
+ const ownership=new Int8Array(112*112);
+ for(let y=0;y<112;y++)for(let x=0;x<112;x++) {
+  if(!getPixel(bare,x,y)[3])continue;
+  ownership[y*112+x]=ownerAt(originals,x,y,guide);
+ }
+ // Eight visibility masks are true body occlusion masks, never scale/offset variants.
+ for(let mask=0;mask<8;mask++) {
+  const visible=createImage(112,112);
+  for(let y=0;y<112;y++)for(let x=0;x<112;x++)if(!(mask&(1<<ownership[y*112+x]!)))setPixel(visible,x,y,getPixel(bare,x,y));
+  garments.set(garmentPrefix+(mask===0?'_base':'_base_'+mask),visible);
+ }
+ for(const [slotIndex,slot] of garmentSlots.entries()) {
+  const original=originals[slotIndex]!;
+  garments.set(garmentPrefix+'_'+slot.items[0]!.id,original);
+  const variant=garmentVariant(original,slot.id);
+  garments.set(garmentPrefix+'_'+slot.items[1]!.id,slot.id==='upper'?keepIdentityColors(variant,original,record.neck,headDirection):variant);
+ }
+ const silverParts=[createImage(112,112),createImage(112,112),createImage(112,112)];
+ for(let y=0;y<112;y++)for(let x=0;x<112;x++)if(getPixel(metal,x,y)[3])setPixel(silverParts[ownerAt(originals,x,y,guide)]!,x,y,getPixel(metal,x,y));
+ garments.set(garmentPrefix+'_cuirass_silver',silverParts[0]!);
+ garments.set(garmentPrefix+'_vest_leather',keepIdentityColors(leatherCoat(pieces.upper),pieces.upper,record.neck,headDirection));
+ garments.set(garmentPrefix+'_pants_mail',silverParts[1]!);
+ garments.set(garmentPrefix+'_boots_plate',silverParts[2]!);
+ const goldParts=[createImage(112,112),createImage(112,112),createImage(112,112)];
+ for(let y=0;y<112;y++)for(let x=0;x<112;x++)if(getPixel(gold,x,y)[3])setPixel(goldParts[ownerAt(originals,x,y,guide)]!,x,y,getPixel(gold,x,y));
+ for(const [slot,item] of ['dragon_guard','dragon_legs','dragon_boots'].entries())garments.set(garmentPrefix+'_'+item,goldParts[slot]!);
+ drawn.set(key,{key,action,phase,direction,headDirection,body,head,bare,metal,gold,grip,swordHands,swordHandSets,swordAngle:record.swordAngle,swordHandsVisible:action!=='attack'||record.swordHandsVisible!==false,neck,guide,garmentPrefix,handPrefix,sourceRow});
+ const naked=createImage(112,112);blit(naked,bare,0,0);blit(naked,head,0,0);
+ if(!actionPreviews[action])actionPreviews[action]=createImage(8*112,layout.poses.filter((p:any)=>p.action===action).length/8*112);
+ blit(actionPreviews[action]!,naked,d*112,phase*112);
+ blit(basePreview,naked,d*112,Math.floor(sourceRow/8)*112);
+ if(action==='idle')for(const [look,loadout] of loadouts.entries()) {
+  const image=createImage(112,112);
+  for(const slot of [2,1,0])blit(image,garments.get(garmentPrefix+'_'+loadout[slot])!,0,0);
+  blit(image,head,0,0);blit(gearPreview,image,look*112,d*112);
+ }
+}
+
+const sword=readPng(join(art,'moonsteel-sword.png')),swordGrip:Point=[6,29];
+const staff=readPng(join(root,'assets/mannequin/parts/aether-staff.png'));
 writePng(join(out,'weapons/moonsteel-sword.png'),sword);writePng(join(out,'weapons/aether-staff.png'),staff);
-const schedules = [
- {action:'idle',fps:6,hitFrame:-1,rows:[0,0,0,0]},
- {action:'walk',fps:10,hitFrame:-1,rows:[1,2,3,2]},
- {action:'attack',fps:22,hitFrame:3,rows:[4,4,4,5,5,5,0,0]},
- {action:'cast',fps:20,hitFrame:3,rows:[6,6,6,7,7,7,0,0]},
-];
-const cells: RGBAImage[] = [], names: string[] = [], sequences: any[] = [], candidates: Record<string,unknown> = {};
-const matrix = createImage(8*112,4*112);
-const garmentCells = new Map<string,RGBAImage>();
-const handCells = new Map<string,RGBAImage>();
-const garmentPreview=createImage(8*112,8*112);
-const ownershipPreview=createImage(8*112,8*112);
-const actionClothingPreview=createImage(8*112,8*112);
-const equipmentLooks=createImage(4*112,8*112),equipmentActions=createImage(4*112,8*112);
-const loadouts=[['jacket_navy','pants_dark','boots_brown'],['cuirass_silver','pants_mail','boots_plate'],['vest_leather','pants_linen','boots_black'],['jacket_wine','pants_mail','boots_plate']];
-for (const [actionIndex,schedule] of schedules.entries()) for (let d=0;d<8;d++) {
- const frames = [];
- for (const [f,row] of schedule.rows.entries()) {
-  const img = poses[row]![d]!;
-  const key = `${row}/${directions[d]}`;
-  const origin = layout.rects[row*8+d].origin;
-  const suggested = gripRows[row]![d]!;
-  let grip: Point = [Math.round(56+(suggested[0]-origin[0])*layout.scale),Math.round(100+(suggested[1]-origin[1])*layout.scale)];
-  // Snap chỉ sửa tối đa 8px để chạm alpha, không biến gợi ý thành neo đã duyệt.
-  if (!getPixel(img,...grip)[3]) {
-   let best = 65, closest = grip;
-   for(let dy=-8;dy<=8;dy++) for(let dx=-8;dx<=8;dx++) if(dx*dx+dy*dy<best && getPixel(img,grip[0]+dx,grip[1]+dy)[3]) { best=dx*dx+dy*dy;closest=[grip[0]+dx,grip[1]+dy]; }
-   grip=closest;
-  }
-  const annotation = overrides[key];
-  const neck: Point = annotation?.neck ?? [56,(row===4||row===5?53:51)+Math.round((153-origin[1])*layout.scale)];
-  grip = annotation?.grip ?? grip;
-  grip = handContact(img,grip);
-  const staffGrip=handContact(img,staffSeed(row,d,grip,origin,layout.scale));
-  if (!getPixel(img,...grip)[3]) throw new Error(`Neo không chạm hình ${key}`);
-  const weaponOrder = annotation?.weaponOrder ?? (d>=3&&d<=5?-1:1);
-  candidates[key] = {grip,staffGrip,neck,weaponOrder,reviewed:annotation?.reviewed===true};
-  const head=createImage(112,112),body=createImage(112,112);
-  const headX=row===4?[60,56,54,56,56,55,56,57][d]!:56;
-  for(let y=0;y<112;y++) for(let x=0;x<112;x++) {
-   const c=getPixel(img,x,y);
-   const neutralHair=y<neck[1]-5&&Math.max(c[0],c[1],c[2])-Math.min(c[0],c[1],c[2])<40&&(c[0]+c[1]+c[2])/3>40;
-   const ellipse=((x-headX)/13)**2+((y-(neck[1]-12))/17)**2<=1;
-   setPixel(y<=neck[1]&&Math.abs(x-headX)<18&&(ellipse||neutralHair)?head:body,x,y,c);
-  }
-  const garmentPrefix=`clothing_${row}_${directions[d]}`;
-  if(!garmentCells.has(garmentPrefix+'_base')) {
-   if(!clothingGuides[key])throw new Error(`Thiếu hướng dẫn lớp đồ ${key}`);
-   const pieces=splitGarments(body,clothingGuides[key]!);
-   garmentCells.set(garmentPrefix+'_base',pieces.base);
-   for(const slot of garmentSlots) {
-    const original=pieces[slot.id as 'upper'|'pants'|'boots'];
-    garmentCells.set(garmentPrefix+'_'+slot.items[0]!.id,original);
-    garmentCells.set(garmentPrefix+'_'+slot.items[1]!.id,garmentVariant(original,slot.id));
-   }
-   garmentCells.set(garmentPrefix+'_cuirass_silver',upperEquipment(pieces.upper,kit[0]![d]!,d,neck[1],false));
-   garmentCells.set(garmentPrefix+'_vest_leather',upperEquipment(garmentVariant(pieces.upper,'upper'),kit[1]![d]!,d,neck[1],true));
-   garmentCells.set(garmentPrefix+'_pants_mail',legEquipment(pieces.pants,kit[3]![d]!,false));
-   garmentCells.set(garmentPrefix+'_boots_plate',legEquipment(garmentVariant(pieces.boots,'boots'),kit[2]![d]!,true));
-   if(row===0||d===0)for(const [lookIndex,loadout] of loadouts.entries()) {
-    const look=createImage(112,112);
-    for(const slot of [2,1,0])blit(look,garmentCells.get(garmentPrefix+'_'+loadout[slot])!,0,0);
-    blit(look,pieces.base,0,0);blit(look,head,0,0);
-    if(row===0)blit(equipmentLooks,look,lookIndex*112,d*112);
-    if(d===0)blit(equipmentActions,look,lookIndex*112,row*112);
-   }
-   const colors={base:[255,230,160,255],upper:[60,160,255,255],pants:[240,80,100,255],boots:[180,110,250,255]} as const;
-   for(const layer of ['base','upper','pants','boots'] as const)for(let y=0;y<112;y++)for(let x=0;x<112;x++)if(getPixel(pieces[layer],x,y)[3])setPixel(ownershipPreview,d*112+x,row*112+y,colors[layer]);
-   if(row===0)for(let combo=0;combo<8;combo++) {
-    const look=createImage(112,112);
-    for(const [s,slot] of garmentSlots.entries())blit(look,garmentCells.get(garmentPrefix+'_'+slot.items[(combo>>s)&1]!.id)!,0,0);
-    blit(look,pieces.base,0,0);blit(look,head,0,0);blit(garmentPreview,look,combo*112,d*112);
-   }
-   if(d===0)for(let combo=0;combo<8;combo++) {
-    const look=createImage(112,112);
-    for(const [s,slot] of garmentSlots.entries())blit(look,garmentCells.get(garmentPrefix+'_'+slot.items[(combo>>s)&1]!.id)!,0,0);
-    blit(look,pieces.base,0,0);blit(look,head,0,0);blit(actionClothingPreview,look,combo*112,row*112);
-   }
-  }
-  const prefix = `${schedule.action}_${directions[d]}_${f}`;
-  const swordAngle = schedule.action==='attack' ? (f<3?[-115,-135,-135,-135,-90,-45,-45,-65][d]!-[0,12,22][f]!:f<6?[90,135,180,225,270,315,0,45][d]!+[0,12,24][f-3]!:-83) : (grip[0]<56?-98:-82);
-  const swordPose = weaponFrame(sword,grip,schedule.action,f,directions[d]!,false,swordAngle,[5,29],true);
-  const staffAngle=(staffGrip[0]<56?-112:-68)+(schedule.action==='cast'?[0,-2,-4,0,2,3,1,0][f]!:0);
-  const staffPose = weaponFrame(staff,staffGrip,schedule.action,f,directions[d]!,true,staffAngle,[5,37],true);
-  const handPrefix=`hands_${row}_${directions[d]}`;
-  if(!handCells.has(handPrefix+'_sword')) {handCells.set(handPrefix+'_sword',handOcclusion(img,grip));handCells.set(handPrefix+'_staff',handOcclusion(img,staffGrip));}
-  const index=cells.length;
-  for(const [layer,image] of [['identity',head],['silver',head],['warden',body],['sword',swordPose],['staff',staffPose]] as const) {names.push(`${prefix}_${layer}`);cells.push(image);}
-  frames.push({name:prefix,index,garmentPrefix,handPrefix,weaponGrips:[grip,staffGrip],weaponOrders:[weaponOrder,weaponOrder],root:[56,100],neck,grip,weaponOrder,anchorsReviewed:annotation?.reviewed===true,
-   jointsReviewed:false,joints:{head:[neck[0],neck[1]-10],shoulderL:[45,neck[1]+3],shoulderR:[66,neck[1]+3],elbowR:[Math.round((66+grip[0])/2),Math.round((neck[1]+3+grip[1])/2)],handR:grip,hipL:[50,74],hipR:[62,74],kneeL:[49,85],kneeR:[63,85],footL:[49,99],footR:[63,99]},
-   source:`assets/mannequin/v2/source-art/warden-sheet.png#${key}`,sourceRow:row,hash:createHash('sha256').update(img.data).digest('hex')});
-  if(f===(schedule.hitFrame<0?0:schedule.hitFrame)) { const assembled=createImage(112,112);if(weaponOrder<0)blit(assembled,actionIndex===3?staffPose:swordPose,0,0);blit(assembled,body,0,0);if(weaponOrder>0)blit(assembled,actionIndex===3?staffPose:swordPose,0,0);blit(assembled,handCells.get(handPrefix+(actionIndex===3?'_staff':'_sword'))!,0,0);blit(assembled,head,0,0);blit(matrix,assembled,d*112,actionIndex*112); }
+
+function fittedWeapon(src:RGBAImage,grip:Point,angle:number,sourceGrip:Point):{image:RGBAImage;angle:number} {
+ const image=weaponFrame(src,[grip[0]+16,grip[1]+24],'idle',0,'S',false,angle,sourceGrip,true,144),box=opaqueBounds(image);
+ if(box&&box.x0>0&&box.x1<144&&box.y0>0&&box.y1<144)return {image,angle};
+ throw new Error('Vũ khí tràn khung tại '+grip+'/'+angle);
+}
+/** A narrow downward cut between blade tips. No ring around the body. */
+function cleaveStreak(grip:Point,angle:number,raised:{grip:Point;angle:number},frame:number):RGBAImage {
+ const image=createImage(144,144);if(frame<7||frame>9)return image;
+ const tip=(p:Point,a:number):Point=>[p[0]+16+Math.cos(a*Math.PI/180)*28,p[1]+24+Math.sin(a*Math.PI/180)*28];
+ const origin=tip(raised.grip,raised.angle),q=tip(grip,angle),travel=Math.hypot(q[0]-origin[0],q[1]-origin[1]);
+ const tail=Math.min(32,travel),p:Point=[q[0]-(q[0]-origin[0])*tail/travel,q[1]-(q[1]-origin[1])*tail/travel];
+ const dx=q[0]-p[0],dy=q[1]-p[1],length=Math.hypot(dx,dy);
+ for(let y=1;y<143;y++)for(let x=1;x<143;x++) {
+  const t=((x-p[0])*dx+(y-p[1])*dy)/(length*length);
+  if(t<0||t>1)continue;
+  const distance=Math.abs((x-p[0])*dy-(y-p[1])*dx)/length;
+  const width=(frame===7?3:frame===8?2:1)*(0.3+0.7*t);
+  if(distance<width)setPixel(image,x,y,distance<.7?[225,249,255,255]:[91,177,205,255]);
  }
- sequences.push({action:schedule.action,direction:directions[d],fps:schedule.fps,hitFrame:schedule.hitFrame,frames});
+ return image;
 }
-for(const [name,img] of garmentCells){names.push(name);cells.push(img);}
-for(const [name,img] of handCells){names.push(name);cells.push(img);}
-writePng(join(out,'clothing/masks-2x.png'),scaleNearest(ownershipPreview,2));
-writePng(join(out,'clothing/combinations-2x.png'),scaleNearest(garmentPreview,2));
-writePng(join(out,'clothing/actions-2x.png'),scaleNearest(actionClothingPreview,2));
-writePng(join(out,'clothing/equipment-directions-2x.png'),scaleNearest(equipmentLooks,2));
-writePng(join(out,'clothing/equipment-actions-2x.png'),scaleNearest(equipmentActions,2));
-for(const [name,img] of garmentCells)writePng(join(out,'clothing/parts',name+'.png'),img);
-for(const [name,img] of handCells)writePng(join(out,'weapons/hands',name+'.png'),img);
+const schedules=[
+ {action:'idle',fps:6,hitFrame:-1,phases:[0,0,0,0]},
+ {action:'walk',fps:9,hitFrame:-1,phases:[0,0,1,1,2,2,3,3]},
+ {action:'run',fps:9,hitFrame:-1,phases:[0,1,2,3,4,5,6,7]},
+ {action:'attack',fps:18,hitFrame:7,phases:[0,1,1,2,2,2,3,4,4,5,5,6,6,0]},
+ {action:'cast',fps:10,hitFrame:4,phases:[0,0,1,1,2,2,3,3]},
+];
+const sequences:any[]=[],handCells=new Map<string,RGBAImage>();
+for(const schedule of schedules)for(const [d,direction] of directions.entries()) {
+ const frames:any[]=[];
+ const bladeHistory:{grip:Point;angle:number}[]=[];
+ for(const [frame,phase] of schedule.phases.entries()) {
+  const pose=drawn.get(`${schedule.action}_${phase}_${direction}`)!;
+  const idle=drawn.get(`idle_0_${direction}`)!;
+  const left=idle.grip[0]<56,carry=left?-135:-45;
+  const swordAngle=schedule.action==='attack'?pose.swordAngle!:carry+(schedule.action==='run'?(frame%4-1)*3:0);
+  const swordFit=fittedWeapon(sword,pose.grip,swordAngle,swordGrip),swordPose=swordFit.image;
+  const swordPoses=pose.swordHandSets.length?pose.swordHandSets.map(hands=>fittedWeapon(sword,hands[0]!,swordAngle,swordGrip).image):[swordPose,swordPose,swordPose,swordPose];
+  const staffAngle=schedule.action==='attack'?(pose.grip[1]<45?90:-90):left?-100:-80;
+  const staffPose=fittedWeapon(staff,pose.grip,staffAngle,[5,37]).image;
+  const prefix=`${schedule.action}_${direction}_${frame}`;
+  for(const [layer,image] of [['identity',pose.head],['silver',pose.head],['warden',pose.body],['sword',swordPose],['staff',staffPose]] as const)add(prefix+'_'+layer,image);
+  if(schedule.action==='attack')for(const [i,suffix] of ['_bare','_silver','_gold'].entries())add(prefix+'_sword'+suffix,swordPoses[i+1]!);
+  if(schedule.action==='attack')add(prefix+'_trail',cleaveStreak(pose.grip,swordFit.angle,bladeHistory[5]??{grip:pose.grip,angle:swordFit.angle},frame));
+  bladeHistory.push({grip:pose.grip,angle:swordFit.angle});
+  for(const [weapon,image] of [['sword',swordPose],['staff',staffPose]] as const) {
+   const handLayer=(body:RGBAImage,look:number)=>{
+    const layer=createImage(112,112),hands=weapon==='sword'&&pose.swordHandSets.length?pose.swordHandSets[look]!:[pose.grip];
+    const contact=crop(weapon==='sword'?swordPoses[look]!:image,16,24,112,112);
+    if(pose.swordHandsVisible)for(const palm of hands)blit(layer,handOcclusion(body,palm,contact),0,0);return layer;
+   };
+   const dressedHand=handLayer(pose.body,0),bareHand=handLayer(pose.bare,1),silverHand=handLayer(pose.metal,2),goldHand=handLayer(pose.gold,3);
+   // Hand geometry depends on blade angle, so every action frame owns its contact layer.
+   handCells.set(prefix+'_hand_'+weapon,dressedHand);handCells.set(prefix+'_hand_'+weapon+'_bare',bareHand);handCells.set(prefix+'_hand_'+weapon+'_silver',silverHand);
+   handCells.set(prefix+'_hand_'+weapon+'_gold',goldHand);
+  }
+  const assembled=createImage(112,112);blit(assembled,pose.body,0,0);blit(assembled,pose.head,0,0);
+  const weaponOrder=d>=3&&d<=5?-1:1;
+  const swordOrder=['idle','walk','run'].includes(schedule.action)?1:weaponOrder;
+  frames.push({name:prefix,index:names.indexOf(prefix+'_identity'),garmentPrefix:pose.garmentPrefix,handPrefix:prefix+'_hand',weaponGrips:[[pose.grip[0]+16,pose.grip[1]+24],[pose.grip[0]+16,pose.grip[1]+24]],weaponOrders:[swordOrder,weaponOrder],swordAngle:swordFit.angle,swordHandsVisible:pose.swordHandsVisible,swordHandSets:pose.swordHandSets.map(hands=>hands.map(p=>[p[0]+16,p[1]+24])),swordHands:pose.swordHands.map(p=>[p[0]+16,p[1]+24]),root:[72,124],neck:[pose.neck[0]+16,pose.neck[1]+24],grip:[pose.grip[0]+16,pose.grip[1]+24],weaponOrder,headDirection:pose.headDirection,trailActive:schedule.action==='attack'&&frame>=7&&frame<=9,anchorsReviewed:false,jointsReviewed:false,joints:{head:[72,pose.neck[1]+12],shoulderL:[62,pose.neck[1]+29],shoulderR:[82,pose.neck[1]+29],handR:[pose.grip[0]+16,pose.grip[1]+24],hipL:[65,pose.guide.waist+24],hipR:[79,pose.guide.waist+24]},source:`authored-v4/${schedule.action}_${phase}_${direction}`,sourceRow:pose.sourceRow,hash:hash(pad(assembled).data),bareHash:hash(pad(pose.bare).data),posePhase:phase});
+ }
+ sequences.push({action:schedule.action,direction,fps:schedule.fps,hitFrame:schedule.hitFrame,frames});
+}
+for(const [name,image] of garments)add(name,image);
+for(const [name,image] of handCells)add(name,image);
+for(const [name,image] of garments)if(name.endsWith('_base')||name.startsWith('clothing_idle'))writePng(join(out,'clothing/parts',name+'.png'),image);
+for(const [name,image] of handCells)writePng(join(out,'weapons/hands',name+'.png'),image);
+for(const [action,image] of Object.entries(actionPreviews))writePng(join(out,`clothing/${action}-bare-2x.png`),scaleNearest(image,2));
+writePng(join(out,'clothing/underwear-directions-2x.png'),scaleNearest(actionPreviews.idle!,2));
+writePng(join(out,'clothing/equipment-directions-2x.png'),scaleNearest(gearPreview,2));
+function icon(image:RGBAImage):RGBAImage {
+ const box=opaqueBounds(image)!;const w=box.x1-box.x0,h=box.y1-box.y0,s=Math.min(40/w,40/h),result=createImage(48,48);
+ for(let y=0;y<Math.round(h*s);y++)for(let x=0;x<Math.round(w*s);x++)setPixel(result,Math.floor((48-w*s)/2)+x,Math.floor((48-h*s)/2)+y,getPixel(image,box.x0+Math.floor(x/s),box.y0+Math.floor(y/s)));
+ return result;
+}
+for(const slot of garmentSlots)for(const item of slot.items) {
+ const source=garments.get('clothing_idle_0_S_'+item.id)!;
+ const garment=createImage(112,112),neck=layout.poses.find((p:any)=>p.action==='idle'&&p.direction==='S').neck;
+ for(let y=0;y<112;y++)for(let x=0;x<112;x++)if(slot.id!=='upper'||y>neck)setPixel(garment,x,y,getPixel(source,x,y));
+ writePng(join(root,'assets/items',item.id+'.png'),icon(garment));
+}
+writePng(join(root,'assets/items/moonsteel_sword.png'),icon(sword));writePng(join(root,'assets/items/aether_staff.png'),icon(staff));
 for(let page=0;page*256<cells.length;page++) {
- const atlas=createImage(1792,1792);cells.slice(page*256,(page+1)*256).forEach((img,k)=>blit(atlas,img,k%16*112,Math.floor(k/16)*112));
- writePng(join(out,`${id}-${page}.png`),atlas);
+  const atlas=createImage(2304,2304);cells.slice(page*256,(page+1)*256).forEach((image,k)=>blit(atlas,image,k%16*144,Math.floor(k/16)*144));writePng(join(out,`${id}-${page}.png`),atlas);
 }
-writePng(join(out,'equipment-2x.png'),scaleNearest(matrix,2));
 writeFileSync(join(out,`${id}-slices.json`),JSON.stringify(names));
-writeFileSync(join(out,'anchor-candidates.json'),JSON.stringify(candidates,null,2)+'\n');
-const catalog={version:2,template:'adult-112-authored-v2',frameSize:[112,112],ppu:48,anchor:[56,100],directions,hairVariants:false,
- garmentSlots,
- outfits:[{id:'warden',name:'Hộ vệ Ngân Lam'}],weapons:[
- {id:'sword',name:'Kiếm Nguyệt Cương',action:'attack',skill:'slash',fps:22,hitFrame:3,hands:1},
- {id:'staff',name:'Trượng Aether',action:'cast',skill:'aether_bolt',fps:20,hitFrame:3,hands:1}],
- identities:[{id,name:'Hộ vệ Ngân Lam',texture:id,sequences}],reviewRequired:true,
- equipmentSha256:createHash('sha256').update(readFileSync(join(out,'source-art/equipment-kit.png'))).digest('hex'),
- sourceSha256:createHash('sha256').update(readFileSync(sheetPath)).digest('hex')};
+sourceHashes['moonsteel-sword.png']=fileHash(join(art,'moonsteel-sword.png'));
+const catalog={version:2,template:'adult-144-twohand-v5',drawnBodies:true,integratedHeads:true,nativeFrameSize:[112,112],frameSize:[144,144],ppu:48,anchor:[72,124],directions,hairVariants:false,garmentSlots,outfits:[{id:'warden',name:'Hộ vệ Ngân Lam'}],weapons:[{id:'sword',itemId:'moonsteel_sword',name:'Kiếm Nguyệt Cương',action:'attack',skill:'slash',fps:18,hitFrame:7,hands:2},{id:'staff',itemId:'aether_staff',name:'Trượng Aether',action:'cast',skill:'aether_bolt',fps:10,hitFrame:4,hands:1}],identities:[{id,name:'Hộ vệ Ngân Lam',texture:id,sequences}],reviewRequired:true,drawnPoseCount:drawn.size,sourceHashes};
 writeFileSync(join(out,'catalog.json'),JSON.stringify(catalog,null,2)+'\n');
-writeFileSync(join(out,'review.txt'),'Nhân vật mới 64 pose nguồn / 8 hướng. Idle tĩnh, walk 3 pose, attack và cast mỗi loại 2 pose + recovery idle. Khung giữ lặp là chủ ý, KHÔNG phải 8 pose vẽ khác nhau. Neo/grip/joint gợi ý CHƯA duyệt thủ công. Không có hit/death riêng. Pipeline này không kiểm Unity runtime; kết quả chạy thực xem docs/mannequin-v2-delivery.md.\n');
-console.log(`PASS dựng ${sequences.length} chuỗi, ${cells.length} cells; neo và runtime CHƯA nghiệm thu.`);
+writeFileSync(join(out,'review.txt'),"V5 bổ kiếm hai tay: giữ nguyên pose vẽ liền đầu/cổ/thân, không ghép đầu idle; chỉ một đầu khi mặc hoặc tháo áo. Kiếm đứng/chạy hướng lên, bổ hai tay từ trên đầu xuống sát gối, vệt thẳng dọc theo đòn, không tự bẻ góc để vừa khung. Tranh112 thêm viền trong suốt thành canvas144, mốc72/124, PPU48, không đổi cỡ người. Chạy8 pose ở14fps; bổ14 frame/7 pose ở18fps hit7. Long Vệ gồm3 món mới; găng theo áo. Kiếm Nguyệt Cương vẽ mới. Kiểm nguồn, điểm nắm, đường nối tay, khuôn mặt và runtime.\n");
+console.log(`PASS dựng ${sequences.length} chuỗi từ ${drawn.size} cặp pose vẽ; ${cells.length} cells. Cần kiểm runtime.`);

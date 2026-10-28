@@ -1,0 +1,2378 @@
+{
+  "version": 3,
+  "sourceRevision": "genuinely-headless",
+  "headAtlasSha256": "f04b15c9ac4c7aa8d62138c389cfc11b258fbcff0c6af4784fa304ebbdaa079c",
+  "headStandard": {
+    "id": "aether-head-96-v1",
+    "version": 1,
+    "canvas": [
+      96,
+      96
+    ],
+    "ppu": 96,
+    "chin": [
+      48,
+      65
+    ],
+    "neck": [
+      48,
+      66
+    ],
+    "cheekWidth": 20,
+    "cheekWidthTolerance": 1,
+    "eyeToChinRange": [
+      9,
+      13
+    ],
+    "bareNeckMaxPixels": 2,
+    "lastVisibleRow": 67,
+    "bodySocket": [
+      144,
+      154
+    ],
+    "bodyRoot": [
+      144,
+      256
+    ],
+    "bodyCanvas": [
+      288,
+      288
+    ],
+    "runtimeScale": 1,
+    "perHeadRuntimeOffset": false,
+    "perHeadRuntimeScale": false,
+    "sampling": "nearest-from-original-source-once",
+    "measurement": "anatomical-cheeks-and-jaw-not-hair-ears-horns-or-alpha-bounds",
+    "reviewedDirections": [
+      "S"
+    ],
+    "otherDirections": "Cùng mật độ từ S; neo hướng cũ chưa nghiệm thu ghép thân8 hướng."
+  },
+  "ppu": 96,
+  "canvas": [
+    288,
+    288
+  ],
+  "root": [
+    144,
+    256
+  ],
+  "headOrigin": [
+    96,
+    88
+  ],
+  "bareNeckMaxPixels": 2,
+  "bodyGenders": [
+    "male",
+    "female"
+  ],
+  "directions": [
+    "S"
+  ],
+  "completeEightDirections": false,
+  "productionRosterEnabled": false,
+  "headOverpaintForbidden": true,
+  "bodyContainsOldHead": false,
+  "layerOrder": [
+    "one-avatar",
+    "genuinely-headless-body-with-hands"
+  ],
+  "heads": [
+    {
+      "id": "human-m01",
+      "gender": "male",
+      "raceId": "human",
+      "raceName": "Nhân tộc",
+      "index": 1,
+      "x": 0,
+      "y": 0,
+      "w": 96,
+      "h": 96,
+      "standardId": "aether-head-96-v1"
+    },
+    {
+      "id": "human-m02",
+      "gender": "male",
+      "raceId": "human",
+      "raceName": "Nhân tộc",
+      "index": 2,
+      "x": 96,
+      "y": 0,
+      "w": 96,
+      "h": 96,
+      "standardId": "aether-head-96-v1"
+    },
+    {
+      "id": "human-m03",
+      "gender": "male",
+      "raceId": "human",
+      "raceName": "Nhân tộc",
+      "index": 3,
+      "x": 192,
+      "y": 0,
+      "w": 96,
+      "h": 96,
+      "standardId": "aether-head-96-v1"
+    },
+    {
+      "id": "human-f01",
+      "gender": "female",
+      "raceId": "human",
+      "raceName": "Nhân tộc",
+      "index": 1,
+      "x": 288,
+      "y": 0,
+      "w": 96,
+      "h": 96,
+      "standardId": "aether-head-96-v1"
+    },
+    {
+      "id": "human-f02",
+      "gender": "female",
+      "raceId": "human",
+      "raceName": "Nhân tộc",
+      "index": 2,
+      "x": 384,
+      "y": 0,
+      "w": 96,
+      "h": 96,
+      "standardId": "aether-head-96-v1"
+    },
+    {
+      "id": "human-f03",
+      "gender": "female",
+      "raceId": "human",
+      "raceName": "Nhân tộc",
+      "index": 3,
+      "x": 480,
+      "y": 0,
+      "w": 96,
+      "h": 96,
+      "standardId": "aether-head-96-v1"
+    },
+    {
+      "id": "elf-m01",
+      "gender": "male",
+      "raceId": "elf",
+      "raceName": "Elf",
+      "index": 1,
+      "x": 576,
+      "y": 0,
+      "w": 96,
+      "h": 96,
+      "standardId": "aether-head-96-v1"
+    },
+    {
+      "id": "elf-m02",
+      "gender": "male",
+      "raceId": "elf",
+      "raceName": "Elf",
+      "index": 2,
+      "x": 672,
+      "y": 0,
+      "w": 96,
+      "h": 96,
+      "standardId": "aether-head-96-v1"
+    },
+    {
+      "id": "elf-m03",
+      "gender": "male",
+      "raceId": "elf",
+      "raceName": "Elf",
+      "index": 3,
+      "x": 768,
+      "y": 0,
+      "w": 96,
+      "h": 96,
+      "standardId": "aether-head-96-v1"
+    },
+    {
+      "id": "elf-f01",
+      "gender": "female",
+      "raceId": "elf",
+      "raceName": "Elf",
+      "index": 1,
+      "x": 864,
+      "y": 0,
+      "w": 96,
+      "h": 96,
+      "standardId": "aether-head-96-v1"
+    },
+    {
+      "id": "elf-f02",
+      "gender": "female",
+      "raceId": "elf",
+      "raceName": "Elf",
+      "index": 2,
+      "x": 0,
+      "y": 96,
+      "w": 96,
+      "h": 96,
+      "standardId": "aether-head-96-v1"
+    },
+    {
+      "id": "elf-f03",
+      "gender": "female",
+      "raceId": "elf",
+      "raceName": "Elf",
+      "index": 3,
+      "x": 96,
+      "y": 96,
+      "w": 96,
+      "h": 96,
+      "standardId": "aether-head-96-v1"
+    },
+    {
+      "id": "demon-m01",
+      "gender": "male",
+      "raceId": "demon",
+      "raceName": "Ma tộc",
+      "index": 1,
+      "x": 192,
+      "y": 96,
+      "w": 96,
+      "h": 96,
+      "standardId": "aether-head-96-v1"
+    },
+    {
+      "id": "demon-m02",
+      "gender": "male",
+      "raceId": "demon",
+      "raceName": "Ma tộc",
+      "index": 2,
+      "x": 288,
+      "y": 96,
+      "w": 96,
+      "h": 96,
+      "standardId": "aether-head-96-v1"
+    },
+    {
+      "id": "demon-m03",
+      "gender": "male",
+      "raceId": "demon",
+      "raceName": "Ma tộc",
+      "index": 3,
+      "x": 384,
+      "y": 96,
+      "w": 96,
+      "h": 96,
+      "standardId": "aether-head-96-v1"
+    },
+    {
+      "id": "demon-f01",
+      "gender": "female",
+      "raceId": "demon",
+      "raceName": "Ma tộc",
+      "index": 1,
+      "x": 480,
+      "y": 96,
+      "w": 96,
+      "h": 96,
+      "standardId": "aether-head-96-v1"
+    },
+    {
+      "id": "demon-f02",
+      "gender": "female",
+      "raceId": "demon",
+      "raceName": "Ma tộc",
+      "index": 2,
+      "x": 576,
+      "y": 96,
+      "w": 96,
+      "h": 96,
+      "standardId": "aether-head-96-v1"
+    },
+    {
+      "id": "demon-f03",
+      "gender": "female",
+      "raceId": "demon",
+      "raceName": "Ma tộc",
+      "index": 3,
+      "x": 672,
+      "y": 96,
+      "w": 96,
+      "h": 96,
+      "standardId": "aether-head-96-v1"
+    },
+    {
+      "id": "beastfolk-m01",
+      "gender": "male",
+      "raceId": "beastfolk",
+      "raceName": "Thú nhân",
+      "index": 1,
+      "x": 768,
+      "y": 96,
+      "w": 96,
+      "h": 96,
+      "standardId": "aether-head-96-v1"
+    },
+    {
+      "id": "beastfolk-m02",
+      "gender": "male",
+      "raceId": "beastfolk",
+      "raceName": "Thú nhân",
+      "index": 2,
+      "x": 864,
+      "y": 96,
+      "w": 96,
+      "h": 96,
+      "standardId": "aether-head-96-v1"
+    },
+    {
+      "id": "beastfolk-m03",
+      "gender": "male",
+      "raceId": "beastfolk",
+      "raceName": "Thú nhân",
+      "index": 3,
+      "x": 0,
+      "y": 192,
+      "w": 96,
+      "h": 96,
+      "standardId": "aether-head-96-v1"
+    },
+    {
+      "id": "beastfolk-f01",
+      "gender": "female",
+      "raceId": "beastfolk",
+      "raceName": "Thú nhân",
+      "index": 1,
+      "x": 96,
+      "y": 192,
+      "w": 96,
+      "h": 96,
+      "standardId": "aether-head-96-v1"
+    },
+    {
+      "id": "beastfolk-f02",
+      "gender": "female",
+      "raceId": "beastfolk",
+      "raceName": "Thú nhân",
+      "index": 2,
+      "x": 192,
+      "y": 192,
+      "w": 96,
+      "h": 96,
+      "standardId": "aether-head-96-v1"
+    },
+    {
+      "id": "beastfolk-f03",
+      "gender": "female",
+      "raceId": "beastfolk",
+      "raceName": "Thú nhân",
+      "index": 3,
+      "x": 288,
+      "y": 192,
+      "w": 96,
+      "h": 96,
+      "standardId": "aether-head-96-v1"
+    },
+    {
+      "id": "dragonkin-m01",
+      "gender": "male",
+      "raceId": "dragonkin",
+      "raceName": "Long tộc",
+      "index": 1,
+      "x": 384,
+      "y": 192,
+      "w": 96,
+      "h": 96,
+      "standardId": "aether-head-96-v1"
+    },
+    {
+      "id": "dragonkin-m02",
+      "gender": "male",
+      "raceId": "dragonkin",
+      "raceName": "Long tộc",
+      "index": 2,
+      "x": 480,
+      "y": 192,
+      "w": 96,
+      "h": 96,
+      "standardId": "aether-head-96-v1"
+    },
+    {
+      "id": "dragonkin-m03",
+      "gender": "male",
+      "raceId": "dragonkin",
+      "raceName": "Long tộc",
+      "index": 3,
+      "x": 576,
+      "y": 192,
+      "w": 96,
+      "h": 96,
+      "standardId": "aether-head-96-v1"
+    },
+    {
+      "id": "dragonkin-f01",
+      "gender": "female",
+      "raceId": "dragonkin",
+      "raceName": "Long tộc",
+      "index": 1,
+      "x": 672,
+      "y": 192,
+      "w": 96,
+      "h": 96,
+      "standardId": "aether-head-96-v1"
+    },
+    {
+      "id": "dragonkin-f02",
+      "gender": "female",
+      "raceId": "dragonkin",
+      "raceName": "Long tộc",
+      "index": 2,
+      "x": 768,
+      "y": 192,
+      "w": 96,
+      "h": 96,
+      "standardId": "aether-head-96-v1"
+    },
+    {
+      "id": "dragonkin-f03",
+      "gender": "female",
+      "raceId": "dragonkin",
+      "raceName": "Long tộc",
+      "index": 3,
+      "x": 864,
+      "y": 192,
+      "w": 96,
+      "h": 96,
+      "standardId": "aether-head-96-v1"
+    }
+  ],
+  "records": [
+    {
+      "gender": "male",
+      "scale": 0.29651162790697677,
+      "sourceNeck": 450,
+      "sourceSole": 794,
+      "frames": [
+        {
+          "gender": "male",
+          "action": "idle",
+          "index": 0,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-male\\headless-master-source.png",
+          "sourceSha256": "792bf332f0622222811fd0fede5a1316c7166f966fa42f7050af1e93b568b876",
+          "headlessSource": true,
+          "scale": 0.29651162790697677,
+          "sourceDensityCalibration": null,
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            242,
+            476.5
+          ],
+          "headOffset": [
+            96,
+            88
+          ],
+          "faceChinY": 153,
+          "collarMinY": 154,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 1
+        },
+        {
+          "gender": "male",
+          "action": "walk",
+          "index": 0,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-male\\headless-walk-0-source.png",
+          "sourceSha256": "2c73fb807580033944246f225334026c2c1d3ba01422106d00357f90a6b0b263",
+          "headlessSource": true,
+          "scale": 0.29651162790697677,
+          "sourceDensityCalibration": null,
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            242.5,
+            475.5
+          ],
+          "headOffset": [
+            96,
+            88
+          ],
+          "faceChinY": 153,
+          "collarMinY": 154,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.14
+        },
+        {
+          "gender": "male",
+          "action": "walk",
+          "index": 1,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-male\\headless-walk-0-source.png",
+          "sourceSha256": "2c73fb807580033944246f225334026c2c1d3ba01422106d00357f90a6b0b263",
+          "headlessSource": true,
+          "scale": 0.29651162790697677,
+          "sourceDensityCalibration": null,
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            689.5,
+            476
+          ],
+          "headOffset": [
+            96,
+            88
+          ],
+          "faceChinY": 153,
+          "collarMinY": 154,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.14
+        },
+        {
+          "gender": "male",
+          "action": "walk",
+          "index": 2,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-male\\headless-walk-0-source.png",
+          "sourceSha256": "2c73fb807580033944246f225334026c2c1d3ba01422106d00357f90a6b0b263",
+          "headlessSource": true,
+          "scale": 0.29651162790697677,
+          "sourceDensityCalibration": null,
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            1115.5,
+            476
+          ],
+          "headOffset": [
+            96,
+            88
+          ],
+          "faceChinY": 153,
+          "collarMinY": 154,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.14
+        },
+        {
+          "gender": "male",
+          "action": "walk",
+          "index": 3,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-male\\headless-walk-0-source.png",
+          "sourceSha256": "2c73fb807580033944246f225334026c2c1d3ba01422106d00357f90a6b0b263",
+          "headlessSource": true,
+          "scale": 0.29651162790697677,
+          "sourceDensityCalibration": null,
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            1550.5,
+            475
+          ],
+          "headOffset": [
+            96,
+            88
+          ],
+          "faceChinY": 153,
+          "collarMinY": 154,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.14
+        },
+        {
+          "gender": "male",
+          "action": "walk",
+          "index": 4,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-male\\headless-walk-0-source.png",
+          "sourceSha256": "2c73fb807580033944246f225334026c2c1d3ba01422106d00357f90a6b0b263",
+          "headlessSource": true,
+          "scale": 0.29651162790697677,
+          "sourceDensityCalibration": null,
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            242.5,
+            475.5
+          ],
+          "headOffset": [
+            96,
+            88
+          ],
+          "faceChinY": 153,
+          "collarMinY": 154,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.14,
+          "mirroredLegsFrom": 0
+        },
+        {
+          "gender": "male",
+          "action": "walk",
+          "index": 5,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-male\\headless-walk-0-source.png",
+          "sourceSha256": "2c73fb807580033944246f225334026c2c1d3ba01422106d00357f90a6b0b263",
+          "headlessSource": true,
+          "scale": 0.29651162790697677,
+          "sourceDensityCalibration": null,
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            689.5,
+            476
+          ],
+          "headOffset": [
+            96,
+            88
+          ],
+          "faceChinY": 153,
+          "collarMinY": 154,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.14,
+          "mirroredLegsFrom": 1
+        },
+        {
+          "gender": "male",
+          "action": "walk",
+          "index": 6,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-male\\headless-walk-0-source.png",
+          "sourceSha256": "2c73fb807580033944246f225334026c2c1d3ba01422106d00357f90a6b0b263",
+          "headlessSource": true,
+          "scale": 0.29651162790697677,
+          "sourceDensityCalibration": null,
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            1115.5,
+            476
+          ],
+          "headOffset": [
+            96,
+            88
+          ],
+          "faceChinY": 153,
+          "collarMinY": 154,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.14,
+          "mirroredLegsFrom": 2
+        },
+        {
+          "gender": "male",
+          "action": "walk",
+          "index": 7,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-male\\headless-walk-0-source.png",
+          "sourceSha256": "2c73fb807580033944246f225334026c2c1d3ba01422106d00357f90a6b0b263",
+          "headlessSource": true,
+          "scale": 0.29651162790697677,
+          "sourceDensityCalibration": null,
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            1550.5,
+            475
+          ],
+          "headOffset": [
+            96,
+            88
+          ],
+          "faceChinY": 153,
+          "collarMinY": 154,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.14,
+          "mirroredLegsFrom": 3
+        },
+        {
+          "gender": "male",
+          "action": "attack",
+          "index": 0,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-male\\headless-attack-0-source.png",
+          "sourceSha256": "cec2d26343d90ba451aaa4f645bb10b02279e3be069d3bfe730c1a50271e26dd",
+          "headlessSource": true,
+          "scale": 0.29651162790697677,
+          "sourceDensityCalibration": null,
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            243,
+            512
+          ],
+          "headOffset": [
+            96,
+            99
+          ],
+          "faceChinY": 164,
+          "collarMinY": 165,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.11
+        },
+        {
+          "gender": "male",
+          "action": "attack",
+          "index": 1,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-male\\headless-attack-0-source.png",
+          "sourceSha256": "cec2d26343d90ba451aaa4f645bb10b02279e3be069d3bfe730c1a50271e26dd",
+          "headlessSource": true,
+          "scale": 0.29651162790697677,
+          "sourceDensityCalibration": null,
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            692,
+            516
+          ],
+          "headOffset": [
+            96,
+            100
+          ],
+          "faceChinY": 165,
+          "collarMinY": 166,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.095
+        },
+        {
+          "gender": "male",
+          "action": "attack",
+          "index": 2,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-male\\headless-attack-0-source.png",
+          "sourceSha256": "cec2d26343d90ba451aaa4f645bb10b02279e3be069d3bfe730c1a50271e26dd",
+          "headlessSource": true,
+          "scale": 0.29651162790697677,
+          "sourceDensityCalibration": null,
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            1114.5,
+            510.5
+          ],
+          "headOffset": [
+            96,
+            98
+          ],
+          "faceChinY": 163,
+          "collarMinY": 164,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.09
+        },
+        {
+          "gender": "male",
+          "action": "attack",
+          "index": 3,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-male\\headless-attack-1-source.png",
+          "sourceSha256": "c89bd3fabee2e761634617b08889891c84e6976986c5eee4d9ac8ebaf542f676",
+          "headlessSource": true,
+          "scale": 0.29651162790697677,
+          "sourceDensityCalibration": null,
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            204,
+            510.5
+          ],
+          "headOffset": [
+            96,
+            98
+          ],
+          "faceChinY": 163,
+          "collarMinY": 164,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.085
+        },
+        {
+          "gender": "male",
+          "action": "attack",
+          "index": 4,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-male\\headless-attack-0-source.png",
+          "sourceSha256": "cec2d26343d90ba451aaa4f645bb10b02279e3be069d3bfe730c1a50271e26dd",
+          "headlessSource": true,
+          "scale": 0.29651162790697677,
+          "sourceDensityCalibration": null,
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            1574,
+            514.5
+          ],
+          "headOffset": [
+            96,
+            99
+          ],
+          "faceChinY": 164,
+          "collarMinY": 165,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.075
+        },
+        {
+          "gender": "male",
+          "action": "attack",
+          "index": 5,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-male\\headless-attack-1-source.png",
+          "sourceSha256": "c89bd3fabee2e761634617b08889891c84e6976986c5eee4d9ac8ebaf542f676",
+          "headlessSource": true,
+          "scale": 0.29651162790697677,
+          "sourceDensityCalibration": null,
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            648.5,
+            484.5
+          ],
+          "headOffset": [
+            96,
+            90
+          ],
+          "faceChinY": 155,
+          "collarMinY": 156,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.07
+        },
+        {
+          "gender": "male",
+          "action": "attack",
+          "index": 6,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-male\\headless-attack-1-source.png",
+          "sourceSha256": "c89bd3fabee2e761634617b08889891c84e6976986c5eee4d9ac8ebaf542f676",
+          "headlessSource": true,
+          "scale": 0.29651162790697677,
+          "sourceDensityCalibration": null,
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            1112.5,
+            484
+          ],
+          "headOffset": [
+            96,
+            90
+          ],
+          "faceChinY": 155,
+          "collarMinY": 156,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.11
+        },
+        {
+          "gender": "male",
+          "action": "attack",
+          "index": 7,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-male\\headless-attack-1-source.png",
+          "sourceSha256": "c89bd3fabee2e761634617b08889891c84e6976986c5eee4d9ac8ebaf542f676",
+          "headlessSource": true,
+          "scale": 0.29651162790697677,
+          "sourceDensityCalibration": null,
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            1561,
+            514.5
+          ],
+          "headOffset": [
+            96,
+            99
+          ],
+          "faceChinY": 164,
+          "collarMinY": 165,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.04
+        },
+        {
+          "gender": "male",
+          "action": "attack",
+          "index": 8,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-male\\headless-attack-2-source.png",
+          "sourceSha256": "1b09e0f94ef76bd54a0a822b29e607d56e75dc74ff04b0d1bbe5f7f8a9c90fdb",
+          "headlessSource": true,
+          "scale": 0.29651162790697677,
+          "sourceDensityCalibration": null,
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            235,
+            475
+          ],
+          "headOffset": [
+            96,
+            88
+          ],
+          "faceChinY": 153,
+          "collarMinY": 154,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.025
+        },
+        {
+          "gender": "male",
+          "action": "attack",
+          "index": 9,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-male\\headless-attack-2-source.png",
+          "sourceSha256": "1b09e0f94ef76bd54a0a822b29e607d56e75dc74ff04b0d1bbe5f7f8a9c90fdb",
+          "headlessSource": true,
+          "scale": 0.29651162790697677,
+          "sourceDensityCalibration": null,
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            675.5,
+            492.5
+          ],
+          "headOffset": [
+            96,
+            93
+          ],
+          "faceChinY": 158,
+          "collarMinY": 159,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.03
+        },
+        {
+          "gender": "male",
+          "action": "attack",
+          "index": 10,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-male\\headless-attack-2-source.png",
+          "sourceSha256": "1b09e0f94ef76bd54a0a822b29e607d56e75dc74ff04b0d1bbe5f7f8a9c90fdb",
+          "headlessSource": true,
+          "scale": 0.29651162790697677,
+          "sourceDensityCalibration": null,
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            1111,
+            491.5
+          ],
+          "headOffset": [
+            96,
+            92
+          ],
+          "faceChinY": 157,
+          "collarMinY": 158,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.045
+        },
+        {
+          "gender": "male",
+          "action": "attack",
+          "index": 11,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-male\\headless-attack-2-source.png",
+          "sourceSha256": "1b09e0f94ef76bd54a0a822b29e607d56e75dc74ff04b0d1bbe5f7f8a9c90fdb",
+          "headlessSource": true,
+          "scale": 0.29651162790697677,
+          "sourceDensityCalibration": null,
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            1550,
+            488.5
+          ],
+          "headOffset": [
+            96,
+            92
+          ],
+          "faceChinY": 157,
+          "collarMinY": 158,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.065
+        },
+        {
+          "gender": "male",
+          "action": "attack",
+          "index": 12,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-male\\headless-attack-3-source.png",
+          "sourceSha256": "e616a900b1a0f7ef4db28def104b78864dcbec47ced671f6ffdbb8e09b0268c6",
+          "headlessSource": true,
+          "scale": 0.2809917355371901,
+          "sourceDensityCalibration": {
+            "referenceSlot": 3,
+            "sourceNeck": 432,
+            "sourceSole": 795,
+            "targetNeckToSole": 102,
+            "sharedAcrossWholeSource": true
+          },
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            251,
+            467.5
+          ],
+          "headOffset": [
+            96,
+            88
+          ],
+          "faceChinY": 153,
+          "collarMinY": 154,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.07
+        },
+        {
+          "gender": "male",
+          "action": "attack",
+          "index": 13,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-male\\headless-attack-3-source.png",
+          "sourceSha256": "e616a900b1a0f7ef4db28def104b78864dcbec47ced671f6ffdbb8e09b0268c6",
+          "headlessSource": true,
+          "scale": 0.2809917355371901,
+          "sourceDensityCalibration": {
+            "referenceSlot": 3,
+            "sourceNeck": 432,
+            "sourceSole": 795,
+            "targetNeckToSole": 102,
+            "sharedAcrossWholeSource": true
+          },
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            694.5,
+            469.5
+          ],
+          "headOffset": [
+            96,
+            88
+          ],
+          "faceChinY": 153,
+          "collarMinY": 154,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.075
+        },
+        {
+          "gender": "male",
+          "action": "attack",
+          "index": 14,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-male\\headless-attack-3-source.png",
+          "sourceSha256": "e616a900b1a0f7ef4db28def104b78864dcbec47ced671f6ffdbb8e09b0268c6",
+          "headlessSource": true,
+          "scale": 0.2809917355371901,
+          "sourceDensityCalibration": {
+            "referenceSlot": 3,
+            "sourceNeck": 432,
+            "sourceSole": 795,
+            "targetNeckToSole": 102,
+            "sharedAcrossWholeSource": true
+          },
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            1132,
+            468
+          ],
+          "headOffset": [
+            96,
+            88
+          ],
+          "faceChinY": 153,
+          "collarMinY": 154,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.1
+        }
+      ]
+    },
+    {
+      "gender": "female",
+      "scale": 0.31384615384615383,
+      "sourceNeck": 480,
+      "sourceSole": 805,
+      "frames": [
+        {
+          "gender": "female",
+          "action": "idle",
+          "index": 0,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-female\\headless-master-source.png",
+          "sourceSha256": "373a6177b9623170eafaca06debd6ba890f43e8d4570441b638c361982e49d47",
+          "headlessSource": true,
+          "scale": 0.31384615384615383,
+          "sourceDensityCalibration": null,
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            228,
+            504
+          ],
+          "headOffset": [
+            96,
+            88
+          ],
+          "faceChinY": 153,
+          "collarMinY": 154,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 1
+        },
+        {
+          "gender": "female",
+          "action": "walk",
+          "index": 0,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-female\\headless-walk-0-source.png",
+          "sourceSha256": "366e1f1c39034fdd6ecdded035086e2e6e4f3815cf61b6c04faf4b377bc8220b",
+          "headlessSource": true,
+          "scale": 0.31384615384615383,
+          "sourceDensityCalibration": null,
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            226,
+            503.5
+          ],
+          "headOffset": [
+            96,
+            88
+          ],
+          "faceChinY": 153,
+          "collarMinY": 154,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.14
+        },
+        {
+          "gender": "female",
+          "action": "walk",
+          "index": 1,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-female\\headless-walk-0-source.png",
+          "sourceSha256": "366e1f1c39034fdd6ecdded035086e2e6e4f3815cf61b6c04faf4b377bc8220b",
+          "headlessSource": true,
+          "scale": 0.31384615384615383,
+          "sourceDensityCalibration": null,
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            684.5,
+            503.5
+          ],
+          "headOffset": [
+            96,
+            88
+          ],
+          "faceChinY": 153,
+          "collarMinY": 154,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.14
+        },
+        {
+          "gender": "female",
+          "action": "walk",
+          "index": 2,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-female\\headless-walk-0-source.png",
+          "sourceSha256": "366e1f1c39034fdd6ecdded035086e2e6e4f3815cf61b6c04faf4b377bc8220b",
+          "headlessSource": true,
+          "scale": 0.31384615384615383,
+          "sourceDensityCalibration": null,
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            1110.5,
+            503.5
+          ],
+          "headOffset": [
+            96,
+            88
+          ],
+          "faceChinY": 153,
+          "collarMinY": 154,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.14
+        },
+        {
+          "gender": "female",
+          "action": "walk",
+          "index": 3,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-female\\headless-walk-0-source.png",
+          "sourceSha256": "366e1f1c39034fdd6ecdded035086e2e6e4f3815cf61b6c04faf4b377bc8220b",
+          "headlessSource": true,
+          "scale": 0.31384615384615383,
+          "sourceDensityCalibration": null,
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            1567,
+            503.5
+          ],
+          "headOffset": [
+            96,
+            88
+          ],
+          "faceChinY": 153,
+          "collarMinY": 154,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.14
+        },
+        {
+          "gender": "female",
+          "action": "walk",
+          "index": 4,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-female\\headless-walk-0-source.png",
+          "sourceSha256": "366e1f1c39034fdd6ecdded035086e2e6e4f3815cf61b6c04faf4b377bc8220b",
+          "headlessSource": true,
+          "scale": 0.31384615384615383,
+          "sourceDensityCalibration": null,
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            226,
+            503.5
+          ],
+          "headOffset": [
+            96,
+            88
+          ],
+          "faceChinY": 153,
+          "collarMinY": 154,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.14,
+          "mirroredLegsFrom": 0
+        },
+        {
+          "gender": "female",
+          "action": "walk",
+          "index": 5,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-female\\headless-walk-0-source.png",
+          "sourceSha256": "366e1f1c39034fdd6ecdded035086e2e6e4f3815cf61b6c04faf4b377bc8220b",
+          "headlessSource": true,
+          "scale": 0.31384615384615383,
+          "sourceDensityCalibration": null,
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            684.5,
+            503.5
+          ],
+          "headOffset": [
+            96,
+            88
+          ],
+          "faceChinY": 153,
+          "collarMinY": 154,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.14,
+          "mirroredLegsFrom": 1
+        },
+        {
+          "gender": "female",
+          "action": "walk",
+          "index": 6,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-female\\headless-walk-0-source.png",
+          "sourceSha256": "366e1f1c39034fdd6ecdded035086e2e6e4f3815cf61b6c04faf4b377bc8220b",
+          "headlessSource": true,
+          "scale": 0.31384615384615383,
+          "sourceDensityCalibration": null,
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            1110.5,
+            503.5
+          ],
+          "headOffset": [
+            96,
+            88
+          ],
+          "faceChinY": 153,
+          "collarMinY": 154,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.14,
+          "mirroredLegsFrom": 2
+        },
+        {
+          "gender": "female",
+          "action": "walk",
+          "index": 7,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-female\\headless-walk-0-source.png",
+          "sourceSha256": "366e1f1c39034fdd6ecdded035086e2e6e4f3815cf61b6c04faf4b377bc8220b",
+          "headlessSource": true,
+          "scale": 0.31384615384615383,
+          "sourceDensityCalibration": null,
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            1567,
+            503.5
+          ],
+          "headOffset": [
+            96,
+            88
+          ],
+          "faceChinY": 153,
+          "collarMinY": 154,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.14,
+          "mirroredLegsFrom": 3
+        },
+        {
+          "gender": "female",
+          "action": "attack",
+          "index": 0,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-female\\headless-attack-0-source.png",
+          "sourceSha256": "3642b29143dc9f77e5d4da2afc12f6eaeb59835c0fd62ccd10d3013b970a9f62",
+          "headlessSource": true,
+          "scale": 0.31384615384615383,
+          "sourceDensityCalibration": null,
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            232.5,
+            514
+          ],
+          "headOffset": [
+            96,
+            91
+          ],
+          "faceChinY": 156,
+          "collarMinY": 157,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.11
+        },
+        {
+          "gender": "female",
+          "action": "attack",
+          "index": 1,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-female\\headless-attack-0-source.png",
+          "sourceSha256": "3642b29143dc9f77e5d4da2afc12f6eaeb59835c0fd62ccd10d3013b970a9f62",
+          "headlessSource": true,
+          "scale": 0.31384615384615383,
+          "sourceDensityCalibration": null,
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            704.5,
+            512
+          ],
+          "headOffset": [
+            96,
+            91
+          ],
+          "faceChinY": 156,
+          "collarMinY": 157,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.095
+        },
+        {
+          "gender": "female",
+          "action": "attack",
+          "index": 2,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-female\\headless-attack-0-source.png",
+          "sourceSha256": "3642b29143dc9f77e5d4da2afc12f6eaeb59835c0fd62ccd10d3013b970a9f62",
+          "headlessSource": true,
+          "scale": 0.31384615384615383,
+          "sourceDensityCalibration": null,
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            1135,
+            508
+          ],
+          "headOffset": [
+            96,
+            89
+          ],
+          "faceChinY": 154,
+          "collarMinY": 155,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.09
+        },
+        {
+          "gender": "female",
+          "action": "attack",
+          "index": 3,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-female\\headless-attack-1-source.png",
+          "sourceSha256": "c419ce0ae757bb9e30766d35f789ee338f763b17cb9f9b7d169ceda258d15343",
+          "headlessSource": true,
+          "scale": 0.31384615384615383,
+          "sourceDensityCalibration": null,
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            213.5,
+            510
+          ],
+          "headOffset": [
+            96,
+            90
+          ],
+          "faceChinY": 155,
+          "collarMinY": 156,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.085
+        },
+        {
+          "gender": "female",
+          "action": "attack",
+          "index": 4,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-female\\headless-attack-0-source.png",
+          "sourceSha256": "3642b29143dc9f77e5d4da2afc12f6eaeb59835c0fd62ccd10d3013b970a9f62",
+          "headlessSource": true,
+          "scale": 0.31384615384615383,
+          "sourceDensityCalibration": null,
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            1569,
+            515.5
+          ],
+          "headOffset": [
+            96,
+            92
+          ],
+          "faceChinY": 157,
+          "collarMinY": 158,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.075
+        },
+        {
+          "gender": "female",
+          "action": "attack",
+          "index": 5,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-female\\headless-attack-1-source.png",
+          "sourceSha256": "c419ce0ae757bb9e30766d35f789ee338f763b17cb9f9b7d169ceda258d15343",
+          "headlessSource": true,
+          "scale": 0.31384615384615383,
+          "sourceDensityCalibration": null,
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            658.5,
+            497
+          ],
+          "headOffset": [
+            96,
+            86
+          ],
+          "faceChinY": 151,
+          "collarMinY": 152,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.07
+        },
+        {
+          "gender": "female",
+          "action": "attack",
+          "index": 6,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-female\\headless-attack-1-source.png",
+          "sourceSha256": "c419ce0ae757bb9e30766d35f789ee338f763b17cb9f9b7d169ceda258d15343",
+          "headlessSource": true,
+          "scale": 0.31384615384615383,
+          "sourceDensityCalibration": null,
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            1111,
+            495.5
+          ],
+          "headOffset": [
+            96,
+            85
+          ],
+          "faceChinY": 150,
+          "collarMinY": 151,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.11
+        },
+        {
+          "gender": "female",
+          "action": "attack",
+          "index": 7,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-female\\headless-attack-1-source.png",
+          "sourceSha256": "c419ce0ae757bb9e30766d35f789ee338f763b17cb9f9b7d169ceda258d15343",
+          "headlessSource": true,
+          "scale": 0.31384615384615383,
+          "sourceDensityCalibration": null,
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            1566.5,
+            513
+          ],
+          "headOffset": [
+            96,
+            91
+          ],
+          "faceChinY": 156,
+          "collarMinY": 157,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.04
+        },
+        {
+          "gender": "female",
+          "action": "attack",
+          "index": 8,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-female\\headless-attack-2-source.png",
+          "sourceSha256": "c7c04587a5c5f2260fffed35a8680201cfa67dd0a9983a8da0fce17ffa48dfbf",
+          "headlessSource": true,
+          "scale": 0.31384615384615383,
+          "sourceDensityCalibration": null,
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            225,
+            509.5
+          ],
+          "headOffset": [
+            96,
+            90
+          ],
+          "faceChinY": 155,
+          "collarMinY": 156,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.025
+        },
+        {
+          "gender": "female",
+          "action": "attack",
+          "index": 9,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-female\\headless-attack-2-source.png",
+          "sourceSha256": "c7c04587a5c5f2260fffed35a8680201cfa67dd0a9983a8da0fce17ffa48dfbf",
+          "headlessSource": true,
+          "scale": 0.31384615384615383,
+          "sourceDensityCalibration": null,
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            681.5,
+            511
+          ],
+          "headOffset": [
+            96,
+            90
+          ],
+          "faceChinY": 155,
+          "collarMinY": 156,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.03
+        },
+        {
+          "gender": "female",
+          "action": "attack",
+          "index": 10,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-female\\headless-attack-2-source.png",
+          "sourceSha256": "c7c04587a5c5f2260fffed35a8680201cfa67dd0a9983a8da0fce17ffa48dfbf",
+          "headlessSource": true,
+          "scale": 0.31384615384615383,
+          "sourceDensityCalibration": null,
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            1110,
+            511.5
+          ],
+          "headOffset": [
+            96,
+            90
+          ],
+          "faceChinY": 155,
+          "collarMinY": 156,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.045
+        },
+        {
+          "gender": "female",
+          "action": "attack",
+          "index": 11,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-female\\headless-attack-2-source.png",
+          "sourceSha256": "c7c04587a5c5f2260fffed35a8680201cfa67dd0a9983a8da0fce17ffa48dfbf",
+          "headlessSource": true,
+          "scale": 0.31384615384615383,
+          "sourceDensityCalibration": null,
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            1557,
+            511.5
+          ],
+          "headOffset": [
+            96,
+            90
+          ],
+          "faceChinY": 155,
+          "collarMinY": 156,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.065
+        },
+        {
+          "gender": "female",
+          "action": "attack",
+          "index": 12,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-female\\headless-attack-3-source.png",
+          "sourceSha256": "29cac4131d92f999f0c001f083e2c11c682ae6fea97a5c3b7e19cd38973cc4b2",
+          "headlessSource": true,
+          "scale": 0.27945205479452057,
+          "sourceDensityCalibration": {
+            "referenceSlot": 3,
+            "sourceNeck": 430,
+            "sourceSole": 795,
+            "targetNeckToSole": 102,
+            "sharedAcrossWholeSource": true
+          },
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            234.5,
+            466.5
+          ],
+          "headOffset": [
+            96,
+            88
+          ],
+          "faceChinY": 153,
+          "collarMinY": 154,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.07
+        },
+        {
+          "gender": "female",
+          "action": "attack",
+          "index": 13,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-female\\headless-attack-3-source.png",
+          "sourceSha256": "29cac4131d92f999f0c001f083e2c11c682ae6fea97a5c3b7e19cd38973cc4b2",
+          "headlessSource": true,
+          "scale": 0.27945205479452057,
+          "sourceDensityCalibration": {
+            "referenceSlot": 3,
+            "sourceNeck": 430,
+            "sourceSole": 795,
+            "targetNeckToSole": 102,
+            "sharedAcrossWholeSource": true
+          },
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            682,
+            466.5
+          ],
+          "headOffset": [
+            96,
+            88
+          ],
+          "faceChinY": 153,
+          "collarMinY": 154,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.075
+        },
+        {
+          "gender": "female",
+          "action": "attack",
+          "index": 14,
+          "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-female\\headless-attack-3-source.png",
+          "sourceSha256": "29cac4131d92f999f0c001f083e2c11c682ae6fea97a5c3b7e19cd38973cc4b2",
+          "headlessSource": true,
+          "scale": 0.27945205479452057,
+          "sourceDensityCalibration": {
+            "referenceSlot": 3,
+            "sourceNeck": 430,
+            "sourceSole": 795,
+            "targetNeckToSole": 102,
+            "sharedAcrossWholeSource": true
+          },
+          "perFrameFit": false,
+          "ppu": 96,
+          "sourceBrooch": [
+            1120,
+            467
+          ],
+          "headOffset": [
+            96,
+            88
+          ],
+          "faceChinY": 153,
+          "collarMinY": 154,
+          "root": [
+            144,
+            256
+          ],
+          "duration": 0.1
+        }
+      ]
+    }
+  ],
+  "entries": [
+    {
+      "gender": "male",
+      "action": "idle",
+      "index": 0,
+      "part": "front",
+      "x": 2,
+      "y": 2,
+      "w": 87,
+      "h": 105,
+      "ox": 88,
+      "oy": 151
+    },
+    {
+      "gender": "male",
+      "action": "walk",
+      "index": 0,
+      "part": "front",
+      "x": 93,
+      "y": 2,
+      "w": 97,
+      "h": 106,
+      "ox": 82,
+      "oy": 150
+    },
+    {
+      "gender": "male",
+      "action": "walk",
+      "index": 1,
+      "part": "front",
+      "x": 194,
+      "y": 2,
+      "w": 100,
+      "h": 106,
+      "ox": 81,
+      "oy": 150
+    },
+    {
+      "gender": "male",
+      "action": "walk",
+      "index": 2,
+      "part": "front",
+      "x": 298,
+      "y": 2,
+      "w": 99,
+      "h": 106,
+      "ox": 80,
+      "oy": 150
+    },
+    {
+      "gender": "male",
+      "action": "walk",
+      "index": 3,
+      "part": "front",
+      "x": 401,
+      "y": 2,
+      "w": 105,
+      "h": 107,
+      "ox": 80,
+      "oy": 149
+    },
+    {
+      "gender": "male",
+      "action": "walk",
+      "index": 4,
+      "part": "front",
+      "x": 510,
+      "y": 2,
+      "w": 97,
+      "h": 106,
+      "ox": 82,
+      "oy": 150
+    },
+    {
+      "gender": "male",
+      "action": "walk",
+      "index": 5,
+      "part": "front",
+      "x": 611,
+      "y": 2,
+      "w": 100,
+      "h": 106,
+      "ox": 81,
+      "oy": 150
+    },
+    {
+      "gender": "male",
+      "action": "walk",
+      "index": 6,
+      "part": "front",
+      "x": 715,
+      "y": 2,
+      "w": 99,
+      "h": 106,
+      "ox": 80,
+      "oy": 150
+    },
+    {
+      "gender": "male",
+      "action": "walk",
+      "index": 7,
+      "part": "front",
+      "x": 818,
+      "y": 2,
+      "w": 105,
+      "h": 107,
+      "ox": 80,
+      "oy": 149
+    },
+    {
+      "gender": "male",
+      "action": "attack",
+      "index": 0,
+      "part": "front",
+      "x": 927,
+      "y": 2,
+      "w": 104,
+      "h": 102,
+      "ox": 81,
+      "oy": 161
+    },
+    {
+      "gender": "male",
+      "action": "attack",
+      "index": 1,
+      "part": "front",
+      "x": 1035,
+      "y": 2,
+      "w": 101,
+      "h": 124,
+      "ox": 82,
+      "oy": 139
+    },
+    {
+      "gender": "male",
+      "action": "attack",
+      "index": 2,
+      "part": "front",
+      "x": 1140,
+      "y": 2,
+      "w": 97,
+      "h": 168,
+      "ox": 87,
+      "oy": 94
+    },
+    {
+      "gender": "male",
+      "action": "attack",
+      "index": 3,
+      "part": "front",
+      "x": 1241,
+      "y": 2,
+      "w": 72,
+      "h": 196,
+      "ox": 109,
+      "oy": 64
+    },
+    {
+      "gender": "male",
+      "action": "attack",
+      "index": 4,
+      "part": "front",
+      "x": 1317,
+      "y": 2,
+      "w": 75,
+      "h": 229,
+      "ox": 109,
+      "oy": 34
+    },
+    {
+      "gender": "male",
+      "action": "attack",
+      "index": 5,
+      "part": "front",
+      "x": 1396,
+      "y": 2,
+      "w": 69,
+      "h": 222,
+      "ox": 110,
+      "oy": 40
+    },
+    {
+      "gender": "male",
+      "action": "attack",
+      "index": 6,
+      "part": "front",
+      "x": 1469,
+      "y": 2,
+      "w": 79,
+      "h": 220,
+      "ox": 105,
+      "oy": 40
+    },
+    {
+      "gender": "male",
+      "action": "attack",
+      "index": 7,
+      "part": "front",
+      "x": 1552,
+      "y": 2,
+      "w": 80,
+      "h": 193,
+      "ox": 106,
+      "oy": 69
+    },
+    {
+      "gender": "male",
+      "action": "attack",
+      "index": 8,
+      "part": "front",
+      "x": 1636,
+      "y": 2,
+      "w": 84,
+      "h": 108,
+      "ox": 102,
+      "oy": 151
+    },
+    {
+      "gender": "male",
+      "action": "attack",
+      "index": 9,
+      "part": "front",
+      "x": 1724,
+      "y": 2,
+      "w": 106,
+      "h": 108,
+      "ox": 88,
+      "oy": 151
+    },
+    {
+      "gender": "male",
+      "action": "attack",
+      "index": 10,
+      "part": "front",
+      "x": 1834,
+      "y": 2,
+      "w": 100,
+      "h": 109,
+      "ox": 91,
+      "oy": 151
+    },
+    {
+      "gender": "male",
+      "action": "attack",
+      "index": 11,
+      "part": "front",
+      "x": 1938,
+      "y": 2,
+      "w": 102,
+      "h": 109,
+      "ox": 89,
+      "oy": 150
+    },
+    {
+      "gender": "male",
+      "action": "attack",
+      "index": 12,
+      "part": "front",
+      "x": 2,
+      "y": 235,
+      "w": 97,
+      "h": 104,
+      "ox": 86,
+      "oy": 153
+    },
+    {
+      "gender": "male",
+      "action": "attack",
+      "index": 13,
+      "part": "front",
+      "x": 103,
+      "y": 235,
+      "w": 94,
+      "h": 104,
+      "ox": 84,
+      "oy": 153
+    },
+    {
+      "gender": "male",
+      "action": "attack",
+      "index": 14,
+      "part": "front",
+      "x": 201,
+      "y": 235,
+      "w": 94,
+      "h": 104,
+      "ox": 83,
+      "oy": 153
+    },
+    {
+      "gender": "female",
+      "action": "idle",
+      "index": 0,
+      "part": "front",
+      "x": 299,
+      "y": 235,
+      "w": 86,
+      "h": 107,
+      "ox": 90,
+      "oy": 150
+    },
+    {
+      "gender": "female",
+      "action": "walk",
+      "index": 0,
+      "part": "front",
+      "x": 389,
+      "y": 235,
+      "w": 88,
+      "h": 109,
+      "ox": 90,
+      "oy": 150
+    },
+    {
+      "gender": "female",
+      "action": "walk",
+      "index": 1,
+      "part": "front",
+      "x": 481,
+      "y": 235,
+      "w": 93,
+      "h": 109,
+      "ox": 87,
+      "oy": 150
+    },
+    {
+      "gender": "female",
+      "action": "walk",
+      "index": 2,
+      "part": "front",
+      "x": 578,
+      "y": 235,
+      "w": 90,
+      "h": 109,
+      "ox": 88,
+      "oy": 150
+    },
+    {
+      "gender": "female",
+      "action": "walk",
+      "index": 3,
+      "part": "front",
+      "x": 672,
+      "y": 235,
+      "w": 92,
+      "h": 109,
+      "ox": 89,
+      "oy": 150
+    },
+    {
+      "gender": "female",
+      "action": "walk",
+      "index": 4,
+      "part": "front",
+      "x": 768,
+      "y": 235,
+      "w": 88,
+      "h": 109,
+      "ox": 90,
+      "oy": 150
+    },
+    {
+      "gender": "female",
+      "action": "walk",
+      "index": 5,
+      "part": "front",
+      "x": 860,
+      "y": 235,
+      "w": 93,
+      "h": 109,
+      "ox": 87,
+      "oy": 150
+    },
+    {
+      "gender": "female",
+      "action": "walk",
+      "index": 6,
+      "part": "front",
+      "x": 957,
+      "y": 235,
+      "w": 90,
+      "h": 109,
+      "ox": 88,
+      "oy": 150
+    },
+    {
+      "gender": "female",
+      "action": "walk",
+      "index": 7,
+      "part": "front",
+      "x": 1051,
+      "y": 235,
+      "w": 92,
+      "h": 109,
+      "ox": 89,
+      "oy": 150
+    },
+    {
+      "gender": "female",
+      "action": "attack",
+      "index": 0,
+      "part": "front",
+      "x": 1147,
+      "y": 235,
+      "w": 97,
+      "h": 107,
+      "ox": 84,
+      "oy": 152
+    },
+    {
+      "gender": "female",
+      "action": "attack",
+      "index": 1,
+      "part": "front",
+      "x": 1248,
+      "y": 235,
+      "w": 108,
+      "h": 149,
+      "ox": 72,
+      "oy": 111
+    },
+    {
+      "gender": "female",
+      "action": "attack",
+      "index": 2,
+      "part": "front",
+      "x": 1360,
+      "y": 235,
+      "w": 97,
+      "h": 186,
+      "ox": 83,
+      "oy": 74
+    },
+    {
+      "gender": "female",
+      "action": "attack",
+      "index": 3,
+      "part": "front",
+      "x": 1461,
+      "y": 235,
+      "w": 75,
+      "h": 209,
+      "ox": 108,
+      "oy": 55
+    },
+    {
+      "gender": "female",
+      "action": "attack",
+      "index": 4,
+      "part": "front",
+      "x": 1540,
+      "y": 235,
+      "w": 73,
+      "h": 233,
+      "ox": 108,
+      "oy": 27
+    },
+    {
+      "gender": "female",
+      "action": "attack",
+      "index": 5,
+      "part": "front",
+      "x": 1617,
+      "y": 235,
+      "w": 69,
+      "h": 241,
+      "ox": 111,
+      "oy": 23
+    },
+    {
+      "gender": "female",
+      "action": "attack",
+      "index": 6,
+      "part": "front",
+      "x": 1690,
+      "y": 235,
+      "w": 81,
+      "h": 244,
+      "ox": 104,
+      "oy": 18
+    },
+    {
+      "gender": "female",
+      "action": "attack",
+      "index": 7,
+      "part": "front",
+      "x": 1775,
+      "y": 235,
+      "w": 78,
+      "h": 204,
+      "ox": 111,
+      "oy": 59
+    },
+    {
+      "gender": "female",
+      "action": "attack",
+      "index": 8,
+      "part": "front",
+      "x": 1857,
+      "y": 235,
+      "w": 77,
+      "h": 109,
+      "ox": 105,
+      "oy": 150
+    },
+    {
+      "gender": "female",
+      "action": "attack",
+      "index": 9,
+      "part": "front",
+      "x": 1938,
+      "y": 235,
+      "w": 105,
+      "h": 108,
+      "ox": 89,
+      "oy": 151
+    },
+    {
+      "gender": "female",
+      "action": "attack",
+      "index": 10,
+      "part": "front",
+      "x": 2,
+      "y": 483,
+      "w": 109,
+      "h": 108,
+      "ox": 87,
+      "oy": 151
+    },
+    {
+      "gender": "female",
+      "action": "attack",
+      "index": 11,
+      "part": "front",
+      "x": 115,
+      "y": 483,
+      "w": 100,
+      "h": 108,
+      "ox": 91,
+      "oy": 151
+    },
+    {
+      "gender": "female",
+      "action": "attack",
+      "index": 12,
+      "part": "front",
+      "x": 219,
+      "y": 483,
+      "w": 95,
+      "h": 105,
+      "ox": 89,
+      "oy": 152
+    },
+    {
+      "gender": "female",
+      "action": "attack",
+      "index": 13,
+      "part": "front",
+      "x": 318,
+      "y": 483,
+      "w": 93,
+      "h": 105,
+      "ox": 87,
+      "oy": 152
+    },
+    {
+      "gender": "female",
+      "action": "attack",
+      "index": 14,
+      "part": "front",
+      "x": 415,
+      "y": 483,
+      "w": 90,
+      "h": 105,
+      "ox": 87,
+      "oy": 152
+    }
+  ]
+}

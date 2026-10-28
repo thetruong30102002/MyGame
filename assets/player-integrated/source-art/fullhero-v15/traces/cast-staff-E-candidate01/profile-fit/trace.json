@@ -1,0 +1,352 @@
+{
+  "version": 15,
+  "source": "cast-staff-E-candidate01.png",
+  "sourceSha256": "28a6771d769039ac4bdfee90d833395040709e5bacf310c5af52c8e9f0659582",
+  "state": "staff",
+  "direction": "E",
+  "kind": "cast",
+  "count": 12,
+  "columns": 4,
+  "sourceSize": [
+    1448,
+    1086
+  ],
+  "neutralFrames": [
+    0,
+    10,
+    11
+  ],
+  "measurements": [
+    {
+      "frame": 0,
+      "row": 0,
+      "column": 0,
+      "bounds": [
+        145,
+        132,
+        251,
+        325
+      ],
+      "area": 12825,
+      "crown": 133,
+      "floor": 324,
+      "height": 192,
+      "rootX": 182.0,
+      "hairBounds": [
+        146,
+        134,
+        210,
+        190
+      ],
+      "headSilhouetteBounds": [
+        146,
+        134,
+        210,
+        197
+      ]
+    },
+    {
+      "frame": 1,
+      "row": 0,
+      "column": 1,
+      "bounds": [
+        508,
+        132,
+        613,
+        325
+      ],
+      "area": 13052,
+      "crown": 132,
+      "floor": 324,
+      "height": 193,
+      "rootX": 182.0
+    },
+    {
+      "frame": 2,
+      "row": 0,
+      "column": 2,
+      "bounds": [
+        869,
+        132,
+        975,
+        325
+      ],
+      "area": 12850,
+      "crown": 132,
+      "floor": 324,
+      "height": 193,
+      "rootX": 181.5
+    },
+    {
+      "frame": 3,
+      "row": 0,
+      "column": 3,
+      "bounds": [
+        1231,
+        132,
+        1346,
+        325
+      ],
+      "area": 13733,
+      "crown": 133,
+      "floor": 324,
+      "height": 192,
+      "rootX": 182.0
+    },
+    {
+      "frame": 4,
+      "row": 1,
+      "column": 0,
+      "bounds": [
+        145,
+        434,
+        260,
+        657
+      ],
+      "area": 13630,
+      "crown": 435,
+      "floor": 656,
+      "height": 222,
+      "rootX": 182.0
+    },
+    {
+      "frame": 5,
+      "row": 1,
+      "column": 1,
+      "bounds": [
+        492,
+        437,
+        648,
+        657
+      ],
+      "area": 14581,
+      "crown": 449,
+      "floor": 656,
+      "height": 208,
+      "rootX": 182.0
+    },
+    {
+      "frame": 6,
+      "row": 1,
+      "column": 2,
+      "bounds": [
+        864,
+        442,
+        1034,
+        657
+      ],
+      "area": 15806,
+      "crown": 465,
+      "floor": 656,
+      "height": 192,
+      "rootX": 181.5
+    },
+    {
+      "frame": 7,
+      "row": 1,
+      "column": 3,
+      "bounds": [
+        1226,
+        445,
+        1402,
+        657
+      ],
+      "area": 15294,
+      "crown": 465,
+      "floor": 656,
+      "height": 192,
+      "rootX": 181.5
+    },
+    {
+      "frame": 8,
+      "row": 2,
+      "column": 0,
+      "bounds": [
+        141,
+        776,
+        314,
+        989
+      ],
+      "area": 15326,
+      "crown": 797,
+      "floor": 988,
+      "height": 192,
+      "rootX": 182.0
+    },
+    {
+      "frame": 9,
+      "row": 2,
+      "column": 1,
+      "bounds": [
+        507,
+        783,
+        613,
+        989
+      ],
+      "area": 13512,
+      "crown": 783,
+      "floor": 988,
+      "height": 206,
+      "rootX": 182.0
+    },
+    {
+      "frame": 10,
+      "row": 2,
+      "column": 2,
+      "bounds": [
+        869,
+        796,
+        975,
+        989
+      ],
+      "area": 13096,
+      "crown": 796,
+      "floor": 988,
+      "height": 193,
+      "rootX": 182.0,
+      "hairBounds": [
+        870,
+        798,
+        935,
+        855
+      ],
+      "headSilhouetteBounds": [
+        870,
+        797,
+        935,
+        860
+      ]
+    },
+    {
+      "frame": 11,
+      "row": 2,
+      "column": 3,
+      "bounds": [
+        1231,
+        796,
+        1337,
+        989
+      ],
+      "area": 12832,
+      "crown": 796,
+      "floor": 988,
+      "height": 193,
+      "rootX": 182.0,
+      "hairBounds": [
+        1232,
+        798,
+        1296,
+        855
+      ],
+      "headSilhouetteBounds": [
+        1232,
+        798,
+        1296,
+        860
+      ]
+    }
+  ],
+  "registration": {
+    "scale": 0.38625151797279794,
+    "referenceBodyHeight": 193,
+    "rootX": 182.0,
+    "rowFloor": [
+      324.0,
+      656.0,
+      988.0
+    ],
+    "columnRootX": [
+      180.75097847358126,
+      542.7866927592954,
+      904.8224070450098,
+      1266.858121330724
+    ],
+    "sourceGridHeadOrigin": 178.1071428571429,
+    "sourceGridHeadStep": 362.0357142857143,
+    "idleHairBounds": [
+      59,
+      55,
+      83,
+      77
+    ],
+    "scaleMode": "multi-profile-proposal-unreviewed",
+    "idleHeadSilhouetteBounds": [
+      58,
+      53,
+      99,
+      79
+    ],
+    "sourceMedianHeadWidth": 64,
+    "targetRootY": 128
+  },
+  "artApproved": true,
+  "registrationApproved": true,
+  "profileFit": {
+    "reference": "exact saved baseline native idle",
+    "targetSole": 128,
+    "crownProxy": 55,
+    "regions": [
+      {
+        "name": "head",
+        "bounds": [
+          58,
+          53,
+          84,
+          81
+        ],
+        "weight": 2.0
+      },
+      {
+        "name": "neck-torso",
+        "bounds": [
+          61,
+          78,
+          81,
+          107
+        ],
+        "weight": 2.0
+      },
+      {
+        "name": "shoulders",
+        "bounds": [
+          53,
+          79,
+          89,
+          92
+        ],
+        "weight": 1.0
+      },
+      {
+        "name": "belt",
+        "bounds": [
+          58,
+          96,
+          84,
+          108
+        ],
+        "weight": 1.5
+      }
+    ],
+    "contactPhases": [
+      0,
+      11
+    ],
+    "score": 0.03462157154230801,
+    "regionError": {
+      "head": 0.03900694893341952,
+      "neck-torso": 0.03277974983096686,
+      "shoulders": 0.02928921568627451,
+      "belt": 0.03478506787330317
+    },
+    "uniformScale": 0.38625151797279794,
+    "uniformNativeDx": 0,
+    "warning": "Proposal only. Inspect crown/chin/shoulder/belt/knee/sole and gait; reject incompatible source anatomy."
+  },
+  "rootReview": {
+    "reviewer": "root",
+    "scope": "Complete poses compared against exact idle: crown, shoulders, torso, boots, grip and native detail; final palette and Unity transitions pending",
+    "reviewCard": "traces/cast-staff-E-candidate01/profile-fit/contact-4x.png",
+    "reviewCardSha256": "572dee492150d2779e8255e01fe63d5d7f7a73036835bd3f32740ab826fb1f9a",
+    "sourceSha256": "28a6771d769039ac4bdfee90d833395040709e5bacf310c5af52c8e9f0659582"
+  }
+}

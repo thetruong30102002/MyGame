@@ -1,0 +1,20 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-10-27",
+  "referenceRoles": [
+    "original homepage character: style only",
+    "V6 master: materials/detail, no redrawing body"
+  ],
+  "jobs": [
+    {
+      "id": "lam-ngoc",
+      "label": "Lam Ngọc",
+      "prompt": "Use case: stylized-concept. Asset type: a single transparent sword sprite to replace the weapon of this existing HD fantasy pixel-art character. Input image 1 is the original homepage character STYLE reference only; input image 2 is the existing HD character for material and pixel-detail reference only. DO NOT draw a character or hands. Draw ONE complete straight sword vertically, tip straight up and pommel down, orthographic front view, centered on transparent alpha with generous clear margins. Fixed common equipment standard: a long blade about 70% of total weapon length, compact horizontal crossguard about twice blade width, brown wrapped handle long enough for two hands and a small pommel. Crisp deliberately placed pixel clusters, fine material-colored outlines, controlled sharp metal bevel highlights, engraved details readable at the small game scale. Match the reference's refined silver armor and leather material shading. No airbrush, blur, photorealism, 3D presentation, thick black outline, floating particles, glow, scenery, character, detached ornament, label, watermark, grid, duplicate weapon or inset views. Both cutting edges and grip centered on the same perfectly straight vertical axis. Design: a slender elegant double-edged SILVER and cool BLUE sword. Clean tapered leaf-shaped straight blade, a narrow sapphire-blue fuller, polished silver edge facets. Small silver crossguard whose short tips sweep slightly toward the blade, one tiny blue gemstone at the center, dark chestnut leather two-hand grip, silver faceted pommel. Restrained detailed craftsmanship, practical proportions, no oversized fantasy wings."
+    },
+    {
+      "id": "hac-diem",
+      "label": "Hắc Diệm",
+      "prompt": "Use case: stylized-concept. Asset type: a single transparent sword sprite to replace the weapon of this existing HD fantasy pixel-art character. Input image 1 is the original homepage character STYLE reference only; input image 2 is the existing HD character for material and pixel-detail reference only. DO NOT draw a character or hands. Draw ONE complete straight sword vertically, tip straight up and pommel down, orthographic front view, centered on transparent alpha with generous clear margins. Fixed common equipment standard: a long blade about 70% of total weapon length, compact horizontal crossguard about twice blade width, brown wrapped handle long enough for two hands and a small pommel. Crisp deliberately placed pixel clusters, fine material-colored outlines, controlled sharp metal bevel highlights, engraved details readable at the small game scale. Match the reference's refined silver armor and leather material shading. No airbrush, blur, photorealism, 3D presentation, thick black outline, floating particles, glow, scenery, character, detached ornament, label, watermark, grid, duplicate weapon or inset views. Both cutting edges and grip centered on the same perfectly straight vertical axis. Design: a sturdy broad double-edged DARK GUNMETAL sword, noticeably broader than a slender silver sword but still practical for this character. Straight symmetric blade with angular shoulder bevels and a small sharp tapered spear point, warm copper line engraving down a central dark red inset. Compact dark bronze crossguard with blunt angular tips, dark chestnut leather two-hand grip, small bronze pommel. Dark steel must have clear reflective gray bevel edges so its shape is readable on a dark game background. No flames or glow."
+    }
+  ]
+}

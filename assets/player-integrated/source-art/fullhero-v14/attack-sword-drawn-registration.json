@@ -1,0 +1,306 @@
+{
+  "file": "attack-sword-drawn.png",
+  "sourceSize": [
+    1944,
+    809
+  ],
+  "rowRanges": {
+    "S": [
+      0,
+      166
+    ],
+    "E": [
+      166,
+      327
+    ],
+    "N": [
+      327,
+      487
+    ],
+    "SE": [
+      487,
+      649
+    ],
+    "NE": [
+      649,
+      809
+    ]
+  },
+  "directions": {
+    "S": {
+      "registration": {
+        "scale": 0.7891891891891892,
+        "translate": [
+          -17.770270270270274,
+          5.675675675675663
+        ],
+        "anatomyHeight": 92.5,
+        "sourceRoot": [
+          113.75,
+          155.0
+        ],
+        "targetBodyHeight": 73
+      },
+      "measured": [
+        {
+          "column": 0,
+          "sourceCell": [
+            -32,
+            0,
+            194,
+            166
+          ],
+          "crownY": 64,
+          "soleY": 155,
+          "rootX": 112.5,
+          "height": 92,
+          "alphaBounds": [
+            87,
+            64,
+            141,
+            156
+          ]
+        },
+        {
+          "column": 11,
+          "sourceCell": [
+            1750,
+            0,
+            1976,
+            166
+          ],
+          "crownY": 63,
+          "soleY": 155,
+          "rootX": 115.0,
+          "height": 93,
+          "alphaBounds": [
+            89,
+            63,
+            143,
+            156
+          ]
+        }
+      ]
+    },
+    "E": {
+      "registration": {
+        "scale": 0.7373737373737373,
+        "translate": [
+          -11.87626262626263,
+          16.287878787878796
+        ],
+        "anatomyHeight": 99.0,
+        "sourceRoot": [
+          113.75,
+          151.5
+        ],
+        "targetBodyHeight": 73
+      },
+      "measured": [
+        {
+          "column": 0,
+          "sourceCell": [
+            -32,
+            166,
+            194,
+            327
+          ],
+          "crownY": 53,
+          "soleY": 151,
+          "rootX": 112.5,
+          "height": 99,
+          "alphaBounds": [
+            88,
+            53,
+            166,
+            152
+          ]
+        },
+        {
+          "column": 11,
+          "sourceCell": [
+            1750,
+            166,
+            1976,
+            327
+          ],
+          "crownY": 54,
+          "soleY": 152,
+          "rootX": 115.0,
+          "height": 99,
+          "alphaBounds": [
+            91,
+            54,
+            166,
+            153
+          ]
+        }
+      ]
+    },
+    "N": {
+      "registration": {
+        "scale": 0.7411167512690355,
+        "translate": [
+          -12.487309644670049,
+          14.609137055837564
+        ],
+        "anatomyHeight": 98.5,
+        "sourceRoot": [
+          114.0,
+          153.0
+        ],
+        "targetBodyHeight": 73
+      },
+      "measured": [
+        {
+          "column": 0,
+          "sourceCell": [
+            -32,
+            327,
+            194,
+            487
+          ],
+          "crownY": 56,
+          "soleY": 153,
+          "rootX": 113.0,
+          "height": 98,
+          "alphaBounds": [
+            87,
+            56,
+            141,
+            154
+          ]
+        },
+        {
+          "column": 11,
+          "sourceCell": [
+            1750,
+            327,
+            1976,
+            487
+          ],
+          "crownY": 55,
+          "soleY": 153,
+          "rootX": 115.0,
+          "height": 99,
+          "alphaBounds": [
+            90,
+            55,
+            143,
+            154
+          ]
+        }
+      ]
+    },
+    "SE": {
+      "registration": {
+        "scale": 0.7525773195876289,
+        "translate": [
+          -13.041237113402062,
+          12.855670103092791
+        ],
+        "anatomyHeight": 97.0,
+        "sourceRoot": [
+          113.0,
+          153.0
+        ],
+        "targetBodyHeight": 73
+      },
+      "measured": [
+        {
+          "column": 0,
+          "sourceCell": [
+            -32,
+            487,
+            194,
+            649
+          ],
+          "crownY": 57,
+          "soleY": 153,
+          "rootX": 112.5,
+          "height": 97,
+          "alphaBounds": [
+            84,
+            57,
+            159,
+            154
+          ]
+        },
+        {
+          "column": 11,
+          "sourceCell": [
+            1750,
+            487,
+            1976,
+            649
+          ],
+          "crownY": 57,
+          "soleY": 153,
+          "rootX": 113.5,
+          "height": 97,
+          "alphaBounds": [
+            86,
+            57,
+            161,
+            156
+          ]
+        }
+      ]
+    },
+    "NE": {
+      "registration": {
+        "scale": 0.73,
+        "translate": [
+          -12.862499999999997,
+          15.579999999999998
+        ],
+        "anatomyHeight": 100.0,
+        "sourceRoot": [
+          116.25,
+          154.0
+        ],
+        "targetBodyHeight": 73
+      },
+      "measured": [
+        {
+          "column": 0,
+          "sourceCell": [
+            -32,
+            649,
+            194,
+            809
+          ],
+          "crownY": 55,
+          "soleY": 154,
+          "rootX": 114.0,
+          "height": 100,
+          "alphaBounds": [
+            89,
+            55,
+            155,
+            155
+          ]
+        },
+        {
+          "column": 11,
+          "sourceCell": [
+            1750,
+            649,
+            1976,
+            809
+          ],
+          "crownY": 55,
+          "soleY": 154,
+          "rootX": 118.5,
+          "height": 100,
+          "alphaBounds": [
+            92,
+            55,
+            161,
+            155
+          ]
+        }
+      ]
+    }
+  }
+}

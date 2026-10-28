@@ -1,0 +1,1094 @@
+{
+  "action": "walk",
+  "sex": "male",
+  "records": [
+    {
+      "action": "walk",
+      "phase": 0,
+      "direction": "S",
+      "headAnchor": [
+        72,
+        49
+      ],
+      "waist": 91,
+      "hip": [
+        72,
+        95
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 100.11764705882354,
+      "floor": 184
+    },
+    {
+      "action": "walk",
+      "phase": 1,
+      "direction": "S",
+      "headAnchor": [
+        72,
+        49
+      ],
+      "waist": 94,
+      "hip": [
+        71,
+        96
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 99.41237113402062,
+      "floor": 184
+    },
+    {
+      "action": "walk",
+      "phase": 2,
+      "direction": "S",
+      "headAnchor": [
+        72,
+        49
+      ],
+      "waist": 92,
+      "hip": [
+        71,
+        95
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 99.6026936026936,
+      "floor": 184
+    },
+    {
+      "action": "walk",
+      "phase": 3,
+      "direction": "S",
+      "headAnchor": [
+        72,
+        49
+      ],
+      "waist": 92,
+      "hip": [
+        73,
+        96
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 99.59726962457339,
+      "floor": 184
+    },
+    {
+      "action": "walk",
+      "phase": 4,
+      "direction": "S",
+      "headAnchor": [
+        72,
+        49
+      ],
+      "waist": 91,
+      "hip": [
+        72,
+        95
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 99.84265734265735,
+      "floor": 184
+    },
+    {
+      "action": "walk",
+      "phase": 5,
+      "direction": "S",
+      "headAnchor": [
+        72,
+        49
+      ],
+      "waist": 92,
+      "hip": [
+        72,
+        96
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 98.61855670103093,
+      "floor": 184
+    },
+    {
+      "action": "walk",
+      "phase": 6,
+      "direction": "S",
+      "headAnchor": [
+        72,
+        49
+      ],
+      "waist": 92,
+      "hip": [
+        72,
+        96
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 98.61458333333333,
+      "floor": 184
+    },
+    {
+      "action": "walk",
+      "phase": 7,
+      "direction": "S",
+      "headAnchor": [
+        72,
+        49
+      ],
+      "waist": 91,
+      "hip": [
+        72,
+        95
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 99.12110726643598,
+      "floor": 184
+    },
+    {
+      "action": "walk",
+      "phase": 0,
+      "direction": "W",
+      "headAnchor": [
+        72,
+        47
+      ],
+      "waist": 91,
+      "hip": [
+        68,
+        95
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 97.22364217252397,
+      "floor": 183
+    },
+    {
+      "action": "walk",
+      "phase": 1,
+      "direction": "W",
+      "headAnchor": [
+        72,
+        47
+      ],
+      "waist": 93,
+      "hip": [
+        72,
+        97
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 94.8525641025641,
+      "floor": 183
+    },
+    {
+      "action": "walk",
+      "phase": 2,
+      "direction": "W",
+      "headAnchor": [
+        72,
+        47
+      ],
+      "waist": 92,
+      "hip": [
+        73,
+        96
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 94.96187683284458,
+      "floor": 184
+    },
+    {
+      "action": "walk",
+      "phase": 3,
+      "direction": "W",
+      "headAnchor": [
+        73,
+        46
+      ],
+      "waist": 91,
+      "hip": [
+        66,
+        93
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 97.08479532163743,
+      "floor": 184
+    },
+    {
+      "action": "walk",
+      "phase": 4,
+      "direction": "W",
+      "headAnchor": [
+        72,
+        47
+      ],
+      "waist": 91,
+      "hip": [
+        71,
+        95
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 95.74242424242425,
+      "floor": 184
+    },
+    {
+      "action": "walk",
+      "phase": 5,
+      "direction": "W",
+      "headAnchor": [
+        72,
+        49
+      ],
+      "waist": 92,
+      "hip": [
+        70,
+        96
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 94.76947040498442,
+      "floor": 183
+    },
+    {
+      "action": "walk",
+      "phase": 6,
+      "direction": "W",
+      "headAnchor": [
+        72,
+        49
+      ],
+      "waist": 91,
+      "hip": [
+        73,
+        96
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 94.72203389830509,
+      "floor": 183
+    },
+    {
+      "action": "walk",
+      "phase": 7,
+      "direction": "W",
+      "headAnchor": [
+        72,
+        48
+      ],
+      "waist": 91,
+      "hip": [
+        70,
+        95
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 94.60942760942761,
+      "floor": 184
+    },
+    {
+      "action": "walk",
+      "phase": 0,
+      "direction": "N",
+      "headAnchor": [
+        72,
+        47
+      ],
+      "waist": 89,
+      "hip": [
+        71,
+        94
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 101.40764331210191,
+      "floor": 181
+    },
+    {
+      "action": "walk",
+      "phase": 1,
+      "direction": "N",
+      "headAnchor": [
+        72,
+        48
+      ],
+      "waist": 89,
+      "hip": [
+        71,
+        94
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 99.68896321070234,
+      "floor": 181
+    },
+    {
+      "action": "walk",
+      "phase": 2,
+      "direction": "N",
+      "headAnchor": [
+        72,
+        49
+      ],
+      "waist": 90,
+      "hip": [
+        71,
+        94
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 99.30666666666667,
+      "floor": 181
+    },
+    {
+      "action": "walk",
+      "phase": 3,
+      "direction": "N",
+      "headAnchor": [
+        72,
+        47
+      ],
+      "waist": 89,
+      "hip": [
+        72,
+        94
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 98.73717948717949,
+      "floor": 181
+    },
+    {
+      "action": "walk",
+      "phase": 4,
+      "direction": "N",
+      "headAnchor": [
+        72,
+        47
+      ],
+      "waist": 89,
+      "hip": [
+        72,
+        94
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 98.12786885245902,
+      "floor": 181
+    },
+    {
+      "action": "walk",
+      "phase": 5,
+      "direction": "N",
+      "headAnchor": [
+        72,
+        48
+      ],
+      "waist": 89,
+      "hip": [
+        72,
+        94
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 96.68858131487889,
+      "floor": 181
+    },
+    {
+      "action": "walk",
+      "phase": 6,
+      "direction": "N",
+      "headAnchor": [
+        72,
+        48
+      ],
+      "waist": 89,
+      "hip": [
+        71,
+        93
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 97.22262773722628,
+      "floor": 181
+    },
+    {
+      "action": "walk",
+      "phase": 7,
+      "direction": "N",
+      "headAnchor": [
+        72,
+        47
+      ],
+      "waist": 89,
+      "hip": [
+        73,
+        94
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 97.56055363321799,
+      "floor": 181
+    },
+    {
+      "action": "walk",
+      "phase": 0,
+      "direction": "SW",
+      "headAnchor": [
+        72,
+        51
+      ],
+      "waist": 92,
+      "hip": [
+        70,
+        96
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 98.7741935483871,
+      "floor": 181
+    },
+    {
+      "action": "walk",
+      "phase": 1,
+      "direction": "SW",
+      "headAnchor": [
+        72,
+        53
+      ],
+      "waist": 94,
+      "hip": [
+        70,
+        98
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 95.43288590604027,
+      "floor": 178
+    },
+    {
+      "action": "walk",
+      "phase": 2,
+      "direction": "SW",
+      "headAnchor": [
+        72,
+        53
+      ],
+      "waist": 95,
+      "hip": [
+        70,
+        99
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 95.75,
+      "floor": 176
+    },
+    {
+      "action": "walk",
+      "phase": 3,
+      "direction": "SW",
+      "headAnchor": [
+        72,
+        51
+      ],
+      "waist": 92,
+      "hip": [
+        71,
+        96
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 95.97986577181209,
+      "floor": 181
+    },
+    {
+      "action": "walk",
+      "phase": 4,
+      "direction": "SW",
+      "headAnchor": [
+        72,
+        51
+      ],
+      "waist": 92,
+      "hip": [
+        71,
+        96
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 96.36241610738254,
+      "floor": 181
+    },
+    {
+      "action": "walk",
+      "phase": 5,
+      "direction": "SW",
+      "headAnchor": [
+        72,
+        50
+      ],
+      "waist": 91,
+      "hip": [
+        73,
+        96
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 94.9271523178808,
+      "floor": 182
+    },
+    {
+      "action": "walk",
+      "phase": 6,
+      "direction": "SW",
+      "headAnchor": [
+        72,
+        51
+      ],
+      "waist": 92,
+      "hip": [
+        73,
+        96
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 95.20819112627986,
+      "floor": 181
+    },
+    {
+      "action": "walk",
+      "phase": 7,
+      "direction": "SW",
+      "headAnchor": [
+        72,
+        51
+      ],
+      "waist": 92,
+      "hip": [
+        69,
+        96
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 96.23825503355705,
+      "floor": 181
+    },
+    {
+      "action": "walk",
+      "phase": 0,
+      "direction": "NW",
+      "headAnchor": [
+        72,
+        47
+      ],
+      "waist": 91,
+      "hip": [
+        72,
+        95
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 98.61437908496733,
+      "floor": 178
+    },
+    {
+      "action": "walk",
+      "phase": 1,
+      "direction": "NW",
+      "headAnchor": [
+        72,
+        47
+      ],
+      "waist": 91,
+      "hip": [
+        69,
+        95
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 97.54754098360655,
+      "floor": 179
+    },
+    {
+      "action": "walk",
+      "phase": 2,
+      "direction": "NW",
+      "headAnchor": [
+        72,
+        47
+      ],
+      "waist": 89,
+      "hip": [
+        72,
+        94
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 98.05732484076434,
+      "floor": 179
+    },
+    {
+      "action": "walk",
+      "phase": 3,
+      "direction": "NW",
+      "headAnchor": [
+        72,
+        47
+      ],
+      "waist": 90,
+      "hip": [
+        72,
+        95
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 98.77076411960132,
+      "floor": 179
+    },
+    {
+      "action": "walk",
+      "phase": 4,
+      "direction": "NW",
+      "headAnchor": [
+        72,
+        47
+      ],
+      "waist": 91,
+      "hip": [
+        73,
+        96
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 97.77557755775578,
+      "floor": 178
+    },
+    {
+      "action": "walk",
+      "phase": 5,
+      "direction": "NW",
+      "headAnchor": [
+        72,
+        47
+      ],
+      "waist": 90,
+      "hip": [
+        73,
+        95
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 96.640522875817,
+      "floor": 178
+    },
+    {
+      "action": "walk",
+      "phase": 6,
+      "direction": "NW",
+      "headAnchor": [
+        72,
+        47
+      ],
+      "waist": 90,
+      "hip": [
+        74,
+        95
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 97.05280528052805,
+      "floor": 179
+    },
+    {
+      "action": "walk",
+      "phase": 7,
+      "direction": "NW",
+      "headAnchor": [
+        72,
+        48
+      ],
+      "waist": 90,
+      "hip": [
+        73,
+        95
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 98.37543859649122,
+      "floor": 177
+    },
+    {
+      "action": "walk",
+      "phase": 0,
+      "direction": "E",
+      "headAnchor": [
+        71,
+        47
+      ],
+      "waist": 91,
+      "hip": [
+        75,
+        95
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 97.22364217252397,
+      "floor": 183
+    },
+    {
+      "action": "walk",
+      "phase": 0,
+      "direction": "SE",
+      "headAnchor": [
+        71,
+        51
+      ],
+      "waist": 92,
+      "hip": [
+        73,
+        96
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 98.7741935483871,
+      "floor": 181
+    },
+    {
+      "action": "walk",
+      "phase": 0,
+      "direction": "NE",
+      "headAnchor": [
+        71,
+        47
+      ],
+      "waist": 91,
+      "hip": [
+        71,
+        95
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 98.61437908496733,
+      "floor": 178
+    },
+    {
+      "action": "walk",
+      "phase": 1,
+      "direction": "E",
+      "headAnchor": [
+        71,
+        47
+      ],
+      "waist": 93,
+      "hip": [
+        71,
+        97
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 94.8525641025641,
+      "floor": 183
+    },
+    {
+      "action": "walk",
+      "phase": 1,
+      "direction": "SE",
+      "headAnchor": [
+        71,
+        53
+      ],
+      "waist": 94,
+      "hip": [
+        73,
+        98
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 95.43288590604027,
+      "floor": 178
+    },
+    {
+      "action": "walk",
+      "phase": 1,
+      "direction": "NE",
+      "headAnchor": [
+        71,
+        47
+      ],
+      "waist": 91,
+      "hip": [
+        74,
+        95
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 97.54754098360655,
+      "floor": 179
+    },
+    {
+      "action": "walk",
+      "phase": 2,
+      "direction": "E",
+      "headAnchor": [
+        71,
+        47
+      ],
+      "waist": 92,
+      "hip": [
+        70,
+        96
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 94.96187683284458,
+      "floor": 184
+    },
+    {
+      "action": "walk",
+      "phase": 2,
+      "direction": "SE",
+      "headAnchor": [
+        71,
+        53
+      ],
+      "waist": 95,
+      "hip": [
+        73,
+        99
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 95.75,
+      "floor": 176
+    },
+    {
+      "action": "walk",
+      "phase": 2,
+      "direction": "NE",
+      "headAnchor": [
+        71,
+        47
+      ],
+      "waist": 89,
+      "hip": [
+        71,
+        94
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 98.05732484076434,
+      "floor": 179
+    },
+    {
+      "action": "walk",
+      "phase": 3,
+      "direction": "E",
+      "headAnchor": [
+        70,
+        46
+      ],
+      "waist": 91,
+      "hip": [
+        77,
+        93
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 97.08479532163743,
+      "floor": 184
+    },
+    {
+      "action": "walk",
+      "phase": 3,
+      "direction": "SE",
+      "headAnchor": [
+        71,
+        51
+      ],
+      "waist": 92,
+      "hip": [
+        72,
+        96
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 95.97986577181209,
+      "floor": 181
+    },
+    {
+      "action": "walk",
+      "phase": 3,
+      "direction": "NE",
+      "headAnchor": [
+        71,
+        47
+      ],
+      "waist": 90,
+      "hip": [
+        71,
+        95
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 98.77076411960132,
+      "floor": 179
+    },
+    {
+      "action": "walk",
+      "phase": 4,
+      "direction": "E",
+      "headAnchor": [
+        71,
+        47
+      ],
+      "waist": 91,
+      "hip": [
+        72,
+        95
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 95.74242424242425,
+      "floor": 184
+    },
+    {
+      "action": "walk",
+      "phase": 4,
+      "direction": "SE",
+      "headAnchor": [
+        71,
+        51
+      ],
+      "waist": 92,
+      "hip": [
+        72,
+        96
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 96.36241610738254,
+      "floor": 181
+    },
+    {
+      "action": "walk",
+      "phase": 4,
+      "direction": "NE",
+      "headAnchor": [
+        71,
+        47
+      ],
+      "waist": 91,
+      "hip": [
+        70,
+        96
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 97.77557755775578,
+      "floor": 178
+    },
+    {
+      "action": "walk",
+      "phase": 5,
+      "direction": "E",
+      "headAnchor": [
+        71,
+        49
+      ],
+      "waist": 92,
+      "hip": [
+        73,
+        96
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 94.76947040498442,
+      "floor": 183
+    },
+    {
+      "action": "walk",
+      "phase": 5,
+      "direction": "SE",
+      "headAnchor": [
+        71,
+        50
+      ],
+      "waist": 91,
+      "hip": [
+        70,
+        96
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 94.9271523178808,
+      "floor": 182
+    },
+    {
+      "action": "walk",
+      "phase": 5,
+      "direction": "NE",
+      "headAnchor": [
+        71,
+        47
+      ],
+      "waist": 90,
+      "hip": [
+        70,
+        95
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 96.640522875817,
+      "floor": 178
+    },
+    {
+      "action": "walk",
+      "phase": 6,
+      "direction": "E",
+      "headAnchor": [
+        71,
+        49
+      ],
+      "waist": 91,
+      "hip": [
+        70,
+        96
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 94.72203389830509,
+      "floor": 183
+    },
+    {
+      "action": "walk",
+      "phase": 6,
+      "direction": "SE",
+      "headAnchor": [
+        71,
+        51
+      ],
+      "waist": 92,
+      "hip": [
+        70,
+        96
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 95.20819112627986,
+      "floor": 181
+    },
+    {
+      "action": "walk",
+      "phase": 6,
+      "direction": "NE",
+      "headAnchor": [
+        71,
+        47
+      ],
+      "waist": 90,
+      "hip": [
+        69,
+        95
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 97.05280528052805,
+      "floor": 179
+    },
+    {
+      "action": "walk",
+      "phase": 7,
+      "direction": "E",
+      "headAnchor": [
+        71,
+        48
+      ],
+      "waist": 91,
+      "hip": [
+        73,
+        95
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 94.60942760942761,
+      "floor": 184
+    },
+    {
+      "action": "walk",
+      "phase": 7,
+      "direction": "SE",
+      "headAnchor": [
+        71,
+        51
+      ],
+      "waist": 92,
+      "hip": [
+        74,
+        96
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 96.23825503355705,
+      "floor": 181
+    },
+    {
+      "action": "walk",
+      "phase": 7,
+      "direction": "NE",
+      "headAnchor": [
+        71,
+        48
+      ],
+      "waist": 90,
+      "hip": [
+        70,
+        95
+      ],
+      "scale": 0.5970149253731343,
+      "cx": 98.37543859649122,
+      "floor": 177
+    }
+  ]
+}

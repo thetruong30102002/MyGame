@@ -4,6 +4,7 @@ import { DatabaseSync } from 'node:sqlite';
 import type { AdminChange, AdminField, AdminLogEntry, BuffKind, FeedbackEntry, FeedbackKind, FeedbackStatus, MyFeedback, BuffView, CharacterInfo, CharacterProgress, Gender } from '@aether/protocol';
 import type { Eco } from '@aether/sim/economy';
 import { cleanBonusPoints } from '@aether/sim/talents';
+import { playerModel, defaultPlayerModel } from '@aether/protocol';
 
 /**
  * Lưu trữ bằng SQLite có sẵn trong Node (`node:sqlite`) — không cần cài máy chủ CSDL riêng. Đủ cho vài
@@ -205,7 +206,10 @@ export class Store {
 		`);
 		// Cột thêm sau (14/10/2026, trang web chia nhiều trang): chuyên mục diễn đàn; loại / trạng thái / lời trả lời của góp ý.
 		this.addColumn('posts', 'category', "TEXT NOT NULL DEFAULT 'chung'");
+		this.addColumn('news', 'archived', 'INTEGER NOT NULL DEFAULT 0');
 		this.addColumn('feedback', 'kind', "TEXT NOT NULL DEFAULT 'khac'");
+		this.addColumn('characters', 'model_id', 'TEXT');
+		this.addColumn('characters', 'class_id', 'TEXT');
 		this.addColumn('feedback', 'status', "TEXT NOT NULL DEFAULT 'moi'");
 		this.addColumn('feedback', 'reply', 'TEXT');
 		this.addColumn('feedback', 'reply_at', 'INTEGER');
@@ -273,12 +277,14 @@ export class Store {
 	}
 
 	/** Trả null khi tên đã có người dùng (so không phân biệt hoa thường). */
-	createCharacter(id: string, accountId: number, name: string, gender: Gender, progress: CharacterProgress): CharacterInfo | null {
+	createCharacter(id: string, accountId: number, name: string, gender: Gender, progress: CharacterProgress, modelId?: string): CharacterInfo | null {
 		const now = Date.now();
+		const model = modelId === undefined ? defaultPlayerModel(gender) : playerModel(modelId);
+		if (!model || model.gender !== gender) return null;
 		try {
 			this.db
-				.prepare('INSERT INTO characters (id, account_id, name, name_key, gender, progress, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)')
-				.run(id, accountId, name, nameKey(name), gender, JSON.stringify(progress), now, now);
+				.prepare('INSERT INTO characters (id, account_id, name, name_key, gender, progress, created_at, updated_at, model_id, class_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)')
+				.run(id, accountId, name, nameKey(name), gender, JSON.stringify(progress), now, now, model.id, model.classId);
 		} catch {
 			return null;
 		}
@@ -484,8 +490,11 @@ export class Store {
 	}
 
 	/** Tin mới nhất trước (theo `at`, cùng lúc thì tin thêm sau trước). */
-	newsList(limit: number): NewsRow[] {
-		return this.db.prepare('SELECT * FROM news ORDER BY at DESC, id DESC LIMIT ?').all(limit) as unknown as NewsRow[];
+	newsList(limit: number, includeArchived = false): NewsRow[] {
+		return this.db.prepare('SELECT * FROM news WHERE (? = 1 OR archived = 0) ORDER BY at DESC, id DESC LIMIT ?').all(includeArchived ? 1 : 0, limit) as unknown as NewsRow[];
+	}
+	archiveNews(id: number, archived: boolean): boolean {
+		return Number(this.db.prepare('UPDATE news SET archived = ? WHERE id = ?').run(archived ? 1 : 0, id).changes) > 0;
 	}
 
 	news(id: number): NewsRow | null {
@@ -855,6 +864,7 @@ function toAdminRow(r: AdminRow): AdminRow {
 
 export interface NewsRow {
 	id: number;
+	archived?: number;
 	tag: string;
 	title: string;
 	/** Mảng JSON các dòng. */
@@ -948,12 +958,16 @@ interface CharacterRow {
 	id: string;
 	name: string;
 	gender: Gender;
+	model_id?: string;
+	class_id?: string;
 	progress: string;
 	created_at: number;
 }
 
 function toInfo(r: CharacterRow): CharacterInfo {
-	return { id: r.id, name: r.name, gender: r.gender, createdAt: r.created_at, progress: JSON.parse(r.progress) as CharacterProgress };
+	const stored = playerModel(r.model_id);
+	const model = stored?.gender === r.gender ? stored : defaultPlayerModel(r.gender);
+	return { id: r.id, name: r.name, gender: r.gender, modelId: model.id, classId: model.classId, createdAt: r.created_at, progress: JSON.parse(r.progress) as CharacterProgress };
 }
 
 /** Các trường tiềm năng trong bản lưu truyện (`SaveData` của web) — đi cùng nhau, đổi định dạng là đổi cả nhóm. */

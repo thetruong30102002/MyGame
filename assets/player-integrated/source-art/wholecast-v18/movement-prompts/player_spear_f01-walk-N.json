@@ -1,0 +1,13 @@
+{
+  "id": "player_spear_f01-walk-N",
+  "tool": "built-in ImageGen",
+  "intent": "identity-preserving gait drawing",
+  "prompt": "Draw the exact female spear character in Image1 performing a walk cycle, camera STRAIGHT BACK facing directly away, no face visible. Identity: long midnight-blue high ponytail, soft side fringe; ivory and royal-blue fitted lancer armor, silver trims, navy trousers and dark boots; one long royal-blue lance with slender silver blade and gold ring fittings. Image1 is the exact identity, fixed body proportions and outfit/weapon silhouette. Image2 is ONLY a gait reference: imitate its slow, light alternating footfalls without adopting its different hair, clothing, weapon or perspective. SINGLE fixed camera direction in all eight frames. Landscape sheet, exactly 4 columns x 2 rows, eight sequential time steps of ONE seamless full gait cycle: left contact, left down, left passing, left up, right contact, right down, right passing, right up. Both legs visibly alternate and feet lift, never eight idle holds. Character body and face keep exact standing master scale and pixel sharpness throughout. Constant head diameter, shoulder width and limb length. Gentle 1-2 native pixel body bob, short light steps for walk and a controlled longer stride for run. Complete actor including hair, all clothes and exactly ONE rigid weapon integrated into every pose. Grip encloses weapon handle; held weapon follows the hand and never floats or changes shape. Each actor centered within its equal cell, enough margins above weapons and below soles. Approx 75 native pixels crown-to-sole; do not enlarge action poses. No grid lines, labels, VFX, blur, motion trails, translucent duplicate limbs, extra weapons or background. Transparent alpha. Crisp fine game pixel art in the same rendering style as Image1.",
+  "referencedImages": [
+    "D:/truong/MyGame/assets/player-integrated/source-art/wholecast-v18/action-references/player_spear_f01/N-master.png",
+    "D:/truong/MyGame/assets/player-integrated/source-art/wholecast-v18/gait-guides/female-walk-N.png"
+  ],
+  "status": "generated-awaiting-native-review",
+  "output": "motion/player_spear_f01-walk-N.png",
+  "sha256": "bdb80e9b23edbb946f419dcbdb58e4c9a73c51ebcbabfd557894de636efe25a3"
+}

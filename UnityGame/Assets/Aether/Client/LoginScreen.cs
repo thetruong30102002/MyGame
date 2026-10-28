@@ -18,11 +18,11 @@ namespace Aether.Client
     /// hoặc tạo nhân vật (1 nhân vật / tài khoản) bằng thẻ chân dung, chơi thử offline. Chữ theo màn đăng nhập web (AuthScreen.tsx).
     /// Xong thì bật GameController.
     /// </summary>
-    public sealed class LoginScreen : MonoBehaviour
+    public sealed partial class LoginScreen : MonoBehaviour
     {
-        public const string DefaultServer = "https://nttrg-2.tail024813.ts.net/game";
+        public const string DefaultServer = "https://admin.tail024813.ts.net/game";
         private const string PrefServer = "aether.server";
-        private const string PreviousServer = "https://admin.tail024813.ts.net/game";
+        private const string PreviousServer = "https://nttrg-2.tail024813.ts.net/game";
         private const string PrefUser = "aether.user";
 
         private static string GetServerPreference()
@@ -43,6 +43,8 @@ namespace Aether.Client
         private List<CharacterInfo> characters = new List<CharacterInfo>();
         private bool busy;
         private bool female;
+        private string selectedClass = "sword";
+        private string selectedModel;
         private bool showServer;
         private string error = "";
 
@@ -93,7 +95,7 @@ namespace Aether.Client
         private Sprite Ui(string id) => UiKit.Sprites != null ? UiKit.Sprites.Get(id) : null;
 
         /// <summary>Chân dung nam / nữ = khung đứng của nhân vật người chơi (khớp ngoại hình mới; chân dung PixelLab mới chưa vẽ).</summary>
-        private Sprite Hero(bool f) => database != null ? GameController.PortraitOf(database.Character(f ? "player_hero_adult_f" : "player_hero_adult")) : null;
+        private Sprite Hero(string id) => database != null ? GameController.PortraitOf(database.Character(id)) : null;
 
         private void BuildBackground()
         {
@@ -236,12 +238,13 @@ namespace Aether.Client
 
         private void Rebuild()
         {
+            var keepName = charName != null ? charName.text : "";
             var keepUser = user != null ? user.text : PlayerPrefs.GetString(PrefUser, "");
             var keepServer = server != null ? server.text : GetServerPreference();
             if (card != null) Destroy(card.gameObject);
-            var h = step == Step.Login ? 330 : step == Step.Register ? 400 : step == Step.Create ? 380 : 140 + Math.Max(1, characters.Count) * 76;
+            var h = step == Step.Login ? 330 : step == Step.Register ? 400 : step == Step.Create ? 520 : 140 + Math.Max(1, characters.Count) * 76;
             if (showServer && (step == Step.Login || step == Step.Register)) h += 66;
-            card = UiKit.Rect(root, "Card", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 1), new Vector2(0, 150), new Vector2(420, h));
+            card = UiKit.Rect(root, "Card", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 1), new Vector2(0, step == Step.Create ? 205 : 150), new Vector2(step == Step.Create ? 820 : 420, h));
             UiStyle.Card(card, UiStyle.CardKind.Hud, 18, true, true);
             errorText = null;
             switch (step)
@@ -255,6 +258,7 @@ namespace Aether.Client
                     break;
                 case Step.Create:
                     BuildCreate();
+                    charName.text = keepName;
                     break;
             }
             ShowError();
@@ -312,7 +316,7 @@ namespace Aether.Client
                 UiStyle.Card(row, UiStyle.CardKind.Chip, 12, false, true);
                 var pf = UiKit.Rect(row, "F", new Vector2(0, 0.5f), new Vector2(0, 0.5f), new Vector2(6, 0), new Vector2(56, 56));
                 UiKit.Sprite(pf, "slot", 3f);
-                UiKit.Icon(UiKit.Rect(pf, "P", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(46, 46)), Hero(c.Gender == "female"));
+                UiKit.Icon(UiKit.Rect(pf, "P", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(46, 46)), Hero(PlayerRoster.Resolve(c.ModelId, c.Gender == "female")));
                 UiKit.Label(UiKit.Rect(row, "N", new Vector2(0, 0.5f), new Vector2(0, 0.5f), new Vector2(74, 10), new Vector2(200, 24)), c.Name, 17, UiStyle.Parchment, TextAnchor.MiddleLeft, true);
                 var lv = c.Progress != null ? c.Progress.Level : 1;
                 UiKit.Label(UiKit.Rect(row, "S", new Vector2(0, 0.5f), new Vector2(0, 0.5f), new Vector2(74, -12), new Vector2(220, 18)), $"Cấp {lv}  ·  {(c.Gender == "female" ? "Nữ" : "Nam")}", 12, UiStyle.ParchmentDim, TextAnchor.MiddleLeft);
@@ -331,26 +335,39 @@ namespace Aether.Client
 
         private void BuildCreate()
         {
-            UiKit.Label(UiKit.Rect(card, "H", new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -16), new Vector2(380, 26)), "Tạo nhân vật", 18, UiStyle.GoldHi, TextAnchor.MiddleCenter, true);
-            UiKit.Label(UiKit.Rect(card, "Note", new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -42), new Vector2(380, 18)), "Mỗi tài khoản một nhân vật", 12, UiStyle.ParchmentDim, TextAnchor.MiddleCenter);
-            for (var i = 0; i < 2; i += 1)
+            if(PlayerRoster.LegacyOnly) { BuildLegacyCreate(); return; }
+            var current = PlayerRoster.Find(selectedModel);
+            if (current == null || current.classId != selectedClass)
             {
-                var isF = i == 1;
-                var rt = UiKit.Rect(card, isF ? "Female" : "Male", new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(isF ? 92 : -92, -70), new Vector2(164, 168));
-                UiStyle.Card(rt, isF == female ? UiStyle.CardKind.Paper : UiStyle.CardKind.Chip, 14, false, true);
-                UiKit.Icon(UiKit.Rect(rt, "P", new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -8), new Vector2(124, 124)), Hero(isF));
-                UiKit.Label(UiKit.Rect(rt, "L", new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(0, 8), new Vector2(150, 24)), isF ? "Nữ" : "Nam", 16, isF == female ? UiStyle.InkBrown : UiStyle.Parchment, TextAnchor.MiddleCenter, true, isF != female);
-                UiKit.Press(rt, () =>
-                {
-                    var keep = charName != null ? charName.text : "";
-                    female = isF;
-                    Rebuild();
-                    charName.text = keep;
-                });
+                current = Array.Find(PlayerRoster.Choices, c => c.classId == selectedClass && c.gender == (female ? "female" : "male"))
+                    ?? Array.Find(PlayerRoster.Choices,c=>c.classId==selectedClass) ?? PlayerRoster.Choices[0];
+                selectedModel = current.id;
+                selectedClass = current.classId;
+                female = current.gender == "female";
             }
-            charName = Field(card, "Tên nhân vật", -250, "2–16 ký tự", false);
-            Button(card, "Go", new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(0, 40), new Vector2(372, 46), "Tạo và vào thế giới", () => Run(CreateAsync));
-            errorText = UiKit.Label(UiKit.Rect(card, "Err", new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(0, 14), new Vector2(372, 20)), "", 12, new Color(1f, 0.6f, 0.5f), TextAnchor.MiddleCenter, true);
+            UiKit.Label(UiKit.Rect(card, "H", new Vector2(.5f, 1), new Vector2(.5f, 1), new Vector2(0, -16), new Vector2(780, 28)), "Chọn nhân vật khởi đầu", 21, UiStyle.GoldHi, TextAnchor.MiddleCenter, true);
+            UiKit.Label(UiKit.Rect(card, "Note", new Vector2(.5f, 1), new Vector2(.5f, 1), new Vector2(0, -49), new Vector2(780, 22)), PlayerRoster.Choices.Length==30 ? "5 class · Mỗi class 3 nam, 3 nữ · Mỗi tài khoản một nhân vật" : "Đang mở " + PlayerRoster.Choices.Length + " tạo hình đủ chuyển động · Các mẫu còn lại đang hoàn thiện", 13, UiStyle.ParchmentDim, TextAnchor.MiddleCenter);
+            for (var i = 0; i < PlayerRoster.Classes.Length; i++)
+            {
+                var key = PlayerRoster.Classes[i];
+                Button(card, "Class-" + key, new Vector2(.5f, 1), new Vector2(.5f, 1), new Vector2((i - (PlayerRoster.Classes.Length-1)*.5f) * 152, -81), new Vector2(142, 34), (selectedClass == key ? "• " : "") + PlayerRoster.ClassLabels[i], () => { selectedClass = key; Rebuild(); }, false);
+            }
+            var choices = Array.FindAll(PlayerRoster.Choices, c => c.classId == selectedClass);
+            for (var i = 0; i < choices.Length; i++)
+            {
+                var c = choices[i];
+                var chosen = c.id == selectedModel;
+                var rt = UiKit.Rect(card, c.id, new Vector2(.5f, 1), new Vector2(.5f, 1), new Vector2((i - (choices.Length-1)*.5f) * 130, -131), new Vector2(120, 170));
+                UiStyle.Card(rt, chosen ? UiStyle.CardKind.Paper : UiStyle.CardKind.Chip, 12, false, true);
+                UiKit.Icon(UiKit.Rect(rt, "P", new Vector2(.5f, 1), new Vector2(.5f, 1), new Vector2(0, -5), new Vector2(110, 117)), Hero(c.id));
+                UiKit.Label(UiKit.Rect(rt, "N", new Vector2(.5f, 0), new Vector2(.5f, 0), new Vector2(0, 27), new Vector2(114, 24)), c.displayName, 14, chosen ? UiStyle.InkBrown : UiStyle.Parchment, TextAnchor.MiddleCenter, true, !chosen);
+                UiKit.Label(UiKit.Rect(rt, "Sex", new Vector2(.5f, 0), new Vector2(.5f, 0), new Vector2(0, 7), new Vector2(110, 20)), (c.gender == "female" ? "Nữ " : "Nam ") + c.variant, 12, chosen ? UiStyle.InkBrown : UiStyle.ParchmentDim, TextAnchor.MiddleCenter, false, !chosen);
+                UiKit.Press(rt, () => { selectedModel = c.id; female = c.gender == "female"; Rebuild(); });
+            }
+            charName = Field(card, "Tên nhân vật", -326, "3–16 ký tự", false);
+            UiKit.Label(UiKit.Rect(card, "Chosen", new Vector2(1, 1), new Vector2(1, 1), new Vector2(-28, -342), new Vector2(350, 58)), current.displayName + " · " + current.classLabel + "\n" + (female ? "Nữ" : "Nam") + " · Ngoại hình được lưu cùng nhân vật", 15, UiStyle.GoldHi, TextAnchor.MiddleCenter, true);
+            Button(card, "Go", new Vector2(.5f, 0), new Vector2(.5f, 0), new Vector2(0, 50), new Vector2(372, 46), "Tạo và vào thế giới", () => Run(CreateAsync));
+            errorText = UiKit.Label(UiKit.Rect(card, "Err", new Vector2(.5f, 0), new Vector2(.5f, 0), new Vector2(0, 19), new Vector2(760, 22)), "", 12, new Color(1f, .6f, .5f), TextAnchor.MiddleCenter, true);
         }
 
         private void ShowError()
@@ -411,8 +428,14 @@ namespace Aether.Client
         private async Task CreateAsync()
         {
             var name = charName.text.Trim();
-            if (name.Length < 2) throw new ApiException(0, "Tên nhân vật cần ít nhất 2 ký tự");
-            var c = await api.CreateCharacterAsync(name, female ? "female" : "male");
+            if (name.Length < 3 || name.Length > 16) throw new ApiException(0, "Tên nhân vật cần 3–16 ký tự");
+            if(PlayerRoster.LegacyOnly)
+            {
+                Enter(await api.CreateCharacterAsync(name,female?"female":"male")); return;
+            }
+            var choice = PlayerRoster.Find(selectedModel);
+            if (choice == null) throw new ApiException(0, "Chọn một nhân vật trước khi vào game");
+            var c = await api.CreateCharacterAsync(name, choice.gender, choice.id, choice.classId);
             Enter(c);
         }
 
@@ -435,6 +458,13 @@ namespace Aether.Client
             OnlineSession.Current?.End();
             GameController.LabMode = true;
             StartGame();
+        }
+
+        private void PreviewRosterClassForTest(string classId)
+        {
+            selectedClass = classId;
+            step = Step.Create;
+            Rebuild();
         }
 
         private void StartGame()

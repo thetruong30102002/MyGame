@@ -19,6 +19,8 @@ export const WORLD_CHAT_DIAMONDS = 3;
 export const MAX_LEVEL = 100;
 
 export type Gender = 'male' | 'female';
+export { PLAYER_MODELS, playerModel, defaultPlayerModel } from './roster.ts';
+export type { PlayerClass } from './roster.ts';
 
 /** Tên nhân vật: 3–16 ký tự, chữ cái (có dấu tiếng Việt), số, khoảng trắng đơn ở giữa. */
 export const NAME_RULE = /^[\p{L}\p{N}](?:[\p{L}\p{N}]| (?! ))*[\p{L}\p{N}]$/u;
@@ -66,6 +68,8 @@ export interface CharacterInfo {
 	id: string;
 	name: string;
 	gender: Gender;
+	modelId?: string;
+	classId?: import('./roster.ts').PlayerClass;
 	createdAt: number;
 	progress: CharacterProgress;
 }
@@ -83,6 +87,8 @@ export interface AuthResponse {
 export interface CreateCharacterRequest {
 	name: string;
 	gender: Gender;
+	modelId?: string;
+	classId?: import('./roster.ts').PlayerClass;
 }
 export interface ApiError {
 	error: string;

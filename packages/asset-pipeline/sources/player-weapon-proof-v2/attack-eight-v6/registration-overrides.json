@@ -1,0 +1,6 @@
+{
+  "raw/NE-1.png": {
+    "maxRootTranslation": 32,
+    "reviewNote": "Ảnh nguồn đặt chân hàng trên thấp hơn thước khoảng 27-28px native. Giữ nguyên mọi kích thước, chỉ dịch nguyên frame lên để chân về root; đã soi nguồn, mũi kiếm còn trong ô. Không fit hoặc scale riêng cơ thể."
+  }
+}

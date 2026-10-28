@@ -1,0 +1,15 @@
+{
+  "id": "player_verdant_sword",
+  "reference": "../wholecast-v17/swordsman-native-8views.png",
+  "sha256": "c1d48133640fb59f195a00f72b8acdc9cf90d789be2a73e3a69bb4690d2cc2be",
+  "visualReview": "user-approved-v17",
+  "frameSize": [
+    112,
+    112
+  ],
+  "root": [
+    56,
+    100
+  ],
+  "modularLayers": false
+}

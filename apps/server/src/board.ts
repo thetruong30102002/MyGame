@@ -52,6 +52,15 @@ export class Board {
 	news(rawLimit: unknown): NewsItem[] {
 		return this.store.newsList(clampLimit(rawLimit, 50, 200)).map(toNews);
 	}
+	adminNews() {
+		return this.store.newsList(500,true).map(n=>({...toNews(n),archived:Boolean(n.archived)}));
+	}
+	archiveNews(id:number,raw:unknown) {
+		const archived=(raw as {archived?:unknown}|null)?.archived;
+		if(typeof archived!=='boolean')throw new BoardError(400,'Trạng thái lưu trữ không hợp lệ');
+		if(!this.store.archiveNews(id,archived))throw new BoardError(404,'Không có tin này');
+		return {ok:true,archived};
+	}
 
 	addNews(admin: Viewer, raw: unknown): NewsItem {
 		const n = parseNews(raw);

@@ -1,0 +1,417 @@
+{
+  "provider": "ImageGen",
+  "stage": "complete character turnarounds and core motion candidates exported; production import pending",
+  "characters": [
+    {
+      "character": "swordsman",
+      "weapon": "sword",
+      "source": "swordsman-8views.png",
+      "sourceSha256": "af2d4b22d74d2b47d8f34cb5fb1a6268a00ae71a0d41681099e9402402d5cf80",
+      "uniformScale": 0.21216407355021216,
+      "resampling": "nearest",
+      "wholeCharacter": true,
+      "modularLayers": false,
+      "frames": [
+        {
+          "direction": "S",
+          "sourceBounds": [
+            105,
+            79,
+            289,
+            434
+          ],
+          "nativeBounds": [
+            33,
+            25,
+            71,
+            100
+          ],
+          "logicalCanvas": [
+            112,
+            112
+          ],
+          "root": [
+            56,
+            100
+          ]
+        },
+        {
+          "direction": "SE",
+          "sourceBounds": [
+            565,
+            79,
+            720,
+            436
+          ],
+          "nativeBounds": [
+            36,
+            25,
+            69,
+            100
+          ],
+          "logicalCanvas": [
+            112,
+            112
+          ],
+          "root": [
+            56,
+            100
+          ]
+        },
+        {
+          "direction": "E",
+          "sourceBounds": [
+            1058,
+            79,
+            1201,
+            436
+          ],
+          "nativeBounds": [
+            44,
+            25,
+            74,
+            100
+          ],
+          "logicalCanvas": [
+            112,
+            112
+          ],
+          "root": [
+            56,
+            100
+          ]
+        },
+        {
+          "direction": "NE",
+          "sourceBounds": [
+            1483,
+            79,
+            1669,
+            434
+          ],
+          "nativeBounds": [
+            41,
+            25,
+            80,
+            100
+          ],
+          "logicalCanvas": [
+            112,
+            112
+          ],
+          "root": [
+            56,
+            100
+          ]
+        },
+        {
+          "direction": "N",
+          "sourceBounds": [
+            144,
+            509,
+            327,
+            853
+          ],
+          "nativeBounds": [
+            41,
+            27,
+            79,
+            100
+          ],
+          "logicalCanvas": [
+            112,
+            112
+          ],
+          "root": [
+            56,
+            100
+          ]
+        },
+        {
+          "direction": "NW",
+          "sourceBounds": [
+            600,
+            509,
+            761,
+            854
+          ],
+          "nativeBounds": [
+            44,
+            27,
+            78,
+            100
+          ],
+          "logicalCanvas": [
+            112,
+            112
+          ],
+          "root": [
+            56,
+            100
+          ]
+        },
+        {
+          "direction": "W",
+          "sourceBounds": [
+            1001,
+            505,
+            1159,
+            857
+          ],
+          "nativeBounds": [
+            35,
+            26,
+            68,
+            100
+          ],
+          "logicalCanvas": [
+            112,
+            112
+          ],
+          "root": [
+            56,
+            100
+          ]
+        },
+        {
+          "direction": "SW",
+          "sourceBounds": [
+            1440,
+            506,
+            1626,
+            857
+          ],
+          "nativeBounds": [
+            32,
+            26,
+            71,
+            100
+          ],
+          "logicalCanvas": [
+            112,
+            112
+          ],
+          "root": [
+            56,
+            100
+          ]
+        }
+      ],
+      "movementFramesCreated": false,
+      "runtimeImported": false
+    },
+    {
+      "character": "mage",
+      "weapon": "staff",
+      "source": "mage-8views.png",
+      "sourceSha256": "fc7e158d9bb603e8e59d6baeb004a8bb9759691254438c9b2ed479d9420126af",
+      "uniformScale": 0.21739130434782608,
+      "resampling": "nearest",
+      "wholeCharacter": true,
+      "modularLayers": false,
+      "frames": [
+        {
+          "direction": "S",
+          "sourceBounds": [
+            125,
+            84,
+            293,
+            437
+          ],
+          "nativeBounds": [
+            39,
+            24,
+            76,
+            100
+          ],
+          "logicalCanvas": [
+            112,
+            112
+          ],
+          "root": [
+            56,
+            100
+          ]
+        },
+        {
+          "direction": "SE",
+          "sourceBounds": [
+            607,
+            84,
+            777,
+            437
+          ],
+          "nativeBounds": [
+            37,
+            24,
+            74,
+            100
+          ],
+          "logicalCanvas": [
+            112,
+            112
+          ],
+          "root": [
+            56,
+            100
+          ]
+        },
+        {
+          "direction": "E",
+          "sourceBounds": [
+            1046,
+            84,
+            1214,
+            437
+          ],
+          "nativeBounds": [
+            38,
+            24,
+            74,
+            100
+          ],
+          "logicalCanvas": [
+            112,
+            112
+          ],
+          "root": [
+            56,
+            100
+          ]
+        },
+        {
+          "direction": "NE",
+          "sourceBounds": [
+            1485,
+            87,
+            1646,
+            437
+          ],
+          "nativeBounds": [
+            38,
+            24,
+            72,
+            100
+          ],
+          "logicalCanvas": [
+            112,
+            112
+          ],
+          "root": [
+            56,
+            100
+          ]
+        },
+        {
+          "direction": "N",
+          "sourceBounds": [
+            140,
+            509,
+            318,
+            843
+          ],
+          "nativeBounds": [
+            34,
+            28,
+            73,
+            100
+          ],
+          "logicalCanvas": [
+            112,
+            112
+          ],
+          "root": [
+            56,
+            100
+          ]
+        },
+        {
+          "direction": "NW",
+          "sourceBounds": [
+            570,
+            508,
+            737,
+            843
+          ],
+          "nativeBounds": [
+            39,
+            28,
+            75,
+            100
+          ],
+          "logicalCanvas": [
+            112,
+            112
+          ],
+          "root": [
+            56,
+            100
+          ]
+        },
+        {
+          "direction": "W",
+          "sourceBounds": [
+            1015,
+            508,
+            1181,
+            844
+          ],
+          "nativeBounds": [
+            38,
+            27,
+            74,
+            100
+          ],
+          "logicalCanvas": [
+            112,
+            112
+          ],
+          "root": [
+            56,
+            100
+          ]
+        },
+        {
+          "direction": "SW",
+          "sourceBounds": [
+            1454,
+            505,
+            1631,
+            845
+          ],
+          "nativeBounds": [
+            39,
+            27,
+            77,
+            100
+          ],
+          "logicalCanvas": [
+            112,
+            112
+          ],
+          "root": [
+            56,
+            100
+          ]
+        }
+      ],
+      "movementFramesCreated": false,
+      "runtimeImported": false
+    }
+  ],
+  "prompts": [
+    "swordsman-8views-prompt.txt",
+    "mage-8views-prompt.txt"
+  ],
+  "directionOrder": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "productionStatus": "New complete character master drawings only. No movement approval, runtime import, build or publication."
+}

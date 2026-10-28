@@ -1,0 +1,12 @@
+{
+  "id": "player_spear_m01-thrust-S",
+  "prompt": "Edit target Image2, the twelve spear attack poses. Image1 is the exact original identity. Correct only ATTACK DIRECTION and believable hands. Keep the exact same red lancer, black tied hair, silver leafpoint and red tassel spear, 4 columns x3 rows transparent full-body integrated RPG pixel sheet. Every cell is one time in the same thrust. FRONT VIEW, BOTH EYES visible. Thrust STRAIGHT TOWARD CAMERA, viewer is the TARGET. The shaft recedes along depth toward his waist; spearhead at impact is directly in FRONT of CENTER torso below chin, visually FORESHORTENED like a compact diamond point, not a long horizontal profile. Both hands visibly grip same rigid shaft behind spearhead. No pointing across screen right or left. Twelve phases: exact master; settle; front hand grips; second hand joins; tilt spear forward along depth; coil; firm two-handed thrust along depth; impact; pullback; raise; return; exact master. Fixed same adult thin body scale, rigid spear length, crisp pixel edges, generous margins. No effects or grid lines. Whole actor, both boots and complete weapon fit inside every cell.",
+  "references": [
+    "action-references/player_spear_m01/S-master.png",
+    "motion/player_spear_m01-thrust-S.png"
+  ],
+  "tool": "built-in-imagegen",
+  "status": "generated",
+  "output": "motion/player_spear_m01-thrust-S-r2.png",
+  "sourceSha256": "75d6e59aaaf354a3953c6d3ee4e88677390d9c64ee6001c4a0da3481a98ab2d0"
+}

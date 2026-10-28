@@ -1,0 +1,283 @@
+{
+  "version": 15,
+  "source": "cast-staff-SE-candidate01.png",
+  "sourceSha256": "e5bd0d671514901010e273bdc3650a735b1fe099eb7686c92c7756f41c38f77b",
+  "state": "staff",
+  "direction": "SE",
+  "kind": "cast",
+  "count": 12,
+  "columns": 4,
+  "sourceSize": [
+    1448,
+    1086
+  ],
+  "neutralFrames": [
+    0,
+    10,
+    11
+  ],
+  "measurements": [
+    {
+      "frame": 0,
+      "row": 0,
+      "column": 0,
+      "bounds": [
+        128,
+        126,
+        249,
+        325
+      ],
+      "area": 16652,
+      "crown": 127,
+      "floor": 324,
+      "height": 198,
+      "rootX": 199.5,
+      "hairBounds": [
+        173,
+        127,
+        241,
+        176
+      ],
+      "headSilhouetteBounds": [
+        129,
+        127,
+        242,
+        193
+      ]
+    },
+    {
+      "frame": 1,
+      "row": 0,
+      "column": 1,
+      "bounds": [
+        490,
+        126,
+        611,
+        325
+      ],
+      "area": 16552,
+      "crown": 126,
+      "floor": 324,
+      "height": 199,
+      "rootX": 199.5
+    },
+    {
+      "frame": 2,
+      "row": 0,
+      "column": 2,
+      "bounds": [
+        852,
+        126,
+        969,
+        325
+      ],
+      "area": 16255,
+      "crown": 127,
+      "floor": 324,
+      "height": 198,
+      "rootX": 199.5
+    },
+    {
+      "frame": 3,
+      "row": 0,
+      "column": 3,
+      "bounds": [
+        1214,
+        126,
+        1358,
+        325
+      ],
+      "area": 17318,
+      "crown": 126,
+      "floor": 324,
+      "height": 199,
+      "rootX": 200.0
+    },
+    {
+      "frame": 4,
+      "row": 1,
+      "column": 0,
+      "bounds": [
+        130,
+        460,
+        258,
+        688
+      ],
+      "area": 17486,
+      "crown": 465,
+      "floor": 687,
+      "height": 223,
+      "rootX": 199.0
+    },
+    {
+      "frame": 5,
+      "row": 1,
+      "column": 1,
+      "bounds": [
+        484,
+        452,
+        620,
+        688
+      ],
+      "area": 17978,
+      "crown": 452,
+      "floor": 687,
+      "height": 236,
+      "rootX": 199.0
+    },
+    {
+      "frame": 6,
+      "row": 1,
+      "column": 2,
+      "bounds": [
+        844,
+        467,
+        1017,
+        688
+      ],
+      "area": 18630,
+      "crown": 476,
+      "floor": 687,
+      "height": 212,
+      "rootX": 199.0
+    },
+    {
+      "frame": 7,
+      "row": 1,
+      "column": 3,
+      "bounds": [
+        1211,
+        466,
+        1382,
+        688
+      ],
+      "area": 19054,
+      "crown": 471,
+      "floor": 687,
+      "height": 217,
+      "rootX": 199.0
+    },
+    {
+      "frame": 8,
+      "row": 2,
+      "column": 0,
+      "bounds": [
+        124,
+        829,
+        296,
+        1050
+      ],
+      "area": 18911,
+      "crown": 833,
+      "floor": 1049,
+      "height": 217,
+      "rootX": 199.0
+    },
+    {
+      "frame": 9,
+      "row": 2,
+      "column": 1,
+      "bounds": [
+        489,
+        842,
+        630,
+        1050
+      ],
+      "area": 17794,
+      "crown": 845,
+      "floor": 1049,
+      "height": 205,
+      "rootX": 199.0
+    },
+    {
+      "frame": 10,
+      "row": 2,
+      "column": 2,
+      "bounds": [
+        851,
+        843,
+        973,
+        1051
+      ],
+      "area": 17041,
+      "crown": 846,
+      "floor": 1049,
+      "height": 204,
+      "rootX": 199.0,
+      "hairBounds": [
+        895,
+        851,
+        964,
+        901
+      ],
+      "headSilhouetteBounds": [
+        852,
+        846,
+        965,
+        912
+      ]
+    },
+    {
+      "frame": 11,
+      "row": 2,
+      "column": 3,
+      "bounds": [
+        1214,
+        851,
+        1334,
+        1050
+      ],
+      "area": 16994,
+      "crown": 851,
+      "floor": 1049,
+      "height": 199,
+      "rootX": 200.0,
+      "hairBounds": [
+        1259,
+        851,
+        1323,
+        905
+      ],
+      "headSilhouetteBounds": [
+        1215,
+        851,
+        1327,
+        917
+      ]
+    }
+  ],
+  "registration": {
+    "scale": 0.36683417085427134,
+    "referenceBodyHeight": 199,
+    "rootX": 199.5,
+    "rowFloor": [
+      324.0,
+      687.0,
+      1049.0
+    ],
+    "columnRootX": [
+      179.70401174168293,
+      541.0254403131115,
+      902.3468688845401,
+      1263.6682974559687
+    ],
+    "sourceGridHeadOrigin": 206.96428571428567,
+    "sourceGridHeadStep": 361.32142857142856,
+    "idleHairBounds": [
+      69,
+      51,
+      95,
+      75
+    ],
+    "scaleMode": "neutral-body",
+    "idleHeadSilhouetteBounds": [
+      51,
+      51,
+      96,
+      75
+    ],
+    "sourceMedianHeadWidth": 113
+  },
+  "artApproved": false,
+  "registrationApproved": false
+}

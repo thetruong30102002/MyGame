@@ -1,0 +1,15 @@
+{
+  "gender": "female",
+  "id": "walk-1",
+  "frameIds": [
+    "walk-04",
+    "walk-05",
+    "walk-06",
+    "walk-07"
+  ],
+  "prompt": "Use case: precise-object-edit. Input Image1 is the EXACT calibration/edit target: four different poses of the same pixel RPG character in FOUR COLUMNS ONE ROW, canvas1774×887. Change only poses according to list below, PRESERVE costume, gender, head identity and EXACT pixel scale/camera. No rescaling or increasing torso/head size. Existing standing body neck-to-sole is 306 source pixels. Keep original size on canvas and baseline atY805 in every slot, torso collar aroundY499, heads same width ~145sourcepx. Each slot443.5px wide, character neck centers around X(230,685,1110,1550). Maintain full transparency around each sprite; no neighbor overlap. All4 figures must stay same size even for raised sword. DO NOT create a smaller sprite for a pose with a raised blade.\nSTYLE/IDENTITY: preserve Image1 ash/silver hair and amber eyes, precise clean pixel clusters and same fine detail density in every frame. Green short cloak with ivory trim, plain iron chestplate, basic belt/gloves/charcoal trousers/brown boots, full high collar, closed gloves/skin covered. Basic starter outfit, same sword design and length, no extra ornament. Sharp cloth seams, metal/leather planes and thin selective edges. No gradients, blur, fuzz, glow, motion-trail, noisy pixels or anti-alias halos.\nRIG: same front S camera, upright head, same shoulder/waist/limb/boot sizes, all poses have complete consistent heads to preserve headspace. Sword is rigid and aligned with hilt/wrist, fingers actually wrap hilt. Raised sword hands must clear hair crown and blade axis upright. Two handed attack uses only ONE sword. Do not paint weapons floating away, duplicate limbs, duplicate swords or draw circular arm waving. Keep head dimensions independent of lifted arms.\nRequested poses left to right:\n1. Right foot contacts forward, left heel raised behind, soft short stride, right-hand low sword stable.\n2. Right knee accepts weight, left foot peels off floor at toe, gentle body settle not jump.\n3. Passing phase left boot moves forward next to right shin with left knee visibly bent, right leg supporting, slight left arm swing.\n4. Left leg extends forward before contact, right heel lifts, same gentle stride leading back to first contact.\nMovement: gentle slow WALK, not running, whole body bob at most4sourcepx (~1nativepx), no pogo motion. Distinct actual leg articulation in each pose; do not repeat standing legs. Root baseline sameY805. Fully front S, do not rotate to side.",
+  "mode": "built-in-imagegen",
+  "source": "packages/asset-pipeline/sources/player-rig-v2/body-female/walk-1-source.png",
+  "productionEnabled": false,
+  "artApproved": false
+}

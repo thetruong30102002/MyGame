@@ -1,0 +1,67 @@
+{
+  "status": "rejected-source-cell-overlap",
+  "sourceSha256": "9f932b12b7009e5fd9b675ce012af1b7f1a3de200a4dc9027fc4b433107b26e0",
+  "scale": 0.379746835443038,
+  "sourceRoot": [
+    313,
+    559
+  ],
+  "targetRoot": [
+    144,
+    256
+  ],
+  "canvas": [
+    288,
+    288
+  ],
+  "ppu": 96,
+  "perFrameFit": false,
+  "frames": [
+    {
+      "id": "idle",
+      "bounds": {
+        "x0": 93,
+        "y0": 107,
+        "x1": 178,
+        "y1": 282
+      }
+    },
+    {
+      "id": "walk-contact",
+      "bounds": {
+        "x0": 90,
+        "y0": 106,
+        "x1": 180,
+        "y1": 257
+      }
+    },
+    {
+      "id": "overhead",
+      "bounds": {
+        "x0": 112,
+        "y0": 44,
+        "x1": 179,
+        "y1": 253
+      }
+    },
+    {
+      "id": "impact",
+      "bounds": {
+        "x0": 108,
+        "y0": 106,
+        "x1": 188,
+        "y1": 254
+      }
+    }
+  ],
+  "targetSwordAttackFrames": 15,
+  "completeAttack": false,
+  "completeEightDirections": false,
+  "artApproved": false,
+  "productionEnabled": false,
+  "reviewNotes": [
+    "Nguồn bốn pose có mũi kiếm pose giơ cao vượt lên ô idle phía trên.",
+    "Bản xuất idle bị lẫn pixel kiếm ở dưới chân (y282 so với root256).",
+    "Không đưa nguồn này lên trang duyệt hoặc vào runtime; phải sửa nguồn và rà lại cả họ pose."
+  ]
+}

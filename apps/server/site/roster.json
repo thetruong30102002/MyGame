@@ -1,0 +1,529 @@
+{
+  "version": 18,
+  "status": "art-preview",
+  "notice": "Bộ tạo hình mới: 30 nhân vật, 5 class. Chuyển động và tích hợp chọn nhân vật đang hoàn thiện; hình giới thiệu chưa phải thông báo phát hành toàn bộ roster.",
+  "directions": [
+    "S",
+    "SW",
+    "W",
+    "NW",
+    "N",
+    "NE",
+    "E",
+    "SE"
+  ],
+  "roles": [
+    {
+      "id": "sword",
+      "name": "Kiếm sĩ",
+      "weapon": "Kiếm",
+      "description": "Áp sát, đỡ phản và kết liễu. Ba phái: Kiếm Thần, Thủy Thần, Bắc Thần."
+    },
+    {
+      "id": "staff",
+      "name": "Pháp sư",
+      "weapon": "Trượng",
+      "description": "Điều khiển phép thuật theo thiên phú. Tám nguyên tố, mỗi nguyên tố một bộ kỹ năng riêng."
+    },
+    {
+      "id": "bow",
+      "name": "Cung thủ",
+      "weapon": "Cung",
+      "description": "Giữ khoảng cách, chọn vị trí và dồn sát thương vào thời điểm quyết định."
+    },
+    {
+      "id": "spear",
+      "name": "Thương sĩ",
+      "weapon": "Thương",
+      "description": "Kiểm soát tầm trung, đâm xuyên và mở đường cho tổ đội."
+    },
+    {
+      "id": "shield",
+      "name": "Vệ sĩ",
+      "weapon": "Khiên",
+      "description": "Đứng tuyến đầu, bảo vệ đồng đội và phản công khi đối phương sơ hở."
+    }
+  ],
+  "characters": [
+    {
+      "id": "player_verdant_sword",
+      "name": "Lục Phong",
+      "role": "sword",
+      "gender": "male",
+      "images": {
+        "S": "site/media/roster/player_verdant_sword/S.png",
+        "SW": "site/media/roster/player_verdant_sword/SW.png",
+        "W": "site/media/roster/player_verdant_sword/W.png",
+        "NW": "site/media/roster/player_verdant_sword/NW.png",
+        "N": "site/media/roster/player_verdant_sword/N.png",
+        "NE": "site/media/roster/player_verdant_sword/NE.png",
+        "E": "site/media/roster/player_verdant_sword/E.png",
+        "SE": "site/media/roster/player_verdant_sword/SE.png"
+      }
+    },
+    {
+      "id": "player_sword_m02",
+      "name": "Lam Kiếm",
+      "role": "sword",
+      "gender": "male",
+      "images": {
+        "S": "site/media/roster/player_sword_m02/S.png",
+        "SW": "site/media/roster/player_sword_m02/SW.png",
+        "W": "site/media/roster/player_sword_m02/W.png",
+        "NW": "site/media/roster/player_sword_m02/NW.png",
+        "N": "site/media/roster/player_sword_m02/N.png",
+        "NE": "site/media/roster/player_sword_m02/NE.png",
+        "E": "site/media/roster/player_sword_m02/E.png",
+        "SE": "site/media/roster/player_sword_m02/SE.png"
+      }
+    },
+    {
+      "id": "player_sword_m03",
+      "name": "Xích Ảnh",
+      "role": "sword",
+      "gender": "male",
+      "images": {
+        "S": "site/media/roster/player_sword_m03/S.png",
+        "SW": "site/media/roster/player_sword_m03/SW.png",
+        "W": "site/media/roster/player_sword_m03/W.png",
+        "NW": "site/media/roster/player_sword_m03/NW.png",
+        "N": "site/media/roster/player_sword_m03/N.png",
+        "NE": "site/media/roster/player_sword_m03/NE.png",
+        "E": "site/media/roster/player_sword_m03/E.png",
+        "SE": "site/media/roster/player_sword_m03/SE.png"
+      }
+    },
+    {
+      "id": "player_sword_f01",
+      "name": "Thanh Vũ",
+      "role": "sword",
+      "gender": "female",
+      "images": {
+        "S": "site/media/roster/player_sword_f01/S.png",
+        "SW": "site/media/roster/player_sword_f01/SW.png",
+        "W": "site/media/roster/player_sword_f01/W.png",
+        "NW": "site/media/roster/player_sword_f01/NW.png",
+        "N": "site/media/roster/player_sword_f01/N.png",
+        "NE": "site/media/roster/player_sword_f01/NE.png",
+        "E": "site/media/roster/player_sword_f01/E.png",
+        "SE": "site/media/roster/player_sword_f01/SE.png"
+      }
+    },
+    {
+      "id": "player_sword_f02",
+      "name": "Ngân Kiếm",
+      "role": "sword",
+      "gender": "female",
+      "images": {
+        "S": "site/media/roster/player_sword_f02/S.png",
+        "SW": "site/media/roster/player_sword_f02/SW.png",
+        "W": "site/media/roster/player_sword_f02/W.png",
+        "NW": "site/media/roster/player_sword_f02/NW.png",
+        "N": "site/media/roster/player_sword_f02/N.png",
+        "NE": "site/media/roster/player_sword_f02/NE.png",
+        "E": "site/media/roster/player_sword_f02/E.png",
+        "SE": "site/media/roster/player_sword_f02/SE.png"
+      }
+    },
+    {
+      "id": "player_sword_f03",
+      "name": "Tử Yên",
+      "role": "sword",
+      "gender": "female",
+      "images": {
+        "S": "site/media/roster/player_sword_f03/S.png",
+        "SW": "site/media/roster/player_sword_f03/SW.png",
+        "W": "site/media/roster/player_sword_f03/W.png",
+        "NW": "site/media/roster/player_sword_f03/NW.png",
+        "N": "site/media/roster/player_sword_f03/N.png",
+        "NE": "site/media/roster/player_sword_f03/NE.png",
+        "E": "site/media/roster/player_sword_f03/E.png",
+        "SE": "site/media/roster/player_sword_f03/SE.png"
+      }
+    },
+    {
+      "id": "player_staff_m01",
+      "name": "Tinh Vân",
+      "role": "staff",
+      "gender": "male",
+      "images": {
+        "S": "site/media/roster/player_staff_m01/S.png",
+        "SW": "site/media/roster/player_staff_m01/SW.png",
+        "W": "site/media/roster/player_staff_m01/W.png",
+        "NW": "site/media/roster/player_staff_m01/NW.png",
+        "N": "site/media/roster/player_staff_m01/N.png",
+        "NE": "site/media/roster/player_staff_m01/NE.png",
+        "E": "site/media/roster/player_staff_m01/E.png",
+        "SE": "site/media/roster/player_staff_m01/SE.png"
+      }
+    },
+    {
+      "id": "player_staff_m02",
+      "name": "Mộc Linh",
+      "role": "staff",
+      "gender": "male",
+      "images": {
+        "S": "site/media/roster/player_staff_m02/S.png",
+        "SW": "site/media/roster/player_staff_m02/SW.png",
+        "W": "site/media/roster/player_staff_m02/W.png",
+        "NW": "site/media/roster/player_staff_m02/NW.png",
+        "N": "site/media/roster/player_staff_m02/N.png",
+        "NE": "site/media/roster/player_staff_m02/NE.png",
+        "E": "site/media/roster/player_staff_m02/E.png",
+        "SE": "site/media/roster/player_staff_m02/SE.png"
+      }
+    },
+    {
+      "id": "player_staff_m03",
+      "name": "Dạ Huyền",
+      "role": "staff",
+      "gender": "male",
+      "images": {
+        "S": "site/media/roster/player_staff_m03/S.png",
+        "SW": "site/media/roster/player_staff_m03/SW.png",
+        "W": "site/media/roster/player_staff_m03/W.png",
+        "NW": "site/media/roster/player_staff_m03/NW.png",
+        "N": "site/media/roster/player_staff_m03/N.png",
+        "NE": "site/media/roster/player_staff_m03/NE.png",
+        "E": "site/media/roster/player_staff_m03/E.png",
+        "SE": "site/media/roster/player_staff_m03/SE.png"
+      }
+    },
+    {
+      "id": "player_ivory_staff",
+      "name": "Nguyệt Thạch",
+      "role": "staff",
+      "gender": "female",
+      "images": {
+        "S": "site/media/roster/player_ivory_staff/S.png",
+        "SW": "site/media/roster/player_ivory_staff/SW.png",
+        "W": "site/media/roster/player_ivory_staff/W.png",
+        "NW": "site/media/roster/player_ivory_staff/NW.png",
+        "N": "site/media/roster/player_ivory_staff/N.png",
+        "NE": "site/media/roster/player_ivory_staff/NE.png",
+        "E": "site/media/roster/player_ivory_staff/E.png",
+        "SE": "site/media/roster/player_ivory_staff/SE.png"
+      }
+    },
+    {
+      "id": "player_staff_f02",
+      "name": "Hỏa Vũ",
+      "role": "staff",
+      "gender": "female",
+      "images": {
+        "S": "site/media/roster/player_staff_f02/S.png",
+        "SW": "site/media/roster/player_staff_f02/SW.png",
+        "W": "site/media/roster/player_staff_f02/W.png",
+        "NW": "site/media/roster/player_staff_f02/NW.png",
+        "N": "site/media/roster/player_staff_f02/N.png",
+        "NE": "site/media/roster/player_staff_f02/NE.png",
+        "E": "site/media/roster/player_staff_f02/E.png",
+        "SE": "site/media/roster/player_staff_f02/SE.png"
+      }
+    },
+    {
+      "id": "player_staff_f03",
+      "name": "Tuyết Linh",
+      "role": "staff",
+      "gender": "female",
+      "images": {
+        "S": "site/media/roster/player_staff_f03/S.png",
+        "SW": "site/media/roster/player_staff_f03/SW.png",
+        "W": "site/media/roster/player_staff_f03/W.png",
+        "NW": "site/media/roster/player_staff_f03/NW.png",
+        "N": "site/media/roster/player_staff_f03/N.png",
+        "NE": "site/media/roster/player_staff_f03/NE.png",
+        "E": "site/media/roster/player_staff_f03/E.png",
+        "SE": "site/media/roster/player_staff_f03/SE.png"
+      }
+    },
+    {
+      "id": "player_bow_m01",
+      "name": "Lâm Tiễn",
+      "role": "bow",
+      "gender": "male",
+      "images": {
+        "S": "site/media/roster/player_bow_m01/S.png",
+        "SW": "site/media/roster/player_bow_m01/SW.png",
+        "W": "site/media/roster/player_bow_m01/W.png",
+        "NW": "site/media/roster/player_bow_m01/NW.png",
+        "N": "site/media/roster/player_bow_m01/N.png",
+        "NE": "site/media/roster/player_bow_m01/NE.png",
+        "E": "site/media/roster/player_bow_m01/E.png",
+        "SE": "site/media/roster/player_bow_m01/SE.png"
+      }
+    },
+    {
+      "id": "player_bow_m02",
+      "name": "Dạ Tiễn",
+      "role": "bow",
+      "gender": "male",
+      "images": {
+        "S": "site/media/roster/player_bow_m02/S.png",
+        "SW": "site/media/roster/player_bow_m02/SW.png",
+        "W": "site/media/roster/player_bow_m02/W.png",
+        "NW": "site/media/roster/player_bow_m02/NW.png",
+        "N": "site/media/roster/player_bow_m02/N.png",
+        "NE": "site/media/roster/player_bow_m02/NE.png",
+        "E": "site/media/roster/player_bow_m02/E.png",
+        "SE": "site/media/roster/player_bow_m02/SE.png"
+      }
+    },
+    {
+      "id": "player_bow_m03",
+      "name": "Sa Ưng",
+      "role": "bow",
+      "gender": "male",
+      "images": {
+        "S": "site/media/roster/player_bow_m03/S.png",
+        "SW": "site/media/roster/player_bow_m03/SW.png",
+        "W": "site/media/roster/player_bow_m03/W.png",
+        "NW": "site/media/roster/player_bow_m03/NW.png",
+        "N": "site/media/roster/player_bow_m03/N.png",
+        "NE": "site/media/roster/player_bow_m03/NE.png",
+        "E": "site/media/roster/player_bow_m03/E.png",
+        "SE": "site/media/roster/player_bow_m03/SE.png"
+      }
+    },
+    {
+      "id": "player_bow_f01",
+      "name": "Hoa Tiễn",
+      "role": "bow",
+      "gender": "female",
+      "images": {
+        "S": "site/media/roster/player_bow_f01/S.png",
+        "SW": "site/media/roster/player_bow_f01/SW.png",
+        "W": "site/media/roster/player_bow_f01/W.png",
+        "NW": "site/media/roster/player_bow_f01/NW.png",
+        "N": "site/media/roster/player_bow_f01/N.png",
+        "NE": "site/media/roster/player_bow_f01/NE.png",
+        "E": "site/media/roster/player_bow_f01/E.png",
+        "SE": "site/media/roster/player_bow_f01/SE.png"
+      }
+    },
+    {
+      "id": "player_bow_f02",
+      "name": "Tử Tinh",
+      "role": "bow",
+      "gender": "female",
+      "images": {
+        "S": "site/media/roster/player_bow_f02/S.png",
+        "SW": "site/media/roster/player_bow_f02/SW.png",
+        "W": "site/media/roster/player_bow_f02/W.png",
+        "NW": "site/media/roster/player_bow_f02/NW.png",
+        "N": "site/media/roster/player_bow_f02/N.png",
+        "NE": "site/media/roster/player_bow_f02/NE.png",
+        "E": "site/media/roster/player_bow_f02/E.png",
+        "SE": "site/media/roster/player_bow_f02/SE.png"
+      }
+    },
+    {
+      "id": "player_bow_f03",
+      "name": "Kim Yến",
+      "role": "bow",
+      "gender": "female",
+      "images": {
+        "S": "site/media/roster/player_bow_f03/S.png",
+        "SW": "site/media/roster/player_bow_f03/SW.png",
+        "W": "site/media/roster/player_bow_f03/W.png",
+        "NW": "site/media/roster/player_bow_f03/NW.png",
+        "N": "site/media/roster/player_bow_f03/N.png",
+        "NE": "site/media/roster/player_bow_f03/NE.png",
+        "E": "site/media/roster/player_bow_f03/E.png",
+        "SE": "site/media/roster/player_bow_f03/SE.png"
+      }
+    },
+    {
+      "id": "player_spear_m01",
+      "name": "Hồng Thương",
+      "role": "spear",
+      "gender": "male",
+      "images": {
+        "S": "site/media/roster/player_spear_m01/S.png",
+        "SW": "site/media/roster/player_spear_m01/SW.png",
+        "W": "site/media/roster/player_spear_m01/W.png",
+        "NW": "site/media/roster/player_spear_m01/NW.png",
+        "N": "site/media/roster/player_spear_m01/N.png",
+        "NE": "site/media/roster/player_spear_m01/NE.png",
+        "E": "site/media/roster/player_spear_m01/E.png",
+        "SE": "site/media/roster/player_spear_m01/SE.png"
+      }
+    },
+    {
+      "id": "player_spear_m02",
+      "name": "Bích Kích",
+      "role": "spear",
+      "gender": "male",
+      "images": {
+        "S": "site/media/roster/player_spear_m02/S.png",
+        "SW": "site/media/roster/player_spear_m02/SW.png",
+        "W": "site/media/roster/player_spear_m02/W.png",
+        "NW": "site/media/roster/player_spear_m02/NW.png",
+        "N": "site/media/roster/player_spear_m02/N.png",
+        "NE": "site/media/roster/player_spear_m02/NE.png",
+        "E": "site/media/roster/player_spear_m02/E.png",
+        "SE": "site/media/roster/player_spear_m02/SE.png"
+      }
+    },
+    {
+      "id": "player_spear_m03",
+      "name": "Viêm Thương",
+      "role": "spear",
+      "gender": "male",
+      "images": {
+        "S": "site/media/roster/player_spear_m03/S.png",
+        "SW": "site/media/roster/player_spear_m03/SW.png",
+        "W": "site/media/roster/player_spear_m03/W.png",
+        "NW": "site/media/roster/player_spear_m03/NW.png",
+        "N": "site/media/roster/player_spear_m03/N.png",
+        "NE": "site/media/roster/player_spear_m03/NE.png",
+        "E": "site/media/roster/player_spear_m03/E.png",
+        "SE": "site/media/roster/player_spear_m03/SE.png"
+      }
+    },
+    {
+      "id": "player_spear_f01",
+      "name": "Lam Thương",
+      "role": "spear",
+      "gender": "female",
+      "images": {
+        "S": "site/media/roster/player_spear_f01/S.png",
+        "SW": "site/media/roster/player_spear_f01/SW.png",
+        "W": "site/media/roster/player_spear_f01/W.png",
+        "NW": "site/media/roster/player_spear_f01/NW.png",
+        "N": "site/media/roster/player_spear_f01/N.png",
+        "NE": "site/media/roster/player_spear_f01/NE.png",
+        "E": "site/media/roster/player_spear_f01/E.png",
+        "SE": "site/media/roster/player_spear_f01/SE.png"
+      }
+    },
+    {
+      "id": "player_spear_f02",
+      "name": "Ngân Nguyệt",
+      "role": "spear",
+      "gender": "female",
+      "images": {
+        "S": "site/media/roster/player_spear_f02/S.png",
+        "SW": "site/media/roster/player_spear_f02/SW.png",
+        "W": "site/media/roster/player_spear_f02/W.png",
+        "NW": "site/media/roster/player_spear_f02/NW.png",
+        "N": "site/media/roster/player_spear_f02/N.png",
+        "NE": "site/media/roster/player_spear_f02/NE.png",
+        "E": "site/media/roster/player_spear_f02/E.png",
+        "SE": "site/media/roster/player_spear_f02/SE.png"
+      }
+    },
+    {
+      "id": "player_spear_f03",
+      "name": "Mộc Lan",
+      "role": "spear",
+      "gender": "female",
+      "images": {
+        "S": "site/media/roster/player_spear_f03/S.png",
+        "SW": "site/media/roster/player_spear_f03/SW.png",
+        "W": "site/media/roster/player_spear_f03/W.png",
+        "NW": "site/media/roster/player_spear_f03/NW.png",
+        "N": "site/media/roster/player_spear_f03/N.png",
+        "NE": "site/media/roster/player_spear_f03/NE.png",
+        "E": "site/media/roster/player_spear_f03/E.png",
+        "SE": "site/media/roster/player_spear_f03/SE.png"
+      }
+    },
+    {
+      "id": "player_shield_m01",
+      "name": "Thiết Vệ",
+      "role": "shield",
+      "gender": "male",
+      "images": {
+        "S": "site/media/roster/player_shield_m01/S.png",
+        "SW": "site/media/roster/player_shield_m01/SW.png",
+        "W": "site/media/roster/player_shield_m01/W.png",
+        "NW": "site/media/roster/player_shield_m01/NW.png",
+        "N": "site/media/roster/player_shield_m01/N.png",
+        "NE": "site/media/roster/player_shield_m01/NE.png",
+        "E": "site/media/roster/player_shield_m01/E.png",
+        "SE": "site/media/roster/player_shield_m01/SE.png"
+      }
+    },
+    {
+      "id": "player_shield_m02",
+      "name": "Cổ Mộc",
+      "role": "shield",
+      "gender": "male",
+      "images": {
+        "S": "site/media/roster/player_shield_m02/S.png",
+        "SW": "site/media/roster/player_shield_m02/SW.png",
+        "W": "site/media/roster/player_shield_m02/W.png",
+        "NW": "site/media/roster/player_shield_m02/NW.png",
+        "N": "site/media/roster/player_shield_m02/N.png",
+        "NE": "site/media/roster/player_shield_m02/NE.png",
+        "E": "site/media/roster/player_shield_m02/E.png",
+        "SE": "site/media/roster/player_shield_m02/SE.png"
+      }
+    },
+    {
+      "id": "player_shield_m03",
+      "name": "Huyết Thành",
+      "role": "shield",
+      "gender": "male",
+      "images": {
+        "S": "site/media/roster/player_shield_m03/S.png",
+        "SW": "site/media/roster/player_shield_m03/SW.png",
+        "W": "site/media/roster/player_shield_m03/W.png",
+        "NW": "site/media/roster/player_shield_m03/NW.png",
+        "N": "site/media/roster/player_shield_m03/N.png",
+        "NE": "site/media/roster/player_shield_m03/NE.png",
+        "E": "site/media/roster/player_shield_m03/E.png",
+        "SE": "site/media/roster/player_shield_m03/SE.png"
+      }
+    },
+    {
+      "id": "player_shield_f01",
+      "name": "Băng Vệ",
+      "role": "shield",
+      "gender": "female",
+      "images": {
+        "S": "site/media/roster/player_shield_f01/S.png",
+        "SW": "site/media/roster/player_shield_f01/SW.png",
+        "W": "site/media/roster/player_shield_f01/W.png",
+        "NW": "site/media/roster/player_shield_f01/NW.png",
+        "N": "site/media/roster/player_shield_f01/N.png",
+        "NE": "site/media/roster/player_shield_f01/NE.png",
+        "E": "site/media/roster/player_shield_f01/E.png",
+        "SE": "site/media/roster/player_shield_f01/SE.png"
+      }
+    },
+    {
+      "id": "player_shield_f02",
+      "name": "Nhật Quang",
+      "role": "shield",
+      "gender": "female",
+      "images": {
+        "S": "site/media/roster/player_shield_f02/S.png",
+        "SW": "site/media/roster/player_shield_f02/SW.png",
+        "W": "site/media/roster/player_shield_f02/W.png",
+        "NW": "site/media/roster/player_shield_f02/NW.png",
+        "N": "site/media/roster/player_shield_f02/N.png",
+        "NE": "site/media/roster/player_shield_f02/NE.png",
+        "E": "site/media/roster/player_shield_f02/E.png",
+        "SE": "site/media/roster/player_shield_f02/SE.png"
+      }
+    },
+    {
+      "id": "player_shield_f03",
+      "name": "Tử Vệ",
+      "role": "shield",
+      "gender": "female",
+      "images": {
+        "S": "site/media/roster/player_shield_f03/S.png",
+        "SW": "site/media/roster/player_shield_f03/SW.png",
+        "W": "site/media/roster/player_shield_f03/W.png",
+        "NW": "site/media/roster/player_shield_f03/NW.png",
+        "N": "site/media/roster/player_shield_f03/N.png",
+        "NE": "site/media/roster/player_shield_f03/NE.png",
+        "E": "site/media/roster/player_shield_f03/E.png",
+        "SE": "site/media/roster/player_shield_f03/SE.png"
+      }
+    }
+  ]
+}

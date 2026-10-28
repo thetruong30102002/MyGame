@@ -1,0 +1,111 @@
+{
+  "date": "2026-10-27",
+  "mode": "built-in-imagegen",
+  "headDesignsPreserved": 30,
+  "headClarityCandidates": 2,
+  "headClarityDirections": 16,
+  "genderBodyCandidates": 2,
+  "keyposesPerGender": 4,
+  "fullSMotionSources": 12,
+  "actualWalkFramesPerGender": 8,
+  "actualAttackFramesPerGender": 15,
+  "fullSMotionApproved": false,
+  "sourceIssues": [
+    "Một số nguồn đổi chiều dài thân/chi tiết đồ so với đứng, rõ nhất nữ walk-1. Không chữa bằng co/phóng frame.",
+    "Mặt/neo nhận tự động nhầm màu tay áo và găng; các pose attack03/04/07 còn lỗi lớp che. Không publish chuỗi hoặc import Unity."
+  ],
+  "approvedForProduction": false,
+  "gameBuildChanged": false,
+  "dbChanged": false,
+  "sourceFiles": [
+    {
+      "file": "packages/asset-pipeline/sources/player-rig-v2/body-female/attack-0-source.png",
+      "sha256": "10ec2d5bced7387cfd51f39322bd6ecfc2c641140e962c43882b0d97eacb2a82"
+    },
+    {
+      "file": "packages/asset-pipeline/sources/player-rig-v2/body-female/attack-1-source.png",
+      "sha256": "f52d8acd2d90716c90d293558dac6a110b939745a51976309053fe9a4f39acf8"
+    },
+    {
+      "file": "packages/asset-pipeline/sources/player-rig-v2/body-female/attack-2-source.png",
+      "sha256": "f49a86449fc6de819e3988824c838f8ccee0d7c704e14cb98fc905e0a02c6a8e"
+    },
+    {
+      "file": "packages/asset-pipeline/sources/player-rig-v2/body-female/attack-3-source.png",
+      "sha256": "40ec833c4a81a0a220da60c420574dd0b8813eef0864268ee1ec7ad6ea4a72f8"
+    },
+    {
+      "file": "packages/asset-pipeline/sources/player-rig-v2/body-female/pilot-source-r1.png",
+      "sha256": "96372c903707a782f7425778857121893446a49c1466cd1f2728ada67c80f212"
+    },
+    {
+      "file": "packages/asset-pipeline/sources/player-rig-v2/body-female/pilot-source-r2.png",
+      "sha256": "01208053763bee7ea16d20e2021da2c08afb8272ab959b8da4306d2d2613cc79"
+    },
+    {
+      "file": "packages/asset-pipeline/sources/player-rig-v2/body-female/walk-0-source.png",
+      "sha256": "be4a1718a87e649c94cd3b74f2d67b247708d2a5c623e507a917fa09f0d5f4d0"
+    },
+    {
+      "file": "packages/asset-pipeline/sources/player-rig-v2/body-female/walk-1-source.png",
+      "sha256": "c1b88940cb7fc429540ec7c88271e805554f7f44977e2bd2ae592053903c5cd7"
+    },
+    {
+      "file": "packages/asset-pipeline/sources/player-rig-v2/body-male/attack-0-source.png",
+      "sha256": "3d0b094e62d9298adcfac0a25321f81664442e456f6cf72fb5e6ee9ee362efa2"
+    },
+    {
+      "file": "packages/asset-pipeline/sources/player-rig-v2/body-male/attack-1-source.png",
+      "sha256": "366f2720b4ef44263627f62cd5fe66f015946668e59febd0219520e4c5d37e4d"
+    },
+    {
+      "file": "packages/asset-pipeline/sources/player-rig-v2/body-male/attack-2-source.png",
+      "sha256": "e97d8bad6637da4162b051e79f9980b66aa00f4fa67710f55c595c6d3711b150"
+    },
+    {
+      "file": "packages/asset-pipeline/sources/player-rig-v2/body-male/attack-3-source.png",
+      "sha256": "0b98384970658a25015e61b8760af3254c1c5f7f5050f8f73c9bbb8ac90a084e"
+    },
+    {
+      "file": "packages/asset-pipeline/sources/player-rig-v2/body-male/pilot-source-r1.png",
+      "sha256": "a59b543a197843b8e8ffca377208c1ed7c2ed9e2b6bd238543ddb1f591d6c7d6"
+    },
+    {
+      "file": "packages/asset-pipeline/sources/player-rig-v2/body-male/pilot-source-r2.png",
+      "sha256": "5d7d3768ec41fa1c1b3bbd2780001bdd45e228d1a1fd93384018512ed8ca0334"
+    },
+    {
+      "file": "packages/asset-pipeline/sources/player-rig-v2/body-male/walk-0-source.png",
+      "sha256": "8d6b3a425a821f2e6a71b0c848cf48a8dc69fde23743f68863e1805f113bebb3"
+    },
+    {
+      "file": "packages/asset-pipeline/sources/player-rig-v2/body-male/walk-1-source.png",
+      "sha256": "c029c5f152697a24c4b5d810c0c00908e8c880462d30150b80504e04ca966ef6"
+    },
+    {
+      "file": "packages/asset-pipeline/sources/player-rig-v2/heads-clarity/female-eight-source.png",
+      "sha256": "cddc45ac33c90404f6775cac8d9b85e1fd2129f54a938b0833c693eaade31501"
+    },
+    {
+      "file": "packages/asset-pipeline/sources/player-rig-v2/heads-clarity/female-source.png",
+      "sha256": "c7c786a26cd5b18722ce892e10a4b1bd43bfc56f502e2ca0004173434cb327f7"
+    },
+    {
+      "file": "packages/asset-pipeline/sources/player-rig-v2/heads-clarity/male-eight-source.png",
+      "sha256": "b2ce57edd5c1da076eaabe0884a1ecf69f5394f3130e2cfe3ff5030a2befe65c"
+    },
+    {
+      "file": "packages/asset-pipeline/sources/player-rig-v2/heads-clarity/male-source.png",
+      "sha256": "325f2e1514b56b247265b063c945f55d7bceff2585f1281d73505a58907dd5c7"
+    }
+  ],
+  "prompts": [
+    "sharp8-generation.json",
+    "body-tall-prompts.json",
+    "heads-clarity/male-prompt.json",
+    "heads-clarity/female-prompt.json",
+    "body-male/*-generation.json",
+    "body-female/*-generation.json"
+  ],
+  "preview": "https://admin.tail024813.ts.net/game/site/media/weapon-proof-v2/rig-v2/index.html"
+}

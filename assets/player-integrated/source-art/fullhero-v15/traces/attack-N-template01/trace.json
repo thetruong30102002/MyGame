@@ -1,0 +1,271 @@
+{
+  "version": 15,
+  "source": "attack-N-template01.png",
+  "sourceSha256": "cec4fb0d05b46ff2f17d957af8409d2ac2ede5af15d1f19cbe57dedd61c38fdc",
+  "state": "sword",
+  "direction": "N",
+  "kind": "attack",
+  "count": 12,
+  "columns": 4,
+  "sourceSize": [
+    1448,
+    1086
+  ],
+  "neutralFrames": [
+    0,
+    11
+  ],
+  "measurements": [
+    {
+      "frame": 0,
+      "row": 0,
+      "column": 0,
+      "bounds": [
+        129,
+        141,
+        294,
+        328
+      ],
+      "area": 14861,
+      "crown": 142,
+      "floor": 324,
+      "height": 183,
+      "rootX": 179.0,
+      "hairBounds": [
+        147,
+        142,
+        213,
+        200
+      ],
+      "headSilhouetteBounds": [
+        145,
+        142,
+        216,
+        203
+      ]
+    },
+    {
+      "frame": 1,
+      "row": 0,
+      "column": 1,
+      "bounds": [
+        499,
+        141,
+        585,
+        335
+      ],
+      "area": 12449,
+      "crown": 142,
+      "floor": 334,
+      "height": 193,
+      "rootX": 179.5
+    },
+    {
+      "frame": 2,
+      "row": 0,
+      "column": 2,
+      "bounds": [
+        855,
+        84,
+        955,
+        325
+      ],
+      "area": 13313,
+      "crown": 84,
+      "floor": 324,
+      "height": 241,
+      "rootX": 179.5
+    },
+    {
+      "frame": 3,
+      "row": 0,
+      "column": 3,
+      "bounds": [
+        1217,
+        52,
+        1316,
+        325
+      ],
+      "area": 14911,
+      "crown": 52,
+      "floor": 324,
+      "height": 273,
+      "rootX": 179.0
+    },
+    {
+      "frame": 4,
+      "row": 1,
+      "column": 0,
+      "bounds": [
+        134,
+        392,
+        228,
+        686
+      ],
+      "area": 15949,
+      "crown": 392,
+      "floor": 684,
+      "height": 293,
+      "rootX": 179.5
+    },
+    {
+      "frame": 5,
+      "row": 1,
+      "column": 1,
+      "bounds": [
+        494,
+        440,
+        599,
+        689
+      ],
+      "area": 15768,
+      "crown": 443,
+      "floor": 688,
+      "height": 246,
+      "rootX": 182.0
+    },
+    {
+      "frame": 6,
+      "row": 1,
+      "column": 2,
+      "bounds": [
+        804,
+        443,
+        955,
+        689
+      ],
+      "area": 16061,
+      "crown": 504,
+      "floor": 688,
+      "height": 185,
+      "rootX": 173.5
+    },
+    {
+      "frame": 7,
+      "row": 1,
+      "column": 3,
+      "bounds": [
+        1190,
+        514,
+        1388,
+        693
+      ],
+      "area": 15082,
+      "crown": 515,
+      "floor": 687,
+      "height": 173,
+      "rootX": 168.0
+    },
+    {
+      "frame": 8,
+      "row": 2,
+      "column": 0,
+      "bounds": [
+        121,
+        861,
+        291,
+        1051
+      ],
+      "area": 15304,
+      "crown": 861,
+      "floor": 1049,
+      "height": 189,
+      "rootX": 172.5
+    },
+    {
+      "frame": 9,
+      "row": 2,
+      "column": 1,
+      "bounds": [
+        496,
+        814,
+        651,
+        1051
+      ],
+      "area": 15562,
+      "crown": 862,
+      "floor": 1049,
+      "height": 188,
+      "rootX": 182.0
+    },
+    {
+      "frame": 10,
+      "row": 2,
+      "column": 2,
+      "bounds": [
+        855,
+        777,
+        955,
+        1047
+      ],
+      "area": 14315,
+      "crown": 778,
+      "floor": 1046,
+      "height": 269,
+      "rootX": 179.5
+    },
+    {
+      "frame": 11,
+      "row": 2,
+      "column": 3,
+      "bounds": [
+        1216,
+        861,
+        1381,
+        1049
+      ],
+      "area": 15139,
+      "crown": 861,
+      "floor": 1046,
+      "height": 186,
+      "rootX": 179.0,
+      "hairBounds": [
+        1233,
+        862,
+        1301,
+        920
+      ],
+      "headSilhouetteBounds": [
+        1231,
+        861,
+        1303,
+        922
+      ]
+    }
+  ],
+  "registration": {
+    "scale": 0.3956639566395664,
+    "referenceBodyHeight": 184.5,
+    "rootX": 179.0,
+    "rowFloor": [
+      324.0,
+      687.5,
+      1047.5
+    ],
+    "columnRootX": [
+      180.0,
+      542.3333333333333,
+      904.6666666666666,
+      1267.0
+    ],
+    "sourceGridHeadOrigin": 180.0,
+    "sourceGridHeadStep": 362.3333333333333,
+    "idleHairBounds": [
+      59,
+      55,
+      85,
+      78
+    ],
+    "scaleMode": "neutral-body",
+    "idleHeadSilhouetteBounds": [
+      57,
+      55,
+      86,
+      79
+    ],
+    "sourceMedianHeadWidth": 71.5,
+    "targetIdleRasterHeight": 74
+  },
+  "artApproved": false,
+  "registrationApproved": false
+}

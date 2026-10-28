@@ -1,0 +1,346 @@
+{
+  "version": 15,
+  "source": "walk-staff-S-template01.png",
+  "sourceSha256": "c7b26ccad4ce07e28f853ac5861a92be192b276916ede0a618281e5bdf1e79da",
+  "state": "staff",
+  "direction": "S",
+  "kind": "walk",
+  "count": 8,
+  "columns": 4,
+  "sourceSize": [
+    1774,
+    887
+  ],
+  "neutralFrames": [
+    0,
+    7
+  ],
+  "measurements": [
+    {
+      "frame": 0,
+      "row": 0,
+      "column": 0,
+      "bounds": [
+        141,
+        144,
+        300,
+        420
+      ],
+      "area": 29814,
+      "crown": 145,
+      "floor": 418,
+      "height": 274,
+      "rootX": 223.0,
+      "hairBounds": [
+        199,
+        145,
+        282,
+        214
+      ],
+      "headSilhouetteBounds": [
+        142,
+        145,
+        292,
+        236
+      ]
+    },
+    {
+      "frame": 1,
+      "row": 0,
+      "column": 1,
+      "bounds": [
+        582,
+        144,
+        739,
+        420
+      ],
+      "area": 29760,
+      "crown": 145,
+      "floor": 418,
+      "height": 274,
+      "rootX": 250.0,
+      "hairBounds": [
+        641,
+        149,
+        726,
+        214
+      ],
+      "headSilhouetteBounds": [
+        582,
+        145,
+        735,
+        236
+      ]
+    },
+    {
+      "frame": 2,
+      "row": 0,
+      "column": 2,
+      "bounds": [
+        1025,
+        144,
+        1186,
+        420
+      ],
+      "area": 29225,
+      "crown": 145,
+      "floor": 418,
+      "height": 274,
+      "rootX": 224.5,
+      "hairBounds": [
+        1084,
+        145,
+        1168,
+        214
+      ],
+      "headSilhouetteBounds": [
+        1026,
+        145,
+        1178,
+        236
+      ]
+    },
+    {
+      "frame": 3,
+      "row": 0,
+      "column": 3,
+      "bounds": [
+        1469,
+        144,
+        1629,
+        420
+      ],
+      "area": 29203,
+      "crown": 145,
+      "floor": 418,
+      "height": 274,
+      "rootX": 222.5,
+      "hairBounds": [
+        1528,
+        145,
+        1613,
+        226
+      ],
+      "headSilhouetteBounds": [
+        1470,
+        145,
+        1622,
+        236
+      ]
+    },
+    {
+      "frame": 4,
+      "row": 1,
+      "column": 0,
+      "bounds": [
+        141,
+        569,
+        300,
+        844
+      ],
+      "area": 29733,
+      "crown": 569,
+      "floor": 843,
+      "height": 275,
+      "rootX": 225.0,
+      "hairBounds": [
+        199,
+        569,
+        283,
+        641
+      ],
+      "headSilhouetteBounds": [
+        141,
+        569,
+        292,
+        660
+      ]
+    },
+    {
+      "frame": 5,
+      "row": 1,
+      "column": 1,
+      "bounds": [
+        582,
+        569,
+        742,
+        844
+      ],
+      "area": 29750,
+      "crown": 569,
+      "floor": 843,
+      "height": 275,
+      "rootX": 222.0,
+      "hairBounds": [
+        641,
+        570,
+        726,
+        639
+      ],
+      "headSilhouetteBounds": [
+        582,
+        569,
+        734,
+        660
+      ]
+    },
+    {
+      "frame": 6,
+      "row": 1,
+      "column": 2,
+      "bounds": [
+        1026,
+        569,
+        1187,
+        844
+      ],
+      "area": 29308,
+      "crown": 569,
+      "floor": 843,
+      "height": 275,
+      "rootX": 242.5,
+      "hairBounds": [
+        1084,
+        569,
+        1169,
+        640
+      ],
+      "headSilhouetteBounds": [
+        1026,
+        569,
+        1178,
+        660
+      ]
+    },
+    {
+      "frame": 7,
+      "row": 1,
+      "column": 3,
+      "bounds": [
+        1470,
+        569,
+        1631,
+        844
+      ],
+      "area": 29546,
+      "crown": 569,
+      "floor": 843,
+      "height": 275,
+      "rootX": 226.5,
+      "hairBounds": [
+        1529,
+        569,
+        1616,
+        640
+      ],
+      "headSilhouetteBounds": [
+        1471,
+        569,
+        1622,
+        660
+      ]
+    }
+  ],
+  "registration": {
+    "scale": 0.27517797510625386,
+    "referenceBodyHeight": 274.5,
+    "rootX": 224.75,
+    "rowFloor": [
+      418.0,
+      843.0
+    ],
+    "columnRootX": [
+      210.10467711718462,
+      653.6046771171847,
+      1097.1046771171846,
+      1540.6046771171846
+    ],
+    "sourceGridHeadOrigin": 240.25,
+    "sourceGridHeadStep": 443.5,
+    "idleHairBounds": [
+      68,
+      52,
+      93,
+      76
+    ],
+    "scaleMode": "multi-profile-proposal-unreviewed",
+    "idleHeadSilhouetteBounds": [
+      52,
+      52,
+      94,
+      76
+    ],
+    "sourceMedianHeadWidth": 152.0,
+    "targetRootY": 128
+  },
+  "artApproved": true,
+  "registrationApproved": true,
+  "profileFit": {
+    "reference": "exact saved baseline native idle",
+    "targetSole": 128,
+    "crownProxy": 52,
+    "regions": [
+      {
+        "name": "head",
+        "bounds": [
+          67,
+          50,
+          94,
+          80
+        ],
+        "weight": 2.0
+      },
+      {
+        "name": "neck-torso",
+        "bounds": [
+          70,
+          77,
+          90,
+          107
+        ],
+        "weight": 2.0
+      },
+      {
+        "name": "shoulders",
+        "bounds": [
+          62,
+          78,
+          98,
+          91
+        ],
+        "weight": 1.0
+      },
+      {
+        "name": "belt",
+        "bounds": [
+          67,
+          96,
+          93,
+          108
+        ],
+        "weight": 1.5
+      }
+    ],
+    "contactPhases": [
+      0,
+      4
+    ],
+    "score": 0.07084469496762107,
+    "regionError": {
+      "head": 0.06843318809005083,
+      "neck-torso": 0.07052614379084968,
+      "shoulders": 0.08166687615217028,
+      "belt": 0.06726998491704375
+    },
+    "uniformScale": 0.27517797510625386,
+    "uniformNativeDx": -0.5,
+    "warning": "Proposal only. Inspect crown/chin/shoulder/belt/knee/sole and gait; reject incompatible source anatomy."
+  },
+  "rootReview": {
+    "reviewer": "root",
+    "scope": "Native complete-character geometry, proportions, detail and gait; final palette and Unity transitions pending",
+    "reviewCard": "review-profiles/staff-S-3x.png",
+    "reviewCardSha256": "9202adf95dc2ab10568ab42ebc62c973020c3c86dae0da6f7b0b72838d52ca7d",
+    "sourceSha256": "c7b26ccad4ce07e28f853ac5861a92be192b276916ede0a618281e5bdf1e79da"
+  }
+}

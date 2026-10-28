@@ -1,0 +1,11 @@
+{
+  "status": "deferred_after_characters",
+  "provider": "imagegen",
+  "attemptedAt": "2026-10-26T11:23:56+07:00",
+  "retryAt": "2026-10-26T18:01:26+07:00",
+  "imageExists": false,
+  "artReviewed": false,
+  "note": "Imagegen đã sinh được nguồn nhân vật ngày 26/10. Nhà trọ chưa render, xếp sau nhân vật và mẫu vũ khí cơ bản theo ưu tiên mới; chưa có image.png/asset.json đã duyệt.",
+  "previousError": "429 usage_limit_reached",
+  "providerAvailableAgain": true
+}

@@ -1,4 +1,6 @@
-# Kế hoạch: Nhà riêng — xây nhà, trồng cây, chăn nuôi (thêm 08/10/2026)
+# Kế hoạch: Khuôn viên riêng, nhà cửa, sản xuất và hồ câu cùng bạn bè
+
+> **Bổ sung đã chốt 26/10/2026:** mỗi user có **một khuôn viên riêng**, gồm nhà ở và không gian trồng trọt; thu hoạch thực phẩm, nguyên liệu và nhiên liệu để **chế tạo vật phẩm tiêu hao, nấu ăn**. Chủ nhà được chỉnh sửa nhà cửa, sắp xếp và trang trí; **bạn bè vào tham quan**. Thêm **một map hồ cá dùng chung để câu cá cùng bạn bè**, ngoài khuôn viên riêng. Đây là kế hoạch phát triển, chưa triển khai gameplay.
 
 Chủ dự án 08/10/2026: thêm **xây nhà riêng, trồng cây, chăn nuôi, …** vào kế hoạch. Đây là vòng chơi THỨ HAI bên cạnh đánh
 quái: lúc không cày thì về nhà chăm vườn, và sản phẩm nhà làm ra quay lại phục vụ đánh quái (đồ ăn buff, bình máu, nguyên
@@ -13,6 +15,8 @@ liệu rèn) + bán lấy xu. Nối với 10 vùng (`docs/ke-hoach-the-gioi.md`)
 
 **CHỐT 08/10/2026 (chủ dự án): mỗi người một map nhà riêng.** "Nhà riêng chỉ user nào tự vào được user nhà đó, có thể có tính
 năng xem nhà người khác chứ không thao tác được."
+
+**Làm rõ 26/10/2026:** khuôn viên gắn với **tài khoản user**, mỗi user một khuôn viên; đăng nhập lại hoặc thay ngoại hình / class không tạo thêm khuôn viên. Nhà, vườn, công trình và cách bày trí đều lưu lại trong khuôn viên đó.
 
 - **Chủ nhà**: vào bằng cổng "Về nhà" ở trạm vùng 1 (Thistlewood) hoặc nút "Về nhà" trên HUD (có thời gian hồi để không thành
   cách thoát trận). Chỉ chủ nhà được THAO TÁC: xây, đặt / cất đồ, gieo, tưới, thu, cho ăn, mở kho.
@@ -31,6 +35,7 @@ năng xem nhà người khác chứ không thao tác được."
 
 ### 2.1 Xây dựng + trang trí
 
+- **Chỉnh sửa nhà cửa (chốt 26/10):** chủ nhà có chế độ chỉnh nhà / khuôn viên để bố trí công trình, sắp xếp nội thất và đồ trang trí. Phác thảo thao tác: chọn → xem trước vị trí / hướng → xác nhận đặt; có thể di chuyển, xoay hoặc cất món đã sở hữu. Không mất món khi chỉ đổi vị trí.
 - Lưới đặt đồ (theo ô 32px như map): chọn món trong "túi đồ nội thất", đặt / xoay / cất. Không đặt chồng, không chặn lối vào nhà.
 - Công trình chức năng: **nhà chính** (cấp nhà), **kho** (thêm ô chứa ngoài túi đồ), **chuồng** (gà / bò / cừu…), **bếp**,
   **lò rèn nhỏ**, **khung cửi**, **giếng** (tưới cả vườn), **bù nhìn** (tăng sản lượng).
@@ -55,14 +60,63 @@ năng xem nhà người khác chứ không thao tác được."
 - Con vật đi lại trong chuồng (AI đi lang thang như NPC có sẵn).
 - Về sau: **thú cưng / thú cưỡi** từ chăn nuôi (đi theo người chơi; thú cưỡi tăng tốc chạy ngoài trận).
 
-### 2.4 Nghề phụ dùng sản phẩm nhà (gợi ý — "…" của chủ dự án)
+### 2.4 Sản xuất: thực phẩm, nhiên liệu, chế tạo và nấu ăn
+
+**Chốt 26/10/2026:** sản phẩm từ trồng trọt / thu hoạch phục vụ nấu ăn và chế tạo vật phẩm tiêu hao. Cần có cả nhóm **thực phẩm, nguyên liệu chế tạo và nhiên liệu**. Ví dụ nguyên liệu / công thức dưới đây là phác thảo, chưa chốt sản lượng, thời gian và giá thành.
+
+Vòng chơi: **trồng / thu thập → thu hoạch → cất kho → chế biến nguyên liệu / nhiên liệu → nấu ăn hoặc chế tạo → dùng vật phẩm trong chuyến phiêu lưu**. Cá câu được nối vào cùng kho nguyên liệu và hệ công thức.
+
+| Nhóm sản phẩm | Ví dụ đề xuất | Công dụng |
+|---|---|---|
+| Thực phẩm | Rau, củ, ngũ cốc, trái cây; cá từ hồ câu | Nấu món ăn, chế biến thực phẩm |
+| Thảo dược / vật liệu | Cây thuốc, sợi thực vật, hạt giống | Pha thuốc, chế tạo đồ tiêu hao, tái gieo trồng |
+| Nhiên liệu | Gỗ / củi từ cây lấy gỗ; phụ phẩm khô; than chế biến từ gỗ | Cấp nhiên liệu cho công thức cần bếp / lò |
+
+Nhiên liệu là đầu vào tiêu hao của những công thức có yêu cầu đốt; không mặc nhiên cho mọi món chế tạo đều cần nhiên liệu. Phải phân biệt nguyên liệu trực tiếp thu hoạch với sản phẩm cần chế biến tiếp, như gỗ thành than.
 
 | Nghề | Đầu vào | Đầu ra |
 |---|---|---|
-| **Nấu ăn** (bếp) | lúa, rau, trứng, sữa, thịt từ quái, cá | món ăn buff tạm (máu tối đa, hồi MP, kháng hệ của vùng sắp vào) |
-| **Câu cá** (hồ trong nhà + sông/biển các vùng) | cần câu, mồi | cá theo vùng → nấu ăn / bán |
-| **Pha chế** | thảo dược (vườn + hái ngoài map — đã có Cỏ thuốc, Nấm Ánh Lam) | bình máu / MP, thuốc kháng hệ |
+| **Nấu ăn** (bếp) | Nông sản, cá, sản phẩm chăn nuôi; nhiên liệu theo công thức | Món ăn tiêu hao, hồi phục / buff tạm; thông số chờ cân |
+| **Câu cá cùng bạn bè** (map hồ cá chung, mục 2.5) | Cần câu, mồi theo luật được duyệt sau | Cá → kho nguyên liệu → nấu ăn / công thức; bán cá theo luật kinh tế được chốt |
+| **Pha chế / chế tạo đồ tiêu hao** | Thảo dược, nguyên liệu thu hoạch, vật liệu phụ; nhiên liệu nếu công thức yêu cầu | Bình hồi phục, thuốc hỗ trợ, đồ tiêu hao phục vụ phiêu lưu; danh sách cụ thể chờ thiết kế |
 | **Rèn / may** (lò rèn, khung cửi) | quặng, len, da | trang bị, nâng cấp đồ (nối với thợ rèn / thợ may của NPC dịch vụ) |
+
+### 2.5 Map hồ cá — câu cá cùng bạn bè
+
+**Đã chốt 26/10/2026:** có một map hồ cá cho nhiều người vào câu cùng bạn bè. Đây là không gian sinh hoạt chung; người chơi phải nhìn thấy nhau và động tác câu, không phải mỗi người mở một bản hồ riêng.
+
+- Hồ có bờ / cầu gỗ và các vị trí đứng câu; cho phép đi lại, chọn chỗ câu và trò chuyện với bạn bè qua hệ chat hiện có.
+- Luồng đề xuất: vào hồ → gặp bạn ở cùng map / phiên → chọn vị trí → thả câu → chờ cá cắn → kéo cá → nhận cá vào túi nguyên liệu. Hành động có thể hủy để di chuyển hoặc rời hồ.
+- Mỗi lượt câu và cá nhận thuộc về người câu; không đưa cá của người khác vào túi của mình. Đề xuất tài nguyên câu độc lập để bạn bè có thể câu cạnh nhau; giới hạn lượt và bảng cá chờ cân kinh tế.
+- Cần đường đi để bạn bè tới đúng cùng hồ / phiên nếu map được chia phiên khi đông. Sức chứa, cách ghép phiên, lời mời và vị trí cổng vào chưa chốt.
+- Chủ máy chủ quyết định thời điểm cá cắn, kết quả, số lượng cá và tiêu hao mồi; chống nhận thưởng lặp lại khi mất kết nối / gửi trùng yêu cầu.
+- Ao cá trong khuôn viên riêng hoặc câu sông / biển là mở rộng về sau; map hồ chung là phần cần làm theo yêu cầu lần này.
+
+### 2.6 Bạn bè tham quan khuôn viên
+
+**Xác nhận lại 26/10/2026:** bạn bè vào khuôn viên để xem nhà, vườn và trang trí; chủ nhà thấy khách và khách thấy chủ nhà khi cùng ở đó. Giữ quyền chỉ chủ nhà được sửa / thu hoạch theo mục 1.
+
+- Bạn bè được đi lại và xem khuôn viên, không thu hoạch hộ, lấy thực phẩm / nhiên liệu, dùng nguyên liệu, mở kho hoặc di chuyển nội thất của chủ nhà.
+- Quyền truy cập và các thay đổi quan hệ bạn bè phải được máy chủ kiểm tra. Mở quyền cùng xây / cùng sản xuất cần yêu cầu mới, chưa nằm trong chế độ tham quan.
+- Thăm nhà và câu cá là hai luồng liên kết từ bảng Bạn bè; chi tiết nút mời / tham gia là đề xuất giao diện để thiết kế sau.
+
+### 2.7 Chợ giao thương — đầu ra cho sản phẩm khuôn viên
+
+**Chủ dự án chốt 26/10/2026:** có chợ để người chơi buôn bán **lúa mì, cây giống, cá, đồ lưu niệm và đồ trang trí nhà**. Kế hoạch chi tiết ở `docs/ke-hoach-xa-hoi.md` mục 3.1.
+
+- Vòng chơi bổ sung: trồng / câu cá / thu thập → dùng cho nấu ăn / chế tạo hoặc đưa hàng đủ điều kiện ra chợ → mua giống và đồ trang trí để phát triển khuôn viên.
+- Giống mua ở chợ dùng để trồng; lúa mì / cá mua về dùng chung hệ nguyên liệu; lưu niệm / đồ trang trí thuộc sở hữu người mua và được trưng bày khi vật phẩm hỗ trợ đặt trong nhà.
+- Đồ đang đặt trong nhà phải cất về kho trước khi bán. Mua / bán không tạo bản sao đồ, không trao quyền lấy tài sản trong nhà người khác.
+- Vị trí chợ, hình thức quầy / niêm yết, bán offline, đấu giá, giá / tiền tệ / phí và nguồn đồ lưu niệm chưa chốt; việc có chợ và 5 nhóm hàng trên đã chốt.
+
+### 2.8 Nguồn đồ trang trí: khám phá mê cung
+
+**Chốt 26/10/2026:** người chơi vào các mê cung để kiếm **châu báu, vàng và đồ trang trí nhà**. Mê cung là nguồn vật phẩm trang trí / sưu tầm mang về khuôn viên; xem kế hoạch thế giới mục 5.11 trong `docs/ke-hoach-the-gioi.md`.
+
+- Đồ trang trí nhận từ mê cung đưa vào kho nội thất của user, có thể đặt / xoay / cất như đồ đã sở hữu khác. Châu báu hoặc cổ vật có công dụng trưng bày được dùng làm đồ sưu tầm trong nhà.
+- Bạn bè tham quan nhìn thấy các món đã bày. Có thể ghi xuất xứ mê cung trong thẻ vật phẩm để người chơi biết nơi kiếm món đó.
+- Món được phép giao thương có thể mang ra chợ; đồ đã đặt phải cất về kho trước khi bán. Không tạo bản sao giữa phần thưởng mê cung, kho, nhà và hàng chào bán.
+- Danh mục / độ hiếm, mê cung xuất xứ, luật rơi, quyền giao thương và giá trị của từng món còn cần thiết kế. Yêu cầu có mê cung và nguồn đồ trang trí từ đó đã được chốt.
 
 ## 3. Nối với phần còn lại của game
 
@@ -73,8 +127,12 @@ năng xem nhà người khác chứ không thao tác được."
   lâu lớn) — trang trại là nguồn ĐỒ DÙNG (buff, nguyên liệu) nhiều hơn là nguồn xu.
 - **Cấp người chơi không đổi** khi làm nông (không exp) — tránh cày cấp bằng cách trồng cây; có "cấp nghề" riêng cho từng nghề.
 - Xem nhà người khác: chỉ bạn bè, chỉ đọc (mục 1) → **cần X1 kết bạn** (`docs/ke-hoach-xa-hoi.md`) trước N1.
+- Mỗi khuôn viên có chủ sở hữu ở tài khoản; lưu nhà / vật trang trí / kho / cây trồng và tiến trình sản xuất ở máy chủ. Thu hoạch, chế tạo và nấu ăn phải trừ đầu vào / nhiên liệu rồi cộng đầu ra trong một giao dịch, chặn nhận trùng hoặc tiêu nguyên liệu âm.
+- Đề xuất công thức gồm đầu vào, số lượng, công trình yêu cầu, nhiên liệu nếu có, thời gian và đầu ra. Danh mục công thức / món ăn / cá, giới hạn buff và sản lượng là bước thiết kế tiếp, chưa chốt trong ghi chú này.
 
 ## 4. Hình (PixelLab) + chi phí lượt
+
+**Lưu ý 26/10/2026:** bảng chi phí dưới đây là ước lượng lịch sử 08/10, chưa bao gồm hồ câu chung và danh mục nhân vật hiện nay; không dùng làm dự toán mới. Cần bổ sung hình hồ / cầu câu, cá / cần câu / phao, nhiên liệu, công trình chế biến và động tác sinh hoạt. Các động tác phải theo ngoại hình vẽ liền, đúng tỉ lệ và độ nét của bộ nhân vật đang dùng; không mặc nhiên coi 4 nhân vật cũ là toàn bộ phạm vi.
 
 Map trang trại cùng style vùng 1 (nhà chính diện viền đen, cây lá như Thistlewood) — dùng chung bộ đồ vật vùng 1 cho nền.
 
@@ -97,7 +155,9 @@ tạm dùng động tác `attack` / `cast` sẵn có (luật "làm trước, có
 | **N1** | Map nhà riêng (instance, chỉ chủ vào thao tác) + cổng / nút về nhà + lưu trạng thái ở máy chủ + đặt / cất đồ trang trí + kho + **chế độ Xem nhà** (chỉ đọc, máy chủ chặn ghi) | Có nhà, bày đồ, người khác vào ngắm được |
 | **N2** | Trồng trọt (cuốc, gieo, tưới, lớn theo giờ máy chủ, thu) + hạt giống vùng 1 + bán nông sản | Vòng chơi trồng — thu — bán |
 | **N3** | Chăn nuôi (mua con giống, cho ăn, sản phẩm mỗi ngày, thân thiết) | Gà, bò, cừu |
-| **N4** | Nấu ăn + pha chế (buff đi đánh quái) + câu cá | Sản phẩm nhà phục vụ đánh quái |
+| **N4** | Kho nguyên liệu / nhiên liệu + công thức chế biến, chế tạo đồ tiêu hao và nấu ăn | Thu hoạch → chế biến → đồ dùng phục vụ phiêu lưu |
+| **N4b** | Map hồ cá chung + câu cá đồng thời + thấy bạn bè / động tác câu + cá vào túi nguyên liệu | Có chỗ câu cá và sinh hoạt cùng bạn bè |
+| **N4c / X3b** | Nối lúa mì, cây giống, cá, lưu niệm và đồ trang trí với chợ giao thương | Có vòng sản xuất / thu thập → mua bán → phát triển khuôn viên |
 | **N5** | Nâng cấp nhà 1 → 5, xây công trình bằng gỗ / đá / sắt, khai thác ở các vùng | Mở rộng dài hạn |
 | **N6** | Điểm đẹp + bảng xếp hạng nhà đẹp, thú cưng / thú cưỡi | Khoe + xã hội |
 
@@ -114,5 +174,15 @@ Mỗi vùng mới (`docs/ke-hoach-the-gioi.md`) mang thêm: hạt giống, con g
 
 1. ~~Map riêng hay lô chung~~ — **chốt: map riêng, chỉ chủ thao tác, người khác chỉ xem** (mục 1).
    **Chốt thêm**: chỉ bạn bè được xem; chủ nhà thấy người xem dạng hình mờ + tên.
-2. "…" còn muốn thêm nghề nào: câu cá, nấu ăn, pha chế, rèn, may (đã gợi ý) — hay khác (khai mỏ, săn bắn, nuôi thú cưỡi…)?
-3. Có cho **bán nông sản giữa người chơi** (chợ / giao dịch) không? Có thì cần hệ giao dịch + chống lừa đảo riêng.
+2. **Chốt 26/10/2026:** trồng trọt, thu thực phẩm / nguyên liệu / nhiên liệu, chế tạo vật phẩm tiêu hao, nấu ăn, chỉnh sửa / trang trí nhà và câu cá ở hồ chung với bạn bè. Cần thiết kế tiếp loại cây, cá, nhiên liệu, công thức, thời gian và sản lượng; nghề bổ sung ngoài phạm vi này chưa chốt.
+3. **Đã chốt 26/10/2026:** chợ giữa người chơi buôn bán lúa mì, cây giống, cá, lưu niệm, trang trí nhà. Cần hoàn thiện hình thức chợ và luật kinh tế; xem mục 2.7 và `docs/ke-hoach-xa-hoi.md` mục 3.1.
+
+## 8. Tiến độ cập nhật 26/10/2026
+
+- Đã bổ sung yêu cầu mỗi user một khuôn viên riêng, nhà / vườn / trang trí lưu theo tài khoản.
+- Đã ghi vòng trồng trọt, thu hoạch thực phẩm / nhiên liệu, chế biến, chế tạo vật phẩm tiêu hao và nấu ăn.
+- Đã ghi map hồ cá chung để câu cùng bạn bè và nối cá vào hệ nguyên liệu.
+- Đã xác nhận bạn bè vào tham quan nhà / khuôn viên, giữ quyền chỉnh sửa / lấy tài sản cho chủ nhà.
+- Đã bổ sung chợ giao thương và 5 nhóm hàng: lúa mì, cây giống, cá, lưu niệm, trang trí nhà; nối với kho và quyền sở hữu ở máy chủ.
+- Đã bổ sung mê cung là nguồn kiếm châu báu, vàng và đồ trang trí; đồ mang về nhà trưng bày hoặc đưa ra chợ nếu được phép trao đổi.
+- Đã cập nhật danh sách việc phát triển; chưa hiện thực map, dữ liệu hay gameplay, chưa thay đổi DB người chơi.

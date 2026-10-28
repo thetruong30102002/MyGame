@@ -1,0 +1,169 @@
+/**
+ * Hồ sơ thiết kế 26/10/2026. Không tự mở map, đổi chính quyền, trao thưởng hoặc thay nhiệm vụ đang chơi.
+ * Yêu cầu chủ dự án là đã chốt; tên/quan hệ mới là đề xuất triển khai có nguồn đối chiếu.
+ */
+export type DesignStatus = 'existing-story' | 'proposal';
+export interface FactionDesign {
+	id: string; name: string; status: DesignStatus; regions: readonly string[];
+	goal: string; leverage: string; cost: string;
+}
+export interface PoliticalRegion {
+	region: string; government: string; authority: string; seatMap: string;
+	factions: readonly string[]; exports: readonly string[]; imports: readonly string[];
+	tension: string; questHooks: readonly string[]; continuity: string;
+}
+export interface WorldPin {
+	id: string; name: string; shortName: string; layer: 'surface' | 'underground' | 'sky';
+	x: number; y: number; color: string; status: 'existing-region' | 'planned'; geography: string;
+}
+export interface FactionRelation { a: string; b: string; kind: 'trade' | 'alliance' | 'dispute'; reason: string; pressure: string }
+
+export const WORLD_DESIGN_REVISION = '2026-10-26';
+export const WORLD_DESIGN_STATUS = 'design-draft';
+export const FACTIONS: readonly FactionDesign[] = [
+	{id:'rowanmere_crown',name:'Triều đình Rowanmere',status:'existing-story',regions:['human'],goal:'Giữ đường thương mại và tính chính danh sau Chiến tranh Ấn Ký.',leverage:'Lâu đài, quân trấn và kho lưu trữ.',cost:'Phải đối mặt với hồ sơ các cộng đồng bị đặt ngoài giao ước.'},
+	{id:'thistlewood_commons',name:'Hội đồng Thistlewood',status:'proposal',regions:['human'],goal:'Giữ nguồn nước, mùa ong và an toàn đường rừng.',leverage:'Thợ thủ công, dân làng và đường tiếp tế.',cost:'Không đủ quân để tự giải quyết mọi cuộc khủng hoảng.'},
+	{id:'seal_order',name:'Đoàn Ấn Ký',status:'existing-story',regions:['human','swamp','desert','highland','volcano','fungal','ruins','void'],goal:'Giữ các Mối vận hành bằng quyền kiểm soát tập trung.',leverage:'Valen, mạng đồn trú và kỹ thuật dẫn Aether.',cost:'Chuyển gánh nặng sang vùng rìa; không đồng nhất cả Đoàn với ý chí của Kiến Trúc Sư.'},
+	{id:'grey_reed',name:'Hội thuyền Lau Xám',status:'proposal',regions:['swamp'],goal:'Khôi phục dòng nước và bảo vệ người sống trên nhà sàn.',leverage:'Bến đò, thầy thuốc và đường thủy trong sương.',cost:'Thiếu lương khô và kim loại để sửa công trình.'},
+	{id:'sahrin_court',name:'Triều đình Sahrin',status:'existing-story',regions:['desert'],goal:'Nữ hoàng Amira giữ trật tự thành và nguồn nước.',leverage:'Cung đình, kho nước và hộ tống đoàn buôn.',cost:'Hợp đồng với Đoàn và vai trò của Hassim làm mất niềm tin.'},
+	{id:'zahra_network',name:'Mạng lưới của Zahra',status:'existing-story',regions:['desert','isles'],goal:'Đưa nước và chứng cứ về các cộng đồng bị tước quyền.',leverage:'Giếng bí mật, đoàn buôn và liên hệ hàng hải.',cost:'Thiếu nguồn lực quản trị thành sau thắng lợi; không tự chốt số phận Zahra.'},
+	{id:'wind_league',name:'Liên hội Gió Hú',status:'proposal',regions:['highland'],goal:'Giữ lối đèo và luồng gió khỏi bị hút cạn.',leverage:'Cối xay, người dẫn đường và đền Aeolin.',cost:'Các làng không thống nhất ưu tiên cứu mùa hay bảo vệ sinh cảnh.'},
+	{id:'snow_clans',name:'Liên minh Tuyết Phong',status:'proposal',regions:['tundra'],goal:'Duy trì lương thực và nơi trú qua mùa đông.',leverage:'Hội thợ săn, kho củi và trạm đường tuyết.',cost:'Mỗi chuyến cứu viện làm kho dự trữ mỏng hơn.'},
+	{id:'red_anvil',name:'Hội đồng Đe Đỏ',status:'existing-story',regions:['volcano'],goal:'Giữ lò rèn và quyền tự quyết của các gia tộc người lùn.',leverage:'Hợp kim, lò đại và hệ thống mỏ.',cost:'Hai chi hoàng tộc chia ảnh hưởng trong hội đồng, không mặc định một vua mới.'},
+	{id:'coral_ports',name:'Liên hội Cảng San Hô',status:'proposal',regions:['isles'],goal:'Giữ tuyến tàu và chợ biển hoạt động.',leverage:'Hoa tiêu, kho cảng và đội cứu nạn.',cost:'Lợi nhuận hàng hải có thể lấn át quyền của cư dân dưới nước.'},
+	{id:'maris_people',name:'Cộng đồng người cá của Maris',status:'existing-story',regions:['isles'],goal:'Được tham gia quyết định cách sử dụng đá ấn và rạn san hô.',leverage:'Tri thức dòng biển và các tuyến lặn.',cost:'Nhượng quyền khai thác để đổi cứu trợ có thể làm rạn suy kiệt.'},
+	{id:'spore_commons',name:'Cộng đồng Bào Tử',status:'proposal',regions:['fungal'],goal:'Nối lại mạng sống và ký ức của người nấm.',leverage:'Dược liệu, tinh thể và các đường rễ.',cost:'Nối ký ức phải có sự đồng thuận; không hợp thức hóa Vua người nấm bị đứt ký ức.'},
+	{id:'lumerian_archive',name:'Hội Khảo Cổ Lumeria',status:'proposal',regions:['ruins'],goal:'Khôi phục hồ sơ trước khi di vật bị tháo bán.',leverage:'Ngôn ngữ cổ và máy đo Aether.',cost:'Nội bộ bất đồng về công bố hồ sơ từng gây hại hay giữ kín để tránh hỗn loạn.'},
+	{id:'relic_claimants',name:'Những người đòi quyền kế thừa Aether',status:'proposal',regions:['ruins'],goal:'Đòi lại quyền đối với di sản của triều đình xưa.',leverage:'Gia phả, di vật và người bảo trợ.',cost:'Chứng tích có thể bị giả mạo; không xác nhận có vua cổ còn sống.'},
+	{id:'frontier_alliance',name:'Liên quân Tiền Tuyến',status:'existing-story',regions:['void'],goal:'Giữ tiền đồn và mở đường sơ tán trước khe nứt.',leverage:'Đóng góp từ nhiều vùng, quân y và tiếp tế.',cost:'Lợi ích các vùng khác nhau; quân đội không sở hữu dân cư của vùng đóng quân.'},
+	{id:'root_wardens',name:'Hội Thủ Lâm',status:'proposal',regions:['wood'],goal:'Bảo vệ Cây Thế Giới và quyền sống quanh các rễ cổ.',leverage:'Dược liệu, đường rễ và dấu tích sinh thái.',cost:'Đóng cửa rừng hoàn toàn cũng làm các cộng đồng thiếu thuốc.'},
+	{id:'dawn_custodians',name:'Hội Bình Minh',status:'proposal',regions:['light'],goal:'Giữ thánh địa, thư viện và nơi cứu trợ.',leverage:'Trường học, kính quang học và đội cứu tế.',cost:'Nguy cơ biến việc gìn giữ tri thức thành độc quyền giải thích lịch sử.'},
+	{id:'night_lanterns',name:'Hội Dạ Đăng',status:'proposal',regions:['dark'],goal:'Bảo vệ cư dân rừng đêm và giữ lối đi an toàn.',leverage:'Đèn dẫn lối, dược liệu đêm và thợ thủ công.',cost:'Bị quy chụp cùng các nhóm cuồng tín dù không cùng mục đích.'},
+	{id:'rift_cult',name:'Hội Cuồng Khe Nứt',status:'proposal',regions:['dark','void'],goal:'Mở rộng đứt gãy và chiếm các mảnh ký ức làm quyền lực.',leverage:'Hiểu biết về khe nứt và những kẻ tuyệt vọng.',cost:'Gây hại cả cư dân vùng Tối, không đại diện cho nguyên tố Bóng tối.'},
+	{id:'caravan_compact',name:'Hiệp hội Đường Buôn',status:'proposal',regions:['human','swamp','desert','highland','tundra','volcano','isles','fungal','ruins','wood','light','dark','void'],goal:'Duy trì giao thương và quy tắc ký gửi giữa các vùng.',leverage:'Kho trung chuyển, sổ hàng và người bảo lãnh.',cost:'Phải công khai nguồn hàng, không coi vật phẩm mọi phe đều tự do giao dịch.'},
+];
+
+export const POLITICAL_REGIONS: readonly PoliticalRegion[] = [
+	{region:'human',government:'Vương quốc và hội đồng địa phương',authority:'Triều đình Rowanmere; Thistlewood có hội đồng dân cư',seatMap:'human/rowanmere',factions:['rowanmere_crown','thistlewood_commons'],exports:['lúa mì','mật ong','vải thô'],imports:['thép','muối','thuốc'],tension:'Quyền quản lý nước và các hồ sơ vùng bị gạt khỏi Giao Ước.',questHooks:['Sửa bờ sông có tham vấn các hộ bị ảnh hưởng.','Đối chiếu sổ thuế ở lâu đài với bản đồ của Bram.'],continuity:'Lâu đài Rowanmere đã có map; không đặt cung vua vào quảng trường khởi đầu và không tự đặt tên vua.'},
+	{region:'swamp',government:'Liên hội làng sông',authority:'Các trưởng bến của Lau Xám',seatMap:'swamp/hub',factions:['grey_reed'],exports:['dược liệu đầm','cá','sậy'],imports:['lương khô','sắt','gỗ tốt'],tension:'Di sản con đập của Đoàn Ấn Ký và quyền khơi dòng.',questHooks:['Bảo vệ đội tháo bùn tại bến cũ.','Tìm sổ đò để đối chiếu danh sách người mất tích.'],continuity:'Nyra, Nereth và lịch sử con đập giữ vai trò hiện có; không quyết định thay nhánh lựa chọn Garrick.'},
+	{region:'desert',government:'Quân chủ ốc đảo',authority:'Nữ hoàng Amira',seatMap:'desert/hub',factions:['sahrin_court','zahra_network'],exports:['kính','gia vị','vải nhuộm'],imports:['gỗ','thực phẩm','quặng'],tension:'Phân phối nước, hợp đồng của Hassim và ghế Sahrin bị xóa khỏi Giao Ước.',questHooks:['Hộ tống hàng nước rồi điều tra nơi nước thực sự tới.','Đối chiếu bản khắc ở lăng với sắc lệnh triều đình.'],continuity:'Giữ Amira, Hassim và Zahra theo truyện đã có; không tạo vua nam thứ hai hoặc mặc định kết quả chính biến.'},
+	{region:'highland',government:'Liên minh các làng cao nguyên',authority:'Hội đồng các trạm gió',seatMap:'highland/hub',factions:['wind_league'],exports:['bột mì','len','thiết bị cối xay'],imports:['muối','kim loại','thuốc'],tension:'Tháp hút gió bảo vệ một cụm làng nhưng làm vùng khác mất mùa.',questHooks:['Đo luồng gió trước khi dỡ tháp.','Mở tuyến cứu trợ qua đèo mà không phá nơi chim làm tổ.'],continuity:'Aeolin là thần vùng hiện có; đường lên Thiên Thành tách khỏi Long Huyệt, chưa là cổng đang mở.'},
+	{region:'tundra',government:'Hội đồng thị tộc',authority:'Đại sảnh Tuyết Phong',seatMap:'tundra/hub',factions:['snow_clans'],exports:['da thuộc','khoáng băng','cá khô'],imports:['ngũ cốc','than','thuốc'],tension:'Chia kho dự trữ giữa làng và đoàn người bị kẹt tuyết.',questHooks:['Hộ tống xe củi và ghi nhận hao hụt thật.','Xác minh ai đã đóng đường qua hồ.'],continuity:'Nữ hoàng băng là câu chuyện boss/người mẹ, không phải quân chủ cai trị Tuyết Phong.'},
+	{region:'volcano',government:'Hội đồng gia tộc người lùn',authority:'Hội đồng Đe Đỏ và các đại diện hoàng tộc',seatMap:'volcano/red_anvil',factions:['red_anvil'],exports:['thép','than luyện','công cụ'],imports:['lương thực','dược liệu','gỗ chống lò'],tension:'Quyền sử dụng lò đại trước đề nghị khai thác của Kiến Trúc Sư.',questHooks:['Kiểm kê quặng trước phiên hội đồng.','Điều tra máy hút lửa làm thợ rèn kiệt sức.'],continuity:'Giữ hội đồng và xung đột hai chi hoàng tộc trong bản truyện; chưa chốt ai thắng.'},
+	{region:'isles',government:'Liên hội cảng và cộng đồng biển',authority:'Hội cảng San Hô, cần đại diện người cá',seatMap:'isles/hub',factions:['coral_ports','maris_people'],exports:['cá','muối','vật liệu san hô hợp lệ'],imports:['lương thực','gỗ tàu','thép'],tension:'Đá ấn của biển, quyền đánh bắt và nhu cầu đóng tàu cứu người.',questHooks:['Lập sổ hàng trục vớt có chủ sở hữu.','Thương lượng vùng cấm đánh bắt với Maris.'],continuity:'Không chốt số phận Zahra/Corvin bằng dữ liệu chính trị; cướp biển không đại diện toàn bộ dân đảo.'},
+	{region:'fungal',government:'Cộng đồng mạng nấm',authority:'Đại hội các cụm Bào Tử',seatMap:'fungal/undercity',factions:['spore_commons'],exports:['nấm thực phẩm','dược liệu','tinh thể'],imports:['vải','muối','công cụ'],tension:'Quyền chia sẻ ký ức và phục hồi rễ bị cắt bởi đường hầm.',questHooks:['Nối một đoạn rễ sau khi xin phép cả hai cụm.','Chuyển thuốc tới khu nấm bị cô lập.'],continuity:'Vua người nấm là mảnh ký ức theo bản truyện; không coi đó là một triều vua bình thường.'},
+	{region:'ruins',government:'Khu khai quật trung lập chưa thống nhất quyền kế thừa',authority:'Hội Khảo Cổ và những bên đòi di sản',seatMap:'ruins/aether_archive',factions:['lumerian_archive','relic_claimants'],exports:['bản sao tư liệu','hiện vật có giấy nguồn'],imports:['thực phẩm','công cụ','vật liệu bảo tồn'],tension:'Sở hữu máy cổ khác với quyền rút Aether của cộng đồng khác.',questHooks:['Đối chiếu gia phả bằng ba nguồn.','Niêm phong máy đang gây rò thay vì tháo bán.'],continuity:'Lumeria là nền văn hóa/đế quốc lịch sử, không phải tự thêm một vùng chơi thứ 14.'},
+	{region:'void',government:'Bộ chỉ huy liên quân tiền tuyến',authority:'Đại diện các vùng trong thành trì',seatMap:'void/void_fortress',factions:['frontier_alliance'],exports:['bản đo khe nứt','di vật được kiểm dịch'],imports:['lương khô','thuốc','kim loại'],tension:'Cứu người hay giữ công sự khi nguồn tiếp tế bị chia cắt.',questHooks:['Mở hành lang quân y giữa hai đợt đứt gãy.','Xác minh một lệnh điều quân giả.'],continuity:'Ostrin, Valen và Kiến Trúc Sư thuộc mạch truyện hiện có; không ghi đè kết thúc hoặc số phận Aldric.'},
+	{region:'wood',government:'Hội cộng đồng rừng',authority:'Hội Thủ Lâm',seatMap:'wood/worldtree',factions:['root_wardens'],exports:['cây giống','thảo dược','gỗ khai thác có hạn'],imports:['muối','vải','công cụ'],tension:'Bảo tồn rừng và nhu cầu thuốc của các vùng khác.',questHooks:['Chọn tuyến dẫn thuốc không qua rễ non.','Đổi cây giống bằng công sức phục hồi đất.'],continuity:'Mộc là nhánh vùng đã có; không cần hạ boss tuyến chính trước khi vào ngoài điều kiện cấp hiện hành.'},
+	{region:'light',government:'Hội thánh địa và học giả',authority:'Hội Bình Minh',seatMap:'light/cathedral',factions:['dawn_custodians'],exports:['kính quang học','bản chép sách','đèn pha lê'],imports:['giấy','lương thực','dược liệu'],tension:'Công bố lịch sử hay độc quyền diễn giải.',questHooks:['Đối chiếu sách trong thư viện với bản khắc vùng Tối.','Giúp đoàn cứu trợ đi qua trạm kiểm soát.'],continuity:'Ánh sáng không mặc định thiện; Quang Thần Lumen ở Phế tích không bị dời về đây.'},
+	{region:'dark',government:'Các phố trú ẩn của cư dân đêm',authority:'Hội Dạ Đăng',seatMap:'dark/hub',factions:['night_lanterns'],exports:['dược liệu đêm','vải sẫm','kỷ vật chế tác'],imports:['ngũ cốc','muối','kim loại'],tension:'Dân đêm bị quy chụp do Hội Cuồng Khe Nứt gây hại.',questHooks:['Tìm lại đèn dẫn lối trước khi đoàn khách tới.','Đối chiếu dấu vết để phân biệt cư dân với kẻ phá hoại.'],continuity:'Bóng tối không mặc định ác, không đồng nhất Vực Ám Ma với Vực Hư Không.'},
+];
+
+export const FACTION_RELATIONS: readonly FactionRelation[] = [
+	{a:'rowanmere_crown',b:'thistlewood_commons',kind:'dispute',reason:'Thuế và quyền can thiệp vào nguồn nước.',pressure:'Điều tra công khai trước khi bắt làng gánh chi phí.'},
+	{a:'seal_order',b:'grey_reed',kind:'dispute',reason:'Lịch sử con đập và quyền khơi dòng.',pressure:'Chứng cứ cứu nạn và hồ sơ công trình.'},
+	{a:'sahrin_court',b:'zahra_network',kind:'dispute',reason:'Phân phối nước và quyền đại diện.',pressure:'Không tự gán cả phe là thiện/ác hoặc chốt kết cục.'},
+	{a:'sahrin_court',b:'seal_order',kind:'trade',reason:'Hợp đồng dẫn nước và bảo hộ đoàn buôn.',pressure:'Hassim lợi dụng hợp đồng; không coi mọi người trong triều cùng ý đồ.'},
+	{a:'wind_league',b:'snow_clans',kind:'trade',reason:'Len, ngũ cốc và tuyến qua đèo.',pressure:'Mùa đông khiến nhu cầu cứu trợ vượt lượng hàng.'},
+	{a:'red_anvil',b:'coral_ports',kind:'trade',reason:'Thép/công cụ đổi muối và vận tải.',pressure:'Tàu chở quặng cần kiểm dịch và giấy nguồn.'},
+	{a:'coral_ports',b:'maris_people',kind:'dispute',reason:'Quyền khai thác rạn và đá ấn.',pressure:'Đàm phán khu cấm đánh bắt, không kết luận bằng màu nguyên tố.'},
+	{a:'root_wardens',b:'spore_commons',kind:'alliance',reason:'Phục hồi rễ và trao đổi dược liệu.',pressure:'Xin phép trước khi nối ký ức cộng đồng.'},
+	{a:'dawn_custodians',b:'night_lanterns',kind:'dispute',reason:'Quyền xác thực hai bộ bản chép lịch sử.',pressure:'Có thể hợp tác đối chiếu thay vì áp dụng chiến tranh tôn giáo mặc định.'},
+	{a:'lumerian_archive',b:'relic_claimants',kind:'dispute',reason:'Quyền sử dụng di vật của triều đại cũ.',pressure:'Bằng chứng nguồn gốc và quyền của cư dân hiện tại.'},
+	{a:'night_lanterns',b:'rift_cult',kind:'dispute',reason:'Hội cuồng tín phá lối đèn và tuyển người bằng tin giả.',pressure:'Bảo vệ dân đêm thay vì trừng phạt toàn vùng.'},
+	{a:'frontier_alliance',b:'red_anvil',kind:'alliance',reason:'Vật tư giữ tiền tuyến.',pressure:'Không để cứu trợ biến thành khai thác thợ rèn vô hạn.'},
+	{a:'caravan_compact',b:'grey_reed',kind:'trade',reason:'Thuốc và lương khô theo đường nước.',pressure:'Giới hạn vật phẩm nhạy cảm theo nguồn sở hữu.'},
+];
+
+/** Tọa độ 0–100 cho SƠ ĐỒ THIẾT KẾ MỚI, không áp lên tranh lục địa cũ. */
+export const WORLD_LAYOUT: readonly WorldPin[] = [
+	{id:'human',name:'Thung lũng Thistlewood',shortName:'Thistlewood',layer:'surface',x:50,y:53,color:'#a9bf76',status:'existing-region',geography:'Đồng bằng Brightwater, giữa các đường thương mại.'},
+	{id:'swamp',name:'Đầm lầy Mù Sương',shortName:'Lau Xám',layer:'surface',x:33,y:70,color:'#92a371',status:'existing-region',geography:'Hạ lưu phía tây nam; trạm đò trên nền ngập.'},
+	{id:'desert',name:'Sa mạc Hồng Cát',shortName:'Sahrin',layer:'surface',x:52,y:84,color:'#d6a769',status:'existing-region',geography:'Vành đai khô phía nam, thành xây quanh mạch nước.'},
+	{id:'highland',name:'Cao nguyên Gió Hú',shortName:'Gió Hú',layer:'surface',x:69,y:57,color:'#a8c9a5',status:'existing-region',geography:'Sườn đông cao dần, đèo nối khí hậu cát với tuyết.'},
+	{id:'tundra',name:'Lãnh nguyên Băng Giá',shortName:'Tuyết Phong',layer:'surface',x:69,y:30,color:'#b4d7df',status:'existing-region',geography:'Phía bắc cao nguyên; nguồn băng và các đường tuyết.'},
+	{id:'volcano',name:'Núi lửa Hoả Sơn',shortName:'Đe Đỏ',layer:'surface',x:86,y:55,color:'#cf916f',status:'existing-region',geography:'Dải đứt gãy phía đông, pháo đài trong sườn bazan.'},
+	{id:'isles',name:'Quần đảo San Hô',shortName:'San Hô',layer:'surface',x:83,y:83,color:'#88c7c4',status:'existing-region',geography:'Thềm biển đông nam, cảng và đường tàu ven bờ.'},
+	{id:'fungal',name:'Rừng Nấm Ngầm',shortName:'Nấm Ngầm',layer:'underground',x:20,y:54,color:'#c09acb',status:'existing-region',geography:'Mạng hang dưới lục địa tây; lối từ San Hô là tuyến hang biển dài, không phải hai khu kề mặt đất.'},
+	{id:'ruins',name:'Phế tích Aether',shortName:'Phế tích',layer:'surface',x:20,y:25,color:'#b8b3a8',status:'existing-region',geography:'Tây bắc trên nền triều đại cũ; đường từ hang nấm trồi lên khu khai quật.'},
+	{id:'void',name:'Vực Hư Không',shortName:'Hư Không',layer:'sky',x:87,y:22,color:'#b29bc7',status:'existing-region',geography:'Các đảo rạn nứt ngoài khơi đông bắc; cổng từ Phế tích là tuyến ma pháp, không là đường bộ xuyên lục địa.'},
+	{id:'wood',name:'Rừng Cổ Thụ',shortName:'Cổ Thụ',layer:'surface',x:33,y:37,color:'#88b98c',status:'existing-region',geography:'Rừng đầu nguồn phía tây; kết nối bằng Cổng Nguyên Tố hiện có.'},
+	{id:'light',name:'Thánh Địa Bình Minh',shortName:'Bình Minh',layer:'surface',x:50,y:28,color:'#e2cb91',status:'existing-region',geography:'Thềm đá sáng, thánh địa ở cao hơn đồng bằng; giữ cổng ma pháp hiện có.'},
+	{id:'dark',name:'Vực Ám Ma',shortName:'Ám Ma',layer:'surface',x:19,y:82,color:'#ac9bc8',status:'existing-region',geography:'Bồn địa rừng đêm riêng, tách hẳn đảo Hư Không; giữ cổng ma pháp hiện có.'},
+	{id:'sky_castle',name:'Thiên Thành Khởi Nguyên',shortName:'Thiên Thành',layer:'sky',x:53,y:9,color:'#ead6ab',status:'planned',geography:'Lâu đài trên tầng mây, một điểm riêng trên sơ đồ; chưa mở cổng chơi.'},
+];
+
+export const RESERVED_DESTINATIONS = [
+	{id:'fishing_lake',name:'Hồ câu bạn bè',nearRegion:'human',kind:'social',status:'planned',note:'Dành chỗ ở lưu vực Brightwater; chưa là map hoặc lối đi đã mở.'},
+	{id:'maze_reeds',name:'Mê cung kênh chìm',nearRegion:'swamp',kind:'labyrinth',status:'planned',note:'Ý tưởng nguồn lưu niệm nước; chưa chốt tên/số lượng mê cung.'},
+	{id:'maze_glass',name:'Mê cung kính cát',nearRegion:'desert',kind:'labyrinth',status:'planned',note:'Ý tưởng nguồn trang trí kính, tách khỏi lăng truyện hiện có.'},
+	{id:'maze_roots',name:'Mê cung rễ cổ',nearRegion:'wood',kind:'labyrinth',status:'planned',note:'Ý tưởng nguồn chậu/vật liệu lưu niệm, không khai thác vô hạn Cây Thế Giới.'},
+	{id:'maze_archive',name:'Mê cung thư khố',nearRegion:'ruins',kind:'labyrinth',status:'planned',note:'Ý tưởng nguồn kỷ vật cổ; chứng cứ truyện không nằm trong vật phẩm bán chợ.'},
+] as const;
+
+export const WORLD_DESIGN_NOTES = [
+	'13 vùng là các vùng chơi/sinh thái, không mặc định 13 quốc gia hoặc 13 ông vua.',
+	'Bảy Mối là bảy mối của một giao ước lịch sử; không đổi thành 13 khi thêm vùng hoặc thành 8 khi thêm nguyên tố.',
+	'Varnhold, Lumeria, Nocthar, Drakemoor và Aerith trong bản truyện cũ là văn hóa/tên lịch sử cần đối chiếu, không tự tạo ID map mới.',
+	'Nguồn ưu tiên: yêu cầu chủ dự án 26/10 → dữ liệu/map/nhiệm vụ đang dùng → bản nháp mới → bản nháp cũ; các chi tiết gia đình và kết cục chưa duyệt không tự ghi đè.',
+	'Sơ đồ mới chỉ là bố trí thiết kế, không thay CONTINENT_PLACES hay ghim trên tranh cũ trước khi có tranh và kiểm đối chiếu.',
+	'Tuyến vùng hiện có lấy từ cổng map thật; nét đứt Thiên Thành và các điểm dành chỗ chưa phải cổng có thể chơi.',
+] as const;
+
+export interface ArchiveEvidence { id: string; name: string; region: string; map: string; note: string }
+export const ARCHIVE_EVIDENCE: readonly ArchiveEvidence[] = [
+	{id:'old_coin',name:'Khóa ghi nhớ của Bram',region:'human',map:'human/town',note:'Đối chiếu vật đã có trong truyện, không trao lại đồng xu hoặc bán nó như một món hàng.'},
+	{id:'root_record',name:'Niên luân rễ cổ',region:'wood',map:'wood/worldtree',note:'Bản sao tự nguyện từ người giữ rễ; nhiệm vụ lấy chứng cứ chưa được kích hoạt.'},
+	{id:'dawn_copy',name:'Bản chép Bình Minh',region:'light',map:'light/cathedral',note:'Văn bản đối chiếu, không coi giáo quyền là nguồn đúng duy nhất.'},
+	{id:'night_copy',name:'Bản chép Dạ Đăng',region:'dark',map:'dark/dungeon',note:'Bản khắc đêm độc lập, không có nghĩa người vùng Tối là ác.'},
+	{id:'reed_ledger',name:'Sổ đò Lau Xám',region:'swamp',map:'swamp/stone_dam',note:'Hồ sơ con đập và người chịu hậu quả.'},
+	{id:'sahrin_seat',name:'Bản khắc ghế Sahrin',region:'desert',map:'desert/pyramid',note:'Đối chiếu tên đã bị đục khỏi đá, không tự chọn phe Amira/Zahra.'},
+	{id:'wind_measure',name:'Bản đo gió trước tháp',region:'highland',map:'highland/wind_temple',note:'Chứng cứ việc chuyển gánh nặng sang nơi khác.'},
+	{id:'forge_contract',name:'Hợp đồng lò Đe Đỏ',region:'volcano',map:'volcano/red_anvil',note:'Nguồn chứng cứ chính trị; chỉ là bản sao, không chuyển tài sản của hội đồng.'},
+	{id:'archive_machine',name:'Bản ghi máy Lumeria',region:'ruins',map:'ruins/aether_archive',note:'Dấu vết kỹ thuật phải được đối chiếu với người sống.'},
+	{id:'fracture_memory',name:'Ký ức tại khe nứt',region:'void',map:'void/void_fortress',note:'Không mặc định Ma vương đã chết hoặc nhánh cuối đã được chọn.'},
+];
+export interface ArchiveChapter {
+	id: string; title: string; order: number; requires: readonly string[]; previous?: string;
+	revelation: string; keeper: readonly string[]; question: string; journal: string; spoiler: boolean;
+}
+export const ARCHIVE_CHAPTERS: readonly ArchiveChapter[] = [
+	{id:'origin',order:1,title:'Trước khi có tên gọi',requires:['old_coin','root_record','dawn_copy','night_copy'],revelation:'Aether tồn tại qua mối liên hệ giữa đất, sinh vật và ký ức trước các vương triều. Các vùng sinh thái và tên gọi nguyên tố xuất hiện qua những thời đại khác nhau.',keeper:['Ta giữ những trang được viết trước khi các vương quốc biết gọi tên mình.','Hãy đặt niên luân cạnh hai bản chép. Những chỗ họ khác nhau cũng là một phần của lịch sử.'],question:'Một tên gọi có thể thuộc về ai nếu nó đã có trước đường biên?',journal:'Đã đối chiếu bốn nguồn về thời khởi nguyên. Tri thức không phải giấy chứng nhận quyền sở hữu một vùng.',spoiler:false},
+	{id:'pact',order:2,title:'Bảy chữ ký và những người đứng ngoài',previous:'origin',requires:['reed_ledger','sahrin_seat'],revelation:'Bảy Mối của giao ước ba thế kỷ trước là cấu trúc lịch sử được lập để giữ đứt gãy. Nó không phải danh sách đầy đủ mọi vùng hoặc mọi nguyên tố; quyền tham gia quyết định từng bị thu hẹp.',keeper:['Giao ước đã cứu nhiều người. Điều đó không khiến phần bị giấu biến mất.','Đọc cả tên người ký và tên những nơi phải gánh sức.'],question:'Một thỏa thuận còn công bằng không nếu người chịu hậu quả không có ghế?',journal:'Sổ đò và bản khắc cho thấy phần bị bỏ khỏi lời kể chính thức; chưa kết luận thay lựa chọn của người chơi.',spoiler:true},
+	{id:'burden',order:3,title:'Những đường chuyển gánh nặng',previous:'pact',requires:['wind_measure','forge_contract','archive_machine'],revelation:'Tháp, đập và máy không tạo sức mạnh từ hư vô; việc ép dòng chuyển tổn hại tới nơi khác. Hồ sơ trước và sau chiến tranh cho thấy nhiều thế hệ góp phần làm nút trung tâm mục đi.',keeper:['Sổ lò không nói hết chuyện người thợ. Bản đo cũng không thay được lời người ở cuối dòng.','Ta mở cho ngươi cả hồ sơ. Ta không biến một con người thành đáp án duy nhất.'],question:'Ai được đồng ý khi cái giá rơi lên nơi khác?',journal:'Đã nối hồ sơ sinh thái, công cụ và đời sống. Các cơ chế trong truyện không tự biến thành debuff hoặc thuế mới trong gameplay.',spoiler:true},
+	{id:'memory',order:4,title:'Ký ức không chọn thay ngày mai',previous:'burden',requires:['fracture_memory'],revelation:'Thư khố cho đối chiếu lời kể về Ostrin, Kiến Trúc Sư và sự đứt gãy với toàn bộ lịch sử đã mở; giữ các nhánh số phận chưa được chọn và không thay trận cuối bằng một câu thoại của thần.',keeper:['Những gì đã xảy ra được ghi ở đây. Những gì ngươi sẽ làm chưa phải trang đã viết.','Tri thức của mọi miền đã mở. Hãy mang nó về để người sống cùng quyết định.'],question:'Sau khi biết nguồn gốc, người chơi muốn cam kết điều gì có thể làm được?',journal:'Có thể xem lại mọi chương đã mở; không nhận kết cục, hồi sinh NPC hoặc thần kỹ tự động.',spoiler:true},
+];
+
+export const SKY_CASTLE_DESIGN = {
+	id:'sky_castle',name:'Thiên Thành Khởi Nguyên',nameStatus:'proposal',playable:false,
+	deity:{id:'archive_keeper',name:'Thần Tri Thức — Người Giữ Thư Khố',nameStatus:'proposal',count:1,role:'Hé lộ tri thức toàn thế giới và lịch sử khởi nguyên qua thư khố; hiện diện trong lâu đài, không xuất hiện như giọng điều khiển trong đầu.'},
+	access:{status:'proposal',minLevel:60,evidence:['old_coin','root_record','dawn_copy','night_copy'],fromMap:'highland/cloudtemple',returnMap:'highland/hub',note:'Đề xuất để có thể trở lại nhiều lần trước chương cuối; chưa thêm cổng hoặc khóa đường chơi hiện tại.'},
+	spaces:[{id:'arrival',name:'Bến mây',purpose:'Điểm đến và đường về rõ ràng, không sinh boss tại điểm hồi.'},{id:'hall',name:'Đại sảnh đối chiếu',purpose:'Đặt các bản ghi cạnh nhau, xem nguồn và trạng thái mở.'},{id:'archive',name:'Đại thư viện',purpose:'Tri thức các vùng, tìm theo chủ đề, xem lại chương đã mở.'},{id:'origin',name:'Điện khởi nguyên',purpose:'Một vị thần tại đây kể và mở lịch sử theo bốn chương.'}],
+	constraints:['Không thay mười vị thần đất hiện có bằng thần mới.','Không coi màu nguyên tố là đạo đức hoặc quốc tịch.','Không mở rộng tổng 140 kỹ năng vì thêm NPC thần tri thức.','Không chốt số phận NPC, tự hồi sinh người chết hay đổi nhánh truyện bằng thao tác đọc sách.','Không có hình tạm đóng vai asset đã hoàn thiện; chỉ mở map khi đã có tranh và QA.'],
+} as const;
+
+export interface ArchiveProgress { level: number; evidence: readonly string[]; read: readonly string[] }
+const levelOf=(n:number)=>Number.isFinite(n)?Math.max(0,Math.floor(n)):0;
+/** Luật thiết kế thuần để thử nội dung; chưa nối vào save hoặc mở khóa map sản xuất. */
+export function archiveAccess(progress: ArchiveProgress): string | null {
+	if(levelOf(progress.level)<SKY_CASTLE_DESIGN.access.minLevel)return 'Đề xuất: cần cấp '+SKY_CASTLE_DESIGN.access.minLevel+' để lên Thiên Thành.';
+	const missing=SKY_CASTLE_DESIGN.access.evidence.filter(id=>!progress.evidence.includes(id));
+	return missing.length?'Cần đối chiếu: '+missing.map(id=>ARCHIVE_EVIDENCE.find(e=>e.id===id)?.name||id).join(', '):null;
+}
+export function archiveChapterGate(id:string,progress:ArchiveProgress):string|null {
+	const chapter=ARCHIVE_CHAPTERS.find(c=>c.id===id);
+	if(!chapter)return 'Không có chương thư khố này.';
+	const access=archiveAccess(progress);if(access)return access;
+	// Không tin cờ đọc chương sau nếu các chương trước chưa thực sự đủ điều kiện.
+	if(chapter.previous){const previous=archiveChapterGate(chapter.previous,progress);if(previous)return previous;if(!progress.read.includes(chapter.previous))return 'Đọc chương trước: '+ARCHIVE_CHAPTERS.find(c=>c.id===chapter.previous)!.title;}
+	const missing=chapter.requires.filter(e=>!progress.evidence.includes(e));
+	return missing.length?'Thiếu chứng cứ: '+missing.map(id=>ARCHIVE_EVIDENCE.find(e=>e.id===id)?.name||id).join(', '):null;
+}
+/** Giao diện người chơi tương lai chỉ nhận nội dung chương đã mở, không lộ đoạn bị khóa. */
+export function visibleArchive(progress:ArchiveProgress):ArchiveChapter[]{return ARCHIVE_CHAPTERS.filter(c=>!archiveChapterGate(c.id,progress));}
+
+export const WORLD_DESIGN = {
+	revision:WORLD_DESIGN_REVISION,status:WORLD_DESIGN_STATUS,
+	factions:FACTIONS,regions:POLITICAL_REGIONS,relations:FACTION_RELATIONS,layout:WORLD_LAYOUT,
+	reserved:RESERVED_DESTINATIONS,evidence:ARCHIVE_EVIDENCE,chapters:ARCHIVE_CHAPTERS,sky:SKY_CASTLE_DESIGN,notes:WORLD_DESIGN_NOTES,
+};

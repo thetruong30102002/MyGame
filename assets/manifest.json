@@ -7088,6 +7088,405 @@
 				"N",
 				"E"
 			]
+		},
+		"player_integrated": {
+			"displayName": "Lữ khách · bản liền nét",
+			"role": "player",
+			"atlas": "characters/player_integrated/player_integrated.json",
+			"frameSize": {
+				"width": 144,
+				"height": 144
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.8888888888888888
+			},
+			"bodyHeight": 73,
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"animations": {
+				"idle": {
+					"fps": 6,
+					"frames": 4,
+					"hitFrame": -1,
+					"loop": true,
+					"directions": [
+						"S",
+						"SW",
+						"W",
+						"NW",
+						"N",
+						"NE",
+						"E",
+						"SE"
+					]
+				},
+				"walk": {
+					"fps": 9,
+					"frames": 8,
+					"hitFrame": -1,
+					"loop": true,
+					"directions": [
+						"S",
+						"SW",
+						"W",
+						"NW",
+						"N",
+						"NE",
+						"E",
+						"SE"
+					]
+				},
+				"run": {
+					"fps": 12,
+					"frames": 8,
+					"hitFrame": -1,
+					"loop": true,
+					"directions": [
+						"S",
+						"SW",
+						"W",
+						"NW",
+						"N",
+						"NE",
+						"E",
+						"SE"
+					]
+				},
+				"idlesword": {
+					"fps": 6,
+					"frames": 4,
+					"hitFrame": -1,
+					"loop": true,
+					"directions": [
+						"S",
+						"SW",
+						"W",
+						"NW",
+						"N",
+						"NE",
+						"E",
+						"SE"
+					]
+				},
+				"idlestaff": {
+					"fps": 6,
+					"frames": 4,
+					"hitFrame": -1,
+					"loop": true,
+					"directions": [
+						"S",
+						"SW",
+						"W",
+						"NW",
+						"N",
+						"NE",
+						"E",
+						"SE"
+					]
+				},
+				"hit": {
+					"fps": 10,
+					"frames": 4,
+					"hitFrame": -1,
+					"loop": false,
+					"directions": [
+						"S",
+						"SW",
+						"W",
+						"NW",
+						"N",
+						"NE",
+						"E",
+						"SE"
+					]
+				},
+				"dodge": {
+					"fps": 10,
+					"frames": 4,
+					"hitFrame": -1,
+					"loop": false,
+					"directions": [
+						"S",
+						"SW",
+						"W",
+						"NW",
+						"N",
+						"NE",
+						"E",
+						"SE"
+					]
+				},
+				"death": {
+					"fps": 10,
+					"frames": 4,
+					"hitFrame": -1,
+					"loop": false,
+					"directions": [
+						"S",
+						"SW",
+						"W",
+						"NW",
+						"N",
+						"NE",
+						"E",
+						"SE"
+					]
+				},
+				"hitsword": {
+					"fps": 10,
+					"frames": 4,
+					"hitFrame": -1,
+					"loop": false,
+					"directions": [
+						"S",
+						"SW",
+						"W",
+						"NW",
+						"N",
+						"NE",
+						"E",
+						"SE"
+					]
+				},
+				"dodgesword": {
+					"fps": 10,
+					"frames": 4,
+					"hitFrame": -1,
+					"loop": false,
+					"directions": [
+						"S",
+						"SW",
+						"W",
+						"NW",
+						"N",
+						"NE",
+						"E",
+						"SE"
+					]
+				},
+				"deathsword": {
+					"fps": 10,
+					"frames": 4,
+					"hitFrame": -1,
+					"loop": false,
+					"directions": [
+						"S",
+						"SW",
+						"W",
+						"NW",
+						"N",
+						"NE",
+						"E",
+						"SE"
+					]
+				},
+				"hitstaff": {
+					"fps": 10,
+					"frames": 4,
+					"hitFrame": -1,
+					"loop": false,
+					"directions": [
+						"S",
+						"SW",
+						"W",
+						"NW",
+						"N",
+						"NE",
+						"E",
+						"SE"
+					]
+				},
+				"dodgestaff": {
+					"fps": 10,
+					"frames": 4,
+					"hitFrame": -1,
+					"loop": false,
+					"directions": [
+						"S",
+						"SW",
+						"W",
+						"NW",
+						"N",
+						"NE",
+						"E",
+						"SE"
+					]
+				},
+				"deathstaff": {
+					"fps": 10,
+					"frames": 4,
+					"hitFrame": -1,
+					"loop": false,
+					"directions": [
+						"S",
+						"SW",
+						"W",
+						"NW",
+						"N",
+						"NE",
+						"E",
+						"SE"
+					]
+				},
+				"walksword": {
+					"fps": 9,
+					"frames": 8,
+					"hitFrame": -1,
+					"loop": true,
+					"directions": [
+						"S",
+						"SW",
+						"W",
+						"NW",
+						"N",
+						"NE",
+						"E",
+						"SE"
+					]
+				},
+				"runsword": {
+					"fps": 12,
+					"frames": 8,
+					"hitFrame": -1,
+					"loop": true,
+					"directions": [
+						"S",
+						"SW",
+						"W",
+						"NW",
+						"N",
+						"NE",
+						"E",
+						"SE"
+					]
+				},
+				"walkstaff": {
+					"fps": 9,
+					"frames": 8,
+					"hitFrame": -1,
+					"loop": true,
+					"directions": [
+						"S",
+						"SW",
+						"W",
+						"NW",
+						"N",
+						"NE",
+						"E",
+						"SE"
+					]
+				},
+				"runstaff": {
+					"fps": 12,
+					"frames": 8,
+					"hitFrame": -1,
+					"loop": true,
+					"directions": [
+						"S",
+						"SW",
+						"W",
+						"NW",
+						"N",
+						"NE",
+						"E",
+						"SE"
+					]
+				},
+				"attack": {
+					"fps": 16,
+					"frames": 12,
+					"hitFrame": 7,
+					"loop": false,
+					"directions": [
+						"S",
+						"SW",
+						"W",
+						"NW",
+						"N",
+						"NE",
+						"E",
+						"SE"
+					]
+				},
+				"cast": {
+					"fps": 16,
+					"frames": 12,
+					"hitFrame": 6,
+					"loop": false,
+					"directions": [
+						"S",
+						"SW",
+						"W",
+						"NW",
+						"N",
+						"NE",
+						"E",
+						"SE"
+					]
+				},
+				"revive": {
+					"fps": 10,
+					"frames": 4,
+					"hitFrame": -1,
+					"loop": false,
+					"directions": [
+						"S",
+						"SW",
+						"W",
+						"NW",
+						"N",
+						"NE",
+						"E",
+						"SE"
+					]
+				},
+				"revivesword": {
+					"fps": 10,
+					"frames": 4,
+					"hitFrame": -1,
+					"loop": false,
+					"directions": [
+						"S",
+						"SW",
+						"W",
+						"NW",
+						"N",
+						"NE",
+						"E",
+						"SE"
+					]
+				},
+				"revivestaff": {
+					"fps": 10,
+					"frames": 4,
+					"hitFrame": -1,
+					"loop": false,
+					"directions": [
+						"S",
+						"SW",
+						"W",
+						"NW",
+						"N",
+						"NE",
+						"E",
+						"SE"
+					]
+				}
+			},
+			"source": {
+				"provider": "drawn-complete-character",
+				"ref": "assets/player-integrated/source-art/fullhero-v15/registration.json"
+			},
+			"notes": "One complete clothed sprite per frame; weapons baked into sword/staff clips. No modular layers or gear anchors."
 		}
 	}
 }

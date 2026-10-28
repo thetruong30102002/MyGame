@@ -30,7 +30,7 @@ namespace Aether.Client
         [SerializeField] private GameDatabase database;
         [SerializeField] private PixelCamera pixelCamera;
         [SerializeField] private GameInput input;
-        [SerializeField] private string playerCharacter = "player_hero_adult";
+        [SerializeField] private string playerCharacter = IntegratedCharacterId;
 
         private SimData sim;
         private Progression prog;
@@ -76,7 +76,7 @@ namespace Aether.Client
         public Npc InteractNpc { get; private set; }
         public IReadOnlyList<string> Loadout => loadout;
         public string PlayerName => playerName;
-        public Sprite PlayerPortrait => playerPortrait;
+        public Sprite PlayerPortrait => SwordWardrobeActive?swordWardrobe.PortraitHead:playerPortrait;
         public long ExpToNext => combat.Pc.Level >= combat.MaxLevel ? 0 : prog.ExpForLevel(combat.Pc.Level);
         public bool Online => online != null;
         public bool Connected => online != null && online.Connected;
@@ -140,7 +140,7 @@ namespace Aether.Client
             personaFemale = female;
             ApplyStory(story, online?.Progress.BonusPoints ?? 0);
             playerCharacter = PlayerSprite(female);
-            var def = database.Character(playerCharacter) ?? database.Character("player_hero_adult");
+            var def = database.Character(playerCharacter);
             playerPortrait = PortraitOf(def);
             if (def == null)
             {
@@ -163,6 +163,7 @@ namespace Aether.Client
             }
             LoadGear();
             if (LabMode && online == null) SetupLab();
+            ApplySavedAppearance();
             combat.ApplyLevel(true);
             focusMarker = MakeFocusMarker();
             StartCoroutine(ChangeMap(startKey, null, true, startAt));
@@ -198,15 +199,13 @@ namespace Aether.Client
         /// </summary>
         public static Sprite PortraitOf(CharacterDef def)
         {
-            var f = def != null ? def.Frames("idle", Dir8.S) : null;
+            var f = def != null ? def.Frames(def.id == IntegratedCharacterId ? "idlesword" : "idle", Dir8.S) : null;
             return f != null && f.frames.Length > 0 ? f.frames[0] : null;
         }
 
         private string PlayerSprite(bool female)
         {
-            var baseId = age >= 16 ? "player_hero_adult" : "player_lior_child";
-            var id = female ? baseId + "_f" : baseId;
-            return database.HasCharacter(id) ? id : baseId;
+            return PlayerRoster.Resolve(online?.Character.ModelId ?? PlayerRoster.OfflineModelId, female);
         }
 
         // ———————————————————————————— vòng lặp ————————————————————————————
@@ -227,6 +226,7 @@ namespace Aether.Client
             var intent = changing || talking || combat.Pc.Dead ? default : input.Intent();
             var stepCap = double.MaxValue;
             TickAutoWalk(ref intent, ref stepCap, talking, realDt);
+            if (SwordTrialActive) intent = default;
             var moving = combat.Pc.Dash == null && (intent.x != 0 || intent.y != 0);
             if (moving) combat.EndRecovery();
             if (moving)
@@ -313,13 +313,13 @@ namespace Aether.Client
                         hud.Chat?.Open();
                         break;
                     case KeyBinds.Act.Dodge:
-                        DodgeNow();
+                        if (!SwordTrialActive) DodgeNow();
                         break;
                     case KeyBinds.Act.Target:
                         focus = WorldPopulation.FocusCycle(Candidates(true, true), focus, player.X, player.Y);
                         break;
                     case KeyBinds.Act.Interact:
-                        Interact();
+                        if (!SwordTrialActive) Interact();
                         break;
                     case KeyBinds.Act.Potion:
                         combat.UsePotion();
@@ -457,6 +457,7 @@ namespace Aether.Client
 
         public void DodgeNow()
         {
+            if (SwordTrialActive) return;
             // Lướt né là của Kiếm sĩ (chủ dự án 11/10/2026: "chiêu bấm Space nhảy đi một đoạn chỉ cho kiếm, pháp sư sẽ không có");
             // tuổi thơ chưa chọn đường vẫn né được (bài nấm năm 8 tuổi dạy né).
             if (combat.Path == "mage")
@@ -475,6 +476,9 @@ namespace Aether.Client
 
         private void CastSlot(int slot, bool repeat)
         {
+            if (SwordWardrobeActive) { swordWardrobe.PlayAttack(); return; }
+            if (PlayerRigActive) { playerRig.PlayAttack(); return; }
+            if (SwordTrialActive) { swordTrial.Play(); return; }
             if (slot >= loadout.Count || loadout[slot] == null) return;
             var idx = -1;
             for (var i = 0; i < combat.Skills.Count; i += 1)
@@ -543,7 +547,7 @@ namespace Aether.Client
                 AdvanceDialog();
                 return;
             }
-            var n = InteractNpc ?? focus as Npc;
+            var n = population.NearestNpc(player.X, player.Y) ?? focus as Npc;
             if (n == null || OpenService(n)) return;
             if (story != null && story.Talk(n.Key)) return;
             Talk(n);

@@ -1,0 +1,340 @@
+{
+  "version": 15,
+  "source": "attack-NE-template01.png",
+  "sourceSha256": "547493f388ca1bc41d5627288680c3323d0048cee115d1769cea3c8f002aaecd",
+  "state": "sword",
+  "direction": "NE",
+  "kind": "attack",
+  "count": 12,
+  "columns": 4,
+  "sourceSize": [
+    1448,
+    1086
+  ],
+  "neutralFrames": [
+    0,
+    11
+  ],
+  "measurements": [
+    {
+      "frame": 0,
+      "row": 0,
+      "column": 0,
+      "bounds": [
+        130,
+        138,
+        275,
+        325
+      ],
+      "area": 13543,
+      "crown": 139,
+      "floor": 324,
+      "height": 186,
+      "rootX": 179.0,
+      "hairBounds": [
+        143,
+        139,
+        212,
+        196
+      ],
+      "headSilhouetteBounds": [
+        142,
+        139,
+        216,
+        201
+      ]
+    },
+    {
+      "frame": 1,
+      "row": 0,
+      "column": 1,
+      "bounds": [
+        497,
+        138,
+        664,
+        325
+      ],
+      "area": 13957,
+      "crown": 139,
+      "floor": 324,
+      "height": 186,
+      "rootX": 180.0
+    },
+    {
+      "frame": 2,
+      "row": 0,
+      "column": 2,
+      "bounds": [
+        858,
+        105,
+        1008,
+        325
+      ],
+      "area": 14209,
+      "crown": 139,
+      "floor": 324,
+      "height": 186,
+      "rootX": 179.5
+    },
+    {
+      "frame": 3,
+      "row": 0,
+      "column": 3,
+      "bounds": [
+        1219,
+        49,
+        1321,
+        325
+      ],
+      "area": 13911,
+      "crown": 50,
+      "floor": 324,
+      "height": 275,
+      "rootX": 177.5
+    },
+    {
+      "frame": 4,
+      "row": 1,
+      "column": 0,
+      "bounds": [
+        134,
+        406,
+        229,
+        688
+      ],
+      "area": 13569,
+      "crown": 406,
+      "floor": 686,
+      "height": 281,
+      "rootX": 178.5
+    },
+    {
+      "frame": 5,
+      "row": 1,
+      "column": 1,
+      "bounds": [
+        458,
+        456,
+        613,
+        688
+      ],
+      "area": 15072,
+      "crown": 474,
+      "floor": 686,
+      "height": 213,
+      "rootX": 179.5
+    },
+    {
+      "frame": 6,
+      "row": 1,
+      "column": 2,
+      "bounds": [
+        854,
+        453,
+        1035,
+        688
+      ],
+      "area": 14654,
+      "crown": 509,
+      "floor": 686,
+      "height": 178,
+      "rootX": 174.5
+    },
+    {
+      "frame": 7,
+      "row": 1,
+      "column": 3,
+      "bounds": [
+        1208,
+        535,
+        1405,
+        688
+      ],
+      "area": 12686,
+      "crown": 535,
+      "floor": 686,
+      "height": 152,
+      "rootX": 170.5
+    },
+    {
+      "frame": 8,
+      "row": 2,
+      "column": 0,
+      "bounds": [
+        134,
+        859,
+        301,
+        1048
+      ],
+      "area": 13636,
+      "crown": 860,
+      "floor": 1047,
+      "height": 188,
+      "rootX": 192.5
+    },
+    {
+      "frame": 9,
+      "row": 2,
+      "column": 1,
+      "bounds": [
+        496,
+        857,
+        662,
+        1048
+      ],
+      "area": 14259,
+      "crown": 858,
+      "floor": 1046,
+      "height": 189,
+      "rootX": 192.5
+    },
+    {
+      "frame": 10,
+      "row": 2,
+      "column": 2,
+      "bounds": [
+        854,
+        860,
+        1007,
+        1048
+      ],
+      "area": 13779,
+      "crown": 860,
+      "floor": 1047,
+      "height": 188,
+      "rootX": 181.0
+    },
+    {
+      "frame": 11,
+      "row": 2,
+      "column": 3,
+      "bounds": [
+        1216,
+        860,
+        1368,
+        1048
+      ],
+      "area": 13735,
+      "crown": 860,
+      "floor": 1047,
+      "height": 188,
+      "rootX": 179.5,
+      "hairBounds": [
+        1229,
+        861,
+        1301,
+        919
+      ],
+      "headSilhouetteBounds": [
+        1229,
+        860,
+        1304,
+        922
+      ]
+    }
+  ],
+  "registration": {
+    "scale": 0.3946021157090048,
+    "referenceBodyHeight": 187.0,
+    "rootX": 179.25,
+    "rowFloor": [
+      324.0,
+      686.0,
+      1047.0
+    ],
+    "columnRootX": [
+      180.03419827261504,
+      542.5341982726151,
+      905.0341982726151,
+      1267.534198272615
+    ],
+    "sourceGridHeadOrigin": 177.5,
+    "sourceGridHeadStep": 362.5,
+    "idleHairBounds": [
+      59,
+      55,
+      85,
+      78
+    ],
+    "scaleMode": "multi-profile-proposal-unreviewed",
+    "idleHeadSilhouetteBounds": [
+      57,
+      55,
+      86,
+      79
+    ],
+    "sourceMedianHeadWidth": 74.5,
+    "targetIdleRasterHeight": 74,
+    "targetRootY": 128
+  },
+  "artApproved": true,
+  "registrationApproved": true,
+  "profileFit": {
+    "reference": "exact saved baseline native idle",
+    "targetSole": 128,
+    "crownProxy": 55,
+    "regions": [
+      {
+        "name": "head",
+        "bounds": [
+          58,
+          53,
+          86,
+          82
+        ],
+        "weight": 2.0
+      },
+      {
+        "name": "neck-torso",
+        "bounds": [
+          62,
+          79,
+          82,
+          107
+        ],
+        "weight": 2.0
+      },
+      {
+        "name": "shoulders",
+        "bounds": [
+          54,
+          80,
+          90,
+          93
+        ],
+        "weight": 1.0
+      },
+      {
+        "name": "belt",
+        "bounds": [
+          59,
+          96,
+          85,
+          108
+        ],
+        "weight": 1.5
+      }
+    ],
+    "contactPhases": [
+      0,
+      11
+    ],
+    "score": 0.05771774458270011,
+    "regionError": {
+      "head": 0.06095213947648025,
+      "neck-torso": 0.057212009803921576,
+      "shoulders": 0.049814605329311215,
+      "belt": 0.059348290598290596
+    },
+    "uniformScale": 0.3946021157090048,
+    "uniformNativeDx": -1,
+    "warning": "Proposal only. Inspect crown/chin/shoulder/belt/knee/sole and gait; reject incompatible source anatomy."
+  },
+  "rootReview": {
+    "reviewer": "root",
+    "scope": "Complete poses compared against exact idle: crown, shoulders, torso, boots, grip and native detail; final palette and Unity transitions pending",
+    "reviewCard": "traces/attack-NE-template01/profile-fit/ordered-2x.png",
+    "reviewCardSha256": "96dae4122c386f0ee374e6ee4e86928004b359e2a19fca414716ab6ca8be8e64",
+    "sourceSha256": "547493f388ca1bc41d5627288680c3323d0048cee115d1769cea3c8f002aaecd"
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "version": 2,
+  "gender": "male",
+  "status": "four-keyposes-not-full-animation",
+  "source": "pilot-source-r2.png",
+  "canvas": [
+    288,
+    288
+  ],
+  "ppu": 96,
+  "sourceScale": 0.3177570093457944,
+  "perFrameScale": false,
+  "directions": [
+    "S"
+  ],
+  "frames": [
+    {
+      "id": "stand",
+      "sourceSlot": 0,
+      "sourceNeck": [
+        245,
+        484
+      ],
+      "headOffset": [
+        0,
+        0
+      ],
+      "neck": [
+        144,
+        154
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "sourceBounds": {
+        "x0": 91,
+        "y0": 112,
+        "x1": 173,
+        "y1": 257
+      },
+      "layerOrder": [
+        "body",
+        "head",
+        "front",
+        "collar"
+      ],
+      "weaponSeparated": false,
+      "productionEnabled": false
+    },
+    {
+      "id": "walk-contact",
+      "sourceSlot": 1,
+      "sourceNeck": [
+        690,
+        484
+      ],
+      "headOffset": [
+        0,
+        0
+      ],
+      "neck": [
+        144,
+        154
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "sourceBounds": {
+        "x0": 91,
+        "y0": 112,
+        "x1": 172,
+        "y1": 258
+      },
+      "layerOrder": [
+        "body",
+        "head",
+        "front",
+        "collar"
+      ],
+      "weaponSeparated": false,
+      "productionEnabled": false
+    },
+    {
+      "id": "attack-overhead",
+      "sourceSlot": 2,
+      "sourceNeck": [
+        1113,
+        489
+      ],
+      "headOffset": [
+        0,
+        2
+      ],
+      "neck": [
+        144,
+        156
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "sourceBounds": {
+        "x0": 114,
+        "y0": 22,
+        "x1": 175,
+        "y1": 257
+      },
+      "layerOrder": [
+        "body",
+        "head",
+        "front",
+        "collar"
+      ],
+      "weaponSeparated": false,
+      "productionEnabled": false
+    },
+    {
+      "id": "attack-impact",
+      "sourceSlot": 3,
+      "sourceNeck": [
+        1538,
+        491
+      ],
+      "headOffset": [
+        0,
+        2
+      ],
+      "neck": [
+        144,
+        156
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "sourceBounds": {
+        "x0": 107,
+        "y0": 117,
+        "x1": 186,
+        "y1": 258
+      },
+      "layerOrder": [
+        "body",
+        "head",
+        "front",
+        "collar"
+      ],
+      "weaponSeparated": false,
+      "productionEnabled": false
+    }
+  ],
+  "artApproved": false
+}

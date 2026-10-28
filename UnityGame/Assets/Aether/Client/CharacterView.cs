@@ -32,6 +32,7 @@ namespace Aether.Client
         private string held;
         private string heldIdle = "idle";
         private string heldWalk = "walk";
+        private string heldRun = "run";
 
         private bool acting;
         private bool external;
@@ -60,17 +61,23 @@ namespace Aether.Client
             anim = null;
             acting = false;
             SetHeld(null);
-            Show("idle", Dir8.S, 1, false);
+            Show(WithHeld("idle"), Dir8.S, 1, false);
         }
 
-        /// <summary>Vũ khí đang cầm vẽ liền thân (`sword` / `staff`), null = tay không.</summary>
+        /// <summary>Vũ khí vẽ liền thân. Lữ khách dùng một bộ kiếm hoặc trượng hoàn chỉnh.</summary>
         public string Held => held;
 
-        public void SetHeld(string art)
+        public void SetHeld(string art, string stance = null)
         {
-            held = art;
+            // The complete premium skin always carries one painted weapon.
+            // Saved equipment still controls stats; an empty slot uses its sword skin.
+            var model = def != null && def.role == "player" ? PlayerRoster.Find(def.id) : null;
+            held = model != null ? model.classId : def != null && def.id == GameController.IntegratedCharacterId
+                ? art == "staff" || (string.IsNullOrEmpty(art) && stance == "magic") ? "staff" : "sword"
+                : art;
             heldIdle = Pick("idle");
             heldWalk = Pick("walk");
+            heldRun = Pick("run");
             if (!acting && def != null) Show(WithHeld(baseAnim), baseDir, baseSpeed, true);
         }
 
@@ -100,13 +107,13 @@ namespace Aether.Client
         }
 
         /// <summary>Atlas đã vẽ động tác này cho hướng (hoặc hướng kề ≤45°).</summary>
-        public bool HasAction(string action, Dir8 d) => def != null && def.ActionFrames(action, d) != null;
+        public bool HasAction(string action, Dir8 d) => def != null && def.ActionFrames(CompleteAction(action, d), d) != null;
 
         /// <summary>Nhịp động tác cho hướng <paramref name="d"/>, co theo hồi chiêu; null = chưa vẽ hướng đó.</summary>
         public ActionTiming? ActionTimingFor(string action, Dir8 d, double cooldown)
         {
             if (Mannequin != null && Mannequin.TryTiming(action, d, cooldown, out var modularTiming)) return modularTiming;
-            action = HeldAction(action, d);
+            action = CompleteAction(HeldAction(action, d), d);
             var f = def != null ? def.ActionFrames(action, d) : null;
             return f == null ? (ActionTiming?)null : ActionClock.TimingFor(def.Find(action), action, cooldown, f.frames.Length);
         }
@@ -122,7 +129,7 @@ namespace Aether.Client
         public bool PlayAction(string action, Dir8 d, ActionTiming t, bool externalClock)
         {
             if (def == null) return false;
-            action = HeldAction(action, d);
+            action = CompleteAction(HeldAction(action, d), d);
             var f = def.ActionFrames(action, d);
             if (f == null || f.frames.Length == 0) return false;
             acting = true;
@@ -223,7 +230,25 @@ namespace Aether.Client
             return def.Has(name) ? name : b;
         }
 
-        private string WithHeld(string a) => a == "idle" ? heldIdle : a == "walk" ? heldWalk : a;
+        private string WithHeld(string a) => a == "idle" ? heldIdle : a == "walk" ? heldWalk : a == "run" ? heldRun : a;
+
+        private string CompleteAction(string action, Dir8 d)
+        {
+            var model = def != null && def.role == "player" ? PlayerRoster.Find(def.id) : null;
+            if (model != null && !string.IsNullOrEmpty(action))
+            {
+                // Các kỹ năng dùng clip của chính class; phản ứng không giả bằng đòn đánh.
+                if (System.Array.IndexOf(HeldBodyActions, action) >= 0 || action == "idle" || action == "walk" || action == "run") return action;
+                return model.Combat;
+            }
+            if (def == null || def.id != GameController.IntegratedCharacterId || string.IsNullOrEmpty(action) || def.ActionFrames(action, d) != null) return action;
+            // Unsupported combat moves reuse this character's complete weapon animation.
+            // Reactions and lifecycle actions keep their own authored clips.
+            foreach (var reaction in HeldBodyActions)
+                if (action == reaction || action == reaction + "sword" || action == reaction + "staff") return action;
+            if (action == "idle" || action == "walk" || action == "run") return action;
+            return (ActionClock.IsMagic != null && ActionClock.IsMagic(action)) || held == "staff" ? "cast" : "attack";
+        }
 
         /// <summary>Động tác thân có bản cầm vũ khí riêng (`hitsword`, `drinkstaff`… — web `heldAction`); thiếu bản / hướng thì bản tay không.</summary>
         private string HeldAction(string action, Dir8 d)

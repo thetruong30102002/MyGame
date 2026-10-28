@@ -1,0 +1,127 @@
+{
+  "reviewer": "root",
+  "releaseApproved": false,
+  "traces": [
+    {
+      "path": "traces/walk-staff-S-template01/profile-fit/trace.json",
+      "approved": false
+    },
+    {
+      "path": "traces/walk-staff-E-template01/profile-fit/trace.json",
+      "approved": false
+    },
+    {
+      "path": "traces/walk-staff-N-template01/profile-fit/trace.json",
+      "approved": false
+    },
+    {
+      "path": "traces/walk-staff-SE-template01/profile-fit/trace.json",
+      "approved": false
+    },
+    {
+      "path": "traces/walk-staff-NE-template01/profile-fit/trace.json",
+      "approved": false
+    },
+    {
+      "path": "traces/run-staff-S-template01/profile-fit/trace.json",
+      "approved": false
+    },
+    {
+      "path": "traces/run-staff-E-template01/profile-fit/trace.json",
+      "approved": false
+    },
+    {
+      "path": "traces/run-staff-N-template01/profile-fit/trace.json",
+      "approved": false
+    },
+    {
+      "path": "traces/run-staff-SE-template01/profile-fit/trace.json",
+      "approved": false
+    },
+    {
+      "path": "traces/run-staff-NE-template01/profile-fit/trace.json",
+      "approved": false
+    },
+    {
+      "path": "traces/walk-sword-S-candidate02/profile-fit/trace.json",
+      "approved": false
+    },
+    {
+      "path": "traces/walk-sword-E-template01/profile-fit/trace.json",
+      "approved": false
+    },
+    {
+      "path": "traces/walk-sword-N-template01/profile-fit/trace.json",
+      "approved": false
+    },
+    {
+      "path": "traces/walk-sword-SE-template01/profile-fit/trace.json",
+      "approved": false
+    },
+    {
+      "path": "traces/walk-sword-NE-template01/profile-fit/trace.json",
+      "approved": false
+    },
+    {
+      "path": "traces/run-sword-S-template01/profile-fit/trace.json",
+      "approved": false
+    },
+    {
+      "path": "traces/run-sword-E-template01/profile-fit/trace.json",
+      "approved": false
+    },
+    {
+      "path": "traces/run-sword-N-template01/profile-fit/trace.json",
+      "approved": false
+    },
+    {
+      "path": "traces/run-sword-SE-template01/profile-fit/trace.json",
+      "approved": false
+    },
+    {
+      "path": "traces/run-sword-NE-template01/profile-fit/trace.json",
+      "approved": false
+    },
+    {
+      "path": "traces/attack-S-candidate01/profile-fit/trace.json",
+      "approved": false
+    },
+    {
+      "path": "traces/attack-E-template01/profile-fit/trace.json",
+      "approved": false
+    },
+    {
+      "path": "traces/attack-N-template01/profile-fit/trace.json",
+      "approved": false
+    },
+    {
+      "path": "traces/attack-SE-template01/profile-fit/trace.json",
+      "approved": false
+    },
+    {
+      "path": "traces/attack-NE-template01/profile-fit/trace.json",
+      "approved": false
+    },
+    {
+      "path": "traces/cast-staff-S-candidate01/profile-fit/trace.json",
+      "approved": false
+    },
+    {
+      "path": "traces/cast-staff-E-candidate01/profile-fit/trace.json",
+      "approved": false
+    },
+    {
+      "path": "traces/cast-staff-N-candidate01/profile-fit/trace.json",
+      "approved": false
+    },
+    {
+      "path": "traces/cast-staff-SE-candidate01/profile-fit/trace.json",
+      "approved": false
+    },
+    {
+      "path": "traces/cast-staff-NE-candidate01/profile-fit/trace.json",
+      "approved": false
+    }
+  ],
+  "scope": "30 visible Sword/Staff direction sheets; original idle and compatibility data retained"
+}

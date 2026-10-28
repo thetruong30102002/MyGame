@@ -1,5 +1,7 @@
 # Thế giới Aether — vùng, map, quái, boss, trang bị, ngân sách PixelLab
 
+> **Ưu tiên 26/10/2026:** hướng mới tại [dinh-huong-aether.md](dinh-huong-aether.md). Admin đã chuyển React; web dùng 30 tạo hình/5 class/8 nguyên tố. Truyện cũ lưu trữ, nhân vật cũ dành cho NPC sau này. Phần dưới là bàn giao lịch sử và kiểm kê kỹ thuật, không là cốt truyện mới.
+
 > FILE SINH TỰ ĐỘNG từ `docs/tools/the-gioi-aether.py` — sửa dữ liệu ở đó rồi chạy lại (sinh cả bản HTML). Soạn 08/10/2026,
 > chia **3 mốc** (chủ dự án 08/10/2026): Mốc 1 = skill nhân vật thật chi tiết + vùng 1–4; Mốc 2 = vùng 5–7 + 3 rồng; Mốc 3 = vùng 8–10
 > + 3 rồng + nhân vật / trang bị. Trạng thái: **Mốc 1 phần lớn đã vẽ + lên game 09/10/2026 (gói trả phí token #1)**.

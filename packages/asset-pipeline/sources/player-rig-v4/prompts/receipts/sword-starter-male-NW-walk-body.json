@@ -1,0 +1,18 @@
+{
+  "file": "sword-starter/male/NW-walk-body.png",
+  "tier": "sword-starter",
+  "gender": "male",
+  "direction": "NW",
+  "action": "walk",
+  "sourceReady": false,
+  "refs": [
+    "D:\\truong\\MyGame\\packages\\asset-pipeline\\sources\\player-rig-v4\\sword-starter\\male\\references\\NW.png",
+    "D:\\truong\\MyGame\\packages\\asset-pipeline\\sources\\player-rig-v4\\sword-starter\\male\\references\\S.png"
+  ],
+  "dependsOn": [],
+  "prompt": "Production crisp PixelLab-style pixel-art detachable outfit sprite layer. Genuinely HEADLESS and WEAPONLESS: NO head/face/hair/skin neck/ears/horns, and NO blade/guard/hilt/pommel/sheath. Above short high collar empty alpha except raised arms. Black closed gloves clasp an IMAGINARY grip; actual weapons are separate interchangeable layers. All body/clothes behind an imaginary sword must be complete, no weapon-shaped holes. Fully covered neck/arms/legs, no exposed skin. Clean hard pixel clusters and outlines, fabric/leather/steel detail, no blur/grain/glow/shadows/grid/text/background. Real alpha. Same adult proportions, global neck socket, orthographic RPG camera and body density in all frames. NEVER enlarge/fit a running or attacking body to gesture bounds. Slender masculine adult, no bulk. Match EXACT design of reference1, which faces the playback direction. Reference2 FRONT S is only for calibration. Playback direction for first frames: NORTHWEST3/4BACK facing TOP LEFT, back cloth/plates visible, not front. 3columns x3rows,9 equal cells. First8 row-major are8 different continuous gentle WALK poses: L contact, weight/down onL, R passes under hips, R reaches, R contact, weight/down onR, L passes under hips, L reaches into loop. Quiet short low steps, restrained arm swing, right fist near right hip holding imaginary sword. Last cell9 is FRONT S neutral standing CALIBRATION, same physical anatomy/density as animated poses even if playback direction differs. Distinctive design: Bộ vải xanh đậm, giáp vai/cổ tay thép nhẹ giản dị, viền đồng ít; kiếm thép cơ bản. Keep this costume feature set consistent throughout the entire sheet. Feet/neck same registration as motion reference; don't change anatomy per outfit. ",
+  "generatedPath": "C:\\Users\\thetr\\.codex\\generated_images\\01a161de-a2f6-73d3-b375-dc59da54386f\\exec-2da42739-7975-4bcf-b8f6-8a1b59eb0c61.png",
+  "dest": "D:/truong/MyGame/packages/asset-pipeline/sources/player-rig-v4/sword-starter/male/NW-walk-body.png",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-10-27T10:42:30.305Z"
+}

@@ -1,0 +1,317 @@
+[
+  {
+    "action": "attack",
+    "phase": 0,
+    "direction": "S",
+    "origin": [
+      50,
+      38
+    ]
+  },
+  {
+    "action": "attack",
+    "phase": 1,
+    "direction": "S",
+    "origin": [
+      48,
+      37
+    ]
+  },
+  {
+    "action": "attack",
+    "phase": 2,
+    "direction": "S",
+    "origin": [
+      48,
+      37
+    ]
+  },
+  {
+    "action": "attack",
+    "phase": 3,
+    "direction": "S",
+    "origin": [
+      48,
+      37
+    ]
+  },
+  {
+    "action": "attack",
+    "phase": 4,
+    "direction": "S",
+    "origin": [
+      47,
+      50
+    ]
+  },
+  {
+    "action": "attack",
+    "phase": 5,
+    "direction": "S",
+    "origin": [
+      48,
+      51
+    ]
+  },
+  {
+    "action": "attack",
+    "phase": 6,
+    "direction": "S",
+    "origin": [
+      47,
+      38
+    ]
+  },
+  {
+    "action": "attack",
+    "phase": 0,
+    "direction": "W",
+    "origin": [
+      47,
+      34
+    ]
+  },
+  {
+    "action": "attack",
+    "phase": 1,
+    "direction": "W",
+    "origin": [
+      45,
+      37
+    ]
+  },
+  {
+    "action": "attack",
+    "phase": 2,
+    "direction": "W",
+    "origin": [
+      45,
+      37
+    ]
+  },
+  {
+    "action": "attack",
+    "phase": 3,
+    "direction": "W",
+    "origin": [
+      40,
+      34
+    ]
+  },
+  {
+    "action": "attack",
+    "phase": 4,
+    "direction": "W",
+    "origin": [
+      37,
+      57
+    ]
+  },
+  {
+    "action": "attack",
+    "phase": 5,
+    "direction": "W",
+    "origin": [
+      36,
+      58
+    ]
+  },
+  {
+    "action": "attack",
+    "phase": 6,
+    "direction": "W",
+    "origin": [
+      46,
+      35
+    ]
+  },
+  {
+    "action": "attack",
+    "phase": 0,
+    "direction": "N",
+    "origin": [
+      49,
+      35
+    ]
+  },
+  {
+    "action": "attack",
+    "phase": 1,
+    "direction": "N",
+    "origin": [
+      48,
+      39
+    ]
+  },
+  {
+    "action": "attack",
+    "phase": 2,
+    "direction": "N",
+    "origin": [
+      48,
+      39
+    ]
+  },
+  {
+    "action": "attack",
+    "phase": 3,
+    "direction": "N",
+    "origin": [
+      47,
+      38
+    ]
+  },
+  {
+    "action": "attack",
+    "phase": 4,
+    "direction": "N",
+    "origin": [
+      48,
+      41
+    ]
+  },
+  {
+    "action": "attack",
+    "phase": 5,
+    "direction": "N",
+    "origin": [
+      43,
+      49
+    ]
+  },
+  {
+    "action": "attack",
+    "phase": 6,
+    "direction": "N",
+    "origin": [
+      50,
+      37
+    ]
+  },
+  {
+    "action": "attack",
+    "phase": 0,
+    "direction": "SW",
+    "origin": [
+      50,
+      38
+    ]
+  },
+  {
+    "action": "attack",
+    "phase": 1,
+    "direction": "SW",
+    "origin": [
+      45,
+      37
+    ]
+  },
+  {
+    "action": "attack",
+    "phase": 2,
+    "direction": "SW",
+    "origin": [
+      45,
+      37
+    ]
+  },
+  {
+    "action": "attack",
+    "phase": 3,
+    "direction": "SW",
+    "origin": [
+      41,
+      39
+    ]
+  },
+  {
+    "action": "attack",
+    "phase": 4,
+    "direction": "SW",
+    "origin": [
+      38,
+      55
+    ]
+  },
+  {
+    "action": "attack",
+    "phase": 5,
+    "direction": "SW",
+    "origin": [
+      40,
+      55
+    ]
+  },
+  {
+    "action": "attack",
+    "phase": 6,
+    "direction": "SW",
+    "origin": [
+      49,
+      40
+    ]
+  },
+  {
+    "action": "attack",
+    "phase": 0,
+    "direction": "NW",
+    "origin": [
+      50,
+      36
+    ]
+  },
+  {
+    "action": "attack",
+    "phase": 1,
+    "direction": "NW",
+    "origin": [
+      45,
+      39
+    ]
+  },
+  {
+    "action": "attack",
+    "phase": 2,
+    "direction": "NW",
+    "origin": [
+      45,
+      39
+    ]
+  },
+  {
+    "action": "attack",
+    "phase": 3,
+    "direction": "NW",
+    "origin": [
+      40,
+      38
+    ]
+  },
+  {
+    "action": "attack",
+    "phase": 4,
+    "direction": "NW",
+    "origin": [
+      35,
+      55
+    ]
+  },
+  {
+    "action": "attack",
+    "phase": 5,
+    "direction": "NW",
+    "origin": [
+      40,
+      55
+    ]
+  },
+  {
+    "action": "attack",
+    "phase": 6,
+    "direction": "NW",
+    "origin": [
+      44,
+      37
+    ]
+  }
+]

@@ -1,0 +1,151 @@
+{
+  "date": "2026-10-26",
+  "scope": "Chủ dự án chốt cách ghép V2 hiện có với kiếm gốc/kiếm sắt qua trang xem thử; giữ thân, tóc, hoạt ảnh và tay nắm làm chuẩn. Kiếm Tử Yên là mẫu thay tiếp theo, chưa được duyệt riêng. Chưa phải nghiệm thu Unity hoặc các hướng chuyển động còn thiếu.",
+  "quote": "bản v2 bạn ghép kiếm ổn rồi đấy",
+  "acceptedWeaponIds": [
+    "steel",
+    "iron"
+  ],
+  "bodyFrames": [
+    {
+      "id": "idle-S",
+      "bodySha256": "32684edb5ce978225993032ae4484e6e9c244a278d1ffb144b4a1b5a28f398f2",
+      "handsFileSha256": "0bacef94bd434f8bbbb779e50c5f8da93ea96bbc929694a42f1e1c1ebc33aa3c"
+    },
+    {
+      "id": "idle-SW",
+      "bodySha256": "8904fdc3d946c9146c960cf817e021ddc50fb30e7f4dbfa8dbd14ad8470c01bd",
+      "handsFileSha256": "882d561156e843da5f1f79ba1c3ce959488c489d5715b2055f235b1846b7f50a"
+    },
+    {
+      "id": "idle-W",
+      "bodySha256": "aab678f1e4e7712e8fa1cbdde80bf6c14a264ab8a3f38d3ebb6d0d2494e1cc52",
+      "handsFileSha256": "c72bab2bc1c263a6f13dde4321bbd6b735d5c580595d870e2b39d1e150ed0815"
+    },
+    {
+      "id": "idle-NW",
+      "bodySha256": "860b9276e3466faa82afbcb778cc60d1a54a65270f35127b5b31082ac033e511",
+      "handsFileSha256": "5ce503b61769a5bf9878ee29406f4b7347182fba24d9040ad9d1d37fd96326ad"
+    },
+    {
+      "id": "idle-N",
+      "bodySha256": "32d43207542b807bd261e605516ac7165e18a03d2d38d6abfa9335e829abbc8c",
+      "handsFileSha256": "9204002626d9cf002c10fef5c3c0a03d6641f6dba5aab8dc265363b99f8c18cd"
+    },
+    {
+      "id": "idle-NE",
+      "bodySha256": "d9a3fffb1bdc9071c2a87bb1fd8f03e22443a169b60066214db8e75f22a8d2aa",
+      "handsFileSha256": "037be689562c06d086556e0d188d9ca89b6e89e9faa64a61aa4ec84d905b3f88"
+    },
+    {
+      "id": "idle-E",
+      "bodySha256": "5b7987205b87d6a08a7d3abe97159783cf3f7d59ea4bc4cc69a585e1ff91e0a5",
+      "handsFileSha256": "cb83c56ef754ea930e5d13fb60e4ec44541cb55138d69d6a04ff99d8aaa6ec15"
+    },
+    {
+      "id": "idle-SE",
+      "bodySha256": "32605f0718c82c78dd6ad0f2697493ae06b27d64614d4013d55433fc26a7c4ec",
+      "handsFileSha256": "63fb0a08b088f799e5d4ea7404700e3dbba6945a9408d69e42a7c481847c9b59"
+    },
+    {
+      "id": "walk-E-0",
+      "bodySha256": "0081166cba964e225a07ecb01226687c9fea9e51984fec15753ddd653370d104",
+      "handsFileSha256": "61706f2addfd7cedf014450401a3200c35320189e78e603492731399e8503844"
+    },
+    {
+      "id": "walk-E-1",
+      "bodySha256": "aa96590a3b6ac94a14720ead1348ee8728c68a11817cb2fa1a6b3229f0d450d8",
+      "handsFileSha256": "cd9a9ffb9f2f99c068e206d30b8c1506448545daf7671e803b000d3def7608b6"
+    },
+    {
+      "id": "walk-E-2",
+      "bodySha256": "d8db6ccde7e57eb3c468e821ac46eec1c002b7a72fab1a9dcaf98c22044db60a",
+      "handsFileSha256": "6a8d870f84fa13149a81e66312b0c5bd20bce8c23defd37fc0e6ca16d2e9db51"
+    },
+    {
+      "id": "walk-E-3",
+      "bodySha256": "4fbd488ed3783cce95ad0b736a2fb396ea13ec13a0a04d8a46758ce84a519c23",
+      "handsFileSha256": "77bf7abfa684b8df7f2c9fedcb773c562278a16ffce8dcea3bfee5b000064ddd"
+    },
+    {
+      "id": "walk-E-4",
+      "bodySha256": "4b800fb6e5aba8126411d1589e0d81c572d33bbfe792dea476898febea870541",
+      "handsFileSha256": "d57412d27b6e196da784c3c705b725bb5ddfbd9205d6f955275a4b132c0448e9"
+    },
+    {
+      "id": "walk-E-5",
+      "bodySha256": "a4898265601cc31fad78ca9a5a195909a3a7a08b0b3cb763a8f57268bcc81224",
+      "handsFileSha256": "0d4905bcb042d4f1766398eb5ddc40747f8eac8f53383f8d20a2ced75c3638de"
+    },
+    {
+      "id": "walk-E-6",
+      "bodySha256": "58487176eaaf44a5052ec5a83d5c069a2c6b2c78881722ae1cec9402365ac753",
+      "handsFileSha256": "6eeeaa0b174bec1b52424ca2b39043765b3e65b8240f175b438259efde7fefda"
+    },
+    {
+      "id": "walk-E-7",
+      "bodySha256": "a84cbc09e823bd50c64bc06f78a8f8718f0abb5754b5b05bdb4422fbe08709fe",
+      "handsFileSha256": "a0fda3c67cb63f3f8125c22c0526a6aa77d29afb5ee58ed8712285147c6a1082"
+    },
+    {
+      "id": "attack-S-0",
+      "bodySha256": "8a932992d7bc977babaa475173116f1b88d2f36dd33a127da1b68ca9ba03c08c",
+      "handsFileSha256": "0bacef94bd434f8bbbb779e50c5f8da93ea96bbc929694a42f1e1c1ebc33aa3c"
+    },
+    {
+      "id": "attack-S-1",
+      "bodySha256": "fdb521e2662e560f56a7cb1c5f50f4806c4512571222dd78a84cf0c41d0220f0",
+      "handsFileSha256": "b5e3eacf5caea9397b31f4d0e3eae2ee751c1dd699f3a3741f4bff7798881983"
+    },
+    {
+      "id": "attack-S-2",
+      "bodySha256": "25cbbaba3bbd1964ef9fcfae1c2b3f8e4b0ff44bb58c2ac89f00e5d3c1768cbc",
+      "handsFileSha256": "0562fe5b79625942db1aebb4a88ad4351ac452fbddb296247b9674a8448db804"
+    },
+    {
+      "id": "attack-S-3",
+      "bodySha256": "309bf7f27d38910c362419d2cf5b4f0595f169dac266ce8ee47c0c326bb31e68",
+      "handsFileSha256": "515350e624c47e8b444d4f65d2987055b8d93f7a534cedf96e1070e6d06190fd"
+    },
+    {
+      "id": "attack-S-4",
+      "bodySha256": "2e8818f758758ad331d08b1b5d67c0202e1fa500ce5499883d0bd4a5b6a8a0ca",
+      "handsFileSha256": "b5f60a89992a5586d77db592e6408f5df2f59ef133232443205d9752eb1a0fe7"
+    },
+    {
+      "id": "attack-S-5",
+      "bodySha256": "c3c0686de80991adb18b026c049dcf0b363e435f441ca8cfc59b7e11df363d63",
+      "handsFileSha256": "455780cde0c65cc546c91c863f59cf95140252d70fe5301e3963c6cd6caacf79"
+    },
+    {
+      "id": "attack-S-6",
+      "bodySha256": "01c93fef49052c1cafbb4621f3c52104ae0fb87d9135a9a14fa42c93a59cd80a",
+      "handsFileSha256": "372cc0b0218267ba0a8b4525c90ee31b13e5fcda041d283e096be13eda72ed7c"
+    },
+    {
+      "id": "attack-S-7",
+      "bodySha256": "d4720190357ad71eee7a20877ce5c166244b5fbbd51c87b72f2165c43bd84c7e",
+      "handsFileSha256": "eff15657cc2ea7086a8b213d12a990b35fa4d529e65e0032e3dcd28b367f69b6"
+    },
+    {
+      "id": "attack-S-8",
+      "bodySha256": "d696200929bfda2eb98b951f2407222d3b3e0c3d6579e4ba0ea21e6380d42e92",
+      "handsFileSha256": "ab4c9b486dbb4d4714ed0a8d0d7d787064ef8854c1a07bd1098ebf6eb69d1ace"
+    },
+    {
+      "id": "attack-S-9",
+      "bodySha256": "21da2a1c94e5f77ffaa7c6bb54ce727d21b3eed4aaa158bfbb7c0f59ec736ac0",
+      "handsFileSha256": "2535fcc01c510c83d26332066301b96065444a105aead95bfa0b3bae7090d7da"
+    },
+    {
+      "id": "attack-S-10",
+      "bodySha256": "82d240741ee1f5c72189513500da7ef074714308f00196552afac8d720e9946e",
+      "handsFileSha256": "4200c55c57f80c7b39b87378855f3c35beded4de9332479fb292dc924dae13ee"
+    },
+    {
+      "id": "attack-S-11",
+      "bodySha256": "e2a2295f625f49b694610ab8c25614009b1445afaac82d83d58662756ba707da",
+      "handsFileSha256": "0bacef94bd434f8bbbb779e50c5f8da93ea96bbc929694a42f1e1c1ebc33aa3c"
+    }
+  ]
+}

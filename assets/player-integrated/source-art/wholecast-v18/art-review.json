@@ -1,0 +1,578 @@
+{
+  "date": "2026-10-25",
+  "turnaroundsReviewed": 30,
+  "framesReviewed": 240,
+  "newUserApprovalClaimed": false,
+  "characters": [
+    {
+      "id": "player_verdant_sword",
+      "classId": "sword",
+      "gender": "male",
+      "directions": [
+        "S",
+        "SE",
+        "E",
+        "NE",
+        "N",
+        "NW",
+        "W",
+        "SW"
+      ],
+      "nativeSheetSha256": "c1d48133640fb59f195a00f72b8acdc9cf90d789be2a73e3a69bb4690d2cc2be",
+      "visualReview": "inspected complete native turnarounds",
+      "userApproved": true,
+      "coreMotionReady": true
+    },
+    {
+      "id": "player_sword_m02",
+      "classId": "sword",
+      "gender": "male",
+      "directions": [
+        "S",
+        "SE",
+        "E",
+        "NE",
+        "N",
+        "NW",
+        "W",
+        "SW"
+      ],
+      "nativeSheetSha256": "378fbc07149d2bd48083cc98c39747d3deb4010ef204adb0f6fdb68caeac9821",
+      "visualReview": "inspected complete native turnarounds",
+      "userApproved": false,
+      "coreMotionReady": false
+    },
+    {
+      "id": "player_sword_m03",
+      "classId": "sword",
+      "gender": "male",
+      "directions": [
+        "S",
+        "SE",
+        "E",
+        "NE",
+        "N",
+        "NW",
+        "W",
+        "SW"
+      ],
+      "nativeSheetSha256": "9f65fbdcc0ead52d1120365165bc3a12e15e1dbdbaabfd2f0c6d0200315f6be4",
+      "visualReview": "inspected complete native turnarounds",
+      "userApproved": false,
+      "coreMotionReady": false
+    },
+    {
+      "id": "player_sword_f01",
+      "classId": "sword",
+      "gender": "female",
+      "directions": [
+        "S",
+        "SE",
+        "E",
+        "NE",
+        "N",
+        "NW",
+        "W",
+        "SW"
+      ],
+      "nativeSheetSha256": "4217d9f81b9a8e93ab8a834ead6867b1fb445f1e0b98f0f33c458958649c6f1b",
+      "visualReview": "inspected complete native turnarounds",
+      "userApproved": false,
+      "coreMotionReady": false
+    },
+    {
+      "id": "player_sword_f02",
+      "classId": "sword",
+      "gender": "female",
+      "directions": [
+        "S",
+        "SE",
+        "E",
+        "NE",
+        "N",
+        "NW",
+        "W",
+        "SW"
+      ],
+      "nativeSheetSha256": "ab7af50a1531811e6c461ec8ee9c100f1b38d28a27236e547697463cd2438267",
+      "visualReview": "inspected complete native turnarounds",
+      "userApproved": false,
+      "coreMotionReady": false
+    },
+    {
+      "id": "player_sword_f03",
+      "classId": "sword",
+      "gender": "female",
+      "directions": [
+        "S",
+        "SE",
+        "E",
+        "NE",
+        "N",
+        "NW",
+        "W",
+        "SW"
+      ],
+      "nativeSheetSha256": "ef9073933aa4ba4d6dbd124a774dc51edbe5ef5dd12f4069d63b073672473cac",
+      "visualReview": "inspected complete native turnarounds",
+      "userApproved": false,
+      "coreMotionReady": false
+    },
+    {
+      "id": "player_staff_m01",
+      "classId": "staff",
+      "gender": "male",
+      "directions": [
+        "S",
+        "SE",
+        "E",
+        "NE",
+        "N",
+        "NW",
+        "W",
+        "SW"
+      ],
+      "nativeSheetSha256": "0f320df2491a71f438bc6d0f9a4e03af66f8f6dff733b55ceb23f20f64718c6f",
+      "visualReview": "inspected complete native turnarounds",
+      "userApproved": false,
+      "coreMotionReady": false
+    },
+    {
+      "id": "player_staff_m02",
+      "classId": "staff",
+      "gender": "male",
+      "directions": [
+        "S",
+        "SE",
+        "E",
+        "NE",
+        "N",
+        "NW",
+        "W",
+        "SW"
+      ],
+      "nativeSheetSha256": "01c2f3f6a2d8f8db4438783676b35b0563575c9d191d54d6c6e7ece48398a2e8",
+      "visualReview": "inspected complete native turnarounds",
+      "userApproved": false,
+      "coreMotionReady": false
+    },
+    {
+      "id": "player_staff_m03",
+      "classId": "staff",
+      "gender": "male",
+      "directions": [
+        "S",
+        "SE",
+        "E",
+        "NE",
+        "N",
+        "NW",
+        "W",
+        "SW"
+      ],
+      "nativeSheetSha256": "624f5213a045c9196dcb6f61212ff18992a5e347f0362083bf2117389c1666a1",
+      "visualReview": "inspected complete native turnarounds",
+      "userApproved": false,
+      "coreMotionReady": false
+    },
+    {
+      "id": "player_ivory_staff",
+      "classId": "staff",
+      "gender": "female",
+      "directions": [
+        "S",
+        "SE",
+        "E",
+        "NE",
+        "N",
+        "NW",
+        "W",
+        "SW"
+      ],
+      "nativeSheetSha256": "e2149079b7d51aa1f5c9b47a5bd9eded102e65c82411bdf8c660c49431cb5cf4",
+      "visualReview": "inspected complete native turnarounds",
+      "userApproved": true,
+      "coreMotionReady": true
+    },
+    {
+      "id": "player_staff_f02",
+      "classId": "staff",
+      "gender": "female",
+      "directions": [
+        "S",
+        "SE",
+        "E",
+        "NE",
+        "N",
+        "NW",
+        "W",
+        "SW"
+      ],
+      "nativeSheetSha256": "4a55bc61657530d5a63a3ba07a840a2a737cec08961eab576620f250487b85df",
+      "visualReview": "inspected complete native turnarounds",
+      "userApproved": false,
+      "coreMotionReady": false
+    },
+    {
+      "id": "player_staff_f03",
+      "classId": "staff",
+      "gender": "female",
+      "directions": [
+        "S",
+        "SE",
+        "E",
+        "NE",
+        "N",
+        "NW",
+        "W",
+        "SW"
+      ],
+      "nativeSheetSha256": "cc2488870290988f6f621b72e615a95b76980099fc01d2cd8c54738e777116f4",
+      "visualReview": "inspected complete native turnarounds",
+      "userApproved": false,
+      "coreMotionReady": false
+    },
+    {
+      "id": "player_bow_m01",
+      "classId": "bow",
+      "gender": "male",
+      "directions": [
+        "S",
+        "SE",
+        "E",
+        "NE",
+        "N",
+        "NW",
+        "W",
+        "SW"
+      ],
+      "nativeSheetSha256": "9e025709a933d96cf8c110a9984e0bbf661092bcf4145f9af8752f1e5b510be3",
+      "visualReview": "inspected complete native turnarounds",
+      "userApproved": false,
+      "coreMotionReady": false
+    },
+    {
+      "id": "player_bow_m02",
+      "classId": "bow",
+      "gender": "male",
+      "directions": [
+        "S",
+        "SE",
+        "E",
+        "NE",
+        "N",
+        "NW",
+        "W",
+        "SW"
+      ],
+      "nativeSheetSha256": "b6eeed90464870bad3f9e2eec08a130bafbefcb3d45f66f2f9898443a9c3c379",
+      "visualReview": "inspected complete native turnarounds",
+      "userApproved": false,
+      "coreMotionReady": false
+    },
+    {
+      "id": "player_bow_m03",
+      "classId": "bow",
+      "gender": "male",
+      "directions": [
+        "S",
+        "SE",
+        "E",
+        "NE",
+        "N",
+        "NW",
+        "W",
+        "SW"
+      ],
+      "nativeSheetSha256": "7da83c0fbf5547d7fa67df280e885963e4ba95f73b3b94db3aaa0d81fa9ea3c6",
+      "visualReview": "inspected complete native turnarounds",
+      "userApproved": false,
+      "coreMotionReady": false
+    },
+    {
+      "id": "player_bow_f01",
+      "classId": "bow",
+      "gender": "female",
+      "directions": [
+        "S",
+        "SE",
+        "E",
+        "NE",
+        "N",
+        "NW",
+        "W",
+        "SW"
+      ],
+      "nativeSheetSha256": "74e186b034a89058189fdc192e1e854e5c7a8cd2c8994de413b23d602bc3bfd3",
+      "visualReview": "inspected complete native turnarounds",
+      "userApproved": false,
+      "coreMotionReady": false
+    },
+    {
+      "id": "player_bow_f02",
+      "classId": "bow",
+      "gender": "female",
+      "directions": [
+        "S",
+        "SE",
+        "E",
+        "NE",
+        "N",
+        "NW",
+        "W",
+        "SW"
+      ],
+      "nativeSheetSha256": "f17306fdf3b463f28b8283495dae4c654e326ec1cc37da0a1dfad95802b60b64",
+      "visualReview": "inspected complete native turnarounds",
+      "userApproved": false,
+      "coreMotionReady": false
+    },
+    {
+      "id": "player_bow_f03",
+      "classId": "bow",
+      "gender": "female",
+      "directions": [
+        "S",
+        "SE",
+        "E",
+        "NE",
+        "N",
+        "NW",
+        "W",
+        "SW"
+      ],
+      "nativeSheetSha256": "ae42fbf8f510e40ad841811e695ca3bad49bf9e98548c6df54fff67d652fc632",
+      "visualReview": "inspected complete native turnarounds",
+      "userApproved": false,
+      "coreMotionReady": false
+    },
+    {
+      "id": "player_spear_m01",
+      "classId": "spear",
+      "gender": "male",
+      "directions": [
+        "S",
+        "SE",
+        "E",
+        "NE",
+        "N",
+        "NW",
+        "W",
+        "SW"
+      ],
+      "nativeSheetSha256": "6c345a19f02c8dd4bd053313b8c11a16834f6fd05c3a13d5b32aae8326df6225",
+      "visualReview": "inspected complete native turnarounds",
+      "userApproved": false,
+      "coreMotionReady": false
+    },
+    {
+      "id": "player_spear_m02",
+      "classId": "spear",
+      "gender": "male",
+      "directions": [
+        "S",
+        "SE",
+        "E",
+        "NE",
+        "N",
+        "NW",
+        "W",
+        "SW"
+      ],
+      "nativeSheetSha256": "1e5ff84d5e1fbf263e9a4968cd7dfa24196ecc08eeb43d7b6f18a5cb0de06b70",
+      "visualReview": "inspected complete native turnarounds",
+      "userApproved": false,
+      "coreMotionReady": false
+    },
+    {
+      "id": "player_spear_m03",
+      "classId": "spear",
+      "gender": "male",
+      "directions": [
+        "S",
+        "SE",
+        "E",
+        "NE",
+        "N",
+        "NW",
+        "W",
+        "SW"
+      ],
+      "nativeSheetSha256": "5ae9153e6558428d7f6cc21384b88ea63bb1993455011eb2ccce4d161c3e7a66",
+      "visualReview": "inspected complete native turnarounds",
+      "userApproved": false,
+      "coreMotionReady": false
+    },
+    {
+      "id": "player_spear_f01",
+      "classId": "spear",
+      "gender": "female",
+      "directions": [
+        "S",
+        "SE",
+        "E",
+        "NE",
+        "N",
+        "NW",
+        "W",
+        "SW"
+      ],
+      "nativeSheetSha256": "d8600533f7b8b9832d7b4b6eb6eac6b02f2a3d9c6183b784e95d0f0afdf25d28",
+      "visualReview": "inspected complete native turnarounds",
+      "userApproved": false,
+      "coreMotionReady": false
+    },
+    {
+      "id": "player_spear_f02",
+      "classId": "spear",
+      "gender": "female",
+      "directions": [
+        "S",
+        "SE",
+        "E",
+        "NE",
+        "N",
+        "NW",
+        "W",
+        "SW"
+      ],
+      "nativeSheetSha256": "bbe3fc8800a88f36dc95c1e69586297f6a47ea5a3310b4969ceca626b5d26a0b",
+      "visualReview": "inspected complete native turnarounds",
+      "userApproved": false,
+      "coreMotionReady": false
+    },
+    {
+      "id": "player_spear_f03",
+      "classId": "spear",
+      "gender": "female",
+      "directions": [
+        "S",
+        "SE",
+        "E",
+        "NE",
+        "N",
+        "NW",
+        "W",
+        "SW"
+      ],
+      "nativeSheetSha256": "e662852cab0a16ecf7a0b826fbcfa2714a53f0e692c247eeca2b1f7b600ce7c8",
+      "visualReview": "inspected complete native turnarounds",
+      "userApproved": false,
+      "coreMotionReady": false
+    },
+    {
+      "id": "player_shield_m01",
+      "classId": "shield",
+      "gender": "male",
+      "directions": [
+        "S",
+        "SE",
+        "E",
+        "NE",
+        "N",
+        "NW",
+        "W",
+        "SW"
+      ],
+      "nativeSheetSha256": "054c4f563d83773e701069c932ba68533f0880f291da827b5c852bf126f098f1",
+      "visualReview": "inspected complete native turnarounds",
+      "userApproved": false,
+      "coreMotionReady": false
+    },
+    {
+      "id": "player_shield_m02",
+      "classId": "shield",
+      "gender": "male",
+      "directions": [
+        "S",
+        "SE",
+        "E",
+        "NE",
+        "N",
+        "NW",
+        "W",
+        "SW"
+      ],
+      "nativeSheetSha256": "d93f5389889a94cb9e2b9045f927bde4597c2c466040fa17ad32e4f73f91a2aa",
+      "visualReview": "inspected complete native turnarounds",
+      "userApproved": false,
+      "coreMotionReady": false
+    },
+    {
+      "id": "player_shield_m03",
+      "classId": "shield",
+      "gender": "male",
+      "directions": [
+        "S",
+        "SE",
+        "E",
+        "NE",
+        "N",
+        "NW",
+        "W",
+        "SW"
+      ],
+      "nativeSheetSha256": "168febfaec46b22a92943ce8613a11262030b4593fbeec2512df429d3436165d",
+      "visualReview": "inspected complete native turnarounds",
+      "userApproved": false,
+      "coreMotionReady": false
+    },
+    {
+      "id": "player_shield_f01",
+      "classId": "shield",
+      "gender": "female",
+      "directions": [
+        "S",
+        "SE",
+        "E",
+        "NE",
+        "N",
+        "NW",
+        "W",
+        "SW"
+      ],
+      "nativeSheetSha256": "bb0c40c815cba2387c064ba71bd632450a713253035d33c97271f6bde4245d62",
+      "visualReview": "inspected complete native turnarounds",
+      "userApproved": false,
+      "coreMotionReady": false
+    },
+    {
+      "id": "player_shield_f02",
+      "classId": "shield",
+      "gender": "female",
+      "directions": [
+        "S",
+        "SE",
+        "E",
+        "NE",
+        "N",
+        "NW",
+        "W",
+        "SW"
+      ],
+      "nativeSheetSha256": "caa1fdd8cc6e2900f0895247ecfa8c64fe66ebc035e4b559c85c9bf5f3e23e11",
+      "visualReview": "inspected complete native turnarounds",
+      "userApproved": false,
+      "coreMotionReady": false
+    },
+    {
+      "id": "player_shield_f03",
+      "classId": "shield",
+      "gender": "female",
+      "directions": [
+        "S",
+        "SE",
+        "E",
+        "NE",
+        "N",
+        "NW",
+        "W",
+        "SW"
+      ],
+      "nativeSheetSha256": "501c6641ebad8f1ffe03a94ed8627d0f52929d353830748ba39f9795e3b44b94",
+      "visualReview": "inspected complete native turnarounds",
+      "userApproved": false,
+      "coreMotionReady": false
+    }
+  ]
+}

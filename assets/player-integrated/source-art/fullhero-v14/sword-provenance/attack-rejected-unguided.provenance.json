@@ -1,0 +1,9 @@
+{
+  "tool": "builtin image_gen",
+  "promptFile": "attack.prompt.txt",
+  "reference": "../master-sword-reference.png",
+  "generatedOriginal": "C:/Users/thetr/.codex/generated_images/01a167e6-b5df-7072-9dac-6aaa4b029c43/exec-2b9538a8-2829-4273-b8c2-eea8a299cc43.png",
+  "projectCopy": "attack-rejected-unguided.png",
+  "status": "rejected",
+  "reason": "Overhead blades touch/cross cell top boundaries, east row becomes three-quarter front rather than right profile, sword disappears in chest preparation phases. Genuine downward sequence but requires pose guide and padding correction. Do not consume as final attack source."
+}

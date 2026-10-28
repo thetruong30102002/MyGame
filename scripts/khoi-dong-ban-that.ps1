@@ -5,6 +5,8 @@
 # Tạo tiến trình qua WMI: cha là dịch vụ WMI nên không tắt theo cửa sổ / phiên Claude đã gọi (README mục Funnel, đã dẫm 10/10/2026).
 $ErrorActionPreference = 'Stop'
 $root = Split-Path -Parent $PSScriptRoot
+$dataDir = Join-Path $root 'apps\server\data'
+New-Item -ItemType Directory -Path $dataDir -Force | Out-Null
 $log = Join-Path $root 'scripts\khoi-dong-ban-that.log'
 
 function Write-Log($msg) { Add-Content -Path $log -Value ("{0:yyyy-MM-dd HH:mm:ss} {1}" -f (Get-Date), $msg) -Encoding utf8 }

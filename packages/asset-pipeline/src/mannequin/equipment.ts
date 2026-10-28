@@ -1,6 +1,6 @@
 import { join } from 'node:path';
 import { readFileSync } from 'node:fs';
-import { blit, cloneImage, createImage, crop, getPixel, opaqueBounds, readPng, setPixel, writePng, type RGBAImage } from '../image/rgba.js';
+import { blit, createImage, crop, getPixel, opaqueBounds, readPng, setPixel, writePng, type RGBAImage } from '../image/rgba.js';
 
 /** Kit vẽ riêng; rect nguồn được khai theo ảnh thực, alpha cứng khi chuyển về native. */
 export function loadEquipmentKit(root:string):RGBAImage[][] {
@@ -23,8 +23,16 @@ function fitted(src:RGBAImage,w:number,h:number):RGBAImage {
  return out;
 }
 
-export function upperEquipment(base:RGBAImage,art:RGBAImage,dir:number,neck:number,leather:boolean):RGBAImage {
- const out=cloneImage(base);
+export function upperEquipment(silhouette:RGBAImage,art:RGBAImage,dir:number,neck:number,waist:number,leather:boolean):RGBAImage {
+ const out=createImage(112,112);
+ // May áo lót/ống tay riêng cho bộ giáp. Chỉ mượn hình dáng pose, không giữ pixel áo xanh/đỏ.
+ for(let y=neck;y<=waist+2;y++)for(let x=0;x<112;x++) {
+  const c=getPixel(silhouette,x,y);if(!c[3])continue;
+  const light=Math.min(3,Math.floor((c[0]+c[1]+c[2])/165));
+  const cloth=leather?[[48,32,27,255],[64,42,31,255],[85,56,38,255],[110,74,48,255]]
+                     :[[28,35,41,255],[40,49,55,255],[57,67,72,255],[76,85,87,255]];
+  setPixel(out,x,y,cloth[light]! as [number,number,number,number]);
+ }
  const widths=leather?[30,27,22,27,30,27,22,27]:[36,32,25,32,36,32,25,32];
  const w=widths[dir]!;
  // Giáp nối vào cổ/vai của pose, không đổi đầu hoặc tay của mannequin.
@@ -33,7 +41,15 @@ export function upperEquipment(base:RGBAImage,art:RGBAImage,dir:number,neck:numb
 }
 
 export function legEquipment(base:RGBAImage,art:RGBAImage,boots:boolean):RGBAImage {
- const out=cloneImage(base);
+ const out=createImage(112,112);
+ // Mỗi pixel quần/ủng cũ được thay bằng vật liệu mới trước khi đặt chi tiết kit.
+ for(let y=0;y<112;y++)for(let x=0;x<112;x++) {
+  const c=getPixel(base,x,y);if(!c[3])continue;
+  const light=Math.min(3,Math.floor((c[0]+c[1]+c[2])/155));
+  const material=boots?[[45,49,51,255],[63,70,73,255],[88,98,101,255],[125,133,132,255]]
+                      :[[46,53,58,255],[64,73,79,255],[88,101,108,255],[122,135,138,255]];
+  setPixel(out,x,y,material[light]! as [number,number,number,number]);
+ }
  for(const [left,right] of [[0,55],[56,111]]) {
   let x0=112,y0=112,x1=-1,y1=-1;
   for(let y=70;y<112;y++)for(let x=left!;x<=right!;x++)if(getPixel(base,x,y)[3]){x0=Math.min(x0,x);y0=Math.min(y0,y);x1=Math.max(x1,x);y1=Math.max(y1,y);}

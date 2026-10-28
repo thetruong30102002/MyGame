@@ -1,5 +1,8 @@
 # Kế hoạch thế giới: 10 vùng đất × 12 map (khung chốt 08/10/2026; 12 map / vùng chốt 10/10/2026)
 
+> **26/10/2026 — kế hoạch tổng mới:** xem [Tái thiết thế giới](ke-hoach-nang-cap-the-gioi.md), nguồn tiến độ duy nhất cho web Admin → Kế hoạch phát triển.
+> Đã kiểm kê 13 vùng / 174 map / 25 boss. Vẽ lại các trung tâm, bộ cảnh riêng, thêm quái/boss, chính trị và lâu đài trên không có vị thần hé lộ tri thức/khởi nguyên. Các số lượng/ngân sách bên dưới thuộc khung cũ, không phải tiến độ vẽ lại đợt mới.
+
 > Danh sách chi tiết từng vùng / map / quái / boss / rồng + trang bị + ngân sách PixelLab (một gói 24$) + bàn giao cho agent sau:
 > **`docs/the-gioi-aether.md`** (sinh từ `docs/tools/the-gioi-aether.py`, kèm trang HTML `docs/the-gioi-aether.html`).
 
@@ -695,3 +698,37 @@ vẽ PixelLab (danh sách NHẸ). Test `tests/codex.test.ts`.
 - Chưa phát hành EXE/APK mới hoặc khởi động lại server thật cho đợt ba vùng này; bản Windows trước đó chưa chứa các map này.
 
 Unity ImportAllBatch đã hoàn tất, thoát mã 0, không có cảnh báo; các map và bộ cây mới đã vào tài nguyên Unity.
+
+## 5.11 Mê cung săn kho báu — bổ sung 26/10/2026
+
+**Chủ dự án đã chốt:** bổ sung **các mê cung** để người chơi vào khám phá, kiếm **châu báu, vàng và đồ trang trí nhà**. Mê cung là nguồn kiếm các vật phẩm trang trí / sưu tầm, nối với khuôn viên riêng và chợ giao thương. **Trạng thái: đã ghi kế hoạch, chưa triển khai map hoặc gameplay.**
+
+### Vòng chơi và phần thưởng
+
+**Vào mê cung → tìm đường / khám phá → tìm kho báu → nhận phần thưởng → đem về trưng bày trong nhà hoặc bán ở chợ khi vật phẩm được phép trao đổi.**
+
+| Phần thưởng đã chốt | Công dụng / việc cần thiết kế |
+|---|---|
+| Châu báu | Vật phẩm giá trị để sưu tầm, trưng bày hoặc buôn bán theo công dụng từng món; cần thiết kế danh mục và độ hiếm |
+| Vàng | Phần thưởng kinh tế trong game; cần thống nhất với hệ tiền hiện có và cân theo độ khó |
+| Đồ trang trí nhà | Người chơi mang về kho nội thất, đặt trong nhà / khuôn viên; có thể bán ở chợ nếu món đó được phép trao đổi |
+
+- Có nhiều mê cung với chủ đề và bộ phần thưởng riêng để việc khám phá tạo ra các bộ đồ sưu tầm / trang trí khác nhau. Số mê cung, tên, chủ đề và danh sách vật phẩm chưa chốt.
+- **Mê cung là một nguồn đồ trang trí nhà được xác nhận**, không mặc nhiên là nguồn duy nhất của mọi món nội thất. Ghi rõ mê cung xuất xứ trên vật phẩm / thông tin nguồn kiếm khi thiết kế danh mục.
+- Cách nhận đề xuất: mở rương, tìm phòng kho báu hoặc thu hồi cổ vật có tương tác nhận đồ. Ví dụ vật trang trí: tượng nhỏ, bình cổ, tranh, đèn, đồ trưng bày; đây là ví dụ để thiết kế, chưa phải danh mục vật phẩm đã duyệt.
+- Đồ kiếm được cần tồn tại như vật phẩm có quyền sở hữu để đem về đặt hoặc giao thương, không chỉ là hình trang trí của map. Quy tắc vật nào có thể nhặt / nhận phải thể hiện rõ cho người chơi.
+- Châu báu / đồ lưu niệm được phép trao đổi đi vào nhóm hàng sưu tầm của chợ; nội thất đi vào nhóm Trang trí nhà. Vàng ghi vào số dư theo luật tiền tệ máy chủ.
+
+### Phần còn cần thiết kế
+
+- Bố cục mê cung, ngã rẽ, phòng bí mật, lối vào / lối ra và cách quay về.
+- Cấp yêu cầu, độ khó, quái / bẫy / câu đố / boss nếu có; đi một mình hay cùng nhóm, map chung hay phiên riêng.
+- Điều kiện mở rương / nhận thưởng, chia phần thưởng khi có nhiều người, bảng rơi, số lượng vàng, lượt vào / hồi rương nếu có. Chưa tự áp luật tranh boss hoặc Long Châu của Long Huyệt lên kho báu mê cung.
+- Vật phẩm có thể bán, món ràng buộc nếu cần, cách trưng bày và bộ sưu tầm theo từng mê cung; hình map, rương, cổ vật và nội thất.
+- Máy chủ kiểm quyền nhận kho báu, trạng thái rương / lần khám phá và cấp phần thưởng nhất quán; lưu kết quả để kết nối lại hoặc gửi yêu cầu trùng không nhận hai lần cùng phần thưởng. Tích hợp kho đồ, số dư tiền, nhà riêng và chợ.
+
+### Tiến độ
+
+- Đã thêm yêu cầu mê cung và 3 nhóm phần thưởng vào kế hoạch thế giới / roadmap.
+- Đã nối nguồn đồ mê cung với nhà riêng (`docs/ke-hoach-nha-rieng.md` mục 2.8) và chợ (`docs/ke-hoach-xa-hoi.md` mục 3.1).
+- Chưa dựng mê cung, vẽ bộ vật phẩm, triển khai nhận thưởng hoặc thay đổi dữ liệu người chơi.

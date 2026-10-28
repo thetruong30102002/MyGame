@@ -1,0 +1,13 @@
+{
+  "mode": "built-in image_gen",
+  "assets": [
+    {
+      "id": "natural-fringe-hair",
+      "prompt": "Use case: precise-object-edit / identity-preserve. Production pixel RPG hair attachment correction. EDIT the first image: an immutable actual game face rig, 8 columns x3 rows, native48x48 cells enlarged6x. Keep exact grid and cell registration. Each row directions FRONT, FRONT-LEFT, LEFT, BACK-LEFT, BACK, BACK-RIGHT, RIGHT, FRONT-RIGHT. Second image shows our natural hair volume/color reference BUT ITS FOREHEAD OPENING IS TOO HIGH AND TOO WIDE: correct that. Paint ONLY the HAIR LAYERS, genuine transparent background, perfectly positioned to overlay the bald heads of image1 without moving/resizing the head. Remove the faces/ears/neck from output, preserve the green/magenta corner registration squares. Row1 beautiful dark chestnut short hair with soft connected side-swept fringe; row2 elegant silver side-swept medium-short hair; row3 chestnut flowing ponytail tied at back with natural soft side fringe. All three have natural rounded crown volume like reference brown, NOT flattened or squeezed. Critical correction: fringes must cover the bald upper forehead and temple seams, with low soft diagonal locks ending just ABOVE eyebrows, leaving only a SMALL natural strip of forehead and the original eyes fully visible. No huge triangular bald opening, no central bald split, no receding hairline, no exposed scalp, no floating hair above forehead, no disconnected temple tufts. At native48 cell, bald skull is16-17px wide, top at y12-13, eyebrows abouty20-21; crown extends to y6-7 and width23-25, while the MAIN fringe reaches y18-19 near eyebrow level. The narrow face opening follows the actual eye/temple coordinates, never the chin. Ponytail may extend behind neck/shoulder but scalp cap follows same forehead/ear anchors. Preserve the crown shape and full soft volume; don't inflate or squash. Cohesive painted pixel clusters, smooth broad locks, detailed warm highlights, no frizz spikes, no hard square cuts. Output only the precisely registered 24 transparent hair overlays, no skin or faces, no text, no scenery.",
+      "refs": [
+        "hairline-face-guide.png",
+        "D:/truong/MyGame/.aether-stage/mannequin/modular-v10-review/standard-heads.png"
+      ]
+    }
+  ]
+}

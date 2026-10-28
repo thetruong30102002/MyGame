@@ -98,6 +98,12 @@ export interface ItemDef {
  * nên túi dựng chồng ẢO cho bình từ `player.potions`, còn xu hiện ở ví.
  */
 export const ITEMS: Record<string, ItemDef> = {
+	swordsman_outfit_1: { id:'swordsman_outfit_1', name:'Bộ kiếm sĩ tân thủ', desc:'Bộ vải và giáp nhẹ được tặng khi chọn kiếm sĩ.', icon:'/assets/items/swordsman_outfit_1.png', w:48,h:48,kind:'equip',equip:'body',rarity:'common',levelReq:1,bound:true },
+	swordsman_outfit_5: { id:'swordsman_outfit_5', name:'Bộ kiếm sĩ hành lộ', desc:'Áo vạt chéo, dây đeo ngực và giáp vai bất đối xứng. Dành cho kiếm sĩ từ cấp5.', icon:'/assets/items/swordsman_outfit_5.png', w:48,h:48,kind:'equip',equip:'body',rarity:'fine',levelReq:5,bound:true },
+	swordsman_outfit_10: { id:'swordsman_outfit_10', name:'Bộ kiếm sĩ tinh luyện', desc:'Giáp ngực ghép mảnh, giáp tay/chân và áo choàng lưng ngắn. Dành cho kiếm sĩ từ cấp10.', icon:'/assets/items/swordsman_outfit_10.png', w:48,h:48,kind:'equip',equip:'body',rarity:'rare',levelReq:10,bound:true },
+	swordsman_blade_1: { id:'swordsman_blade_1', name:'Kiếm sắt tân thủ', desc:'Kiếm thẳng và hộ thủ đồng giản dị, quà khi chọn kiếm sĩ.', icon:'/assets/items/swordsman_blade_1.png', w:48,h:48,kind:'equip',equip:'weapon',rarity:'common',levelReq:1,bound:true },
+	swordsman_blade_5: { id:'swordsman_blade_5', name:'Kiếm cong hành lộ', desc:'Lưỡi cong nhẹ, hộ thủ bảo vệ bàn tay. Cần cấp5.', icon:'/assets/items/swordsman_blade_5.png', w:48,h:48,kind:'equip',equip:'weapon',rarity:'fine',levelReq:5,bound:true },
+	swordsman_blade_10: { id:'swordsman_blade_10', name:'Kiếm bạc tinh luyện', desc:'Lưỡi lá hai cạnh, rãnh lam và hộ thủ cánh gọn. Cần cấp10.', icon:'/assets/items/swordsman_blade_10.png', w:48,h:48,kind:'equip',equip:'weapon',rarity:'rare',levelReq:10,bound:true },
 	sword: {
 		id: 'sword',
 		name: 'Kiếm sắt của cha',
@@ -124,6 +130,22 @@ export const ITEMS: Record<string, ItemDef> = {
 		bound: true,
 		effect: 'Mở Tia Aether (chuột phải)',
 	},
+	// Bộ Ngân Lam: cùng id với các lớp sprite trong catalog mannequin để kho đồ quyết định hình đang mặc.
+	jacket_navy: { id: 'jacket_navy', name: 'Áo xanh Ngân Lam', desc: 'Áo choàng xanh đậm của hộ vệ Ngân Lam.', icon: '/assets/items/jacket_navy.png', w: 48, h: 48, kind: 'equip', equip: 'body', rarity: 'common', bound: true },
+	jacket_wine: { id: 'jacket_wine', name: 'Áo đỏ rượu', desc: 'Biến thể áo choàng đỏ rượu.', icon: '/assets/items/jacket_wine.png', w: 48, h: 48, kind: 'equip', equip: 'body', rarity: 'fine', bound: true },
+	cuirass_silver: { id: 'cuirass_silver', name: 'Giáp bạc', desc: 'Giáp ngực bạc phủ ngoài áo.', icon: '/assets/items/cuirass_silver.png', w: 48, h: 48, kind: 'equip', equip: 'body', rarity: 'rare', bound: true },
+	vest_leather: { id: 'vest_leather', name: 'Áo da đinh tán', desc: 'Áo da nhẹ có đinh tán.', icon: '/assets/items/vest_leather.png', w: 48, h: 48, kind: 'equip', equip: 'body', rarity: 'fine', bound: true },
+	pants_dark: { id: 'pants_dark', name: 'Quần tối', desc: 'Quần vải tối màu của Ngân Lam.', icon: '/assets/items/pants_dark.png', w: 48, h: 48, kind: 'equip', equip: 'legs', rarity: 'common', bound: true },
+	pants_linen: { id: 'pants_linen', name: 'Quần lanh', desc: 'Quần lanh sáng màu.', icon: '/assets/items/pants_linen.png', w: 48, h: 48, kind: 'equip', equip: 'legs', rarity: 'fine', bound: true },
+	pants_mail: { id: 'pants_mail', name: 'Giáp chân lưới', desc: 'Lớp giáp lưới bảo vệ chân.', icon: '/assets/items/pants_mail.png', w: 48, h: 48, kind: 'equip', equip: 'legs', rarity: 'rare', bound: true },
+	boots_brown: { id: 'boots_brown', name: 'Ủng nâu', desc: 'Ủng da nâu của Ngân Lam.', icon: '/assets/items/boots_brown.png', w: 48, h: 48, kind: 'equip', equip: 'feet', rarity: 'common', bound: true },
+	boots_black: { id: 'boots_black', name: 'Ủng đen', desc: 'Ủng da đen mềm.', icon: '/assets/items/boots_black.png', w: 48, h: 48, kind: 'equip', equip: 'feet', rarity: 'fine', bound: true },
+	boots_plate: { id: 'boots_plate', name: 'Ủng thép', desc: 'Ủng bọc thép.', icon: '/assets/items/boots_plate.png', w: 48, h: 48, kind: 'equip', equip: 'feet', rarity: 'rare', bound: true },
+	dragon_guard: { id: 'dragon_guard', name: 'Giáp Long Vệ', desc: 'Giáp đen viền vàng, đai đỏ thẫm của kiếm sĩ Long Vệ.', icon: '/assets/items/dragon_guard.png', w: 48, h: 48, kind: 'equip', equip: 'body', rarity: 'rare', bound: true },
+	dragon_legs: { id: 'dragon_legs', name: 'Quần Long Vệ', desc: 'Quần tối có giáp gối viền vàng.', icon: '/assets/items/dragon_legs.png', w: 48, h: 48, kind: 'equip', equip: 'legs', rarity: 'rare', bound: true },
+	dragon_boots: { id: 'dragon_boots', name: 'Ủng Long Vệ', desc: 'Ủng thép tối màu viền vàng.', icon: '/assets/items/dragon_boots.png', w: 48, h: 48, kind: 'equip', equip: 'feet', rarity: 'rare', bound: true },
+	moonsteel_sword: { id: 'moonsteel_sword', name: 'Kiếm Nguyệt Cương', desc: 'Lưỡi thép bạc khắc rãnh lam, đốc trăng vàng và ngọc xanh; cầm khi đánh Trảm.', icon: '/assets/items/moonsteel_sword.png', w: 48, h: 48, kind: 'equip', equip: 'weapon', rarity: 'rare', bound: true },
+	aether_staff: { id: 'aether_staff', name: 'Trượng Aether', desc: 'Trượng của Ngân Lam; cầm khi niệm Tia Aether.', icon: '/assets/items/aether_staff.png', w: 48, h: 48, kind: 'equip', equip: 'weapon', rarity: 'rare', bound: true },
 	potion: {
 		id: 'potion',
 		name: 'Bình mật ong',

@@ -1,0 +1,21 @@
+{
+  "mode": "built-in image_gen",
+  "assets": [
+    {
+      "id": "male-integrated-heads",
+      "prompt": "Use case: identity-preserve. EDIT image1 into one coherent COMPLETE HEAD AND HAIR sprite sheet. Keep the original face identity, size, eye and ear positions and native pixel density exactly; ADD BEAUTIFULLY INTEGRATED HAIR around these actual game faces. Image2 shows the desired soft natural integrated character style. Deliver WHOLE HEADS INCLUDING FACES AND HAIR TOGETHER, NOT detached hair masks. Every hairstyle must grow from the same face/scalp and embrace the ear/temple naturally. Hair cap must be modest and close fitting, only22-23px wide around the16-17px skull on native48x48 tiles; crown about5-6px above scalp, NOT oversized, no wide protruding side tufts. Low soft diagonal fringe just above eyebrows, a small natural forehead showing; no bald central crack, no huge triangular forehead, no forehead/temple misregistration. Preserve eyes and chin. 8 columns x3 rows, precisely the SAME registration grid as image1. Directions FRONT, FRONT-LEFT, LEFT PROFILE, BACK-LEFT, BACK, BACK-RIGHT, RIGHT PROFILE, FRONT-RIGHT. Row1 chestnut soft short hair, row2 silver softly side-swept, row3 brown smooth ponytail at the back with flowing tail to neck/shoulder. Natural soft connected locks and refined hand-placed pixel shading matching the base body; no flat crown, no mushroom hair, no fluffy protrusions, no blur, no soft gradients, no rescaling individual faces. No clothing/body/shoulders, only the original tiny head/neck and added hair. Genuine transparent background and preserve original green/magenta corner registration marks. Important: the combined face+hair must look like ONE complete pixel character, not a wig pasted over another head. The same young adult male face and complexion as image1.",
+      "refs": [
+        "male-head-guide.png",
+        "../v9/chestnut-integrated-idle-raw.png"
+      ]
+    },
+    {
+      "id": "female-integrated-heads",
+      "prompt": "Use case: identity-preserve. EDIT image1 into one coherent COMPLETE HEAD AND HAIR sprite sheet. Keep the original face identity, size, eye and ear positions and native pixel density exactly; ADD BEAUTIFULLY INTEGRATED HAIR around these actual game faces. Image2 shows the desired soft natural integrated character style. Deliver WHOLE HEADS INCLUDING FACES AND HAIR TOGETHER, NOT detached hair masks. Every hairstyle must grow from the same face/scalp and embrace the ear/temple naturally. Hair cap must be modest and close fitting, only22-23px wide around the16-17px skull on native48x48 tiles; crown about5-6px above scalp, NOT oversized, no wide protruding side tufts. Low soft diagonal fringe just above eyebrows, a small natural forehead showing; no bald central crack, no huge triangular forehead, no forehead/temple misregistration. Preserve eyes and chin. 8 columns x3 rows, precisely the SAME registration grid as image1. Directions FRONT, FRONT-LEFT, LEFT PROFILE, BACK-LEFT, BACK, BACK-RIGHT, RIGHT PROFILE, FRONT-RIGHT. Row1 chestnut soft short hair, row2 silver softly side-swept, row3 brown smooth ponytail at the back with flowing tail to neck/shoulder. Natural soft connected locks and refined hand-placed pixel shading matching the base body; no flat crown, no mushroom hair, no fluffy protrusions, no blur, no soft gradients, no rescaling individual faces. No clothing/body/shoulders, only the original tiny head/neck and added hair. Genuine transparent background and preserve original green/magenta corner registration marks. Important: the combined face+hair must look like ONE complete pixel character, not a wig pasted over another head. The same young adult female face, delicate feminine facial features and complexion as image1.",
+      "refs": [
+        "female-head-guide.png",
+        "../v9/chestnut-integrated-idle-raw.png"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "job": "swordsman-run-N",
+  "source": "assets/player-integrated/source-art/wholecast-v17/motion/swordsman-run-N-r2.png",
+  "sourceSha256": "94d1a0dde79daf2740090dbd5a7d41c6bf2290d2cf04bcee2882b11df668c187",
+  "uniformScale": 0.17254901960784313,
+  "rowFloor": [
+    435.0,
+    852.0
+  ],
+  "gridOrigin": 257.1500000000001,
+  "gridStep": 428.4,
+  "masterHair": [
+    22,
+    19
+  ],
+  "resampling": "nearest",
+  "frameSize": [
+    144,
+    144
+  ],
+  "root": [
+    72,
+    128
+  ],
+  "frames": [
+    {
+      "frame": 0,
+      "hairWidth": 21.91,
+      "hairHeight": 18.64,
+      "sourceEdge": false,
+      "clipped": false,
+      "nativeBounds": [
+        55,
+        57,
+        100,
+        127
+      ],
+      "wholeActorMirrored": false
+    },
+    {
+      "frame": 1,
+      "hairWidth": 21.91,
+      "hairHeight": 18.64,
+      "sourceEdge": false,
+      "clipped": false,
+      "nativeBounds": [
+        49,
+        59,
+        99,
+        127
+      ],
+      "wholeActorMirrored": false
+    },
+    {
+      "frame": 2,
+      "hairWidth": 21.91,
+      "hairHeight": 18.46,
+      "sourceEdge": false,
+      "clipped": false,
+      "nativeBounds": [
+        51,
+        57,
+        99,
+        127
+      ],
+      "wholeActorMirrored": false
+    },
+    {
+      "frame": 3,
+      "hairWidth": 22.26,
+      "hairHeight": 18.46,
+      "sourceEdge": false,
+      "clipped": false,
+      "nativeBounds": [
+        53,
+        55,
+        102,
+        124
+      ],
+      "wholeActorMirrored": false
+    },
+    {
+      "frame": 4,
+      "hairWidth": 22.09,
+      "hairHeight": 18.81,
+      "sourceEdge": false,
+      "clipped": false,
+      "nativeBounds": [
+        55,
+        59,
+        104,
+        127
+      ],
+      "wholeActorMirrored": false
+    },
+    {
+      "frame": 5,
+      "hairWidth": 22.26,
+      "hairHeight": 18.81,
+      "sourceEdge": false,
+      "clipped": false,
+      "nativeBounds": [
+        52,
+        59,
+        103,
+        127
+      ],
+      "wholeActorMirrored": false
+    },
+    {
+      "frame": 6,
+      "hairWidth": 22.09,
+      "hairHeight": 18.98,
+      "sourceEdge": false,
+      "clipped": false,
+      "nativeBounds": [
+        52,
+        58,
+        102,
+        127
+      ],
+      "wholeActorMirrored": true
+    },
+    {
+      "frame": 7,
+      "hairWidth": 21.91,
+      "hairHeight": 18.12,
+      "sourceEdge": false,
+      "clipped": false,
+      "nativeBounds": [
+        51,
+        56,
+        101,
+        124
+      ],
+      "wholeActorMirrored": true
+    }
+  ],
+  "approved": false
+}

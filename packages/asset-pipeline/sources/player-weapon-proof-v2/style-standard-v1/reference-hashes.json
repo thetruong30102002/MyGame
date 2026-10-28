@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "references": [
+    {
+      "id": "npc_silver_youth-benchmark",
+      "file": "packages/asset-pipeline/sources/player-weapon-proof-v2/style-standard-v1/npc-ground-references/npc_silver_youth-S.png",
+      "sha256": "f19f761d4e938fa3dd1ca53158bc3e460e9bcdd3bcb6190a408240f5895a250b"
+    },
+    {
+      "id": "npc_silver_youth_f-benchmark",
+      "file": "packages/asset-pipeline/sources/player-weapon-proof-v2/style-standard-v1/npc-ground-references/npc_silver_youth_f-S.png",
+      "sha256": "ccea8fcd33ba47b7d956cb9f1c1d024b499afb1bb965189dc9bd72243880c59b"
+    },
+    {
+      "id": "player_verdant_sword",
+      "file": "apps/server/site/media/roster/player_verdant_sword/S.png",
+      "sha256": "2795b2f70434cbde8bf4a1a85752316497cd6ab36e3997325d0fb773a580c546"
+    },
+    {
+      "id": "player_sword_m02",
+      "file": "apps/server/site/media/roster/player_sword_m02/S.png",
+      "sha256": "5832a9893b140c74554c21d450ca51bdfc7464ce31c6c363f82e38e68fb4d54a"
+    },
+    {
+      "id": "player_sword_f03",
+      "file": "apps/server/site/media/roster/player_sword_f03/S.png",
+      "sha256": "9144f6b0acb8fce22744f74a2d3bc4fc8b2e18afb7cd6014c32a5a57755d70ae"
+    }
+  ]
+}

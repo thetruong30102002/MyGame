@@ -1,0 +1,334 @@
+{
+  "version": 15,
+  "source": "../fullhero-v15/attack-S-candidate01.png",
+  "sourceSha256": "c9c40a68685f5e1c3fcfce6a998735fa68485cb079f3792f2abaf8b72aae70ec",
+  "state": "sword",
+  "direction": "S",
+  "kind": "attack",
+  "count": 12,
+  "columns": 4,
+  "sourceSize": [
+    1448,
+    1086
+  ],
+  "neutralFrames": [
+    0,
+    11
+  ],
+  "measurements": [
+    {
+      "frame": 0,
+      "row": 0,
+      "column": 0,
+      "bounds": [
+        50,
+        120,
+        264,
+        375
+      ],
+      "area": 27357,
+      "crown": 121,
+      "floor": 373,
+      "height": 253,
+      "rootX": 193.5,
+      "hairBounds": [
+        149,
+        123,
+        250,
+        211
+      ],
+      "headSilhouetteBounds": [
+        147,
+        121,
+        252,
+        205
+      ]
+    },
+    {
+      "frame": 1,
+      "row": 0,
+      "column": 1,
+      "bounds": [
+        490,
+        121,
+        628,
+        388
+      ],
+      "area": 23560,
+      "crown": 121,
+      "floor": 387,
+      "height": 267,
+      "rootX": 167.5
+    },
+    {
+      "frame": 2,
+      "row": 0,
+      "column": 2,
+      "bounds": [
+        853,
+        63,
+        990,
+        375
+      ],
+      "area": 24759,
+      "crown": 63,
+      "floor": 373,
+      "height": 311,
+      "rootX": 194.5
+    },
+    {
+      "frame": 3,
+      "row": 0,
+      "column": 3,
+      "bounds": [
+        1206,
+        0,
+        1349,
+        374
+      ],
+      "area": 26599,
+      "crown": 0,
+      "floor": 373,
+      "height": 374,
+      "rootX": 191.5
+    },
+    {
+      "frame": 4,
+      "row": 1,
+      "column": 0,
+      "bounds": [
+        133,
+        387,
+        261,
+        732
+      ],
+      "area": 26265,
+      "crown": 387,
+      "floor": 730,
+      "height": 344,
+      "rootX": 196.5
+    },
+    {
+      "frame": 5,
+      "row": 1,
+      "column": 1,
+      "bounds": [
+        481,
+        463,
+        698,
+        734
+      ],
+      "area": 25811,
+      "crown": 464,
+      "floor": 733,
+      "height": 270,
+      "rootX": 180.0
+    },
+    {
+      "frame": 6,
+      "row": 1,
+      "column": 2,
+      "bounds": [
+        835,
+        455,
+        994,
+        734
+      ],
+      "area": 25260,
+      "crown": 480,
+      "floor": 733,
+      "height": 254,
+      "rootX": 195.5
+    },
+    {
+      "frame": 7,
+      "row": 1,
+      "column": 3,
+      "bounds": [
+        1204,
+        497,
+        1349,
+        754
+      ],
+      "area": 22921,
+      "crown": 497,
+      "floor": 753,
+      "height": 257,
+      "rootX": 189.5
+    },
+    {
+      "frame": 8,
+      "row": 2,
+      "column": 0,
+      "bounds": [
+        72,
+        799,
+        276,
+        1048
+      ],
+      "area": 24174,
+      "crown": 799,
+      "floor": 1047,
+      "height": 249,
+      "rootX": 202.5
+    },
+    {
+      "frame": 9,
+      "row": 2,
+      "column": 1,
+      "bounds": [
+        419,
+        795,
+        634,
+        1051
+      ],
+      "area": 27128,
+      "crown": 795,
+      "floor": 1049,
+      "height": 255,
+      "rootX": 194.0
+    },
+    {
+      "frame": 10,
+      "row": 2,
+      "column": 2,
+      "bounds": [
+        774,
+        796,
+        989,
+        1051
+      ],
+      "area": 27164,
+      "crown": 796,
+      "floor": 1049,
+      "height": 254,
+      "rootX": 194.5
+    },
+    {
+      "frame": 11,
+      "row": 2,
+      "column": 3,
+      "bounds": [
+        1137,
+        797,
+        1350,
+        1051
+      ],
+      "area": 27010,
+      "crown": 797,
+      "floor": 1050,
+      "height": 254,
+      "rootX": 194.5,
+      "hairBounds": [
+        1236,
+        800,
+        1334,
+        887
+      ],
+      "headSilhouetteBounds": [
+        1234,
+        797,
+        1336,
+        881
+      ]
+    }
+  ],
+  "registration": {
+    "scale": 0.271356783919598,
+    "referenceBodyHeight": 253.5,
+    "rootX": 194.0,
+    "rowFloor": [
+      373.0,
+      733.0,
+      1049.0
+    ],
+    "columnRootX": [
+      196.038232167125,
+      557.8715655004582,
+      919.7048988337916,
+      1281.538232167125
+    ],
+    "sourceGridHeadOrigin": 199.5,
+    "sourceGridHeadStep": 361.8333333333333,
+    "idleHairBounds": [
+      59,
+      56,
+      86,
+      80
+    ],
+    "scaleMode": "multi-profile-proposal-unreviewed",
+    "idleHeadSilhouetteBounds": [
+      58,
+      55,
+      87,
+      80
+    ],
+    "sourceMedianHeadWidth": 103.5,
+    "targetIdleRasterHeight": 74,
+    "targetRootY": 128
+  },
+  "artApproved": false,
+  "registrationApproved": false,
+  "profileFit": {
+    "reference": "exact saved baseline native idle",
+    "targetSole": 128,
+    "crownProxy": 56,
+    "regions": [
+      {
+        "name": "head",
+        "bounds": [
+          58,
+          54,
+          87,
+          84
+        ],
+        "weight": 2.0
+      },
+      {
+        "name": "neck-torso",
+        "bounds": [
+          62,
+          81,
+          82,
+          107
+        ],
+        "weight": 2.0
+      },
+      {
+        "name": "shoulders",
+        "bounds": [
+          54,
+          82,
+          90,
+          95
+        ],
+        "weight": 1.0
+      },
+      {
+        "name": "belt",
+        "bounds": [
+          59,
+          96,
+          85,
+          108
+        ],
+        "weight": 1.5
+      }
+    ],
+    "contactPhases": [
+      0,
+      11
+    ],
+    "score": 0.07829042131146594,
+    "regionError": {
+      "head": 0.10348151904439937,
+      "neck-torso": 0.06907616892911012,
+      "shoulders": 0.06960993799229093,
+      "belt": 0.06277494972347913
+    },
+    "uniformScale": 0.28977671297487356,
+    "uniformNativeDx": 0.5,
+    "warning": "Proposal only. Inspect crown/chin/shoulder/belt/knee/sole and gait; reject incompatible source anatomy."
+  },
+  "resampling": "nearest"
+}

@@ -1,7 +1,22 @@
 # Aether Chronicle
 
+<!-- rig-v2-scope -->
+
+Chốt mới27/10: giữ thiết kế30 đầu đã được chủ dự án đồng ý (5 tộc, mỗi tộc3 nam+3 nữ,8 hướng), nhưng ĐỘ NÉT CHƯA ĐẠT. Vẽ lại chi tiết tóc/mắt/mặt/viền tại nguồn, so hai NPC PixelLab tóc trắng cùng cỡ game; không sharpen hoặc phóng đầu. Tách thân/bộ NAM và NỮ riêng, cùng chiều cao/khối đầu/PPU/root/neo cổ, khác vai/eo/hông vừa phải. Hai thân thay thế quy tắc thân unisex trước đây. Sửa đầu bị thụt bằng neo cổ/cằm nguyên pixel, không co/phóng ảnh. Cần vẽ đủ bước chân và15 pose bổ kiếm thật cho từng thân, rồi ráp đầu–thân–kiếm với lớp che tay/cổ áo theo frame; chưa nghiệm thu chỉ từ4 key pose. Bộ class kín da, đầu không dính áo, Thú nhân không đuôi.5 class có5 thiết kế đồ cơ bản, mỗi thiết kế có hai dáng nam/nữ và vũ khí tương ứng.
+
+
+Chốt30 đầu/8 hướng27/10: Nhân tộc, Elf, Ma tộc, Thú nhân, Long tộc; mỗi tộc3 nam+3 nữ khác tóc, tổng30 nguyên đầu và240 hình hướng. Long tộc hình người, sừng nhỏ/vảy thái dương là hướng vẽ thử; Thú nhân không đuôi. Đầu dùng chung mọi bộ class, cùng khối đầu/mốc mặt/cổ, không áo dính cổ. Đủ8 hướng đầu trung tính chưa đồng nghĩa đủ pose đầu theo toàn bộ đòn đánh/chuyển động. 
+
+
+## Quy tắc hiện hành — dùng chung đầu và thân kín da
+
+Chốt hiện hành27/10: tạo nhân vật chọn tộc và nguyên đầu; mỗi tộc3 đầu nam+3 đầu nữ, tổng30 bộ đầu cho5 tộc. Tân thủ mặc đồ lót tối giản (nam quần, nữ áo+quần), đi/chạy tới NPC chọn nghề rồi nhận1 trong5 bộ class và5 vũ khí cơ bản tương ứng. Hai thân thon nam/nữ riêng, cùng chuẩn ghép đầu, đầu mọi tộc dùng chung các bộ; Thú nhân KHÔNG đuôi. Bộ class kín toàn bộ cổ/tay/chân, cổ áo thuộc thân che cổ da nhưng không che cằm. Tháo trang phục về thân nền đồ lót, không chồng hai bộ; thân nền khớp bảng da theo tộc. Bộ đồ chỉ vẽ thao tác class đó. Đổi nghề có phí phải tẩy/hoàn điểm skill, thay bộ skill/passive/thanh chiêu và cặp đồ–vũ khí đồng bộ; loại tiền/phí chưa chốt.
+
+
 Game nhập vai online phong cách **HD anime pixel art fantasy**. Client là **Unity 2D** (PC + Android); bản web Next.js + PixiJS đã
 xoá 11/10/2026 sau khi chép đủ sang Unity (`UnityGame/MIGRATION_PLAN.md`).
+
+**Hướng hiện hành27/10:** Chốt hiện hành27/10: tạo nhân vật chọn tộc và nguyên đầu; mỗi tộc3 đầu nam+3 đầu nữ, tổng30 bộ đầu cho5 tộc. Tân thủ mặc đồ lót tối giản (nam quần, nữ áo+quần), đi/chạy tới NPC chọn nghề rồi nhận1 trong5 bộ class và5 vũ khí cơ bản tương ứng. Hai thân thon nam/nữ riêng, cùng chuẩn ghép đầu, đầu mọi tộc dùng chung các bộ; Thú nhân KHÔNG đuôi. Bộ class kín toàn bộ cổ/tay/chân, cổ áo thuộc thân che cổ da nhưng không che cằm. Tháo trang phục về thân nền đồ lót, không chồng hai bộ; thân nền khớp bảng da theo tộc. Bộ đồ chỉ vẽ thao tác class đó. Đổi nghề có phí phải tẩy/hoàn điểm skill, thay bộ skill/passive/thanh chiêu và cặp đồ–vũ khí đồng bộ; loại tiền/phí chưa chốt. [Đặc tả](docs/thiet-ke/nhan-vat-ghep-da-vu-khi.md), [kế hoạch tổng](docs/ke-hoach-nang-cap-the-gioi.md). Mới có mẫu đứng, chưa phát hành bộ nhân vật mới.
 
 ```
 UnityGame/                client Unity 6.3 (C#): luật chép từ packages/sim, UI, mạng — đọc UnityGame/README_UNITY.md
@@ -29,7 +44,7 @@ Client Unity (nhập hình từ `assets/`, dựng scene, build PC / APK, AutoTes
 `npx tsx UnityGame/Tools~/publish-client.mts` → người chơi đang có game **tự cập nhật** lúc mở game; người mới tải bộ cài ở
 **https://nttrg-2.tail024813.ts.net/game/api/client/latest/windows** (Android: `…/latest/android`).
 
-**Trang web game** — **https://nttrg-2.tail024813.ts.net/game/** — trang tĩnh `apps/server/site/` do máy chủ game phát
+**Trang web game** — **https://admin.tail024813.ts.net/game/** — trang tĩnh `apps/server/site/` do máy chủ game phát
 (`apps/server/src/site.ts`), chia nhiều trang (14/10/2026), tối ưu điện thoại (thanh điều hướng dưới, nút ≥ 40px, ô nhập 16px):
 
 | Trang | Đường dẫn | Nội dung |
@@ -54,6 +69,23 @@ class daisyUI (`btn`, `join`, `input`, `collapse`…); thông báo + hộp xác 
 `site/*.html` / `site/common.js` xong chạy `npm run build:site -w @aether/server` (`site-src/build.mjs`): build lại `site/app.css` + chép
 `site/vendor/sweetalert2.min.js` (commit cả hai). Sửa HTML / CSS / JS không
 cần khởi động lại; sửa `site.ts` / `http.ts` / `board.ts` thì phải khởi động lại máy chủ.
+
+**26/10/2026 — portal và kế hoạch:** web dùng tông rừng đêm/vàng cổ, CSS riêng ở `site-src/portal.css`, trang chủ ở `site/index.html` + `home.js`.
+Admin mở mặc định tab **Kế hoạch phát triển** (`/game/admin#plan`): tìm/lọc 93 việc, % tổng/nhóm/việc, brief 13 vùng, kiểm kê 25 boss và tải file.
+Nguồn duy nhất là [`docs/ke-hoach-nang-cap-the-gioi.md`](docs/ke-hoach-nang-cap-the-gioi.md); API `GET /api/admin/plan` yêu cầu phiên + quyền admin.
+`developmentPlan.ts` kiểm mốc tổng 100, bằng chứng và phụ thuộc, đọc lại file mỗi lần tải; không có % riêng trong DB. Khi triển khai sang máy khác phải chép cả file kế hoạch theo đúng đường dẫn này.
+Đây là tiến độ đợt nâng cấp, không phải % toàn bộ game. Tin công khai chỉ giới thiệu phần đã phát hành/đang thiết kế; nội dung thế giới mới chưa được coi là có trong client cũ.
+Kiểm: `npx tsx apps/server/tests/developmentPlan.test.ts`; audit hiện trạng: `npx tsx scripts/audit-world-plan.mts`, `python docs/tools/audit-world.py` (174 minimap, 25 atlas boss).
+
+Công việc đầu tiên của đợt tái thiết: [chuẩn mỹ thuật Thistlewood](docs/thiet-ke/thistlewood-chuan-my-thuat.md).
+Thước nhân vật PixelLab danh nghĩa 75px / PPU 48; nhà mẫu 336×440, cửa 56×104; nhà cũ giữ làm khu phụ.
+Nguồn nhà mới dùng tiền tố `worldart:` và cổng tỷ lệ/hash/alpha/palette trong `packages/asset-pipeline/src/props/worldArt.ts`.
+Chưa có ảnh mới đã duyệt thì pipeline giữ bố cục cũ; không build/phát hành khối hình học thay nhà. Kiểm bằng `npm run test:world-style -w @aether/asset-pipeline`.
+
+Việc không cần sinh ảnh (26/10): [chính trị, địa lý và Thiên Thành](docs/thiet-ke/chinh-tri-dia-ly-thien-thanh.md), nguồn `packages/sim/src/worldDesign.ts`.
+Admin → Kế hoạch có sơ đồ SVG tương tác, hồ sơ 13 vùng/20 phe/13 quan hệ, bốn chương thư khố và kết quả rà 174 map/424 lối.
+`worldConnections.ts` kiểm cổng toàn thế giới, `worldDesign.ts` có luật điều kiện đọc thư khố; cả hai chưa tự mở map/NPC mới trong game.
+Xuất đúng module này và bản xem admin: `npx tsx scripts/export-world-design.mts`; kiểm `npx tsx --test packages/sim/tests/world-design.test.ts`.
 
 | Phím | Tác dụng |
 | --- | --- |
@@ -192,3 +224,5 @@ Cốt truyện: [`docs/story.md`](docs/story.md). Đội hình nhân vật và l
 Lịch sinh nhân vật Pixler theo quota: [`docs/pixler-plan.md`](docs/pixler-plan.md).
 
 Kiểm thử: `npm test` (luật sim + pipeline), test máy chủ trong `apps/server/tests`, client Unity `dotnet test UnityGame/Tests~/Aether.Core.Tests` + AutoTest (`-aetherShot <thư mục>` kèm `-aetherStory` / `-aetherLab` / `-aetherSocial` / `-aetherAdmin` — `UnityGame/README_UNITY.md`).
+
+

@@ -1,0 +1,17 @@
+{
+  "id": "player_sword_m03-attack-S",
+  "character": "player_sword_m03",
+  "classId": "sword",
+  "direction": "S",
+  "action": "attack",
+  "frames": 12,
+  "fps": 16,
+  "master": "action-references/player_sword_m03/S-master.png",
+  "prompt": "Use Image1 as the exact complete male sword character master. Draw 12 sequential attack frames in exactly FRONT facing viewer, two eyes equally visible direction. 12 phases of a single decisive TWO-HANDED overhead chop: master, grip joins, lift, hands above forehead, high anticipation, blade behind crown, downstroke, impact, low follow-through, recover, return, master. Hands wrap the same hilt. Layout 4 columns by 3 rows, order left to right then down. All frames are complete hair/face/body/clothes/hands/one weapon drawings. Match master face, hair shape, fitted outfit, limb lengths and body proportions, approximately75 native pixels crown to sole and23px head width on144px logical canvas, root72/128. Keep a SINGLE physical camera scale and palette across phases; crouching does not enlarge the actor. Hands visibly enclose grip, weapon remains the same rigid shape and same anatomical hand across all frames. Generous blank margins including above sword tips and beside spear thrusts. Crisp detailed game pixel clusters, transparent background, no blur, gradient smoothing, detached parts, body overlays, extra weapons, text, motion trails or ground circles. Camera never changes within this sheet. Treat Image1 as the exact complete identity, fitted outfit, weapon design and camera orientation. Landscape 4 columns x 3 rows, exactly twelve equally sized cells, ONE complete actor per cell. No separate VFX or motion streaks. Frame 1 and frame 12 match the supplied standing master. Fixed camera scale, body length, sharpness and head size. Keep crown around 40% of cell height and soles around 90%, leaving the upper 35% completely empty for weapon arcs; weapons must never touch borders. Every cell is a single time step of ONE attack, never a turnaround. ALL TWELVE FRAMES: Strict FRONT view: BOTH EYES equal, both shoulders. Strike/cast/shoot STRAIGHT TOWARD CAMERA with foreshortened weapon, NOT screen right or left. Front thrust tip points toward viewer below chin; front bow is seen edge-on with aiming hand beside cheek. Preserve original adult slender proportions and hairstyle, NO enlarged chibi heads. Keep all weapon tips safely within every cell.",
+  "status": "generated",
+  "artApproved": false,
+  "tool": "built-in-imagegen",
+  "reference": "action-references/player_sword_m03/S-master.png",
+  "output": "motion/player_sword_m03-attack-S.png",
+  "sourceSha256": "e05195c867de3f87f5f2ad00ff41f61f0e9bfd58c13b3bc200e5f3d3ec51c862"
+}

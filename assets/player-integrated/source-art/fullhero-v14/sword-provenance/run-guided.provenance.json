@@ -1,0 +1,21 @@
+{
+  "tool": "builtin image_gen",
+  "promptFile": "run-guided.prompt.txt",
+  "motionGuide": "D:/truong/MyGame/assets/player-integrated/source-art/fullhero-v14/guide-run-skeleton-2x.png",
+  "appearanceReference": "D:/truong/MyGame/assets/player-integrated/source-art/fullhero-v14/master-sword-reference.png",
+  "generatedOriginal": "C:/Users/thetr/.codex/generated_images/01a167e6-b5df-7072-9dac-6aaa4b029c43/exec-524d25b1-3a8c-4cbe-96ad-1530ffb8c05a.png",
+  "projectCopy": "D:/truong/MyGame/assets/player-integrated/source-art/run-sword-drawn.png",
+  "grid": {
+    "columns": 8,
+    "rows": 5,
+    "directions": [
+      "S",
+      "E",
+      "N",
+      "SE",
+      "NE"
+    ]
+  },
+  "status": "candidate",
+  "qa": "40 complete frames. East/diagonal rows show genuinely different kneelift, passing and extended/airborne strides matching neutral motionguide; one sword remains in fixed primary hand. Native extracted loop and shared proportions await parent review."
+}

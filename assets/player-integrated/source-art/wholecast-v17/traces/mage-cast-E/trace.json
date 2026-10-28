@@ -1,0 +1,197 @@
+{
+  "job": "mage-cast-E",
+  "source": "assets/player-integrated/source-art/wholecast-v17/motion/mage-cast-E.png",
+  "sourceSha256": "c16c6a46635e6fd93524e9cdeedc8554165430ada2d78776f6663f2393912ba3",
+  "uniformScale": 0.24154589371980675,
+  "rowFloor": [
+    350.0,
+    705.0,
+    1060.0
+  ],
+  "gridOrigin": 145.71666666666658,
+  "gridStep": 361.3833333333333,
+  "masterHair": [
+    25,
+    34
+  ],
+  "resampling": "nearest",
+  "frameSize": [
+    144,
+    144
+  ],
+  "root": [
+    72,
+    128
+  ],
+  "frames": [
+    {
+      "frame": 0,
+      "hairWidth": 25.85,
+      "hairHeight": 33.57,
+      "sourceEdge": false,
+      "clipped": false,
+      "nativeBounds": [
+        54,
+        52,
+        93,
+        127
+      ],
+      "wholeActorMirrored": false
+    },
+    {
+      "frame": 1,
+      "hairWidth": 26.81,
+      "hairHeight": 34.06,
+      "sourceEdge": false,
+      "clipped": false,
+      "nativeBounds": [
+        52,
+        52,
+        95,
+        127
+      ],
+      "wholeActorMirrored": false
+    },
+    {
+      "frame": 2,
+      "hairWidth": 26.81,
+      "hairHeight": 34.06,
+      "sourceEdge": false,
+      "clipped": false,
+      "nativeBounds": [
+        54,
+        52,
+        94,
+        127
+      ],
+      "wholeActorMirrored": false
+    },
+    {
+      "frame": 3,
+      "hairWidth": 24.88,
+      "hairHeight": 33.82,
+      "sourceEdge": false,
+      "clipped": false,
+      "nativeBounds": [
+        55,
+        52,
+        97,
+        127
+      ],
+      "wholeActorMirrored": false
+    },
+    {
+      "frame": 4,
+      "hairWidth": 26.81,
+      "hairHeight": 33.09,
+      "sourceEdge": false,
+      "clipped": false,
+      "nativeBounds": [
+        53,
+        53,
+        97,
+        127
+      ],
+      "wholeActorMirrored": false
+    },
+    {
+      "frame": 5,
+      "hairWidth": 26.57,
+      "hairHeight": 32.85,
+      "sourceEdge": false,
+      "clipped": false,
+      "nativeBounds": [
+        48,
+        53,
+        98,
+        127
+      ],
+      "wholeActorMirrored": false
+    },
+    {
+      "frame": 6,
+      "hairWidth": 27.29,
+      "hairHeight": 33.33,
+      "sourceEdge": false,
+      "clipped": false,
+      "nativeBounds": [
+        47,
+        53,
+        117,
+        127
+      ],
+      "wholeActorMirrored": false
+    },
+    {
+      "frame": 7,
+      "hairWidth": 26.33,
+      "hairHeight": 33.09,
+      "sourceEdge": false,
+      "clipped": false,
+      "nativeBounds": [
+        49,
+        53,
+        116,
+        127
+      ],
+      "wholeActorMirrored": false
+    },
+    {
+      "frame": 8,
+      "hairWidth": 27.05,
+      "hairHeight": 33.57,
+      "sourceEdge": false,
+      "clipped": false,
+      "nativeBounds": [
+        51,
+        53,
+        115,
+        127
+      ],
+      "wholeActorMirrored": false
+    },
+    {
+      "frame": 9,
+      "hairWidth": 27.05,
+      "hairHeight": 33.33,
+      "sourceEdge": false,
+      "clipped": false,
+      "nativeBounds": [
+        54,
+        53,
+        114,
+        127
+      ],
+      "wholeActorMirrored": false
+    },
+    {
+      "frame": 10,
+      "hairWidth": 26.33,
+      "hairHeight": 33.33,
+      "sourceEdge": false,
+      "clipped": false,
+      "nativeBounds": [
+        54,
+        52,
+        94,
+        127
+      ],
+      "wholeActorMirrored": false
+    },
+    {
+      "frame": 11,
+      "hairWidth": 25.85,
+      "hairHeight": 33.33,
+      "sourceEdge": false,
+      "clipped": false,
+      "nativeBounds": [
+        55,
+        53,
+        95,
+        127
+      ],
+      "wholeActorMirrored": false
+    }
+  ],
+  "approved": false
+}

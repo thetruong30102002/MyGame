@@ -1,0 +1,362 @@
+[
+  {
+    "action": "walk",
+    "phase": 0,
+    "direction": "S",
+    "origin": [
+      48,
+      36
+    ]
+  },
+  {
+    "action": "walk",
+    "phase": 1,
+    "direction": "S",
+    "origin": [
+      48,
+      36
+    ]
+  },
+  {
+    "action": "walk",
+    "phase": 2,
+    "direction": "S",
+    "origin": [
+      48,
+      36
+    ]
+  },
+  {
+    "action": "walk",
+    "phase": 3,
+    "direction": "S",
+    "origin": [
+      48,
+      36
+    ]
+  },
+  {
+    "action": "walk",
+    "phase": 4,
+    "direction": "S",
+    "origin": [
+      48,
+      36
+    ]
+  },
+  {
+    "action": "walk",
+    "phase": 5,
+    "direction": "S",
+    "origin": [
+      48,
+      36
+    ]
+  },
+  {
+    "action": "walk",
+    "phase": 6,
+    "direction": "S",
+    "origin": [
+      48,
+      36
+    ]
+  },
+  {
+    "action": "walk",
+    "phase": 7,
+    "direction": "S",
+    "origin": [
+      48,
+      36
+    ]
+  },
+  {
+    "action": "walk",
+    "phase": 0,
+    "direction": "W",
+    "origin": [
+      48,
+      36
+    ]
+  },
+  {
+    "action": "walk",
+    "phase": 1,
+    "direction": "W",
+    "origin": [
+      48,
+      36
+    ]
+  },
+  {
+    "action": "walk",
+    "phase": 2,
+    "direction": "W",
+    "origin": [
+      48,
+      36
+    ]
+  },
+  {
+    "action": "walk",
+    "phase": 3,
+    "direction": "W",
+    "origin": [
+      48,
+      36
+    ]
+  },
+  {
+    "action": "walk",
+    "phase": 4,
+    "direction": "W",
+    "origin": [
+      48,
+      36
+    ]
+  },
+  {
+    "action": "walk",
+    "phase": 5,
+    "direction": "W",
+    "origin": [
+      48,
+      36
+    ]
+  },
+  {
+    "action": "walk",
+    "phase": 6,
+    "direction": "W",
+    "origin": [
+      48,
+      36
+    ]
+  },
+  {
+    "action": "walk",
+    "phase": 7,
+    "direction": "W",
+    "origin": [
+      48,
+      36
+    ]
+  },
+  {
+    "action": "walk",
+    "phase": 0,
+    "direction": "N",
+    "origin": [
+      48,
+      37
+    ]
+  },
+  {
+    "action": "walk",
+    "phase": 1,
+    "direction": "N",
+    "origin": [
+      48,
+      37
+    ]
+  },
+  {
+    "action": "walk",
+    "phase": 2,
+    "direction": "N",
+    "origin": [
+      48,
+      37
+    ]
+  },
+  {
+    "action": "walk",
+    "phase": 3,
+    "direction": "N",
+    "origin": [
+      48,
+      37
+    ]
+  },
+  {
+    "action": "walk",
+    "phase": 4,
+    "direction": "N",
+    "origin": [
+      48,
+      37
+    ]
+  },
+  {
+    "action": "walk",
+    "phase": 5,
+    "direction": "N",
+    "origin": [
+      48,
+      37
+    ]
+  },
+  {
+    "action": "walk",
+    "phase": 6,
+    "direction": "N",
+    "origin": [
+      48,
+      37
+    ]
+  },
+  {
+    "action": "walk",
+    "phase": 7,
+    "direction": "N",
+    "origin": [
+      48,
+      37
+    ]
+  },
+  {
+    "action": "walk",
+    "phase": 0,
+    "direction": "SW",
+    "origin": [
+      48,
+      36
+    ]
+  },
+  {
+    "action": "walk",
+    "phase": 1,
+    "direction": "SW",
+    "origin": [
+      48,
+      36
+    ]
+  },
+  {
+    "action": "walk",
+    "phase": 2,
+    "direction": "SW",
+    "origin": [
+      48,
+      36
+    ]
+  },
+  {
+    "action": "walk",
+    "phase": 3,
+    "direction": "SW",
+    "origin": [
+      48,
+      36
+    ]
+  },
+  {
+    "action": "walk",
+    "phase": 4,
+    "direction": "SW",
+    "origin": [
+      48,
+      36
+    ]
+  },
+  {
+    "action": "walk",
+    "phase": 5,
+    "direction": "SW",
+    "origin": [
+      48,
+      36
+    ]
+  },
+  {
+    "action": "walk",
+    "phase": 6,
+    "direction": "SW",
+    "origin": [
+      48,
+      36
+    ]
+  },
+  {
+    "action": "walk",
+    "phase": 7,
+    "direction": "SW",
+    "origin": [
+      48,
+      36
+    ]
+  },
+  {
+    "action": "walk",
+    "phase": 0,
+    "direction": "NW",
+    "origin": [
+      48,
+      36
+    ]
+  },
+  {
+    "action": "walk",
+    "phase": 1,
+    "direction": "NW",
+    "origin": [
+      48,
+      36
+    ]
+  },
+  {
+    "action": "walk",
+    "phase": 2,
+    "direction": "NW",
+    "origin": [
+      48,
+      36
+    ]
+  },
+  {
+    "action": "walk",
+    "phase": 3,
+    "direction": "NW",
+    "origin": [
+      48,
+      36
+    ]
+  },
+  {
+    "action": "walk",
+    "phase": 4,
+    "direction": "NW",
+    "origin": [
+      48,
+      36
+    ]
+  },
+  {
+    "action": "walk",
+    "phase": 5,
+    "direction": "NW",
+    "origin": [
+      48,
+      36
+    ]
+  },
+  {
+    "action": "walk",
+    "phase": 6,
+    "direction": "NW",
+    "origin": [
+      48,
+      36
+    ]
+  },
+  {
+    "action": "walk",
+    "phase": 7,
+    "direction": "NW",
+    "origin": [
+      48,
+      36
+    ]
+  }
+]

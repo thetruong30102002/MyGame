@@ -1,0 +1,351 @@
+{
+  "version": 15,
+  "source": "locomotion-none-S-drawn.png",
+  "sourceSha256": "d1663545579c8f38c6d7e0fb70136bbd7a4258a27a498e840edc3bf397839e81",
+  "state": "none",
+  "direction": "S",
+  "kind": "locomotion",
+  "count": 16,
+  "columns": 4,
+  "sourceSize": [
+    1254,
+    1254
+  ],
+  "neutralFrames": [
+    0,
+    7
+  ],
+  "measurements": [
+    {
+      "frame": 0,
+      "row": 0,
+      "column": 0,
+      "bounds": [
+        94,
+        34,
+        229,
+        322
+      ],
+      "area": 28084,
+      "crown": 34,
+      "floor": 321,
+      "height": 288,
+      "rootX": 168.5,
+      "hairBounds": [
+        106,
+        38,
+        223,
+        136
+      ]
+    },
+    {
+      "frame": 1,
+      "row": 0,
+      "column": 1,
+      "bounds": [
+        406,
+        34,
+        543,
+        323
+      ],
+      "area": 27944,
+      "crown": 34,
+      "floor": 321,
+      "height": 288,
+      "rootX": 168.0,
+      "hairBounds": [
+        414,
+        38,
+        533,
+        129
+      ]
+    },
+    {
+      "frame": 2,
+      "row": 0,
+      "column": 2,
+      "bounds": [
+        711,
+        34,
+        849,
+        323
+      ],
+      "area": 28108,
+      "crown": 34,
+      "floor": 321,
+      "height": 288,
+      "rootX": 143.0,
+      "hairBounds": [
+        726,
+        37,
+        843,
+        130
+      ]
+    },
+    {
+      "frame": 3,
+      "row": 0,
+      "column": 3,
+      "bounds": [
+        1024,
+        34,
+        1161,
+        323
+      ],
+      "area": 27943,
+      "crown": 34,
+      "floor": 321,
+      "height": 288,
+      "rootX": 139.0,
+      "hairBounds": [
+        1035,
+        37,
+        1154,
+        137
+      ]
+    },
+    {
+      "frame": 4,
+      "row": 1,
+      "column": 0,
+      "bounds": [
+        91,
+        340,
+        234,
+        630
+      ],
+      "area": 28830,
+      "crown": 341,
+      "floor": 629,
+      "height": 289,
+      "rootX": 178.0,
+      "hairBounds": [
+        106,
+        343,
+        224,
+        437
+      ]
+    },
+    {
+      "frame": 5,
+      "row": 1,
+      "column": 1,
+      "bounds": [
+        404,
+        341,
+        544,
+        630
+      ],
+      "area": 27511,
+      "crown": 341,
+      "floor": 629,
+      "height": 289,
+      "rootX": 168.0,
+      "hairBounds": [
+        417,
+        345,
+        533,
+        444
+      ]
+    },
+    {
+      "frame": 6,
+      "row": 1,
+      "column": 2,
+      "bounds": [
+        712,
+        341,
+        852,
+        630
+      ],
+      "area": 27867,
+      "crown": 341,
+      "floor": 629,
+      "height": 289,
+      "rootX": 161.0,
+      "hairBounds": [
+        723,
+        344,
+        842,
+        437
+      ]
+    },
+    {
+      "frame": 7,
+      "row": 1,
+      "column": 3,
+      "bounds": [
+        1022,
+        341,
+        1165,
+        624
+      ],
+      "area": 27835,
+      "crown": 341,
+      "floor": 623,
+      "height": 283,
+      "rootX": 139.5,
+      "hairBounds": [
+        1036,
+        344,
+        1153,
+        443
+      ]
+    },
+    {
+      "frame": 8,
+      "row": 2,
+      "column": 0,
+      "bounds": [
+        97,
+        653,
+        238,
+        930
+      ],
+      "area": 27629,
+      "crown": 653,
+      "floor": 929,
+      "height": 277,
+      "rootX": 180.0
+    },
+    {
+      "frame": 9,
+      "row": 2,
+      "column": 1,
+      "bounds": [
+        403,
+        653,
+        547,
+        930
+      ],
+      "area": 26603,
+      "crown": 653,
+      "floor": 929,
+      "height": 277,
+      "rootX": 167.5
+    },
+    {
+      "frame": 10,
+      "row": 2,
+      "column": 2,
+      "bounds": [
+        705,
+        652,
+        855,
+        905
+      ],
+      "area": 26578,
+      "crown": 653,
+      "floor": 903,
+      "height": 251,
+      "rootX": 156.5
+    },
+    {
+      "frame": 11,
+      "row": 2,
+      "column": 3,
+      "bounds": [
+        1018,
+        648,
+        1165,
+        930
+      ],
+      "area": 27412,
+      "crown": 648,
+      "floor": 929,
+      "height": 282,
+      "rootX": 142.5
+    },
+    {
+      "frame": 12,
+      "row": 3,
+      "column": 0,
+      "bounds": [
+        86,
+        944,
+        249,
+        1219
+      ],
+      "area": 27531,
+      "crown": 945,
+      "floor": 1218,
+      "height": 274,
+      "rootX": 177.5
+    },
+    {
+      "frame": 13,
+      "row": 3,
+      "column": 1,
+      "bounds": [
+        397,
+        944,
+        548,
+        1222
+      ],
+      "area": 27800,
+      "crown": 945,
+      "floor": 1221,
+      "height": 277,
+      "rootX": 140.5
+    },
+    {
+      "frame": 14,
+      "row": 3,
+      "column": 2,
+      "bounds": [
+        709,
+        945,
+        856,
+        1213
+      ],
+      "area": 26571,
+      "crown": 945,
+      "floor": 1212,
+      "height": 268,
+      "rootX": 163.5
+    },
+    {
+      "frame": 15,
+      "row": 3,
+      "column": 3,
+      "bounds": [
+        1011,
+        944,
+        1168,
+        1220
+      ],
+      "area": 27283,
+      "crown": 945,
+      "floor": 1218,
+      "height": 274,
+      "rootX": 140.5
+    }
+  ],
+  "registration": {
+    "scale": 0.25569176882662,
+    "referenceBodyHeight": 285.5,
+    "rootX": 154.0,
+    "rowFloor": [
+      321.0,
+      629.0,
+      929.0,
+      1218.0
+    ],
+    "columnRootX": [
+      152.7421232876712,
+      462.5921232876712,
+      772.4421232876712,
+      1082.2921232876713
+    ],
+    "sourceGridHeadOrigin": 164.47499999999997,
+    "sourceGridHeadStep": 309.85,
+    "idleHairBounds": [
+      61,
+      56,
+      89,
+      81
+    ]
+  },
+  "artApproved": false,
+  "registrationApproved": false
+}

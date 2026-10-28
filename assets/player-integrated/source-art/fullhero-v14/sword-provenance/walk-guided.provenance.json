@@ -1,0 +1,21 @@
+{
+  "tool": "builtin image_gen",
+  "promptFile": "walk-guided.prompt.txt",
+  "editTarget": "D:/truong/MyGame/assets/player-integrated/source-art/fullhero-v14/guide-walk-sword.png",
+  "appearanceReference": "D:/truong/MyGame/assets/player-integrated/source-art/fullhero-v14/master-sword-reference.png",
+  "generatedOriginal": "C:/Users/thetr/.codex/generated_images/01a167e6-b5df-7072-9dac-6aaa4b029c43/exec-d9c155e9-bc7f-4099-9074-d9bed1e87de7.png",
+  "projectCopy": "D:/truong/MyGame/assets/player-integrated/source-art/walk-sword-drawn.png",
+  "grid": {
+    "columns": 8,
+    "rows": 5,
+    "directions": [
+      "S",
+      "E",
+      "N",
+      "SE",
+      "NE"
+    ]
+  },
+  "status": "candidate",
+  "qa": "Guided redraw preserves clearly different side-facing contact/passing steps and fixed sword hand. All40frames and correct5directions. Parent/exporter must inspect extracted native74px loop and shared style/registration before acceptance."
+}

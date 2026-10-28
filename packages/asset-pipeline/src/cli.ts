@@ -24,6 +24,7 @@ import { regionBuild } from './maps/regions.js';
 import { renderOverview, writeMinimap } from './maps/overview.js';
 import { addOutline, downscaleMode, extractDecals, loadFreePixelImage, packShelf, propIssues, propMeta, trim, type PropMeta } from './props/buildProps.js';
 import { PIXELLAB_PREFIX } from './props/humanKingdom.js';
+import { loadWorldArt, WORLD_ART_PREFIX } from './props/worldArt.js';
 import { keyMagenta, loadSheetCell, parseSheetPath, sheetPreview } from './props/sheet.js';
 import { buildSkillIcons, buildSkillIconsV2 } from './props/skillIcons.js';
 import { filledSlice, measureHollow, UI_ASSETS, type NineSlice } from './props/uiAssets.js';
@@ -1115,6 +1116,7 @@ async function buildMap(region = 'human'): Promise<void> {
 	const cutBySheet = new Map<string, RGBAImage[]>();
 	for (const def of build.props) {
 		const plName = def.path.startsWith(PIXELLAB_PREFIX) ? def.path.slice(PIXELLAB_PREFIX.length) : null;
+		const worldArt = def.path.startsWith(WORLD_ART_PREFIX) ? def.path.slice(WORLD_ART_PREFIX.length) : null;
 		const cell = parseSheetPath(def.path);
 		let raw: RGBAImage;
 		if (cell) {
@@ -1129,6 +1131,10 @@ async function buildMap(region = 'human'): Promise<void> {
 				continue;
 			}
 			cutBySheet.set(cell.sheet, [...(cutBySheet.get(cell.sheet) ?? []), raw]);
+		} else if (worldArt) {
+			const source = loadWorldArt(join(ROOT, 'packages/asset-pipeline/sources/world-art'), worldArt);
+			if (!source) { console.log(`  … ${def.id}: đang chờ bản vẽ đã duyệt, giữ nhà cũ`); continue; }
+			raw = source.image;
 		} else if (plName) {
 			const file = join(PIXELLAB_SOURCES, 'objects', plName, `${plName}.png`);
 			if (!existsSync(file)) {
@@ -1147,7 +1153,7 @@ async function buildMap(region = 'human'): Promise<void> {
 		if (def.flip) raw = flipX(raw);
 		const trimmed = def.downscale ? trim(downscaleMode(raw, def.downscale)) : trim(raw);
 		// PixelLab (ảnh rời lẫn tấm) đã có viền đen của chính nó; chỉ ảnh ngoài mới thêm viền tự động.
-		const img = plName || cell ? trimmed : addOutline(trimmed);
+		const img = plName || cell || worldArt ? trimmed : addOutline(trimmed);
 		items.push({ id: def.id, img });
 		meta[def.id] = propMeta(def, img);
 	}

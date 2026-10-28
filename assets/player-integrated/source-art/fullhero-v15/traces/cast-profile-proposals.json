@@ -1,0 +1,101 @@
+{
+  "artApproved": false,
+  "registrationApproved": false,
+  "results": [
+    {
+      "source": "cast-staff-S-candidate01.png",
+      "trace": "traces/cast-staff-S-candidate01/profile-fit/trace.json",
+      "state": "staff",
+      "direction": "S",
+      "kind": "cast",
+      "scale": 0.36290873015873015,
+      "score": 0.0465101129574483,
+      "regionError": {
+        "head": 0.04279169692568385,
+        "neck-torso": 0.04785130718954248,
+        "shoulders": 0.05350050276520865,
+        "belt": 0.04501948215183509
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 52,
+      "artApproved": false,
+      "registrationApproved": false
+    },
+    {
+      "source": "cast-staff-E-candidate01.png",
+      "trace": "traces/cast-staff-E-candidate01/profile-fit/trace.json",
+      "state": "staff",
+      "direction": "E",
+      "kind": "cast",
+      "scale": 0.38625151797279794,
+      "score": 0.03462157154230801,
+      "regionError": {
+        "head": 0.03900694893341952,
+        "neck-torso": 0.03277974983096686,
+        "shoulders": 0.02928921568627451,
+        "belt": 0.03478506787330317
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 55,
+      "artApproved": false,
+      "registrationApproved": false
+    },
+    {
+      "source": "cast-staff-N-candidate01.png",
+      "trace": "traces/cast-staff-N-candidate01/profile-fit/trace.json",
+      "state": "staff",
+      "direction": "N",
+      "kind": "cast",
+      "scale": 0.3919067028985507,
+      "score": 0.04009194164754705,
+      "regionError": {
+        "head": 0.04694537815126051,
+        "neck-torso": 0.03389874915483435,
+        "shoulders": 0.04740342718283895,
+        "belt": 0.034337292609351436
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 55,
+      "artApproved": false,
+      "registrationApproved": false
+    },
+    {
+      "source": "cast-staff-SE-candidate01.png",
+      "trace": "traces/cast-staff-SE-candidate01/profile-fit/trace.json",
+      "state": "staff",
+      "direction": "SE",
+      "kind": "cast",
+      "scale": 0.390146306755014,
+      "score": 0.06790288491910518,
+      "regionError": {
+        "head": 0.06114612511671334,
+        "neck-torso": 0.0771623972169513,
+        "shoulders": 0.07537105119825707,
+        "belt": 0.059587104072398187
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 51,
+      "artApproved": false,
+      "registrationApproved": false
+    },
+    {
+      "source": "cast-staff-NE-candidate01.png",
+      "trace": "traces/cast-staff-NE-candidate01/profile-fit/trace.json",
+      "state": "staff",
+      "direction": "NE",
+      "kind": "cast",
+      "scale": 0.3918719937469937,
+      "score": 0.0417993910536624,
+      "regionError": {
+        "head": 0.04856442577030813,
+        "neck-torso": 0.03660158891142665,
+        "shoulders": 0.04859016256075079,
+        "belt": 0.035182566616390146
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 55,
+      "artApproved": false,
+      "registrationApproved": false
+    }
+  ]
+}

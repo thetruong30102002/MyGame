@@ -1,0 +1,155 @@
+[
+  {
+    "file": "walk-none-E-template01.png",
+    "trace": "traces\\walk-none-E-template01\\trace.json",
+    "scale": 0.2985685071574642,
+    "scaleMode": "neutral-body",
+    "allUnclipped": true,
+    "bodyNative": [
+      73.45,
+      73.45,
+      73.45,
+      73.45,
+      72.25,
+      72.55,
+      72.55,
+      72.55
+    ]
+  },
+  {
+    "file": "walk-none-N-template01.png",
+    "trace": "traces\\walk-none-N-template01\\trace.json",
+    "scale": 0.2868369351669941,
+    "scaleMode": "neutral-body",
+    "allUnclipped": true,
+    "bodyNative": [
+      72.57,
+      72.57,
+      72.28,
+      73.72,
+      73.43,
+      73.43,
+      73.43,
+      73.43
+    ]
+  },
+  {
+    "file": "walk-none-SE-template01.png",
+    "trace": "traces\\walk-none-SE-template01\\trace.json",
+    "scale": 0.27392120075046905,
+    "scaleMode": "neutral-body",
+    "allUnclipped": true,
+    "bodyNative": [
+      73.41,
+      73.14,
+      73.14,
+      73.14,
+      72.86,
+      72.59,
+      72.86,
+      72.59
+    ]
+  },
+  {
+    "file": "walk-none-NE-template01.png",
+    "trace": "traces\\walk-none-NE-template01\\trace.json",
+    "scale": 0.28460038986354774,
+    "scaleMode": "neutral-body",
+    "allUnclipped": true,
+    "bodyNative": [
+      73.43,
+      73.43,
+      73.43,
+      73.14,
+      72.57,
+      72.57,
+      72.57,
+      72.57
+    ]
+  },
+  {
+    "file": "run-none-S-template01.png",
+    "trace": "traces\\run-none-S-template01\\trace.json",
+    "scale": 0.23484848484848486,
+    "scaleMode": "head",
+    "allUnclipped": true,
+    "bodyNative": [
+      77.03,
+      77.03,
+      77.03,
+      71.63,
+      76.33,
+      76.33,
+      76.56,
+      71.16
+    ]
+  },
+  {
+    "file": "run-none-E-template01.png",
+    "trace": "traces\\run-none-E-template01\\trace.json",
+    "scale": 0.2112676056338028,
+    "scaleMode": "head",
+    "allUnclipped": true,
+    "bodyNative": [
+      71.41,
+      70.77,
+      72.46,
+      64.23,
+      68.87,
+      69.3,
+      61.48,
+      65.49
+    ]
+  },
+  {
+    "file": "run-none-N-template01.png",
+    "trace": "traces\\run-none-N-template01\\trace.json",
+    "scale": 0.2897196261682243,
+    "scaleMode": "head",
+    "allUnclipped": true,
+    "bodyNative": [
+      85.18,
+      85.18,
+      85.18,
+      80.25,
+      84.89,
+      84.89,
+      84.89,
+      78.22
+    ]
+  },
+  {
+    "file": "run-none-SE-template01.png",
+    "trace": "traces\\run-none-SE-template01\\trace.json",
+    "scale": 0.24,
+    "scaleMode": "head",
+    "allUnclipped": true,
+    "bodyNative": [
+      74.64,
+      72.48,
+      76.32,
+      72.48,
+      74.64,
+      72.96,
+      75.6,
+      72.0
+    ]
+  },
+  {
+    "file": "run-none-NE-template01.png",
+    "trace": "traces\\run-none-NE-template01\\trace.json",
+    "scale": 0.2605042016806723,
+    "scaleMode": "head",
+    "allUnclipped": true,
+    "bodyNative": [
+      79.19,
+      76.07,
+      79.97,
+      70.86,
+      77.89,
+      75.81,
+      80.24,
+      70.08
+    ]
+  }
+]

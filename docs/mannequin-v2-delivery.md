@@ -1,6 +1,14 @@
 # Hộ vệ Ngân Lam — prototype Unity, 21/10/2026
 
-> **Cập nhật mới nhất:** đã bổ sung ba slot Áo / Quần / Giày độc lập, thêm giáp/đồ với 36 phối, sửa tay che chuôi và la bàn tám hướng trong Thử chiêu. Xem [mannequin-armor.md](mannequin-armor.md). Các mô tả bên dưới lưu trạng thái trước lượt tách đồ; atlas mới là 1.792 cells / bảy trang.
+> **Bản đang sửa hiện hành:** [mannequin-v3-delivery.md](mannequin-v3-delivery.md). Các ghi chú v2 bên dưới là lịch sử; v3 thay cơ thể tô/biến dạng và giáp dán bằng các pose vẽ cùng mask che thân, thêm bộ chạy riêng và nhịp chém theo nhân vật gốc.
+
+> **Bản hiện hành 22/10/2026:** Model nam nền được vẽ lại bằng imagegen với ngực trần và quần đùi; ảnh nguồn và bản chuẩn hóa 8×112 px nằm trong `assets/mannequin/v2/source-art/`. Pipeline tạo lớp nền riêng cho từng pose, rồi ghép đúng một áo/giáp, một quần, một đôi giày theo ô trang bị. Tất cả lớp dùng khung 112×112, pivot (56,100), 48 PPU; mặt/tóc có sorting order 6, trên áo/giáp. Chém 16 khung ở 16 fps, hit frame 9. Những mục bên dưới ghi lịch sử prototype cũ, không mô tả trạng thái hiện hành.
+
+> **Cập nhật 22/10/2026:** Ngân Lam có bốn pose đi bộ, bốn pose chém và bốn pose niệm riêng ở mỗi hướng. Timeline đi bộ 8 khung tại 12 fps; chém và niệm 8 khung tại 16 fps, release frame 4. Kiếm dài 40 px, chuôi bám neo tay từng pose và góc kiếm đổi qua từng pha. Atlas hiện có 2.472 cells / 10 trang; những số liệu cũ bên dưới là lịch sử của bản trước.
+
+Kiểm mới: `npm run test:warden -w @aether/asset-pipeline` và `npm run typecheck -w @aether/asset-pipeline` đều qua. Unity batch build `motion-build-carried-sword.log` báo Succeeded, errors=0. Bản Windows `.aether-stage/mannequin/build/Aether.exe` chạy AutoTest thành công với 371 ảnh ở `.aether-stage/mannequin/carried-sword-runtime`: có bốn ảnh liên tiếp khi cầm kiếm đi ở từng hướng; kiếm chạm dummy một lần và trượng tạo projectile rồi chạm. Ảnh nguồn và mô tả prompt ở `assets/mannequin/v2/source-art/`.
+
+Lượt chỉnh tay cầm: sửa ba neo ở hướng SW/NW từng bám nhầm vào vải áo; cả kiếm và trượng dùng cùng vị trí bàn tay ở từng pose đi bộ. Trượng nghiêng theo bốn pha bước chân. Kiểm mới nhất `motion-build-both-grips.log` Succeeded/errors=0; AutoTest `both-grips-runtime` exit 0, 419 ảnh gồm bốn ảnh bước chân cho mỗi vũ khí và mỗi hướng, sword/staff combat đều PASS.
 
 ## Phần đã triển khai
 
@@ -86,3 +94,25 @@ Build cuối: `.aether-stage/mannequin/build/Aether.exe`. Log: `.aether-stage/ma
 Lượt bổ sung UI: `lab-options-build.log` báo **Succeeded, errors=0**, process exit 0; bản Windows mới chạy AutoTest exit 0. AutoTest gọi handler thật của nút Ngân Lam, Kiếm, Trượng, Thử đòn và Nhân vật gốc; kiểm chọn lại nhân vật giữ nguyên weapon và khôi phục hình gốc. Nút Thử đòn đi qua `TapSlot(0)`/focus/input flow gốc, sword và staff đều chạm dummy, staff có projectile. Không giả lập chuột vật lý hoặc chứng nhận raycast trên mọi thiết bị.
 
 Đã xem ảnh `lab-options-runtime/lab-character-staff.png`: bảng hiển thị dưới minimap, nút nhân vật/vũ khí đang chọn sáng, hero nhìn rõ ở giữa map. Có **151 PNG** tại `.aether-stage/mannequin/lab-options-runtime`, log `autotest.log` và `.aether-stage/mannequin/lab-options-player.log`. Exe cập nhật vẫn ở `.aether-stage/mannequin/build/Aether.exe`; không phát hành ra máy chủ thật.
+
+### 22/10/2026 — kho đồ, lớp đồ lót và nhịp chuyển động
+
+- Áo (4), quần (3), giày (3), kiếm và trượng (2) là 12 item thật trong luật trang bị, có icon 48×48. Bộ thử được cấp một lần khi chọn Ngân Lam; mặc/tháo trong tab Nhân vật (phím B) lưu cùng `story.gear`. Bảng Thử chiêu chọn chính các món trong túi. Kiếm/trượng của Ngân Lam luôn dùng ô tay chính.
+- Hình trên bản đồ và hình xem trong tab Nhân vật lấy từ ô đang mặc. Tháo áo sẽ ẩn lớp áo ngoài và hiện thân nền có áo lót, quần lót cùng tay/chân; giáp là hình riêng của slot áo, không chứa lại áo xanh/đỏ. Bảng Thử chiêu tự ẩn khi mở cửa sổ kho.
+- Bộ pose đi/chém/chưởng được chuẩn lại về tỷ lệ idle với chân neo quanh y=100. Chém và chưởng có 16 khung ở 12 fps (4 pose động tác nguồn, 10 khung chuyển tiếp được nội suy từ các pose và 2 khung đầu/cuối); đòn phát ở khung 9, 0,75 giây. Bộ thử không ép nhanh animation theo hồi chiêu ngắn.
+- `npm run test:warden -w @aether/asset-pipeline` kiểm 352 frame, 704 kết hợp vũ khí, 12.672 kết hợp đồ, icon, tỷ lệ, alpha, neo tay, lớp đồ lót và giáp không mang lại pixel áo xanh. `npm test -w @aether/sim` và typecheck pipeline đã qua. Khung chuyển tiếp là nội suy pixel, vẫn cần duyệt từng khung để quyết định chất lượng mỹ thuật cuối.
+- Unity build cục bộ và AutoTest ở `.aether-stage/mannequin/`: lần kiểm runtime trước phần ẩn bảng đã qua với kiếm/trượng trúng dummy ở 0,75 giây, mặc/tháo đồ và hình từ kho đồng bộ. Không phát hành bản đang chạy qua Tailscale trong lượt này.
+
+### 22/10/2026 — tay nắm vũ khí và cung chém
+
+- Neo kiếm/trượng được đưa vào lòng bàn tay của mỗi pose; lớp ngón tay vẽ đè lên cán. Chuôi kiếm rộng và sáng hơn để nối rõ từ chắn kiếm vào nắm tay khi đi, đứng và chiến đấu. Trượng và kiếm dùng cùng điểm nắm trong các pose chuyển động.
+- Kiếm chém theo một cung liên tục 8 hướng: lấy đà phía sau đầu, quét cong qua trên đầu và hạ ra trước ở khung trúng đòn. Vệt xanh theo đường đầu kiếm ở khung 4–10, biến mất ngay khi thu đòn; vệt được giữ trong ranh giới atlas. Nhịp giữ 16 khung, 12 fps và hit ở khung 9.
+- `npm run test:warden -w @aether/asset-pipeline` PASS: 352 khung, 704 tổ hợp cầm vũ khí, 8 hướng có cung chém liên tục và vệt đúng nhịp, chuôi/tay chồng pixel tại neo. Typecheck PASS. Unity `grip-sweep-verified-build.log` báo `Succeeded; errors=0`.
+- Windows AutoTest tại `.aether-stage/mannequin/grip-sweep-runtime/` exit 0: 36 tổ hợp trang bị, 9.216 khung đi/chém/chưởng kiểm lớp tay và vệt chém; kiếm/trượng đều đánh trúng dummy, trượng tạo đạn ở 0,75 giây. Ảnh thực tế: `mannequin-0-0-0-S-9.png`. Đây vẫn là bản thử cục bộ, cần duyệt mỹ thuật từng hướng trước phát hành.
+
+### 22/10/2026 — model nam nền và chuẩn ghép đồ
+
+- Imagegen tạo nguồn nam 8 hướng chỉ mặc quần đùi: `source-art/warden-male-base-ai-raw.png`. Script `packages/asset-pipeline/scripts/normalize-male-base.py` đưa về đúng 8 ô 112×112, đầu ở trên, chân tại y=100; bản dùng trong pipeline là `warden-male-base-ai-112.png`. Pipeline giữ đầu/tóc cũ để mặt nhất quán và dùng cơ thể mới làm lớp nền riêng cho từng pose. Với các pose đi/chiến đấu, tay/chân được chỉnh theo neo bàn tay và silhouette của pose đó, không giữ nguyên ảnh đứng yên.
+- Một nhân vật đang mặc chỉ có một lớp áo hoặc giáp, một lớp quần, một lớp giày. Áo/giáp bạc và da không sao chép lại màu áo xanh/đỏ. Lớp nền cắt trong silhouette nguồn để da không nhô ra cạnh áo/ủng. Khi tháo áo, ngực trần và quần đùi hiện ra. Quy chuẩn cho model nữ khi được thêm sau này: lớp nền mặc áo và quần; chưa có sprite nữ trong catalog hiện hành.
+- Mọi sprite nền và trang bị dùng khung 112×112, pivot Unity (56,12) tương ứng mốc chân ảnh (56,100), 48 PPU. Đầu/tóc vẽ ở sorting order 6, trên lớp áo/giáp (order 3), tránh cổ áo che mất mặt. Importer xóa trang atlas cũ vượt số trang hiện tại, tránh nạp trùng sprite khi thay nguồn art.
+- `npm run test:warden -w @aether/asset-pipeline` và typecheck PASS. Unity batch `male-base-build-2.log`: Succeeded/errors=0. Windows AutoTest `male-base-runtime` exit 0, 550 ảnh: 36 tổ hợp đồ, 9.216 khung kiểm các SpriteRenderer riêng và kích thước/pivot/PPU của từng món; kiếm release ở 0,563 giây, trượng 0,750 giây, cả hai trúng dummy. Xem `mannequin-underwear.png` cho model nền và `clothing-1-0-S-strike.png` cho đồ khi chém. Đây là build thử cục bộ.

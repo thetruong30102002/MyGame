@@ -1,5 +1,7 @@
 # Kế hoạch: Xã hội — kết bạn, chat riêng, giao dịch, … (thêm 08/10/2026)
 
+> **Chốt thêm 26/10/2026:** có **chợ giao thương giữa người chơi**, buôn bán **lúa mì, cây giống, cá, đồ lưu niệm và đồ trang trí nhà**. Chợ nối với khuôn viên, trồng trọt, hồ câu và nhà riêng. Chi tiết mục 3.1; đã ghi kế hoạch, chưa triển khai gameplay.
+
 Chủ dự án 08/10/2026: "thêm tính năng kết bạn, chat riêng, giao dịch, …". Hiện có: tài khoản + nhân vật trên máy chủ, thấy
 nhau cùng map, **một kênh chat chung theo map** (`apps/server/src/world.ts`, `t: 'chat'`, chặn spam 5 tin / 5 giây, tối đa
 200 ký tự). Chưa có bạn bè, chat riêng, giao dịch, tổ đội.
@@ -48,8 +50,31 @@ Giao dịch là chỗ dễ bị **lừa đảo + gian lận** nhất → làm ch
   đang mặc. Cấp tối thiểu để giao dịch (vd ≥ 10) — chống tài khoản phụ chuyển đồ.
 - **Nhật ký giao dịch** lưu ở máy chủ (ai, khi nào, món gì) để xử lý khiếu nại.
 
-Về sau (tuỳ chủ dự án): **chợ / nhà đấu giá** (treo bán, người khác mua khi mình offline, phí giao dịch để hút xu khỏi nền
-kinh tế) và **thư kèm đồ** (gửi món cho bạn ở xa).
+**Chợ giao thương đã được chủ dự án chốt 26/10/2026**, xem mục 3.1. Hình thức nhà đấu giá, treo bán khi offline và phí giao dịch chưa chốt. **Thư kèm đồ** (gửi món cho bạn ở xa) vẫn là mở rộng về sau.
+
+### 3.1 Chợ giao thương — chốt 26/10/2026
+
+**Phạm vi đã chốt:** người chơi buôn bán sản phẩm và vật phẩm sinh hoạt với nhau tại chợ, gồm:
+
+| Nhóm hàng | Nguồn / công dụng |
+|---|---|
+| Lúa mì | Thu hoạch trong khuôn viên; mua để nấu ăn hoặc chế biến theo công thức |
+| Cây giống | Mua / bán giống để trồng trong khuôn viên; danh mục giống và cách nhận cần thiết kế |
+| Cá | Câu ở hồ chung; mua để nấu ăn, chế biến hoặc sưu tầm theo công dụng được duyệt |
+| Đồ lưu niệm | Vật phẩm sưu tầm / trưng bày; châu báu / cổ vật từ mê cung nếu món đó được phép trao đổi; danh mục và luật nhận cụ thể cần thiết kế |
+| Đồ trang trí nhà | Nội thất / vật trang trí có thể trao đổi, mua về bố trí trong nhà và khuôn viên; đã chốt mê cung là một nguồn kiếm đồ trang trí |
+
+**Luồng mua bán đề xuất:** vào chợ → chọn nhóm hàng / tìm món → xem chi tiết, số lượng và giá → xác nhận mua → nhận hàng; người bán nhận tiền. Bên bán chọn món đủ điều kiện, số lượng và giá trước khi xác nhận bán. Hiện rõ giá đơn vị và tổng tiền để tránh hiểu sai khi mua theo lô.
+
+- Kết nối cùng kho đồ / nguyên liệu và quyền sở hữu đã lưu ở máy chủ. Lúa mì / cá mua về dùng được cho công thức; cây giống đưa vào kho giống; đồ trang trí mua về thuộc sở hữu người mua để đặt trong khuôn viên.
+- Chỉ bán hàng thật thuộc người bán, đúng số lượng và được phép trao đổi. Đồ trang trí đang đặt trong nhà cần cất về kho trước khi bán; không vừa bán vừa giữ bản đã đặt. Cây đã trồng không tự coi là cây giống trong kho.
+- Máy chủ kiểm hàng / tiền / sức chứa và thực hiện chuyển quyền sở hữu, trừ tiền, cộng tiền trong một giao dịch nhất quán; lưu nhật ký. Hàng đã chào bán phải được khóa hoặc trừ khỏi số lượng khả dụng để không dùng / bán trùng; cơ chế giữ hàng chi tiết đi theo hình thức chợ được chọn.
+- Phác thảo nhóm giao diện: Nông sản · Cây giống · Cá · Lưu niệm · Trang trí nhà. Bảng hàng hiển thị tên, hình, đặc tính nếu có, số lượng, người bán và giá.
+- **Chưa chốt:** vị trí / bản đồ chợ, quầy trực tiếp hay bảng niêm yết, bán khi offline, đấu giá, loại tiền thanh toán, phí, giới hạn gian hàng / số món và thời hạn bán. Không mặc nhiên coi các lựa chọn này là đã được duyệt chỉ từ yêu cầu có chợ.
+
+**Phụ thuộc:** túi đồ / tiền / quyền sở hữu ở máy chủ, danh mục vật phẩm, sản phẩm trồng trọt / câu cá / trang trí. Chợ là đầu ra kinh tế cho vòng chơi trong `docs/ke-hoach-nha-rieng.md` mục 2.7.
+
+**Bổ sung nguồn hàng 26/10/2026:** các mê cung cho người chơi khám phá kiếm châu báu, vàng và đồ trang trí nhà (`docs/ke-hoach-the-gioi.md` mục 5.11). Món sưu tầm / trang trí được phép trao đổi có thể bán ở chợ; không mặc nhiên cho mọi phần thưởng mê cung đều giao thương được. Vàng là phần thưởng kinh tế, không tự thêm thành một nhóm vật phẩm chào bán.
 
 ## 4. "…" — gợi ý thêm (chờ chủ dự án chọn)
 
@@ -69,8 +94,9 @@ kinh tế) và **thư kèm đồ** (gửi món cho bạn ở xa).
 | **X1** | Menu bấm tên người chơi, **kết bạn** (mời / chấp nhận / huỷ / chặn), bảng Bạn bè (online, đang ở đâu) | — (làm được ngay) |
 | **X2** | **Chat riêng** (online + lưu tin offline), thẻ kênh trong khung chat, báo cáo tin | X1 (chặn) |
 | **X3** | **Giao dịch** 2 bước khoá + đổi nguyên tử + nhật ký | đồ đạc / kinh tế ở máy chủ |
+| **X3b** | **Chợ giao thương**: lúa mì, cây giống, cá, lưu niệm, trang trí nhà | Kinh tế / túi đồ / quyền sở hữu ở máy chủ; danh mục hàng sinh hoạt |
 | **X4** | Tổ đội | M3 (máy chủ nắm chiến đấu) |
-| X5+ | Thư, chợ, bang hội, hồ sơ, xếp hạng | tuỳ chọn |
+| X5+ | Thư, bang hội, hồ sơ, xếp hạng | tuỳ chọn |
 
 X1–X2 không phụ thuộc hình (giao diện bằng bộ khung UI có sẵn) và không phụ thuộc kinh tế → có thể làm xen kẽ bất cứ lúc nào.
 Nhà riêng N1 cần X1 (quyền xem nhà theo bạn bè).
@@ -133,6 +159,13 @@ tiếng — game CHƯA có âm thanh, lưu sẵn), hiện người chơi khác, 
 
 ## 7. Câu hỏi cần chủ dự án chốt
 
+**Bổ sung đã chốt 26/10/2026:** bạn bè có thể vào tham quan khuôn viên / nhà riêng và vào một map hồ cá chung để câu cùng nhau. Chủ nhà giữ quyền xây sửa, thu hoạch và sử dụng kho; khách chỉ tham quan. Chi tiết kế hoạch ở `docs/ke-hoach-nha-rieng.md` mục 2.5–2.6; chưa triển khai gameplay.
+
 1. "…" chọn thêm gì ở mục 4 (tổ đội, bang hội, thư, biểu cảm, hồ sơ, xếp hạng)?
-2. Có làm **chợ / đấu giá** (bán khi offline) không, hay chỉ giao dịch trực tiếp?
+2. **Đã chốt có chợ giao thương (26/10/2026)** với lúa mì, cây giống, cá, lưu niệm và trang trí nhà. Cần thiết kế tiếp hình thức chợ, vị trí, tiền tệ / phí và khả năng bán offline; đấu giá chưa chốt.
 3. Kênh **thế giới** có mở không (dễ thành spam / quảng cáo), và cấp tối thiểu để chat thế giới / giao dịch?
+
+### Tiến độ bổ sung 26/10/2026
+
+- Đã ghi chợ giao thương thành tính năng cần làm, đủ 5 nhóm hàng chủ dự án yêu cầu; không còn để việc có chợ ở trạng thái tùy chọn.
+- Đã nối kế hoạch chợ với khuôn viên, nguyên liệu, cây giống, hồ cá và đồ trang trí nhà; cập nhật roadmap. Chưa triển khai chợ vào game hoặc thay đổi dữ liệu người chơi.

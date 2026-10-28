@@ -1,0 +1,1453 @@
+{
+  "characters": 30,
+  "turnaroundFrames": 240,
+  "balancedGenderPerClass": true,
+  "sourceOrCanvasClipping": 0,
+  "pixelRoundTripFrames": 240,
+  "atlasSha256": "6603a8698ba6ec74897ddb25baa27d807ae8cc385ee63f78b1e62d540c6ef201",
+  "coreMotionReady": 2,
+  "newMotionPilotAccepted": false,
+  "productionImported": false,
+  "records": [
+    {
+      "name": "player_verdant_sword/idle_S",
+      "rgbaSha256": "1f3c92d92299a9a0048ca58b6bf14a7510431b86df78e0dbeb6f714b23809b70",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_verdant_sword/registration.json",
+      "registrationSha256": "22b6086f25a2199636f46aa946ea8017b5a9d09a3f9be6e7b8653f8631e6c21c"
+    },
+    {
+      "name": "player_verdant_sword/idle_SE",
+      "rgbaSha256": "1942e4e469a1f77bf9d75b930afa31cb7e82b06bf34c92b50a14c2cbed801a6d",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_verdant_sword/registration.json",
+      "registrationSha256": "22b6086f25a2199636f46aa946ea8017b5a9d09a3f9be6e7b8653f8631e6c21c"
+    },
+    {
+      "name": "player_verdant_sword/idle_E",
+      "rgbaSha256": "6de131e7182e65647e5309a1b0e0509269f034991aa68291eda743f99b53be6f",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_verdant_sword/registration.json",
+      "registrationSha256": "22b6086f25a2199636f46aa946ea8017b5a9d09a3f9be6e7b8653f8631e6c21c"
+    },
+    {
+      "name": "player_verdant_sword/idle_NE",
+      "rgbaSha256": "36110f5db5d18715064e05f53c2b2a2ad88b225da7f1b59defff30d418989711",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_verdant_sword/registration.json",
+      "registrationSha256": "22b6086f25a2199636f46aa946ea8017b5a9d09a3f9be6e7b8653f8631e6c21c"
+    },
+    {
+      "name": "player_verdant_sword/idle_N",
+      "rgbaSha256": "9fdc535e0ef307fe047ad72d0467a5d58298d17aa4613ee1f7ca69be7b09b5c6",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_verdant_sword/registration.json",
+      "registrationSha256": "22b6086f25a2199636f46aa946ea8017b5a9d09a3f9be6e7b8653f8631e6c21c"
+    },
+    {
+      "name": "player_verdant_sword/idle_NW",
+      "rgbaSha256": "682eb936246f84a58b85517b3952c1c5159394e4ac4e71ff7ae3360b17b8c574",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_verdant_sword/registration.json",
+      "registrationSha256": "22b6086f25a2199636f46aa946ea8017b5a9d09a3f9be6e7b8653f8631e6c21c"
+    },
+    {
+      "name": "player_verdant_sword/idle_W",
+      "rgbaSha256": "f82ff8fe689e86aa82038261559701cec21994fb02f7a33ce2adb0c5ec81f161",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_verdant_sword/registration.json",
+      "registrationSha256": "22b6086f25a2199636f46aa946ea8017b5a9d09a3f9be6e7b8653f8631e6c21c"
+    },
+    {
+      "name": "player_verdant_sword/idle_SW",
+      "rgbaSha256": "a8e605d279fe044ad998aa7c68eb1d8849a34c6680ba97ebce4b23e22eaf8525",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_verdant_sword/registration.json",
+      "registrationSha256": "22b6086f25a2199636f46aa946ea8017b5a9d09a3f9be6e7b8653f8631e6c21c"
+    },
+    {
+      "name": "player_sword_m02/idle_S",
+      "rgbaSha256": "64de520dfec383ac7242fac6a9f3dbc3169c242c67e95ffa2681a5c3aff57d52",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_sword_m02/registration.json",
+      "registrationSha256": "7cabe6308dfcb3a18724235deeeda6affb01f24e4ee3a6cd5da580e10166065a"
+    },
+    {
+      "name": "player_sword_m02/idle_SE",
+      "rgbaSha256": "5d74418a95d510dc3ede3efdd0199b50c5bed279a725788feab392175c87873d",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_sword_m02/registration.json",
+      "registrationSha256": "7cabe6308dfcb3a18724235deeeda6affb01f24e4ee3a6cd5da580e10166065a"
+    },
+    {
+      "name": "player_sword_m02/idle_E",
+      "rgbaSha256": "1a1a020820925a5eb8239e614257fce774d941a73650416149f05fbcc23cf109",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_sword_m02/registration.json",
+      "registrationSha256": "7cabe6308dfcb3a18724235deeeda6affb01f24e4ee3a6cd5da580e10166065a"
+    },
+    {
+      "name": "player_sword_m02/idle_NE",
+      "rgbaSha256": "93d870b218f966e6307095264bc5744d353abaf1cec6283afacb49099fb0340f",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_sword_m02/registration.json",
+      "registrationSha256": "7cabe6308dfcb3a18724235deeeda6affb01f24e4ee3a6cd5da580e10166065a"
+    },
+    {
+      "name": "player_sword_m02/idle_N",
+      "rgbaSha256": "1bacfaad6d52ab92df6a448988c3f2c8fbc7c7e939299a1ac5d68c1f75f00d39",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_sword_m02/registration.json",
+      "registrationSha256": "7cabe6308dfcb3a18724235deeeda6affb01f24e4ee3a6cd5da580e10166065a"
+    },
+    {
+      "name": "player_sword_m02/idle_NW",
+      "rgbaSha256": "6e1f5ab5a6e3ba084d0a9a78672271e1e8f5a0f405d86bdbd0ff10fcf85d820d",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_sword_m02/registration.json",
+      "registrationSha256": "7cabe6308dfcb3a18724235deeeda6affb01f24e4ee3a6cd5da580e10166065a"
+    },
+    {
+      "name": "player_sword_m02/idle_W",
+      "rgbaSha256": "9a62a1f17d977d421679b2a25e040c6031d3d7191ea6026a40890f80611286bb",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_sword_m02/registration.json",
+      "registrationSha256": "7cabe6308dfcb3a18724235deeeda6affb01f24e4ee3a6cd5da580e10166065a"
+    },
+    {
+      "name": "player_sword_m02/idle_SW",
+      "rgbaSha256": "b68598221ff866a79fbe3a676097c22a11341d6c461f1266bb9bb2166e82739d",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_sword_m02/registration.json",
+      "registrationSha256": "7cabe6308dfcb3a18724235deeeda6affb01f24e4ee3a6cd5da580e10166065a"
+    },
+    {
+      "name": "player_sword_m03/idle_S",
+      "rgbaSha256": "29819f6a00f5d980688b378b3fa9c97b4874ef68c44cb90dbf13519e8be3fc85",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_sword_m03/registration.json",
+      "registrationSha256": "563fc28a685e345f77dc27245d323009cfa4478ce04497e286dd50a0be115d25"
+    },
+    {
+      "name": "player_sword_m03/idle_SE",
+      "rgbaSha256": "4a32643e9a1da84d21b4e9874a2243ea8ba981c8aa55f08ed21f026a83c5c0bc",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_sword_m03/registration.json",
+      "registrationSha256": "563fc28a685e345f77dc27245d323009cfa4478ce04497e286dd50a0be115d25"
+    },
+    {
+      "name": "player_sword_m03/idle_E",
+      "rgbaSha256": "cb6b204a76d79bd1ccc03d8ae1867076029533ab96bcb44340ddbda648a145a0",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_sword_m03/registration.json",
+      "registrationSha256": "563fc28a685e345f77dc27245d323009cfa4478ce04497e286dd50a0be115d25"
+    },
+    {
+      "name": "player_sword_m03/idle_NE",
+      "rgbaSha256": "22f1bd1552476bd80488ef287712153abc68ec74908fc5f28e274570632626d6",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_sword_m03/registration.json",
+      "registrationSha256": "563fc28a685e345f77dc27245d323009cfa4478ce04497e286dd50a0be115d25"
+    },
+    {
+      "name": "player_sword_m03/idle_N",
+      "rgbaSha256": "dfaa7cfa63f78ae62ec5c46198ed4e581754fe6383abeb6855ad29705aa3699f",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_sword_m03/registration.json",
+      "registrationSha256": "563fc28a685e345f77dc27245d323009cfa4478ce04497e286dd50a0be115d25"
+    },
+    {
+      "name": "player_sword_m03/idle_NW",
+      "rgbaSha256": "6b75a6c1aa3ea99efc225d94ba29224f7d74a9276832a90fc904c8210c0558e4",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_sword_m03/registration.json",
+      "registrationSha256": "563fc28a685e345f77dc27245d323009cfa4478ce04497e286dd50a0be115d25"
+    },
+    {
+      "name": "player_sword_m03/idle_W",
+      "rgbaSha256": "faa03a8c56b85c9f025329e47c3313e1104ca300e124eaad06714c0cf9b23bb0",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_sword_m03/registration.json",
+      "registrationSha256": "563fc28a685e345f77dc27245d323009cfa4478ce04497e286dd50a0be115d25"
+    },
+    {
+      "name": "player_sword_m03/idle_SW",
+      "rgbaSha256": "aba1392acea6e445913e8044a1519fcd80a229b7e62d4c241ae346f6454d049f",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_sword_m03/registration.json",
+      "registrationSha256": "563fc28a685e345f77dc27245d323009cfa4478ce04497e286dd50a0be115d25"
+    },
+    {
+      "name": "player_sword_f01/idle_S",
+      "rgbaSha256": "09393bf48ac72bcfa04407865673911b6447d7b8a25c343795e69db41d7b8bc8",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_sword_f01/registration.json",
+      "registrationSha256": "e9c02401c3fad4def00b8d40466b6b47e38cccd9c6e84bcdb7c373a969164623"
+    },
+    {
+      "name": "player_sword_f01/idle_SE",
+      "rgbaSha256": "f5fc581bc0e8ee1a8787066ec9ef516d20bf2abecaf72ea614bccc4ff164d6a5",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_sword_f01/registration.json",
+      "registrationSha256": "e9c02401c3fad4def00b8d40466b6b47e38cccd9c6e84bcdb7c373a969164623"
+    },
+    {
+      "name": "player_sword_f01/idle_E",
+      "rgbaSha256": "7ed3e84ec4f4afd1ede4c546c50b6ca69df5fc20f752a90ee1f7a3fa6fc5740b",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_sword_f01/registration.json",
+      "registrationSha256": "e9c02401c3fad4def00b8d40466b6b47e38cccd9c6e84bcdb7c373a969164623"
+    },
+    {
+      "name": "player_sword_f01/idle_NE",
+      "rgbaSha256": "6a758f7bf15773c71b8225d07f2d67a4dac33a7df8e3cf1adb076a80f1481fa7",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_sword_f01/registration.json",
+      "registrationSha256": "e9c02401c3fad4def00b8d40466b6b47e38cccd9c6e84bcdb7c373a969164623"
+    },
+    {
+      "name": "player_sword_f01/idle_N",
+      "rgbaSha256": "534a242dded8f6b3f257a35cdbe3846b6e6a73a28781fa484dfbfb6a6c44bf51",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_sword_f01/registration.json",
+      "registrationSha256": "e9c02401c3fad4def00b8d40466b6b47e38cccd9c6e84bcdb7c373a969164623"
+    },
+    {
+      "name": "player_sword_f01/idle_NW",
+      "rgbaSha256": "f761fb5c09983744fe04a6041983a3d94114edf50fd987ecf65b823a8b58190c",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_sword_f01/registration.json",
+      "registrationSha256": "e9c02401c3fad4def00b8d40466b6b47e38cccd9c6e84bcdb7c373a969164623"
+    },
+    {
+      "name": "player_sword_f01/idle_W",
+      "rgbaSha256": "972799e69e1a3bf4b3b1dac6ff7a0e7b44197a56c222aa0dee9695696a10d0be",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_sword_f01/registration.json",
+      "registrationSha256": "e9c02401c3fad4def00b8d40466b6b47e38cccd9c6e84bcdb7c373a969164623"
+    },
+    {
+      "name": "player_sword_f01/idle_SW",
+      "rgbaSha256": "d4c2711d37ffb0f6f759cc41ddd3ffa630e034f9c8a8f4a128d48c4a3ee34b93",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_sword_f01/registration.json",
+      "registrationSha256": "e9c02401c3fad4def00b8d40466b6b47e38cccd9c6e84bcdb7c373a969164623"
+    },
+    {
+      "name": "player_sword_f02/idle_S",
+      "rgbaSha256": "196b30fd7c8bc4b80033f94d0eb630a0afbd223e6ddcac419f07a8bb21635178",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_sword_f02/registration.json",
+      "registrationSha256": "1b1963262f733f62207d78d36d6591f0f0c3df806b4f7532a660cd61c0a5192a"
+    },
+    {
+      "name": "player_sword_f02/idle_SE",
+      "rgbaSha256": "3055224ba8b0510165b3791d32d969d57e70c5364551ff3445d48e18443d8398",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_sword_f02/registration.json",
+      "registrationSha256": "1b1963262f733f62207d78d36d6591f0f0c3df806b4f7532a660cd61c0a5192a"
+    },
+    {
+      "name": "player_sword_f02/idle_E",
+      "rgbaSha256": "e303b0cb80d49b961cd0e6c3c26ab5d64448c6cea28eee149659f3f674385be5",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_sword_f02/registration.json",
+      "registrationSha256": "1b1963262f733f62207d78d36d6591f0f0c3df806b4f7532a660cd61c0a5192a"
+    },
+    {
+      "name": "player_sword_f02/idle_NE",
+      "rgbaSha256": "eab93a8737e4adeab18d5ee2f1d4d267716a538fce88f7238ccae788f1127c96",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_sword_f02/registration.json",
+      "registrationSha256": "1b1963262f733f62207d78d36d6591f0f0c3df806b4f7532a660cd61c0a5192a"
+    },
+    {
+      "name": "player_sword_f02/idle_N",
+      "rgbaSha256": "680f57d1f7ae35c1b6bc07a6df2487bc6337f73d9e131bb28404ed0a38360fb9",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_sword_f02/registration.json",
+      "registrationSha256": "1b1963262f733f62207d78d36d6591f0f0c3df806b4f7532a660cd61c0a5192a"
+    },
+    {
+      "name": "player_sword_f02/idle_NW",
+      "rgbaSha256": "3c64c4a6da26d767266d73b46cd0f64becb2026b57022884bff86f2f70e286c2",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_sword_f02/registration.json",
+      "registrationSha256": "1b1963262f733f62207d78d36d6591f0f0c3df806b4f7532a660cd61c0a5192a"
+    },
+    {
+      "name": "player_sword_f02/idle_W",
+      "rgbaSha256": "57e166e4c62a2a6656f38298d277349224b80389de4a1743c68e0a8e7fc778ad",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_sword_f02/registration.json",
+      "registrationSha256": "1b1963262f733f62207d78d36d6591f0f0c3df806b4f7532a660cd61c0a5192a"
+    },
+    {
+      "name": "player_sword_f02/idle_SW",
+      "rgbaSha256": "01b72365baf1389c51f2ca6ad0513392e2a9c53246255afcab43ec74611382dd",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_sword_f02/registration.json",
+      "registrationSha256": "1b1963262f733f62207d78d36d6591f0f0c3df806b4f7532a660cd61c0a5192a"
+    },
+    {
+      "name": "player_sword_f03/idle_S",
+      "rgbaSha256": "96f8d2d479e44b4c51a971b742e3c929a4d2acd60796fc49b05706de00cc4e0c",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_sword_f03/registration.json",
+      "registrationSha256": "d9f7f0ad96f94a71b517d165ec728143482558590c8a43990dc6b07d92e85e67"
+    },
+    {
+      "name": "player_sword_f03/idle_SE",
+      "rgbaSha256": "9e283d89fa511850992dfeae50078f7df9cf02e04044a5014a2817a33cc76baa",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_sword_f03/registration.json",
+      "registrationSha256": "d9f7f0ad96f94a71b517d165ec728143482558590c8a43990dc6b07d92e85e67"
+    },
+    {
+      "name": "player_sword_f03/idle_E",
+      "rgbaSha256": "aaeba45855d0dfa6b76db9da39dc9e05b3e697963f370d11c8dae36bab58b69f",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_sword_f03/registration.json",
+      "registrationSha256": "d9f7f0ad96f94a71b517d165ec728143482558590c8a43990dc6b07d92e85e67"
+    },
+    {
+      "name": "player_sword_f03/idle_NE",
+      "rgbaSha256": "391331b6414e30a619d37a800d54ab0effe1d0b89cef421985c557211560fc0a",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_sword_f03/registration.json",
+      "registrationSha256": "d9f7f0ad96f94a71b517d165ec728143482558590c8a43990dc6b07d92e85e67"
+    },
+    {
+      "name": "player_sword_f03/idle_N",
+      "rgbaSha256": "ed02e9334fca6e1c37b80abfca1e999719798cfe86b8320645fd7bce49c8f6b4",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_sword_f03/registration.json",
+      "registrationSha256": "d9f7f0ad96f94a71b517d165ec728143482558590c8a43990dc6b07d92e85e67"
+    },
+    {
+      "name": "player_sword_f03/idle_NW",
+      "rgbaSha256": "2d30395342a44ea4c8c15ff4a77fa6686c9dee6faffc887c37cdf60c0c4410b2",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_sword_f03/registration.json",
+      "registrationSha256": "d9f7f0ad96f94a71b517d165ec728143482558590c8a43990dc6b07d92e85e67"
+    },
+    {
+      "name": "player_sword_f03/idle_W",
+      "rgbaSha256": "c50c7112015f62ccf1d96f4de9ccb59845b340a2c6cf144fa9bb427cbe98e343",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_sword_f03/registration.json",
+      "registrationSha256": "d9f7f0ad96f94a71b517d165ec728143482558590c8a43990dc6b07d92e85e67"
+    },
+    {
+      "name": "player_sword_f03/idle_SW",
+      "rgbaSha256": "32f1f0fdd9fe341d8736e2710343106cf6593c27ded5652d71de2804e82d493a",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_sword_f03/registration.json",
+      "registrationSha256": "d9f7f0ad96f94a71b517d165ec728143482558590c8a43990dc6b07d92e85e67"
+    },
+    {
+      "name": "player_staff_m01/idle_S",
+      "rgbaSha256": "9051b9e994cf997a6a4a6019ba6cc6c7ef9261c2e5b30d93f605c8de89167d96",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_staff_m01/registration.json",
+      "registrationSha256": "e412c22af36fa4e1d760ad74a16c212fb10d051b07583a34b7e1437858d65ab7"
+    },
+    {
+      "name": "player_staff_m01/idle_SE",
+      "rgbaSha256": "37f59c01bac5f6bcf9c0f2c6fb0a8c757a55db5fccc515a0088b731a076d394c",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_staff_m01/registration.json",
+      "registrationSha256": "e412c22af36fa4e1d760ad74a16c212fb10d051b07583a34b7e1437858d65ab7"
+    },
+    {
+      "name": "player_staff_m01/idle_E",
+      "rgbaSha256": "0778405d903b164f3b9dd42bcfb5f030de7610e0a1340d60a4a615ab90a922f7",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_staff_m01/registration.json",
+      "registrationSha256": "e412c22af36fa4e1d760ad74a16c212fb10d051b07583a34b7e1437858d65ab7"
+    },
+    {
+      "name": "player_staff_m01/idle_NE",
+      "rgbaSha256": "588bd0a5cbf6ab911399ad02253434652e3f4e68f8f14c65c61fffd80e130c0c",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_staff_m01/registration.json",
+      "registrationSha256": "e412c22af36fa4e1d760ad74a16c212fb10d051b07583a34b7e1437858d65ab7"
+    },
+    {
+      "name": "player_staff_m01/idle_N",
+      "rgbaSha256": "0f567644465b068a7e9b2211fff4649452d71ccf67bf572934f937977fc1e288",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_staff_m01/registration.json",
+      "registrationSha256": "e412c22af36fa4e1d760ad74a16c212fb10d051b07583a34b7e1437858d65ab7"
+    },
+    {
+      "name": "player_staff_m01/idle_NW",
+      "rgbaSha256": "a91728e25ee8374035517f1e4737c4c2aa6ba934d320b7b9a9a62b647affa835",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_staff_m01/registration.json",
+      "registrationSha256": "e412c22af36fa4e1d760ad74a16c212fb10d051b07583a34b7e1437858d65ab7"
+    },
+    {
+      "name": "player_staff_m01/idle_W",
+      "rgbaSha256": "e5fc40635e6b292eaa2fbde0c686c10ccb4c788e8a1523489e7ea3ef61223005",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_staff_m01/registration.json",
+      "registrationSha256": "e412c22af36fa4e1d760ad74a16c212fb10d051b07583a34b7e1437858d65ab7"
+    },
+    {
+      "name": "player_staff_m01/idle_SW",
+      "rgbaSha256": "0367c7cbabe51013812c350026563caf909d56d173ec36c0a9048a3adcf676a9",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_staff_m01/registration.json",
+      "registrationSha256": "e412c22af36fa4e1d760ad74a16c212fb10d051b07583a34b7e1437858d65ab7"
+    },
+    {
+      "name": "player_staff_m02/idle_S",
+      "rgbaSha256": "fec4c8a89dfd615707d39d2e880f7a2822953e12fdc32bccd7c4e98d2920d65b",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_staff_m02/registration.json",
+      "registrationSha256": "cfdb48401382dc4da9f7a24b78efc5cec74747511296a5ef33a0e6d44a967e20"
+    },
+    {
+      "name": "player_staff_m02/idle_SE",
+      "rgbaSha256": "26fcbefaff32a09abce06261b02c4afe66e3136fc9278741170cdc7595056995",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_staff_m02/registration.json",
+      "registrationSha256": "cfdb48401382dc4da9f7a24b78efc5cec74747511296a5ef33a0e6d44a967e20"
+    },
+    {
+      "name": "player_staff_m02/idle_E",
+      "rgbaSha256": "20f8ab0b3cc8a154bc255e429165fb5f8ef4f1055c6bfac3e7caef3429677fef",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_staff_m02/registration.json",
+      "registrationSha256": "cfdb48401382dc4da9f7a24b78efc5cec74747511296a5ef33a0e6d44a967e20"
+    },
+    {
+      "name": "player_staff_m02/idle_NE",
+      "rgbaSha256": "0ae9ad5c63d8df48d058432a386e8284b4afff6719dfd8ce0d30d4de493dc341",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_staff_m02/registration.json",
+      "registrationSha256": "cfdb48401382dc4da9f7a24b78efc5cec74747511296a5ef33a0e6d44a967e20"
+    },
+    {
+      "name": "player_staff_m02/idle_N",
+      "rgbaSha256": "cf72e64af4e32b9d8b11f14330101c7392397738b5deff9b803430d29a326cd5",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_staff_m02/registration.json",
+      "registrationSha256": "cfdb48401382dc4da9f7a24b78efc5cec74747511296a5ef33a0e6d44a967e20"
+    },
+    {
+      "name": "player_staff_m02/idle_NW",
+      "rgbaSha256": "84d807929956c54ec5cb01619ba4338e43cb479f6de772fe1bcebd610bbe3a6e",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_staff_m02/registration.json",
+      "registrationSha256": "cfdb48401382dc4da9f7a24b78efc5cec74747511296a5ef33a0e6d44a967e20"
+    },
+    {
+      "name": "player_staff_m02/idle_W",
+      "rgbaSha256": "1da623dac1804ba98d11d99c834362a6bb0276877cb53e099d0d494c3cc95523",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_staff_m02/registration.json",
+      "registrationSha256": "cfdb48401382dc4da9f7a24b78efc5cec74747511296a5ef33a0e6d44a967e20"
+    },
+    {
+      "name": "player_staff_m02/idle_SW",
+      "rgbaSha256": "89ab2534be619a961fdce1bf1f88b5d68b4392be6bd5cbd3141cc5230fc169b1",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_staff_m02/registration.json",
+      "registrationSha256": "cfdb48401382dc4da9f7a24b78efc5cec74747511296a5ef33a0e6d44a967e20"
+    },
+    {
+      "name": "player_staff_m03/idle_S",
+      "rgbaSha256": "24760e4fef165ce9f56826842dbc024e266d3f3a6ab4bd0561a0e2f8b9b89d45",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_staff_m03/registration.json",
+      "registrationSha256": "3af3c0c9fb356975c1d4a6be8a7aefb272b5a22062a0b27ef81460e78454e56c"
+    },
+    {
+      "name": "player_staff_m03/idle_SE",
+      "rgbaSha256": "c72244549b8c1037d48c781ae6295ba9f7fe2a4b593411e316ca86d2ac73a556",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_staff_m03/registration.json",
+      "registrationSha256": "3af3c0c9fb356975c1d4a6be8a7aefb272b5a22062a0b27ef81460e78454e56c"
+    },
+    {
+      "name": "player_staff_m03/idle_E",
+      "rgbaSha256": "b00ef89a1d7ead2bc850229309d0f87cea09cf6ad1604384386da26b0068ffbc",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_staff_m03/registration.json",
+      "registrationSha256": "3af3c0c9fb356975c1d4a6be8a7aefb272b5a22062a0b27ef81460e78454e56c"
+    },
+    {
+      "name": "player_staff_m03/idle_NE",
+      "rgbaSha256": "5d312ea9eb3135ada4a1b1220f84fa4529110cfd1105c8669b9790bf0cc92dfc",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_staff_m03/registration.json",
+      "registrationSha256": "3af3c0c9fb356975c1d4a6be8a7aefb272b5a22062a0b27ef81460e78454e56c"
+    },
+    {
+      "name": "player_staff_m03/idle_N",
+      "rgbaSha256": "5cd7bd429e18ca491a532e91a04a6d7073c0e90eb408d9202e9b7bc6f2cefb0a",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_staff_m03/registration.json",
+      "registrationSha256": "3af3c0c9fb356975c1d4a6be8a7aefb272b5a22062a0b27ef81460e78454e56c"
+    },
+    {
+      "name": "player_staff_m03/idle_NW",
+      "rgbaSha256": "4414c8d428fbd11440f738de055b94354af1275f7a886181bf427a9db6c8fa2b",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_staff_m03/registration.json",
+      "registrationSha256": "3af3c0c9fb356975c1d4a6be8a7aefb272b5a22062a0b27ef81460e78454e56c"
+    },
+    {
+      "name": "player_staff_m03/idle_W",
+      "rgbaSha256": "e35a457d8c065c5ac50acf02c50f636da671ee859f396be638de9e5bda29c571",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_staff_m03/registration.json",
+      "registrationSha256": "3af3c0c9fb356975c1d4a6be8a7aefb272b5a22062a0b27ef81460e78454e56c"
+    },
+    {
+      "name": "player_staff_m03/idle_SW",
+      "rgbaSha256": "aefc61e5c0927f943e1b7af498db0c4faa398ee259f0e493277cacbb221c990b",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_staff_m03/registration.json",
+      "registrationSha256": "3af3c0c9fb356975c1d4a6be8a7aefb272b5a22062a0b27ef81460e78454e56c"
+    },
+    {
+      "name": "player_ivory_staff/idle_S",
+      "rgbaSha256": "a9a9b20ceec2af5bcfc73084119f23614a33df1cbc0a4d74c43d7bcb928e81bb",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_ivory_staff/registration.json",
+      "registrationSha256": "e131c485458ccf8e3326ae70b84d0f06ca9de867aec3ba652c2fa5fc14909d2c"
+    },
+    {
+      "name": "player_ivory_staff/idle_SE",
+      "rgbaSha256": "c4f89fd34335e12c62faf85904269965868c059af4ca18e15262d8e2f979a189",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_ivory_staff/registration.json",
+      "registrationSha256": "e131c485458ccf8e3326ae70b84d0f06ca9de867aec3ba652c2fa5fc14909d2c"
+    },
+    {
+      "name": "player_ivory_staff/idle_E",
+      "rgbaSha256": "3173f1f64ce00dccac28dae19dd805c5f8870cd7de0f5a55901d3e07e7d44876",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_ivory_staff/registration.json",
+      "registrationSha256": "e131c485458ccf8e3326ae70b84d0f06ca9de867aec3ba652c2fa5fc14909d2c"
+    },
+    {
+      "name": "player_ivory_staff/idle_NE",
+      "rgbaSha256": "f956e9df9d7754fce46624c8edf2f9102b786f7fa55ae4c5f38fcaafd18116e5",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_ivory_staff/registration.json",
+      "registrationSha256": "e131c485458ccf8e3326ae70b84d0f06ca9de867aec3ba652c2fa5fc14909d2c"
+    },
+    {
+      "name": "player_ivory_staff/idle_N",
+      "rgbaSha256": "31d8652907ad08126b44091f1650a83edf4a8b5db26adb6e9a8f48350922e6be",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_ivory_staff/registration.json",
+      "registrationSha256": "e131c485458ccf8e3326ae70b84d0f06ca9de867aec3ba652c2fa5fc14909d2c"
+    },
+    {
+      "name": "player_ivory_staff/idle_NW",
+      "rgbaSha256": "d9232f71cdeadc021a18356d281353eea1636f2a116e179de74d439d85b84e8d",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_ivory_staff/registration.json",
+      "registrationSha256": "e131c485458ccf8e3326ae70b84d0f06ca9de867aec3ba652c2fa5fc14909d2c"
+    },
+    {
+      "name": "player_ivory_staff/idle_W",
+      "rgbaSha256": "2976a07bf1900a4060e49434bac0a63ad0614f6b3f9d9737197ce6f5c1bcd820",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_ivory_staff/registration.json",
+      "registrationSha256": "e131c485458ccf8e3326ae70b84d0f06ca9de867aec3ba652c2fa5fc14909d2c"
+    },
+    {
+      "name": "player_ivory_staff/idle_SW",
+      "rgbaSha256": "19398a151f94203e744c1961af931e96335fc11ed24591be0d3eee40468b424e",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_ivory_staff/registration.json",
+      "registrationSha256": "e131c485458ccf8e3326ae70b84d0f06ca9de867aec3ba652c2fa5fc14909d2c"
+    },
+    {
+      "name": "player_staff_f02/idle_S",
+      "rgbaSha256": "ae912c9dc8febfa57fa1ab64ed8bcba5d2ac7f7b65ea8e6d1445e2fa1e593a1e",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_staff_f02/registration.json",
+      "registrationSha256": "2cd8dcc54d566a2dd7ba5e8694121ce346b053cb6379abd78ad7768b9a12d8d3"
+    },
+    {
+      "name": "player_staff_f02/idle_SE",
+      "rgbaSha256": "e67a17944391ea8bcf37fe24b776982aa108819bb9f780dbf04925a6e0725712",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_staff_f02/registration.json",
+      "registrationSha256": "2cd8dcc54d566a2dd7ba5e8694121ce346b053cb6379abd78ad7768b9a12d8d3"
+    },
+    {
+      "name": "player_staff_f02/idle_E",
+      "rgbaSha256": "dd730efa2c6943068e5640441ca85f5bea313e9757e248c3e9f1d6007ffc86ae",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_staff_f02/registration.json",
+      "registrationSha256": "2cd8dcc54d566a2dd7ba5e8694121ce346b053cb6379abd78ad7768b9a12d8d3"
+    },
+    {
+      "name": "player_staff_f02/idle_NE",
+      "rgbaSha256": "a40791b719381e2086727ccf71d719cc16bd4549e544ea66e2bccf1ee87a16b4",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_staff_f02/registration.json",
+      "registrationSha256": "2cd8dcc54d566a2dd7ba5e8694121ce346b053cb6379abd78ad7768b9a12d8d3"
+    },
+    {
+      "name": "player_staff_f02/idle_N",
+      "rgbaSha256": "262f5341b701451b47b3e041f6eab2280fee65ed4d4e8e4b660c69d39e022d63",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_staff_f02/registration.json",
+      "registrationSha256": "2cd8dcc54d566a2dd7ba5e8694121ce346b053cb6379abd78ad7768b9a12d8d3"
+    },
+    {
+      "name": "player_staff_f02/idle_NW",
+      "rgbaSha256": "7dedefe852c36c54086d340e7943425458eb6c40721520cdfbd016919831b834",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_staff_f02/registration.json",
+      "registrationSha256": "2cd8dcc54d566a2dd7ba5e8694121ce346b053cb6379abd78ad7768b9a12d8d3"
+    },
+    {
+      "name": "player_staff_f02/idle_W",
+      "rgbaSha256": "aaa529105914f12ee9e4be6337d2a75a2b4a32c88ef094b9242fc0c136ff4ff3",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_staff_f02/registration.json",
+      "registrationSha256": "2cd8dcc54d566a2dd7ba5e8694121ce346b053cb6379abd78ad7768b9a12d8d3"
+    },
+    {
+      "name": "player_staff_f02/idle_SW",
+      "rgbaSha256": "a9ac1ba7a9988e20c2759c6b457250c9de9a4ab41c2342f3be6cafbfbdcb8db9",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_staff_f02/registration.json",
+      "registrationSha256": "2cd8dcc54d566a2dd7ba5e8694121ce346b053cb6379abd78ad7768b9a12d8d3"
+    },
+    {
+      "name": "player_staff_f03/idle_S",
+      "rgbaSha256": "86c609f43023b171ee9d0b2b68f82f2f05f26cef6b23fafb331115e9a8cb12cf",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_staff_f03/registration.json",
+      "registrationSha256": "c7280879cf9a6747e5efd9dccb403a249a1aeaf96e546e37c1805c6eb3827cd9"
+    },
+    {
+      "name": "player_staff_f03/idle_SE",
+      "rgbaSha256": "bb32436e41ed3ec5489c84429fac87cebdb090e9fec391dd878ed8e338201721",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_staff_f03/registration.json",
+      "registrationSha256": "c7280879cf9a6747e5efd9dccb403a249a1aeaf96e546e37c1805c6eb3827cd9"
+    },
+    {
+      "name": "player_staff_f03/idle_E",
+      "rgbaSha256": "7bb371984652014bac93abacec16b95382fc3877672ed3f68adef96a2466b6e3",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_staff_f03/registration.json",
+      "registrationSha256": "c7280879cf9a6747e5efd9dccb403a249a1aeaf96e546e37c1805c6eb3827cd9"
+    },
+    {
+      "name": "player_staff_f03/idle_NE",
+      "rgbaSha256": "863638552d0aac00e2d89140a1622fc623ef21210c3f28ec2eb760d9c4bb88fd",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_staff_f03/registration.json",
+      "registrationSha256": "c7280879cf9a6747e5efd9dccb403a249a1aeaf96e546e37c1805c6eb3827cd9"
+    },
+    {
+      "name": "player_staff_f03/idle_N",
+      "rgbaSha256": "f319e90f66f183515d1162075abc101add9092f09b5723725ada3341f2b91a06",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_staff_f03/registration.json",
+      "registrationSha256": "c7280879cf9a6747e5efd9dccb403a249a1aeaf96e546e37c1805c6eb3827cd9"
+    },
+    {
+      "name": "player_staff_f03/idle_NW",
+      "rgbaSha256": "197e4c38d85feeeefc2f02297a240232d39970bb20f88abd215e0d932be50cae",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_staff_f03/registration.json",
+      "registrationSha256": "c7280879cf9a6747e5efd9dccb403a249a1aeaf96e546e37c1805c6eb3827cd9"
+    },
+    {
+      "name": "player_staff_f03/idle_W",
+      "rgbaSha256": "4931caffeedf8d7e6e107cd78b956d451bf6aa40257722f454c2d5796ea388a9",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_staff_f03/registration.json",
+      "registrationSha256": "c7280879cf9a6747e5efd9dccb403a249a1aeaf96e546e37c1805c6eb3827cd9"
+    },
+    {
+      "name": "player_staff_f03/idle_SW",
+      "rgbaSha256": "772d644c31fb37d1253f783262e1c5fb42f4fd256855ae098e90b0f74327279d",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_staff_f03/registration.json",
+      "registrationSha256": "c7280879cf9a6747e5efd9dccb403a249a1aeaf96e546e37c1805c6eb3827cd9"
+    },
+    {
+      "name": "player_bow_m01/idle_S",
+      "rgbaSha256": "c8ff0fdcbf2f07b830166e3494a75894f29d60086cd20ba2fb3e3bd0c9b0796b",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_m01/registration.json",
+      "registrationSha256": "f39a5d40d1e93958fe91edd4079c224633b1296f08118da85d81013468e47246"
+    },
+    {
+      "name": "player_bow_m01/idle_SE",
+      "rgbaSha256": "34da6f7c9957035cbd977403a20ddc1bed35c28d386322b22238f63b102dc597",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_m01/registration.json",
+      "registrationSha256": "f39a5d40d1e93958fe91edd4079c224633b1296f08118da85d81013468e47246"
+    },
+    {
+      "name": "player_bow_m01/idle_E",
+      "rgbaSha256": "8ace3ce8d1a2eef4f13c65d261abdcba48cc2787f78bfd2e5b9de7c4286417bf",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_m01/registration.json",
+      "registrationSha256": "f39a5d40d1e93958fe91edd4079c224633b1296f08118da85d81013468e47246"
+    },
+    {
+      "name": "player_bow_m01/idle_NE",
+      "rgbaSha256": "a0c3a8efc6cde19ca0ddb4dc060c207ceba804cf2e0526d2ab14b2ae3431e83b",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_m01/registration.json",
+      "registrationSha256": "f39a5d40d1e93958fe91edd4079c224633b1296f08118da85d81013468e47246"
+    },
+    {
+      "name": "player_bow_m01/idle_N",
+      "rgbaSha256": "1bf381df25d7aba8d802ba1d13b05096f4cd8aa12e50fafc188d23527d1f55ae",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_m01/registration.json",
+      "registrationSha256": "f39a5d40d1e93958fe91edd4079c224633b1296f08118da85d81013468e47246"
+    },
+    {
+      "name": "player_bow_m01/idle_NW",
+      "rgbaSha256": "f4d17dd6da21e5779ac5c93c8c1f2a9bd5e23a20b5231dbc3132059eac22bd7c",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_m01/registration.json",
+      "registrationSha256": "f39a5d40d1e93958fe91edd4079c224633b1296f08118da85d81013468e47246"
+    },
+    {
+      "name": "player_bow_m01/idle_W",
+      "rgbaSha256": "6a3ad133acf55fb8c8c0d7516bf66c8e861b80066336b0f47339d62bca2fcc93",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_m01/registration.json",
+      "registrationSha256": "f39a5d40d1e93958fe91edd4079c224633b1296f08118da85d81013468e47246"
+    },
+    {
+      "name": "player_bow_m01/idle_SW",
+      "rgbaSha256": "7073f7cc120dbfa29c21ef5d1ac1f3f231269aa6477553e6e64f8bed376eff9d",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_m01/registration.json",
+      "registrationSha256": "f39a5d40d1e93958fe91edd4079c224633b1296f08118da85d81013468e47246"
+    },
+    {
+      "name": "player_bow_m02/idle_S",
+      "rgbaSha256": "15ef8b3e27b682f0f4ebc68f945f5a2aac55215be2c63552967be40efe5f5da9",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_m02/registration.json",
+      "registrationSha256": "146dd5b394fb75f8fca1c8b28a82c68fc7557309dff6e57da9ca149cde151f4f"
+    },
+    {
+      "name": "player_bow_m02/idle_SE",
+      "rgbaSha256": "d3f8bdec8d2b78ecc70ea306f0a88f3617873b3a4f4698d6a82b5a92767e169f",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_m02/registration.json",
+      "registrationSha256": "146dd5b394fb75f8fca1c8b28a82c68fc7557309dff6e57da9ca149cde151f4f"
+    },
+    {
+      "name": "player_bow_m02/idle_E",
+      "rgbaSha256": "3a0575dde4772f5725752fb5e5b0b8dbb2724a7cf12ac4a59a8489807b506c90",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_m02/registration.json",
+      "registrationSha256": "146dd5b394fb75f8fca1c8b28a82c68fc7557309dff6e57da9ca149cde151f4f"
+    },
+    {
+      "name": "player_bow_m02/idle_NE",
+      "rgbaSha256": "809693c28a6aa79b86924d579e80dcab25d24fa45095956d8d29c8bb439346ce",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_m02/registration.json",
+      "registrationSha256": "146dd5b394fb75f8fca1c8b28a82c68fc7557309dff6e57da9ca149cde151f4f"
+    },
+    {
+      "name": "player_bow_m02/idle_N",
+      "rgbaSha256": "2a8b3fe3890e3a7bf9deb11d2ec78fea73eee4b8febbc412ef1a5be1d7b76e10",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_m02/registration.json",
+      "registrationSha256": "146dd5b394fb75f8fca1c8b28a82c68fc7557309dff6e57da9ca149cde151f4f"
+    },
+    {
+      "name": "player_bow_m02/idle_NW",
+      "rgbaSha256": "303c9a2f651eb53253730d4c887db6e63e682deafe59bd7ed511255e3282ee1c",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_m02/registration.json",
+      "registrationSha256": "146dd5b394fb75f8fca1c8b28a82c68fc7557309dff6e57da9ca149cde151f4f"
+    },
+    {
+      "name": "player_bow_m02/idle_W",
+      "rgbaSha256": "209f8276c1c33d87d7c315b3fb612b7c88ecda22e0ec1f6a2820296f56b92bd9",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_m02/registration.json",
+      "registrationSha256": "146dd5b394fb75f8fca1c8b28a82c68fc7557309dff6e57da9ca149cde151f4f"
+    },
+    {
+      "name": "player_bow_m02/idle_SW",
+      "rgbaSha256": "5f2a3fd2ff54191def3f40264216d1930bca710f2413502eb143b0d2f5d9514c",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_m02/registration.json",
+      "registrationSha256": "146dd5b394fb75f8fca1c8b28a82c68fc7557309dff6e57da9ca149cde151f4f"
+    },
+    {
+      "name": "player_bow_m03/idle_S",
+      "rgbaSha256": "e6aa3356a2a53f7dcb1da6f1c6bc6c9d0392152b23b470bbe8e91120246ea8c9",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_m03/registration.json",
+      "registrationSha256": "0e5edf7ecac9a96a048dc8422656b0a4111f54c873540b63b0d65e597898813c"
+    },
+    {
+      "name": "player_bow_m03/idle_SE",
+      "rgbaSha256": "79f08ec68f96087fd1e4fd83f2f7d230c45917081ebc089bc33c7418577adc4c",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_m03/registration.json",
+      "registrationSha256": "0e5edf7ecac9a96a048dc8422656b0a4111f54c873540b63b0d65e597898813c"
+    },
+    {
+      "name": "player_bow_m03/idle_E",
+      "rgbaSha256": "1dba9ac078ca05550b76fb191c3285fd7dd953cac1b9cf2e34f36ea64d5d4e44",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_m03/registration.json",
+      "registrationSha256": "0e5edf7ecac9a96a048dc8422656b0a4111f54c873540b63b0d65e597898813c"
+    },
+    {
+      "name": "player_bow_m03/idle_NE",
+      "rgbaSha256": "5f4b009e8c59625448238e8a2b9424368210ca0c8edd45ea35783e2b98a87a5c",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_m03/registration.json",
+      "registrationSha256": "0e5edf7ecac9a96a048dc8422656b0a4111f54c873540b63b0d65e597898813c"
+    },
+    {
+      "name": "player_bow_m03/idle_N",
+      "rgbaSha256": "49c7ec07f21c6ee1caee9276c14556e2393223cf5fd8e0f36fe808b87cd351fe",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_m03/registration.json",
+      "registrationSha256": "0e5edf7ecac9a96a048dc8422656b0a4111f54c873540b63b0d65e597898813c"
+    },
+    {
+      "name": "player_bow_m03/idle_NW",
+      "rgbaSha256": "da8a94c4268fd6462d3fd1395f8c57e9d66791e9c3e5a7811eb1f7cd05f728ef",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_m03/registration.json",
+      "registrationSha256": "0e5edf7ecac9a96a048dc8422656b0a4111f54c873540b63b0d65e597898813c"
+    },
+    {
+      "name": "player_bow_m03/idle_W",
+      "rgbaSha256": "547e2e1fddb0b0f1336c619c1d09ca5d7e23a12c35b395e0ff5b1e7ab7142970",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_m03/registration.json",
+      "registrationSha256": "0e5edf7ecac9a96a048dc8422656b0a4111f54c873540b63b0d65e597898813c"
+    },
+    {
+      "name": "player_bow_m03/idle_SW",
+      "rgbaSha256": "1ad777dcc00e6527e45556b320dcd9fec1da5bc67ccbcbf47e7d78a19c450a01",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_m03/registration.json",
+      "registrationSha256": "0e5edf7ecac9a96a048dc8422656b0a4111f54c873540b63b0d65e597898813c"
+    },
+    {
+      "name": "player_bow_f01/idle_S",
+      "rgbaSha256": "e03269d85c543f8cb2d864739ff994ae08f978c9956bfb07d6d20c6327c063cd",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_f01/registration.json",
+      "registrationSha256": "4a027c2ce0675fc4481c38f9a149c08c6d0dece331663cf2e4148a04d355eacb"
+    },
+    {
+      "name": "player_bow_f01/idle_SE",
+      "rgbaSha256": "e337f67e78b63232046b9708fc76353773c524110ac1005186cfe1ef4b9b1c0f",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_f01/registration.json",
+      "registrationSha256": "4a027c2ce0675fc4481c38f9a149c08c6d0dece331663cf2e4148a04d355eacb"
+    },
+    {
+      "name": "player_bow_f01/idle_E",
+      "rgbaSha256": "4a37e1fab5620a8557f5770a6fe674add8ceec3b81d2eca05e933ffefc8a7bf2",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_f01/registration.json",
+      "registrationSha256": "4a027c2ce0675fc4481c38f9a149c08c6d0dece331663cf2e4148a04d355eacb"
+    },
+    {
+      "name": "player_bow_f01/idle_NE",
+      "rgbaSha256": "c9489b6d98da5798b853afcae7661b6c29c1079c89f6a3a3284f65fef15959a5",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_f01/registration.json",
+      "registrationSha256": "4a027c2ce0675fc4481c38f9a149c08c6d0dece331663cf2e4148a04d355eacb"
+    },
+    {
+      "name": "player_bow_f01/idle_N",
+      "rgbaSha256": "bd489c5c014921b46dbfde6c04fcd19dd60c55d2757fae1a15cf172be377b719",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_f01/registration.json",
+      "registrationSha256": "4a027c2ce0675fc4481c38f9a149c08c6d0dece331663cf2e4148a04d355eacb"
+    },
+    {
+      "name": "player_bow_f01/idle_NW",
+      "rgbaSha256": "284c0ed5fd466862ab028b94a40be0a02969d940c89ce36baead033bca28067b",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_f01/registration.json",
+      "registrationSha256": "4a027c2ce0675fc4481c38f9a149c08c6d0dece331663cf2e4148a04d355eacb"
+    },
+    {
+      "name": "player_bow_f01/idle_W",
+      "rgbaSha256": "15c46636ddec39b01c4abdda1edb89a0013dd3b69c22c09c699a20b0783bb5f6",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_f01/registration.json",
+      "registrationSha256": "4a027c2ce0675fc4481c38f9a149c08c6d0dece331663cf2e4148a04d355eacb"
+    },
+    {
+      "name": "player_bow_f01/idle_SW",
+      "rgbaSha256": "0a7a3318fbe5cc249e4fad0c26839e690bd81fba79af0034702e9891077102b8",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_f01/registration.json",
+      "registrationSha256": "4a027c2ce0675fc4481c38f9a149c08c6d0dece331663cf2e4148a04d355eacb"
+    },
+    {
+      "name": "player_bow_f02/idle_S",
+      "rgbaSha256": "1820c2fd2eb1c2a2eb8dd6055ed5c481a214c006b5f0a244bb105a3858c946e7",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_f02/registration.json",
+      "registrationSha256": "674176bf8f18a257e9eebc50ab63dff1700244e7020df238a3926bfcbec4ec4f"
+    },
+    {
+      "name": "player_bow_f02/idle_SE",
+      "rgbaSha256": "c0ff69bccc3acbe28ada9af6b22d9237fb49e755188cfacce456cd6430aed50d",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_f02/registration.json",
+      "registrationSha256": "674176bf8f18a257e9eebc50ab63dff1700244e7020df238a3926bfcbec4ec4f"
+    },
+    {
+      "name": "player_bow_f02/idle_E",
+      "rgbaSha256": "3d625053f2fe071e7a87a0ae7d05fda1acf0731cfafed5982377c951a9a4b5e6",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_f02/registration.json",
+      "registrationSha256": "674176bf8f18a257e9eebc50ab63dff1700244e7020df238a3926bfcbec4ec4f"
+    },
+    {
+      "name": "player_bow_f02/idle_NE",
+      "rgbaSha256": "69c6d8c609dbb466c2e93ac42bb86f01042b8ec61ce3dd0188a1f56acd749ac1",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_f02/registration.json",
+      "registrationSha256": "674176bf8f18a257e9eebc50ab63dff1700244e7020df238a3926bfcbec4ec4f"
+    },
+    {
+      "name": "player_bow_f02/idle_N",
+      "rgbaSha256": "80cc628ccca701ae83cbd9cbd5e9599381be435b6b76ced9f1b463fec6977a37",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_f02/registration.json",
+      "registrationSha256": "674176bf8f18a257e9eebc50ab63dff1700244e7020df238a3926bfcbec4ec4f"
+    },
+    {
+      "name": "player_bow_f02/idle_NW",
+      "rgbaSha256": "b247b72f973505d2967dffe9851afcf284d967f16e9a018214f46d67456b9829",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_f02/registration.json",
+      "registrationSha256": "674176bf8f18a257e9eebc50ab63dff1700244e7020df238a3926bfcbec4ec4f"
+    },
+    {
+      "name": "player_bow_f02/idle_W",
+      "rgbaSha256": "2b046608e4d4500109ee44aa5104ba88d2e2c0866b18734417be126cc7063d72",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_f02/registration.json",
+      "registrationSha256": "674176bf8f18a257e9eebc50ab63dff1700244e7020df238a3926bfcbec4ec4f"
+    },
+    {
+      "name": "player_bow_f02/idle_SW",
+      "rgbaSha256": "21b7f0e6cafb7125c672298797a67e2ca6ab4b844d93adf4fd6b87ec5a4288bf",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_f02/registration.json",
+      "registrationSha256": "674176bf8f18a257e9eebc50ab63dff1700244e7020df238a3926bfcbec4ec4f"
+    },
+    {
+      "name": "player_bow_f03/idle_S",
+      "rgbaSha256": "0e5b6e2553a0b79d4a1e6d4c36d7f54287b5ddc8489dcd77c3b0726346e21608",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_f03/registration.json",
+      "registrationSha256": "1474467f3f27925415ba21f1e62e59b4923332584a68814eb5f77fa8ab810840"
+    },
+    {
+      "name": "player_bow_f03/idle_SE",
+      "rgbaSha256": "bb24fdf4c3c1346219cd04f9e4289c7b13f626500a8e3cf307b14c7f8f0083de",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_f03/registration.json",
+      "registrationSha256": "1474467f3f27925415ba21f1e62e59b4923332584a68814eb5f77fa8ab810840"
+    },
+    {
+      "name": "player_bow_f03/idle_E",
+      "rgbaSha256": "f281a03b0f94268cb87a87eb3c3728b594143747e4652a8689d42f3a421a209f",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_f03/registration.json",
+      "registrationSha256": "1474467f3f27925415ba21f1e62e59b4923332584a68814eb5f77fa8ab810840"
+    },
+    {
+      "name": "player_bow_f03/idle_NE",
+      "rgbaSha256": "ea1da6d647c535b33bb168eb1fcef8f9bbb2eab4905617ab6a41f281d6d7b7f7",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_f03/registration.json",
+      "registrationSha256": "1474467f3f27925415ba21f1e62e59b4923332584a68814eb5f77fa8ab810840"
+    },
+    {
+      "name": "player_bow_f03/idle_N",
+      "rgbaSha256": "6647f93d79776b3d931b32ba4abac339284fe0f57ecca5c7d9becde65c139df7",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_f03/registration.json",
+      "registrationSha256": "1474467f3f27925415ba21f1e62e59b4923332584a68814eb5f77fa8ab810840"
+    },
+    {
+      "name": "player_bow_f03/idle_NW",
+      "rgbaSha256": "01e0f1ba26bbe5760a41f7b3bd4138ab46abd00c6b9cca5da4919accabea6b7a",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_f03/registration.json",
+      "registrationSha256": "1474467f3f27925415ba21f1e62e59b4923332584a68814eb5f77fa8ab810840"
+    },
+    {
+      "name": "player_bow_f03/idle_W",
+      "rgbaSha256": "97f76d8b5aa31c93bc7e98459842737cbe1cb25b32690eb3dda5994d0cbcc9e9",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_f03/registration.json",
+      "registrationSha256": "1474467f3f27925415ba21f1e62e59b4923332584a68814eb5f77fa8ab810840"
+    },
+    {
+      "name": "player_bow_f03/idle_SW",
+      "rgbaSha256": "713b44c401a661340ea5a926a82d4a57b205d1e1b19c670e065023253d3c69ba",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_bow_f03/registration.json",
+      "registrationSha256": "1474467f3f27925415ba21f1e62e59b4923332584a68814eb5f77fa8ab810840"
+    },
+    {
+      "name": "player_spear_m01/idle_S",
+      "rgbaSha256": "71f6d08cf2f73073aedab7657706507a7624d910ce20da1603920f74a6c5f0e0",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_m01/registration.json",
+      "registrationSha256": "037d07b5c305a30c1e441f6ae1cfc22fedcdaaab175d4ebd82992a05fa013d64"
+    },
+    {
+      "name": "player_spear_m01/idle_SE",
+      "rgbaSha256": "424921e925fc73d16eb79d916cd6d9024bf9514fb739e2c96dc1e3f0acf8a4f4",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_m01/registration.json",
+      "registrationSha256": "037d07b5c305a30c1e441f6ae1cfc22fedcdaaab175d4ebd82992a05fa013d64"
+    },
+    {
+      "name": "player_spear_m01/idle_E",
+      "rgbaSha256": "24ed5db23decf079e96dfdb4e2c736b41ea1c392350146f4bb3210ad5768c9ee",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_m01/registration.json",
+      "registrationSha256": "037d07b5c305a30c1e441f6ae1cfc22fedcdaaab175d4ebd82992a05fa013d64"
+    },
+    {
+      "name": "player_spear_m01/idle_NE",
+      "rgbaSha256": "99c16b831ea40c3e0a2d9a266f5116c27ff5903d17ecd315c444926655e1350a",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_m01/registration.json",
+      "registrationSha256": "037d07b5c305a30c1e441f6ae1cfc22fedcdaaab175d4ebd82992a05fa013d64"
+    },
+    {
+      "name": "player_spear_m01/idle_N",
+      "rgbaSha256": "f2a3903ee435aea0e6b28eac38dd92e83f1726d0f4a88a81198c0d0dae323bbb",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_m01/registration.json",
+      "registrationSha256": "037d07b5c305a30c1e441f6ae1cfc22fedcdaaab175d4ebd82992a05fa013d64"
+    },
+    {
+      "name": "player_spear_m01/idle_NW",
+      "rgbaSha256": "cc698bb3235935d49f55403bdb0755dbb9ecbd91f403d465d2c9f79e76299917",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_m01/registration.json",
+      "registrationSha256": "037d07b5c305a30c1e441f6ae1cfc22fedcdaaab175d4ebd82992a05fa013d64"
+    },
+    {
+      "name": "player_spear_m01/idle_W",
+      "rgbaSha256": "7b5720d1e3bd817426491e194e77679e6ae867483f22b857af52a0ba6dc314bd",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_m01/registration.json",
+      "registrationSha256": "037d07b5c305a30c1e441f6ae1cfc22fedcdaaab175d4ebd82992a05fa013d64"
+    },
+    {
+      "name": "player_spear_m01/idle_SW",
+      "rgbaSha256": "84bc6d7b07915035e6046106ab31432132a737d1a0f8dcbd5eea9e7d72b2d23d",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_m01/registration.json",
+      "registrationSha256": "037d07b5c305a30c1e441f6ae1cfc22fedcdaaab175d4ebd82992a05fa013d64"
+    },
+    {
+      "name": "player_spear_m02/idle_S",
+      "rgbaSha256": "aae69e661a3d64477f1727512d61774be40f0693f702b98f80541d643bfab1ab",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_m02/registration.json",
+      "registrationSha256": "9db363be1916a88d503c2b44acac81b6d49d91fb976dc7dc19c2f9267c22da8d"
+    },
+    {
+      "name": "player_spear_m02/idle_SE",
+      "rgbaSha256": "f558d1f83dfe6e5b58160c909b99ca7db419167d44104ad8cd5b6823c5438a6a",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_m02/registration.json",
+      "registrationSha256": "9db363be1916a88d503c2b44acac81b6d49d91fb976dc7dc19c2f9267c22da8d"
+    },
+    {
+      "name": "player_spear_m02/idle_E",
+      "rgbaSha256": "856138b766e7ef83a109b248cbdcf4709f618ccd869ea1aba292873ae222cc5b",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_m02/registration.json",
+      "registrationSha256": "9db363be1916a88d503c2b44acac81b6d49d91fb976dc7dc19c2f9267c22da8d"
+    },
+    {
+      "name": "player_spear_m02/idle_NE",
+      "rgbaSha256": "70d2de9b9963ce474b74eddbbb6ddfec439974b44f6cf472ea10bac19cdd9794",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_m02/registration.json",
+      "registrationSha256": "9db363be1916a88d503c2b44acac81b6d49d91fb976dc7dc19c2f9267c22da8d"
+    },
+    {
+      "name": "player_spear_m02/idle_N",
+      "rgbaSha256": "4e5bffda41d0c338d107c2a7e0b60e5f3ca7dd45cb3e2f15f6f571c970e86077",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_m02/registration.json",
+      "registrationSha256": "9db363be1916a88d503c2b44acac81b6d49d91fb976dc7dc19c2f9267c22da8d"
+    },
+    {
+      "name": "player_spear_m02/idle_NW",
+      "rgbaSha256": "c96032c3a46813719a5eddbc8b69be0f855a18ea5c95b0ec21e1cd499427507c",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_m02/registration.json",
+      "registrationSha256": "9db363be1916a88d503c2b44acac81b6d49d91fb976dc7dc19c2f9267c22da8d"
+    },
+    {
+      "name": "player_spear_m02/idle_W",
+      "rgbaSha256": "7b291245a140272403f6c918e9073ab9f1d6b8b9cc0e8fe731a378ee1a104ead",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_m02/registration.json",
+      "registrationSha256": "9db363be1916a88d503c2b44acac81b6d49d91fb976dc7dc19c2f9267c22da8d"
+    },
+    {
+      "name": "player_spear_m02/idle_SW",
+      "rgbaSha256": "acf904851db153210624a9c4ead4f7de06fce3e4f994601182c38a3678817785",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_m02/registration.json",
+      "registrationSha256": "9db363be1916a88d503c2b44acac81b6d49d91fb976dc7dc19c2f9267c22da8d"
+    },
+    {
+      "name": "player_spear_m03/idle_S",
+      "rgbaSha256": "3f754ed5a95552b1c45c14b6a834894aac0fe1a59d8797578f8ef7dd33290357",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_m03/registration.json",
+      "registrationSha256": "6cab3de9cab65e4a5934f931c83eb0185d8fe680bd8160643299c73bcd44b267"
+    },
+    {
+      "name": "player_spear_m03/idle_SE",
+      "rgbaSha256": "e8676e0e0f026f7b4cb294237185cb9581f49b772620b44fa6fad6c4dc692ab3",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_m03/registration.json",
+      "registrationSha256": "6cab3de9cab65e4a5934f931c83eb0185d8fe680bd8160643299c73bcd44b267"
+    },
+    {
+      "name": "player_spear_m03/idle_E",
+      "rgbaSha256": "ef8fba18ad9408cb82560a5e021b607f90c059e7fd5f126aa94b9038dc766e54",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_m03/registration.json",
+      "registrationSha256": "6cab3de9cab65e4a5934f931c83eb0185d8fe680bd8160643299c73bcd44b267"
+    },
+    {
+      "name": "player_spear_m03/idle_NE",
+      "rgbaSha256": "3aa8f1fd567cca82b9580b8034a0e6cb99ef49abcb407e7d7e68546ab0036cd0",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_m03/registration.json",
+      "registrationSha256": "6cab3de9cab65e4a5934f931c83eb0185d8fe680bd8160643299c73bcd44b267"
+    },
+    {
+      "name": "player_spear_m03/idle_N",
+      "rgbaSha256": "e2667cf773db01ab9f2b4f52eed92a01ad00c717a58a6e44c6d43687a7a31c53",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_m03/registration.json",
+      "registrationSha256": "6cab3de9cab65e4a5934f931c83eb0185d8fe680bd8160643299c73bcd44b267"
+    },
+    {
+      "name": "player_spear_m03/idle_NW",
+      "rgbaSha256": "816dae9ea8b32af28414f9220888b3e85addd72abb3b1803349a3423a64f7bc0",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_m03/registration.json",
+      "registrationSha256": "6cab3de9cab65e4a5934f931c83eb0185d8fe680bd8160643299c73bcd44b267"
+    },
+    {
+      "name": "player_spear_m03/idle_W",
+      "rgbaSha256": "559f0cd52bf42c2bb2d45591724e2453bdaa8d466abd25a4fc85fa2fb58ef398",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_m03/registration.json",
+      "registrationSha256": "6cab3de9cab65e4a5934f931c83eb0185d8fe680bd8160643299c73bcd44b267"
+    },
+    {
+      "name": "player_spear_m03/idle_SW",
+      "rgbaSha256": "0d49414ded150c1845804cb2f621cb410f0e0a1283a75f1c2db40b40a72b2b9e",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_m03/registration.json",
+      "registrationSha256": "6cab3de9cab65e4a5934f931c83eb0185d8fe680bd8160643299c73bcd44b267"
+    },
+    {
+      "name": "player_spear_f01/idle_S",
+      "rgbaSha256": "0b4cff242834b60f25e7c2b0ab8d91bf6d7412d2285132221aa9b586aff990d8",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_f01/registration.json",
+      "registrationSha256": "69743a8ebb4c80053402dafb85b916dae284cc36b646c5a542ff0f84236b71d2"
+    },
+    {
+      "name": "player_spear_f01/idle_SE",
+      "rgbaSha256": "8907b8a2ee4a4dd0b189842f517e1b8237e6b86828056956199103128e6fb60a",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_f01/registration.json",
+      "registrationSha256": "69743a8ebb4c80053402dafb85b916dae284cc36b646c5a542ff0f84236b71d2"
+    },
+    {
+      "name": "player_spear_f01/idle_E",
+      "rgbaSha256": "3de321d61a4de07722c1751a2fbbc3f0d73219628ad2e6932798149d14c7b32d",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_f01/registration.json",
+      "registrationSha256": "69743a8ebb4c80053402dafb85b916dae284cc36b646c5a542ff0f84236b71d2"
+    },
+    {
+      "name": "player_spear_f01/idle_NE",
+      "rgbaSha256": "18cf9d81677dd9ba8bea2df4b114a3c8454ed64666f59fb034d2128135254b4e",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_f01/registration.json",
+      "registrationSha256": "69743a8ebb4c80053402dafb85b916dae284cc36b646c5a542ff0f84236b71d2"
+    },
+    {
+      "name": "player_spear_f01/idle_N",
+      "rgbaSha256": "7686ac7b4020f0eaef59705358b8836460580f7717edd65c4336e1db8bcd94eb",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_f01/registration.json",
+      "registrationSha256": "69743a8ebb4c80053402dafb85b916dae284cc36b646c5a542ff0f84236b71d2"
+    },
+    {
+      "name": "player_spear_f01/idle_NW",
+      "rgbaSha256": "ba1cf6d6879ceddea9339ad76143a98d31fc19c454c8ae0acbfb96f3222c1ce1",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_f01/registration.json",
+      "registrationSha256": "69743a8ebb4c80053402dafb85b916dae284cc36b646c5a542ff0f84236b71d2"
+    },
+    {
+      "name": "player_spear_f01/idle_W",
+      "rgbaSha256": "cef4531f09c12168dcbe56110ba58edc45510502ba4161b6808659ac440ba5b1",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_f01/registration.json",
+      "registrationSha256": "69743a8ebb4c80053402dafb85b916dae284cc36b646c5a542ff0f84236b71d2"
+    },
+    {
+      "name": "player_spear_f01/idle_SW",
+      "rgbaSha256": "93de5176d5377d4f77d898713b5c9d06510573e2d950347f7c77b29420ecdbb3",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_f01/registration.json",
+      "registrationSha256": "69743a8ebb4c80053402dafb85b916dae284cc36b646c5a542ff0f84236b71d2"
+    },
+    {
+      "name": "player_spear_f02/idle_S",
+      "rgbaSha256": "157c31cac1bf10167cfe47a1508f697494555627cbdbf8bb06b2309555a11f29",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_f02/registration.json",
+      "registrationSha256": "e138d3bcf566f396056510d520db6a4104104c996d90b466125fffde561d3e0a"
+    },
+    {
+      "name": "player_spear_f02/idle_SE",
+      "rgbaSha256": "96a6fe86a68b03139b3a04b9c19323903cf1760906006d748cdaa845f424408e",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_f02/registration.json",
+      "registrationSha256": "e138d3bcf566f396056510d520db6a4104104c996d90b466125fffde561d3e0a"
+    },
+    {
+      "name": "player_spear_f02/idle_E",
+      "rgbaSha256": "6823d22b5c1faccc6bcc6dc4655a2093c9387e3220ab4c3f3827576591a6c0a8",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_f02/registration.json",
+      "registrationSha256": "e138d3bcf566f396056510d520db6a4104104c996d90b466125fffde561d3e0a"
+    },
+    {
+      "name": "player_spear_f02/idle_NE",
+      "rgbaSha256": "75d2041737a897872d40264833ee96b5283cb6b0a1affb694054ab96dbf5f7ce",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_f02/registration.json",
+      "registrationSha256": "e138d3bcf566f396056510d520db6a4104104c996d90b466125fffde561d3e0a"
+    },
+    {
+      "name": "player_spear_f02/idle_N",
+      "rgbaSha256": "04de10c0f657af5d75def1fce4db973a4a0881b2f0049366ebd20c35ff9bccd9",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_f02/registration.json",
+      "registrationSha256": "e138d3bcf566f396056510d520db6a4104104c996d90b466125fffde561d3e0a"
+    },
+    {
+      "name": "player_spear_f02/idle_NW",
+      "rgbaSha256": "89b3243bb65238668812f92105d98a4c32206e0264878978ead36b8bea83feab",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_f02/registration.json",
+      "registrationSha256": "e138d3bcf566f396056510d520db6a4104104c996d90b466125fffde561d3e0a"
+    },
+    {
+      "name": "player_spear_f02/idle_W",
+      "rgbaSha256": "f0ad51ce2191e71ec210f4e2e18d5e63a32d0d16fcdf2379e8f548bfdb2c2a0d",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_f02/registration.json",
+      "registrationSha256": "e138d3bcf566f396056510d520db6a4104104c996d90b466125fffde561d3e0a"
+    },
+    {
+      "name": "player_spear_f02/idle_SW",
+      "rgbaSha256": "698dd0f64a3ff8af12128b2622cacc7937cbf1d8413649ba50d1ecf4f79957d5",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_f02/registration.json",
+      "registrationSha256": "e138d3bcf566f396056510d520db6a4104104c996d90b466125fffde561d3e0a"
+    },
+    {
+      "name": "player_spear_f03/idle_S",
+      "rgbaSha256": "4ab522fffa3eaf6f645afc357f54e5dfae730a8aaf882b077ff323d0224e21be",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_f03/registration.json",
+      "registrationSha256": "c082471ca60cb94e39be07c2fec3bb3803f7152be2c78245878780029e4fb0d7"
+    },
+    {
+      "name": "player_spear_f03/idle_SE",
+      "rgbaSha256": "b6f50bf4345302bd3424a5166821f0f41009737e28774664d45af58fa5daa639",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_f03/registration.json",
+      "registrationSha256": "c082471ca60cb94e39be07c2fec3bb3803f7152be2c78245878780029e4fb0d7"
+    },
+    {
+      "name": "player_spear_f03/idle_E",
+      "rgbaSha256": "6fbd58a8e77586065bfeeb1d774947f707a56f7c44766fd91439c4b6e5bd1fec",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_f03/registration.json",
+      "registrationSha256": "c082471ca60cb94e39be07c2fec3bb3803f7152be2c78245878780029e4fb0d7"
+    },
+    {
+      "name": "player_spear_f03/idle_NE",
+      "rgbaSha256": "fd5279688c51b67e47ed08c5bf4319035e97c5ae11cf5e30784a0974037e347b",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_f03/registration.json",
+      "registrationSha256": "c082471ca60cb94e39be07c2fec3bb3803f7152be2c78245878780029e4fb0d7"
+    },
+    {
+      "name": "player_spear_f03/idle_N",
+      "rgbaSha256": "bd6b7282570663c3a55512ee67a931d8becd01559efd70a8f1d138699ede8b2e",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_f03/registration.json",
+      "registrationSha256": "c082471ca60cb94e39be07c2fec3bb3803f7152be2c78245878780029e4fb0d7"
+    },
+    {
+      "name": "player_spear_f03/idle_NW",
+      "rgbaSha256": "3ce79315db54155397e1227360a5b9f0b6415be4bb492e271d34d754c5c1ca48",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_f03/registration.json",
+      "registrationSha256": "c082471ca60cb94e39be07c2fec3bb3803f7152be2c78245878780029e4fb0d7"
+    },
+    {
+      "name": "player_spear_f03/idle_W",
+      "rgbaSha256": "a0cc2d9b697e21deeeb0d07692205e2a01d5b83bd3709dc7025485ebc19e5300",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_f03/registration.json",
+      "registrationSha256": "c082471ca60cb94e39be07c2fec3bb3803f7152be2c78245878780029e4fb0d7"
+    },
+    {
+      "name": "player_spear_f03/idle_SW",
+      "rgbaSha256": "3609778b6e15cbeaf658f3cbe4db727609de205d87dce97510eb51121d7648ba",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_spear_f03/registration.json",
+      "registrationSha256": "c082471ca60cb94e39be07c2fec3bb3803f7152be2c78245878780029e4fb0d7"
+    },
+    {
+      "name": "player_shield_m01/idle_S",
+      "rgbaSha256": "947d61555a9f03780534f32e525e1277d44cf99ce821df2499bf39506a41a632",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_m01/registration.json",
+      "registrationSha256": "a7dc8c3fc1b2b4939394fdc03862434ac986f88b9892ee05ae1bfd5261593e79"
+    },
+    {
+      "name": "player_shield_m01/idle_SE",
+      "rgbaSha256": "8bee3a0ec680b356832553bbb4be3d129d05619124de71ce69e0aacddd76fd0b",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_m01/registration.json",
+      "registrationSha256": "a7dc8c3fc1b2b4939394fdc03862434ac986f88b9892ee05ae1bfd5261593e79"
+    },
+    {
+      "name": "player_shield_m01/idle_E",
+      "rgbaSha256": "0e2dcde3acb05c1e428e1df37dba0a4ca27b82111809e9c71d398a3578c3ebcf",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_m01/registration.json",
+      "registrationSha256": "a7dc8c3fc1b2b4939394fdc03862434ac986f88b9892ee05ae1bfd5261593e79"
+    },
+    {
+      "name": "player_shield_m01/idle_NE",
+      "rgbaSha256": "46bb6f46d00d9f2ca2a155752dc44d5f3c1348ecb0abdb87ea13f973ca5765b2",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_m01/registration.json",
+      "registrationSha256": "a7dc8c3fc1b2b4939394fdc03862434ac986f88b9892ee05ae1bfd5261593e79"
+    },
+    {
+      "name": "player_shield_m01/idle_N",
+      "rgbaSha256": "8de28902926fe5dfd7b29a3355511c971cfbdfa25fbc1d930b3c9a90b8c23b80",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_m01/registration.json",
+      "registrationSha256": "a7dc8c3fc1b2b4939394fdc03862434ac986f88b9892ee05ae1bfd5261593e79"
+    },
+    {
+      "name": "player_shield_m01/idle_NW",
+      "rgbaSha256": "b2e6585d5ee19ea8e1c773371020139a488b07e51c294c999e2b4214f27b8b15",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_m01/registration.json",
+      "registrationSha256": "a7dc8c3fc1b2b4939394fdc03862434ac986f88b9892ee05ae1bfd5261593e79"
+    },
+    {
+      "name": "player_shield_m01/idle_W",
+      "rgbaSha256": "b90a04791418af9c2ffa00167633fb80551ffa6ef3183db56f2c7553403d517c",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_m01/registration.json",
+      "registrationSha256": "a7dc8c3fc1b2b4939394fdc03862434ac986f88b9892ee05ae1bfd5261593e79"
+    },
+    {
+      "name": "player_shield_m01/idle_SW",
+      "rgbaSha256": "316db221f3238023b4b1b573a5c07bf81de70aa66c70234c50772c1d2d0749b3",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_m01/registration.json",
+      "registrationSha256": "a7dc8c3fc1b2b4939394fdc03862434ac986f88b9892ee05ae1bfd5261593e79"
+    },
+    {
+      "name": "player_shield_m02/idle_S",
+      "rgbaSha256": "02109df5ea17e6b420921b6825e80f3dc552268bb273987ac4ed091049669fa0",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_m02/registration.json",
+      "registrationSha256": "6180709c47b6be7dacfdbc646ef391ffb1d44338d27109a5923922570a5bae51"
+    },
+    {
+      "name": "player_shield_m02/idle_SE",
+      "rgbaSha256": "c1cde5bd09b1414bd81b3f5c385011069aa021ae822c02c62cbdd4758aa6bc64",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_m02/registration.json",
+      "registrationSha256": "6180709c47b6be7dacfdbc646ef391ffb1d44338d27109a5923922570a5bae51"
+    },
+    {
+      "name": "player_shield_m02/idle_E",
+      "rgbaSha256": "63792956e1c2441803d7d2ef6ea309d83f9af65d583b184a66e44f09bf3cb225",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_m02/registration.json",
+      "registrationSha256": "6180709c47b6be7dacfdbc646ef391ffb1d44338d27109a5923922570a5bae51"
+    },
+    {
+      "name": "player_shield_m02/idle_NE",
+      "rgbaSha256": "75622b4213e5a1f5fc5585a54f55c722727ddba587b42f0f5be8f8945d5ded01",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_m02/registration.json",
+      "registrationSha256": "6180709c47b6be7dacfdbc646ef391ffb1d44338d27109a5923922570a5bae51"
+    },
+    {
+      "name": "player_shield_m02/idle_N",
+      "rgbaSha256": "6eef54a6c68700fba1abf2f8707f61a607f6d51d684f0a116922953b110e667d",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_m02/registration.json",
+      "registrationSha256": "6180709c47b6be7dacfdbc646ef391ffb1d44338d27109a5923922570a5bae51"
+    },
+    {
+      "name": "player_shield_m02/idle_NW",
+      "rgbaSha256": "ff6478f495df298ffa97a9525473a39fef6e00dbd4177d420b40d15ad6899db9",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_m02/registration.json",
+      "registrationSha256": "6180709c47b6be7dacfdbc646ef391ffb1d44338d27109a5923922570a5bae51"
+    },
+    {
+      "name": "player_shield_m02/idle_W",
+      "rgbaSha256": "3e16bd856700dca2f0849e45c43bb8163ee5f599da7439e3b4cf5c9042bfbcf2",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_m02/registration.json",
+      "registrationSha256": "6180709c47b6be7dacfdbc646ef391ffb1d44338d27109a5923922570a5bae51"
+    },
+    {
+      "name": "player_shield_m02/idle_SW",
+      "rgbaSha256": "9fda391fd429337e17c165d10889f184ed11fd75ab960ecff324440020742f71",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_m02/registration.json",
+      "registrationSha256": "6180709c47b6be7dacfdbc646ef391ffb1d44338d27109a5923922570a5bae51"
+    },
+    {
+      "name": "player_shield_m03/idle_S",
+      "rgbaSha256": "f3b901e989c071c9b9b22a4379cfff9345d676509cf211bc686a9f67705178e2",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_m03/registration.json",
+      "registrationSha256": "fd87e01a841da456d35ae1cf977ea654a08d38b87bc39ba1c61978a58777d3ac"
+    },
+    {
+      "name": "player_shield_m03/idle_SE",
+      "rgbaSha256": "843b4b14a1b036442703f7f0f2a4cb6b99601db8fb7fe586f74098388cacd9cb",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_m03/registration.json",
+      "registrationSha256": "fd87e01a841da456d35ae1cf977ea654a08d38b87bc39ba1c61978a58777d3ac"
+    },
+    {
+      "name": "player_shield_m03/idle_E",
+      "rgbaSha256": "6e37cfbfd3577f72cdba242c3e0b4fd689b28488fdda20358be4cdf1b1026178",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_m03/registration.json",
+      "registrationSha256": "fd87e01a841da456d35ae1cf977ea654a08d38b87bc39ba1c61978a58777d3ac"
+    },
+    {
+      "name": "player_shield_m03/idle_NE",
+      "rgbaSha256": "82f7520f393c16da07b6250681f43ad49bcbfc5c3b898c92ef3219c3dfc67afd",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_m03/registration.json",
+      "registrationSha256": "fd87e01a841da456d35ae1cf977ea654a08d38b87bc39ba1c61978a58777d3ac"
+    },
+    {
+      "name": "player_shield_m03/idle_N",
+      "rgbaSha256": "19a1fce32a523a68edd63da3872f51fdffe7022646b4a97148f50a61b5104197",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_m03/registration.json",
+      "registrationSha256": "fd87e01a841da456d35ae1cf977ea654a08d38b87bc39ba1c61978a58777d3ac"
+    },
+    {
+      "name": "player_shield_m03/idle_NW",
+      "rgbaSha256": "b3820587c77be0acbb5b02da8374b28c3835a9f5ff34345409b989466cf8ecd0",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_m03/registration.json",
+      "registrationSha256": "fd87e01a841da456d35ae1cf977ea654a08d38b87bc39ba1c61978a58777d3ac"
+    },
+    {
+      "name": "player_shield_m03/idle_W",
+      "rgbaSha256": "090709a47b32630002136408f78267d6f826f9d083eb0092796b1a87ce233adb",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_m03/registration.json",
+      "registrationSha256": "fd87e01a841da456d35ae1cf977ea654a08d38b87bc39ba1c61978a58777d3ac"
+    },
+    {
+      "name": "player_shield_m03/idle_SW",
+      "rgbaSha256": "a469528c3ed9aa2c8d5992a572f3c317b7e6b57b682108655665a5eaebb0b6f0",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_m03/registration.json",
+      "registrationSha256": "fd87e01a841da456d35ae1cf977ea654a08d38b87bc39ba1c61978a58777d3ac"
+    },
+    {
+      "name": "player_shield_f01/idle_S",
+      "rgbaSha256": "03f73fe30145941d0cf279d1fd30ff3a9b89e9a4a22b64c554cb1e9a51061242",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_f01/registration.json",
+      "registrationSha256": "c684c5ac5d3b9aa7500d1605035330be8e812b4f916fe87eb42152debfb71fd0"
+    },
+    {
+      "name": "player_shield_f01/idle_SE",
+      "rgbaSha256": "16874d52087f9ccaaf48ae45bf4ff34c795add693c6466c0b0a7f88bcfa8afff",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_f01/registration.json",
+      "registrationSha256": "c684c5ac5d3b9aa7500d1605035330be8e812b4f916fe87eb42152debfb71fd0"
+    },
+    {
+      "name": "player_shield_f01/idle_E",
+      "rgbaSha256": "6e5a4f3f391967150d8a5718ac4f30934dc5a48054131550cca97642c91219ba",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_f01/registration.json",
+      "registrationSha256": "c684c5ac5d3b9aa7500d1605035330be8e812b4f916fe87eb42152debfb71fd0"
+    },
+    {
+      "name": "player_shield_f01/idle_NE",
+      "rgbaSha256": "6ec859c922f9cf4d56ac5af6becfa4dbaca39d272a43c9b6d5fb567db97ad248",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_f01/registration.json",
+      "registrationSha256": "c684c5ac5d3b9aa7500d1605035330be8e812b4f916fe87eb42152debfb71fd0"
+    },
+    {
+      "name": "player_shield_f01/idle_N",
+      "rgbaSha256": "8ce51ab8d64290786cb13a78f91138ac54acd8165f90d84dfcff9776261d32f2",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_f01/registration.json",
+      "registrationSha256": "c684c5ac5d3b9aa7500d1605035330be8e812b4f916fe87eb42152debfb71fd0"
+    },
+    {
+      "name": "player_shield_f01/idle_NW",
+      "rgbaSha256": "15c9cd0c5a5e92f0152a92b5d5357c42ff16dad1644797a1ef3e4db51f27826e",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_f01/registration.json",
+      "registrationSha256": "c684c5ac5d3b9aa7500d1605035330be8e812b4f916fe87eb42152debfb71fd0"
+    },
+    {
+      "name": "player_shield_f01/idle_W",
+      "rgbaSha256": "8b276313dd3401faeaf37d657e774654d5fc670232667fd057b1802f0c44ebfc",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_f01/registration.json",
+      "registrationSha256": "c684c5ac5d3b9aa7500d1605035330be8e812b4f916fe87eb42152debfb71fd0"
+    },
+    {
+      "name": "player_shield_f01/idle_SW",
+      "rgbaSha256": "eb060f13a160a76982d70e08168795247a2c904060dab86b7491338db84488df",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_f01/registration.json",
+      "registrationSha256": "c684c5ac5d3b9aa7500d1605035330be8e812b4f916fe87eb42152debfb71fd0"
+    },
+    {
+      "name": "player_shield_f02/idle_S",
+      "rgbaSha256": "5c96e11c003b4c4c576807fb6a9c6c15fdb26114f2fd90bcc325d79f1259e532",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_f02/registration.json",
+      "registrationSha256": "7a87c90199d4fc282077087f4edc9178b31969bef252bc5858573fda83ea0288"
+    },
+    {
+      "name": "player_shield_f02/idle_SE",
+      "rgbaSha256": "e32767d024c4d01159db60da9632fae75f63da1d614a382d6fa84d089ce6f180",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_f02/registration.json",
+      "registrationSha256": "7a87c90199d4fc282077087f4edc9178b31969bef252bc5858573fda83ea0288"
+    },
+    {
+      "name": "player_shield_f02/idle_E",
+      "rgbaSha256": "eff7dc5094a7fecb4b4b2a9c4cb2377657847c1c1e3a1a9c5d9e7d1a10fd31bf",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_f02/registration.json",
+      "registrationSha256": "7a87c90199d4fc282077087f4edc9178b31969bef252bc5858573fda83ea0288"
+    },
+    {
+      "name": "player_shield_f02/idle_NE",
+      "rgbaSha256": "04d37cd8dd76cf5756520da30a370fc072d1b4565127781819fb8ecafa1bacfe",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_f02/registration.json",
+      "registrationSha256": "7a87c90199d4fc282077087f4edc9178b31969bef252bc5858573fda83ea0288"
+    },
+    {
+      "name": "player_shield_f02/idle_N",
+      "rgbaSha256": "c28bf3ffcf3b0b2d6968ca905aad0509f0e10b6d9914cd5304e668fba91a0a44",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_f02/registration.json",
+      "registrationSha256": "7a87c90199d4fc282077087f4edc9178b31969bef252bc5858573fda83ea0288"
+    },
+    {
+      "name": "player_shield_f02/idle_NW",
+      "rgbaSha256": "77fd247812275627c12541046ca94e230388b5f93a359d716edd3d026862a6ac",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_f02/registration.json",
+      "registrationSha256": "7a87c90199d4fc282077087f4edc9178b31969bef252bc5858573fda83ea0288"
+    },
+    {
+      "name": "player_shield_f02/idle_W",
+      "rgbaSha256": "9fc75cd3025498f37280bc165a26f44a7d4c1a064d5d18373d800348c0e73a1f",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_f02/registration.json",
+      "registrationSha256": "7a87c90199d4fc282077087f4edc9178b31969bef252bc5858573fda83ea0288"
+    },
+    {
+      "name": "player_shield_f02/idle_SW",
+      "rgbaSha256": "ec06f8318567717decef1c0980a49ead6776d78901569689f7c04cdd21567740",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_f02/registration.json",
+      "registrationSha256": "7a87c90199d4fc282077087f4edc9178b31969bef252bc5858573fda83ea0288"
+    },
+    {
+      "name": "player_shield_f03/idle_S",
+      "rgbaSha256": "6882e7d84c018b1d282bd5db90feffbc48fe05f88606f0de1af30dbf83673f68",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_f03/registration.json",
+      "registrationSha256": "b1796a4737178472a09e38fc5921643f39b81bbbbed63ecab0262a03125df53a"
+    },
+    {
+      "name": "player_shield_f03/idle_SE",
+      "rgbaSha256": "4faab717cea5707a550b80c8ff9f3ea133c5a2bcbaed5d0b8a23729e2a523929",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_f03/registration.json",
+      "registrationSha256": "b1796a4737178472a09e38fc5921643f39b81bbbbed63ecab0262a03125df53a"
+    },
+    {
+      "name": "player_shield_f03/idle_E",
+      "rgbaSha256": "95d3e148cd919c4b06ce847bfbe2d5df5de2f7b8082c4a288558160464c9e8fa",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_f03/registration.json",
+      "registrationSha256": "b1796a4737178472a09e38fc5921643f39b81bbbbed63ecab0262a03125df53a"
+    },
+    {
+      "name": "player_shield_f03/idle_NE",
+      "rgbaSha256": "8cfcf5ad6861520a4f28ab3cf25d2c974e5232d0fa522b693c71bd0fde753dd6",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_f03/registration.json",
+      "registrationSha256": "b1796a4737178472a09e38fc5921643f39b81bbbbed63ecab0262a03125df53a"
+    },
+    {
+      "name": "player_shield_f03/idle_N",
+      "rgbaSha256": "afbbb5e9ef4490247e414fa4cf0c586e724820beada4d7c420d94311f9b3ee8e",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_f03/registration.json",
+      "registrationSha256": "b1796a4737178472a09e38fc5921643f39b81bbbbed63ecab0262a03125df53a"
+    },
+    {
+      "name": "player_shield_f03/idle_NW",
+      "rgbaSha256": "e7df755b7c3079261ff0ef59255555d16ef65bb6fd47067d6c0b3f959ef06ead",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_f03/registration.json",
+      "registrationSha256": "b1796a4737178472a09e38fc5921643f39b81bbbbed63ecab0262a03125df53a"
+    },
+    {
+      "name": "player_shield_f03/idle_W",
+      "rgbaSha256": "bfb14f13127ae262243bc82c2b577a4e89f289640aefde4755da9da3bd1c8fde",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_f03/registration.json",
+      "registrationSha256": "b1796a4737178472a09e38fc5921643f39b81bbbbed63ecab0262a03125df53a"
+    },
+    {
+      "name": "player_shield_f03/idle_SW",
+      "rgbaSha256": "2d7816ee57bef077ddaf7f03c72e30f7d8ce9918d0c55594013bdac8c2506aed",
+      "registration": "assets/player-integrated/source-art/wholecast-v18/native/player_shield_f03/registration.json",
+      "registrationSha256": "b1796a4737178472a09e38fc5921643f39b81bbbbed63ecab0262a03125df53a"
+    }
+  ]
+}

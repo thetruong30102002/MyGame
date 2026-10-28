@@ -1,5 +1,4 @@
 @import './fonts.css';
-@import 'sweetalert2/dist/sweetalert2.min.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -32,7 +31,7 @@
 	}
 	.glass { background: rgba(13,26,42,.62); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
 	/* Thanh trên / dưới: nền đặc để chữ cuộn bên dưới không lộ qua. */
-	.bar { background: #0d1a2a; }
+	.bar { background: #0b1713; }
 	.ring-glow { box-shadow: 0 0 0 1px rgba(255,201,60,.35), 0 18px 40px rgba(0,0,0,.45); }
 	.card-hover { transition: transform .2s, box-shadow .2s, border-color .2s; }
 	@media (hover: hover) {

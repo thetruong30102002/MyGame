@@ -61,7 +61,8 @@ namespace Aether.Client.UI
             {
                 var on = i == mapLevel;
                 var tab = UiKit.Rect(content, "Lv" + i, new Vector2(0, 1), new Vector2(0, 1), new Vector2(i * 112, 0), new Vector2(106, 34));
-                var face = on ? UiKit.Sprite(tab, "button", 1.15f, true) : UiStyle.Pill(tab, new Color(0, 0, 0, 0.35f), 10);
+                var face = UiStyle.Pill(tab, on ? UiStyle.SurfaceRaised : UiStyle.SurfaceWell, 5);
+                face.raycastTarget = true;
                 face.raycastTarget = true;
                 Text(tab, "t", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0, 1), new Vector2(100, 28), labels[i], 14,
                     on ? UiStyle.GoldHi : UiKit.TextDim, TextAnchor.MiddleCenter, true, on);

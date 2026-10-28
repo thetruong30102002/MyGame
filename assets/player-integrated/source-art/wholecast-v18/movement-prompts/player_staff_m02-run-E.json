@@ -1,0 +1,13 @@
+{
+  "id": "player_staff_m02-run-E",
+  "tool": "built-in ImageGen",
+  "intent": "identity-preserving gait drawing",
+  "prompt": "Draw the exact male staff character in Image1 performing a run cycle, camera STRICT RIGHT PROFILE, facing right, one visible eye. Identity: auburn wavy medium hair tied loosely back; forest-green fitted spellcoat, cream collar, bronze buckles, brown trousers and boots; one carved oak staff with bronze vine head and emerald crystal. Image1 is the exact identity, fixed body proportions and outfit/weapon silhouette. Image2 is ONLY a gait reference: imitate its slow, light alternating footfalls without adopting its different hair, clothing, weapon or perspective. SINGLE fixed camera direction in all eight frames. Landscape sheet, exactly 4 columns x 2 rows, eight sequential time steps of ONE seamless full gait cycle: left contact, left down, left passing, left up, right contact, right down, right passing, right up. Both legs visibly alternate and feet lift, never eight idle holds. Character body and face keep exact standing master scale and pixel sharpness throughout. Constant head diameter, shoulder width and limb length. Gentle 1-2 native pixel body bob, short light steps for walk and a controlled longer stride for run. Complete actor including hair, all clothes and exactly ONE rigid weapon integrated into every pose. Grip encloses weapon handle; held weapon follows the hand and never floats or changes shape. Each actor centered within its equal cell, enough margins above weapons and below soles. Approx 75 native pixels crown-to-sole; do not enlarge action poses. No grid lines, labels, VFX, blur, motion trails, translucent duplicate limbs, extra weapons or background. Transparent alpha. Crisp fine game pixel art in the same rendering style as Image1.",
+  "referencedImages": [
+    "D:/truong/MyGame/assets/player-integrated/source-art/wholecast-v18/action-references/player_staff_m02/E-master.png",
+    "D:/truong/MyGame/assets/player-integrated/source-art/wholecast-v18/gait-guides/male-run-E.png"
+  ],
+  "status": "generated-awaiting-native-review",
+  "output": "motion/player_staff_m02-run-E.png",
+  "sha256": "0d72bddd717bd3e8dd516d94336de58aab23b240b86d7ccdd987a51cc646e98c"
+}

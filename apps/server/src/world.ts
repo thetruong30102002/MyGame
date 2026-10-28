@@ -20,6 +20,7 @@ const MAX_PROGRESS_BYTES = 64 * 1024;
 interface Conn {
 	ws: WebSocket;
 	accountId: number;
+	modelId: string;
 	view: PlayerView;
 	map: string;
 	dirty: boolean;
@@ -234,6 +235,7 @@ export class World {
 			ws,
 			accountId: s.accountId,
 			map: p.map || 'human/town',
+			modelId: ch.modelId!,
 			view: { id: ch.id, name: ch.name, gender: ch.gender, sprite: '', level: p.level, x: p.x, y: p.y, dir: 'S', anim: 'idle' },
 			dirty: false,
 			lastMoveAt: 0,
@@ -388,7 +390,7 @@ export class World {
 			if (Math.hypot(x - c.view.x, y - c.view.y) > MAX_SPEED * dt + 48) return;
 		}
 		c.lastMoveAt = now;
-		Object.assign(c.view, { x: Math.round(x), y: Math.round(y), dir: String(m.dir).slice(0, 2), anim: String(m.anim).slice(0, 12), sprite: String(m.sprite).slice(0, 48) });
+		Object.assign(c.view, { x: Math.round(x), y: Math.round(y), dir: String(m.dir).slice(0, 2), anim: String(m.anim).slice(0, 12), sprite: c.modelId });
 		// Máu máy người chơi báo (PvP: người khác vẽ thanh máu; máy chủ bỏ qua đòn của người đã gục). Số lạ thì giữ số cũ.
 		const hpMax = Number(m.hpMax);
 		const hp = Number(m.hp);

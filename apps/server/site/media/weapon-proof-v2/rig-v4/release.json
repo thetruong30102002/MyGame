@@ -1,0 +1,37 @@
+{
+  "checkedAt": "2026-10-27T15:29:11.071Z",
+  "windowsBuild": 431482,
+  "version": "2026.10.27-2223",
+  "qaBuild": 431482,
+  "technicalQA": "PASS1536 poses/4608 sword swaps,30 heads8 dirs,level gates,inventory sync and same new paperdoll,no undress,hide head/weapon,point/PPU96",
+  "tiers": [
+    1,
+    5,
+    10
+  ],
+  "genders": [
+    "male",
+    "female"
+  ],
+  "headStandard": "aether-head-96-v1",
+  "productionRosterReplaced": false,
+  "scope": "Unity skill lab trial",
+  "androidUnchanged": 427415,
+  "minBuildUnchanged": 408477,
+  "autoUpdate": true,
+  "driveUpdated": false,
+  "downloads": [
+    {
+      "path": "windows",
+      "file": "Aether-Chronicle-431482.exe",
+      "size": 327632527,
+      "status": 200
+    },
+    {
+      "path": "windows-zip",
+      "file": "Aether-Chronicle-431482.zip",
+      "size": 318705966,
+      "status": 200
+    }
+  ]
+}

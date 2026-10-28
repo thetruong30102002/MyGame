@@ -29,7 +29,14 @@ export function writePng(path: string, img: RGBAImage): void {
 	mkdirSync(dirname(path), { recursive: true });
 	const png = new PNG({ width: img.width, height: img.height });
 	png.data = Buffer.from(img.data);
-	writeFileSync(path, PNG.sync.write(png, { colorType: 6 }));
+	const bytes = PNG.sync.write(png, { colorType: 6 });
+	for (let attempt = 0; ; attempt++) {
+		try { writeFileSync(path, bytes); break; }
+		catch (error) {
+			if (attempt >= 4 || !['UNKNOWN', 'EBUSY', 'EPERM'].includes((error as NodeJS.ErrnoException).code ?? '')) throw error;
+			Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 100 * (attempt + 1));
+		}
+	}
 }
 
 export function getPixel(img: RGBAImage, x: number, y: number): RGBA {

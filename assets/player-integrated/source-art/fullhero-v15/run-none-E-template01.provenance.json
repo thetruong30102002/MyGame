@@ -1,0 +1,27 @@
+{
+  "file": "run-none-E-template01.png",
+  "prompt": "run-none-E-template01.prompt.txt",
+  "tool": "builtin image_gen.imagegen",
+  "source": "C:\\Users\\thetr\\.codex\\generated_images\\01a16c85-e850-7610-9a03-9c13f59f23c0\\exec-1d5a1ea1-c29a-4b14-bd4c-450ab89c578c.png",
+  "sha256": "b98419cdb29c8414fa078c46bd2000dfb709408f1bff1e288c2200cafd4ad5d0",
+  "size": [
+    1774,
+    887
+  ],
+  "mode": "RGBA",
+  "action": "run",
+  "direction": "E",
+  "frames": 8,
+  "columns": 4,
+  "rows": 2,
+  "completeIntegratedActor": true,
+  "emptyHands": true,
+  "references": [
+    "references/template-none-E-8poses.png",
+    "references/idle-none-E-tight-6x.png",
+    "references/run-guide-E-2x.png"
+  ],
+  "postGenerationImageEditing": false,
+  "artApproved": false,
+  "status": "Pending independent native anatomy and gait review"
+}

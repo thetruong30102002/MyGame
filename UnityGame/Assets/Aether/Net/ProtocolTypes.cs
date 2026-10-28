@@ -42,6 +42,8 @@ namespace Aether.Net
         [JsonProperty("id")] public string Id;
         [JsonProperty("name")] public string Name;
         [JsonProperty("gender")] public string Gender;
+        [JsonProperty("modelId")] public string ModelId;
+        [JsonProperty("classId")] public string ClassId;
         [JsonProperty("createdAt")] public long CreatedAt;
         [JsonProperty("progress")] public CharacterProgress Progress;
     }
@@ -64,6 +66,8 @@ namespace Aether.Net
     {
         [JsonProperty("name")] public string Name;
         [JsonProperty("gender")] public string Gender;
+        [JsonProperty("modelId", NullValueHandling = NullValueHandling.Ignore)] public string ModelId;
+        [JsonProperty("classId", NullValueHandling = NullValueHandling.Ignore)] public string ClassId;
     }
 
     /// <summary>Thân lỗi của REST: <c>{ error }</c>.</summary>

@@ -1,0 +1,692 @@
+{
+  "provider": "OpenAI built-in ImageGen",
+  "fullyDrawn": true,
+  "bakedWeapon": "staff",
+  "artApproved": true,
+  "registrationApproved": true,
+  "sourceRows": "two rows, four columns, eight complete poses",
+  "records": [
+    {
+      "action": "walk",
+      "direction": "S",
+      "original": "C:\\Users\\thetr\\.codex\\generated_images\\01a16c8b-2582-7800-bceb-880054a134fb\\exec-e21cdaa9-d14a-475a-8845-4f20ef45a101.png",
+      "file": "walk-staff-S-template01.png",
+      "prompt": "walk-staff-S-template01.prompt.txt",
+      "references": [
+        "references/template-staff-S-8poses.png",
+        "references/idle-staff-S-tight-6x.png",
+        "references/walk-guide-staff-S-2x.png"
+      ],
+      "trace": "traces/walk-staff-S-template01/trace.json",
+      "sha256": "c7b26ccad4ce07e28f853ac5861a92be192b276916ede0a618281e5bdf1e79da",
+      "promptSha256": "d72e2e0ba6fff3d13ed2cec3dd74f06cdb8e4ddb63f65a4f14b74b019166588b",
+      "size": [
+        1774,
+        887
+      ],
+      "mode": "RGBA",
+      "referencesSha256": {
+        "references/template-staff-S-8poses.png": "d0aa92558b1f2828e76f2f55f49480f9cd4b80b3c0af060be2417b79dd895a96",
+        "references/idle-staff-S-tight-6x.png": "6b6c13e750cc48d18890d6ff1c522c3287d609f930939226e8987db6c0d64e3d",
+        "references/walk-guide-staff-S-2x.png": "8c4d73fff1103d6e3f6ebdb440000b3ca1b11c7537dfc921bb19712b819cbab3"
+      },
+      "selectedTrace": "traces/walk-staff-S-template01/profile-fit/trace.json",
+      "selectedTraceSha256": "55abc8c33ecac1f366d982ed71654d1bee2e21119ba674113f039d8a0eeed6e3",
+      "rootReview": {
+        "reviewer": "root",
+        "scope": "Native complete-character geometry, proportions, detail and gait; final palette and Unity transitions pending",
+        "reviewCard": "review-profiles/staff-S-3x.png",
+        "reviewCardSha256": "9202adf95dc2ab10568ab42ebc62c973020c3c86dae0da6f7b0b72838d52ca7d",
+        "sourceSha256": "c7b26ccad4ce07e28f853ac5861a92be192b276916ede0a618281e5bdf1e79da"
+      },
+      "registration": {
+        "scale": 0.27517797510625386,
+        "referenceBodyHeight": 274.5,
+        "rootX": 224.75,
+        "rowFloor": [
+          418.0,
+          843.0
+        ],
+        "columnRootX": [
+          210.10467711718462,
+          653.6046771171847,
+          1097.1046771171846,
+          1540.6046771171846
+        ],
+        "sourceGridHeadOrigin": 240.25,
+        "sourceGridHeadStep": 443.5,
+        "idleHairBounds": [
+          68,
+          52,
+          93,
+          76
+        ],
+        "scaleMode": "multi-profile-proposal-unreviewed",
+        "idleHeadSilhouetteBounds": [
+          52,
+          52,
+          94,
+          76
+        ],
+        "sourceMedianHeadWidth": 152.0,
+        "targetRootY": 128
+      },
+      "artApproved": true,
+      "registrationApproved": true
+    },
+    {
+      "action": "walk",
+      "direction": "E",
+      "original": "C:\\Users\\thetr\\.codex\\generated_images\\01a16c8b-2582-7800-bceb-880054a134fb\\exec-8a716eef-017e-44d7-8493-6244e4d34bd0.png",
+      "file": "walk-staff-E-template01.png",
+      "prompt": "walk-staff-E-template01.prompt.txt",
+      "references": [
+        "references/template-staff-E-8poses.png",
+        "references/idle-staff-E-tight-6x.png",
+        "references/walk-guide-staff-E-2x.png"
+      ],
+      "trace": "traces/walk-staff-E-template01/trace.json",
+      "sha256": "7346efdc78e09f8956164ab3d70498b81704cde7c8f7cc9cffaac7b969b2fe73",
+      "promptSha256": "e295e2c9fa786489be1ee67779f0ddc20d29654fe6a88dc9789672566fe3e13b",
+      "size": [
+        1774,
+        887
+      ],
+      "mode": "RGBA",
+      "referencesSha256": {
+        "references/template-staff-E-8poses.png": "8bf41183bceabb31e482e8d837292a3fdfabc735b56bee8c901759e57ffbe423",
+        "references/idle-staff-E-tight-6x.png": "3d0ca77da62b78daec80e0a1f228a3703b24f7091e2848c32c853f65656696da",
+        "references/walk-guide-staff-E-2x.png": "210337a732a20e2045d98ea503c129aa9440094179973121d4086363a5e053af"
+      },
+      "selectedTrace": "traces/walk-staff-E-template01/profile-fit/trace.json",
+      "selectedTraceSha256": "42e1ac466c767c07eb25f76284cdfcfc69604fe313da4930eefd9bc6be5c5646",
+      "rootReview": {
+        "reviewer": "root",
+        "scope": "Native complete-character geometry, proportions, detail and gait; final palette and Unity transitions pending",
+        "reviewCard": "review-profiles/staff-E-3x.png",
+        "reviewCardSha256": "12591ad0921cbc481d5c1f98199e67f56b2539e542ef0071d6fb0636ad3583f4",
+        "sourceSha256": "7346efdc78e09f8956164ab3d70498b81704cde7c8f7cc9cffaac7b969b2fe73"
+      },
+      "registration": {
+        "scale": 0.23481888046745988,
+        "referenceBodyHeight": 313.5,
+        "rootX": 210.0,
+        "rowFloor": [
+          436.0,
+          827.0
+        ],
+        "columnRootX": [
+          204.3609192037549,
+          650.435919203755,
+          1096.5109192037548,
+          1542.5859192037549
+        ],
+        "sourceGridHeadOrigin": 204.32500000000005,
+        "sourceGridHeadStep": 446.075,
+        "idleHairBounds": [
+          59,
+          55,
+          83,
+          77
+        ],
+        "scaleMode": "multi-profile-proposal-unreviewed",
+        "idleHeadSilhouetteBounds": [
+          58,
+          53,
+          99,
+          79
+        ],
+        "sourceMedianHeadWidth": 169.5,
+        "targetRootY": 128
+      },
+      "artApproved": true,
+      "registrationApproved": true
+    },
+    {
+      "action": "walk",
+      "direction": "N",
+      "original": "C:\\Users\\thetr\\.codex\\generated_images\\01a16c8b-2582-7800-bceb-880054a134fb\\exec-d9dcd903-7de8-47d4-9d5d-2f89492daaf6.png",
+      "file": "walk-staff-N-template01.png",
+      "prompt": "walk-staff-N-template01.prompt.txt",
+      "references": [
+        "references/template-staff-N-8poses.png",
+        "references/idle-staff-N-tight-6x.png",
+        "references/walk-guide-staff-N-2x.png"
+      ],
+      "trace": "traces/walk-staff-N-template01/trace.json",
+      "sha256": "e048a09f4a8252a328e97c9713a6e5e3cb9f88ebfaad9e7e09f36eeb9a5d4c3b",
+      "promptSha256": "8d97e5d51f4bf505ca7b13553a45b21cc7e4f0f9cf9a11de3db08a38aed4a599",
+      "size": [
+        1774,
+        887
+      ],
+      "mode": "RGBA",
+      "referencesSha256": {
+        "references/template-staff-N-8poses.png": "24343e70ab69932aebe3cae49b99fd717f3453cc49a4d9075c747b4d0a689b30",
+        "references/idle-staff-N-tight-6x.png": "2dd836d6fcb6905b86c8e4115eec967b6007681cf8a17b989c4b6a330d779621",
+        "references/walk-guide-staff-N-2x.png": "f05d15c88f0199d7223a4611a308d378bd99a11bdcf2c61a9a43e2b71ee2c9f9"
+      },
+      "selectedTrace": "traces/walk-staff-N-template01/profile-fit/trace.json",
+      "selectedTraceSha256": "ab8819a29e3450d3939a5d1229c831eea249379235d943eecf8d53ec4f06a506",
+      "rootReview": {
+        "reviewer": "root",
+        "scope": "Native complete-character geometry, proportions, detail and gait; final palette and Unity transitions pending",
+        "reviewCard": "review-profiles/staff-N-3x.png",
+        "reviewCardSha256": "1031f37ef6ba2543e509d0f076088b2446a4ac934ad326291835c7783198d5a6",
+        "sourceSha256": "e048a09f4a8252a328e97c9713a6e5e3cb9f88ebfaad9e7e09f36eeb9a5d4c3b"
+      },
+      "registration": {
+        "scale": 0.31233783545197746,
+        "referenceBodyHeight": 236.0,
+        "rootX": 223.5,
+        "rowFloor": [
+          401.0,
+          842.5
+        ],
+        "columnRootX": [
+          223.15939235740078,
+          666.9593923574007,
+          1110.759392357401,
+          1554.559392357401
+        ],
+        "sourceGridHeadOrigin": 223.17499999999995,
+        "sourceGridHeadStep": 443.8,
+        "idleHairBounds": [
+          61,
+          55,
+          84,
+          77
+        ],
+        "scaleMode": "multi-profile-proposal-unreviewed",
+        "idleHeadSilhouetteBounds": [
+          59,
+          54,
+          86,
+          79
+        ],
+        "sourceMedianHeadWidth": 135.0,
+        "targetRootY": 128
+      },
+      "artApproved": true,
+      "registrationApproved": true
+    },
+    {
+      "action": "walk",
+      "direction": "SE",
+      "original": "C:\\Users\\thetr\\.codex\\generated_images\\01a16c8b-2582-7800-bceb-880054a134fb\\exec-e769b3f0-aa08-4113-a433-936d68308cd5.png",
+      "file": "walk-staff-SE-template01.png",
+      "prompt": "walk-staff-SE-template01.prompt.txt",
+      "references": [
+        "references/template-staff-SE-8poses.png",
+        "references/idle-staff-SE-tight-6x.png",
+        "references/walk-guide-staff-SE-2x.png"
+      ],
+      "trace": "traces/walk-staff-SE-template01/trace.json",
+      "sha256": "dbb5d802442d3b3767fcef6794886333702f91734ea41b10bb58aa7b595444cb",
+      "promptSha256": "bc22fb3ea02dd3522547b418c50423e59d2d987238c76c4da114cc15def86103",
+      "size": [
+        1774,
+        887
+      ],
+      "mode": "RGBA",
+      "referencesSha256": {
+        "references/template-staff-SE-8poses.png": "045bab1b771d508dbf9e165549e64b5ae8cf8dab1db851a2fd15fab4c1eaa024",
+        "references/idle-staff-SE-tight-6x.png": "804ba8f67700b640472ff3230991e1d663c24c5b0d3c1a070eda893e58ce7300",
+        "references/walk-guide-staff-SE-2x.png": "5fe93727b434e208df97ab2441e491f549760110de6c230b4a6fbf64cf75c7d6"
+      },
+      "selectedTrace": "traces/walk-staff-SE-template01/profile-fit/trace.json",
+      "selectedTraceSha256": "16612dc549120d47916fc544a0f4d08bd271785aa45485d78b456681d8ef5e57",
+      "rootReview": {
+        "reviewer": "root",
+        "scope": "Native complete-character geometry, proportions, detail and gait; final palette and Unity transitions pending",
+        "reviewCard": "review-profiles/staff-SE-3x.png",
+        "reviewCardSha256": "47e97f16f51f40388c19386bc6af595a928a2d56e387895e4a0cd116107ddf7e",
+        "sourceSha256": "dbb5d802442d3b3767fcef6794886333702f91734ea41b10bb58aa7b595444cb"
+      },
+      "registration": {
+        "scale": 0.2646275772842082,
+        "referenceBodyHeight": 290.0,
+        "rootX": 258.5,
+        "rowFloor": [
+          417.0,
+          825.5
+        ],
+        "columnRootX": [
+          215.76731607394575,
+          658.5923160739458,
+          1101.4173160739458,
+          1544.2423160739459
+        ],
+        "sourceGridHeadOrigin": 249.82500000000005,
+        "sourceGridHeadStep": 442.825,
+        "idleHairBounds": [
+          69,
+          51,
+          95,
+          75
+        ],
+        "scaleMode": "multi-profile-proposal-unreviewed",
+        "idleHeadSilhouetteBounds": [
+          51,
+          51,
+          96,
+          75
+        ],
+        "sourceMedianHeadWidth": 157.0,
+        "targetRootY": 128
+      },
+      "artApproved": true,
+      "registrationApproved": true
+    },
+    {
+      "action": "walk",
+      "direction": "NE",
+      "original": "C:\\Users\\thetr\\.codex\\generated_images\\01a16c8b-2582-7800-bceb-880054a134fb\\exec-e3645659-867b-41a9-8a93-879ab498b051.png",
+      "file": "walk-staff-NE-template01.png",
+      "prompt": "walk-staff-NE-template01.prompt.txt",
+      "references": [
+        "references/template-staff-NE-8poses.png",
+        "references/idle-staff-NE-tight-6x.png",
+        "references/walk-guide-staff-NE-2x.png"
+      ],
+      "trace": "traces/walk-staff-NE-template01/trace.json",
+      "sha256": "95d656a1d7235f201427435d07ddb8812b35d2850497b37f3ec84e2c74f0e35c",
+      "promptSha256": "73e3f871729b6d49b3931186bf61e2df3375175fe352a492e694102c568710cf",
+      "size": [
+        1774,
+        887
+      ],
+      "mode": "RGBA",
+      "referencesSha256": {
+        "references/template-staff-NE-8poses.png": "ff3d3b29a9e5ddbe8c75e46439a8b32e62543c8cc8ea5c34114b549410912770",
+        "references/idle-staff-NE-tight-6x.png": "701f89151fff85dd090ac34cbe0daf7ea2073b010c5399523d125084e0a2f782",
+        "references/walk-guide-staff-NE-2x.png": "20ac014f6aca2b817dfe15aca70dff5fc36bbcff29cc94dcc14f934b76a8e484"
+      },
+      "selectedTrace": "traces/walk-staff-NE-template01/profile-fit/trace.json",
+      "selectedTraceSha256": "ee71949d588da37e3a4f2793db50cc78b3f8598fcdaa8b5c3d7bc8924cbb3568",
+      "rootReview": {
+        "reviewer": "root",
+        "scope": "Native complete-character geometry, proportions, detail and gait; final palette and Unity transitions pending",
+        "reviewCard": "review-profiles/staff-NE-3x.png",
+        "reviewCardSha256": "281f75d1080b563f4f7ba8988143cd219f5faf25f9a2642a5ee09520213f8243",
+        "sourceSha256": "95d656a1d7235f201427435d07ddb8812b35d2850497b37f3ec84e2c74f0e35c"
+      },
+      "registration": {
+        "scale": 0.29696586879432624,
+        "referenceBodyHeight": 244.0,
+        "rootX": 205.0,
+        "rowFloor": [
+          408.0,
+          854.0
+        ],
+        "columnRootX": [
+          218.02123287671225,
+          661.8712328767123,
+          1105.7212328767123,
+          1549.5712328767124
+        ],
+        "sourceGridHeadOrigin": 216.3499999999999,
+        "sourceGridHeadStep": 443.85,
+        "idleHairBounds": [
+          59,
+          55,
+          84,
+          77
+        ],
+        "scaleMode": "multi-profile-proposal-unreviewed",
+        "idleHeadSilhouetteBounds": [
+          59,
+          54,
+          85,
+          79
+        ],
+        "sourceMedianHeadWidth": 141.0,
+        "targetRootY": 128
+      },
+      "artApproved": true,
+      "registrationApproved": true
+    },
+    {
+      "action": "run",
+      "direction": "S",
+      "original": "C:\\Users\\thetr\\.codex\\generated_images\\01a16c8b-2582-7800-bceb-880054a134fb\\exec-4d4a607d-5ee1-43f5-b876-aa2d5b2b0a63.png",
+      "file": "run-staff-S-template01.png",
+      "prompt": "run-staff-S-template01.prompt.txt",
+      "references": [
+        "references/template-staff-S-8poses.png",
+        "references/idle-staff-S-tight-6x.png",
+        "references/run-guide-S-2x.png"
+      ],
+      "trace": "traces/run-staff-S-template01/trace.json",
+      "sha256": "eacfcfb6a5a668f3894abfdd153c83bef3a890522f0670d9d9a94f826fe0bc58",
+      "promptSha256": "f39fe5fa7af0e053ce1d644428b3baa7cd443a08c987555d48961db6c8edd606",
+      "size": [
+        1774,
+        887
+      ],
+      "mode": "RGBA",
+      "referencesSha256": {
+        "references/template-staff-S-8poses.png": "d0aa92558b1f2828e76f2f55f49480f9cd4b80b3c0af060be2417b79dd895a96",
+        "references/idle-staff-S-tight-6x.png": "6b6c13e750cc48d18890d6ff1c522c3287d609f930939226e8987db6c0d64e3d",
+        "references/run-guide-S-2x.png": "baf6ba5b62c98200730efeeb30e888c98c967f2c7c0fccb05372f0bb616f93c0"
+      },
+      "selectedTrace": "traces/run-staff-S-template01/profile-fit/trace.json",
+      "selectedTraceSha256": "00548210b00dfe6a97d60d6cd9b7b8233960ede00eec90c573fe4cf4c0ebd584",
+      "rootReview": {
+        "reviewer": "root",
+        "scope": "Native complete-character geometry, proportions, detail and gait; final palette and Unity transitions pending",
+        "reviewCard": "review-profiles/staff-S-3x.png",
+        "reviewCardSha256": "9202adf95dc2ab10568ab42ebc62c973020c3c86dae0da6f7b0b72838d52ca7d",
+        "sourceSha256": "eacfcfb6a5a668f3894abfdd153c83bef3a890522f0670d9d9a94f826fe0bc58"
+      },
+      "registration": {
+        "scale": 0.23331668652258541,
+        "referenceBodyHeight": 317.0,
+        "rootX": 249.0,
+        "rowFloor": [
+          421,
+          830
+        ],
+        "columnRootX": [
+          220.45430323541612,
+          665.2543032354162,
+          1110.0543032354162,
+          1554.8543032354162
+        ],
+        "sourceGridHeadOrigin": 260.17499999999995,
+        "sourceGridHeadStep": 444.8,
+        "idleHairBounds": [
+          68,
+          52,
+          93,
+          76
+        ],
+        "scaleMode": "multi-profile-proposal-unreviewed",
+        "idleHeadSilhouetteBounds": [
+          52,
+          52,
+          94,
+          76
+        ],
+        "sourceMedianHeadWidth": 164.5,
+        "targetRootY": 128
+      },
+      "artApproved": true,
+      "registrationApproved": true
+    },
+    {
+      "action": "run",
+      "direction": "E",
+      "original": "C:\\Users\\thetr\\.codex\\generated_images\\01a16c8b-2582-7800-bceb-880054a134fb\\exec-cba2b5c8-c159-47c0-882f-162793006602.png",
+      "file": "run-staff-E-template01.png",
+      "prompt": "run-staff-E-template01.prompt.txt",
+      "references": [
+        "references/template-staff-E-8poses.png",
+        "references/idle-staff-E-tight-6x.png",
+        "references/run-guide-E-2x.png"
+      ],
+      "trace": "traces/run-staff-E-template01/trace.json",
+      "sha256": "b505f7a3338275584d9de418848ee4fc9e21c8050e6524c001782ae2021f3ebc",
+      "promptSha256": "afb983676d857d9cd85f85575310c84c2e6b6c7786920e2b28e19a078c8b406c",
+      "size": [
+        1774,
+        887
+      ],
+      "mode": "RGBA",
+      "referencesSha256": {
+        "references/template-staff-E-8poses.png": "8bf41183bceabb31e482e8d837292a3fdfabc735b56bee8c901759e57ffbe423",
+        "references/idle-staff-E-tight-6x.png": "3d0ca77da62b78daec80e0a1f228a3703b24f7091e2848c32c853f65656696da",
+        "references/run-guide-E-2x.png": "a1ebc948203a510e57ec0dc2bf14dfd62154143ee7ba0f22d9df0c381c7ccda5"
+      },
+      "selectedTrace": "traces/run-staff-E-template01/profile-fit/trace.json",
+      "selectedTraceSha256": "b444cf8bc8cb6326ed542e6a4d80b5c8180d5c9600294cc681c73ae010ec52be",
+      "rootReview": {
+        "reviewer": "root",
+        "scope": "Native complete-character geometry, proportions, detail and gait; final palette and Unity transitions pending",
+        "reviewCard": "review-profiles/staff-E-3x.png",
+        "reviewCardSha256": "12591ad0921cbc481d5c1f98199e67f56b2539e542ef0071d6fb0636ad3583f4",
+        "sourceSha256": "b505f7a3338275584d9de418848ee4fc9e21c8050e6524c001782ae2021f3ebc"
+      },
+      "registration": {
+        "scale": 0.2806020731122766,
+        "referenceBodyHeight": 257.0,
+        "rootX": 199.75,
+        "rowFloor": [
+          423,
+          863
+        ],
+        "columnRootX": [
+          219.3839708860599,
+          662.9339708860598,
+          1106.48397088606,
+          1550.03397088606
+        ],
+        "sourceGridHeadOrigin": 217.79999999999995,
+        "sourceGridHeadStep": 443.55,
+        "idleHairBounds": [
+          59,
+          55,
+          83,
+          77
+        ],
+        "scaleMode": "multi-profile-proposal-unreviewed",
+        "idleHeadSilhouetteBounds": [
+          58,
+          53,
+          99,
+          79
+        ],
+        "sourceMedianHeadWidth": 138.0,
+        "targetRootY": 128
+      },
+      "artApproved": true,
+      "registrationApproved": true
+    },
+    {
+      "action": "run",
+      "direction": "N",
+      "original": "C:\\Users\\thetr\\.codex\\generated_images\\01a16c8b-2582-7800-bceb-880054a134fb\\exec-d4da318d-5b9f-405c-918d-b07ae2605dfc.png",
+      "file": "run-staff-N-template01.png",
+      "prompt": "run-staff-N-template01.prompt.txt",
+      "references": [
+        "references/template-staff-N-8poses.png",
+        "references/idle-staff-N-tight-6x.png",
+        "references/run-guide-N-2x.png"
+      ],
+      "trace": "traces/run-staff-N-template01/trace.json",
+      "sha256": "5a6e761dbc864e8b3bbc924fc1bffa6dfc858a5a4817d9ef5829089b79f41e74",
+      "promptSha256": "678b3649540b1c81308ac9968bb9e6f0ef1211237a5dcb6f81212758ae1afc85",
+      "size": [
+        1774,
+        887
+      ],
+      "mode": "RGBA",
+      "referencesSha256": {
+        "references/template-staff-N-8poses.png": "24343e70ab69932aebe3cae49b99fd717f3453cc49a4d9075c747b4d0a689b30",
+        "references/idle-staff-N-tight-6x.png": "2dd836d6fcb6905b86c8e4115eec967b6007681cf8a17b989c4b6a330d779621",
+        "references/run-guide-N-2x.png": "05783888499ae02750156f6ee175edeb79941fab2519d03ba6303988d28f2ef2"
+      },
+      "selectedTrace": "traces/run-staff-N-template01/profile-fit/trace.json",
+      "selectedTraceSha256": "b26ffa91074029758a63a1ad618dfa177a112545dc14a3dba4119858e91f237f",
+      "rootReview": {
+        "reviewer": "root",
+        "scope": "Native complete-character geometry, proportions, detail and gait; final palette and Unity transitions pending",
+        "reviewCard": "review-profiles/staff-N-3x.png",
+        "reviewCardSha256": "1031f37ef6ba2543e509d0f076088b2446a4ac934ad326291835c7783198d5a6",
+        "sourceSha256": "5a6e761dbc864e8b3bbc924fc1bffa6dfc858a5a4817d9ef5829089b79f41e74"
+      },
+      "registration": {
+        "scale": 0.24817833404802742,
+        "referenceBodyHeight": 291.5,
+        "rootX": 230.0,
+        "rowFloor": [
+          426,
+          830
+        ],
+        "columnRootX": [
+          215.12698636865457,
+          658.1019863686546,
+          1101.0769863686546,
+          1544.0519863686548
+        ],
+        "sourceGridHeadOrigin": 218.9749999999999,
+        "sourceGridHeadStep": 442.975,
+        "idleHairBounds": [
+          61,
+          55,
+          84,
+          77
+        ],
+        "scaleMode": "multi-profile-proposal-unreviewed",
+        "idleHeadSilhouetteBounds": [
+          59,
+          54,
+          86,
+          79
+        ],
+        "sourceMedianHeadWidth": 99.0,
+        "targetRootY": 128
+      },
+      "artApproved": true,
+      "registrationApproved": true
+    },
+    {
+      "action": "run",
+      "direction": "SE",
+      "original": "C:\\Users\\thetr\\.codex\\generated_images\\01a16c8b-2582-7800-bceb-880054a134fb\\exec-425ee034-d347-4c2a-8714-059436d9aa71.png",
+      "file": "run-staff-SE-template01.png",
+      "prompt": "run-staff-SE-template01.prompt.txt",
+      "references": [
+        "references/template-staff-SE-8poses.png",
+        "references/idle-staff-SE-tight-6x.png",
+        "references/run-guide-SE-2x.png"
+      ],
+      "trace": "traces/run-staff-SE-template01/trace.json",
+      "sha256": "31e1bf774abd97e900b333a2fc37527c9a2cc61291579942c5830f5632c1e1cf",
+      "promptSha256": "072c6f4fe9ac8bf38b544d526d60d91cd435e9923de0ddadc85ac21bfe8e28aa",
+      "size": [
+        1774,
+        887
+      ],
+      "mode": "RGBA",
+      "referencesSha256": {
+        "references/template-staff-SE-8poses.png": "045bab1b771d508dbf9e165549e64b5ae8cf8dab1db851a2fd15fab4c1eaa024",
+        "references/idle-staff-SE-tight-6x.png": "804ba8f67700b640472ff3230991e1d663c24c5b0d3c1a070eda893e58ce7300",
+        "references/run-guide-SE-2x.png": "1ef2ca0c357c1bba7691c634e0b0f751ad1405fdfc61ac0d19654794f239012e"
+      },
+      "selectedTrace": "traces/run-staff-SE-template01/profile-fit/trace.json",
+      "selectedTraceSha256": "0f935db9a29fefd4b3fcff0d723a18b97c5e403069ccd36f7b00829b3c545537",
+      "rootReview": {
+        "reviewer": "root",
+        "scope": "Native complete-character geometry, proportions, detail and gait; final palette and Unity transitions pending",
+        "reviewCard": "review-profiles/staff-SE-3x.png",
+        "reviewCardSha256": "47e97f16f51f40388c19386bc6af595a928a2d56e387895e4a0cd116107ddf7e",
+        "sourceSha256": "31e1bf774abd97e900b333a2fc37527c9a2cc61291579942c5830f5632c1e1cf"
+      },
+      "registration": {
+        "scale": 0.26902177598515614,
+        "referenceBodyHeight": 271.5,
+        "rootX": 228.5,
+        "rowFloor": [
+          408,
+          848
+        ],
+        "columnRootX": [
+          218.6439399031745,
+          662.7689399031744,
+          1106.8939399031744,
+          1551.0189399031744
+        ],
+        "sourceGridHeadOrigin": 259.25,
+        "sourceGridHeadStep": 444.125,
+        "idleHairBounds": [
+          69,
+          51,
+          95,
+          75
+        ],
+        "scaleMode": "multi-profile-proposal-unreviewed",
+        "idleHeadSilhouetteBounds": [
+          51,
+          51,
+          96,
+          75
+        ],
+        "sourceMedianHeadWidth": 166.0,
+        "targetRootY": 128
+      },
+      "artApproved": true,
+      "registrationApproved": true
+    },
+    {
+      "action": "run",
+      "direction": "NE",
+      "original": "C:\\Users\\thetr\\.codex\\generated_images\\01a16c8b-2582-7800-bceb-880054a134fb\\exec-a9e54abf-a837-43e3-9c0a-0e0b3299e542.png",
+      "file": "run-staff-NE-template01.png",
+      "prompt": "run-staff-NE-template01.prompt.txt",
+      "references": [
+        "references/template-staff-NE-8poses.png",
+        "references/idle-staff-NE-tight-6x.png",
+        "references/run-guide-NE-2x.png"
+      ],
+      "trace": "traces/run-staff-NE-template01/trace.json",
+      "sha256": "9e26ab82baa873546d43777be45265add2ece025c366882f9d4dfcad2967a041",
+      "promptSha256": "44f240ddee2d4f4e79a65a44164d6d00486bcfa59de0a9e8ae68e81f1019113f",
+      "size": [
+        1774,
+        887
+      ],
+      "mode": "RGBA",
+      "referencesSha256": {
+        "references/template-staff-NE-8poses.png": "ff3d3b29a9e5ddbe8c75e46439a8b32e62543c8cc8ea5c34114b549410912770",
+        "references/idle-staff-NE-tight-6x.png": "701f89151fff85dd090ac34cbe0daf7ea2073b010c5399523d125084e0a2f782",
+        "references/run-guide-NE-2x.png": "59a9c95c423b213d72074dea79444bff4d83c1c2e7cd677f5d6e19344d624727"
+      },
+      "selectedTrace": "traces/run-staff-NE-template01/profile-fit/trace.json",
+      "selectedTraceSha256": "84894e13b80c850d1e75c117c6e8de244b9be910807237e7a106e6ff3cfdbd25",
+      "rootReview": {
+        "reviewer": "root",
+        "scope": "Native complete-character geometry, proportions, detail and gait; final palette and Unity transitions pending",
+        "reviewCard": "review-profiles/staff-NE-3x.png",
+        "reviewCardSha256": "281f75d1080b563f4f7ba8988143cd219f5faf25f9a2642a5ee09520213f8243",
+        "sourceSha256": "9e26ab82baa873546d43777be45265add2ece025c366882f9d4dfcad2967a041"
+      },
+      "registration": {
+        "scale": 0.26559057248344936,
+        "referenceBodyHeight": 274.0,
+        "rootX": 190.25,
+        "rowFloor": [
+          434,
+          845
+        ],
+        "columnRootX": [
+          227.90403688207843,
+          671.4290368820783,
+          1114.9540368820783,
+          1558.4790368820782
+        ],
+        "sourceGridHeadOrigin": 228.7750000000001,
+        "sourceGridHeadStep": 443.525,
+        "idleHairBounds": [
+          59,
+          55,
+          84,
+          77
+        ],
+        "scaleMode": "multi-profile-proposal-unreviewed",
+        "idleHeadSilhouetteBounds": [
+          59,
+          54,
+          85,
+          79
+        ],
+        "sourceMedianHeadWidth": 150.5,
+        "targetRootY": 128
+      },
+      "artApproved": true,
+      "registrationApproved": true
+    }
+  ],
+  "releaseApproved": false,
+  "reviewScope": "Native complete character proportions/detail/gait only; final palette and Unity transitions pending"
+}

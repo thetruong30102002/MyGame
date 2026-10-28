@@ -50,7 +50,7 @@ namespace Aether.Client
             knownPrev = null;
             SyncKnownSkills(false);
             LabCharacterOptions = UI.LabCharacterPanel.Create(hud.Root, this);
-            hud.Toast("Phòng Thử chiêu: mọi nhánh mốc 10 · chọn Ngân Lam mới ở bảng Thử nhân vật", "info");
+            hud.Toast("Phòng Thử chiêu: mọi nhánh mốc 10 · Lữ khách mới sẵn sàng", "info");
         }
 
         /// <summary>Đang ở phòng Thử chiêu (offline) — bảng Tiềm năng cho đổi lưu phái Kiếm tự do.</summary>

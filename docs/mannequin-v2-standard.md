@@ -9,11 +9,11 @@ Unity 6000.3.26f1, SpriteRenderer không SRP; scene Game.unity, chế độ offl
 - Canvas native 112×112 RGBA; yêu cầu nguồn sản xuất ô 256×256. Công cụ thực trả sheet 1254×1254: dùng rect đã kiểm 150×155, không giả nhận output là 2048. Lấy mẫu nearest-neighbor, alpha cuối chỉ 0/255. Không mipmap, filter Point, uncompressed, PPU 48.
 - Root chân (56,100), tọa độ ảnh trái trên y xuống. Pivot Unity (0.5,12/112). Chiều cao mục tiêu 74 px. Tỷ lệ 0.48 duy nhất cho toàn sheet; root từng ô khai tường minh trong layout để sửa sai chân của nguồn. Không tự dò/căn bbox trong lúc build hoặc runtime.
 - Hướng theo Dir8 hiện hành: S, SW, W, NW, N, NE, E, SE. Không coi hướng chéo là hướng cardinal.
-- Khung đầu/hair và khối outfit/arms/boots dùng cùng canvas/root; vũ khí riêng. Pose toàn thân vẽ riêng, không quay từng chi để giả animation. Outfit là một lựa chọn hoàn chỉnh.
+- Khung đầu/tóc, cơ thể nền, áo/giáp, quần, giày và vũ khí dùng cùng canvas/root cho **từng pose**. Mỗi slot chỉ hiện một món tại một thời điểm. Mẫu nam nền chỉ mặc quần đùi; nếu tạo nhân vật nữ thì mẫu nền mặc áo và quần. Mặt/tóc phải được render trên cổ áo và giáp.
 - Nguồn sheet: cột là tám hướng; hàng là các pose theo thứ tự khai rõ trong layout JSON. Pipeline từ chối sheet sai kích thước hoặc frame trống, xuất contact sheet để duyệt.
 - State idle/walk/attack/cast. Walk tăng tốc nhịp khi chạy theo controller hiện có. Sword attack và staff cast dùng body pose khác nhau; hitFrame khai theo profile, combat vẫn sở hữu damage/projectile.
 - Neo vai/khuỷu/tay/hông/gối/cổ và weapon grip phải có metadata nguyên pixel; neo gợi ý chưa duyệt phải giữ cờ false. Không đồng nhất kiểm dữ liệu với duyệt mỹ thuật.
-- Thân order 0, đầu 2; vũ khí trước 1 hoặc sau -1 theo hướng/pose. SortingGroup giữ thứ tự với thế giới, phải phục hồi order khi tháo prototype.
+- Thân order 0, giày 1, quần 2, áo/giáp 3, tay nắm 4, đầu/tóc 6; vũ khí trước 1 hoặc sau -1 theo hướng/pose. SortingGroup giữ thứ tự với thế giới, phải phục hồi order khi tháo prototype.
 - Tên frame `{action}_{direction}_{index}_{layer}`; atlas `{identity}-{page}.png`, 16×16 ô 112 (1792×1792), slices JSON là danh sách tường minh.
 - Tất cả asset được giữ trong repository; Unity import giữ GUID, không đóng dấu đổi pixel cho asset prototype. Chỉ nhập khi validation dữ liệu đạt; mỹ thuật/runtime vẫn cần kiểm riêng.
 

@@ -1,0 +1,1049 @@
+{
+  "id": "player_sword_f02",
+  "fullyDrawn": true,
+  "bakedWeapon": "sword",
+  "modularLayers": false,
+  "frameSize": [
+    144,
+    144
+  ],
+  "root": [
+    72,
+    128
+  ],
+  "ppu": 48,
+  "logicalFrames": 232,
+  "exactRgbaRoundtripFrames": 232,
+  "atlasSha256": "0d4ac60a641b80b41bd678e88bd6af12f0b170fd51cc0a9a59a836cad29f2b6e",
+  "sources": {
+    "walk_S": {
+      "trace": "assets/player-integrated/source-art/wholecast-v18/movement-traces/player_sword_f02-walk-S/trace.json",
+      "traceSha256": "14883f028fcc7814fcbe992afacd39f8ae001c8505a08de69564ae45fc1832f7"
+    },
+    "walk_SW": {
+      "trace": "assets/player-integrated/source-art/wholecast-v18/movement-traces/player_sword_f02-walk-SE/trace.json",
+      "traceSha256": "45128e2c751e96f23dbcb79e98063336981edec619dc8cadbfc5d6a4f2754563"
+    },
+    "walk_W": {
+      "trace": "assets/player-integrated/source-art/wholecast-v18/movement-traces/player_sword_f02-walk-E/trace.json",
+      "traceSha256": "e5e375b188000e73199af1a730ce2775969a6a722fe478f1c435cd67b251836b"
+    },
+    "walk_NW": {
+      "trace": "assets/player-integrated/source-art/wholecast-v18/movement-traces/player_sword_f02-walk-NE/trace.json",
+      "traceSha256": "4a989957dd3d25d1d40d5e4fbe2c35b8d3edb7edf37ad59643ecf1bbf1b15f3f"
+    },
+    "walk_N": {
+      "trace": "assets/player-integrated/source-art/wholecast-v18/movement-traces/player_sword_f02-walk-N/trace.json",
+      "traceSha256": "5d5701437f8bece9d4b7b4f588428a6642c2803e3c8770f8aa1767ac2420493d"
+    },
+    "walk_NE": {
+      "trace": "assets/player-integrated/source-art/wholecast-v18/movement-traces/player_sword_f02-walk-NE/trace.json",
+      "traceSha256": "4a989957dd3d25d1d40d5e4fbe2c35b8d3edb7edf37ad59643ecf1bbf1b15f3f"
+    },
+    "walk_E": {
+      "trace": "assets/player-integrated/source-art/wholecast-v18/movement-traces/player_sword_f02-walk-E/trace.json",
+      "traceSha256": "e5e375b188000e73199af1a730ce2775969a6a722fe478f1c435cd67b251836b"
+    },
+    "walk_SE": {
+      "trace": "assets/player-integrated/source-art/wholecast-v18/movement-traces/player_sword_f02-walk-SE/trace.json",
+      "traceSha256": "45128e2c751e96f23dbcb79e98063336981edec619dc8cadbfc5d6a4f2754563"
+    },
+    "run_S": {
+      "trace": "assets/player-integrated/source-art/wholecast-v18/movement-traces/player_sword_f02-run-S/trace.json",
+      "traceSha256": "fcd09eb63fa37142a8ff1d97c2aea9b7ec364b3ffc9db61c9f76e0dc20e4f393"
+    },
+    "run_SW": {
+      "trace": "assets/player-integrated/source-art/wholecast-v18/movement-traces/player_sword_f02-run-SE/trace.json",
+      "traceSha256": "da3a44c9be468cdfe2997414e757890f0be5fffc9bac271879b112f83f28ff29"
+    },
+    "run_W": {
+      "trace": "assets/player-integrated/source-art/wholecast-v18/movement-traces/player_sword_f02-run-E/trace.json",
+      "traceSha256": "d4624432d139bcd92b315c9cb4844016c28084c6b690286bde6a6518d3410621"
+    },
+    "run_NW": {
+      "trace": "assets/player-integrated/source-art/wholecast-v18/movement-traces/player_sword_f02-run-NE/trace.json",
+      "traceSha256": "8a0c71a6317a4fd1738c531af3e41eead8cf4eec64428f674e096c48b8331b51"
+    },
+    "run_N": {
+      "trace": "assets/player-integrated/source-art/wholecast-v18/movement-traces/player_sword_f02-run-N/trace.json",
+      "traceSha256": "7af3feb2bf15a15c2982dd853b533bac5e1097058557b1ed4ea357acde82b87a"
+    },
+    "run_NE": {
+      "trace": "assets/player-integrated/source-art/wholecast-v18/movement-traces/player_sword_f02-run-NE/trace.json",
+      "traceSha256": "8a0c71a6317a4fd1738c531af3e41eead8cf4eec64428f674e096c48b8331b51"
+    },
+    "run_E": {
+      "trace": "assets/player-integrated/source-art/wholecast-v18/movement-traces/player_sword_f02-run-E/trace.json",
+      "traceSha256": "d4624432d139bcd92b315c9cb4844016c28084c6b690286bde6a6518d3410621"
+    },
+    "run_SE": {
+      "trace": "assets/player-integrated/source-art/wholecast-v18/movement-traces/player_sword_f02-run-SE/trace.json",
+      "traceSha256": "da3a44c9be468cdfe2997414e757890f0be5fffc9bac271879b112f83f28ff29"
+    },
+    "attack_S": {
+      "atlas": "assets/player-roster/v18/combat/player_sword_f02.png",
+      "sha256": "d6c781bc16451d65e2ad56948f6763e9c85eab3342e4c6aeb46cfc315f37d424"
+    },
+    "attack_SW": {
+      "atlas": "assets/player-roster/v18/combat/player_sword_f02.png",
+      "sha256": "d6c781bc16451d65e2ad56948f6763e9c85eab3342e4c6aeb46cfc315f37d424"
+    },
+    "attack_W": {
+      "atlas": "assets/player-roster/v18/combat/player_sword_f02.png",
+      "sha256": "d6c781bc16451d65e2ad56948f6763e9c85eab3342e4c6aeb46cfc315f37d424"
+    },
+    "attack_NW": {
+      "atlas": "assets/player-roster/v18/combat/player_sword_f02.png",
+      "sha256": "d6c781bc16451d65e2ad56948f6763e9c85eab3342e4c6aeb46cfc315f37d424"
+    },
+    "attack_N": {
+      "atlas": "assets/player-roster/v18/combat/player_sword_f02.png",
+      "sha256": "d6c781bc16451d65e2ad56948f6763e9c85eab3342e4c6aeb46cfc315f37d424"
+    },
+    "attack_NE": {
+      "atlas": "assets/player-roster/v18/combat/player_sword_f02.png",
+      "sha256": "d6c781bc16451d65e2ad56948f6763e9c85eab3342e4c6aeb46cfc315f37d424"
+    },
+    "attack_E": {
+      "atlas": "assets/player-roster/v18/combat/player_sword_f02.png",
+      "sha256": "d6c781bc16451d65e2ad56948f6763e9c85eab3342e4c6aeb46cfc315f37d424"
+    },
+    "attack_SE": {
+      "atlas": "assets/player-roster/v18/combat/player_sword_f02.png",
+      "sha256": "d6c781bc16451d65e2ad56948f6763e9c85eab3342e4c6aeb46cfc315f37d424"
+    }
+  },
+  "artReviewed": false,
+  "review": "assets/player-integrated/source-art/wholecast-v18/core-art-review.json",
+  "productionAuthorizedByUser": true,
+  "records": [
+    {
+      "name": "player_sword_f02/idle_S_0",
+      "rgbaSha256": "196b30fd7c8bc4b80033f94d0eb630a0afbd223e6ddcac419f07a8bb21635178"
+    },
+    {
+      "name": "player_sword_f02/idle_SW_0",
+      "rgbaSha256": "01b72365baf1389c51f2ca6ad0513392e2a9c53246255afcab43ec74611382dd"
+    },
+    {
+      "name": "player_sword_f02/idle_W_0",
+      "rgbaSha256": "57e166e4c62a2a6656f38298d277349224b80389de4a1743c68e0a8e7fc778ad"
+    },
+    {
+      "name": "player_sword_f02/idle_NW_0",
+      "rgbaSha256": "3c64c4a6da26d767266d73b46cd0f64becb2026b57022884bff86f2f70e286c2"
+    },
+    {
+      "name": "player_sword_f02/idle_N_0",
+      "rgbaSha256": "680f57d1f7ae35c1b6bc07a6df2487bc6337f73d9e131bb28404ed0a38360fb9"
+    },
+    {
+      "name": "player_sword_f02/idle_NE_0",
+      "rgbaSha256": "eab93a8737e4adeab18d5ee2f1d4d267716a538fce88f7238ccae788f1127c96"
+    },
+    {
+      "name": "player_sword_f02/idle_E_0",
+      "rgbaSha256": "e303b0cb80d49b961cd0e6c3c26ab5d64448c6cea28eee149659f3f674385be5"
+    },
+    {
+      "name": "player_sword_f02/idle_SE_0",
+      "rgbaSha256": "3055224ba8b0510165b3791d32d969d57e70c5364551ff3445d48e18443d8398"
+    },
+    {
+      "name": "player_sword_f02/walk_S_0",
+      "rgbaSha256": "4f8c648a82d87aad6655e2ce0929e92d7cbc70223cf6dd7ba283712ed1997800"
+    },
+    {
+      "name": "player_sword_f02/walk_S_1",
+      "rgbaSha256": "bc8905da5df8536388fc615ce9a00b86997a945840ac8433b72fd0d33782f7ce"
+    },
+    {
+      "name": "player_sword_f02/walk_S_2",
+      "rgbaSha256": "be7943d76bff3bb9284c2b5c08856a2553f0b87c60b9d5ef592b8758b5e6ad59"
+    },
+    {
+      "name": "player_sword_f02/walk_S_3",
+      "rgbaSha256": "62173e86516b26ec69ca28b381310d35a402f0d5ea97a7db370759424d380313"
+    },
+    {
+      "name": "player_sword_f02/walk_S_4",
+      "rgbaSha256": "9f3c7b4d80ebaf0328c2fb49bf7fc4263079686b9f0853f313e1a34ca1aa066a"
+    },
+    {
+      "name": "player_sword_f02/walk_S_5",
+      "rgbaSha256": "a388b47b5eb7fb2e1197a39cefd600342234fa802d75f6b987653e8678bae84b"
+    },
+    {
+      "name": "player_sword_f02/walk_S_6",
+      "rgbaSha256": "e972406240b1ea2fcba66e109bcbd4faf362e31a7ae68ffa68104b1c89184dde"
+    },
+    {
+      "name": "player_sword_f02/walk_S_7",
+      "rgbaSha256": "e7adf9ae2432aa90cc3e9db82b50b8c2529ca9a7af08df9f685ea48b93cd5e57"
+    },
+    {
+      "name": "player_sword_f02/walk_SW_0",
+      "rgbaSha256": "428fb1b32f6e2b33a453b39556ce04577088eb43a9c09f696990a0efc4d2e3cf"
+    },
+    {
+      "name": "player_sword_f02/walk_SW_1",
+      "rgbaSha256": "523555caaff8bad1c7fa335c6a267f978741cdde2f32d7ce84ac0ada46cb3a64"
+    },
+    {
+      "name": "player_sword_f02/walk_SW_2",
+      "rgbaSha256": "3acbd73a8e3fca735bd7cc5b4e8ae3e61bf0dac2bc2f856d5a8c67d4ff9d356d"
+    },
+    {
+      "name": "player_sword_f02/walk_SW_3",
+      "rgbaSha256": "3d91472314afb875df3dc4b330ebc850369170e697b8df49926452225b7eeeef"
+    },
+    {
+      "name": "player_sword_f02/walk_SW_4",
+      "rgbaSha256": "9e40147f714520792a7bc78ac4e607abca58fc16905588dd0149baa098267799"
+    },
+    {
+      "name": "player_sword_f02/walk_SW_5",
+      "rgbaSha256": "5befa01bfe28fe30ace8436b48f3e18f50455550440796165c45c942f10ef135"
+    },
+    {
+      "name": "player_sword_f02/walk_SW_6",
+      "rgbaSha256": "3690d97e0f5db14e9c9f2a07e13f73e9606b97fd8af5ecc2a141ecf9523660be"
+    },
+    {
+      "name": "player_sword_f02/walk_SW_7",
+      "rgbaSha256": "d077ef016897f123b7e955ecfc950c149d15797bea1f170763368f574f05859d"
+    },
+    {
+      "name": "player_sword_f02/walk_W_0",
+      "rgbaSha256": "81916e5768d4cb15c801d3fbfbbd3bb962bd88ef4291dddc3e007b13e7ef410f"
+    },
+    {
+      "name": "player_sword_f02/walk_W_1",
+      "rgbaSha256": "f4b3453a4cb79934eda8c3457ce5b9ca618ac3a6589f4eefcf84d2f2b92f9ea0"
+    },
+    {
+      "name": "player_sword_f02/walk_W_2",
+      "rgbaSha256": "bf8d885c519a19ed827c64f615a58febcedc8c9c607e278c000bf1306e73f534"
+    },
+    {
+      "name": "player_sword_f02/walk_W_3",
+      "rgbaSha256": "dd5c8af02efe24d6474acad47459debc092e6098b50d7e8f8137978cfa7fd8f3"
+    },
+    {
+      "name": "player_sword_f02/walk_W_4",
+      "rgbaSha256": "06eb7a8d87c8f77dd9fdd8a685dd55ecbb0ffca9eacebfc1ee707074558bd94b"
+    },
+    {
+      "name": "player_sword_f02/walk_W_5",
+      "rgbaSha256": "9b4e329642f9b68cc1f01fc6987d17a91fe5dacdc6891a9e95cd0ab38f1e8053"
+    },
+    {
+      "name": "player_sword_f02/walk_W_6",
+      "rgbaSha256": "c9b90529fdf786e92f2d6f87f9ee8fc7fea4f08d5f3c4b2ea8337c7ba5d719c3"
+    },
+    {
+      "name": "player_sword_f02/walk_W_7",
+      "rgbaSha256": "553d548a9a847b9f3289d947d7aa00e96ef4f77dfb27fa36073d383372952860"
+    },
+    {
+      "name": "player_sword_f02/walk_NW_0",
+      "rgbaSha256": "be8b0e1e61147f2d0b3f02b38b464f259265c0ef88f41642eefda74e8366cda8"
+    },
+    {
+      "name": "player_sword_f02/walk_NW_1",
+      "rgbaSha256": "94d5a197f2656bbf1096dfff38dd2eb2e5c85fcd1bb795e6c0306dffdb0df4bb"
+    },
+    {
+      "name": "player_sword_f02/walk_NW_2",
+      "rgbaSha256": "a297de8e05625e91b53cfaf499e03f246d236bbb669e3e53964c2e0c20791d0b"
+    },
+    {
+      "name": "player_sword_f02/walk_NW_3",
+      "rgbaSha256": "d549719900d4e052787802ef1a83dbcb39353702de55cf8e4e5e9a258b39ebf9"
+    },
+    {
+      "name": "player_sword_f02/walk_NW_4",
+      "rgbaSha256": "158c626a5253d6b72c7f5c8fd789d80f9ee6d133f33971577d884b64d4fb59d0"
+    },
+    {
+      "name": "player_sword_f02/walk_NW_5",
+      "rgbaSha256": "0bd35f6601c607072ee2b89c613a8d9df6b262eb4787b8adff2dc589f4fa3f27"
+    },
+    {
+      "name": "player_sword_f02/walk_NW_6",
+      "rgbaSha256": "7ba0f0d2a60327043064361f9de8f2319eb4dd9a3b884c0780da1c2c295e9034"
+    },
+    {
+      "name": "player_sword_f02/walk_NW_7",
+      "rgbaSha256": "1e7754d4063ca501e2e78603452099cceb4decf5e56e1d480b4d2d5649b8016a"
+    },
+    {
+      "name": "player_sword_f02/walk_N_0",
+      "rgbaSha256": "1e22064b7046bdc1473f6d0e5a693e64a4c059db4dea57b67f5502c7de23a0c1"
+    },
+    {
+      "name": "player_sword_f02/walk_N_1",
+      "rgbaSha256": "fa7352559dc8e910844fddc25ce68b1f3f163ef0d50518e5a13671317f7bd25a"
+    },
+    {
+      "name": "player_sword_f02/walk_N_2",
+      "rgbaSha256": "24fa3d05f391bc96f7af55af7be58a33626f3f5841155c2030ba7a74ec01e0c5"
+    },
+    {
+      "name": "player_sword_f02/walk_N_3",
+      "rgbaSha256": "77e2ee7d5e8db27acf1c6dfbae7abfa65d9e2a8fa0e8c928c681d4076fff432c"
+    },
+    {
+      "name": "player_sword_f02/walk_N_4",
+      "rgbaSha256": "13366d76c46a18de64ef09fdce3622b4ac07548b905d601ac5a60da3c1ab540d"
+    },
+    {
+      "name": "player_sword_f02/walk_N_5",
+      "rgbaSha256": "874a894e3751e867a2eaf222904ea5d50ff52a2ed38935f5d8690015ba010360"
+    },
+    {
+      "name": "player_sword_f02/walk_N_6",
+      "rgbaSha256": "bb6de61a1fb5982aa28df9ee1b9bd0c63fd60a6254b1e0ad6a3451655e2ed312"
+    },
+    {
+      "name": "player_sword_f02/walk_N_7",
+      "rgbaSha256": "b0dd698728af6e5add5bc8fccba07e570f4d9d04e188808f15e6fc005f1bc95e"
+    },
+    {
+      "name": "player_sword_f02/walk_NE_0",
+      "rgbaSha256": "0ed568569e6523d66d96e6842d535fc0d78c1822e57e0e022e0511412b993404"
+    },
+    {
+      "name": "player_sword_f02/walk_NE_1",
+      "rgbaSha256": "204cdafa862cdbc965ab40181e5b7441be6c7fa543a934ba44df2957b5438d72"
+    },
+    {
+      "name": "player_sword_f02/walk_NE_2",
+      "rgbaSha256": "eff6fe506561fe1657d6deb663b23af92e6ca0cf99381f871fac11cc50bf21c1"
+    },
+    {
+      "name": "player_sword_f02/walk_NE_3",
+      "rgbaSha256": "07f8fc6a2ab72cc07b6b9014846b00520f5f8d60a549cb4cbb85ce47e5192ca8"
+    },
+    {
+      "name": "player_sword_f02/walk_NE_4",
+      "rgbaSha256": "51713ac1ea3a18efcc74a3894a8cbd53eddadfac413a625ea3a30cc12fc794b7"
+    },
+    {
+      "name": "player_sword_f02/walk_NE_5",
+      "rgbaSha256": "f207317239d24ae5bdb4141132f901067c075790259af98417b767883747f5b3"
+    },
+    {
+      "name": "player_sword_f02/walk_NE_6",
+      "rgbaSha256": "bc6dbbb4598eff2a7e6fcb956107daa233df06acdd937d6ea362bb4411bd6730"
+    },
+    {
+      "name": "player_sword_f02/walk_NE_7",
+      "rgbaSha256": "3521d5c1d7e2dcd6e81cf0d237c66f0bedf353c9659a780b76ded667907ca8bd"
+    },
+    {
+      "name": "player_sword_f02/walk_E_0",
+      "rgbaSha256": "cf019fc7c61a34e46e996cc1b040d9ac73ffd8bea1e516875a732a228ab63a27"
+    },
+    {
+      "name": "player_sword_f02/walk_E_1",
+      "rgbaSha256": "1ef0998a90bb121489d6282eea19c202421d16513256d785fa0b59b784d2ec7f"
+    },
+    {
+      "name": "player_sword_f02/walk_E_2",
+      "rgbaSha256": "8f1e2cf9d0403ce435bd8e4f857c502764cc01a288600a9f86d55fc04f09faf0"
+    },
+    {
+      "name": "player_sword_f02/walk_E_3",
+      "rgbaSha256": "b891f683b1c2e46d3ea1762313164acf6603e595716cd37f579e7db206840446"
+    },
+    {
+      "name": "player_sword_f02/walk_E_4",
+      "rgbaSha256": "1880ccb8831bf0f74b4e24dcaae2ada8531d88b75737ddac359a37d296b9ea36"
+    },
+    {
+      "name": "player_sword_f02/walk_E_5",
+      "rgbaSha256": "c6d9453bcaf97d4faca7e1173be375ca3cbd484344866898dde54db750bc352e"
+    },
+    {
+      "name": "player_sword_f02/walk_E_6",
+      "rgbaSha256": "9c004a7ccdd718372e4bbed6bc6571446e2df0f88901a05f2234b3bdec3a6184"
+    },
+    {
+      "name": "player_sword_f02/walk_E_7",
+      "rgbaSha256": "c8cb83b4b64b86a05744c15ddaeb4d10eaf9b1632dc6625881198dee76e79e69"
+    },
+    {
+      "name": "player_sword_f02/walk_SE_0",
+      "rgbaSha256": "93ca871225b98f92787fbc3b02d47b93d5049c43d190a86971885f3fbc21314b"
+    },
+    {
+      "name": "player_sword_f02/walk_SE_1",
+      "rgbaSha256": "eb864f028ca9e7010884f08fcbf3edc775a38aa51eae2db30f4ffbf95445f411"
+    },
+    {
+      "name": "player_sword_f02/walk_SE_2",
+      "rgbaSha256": "230d054f771bd6d9064bfd142882e6d81605fe8654356a49ea9d6eaef13064c1"
+    },
+    {
+      "name": "player_sword_f02/walk_SE_3",
+      "rgbaSha256": "68569069178006b783c0b8ed7fddb81b85bcc238e85aa9571c747b19435810b5"
+    },
+    {
+      "name": "player_sword_f02/walk_SE_4",
+      "rgbaSha256": "2a3c9d49b6cee5368592fbf9b21a46d75b58eb7e3018135026471faebb1a3444"
+    },
+    {
+      "name": "player_sword_f02/walk_SE_5",
+      "rgbaSha256": "8df3f3debea2ece29d02dc3fa882bffce1557c11e0a21bf4893fa27ef104b470"
+    },
+    {
+      "name": "player_sword_f02/walk_SE_6",
+      "rgbaSha256": "9e4f386dccf4f93d47afee2ce7c5f351fb0d6d374bf40729b7a09822fcd8ba67"
+    },
+    {
+      "name": "player_sword_f02/walk_SE_7",
+      "rgbaSha256": "e24e0e781ca80789de0689c3cc148ae074217dee179c0d47fa5aff54883ec620"
+    },
+    {
+      "name": "player_sword_f02/run_S_0",
+      "rgbaSha256": "02fa2f404313cca62c7fd701e11b36e553d67eca508a52d6ae78dddb336d1171"
+    },
+    {
+      "name": "player_sword_f02/run_S_1",
+      "rgbaSha256": "48b4629cc19c7d56d7e3043ac7dbb3fc36e57a610d0f2280f418e70428864f07"
+    },
+    {
+      "name": "player_sword_f02/run_S_2",
+      "rgbaSha256": "f00ab63e5fcb9de0fb561a610d2367b318bbaea7e204e196bd85e97b3b7821ae"
+    },
+    {
+      "name": "player_sword_f02/run_S_3",
+      "rgbaSha256": "71788492cfce8d14978b936ec9883d333d876287d2a8e64d11e0d113f0b6897d"
+    },
+    {
+      "name": "player_sword_f02/run_S_4",
+      "rgbaSha256": "4635b4228e79cd58ea46f62cbd5f406f54508c8b7d02e53321963f4f002202cf"
+    },
+    {
+      "name": "player_sword_f02/run_S_5",
+      "rgbaSha256": "8b1a0c0d87cab071efcbeab4219a9409688cd9f51f6408cb8e94e0a58fe282c0"
+    },
+    {
+      "name": "player_sword_f02/run_S_6",
+      "rgbaSha256": "7d194e93075412bd4166fc89264ed6af565cd768337dd3a9c2daec3c89d14701"
+    },
+    {
+      "name": "player_sword_f02/run_S_7",
+      "rgbaSha256": "f160389f9e150085103f88ac93bbcbc1ece8f81e0be7ea8c0e0d6859400a4bcc"
+    },
+    {
+      "name": "player_sword_f02/run_SW_0",
+      "rgbaSha256": "d3b3cfcedffebed287eddcddf087fdea9dfd9444d02969e89dca764c313b632c"
+    },
+    {
+      "name": "player_sword_f02/run_SW_1",
+      "rgbaSha256": "106e0ab9ca98b2064691ef5334b91d69ad039b6f4806861614d850dc315bac3f"
+    },
+    {
+      "name": "player_sword_f02/run_SW_2",
+      "rgbaSha256": "61e5b39c99ef9e7572e7a3d0288ec3c151b1e972d97837268322bdf97896d255"
+    },
+    {
+      "name": "player_sword_f02/run_SW_3",
+      "rgbaSha256": "44211653f5aeb7d52146e16ed61d7044db7a3063798b0d2fd7b13226a4393646"
+    },
+    {
+      "name": "player_sword_f02/run_SW_4",
+      "rgbaSha256": "1681dded5622ffb597c775245eaa5186c193eb07f59e2d0b19a0ab9d17651885"
+    },
+    {
+      "name": "player_sword_f02/run_SW_5",
+      "rgbaSha256": "25c3647b0e7a9bc612553a238078695cef92b111f151c9da6469c0f4a54f6974"
+    },
+    {
+      "name": "player_sword_f02/run_SW_6",
+      "rgbaSha256": "4df6514488c2e5865628193e4d06ef38c97c0c7388d7fbbabb8727e03b5a295f"
+    },
+    {
+      "name": "player_sword_f02/run_SW_7",
+      "rgbaSha256": "90d171932a79b198264b89cb876429eb4ac7490e34b330c7c2d99738b6340e72"
+    },
+    {
+      "name": "player_sword_f02/run_W_0",
+      "rgbaSha256": "0e58b48774fd843c98d807e423ccda626a526cda464388fc6adab15d9baff982"
+    },
+    {
+      "name": "player_sword_f02/run_W_1",
+      "rgbaSha256": "b09232d4c5953e3fb23c47a602cb165bc6d38c3cda4295b97ad710dd737097c4"
+    },
+    {
+      "name": "player_sword_f02/run_W_2",
+      "rgbaSha256": "8453d451ba09d2348a2fe52579e4ac90f109e27b70d9447e959057c8e7257b35"
+    },
+    {
+      "name": "player_sword_f02/run_W_3",
+      "rgbaSha256": "82760db4767f0cd256b74a62e90741a2b118448486500036003f8e09c370f9d6"
+    },
+    {
+      "name": "player_sword_f02/run_W_4",
+      "rgbaSha256": "2da92f00fc1454bc4956d661f7e3f8e06658683eecaec776015eb482c60a5479"
+    },
+    {
+      "name": "player_sword_f02/run_W_5",
+      "rgbaSha256": "94a91ede9d1066e65bede53b8f914cc73e45603458de92a6271600f15c4adedb"
+    },
+    {
+      "name": "player_sword_f02/run_W_6",
+      "rgbaSha256": "1228dac8e051cfc3d64777b2dfc188c96945257749486fadc7594e4a3bbf611b"
+    },
+    {
+      "name": "player_sword_f02/run_W_7",
+      "rgbaSha256": "85fc573eab8f077bf348b56d325dfddb6adeabbd41cf959bd685b5b5ab1fb1dd"
+    },
+    {
+      "name": "player_sword_f02/run_NW_0",
+      "rgbaSha256": "48d3191d59c000d35985ffa20deda99410e0df967fc7e00ea6131870aceb8373"
+    },
+    {
+      "name": "player_sword_f02/run_NW_1",
+      "rgbaSha256": "3f5ec3ed061468efb485eca00e0ab4c7ca88aa77910e989ba3845bce4697251c"
+    },
+    {
+      "name": "player_sword_f02/run_NW_2",
+      "rgbaSha256": "399e1533ae4f16dbcb0c23f646abb87021b20f0ba0e991889a0d92101aca8ab0"
+    },
+    {
+      "name": "player_sword_f02/run_NW_3",
+      "rgbaSha256": "f0a845b73e0b264d6f8f4ca8cc287593bd65a2d0ec4b322fc27fdb5140934595"
+    },
+    {
+      "name": "player_sword_f02/run_NW_4",
+      "rgbaSha256": "df8530420dfde2415d89a70eba8261ca83bcc869424abb4598152d1e9136bd68"
+    },
+    {
+      "name": "player_sword_f02/run_NW_5",
+      "rgbaSha256": "2ae809312b25b237924b4d8ff5d7a078a868a202b5076e59193bb448f600b977"
+    },
+    {
+      "name": "player_sword_f02/run_NW_6",
+      "rgbaSha256": "cd60f40687e15352428881c86fa9d1c1efed0c23372e16009050e65f3f6365d1"
+    },
+    {
+      "name": "player_sword_f02/run_NW_7",
+      "rgbaSha256": "34dd74cc2af0535a29d86292568d071ec2addaea97bdc66f3c363230933c78c9"
+    },
+    {
+      "name": "player_sword_f02/run_N_0",
+      "rgbaSha256": "a2f7d1d3956ede966a05f21b617ad46031649d23bd6b0ca625f847bdb51bfbc9"
+    },
+    {
+      "name": "player_sword_f02/run_N_1",
+      "rgbaSha256": "43fb24ec6ee0fa8d9d7e928bd385e953654fa083ca905d5d9f42d63434f4b5e0"
+    },
+    {
+      "name": "player_sword_f02/run_N_2",
+      "rgbaSha256": "7e91ec5e608560e68bf9a083110d9d6cdef82e80aac59931ce378fb502ebf778"
+    },
+    {
+      "name": "player_sword_f02/run_N_3",
+      "rgbaSha256": "890d40fd48a177be7df526700948a6df00d4ab841f3a765933b0ac3213f5380a"
+    },
+    {
+      "name": "player_sword_f02/run_N_4",
+      "rgbaSha256": "2520cdc56fc20e4eb6d4dcc90cc12b7acf341ed639165b749b1439bc15365ae8"
+    },
+    {
+      "name": "player_sword_f02/run_N_5",
+      "rgbaSha256": "af69f148d9054ab4a71aa3a1b473e5c2f19150f3c5a1ac08eccc5a1c26a6b578"
+    },
+    {
+      "name": "player_sword_f02/run_N_6",
+      "rgbaSha256": "3fef7da543dbb04cd2eba1631cbe69044dcae07db341d94116a9a52db0b1b04e"
+    },
+    {
+      "name": "player_sword_f02/run_N_7",
+      "rgbaSha256": "5e24002f4dd49e1d5141d7c1f9d09c1f850c48be22d3ce48cb450aa58230f9f2"
+    },
+    {
+      "name": "player_sword_f02/run_NE_0",
+      "rgbaSha256": "118693fe094deaab31ba891c178457d920458e41aeb518cb219fea2fc7de9059"
+    },
+    {
+      "name": "player_sword_f02/run_NE_1",
+      "rgbaSha256": "1c722aa12450c1233c8169d9043ee536ef7c021c5f9bf74ef5afe85b892d0b9f"
+    },
+    {
+      "name": "player_sword_f02/run_NE_2",
+      "rgbaSha256": "54fba21bd0a8e1b1fe90a06c2b71be654a47cbc2c0436be7dac29f0c5bc1ebab"
+    },
+    {
+      "name": "player_sword_f02/run_NE_3",
+      "rgbaSha256": "c06507508d1d5f7a837770e42d1967ce619dc7a0baef66c8c172d01a10a37ffe"
+    },
+    {
+      "name": "player_sword_f02/run_NE_4",
+      "rgbaSha256": "777719ea4d1a9ee2cae2942330e2d7b0e93fde80b3b370d2e4b10c9be9b501a8"
+    },
+    {
+      "name": "player_sword_f02/run_NE_5",
+      "rgbaSha256": "e69f1f89b0f7c2ed102407575d010c7d9d31eabbbac08a01cba686e2d9c9c35f"
+    },
+    {
+      "name": "player_sword_f02/run_NE_6",
+      "rgbaSha256": "3e6a239e125bf3d7555ef251454b69df5186596c5ab168020c5c5b99d871bde3"
+    },
+    {
+      "name": "player_sword_f02/run_NE_7",
+      "rgbaSha256": "d49837516eb0bde56e2b21beb0b7b0dcc4e555574676bc455914df9a16cca0c0"
+    },
+    {
+      "name": "player_sword_f02/run_E_0",
+      "rgbaSha256": "40113583fafc7ff01511ba401f2018982290a9de37fc7549cd59a12f1e07021f"
+    },
+    {
+      "name": "player_sword_f02/run_E_1",
+      "rgbaSha256": "62bb07627ca86470e4ef5d63f8cd8baefbbaad8864ce1d5bcfeba49e0949f2e8"
+    },
+    {
+      "name": "player_sword_f02/run_E_2",
+      "rgbaSha256": "dda3d499bd2f09e6df0415c7f753c121ac42cd22a6bf35bfdd9ff4ca43db22bf"
+    },
+    {
+      "name": "player_sword_f02/run_E_3",
+      "rgbaSha256": "076d8af85d5d6b38748b75515fa1d0b36bb524b3399d9a7f4f93515e2fcf427d"
+    },
+    {
+      "name": "player_sword_f02/run_E_4",
+      "rgbaSha256": "4b43b512ffe62e5e7e29f6f6045636f0d01ab6c6d7c09d189e1cdad2cb76b13f"
+    },
+    {
+      "name": "player_sword_f02/run_E_5",
+      "rgbaSha256": "5f0b08058ddeca92c47cb732a8b1bb5164406e20bb00d115cd2501182923bfd0"
+    },
+    {
+      "name": "player_sword_f02/run_E_6",
+      "rgbaSha256": "273118a649261fd0176fa3463e2b9f92e75eb7225925cc557a6a4783e3892a8d"
+    },
+    {
+      "name": "player_sword_f02/run_E_7",
+      "rgbaSha256": "b78ce3760e8d3cccf5bd9dce66e6b8ea0c5d198459ad3bdbc48f8cd8b9f0ac24"
+    },
+    {
+      "name": "player_sword_f02/run_SE_0",
+      "rgbaSha256": "7fe3c38d8c57c4290b56bf2896be11a03b3eaab3bd03d153a42e003a8f988b9e"
+    },
+    {
+      "name": "player_sword_f02/run_SE_1",
+      "rgbaSha256": "cefb97ed87710571d3922be1e623d3bb049bb85e225de8b4936ad61f08754e25"
+    },
+    {
+      "name": "player_sword_f02/run_SE_2",
+      "rgbaSha256": "bba2395594de5f581487f6e4f3edf4e5cec8a9408b73d73328d06facbf9b75f6"
+    },
+    {
+      "name": "player_sword_f02/run_SE_3",
+      "rgbaSha256": "a1c5089273570b6a415d07f1cdbc9d2cba8698b4ff428384540381b80565a9ac"
+    },
+    {
+      "name": "player_sword_f02/run_SE_4",
+      "rgbaSha256": "836858d2f7c17906c3b2f20618c12142c9cc0c0a1f27ca2786fd3b1316ee54e4"
+    },
+    {
+      "name": "player_sword_f02/run_SE_5",
+      "rgbaSha256": "8f69fa571c3518400f9052299d8c4d70154a789ac70665b2aa56b32d6382e27a"
+    },
+    {
+      "name": "player_sword_f02/run_SE_6",
+      "rgbaSha256": "e3721373494649a7de85af78fe9b1acf00a1b8bcc5cc0bda52ab9885ff515baa"
+    },
+    {
+      "name": "player_sword_f02/run_SE_7",
+      "rgbaSha256": "e9067203409c5338f9b0a103e29276258ef70b52030bf6124f5e22c7a2103176"
+    },
+    {
+      "name": "player_sword_f02/attack_S_0",
+      "rgbaSha256": "196b30fd7c8bc4b80033f94d0eb630a0afbd223e6ddcac419f07a8bb21635178"
+    },
+    {
+      "name": "player_sword_f02/attack_S_1",
+      "rgbaSha256": "d069fac1d1042b119f0096baedebb4da90827d9110f84699eb3baca85fd2a5f8"
+    },
+    {
+      "name": "player_sword_f02/attack_S_2",
+      "rgbaSha256": "1e2fd2c051b8e8e6052b9163b67e9961b426a9dc6fd0a83bc4a5fb281ab1deb7"
+    },
+    {
+      "name": "player_sword_f02/attack_S_3",
+      "rgbaSha256": "61e5080067ca815d93927a00aa4a837710830109cdbcb2c4f74db156e51a6853"
+    },
+    {
+      "name": "player_sword_f02/attack_S_4",
+      "rgbaSha256": "b60199b52b94d30618ed82f8b7813409c18da65b3b6e82824f240db09caa92b4"
+    },
+    {
+      "name": "player_sword_f02/attack_S_5",
+      "rgbaSha256": "cc43afcb7fa7b55a38a1d208eec86732043a0b54ae35f4c429df41bd3c1077e1"
+    },
+    {
+      "name": "player_sword_f02/attack_S_6",
+      "rgbaSha256": "26611ba60e1bc56e4a62a998a0864f4e3cf3bbaace5b7dfff5ae03cda34d9ee8"
+    },
+    {
+      "name": "player_sword_f02/attack_S_7",
+      "rgbaSha256": "702516657dae7f559fc6f7b3d299a1c38c97c1fce8637e444658146fd67a1a15"
+    },
+    {
+      "name": "player_sword_f02/attack_S_8",
+      "rgbaSha256": "8af47bb9341d5003ce61d7dc0c6c1b55c48bd5d787f3a3c2775bcf5dc11aeb47"
+    },
+    {
+      "name": "player_sword_f02/attack_S_9",
+      "rgbaSha256": "98b28dc5779adc274399d2ab61ff052bdbd4dc739c05fa2a020942d526b59ed6"
+    },
+    {
+      "name": "player_sword_f02/attack_S_10",
+      "rgbaSha256": "7bd2a6d12c1ea5a7c12be801c4aee18938756302d70e0b2d31fb16b44fcb3e0d"
+    },
+    {
+      "name": "player_sword_f02/attack_S_11",
+      "rgbaSha256": "196b30fd7c8bc4b80033f94d0eb630a0afbd223e6ddcac419f07a8bb21635178"
+    },
+    {
+      "name": "player_sword_f02/attack_SW_0",
+      "rgbaSha256": "01b72365baf1389c51f2ca6ad0513392e2a9c53246255afcab43ec74611382dd"
+    },
+    {
+      "name": "player_sword_f02/attack_SW_1",
+      "rgbaSha256": "a406d524bafa2176f18b01cedf31b8f6d34ddcdfbf9528dbae73563c0064d0d8"
+    },
+    {
+      "name": "player_sword_f02/attack_SW_2",
+      "rgbaSha256": "3f18cf5acae37134e771071a253b9d85f5ad379cf553d4e1b9b6cef58ac8521c"
+    },
+    {
+      "name": "player_sword_f02/attack_SW_3",
+      "rgbaSha256": "3385802b1332a26ed08ab1579132e8f4a3a95578244f2f23ab4e67f26518f9a2"
+    },
+    {
+      "name": "player_sword_f02/attack_SW_4",
+      "rgbaSha256": "f5fb5809087550e3e8f33cb9961905b55d88c16769c08a818838a2e0750098ab"
+    },
+    {
+      "name": "player_sword_f02/attack_SW_5",
+      "rgbaSha256": "71f85f59f7d866981b26635a6ef8e2896e3c86840fffe6ef2362f0c55d437efc"
+    },
+    {
+      "name": "player_sword_f02/attack_SW_6",
+      "rgbaSha256": "c177dc29534b6ab263d41fb27b35133581aec5f00141ff2b9ac4654a374eba16"
+    },
+    {
+      "name": "player_sword_f02/attack_SW_7",
+      "rgbaSha256": "2f65387572634d2ba3e04e13e6b40545290e7bd2f38378d54c39b5a9bf34e317"
+    },
+    {
+      "name": "player_sword_f02/attack_SW_8",
+      "rgbaSha256": "bfd6edf442bd5024bdc4dd930a5392c797b55483c7a1275d5d4b9592fd419bb0"
+    },
+    {
+      "name": "player_sword_f02/attack_SW_9",
+      "rgbaSha256": "d2f63f4063ef064708ba5d1bc15731ae9a9b9450536fe396b2cf3d4f8f358fc4"
+    },
+    {
+      "name": "player_sword_f02/attack_SW_10",
+      "rgbaSha256": "70d178706581c9f83c1042659499e9c770b7765e579b0f27276568994951b17b"
+    },
+    {
+      "name": "player_sword_f02/attack_SW_11",
+      "rgbaSha256": "01b72365baf1389c51f2ca6ad0513392e2a9c53246255afcab43ec74611382dd"
+    },
+    {
+      "name": "player_sword_f02/attack_W_0",
+      "rgbaSha256": "57e166e4c62a2a6656f38298d277349224b80389de4a1743c68e0a8e7fc778ad"
+    },
+    {
+      "name": "player_sword_f02/attack_W_1",
+      "rgbaSha256": "fd2c98bd9fbf10f48c240413048bf92bd90768e42b1c543f43d27f95de0e173d"
+    },
+    {
+      "name": "player_sword_f02/attack_W_2",
+      "rgbaSha256": "2cca183370df307a3197f18acca17c082d116d8507e5199a011664482f92b4e9"
+    },
+    {
+      "name": "player_sword_f02/attack_W_3",
+      "rgbaSha256": "b38e34ea1383b3da6895d70fb8b114a072278d1ce76a609db13e4333610d2c2e"
+    },
+    {
+      "name": "player_sword_f02/attack_W_4",
+      "rgbaSha256": "15b7a84892ec60a45dd99b0192d837311652056cc47d3104812f64770622ca45"
+    },
+    {
+      "name": "player_sword_f02/attack_W_5",
+      "rgbaSha256": "1708aa9a10cf28a7f2808ab3664651a81a4160dea3262bb9701e76f4c3f8d278"
+    },
+    {
+      "name": "player_sword_f02/attack_W_6",
+      "rgbaSha256": "5528d42e4975a05086806fc065f87f52085d4a353a8cd4fbe3ef449efefc68b7"
+    },
+    {
+      "name": "player_sword_f02/attack_W_7",
+      "rgbaSha256": "380d85a643a60185c5d98feb1cb4ca1a8fe1f6a3867ed6ff8a4e70b1e75b7ea4"
+    },
+    {
+      "name": "player_sword_f02/attack_W_8",
+      "rgbaSha256": "176bac296490537d780a0013b730073abe205d141eb974f90829261f8e32c7a7"
+    },
+    {
+      "name": "player_sword_f02/attack_W_9",
+      "rgbaSha256": "b34eef5bf1abe799497eb3e06d3e15ffe0141dee03ff3f41f20eb2455a7376f6"
+    },
+    {
+      "name": "player_sword_f02/attack_W_10",
+      "rgbaSha256": "386e07b17fa6fdd8324f85fc9c6fa773f2c7bb229abf163b5994872f0218c56f"
+    },
+    {
+      "name": "player_sword_f02/attack_W_11",
+      "rgbaSha256": "57e166e4c62a2a6656f38298d277349224b80389de4a1743c68e0a8e7fc778ad"
+    },
+    {
+      "name": "player_sword_f02/attack_NW_0",
+      "rgbaSha256": "3c64c4a6da26d767266d73b46cd0f64becb2026b57022884bff86f2f70e286c2"
+    },
+    {
+      "name": "player_sword_f02/attack_NW_1",
+      "rgbaSha256": "3449922d6ad94b5b9b67c396a5eab83f2b56a66f8581301f1f93defcbb178629"
+    },
+    {
+      "name": "player_sword_f02/attack_NW_2",
+      "rgbaSha256": "17247d08ab80d827a3780c23dbd60133971e23fcc86b05e77af0178390977ca9"
+    },
+    {
+      "name": "player_sword_f02/attack_NW_3",
+      "rgbaSha256": "fbca843f6c5284aac527202c6a4562b4da9b341a3ee328e3fdb152348b1dd69f"
+    },
+    {
+      "name": "player_sword_f02/attack_NW_4",
+      "rgbaSha256": "f4e7dee007b36d85b1070d3a743ed321a8a15e653f1b052172bf7691a730ee21"
+    },
+    {
+      "name": "player_sword_f02/attack_NW_5",
+      "rgbaSha256": "bb85819446615e9f805c36c77038e51137583b96e8bbdab65c5a1af5f38b6131"
+    },
+    {
+      "name": "player_sword_f02/attack_NW_6",
+      "rgbaSha256": "4f716d955aaeec3048f7297a6fb7875e6ae582f559456e85061bf857de6fb160"
+    },
+    {
+      "name": "player_sword_f02/attack_NW_7",
+      "rgbaSha256": "1143de22c4fa26f7ea409ffc54b96ce38e2344e76c3ddadc7fbf6fe9fb97c41d"
+    },
+    {
+      "name": "player_sword_f02/attack_NW_8",
+      "rgbaSha256": "8baaeb996d106cc0198db8476c2db9127fb1faf3d32787572638d5e17e005987"
+    },
+    {
+      "name": "player_sword_f02/attack_NW_9",
+      "rgbaSha256": "3c0356fa8715868881d61d1d9c74a59333c34797be7ffb9034a0c586daa66658"
+    },
+    {
+      "name": "player_sword_f02/attack_NW_10",
+      "rgbaSha256": "43ea8e4fab5ace54092643e7e5b3b6e5f87255cab57e21086db4d6d978055492"
+    },
+    {
+      "name": "player_sword_f02/attack_NW_11",
+      "rgbaSha256": "3c64c4a6da26d767266d73b46cd0f64becb2026b57022884bff86f2f70e286c2"
+    },
+    {
+      "name": "player_sword_f02/attack_N_0",
+      "rgbaSha256": "680f57d1f7ae35c1b6bc07a6df2487bc6337f73d9e131bb28404ed0a38360fb9"
+    },
+    {
+      "name": "player_sword_f02/attack_N_1",
+      "rgbaSha256": "3ce6e344a625f29031fef74a7d6a2be292a45b28491efd1ce445d1edb3ae437a"
+    },
+    {
+      "name": "player_sword_f02/attack_N_2",
+      "rgbaSha256": "259e01fe647be9abb9692beec000aad85e714b8cab91cedf6f3fa9c374a3a074"
+    },
+    {
+      "name": "player_sword_f02/attack_N_3",
+      "rgbaSha256": "5574856057839907c69d7d919d627c628c2177edbe20ecf35b717c199cd9d80c"
+    },
+    {
+      "name": "player_sword_f02/attack_N_4",
+      "rgbaSha256": "536f646ad09c5815fcd68663b4748dbd5865f27467425855e34d79b4b8639d73"
+    },
+    {
+      "name": "player_sword_f02/attack_N_5",
+      "rgbaSha256": "da01831bfecdd29fd2f6050765803814ed9c60b1aa29e8ae8cfd356d9914ad8c"
+    },
+    {
+      "name": "player_sword_f02/attack_N_6",
+      "rgbaSha256": "e4d38e6e1652775ca077c623bbd25555e00099d975d979157b0aeadfcb8282ae"
+    },
+    {
+      "name": "player_sword_f02/attack_N_7",
+      "rgbaSha256": "3c6de11967b8371d84e111f59fabc66eb4f5116a4f834007112489405304d82f"
+    },
+    {
+      "name": "player_sword_f02/attack_N_8",
+      "rgbaSha256": "e57533506a1d6ae03af48568d042a8b5b27c3c6d6ec9d56f65b163fad3178c58"
+    },
+    {
+      "name": "player_sword_f02/attack_N_9",
+      "rgbaSha256": "95582b12f4733638aeb83d687d2e6ec393a14407585830beb2b7e62406467e44"
+    },
+    {
+      "name": "player_sword_f02/attack_N_10",
+      "rgbaSha256": "31775dca0a1f51eb58cbd17904803a5efc4ce01bd268c775da40584713bd235d"
+    },
+    {
+      "name": "player_sword_f02/attack_N_11",
+      "rgbaSha256": "680f57d1f7ae35c1b6bc07a6df2487bc6337f73d9e131bb28404ed0a38360fb9"
+    },
+    {
+      "name": "player_sword_f02/attack_NE_0",
+      "rgbaSha256": "eab93a8737e4adeab18d5ee2f1d4d267716a538fce88f7238ccae788f1127c96"
+    },
+    {
+      "name": "player_sword_f02/attack_NE_1",
+      "rgbaSha256": "6f289edd59a237560f0283da27850bc7df50888ec14ebdeae4ded8c2750f0921"
+    },
+    {
+      "name": "player_sword_f02/attack_NE_2",
+      "rgbaSha256": "e57f1514225ee8c14f4d7d02f15b6c4d40eac392d7e1cd5199512ddff17c1718"
+    },
+    {
+      "name": "player_sword_f02/attack_NE_3",
+      "rgbaSha256": "fda85841240fe28e90dbf1ee2955048c9b144415d57179317f7a2b323056f1f2"
+    },
+    {
+      "name": "player_sword_f02/attack_NE_4",
+      "rgbaSha256": "fe6bc313f27e1d0141037a7d41703a96b67067e4cc530562b1ad86e9d63a4ef5"
+    },
+    {
+      "name": "player_sword_f02/attack_NE_5",
+      "rgbaSha256": "09b4ae2ccc919133fe837ef0c80edf819807731adc4fb506a4cd19f368313a7c"
+    },
+    {
+      "name": "player_sword_f02/attack_NE_6",
+      "rgbaSha256": "7a64852dea7df1ba995d6f43e502abcb0f5e04b41e60aa7ecfc7f07a8ccc0037"
+    },
+    {
+      "name": "player_sword_f02/attack_NE_7",
+      "rgbaSha256": "8724766102c442e752d00b74a832e832f50ca48daccf8758c01c67cb8d42fc7f"
+    },
+    {
+      "name": "player_sword_f02/attack_NE_8",
+      "rgbaSha256": "2b03c9a042b7c398a4fe6246adf3b0e3da7f9d5456c685d56ffeaf32c9587476"
+    },
+    {
+      "name": "player_sword_f02/attack_NE_9",
+      "rgbaSha256": "ad5c7aadd85349caaf88911275292a9fdf73f251d9a799f1b945c9f84c4ef5db"
+    },
+    {
+      "name": "player_sword_f02/attack_NE_10",
+      "rgbaSha256": "9e3d14515633b1378156a2f4e0b3bf398b545fc852072367143e4e1e6ea8b77e"
+    },
+    {
+      "name": "player_sword_f02/attack_NE_11",
+      "rgbaSha256": "eab93a8737e4adeab18d5ee2f1d4d267716a538fce88f7238ccae788f1127c96"
+    },
+    {
+      "name": "player_sword_f02/attack_E_0",
+      "rgbaSha256": "e303b0cb80d49b961cd0e6c3c26ab5d64448c6cea28eee149659f3f674385be5"
+    },
+    {
+      "name": "player_sword_f02/attack_E_1",
+      "rgbaSha256": "735d5491171f19e47f87c9701de5eaf3ee6e10be8e5563d5eba3d50a2eeedfd5"
+    },
+    {
+      "name": "player_sword_f02/attack_E_2",
+      "rgbaSha256": "c0e8cf6955dd06aa9cd40e3e583c633f78e8dd18399c1d91c6a13422078fc6bb"
+    },
+    {
+      "name": "player_sword_f02/attack_E_3",
+      "rgbaSha256": "4c1d9fe0de67cba0b7d7ffcd5520fae2ee50f75d3c6778912af3badb3caa17ce"
+    },
+    {
+      "name": "player_sword_f02/attack_E_4",
+      "rgbaSha256": "f9d51d97b5b003a2ed0fafebfde92092236e1f1c9024c09a8871c595175216c5"
+    },
+    {
+      "name": "player_sword_f02/attack_E_5",
+      "rgbaSha256": "d0cbec30214764ac1978079e4496d14a4157d929ac7749b9298fabc1447bdfbf"
+    },
+    {
+      "name": "player_sword_f02/attack_E_6",
+      "rgbaSha256": "5d00d3538217fe81f43bdedcb1c77db8c82097c05d0d8cb7039e48093171ba99"
+    },
+    {
+      "name": "player_sword_f02/attack_E_7",
+      "rgbaSha256": "7f430da0a44e8e967f6ed9d8ceabb0e404a88a655e00bdb969e94ec9bb9a1430"
+    },
+    {
+      "name": "player_sword_f02/attack_E_8",
+      "rgbaSha256": "4e885d2d0ba2950d4ee167857a0fb316724f52de877820d4179d3eeeabf2fbfd"
+    },
+    {
+      "name": "player_sword_f02/attack_E_9",
+      "rgbaSha256": "12dbf2c6956b1d6c6ab38e74f94bebd3ddf78562ff7a830dc6ca5592f1296f51"
+    },
+    {
+      "name": "player_sword_f02/attack_E_10",
+      "rgbaSha256": "5c92caa12a1deac31fd8eea850835ccc049f154d21ac43268409772c1c81c269"
+    },
+    {
+      "name": "player_sword_f02/attack_E_11",
+      "rgbaSha256": "e303b0cb80d49b961cd0e6c3c26ab5d64448c6cea28eee149659f3f674385be5"
+    },
+    {
+      "name": "player_sword_f02/attack_SE_0",
+      "rgbaSha256": "3055224ba8b0510165b3791d32d969d57e70c5364551ff3445d48e18443d8398"
+    },
+    {
+      "name": "player_sword_f02/attack_SE_1",
+      "rgbaSha256": "9cb4791e4393b8a48228b0de2cfe5c3d417cc5b7fcfb262aa9f278b3f2d678d9"
+    },
+    {
+      "name": "player_sword_f02/attack_SE_2",
+      "rgbaSha256": "59c2cd4a6bfa45db8ba49c95c7ee5329ae4b949f79f3a07bc3a046361a29691c"
+    },
+    {
+      "name": "player_sword_f02/attack_SE_3",
+      "rgbaSha256": "c26d051030f62b295ea927e78d2a059e5670f534f0034057996e30fc5b4f856e"
+    },
+    {
+      "name": "player_sword_f02/attack_SE_4",
+      "rgbaSha256": "ff9e5bfc834ffa55c7c9f6ab4548715f6e65a6de6fefd2345bad3cf59ba8af22"
+    },
+    {
+      "name": "player_sword_f02/attack_SE_5",
+      "rgbaSha256": "63af088e51ed3e49667efe4e0d7332b3c10a0ff0d324f6d14766c6afac7dbe03"
+    },
+    {
+      "name": "player_sword_f02/attack_SE_6",
+      "rgbaSha256": "2e68bf97d5a87f036fdf9682774a2b04edb34475e4b8d44180ef21c8e9a7c76b"
+    },
+    {
+      "name": "player_sword_f02/attack_SE_7",
+      "rgbaSha256": "b4c19a8f366c313eb747e971e48aef3f74eea98306323401432416ae13666cc7"
+    },
+    {
+      "name": "player_sword_f02/attack_SE_8",
+      "rgbaSha256": "0d3949d84dfced78793aae6e70069b8763ffc8554cd9dc45c4c850302febf707"
+    },
+    {
+      "name": "player_sword_f02/attack_SE_9",
+      "rgbaSha256": "90afc9fe81a2f261db3a85771183db6f9ab931706b6d1e8a808a07470fecfcd5"
+    },
+    {
+      "name": "player_sword_f02/attack_SE_10",
+      "rgbaSha256": "fb9bd7be16322a762e492c9ba5ce38a649ef52b182328c03b224dbbf7fa11af9"
+    },
+    {
+      "name": "player_sword_f02/attack_SE_11",
+      "rgbaSha256": "3055224ba8b0510165b3791d32d969d57e70c5364551ff3445d48e18443d8398"
+    }
+  ]
+}

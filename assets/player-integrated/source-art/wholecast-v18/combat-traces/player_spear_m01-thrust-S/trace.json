@@ -1,0 +1,251 @@
+{
+  "registrationVersion": 2,
+  "id": "player_spear_m01-thrust-S",
+  "character": "player_spear_m01",
+  "action": "thrust",
+  "direction": "S",
+  "source": "motion/player_spear_m01-thrust-S-r2.png",
+  "sha256": "75d6e59aaaf354a3953c6d3ee4e88677390d9c64ee6001c4a0da3481a98ab2d0",
+  "uniformWholeActorScale": 0.24469820554649266,
+  "rowFloor": [
+    364.0,
+    693.0,
+    1054.5
+  ],
+  "gridOrigin": 174.0,
+  "gridStep": 362.0,
+  "frameSize": [
+    144,
+    144
+  ],
+  "root": [
+    72,
+    128
+  ],
+  "masterHeadWidth": 19,
+  "neutralBodyHeight": 75,
+  "resampling": "nearest",
+  "modularLayers": false,
+  "frames": [
+    {
+      "index": 0,
+      "nativeBounds": [
+        61,
+        46,
+        97,
+        127
+      ],
+      "headWidth": 10.03,
+      "sourceBounds": [
+        130,
+        30,
+        276,
+        365
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "index": 1,
+      "nativeBounds": [
+        67,
+        54,
+        102,
+        127
+      ],
+      "headWidth": 20.8,
+      "sourceBounds": [
+        516,
+        61,
+        658,
+        365
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "index": 2,
+      "nativeBounds": [
+        58,
+        50,
+        93,
+        127
+      ],
+      "headWidth": 18.35,
+      "sourceBounds": [
+        839,
+        51,
+        983,
+        365
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "index": 3,
+      "nativeBounds": [
+        55,
+        54,
+        88,
+        127
+      ],
+      "headWidth": 20.8,
+      "sourceBounds": [
+        1188,
+        62,
+        1328,
+        365
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "index": 4,
+      "nativeBounds": [
+        62,
+        64,
+        99,
+        127
+      ],
+      "headWidth": 19.82,
+      "sourceBounds": [
+        134,
+        435,
+        287,
+        694
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "index": 5,
+      "nativeBounds": [
+        60,
+        65,
+        99,
+        127
+      ],
+      "headWidth": 18.35,
+      "sourceBounds": [
+        488,
+        440,
+        647,
+        694
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "index": 6,
+      "nativeBounds": [
+        53,
+        64,
+        90,
+        127
+      ],
+      "headWidth": 19.58,
+      "sourceBounds": [
+        820,
+        435,
+        972,
+        694
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "index": 7,
+      "nativeBounds": [
+        51,
+        64,
+        89,
+        127
+      ],
+      "headWidth": 19.58,
+      "sourceBounds": [
+        1172,
+        435,
+        1330,
+        694
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "index": 8,
+      "nativeBounds": [
+        63,
+        59,
+        99,
+        127
+      ],
+      "headWidth": 22.27,
+      "sourceBounds": [
+        136,
+        776,
+        283,
+        1054
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "index": 9,
+      "nativeBounds": [
+        65,
+        44,
+        100,
+        127
+      ],
+      "headWidth": 27.41,
+      "sourceBounds": [
+        508,
+        713,
+        650,
+        1055
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "index": 10,
+      "nativeBounds": [
+        58,
+        47,
+        92,
+        127
+      ],
+      "headWidth": 21.78,
+      "sourceBounds": [
+        839,
+        725,
+        980,
+        1057
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "index": 11,
+      "nativeBounds": [
+        53,
+        47,
+        90,
+        127
+      ],
+      "headWidth": 21.78,
+      "sourceBounds": [
+        1183,
+        726,
+        1333,
+        1056
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    }
+  ],
+  "visualReview": "pending",
+  "registrationOptions": {
+    "source": "player_spear_m01-thrust-S-r2.png"
+  }
+}

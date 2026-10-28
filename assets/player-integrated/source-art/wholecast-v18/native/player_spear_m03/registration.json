@@ -1,0 +1,244 @@
+{
+  "id": "player_spear_m03",
+  "source": "masters/player_spear_m03.png",
+  "sha256": "e612007a1fa25a8314b517ca0b70a551947340785bc5df1ae94fb4a368c8714f",
+  "uniformScale": 0.2180232558139535,
+  "frameSize": [
+    112,
+    112
+  ],
+  "root": [
+    56,
+    100
+  ],
+  "resampling": "nearest",
+  "modularLayers": false,
+  "measurementOnlyHairMask": true,
+  "frames": [
+    {
+      "direction": "S",
+      "sourceBounds": [
+        142,
+        14,
+        309,
+        434
+      ],
+      "headDiagnostic": [
+        176,
+        88,
+        295,
+        222
+      ],
+      "nativeBounds": [
+        36,
+        9,
+        72,
+        99
+      ],
+      "wholeActorScale": 0.2180232558139535,
+      "translate": [
+        4.655523255813954,
+        4.595930232558146
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "direction": "SE",
+      "sourceBounds": [
+        601,
+        14,
+        758,
+        434
+      ],
+      "headDiagnostic": [
+        604,
+        87,
+        717,
+        222
+      ],
+      "nativeBounds": [
+        43,
+        9,
+        77,
+        99
+      ],
+      "wholeActorScale": 0.2180232558139535,
+      "translate": [
+        -88.00436046511629,
+        4.595930232558146
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "direction": "E",
+      "sourceBounds": [
+        1052,
+        14,
+        1197,
+        432
+      ],
+      "headDiagnostic": [
+        1056,
+        87,
+        1155,
+        222
+      ],
+      "nativeBounds": [
+        45,
+        8,
+        76,
+        99
+      ],
+      "wholeActorScale": 0.2180232558139535,
+      "translate": [
+        -185.0247093023256,
+        5.0319767441860535
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "direction": "NE",
+      "sourceBounds": [
+        1477,
+        13,
+        1638,
+        432
+      ],
+      "headDiagnostic": [
+        1495,
+        87,
+        1592,
+        222
+      ],
+      "nativeBounds": [
+        42,
+        8,
+        76,
+        99
+      ],
+      "wholeActorScale": 0.2180232558139535,
+      "translate": [
+        -280.5188953488372,
+        5.0319767441860535
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "direction": "N",
+      "sourceBounds": [
+        152,
+        453,
+        313,
+        859
+      ],
+      "headDiagnostic": [
+        165,
+        507,
+        313,
+        666
+      ],
+      "nativeBounds": [
+        37,
+        11,
+        72,
+        99
+      ],
+      "wholeActorScale": 0.2180232558139535,
+      "translate": [
+        3.8924418604651194,
+        -88.06395348837208
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "direction": "NW",
+      "sourceBounds": [
+        597,
+        453,
+        745,
+        860
+      ],
+      "headDiagnostic": [
+        628,
+        522,
+        735,
+        666
+      ],
+      "nativeBounds": [
+        38,
+        11,
+        70,
+        99
+      ],
+      "wholeActorScale": 0.2180232558139535,
+      "translate": [
+        -92.5828488372093,
+        -88.28197674418604
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "direction": "W",
+      "sourceBounds": [
+        1029,
+        454,
+        1171,
+        860
+      ],
+      "headDiagnostic": [
+        1068,
+        521,
+        1168,
+        666
+      ],
+      "nativeBounds": [
+        37,
+        11,
+        67,
+        99
+      ],
+      "wholeActorScale": 0.2180232558139535,
+      "translate": [
+        -187.75,
+        -88.28197674418604
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "direction": "SW",
+      "sourceBounds": [
+        1463,
+        454,
+        1630,
+        862
+      ],
+      "headDiagnostic": [
+        1507,
+        521,
+        1616,
+        666
+      ],
+      "nativeBounds": [
+        35,
+        10,
+        71,
+        99
+      ],
+      "wholeActorScale": 0.2180232558139535,
+      "translate": [
+        -284.44331395348837,
+        -88.71802325581396
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    }
+  ],
+  "visualReview": "pending"
+}

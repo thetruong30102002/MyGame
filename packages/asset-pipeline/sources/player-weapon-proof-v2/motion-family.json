@@ -1,0 +1,7 @@
+{
+  "folder": "family-r4",
+  "status": "rejected-by-user",
+  "reason": "Chủ dự án xác nhận R4 sai chuẩn nét vẽ; gỡ khỏi trang xem chính. Không được đưa lại lên bằng lệnh preview mặc định.",
+  "productionEnabled": false,
+  "userApproved": false
+}

@@ -1,0 +1,52 @@
+{
+  "backend": "builtin-image_gen",
+  "imageType": "fully-drawn-complete-character",
+  "hair": "smoky silver layered side-swept, baked into each complete frame",
+  "master": {
+    "file": "../master-states-drawn.png",
+    "prompt": "master.prompt.txt",
+    "references": [
+      "../master-south-pixellab.png",
+      "../../../../packages/asset-pipeline/sources/pixellab/npc_silver_youth/Idle/rotations/south.png"
+    ],
+    "original": "C:/Users/thetr/.codex/generated_images/01a161de-a2f6-73d3-b375-dc59da54386f/exec-32cc22f7-5911-438a-bfba-f7b55270f364.png"
+  },
+  "none": [
+    {
+      "file": "../idle-none-drawn.png",
+      "prompt": "idle-none.prompt.txt",
+      "original": "exec-e1d92ba1-55a3-44ba-8c63-8e2bf5d95663.png"
+    },
+    {
+      "file": "../walk-none-drawn.png",
+      "prompt": "walk-none-guided.prompt.txt",
+      "references": [
+        "guide-walk-none-2x.png",
+        "master-none-reference.png"
+      ],
+      "original": "exec-a7b50cf4-7f20-4eb9-97dd-49e47178d534.png"
+    },
+    {
+      "file": "../run-none-drawn.png",
+      "prompt": "run-none.prompt.txt",
+      "references": [
+        "guide-run-skeleton-2x.png",
+        "master-none-reference.png"
+      ],
+      "original": "exec-9ec7e10f-dec1-4a47-b886-5cf1080ad01f.png"
+    },
+    {
+      "file": "../reactions-none-drawn.png",
+      "prompt": "reactions-none.prompt.txt",
+      "original": "exec-60e7ab17-b846-43b6-9a1b-8119a5e06150.png"
+    }
+  ],
+  "rejected": [
+    {
+      "file": "../walk-none-drawn-candidate1.png",
+      "prompt": "walk-none.prompt.txt",
+      "reason": "same leading leg repeated; no valid alternating walking cycle"
+    }
+  ],
+  "note": "Neutral skeletons and existing original walking contact sheets are pose references only; no pixels from them enter the new runtime character. Backend imagegen is not PixelLab. Every source cell contains an entirely painted dressed person. Original builtin outputs preserved under generated_images."
+}

@@ -1,4 +1,4 @@
-# Biên dịch C# bằng Roslyn đi kèm Unity, không cần SDK .NET. Không thay DLL trong Library hoặc bản game đã build.
+﻿# Biên dịch C# bằng Roslyn đi kèm Unity, không cần SDK .NET. Không thay DLL trong Library hoặc bản game đã build.
 $ErrorActionPreference = 'Stop'
 $taskRoot = Split-Path -Parent $PSScriptRoot
 $taskProject = Join-Path $taskRoot 'UnityGame'

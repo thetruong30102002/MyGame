@@ -1,0 +1,159 @@
+{
+  "date": "2026-10-23",
+  "method": "Built-in image generation; outputs copied into project on D",
+  "records": [
+    {
+      "name": "male-walk",
+      "tool": "image_gen.imagegen",
+      "prompt": "See full initial generation prompt in conversation tool call; generated complete registered body/action or navy clothing family.",
+      "generatedFile": "C:\\Users\\thetr\\.codex\\generated_images\\01a161de-a2f6-73d3-b375-dc59da54386f\\exec-137ec72b-f4c3-4a69-9fef-161de17359fe.png"
+    },
+    {
+      "name": "male-attack",
+      "tool": "image_gen.imagegen",
+      "prompt": "See full initial generation prompt in conversation tool call; generated complete registered body/action or navy clothing family.",
+      "generatedFile": "C:\\Users\\thetr\\.codex\\generated_images\\01a161de-a2f6-73d3-b375-dc59da54386f\\exec-47fd9fec-2ee9-4a6c-a01d-81cea9a6c17c.png"
+    },
+    {
+      "name": "male-cast",
+      "tool": "image_gen.imagegen",
+      "prompt": "See full initial generation prompt in conversation tool call; generated complete registered body/action or navy clothing family.",
+      "generatedFile": "C:\\Users\\thetr\\.codex\\generated_images\\01a161de-a2f6-73d3-b375-dc59da54386f\\exec-d2e21885-0a68-4c43-9a35-1bd9d24b0440.png"
+    },
+    {
+      "name": "walk-refined",
+      "tool": "image_gen.imagegen",
+      "prompt": "See full initial generation prompt in conversation tool call; generated complete registered body/action or navy clothing family.",
+      "generatedFile": "C:\\Users\\thetr\\.codex\\generated_images\\01a161de-a2f6-73d3-b375-dc59da54386f\\exec-2aefd9ef-bd71-4518-9f8e-19d65eebd49c.png"
+    },
+    {
+      "name": "navy-attack",
+      "tool": "image_gen.imagegen",
+      "prompt": "See full initial generation prompt in conversation tool call; generated complete registered body/action or navy clothing family.",
+      "generatedFile": "C:\\Users\\thetr\\.codex\\generated_images\\01a161de-a2f6-73d3-b375-dc59da54386f\\exec-a6257db7-75b6-4a7f-85f5-c5aea901acd5.png"
+    },
+    {
+      "name": "navy-cast",
+      "tool": "image_gen.imagegen",
+      "prompt": "See full initial generation prompt in conversation tool call; generated complete registered body/action or navy clothing family.",
+      "generatedFile": "C:\\Users\\thetr\\.codex\\generated_images\\01a161de-a2f6-73d3-b375-dc59da54386f\\exec-00502305-d067-49cd-a432-3768cfd49e24.png"
+    },
+    {
+      "name": "navy-walk",
+      "tool": "image_gen.imagegen",
+      "input": [
+        "D:/truong/MyGame/assets/mannequin/v13/source-art/male-walk-refined.png"
+      ],
+      "prompt": "Registered clothing edit. KEEP EXACT8columns5rowsgrid, tinycornermarks, canvas, original40completebodywalkingposes, head/hair/faceandhandsunchanged, allfootcoordinates andlimbdimensionspixel-aligned. Dress each SAMEadultmale hero in SAMEdetailednavyRPGoutfit: fittednavytunicwithfinegoldpiping, smallcreamshouldermantleBELOWchin, narrowtealsash, darkfittedtrousers, narrowstructuredbrownleatherboots/bracers. Clothesfollowactualalternatingsteps/bentknees, no enlargedbootsorbody. Preserveheadsizeandsilhouetteabovechin, handsbareatidenticalcoords. FinePixelLabpixelclusters, sharpdarkcontours, limitedpalette. Transparentoutsidefigures, noextraobjects/shadows/weapons/effects. Eraseghostcontoursoutsidebody, keeplime/magentacornermarkers. Registered dressedcopy forlayers; NOTnewposes.",
+      "generatedFile": "C:\\Users\\thetr\\.codex\\generated_images\\01a161de-a2f6-73d3-b375-dc59da54386f\\exec-a29f2ada-01e1-4bfc-b012-4b1da9fe885d.png"
+    },
+    {
+      "name": "silver-attack",
+      "tool": "image_gen.imagegen",
+      "input": [
+        "D:/truong/MyGame/assets/mannequin/v13/source-art/male-attack-drawn.png"
+      ],
+      "prompt": "Registered outfit-only edit ofthis EXACT 9cols5rows animation. Preserveeverybodypose, head/hair/face/eyes, palms/fists, anatomy, footpositions, canvas/grid/tinycornermarkersunaltered. Fit the exactsame adultmale in detailed SILVERKNIGHTarmor: slimsegmentedbreastplatewithfinegoldfiligree, smallroundedpauldrons BELOWjaw, navypaddedunderlayer, silverbracers, articulateddarkfittedarmoredtrousers, slimnarrowgreaves/boots. Nohelmet/weapon/shield. Sameclothesallframes, jointsandlimbscorrespondexactlytoinputframe. BodydoesNOTgrowinarmor; only1nativepixelmaterialthickness. No highcollarcoveringchin. Overhead/forwardarmsfollowinputprecisely. FinePixelLabpixelart, smallcleanclusters/sharpoutlines, limitedpalette, transparentbackground. Eraseoutsideghostsbutpreserveregistrationmarks. Thisisadressedregisteredcopy ofthebodymaster,notsomethingtorepose.",
+      "generatedFile": "C:\\Users\\thetr\\.codex\\generated_images\\01a161de-a2f6-73d3-b375-dc59da54386f\\exec-53fd6111-0a24-4c81-8295-543d600448b9.png"
+    },
+    {
+      "name": "silver-cast",
+      "tool": "image_gen.imagegen",
+      "input": [
+        "D:/truong/MyGame/assets/mannequin/v13/source-art/male-cast-drawn.png"
+      ],
+      "prompt": "Registered outfit-only edit ofthis EXACT 6cols5rows animation. Preserveeverybodypose, head/hair/face/eyes, palms/fists, anatomy, footpositions, canvas/grid/tinycornermarkersunaltered. Fit the exactsame adultmale in detailed SILVERKNIGHTarmor: slimsegmentedbreastplatewithfinegoldfiligree, smallroundedpauldrons BELOWjaw, navypaddedunderlayer, silverbracers, articulateddarkfittedarmoredtrousers, slimnarrowgreaves/boots. Nohelmet/weapon/shield. Sameclothesallframes, jointsandlimbscorrespondexactlytoinputframe. BodydoesNOTgrowinarmor; only1nativepixelmaterialthickness. No highcollarcoveringchin. Overhead/forwardarmsfollowinputprecisely. FinePixelLabpixelart, smallcleanclusters/sharpoutlines, limitedpalette, transparentbackground. Eraseoutsideghostsbutpreserveregistrationmarks. Thisisadressedregisteredcopy ofthebodymaster,notsomethingtorepose.",
+      "generatedFile": "C:\\Users\\thetr\\.codex\\generated_images\\01a161de-a2f6-73d3-b375-dc59da54386f\\exec-d30bbb8d-2b0d-436a-aec6-1b91508f03df.png"
+    },
+    {
+      "name": "silver-walk",
+      "tool": "image_gen.imagegen",
+      "input": [
+        "D:/truong/MyGame/assets/mannequin/v13/source-art/male-walk-refined.png"
+      ],
+      "prompt": "Registered outfit-only edit of EXACT8cols5rowswalkinganimation. Preserveeveryinputpose, originalface/head/hairpixels andvolume, palms, anatomy, leg/footplacements, canvas/grid/cornermarkers. Dress allsameadultmalehero in ONEdetailedSILVERKNIGHToutfit: fittedsegmentedbreastplate,goldfiligree, smallpauldronsBELOWchin, navypadding, narrowbracers, darkfittedarmoredtrousersandnarrow articulatedsilvergreaves/boots. ClothesfollowEACH8walkingpose precisely; bootsfollowknees/feet,noinflation. Nohelmet,shield,weapon/effects. SharpPixelLabpixelclustersanddarkcontours, limitedpalette. Transparentoutsidefigures, eraseghostcontoursbutkeepregistrationmarks. Sameanatomyandsize, no reposing.",
+      "generatedFile": "C:\\Users\\thetr\\.codex\\generated_images\\01a161de-a2f6-73d3-b375-dc59da54386f\\exec-33a4f316-cfc6-4b8d-bf8d-f1a0b356451d.png"
+    },
+    {
+      "name": "female-short-attack",
+      "tool": "image_gen.imagegen",
+      "input": [
+        "D:/truong/MyGame/assets/mannequin/v13/source-art/male-attack-drawn.png"
+      ],
+      "prompt": "Edit the ENTIRE complete-character animation sheet into an ADULT WOMAN aged25 with short chestnut hair and a feminine face, wearing ONLY an opaque navy sports bra and fitted navy briefs, otherwise bare arms/legs/feet. Pixel-art RPG. Preserve the EXACT original grid, tinyregistrationcornermarks, SAMEcanvasframing, EVERYpose, hand/fingercoordinates, shoulders/hips/knees/ankles, limblengths/thickness, overallheadvolume andbodyscale. This character MUST use exactly the same equipment animation frames as original, so anatomy/pose must staypixel-aligned. Change only gender appearance, addmodestbra, shortfemalehairstyle/eyes. DoNOT redrawposes or inflatehead/hips. Hair/face/body are ONEcomplete drawn sprite in every frame, NO separate head or wig. CrispPixelLabstyle withlimitedpalette. No weapons/effects; transparentbackground, eraseghostcontoursoutsidebody. Keepbarehandsatidenticalcoords.",
+      "generatedFile": "C:\\Users\\thetr\\.codex\\generated_images\\01a161de-a2f6-73d3-b375-dc59da54386f\\exec-0eb2c552-17b5-437f-b028-b4c7b93cf7e4.png"
+    },
+    {
+      "name": "female-short-cast",
+      "tool": "image_gen.imagegen",
+      "input": [
+        "D:/truong/MyGame/assets/mannequin/v13/source-art/female-ponytail-cast-drawn.png"
+      ],
+      "prompt": "Hairstyle-only edit of the existing fantasy game character sprite sheet. Replace each brown ponytail with a neat short chestnut bob, closely fitted around the same cranium, ears and forehead. Keep the character's existing clothing, face, complete body, pose, anatomy, hand/foot coordinates and every other pixel unchanged. EXACT same6columns5rows, framing, canvas and corner registration marks. Only change hairstyle. Full complete-character sprites remain complete in every cell, no separate hair assets. Crisp pixel-art, transparent background.",
+      "generatedFile": "C:\\Users\\thetr\\.codex\\generated_images\\01a161de-a2f6-73d3-b375-dc59da54386f\\exec-55717caf-6b6b-4f57-b3f4-6fa5a2a60d83.png"
+    },
+    {
+      "name": "female-short-walk",
+      "tool": "image_gen.imagegen",
+      "input": [
+        "D:/truong/MyGame/assets/mannequin/v13/source-art/male-walk-refined.png"
+      ],
+      "prompt": "Registered whole-character edit ofexact8columns5rowswalking sheet. Changeeveryadultmale into anADULTWOMAN aged25 with shortchestnutbobhair andfeminineface, wearingONLYopaquenavysportsbraandfittedbriefs,barearmslegsfeet. Keep exactsamebodydimensions/headsize/limblengths/shoulders/hips, walkingposes, handcoordinates, footplacements, grid/canvas/cornermarkers. SAMEbodymeasurementssoallsharedclothesfit. Noenlargedhead/hips, no reposing, no blur, no clothes beyondbra/briefs. Drawfullbodyandhairintegratedineveryframe, finePixelLabRPGpixelart. Transparentoutsidefigures, eraseghostcontours.",
+      "generatedFile": "C:\\Users\\thetr\\.codex\\generated_images\\01a161de-a2f6-73d3-b375-dc59da54386f\\exec-8cabf7ee-8132-494f-8922-c90da656fd06.png"
+    },
+    {
+      "name": "male-ponytail-attack",
+      "tool": "image_gen.imagegen",
+      "input": [
+        "D:/truong/MyGame/assets/mannequin/v13/source-art/male-attack-drawn.png"
+      ],
+      "prompt": "Edit ONLY the HAIRSTYLE of every complete adultmale sprite in this animation sheet to a handsome chestnut BROWN PONYTAIL: well-fitted cap/fringehuggingthesame skull, smallhighhairtie and taperingnaturalponytail. Keep the EXACT original adultmale face, original headvolume (no bigpuffyhair), allbodypixels/anatomy/underwear, poses, palmcoords, footcoordinates, framegrid/canvas/registrationmarks IDENTICAL. Hair sits naturally around ears/foreheadwithoutcoveringeyes/chin, smoothlyjoinedtothehead. DRAWCOMPLETEbody+hair sprites together; do not output separatehairlayers or heads. Same5directionrowsandallactionframesasinput. Transparentbackgroundoutsidecharacter, no clothes/weapons/effects. CrispPixelLabpixelclusters, restrainedpalette.",
+      "generatedFile": "C:\\Users\\thetr\\.codex\\generated_images\\01a161de-a2f6-73d3-b375-dc59da54386f\\exec-016a8b7b-1eed-4461-9e46-fc14c6981897.png"
+    },
+    {
+      "name": "male-ponytail-cast",
+      "tool": "image_gen.imagegen",
+      "input": [
+        "D:/truong/MyGame/assets/mannequin/v13/source-art/male-cast-drawn.png"
+      ],
+      "prompt": "Edit ONLY the HAIRSTYLE of every complete adultmale sprite in this animation sheet to a handsome chestnut BROWN PONYTAIL: well-fitted cap/fringehuggingthesame skull, smallhighhairtie and taperingnaturalponytail. Keep the EXACT original adultmale face, original headvolume (no bigpuffyhair), allbodypixels/anatomy/underwear, poses, palmcoords, footcoordinates, framegrid/canvas/registrationmarks IDENTICAL. Hair sits naturally around ears/foreheadwithoutcoveringeyes/chin, smoothlyjoinedtothehead. DRAWCOMPLETEbody+hair sprites together; do not output separatehairlayers or heads. Same5directionrowsandallactionframesasinput. Transparentbackgroundoutsidecharacter, no clothes/weapons/effects. CrispPixelLabpixelclusters, restrainedpalette.",
+      "generatedFile": "C:\\Users\\thetr\\.codex\\generated_images\\01a161de-a2f6-73d3-b375-dc59da54386f\\exec-820a2d84-34da-4532-9729-066868eca42b.png"
+    },
+    {
+      "name": "male-ponytail-walk",
+      "tool": "image_gen.imagegen",
+      "input": [
+        "D:/truong/MyGame/assets/mannequin/v13/source-art/male-walk-refined.png"
+      ],
+      "prompt": "Registeredcomplete-characteredit ofexact8columns5rowswalksheet. ChangeONLYeveryadultmale'shairtohandsomechestnutPONYTAIL: fittedhaircap/fringesamecraniumsize, smallhighhairtie,naturaltaperedponytail. KeepEVERYbodypixel/anatomy/face/underwear/hand/footcoordinate, exactwalkingposes, headvolumeandcanvas/grid/cornermarkersunchanged. Hairhugsearsandforehead,nopuffyhelmet,noeyecovering. Drawcompletebodyandhairtogetherineveryframe,NOseparatewigs. FinePixelLabpixelclusters, transparentoutsidecharacters, noeffects/objects/clothes.",
+      "generatedFile": "C:\\Users\\thetr\\.codex\\generated_images\\01a161de-a2f6-73d3-b375-dc59da54386f\\exec-1ff0e379-3528-4a97-8fef-14592fbd4179.png"
+    },
+    {
+      "name": "female-ponytail-attack",
+      "tool": "image_gen.imagegen",
+      "input": [
+        "D:/truong/MyGame/assets/mannequin/v13/source-art/female-short-attack-drawn.png"
+      ],
+      "prompt": "Registeredwhole-characteredit. Preserveexact9columns5rowgrid/canvas/markersandALL45adultfemale body/face/hand/foot/anatomypixels, exactoverheadchopposes and navybra/briefs. ChangeONLYherhairtoanelegantBROWNPONYTAILwithfittedcaparoundears/forehead,naturalhighhairtieand taperedlongtail, sameheadvolume,nopuffyhelmet,noforeheadgaps. Completebody+hairdrawntogetherineveryframe;notseparatehair/heads. Sameprecisescaleandposeforreusingequipmentframes. CrispPixelLabpixelart, transparentbackground,noobjects/weapons/effects.",
+      "generatedFile": "C:\\Users\\thetr\\.codex\\generated_images\\01a161de-a2f6-73d3-b375-dc59da54386f\\exec-6a568c30-8bdf-44a9-b8bb-738f5dd2bd48.png"
+    },
+    {
+      "name": "female-ponytail-cast",
+      "tool": "image_gen.imagegen",
+      "input": [
+        "D:/truong/MyGame/assets/mannequin/v13/source-art/male-ponytail-cast-drawn.png"
+      ],
+      "prompt": "Registeredcompletebodyeditofexact6columns5rowscastsheet. ChangetheseadultmaleheroesintoADULTWOMEN25yearsoldwithsame brownponytail, femininefaceandONLYopaquenavy sportsbra/fittedbriefs. Preserveoriginalheadvolume/hairfit, bodyanatomydimensions, exactALLcastingposes, shoulder/hip/wrist/knee/footpixels, canvas/grid/cornermarkers. Clothesmustsharetheoriginalmaleequipmentposes,sodoNOTshiftlimbsormakesizebigger/smaller. Hairfaceandbodyonecompletefigureineachframe,notseparateparts. SharplimitedpalettePixelLabRPGpixelart,transparentoutside,noeffects/weapon/otherobjects.",
+      "generatedFile": "C:\\Users\\thetr\\.codex\\generated_images\\01a161de-a2f6-73d3-b375-dc59da54386f\\exec-9c35ebca-f87c-44dc-811e-07b72b233c8f.png"
+    },
+    {
+      "name": "female-ponytail-walk",
+      "tool": "image_gen.imagegen",
+      "input": [
+        "D:/truong/MyGame/assets/mannequin/v13/source-art/female-short-walk-drawn.png"
+      ],
+      "prompt": "Registeredcomplete-characterHAIRSTYLEedit of EXACT8columns5rowswalking sheet. Preserve ALL adultfemale body/face/anatomy/navybra/briefs pixels, walkingposes, palm/footcoordinates, grid/canvas/cornermarksunchanged. ChangeONLYshorthairtoanelegantBROWNPONYTAIL, fittedcap/fringeear/forehead, smallhighhairtieandtaperedlongtail, SAMEskullvolume,nopuffyhelmet,noforeheadgap. Hairfacebodyonecompletefigureineveryframe, notseparatewigs/heads. FinePixelLabRPGpixelart,transparentoutside,noeffects/objects/clothesbesidesunderwear.",
+      "generatedFile": "C:\\Users\\thetr\\.codex\\generated_images\\01a161de-a2f6-73d3-b375-dc59da54386f\\exec-b2a45fae-703b-4109-8895-7507a7769966.png"
+    }
+  ]
+}

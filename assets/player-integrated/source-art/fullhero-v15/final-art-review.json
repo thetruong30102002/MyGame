@@ -1,0 +1,48 @@
+{
+  "reviewer": "root",
+  "scope": "Final native palette raster: approved exact idle preserved; Sword/Staff idle/walk/run and overhead chop/cast compared at shared root and scale. Runtime transitions pending.",
+  "atlasSha256": "b970287f663cf29d207ec447c891619bf28ae46bdcfd166d57a1de38174bf750",
+  "cards": [
+    {
+      "file": "review-final-palette/staff-E-3x.png",
+      "sha256": "50d6f101d0c9ddaf9445ffe7263ff4cd2a0ff93559b3594fd1c3f197191a389b"
+    },
+    {
+      "file": "review-final-palette/staff-N-3x.png",
+      "sha256": "427759a4bcf3d921d0ea8286150bec5fb41a1e02376d794a1700c59b70b72ada"
+    },
+    {
+      "file": "review-final-palette/staff-NE-3x.png",
+      "sha256": "e5420257ea78bc9c64a3faefcfdbe7e52f278f157145a8239086e78a21662305"
+    },
+    {
+      "file": "review-final-palette/staff-S-3x.png",
+      "sha256": "60f59e9eb2acc593bceb2aa7899fc6b634004257eac8b8fa426e26663528ddfe"
+    },
+    {
+      "file": "review-final-palette/staff-SE-3x.png",
+      "sha256": "4828ca4dbdfbf2b3d6b3e1ca6832ccf0b2048364161a2d97f990a2915db2b809"
+    },
+    {
+      "file": "review-final-palette/sword-E-3x.png",
+      "sha256": "4f8a1bfaad0ca635e12378b5b0af05e5d555c19cd84c7a8067e68c67d9bc249e"
+    },
+    {
+      "file": "review-final-palette/sword-N-3x.png",
+      "sha256": "1bde54689af2cb590e84fa94e3c67ddbd59f482eec633066aae8cacbda07fe17"
+    },
+    {
+      "file": "review-final-palette/sword-NE-3x.png",
+      "sha256": "b811448423c216b4d3f6ff9c279a583a4d7d67d04c9e23838ad36923cc5bf7f5"
+    },
+    {
+      "file": "review-final-palette/sword-S-3x.png",
+      "sha256": "c4a519fe95532136ae7bf85be80d889b374b9ece771785865624088282f48ccb"
+    },
+    {
+      "file": "review-final-palette/sword-SE-3x.png",
+      "sha256": "fea3130e53e9f2d31a0af743c4e23e69d70eb6d6115486e563ca2734dbcc4acf"
+    }
+  ],
+  "approved": true
+}

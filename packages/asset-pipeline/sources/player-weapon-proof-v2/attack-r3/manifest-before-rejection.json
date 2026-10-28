@@ -1,0 +1,1004 @@
+{
+  "version": 2,
+  "assetRevision": "tu-yen-1793024679485",
+  "status": "source-matched-art-review",
+  "productionEnabled": false,
+  "frameSize": [
+    144,
+    144
+  ],
+  "root": [
+    72,
+    128
+  ],
+  "bodyCount": 28,
+  "weaponCount": 3,
+  "layers": [
+    "body-with-hair-and-clothes",
+    "weapon-visible-parts",
+    "original-finger-occlusion"
+  ],
+  "hairSeparated": false,
+  "sharedHilt": false,
+  "normalization": {
+    "filter": "none-native-original",
+    "perFrameScale": false
+  },
+  "attackRevision": {
+    "id": "attack-r3",
+    "folder": "attack-r3",
+    "status": "pending-visual-review",
+    "reason": "Chủ dự án báo thân/đầu tấn công phình và khác độ nét với đứng yên. Sửa nguồn toàn thân, khóa hai đầu chuỗi theo idle; idle/walk giữ nguyên.",
+    "productionEnabled": false,
+    "userApproved": false
+  },
+  "frames": [
+    {
+      "id": "idle-S",
+      "bladeStart": [
+        56.21,
+        103.07
+      ],
+      "tip": [
+        49,
+        126
+      ],
+      "grip": [
+        57,
+        100
+      ],
+      "axis": [
+        -0.29975,
+        0.95402
+      ],
+      "length": 24.04,
+      "detectedPixels": 66,
+      "reviewed": false,
+      "behind": false,
+      "bodySha256": "32684edb5ce978225993032ae4484e6e9c244a278d1ffb144b4a1b5a28f398f2",
+      "source": "assets/characters/player_verdant_sword/player_verdant_sword.json",
+      "removedPixels": 96,
+      "repairedPixels": 8,
+      "referenceMismatchChannels": 0,
+      "sourceMatched": true,
+      "tuYenBladeMirrored": false
+    },
+    {
+      "id": "idle-SW",
+      "bladeStart": [
+        58.75,
+        102.35
+      ],
+      "tip": [
+        49.07,
+        123.03
+      ],
+      "grip": [
+        60,
+        100
+      ],
+      "axis": [
+        -0.42392,
+        0.9057
+      ],
+      "length": 22.83,
+      "detectedPixels": 62,
+      "reviewed": false,
+      "behind": false,
+      "bodySha256": "8904fdc3d946c9146c960cf817e021ddc50fb30e7f4dbfa8dbd14ad8470c01bd",
+      "source": "assets/characters/player_verdant_sword/player_verdant_sword.json",
+      "removedPixels": 100,
+      "repairedPixels": 10,
+      "referenceMismatchChannels": 0,
+      "sourceMatched": true,
+      "tuYenBladeMirrored": false
+    },
+    {
+      "id": "idle-W",
+      "bladeStart": [
+        63.79,
+        101.44
+      ],
+      "tip": [
+        51.2,
+        124.11
+      ],
+      "grip": [
+        65,
+        99
+      ],
+      "axis": [
+        -0.4856,
+        0.87418
+      ],
+      "length": 25.93,
+      "detectedPixels": 68,
+      "reviewed": false,
+      "behind": false,
+      "bodySha256": "aab678f1e4e7712e8fa1cbdde80bf6c14a264ab8a3f38d3ebb6d0d2494e1cc52",
+      "source": "assets/characters/player_verdant_sword/player_verdant_sword.json",
+      "removedPixels": 107,
+      "repairedPixels": 14,
+      "referenceMismatchChannels": 0,
+      "sourceMatched": true,
+      "tuYenBladeMirrored": false
+    },
+    {
+      "id": "idle-NW",
+      "bladeStart": [
+        85.12,
+        102.96
+      ],
+      "tip": [
+        92.16,
+        121.94
+      ],
+      "grip": [
+        84,
+        100
+      ],
+      "axis": [
+        0.34789,
+        0.93753
+      ],
+      "length": 20.25,
+      "detectedPixels": 43,
+      "reviewed": false,
+      "behind": false,
+      "bodySha256": "860b9276e3466faa82afbcb778cc60d1a54a65270f35127b5b31082ac033e511",
+      "source": "assets/characters/player_verdant_sword/player_verdant_sword.json",
+      "removedPixels": 80,
+      "repairedPixels": 3,
+      "referenceMismatchChannels": 0,
+      "sourceMatched": true,
+      "tuYenBladeMirrored": true
+    },
+    {
+      "id": "idle-N",
+      "bladeStart": [
+        86.22,
+        103.92
+      ],
+      "tip": [
+        93.79,
+        124.08
+      ],
+      "grip": [
+        85,
+        101
+      ],
+      "axis": [
+        0.35152,
+        0.93618
+      ],
+      "length": 21.54,
+      "detectedPixels": 53,
+      "reviewed": false,
+      "behind": false,
+      "bodySha256": "32d43207542b807bd261e605516ac7165e18a03d2d38d6abfa9335e829abbc8c",
+      "source": "assets/characters/player_verdant_sword/player_verdant_sword.json",
+      "removedPixels": 89,
+      "repairedPixels": 3,
+      "referenceMismatchChannels": 0,
+      "sourceMatched": true,
+      "tuYenBladeMirrored": true
+    },
+    {
+      "id": "idle-NE",
+      "bladeStart": [
+        85.46,
+        103.22
+      ],
+      "tip": [
+        94.1,
+        124.96
+      ],
+      "grip": [
+        84,
+        100
+      ],
+      "axis": [
+        0.36939,
+        0.92928
+      ],
+      "length": 23.4,
+      "detectedPixels": 59,
+      "reviewed": false,
+      "behind": false,
+      "bodySha256": "d9a3fffb1bdc9071c2a87bb1fd8f03e22443a169b60066214db8e75f22a8d2aa",
+      "source": "assets/characters/player_verdant_sword/player_verdant_sword.json",
+      "removedPixels": 96,
+      "repairedPixels": 3,
+      "referenceMismatchChannels": 0,
+      "sourceMatched": true,
+      "tuYenBladeMirrored": true
+    },
+    {
+      "id": "idle-E",
+      "bladeStart": [
+        73.81,
+        103.13
+      ],
+      "tip": [
+        87.81,
+        124.13
+      ],
+      "grip": [
+        72,
+        101
+      ],
+      "axis": [
+        0.55483,
+        0.83196
+      ],
+      "length": 25.24,
+      "detectedPixels": 73,
+      "reviewed": false,
+      "behind": false,
+      "bodySha256": "5b7987205b87d6a08a7d3abe97159783cf3f7d59ea4bc4cc69a585e1ff91e0a5",
+      "source": "assets/characters/player_verdant_sword/player_verdant_sword.json",
+      "removedPixels": 112,
+      "repairedPixels": 24,
+      "referenceMismatchChannels": 0,
+      "sourceMatched": true,
+      "tuYenBladeMirrored": true
+    },
+    {
+      "id": "idle-SE",
+      "bladeStart": [
+        58.62,
+        102.9
+      ],
+      "tip": [
+        52.88,
+        123.97
+      ],
+      "grip": [
+        59,
+        100
+      ],
+      "axis": [
+        -0.26294,
+        0.96481
+      ],
+      "length": 21.84,
+      "detectedPixels": 57,
+      "reviewed": false,
+      "behind": false,
+      "bodySha256": "32605f0718c82c78dd6ad0f2697493ae06b27d64614d4013d55433fc26a7c4ec",
+      "source": "assets/characters/player_verdant_sword/player_verdant_sword.json",
+      "removedPixels": 95,
+      "repairedPixels": 5,
+      "referenceMismatchChannels": 0,
+      "sourceMatched": true,
+      "tuYenBladeMirrored": false
+    },
+    {
+      "id": "walk-E-0",
+      "bladeStart": [
+        74.21,
+        102.79
+      ],
+      "tip": [
+        93.11,
+        121.89
+      ],
+      "grip": [
+        72,
+        101
+      ],
+      "axis": [
+        0.7035,
+        0.7107
+      ],
+      "length": 26.88,
+      "detectedPixels": 82,
+      "reviewed": false,
+      "behind": false,
+      "bodySha256": "0081166cba964e225a07ecb01226687c9fea9e51984fec15753ddd653370d104",
+      "source": "assets/characters/player_verdant_sword/player_verdant_sword.json",
+      "removedPixels": 134,
+      "repairedPixels": 50,
+      "referenceMismatchChannels": 0,
+      "sourceMatched": true,
+      "tuYenBladeMirrored": true
+    },
+    {
+      "id": "walk-E-1",
+      "bladeStart": [
+        73.79,
+        101.15
+      ],
+      "tip": [
+        92.33,
+        120.69
+      ],
+      "grip": [
+        72,
+        99
+      ],
+      "axis": [
+        0.68832,
+        0.72541
+      ],
+      "length": 26.94,
+      "detectedPixels": 86,
+      "reviewed": false,
+      "behind": false,
+      "bodySha256": "aa96590a3b6ac94a14720ead1348ee8728c68a11817cb2fa1a6b3229f0d450d8",
+      "source": "assets/characters/player_verdant_sword/player_verdant_sword.json",
+      "removedPixels": 130,
+      "repairedPixels": 39,
+      "referenceMismatchChannels": 0,
+      "sourceMatched": true,
+      "tuYenBladeMirrored": true
+    },
+    {
+      "id": "walk-E-2",
+      "bladeStart": [
+        73.64,
+        101.32
+      ],
+      "tip": [
+        92.06,
+        121.95
+      ],
+      "grip": [
+        72,
+        99
+      ],
+      "axis": [
+        0.6658,
+        0.74613
+      ],
+      "length": 27.65,
+      "detectedPixels": 86,
+      "reviewed": false,
+      "behind": false,
+      "bodySha256": "d8db6ccde7e57eb3c468e821ac46eec1c002b7a72fab1a9dcaf98c22044db60a",
+      "source": "assets/characters/player_verdant_sword/player_verdant_sword.json",
+      "removedPixels": 138,
+      "repairedPixels": 42,
+      "referenceMismatchChannels": 0,
+      "sourceMatched": true,
+      "tuYenBladeMirrored": true
+    },
+    {
+      "id": "walk-E-3",
+      "bladeStart": [
+        76.43,
+        100.57
+      ],
+      "tip": [
+        95.87,
+        120.13
+      ],
+      "grip": [
+        74,
+        98
+      ],
+      "axis": [
+        0.70481,
+        0.7094
+      ],
+      "length": 27.58,
+      "detectedPixels": 82,
+      "reviewed": false,
+      "behind": false,
+      "bodySha256": "4fbd488ed3783cce95ad0b736a2fb396ea13ec13a0a04d8a46758ce84a519c23",
+      "source": "assets/characters/player_verdant_sword/player_verdant_sword.json",
+      "removedPixels": 133,
+      "repairedPixels": 38,
+      "referenceMismatchChannels": 0,
+      "sourceMatched": true,
+      "tuYenBladeMirrored": true
+    },
+    {
+      "id": "walk-E-4",
+      "bladeStart": [
+        80.35,
+        100.62
+      ],
+      "tip": [
+        99.16,
+        117.82
+      ],
+      "grip": [
+        78,
+        99
+      ],
+      "axis": [
+        0.73793,
+        0.67488
+      ],
+      "length": 25.49,
+      "detectedPixels": 79,
+      "reviewed": false,
+      "behind": false,
+      "bodySha256": "4b800fb6e5aba8126411d1589e0d81c572d33bbfe792dea476898febea870541",
+      "source": "assets/characters/player_verdant_sword/player_verdant_sword.json",
+      "removedPixels": 129,
+      "repairedPixels": 34,
+      "referenceMismatchChannels": 0,
+      "sourceMatched": true,
+      "tuYenBladeMirrored": true
+    },
+    {
+      "id": "walk-E-5",
+      "bladeStart": [
+        75.72,
+        102.28
+      ],
+      "tip": [
+        93.92,
+        120.08
+      ],
+      "grip": [
+        74,
+        100
+      ],
+      "axis": [
+        0.71493,
+        0.69919
+      ],
+      "length": 25.45,
+      "detectedPixels": 79,
+      "reviewed": false,
+      "behind": false,
+      "bodySha256": "a4898265601cc31fad78ca9a5a195909a3a7a08b0b3cb763a8f57268bcc81224",
+      "source": "assets/characters/player_verdant_sword/player_verdant_sword.json",
+      "removedPixels": 128,
+      "repairedPixels": 44,
+      "referenceMismatchChannels": 0,
+      "sourceMatched": true,
+      "tuYenBladeMirrored": true
+    },
+    {
+      "id": "walk-E-6",
+      "bladeStart": [
+        73.79,
+        103.19
+      ],
+      "tip": [
+        91.8,
+        123.18
+      ],
+      "grip": [
+        72,
+        101
+      ],
+      "axis": [
+        0.66921,
+        0.74307
+      ],
+      "length": 26.91,
+      "detectedPixels": 78,
+      "reviewed": false,
+      "behind": false,
+      "bodySha256": "58487176eaaf44a5052ec5a83d5c069a2c6b2c78881722ae1cec9402365ac753",
+      "source": "assets/characters/player_verdant_sword/player_verdant_sword.json",
+      "removedPixels": 134,
+      "repairedPixels": 30,
+      "referenceMismatchChannels": 0,
+      "sourceMatched": true,
+      "tuYenBladeMirrored": true
+    },
+    {
+      "id": "walk-E-7",
+      "bladeStart": [
+        79.48,
+        99.46
+      ],
+      "tip": [
+        98.09,
+        116.02
+      ],
+      "grip": [
+        77,
+        97
+      ],
+      "axis": [
+        0.74703,
+        0.66478
+      ],
+      "length": 24.91,
+      "detectedPixels": 74,
+      "reviewed": false,
+      "behind": false,
+      "bodySha256": "a84cbc09e823bd50c64bc06f78a8f8718f0abb5754b5b05bdb4422fbe08709fe",
+      "source": "assets/characters/player_verdant_sword/player_verdant_sword.json",
+      "removedPixels": 127,
+      "repairedPixels": 34,
+      "referenceMismatchChannels": 0,
+      "sourceMatched": true,
+      "tuYenBladeMirrored": true
+    },
+    {
+      "id": "attack-S-0",
+      "bladeStart": [
+        56.21,
+        103.07
+      ],
+      "tip": [
+        49,
+        126
+      ],
+      "grip": [
+        57,
+        100
+      ],
+      "axis": [
+        -0.29975,
+        0.95402
+      ],
+      "length": 24.04,
+      "detectedPixels": 66,
+      "reviewed": false,
+      "behind": false,
+      "bodySha256": "32684edb5ce978225993032ae4484e6e9c244a278d1ffb144b4a1b5a28f398f2",
+      "source": "packages/asset-pipeline/sources/player-weapon-proof-v2/attack-r3/native/attack-S-0.png",
+      "removedPixels": 96,
+      "repairedPixels": 8,
+      "referenceMismatchChannels": 0,
+      "sourceMatched": true,
+      "tuYenBladeMirrored": false
+    },
+    {
+      "id": "attack-S-1",
+      "bladeStart": [
+        65.93,
+        101.92
+      ],
+      "tip": [
+        43.15,
+        121.18
+      ],
+      "grip": [
+        72,
+        97
+      ],
+      "axis": [
+        -0.7637,
+        0.64557
+      ],
+      "length": 29.83,
+      "detectedPixels": 105,
+      "reviewed": false,
+      "behind": false,
+      "bodySha256": "6ffe9ae1e1de79145130e486d96c081c37c592a2919a3f45122012eeaa353f02",
+      "source": "packages/asset-pipeline/sources/player-weapon-proof-v2/attack-r3/native/attack-S-1.png",
+      "removedPixels": 229,
+      "repairedPixels": 74,
+      "referenceMismatchChannels": 0,
+      "sourceMatched": true,
+      "tuYenBladeMirrored": false
+    },
+    {
+      "id": "attack-S-2",
+      "bladeStart": [
+        71.5,
+        76
+      ],
+      "tip": [
+        71.5,
+        40
+      ],
+      "grip": [
+        72,
+        84
+      ],
+      "axis": [
+        0,
+        -1
+      ],
+      "length": 36,
+      "detectedPixels": 146,
+      "reviewed": false,
+      "behind": false,
+      "bodySha256": "455e4081012c3e5b3abcc838de962860fde807f1f287f2061919cf9a96624fe0",
+      "source": "packages/asset-pipeline/sources/player-weapon-proof-v2/attack-r3/native/attack-S-2.png",
+      "removedPixels": 291,
+      "repairedPixels": 153,
+      "referenceMismatchChannels": 0,
+      "sourceMatched": true,
+      "tuYenBladeMirrored": false
+    },
+    {
+      "id": "attack-S-3",
+      "bladeStart": [
+        71.46,
+        47
+      ],
+      "tip": [
+        71.47,
+        24
+      ],
+      "grip": [
+        71,
+        55
+      ],
+      "axis": [
+        0.00042,
+        -1
+      ],
+      "length": 23,
+      "detectedPixels": 90,
+      "reviewed": false,
+      "behind": false,
+      "bodySha256": "4b9ab2f778e9746585063fa9370c6ddb86ab8d746ea1ce9a8fe118a83f4996a1",
+      "source": "packages/asset-pipeline/sources/player-weapon-proof-v2/attack-r3/native/attack-S-3.png",
+      "removedPixels": 161,
+      "repairedPixels": 2,
+      "referenceMismatchChannels": 0,
+      "sourceMatched": true,
+      "tuYenBladeMirrored": false
+    },
+    {
+      "id": "attack-S-4",
+      "bladeStart": [
+        71.47,
+        43
+      ],
+      "tip": [
+        71.52,
+        24
+      ],
+      "grip": [
+        71,
+        51
+      ],
+      "axis": [
+        0.00238,
+        -1
+      ],
+      "length": 19,
+      "detectedPixels": 73,
+      "reviewed": false,
+      "behind": false,
+      "bodySha256": "fcb2a455f7c8eabfb9be303d75e6eaf348fb876d0e3397f39aba9beda199cd20",
+      "source": "packages/asset-pipeline/sources/player-weapon-proof-v2/attack-r3/native/attack-S-4.png",
+      "removedPixels": 143,
+      "repairedPixels": 22,
+      "referenceMismatchChannels": 0,
+      "sourceMatched": true,
+      "tuYenBladeMirrored": false
+    },
+    {
+      "id": "attack-S-5",
+      "bladeStart": [
+        72,
+        50
+      ],
+      "tip": [
+        72,
+        50
+      ],
+      "grip": [
+        72,
+        54
+      ],
+      "axis": [
+        0,
+        1
+      ],
+      "length": 0,
+      "hidden": true,
+      "reviewed": false,
+      "behind": false,
+      "bodySha256": "aa8826167df76e0f248b2a2cf729c5df0ae17a139020656afaff0370224b60d7",
+      "source": "packages/asset-pipeline/sources/player-weapon-proof-v2/attack-r3/native/attack-S-5.png",
+      "removedPixels": 7,
+      "repairedPixels": 7,
+      "referenceMismatchChannels": 0,
+      "sourceMatched": true,
+      "tuYenBladeMirrored": false
+    },
+    {
+      "id": "attack-S-6",
+      "bladeStart": [
+        63.09,
+        65.94
+      ],
+      "tip": [
+        47.17,
+        42.88
+      ],
+      "grip": [
+        68,
+        73
+      ],
+      "axis": [
+        -0.56822,
+        -0.82287
+      ],
+      "length": 28.02,
+      "detectedPixels": 105,
+      "reviewed": false,
+      "behind": false,
+      "bodySha256": "9e3fa2fa4d0c10f885802f1a1799fb2d438cc0481f67cd83214a6692ea1fb6c0",
+      "source": "packages/asset-pipeline/sources/player-weapon-proof-v2/attack-r3/native/attack-S-6.png",
+      "removedPixels": 217,
+      "repairedPixels": 24,
+      "referenceMismatchChannels": 0,
+      "sourceMatched": true,
+      "tuYenBladeMirrored": false
+    },
+    {
+      "id": "attack-S-7",
+      "bladeStart": [
+        71.59,
+        106
+      ],
+      "tip": [
+        71.63,
+        127
+      ],
+      "grip": [
+        72,
+        98
+      ],
+      "axis": [
+        0.00189,
+        1
+      ],
+      "length": 21.01,
+      "detectedPixels": 90,
+      "reviewed": false,
+      "behind": false,
+      "bodySha256": "04900f80b0c4b8aa4d7b3f612825338b1a7531168c9746e1a2920afa27a6bc6c",
+      "source": "packages/asset-pipeline/sources/player-weapon-proof-v2/attack-r3/native/attack-S-7.png",
+      "removedPixels": 169,
+      "repairedPixels": 22,
+      "referenceMismatchChannels": 0,
+      "sourceMatched": true,
+      "tuYenBladeMirrored": false
+    },
+    {
+      "id": "attack-S-8",
+      "bladeStart": [
+        61.49,
+        99.57
+      ],
+      "tip": [
+        40.71,
+        117.67
+      ],
+      "grip": [
+        68,
+        94
+      ],
+      "axis": [
+        -0.7541,
+        0.65676
+      ],
+      "length": 27.56,
+      "detectedPixels": 100,
+      "reviewed": false,
+      "behind": false,
+      "bodySha256": "9629d2c2d9ca3380d736a5d7d6b20baddd3e5e758d03150fd0d577900973611c",
+      "source": "packages/asset-pipeline/sources/player-weapon-proof-v2/attack-r3/native/attack-S-8.png",
+      "removedPixels": 211,
+      "repairedPixels": 59,
+      "referenceMismatchChannels": 0,
+      "sourceMatched": true,
+      "tuYenBladeMirrored": false
+    },
+    {
+      "id": "attack-S-9",
+      "bladeStart": [
+        59.95,
+        99.94
+      ],
+      "tip": [
+        39.21,
+        117.25
+      ],
+      "grip": [
+        66,
+        95
+      ],
+      "axis": [
+        -0.76764,
+        0.64089
+      ],
+      "length": 27.02,
+      "detectedPixels": 94,
+      "reviewed": false,
+      "behind": false,
+      "bodySha256": "4b98aef40db23138c98532d90b25daf08acf0a03c19672be43f0517c692ae1ec",
+      "source": "packages/asset-pipeline/sources/player-weapon-proof-v2/attack-r3/native/attack-S-9.png",
+      "removedPixels": 210,
+      "repairedPixels": 40,
+      "referenceMismatchChannels": 0,
+      "sourceMatched": true,
+      "tuYenBladeMirrored": false
+    },
+    {
+      "id": "attack-S-10",
+      "bladeStart": [
+        61.34,
+        100.23
+      ],
+      "tip": [
+        39.8,
+        118.77
+      ],
+      "grip": [
+        67,
+        95
+      ],
+      "axis": [
+        -0.75807,
+        0.65217
+      ],
+      "length": 28.42,
+      "detectedPixels": 101,
+      "reviewed": false,
+      "behind": false,
+      "bodySha256": "42d4d54b82c472158ad2813b7d87802c08df8a1e8d01700bd7d00d2c16334d8a",
+      "source": "packages/asset-pipeline/sources/player-weapon-proof-v2/attack-r3/native/attack-S-10.png",
+      "removedPixels": 211,
+      "repairedPixels": 57,
+      "referenceMismatchChannels": 0,
+      "sourceMatched": true,
+      "tuYenBladeMirrored": false
+    },
+    {
+      "id": "attack-S-11",
+      "bladeStart": [
+        56.21,
+        103.07
+      ],
+      "tip": [
+        49,
+        126
+      ],
+      "grip": [
+        57,
+        100
+      ],
+      "axis": [
+        -0.29975,
+        0.95402
+      ],
+      "length": 24.04,
+      "detectedPixels": 66,
+      "reviewed": false,
+      "behind": false,
+      "bodySha256": "32684edb5ce978225993032ae4484e6e9c244a278d1ffb144b4a1b5a28f398f2",
+      "source": "packages/asset-pipeline/sources/player-weapon-proof-v2/attack-r3/native/attack-S-11.png",
+      "removedPixels": 96,
+      "repairedPixels": 8,
+      "referenceMismatchChannels": 0,
+      "sourceMatched": true,
+      "tuYenBladeMirrored": false
+    }
+  ],
+  "animations": [
+    {
+      "action": "idle",
+      "directions": [
+        "S",
+        "SW",
+        "W",
+        "NW",
+        "N",
+        "NE",
+        "E",
+        "SE"
+      ],
+      "framesPerDirection": 1
+    },
+    {
+      "action": "walk",
+      "directions": [
+        "E"
+      ],
+      "frames": 8
+    },
+    {
+      "action": "attack",
+      "directions": [
+        "S"
+      ],
+      "frames": 12
+    }
+  ],
+  "defaultWeapon": "tu-yen",
+  "weaponVariants": [
+    {
+      "id": "iron",
+      "name": "Kiếm sắt",
+      "back": false,
+      "sharedHilt": true
+    },
+    {
+      "id": "tu-yen",
+      "name": "Kiếm Tử Yên",
+      "back": true,
+      "donor": "player_sword_f03",
+      "sharedHilt": false
+    }
+  ],
+  "tuYenAsset": {
+    "owner": "Tử Yên",
+    "ownerId": "player_sword_f03",
+    "source": "assets\\player-integrated\\source-art\\wholecast-v18\\native\\player_sword_f03\\idle-S.png",
+    "sourceSha256": "9144f6b0acb8fce22744f74a2d3bc4fc8b2e18afb7cd6014c32a5a57755d70ae",
+    "nativeSize": [
+      112,
+      112
+    ],
+    "grip": [
+      42,
+      67
+    ],
+    "gripAxis": [
+      -0.3713906763541037,
+      0.9284766908852594
+    ],
+    "maskPolygon": [
+      [
+        39,
+        68
+      ],
+      [
+        42,
+        69
+      ],
+      [
+        44,
+        72
+      ],
+      [
+        45,
+        76
+      ],
+      [
+        41,
+        79
+      ],
+      [
+        39,
+        83
+      ],
+      [
+        35,
+        88
+      ],
+      [
+        30,
+        93
+      ],
+      [
+        25,
+        97
+      ],
+      [
+        26,
+        93
+      ],
+      [
+        31,
+        87
+      ],
+      [
+        34,
+        82
+      ],
+      [
+        36,
+        77
+      ],
+      [
+        37,
+        73
+      ]
+    ],
+    "scale": 1,
+    "bodyRedrawn": false,
+    "hairSeparated": false,
+    "bladeCurve": "mirror-blade-only-for-screen-right-axis",
+    "notes": "Lấy nguyên pixel lưỡi cong và hộ thủ bạc/tím; loại da/ngón tay của người cho. Chỉ bù đoạn cán bị nắm kín, luôn nằm ở lớp sau. Lưỡi cong lên khi chiếu sang phải; không lật chuôi, hộ thủ hoặc tay."
+  }
+}

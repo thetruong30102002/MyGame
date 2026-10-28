@@ -45,8 +45,8 @@ export function silverHead(original: RGBAImage, hair: RGBAImage, head: Point, to
 }
 
 // Gắn cutout vũ khí theo điểm nắm trên từng pose. Chỉ đổi góc weapon; pose người vẫn là tranh gốc.
-export function weaponFrame(source: RGBAImage, grip: Point, action: string, frame: number, dir: string, staff: boolean, authoredAngle?: number, sourceGrip?: Point, preserveHandle = false): RGBAImage {
-	const out = createImage(112, 112);
+export function weaponFrame(source: RGBAImage, grip: Point, action: string, frame: number, dir: string, staff: boolean, authoredAngle?: number, sourceGrip?: Point, preserveHandle = false, canvasSize = 112): RGBAImage {
+	const out = createImage(canvasSize, canvasSize);
 	const sweep = [-105, -125, -150, -55, 5, 40, 65, -80];
 	let angle = staff ? -83 : action === 'attack' ? sweep[frame % sweep.length]! : -83;
 	if (dir === 'W' || dir === 'NW' || dir === 'SW') angle = 180 - angle;
@@ -54,8 +54,8 @@ export function weaponFrame(source: RGBAImage, grip: Point, action: string, fram
 	const theta = (angle + 90) * Math.PI / 180;
 	const cosine = Math.cos(theta), sine = Math.sin(theta);
 	const sx0 = sourceGrip?.[0] ?? (source.width - 1) / 2, sy0 = sourceGrip?.[1] ?? (staff ? Math.round(source.height * .62) : Math.round(source.height * .83));
-	for (let y = Math.max(0, grip[1] - 55); y < Math.min(112, grip[1] + 55); y++)
-		for (let x = Math.max(0, grip[0] - 55); x < Math.min(112, grip[0] + 55); x++) {
+	for (let y = Math.max(0, grip[1] - 55); y < Math.min(canvasSize, grip[1] + 55); y++)
+		for (let x = Math.max(0, grip[0] - 55); x < Math.min(canvasSize, grip[0] + 55); x++) {
 			const dx = x - grip[0], dy = y - grip[1];
 			const sx = Math.round(cosine * dx + sine * dy + sx0);
 			const sy = Math.round(-sine * dx + cosine * dy + sy0);

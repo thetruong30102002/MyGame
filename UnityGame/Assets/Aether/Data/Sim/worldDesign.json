@@ -1,0 +1,2156 @@
+{
+	"ARCHIVE_CHAPTERS": [
+		{
+			"id": "origin",
+			"order": 1,
+			"title": "Khởi nguyên Aether",
+			"requires": [
+				"old_coin",
+				"root_record",
+				"dawn_copy",
+				"night_copy"
+			],
+			"revelation": "Nơi hội tụ đầu tiên của vật chất và dòng Aether hình thành thế giới. Thần Tri Thức lưu giữ dấu vết khởi nguyên; chi tiết nguồn gốc cuối cùng còn là bản thảo.",
+			"keeper": [
+				"Mỗi miền đất giữ một phần của lịch sử.",
+				"Hãy đối chiếu những gì tìm thấy với bản ghi tại thư khố."
+			],
+			"question": "Người chơi sẽ mang tri thức này về giúp cộng đồng như thế nào?",
+			"journal": "Đã đọc bản ghi nghiên cứu của chương 1. Nội dung đang ở giai đoạn thiết kế.",
+			"spoiler": false
+		},
+		{
+			"id": "pact",
+			"order": 2,
+			"title": "Tám dòng thiên phú",
+			"previous": "origin",
+			"requires": [
+				"reed_ledger",
+				"sahrin_seat"
+			],
+			"revelation": "Bóng tối, Ánh sáng, Mộc, Thủy, Hỏa, Thổ, Phong và Băng là tám thiên phú. Cấp 10 phát hiện đúng một nguyên tố, xác suất đều 12,5%; class và giới tính không quyết định nguyên tố.",
+			"keeper": [
+				"Mỗi miền đất giữ một phần của lịch sử.",
+				"Hãy đối chiếu những gì tìm thấy với bản ghi tại thư khố."
+			],
+			"question": "Người chơi sẽ mang tri thức này về giúp cộng đồng như thế nào?",
+			"journal": "Đã đọc bản ghi nghiên cứu của chương 2. Nội dung đang ở giai đoạn thiết kế.",
+			"spoiler": true
+		},
+		{
+			"id": "burden",
+			"order": 3,
+			"title": "Những thành phố và đường giao thương",
+			"previous": "pact",
+			"requires": [
+				"wind_measure",
+				"forge_contract",
+				"archive_machine"
+			],
+			"revelation": "Các cộng đồng xây thành, phát triển nghề và trao đổi tài nguyên theo môi trường. Khuôn viên, chợ và các mê cung kết nối đời sống người chơi với lịch sử từng vùng.",
+			"keeper": [
+				"Mỗi miền đất giữ một phần của lịch sử.",
+				"Hãy đối chiếu những gì tìm thấy với bản ghi tại thư khố."
+			],
+			"question": "Người chơi sẽ mang tri thức này về giúp cộng đồng như thế nào?",
+			"journal": "Đã đọc bản ghi nghiên cứu của chương 3. Nội dung đang ở giai đoạn thiết kế.",
+			"spoiler": true
+		},
+		{
+			"id": "memory",
+			"order": 4,
+			"title": "Tri thức trên tầng mây",
+			"previous": "burden",
+			"requires": [
+				"fracture_memory"
+			],
+			"revelation": "Những bản ghi từ mọi vùng hội tụ ở Thiên Thành. Người chơi khám phá nguyên nhân các vết rạn và tự lựa chọn vai trò của mình; diễn biến và kết thúc sẽ được viết theo hướng mới.",
+			"keeper": [
+				"Mỗi miền đất giữ một phần của lịch sử.",
+				"Hãy đối chiếu những gì tìm thấy với bản ghi tại thư khố."
+			],
+			"question": "Người chơi sẽ mang tri thức này về giúp cộng đồng như thế nào?",
+			"journal": "Đã đọc bản ghi nghiên cứu của chương 4. Nội dung đang ở giai đoạn thiết kế.",
+			"spoiler": true
+		}
+	],
+	"ARCHIVE_EVIDENCE": [
+		{
+			"id": "old_coin",
+			"name": "Bản ghi Đồng Bằng",
+			"region": "human",
+			"map": "human/town",
+			"note": "Nguồn nghiên cứu đề xuất trong hướng mới; chưa đặt nhiệm vụ hay vật phẩm vào game."
+		},
+		{
+			"id": "root_record",
+			"name": "Niên luân Cổ Thụ",
+			"region": "wood",
+			"map": "wood/worldtree",
+			"note": "Nguồn nghiên cứu đề xuất trong hướng mới; chưa đặt nhiệm vụ hay vật phẩm vào game."
+		},
+		{
+			"id": "dawn_copy",
+			"name": "Bản chép Bình Minh",
+			"region": "light",
+			"map": "light/cathedral",
+			"note": "Nguồn nghiên cứu đề xuất trong hướng mới; chưa đặt nhiệm vụ hay vật phẩm vào game."
+		},
+		{
+			"id": "night_copy",
+			"name": "Bản khắc Đèn Đêm",
+			"region": "dark",
+			"map": "dark/dungeon",
+			"note": "Nguồn nghiên cứu đề xuất trong hướng mới; chưa đặt nhiệm vụ hay vật phẩm vào game."
+		},
+		{
+			"id": "reed_ledger",
+			"name": "Sổ luồng Bến Nước",
+			"region": "swamp",
+			"map": "swamp/stone_dam",
+			"note": "Nguồn nghiên cứu đề xuất trong hướng mới; chưa đặt nhiệm vụ hay vật phẩm vào game."
+		},
+		{
+			"id": "sahrin_seat",
+			"name": "Lịch giếng Ốc Đảo",
+			"region": "desert",
+			"map": "desert/pyramid",
+			"note": "Nguồn nghiên cứu đề xuất trong hướng mới; chưa đặt nhiệm vụ hay vật phẩm vào game."
+		},
+		{
+			"id": "wind_measure",
+			"name": "Bản đo Trạm Gió",
+			"region": "highland",
+			"map": "highland/wind_temple",
+			"note": "Nguồn nghiên cứu đề xuất trong hướng mới; chưa đặt nhiệm vụ hay vật phẩm vào game."
+		},
+		{
+			"id": "forge_contract",
+			"name": "Hợp kim Lò Rèn",
+			"region": "volcano",
+			"map": "volcano/red_anvil",
+			"note": "Nguồn nghiên cứu đề xuất trong hướng mới; chưa đặt nhiệm vụ hay vật phẩm vào game."
+		},
+		{
+			"id": "archive_machine",
+			"name": "Bản ghi Cổ Thành",
+			"region": "ruins",
+			"map": "ruins/aether_archive",
+			"note": "Nguồn nghiên cứu đề xuất trong hướng mới; chưa đặt nhiệm vụ hay vật phẩm vào game."
+		},
+		{
+			"id": "fracture_memory",
+			"name": "Mẫu rạn Không Gian",
+			"region": "void",
+			"map": "void/void_fortress",
+			"note": "Nguồn nghiên cứu đề xuất trong hướng mới; chưa đặt nhiệm vụ hay vật phẩm vào game."
+		}
+	],
+	"FACTIONS": [
+		{
+			"id": "rowanmere_crown",
+			"name": "Triều đình Đồng Bằng",
+			"status": "proposal",
+			"regions": [
+				"human"
+			],
+			"goal": "Bảo vệ các tuyến đường và cân bằng lợi ích giữa thủ phủ với làng nhỏ.",
+			"leverage": "Quân trấn, kho lương, luật giao thương.",
+			"cost": "Thiếu tiếng nói từ vùng ngoài thành."
+		},
+		{
+			"id": "thistlewood_commons",
+			"name": "Hội đồng Làng Khởi Hành",
+			"status": "proposal",
+			"regions": [
+				"human"
+			],
+			"goal": "Phát triển vườn hộ, nghề thủ công và đào tạo người mới.",
+			"leverage": "Đất canh tác, xưởng gỗ, thương quán.",
+			"cost": "Mùa vụ và nhu cầu mở rộng làng cạnh tranh diện tích."
+		},
+		{
+			"id": "seal_order",
+			"name": "Nghiệp đoàn Công Trình",
+			"status": "proposal",
+			"regions": [
+				"human",
+				"swamp",
+				"desert",
+				"highland",
+				"volcano",
+				"fungal",
+				"ruins",
+				"void"
+			],
+			"goal": "Xây cầu, đập và trạm tiếp tế giữa các vùng.",
+			"leverage": "Kỹ sư và đội vận chuyển.",
+			"cost": "Cần đồng thuận cư dân trước khi khai thác tài nguyên."
+		},
+		{
+			"id": "grey_reed",
+			"name": "Liên hội Bến Nước",
+			"status": "proposal",
+			"regions": [
+				"swamp"
+			],
+			"goal": "Giữ đường thủy, mùa cá và các vườn dược liệu.",
+			"leverage": "Thuyền, bến nổi và người dẫn đường.",
+			"cost": "Lũ và nguồn nước ô nhiễm."
+		},
+		{
+			"id": "sahrin_court",
+			"name": "Vương triều Ốc Đảo",
+			"status": "proposal",
+			"regions": [
+				"desert"
+			],
+			"goal": "Bảo vệ giếng nước và tuyến thương caravan.",
+			"leverage": "Cung thành, đội hộ tống, kho nước.",
+			"cost": "Phân phối nước giữa phố lớn và trạm xa."
+		},
+		{
+			"id": "zahra_network",
+			"name": "Hội Thương Nhân Cát",
+			"status": "proposal",
+			"regions": [
+				"desert",
+				"isles"
+			],
+			"goal": "Kết nối hàng hóa sa mạc với cảng biển.",
+			"leverage": "Đoàn xe và bản đồ giếng.",
+			"cost": "Chi phí đường dài và an toàn đoàn buôn."
+		},
+		{
+			"id": "wind_league",
+			"name": "Liên hội Trạm Gió",
+			"status": "proposal",
+			"regions": [
+				"highland"
+			],
+			"goal": "Giữ đường đèo và mạng cối xay.",
+			"leverage": "Hoa tiêu núi, thợ máy và len.",
+			"cost": "Bão và các trạm cô lập."
+		},
+		{
+			"id": "snow_clans",
+			"name": "Hội đồng Tuyết Lĩnh",
+			"status": "proposal",
+			"regions": [
+				"tundra"
+			],
+			"goal": "Giữ nơi trú, kho củi và mùa đánh cá băng.",
+			"leverage": "Thợ săn và kho dự trữ.",
+			"cost": "Mùa đông dài hơn mùa thu hoạch."
+		},
+		{
+			"id": "red_anvil",
+			"name": "Hội đồng Lò Rèn",
+			"status": "proposal",
+			"regions": [
+				"volcano"
+			],
+			"goal": "Rèn công cụ và khai khoáng bền vững.",
+			"leverage": "Thợ rèn, mỏ và hợp kim.",
+			"cost": "An toàn lò và lao động trong vùng nóng."
+		},
+		{
+			"id": "coral_ports",
+			"name": "Liên hội Cảng Biển",
+			"status": "proposal",
+			"regions": [
+				"isles"
+			],
+			"goal": "Giữ vận tải, chợ cá và cứu nạn.",
+			"leverage": "Đội tàu, kho muối và hoa tiêu.",
+			"cost": "Áp lực khai thác rạn biển."
+		},
+		{
+			"id": "maris_people",
+			"name": "Hội Bảo Vệ Rạn",
+			"status": "proposal",
+			"regions": [
+				"isles"
+			],
+			"goal": "Bảo vệ sinh cảnh và nguồn thực phẩm biển.",
+			"leverage": "Tri thức dòng biển và thợ lặn.",
+			"cost": "Cần nguồn thu thay cho khai thác quá mức."
+		},
+		{
+			"id": "spore_commons",
+			"name": "Cộng đồng Bào Tử",
+			"status": "proposal",
+			"regions": [
+				"fungal"
+			],
+			"goal": "Gìn giữ thành phố nấm và các vườn phát quang.",
+			"leverage": "Dược nấm và tinh thể hang.",
+			"cost": "Bào tử lạ lan qua đường hầm."
+		},
+		{
+			"id": "lumerian_archive",
+			"name": "Viện Khảo Cổ",
+			"status": "proposal",
+			"regions": [
+				"ruins"
+			],
+			"goal": "Khôi phục công nghệ và lịch sử khởi nguyên.",
+			"leverage": "Học giả, thư khố và công cụ đo.",
+			"cost": "Phân biệt dữ kiện với giả thuyết."
+		},
+		{
+			"id": "relic_claimants",
+			"name": "Hội Sưu Tầm Cổ Vật",
+			"status": "proposal",
+			"regions": [
+				"ruins"
+			],
+			"goal": "Định nguồn và bảo tồn châu báu tìm được.",
+			"leverage": "Thợ phục chế và thị trường đồ cổ.",
+			"cost": "Nạn trộm di vật, hàng giả."
+		},
+		{
+			"id": "frontier_alliance",
+			"name": "Liên quân Biên Giới",
+			"status": "proposal",
+			"regions": [
+				"void"
+			],
+			"goal": "Giữ tiền đồn trước các khe nứt.",
+			"leverage": "Quân y và tiếp tế liên vùng.",
+			"cost": "Bảo vệ người dân khi nguồn tiếp tế bị chia cắt."
+		},
+		{
+			"id": "root_wardens",
+			"name": "Hội Thủ Lâm",
+			"status": "proposal",
+			"regions": [
+				"wood"
+			],
+			"goal": "Giữ rừng cổ, cây giống và vườn thuốc.",
+			"leverage": "Thảo dược và đường rễ.",
+			"cost": "Cân bằng nhu cầu gỗ với phục hồi rừng."
+		},
+		{
+			"id": "dawn_custodians",
+			"name": "Học viện Bình Minh",
+			"status": "proposal",
+			"regions": [
+				"light"
+			],
+			"goal": "Chia sẻ tri thức ánh sáng, chữa lành và công nghệ pha lê.",
+			"leverage": "Thư viện và trường học.",
+			"cost": "Tránh độc quyền tri thức."
+		},
+		{
+			"id": "night_lanterns",
+			"name": "Hội Đèn Đêm",
+			"status": "proposal",
+			"regions": [
+				"dark"
+			],
+			"goal": "Bảo vệ thành phố đêm và lối qua rừng tối.",
+			"leverage": "Đèn dẫn đường và nghề vải.",
+			"cost": "Giữ an toàn mà không cô lập vùng."
+		},
+		{
+			"id": "rift_cult",
+			"name": "Đoàn Khai Thác Khe Nứt",
+			"status": "proposal",
+			"regions": [
+				"dark",
+				"void"
+			],
+			"goal": "Chiếm nguồn lực từ các vết rạn.",
+			"leverage": "Máy dò và mạng buôn di vật.",
+			"cost": "Khai thác quá mức đe dọa cả cư dân bóng tối."
+		},
+		{
+			"id": "caravan_compact",
+			"name": "Hiệp hội Giao Thương",
+			"status": "proposal",
+			"regions": [
+				"human",
+				"swamp",
+				"desert",
+				"highland",
+				"tundra",
+				"volcano",
+				"isles",
+				"fungal",
+				"ruins",
+				"wood",
+				"light",
+				"dark",
+				"void"
+			],
+			"goal": "Kết nối nông sản, cá, cây giống và đồ trang trí.",
+			"leverage": "Chợ, kho trung chuyển, người bảo lãnh.",
+			"cost": "Cần kiểm nguồn hàng, chống lạm phát và giao dịch gian lận."
+		}
+	],
+	"FACTION_RELATIONS": [
+		{
+			"a": "rowanmere_crown",
+			"b": "thistlewood_commons",
+			"kind": "dispute",
+			"reason": "Khác biệt về quyền khai thác và sử dụng tài nguyên.",
+			"pressure": "Giải quyết bằng nhiệm vụ mới theo vùng; chưa triển khai phe trong gameplay."
+		},
+		{
+			"a": "seal_order",
+			"b": "grey_reed",
+			"kind": "dispute",
+			"reason": "Khác biệt về quyền khai thác và sử dụng tài nguyên.",
+			"pressure": "Giải quyết bằng nhiệm vụ mới theo vùng; chưa triển khai phe trong gameplay."
+		},
+		{
+			"a": "sahrin_court",
+			"b": "zahra_network",
+			"kind": "dispute",
+			"reason": "Khác biệt về quyền khai thác và sử dụng tài nguyên.",
+			"pressure": "Giải quyết bằng nhiệm vụ mới theo vùng; chưa triển khai phe trong gameplay."
+		},
+		{
+			"a": "sahrin_court",
+			"b": "seal_order",
+			"kind": "trade",
+			"reason": "Trao đổi nguồn hàng đặc trưng và mở đường vận chuyển.",
+			"pressure": "Giải quyết bằng nhiệm vụ mới theo vùng; chưa triển khai phe trong gameplay."
+		},
+		{
+			"a": "wind_league",
+			"b": "snow_clans",
+			"kind": "trade",
+			"reason": "Trao đổi nguồn hàng đặc trưng và mở đường vận chuyển.",
+			"pressure": "Giải quyết bằng nhiệm vụ mới theo vùng; chưa triển khai phe trong gameplay."
+		},
+		{
+			"a": "red_anvil",
+			"b": "coral_ports",
+			"kind": "trade",
+			"reason": "Trao đổi nguồn hàng đặc trưng và mở đường vận chuyển.",
+			"pressure": "Giải quyết bằng nhiệm vụ mới theo vùng; chưa triển khai phe trong gameplay."
+		},
+		{
+			"a": "coral_ports",
+			"b": "maris_people",
+			"kind": "dispute",
+			"reason": "Khác biệt về quyền khai thác và sử dụng tài nguyên.",
+			"pressure": "Giải quyết bằng nhiệm vụ mới theo vùng; chưa triển khai phe trong gameplay."
+		},
+		{
+			"a": "root_wardens",
+			"b": "spore_commons",
+			"kind": "alliance",
+			"reason": "Hợp tác bảo vệ sinh cảnh và an toàn dân cư.",
+			"pressure": "Giải quyết bằng nhiệm vụ mới theo vùng; chưa triển khai phe trong gameplay."
+		},
+		{
+			"a": "dawn_custodians",
+			"b": "night_lanterns",
+			"kind": "dispute",
+			"reason": "Khác biệt về quyền khai thác và sử dụng tài nguyên.",
+			"pressure": "Giải quyết bằng nhiệm vụ mới theo vùng; chưa triển khai phe trong gameplay."
+		},
+		{
+			"a": "lumerian_archive",
+			"b": "relic_claimants",
+			"kind": "dispute",
+			"reason": "Khác biệt về quyền khai thác và sử dụng tài nguyên.",
+			"pressure": "Giải quyết bằng nhiệm vụ mới theo vùng; chưa triển khai phe trong gameplay."
+		},
+		{
+			"a": "night_lanterns",
+			"b": "rift_cult",
+			"kind": "dispute",
+			"reason": "Khác biệt về quyền khai thác và sử dụng tài nguyên.",
+			"pressure": "Giải quyết bằng nhiệm vụ mới theo vùng; chưa triển khai phe trong gameplay."
+		},
+		{
+			"a": "frontier_alliance",
+			"b": "red_anvil",
+			"kind": "alliance",
+			"reason": "Hợp tác bảo vệ sinh cảnh và an toàn dân cư.",
+			"pressure": "Giải quyết bằng nhiệm vụ mới theo vùng; chưa triển khai phe trong gameplay."
+		},
+		{
+			"a": "caravan_compact",
+			"b": "grey_reed",
+			"kind": "trade",
+			"reason": "Trao đổi nguồn hàng đặc trưng và mở đường vận chuyển.",
+			"pressure": "Giải quyết bằng nhiệm vụ mới theo vùng; chưa triển khai phe trong gameplay."
+		}
+	],
+	"POLITICAL_REGIONS": [
+		{
+			"region": "human",
+			"government": "Vương quốc đồng bằng và hội đồng làng",
+			"authority": "Quân chủ tại thủ phủ; tên và nhân vật vua chưa chốt",
+			"seatMap": "human/rowanmere",
+			"factions": [
+				"rowanmere_crown",
+				"thistlewood_commons"
+			],
+			"exports": [
+				"lúa mì",
+				"mật ong",
+				"vải thô"
+			],
+			"imports": [
+				"thép",
+				"muối",
+				"thuốc"
+			],
+			"tension": "Nhà gỗ đá 2–3 tầng, mái dốc, chợ nông sản và công xưởng.",
+			"questHooks": [
+				"Giao lúa mì cho chợ đầu mối.",
+				"Khôi phục một nhà phụ thành xưởng nghề."
+			],
+			"continuity": "Thiết kế mới: Đồng bằng khởi hành; mở về hồ câu và các khuôn viên cá nhân. Nhân vật đời cũ chỉ phân vai NPC sau khi biên soạn lại."
+		},
+		{
+			"region": "swamp",
+			"government": "Liên hội làng sông",
+			"authority": "Hội đồng các bến nước",
+			"seatMap": "swamp/hub",
+			"factions": [
+				"grey_reed"
+			],
+			"exports": [
+				"dược liệu đầm",
+				"cá",
+				"sậy"
+			],
+			"imports": [
+				"lương khô",
+				"sắt",
+				"gỗ tốt"
+			],
+			"tension": "Nhà sàn cao, cầu gỗ, thuyền hàng và vườn dược liệu nổi.",
+			"questHooks": [
+				"Dọn đường thủy để mở tuyến chợ cá.",
+				"Tìm hạt giống chịu ngập trong mê cung kênh chìm."
+			],
+			"continuity": "Thiết kế mới: Đầm nước nhiều tầng cao độ, đường nổi và bến liên kết. Nhân vật đời cũ chỉ phân vai NPC sau khi biên soạn lại."
+		},
+		{
+			"region": "desert",
+			"government": "Vương quốc ốc đảo",
+			"authority": "Vua hoặc nữ hoàng ốc đảo; danh tính chưa chốt",
+			"seatMap": "desert/hub",
+			"factions": [
+				"sahrin_court",
+				"zahra_network"
+			],
+			"exports": [
+				"kính",
+				"gia vị",
+				"vải nhuộm"
+			],
+			"imports": [
+				"gỗ",
+				"thực phẩm",
+				"quặng"
+			],
+			"tension": "Cung thành sa thạch cao, vòm che nắng, chợ thảm và giếng nước.",
+			"questHooks": [
+				"Hộ tống cây giống về giếng mới.",
+				"Tìm kính cổ và đồ lưu niệm trong mê cung cát."
+			],
+			"continuity": "Thiết kế mới: Cồn cát, khe đá và các trạm caravan cách xa nhau. Nhân vật đời cũ chỉ phân vai NPC sau khi biên soạn lại."
+		},
+		{
+			"region": "highland",
+			"government": "Liên minh thành trạm núi",
+			"authority": "Hội đồng các trạm gió",
+			"seatMap": "highland/hub",
+			"factions": [
+				"wind_league"
+			],
+			"exports": [
+				"bột mì",
+				"len",
+				"thiết bị cối xay"
+			],
+			"imports": [
+				"muối",
+				"kim loại",
+				"thuốc"
+			],
+			"tension": "Nhà đá cao mái đồng, cầu treo, cối xay và bến mây.",
+			"questHooks": [
+				"Khôi phục trạm gió phục vụ đoàn hàng.",
+				"Khảo sát bến mây trước khi mở đường lên trời."
+			],
+			"continuity": "Thiết kế mới: Cao nguyên nhiều gió; dành tuyến riêng lên Thiên Thành. Nhân vật đời cũ chỉ phân vai NPC sau khi biên soạn lại."
+		},
+		{
+			"region": "tundra",
+			"government": "Liên minh thị tộc",
+			"authority": "Hội đồng Tuyết Lĩnh",
+			"seatMap": "tundra/hub",
+			"factions": [
+				"snow_clans"
+			],
+			"exports": [
+				"da thuộc",
+				"khoáng băng",
+				"cá khô"
+			],
+			"imports": [
+				"ngũ cốc",
+				"than",
+				"thuốc"
+			],
+			"tension": "Nhà gỗ dày 2 tầng, mái tuyết dốc và đại sảnh lò sưởi.",
+			"questHooks": [
+				"Dự trữ thực phẩm cho trạm xa.",
+				"Câu cá băng và thu thập vật liệu cách nhiệt."
+			],
+			"continuity": "Thiết kế mới: Miền băng tuyết, hồ đóng băng và các điểm trú bão. Nhân vật đời cũ chỉ phân vai NPC sau khi biên soạn lại."
+		},
+		{
+			"region": "volcano",
+			"government": "Thành bang công nghiệp",
+			"authority": "Hội đồng Lò Rèn",
+			"seatMap": "volcano/red_anvil",
+			"factions": [
+				"red_anvil"
+			],
+			"exports": [
+				"thép",
+				"than luyện",
+				"công cụ"
+			],
+			"imports": [
+				"lương thực",
+				"dược liệu",
+				"gỗ chống lò"
+			],
+			"tension": "Pháo đài bazan cao, cầu thép, lò rèn và đường vận quặng.",
+			"questHooks": [
+				"Sửa lò công cộng để mở công thức chế tạo.",
+				"Tìm nhiên liệu hiếm trong mỏ nguy hiểm."
+			],
+			"continuity": "Thiết kế mới: Thềm dung nham và hệ mỏ; nhà ở tách khỏi luồng lò nóng. Nhân vật đời cũ chỉ phân vai NPC sau khi biên soạn lại."
+		},
+		{
+			"region": "isles",
+			"government": "Liên bang cảng đảo",
+			"authority": "Đại diện cảng và cộng đồng rạn",
+			"seatMap": "isles/hub",
+			"factions": [
+				"coral_ports",
+				"maris_people"
+			],
+			"exports": [
+				"cá",
+				"muối",
+				"vật liệu san hô hợp lệ"
+			],
+			"imports": [
+				"lương thực",
+				"gỗ tàu",
+				"thép"
+			],
+			"tension": "Nhà cảng nhiều tầng, đài hải đăng và chợ cá dọc cầu tàu.",
+			"questHooks": [
+				"Tổ chức chuyến câu cùng bạn bè.",
+				"Trục vớt châu báu và đồ trang trí có nguồn gốc."
+			],
+			"continuity": "Thiết kế mới: Quần đảo nhiệt đới, rạn san hô và lối xuống hang biển. Nhân vật đời cũ chỉ phân vai NPC sau khi biên soạn lại."
+		},
+		{
+			"region": "fungal",
+			"government": "Thành phố cộng sinh dưới đất",
+			"authority": "Đại hội các cụm nấm",
+			"seatMap": "fungal/undercity",
+			"factions": [
+				"spore_commons"
+			],
+			"exports": [
+				"nấm thực phẩm",
+				"dược liệu",
+				"tinh thể"
+			],
+			"imports": [
+				"vải",
+				"muối",
+				"công cụ"
+			],
+			"tension": "Nhà thân nấm nhiều tầng, cầu sợi nấm, đèn bào tử; bộ cảnh riêng.",
+			"questHooks": [
+				"Nuôi nấm thực phẩm tại vườn hang.",
+				"Tìm vật phẩm phát quang trong mê cung rễ nấm."
+			],
+			"continuity": "Thiết kế mới: Đô thị nấm ngầm, không dùng cây đầm lầy làm cây chủ đạo. Nhân vật đời cũ chỉ phân vai NPC sau khi biên soạn lại."
+		},
+		{
+			"region": "ruins",
+			"government": "Khu khảo cổ liên vùng",
+			"authority": "Viện Khảo Cổ và hội bảo tồn",
+			"seatMap": "ruins/aether_archive",
+			"factions": [
+				"lumerian_archive",
+				"relic_claimants"
+			],
+			"exports": [
+				"bản sao tư liệu",
+				"hiện vật có giấy nguồn"
+			],
+			"imports": [
+				"thực phẩm",
+				"công cụ",
+				"vật liệu bảo tồn"
+			],
+			"tension": "Tháp đá vỡ cao, cơ cấu cổ, đường khảm và thư khố; bỏ cây/cối xay mượn.",
+			"questHooks": [
+				"Ghi nguồn một kho châu báu trước khi khai quật.",
+				"Tìm bản ghi dẫn tới tri thức khởi nguyên."
+			],
+			"continuity": "Thiết kế mới: Vành đai phế tích nhiều niên đại, giữ khoảng trống gợi quy mô cổ thành. Nhân vật đời cũ chỉ phân vai NPC sau khi biên soạn lại."
+		},
+		{
+			"region": "void",
+			"government": "Tiền tuyến liên vùng",
+			"authority": "Bộ chỉ huy Liên quân Biên Giới",
+			"seatMap": "void/void_fortress",
+			"factions": [
+				"frontier_alliance"
+			],
+			"exports": [
+				"bản đo khe nứt",
+				"di vật được kiểm dịch"
+			],
+			"imports": [
+				"lương khô",
+				"thuốc",
+				"kim loại"
+			],
+			"tension": "Thành trì trên đá nổi, neo ma pháp, trạm quân y và cổng khe nứt.",
+			"questHooks": [
+				"Bảo vệ đoàn tiếp tế.",
+				"Thu thập mẫu rạn để Viện Khảo Cổ nghiên cứu."
+			],
+			"continuity": "Thiết kế mới: Vùng rạn không gian riêng, không đồng nhất miền Bóng tối. Nhân vật đời cũ chỉ phân vai NPC sau khi biên soạn lại."
+		},
+		{
+			"region": "wood",
+			"government": "Cộng đồng thành rừng",
+			"authority": "Hội Thủ Lâm và đại diện vườn",
+			"seatMap": "wood/worldtree",
+			"factions": [
+				"root_wardens"
+			],
+			"exports": [
+				"cây giống",
+				"thảo dược",
+				"gỗ khai thác có hạn"
+			],
+			"imports": [
+				"muối",
+				"vải",
+				"công cụ"
+			],
+			"tension": "Nhà ôm thân cây cao, cầu rễ, vườn treo và xưởng cây giống.",
+			"questHooks": [
+				"Ươm cây giống cho khuôn viên người chơi.",
+				"Khôi phục vườn thuốc và tìm đồ gỗ cổ."
+			],
+			"continuity": "Thiết kế mới: Rừng cổ đa tầng với bộ cây, rễ và đồ cảnh Mộc riêng. Nhân vật đời cũ chỉ phân vai NPC sau khi biên soạn lại."
+		},
+		{
+			"region": "light",
+			"government": "Thánh thành học thuật",
+			"authority": "Học viện Bình Minh",
+			"seatMap": "light/cathedral",
+			"factions": [
+				"dawn_custodians"
+			],
+			"exports": [
+				"kính quang học",
+				"bản chép sách",
+				"đèn pha lê"
+			],
+			"imports": [
+				"giấy",
+				"lương thực",
+				"dược liệu"
+			],
+			"tension": "Tháp đá sáng, mái kính, sân học viện và vườn pha lê.",
+			"questHooks": [
+				"Phục chế đèn pha lê cho nhà riêng.",
+				"Sưu tầm bản chép về thiên phú nguyên tố."
+			],
+			"continuity": "Thiết kế mới: Bậc thềm sáng, kiến trúc cao và khoảng sân rõ ràng. Nhân vật đời cũ chỉ phân vai NPC sau khi biên soạn lại."
+		},
+		{
+			"region": "dark",
+			"government": "Liên hội đô thị đêm",
+			"authority": "Hội Đèn Đêm",
+			"seatMap": "dark/hub",
+			"factions": [
+				"night_lanterns"
+			],
+			"exports": [
+				"dược liệu đêm",
+				"vải sẫm",
+				"kỷ vật chế tác"
+			],
+			"imports": [
+				"ngũ cốc",
+				"muối",
+				"kim loại"
+			],
+			"tension": "Nhà đá tím cao, mái đen, đèn dẫn đường và chợ đêm; bộ cảnh riêng.",
+			"questHooks": [
+				"Mở tuyến chợ đêm an toàn.",
+				"Tìm chất nhuộm và đồ lưu niệm trong mê cung đêm."
+			],
+			"continuity": "Thiết kế mới: Rừng đêm và đô thị trú ẩn; màu tối không mặc định phản diện. Nhân vật đời cũ chỉ phân vai NPC sau khi biên soạn lại."
+		}
+	],
+	"RESERVED_DESTINATIONS": [
+		{
+			"id": "fishing_lake",
+			"name": "Hồ câu bạn bè",
+			"nearRegion": "human",
+			"kind": "social",
+			"status": "planned",
+			"note": "Dành chỗ thiết kế cho hồ câu bạn bè; nguồn thực phẩm, châu báu hoặc trang trí. Chưa mở map."
+		},
+		{
+			"id": "maze_reeds",
+			"name": "Mê cung kênh chìm",
+			"nearRegion": "swamp",
+			"kind": "labyrinth",
+			"status": "planned",
+			"note": "Dành chỗ thiết kế cho mê cung kênh chìm; nguồn thực phẩm, châu báu hoặc trang trí. Chưa mở map."
+		},
+		{
+			"id": "maze_glass",
+			"name": "Mê cung kính cát",
+			"nearRegion": "desert",
+			"kind": "labyrinth",
+			"status": "planned",
+			"note": "Dành chỗ thiết kế cho mê cung kính cát; nguồn thực phẩm, châu báu hoặc trang trí. Chưa mở map."
+		},
+		{
+			"id": "maze_roots",
+			"name": "Mê cung rễ cổ",
+			"nearRegion": "wood",
+			"kind": "labyrinth",
+			"status": "planned",
+			"note": "Dành chỗ thiết kế cho mê cung rễ cổ; nguồn thực phẩm, châu báu hoặc trang trí. Chưa mở map."
+		},
+		{
+			"id": "maze_archive",
+			"name": "Mê cung thư khố",
+			"nearRegion": "ruins",
+			"kind": "labyrinth",
+			"status": "planned",
+			"note": "Dành chỗ thiết kế cho mê cung thư khố; nguồn thực phẩm, châu báu hoặc trang trí. Chưa mở map."
+		}
+	],
+	"SKY_CASTLE_DESIGN": {
+		"id": "sky_castle",
+		"name": "Thiên Thành Khởi Nguyên",
+		"nameStatus": "proposal",
+		"playable": false,
+		"deity": {
+			"id": "archive_keeper",
+			"name": "Thần Tri Thức — Người Giữ Thư Khố",
+			"nameStatus": "proposal",
+			"count": 1,
+			"role": "Hé lộ tri thức toàn thế giới và lịch sử khởi nguyên qua thư khố; hiện diện trong lâu đài, không xuất hiện như giọng điều khiển trong đầu."
+		},
+		"access": {
+			"status": "proposal",
+			"minLevel": 60,
+			"evidence": [
+				"old_coin",
+				"root_record",
+				"dawn_copy",
+				"night_copy"
+			],
+			"fromMap": "highland/cloudtemple",
+			"returnMap": "highland/hub",
+			"note": "Đề xuất để có thể trở lại nhiều lần trước chương cuối; chưa thêm cổng hoặc khóa đường chơi hiện tại."
+		},
+		"spaces": [
+			{
+				"id": "arrival",
+				"name": "Bến mây",
+				"purpose": "Điểm đến và đường về rõ ràng, không sinh boss tại điểm hồi."
+			},
+			{
+				"id": "hall",
+				"name": "Đại sảnh đối chiếu",
+				"purpose": "Đặt các bản ghi cạnh nhau, xem nguồn và trạng thái mở."
+			},
+			{
+				"id": "archive",
+				"name": "Đại thư viện",
+				"purpose": "Tri thức các vùng, tìm theo chủ đề, xem lại chương đã mở."
+			},
+			{
+				"id": "origin",
+				"name": "Điện khởi nguyên",
+				"purpose": "Một vị thần tại đây kể và mở lịch sử theo bốn chương."
+			}
+		],
+		"constraints": [
+			"Đúng một vị thần tại lâu đài trên không.",
+			"Giữ tổng 140 kỹ năng trong thiết kế mới.",
+			"Nguyên tố không quy định đạo đức, quốc tịch hoặc giới tính.",
+			"Điều kiện cấp 60 hiện là đề xuất, chưa khóa đường chơi.",
+			"Chỉ mở map khi đã có asset, nhiệm vụ và QA."
+		]
+	},
+	"WORLD_DESIGN": {
+		"revision": "2026-10-26-roster-reboot",
+		"status": "design-draft",
+		"factions": [
+			{
+				"id": "rowanmere_crown",
+				"name": "Triều đình Đồng Bằng",
+				"status": "proposal",
+				"regions": [
+					"human"
+				],
+				"goal": "Bảo vệ các tuyến đường và cân bằng lợi ích giữa thủ phủ với làng nhỏ.",
+				"leverage": "Quân trấn, kho lương, luật giao thương.",
+				"cost": "Thiếu tiếng nói từ vùng ngoài thành."
+			},
+			{
+				"id": "thistlewood_commons",
+				"name": "Hội đồng Làng Khởi Hành",
+				"status": "proposal",
+				"regions": [
+					"human"
+				],
+				"goal": "Phát triển vườn hộ, nghề thủ công và đào tạo người mới.",
+				"leverage": "Đất canh tác, xưởng gỗ, thương quán.",
+				"cost": "Mùa vụ và nhu cầu mở rộng làng cạnh tranh diện tích."
+			},
+			{
+				"id": "seal_order",
+				"name": "Nghiệp đoàn Công Trình",
+				"status": "proposal",
+				"regions": [
+					"human",
+					"swamp",
+					"desert",
+					"highland",
+					"volcano",
+					"fungal",
+					"ruins",
+					"void"
+				],
+				"goal": "Xây cầu, đập và trạm tiếp tế giữa các vùng.",
+				"leverage": "Kỹ sư và đội vận chuyển.",
+				"cost": "Cần đồng thuận cư dân trước khi khai thác tài nguyên."
+			},
+			{
+				"id": "grey_reed",
+				"name": "Liên hội Bến Nước",
+				"status": "proposal",
+				"regions": [
+					"swamp"
+				],
+				"goal": "Giữ đường thủy, mùa cá và các vườn dược liệu.",
+				"leverage": "Thuyền, bến nổi và người dẫn đường.",
+				"cost": "Lũ và nguồn nước ô nhiễm."
+			},
+			{
+				"id": "sahrin_court",
+				"name": "Vương triều Ốc Đảo",
+				"status": "proposal",
+				"regions": [
+					"desert"
+				],
+				"goal": "Bảo vệ giếng nước và tuyến thương caravan.",
+				"leverage": "Cung thành, đội hộ tống, kho nước.",
+				"cost": "Phân phối nước giữa phố lớn và trạm xa."
+			},
+			{
+				"id": "zahra_network",
+				"name": "Hội Thương Nhân Cát",
+				"status": "proposal",
+				"regions": [
+					"desert",
+					"isles"
+				],
+				"goal": "Kết nối hàng hóa sa mạc với cảng biển.",
+				"leverage": "Đoàn xe và bản đồ giếng.",
+				"cost": "Chi phí đường dài và an toàn đoàn buôn."
+			},
+			{
+				"id": "wind_league",
+				"name": "Liên hội Trạm Gió",
+				"status": "proposal",
+				"regions": [
+					"highland"
+				],
+				"goal": "Giữ đường đèo và mạng cối xay.",
+				"leverage": "Hoa tiêu núi, thợ máy và len.",
+				"cost": "Bão và các trạm cô lập."
+			},
+			{
+				"id": "snow_clans",
+				"name": "Hội đồng Tuyết Lĩnh",
+				"status": "proposal",
+				"regions": [
+					"tundra"
+				],
+				"goal": "Giữ nơi trú, kho củi và mùa đánh cá băng.",
+				"leverage": "Thợ săn và kho dự trữ.",
+				"cost": "Mùa đông dài hơn mùa thu hoạch."
+			},
+			{
+				"id": "red_anvil",
+				"name": "Hội đồng Lò Rèn",
+				"status": "proposal",
+				"regions": [
+					"volcano"
+				],
+				"goal": "Rèn công cụ và khai khoáng bền vững.",
+				"leverage": "Thợ rèn, mỏ và hợp kim.",
+				"cost": "An toàn lò và lao động trong vùng nóng."
+			},
+			{
+				"id": "coral_ports",
+				"name": "Liên hội Cảng Biển",
+				"status": "proposal",
+				"regions": [
+					"isles"
+				],
+				"goal": "Giữ vận tải, chợ cá và cứu nạn.",
+				"leverage": "Đội tàu, kho muối và hoa tiêu.",
+				"cost": "Áp lực khai thác rạn biển."
+			},
+			{
+				"id": "maris_people",
+				"name": "Hội Bảo Vệ Rạn",
+				"status": "proposal",
+				"regions": [
+					"isles"
+				],
+				"goal": "Bảo vệ sinh cảnh và nguồn thực phẩm biển.",
+				"leverage": "Tri thức dòng biển và thợ lặn.",
+				"cost": "Cần nguồn thu thay cho khai thác quá mức."
+			},
+			{
+				"id": "spore_commons",
+				"name": "Cộng đồng Bào Tử",
+				"status": "proposal",
+				"regions": [
+					"fungal"
+				],
+				"goal": "Gìn giữ thành phố nấm và các vườn phát quang.",
+				"leverage": "Dược nấm và tinh thể hang.",
+				"cost": "Bào tử lạ lan qua đường hầm."
+			},
+			{
+				"id": "lumerian_archive",
+				"name": "Viện Khảo Cổ",
+				"status": "proposal",
+				"regions": [
+					"ruins"
+				],
+				"goal": "Khôi phục công nghệ và lịch sử khởi nguyên.",
+				"leverage": "Học giả, thư khố và công cụ đo.",
+				"cost": "Phân biệt dữ kiện với giả thuyết."
+			},
+			{
+				"id": "relic_claimants",
+				"name": "Hội Sưu Tầm Cổ Vật",
+				"status": "proposal",
+				"regions": [
+					"ruins"
+				],
+				"goal": "Định nguồn và bảo tồn châu báu tìm được.",
+				"leverage": "Thợ phục chế và thị trường đồ cổ.",
+				"cost": "Nạn trộm di vật, hàng giả."
+			},
+			{
+				"id": "frontier_alliance",
+				"name": "Liên quân Biên Giới",
+				"status": "proposal",
+				"regions": [
+					"void"
+				],
+				"goal": "Giữ tiền đồn trước các khe nứt.",
+				"leverage": "Quân y và tiếp tế liên vùng.",
+				"cost": "Bảo vệ người dân khi nguồn tiếp tế bị chia cắt."
+			},
+			{
+				"id": "root_wardens",
+				"name": "Hội Thủ Lâm",
+				"status": "proposal",
+				"regions": [
+					"wood"
+				],
+				"goal": "Giữ rừng cổ, cây giống và vườn thuốc.",
+				"leverage": "Thảo dược và đường rễ.",
+				"cost": "Cân bằng nhu cầu gỗ với phục hồi rừng."
+			},
+			{
+				"id": "dawn_custodians",
+				"name": "Học viện Bình Minh",
+				"status": "proposal",
+				"regions": [
+					"light"
+				],
+				"goal": "Chia sẻ tri thức ánh sáng, chữa lành và công nghệ pha lê.",
+				"leverage": "Thư viện và trường học.",
+				"cost": "Tránh độc quyền tri thức."
+			},
+			{
+				"id": "night_lanterns",
+				"name": "Hội Đèn Đêm",
+				"status": "proposal",
+				"regions": [
+					"dark"
+				],
+				"goal": "Bảo vệ thành phố đêm và lối qua rừng tối.",
+				"leverage": "Đèn dẫn đường và nghề vải.",
+				"cost": "Giữ an toàn mà không cô lập vùng."
+			},
+			{
+				"id": "rift_cult",
+				"name": "Đoàn Khai Thác Khe Nứt",
+				"status": "proposal",
+				"regions": [
+					"dark",
+					"void"
+				],
+				"goal": "Chiếm nguồn lực từ các vết rạn.",
+				"leverage": "Máy dò và mạng buôn di vật.",
+				"cost": "Khai thác quá mức đe dọa cả cư dân bóng tối."
+			},
+			{
+				"id": "caravan_compact",
+				"name": "Hiệp hội Giao Thương",
+				"status": "proposal",
+				"regions": [
+					"human",
+					"swamp",
+					"desert",
+					"highland",
+					"tundra",
+					"volcano",
+					"isles",
+					"fungal",
+					"ruins",
+					"wood",
+					"light",
+					"dark",
+					"void"
+				],
+				"goal": "Kết nối nông sản, cá, cây giống và đồ trang trí.",
+				"leverage": "Chợ, kho trung chuyển, người bảo lãnh.",
+				"cost": "Cần kiểm nguồn hàng, chống lạm phát và giao dịch gian lận."
+			}
+		],
+		"regions": [
+			{
+				"region": "human",
+				"government": "Vương quốc đồng bằng và hội đồng làng",
+				"authority": "Quân chủ tại thủ phủ; tên và nhân vật vua chưa chốt",
+				"seatMap": "human/rowanmere",
+				"factions": [
+					"rowanmere_crown",
+					"thistlewood_commons"
+				],
+				"exports": [
+					"lúa mì",
+					"mật ong",
+					"vải thô"
+				],
+				"imports": [
+					"thép",
+					"muối",
+					"thuốc"
+				],
+				"tension": "Nhà gỗ đá 2–3 tầng, mái dốc, chợ nông sản và công xưởng.",
+				"questHooks": [
+					"Giao lúa mì cho chợ đầu mối.",
+					"Khôi phục một nhà phụ thành xưởng nghề."
+				],
+				"continuity": "Thiết kế mới: Đồng bằng khởi hành; mở về hồ câu và các khuôn viên cá nhân. Nhân vật đời cũ chỉ phân vai NPC sau khi biên soạn lại."
+			},
+			{
+				"region": "swamp",
+				"government": "Liên hội làng sông",
+				"authority": "Hội đồng các bến nước",
+				"seatMap": "swamp/hub",
+				"factions": [
+					"grey_reed"
+				],
+				"exports": [
+					"dược liệu đầm",
+					"cá",
+					"sậy"
+				],
+				"imports": [
+					"lương khô",
+					"sắt",
+					"gỗ tốt"
+				],
+				"tension": "Nhà sàn cao, cầu gỗ, thuyền hàng và vườn dược liệu nổi.",
+				"questHooks": [
+					"Dọn đường thủy để mở tuyến chợ cá.",
+					"Tìm hạt giống chịu ngập trong mê cung kênh chìm."
+				],
+				"continuity": "Thiết kế mới: Đầm nước nhiều tầng cao độ, đường nổi và bến liên kết. Nhân vật đời cũ chỉ phân vai NPC sau khi biên soạn lại."
+			},
+			{
+				"region": "desert",
+				"government": "Vương quốc ốc đảo",
+				"authority": "Vua hoặc nữ hoàng ốc đảo; danh tính chưa chốt",
+				"seatMap": "desert/hub",
+				"factions": [
+					"sahrin_court",
+					"zahra_network"
+				],
+				"exports": [
+					"kính",
+					"gia vị",
+					"vải nhuộm"
+				],
+				"imports": [
+					"gỗ",
+					"thực phẩm",
+					"quặng"
+				],
+				"tension": "Cung thành sa thạch cao, vòm che nắng, chợ thảm và giếng nước.",
+				"questHooks": [
+					"Hộ tống cây giống về giếng mới.",
+					"Tìm kính cổ và đồ lưu niệm trong mê cung cát."
+				],
+				"continuity": "Thiết kế mới: Cồn cát, khe đá và các trạm caravan cách xa nhau. Nhân vật đời cũ chỉ phân vai NPC sau khi biên soạn lại."
+			},
+			{
+				"region": "highland",
+				"government": "Liên minh thành trạm núi",
+				"authority": "Hội đồng các trạm gió",
+				"seatMap": "highland/hub",
+				"factions": [
+					"wind_league"
+				],
+				"exports": [
+					"bột mì",
+					"len",
+					"thiết bị cối xay"
+				],
+				"imports": [
+					"muối",
+					"kim loại",
+					"thuốc"
+				],
+				"tension": "Nhà đá cao mái đồng, cầu treo, cối xay và bến mây.",
+				"questHooks": [
+					"Khôi phục trạm gió phục vụ đoàn hàng.",
+					"Khảo sát bến mây trước khi mở đường lên trời."
+				],
+				"continuity": "Thiết kế mới: Cao nguyên nhiều gió; dành tuyến riêng lên Thiên Thành. Nhân vật đời cũ chỉ phân vai NPC sau khi biên soạn lại."
+			},
+			{
+				"region": "tundra",
+				"government": "Liên minh thị tộc",
+				"authority": "Hội đồng Tuyết Lĩnh",
+				"seatMap": "tundra/hub",
+				"factions": [
+					"snow_clans"
+				],
+				"exports": [
+					"da thuộc",
+					"khoáng băng",
+					"cá khô"
+				],
+				"imports": [
+					"ngũ cốc",
+					"than",
+					"thuốc"
+				],
+				"tension": "Nhà gỗ dày 2 tầng, mái tuyết dốc và đại sảnh lò sưởi.",
+				"questHooks": [
+					"Dự trữ thực phẩm cho trạm xa.",
+					"Câu cá băng và thu thập vật liệu cách nhiệt."
+				],
+				"continuity": "Thiết kế mới: Miền băng tuyết, hồ đóng băng và các điểm trú bão. Nhân vật đời cũ chỉ phân vai NPC sau khi biên soạn lại."
+			},
+			{
+				"region": "volcano",
+				"government": "Thành bang công nghiệp",
+				"authority": "Hội đồng Lò Rèn",
+				"seatMap": "volcano/red_anvil",
+				"factions": [
+					"red_anvil"
+				],
+				"exports": [
+					"thép",
+					"than luyện",
+					"công cụ"
+				],
+				"imports": [
+					"lương thực",
+					"dược liệu",
+					"gỗ chống lò"
+				],
+				"tension": "Pháo đài bazan cao, cầu thép, lò rèn và đường vận quặng.",
+				"questHooks": [
+					"Sửa lò công cộng để mở công thức chế tạo.",
+					"Tìm nhiên liệu hiếm trong mỏ nguy hiểm."
+				],
+				"continuity": "Thiết kế mới: Thềm dung nham và hệ mỏ; nhà ở tách khỏi luồng lò nóng. Nhân vật đời cũ chỉ phân vai NPC sau khi biên soạn lại."
+			},
+			{
+				"region": "isles",
+				"government": "Liên bang cảng đảo",
+				"authority": "Đại diện cảng và cộng đồng rạn",
+				"seatMap": "isles/hub",
+				"factions": [
+					"coral_ports",
+					"maris_people"
+				],
+				"exports": [
+					"cá",
+					"muối",
+					"vật liệu san hô hợp lệ"
+				],
+				"imports": [
+					"lương thực",
+					"gỗ tàu",
+					"thép"
+				],
+				"tension": "Nhà cảng nhiều tầng, đài hải đăng và chợ cá dọc cầu tàu.",
+				"questHooks": [
+					"Tổ chức chuyến câu cùng bạn bè.",
+					"Trục vớt châu báu và đồ trang trí có nguồn gốc."
+				],
+				"continuity": "Thiết kế mới: Quần đảo nhiệt đới, rạn san hô và lối xuống hang biển. Nhân vật đời cũ chỉ phân vai NPC sau khi biên soạn lại."
+			},
+			{
+				"region": "fungal",
+				"government": "Thành phố cộng sinh dưới đất",
+				"authority": "Đại hội các cụm nấm",
+				"seatMap": "fungal/undercity",
+				"factions": [
+					"spore_commons"
+				],
+				"exports": [
+					"nấm thực phẩm",
+					"dược liệu",
+					"tinh thể"
+				],
+				"imports": [
+					"vải",
+					"muối",
+					"công cụ"
+				],
+				"tension": "Nhà thân nấm nhiều tầng, cầu sợi nấm, đèn bào tử; bộ cảnh riêng.",
+				"questHooks": [
+					"Nuôi nấm thực phẩm tại vườn hang.",
+					"Tìm vật phẩm phát quang trong mê cung rễ nấm."
+				],
+				"continuity": "Thiết kế mới: Đô thị nấm ngầm, không dùng cây đầm lầy làm cây chủ đạo. Nhân vật đời cũ chỉ phân vai NPC sau khi biên soạn lại."
+			},
+			{
+				"region": "ruins",
+				"government": "Khu khảo cổ liên vùng",
+				"authority": "Viện Khảo Cổ và hội bảo tồn",
+				"seatMap": "ruins/aether_archive",
+				"factions": [
+					"lumerian_archive",
+					"relic_claimants"
+				],
+				"exports": [
+					"bản sao tư liệu",
+					"hiện vật có giấy nguồn"
+				],
+				"imports": [
+					"thực phẩm",
+					"công cụ",
+					"vật liệu bảo tồn"
+				],
+				"tension": "Tháp đá vỡ cao, cơ cấu cổ, đường khảm và thư khố; bỏ cây/cối xay mượn.",
+				"questHooks": [
+					"Ghi nguồn một kho châu báu trước khi khai quật.",
+					"Tìm bản ghi dẫn tới tri thức khởi nguyên."
+				],
+				"continuity": "Thiết kế mới: Vành đai phế tích nhiều niên đại, giữ khoảng trống gợi quy mô cổ thành. Nhân vật đời cũ chỉ phân vai NPC sau khi biên soạn lại."
+			},
+			{
+				"region": "void",
+				"government": "Tiền tuyến liên vùng",
+				"authority": "Bộ chỉ huy Liên quân Biên Giới",
+				"seatMap": "void/void_fortress",
+				"factions": [
+					"frontier_alliance"
+				],
+				"exports": [
+					"bản đo khe nứt",
+					"di vật được kiểm dịch"
+				],
+				"imports": [
+					"lương khô",
+					"thuốc",
+					"kim loại"
+				],
+				"tension": "Thành trì trên đá nổi, neo ma pháp, trạm quân y và cổng khe nứt.",
+				"questHooks": [
+					"Bảo vệ đoàn tiếp tế.",
+					"Thu thập mẫu rạn để Viện Khảo Cổ nghiên cứu."
+				],
+				"continuity": "Thiết kế mới: Vùng rạn không gian riêng, không đồng nhất miền Bóng tối. Nhân vật đời cũ chỉ phân vai NPC sau khi biên soạn lại."
+			},
+			{
+				"region": "wood",
+				"government": "Cộng đồng thành rừng",
+				"authority": "Hội Thủ Lâm và đại diện vườn",
+				"seatMap": "wood/worldtree",
+				"factions": [
+					"root_wardens"
+				],
+				"exports": [
+					"cây giống",
+					"thảo dược",
+					"gỗ khai thác có hạn"
+				],
+				"imports": [
+					"muối",
+					"vải",
+					"công cụ"
+				],
+				"tension": "Nhà ôm thân cây cao, cầu rễ, vườn treo và xưởng cây giống.",
+				"questHooks": [
+					"Ươm cây giống cho khuôn viên người chơi.",
+					"Khôi phục vườn thuốc và tìm đồ gỗ cổ."
+				],
+				"continuity": "Thiết kế mới: Rừng cổ đa tầng với bộ cây, rễ và đồ cảnh Mộc riêng. Nhân vật đời cũ chỉ phân vai NPC sau khi biên soạn lại."
+			},
+			{
+				"region": "light",
+				"government": "Thánh thành học thuật",
+				"authority": "Học viện Bình Minh",
+				"seatMap": "light/cathedral",
+				"factions": [
+					"dawn_custodians"
+				],
+				"exports": [
+					"kính quang học",
+					"bản chép sách",
+					"đèn pha lê"
+				],
+				"imports": [
+					"giấy",
+					"lương thực",
+					"dược liệu"
+				],
+				"tension": "Tháp đá sáng, mái kính, sân học viện và vườn pha lê.",
+				"questHooks": [
+					"Phục chế đèn pha lê cho nhà riêng.",
+					"Sưu tầm bản chép về thiên phú nguyên tố."
+				],
+				"continuity": "Thiết kế mới: Bậc thềm sáng, kiến trúc cao và khoảng sân rõ ràng. Nhân vật đời cũ chỉ phân vai NPC sau khi biên soạn lại."
+			},
+			{
+				"region": "dark",
+				"government": "Liên hội đô thị đêm",
+				"authority": "Hội Đèn Đêm",
+				"seatMap": "dark/hub",
+				"factions": [
+					"night_lanterns"
+				],
+				"exports": [
+					"dược liệu đêm",
+					"vải sẫm",
+					"kỷ vật chế tác"
+				],
+				"imports": [
+					"ngũ cốc",
+					"muối",
+					"kim loại"
+				],
+				"tension": "Nhà đá tím cao, mái đen, đèn dẫn đường và chợ đêm; bộ cảnh riêng.",
+				"questHooks": [
+					"Mở tuyến chợ đêm an toàn.",
+					"Tìm chất nhuộm và đồ lưu niệm trong mê cung đêm."
+				],
+				"continuity": "Thiết kế mới: Rừng đêm và đô thị trú ẩn; màu tối không mặc định phản diện. Nhân vật đời cũ chỉ phân vai NPC sau khi biên soạn lại."
+			}
+		],
+		"relations": [
+			{
+				"a": "rowanmere_crown",
+				"b": "thistlewood_commons",
+				"kind": "dispute",
+				"reason": "Khác biệt về quyền khai thác và sử dụng tài nguyên.",
+				"pressure": "Giải quyết bằng nhiệm vụ mới theo vùng; chưa triển khai phe trong gameplay."
+			},
+			{
+				"a": "seal_order",
+				"b": "grey_reed",
+				"kind": "dispute",
+				"reason": "Khác biệt về quyền khai thác và sử dụng tài nguyên.",
+				"pressure": "Giải quyết bằng nhiệm vụ mới theo vùng; chưa triển khai phe trong gameplay."
+			},
+			{
+				"a": "sahrin_court",
+				"b": "zahra_network",
+				"kind": "dispute",
+				"reason": "Khác biệt về quyền khai thác và sử dụng tài nguyên.",
+				"pressure": "Giải quyết bằng nhiệm vụ mới theo vùng; chưa triển khai phe trong gameplay."
+			},
+			{
+				"a": "sahrin_court",
+				"b": "seal_order",
+				"kind": "trade",
+				"reason": "Trao đổi nguồn hàng đặc trưng và mở đường vận chuyển.",
+				"pressure": "Giải quyết bằng nhiệm vụ mới theo vùng; chưa triển khai phe trong gameplay."
+			},
+			{
+				"a": "wind_league",
+				"b": "snow_clans",
+				"kind": "trade",
+				"reason": "Trao đổi nguồn hàng đặc trưng và mở đường vận chuyển.",
+				"pressure": "Giải quyết bằng nhiệm vụ mới theo vùng; chưa triển khai phe trong gameplay."
+			},
+			{
+				"a": "red_anvil",
+				"b": "coral_ports",
+				"kind": "trade",
+				"reason": "Trao đổi nguồn hàng đặc trưng và mở đường vận chuyển.",
+				"pressure": "Giải quyết bằng nhiệm vụ mới theo vùng; chưa triển khai phe trong gameplay."
+			},
+			{
+				"a": "coral_ports",
+				"b": "maris_people",
+				"kind": "dispute",
+				"reason": "Khác biệt về quyền khai thác và sử dụng tài nguyên.",
+				"pressure": "Giải quyết bằng nhiệm vụ mới theo vùng; chưa triển khai phe trong gameplay."
+			},
+			{
+				"a": "root_wardens",
+				"b": "spore_commons",
+				"kind": "alliance",
+				"reason": "Hợp tác bảo vệ sinh cảnh và an toàn dân cư.",
+				"pressure": "Giải quyết bằng nhiệm vụ mới theo vùng; chưa triển khai phe trong gameplay."
+			},
+			{
+				"a": "dawn_custodians",
+				"b": "night_lanterns",
+				"kind": "dispute",
+				"reason": "Khác biệt về quyền khai thác và sử dụng tài nguyên.",
+				"pressure": "Giải quyết bằng nhiệm vụ mới theo vùng; chưa triển khai phe trong gameplay."
+			},
+			{
+				"a": "lumerian_archive",
+				"b": "relic_claimants",
+				"kind": "dispute",
+				"reason": "Khác biệt về quyền khai thác và sử dụng tài nguyên.",
+				"pressure": "Giải quyết bằng nhiệm vụ mới theo vùng; chưa triển khai phe trong gameplay."
+			},
+			{
+				"a": "night_lanterns",
+				"b": "rift_cult",
+				"kind": "dispute",
+				"reason": "Khác biệt về quyền khai thác và sử dụng tài nguyên.",
+				"pressure": "Giải quyết bằng nhiệm vụ mới theo vùng; chưa triển khai phe trong gameplay."
+			},
+			{
+				"a": "frontier_alliance",
+				"b": "red_anvil",
+				"kind": "alliance",
+				"reason": "Hợp tác bảo vệ sinh cảnh và an toàn dân cư.",
+				"pressure": "Giải quyết bằng nhiệm vụ mới theo vùng; chưa triển khai phe trong gameplay."
+			},
+			{
+				"a": "caravan_compact",
+				"b": "grey_reed",
+				"kind": "trade",
+				"reason": "Trao đổi nguồn hàng đặc trưng và mở đường vận chuyển.",
+				"pressure": "Giải quyết bằng nhiệm vụ mới theo vùng; chưa triển khai phe trong gameplay."
+			}
+		],
+		"layout": [
+			{
+				"id": "human",
+				"name": "Thung lũng Thistlewood",
+				"shortName": "Thistlewood",
+				"layer": "surface",
+				"x": 50,
+				"y": 53,
+				"color": "#a9bf76",
+				"status": "existing-region",
+				"geography": "Đồng bằng khởi hành; mở về hồ câu và các khuôn viên cá nhân."
+			},
+			{
+				"id": "swamp",
+				"name": "Đầm lầy Mù Sương",
+				"shortName": "Lau Xám",
+				"layer": "surface",
+				"x": 33,
+				"y": 70,
+				"color": "#92a371",
+				"status": "existing-region",
+				"geography": "Đầm nước nhiều tầng cao độ, đường nổi và bến liên kết."
+			},
+			{
+				"id": "desert",
+				"name": "Sa mạc Hồng Cát",
+				"shortName": "Sahrin",
+				"layer": "surface",
+				"x": 52,
+				"y": 84,
+				"color": "#d6a769",
+				"status": "existing-region",
+				"geography": "Cồn cát, khe đá và các trạm caravan cách xa nhau."
+			},
+			{
+				"id": "highland",
+				"name": "Cao nguyên Gió Hú",
+				"shortName": "Gió Hú",
+				"layer": "surface",
+				"x": 69,
+				"y": 57,
+				"color": "#a8c9a5",
+				"status": "existing-region",
+				"geography": "Cao nguyên nhiều gió; dành tuyến riêng lên Thiên Thành."
+			},
+			{
+				"id": "tundra",
+				"name": "Lãnh nguyên Băng Giá",
+				"shortName": "Tuyết Phong",
+				"layer": "surface",
+				"x": 69,
+				"y": 30,
+				"color": "#b4d7df",
+				"status": "existing-region",
+				"geography": "Miền băng tuyết, hồ đóng băng và các điểm trú bão."
+			},
+			{
+				"id": "volcano",
+				"name": "Núi lửa Hoả Sơn",
+				"shortName": "Đe Đỏ",
+				"layer": "surface",
+				"x": 86,
+				"y": 55,
+				"color": "#cf916f",
+				"status": "existing-region",
+				"geography": "Thềm dung nham và hệ mỏ; nhà ở tách khỏi luồng lò nóng."
+			},
+			{
+				"id": "isles",
+				"name": "Quần đảo San Hô",
+				"shortName": "San Hô",
+				"layer": "surface",
+				"x": 83,
+				"y": 83,
+				"color": "#88c7c4",
+				"status": "existing-region",
+				"geography": "Quần đảo nhiệt đới, rạn san hô và lối xuống hang biển."
+			},
+			{
+				"id": "fungal",
+				"name": "Rừng Nấm Ngầm",
+				"shortName": "Nấm Ngầm",
+				"layer": "underground",
+				"x": 20,
+				"y": 54,
+				"color": "#c09acb",
+				"status": "existing-region",
+				"geography": "Đô thị nấm ngầm, không dùng cây đầm lầy làm cây chủ đạo."
+			},
+			{
+				"id": "ruins",
+				"name": "Phế tích Aether",
+				"shortName": "Phế tích",
+				"layer": "surface",
+				"x": 20,
+				"y": 25,
+				"color": "#b8b3a8",
+				"status": "existing-region",
+				"geography": "Vành đai phế tích nhiều niên đại, giữ khoảng trống gợi quy mô cổ thành."
+			},
+			{
+				"id": "void",
+				"name": "Vực Hư Không",
+				"shortName": "Hư Không",
+				"layer": "sky",
+				"x": 87,
+				"y": 22,
+				"color": "#b29bc7",
+				"status": "existing-region",
+				"geography": "Vùng rạn không gian riêng, không đồng nhất miền Bóng tối."
+			},
+			{
+				"id": "wood",
+				"name": "Rừng Cổ Thụ",
+				"shortName": "Cổ Thụ",
+				"layer": "surface",
+				"x": 33,
+				"y": 37,
+				"color": "#88b98c",
+				"status": "existing-region",
+				"geography": "Rừng cổ đa tầng với bộ cây, rễ và đồ cảnh Mộc riêng."
+			},
+			{
+				"id": "light",
+				"name": "Thánh Địa Bình Minh",
+				"shortName": "Bình Minh",
+				"layer": "surface",
+				"x": 50,
+				"y": 28,
+				"color": "#e2cb91",
+				"status": "existing-region",
+				"geography": "Bậc thềm sáng, kiến trúc cao và khoảng sân rõ ràng."
+			},
+			{
+				"id": "dark",
+				"name": "Vực Ám Ma",
+				"shortName": "Ám Ma",
+				"layer": "surface",
+				"x": 19,
+				"y": 82,
+				"color": "#ac9bc8",
+				"status": "existing-region",
+				"geography": "Rừng đêm và đô thị trú ẩn; màu tối không mặc định phản diện."
+			},
+			{
+				"id": "sky_castle",
+				"name": "Thiên Thành Khởi Nguyên",
+				"shortName": "Thiên Thành",
+				"layer": "sky",
+				"x": 53,
+				"y": 9,
+				"color": "#ead6ab",
+				"status": "planned",
+				"geography": "Lâu đài trên không với một vị thần giữ tri thức và lịch sử khởi nguyên. Chưa mở map chơi."
+			}
+		],
+		"reserved": [
+			{
+				"id": "fishing_lake",
+				"name": "Hồ câu bạn bè",
+				"nearRegion": "human",
+				"kind": "social",
+				"status": "planned",
+				"note": "Dành chỗ thiết kế cho hồ câu bạn bè; nguồn thực phẩm, châu báu hoặc trang trí. Chưa mở map."
+			},
+			{
+				"id": "maze_reeds",
+				"name": "Mê cung kênh chìm",
+				"nearRegion": "swamp",
+				"kind": "labyrinth",
+				"status": "planned",
+				"note": "Dành chỗ thiết kế cho mê cung kênh chìm; nguồn thực phẩm, châu báu hoặc trang trí. Chưa mở map."
+			},
+			{
+				"id": "maze_glass",
+				"name": "Mê cung kính cát",
+				"nearRegion": "desert",
+				"kind": "labyrinth",
+				"status": "planned",
+				"note": "Dành chỗ thiết kế cho mê cung kính cát; nguồn thực phẩm, châu báu hoặc trang trí. Chưa mở map."
+			},
+			{
+				"id": "maze_roots",
+				"name": "Mê cung rễ cổ",
+				"nearRegion": "wood",
+				"kind": "labyrinth",
+				"status": "planned",
+				"note": "Dành chỗ thiết kế cho mê cung rễ cổ; nguồn thực phẩm, châu báu hoặc trang trí. Chưa mở map."
+			},
+			{
+				"id": "maze_archive",
+				"name": "Mê cung thư khố",
+				"nearRegion": "ruins",
+				"kind": "labyrinth",
+				"status": "planned",
+				"note": "Dành chỗ thiết kế cho mê cung thư khố; nguồn thực phẩm, châu báu hoặc trang trí. Chưa mở map."
+			}
+		],
+		"evidence": [
+			{
+				"id": "old_coin",
+				"name": "Bản ghi Đồng Bằng",
+				"region": "human",
+				"map": "human/town",
+				"note": "Nguồn nghiên cứu đề xuất trong hướng mới; chưa đặt nhiệm vụ hay vật phẩm vào game."
+			},
+			{
+				"id": "root_record",
+				"name": "Niên luân Cổ Thụ",
+				"region": "wood",
+				"map": "wood/worldtree",
+				"note": "Nguồn nghiên cứu đề xuất trong hướng mới; chưa đặt nhiệm vụ hay vật phẩm vào game."
+			},
+			{
+				"id": "dawn_copy",
+				"name": "Bản chép Bình Minh",
+				"region": "light",
+				"map": "light/cathedral",
+				"note": "Nguồn nghiên cứu đề xuất trong hướng mới; chưa đặt nhiệm vụ hay vật phẩm vào game."
+			},
+			{
+				"id": "night_copy",
+				"name": "Bản khắc Đèn Đêm",
+				"region": "dark",
+				"map": "dark/dungeon",
+				"note": "Nguồn nghiên cứu đề xuất trong hướng mới; chưa đặt nhiệm vụ hay vật phẩm vào game."
+			},
+			{
+				"id": "reed_ledger",
+				"name": "Sổ luồng Bến Nước",
+				"region": "swamp",
+				"map": "swamp/stone_dam",
+				"note": "Nguồn nghiên cứu đề xuất trong hướng mới; chưa đặt nhiệm vụ hay vật phẩm vào game."
+			},
+			{
+				"id": "sahrin_seat",
+				"name": "Lịch giếng Ốc Đảo",
+				"region": "desert",
+				"map": "desert/pyramid",
+				"note": "Nguồn nghiên cứu đề xuất trong hướng mới; chưa đặt nhiệm vụ hay vật phẩm vào game."
+			},
+			{
+				"id": "wind_measure",
+				"name": "Bản đo Trạm Gió",
+				"region": "highland",
+				"map": "highland/wind_temple",
+				"note": "Nguồn nghiên cứu đề xuất trong hướng mới; chưa đặt nhiệm vụ hay vật phẩm vào game."
+			},
+			{
+				"id": "forge_contract",
+				"name": "Hợp kim Lò Rèn",
+				"region": "volcano",
+				"map": "volcano/red_anvil",
+				"note": "Nguồn nghiên cứu đề xuất trong hướng mới; chưa đặt nhiệm vụ hay vật phẩm vào game."
+			},
+			{
+				"id": "archive_machine",
+				"name": "Bản ghi Cổ Thành",
+				"region": "ruins",
+				"map": "ruins/aether_archive",
+				"note": "Nguồn nghiên cứu đề xuất trong hướng mới; chưa đặt nhiệm vụ hay vật phẩm vào game."
+			},
+			{
+				"id": "fracture_memory",
+				"name": "Mẫu rạn Không Gian",
+				"region": "void",
+				"map": "void/void_fortress",
+				"note": "Nguồn nghiên cứu đề xuất trong hướng mới; chưa đặt nhiệm vụ hay vật phẩm vào game."
+			}
+		],
+		"chapters": [
+			{
+				"id": "origin",
+				"order": 1,
+				"title": "Khởi nguyên Aether",
+				"requires": [
+					"old_coin",
+					"root_record",
+					"dawn_copy",
+					"night_copy"
+				],
+				"revelation": "Nơi hội tụ đầu tiên của vật chất và dòng Aether hình thành thế giới. Thần Tri Thức lưu giữ dấu vết khởi nguyên; chi tiết nguồn gốc cuối cùng còn là bản thảo.",
+				"keeper": [
+					"Mỗi miền đất giữ một phần của lịch sử.",
+					"Hãy đối chiếu những gì tìm thấy với bản ghi tại thư khố."
+				],
+				"question": "Người chơi sẽ mang tri thức này về giúp cộng đồng như thế nào?",
+				"journal": "Đã đọc bản ghi nghiên cứu của chương 1. Nội dung đang ở giai đoạn thiết kế.",
+				"spoiler": false
+			},
+			{
+				"id": "pact",
+				"order": 2,
+				"title": "Tám dòng thiên phú",
+				"previous": "origin",
+				"requires": [
+					"reed_ledger",
+					"sahrin_seat"
+				],
+				"revelation": "Bóng tối, Ánh sáng, Mộc, Thủy, Hỏa, Thổ, Phong và Băng là tám thiên phú. Cấp 10 phát hiện đúng một nguyên tố, xác suất đều 12,5%; class và giới tính không quyết định nguyên tố.",
+				"keeper": [
+					"Mỗi miền đất giữ một phần của lịch sử.",
+					"Hãy đối chiếu những gì tìm thấy với bản ghi tại thư khố."
+				],
+				"question": "Người chơi sẽ mang tri thức này về giúp cộng đồng như thế nào?",
+				"journal": "Đã đọc bản ghi nghiên cứu của chương 2. Nội dung đang ở giai đoạn thiết kế.",
+				"spoiler": true
+			},
+			{
+				"id": "burden",
+				"order": 3,
+				"title": "Những thành phố và đường giao thương",
+				"previous": "pact",
+				"requires": [
+					"wind_measure",
+					"forge_contract",
+					"archive_machine"
+				],
+				"revelation": "Các cộng đồng xây thành, phát triển nghề và trao đổi tài nguyên theo môi trường. Khuôn viên, chợ và các mê cung kết nối đời sống người chơi với lịch sử từng vùng.",
+				"keeper": [
+					"Mỗi miền đất giữ một phần của lịch sử.",
+					"Hãy đối chiếu những gì tìm thấy với bản ghi tại thư khố."
+				],
+				"question": "Người chơi sẽ mang tri thức này về giúp cộng đồng như thế nào?",
+				"journal": "Đã đọc bản ghi nghiên cứu của chương 3. Nội dung đang ở giai đoạn thiết kế.",
+				"spoiler": true
+			},
+			{
+				"id": "memory",
+				"order": 4,
+				"title": "Tri thức trên tầng mây",
+				"previous": "burden",
+				"requires": [
+					"fracture_memory"
+				],
+				"revelation": "Những bản ghi từ mọi vùng hội tụ ở Thiên Thành. Người chơi khám phá nguyên nhân các vết rạn và tự lựa chọn vai trò của mình; diễn biến và kết thúc sẽ được viết theo hướng mới.",
+				"keeper": [
+					"Mỗi miền đất giữ một phần của lịch sử.",
+					"Hãy đối chiếu những gì tìm thấy với bản ghi tại thư khố."
+				],
+				"question": "Người chơi sẽ mang tri thức này về giúp cộng đồng như thế nào?",
+				"journal": "Đã đọc bản ghi nghiên cứu của chương 4. Nội dung đang ở giai đoạn thiết kế.",
+				"spoiler": true
+			}
+		],
+		"sky": {
+			"id": "sky_castle",
+			"name": "Thiên Thành Khởi Nguyên",
+			"nameStatus": "proposal",
+			"playable": false,
+			"deity": {
+				"id": "archive_keeper",
+				"name": "Thần Tri Thức — Người Giữ Thư Khố",
+				"nameStatus": "proposal",
+				"count": 1,
+				"role": "Hé lộ tri thức toàn thế giới và lịch sử khởi nguyên qua thư khố; hiện diện trong lâu đài, không xuất hiện như giọng điều khiển trong đầu."
+			},
+			"access": {
+				"status": "proposal",
+				"minLevel": 60,
+				"evidence": [
+					"old_coin",
+					"root_record",
+					"dawn_copy",
+					"night_copy"
+				],
+				"fromMap": "highland/cloudtemple",
+				"returnMap": "highland/hub",
+				"note": "Đề xuất để có thể trở lại nhiều lần trước chương cuối; chưa thêm cổng hoặc khóa đường chơi hiện tại."
+			},
+			"spaces": [
+				{
+					"id": "arrival",
+					"name": "Bến mây",
+					"purpose": "Điểm đến và đường về rõ ràng, không sinh boss tại điểm hồi."
+				},
+				{
+					"id": "hall",
+					"name": "Đại sảnh đối chiếu",
+					"purpose": "Đặt các bản ghi cạnh nhau, xem nguồn và trạng thái mở."
+				},
+				{
+					"id": "archive",
+					"name": "Đại thư viện",
+					"purpose": "Tri thức các vùng, tìm theo chủ đề, xem lại chương đã mở."
+				},
+				{
+					"id": "origin",
+					"name": "Điện khởi nguyên",
+					"purpose": "Một vị thần tại đây kể và mở lịch sử theo bốn chương."
+				}
+			],
+			"constraints": [
+				"Đúng một vị thần tại lâu đài trên không.",
+				"Giữ tổng 140 kỹ năng trong thiết kế mới.",
+				"Nguyên tố không quy định đạo đức, quốc tịch hoặc giới tính.",
+				"Điều kiện cấp 60 hiện là đề xuất, chưa khóa đường chơi.",
+				"Chỉ mở map khi đã có asset, nhiệm vụ và QA."
+			]
+		},
+		"notes": [
+			"Hướng nhân vật mới: người chơi chọn một trong 30 tạo hình, 5 class, mỗi class 3 nam + 3 nữ; mỗi người dùng một vũ khí. Bộ hình vẽ liền hiện tại là mẫu đối chiếu; yêu cầu mới thống nhất tay cầm chính và khảo sát vũ khí thay thế theo từng frame, chưa triển khai đại trà.",
+			"Nhân vật đời cũ sẽ được biên soạn thành NPC. Không tiếp tục tuyến nhân vật chính và cốt truyện cũ trên web hiện hành.",
+			"Tám nguyên tố phát hiện ở cấp 10, xác suất bằng nhau 12,5%; mỗi nhân vật chỉ có một nguyên tố.",
+			"140 kỹ năng là phạm vi thiết kế; kiếm có 3 phái, pháp sư có 8 bộ nguyên tố. Chiêu cuối từng bộ chuyên dồn sát thương.",
+			"Khuôn viên riêng, trồng trọt, chế tạo, nấu ăn, nhà có bạn bè tham quan; hồ câu chung, chợ và mê cung là hướng phát triển đã chốt.",
+			"13 ID vùng và các cổng hiện có được dùng để đối chiếu kỹ thuật. Văn hóa, thành chính, chính trị và tên tổ chức mới dưới đây là đề xuất, không kế thừa cốt truyện cũ.",
+			"Thiên Thành có một vị thần hé lộ tri thức toàn thế giới và lịch sử khởi nguyên. Bản đồ tổng sẽ vẽ lại sau khi bố trí được duyệt."
+		]
+	},
+	"WORLD_DESIGN_NOTES": [
+		"Hướng nhân vật mới: người chơi chọn một trong 30 tạo hình, 5 class, mỗi class 3 nam + 3 nữ; mỗi người dùng một vũ khí. Bộ hình vẽ liền hiện tại là mẫu đối chiếu; yêu cầu mới thống nhất tay cầm chính và khảo sát vũ khí thay thế theo từng frame, chưa triển khai đại trà.",
+		"Nhân vật đời cũ sẽ được biên soạn thành NPC. Không tiếp tục tuyến nhân vật chính và cốt truyện cũ trên web hiện hành.",
+		"Tám nguyên tố phát hiện ở cấp 10, xác suất bằng nhau 12,5%; mỗi nhân vật chỉ có một nguyên tố.",
+		"140 kỹ năng là phạm vi thiết kế; kiếm có 3 phái, pháp sư có 8 bộ nguyên tố. Chiêu cuối từng bộ chuyên dồn sát thương.",
+		"Khuôn viên riêng, trồng trọt, chế tạo, nấu ăn, nhà có bạn bè tham quan; hồ câu chung, chợ và mê cung là hướng phát triển đã chốt.",
+		"13 ID vùng và các cổng hiện có được dùng để đối chiếu kỹ thuật. Văn hóa, thành chính, chính trị và tên tổ chức mới dưới đây là đề xuất, không kế thừa cốt truyện cũ.",
+		"Thiên Thành có một vị thần hé lộ tri thức toàn thế giới và lịch sử khởi nguyên. Bản đồ tổng sẽ vẽ lại sau khi bố trí được duyệt."
+	],
+	"WORLD_DESIGN_REVISION": "2026-10-26-roster-reboot",
+	"WORLD_DESIGN_STATUS": "design-draft",
+	"WORLD_LAYOUT": [
+		{
+			"id": "human",
+			"name": "Thung lũng Thistlewood",
+			"shortName": "Thistlewood",
+			"layer": "surface",
+			"x": 50,
+			"y": 53,
+			"color": "#a9bf76",
+			"status": "existing-region",
+			"geography": "Đồng bằng khởi hành; mở về hồ câu và các khuôn viên cá nhân."
+		},
+		{
+			"id": "swamp",
+			"name": "Đầm lầy Mù Sương",
+			"shortName": "Lau Xám",
+			"layer": "surface",
+			"x": 33,
+			"y": 70,
+			"color": "#92a371",
+			"status": "existing-region",
+			"geography": "Đầm nước nhiều tầng cao độ, đường nổi và bến liên kết."
+		},
+		{
+			"id": "desert",
+			"name": "Sa mạc Hồng Cát",
+			"shortName": "Sahrin",
+			"layer": "surface",
+			"x": 52,
+			"y": 84,
+			"color": "#d6a769",
+			"status": "existing-region",
+			"geography": "Cồn cát, khe đá và các trạm caravan cách xa nhau."
+		},
+		{
+			"id": "highland",
+			"name": "Cao nguyên Gió Hú",
+			"shortName": "Gió Hú",
+			"layer": "surface",
+			"x": 69,
+			"y": 57,
+			"color": "#a8c9a5",
+			"status": "existing-region",
+			"geography": "Cao nguyên nhiều gió; dành tuyến riêng lên Thiên Thành."
+		},
+		{
+			"id": "tundra",
+			"name": "Lãnh nguyên Băng Giá",
+			"shortName": "Tuyết Phong",
+			"layer": "surface",
+			"x": 69,
+			"y": 30,
+			"color": "#b4d7df",
+			"status": "existing-region",
+			"geography": "Miền băng tuyết, hồ đóng băng và các điểm trú bão."
+		},
+		{
+			"id": "volcano",
+			"name": "Núi lửa Hoả Sơn",
+			"shortName": "Đe Đỏ",
+			"layer": "surface",
+			"x": 86,
+			"y": 55,
+			"color": "#cf916f",
+			"status": "existing-region",
+			"geography": "Thềm dung nham và hệ mỏ; nhà ở tách khỏi luồng lò nóng."
+		},
+		{
+			"id": "isles",
+			"name": "Quần đảo San Hô",
+			"shortName": "San Hô",
+			"layer": "surface",
+			"x": 83,
+			"y": 83,
+			"color": "#88c7c4",
+			"status": "existing-region",
+			"geography": "Quần đảo nhiệt đới, rạn san hô và lối xuống hang biển."
+		},
+		{
+			"id": "fungal",
+			"name": "Rừng Nấm Ngầm",
+			"shortName": "Nấm Ngầm",
+			"layer": "underground",
+			"x": 20,
+			"y": 54,
+			"color": "#c09acb",
+			"status": "existing-region",
+			"geography": "Đô thị nấm ngầm, không dùng cây đầm lầy làm cây chủ đạo."
+		},
+		{
+			"id": "ruins",
+			"name": "Phế tích Aether",
+			"shortName": "Phế tích",
+			"layer": "surface",
+			"x": 20,
+			"y": 25,
+			"color": "#b8b3a8",
+			"status": "existing-region",
+			"geography": "Vành đai phế tích nhiều niên đại, giữ khoảng trống gợi quy mô cổ thành."
+		},
+		{
+			"id": "void",
+			"name": "Vực Hư Không",
+			"shortName": "Hư Không",
+			"layer": "sky",
+			"x": 87,
+			"y": 22,
+			"color": "#b29bc7",
+			"status": "existing-region",
+			"geography": "Vùng rạn không gian riêng, không đồng nhất miền Bóng tối."
+		},
+		{
+			"id": "wood",
+			"name": "Rừng Cổ Thụ",
+			"shortName": "Cổ Thụ",
+			"layer": "surface",
+			"x": 33,
+			"y": 37,
+			"color": "#88b98c",
+			"status": "existing-region",
+			"geography": "Rừng cổ đa tầng với bộ cây, rễ và đồ cảnh Mộc riêng."
+		},
+		{
+			"id": "light",
+			"name": "Thánh Địa Bình Minh",
+			"shortName": "Bình Minh",
+			"layer": "surface",
+			"x": 50,
+			"y": 28,
+			"color": "#e2cb91",
+			"status": "existing-region",
+			"geography": "Bậc thềm sáng, kiến trúc cao và khoảng sân rõ ràng."
+		},
+		{
+			"id": "dark",
+			"name": "Vực Ám Ma",
+			"shortName": "Ám Ma",
+			"layer": "surface",
+			"x": 19,
+			"y": 82,
+			"color": "#ac9bc8",
+			"status": "existing-region",
+			"geography": "Rừng đêm và đô thị trú ẩn; màu tối không mặc định phản diện."
+		},
+		{
+			"id": "sky_castle",
+			"name": "Thiên Thành Khởi Nguyên",
+			"shortName": "Thiên Thành",
+			"layer": "sky",
+			"x": 53,
+			"y": 9,
+			"color": "#ead6ab",
+			"status": "planned",
+			"geography": "Lâu đài trên không với một vị thần giữ tri thức và lịch sử khởi nguyên. Chưa mở map chơi."
+		}
+	]
+}

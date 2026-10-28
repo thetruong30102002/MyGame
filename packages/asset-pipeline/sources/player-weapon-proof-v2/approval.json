@@ -1,0 +1,99 @@
+{
+  "date": "2026-10-26",
+  "scope": "Giữ nghiệm thu cách ghép V2 và 16 frame đứng/đi. Góp ý mới của chủ dự án loại chuỗi bổ cũ khỏi phần đã chốt vì phình người và lệch độ nét. Bổ R3 là bản sửa đang rà, chưa nghiệm thu mỹ thuật hoặc Unity.",
+  "quote": "bản v2 bạn ghép kiếm ổn rồi đấy",
+  "acceptedWeaponIds": [
+    "steel",
+    "iron"
+  ],
+  "bodyFrames": [
+    {
+      "id": "idle-S",
+      "bodySha256": "32684edb5ce978225993032ae4484e6e9c244a278d1ffb144b4a1b5a28f398f2",
+      "handsFileSha256": "0bacef94bd434f8bbbb779e50c5f8da93ea96bbc929694a42f1e1c1ebc33aa3c"
+    },
+    {
+      "id": "idle-SW",
+      "bodySha256": "8904fdc3d946c9146c960cf817e021ddc50fb30e7f4dbfa8dbd14ad8470c01bd",
+      "handsFileSha256": "882d561156e843da5f1f79ba1c3ce959488c489d5715b2055f235b1846b7f50a"
+    },
+    {
+      "id": "idle-W",
+      "bodySha256": "aab678f1e4e7712e8fa1cbdde80bf6c14a264ab8a3f38d3ebb6d0d2494e1cc52",
+      "handsFileSha256": "c72bab2bc1c263a6f13dde4321bbd6b735d5c580595d870e2b39d1e150ed0815"
+    },
+    {
+      "id": "idle-NW",
+      "bodySha256": "860b9276e3466faa82afbcb778cc60d1a54a65270f35127b5b31082ac033e511",
+      "handsFileSha256": "5ce503b61769a5bf9878ee29406f4b7347182fba24d9040ad9d1d37fd96326ad"
+    },
+    {
+      "id": "idle-N",
+      "bodySha256": "32d43207542b807bd261e605516ac7165e18a03d2d38d6abfa9335e829abbc8c",
+      "handsFileSha256": "9204002626d9cf002c10fef5c3c0a03d6641f6dba5aab8dc265363b99f8c18cd"
+    },
+    {
+      "id": "idle-NE",
+      "bodySha256": "d9a3fffb1bdc9071c2a87bb1fd8f03e22443a169b60066214db8e75f22a8d2aa",
+      "handsFileSha256": "037be689562c06d086556e0d188d9ca89b6e89e9faa64a61aa4ec84d905b3f88"
+    },
+    {
+      "id": "idle-E",
+      "bodySha256": "5b7987205b87d6a08a7d3abe97159783cf3f7d59ea4bc4cc69a585e1ff91e0a5",
+      "handsFileSha256": "cb83c56ef754ea930e5d13fb60e4ec44541cb55138d69d6a04ff99d8aaa6ec15"
+    },
+    {
+      "id": "idle-SE",
+      "bodySha256": "32605f0718c82c78dd6ad0f2697493ae06b27d64614d4013d55433fc26a7c4ec",
+      "handsFileSha256": "63fb0a08b088f799e5d4ea7404700e3dbba6945a9408d69e42a7c481847c9b59"
+    },
+    {
+      "id": "walk-E-0",
+      "bodySha256": "0081166cba964e225a07ecb01226687c9fea9e51984fec15753ddd653370d104",
+      "handsFileSha256": "61706f2addfd7cedf014450401a3200c35320189e78e603492731399e8503844"
+    },
+    {
+      "id": "walk-E-1",
+      "bodySha256": "aa96590a3b6ac94a14720ead1348ee8728c68a11817cb2fa1a6b3229f0d450d8",
+      "handsFileSha256": "cd9a9ffb9f2f99c068e206d30b8c1506448545daf7671e803b000d3def7608b6"
+    },
+    {
+      "id": "walk-E-2",
+      "bodySha256": "d8db6ccde7e57eb3c468e821ac46eec1c002b7a72fab1a9dcaf98c22044db60a",
+      "handsFileSha256": "6a8d870f84fa13149a81e66312b0c5bd20bce8c23defd37fc0e6ca16d2e9db51"
+    },
+    {
+      "id": "walk-E-3",
+      "bodySha256": "4fbd488ed3783cce95ad0b736a2fb396ea13ec13a0a04d8a46758ce84a519c23",
+      "handsFileSha256": "77bf7abfa684b8df7f2c9fedcb773c562278a16ffce8dcea3bfee5b000064ddd"
+    },
+    {
+      "id": "walk-E-4",
+      "bodySha256": "4b800fb6e5aba8126411d1589e0d81c572d33bbfe792dea476898febea870541",
+      "handsFileSha256": "d57412d27b6e196da784c3c705b725bb5ddfbd9205d6f955275a4b132c0448e9"
+    },
+    {
+      "id": "walk-E-5",
+      "bodySha256": "a4898265601cc31fad78ca9a5a195909a3a7a08b0b3cb763a8f57268bcc81224",
+      "handsFileSha256": "0d4905bcb042d4f1766398eb5ddc40747f8eac8f53383f8d20a2ced75c3638de"
+    },
+    {
+      "id": "walk-E-6",
+      "bodySha256": "58487176eaaf44a5052ec5a83d5c069a2c6b2c78881722ae1cec9402365ac753",
+      "handsFileSha256": "6eeeaa0b174bec1b52424ca2b39043765b3e65b8240f175b438259efde7fefda"
+    },
+    {
+      "id": "walk-E-7",
+      "bodySha256": "a84cbc09e823bd50c64bc06f78a8f8718f0abb5754b5b05bdb4422fbe08709fe",
+      "handsFileSha256": "a0fda3c67cb63f3f8125c22c0526a6aa77d29afb5ee58ed8712285147c6a1082"
+    }
+  ],
+  "pendingActions": [
+    "attack-S"
+  ],
+  "latestFeedback": [
+    "tôi lại thấy lỗi khi tấn công người bị to và nhờ không đúng như bản đứng yên",
+    "độ sắc nét cũng khác"
+  ],
+  "previousApproval": "attack-r3/approval-before-attack-correction.json"
+}

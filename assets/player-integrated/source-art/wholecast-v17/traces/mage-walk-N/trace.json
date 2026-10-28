@@ -1,0 +1,140 @@
+{
+  "job": "mage-walk-N",
+  "source": "assets/player-integrated/source-art/wholecast-v17/motion/mage-walk-N.png",
+  "sourceSha256": "ed4ee39c910ecafab3e9c80e6633aaa101c6f15c9cfbddb0800f706f431b0cc8",
+  "uniformScale": 0.18513689700130379,
+  "rowFloor": [
+    426.0,
+    843.0
+  ],
+  "gridOrigin": 326.4000000000001,
+  "gridStep": 374.275,
+  "masterHair": [
+    22,
+    31
+  ],
+  "resampling": "nearest",
+  "frameSize": [
+    144,
+    144
+  ],
+  "root": [
+    72,
+    128
+  ],
+  "frames": [
+    {
+      "frame": 0,
+      "hairWidth": 21.29,
+      "hairHeight": 29.44,
+      "sourceEdge": false,
+      "clipped": false,
+      "nativeBounds": [
+        51,
+        56,
+        91,
+        127
+      ],
+      "wholeActorMirrored": false
+    },
+    {
+      "frame": 1,
+      "hairWidth": 21.29,
+      "hairHeight": 28.88,
+      "sourceEdge": false,
+      "clipped": false,
+      "nativeBounds": [
+        48,
+        56,
+        88,
+        127
+      ],
+      "wholeActorMirrored": false
+    },
+    {
+      "frame": 2,
+      "hairWidth": 22.22,
+      "hairHeight": 28.33,
+      "sourceEdge": false,
+      "clipped": false,
+      "nativeBounds": [
+        50,
+        57,
+        90,
+        127
+      ],
+      "wholeActorMirrored": false
+    },
+    {
+      "frame": 3,
+      "hairWidth": 22.03,
+      "hairHeight": 29.25,
+      "sourceEdge": false,
+      "clipped": false,
+      "nativeBounds": [
+        51,
+        56,
+        89,
+        127
+      ],
+      "wholeActorMirrored": false
+    },
+    {
+      "frame": 4,
+      "hairWidth": 22.77,
+      "hairHeight": 29.07,
+      "sourceEdge": false,
+      "clipped": false,
+      "nativeBounds": [
+        49,
+        56,
+        90,
+        127
+      ],
+      "wholeActorMirrored": false
+    },
+    {
+      "frame": 5,
+      "hairWidth": 22.03,
+      "hairHeight": 29.07,
+      "sourceEdge": false,
+      "clipped": false,
+      "nativeBounds": [
+        49,
+        56,
+        88,
+        127
+      ],
+      "wholeActorMirrored": false
+    },
+    {
+      "frame": 6,
+      "hairWidth": 22.59,
+      "hairHeight": 29.25,
+      "sourceEdge": false,
+      "clipped": false,
+      "nativeBounds": [
+        51,
+        56,
+        91,
+        127
+      ],
+      "wholeActorMirrored": false
+    },
+    {
+      "frame": 7,
+      "hairWidth": 21.85,
+      "hairHeight": 29.25,
+      "sourceEdge": false,
+      "clipped": false,
+      "nativeBounds": [
+        50,
+        56,
+        90,
+        127
+      ],
+      "wholeActorMirrored": false
+    }
+  ],
+  "approved": false
+}

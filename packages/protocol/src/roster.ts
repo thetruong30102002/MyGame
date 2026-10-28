@@ -1,0 +1,36 @@
+// Sinh từ roster V18: ID ngoại hình cố định khi tạo nhân vật.
+export type PlayerClass = 'sword' | 'bow' | 'staff' | 'spear' | 'shield';
+export const PLAYER_MODELS = [
+	{"id": "player_verdant_sword", "classId": "sword", "gender": "male", "name": "Lục Phong"},
+	{"id": "player_sword_m02", "classId": "sword", "gender": "male", "name": "Lam Kiếm"},
+	{"id": "player_sword_m03", "classId": "sword", "gender": "male", "name": "Xích Ảnh"},
+	{"id": "player_sword_f01", "classId": "sword", "gender": "female", "name": "Thanh Vũ"},
+	{"id": "player_sword_f02", "classId": "sword", "gender": "female", "name": "Ngân Kiếm"},
+	{"id": "player_sword_f03", "classId": "sword", "gender": "female", "name": "Tử Yên"},
+	{"id": "player_staff_m01", "classId": "staff", "gender": "male", "name": "Tinh Vân"},
+	{"id": "player_staff_m02", "classId": "staff", "gender": "male", "name": "Mộc Linh"},
+	{"id": "player_staff_m03", "classId": "staff", "gender": "male", "name": "Dạ Huyền"},
+	{"id": "player_ivory_staff", "classId": "staff", "gender": "female", "name": "Nguyệt Thạch"},
+	{"id": "player_staff_f02", "classId": "staff", "gender": "female", "name": "Hỏa Vũ"},
+	{"id": "player_staff_f03", "classId": "staff", "gender": "female", "name": "Tuyết Linh"},
+	{"id": "player_bow_m01", "classId": "bow", "gender": "male", "name": "Lâm Tiễn"},
+	{"id": "player_bow_m02", "classId": "bow", "gender": "male", "name": "Dạ Tiễn"},
+	{"id": "player_bow_m03", "classId": "bow", "gender": "male", "name": "Sa Ưng"},
+	{"id": "player_bow_f01", "classId": "bow", "gender": "female", "name": "Hoa Tiễn"},
+	{"id": "player_bow_f02", "classId": "bow", "gender": "female", "name": "Tử Tinh"},
+	{"id": "player_bow_f03", "classId": "bow", "gender": "female", "name": "Kim Yến"},
+	{"id": "player_spear_m01", "classId": "spear", "gender": "male", "name": "Hồng Thương"},
+	{"id": "player_spear_m02", "classId": "spear", "gender": "male", "name": "Bích Kích"},
+	{"id": "player_spear_m03", "classId": "spear", "gender": "male", "name": "Viêm Thương"},
+	{"id": "player_spear_f01", "classId": "spear", "gender": "female", "name": "Lam Thương"},
+	{"id": "player_spear_f02", "classId": "spear", "gender": "female", "name": "Ngân Nguyệt"},
+	{"id": "player_spear_f03", "classId": "spear", "gender": "female", "name": "Mộc Lan"},
+	{"id": "player_shield_m01", "classId": "shield", "gender": "male", "name": "Thiết Vệ"},
+	{"id": "player_shield_m02", "classId": "shield", "gender": "male", "name": "Cổ Mộc"},
+	{"id": "player_shield_m03", "classId": "shield", "gender": "male", "name": "Huyết Thành"},
+	{"id": "player_shield_f01", "classId": "shield", "gender": "female", "name": "Băng Vệ"},
+	{"id": "player_shield_f02", "classId": "shield", "gender": "female", "name": "Nhật Quang"},
+	{"id": "player_shield_f03", "classId": "shield", "gender": "female", "name": "Tử Vệ"},
+] as const;
+export const playerModel = (id: unknown) => PLAYER_MODELS.find(m => m.id === id);
+export const defaultPlayerModel = (gender: string) => PLAYER_MODELS.find(m => m.gender === gender && m.classId === (gender === 'female' ? 'staff' : 'sword'))!;

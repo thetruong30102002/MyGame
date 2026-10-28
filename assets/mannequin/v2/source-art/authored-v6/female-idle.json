@@ -1,0 +1,142 @@
+{
+  "action": "idle",
+  "sex": "female",
+  "records": [
+    {
+      "action": "idle",
+      "phase": 0,
+      "direction": "S",
+      "headAnchor": [
+        72,
+        49
+      ],
+      "waist": 87,
+      "hip": [
+        72,
+        91
+      ],
+      "scale": 0.27303754266211605,
+      "cx": 132.36473247927657,
+      "floor": 530
+    },
+    {
+      "action": "idle",
+      "phase": 0,
+      "direction": "SW",
+      "headAnchor": [
+        72,
+        48
+      ],
+      "waist": 87,
+      "hip": [
+        71,
+        91
+      ],
+      "scale": 0.27303754266211605,
+      "cx": 127.34296028880867,
+      "floor": 530
+    },
+    {
+      "action": "idle",
+      "phase": 0,
+      "direction": "W",
+      "headAnchor": [
+        72,
+        48
+      ],
+      "waist": 87,
+      "hip": [
+        69,
+        90
+      ],
+      "scale": 0.27303754266211605,
+      "cx": 127.9707351891506,
+      "floor": 530
+    },
+    {
+      "action": "idle",
+      "phase": 0,
+      "direction": "NW",
+      "headAnchor": [
+        72,
+        48
+      ],
+      "waist": 87,
+      "hip": [
+        72,
+        91
+      ],
+      "scale": 0.27303754266211605,
+      "cx": 128.9815340909091,
+      "floor": 530
+    },
+    {
+      "action": "idle",
+      "phase": 0,
+      "direction": "N",
+      "headAnchor": [
+        72,
+        48
+      ],
+      "waist": 87,
+      "hip": [
+        72,
+        91
+      ],
+      "scale": 0.27303754266211605,
+      "cx": 139.09495982468957,
+      "floor": 530
+    },
+    {
+      "action": "idle",
+      "phase": 0,
+      "direction": "NE",
+      "headAnchor": [
+        72,
+        47
+      ],
+      "waist": 87,
+      "hip": [
+        72,
+        91
+      ],
+      "scale": 0.27303754266211605,
+      "cx": 142.30655391120507,
+      "floor": 530
+    },
+    {
+      "action": "idle",
+      "phase": 0,
+      "direction": "E",
+      "headAnchor": [
+        72,
+        48
+      ],
+      "waist": 90,
+      "hip": [
+        67,
+        92
+      ],
+      "scale": 0.27303754266211605,
+      "cx": 146.1378600823045,
+      "floor": 530
+    },
+    {
+      "action": "idle",
+      "phase": 0,
+      "direction": "SE",
+      "headAnchor": [
+        72,
+        48
+      ],
+      "waist": 87,
+      "hip": [
+        73,
+        91
+      ],
+      "scale": 0.27303754266211605,
+      "cx": 139.9875366568915,
+      "floor": 530
+    }
+  ]
+}

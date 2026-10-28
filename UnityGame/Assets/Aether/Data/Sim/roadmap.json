@@ -1,6 +1,15 @@
 {
 	"ROADMAP": [
 		{
+			"id": "skills_140",
+			"group": "game",
+			"name": "Danh mục đã chốt: 140 chiêu",
+			"detail": "3 phái Kiếm x10 + Khiên/Thương/Cung x10 +8 hệ Pháp sư x10 =140; mỗi bộ7 chủ động +3 bị động. Hiệu ứng/nội tại nguyên tố không tính thêm chiêu. Chiêu số10 dồn sát thương săn boss; tên và cơ chế đang thiết kế.",
+			"progress": 0,
+			"pixellab": 0,
+			"doc": "ke-hoach-nguyen-to.md §10.2"
+		},
+		{
 			"id": "talents_v4",
 			"group": "game",
 			"name": "Tiềm năng: 1 nguyên tố + lớp + thuộc tính",
@@ -8,6 +17,15 @@
 			"progress": 92,
 			"pixellab": 0,
 			"doc": "ke-hoach-nguyen-to.md §9"
+		},
+		{
+			"id": "element_awakening_lv10",
+			"group": "game",
+			"name": "Thiên phú nguyên tố ở cấp 10",
+			"detail": "Chốt 26/10: Bóng tối, Ánh sáng, Mộc, Thủy, Hỏa, Thổ, Phong, Băng; random đồng đều 1/8 = 12,5% mỗi hệ, mỗi user chỉ 1 nguyên tố. Thay cách tự chọn hệ cũ; chưa triển khai.",
+			"progress": 0,
+			"pixellab": 0,
+			"doc": "ke-hoach-nguyen-to.md §10"
 		},
 		{
 			"id": "region1",
@@ -44,6 +62,15 @@
 			"progress": 40,
 			"pixellab": 0,
 			"doc": "ke-hoach-nguyen-to.md §7 GĐ4"
+		},
+		{
+			"id": "ultimate_burst",
+			"group": "game",
+			"name": "Chiêu cuối: dồn sát thương săn boss",
+			"detail": "Chốt 26/10: mọi chiêu số10 của class/phái kiếm và8 hệ Pháp sư đều burst trong một pha ngắn. Sửa tuyệt kỹ dạng vùng, bão, triệu hồi hoặc trạng thái gây sát thương duy trì. Đã cập nhật bản chữ14 tuyệt kỹ đề xuất; chưa áp gameplay.",
+			"progress": 0,
+			"pixellab": 0,
+			"doc": "ke-hoach-nguyen-to.md §10.2.1"
 		},
 		{
 			"id": "gear",
@@ -102,20 +129,56 @@
 		{
 			"id": "home",
 			"group": "game",
-			"name": "Nhà riêng (xây nhà, trồng cây, chăn nuôi)",
-			"detail": "Mới có kế hoạch.",
+			"name": "Khuôn viên riêng: nhà, vườn, trang trí và bạn bè tham quan",
+			"detail": "Chốt 26/10: mỗi user một khuôn viên lưu theo tài khoản; chủ nhà chỉnh nhà, bố trí công trình/nội thất, trồng và thu hoạch. Bạn bè vào tham quan; khách không lấy đồ, thu hoạch hay sửa nhà. Chưa triển khai.",
 			"progress": 0,
 			"pixellab": 0,
 			"doc": "ke-hoach-nha-rieng.md"
 		},
 		{
+			"id": "home_production",
+			"group": "game",
+			"name": "Thu hoạch, nhiên liệu, chế tạo đồ tiêu hao và nấu ăn",
+			"detail": "Chốt 26/10: thực phẩm/nguyên liệu/nhiên liệu từ khuôn viên phục vụ chế biến, chế tạo vật phẩm tiêu hao và nấu ăn; cá nối vào hệ nguyên liệu. Cần công thức, kho, công trình và kiểm kinh tế máy chủ; chưa triển khai.",
+			"progress": 0,
+			"pixellab": 0,
+			"doc": "ke-hoach-nha-rieng.md §2.4"
+		},
+		{
+			"id": "trade_market",
+			"group": "game",
+			"name": "Chợ giao thương: nông sản, giống, cá và đồ trang trí",
+			"detail": "Chốt 26/10: người chơi mua bán lúa mì, cây giống, cá, đồ lưu niệm, trang trí nhà; nối khuôn viên/hồ câu với kinh tế máy chủ. Cần thiết kế hình thức chợ, tiền tệ/phí và cơ chế giao hàng; bán offline/đấu giá chưa chốt. Chưa triển khai.",
+			"progress": 0,
+			"pixellab": 0,
+			"doc": "ke-hoach-xa-hoi.md §3.1"
+		},
+		{
+			"id": "treasure_labyrinths",
+			"group": "game",
+			"name": "Mê cung: châu báu, vàng và đồ trang trí nhà",
+			"detail": "Chốt 26/10: thêm các mê cung để khám phá kiếm châu báu, vàng, đồ trang trí; mang về nhà trưng bày hoặc bán món được phép giao thương. Cần thiết kế map, kho báu, phần thưởng và kiểm nhận ở máy chủ; chưa triển khai.",
+			"progress": 0,
+			"pixellab": 0,
+			"doc": "ke-hoach-the-gioi.md §5.11"
+		},
+		{
+			"id": "fishing_lake",
+			"group": "game",
+			"name": "Map hồ cá chung: câu cùng bạn bè",
+			"detail": "Chốt 26/10: vào cùng map hồ, thấy bạn bè và động tác câu, nhận cá vào túi nguyên liệu. Cần luồng tới cùng hồ/phiên, bảng cá, mồi và xử lý lượt câu ở máy chủ; chưa triển khai.",
+			"progress": 0,
+			"pixellab": 0,
+			"doc": "ke-hoach-nha-rieng.md §2.5"
+		},
+		{
 			"id": "new_elements",
 			"group": "game",
 			"name": "Nguyên tố Mộc · Bóng tối · Ánh sáng",
-			"detail": "Mới ghi chú: 3 nhánh 10 mốc, phản ứng nhóm mới, mỗi hệ một vị thần + nhiệm vụ mở nhánh.",
+			"detail": "Bổ sung 3 hệ để đủ 8 nguyên tố. Chốt 26/10: nhận một hệ bằng thiên phú random đồng đều ở cấp 10; rà lại kế hoạch mở hệ bằng nhiệm vụ cũ.",
 			"progress": 0,
 			"pixellab": 0,
-			"doc": "ke-hoach-nguyen-to.md §9"
+			"doc": "ke-hoach-nguyen-to.md §10"
 		},
 		{
 			"id": "new_maps",
@@ -165,20 +228,29 @@
 		{
 			"id": "new_classes",
 			"group": "game",
-			"name": "Lớp mới: Cung · Khiên",
-			"detail": "Mới ghi chú: mỗi lớp một nhánh vũ khí + một nguyên tố kích hoạt có thời gian. Bỏ lớp Healer (14/10) — thay bằng cây Hỗ trợ.",
+			"name": "Chiêu ba phái Kiếm · Khiên · Thương · Cung",
+			"detail": "26/10: Kiếm có Thủy Thần, Kiếm Thần, Bắc Thần, tham khảo Thất Nghiệp Chuyển Sinh. Đã phác thảo10/phái (gồm3 bị động); Khiên/Thương/Cung10/class. Đề xuất60 chiêu vũ khí, chờ duyệt phân bổ và chiêu. Nguyên tố bổ sung hiệu ứng/nội tại.",
 			"progress": 0,
 			"pixellab": 0,
-			"doc": "ke-hoach-nguyen-to.md §9"
+			"doc": "phac-thao-ba-phai-kiem.md"
+		},
+		{
+			"id": "mage_skill_review",
+			"group": "game",
+			"name": "80 chiêu Pháp sư theo 8 nguyên tố",
+			"detail": "Mỗi nguyên tố10 chiêu (7 chủ động +3 bị động). Chờ thử chiêu cũ rồi thống kê giữ/sửa/bỏ. Nếu ba phái Kiếm mỗi phái10, tổng danh mục đề xuất140; phân bổ chiêu chung/riêng chưa chốt.",
+			"progress": 0,
+			"pixellab": 0,
+			"doc": "ke-hoach-nguyen-to.md §10"
 		},
 		{
 			"id": "support_trees",
 			"group": "game",
-			"name": "Mỗi nguyên tố 2 cây: Sát thương + Hỗ trợ",
-			"detail": "Mới ghi chú (14/10): cây Hỗ trợ riêng mỗi hệ (hồi máu, khiên, tăng sức cho mình + đồng đội); pháp sư chia điểm theo hướng buff, sát thương hoặc nửa nửa — thay lớp Healer.",
+			"name": "Rà kế hoạch cây Sát thương + Hỗ trợ",
+			"detail": "Đề xuất cũ 14/10 cần đối chiếu chốt mới 26/10: Pháp sư 10 chiêu/nguyên tố, gồm3 bị động; chờ chơi thử và chốt chiêu giữ lại trước khi quyết định cấu trúc cây.",
 			"progress": 0,
 			"pixellab": 0,
-			"doc": "ke-hoach-nguyen-to.md §9"
+			"doc": "ke-hoach-nguyen-to.md §10"
 		},
 		{
 			"id": "art_r1_7",
@@ -298,5 +370,5 @@
 			"doc": "ke-hoach-the-gioi.md §1.2"
 		}
 	],
-	"ROADMAP_UPDATED": "17/10/2026"
+	"ROADMAP_UPDATED": "26/10/2026"
 }

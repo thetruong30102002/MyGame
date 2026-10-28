@@ -1,5 +1,7 @@
 # Kế hoạch: cây Nguyên tố + Kiếm phủ phép (thay hệ "cộng điểm vào từng skill")
 
+> **Chốt mới 26/10/2026 — ưu tiên mục 10:** 8 nguyên tố được thiên phú phát hiện ở **cấp 10**, random đồng đều **1/8 = 12,5% mỗi hệ**, mỗi user chỉ có **1 nguyên tố**. Cần thiết kế bộ chiêu cho **Kiếm, Khiên, Thương, Cung**; **Pháp sư chờ chủ dự án thử lại rồi thống kê chiêu giữ lại**. Đây là ghi chú phát triển, chưa hiện thực luật mới. Các mô tả tự chọn hệ / đổi hệ / mở hệ bằng nhiệm vụ ở mục cũ là lịch sử, cần cập nhật theo mục 10 khi triển khai.
+
 > **10/10/2026 — sẽ BỎ chiêu dạng tường** (chủ dự án: "bỏ các skill tường đi cho các hiệu ứng xịn nhiều animation đi"): Tường Lửa (Hoả 6) → Hoả Long Phún, Tường Đá (Thổ 6) → Cự Thạch Lăn; làm cùng đợt vẽ lại hiệu ứng chiêu người chơi — chi tiết + lượt ước ở `docs/pixellab-ke-hoach-ve.md` mục "Hiệu ứng chiêu NGƯỜI CHƠI".
 
 Trạng thái: **ĐÃ CHỐT HƯỚNG** (07/10/2026 — chủ dự án: "làm theo ý bạn", thêm: thanh 10 ô, chỉ master được 1 nhánh). Đã thay
@@ -696,3 +698,95 @@ Chủ dự án 11/10/2026:
   - Điểm đổi ra chỉ vào Sinh lực / Linh lực / Đỡ đòn / Thể lực (`TALENT_ATTRS`). Sức mạnh / Trí tuệ chỉ lấy điểm theo cấp.
   - Số đã đổi lưu `story.attrTalent`. PvP máy chủ trừ khỏi điểm cây, cộng vào thuộc tính. Tẩy điểm xoá luôn.
   - Lưu ý: khi mốc 10 (tuyệt kỹ) mở ở game thật, điểm đã đổi không tự quay về — người chơi tẩy điểm nếu muốn lấy lại.
+
+## 10. Thiên phú cấp 10 và thiết kế chiêu theo class — chốt 26/10/2026
+
+**Trạng thái: đã ghi yêu cầu phát triển; chưa triển khai vào game.** Yêu cầu này cập nhật cách nhận nguyên tố ở mục 9. Mốc **cấp nhân vật 10** ở đây khác với **mốc 10 của cây kỹ năng**.
+
+### 10.1 Luật nguyên tố đã chốt
+
+Khi người dùng đạt **level 10**, thiên phú phát hiện **một nguyên tố ngẫu nhiên** trong danh sách sau:
+
+| Nguyên tố | Xác suất mỗi lần phát hiện thiên phú |
+|---|---|
+| Bóng tối | 1/8 = 12,5% |
+| Ánh sáng | 1/8 = 12,5% |
+| Mộc | 1/8 = 12,5% |
+| Thủy | 1/8 = 12,5% |
+| Hỏa | 1/8 = 12,5% |
+| Thổ | 1/8 = 12,5% |
+| Phong | 1/8 = 12,5% |
+| Băng | 1/8 = 12,5% |
+
+- **Tổng cộng 8 nguyên tố; mỗi user chỉ có 1 nguyên tố.** Kiếm / Khiên / Thương / Cung / Pháp sư là class, không thêm vào danh sách random nguyên tố.
+- Trước cấp 10, thiên phú nguyên tố **chưa được phát hiện**.
+- Random có trọng số bằng nhau cho cả 8 hệ; mỗi user có xác suất như nhau. Đồng đều về xác suất không có nghĩa cưỡng ép số người thuộc từng hệ phải bằng nhau.
+- Cách tự chọn hệ khi cộng điểm đầu tiên và các ghi chú nhiệm vụ mở thêm hệ trước đây cần thay theo cơ chế phát hiện thiên phú này. Tẩy điểm không được mặc nhiên coi là quyền tự chọn hoặc random lại nguyên tố; tính năng đổi hệ chưa được chốt trong yêu cầu mới.
+
+### 10.2 Phạm vi thiết kế chiêu — làm rõ theo chủ dự án 26/10/2026
+
+**Cấu trúc đã chốt:** mỗi bộ có **10 chiêu = 7 chủ động + 3 bị động**.
+
+> **Chủ dự án đã xác nhận tổng đúng 140 chiêu:** 3 phái Kiếm ×10 + Khiên / Thương / Cung ×10 +8 hệ Pháp sư ×10 =140 (98 chủ động +42 bị động). Hiệu ứng / nội tại nguyên tố không tính thêm chiêu riêng. Xác nhận này chốt số lượng đã còn để đề xuất trong các ghi chú trước; tên, tác dụng và cách học / đổi phái vẫn chờ duyệt.
+
+- **Bổ sung của chủ dự án:** Kiếm có3 phái **Thủy Thần / Kiếm Thần / Bắc Thần**, tham khảo *Thất Nghiệp Chuyển Sinh* để thiết kế và vẽ chiêu. Bản chữ và nguồn nguyên tác ở [phác thảo ba phái kiếm](phac-thao-ba-phai-kiem.md). Đề xuất mỗi phái10 chiêu (7 chủ động +3 bị động); cách học phái, chia chiêu chung / riêng và đổi phái chờ chốt.
+- **Khiên / Thương / Cung:** mỗi class có một bộ10 chiêu riêng. **Kiếm:** thiết kế theo ba phái ở trên. Nguyên tố nhận ở cấp10 bổ sung hiệu ứng và nội tại tương ứng; không tạo8 bộ10 chiêu riêng cho từng class vũ khí.
+- **Pháp sư:** bộ chiêu đi theo nguyên tố. Mỗi nguyên tố có 10 chiêu, gồm 7 chủ động và 3 bị động; 8 nguyên tố thành **80 chiêu thiết kế**. Mỗi pháp sư dùng bộ của nguyên tố duy nhất mình nhận được.
+- **Cập nhật cách đếm sau khi bổ sung ba phái kiếm:** đề xuất3 phái ×10 +3 class vũ khí ×10 +8 nguyên tố Pháp sư ×10 = **140 chiêu**, gồm98 chủ động +42 bị động nếu mỗi phái đủ10. Tổng120 ở bản trước tính Kiếm chỉ một bộ, đã được thay bằng đề xuất phân bổ theo3 phái; cần chốt chiêu chung / riêng để khóa số lượng cuối. Đây là tổng danh mục, không phải số chiêu một user sở hữu. Hiệu ứng / nội tại nguyên tố là biến thể của bộ chiêu vũ khí, không cộng thêm một bộ10 phép Pháp sư cho mỗi user.
+- Bản nháp80 chiêu nguyên tố đã trình bày trong chat chỉ dùng làm đề xuất cho **Pháp sư**; tên / tác dụng và quyết định giữ chiêu cũ vẫn chờ chủ dự án duyệt. Vị trí3 bị động là đề xuất. **Chiêu cuối số10 bắt buộc là chiêu dồn sát thương săn boss** theo chốt mới bên dưới; các mô tả tuyệt kỹ kéo dài trong bản nháp đã được thay bằng mục10.2.1.
+
+| Class | Việc cần làm | Trạng thái |
+|---|---|---|
+| Kiếm | 3 phái Thủy Thần / Kiếm Thần / Bắc Thần; đề xuất10/phái (7 chủ động +3 bị động), nguyên tố bổ sung hiệu ứng / nội tại. | Đã phác thảo30 chiêu; chờ duyệt phân bổ và chiêu |
+| Khiên | 10 chiêu riêng: 7 chủ động + 3 bị động; nguyên tố bổ sung hiệu ứng và nội tại. | Cần thiết kế |
+| Thương | 10 chiêu riêng: 7 chủ động + 3 bị động; nguyên tố bổ sung hiệu ứng và nội tại. | Cần thiết kế |
+| Cung | 10 chiêu riêng: 7 chủ động + 3 bị động; nguyên tố bổ sung hiệu ứng và nội tại. | Cần thiết kế |
+| Pháp sư | 8 bộ theo nguyên tố ×10 chiêu =80 (mỗi bộ 7 chủ động +3 bị động). Chủ dự án thử lại chiêu cũ, thống kê giữ / sửa / bỏ. | **Chờ chủ dự án chơi thử; chưa chốt danh sách chiêu giữ lại** |
+
+Danh sách chiêu pháp sư ở các mục cũ được giữ làm tài liệu để thử và đối chiếu. Không coi toàn bộ danh sách đó là đã được duyệt cho bộ chiêu mới. Các đề xuất cũ về hai cây Sát thương / Hỗ trợ cũng cần đối chiếu với kết quả thử trước khi chốt chiêu pháp sư.
+
+### 10.2.1 Chiêu cuối luôn dồn sát thương săn boss — chủ dự án chốt 26/10/2026
+
+- **Áp dụng toàn bộ:** ba phái Kiếm, Khiên, Thương, Cung và cả8 nguyên tố Pháp sư.
+- **Chiêu số10 là chiêu dồn sát thương (burst):** sát thương chính tập trung trong một đòn quyết định hoặc một pha rất ngắn, phục vụ chớp thời cơ đánh boss. Có thể có lấy đà / tụ lực rồi ra đòn; thời gian tụ lực chưa chốt.
+- Không thiết kế chiêu cuối có sát thương chính từ vùng lửa, bão, độc, triệu hồi đánh nhiều nhịp, niệm liên tục hoặc trạng thái cường hóa kéo dài. VFX dư âm có thể tồn tại sau va chạm nhưng không tạo chuỗi sát thương duy trì.
+- Vẫn có thể đánh lan hoặc xuyên mục tiêu khi phù hợp class; sát thương lên boss phải tập trung vào pha kết thúc. Hiệu ứng cháy / độc từ nội tại nguyên tố không được thay thế phần burst chủ đạo.
+- Yêu cầu này chưa tự chốt hồi chiêu, giá tài nguyên, tỷ lệ chí mạng, ngưỡng máu kết liễu hay công thức sát thương. Rà lại ghi chú cũ về đòn kết liễu mốc9 / tuyệt kỹ mốc10 để thống nhất cấu trúc mới.
+
+**Bản sửa tuyệt kỹ để xem trước** — quy tắc burst đã chốt; tên và động tác cụ thể dưới đây là đề xuất:
+
+| Class / hệ | Chiêu cuối đề xuất | Pha gây sát thương chính |
+|---|---|---|
+| Thủy Thần | Tĩnh Giới Phản Sát | Thu kiếm rồi bước vào chém trả một nhát cực mạnh; đề xuất đỡ chuẩn trước đó tăng uy lực nhưng không bắt buộc chờ boss đánh mới tung được. |
+| Kiếm Thần | Tuyệt Kiếm Nhất Tuyến | Dồn lực toàn thân vào một đường chém nhanh, trúng là dồn sát thương ngay. |
+| Bắc Thần | Bách Biến Đoạt Mệnh | Đòn giả và đổi góc mở đường cho một cú đâm / chém kết thúc; thay chuỗi Bách Biến Liên Sát kéo dài. |
+| Khiên | Thiên Thuẫn Phá Quân | Dồn lực sau khiên rồi lao vào đập một cú cực mạnh; thay trạng thái thủ Bất Động Sơn kéo dài. |
+| Thương | Nhất Thương Phá Quân | Tụ lực ở mũi thương, lao đâm xuyên rồi bùng lực tại điểm trúng trong cùng pha kết thúc. |
+| Cung | Nhất Tiễn Xuyên Thiên | Kéo căng dây, thả một mũi tên cực mạnh; sát thương chính ở lần xuyên / va chạm, không mưa tên nhiều đợt. |
+| Pháp sư — Bóng tối | Hắc Ám Đoạt Hồn | Nén bóng tối thành một đòn xuyên mục tiêu rồi kích nổ ngay; thay trạng thái hóa thân kéo dài. |
+| Pháp sư — Ánh sáng | Thánh Quang Phán Quyết | Hội tụ ánh sáng rồi giáng một cột sáng dồn sát thương lớn; không lấy hồi máu / bảo hộ làm tác dụng chính. |
+| Pháp sư — Mộc | Cổ Mộc Xuyên Tâm | Rễ cổ thụ dồn lại rồi đâm bùng một lần dưới mục tiêu; thay cổ thụ triệu hồi đánh / hồi phục nhiều nhịp. |
+| Pháp sư — Thủy | Hải Long Phá | Nén nước thành rồng lao vào mục tiêu và nổ áp lực tức thời; không để lại vùng hồi phục / sát thương duy trì. |
+| Pháp sư — Hỏa | Viêm Long Bạo Phá | Hỏa long hội tụ rồi va chạm nổ một đợt cực mạnh; bỏ biển lửa duy trì khỏi tuyệt kỹ. |
+| Pháp sư — Thổ | Sơn Băng Nhất Kích | Khối đá khổng lồ giáng vào mục tiêu, sát thương dồn ở lần va chạm; không chia thành nhiều đợt chấn động. |
+| Pháp sư — Phong | Thiên Phong Đoạn Không | Nén gió thành một lưỡi cắt lớn xuyên qua mục tiêu; thay bão gió gây sát thương nhiều nhịp. |
+| Pháp sư — Băng | Băng Phách Toái Diệt | Tụ băng tại mục tiêu rồi phá vỡ đồng loạt trong một nhịp; thay bão tuyết duy trì. |
+
+### 10.3 Công việc triển khai sau ghi chú
+
+- [ ] Duyệt phác thảo ba phái kiếm và phân bổ chiêu chung / riêng. Đề xuất30 chiêu Kiếm +30 chiêu Khiên / Thương / Cung; mỗi bộ10 gồm3 bị động. Hoàn thiện điều kiện mở, tầm / vùng, chi phí, hồi chiêu, động tác và VFX; thông số chưa chốt.
+- [ ] Thiết kế cách từng nguyên tố bổ sung hiệu ứng và nội tại cho bộ chiêu Kiếm / Khiên / Thương / Cung, giữ bản sắc động tác và vũ khí của class.
+- [ ] Hoàn thiện 80 chiêu Pháp sư (10/nguyên tố, gồm 3 bị động) sau khi đối chiếu các chiêu cũ được chủ dự án giữ lại.
+- [ ] Áp quy tắc burst vào mọi chiêu số10: sửa các tuyệt kỹ duy trì trong bản nháp, kiểm sát thương dồn lên boss đúng pha va chạm, đồng bộ động tác / VFX / hồi chiêu sau khi chốt thông số.
+- [ ] Lập bảng kiểm chiêu pháp sư sau khi chủ dự án thử: chiêu hiện tại · nhận xét · giữ / sửa / bỏ. Chưa tự điền quyết định thay chủ dự án.
+- [ ] Thêm Mộc / Bóng tối / Ánh sáng vào dữ liệu, đủ danh sách 8 hệ; rà UI thiên phú và cách học chiêu ở cả 5 class.
+- [ ] Máy chủ quyết định kết quả thiên phú một lần ở cấp 10 và lưu bền vững; chặn gọi lại / đăng nhập lại / gửi yêu cầu trùng để nhận thêm hoặc đổi kết quả. Ràng buộc **mỗi user một hệ** phải được giữ ở dữ liệu tài khoản, không chỉ ở giao diện.
+- [ ] Rà cốt truyện mở nhánh, luật tẩy điểm, bản lưu cũ và phòng thử chiêu để không vô tình cấp thêm hệ hoặc thay kết quả thiên phú. Phương án chuyển dữ liệu cũ cần được xác định trước khi áp dụng luật mới.
+
+### Tiến độ ngày 26/10/2026
+
+- Đã ghi đủ 8 hệ, xác suất 12,5% mỗi hệ, cấp phát hiện 10 và giới hạn một hệ mỗi user.
+- Đã đưa 4 class Kiếm / Khiên / Thương / Cung vào danh sách cần thiết kế chiêu.
+- Đã làm rõ10 chiêu/bộ, gồm7 chủ động +3 bị động; bổ sung Kiếm có3 phái theo chủ dự án. Đã phác thảo30 chiêu Kiếm và động tác tham khảo nguyên tác; đề xuất tổng140 nếu10/phái, chờ duyệt chiêu chung / riêng. Nguyên tố bổ sung hiệu ứng và nội tại cho class vũ khí.
+- Đã ghi Pháp sư chờ chủ dự án thử lại rồi thống kê chiêu giữ lại. Chưa đổi gameplay hoặc dữ liệu người chơi trong đợt ghi chú này.
+- Đã chốt chiêu cuối của mọi bộ là chiêu dồn sát thương săn boss; cập nhật ba phái Kiếm và bảng14 tuyệt kỹ đề xuất để xem trước, thay các ý tưởng gây sát thương duy trì.

@@ -1,0 +1,73 @@
+{
+  "provider": "OpenAI built-in ImageGen",
+  "fullyDrawn": true,
+  "completeSprite": true,
+  "bakedWeapon": "staff",
+  "artApproved": true,
+  "registrationApproved": true,
+  "action": "run",
+  "direction": "SE",
+  "original": "C:\\Users\\thetr\\.codex\\generated_images\\01a16c8b-2582-7800-bceb-880054a134fb\\exec-425ee034-d347-4c2a-8714-059436d9aa71.png",
+  "file": "run-staff-SE-template01.png",
+  "prompt": "run-staff-SE-template01.prompt.txt",
+  "references": [
+    "references/template-staff-SE-8poses.png",
+    "references/idle-staff-SE-tight-6x.png",
+    "references/run-guide-SE-2x.png"
+  ],
+  "trace": "traces/run-staff-SE-template01/trace.json",
+  "sha256": "31e1bf774abd97e900b333a2fc37527c9a2cc61291579942c5830f5632c1e1cf",
+  "promptSha256": "072c6f4fe9ac8bf38b544d526d60d91cd435e9923de0ddadc85ac21bfe8e28aa",
+  "size": [
+    1774,
+    887
+  ],
+  "mode": "RGBA",
+  "referencesSha256": {
+    "references/template-staff-SE-8poses.png": "045bab1b771d508dbf9e165549e64b5ae8cf8dab1db851a2fd15fab4c1eaa024",
+    "references/idle-staff-SE-tight-6x.png": "804ba8f67700b640472ff3230991e1d663c24c5b0d3c1a070eda893e58ce7300",
+    "references/run-guide-SE-2x.png": "1ef2ca0c357c1bba7691c634e0b0f751ad1405fdfc61ac0d19654794f239012e"
+  },
+  "rootReview": {
+    "reviewer": "root",
+    "scope": "Native complete-character geometry, proportions, detail and gait; final palette and Unity transitions pending",
+    "reviewCard": "review-profiles/staff-SE-3x.png",
+    "reviewCardSha256": "47e97f16f51f40388c19386bc6af595a928a2d56e387895e4a0cd116107ddf7e",
+    "sourceSha256": "31e1bf774abd97e900b333a2fc37527c9a2cc61291579942c5830f5632c1e1cf"
+  },
+  "selectedTrace": "traces/run-staff-SE-template01/profile-fit/trace.json",
+  "selectedTraceSha256": "0f935db9a29fefd4b3fcff0d723a18b97c5e403069ccd36f7b00829b3c545537",
+  "registration": {
+    "scale": 0.26902177598515614,
+    "referenceBodyHeight": 271.5,
+    "rootX": 228.5,
+    "rowFloor": [
+      408,
+      848
+    ],
+    "columnRootX": [
+      218.6439399031745,
+      662.7689399031744,
+      1106.8939399031744,
+      1551.0189399031744
+    ],
+    "sourceGridHeadOrigin": 259.25,
+    "sourceGridHeadStep": 444.125,
+    "idleHairBounds": [
+      69,
+      51,
+      95,
+      75
+    ],
+    "scaleMode": "multi-profile-proposal-unreviewed",
+    "idleHeadSilhouetteBounds": [
+      51,
+      51,
+      96,
+      75
+    ],
+    "sourceMedianHeadWidth": 166.0,
+    "targetRootY": 128
+  },
+  "releaseApproved": false
+}

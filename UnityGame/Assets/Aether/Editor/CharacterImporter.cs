@@ -46,6 +46,15 @@ namespace Aether.Importer
 
         public const string CharactersFolder = ImportUtil.Root + "/Resources/" + GameDatabase.CharactersResourcePath;
 
+        /// <summary>Import one explicitly selected standard character without rebuilding the NPC catalog.</summary>
+        public static void ImportSingle(string src, string id, ImportReport report)
+        {
+            var manifest = ImportUtil.ReadJson<ManifestJson>(Path.Combine(src, "manifest.json"));
+            if (!manifest.characters.TryGetValue(id, out var entry))
+                throw new InvalidDataException("Character is absent from manifest: " + id);
+            ImportOne(src, id, entry, report);
+        }
+
         /// <summary>Bản nhập cũ ở Imported/Characters/&lt;id&gt; → chuyển sang Resources giữ nguyên GUID (scene/prefab không gãy).</summary>
         private static void MoveLegacyFolder(string id, string folder)
         {

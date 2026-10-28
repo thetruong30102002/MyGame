@@ -1,0 +1,249 @@
+{
+  "registrationVersion": 2,
+  "id": "player_shield_m03-bash-NE",
+  "character": "player_shield_m03",
+  "action": "bash",
+  "direction": "NE",
+  "source": "motion/player_shield_m03-bash-NE.png",
+  "sha256": "c90a270da1494f27f8651b63ff79f88bc38de9eb62edc8f1b987c98594939d65",
+  "uniformWholeActorScale": 0.2697841726618705,
+  "rowFloor": [
+    378.0,
+    701.5,
+    1037.0
+  ],
+  "gridOrigin": 202.75,
+  "gridStep": 362.0,
+  "frameSize": [
+    144,
+    144
+  ],
+  "root": [
+    72,
+    128
+  ],
+  "masterHeadWidth": 22,
+  "neutralBodyHeight": 75,
+  "resampling": "nearest",
+  "modularLayers": false,
+  "frames": [
+    {
+      "index": 0,
+      "nativeBounds": [
+        54,
+        51,
+        93,
+        127
+      ],
+      "headWidth": 24.55,
+      "sourceBounds": [
+        137,
+        97,
+        281,
+        380
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "index": 1,
+      "nativeBounds": [
+        49,
+        54,
+        94,
+        127
+      ],
+      "headWidth": 21.31,
+      "sourceBounds": [
+        480,
+        108,
+        649,
+        379
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "index": 2,
+      "nativeBounds": [
+        46,
+        60,
+        93,
+        127
+      ],
+      "headWidth": 14.3,
+      "sourceBounds": [
+        829,
+        127,
+        1006,
+        379
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "index": 3,
+      "nativeBounds": [
+        48,
+        59,
+        96,
+        127
+      ],
+      "headWidth": 15.92,
+      "sourceBounds": [
+        1197,
+        124,
+        1377,
+        379
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "index": 4,
+      "nativeBounds": [
+        48,
+        62,
+        100,
+        127
+      ],
+      "headWidth": 22.93,
+      "sourceBounds": [
+        112,
+        462,
+        307,
+        703
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "index": 5,
+      "nativeBounds": [
+        45,
+        62,
+        104,
+        127
+      ],
+      "headWidth": 19.96,
+      "sourceBounds": [
+        464,
+        459,
+        684,
+        703
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "index": 6,
+      "nativeBounds": [
+        35,
+        58,
+        114,
+        127
+      ],
+      "headWidth": 22.66,
+      "sourceBounds": [
+        789,
+        446,
+        1082,
+        702
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "index": 7,
+      "nativeBounds": [
+        32,
+        62,
+        108,
+        127
+      ],
+      "headWidth": 22.12,
+      "sourceBounds": [
+        1142,
+        460,
+        1423,
+        702
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "index": 8,
+      "nativeBounds": [
+        44,
+        59,
+        104,
+        127
+      ],
+      "headWidth": 27.52,
+      "sourceBounds": [
+        99,
+        784,
+        322,
+        1038
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "index": 9,
+      "nativeBounds": [
+        51,
+        57,
+        93,
+        127
+      ],
+      "headWidth": 27.25,
+      "sourceBounds": [
+        486,
+        778,
+        645,
+        1038
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "index": 10,
+      "nativeBounds": [
+        54,
+        55,
+        93,
+        127
+      ],
+      "headWidth": 30.76,
+      "sourceBounds": [
+        859,
+        769,
+        1005,
+        1038
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "index": 11,
+      "nativeBounds": [
+        52,
+        53,
+        91,
+        127
+      ],
+      "headWidth": 32.37,
+      "sourceBounds": [
+        1215,
+        763,
+        1362,
+        1038
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    }
+  ],
+  "visualReview": "pending",
+  "registrationOptions": {}
+}

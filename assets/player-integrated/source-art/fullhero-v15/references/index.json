@@ -1,0 +1,450 @@
+{
+  "referenceOnly": true,
+  "production": false,
+  "exactBaselineAtlasSha256": "40dce78a1230d0ef0a1cd9dbf43992aa75febd7812f1b43a71eda757b1920153",
+  "cellSize": [
+    144,
+    144
+  ],
+  "root": [
+    72,
+    128
+  ],
+  "records": [
+    {
+      "state": "none",
+      "direction": "S",
+      "frame": "player_integrated/idle_S_0",
+      "native": "idle-none-S-native.png",
+      "reference": "idle-none-S-4x.png",
+      "rgbaSha256": "6fbcdf135eb121cde2bd8a2176d3f485adf0a860ebcb991255cf5c455f880c52",
+      "walkGuide": "walk-guide-none-S-2x.png",
+      "tightReference": "idle-none-S-tight-6x.png",
+      "tightSourceBox": [
+        56,
+        55,
+        93,
+        129
+      ],
+      "tightRoot": [
+        16,
+        73
+      ],
+      "editTarget8Poses": "template-none-S-8poses.png",
+      "editTargetCellSize": [
+        576,
+        576
+      ],
+      "editTargetRoot": [
+        288,
+        512
+      ]
+    },
+    {
+      "state": "none",
+      "direction": "E",
+      "frame": "player_integrated/idle_E_0",
+      "native": "idle-none-E-native.png",
+      "reference": "idle-none-E-4x.png",
+      "rgbaSha256": "40f1f454c4491f36637bae42ef021bb71eaba4585006de05b3dec3cd0f119c9f",
+      "walkGuide": "walk-guide-none-E-2x.png",
+      "tightReference": "idle-none-E-tight-6x.png",
+      "tightSourceBox": [
+        58,
+        55,
+        88,
+        129
+      ],
+      "tightRoot": [
+        14,
+        73
+      ],
+      "editTarget8Poses": "template-none-E-8poses.png",
+      "editTargetCellSize": [
+        576,
+        576
+      ],
+      "editTargetRoot": [
+        288,
+        512
+      ]
+    },
+    {
+      "state": "none",
+      "direction": "N",
+      "frame": "player_integrated/idle_N_0",
+      "native": "idle-none-N-native.png",
+      "reference": "idle-none-N-4x.png",
+      "rgbaSha256": "313a8b342116d34c913c5d2f3ed5917af7eec8f2b438a7c2605215080cc27858",
+      "walkGuide": "walk-guide-none-N-2x.png",
+      "tightReference": "idle-none-N-tight-6x.png",
+      "tightSourceBox": [
+        56,
+        55,
+        93,
+        128
+      ],
+      "tightRoot": [
+        16,
+        73
+      ],
+      "editTarget8Poses": "template-none-N-8poses.png",
+      "editTargetCellSize": [
+        576,
+        576
+      ],
+      "editTargetRoot": [
+        288,
+        512
+      ]
+    },
+    {
+      "state": "none",
+      "direction": "SE",
+      "frame": "player_integrated/idle_SE_0",
+      "native": "idle-none-SE-native.png",
+      "reference": "idle-none-SE-4x.png",
+      "rgbaSha256": "ea3c1373b7c67e990424d895fc5d5a23ee0dfb787a5aeb3ac858dd91199e4297",
+      "walkGuide": "walk-guide-none-SE-2x.png",
+      "tightReference": "idle-none-SE-tight-6x.png",
+      "tightSourceBox": [
+        56,
+        55,
+        91,
+        129
+      ],
+      "tightRoot": [
+        16,
+        73
+      ],
+      "editTarget8Poses": "template-none-SE-8poses.png",
+      "editTargetCellSize": [
+        576,
+        576
+      ],
+      "editTargetRoot": [
+        288,
+        512
+      ]
+    },
+    {
+      "state": "none",
+      "direction": "NE",
+      "frame": "player_integrated/idle_NE_0",
+      "native": "idle-none-NE-native.png",
+      "reference": "idle-none-NE-4x.png",
+      "rgbaSha256": "7511844647d28cda27cc6c1d307b26f5f691cce091a295b3cc7ece4f153d9b87",
+      "walkGuide": "walk-guide-none-NE-2x.png",
+      "tightReference": "idle-none-NE-tight-6x.png",
+      "tightSourceBox": [
+        59,
+        55,
+        90,
+        129
+      ],
+      "tightRoot": [
+        13,
+        73
+      ],
+      "editTarget8Poses": "template-none-NE-8poses.png",
+      "editTargetCellSize": [
+        576,
+        576
+      ],
+      "editTargetRoot": [
+        288,
+        512
+      ]
+    },
+    {
+      "state": "sword",
+      "direction": "S",
+      "frame": "player_integrated/idlesword_S_0",
+      "native": "idle-sword-S-native.png",
+      "reference": "idle-sword-S-4x.png",
+      "rgbaSha256": "00ae5846f881f7f0803e236d2663409d6170f1314d7a89278aacea0d3d70b927",
+      "walkGuide": "walk-guide-sword-S-2x.png",
+      "tightReference": "idle-sword-S-tight-6x.png",
+      "tightSourceBox": [
+        34,
+        55,
+        91,
+        129
+      ],
+      "tightRoot": [
+        38,
+        73
+      ],
+      "editTarget8Poses": "template-sword-S-8poses.png",
+      "editTargetCellSize": [
+        576,
+        576
+      ],
+      "editTargetRoot": [
+        288,
+        512
+      ]
+    },
+    {
+      "state": "sword",
+      "direction": "E",
+      "frame": "player_integrated/idlesword_E_0",
+      "native": "idle-sword-E-native.png",
+      "reference": "idle-sword-E-4x.png",
+      "rgbaSha256": "a2f4c5d5859a5e65e5cf4bf83ee83cdd448492afa889e6513344bd467005a790",
+      "walkGuide": "walk-guide-sword-E-2x.png",
+      "tightReference": "idle-sword-E-tight-6x.png",
+      "tightSourceBox": [
+        54,
+        54,
+        103,
+        128
+      ],
+      "tightRoot": [
+        18,
+        74
+      ],
+      "editTarget8Poses": "template-sword-E-8poses.png",
+      "editTargetCellSize": [
+        576,
+        576
+      ],
+      "editTargetRoot": [
+        288,
+        512
+      ]
+    },
+    {
+      "state": "sword",
+      "direction": "N",
+      "frame": "player_integrated/idlesword_N_0",
+      "native": "idle-sword-N-native.png",
+      "reference": "idle-sword-N-4x.png",
+      "rgbaSha256": "d961742763ae805770cb978f8751ba5a5797022d4fda0adc3f4f944ff10aaa31",
+      "walkGuide": "walk-guide-sword-N-2x.png",
+      "tightReference": "idle-sword-N-tight-6x.png",
+      "tightSourceBox": [
+        51,
+        55,
+        109,
+        129
+      ],
+      "tightRoot": [
+        21,
+        73
+      ],
+      "editTarget8Poses": "template-sword-N-8poses.png",
+      "editTargetCellSize": [
+        576,
+        576
+      ],
+      "editTargetRoot": [
+        288,
+        512
+      ]
+    },
+    {
+      "state": "sword",
+      "direction": "SE",
+      "frame": "player_integrated/idlesword_SE_0",
+      "native": "idle-sword-SE-native.png",
+      "reference": "idle-sword-SE-4x.png",
+      "rgbaSha256": "a13eeada1528fe5a4f377627d47f0b899763c55436cbc0b5b1a57fbe4f737852",
+      "walkGuide": "walk-guide-sword-SE-2x.png",
+      "tightReference": "idle-sword-SE-tight-6x.png",
+      "tightSourceBox": [
+        31,
+        54,
+        91,
+        129
+      ],
+      "tightRoot": [
+        41,
+        74
+      ],
+      "editTarget8Poses": "template-sword-SE-8poses.png",
+      "editTargetCellSize": [
+        576,
+        576
+      ],
+      "editTargetRoot": [
+        288,
+        512
+      ]
+    },
+    {
+      "state": "sword",
+      "direction": "NE",
+      "frame": "player_integrated/idlesword_NE_0",
+      "native": "idle-sword-NE-native.png",
+      "reference": "idle-sword-NE-4x.png",
+      "rgbaSha256": "a59dcb1101658055b578d1bd2a4889a692ef0770bf1f292a716e6ba8b883e3b7",
+      "walkGuide": "walk-guide-sword-NE-2x.png",
+      "tightReference": "idle-sword-NE-tight-6x.png",
+      "tightSourceBox": [
+        53,
+        55,
+        110,
+        129
+      ],
+      "tightRoot": [
+        19,
+        73
+      ],
+      "editTarget8Poses": "template-sword-NE-8poses.png",
+      "editTargetCellSize": [
+        576,
+        576
+      ],
+      "editTargetRoot": [
+        288,
+        512
+      ]
+    },
+    {
+      "state": "staff",
+      "direction": "S",
+      "frame": "player_integrated/idlestaff_S_0",
+      "native": "idle-staff-S-native.png",
+      "reference": "idle-staff-S-4x.png",
+      "rgbaSha256": "a6b15415603777e1f10c2bd497382c38427c13f1dbe30ea9136766554e866c4b",
+      "walkGuide": "walk-guide-staff-S-2x.png",
+      "tightReference": "idle-staff-S-tight-6x.png",
+      "tightSourceBox": [
+        52,
+        52,
+        97,
+        129
+      ],
+      "tightRoot": [
+        20,
+        76
+      ],
+      "editTarget8Poses": "template-staff-S-8poses.png",
+      "editTargetCellSize": [
+        576,
+        576
+      ],
+      "editTargetRoot": [
+        288,
+        512
+      ]
+    },
+    {
+      "state": "staff",
+      "direction": "E",
+      "frame": "player_integrated/idlestaff_E_0",
+      "native": "idle-staff-E-native.png",
+      "reference": "idle-staff-E-4x.png",
+      "rgbaSha256": "925eafbfb4a27c852f569613ed30acca8aa4c7d4ddc6ea5fd047903a4ccb1b8a",
+      "walkGuide": "walk-guide-staff-E-2x.png",
+      "tightReference": "idle-staff-E-tight-6x.png",
+      "tightSourceBox": [
+        58,
+        53,
+        99,
+        129
+      ],
+      "tightRoot": [
+        14,
+        75
+      ],
+      "editTarget8Poses": "template-staff-E-8poses.png",
+      "editTargetCellSize": [
+        576,
+        576
+      ],
+      "editTargetRoot": [
+        288,
+        512
+      ]
+    },
+    {
+      "state": "staff",
+      "direction": "N",
+      "frame": "player_integrated/idlestaff_N_0",
+      "native": "idle-staff-N-native.png",
+      "reference": "idle-staff-N-4x.png",
+      "rgbaSha256": "521d8c252b70a2398f6a85aa26c2936198bc216e97ebebf160fea41da3f34e02",
+      "walkGuide": "walk-guide-staff-N-2x.png",
+      "tightReference": "idle-staff-N-tight-6x.png",
+      "tightSourceBox": [
+        55,
+        53,
+        103,
+        129
+      ],
+      "tightRoot": [
+        17,
+        75
+      ],
+      "editTarget8Poses": "template-staff-N-8poses.png",
+      "editTargetCellSize": [
+        576,
+        576
+      ],
+      "editTargetRoot": [
+        288,
+        512
+      ]
+    },
+    {
+      "state": "staff",
+      "direction": "SE",
+      "frame": "player_integrated/idlestaff_SE_0",
+      "native": "idle-staff-SE-native.png",
+      "reference": "idle-staff-SE-4x.png",
+      "rgbaSha256": "f7120b8b3bb25cb67e43e001f5aa6da25cc9a3a4f9d3d07957753c43d796568e",
+      "walkGuide": "walk-guide-staff-SE-2x.png",
+      "tightReference": "idle-staff-SE-tight-6x.png",
+      "tightSourceBox": [
+        51,
+        51,
+        99,
+        129
+      ],
+      "tightRoot": [
+        21,
+        77
+      ],
+      "editTarget8Poses": "template-staff-SE-8poses.png",
+      "editTargetCellSize": [
+        576,
+        576
+      ],
+      "editTargetRoot": [
+        288,
+        512
+      ]
+    },
+    {
+      "state": "staff",
+      "direction": "NE",
+      "frame": "player_integrated/idlestaff_NE_0",
+      "native": "idle-staff-NE-native.png",
+      "reference": "idle-staff-NE-4x.png",
+      "rgbaSha256": "0bd0931377e1e6006282833743d878828e0b5794db23888c2ed8dec5738fc5fc",
+      "walkGuide": "walk-guide-staff-NE-2x.png",
+      "tightReference": "idle-staff-NE-tight-6x.png",
+      "tightSourceBox": [
+        56,
+        54,
+        102,
+        129
+      ],
+      "tightRoot": [
+        16,
+        74
+      ],
+      "editTarget8Poses": "template-staff-NE-8poses.png",
+      "editTargetCellSize": [
+        576,
+        576
+      ],
+      "editTargetRoot": [
+        288,
+        512
+      ]
+    }
+  ]
+}

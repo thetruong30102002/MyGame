@@ -1,0 +1,527 @@
+{
+  "proposalsOnly": true,
+  "artApproved": true,
+  "records": [
+    {
+      "source": "walk-staff-S-template01.png",
+      "trace": "traces/walk-staff-S-template01/profile-fit/trace.json",
+      "state": "staff",
+      "direction": "S",
+      "kind": "walk",
+      "scale": 0.27517797510625386,
+      "score": 0.07084469496762107,
+      "regionError": {
+        "head": 0.06843318809005083,
+        "neck-torso": 0.07052614379084968,
+        "shoulders": 0.08166687615217028,
+        "belt": 0.06726998491704375
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 52,
+      "artApproved": true,
+      "registrationApproved": true,
+      "rootReview": {
+        "reviewer": "root",
+        "scope": "Native complete-character geometry, proportions, detail and gait; final palette and Unity transitions pending",
+        "reviewCard": "review-profiles/staff-S-3x.png",
+        "reviewCardSha256": "9202adf95dc2ab10568ab42ebc62c973020c3c86dae0da6f7b0b72838d52ca7d",
+        "sourceSha256": "c7b26ccad4ce07e28f853ac5861a92be192b276916ede0a618281e5bdf1e79da"
+      }
+    },
+    {
+      "source": "walk-staff-E-template01.png",
+      "trace": "traces/walk-staff-E-template01/profile-fit/trace.json",
+      "state": "staff",
+      "direction": "E",
+      "kind": "walk",
+      "scale": 0.23481888046745988,
+      "score": 0.07389407272238056,
+      "regionError": {
+        "head": 0.0602254363283775,
+        "neck-torso": 0.07609448951994591,
+        "shoulders": 0.060440757499581034,
+        "belt": 0.09815390899949725
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 55,
+      "artApproved": true,
+      "registrationApproved": true,
+      "rootReview": {
+        "reviewer": "root",
+        "scope": "Native complete-character geometry, proportions, detail and gait; final palette and Unity transitions pending",
+        "reviewCard": "review-profiles/staff-E-3x.png",
+        "reviewCardSha256": "12591ad0921cbc481d5c1f98199e67f56b2539e542ef0071d6fb0636ad3583f4",
+        "sourceSha256": "7346efdc78e09f8956164ab3d70498b81704cde7c8f7cc9cffaac7b969b2fe73"
+      }
+    },
+    {
+      "source": "walk-staff-N-template01.png",
+      "trace": "traces/walk-staff-N-template01/profile-fit/trace.json",
+      "state": "staff",
+      "direction": "N",
+      "kind": "walk",
+      "scale": 0.31233783545197746,
+      "score": 0.046539085740170155,
+      "regionError": {
+        "head": 0.057682773109243704,
+        "neck-torso": 0.03599137931034483,
+        "shoulders": 0.05331091838444779,
+        "belt": 0.0412298893916541
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 55,
+      "artApproved": true,
+      "registrationApproved": true,
+      "rootReview": {
+        "reviewer": "root",
+        "scope": "Native complete-character geometry, proportions, detail and gait; final palette and Unity transitions pending",
+        "reviewCard": "review-profiles/staff-N-3x.png",
+        "reviewCardSha256": "1031f37ef6ba2543e509d0f076088b2446a4ac934ad326291835c7783198d5a6",
+        "sourceSha256": "e048a09f4a8252a328e97c9713a6e5e3cb9f88ebfaad9e7e09f36eeb9a5d4c3b"
+      }
+    },
+    {
+      "source": "walk-staff-SE-template01.png",
+      "trace": "traces/walk-staff-SE-template01/profile-fit/trace.json",
+      "state": "staff",
+      "direction": "SE",
+      "kind": "walk",
+      "scale": 0.2646275772842082,
+      "score": 0.09847048519803106,
+      "regionError": {
+        "head": 0.09072945845004668,
+        "neck-torso": 0.10214025932953827,
+        "shoulders": 0.11439837509077705,
+        "belt": 0.09328022875816994
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 51,
+      "artApproved": true,
+      "registrationApproved": true,
+      "rootReview": {
+        "reviewer": "root",
+        "scope": "Native complete-character geometry, proportions, detail and gait; final palette and Unity transitions pending",
+        "reviewCard": "review-profiles/staff-SE-3x.png",
+        "reviewCardSha256": "47e97f16f51f40388c19386bc6af595a928a2d56e387895e4a0cd116107ddf7e",
+        "sourceSha256": "dbb5d802442d3b3767fcef6794886333702f91734ea41b10bb58aa7b595444cb"
+      }
+    },
+    {
+      "source": "walk-staff-NE-template01.png",
+      "trace": "traces/walk-staff-NE-template01/profile-fit/trace.json",
+      "state": "staff",
+      "direction": "NE",
+      "kind": "walk",
+      "scale": 0.29696586879432624,
+      "score": 0.06318410811958297,
+      "regionError": {
+        "head": 0.0661187623197427,
+        "neck-torso": 0.05821670047329276,
+        "shoulders": 0.06980056980056981,
+        "belt": 0.061483471593765715
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 55,
+      "artApproved": true,
+      "registrationApproved": true,
+      "rootReview": {
+        "reviewer": "root",
+        "scope": "Native complete-character geometry, proportions, detail and gait; final palette and Unity transitions pending",
+        "reviewCard": "review-profiles/staff-NE-3x.png",
+        "reviewCardSha256": "281f75d1080b563f4f7ba8988143cd219f5faf25f9a2642a5ee09520213f8243",
+        "sourceSha256": "95d656a1d7235f201427435d07ddb8812b35d2850497b37f3ec84e2c74f0e35c"
+      }
+    },
+    {
+      "source": "run-staff-S-template01.png",
+      "trace": "traces/run-staff-S-template01/profile-fit/trace.json",
+      "state": "staff",
+      "direction": "S",
+      "kind": "run",
+      "scale": 0.23331668652258541,
+      "score": 0.11935735147298747,
+      "regionError": {
+        "head": 0.1280761316872428,
+        "neck-torso": 0.11193954248366014,
+        "shoulders": 0.13378163231104406,
+        "belt": 0.10800653594771242
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 52,
+      "artApproved": true,
+      "registrationApproved": true,
+      "rootReview": {
+        "reviewer": "root",
+        "scope": "Native complete-character geometry, proportions, detail and gait; final palette and Unity transitions pending",
+        "reviewCard": "review-profiles/staff-S-3x.png",
+        "reviewCardSha256": "9202adf95dc2ab10568ab42ebc62c973020c3c86dae0da6f7b0b72838d52ca7d",
+        "sourceSha256": "eacfcfb6a5a668f3894abfdd153c83bef3a890522f0670d9d9a94f826fe0bc58"
+      }
+    },
+    {
+      "source": "run-staff-E-template01.png",
+      "trace": "traces/run-staff-E-template01/profile-fit/trace.json",
+      "state": "staff",
+      "direction": "E",
+      "kind": "run",
+      "scale": 0.2806020731122766,
+      "score": 0.0980042385529786,
+      "regionError": {
+        "head": 0.06990478883861237,
+        "neck-torso": 0.0952814401622718,
+        "shoulders": 0.095213256242668,
+        "belt": 0.14096122423328306
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 55,
+      "artApproved": true,
+      "registrationApproved": true,
+      "rootReview": {
+        "reviewer": "root",
+        "scope": "Native complete-character geometry, proportions, detail and gait; final palette and Unity transitions pending",
+        "reviewCard": "review-profiles/staff-E-3x.png",
+        "reviewCardSha256": "12591ad0921cbc481d5c1f98199e67f56b2539e542ef0071d6fb0636ad3583f4",
+        "sourceSha256": "b505f7a3338275584d9de418848ee4fc9e21c8050e6524c001782ae2021f3ebc"
+      }
+    },
+    {
+      "source": "run-staff-N-template01.png",
+      "trace": "traces/run-staff-N-template01/profile-fit/trace.json",
+      "state": "staff",
+      "direction": "N",
+      "kind": "run",
+      "scale": 0.24817833404802742,
+      "score": 0.09991116735070552,
+      "regionError": {
+        "head": 0.10461834733893557,
+        "neck-torso": 0.08984533468559838,
+        "shoulders": 0.11050465057817999,
+        "belt": 0.09999371543489191
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 55,
+      "artApproved": true,
+      "registrationApproved": true,
+      "rootReview": {
+        "reviewer": "root",
+        "scope": "Native complete-character geometry, proportions, detail and gait; final palette and Unity transitions pending",
+        "reviewCard": "review-profiles/staff-N-3x.png",
+        "reviewCardSha256": "1031f37ef6ba2543e509d0f076088b2446a4ac934ad326291835c7783198d5a6",
+        "sourceSha256": "5a6e761dbc864e8b3bbc924fc1bffa6dfc858a5a4817d9ef5829089b79f41e74"
+      }
+    },
+    {
+      "source": "run-staff-SE-template01.png",
+      "trace": "traces/run-staff-SE-template01/profile-fit/trace.json",
+      "state": "staff",
+      "direction": "SE",
+      "kind": "run",
+      "scale": 0.26902177598515614,
+      "score": 0.14132618257302001,
+      "regionError": {
+        "head": 0.1153577264239029,
+        "neck-torso": 0.14408285895003162,
+        "shoulders": 0.1438566630355846,
+        "belt": 0.17058823529411765
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 51,
+      "artApproved": true,
+      "registrationApproved": true,
+      "rootReview": {
+        "reviewer": "root",
+        "scope": "Native complete-character geometry, proportions, detail and gait; final palette and Unity transitions pending",
+        "reviewCard": "review-profiles/staff-SE-3x.png",
+        "reviewCardSha256": "47e97f16f51f40388c19386bc6af595a928a2d56e387895e4a0cd116107ddf7e",
+        "sourceSha256": "31e1bf774abd97e900b333a2fc37527c9a2cc61291579942c5830f5632c1e1cf"
+      }
+    },
+    {
+      "source": "run-staff-NE-template01.png",
+      "trace": "traces/run-staff-NE-template01/profile-fit/trace.json",
+      "state": "staff",
+      "direction": "NE",
+      "kind": "run",
+      "scale": 0.26559057248344936,
+      "score": 0.1043439316486984,
+      "regionError": {
+        "head": 0.09710550887021477,
+        "neck-torso": 0.09594405003380663,
+        "shoulders": 0.14253707893413775,
+        "belt": 0.09973290598290599
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 55,
+      "artApproved": true,
+      "registrationApproved": true,
+      "rootReview": {
+        "reviewer": "root",
+        "scope": "Native complete-character geometry, proportions, detail and gait; final palette and Unity transitions pending",
+        "reviewCard": "review-profiles/staff-NE-3x.png",
+        "reviewCardSha256": "281f75d1080b563f4f7ba8988143cd219f5faf25f9a2642a5ee09520213f8243",
+        "sourceSha256": "9e26ab82baa873546d43777be45265add2ece025c366882f9d4dfcad2967a041"
+      }
+    },
+    {
+      "source": "walk-sword-S-candidate02.png",
+      "trace": "traces/walk-sword-S-candidate02/profile-fit/trace.json",
+      "state": "sword",
+      "direction": "S",
+      "kind": "walk",
+      "scale": 0.24316369881236857,
+      "score": 0.05656071951213549,
+      "regionError": {
+        "head": 0.039330628803245435,
+        "neck-torso": 0.06299962292609351,
+        "shoulders": 0.05211266130383777,
+        "belt": 0.07391434137757667
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 56,
+      "artApproved": true,
+      "registrationApproved": true,
+      "rootReview": {
+        "reviewer": "root",
+        "scope": "Native complete-character geometry, proportions, detail and gait; final palette and Unity transitions pending",
+        "reviewCard": "review-profiles/sword-S-3x.png",
+        "reviewCardSha256": "1332c87b2b2798d9ad96f37004422ed5b3ec49ea425fdec9f4a00d47965f8051",
+        "sourceSha256": "f42ee81b51588419bff42e92229c58ae4b5c365cf3f64b4ad2bc3a91f57360f2"
+      }
+    },
+    {
+      "source": "walk-sword-E-template01.png",
+      "trace": "traces/walk-sword-E-template01/profile-fit/trace.json",
+      "state": "sword",
+      "direction": "E",
+      "kind": "walk",
+      "scale": 0.23512548809614073,
+      "score": 0.09967871526515343,
+      "regionError": {
+        "head": 0.06871748699479793,
+        "neck-torso": 0.11358096686950644,
+        "shoulders": 0.050902882520529574,
+        "belt": 0.1549412393162393
+      },
+      "targetSole": 127,
+      "referenceCrownProxy": 55,
+      "artApproved": true,
+      "registrationApproved": true,
+      "rootReview": {
+        "reviewer": "root",
+        "scope": "Native complete-character geometry, proportions, detail and gait; final palette and Unity transitions pending",
+        "reviewCard": "review-profiles/sword-E-3x.png",
+        "reviewCardSha256": "13ddd03755db0a173cae28fa24b1ed5180cf9d2b0227b84aa9f41c2f3661929d",
+        "sourceSha256": "9406190ed2612de8be45dd8392d3349efdb6156df7532e3fe2d134e71ca32fb0"
+      }
+    },
+    {
+      "source": "walk-sword-N-template01.png",
+      "trace": "traces/walk-sword-N-template01/profile-fit/trace.json",
+      "state": "sword",
+      "direction": "N",
+      "kind": "walk",
+      "scale": 0.31031132958801505,
+      "score": 0.05132179061858029,
+      "regionError": {
+        "head": 0.065016782575099,
+        "neck-torso": 0.040756302521008404,
+        "shoulders": 0.040934514831573655,
+        "belt": 0.054073969331322275
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 55,
+      "artApproved": true,
+      "registrationApproved": true,
+      "rootReview": {
+        "reviewer": "root",
+        "scope": "Native complete-character geometry, proportions, detail and gait; final palette and Unity transitions pending",
+        "reviewCard": "review-profiles/sword-N-3x.png",
+        "reviewCardSha256": "511bd68c2ea97734e91c991e5223518b4f0324b00177b326ed21bb53bbaab63e",
+        "sourceSha256": "e7ce0db327ac61f2b7513e842be3db23776340f40f0a1c33748cdd5c1193f728"
+      }
+    },
+    {
+      "source": "walk-sword-SE-template01.png",
+      "trace": "traces/walk-sword-SE-template01/profile-fit/trace.json",
+      "state": "sword",
+      "direction": "SE",
+      "kind": "walk",
+      "scale": 0.30367925860646944,
+      "score": 0.07801493540549274,
+      "regionError": {
+        "head": 0.07531964398662691,
+        "neck-torso": 0.08331245461147421,
+        "shoulders": 0.08722871627283392,
+        "belt": 0.06840277777777778
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 54,
+      "artApproved": true,
+      "registrationApproved": true,
+      "rootReview": {
+        "reviewer": "root",
+        "scope": "Native complete-character geometry, proportions, detail and gait; final palette and Unity transitions pending",
+        "reviewCard": "review-profiles/sword-SE-3x.png",
+        "reviewCardSha256": "03da0d8dd6442f04246687a8cd47bbec444c181ba1eb7c9cce0ee232ad2f1a19",
+        "sourceSha256": "74a994b79d36248ccf32b705ae25eae78f1503573c2de973d467f61dff9dde8f"
+      }
+    },
+    {
+      "source": "walk-sword-NE-template01.png",
+      "trace": "traces/walk-sword-NE-template01/profile-fit/trace.json",
+      "state": "sword",
+      "direction": "NE",
+      "kind": "walk",
+      "scale": 0.24753393833743506,
+      "score": 0.07790317346644386,
+      "regionError": {
+        "head": 0.10177484787018255,
+        "neck-torso": 0.06829656862745097,
+        "shoulders": 0.06357885034355623,
+        "belt": 0.06843262946204123
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 55,
+      "artApproved": true,
+      "registrationApproved": true,
+      "rootReview": {
+        "reviewer": "root",
+        "scope": "Native complete-character geometry, proportions, detail and gait; final palette and Unity transitions pending",
+        "reviewCard": "review-profiles/sword-NE-3x.png",
+        "reviewCardSha256": "c88f71cbac6824656166cfecda83acac2819da242489e0b99277e224d6d50902",
+        "sourceSha256": "b3166ba72a214c972516249b1b91223d0e367a6718f037bfaaf53657586fcd38"
+      }
+    },
+    {
+      "source": "run-sword-S-template01.png",
+      "trace": "traces/run-sword-S-template01/profile-fit/trace.json",
+      "state": "sword",
+      "direction": "S",
+      "kind": "run",
+      "scale": 0.26442443282285305,
+      "score": 0.09450758765384681,
+      "regionError": {
+        "head": 0.0840500338066261,
+        "neck-torso": 0.09080599547511312,
+        "shoulders": 0.13220839617898442,
+        "belt": 0.08825257667169431
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 56,
+      "artApproved": true,
+      "registrationApproved": true,
+      "rootReview": {
+        "reviewer": "root",
+        "scope": "Native complete-character geometry, proportions, detail and gait; final palette and Unity transitions pending",
+        "reviewCard": "review-profiles/sword-S-3x.png",
+        "reviewCardSha256": "1332c87b2b2798d9ad96f37004422ed5b3ec49ea425fdec9f4a00d47965f8051",
+        "sourceSha256": "f6c9add0d081d05131c06ab2f57fe832e44cec3e8391a981f7235d93f4cc6a9c"
+      }
+    },
+    {
+      "source": "run-sword-E-template01.png",
+      "trace": "traces/run-sword-E-template01/profile-fit/trace.json",
+      "state": "sword",
+      "direction": "E",
+      "kind": "run",
+      "scale": 0.24849571759259256,
+      "score": 0.1404793754711978,
+      "regionError": {
+        "head": 0.07025185074029612,
+        "neck-torso": 0.17104208924949288,
+        "shoulders": 0.1304455756661639,
+        "belt": 0.20005498994469584
+      },
+      "targetSole": 127,
+      "referenceCrownProxy": 55,
+      "artApproved": true,
+      "registrationApproved": true,
+      "rootReview": {
+        "reviewer": "root",
+        "scope": "Native complete-character geometry, proportions, detail and gait; final palette and Unity transitions pending",
+        "reviewCard": "review-profiles/sword-E-3x.png",
+        "reviewCardSha256": "13ddd03755db0a173cae28fa24b1ed5180cf9d2b0227b84aa9f41c2f3661929d",
+        "sourceSha256": "dc1e054690d9a723d5953027f447241e6f8784ed9437552faf90499dca917eca"
+      }
+    },
+    {
+      "source": "run-sword-N-template01.png",
+      "trace": "traces/run-sword-N-template01/profile-fit/trace.json",
+      "state": "sword",
+      "direction": "N",
+      "kind": "run",
+      "scale": 0.2845445942265796,
+      "score": 0.09046918799259258,
+      "regionError": {
+        "head": 0.09541678740461701,
+        "neck-torso": 0.08373774509803922,
+        "shoulders": 0.1034303251215016,
+        "belt": 0.08420688788335848
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 55,
+      "artApproved": true,
+      "registrationApproved": true,
+      "rootReview": {
+        "reviewer": "root",
+        "scope": "Native complete-character geometry, proportions, detail and gait; final palette and Unity transitions pending",
+        "reviewCard": "review-profiles/sword-N-3x.png",
+        "reviewCardSha256": "511bd68c2ea97734e91c991e5223518b4f0324b00177b326ed21bb53bbaab63e",
+        "sourceSha256": "b40373e52d0d8644d6a0522139bba0d780700deebdd735461b03180e33426b28"
+      }
+    },
+    {
+      "source": "run-sword-SE-template01.png",
+      "trace": "traces/run-sword-SE-template01/profile-fit/trace.json",
+      "state": "sword",
+      "direction": "SE",
+      "kind": "run",
+      "scale": 0.30785714285714283,
+      "score": 0.08219997545828933,
+      "regionError": {
+        "head": 0.07220848016626005,
+        "neck-torso": 0.07667574437182281,
+        "shoulders": 0.11388574660633484,
+        "belt": 0.08176376319758673
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 54,
+      "artApproved": true,
+      "registrationApproved": true,
+      "rootReview": {
+        "reviewer": "root",
+        "scope": "Native complete-character geometry, proportions, detail and gait; final palette and Unity transitions pending",
+        "reviewCard": "review-profiles/sword-SE-3x.png",
+        "reviewCardSha256": "03da0d8dd6442f04246687a8cd47bbec444c181ba1eb7c9cce0ee232ad2f1a19",
+        "sourceSha256": "5d353c2d9f12e2663f2fe25d1061f7bc8a08d69757a10b8e2fa9b0ad7c29bd5a"
+      }
+    },
+    {
+      "source": "run-sword-NE-template01.png",
+      "trace": "traces/run-sword-NE-template01/profile-fit/trace.json",
+      "state": "sword",
+      "direction": "NE",
+      "kind": "run",
+      "scale": 0.2451119463147847,
+      "score": 0.10599692158710727,
+      "regionError": {
+        "head": 0.12696983966000194,
+        "neck-torso": 0.09568364845938376,
+        "shoulders": 0.10868526897938663,
+        "belt": 0.08999183006535948
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 55,
+      "artApproved": true,
+      "registrationApproved": true,
+      "rootReview": {
+        "reviewer": "root",
+        "scope": "Native complete-character geometry, proportions, detail and gait; final palette and Unity transitions pending",
+        "reviewCard": "review-profiles/sword-NE-3x.png",
+        "reviewCardSha256": "c88f71cbac6824656166cfecda83acac2819da242489e0b99277e224d6d50902",
+        "sourceSha256": "a7a03c5adc401e332ad98003b6a25fc285a7c82c0e5ddbedfa25858a9430a9d9"
+      }
+    }
+  ],
+  "reviewScope": "20 locomotion native geometry/registration only; final palette and Unity review pending"
+}

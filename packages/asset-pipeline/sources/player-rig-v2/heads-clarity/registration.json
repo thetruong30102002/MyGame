@@ -1,0 +1,60 @@
+{
+  "status": "two-head-clarity-candidates",
+  "columns": [
+    "old",
+    "new",
+    "original-NPC"
+  ],
+  "rows": [
+    "male",
+    "female"
+  ],
+  "records": [
+    {
+      "gender": "male",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "scale": [
+        0.06379585326953748,
+        0.06379585326953748
+      ],
+      "translation": [
+        -1,
+        -1
+      ],
+      "perFrameFit": false,
+      "ppu": 96,
+      "headCanvas": [
+        80,
+        80
+      ],
+      "artApproved": false
+    },
+    {
+      "gender": "female",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "scale": [
+        0.06379585326953748,
+        0.06379585326953748
+      ],
+      "translation": [
+        0,
+        -2
+      ],
+      "perFrameFit": false,
+      "ppu": 96,
+      "headCanvas": [
+        80,
+        80
+      ],
+      "artApproved": false
+    }
+  ],
+  "bodyGenderVariantsPending": true,
+  "motionPending": true
+}

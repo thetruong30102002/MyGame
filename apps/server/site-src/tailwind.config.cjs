@@ -19,7 +19,7 @@ const extract = (content) => {
 module.exports = {
 	content: {
 		// AETHER_SITE_DIR: build cho thư mục site khác (xem thử) — site-src/build.mjs đặt.
-		files: ['*.html', '*.js'].map((f) => path.join(process.env.AETHER_SITE_DIR || path.join(__dirname, '../site'), f)),
+		files: [...['*.html', '*.js'].map((f) => path.join(process.env.AETHER_SITE_DIR || path.join(__dirname, '../site'), f)),path.join(__dirname,'**/*.{tsx,html}')],
 		extract: { html: extract, js: extract },
 	},
 	theme: {
@@ -35,16 +35,16 @@ module.exports = {
 			{
 				// Đêm Aether: vàng kim trên nền xanh đêm, hợp ảnh pixel + bản đồ lục địa.
 				aether: {
-					primary: '#ffc93c',
+					primary: '#e7c581',
 					'primary-content': '#2a1606',
 					secondary: '#2f9bd6',
 					accent: '#b48cff',
-					neutral: '#1b2c42',
+					neutral: '#263832',
 					'neutral-content': '#dfe8f3',
-					'base-100': '#122236',
-					'base-200': '#0d1a2a',
-					'base-300': '#08121e',
-					'base-content': '#e4ecf5',
+					'base-100': '#172721',
+					'base-200': '#0f1b17',
+					'base-300': '#0a1310',
+					'base-content': '#ede9de',
 					info: '#3aa0ff',
 					success: '#40c057',
 					warning: '#ffb21e',

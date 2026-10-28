@@ -1,0 +1,4129 @@
+{
+  "records": [
+    {
+      "phase": 0,
+      "direction": "S",
+      "headBox": [
+        59,
+        54,
+        85,
+        80
+      ],
+      "neckY": 79,
+      "waistY": 97,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          85,
+          100
+        ]
+      ],
+      "grip": [
+        85,
+        100
+      ],
+      "staffGrip": [
+        85,
+        100
+      ],
+      "weaponAngle": -68,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          83,
+          98,
+          87,
+          102
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              64,
+              97
+            ],
+            [
+              82,
+              97
+            ],
+            [
+              82,
+              106
+            ],
+            [
+              64,
+              106
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": false,
+      "landmarkSource": "common actual palm intersection across all four drawn body families",
+      "headExcludeBox": [
+        53,
+        51,
+        91,
+        81
+      ],
+      "underwearBottomY": 106
+    },
+    {
+      "phase": 1,
+      "direction": "S",
+      "headBox": [
+        60,
+        54,
+        85,
+        80
+      ],
+      "neckY": 79,
+      "waistY": 96,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          75,
+          86
+        ]
+      ],
+      "grip": [
+        75,
+        86
+      ],
+      "staffGrip": [
+        75,
+        86
+      ],
+      "weaponAngle": -68,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          73,
+          84,
+          77,
+          88
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              64,
+              96
+            ],
+            [
+              82,
+              96
+            ],
+            [
+              82,
+              107
+            ],
+            [
+              64,
+              107
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": false,
+      "landmarkSource": "common actual palm intersection across all four drawn body families",
+      "headExcludeBox": [
+        55,
+        51,
+        92,
+        81
+      ],
+      "underwearBottomY": 107
+    },
+    {
+      "phase": 2,
+      "direction": "S",
+      "headBox": [
+        60,
+        54,
+        84,
+        79
+      ],
+      "neckY": 78,
+      "waistY": 96,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          71,
+          70
+        ],
+        [
+          74,
+          75
+        ]
+      ],
+      "grip": [
+        71,
+        70
+      ],
+      "staffGrip": [
+        71,
+        70
+      ],
+      "weaponAngle": -120.964,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          69,
+          68,
+          73,
+          72
+        ],
+        [
+          72,
+          73,
+          76,
+          77
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [
+        [
+          [
+            66,
+            68
+          ],
+          [
+            76,
+            68
+          ],
+          [
+            76,
+            83
+          ],
+          [
+            66,
+            83
+          ]
+        ],
+        [
+          [
+            69,
+            73
+          ],
+          [
+            79,
+            73
+          ],
+          [
+            79,
+            83
+          ],
+          [
+            69,
+            83
+          ]
+        ]
+      ],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              63,
+              96
+            ],
+            [
+              82,
+              96
+            ],
+            [
+              82,
+              106
+            ],
+            [
+              63,
+              106
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": false,
+      "landmarkSource": "common actual palm intersection across all four drawn body families",
+      "headExcludeBox": [
+        55,
+        52,
+        92,
+        80
+      ],
+      "underwearBottomY": 106
+    },
+    {
+      "phase": 3,
+      "direction": "S",
+      "headBox": [
+        61,
+        54,
+        84,
+        80
+      ],
+      "neckY": 79,
+      "waistY": 93,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          72,
+          52
+        ],
+        [
+          77,
+          57
+        ]
+      ],
+      "grip": [
+        72,
+        52
+      ],
+      "staffGrip": [
+        72,
+        52
+      ],
+      "weaponAngle": -135.0,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          70,
+          50,
+          74,
+          54
+        ],
+        [
+          75,
+          55,
+          79,
+          59
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [
+        [
+          [
+            67,
+            52
+          ],
+          [
+            77,
+            52
+          ],
+          [
+            77,
+            84
+          ],
+          [
+            67,
+            84
+          ]
+        ],
+        [
+          [
+            71,
+            56
+          ],
+          [
+            81,
+            56
+          ],
+          [
+            81,
+            84
+          ],
+          [
+            71,
+            84
+          ]
+        ]
+      ],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              65,
+              93
+            ],
+            [
+              82,
+              93
+            ],
+            [
+              82,
+              106
+            ],
+            [
+              65,
+              106
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": false,
+      "landmarkSource": "common actual palm intersection across all four drawn body families",
+      "headExcludeBox": [
+        52,
+        47,
+        93,
+        81
+      ],
+      "underwearBottomY": 106
+    },
+    {
+      "phase": 4,
+      "direction": "S",
+      "headBox": [
+        61,
+        54,
+        85,
+        79
+      ],
+      "neckY": 78,
+      "waistY": 95,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          72,
+          45
+        ],
+        [
+          77,
+          49
+        ]
+      ],
+      "grip": [
+        72,
+        45
+      ],
+      "staffGrip": [
+        72,
+        45
+      ],
+      "weaponAngle": -141.34,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          70,
+          43,
+          74,
+          47
+        ],
+        [
+          75,
+          47,
+          79,
+          51
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [
+        [
+          [
+            67,
+            43
+          ],
+          [
+            77,
+            43
+          ],
+          [
+            77,
+            83
+          ],
+          [
+            67,
+            83
+          ]
+        ],
+        [
+          [
+            71,
+            47
+          ],
+          [
+            81,
+            47
+          ],
+          [
+            81,
+            83
+          ],
+          [
+            71,
+            83
+          ]
+        ]
+      ],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              64,
+              95
+            ],
+            [
+              83,
+              95
+            ],
+            [
+              83,
+              109
+            ],
+            [
+              64,
+              109
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": false,
+      "landmarkSource": "common actual palm intersection across all four drawn body families",
+      "headExcludeBox": [
+        53,
+        43,
+        95,
+        80
+      ],
+      "underwearBottomY": 109
+    },
+    {
+      "phase": 5,
+      "direction": "S",
+      "headBox": [
+        64,
+        61,
+        88,
+        84
+      ],
+      "neckY": 83,
+      "waistY": 98,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          74,
+          105
+        ],
+        [
+          70,
+          100
+        ]
+      ],
+      "grip": [
+        74,
+        105
+      ],
+      "staffGrip": [
+        74,
+        105
+      ],
+      "weaponAngle": 51.34,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          72,
+          103,
+          76,
+          107
+        ],
+        [
+          68,
+          98,
+          72,
+          102
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              63,
+              98
+            ],
+            [
+              84,
+              98
+            ],
+            [
+              84,
+              107
+            ],
+            [
+              63,
+              107
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": true,
+      "landmarkSource": "common actual palm intersection across all four drawn body families",
+      "headExcludeBox": [
+        56,
+        53,
+        94,
+        85
+      ],
+      "underwearBottomY": 107
+    },
+    {
+      "phase": 6,
+      "direction": "S",
+      "headBox": [
+        64,
+        68,
+        87,
+        90
+      ],
+      "neckY": 89,
+      "waistY": 98,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          74,
+          108
+        ],
+        [
+          71,
+          104
+        ]
+      ],
+      "grip": [
+        74,
+        108
+      ],
+      "staffGrip": [
+        74,
+        108
+      ],
+      "weaponAngle": 53.13,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          72,
+          106,
+          76,
+          110
+        ],
+        [
+          69,
+          102,
+          73,
+          106
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              64,
+              98
+            ],
+            [
+              86,
+              98
+            ],
+            [
+              86,
+              109
+            ],
+            [
+              64,
+              109
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": true,
+      "landmarkSource": "common actual palm intersection across all four drawn body families",
+      "headExcludeBox": [
+        56,
+        60,
+        95,
+        91
+      ],
+      "underwearBottomY": 109
+    },
+    {
+      "phase": 7,
+      "direction": "S",
+      "headBox": [
+        60,
+        54,
+        85,
+        80
+      ],
+      "neckY": 79,
+      "waistY": 96,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          76,
+          86
+        ]
+      ],
+      "grip": [
+        76,
+        86
+      ],
+      "staffGrip": [
+        76,
+        86
+      ],
+      "weaponAngle": -68,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          74,
+          84,
+          78,
+          88
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              64,
+              96
+            ],
+            [
+              82,
+              96
+            ],
+            [
+              82,
+              107
+            ],
+            [
+              64,
+              107
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": false,
+      "landmarkSource": "common actual palm intersection across all four drawn body families",
+      "headExcludeBox": [
+        55,
+        51,
+        93,
+        81
+      ],
+      "underwearBottomY": 107
+    },
+    {
+      "phase": 8,
+      "direction": "S",
+      "headBox": [
+        60,
+        54,
+        85,
+        80
+      ],
+      "neckY": 79,
+      "waistY": 96,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          85,
+          100
+        ]
+      ],
+      "grip": [
+        85,
+        100
+      ],
+      "staffGrip": [
+        85,
+        100
+      ],
+      "weaponAngle": -68,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          83,
+          98,
+          87,
+          102
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              65,
+              96
+            ],
+            [
+              81,
+              96
+            ],
+            [
+              81,
+              106
+            ],
+            [
+              65,
+              106
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": false,
+      "landmarkSource": "common actual palm intersection across all four drawn body families",
+      "headExcludeBox": [
+        55,
+        51,
+        92,
+        81
+      ],
+      "underwearBottomY": 106
+    },
+    {
+      "phase": 0,
+      "direction": "E",
+      "headBox": [
+        60,
+        54,
+        85,
+        78
+      ],
+      "neckY": 77,
+      "waistY": 97,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          73,
+          100
+        ]
+      ],
+      "grip": [
+        73,
+        100
+      ],
+      "staffGrip": [
+        73,
+        100
+      ],
+      "weaponAngle": -68,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          71,
+          98,
+          75,
+          102
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              65,
+              97
+            ],
+            [
+              76,
+              97
+            ],
+            [
+              76,
+              105
+            ],
+            [
+              65,
+              105
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": false,
+      "landmarkSource": "common actual palm intersection across all four drawn body families",
+      "headExcludeBox": [
+        51,
+        50,
+        89,
+        79
+      ],
+      "underwearBottomY": 105
+    },
+    {
+      "phase": 1,
+      "direction": "E",
+      "headBox": [
+        60,
+        54,
+        84,
+        78
+      ],
+      "neckY": 77,
+      "waistY": 96,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          80,
+          83
+        ]
+      ],
+      "grip": [
+        80,
+        83
+      ],
+      "staffGrip": [
+        80,
+        83
+      ],
+      "weaponAngle": -68,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          78,
+          81,
+          82,
+          85
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              63,
+              96
+            ],
+            [
+              74,
+              96
+            ],
+            [
+              74,
+              105
+            ],
+            [
+              63,
+              105
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": false,
+      "landmarkSource": "common actual palm intersection across all four drawn body families",
+      "headExcludeBox": [
+        50,
+        52,
+        88,
+        79
+      ],
+      "underwearBottomY": 105
+    },
+    {
+      "phase": 2,
+      "direction": "E",
+      "headBox": [
+        58,
+        54,
+        82,
+        79
+      ],
+      "neckY": 78,
+      "waistY": 96,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          78,
+          55
+        ],
+        [
+          78,
+          59
+        ]
+      ],
+      "grip": [
+        78,
+        55
+      ],
+      "staffGrip": [
+        78,
+        55
+      ],
+      "weaponAngle": -90.0,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          76,
+          53,
+          80,
+          57
+        ],
+        [
+          76,
+          57,
+          80,
+          61
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [
+        [
+          [
+            73,
+            53
+          ],
+          [
+            83,
+            53
+          ],
+          [
+            83,
+            83
+          ],
+          [
+            73,
+            83
+          ]
+        ],
+        [
+          [
+            74,
+            57
+          ],
+          [
+            84,
+            57
+          ],
+          [
+            84,
+            83
+          ],
+          [
+            74,
+            83
+          ]
+        ]
+      ],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              63,
+              96
+            ],
+            [
+              73,
+              96
+            ],
+            [
+              73,
+              105
+            ],
+            [
+              63,
+              105
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": false,
+      "landmarkSource": "common actual palm intersection across all four drawn body families",
+      "headExcludeBox": [
+        50,
+        49,
+        89,
+        80
+      ],
+      "underwearBottomY": 105
+    },
+    {
+      "phase": 3,
+      "direction": "E",
+      "headBox": [
+        61,
+        51,
+        81,
+        78
+      ],
+      "neckY": 77,
+      "waistY": 93,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          71,
+          50
+        ],
+        [
+          74,
+          54
+        ]
+      ],
+      "grip": [
+        71,
+        50
+      ],
+      "staffGrip": [
+        71,
+        50
+      ],
+      "weaponAngle": -126.87,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          69,
+          48,
+          73,
+          52
+        ],
+        [
+          72,
+          52,
+          76,
+          56
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [
+        [
+          [
+            66,
+            48
+          ],
+          [
+            76,
+            48
+          ],
+          [
+            76,
+            82
+          ],
+          [
+            66,
+            82
+          ]
+        ],
+        [
+          [
+            70,
+            52
+          ],
+          [
+            80,
+            52
+          ],
+          [
+            80,
+            82
+          ],
+          [
+            70,
+            82
+          ]
+        ]
+      ],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              64,
+              93
+            ],
+            [
+              74,
+              93
+            ],
+            [
+              74,
+              101
+            ],
+            [
+              64,
+              101
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": false,
+      "landmarkSource": "common actual palm intersection across all four drawn body families",
+      "headExcludeBox": [
+        51,
+        46,
+        87,
+        79
+      ],
+      "underwearBottomY": 101
+    },
+    {
+      "phase": 4,
+      "direction": "E",
+      "headBox": [
+        60,
+        52,
+        82,
+        79
+      ],
+      "neckY": 78,
+      "waistY": 93,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          70,
+          41
+        ],
+        [
+          73,
+          46
+        ]
+      ],
+      "grip": [
+        70,
+        41
+      ],
+      "staffGrip": [
+        70,
+        41
+      ],
+      "weaponAngle": -120.964,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          68,
+          39,
+          72,
+          43
+        ],
+        [
+          71,
+          44,
+          75,
+          48
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [
+        [
+          [
+            65,
+            39
+          ],
+          [
+            75,
+            39
+          ],
+          [
+            75,
+            83
+          ],
+          [
+            65,
+            83
+          ]
+        ],
+        [
+          [
+            68,
+            44
+          ],
+          [
+            78,
+            44
+          ],
+          [
+            78,
+            83
+          ],
+          [
+            68,
+            83
+          ]
+        ]
+      ],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              64,
+              93
+            ],
+            [
+              75,
+              93
+            ],
+            [
+              75,
+              101
+            ],
+            [
+              64,
+              101
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": false,
+      "landmarkSource": "common actual palm intersection across all four drawn body families",
+      "headExcludeBox": [
+        51,
+        41,
+        86,
+        80
+      ],
+      "underwearBottomY": 101
+    },
+    {
+      "phase": 5,
+      "direction": "E",
+      "headBox": [
+        61,
+        60,
+        86,
+        83
+      ],
+      "neckY": 82,
+      "waistY": 95,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          81,
+          96
+        ],
+        [
+          77,
+          93
+        ]
+      ],
+      "grip": [
+        81,
+        96
+      ],
+      "staffGrip": [
+        81,
+        96
+      ],
+      "weaponAngle": 36.87,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          79,
+          94,
+          83,
+          98
+        ],
+        [
+          75,
+          91,
+          79,
+          95
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              57,
+              95
+            ],
+            [
+              72,
+              95
+            ],
+            [
+              72,
+              105
+            ],
+            [
+              57,
+              105
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": true,
+      "landmarkSource": "common actual palm intersection across all four drawn body families",
+      "headExcludeBox": [
+        54,
+        54,
+        93,
+        84
+      ],
+      "underwearBottomY": 105
+    },
+    {
+      "phase": 6,
+      "direction": "E",
+      "headBox": [
+        62,
+        66,
+        85,
+        88
+      ],
+      "neckY": 87,
+      "waistY": 97,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          80,
+          105
+        ],
+        [
+          77,
+          101
+        ]
+      ],
+      "grip": [
+        80,
+        105
+      ],
+      "staffGrip": [
+        80,
+        105
+      ],
+      "weaponAngle": 53.13,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          78,
+          103,
+          82,
+          107
+        ],
+        [
+          75,
+          99,
+          79,
+          103
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              56,
+              97
+            ],
+            [
+              72,
+              97
+            ],
+            [
+              72,
+              107
+            ],
+            [
+              56,
+              107
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": true,
+      "landmarkSource": "common actual palm intersection across all four drawn body families",
+      "headExcludeBox": [
+        57,
+        55,
+        95,
+        89
+      ],
+      "underwearBottomY": 107
+    },
+    {
+      "phase": 7,
+      "direction": "E",
+      "headBox": [
+        60,
+        54,
+        85,
+        78
+      ],
+      "neckY": 77,
+      "waistY": 96,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          81,
+          84
+        ]
+      ],
+      "grip": [
+        81,
+        84
+      ],
+      "staffGrip": [
+        81,
+        84
+      ],
+      "weaponAngle": -68,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          79,
+          82,
+          83,
+          86
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              64,
+              96
+            ],
+            [
+              75,
+              96
+            ],
+            [
+              75,
+              106
+            ],
+            [
+              64,
+              106
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": false,
+      "landmarkSource": "common actual palm intersection across all four drawn body families",
+      "headExcludeBox": [
+        51,
+        51,
+        90,
+        79
+      ],
+      "underwearBottomY": 106
+    },
+    {
+      "phase": 8,
+      "direction": "E",
+      "headBox": [
+        60,
+        54,
+        85,
+        78
+      ],
+      "neckY": 77,
+      "waistY": 97,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          72,
+          96
+        ]
+      ],
+      "grip": [
+        72,
+        96
+      ],
+      "staffGrip": [
+        72,
+        96
+      ],
+      "weaponAngle": -68,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          70,
+          94,
+          74,
+          98
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              63,
+              97
+            ],
+            [
+              74,
+              97
+            ],
+            [
+              74,
+              105
+            ],
+            [
+              63,
+              105
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": false,
+      "landmarkSource": "common actual palm intersection across all four drawn body families",
+      "headExcludeBox": [
+        51,
+        49,
+        88,
+        79
+      ],
+      "underwearBottomY": 105
+    },
+    {
+      "phase": 0,
+      "direction": "N",
+      "headBox": [
+        59,
+        54,
+        85,
+        77
+      ],
+      "neckY": 76,
+      "waistY": 94,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          86,
+          100
+        ]
+      ],
+      "grip": [
+        86,
+        100
+      ],
+      "staffGrip": [
+        86,
+        100
+      ],
+      "weaponAngle": -68,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          84,
+          98,
+          88,
+          102
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              62,
+              94
+            ],
+            [
+              79,
+              94
+            ],
+            [
+              79,
+              104
+            ],
+            [
+              62,
+              104
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": false,
+      "landmarkSource": "common actual palm intersection across all four drawn body families",
+      "headExcludeBox": [
+        54,
+        51,
+        89,
+        78
+      ],
+      "underwearBottomY": 104
+    },
+    {
+      "phase": 1,
+      "direction": "N",
+      "headBox": [
+        60,
+        54,
+        85,
+        77
+      ],
+      "neckY": 76,
+      "waistY": 94,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          83,
+          87
+        ]
+      ],
+      "grip": [
+        83,
+        87
+      ],
+      "staffGrip": [
+        83,
+        87
+      ],
+      "weaponAngle": -68,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          81,
+          85,
+          85,
+          89
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              62,
+              94
+            ],
+            [
+              80,
+              94
+            ],
+            [
+              80,
+              104
+            ],
+            [
+              62,
+              104
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": false,
+      "landmarkSource": "common actual palm intersection across all four drawn body families",
+      "headExcludeBox": [
+        55,
+        52,
+        90,
+        78
+      ],
+      "underwearBottomY": 104
+    },
+    {
+      "phase": 2,
+      "direction": "N",
+      "headBox": [
+        60,
+        54,
+        84,
+        77
+      ],
+      "neckY": 76,
+      "waistY": 94,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          70,
+          67
+        ],
+        [
+          74,
+          72
+        ]
+      ],
+      "grip": [
+        70,
+        67
+      ],
+      "staffGrip": [
+        70,
+        67
+      ],
+      "weaponAngle": -128.66,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          68,
+          65,
+          72,
+          69
+        ],
+        [
+          72,
+          70,
+          76,
+          74
+        ]
+      ],
+      "handsVisible": false,
+      "weaponOrder": -1,
+      "foregroundPolygons": [
+        [
+          [
+            65,
+            65
+          ],
+          [
+            75,
+            65
+          ],
+          [
+            75,
+            81
+          ],
+          [
+            65,
+            81
+          ]
+        ],
+        [
+          [
+            69,
+            70
+          ],
+          [
+            79,
+            70
+          ],
+          [
+            79,
+            81
+          ],
+          [
+            69,
+            81
+          ]
+        ]
+      ],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              62,
+              94
+            ],
+            [
+              80,
+              94
+            ],
+            [
+              80,
+              104
+            ],
+            [
+              62,
+              104
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": false,
+      "landmarkSource": "manual native-frame trace; skin snap radius <=4px",
+      "headExcludeBox": [
+        55,
+        50,
+        90,
+        78
+      ],
+      "underwearBottomY": 104
+    },
+    {
+      "phase": 3,
+      "direction": "N",
+      "headBox": [
+        61,
+        54,
+        84,
+        78
+      ],
+      "neckY": 77,
+      "waistY": 94,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          75,
+          60
+        ]
+      ],
+      "grip": [
+        75,
+        60
+      ],
+      "staffGrip": [
+        75,
+        60
+      ],
+      "weaponAngle": -128.66,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          73,
+          58,
+          77,
+          62
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [
+        [
+          [
+            67,
+            51
+          ],
+          [
+            77,
+            51
+          ],
+          [
+            77,
+            82
+          ],
+          [
+            67,
+            82
+          ]
+        ],
+        [
+          [
+            71,
+            56
+          ],
+          [
+            81,
+            56
+          ],
+          [
+            81,
+            82
+          ],
+          [
+            71,
+            82
+          ]
+        ]
+      ],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              63,
+              94
+            ],
+            [
+              81,
+              94
+            ],
+            [
+              81,
+              104
+            ],
+            [
+              63,
+              104
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": false,
+      "landmarkSource": "common actual palm intersection across all four drawn body families; second hand occluded behind joined visible hand",
+      "headExcludeBox": [
+        51,
+        47,
+        91,
+        79
+      ],
+      "underwearBottomY": 104
+    },
+    {
+      "phase": 4,
+      "direction": "N",
+      "headBox": [
+        61,
+        54,
+        85,
+        78
+      ],
+      "neckY": 77,
+      "waistY": 94,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          72,
+          45
+        ],
+        [
+          75,
+          49
+        ]
+      ],
+      "grip": [
+        72,
+        45
+      ],
+      "staffGrip": [
+        72,
+        45
+      ],
+      "weaponAngle": -126.87,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          70,
+          43,
+          74,
+          47
+        ],
+        [
+          73,
+          47,
+          77,
+          51
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [
+        [
+          [
+            67,
+            43
+          ],
+          [
+            77,
+            43
+          ],
+          [
+            77,
+            82
+          ],
+          [
+            67,
+            82
+          ]
+        ],
+        [
+          [
+            70,
+            47
+          ],
+          [
+            80,
+            47
+          ],
+          [
+            80,
+            82
+          ],
+          [
+            70,
+            82
+          ]
+        ]
+      ],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              63,
+              94
+            ],
+            [
+              82,
+              94
+            ],
+            [
+              82,
+              105
+            ],
+            [
+              63,
+              105
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": false,
+      "landmarkSource": "common actual palm intersection across all four drawn body families",
+      "headExcludeBox": [
+        53,
+        43,
+        93,
+        79
+      ],
+      "underwearBottomY": 105
+    },
+    {
+      "phase": 5,
+      "direction": "N",
+      "headBox": [
+        62,
+        60,
+        88,
+        83
+      ],
+      "neckY": 82,
+      "waistY": 96,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          65,
+          110
+        ],
+        [
+          63,
+          103
+        ]
+      ],
+      "grip": [
+        65,
+        110
+      ],
+      "staffGrip": [
+        65,
+        110
+      ],
+      "weaponAngle": 74.055,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          63,
+          108,
+          67,
+          112
+        ],
+        [
+          61,
+          101,
+          65,
+          105
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              70,
+              96
+            ],
+            [
+              87,
+              96
+            ],
+            [
+              87,
+              108
+            ],
+            [
+              70,
+              108
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": true,
+      "landmarkSource": "common actual palm intersection across all four drawn body families",
+      "headExcludeBox": [
+        52,
+        56,
+        90,
+        84
+      ],
+      "underwearBottomY": 108
+    },
+    {
+      "phase": 6,
+      "direction": "N",
+      "headBox": [
+        62,
+        67,
+        87,
+        88
+      ],
+      "neckY": 87,
+      "waistY": 101,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          62,
+          111
+        ],
+        [
+          64,
+          106
+        ]
+      ],
+      "grip": [
+        62,
+        111
+      ],
+      "staffGrip": [
+        62,
+        111
+      ],
+      "weaponAngle": 111.801,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          60,
+          109,
+          64,
+          113
+        ],
+        [
+          62,
+          104,
+          66,
+          108
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              71,
+              101
+            ],
+            [
+              88,
+              101
+            ],
+            [
+              88,
+              113
+            ],
+            [
+              71,
+              113
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": true,
+      "landmarkSource": "common actual palm intersection across all four drawn body families",
+      "headExcludeBox": [
+        52,
+        62,
+        89,
+        89
+      ],
+      "underwearBottomY": 113
+    },
+    {
+      "phase": 7,
+      "direction": "N",
+      "headBox": [
+        60,
+        54,
+        85,
+        77
+      ],
+      "neckY": 76,
+      "waistY": 95,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          83,
+          87
+        ]
+      ],
+      "grip": [
+        83,
+        87
+      ],
+      "staffGrip": [
+        83,
+        87
+      ],
+      "weaponAngle": -68,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          81,
+          85,
+          85,
+          89
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              63,
+              95
+            ],
+            [
+              81,
+              95
+            ],
+            [
+              81,
+              105
+            ],
+            [
+              63,
+              105
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": false,
+      "landmarkSource": "common actual palm intersection across all four drawn body families",
+      "headExcludeBox": [
+        55,
+        51,
+        91,
+        78
+      ],
+      "underwearBottomY": 105
+    },
+    {
+      "phase": 8,
+      "direction": "N",
+      "headBox": [
+        60,
+        54,
+        85,
+        77
+      ],
+      "neckY": 76,
+      "waistY": 94,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          86,
+          100
+        ]
+      ],
+      "grip": [
+        86,
+        100
+      ],
+      "staffGrip": [
+        86,
+        100
+      ],
+      "weaponAngle": -68,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          84,
+          98,
+          88,
+          102
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              63,
+              94
+            ],
+            [
+              80,
+              94
+            ],
+            [
+              80,
+              104
+            ],
+            [
+              63,
+              104
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": false,
+      "landmarkSource": "common actual palm intersection across all four drawn body families",
+      "headExcludeBox": [
+        55,
+        52,
+        89,
+        78
+      ],
+      "underwearBottomY": 104
+    },
+    {
+      "phase": 0,
+      "direction": "SE",
+      "headBox": [
+        59,
+        54,
+        85,
+        80
+      ],
+      "neckY": 79,
+      "waistY": 95,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          60,
+          99
+        ]
+      ],
+      "grip": [
+        60,
+        99
+      ],
+      "staffGrip": [
+        60,
+        99
+      ],
+      "weaponAngle": -112,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          58,
+          97,
+          62,
+          101
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              64,
+              95
+            ],
+            [
+              79,
+              95
+            ],
+            [
+              79,
+              103
+            ],
+            [
+              64,
+              103
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": false,
+      "landmarkSource": "common actual palm intersection across all four drawn body families; other real palm chosen for weapon visibility",
+      "headExcludeBox": [
+        54,
+        49,
+        92,
+        81
+      ],
+      "underwearBottomY": 103
+    },
+    {
+      "phase": 1,
+      "direction": "SE",
+      "headBox": [
+        60,
+        54,
+        85,
+        80
+      ],
+      "neckY": 79,
+      "waistY": 95,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          76,
+          86
+        ]
+      ],
+      "grip": [
+        76,
+        86
+      ],
+      "staffGrip": [
+        76,
+        86
+      ],
+      "weaponAngle": -68,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          74,
+          84,
+          78,
+          88
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              64,
+              95
+            ],
+            [
+              79,
+              95
+            ],
+            [
+              79,
+              103
+            ],
+            [
+              64,
+              103
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": false,
+      "landmarkSource": "common actual palm intersection across all four drawn body families",
+      "headExcludeBox": [
+        55,
+        50,
+        90,
+        81
+      ],
+      "underwearBottomY": 103
+    },
+    {
+      "phase": 2,
+      "direction": "SE",
+      "headBox": [
+        58,
+        54,
+        83,
+        80
+      ],
+      "neckY": 79,
+      "waistY": 92,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          81,
+          65
+        ],
+        [
+          78,
+          69
+        ]
+      ],
+      "grip": [
+        81,
+        65
+      ],
+      "staffGrip": [
+        81,
+        65
+      ],
+      "weaponAngle": -53.13,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          79,
+          63,
+          83,
+          67
+        ],
+        [
+          76,
+          67,
+          80,
+          71
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [
+        [
+          [
+            76,
+            63
+          ],
+          [
+            86,
+            63
+          ],
+          [
+            86,
+            84
+          ],
+          [
+            76,
+            84
+          ]
+        ],
+        [
+          [
+            72,
+            67
+          ],
+          [
+            82,
+            67
+          ],
+          [
+            82,
+            84
+          ],
+          [
+            72,
+            84
+          ]
+        ]
+      ],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              64,
+              92
+            ],
+            [
+              80,
+              92
+            ],
+            [
+              80,
+              104
+            ],
+            [
+              64,
+              104
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": false,
+      "landmarkSource": "common actual palm intersection across all four drawn body families",
+      "headExcludeBox": [
+        52,
+        50,
+        92,
+        81
+      ],
+      "underwearBottomY": 104
+    },
+    {
+      "phase": 3,
+      "direction": "SE",
+      "headBox": [
+        61,
+        53,
+        84,
+        79
+      ],
+      "neckY": 78,
+      "waistY": 92,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          77,
+          49
+        ],
+        [
+          80,
+          54
+        ]
+      ],
+      "grip": [
+        77,
+        49
+      ],
+      "staffGrip": [
+        77,
+        49
+      ],
+      "weaponAngle": -120.964,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          75,
+          47,
+          79,
+          51
+        ],
+        [
+          78,
+          52,
+          82,
+          56
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [
+        [
+          [
+            72,
+            47
+          ],
+          [
+            82,
+            47
+          ],
+          [
+            82,
+            83
+          ],
+          [
+            72,
+            83
+          ]
+        ],
+        [
+          [
+            76,
+            52
+          ],
+          [
+            86,
+            52
+          ],
+          [
+            86,
+            83
+          ],
+          [
+            76,
+            83
+          ]
+        ]
+      ],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              64,
+              92
+            ],
+            [
+              80,
+              92
+            ],
+            [
+              80,
+              104
+            ],
+            [
+              64,
+              104
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": false,
+      "landmarkSource": "common actual palm intersection across all four drawn body families",
+      "headExcludeBox": [
+        54,
+        45,
+        90,
+        80
+      ],
+      "underwearBottomY": 104
+    },
+    {
+      "phase": 4,
+      "direction": "SE",
+      "headBox": [
+        61,
+        53,
+        85,
+        79
+      ],
+      "neckY": 78,
+      "waistY": 91,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          73,
+          41
+        ],
+        [
+          75,
+          45
+        ]
+      ],
+      "grip": [
+        73,
+        41
+      ],
+      "staffGrip": [
+        73,
+        41
+      ],
+      "weaponAngle": -116.565,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          71,
+          39,
+          75,
+          43
+        ],
+        [
+          73,
+          43,
+          77,
+          47
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [
+        [
+          [
+            68,
+            38
+          ],
+          [
+            78,
+            38
+          ],
+          [
+            78,
+            83
+          ],
+          [
+            68,
+            83
+          ]
+        ],
+        [
+          [
+            70,
+            43
+          ],
+          [
+            80,
+            43
+          ],
+          [
+            80,
+            83
+          ],
+          [
+            70,
+            83
+          ]
+        ]
+      ],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              64,
+              91
+            ],
+            [
+              81,
+              91
+            ],
+            [
+              81,
+              101
+            ],
+            [
+              64,
+              101
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": false,
+      "landmarkSource": "common actual palm intersection across all four drawn body families",
+      "headExcludeBox": [
+        54,
+        42,
+        90,
+        80
+      ],
+      "underwearBottomY": 101
+    },
+    {
+      "phase": 5,
+      "direction": "SE",
+      "headBox": [
+        63,
+        61,
+        88,
+        85
+      ],
+      "neckY": 84,
+      "waistY": 94,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          84,
+          95
+        ],
+        [
+          82,
+          90
+        ]
+      ],
+      "grip": [
+        84,
+        95
+      ],
+      "staffGrip": [
+        84,
+        95
+      ],
+      "weaponAngle": 68.199,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          82,
+          93,
+          86,
+          97
+        ],
+        [
+          80,
+          88,
+          84,
+          92
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              60,
+              94
+            ],
+            [
+              77,
+              94
+            ],
+            [
+              77,
+              103
+            ],
+            [
+              60,
+              103
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": true,
+      "landmarkSource": "common actual palm intersection across all four drawn body families",
+      "headExcludeBox": [
+        57,
+        53,
+        93,
+        86
+      ],
+      "underwearBottomY": 103
+    },
+    {
+      "phase": 6,
+      "direction": "SE",
+      "headBox": [
+        63,
+        68,
+        88,
+        91
+      ],
+      "neckY": 90,
+      "waistY": 99,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          79,
+          105
+        ],
+        [
+          75,
+          100
+        ]
+      ],
+      "grip": [
+        79,
+        105
+      ],
+      "staffGrip": [
+        79,
+        105
+      ],
+      "weaponAngle": 51.34,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          77,
+          103,
+          81,
+          107
+        ],
+        [
+          73,
+          98,
+          77,
+          102
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              60,
+              99
+            ],
+            [
+              74,
+              99
+            ],
+            [
+              74,
+              107
+            ],
+            [
+              60,
+              107
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": true,
+      "landmarkSource": "common actual palm intersection across all four drawn body families",
+      "headExcludeBox": [
+        60,
+        59,
+        97,
+        92
+      ],
+      "underwearBottomY": 107
+    },
+    {
+      "phase": 7,
+      "direction": "SE",
+      "headBox": [
+        60,
+        54,
+        85,
+        80
+      ],
+      "neckY": 79,
+      "waistY": 94,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          76,
+          87
+        ]
+      ],
+      "grip": [
+        76,
+        87
+      ],
+      "staffGrip": [
+        76,
+        87
+      ],
+      "weaponAngle": -68,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          74,
+          85,
+          78,
+          89
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              64,
+              94
+            ],
+            [
+              79,
+              94
+            ],
+            [
+              79,
+              103
+            ],
+            [
+              64,
+              103
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": false,
+      "landmarkSource": "common actual palm intersection across all four drawn body families",
+      "headExcludeBox": [
+        56,
+        50,
+        93,
+        81
+      ],
+      "underwearBottomY": 103
+    },
+    {
+      "phase": 8,
+      "direction": "SE",
+      "headBox": [
+        60,
+        54,
+        85,
+        80
+      ],
+      "neckY": 79,
+      "waistY": 95,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          85,
+          98
+        ]
+      ],
+      "grip": [
+        85,
+        98
+      ],
+      "staffGrip": [
+        85,
+        98
+      ],
+      "weaponAngle": -68,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          83,
+          96,
+          87,
+          100
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              64,
+              95
+            ],
+            [
+              79,
+              95
+            ],
+            [
+              79,
+              104
+            ],
+            [
+              64,
+              104
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": false,
+      "landmarkSource": "common actual palm intersection across all four drawn body families",
+      "headExcludeBox": [
+        54,
+        50,
+        91,
+        81
+      ],
+      "underwearBottomY": 104
+    },
+    {
+      "phase": 0,
+      "direction": "NE",
+      "headBox": [
+        59,
+        54,
+        85,
+        79
+      ],
+      "neckY": 78,
+      "waistY": 96,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          83,
+          99
+        ]
+      ],
+      "grip": [
+        83,
+        99
+      ],
+      "staffGrip": [
+        83,
+        99
+      ],
+      "weaponAngle": -68,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          81,
+          97,
+          85,
+          101
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              63,
+              96
+            ],
+            [
+              77,
+              96
+            ],
+            [
+              77,
+              106
+            ],
+            [
+              63,
+              106
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": false,
+      "landmarkSource": "common actual palm intersection across all four drawn body families",
+      "headExcludeBox": [
+        50,
+        50,
+        89,
+        80
+      ],
+      "underwearBottomY": 106
+    },
+    {
+      "phase": 1,
+      "direction": "NE",
+      "headBox": [
+        60,
+        54,
+        85,
+        79
+      ],
+      "neckY": 78,
+      "waistY": 97,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          80,
+          86
+        ]
+      ],
+      "grip": [
+        80,
+        86
+      ],
+      "staffGrip": [
+        80,
+        86
+      ],
+      "weaponAngle": -68,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          78,
+          84,
+          82,
+          88
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              61,
+              97
+            ],
+            [
+              75,
+              97
+            ],
+            [
+              75,
+              106
+            ],
+            [
+              61,
+              106
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": false,
+      "landmarkSource": "common actual palm intersection across all four drawn body families",
+      "headExcludeBox": [
+        50,
+        52,
+        87,
+        80
+      ],
+      "underwearBottomY": 106
+    },
+    {
+      "phase": 2,
+      "direction": "NE",
+      "headBox": [
+        58,
+        54,
+        83,
+        79
+      ],
+      "neckY": 78,
+      "waistY": 96,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          78,
+          60
+        ],
+        [
+          80,
+          64
+        ]
+      ],
+      "grip": [
+        78,
+        60
+      ],
+      "staffGrip": [
+        78,
+        60
+      ],
+      "weaponAngle": -116.565,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          76,
+          58,
+          80,
+          62
+        ],
+        [
+          78,
+          62,
+          82,
+          66
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [
+        [
+          [
+            74,
+            58
+          ],
+          [
+            84,
+            58
+          ],
+          [
+            84,
+            83
+          ],
+          [
+            74,
+            83
+          ]
+        ],
+        [
+          [
+            75,
+            62
+          ],
+          [
+            85,
+            62
+          ],
+          [
+            85,
+            83
+          ],
+          [
+            75,
+            83
+          ]
+        ]
+      ],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              60,
+              96
+            ],
+            [
+              75,
+              96
+            ],
+            [
+              75,
+              106
+            ],
+            [
+              60,
+              106
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": false,
+      "landmarkSource": "common actual palm intersection across all four drawn body families",
+      "headExcludeBox": [
+        48,
+        51,
+        86,
+        80
+      ],
+      "underwearBottomY": 106
+    },
+    {
+      "phase": 3,
+      "direction": "NE",
+      "headBox": [
+        61,
+        53,
+        84,
+        79
+      ],
+      "neckY": 78,
+      "waistY": 96,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          73,
+          51
+        ],
+        [
+          75,
+          56
+        ]
+      ],
+      "grip": [
+        73,
+        51
+      ],
+      "staffGrip": [
+        73,
+        51
+      ],
+      "weaponAngle": -111.801,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          71,
+          49,
+          75,
+          53
+        ],
+        [
+          73,
+          54,
+          77,
+          58
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [
+        [
+          [
+            68,
+            49
+          ],
+          [
+            78,
+            49
+          ],
+          [
+            78,
+            83
+          ],
+          [
+            68,
+            83
+          ]
+        ],
+        [
+          [
+            71,
+            54
+          ],
+          [
+            81,
+            54
+          ],
+          [
+            81,
+            83
+          ],
+          [
+            71,
+            83
+          ]
+        ]
+      ],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              60,
+              96
+            ],
+            [
+              75,
+              96
+            ],
+            [
+              75,
+              106
+            ],
+            [
+              60,
+              106
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": false,
+      "landmarkSource": "common actual palm intersection across all four drawn body families",
+      "headExcludeBox": [
+        51,
+        48,
+        86,
+        80
+      ],
+      "underwearBottomY": 106
+    },
+    {
+      "phase": 4,
+      "direction": "NE",
+      "headBox": [
+        61,
+        53,
+        85,
+        79
+      ],
+      "neckY": 78,
+      "waistY": 96,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          71,
+          44
+        ],
+        [
+          73,
+          48
+        ]
+      ],
+      "grip": [
+        71,
+        44
+      ],
+      "staffGrip": [
+        71,
+        44
+      ],
+      "weaponAngle": -116.565,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          69,
+          42,
+          73,
+          46
+        ],
+        [
+          71,
+          46,
+          75,
+          50
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [
+        [
+          [
+            66,
+            40
+          ],
+          [
+            76,
+            40
+          ],
+          [
+            76,
+            83
+          ],
+          [
+            66,
+            83
+          ]
+        ],
+        [
+          [
+            68,
+            45
+          ],
+          [
+            78,
+            45
+          ],
+          [
+            78,
+            83
+          ],
+          [
+            68,
+            83
+          ]
+        ]
+      ],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              60,
+              96
+            ],
+            [
+              76,
+              96
+            ],
+            [
+              76,
+              105
+            ],
+            [
+              60,
+              105
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": false,
+      "landmarkSource": "common actual palm intersection across all four drawn body families",
+      "headExcludeBox": [
+        51,
+        42,
+        87,
+        80
+      ],
+      "underwearBottomY": 105
+    },
+    {
+      "phase": 5,
+      "direction": "NE",
+      "headBox": [
+        62,
+        60,
+        88,
+        84
+      ],
+      "neckY": 83,
+      "waistY": 96,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          81,
+          90
+        ],
+        [
+          77,
+          86
+        ]
+      ],
+      "grip": [
+        81,
+        90
+      ],
+      "staffGrip": [
+        81,
+        90
+      ],
+      "weaponAngle": 45.0,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          79,
+          88,
+          83,
+          92
+        ],
+        [
+          75,
+          84,
+          79,
+          88
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              57,
+              96
+            ],
+            [
+              73,
+              96
+            ],
+            [
+              73,
+              108
+            ],
+            [
+              57,
+              108
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": true,
+      "landmarkSource": "common actual palm intersection across all four drawn body families",
+      "headExcludeBox": [
+        52,
+        54,
+        90,
+        85
+      ],
+      "underwearBottomY": 108
+    },
+    {
+      "phase": 6,
+      "direction": "NE",
+      "headBox": [
+        62,
+        67,
+        87,
+        90
+      ],
+      "neckY": 89,
+      "waistY": 99,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          80,
+          105
+        ],
+        [
+          77,
+          101
+        ]
+      ],
+      "grip": [
+        80,
+        105
+      ],
+      "staffGrip": [
+        80,
+        105
+      ],
+      "weaponAngle": 53.13,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          78,
+          103,
+          82,
+          107
+        ],
+        [
+          75,
+          99,
+          79,
+          103
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              57,
+              99
+            ],
+            [
+              73,
+              99
+            ],
+            [
+              73,
+              110
+            ],
+            [
+              57,
+              110
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": true,
+      "landmarkSource": "common actual palm intersection across all four drawn body families",
+      "headExcludeBox": [
+        56,
+        57,
+        92,
+        91
+      ],
+      "underwearBottomY": 110
+    },
+    {
+      "phase": 7,
+      "direction": "NE",
+      "headBox": [
+        60,
+        54,
+        85,
+        79
+      ],
+      "neckY": 78,
+      "waistY": 97,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          81,
+          85
+        ]
+      ],
+      "grip": [
+        81,
+        85
+      ],
+      "staffGrip": [
+        81,
+        85
+      ],
+      "weaponAngle": -68,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          79,
+          83,
+          83,
+          87
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              61,
+              97
+            ],
+            [
+              77,
+              97
+            ],
+            [
+              77,
+              106
+            ],
+            [
+              61,
+              106
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": false,
+      "landmarkSource": "common actual palm intersection across all four drawn body families",
+      "headExcludeBox": [
+        50,
+        52,
+        87,
+        80
+      ],
+      "underwearBottomY": 106
+    },
+    {
+      "phase": 8,
+      "direction": "NE",
+      "headBox": [
+        60,
+        54,
+        85,
+        79
+      ],
+      "neckY": 78,
+      "waistY": 96,
+      "bootTopY": 112,
+      "tunicDrop": 5,
+      "hands": [
+        [
+          81,
+          99
+        ]
+      ],
+      "grip": [
+        81,
+        99
+      ],
+      "staffGrip": [
+        81,
+        99
+      ],
+      "weaponAngle": -68,
+      "staffAngle": -90,
+      "hand_boxes": [
+        [
+          79,
+          97,
+          83,
+          101
+        ]
+      ],
+      "handsVisible": true,
+      "weaponOrder": 1,
+      "foregroundPolygons": [],
+      "erasePolygons": {
+        "upper": [],
+        "pants": [
+          [
+            [
+              62,
+              96
+            ],
+            [
+              76,
+              96
+            ],
+            [
+              76,
+              105
+            ],
+            [
+              62,
+              105
+            ]
+          ]
+        ],
+        "boots": []
+      },
+      "trailActive": false,
+      "landmarkSource": "common actual palm intersection across all four drawn body families",
+      "headExcludeBox": [
+        50,
+        51,
+        87,
+        80
+      ],
+      "underwearBottomY": 105
+    }
+  ]
+}

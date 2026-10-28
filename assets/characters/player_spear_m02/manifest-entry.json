@@ -1,0 +1,95 @@
+{
+  "displayName": "Bích Kích",
+  "role": "player",
+  "atlas": "characters/player_spear_m02/player_spear_m02.json",
+  "frameSize": {
+    "width": 144,
+    "height": 144
+  },
+  "anchor": {
+    "x": 0.5,
+    "y": 0.8888888888888888
+  },
+  "bodyHeight": 75,
+  "directions": [
+    "S",
+    "SW",
+    "W",
+    "NW",
+    "N",
+    "NE",
+    "E",
+    "SE"
+  ],
+  "animations": {
+    "idle": {
+      "frames": 1,
+      "fps": 1,
+      "loop": true,
+      "hitFrame": -1,
+      "directions": [
+        "S",
+        "SW",
+        "W",
+        "NW",
+        "N",
+        "NE",
+        "E",
+        "SE"
+      ]
+    },
+    "walk": {
+      "frames": 8,
+      "fps": 8,
+      "loop": true,
+      "hitFrame": -1,
+      "directions": [
+        "S",
+        "SW",
+        "W",
+        "NW",
+        "N",
+        "NE",
+        "E",
+        "SE"
+      ]
+    },
+    "run": {
+      "frames": 8,
+      "fps": 11,
+      "loop": true,
+      "hitFrame": -1,
+      "directions": [
+        "S",
+        "SW",
+        "W",
+        "NW",
+        "N",
+        "NE",
+        "E",
+        "SE"
+      ]
+    },
+    "thrust": {
+      "frames": 12,
+      "fps": 16,
+      "loop": false,
+      "hitFrame": 6,
+      "directions": [
+        "S",
+        "SW",
+        "W",
+        "NW",
+        "N",
+        "NE",
+        "E",
+        "SE"
+      ]
+    }
+  },
+  "source": {
+    "provider": "ImageGen-complete-character",
+    "ref": "player-integrated/source-art/wholecast-v18/movement-prompts"
+  },
+  "notes": "V18: one complete actor, one baked weapon; idle/walk/run/class combat; no modular overlays."
+}

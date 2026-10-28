@@ -1,0 +1,251 @@
+{
+  "registrationVersion": 2,
+  "id": "player_bow_m02-shoot-S",
+  "character": "player_bow_m02",
+  "action": "shoot",
+  "direction": "S",
+  "source": "motion/player_bow_m02-shoot-S-r2.png",
+  "sha256": "a65d5625c4aae7d0270376d5e49000e0d8ed777a7a671e0ff49f404c3f28c9d7",
+  "uniformWholeActorScale": 0.24077046548956663,
+  "rowFloor": [
+    355.5,
+    716.0,
+    1071.0
+  ],
+  "gridOrigin": 177.0,
+  "gridStep": 362.0,
+  "frameSize": [
+    144,
+    144
+  ],
+  "root": [
+    72,
+    128
+  ],
+  "masterHeadWidth": 30,
+  "neutralBodyHeight": 75,
+  "resampling": "nearest",
+  "modularLayers": false,
+  "frames": [
+    {
+      "index": 0,
+      "nativeBounds": [
+        55,
+        52,
+        96,
+        127
+      ],
+      "headWidth": 24.56,
+      "sourceBounds": [
+        105,
+        42,
+        277,
+        357
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "index": 1,
+      "nativeBounds": [
+        57,
+        47,
+        90,
+        127
+      ],
+      "headWidth": 26.0,
+      "sourceBounds": [
+        474,
+        21,
+        613,
+        357
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "index": 2,
+      "nativeBounds": [
+        57,
+        47,
+        89,
+        127
+      ],
+      "headWidth": 25.52,
+      "sourceBounds": [
+        836,
+        21,
+        974,
+        356
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "index": 3,
+      "nativeBounds": [
+        57,
+        47,
+        90,
+        127
+      ],
+      "headWidth": 26.24,
+      "sourceBounds": [
+        1198,
+        22,
+        1337,
+        356
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "index": 4,
+      "nativeBounds": [
+        56,
+        47,
+        90,
+        127
+      ],
+      "headWidth": 26.73,
+      "sourceBounds": [
+        108,
+        383,
+        253,
+        717
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "index": 5,
+      "nativeBounds": [
+        56,
+        47,
+        90,
+        127
+      ],
+      "headWidth": 26.24,
+      "sourceBounds": [
+        473,
+        382,
+        616,
+        717
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "index": 6,
+      "nativeBounds": [
+        56,
+        47,
+        90,
+        127
+      ],
+      "headWidth": 26.97,
+      "sourceBounds": [
+        834,
+        382,
+        978,
+        717
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "index": 7,
+      "nativeBounds": [
+        56,
+        47,
+        90,
+        127
+      ],
+      "headWidth": 26.48,
+      "sourceBounds": [
+        1197,
+        382,
+        1340,
+        717
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "index": 8,
+      "nativeBounds": [
+        56,
+        47,
+        90,
+        127
+      ],
+      "headWidth": 26.73,
+      "sourceBounds": [
+        108,
+        739,
+        252,
+        1072
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "index": 9,
+      "nativeBounds": [
+        55,
+        53,
+        96,
+        127
+      ],
+      "headWidth": 24.56,
+      "sourceBounds": [
+        469,
+        762,
+        640,
+        1072
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "index": 10,
+      "nativeBounds": [
+        56,
+        53,
+        96,
+        127
+      ],
+      "headWidth": 24.8,
+      "sourceBounds": [
+        832,
+        762,
+        1000,
+        1072
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "index": 11,
+      "nativeBounds": [
+        55,
+        53,
+        96,
+        127
+      ],
+      "headWidth": 24.56,
+      "sourceBounds": [
+        1192,
+        762,
+        1364,
+        1072
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    }
+  ],
+  "visualReview": "pending",
+  "registrationOptions": {
+    "source": "player_bow_m02-shoot-S-r2.png"
+  }
+}

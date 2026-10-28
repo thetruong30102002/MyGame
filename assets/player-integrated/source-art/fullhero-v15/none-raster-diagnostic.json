@@ -1,0 +1,1000 @@
+{
+  "note": "Diagnostic only. Head-only run scale is NOT anatomy approval. Exact idle raster bounds are authority; metadata73 is not exact per-direction raster height.",
+  "records": [
+    {
+      "direction": "S",
+      "exactIdleBounds": [
+        56,
+        55,
+        93,
+        129
+      ],
+      "exactIdleHeight": 74,
+      "exactIdleWidth": 37,
+      "walk": {
+        "scaleMode": "neutral-body",
+        "scale": 0.2937625754527163,
+        "frames": [
+          {
+            "frame": 0,
+            "bounds": [
+              58,
+              56,
+              91,
+              128
+            ],
+            "height": 72,
+            "width": 33
+          },
+          {
+            "frame": 1,
+            "bounds": [
+              58,
+              56,
+              90,
+              128
+            ],
+            "height": 72,
+            "width": 32
+          },
+          {
+            "frame": 2,
+            "bounds": [
+              58,
+              55,
+              90,
+              128
+            ],
+            "height": 73,
+            "width": 32
+          },
+          {
+            "frame": 3,
+            "bounds": [
+              58,
+              55,
+              90,
+              128
+            ],
+            "height": 73,
+            "width": 32
+          },
+          {
+            "frame": 4,
+            "bounds": [
+              59,
+              55,
+              91,
+              128
+            ],
+            "height": 73,
+            "width": 32
+          },
+          {
+            "frame": 5,
+            "bounds": [
+              59,
+              55,
+              91,
+              128
+            ],
+            "height": 73,
+            "width": 32
+          },
+          {
+            "frame": 6,
+            "bounds": [
+              59,
+              55,
+              90,
+              128
+            ],
+            "height": 73,
+            "width": 31
+          },
+          {
+            "frame": 7,
+            "bounds": [
+              58,
+              55,
+              90,
+              128
+            ],
+            "height": 73,
+            "width": 32
+          }
+        ]
+      },
+      "run": {
+        "scaleMode": "head",
+        "scale": 0.23484848484848486,
+        "frames": [
+          {
+            "frame": 0,
+            "bounds": [
+              56,
+              51,
+              95,
+              128
+            ],
+            "height": 77,
+            "width": 39
+          },
+          {
+            "frame": 1,
+            "bounds": [
+              57,
+              51,
+              95,
+              128
+            ],
+            "height": 77,
+            "width": 38
+          },
+          {
+            "frame": 2,
+            "bounds": [
+              57,
+              51,
+              97,
+              128
+            ],
+            "height": 77,
+            "width": 40
+          },
+          {
+            "frame": 3,
+            "bounds": [
+              56,
+              51,
+              98,
+              123
+            ],
+            "height": 72,
+            "width": 42
+          },
+          {
+            "frame": 4,
+            "bounds": [
+              55,
+              52,
+              92,
+              128
+            ],
+            "height": 76,
+            "width": 37
+          },
+          {
+            "frame": 5,
+            "bounds": [
+              56,
+              52,
+              94,
+              128
+            ],
+            "height": 76,
+            "width": 38
+          },
+          {
+            "frame": 6,
+            "bounds": [
+              53,
+              52,
+              93,
+              128
+            ],
+            "height": 76,
+            "width": 40
+          },
+          {
+            "frame": 7,
+            "bounds": [
+              53,
+              52,
+              93,
+              123
+            ],
+            "height": 71,
+            "width": 40
+          }
+        ]
+      }
+    },
+    {
+      "direction": "E",
+      "exactIdleBounds": [
+        58,
+        55,
+        88,
+        129
+      ],
+      "exactIdleHeight": 74,
+      "exactIdleWidth": 30,
+      "walk": {
+        "scaleMode": "neutral-body",
+        "scale": 0.2985685071574642,
+        "frames": [
+          {
+            "frame": 0,
+            "bounds": [
+              57,
+              55,
+              94,
+              128
+            ],
+            "height": 73,
+            "width": 37
+          },
+          {
+            "frame": 1,
+            "bounds": [
+              58,
+              55,
+              87,
+              128
+            ],
+            "height": 73,
+            "width": 29
+          },
+          {
+            "frame": 2,
+            "bounds": [
+              56,
+              55,
+              91,
+              128
+            ],
+            "height": 73,
+            "width": 35
+          },
+          {
+            "frame": 3,
+            "bounds": [
+              53,
+              55,
+              94,
+              128
+            ],
+            "height": 73,
+            "width": 41
+          },
+          {
+            "frame": 4,
+            "bounds": [
+              57,
+              56,
+              95,
+              128
+            ],
+            "height": 72,
+            "width": 38
+          },
+          {
+            "frame": 5,
+            "bounds": [
+              54,
+              56,
+              87,
+              128
+            ],
+            "height": 72,
+            "width": 33
+          },
+          {
+            "frame": 6,
+            "bounds": [
+              56,
+              56,
+              97,
+              128
+            ],
+            "height": 72,
+            "width": 41
+          },
+          {
+            "frame": 7,
+            "bounds": [
+              51,
+              56,
+              94,
+              128
+            ],
+            "height": 72,
+            "width": 43
+          }
+        ]
+      },
+      "run": {
+        "scaleMode": "head",
+        "scale": 0.2112676056338028,
+        "frames": [
+          {
+            "frame": 0,
+            "bounds": [
+              39,
+              57,
+              90,
+              128
+            ],
+            "height": 71,
+            "width": 51
+          },
+          {
+            "frame": 1,
+            "bounds": [
+              43,
+              57,
+              89,
+              128
+            ],
+            "height": 71,
+            "width": 46
+          },
+          {
+            "frame": 2,
+            "bounds": [
+              43,
+              57,
+              89,
+              129
+            ],
+            "height": 72,
+            "width": 46
+          },
+          {
+            "frame": 3,
+            "bounds": [
+              43,
+              56,
+              99,
+              120
+            ],
+            "height": 64,
+            "width": 56
+          },
+          {
+            "frame": 4,
+            "bounds": [
+              38,
+              61,
+              94,
+              130
+            ],
+            "height": 69,
+            "width": 56
+          },
+          {
+            "frame": 5,
+            "bounds": [
+              43,
+              62,
+              88,
+              131
+            ],
+            "height": 69,
+            "width": 45
+          },
+          {
+            "frame": 6,
+            "bounds": [
+              40,
+              62,
+              88,
+              131
+            ],
+            "height": 69,
+            "width": 48
+          },
+          {
+            "frame": 7,
+            "bounds": [
+              40,
+              61,
+              98,
+              127
+            ],
+            "height": 66,
+            "width": 58
+          }
+        ]
+      }
+    },
+    {
+      "direction": "N",
+      "exactIdleBounds": [
+        56,
+        55,
+        93,
+        128
+      ],
+      "exactIdleHeight": 73,
+      "exactIdleWidth": 37,
+      "walk": {
+        "scaleMode": "neutral-body",
+        "scale": 0.2868369351669941,
+        "frames": [
+          {
+            "frame": 0,
+            "bounds": [
+              57,
+              56,
+              91,
+              128
+            ],
+            "height": 72,
+            "width": 34
+          },
+          {
+            "frame": 1,
+            "bounds": [
+              58,
+              56,
+              92,
+              128
+            ],
+            "height": 72,
+            "width": 34
+          },
+          {
+            "frame": 2,
+            "bounds": [
+              57,
+              56,
+              92,
+              128
+            ],
+            "height": 72,
+            "width": 35
+          },
+          {
+            "frame": 3,
+            "bounds": [
+              58,
+              56,
+              93,
+              129
+            ],
+            "height": 73,
+            "width": 35
+          },
+          {
+            "frame": 4,
+            "bounds": [
+              57,
+              55,
+              91,
+              128
+            ],
+            "height": 73,
+            "width": 34
+          },
+          {
+            "frame": 5,
+            "bounds": [
+              58,
+              55,
+              92,
+              128
+            ],
+            "height": 73,
+            "width": 34
+          },
+          {
+            "frame": 6,
+            "bounds": [
+              57,
+              55,
+              92,
+              128
+            ],
+            "height": 73,
+            "width": 35
+          },
+          {
+            "frame": 7,
+            "bounds": [
+              58,
+              55,
+              93,
+              128
+            ],
+            "height": 73,
+            "width": 35
+          }
+        ]
+      },
+      "run": {
+        "scaleMode": "head",
+        "scale": 0.2897196261682243,
+        "frames": [
+          {
+            "frame": 0,
+            "bounds": [
+              54,
+              43,
+              95,
+              128
+            ],
+            "height": 85,
+            "width": 41
+          },
+          {
+            "frame": 1,
+            "bounds": [
+              56,
+              43,
+              98,
+              128
+            ],
+            "height": 85,
+            "width": 42
+          },
+          {
+            "frame": 2,
+            "bounds": [
+              53,
+              43,
+              94,
+              128
+            ],
+            "height": 85,
+            "width": 41
+          },
+          {
+            "frame": 3,
+            "bounds": [
+              55,
+              43,
+              95,
+              123
+            ],
+            "height": 80,
+            "width": 40
+          },
+          {
+            "frame": 4,
+            "bounds": [
+              51,
+              43,
+              92,
+              128
+            ],
+            "height": 85,
+            "width": 41
+          },
+          {
+            "frame": 5,
+            "bounds": [
+              51,
+              43,
+              92,
+              128
+            ],
+            "height": 85,
+            "width": 41
+          },
+          {
+            "frame": 6,
+            "bounds": [
+              55,
+              43,
+              95,
+              128
+            ],
+            "height": 85,
+            "width": 40
+          },
+          {
+            "frame": 7,
+            "bounds": [
+              55,
+              43,
+              95,
+              122
+            ],
+            "height": 79,
+            "width": 40
+          }
+        ]
+      }
+    },
+    {
+      "direction": "SE",
+      "exactIdleBounds": [
+        56,
+        55,
+        91,
+        129
+      ],
+      "exactIdleHeight": 74,
+      "exactIdleWidth": 35,
+      "walk": {
+        "scaleMode": "neutral-body",
+        "scale": 0.27392120075046905,
+        "frames": [
+          {
+            "frame": 0,
+            "bounds": [
+              57,
+              55,
+              89,
+              128
+            ],
+            "height": 73,
+            "width": 32
+          },
+          {
+            "frame": 1,
+            "bounds": [
+              58,
+              55,
+              90,
+              128
+            ],
+            "height": 73,
+            "width": 32
+          },
+          {
+            "frame": 2,
+            "bounds": [
+              57,
+              55,
+              89,
+              128
+            ],
+            "height": 73,
+            "width": 32
+          },
+          {
+            "frame": 3,
+            "bounds": [
+              56,
+              55,
+              91,
+              128
+            ],
+            "height": 73,
+            "width": 35
+          },
+          {
+            "frame": 4,
+            "bounds": [
+              56,
+              56,
+              89,
+              128
+            ],
+            "height": 72,
+            "width": 33
+          },
+          {
+            "frame": 5,
+            "bounds": [
+              58,
+              56,
+              90,
+              128
+            ],
+            "height": 72,
+            "width": 32
+          },
+          {
+            "frame": 6,
+            "bounds": [
+              56,
+              56,
+              91,
+              128
+            ],
+            "height": 72,
+            "width": 35
+          },
+          {
+            "frame": 7,
+            "bounds": [
+              57,
+              56,
+              88,
+              128
+            ],
+            "height": 72,
+            "width": 31
+          }
+        ]
+      },
+      "run": {
+        "scaleMode": "head",
+        "scale": 0.24,
+        "frames": [
+          {
+            "frame": 0,
+            "bounds": [
+              47,
+              54,
+              91,
+              129
+            ],
+            "height": 75,
+            "width": 44
+          },
+          {
+            "frame": 1,
+            "bounds": [
+              47,
+              55,
+              91,
+              128
+            ],
+            "height": 73,
+            "width": 44
+          },
+          {
+            "frame": 2,
+            "bounds": [
+              47,
+              54,
+              91,
+              130
+            ],
+            "height": 76,
+            "width": 44
+          },
+          {
+            "frame": 3,
+            "bounds": [
+              46,
+              52,
+              100,
+              125
+            ],
+            "height": 73,
+            "width": 54
+          },
+          {
+            "frame": 4,
+            "bounds": [
+              43,
+              54,
+              90,
+              129
+            ],
+            "height": 75,
+            "width": 47
+          },
+          {
+            "frame": 5,
+            "bounds": [
+              44,
+              55,
+              90,
+              128
+            ],
+            "height": 73,
+            "width": 46
+          },
+          {
+            "frame": 6,
+            "bounds": [
+              44,
+              53,
+              89,
+              129
+            ],
+            "height": 76,
+            "width": 45
+          },
+          {
+            "frame": 7,
+            "bounds": [
+              43,
+              51,
+              96,
+              123
+            ],
+            "height": 72,
+            "width": 53
+          }
+        ]
+      }
+    },
+    {
+      "direction": "NE",
+      "exactIdleBounds": [
+        59,
+        55,
+        90,
+        129
+      ],
+      "exactIdleHeight": 74,
+      "exactIdleWidth": 31,
+      "walk": {
+        "scaleMode": "neutral-body",
+        "scale": 0.28460038986354774,
+        "frames": [
+          {
+            "frame": 0,
+            "bounds": [
+              58,
+              55,
+              89,
+              128
+            ],
+            "height": 73,
+            "width": 31
+          },
+          {
+            "frame": 1,
+            "bounds": [
+              57,
+              55,
+              90,
+              128
+            ],
+            "height": 73,
+            "width": 33
+          },
+          {
+            "frame": 2,
+            "bounds": [
+              57,
+              55,
+              90,
+              128
+            ],
+            "height": 73,
+            "width": 33
+          },
+          {
+            "frame": 3,
+            "bounds": [
+              57,
+              55,
+              90,
+              128
+            ],
+            "height": 73,
+            "width": 33
+          },
+          {
+            "frame": 4,
+            "bounds": [
+              58,
+              56,
+              89,
+              128
+            ],
+            "height": 72,
+            "width": 31
+          },
+          {
+            "frame": 5,
+            "bounds": [
+              58,
+              56,
+              88,
+              128
+            ],
+            "height": 72,
+            "width": 30
+          },
+          {
+            "frame": 6,
+            "bounds": [
+              57,
+              56,
+              90,
+              128
+            ],
+            "height": 72,
+            "width": 33
+          },
+          {
+            "frame": 7,
+            "bounds": [
+              54,
+              56,
+              90,
+              128
+            ],
+            "height": 72,
+            "width": 36
+          }
+        ]
+      },
+      "run": {
+        "scaleMode": "head",
+        "scale": 0.2605042016806723,
+        "frames": [
+          {
+            "frame": 0,
+            "bounds": [
+              48,
+              51,
+              95,
+              130
+            ],
+            "height": 79,
+            "width": 47
+          },
+          {
+            "frame": 1,
+            "bounds": [
+              49,
+              51,
+              94,
+              127
+            ],
+            "height": 76,
+            "width": 45
+          },
+          {
+            "frame": 2,
+            "bounds": [
+              48,
+              51,
+              94,
+              131
+            ],
+            "height": 80,
+            "width": 46
+          },
+          {
+            "frame": 3,
+            "bounds": [
+              48,
+              50,
+              96,
+              121
+            ],
+            "height": 71,
+            "width": 48
+          },
+          {
+            "frame": 4,
+            "bounds": [
+              47,
+              51,
+              93,
+              130
+            ],
+            "height": 79,
+            "width": 46
+          },
+          {
+            "frame": 5,
+            "bounds": [
+              46,
+              51,
+              90,
+              127
+            ],
+            "height": 76,
+            "width": 44
+          },
+          {
+            "frame": 6,
+            "bounds": [
+              47,
+              51,
+              92,
+              132
+            ],
+            "height": 81,
+            "width": 45
+          },
+          {
+            "frame": 7,
+            "bounds": [
+              48,
+              51,
+              98,
+              121
+            ],
+            "height": 70,
+            "width": 50
+          }
+        ]
+      }
+    }
+  ]
+}

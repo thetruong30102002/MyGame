@@ -1,4 +1,5 @@
 import type { PropMeta } from '../../props/buildProps.js';
+import { THISTLEWOOD_INN } from '../../props/worldArt.js';
 import { decalsOf, GROUND_PLANTS, Layout, TILE, TREES, px, type MapData } from './common.js';
 
 /**
@@ -34,7 +35,11 @@ export function buildTown(meta: Record<string, PropMeta>, decalIds: string[], se
 	L.place('house_stone', px(9), px(33), { force: true });
 	L.place('house_store', px(32), px(34), { force: true });
 	L.place('house_farm', px(15), px(40), { force: true });
-	L.place('house_inn', px(35), px(10), { force: true });
+	if (meta[THISTLEWOOD_INN.id]) {
+		L.place(THISTLEWOOD_INN.id, THISTLEWOOD_INN.placement.x, THISTLEWOOD_INN.placement.y, { force: true });
+		// Nhà cũ thành khu phụ cạnh lò rèn; giữ nguyên ảnh và ID, không đè dưới nhà mới.
+		L.place('house_inn', THISTLEWOOD_INN.auxiliaryInn.x, THISTLEWOOD_INN.auxiliaryInn.y, { force: true });
+	} else L.place('house_inn', px(35), px(10), { force: true });
 	// Hình nộm rơm ("Ông Rơm") cho nhiệm vụ tập kiếm/phép: sân sau nhà Ashvale và bờ sông.
 	L.place('training_dummy', px(6), px(24) + 10, { force: true });
 	L.place('training_dummy', px(38), px(30) + 10, { force: true });

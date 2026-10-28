@@ -1,0 +1,100 @@
+{
+  "artApproved": false,
+  "records": [
+    {
+      "source": "attack-S-candidate01.png",
+      "trace": "traces/attack-S-candidate01/profile-fit/trace.json",
+      "state": "sword",
+      "direction": "S",
+      "kind": "attack",
+      "scale": 0.28977671297487356,
+      "score": 0.07829042131146594,
+      "regionError": {
+        "head": 0.10348151904439937,
+        "neck-torso": 0.06907616892911012,
+        "shoulders": 0.06960993799229093,
+        "belt": 0.06277494972347913
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 56,
+      "artApproved": false,
+      "registrationApproved": false
+    },
+    {
+      "source": "attack-E-template01.png",
+      "trace": "traces/attack-E-template01/profile-fit/trace.json",
+      "state": "sword",
+      "direction": "E",
+      "kind": "attack",
+      "scale": 0.33258942427063937,
+      "score": 0.08550793337580333,
+      "regionError": {
+        "head": 0.09760716786714686,
+        "neck-torso": 0.09191430020283975,
+        "shoulders": 0.05206028992793699,
+        "belt": 0.08313222724987432
+      },
+      "targetSole": 127,
+      "referenceCrownProxy": 55,
+      "artApproved": false,
+      "registrationApproved": false
+    },
+    {
+      "source": "attack-N-template01.png",
+      "trace": "traces/attack-N-template01/profile-fit/trace.json",
+      "state": "sword",
+      "direction": "N",
+      "kind": "attack",
+      "scale": 0.3954176379176379,
+      "score": 0.05858654177171107,
+      "regionError": {
+        "head": 0.07708695547184391,
+        "neck-torso": 0.04587885154061625,
+        "shoulders": 0.06144105077928608,
+        "belt": 0.04895990447461035
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 55,
+      "artApproved": false,
+      "registrationApproved": false
+    },
+    {
+      "source": "attack-SE-template01.png",
+      "trace": "traces/attack-SE-template01/profile-fit/trace.json",
+      "state": "sword",
+      "direction": "SE",
+      "kind": "attack",
+      "scale": 0.377620253164557,
+      "score": 0.05477465963939958,
+      "regionError": {
+        "head": 0.06444835998915695,
+        "neck-torso": 0.05416757443718228,
+        "shoulders": 0.054936525892408244,
+        "belt": 0.04257792860734037
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 54,
+      "artApproved": false,
+      "registrationApproved": false
+    },
+    {
+      "source": "attack-NE-template01.png",
+      "trace": "traces/attack-NE-template01/profile-fit/trace.json",
+      "state": "sword",
+      "direction": "NE",
+      "kind": "attack",
+      "scale": 0.3946021157090048,
+      "score": 0.05771774458270011,
+      "regionError": {
+        "head": 0.06095213947648025,
+        "neck-torso": 0.057212009803921576,
+        "shoulders": 0.049814605329311215,
+        "belt": 0.059348290598290596
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 55,
+      "artApproved": false,
+      "registrationApproved": false
+    }
+  ]
+}

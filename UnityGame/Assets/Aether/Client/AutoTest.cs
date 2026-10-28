@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using Aether.Data;
 using Aether.Net;
 using UnityEngine;
 
@@ -29,10 +30,15 @@ namespace Aether.Client
         private bool storyRun;
         private bool adminRun;
         private bool uiRun;
+        private bool rosterRun;
+        private bool swordTrialRun;
+        private bool playerRigRun;
+        private bool swordWardrobeRun;
         /// <summary>-aetherWeather: mỗi vùng chụp trạm (đứng cạnh cột dịch chuyển `rune_stone`) + một map săn — kiểm thời tiết theo vùng.</summary>
         private bool weatherRun;
         private string loginUser, loginPass;
         private StreamWriter log;
+        private bool failed;
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         private static void Boot()
@@ -55,13 +61,19 @@ namespace Aether.Client
                 }
                 t.tour = Array.IndexOf(args, "-aetherTour") >= 0;
                 t.lab = Array.IndexOf(args, "-aetherLab") >= 0;
+                t.swordTrialRun = Array.IndexOf(args, "-aetherSwordTrial") >= 0;
+                if (t.swordTrialRun) t.lab = true;
+                t.playerRigRun = Array.IndexOf(args, "-aetherPlayerRigV3") >= 0;
+                t.swordWardrobeRun=Array.IndexOf(args,"-aetherSwordWardrobeV4")>=0;
+                if (t.playerRigRun||t.swordWardrobeRun) t.lab = true;
                 t.rigRun = Array.IndexOf(args, "-aetherRig") >= 0;
-                t.mannequinRun = Array.IndexOf(args, "-aetherMannequin") >= 0;
+                t.mannequinRun = Array.IndexOf(args, "-aetherIntegrated") >= 0 || Array.IndexOf(args, "-aetherMannequin") >= 0;
                 GameController.RigThuEnabled = t.rigRun;
                 t.social = Array.IndexOf(args, "-aetherSocial") >= 0;
                 t.storyRun = Array.IndexOf(args, "-aetherStory") >= 0;
                 t.adminRun = Array.IndexOf(args, "-aetherAdmin") >= 0;
                 t.uiRun = Array.IndexOf(args, "-aetherUi") >= 0;
+                t.rosterRun = Array.IndexOf(args, "-aetherRoster") >= 0;
                 t.weatherRun = Array.IndexOf(args, "-aetherWeather") >= 0;
                 return;
             }
@@ -75,6 +87,13 @@ namespace Aether.Client
             var login = FindFirstObjectByType<LoginScreen>();
             yield return new WaitForSeconds(1f);
             yield return Shot("0-login");
+            if (rosterRun)
+                foreach (var role in PlayerRoster.Classes)
+                {
+                    login.SendMessage("PreviewRosterClassForTest", role);
+                    yield return new WaitForSeconds(.4f);
+                    yield return Shot("0-create-" + role);
+                }
             if (lab) login.SendMessage("PlayLab");
             else if (onlineUrl == null) login.SendMessage("PlayOffline");
             else
@@ -114,9 +133,34 @@ namespace Aether.Client
             }
             var game = FindFirstObjectByType<GameController>();
             yield return new WaitForSeconds(2.5f);
+            if (game == null || game.Player == null) { Fail("Không nạp được nhân vật mặc định mới"); yield break; }
+            if (!VerifyCompleteCharacter(game.Player.View)) yield break;
+            if(swordWardrobeRun)
+            {
+                yield return SwordWardrobeTest(game);if(failed)yield break;log.WriteLine("xong");log.Close();Application.Quit(0);yield break;
+            }
+            if(playerRigRun)
+            {
+                yield return PlayerRigTest(game);
+                if(failed)yield break;
+                log.WriteLine("xong");log.Close();Application.Quit(0);yield break;
+            }
+            if (swordTrialRun)
+            {
+                yield return SwordTrialTest(game);
+                if (failed) yield break;
+                log.WriteLine("xong"); log.Close(); Application.Quit(0); yield break;
+            }
+            if (rosterRun)
+            {
+                yield return RosterTest(game);
+                if (failed) yield break;
+                log.WriteLine("xong");log.Close();Application.Quit(0);yield break;
+            }
             if (lab)
             {
                 yield return LabTest(game);
+                if (failed) yield break;
                 log.WriteLine("xong");
                 log.Close();
                 Application.Quit(0);
@@ -133,6 +177,7 @@ namespace Aether.Client
             if (uiRun)
             {
                 yield return UiTest(game);
+                if (failed) yield break;
                 log.WriteLine("xong");
                 log.Close();
                 Application.Quit(0);
@@ -294,7 +339,7 @@ namespace Aether.Client
             yield return new WaitForSeconds(1.5f);
             if (mannequinRun)
             {
-                yield return MannequinTest(game);
+                yield return IntegratedCharacterTest(game);
                 yield break;
             }
             if (rigRun)
@@ -785,6 +830,50 @@ namespace Aether.Client
         /// -aetherShot dir -aetherUi (offline): bản đồ vùng (vùng 1, Đầm lầy chọn Vực Sương, Sa mạc, lục địa), tab Gán ô · Phủ phép (gán thử
         /// rồi trả lại), Cài đặt → Phím (đổi thử ô 1 sang U rồi khôi phục), biển lối ra ở mép tây Vực Sương.
         /// </summary>
+        private IEnumerator NativeNpcComparison(GameController game, Npc reference)
+        {
+            var player = game.Player;
+            var view = player.View;
+            if (!VerifyCompleteCharacter(view)) yield break;
+            if (reference.Actor == null) { Fail("Thiếu NPC thật để so cùng camera"); yield break; }
+            var npc = reference.Actor;
+            var wander = npc.Wander;
+            var oldPlayerX = player.X; var oldPlayerY = player.Y;
+            npc.Wander = null; // Freeze this existing NPC only while taking comparison photographs.
+            npc.View.Set("idle", Dir8.S);
+            game.Combat.Interrupt(); view.EndAction();
+            Step("so PixelLab đứng", Vector2.zero, false);
+            player.X = npc.X + 85; player.Y = npc.Y; player.SyncTransform();
+            view.Set("idle", Dir8.S);
+            yield return new WaitForSeconds(.5f);
+            var playerScale = view.Renderer.transform.lossyScale;
+            var npcScale = npc.View.Renderer.transform.lossyScale;
+            log.WriteLine($"native NPC comparison: npc={reference.Key}/{npc.CharacterId}, player={view.Def.id}, held={view.Held}; sameY={player.Y:0.0}/{npc.Y:0.0}; separation={player.X - npc.X:0.0}px; nominalBodyHeight={view.Height}/{npc.Height}; rendererWorldScale={playerScale}/{npcScale}; PPU={view.Renderer.sprite.pixelsPerUnit}/{npc.View.Renderer.sprite.pixelsPerUnit}; spriteRectWorldHeightPx={view.Renderer.bounds.size.y * WorldCoords.PixelsPerUnit:0.00}/{npc.View.Renderer.bounds.size.y * WorldCoords.PixelsPerUnit:0.00} (rect includes transparent registration padding)");
+            if (Vector3.Distance(playerScale, Vector3.one) > .001f || Vector3.Distance(npcScale, Vector3.one) > .001f)
+            { Fail("So NPC bị thay world scale"); yield break; }
+            yield return Shot("ui-native-npc-idle");
+            Step("so PixelLab bước thật", Vector2.right, false);
+            yield return new WaitForSeconds(.2f);
+            if (!VerifyCompleteCharacter(view)) yield break;
+            if (!view.Animation.StartsWith("walk"))
+            { Fail("So NPC không vào đúng frame đi bộ mới"); yield break; }
+            log.WriteLine($"native NPC walk: frame={view.ShownFrame}, sprite={view.Renderer.sprite?.name}, sameY={player.Y:0.0}/{npc.Y:0.0}, rendererScale={view.Renderer.transform.lossyScale}");
+            yield return Shot("ui-native-npc-walk");
+            Step("dừng để so đòn", Vector2.zero, false);
+            yield return null;
+            var action = view.Held == "staff" ? "cast" : "attack";
+            var timing = view.ActionTimingFor(action, Dir8.S, double.PositiveInfinity);
+            if (!timing.HasValue || !view.PlayAction(action, Dir8.S, timing.Value, true))
+            { Fail("Thiếu đòn mới để so NPC cùng camera"); yield break; }
+            view.SeekAction(timing.Value.ReleaseAt);
+            log.WriteLine($"native NPC strike: action={action}, frame={view.ShownFrame}, sprite={view.Renderer.sprite?.name}, rendererScale={view.Renderer.transform.lossyScale}; NPC unchanged scale={npc.View.Renderer.transform.lossyScale}");
+            yield return Shot("ui-native-npc-strike");
+            view.EndAction(); view.Set("idle", Dir8.S);
+            npc.Wander = wander;
+            player.X = oldPlayerX; player.Y = oldPlayerY; player.SyncTransform();
+            log.WriteLine("PASS same-camera NPC comparison: original NPC, unchanged world scale, new idle/walk/strike screenshots; visual size/style require reviewing photographs.");
+        }
+
         private IEnumerator UiTest(GameController game)
         {
             var hud = FindFirstObjectByType<Aether.Client.UI.Hud>();
@@ -794,6 +883,17 @@ namespace Aether.Client
                 else game.Interact();
                 yield return new WaitForSeconds(0.1f);
             }
+            yield return game.ChangeMap("human/town", "plaza", false);
+            yield return new WaitForSeconds(.5f);
+            var barber = game.Population.Npcs.Find(n => n.Key == "barber_mira");
+            if (barber == null) { Fail("Mira không có ở quảng trường"); yield break; }
+            hud.Panels.Show(Aether.Client.UI.Panels.Kind.Character);
+            yield return new WaitForSeconds(.4f);
+            yield return Shot("ui-character");
+            log.WriteLine("PASS nhân vật PixelLab hoàn chỉnh mặc định, chân dung và bảng nhân vật dùng cùng bộ hình.");
+            hud.Panels.Close();
+            yield return NativeNpcComparison(game, barber);
+            if (failed) yield break;
             hud.Panels.Show(Aether.Client.UI.Panels.Kind.WorldMap);
             yield return new WaitForSeconds(0.8f);
             yield return Shot("ui-map-here");
@@ -1087,6 +1187,7 @@ namespace Aether.Client
 
         private void Fail(string why)
         {
+            failed = true;
             log.WriteLine("LỖI " + why);
             log.Close();
             Application.Quit(2);
@@ -1134,14 +1235,16 @@ namespace Aether.Client
             var w = Screen.width;
             var h = Screen.height;
             var rt = RenderTexture.GetTemporary(w, h, 24);
-            var swapped = new List<Canvas>();
+            var swapped = new List<(Canvas canvas, int order)>();
             foreach (var c in FindObjectsByType<Canvas>(FindObjectsSortMode.None))
             {
                 if (!c.isRootCanvas || c.renderMode != RenderMode.ScreenSpaceOverlay) continue;
+                var order = c.sortingOrder;
                 c.renderMode = RenderMode.ScreenSpaceCamera;
                 c.worldCamera = cam;
                 c.planeDistance = Mathf.Max(cam.nearClipPlane + 0.1f, 1f);
-                swapped.Add(c);
+                c.sortingOrder = 32500 + Mathf.Clamp(order, 0, 200);
+                swapped.Add((c, order));
             }
             Canvas.ForceUpdateCanvases();
             var prev = cam.targetTexture;
@@ -1155,7 +1258,7 @@ namespace Aether.Client
             RenderTexture.active = active;
             cam.targetTexture = prev;
             RenderTexture.ReleaseTemporary(rt);
-            foreach (var c in swapped) c.renderMode = RenderMode.ScreenSpaceOverlay;
+            foreach (var entry in swapped) { entry.canvas.renderMode = RenderMode.ScreenSpaceOverlay; entry.canvas.sortingOrder = entry.order; }
             return tex;
         }
     }

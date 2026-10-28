@@ -81,7 +81,7 @@ namespace Aether.Client.UI
             {
                 var id = lo[i];
                 var cell = UiKit.Rect(bar, "S" + i, new Vector2(0, 1), new Vector2(0, 1), new Vector2(26 + i * 84, -54), new Vector2(64, 64));
-                var face = UiKit.Sprite(cell, "slot", 2f, true);
+                var face = UiStyle.Card(cell, UiStyle.CardKind.Dark, 5, false, true);
                 var target = held != null && SlotOf(held.Id) != i;
                 if (held != null && SlotOf(held.Id) == i) face.color = new Color(1, 0.9f, 0.6f);
                 if (target) UiWidgets.Pulse(cell, 1.05f, 1f);

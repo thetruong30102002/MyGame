@@ -258,7 +258,7 @@ namespace Aether.Importer
                 targetGroup = BuildPipeline.GetBuildTargetGroup(target),
                 // PC để ảnh lớn không nén (giữ nét pixel) → dữ liệu thô 2,3GB; nén LZ4HC cả gói lúc build (giải nén nhanh khi nạp) cho bản
                 // phát bạn bè tải về (build thử: AETHER_FAST_BUILD=1 bỏ nén cho nhanh). Android đã nén ASTC.
-                options = target == BuildTarget.StandaloneWindows64 && Environment.GetEnvironmentVariable("AETHER_FAST_BUILD") != "1" ? BuildOptions.CompressWithLz4HC : BuildOptions.None,
+                options = target == BuildTarget.StandaloneWindows64 && Environment.GetEnvironmentVariable("AETHER_TRIAL_BUILD") == "1" ? BuildOptions.CompressWithLz4 : target == BuildTarget.StandaloneWindows64 && Environment.GetEnvironmentVariable("AETHER_FAST_BUILD") != "1" ? BuildOptions.CompressWithLz4HC : BuildOptions.None,
             };
             var report = BuildPipeline.BuildPlayer(opts);
             var s = report.summary;

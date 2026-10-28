@@ -1,0 +1,17 @@
+{
+  "id": "player_staff_m01-cast-E",
+  "character": "player_staff_m01",
+  "classId": "staff",
+  "direction": "E",
+  "action": "cast",
+  "frames": 12,
+  "fps": 16,
+  "master": "action-references/player_staff_m01/E-master.png",
+  "prompt": "Use Image1 as the exact complete male staff character master. Draw 12 sequential cast frames in RIGHT side profile direction. 12 phases: master, settle, free hand to chest, gather gesture, lift staff, extend free palm, point/release, release hold, follow-through, lower, return, master. Exactly one rigid staff enclosed in gripping hand; effects are drawn by game. Layout 4 columns by 3 rows, order left to right then down. All frames are complete hair/face/body/clothes/hands/one weapon drawings. Match master face, hair shape, fitted outfit, limb lengths and body proportions, approximately75 native pixels crown to sole and23px head width on144px logical canvas, root72/128. Keep a SINGLE physical camera scale and palette across phases; crouching does not enlarge the actor. Hands visibly enclose grip, weapon remains the same rigid shape and same anatomical hand across all frames. Generous blank margins including above sword tips and beside spear thrusts. Crisp detailed game pixel clusters, transparent background, no blur, gradient smoothing, detached parts, body overlays, extra weapons, text, motion trails or ground circles. Camera never changes within this sheet. Treat Image1 as the exact identity, outfit and camera orientation, not a generic character. Render a landscape 4-column x 3-row transparent sprite sheet with exactly twelve equal-sized cells, one complete actor per cell. Maintain a fixed head size and identical face rendering. No detached VFX; crystal light stays small and attached to staff. In EVERY cell face remains oriented screen RIGHT in exact side profile, never LEFT. Keep body in lower 60% of each cell and leave at least 25% cell height above crown for weapon travel.",
+  "status": "generated",
+  "artApproved": false,
+  "tool": "built-in-imagegen",
+  "reference": "action-references/player_staff_m01/E-master.png",
+  "output": "motion/player_staff_m01-cast-E.png",
+  "sourceSha256": "e1a3a8ff207a33deba5b824e5cb0d14dac05cc9cc39c648dcd3209a82d4a5140"
+}

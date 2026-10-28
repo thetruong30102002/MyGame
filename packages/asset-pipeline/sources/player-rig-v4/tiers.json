@@ -1,0 +1,54 @@
+{
+  "classId": "sword",
+  "headStandardSource": "../player-rig-v3/head-standard.json",
+  "genders": [
+    "male",
+    "female"
+  ],
+  "directions": [
+    "S",
+    "SW",
+    "W",
+    "NW",
+    "N",
+    "NE",
+    "E",
+    "SE"
+  ],
+  "actions": {
+    "idle": 1,
+    "walk": 8,
+    "run": 8,
+    "attack": 15
+  },
+  "undressSupported": false,
+  "separateWeapon": true,
+  "tiers": [
+    {
+      "id": "sword-starter",
+      "name": "Kiếm sĩ tân thủ",
+      "minLevel": 1,
+      "grantOnClassSelection": true,
+      "weaponId": "sword-starter",
+      "design": "Bộ vải xanh đậm, giáp vai/cổ tay thép nhẹ giản dị, viền đồng ít; kiếm thép cơ bản."
+    },
+    {
+      "id": "sword-lv5",
+      "name": "Kiếm sĩ hành lộ",
+      "minLevel": 5,
+      "grantOnClassSelection": false,
+      "weaponId": "sword-lv5",
+      "design": "Bộ hành lộ bất đối xứng: áo da quấn vạt chéo, dây đeo chéo ngực, một giáp vai ghép mảnh, một vai vải, vạt áo lệch, ủng cưỡi ngựa gia cố; kiếm cong nhẹ và hộ thủ bảo vệ một phía."
+    },
+    {
+      "id": "sword-lv10",
+      "name": "Kiếm sĩ tinh luyện",
+      "minLevel": 10,
+      "grantOnClassSelection": false,
+      "weaponId": "sword-lv10",
+      "design": "Bộ tinh luyện giáp nhẹ: giáp ngực bạc ghép mảnh, vai góc cạnh nhỏ, giáp tay/chân, áo choàng lưng xám nhạt ngang đùi, tabard lam; kiếm lưỡi lá hai cạnh và hộ thủ cánh nhỏ. Khác cấu trúc, không chỉ đổi màu."
+    }
+  ],
+  "availability": "Bộ1 và kiếm1 được tặng; nguồn nhận/mua hai bộ và kiếm lv5/lv10 chưa chốt, không tự đặt giá.",
+  "status": "in-progress-not-approved"
+}

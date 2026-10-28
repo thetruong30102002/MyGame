@@ -1,0 +1,712 @@
+[
+  {
+    "source": "walk-staff-S-template01.png",
+    "kind": "walk",
+    "state": "staff",
+    "direction": "S",
+    "oldScale": 0.27517797510625386,
+    "headScale": 0.29411764705882354,
+    "factor": 1.0688269907693613,
+    "idleHair": [
+      25,
+      24
+    ],
+    "sourceHair": [
+      [
+        83,
+        69
+      ],
+      [
+        87,
+        71
+      ]
+    ]
+  },
+  {
+    "source": "walk-staff-E-template01.png",
+    "kind": "walk",
+    "state": "staff",
+    "direction": "E",
+    "oldScale": 0.23481888046745988,
+    "headScale": 0.2436548223350254,
+    "factor": 1.0376287539144022,
+    "idleHair": [
+      24,
+      22
+    ],
+    "sourceHair": [
+      [
+        98,
+        84
+      ],
+      [
+        99,
+        82
+      ]
+    ]
+  },
+  {
+    "source": "walk-staff-N-template01.png",
+    "kind": "walk",
+    "state": "staff",
+    "direction": "N",
+    "oldScale": 0.31233783545197746,
+    "headScale": 0.2929936305732484,
+    "factor": 0.9380664054012653,
+    "idleHair": [
+      23,
+      22
+    ],
+    "sourceHair": [
+      [
+        81,
+        70
+      ],
+      [
+        76,
+        71
+      ]
+    ]
+  },
+  {
+    "source": "walk-staff-SE-template01.png",
+    "kind": "walk",
+    "state": "staff",
+    "direction": "SE",
+    "oldScale": 0.2646275772842082,
+    "headScale": 0.2988505747126437,
+    "factor": 1.1293251360257144,
+    "idleHair": [
+      26,
+      24
+    ],
+    "sourceHair": [
+      [
+        88,
+        79
+      ],
+      [
+        86,
+        73
+      ]
+    ]
+  },
+  {
+    "source": "walk-staff-NE-template01.png",
+    "kind": "walk",
+    "state": "staff",
+    "direction": "NE",
+    "oldScale": 0.29696586879432624,
+    "headScale": 0.31654676258992803,
+    "factor": 1.0659365127551517,
+    "idleHair": [
+      25,
+      22
+    ],
+    "sourceHair": [
+      [
+        81,
+        70
+      ],
+      [
+        76,
+        69
+      ]
+    ]
+  },
+  {
+    "source": "run-staff-S-template01.png",
+    "kind": "run",
+    "state": "staff",
+    "direction": "S",
+    "oldScale": 0.23331668652258541,
+    "headScale": 0.2777777777777778,
+    "factor": 1.1905611292439149,
+    "idleHair": [
+      25,
+      24
+    ],
+    "sourceHair": [
+      [
+        89,
+        71
+      ],
+      [
+        91,
+        69
+      ]
+    ]
+  },
+  {
+    "source": "run-staff-E-template01.png",
+    "kind": "run",
+    "state": "staff",
+    "direction": "E",
+    "oldScale": 0.2806020731122766,
+    "headScale": 0.3057324840764331,
+    "factor": 1.0895588927245778,
+    "idleHair": [
+      24,
+      22
+    ],
+    "sourceHair": [
+      [
+        79,
+        66
+      ],
+      [
+        78,
+        68
+      ]
+    ]
+  },
+  {
+    "source": "run-staff-N-template01.png",
+    "kind": "run",
+    "state": "staff",
+    "direction": "N",
+    "oldScale": 0.24817833404802742,
+    "headScale": 0.2619047619047619,
+    "factor": 1.055308727530092,
+    "idleHair": [
+      23,
+      22
+    ],
+    "sourceHair": [
+      [
+        86,
+        82
+      ],
+      [
+        86,
+        86
+      ]
+    ]
+  },
+  {
+    "source": "run-staff-SE-template01.png",
+    "kind": "run",
+    "state": "staff",
+    "direction": "SE",
+    "oldScale": 0.26902177598515614,
+    "headScale": 0.29213483146067415,
+    "factor": 1.0859151843410375,
+    "idleHair": [
+      26,
+      24
+    ],
+    "sourceHair": [
+      [
+        88,
+        77
+      ],
+      [
+        90,
+        77
+      ]
+    ]
+  },
+  {
+    "source": "run-staff-NE-template01.png",
+    "kind": "run",
+    "state": "staff",
+    "direction": "NE",
+    "oldScale": 0.26559057248344936,
+    "headScale": 0.2976190476190476,
+    "factor": 1.1205934187953683,
+    "idleHair": [
+      25,
+      22
+    ],
+    "sourceHair": [
+      [
+        82,
+        71
+      ],
+      [
+        86,
+        72
+      ]
+    ]
+  },
+  {
+    "source": "walk-sword-S-candidate02.png",
+    "kind": "walk",
+    "state": "sword",
+    "direction": "S",
+    "oldScale": 0.24316369881236857,
+    "headScale": 0.24545454545454545,
+    "factor": 1.0094210059041113,
+    "idleHair": [
+      27,
+      24
+    ],
+    "sourceHair": [
+      [
+        110,
+        98
+      ],
+      [
+        110,
+        97
+      ]
+    ]
+  },
+  {
+    "source": "walk-sword-E-template01.png",
+    "kind": "walk",
+    "state": "sword",
+    "direction": "E",
+    "oldScale": 0.23512548809614073,
+    "headScale": 0.25287356321839083,
+    "factor": 1.0754834163916465,
+    "idleHair": [
+      26,
+      22
+    ],
+    "sourceHair": [
+      [
+        99,
+        87
+      ],
+      [
+        98,
+        87
+      ]
+    ]
+  },
+  {
+    "source": "walk-sword-N-template01.png",
+    "kind": "walk",
+    "state": "sword",
+    "direction": "N",
+    "oldScale": 0.31031132958801505,
+    "headScale": 0.32098765432098764,
+    "factor": 1.034405204435001,
+    "idleHair": [
+      26,
+      23
+    ],
+    "sourceHair": [
+      [
+        85,
+        73
+      ],
+      [
+        77,
+        70
+      ]
+    ]
+  },
+  {
+    "source": "walk-sword-SE-template01.png",
+    "kind": "walk",
+    "state": "sword",
+    "direction": "SE",
+    "oldScale": 0.30367925860646944,
+    "headScale": 0.325,
+    "factor": 1.070208092219955,
+    "idleHair": [
+      26,
+      25
+    ],
+    "sourceHair": [
+      [
+        81,
+        72
+      ],
+      [
+        79,
+        75
+      ]
+    ]
+  },
+  {
+    "source": "walk-sword-NE-template01.png",
+    "kind": "walk",
+    "state": "sword",
+    "direction": "NE",
+    "oldScale": 0.24753393833743506,
+    "headScale": 0.27058823529411763,
+    "factor": 1.093135903349363,
+    "idleHair": [
+      26,
+      23
+    ],
+    "sourceHair": [
+      [
+        94,
+        85
+      ],
+      [
+        95,
+        85
+      ]
+    ]
+  },
+  {
+    "source": "run-sword-S-template01.png",
+    "kind": "run",
+    "state": "sword",
+    "direction": "S",
+    "oldScale": 0.26442443282285305,
+    "headScale": 0.26865671641791045,
+    "factor": 1.01600564497719,
+    "idleHair": [
+      27,
+      24
+    ],
+    "sourceHair": [
+      [
+        99,
+        79
+      ],
+      [
+        102,
+        79
+      ]
+    ]
+  },
+  {
+    "source": "run-sword-E-template01.png",
+    "kind": "run",
+    "state": "sword",
+    "direction": "E",
+    "oldScale": 0.24849571759259256,
+    "headScale": 0.25120772946859904,
+    "factor": 1.0109137167524667,
+    "idleHair": [
+      26,
+      22
+    ],
+    "sourceHair": [
+      [
+        104,
+        80
+      ],
+      [
+        103,
+        85
+      ]
+    ]
+  },
+  {
+    "source": "run-sword-N-template01.png",
+    "kind": "run",
+    "state": "sword",
+    "direction": "N",
+    "oldScale": 0.2845445942265796,
+    "headScale": 0.3151515151515151,
+    "factor": 1.1075645840615185,
+    "idleHair": [
+      26,
+      23
+    ],
+    "sourceHair": [
+      [
+        84,
+        73
+      ],
+      [
+        81,
+        72
+      ]
+    ]
+  },
+  {
+    "source": "run-sword-SE-template01.png",
+    "kind": "run",
+    "state": "sword",
+    "direction": "SE",
+    "oldScale": 0.30785714285714283,
+    "headScale": 0.2905027932960894,
+    "factor": 0.9436285629107314,
+    "idleHair": [
+      26,
+      25
+    ],
+    "sourceHair": [
+      [
+        90,
+        74
+      ],
+      [
+        89,
+        76
+      ]
+    ]
+  },
+  {
+    "source": "run-sword-NE-template01.png",
+    "kind": "run",
+    "state": "sword",
+    "direction": "NE",
+    "oldScale": 0.2451119463147847,
+    "headScale": 0.2736842105263158,
+    "factor": 1.11656822378962,
+    "idleHair": [
+      26,
+      23
+    ],
+    "sourceHair": [
+      [
+        95,
+        83
+      ],
+      [
+        95,
+        82
+      ]
+    ]
+  },
+  {
+    "source": "attack-S-candidate01.png",
+    "kind": "attack",
+    "state": "sword",
+    "direction": "S",
+    "oldScale": 0.28977671297487356,
+    "headScale": 0.271356783919598,
+    "factor": 0.9364340603281233,
+    "idleHair": [
+      27,
+      24
+    ],
+    "sourceHair": [
+      [
+        101,
+        88
+      ],
+      [
+        98,
+        87
+      ]
+    ]
+  },
+  {
+    "source": "attack-E-template01.png",
+    "kind": "attack",
+    "state": "sword",
+    "direction": "E",
+    "oldScale": 0.33258942427063937,
+    "headScale": 0.32098765432098764,
+    "factor": 0.9651168404554831,
+    "idleHair": [
+      26,
+      22
+    ],
+    "sourceHair": [
+      [
+        80,
+        68
+      ],
+      [
+        82,
+        66
+      ]
+    ]
+  },
+  {
+    "source": "attack-N-template01.png",
+    "kind": "attack",
+    "state": "sword",
+    "direction": "N",
+    "oldScale": 0.3954176379176379,
+    "headScale": 0.3880597014925373,
+    "factor": 0.9813919873077762,
+    "idleHair": [
+      26,
+      23
+    ],
+    "sourceHair": [
+      [
+        66,
+        58
+      ],
+      [
+        68,
+        58
+      ]
+    ]
+  },
+  {
+    "source": "attack-SE-template01.png",
+    "kind": "attack",
+    "state": "sword",
+    "direction": "SE",
+    "oldScale": 0.377620253164557,
+    "headScale": 0.3851851851851852,
+    "factor": 1.0200331734255037,
+    "idleHair": [
+      26,
+      25
+    ],
+    "sourceHair": [
+      [
+        68,
+        61
+      ],
+      [
+        67,
+        63
+      ]
+    ]
+  },
+  {
+    "source": "attack-NE-template01.png",
+    "kind": "attack",
+    "state": "sword",
+    "direction": "NE",
+    "oldScale": 0.3946021157090048,
+    "headScale": 0.36879432624113473,
+    "factor": 0.9345979445105111,
+    "idleHair": [
+      26,
+      23
+    ],
+    "sourceHair": [
+      [
+        69,
+        57
+      ],
+      [
+        72,
+        58
+      ]
+    ]
+  },
+  {
+    "source": "cast-staff-S-candidate01.png",
+    "kind": "cast",
+    "state": "staff",
+    "direction": "S",
+    "oldScale": 0.36290873015873015,
+    "headScale": 0.352112676056338,
+    "factor": 0.9702513243545556,
+    "idleHair": [
+      25,
+      24
+    ],
+    "sourceHair": [
+      [
+        68,
+        64
+      ],
+      [
+        71,
+        63
+      ],
+      [
+        71,
+        64
+      ]
+    ]
+  },
+  {
+    "source": "cast-staff-E-candidate01.png",
+    "kind": "cast",
+    "state": "staff",
+    "direction": "E",
+    "oldScale": 0.38625151797279794,
+    "headScale": 0.375,
+    "factor": 0.9708699708628968,
+    "idleHair": [
+      24,
+      22
+    ],
+    "sourceHair": [
+      [
+        64,
+        56
+      ],
+      [
+        65,
+        57
+      ],
+      [
+        64,
+        57
+      ]
+    ]
+  },
+  {
+    "source": "cast-staff-N-candidate01.png",
+    "kind": "cast",
+    "state": "staff",
+    "direction": "N",
+    "oldScale": 0.3919067028985507,
+    "headScale": 0.38333333333333336,
+    "factor": 0.9781239527116824,
+    "idleHair": [
+      23,
+      22
+    ],
+    "sourceHair": [
+      [
+        61,
+        58
+      ],
+      [
+        60,
+        53
+      ],
+      [
+        60,
+        53
+      ]
+    ]
+  },
+  {
+    "source": "cast-staff-SE-candidate01.png",
+    "kind": "cast",
+    "state": "staff",
+    "direction": "SE",
+    "oldScale": 0.390146306755014,
+    "headScale": 0.38235294117647056,
+    "factor": 0.98002450505462,
+    "idleHair": [
+      26,
+      24
+    ],
+    "sourceHair": [
+      [
+        68,
+        49
+      ],
+      [
+        69,
+        50
+      ],
+      [
+        64,
+        54
+      ]
+    ]
+  },
+  {
+    "source": "cast-staff-NE-candidate01.png",
+    "kind": "cast",
+    "state": "staff",
+    "direction": "NE",
+    "oldScale": 0.3918719937469937,
+    "headScale": 0.3793103448275862,
+    "factor": 0.9679445096361804,
+    "idleHair": [
+      25,
+      22
+    ],
+    "sourceHair": [
+      [
+        65,
+        58
+      ],
+      [
+        63,
+        57
+      ],
+      [
+        63,
+        58
+      ]
+    ]
+  }
+]

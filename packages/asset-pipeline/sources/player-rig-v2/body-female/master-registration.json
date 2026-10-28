@@ -1,0 +1,28 @@
+{
+  "gender": "female",
+  "source": "pilot-source-r1.png",
+  "sourceNeck": [
+    348,
+    195
+  ],
+  "sourceSole": 505,
+  "scale": 0.32903225806451614,
+  "root": [
+    144,
+    256
+  ],
+  "neck": [
+    144,
+    154
+  ],
+  "ppu": 96,
+  "canvas": [
+    288,
+    288
+  ],
+  "rejectedPilotPoses": [
+    "overhead-insufficient-head-clearance",
+    "weapon-overlaps-cell-row"
+  ],
+  "status": "standing-gender-body-candidate"
+}

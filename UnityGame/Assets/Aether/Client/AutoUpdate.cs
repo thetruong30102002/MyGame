@@ -1,6 +1,6 @@
 using System;
 using System.Collections;
-using System.Diagnostics;
+using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
 using System.Net.Http;
@@ -48,9 +48,10 @@ namespace Aether.Client
         public static void Begin(RectTransform root, string serverUrl)
         {
             if (Application.isEditor || LocalBuild == 0) return;
-            RegisterApp();
             var args = Environment.GetCommandLineArgs();
-            if (Array.IndexOf(args, "-aetherShot") >= 0 || Array.IndexOf(args, "-noUpdate") >= 0) return;
+            if (Array.IndexOf(args, "-aetherNativeUpdateTest") >= 0 || Array.IndexOf(args, "-aetherShot") >= 0) return;
+            RegisterApp();
+            if (Array.IndexOf(args, "-noUpdate") >= 0) return;
             if (Application.platform != RuntimePlatform.WindowsPlayer && Application.platform != RuntimePlatform.Android) return;
             var u = root.gameObject.AddComponent<AutoUpdate>();
             // `-updateServer <url>`: hỏi máy chủ khác (thử trọn vòng cập nhật trên máy chủ THỬ mà không đổi máy chủ đã lưu).
@@ -206,23 +207,15 @@ namespace Aether.Client
             try
             {
                 if (CanWrite(dir))
-                    Process.Start(new ProcessStartInfo("cmd.exe", $"/c ping -n 3 127.0.0.1 >nul & start \"\" \"{path}\" -s2 \"-d{dir}\"")
-                    {
-                        CreateNoWindow = true,
-                        UseShellExecute = false,
-                        WindowStyle = ProcessWindowStyle.Hidden,
-                    });
+                {
+                    using (WindowsNative.LaunchCommand($"ping -n 3 127.0.0.1 >nul & start \"\" \"{path}\" -s2 \"-d{dir}\"")) { }
+                }
                 else
                 {
                     // -EncodedCommand (UTF-16LE base64): không lo dấu nháy lồng nhau khi đường dẫn có khoảng trắng.
                     var ps = $"Start-Sleep -Seconds 2; Start-Process -FilePath '{path.Replace("'", "''")}' -ArgumentList @('-s2', '\"-d{dir.Replace("'", "''")}\"') -Verb RunAs";
                     var enc = Convert.ToBase64String(System.Text.Encoding.Unicode.GetBytes(ps));
-                    Process.Start(new ProcessStartInfo("powershell.exe", $"-NoProfile -WindowStyle Hidden -EncodedCommand {enc}")
-                    {
-                        CreateNoWindow = true,
-                        UseShellExecute = false,
-                        WindowStyle = ProcessWindowStyle.Hidden,
-                    });
+                    using (WindowsNative.LaunchHidden(WindowsNative.PowerShell, $"-NoProfile -WindowStyle Hidden -EncodedCommand {enc}")) { }
                 }
                 return true;
             }
@@ -245,28 +238,16 @@ namespace Aether.Client
             if (!File.Exists(uninstall) || PlayerPrefs.GetString("aether.appRegistered", "") == $"{LocalBuild}|{dir}") return;
             try
             {
-                string Q(string v) => "\"" + v.Replace("\\", "\\\\").Replace("\"", "\\\"") + "\"";
                 long kb = 0;
                 foreach (var f in new DirectoryInfo(dir).GetFiles("*", SearchOption.AllDirectories)) kb += f.Length / 1024;
-                var reg = string.Join("\r\n",
-                    "Windows Registry Editor Version 5.00",
-                    "",
-                    @"[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Uninstall\AetherChronicle]",
-                    "\"DisplayName\"=" + Q("Aether Chronicle"),
-                    "\"DisplayVersion\"=" + Q(Application.version),
-                    "\"Publisher\"=" + Q("Aether"),
-                    "\"InstallLocation\"=" + Q(dir),
-                    "\"DisplayIcon\"=" + Q(Path.Combine(dir, "Aether.exe")),
-                    "\"UninstallString\"=" + Q("\"" + uninstall + "\""),
-                    "\"NoModify\"=dword:00000001",
-                    "\"NoRepair\"=dword:00000001",
-                    $"\"EstimatedSize\"=dword:{Math.Min(kb, int.MaxValue):x8}",
-                    "");
-                var file = Path.Combine(Path.GetTempPath(), "aether-app.reg");
-                File.WriteAllText(file, reg, System.Text.Encoding.Unicode);
-                var p = Process.Start(new ProcessStartInfo("reg.exe", $"import \"{file}\"") { CreateNoWindow = true, UseShellExecute = false, WindowStyle = ProcessWindowStyle.Hidden });
-                p?.WaitForExit(5000);
-                if (p != null && p.HasExited && p.ExitCode == 0) PlayerPrefs.SetString("aether.appRegistered", $"{LocalBuild}|{dir}");
+                WindowsNative.SetCurrentUserValues(@"Software\Microsoft\Windows\CurrentVersion\Uninstall\AetherChronicle",
+                    new Dictionary<string, string>
+                    {
+                        ["DisplayName"] = "Aether Chronicle", ["DisplayVersion"] = Application.version, ["Publisher"] = "Aether",
+                        ["InstallLocation"] = dir, ["DisplayIcon"] = Path.Combine(dir, "Aether.exe"), ["UninstallString"] = "\"" + uninstall + "\"",
+                    },
+                    new Dictionary<string, uint> { ["NoModify"] = 1, ["NoRepair"] = 1, ["EstimatedSize"] = (uint)Math.Min(kb, int.MaxValue) });
+                PlayerPrefs.SetString("aether.appRegistered", $"{LocalBuild}|{dir}");
             }
             catch (Exception e)
             {
@@ -308,14 +289,14 @@ namespace Aether.Client
                     $"start \"\" \"{Path.Combine(dir, "Aether.exe")}\"",
                     ""), new System.Text.UTF8Encoding(false));
                 if (CanWrite(dir))
-                    Process.Start(new ProcessStartInfo("cmd.exe", $"/c \"{script}\"") { CreateNoWindow = true, UseShellExecute = false, WindowStyle = ProcessWindowStyle.Hidden });
+                {
+                    using (WindowsNative.LaunchCommand("\"" + script + "\"")) { }
+                }
                 else
-                    Process.Start(new ProcessStartInfo("powershell.exe", $"-NoProfile -WindowStyle Hidden -Command \"Start-Process -FilePath '{script.Replace("'", "''")}' -WindowStyle Hidden -Verb RunAs\"")
-                    {
-                        CreateNoWindow = true,
-                        UseShellExecute = false,
-                        WindowStyle = ProcessWindowStyle.Hidden,
-                    });
+                {
+                    using (WindowsNative.LaunchHidden(WindowsNative.PowerShell,
+                        $"-NoProfile -WindowStyle Hidden -Command \"Start-Process -FilePath '{script.Replace("'", "''")}' -WindowStyle Hidden -Verb RunAs\"")) { }
+                }
                 return true;
             }
             catch (Exception e)

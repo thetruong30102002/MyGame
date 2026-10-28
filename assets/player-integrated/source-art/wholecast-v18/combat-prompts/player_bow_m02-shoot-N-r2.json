@@ -1,0 +1,12 @@
+{
+  "id": "player_bow_m02-shoot-N",
+  "prompt": "Image1 is the ONLY target character identity: male Dạ Tiễn, black high ponytail with swept fringe, navy fitted ranger coat, pale-grey shoulders, gold clasps, charcoal trousers and boots, one black-and-gold recurved bow with small cyan gemstone in the grip; taut string. Draw this complete character doing exactly the twelve archery poses/camera angles in Image2. Image2 is POSE AND SHOOTING DIRECTION REFERENCE ONLY, do NOT copy its male character, hairstyle, green outfit or gold bow. Preserve Image1 identity and same slender adult body proportions. Transparent 4 columns x3 rows, same twelve sequential times as guide. Fixed camera, same exact head and body scale, complete integrated pixels hair/body/clothes/bow per frame. Sharp game pixels. Camera BACK, shoots STRAIGHT AWAY from camera. Hands and arrow in FRONT of chest are hidden by torso. Only elbow and upright bow limbs near shoulder show. No long horizontal arrow, no arm stretched sideways or behind back. Endpoints exact relaxed master. No grid lines, no VFX, no glow trails, no detached objects. Entire actor and weapon fully inside each cell.",
+  "references": [
+    "action-references/player_bow_m02/N-master.png",
+    "D:/truong/MyGame/assets/player-integrated/source-art/wholecast-v18/motion/player_bow_m01-shoot-N-r2.png"
+  ],
+  "tool": "built-in-imagegen",
+  "status": "generated",
+  "output": "motion/player_bow_m02-shoot-N-r2.png",
+  "sourceSha256": "b3eca4c3fcdd828ea0aae9a3d0ac0b5c8937232b2cf8d320049d0da63d120a8c"
+}

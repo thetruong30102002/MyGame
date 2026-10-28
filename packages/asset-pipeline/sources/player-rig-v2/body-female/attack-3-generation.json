@@ -1,0 +1,15 @@
+{
+  "gender": "female",
+  "id": "attack-3",
+  "frameIds": [
+    "attack-12",
+    "attack-13",
+    "attack-14",
+    "reference-stand"
+  ],
+  "prompt": "Use case: precise-object-edit. Input Image1 is the EXACT calibration/edit target: four different poses of the same pixel RPG character in FOUR COLUMNS ONE ROW, canvas1774×887. Change only poses according to list below, PRESERVE costume, gender, head identity and EXACT pixel scale/camera. No rescaling or increasing torso/head size. Existing standing body neck-to-sole is 306 source pixels. Keep original size on canvas and baseline atY805 in every slot, torso collar aroundY499, heads same width ~145sourcepx. Each slot443.5px wide, character neck centers around X(230,685,1110,1550). Maintain full transparency around each sprite; no neighbor overlap. All4 figures must stay same size even for raised sword. DO NOT create a smaller sprite for a pose with a raised blade.\nSTYLE/IDENTITY: preserve Image1 ash/silver hair and amber eyes, precise clean pixel clusters and same fine detail density in every frame. Green short cloak with ivory trim, plain iron chestplate, basic belt/gloves/charcoal trousers/brown boots, full high collar, closed gloves/skin covered. Basic starter outfit, same sword design and length, no extra ornament. Sharp cloth seams, metal/leather planes and thin selective edges. No gradients, blur, fuzz, glow, motion-trail, noisy pixels or anti-alias halos.\nRIG: same front S camera, upright head, same shoulder/waist/limb/boot sizes, all poses have complete consistent heads to preserve headspace. Sword is rigid and aligned with hilt/wrist, fingers actually wrap hilt. Raised sword hands must clear hair crown and blade axis upright. Two handed attack uses only ONE sword. Do not paint weapons floating away, duplicate limbs, duplicate swords or draw circular arm waving. Keep head dimensions independent of lifted arms.\nRequested poses left to right:\n1. Recovery: left hand begins releasing grip, right hand guides sword into original low carry, body returns upright.\n2. Recovery: left hand separates toward side, right hand sword low pointing down-left, feet draw back to ready stance, calm cloak motion.\n3. Settled ready stance nearly matching original standing but with last small cloak and hand settle, right hand sword low.\n4. Reference duplicate standing calibration only, do not interpret this fourth slot as a counted attack frame.\nThese are consecutive key poses of ONE two handed overhead downward sword strike. No horizontal circular swing. Head/body remain at same original pixel density/physical size. No effects or smears, keep all armor and face sharply drawn.",
+  "mode": "built-in-imagegen",
+  "source": "packages/asset-pipeline/sources/player-rig-v2/body-female/attack-3-source.png",
+  "productionEnabled": false,
+  "artApproved": false
+}

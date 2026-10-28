@@ -86,7 +86,7 @@ namespace Aether.Client.UI
                 {
                     var ch = choices[i];
                     var b = UiKit.Rect(choiceRow, "C" + i, new Vector2(0, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(w * (i + 0.5f), 0), new Vector2(w - 30, 100));
-                    UiKit.Sprite(b, "button", 1.4f, true);
+                    UiStyle.Card(b, UiStyle.CardKind.Chip, 5, false, true);
                     var lb = UiKit.Label(UiKit.Rect(b, "l", new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -10), new Vector2(w - 60, 30)), ch.Label, 17, UiStyle.GoldHi,
                         TextAnchor.MiddleCenter, true, true);
                     lb.textWrappingMode = TextWrappingModes.Normal;

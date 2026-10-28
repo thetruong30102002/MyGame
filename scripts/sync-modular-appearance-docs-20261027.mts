@@ -1,0 +1,22 @@
+import {readFileSync,writeFileSync} from 'node:fs';
+const scope='Chốt mới nhất 27/10: tạo nhân vật chọn Tộc → Đầu → Bộ. Mỗi tộc có 3 đầu nam, 3 đầu nữ khác tóc và 3 bộ đồ chọn độc lập; bộ đồ có thân vừa dáng nam/nữ. Tổng 24 bộ đầu, 12 thiết kế đồ/24 bộ thân, 18 tổ hợp mỗi tộc và 72 tổ hợp đầu–đồ cho 4 tộc; mỗi tổ hợp hỗ trợ 5 vũ khí thành 360 tổ hợp ngoại hình–vũ khí. Avatar chỉ có đầu và cổ da, không dính áo/cổ áo; khóa tỷ lệ theo khối đầu/mắt/má/cằm/cổ, không theo bounds tóc. Một chuẩn ghép dùng chung có neo cổ/hướng/pose/lớp che theo frame và kiểm tương thích tộc/dáng/màu da. Hoàn thiện kiếm trước, duyệt mẫu tộc trước nhân rộng; chưa đủ tài nguyên hoặc tích hợp UI mới thì chưa mở trong game.';
+const files=['CLAUDE.md','README.md','docs/dinh-huong-aether.md','docs/thiet-ke/chung-toc-hinh-nguoi.md','docs/thiet-ke/chon-toc-khi-tao-nhan-vat.md','docs/thiet-ke/quy-chuan-net-ve-nhan-vat.md','packages/asset-pipeline/sources/player-standard-v7/brief.md','packages/asset-pipeline/sources/player-standard-v7/README.md'];
+for(const f of files){let lines=readFileSync(f,'utf8').split(/\r?\n/).filter(l=>!l.startsWith('Chốt cấu trúc nền27/10:')&&!l.startsWith('- Chốt mới nhất27/10 thay hạn mức40:'));
+lines=lines.map(l=>{
+if(f==='CLAUDE.md'&&l.startsWith('- Chốt 27/10: 48'))return '- '+scope+' Xem docs/thiet-ke/nhan-vat-ghep-da-vu-khi.md.';
+if(f==='CLAUDE.md'&&l.startsWith('- Tóc và thân vẫn liền;'))return '- Avatar nguyên đầu (mặt+tóc+tai/sừng+cổ da), thân mặc nguyên bộ đồ và vũ khí riêng theo mẫu thử mới. Vũ khí có điểm nắm/trục/góc/lớp ngón tay theo frame; hai tay giơ cao phải dựng trục kiếm thẳng.';
+if(f==='README.md'&&l.startsWith('**Hướng hiện hành'))return '**Hướng hiện hành 27/10/2026:** '+scope+' Xem [phạm vi ghép](docs/thiet-ke/nhan-vat-ghep-da-vu-khi.md), [định hướng](docs/dinh-huong-aether.md) và [kế hoạch tổng](docs/ke-hoach-nang-cap-the-gioi.md). Web vẫn giữ30 mẫu nguồn cũ để đối chiếu; bộ mới chưa phát hành Unity.';
+if(f==='docs/dinh-huong-aether.md'&&l.startsWith('- **Chốt lại 27/10:'))return '- '+scope+' Xem [phạm vi ghép](thiet-ke/nhan-vat-ghep-da-vu-khi.md).';
+if(f==='docs/thiet-ke/chung-toc-hinh-nguoi.md'&&l.startsWith('**Chốt lại 27/10:**'))return scope+' Xem [phạm vi ghép](nhan-vat-ghep-da-vu-khi.md).';
+if(f==='docs/thiet-ke/chung-toc-hinh-nguoi.md'&&l.startsWith('5. Tóc, đầu,'))return '5. Tóc, mặt, tai/sừng và cổ da là nguyên đầu; thân mặc nguyên bộ đồ, vũ khí riêng. Đủ hướng/pose/neo cổ và lớp cổ áo theo frame, không gắn tóc hay đầu đứng tĩnh cho mọi hoạt động.';
+if(f==='docs/thiet-ke/chung-toc-hinh-nguoi.md'&&l.startsWith('Đề xuất: **đăng ký/đăng nhập'))return '**Luồng chốt: đăng nhập → tạo nhân vật → chọn tộc → chọn đầu → chọn bộ đồ → tên/xác nhận.** Vũ khí/class và nguyên tố theo luật riêng, không buộc theo tộc.';
+if(f==='docs/thiet-ke/chon-toc-khi-tao-nhan-vat.md'&&l.startsWith('Tiến độ:'))return 'Tiến độ: `hair-creation-baked-variants` trong [kế hoạch tổng](../ke-hoach-nang-cap-the-gioi.md). '+scope+' Xem [phạm vi hiện hành](nhan-vat-ghep-da-vu-khi.md).';
+if(f==='docs/thiet-ke/chon-toc-khi-tao-nhan-vat.md'&&l.startsWith('Đăng nhập →'))return '**Đăng nhập → tạo nhân vật → chọn tộc → chọn đầu → chọn bộ đồ → tên/xác nhận.** Xem trước cùng cỡ đứng/đi/đánh; đầu chứa kiểu tóc liền mặt, không có bước ghép tóc riêng. Class/vũ khí theo luật riêng đã có; không tự đổi ngân sách chiêu.';
+if(f==='docs/thiet-ke/quy-chuan-net-ve-nhan-vat.md'&&l.startsWith('**Tổ hợp nền mới nhất27/10:**'))return '**Tổ hợp nền mới nhất27/10:** '+scope;
+if(f.endsWith('/brief.md')&&l.startsWith('Phạm vi nền:'))return scope;
+if(f.endsWith('player-standard-v7/README.md')&&l.startsWith('Chưa duyệt độ nét'))return 'Chưa duyệt độ nét theo hai NPC tóc trắng, chưa đủ chém15 frame, chưa thay nhân vật Unity. Không tăng% mỹ thuật hay coi đã có đủ72 tổ hợp. '+scope;
+return l;});
+let text=lines.join('\n').replaceAll('48-tao-hinh-da-vu-khi.md','nhan-vat-ghep-da-vu-khi.md').replaceAll('nhân rộng 48 tạo hình','nhân rộng72 tổ hợp').replaceAll('bộ48','bộ ghép mới');
+writeFileSync(f,text,'utf8');}
+const promptPath='packages/asset-pipeline/sources/player-standard-v7/head-prototype/avatar-chestnut-prompt-r2.json',prompt=JSON.parse(readFileSync(promptPath,'utf8'));prompt.status='source-registered-by-eye-anchors-and-segmented-bare-neck-candidate';prompt.rawOutputContainsClothing=true;prompt.clothingRemovedBy='canonical neck rows before avatar export';writeFileSync(promptPath,JSON.stringify(prompt,null,2),'utf8');
+console.log('Đã đồng bộ hướng, phạm vi, chuẩn ghép và luồng tộc→đầu→bộ.');

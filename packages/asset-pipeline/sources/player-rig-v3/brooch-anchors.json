@@ -1,0 +1,1430 @@
+{
+  "version": 3,
+  "method": "collar-brooch-not-skin-color",
+  "records": [
+    {
+      "gender": "male",
+      "action": "stand",
+      "index": 0,
+      "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-male\\keyposes-source.png",
+      "brooch": [
+        245,
+        509
+      ],
+      "candidates": [
+        {
+          "x": 245,
+          "y": 509,
+          "w": 15,
+          "h": 17,
+          "area": 136,
+          "score": 12.875
+        },
+        {
+          "x": 218.5,
+          "y": 550.5,
+          "w": 12,
+          "h": 12,
+          "area": 84,
+          "score": 36.25
+        },
+        {
+          "x": 272,
+          "y": 550.5,
+          "w": 13,
+          "h": 12,
+          "area": 85,
+          "score": 48.625
+        }
+      ]
+    },
+    {
+      "gender": "male",
+      "action": "walk",
+      "index": 0,
+      "source": "packages\\asset-pipeline\\sources\\player-rig-v2\\body-male\\walk-0-source.png",
+      "brooch": [
+        250,
+        512
+      ],
+      "candidates": [
+        {
+          "x": 250,
+          "y": 512,
+          "w": 17,
+          "h": 17,
+          "area": 158,
+          "score": 10.125
+        },
+        {
+          "x": 223,
+          "y": 551.5,
+          "w": 13,
+          "h": 12,
+          "area": 85,
+          "score": 37.375
+        },
+        {
+          "x": 279,
+          "y": 550,
+          "w": 13,
+          "h": 9,
+          "area": 66,
+          "score": 51.375
+        },
+        {
+          "x": 224,
+          "y": 573.5,
+          "w": 11,
+          "h": 2,
+          "area": 21,
+          "score": 63.625
+        },
+        {
+          "x": 278.5,
+          "y": 573.5,
+          "w": 12,
+          "h": 2,
+          "area": 22,
+          "score": 77.75
+        }
+      ]
+    },
+    {
+      "gender": "male",
+      "action": "walk",
+      "index": 1,
+      "source": "packages\\asset-pipeline\\sources\\player-rig-v2\\body-male\\walk-0-source.png",
+      "brooch": [
+        692,
+        512.5
+      ],
+      "candidates": [
+        {
+          "x": 692,
+          "y": 512.5,
+          "w": 17,
+          "h": 18,
+          "area": 217,
+          "score": 9.75
+        },
+        {
+          "x": 665.5,
+          "y": 550,
+          "w": 12,
+          "h": 9,
+          "area": 65,
+          "score": 36.625
+        },
+        {
+          "x": 665.5,
+          "y": 556,
+          "w": 10,
+          "h": 3,
+          "area": 22,
+          "score": 44.625
+        },
+        {
+          "x": 721,
+          "y": 550.5,
+          "w": 13,
+          "h": 10,
+          "area": 62,
+          "score": 51
+        },
+        {
+          "x": 665,
+          "y": 573,
+          "w": 11,
+          "h": 3,
+          "area": 33,
+          "score": 62
+        },
+        {
+          "x": 721,
+          "y": 573,
+          "w": 13,
+          "h": 3,
+          "area": 38,
+          "score": 77
+        }
+      ]
+    },
+    {
+      "gender": "male",
+      "action": "walk",
+      "index": 2,
+      "source": "packages\\asset-pipeline\\sources\\player-rig-v2\\body-male\\walk-0-source.png",
+      "brooch": [
+        1111,
+        511.5
+      ],
+      "candidates": [
+        {
+          "x": 1111,
+          "y": 511.5,
+          "w": 17,
+          "h": 16,
+          "area": 164,
+          "score": 4.625
+        },
+        {
+          "x": 1084,
+          "y": 551.5,
+          "w": 13,
+          "h": 12,
+          "area": 89,
+          "score": 43.125
+        },
+        {
+          "x": 1140.5,
+          "y": 550,
+          "w": 12,
+          "h": 9,
+          "area": 55,
+          "score": 44.5
+        },
+        {
+          "x": 1084.5,
+          "y": 573.5,
+          "w": 12,
+          "h": 2,
+          "area": 24,
+          "score": 69.5
+        },
+        {
+          "x": 1140.5,
+          "y": 573.5,
+          "w": 12,
+          "h": 2,
+          "area": 24,
+          "score": 71.5
+        }
+      ]
+    },
+    {
+      "gender": "male",
+      "action": "walk",
+      "index": 3,
+      "source": "packages\\asset-pipeline\\sources\\player-rig-v2\\body-male\\walk-0-source.png",
+      "brooch": [
+        1538.5,
+        512
+      ],
+      "candidates": [
+        {
+          "x": 1538.5,
+          "y": 512,
+          "w": 18,
+          "h": 17,
+          "area": 220,
+          "score": 6.875
+        },
+        {
+          "x": 1568.5,
+          "y": 550,
+          "w": 14,
+          "h": 9,
+          "area": 60,
+          "score": 41.625
+        },
+        {
+          "x": 1513,
+          "y": 551.5,
+          "w": 13,
+          "h": 12,
+          "area": 86,
+          "score": 46.75
+        },
+        {
+          "x": 1568.5,
+          "y": 556,
+          "w": 8,
+          "h": 3,
+          "area": 20,
+          "score": 47.625
+        },
+        {
+          "x": 1568,
+          "y": 573.5,
+          "w": 13,
+          "h": 2,
+          "area": 24,
+          "score": 68
+        },
+        {
+          "x": 1514,
+          "y": 573.5,
+          "w": 11,
+          "h": 2,
+          "area": 21,
+          "score": 72.5
+        }
+      ]
+    },
+    {
+      "gender": "male",
+      "action": "attack",
+      "index": 0,
+      "source": "packages\\asset-pipeline\\sources\\player-rig-v2\\body-male\\attack-0-source.png",
+      "brooch": [
+        243.5,
+        515.5
+      ],
+      "candidates": [
+        {
+          "x": 243.5,
+          "y": 515.5,
+          "w": 14,
+          "h": 16,
+          "area": 128,
+          "score": 7
+        },
+        {
+          "x": 273,
+          "y": 554.5,
+          "w": 13,
+          "h": 10,
+          "area": 48,
+          "score": 53.875
+        }
+      ]
+    },
+    {
+      "gender": "male",
+      "action": "attack",
+      "index": 1,
+      "source": "packages\\asset-pipeline\\sources\\player-rig-v2\\body-male\\attack-0-source.png",
+      "brooch": [
+        691.5,
+        514.5
+      ],
+      "candidates": [
+        {
+          "x": 691.5,
+          "y": 514.5,
+          "w": 16,
+          "h": 14,
+          "area": 130,
+          "score": 8.125
+        },
+        {
+          "x": 646.5,
+          "y": 564.5,
+          "w": 20,
+          "h": 20,
+          "area": 170,
+          "score": 54.125
+        }
+      ]
+    },
+    {
+      "gender": "male",
+      "action": "attack",
+      "index": 2,
+      "source": "packages\\asset-pipeline\\sources\\player-rig-v2\\body-male\\attack-0-source.png",
+      "brooch": [
+        1113,
+        511.5
+      ],
+      "candidates": [
+        {
+          "x": 1113,
+          "y": 511.5,
+          "w": 13,
+          "h": 10,
+          "area": 80,
+          "score": 6.125
+        },
+        {
+          "x": 1095.5,
+          "y": 554.5,
+          "w": 12,
+          "h": 8,
+          "area": 46,
+          "score": 44.75
+        },
+        {
+          "x": 1032.5,
+          "y": 478.5,
+          "w": 14,
+          "h": 8,
+          "area": 70,
+          "score": 58.5
+        }
+      ]
+    },
+    {
+      "gender": "male",
+      "action": "attack",
+      "index": 3,
+      "source": "packages\\asset-pipeline\\sources\\player-rig-v2\\body-male\\attack-0-source.png",
+      "brooch": [
+        1557.5,
+        513.5
+      ],
+      "candidates": [
+        {
+          "x": 1557.5,
+          "y": 513.5,
+          "w": 16,
+          "h": 16,
+          "area": 148,
+          "score": 2.875
+        },
+        {
+          "x": 1556,
+          "y": 496,
+          "w": 17,
+          "h": 7,
+          "area": 78,
+          "score": 25
+        },
+        {
+          "x": 1530,
+          "y": 554,
+          "w": 13,
+          "h": 11,
+          "area": 76,
+          "score": 45.5
+        },
+        {
+          "x": 1585,
+          "y": 553.5,
+          "w": 9,
+          "h": 10,
+          "area": 36,
+          "score": 47.25
+        }
+      ]
+    },
+    {
+      "gender": "male",
+      "action": "attack",
+      "index": 4,
+      "source": "packages\\asset-pipeline\\sources\\player-rig-v2\\body-male\\attack-1-source.png",
+      "brooch": [
+        207.5,
+        521.5
+      ],
+      "candidates": [
+        {
+          "x": 207.5,
+          "y": 521.5,
+          "w": 16,
+          "h": 16,
+          "area": 133,
+          "score": 10
+        },
+        {
+          "x": 236.5,
+          "y": 560,
+          "w": 12,
+          "h": 11,
+          "area": 73,
+          "score": 49.25
+        },
+        {
+          "x": 180,
+          "y": 560.5,
+          "w": 13,
+          "h": 12,
+          "area": 96,
+          "score": 56.375
+        }
+      ]
+    },
+    {
+      "gender": "male",
+      "action": "attack",
+      "index": 5,
+      "source": "packages\\asset-pipeline\\sources\\player-rig-v2\\body-male\\attack-1-source.png",
+      "brooch": [
+        651.5,
+        514.5
+      ],
+      "candidates": [
+        {
+          "x": 651.5,
+          "y": 514.5,
+          "w": 16,
+          "h": 16,
+          "area": 140,
+          "score": 3.875
+        },
+        {
+          "x": 680,
+          "y": 553,
+          "w": 13,
+          "h": 11,
+          "area": 67,
+          "score": 42.75
+        },
+        {
+          "x": 624.5,
+          "y": 553,
+          "w": 12,
+          "h": 11,
+          "area": 85,
+          "score": 48.625
+        }
+      ]
+    },
+    {
+      "gender": "male",
+      "action": "attack",
+      "index": 6,
+      "source": "packages\\asset-pipeline\\sources\\player-rig-v2\\body-male\\attack-1-source.png",
+      "brooch": [
+        1095.5,
+        519.5
+      ],
+      "candidates": [
+        {
+          "x": 1095.5,
+          "y": 519.5,
+          "w": 16,
+          "h": 16,
+          "area": 151,
+          "score": 7.75
+        },
+        {
+          "x": 1125,
+          "y": 559.5,
+          "w": 13,
+          "h": 12,
+          "area": 85,
+          "score": 49.125
+        },
+        {
+          "x": 1068,
+          "y": 559.5,
+          "w": 13,
+          "h": 12,
+          "area": 97,
+          "score": 55.125
+        }
+      ]
+    },
+    {
+      "gender": "male",
+      "action": "attack",
+      "index": 7,
+      "source": "packages\\asset-pipeline\\sources\\player-rig-v2\\body-male\\attack-1-source.png",
+      "brooch": [
+        1562,
+        537.5
+      ],
+      "candidates": [
+        {
+          "x": 1562,
+          "y": 537.5,
+          "w": 17,
+          "h": 16,
+          "area": 149,
+          "score": 25.5
+        },
+        {
+          "x": 1540,
+          "y": 485.5,
+          "w": 7,
+          "h": 6,
+          "area": 23,
+          "score": 33
+        },
+        {
+          "x": 1535,
+          "y": 572,
+          "w": 13,
+          "h": 5,
+          "area": 35,
+          "score": 65.25
+        },
+        {
+          "x": 1591.5,
+          "y": 572,
+          "w": 14,
+          "h": 5,
+          "area": 41,
+          "score": 71.375
+        }
+      ]
+    },
+    {
+      "gender": "male",
+      "action": "attack",
+      "index": 8,
+      "source": "packages\\asset-pipeline\\sources\\player-rig-v2\\body-male\\attack-2-source.png",
+      "brooch": [
+        222,
+        543.5
+      ],
+      "candidates": [
+        {
+          "x": 222,
+          "y": 543.5,
+          "w": 13,
+          "h": 10,
+          "area": 46,
+          "score": 30.125
+        },
+        {
+          "x": 242,
+          "y": 540.5,
+          "w": 27,
+          "h": 14,
+          "area": 122,
+          "score": 37.125
+        },
+        {
+          "x": 234.5,
+          "y": 478,
+          "w": 16,
+          "h": 7,
+          "area": 58,
+          "score": 44.75
+        }
+      ]
+    },
+    {
+      "gender": "male",
+      "action": "attack",
+      "index": 9,
+      "source": "packages\\asset-pipeline\\sources\\player-rig-v2\\body-male\\attack-2-source.png",
+      "brooch": [
+        670,
+        544.5
+      ],
+      "candidates": [
+        {
+          "x": 670,
+          "y": 544.5,
+          "w": 17,
+          "h": 16,
+          "area": 185,
+          "score": 31.25
+        }
+      ]
+    },
+    {
+      "gender": "male",
+      "action": "attack",
+      "index": 10,
+      "source": "packages\\asset-pipeline\\sources\\player-rig-v2\\body-male\\attack-2-source.png",
+      "brooch": [
+        1112.5,
+        545
+      ],
+      "candidates": [
+        {
+          "x": 1112.5,
+          "y": 545,
+          "w": 16,
+          "h": 17,
+          "area": 172,
+          "score": 31.5
+        }
+      ]
+    },
+    {
+      "gender": "male",
+      "action": "attack",
+      "index": 11,
+      "source": "packages\\asset-pipeline\\sources\\player-rig-v2\\body-male\\attack-2-source.png",
+      "brooch": [
+        1545.5,
+        521
+      ],
+      "candidates": [
+        {
+          "x": 1545.5,
+          "y": 521,
+          "w": 16,
+          "h": 17,
+          "area": 159,
+          "score": 8.125
+        }
+      ]
+    },
+    {
+      "gender": "male",
+      "action": "attack",
+      "index": 12,
+      "source": "packages\\asset-pipeline\\sources\\player-rig-v2\\body-male\\attack-3-source.png",
+      "brooch": [
+        257,
+        515.5
+      ],
+      "candidates": [
+        {
+          "x": 257,
+          "y": 515.5,
+          "w": 17,
+          "h": 14,
+          "area": 127,
+          "score": 10.875
+        },
+        {
+          "x": 231,
+          "y": 555.5,
+          "w": 11,
+          "h": 12,
+          "area": 75,
+          "score": 43.375
+        },
+        {
+          "x": 282,
+          "y": 555,
+          "w": 11,
+          "h": 11,
+          "area": 56,
+          "score": 55.125
+        }
+      ]
+    },
+    {
+      "gender": "male",
+      "action": "attack",
+      "index": 13,
+      "source": "packages\\asset-pipeline\\sources\\player-rig-v2\\body-male\\attack-3-source.png",
+      "brooch": [
+        693.5,
+        514
+      ],
+      "candidates": [
+        {
+          "x": 693.5,
+          "y": 514,
+          "w": 16,
+          "h": 15,
+          "area": 125,
+          "score": 8.625
+        },
+        {
+          "x": 665.5,
+          "y": 555,
+          "w": 10,
+          "h": 11,
+          "area": 45,
+          "score": 40.625
+        },
+        {
+          "x": 671.5,
+          "y": 554,
+          "w": 4,
+          "h": 9,
+          "area": 29,
+          "score": 43.125
+        },
+        {
+          "x": 723.5,
+          "y": 554,
+          "w": 8,
+          "h": 9,
+          "area": 28,
+          "score": 54.125
+        },
+        {
+          "x": 716.5,
+          "y": 554,
+          "w": 4,
+          "h": 9,
+          "area": 25,
+          "score": 54.375
+        }
+      ]
+    },
+    {
+      "gender": "male",
+      "action": "attack",
+      "index": 14,
+      "source": "packages\\asset-pipeline\\sources\\player-rig-v2\\body-male\\attack-3-source.png",
+      "brooch": [
+        1112.5,
+        514.5
+      ],
+      "candidates": [
+        {
+          "x": 1112.5,
+          "y": 514.5,
+          "w": 16,
+          "h": 16,
+          "area": 160,
+          "score": 1.5
+        },
+        {
+          "x": 1087.5,
+          "y": 555.5,
+          "w": 12,
+          "h": 12,
+          "area": 84,
+          "score": 45.75
+        },
+        {
+          "x": 1141,
+          "y": 555.5,
+          "w": 13,
+          "h": 12,
+          "area": 84,
+          "score": 49.125
+        }
+      ]
+    },
+    {
+      "gender": "female",
+      "action": "stand",
+      "index": 0,
+      "source": "packages\\asset-pipeline\\sources\\player-rig-v3\\body-female\\keyposes-source.png",
+      "brooch": [
+        228,
+        524
+      ],
+      "candidates": [
+        {
+          "x": 228,
+          "y": 524,
+          "w": 17,
+          "h": 15,
+          "area": 173,
+          "score": 3.625
+        },
+        {
+          "x": 202.5,
+          "y": 560.5,
+          "w": 8,
+          "h": 10,
+          "area": 40,
+          "score": 41.25
+        },
+        {
+          "x": 252.5,
+          "y": 561.5,
+          "w": 6,
+          "h": 8,
+          "area": 22,
+          "score": 45.25
+        }
+      ]
+    },
+    {
+      "gender": "female",
+      "action": "walk",
+      "index": 0,
+      "source": "packages\\asset-pipeline\\sources\\player-rig-v2\\body-female\\walk-0-source.png",
+      "brooch": [
+        228.5,
+        515
+      ],
+      "candidates": [
+        {
+          "x": 228.5,
+          "y": 515,
+          "w": 18,
+          "h": 15,
+          "area": 154,
+          "score": 13.25
+        },
+        {
+          "x": 202.5,
+          "y": 552.5,
+          "w": 8,
+          "h": 8,
+          "area": 20,
+          "score": 32.25
+        },
+        {
+          "x": 253.5,
+          "y": 553,
+          "w": 8,
+          "h": 9,
+          "area": 21,
+          "score": 36.5
+        }
+      ]
+    },
+    {
+      "gender": "female",
+      "action": "walk",
+      "index": 1,
+      "source": "packages\\asset-pipeline\\sources\\player-rig-v2\\body-female\\walk-0-source.png",
+      "brooch": [
+        686,
+        515.5
+      ],
+      "candidates": [
+        {
+          "x": 686,
+          "y": 515.5,
+          "w": 17,
+          "h": 14,
+          "area": 163,
+          "score": 16.25
+        },
+        {
+          "x": 661,
+          "y": 551,
+          "w": 9,
+          "h": 11,
+          "area": 41,
+          "score": 28
+        },
+        {
+          "x": 713.5,
+          "y": 550.5,
+          "w": 8,
+          "h": 8,
+          "area": 20,
+          "score": 37.625
+        },
+        {
+          "x": 711.5,
+          "y": 551.5,
+          "w": 12,
+          "h": 10,
+          "area": 24,
+          "score": 39.125
+        }
+      ]
+    },
+    {
+      "gender": "female",
+      "action": "walk",
+      "index": 2,
+      "source": "packages\\asset-pipeline\\sources\\player-rig-v2\\body-female\\walk-0-source.png",
+      "brooch": [
+        1114,
+        515
+      ],
+      "candidates": [
+        {
+          "x": 1114,
+          "y": 515,
+          "w": 17,
+          "h": 15,
+          "area": 147,
+          "score": 12.375
+        },
+        {
+          "x": 1089,
+          "y": 552,
+          "w": 9,
+          "h": 9,
+          "area": 20,
+          "score": 31.875
+        },
+        {
+          "x": 1139.5,
+          "y": 553,
+          "w": 8,
+          "h": 9,
+          "area": 22,
+          "score": 36.25
+        }
+      ]
+    },
+    {
+      "gender": "female",
+      "action": "walk",
+      "index": 3,
+      "source": "packages\\asset-pipeline\\sources\\player-rig-v2\\body-female\\walk-0-source.png",
+      "brooch": [
+        1561,
+        515.5
+      ],
+      "candidates": [
+        {
+          "x": 1561,
+          "y": 515.5,
+          "w": 17,
+          "h": 14,
+          "area": 153,
+          "score": 13.25
+        },
+        {
+          "x": 1537.5,
+          "y": 547.5,
+          "w": 8,
+          "h": 4,
+          "area": 19,
+          "score": 28.125
+        },
+        {
+          "x": 1535.5,
+          "y": 553.5,
+          "w": 8,
+          "h": 8,
+          "area": 22,
+          "score": 32.625
+        },
+        {
+          "x": 1586.5,
+          "y": 551.5,
+          "w": 10,
+          "h": 10,
+          "area": 37,
+          "score": 35.125
+        }
+      ]
+    },
+    {
+      "gender": "female",
+      "action": "attack",
+      "index": 0,
+      "source": "packages\\asset-pipeline\\sources\\player-rig-v2\\body-female\\attack-0-source.png",
+      "brooch": [
+        234,
+        527
+      ],
+      "candidates": [
+        {
+          "x": 234,
+          "y": 527,
+          "w": 17,
+          "h": 15,
+          "area": 171,
+          "score": 6.125
+        },
+        {
+          "x": 206.5,
+          "y": 565.5,
+          "w": 8,
+          "h": 10,
+          "area": 20,
+          "score": 45.25
+        }
+      ]
+    },
+    {
+      "gender": "female",
+      "action": "attack",
+      "index": 1,
+      "source": "packages\\asset-pipeline\\sources\\player-rig-v2\\body-female\\attack-0-source.png",
+      "brooch": [
+        709,
+        526.5
+      ],
+      "candidates": [
+        {
+          "x": 709,
+          "y": 526.5,
+          "w": 17,
+          "h": 16,
+          "area": 187,
+          "score": 13
+        }
+      ]
+    },
+    {
+      "gender": "female",
+      "action": "attack",
+      "index": 2,
+      "source": "packages\\asset-pipeline\\sources\\player-rig-v2\\body-female\\attack-0-source.png",
+      "brooch": [
+        1129,
+        519
+      ],
+      "candidates": [
+        {
+          "x": 1129,
+          "y": 519,
+          "w": 13,
+          "h": 9,
+          "area": 66,
+          "score": 13.125
+        },
+        {
+          "x": 1096.5,
+          "y": 509,
+          "w": 6,
+          "h": 7,
+          "area": 25,
+          "score": 19.5
+        },
+        {
+          "x": 1095.5,
+          "y": 558.5,
+          "w": 10,
+          "h": 12,
+          "area": 43,
+          "score": 37.75
+        },
+        {
+          "x": 1053,
+          "y": 477,
+          "w": 21,
+          "h": 5,
+          "area": 63,
+          "score": 69.875
+        }
+      ]
+    },
+    {
+      "gender": "female",
+      "action": "attack",
+      "index": 3,
+      "source": "packages\\asset-pipeline\\sources\\player-rig-v2\\body-female\\attack-0-source.png",
+      "brooch": [
+        1550,
+        522.5
+      ],
+      "candidates": [
+        {
+          "x": 1550,
+          "y": 522.5,
+          "w": 9,
+          "h": 6,
+          "area": 41,
+          "score": 4.5
+        },
+        {
+          "x": 1545.5,
+          "y": 476,
+          "w": 10,
+          "h": 3,
+          "area": 19,
+          "score": 54.125
+        }
+      ]
+    },
+    {
+      "gender": "female",
+      "action": "attack",
+      "index": 4,
+      "source": "packages\\asset-pipeline\\sources\\player-rig-v2\\body-female\\attack-1-source.png",
+      "brooch": [
+        226.5,
+        523.5
+      ],
+      "candidates": [
+        {
+          "x": 226.5,
+          "y": 523.5,
+          "w": 18,
+          "h": 16,
+          "area": 197,
+          "score": 3.75
+        },
+        {
+          "x": 197,
+          "y": 563,
+          "w": 11,
+          "h": 11,
+          "area": 50,
+          "score": 44.125
+        },
+        {
+          "x": 253,
+          "y": 563.5,
+          "w": 11,
+          "h": 12,
+          "area": 52,
+          "score": 46.875
+        }
+      ]
+    },
+    {
+      "gender": "female",
+      "action": "attack",
+      "index": 5,
+      "source": "packages\\asset-pipeline\\sources\\player-rig-v2\\body-female\\attack-1-source.png",
+      "brooch": [
+        672.5,
+        521.5
+      ],
+      "candidates": [
+        {
+          "x": 672.5,
+          "y": 521.5,
+          "w": 18,
+          "h": 16,
+          "area": 191,
+          "score": 6.375
+        },
+        {
+          "x": 644,
+          "y": 559.5,
+          "w": 11,
+          "h": 10,
+          "area": 51,
+          "score": 40.25
+        },
+        {
+          "x": 699,
+          "y": 559.5,
+          "w": 11,
+          "h": 10,
+          "area": 47,
+          "score": 43.5
+        }
+      ]
+    },
+    {
+      "gender": "female",
+      "action": "attack",
+      "index": 6,
+      "source": "packages\\asset-pipeline\\sources\\player-rig-v2\\body-female\\attack-1-source.png",
+      "brooch": [
+        1106.5,
+        526
+      ],
+      "candidates": [
+        {
+          "x": 1106.5,
+          "y": 526,
+          "w": 18,
+          "h": 15,
+          "area": 197,
+          "score": 3
+        },
+        {
+          "x": 1135,
+          "y": 564,
+          "w": 9,
+          "h": 11,
+          "area": 39,
+          "score": 46.625
+        },
+        {
+          "x": 1077,
+          "y": 564,
+          "w": 11,
+          "h": 11,
+          "area": 43,
+          "score": 46.875
+        }
+      ]
+    },
+    {
+      "gender": "female",
+      "action": "attack",
+      "index": 7,
+      "source": "packages\\asset-pipeline\\sources\\player-rig-v2\\body-female\\attack-1-source.png",
+      "brooch": [
+        1552.5,
+        527
+      ],
+      "candidates": [
+        {
+          "x": 1552.5,
+          "y": 527,
+          "w": 18,
+          "h": 17,
+          "area": 203,
+          "score": 2.625
+        },
+        {
+          "x": 1526.5,
+          "y": 564.5,
+          "w": 10,
+          "h": 10,
+          "area": 46,
+          "score": 45.875
+        },
+        {
+          "x": 1580.5,
+          "y": 565.5,
+          "w": 8,
+          "h": 8,
+          "area": 22,
+          "score": 47.625
+        }
+      ]
+    },
+    {
+      "gender": "female",
+      "action": "attack",
+      "index": 8,
+      "source": "packages\\asset-pipeline\\sources\\player-rig-v2\\body-female\\attack-2-source.png",
+      "brooch": [
+        226.5,
+        514.5
+      ],
+      "candidates": [
+        {
+          "x": 226.5,
+          "y": 514.5,
+          "w": 18,
+          "h": 16,
+          "area": 225,
+          "score": 12.75
+        }
+      ]
+    },
+    {
+      "gender": "female",
+      "action": "attack",
+      "index": 9,
+      "source": "packages\\asset-pipeline\\sources\\player-rig-v2\\body-female\\attack-2-source.png",
+      "brooch": [
+        665.5,
+        540.5
+      ],
+      "candidates": [
+        {
+          "x": 665.5,
+          "y": 540.5,
+          "w": 18,
+          "h": 16,
+          "area": 210,
+          "score": 16.625
+        }
+      ]
+    },
+    {
+      "gender": "female",
+      "action": "attack",
+      "index": 10,
+      "source": "packages\\asset-pipeline\\sources\\player-rig-v2\\body-female\\attack-2-source.png",
+      "brooch": [
+        1109.5,
+        541
+      ],
+      "candidates": [
+        {
+          "x": 1109.5,
+          "y": 541,
+          "w": 18,
+          "h": 15,
+          "area": 205,
+          "score": 17.75
+        },
+        {
+          "x": 1087.5,
+          "y": 484.5,
+          "w": 8,
+          "h": 6,
+          "area": 27,
+          "score": 46.75
+        }
+      ]
+    },
+    {
+      "gender": "female",
+      "action": "attack",
+      "index": 11,
+      "source": "packages\\asset-pipeline\\sources\\player-rig-v2\\body-female\\attack-2-source.png",
+      "brooch": [
+        1554.5,
+        519.5
+      ],
+      "candidates": [
+        {
+          "x": 1554.5,
+          "y": 519.5,
+          "w": 16,
+          "h": 16,
+          "area": 191,
+          "score": 6.125
+        }
+      ]
+    },
+    {
+      "gender": "female",
+      "action": "attack",
+      "index": 12,
+      "source": "packages\\asset-pipeline\\sources\\player-rig-v2\\body-female\\attack-3-source.png",
+      "brooch": [
+        229.5,
+        525.5
+      ],
+      "candidates": [
+        {
+          "x": 229.5,
+          "y": 525.5,
+          "w": 16,
+          "h": 16,
+          "area": 183,
+          "score": 2.5
+        },
+        {
+          "x": 204.5,
+          "y": 563,
+          "w": 8,
+          "h": 9,
+          "area": 21,
+          "score": 42.75
+        },
+        {
+          "x": 254.5,
+          "y": 561,
+          "w": 6,
+          "h": 9,
+          "area": 25,
+          "score": 45.75
+        }
+      ]
+    },
+    {
+      "gender": "female",
+      "action": "attack",
+      "index": 13,
+      "source": "packages\\asset-pipeline\\sources\\player-rig-v2\\body-female\\attack-3-source.png",
+      "brooch": [
+        688.5,
+        525.5
+      ],
+      "candidates": [
+        {
+          "x": 688.5,
+          "y": 525.5,
+          "w": 16,
+          "h": 16,
+          "area": 184,
+          "score": 6.375
+        },
+        {
+          "x": 661,
+          "y": 562.5,
+          "w": 7,
+          "h": 10,
+          "area": 27,
+          "score": 40
+        },
+        {
+          "x": 714,
+          "y": 563,
+          "w": 9,
+          "h": 9,
+          "area": 22,
+          "score": 50.25
+        }
+      ]
+    },
+    {
+      "gender": "female",
+      "action": "attack",
+      "index": 14,
+      "source": "packages\\asset-pipeline\\sources\\player-rig-v2\\body-female\\attack-3-source.png",
+      "brooch": [
+        1102.5,
+        525.5
+      ],
+      "candidates": [
+        {
+          "x": 1102.5,
+          "y": 525.5,
+          "w": 18,
+          "h": 16,
+          "area": 182,
+          "score": 3
+        },
+        {
+          "x": 1128.5,
+          "y": 563,
+          "w": 8,
+          "h": 9,
+          "area": 25,
+          "score": 43.5
+        },
+        {
+          "x": 1075.5,
+          "y": 563,
+          "w": 6,
+          "h": 9,
+          "area": 19,
+          "score": 47.75
+        }
+      ]
+    }
+  ]
+}

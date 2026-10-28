@@ -1,0 +1,27 @@
+Use case: stylized-concept.
+Asset type: production pixel-art RPG animation sprite sheet, completely drawn integrated full-character frames.
+Reference image: the supplied master-staff-reference.png is ONLY the immutable character identity and five directional model reference. Its FIVE figures left to right are SOUTH(front), EAST(profile facing right), NORTH(back), SOUTH-EAST(three-quarter front facing right), NORTH-EAST(three-quarter back facing right).
+Draw exactly this SAME slender young adventurer in every frame: smoke-grey layered side-swept hair hugging the small head, same visible forehead and face, navy coat with detailed gold piping, compact silver shoulders, fitted dark trousers, brown leather boots. Keep the head/torso/hips/limb thickness and the detailed pixel clusters identical in scale and style across actions. ONE full rigid staff: dark-wood shaft, gold crescent head enclosing one ice-blue crystal. Exactly two arms and two hands. One hand firmly wraps around the staff shaft, visible fingers over the shaft; the crystal stays outside the face. The staff is one continuous straight rigid shaft, does not bend/disappear/duplicate or change design.
+Every frame is a newly drawn COMPLETE whole person with clothing/hair/hands/boots/staff integrated, not separate paper-doll parts.
+Pixel drawing: hard-edged deliberate pixel clusters, clean dark outline, restrained detailed shading; no soft blur, no interpolation, no motion-blurred double limbs.
+GRID RULES: exactly FIVE horizontal rows. Row1=SOUTH, row2=EAST, row3=NORTH, row4=SOUTH-EAST, row5=NORTH-EAST. Time moves left to right in each row. Every cell is an equal square with no gutters. Do NOT make the five directions into columns. No labels, text, boxes, border, checkerboard, or guide lines in final image. Transparent background.
+PROPORTION RULES: use a144x144 logical-pixel square per frame, character body including hair is exactly73 logical pixels from crown to boot sole in neutral standing; anchor ground/root at cell coordinate(72,128). Only natural bent knees/foreshortening changes posed height. Never enlarge the body/head for an attack, never fill the cell with the character; the empty margin is intentional for the weapon. All bodies share this one native pixel scale. Every complete body and staff fits entirely inside its own cell, with no spill between cells.
+ACTION: twelve distinct REACTION poses per direction, grouped as4HIT +4DODGE +4DEATH. EXACTLY TWELVE columns x FIVE rows =60completefigures.
+The staff NEVER leaves the hand in any of the60cells. Draw the entire longstaff visible even when bending/falling, one hand wrappedarounditsrigidshaft, bluecrystalalwaysvisible, nootherweapon. Do not turn a reaction into emptyhandcasting. Keepidenticalweaponandcostumedesign, no enlargingbody.
+Columns1–4 HIT:
+1 braced guard suddenlyflinches, shoulderrecoils;
+2 strongest recoil with kneesflexed and torsobentback a little, staffstillfirmlyheld besidebody;
+3 recoveringbalance, freehandnearsternum, staffstillheld;
+4 uprightreadyguard again.
+Columns5–8 DODGE:
+5 crouch anticipation withheadlow andkneesbent, staffheldclosebesidebody;
+6 quickside-stepleaning strongly outofattackline, onefootpushesoff, fullstaffstillfirmlyheld;
+7 oppositelandrecovery withkneescompressed, staffstillheld;
+8 standupreturntoguard.
+Columns9–12 DEATH:
+9 kneesbuckleandheadbows, fullstaffstillinhands;
+10 fallsdownontooneside, kneetouchesground, staffheldratherthanfloating;
+11 lyingonthegroundononeside, limbsnaturallyfolded, handstillwrapsstaffshaftlyingbesidethebody;
+12 finalrestingcollapsepose, completewholecharacterlyingstill, SAMEstaffretainedinhisfistnexttothebody, nosparestandingstafforsecondbody.
+MaintainrowcameraS/E/N/SE/NE even throughcollapse: northrow neverrevealsface, eastfacesright, diagonalsretainorientation. Fullbodyinclfeetandstaffentirelyfitswithineachsquare. FallenbodycanbecomewiderandshorterbecauseofposebutNOartscaleresizing.
+Outputexactly1728x720pixels12columns×5rows of144×144logicalcells, transparentbackground, no textorlabelsorgridlines. Keepnativebody73pixelsinclhair inneutral; footroot(72,128), bodydetailandheadsizeunchangedindamagedposes.

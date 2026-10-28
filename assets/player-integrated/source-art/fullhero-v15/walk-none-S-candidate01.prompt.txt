@@ -1,0 +1,18 @@
+Use case: identity-preserve. Production pixel-art game sprite sheet. Draw exactly EIGHT frames of a gentle WALK animation of the same complete unarmed man, all facing SOUTH toward camera. The single idle character in image1 is the anatomical master. Image2 is the original higher-detail idle artwork for SAME clothing, face, smoky silver hair, navy/gold fabric and silver metal texture. Image3 is eight PixelLab WALK poses for timing only, not appearance.
+
+Anatomical invariants: reproduce image1's EXACT adult slim skeleton, long narrow legs, narrow waist, same shoulder breadth, neck, face and head size. At the game's native scale its upright complete figure is73pixels tall; HEAD/HAIR WIDTH is28pixels and HAIR HEIGHT24pixels. These ratios are mandatory. Keep head width at or BELOW28/73 of the full upright anatomical length. Do not enlarge crown, widen cheeks, shorten thighs/shins, thicken coat/arms or oversize boots. Hip-to-sole leg length must stay identical to the idle master. The first completed 16-frame attempt made heads too big and legs too short: explicitly correct that here using image1 as authority. Do not compress the body into a toy or baby. Hair is integrated with head, face and outfit are fully painted, not detachable layers.
+
+Composition: ONE1536x1024 landscape transparent PNG, FOUR equal columns and TWO equal rows, eight complete characters each at least300sourcepixels tall. Leave generous clear transparent gaps of32pixels between all silhouettes, plus48pixels completely empty border on every outer edge. Center each actor on a common cell-center ground anchor. Same camera/projection/zoom for all eight, no turnarounds. No cut-off limbs or feet, shadows, backgrounds, text, labels, panels, grid lines or props. Both gloved hands EMPTY.
+
+Pose order, reading left-to-right then top-to-bottom:
+1 left heel/foot forward in contact, opposite right arm slightly forward;
+2 left accepts weight as right knee starts to pass;
+3 right foot passes under pelvis, left is planted;
+4 right leg reaches forward as left heel lifts;
+5 right contact, opposite left arm slightly forward;
+6 right accepts weight as left knee starts to pass;
+7 left foot passes under pelvis, right is planted;
+8 left reaches forward as right heel lifts, loops seamlessly to1.
+The legs MUST articulate through eight genuinely different relaxed walking poses; not eight standing copies or eight raised-knee hopping poses. Front perspective foreshortens the reaching foot naturally while preserving actual limb lengths. Keep gentle restrained arm swing and body bob. No running, crouching, combat, floating or marching high-knees. Coat hem/hair follow motion subtly; collar, neck and head stay aligned.
+
+Finish: very crisp coherent native pixel clusters at source resolution, clean separated highlight/shadow shapes and solid contour pixels, tiny controlled palette, dark NAVY not muddy gray, readable gold trim and metal shoulder pieces. Preserve the exact complete-body character identity and fine costume design from the references. No blur, glossy3D rendering, grainy stippling, inflated head or thick soft body.

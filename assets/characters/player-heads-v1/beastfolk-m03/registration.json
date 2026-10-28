@@ -1,0 +1,191 @@
+{
+  "headId": "beastfolk-m03",
+  "status": "exported-pending-art-review",
+  "sourceSha256": "96dad3ae981f45a27ff60f6c3d4ec0992ea0dd4fe8431642475cbb41a3084881",
+  "sourceSize": [
+    1774,
+    887
+  ],
+  "eyeAnchors": {
+    "left": 178,
+    "right": 280,
+    "y": 310,
+    "bbox": {
+      "x0": 75,
+      "y0": 97,
+      "x1": 371,
+      "y1": 411
+    }
+  },
+  "geometry": {
+    "scale": 0.16666666666666666,
+    "sourceCheekSpan": [
+      174,
+      281
+    ],
+    "sourceCheekY": 340,
+    "sourceFaceCenter": 227.5,
+    "registrationBasis": "frontal-cheek-width18px-not-hair"
+  },
+  "scale": 0.16666666666666666,
+  "scaleSharedAcrossDirections": true,
+  "perDirectionScale": false,
+  "wholeHead": true,
+  "includesClothing": false,
+  "registrations": [
+    {
+      "direction": "S",
+      "sourceNeck": [
+        224.5,
+        394
+      ],
+      "scale": 0.16666666666666666,
+      "neck": [
+        40,
+        62
+      ],
+      "bounds": {
+        "x0": 15,
+        "y0": 13,
+        "x1": 65,
+        "y1": 65
+      },
+      "neckCovered": true
+    },
+    {
+      "direction": "SW",
+      "sourceNeck": [
+        231,
+        393
+      ],
+      "scale": 0.16666666666666666,
+      "neck": [
+        40,
+        62
+      ],
+      "bounds": {
+        "x0": 16,
+        "y0": 13,
+        "x1": 65,
+        "y1": 65
+      },
+      "neckCovered": true
+    },
+    {
+      "direction": "W",
+      "sourceNeck": [
+        217,
+        398
+      ],
+      "scale": 0.16666666666666666,
+      "neck": [
+        40,
+        62
+      ],
+      "bounds": {
+        "x0": 18,
+        "y0": 12,
+        "x1": 67,
+        "y1": 65
+      },
+      "neckCovered": true
+    },
+    {
+      "direction": "NW",
+      "sourceNeck": [
+        255.5,
+        400
+      ],
+      "scale": 0.16666666666666666,
+      "neck": [
+        40,
+        62
+      ],
+      "bounds": {
+        "x0": 14,
+        "y0": 12,
+        "x1": 64,
+        "y1": 65
+      },
+      "neckCovered": true
+    },
+    {
+      "direction": "N",
+      "sourceNeck": [
+        226.5,
+        362
+      ],
+      "scale": 0.16666666666666666,
+      "neck": [
+        40,
+        62
+      ],
+      "bounds": {
+        "x0": 18,
+        "y0": 13,
+        "x1": 66,
+        "y1": 65
+      },
+      "neckCovered": true
+    },
+    {
+      "direction": "NE",
+      "sourceNeck": [
+        213.5,
+        361
+      ],
+      "scale": 0.16666666666666666,
+      "neck": [
+        40,
+        62
+      ],
+      "bounds": {
+        "x0": 17,
+        "y0": 13,
+        "x1": 66,
+        "y1": 65
+      },
+      "neckCovered": true
+    },
+    {
+      "direction": "E",
+      "sourceNeck": [
+        231,
+        361
+      ],
+      "scale": 0.16666666666666666,
+      "neck": [
+        40,
+        62
+      ],
+      "bounds": {
+        "x0": 17,
+        "y0": 13,
+        "x1": 66,
+        "y1": 65
+      },
+      "neckCovered": true
+    },
+    {
+      "direction": "SE",
+      "sourceNeck": [
+        240.5,
+        361
+      ],
+      "scale": 0.16666666666666666,
+      "neck": [
+        40,
+        62
+      ],
+      "bounds": {
+        "x0": 16,
+        "y0": 13,
+        "x1": 65,
+        "y1": 65
+      },
+      "neckCovered": true
+    }
+  ],
+  "completeMotion": false,
+  "productionEnabled": false
+}

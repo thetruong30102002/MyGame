@@ -1,0 +1,12 @@
+{
+  "id": "player_bow_f03-shoot-N",
+  "prompt": "Image1 is the ONLY target character identity: female Kim Yến, honey-blonde short bob, swept fringe, sand-ivory fitted archer jacket, teal shoulder cape, bronze vambraces, brown boots, one ornate teal-and-gold dragon-limb bow with walnut grip, taut string. Draw this complete character doing exactly the twelve archery poses/camera angles in Image2. Image2 is POSE AND SHOOTING DIRECTION REFERENCE ONLY, do NOT copy its male character, hairstyle, green outfit or gold bow. Preserve Image1 identity and same slender adult body proportions. Transparent 4 columns x3 rows, same twelve sequential times as guide. Fixed camera, same exact head and body scale, complete integrated pixels hair/body/clothes/bow per frame. Sharp game pixels. Camera BACK, shoots STRAIGHT AWAY from camera. Hands and arrow in FRONT of chest are hidden by torso. Only elbow and upright bow limbs near shoulder show. No long horizontal arrow, no arm stretched sideways or behind back. Endpoints exact relaxed master. No grid lines, no VFX, no glow trails, no detached objects. Entire actor and weapon fully inside each cell.",
+  "references": [
+    "action-references/player_bow_f03/N-master.png",
+    "D:/truong/MyGame/assets/player-integrated/source-art/wholecast-v18/motion/player_bow_m01-shoot-N-r2.png"
+  ],
+  "tool": "built-in-imagegen",
+  "status": "generated",
+  "output": "motion/player_bow_f03-shoot-N-r2.png",
+  "sourceSha256": "f89dbc8956964c9b2a31e35a076c536f0ffc17ff5280e32a12a913fad7ee15a5"
+}

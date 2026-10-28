@@ -1,0 +1,2 @@
+import {resolve,join} from 'node:path';import {readPng,writePng,scaleNearest,createImage,blit} from '../image/rgba.js';
+const root=resolve(import.meta.dirname,'../../../..');for(const g of ['male','female']){const board=createImage(288*3,288*2);for(const[i,id]of ['attack-03','attack-04','attack-07'].entries())for(const[j,layer]of ['full','assembled'].entries())blit(board,readPng(join(root,'packages/asset-pipeline/sources/player-rig-v2','body-'+g,'motion',id+'-'+layer+'.png')),i*288,j*288);writePng(join(root,'.aether-stage/player-rig-v2',g+'-occlusion.png'),board);}

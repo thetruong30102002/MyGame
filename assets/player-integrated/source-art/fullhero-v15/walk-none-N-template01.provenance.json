@@ -1,0 +1,27 @@
+{
+  "file": "walk-none-N-template01.png",
+  "prompt": "walk-none-N-template01.prompt.txt",
+  "tool": "builtin image_gen.imagegen",
+  "source": "C:\\Users\\thetr\\.codex\\generated_images\\01a16c85-e850-7610-9a03-9c13f59f23c0\\exec-50d60f77-6906-425a-9a82-86ba78c9f350.png",
+  "sha256": "d2a3265f732b31ddc610192c6a04e8010c5b5791d2985457c80c82f6fc40735b",
+  "size": [
+    1774,
+    887
+  ],
+  "mode": "RGBA",
+  "action": "walk",
+  "direction": "N",
+  "frames": 8,
+  "columns": 4,
+  "rows": 2,
+  "completeIntegratedActor": true,
+  "emptyHands": true,
+  "references": [
+    "references/template-none-N-8poses.png",
+    "references/idle-none-N-tight-6x.png",
+    "references/walk-guide-none-N-2x.png"
+  ],
+  "postGenerationImageEditing": false,
+  "artApproved": false,
+  "status": "Pending independent native anatomy and gait review"
+}

@@ -1,0 +1,93 @@
+{
+  "status": "idle-front-prototype-not-approved",
+  "wholeHead": true,
+  "separateHair": false,
+  "headContainsClothing": false,
+  "headPose": "S-neutral",
+  "headAssetOrigin": [
+    112,
+    100
+  ],
+  "headAssetCanvas": [
+    64,
+    64
+  ],
+  "neckAnchorInFrame": [
+    144,
+    154
+  ],
+  "neckAnchorInAsset": [
+    32,
+    54
+  ],
+  "collarFront": true,
+  "neckRows": {
+    "144": [
+      129,
+      160
+    ],
+    "145": [
+      132,
+      160
+    ],
+    "146": [
+      132,
+      157
+    ],
+    "147": [
+      135,
+      156
+    ],
+    "148": [
+      136,
+      154
+    ],
+    "149": [
+      137,
+      152
+    ],
+    "150": [
+      139,
+      150
+    ],
+    "151": [
+      139,
+      150
+    ],
+    "152": [
+      139,
+      150
+    ],
+    "153": [
+      141,
+      148
+    ],
+    "154": [
+      142,
+      147
+    ],
+    "155": [
+      142,
+      147
+    ],
+    "156": [
+      143,
+      146
+    ]
+  },
+  "pixelsReassemblyExact": true,
+  "bodySha256": "552d6a573e06198e4b7d1ba0b4c69f363b0adaba3b9ac9f2490d981ebcc92b7b",
+  "bodyFrameSize": [
+    288,
+    288
+  ],
+  "bodyRoot": [
+    144,
+    256
+  ],
+  "ppu": 96,
+  "completeMotion": false,
+  "targetSwordAttackFrames": 15,
+  "productionEnabled": false,
+  "artApproved": false
+}

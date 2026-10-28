@@ -1,0 +1,205 @@
+{
+  "version": 2,
+  "id": "player_sword_m02-walk-E",
+  "source": "motion/player_sword_m02-walk-E.png",
+  "sha256": "0d9ebbe2659042cbff6c9740e5d06692909d8b001eb4be05178e318322053d25",
+  "walkSha256": null,
+  "options": {},
+  "uniformWholeActorScale": 0.22727272727272727,
+  "resampling": "nearest",
+  "frameSize": [
+    144,
+    144
+  ],
+  "root": [
+    72,
+    128
+  ],
+  "modularLayers": false,
+  "frames": [
+    {
+      "index": 0,
+      "nativeBounds": [
+        53,
+        50,
+        101,
+        127
+      ],
+      "sourceBounds": [
+        126,
+        77,
+        341,
+        416
+      ],
+      "headDiagnostic": [
+        155,
+        82,
+        276,
+        166
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "index": 1,
+      "nativeBounds": [
+        54,
+        51,
+        100,
+        127
+      ],
+      "sourceBounds": [
+        579,
+        78,
+        782,
+        416
+      ],
+      "headDiagnostic": [
+        596,
+        84,
+        718,
+        168
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "index": 2,
+      "nativeBounds": [
+        55,
+        50,
+        100,
+        127
+      ],
+      "sourceBounds": [
+        1025,
+        77,
+        1223,
+        416
+      ],
+      "headDiagnostic": [
+        1035,
+        83,
+        1157,
+        167
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "index": 3,
+      "nativeBounds": [
+        47,
+        50,
+        100,
+        127
+      ],
+      "sourceBounds": [
+        1435,
+        74,
+        1668,
+        416
+      ],
+      "headDiagnostic": [
+        1478,
+        81,
+        1600,
+        165
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "index": 4,
+      "nativeBounds": [
+        50,
+        52,
+        105,
+        127
+      ],
+      "sourceBounds": [
+        116,
+        516,
+        356,
+        849
+      ],
+      "headDiagnostic": [
+        164,
+        521,
+        287,
+        605
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "index": 5,
+      "nativeBounds": [
+        51,
+        51,
+        103,
+        127
+      ],
+      "sourceBounds": [
+        566,
+        515,
+        793,
+        851
+      ],
+      "headDiagnostic": [
+        602,
+        521,
+        724,
+        605
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "index": 6,
+      "nativeBounds": [
+        52,
+        51,
+        100,
+        127
+      ],
+      "sourceBounds": [
+        1011,
+        515,
+        1223,
+        852
+      ],
+      "headDiagnostic": [
+        1038,
+        520,
+        1160,
+        604
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    },
+    {
+      "index": 7,
+      "nativeBounds": [
+        48,
+        51,
+        100,
+        127
+      ],
+      "sourceBounds": [
+        1435,
+        514,
+        1668,
+        848
+      ],
+      "headDiagnostic": [
+        1478,
+        519,
+        1600,
+        603
+      ],
+      "sourceEdge": false,
+      "clipped": false
+    }
+  ]
+}

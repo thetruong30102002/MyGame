@@ -75,6 +75,9 @@ namespace Aether.Net
         public Task<CharacterInfo> CreateCharacterAsync(string name, string gender, CancellationToken ct = default) =>
             CallAsync<CharacterInfo>("/api/characters", HttpMethod.Post, new CreateCharacterRequest { Name = name, Gender = gender }, ct);
 
+        public Task<CharacterInfo> CreateCharacterAsync(string name, string gender, string modelId, string classId, CancellationToken ct = default) =>
+            CallAsync<CharacterInfo>("/api/characters", HttpMethod.Post, new CreateCharacterRequest { Name = name, Gender = gender, ModelId = modelId, ClassId = classId }, ct);
+
         public Task DeleteCharacterAsync(string id, CancellationToken ct = default) => CallAsync<OkResponse>($"/api/characters/{Uri.EscapeDataString(id)}", HttpMethod.Delete, null, ct);
 
         /// <summary>Lưu "chắc" qua HTTP (máy chủ giữ cấp / EXP / xu / bình — chỉ nhận vị trí, map, truyện…).</summary>

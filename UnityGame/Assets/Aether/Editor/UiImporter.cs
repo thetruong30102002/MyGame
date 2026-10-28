@@ -28,8 +28,10 @@ namespace Aether.Importer
             ImportUi(src, report);
             ImportSkillIcons(src, report);
             ImportFolder(src, "portraits", "Portraits", "portraits", report);
-            ImportFolder(src, "items", "Items", "items", report);
+            ImportItems(src, report);
         }
+
+        public static void ImportItems(string src, ImportReport report) => ImportFolder(src, "items", "Items", "items", report);
 
         /// <summary>Một chân dung (dùng chung với CharacterImporter). Trả null nếu thiếu file.</summary>
         public static Sprite ImportPortrait(string src, string relPath, ImportReport report)

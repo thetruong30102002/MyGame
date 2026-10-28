@@ -1,0 +1,14 @@
+{
+  "provider": "builtin-imagegen",
+  "candidate": true,
+  "artApproved": false,
+  "image": "walk-staff-S-candidate01.png",
+  "sha256": "1ca9cab0864d5010a9213aadc4c224e26beb3ba3237dfcb49d6f63934863e77a",
+  "size": [
+    1774,
+    887
+  ],
+  "source": "C:/Users/thetr/.codex/generated_images/01a16c8a-ffb6-7611-8579-3f9f031ae987/exec-a3d38c18-2eb2-41ab-9e1c-fc02dd1b9452.png",
+  "prompt": "walk-staff-S-candidate01.prompt.txt",
+  "notes": "Eight-walk front pilot, pending explicit anatomy/sharpness/gait comparison. No production export."
+}

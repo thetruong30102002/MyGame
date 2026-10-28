@@ -19,7 +19,7 @@ namespace Aether.Client.UI
         private int rewardsDrawn = -1;
 
         /// <summary>Cửa sổ mở bằng NPC — không vẽ thanh tab trái, nội dung rộng hết khung.</summary>
-        private static bool IsService(Kind k) => k == Kind.Shop || k == Kind.Waystone || k == Kind.Glory || k == Kind.Admin;
+        private static bool IsService(Kind k) => k == Kind.Shop || k == Kind.Waystone || k == Kind.Glory || k == Kind.Admin || k == Kind.Barber;
 
         private static string ServiceTitle(Kind k) => k switch
         {
@@ -27,6 +27,7 @@ namespace Aether.Client.UI
             Kind.Waystone => "Cột dịch chuyển",
             Kind.Glory => "Bia Danh Vọng",
             Kind.Admin => "Quản trị",
+            Kind.Barber => "Mira · Tiệm tóc",
             _ => "",
         };
 

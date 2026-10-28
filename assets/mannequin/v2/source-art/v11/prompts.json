@@ -1,0 +1,30 @@
+{
+  "mode": "built-in image_gen",
+  "assets": [
+    {
+      "id": "male-attack",
+      "prompt": "Use case: precise-object-edit / identity-preserve. Asset: production pixel RPG two-handed overhead chop animation, 7 columns x5 rows, native144x144 pixels per cell with exact fixed registration squares. Image1 is the immutable POSE AND JOINT GUIDE. Image2 is the approved SAME CHARACTER standing in eight views: copy that body's slender adult proportions, same complexion, same crisp pixel shading, head size, delicate limb thickness and face identity. Redraw image1 to look exactly like image2 performing the chop. Do not keep the bulky orange muscular body or soft gradient rendering from image1. Every phase must be the same person, not a new character. Keep palms, elbows, knees, foot roots, pelvis and head centers at the guide coordinates; feet root at nativey128; no body enlargement or per-frame zoom. Preserve all35 cells, rows FRONT, LEFT, BACK, FRONT-LEFT, BACK-LEFT, columns ready, lift, overhead windup, forceful downstroke, lowest impact, follow-through, recover. Both hands together gripping one imaginary sword hilt, with anatomically natural shoulder rotation and full downward body weight. No weapon is drawn because the real game attaches weapons to the palms. Slender adult fantasy RPG mannequin wearing only dark navy short underwear briefs. BALD head, no hair, no clothing/armor/shoes beyond the specified underwear. Clean crisp deliberately placed pixel clusters, same pixel density as the idle reference, no motion blur, no soft paint blur, no anti-aliased fringes, no sculpted bodybuilder muscles. Native144 grid, narrow16-17px bald skull, total standing figure80px tall; crouching follows the pose without changing anatomy. Genuine transparent background. Keep green/magenta registration corner marks exactly, no added text or scenery.",
+      "refs": [
+        "../v7/male-attack-template.png",
+        "male-idle-reference.png"
+      ]
+    },
+    {
+      "id": "female-attack",
+      "prompt": "Use case: precise-object-edit / identity-preserve. Asset: production pixel RPG two-handed overhead chop animation, 7 columns x5 rows, native144x144 pixels per cell with exact fixed registration squares. Image1 is the immutable POSE AND JOINT GUIDE. Image2 is the approved SAME CHARACTER standing in eight views: copy that body's slender adult proportions, same complexion, same crisp pixel shading, head size, delicate limb thickness and face identity. Redraw image1 to look exactly like image2 performing the chop. Do not keep the bulky orange muscular body or soft gradient rendering from image1. Every phase must be the same person, not a new character. Keep palms, elbows, knees, foot roots, pelvis and head centers at the guide coordinates; feet root at nativey128; no body enlargement or per-frame zoom. Preserve all35 cells, rows FRONT, LEFT, BACK, FRONT-LEFT, BACK-LEFT, columns ready, lift, overhead windup, forceful downstroke, lowest impact, follow-through, recover. Both hands together gripping one imaginary sword hilt, with anatomically natural shoulder rotation and full downward body weight. No weapon is drawn because the real game attaches weapons to the palms. Slender adult fantasy RPG mannequin wearing only an opaque dark navy bandeau bra and matching modest short underwear briefs. BALD head, no hair, no clothing/armor/shoes beyond the specified underwear. Clean crisp deliberately placed pixel clusters, same pixel density as the idle reference, no motion blur, no soft paint blur, no anti-aliased fringes, no sculpted bodybuilder muscles. Native144 grid, narrow16-17px bald skull, total standing figure80px tall; crouching follows the pose without changing anatomy. Genuine transparent background. Keep green/magenta registration corner marks exactly, no added text or scenery.",
+      "refs": [
+        "../v7/female-attack-template.png",
+        "female-idle-reference.png"
+      ]
+    },
+    {
+      "id": "hair-fitted",
+      "prompt": "Use case: precise-object-edit / identity-preserve. Correct the modular RPG hair in image1, with image2 supplying the immutable real bald face positions and image3 the natural integrated reference. Eight columns x3 styles on native48px cells. Directions FRONT, FRONT-LEFT, LEFT, BACK-LEFT, BACK, BACK-RIGHT, RIGHT, FRONT-RIGHT. The current hair bulges out at the temples and side silhouette. Redraw all three styles to HUG THE SKULL MORE NATURALLY: retreat the left and right crown contours by1-2 native pixels, keeping the crown's vertical height and soft curved volume. Compact crown width22-23px over16-17px skull, crown top6px above the skull. This is a narrow natural cut, NOT flat, not squashed. Forehead opening must be low and slim, diagonal fringe ending just above eyebrows at nativey18-19, keep both eyes visible; NO wide bald triangular forehead, no exposed upper scalp, no protruding disconnected temple tufts. Temple hair lies flat to the ear, nape follows the back of neck. Row1 dark chestnut soft short side sweep; row2 elegant silver sweep; row3 brown long ponytail with modest low tie and soft connected flowing tail. Exact same scale and root placement for all styles, keep all8 views coherent and match the complete painted character. Hair-only transparent output; remove all faces, skin and necks. Keep only hair and original small corner registration marks on same sheet. Crisp pixel clusters and restrained highlights, smooth connected locks, no frizz, no blur, no inflated bouffant, no mushroom sides, no hard rectangular crop.",
+      "refs": [
+        "../v10/natural-fringe-hair-raw.png",
+        "../v10/hairline-face-guide.png",
+        "../v9/chestnut-integrated-idle-raw.png"
+      ]
+    }
+  ]
+}

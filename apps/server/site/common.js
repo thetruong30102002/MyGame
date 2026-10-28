@@ -266,7 +266,7 @@
 			</ul>
 		</nav>
 		<a href="tai-game" class="btn btn-primary btn-sm h-10 min-h-10 px-3 gap-1.5">${ic('download', 'w-[18px] h-[18px]')}<span class="hidden sm:inline">Tải game</span><span class="sm:hidden">Tải</span></a>
-		<button id="login-btn" class="btn btn-ghost btn-sm h-10 min-h-10 px-3 border border-white/20 gap-1.5" type="button" data-act="login">${ic('user', 'w-[18px] h-[18px]')}<span>Đăng nhập</span></button>
+		<button id="login-btn" class="btn btn-ghost btn-sm h-10 min-h-10 px-3 border border-white/20 gap-1.5" type="button" data-act="login" aria-label="Đăng nhập">${ic('user', 'w-[18px] h-[18px]')}<span>Đăng nhập</span></button>
 		<div id="acct" class="dropdown dropdown-end hidden">
 			<div tabindex="0" role="button" class="btn btn-ghost btn-sm h-10 min-h-10 gap-2 border border-white/20 px-1.5 sm:pl-1.5 sm:pr-3" aria-label="Tài khoản">
 				<span id="acct-av" class="inline-grid place-items-center w-7 h-7 rounded-lg text-[13px] font-black text-white leading-none"></span>

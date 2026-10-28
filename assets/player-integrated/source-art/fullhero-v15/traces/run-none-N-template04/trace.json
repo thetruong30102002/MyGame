@@ -1,0 +1,277 @@
+{
+  "version": 15,
+  "source": "run-none-N-template04.png",
+  "sourceSha256": "cd273e758662e252f8e8dfd9cf58caccb427efbc2c057fe70c8540af9726ce0b",
+  "state": "none",
+  "direction": "N",
+  "kind": "run",
+  "count": 8,
+  "columns": 4,
+  "sourceSize": [
+    1774,
+    887
+  ],
+  "neutralFrames": [
+    0,
+    7
+  ],
+  "measurements": [
+    {
+      "frame": 0,
+      "row": 0,
+      "column": 0,
+      "bounds": [
+        157,
+        166,
+        288,
+        430
+      ],
+      "area": 21344,
+      "crown": 166,
+      "floor": 428,
+      "height": 263,
+      "rootX": 235.5,
+      "hairBounds": [
+        181,
+        166,
+        275,
+        244
+      ],
+      "headSilhouetteBounds": [
+        178,
+        166,
+        277,
+        251
+      ]
+    },
+    {
+      "frame": 1,
+      "row": 0,
+      "column": 1,
+      "bounds": [
+        601,
+        165,
+        732,
+        419
+      ],
+      "area": 21215,
+      "crown": 166,
+      "floor": 417,
+      "height": 252,
+      "rootX": 215.0,
+      "hairBounds": [
+        619,
+        167,
+        714,
+        244
+      ],
+      "headSilhouetteBounds": [
+        618,
+        166,
+        717,
+        251
+      ]
+    },
+    {
+      "frame": 2,
+      "row": 0,
+      "column": 2,
+      "bounds": [
+        1043,
+        165,
+        1175,
+        430
+      ],
+      "area": 21228,
+      "crown": 166,
+      "floor": 428,
+      "height": 263,
+      "rootX": 226.5,
+      "hairBounds": [
+        1061,
+        167,
+        1154,
+        243
+      ],
+      "headSilhouetteBounds": [
+        1058,
+        166,
+        1158,
+        251
+      ]
+    },
+    {
+      "frame": 3,
+      "row": 0,
+      "column": 3,
+      "bounds": [
+        1485,
+        160,
+        1619,
+        419
+      ],
+      "area": 21505,
+      "crown": 161,
+      "floor": 417,
+      "height": 257,
+      "rootX": 206.0,
+      "hairBounds": [
+        1501,
+        162,
+        1594,
+        241
+      ],
+      "headSilhouetteBounds": [
+        1499,
+        161,
+        1598,
+        246
+      ]
+    },
+    {
+      "frame": 4,
+      "row": 1,
+      "column": 0,
+      "bounds": [
+        155,
+        568,
+        293,
+        827
+      ],
+      "area": 21393,
+      "crown": 568,
+      "floor": 825,
+      "height": 258,
+      "rootX": 218.0,
+      "hairBounds": [
+        179,
+        569,
+        275,
+        648
+      ],
+      "headSilhouetteBounds": [
+        178,
+        568,
+        277,
+        653
+      ]
+    },
+    {
+      "frame": 5,
+      "row": 1,
+      "column": 1,
+      "bounds": [
+        600,
+        568,
+        733,
+        827
+      ],
+      "area": 21341,
+      "crown": 568,
+      "floor": 825,
+      "height": 258,
+      "rootX": 228.0,
+      "hairBounds": [
+        618,
+        570,
+        714,
+        647
+      ],
+      "headSilhouetteBounds": [
+        618,
+        568,
+        717,
+        653
+      ]
+    },
+    {
+      "frame": 6,
+      "row": 1,
+      "column": 2,
+      "bounds": [
+        1037,
+        567,
+        1171,
+        827
+      ],
+      "area": 21243,
+      "crown": 568,
+      "floor": 825,
+      "height": 258,
+      "rootX": 207.5,
+      "hairBounds": [
+        1059,
+        569,
+        1154,
+        646
+      ],
+      "headSilhouetteBounds": [
+        1057,
+        568,
+        1157,
+        653
+      ]
+    },
+    {
+      "frame": 7,
+      "row": 1,
+      "column": 3,
+      "bounds": [
+        1481,
+        564,
+        1614,
+        817
+      ],
+      "area": 21322,
+      "crown": 565,
+      "floor": 815,
+      "height": 251,
+      "rootX": 226.0,
+      "hairBounds": [
+        1502,
+        566,
+        1594,
+        644
+      ],
+      "headSilhouetteBounds": [
+        1498,
+        565,
+        1597,
+        650
+      ]
+    }
+  ],
+  "registration": {
+    "scale": 0.31313131313131315,
+    "referenceBodyHeight": 257.0,
+    "rootX": 230.75,
+    "rowFloor": [
+      422.5,
+      825.0
+    ],
+    "columnRootX": [
+      218.91612903225817,
+      659.0661290322581,
+      1099.216129032258,
+      1539.366129032258
+    ],
+    "sourceGridHeadOrigin": 226.9000000000001,
+    "sourceGridHeadStep": 440.15,
+    "idleHairBounds": [
+      60,
+      55,
+      89,
+      80
+    ],
+    "scaleMode": "head",
+    "idleHeadSilhouetteBounds": [
+      59,
+      55,
+      90,
+      79
+    ],
+    "sourceMedianHeadWidth": 99.0
+  },
+  "artApproved": false,
+  "registrationApproved": false
+}

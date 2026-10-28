@@ -1,0 +1,2815 @@
+{
+  "version": 6,
+  "status": "candidate-not-approved",
+  "frameSize": [
+    288,
+    288
+  ],
+  "root": [
+    144,
+    256
+  ],
+  "bodyHeight": 150,
+  "ppu": 96,
+  "filter": "nearest",
+  "perFrameFit": false,
+  "productionEnabled": false,
+  "userApproved": false,
+  "directions": [
+    "S",
+    "SW",
+    "W",
+    "NW",
+    "N",
+    "NE",
+    "E",
+    "SE"
+  ],
+  "expectedFrames": 96,
+  "frames": [
+    {
+      "id": "attack-S-0",
+      "direction": "S",
+      "index": 0,
+      "source": "raw/S-0.png",
+      "sourceSha256": "8c277f5c6ebb5102c35f1b9f4e08b3144aceb22c63127a14c21c1be0dbc9c959",
+      "sourceCell": 0,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        1
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/S-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "f211f3e28163e40642a64709f02cbbb997f9e9ee229f3ac49c5053dbb1576ead",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-S-1",
+      "direction": "S",
+      "index": 1,
+      "source": "raw/S-0.png",
+      "sourceSha256": "8c277f5c6ebb5102c35f1b9f4e08b3144aceb22c63127a14c21c1be0dbc9c959",
+      "sourceCell": 1,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        0
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/S-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "76853978d12f725bbecaac84d50aa3e9986b7015210bc4a98256b92b2f3e0149",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-S-2",
+      "direction": "S",
+      "index": 2,
+      "source": "raw/S-0.png",
+      "sourceSha256": "8c277f5c6ebb5102c35f1b9f4e08b3144aceb22c63127a14c21c1be0dbc9c959",
+      "sourceCell": 2,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        1
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/S-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "8327f7218e5ae6c7f5f74f6e20fac60c5e7e48447857b0e241c0d132fa1067ba",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-S-3",
+      "direction": "S",
+      "index": 3,
+      "source": "raw/S-0.png",
+      "sourceSha256": "8c277f5c6ebb5102c35f1b9f4e08b3144aceb22c63127a14c21c1be0dbc9c959",
+      "sourceCell": 3,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        1
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/S-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "8d95bfedfe72a8b3c51d88757bb0764076530f83d24ad4d2f89bb91a6f74e8c1",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-S-4",
+      "direction": "S",
+      "index": 4,
+      "source": "raw/S-1.png",
+      "sourceSha256": "f23ac5732a7cf259f8c3fd3b60b8eb6220738be8b75e37882fb2d735c9d20839",
+      "sourceCell": 0,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        -18
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": true,
+      "renderSource": "native/attack-S-3.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "8d95bfedfe72a8b3c51d88757bb0764076530f83d24ad4d2f89bb91a6f74e8c1",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-S-5",
+      "direction": "S",
+      "index": 5,
+      "source": "raw/S-1.png",
+      "sourceSha256": "f23ac5732a7cf259f8c3fd3b60b8eb6220738be8b75e37882fb2d735c9d20839",
+      "sourceCell": 1,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        -18
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/S-1.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "54cd2e163cce5ae52197303028953eb0c00817de9ec2887855655b89fb292551",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-S-6",
+      "direction": "S",
+      "index": 6,
+      "source": "raw/S-1.png",
+      "sourceSha256": "f23ac5732a7cf259f8c3fd3b60b8eb6220738be8b75e37882fb2d735c9d20839",
+      "sourceCell": 2,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        11
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/S-1.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "48d0e56bcb2bc7df2f166dbb7bd57e51e7abef749a047b43a0e91af5257ce399",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-S-7",
+      "direction": "S",
+      "index": 7,
+      "source": "raw/S-1.png",
+      "sourceSha256": "f23ac5732a7cf259f8c3fd3b60b8eb6220738be8b75e37882fb2d735c9d20839",
+      "sourceCell": 3,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        11
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/S-1.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "c73c1c9e7a05fe9d7265c5c9772b73a02c299aee94bc4f35f2fe43bf1ee6be76",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-S-8",
+      "direction": "S",
+      "index": 8,
+      "source": "raw/S-2.png",
+      "sourceSha256": "373fd3f5fe8592e03b90a0605677f7d62771a42027161643daf793ac20ec665b",
+      "sourceCell": 0,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        -3
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/S-2.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "0f10cc290386884b3c728704ae98a5fd03cb5af0f680568504ef250c0bc7bc8f",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-S-9",
+      "direction": "S",
+      "index": 9,
+      "source": "raw/S-2.png",
+      "sourceSha256": "373fd3f5fe8592e03b90a0605677f7d62771a42027161643daf793ac20ec665b",
+      "sourceCell": 1,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        -3
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/S-2.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "0f4e08a0d5e7ed550ac4a0b42f5ac53fe6965e9e687fa8bf33cd57019edc4049",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-S-10",
+      "direction": "S",
+      "index": 10,
+      "source": "raw/S-2.png",
+      "sourceSha256": "373fd3f5fe8592e03b90a0605677f7d62771a42027161643daf793ac20ec665b",
+      "sourceCell": 2,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        11
+      ],
+      "lockedIdleEndpoint": true,
+      "lockedPoseHold": false,
+      "renderSource": "native/attack-S-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "f211f3e28163e40642a64709f02cbbb997f9e9ee229f3ac49c5053dbb1576ead",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-S-11",
+      "direction": "S",
+      "index": 11,
+      "source": "raw/S-2.png",
+      "sourceSha256": "373fd3f5fe8592e03b90a0605677f7d62771a42027161643daf793ac20ec665b",
+      "sourceCell": 3,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        11
+      ],
+      "lockedIdleEndpoint": true,
+      "lockedPoseHold": false,
+      "renderSource": "native/attack-S-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "f211f3e28163e40642a64709f02cbbb997f9e9ee229f3ac49c5053dbb1576ead",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-SW-0",
+      "direction": "SW",
+      "index": 0,
+      "source": "raw/SW-0.png",
+      "sourceSha256": "ef288e8adcf4856df433e852fc96bcf457f84b0cc622fb1b3dc6d50b04f6c9ac",
+      "sourceCell": 0,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        0
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/SW-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "208e093cbbb5d1a78fd87a700450bcf5bb3a0951ec4cd4947998eac92089b3f3",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-SW-1",
+      "direction": "SW",
+      "index": 1,
+      "source": "raw/SW-0.png",
+      "sourceSha256": "ef288e8adcf4856df433e852fc96bcf457f84b0cc622fb1b3dc6d50b04f6c9ac",
+      "sourceCell": 1,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        -1
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/SW-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "aa11040ed33ae7bb0c55fa5e3d815f2ea06194d9470f705016d51fe53ba30130",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-SW-2",
+      "direction": "SW",
+      "index": 2,
+      "source": "raw/SW-0.png",
+      "sourceSha256": "ef288e8adcf4856df433e852fc96bcf457f84b0cc622fb1b3dc6d50b04f6c9ac",
+      "sourceCell": 2,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        5
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/SW-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "45fd1edfc3def80de7d4463931cc0692082ff7e56346c1041962339c647848cf",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-SW-3",
+      "direction": "SW",
+      "index": 3,
+      "source": "raw/SW-0.png",
+      "sourceSha256": "ef288e8adcf4856df433e852fc96bcf457f84b0cc622fb1b3dc6d50b04f6c9ac",
+      "sourceCell": 3,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        5
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/SW-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "65b3d71e9543307b7a162e20dcd7dc50eddee935c0dcf0ecb929513b5e91fbee",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-SW-4",
+      "direction": "SW",
+      "index": 4,
+      "source": "raw/SW-1.png",
+      "sourceSha256": "7443b64aacf13fe74a422d0a5743105d6a8d5d6b8bf93a6df53bf4c316092e94",
+      "sourceCell": 0,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        -20
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": true,
+      "renderSource": "native/attack-SW-3.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "65b3d71e9543307b7a162e20dcd7dc50eddee935c0dcf0ecb929513b5e91fbee",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-SW-5",
+      "direction": "SW",
+      "index": 5,
+      "source": "raw/SW-1.png",
+      "sourceSha256": "7443b64aacf13fe74a422d0a5743105d6a8d5d6b8bf93a6df53bf4c316092e94",
+      "sourceCell": 1,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        -20
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/SW-1.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "0534e0d0d8f31110b66174aefa32b136c786c9ab06e46aa3cadfff1003da0d8f",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-SW-6",
+      "direction": "SW",
+      "index": 6,
+      "source": "raw/SW-1.png",
+      "sourceSha256": "7443b64aacf13fe74a422d0a5743105d6a8d5d6b8bf93a6df53bf4c316092e94",
+      "sourceCell": 2,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        17
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/SW-1.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "2afe51e2a8c58d240139bbbe16b3815ef15c373e74175160b3db6d3f6ce78f60",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-SW-7",
+      "direction": "SW",
+      "index": 7,
+      "source": "raw/SW-1.png",
+      "sourceSha256": "7443b64aacf13fe74a422d0a5743105d6a8d5d6b8bf93a6df53bf4c316092e94",
+      "sourceCell": 3,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        11
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/SW-1.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "446228515824376dc363202a36bc1615c71cb579998a9a4ea15e1d70dabf105d",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-SW-8",
+      "direction": "SW",
+      "index": 8,
+      "source": "raw/SW-2.png",
+      "sourceSha256": "1f992b097e10bd1ba00b7b0760d4512898af4b068cec337053bc7deebd4b5e45",
+      "sourceCell": 0,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        -3
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/SW-2.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "38353b54f2cdfaf38bb58ce8b6566ad1a79c764278827615ab8c6aacc9b499cf",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-SW-9",
+      "direction": "SW",
+      "index": 9,
+      "source": "raw/SW-2.png",
+      "sourceSha256": "1f992b097e10bd1ba00b7b0760d4512898af4b068cec337053bc7deebd4b5e45",
+      "sourceCell": 1,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        -3
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/SW-2.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "3b9fe2a1e4cff71e2c463ad40f1f1062396a7a554cbd421fa262c2c410017b96",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-SW-10",
+      "direction": "SW",
+      "index": 10,
+      "source": "raw/SW-2.png",
+      "sourceSha256": "1f992b097e10bd1ba00b7b0760d4512898af4b068cec337053bc7deebd4b5e45",
+      "sourceCell": 2,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        13
+      ],
+      "lockedIdleEndpoint": true,
+      "lockedPoseHold": false,
+      "renderSource": "native/attack-SW-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "208e093cbbb5d1a78fd87a700450bcf5bb3a0951ec4cd4947998eac92089b3f3",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-SW-11",
+      "direction": "SW",
+      "index": 11,
+      "source": "raw/SW-2.png",
+      "sourceSha256": "1f992b097e10bd1ba00b7b0760d4512898af4b068cec337053bc7deebd4b5e45",
+      "sourceCell": 3,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        14
+      ],
+      "lockedIdleEndpoint": true,
+      "lockedPoseHold": false,
+      "renderSource": "native/attack-SW-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "208e093cbbb5d1a78fd87a700450bcf5bb3a0951ec4cd4947998eac92089b3f3",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-W-0",
+      "direction": "W",
+      "index": 0,
+      "source": "raw/W-0.png",
+      "sourceSha256": "168059810a535394cc07f10848c947b14799122ec64eca4af787f1f8891a741c",
+      "sourceCell": 0,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        0
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/W-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "5973ebeda2bead4c50374063007e2c4056b052c08ee5ea81a4b37590429e2c2f",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-W-1",
+      "direction": "W",
+      "index": 1,
+      "source": "raw/W-0.png",
+      "sourceSha256": "168059810a535394cc07f10848c947b14799122ec64eca4af787f1f8891a741c",
+      "sourceCell": 1,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        0
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/W-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "7a45dfa16dab506bbf68c756230f98aaf9a76aa6a282f200ddbb2378247d784b",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-W-2",
+      "direction": "W",
+      "index": 2,
+      "source": "raw/W-0.png",
+      "sourceSha256": "168059810a535394cc07f10848c947b14799122ec64eca4af787f1f8891a741c",
+      "sourceCell": 2,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        0
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/W-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "cd2cee862f6226e64e1e489f2956e71e59ee8961eb2d82f61b345719f715f27d",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-W-3",
+      "direction": "W",
+      "index": 3,
+      "source": "raw/W-0.png",
+      "sourceSha256": "168059810a535394cc07f10848c947b14799122ec64eca4af787f1f8891a741c",
+      "sourceCell": 3,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        0
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/W-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "b57a7e476ea1023fe18b80a2a265e7fab8dd9467c28567627e71a3f9dac9c613",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-W-4",
+      "direction": "W",
+      "index": 4,
+      "source": "raw/W-1.png",
+      "sourceSha256": "fcdcc94be73cbb2ab67fb0cd047c4339ca4a5747e3d912d26e9b89f0aefa6267",
+      "sourceCell": 0,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        -13
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": true,
+      "renderSource": "native/attack-W-3.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "b57a7e476ea1023fe18b80a2a265e7fab8dd9467c28567627e71a3f9dac9c613",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-W-5",
+      "direction": "W",
+      "index": 5,
+      "source": "raw/W-1.png",
+      "sourceSha256": "fcdcc94be73cbb2ab67fb0cd047c4339ca4a5747e3d912d26e9b89f0aefa6267",
+      "sourceCell": 1,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        -13
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/W-1.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "b363a2a48fd8a05fa521be78d7cdaf74fef7828d617cf8dee82bb01576a595ac",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-W-6",
+      "direction": "W",
+      "index": 6,
+      "source": "raw/W-1.png",
+      "sourceSha256": "fcdcc94be73cbb2ab67fb0cd047c4339ca4a5747e3d912d26e9b89f0aefa6267",
+      "sourceCell": 2,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        13
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/W-1.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "f8c36088c7a87b4d8041ab8d4b7b119a66a67cbdb3891f3192a23bb772e41daa",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-W-7",
+      "direction": "W",
+      "index": 7,
+      "source": "raw/W-1.png",
+      "sourceSha256": "fcdcc94be73cbb2ab67fb0cd047c4339ca4a5747e3d912d26e9b89f0aefa6267",
+      "sourceCell": 3,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        12
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/W-1.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "e36df9d974fa6157c8dfc8c3c796fd1bbeab472cad547cda02f423df564e43ac",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-W-8",
+      "direction": "W",
+      "index": 8,
+      "source": "raw/W-2.png",
+      "sourceSha256": "852d1a6f9722e4d9dee3e637bc81dd230ce91056a1e8b3166ada3a7b3022d9fa",
+      "sourceCell": 0,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        0
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/W-2.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "3cc6166aa58a578516af37983679816dca385bf2d91cf5a235de7c18a9b4143f",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-W-9",
+      "direction": "W",
+      "index": 9,
+      "source": "raw/W-2.png",
+      "sourceSha256": "852d1a6f9722e4d9dee3e637bc81dd230ce91056a1e8b3166ada3a7b3022d9fa",
+      "sourceCell": 1,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        -1
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/W-2.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "953127d2d39a2110ea6169a708f9c9519a3943e9b9ec4809b042a45eab47262d",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-W-10",
+      "direction": "W",
+      "index": 10,
+      "source": "raw/W-2.png",
+      "sourceSha256": "852d1a6f9722e4d9dee3e637bc81dd230ce91056a1e8b3166ada3a7b3022d9fa",
+      "sourceCell": 2,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        14
+      ],
+      "lockedIdleEndpoint": true,
+      "lockedPoseHold": false,
+      "renderSource": "native/attack-W-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "5973ebeda2bead4c50374063007e2c4056b052c08ee5ea81a4b37590429e2c2f",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-W-11",
+      "direction": "W",
+      "index": 11,
+      "source": "raw/W-2.png",
+      "sourceSha256": "852d1a6f9722e4d9dee3e637bc81dd230ce91056a1e8b3166ada3a7b3022d9fa",
+      "sourceCell": 3,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        14
+      ],
+      "lockedIdleEndpoint": true,
+      "lockedPoseHold": false,
+      "renderSource": "native/attack-W-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "5973ebeda2bead4c50374063007e2c4056b052c08ee5ea81a4b37590429e2c2f",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-NW-0",
+      "direction": "NW",
+      "index": 0,
+      "source": "raw/NW-0.png",
+      "sourceSha256": "37dcc5c675e85f12e6e47f75f1ad0b811f3a581e3817ec684094d134e81e0a8e",
+      "sourceCell": 0,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        1
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/NW-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "e99a1ed62576fd2b933d3085012e4f75e831a01252a99e334add9f823ba6e5d1",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-NW-1",
+      "direction": "NW",
+      "index": 1,
+      "source": "raw/NW-0.png",
+      "sourceSha256": "37dcc5c675e85f12e6e47f75f1ad0b811f3a581e3817ec684094d134e81e0a8e",
+      "sourceCell": 1,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        1
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/NW-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "829c5f411370931e926cdb8f429832e3848844c12b91e9e705c7ce5eb8c2599f",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-NW-2",
+      "direction": "NW",
+      "index": 2,
+      "source": "raw/NW-0.png",
+      "sourceSha256": "37dcc5c675e85f12e6e47f75f1ad0b811f3a581e3817ec684094d134e81e0a8e",
+      "sourceCell": 2,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        2
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/NW-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "52939692da7c27fdc4914d8b8f5a20d3d0e3ebdefcf8f64ef5966afdd207746b",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-NW-3",
+      "direction": "NW",
+      "index": 3,
+      "source": "raw/NW-0.png",
+      "sourceSha256": "37dcc5c675e85f12e6e47f75f1ad0b811f3a581e3817ec684094d134e81e0a8e",
+      "sourceCell": 3,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        2
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/NW-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "875e231e60c3a64bf3540527d13f5edbb5b410623efc9b2252b9a94f0f96de43",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-NW-4",
+      "direction": "NW",
+      "index": 4,
+      "source": "raw/NW-1.png",
+      "sourceSha256": "31d14429c852f6db9a57e3aa48cc4f934e7685c3e324749a6f62daf0c9c883ac",
+      "sourceCell": 0,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        -24
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": true,
+      "renderSource": "native/attack-NW-3.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "875e231e60c3a64bf3540527d13f5edbb5b410623efc9b2252b9a94f0f96de43",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-NW-5",
+      "direction": "NW",
+      "index": 5,
+      "source": "raw/NW-1.png",
+      "sourceSha256": "31d14429c852f6db9a57e3aa48cc4f934e7685c3e324749a6f62daf0c9c883ac",
+      "sourceCell": 1,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        -24
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/NW-1.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "fe700d199dc740c551e1bb96922bc4b52070e557a89a12b4f7087b5bfb5cc31d",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-NW-6",
+      "direction": "NW",
+      "index": 6,
+      "source": "raw/NW-1.png",
+      "sourceSha256": "31d14429c852f6db9a57e3aa48cc4f934e7685c3e324749a6f62daf0c9c883ac",
+      "sourceCell": 2,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        23
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/NW-1.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "aace5fd55bb8f400f968ba8aaedfd6f94f7b5ef12dee47fb8e3ec6b096686208",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-NW-7",
+      "direction": "NW",
+      "index": 7,
+      "source": "raw/NW-1.png",
+      "sourceSha256": "31d14429c852f6db9a57e3aa48cc4f934e7685c3e324749a6f62daf0c9c883ac",
+      "sourceCell": 3,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        21
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/NW-1.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "d8ac8fe4c6115f02ec0a916fcfe34758ca407315bd6e720d189f95455e9eccfa",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-NW-8",
+      "direction": "NW",
+      "index": 8,
+      "source": "raw/NW-2-r2.png",
+      "sourceSha256": "e21dc02e33bf782dffc674f873072240671e2aa30c1d0e483f87882cb7b23d21",
+      "sourceCell": 0,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        -2
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/NW-2-r2.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "6515b73177abaebde916f24fe7df19eb96d90dd5df2b06aadac9b27c7776fbc3",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-NW-9",
+      "direction": "NW",
+      "index": 9,
+      "source": "raw/NW-2.png",
+      "sourceSha256": "5fad0cb6ad673931ce78918bdea313a356ec414b2600970b96528238a56dc149",
+      "sourceCell": 1,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        1
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/NW-2.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "a7ee4a0e774c1ada3109437a4dc5b5a7bcb4dbe46c505c1c741ab1460bbf071e",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-NW-10",
+      "direction": "NW",
+      "index": 10,
+      "source": "raw/NW-2.png",
+      "sourceSha256": "5fad0cb6ad673931ce78918bdea313a356ec414b2600970b96528238a56dc149",
+      "sourceCell": 2,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        14
+      ],
+      "lockedIdleEndpoint": true,
+      "lockedPoseHold": false,
+      "renderSource": "native/attack-NW-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "e99a1ed62576fd2b933d3085012e4f75e831a01252a99e334add9f823ba6e5d1",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-NW-11",
+      "direction": "NW",
+      "index": 11,
+      "source": "raw/NW-2.png",
+      "sourceSha256": "5fad0cb6ad673931ce78918bdea313a356ec414b2600970b96528238a56dc149",
+      "sourceCell": 3,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        14
+      ],
+      "lockedIdleEndpoint": true,
+      "lockedPoseHold": false,
+      "renderSource": "native/attack-NW-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "e99a1ed62576fd2b933d3085012e4f75e831a01252a99e334add9f823ba6e5d1",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-N-0",
+      "direction": "N",
+      "index": 0,
+      "source": "raw/N-0.png",
+      "sourceSha256": "0d52efaf9c95d801abceb27b33264421120af8f5b754766683a3bce7b8719fcf",
+      "sourceCell": 0,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        0
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/N-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "5fcb5cb8cc6a515e8f98a29c29d33df5b1a34540e37760d2b5f988e87f683398",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-N-1",
+      "direction": "N",
+      "index": 1,
+      "source": "raw/N-0.png",
+      "sourceSha256": "0d52efaf9c95d801abceb27b33264421120af8f5b754766683a3bce7b8719fcf",
+      "sourceCell": 1,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        0
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/N-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "4ce5b88af316ce49bf7179109ec70f8214afcf4e4fffc3033d2d8d41e29a9ccf",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-N-2",
+      "direction": "N",
+      "index": 2,
+      "source": "raw/N-0.png",
+      "sourceSha256": "0d52efaf9c95d801abceb27b33264421120af8f5b754766683a3bce7b8719fcf",
+      "sourceCell": 2,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        1
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/N-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "59ffdcc0e8615e67e32511095f17eb2caa4e23878d3eaa7c40285d56fb2e2369",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-N-3",
+      "direction": "N",
+      "index": 3,
+      "source": "raw/N-0.png",
+      "sourceSha256": "0d52efaf9c95d801abceb27b33264421120af8f5b754766683a3bce7b8719fcf",
+      "sourceCell": 3,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        1
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/N-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "429ca4c4da5d4450aa679dd9bfee9acadc8f3b9a4650603e6aa8fac8181672f5",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-N-4",
+      "direction": "N",
+      "index": 4,
+      "source": "raw/N-1-r2.png",
+      "sourceSha256": "58a1003d1a70c3d914532e2507fdc6f8697864e4af1563020410dca1ae7b009d",
+      "sourceCell": 0,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        0
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": true,
+      "renderSource": "native/attack-N-3.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "429ca4c4da5d4450aa679dd9bfee9acadc8f3b9a4650603e6aa8fac8181672f5",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-N-5",
+      "direction": "N",
+      "index": 5,
+      "source": "raw/N-1-r2.png",
+      "sourceSha256": "58a1003d1a70c3d914532e2507fdc6f8697864e4af1563020410dca1ae7b009d",
+      "sourceCell": 1,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        0
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/N-1-r2.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "1f2bba20d6698a3063900efe398e07ff15e5b678a0302a5461a01a988f5d5616",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-N-6",
+      "direction": "N",
+      "index": 6,
+      "source": "raw/N-1-r2.png",
+      "sourceSha256": "58a1003d1a70c3d914532e2507fdc6f8697864e4af1563020410dca1ae7b009d",
+      "sourceCell": 2,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        1
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/N-1-r2.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "f1364f9c979014c7148cd3b976e0ae798068b054ae3c76fb3ad67f0a98f42a3c",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-N-7",
+      "direction": "N",
+      "index": 7,
+      "source": "raw/N-1-r2.png",
+      "sourceSha256": "58a1003d1a70c3d914532e2507fdc6f8697864e4af1563020410dca1ae7b009d",
+      "sourceCell": 3,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        0
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/N-1-r2.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "9d1971fb8a1fd4b21893b3740465df0d989fac0121e8dcfdc4e55ee468b62ff0",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-N-8",
+      "direction": "N",
+      "index": 8,
+      "source": "raw/N-2.png",
+      "sourceSha256": "ba35e970c65f8a9bcf5565f8eb5b9c8ec38db62dd621cef2000e9867029b4369",
+      "sourceCell": 0,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        0
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/N-2.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "d358b555127df92dd700b034f6f1de223b69e61faf1e53089fec46997e4d3b08",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-N-9",
+      "direction": "N",
+      "index": 9,
+      "source": "raw/N-2.png",
+      "sourceSha256": "ba35e970c65f8a9bcf5565f8eb5b9c8ec38db62dd621cef2000e9867029b4369",
+      "sourceCell": 1,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        0
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/N-2.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "cdf22db801b6763a3aed3f1143a7e00be8d6e9d7b9cf51bb03cab687024cd9c8",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-N-10",
+      "direction": "N",
+      "index": 10,
+      "source": "raw/N-2.png",
+      "sourceSha256": "ba35e970c65f8a9bcf5565f8eb5b9c8ec38db62dd621cef2000e9867029b4369",
+      "sourceCell": 2,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        2
+      ],
+      "lockedIdleEndpoint": true,
+      "lockedPoseHold": false,
+      "renderSource": "native/attack-N-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "5fcb5cb8cc6a515e8f98a29c29d33df5b1a34540e37760d2b5f988e87f683398",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-N-11",
+      "direction": "N",
+      "index": 11,
+      "source": "raw/N-2.png",
+      "sourceSha256": "ba35e970c65f8a9bcf5565f8eb5b9c8ec38db62dd621cef2000e9867029b4369",
+      "sourceCell": 3,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        2
+      ],
+      "lockedIdleEndpoint": true,
+      "lockedPoseHold": false,
+      "renderSource": "native/attack-N-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "5fcb5cb8cc6a515e8f98a29c29d33df5b1a34540e37760d2b5f988e87f683398",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-NE-0",
+      "direction": "NE",
+      "index": 0,
+      "source": "raw/NE-0.png",
+      "sourceSha256": "4dd389b3950c3a20fce6e151c4d1cd50f403febf8e27b385fb090fc9d8266c59",
+      "sourceCell": 0,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        -1
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/NE-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "2beda6a884cf225fa5a8bfc311594b7fa5d869b8a7df733a0ab46dc88d42a1e0",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-NE-1",
+      "direction": "NE",
+      "index": 1,
+      "source": "raw/NE-0.png",
+      "sourceSha256": "4dd389b3950c3a20fce6e151c4d1cd50f403febf8e27b385fb090fc9d8266c59",
+      "sourceCell": 1,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        -1
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/NE-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "d373cff39a720248c589d136233b39b86bcdcbda7d542bd4e1dacb8bde626ab1",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-NE-2",
+      "direction": "NE",
+      "index": 2,
+      "source": "raw/NE-0.png",
+      "sourceSha256": "4dd389b3950c3a20fce6e151c4d1cd50f403febf8e27b385fb090fc9d8266c59",
+      "sourceCell": 2,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        -1
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/NE-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "217a141c12c226b5b7f621ae7b1bd5924b9efdad910f334aeb57e2465dff707c",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-NE-3",
+      "direction": "NE",
+      "index": 3,
+      "source": "raw/NE-0.png",
+      "sourceSha256": "4dd389b3950c3a20fce6e151c4d1cd50f403febf8e27b385fb090fc9d8266c59",
+      "sourceCell": 3,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        0
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/NE-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "93e6af90b6b29b60e51ebd89992e0581b836193eb16732f01847bc22666e5c19",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-NE-4",
+      "direction": "NE",
+      "index": 4,
+      "source": "raw/NE-1.png",
+      "sourceSha256": "828890d68c9655d1c5dc2c33c1f9c6438f34397ba86950c70f6881704df011dd",
+      "sourceCell": 0,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        -27
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": true,
+      "renderSource": "native/attack-NE-3.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "93e6af90b6b29b60e51ebd89992e0581b836193eb16732f01847bc22666e5c19",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-NE-5",
+      "direction": "NE",
+      "index": 5,
+      "source": "raw/NE-1.png",
+      "sourceSha256": "828890d68c9655d1c5dc2c33c1f9c6438f34397ba86950c70f6881704df011dd",
+      "sourceCell": 1,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        -27
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/NE-1.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "c9ff9dbb31f4a1e06d9380b1a32e93b532d75c0eb3e7f786ae3f0ba3c2312e8a",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-NE-6",
+      "direction": "NE",
+      "index": 6,
+      "source": "raw/NE-1.png",
+      "sourceSha256": "828890d68c9655d1c5dc2c33c1f9c6438f34397ba86950c70f6881704df011dd",
+      "sourceCell": 2,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        24
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/NE-1.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "4ca7f4670ce485642e95ea1ad7baa7e795ae3db723456de04495d401ebe6a5a7",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-NE-7",
+      "direction": "NE",
+      "index": 7,
+      "source": "raw/NE-1.png",
+      "sourceSha256": "828890d68c9655d1c5dc2c33c1f9c6438f34397ba86950c70f6881704df011dd",
+      "sourceCell": 3,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        24
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/NE-1.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "423c4b0aadd9c2bef3f62b4c706cff3af0f0b151b1dd170155c37da282573cdd",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-NE-8",
+      "direction": "NE",
+      "index": 8,
+      "source": "raw/NE-2.png",
+      "sourceSha256": "bac9306e75ea160c01b849bca6b8d8483127ef5e6b2aea3e5e33ede9a4cf6519",
+      "sourceCell": 0,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        1
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/NE-2.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "8c4ce37536143a2582789ef9ebe0bc6168be6e7dfd2c2d75247decea1dc75752",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-NE-9",
+      "direction": "NE",
+      "index": 9,
+      "source": "raw/NE-2.png",
+      "sourceSha256": "bac9306e75ea160c01b849bca6b8d8483127ef5e6b2aea3e5e33ede9a4cf6519",
+      "sourceCell": 1,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        -1
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/NE-2.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "1bb2361b23d059afcecd3e3b44fee4c6b736fbd18710ff9dbb4e62ffff836cdb",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-NE-10",
+      "direction": "NE",
+      "index": 10,
+      "source": "raw/NE-2.png",
+      "sourceSha256": "bac9306e75ea160c01b849bca6b8d8483127ef5e6b2aea3e5e33ede9a4cf6519",
+      "sourceCell": 2,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        24
+      ],
+      "lockedIdleEndpoint": true,
+      "lockedPoseHold": false,
+      "renderSource": "native/attack-NE-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "2beda6a884cf225fa5a8bfc311594b7fa5d869b8a7df733a0ab46dc88d42a1e0",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-NE-11",
+      "direction": "NE",
+      "index": 11,
+      "source": "raw/NE-2.png",
+      "sourceSha256": "bac9306e75ea160c01b849bca6b8d8483127ef5e6b2aea3e5e33ede9a4cf6519",
+      "sourceCell": 3,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        24
+      ],
+      "lockedIdleEndpoint": true,
+      "lockedPoseHold": false,
+      "renderSource": "native/attack-NE-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "2beda6a884cf225fa5a8bfc311594b7fa5d869b8a7df733a0ab46dc88d42a1e0",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-E-0",
+      "direction": "E",
+      "index": 0,
+      "source": "raw/E-0.png",
+      "sourceSha256": "f8364689afa97be7a6b322b49dd8aeb1f112d5ded75007e68a2c87bec1b3ff7d",
+      "sourceCell": 0,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        0
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/E-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "74642449f94526529aa7f5a3af673aaae3ff3bae1eec2cbb81e7f6a41535e00a",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-E-1",
+      "direction": "E",
+      "index": 1,
+      "source": "raw/E-0.png",
+      "sourceSha256": "f8364689afa97be7a6b322b49dd8aeb1f112d5ded75007e68a2c87bec1b3ff7d",
+      "sourceCell": 1,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        0
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/E-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "52704dff9f36a42f1b743acd58c5833169f0556a5e5d3099b57f7e98d75533dd",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-E-2",
+      "direction": "E",
+      "index": 2,
+      "source": "raw/E-0.png",
+      "sourceSha256": "f8364689afa97be7a6b322b49dd8aeb1f112d5ded75007e68a2c87bec1b3ff7d",
+      "sourceCell": 2,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        0
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/E-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "19413dfb58a764bbf8fabc6eb5bb7f2d6a8e4c6e7df7b2c60d263dfbda03592c",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-E-3",
+      "direction": "E",
+      "index": 3,
+      "source": "raw/E-0.png",
+      "sourceSha256": "f8364689afa97be7a6b322b49dd8aeb1f112d5ded75007e68a2c87bec1b3ff7d",
+      "sourceCell": 3,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        0
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/E-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "1c897b77bfae385cd72d770511a4742fad98509cdbf5fd50d2066bb33d13e2d2",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-E-4",
+      "direction": "E",
+      "index": 4,
+      "source": "raw/E-1.png",
+      "sourceSha256": "8aac219cbf4d96c0f2f3504393fa96ebebada2c6f66c039a7ac3ee7296dc98d5",
+      "sourceCell": 0,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        -16
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": true,
+      "renderSource": "native/attack-E-3.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "1c897b77bfae385cd72d770511a4742fad98509cdbf5fd50d2066bb33d13e2d2",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-E-5",
+      "direction": "E",
+      "index": 5,
+      "source": "raw/E-1.png",
+      "sourceSha256": "8aac219cbf4d96c0f2f3504393fa96ebebada2c6f66c039a7ac3ee7296dc98d5",
+      "sourceCell": 1,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        -16
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/E-1.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "b90a883a6029f9642526767bac5b1f601a728d75ee397f00ad90d9fb4d5080e5",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-E-6",
+      "direction": "E",
+      "index": 6,
+      "source": "raw/E-1.png",
+      "sourceSha256": "8aac219cbf4d96c0f2f3504393fa96ebebada2c6f66c039a7ac3ee7296dc98d5",
+      "sourceCell": 2,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        22
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/E-1.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "f6c131a02628d139f8af6057e1fdf0b1c5c69453a6cc7f44f939a2316dc47042",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-E-7",
+      "direction": "E",
+      "index": 7,
+      "source": "raw/E-1.png",
+      "sourceSha256": "8aac219cbf4d96c0f2f3504393fa96ebebada2c6f66c039a7ac3ee7296dc98d5",
+      "sourceCell": 3,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        21
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/E-1.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "24f3f255cd465e9ff34256ef4a092819a243582e92594a66539e969495fb57e5",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-E-8",
+      "direction": "E",
+      "index": 8,
+      "source": "raw/E-2.png",
+      "sourceSha256": "2aa0d4bfe53edfa1a2c811eba04d4b750bb798a94d22d42baa741afbc8ce2555",
+      "sourceCell": 0,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        1
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/E-2.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "5defa25b114b2a0f81c55666102e9a43b877b9d66168b0d31b625710bc1360f0",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-E-9",
+      "direction": "E",
+      "index": 9,
+      "source": "raw/E-2.png",
+      "sourceSha256": "2aa0d4bfe53edfa1a2c811eba04d4b750bb798a94d22d42baa741afbc8ce2555",
+      "sourceCell": 1,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        -1
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/E-2.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "8d3aa9480a2ac2f344141a9f5ec5e43066bb75f6f46a52ed699b2ac12c82fa0c",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-E-10",
+      "direction": "E",
+      "index": 10,
+      "source": "raw/E-2.png",
+      "sourceSha256": "2aa0d4bfe53edfa1a2c811eba04d4b750bb798a94d22d42baa741afbc8ce2555",
+      "sourceCell": 2,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        14
+      ],
+      "lockedIdleEndpoint": true,
+      "lockedPoseHold": false,
+      "renderSource": "native/attack-E-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "74642449f94526529aa7f5a3af673aaae3ff3bae1eec2cbb81e7f6a41535e00a",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-E-11",
+      "direction": "E",
+      "index": 11,
+      "source": "raw/E-2.png",
+      "sourceSha256": "2aa0d4bfe53edfa1a2c811eba04d4b750bb798a94d22d42baa741afbc8ce2555",
+      "sourceCell": 3,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        14
+      ],
+      "lockedIdleEndpoint": true,
+      "lockedPoseHold": false,
+      "renderSource": "native/attack-E-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "74642449f94526529aa7f5a3af673aaae3ff3bae1eec2cbb81e7f6a41535e00a",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-SE-0",
+      "direction": "SE",
+      "index": 0,
+      "source": "raw/SE-0.png",
+      "sourceSha256": "8f4a046b0f752ea660f115cd0f303114c475b1fc0af30a87bf56cbb47fe5dc09",
+      "sourceCell": 0,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        0
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/SE-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "c2ae34ed4580af6871c01c599761966c09c93e5884ec53158558c743b43b78c7",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-SE-1",
+      "direction": "SE",
+      "index": 1,
+      "source": "raw/SE-0.png",
+      "sourceSha256": "8f4a046b0f752ea660f115cd0f303114c475b1fc0af30a87bf56cbb47fe5dc09",
+      "sourceCell": 1,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        0
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/SE-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "e995c5952c9a342a6a6a8866ec004fda32262fae306aba20bdbd2166a599f81b",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-SE-2",
+      "direction": "SE",
+      "index": 2,
+      "source": "raw/SE-0.png",
+      "sourceSha256": "8f4a046b0f752ea660f115cd0f303114c475b1fc0af30a87bf56cbb47fe5dc09",
+      "sourceCell": 2,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        0
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/SE-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "b7f631f31688afd5670ee318c93ecfe1a1df0b4e16496544fa9d9bd168e681e5",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-SE-3",
+      "direction": "SE",
+      "index": 3,
+      "source": "raw/SE-0.png",
+      "sourceSha256": "8f4a046b0f752ea660f115cd0f303114c475b1fc0af30a87bf56cbb47fe5dc09",
+      "sourceCell": 3,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        0
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/SE-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "27e4448644233fff85395fe8fef5ed133542ccdec7a15c39e7c2aac8a379cda5",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-SE-4",
+      "direction": "SE",
+      "index": 4,
+      "source": "raw/SE-1.png",
+      "sourceSha256": "6af1922899aeccd433f60a35fa0e9ec6f6a9216c800adbe96d13cf978f72bb40",
+      "sourceCell": 0,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        -19
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": true,
+      "renderSource": "native/attack-SE-3.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "27e4448644233fff85395fe8fef5ed133542ccdec7a15c39e7c2aac8a379cda5",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-SE-5",
+      "direction": "SE",
+      "index": 5,
+      "source": "raw/SE-1.png",
+      "sourceSha256": "6af1922899aeccd433f60a35fa0e9ec6f6a9216c800adbe96d13cf978f72bb40",
+      "sourceCell": 1,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        -19
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/SE-1.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "2e890acf6f0fe2ee2845676869641e521c292469f0b26ad3e88e54feee036ecd",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-SE-6",
+      "direction": "SE",
+      "index": 6,
+      "source": "raw/SE-1.png",
+      "sourceSha256": "6af1922899aeccd433f60a35fa0e9ec6f6a9216c800adbe96d13cf978f72bb40",
+      "sourceCell": 2,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        8
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/SE-1.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "93a5cc85d6888bc333aae96df56ee4cfe86f3023a296ee115f5bc7220c39bff6",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-SE-7",
+      "direction": "SE",
+      "index": 7,
+      "source": "raw/SE-1.png",
+      "sourceSha256": "6af1922899aeccd433f60a35fa0e9ec6f6a9216c800adbe96d13cf978f72bb40",
+      "sourceCell": 3,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        8
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/SE-1.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "bef470efe0bab1f1661e738c794780b28f847fb30169cfb7aeb502119ff50a21",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-SE-8",
+      "direction": "SE",
+      "index": 8,
+      "source": "raw/SE-2.png",
+      "sourceSha256": "deb0dd589b47fed222b665914a2421f59172008c03f0e69aac435a910cadf243",
+      "sourceCell": 0,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        -4
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/SE-2.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "1de6df05b2cefe4cc7aa9e56def5ca1e841c6adfe4fd5642ec77c6e66a3e07e5",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-SE-9",
+      "direction": "SE",
+      "index": 9,
+      "source": "raw/SE-2.png",
+      "sourceSha256": "deb0dd589b47fed222b665914a2421f59172008c03f0e69aac435a910cadf243",
+      "sourceCell": 1,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        -4
+      ],
+      "lockedIdleEndpoint": false,
+      "lockedPoseHold": false,
+      "renderSource": "raw/SE-2.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "e3cc116e5265771d15e42d67e7bfef58d88bf0095f387578f0a5f17b2b46fb75",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-SE-10",
+      "direction": "SE",
+      "index": 10,
+      "source": "raw/SE-2.png",
+      "sourceSha256": "deb0dd589b47fed222b665914a2421f59172008c03f0e69aac435a910cadf243",
+      "sourceCell": 2,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        13
+      ],
+      "lockedIdleEndpoint": true,
+      "lockedPoseHold": false,
+      "renderSource": "native/attack-SE-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "c2ae34ed4580af6871c01c599761966c09c93e5884ec53158558c743b43b78c7",
+      "artReviewed": false,
+      "userApproved": false
+    },
+    {
+      "id": "attack-SE-11",
+      "direction": "SE",
+      "index": 11,
+      "source": "raw/SE-2.png",
+      "sourceSha256": "deb0dd589b47fed222b665914a2421f59172008c03f0e69aac435a910cadf243",
+      "sourceCell": 3,
+      "frameSize": [
+        288,
+        288
+      ],
+      "root": [
+        144,
+        256
+      ],
+      "scale": 0.45933014354066987,
+      "registrationTranslation": [
+        0,
+        12
+      ],
+      "lockedIdleEndpoint": true,
+      "lockedPoseHold": false,
+      "renderSource": "native/attack-SE-0.png",
+      "clippedPixels": 0,
+      "perFrameFit": false,
+      "sha256": "c2ae34ed4580af6871c01c599761966c09c93e5884ec53158558c743b43b78c7",
+      "artReviewed": false,
+      "userApproved": false
+    }
+  ]
+}

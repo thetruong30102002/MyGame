@@ -1,0 +1,81 @@
+{
+  "owner": "Tử Yên",
+  "ownerId": "player_sword_f03",
+  "source": "assets\\player-integrated\\source-art\\wholecast-v18\\native\\player_sword_f03\\idle-S.png",
+  "sourceSha256": "9144f6b0acb8fce22744f74a2d3bc4fc8b2e18afb7cd6014c32a5a57755d70ae",
+  "nativeSize": [
+    112,
+    112
+  ],
+  "grip": [
+    42,
+    67
+  ],
+  "gripAxis": [
+    -0.3713906763541037,
+    0.9284766908852594
+  ],
+  "maskPolygon": [
+    [
+      39,
+      68
+    ],
+    [
+      42,
+      69
+    ],
+    [
+      44,
+      72
+    ],
+    [
+      45,
+      76
+    ],
+    [
+      41,
+      79
+    ],
+    [
+      39,
+      83
+    ],
+    [
+      35,
+      88
+    ],
+    [
+      30,
+      93
+    ],
+    [
+      25,
+      97
+    ],
+    [
+      26,
+      93
+    ],
+    [
+      31,
+      87
+    ],
+    [
+      34,
+      82
+    ],
+    [
+      36,
+      77
+    ],
+    [
+      37,
+      73
+    ]
+  ],
+  "scale": 1,
+  "bodyRedrawn": false,
+  "hairSeparated": false,
+  "bladeCurve": "mirror-blade-only-for-screen-right-axis",
+  "notes": "Lấy nguyên pixel lưỡi cong và hộ thủ bạc/tím; loại da/ngón tay của người cho. Chỉ bù đoạn cán bị nắm kín, luôn nằm ở lớp sau. Lưỡi cong lên khi chiếu sang phải; không lật chuôi, hộ thủ hoặc tay."
+}

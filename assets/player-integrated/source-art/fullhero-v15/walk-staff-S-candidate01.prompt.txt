@@ -1,0 +1,22 @@
+Use case: identity-preserve.
+Asset type: production transparent pixel-art RPG sprite sheet, EIGHT walking poses of ONE complete character.
+Input roles: Image 1 is the approved final idle staff hero, the exact authority for head/body proportion, face, silhouette and pixel sharpness. Image 2 is only an eight-phase WALK choreography guide; its brown-haired identity and clothing must not be copied. Image 3 is the original high-detail approved idle staff sheet: use its FIRST ROW only as the authoritative front-facing construction, head size, fitted coat, boots, staff and crisp pixel clusters.
+
+Draw exactly eight complete poses, ALL facing S, directly toward the viewer. Landscape sheet, exactly FOUR equal columns by TWO equal rows. Row 1 frames 0,1,2,3; row 2 frames 4,5,6,7. No additional figures. No tiny third row.
+Maintain the EXACT same anatomical dimensions as approved idle: crown-to-chin head size, hair width, face width, thin neck, narrow shoulder span, fitted chest, slim waist, pelvis width, thigh length and shin length. Reproduce the idle's same proportions while moving the joints. Do not enlarge the head, shorten the legs, broaden the torso, thicken the boots or make a chibi variant. When knees bend the crown may naturally lower slightly; do not compensate by enlarging the body to force a constant head-to-foot bounding height.
+Character identity and outfit: smoky silver layered side-swept hair integrated into the head, the same visible youthful face and eye scale, compact silver shoulder plates, tailored midnight-navy long coat with narrow gold edging, the same leather belts and pouches, slim trousers, same brown boots and gloves. Match the approved idle's dark outline and clean solid-color pixel clusters, material contrast and detail. No smooth shaded 3D surface, blur, soft edges or averaged face.
+
+One identical darkwood staff with the same gold crescent, pointed blue crystal and gold fittings as approved idle is held continuously in the same palm, on the viewer's LEFT. Closed fingers visibly wrap around the shaft. Keep the blue crystal beside the face, never covering it. One staff per pose, no other weapon. The staff may tilt gently with the weight transfer; the grip never breaks.
+
+All eight poses must be distinct and form a slow, gentle, natural walking loop, in reading order:
+0: character's left foot forward contact, right foot behind;
+1: weight transfers onto left foot, knees lower very slightly;
+2: right foot passes beside left planted foot, right heel rises;
+3: right knee and foot swing forward while left pushes off;
+4: right foot forward contact, left foot behind;
+5: weight transfers onto right foot, knees lower very slightly;
+6: left foot passes beside right planted foot, left heel rises;
+7: left knee and foot swing forward while right pushes off.
+Clear alternating planted heel/toe and lifted foot, modest stride, minimal upper-body bob, no skating, no cloned idle legs. Keep the face and torso coherent across all eight frames.
+
+Composition: wide landscape target 2048 by 1024, four columns and two rows of equal 512 by 512 cells. A complete crown-to-sole body approximately 300 source pixels high in each cell, never less than 200 pixels, with the exact approved idle anatomical scale. Common horizontal foot-root at cell center x256, common ground baseline around y450. Allow natural subtle knee-bend bob. Every whole actor, staff tip, boots and coat tail must remain inside its own cell with at least 25 source-pixel transparent gutters. Equal camera, scale and pixel density throughout, no zoom or growth. Genuine transparent alpha background. No labels, frame numbers, grid lines, captions, shadows, glow, motion smear, ghost limbs or duplicate hands.

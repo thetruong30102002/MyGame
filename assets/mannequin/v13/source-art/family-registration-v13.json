@@ -1,0 +1,143 @@
+{
+  "male_brown_ponytail": {
+    "S": {
+      "translate": [
+        0,
+        -1
+      ],
+      "reference": "attack_0",
+      "primaryFloor": 128,
+      "primaryFootCenter": 71.0
+    },
+    "E": {
+      "translate": [
+        1,
+        0
+      ],
+      "reference": "attack_0",
+      "primaryFloor": 128,
+      "primaryFootCenter": 71.0
+    },
+    "N": {
+      "translate": [
+        0,
+        0
+      ],
+      "reference": "attack_0",
+      "primaryFloor": 128,
+      "primaryFootCenter": 70.5
+    },
+    "SE": {
+      "translate": [
+        0,
+        0
+      ],
+      "reference": "attack_0",
+      "primaryFloor": 128,
+      "primaryFootCenter": 70.5
+    },
+    "NE": {
+      "translate": [
+        0,
+        0
+      ],
+      "reference": "attack_0",
+      "primaryFloor": 128,
+      "primaryFootCenter": 70.5
+    }
+  },
+  "female_chestnut_short": {
+    "S": {
+      "translate": [
+        0,
+        -1
+      ],
+      "reference": "attack_0",
+      "primaryFloor": 128,
+      "primaryFootCenter": 71.0
+    },
+    "E": {
+      "translate": [
+        2,
+        -1
+      ],
+      "reference": "attack_0",
+      "primaryFloor": 128,
+      "primaryFootCenter": 71.0
+    },
+    "N": {
+      "translate": [
+        0,
+        0
+      ],
+      "reference": "attack_0",
+      "primaryFloor": 128,
+      "primaryFootCenter": 70.5
+    },
+    "SE": {
+      "translate": [
+        0,
+        0
+      ],
+      "reference": "attack_0",
+      "primaryFloor": 128,
+      "primaryFootCenter": 70.5
+    },
+    "NE": {
+      "translate": [
+        2,
+        0
+      ],
+      "reference": "attack_0",
+      "primaryFloor": 128,
+      "primaryFootCenter": 70.5
+    }
+  },
+  "female_brown_ponytail": {
+    "S": {
+      "translate": [
+        0,
+        -2
+      ],
+      "reference": "attack_0",
+      "primaryFloor": 128,
+      "primaryFootCenter": 71.0
+    },
+    "E": {
+      "translate": [
+        2,
+        -2
+      ],
+      "reference": "attack_0",
+      "primaryFloor": 128,
+      "primaryFootCenter": 71.0
+    },
+    "N": {
+      "translate": [
+        0,
+        -1
+      ],
+      "reference": "attack_0",
+      "primaryFloor": 128,
+      "primaryFootCenter": 70.5
+    },
+    "SE": {
+      "translate": [
+        0,
+        0
+      ],
+      "reference": "attack_0",
+      "primaryFloor": 128,
+      "primaryFootCenter": 70.5
+    },
+    "NE": {
+      "translate": [
+        0,
+        -1
+      ],
+      "reference": "attack_0",
+      "primaryFloor": 128,
+      "primaryFootCenter": 70.5
+    }
+  }
+}

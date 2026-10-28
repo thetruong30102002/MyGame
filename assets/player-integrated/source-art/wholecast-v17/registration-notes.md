@@ -1,0 +1,10 @@
+# Registration decisions
+
+- All transforms affect the **complete actor**, with a single uniform scale per source sheet. No independently moved heads, limbs, clothing or weapons.
+- Motion is rendered directly onto 144x144 with root (72,128). The approved 112x112 master is padded by (16,28), without resampling it. Extra space retains raised sword tips.
+- Original sword run S faced southeast and was rejected; revision 2 faces front. Original north locomotion swapped weapon hands. Revision 2 walk keeps its sword at viewer right. Revision 2 run phases 6/7 are reflected as **whole actors** to retain the same visible weapon side.
+- Original south/east attacks touched the source edge; revision 2 has safe margins. North attack revision 2 naturally hides hands in front of the torso; the rejected sheet crossed forearms behind the back.
+- Hair-color bounding boxes are only diagnostics. In particular, mage braid width changes in running and cannot measure skull size. Initial minimum hair-fit scales made side/diagonal running too small. Explicit whole-sheet scales in registration-options.json correct this after native master comparisons. Sword east source landmark: crown approximately y50, chin y178 (128 source pixels); scale .17 gives approximately 22 native pixels. Mage east: crown approximately y30, chin y156 (126 source pixels); scale .164 gives approximately 21 pixels. Neither is stretched to match an upright crown-to-foot silhouette.
+- Native RGBA is nearest-neighbor, binary alpha, with RGB zero where alpha is zero. Atlas packing and previews must preserve these pixels. This avoids adding blur; it does not certify that separately authored art has identical anatomy.
+- Locomotion uses a whole-actor vertical translation so planted frames reach the same ground (y127); run flight phases 3/7 sit three pixels above it. This corrects inconsistent source row floors without scaling individual phases or moving limbs. Combat retains row registration to preserve lowered sword tips below the boot line.
+- Static idle is one master pose, not a claim of multiple newly drawn idle phases. Reactions/death/dodge are outside this core animation set.

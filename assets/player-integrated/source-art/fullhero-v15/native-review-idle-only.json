@@ -1,0 +1,6 @@
+{
+  "baselineAtlas": "baseline/player_integrated.json",
+  "candidateAtlas": "../../../characters/player_integrated/player_integrated.json",
+  "idleActions": ["idle", "idlesword", "idlestaff"],
+  "reviewScope": "Byte-exact preservation of all 96 approved idle logical frames after V15 atlas export; excludes motion art approval."
+}

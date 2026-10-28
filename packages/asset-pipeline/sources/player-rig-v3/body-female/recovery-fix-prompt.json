@@ -1,0 +1,9 @@
+{
+  "mode": "built-in-imagegen",
+  "prompt": "Precise image extraction. Image1 is the ONLY EDIT TARGET. It has FOUR poses of the female swordswoman returning to standing after a downstroke: sword LOW in ALL FOUR. Image2 is a HEADLESS texture/costume reference ONLY, do NOT copy its poses.\nREMOVE ONLY all four heads/hair/face/ears/bare neck from Image1. Make empty transparent head sockets, KEEP the complete original body, arms/gloves, sword and four existing poses in Image1. Output still FOUR COLUMNS×ONE ROW1774×887 transparent.\nALL FOUR figures must have the right hand carrying sword downward toward screen-left, below waist. Frame1 left hand releases the grip near low belly, frame2 left arm relaxes to side and right hand lowers sword, frame3 both arms settle in near-standing, frame4 standing calibration. DO NOT RAISE ANY ARM OVERHEAD OR RAISE ANY SWORD IN THIS SHEET. Do not paint walking, attacking or overhead poses from Image2. These are recovery/settling poses ONLY.\nExact same plain green cloak/ivory trim/iron chest/leather belt/gloves/dark trousers/brown boots, slim female body, no clothes on the avatar socket, no placeholder head. Match headless reference body dimensions and neck-to-sole height325sourcepx, collar socketY480, feet baselineY805, no per-pose zoom, no leg/torso growth. Fine crisp pixel detail, no blur or effects. Preserve all fingers and gloved hands, even close to old head area. Actual alpha background and empty socket.",
+  "references": [
+    "player-rig-v2/body-female/attack-3-source.png",
+    "player-rig-v3/body-female/headless-master-source.png"
+  ],
+  "reason": "Lượt đầu chép nhầm pose master. Lượt này toàn bộ4 pose hồi/đứng, kiếm thấp."
+}

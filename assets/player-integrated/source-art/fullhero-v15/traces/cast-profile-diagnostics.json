@@ -1,0 +1,295 @@
+{
+  "warning": "Uniform whole-pose proposals fitted to actual saved native idle head/neck-torso/shoulder/belt regions, not metadata73. Hair numbers are secondary diagnostics, not anatomical or drawing-quality approval. Root must inspect all5contacts and same-render transition evidence.",
+  "results": [
+    {
+      "direction": "S",
+      "proposalTrace": "traces/cast-staff-S-candidate01/profile-fit/trace.json",
+      "uniformScale": 0.36290873015873015,
+      "targetSole": 128,
+      "referenceHairCrown": 52,
+      "regionRgbaError": {
+        "head": 0.04279169692568385,
+        "neck-torso": 0.04785130718954248,
+        "shoulders": 0.05350050276520865,
+        "belt": 0.04501948215183509
+      },
+      "sourceReadyHeightPx": [
+        211,
+        210
+      ],
+      "nativeReadyHairDiagnostics": [
+        {
+          "frame": 0,
+          "idleHairBounds": [
+            68,
+            52,
+            93,
+            76
+          ],
+          "candidateHairBounds": [
+            68,
+            52,
+            93,
+            76
+          ],
+          "hairCrownDeltaPx": 0,
+          "hairWidthDeltaPx": 0,
+          "hairHeightDeltaPx": 0
+        },
+        {
+          "frame": 11,
+          "idleHairBounds": [
+            68,
+            52,
+            93,
+            76
+          ],
+          "candidateHairBounds": [
+            68,
+            52,
+            94,
+            75
+          ],
+          "hairCrownDeltaPx": 0,
+          "hairWidthDeltaPx": 1,
+          "hairHeightDeltaPx": -1
+        }
+      ],
+      "clippedFrames": [],
+      "artApproved": false,
+      "registrationApproved": false
+    },
+    {
+      "direction": "E",
+      "proposalTrace": "traces/cast-staff-E-candidate01/profile-fit/trace.json",
+      "uniformScale": 0.38625151797279794,
+      "targetSole": 128,
+      "referenceHairCrown": 55,
+      "regionRgbaError": {
+        "head": 0.03900694893341952,
+        "neck-torso": 0.03277974983096686,
+        "shoulders": 0.02928921568627451,
+        "belt": 0.03478506787330317
+      },
+      "sourceReadyHeightPx": [
+        192,
+        193
+      ],
+      "nativeReadyHairDiagnostics": [
+        {
+          "frame": 0,
+          "idleHairBounds": [
+            59,
+            55,
+            83,
+            77
+          ],
+          "candidateHairBounds": [
+            59,
+            55,
+            83,
+            76
+          ],
+          "hairCrownDeltaPx": 0,
+          "hairWidthDeltaPx": 0,
+          "hairHeightDeltaPx": -1
+        },
+        {
+          "frame": 11,
+          "idleHairBounds": [
+            59,
+            55,
+            83,
+            77
+          ],
+          "candidateHairBounds": [
+            59,
+            55,
+            83,
+            76
+          ],
+          "hairCrownDeltaPx": 0,
+          "hairWidthDeltaPx": 0,
+          "hairHeightDeltaPx": -1
+        }
+      ],
+      "clippedFrames": [],
+      "artApproved": false,
+      "registrationApproved": false
+    },
+    {
+      "direction": "N",
+      "proposalTrace": "traces/cast-staff-N-candidate01/profile-fit/trace.json",
+      "uniformScale": 0.3919067028985507,
+      "targetSole": 128,
+      "referenceHairCrown": 55,
+      "regionRgbaError": {
+        "head": 0.04694537815126051,
+        "neck-torso": 0.03389874915483435,
+        "shoulders": 0.04740342718283895,
+        "belt": 0.034337292609351436
+      },
+      "sourceReadyHeightPx": [
+        189,
+        219
+      ],
+      "nativeReadyHairDiagnostics": [
+        {
+          "frame": 0,
+          "idleHairBounds": [
+            61,
+            55,
+            84,
+            77
+          ],
+          "candidateHairBounds": [
+            61,
+            55,
+            84,
+            77
+          ],
+          "hairCrownDeltaPx": 0,
+          "hairWidthDeltaPx": 0,
+          "hairHeightDeltaPx": 0
+        },
+        {
+          "frame": 11,
+          "idleHairBounds": [
+            61,
+            55,
+            84,
+            77
+          ],
+          "candidateHairBounds": [
+            61,
+            55,
+            85,
+            77
+          ],
+          "hairCrownDeltaPx": 0,
+          "hairWidthDeltaPx": 1,
+          "hairHeightDeltaPx": 0
+        }
+      ],
+      "clippedFrames": [],
+      "artApproved": false,
+      "registrationApproved": false
+    },
+    {
+      "direction": "SE",
+      "proposalTrace": "traces/cast-staff-SE-candidate01/profile-fit/trace.json",
+      "uniformScale": 0.390146306755014,
+      "targetSole": 128,
+      "referenceHairCrown": 51,
+      "regionRgbaError": {
+        "head": 0.06114612511671334,
+        "neck-torso": 0.0771623972169513,
+        "shoulders": 0.07537105119825707,
+        "belt": 0.059587104072398187
+      },
+      "sourceReadyHeightPx": [
+        198,
+        199
+      ],
+      "nativeReadyHairDiagnostics": [
+        {
+          "frame": 0,
+          "idleHairBounds": [
+            69,
+            51,
+            95,
+            75
+          ],
+          "candidateHairBounds": [
+            68,
+            51,
+            95,
+            71
+          ],
+          "hairCrownDeltaPx": 0,
+          "hairWidthDeltaPx": 1,
+          "hairHeightDeltaPx": -4
+        },
+        {
+          "frame": 11,
+          "idleHairBounds": [
+            69,
+            51,
+            95,
+            75
+          ],
+          "candidateHairBounds": [
+            68,
+            51,
+            96,
+            75
+          ],
+          "hairCrownDeltaPx": 0,
+          "hairWidthDeltaPx": 2,
+          "hairHeightDeltaPx": 0
+        }
+      ],
+      "clippedFrames": [],
+      "artApproved": false,
+      "registrationApproved": false
+    },
+    {
+      "direction": "NE",
+      "proposalTrace": "traces/cast-staff-NE-candidate01/profile-fit/trace.json",
+      "uniformScale": 0.3918719937469937,
+      "targetSole": 128,
+      "referenceHairCrown": 55,
+      "regionRgbaError": {
+        "head": 0.04856442577030813,
+        "neck-torso": 0.03660158891142665,
+        "shoulders": 0.04859016256075079,
+        "belt": 0.035182566616390146
+      },
+      "sourceReadyHeightPx": [
+        189,
+        189
+      ],
+      "nativeReadyHairDiagnostics": [
+        {
+          "frame": 0,
+          "idleHairBounds": [
+            59,
+            55,
+            84,
+            77
+          ],
+          "candidateHairBounds": [
+            59,
+            54,
+            84,
+            77
+          ],
+          "hairCrownDeltaPx": -1,
+          "hairWidthDeltaPx": 0,
+          "hairHeightDeltaPx": 1
+        },
+        {
+          "frame": 11,
+          "idleHairBounds": [
+            59,
+            55,
+            84,
+            77
+          ],
+          "candidateHairBounds": [
+            59,
+            54,
+            84,
+            77
+          ],
+          "hairCrownDeltaPx": -1,
+          "hairWidthDeltaPx": 0,
+          "hairHeightDeltaPx": 1
+        }
+      ],
+      "clippedFrames": [],
+      "artApproved": false,
+      "registrationApproved": false
+    }
+  ]
+}

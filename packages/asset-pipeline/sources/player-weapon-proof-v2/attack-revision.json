@@ -1,0 +1,8 @@
+{
+  "id": "attack-r3",
+  "folder": "attack-r3",
+  "status": "pending-visual-review",
+  "reason": "Chủ dự án báo thân/đầu tấn công phình và khác độ nét với đứng yên. Sửa nguồn toàn thân, khóa hai đầu chuỗi theo idle; idle/walk giữ nguyên.",
+  "productionEnabled": false,
+  "userApproved": false
+}

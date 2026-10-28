@@ -1,0 +1,21 @@
+EDIT IMAGE1, the transparent four-column/two-row sheet of eight identical approved NORTH/back-view idle characters. Image2 is the exact same approved character enlarged for anatomy. Keep each character's current head/hair pixels, shoulder width, torso width, navy/gold outfit, silver pauldrons, empty hands and overall size exactly the same. All eight must remain the SAME complete person facing away from camera.
+
+Change only the limb articulation into eight consecutive RUN poses. Preserve the original actual body proportions:
+- upright crown-to-sole skeletal length73nativepixels;
+- smoky-silver HAIR is29nativepixels wide and25nativepixels high;
+- crown-to-waist/belt40nativepixels;
+- waist/belt-to-sole33nativepixels, with the SAME thigh, shin and boot lengths as the idle.
+These are measured from the approved raster. Never lengthen the torso or legs when making a running pose. Head and torso size stay fixed. Knee compression/flight can lower total height, never enlarge the body. Do not make long-legged new anatomy; the existing legs are the correct lengths.
+
+In row-major order, run poses:
+1 left contact, right leg trailing bent;
+2 left compression, right heel lifting behind;
+3 right knee passes forward, left pushes off;
+4 both feet airborne, right leg reaches and left folds behind;
+5 opposite right contact, left leg trailing bent;
+6 right compression, left heel lifting;
+7 left knee passes, right pushes off;
+8 opposite airborne pose, left reaches/right folds, loops to1.
+Bend elbows into a light natural run counter-swing. Keep the torso upright or only very slightly forward, body/head can bob gently together. Subtle coat-hem motion. Boots keep their original size. No high kicks, exaggerated leaps or stretching.
+
+Keep all8cells and canvas unchanged, complete integrated pixel-art characters with true clear transparency, no background haze, shadows, grid, text, labels, weapons or extra actors.

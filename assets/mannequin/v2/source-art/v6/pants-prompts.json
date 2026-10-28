@@ -1,0 +1,46 @@
+{
+  "navy": [
+    {
+      "id": "pants-navy-idle",
+      "path": "navy-idle-dressed-raw.png",
+      "prompt": "Use case: precise-object-edit. Game equipment source-sheet edit. Remove the JACKET, SHOULDER CAPE, SASH and BOOTS from these adult male pixel sprites. Keep ONLY SLIM FULL-LENGTH CHARCOAL TROUSERS from waist to ANKLES with a plain simple dark belt. Draw the hidden lower trouser legs fully down to the ankle where boots used to cover them. Bare feet remain visible below the trousers, bare adult torso and arms, BALD adult head. No underwear outside the pants. No teal cloth flap or hip sash. Keep EXACT anatomy, small head, fists, all joint coordinates and feet baseline unchanged; exact action sequence, directions, count, full canvas and green/magenta registration squares. Do not change poses, scale, positions or spacing. Preserve every idle action frame. Both hands remain together in the overhead chop. This is neutral technical adult game anatomy, nonsexual. Real transparent background, crisp pixel art. Only change the specified clothing, no weapons or effects."
+    },
+    {
+      "id": "pants-navy-walk",
+      "path": "navy-walk-dressed-raw.png",
+      "prompt": "Use case: precise-object-edit. Game equipment source-sheet edit. Remove the JACKET, SHOULDER CAPE, SASH and BOOTS from these adult male pixel sprites. Keep ONLY SLIM FULL-LENGTH CHARCOAL TROUSERS from waist to ANKLES with a plain simple dark belt. Draw the hidden lower trouser legs fully down to the ankle where boots used to cover them. Bare feet remain visible below the trousers, bare adult torso and arms, BALD adult head. No underwear outside the pants. No teal cloth flap or hip sash. Keep EXACT anatomy, small head, fists, all joint coordinates and feet baseline unchanged; exact action sequence, directions, count, full canvas and green/magenta registration squares. Do not change poses, scale, positions or spacing. Preserve every walk action frame. Both hands remain together in the overhead chop. This is neutral technical adult game anatomy, nonsexual. Real transparent background, crisp pixel art. Only change the specified clothing, no weapons or effects."
+    },
+    {
+      "id": "pants-navy-attack",
+      "path": "navy-attack-dressed-raw.png",
+      "prompt": "Use case: precise-object-edit. Game equipment source-sheet edit. Remove the JACKET, SHOULDER CAPE, SASH and BOOTS from these adult male pixel sprites. Keep ONLY SLIM FULL-LENGTH CHARCOAL TROUSERS from waist to ANKLES with a plain simple dark belt. Draw the hidden lower trouser legs fully down to the ankle where boots used to cover them. Bare feet remain visible below the trousers, bare adult torso and arms, BALD adult head. No underwear outside the pants. No teal cloth flap or hip sash. Keep EXACT anatomy, small head, fists, all joint coordinates and feet baseline unchanged; exact action sequence, directions, count, full canvas and green/magenta registration squares. Do not change poses, scale, positions or spacing. Preserve every attack action frame. Both hands remain together in the overhead chop. This is neutral technical adult game anatomy, nonsexual. Real transparent background, crisp pixel art. Only change the specified clothing, no weapons or effects."
+    },
+    {
+      "id": "pants-navy-cast",
+      "path": "navy-cast-dressed-raw.png",
+      "prompt": "Use case: precise-object-edit. Game equipment source-sheet edit. Remove the JACKET, SHOULDER CAPE, SASH and BOOTS from these adult male pixel sprites. Keep ONLY SLIM FULL-LENGTH CHARCOAL TROUSERS from waist to ANKLES with a plain simple dark belt. Draw the hidden lower trouser legs fully down to the ankle where boots used to cover them. Bare feet remain visible below the trousers, bare adult torso and arms, BALD adult head. No underwear outside the pants. No teal cloth flap or hip sash. Keep EXACT anatomy, small head, fists, all joint coordinates and feet baseline unchanged; exact action sequence, directions, count, full canvas and green/magenta registration squares. Do not change poses, scale, positions or spacing. Preserve every cast action frame. Both hands remain together in the overhead chop. This is neutral technical adult game anatomy, nonsexual. Real transparent background, crisp pixel art. Only change the specified clothing, no weapons or effects."
+    }
+  ],
+  "silver": [
+    {
+      "id": "pants-silver-idle",
+      "path": "silver-idle-dressed-raw.png",
+      "prompt": "Use case: precise-object-edit. Game equipment source-sheet edit. Remove the CHEST ARMOR, SHOULDER ARMOR, SLEEVES, HIP CLOTH and BOOTS from these adult male pixel sprites. Keep ONLY SLIM FULL-LENGTH DARK CHAINMAIL TROUSERS with articulated dark silver knee plates, from waist to ANKLES and a simple dark belt. Draw the hidden lower trouser legs fully down to the ankle where the boots used to cover them. Bare feet remain visible below trousers, bare adult torso and arms, BALD adult head. No underwear outside pants, no blue cloth flap. Keep EXACT anatomy, small head, fists, all joint coordinates and feet baseline unchanged; exact action sequence, directions, count, full canvas and green/magenta registration squares. Do not change poses, scale, positions or spacing. Preserve every idle action frame and shared unisex rig. Both hands remain together in the overhead chop. Neutral nonsexual technical adult game model. Real transparent background, crisp pixel art. Only change specified clothing, no weapons or effects."
+    },
+    {
+      "id": "pants-silver-walk",
+      "path": "silver-walk-dressed-raw.png",
+      "prompt": "Use case: precise-object-edit. Game equipment source-sheet edit. Remove the CHEST ARMOR, SHOULDER ARMOR, SLEEVES, HIP CLOTH and BOOTS from these adult male pixel sprites. Keep ONLY SLIM FULL-LENGTH DARK CHAINMAIL TROUSERS with articulated dark silver knee plates, from waist to ANKLES and a simple dark belt. Draw the hidden lower trouser legs fully down to the ankle where the boots used to cover them. Bare feet remain visible below trousers, bare adult torso and arms, BALD adult head. No underwear outside pants, no blue cloth flap. Keep EXACT anatomy, small head, fists, all joint coordinates and feet baseline unchanged; exact action sequence, directions, count, full canvas and green/magenta registration squares. Do not change poses, scale, positions or spacing. Preserve every walk action frame and shared unisex rig. Both hands remain together in the overhead chop. Neutral nonsexual technical adult game model. Real transparent background, crisp pixel art. Only change specified clothing, no weapons or effects."
+    },
+    {
+      "id": "pants-silver-attack",
+      "path": "silver-attack-dressed-raw.png",
+      "prompt": "Use case: precise-object-edit. Game equipment source-sheet edit. Remove the CHEST ARMOR, SHOULDER ARMOR, SLEEVES, HIP CLOTH and BOOTS from these adult male pixel sprites. Keep ONLY SLIM FULL-LENGTH DARK CHAINMAIL TROUSERS with articulated dark silver knee plates, from waist to ANKLES and a simple dark belt. Draw the hidden lower trouser legs fully down to the ankle where the boots used to cover them. Bare feet remain visible below trousers, bare adult torso and arms, BALD adult head. No underwear outside pants, no blue cloth flap. Keep EXACT anatomy, small head, fists, all joint coordinates and feet baseline unchanged; exact action sequence, directions, count, full canvas and green/magenta registration squares. Do not change poses, scale, positions or spacing. Preserve every attack action frame and shared unisex rig. Both hands remain together in the overhead chop. Neutral nonsexual technical adult game model. Real transparent background, crisp pixel art. Only change specified clothing, no weapons or effects."
+    },
+    {
+      "id": "pants-silver-cast",
+      "path": "silver-cast-dressed-raw.png",
+      "prompt": "Use case: precise-object-edit. Game equipment source-sheet edit. Remove the CHEST ARMOR, SHOULDER ARMOR, SLEEVES, HIP CLOTH and BOOTS from these adult male pixel sprites. Keep ONLY SLIM FULL-LENGTH DARK CHAINMAIL TROUSERS with articulated dark silver knee plates, from waist to ANKLES and a simple dark belt. Draw the hidden lower trouser legs fully down to the ankle where the boots used to cover them. Bare feet remain visible below trousers, bare adult torso and arms, BALD adult head. No underwear outside pants, no blue cloth flap. Keep EXACT anatomy, small head, fists, all joint coordinates and feet baseline unchanged; exact action sequence, directions, count, full canvas and green/magenta registration squares. Do not change poses, scale, positions or spacing. Preserve every cast action frame and shared unisex rig. Both hands remain together in the overhead chop. Neutral nonsexual technical adult game model. Real transparent background, crisp pixel art. Only change specified clothing, no weapons or effects."
+    }
+  ]
+}

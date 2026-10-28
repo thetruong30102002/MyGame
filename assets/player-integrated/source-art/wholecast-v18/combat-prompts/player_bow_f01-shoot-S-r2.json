@@ -1,0 +1,12 @@
+{
+  "id": "player_bow_f01-shoot-S",
+  "prompt": "Image1 is the ONLY target character identity: female Hoa Tiễn, rose-pink high ponytail with full side fringe, forest-green fitted archer coat, cream shoulders, gold seams, brown leather boots, one slender green-gold leaf bow with polished wooden grip, taut string. Draw this complete character doing exactly the twelve archery poses/camera angles in Image2. Image2 is POSE AND SHOOTING DIRECTION REFERENCE ONLY, do NOT copy its male character, hairstyle, green outfit or gold bow. Preserve Image1 identity and same slender adult body proportions. Transparent 4 columns x3 rows, same twelve sequential times as guide. Fixed camera, same exact head and body scale, complete integrated pixels hair/body/clothes/bow per frame. Sharp game pixels. Camera FRONT, character SHOOTS DIRECTLY AT CAMERA. Bow grip hand extended TOWARD viewer near chest center, arrow foreshortened as a small point, not a long horizontal shaft. Bow vertical and narrow edge-on, string hand at cheek, no sideways aiming arm. Endpoints exact relaxed master. No grid lines, no VFX, no glow trails, no detached objects. Entire actor and weapon fully inside each cell.",
+  "references": [
+    "action-references/player_bow_f01/S-master.png",
+    "D:/truong/MyGame/assets/player-integrated/source-art/wholecast-v18/motion/player_bow_m01-shoot-S-r2.png"
+  ],
+  "tool": "built-in-imagegen",
+  "status": "generated",
+  "output": "motion/player_bow_f01-shoot-S-r2.png",
+  "sourceSha256": "08c8717d8e8120445df9323cb67030e0deeae15b9abf4d65d52d0924fd126b53"
+}

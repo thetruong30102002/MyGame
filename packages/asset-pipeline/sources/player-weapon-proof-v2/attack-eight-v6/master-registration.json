@@ -1,0 +1,31 @@
+{
+  "rawSize": [
+    1254,
+    1254
+  ],
+  "sourceBounds": {
+    "x0": 429,
+    "y0": 502,
+    "x1": 770,
+    "y1": 1147
+  },
+  "sourceRoot": [
+    627,
+    1147
+  ],
+  "sourceScale": 0.23255813953488372,
+  "frameSize": [
+    288,
+    288
+  ],
+  "root": [
+    144,
+    256
+  ],
+  "bodyHeight": 150,
+  "ppu": 96,
+  "filter": "nearest",
+  "perFrameScale": false,
+  "userApproved": false,
+  "sourceSha256": "2906e6d82f0475b20736602007d9e1ec6007b3eeccf2b4e4dd6f5120d6f4b675"
+}

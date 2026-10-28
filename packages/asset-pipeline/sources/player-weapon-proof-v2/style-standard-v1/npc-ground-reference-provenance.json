@@ -1,0 +1,36 @@
+[
+  {
+    "id": "npc_silver_youth",
+    "atlas": "characters/npc_silver_youth/npc_silver_youth.json",
+    "frame": "npc_silver_youth/idle_S_0",
+    "sourceTextureSha256": "c424ddd8ca277482d444a5e56dc8b9e09ca909d05c432079ac12ceda895d216e",
+    "fileSha256": "f19f761d4e938fa3dd1ca53158bc3e460e9bcdd3bcb6190a408240f5895a250b",
+    "translation": [
+      32,
+      44
+    ],
+    "pixelScale": 1,
+    "ppu": 48,
+    "root": [
+      72,
+      128
+    ]
+  },
+  {
+    "id": "npc_silver_youth_f",
+    "atlas": "characters/npc_silver_youth_f/npc_silver_youth_f.json",
+    "frame": "npc_silver_youth_f/idle_S_0",
+    "sourceTextureSha256": "3e04b75351bfad7deb932d74a2369dbc484d5553822f2e352402fc789b2ead90",
+    "fileSha256": "ccea8fcd33ba47b7d956cb9f1c1d024b499afb1bb965189dc9bd72243880c59b",
+    "translation": [
+      32,
+      44
+    ],
+    "pixelScale": 1,
+    "ppu": 48,
+    "root": [
+      72,
+      128
+    ]
+  }
+]

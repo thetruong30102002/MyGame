@@ -1,0 +1,16 @@
+{
+  "provider": "builtin-imagegen",
+  "candidate": true,
+  "artApproved": false,
+  "image": "cast-staff-NE-candidate01.png",
+  "sha256": "bcaee4c028b905d78b6722f7de83de5db32d72721f03964123eb89f8eef15974",
+  "size": [
+    1448,
+    1086
+  ],
+  "source": "C:\\Users\\thetr\\.codex\\generated_images\\01a16c8a-ffb6-7611-8579-3f9f031ae987\\exec-c31be23a-35ef-423d-8e6f-388c03dc6ed0.png",
+  "prompt": "cast-staff-NE-candidate01.prompt.txt",
+  "promptSha256": "e06cd3c17d9a21a48b8a3a3be5072289ca389b4c15316dcd8ca4048739809f24",
+  "editTarget": "references/template-staff-NE-12cast-poses.png",
+  "notes": "12wholecastposes, locked-idle-target edit; pending manual anatomy and native sharpness approval; no production export."
+}

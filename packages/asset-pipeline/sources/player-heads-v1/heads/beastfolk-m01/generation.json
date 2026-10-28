@@ -1,0 +1,16 @@
+{
+  "mode": "built-in-imagegen",
+  "id": "beastfolk-m01",
+  "prompt": "Use case: precise-object-edit. Image1 is the EDIT TARGET: grey-haired male cat beastfolk's eight-direction whole-head sheet. Keep all eight head positions, yaw directions, grey hairstyle, face, amber eyes, skull/neck size and canvas unchanged. Correct the ear anatomy ONLY: there must be exactly TWO ears total, the existing furry CAT EARS ON TOP. Remove EVERY fleshy ordinary human ear beside the cheeks in every angle, filling its former location with matching grey SIDE HAIR. In left/right profile the side of head is covered by grey hair below the animal ear; absolutely no human pinna/ear lobe remains. Image2 is SUPPORTING reference showing correct animal-ear-only hair coverage, NOT an identity/color change. Keep human face, no fur/muzzle, no tail, no clothes/collar/shoulders. Same crisp pixel style, full transparent alpha, no labels or changed layout.",
+  "references": [
+    "packages/asset-pipeline/sources/player-heads-v1/heads/beastfolk-m01/source-extra-ears-r1.png",
+    "packages/asset-pipeline/sources/player-heads-v1/heads/beastfolk-m03/source.png"
+  ],
+  "sourceSize": [
+    1774,
+    887
+  ],
+  "sha256": "1308089093554627cde1e981f1ec935099bd7013898feb5b9fa939a709ba74c6",
+  "artApproved": false,
+  "productionEnabled": false
+}

@@ -1,0 +1,197 @@
+{
+  "job": "swordsman-attack-N",
+  "source": "assets/player-integrated/source-art/wholecast-v17/motion/swordsman-attack-N-r2.png",
+  "sourceSha256": "a3a95ce43ec7d0d2bd2ef8591d3aee6b970ea8ca9ae2c16877fb18c230efdc7b",
+  "uniformScale": 0.3123644251626898,
+  "rowFloor": [
+    358.0,
+    721.5,
+    1050.0
+  ],
+  "gridOrigin": 178.75,
+  "gridStep": 362.8333333333333,
+  "masterHair": [
+    22,
+    19
+  ],
+  "resampling": "nearest",
+  "frameSize": [
+    144,
+    144
+  ],
+  "root": [
+    72,
+    128
+  ],
+  "frames": [
+    {
+      "frame": 0,
+      "hairWidth": 23.43,
+      "hairHeight": 21.24,
+      "sourceEdge": false,
+      "clipped": false,
+      "nativeBounds": [
+        53,
+        55,
+        107,
+        127
+      ],
+      "wholeActorMirrored": false
+    },
+    {
+      "frame": 1,
+      "hairWidth": 24.05,
+      "hairHeight": 21.55,
+      "sourceEdge": false,
+      "clipped": false,
+      "nativeBounds": [
+        55,
+        50,
+        104,
+        127
+      ],
+      "wholeActorMirrored": false
+    },
+    {
+      "frame": 2,
+      "hairWidth": 23.74,
+      "hairHeight": 20.3,
+      "sourceEdge": false,
+      "clipped": false,
+      "nativeBounds": [
+        56,
+        23,
+        92,
+        127
+      ],
+      "wholeActorMirrored": false
+    },
+    {
+      "frame": 3,
+      "hairWidth": 23.74,
+      "hairHeight": 20.93,
+      "sourceEdge": false,
+      "clipped": false,
+      "nativeBounds": [
+        56,
+        20,
+        93,
+        127
+      ],
+      "wholeActorMirrored": false
+    },
+    {
+      "frame": 4,
+      "hairWidth": 22.49,
+      "hairHeight": 20.62,
+      "sourceEdge": false,
+      "clipped": false,
+      "nativeBounds": [
+        53,
+        20,
+        91,
+        128
+      ],
+      "wholeActorMirrored": false
+    },
+    {
+      "frame": 5,
+      "hairWidth": 23.74,
+      "hairHeight": 19.68,
+      "sourceEdge": false,
+      "clipped": false,
+      "nativeBounds": [
+        54,
+        48,
+        100,
+        128
+      ],
+      "wholeActorMirrored": false
+    },
+    {
+      "frame": 6,
+      "hairWidth": 23.74,
+      "hairHeight": 20.3,
+      "sourceEdge": false,
+      "clipped": false,
+      "nativeBounds": [
+        47,
+        62,
+        100,
+        127
+      ],
+      "wholeActorMirrored": false
+    },
+    {
+      "frame": 7,
+      "hairWidth": 23.43,
+      "hairHeight": 13.74,
+      "sourceEdge": false,
+      "clipped": false,
+      "nativeBounds": [
+        51,
+        75,
+        96,
+        128
+      ],
+      "wholeActorMirrored": false
+    },
+    {
+      "frame": 8,
+      "hairWidth": 23.74,
+      "hairHeight": 15.31,
+      "sourceEdge": false,
+      "clipped": false,
+      "nativeBounds": [
+        46,
+        73,
+        115,
+        127
+      ],
+      "wholeActorMirrored": false
+    },
+    {
+      "frame": 9,
+      "hairWidth": 24.36,
+      "hairHeight": 20.62,
+      "sourceEdge": false,
+      "clipped": false,
+      "nativeBounds": [
+        52,
+        55,
+        113,
+        127
+      ],
+      "wholeActorMirrored": false
+    },
+    {
+      "frame": 10,
+      "hairWidth": 24.36,
+      "hairHeight": 20.3,
+      "sourceEdge": false,
+      "clipped": false,
+      "nativeBounds": [
+        54,
+        55,
+        107,
+        127
+      ],
+      "wholeActorMirrored": false
+    },
+    {
+      "frame": 11,
+      "hairWidth": 24.68,
+      "hairHeight": 20.93,
+      "sourceEdge": false,
+      "clipped": false,
+      "nativeBounds": [
+        53,
+        55,
+        107,
+        127
+      ],
+      "wholeActorMirrored": false
+    }
+  ],
+  "approved": false
+}

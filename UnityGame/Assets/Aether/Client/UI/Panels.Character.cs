@@ -2,6 +2,7 @@ using System;
 using Aether.Core;
 using Aether.Data;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Aether.Client.UI
 {
@@ -16,6 +17,7 @@ namespace Aether.Client.UI
 
         private Dir8 heroDir = Dir8.S;
         private UiSpriteAnim heroAnim;
+        private int paperdollScale = 2;
 
         /// <summary>
         /// Tab Nhân vật GỘP Túi đồ (chủ dự án 11/10/2026: "túi đồ và nhân vật nên để thành 1 tab thôi"): trái = người + 10 ô đang mặc + Lực
@@ -41,7 +43,7 @@ namespace Aether.Client.UI
             var lv = UiKit.Rect(power, "Level", new Vector2(1, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(-34, 0), new Vector2(50, 50));
             UiStyle.Pill(lv, UiStyle.Hex(0xe9c46a), 25);
             var lvIn = UiKit.Rect(lv, "in", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(44, 44));
-            UiStyle.Pill(lvIn, UiStyle.Hex(0x2a1d12), 22);
+            UiStyle.Pill(lvIn, UiStyle.SurfaceWell, 22);
             Text(lvIn, "c", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0, 10), new Vector2(40, 12), "CẤP", 8, UiStyle.Parchment, TextAnchor.MiddleCenter, true);
             Text(lvIn, "v", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0, -5), new Vector2(40, 24), pc.Level.ToString(), 19, UiStyle.GoldHi, TextAnchor.MiddleCenter, true, true);
             var need = game.ExpToNext;
@@ -135,8 +137,10 @@ namespace Aether.Client.UI
         /// </summary>
         private void Paperdoll(RectTransform box, Vector2 feet, int scale, float slotSize, float step, float top, float side, bool compact)
         {
-            var glow = UiKit.Rect(box, "Glow", new Vector2(0.5f, 1), new Vector2(0.5f, 0.5f), feet + new Vector2(0, 40 * scale), new Vector2(120 * scale, 120 * scale));
-            UiWidgets.Radial(glow, new Color(1, 0.78f, 0.4f, 0.22f));
+            paperdollScale = scale;
+            var glowSize = Mathf.Min(240, 120 * scale);
+            var glow = UiKit.Rect(box, "Glow", new Vector2(0.5f, 1), new Vector2(0.5f, 0.5f), feet + new Vector2(0, 40 * scale), new Vector2(glowSize, glowSize));
+            UiWidgets.Radial(glow, new Color(1, 0.78f, 0.4f, 0.12f));
 
             var circle = game.Database.VfxClip("magic_circle");
             var holder = UiKit.Rect(box, "Circle", new Vector2(0.5f, 1), new Vector2(0.5f, 0.5f), feet, new Vector2(10, 10));
@@ -178,7 +182,13 @@ namespace Aether.Client.UI
 
         private void ShowHero()
         {
-            var def = game.Player != null ? game.Database.Character(game.Player.CharacterId) : null;
+            if(game.SwordWardrobeActive)
+            {
+                heroAnim.enabled=false;var projection=heroAnim.GetComponent<SwordWardrobePaperdoll>()??heroAnim.gameObject.AddComponent<SwordWardrobePaperdoll>();projection.Show(game.SwordWardrobe,heroDir,paperdollScale*.5f);return;
+            }
+            heroAnim.GetComponent<SwordWardrobePaperdoll>()?.Hide();heroAnim.enabled=true;heroAnim.GetComponent<Image>().color=Color.white;
+            heroAnim.GetComponent<Image>().enabled = true;
+            var def = game.Player != null ? game.Player.View.Def : null;
             if (def == null || heroAnim == null) return;
             var held = game.Player.View.Held;
             var anim = !string.IsNullOrEmpty(held) && def.Has("idle" + held) ? "idle" + held : "idle";
@@ -219,24 +229,23 @@ namespace Aether.Client.UI
             var rt = UiKit.Rect(parent, name, anchor, pivot, pos, new Vector2(size, size));
             if (selected)
             {
-                var sel = UiKit.Rect(rt, "Sel", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(size + 10, size + 10));
-                UiStyle.Pill(sel, UiStyle.GoldHi, 10);
-                UiWidgets.Pulse(sel, 1.04f, 1.1f);
+                var sel = UiKit.Rect(rt, "Sel", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(size + 4, size + 4));
+                UiStyle.Pill(sel, UiStyle.GoldHi, 5);
             }
-            UiStyle.Pill(rt, new Color(0.42f, 0.27f, 0.14f), 8).raycastTarget = true;
+            UiStyle.Pill(rt, UiStyle.Line, 5).raycastTarget = true;
             var well = UiKit.Rect(rt, "Well", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(size - 4, size - 4));
-            UiStyle.Pill(well, new Color(0.15f, 0.09f, 0.05f), 7);
+            UiStyle.Pill(well, UiStyle.SurfaceWell, 4);
             var back = UiKit.Rect(rt, "Back", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(size - 6, size - 6));
-            UiStyle.Pill(back, def != null ? Rarity(def.Rarity) * new Color(1, 1, 1, 0.22f) : new Color(0.3f, 0.19f, 0.1f, 0.25f), 6);
+            UiStyle.Pill(back, def != null ? Rarity(def.Rarity) * new Color(1, 1, 1, 0.10f) : UiStyle.SurfaceWell, 4);
             if (def != null)
             {
                 var hl = UiKit.Rect(back, "Glow", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(size, size));
-                UiWidgets.Radial(hl, Rarity(def.Rarity) * new Color(1, 1, 1, 0.45f));
+                UiWidgets.Radial(hl, Rarity(def.Rarity) * new Color(1, 1, 1, 0.14f));
             }
             if (def == null) return rt;
             var strip = UiKit.Rect(rt, "Strip", new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(0, 5), new Vector2(size - 18, 3));
             UiStyle.Pill(strip, Rarity(def.Rarity), 1);
-            UiKit.Icon(UiKit.Rect(rt, "Icon", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0, 1), new Vector2(size * 0.66f, size * 0.66f)), ItemSprite(def.Icon));
+            UiKit.Icon(UiKit.Rect(rt, "Icon", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0, 1), new Vector2(size * 0.74f, size * 0.74f)), ItemSprite(def.Icon));
             var n = count > 0 ? count : it?.N ?? 0;
             if (n > 1)
                 Text(rt, "N", new Vector2(1, 0), new Vector2(1, 0), new Vector2(-7, 6), new Vector2(size, 18), "×" + n.ToString("0"), 13, Color.white, TextAnchor.MiddleRight, true, true);

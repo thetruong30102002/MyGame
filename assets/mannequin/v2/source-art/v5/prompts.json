@@ -1,0 +1,12 @@
+{
+  "tool": "built-in image_gen",
+  "request": "Two-handed overhead downward chop",
+  "references": [
+    "https://game.capcom.com/manual/MH4U/en/page-101.html"
+  ],
+  "prompts": [
+    {
+      "asset": "attack-clothed-guide.png"
+    }
+  ]
+}

@@ -12,7 +12,6 @@ namespace Aether.Client
     public sealed class RemotePlayers
     {
         private const float TeleportGap = 300;
-        private const string FallbackSprite = "player_lior_child";
 
         public sealed class Remote
         {
@@ -84,7 +83,7 @@ namespace Aether.Client
 
         private static void ApplyHeld(Remote r)
         {
-            if (r.Actor != null) r.Actor.View.SetHeld(HeldWeapons.Resolve(HeldWeapons.Ids(r.Gear), r.Stance));
+            if (r.Actor != null) r.Actor.View.SetHeld(HeldWeapons.Resolve(HeldWeapons.Ids(r.Gear), r.Stance), r.Stance);
         }
 
         public void Apply(PlayerSnapshot p)
@@ -111,7 +110,8 @@ namespace Aether.Client
 
         private void EnsureSprite(Remote r, string sprite)
         {
-            var def = db.Character(sprite) ?? db.Character(FallbackSprite);
+            var choice = PlayerRoster.Find(sprite);
+            var def = db.Character(choice != null ? choice.id : PlayerRoster.Default(false).id);
             if (def == null || (r.Actor != null && r.Sprite == def.id)) return;
             r.Sprite = def.id;
             var x = r.Actor != null ? r.Actor.X : r.Tx;

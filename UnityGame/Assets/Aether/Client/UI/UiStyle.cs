@@ -11,15 +11,18 @@ namespace Aether.Client.UI
     /// </summary>
     public static class UiStyle
     {
-        public static readonly Color Hp = Hex(0xd4341d);
-        public static readonly Color Mana = Hex(0x2b95f8);
-        public static readonly Color Stamina = Hex(0xfbb30e);
-        public static readonly Color Exp = Hex(0x8d44e6);
-        public static readonly Color GoldHi = Hex(0xffd166);
-        public static readonly Color Gold = Hex(0xe9c46a);
-        public static readonly Color Bark = new Color(0.16f, 0.1f, 0.06f, 0.86f);
-        public static readonly Color BarkSoft = new Color(0.13f, 0.09f, 0.06f, 0.7f);
-        public static readonly Color Line = new Color(0.91f, 0.77f, 0.42f, 0.55f);
+        public static readonly Color Hp = Hex(0xc55962);
+        public static readonly Color Mana = Hex(0x629fc6);
+        public static readonly Color Stamina = Hex(0xbeaa70);
+        public static readonly Color Exp = Hex(0x9585bc);
+        public static readonly Color GoldHi = Hex(0xe1c18b);
+        public static readonly Color Gold = Hex(0xc0a16e);
+        public static readonly Color Surface = Hex(0x141c24, .97f);
+        public static readonly Color SurfaceRaised = Hex(0x202c36, .96f);
+        public static readonly Color SurfaceWell = Hex(0x0e161d, .96f);
+        public static readonly Color Bark = Hex(0x141c24, .94f);
+        public static readonly Color BarkSoft = Hex(0x202c36, .92f);
+        public static readonly Color Line = Hex(0x637078, .50f);
         public static readonly Color Paper = Hex(0xf7e6c4);
         public static readonly Color PaperSunk = Hex(0xecd3a4);
         public static readonly Color PaperLine = Hex(0xc9a578);
@@ -40,6 +43,7 @@ namespace Aether.Client.UI
         /// <summary>Hình chữ nhật bo góc bán kính <paramref name="r"/> px (9 mảnh), mặt trên sáng hơn mặt dưới ~12% (nhuộm màu bằng Image.color).</summary>
         public static Sprite Round(int r)
         {
+            if (r > 5 && r <= 16) r = 5;
             if (rounds.TryGetValue(r, out var s)) return s;
             var size = r * 2 + 4;
             var tex = new Texture2D(size, size, TextureFormat.RGBA32, false) { wrapMode = TextureWrapMode.Clamp, filterMode = FilterMode.Bilinear };
@@ -47,7 +51,7 @@ namespace Aether.Client.UI
             for (var x = 0; x < size; x += 1)
             {
                 var a = RoundAlpha(x + 0.5f, y + 0.5f, size, size, r);
-                var shade = Mathf.Lerp(0.88f, 1f, y / (float)(size - 1));
+                var shade = 1f;
                 tex.SetPixel(x, y, new Color(shade, shade, shade, a));
             }
             tex.Apply();
@@ -92,7 +96,7 @@ namespace Aether.Client.UI
             if (gloss != null) return gloss;
             const int h = 16;
             var tex = new Texture2D(1, h, TextureFormat.RGBA32, false) { wrapMode = TextureWrapMode.Clamp, filterMode = FilterMode.Bilinear };
-            for (var y = 0; y < h; y += 1) tex.SetPixel(0, y, new Color(1, 1, 1, y > h / 2 ? (y - h / 2f) / (h / 2f) * 0.35f : 0));
+            for (var y = 0; y < h; y += 1) tex.SetPixel(0, y, Color.clear);
             tex.Apply();
             gloss = Sprite.Create(tex, new Rect(0, 0, 1, h), new Vector2(0.5f, 0.5f));
             return gloss;
@@ -118,8 +122,8 @@ namespace Aether.Client.UI
             switch (kind)
             {
                 case CardKind.Paper: edge = PaperLine; face = Paper; break;
-                case CardKind.Chip: edge = new Color(1, 0.85f, 0.5f, 0.35f); face = BarkSoft; break;
-                case CardKind.Dark: edge = new Color(1, 1, 1, 0.08f); face = new Color(0.05f, 0.05f, 0.08f, 0.82f); break;
+                case CardKind.Chip: edge = Hex(0x8f815f, .65f); face = BarkSoft; break;
+                case CardKind.Dark: edge = Line; face = SurfaceWell; break;
                 default: edge = Line; face = Bark; break;
             }
             var edgeImg = rt.gameObject.AddComponent<Image>();

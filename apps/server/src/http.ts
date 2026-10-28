@@ -4,6 +4,8 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
 	MAX_CHARACTERS,
+	playerModel,
+	defaultPlayerModel,
 	validateName,
 	validatePassword,
 	validateUsername,
@@ -21,6 +23,8 @@ import { AdminError, AdminOps } from './adminOps.ts';
 import { Board, BoardError, type Viewer } from './board.ts';
 import { latestFile, readClientVersion, sendClientFile } from './clientUpdate.ts';
 import { sendSite, siteRedirect } from './site.ts';
+import { readDevelopmentPlan } from './developmentPlan.ts';
+import { gzipSync } from 'node:zlib';
 import { hashPassword, newToken, RateLimiter, verifyPassword } from './auth.ts';
 import type { Store } from './db.ts';
 import { cleanProgress } from './world.ts';
@@ -116,13 +120,16 @@ export function createApi(store: Store, admin: AdminOps = new AdminOps(store), c
 			path: /^\/api\/characters$/,
 			run: async (req) => {
 				const { accountId } = auth(req);
-				const { name, gender } = await body<CreateCharacterRequest>(req);
+				const { name, gender, modelId, classId } = await body<CreateCharacterRequest>(req);
 				const n = String(name ?? '').trim().replace(/\s+/g, ' ').normalize('NFC');
 				const err = validateName(n);
 				if (err) throw new HttpError(400, err);
 				if (gender !== 'male' && gender !== 'female') throw new HttpError(400, 'Chọn nam hoặc nữ');
+				const model = modelId === undefined ? defaultPlayerModel(gender) : playerModel(modelId);
+				if (!model || model.gender !== gender || (classId !== undefined && model.classId !== classId))
+					throw new HttpError(400, 'Ngoại hình không khớp class hoặc giới tính đã chọn');
 				if (store.characters(accountId).length >= MAX_CHARACTERS) throw new HttpError(400, `Mỗi tài khoản tối đa ${MAX_CHARACTERS} nhân vật`);
-				const created = store.createCharacter(randomUUID(), accountId, n, gender as Gender, newProgress());
+				const created = store.createCharacter(randomUUID(), accountId, n, gender as Gender, newProgress(), model.id);
 				if (!created) throw new HttpError(409, 'Tên nhân vật đã có người dùng');
 				return created;
 			},
@@ -228,6 +235,8 @@ export function createApi(store: Store, admin: AdminOps = new AdminOps(store), c
 			},
 		},
 		// ———— Trang quản trị: tin tức ————
+		{ method: 'GET', path: /^\/api\/admin\/news$/, run: async (req) => { adminAuth(req); return board.adminNews(); } },
+		{ method: 'PUT', path: /^\/api\/admin\/news\/(\d+)\/archive$/, run: async (req,m) => { adminAuth(req); return board.archiveNews(Number(m[1]),await body(req)); } },
 		{
 			method: 'POST',
 			path: /^\/api\/admin\/news$/,
@@ -254,6 +263,7 @@ export function createApi(store: Store, admin: AdminOps = new AdminOps(store), c
 			},
 		},
 		// ———— Trang quản trị (/admin): cộng tiền, điểm cho nhân vật ————
+		{ method: 'GET', path: /^\/api\/admin\/plan$/, run: async (req) => { adminAuth(req); const plan=readDevelopmentPlan();if(query(req).get('view')==='dashboard'){const {markdown,...dashboard}=plan;return dashboard;}return plan; } },
 		{
 			// Chưa đăng nhập → 401 (trang hiện ô đăng nhập); đã đăng nhập thì chỉ cho biết CHÍNH tài khoản này có quyền hay không.
 			method: 'GET',
@@ -335,7 +345,7 @@ export function createApi(store: Store, admin: AdminOps = new AdminOps(store), c
 		const rawPath = new URL(req.url ?? '/', 'http://x').pathname;
 		const path = stripMount(rawPath);
 		// Trang chủ game (site.ts): /game → /game/, rồi trang + ảnh + tin tức.
-		if (req.method === 'GET' && (siteRedirect(rawPath, res) || sendSite(path, res))) return;
+		if (req.method === 'GET' && (siteRedirect(req.url??'/', res) || sendSite(path, res, undefined, req))) return;
 		// File gói client (luồng nhị phân, không qua JSON): /api/client/file/<tên> hoặc /api/client/latest/<windows|android>.
 		const file = req.method === 'GET' ? path.match(/^\/api\/client\/file\/([^/]+)$/) : null;
 		const latest = req.method === 'GET' ? path.match(/^\/api\/client\/latest\/(windows-zip|windows|android)$/) : null;
@@ -385,7 +395,10 @@ export function bearer(req: IncomingMessage): string | null {
 }
 
 function json(res: ServerResponse, status: number, data: unknown): void {
-	res.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8' }).end(JSON.stringify(data));
+	const raw=Buffer.from(JSON.stringify(data));
+	const compressed=raw.length>1024&&/\bgzip\b/.test(res.req.headers['accept-encoding']||'');
+	const payload=compressed?gzipSync(raw):raw;
+	res.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8','Cache-Control':'no-store','Vary':'Accept-Encoding','Content-Length':payload.length,...(compressed?{'Content-Encoding':'gzip'}:{}) }).end(payload);
 }
 
 async function body<T>(req: IncomingMessage): Promise<Partial<T>> {

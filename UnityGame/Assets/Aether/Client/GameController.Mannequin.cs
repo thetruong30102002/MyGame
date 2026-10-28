@@ -1,106 +1,56 @@
+using Aether.Data;
 using UnityEngine;
 
 namespace Aether.Client
 {
     public sealed partial class GameController
     {
+        public const string IntegratedCharacterId = "player_integrated";
+        // Compatibility surface for archived lab tests. No modular view is attached.
         private MannequinView mannequin;
-        private string mannequinOldCharacter, mannequinOldPrimary;
-        private int mannequinIdentity, mannequinOutfit, mannequinWeapon;
-        private string mannequinError;
-        public MannequinView LabMannequin => mannequin;
+        public MannequinView LabMannequin => null;
         public UI.LabCharacterPanel LabCharacterOptions { get; private set; }
-        public bool LabCharacterBusy => player == null || player.View.Busy || combat.Acting;
-        public string LabCharacterError => mannequinError;
-        public bool SelectLabCharacter(bool prototype) => InLab && !LabCharacterBusy && ((mannequin != null) == prototype || ToggleMannequin());
+        public bool MainPanelOpen => hud?.Panels?.Open ?? false;
+        public bool LabCharacterBusy => player == null || player.View.Busy || combat.Acting || (SwordTrialActive && swordTrial.Playing);
+        public string LabCharacterError => null;
+        public int AppearanceHair => 0;
+        public bool AppearanceFemale => personaFemale;
+        public string IntegratedHeld => player?.View.Held;
 
-        private Aether.Data.CharacterDef MannequinDefinition(string id) =>
-            Resources.Load<Aether.Data.CharacterDef>("Mannequin/" + id + "/definition") ?? database.Character(id);
+        // Old saved appearance settings never select a different visual model.
+        private void ApplySavedAppearance() { }
+        private void SyncMannequinGear() { }
+        private void TickMannequinLab() { }
+        public Actor CreateAppearancePreview() => null;
+        public bool ChangeHair(int index) => false;
+        public bool SelectLabCharacter(bool prototype) => false;
+        public bool ToggleMannequin() => false;
+        public bool SelectMannequinIdentity(int index) => false;
+        public bool SelectMannequinOutfit(int index) => false;
+        public bool SelectMannequinGarment(int slot, int index) => false;
+        public bool SelectMannequinWeapon(int index) => SelectIntegratedWeapon(index == 0 ? "sword" : index == 1 ? "staff" : null);
 
         private bool OverMannequinPanel(Vector2 at) => InLab && LabCharacterOptions != null && LabCharacterOptions.ContainsScreenPoint(at);
 
-        private void TickMannequinLab()
+        public bool SelectIntegratedWeapon(string held)
         {
-            if (!InLab || GameInput.Typing) return;
-            if (UnityEngine.Input.GetKeyDown(KeyCode.F6)) ToggleMannequin();
-            if (mannequin == null || player.View.Busy || combat.Acting) return;
-            if (UnityEngine.Input.GetKeyDown(KeyCode.F7)) SelectMannequinIdentity((mannequinIdentity + 1) % MannequinView.Data.identities.Length);
-            if (MannequinView.Data.outfits.Length > 1 && UnityEngine.Input.GetKeyDown(KeyCode.F8)) SelectMannequinOutfit((mannequinOutfit + 1) % MannequinView.Data.outfits.Length);
-            if (UnityEngine.Input.GetKeyDown(KeyCode.F9)) SelectMannequinWeapon((mannequinWeapon + 1) % MannequinView.Data.weapons.Length);
-            if (UnityEngine.Input.GetKeyDown(KeyCode.F10)) mannequin.ToggleHair();
-            if (UnityEngine.Input.GetKeyDown(KeyCode.F11)) mannequin.DebugAnchors = !mannequin.DebugAnchors;
+            if (!InLab || LabCharacterBusy || (held != "sword" && held != "staff")) return false;
+            if (SwordWardrobeActive) ToggleSwordWardrobe();
+            if (SwordTrialActive) ToggleSwordTrial();
+            if (PlayerRigActive) TogglePlayerRig();
+            stance = held == "staff" ? "magic" : "melee";
+            UpdateHeld();
+            // The lab chooses the standard basic skill without changing inventory or bonuses.
+            if (loadout.Count > 0) loadout[0] = held == "staff" ? "aether_bolt" : "slash";
+            return player.View.Held == held;
         }
 
-        public bool ToggleMannequin()
+        public bool FaceLabDirection(Dir8 dir)
         {
-            if (!InLab || player == null || player.View.Busy || combat.Acting) return false;
-            if (mannequin != null)
-            {
-                mannequin.Detach();
-                mannequin = null;
-                player.View.Init(database.Character(mannequinOldCharacter));
-                loadout[0] = mannequinOldPrimary;
-                UpdateHeld();
-                mannequinError = null;
-                return true;
-            }
-            var data = MannequinView.Data;
-            if (data == null) { mannequinError = "Bản game này chưa có dữ liệu nhân vật demo"; return false; }
-            mannequinOldCharacter = player.View.Def.id;
-            mannequinOldPrimary = loadout[0];
-            var prototypeDef = MannequinDefinition(data.identities[0].id);
-            if (prototypeDef == null) { mannequinError = "Không nạp được nhân vật demo"; return false; }
-            player.View.Init(prototypeDef);
-            mannequin = MannequinView.Attach(player.View);
-            if (mannequin == null)
-            {
-                player.View.Init(database.Character(mannequinOldCharacter));
-                UpdateHeld();
-                mannequinError = "Không nạp được atlas mannequin";
-                return false;
-            }
-            mannequinIdentity = mannequinOutfit = mannequinWeapon = 0;
-            mannequinError = null;
-            loadout[0] = mannequin.SelectedWeapon.skill;
-            return true;
-        }
-
-        public bool SelectMannequinIdentity(int index)
-        {
-            if (!InLab || mannequin == null || combat.Acting || player.View.Busy || index < 0 || index >= MannequinView.Data.identities.Length) return false;
-            var id = MannequinView.Data.identities[index].id;
-            var def = MannequinDefinition(id);
-            if (def == null) return false;
-            var old = player.View.Def;
-            player.View.Init(def);
-            if (!mannequin.Bind(id)) { player.View.Init(old); mannequin.Bind(old.id); return false; }
-            mannequinIdentity = index;
-            return true;
-        }
-
-        public bool SelectMannequinOutfit(int index)
-        {
-            if (!InLab || mannequin == null || combat.Acting || !mannequin.SelectOutfit(index)) return false;
-            mannequinOutfit = index;
-            return true;
-        }
-
-        public bool SelectMannequinWeapon(int index)
-        {
-            if (!InLab || mannequin == null || combat.Acting || !mannequin.SelectWeapon(index)) return false;
-            mannequinWeapon = index;
-            loadout[0] = mannequin.SelectedWeapon.skill;
-            return true;
-        }
-
-        public bool SelectMannequinGarment(int slot, int index) => InLab && mannequin != null && !combat.Acting && mannequin.SelectGarment(slot, index);
-
-        public bool FaceLabDirection(Aether.Data.Dir8 dir)
-        {
-            if (!InLab || mannequin == null || LabCharacterBusy || (int)dir < 0 || (int)dir >= 8) return false;
+            if (!InLab || LabCharacterBusy || (int)dir < 0 || (int)dir >= 8) return false;
             player.View.Set("idle", dir);
+            if (SwordTrialActive) swordTrial.Face(dir);
             return true;
         }
-
     }
 }

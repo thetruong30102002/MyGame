@@ -14,6 +14,11 @@ namespace Aether.Client
         {
             ("sword", 1, "melee", "sword"),
             ("staff", 2, "magic", "staff"),
+            ("moonsteel_sword", 1, "melee", "sword"),
+            ("aether_staff", 1, "magic", "staff"),
+            ("swordsman_blade_1", 1, "melee", "sword"),
+            ("swordsman_blade_5", 1, "melee", "sword"),
+            ("swordsman_blade_10", 1, "melee", "sword"),
         };
 
         /// <param name="ids">mã món đang mặc (bỏ hậu tố độ hiếm `:n`).</param>

@@ -1,0 +1,20 @@
+[
+  {
+    "name": "female-lowpony-walk",
+    "path": "D:/truong/MyGame/assets/mannequin/v13/source-art/female-short-walk-drawn.png",
+    "prompt": "Precise HAIRSTYLE-ONLY edit ofthisexisting game sprite sheet. Preserve EVERYexisting face/body/clothing/pose/hand/foot pixel andregistrationmark; exactcanvas/grid. Replace shortbob with a SMALL LOW BROWN PONYTAIL TIED AT THE NAPE behind the ears, tailflowsdownBACKbehindshoulders. AbsolutelyNO highhairtie/bun/tuft orhair ABOVEtheoriginalcrown: TOPHEADCONTOURandcraniumVOLUME muststayEXACTLYsameasinput. The character mustremain EXACTLY SAMEHEIGHTwithfeet onEXACT samepixels. Haircloselyhugsscalp/forehead/ears, faceuncovered. OnlyextendhairDOWNbehindneck/shoulders; neverupwards orsidewayspuffy. Samecompletecharacterineveryframe, notseparatehead/wig. Pixel-arttransparentbackground, alloriginalposes/framingunaltered. Keepallsourcepixelsoutsidehairunchanged.",
+    "outputFile": "C:\\Users\\thetr\\.codex\\generated_images\\01a161de-a2f6-73d3-b375-dc59da54386f\\exec-11e053d5-85b9-4b2e-bd79-138e755344a8.png"
+  },
+  {
+    "name": "female-lowpony-attack",
+    "path": "D:/truong/MyGame/assets/mannequin/v13/source-art/female-short-attack-drawn.png",
+    "prompt": "Precise HAIRSTYLE-ONLY edit ofthisexisting game sprite sheet. Preserve EVERYexisting face/body/clothing/pose/hand/foot pixel andregistrationmark; exactcanvas/grid. Replace shortbob with a SMALL LOW BROWN PONYTAIL TIED AT THE NAPE behind the ears, tailflowsdownBACKbehindshoulders. AbsolutelyNO highhairtie/bun/tuft orhair ABOVEtheoriginalcrown: TOPHEADCONTOURandcraniumVOLUME muststayEXACTLYsameasinput. The character mustremain EXACTLY SAMEHEIGHTwithfeet onEXACT samepixels. Haircloselyhugsscalp/forehead/ears, faceuncovered. OnlyextendhairDOWNbehindneck/shoulders; neverupwards orsidewayspuffy. Samecompletecharacterineveryframe, notseparatehead/wig. Pixel-arttransparentbackground, alloriginalposes/framingunaltered. Keepallsourcepixelsoutsidehairunchanged.",
+    "outputFile": "C:\\Users\\thetr\\.codex\\generated_images\\01a161de-a2f6-73d3-b375-dc59da54386f\\exec-dab2aefb-5db4-4a37-80d6-af8ba79fdf70.png"
+  },
+  {
+    "name": "female-lowpony-cast",
+    "path": "D:/truong/MyGame/assets/mannequin/v13/source-art/female-short-cast-drawn.png",
+    "prompt": "Precise HAIRSTYLE-ONLY edit ofthisexisting game sprite sheet. Preserve EVERYexisting face/body/clothing/pose/hand/foot pixel andregistrationmark; exactcanvas/grid. Replace shortbob with a SMALL LOW BROWN PONYTAIL TIED AT THE NAPE behind the ears, tailflowsdownBACKbehindshoulders. AbsolutelyNO highhairtie/bun/tuft orhair ABOVEtheoriginalcrown: TOPHEADCONTOURandcraniumVOLUME muststayEXACTLYsameasinput. The character mustremain EXACTLY SAMEHEIGHTwithfeet onEXACT samepixels. Haircloselyhugsscalp/forehead/ears, faceuncovered. OnlyextendhairDOWNbehindneck/shoulders; neverupwards orsidewayspuffy. Samecompletecharacterineveryframe, notseparatehead/wig. Pixel-arttransparentbackground, alloriginalposes/framingunaltered. Keepallsourcepixelsoutsidehairunchanged.",
+    "outputFile": "C:\\Users\\thetr\\.codex\\generated_images\\01a161de-a2f6-73d3-b375-dc59da54386f\\exec-d445a11b-f717-455c-b7c9-2c56a7eb4480.png"
+  }
+]

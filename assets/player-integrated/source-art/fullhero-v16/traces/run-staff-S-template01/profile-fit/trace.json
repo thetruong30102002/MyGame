@@ -1,0 +1,340 @@
+{
+  "version": 15,
+  "source": "../fullhero-v15/run-staff-S-template01.png",
+  "sourceSha256": "eacfcfb6a5a668f3894abfdd153c83bef3a890522f0670d9d9a94f826fe0bc58",
+  "state": "staff",
+  "direction": "S",
+  "kind": "run",
+  "count": 8,
+  "columns": 4,
+  "sourceSize": [
+    1774,
+    887
+  ],
+  "neutralFrames": [
+    0,
+    7
+  ],
+  "measurements": [
+    {
+      "frame": 0,
+      "row": 0,
+      "column": 0,
+      "bounds": [
+        148,
+        98,
+        322,
+        423
+      ],
+      "area": 36491,
+      "crown": 107,
+      "floor": 421,
+      "height": 315,
+      "rootX": 237.5,
+      "hairBounds": [
+        212,
+        114,
+        301,
+        185
+      ],
+      "headSilhouetteBounds": [
+        148,
+        107,
+        310,
+        212
+      ]
+    },
+    {
+      "frame": 1,
+      "row": 0,
+      "column": 1,
+      "bounds": [
+        602,
+        101,
+        774,
+        423
+      ],
+      "area": 35443,
+      "crown": 102,
+      "floor": 421,
+      "height": 320,
+      "rootX": 268.0,
+      "hairBounds": [
+        662,
+        116,
+        752,
+        184
+      ],
+      "headSilhouetteBounds": [
+        602,
+        102,
+        760,
+        207
+      ]
+    },
+    {
+      "frame": 2,
+      "row": 0,
+      "column": 2,
+      "bounds": [
+        1046,
+        101,
+        1225,
+        423
+      ],
+      "area": 35691,
+      "crown": 101,
+      "floor": 421,
+      "height": 321,
+      "rootX": 269.0,
+      "hairBounds": [
+        1107,
+        112,
+        1199,
+        185
+      ],
+      "headSilhouetteBounds": [
+        1046,
+        101,
+        1206,
+        206
+      ]
+    },
+    {
+      "frame": 3,
+      "row": 0,
+      "column": 3,
+      "bounds": [
+        1482,
+        104,
+        1657,
+        423
+      ],
+      "area": 35211,
+      "crown": 111,
+      "floor": 421,
+      "height": 311,
+      "rootX": 269.5,
+      "hairBounds": [
+        1545,
+        118,
+        1636,
+        185
+      ],
+      "headSilhouetteBounds": [
+        1482,
+        111,
+        1646,
+        216
+      ]
+    },
+    {
+      "frame": 4,
+      "row": 1,
+      "column": 0,
+      "bounds": [
+        147,
+        505,
+        322,
+        831
+      ],
+      "area": 36695,
+      "crown": 511,
+      "floor": 830,
+      "height": 320,
+      "rootX": 241.0,
+      "hairBounds": [
+        215,
+        518,
+        304,
+        591
+      ],
+      "headSilhouetteBounds": [
+        147,
+        511,
+        313,
+        616
+      ]
+    },
+    {
+      "frame": 5,
+      "row": 1,
+      "column": 1,
+      "bounds": [
+        596,
+        501,
+        775,
+        829
+      ],
+      "area": 36977,
+      "crown": 510,
+      "floor": 827,
+      "height": 318,
+      "rootX": 252.5,
+      "hairBounds": [
+        662,
+        514,
+        753,
+        589
+      ],
+      "headSilhouetteBounds": [
+        596,
+        510,
+        761,
+        615
+      ]
+    },
+    {
+      "frame": 6,
+      "row": 1,
+      "column": 2,
+      "bounds": [
+        1036,
+        505,
+        1228,
+        830
+      ],
+      "area": 37160,
+      "crown": 514,
+      "floor": 829,
+      "height": 316,
+      "rootX": 250.0,
+      "hairBounds": [
+        1103,
+        519,
+        1198,
+        592
+      ],
+      "headSilhouetteBounds": [
+        1037,
+        514,
+        1206,
+        619
+      ]
+    },
+    {
+      "frame": 7,
+      "row": 1,
+      "column": 3,
+      "bounds": [
+        1484,
+        502,
+        1661,
+        831
+      ],
+      "area": 37135,
+      "crown": 512,
+      "floor": 830,
+      "height": 319,
+      "rootX": 260.5,
+      "hairBounds": [
+        1549,
+        520,
+        1640,
+        589
+      ],
+      "headSilhouetteBounds": [
+        1484,
+        512,
+        1649,
+        617
+      ]
+    }
+  ],
+  "registration": {
+    "scale": 0.2777777777777778,
+    "referenceBodyHeight": 317.0,
+    "rootX": 249.0,
+    "rowFloor": [
+      421,
+      830
+    ],
+    "columnRootX": [
+      220.45430323541612,
+      665.2543032354162,
+      1110.0543032354162,
+      1554.8543032354162
+    ],
+    "sourceGridHeadOrigin": 260.17499999999995,
+    "sourceGridHeadStep": 444.8,
+    "idleHairBounds": [
+      68,
+      52,
+      93,
+      76
+    ],
+    "scaleMode": "multi-profile-proposal-unreviewed",
+    "idleHeadSilhouetteBounds": [
+      52,
+      52,
+      94,
+      76
+    ],
+    "sourceMedianHeadWidth": 164.5,
+    "targetRootY": 128
+  },
+  "artApproved": false,
+  "registrationApproved": false,
+  "profileFit": {
+    "reference": "exact saved baseline native idle",
+    "targetSole": 128,
+    "crownProxy": 52,
+    "regions": [
+      {
+        "name": "head",
+        "bounds": [
+          67,
+          50,
+          94,
+          80
+        ],
+        "weight": 2.0
+      },
+      {
+        "name": "neck-torso",
+        "bounds": [
+          70,
+          77,
+          90,
+          107
+        ],
+        "weight": 2.0
+      },
+      {
+        "name": "shoulders",
+        "bounds": [
+          62,
+          78,
+          98,
+          91
+        ],
+        "weight": 1.0
+      },
+      {
+        "name": "belt",
+        "bounds": [
+          67,
+          96,
+          93,
+          108
+        ],
+        "weight": 1.5
+      }
+    ],
+    "contactPhases": [
+      0,
+      4
+    ],
+    "score": 0.11935735147298747,
+    "regionError": {
+      "head": 0.1280761316872428,
+      "neck-torso": 0.11193954248366014,
+      "shoulders": 0.13378163231104406,
+      "belt": 0.10800653594771242
+    },
+    "uniformScale": 0.23331668652258541,
+    "uniformNativeDx": 1.5,
+    "warning": "Proposal only. Inspect crown/chin/shoulder/belt/knee/sole and gait; reject incompatible source anatomy."
+  },
+  "resampling": "nearest"
+}

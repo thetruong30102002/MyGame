@@ -1,0 +1,12 @@
+Use case: precise-object-edit. Image1 is the EDIT TARGET: eight complete NORTH/back-view running sprites, four columns by two rows. Image2 is the exact approved idle anatomy reference. Image3 repeats that approved idle at the same game scale. Preserve all eight running poses, their order and joint angles, the existing head/hair design, empty hands, navy/gold outfit, silver shoulders, palette, transparency and canvas layout.
+
+Correct the target's STRETCHED torso/legs. Its HEAD is already the right size: do not alter any head width, crown height, hair pixels or facial identity. Keep the head and shoulder top at the SAME exact pixel locations. Do NOT enlarge the head to fake a shorter body. Do NOT shrink the whole person. Make ONLY the body BELOW THE SHOULDERS noticeably shorter, matching the master.
+
+Concrete geometry in image1's source pixels:
+TOP ROW contact figures: crown stays near y125, head/nape and shoulder top stay near y225. Move waist/belt from about y280 UP to y269. Move coat tails from about y350 UP to y329. Move straight-leg soles from about y417 UP to y386. This shortens shoulder-to-sole distance about17percent while preserving the exact original head.
+BOTTOM ROW: apply the same31pixel upward correction to contact soles,11pixels to belts and21pixels to coat hems relative to their current locations.
+Apply these same anatomical torso/thigh/shin shortening ratios to ALL eight poses. Airborne frames must retain their natural extra foot lift; never stretch their bounding boxes. Keep both feet and knees articulated exactly as their original running phase, with corrected limb lengths.
+
+At matched head size the resulting upright anatomical skeleton must equal the approved idle's73nativepixels; contact/compressed/airborne boxes can be shorter. The target currently has contact length82nativepixels: visibly remove those extra9pixels from torso/legs, not from the head. Keep shoulder/waist width, arm thickness, boot size and slim silhouette unchanged. Do not widen the body or make a baby-shaped character.
+
+Keep true transparent gutters, complete contained sprites, crisp integrated pixel-art figures, no separate parts, haze, backdrop, shadows, text, labels, weapons or additional actors.

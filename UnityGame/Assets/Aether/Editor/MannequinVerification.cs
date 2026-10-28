@@ -13,8 +13,18 @@ namespace Aether.Importer
         {
             try
             {
-                MannequinImporter.ImportV2();
+                var args = Environment.GetCommandLineArgs();
+                var source = "v2";
+                for (var i = 0; i + 1 < args.Length; i++)
+                    if (args[i] == "-aetherMannequinSource") source = args[i + 1];
+                if (source == "v13") MannequinImporter.ImportV13();
+                else if (source == "v2") MannequinImporter.ImportV2();
+                else throw new ArgumentException("Unknown mannequin source: " + source);
+                UiImporter.ImportItems(PipelineImportMenu.SourceDir, new ImportReport());
+                AssetDatabase.SaveAssets();
                 var output = Path.GetFullPath(Path.Combine(Application.dataPath, "../..", ".aether-stage/mannequin/build/Aether.exe"));
+                for (var i = 0; i + 1 < args.Length; i++)
+                    if (args[i] == "-aetherBuildOutput") output = Path.GetFullPath(args[i + 1]);
                 Directory.CreateDirectory(Path.GetDirectoryName(output));
                 var report = BuildPipeline.BuildPlayer(new BuildPlayerOptions {
                     scenes = new[] { "Assets/Aether/Scenes/Game.unity" }, locationPathName = output,

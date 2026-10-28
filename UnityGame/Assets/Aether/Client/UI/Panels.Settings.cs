@@ -142,7 +142,7 @@ namespace Aether.Client.UI
         private void Selector(RectTransform box, float y, string label, string value, Action<int> step)
         {
             var bg = UiKit.Rect(box, label, new Vector2(0, 1), new Vector2(0, 0.5f), new Vector2(10, y), new Vector2(418, 52));
-            UiStyle.Pill(bg, new Color(0, 0, 0, 0.28f), 12);
+            UiStyle.Pill(bg, UiStyle.SurfaceWell, 4);
             Text(bg, "L", new Vector2(0, 0.5f), new Vector2(0, 0.5f), new Vector2(10, 0), new Vector2(170, 24), label, 15, UiKit.TextMain, TextAnchor.MiddleLeft, true);
             RoundButton(bg, "Prev", new Vector2(1, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(-222, 0), 32, "‹", () => step(-1));
             Text(bg, "V", new Vector2(1, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(-122, 0), new Vector2(170, 24), value, 14, UiStyle.GoldHi, TextAnchor.MiddleCenter, true);
@@ -153,10 +153,10 @@ namespace Aether.Client.UI
         private void Switch(RectTransform box, float y, string label, bool on, Action<bool> set)
         {
             var bg = UiKit.Rect(box, label, new Vector2(0, 1), new Vector2(0, 0.5f), new Vector2(10, y), new Vector2(418, 52));
-            UiStyle.Pill(bg, new Color(0, 0, 0, 0.28f), 12);
+            UiStyle.Pill(bg, UiStyle.SurfaceWell, 4);
             Text(bg, "L", new Vector2(0, 0.5f), new Vector2(0, 0.5f), new Vector2(10, 0), new Vector2(260, 24), label, 15, UiKit.TextMain, TextAnchor.MiddleLeft, true);
             var sw = UiKit.Rect(bg, "Sw", new Vector2(1, 0.5f), new Vector2(1, 0.5f), new Vector2(-14, 0), new Vector2(62, 30));
-            UiStyle.Pill(sw, on ? UiStyle.Hex(0x3f9b49) : new Color(0.25f, 0.22f, 0.2f, 1), 15);
+            UiStyle.Pill(sw, on ? UiStyle.Hex(0x407a72) : UiStyle.SurfaceRaised, 5);
             Text(sw, "T", new Vector2(on ? 0 : 1, 0.5f), new Vector2(on ? 0 : 1, 0.5f), new Vector2(on ? 8 : -8, 0), new Vector2(30, 20), on ? "BẬT" : "TẮT", 10,
                 new Color(1, 1, 1, 0.85f), on ? TextAnchor.MiddleLeft : TextAnchor.MiddleRight, true);
             var knob = UiKit.Rect(sw, "K", new Vector2(on ? 1 : 0, 0.5f), new Vector2(on ? 1 : 0, 0.5f), new Vector2(on ? -3 : 3, 0), new Vector2(24, 24));

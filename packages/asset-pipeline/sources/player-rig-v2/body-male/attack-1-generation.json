@@ -1,0 +1,15 @@
+{
+  "gender": "male",
+  "id": "attack-1",
+  "frameIds": [
+    "attack-04",
+    "attack-05",
+    "attack-06",
+    "attack-07"
+  ],
+  "prompt": "Use case: precise-object-edit. Input Image1 is the EXACT calibration/edit target: four different poses of the same pixel RPG character in FOUR COLUMNS ONE ROW, canvas1774×887. Change only poses according to list below, PRESERVE costume, gender, head identity and EXACT pixel scale/camera. No rescaling or increasing torso/head size. Existing standing body neck-to-sole is 321 source pixels. Keep original size on canvas and baseline atY805 in every slot, torso collar aroundY484, heads same width ~145sourcepx. Each slot443.5px wide, character neck centers around X(230,685,1110,1550). Maintain full transparency around each sprite; no neighbor overlap. All4 figures must stay same size even for raised sword. DO NOT create a smaller sprite for a pose with a raised blade.\nSTYLE/IDENTITY: preserve Image1 ash/silver hair and amber eyes, precise clean pixel clusters and same fine detail density in every frame. Green short cloak with ivory trim, plain iron chestplate, basic belt/gloves/charcoal trousers/brown boots, full high collar, closed gloves/skin covered. Basic starter outfit, same sword design and length, no extra ornament. Sharp cloth seams, metal/leather planes and thin selective edges. No gradients, blur, fuzz, glow, motion-trail, noisy pixels or anti-alias halos.\nRIG: same front S camera, upright head, same shoulder/waist/limb/boot sizes, all poses have complete consistent heads to preserve headspace. Sword is rigid and aligned with hilt/wrist, fingers actually wrap hilt. Raised sword hands must clear hair crown and blade axis upright. Two handed attack uses only ONE sword. Do not paint weapons floating away, duplicate limbs, duplicate swords or draw circular arm waving. Keep head dimensions independent of lifted arms.\nRequested poses left to right:\n1. Both hands raise to forehead height, elbows spread slightly outside hair; sword shaft perfectly vertical in front of centerline.\n2. Both hands clearly above hair crown, elbows bend beside head, vertical blade overhead, preparatory weight shift backward.\n3. Maximum loaded overhead windup, BOTH hands above crown with clear airgap, upper arms close beside head, knees slightly flexed, hilt and blade vertical.\n4. First accelerating downstroke: shoulders drive forward and gloved hands begin moving down from above crown to top-of-hair level, blade still up, chest only leans a little.\nThese are consecutive key poses of ONE two handed overhead downward sword strike. No horizontal circular swing. Head/body remain at same original pixel density/physical size. No effects or smears, keep all armor and face sharply drawn.",
+  "mode": "built-in-imagegen",
+  "source": "packages/asset-pipeline/sources/player-rig-v2/body-male/attack-1-source.png",
+  "productionEnabled": false,
+  "artApproved": false
+}

@@ -1,0 +1,17 @@
+Mode: built-in image_gen edit of clothing/equipment-directions-2x.png.
+Use case: precise-object-edit.
+Asset: production pixel-art game character base sprite sheet.
+Use the eight-direction white-haired male RPG character only for visual identity,
+silhouette scale, face, hair, camera angle, and direction order. Draw a new
+unarmored male base wearing only dark charcoal boxer shorts: no shirt, trousers,
+shoes, gloves, weapon, coat, cape, vest, or scarf. Keep the complete face and
+hair visible. One horizontal row of eight standing views ordered front,
+front-right three-quarter, right profile, back-right three-quarter, back,
+back-left three-quarter, left profile, front-left three-quarter; feet on one
+baseline, equal cell sizes, transparent margins. Crisp limited-palette pixel art
+with hard edges; true transparent background; no text or guides.
+
+The raw image is warden-male-base-ai-raw.png. Run
+packages/asset-pipeline/scripts/normalize-male-base.py to fit it to the
+production 8 x 112 px grid in warden-male-base-ai-112.png. The pipeline keeps
+the existing per-pose head and uses this image as the bare-body reference.

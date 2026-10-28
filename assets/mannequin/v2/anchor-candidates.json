@@ -5,8 +5,8 @@
       80
     ],
     "staffGrip": [
-      73,
-      76
+      72,
+      74
     ],
     "neck": [
       56,
@@ -17,8 +17,8 @@
   },
   "0/SW": {
     "grip": [
-      45,
-      77
+      46,
+      78
     ],
     "staffGrip": [
       66,
@@ -33,12 +33,12 @@
   },
   "0/W": {
     "grip": [
-      52,
-      76
+      53,
+      75
     ],
     "staffGrip": [
-      56,
-      78
+      55,
+      77
     ],
     "neck": [
       56,
@@ -49,8 +49,8 @@
   },
   "0/NW": {
     "grip": [
-      45,
-      75
+      46,
+      74
     ],
     "staffGrip": [
       60,
@@ -82,11 +82,11 @@
   "0/NE": {
     "grip": [
       64,
-      75
+      74
     ],
     "staffGrip": [
       43,
-      73
+      72
     ],
     "neck": [
       56,
@@ -97,12 +97,12 @@
   },
   "0/E": {
     "grip": [
-      67,
+      68,
       74
     ],
     "staffGrip": [
-      45,
-      71
+      46,
+      70
     ],
     "neck": [
       56,
@@ -113,11 +113,11 @@
   },
   "0/SE": {
     "grip": [
-      68,
-      76
+      70,
+      77
     ],
     "staffGrip": [
-      44,
+      45,
       78
     ],
     "neck": [
@@ -127,233 +127,3129 @@
     "weaponOrder": 1,
     "reviewed": false
   },
-  "1/S": {
+  "8/S": {
     "grip": [
-      41,
-      75
+      75,
+      79
     ],
     "staffGrip": [
-      69,
-      75
-    ],
-    "neck": [
-      56,
-      52
-    ],
-    "weaponOrder": 1,
-    "reviewed": false
-  },
-  "2/S": {
-    "grip": [
-      41,
-      76
-    ],
-    "staffGrip": [
-      71,
-      77
-    ],
-    "neck": [
-      56,
-      51
-    ],
-    "weaponOrder": 1,
-    "reviewed": false
-  },
-  "3/S": {
-    "grip": [
-      41,
-      73
-    ],
-    "staffGrip": [
-      70,
-      75
-    ],
-    "neck": [
-      56,
-      52
-    ],
-    "weaponOrder": 1,
-    "reviewed": false
-  },
-  "1/SW": {
-    "grip": [
-      42,
-      73
-    ],
-    "staffGrip": [
-      71,
-      75
-    ],
-    "neck": [
-      56,
-      52
-    ],
-    "weaponOrder": 1,
-    "reviewed": false
-  },
-  "2/SW": {
-    "grip": [
-      45,
-      76
-    ],
-    "staffGrip": [
-      68,
-      77
-    ],
-    "neck": [
-      56,
-      52
-    ],
-    "weaponOrder": 1,
-    "reviewed": false
-  },
-  "3/SW": {
-    "grip": [
-      44,
-      70
-    ],
-    "staffGrip": [
-      72,
-      75
-    ],
-    "neck": [
-      56,
-      52
-    ],
-    "weaponOrder": 1,
-    "reviewed": false
-  },
-  "1/W": {
-    "grip": [
-      48,
-      73
-    ],
-    "staffGrip": [
-      60,
-      77
-    ],
-    "neck": [
-      56,
-      52
-    ],
-    "weaponOrder": 1,
-    "reviewed": false
-  },
-  "2/W": {
-    "grip": [
-      50,
-      75
-    ],
-    "staffGrip": [
-      60,
+      75,
       79
     ],
     "neck": [
       56,
-      51
+      60
     ],
     "weaponOrder": 1,
     "reviewed": false
   },
-  "3/W": {
+  "9/S": {
+    "grip": [
+      77,
+      79
+    ],
+    "staffGrip": [
+      77,
+      79
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "10/S": {
+    "grip": [
+      75,
+      79
+    ],
+    "staffGrip": [
+      75,
+      79
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "11/S": {
+    "grip": [
+      75,
+      81
+    ],
+    "staffGrip": [
+      75,
+      81
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "8/SW": {
+    "grip": [
+      74,
+      79
+    ],
+    "staffGrip": [
+      74,
+      79
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "9/SW": {
+    "grip": [
+      76,
+      78
+    ],
+    "staffGrip": [
+      76,
+      78
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "10/SW": {
+    "grip": [
+      78,
+      77
+    ],
+    "staffGrip": [
+      78,
+      77
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "11/SW": {
+    "grip": [
+      78,
+      76
+    ],
+    "staffGrip": [
+      78,
+      76
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "8/W": {
+    "grip": [
+      49,
+      76
+    ],
+    "staffGrip": [
+      49,
+      76
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "9/W": {
+    "grip": [
+      50,
+      77
+    ],
+    "staffGrip": [
+      50,
+      77
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "10/W": {
+    "grip": [
+      50,
+      79
+    ],
+    "staffGrip": [
+      50,
+      79
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "11/W": {
     "grip": [
       48,
+      76
+    ],
+    "staffGrip": [
+      48,
+      76
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "8/NW": {
+    "grip": [
+      46,
+      74
+    ],
+    "staffGrip": [
+      46,
+      74
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "9/NW": {
+    "grip": [
+      47,
+      73
+    ],
+    "staffGrip": [
+      47,
+      73
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "10/NW": {
+    "grip": [
+      47,
+      76
+    ],
+    "staffGrip": [
+      47,
+      76
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "11/NW": {
+    "grip": [
+      45,
+      75
+    ],
+    "staffGrip": [
+      45,
+      75
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "8/N": {
+    "grip": [
+      72,
+      79
+    ],
+    "staffGrip": [
+      72,
+      79
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "9/N": {
+    "grip": [
+      72,
+      79
+    ],
+    "staffGrip": [
+      72,
+      79
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "10/N": {
+    "grip": [
+      71,
+      75
+    ],
+    "staffGrip": [
+      71,
+      75
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "11/N": {
+    "grip": [
+      73,
+      77
+    ],
+    "staffGrip": [
+      73,
+      77
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "8/NE": {
+    "grip": [
+      74,
+      79
+    ],
+    "staffGrip": [
+      74,
+      79
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "9/NE": {
+    "grip": [
+      73,
+      78
+    ],
+    "staffGrip": [
+      73,
+      78
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "10/NE": {
+    "grip": [
+      73,
+      80
+    ],
+    "staffGrip": [
+      73,
+      80
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "11/NE": {
+    "grip": [
+      72,
+      76
+    ],
+    "staffGrip": [
+      72,
+      76
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "8/E": {
+    "grip": [
+      67,
+      76
+    ],
+    "staffGrip": [
+      67,
+      76
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "9/E": {
+    "grip": [
+      67,
+      76
+    ],
+    "staffGrip": [
+      67,
+      76
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "10/E": {
+    "grip": [
+      70,
+      77
+    ],
+    "staffGrip": [
+      70,
+      77
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "11/E": {
+    "grip": [
+      71,
+      75
+    ],
+    "staffGrip": [
+      71,
+      75
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "8/SE": {
+    "grip": [
+      66,
+      80
+    ],
+    "staffGrip": [
+      66,
+      80
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "9/SE": {
+    "grip": [
+      67,
+      75
+    ],
+    "staffGrip": [
+      67,
+      75
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "10/SE": {
+    "grip": [
+      69,
+      75
+    ],
+    "staffGrip": [
+      69,
+      75
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "11/SE": {
+    "grip": [
+      67,
+      78
+    ],
+    "staffGrip": [
+      67,
+      78
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "20/S": {
+    "grip": [
+      44,
+      72
+    ],
+    "staffGrip": [
+      44,
+      72
+    ],
+    "neck": [
+      56,
+      54
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "21/S": {
+    "grip": [
+      44,
+      61
+    ],
+    "staffGrip": [
+      44,
+      61
+    ],
+    "neck": [
+      56,
+      57
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "12/S": {
+    "grip": [
+      45,
+      51
+    ],
+    "staffGrip": [
+      45,
+      51
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "22/S": {
+    "grip": [
+      43,
+      54
+    ],
+    "staffGrip": [
+      43,
+      54
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "23/S": {
+    "grip": [
+      41,
+      54
+    ],
+    "staffGrip": [
+      41,
+      54
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "24/S": {
+    "grip": [
+      40,
+      56
+    ],
+    "staffGrip": [
+      40,
+      56
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "25/S": {
+    "grip": [
+      38,
+      58
+    ],
+    "staffGrip": [
+      38,
+      58
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "14/S": {
+    "grip": [
+      36,
+      59
+    ],
+    "staffGrip": [
+      36,
+      59
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "26/S": {
+    "grip": [
+      44,
+      69
+    ],
+    "staffGrip": [
+      44,
+      69
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "15/S": {
+    "grip": [
+      57,
+      78
+    ],
+    "staffGrip": [
+      57,
+      78
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "27/S": {
+    "grip": [
+      52,
+      79
+    ],
+    "staffGrip": [
+      52,
+      79
+    ],
+    "neck": [
+      56,
+      57
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "28/S": {
+    "grip": [
+      47,
+      80
+    ],
+    "staffGrip": [
+      47,
+      80
+    ],
+    "neck": [
+      56,
+      54
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "20/SW": {
+    "grip": [
+      47,
+      69
+    ],
+    "staffGrip": [
+      47,
+      69
+    ],
+    "neck": [
+      56,
+      54
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "21/SW": {
+    "grip": [
+      51,
+      62
+    ],
+    "staffGrip": [
+      51,
+      62
+    ],
+    "neck": [
+      56,
+      57
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "12/SW": {
+    "grip": [
+      53,
+      55
+    ],
+    "staffGrip": [
+      53,
+      55
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "22/SW": {
+    "grip": [
+      49,
+      56
+    ],
+    "staffGrip": [
+      49,
+      56
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "23/SW": {
+    "grip": [
+      46,
+      56
+    ],
+    "staffGrip": [
+      46,
+      56
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "24/SW": {
+    "grip": [
+      40,
+      55
+    ],
+    "staffGrip": [
+      40,
+      55
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "25/SW": {
+    "grip": [
+      37,
+      57
+    ],
+    "staffGrip": [
+      37,
+      57
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "14/SW": {
+    "grip": [
+      32,
+      58
+    ],
+    "staffGrip": [
+      32,
+      58
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "26/SW": {
+    "grip": [
+      40,
+      66
+    ],
+    "staffGrip": [
+      40,
+      66
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "15/SW": {
+    "grip": [
+      47,
+      72
+    ],
+    "staffGrip": [
+      47,
+      72
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "27/SW": {
+    "grip": [
+      46,
+      73
+    ],
+    "staffGrip": [
+      46,
+      73
+    ],
+    "neck": [
+      56,
+      57
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "28/SW": {
+    "grip": [
+      47,
+      77
+    ],
+    "staffGrip": [
+      47,
+      77
+    ],
+    "neck": [
+      56,
+      54
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "20/W": {
+    "grip": [
+      53,
+      70
+    ],
+    "staffGrip": [
+      53,
+      70
+    ],
+    "neck": [
+      56,
+      54
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "21/W": {
+    "grip": [
+      51,
+      62
+    ],
+    "staffGrip": [
+      51,
+      62
+    ],
+    "neck": [
+      56,
+      57
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "12/W": {
+    "grip": [
+      50,
+      56
+    ],
+    "staffGrip": [
+      50,
+      56
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "22/W": {
+    "grip": [
+      47,
+      56
+    ],
+    "staffGrip": [
+      47,
+      56
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "23/W": {
+    "grip": [
+      44,
+      58
+    ],
+    "staffGrip": [
+      44,
+      58
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "24/W": {
+    "grip": [
+      39,
+      58
+    ],
+    "staffGrip": [
+      39,
+      58
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "25/W": {
+    "grip": [
+      36,
+      60
+    ],
+    "staffGrip": [
+      36,
+      60
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "14/W": {
+    "grip": [
+      33,
+      61
+    ],
+    "staffGrip": [
+      33,
+      61
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "26/W": {
+    "grip": [
+      40,
+      67
+    ],
+    "staffGrip": [
+      40,
+      67
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "15/W": {
+    "grip": [
+      49,
+      73
+    ],
+    "staffGrip": [
+      49,
+      73
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "27/W": {
+    "grip": [
+      50,
+      74
+    ],
+    "staffGrip": [
+      50,
+      74
+    ],
+    "neck": [
+      56,
+      57
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "28/W": {
+    "grip": [
+      52,
+      74
+    ],
+    "staffGrip": [
+      52,
+      74
+    ],
+    "neck": [
+      56,
+      54
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "20/NW": {
+    "grip": [
+      47,
+      68
+    ],
+    "staffGrip": [
+      47,
+      68
+    ],
+    "neck": [
+      56,
+      54
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "21/NW": {
+    "grip": [
+      48,
+      61
+    ],
+    "staffGrip": [
+      48,
+      61
+    ],
+    "neck": [
+      56,
+      57
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "12/NW": {
+    "grip": [
+      49,
+      55
+    ],
+    "staffGrip": [
+      49,
+      55
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "22/NW": {
+    "grip": [
+      46,
+      56
+    ],
+    "staffGrip": [
+      46,
+      56
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "23/NW": {
+    "grip": [
+      42,
+      57
+    ],
+    "staffGrip": [
+      42,
+      57
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "24/NW": {
+    "grip": [
+      38,
+      58
+    ],
+    "staffGrip": [
+      38,
+      58
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "25/NW": {
+    "grip": [
+      33,
+      59
+    ],
+    "staffGrip": [
+      33,
+      59
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "14/NW": {
+    "grip": [
+      30,
+      60
+    ],
+    "staffGrip": [
+      30,
+      60
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "26/NW": {
+    "grip": [
+      40,
+      68
+    ],
+    "staffGrip": [
+      40,
+      68
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "15/NW": {
+    "grip": [
+      50,
+      76
+    ],
+    "staffGrip": [
+      50,
+      76
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "27/NW": {
+    "grip": [
+      48,
+      76
+    ],
+    "staffGrip": [
+      48,
+      76
+    ],
+    "neck": [
+      56,
+      57
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "28/NW": {
+    "grip": [
+      48,
+      74
+    ],
+    "staffGrip": [
+      48,
+      74
+    ],
+    "neck": [
+      56,
+      54
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "20/N": {
+    "grip": [
+      54,
       71
     ],
     "staffGrip": [
-      60,
-      78
+      54,
+      71
     ],
     "neck": [
       56,
+      54
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "21/N": {
+    "grip": [
+      64,
+      63
+    ],
+    "staffGrip": [
+      64,
+      63
+    ],
+    "neck": [
+      56,
+      57
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "12/N": {
+    "grip": [
+      73,
+      56
+    ],
+    "staffGrip": [
+      73,
+      56
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "22/N": {
+    "grip": [
+      73,
+      58
+    ],
+    "staffGrip": [
+      73,
+      58
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "23/N": {
+    "grip": [
+      73,
+      59
+    ],
+    "staffGrip": [
+      73,
+      59
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "24/N": {
+    "grip": [
+      74,
+      61
+    ],
+    "staffGrip": [
+      74,
+      61
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "25/N": {
+    "grip": [
+      74,
+      62
+    ],
+    "staffGrip": [
+      74,
+      62
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "14/N": {
+    "grip": [
+      74,
+      64
+    ],
+    "staffGrip": [
+      74,
+      64
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "26/N": {
+    "grip": [
+      73,
+      69
+    ],
+    "staffGrip": [
+      73,
+      69
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "15/N": {
+    "grip": [
+      71,
+      72
+    ],
+    "staffGrip": [
+      71,
+      72
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "27/N": {
+    "grip": [
+      62,
+      76
+    ],
+    "staffGrip": [
+      62,
+      76
+    ],
+    "neck": [
+      56,
+      57
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "28/N": {
+    "grip": [
+      53,
+      77
+    ],
+    "staffGrip": [
+      53,
+      77
+    ],
+    "neck": [
+      56,
+      54
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "20/NE": {
+    "grip": [
+      67,
+      67
+    ],
+    "staffGrip": [
+      67,
+      67
+    ],
+    "neck": [
+      56,
+      54
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "21/NE": {
+    "grip": [
+      72,
+      60
+    ],
+    "staffGrip": [
+      72,
+      60
+    ],
+    "neck": [
+      56,
+      57
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "12/NE": {
+    "grip": [
+      75,
       53
+    ],
+    "staffGrip": [
+      75,
+      53
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "22/NE": {
+    "grip": [
+      76,
+      55
+    ],
+    "staffGrip": [
+      76,
+      55
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "23/NE": {
+    "grip": [
+      77,
+      58
+    ],
+    "staffGrip": [
+      77,
+      58
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "24/NE": {
+    "grip": [
+      78,
+      60
+    ],
+    "staffGrip": [
+      78,
+      60
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "25/NE": {
+    "grip": [
+      79,
+      62
+    ],
+    "staffGrip": [
+      79,
+      62
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "14/NE": {
+    "grip": [
+      80,
+      64
+    ],
+    "staffGrip": [
+      80,
+      64
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "26/NE": {
+    "grip": [
+      77,
+      68
+    ],
+    "staffGrip": [
+      77,
+      68
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "15/NE": {
+    "grip": [
+      72,
+      72
+    ],
+    "staffGrip": [
+      72,
+      72
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "27/NE": {
+    "grip": [
+      69,
+      73
+    ],
+    "staffGrip": [
+      69,
+      73
+    ],
+    "neck": [
+      56,
+      57
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "28/NE": {
+    "grip": [
+      67,
+      73
+    ],
+    "staffGrip": [
+      67,
+      73
+    ],
+    "neck": [
+      56,
+      54
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "20/E": {
+    "grip": [
+      67,
+      67
+    ],
+    "staffGrip": [
+      67,
+      67
+    ],
+    "neck": [
+      56,
+      54
     ],
     "weaponOrder": 1,
     "reviewed": false
   },
-  "1/NW": {
+  "21/E": {
     "grip": [
-      45,
-      74
+      65,
+      60
     ],
     "staffGrip": [
-      60,
-      77
+      65,
+      60
     ],
     "neck": [
       56,
-      52
+      57
     ],
-    "weaponOrder": -1,
+    "weaponOrder": 1,
     "reviewed": false
   },
-  "2/NW": {
+  "12/E": {
     "grip": [
-      44,
+      65,
+      53
+    ],
+    "staffGrip": [
+      65,
+      53
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "22/E": {
+    "grip": [
+      68,
+      55
+    ],
+    "staffGrip": [
+      68,
+      55
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "23/E": {
+    "grip": [
+      71,
+      57
+    ],
+    "staffGrip": [
+      71,
+      57
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "24/E": {
+    "grip": [
+      75,
+      59
+    ],
+    "staffGrip": [
+      75,
+      59
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "25/E": {
+    "grip": [
+      78,
+      61
+    ],
+    "staffGrip": [
+      78,
+      61
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "14/E": {
+    "grip": [
+      81,
+      63
+    ],
+    "staffGrip": [
+      81,
+      63
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "26/E": {
+    "grip": [
+      75,
+      68
+    ],
+    "staffGrip": [
+      75,
+      68
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "15/E": {
+    "grip": [
+      67,
+      71
+    ],
+    "staffGrip": [
+      67,
+      71
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "27/E": {
+    "grip": [
+      67,
+      71
+    ],
+    "staffGrip": [
+      67,
+      71
+    ],
+    "neck": [
+      56,
+      57
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "28/E": {
+    "grip": [
+      68,
+      74
+    ],
+    "staffGrip": [
+      68,
+      74
+    ],
+    "neck": [
+      56,
+      54
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "20/SE": {
+    "grip": [
+      70,
+      69
+    ],
+    "staffGrip": [
+      70,
+      69
+    ],
+    "neck": [
+      56,
+      54
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "21/SE": {
+    "grip": [
+      70,
+      60
+    ],
+    "staffGrip": [
+      70,
+      60
+    ],
+    "neck": [
+      56,
+      57
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "12/SE": {
+    "grip": [
+      72,
+      53
+    ],
+    "staffGrip": [
+      72,
+      53
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "22/SE": {
+    "grip": [
+      74,
+      55
+    ],
+    "staffGrip": [
+      74,
+      55
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "23/SE": {
+    "grip": [
+      76,
+      57
+    ],
+    "staffGrip": [
+      76,
+      57
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "24/SE": {
+    "grip": [
+      77,
+      58
+    ],
+    "staffGrip": [
+      77,
+      58
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "25/SE": {
+    "grip": [
+      78,
+      59
+    ],
+    "staffGrip": [
+      78,
+      59
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "14/SE": {
+    "grip": [
+      80,
+      61
+    ],
+    "staffGrip": [
+      80,
+      61
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "26/SE": {
+    "grip": [
+      77,
+      67
+    ],
+    "staffGrip": [
+      77,
+      67
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "15/SE": {
+    "grip": [
+      71,
+      72
+    ],
+    "staffGrip": [
+      71,
+      72
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "27/SE": {
+    "grip": [
+      70,
+      73
+    ],
+    "staffGrip": [
+      70,
+      73
+    ],
+    "neck": [
+      56,
+      57
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "28/SE": {
+    "grip": [
+      71,
       76
     ],
     "staffGrip": [
-      60,
-      77
+      71,
+      76
     ],
     "neck": [
       56,
-      51
+      54
     ],
-    "weaponOrder": -1,
+    "weaponOrder": 1,
     "reviewed": false
   },
-  "3/NW": {
+  "29/S": {
+    "grip": [
+      47,
+      76
+    ],
+    "staffGrip": [
+      47,
+      76
+    ],
+    "neck": [
+      56,
+      54
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "30/S": {
+    "grip": [
+      51,
+      71
+    ],
+    "staffGrip": [
+      51,
+      71
+    ],
+    "neck": [
+      56,
+      57
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "16/S": {
+    "grip": [
+      55,
+      67
+    ],
+    "staffGrip": [
+      55,
+      67
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "31/S": {
+    "grip": [
+      51,
+      65
+    ],
+    "staffGrip": [
+      51,
+      65
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "32/S": {
+    "grip": [
+      50,
+      62
+    ],
+    "staffGrip": [
+      50,
+      62
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "17/S": {
+    "grip": [
+      47,
+      60
+    ],
+    "staffGrip": [
+      47,
+      60
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "33/S": {
+    "grip": [
+      43,
+      61
+    ],
+    "staffGrip": [
+      43,
+      61
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "34/S": {
+    "grip": [
+      39,
+      62
+    ],
+    "staffGrip": [
+      39,
+      62
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "18/S": {
+    "grip": [
+      35,
+      63
+    ],
+    "staffGrip": [
+      35,
+      63
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "35/S": {
+    "grip": [
+      39,
+      68
+    ],
+    "staffGrip": [
+      39,
+      68
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "36/S": {
     "grip": [
       43,
       74
     ],
     "staffGrip": [
-      56,
+      43,
       74
     ],
     "neck": [
       56,
-      52
+      60
     ],
-    "weaponOrder": -1,
+    "weaponOrder": 1,
     "reviewed": false
   },
-  "1/N": {
+  "19/S": {
+    "grip": [
+      49,
+      79
+    ],
+    "staffGrip": [
+      49,
+      79
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "37/S": {
+    "grip": [
+      47,
+      80
+    ],
+    "staffGrip": [
+      47,
+      80
+    ],
+    "neck": [
+      56,
+      57
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "38/S": {
+    "grip": [
+      45,
+      79
+    ],
+    "staffGrip": [
+      45,
+      79
+    ],
+    "neck": [
+      56,
+      54
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "29/SW": {
+    "grip": [
+      48,
+      74
+    ],
+    "staffGrip": [
+      48,
+      74
+    ],
+    "neck": [
+      56,
+      54
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "30/SW": {
+    "grip": [
+      51,
+      69
+    ],
+    "staffGrip": [
+      51,
+      69
+    ],
+    "neck": [
+      56,
+      57
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "16/SW": {
+    "grip": [
+      54,
+      66
+    ],
+    "staffGrip": [
+      54,
+      66
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "31/SW": {
+    "grip": [
+      48,
+      64
+    ],
+    "staffGrip": [
+      48,
+      64
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "32/SW": {
     "grip": [
       43,
+      62
+    ],
+    "staffGrip": [
+      43,
+      62
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "17/SW": {
+    "grip": [
+      37,
+      60
+    ],
+    "staffGrip": [
+      37,
+      60
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "33/SW": {
+    "grip": [
+      36,
+      61
+    ],
+    "staffGrip": [
+      36,
+      61
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "34/SW": {
+    "grip": [
+      34,
+      62
+    ],
+    "staffGrip": [
+      34,
+      62
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "18/SW": {
+    "grip": [
+      33,
+      63
+    ],
+    "staffGrip": [
+      33,
+      63
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "35/SW": {
+    "grip": [
+      38,
+      68
+    ],
+    "staffGrip": [
+      38,
+      68
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "36/SW": {
+    "grip": [
+      44,
+      73
+    ],
+    "staffGrip": [
+      44,
+      73
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "19/SW": {
+    "grip": [
+      49,
       78
     ],
     "staffGrip": [
-      70,
+      49,
+      78
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "37/SW": {
+    "grip": [
+      48,
+      78
+    ],
+    "staffGrip": [
+      48,
+      78
+    ],
+    "neck": [
+      56,
+      57
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "38/SW": {
+    "grip": [
+      47,
+      78
+    ],
+    "staffGrip": [
+      47,
+      78
+    ],
+    "neck": [
+      56,
+      54
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "29/W": {
+    "grip": [
+      52,
+      73
+    ],
+    "staffGrip": [
+      52,
+      73
+    ],
+    "neck": [
+      56,
+      54
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "30/W": {
+    "grip": [
+      52,
+      66
+    ],
+    "staffGrip": [
+      52,
+      66
+    ],
+    "neck": [
+      56,
+      57
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "16/W": {
+    "grip": [
+      51,
+      62
+    ],
+    "staffGrip": [
+      51,
+      62
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "31/W": {
+    "grip": [
+      45,
+      61
+    ],
+    "staffGrip": [
+      45,
+      61
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "32/W": {
+    "grip": [
+      40,
+      61
+    ],
+    "staffGrip": [
+      40,
+      61
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "17/W": {
+    "grip": [
+      34,
+      60
+    ],
+    "staffGrip": [
+      34,
+      60
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "33/W": {
+    "grip": [
+      34,
+      61
+    ],
+    "staffGrip": [
+      34,
+      61
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "34/W": {
+    "grip": [
+      34,
+      62
+    ],
+    "staffGrip": [
+      34,
+      62
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "18/W": {
+    "grip": [
+      34,
+      63
+    ],
+    "staffGrip": [
+      34,
+      63
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "35/W": {
+    "grip": [
+      39,
+      68
+    ],
+    "staffGrip": [
+      39,
+      68
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "36/W": {
+    "grip": [
+      44,
+      74
+    ],
+    "staffGrip": [
+      44,
+      74
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "19/W": {
+    "grip": [
+      49,
+      76
+    ],
+    "staffGrip": [
+      49,
       76
     ],
     "neck": [
       56,
-      52
+      60
     ],
-    "weaponOrder": -1,
+    "weaponOrder": 1,
     "reviewed": false
   },
-  "2/N": {
+  "37/W": {
     "grip": [
-      44,
-      77
+      50,
+      75
     ],
     "staffGrip": [
-      70,
-      77
+      50,
+      75
     ],
     "neck": [
       56,
-      51
+      57
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "38/W": {
+    "grip": [
+      52,
+      78
+    ],
+    "staffGrip": [
+      52,
+      78
+    ],
+    "neck": [
+      56,
+      54
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "29/NW": {
+    "grip": [
+      46,
+      71
+    ],
+    "staffGrip": [
+      46,
+      71
+    ],
+    "neck": [
+      56,
+      54
     ],
     "weaponOrder": -1,
     "reviewed": false
   },
-  "3/N": {
+  "30/NW": {
+    "grip": [
+      46,
+      68
+    ],
+    "staffGrip": [
+      46,
+      68
+    ],
+    "neck": [
+      56,
+      57
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "16/NW": {
+    "grip": [
+      44,
+      65
+    ],
+    "staffGrip": [
+      44,
+      65
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "31/NW": {
+    "grip": [
+      41,
+      63
+    ],
+    "staffGrip": [
+      41,
+      63
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "32/NW": {
+    "grip": [
+      40,
+      60
+    ],
+    "staffGrip": [
+      40,
+      60
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "17/NW": {
+    "grip": [
+      37,
+      58
+    ],
+    "staffGrip": [
+      37,
+      58
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "33/NW": {
+    "grip": [
+      37,
+      60
+    ],
+    "staffGrip": [
+      37,
+      60
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "34/NW": {
+    "grip": [
+      37,
+      66
+    ],
+    "staffGrip": [
+      37,
+      66
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "18/NW": {
+    "grip": [
+      37,
+      68
+    ],
+    "staffGrip": [
+      37,
+      68
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "35/NW": {
+    "grip": [
+      41,
+      71
+    ],
+    "staffGrip": [
+      41,
+      71
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "36/NW": {
     "grip": [
       43,
+      72
+    ],
+    "staffGrip": [
+      43,
+      72
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "19/NW": {
+    "grip": [
+      47,
+      75
+    ],
+    "staffGrip": [
+      47,
+      75
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "37/NW": {
+    "grip": [
+      46,
+      75
+    ],
+    "staffGrip": [
+      46,
+      75
+    ],
+    "neck": [
+      56,
+      57
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "38/NW": {
+    "grip": [
+      47,
+      74
+    ],
+    "staffGrip": [
+      47,
+      74
+    ],
+    "neck": [
+      56,
+      54
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "29/N": {
+    "grip": [
+      53,
+      75
+    ],
+    "staffGrip": [
+      53,
+      75
+    ],
+    "neck": [
+      56,
+      54
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "30/N": {
+    "grip": [
+      64,
+      71
+    ],
+    "staffGrip": [
+      64,
+      71
+    ],
+    "neck": [
+      56,
+      57
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "16/N": {
+    "grip": [
+      73,
+      67
+    ],
+    "staffGrip": [
+      73,
+      67
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "31/N": {
+    "grip": [
+      75,
+      65
+    ],
+    "staffGrip": [
+      75,
+      65
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "32/N": {
+    "grip": [
+      76,
+      62
+    ],
+    "staffGrip": [
+      76,
+      62
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "17/N": {
+    "grip": [
+      78,
+      60
+    ],
+    "staffGrip": [
+      78,
+      60
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "33/N": {
+    "grip": [
+      77,
+      62
+    ],
+    "staffGrip": [
+      77,
+      62
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "34/N": {
+    "grip": [
+      75,
+      64
+    ],
+    "staffGrip": [
+      75,
+      64
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "18/N": {
+    "grip": [
+      74,
+      66
+    ],
+    "staffGrip": [
+      74,
+      66
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "35/N": {
+    "grip": [
+      72,
+      72
+    ],
+    "staffGrip": [
+      72,
+      72
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "36/N": {
+    "grip": [
+      73,
+      73
+    ],
+    "staffGrip": [
+      73,
+      73
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "19/N": {
+    "grip": [
+      71,
       77
     ],
     "staffGrip": [
@@ -362,663 +3258,711 @@
     ],
     "neck": [
       56,
-      53
+      60
     ],
     "weaponOrder": -1,
     "reviewed": false
   },
-  "1/NE": {
+  "37/N": {
     "grip": [
-      65,
-      73
+      63,
+      77
     ],
     "staffGrip": [
-      43,
-      73
+      63,
+      77
     ],
     "neck": [
       56,
-      51
+      57
     ],
     "weaponOrder": -1,
     "reviewed": false
   },
-  "2/NE": {
+  "38/N": {
     "grip": [
-      65,
+      53,
+      78
+    ],
+    "staffGrip": [
+      53,
+      78
+    ],
+    "neck": [
+      56,
+      54
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "29/NE": {
+    "grip": [
+      67,
+      71
+    ],
+    "staffGrip": [
+      67,
+      71
+    ],
+    "neck": [
+      56,
+      54
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "30/NE": {
+    "grip": [
+      68,
+      69
+    ],
+    "staffGrip": [
+      68,
+      69
+    ],
+    "neck": [
+      56,
+      57
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "16/NE": {
+    "grip": [
+      70,
+      67
+    ],
+    "staffGrip": [
+      70,
+      67
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "31/NE": {
+    "grip": [
+      74,
+      66
+    ],
+    "staffGrip": [
+      74,
+      66
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "32/NE": {
+    "grip": [
+      75,
+      66
+    ],
+    "staffGrip": [
+      75,
+      66
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "17/NE": {
+    "grip": [
+      77,
+      65
+    ],
+    "staffGrip": [
+      77,
+      65
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "33/NE": {
+    "grip": [
+      78,
+      65
+    ],
+    "staffGrip": [
+      78,
+      65
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "34/NE": {
+    "grip": [
+      80,
+      64
+    ],
+    "staffGrip": [
+      80,
+      64
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "18/NE": {
+    "grip": [
+      81,
+      64
+    ],
+    "staffGrip": [
+      81,
+      64
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "35/NE": {
+    "grip": [
+      78,
+      68
+    ],
+    "staffGrip": [
+      78,
+      68
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "36/NE": {
+    "grip": [
+      74,
       74
     ],
     "staffGrip": [
-      45,
+      74,
+      74
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "19/NE": {
+    "grip": [
+      71,
+      78
+    ],
+    "staffGrip": [
+      71,
+      78
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "37/NE": {
+    "grip": [
+      69,
+      77
+    ],
+    "staffGrip": [
+      69,
+      77
+    ],
+    "neck": [
+      56,
+      57
+    ],
+    "weaponOrder": -1,
+    "reviewed": false
+  },
+  "38/NE": {
+    "grip": [
+      66,
+      75
+    ],
+    "staffGrip": [
+      66,
       75
     ],
     "neck": [
       56,
-      51
+      54
     ],
     "weaponOrder": -1,
     "reviewed": false
   },
-  "3/NE": {
+  "29/E": {
     "grip": [
-      69,
+      66,
       70
     ],
     "staffGrip": [
-      42,
-      73
+      66,
+      70
     ],
     "neck": [
       56,
-      52
+      54
     ],
-    "weaponOrder": -1,
+    "weaponOrder": 1,
     "reviewed": false
   },
-  "1/E": {
+  "30/E": {
+    "grip": [
+      65,
+      64
+    ],
+    "staffGrip": [
+      65,
+      64
+    ],
+    "neck": [
+      56,
+      57
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "16/E": {
+    "grip": [
+      64,
+      61
+    ],
+    "staffGrip": [
+      64,
+      61
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "31/E": {
+    "grip": [
+      68,
+      60
+    ],
+    "staffGrip": [
+      68,
+      60
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "32/E": {
+    "grip": [
+      75,
+      61
+    ],
+    "staffGrip": [
+      75,
+      61
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "17/E": {
+    "grip": [
+      79,
+      61
+    ],
+    "staffGrip": [
+      79,
+      61
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "33/E": {
+    "grip": [
+      80,
+      62
+    ],
+    "staffGrip": [
+      80,
+      62
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "34/E": {
+    "grip": [
+      81,
+      63
+    ],
+    "staffGrip": [
+      81,
+      63
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "18/E": {
+    "grip": [
+      82,
+      64
+    ],
+    "staffGrip": [
+      82,
+      64
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "35/E": {
+    "grip": [
+      77,
+      68
+    ],
+    "staffGrip": [
+      77,
+      68
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "36/E": {
+    "grip": [
+      71,
+      75
+    ],
+    "staffGrip": [
+      71,
+      75
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "19/E": {
+    "grip": [
+      66,
+      77
+    ],
+    "staffGrip": [
+      66,
+      77
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "37/E": {
+    "grip": [
+      66,
+      76
+    ],
+    "staffGrip": [
+      66,
+      76
+    ],
+    "neck": [
+      56,
+      57
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "38/E": {
+    "grip": [
+      68,
+      75
+    ],
+    "staffGrip": [
+      68,
+      75
+    ],
+    "neck": [
+      56,
+      54
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "29/SE": {
+    "grip": [
+      68,
+      72
+    ],
+    "staffGrip": [
+      68,
+      72
+    ],
+    "neck": [
+      56,
+      54
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "30/SE": {
     "grip": [
       67,
+      68
+    ],
+    "staffGrip": [
+      67,
+      68
+    ],
+    "neck": [
+      56,
+      57
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "16/SE": {
+    "grip": [
+      67,
+      65
+    ],
+    "staffGrip": [
+      67,
+      65
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "31/SE": {
+    "grip": [
+      69,
+      64
+    ],
+    "staffGrip": [
+      69,
+      64
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "32/SE": {
+    "grip": [
+      69,
+      61
+    ],
+    "staffGrip": [
+      69,
+      61
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "17/SE": {
+    "grip": [
+      72,
+      61
+    ],
+    "staffGrip": [
+      72,
+      61
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "33/SE": {
+    "grip": [
+      74,
+      62
+    ],
+    "staffGrip": [
+      74,
+      62
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "34/SE": {
+    "grip": [
+      77,
+      62
+    ],
+    "staffGrip": [
+      77,
+      62
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "18/SE": {
+    "grip": [
+      79,
+      63
+    ],
+    "staffGrip": [
+      79,
+      63
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "35/SE": {
+    "grip": [
+      76,
+      68
+    ],
+    "staffGrip": [
+      76,
+      68
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "36/SE": {
+    "grip": [
+      72,
       74
     ],
     "staffGrip": [
-      44,
+      72,
+      74
+    ],
+    "neck": [
+      56,
+      60
+    ],
+    "weaponOrder": 1,
+    "reviewed": false
+  },
+  "19/SE": {
+    "grip": [
+      69,
+      78
+    ],
+    "staffGrip": [
+      69,
       78
     ],
     "neck": [
       56,
-      52
+      60
     ],
     "weaponOrder": 1,
     "reviewed": false
   },
-  "2/E": {
+  "37/SE": {
     "grip": [
-      65,
-      75
+      68,
+      77
     ],
     "staffGrip": [
-      45,
+      68,
       77
     ],
     "neck": [
       56,
-      51
+      57
     ],
     "weaponOrder": 1,
     "reviewed": false
   },
-  "3/E": {
+  "38/SE": {
     "grip": [
-      68,
-      72
+      71,
+      78
     ],
     "staffGrip": [
-      44,
+      71,
       78
     ],
     "neck": [
       56,
-      53
-    ],
-    "weaponOrder": 1,
-    "reviewed": false
-  },
-  "1/SE": {
-    "grip": [
-      69,
-      73
-    ],
-    "staffGrip": [
-      43,
-      75
-    ],
-    "neck": [
-      56,
-      52
-    ],
-    "weaponOrder": 1,
-    "reviewed": false
-  },
-  "2/SE": {
-    "grip": [
-      69,
-      76
-    ],
-    "staffGrip": [
-      43,
-      77
-    ],
-    "neck": [
-      56,
-      51
-    ],
-    "weaponOrder": 1,
-    "reviewed": false
-  },
-  "3/SE": {
-    "grip": [
-      68,
-      76
-    ],
-    "staffGrip": [
-      40,
-      75
-    ],
-    "neck": [
-      56,
-      52
-    ],
-    "weaponOrder": 1,
-    "reviewed": false
-  },
-  "4/S": {
-    "grip": [
-      47,
-      40
-    ],
-    "staffGrip": [
-      47,
-      40
-    ],
-    "neck": [
-      56,
-      56
-    ],
-    "weaponOrder": 1,
-    "reviewed": false
-  },
-  "5/S": {
-    "grip": [
-      34,
-      57
-    ],
-    "staffGrip": [
-      34,
-      57
-    ],
-    "neck": [
-      56,
-      57
-    ],
-    "weaponOrder": 1,
-    "reviewed": false
-  },
-  "4/SW": {
-    "grip": [
-      44,
-      37
-    ],
-    "staffGrip": [
-      44,
-      37
-    ],
-    "neck": [
-      56,
-      55
-    ],
-    "weaponOrder": 1,
-    "reviewed": false
-  },
-  "5/SW": {
-    "grip": [
-      30,
-      60
-    ],
-    "staffGrip": [
-      30,
-      60
-    ],
-    "neck": [
-      56,
-      58
-    ],
-    "weaponOrder": 1,
-    "reviewed": false
-  },
-  "4/W": {
-    "grip": [
-      46,
-      40
-    ],
-    "staffGrip": [
-      46,
-      40
-    ],
-    "neck": [
-      56,
-      55
-    ],
-    "weaponOrder": 1,
-    "reviewed": false
-  },
-  "5/W": {
-    "grip": [
-      31,
-      60
-    ],
-    "staffGrip": [
-      31,
-      60
-    ],
-    "neck": [
-      56,
-      57
-    ],
-    "weaponOrder": 1,
-    "reviewed": false
-  },
-  "4/NW": {
-    "grip": [
-      44,
-      39
-    ],
-    "staffGrip": [
-      44,
-      39
-    ],
-    "neck": [
-      56,
-      56
-    ],
-    "weaponOrder": -1,
-    "reviewed": false
-  },
-  "5/NW": {
-    "grip": [
-      32,
-      66
-    ],
-    "staffGrip": [
-      32,
-      66
-    ],
-    "neck": [
-      56,
-      58
-    ],
-    "weaponOrder": -1,
-    "reviewed": false
-  },
-  "4/N": {
-    "grip": [
-      44,
-      42
-    ],
-    "staffGrip": [
-      44,
-      42
-    ],
-    "neck": [
-      56,
-      56
-    ],
-    "weaponOrder": -1,
-    "reviewed": false
-  },
-  "5/N": {
-    "grip": [
-      35,
-      68
-    ],
-    "staffGrip": [
-      35,
-      68
-    ],
-    "neck": [
-      56,
-      57
-    ],
-    "weaponOrder": -1,
-    "reviewed": false
-  },
-  "4/NE": {
-    "grip": [
-      68,
-      39
-    ],
-    "staffGrip": [
-      68,
-      39
-    ],
-    "neck": [
-      56,
-      55
-    ],
-    "weaponOrder": -1,
-    "reviewed": false
-  },
-  "5/NE": {
-    "grip": [
-      79,
-      60
-    ],
-    "staffGrip": [
-      79,
-      60
-    ],
-    "neck": [
-      56,
-      57
-    ],
-    "weaponOrder": -1,
-    "reviewed": false
-  },
-  "4/E": {
-    "grip": [
-      68,
-      38
-    ],
-    "staffGrip": [
-      68,
-      38
-    ],
-    "neck": [
-      56,
-      55
-    ],
-    "weaponOrder": 1,
-    "reviewed": false
-  },
-  "5/E": {
-    "grip": [
-      80,
-      57
-    ],
-    "staffGrip": [
-      80,
-      57
-    ],
-    "neck": [
-      56,
-      57
-    ],
-    "weaponOrder": 1,
-    "reviewed": false
-  },
-  "4/SE": {
-    "grip": [
-      68,
-      39
-    ],
-    "staffGrip": [
-      68,
-      39
-    ],
-    "neck": [
-      56,
-      55
-    ],
-    "weaponOrder": 1,
-    "reviewed": false
-  },
-  "5/SE": {
-    "grip": [
-      77,
-      58
-    ],
-    "staffGrip": [
-      77,
-      58
-    ],
-    "neck": [
-      56,
-      57
-    ],
-    "weaponOrder": 1,
-    "reviewed": false
-  },
-  "6/S": {
-    "grip": [
-      45,
-      65
-    ],
-    "staffGrip": [
-      60,
-      65
-    ],
-    "neck": [
-      56,
-      55
-    ],
-    "weaponOrder": 1,
-    "reviewed": false
-  },
-  "7/S": {
-    "grip": [
-      60,
-      67
-    ],
-    "staffGrip": [
-      60,
-      67
-    ],
-    "neck": [
-      56,
-      56
-    ],
-    "weaponOrder": 1,
-    "reviewed": false
-  },
-  "6/SW": {
-    "grip": [
-      53,
-      63
-    ],
-    "staffGrip": [
-      68,
-      63
-    ],
-    "neck": [
-      56,
-      55
-    ],
-    "weaponOrder": 1,
-    "reviewed": false
-  },
-  "7/SW": {
-    "grip": [
-      60,
-      66
-    ],
-    "staffGrip": [
-      60,
-      66
-    ],
-    "neck": [
-      56,
-      56
-    ],
-    "weaponOrder": 1,
-    "reviewed": false
-  },
-  "6/W": {
-    "grip": [
-      48,
-      67
-    ],
-    "staffGrip": [
-      62,
-      66
-    ],
-    "neck": [
-      56,
-      56
-    ],
-    "weaponOrder": 1,
-    "reviewed": false
-  },
-  "7/W": {
-    "grip": [
-      60,
-      66
-    ],
-    "staffGrip": [
-      60,
-      66
-    ],
-    "neck": [
-      56,
-      57
-    ],
-    "weaponOrder": 1,
-    "reviewed": false
-  },
-  "6/NW": {
-    "grip": [
-      40,
-      65
-    ],
-    "staffGrip": [
-      53,
-      65
-    ],
-    "neck": [
-      56,
-      56
-    ],
-    "weaponOrder": -1,
-    "reviewed": false
-  },
-  "7/NW": {
-    "grip": [
-      50,
-      71
-    ],
-    "staffGrip": [
-      50,
-      71
-    ],
-    "neck": [
-      56,
-      57
-    ],
-    "weaponOrder": -1,
-    "reviewed": false
-  },
-  "6/N": {
-    "grip": [
-      44,
-      67
-    ],
-    "staffGrip": [
-      46,
-      68
-    ],
-    "neck": [
-      56,
-      56
-    ],
-    "weaponOrder": -1,
-    "reviewed": false
-  },
-  "7/N": {
-    "grip": [
-      46,
-      68
-    ],
-    "staffGrip": [
-      46,
-      68
-    ],
-    "neck": [
-      56,
-      57
-    ],
-    "weaponOrder": -1,
-    "reviewed": false
-  },
-  "6/NE": {
-    "grip": [
-      70,
-      66
-    ],
-    "staffGrip": [
-      56,
-      66
-    ],
-    "neck": [
-      56,
-      56
-    ],
-    "weaponOrder": -1,
-    "reviewed": false
-  },
-  "7/NE": {
-    "grip": [
-      61,
-      72
-    ],
-    "staffGrip": [
-      61,
-      72
-    ],
-    "neck": [
-      56,
-      57
-    ],
-    "weaponOrder": -1,
-    "reviewed": false
-  },
-  "6/E": {
-    "grip": [
-      64,
-      65
-    ],
-    "staffGrip": [
-      54,
-      67
-    ],
-    "neck": [
-      56,
-      55
-    ],
-    "weaponOrder": 1,
-    "reviewed": false
-  },
-  "7/E": {
-    "grip": [
-      58,
-      66
-    ],
-    "staffGrip": [
-      58,
-      66
-    ],
-    "neck": [
-      56,
-      56
-    ],
-    "weaponOrder": 1,
-    "reviewed": false
-  },
-  "6/SE": {
-    "grip": [
-      51,
-      67
-    ],
-    "staffGrip": [
-      51,
-      67
-    ],
-    "neck": [
-      56,
-      55
-    ],
-    "weaponOrder": 1,
-    "reviewed": false
-  },
-  "7/SE": {
-    "grip": [
-      51,
-      68
-    ],
-    "staffGrip": [
-      51,
-      68
-    ],
-    "neck": [
-      56,
-      56
+      54
     ],
     "weaponOrder": 1,
     "reviewed": false

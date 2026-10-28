@@ -1,0 +1,58 @@
+{
+  "status": "idle-front-two-avatar-prototype-not-approved",
+  "sourceSha256": "f67d8734f54e681823fc77f361cfcb1606f760b5a6188ee94c5440dc169e73ec",
+  "sourceSize": [
+    1254,
+    1254
+  ],
+  "registration": {
+    "scale": 0.049707602339181284,
+    "sourceNeck": [
+      644.9411764705883,
+      1061.6470588235295
+    ],
+    "targetNeck": [
+      32,
+      54
+    ],
+    "perFrameFit": false,
+    "reason": "Một lần đăng ký avatar theo mốc mắt thay vì hộp tóc",
+    "referenceEyeWhiteAnchors": [
+      [
+        24,
+        40
+      ],
+      [
+        41,
+        40
+      ]
+    ],
+    "sourceEyeWhiteAnchors": [
+      [
+        484,
+        780
+      ],
+      [
+        826,
+        780
+      ]
+    ]
+  },
+  "wholeHead": true,
+  "separateHair": false,
+  "headContainsClothing": false,
+  "unchangedBodySha256": "552d6a573e06198e4b7d1ba0b4c69f363b0adaba3b9ac9f2490d981ebcc92b7b",
+  "originalBodySha256": "552d6a573e06198e4b7d1ba0b4c69f363b0adaba3b9ac9f2490d981ebcc92b7b",
+  "headOrigin": [
+    112,
+    100
+  ],
+  "neckAnchorInFrame": [
+    144,
+    154
+  ],
+  "collarFront": true,
+  "completeMotion": false,
+  "artApproved": false,
+  "productionEnabled": false
+}

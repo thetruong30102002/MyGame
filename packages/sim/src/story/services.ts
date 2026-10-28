@@ -33,6 +33,11 @@ const WAYSTONES: Record<string, NpcDef> = Object.fromEntries(
 
 export const SERVICE_NPCS: Record<string, NpcDef> = {
 	...WAYSTONES,
+	barber_mira: {
+		name: 'Mira', title: 'Thợ làm tóc', sprite: 'npc_silver_youth_f',
+		at: { spot: 'plaza', dx: 76, dy: 96 }, ages: [16, 99], region: 'human',
+		idle: ['Ngồi xuống nào. Cậu muốn đổi kiểu tóc chứ?'],
+	},
 	/**
 	 * Bia Danh Vọng (K1 — docs/ke-hoach-kim-cuong.md): nhận quà thành tựu. Chỗ đứng lấy từ `CHRONICLER` dùng chung với máy chủ —
 	 * máy chủ chỉ trao quà khi người chơi đứng gần đúng chỗ này. Hình TẠM là đồ vật `rune_tablet` (phiến đá khắc chữ) — KHÔNG

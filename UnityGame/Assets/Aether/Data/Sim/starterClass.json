@@ -1,0 +1,19 @@
+{
+	"SWORD_TIERS": [
+		{
+			"level": 1,
+			"outfit": "swordsman_outfit_1",
+			"weapon": "swordsman_blade_1"
+		},
+		{
+			"level": 5,
+			"outfit": "swordsman_outfit_5",
+			"weapon": "swordsman_blade_5"
+		},
+		{
+			"level": 10,
+			"outfit": "swordsman_outfit_10",
+			"weapon": "swordsman_blade_10"
+		}
+	]
+}

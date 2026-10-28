@@ -1,5 +1,7 @@
 # Điểm tiềm năng, hệ Băng, giao diện khung cổ (07/10/2026)
 
+> **Cập nhật yêu cầu 26/10/2026:** thiên phú phát hiện một trong8 nguyên tố ở cấp10, random đồng đều12,5% mỗi hệ, mỗi user một hệ. Mỗi bộ chiêu có10 chiêu (7 chủ động +3 bị động). Kiếm có3 phái **Thủy Thần / Kiếm Thần / Bắc Thần**, tham khảo *Thất Nghiệp Chuyển Sinh*; đề xuất10/phái, xem `docs/phac-thao-ba-phai-kiem.md`. Khiên / Thương / Cung giữ10/class; nguyên tố bổ sung hiệu ứng và nội tại. Pháp sư có8 bộ nguyên tố ×10, chờ thử chiêu cũ. Tổng đề xuất140 nếu10/phái; phân bổ chung / riêng chưa chốt. Xem `docs/ke-hoach-nguyen-to.md` mục10; luật mới chưa triển khai.
+
 Chủ dự án duyệt 07/10/2026: làm điểm tiềm năng theo đề xuất, **thêm hệ Băng**; cải tiến khung skill, đăng nhập/đăng ký,
 bảng nhân vật (kho đồ + chỉ số HP, MP, tấn công, phép thuật…); **mọi khung trong game cùng một style cổ** như phần còn
 lại (đồ hoạ PixelLab). Xong thì tự deploy.

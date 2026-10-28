@@ -13,7 +13,7 @@ namespace Aether.Client.UI
     /// </summary>
     public sealed partial class Panels : MonoBehaviour
     {
-        public enum Kind { None, Character, Talents, Inventory, WorldMap, Friends, Codex, Calendar, Settings, Shop, Waystone, Glory, Admin }
+        public enum Kind { None, Character, Talents, Inventory, WorldMap, Friends, Codex, Calendar, Settings, Shop, Waystone, Glory, Admin, Barber }
 
         /// <summary>Tab chỉ có CHỮ + phím tắt (chủ dự án 10/10/2026: bỏ icon menu — bộ icon không khớp nghĩa, vd lịch = cài đặt).</summary>
         private static readonly (Kind kind, string label, string key)[] Tabs =
@@ -146,6 +146,14 @@ namespace Aether.Client.UI
             content.offsetMax = new Vector2(-40, -66);
             var tab = Array.Find(Tabs, t => t.kind == kind);
             title.text = (IsService(kind) ? ServiceTitle(kind) : tab.label).ToUpperInvariant();
+            var service = IsService(kind);
+            var background = window.Find("Bg");
+            background?.Find("Sidebar")?.gameObject.SetActive(!service);
+            background?.Find("Brand")?.gameObject.SetActive(!service);
+            ((RectTransform)title.transform.parent).anchoredPosition = new Vector2(service ? 44 : 214, -17);
+            var headerLine = (RectTransform)window.Find("HeaderLine");
+            headerLine.anchoredPosition = new Vector2(service ? 44 : 214, -58);
+            headerLine.sizeDelta = new Vector2(service ? 1052 : 886, 1);
             switch (kind)
             {
                 case Kind.Character: BuildCharacter(); break;
@@ -159,6 +167,7 @@ namespace Aether.Client.UI
                 case Kind.Glory: BuildGlory(); break;
                 case Kind.Admin: BuildAdmin(); break;
                 case Kind.Settings: BuildSettings(); break;
+                case Kind.Barber: BuildBarber(); break;
             }
             if (slide) UiAnim.SlideIn(content, 18);
         }
@@ -188,28 +197,23 @@ namespace Aether.Client.UI
             si.raycastTarget = false;
 
             var bg = UiKit.Stretch(window, "Bg");
-            bg.offsetMin = new Vector2(12, 12);
-            bg.offsetMax = new Vector2(-12, -12);
-            UiKit.Panel(bg, UiStyle.Hex(0x1b140e, 0.98f));
-            var glow = UiKit.Rect(bg, "Glow", new Vector2(0.5f, 1), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(1100, 520));
-            UiWidgets.Radial(glow, UiStyle.Hex(0x6b4a2b, 0.35f));
-            var vignette = UiKit.Stretch(bg, "Vignette");
-            UiWidgets.Vignette(vignette, new Color(0, 0, 0, 0.55f));
-
+            bg.offsetMin = new Vector2(1, 1);
+            bg.offsetMax = new Vector2(-1, -1);
+            UiKit.Panel(bg, UiStyle.Surface);
             var frame = UiKit.Stretch(window, "Frame");
-            UiKit.Sprite(frame, "frame", FrameMul);
-
-            var ribbon = UiKit.Rect(window, "Ribbon", new Vector2(0.5f, 1), new Vector2(0.5f, 0.5f), new Vector2(0, -6), new Vector2(330, 78));
-            UiKit.Sprite(ribbon, "banner", 1.36f);
-            title = UiKit.Label(UiKit.Stretch(ribbon, "t"), "", 22, UiStyle.InkBrown, TextAnchor.MiddleCenter, true, false);
-            title.characterSpacing = 4;
-            title.rectTransform.offsetMin = new Vector2(0, 4);
-
-            var close = UiKit.Rect(window, "Close", new Vector2(1, 1), new Vector2(0.5f, 0.5f), new Vector2(-26, -26), new Vector2(46, 46));
-            UiStyle.Pill(close, UiStyle.Hex(0xe9c46a), 23);
-            var ci = UiKit.Rect(close, "in", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(38, 38));
-            UiStyle.Pill(ci, UiStyle.Hex(0x8c2a1c), 19);
-            UiKit.Label(UiKit.Stretch(ci, "x"), "×", 28, UiStyle.Paper, TextAnchor.MiddleCenter, true, false).rectTransform.offsetMin = new Vector2(0, 2);
+            UiStyle.Pill(frame, UiStyle.Line, 7);
+            frame.SetAsFirstSibling();
+            var sidebar = UiKit.Rect(bg, "Sidebar", new Vector2(0, 0), new Vector2(0, 0), Vector2.zero, new Vector2(198, 638));
+            UiStyle.Pill(sidebar, UiStyle.SurfaceWell, 5);
+            UiKit.Label(UiKit.Rect(bg, "Brand", new Vector2(0, 1), new Vector2(0, 1), new Vector2(22, -15), new Vector2(155, 28)), "AETHER", 16, UiStyle.Gold, TextAnchor.MiddleLeft, true, false).characterSpacing = 3;
+            var header = UiKit.Rect(window, "Header", new Vector2(0, 1), new Vector2(0, 1), new Vector2(214, -17), new Vector2(760, 34));
+            title = UiKit.Label(UiKit.Stretch(header, "Title"), "", 24, UiKit.TextMain, TextAnchor.MiddleLeft, true, false);
+            title.characterSpacing = 1;
+            var rule = UiKit.Rect(window, "HeaderLine", new Vector2(0, 1), new Vector2(0, 1), new Vector2(214, -58), new Vector2(886, 1));
+            UiStyle.Pill(rule, UiStyle.Line, 1);
+            var close = UiKit.Rect(window, "Close", new Vector2(1, 1), new Vector2(0.5f, 0.5f), new Vector2(-36, -34), new Vector2(34, 34));
+            UiStyle.Pill(close, UiStyle.SurfaceRaised, 5);
+            UiKit.Label(UiKit.Stretch(close, "x"), "×", 25, UiKit.TextDim, TextAnchor.MiddleCenter, false, false);
             UiKit.Press(close, Close);
         }
 
@@ -221,16 +225,12 @@ namespace Aether.Client.UI
             {
                 var t = Tabs[i];
                 var on = t.kind == kind;
-                var tab = UiKit.Rect(rail, "Tab" + i, new Vector2(0, 1), new Vector2(0, 1), new Vector2(on ? 0 : 6, -i * 64), new Vector2(on ? RailWidth : RailWidth - 12, 56));
-                Image face;
-                if (on) face = UiKit.Sprite(tab, "button", 1.25f, true);
-                else
-                {
-                    face = UiStyle.Pill(tab, new Color(0, 0, 0, 0.32f), 14);
-                    face.raycastTarget = true;
-                }
-                UiKit.Label(UiKit.Rect(tab, "l", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(on ? 0 : -8, 1), new Vector2(110, 26)), t.label, 17,
-                    on ? UiStyle.GoldHi : UiKit.TextDim, TextAnchor.MiddleCenter, true, on);
+                var tab = UiKit.Rect(rail, "Tab" + i, new Vector2(0, 1), new Vector2(0, 1), new Vector2(-12, -i * 58), new Vector2(RailWidth + 8, 46));
+                var face = UiStyle.Pill(tab, on ? UiStyle.SurfaceRaised : Color.clear, 5);
+                face.raycastTarget = true;
+                if (on) UiStyle.Pill(UiKit.Rect(tab, "Selected", new Vector2(0, .5f), new Vector2(0, .5f), new Vector2(0, 0), new Vector2(3, 26)), UiStyle.Gold, 1);
+                UiKit.Label(UiKit.Rect(tab, "l", new Vector2(0, .5f), new Vector2(0, .5f), new Vector2(14, 0), new Vector2(120, 26)), t.label, 16,
+                    on ? UiStyle.GoldHi : UiKit.TextDim, TextAnchor.MiddleLeft, on, false);
                 var tk = TabKey(t.kind);
                 if (!on && tk.Length > 0)
                 {
@@ -242,8 +242,8 @@ namespace Aether.Client.UI
                 var press = UiKit.Press(tab, () => Show(t.kind));
                 if (!on)
                 {
-                    press.Enter = () => face.color = new Color(1, 0.85f, 0.5f, 0.16f);
-                    press.Exit = () => face.color = new Color(0, 0, 0, 0.32f);
+                    press.Enter = () => face.color = UiStyle.SurfaceRaised;
+                    press.Exit = () => face.color = Color.clear;
                 }
             }
             var hint = UiKit.Label(UiKit.Rect(rail, "Hint", new Vector2(0, 0), new Vector2(0, 0), new Vector2(6, 0), new Vector2(RailWidth, 40)),
@@ -252,7 +252,7 @@ namespace Aether.Client.UI
             var line = UiKit.Rect(window, "RailLine", new Vector2(0, 0), new Vector2(0.5f, 0), new Vector2(40 + RailWidth + 9, 46), new Vector2(2, 0));
             line.anchorMax = new Vector2(0, 1);
             line.offsetMax = new Vector2(line.offsetMax.x, -76);
-            UiKit.Panel(line, new Color(0.91f, 0.77f, 0.42f, 0.18f));
+            UiKit.Panel(line, UiStyle.Line * new Color(1, 1, 1, .4f));
         }
 
         // ———————————————————————————— khối dùng chung ————————————————————————————
@@ -283,12 +283,12 @@ namespace Aether.Client.UI
         private static RectTransform Box(RectTransform parent, string name, Vector2 anchor, Vector2 pivot, Vector2 pos, Vector2 size, float alpha = 0.55f)
         {
             var rt = UiKit.Rect(parent, name, anchor, pivot, pos, size);
-            var edge = UiStyle.Pill(rt, new Color(0.91f, 0.77f, 0.42f, 0.22f), 12);
+            var edge = UiStyle.Pill(rt, UiStyle.Line, 5);
             edge.raycastTarget = true;
             var face = UiKit.Stretch(rt, "face");
             face.offsetMin = new Vector2(1.5f, 1.5f);
             face.offsetMax = new Vector2(-1.5f, -1.5f);
-            UiStyle.Pill(face, new Color(0.035f, 0.025f, 0.02f, alpha), 11);
+            UiStyle.Pill(face, Color.Lerp(UiStyle.SurfaceWell, UiStyle.SurfaceRaised, alpha), 4);
             return rt;
         }
 
@@ -303,7 +303,7 @@ namespace Aether.Client.UI
             bool enabled = true, Sprite icon = null)
         {
             var rt = UiKit.Rect(parent, name, anchor, pivot, pos, size);
-            var img = UiKit.Sprite(rt, "button", Mathf.Max(1.1f, 39f / size.y * 1.15f), true);
+            var img = UiStyle.Card(rt, UiStyle.CardKind.Chip, 5, false, true);
             if (!enabled) img.color = new Color(0.36f, 0.34f, 0.33f, 0.8f);
             var t = UiKit.Label(UiKit.Stretch(rt, "t"), label, Mathf.Min(16, size.y * 0.42f), enabled ? UiStyle.GoldHi : new Color(1, 1, 1, 0.4f), TextAnchor.MiddleCenter, true, enabled);
             t.rectTransform.offsetMin = new Vector2(icon != null ? 26 : 0, 1);
@@ -312,7 +312,12 @@ namespace Aether.Client.UI
                 var ir = UiKit.Rect(rt, "i", new Vector2(0, 0.5f), new Vector2(0, 0.5f), new Vector2(16, 0), new Vector2(size.y * 0.55f, size.y * 0.55f));
                 UiKit.Icon(ir, icon).color = enabled ? Color.white : new Color(1, 1, 1, 0.5f);
             }
-            if (enabled) UiKit.Press(rt, click);
+            if (enabled)
+            {
+                var press = UiKit.Press(rt, click);
+                press.Enter = () => img.color = UiStyle.Hex(0x35454e);
+                press.Exit = () => img.color = UiStyle.SurfaceRaised;
+            }
             return rt;
         }
 
@@ -320,9 +325,9 @@ namespace Aether.Client.UI
         private static RectTransform RoundButton(RectTransform parent, string name, Vector2 anchor, Vector2 pivot, Vector2 pos, float size, string label, Action click)
         {
             var rt = UiKit.Rect(parent, name, anchor, pivot, pos, new Vector2(size, size));
-            UiStyle.Pill(rt, new Color(0.91f, 0.77f, 0.42f, 0.75f), Mathf.RoundToInt(size / 2));
+            UiStyle.Pill(rt, UiStyle.Line, 5);
             var inner = UiKit.Rect(rt, "in", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(size - 4, size - 4));
-            UiStyle.Pill(inner, UiStyle.Hex(0x2a1d12), Mathf.RoundToInt(size / 2 - 2));
+            UiStyle.Pill(inner, UiStyle.SurfaceRaised, 4);
             UiKit.Label(UiKit.Stretch(inner, "t"), label, size * 0.55f, UiStyle.GoldHi, TextAnchor.MiddleCenter, true, false).rectTransform.offsetMin = new Vector2(0, 1);
             UiKit.Press(rt, click);
             return rt;

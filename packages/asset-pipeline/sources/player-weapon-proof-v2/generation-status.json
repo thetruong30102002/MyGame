@@ -1,0 +1,29 @@
+{
+  "status": "source-matched-prototype-not-approved",
+  "provider": "imagegen-for-occluded-pixel-repair",
+  "hairSeparated": false,
+  "nativeReference": "assets/characters/player_verdant_sword/player_verdant_sword.png",
+  "nativeReferenceSha256": "3d41b7b084767765714e32fc6aa86855b4caef26ca4b4766172558ea807a3f18",
+  "inpaint": [
+    {
+      "file": "inpaint/attack-a.png",
+      "sha256": "9b2192eb5662020c56f7ae8f43d25c74a8c15cb8ccfdd9efd83b0609921ba4fe"
+    },
+    {
+      "file": "inpaint/attack-b.png",
+      "sha256": "660766986779774cb534c1c34eee95e883e18146336a97e6b7bca0a5a245439e"
+    },
+    {
+      "file": "inpaint/idle.png",
+      "sha256": "ca105fb530bb535b08b0b938541cde3884ab93ffb1c753570a24ab46500f1ddd"
+    },
+    {
+      "file": "inpaint/walk.png",
+      "sha256": "7f2c0fc8b9586d3557aa1d64c7d70412e5b068a62a03d16340b8f073e42e12c7"
+    }
+  ],
+  "selectedFrames": 28,
+  "productionEnabled": false,
+  "artReviewed": false,
+  "note": "Chỉ lấy pixel tô bù trong vùng vũ khí, giữ da/ngón tay gốc và toàn bộ pixel ngoài mask. Chưa kiểm Unity hoặc các hướng chuyển động còn thiếu."
+}

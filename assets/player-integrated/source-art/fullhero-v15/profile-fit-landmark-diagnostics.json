@@ -1,0 +1,4206 @@
+{
+  "artApproved": false,
+  "proposalsOnly": true,
+  "records": [
+    {
+      "source": "walk-staff-S-template01.png",
+      "trace": "traces/walk-staff-S-template01/profile-fit/trace.json",
+      "state": "staff",
+      "direction": "S",
+      "kind": "walk",
+      "scale": 0.27517797510625386,
+      "score": 0.07084469496762107,
+      "regionError": {
+        "head": 0.06843318809005083,
+        "neck-torso": 0.07052614379084968,
+        "shoulders": 0.08166687615217028,
+        "belt": 0.06726998491704375
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 52,
+      "artApproved": false,
+      "registrationApproved": false,
+      "reference": {
+        "crownAtReferenceColumns": 52,
+        "grayHairBounds": [
+          68,
+          52,
+          93,
+          76
+        ],
+        "grayHairWidth": 25,
+        "grayHairHeight": 24,
+        "shoulderHighlightTop": 78,
+        "goldBeltPeak": 96,
+        "centralBootSole": 128
+      },
+      "frames": [
+        {
+          "crownAtReferenceColumns": 53,
+          "grayHairBounds": [
+            69,
+            53,
+            92,
+            76
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 23,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 97,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 53,
+          "grayHairBounds": [
+            69,
+            53,
+            92,
+            76
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 23,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 94,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 53,
+          "grayHairBounds": [
+            68,
+            53,
+            92,
+            74
+          ],
+          "grayHairWidth": 24,
+          "grayHairHeight": 21,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 94,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 53,
+          "grayHairBounds": [
+            69,
+            53,
+            92,
+            76
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 23,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 94,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 53,
+          "grayHairBounds": [
+            69,
+            53,
+            92,
+            76
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 23,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 97,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 53,
+          "grayHairBounds": [
+            69,
+            53,
+            92,
+            76
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 23,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 97,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 53,
+          "grayHairBounds": [
+            69,
+            53,
+            92,
+            72
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 19,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 94,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 53,
+          "grayHairBounds": [
+            69,
+            53,
+            93,
+            76
+          ],
+          "grayHairWidth": 24,
+          "grayHairHeight": 23,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 108,
+          "centralBootSole": 127
+        }
+      ],
+      "diagnosticDeltas": {
+        "crownAtReferenceColumns": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "grayHairWidth": [
+          -2,
+          -2,
+          -1,
+          -2,
+          -2,
+          -2,
+          -2,
+          -1
+        ],
+        "grayHairHeight": [
+          -1,
+          -1,
+          -3,
+          -1,
+          -1,
+          -1,
+          -5,
+          -1
+        ],
+        "shoulderHighlightTop": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "goldBeltPeak": [
+          1,
+          -2,
+          -2,
+          -2,
+          1,
+          1,
+          -2,
+          12
+        ],
+        "centralBootSole": [
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1
+        ]
+      },
+      "warning": "Pixel features only, not skeletal ground truth. Review native crown/chin/shoulder/belt/knees/sole and loop before any approval."
+    },
+    {
+      "source": "walk-staff-E-template01.png",
+      "trace": "traces/walk-staff-E-template01/profile-fit/trace.json",
+      "state": "staff",
+      "direction": "E",
+      "kind": "walk",
+      "scale": 0.23481888046745988,
+      "score": 0.07389407272238056,
+      "regionError": {
+        "head": 0.0602254363283775,
+        "neck-torso": 0.07609448951994591,
+        "shoulders": 0.060440757499581034,
+        "belt": 0.09815390899949725
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 55,
+      "artApproved": false,
+      "registrationApproved": false,
+      "reference": {
+        "crownAtReferenceColumns": 54,
+        "grayHairBounds": [
+          59,
+          55,
+          83,
+          77
+        ],
+        "grayHairWidth": 24,
+        "grayHairHeight": 22,
+        "shoulderHighlightTop": null,
+        "goldBeltPeak": 101,
+        "centralBootSole": 128
+      },
+      "frames": [
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            60,
+            56,
+            83,
+            75
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 19,
+          "shoulderHighlightTop": null,
+          "goldBeltPeak": 99,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            60,
+            56,
+            84,
+            76
+          ],
+          "grayHairWidth": 24,
+          "grayHairHeight": 20,
+          "shoulderHighlightTop": null,
+          "goldBeltPeak": 98,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            61,
+            56,
+            84,
+            76
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 20,
+          "shoulderHighlightTop": null,
+          "goldBeltPeak": 98,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            61,
+            56,
+            84,
+            75
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 19,
+          "shoulderHighlightTop": null,
+          "goldBeltPeak": 99,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            60,
+            56,
+            84,
+            75
+          ],
+          "grayHairWidth": 24,
+          "grayHairHeight": 19,
+          "shoulderHighlightTop": null,
+          "goldBeltPeak": 99,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            61,
+            56,
+            84,
+            75
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 19,
+          "shoulderHighlightTop": null,
+          "goldBeltPeak": 99,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            61,
+            56,
+            84,
+            75
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 19,
+          "shoulderHighlightTop": null,
+          "goldBeltPeak": 99,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            61,
+            56,
+            82,
+            76
+          ],
+          "grayHairWidth": 21,
+          "grayHairHeight": 20,
+          "shoulderHighlightTop": null,
+          "goldBeltPeak": 99,
+          "centralBootSole": 126
+        }
+      ],
+      "diagnosticDeltas": {
+        "crownAtReferenceColumns": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "grayHairWidth": [
+          -1,
+          0,
+          -1,
+          -1,
+          0,
+          -1,
+          -1,
+          -3
+        ],
+        "grayHairHeight": [
+          -3,
+          -2,
+          -2,
+          -3,
+          -3,
+          -3,
+          -3,
+          -2
+        ],
+        "shoulderHighlightTop": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "goldBeltPeak": [
+          -2,
+          -3,
+          -3,
+          -2,
+          -2,
+          -2,
+          -2,
+          -2
+        ],
+        "centralBootSole": [
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -2
+        ]
+      },
+      "warning": "Pixel features only, not skeletal ground truth. Review native crown/chin/shoulder/belt/knees/sole and loop before any approval."
+    },
+    {
+      "source": "walk-staff-N-template01.png",
+      "trace": "traces/walk-staff-N-template01/profile-fit/trace.json",
+      "state": "staff",
+      "direction": "N",
+      "kind": "walk",
+      "scale": 0.31233783545197746,
+      "score": 0.046539085740170155,
+      "regionError": {
+        "head": 0.057682773109243704,
+        "neck-torso": 0.03599137931034483,
+        "shoulders": 0.05331091838444779,
+        "belt": 0.0412298893916541
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 55,
+      "artApproved": false,
+      "registrationApproved": false,
+      "reference": {
+        "crownAtReferenceColumns": 54,
+        "grayHairBounds": [
+          61,
+          55,
+          84,
+          77
+        ],
+        "grayHairWidth": 23,
+        "grayHairHeight": 22,
+        "shoulderHighlightTop": 78,
+        "goldBeltPeak": 94,
+        "centralBootSole": 128
+      },
+      "frames": [
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            61,
+            55,
+            84,
+            77
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 22,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 99,
+          "centralBootSole": 128
+        },
+        {
+          "crownAtReferenceColumns": 54,
+          "grayHairBounds": [
+            61,
+            54,
+            84,
+            78
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 24,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 94,
+          "centralBootSole": 128
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            61,
+            56,
+            84,
+            77
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 21,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 94,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            61,
+            55,
+            85,
+            78
+          ],
+          "grayHairWidth": 24,
+          "grayHairHeight": 23,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 94,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 56,
+          "grayHairBounds": [
+            60,
+            56,
+            86,
+            77
+          ],
+          "grayHairWidth": 26,
+          "grayHairHeight": 21,
+          "shoulderHighlightTop": 79,
+          "goldBeltPeak": 94,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            61,
+            56,
+            83,
+            78
+          ],
+          "grayHairWidth": 22,
+          "grayHairHeight": 22,
+          "shoulderHighlightTop": 79,
+          "goldBeltPeak": 108,
+          "centralBootSole": 128
+        },
+        {
+          "crownAtReferenceColumns": 56,
+          "grayHairBounds": [
+            60,
+            56,
+            86,
+            78
+          ],
+          "grayHairWidth": 26,
+          "grayHairHeight": 22,
+          "shoulderHighlightTop": 79,
+          "goldBeltPeak": 94,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            61,
+            56,
+            84,
+            78
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 22,
+          "shoulderHighlightTop": 79,
+          "goldBeltPeak": 94,
+          "centralBootSole": 127
+        }
+      ],
+      "diagnosticDeltas": {
+        "crownAtReferenceColumns": [
+          1,
+          0,
+          1,
+          1,
+          2,
+          1,
+          2,
+          1
+        ],
+        "grayHairWidth": [
+          0,
+          0,
+          0,
+          1,
+          3,
+          -1,
+          3,
+          0
+        ],
+        "grayHairHeight": [
+          0,
+          2,
+          -1,
+          1,
+          -1,
+          0,
+          0,
+          0
+        ],
+        "shoulderHighlightTop": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1
+        ],
+        "goldBeltPeak": [
+          5,
+          0,
+          0,
+          0,
+          0,
+          14,
+          0,
+          0
+        ],
+        "centralBootSole": [
+          0,
+          0,
+          -1,
+          -1,
+          -1,
+          0,
+          -1,
+          -1
+        ]
+      },
+      "warning": "Pixel features only, not skeletal ground truth. Review native crown/chin/shoulder/belt/knees/sole and loop before any approval."
+    },
+    {
+      "source": "walk-staff-SE-template01.png",
+      "trace": "traces/walk-staff-SE-template01/profile-fit/trace.json",
+      "state": "staff",
+      "direction": "SE",
+      "kind": "walk",
+      "scale": 0.2646275772842082,
+      "score": 0.09847048519803106,
+      "regionError": {
+        "head": 0.09072945845004668,
+        "neck-torso": 0.10214025932953827,
+        "shoulders": 0.11439837509077705,
+        "belt": 0.09328022875816994
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 51,
+      "artApproved": false,
+      "registrationApproved": false,
+      "reference": {
+        "crownAtReferenceColumns": 51,
+        "grayHairBounds": [
+          69,
+          51,
+          95,
+          75
+        ],
+        "grayHairWidth": 26,
+        "grayHairHeight": 24,
+        "shoulderHighlightTop": 78,
+        "goldBeltPeak": 98,
+        "centralBootSole": 128
+      },
+      "frames": [
+        {
+          "crownAtReferenceColumns": 52,
+          "grayHairBounds": [
+            69,
+            52,
+            94,
+            71
+          ],
+          "grayHairWidth": 25,
+          "grayHairHeight": 19,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 108,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 52,
+          "grayHairBounds": [
+            69,
+            52,
+            94,
+            70
+          ],
+          "grayHairWidth": 25,
+          "grayHairHeight": 18,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 94,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 52,
+          "grayHairBounds": [
+            69,
+            52,
+            92,
+            70
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 18,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 95,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 52,
+          "grayHairBounds": [
+            70,
+            52,
+            95,
+            71
+          ],
+          "grayHairWidth": 25,
+          "grayHairHeight": 19,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 95,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 52,
+          "grayHairBounds": [
+            70,
+            52,
+            94,
+            74
+          ],
+          "grayHairWidth": 24,
+          "grayHairHeight": 22,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 95,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 52,
+          "grayHairBounds": [
+            70,
+            52,
+            95,
+            70
+          ],
+          "grayHairWidth": 25,
+          "grayHairHeight": 18,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 108,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 52,
+          "grayHairBounds": [
+            70,
+            52,
+            95,
+            71
+          ],
+          "grayHairWidth": 25,
+          "grayHairHeight": 19,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 108,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 52,
+          "grayHairBounds": [
+            70,
+            52,
+            95,
+            70
+          ],
+          "grayHairWidth": 25,
+          "grayHairHeight": 18,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 108,
+          "centralBootSole": 127
+        }
+      ],
+      "diagnosticDeltas": {
+        "crownAtReferenceColumns": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "grayHairWidth": [
+          -1,
+          -1,
+          -3,
+          -1,
+          -2,
+          -1,
+          -1,
+          -1
+        ],
+        "grayHairHeight": [
+          -5,
+          -6,
+          -6,
+          -5,
+          -2,
+          -6,
+          -5,
+          -6
+        ],
+        "shoulderHighlightTop": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "goldBeltPeak": [
+          10,
+          -4,
+          -3,
+          -3,
+          -3,
+          10,
+          10,
+          10
+        ],
+        "centralBootSole": [
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1
+        ]
+      },
+      "warning": "Pixel features only, not skeletal ground truth. Review native crown/chin/shoulder/belt/knees/sole and loop before any approval."
+    },
+    {
+      "source": "walk-staff-NE-template01.png",
+      "trace": "traces/walk-staff-NE-template01/profile-fit/trace.json",
+      "state": "staff",
+      "direction": "NE",
+      "kind": "walk",
+      "scale": 0.29696586879432624,
+      "score": 0.06318410811958297,
+      "regionError": {
+        "head": 0.0661187623197427,
+        "neck-torso": 0.05821670047329276,
+        "shoulders": 0.06980056980056981,
+        "belt": 0.061483471593765715
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 55,
+      "artApproved": false,
+      "registrationApproved": false,
+      "reference": {
+        "crownAtReferenceColumns": 54,
+        "grayHairBounds": [
+          59,
+          55,
+          84,
+          77
+        ],
+        "grayHairWidth": 25,
+        "grayHairHeight": 22,
+        "shoulderHighlightTop": 79,
+        "goldBeltPeak": 99,
+        "centralBootSole": 128
+      },
+      "frames": [
+        {
+          "crownAtReferenceColumns": 56,
+          "grayHairBounds": [
+            60,
+            56,
+            85,
+            77
+          ],
+          "grayHairWidth": 25,
+          "grayHairHeight": 21,
+          "shoulderHighlightTop": 79,
+          "goldBeltPeak": 107,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 56,
+          "grayHairBounds": [
+            59,
+            56,
+            84,
+            77
+          ],
+          "grayHairWidth": 25,
+          "grayHairHeight": 21,
+          "shoulderHighlightTop": 79,
+          "goldBeltPeak": 106,
+          "centralBootSole": 128
+        },
+        {
+          "crownAtReferenceColumns": 56,
+          "grayHairBounds": [
+            59,
+            56,
+            83,
+            77
+          ],
+          "grayHairWidth": 24,
+          "grayHairHeight": 21,
+          "shoulderHighlightTop": 79,
+          "goldBeltPeak": 108,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 56,
+          "grayHairBounds": [
+            60,
+            56,
+            83,
+            77
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 21,
+          "shoulderHighlightTop": 79,
+          "goldBeltPeak": 107,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 56,
+          "grayHairBounds": [
+            60,
+            57,
+            85,
+            77
+          ],
+          "grayHairWidth": 25,
+          "grayHairHeight": 20,
+          "shoulderHighlightTop": 79,
+          "goldBeltPeak": 108,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 56,
+          "grayHairBounds": [
+            60,
+            56,
+            83,
+            77
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 21,
+          "shoulderHighlightTop": 80,
+          "goldBeltPeak": 106,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            60,
+            56,
+            85,
+            76
+          ],
+          "grayHairWidth": 25,
+          "grayHairHeight": 20,
+          "shoulderHighlightTop": 79,
+          "goldBeltPeak": 108,
+          "centralBootSole": 128
+        },
+        {
+          "crownAtReferenceColumns": 56,
+          "grayHairBounds": [
+            60,
+            56,
+            83,
+            77
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 21,
+          "shoulderHighlightTop": 79,
+          "goldBeltPeak": 95,
+          "centralBootSole": 127
+        }
+      ],
+      "diagnosticDeltas": {
+        "crownAtReferenceColumns": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          1,
+          2
+        ],
+        "grayHairWidth": [
+          0,
+          0,
+          -1,
+          -2,
+          0,
+          -2,
+          0,
+          -2
+        ],
+        "grayHairHeight": [
+          -1,
+          -1,
+          -1,
+          -1,
+          -2,
+          -1,
+          -2,
+          -1
+        ],
+        "shoulderHighlightTop": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        "goldBeltPeak": [
+          8,
+          7,
+          9,
+          8,
+          9,
+          7,
+          9,
+          -4
+        ],
+        "centralBootSole": [
+          -1,
+          0,
+          -1,
+          -1,
+          -1,
+          -1,
+          0,
+          -1
+        ]
+      },
+      "warning": "Pixel features only, not skeletal ground truth. Review native crown/chin/shoulder/belt/knees/sole and loop before any approval."
+    },
+    {
+      "source": "run-staff-S-template01.png",
+      "trace": "traces/run-staff-S-template01/profile-fit/trace.json",
+      "state": "staff",
+      "direction": "S",
+      "kind": "run",
+      "scale": 0.23331668652258541,
+      "score": 0.11935735147298747,
+      "regionError": {
+        "head": 0.1280761316872428,
+        "neck-torso": 0.11193954248366014,
+        "shoulders": 0.13378163231104406,
+        "belt": 0.10800653594771242
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 52,
+      "artApproved": false,
+      "registrationApproved": false,
+      "reference": {
+        "crownAtReferenceColumns": 52,
+        "grayHairBounds": [
+          68,
+          52,
+          93,
+          76
+        ],
+        "grayHairWidth": 25,
+        "grayHairHeight": 24,
+        "shoulderHighlightTop": 78,
+        "goldBeltPeak": 96,
+        "centralBootSole": 128
+      },
+      "frames": [
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            70,
+            56,
+            91,
+            73
+          ],
+          "grayHairWidth": 21,
+          "grayHairHeight": 17,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 108,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 56,
+          "grayHairBounds": [
+            71,
+            57,
+            93,
+            75
+          ],
+          "grayHairWidth": 22,
+          "grayHairHeight": 18,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 106,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            71,
+            56,
+            92,
+            76
+          ],
+          "grayHairWidth": 21,
+          "grayHairHeight": 20,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 106,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 56,
+          "grayHairBounds": [
+            70,
+            56,
+            91,
+            77
+          ],
+          "grayHairWidth": 21,
+          "grayHairHeight": 21,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 107,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 54,
+          "grayHairBounds": [
+            70,
+            54,
+            91,
+            74
+          ],
+          "grayHairWidth": 21,
+          "grayHairHeight": 20,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 106,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 53,
+          "grayHairBounds": [
+            71,
+            54,
+            92,
+            74
+          ],
+          "grayHairWidth": 21,
+          "grayHairHeight": 20,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 106,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 54,
+          "grayHairBounds": [
+            70,
+            54,
+            92,
+            72
+          ],
+          "grayHairWidth": 22,
+          "grayHairHeight": 18,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 106,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 54,
+          "grayHairBounds": [
+            71,
+            55,
+            92,
+            72
+          ],
+          "grayHairWidth": 21,
+          "grayHairHeight": 17,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 106,
+          "centralBootSole": 127
+        }
+      ],
+      "diagnosticDeltas": {
+        "crownAtReferenceColumns": [
+          3,
+          4,
+          3,
+          4,
+          2,
+          1,
+          2,
+          2
+        ],
+        "grayHairWidth": [
+          -4,
+          -3,
+          -4,
+          -4,
+          -4,
+          -4,
+          -3,
+          -4
+        ],
+        "grayHairHeight": [
+          -7,
+          -6,
+          -4,
+          -3,
+          -4,
+          -4,
+          -6,
+          -7
+        ],
+        "shoulderHighlightTop": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "goldBeltPeak": [
+          12,
+          10,
+          10,
+          11,
+          10,
+          10,
+          10,
+          10
+        ],
+        "centralBootSole": [
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1
+        ]
+      },
+      "warning": "Pixel features only, not skeletal ground truth. Review native crown/chin/shoulder/belt/knees/sole and loop before any approval."
+    },
+    {
+      "source": "run-staff-E-template01.png",
+      "trace": "traces/run-staff-E-template01/profile-fit/trace.json",
+      "state": "staff",
+      "direction": "E",
+      "kind": "run",
+      "scale": 0.2806020731122766,
+      "score": 0.0980042385529786,
+      "regionError": {
+        "head": 0.06990478883861237,
+        "neck-torso": 0.0952814401622718,
+        "shoulders": 0.095213256242668,
+        "belt": 0.14096122423328306
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 55,
+      "artApproved": false,
+      "registrationApproved": false,
+      "reference": {
+        "crownAtReferenceColumns": 54,
+        "grayHairBounds": [
+          59,
+          55,
+          83,
+          77
+        ],
+        "grayHairWidth": 24,
+        "grayHairHeight": 22,
+        "shoulderHighlightTop": null,
+        "goldBeltPeak": 101,
+        "centralBootSole": 128
+      },
+      "frames": [
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            61,
+            56,
+            84,
+            75
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 19,
+          "shoulderHighlightTop": null,
+          "goldBeltPeak": 97,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            60,
+            56,
+            82,
+            74
+          ],
+          "grayHairWidth": 22,
+          "grayHairHeight": 18,
+          "shoulderHighlightTop": null,
+          "goldBeltPeak": 97,
+          "centralBootSole": 128
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            60,
+            55,
+            83,
+            76
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 21,
+          "shoulderHighlightTop": null,
+          "goldBeltPeak": 104,
+          "centralBootSole": 124
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            61,
+            56,
+            82,
+            76
+          ],
+          "grayHairWidth": 21,
+          "grayHairHeight": 20,
+          "shoulderHighlightTop": null,
+          "goldBeltPeak": 97,
+          "centralBootSole": 122
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            61,
+            55,
+            83,
+            74
+          ],
+          "grayHairWidth": 22,
+          "grayHairHeight": 19,
+          "shoulderHighlightTop": null,
+          "goldBeltPeak": 108,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            60,
+            55,
+            83,
+            74
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 19,
+          "shoulderHighlightTop": null,
+          "goldBeltPeak": 105,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            61,
+            55,
+            83,
+            75
+          ],
+          "grayHairWidth": 22,
+          "grayHairHeight": 20,
+          "shoulderHighlightTop": null,
+          "goldBeltPeak": 104,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            60,
+            55,
+            82,
+            74
+          ],
+          "grayHairWidth": 22,
+          "grayHairHeight": 19,
+          "shoulderHighlightTop": null,
+          "goldBeltPeak": 104,
+          "centralBootSole": 121
+        }
+      ],
+      "diagnosticDeltas": {
+        "crownAtReferenceColumns": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "grayHairWidth": [
+          -1,
+          -2,
+          -1,
+          -3,
+          -2,
+          -1,
+          -2,
+          -2
+        ],
+        "grayHairHeight": [
+          -3,
+          -4,
+          -1,
+          -2,
+          -3,
+          -3,
+          -2,
+          -3
+        ],
+        "shoulderHighlightTop": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "goldBeltPeak": [
+          -4,
+          -4,
+          3,
+          -4,
+          7,
+          4,
+          3,
+          3
+        ],
+        "centralBootSole": [
+          -1,
+          0,
+          -4,
+          -6,
+          -1,
+          -1,
+          -1,
+          -7
+        ]
+      },
+      "warning": "Pixel features only, not skeletal ground truth. Review native crown/chin/shoulder/belt/knees/sole and loop before any approval."
+    },
+    {
+      "source": "run-staff-N-template01.png",
+      "trace": "traces/run-staff-N-template01/profile-fit/trace.json",
+      "state": "staff",
+      "direction": "N",
+      "kind": "run",
+      "scale": 0.24817833404802742,
+      "score": 0.09991116735070552,
+      "regionError": {
+        "head": 0.10461834733893557,
+        "neck-torso": 0.08984533468559838,
+        "shoulders": 0.11050465057817999,
+        "belt": 0.09999371543489191
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 55,
+      "artApproved": false,
+      "registrationApproved": false,
+      "reference": {
+        "crownAtReferenceColumns": 54,
+        "grayHairBounds": [
+          61,
+          55,
+          84,
+          77
+        ],
+        "grayHairWidth": 23,
+        "grayHairHeight": 22,
+        "shoulderHighlightTop": 78,
+        "goldBeltPeak": 94,
+        "centralBootSole": 128
+      },
+      "frames": [
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            63,
+            55,
+            84,
+            75
+          ],
+          "grayHairWidth": 21,
+          "grayHairHeight": 20,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 108,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            63,
+            56,
+            84,
+            75
+          ],
+          "grayHairWidth": 21,
+          "grayHairHeight": 19,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 108,
+          "centralBootSole": 128
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            63,
+            56,
+            84,
+            75
+          ],
+          "grayHairWidth": 21,
+          "grayHairHeight": 19,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 108,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            61,
+            55,
+            84,
+            75
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 20,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 104,
+          "centralBootSole": 124
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            61,
+            55,
+            83,
+            76
+          ],
+          "grayHairWidth": 22,
+          "grayHairHeight": 21,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 108,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            63,
+            56,
+            83,
+            76
+          ],
+          "grayHairWidth": 20,
+          "grayHairHeight": 20,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 108,
+          "centralBootSole": 128
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            62,
+            56,
+            83,
+            76
+          ],
+          "grayHairWidth": 21,
+          "grayHairHeight": 20,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 107,
+          "centralBootSole": 128
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            62,
+            55,
+            83,
+            76
+          ],
+          "grayHairWidth": 21,
+          "grayHairHeight": 21,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 106,
+          "centralBootSole": 124
+        }
+      ],
+      "diagnosticDeltas": {
+        "crownAtReferenceColumns": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "grayHairWidth": [
+          -2,
+          -2,
+          -2,
+          0,
+          -1,
+          -3,
+          -2,
+          -2
+        ],
+        "grayHairHeight": [
+          -2,
+          -3,
+          -3,
+          -2,
+          -1,
+          -2,
+          -2,
+          -1
+        ],
+        "shoulderHighlightTop": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "goldBeltPeak": [
+          14,
+          14,
+          14,
+          10,
+          14,
+          14,
+          13,
+          12
+        ],
+        "centralBootSole": [
+          -1,
+          0,
+          -1,
+          -4,
+          -1,
+          0,
+          0,
+          -4
+        ]
+      },
+      "warning": "Pixel features only, not skeletal ground truth. Review native crown/chin/shoulder/belt/knees/sole and loop before any approval."
+    },
+    {
+      "source": "run-staff-SE-template01.png",
+      "trace": "traces/run-staff-SE-template01/profile-fit/trace.json",
+      "state": "staff",
+      "direction": "SE",
+      "kind": "run",
+      "scale": 0.26902177598515614,
+      "score": 0.14132618257302001,
+      "regionError": {
+        "head": 0.1153577264239029,
+        "neck-torso": 0.14408285895003162,
+        "shoulders": 0.1438566630355846,
+        "belt": 0.17058823529411765
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 51,
+      "artApproved": false,
+      "registrationApproved": false,
+      "reference": {
+        "crownAtReferenceColumns": 51,
+        "grayHairBounds": [
+          69,
+          51,
+          95,
+          75
+        ],
+        "grayHairWidth": 26,
+        "grayHairHeight": 24,
+        "shoulderHighlightTop": 78,
+        "goldBeltPeak": 98,
+        "centralBootSole": 128
+      },
+      "frames": [
+        {
+          "crownAtReferenceColumns": 52,
+          "grayHairBounds": [
+            69,
+            52,
+            94,
+            71
+          ],
+          "grayHairWidth": 25,
+          "grayHairHeight": 19,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 105,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 50,
+          "grayHairBounds": [
+            71,
+            50,
+            97,
+            69
+          ],
+          "grayHairWidth": 26,
+          "grayHairHeight": 19,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 105,
+          "centralBootSole": 128
+        },
+        {
+          "crownAtReferenceColumns": 51,
+          "grayHairBounds": [
+            70,
+            51,
+            95,
+            72
+          ],
+          "grayHairWidth": 25,
+          "grayHairHeight": 21,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 103,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 50,
+          "grayHairBounds": [
+            71,
+            50,
+            96,
+            69
+          ],
+          "grayHairWidth": 25,
+          "grayHairHeight": 19,
+          "shoulderHighlightTop": null,
+          "goldBeltPeak": 97,
+          "centralBootSole": 117
+        },
+        {
+          "crownAtReferenceColumns": 51,
+          "grayHairBounds": [
+            72,
+            51,
+            97,
+            70
+          ],
+          "grayHairWidth": 25,
+          "grayHairHeight": 19,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 104,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 51,
+          "grayHairBounds": [
+            71,
+            52,
+            97,
+            70
+          ],
+          "grayHairWidth": 26,
+          "grayHairHeight": 18,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 104,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 51,
+          "grayHairBounds": [
+            71,
+            52,
+            96,
+            70
+          ],
+          "grayHairWidth": 25,
+          "grayHairHeight": 18,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 103,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 51,
+          "grayHairBounds": [
+            71,
+            51,
+            97,
+            70
+          ],
+          "grayHairWidth": 26,
+          "grayHairHeight": 19,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 97,
+          "centralBootSole": 118
+        }
+      ],
+      "diagnosticDeltas": {
+        "crownAtReferenceColumns": [
+          1,
+          -1,
+          0,
+          -1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "grayHairWidth": [
+          -1,
+          0,
+          -1,
+          -1,
+          -1,
+          0,
+          -1,
+          0
+        ],
+        "grayHairHeight": [
+          -5,
+          -5,
+          -3,
+          -5,
+          -5,
+          -6,
+          -6,
+          -5
+        ],
+        "shoulderHighlightTop": [
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "goldBeltPeak": [
+          7,
+          7,
+          5,
+          -1,
+          6,
+          6,
+          5,
+          -1
+        ],
+        "centralBootSole": [
+          -1,
+          0,
+          -1,
+          -11,
+          -1,
+          -1,
+          -1,
+          -10
+        ]
+      },
+      "warning": "Pixel features only, not skeletal ground truth. Review native crown/chin/shoulder/belt/knees/sole and loop before any approval."
+    },
+    {
+      "source": "run-staff-NE-template01.png",
+      "trace": "traces/run-staff-NE-template01/profile-fit/trace.json",
+      "state": "staff",
+      "direction": "NE",
+      "kind": "run",
+      "scale": 0.26559057248344936,
+      "score": 0.1043439316486984,
+      "regionError": {
+        "head": 0.09710550887021477,
+        "neck-torso": 0.09594405003380663,
+        "shoulders": 0.14253707893413775,
+        "belt": 0.09973290598290599
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 55,
+      "artApproved": false,
+      "registrationApproved": false,
+      "reference": {
+        "crownAtReferenceColumns": 54,
+        "grayHairBounds": [
+          59,
+          55,
+          84,
+          77
+        ],
+        "grayHairWidth": 25,
+        "grayHairHeight": 22,
+        "shoulderHighlightTop": 79,
+        "goldBeltPeak": 99,
+        "centralBootSole": 128
+      },
+      "frames": [
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            62,
+            56,
+            83,
+            75
+          ],
+          "grayHairWidth": 21,
+          "grayHairHeight": 19,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 108,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            61,
+            56,
+            83,
+            74
+          ],
+          "grayHairWidth": 22,
+          "grayHairHeight": 18,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 108,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            61,
+            56,
+            83,
+            75
+          ],
+          "grayHairWidth": 22,
+          "grayHairHeight": 19,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 106,
+          "centralBootSole": 128
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            61,
+            56,
+            83,
+            75
+          ],
+          "grayHairWidth": 22,
+          "grayHairHeight": 19,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 103,
+          "centralBootSole": 128
+        },
+        {
+          "crownAtReferenceColumns": 56,
+          "grayHairBounds": [
+            62,
+            56,
+            84,
+            75
+          ],
+          "grayHairWidth": 22,
+          "grayHairHeight": 19,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 104,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 56,
+          "grayHairBounds": [
+            61,
+            56,
+            83,
+            75
+          ],
+          "grayHairWidth": 22,
+          "grayHairHeight": 19,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 105,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 56,
+          "grayHairBounds": [
+            60,
+            56,
+            84,
+            75
+          ],
+          "grayHairWidth": 24,
+          "grayHairHeight": 19,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 107,
+          "centralBootSole": 128
+        },
+        {
+          "crownAtReferenceColumns": 56,
+          "grayHairBounds": [
+            61,
+            56,
+            85,
+            75
+          ],
+          "grayHairWidth": 24,
+          "grayHairHeight": 19,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 105,
+          "centralBootSole": 127
+        }
+      ],
+      "diagnosticDeltas": {
+        "crownAtReferenceColumns": [
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2
+        ],
+        "grayHairWidth": [
+          -4,
+          -3,
+          -3,
+          -3,
+          -3,
+          -3,
+          -1,
+          -1
+        ],
+        "grayHairHeight": [
+          -3,
+          -4,
+          -3,
+          -3,
+          -3,
+          -3,
+          -3,
+          -3
+        ],
+        "shoulderHighlightTop": [
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1
+        ],
+        "goldBeltPeak": [
+          9,
+          9,
+          7,
+          4,
+          5,
+          6,
+          8,
+          6
+        ],
+        "centralBootSole": [
+          -1,
+          -1,
+          0,
+          0,
+          -1,
+          -1,
+          0,
+          -1
+        ]
+      },
+      "warning": "Pixel features only, not skeletal ground truth. Review native crown/chin/shoulder/belt/knees/sole and loop before any approval."
+    },
+    {
+      "source": "walk-sword-S-candidate02.png",
+      "trace": "traces/walk-sword-S-candidate02/profile-fit/trace.json",
+      "state": "sword",
+      "direction": "S",
+      "kind": "walk",
+      "scale": 0.24316369881236857,
+      "score": 0.05656071951213549,
+      "regionError": {
+        "head": 0.039330628803245435,
+        "neck-torso": 0.06299962292609351,
+        "shoulders": 0.05211266130383777,
+        "belt": 0.07391434137757667
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 56,
+      "artApproved": false,
+      "registrationApproved": false,
+      "reference": {
+        "crownAtReferenceColumns": 55,
+        "grayHairBounds": [
+          59,
+          56,
+          86,
+          80
+        ],
+        "grayHairWidth": 27,
+        "grayHairHeight": 24,
+        "shoulderHighlightTop": 80,
+        "goldBeltPeak": 96,
+        "centralBootSole": 128
+      },
+      "frames": [
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            60,
+            55,
+            86,
+            80
+          ],
+          "grayHairWidth": 26,
+          "grayHairHeight": 25,
+          "shoulderHighlightTop": 80,
+          "goldBeltPeak": 100,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            60,
+            55,
+            86,
+            80
+          ],
+          "grayHairWidth": 26,
+          "grayHairHeight": 25,
+          "shoulderHighlightTop": 81,
+          "goldBeltPeak": 99,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            60,
+            55,
+            86,
+            80
+          ],
+          "grayHairWidth": 26,
+          "grayHairHeight": 25,
+          "shoulderHighlightTop": 81,
+          "goldBeltPeak": 95,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            60,
+            55,
+            86,
+            80
+          ],
+          "grayHairWidth": 26,
+          "grayHairHeight": 25,
+          "shoulderHighlightTop": 80,
+          "goldBeltPeak": 95,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            60,
+            56,
+            86,
+            78
+          ],
+          "grayHairWidth": 26,
+          "grayHairHeight": 22,
+          "shoulderHighlightTop": 81,
+          "goldBeltPeak": 95,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            60,
+            56,
+            86,
+            78
+          ],
+          "grayHairWidth": 26,
+          "grayHairHeight": 22,
+          "shoulderHighlightTop": 81,
+          "goldBeltPeak": 95,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            60,
+            56,
+            86,
+            78
+          ],
+          "grayHairWidth": 26,
+          "grayHairHeight": 22,
+          "shoulderHighlightTop": 81,
+          "goldBeltPeak": 95,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            60,
+            56,
+            86,
+            80
+          ],
+          "grayHairWidth": 26,
+          "grayHairHeight": 24,
+          "shoulderHighlightTop": 81,
+          "goldBeltPeak": 95,
+          "centralBootSole": 127
+        }
+      ],
+      "diagnosticDeltas": {
+        "crownAtReferenceColumns": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "grayHairWidth": [
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1
+        ],
+        "grayHairHeight": [
+          1,
+          1,
+          1,
+          1,
+          -2,
+          -2,
+          -2,
+          0
+        ],
+        "shoulderHighlightTop": [
+          0,
+          1,
+          1,
+          0,
+          1,
+          1,
+          1,
+          1
+        ],
+        "goldBeltPeak": [
+          4,
+          3,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1
+        ],
+        "centralBootSole": [
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1
+        ]
+      },
+      "warning": "Pixel features only, not skeletal ground truth. Review native crown/chin/shoulder/belt/knees/sole and loop before any approval."
+    },
+    {
+      "source": "walk-sword-E-template01.png",
+      "trace": "traces/walk-sword-E-template01/profile-fit/trace.json",
+      "state": "sword",
+      "direction": "E",
+      "kind": "walk",
+      "scale": 0.23512548809614073,
+      "score": 0.09967871526515343,
+      "regionError": {
+        "head": 0.06871748699479793,
+        "neck-torso": 0.11358096686950644,
+        "shoulders": 0.050902882520529574,
+        "belt": 0.1549412393162393
+      },
+      "targetSole": 127,
+      "referenceCrownProxy": 55,
+      "artApproved": false,
+      "registrationApproved": false,
+      "reference": {
+        "crownAtReferenceColumns": 54,
+        "grayHairBounds": [
+          59,
+          55,
+          85,
+          77
+        ],
+        "grayHairWidth": 26,
+        "grayHairHeight": 22,
+        "shoulderHighlightTop": 83,
+        "goldBeltPeak": 101,
+        "centralBootSole": 127
+      },
+      "frames": [
+        {
+          "crownAtReferenceColumns": 56,
+          "grayHairBounds": [
+            60,
+            56,
+            83,
+            78
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 22,
+          "shoulderHighlightTop": null,
+          "goldBeltPeak": 102,
+          "centralBootSole": 126
+        },
+        {
+          "crownAtReferenceColumns": 56,
+          "grayHairBounds": [
+            60,
+            58,
+            83,
+            78
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 20,
+          "shoulderHighlightTop": null,
+          "goldBeltPeak": 101,
+          "centralBootSole": 126
+        },
+        {
+          "crownAtReferenceColumns": 56,
+          "grayHairBounds": [
+            60,
+            57,
+            83,
+            78
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 21,
+          "shoulderHighlightTop": null,
+          "goldBeltPeak": 99,
+          "centralBootSole": 126
+        },
+        {
+          "crownAtReferenceColumns": 56,
+          "grayHairBounds": [
+            60,
+            58,
+            84,
+            78
+          ],
+          "grayHairWidth": 24,
+          "grayHairHeight": 20,
+          "shoulderHighlightTop": null,
+          "goldBeltPeak": 99,
+          "centralBootSole": 126
+        },
+        {
+          "crownAtReferenceColumns": 56,
+          "grayHairBounds": [
+            60,
+            56,
+            83,
+            76
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 20,
+          "shoulderHighlightTop": null,
+          "goldBeltPeak": 101,
+          "centralBootSole": 126
+        },
+        {
+          "crownAtReferenceColumns": 56,
+          "grayHairBounds": [
+            61,
+            56,
+            84,
+            76
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 20,
+          "shoulderHighlightTop": null,
+          "goldBeltPeak": 100,
+          "centralBootSole": 126
+        },
+        {
+          "crownAtReferenceColumns": 56,
+          "grayHairBounds": [
+            61,
+            56,
+            83,
+            76
+          ],
+          "grayHairWidth": 22,
+          "grayHairHeight": 20,
+          "shoulderHighlightTop": null,
+          "goldBeltPeak": 98,
+          "centralBootSole": 126
+        },
+        {
+          "crownAtReferenceColumns": 56,
+          "grayHairBounds": [
+            60,
+            56,
+            84,
+            76
+          ],
+          "grayHairWidth": 24,
+          "grayHairHeight": 20,
+          "shoulderHighlightTop": null,
+          "goldBeltPeak": 98,
+          "centralBootSole": 126
+        }
+      ],
+      "diagnosticDeltas": {
+        "crownAtReferenceColumns": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "grayHairWidth": [
+          -3,
+          -3,
+          -3,
+          -2,
+          -3,
+          -3,
+          -4,
+          -2
+        ],
+        "grayHairHeight": [
+          0,
+          -2,
+          -1,
+          -2,
+          -2,
+          -2,
+          -2,
+          -2
+        ],
+        "shoulderHighlightTop": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "goldBeltPeak": [
+          1,
+          0,
+          -2,
+          -2,
+          0,
+          -1,
+          -3,
+          -3
+        ],
+        "centralBootSole": [
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1
+        ]
+      },
+      "warning": "Pixel features only, not skeletal ground truth. Review native crown/chin/shoulder/belt/knees/sole and loop before any approval."
+    },
+    {
+      "source": "walk-sword-N-template01.png",
+      "trace": "traces/walk-sword-N-template01/profile-fit/trace.json",
+      "state": "sword",
+      "direction": "N",
+      "kind": "walk",
+      "scale": 0.31031132958801505,
+      "score": 0.05132179061858029,
+      "regionError": {
+        "head": 0.065016782575099,
+        "neck-torso": 0.040756302521008404,
+        "shoulders": 0.040934514831573655,
+        "belt": 0.054073969331322275
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 55,
+      "artApproved": false,
+      "registrationApproved": false,
+      "reference": {
+        "crownAtReferenceColumns": 55,
+        "grayHairBounds": [
+          59,
+          55,
+          85,
+          78
+        ],
+        "grayHairWidth": 26,
+        "grayHairHeight": 23,
+        "shoulderHighlightTop": 79,
+        "goldBeltPeak": 100,
+        "centralBootSole": 128
+      },
+      "frames": [
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            59,
+            56,
+            84,
+            78
+          ],
+          "grayHairWidth": 25,
+          "grayHairHeight": 22,
+          "shoulderHighlightTop": 79,
+          "goldBeltPeak": 96,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 56,
+          "grayHairBounds": [
+            59,
+            56,
+            84,
+            78
+          ],
+          "grayHairWidth": 25,
+          "grayHairHeight": 22,
+          "shoulderHighlightTop": 79,
+          "goldBeltPeak": 100,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            59,
+            56,
+            85,
+            78
+          ],
+          "grayHairWidth": 26,
+          "grayHairHeight": 22,
+          "shoulderHighlightTop": 79,
+          "goldBeltPeak": 98,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            59,
+            56,
+            85,
+            78
+          ],
+          "grayHairWidth": 26,
+          "grayHairHeight": 22,
+          "shoulderHighlightTop": 79,
+          "goldBeltPeak": 98,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 56,
+          "grayHairBounds": [
+            59,
+            57,
+            85,
+            78
+          ],
+          "grayHairWidth": 26,
+          "grayHairHeight": 21,
+          "shoulderHighlightTop": 80,
+          "goldBeltPeak": 94,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 56,
+          "grayHairBounds": [
+            59,
+            56,
+            85,
+            78
+          ],
+          "grayHairWidth": 26,
+          "grayHairHeight": 22,
+          "shoulderHighlightTop": 80,
+          "goldBeltPeak": 94,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 56,
+          "grayHairBounds": [
+            59,
+            57,
+            85,
+            78
+          ],
+          "grayHairWidth": 26,
+          "grayHairHeight": 21,
+          "shoulderHighlightTop": 80,
+          "goldBeltPeak": 94,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 56,
+          "grayHairBounds": [
+            59,
+            57,
+            85,
+            78
+          ],
+          "grayHairWidth": 26,
+          "grayHairHeight": 21,
+          "shoulderHighlightTop": 80,
+          "goldBeltPeak": 94,
+          "centralBootSole": 127
+        }
+      ],
+      "diagnosticDeltas": {
+        "crownAtReferenceColumns": [
+          0,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1
+        ],
+        "grayHairWidth": [
+          -1,
+          -1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "grayHairHeight": [
+          -1,
+          -1,
+          -1,
+          -1,
+          -2,
+          -1,
+          -2,
+          -2
+        ],
+        "shoulderHighlightTop": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1
+        ],
+        "goldBeltPeak": [
+          -4,
+          0,
+          -2,
+          -2,
+          -6,
+          -6,
+          -6,
+          -6
+        ],
+        "centralBootSole": [
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1
+        ]
+      },
+      "warning": "Pixel features only, not skeletal ground truth. Review native crown/chin/shoulder/belt/knees/sole and loop before any approval."
+    },
+    {
+      "source": "walk-sword-SE-template01.png",
+      "trace": "traces/walk-sword-SE-template01/profile-fit/trace.json",
+      "state": "sword",
+      "direction": "SE",
+      "kind": "walk",
+      "scale": 0.30367925860646944,
+      "score": 0.07801493540549274,
+      "regionError": {
+        "head": 0.07531964398662691,
+        "neck-torso": 0.08331245461147421,
+        "shoulders": 0.08722871627283392,
+        "belt": 0.06840277777777778
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 54,
+      "artApproved": false,
+      "registrationApproved": false,
+      "reference": {
+        "crownAtReferenceColumns": 54,
+        "grayHairBounds": [
+          59,
+          54,
+          85,
+          79
+        ],
+        "grayHairWidth": 26,
+        "grayHairHeight": 25,
+        "shoulderHighlightTop": 80,
+        "goldBeltPeak": 94,
+        "centralBootSole": 128
+      },
+      "frames": [
+        {
+          "crownAtReferenceColumns": 54,
+          "grayHairBounds": [
+            60,
+            55,
+            84,
+            76
+          ],
+          "grayHairWidth": 24,
+          "grayHairHeight": 21,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 108,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 54,
+          "grayHairBounds": [
+            60,
+            55,
+            84,
+            78
+          ],
+          "grayHairWidth": 24,
+          "grayHairHeight": 23,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 97,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 54,
+          "grayHairBounds": [
+            59,
+            55,
+            85,
+            78
+          ],
+          "grayHairWidth": 26,
+          "grayHairHeight": 23,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 108,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 54,
+          "grayHairBounds": [
+            60,
+            55,
+            84,
+            78
+          ],
+          "grayHairWidth": 24,
+          "grayHairHeight": 23,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 97,
+          "centralBootSole": 126
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            60,
+            55,
+            84,
+            77
+          ],
+          "grayHairWidth": 24,
+          "grayHairHeight": 22,
+          "shoulderHighlightTop": 79,
+          "goldBeltPeak": 107,
+          "centralBootSole": 124
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            60,
+            55,
+            84,
+            77
+          ],
+          "grayHairWidth": 24,
+          "grayHairHeight": 22,
+          "shoulderHighlightTop": 79,
+          "goldBeltPeak": 100,
+          "centralBootSole": 126
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            60,
+            55,
+            83,
+            77
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 22,
+          "shoulderHighlightTop": 79,
+          "goldBeltPeak": 98,
+          "centralBootSole": 128
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            60,
+            55,
+            84,
+            78
+          ],
+          "grayHairWidth": 24,
+          "grayHairHeight": 23,
+          "shoulderHighlightTop": 79,
+          "goldBeltPeak": 98,
+          "centralBootSole": 128
+        }
+      ],
+      "diagnosticDeltas": {
+        "crownAtReferenceColumns": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1
+        ],
+        "grayHairWidth": [
+          -2,
+          -2,
+          0,
+          -2,
+          -2,
+          -2,
+          -3,
+          -2
+        ],
+        "grayHairHeight": [
+          -4,
+          -2,
+          -2,
+          -2,
+          -3,
+          -3,
+          -3,
+          -2
+        ],
+        "shoulderHighlightTop": [
+          -2,
+          -2,
+          -2,
+          -2,
+          -1,
+          -1,
+          -1,
+          -1
+        ],
+        "goldBeltPeak": [
+          14,
+          3,
+          14,
+          3,
+          13,
+          6,
+          4,
+          4
+        ],
+        "centralBootSole": [
+          -1,
+          -1,
+          -1,
+          -2,
+          -4,
+          -2,
+          0,
+          0
+        ]
+      },
+      "warning": "Pixel features only, not skeletal ground truth. Review native crown/chin/shoulder/belt/knees/sole and loop before any approval."
+    },
+    {
+      "source": "walk-sword-NE-template01.png",
+      "trace": "traces/walk-sword-NE-template01/profile-fit/trace.json",
+      "state": "sword",
+      "direction": "NE",
+      "kind": "walk",
+      "scale": 0.24753393833743506,
+      "score": 0.07790317346644386,
+      "regionError": {
+        "head": 0.10177484787018255,
+        "neck-torso": 0.06829656862745097,
+        "shoulders": 0.06357885034355623,
+        "belt": 0.06843262946204123
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 55,
+      "artApproved": false,
+      "registrationApproved": false,
+      "reference": {
+        "crownAtReferenceColumns": 55,
+        "grayHairBounds": [
+          59,
+          55,
+          85,
+          78
+        ],
+        "grayHairWidth": 26,
+        "grayHairHeight": 23,
+        "shoulderHighlightTop": 82,
+        "goldBeltPeak": 96,
+        "centralBootSole": 128
+      },
+      "frames": [
+        {
+          "crownAtReferenceColumns": 56,
+          "grayHairBounds": [
+            61,
+            56,
+            84,
+            77
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 21,
+          "shoulderHighlightTop": 81,
+          "goldBeltPeak": 94,
+          "centralBootSole": 126
+        },
+        {
+          "crownAtReferenceColumns": 56,
+          "grayHairBounds": [
+            60,
+            56,
+            83,
+            77
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 21,
+          "shoulderHighlightTop": 79,
+          "goldBeltPeak": 105,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 56,
+          "grayHairBounds": [
+            59,
+            57,
+            82,
+            77
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 20,
+          "shoulderHighlightTop": 81,
+          "goldBeltPeak": 108,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 56,
+          "grayHairBounds": [
+            61,
+            56,
+            84,
+            77
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 21,
+          "shoulderHighlightTop": 81,
+          "goldBeltPeak": 94,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 57,
+          "grayHairBounds": [
+            60,
+            57,
+            84,
+            79
+          ],
+          "grayHairWidth": 24,
+          "grayHairHeight": 22,
+          "shoulderHighlightTop": null,
+          "goldBeltPeak": 94,
+          "centralBootSole": 128
+        },
+        {
+          "crownAtReferenceColumns": 57,
+          "grayHairBounds": [
+            60,
+            57,
+            83,
+            78
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 21,
+          "shoulderHighlightTop": null,
+          "goldBeltPeak": 103,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 57,
+          "grayHairBounds": [
+            59,
+            57,
+            82,
+            78
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 21,
+          "shoulderHighlightTop": 80,
+          "goldBeltPeak": 104,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 57,
+          "grayHairBounds": [
+            61,
+            57,
+            84,
+            78
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 21,
+          "shoulderHighlightTop": 83,
+          "goldBeltPeak": 95,
+          "centralBootSole": 128
+        }
+      ],
+      "diagnosticDeltas": {
+        "crownAtReferenceColumns": [
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2
+        ],
+        "grayHairWidth": [
+          -3,
+          -3,
+          -3,
+          -3,
+          -2,
+          -3,
+          -3,
+          -3
+        ],
+        "grayHairHeight": [
+          -2,
+          -2,
+          -3,
+          -2,
+          -1,
+          -2,
+          -2,
+          -2
+        ],
+        "shoulderHighlightTop": [
+          -1,
+          -3,
+          -1,
+          -1,
+          null,
+          null,
+          -2,
+          1
+        ],
+        "goldBeltPeak": [
+          -2,
+          9,
+          12,
+          -2,
+          -2,
+          7,
+          8,
+          -1
+        ],
+        "centralBootSole": [
+          -2,
+          -1,
+          -1,
+          -1,
+          0,
+          -1,
+          -1,
+          0
+        ]
+      },
+      "warning": "Pixel features only, not skeletal ground truth. Review native crown/chin/shoulder/belt/knees/sole and loop before any approval."
+    },
+    {
+      "source": "run-sword-S-template01.png",
+      "trace": "traces/run-sword-S-template01/profile-fit/trace.json",
+      "state": "sword",
+      "direction": "S",
+      "kind": "run",
+      "scale": 0.26442443282285305,
+      "score": 0.09450758765384681,
+      "regionError": {
+        "head": 0.0840500338066261,
+        "neck-torso": 0.09080599547511312,
+        "shoulders": 0.13220839617898442,
+        "belt": 0.08825257667169431
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 56,
+      "artApproved": false,
+      "registrationApproved": false,
+      "reference": {
+        "crownAtReferenceColumns": 55,
+        "grayHairBounds": [
+          59,
+          56,
+          86,
+          80
+        ],
+        "grayHairWidth": 27,
+        "grayHairHeight": 24,
+        "shoulderHighlightTop": 80,
+        "goldBeltPeak": 96,
+        "centralBootSole": 128
+      },
+      "frames": [
+        {
+          "crownAtReferenceColumns": 54,
+          "grayHairBounds": [
+            60,
+            56,
+            85,
+            80
+          ],
+          "grayHairWidth": 25,
+          "grayHairHeight": 24,
+          "shoulderHighlightTop": 79,
+          "goldBeltPeak": 94,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            60,
+            56,
+            85,
+            80
+          ],
+          "grayHairWidth": 25,
+          "grayHairHeight": 24,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 94,
+          "centralBootSole": 126
+        },
+        {
+          "crownAtReferenceColumns": 54,
+          "grayHairBounds": [
+            59,
+            56,
+            85,
+            80
+          ],
+          "grayHairWidth": 26,
+          "grayHairHeight": 24,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 94,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 53,
+          "grayHairBounds": [
+            59,
+            54,
+            87,
+            79
+          ],
+          "grayHairWidth": 28,
+          "grayHairHeight": 25,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 95,
+          "centralBootSole": 122
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            60,
+            57,
+            86,
+            81
+          ],
+          "grayHairWidth": 26,
+          "grayHairHeight": 24,
+          "shoulderHighlightTop": 79,
+          "goldBeltPeak": 95,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 56,
+          "grayHairBounds": [
+            60,
+            57,
+            85,
+            81
+          ],
+          "grayHairWidth": 25,
+          "grayHairHeight": 24,
+          "shoulderHighlightTop": 79,
+          "goldBeltPeak": 97,
+          "centralBootSole": 125
+        },
+        {
+          "crownAtReferenceColumns": 56,
+          "grayHairBounds": [
+            60,
+            57,
+            86,
+            81
+          ],
+          "grayHairWidth": 26,
+          "grayHairHeight": 24,
+          "shoulderHighlightTop": 79,
+          "goldBeltPeak": 94,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 54,
+          "grayHairBounds": [
+            60,
+            56,
+            87,
+            80
+          ],
+          "grayHairWidth": 27,
+          "grayHairHeight": 24,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 96,
+          "centralBootSole": 119
+        }
+      ],
+      "diagnosticDeltas": {
+        "crownAtReferenceColumns": [
+          -1,
+          0,
+          -1,
+          -2,
+          0,
+          1,
+          1,
+          -1
+        ],
+        "grayHairWidth": [
+          -2,
+          -2,
+          -1,
+          1,
+          -1,
+          -2,
+          -1,
+          0
+        ],
+        "grayHairHeight": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "shoulderHighlightTop": [
+          -1,
+          -2,
+          -2,
+          -2,
+          -1,
+          -1,
+          -1,
+          -2
+        ],
+        "goldBeltPeak": [
+          -2,
+          -2,
+          -2,
+          -1,
+          -1,
+          1,
+          -2,
+          0
+        ],
+        "centralBootSole": [
+          -1,
+          -2,
+          -1,
+          -6,
+          -1,
+          -3,
+          -1,
+          -9
+        ]
+      },
+      "warning": "Pixel features only, not skeletal ground truth. Review native crown/chin/shoulder/belt/knees/sole and loop before any approval."
+    },
+    {
+      "source": "run-sword-E-template01.png",
+      "trace": "traces/run-sword-E-template01/profile-fit/trace.json",
+      "state": "sword",
+      "direction": "E",
+      "kind": "run",
+      "scale": 0.24849571759259256,
+      "score": 0.1404793754711978,
+      "regionError": {
+        "head": 0.07025185074029612,
+        "neck-torso": 0.17104208924949288,
+        "shoulders": 0.1304455756661639,
+        "belt": 0.20005498994469584
+      },
+      "targetSole": 127,
+      "referenceCrownProxy": 55,
+      "artApproved": false,
+      "registrationApproved": false,
+      "reference": {
+        "crownAtReferenceColumns": 54,
+        "grayHairBounds": [
+          59,
+          55,
+          85,
+          77
+        ],
+        "grayHairWidth": 26,
+        "grayHairHeight": 22,
+        "shoulderHighlightTop": 83,
+        "goldBeltPeak": 101,
+        "centralBootSole": 127
+      },
+      "frames": [
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            60,
+            56,
+            86,
+            75
+          ],
+          "grayHairWidth": 26,
+          "grayHairHeight": 19,
+          "shoulderHighlightTop": 79,
+          "goldBeltPeak": 99,
+          "centralBootSole": 126
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            60,
+            55,
+            86,
+            77
+          ],
+          "grayHairWidth": 26,
+          "grayHairHeight": 22,
+          "shoulderHighlightTop": 80,
+          "goldBeltPeak": 98,
+          "centralBootSole": 126
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            61,
+            56,
+            86,
+            77
+          ],
+          "grayHairWidth": 25,
+          "grayHairHeight": 21,
+          "shoulderHighlightTop": null,
+          "goldBeltPeak": 96,
+          "centralBootSole": 126
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            60,
+            55,
+            85,
+            76
+          ],
+          "grayHairWidth": 25,
+          "grayHairHeight": 21,
+          "shoulderHighlightTop": 79,
+          "goldBeltPeak": 95,
+          "centralBootSole": 117
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            59,
+            57,
+            85,
+            77
+          ],
+          "grayHairWidth": 26,
+          "grayHairHeight": 20,
+          "shoulderHighlightTop": 79,
+          "goldBeltPeak": 97,
+          "centralBootSole": 126
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            60,
+            56,
+            85,
+            77
+          ],
+          "grayHairWidth": 25,
+          "grayHairHeight": 21,
+          "shoulderHighlightTop": 79,
+          "goldBeltPeak": 96,
+          "centralBootSole": 126
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            60,
+            56,
+            86,
+            77
+          ],
+          "grayHairWidth": 26,
+          "grayHairHeight": 21,
+          "shoulderHighlightTop": null,
+          "goldBeltPeak": 98,
+          "centralBootSole": 124
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            60,
+            55,
+            85,
+            77
+          ],
+          "grayHairWidth": 25,
+          "grayHairHeight": 22,
+          "shoulderHighlightTop": 79,
+          "goldBeltPeak": 96,
+          "centralBootSole": 116
+        }
+      ],
+      "diagnosticDeltas": {
+        "crownAtReferenceColumns": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "grayHairWidth": [
+          0,
+          0,
+          -1,
+          -1,
+          0,
+          -1,
+          0,
+          -1
+        ],
+        "grayHairHeight": [
+          -3,
+          0,
+          -1,
+          -1,
+          -2,
+          -1,
+          -1,
+          0
+        ],
+        "shoulderHighlightTop": [
+          -4,
+          -3,
+          null,
+          -4,
+          -4,
+          -4,
+          null,
+          -4
+        ],
+        "goldBeltPeak": [
+          -2,
+          -3,
+          -5,
+          -6,
+          -4,
+          -5,
+          -3,
+          -5
+        ],
+        "centralBootSole": [
+          -1,
+          -1,
+          -1,
+          -10,
+          -1,
+          -1,
+          -3,
+          -11
+        ]
+      },
+      "warning": "Pixel features only, not skeletal ground truth. Review native crown/chin/shoulder/belt/knees/sole and loop before any approval."
+    },
+    {
+      "source": "run-sword-N-template01.png",
+      "trace": "traces/run-sword-N-template01/profile-fit/trace.json",
+      "state": "sword",
+      "direction": "N",
+      "kind": "run",
+      "scale": 0.2845445942265796,
+      "score": 0.09046918799259258,
+      "regionError": {
+        "head": 0.09541678740461701,
+        "neck-torso": 0.08373774509803922,
+        "shoulders": 0.1034303251215016,
+        "belt": 0.08420688788335848
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 55,
+      "artApproved": false,
+      "registrationApproved": false,
+      "reference": {
+        "crownAtReferenceColumns": 55,
+        "grayHairBounds": [
+          59,
+          55,
+          85,
+          78
+        ],
+        "grayHairWidth": 26,
+        "grayHairHeight": 23,
+        "shoulderHighlightTop": 79,
+        "goldBeltPeak": 100,
+        "centralBootSole": 128
+      },
+      "frames": [
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            60,
+            56,
+            84,
+            77
+          ],
+          "grayHairWidth": 24,
+          "grayHairHeight": 21,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 108,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            60,
+            56,
+            83,
+            76
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 20,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 106,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            61,
+            56,
+            83,
+            76
+          ],
+          "grayHairWidth": 22,
+          "grayHairHeight": 20,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 107,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            61,
+            56,
+            84,
+            77
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 21,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 104,
+          "centralBootSole": 126
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            60,
+            56,
+            84,
+            76
+          ],
+          "grayHairWidth": 24,
+          "grayHairHeight": 20,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 106,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            60,
+            56,
+            85,
+            76
+          ],
+          "grayHairWidth": 25,
+          "grayHairHeight": 20,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 105,
+          "centralBootSole": 126
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            60,
+            55,
+            83,
+            76
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 21,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 108,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            60,
+            56,
+            83,
+            76
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 20,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 106,
+          "centralBootSole": 126
+        }
+      ],
+      "diagnosticDeltas": {
+        "crownAtReferenceColumns": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "grayHairWidth": [
+          -2,
+          -3,
+          -4,
+          -3,
+          -2,
+          -1,
+          -3,
+          -3
+        ],
+        "grayHairHeight": [
+          -2,
+          -3,
+          -3,
+          -2,
+          -3,
+          -3,
+          -2,
+          -3
+        ],
+        "shoulderHighlightTop": [
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1,
+          -1
+        ],
+        "goldBeltPeak": [
+          8,
+          6,
+          7,
+          4,
+          6,
+          5,
+          8,
+          6
+        ],
+        "centralBootSole": [
+          -1,
+          -1,
+          -1,
+          -2,
+          -1,
+          -2,
+          -1,
+          -2
+        ]
+      },
+      "warning": "Pixel features only, not skeletal ground truth. Review native crown/chin/shoulder/belt/knees/sole and loop before any approval."
+    },
+    {
+      "source": "run-sword-SE-template01.png",
+      "trace": "traces/run-sword-SE-template01/profile-fit/trace.json",
+      "state": "sword",
+      "direction": "SE",
+      "kind": "run",
+      "scale": 0.30785714285714283,
+      "score": 0.08219997545828933,
+      "regionError": {
+        "head": 0.07220848016626005,
+        "neck-torso": 0.07667574437182281,
+        "shoulders": 0.11388574660633484,
+        "belt": 0.08176376319758673
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 54,
+      "artApproved": false,
+      "registrationApproved": false,
+      "reference": {
+        "crownAtReferenceColumns": 54,
+        "grayHairBounds": [
+          59,
+          54,
+          85,
+          79
+        ],
+        "grayHairWidth": 26,
+        "grayHairHeight": 25,
+        "shoulderHighlightTop": 80,
+        "goldBeltPeak": 94,
+        "centralBootSole": 128
+      },
+      "frames": [
+        {
+          "crownAtReferenceColumns": 54,
+          "grayHairBounds": [
+            58,
+            55,
+            86,
+            78
+          ],
+          "grayHairWidth": 28,
+          "grayHairHeight": 23,
+          "shoulderHighlightTop": 79,
+          "goldBeltPeak": 94,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            61,
+            55,
+            89,
+            78
+          ],
+          "grayHairWidth": 28,
+          "grayHairHeight": 23,
+          "shoulderHighlightTop": 80,
+          "goldBeltPeak": 97,
+          "centralBootSole": 128
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            59,
+            55,
+            87,
+            78
+          ],
+          "grayHairWidth": 28,
+          "grayHairHeight": 23,
+          "shoulderHighlightTop": 79,
+          "goldBeltPeak": 96,
+          "centralBootSole": 132
+        },
+        {
+          "crownAtReferenceColumns": 54,
+          "grayHairBounds": [
+            58,
+            55,
+            86,
+            78
+          ],
+          "grayHairWidth": 28,
+          "grayHairHeight": 23,
+          "shoulderHighlightTop": 79,
+          "goldBeltPeak": 100,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 53,
+          "grayHairBounds": [
+            57,
+            54,
+            85,
+            77
+          ],
+          "grayHairWidth": 28,
+          "grayHairHeight": 23,
+          "shoulderHighlightTop": 79,
+          "goldBeltPeak": 105,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 52,
+          "grayHairBounds": [
+            58,
+            53,
+            86,
+            76
+          ],
+          "grayHairWidth": 28,
+          "grayHairHeight": 23,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 94,
+          "centralBootSole": 121
+        },
+        {
+          "crownAtReferenceColumns": 52,
+          "grayHairBounds": [
+            56,
+            53,
+            86,
+            77
+          ],
+          "grayHairWidth": 30,
+          "grayHairHeight": 24,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 94,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 52,
+          "grayHairBounds": [
+            58,
+            52,
+            85,
+            76
+          ],
+          "grayHairWidth": 27,
+          "grayHairHeight": 24,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 94,
+          "centralBootSole": 117
+        }
+      ],
+      "diagnosticDeltas": {
+        "crownAtReferenceColumns": [
+          0,
+          1,
+          1,
+          0,
+          -1,
+          -2,
+          -2,
+          -2
+        ],
+        "grayHairWidth": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          4,
+          1
+        ],
+        "grayHairHeight": [
+          -2,
+          -2,
+          -2,
+          -2,
+          -2,
+          -2,
+          -1,
+          -1
+        ],
+        "shoulderHighlightTop": [
+          -1,
+          0,
+          -1,
+          -1,
+          -1,
+          -2,
+          -2,
+          -2
+        ],
+        "goldBeltPeak": [
+          0,
+          3,
+          2,
+          6,
+          11,
+          0,
+          0,
+          0
+        ],
+        "centralBootSole": [
+          -1,
+          0,
+          4,
+          -1,
+          -1,
+          -7,
+          -1,
+          -11
+        ]
+      },
+      "warning": "Pixel features only, not skeletal ground truth. Review native crown/chin/shoulder/belt/knees/sole and loop before any approval."
+    },
+    {
+      "source": "run-sword-NE-template01.png",
+      "trace": "traces/run-sword-NE-template01/profile-fit/trace.json",
+      "state": "sword",
+      "direction": "NE",
+      "kind": "run",
+      "scale": 0.2451119463147847,
+      "score": 0.10599692158710727,
+      "regionError": {
+        "head": 0.12696983966000194,
+        "neck-torso": 0.09568364845938376,
+        "shoulders": 0.10868526897938663,
+        "belt": 0.08999183006535948
+      },
+      "targetSole": 128,
+      "referenceCrownProxy": 55,
+      "artApproved": false,
+      "registrationApproved": false,
+      "reference": {
+        "crownAtReferenceColumns": 55,
+        "grayHairBounds": [
+          59,
+          55,
+          85,
+          78
+        ],
+        "grayHairWidth": 26,
+        "grayHairHeight": 23,
+        "shoulderHighlightTop": 82,
+        "goldBeltPeak": 96,
+        "centralBootSole": 128
+      },
+      "frames": [
+        {
+          "crownAtReferenceColumns": 56,
+          "grayHairBounds": [
+            60,
+            57,
+            83,
+            77
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 20,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 108,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 56,
+          "grayHairBounds": [
+            61,
+            57,
+            84,
+            76
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 19,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 103,
+          "centralBootSole": 126
+        },
+        {
+          "crownAtReferenceColumns": 56,
+          "grayHairBounds": [
+            61,
+            57,
+            85,
+            77
+          ],
+          "grayHairWidth": 24,
+          "grayHairHeight": 20,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 102,
+          "centralBootSole": 128
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            59,
+            56,
+            83,
+            76
+          ],
+          "grayHairWidth": 24,
+          "grayHairHeight": 20,
+          "shoulderHighlightTop": null,
+          "goldBeltPeak": 105,
+          "centralBootSole": 126
+        },
+        {
+          "crownAtReferenceColumns": 56,
+          "grayHairBounds": [
+            64,
+            57,
+            86,
+            76
+          ],
+          "grayHairWidth": 22,
+          "grayHairHeight": 19,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 108,
+          "centralBootSole": 127
+        },
+        {
+          "crownAtReferenceColumns": 56,
+          "grayHairBounds": [
+            62,
+            56,
+            85,
+            75
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 19,
+          "shoulderHighlightTop": 78,
+          "goldBeltPeak": 108,
+          "centralBootSole": 128
+        },
+        {
+          "crownAtReferenceColumns": 56,
+          "grayHairBounds": [
+            63,
+            57,
+            86,
+            76
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 19,
+          "shoulderHighlightTop": 79,
+          "goldBeltPeak": 108,
+          "centralBootSole": 128
+        },
+        {
+          "crownAtReferenceColumns": 55,
+          "grayHairBounds": [
+            63,
+            55,
+            86,
+            75
+          ],
+          "grayHairWidth": 23,
+          "grayHairHeight": 20,
+          "shoulderHighlightTop": 79,
+          "goldBeltPeak": 102,
+          "centralBootSole": 125
+        }
+      ],
+      "diagnosticDeltas": {
+        "crownAtReferenceColumns": [
+          1,
+          1,
+          1,
+          0,
+          1,
+          1,
+          1,
+          0
+        ],
+        "grayHairWidth": [
+          -3,
+          -3,
+          -2,
+          -2,
+          -4,
+          -3,
+          -3,
+          -3
+        ],
+        "grayHairHeight": [
+          -3,
+          -4,
+          -3,
+          -3,
+          -4,
+          -4,
+          -4,
+          -3
+        ],
+        "shoulderHighlightTop": [
+          -4,
+          -4,
+          -4,
+          null,
+          -4,
+          -4,
+          -3,
+          -3
+        ],
+        "goldBeltPeak": [
+          12,
+          7,
+          6,
+          9,
+          12,
+          12,
+          12,
+          6
+        ],
+        "centralBootSole": [
+          -1,
+          -2,
+          0,
+          -2,
+          -1,
+          0,
+          0,
+          -3
+        ]
+      },
+      "warning": "Pixel features only, not skeletal ground truth. Review native crown/chin/shoulder/belt/knees/sole and loop before any approval."
+    }
+  ]
+}

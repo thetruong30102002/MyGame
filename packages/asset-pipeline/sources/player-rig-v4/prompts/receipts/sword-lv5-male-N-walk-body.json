@@ -1,0 +1,21 @@
+{
+  "file": "sword-lv5/male/N-walk-body.png",
+  "tier": "sword-lv5",
+  "gender": "male",
+  "direction": "N",
+  "action": "walk",
+  "sourceReady": false,
+  "refs": [
+    "D:\\truong\\MyGame\\packages\\asset-pipeline\\sources\\player-rig-v4\\sword-starter\\male\\N-walk-body.png",
+    "D:\\truong\\MyGame\\packages\\asset-pipeline\\sources\\player-rig-v4\\sword-lv5\\male\\references\\N.png",
+    "D:\\truong\\MyGame\\packages\\asset-pipeline\\sources\\player-rig-v4\\sword-lv5\\male\\references\\S.png"
+  ],
+  "dependsOn": [
+    "D:\\truong\\MyGame\\packages\\asset-pipeline\\sources\\player-rig-v4\\sword-starter\\male\\N-walk-body.png"
+  ],
+  "prompt": "Production crisp PixelLab-style pixel-art detachable outfit sprite layer. Genuinely HEADLESS and WEAPONLESS: NO head/face/hair/skin neck/ears/horns, and NO blade/guard/hilt/pommel/sheath. Above short high collar empty alpha except raised arms. Black closed gloves clasp an IMAGINARY grip; actual weapons are separate interchangeable layers. All body/clothes behind an imaginary sword must be complete, no weapon-shaped holes. Fully covered neck/arms/legs, no exposed skin. Clean hard pixel clusters and outlines, fabric/leather/steel detail, no blur/grain/glow/shadows/grid/text/background. Real alpha. Same adult proportions, global neck socket, orthographic RPG camera and body density in all frames. NEVER enlarge/fit a running or attacking body to gesture bounds. Slender masculine adult, no bulk. CLOTHING REPLACEMENT on reference1 motion sheet: preserve EXACT same number/order/poses, body proportions, hand/fist positions, foot positions, pixel density and camera. Change outfit into reference2 design, keeping all its distinctive structural features, NOT merely recoloring. Reference3 FRONT S is calibration design. Playback direction for first frames: NORTH full BACK view, facing away towardTOP, back of outfit/boots visible, NO front chest/buckle. 3columns x3rows,9 equal cells. First8 row-major are8 different continuous gentle WALK poses: L contact, weight/down onL, R passes under hips, R reaches, R contact, weight/down onR, L passes under hips, L reaches into loop. Quiet short low steps, restrained arm swing, right fist near right hip holding imaginary sword. Last cell9 is FRONT S neutral standing CALIBRATION, same physical anatomy/density as animated poses even if playback direction differs. Distinctive design: Bộ hành lộ bất đối xứng: áo da quấn vạt chéo, dây đeo chéo ngực, một giáp vai ghép mảnh, một vai vải, vạt áo lệch, ủng cưỡi ngựa gia cố; kiếm cong nhẹ và hộ thủ bảo vệ một phía. Keep this costume feature set consistent throughout the entire sheet. Feet/neck same registration as motion reference; don't change anatomy per outfit. ",
+  "generatedPath": "C:\\Users\\thetr\\.codex\\generated_images\\01a161de-a2f6-73d3-b375-dc59da54386f\\exec-036a390f-b665-4d1b-8ad0-764d6bfd158a.png",
+  "dest": "D:/truong/MyGame/packages/asset-pipeline/sources/player-rig-v4/sword-lv5/male/N-walk-body.png",
+  "tool": "built-in image_gen",
+  "generatedAt": "2026-10-27T14:09:20.178Z"
+}
