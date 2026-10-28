@@ -12,7 +12,7 @@ namespace HavenLord.Importer
 {
     /// <summary>
     /// Dựng phần chơi được từ dữ liệu đã nhập: GameDatabase (mục lục) + scene Game + thiết lập dự án + build Windows / Android.
-    /// Dòng lệnh: -executeMethod HavenLord.Importer.GameSetup.SetupBatch | BuildWindowsBatch | BuildAndroidBatch
+    /// Dòng lệnh: -executeMethod HavenLord.Importer.GameSetup.SetupBatch | BuildWindowsBatch | BuildAndroidBatch | BuildWebGLBatch
     /// </summary>
     public static class GameSetup
     {
@@ -39,6 +39,9 @@ namespace HavenLord.Importer
 
         [MenuItem("Haven Lord/Build iOS (project Xcode)", priority = 42)]
         private static void BuildIosMenu() => BuildIos();
+
+        [MenuItem("Haven Lord/Build WebGL (chơi trên trình duyệt)", priority = 43)]
+        private static void BuildWebGLMenu() => BuildWebGL();
 
         public static void SetupBatch() => Batch(Setup);
 
@@ -67,6 +70,15 @@ namespace HavenLord.Importer
         {
             Setup();
             if (!BuildAndroid()) throw new Exception("Build Android lỗi");
+        });
+
+        /// <summary>Nhập lại từ `assets/` (máy mới / vừa xoá Library + Imported) rồi dựng + build WebGL. Mở Unity với `-buildTarget WebGL`
+        /// cho ảnh nén BC7 ngay lần nhập đầu, khỏi nhập hai lần.</summary>
+        public static void BuildWebGLBatch() => Batch(() =>
+        {
+            PipelineImportMenu.Run(PipelineImportMenu.SourceDir, false);
+            Setup();
+            if (!BuildWebGL()) throw new Exception("Build WebGL lỗi");
         });
 
         private static void Batch(Action a)
@@ -224,6 +236,25 @@ namespace HavenLord.Importer
             return Build(BuildTarget.Android, Path.Combine(BuildDir, "Android", "HavenLord.apk"));
         }
 
+        /// <summary>
+        /// Bản chơi trên trình duyệt (chủ dự án 28/10/2026), máy chủ game phát ở /game/play/ (apps/server/src/play.ts). Mạng đi qua
+        /// fetch / WebSocket của trình duyệt (Net/WebGLBridge.cs). Nén gzip sẵn — máy chủ gửi kèm Content-Encoding nên không cần giải nén
+        /// bằng JS; tên file theo mã băm để bản mới không dính đệm cũ. Ảnh lớn nén BC7 (SpriteSheetImport), trần bộ nhớ 4GB.
+        /// </summary>
+        public static bool BuildWebGL()
+        {
+            PlayerSettings.SetManagedStrippingLevel(UnityEditor.Build.NamedBuildTarget.WebGL, ManagedStrippingLevel.Minimal);
+            PlayerSettings.WebGL.compressionFormat = WebGLCompressionFormat.Gzip;
+            PlayerSettings.WebGL.decompressionFallback = false;
+            PlayerSettings.WebGL.nameFilesAsHashes = true;
+            PlayerSettings.WebGL.dataCaching = true;
+            PlayerSettings.WebGL.exceptionSupport = WebGLExceptionSupport.ExplicitlyThrownExceptionsOnly;
+            PlayerSettings.WebGL.maximumMemorySize = 4096;
+            // Assets/WebGLTemplates/HavenLord: khung game phủ kín cửa sổ, thanh tải tiếng Việt.
+            PlayerSettings.WebGL.template = "PROJECT:HavenLord";
+            return Build(BuildTarget.WebGL, Path.Combine(BuildDir, "WebGL"));
+        }
+
         /// <summary>Windows không ra được .ipa: xuất project Xcode, máy Mac mở `Unity-iPhone.xcodeproj` rồi Archive → .ipa.</summary>
         public static bool BuildIos()
         {
@@ -264,7 +295,7 @@ namespace HavenLord.Importer
             var s = report.summary;
             Debug.Log($"[HavenLord build] {target}: {s.result}, {s.totalSize / 1048576f:0.0} MB, {s.totalTime.TotalSeconds:0}s, lỗi {s.totalErrors}, bản {build} → {output}");
             if (s.result != BuildResult.Succeeded) return false;
-            var platform = target == BuildTarget.Android ? "android" : target == BuildTarget.iOS ? "ios" : "windows";
+            var platform = target == BuildTarget.Android ? "android" : target == BuildTarget.iOS ? "ios" : target == BuildTarget.WebGL ? "webgl" : "windows";
             File.WriteAllText(Path.Combine(BuildDir, platform + ".build.json"),
                 $"{{\"build\": {build}, \"version\": \"{DateTime.Now:yyyy.MM.dd-HHmm}\", \"output\": \"{output.Replace('\\', '/')}\"}}\n");
             return true;

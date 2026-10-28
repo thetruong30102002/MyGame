@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes">
+    <title>{{{ PRODUCT_NAME }}} — chơi trên trình duyệt</title>
+    <!-- Template riêng của Haven Lord (28/10/2026): khung game phủ kín cửa sổ, thanh tải tiếng Việt, không thanh cuộn. -->
+    <style>
+      html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: #10141a; }
+      #unity-canvas { position: fixed; inset: 0; width: 100%; height: 100%; display: block; background: #10141a; outline: none; }
+      #loading { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px;
+        color: #e8c77a; font: 600 16px/1.4 system-ui, sans-serif; letter-spacing: .04em; }
+      #loading h1 { margin: 0; font-size: 34px; letter-spacing: .35em; }
+      #bar { width: min(420px, 70vw); height: 10px; border-radius: 5px; background: #222a34; overflow: hidden; }
+      #fill { width: 0; height: 100%; background: linear-gradient(90deg, #b98a3a, #f0d58c); transition: width .2s; }
+      #mb { font-weight: 400; font-size: 14px; font-variant-numeric: tabular-nums; min-height: 1.4em; }
+      #note { color: #8d96a3; font-weight: 400; font-size: 13px; }
+    </style>
+  </head>
+  <body>
+    <canvas id="unity-canvas" tabindex="-1"></canvas>
+    <div id="loading">
+      <h1>HAVEN LORD</h1>
+      <div id="bar"><div id="fill"></div></div>
+      <div id="mb"></div>
+      <div id="note">Đang tải thế giới… lần đầu hơi lâu, lần sau trình duyệt nhớ sẵn.</div>
+    </div>
+    <script>
+      // Đếm byte đã tải của các file Build/ (bọc fetch mà loader Unity dùng) để hiện "đã tải / tổng MB · tốc độ" — gói dữ liệu vài trăm MB,
+      // mạng chậm thì người chơi vẫn thấy đang chạy. Tổng lấy từ X-Decoded-Length (cỡ sau giải nén, máy chủ play.ts gửi), thiếu thì Content-Length.
+      (function () {
+        var files = {}, started = performance.now(), mb = document.getElementById("mb"), fill = document.getElementById("fill");
+        var fmt = function (n) { return (n / 1048576).toFixed(n < 10485760 ? 1 : 0).replace(".", ","); };
+        var show = function () {
+          var got = 0, total = 0;
+          for (var k in files) { got += files[k].got; total += files[k].total; }
+          var secs = (performance.now() - started) / 1000, speed = secs > 0.5 ? got / secs : 0;
+          if (mb) mb.textContent = fmt(got) + " / " + fmt(total) + " MB" + (speed > 0 ? " · " + fmt(speed) + " MB/s" : "");
+          // Thanh tải theo byte thật (tiến độ của Unity chia trọng số riêng, lệch với số MB).
+          if (total > 0) fill.style.width = Math.min(100, got / total * 100).toFixed(1) + "%";
+        };
+        var realFetch = window.fetch;
+        window.fetch = function (input) {
+          var url = typeof input === "string" ? input : (input && input.url) || "";
+          return realFetch.apply(this, arguments).then(function (res) {
+            if (!/(^|\/)Build\//.test(String(url)) || !res.body || res.status !== 200) return res;
+            var total = +res.headers.get("X-Decoded-Length") || +res.headers.get("Content-Length") || 0;
+            var f = files[url] = { got: 0, total: total };
+            var reader = res.body.getReader();
+            var body = new ReadableStream({
+              pull: function (ctrl) {
+                return reader.read().then(function (r) {
+                  if (r.done) { ctrl.close(); return; }
+                  f.got += r.value.length;
+                  if (f.got > f.total) f.total = f.got;
+                  show();
+                  ctrl.enqueue(r.value);
+                });
+              },
+              cancel: function (why) { return reader.cancel(why); }
+            });
+            return new Response(body, { status: res.status, statusText: res.statusText, headers: res.headers });
+          });
+        };
+        var counting = function () { for (var k in files) return true; return false; };
+        window.havenProgress = function (progress) {
+          if (!counting()) fill.style.width = Math.round(progress * 100) + "%";
+          if (progress >= 0.9 && !counting() && mb) mb.textContent = "Mở bản đã lưu trong trình duyệt…";
+        };
+      })();
+    </script>
+    <script src="Build/{{{ LOADER_FILENAME }}}"></script>
+    <script>
+      var canvas = document.querySelector("#unity-canvas");
+      createUnityInstance(canvas, {
+        arguments: [],
+        dataUrl: "Build/{{{ DATA_FILENAME }}}",
+        frameworkUrl: "Build/{{{ FRAMEWORK_FILENAME }}}",
+#if USE_WASM
+        codeUrl: "Build/{{{ CODE_FILENAME }}}",
+#endif
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: {{{ JSON.stringify(COMPANY_NAME) }}},
+        productName: {{{ JSON.stringify(PRODUCT_NAME) }}},
+        productVersion: {{{ JSON.stringify(PRODUCT_VERSION) }}},
+        // Cài đặt / phím tắt (PlayerPrefs) tự ghi xuống IndexedDB khi đổi.
+        autoSyncPersistentDataPath: true,
+      }, function (progress) {
+        window.havenProgress(progress);
+        // Tải xong (Unity báo 0,9) thì còn giải nén + khởi động, có khi vài chục giây trên máy yếu.
+        if (progress >= 0.9) document.querySelector("#note").textContent = "Tải xong, đang khởi động thế giới…";
+      }).then(function () {
+        document.querySelector("#loading").remove();
+        canvas.focus();
+      }).catch(function (message) {
+        document.querySelector("#note").textContent = "Không mở được game: " + message;
+      });
+    </script>
+  </body>
+</html>

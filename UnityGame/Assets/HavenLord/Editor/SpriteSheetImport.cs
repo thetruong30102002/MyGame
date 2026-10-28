@@ -44,6 +44,19 @@ namespace HavenLord.Importer
             if (slices != null && ApplySlices(ti, slices)) ti.SaveAndReimport();
         }
 
+        /// <summary>Ghi đè định dạng ảnh cho một nền tảng (ảnh lớn nén, ảnh nhỏ giữ RGBA32). true nếu có đổi.</summary>
+        private static bool Compress(TextureImporter ti, string platform, TextureImporterFormat format, bool big, int maxSize)
+        {
+            var p = ti.GetPlatformTextureSettings(platform);
+            if (p.overridden && p.format == format && p.maxTextureSize == maxSize) return false;
+            p.overridden = true;
+            p.format = format;
+            p.maxTextureSize = maxSize;
+            p.textureCompression = big ? TextureImporterCompression.CompressedHQ : TextureImporterCompression.Uncompressed;
+            ti.SetPlatformTextureSettings(p);
+            return true;
+        }
+
         private static bool ApplySettings(TextureImporter ti, TextureSpec spec)
         {
             var changed = false;
@@ -66,19 +79,11 @@ namespace HavenLord.Importer
             Set(ti.maxTextureSize, spec.maxSize, v => ti.maxTextureSize = v);
 
             // Android: ảnh lớn (atlas nhân vật ~4096² ≈ 64MB không nén) nén ASTC 4×4 (8 bit/px, giữ nét pixel) cho đỡ RAM máy;
-            // ảnh nhỏ giữ không nén. PC không đổi.
-            var android = ti.GetPlatformTextureSettings("Android");
+            // ảnh nhỏ giữ không nén. WebGL tương tự nhưng BC7 (cùng 8 bit/px, trình duyệt máy tính hỗ trợ; thiếu thì Unity tự giải nén).
+            // PC không đổi.
             var big = spec.maxSize >= 1024;
-            var wantFormat = big ? TextureImporterFormat.ASTC_4x4 : TextureImporterFormat.RGBA32;
-            if (!android.overridden || android.format != wantFormat || android.maxTextureSize != spec.maxSize)
-            {
-                android.overridden = true;
-                android.format = wantFormat;
-                android.maxTextureSize = spec.maxSize;
-                android.textureCompression = big ? TextureImporterCompression.CompressedHQ : TextureImporterCompression.Uncompressed;
-                ti.SetPlatformTextureSettings(android);
-                changed = true;
-            }
+            changed |= Compress(ti, "Android", big ? TextureImporterFormat.ASTC_4x4 : TextureImporterFormat.RGBA32, big, spec.maxSize);
+            changed |= Compress(ti, "WebGL", big ? TextureImporterFormat.BC7 : TextureImporterFormat.RGBA32, big, spec.maxSize);
 
             var s = new TextureImporterSettings();
             ti.ReadTextureSettings(s);

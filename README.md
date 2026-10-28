@@ -143,6 +143,7 @@ Cổng Funnel trên máy `admin` — **chỉ còn Haven Lord**. Client Unity (PC
 | --- | --- | --- |
 | **`https://admin.tail024813.ts.net/game`** (443) | `127.0.0.1:3200` — máy chủ game (REST + WebSocket `/game/ws`), CSDL `apps/server/data/havenlord.db` | **Địa chỉ máy chủ điền ở màn đăng nhập** |
 | `https://admin.tail024813.ts.net:8443/game` | như trên | Cổng phụ. Cổng 8443 bị nhiều mạng ở Việt Nam chặn (mạng công ty, 4G, wifi công cộng) |
+| `https://admin.tail024813.ts.net/game/play/` | như trên — bản chơi trên trình duyệt (Unity WebGL, `apps/server/data/webgl`, `src/play.ts`) | Build: `GameSetup.BuildWebGLBatch` (README_UNITY), chép `UnityGame/Build/WebGL/*` sang `apps/server/data/webgl/` |
 | `…/` (443, 8443) | `127.0.0.1:3101` — bản web cũ, **đã xoá**, cổng không còn ai nghe | Route còn sót: Tailscale 1.102.2 không gỡ riêng được route `/` (`--set-path=/ off` báo "handler does not exist"); gỡ hẳn phải `tailscale funnel reset` rồi thêm lại hai route `/game` bên dưới (đường vào game đứt vài giây) |
 
 ```bash

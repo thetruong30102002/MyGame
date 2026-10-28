@@ -12,12 +12,22 @@ namespace HavenLord.Net
     /// Kết nối WebSocket của MỘT nhân vật (giống apps/web/src/net/OnlineSession.ts): mở <c>/ws</c>, gửi <c>hello</c> (token + id nhân vật),
     /// vòng nhận tin, phát sự kiện theo loại tin, tự nối lại lùi dần 1s → 2s → 4s … tối đa 15s.
     /// Không nối lại khi bị <c>kicked</c> (đăng nhập nơi khác, phiên hỏng) hay máy chủ đóng mã 4000 / 4003.
-    /// SỰ KIỆN CHẠY TRÊN LUỒNG NỀN — bên Unity phải đẩy về main thread trước khi đụng GameObject.
+    /// SỰ KIỆN CHẠY TRÊN LUỒNG NỀN — bên Unity phải đẩy về main thread trước khi đụng GameObject. Bản WebGL dùng WebSocket của trình duyệt
+    /// (WebGLBridge), không có luồng nền: vòng kết nối chạy bằng async trên luồng chính.
     /// </summary>
     public sealed class GameSocket : IDisposable
     {
         /// <summary>Mã đóng của máy chủ: bị thay (đăng nhập nơi khác) / không được phép — không nối lại.</summary>
         public const int CloseReplaced = 4000, CloseUnauthorized = 4003;
+
+#if UNITY_WEBGL && !UNITY_EDITOR
+        private const bool Browser = true;
+#else
+        private const bool Browser = false;
+#endif
+        // ConfigureAwait(Browser): PC / Android / test chạy tiếp trên luồng nền như cũ. WebGL thì PHẢI về lại ngữ cảnh Unity — ConfigureAwait(false)
+        // trên luồng chính có UnitySynchronizationContext bị .NET đẩy sang thread pool, mà trình duyệt không có luồng nền nên phần sau await
+        // không bao giờ chạy.
 
         private readonly Uri _uri;
         private readonly string _token;
@@ -25,7 +35,7 @@ namespace HavenLord.Net
         private readonly SemaphoreSlim _sendLock = new SemaphoreSlim(1, 1);
         private readonly Dictionary<Type, List<Action<ServerMessage>>> _handlers = new Dictionary<Type, List<Action<ServerMessage>>>();
         private readonly CancellationTokenSource _cts = new CancellationTokenSource();
-        private ClientWebSocket _ws;
+        private IConnection _ws;
         private Task _loop;
         private volatile bool _stopped;
         private int _disposed;
@@ -89,7 +99,7 @@ namespace HavenLord.Net
             {
                 cts.CancelAfter(timeout ?? TimeSpan.FromSeconds(10));
                 using (cts.Token.Register(() => tcs.TrySetException(new TimeoutException($"Không nhận được tin {typeof(T).Name}"))))
-                    return await tcs.Task.ConfigureAwait(false);
+                    return await tcs.Task.ConfigureAwait(Browser);
             }
         }
 
@@ -97,20 +107,20 @@ namespace HavenLord.Net
         public void Start()
         {
             if (_loop != null) throw new InvalidOperationException("GameSocket đã chạy");
-            _loop = Task.Run(RunAsync);
+            _loop = Browser ? RunAsync() : Task.Run(RunAsync);
         }
 
         /// <summary>Gửi một tin; false nếu chưa mở kết nối (bỏ tin như bản web).</summary>
         public async Task<bool> SendAsync(ClientMessage msg, CancellationToken ct = default)
         {
             var ws = _ws;
-            if (ws == null || ws.State != WebSocketState.Open) return false;
-            var bytes = Encoding.UTF8.GetBytes(ProtocolJson.Serialize(msg));
-            await _sendLock.WaitAsync(ct).ConfigureAwait(false);
+            if (ws == null || !ws.IsOpen) return false;
+            var json = ProtocolJson.Serialize(msg);
+            await _sendLock.WaitAsync(ct).ConfigureAwait(Browser);
             try
             {
-                if (ws.State != WebSocketState.Open) return false;
-                await ws.SendAsync(new ArraySegment<byte>(bytes), WebSocketMessageType.Text, true, ct).ConfigureAwait(false);
+                if (!ws.IsOpen) return false;
+                await ws.SendTextAsync(json, ct).ConfigureAwait(Browser);
                 return true;
             }
             catch (Exception e) when (e is WebSocketException || e is ObjectDisposedException)
@@ -132,12 +142,13 @@ namespace HavenLord.Net
         {
             _stopped = true;
             var ws = _ws;
-            if (ws != null && ws.State == WebSocketState.Open)
+            if (ws != null && ws.IsOpen)
             {
-                using var cts = new CancellationTokenSource(timeout ?? TimeSpan.FromSeconds(2));
+                // Trình duyệt đóng không chờ, và không có bộ hẹn giờ luồng nền cho CancellationTokenSource có hạn.
+                using var cts = Browser ? new CancellationTokenSource() : new CancellationTokenSource(timeout ?? TimeSpan.FromSeconds(2));
                 try
                 {
-                    await ws.CloseAsync(WebSocketCloseStatus.NormalClosure, "bye", cts.Token).ConfigureAwait(false);
+                    await ws.CloseAsync(cts.Token).ConfigureAwait(Browser);
                 }
                 catch (Exception)
                 {
@@ -149,7 +160,7 @@ namespace HavenLord.Net
             {
                 try
                 {
-                    await _loop.ConfigureAwait(false);
+                    await _loop.ConfigureAwait(Browser);
                 }
                 catch (OperationCanceledException)
                 {
@@ -171,7 +182,8 @@ namespace HavenLord.Net
             }
             try
             {
-                _loop?.Wait(TimeSpan.FromSeconds(2));
+                // WebGL chỉ có một luồng: chờ chặn ở đây là treo trang.
+                if (!Browser) _loop?.Wait(TimeSpan.FromSeconds(2));
             }
             catch (Exception)
             {
@@ -188,15 +200,14 @@ namespace HavenLord.Net
             var ct = _cts.Token;
             while (!_stopped && !ct.IsCancellationRequested)
             {
-                var ws = new ClientWebSocket();
-                ws.Options.KeepAliveInterval = TimeSpan.FromSeconds(15);
+                var ws = NewConnection();
                 try
                 {
-                    await ws.ConnectAsync(_uri, ct).ConfigureAwait(false);
+                    await ws.ConnectAsync(_uri, ct).ConfigureAwait(Browser);
                     _ws = ws;
                     Retry = 0;
-                    await SendAsync(new ClientHello { Token = _token, Character = _characterId }, ct).ConfigureAwait(false);
-                    await ReceiveAsync(ws, ct).ConfigureAwait(false);
+                    await SendAsync(new ClientHello { Token = _token, Character = _characterId }, ct).ConfigureAwait(Browser);
+                    await ReceiveAsync(ws, ct).ConfigureAwait(Browser);
                 }
                 catch (OperationCanceledException) when (ct.IsCancellationRequested)
                 {
@@ -217,7 +228,7 @@ namespace HavenLord.Net
                 var delay = TimeSpan.FromMilliseconds(Math.Min(RetryMax.TotalMilliseconds, RetryBase.TotalMilliseconds * Math.Pow(2, Retry - 1)));
                 try
                 {
-                    await Task.Delay(delay, ct).ConfigureAwait(false);
+                    await DelayAsync(delay, ct).ConfigureAwait(Browser);
                 }
                 catch (OperationCanceledException)
                 {
@@ -227,37 +238,18 @@ namespace HavenLord.Net
             SetOnline(false);
         }
 
-        private async Task ReceiveAsync(ClientWebSocket ws, CancellationToken ct)
+        private async Task ReceiveAsync(IConnection ws, CancellationToken ct)
         {
-            var buffer = new byte[16 * 1024];
-            using var ms = new MemoryStream();
-            while (ws.State == WebSocketState.Open && !ct.IsCancellationRequested)
+            while (ws.IsOpen && !ct.IsCancellationRequested)
             {
-                ms.SetLength(0);
-                WebSocketReceiveResult r;
-                do
+                var text = await ws.ReceiveTextAsync(ct).ConfigureAwait(Browser);
+                if (text == null)
                 {
-                    r = await ws.ReceiveAsync(new ArraySegment<byte>(buffer), ct).ConfigureAwait(false);
-                    if (r.MessageType == WebSocketMessageType.Close)
-                    {
-                        var code = (int?)ws.CloseStatus;
-                        if (code == CloseReplaced || code == CloseUnauthorized) _stopped = true;
-                        if (ws.State == WebSocketState.CloseReceived)
-                        {
-                            try
-                            {
-                                await ws.CloseOutputAsync(WebSocketCloseStatus.NormalClosure, "", CancellationToken.None).ConfigureAwait(false);
-                            }
-                            catch (Exception)
-                            {
-                            }
-                        }
-                        return;
-                    }
-                    ms.Write(buffer, 0, r.Count);
-                } while (!r.EndOfMessage);
-                if (r.MessageType != WebSocketMessageType.Text) continue;
-                Dispatch(Encoding.UTF8.GetString(ms.GetBuffer(), 0, (int)ms.Length));
+                    var code = ws.CloseCode;
+                    if (code == CloseReplaced || code == CloseUnauthorized) _stopped = true;
+                    return;
+                }
+                Dispatch(text);
             }
         }
 
@@ -318,6 +310,86 @@ namespace HavenLord.Net
             catch (Exception)
             {
                 // Handler lỗi tự ném lỗi — bỏ, không để vòng nhận chết.
+            }
+        }
+
+        // ---- Kết nối: ClientWebSocket (PC / Android / test) hoặc WebSocket trình duyệt (WebGL) ----------------------------
+
+        /// <summary>Một kết nối WebSocket chỉ gửi / nhận tin chữ. <see cref="ReceiveTextAsync"/> trả null khi đã đóng (mã ở <see cref="CloseCode"/>).</summary>
+        internal interface IConnection : IDisposable
+        {
+            bool IsOpen { get; }
+            int? CloseCode { get; }
+            Task ConnectAsync(Uri uri, CancellationToken ct);
+            Task SendTextAsync(string text, CancellationToken ct);
+            Task<string> ReceiveTextAsync(CancellationToken ct);
+            Task CloseAsync(CancellationToken ct);
+            void Abort();
+        }
+
+#if UNITY_WEBGL && !UNITY_EDITOR
+        private static IConnection NewConnection() => WebGLBridge.NewSocket();
+
+        private static Task DelayAsync(TimeSpan delay, CancellationToken ct) => WebGLBridge.DelayAsync(delay, ct);
+#else
+        private static IConnection NewConnection() => new ClrConnection();
+
+        private static Task DelayAsync(TimeSpan delay, CancellationToken ct) => Task.Delay(delay, ct);
+#endif
+
+        private sealed class ClrConnection : IConnection
+        {
+            private readonly ClientWebSocket _ws = new ClientWebSocket();
+            private readonly byte[] _buffer = new byte[16 * 1024];
+            private readonly MemoryStream _ms = new MemoryStream();
+
+            public ClrConnection() => _ws.Options.KeepAliveInterval = TimeSpan.FromSeconds(15);
+
+            public bool IsOpen => _ws.State == WebSocketState.Open;
+            public int? CloseCode => (int?)_ws.CloseStatus;
+
+            public Task ConnectAsync(Uri uri, CancellationToken ct) => _ws.ConnectAsync(uri, ct);
+
+            public Task SendTextAsync(string text, CancellationToken ct) =>
+                _ws.SendAsync(new ArraySegment<byte>(Encoding.UTF8.GetBytes(text)), WebSocketMessageType.Text, true, ct);
+
+            public async Task<string> ReceiveTextAsync(CancellationToken ct)
+            {
+                while (true)
+                {
+                    _ms.SetLength(0);
+                    WebSocketReceiveResult r;
+                    do
+                    {
+                        r = await _ws.ReceiveAsync(new ArraySegment<byte>(_buffer), ct).ConfigureAwait(Browser);
+                        if (r.MessageType == WebSocketMessageType.Close)
+                        {
+                            if (_ws.State == WebSocketState.CloseReceived)
+                            {
+                                try
+                                {
+                                    await _ws.CloseOutputAsync(WebSocketCloseStatus.NormalClosure, "", CancellationToken.None).ConfigureAwait(Browser);
+                                }
+                                catch (Exception)
+                                {
+                                }
+                            }
+                            return null;
+                        }
+                        _ms.Write(_buffer, 0, r.Count);
+                    } while (!r.EndOfMessage);
+                    if (r.MessageType == WebSocketMessageType.Text) return Encoding.UTF8.GetString(_ms.GetBuffer(), 0, (int)_ms.Length);
+                }
+            }
+
+            public Task CloseAsync(CancellationToken ct) => _ws.CloseAsync(WebSocketCloseStatus.NormalClosure, "bye", ct);
+
+            public void Abort() => _ws.Abort();
+
+            public void Dispose()
+            {
+                _ws.Dispose();
+                _ms.Dispose();
             }
         }
 

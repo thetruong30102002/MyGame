@@ -38,7 +38,10 @@ namespace HavenLord.Net
         public static void Install()
         {
             if (Interlocked.Exchange(ref _installed, 1) != 0) return;
+#if !(UNITY_WEBGL && !UNITY_EDITOR)
+            // WebGL: trình duyệt tự kiểm chứng chỉ, không có ServicePointManager.
             ServicePointManager.ServerCertificateValidationCallback = Validate;
+#endif
         }
 
         public static bool Validate(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors errors)
