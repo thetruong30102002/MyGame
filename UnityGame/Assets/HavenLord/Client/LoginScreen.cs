@@ -22,15 +22,12 @@ namespace HavenLord.Client
     {
         public const string DefaultServer = "https://admin.tail024813.ts.net/game";
         private const string PrefServer = "havenlord.server";
-        private const string PreviousServer = "https://nttrg-2.tail024813.ts.net/game";
         private const string PrefUser = "havenlord.user";
 
         private static string GetServerPreference()
         {
             var saved = PlayerPrefs.GetString(PrefServer, "").Trim();
-            if (string.IsNullOrEmpty(saved) || string.Equals(saved.TrimEnd('/'), PreviousServer, StringComparison.OrdinalIgnoreCase))
-                return DefaultServer;
-            return saved;
+            return string.IsNullOrEmpty(saved) ? DefaultServer : saved;
         }
 
         [SerializeField] private GameController game;

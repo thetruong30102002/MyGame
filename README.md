@@ -42,7 +42,7 @@ cd apps/server && npx tsx src/grant.ts "<tên>" 10   # lệnh cũ: cộng kim c�
 
 Client Unity (nhập hình từ `assets/`, dựng scene, build PC / APK, AutoTest): **`UnityGame/README_UNITY.md`**. Build xong phát bằng
 `npx tsx UnityGame/Tools~/publish-client.mts` → người chơi đang có game **tự cập nhật** lúc mở game; người mới tải bộ cài ở
-**https://nttrg-2.tail024813.ts.net/game/api/client/latest/windows** (Android: `…/latest/android`).
+**https://admin.tail024813.ts.net/game/api/client/latest/windows** (Android: `…/latest/android`).
 
 **Trang web game** — **https://admin.tail024813.ts.net/game/** — trang tĩnh `apps/server/site/` do máy chủ game phát
 (`apps/server/src/site.ts`), chia nhiều trang (14/10/2026), tối ưu điện thoại (thanh điều hướng dưới, nút ≥ 40px, ô nhập 16px):
@@ -138,8 +138,8 @@ Cổng Funnel trên máy `admin` — **chỉ còn Haven Lord**. Client Unity (PC
 
 | Địa chỉ | Trỏ vào | Ghi chú |
 | --- | --- | --- |
-| **`https://nttrg-2.tail024813.ts.net/game`** (443) | `127.0.0.1:3200` — máy chủ game (REST + WebSocket `/game/ws`), CSDL `apps/server/data/havenlord.db` | **Địa chỉ máy chủ điền ở màn đăng nhập** |
-| `https://nttrg-2.tail024813.ts.net:8443/game` | như trên | Link cũ. Cổng 8443 bị nhiều mạng ở Việt Nam chặn (mạng công ty, 4G, wifi công cộng) |
+| **`https://admin.tail024813.ts.net/game`** (443) | `127.0.0.1:3200` — máy chủ game (REST + WebSocket `/game/ws`), CSDL `apps/server/data/havenlord.db` | **Địa chỉ máy chủ điền ở màn đăng nhập** |
+| `https://admin.tail024813.ts.net:8443/game` | như trên | Cổng phụ. Cổng 8443 bị nhiều mạng ở Việt Nam chặn (mạng công ty, 4G, wifi công cộng) |
 | `…/` (443, 8443) | `127.0.0.1:3101` — bản web cũ, **đã xoá**, cổng không còn ai nghe | Route còn sót: Tailscale 1.102.2 không gỡ riêng được route `/` (`--set-path=/ off` báo "handler does not exist"); gỡ hẳn phải `tailscale funnel reset` rồi thêm lại hai route `/game` bên dưới (đường vào game đứt vài giây) |
 
 ```bash
@@ -178,7 +178,7 @@ tailscale funnel --https=8443 off                                # gỡ link cũ
 - **Cài / cập nhật từ Git trên máy `admin`** (máy đang chạy Tailscale Funnel): mở PowerShell, vào thư mục repo và kéo code mới.
   Nếu `package-lock.json` thay đổi thì cài lại gói; nếu có thay đổi cấu trúc CSDL, sao lưu `apps/server/data/havenlord.db` trước khi
   chạy phiên bản mới. Sau đó khởi động lại server bằng script bên dưới. Không cần cấu hình lại Funnel nếu địa chỉ vẫn là
-  `https://nttrg-2.tail024813.ts.net/game`.
+  `https://admin.tail024813.ts.net/game`.
 
   ```powershell
   cd D:\nttrg\pixel
@@ -189,7 +189,7 @@ tailscale funnel --https=8443 off                                # gỡ link cũ
   powershell -NoProfile -ExecutionPolicy Bypass -File scripts\khoi-dong-ban-that.ps1
   ```
 
-  Script bật server chạy nền và chờ cổng 3200 sẵn sàng. Kiểm tra `https://nttrg-2.tail024813.ts.net/game`
+  Script bật server chạy nền và chờ cổng 3200 sẵn sàng. Kiểm tra `https://admin.tail024813.ts.net/game`
   hoặc xem log tại `apps/server/data/server.log`. Nếu máy `admin` vừa khởi động lại, cần đăng nhập Windows để tác vụ tự chạy server;
   Tailscale Funnel cần đang hoạt động và máy phải có mạng. Người chơi tiếp tục dùng URL `/game` ở trên.
 - Triển khai hình mới: dựng thử `HAVENLORD_ASSETS=<thư mục nháp> npm run assets:…`, duyệt xong mới dựng vào `assets/` — **máy chủ thật

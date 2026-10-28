@@ -103,7 +103,7 @@
 			"id": "landing",
 			"group": "game",
 			"name": "Trang chủ game (tin tức + tải game)",
-			"detail": "https://nttrg-2.tail024813.ts.net/game/ — tin tức theo nhãn, nút tải PC / zip / APK kèm số bản + dung lượng, trạng thái máy chủ, hướng dẫn cài (13/10). Tin mới: sửa apps/server/site/news.json.",
+			"detail": "https://admin.tail024813.ts.net/game/ — tin tức theo nhãn, nút tải PC / zip / APK kèm số bản + dung lượng, trạng thái máy chủ, hướng dẫn cài (13/10). Tin mới: sửa apps/server/site/news.json.",
 			"progress": 100,
 			"pixellab": 0,
 			"doc": "README.md"

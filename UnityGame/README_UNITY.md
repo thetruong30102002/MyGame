@@ -63,7 +63,7 @@ npx tsx UnityGame/Tools~/vectors-ground.mts          # vector mặt đất → T
   hơn bị chặn tới khi cập nhật. Thử: `--dir apps/server/data/client-test --fast` với máy chủ thử `HAVENLORD_CLIENT_DIR=data/client-test`.
   Phát bản thật xong script TỰ đẩy `Build/HavenLord-Setup.exe` + `Build/Android/HavenLord.apk` lên thư mục Google Drive của trang Tải game
   (ghi đè đúng tên, `upload-drive.mts` qua rclone remote `gdrive`; tắt bằng `--no-drive`; rclone báo lỗi đăng nhập thì `rclone config reconnect gdrive:`).
-- Người chơi mới tải một lần: **https://nttrg-2.tail024813.ts.net/game/api/client/latest/windows** (Android: `…/latest/android`).
+- Người chơi mới tải một lần: **https://admin.tail024813.ts.net/game/api/client/latest/windows** (Android: `…/latest/android`).
   Từ đó mở game là `AutoUpdate` hỏi `/api/client/version`; có bản mới thì tự tải (thanh tiến trình), kiểm cỡ + SHA-256, chạy chính bộ
   cài với `-s2 -d<thư mục đang cài>` sau khi game thoát → bung đè IM LẶNG đúng chỗ người chơi đã chọn rồi tự mở lại. Thư mục cần quyền
   quản trị (Program Files) thì Windows hỏi UAC. Android: mở link tải APK (hệ điều hành bắt người dùng bấm Cài). Bỏ qua trong Editor,

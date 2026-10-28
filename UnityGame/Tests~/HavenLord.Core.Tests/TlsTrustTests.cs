@@ -15,7 +15,7 @@ namespace HavenLord.Core.Tests
     [Category("Tls")]
     public class TlsTrustTests
     {
-        private const string Host = "nttrg-2.tail024813.ts.net";
+        private const string Host = "admin.tail024813.ts.net";
 
         private static (X509Certificate2 leaf, X509Chain chain) FetchServerChain()
         {
