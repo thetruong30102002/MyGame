@@ -6,7 +6,7 @@ CHỐT HIỆN HÀNH27/10: tạo nhân vật chọn TỘC → ĐẦU, mặc đồ
 
 ## Ghi chú mới 28/10 — tách thân, đầu, vũ khí vẽ bằng PixelLab
 
-Chủ dự án đồng ý hướng 5 tộc × 5 class bằng lớp rời (đầu việc `pixellab-layered-character-pilot`, 0%). Vẽ liền mọi tổ hợp cần khoảng 52.800 frame; tách lớp chỉ cần khoảng 3.500 frame thân (10 thân) + 240 hình đầu + khoảng 80 hình vũ khí. PixelLab không xuất lớp nên tách bằng pipeline: thân gốc nam/nữ mặc đồ class bằng transfer_outfit, chuyển động bằng skeleton, đầu mẫu cắt sạch theo đường cổ; đầu 30 × 8 hướng theo head-standard.json chỉ dịch theo neo cổ; vũ khí vẽ sẵn khoảng 16 góc đặt vào điểm nắm, có lớp ngón tay che chuôi. Làm mẫu thử Kiếm sĩ (nam + nữ, 2 đầu Nhân tộc/Ma tộc, đi + chém 15 frame) trong Unity, so hai NPC tóc trắng, đạt mới mở rộng. Các bản thử mannequin/rig/weapon-proof cũ đã dọn ngày 28/10 để làm mới hoàn toàn.
+Chủ dự án đồng ý hướng 5 tộc × 5 class bằng lớp rời (đầu việc `pixellab-layered-character-pilot`, 0%). Vẽ liền mọi tổ hợp cần khoảng 52.800 frame; tách lớp chỉ cần khoảng 3.500 frame thân (10 thân) + 240 hình đầu + khoảng 80 hình vũ khí. PixelLab không xuất lớp nên tách bằng pipeline: thân gốc nam/nữ mặc đồ class bằng transfer_outfit, chuyển động bằng skeleton, đầu mẫu cắt sạch theo đường cổ; đầu 30 × 8 hướng theo head-standard.json chỉ dịch theo neo cổ; vũ khí vẽ sẵn khoảng 16 góc đặt vào điểm nắm, có lớp ngón tay che chuôi. Làm mẫu thử Kiếm sĩ (nam + nữ, 2 đầu Nhân tộc/Ma tộc, đi + chém 15 frame) trong Unity, so hai NPC tóc trắng, đạt mới mở rộng. Các bản thử mannequin/rig/weapon-proof cũ đã dọn ngày 28/10 để làm mới hoàn toàn. Bộ 30 đầu cũ bị loại (`heads30-eight-directions` về 0%): vẽ lại 30 đầu × 8 hướng bằng PixelLab cùng style hai NPC tóc trắng và thân PixelLab.
 
 ## Hướng mới ngày 26/10/2026
 
@@ -8273,7 +8273,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "id": "pixellab-layered-character-pilot",
       "group": "Nhân vật",
       "name": "Tách thân–đầu–vũ khí vẽ bằng PixelLab — mẫu thử Kiếm sĩ",
-      "detail": "Ghi 28/10 theo đồng ý của chủ dự án: 5 tộc × 5 class làm bằng lớp rời thân–đầu–vũ khí, không vẽ liền từng tổ hợp. Vẽ liền 30 đầu × 5 class ≈ 52.800 frame; tách lớp ≈ 10 thân (5 class × nam/nữ, 8 hướng, ~44 frame: đứng/đi/chạy/chém 15/trúng đòn/gục) ≈ 3.500 frame + 30 đầu × 8 hướng (240) + 5 vũ khí × ~16 góc (~80). PixelLab chỉ vẽ nhân vật liền khối, không xuất lớp: tách bằng pipeline sau khi vẽ. Thân: một thân gốc nam + một thân gốc nữ, mặc đồ từng class lên đúng thân gốc (transfer_outfit) để giữ chiều cao/vai/neo cổ; đầu mẫu trọc trên thân phải cắt sạch theo đường cổ cố định (cấm vẽ/ghép đè hai đầu); chuyển động bằng skeleton (animate_with_skeleton_v3) để mọi frame chung khung xương, neo cổ không trôi. Đầu: 30 đầu × 8 hướng cùng cỡ khối mặt theo head-standard.json, ghép vào neo cổ từng frame thân; đầu chỉ dịch theo cổ, không nghiêng/cúi theo đòn. Vũ khí: thân vẽ tay nắm trống; vũ khí vẽ sẵn ~16 góc, mỗi frame chọn góc gần nhất đặt vào điểm nắm, thêm lớp ngón tay che chuôi; không xoay ảnh pixel bằng code. Rủi ro chính: PixelLab lệch vai/cổ áo/tay giữa các frame; cổ áo phải che cổ khớp từng frame, nếu không đầu hở hoặc thụt. Thử nhỏ trước: Kiếm sĩ, thân nam + nữ, 2 đầu (Nhân tộc + Ma tộc có sừng), đi + chém 15 frame; ráp vào Unity, xem cỡ thật trên nền map, so độ nét hai NPC tóc trắng; đạt mới mở 4 class và 28 đầu còn lại. Bản thử mannequin/rig v2–v4/weapon-proof cũ đã dọn 28/10 (commit 07f6ec87) để làm mới hoàn toàn.",
+      "detail": "Ghi 28/10 theo đồng ý của chủ dự án: 5 tộc × 5 class làm bằng lớp rời thân–đầu–vũ khí, không vẽ liền từng tổ hợp. Vẽ liền 30 đầu × 5 class ≈ 52.800 frame; tách lớp ≈ 10 thân (5 class × nam/nữ, 8 hướng, ~44 frame: đứng/đi/chạy/chém 15/trúng đòn/gục) ≈ 3.500 frame + 30 đầu × 8 hướng (240) + 5 vũ khí × ~16 góc (~80). PixelLab chỉ vẽ nhân vật liền khối, không xuất lớp: tách bằng pipeline sau khi vẽ. Thân: một thân gốc nam + một thân gốc nữ, mặc đồ từng class lên đúng thân gốc (transfer_outfit) để giữ chiều cao/vai/neo cổ; đầu mẫu trọc trên thân phải cắt sạch theo đường cổ cố định (cấm vẽ/ghép đè hai đầu); chuyển động bằng skeleton (animate_with_skeleton_v3) để mọi frame chung khung xương, neo cổ không trôi. Đầu: vẽ mới bằng PixelLab cùng style hai NPC tóc trắng và thân (đầu việc heads30-eight-directions, bộ đầu cũ đã loại); 30 đầu × 8 hướng cùng cỡ khối mặt theo head-standard.json, ghép vào neo cổ từng frame thân; đầu chỉ dịch theo cổ, không nghiêng/cúi theo đòn. Vũ khí: thân vẽ tay nắm trống; vũ khí vẽ sẵn ~16 góc, mỗi frame chọn góc gần nhất đặt vào điểm nắm, thêm lớp ngón tay che chuôi; không xoay ảnh pixel bằng code. Rủi ro chính: PixelLab lệch vai/cổ áo/tay giữa các frame; cổ áo phải che cổ khớp từng frame, nếu không đầu hở hoặc thụt. Thử nhỏ trước: Kiếm sĩ, thân nam + nữ, 2 đầu (Nhân tộc + Ma tộc có sừng), đi + chém 15 frame; ráp vào Unity, xem cỡ thật trên nền map, so độ nét hai NPC tóc trắng; đạt mới mở 4 class và 28 đầu còn lại. Bản thử mannequin/rig v2–v4/weapon-proof cũ đã dọn 28/10 (commit 07f6ec87) để làm mới hoàn toàn.",
       "weight": 6,
       "phase": 2,
       "region": null,
@@ -8827,8 +8827,8 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
     {
       "id": "heads30-eight-directions",
       "group": "Nhân vật",
-      "name": "30 nguyên đầu —5 tộc, đủ8 hướng",
-      "detail": "Chốt30 đầu/8 hướng27/10: Nhân tộc, Elf, Ma tộc, Thú nhân, Long tộc; mỗi tộc3 nam+3 nữ khác tóc, tổng30 nguyên đầu và240 hình hướng. Long tộc hình người, sừng nhỏ/vảy thái dương là hướng vẽ thử; Thú nhân không đuôi. Đầu dùng chung mọi bộ class, cùng khối đầu/mốc mặt/cổ, không áo dính cổ. Đủ8 hướng đầu trung tính chưa đồng nghĩa đủ pose đầu theo toàn bộ đòn đánh/chuyển động. Nguồn packages/asset-pipeline/sources/player-heads-v1; catalog định nghĩa30 ID và thứ tự S/SW/W/NW/N/NE/E/SE. Giữ2 đầu nam gốc ở S. Sinh nguồn8 hướng từng đầu, dùng một scale chung cho8 hướng, neo cổ từng hướng, xuất64px/PPU96 và rà trên thân kiếm sĩ kín da. Chưa phát hành Unity hoặc nghiệm thu toàn bộ mỹ thuật; tiến độ không tính ảnh chưa qua rà là đã đạt. Mốc bàn giao27/10: nguồn/xuất/trang xem đã đủ30×8, kiểm kỹ thuật và bản ghép S trên thân kiếm sĩ kín da. Gói assets/characters/player-heads-v1. 20% rà/duyệt nét và ghép đủ hướng vẫn chưa chốt; thân mới chỉ có S, chưa đủ pose đầu theo15 frame chém/chạy hoặc phát hành roster. Không tính bước mỹ thuật là đã nghiệm thu từ hash/alpha. Chốt mới27/10: giữ thiết kế30 đầu đã được chủ dự án đồng ý (5 tộc, mỗi tộc3 nam+3 nữ,8 hướng), nhưng ĐỘ NÉT CHƯA ĐẠT. Vẽ lại chi tiết tóc/mắt/mặt/viền tại nguồn, so hai NPC PixelLab tóc trắng cùng cỡ game; không sharpen hoặc phóng đầu. Tách thân/bộ NAM và NỮ riêng, cùng chiều cao/khối đầu/PPU/root/neo cổ, khác vai/eo/hông vừa phải. Hai thân thay thế quy tắc thân unisex trước đây. Sửa đầu bị thụt bằng neo cổ/cằm nguyên pixel, không co/phóng ảnh. Cần vẽ đủ bước chân và15 pose bổ kiếm thật cho từng thân, rồi ráp đầu–thân–kiếm với lớp che tay/cổ áo theo frame; chưa nghiệm thu chỉ từ4 key pose. Bộ class kín da, đầu không dính áo, Thú nhân không đuôi.5 class có5 thiết kế đồ cơ bản, mỗi thiết kế có hai dáng nam/nữ và vũ khí tương ứng. NGHIÊM CẤM VẼ/GHÉP ĐÈ ĐẦU NÀY LÊN ĐẦU KHÁC — chỉ thị trực tiếp27/10: thân/bộ đồ và mọi lớp tay/găng/cổ áo phải tách sạch toàn bộ đầu, mặt, tóc, tai, sừng, cổ da cũ TRƯỚC KHI ghép avatar mới. Tắt avatar phải thấy bộ đồ không có đầu, không còn tóc bạc ở hai bên/gáy/khe tay hoặc pixel mặt người. Không chữa bằng phóng avatar/che cổ. Nguồn có đầu chỉ để đối chiếu, không dùng nguyên frame làm lớp thân runtime. Phải rà từng frame/hướng không avatar rồi thử đầu ngắn/nhỏ/Ma tộc trên nền sáng tối. Còn phần đầu cũ thì LOẠI, không đưa game/phát hành/tăng nghiệm thu. Quy tắc đầy đủ: docs/thiet-ke/cam-ghep-de-hai-dau.md. Chuẩn đầu GLOBAL27/10: head-standard.json là nguồn duy nhất cho pipeline/Unity/trang kiểm. Canvas96px; khối má20±1px, cằm(48,65), neo cổ(48,66), PPU96/scale1. Tóc/tai/sừng không làm thước mặt. Chuẩn hóa30 đầu/240 hướng từ ảnh nguồn lớn, một scale đều hai trục dùng chung8 hướng/mẫu; bỏ dx/dy/scale từng đầu trong runtime. Sửa trường hợp bộ đo cũ lẫn tóc bạc và đo sai trục Long tộc nữ2. Đo pixel mặt thực tế đủ30 đầu PASS19–21px/trục lệch tối đa1px; kiểm atlas/thân sạch/48 frame PASS; đã rà30 đầu đứng/bước/giơ kiếm. Unity chặn build sai chuẩn, test pivot/kích thước/neo cho240 tổ hợp đầu/pose. Xem quy chuẩn: docs/thiet-ke/quy-chuan-dau-global.md; trang kiểm /site/media/weapon-proof-v2/rig-v3/index.html. Chỉ hướng S đã rà ghép thân; hướng khác mới chuẩn mật độ, neo8 hướng thân chưa nghiệm thu. Không coi chuẩn hóa là vẽ lại độ nét hoặc nghiệm thu mỹ thuật.",
+      "name": "30 nguyên đầu vẽ lại bằng PixelLab —5 tộc, đủ8 hướng",
+      "detail": "Chốt 28/10 của chủ dự án: bộ 30 đầu cũ (player-heads-v1, trước ghi 80%) bị LOẠI và đã xoá khỏi repo ở commit 07f6ec87; thay bằng 30 đầu mới vẽ bằng PixelLab cùng style với hai NPC tóc trắng npc_silver_youth/npc_silver_youth_f (cũng vẽ bằng PixelLab) và thân PixelLab của pixellab-layered-character-pilot, để đầu–thân chung nét vẽ, bảng màu và độ nét. Giữ phạm vi: Nhân tộc, Elf, Ma tộc, Thú nhân, Long tộc; mỗi tộc 3 nam + 3 nữ khác tóc, tổng 30 nguyên đầu (mặt + tóc + tai/sừng + cổ da) và 240 hình hướng. Long tộc hình người, sừng nhỏ/vảy thái dương; Thú nhân không đuôi. Chuẩn đầu GLOBAL head-standard.json là nguồn duy nhất: canvas 96px, khối má 20±1px, cằm (48,65), neo cổ (48,66), PPU96/scale1; chuẩn hóa từ ảnh nguồn lớn bằng một scale đều chung 8 hướng mỗi mẫu, bake neo trong PNG, cấm offset/scale từng đầu trong runtime. Không sharpen/phóng đầu để giả nét. NGHIÊM CẤM ghép đè đầu lên đầu khác (docs/thiet-ke/cam-ghep-de-hai-dau.md). Đủ 8 hướng đầu trung tính chưa đồng nghĩa đủ pose đầu theo đòn đánh/chuyển động. Thử 2 đầu (Nhân tộc + Ma tộc có sừng) chung với mẫu Kiếm sĩ của pixellab-layered-character-pilot, chủ dự án duyệt style rồi mới vẽ đủ 30.",
       "weight": 6,
       "phase": 2,
       "region": null,
@@ -8837,34 +8837,34 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "priority": 1,
       "steps": [
         {
-          "label": "Catalog30 đầu, kiểu tóc/giới tính/tộc và hợp đồng8 hướng",
+          "label": "Catalog 30 đầu (tộc/giới tính/kiểu tóc) và prompt PixelLab cùng style hai NPC tóc trắng",
           "weight": 10,
-          "done": true,
-          "evidence": "packages/asset-pipeline/sources/player-heads-v1/catalog.json:30 ID,5 tộc,3 nam+3 nữ/tộc,8 hướng; prompt riêng mỗi đầu"
+          "done": false,
+          "evidence": ""
         },
         {
-          "label": "Vẽ30 nguồn, mỗi nguồn đủ8 hướng thật",
-          "weight": 40,
-          "done": true,
-          "evidence": "Đã có30 source.png/generation.json, mỗi nguồn8 góc;5 tộc mỗi tộc3 nam+3 nữ. Mẫu Thú nhân nam1 sửa giấu tai người, giữ nguồn lỗi đối chiếu."
+          "label": "Thử 2 đầu PixelLab (Nhân tộc, Ma tộc có sừng) × 8 hướng; chủ dự án duyệt style/độ nét",
+          "weight": 15,
+          "done": false,
+          "evidence": ""
         },
         {
-          "label": "Xuất240 hình, scale chung/neo cổ/alpha cứng, giữ2 mẫu S gốc",
-          "weight": 20,
-          "done": true,
-          "evidence": "heads30.test.ts PASS30×8:80px có padding, mốc cổ(40,62), cùng một scale mỗi họ8 hướng, không ảnh hướng trùng,2 S gốc nguyên pixel, atlas240 hình khớp. Pack assets/characters/player-heads-v1/; chỉ thêm padding quanh thước64px, không phóng đầu."
+          "label": "Vẽ đủ 30 đầu × 8 hướng bằng PixelLab",
+          "weight": 35,
+          "done": false,
+          "evidence": ""
         },
         {
-          "label": "Rà nét, tỷ lệ, tai/sừng và ghép cổ áo ở đủ8 hướng",
+          "label": "Chuẩn hóa theo head-standard.json, bake neo cổ, xuất 240 hình",
           "weight": 20,
           "done": false,
           "evidence": ""
         },
         {
-          "label": "Trang xem30 đầu/8 hướng và gói nguồn/prompt/QA bàn giao",
-          "weight": 10,
-          "done": true,
-          "evidence": "Trang heads30-v1/index.html/API thật đủ30/30 và240/240; đã chọn Long tộc Nữ3 hướng E qua UI. PNG/atlas/catalog/registration xuất riêng, nguồn/prompt trong player-heads-v1/README.md."
+          "label": "Rà nét/tỷ lệ/tai/sừng, ghép thân PixelLab và cổ áo ở đủ 8 hướng",
+          "weight": 20,
+          "done": false,
+          "evidence": ""
         }
       ]
     },

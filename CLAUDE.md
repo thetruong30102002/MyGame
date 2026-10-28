@@ -4,6 +4,11 @@
 
 # Aether Chronicle — hướng dẫn cho agent
 
+<!-- pixellab-heads-redraw -->
+
+**Chốt28/10: bộ30 đầu cũ (player-heads-v1) và các bản thử mannequin/rig v2–v4/weapon-proof đã LOẠI và xoá khỏi repo (commit 07f6ec87). Vẽ lại30 đầu ×8 hướng bằng PixelLab cùng style hai NPC tóc trắng (`npc_silver_youth`, `npc_silver_youth_f`) và thân PixelLab; giữ5 tộc ×3 nam+3 nữ, chuẩn `head-standard.json`, cấm ghép đè hai đầu. Hướng làm: tách thân–đầu–vũ khí bằng pipeline sau khi PixelLab vẽ, thử trước mẫu Kiếm sĩ nam/nữ +2 đầu (đầu việc `pixellab-layered-character-pilot`, `heads30-eight-directions`). Các đoạn bên dưới nói "giữ thiết kế30 đầu đã đồng ý" hoặc trỏ tới rig-v3/weapon-proof index chỉ còn là lịch sử.**
+
+
 <!-- global-head-standard -->
 
 **Chốt27/10: chuẩn kích thước đầu GLOBAL, nguồn duy nhất `packages/asset-pipeline/sources/player-rig-v3/head-standard.json` (`HEAD_STANDARD`). Canvas96px, má20±1px, cằm(48,65), neo cổ(48,66), PPU96/scale1. Khối mặt phải cùng cỡ, không chỉ ô ảnh bằng nhau; tóc/tai/sừng không làm thước. Chuẩn hóa từ nguồn lớn bằng scale đều cố định mỗi mẫu/chung8 hướng, bake neo trong PNG; CẤM offset/scale từng đầu trong runtime. Không dùng fit cổ V2 cũ. Nguồn: `docs/thiet-ke/quy-chuan-dau-global.md`. Quy tắc mới thay đoạn cũ giữ nguyên ảnh80px/offset từng đầu, giữ nguyên cấm đè hai đầu.**
