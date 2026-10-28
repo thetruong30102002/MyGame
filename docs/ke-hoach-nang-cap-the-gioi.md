@@ -4,6 +4,21 @@
 
 CHỐT HIỆN HÀNH27/10: tạo nhân vật chọn TỘC → ĐẦU, mặc đồ lót tối giản (nam quần, nữ áo+quần), chạy/đi nói chuyện NPC để chọn nghề rồi nhận bộ đồ+vũ khí. Đợt đầu5 class có5 bộ đồ cơ bản+5 vũ khí cơ bản; không còn bộ vải tân thủ riêng. Tháo bộ đồ trở về thân đồ lót, giữ đầu/tộc. Mỗi tộc3 đầu nam+3 đầu nữ khác tóc,4 tộc=24 bộ đầu. Bỏ hạn mức3 bộ/tộc hoặc3 bộ/class và phép nhân72/360 trước đó. Ba nhóm tài nguyên: nguyên đầu (mặt+tóc+tai/sừng+cổ DA), thân mặc bộ đồ, vũ khí. Cổ áo/áo choàng thuộc thân, không dính avatar. Một dáng thân THON CHUNG NAM/NỮ: vai/eo/chi gọn, giữ chiều cao/khối đầu/neo cổ, không vẽ riêng một thân đô khi ghép đầu nữ. Khóa khối đầu/mắt/má/cằm/cổ; chung rig/hướng/pose/PPU/root/neo cổ/lớp che; không scale theo tóc/bộ/frame hoặc dùng một đầu đứng tĩnh cho mọi hoạt động. Đầu mọi tộc ghép chung mọi bộ class; da hở thân/tay khớp da đầu. Thú nhân chỉ phần đầu, KHÔNG ĐUÔI/animation đuôi. Bộ đồ chỉ vẽ đứng/đi/chạy/đánh của class hỗ trợ, không nhân qua5 class. Vũ khí+bộ đồ cùng class/animationFamilyId. Thân trang phục thay nguyên thân đồ lót, không chồng hai bộ. Thân nền đồ lót dùng chung khi chưa có/tháo đồ, cần pose tương thích hành động đang hỗ trợ. Bộ xanh V7 được chọn làm thiết kế cơ bản kiếm sĩ, vẽ lại thon; hai đầu nam hiện có tiếp tục dùng. Đổi nghề có phí phải đổi đồng bộ class, tẩy phân bổ điểm skill nghề cũ/hoàn điểm để học nghề mới, thay bộ skill/passive, cập nhật thanh chiêu và cặp đồ–vũ khí/animation. Máy chủ kiểm điểm thực/chiêu hợp lệ và giao dịch phí/nghề/skill/đồ đồng bộ, tránh mất phí hoặc còn skill nghề cũ. Loại tiền, mức phí, giới hạn đổi, xử lý đồ cũ và việc tẩy điểm chỉ số cơ thể chưa chốt; không tự đặt phí/loại tiền. Nguyên tố vẫn theo thiên phú cấp10, không tự reroll khi đổi nghề. Xem [đặc tả hiện hành](thiet-ke/nhan-vat-ghep-da-vu-khi.md). Các hạn mức2/3 bộ và48/72/360 phía dưới là lịch sử đã thay.
 
+## Ghi chú mới 28/10 — 5 phiên trang bị, thân nền cởi đồ một màu da
+
+Mỗi class 12 bộ: 5 bộ mua ở shop + 7 bộ rớt từ quái/boss cấp max. 7 chủ đề rớt dùng chung cho 5 class (vd Rồng: kiếm rồng + giáp rồng kiếm sĩ, cung rồng + giáp rồng cung thủ…). Mỗi bộ đồ chỉ có đứng/đi/chạy/đòn của class nó. Vẫn tách đầu–thân–vũ khí, vẽ bằng PixelLab; đầu chọn 1 trong 30 lúc tạo nhân vật. Tháo đồ về thân nền: nam mặc quần cởi trần, nữ mặc áo + quần, body đẹp vừa phải; mọi tộc cùng một màu da nên chỉ vẽ 1 thân nền nam + 1 nữ, có đủ 5 đòn của 5 vũ khí (cởi đồ vẫn đánh được). Chia 5 phiên, phiên nào cũng đủ 5 class (lượt PixelLab dự tính):
+
+| Phiên | Nội dung mỗi class | Lượt |
+|---|---|---|
+| 1 | Thân nền + 5 đòn, 30 đầu, bộ 1 + vũ khí cơ bản | ~2.700 |
+| 2 | Bộ shop 2, 3, 4 | ~4.900 |
+| 3 | Bộ shop 5 + chủ đề rớt 1, 2 | ~4.900 |
+| 4 | Chủ đề rớt 3, 4, 5 | ~4.900 |
+| 5 | Chủ đề rớt 6, 7 | ~3.300 |
+| Tổng | | ~20.700 |
+
+Đầu việc `character-gear-phase-1` … `character-gear-phase-5` (0%). Chưa tính trúng đòn/gục (+~52 lượt mỗi thân).
+
 ## Ghi chú mới 28/10 — tách thân, đầu, vũ khí vẽ bằng PixelLab
 
 Chủ dự án đồng ý hướng 5 tộc × 5 class bằng lớp rời (đầu việc `pixellab-layered-character-pilot`, 0%). Vẽ liền mọi tổ hợp cần khoảng 52.800 frame; tách lớp chỉ cần khoảng 3.500 frame thân (10 thân) + 240 hình đầu + khoảng 80 hình vũ khí. PixelLab không xuất lớp nên tách bằng pipeline: thân gốc nam/nữ mặc đồ class bằng transfer_outfit, chuyển động bằng skeleton, đầu mẫu cắt sạch theo đường cổ; đầu 30 × 8 hướng theo head-standard.json chỉ dịch theo neo cổ; vũ khí vẽ sẵn khoảng 16 góc đặt vào điểm nắm, có lớp ngón tay che chuôi. Làm mẫu thử Kiếm sĩ (nam + nữ, 2 đầu Nhân tộc/Ma tộc, đi + chém 15 frame) trong Unity, so hai NPC tóc trắng, đạt mới mở rộng. Các bản thử mannequin/rig/weapon-proof cũ đã dọn ngày 28/10 để làm mới hoàn toàn. Bộ 30 đầu cũ bị loại (`heads30-eight-directions` về 0%): vẽ lại 30 đầu × 8 hướng bằng PixelLab cùng style hai NPC tóc trắng và thân PixelLab.
@@ -8318,6 +8333,218 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       ],
       "requiresNewArt": true,
       "priority": 1
+    },
+    {
+      "id": "character-gear-phase-1",
+      "group": "Nhân vật",
+      "name": "Phiên 1 nhân vật — thân nền, 30 đầu, bộ 1 và vũ khí cơ bản cho cả 5 class",
+      "detail": "Chốt 28/10 của chủ dự án: vẫn tách đầu–thân–vũ khí vẽ bằng PixelLab. Mỗi class 12 bộ: 5 bộ mua ở shop + 7 bộ rớt từ quái/boss cấp max; 7 chủ đề rớt dùng chung cho cả 5 class (vd chủ đề Rồng: kiếm rồng + giáp rồng của kiếm sĩ, cung rồng + giáp rồng của cung thủ…). Mỗi bộ đồ chỉ vẽ đứng/đi/chạy/đòn của class nó, không vẽ 5 đòn trên mọi bộ. Tháo đồ về thân nền: nam mặc quần cởi trần, nữ mặc áo + quần, body đẹp vừa phải; MỌI TỘC CÙNG MỘT MÀU DA nên chỉ vẽ 1 thân nền nam + 1 nữ, thân nền có đủ 5 đòn tấn công của 5 vũ khí vì cởi đồ vẫn đánh được. Đầu: 30 đầu chọn lúc tạo nhân vật, dùng chung mọi bộ, cùng màu da thân. Mỗi phiên làm đủ 5 class. Lượt tính: thân/bộ (8 hướng, đứng/đi/chạy/đòn, +30% vẽ lại) ~145, vũ khí ~35 (~16 góc). Phiên 1 ~2.700 lượt: thân nền đồ lót nam/nữ với đứng/đi/chạy + 5 đòn (~700), mẫu thử Kiếm sĩ duyệt style (~100), 30 đầu × 8 hướng (~150, heads30-eight-directions), bộ 1 (bộ cơ bản = bộ shop đầu) của 5 class × nam/nữ (~1.450), 5 vũ khí cơ bản (~175), icon (~15). Xong phiên 1 cả 5 class chơi được.",
+      "weight": 6,
+      "phase": 2,
+      "region": null,
+      "depends": [
+        "pixellab-layered-character-pilot"
+      ],
+      "steps": [
+        {
+          "label": "Thân nền đồ lót nam (quần, cởi trần) / nữ (áo + quần), body đẹp, một màu da chung mọi tộc",
+          "weight": 10,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Thân nền đứng/đi/chạy 8 hướng + 5 đòn tấn công của 5 vũ khí",
+          "weight": 20,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "30 đầu PixelLab × 8 hướng cùng màu da (heads30-eight-directions)",
+          "weight": 10,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Bộ 1 của 5 class × nam/nữ: đứng/đi/chạy/đòn class, 8 hướng",
+          "weight": 30,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "5 vũ khí cơ bản ~16 góc + lớp ngón tay",
+          "weight": 10,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Ráp Unity: mặc/tháo đồ về thân nền, đánh khi cởi đồ, QA PC/Android",
+          "weight": 20,
+          "done": false,
+          "evidence": ""
+        }
+      ],
+      "requiresNewArt": true,
+      "priority": 1
+    },
+    {
+      "id": "character-gear-phase-2",
+      "group": "Nhân vật",
+      "name": "Phiên 2 trang bị — bộ shop 2, 3, 4 cho cả 5 class",
+      "detail": "Chốt 28/10 của chủ dự án: vẫn tách đầu–thân–vũ khí vẽ bằng PixelLab. Mỗi class 12 bộ: 5 bộ mua ở shop + 7 bộ rớt từ quái/boss cấp max; 7 chủ đề rớt dùng chung cho cả 5 class (vd chủ đề Rồng: kiếm rồng + giáp rồng của kiếm sĩ, cung rồng + giáp rồng của cung thủ…). Mỗi bộ đồ chỉ vẽ đứng/đi/chạy/đòn của class nó, không vẽ 5 đòn trên mọi bộ. Tháo đồ về thân nền: nam mặc quần cởi trần, nữ mặc áo + quần, body đẹp vừa phải; MỌI TỘC CÙNG MỘT MÀU DA nên chỉ vẽ 1 thân nền nam + 1 nữ, thân nền có đủ 5 đòn tấn công của 5 vũ khí vì cởi đồ vẫn đánh được. Đầu: 30 đầu chọn lúc tạo nhân vật, dùng chung mọi bộ, cùng màu da thân. Mỗi phiên làm đủ 5 class. Lượt tính: thân/bộ (8 hướng, đứng/đi/chạy/đòn, +30% vẽ lại) ~145, vũ khí ~35 (~16 góc). Phiên 2: bộ shop 2, 3, 4 cho cả 5 class, mỗi bộ có thân nam/nữ + vũ khí riêng. Dự tính ~4.900 lượt PixelLab (vừa gói 5.000 lượt/tháng).",
+      "weight": 5,
+      "phase": 2,
+      "region": null,
+      "depends": [
+        "character-gear-phase-1"
+      ],
+      "steps": [
+        {
+          "label": "Chốt thiết kế/prompt từng bộ theo class, duyệt mẫu",
+          "weight": 10,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Vẽ thân mặc đồ nam/nữ: đứng/đi/chạy/đòn class, 8 hướng",
+          "weight": 50,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Vẽ vũ khí ~16 góc + lớp ngón tay, icon kho/shop",
+          "weight": 15,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Ráp Unity, chỉ số/shop/rớt đồ, QA PC/Android, phát hành",
+          "weight": 25,
+          "done": false,
+          "evidence": ""
+        }
+      ],
+      "requiresNewArt": true,
+      "priority": 2
+    },
+    {
+      "id": "character-gear-phase-3",
+      "group": "Nhân vật",
+      "name": "Phiên 3 trang bị — bộ shop 5 + chủ đề rớt cấp max 1, 2 cho cả 5 class",
+      "detail": "Chốt 28/10 của chủ dự án: vẫn tách đầu–thân–vũ khí vẽ bằng PixelLab. Mỗi class 12 bộ: 5 bộ mua ở shop + 7 bộ rớt từ quái/boss cấp max; 7 chủ đề rớt dùng chung cho cả 5 class (vd chủ đề Rồng: kiếm rồng + giáp rồng của kiếm sĩ, cung rồng + giáp rồng của cung thủ…). Mỗi bộ đồ chỉ vẽ đứng/đi/chạy/đòn của class nó, không vẽ 5 đòn trên mọi bộ. Tháo đồ về thân nền: nam mặc quần cởi trần, nữ mặc áo + quần, body đẹp vừa phải; MỌI TỘC CÙNG MỘT MÀU DA nên chỉ vẽ 1 thân nền nam + 1 nữ, thân nền có đủ 5 đòn tấn công của 5 vũ khí vì cởi đồ vẫn đánh được. Đầu: 30 đầu chọn lúc tạo nhân vật, dùng chung mọi bộ, cùng màu da thân. Mỗi phiên làm đủ 5 class. Lượt tính: thân/bộ (8 hướng, đứng/đi/chạy/đòn, +30% vẽ lại) ~145, vũ khí ~35 (~16 góc). Phiên 3: bộ shop 5 + chủ đề rớt cấp max 1, 2 cho cả 5 class, mỗi bộ có thân nam/nữ + vũ khí riêng. Dự tính ~4.900 lượt PixelLab (vừa gói 5.000 lượt/tháng).",
+      "weight": 5,
+      "phase": 2,
+      "region": null,
+      "depends": [
+        "character-gear-phase-2"
+      ],
+      "steps": [
+        {
+          "label": "Chốt thiết kế/prompt từng bộ theo class, duyệt mẫu",
+          "weight": 10,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Vẽ thân mặc đồ nam/nữ: đứng/đi/chạy/đòn class, 8 hướng",
+          "weight": 50,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Vẽ vũ khí ~16 góc + lớp ngón tay, icon kho/shop",
+          "weight": 15,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Ráp Unity, chỉ số/shop/rớt đồ, QA PC/Android, phát hành",
+          "weight": 25,
+          "done": false,
+          "evidence": ""
+        }
+      ],
+      "requiresNewArt": true,
+      "priority": 3
+    },
+    {
+      "id": "character-gear-phase-4",
+      "group": "Nhân vật",
+      "name": "Phiên 4 trang bị — chủ đề rớt cấp max 3, 4, 5 cho cả 5 class",
+      "detail": "Chốt 28/10 của chủ dự án: vẫn tách đầu–thân–vũ khí vẽ bằng PixelLab. Mỗi class 12 bộ: 5 bộ mua ở shop + 7 bộ rớt từ quái/boss cấp max; 7 chủ đề rớt dùng chung cho cả 5 class (vd chủ đề Rồng: kiếm rồng + giáp rồng của kiếm sĩ, cung rồng + giáp rồng của cung thủ…). Mỗi bộ đồ chỉ vẽ đứng/đi/chạy/đòn của class nó, không vẽ 5 đòn trên mọi bộ. Tháo đồ về thân nền: nam mặc quần cởi trần, nữ mặc áo + quần, body đẹp vừa phải; MỌI TỘC CÙNG MỘT MÀU DA nên chỉ vẽ 1 thân nền nam + 1 nữ, thân nền có đủ 5 đòn tấn công của 5 vũ khí vì cởi đồ vẫn đánh được. Đầu: 30 đầu chọn lúc tạo nhân vật, dùng chung mọi bộ, cùng màu da thân. Mỗi phiên làm đủ 5 class. Lượt tính: thân/bộ (8 hướng, đứng/đi/chạy/đòn, +30% vẽ lại) ~145, vũ khí ~35 (~16 góc). Phiên 4: chủ đề rớt cấp max 3, 4, 5 cho cả 5 class, mỗi bộ có thân nam/nữ + vũ khí riêng. Dự tính ~4.900 lượt PixelLab (vừa gói 5.000 lượt/tháng).",
+      "weight": 5,
+      "phase": 2,
+      "region": null,
+      "depends": [
+        "character-gear-phase-3"
+      ],
+      "steps": [
+        {
+          "label": "Chốt thiết kế/prompt từng bộ theo class, duyệt mẫu",
+          "weight": 10,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Vẽ thân mặc đồ nam/nữ: đứng/đi/chạy/đòn class, 8 hướng",
+          "weight": 50,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Vẽ vũ khí ~16 góc + lớp ngón tay, icon kho/shop",
+          "weight": 15,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Ráp Unity, chỉ số/shop/rớt đồ, QA PC/Android, phát hành",
+          "weight": 25,
+          "done": false,
+          "evidence": ""
+        }
+      ],
+      "requiresNewArt": true,
+      "priority": 3
+    },
+    {
+      "id": "character-gear-phase-5",
+      "group": "Nhân vật",
+      "name": "Phiên 5 trang bị — chủ đề rớt cấp max 6, 7 cho cả 5 class",
+      "detail": "Chốt 28/10 của chủ dự án: vẫn tách đầu–thân–vũ khí vẽ bằng PixelLab. Mỗi class 12 bộ: 5 bộ mua ở shop + 7 bộ rớt từ quái/boss cấp max; 7 chủ đề rớt dùng chung cho cả 5 class (vd chủ đề Rồng: kiếm rồng + giáp rồng của kiếm sĩ, cung rồng + giáp rồng của cung thủ…). Mỗi bộ đồ chỉ vẽ đứng/đi/chạy/đòn của class nó, không vẽ 5 đòn trên mọi bộ. Tháo đồ về thân nền: nam mặc quần cởi trần, nữ mặc áo + quần, body đẹp vừa phải; MỌI TỘC CÙNG MỘT MÀU DA nên chỉ vẽ 1 thân nền nam + 1 nữ, thân nền có đủ 5 đòn tấn công của 5 vũ khí vì cởi đồ vẫn đánh được. Đầu: 30 đầu chọn lúc tạo nhân vật, dùng chung mọi bộ, cùng màu da thân. Mỗi phiên làm đủ 5 class. Lượt tính: thân/bộ (8 hướng, đứng/đi/chạy/đòn, +30% vẽ lại) ~145, vũ khí ~35 (~16 góc). Phiên 5: chủ đề rớt cấp max 6, 7 cho cả 5 class, mỗi bộ có thân nam/nữ + vũ khí riêng. Dự tính ~3.300 lượt PixelLab (vừa gói 5.000 lượt/tháng).",
+      "weight": 5,
+      "phase": 2,
+      "region": null,
+      "depends": [
+        "character-gear-phase-4"
+      ],
+      "steps": [
+        {
+          "label": "Chốt thiết kế/prompt từng bộ theo class, duyệt mẫu",
+          "weight": 10,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Vẽ thân mặc đồ nam/nữ: đứng/đi/chạy/đòn class, 8 hướng",
+          "weight": 50,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Vẽ vũ khí ~16 góc + lớp ngón tay, icon kho/shop",
+          "weight": 15,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Ráp Unity, chỉ số/shop/rớt đồ, QA PC/Android, phát hành",
+          "weight": 25,
+          "done": false,
+          "evidence": ""
+        }
+      ],
+      "requiresNewArt": true,
+      "priority": 3
     },
     {
       "id": "web",

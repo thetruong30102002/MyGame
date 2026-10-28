@@ -1,3 +1,7 @@
+<!-- underwear-base-body-28-10 -->
+
+**CHỐT MỚI NHẤT28/10 (thay phần "BỎ cởi đồ/thân nền đồ lót" của chốt27/10 ngay dưới): tháo đồ về thân nền — nam mặc quần cởi trần, nữ mặc áo+quần, body đẹp vừa phải. MỌI TỘC CÙNG MỘT MÀU DA (thân và cổ đầu), nên chỉ vẽ1 thân nền nam +1 nữ, có đủ đứng/đi/chạy8 hướng và5 đòn tấn công của5 vũ khí (cởi đồ vẫn đánh được). Vẫn tách đầu–thân–vũ khí, vẽ bằng PixelLab. Mỗi class12 bộ:5 bộ shop +7 bộ rớt cấp max;7 chủ đề rớt chung cho5 class; mỗi bộ chỉ có thao tác của class nó. Làm theo5 phiên, phiên nào cũng đủ5 class (`character-gear-phase-1`…`5` trong kế hoạch).**
+
 <!-- starter-class-no-undress -->
 
 **CHỐT MỚI NHẤT27/10: bắt chọn class ngay lúc tạo nhân vật, cấp1 đồ và1 vũ khí cơ bản đúng class. BỎ cởi đồ/thân nền đồ lót, ngừng vẽ thân đồ lót/tấn công5 vũ khí trên thân không đồ. Hình luôn tối thiểu bộ cơ bản của class; thay/bỏ trang bị quay về bộ cơ bản. Đồ chỉ đi/chạy/đánh theo class của nó; đầu và vũ khí vẫn tách riêng. Nữ nhỏ nhắn thanh hơn nhưng giữ chuẩn đầu/neo cổ chung. Chỉ thị này thay các đoạn đồ lót/NPC chọn nghề bên dưới, không reset DB.**
