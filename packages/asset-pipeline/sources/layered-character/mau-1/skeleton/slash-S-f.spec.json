@@ -1,0 +1,25 @@
+{
+	"about": "Đòn chém S cho thân NỮ: chép từ slash-S.spec.json (bản 2 đã duyệt: kiếm dựng thẳng lên rồi bổ xuống, hai tay thẳng chĩa về người xem) — điểm nắm quy đổi quanh vai phải theo tỷ lệ tầm tay nữ / nam (0.897), giữ góc tay / độ duỗi / góc kiếm.",
+	"character": "F1-outfit-f-char",
+	"direction": "south",
+	"pad": [8, 8, 16, 0],
+	"handGapPx": 3,
+	"knees": "out",
+	"frames": [
+		{ "grip": [37, 56], "bladeDeg": 70, "lean": 0, "hip": [0, 0], "step": 0, "back": 0 },
+		{ "grip": [36, 52], "bladeDeg": 82, "lean": 0, "hip": [0, 0], "step": -1, "back": 1, "forward": 160 },
+		{ "grip": [35, 46], "bladeDeg": 88, "lean": 0, "hip": [0, -1], "step": -1, "back": 1, "forward": 175 },
+		{ "grip": [35, 37], "bladeDeg": 92, "lean": 0, "hip": [0, -1], "step": -2, "back": 2, "forward": 165, "square": 0.2 },
+		{ "grip": [35, 29], "bladeDeg": 95, "lean": 0, "hip": [0, -1], "step": -2, "back": 2, "square": 0.3 },
+		{ "grip": [35, 28], "bladeDeg": 95, "lean": 0, "hip": [0, -1], "step": -2, "back": 2, "square": 0.3 },
+		{ "grip": [35, 28], "bladeDeg": 92, "lean": 0, "hip": [0, -1], "step": -2, "back": 2, "square": 0.3 },
+		{ "grip": [36, 29], "bladeDeg": 90, "lean": 0, "hip": [0, 0], "step": -2, "back": 2, "square": 0.3 },
+		{ "grip": [37, 38], "bladeDeg": 90, "lean": 0, "hip": [0, 1], "step": -3, "back": 3, "forward": 160, "square": 0.1 },
+		{ "grip": [39, 51], "bladeDeg": -85, "lean": 0, "hip": [0, 2], "step": -3, "back": 3, "forward": 190 },
+		{ "grip": [40, 56], "bladeDeg": -90, "lean": 0, "hip": [0, 2], "step": -3, "back": 3, "forward": 190 },
+		{ "grip": [39, 57], "bladeDeg": -88, "lean": 0, "hip": [0, 2], "step": -3, "back": 3, "forward": 175 },
+		{ "grip": [38, 56], "bladeDeg": -80, "lean": 0, "hip": [0, 1], "step": -2, "back": 2 },
+		{ "grip": [37, 56], "bladeDeg": -75, "lean": 0, "hip": [0, 0], "step": -1, "back": 1 },
+		{ "grip": [37, 56], "bladeDeg": -70, "lean": 0, "hip": [0, 0], "step": 0, "back": 0 }
+	]
+}

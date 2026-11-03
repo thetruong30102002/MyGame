@@ -1,0 +1,306 @@
+{
+	"about": "Đòn ĐÂM S class Thương — BẢN 4 (chủ dự án 30/10: \"đâm phải mạnh, trùng người, tiến lên dứt khoát\"; \"chính diện cũng bước 1 chân lên mà đâm, xoài người lên trước ấy nhìn mới lực\"): giáo cầm CHÉO NGANG NGƯỜI (weaponDeg −122°) → lấy đà: hạ hông 3, thân ngả lùi 2 (leanY −2), lùi chân phải 2, kéo giáo lên ngực (giữ 5–7) → bùng ra: CHÂN TRÁI BƯỚC VỀ NGƯỜI XEM 9 px (backY), chân phải lùi 5, hông hạ 8, THÂN ĐỔ TỚI 6 (leanY), hai tay đâm về người xem (forward 178), hình chiếu giáo 0,62 → 0,45 — chạm khung 10 → thu chân hồi thế. Hướng N: cli north (bước / đổ người ra xa = lên ảnh).",
+	"character": "Q0-outfit-bald-S",
+	"rest": "Q0-outfit-bald-S#5722",
+	"direction": "south",
+	"pad": [
+		0,
+		0,
+		0,
+		0
+	],
+	"handGapPx": 7,
+	"knees": "out",
+	"frames": [
+		{
+			"grip": [
+				54,
+				62
+			],
+			"bladeDeg": -95,
+			"weaponDeg": -122,
+			"bladeLen": 0.62,
+			"lean": 0,
+			"leanY": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0,
+			"stepY": 0,
+			"backY": 0
+		},
+		{
+			"grip": [
+				54,
+				61
+			],
+			"bladeDeg": -95,
+			"weaponDeg": -122,
+			"bladeLen": 0.62,
+			"lean": 0,
+			"leanY": 0,
+			"hip": [
+				0,
+				1
+			],
+			"step": 0,
+			"back": 0,
+			"stepY": 0,
+			"backY": 0
+		},
+		{
+			"grip": [
+				55,
+				57
+			],
+			"bladeDeg": -95,
+			"weaponDeg": -122,
+			"bladeLen": 0.62,
+			"lean": 0,
+			"leanY": -1,
+			"hip": [
+				0,
+				2
+			],
+			"step": 0,
+			"back": 0,
+			"stepY": -1,
+			"backY": 0
+		},
+		{
+			"grip": [
+				56,
+				54
+			],
+			"bladeDeg": -95,
+			"weaponDeg": -122,
+			"bladeLen": 0.62,
+			"lean": 0,
+			"leanY": -2,
+			"hip": [
+				0,
+				3
+			],
+			"step": 0,
+			"back": 1,
+			"stepY": -2,
+			"backY": 0
+		},
+		{
+			"grip": [
+				56,
+				53
+			],
+			"bladeDeg": -95,
+			"weaponDeg": -122,
+			"bladeLen": 0.62,
+			"lean": 0,
+			"leanY": -2,
+			"hip": [
+				0,
+				3
+			],
+			"step": 0,
+			"back": 1,
+			"stepY": -2,
+			"backY": 0
+		},
+		{
+			"grip": [
+				56,
+				53
+			],
+			"bladeDeg": -95,
+			"weaponDeg": -122,
+			"bladeLen": 0.62,
+			"lean": 0,
+			"leanY": -2,
+			"hip": [
+				0,
+				3
+			],
+			"step": 0,
+			"back": 1,
+			"stepY": -2,
+			"backY": 0
+		},
+		{
+			"grip": [
+				56,
+				53
+			],
+			"bladeDeg": -95,
+			"weaponDeg": -122,
+			"bladeLen": 0.62,
+			"lean": 0,
+			"leanY": -2,
+			"hip": [
+				0,
+				3
+			],
+			"step": 0,
+			"back": 1,
+			"stepY": -2,
+			"backY": 0
+		},
+		{
+			"grip": [
+				55,
+				62
+			],
+			"bladeDeg": -95,
+			"weaponDeg": -122,
+			"bladeLen": 0.56,
+			"lean": 0,
+			"leanY": 2,
+			"hip": [
+				0,
+				5
+			],
+			"step": -1,
+			"back": 2,
+			"stepY": -3,
+			"backY": 3,
+			"forward": 145
+		},
+		{
+			"grip": [
+				54,
+				71
+			],
+			"bladeDeg": -95,
+			"weaponDeg": -122,
+			"bladeLen": 0.5,
+			"lean": 0,
+			"leanY": 5,
+			"hip": [
+				0,
+				7
+			],
+			"step": -2,
+			"back": 3,
+			"stepY": -4,
+			"backY": 7,
+			"forward": 165
+		},
+		{
+			"grip": [
+				53,
+				75
+			],
+			"bladeDeg": -95,
+			"weaponDeg": -122,
+			"bladeLen": 0.45,
+			"lean": 0,
+			"leanY": 6,
+			"hip": [
+				0,
+				8
+			],
+			"step": -2,
+			"back": 3,
+			"stepY": -5,
+			"backY": 9,
+			"forward": 178
+		},
+		{
+			"grip": [
+				53,
+				75
+			],
+			"bladeDeg": -95,
+			"weaponDeg": -122,
+			"bladeLen": 0.45,
+			"lean": 0,
+			"leanY": 6,
+			"hip": [
+				0,
+				8
+			],
+			"step": -2,
+			"back": 3,
+			"stepY": -5,
+			"backY": 9,
+			"forward": 178
+		},
+		{
+			"grip": [
+				54,
+				71
+			],
+			"bladeDeg": -95,
+			"weaponDeg": -122,
+			"bladeLen": 0.5,
+			"lean": 0,
+			"leanY": 4,
+			"hip": [
+				0,
+				6
+			],
+			"step": -2,
+			"back": 2,
+			"stepY": -4,
+			"backY": 7,
+			"forward": 155
+		},
+		{
+			"grip": [
+				54,
+				66
+			],
+			"bladeDeg": -95,
+			"weaponDeg": -122,
+			"bladeLen": 0.58,
+			"lean": 0,
+			"leanY": 2,
+			"hip": [
+				0,
+				3
+			],
+			"step": -1,
+			"back": 1,
+			"stepY": -2,
+			"backY": 4
+		},
+		{
+			"grip": [
+				54,
+				63
+			],
+			"bladeDeg": -95,
+			"weaponDeg": -122,
+			"bladeLen": 0.62,
+			"lean": 0,
+			"leanY": 0,
+			"hip": [
+				0,
+				1
+			],
+			"step": 0,
+			"back": 0,
+			"stepY": -1,
+			"backY": 1
+		},
+		{
+			"grip": [
+				54,
+				62
+			],
+			"bladeDeg": -95,
+			"weaponDeg": -122,
+			"bladeLen": 0.62,
+			"lean": 0,
+			"leanY": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0,
+			"stepY": 0,
+			"backY": 0
+		}
+	]
+}

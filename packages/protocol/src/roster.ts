@@ -1,6 +1,6 @@
 // Sinh từ roster V18: ID ngoại hình cố định khi tạo nhân vật.
 export type PlayerClass = 'sword' | 'bow' | 'staff' | 'spear' | 'shield';
-export const PLAYER_MODELS = [
+const LEGACY_PLAYER_MODELS = [
 	{"id": "player_verdant_sword", "classId": "sword", "gender": "male", "name": "Lục Phong"},
 	{"id": "player_sword_m02", "classId": "sword", "gender": "male", "name": "Lam Kiếm"},
 	{"id": "player_sword_m03", "classId": "sword", "gender": "male", "name": "Xích Ảnh"},
@@ -32,5 +32,183 @@ export const PLAYER_MODELS = [
 	{"id": "player_shield_f02", "classId": "shield", "gender": "female", "name": "Nhật Quang"},
 	{"id": "player_shield_f03", "classId": "shield", "gender": "female", "name": "Tử Vệ"},
 ] as const;
+export const PIXELLAB_MALE_MODELS = [
+  {
+    "id": "player_pl_human_sword_m1",
+    "classId": "sword",
+    "gender": "male",
+    "name": "Nhân tộc",
+    "raceId": "human"
+  },
+  {
+    "id": "player_pl_elf_sword_m1",
+    "classId": "sword",
+    "gender": "male",
+    "name": "Elf",
+    "raceId": "elf"
+  },
+  {
+    "id": "player_pl_demon_sword_m1",
+    "classId": "sword",
+    "gender": "male",
+    "name": "Ma tộc",
+    "raceId": "demon"
+  },
+  {
+    "id": "player_pl_beast_sword_m1",
+    "classId": "sword",
+    "gender": "male",
+    "name": "Thú nhân",
+    "raceId": "beast"
+  },
+  {
+    "id": "player_pl_dragon_sword_m1",
+    "classId": "sword",
+    "gender": "male",
+    "name": "Long tộc",
+    "raceId": "dragon"
+  },
+  {
+    "id": "player_pl_human_staff_m1",
+    "classId": "staff",
+    "gender": "male",
+    "name": "Nhân tộc",
+    "raceId": "human"
+  },
+  {
+    "id": "player_pl_elf_staff_m1",
+    "classId": "staff",
+    "gender": "male",
+    "name": "Elf",
+    "raceId": "elf"
+  },
+  {
+    "id": "player_pl_demon_staff_m1",
+    "classId": "staff",
+    "gender": "male",
+    "name": "Ma tộc",
+    "raceId": "demon"
+  },
+  {
+    "id": "player_pl_beast_staff_m1",
+    "classId": "staff",
+    "gender": "male",
+    "name": "Thú nhân",
+    "raceId": "beast"
+  },
+  {
+    "id": "player_pl_dragon_staff_m1",
+    "classId": "staff",
+    "gender": "male",
+    "name": "Long tộc",
+    "raceId": "dragon"
+  },
+  {
+    "id": "player_pl_human_spear_m1",
+    "classId": "spear",
+    "gender": "male",
+    "name": "Nhân tộc",
+    "raceId": "human"
+  },
+  {
+    "id": "player_pl_elf_spear_m1",
+    "classId": "spear",
+    "gender": "male",
+    "name": "Elf",
+    "raceId": "elf"
+  },
+  {
+    "id": "player_pl_demon_spear_m1",
+    "classId": "spear",
+    "gender": "male",
+    "name": "Ma tộc",
+    "raceId": "demon"
+  },
+  {
+    "id": "player_pl_beast_spear_m1",
+    "classId": "spear",
+    "gender": "male",
+    "name": "Thú nhân",
+    "raceId": "beast"
+  },
+  {
+    "id": "player_pl_dragon_spear_m1",
+    "classId": "spear",
+    "gender": "male",
+    "name": "Long tộc",
+    "raceId": "dragon"
+  },
+  {
+    "id": "player_pl_human_bow_m1",
+    "classId": "bow",
+    "gender": "male",
+    "name": "Nhân tộc",
+    "raceId": "human"
+  },
+  {
+    "id": "player_pl_elf_bow_m1",
+    "classId": "bow",
+    "gender": "male",
+    "name": "Elf",
+    "raceId": "elf"
+  },
+  {
+    "id": "player_pl_demon_bow_m1",
+    "classId": "bow",
+    "gender": "male",
+    "name": "Ma tộc",
+    "raceId": "demon"
+  },
+  {
+    "id": "player_pl_beast_bow_m1",
+    "classId": "bow",
+    "gender": "male",
+    "name": "Thú nhân",
+    "raceId": "beast"
+  },
+  {
+    "id": "player_pl_dragon_bow_m1",
+    "classId": "bow",
+    "gender": "male",
+    "name": "Long tộc",
+    "raceId": "dragon"
+  },
+  {
+    "id": "player_pl_human_shield_m1",
+    "classId": "shield",
+    "gender": "male",
+    "name": "Nhân tộc",
+    "raceId": "human"
+  },
+  {
+    "id": "player_pl_elf_shield_m1",
+    "classId": "shield",
+    "gender": "male",
+    "name": "Elf",
+    "raceId": "elf"
+  },
+  {
+    "id": "player_pl_demon_shield_m1",
+    "classId": "shield",
+    "gender": "male",
+    "name": "Ma tộc",
+    "raceId": "demon"
+  },
+  {
+    "id": "player_pl_beast_shield_m1",
+    "classId": "shield",
+    "gender": "male",
+    "name": "Thú nhân",
+    "raceId": "beast"
+  },
+  {
+    "id": "player_pl_dragon_shield_m1",
+    "classId": "shield",
+    "gender": "male",
+    "name": "Long tộc",
+    "raceId": "dragon"
+  }
+] as const;
+export const PLAYER_MODELS = [...PIXELLAB_MALE_MODELS, ...LEGACY_PLAYER_MODELS] as const;
 export const playerModel = (id: unknown) => PLAYER_MODELS.find(m => m.id === id);
 export const defaultPlayerModel = (gender: string) => PLAYER_MODELS.find(m => m.gender === gender && m.classId === (gender === 'female' ? 'staff' : 'sword'))!;

@@ -1,0 +1,25 @@
+{
+	"about": "Đòn bổ kiếm hai tay hướng S (mặt nhìn người xem), 15 khung cùng nhịp với E. Lấy lực: tay hạ về hông phải rồi vòng lên (nắm tay cách vai ≥ 12px để khuỷu không gập gắt), xoay người (square — vai trái về phía vai phải), vác kiếm lên CẠNH ĐẦU bên vai phải nhân vật (bên trái người xem), tay thẳng, nắm tay ngang tai — dáng chibi tay ngắn, giơ qua đầu thì nắm tay che mặt; bổ: quật qua đỉnh đầu xuống trước bụng; chạm: hai tay duỗi thẳng CHĨA VỀ NGƯỜI XEM (forward = độ sâu cổ tay, khuỷu thẳng hàng); hồi thế về thủ. grip = cổ tay phải (toạ độ ảnh đứng 80×88), bladeDeg = hướng lưỡi trên ảnh (0 = sang phải người xem, 90 = lên trời); step / back = bàn chân phải / trái dịch ngang (dạng chân), gối mở ra ngoài.",
+	"character": "B1-outfit-char",
+	"direction": "south",
+	"pad": [8, 8, 16, 0],
+	"handGapPx": 3,
+	"knees": "out",
+	"frames": [
+		{ "grip": [37, 52], "bladeDeg": 60, "lean": 0, "hip": [0, 0], "step": 0, "back": 0 },
+		{ "grip": [33, 48], "bladeDeg": 90, "lean": -1, "hip": [0, 0], "step": -1, "back": 1, "square": 0.2 },
+		{ "grip": [24, 47], "bladeDeg": 120, "lean": -1, "hip": [0, 0], "step": -1, "back": 1, "square": 0.4 },
+		{ "grip": [16, 30], "bladeDeg": 140, "lean": -2, "hip": [-1, 0], "step": -2, "back": 2, "square": 0.6 },
+		{ "grip": [18, 22], "bladeDeg": 155, "lean": -2, "hip": [-1, 0], "step": -2, "back": 2, "square": 0.7 },
+		{ "grip": [19, 20], "bladeDeg": 170, "lean": -3, "hip": [-1, 0], "step": -2, "back": 2, "square": 0.8 },
+		{ "grip": [23, 19], "bladeDeg": 140, "lean": -2, "hip": [-1, 0], "step": -2, "back": 2, "square": 0.7 },
+		{ "grip": [30, 20], "bladeDeg": 100, "lean": -1, "hip": [0, 1], "step": -2, "back": 2, "square": 0.5 },
+		{ "grip": [38, 32], "bladeDeg": 20, "lean": 1, "hip": [1, 2], "step": -3, "back": 3, "forward": 150, "square": 0.2 },
+		{ "grip": [40, 46], "bladeDeg": -60, "lean": 1, "hip": [1, 2], "step": -3, "back": 3, "forward": 190 },
+		{ "grip": [41, 52], "bladeDeg": -80, "lean": 1, "hip": [1, 2], "step": -3, "back": 3, "forward": 190 },
+		{ "grip": [41, 54], "bladeDeg": -80, "lean": 1, "hip": [1, 2], "step": -3, "back": 3, "forward": 175 },
+		{ "grip": [38, 51], "bladeDeg": -40, "lean": 0, "hip": [0, 1], "step": -2, "back": 2 },
+		{ "grip": [38, 52], "bladeDeg": 10, "lean": 0, "hip": [0, 0], "step": -1, "back": 1 },
+		{ "grip": [37, 52], "bladeDeg": 50, "lean": 0, "hip": [0, 0], "step": 0, "back": 0 }
+	]
+}

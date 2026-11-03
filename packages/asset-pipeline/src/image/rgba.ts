@@ -25,11 +25,16 @@ export function decodePng(buffer: Buffer): RGBAImage {
 	return { width: png.width, height: png.height, data: new Uint8Array(png.data) };
 }
 
-export function writePng(path: string, img: RGBAImage): void {
-	mkdirSync(dirname(path), { recursive: true });
+/** Mã hoá PNG RGBA (gửi ảnh lên dịch vụ dạng base64, hoặc ghi file). */
+export function encodePng(img: RGBAImage): Buffer {
 	const png = new PNG({ width: img.width, height: img.height });
 	png.data = Buffer.from(img.data);
-	const bytes = PNG.sync.write(png, { colorType: 6 });
+	return PNG.sync.write(png, { colorType: 6 });
+}
+
+export function writePng(path: string, img: RGBAImage): void {
+	mkdirSync(dirname(path), { recursive: true });
+	const bytes = encodePng(img);
 	for (let attempt = 0; ; attempt++) {
 		try { writeFileSync(path, bytes); break; }
 		catch (error) {

@@ -1,0 +1,668 @@
+{
+	"sample": "mau-1",
+	"stage": "C",
+	"standardVersion": 1,
+	"weapon": "sword-basic",
+	"clips": {
+		"slash-E": [
+			{
+				"neck": [
+					64,
+					62
+				],
+				"grip": [
+					67,
+					83
+				],
+				"weaponAngleDeg": 45,
+				"weaponLayer": "front",
+				"durationMs": 80,
+				"issues": []
+			},
+			{
+				"neck": [
+					62,
+					62
+				],
+				"grip": [
+					72,
+					77
+				],
+				"weaponAngleDeg": 67.5,
+				"weaponLayer": "front",
+				"durationMs": 75,
+				"issues": [
+					"neo lệch thân trần (-2, 0)px"
+				]
+			},
+			{
+				"neck": [
+					61,
+					62
+				],
+				"grip": [
+					72,
+					61
+				],
+				"weaponAngleDeg": 90,
+				"weaponLayer": "front",
+				"durationMs": 70,
+				"issues": [
+					"neo lệch thân trần (-3, 0)px",
+					"Q8: 1 pixel bỏ theo đầu không giống màu đầu (cổ áo trên đường cổ?)"
+				]
+			},
+			{
+				"neck": [
+					59,
+					62
+				],
+				"grip": [
+					61,
+					52
+				],
+				"weaponAngleDeg": 90,
+				"weaponLayer": "front",
+				"durationMs": 65,
+				"issues": [
+					"neo lệch thân trần (-5, 0)px"
+				]
+			},
+			{
+				"neck": [
+					59,
+					62
+				],
+				"grip": [
+					51,
+					51
+				],
+				"weaponAngleDeg": 90,
+				"weaponLayer": "front",
+				"durationMs": 55,
+				"issues": [
+					"neo lệch thân trần (-5, 0)px"
+				]
+			},
+			{
+				"neck": [
+					59,
+					62
+				],
+				"grip": [
+					45,
+					53
+				],
+				"weaponAngleDeg": 112.5,
+				"weaponLayer": "front",
+				"durationMs": 45,
+				"issues": [
+					"neo lệch thân trần (-5, 0)px"
+				]
+			},
+			{
+				"neck": [
+					62,
+					62
+				],
+				"grip": [
+					52,
+					51
+				],
+				"weaponAngleDeg": 90,
+				"weaponLayer": "front",
+				"durationMs": 35,
+				"issues": [
+					"neo lệch thân trần (-2, 0)px",
+					"Q8: 1 pixel bỏ theo đầu không giống màu đầu (cổ áo trên đường cổ?)"
+				]
+			},
+			{
+				"neck": [
+					66,
+					63
+				],
+				"grip": [
+					66,
+					52
+				],
+				"weaponAngleDeg": 90,
+				"weaponLayer": "front",
+				"durationMs": 30,
+				"issues": [
+					"neo lệch thân trần (2, 1)px",
+					"Q8: 1 pixel bỏ theo đầu không giống màu đầu (cổ áo trên đường cổ?)"
+				]
+			},
+			{
+				"neck": [
+					70,
+					64
+				],
+				"grip": [
+					81,
+					60
+				],
+				"weaponAngleDeg": 45,
+				"weaponLayer": "front",
+				"durationMs": 25,
+				"issues": [
+					"neo lệch thân trần (6, 2)px"
+				]
+			},
+			{
+				"neck": [
+					74,
+					65
+				],
+				"grip": [
+					87,
+					73
+				],
+				"weaponAngleDeg": 0,
+				"weaponLayer": "front",
+				"durationMs": 25,
+				"event": "hit",
+				"issues": [
+					"neo lệch thân trần (8, 3)px"
+				]
+			},
+			{
+				"neck": [
+					73,
+					65
+				],
+				"grip": [
+					85,
+					81
+				],
+				"weaponAngleDeg": -45,
+				"weaponLayer": "front",
+				"durationMs": 30,
+				"issues": [
+					"neo lệch thân trần (8, 3)px"
+				]
+			},
+			{
+				"neck": [
+					73,
+					64
+				],
+				"grip": [
+					80,
+					84
+				],
+				"weaponAngleDeg": -45,
+				"weaponLayer": "front",
+				"durationMs": 40,
+				"issues": [
+					"neo lệch thân trần (8, 2)px"
+				]
+			},
+			{
+				"neck": [
+					69,
+					63
+				],
+				"grip": [
+					77,
+					84
+				],
+				"weaponAngleDeg": -22.5,
+				"weaponLayer": "front",
+				"durationMs": 50,
+				"issues": [
+					"neo lệch thân trần (5, 1)px",
+					"Q8: 2 pixel bỏ theo đầu không giống màu đầu (cổ áo trên đường cổ?)"
+				]
+			},
+			{
+				"neck": [
+					67,
+					63
+				],
+				"grip": [
+					73,
+					83
+				],
+				"weaponAngleDeg": 0,
+				"weaponLayer": "front",
+				"durationMs": 60,
+				"issues": [
+					"neo lệch thân trần (3, 1)px",
+					"Q8: 1 pixel bỏ theo đầu không giống màu đầu (cổ áo trên đường cổ?)"
+				]
+			},
+			{
+				"neck": [
+					65,
+					62
+				],
+				"grip": [
+					68,
+					83
+				],
+				"weaponAngleDeg": 45,
+				"weaponLayer": "front",
+				"durationMs": 70,
+				"issues": []
+			}
+		],
+		"slash-W": [
+			{
+				"neck": [
+					64,
+					62
+				],
+				"grip": [
+					61,
+					83
+				],
+				"weaponAngleDeg": 135,
+				"weaponLayer": "front",
+				"durationMs": 80
+			},
+			{
+				"neck": [
+					66,
+					62
+				],
+				"grip": [
+					56,
+					77
+				],
+				"weaponAngleDeg": 112.5,
+				"weaponLayer": "front",
+				"durationMs": 75
+			},
+			{
+				"neck": [
+					67,
+					62
+				],
+				"grip": [
+					56,
+					61
+				],
+				"weaponAngleDeg": 90,
+				"weaponLayer": "front",
+				"durationMs": 70
+			},
+			{
+				"neck": [
+					69,
+					62
+				],
+				"grip": [
+					67,
+					52
+				],
+				"weaponAngleDeg": 90,
+				"weaponLayer": "front",
+				"durationMs": 65
+			},
+			{
+				"neck": [
+					69,
+					62
+				],
+				"grip": [
+					77,
+					51
+				],
+				"weaponAngleDeg": 90,
+				"weaponLayer": "front",
+				"durationMs": 55
+			},
+			{
+				"neck": [
+					69,
+					62
+				],
+				"grip": [
+					83,
+					53
+				],
+				"weaponAngleDeg": 67.5,
+				"weaponLayer": "front",
+				"durationMs": 45
+			},
+			{
+				"neck": [
+					66,
+					62
+				],
+				"grip": [
+					76,
+					51
+				],
+				"weaponAngleDeg": 90,
+				"weaponLayer": "front",
+				"durationMs": 35
+			},
+			{
+				"neck": [
+					62,
+					63
+				],
+				"grip": [
+					62,
+					52
+				],
+				"weaponAngleDeg": 90,
+				"weaponLayer": "front",
+				"durationMs": 30
+			},
+			{
+				"neck": [
+					58,
+					64
+				],
+				"grip": [
+					47,
+					60
+				],
+				"weaponAngleDeg": 135,
+				"weaponLayer": "front",
+				"durationMs": 25
+			},
+			{
+				"neck": [
+					54,
+					65
+				],
+				"grip": [
+					41,
+					73
+				],
+				"weaponAngleDeg": 180,
+				"weaponLayer": "front",
+				"durationMs": 25
+			},
+			{
+				"neck": [
+					55,
+					65
+				],
+				"grip": [
+					43,
+					81
+				],
+				"weaponAngleDeg": -135,
+				"weaponLayer": "front",
+				"durationMs": 30
+			},
+			{
+				"neck": [
+					55,
+					64
+				],
+				"grip": [
+					48,
+					84
+				],
+				"weaponAngleDeg": -135,
+				"weaponLayer": "front",
+				"durationMs": 40
+			},
+			{
+				"neck": [
+					59,
+					63
+				],
+				"grip": [
+					51,
+					84
+				],
+				"weaponAngleDeg": -157.5,
+				"weaponLayer": "front",
+				"durationMs": 50
+			},
+			{
+				"neck": [
+					61,
+					63
+				],
+				"grip": [
+					55,
+					83
+				],
+				"weaponAngleDeg": 180,
+				"weaponLayer": "front",
+				"durationMs": 60
+			},
+			{
+				"neck": [
+					63,
+					62
+				],
+				"grip": [
+					60,
+					83
+				],
+				"weaponAngleDeg": 135,
+				"weaponLayer": "front",
+				"durationMs": 70
+			}
+		],
+		"slash-S": [
+			{
+				"neck": [
+					63,
+					62
+				],
+				"grip": [
+					65,
+					83
+				],
+				"weaponAngleDeg": 67.5,
+				"weaponLayer": "front",
+				"durationMs": 80,
+				"issues": []
+			},
+			{
+				"neck": [
+					63,
+					62
+				],
+				"grip": [
+					63,
+					80
+				],
+				"weaponAngleDeg": 90,
+				"weaponLayer": "front",
+				"durationMs": 75,
+				"issues": []
+			},
+			{
+				"neck": [
+					63,
+					61
+				],
+				"grip": [
+					62,
+					73
+				],
+				"weaponAngleDeg": 90,
+				"weaponLayer": "front",
+				"durationMs": 70,
+				"issues": []
+			},
+			{
+				"neck": [
+					63,
+					61
+				],
+				"grip": [
+					62,
+					61
+				],
+				"weaponAngleDeg": 90,
+				"weaponLayer": "front",
+				"durationMs": 65,
+				"issues": []
+			},
+			{
+				"neck": [
+					63,
+					61
+				],
+				"grip": [
+					62,
+					53
+				],
+				"weaponAngleDeg": 90,
+				"weaponLayer": "front",
+				"durationMs": 55,
+				"issues": []
+			},
+			{
+				"neck": [
+					63,
+					61
+				],
+				"grip": [
+					62,
+					51
+				],
+				"weaponAngleDeg": 90,
+				"weaponLayer": "front",
+				"durationMs": 45,
+				"issues": []
+			},
+			{
+				"neck": [
+					63,
+					61
+				],
+				"grip": [
+					62,
+					51
+				],
+				"weaponAngleDeg": 90,
+				"weaponLayer": "front",
+				"durationMs": 35,
+				"issues": []
+			},
+			{
+				"neck": [
+					63,
+					62
+				],
+				"grip": [
+					63,
+					53
+				],
+				"weaponAngleDeg": 90,
+				"weaponLayer": "front",
+				"durationMs": 30,
+				"issues": []
+			},
+			{
+				"neck": [
+					63,
+					63
+				],
+				"grip": [
+					64,
+					62
+				],
+				"weaponAngleDeg": 90,
+				"weaponLayer": "front",
+				"durationMs": 25,
+				"issues": []
+			},
+			{
+				"neck": [
+					63,
+					64
+				],
+				"grip": [
+					66,
+					79
+				],
+				"weaponAngleDeg": -90,
+				"weaponLayer": "front",
+				"durationMs": 25,
+				"event": "hit",
+				"issues": [
+					"neo lệch thân trần (0, 2)px"
+				]
+			},
+			{
+				"neck": [
+					63,
+					64
+				],
+				"grip": [
+					67,
+					86
+				],
+				"weaponAngleDeg": -90,
+				"weaponLayer": "front",
+				"durationMs": 30,
+				"issues": [
+					"neo lệch thân trần (0, 2)px"
+				]
+			},
+			{
+				"neck": [
+					63,
+					64
+				],
+				"grip": [
+					66,
+					86
+				],
+				"weaponAngleDeg": -90,
+				"weaponLayer": "front",
+				"durationMs": 40,
+				"issues": [
+					"neo lệch thân trần (0, 2)px"
+				]
+			},
+			{
+				"neck": [
+					63,
+					63
+				],
+				"grip": [
+					65,
+					84
+				],
+				"weaponAngleDeg": -90,
+				"weaponLayer": "front",
+				"durationMs": 50,
+				"issues": []
+			},
+			{
+				"neck": [
+					63,
+					62
+				],
+				"grip": [
+					65,
+					85
+				],
+				"weaponAngleDeg": -67.5,
+				"weaponLayer": "front",
+				"durationMs": 60,
+				"issues": []
+			},
+			{
+				"neck": [
+					63,
+					62
+				],
+				"grip": [
+					65,
+					85
+				],
+				"weaponAngleDeg": -67.5,
+				"weaponLayer": "front",
+				"durationMs": 70,
+				"issues": []
+			}
+		]
+	}
+}

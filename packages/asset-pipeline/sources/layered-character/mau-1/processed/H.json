@@ -1,0 +1,1109 @@
+{
+	"sample": "mau-1",
+	"stage": "H",
+	"standardVersion": 1,
+	"rotations": {
+		"S": {
+			"neck": [
+				79,
+				63
+			],
+			"baseNeck": [
+				79,
+				63
+			],
+			"shift": [
+				0,
+				0
+			],
+			"match": 1,
+			"remnants": 0,
+			"holes": 0,
+			"collar": 0
+		},
+		"SE": {
+			"neck": [
+				83,
+				64
+			],
+			"baseNeck": [
+				86,
+				64
+			],
+			"shift": [
+				-3,
+				0
+			],
+			"match": 0.65,
+			"remnants": 0,
+			"holes": 0,
+			"collar": 0
+		},
+		"E": {
+			"neck": [
+				79,
+				64
+			],
+			"baseNeck": [
+				79,
+				64
+			],
+			"shift": [
+				0,
+				0
+			],
+			"match": 0.694,
+			"remnants": 0,
+			"holes": 0,
+			"collar": 0
+		},
+		"NE": {
+			"neck": [
+				74,
+				64
+			],
+			"baseNeck": [
+				72,
+				65
+			],
+			"shift": [
+				2,
+				-1
+			],
+			"match": 0.693,
+			"remnants": 0,
+			"holes": 0,
+			"collar": 0
+		},
+		"N": {
+			"neck": [
+				80,
+				67
+			],
+			"baseNeck": [
+				81,
+				67
+			],
+			"shift": [
+				-1,
+				0
+			],
+			"match": 0.729,
+			"remnants": 0,
+			"holes": 0,
+			"collar": 0
+		}
+	},
+	"clips": {
+		"walk-outfit-S": [
+			{
+				"neck": [
+					79,
+					64
+				],
+				"baseNeck": [
+					79,
+					63
+				],
+				"shift": [
+					0,
+					1
+				],
+				"match": 0.668,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 0
+			},
+			{
+				"neck": [
+					78,
+					64
+				],
+				"baseNeck": [
+					79,
+					63
+				],
+				"shift": [
+					-1,
+					1
+				],
+				"match": 0.686,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 0
+			},
+			{
+				"neck": [
+					78,
+					64
+				],
+				"baseNeck": [
+					79,
+					63
+				],
+				"shift": [
+					-1,
+					1
+				],
+				"match": 0.707,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 0
+			},
+			{
+				"neck": [
+					78,
+					63
+				],
+				"baseNeck": [
+					79,
+					63
+				],
+				"shift": [
+					-1,
+					0
+				],
+				"match": 0.75,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 0
+			},
+			{
+				"neck": [
+					78,
+					63
+				],
+				"baseNeck": [
+					79,
+					63
+				],
+				"shift": [
+					-1,
+					0
+				],
+				"match": 0.721,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 0
+			},
+			{
+				"neck": [
+					79,
+					64
+				],
+				"baseNeck": [
+					79,
+					63
+				],
+				"shift": [
+					0,
+					1
+				],
+				"match": 0.727,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 1
+			},
+			{
+				"neck": [
+					79,
+					64
+				],
+				"baseNeck": [
+					79,
+					63
+				],
+				"shift": [
+					0,
+					1
+				],
+				"match": 0.727,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 0
+			},
+			{
+				"neck": [
+					79,
+					64
+				],
+				"baseNeck": [
+					79,
+					63
+				],
+				"shift": [
+					0,
+					1
+				],
+				"match": 0.76,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 0
+			}
+		],
+		"walk-outfit-E": [
+			{
+				"neck": [
+					79,
+					64
+				],
+				"baseNeck": [
+					79,
+					64
+				],
+				"shift": [
+					0,
+					0
+				],
+				"match": 0.733,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 1
+			},
+			{
+				"neck": [
+					79,
+					64
+				],
+				"baseNeck": [
+					79,
+					64
+				],
+				"shift": [
+					0,
+					0
+				],
+				"match": 0.737,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 1
+			},
+			{
+				"neck": [
+					78,
+					64
+				],
+				"baseNeck": [
+					79,
+					64
+				],
+				"shift": [
+					-1,
+					0
+				],
+				"match": 0.746,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 1
+			},
+			{
+				"neck": [
+					77,
+					64
+				],
+				"baseNeck": [
+					79,
+					64
+				],
+				"shift": [
+					-2,
+					0
+				],
+				"match": 0.895,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 1
+			},
+			{
+				"neck": [
+					78,
+					64
+				],
+				"baseNeck": [
+					79,
+					64
+				],
+				"shift": [
+					-1,
+					0
+				],
+				"match": 0.836,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 0
+			},
+			{
+				"neck": [
+					78,
+					64
+				],
+				"baseNeck": [
+					79,
+					64
+				],
+				"shift": [
+					-1,
+					0
+				],
+				"match": 0.869,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 1
+			},
+			{
+				"neck": [
+					77,
+					64
+				],
+				"baseNeck": [
+					79,
+					64
+				],
+				"shift": [
+					-2,
+					0
+				],
+				"match": 0.789,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 1
+			},
+			{
+				"neck": [
+					77,
+					64
+				],
+				"baseNeck": [
+					79,
+					64
+				],
+				"shift": [
+					-2,
+					0
+				],
+				"match": 0.784,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 1
+			}
+		],
+		"walk-outfit-N": [
+			{
+				"neck": [
+					77,
+					67
+				],
+				"baseNeck": [
+					80,
+					67
+				],
+				"shift": [
+					-3,
+					0
+				],
+				"match": 0.8,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 0
+			},
+			{
+				"neck": [
+					77,
+					67
+				],
+				"baseNeck": [
+					80,
+					67
+				],
+				"shift": [
+					-3,
+					0
+				],
+				"match": 0.858,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 0
+			},
+			{
+				"neck": [
+					78,
+					67
+				],
+				"baseNeck": [
+					80,
+					67
+				],
+				"shift": [
+					-2,
+					0
+				],
+				"match": 0.821,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 1
+			},
+			{
+				"neck": [
+					77,
+					67
+				],
+				"baseNeck": [
+					80,
+					67
+				],
+				"shift": [
+					-3,
+					0
+				],
+				"match": 0.818,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 1
+			},
+			{
+				"neck": [
+					77,
+					67
+				],
+				"baseNeck": [
+					80,
+					67
+				],
+				"shift": [
+					-3,
+					0
+				],
+				"match": 0.94,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 0
+			},
+			{
+				"neck": [
+					76,
+					67
+				],
+				"baseNeck": [
+					80,
+					67
+				],
+				"shift": [
+					-4,
+					0
+				],
+				"match": 0.84,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 0
+			},
+			{
+				"neck": [
+					76,
+					67
+				],
+				"baseNeck": [
+					80,
+					67
+				],
+				"shift": [
+					-4,
+					0
+				],
+				"match": 0.943,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 0
+			},
+			{
+				"neck": [
+					76,
+					67
+				],
+				"baseNeck": [
+					80,
+					67
+				],
+				"shift": [
+					-4,
+					0
+				],
+				"match": 0.94,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 0
+			}
+		],
+		"run-outfit-E": [
+			{
+				"neck": [
+					109,
+					71
+				],
+				"baseNeck": [
+					79,
+					64
+				],
+				"shift": [
+					30,
+					7
+				],
+				"match": 0.574,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 0
+			},
+			{
+				"neck": [
+					108,
+					72
+				],
+				"baseNeck": [
+					79,
+					64
+				],
+				"shift": [
+					29,
+					8
+				],
+				"match": 0.57,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 1
+			},
+			{
+				"neck": [
+					108,
+					71
+				],
+				"baseNeck": [
+					79,
+					64
+				],
+				"shift": [
+					29,
+					7
+				],
+				"match": 0.581,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 0
+			},
+			{
+				"neck": [
+					110,
+					72
+				],
+				"baseNeck": [
+					79,
+					64
+				],
+				"shift": [
+					31,
+					8
+				],
+				"match": 0.574,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 1
+			},
+			{
+				"neck": [
+					109,
+					71
+				],
+				"baseNeck": [
+					79,
+					64
+				],
+				"shift": [
+					30,
+					7
+				],
+				"match": 0.553,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 1
+			},
+			{
+				"neck": [
+					108,
+					71
+				],
+				"baseNeck": [
+					79,
+					64
+				],
+				"shift": [
+					29,
+					7
+				],
+				"match": 0.568,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 0
+			},
+			{
+				"neck": [
+					107,
+					72
+				],
+				"baseNeck": [
+					79,
+					64
+				],
+				"shift": [
+					28,
+					8
+				],
+				"match": 0.578,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 0
+			},
+			{
+				"neck": [
+					109,
+					72
+				],
+				"baseNeck": [
+					79,
+					64
+				],
+				"shift": [
+					30,
+					8
+				],
+				"match": 0.576,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 0
+			}
+		],
+		"slash-E": [
+			{
+				"neck": [
+					79,
+					64
+				],
+				"grip": [
+					97,
+					88
+				],
+				"weaponAngleDeg": -22.5,
+				"bladeLen": 1,
+				"weaponLayer": "front",
+				"durationMs": 80
+			},
+			{
+				"neck": [
+					76,
+					64
+				],
+				"grip": [
+					100,
+					82
+				],
+				"weaponAngleDeg": 0,
+				"bladeLen": 1,
+				"weaponLayer": "front",
+				"durationMs": 75
+			},
+			{
+				"neck": [
+					74,
+					64
+				],
+				"grip": [
+					98,
+					68
+				],
+				"weaponAngleDeg": 22.5,
+				"bladeLen": 1,
+				"weaponLayer": "front",
+				"durationMs": 70
+			},
+			{
+				"neck": [
+					73,
+					64
+				],
+				"grip": [
+					92,
+					54
+				],
+				"weaponAngleDeg": 67.5,
+				"bladeLen": 1,
+				"weaponLayer": "front",
+				"durationMs": 65
+			},
+			{
+				"neck": [
+					70,
+					64
+				],
+				"grip": [
+					77,
+					45
+				],
+				"weaponAngleDeg": 90,
+				"bladeLen": 1,
+				"weaponLayer": "front",
+				"durationMs": 55
+			},
+			{
+				"neck": [
+					69,
+					65
+				],
+				"grip": [
+					64,
+					44
+				],
+				"weaponAngleDeg": 90,
+				"bladeLen": 1,
+				"weaponLayer": "front",
+				"durationMs": 45
+			},
+			{
+				"neck": [
+					69,
+					65
+				],
+				"grip": [
+					61,
+					44
+				],
+				"weaponAngleDeg": 112.5,
+				"bladeLen": 1,
+				"weaponLayer": "front",
+				"durationMs": 35
+			},
+			{
+				"neck": [
+					76,
+					66
+				],
+				"grip": [
+					74,
+					45
+				],
+				"weaponAngleDeg": 90,
+				"bladeLen": 1,
+				"weaponLayer": "front",
+				"durationMs": 30
+			},
+			{
+				"neck": [
+					86,
+					67
+				],
+				"grip": [
+					102,
+					54
+				],
+				"weaponAngleDeg": 45,
+				"bladeLen": 1,
+				"weaponLayer": "front",
+				"durationMs": 25
+			},
+			{
+				"neck": [
+					92,
+					68
+				],
+				"grip": [
+					118,
+					76
+				],
+				"weaponAngleDeg": 0,
+				"bladeLen": 1,
+				"weaponLayer": "front",
+				"durationMs": 25,
+				"event": "hit"
+			},
+			{
+				"neck": [
+					92,
+					68
+				],
+				"grip": [
+					113,
+					88
+				],
+				"weaponAngleDeg": -22.5,
+				"bladeLen": 1,
+				"weaponLayer": "front",
+				"durationMs": 30
+			},
+			{
+				"neck": [
+					88,
+					68
+				],
+				"grip": [
+					109,
+					92
+				],
+				"weaponAngleDeg": -22.5,
+				"bladeLen": 1,
+				"weaponLayer": "front",
+				"durationMs": 40
+			},
+			{
+				"neck": [
+					85,
+					66
+				],
+				"grip": [
+					105,
+					91
+				],
+				"weaponAngleDeg": -22.5,
+				"bladeLen": 1,
+				"weaponLayer": "front",
+				"durationMs": 50
+			},
+			{
+				"neck": [
+					81,
+					65
+				],
+				"grip": [
+					100,
+					89
+				],
+				"weaponAngleDeg": -22.5,
+				"bladeLen": 1,
+				"weaponLayer": "front",
+				"durationMs": 60
+			},
+			{
+				"neck": [
+					79,
+					64
+				],
+				"grip": [
+					97,
+					88
+				],
+				"weaponAngleDeg": -22.5,
+				"bladeLen": 1,
+				"weaponLayer": "front",
+				"durationMs": 70
+			}
+		],
+		"slash-S": [
+			{
+				"neck": [
+					79,
+					63
+				],
+				"grip": [
+					85,
+					92
+				],
+				"weaponAngleDeg": -67.5,
+				"bladeLen": 1,
+				"weaponLayer": "front",
+				"durationMs": 80
+			},
+			{
+				"neck": [
+					77,
+					63
+				],
+				"grip": [
+					83,
+					88
+				],
+				"weaponAngleDeg": -67.5,
+				"bladeLen": 0.8,
+				"weaponLayer": "front",
+				"durationMs": 75
+			},
+			{
+				"neck": [
+					77,
+					63
+				],
+				"grip": [
+					77,
+					80
+				],
+				"weaponAngleDeg": -67.5,
+				"bladeLen": 0.4,
+				"weaponLayer": "front",
+				"durationMs": 70
+			},
+			{
+				"neck": [
+					76,
+					63
+				],
+				"grip": [
+					67,
+					70
+				],
+				"weaponAngleDeg": 112.5,
+				"bladeLen": 0.4,
+				"weaponLayer": "back",
+				"durationMs": 65
+			},
+			{
+				"neck": [
+					76,
+					63
+				],
+				"grip": [
+					61,
+					62
+				],
+				"weaponAngleDeg": 112.5,
+				"bladeLen": 0.8,
+				"weaponLayer": "back",
+				"durationMs": 55
+			},
+			{
+				"neck": [
+					76,
+					63
+				],
+				"grip": [
+					59,
+					58
+				],
+				"weaponAngleDeg": 112.5,
+				"bladeLen": 1,
+				"weaponLayer": "back",
+				"durationMs": 45
+			},
+			{
+				"neck": [
+					76,
+					63
+				],
+				"grip": [
+					59,
+					57
+				],
+				"weaponAngleDeg": 112.5,
+				"bladeLen": 1,
+				"weaponLayer": "back",
+				"durationMs": 35
+			},
+			{
+				"neck": [
+					77,
+					63
+				],
+				"grip": [
+					61,
+					56
+				],
+				"weaponAngleDeg": 112.5,
+				"bladeLen": 0.9,
+				"weaponLayer": "front",
+				"durationMs": 30
+			},
+			{
+				"neck": [
+					79,
+					63
+				],
+				"grip": [
+					69,
+					68
+				],
+				"weaponAngleDeg": -67.5,
+				"bladeLen": 0.3,
+				"weaponLayer": "front",
+				"durationMs": 25
+			},
+			{
+				"neck": [
+					83,
+					64
+				],
+				"grip": [
+					81,
+					85
+				],
+				"weaponAngleDeg": -67.5,
+				"bladeLen": 0.8,
+				"weaponLayer": "front",
+				"durationMs": 25,
+				"event": "hit"
+			},
+			{
+				"neck": [
+					83,
+					64
+				],
+				"grip": [
+					85,
+					90
+				],
+				"weaponAngleDeg": -67.5,
+				"bladeLen": 1,
+				"weaponLayer": "front",
+				"durationMs": 30
+			},
+			{
+				"neck": [
+					83,
+					64
+				],
+				"grip": [
+					86,
+					92
+				],
+				"weaponAngleDeg": -67.5,
+				"bladeLen": 1,
+				"weaponLayer": "front",
+				"durationMs": 40
+			},
+			{
+				"neck": [
+					81,
+					64
+				],
+				"grip": [
+					86,
+					92
+				],
+				"weaponAngleDeg": -67.5,
+				"bladeLen": 1,
+				"weaponLayer": "front",
+				"durationMs": 50
+			},
+			{
+				"neck": [
+					79,
+					63
+				],
+				"grip": [
+					85,
+					92
+				],
+				"weaponAngleDeg": -67.5,
+				"bladeLen": 1,
+				"weaponLayer": "front",
+				"durationMs": 60
+			},
+			{
+				"neck": [
+					79,
+					63
+				],
+				"grip": [
+					85,
+					92
+				],
+				"weaponAngleDeg": -67.5,
+				"bladeLen": 1,
+				"weaponLayer": "front",
+				"durationMs": 70
+			}
+		]
+	}
+}

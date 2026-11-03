@@ -1,0 +1,4063 @@
+[
+	{
+		"item": "A1-base-male",
+		"tool": "create_character",
+		"characterId": "ac886007-f626-4e4a-9029-9485e6f183f3",
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 5000,
+		"balanceAfter": 4998,
+		"at": "2026-10-28T09:58:25.351Z",
+		"rejected": "Sai phong cách (người lực lưỡng kiểu phương Tây, không anime) và tự thêm khăn / giáp vai trái prompt — tạo chỉ bằng chữ. Chủ dự án 28/10: style phải anime như NPC tóc trắng."
+	},
+	{
+		"item": "A0-base-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"3ef4b4e5-8366-4820-bdc4-7d48d9813130",
+			"9875ab3e-5af8-423e-9991-0035c583c673"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4998,
+		"balanceAfter": 4996,
+		"at": "2026-10-28T10:11:52.382Z",
+		"rejected": "Chủ dự án 28/10 đổi đồ thân gốc: nam mặc quần đùi (bản này quần dài + giày), nữ bikini. Hai bản seed 101/202 đạt phong cách và cổ 2px nhưng sai đồ."
+	},
+	{
+		"item": "A0-base-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"b57280ce-bd50-445d-a7e5-a69e8bea2580",
+			"fc612d58-e365-47ba-a93e-c87b39fd5f78"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4996,
+		"balanceAfter": 4994,
+		"at": "2026-10-28T10:20:00.420Z"
+	},
+	{
+		"item": "A1-base-male-ref",
+		"tool": "create_character",
+		"characterId": "f3650cee-1a7f-4c56-b52e-b5f8633b0926",
+		"estimate": 2,
+		"actual": 1,
+		"balanceBefore": 4994,
+		"balanceAfter": 4993,
+		"at": "2026-10-28T10:23:46.795Z"
+	},
+	{
+		"item": "A3-head1-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"23d0302f-1dda-4a96-b5bb-46daddf8d110",
+			"399c6fa7-b33c-495f-b587-f2a29d11eeda"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4993,
+		"balanceAfter": 4991,
+		"at": "2026-10-28T10:28:55.765Z",
+		"rejected": "Chủ dự án 28/10: tóc phẳng, bết, xấu — cần bồng bềnh hơn (seed 505/606 đúng màu tóc đen / mắt nâu)."
+	},
+	{
+		"item": "A3-head1-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"3936a7b5-bffc-4e63-aa39-c82bcf0cb3ba",
+			"4378440f-6f4f-4a72-94c6-ba3c1e7b0f35",
+			"4db18bbb-4960-4b4f-ace9-914d62110278"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4991,
+		"balanceAfter": 4988,
+		"at": "2026-10-28T10:32:25.742Z",
+		"rejected": "Chủ dự án 28/10: tóc quá dài (rủ tới hàm) — cần ngắn hơn, giữ độ bồng trên đỉnh (seed 707/808/909 đúng tóc đen / mắt nâu / mặt anime)."
+	},
+	{
+		"item": "A3-head1-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"299d165f-032b-439b-b712-e69bae9c52e8",
+			"aa570265-2dcf-4cfa-8291-0b1cb90297d4",
+			"685e015e-7000-4c44-83c8-c45592c413ad"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4988,
+		"balanceAfter": 4985,
+		"at": "2026-10-28T13:32:22.967Z"
+	},
+	{
+		"item": "A4-head1-char",
+		"tool": "create_character",
+		"characterId": "0cc952f2-0fbe-4d97-a08c-dfb162292f39",
+		"estimate": 2,
+		"actual": 1,
+		"balanceBefore": 4985,
+		"balanceAfter": 4984,
+		"at": "2026-10-28T13:39:09.100Z"
+	},
+	{
+		"item": "A2-walk-S",
+		"tool": "animate_character",
+		"characterId": "0cc952f2-0fbe-4d97-a08c-dfb162292f39",
+		"estimate": 2,
+		"actual": 1,
+		"balanceBefore": 4984,
+		"balanceAfter": 4983,
+		"at": "2026-10-28T13:41:44.745Z"
+	},
+	{
+		"item": "B0-outfit-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"b1e23bc4-742a-44c0-9924-7bcda56d5db9",
+			"970bee00-ff6e-4c28-b236-5aa63a095108",
+			"2ad050fa-a44d-47c5-9451-eb91f37be387"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4983,
+		"balanceAfter": 4980,
+		"at": "2026-10-28T14:11:14.804Z"
+	},
+	{
+		"item": "B1-outfit-char",
+		"tool": "create_character",
+		"characterId": "80064292-a921-4f89-b9a2-e0a0c4b6801e",
+		"estimate": 2,
+		"actual": 1,
+		"balanceBefore": 4980,
+		"balanceAfter": 4979,
+		"at": "2026-10-28T14:12:44.872Z"
+	},
+	{
+		"item": "B2-walk-EN-bare",
+		"tool": "animate_character",
+		"characterId": "0cc952f2-0fbe-4d97-a08c-dfb162292f39",
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4979,
+		"balanceAfter": 4977,
+		"at": "2026-10-28T14:14:45.432Z"
+	},
+	{
+		"item": "B3-walk-SEN-outfit",
+		"tool": "animate_character",
+		"characterId": "80064292-a921-4f89-b9a2-e0a0c4b6801e",
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4977,
+		"balanceAfter": 4974,
+		"at": "2026-10-28T14:16:42.620Z",
+		"note": "Hướng S hỏng (khung 4 quay lưng, đầu khác) — vẽ lại ở B6-walk-S-outfit-redo; E / N đạt."
+	},
+	{
+		"item": "B4-run-E-bare",
+		"tool": "animate_character",
+		"characterId": "0cc952f2-0fbe-4d97-a08c-dfb162292f39",
+		"estimate": 1,
+		"actual": 1,
+		"balanceBefore": 4974,
+		"balanceAfter": 4973,
+		"at": "2026-10-28T14:19:29.155Z"
+	},
+	{
+		"item": "B5-run-E-outfit",
+		"tool": "animate_character",
+		"characterId": "80064292-a921-4f89-b9a2-e0a0c4b6801e",
+		"estimate": 1,
+		"actual": 1,
+		"balanceBefore": 4973,
+		"balanceAfter": 4972,
+		"at": "2026-10-28T14:21:25.591Z"
+	},
+	{
+		"item": "B6-walk-S-outfit-redo",
+		"tool": "animate_character",
+		"characterId": "80064292-a921-4f89-b9a2-e0a0c4b6801e",
+		"estimate": 1,
+		"actual": 0,
+		"balanceBefore": 4972,
+		"balanceAfter": 4972,
+		"at": "2026-10-28T14:24:25.085Z",
+		"rejected": "Lệnh gọi không tạo được clip (PixelLab không nhận, run cũ không đọc câu trả lời) — 0 lượt; gửi lại sau khi sửa run."
+	},
+	{
+		"item": "B6-walk-S-outfit-redo",
+		"tool": "animate_character",
+		"characterId": "80064292-a921-4f89-b9a2-e0a0c4b6801e",
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4972,
+		"balanceAfter": 4969,
+		"at": "2026-10-28T14:27:22.242Z"
+	},
+	{
+		"item": "C1-slash-E-outfit",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"2fc74b72-90dc-4802-bdb3-7848e7489788"
+		],
+		"estimate": 4,
+		"actual": 0,
+		"balanceBefore": 4968,
+		"balanceAfter": 4968,
+		"at": "2026-10-29T01:49:11.790Z",
+		"rejected": "PixelLab từ chối: z_index phải số nguyên (khung xương đo về có số lẻ) — 0 lượt; đã làm tròn rồi gửi lại."
+	},
+	{
+		"item": "C1-slash-E-outfit",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"2de6c446-57fa-48a7-9ab3-792ead000acc"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4968,
+		"balanceAfter": 4964,
+		"at": "2026-10-29T01:50:12.931Z",
+		"rejected": "Chủ dự án 29/10: \"chém trông yếu thế phải vung thẳng tay nhìn lực hơn, kiếm nên dài hơn xíu\" — vẽ lại theo khung xương bản 2 (tay thẳng, thân xoay vuông, bước dài); khung bản 1 giữ ở raw/C1-slash-E-outfit.v1."
+	},
+	{
+		"item": "C1-slash-E-outfit",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"66255f7d-f5bd-4f96-a84e-f90381b946d7"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4964,
+		"balanceAfter": 4960,
+		"at": "2026-10-29T02:04:47.580Z"
+	},
+	{
+		"item": "C2-slash-S-outfit",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"7564c42b-8b79-4a28-be2b-33b8c81c6e6d"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4960,
+		"balanceAfter": 4956,
+		"at": "2026-10-29T02:16:52.283Z",
+		"rejected": "Chủ dự án 29/10: \"kiếm trông cứ xoay xoay ngang sang bên trái … để nó vẽ thẳng lên rồi bổ xuống, xoay xoay như múa quạt xấu\" — vẽ lại theo slash-S bản 2; khung bản 1 giữ ở raw/C2-slash-S-outfit.v1."
+	},
+	{
+		"item": "C2-slash-S-outfit",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"1b64970e-6c8e-4b60-a124-b09351933363"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4956,
+		"balanceAfter": 4952,
+		"at": "2026-10-29T02:29:12.492Z"
+	},
+	{
+		"item": "D0-head2-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"3d483765-9e30-4bdf-a7cc-e1b2cbfd42f5",
+			"90fcdffd-8d44-4217-97b1-30677caccf7c",
+			"36dc0537-bdbe-49fe-958b-dbdbcc6ce787"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4952,
+		"balanceAfter": 4949,
+		"at": "2026-10-29T02:43:43.115Z"
+	},
+	{
+		"item": "D1-head2-char",
+		"tool": "create_character",
+		"characterId": "ed2756e4-18b3-484e-ac4a-665f46b0c267",
+		"estimate": 2,
+		"actual": 1,
+		"balanceBefore": 4949,
+		"balanceAfter": 4948,
+		"at": "2026-10-29T02:52:36.682Z"
+	},
+	{
+		"item": "D2-run-E-head2",
+		"tool": "animate_character",
+		"characterId": "ed2756e4-18b3-484e-ac4a-665f46b0c267",
+		"estimate": 1,
+		"actual": 1,
+		"balanceBefore": 4948,
+		"balanceAfter": 4947,
+		"at": "2026-10-29T02:55:15.000Z"
+	},
+	{
+		"item": "D3-run-E-head2-redo",
+		"tool": "animate_character",
+		"characterId": "ed2756e4-18b3-484e-ac4a-665f46b0c267",
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4947,
+		"balanceAfter": 4944,
+		"at": "2026-10-29T03:00:23.071Z"
+	},
+	{
+		"item": "E0-base-female-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"5257e1b9-ba73-452d-a194-0c640a2f4f80",
+			"e57acc69-9686-4d87-8cba-d5fab895810b",
+			"df1cf029-502a-4a93-89db-a92242a8583a"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4944,
+		"balanceAfter": 4941,
+		"at": "2026-10-29T03:17:47.868Z",
+		"rejected": "Chủ dự án 29/10: \"người hơi to thon chút\" — prompt cũ giữ tỷ lệ thân của NPC mặc áo khoác nên thân đoán ra to; sửa prompt baseFemaleEdit (dáng nhỏ nhắn thon) rồi vẽ lại. 5202 còn quai chụm về cổ (gần kiểu halter)."
+	},
+	{
+		"item": "E0-base-female-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"1d269dab-18b2-4779-8a4b-89c8f543383b",
+			"9874ec15-2df1-442c-98b0-a751a33f1130",
+			"edb80807-16f2-4a4a-bef3-74b925c0aad1"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4941,
+		"balanceAfter": 4938,
+		"at": "2026-10-29T03:21:26.897Z",
+		"rejected": "Chủ dự án 29/10: \"giờ đổi sang nữ dáng đồng hồ cát\" — bản nhỏ nhắn thon 5505 đã đi tới chém (giữ ở raw/*.slim để so); vẽ lại thân gốc dáng đồng hồ cát."
+	},
+	{
+		"item": "E1-base-female-ref",
+		"tool": "create_character",
+		"characterId": "52cc4a87-d08a-4928-a69f-467b03f10cf1",
+		"estimate": 2,
+		"actual": 1,
+		"balanceBefore": 4938,
+		"balanceAfter": 4937,
+		"at": "2026-10-29T03:30:39.377Z"
+	},
+	{
+		"item": "E2-head-f1-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"a790c845-cefe-44f4-995c-118896dbed16",
+			"a7b0c719-c886-4f9b-b3c9-b8fae73cffe6",
+			"bba7c00d-b8ee-4600-88d1-dcf2c7be53ad"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4937,
+		"balanceAfter": 4934,
+		"at": "2026-10-29T03:35:54.220Z"
+	},
+	{
+		"item": "E3-head-f1-char",
+		"tool": "create_character",
+		"characterId": "edc53283-a69f-4a8d-a9a9-b8f61d4504c4",
+		"estimate": 2,
+		"actual": 1,
+		"balanceBefore": 4934,
+		"balanceAfter": 4933,
+		"at": "2026-10-29T03:40:34.127Z"
+	},
+	{
+		"item": "E4-walk-S-f1",
+		"tool": "animate_character",
+		"characterId": "edc53283-a69f-4a8d-a9a9-b8f61d4504c4",
+		"estimate": 1,
+		"actual": 1,
+		"balanceBefore": 4933,
+		"balanceAfter": 4932,
+		"at": "2026-10-29T03:42:33.635Z"
+	},
+	{
+		"item": "E5-walk-S-f1-redo",
+		"tool": "animate_character",
+		"characterId": "edc53283-a69f-4a8d-a9a9-b8f61d4504c4",
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4932,
+		"balanceAfter": 4929,
+		"at": "2026-10-29T03:47:37.734Z"
+	},
+	{
+		"item": "F0-outfit-f-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"6eb86d26-b33e-4ef9-9d0f-afc84740ceeb",
+			"77004e79-c1ef-45c2-9fee-ad59e631e51b",
+			"8e78275e-1d52-42d8-8de8-58e2dfce9b13"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4929,
+		"balanceAfter": 4926,
+		"at": "2026-10-29T03:59:09.577Z"
+	},
+	{
+		"item": "F1-outfit-f-char",
+		"tool": "create_character",
+		"characterId": "11591dfe-1117-4c88-8eab-93ae3fa2c926",
+		"estimate": 2,
+		"actual": 1,
+		"balanceBefore": 4926,
+		"balanceAfter": 4925,
+		"at": "2026-10-29T04:01:09.681Z"
+	},
+	{
+		"item": "F2-walk-SEN-outfit-f",
+		"tool": "animate_character",
+		"characterId": "11591dfe-1117-4c88-8eab-93ae3fa2c926",
+		"estimate": 9,
+		"actual": 9,
+		"balanceBefore": 4925,
+		"balanceAfter": 4916,
+		"at": "2026-10-29T04:03:10.912Z"
+	},
+	{
+		"item": "F3-run-E-outfit-f",
+		"tool": "animate_character",
+		"characterId": "11591dfe-1117-4c88-8eab-93ae3fa2c926",
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4916,
+		"balanceAfter": 4913,
+		"at": "2026-10-29T04:05:54.885Z"
+	},
+	{
+		"item": "F4-slash-E-outfit-f",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"3c998f6b-ee74-40d4-b6bc-4bbff1d96bce"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4913,
+		"balanceAfter": 4909,
+		"at": "2026-10-29T04:15:11.840Z"
+	},
+	{
+		"item": "F5-slash-S-outfit-f",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"d406aa8f-7305-4009-aa62-ad07b868cb6a"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4909,
+		"balanceAfter": 4905,
+		"at": "2026-10-29T04:18:39.607Z"
+	},
+	{
+		"item": "E0-base-female-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"1f2683e6-5c0a-45d2-baf7-e70e6c8e610f",
+			"cb9e76f7-3793-4dc1-8719-a4dbb0590ab9",
+			"250c70af-c3d4-477b-bfcf-38f084d3f6e1"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4905,
+		"balanceAfter": 4902,
+		"at": "2026-10-29T04:27:59.674Z"
+	},
+	{
+		"item": "G0-tall-male-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"fab91b99-70c0-4887-ad96-c824730c5050",
+			"3e54da23-7a4c-46ce-a62d-22ea89615f5f",
+			"6c01fba6-8976-40e7-8d87-9b4c57762642"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4902,
+		"balanceAfter": 4899,
+		"at": "2026-10-29T04:38:27.621Z",
+		"rejected": "Chủ dự án 29/10: \"chân tay to hơn xíu nhìn gầy quá\" — tỷ lệ 4 đầu đạt, cần dáng khỏe hơn; thêm athletic / thicker arms and legs vào tallEdit."
+	},
+	{
+		"item": "G0-tall-male-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"52a27b59-8e4c-4098-94e9-7710b30307be",
+			"b1b38375-5967-4b90-bf3c-8eb76bb95fd3",
+			"831b7b03-019b-406a-9264-c8eb8e211d88"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4899,
+		"balanceAfter": 4896,
+		"at": "2026-10-29T04:42:49.488Z"
+	},
+	{
+		"item": "G1-tall-male-ref",
+		"tool": "create_character",
+		"characterId": "2aee2e89-557d-4c85-b5fa-420d17c57384",
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4896,
+		"balanceAfter": 4894,
+		"at": "2026-10-29T04:50:26.928Z"
+	},
+	{
+		"item": "G2-tall-head1-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"a2eebc04-f41f-4f07-b579-1d4e5f243392",
+			"5a131868-227e-4ef9-b731-fdc6fe8993d7",
+			"b32715a9-2ebd-4778-ab1f-e54ddf406aaf"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4894,
+		"balanceAfter": 4891,
+		"at": "2026-10-29T04:55:11.851Z"
+	},
+	{
+		"item": "G3-tall-head1-char",
+		"tool": "create_character",
+		"characterId": "146d58ee-8dc8-4d5f-8626-37a500cf6431",
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4891,
+		"balanceAfter": 4889,
+		"at": "2026-10-29T04:59:58.320Z"
+	},
+	{
+		"item": "G4-tall-walk-S",
+		"tool": "animate_character",
+		"characterId": "146d58ee-8dc8-4d5f-8626-37a500cf6431",
+		"estimate": 2,
+		"actual": 1,
+		"balanceBefore": 4889,
+		"balanceAfter": 4888,
+		"at": "2026-10-29T05:01:57.716Z"
+	},
+	{
+		"item": "G5-tall-walk-S-redo",
+		"tool": "animate_character",
+		"characterId": "146d58ee-8dc8-4d5f-8626-37a500cf6431",
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4888,
+		"balanceAfter": 4885,
+		"at": "2026-10-29T05:05:47.409Z"
+	},
+	{
+		"item": "H0-tall-outfit-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"b0804dc7-fde6-401e-a8c2-bb3a2a989635",
+			"4f2dd4da-b87f-4759-83de-898eb1bca56a",
+			"7cda0ab6-88a2-4680-ba95-a94ddac9b465"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4885,
+		"balanceAfter": 4882,
+		"at": "2026-10-29T05:14:04.077Z"
+	},
+	{
+		"item": "H1-tall-outfit-char",
+		"tool": "create_character",
+		"characterId": "591c0a62-7514-4401-a1e0-b02104d4a609",
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4882,
+		"balanceAfter": 4880,
+		"at": "2026-10-29T07:06:25.863Z"
+	},
+	{
+		"item": "H2-tall-walk-SEN-outfit",
+		"tool": "animate_character",
+		"characterId": "591c0a62-7514-4401-a1e0-b02104d4a609",
+		"estimate": 9,
+		"actual": 9,
+		"balanceBefore": 4880,
+		"balanceAfter": 4871,
+		"at": "2026-10-29T07:09:58.123Z"
+	},
+	{
+		"item": "H3-tall-run-E-outfit",
+		"tool": "animate_character",
+		"characterId": "591c0a62-7514-4401-a1e0-b02104d4a609",
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4871,
+		"balanceAfter": 4868,
+		"at": "2026-10-29T07:11:57.201Z"
+	},
+	{
+		"item": "H4-tall-slash-E-outfit",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"3830b9ae-3f8c-4bc5-9ee2-8b3d993883fc"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4868,
+		"balanceAfter": 4864,
+		"at": "2026-10-29T07:14:22.638Z"
+	},
+	{
+		"item": "H5-tall-slash-S-outfit",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"3e9384e0-479a-4e2a-a52c-68816a43a27e"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4864,
+		"balanceAfter": 4860,
+		"at": "2026-10-29T07:18:42.671Z"
+	},
+	{
+		"item": "H6-tall-slash-S-diag",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"fa32cc5f-c9aa-46fc-a749-6f23668ea09c"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4860,
+		"balanceAfter": 4856,
+		"at": "2026-10-29T10:28:18.559Z"
+	},
+	{
+		"item": "H7-tall-slash-E-pendulum",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"b7a251df-dccc-43fd-9ce1-a35ef2c108bc"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4856,
+		"balanceAfter": 4852,
+		"at": "2026-10-29T10:39:15.888Z"
+	},
+	{
+		"item": "H8-tall-slash-S-axis",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"3ddb4000-4fe1-4f20-ba42-a21edf895349"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4852,
+		"balanceAfter": 4848,
+		"at": "2026-10-29T10:42:08.661Z",
+		"rejected": "29/10 seed 3905: PixelLab tự vẽ cây gậy ngang sau đầu ở khung 5–8 dù prompt cấm (lưu raw/H8-tall-slash-S-axis.stick) — vẽ lại seed 3916"
+	},
+	{
+		"item": "H8-tall-slash-S-axis",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"c61916da-67bb-4335-9e7b-1d71d3c2dbb5"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4848,
+		"balanceAfter": 4844,
+		"at": "2026-10-29T10:47:58.421Z",
+		"rejected": "29/10 seed 3916: vẫn vẽ chuôi gậy ngang sau đầu khung 5–8 (lưu raw/H8-tall-slash-S-axis.seed3916) — do chữ \"sword slash\" trong action"
+	},
+	{
+		"item": "H8-tall-slash-S-axis",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"3481beab-a627-426e-918c-5d45bb83da8d"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4844,
+		"balanceAfter": 4840,
+		"at": "2026-10-29T10:51:24.126Z"
+	},
+	{
+		"item": "I0-tall-female-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"03bbcb30-bd42-487a-beec-6fa106f2b16d",
+			"cd088862-5f16-4558-a6b3-d2c05836baaf",
+			"b45ac9cb-98f8-426e-8bc0-a422aaa16165"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4840,
+		"balanceAfter": 4837,
+		"at": "2026-10-29T11:03:55.407Z",
+		"rejected": "29/10: phóng cả đầu (rộng 26px so với 22–23px) — trái chuẩn một cỡ đầu; lưu raw/I0-tall-female-edit.v1"
+	},
+	{
+		"item": "I0-tall-female-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"9efec930-be49-4d9e-89a7-7401cdc3a23d",
+			"5b010e91-5232-4ec3-8274-9ea01884c0a3",
+			"ac48830f-66f1-4b27-a035-e2c4cfa85db7"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4837,
+		"balanceAfter": 4834,
+		"at": "2026-10-29T11:07:22.055Z",
+		"rejected": "29/10 lượt 2: vẫn phóng đầu 25–27px — bỏ cách kéo dài thân nữ nhỏ, sửa từ thân nam 9404 (I1)"
+	},
+	{
+		"item": "I1-female-from-male-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"dfda215b-6b7e-4b65-b719-86bd4e75cac8",
+			"08ac5a6c-ce09-4233-b2fd-084b06278c55",
+			"967f0b9a-ed04-47d0-b3b1-6cb2716861f2"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4834,
+		"balanceAfter": 4831,
+		"at": "2026-10-29T11:11:11.385Z"
+	},
+	{
+		"item": "I2-tall-female-ref",
+		"tool": "create_character",
+		"characterId": "1c8adaa5-2bf4-49a4-aa50-7902acf8825e",
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4831,
+		"balanceAfter": 4829,
+		"at": "2026-10-29T11:11:37.355Z"
+	},
+	{
+		"item": "I3-tall-head-f2-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"0b31be49-b93b-4999-bb97-8989da3ad3ae",
+			"9408764b-f812-4d78-8d64-605fffa23ed5",
+			"5cd10933-b832-4be9-bdc8-7b61c8be6057"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4829,
+		"balanceAfter": 4826,
+		"at": "2026-10-29T11:17:24.490Z"
+	},
+	{
+		"item": "I3b-tall-head-f2-pixie",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"b7595721-a92c-4e83-8f31-2bdf18a6f473",
+			"27078497-7bc1-439e-9b1a-ea0bcbe5e2ac",
+			"6f120d2c-bb76-4d4b-be89-d20492bac5c7"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4826,
+		"balanceAfter": 4823,
+		"at": "2026-10-29T11:20:55.248Z"
+	},
+	{
+		"item": "I4-tall-head-f2-char",
+		"tool": "create_character",
+		"characterId": "306a7f99-a417-41c8-9d92-77d26bf675ac",
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4823,
+		"balanceAfter": 4821,
+		"at": "2026-10-29T11:21:21.914Z"
+	},
+	{
+		"item": "I5-tall-outfit-f-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"7b709398-3d4c-493c-b906-5863e512e11d",
+			"591660d7-8f47-45e5-9f32-e078b63d43cd",
+			"e46e34c2-bcf3-4405-945d-250cf7dc7df5"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4821,
+		"balanceAfter": 4818,
+		"at": "2026-10-29T11:26:38.940Z"
+	},
+	{
+		"item": "I6-tall-outfit-f-char",
+		"tool": "create_character",
+		"characterId": "9dbca459-6fe7-461d-87eb-18d3fdeaf55d",
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4818,
+		"balanceAfter": 4816,
+		"at": "2026-10-29T11:27:29.188Z"
+	},
+	{
+		"item": "I7-tall-walk-SEN-outfit-f",
+		"tool": "animate_character",
+		"characterId": "9dbca459-6fe7-461d-87eb-18d3fdeaf55d",
+		"estimate": 9,
+		"actual": 9,
+		"balanceBefore": 4816,
+		"balanceAfter": 4807,
+		"at": "2026-10-29T11:29:40.820Z"
+	},
+	{
+		"item": "I8-tall-run-E-outfit-f",
+		"tool": "animate_character",
+		"characterId": "9dbca459-6fe7-461d-87eb-18d3fdeaf55d",
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4807,
+		"balanceAfter": 4804,
+		"at": "2026-10-29T11:31:38.236Z"
+	},
+	{
+		"item": "I9-tall-slash-E-outfit-f",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"1832cb0d-8c82-47b2-8218-b20f9697f571"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4804,
+		"balanceAfter": 4800,
+		"at": "2026-10-29T11:33:40.323Z"
+	},
+	{
+		"item": "I10-tall-slash-S-outfit-f",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"795e37bd-069b-440f-a49c-b74c0d28dc2c"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4800,
+		"balanceAfter": 4796,
+		"at": "2026-10-29T11:36:33.032Z"
+	},
+	{
+		"item": "J0-tall-head2-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"8963df1c-33d8-4b3e-b881-7d060b62cfb6",
+			"18c51d70-67ac-469a-806c-600be7062615",
+			"536eb881-7ff8-404f-8b5f-5b554f0ca96a"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4796,
+		"balanceAfter": 4793,
+		"at": "2026-10-29T12:00:27.655Z"
+	},
+	{
+		"item": "J1-tall-head2-char",
+		"tool": "create_character",
+		"characterId": "0d86e38d-0e2d-4a62-a343-c8f082500535",
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4793,
+		"balanceAfter": 4791,
+		"at": "2026-10-29T12:00:48.672Z"
+	},
+	{
+		"item": "J2-tall-run-E-head2",
+		"tool": "animate_character",
+		"characterId": "0d86e38d-0e2d-4a62-a343-c8f082500535",
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4791,
+		"balanceAfter": 4788,
+		"at": "2026-10-29T12:03:02.976Z"
+	},
+	{
+		"item": "J3-tall-head2f-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"dac1d3fd-1f70-4526-90c9-4b2ea24a647c",
+			"90b28b5a-6f7a-4af8-b012-6d241d7b8170",
+			"4f2a6089-14e7-46ae-b94f-5a5c41b82556"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4788,
+		"balanceAfter": 4785,
+		"at": "2026-10-29T12:24:11.016Z"
+	},
+	{
+		"item": "J4-tall-head2f-char",
+		"tool": "create_character",
+		"characterId": "d58d3ebd-d7a4-4b3b-9736-8ad8a379536c",
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4785,
+		"balanceAfter": 4783,
+		"at": "2026-10-29T12:24:41.025Z"
+	},
+	{
+		"item": "J5-tall-run-E-head2f",
+		"tool": "animate_character",
+		"characterId": "d58d3ebd-d7a4-4b3b-9736-8ad8a379536c",
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4783,
+		"balanceAfter": 4780,
+		"at": "2026-10-29T12:29:02.231Z"
+	},
+	{
+		"item": "J6-tall-head2f-char-redo",
+		"tool": "create_character",
+		"characterId": "b2ec1d25-059d-49c5-892b-1df74b2cf3fe",
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4780,
+		"balanceAfter": 4778,
+		"at": "2026-10-29T12:59:47.314Z"
+	},
+	{
+		"item": "J7-tall-run-E-head2f-redo",
+		"tool": "animate_character",
+		"characterId": "b2ec1d25-059d-49c5-892b-1df74b2cf3fe",
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4778,
+		"balanceAfter": 4775,
+		"at": "2026-10-29T13:02:00.800Z"
+	},
+	{
+		"item": "J8-tall-run-E-head2f-follow",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"367b9f82-15cb-45d2-8bf9-494d3cdb3286"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4774,
+		"balanceAfter": 4771,
+		"at": "2026-10-29T13:13:43.903Z"
+	},
+	{
+		"item": "K0f-demon-outfit-f-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"fd58af41-d5c8-4a69-9288-1d915b74e8d7",
+			"e8b24984-2b68-434e-a4e2-85cd54c2b211",
+			"1ccc8ad8-66cf-45d1-803b-a98b0cab9e1a"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4771,
+		"balanceAfter": 4768,
+		"at": "2026-10-29T13:31:16.753Z"
+	},
+	{
+		"item": "K0m-demon-outfit-m-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"da90be19-70bb-4a9d-adba-83b5ca2c6e59",
+			"d1feb905-d575-4aad-984a-e1753b90a803",
+			"287754a5-133a-484d-af3f-247f50fa94b7"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4768,
+		"balanceAfter": 4765,
+		"at": "2026-10-29T13:36:16.982Z",
+		"rejected": "29/10: PixelLab bỏ mất sừng Ma tộc cả 3 bản khi đổi đồ (lưu raw/K0m-demon-outfit-m-edit.nohorns)"
+	},
+	{
+		"item": "K0m-demon-outfit-m-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"31434430-5205-4ad8-9791-03a50218c6d5",
+			"788250f0-925a-4716-9b51-df0baa874bd6",
+			"3819a5db-9d1d-4c7c-955a-8a5d760fa737"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4765,
+		"balanceAfter": 4762,
+		"at": "2026-10-29T13:40:13.264Z"
+	},
+	{
+		"item": "K1f-demon-outfit-f-char",
+		"tool": "create_character",
+		"characterId": "5171eb0f-9511-435a-a7fa-9cc5a54b5765",
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4762,
+		"balanceAfter": 4760,
+		"at": "2026-10-29T13:40:39.338Z"
+	},
+	{
+		"item": "K1m-demon-outfit-m-char",
+		"tool": "create_character",
+		"characterId": "f7e19d94-fad1-48a5-8a05-6b20a098c268",
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4760,
+		"balanceAfter": 4758,
+		"at": "2026-10-29T13:43:10.418Z"
+	},
+	{
+		"item": "K2f-demon-walk-SEN",
+		"tool": "animate_character",
+		"characterId": "5171eb0f-9511-435a-a7fa-9cc5a54b5765",
+		"estimate": 9,
+		"actual": 10,
+		"balanceBefore": 4758,
+		"balanceAfter": 4748,
+		"at": "2026-10-29T13:46:43.574Z"
+	},
+	{
+		"item": "K3f-demon-run-E",
+		"tool": "animate_character",
+		"characterId": "5171eb0f-9511-435a-a7fa-9cc5a54b5765",
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4748,
+		"balanceAfter": 4745,
+		"at": "2026-10-29T13:49:03.728Z"
+	},
+	{
+		"item": "K2m-demon-walk-SEN",
+		"tool": "animate_character",
+		"characterId": "f7e19d94-fad1-48a5-8a05-6b20a098c268",
+		"estimate": 9,
+		"actual": 9,
+		"balanceBefore": 4745,
+		"balanceAfter": 4736,
+		"at": "2026-10-29T13:51:01.237Z"
+	},
+	{
+		"item": "K3m-demon-run-E",
+		"tool": "animate_character",
+		"characterId": "f7e19d94-fad1-48a5-8a05-6b20a098c268",
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4736,
+		"balanceAfter": 4733,
+		"at": "2026-10-29T13:53:21.338Z"
+	},
+	{
+		"item": "K4f-demon-slash-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"b4acd7be-7b6a-435e-90e6-7c33e4d2b6ac"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4733,
+		"balanceAfter": 4729,
+		"at": "2026-10-29T13:55:04.938Z"
+	},
+	{
+		"item": "K5f-demon-slash-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"c89cafe6-7bcb-4f27-b2e6-10dc5242992d"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4729,
+		"balanceAfter": 4725,
+		"at": "2026-10-29T14:00:18.707Z"
+	},
+	{
+		"item": "K4m-demon-slash-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"05291d9b-2b91-444f-a5e2-aa16722da245"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4725,
+		"balanceAfter": 4721,
+		"at": "2026-10-29T14:02:52.800Z"
+	},
+	{
+		"item": "K5m-demon-slash-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"9d17199e-8a9e-4531-9b26-97fc103bfd4c"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4721,
+		"balanceAfter": 4717,
+		"at": "2026-10-29T14:06:01.944Z"
+	},
+	{
+		"item": "L0-m-human2-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"d097563d-05ce-4b96-893f-34da9671dc0e",
+			"011793e1-2554-45fe-beee-93a8ffba1c7f",
+			"0d156c23-675b-4a51-8a08-b2ff7660387f"
+		],
+		"estimate": 3,
+		"actual": 5,
+		"balanceBefore": 4717,
+		"balanceAfter": 4712,
+		"at": "2026-10-29T14:17:45.239Z",
+		"rejected": "29/10 chủ dự án: \"tóc bồng bềnh nhìn anime tí, tóc xấu vãi\" — mô tả tóc dẹp / tả thực (lưu raw/L0-m-human2-edit.flat) → vẽ lại kiểu bồng như đầu nam 1"
+	},
+	{
+		"item": "L0-m-human3-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"a9c48425-c895-4fde-ae8b-f7c411b6f056",
+			"fb5f025d-2e94-41ee-bff2-f0340a55ea72",
+			"545abe74-2a4c-46e9-a3f5-8baf13a553c3"
+		],
+		"estimate": 3,
+		"actual": 4,
+		"balanceBefore": 4712,
+		"balanceAfter": 4708,
+		"at": "2026-10-29T14:20:18.344Z",
+		"rejected": "29/10 chủ dự án: \"tóc bồng bềnh nhìn anime tí, tóc xấu vãi\" — mô tả tóc dẹp / tả thực (lưu raw/L0-m-human3-edit.flat) → vẽ lại kiểu bồng như đầu nam 1"
+	},
+	{
+		"item": "L0-m-elf1-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"59e4301c-18ea-4383-a30a-53a46e1e2772",
+			"1760f38d-79ed-44ee-875a-4cedda5fcd55",
+			"02324e4b-49df-400d-be32-e1630d45606b"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4708,
+		"balanceAfter": 4705,
+		"at": "2026-10-29T14:22:51.112Z",
+		"rejected": "29/10 chủ dự án: \"tóc bồng bềnh nhìn anime tí, tóc xấu vãi\" — mô tả tóc dẹp / tả thực (lưu raw/L0-m-elf1-edit.flat) → vẽ lại kiểu bồng như đầu nam 1"
+	},
+	{
+		"item": "L0-m-elf2-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"ee4361df-34f6-48e9-8670-6ee3e981a1a4",
+			"08168d25-1278-4ea5-9523-5aba1497160f",
+			"acd07347-5e64-455c-9271-ed9aaa3fac65"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4705,
+		"balanceAfter": 4702,
+		"at": "2026-10-29T14:25:22.949Z",
+		"rejected": "29/10 chủ dự án: \"tóc bồng bềnh nhìn anime tí, tóc xấu vãi\" — mô tả tóc dẹp / tả thực (lưu raw/L0-m-elf2-edit.flat) → vẽ lại kiểu bồng như đầu nam 1"
+	},
+	{
+		"item": "L0-m-elf3-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"4137aea8-1374-46e4-bf7a-a10b9c5047e4",
+			"408dd93d-454d-496b-8f2a-75ec0d2eebf0",
+			"08c40600-2ee9-4e61-9e16-0a2ffbd37c42"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4702,
+		"balanceAfter": 4699,
+		"at": "2026-10-29T14:27:56.356Z",
+		"rejected": "29/10 chủ dự án: \"tóc bồng bềnh nhìn anime tí, tóc xấu vãi\" — mô tả tóc dẹp / tả thực (lưu raw/L0-m-elf3-edit.flat) → vẽ lại kiểu bồng như đầu nam 1"
+	},
+	{
+		"item": "L0-m-demon2-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"6e7592cb-dcee-46d8-9081-399535f96cb6",
+			"c6baa99e-b332-4a5d-ac4e-f3374dd7d99e",
+			"8157f64d-0d94-4e76-831e-b5915ea2effa"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4699,
+		"balanceAfter": 4696,
+		"at": "2026-10-29T14:30:47.017Z",
+		"rejected": "29/10 chủ dự án: \"tóc bồng bềnh nhìn anime tí, tóc xấu vãi\" — mô tả tóc dẹp / tả thực (lưu raw/L0-m-demon2-edit.flat) → vẽ lại kiểu bồng như đầu nam 1"
+	},
+	{
+		"item": "L0-m-demon3-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"101ffa92-1a97-4cc4-93dd-3a6eb7b1315e",
+			"7f582b46-b7ba-4e82-8d56-8cecde1842c9",
+			"f8399ccd-65ae-400b-acd7-6ebf8af4ac0e"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4696,
+		"balanceAfter": 4693,
+		"at": "2026-10-29T14:33:59.814Z",
+		"rejected": "29/10 chủ dự án: \"tóc bồng bềnh nhìn anime tí, tóc xấu vãi\" — mô tả tóc dẹp / tả thực (lưu raw/L0-m-demon3-edit.flat) → vẽ lại kiểu bồng như đầu nam 1"
+	},
+	{
+		"item": "L0-m-human2-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"5766f3a4-c5f6-4c40-81d4-81a54e286158",
+			"a959842f-2831-4099-8aa0-100b39ef7d77",
+			"49450a69-1ef5-4473-862f-b9715ada5050"
+		],
+		"estimate": 3,
+		"actual": 4,
+		"balanceBefore": 4692,
+		"balanceAfter": 4688,
+		"at": "2026-10-29T14:38:41.795Z"
+	},
+	{
+		"item": "L0-m-human3-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"c00a9ca7-7831-4a53-8fea-12a4f17ae739",
+			"35bffed5-0128-4ff8-a8ec-cedf17b9f726",
+			"ecc5a06a-525a-4dfe-b6d2-cab5cf0be64c"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4688,
+		"balanceAfter": 4685,
+		"at": "2026-10-29T14:41:14.600Z"
+	},
+	{
+		"item": "L0-m-elf1-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"6f4dfc8a-514a-497a-9618-4eb699a5a695",
+			"22cbcfb1-384e-45e6-839d-3cf222abfe35",
+			"be963ada-702b-4662-8f89-cebe95dba7ad"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4685,
+		"balanceAfter": 4682,
+		"at": "2026-10-29T14:43:50.986Z"
+	},
+	{
+		"item": "L0-m-elf2-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"2eafedca-43a0-464f-8833-cf7cee9dfe1a",
+			"51f09677-4c40-4ebf-8243-821bb183d443",
+			"58686579-fd41-4b3a-ad92-5921bb049621"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4682,
+		"balanceAfter": 4679,
+		"at": "2026-10-29T14:47:17.665Z"
+	},
+	{
+		"item": "L0-m-elf3-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"dcca2b4f-3671-4370-9421-57cc7ce75e7f",
+			"cb7565b3-58d3-4904-ba37-718d2f0686e8",
+			"76e1d123-1dc1-4dd7-b500-85b43924fbc8"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4679,
+		"balanceAfter": 4676,
+		"at": "2026-10-29T14:50:07.558Z"
+	},
+	{
+		"item": "L0-m-demon2-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"e825420f-1885-409e-bb42-edc8523c174c",
+			"1c355578-d129-4d86-97cd-9e2239f0113a",
+			"ca4c3280-a276-4e29-ab24-029b60ac65f6"
+		],
+		"estimate": 3,
+		"actual": 6,
+		"balanceBefore": 4676,
+		"balanceAfter": 4670,
+		"at": "2026-10-29T14:53:38.682Z"
+	},
+	{
+		"item": "L0-m-demon3-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"54df6d1f-76a6-4adc-9f02-83d78c1a22fb",
+			"e11c2cdd-3309-4970-8fb6-3d892e7df21d",
+			"0c8707a9-5028-448c-99e8-5b856e1869ce"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4670,
+		"balanceAfter": 4667,
+		"at": "2026-10-29T14:57:58.854Z"
+	},
+	{
+		"item": "L0-m-beast1-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"cf25e3a0-eef6-4128-9c7a-42955149bb5a",
+			"4a53b67c-ce5c-402e-ab1c-3a48af603b4c",
+			"81f4dc40-76ca-4c61-b89b-1b8ad5098141"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4667,
+		"balanceAfter": 4664,
+		"at": "2026-10-29T15:00:30.779Z"
+	},
+	{
+		"item": "L0-m-beast2-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"8406bb2b-1bff-4a4f-b52f-583ec7617397",
+			"f94f9ce8-fd42-40cc-a4d6-7a3dc102f146",
+			"6789f1be-1541-4325-abb9-960a2856d29e"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4664,
+		"balanceAfter": 4661,
+		"at": "2026-10-29T15:03:02.390Z"
+	},
+	{
+		"item": "L0-m-beast3-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"64203770-6e76-446c-979b-0a1519c58606",
+			"24a2a219-a67c-4843-bb7d-5b226df4ff99",
+			"7eafb196-cc6d-40ee-a1cf-f8295de15a01"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4661,
+		"balanceAfter": 4658,
+		"at": "2026-10-29T15:05:35.783Z"
+	},
+	{
+		"item": "L0-m-dragon1-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"70906b56-96b5-42af-81a6-4d6d17f52ed0",
+			"652aab1c-f3c8-4327-b2cd-e3b2a9676f81",
+			"1aba68a6-4fc8-44f6-bc2e-3bcc51fbf921"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4658,
+		"balanceAfter": 4655,
+		"at": "2026-10-29T15:08:25.210Z"
+	},
+	{
+		"item": "L0-m-dragon2-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"28d7703e-0a0c-4b7b-b0e8-ef77cacc1f6b",
+			"aea6dfa7-790f-4bf2-9555-1e27a80acfd7",
+			"fb198a4e-5588-46ec-a412-6617e0f77c37"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4655,
+		"balanceAfter": 4652,
+		"at": "2026-10-29T15:12:09.185Z"
+	},
+	{
+		"item": "L0-m-dragon3-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"51a4b65c-78bd-4b57-a0a7-dc746e97938b",
+			"3b33db24-50a5-4a7a-b2f1-4f8d9c1d7b5f",
+			"7b619674-f5b7-4819-b530-74b58385c6b6"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4652,
+		"balanceAfter": 4649,
+		"at": "2026-10-29T15:14:58.728Z"
+	},
+	{
+		"item": "L1-m-human2-bare",
+		"tool": "create_character",
+		"characterId": "05e673e3-862f-4040-a2c6-a174f86a57e5",
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4649,
+		"balanceAfter": 4647,
+		"at": "2026-10-29T15:15:45.198Z"
+	},
+	{
+		"item": "L1-m-human3-bare",
+		"tool": "create_character",
+		"characterId": "65569cc9-408a-43a6-89db-179757b2462a",
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4647,
+		"balanceAfter": 4645,
+		"at": "2026-10-29T15:18:17.114Z"
+	},
+	{
+		"item": "L1-m-elf1-bare",
+		"tool": "create_character",
+		"characterId": "e3d95db5-7fdd-492b-aac6-c3b6aff2a956",
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4645,
+		"balanceAfter": 4643,
+		"at": "2026-10-29T15:20:16.696Z"
+	},
+	{
+		"item": "L1-m-elf2-bare",
+		"tool": "create_character",
+		"characterId": "6ba8dd2d-32b8-492f-96b2-d3572d742457",
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4643,
+		"balanceAfter": 4641,
+		"at": "2026-10-29T15:23:19.399Z"
+	},
+	{
+		"item": "L1-m-elf3-bare",
+		"tool": "create_character",
+		"characterId": "31c5207b-d8db-4807-bd09-0853259a5e36",
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4641,
+		"balanceAfter": 4639,
+		"at": "2026-10-29T15:25:50.485Z"
+	},
+	{
+		"item": "L1-m-demon2-bare",
+		"tool": "create_character",
+		"characterId": "dc005f5f-3b21-454a-8c7e-9ca9c47153ff",
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4639,
+		"balanceAfter": 4637,
+		"at": "2026-10-29T15:28:21.512Z"
+	},
+	{
+		"item": "L1-m-demon3-bare",
+		"tool": "create_character",
+		"characterId": "328bc711-c1f8-491f-a3c2-04c4eca06fc6",
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4637,
+		"balanceAfter": 4635,
+		"at": "2026-10-29T15:30:20.884Z"
+	},
+	{
+		"item": "L1-m-beast1-bare",
+		"tool": "create_character",
+		"characterId": "25a95c5b-bff0-4012-af80-2950d91578ff",
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4635,
+		"balanceAfter": 4633,
+		"at": "2026-10-29T15:33:00.973Z"
+	},
+	{
+		"item": "L1-m-beast2-bare",
+		"tool": "create_character",
+		"characterId": "5b15acb2-1709-410c-836c-7b0e8ca201f1",
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4633,
+		"balanceAfter": 4631,
+		"at": "2026-10-29T15:35:31.906Z"
+	},
+	{
+		"item": "L1-m-beast3-bare",
+		"tool": "create_character",
+		"characterId": "b9ca9fbd-0023-45f5-b843-f377e52bf516",
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4631,
+		"balanceAfter": 4629,
+		"at": "2026-10-29T15:38:02.567Z"
+	},
+	{
+		"item": "L1-m-dragon1-bare",
+		"tool": "create_character",
+		"characterId": "11db5856-3527-4d70-b3b0-2dc8ac1596ce",
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4629,
+		"balanceAfter": 4627,
+		"at": "2026-10-29T15:40:34.156Z"
+	},
+	{
+		"item": "L1-m-dragon2-bare",
+		"tool": "create_character",
+		"characterId": "4b8f830d-8084-447d-92e1-2748a139515b",
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4627,
+		"balanceAfter": 4625,
+		"at": "2026-10-29T15:43:38.256Z"
+	},
+	{
+		"item": "L1-m-dragon3-bare",
+		"tool": "create_character",
+		"characterId": "021a1ccc-c919-46af-a1e2-c60cc0cdc86c",
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4625,
+		"balanceAfter": 4623,
+		"at": "2026-10-29T15:45:37.979Z"
+	},
+	{
+		"item": "M0-f-elf1-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"bd1fc9aa-2d90-436a-86ff-33a34415629c",
+			"d3f98c09-64d4-4921-8143-bc638aaa0cb6",
+			"617a7161-0637-4e18-8653-4beda501476d"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4623,
+		"balanceAfter": 4620,
+		"at": "2026-10-29T23:36:23.795Z",
+		"rejected": "30/10: chủ dự án bảo làm hẳn hoi bộ NAM trước (\"ok là bạn sửa lại nam\") — thử đầu nữ dừng, chặng M gỡ khỏi plan; ảnh giữ ở raw/M0-f-elf1-edit, chưa dùng"
+	},
+	{
+		"item": "P0-m-elf1-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"a765436c-ba81-4f21-95ac-4e6c7d743024",
+			"aca013c8-e0dc-475c-be5b-02a90493dc12"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4620,
+		"balanceAfter": 4618,
+		"at": "2026-10-30T00:40:40.486Z"
+	},
+	{
+		"item": "P0-m-elf1-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"004f1358-5874-4517-881a-2b391fd27214",
+			"440cdea2-f68a-419a-8f39-7914d9b84df2"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4618,
+		"balanceAfter": 4616,
+		"at": "2026-10-30T00:43:51.964Z"
+	},
+	{
+		"item": "P0-m-elf1-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"91c177c6-12cd-4464-9cb4-88dc2eed8045",
+			"2e892018-d847-422e-9950-52664f91f328"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4616,
+		"balanceAfter": 4614,
+		"at": "2026-10-30T00:46:26.989Z",
+		"rejected": "30/10: PixelLab quay mặt ra trước khi sửa ảnh nhìn sau lưng — vẽ lại ghi rõ BACK VIEW"
+	},
+	{
+		"item": "P0-m-beast1-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"38bf273c-a242-4e5a-8b66-3af9d6853673",
+			"9dc73305-d9c4-4f66-92d0-034092dc803a"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4614,
+		"balanceAfter": 4612,
+		"at": "2026-10-30T00:50:01.111Z"
+	},
+	{
+		"item": "P0-m-beast1-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"0c5d3b6f-b259-45f7-94f7-03355716e35f",
+			"d42b3719-8c50-442c-843f-bb942fb56c39"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4612,
+		"balanceAfter": 4610,
+		"at": "2026-10-30T00:52:19.818Z"
+	},
+	{
+		"item": "P0-m-beast1-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"b9b16ed8-797c-417b-808b-12459704ca35",
+			"0b7b589d-9a63-4a8c-a3b0-c66aa987aa5a"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4610,
+		"balanceAfter": 4608,
+		"at": "2026-10-30T00:54:55.814Z",
+		"rejected": "30/10: PixelLab quay mặt ra trước khi sửa ảnh nhìn sau lưng — vẽ lại ghi rõ BACK VIEW"
+	},
+	{
+		"item": "P0-m-elf1-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"4b360ceb-46a6-4951-b62f-76611c313393",
+			"51f0d946-5ca5-4a71-9584-e25e573bee35"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4608,
+		"balanceAfter": 4606,
+		"at": "2026-10-30T00:57:54.843Z"
+	},
+	{
+		"item": "P0-m-beast1-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"d17c8fd9-1b0c-404c-b9fa-bce344e96d62",
+			"8afdb58a-1b44-4ae7-88a8-be1aea7fc1ef"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4606,
+		"balanceAfter": 4604,
+		"at": "2026-10-30T01:00:32.699Z",
+		"rejected": "30/10: tóc sói nhìn sau lưng xoè chạm vai (cấm tóc chạm cổ / vai) — vẽ lại ghi rõ gáy ngắn"
+	},
+	{
+		"item": "Q0-outfit-bald-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"1c85bd89-92fc-4a7c-96d4-e68b9e05486e",
+			"8510d187-8f66-4e8c-ab86-f6487366e387"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4604,
+		"balanceAfter": 4602,
+		"at": "2026-10-30T01:09:35.444Z"
+	},
+	{
+		"item": "Q1-run-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"7570cef9-d0d8-440d-a379-ba4b7cbae865"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4602,
+		"balanceAfter": 4599,
+		"at": "2026-10-30T01:12:35.891Z",
+		"rejected": "30/10: H1 chạy E cúi đầu — thân vẽ cổ vươn chéo, đầu thật lộ cổ dài sau gáy (chủ dự án: \"vẫn thấy lệch đầu\"); vẽ lại với khung xương đầu thẳng"
+	},
+	{
+		"item": "Q0-outfit-bald-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"09629356-2fb3-4044-aabe-38946b9b5690",
+			"ec256c80-0896-444f-a44c-380225c9eab6"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4599,
+		"balanceAfter": 4597,
+		"at": "2026-10-30T01:21:27.790Z"
+	},
+	{
+		"item": "Q0-outfit-bald-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"f36adfa6-3d81-4fca-8b86-b9bad252f465",
+			"11acf307-9381-4318-82bc-3b1d16d242f5"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4597,
+		"balanceAfter": 4595,
+		"at": "2026-10-30T01:24:02.978Z"
+	},
+	{
+		"item": "Q2-walk-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"7cac2059-5d9a-482f-8427-caf1476dbf65"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4595,
+		"balanceAfter": 4592,
+		"at": "2026-10-30T01:25:55.532Z"
+	},
+	{
+		"item": "Q2-walk-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"627dcaa8-2acb-4873-b67f-b465404ff758"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4592,
+		"balanceAfter": 4589,
+		"at": "2026-10-30T01:27:47.851Z"
+	},
+	{
+		"item": "Q2-walk-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"1f8efb53-ab5b-4399-a11b-0537780adbba"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4589,
+		"balanceAfter": 4586,
+		"at": "2026-10-30T01:30:09.772Z"
+	},
+	{
+		"item": "Q3-slash-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"322cf89b-711d-42b2-a85e-6acaf63e83cf"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4586,
+		"balanceAfter": 4582,
+		"at": "2026-10-30T01:33:15.034Z"
+	},
+	{
+		"item": "Q3-slash-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"eeea41c8-3236-4f0f-a2fb-8e65e10ac7ba"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4582,
+		"balanceAfter": 4578,
+		"at": "2026-10-30T01:37:34.922Z"
+	},
+	{
+		"item": "P0-m-human1-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"c72ed88d-2fc5-4cc2-85a0-68485ae95998",
+			"818fc6c1-093d-430a-8593-5bfa72abb1b1"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4578,
+		"balanceAfter": 4576,
+		"at": "2026-10-30T02:04:16.223Z"
+	},
+	{
+		"item": "P0-m-human1-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"178d6b0f-3404-44d1-9b89-8827a70c54cc",
+			"97338310-3403-41e2-832d-dd2b262b4abc"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4576,
+		"balanceAfter": 4574,
+		"at": "2026-10-30T02:05:58.251Z"
+	},
+	{
+		"item": "P0-m-human1-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"4b348dae-b195-4d42-bc5a-e6da4304b5ac",
+			"1c29f9b1-8127-4cab-ac85-b3a57916a7a7"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4574,
+		"balanceAfter": 4572,
+		"at": "2026-10-30T02:07:58.130Z"
+	},
+	{
+		"item": "P0-m-demon1-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"55c22398-a252-42e5-9cea-0fbcd52e4253",
+			"2b712bff-1c8e-4add-877f-a0eedbd7013a"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4572,
+		"balanceAfter": 4570,
+		"at": "2026-10-30T02:09:57.796Z"
+	},
+	{
+		"item": "P0-m-demon1-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"452c13cd-a21e-4324-8a64-7b4b642c4e9d",
+			"0d0e0335-4998-451a-864e-f1523f43a1c1"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4570,
+		"balanceAfter": 4568,
+		"at": "2026-10-30T02:11:58.148Z"
+	},
+	{
+		"item": "P0-m-demon1-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"ace2e929-2523-4d9e-b9b0-f4a2e767940d",
+			"fa4cefeb-0176-4733-94f6-3b7ad924644c"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4568,
+		"balanceAfter": 4566,
+		"at": "2026-10-30T02:13:57.882Z",
+		"rejected": "30/10: nhìn sau lưng mất sừng Ma tộc (cả 5841 / 5842) — vẽ lại ghi rõ sừng thấy từ phía sau"
+	},
+	{
+		"item": "P0-m-human2-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"427ebbb4-5b53-4ebf-821b-615fbfdc464c",
+			"fbf001f5-eabd-44e5-bf4c-571311bcdc24"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4566,
+		"balanceAfter": 4564,
+		"at": "2026-10-30T02:16:15.326Z"
+	},
+	{
+		"item": "P0-m-human2-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"4979221e-38ef-4602-aef1-12df278b44af",
+			"95b40381-e3b1-4ab9-b7f1-e7c73ef85477"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4564,
+		"balanceAfter": 4562,
+		"at": "2026-10-30T02:18:50.666Z"
+	},
+	{
+		"item": "P0-m-human2-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"57a6d211-de44-424f-b596-a63b3a7002e3",
+			"ba550f2d-8a90-4f3e-a394-ad1579d6d477"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4562,
+		"balanceAfter": 4560,
+		"at": "2026-10-30T02:20:32.780Z"
+	},
+	{
+		"item": "P0-m-human3-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"2cd6552d-5571-4e8f-a94f-b8c178f4454b",
+			"220bbae3-a0ec-4209-9297-d6a7075f5fe4"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4560,
+		"balanceAfter": 4558,
+		"at": "2026-10-30T02:22:35.267Z"
+	},
+	{
+		"item": "P0-m-human3-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"b7e6181a-32fa-4d56-9a5e-0c51402cb1ae",
+			"979818ba-09c2-47a2-94db-39c732b04282"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4558,
+		"balanceAfter": 4556,
+		"at": "2026-10-30T02:24:35.249Z"
+	},
+	{
+		"item": "P0-m-human3-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"7ec04970-9798-46c0-85a7-a6d88e65d3c8",
+			"d1540c55-a885-4650-b6e8-b3a6a7bf78a7"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4556,
+		"balanceAfter": 4554,
+		"at": "2026-10-30T02:27:47.106Z"
+	},
+	{
+		"item": "P0-m-beast1-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"c93f3f70-c930-4ac9-9b2c-0f5e74b62a95",
+			"bc31636d-ffa6-4f3d-9689-c9ec22ea0dba"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4554,
+		"balanceAfter": 4552,
+		"at": "2026-10-30T02:29:47.403Z",
+		"rejected": "30/10: gáy ngắn đạt nhưng mất tai sói (cả 5615 / 5616) — vẽ lại ghi rõ tai dựng thấy từ phía sau"
+	},
+	{
+		"item": "P0-m-demon1-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"f5e02649-a3d3-4e37-81a7-c6dfaae2f430",
+			"82466ed0-d686-4d09-8484-feb0707cc46a"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4552,
+		"balanceAfter": 4550,
+		"at": "2026-10-30T02:32:53.962Z"
+	},
+	{
+		"item": "P0-m-beast1-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"d83e5b5d-9dd1-43fe-ac87-a6e88097f9ee",
+			"de2f7242-c434-42d1-8c17-572c355f9b3d"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4550,
+		"balanceAfter": 4548,
+		"at": "2026-10-30T02:35:11.377Z"
+	},
+	{
+		"item": "P0-m-elf2-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"7478864e-f8c4-4875-889e-f01793f74c26",
+			"63718025-0ec5-4170-ac9b-540d27958f20"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4548,
+		"balanceAfter": 4546,
+		"at": "2026-10-30T03:04:22.281Z"
+	},
+	{
+		"item": "P0-m-elf2-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"2a571f93-8d44-454c-b78e-de5b92ccdeb3",
+			"86f44b7e-3fc9-4a62-89f3-02657cf4d810"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4546,
+		"balanceAfter": 4544,
+		"at": "2026-10-30T03:06:22.248Z"
+	},
+	{
+		"item": "P0-m-elf2-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"4d382a76-37b7-4951-baf8-81f9a1d518c2",
+			"e059add4-5f2a-4b7f-bad3-aed82e8717a8"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4544,
+		"balanceAfter": 4542,
+		"at": "2026-10-30T03:08:05.521Z"
+	},
+	{
+		"item": "P0-m-elf3-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"b5078147-a080-487b-91ee-d064da1632ad",
+			"18eace44-3de5-47c9-906f-91f65fc33c3f"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4542,
+		"balanceAfter": 4540,
+		"at": "2026-10-30T03:09:29.925Z"
+	},
+	{
+		"item": "P0-m-elf3-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"4ad21888-04d4-4483-bbd2-48f0dbadedfa",
+			"a61859c8-d01c-4f71-b4d5-89bcdb30f597"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4540,
+		"balanceAfter": 4538,
+		"at": "2026-10-30T03:11:47.622Z"
+	},
+	{
+		"item": "P0-m-elf3-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"c4c69115-590d-4215-bfcf-186009620545",
+			"83dfd1c5-2f5d-455c-afcd-96b47e006b60"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4538,
+		"balanceAfter": 4536,
+		"at": "2026-10-30T03:13:47.334Z"
+	},
+	{
+		"item": "P0-m-demon2-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"76eba622-03d9-4fe7-88ff-c723136cbdf0",
+			"8e24ab68-ce68-4902-b76e-6f21a7a01419"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4536,
+		"balanceAfter": 4534,
+		"at": "2026-10-30T03:16:22.651Z",
+		"rejected": "30/10: sừng đen mảnh lẫn vào tóc đen tím (5891 mất sừng, 5892 chỉ là gai mảnh) — vẽ lại sừng màu xương nhạt"
+	},
+	{
+		"item": "P0-m-demon2-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"4a3a0d08-c397-4023-83d2-442a776432ff",
+			"d8b05e53-ed44-4521-999b-0a250cd36b7c"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4534,
+		"balanceAfter": 4532,
+		"at": "2026-10-30T03:18:04.821Z",
+		"rejected": "30/10: sừng đen lẫn vào tóc — vẽ lại sừng màu xương nhạt cùng chính diện"
+	},
+	{
+		"item": "P0-m-demon2-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"71453903-b3c3-4f6f-8192-ee7b17e19afe",
+			"7ecc2cce-0edd-4f33-a514-16f0c907b2f3"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4532,
+		"balanceAfter": 4530,
+		"at": "2026-10-30T03:20:22.313Z",
+		"rejected": "30/10: nhìn sau lưng mất sừng Ma tộc (cả 5891 / 5892) — vẽ lại ghi rõ sừng nhô khỏi tóc thấy từ phía sau"
+	},
+	{
+		"item": "P0-m-demon3-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"87db5784-4158-40dc-afc4-70c741369115",
+			"0349ca24-95df-42a1-96f0-c507302c3930"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4530,
+		"balanceAfter": 4528,
+		"at": "2026-10-30T03:22:40.781Z"
+	},
+	{
+		"item": "P0-m-demon3-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"186db351-c318-4882-9d00-e8840711d5b9",
+			"8c0013a3-f832-4500-ba4f-ed4bcab5947c"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4528,
+		"balanceAfter": 4526,
+		"at": "2026-10-30T03:27:20.069Z"
+	},
+	{
+		"item": "P0-m-demon3-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"ade371ea-6383-4cd2-81ca-2a2217c32031",
+			"6e6df8cd-e704-4bb5-952d-0f50ab05e320"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4526,
+		"balanceAfter": 4524,
+		"at": "2026-10-30T03:29:20.004Z"
+	},
+	{
+		"item": "P0-m-demon2-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"05381f27-c651-4b43-94c5-8d0b3aeb37d5",
+			"8d565a72-69eb-430f-bbac-7e004ef02d0f"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4524,
+		"balanceAfter": 4522,
+		"at": "2026-10-30T03:32:29.485Z",
+		"rejected": "30/10: lượt 2 (5895 / 5896) vẫn mất sừng — vẽ lại sừng màu xương nhạt"
+	},
+	{
+		"item": "P0-m-demon2-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"080628a0-0f9c-48c9-8868-eee705e0f675",
+			"03fd275c-fc6a-4218-a65a-12d9c07377c6"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4522,
+		"balanceAfter": 4520,
+		"at": "2026-10-30T03:36:57.568Z"
+	},
+	{
+		"item": "P0-m-demon2-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"b168253f-b7d7-457c-9891-53d1bba4410a",
+			"c4d2d663-d4a0-4f26-b0a5-df0dd0aa1bbd"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4520,
+		"balanceAfter": 4518,
+		"at": "2026-10-30T03:39:50.465Z"
+	},
+	{
+		"item": "P0-m-demon2-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"0fc571bd-f78d-4d45-aa92-3ff05a9be148",
+			"6ee25e68-232c-4dad-8659-b331fa6f0d1d"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4518,
+		"balanceAfter": 4516,
+		"at": "2026-10-30T03:41:34.382Z"
+	},
+	{
+		"item": "P0-m-beast2-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"b56c9c73-17f6-4ad7-adce-e1c13530480a",
+			"a55a1e90-3508-4070-9a7e-fa3a389f95a6"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4516,
+		"balanceAfter": 4514,
+		"at": "2026-10-30T04:07:00.545Z"
+	},
+	{
+		"item": "P0-m-beast2-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"08a8dede-f666-4ef6-bb16-00c7ca43f06e",
+			"39472a60-90d9-4861-a74c-70e9b6235877"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4514,
+		"balanceAfter": 4512,
+		"at": "2026-10-30T04:08:42.688Z"
+	},
+	{
+		"item": "P0-m-beast2-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"baffb590-fc2d-4cf1-aaf5-d975f97840cb",
+			"7869ba0e-834c-4b4f-a8e3-a677955ad444"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4512,
+		"balanceAfter": 4510,
+		"at": "2026-10-30T04:10:42.939Z"
+	},
+	{
+		"item": "P0-m-beast3-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"158f30ff-6307-4a4c-bbd7-1e137c51f2fd",
+			"25f58aaa-c36a-4a55-acd7-c5528549a1b6"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4510,
+		"balanceAfter": 4508,
+		"at": "2026-10-30T04:13:18.652Z"
+	},
+	{
+		"item": "P0-m-beast3-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"a10bccab-8fa8-45d4-8e10-58a83f79873d",
+			"a7ae6bdf-3895-406f-a39e-549c8d577a95"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4508,
+		"balanceAfter": 4506,
+		"at": "2026-10-30T04:15:18.293Z"
+	},
+	{
+		"item": "P0-m-beast3-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"c596964e-8568-4dd3-96ce-0969a0776a6b",
+			"93f4b373-2979-46f2-8956-e579401b8d45"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4506,
+		"balanceAfter": 4504,
+		"at": "2026-10-30T04:18:12.360Z"
+	},
+	{
+		"item": "P0-m-dragon1-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"7e0319b2-21e1-4068-a142-34f970b69843",
+			"8e24e02f-fab0-42a3-bde8-7151a353b3e0"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4504,
+		"balanceAfter": 4502,
+		"at": "2026-10-30T04:20:16.662Z"
+	},
+	{
+		"item": "P0-m-dragon1-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"d951a41f-b6ce-43c1-b513-cec45e2679a0",
+			"e734863c-c20c-465c-b261-dea529e8dee0"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4502,
+		"balanceAfter": 4500,
+		"at": "2026-10-30T04:22:51.723Z"
+	},
+	{
+		"item": "P0-m-dragon1-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"1faebf1e-d900-4c41-911d-6dfb227e2ed3",
+			"517cafea-0521-4638-ae01-3972de36ba63"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4500,
+		"balanceAfter": 4498,
+		"at": "2026-10-30T04:24:33.770Z"
+	},
+	{
+		"item": "P0-m-dragon2-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"0649b2e8-f3ea-4ba8-9e1e-dbb7d256c303",
+			"6df7b8bc-c177-4db2-8e81-fd3ba7bd70ca"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4498,
+		"balanceAfter": 4496,
+		"at": "2026-10-30T04:26:16.404Z"
+	},
+	{
+		"item": "P0-m-dragon2-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"36c22ce4-8b77-4ace-a550-c84c23f95a09",
+			"1f22924a-acd9-43cc-9c55-7140adc34e45"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4496,
+		"balanceAfter": 4494,
+		"at": "2026-10-30T04:28:51.640Z"
+	},
+	{
+		"item": "P0-m-dragon2-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"79210cdc-d76c-4f73-8985-71f216c2f948",
+			"f18a0dbd-d952-4b5e-ae00-841d2cf053ac"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4494,
+		"balanceAfter": 4492,
+		"at": "2026-10-30T04:30:33.603Z"
+	},
+	{
+		"item": "P0-m-dragon3-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"8412ec39-07d9-4103-9975-c25a82a0e65e",
+			"ede088e5-0811-4105-8576-fe42710fbf33"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4492,
+		"balanceAfter": 4490,
+		"at": "2026-10-30T04:34:04.775Z"
+	},
+	{
+		"item": "P0-m-dragon3-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"66ea9f40-dd56-4bdd-a7c6-dc54006a7f04",
+			"6b823011-5595-4532-ab34-aa8869882a92"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4490,
+		"balanceAfter": 4488,
+		"at": "2026-10-30T04:35:46.867Z"
+	},
+	{
+		"item": "P0-m-dragon3-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"4bdfe9e5-d1f2-40a4-a622-7b1fb5c16377",
+			"4c8eb5eb-8e8a-46ac-8dfa-ed6b2934d99a"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4488,
+		"balanceAfter": 4486,
+		"at": "2026-10-30T04:37:28.896Z"
+	},
+	{
+		"item": "Q3-slash-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"f174a334-f176-4482-a97a-7dded3152040"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4486,
+		"balanceAfter": 4482,
+		"at": "2026-10-30T05:17:12.467Z",
+		"rejected": "30/10: hai tay bắt chéo sau lưng ở khung kiếm trước người — vẽ lại với khuỷu hai bên sườn, cẳng tay khuất"
+	},
+	{
+		"item": "Q4-h1-run-SN",
+		"tool": "animate_character",
+		"characterId": "591c0a62-7514-4401-a1e0-b02104d4a609",
+		"estimate": 6,
+		"actual": 6,
+		"balanceBefore": 4482,
+		"balanceAfter": 4476,
+		"at": "2026-10-30T05:19:46.003Z"
+	},
+	{
+		"item": "Q5-run-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"2c88b1f4-9dfa-4628-b81d-723a26b7d8a3"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4474,
+		"balanceAfter": 4471,
+		"at": "2026-10-30T05:22:57.092Z",
+		"rejected": "30/10: đầu trọc cúi theo khung xương H1 chạy S — mặt tụt thấp, cắt đầu sót nửa mặt; vẽ lại với khung xương đầu thẳng"
+	},
+	{
+		"item": "Q5-run-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"0b9a5a85-f1bd-444c-bb57-da82fd7ae917"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4471,
+		"balanceAfter": 4468,
+		"at": "2026-10-30T05:25:06.949Z"
+	},
+	{
+		"item": "Q5-run-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"9b9e6e20-e24c-4185-9d63-541371f4a104"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4468,
+		"balanceAfter": 4465,
+		"at": "2026-10-30T05:29:39.507Z"
+	},
+	{
+		"item": "Q3-slash-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"dea7497c-86a0-432b-8f3d-a907cb73e4a6"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4465,
+		"balanceAfter": 4461,
+		"at": "2026-10-30T05:35:20.755Z"
+	},
+	{
+		"item": "Q1-run-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"097fa4fa-6cff-4b3b-b3bb-54dbb6a4e58b"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4461,
+		"balanceAfter": 4458,
+		"at": "2026-10-30T10:25:18.472Z"
+	},
+	{
+		"item": "R0-mage-outfit-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"21f766fb-0a14-4ffe-bcc6-e01ad25faa15",
+			"67a51569-7aca-4198-a41c-3c7a24852ec5"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4458,
+		"balanceAfter": 4456,
+		"at": "2026-10-30T11:01:58.654Z",
+		"rejected": "30/10 chủ dự án: \"áo pháp sư xấu quá\" (6001 / 6002 áo choàng thụng) — vẽ lại 3 kiểu pháp sư anime tập sự"
+	},
+	{
+		"item": "R0-guard-outfit-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"be5bb043-acae-46a7-8b34-a47dbd31f295",
+			"568346c6-3814-4067-aafd-bff9070f92d8"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4456,
+		"balanceAfter": 4454,
+		"at": "2026-10-30T11:03:40.808Z"
+	},
+	{
+		"item": "R0-archer-outfit-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"48507fac-a4ab-4de2-a793-f3642694255c",
+			"e2a0dd6e-4947-4f0a-97d6-9f3fd9ecb5d6"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4454,
+		"balanceAfter": 4452,
+		"at": "2026-10-30T11:05:23.062Z"
+	},
+	{
+		"item": "R0-lancer-outfit-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"56ed3c5b-9956-4e5a-abd2-ef554ac2d37a",
+			"1d7e6a1b-d48d-4135-8cdf-221f9d6d545f"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4452,
+		"balanceAfter": 4450,
+		"at": "2026-10-30T11:07:05.405Z"
+	},
+	{
+		"item": "R0-mage-outfit-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"c008de61-9e24-4a1b-af1c-590556e8edf4",
+			"624ab286-413a-4376-b813-19b59d27fb6d"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4450,
+		"balanceAfter": 4448,
+		"at": "2026-10-30T11:10:39.008Z",
+		"rejected": "30/10: cổ áo dựng cao (trái luật cấm cổ áo cao) — tách đầu ăn mất cổ áo, chủ dự án \"mất khúc áo, đầu tách quá k liền mạch, chắc phải vẽ lại bộ đồ\""
+	},
+	{
+		"item": "R0-mage-b-outfit-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"e512bbd6-cfed-4376-8925-c91efc9cf0a1",
+			"ee61279d-8a08-4db6-b7ce-07dd4c1caea9"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4448,
+		"balanceAfter": 4446,
+		"at": "2026-10-30T11:12:21.285Z"
+	},
+	{
+		"item": "R0-mage-c-outfit-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"08499fa1-477f-4b44-aaae-f6b222bc156f",
+			"fdd95f70-db2e-435b-b4af-ed443dea3add"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4446,
+		"balanceAfter": 4444,
+		"at": "2026-10-30T11:14:03.345Z"
+	},
+	{
+		"item": "R0-mage-outfit-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"2cf88f13-f8d5-4334-b58b-c0d62af2a560",
+			"8019e59c-c994-4b8a-92d6-1868433274aa"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4444,
+		"balanceAfter": 4442,
+		"at": "2026-10-30T11:19:16.007Z",
+		"rejected": "30/10: cổ áo dựng cao (trái luật cấm cổ áo cao) — tách đầu ăn mất cổ áo, chủ dự án \"mất khúc áo, đầu tách quá k liền mạch, chắc phải vẽ lại bộ đồ\""
+	},
+	{
+		"item": "R0-mage-outfit-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"b20231a1-0e44-4726-bdf4-51be6a1c48e3",
+			"4ee7d263-2e6a-4b5a-9803-dcf76307cc13"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4442,
+		"balanceAfter": 4440,
+		"at": "2026-10-30T11:20:58.398Z",
+		"rejected": "30/10: cổ áo dựng cao (trái luật cấm cổ áo cao) — tách đầu ăn mất cổ áo, chủ dự án \"mất khúc áo, đầu tách quá k liền mạch, chắc phải vẽ lại bộ đồ\""
+	},
+	{
+		"item": "R1-mage-walk-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"09c61e72-ca44-4e67-892a-89960241a304"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4440,
+		"balanceAfter": 4437,
+		"at": "2026-10-30T11:29:24.861Z"
+	},
+	{
+		"item": "R1-mage-walk-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"4ef24dff-9239-4b8e-aa4d-7660992a0669"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4437,
+		"balanceAfter": 4434,
+		"at": "2026-10-30T11:31:17.895Z"
+	},
+	{
+		"item": "R1-mage-walk-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"3d47020d-78eb-4f9f-b63e-b7ff95c78ad7"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4434,
+		"balanceAfter": 4431,
+		"at": "2026-10-30T11:32:52.890Z"
+	},
+	{
+		"item": "R1-mage-run-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"d72bf6c0-e68a-4ff6-a1fc-40ac06aa1db1"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4431,
+		"balanceAfter": 4428,
+		"at": "2026-10-30T11:34:46.484Z"
+	},
+	{
+		"item": "R1-mage-run-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"0dc00639-1426-4e69-8f22-7e1d428838ee"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4428,
+		"balanceAfter": 4425,
+		"at": "2026-10-30T11:39:02.584Z"
+	},
+	{
+		"item": "R1-mage-run-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"a8b965e0-5ff4-49a4-84ff-0b4958e9e65f"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4425,
+		"balanceAfter": 4422,
+		"at": "2026-10-30T11:40:38.208Z"
+	},
+	{
+		"item": "R2-mage-cast-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"ed65f3a7-193f-4954-9337-0ddcdb84963d"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4422,
+		"balanceAfter": 4418,
+		"at": "2026-10-30T11:42:48.212Z"
+	},
+	{
+		"item": "R2-mage-cast-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"f70051ee-f47c-415e-b807-bf043a5f0022"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4418,
+		"balanceAfter": 4414,
+		"at": "2026-10-30T11:45:20.595Z"
+	},
+	{
+		"item": "R2-mage-cast-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"46ba87ff-066b-45a5-9166-d0389df074f5"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4414,
+		"balanceAfter": 4410,
+		"at": "2026-10-30T11:47:37.534Z",
+		"rejected": "31/10 chủ dự án: \"thấy có một pháp sư tay vòng sau lưng dị tật\" — tay trái vươn chéo qua lưng tới trượng (khung 4–6), phóng phép trượng khuất; vẽ lại bảng tư thế mới (trượng tay phải bên phải, đứng thẳng chân)"
+	},
+	{
+		"item": "R0-mage-outfit-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"6e6059ac-c405-4500-add4-0855e2f0a28b",
+			"9b82d09e-ddc2-44de-ab11-4aaeaeec6c76"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4410,
+		"balanceAfter": 4408,
+		"at": "2026-10-30T12:18:32.449Z"
+	},
+	{
+		"item": "R0-mage-outfit-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"fbcd4525-67fb-4440-bf03-c1c244ad9330",
+			"5fa49fab-7a4d-4d8b-a0ac-8b695dde60cf"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4408,
+		"balanceAfter": 4406,
+		"at": "2026-10-30T12:20:15.035Z"
+	},
+	{
+		"item": "R0-mage-outfit-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"d38735d0-5ac9-4340-afc0-746313673f31",
+			"7af72772-fcc2-47ef-8d76-58c086051bd2"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4406,
+		"balanceAfter": 4404,
+		"at": "2026-10-30T12:21:57.583Z"
+	},
+	{
+		"item": "R0-lancer-outfit-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"06fa3790-351c-4a58-8ffe-afe83b7414da",
+			"32ec238a-21eb-4ecf-ad5a-e234237d8c92"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4404,
+		"balanceAfter": 4402,
+		"at": "2026-10-30T12:33:49.600Z"
+	},
+	{
+		"item": "R0-lancer-outfit-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"ef4ea646-abec-4e53-be93-3316a1d942a5",
+			"2f43c303-9867-412e-ac90-c95040c2b379"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4402,
+		"balanceAfter": 4400,
+		"at": "2026-10-30T12:35:32.965Z"
+	},
+	{
+		"item": "R1-lancer-walk-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"42a591ea-5f2c-4570-b290-8e29b47858e9"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4400,
+		"balanceAfter": 4397,
+		"at": "2026-10-30T12:37:13.346Z"
+	},
+	{
+		"item": "R1-lancer-walk-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"990e6933-947c-4cc2-bc24-9c423fd1e0d1"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4397,
+		"balanceAfter": 4394,
+		"at": "2026-10-30T12:39:06.013Z"
+	},
+	{
+		"item": "R1-lancer-walk-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"17d376c3-554a-495f-8144-158014b6b8b6"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4394,
+		"balanceAfter": 4391,
+		"at": "2026-10-30T12:40:58.933Z"
+	},
+	{
+		"item": "R1-lancer-run-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"e5cee581-847f-4caf-b8f7-12c640b47837"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4391,
+		"balanceAfter": 4388,
+		"at": "2026-10-30T12:43:09.092Z"
+	},
+	{
+		"item": "R1-lancer-run-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"40e58546-8fb4-4c64-81bc-5a42459347e7"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4388,
+		"balanceAfter": 4385,
+		"at": "2026-10-30T12:44:43.599Z"
+	},
+	{
+		"item": "R1-lancer-run-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"9e2e82f9-5b2f-47de-acd4-d349c2bdf991"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4385,
+		"balanceAfter": 4382,
+		"at": "2026-10-30T12:46:56.568Z"
+	},
+	{
+		"item": "R2-lancer-thrust-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"5cb22191-f743-4d0f-bca4-ac2081c3f05d"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4382,
+		"balanceAfter": 4378,
+		"at": "2026-10-30T12:49:07.013Z",
+		"rejected": "30/10 chủ dự án: \"đâm phải mạnh, trùng người, tiến lên dứt khoát, trông yếu đuối vãi\" — vẽ lại thế xuống tấn lao tới"
+	},
+	{
+		"item": "R2-lancer-thrust-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"c9cb9818-72b6-47bc-832e-a04c72b6e972"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4378,
+		"balanceAfter": 4374,
+		"at": "2026-10-30T12:53:26.993Z",
+		"rejected": "30/10 chủ dự án: \"đâm phải mạnh, trùng người, tiến lên dứt khoát, trông yếu đuối vãi\" — vẽ lại thế xuống tấn lao tới"
+	},
+	{
+		"item": "R2-lancer-thrust-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"3d9a9e0b-ac14-4515-899f-c53afeceda4c"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4374,
+		"balanceAfter": 4370,
+		"at": "2026-10-30T12:55:59.319Z",
+		"rejected": "30/10: PixelLab vẽ người quay mặt ra trước (thân trước + mặt) ở mọi khung — vẽ lại ghi rõ nhìn từ sau"
+	},
+	{
+		"item": "R2-lancer-thrust-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"794c0862-2124-4698-850c-9a78f6395d89"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4370,
+		"balanceAfter": 4366,
+		"at": "2026-10-30T13:02:17.636Z",
+		"rejected": "30/10 chủ dự án: \"đâm phải mạnh, trùng người, tiến lên dứt khoát, trông yếu đuối vãi\" — vẽ lại thế xuống tấn lao tới"
+	},
+	{
+		"item": "R2-lancer-thrust-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"3de909b2-ce45-407a-a74c-d45b3d450218"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4366,
+		"balanceAfter": 4362,
+		"at": "2026-10-30T13:07:36.065Z",
+		"rejected": "30/10: chủ dự án bảo \"khoan\" khi đang vẽ bảng tư thế bản 3 (chưa bước chân) — PixelLab vẫn vẽ xong (4 lượt, raw .v3), không dùng; bảng bản 4 bước chân + đổ người"
+	},
+	{
+		"item": "R2-lancer-thrust-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"58357903-e6c4-4a6d-9b2f-aaed0f65eb7f"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4362,
+		"balanceAfter": 4358,
+		"at": "2026-10-30T13:14:57.923Z"
+	},
+	{
+		"item": "R2-lancer-thrust-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"75a1b4cc-7998-4462-912a-08b2e0c8ae24"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4358,
+		"balanceAfter": 4354,
+		"at": "2026-10-30T13:17:30.679Z"
+	},
+	{
+		"item": "R2-lancer-thrust-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"6f4c7aa4-9c33-43da-917d-5821b80c7c94"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4354,
+		"balanceAfter": 4350,
+		"at": "2026-10-30T13:20:22.189Z",
+		"rejected": "31/10 luật chân đòn hướng thẳng (chủ dự án: \"tấn công hướng chính diện chân đừng trùng xuống\", \"chỉ có tiến lên và thấp nhân vật xuống mà tấn công\") — bản 4 ngồi xổm gối bè; vẽ lại thế lao gối depth, giáo dựng bên phải mũi vượt đầu"
+	},
+	{
+		"item": "R0-guard-outfit-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"41bfa193-3525-49a4-ab97-dca25639f0f1",
+			"1eedda9d-851e-4cb9-8856-c71385a85332"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4350,
+		"balanceAfter": 4348,
+		"at": "2026-10-30T15:49:40.082Z"
+	},
+	{
+		"item": "R0-guard-outfit-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"e5a80ba4-655f-4630-906c-5e4d94388d4a",
+			"3375cd5b-6fda-4fd0-b11f-70c48f28dc64"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4348,
+		"balanceAfter": 4346,
+		"at": "2026-10-30T15:51:40.350Z"
+	},
+	{
+		"item": "R1-guard-walk-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"7f59672c-7f4a-4836-b9ab-39e3936c6691"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4346,
+		"balanceAfter": 4343,
+		"at": "2026-10-30T15:52:44.231Z"
+	},
+	{
+		"item": "R1-guard-walk-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"8e8746f0-4a7d-4520-8f3f-381d99804467"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4343,
+		"balanceAfter": 4340,
+		"at": "2026-10-30T15:54:56.351Z"
+	},
+	{
+		"item": "R1-guard-walk-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"91853050-1752-4a79-8546-5ff22a420c27"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4340,
+		"balanceAfter": 4337,
+		"at": "2026-10-30T15:57:09.590Z"
+	},
+	{
+		"item": "R1-guard-run-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"b081e6b5-a8c3-4eaa-84f5-c4b805ff7376"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4337,
+		"balanceAfter": 4334,
+		"at": "2026-10-30T15:59:02.126Z"
+	},
+	{
+		"item": "R1-guard-run-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"37e0d367-bc66-429a-86d0-7feec673c64d"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4334,
+		"balanceAfter": 4331,
+		"at": "2026-10-30T16:00:55.204Z"
+	},
+	{
+		"item": "R1-guard-run-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"014ef73a-4048-4697-bcfa-b43a1affe732"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4331,
+		"balanceAfter": 4328,
+		"at": "2026-10-30T16:02:49.609Z"
+	},
+	{
+		"item": "R2-guard-bash-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"a29ddfb5-4849-4b36-a9f2-327349d0842e"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4328,
+		"balanceAfter": 4324,
+		"at": "2026-10-30T16:05:12.957Z"
+	},
+	{
+		"item": "R2-guard-bash-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"5984d869-0770-44ae-ae90-57ff4f5934bd"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4324,
+		"balanceAfter": 4320,
+		"at": "2026-10-30T16:08:21.266Z",
+		"rejected": "31/10 luật chân đòn hướng thẳng — bản 1 ngồi xổm gối bè; vẽ lại thế lao gối depth (chân phải bước lên)"
+	},
+	{
+		"item": "R0-archer-outfit-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"47c3ba16-5cec-4aaa-964a-855141930c9e",
+			"16e9a8d4-bb2f-426f-8168-c495f39d1f76"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4320,
+		"balanceAfter": 4318,
+		"at": "2026-10-30T16:34:51.730Z"
+	},
+	{
+		"item": "R0-archer-outfit-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"4953a72c-7870-4cd8-b565-0e3d304715a3",
+			"992a67c1-b3cc-4178-9bbe-1c24c0161b5c"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4318,
+		"balanceAfter": 4316,
+		"at": "2026-10-30T16:36:51.790Z"
+	},
+	{
+		"item": "R1-archer-walk-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"f635c0ba-2ce9-4da6-99e2-b011bfe279cf"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4316,
+		"balanceAfter": 4313,
+		"at": "2026-10-30T16:37:33.295Z"
+	},
+	{
+		"item": "R1-archer-walk-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"c2652838-c76d-4f4e-9db7-558fc9b78130"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4313,
+		"balanceAfter": 4310,
+		"at": "2026-10-30T16:39:25.355Z"
+	},
+	{
+		"item": "R1-archer-walk-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"dfecd45f-d075-4526-838b-415013c9f0d3"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4310,
+		"balanceAfter": 4307,
+		"at": "2026-10-30T16:41:36.129Z"
+	},
+	{
+		"item": "R1-archer-run-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"fd3ffe15-888c-4e14-80ae-bacd889e14bd"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4307,
+		"balanceAfter": 4304,
+		"at": "2026-10-30T16:43:10.965Z"
+	},
+	{
+		"item": "R1-archer-run-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"e8206ec9-60cc-4a38-a0f4-c0124e451cce"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4304,
+		"balanceAfter": 4301,
+		"at": "2026-10-30T16:45:39.237Z"
+	},
+	{
+		"item": "R1-archer-run-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"66bf96f0-f45d-4dfa-bb7c-03cf38cb995e"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4301,
+		"balanceAfter": 4298,
+		"at": "2026-10-30T16:47:13.774Z"
+	},
+	{
+		"item": "R2-archer-shoot-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"e8e0b8a3-173c-4b96-bfaa-99e39e36c7db"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4298,
+		"balanceAfter": 4294,
+		"at": "2026-10-30T16:48:55.614Z",
+		"rejected": "31/10 chủ dự án: \"cung bắn thì tay cầm cung phải thẳng chứ nhỉ\" — tay cầm cung gập khuỷu (cổ tay cách vai 23 px < tầm tay 27,6; N khuỷu IK bẻ ngang); vẽ lại tay duỗi thẳng hết tầm từ lúc kéo tới lúc buông"
+	},
+	{
+		"item": "R2-archer-shoot-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"023a7eb0-00f9-424d-9f3c-251698a677fc"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4294,
+		"balanceAfter": 4290,
+		"at": "2026-10-30T16:51:46.339Z",
+		"rejected": "31/10 luật chân đòn hướng thẳng — đánh xa đứng thẳng chân; bản 1 gối khuỵu bè (hạ hông 1 px bẻ gối ngang ~4 px); vẽ lại gối depth"
+	},
+	{
+		"item": "R2-mage-cast-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"424e3aea-9fc9-42af-971b-e92c35300e63"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4290,
+		"balanceAfter": 4286,
+		"at": "2026-10-30T18:36:17.423Z"
+	},
+	{
+		"item": "R2-lancer-thrust-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"a38de375-08f5-4665-a9b3-1d8bd2988d36"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4286,
+		"balanceAfter": 4282,
+		"at": "2026-10-30T18:38:33.548Z"
+	},
+	{
+		"item": "R2-guard-bash-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"bbd52e47-0b55-43c4-9f0f-516dd75bdcf7"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4282,
+		"balanceAfter": 4278,
+		"at": "2026-10-30T18:41:08.159Z"
+	},
+	{
+		"item": "R2-archer-shoot-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"192bbea4-eb5c-4438-8e61-a3a8e9c2c7aa"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4278,
+		"balanceAfter": 4274,
+		"at": "2026-10-30T18:44:16.457Z",
+		"rejected": "31/10 chủ dự án: \"cung bắn thì tay cầm cung phải thẳng chứ nhỉ\" — tay cầm cung gập khuỷu (cổ tay cách vai 23 px < tầm tay 27,6; N khuỷu IK bẻ ngang); vẽ lại tay duỗi thẳng hết tầm từ lúc kéo tới lúc buông"
+	},
+	{
+		"item": "R2-archer-shoot-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"e50dc354-b21e-49f7-b242-bdd4b334ed34"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4274,
+		"balanceAfter": 4270,
+		"at": "2026-10-30T18:58:56.365Z"
+	},
+	{
+		"item": "R2-archer-shoot-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"c9e1e5ec-7a69-459b-b6d4-e6adba6dc55a"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4270,
+		"balanceAfter": 4266,
+		"at": "2026-10-30T19:01:48.115Z"
+	},
+	{
+		"item": "T0-female-slim-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"31c2bd4a-ffe1-4767-ab8b-6724b434d8e9",
+			"a5d0ada3-6346-4392-ae01-1ec0c1b0909d",
+			"8fc25818-53bf-4a84-aa2e-157e5df4e717"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4266,
+		"balanceAfter": 4263,
+		"at": "2026-10-30T19:22:09.262Z"
+	},
+	{
+		"item": "T1-female-petite-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"39746d12-8713-4b9d-9be7-0aa2976156b8",
+			"2efb4ead-6fef-4855-af70-082fe98caf8b",
+			"c11b4b20-cdab-4ddf-8a09-d9e92b5846de"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4263,
+		"balanceAfter": 4260,
+		"at": "2026-10-30T20:28:00.480Z"
+	},
+	{
+		"item": "T2-female-legs-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"c0bc1a6f-d0e8-455e-8960-73874105734f",
+			"43549f06-c190-4d80-a0bf-777c2b492bf3"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4260,
+		"balanceAfter": 4258,
+		"at": "2026-10-30T20:31:40.972Z"
+	},
+	{
+		"item": "T3-female-slim-ref",
+		"tool": "create_character",
+		"characterId": "d5bcf128-2c4e-40bd-9eef-9a092a4cf455",
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4258,
+		"balanceAfter": 4256,
+		"at": "2026-10-30T20:32:29.429Z"
+	},
+	{
+		"item": "T4-outfit-f-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"54ab1ac1-568f-4177-b70f-d8e461130911",
+			"c58dfb50-230e-47d7-9f44-a53aab60a113"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4256,
+		"balanceAfter": 4254,
+		"at": "2026-10-30T20:39:22.138Z"
+	},
+	{
+		"item": "T5-f-human1-long-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"1d981a35-0231-4d66-bf6c-e710ed707d64",
+			"2fc6c145-f28c-4589-adc0-ad17c7f68fd4"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4254,
+		"balanceAfter": 4252,
+		"at": "2026-10-30T20:41:05.523Z"
+	},
+	{
+		"item": "T4-outfit-f-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"df4834da-102e-49cf-a492-06d1a097f549",
+			"cc44afab-f21e-482f-8e58-42e15e06cb48"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4252,
+		"balanceAfter": 4250,
+		"at": "2026-10-31T03:07:42.410Z"
+	},
+	{
+		"item": "T4-outfit-f-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"3c364b04-be59-44c3-b774-11ad5e430f34",
+			"50913c06-f893-4ec4-8c43-a3ffe4397533"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4250,
+		"balanceAfter": 4248,
+		"at": "2026-10-31T03:09:24.507Z"
+	},
+	{
+		"item": "T5-f-human1-long-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"890a6a8a-1db1-4a61-aa59-4ef406fe88f0",
+			"a6906ced-47f6-40da-8196-f1356a34b65a"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4248,
+		"balanceAfter": 4246,
+		"at": "2026-10-31T03:11:06.998Z"
+	},
+	{
+		"item": "T5-f-human1-long-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"1a281d23-6bc5-4ca3-b5e6-337df51644af",
+			"8c70b90e-05e5-4342-87c4-89a5fda7121a"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4246,
+		"balanceAfter": 4244,
+		"at": "2026-10-31T03:12:49.423Z"
+	},
+	{
+		"item": "T6-f-walk-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"e8f523a6-c519-42ad-93ae-fc2d87636db6"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4244,
+		"balanceAfter": 4241,
+		"at": "2026-10-31T05:20:04.745Z"
+	},
+	{
+		"item": "T6-f-walk-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"2944a24b-428c-4de8-9b5d-403ae5acee95"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4241,
+		"balanceAfter": 4238,
+		"at": "2026-10-31T05:22:16.142Z"
+	},
+	{
+		"item": "T6-f-walk-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"8ad937e6-d7b7-42bd-9a45-95d1f4a3f713"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4238,
+		"balanceAfter": 4235,
+		"at": "2026-10-31T05:24:26.569Z"
+	},
+	{
+		"item": "T6-f-run-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"6e868342-d18e-40a7-8b1b-9ba24740d1a8"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4235,
+		"balanceAfter": 4232,
+		"at": "2026-10-31T05:26:19.259Z"
+	},
+	{
+		"item": "T6-f-run-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"7a491f7c-585a-4a85-b7c6-08361ea0963f"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4232,
+		"balanceAfter": 4229,
+		"at": "2026-10-31T05:28:29.696Z"
+	},
+	{
+		"item": "T6-f-run-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"53fd2809-8dba-4dce-8731-38cd07e600e6"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 4229,
+		"balanceAfter": 4226,
+		"at": "2026-10-31T05:30:39.726Z"
+	},
+	{
+		"item": "T7-f-slash-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"483c4fb5-aea1-4864-92ce-1a5379939e1c"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4226,
+		"balanceAfter": 4222,
+		"at": "2026-10-31T05:32:32.328Z"
+	},
+	{
+		"item": "T7-f-slash-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"16ca9aa2-1602-49f0-8caa-bd09152814e0"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 4222,
+		"balanceAfter": 4218,
+		"at": "2026-10-31T05:35:59.603Z"
+	},
+	{
+		"item": "T8-f-human2-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"257a7f9a-d80a-4f65-8a29-64daf9f51447",
+			"b1e52f0d-e817-4f5f-a068-d859e71042d9"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4218,
+		"balanceAfter": 4216,
+		"at": "2026-10-31T06:25:02.141Z"
+	},
+	{
+		"item": "T8-f-human2-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"ad4bde7d-5ad2-4054-818c-a3ff9368fce7",
+			"32b6bdb3-d53f-4164-bba6-a49452288bcf"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4216,
+		"balanceAfter": 4214,
+		"at": "2026-10-31T06:26:44.236Z"
+	},
+	{
+		"item": "T8-f-human2-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"a18d0be7-3d51-4bb2-80bf-0d08dc9b8abf",
+			"6afbb928-c95b-4e6d-b100-4ef68a3323f7"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4214,
+		"balanceAfter": 4212,
+		"at": "2026-10-31T06:28:26.745Z",
+		"rejected": "31/10: lượt 1 thiếu chữ \"BACK VIEW\" → PixelLab quay mặt ra trước (cả 4 đầu N) — vẽ lại ghi rõ nhìn sau"
+	},
+	{
+		"item": "T8-f-elf1-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"70f99e98-0fde-49f1-8e7e-385bb3b3847f",
+			"8a82a211-a84c-4943-8848-378fb5f51441"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4212,
+		"balanceAfter": 4210,
+		"at": "2026-10-31T06:30:10.351Z"
+	},
+	{
+		"item": "T8-f-elf1-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"172cfb55-d32e-44f9-affe-c9cc776ccf6c",
+			"949507e6-ac3c-4138-8ec8-ec0ead796240"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4210,
+		"balanceAfter": 4208,
+		"at": "2026-10-31T06:32:12.037Z"
+	},
+	{
+		"item": "T8-f-elf1-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"2013b70f-ef83-4134-b9ea-7bad1811399e",
+			"22112b89-7789-4c80-b072-35df8d009f22"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4208,
+		"balanceAfter": 4206,
+		"at": "2026-10-31T06:34:47.303Z",
+		"rejected": "31/10: lượt 1 thiếu chữ \"BACK VIEW\" → PixelLab quay mặt ra trước (cả 4 đầu N) — vẽ lại ghi rõ nhìn sau"
+	},
+	{
+		"item": "T8-f-beast1-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"be639a4c-2343-4abc-8d69-a15fb34604a8",
+			"7d103515-3a1b-4068-92ef-bebf4189a966"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4206,
+		"balanceAfter": 4204,
+		"at": "2026-10-31T06:36:11.708Z"
+	},
+	{
+		"item": "T8-f-beast1-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"cd46d72c-de12-4fb6-b175-226f5f72d313",
+			"0e195f8d-b793-4171-9189-6a4445150c29"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4204,
+		"balanceAfter": 4202,
+		"at": "2026-10-31T06:38:11.912Z"
+	},
+	{
+		"item": "T8-f-beast1-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"fceb4a21-a7af-422b-ad4c-c48dc8e96432",
+			"d138ce56-c1d1-42cc-b720-6cb8967ea4c8"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4202,
+		"balanceAfter": 4200,
+		"at": "2026-10-31T06:40:30.726Z",
+		"rejected": "31/10: lượt 1 thiếu chữ \"BACK VIEW\" → PixelLab quay mặt ra trước (cả 4 đầu N) — vẽ lại ghi rõ nhìn sau"
+	},
+	{
+		"item": "T8-f-demon1-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"523ac963-e720-4dcf-8a2d-0d1089cceed9",
+			"1ea1156b-6069-4912-850f-bc792da016fb"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4200,
+		"balanceAfter": 4198,
+		"at": "2026-10-31T06:42:30.757Z"
+	},
+	{
+		"item": "T8-f-demon1-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"effbdf0f-6efe-49f4-b382-71595cdd9edb",
+			"b42ce9bb-9cf6-4b0b-b842-7f73741c27c1"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4198,
+		"balanceAfter": 4196,
+		"at": "2026-10-31T06:44:30.580Z"
+	},
+	{
+		"item": "T8-f-demon1-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"33968344-6f4c-4894-a9e7-75bde376a932",
+			"5873ddd5-ea03-42fa-8795-6fb1bf9a1457"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4196,
+		"balanceAfter": 4194,
+		"at": "2026-10-31T06:46:12.573Z",
+		"rejected": "31/10: lượt 1 thiếu chữ \"BACK VIEW\" → PixelLab quay mặt ra trước (cả 4 đầu N) — vẽ lại ghi rõ nhìn sau"
+	},
+	{
+		"item": "T8-f-human2-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"18ef941c-d6f6-4c31-831d-cca6f0170888",
+			"8424ed29-af2d-4b4a-a9e4-f2d6ceb9efd5"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4194,
+		"balanceAfter": 4192,
+		"at": "2026-10-31T06:49:34.567Z"
+	},
+	{
+		"item": "T8-f-elf1-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"1d3ea420-af98-4383-b2fa-b6c91063d35e",
+			"2da03782-c121-4e76-afd2-4a5e56f71e2d"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4192,
+		"balanceAfter": 4190,
+		"at": "2026-10-31T06:51:51.947Z"
+	},
+	{
+		"item": "T8-f-beast1-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"38489981-b066-4f59-8d96-65dfd64d9c0b",
+			"faea8642-5923-4dc2-8e61-e2be83c43c62"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4190,
+		"balanceAfter": 4188,
+		"at": "2026-10-31T06:53:42.297Z"
+	},
+	{
+		"item": "T8-f-demon1-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"58555641-270e-48b6-bdbf-96f91f876b8d",
+			"44738017-b6d1-4312-98f7-94ceec0b8b81"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4188,
+		"balanceAfter": 4186,
+		"at": "2026-10-31T06:56:17.524Z"
+	},
+	{
+		"item": "T8-f-human3-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"3df053f9-82c8-49c3-be3f-21ce549cfed9",
+			"e087407d-1ce2-446b-a233-a96bb88c03cd"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4186,
+		"balanceAfter": 4184,
+		"at": "2026-10-31T07:15:48.574Z"
+	},
+	{
+		"item": "T8-f-human3-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"963cdc67-8b5c-493d-87fe-0eae9337bfe9",
+			"d0b5baa9-c987-425f-9ffc-27878fdecc20"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4184,
+		"balanceAfter": 4182,
+		"at": "2026-10-31T07:18:06.386Z"
+	},
+	{
+		"item": "T8-f-human3-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"8b89ce1e-3b5b-4b9f-bfd9-9071f657c68a",
+			"2460ed20-bfd1-4a9f-9118-7216e0e707e9"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4182,
+		"balanceAfter": 4180,
+		"at": "2026-10-31T07:19:49.333Z"
+	},
+	{
+		"item": "T8-f-elf2-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"bc0622d9-ccc5-4858-bc6a-cf8be626b635",
+			"4b73fe93-2d08-4105-b418-c6301682fa52"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4180,
+		"balanceAfter": 4178,
+		"at": "2026-10-31T07:22:24.492Z"
+	},
+	{
+		"item": "T8-f-elf2-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"a1ff4155-31fd-44a3-9d20-30e31b6b5e87",
+			"8dc273ef-b491-424e-8354-95300bab48d6"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4178,
+		"balanceAfter": 4176,
+		"at": "2026-10-31T07:24:59.687Z"
+	},
+	{
+		"item": "T8-f-elf2-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"712073b0-25ba-4168-a010-a3181b1534e9",
+			"4b551298-3d0c-4559-a716-c9abf1677bc1"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4176,
+		"balanceAfter": 4174,
+		"at": "2026-10-31T07:27:35.084Z"
+	},
+	{
+		"item": "T8-f-beast2-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"7654c412-3e5d-4e41-81ec-426e177a3fa3",
+			"31851777-3220-4689-8dbe-4ff8b03f44f0"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4174,
+		"balanceAfter": 4172,
+		"at": "2026-10-31T07:29:17.472Z"
+	},
+	{
+		"item": "T8-f-beast2-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"ca02a1ea-18c5-43fc-9c39-f8e4d2da01ee",
+			"ab76e929-99b7-46f7-9aed-c2cf1152bac0"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4172,
+		"balanceAfter": 4170,
+		"at": "2026-10-31T07:30:42.479Z"
+	},
+	{
+		"item": "T8-f-beast2-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"2914e283-ac1a-436f-b2fd-3bfcc0027b36",
+			"5356a01a-98d4-4436-beec-1584a728e9ac"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4170,
+		"balanceAfter": 4168,
+		"at": "2026-10-31T07:32:42.606Z"
+	},
+	{
+		"item": "T8-f-demon2-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"88d018af-ea98-4691-9d69-f6165865584c",
+			"8aeb2152-0fd9-4a67-ad54-7068580d5ad6"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4168,
+		"balanceAfter": 4166,
+		"at": "2026-10-31T07:34:07.098Z"
+	},
+	{
+		"item": "T8-f-demon2-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"ee403c5e-6105-4852-9637-a688a32b6515",
+			"53ac8d0f-8164-479e-9bde-22a4f0c65c65"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4166,
+		"balanceAfter": 4164,
+		"at": "2026-10-31T07:36:06.899Z"
+	},
+	{
+		"item": "T8-f-demon2-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"c22835ca-c8f2-4a01-99a8-154c3e2d3f37",
+			"bc501f60-c0f1-4b83-9f3e-33f43bd9a74b"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 4164,
+		"balanceAfter": 4162,
+		"at": "2026-10-31T07:38:24.611Z"
+	}
+]

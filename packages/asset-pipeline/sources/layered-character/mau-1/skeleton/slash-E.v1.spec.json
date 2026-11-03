@@ -1,0 +1,24 @@
+{
+	"about": "Đòn bổ kiếm hai tay hướng E, 15 khung theo chuẩn (lấy lực 1–6 chậm, tăng tốc 7–9, chạm 10–11, hồi thế 12–15). Toạ độ theo ảnh đứng 80×88 của bộ đồ; grip = cổ tay phải (tay cầm chính, phía gần người xem); bladeDeg = hướng lưỡi tính từ điểm nắm (0 = trước mặt / đông, 90 = lên trời, 180 = ra sau); lean = cổ / vai / đầu dịch ngang so với hông; hip = hông dịch [dx, dy]; step = bàn chân phải (trước) bước tới; back = bàn chân trái lùi.",
+	"character": "B1-outfit-char",
+	"direction": "east",
+	"pad": [8, 8, 16, 0],
+	"handGapPx": 3,
+	"frames": [
+		{ "grip": [42, 50], "bladeDeg": 40, "lean": 0, "hip": [0, 0], "step": 0, "back": 0 },
+		{ "grip": [43, 45], "bladeDeg": 55, "lean": 0, "hip": [0, 0], "step": 0, "back": -1 },
+		{ "grip": [42, 38], "bladeDeg": 75, "lean": -1, "hip": [-1, 0], "step": 0, "back": -2 },
+		{ "grip": [37, 29], "bladeDeg": 115, "lean": -1, "hip": [-1, 0], "step": 0, "back": -3 },
+		{ "grip": [33, 27], "bladeDeg": 140, "lean": -2, "hip": [-1, 0], "step": 0, "back": -3 },
+		{ "grip": [29, 27], "bladeDeg": 160, "lean": -2, "hip": [-1, 0], "step": 0, "back": -3 },
+		{ "grip": [32, 23], "bladeDeg": 140, "lean": -1, "hip": [0, 0], "step": 1, "back": -3 },
+		{ "grip": [40, 22], "bladeDeg": 100, "lean": 0, "hip": [1, 0], "step": 3, "back": -3 },
+		{ "grip": [49, 28], "bladeDeg": 50, "lean": 2, "hip": [2, 1], "step": 5, "back": -3 },
+		{ "grip": [54, 40], "bladeDeg": 0, "lean": 3, "hip": [3, 1], "step": 7, "back": -3 },
+		{ "grip": [53, 46], "bladeDeg": -25, "lean": 3, "hip": [3, 1], "step": 7, "back": -3 },
+		{ "grip": [50, 49], "bladeDeg": -15, "lean": 2, "hip": [2, 1], "step": 6, "back": -3 },
+		{ "grip": [47, 50], "bladeDeg": 5, "lean": 1, "hip": [2, 0], "step": 4, "back": -2 },
+		{ "grip": [45, 50], "bladeDeg": 25, "lean": 1, "hip": [1, 0], "step": 2, "back": -1 },
+		{ "grip": [43, 50], "bladeDeg": 40, "lean": 0, "hip": [0, 0], "step": 1, "back": 0 }
+	]
+}

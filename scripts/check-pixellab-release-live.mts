@@ -1,0 +1,14 @@
+import assert from'node:assert/strict';import{readFileSync,writeFileSync,existsSync}from'node:fs';import{resolve,join}from'node:path';import{DatabaseSync}from'node:sqlite';
+const host='https://admin.tail024813.ts.net/game',windows=JSON.parse(readFileSync('UnityGame/Build/windows.build.json','utf8'));
+const version=await(await fetch(host+'/api/client/version?check='+Date.now(),{cache:'no-store'})).json();assert.equal(version.windows.build,windows.build);
+const variants:any[]=[];for(const[mode,suffix]of[['desktop',''],['mobile','m/']]){
+ const root=resolve('apps/server/data/webgl/'+suffix),local=JSON.parse(readFileSync(join(root,'pixellab-release.json'),'utf8')),url=host+'/play/'+suffix;
+ const res=await fetch(url+'pixellab-release.json?check='+Date.now(),{cache:'no-store'});assert.equal(res.status,200);const live=await res.json();assert.deepEqual(live,local);assert.equal(live.models,25);assert.equal(live.gptFrames,0);
+ const html=await(await fetch(url+'?check='+Date.now(),{cache:'no-store'})).text();assert(html.includes('productVersion: "'+live.version+'"'));if(mode==='mobile')assert(html.includes('devicePixelRatio:'));
+ const checks=await Promise.all(live.files.map(async(f:any)=>{const r=await fetch(url+f.file,{method:'HEAD',cache:'no-store'});assert.equal(r.status,200,f.file);assert.equal(Number(r.headers.get('content-length')),f.bytes);if(f.file.endsWith('.br')){assert.equal(r.headers.get('content-encoding'),'br');assert(Number(r.headers.get('x-decoded-length'))>0);}else if(f.file.endsWith('.gz'))assert.equal(r.headers.get('content-encoding'),'gzip');if(f.file.includes('.wasm.'))assert.equal(r.headers.get('content-type'),'application/wasm');return{file:f.file,status:r.status,bytes:f.bytes,encoding:r.headers.get('content-encoding')};}));
+ variants.push({mode,version:live.version,downloadMB:Math.round(checks.reduce((n:number,f:any)=>n+f.bytes,0)/1048576),files:checks});
+}
+for(const p of['motion-redraw-v2','motion-polish','motion-redraw-pixellab-20261102'])assert(!existsSync('packages/asset-pipeline/sources/layered-character/mau-1/'+p));
+for(const p of['class-motion-20261102','sword-consistency-20261102','weapons-redraw-20261102','pixellab-combo-20261102','motion-polish-20261102'])assert(!existsSync('apps/server/site/media/layered/'+p));
+const db=new DatabaseSync('apps/server/data/havenlord.db',{readOnly:true}),counts={accounts:db.prepare('SELECT count(*) n FROM accounts').get()!.n,characters:db.prepare('SELECT count(*) n FROM characters').get()!.n};db.close();
+const report={checkedAt:new Date().toISOString(),windowsBuild:windows.build,variants,counts,reset:false,gptExperimentsExcluded:true,physicalMobileBrowserTested:false};writeFileSync('.havenlord-stage/pixellab-live-release-check.json',JSON.stringify(report,null,2));console.log(JSON.stringify(report));

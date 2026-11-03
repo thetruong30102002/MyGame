@@ -1,0 +1,1075 @@
+{
+	"sample": "mau-1",
+	"stage": "B",
+	"standardVersion": 1,
+	"rotations": {
+		"S": {
+			"neck": [
+				63,
+				62
+			],
+			"baseNeck": [
+				63,
+				62
+			],
+			"shift": [
+				0,
+				0
+			],
+			"match": 1,
+			"remnants": 0,
+			"holes": 0,
+			"collar": 0
+		},
+		"SE": {
+			"neck": [
+				69,
+				62
+			],
+			"baseNeck": [
+				68,
+				63
+			],
+			"shift": [
+				1,
+				-1
+			],
+			"match": 0.649,
+			"remnants": 0,
+			"holes": 0,
+			"collar": 0
+		},
+		"E": {
+			"neck": [
+				64,
+				62
+			],
+			"baseNeck": [
+				63,
+				63
+			],
+			"shift": [
+				1,
+				-1
+			],
+			"match": 0.627,
+			"remnants": 0,
+			"holes": 0,
+			"collar": 0
+		},
+		"NE": {
+			"neck": [
+				59,
+				62
+			],
+			"baseNeck": [
+				58,
+				64
+			],
+			"shift": [
+				1,
+				-2
+			],
+			"match": 0.673,
+			"remnants": 0,
+			"holes": 0,
+			"collar": 0
+		},
+		"N": {
+			"neck": [
+				63,
+				63
+			],
+			"baseNeck": [
+				63,
+				64
+			],
+			"shift": [
+				0,
+				-1
+			],
+			"match": 0.683,
+			"remnants": 0,
+			"holes": 0,
+			"collar": 0
+		}
+	},
+	"clips": {
+		"walk-bare-S": [
+			{
+				"neck": [
+					69,
+					63
+				],
+				"neckLength": 2,
+				"neckWidth": 5,
+				"headWidth": 26,
+				"cheekWidth": 13,
+				"remnants": 0,
+				"hairBack": 1
+			},
+			{
+				"neck": [
+					68,
+					63
+				],
+				"neckLength": 2,
+				"neckWidth": 5,
+				"headWidth": 26,
+				"cheekWidth": 13,
+				"remnants": 0,
+				"hairBack": 1
+			},
+			{
+				"neck": [
+					67,
+					62
+				],
+				"neckLength": 3,
+				"neckWidth": 5,
+				"headWidth": 26,
+				"cheekWidth": 13,
+				"remnants": 0,
+				"hairBack": 3
+			},
+			{
+				"neck": [
+					68,
+					62
+				],
+				"neckLength": 3,
+				"neckWidth": 6,
+				"headWidth": 26,
+				"cheekWidth": 14,
+				"remnants": 0,
+				"hairBack": 4
+			},
+			{
+				"neck": [
+					68,
+					62
+				],
+				"neckLength": 3,
+				"neckWidth": 6,
+				"headWidth": 26,
+				"cheekWidth": 13,
+				"remnants": 0,
+				"hairBack": 4
+			},
+			{
+				"neck": [
+					69,
+					63
+				],
+				"neckLength": 2,
+				"neckWidth": 5,
+				"headWidth": 26,
+				"cheekWidth": 14,
+				"remnants": 0,
+				"hairBack": 2
+			},
+			{
+				"neck": [
+					69,
+					63
+				],
+				"neckLength": 2,
+				"neckWidth": 5,
+				"headWidth": 26,
+				"cheekWidth": 13,
+				"remnants": 0,
+				"hairBack": 2
+			},
+			{
+				"neck": [
+					69,
+					63
+				],
+				"neckLength": 2,
+				"neckWidth": 5,
+				"headWidth": 26,
+				"cheekWidth": 13,
+				"remnants": 0,
+				"hairBack": 2
+			}
+		],
+		"walk-outfit-S": [
+			{
+				"neck": [
+					61,
+					62
+				],
+				"baseNeck": [
+					69,
+					63
+				],
+				"shift": [
+					-7,
+					-1
+				],
+				"match": 0.677,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 0
+			},
+			{
+				"neck": [
+					60,
+					62
+				],
+				"baseNeck": [
+					68,
+					63
+				],
+				"shift": [
+					-7,
+					-1
+				],
+				"match": 0.719,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 0
+			},
+			{
+				"neck": [
+					60,
+					62
+				],
+				"baseNeck": [
+					67,
+					62
+				],
+				"shift": [
+					-7,
+					-1
+				],
+				"match": 0.717,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 0
+			},
+			{
+				"neck": [
+					60,
+					62
+				],
+				"baseNeck": [
+					68,
+					62
+				],
+				"shift": [
+					-7,
+					-1
+				],
+				"match": 0.621,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 0
+			},
+			{
+				"neck": [
+					61,
+					62
+				],
+				"baseNeck": [
+					68,
+					62
+				],
+				"shift": [
+					-7,
+					-1
+				],
+				"match": 0.709,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 0
+			},
+			{
+				"neck": [
+					61,
+					62
+				],
+				"baseNeck": [
+					69,
+					63
+				],
+				"shift": [
+					-7,
+					-1
+				],
+				"match": 0.678,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 0
+			},
+			{
+				"neck": [
+					61,
+					62
+				],
+				"baseNeck": [
+					69,
+					63
+				],
+				"shift": [
+					-7,
+					-1
+				],
+				"match": 0.708,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 0
+			},
+			{
+				"neck": [
+					61,
+					62
+				],
+				"baseNeck": [
+					69,
+					63
+				],
+				"shift": [
+					-7,
+					-1
+				],
+				"match": 0.74,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 0
+			}
+		],
+		"walk-bare-E": [
+			{
+				"neck": [
+					61,
+					64
+				],
+				"neckLength": 4,
+				"neckWidth": 5,
+				"headWidth": 26,
+				"cheekWidth": 13,
+				"remnants": 0,
+				"hairBack": 6
+			},
+			{
+				"neck": [
+					61,
+					64
+				],
+				"neckLength": 4,
+				"neckWidth": 5,
+				"headWidth": 26,
+				"cheekWidth": 13,
+				"remnants": 0,
+				"hairBack": 7
+			},
+			{
+				"neck": [
+					61,
+					64
+				],
+				"neckLength": 3,
+				"neckWidth": 5,
+				"headWidth": 26,
+				"cheekWidth": 13,
+				"remnants": 0,
+				"hairBack": 6
+			},
+			{
+				"neck": [
+					60,
+					64
+				],
+				"neckLength": 5,
+				"neckWidth": 5,
+				"headWidth": 26,
+				"cheekWidth": 13,
+				"remnants": 0,
+				"hairBack": 6
+			},
+			{
+				"neck": [
+					61,
+					64
+				],
+				"neckLength": 3,
+				"neckWidth": 5,
+				"headWidth": 26,
+				"cheekWidth": 12,
+				"remnants": 0,
+				"hairBack": 5
+			},
+			{
+				"neck": [
+					61,
+					63
+				],
+				"neckLength": 4,
+				"neckWidth": 5,
+				"headWidth": 26,
+				"cheekWidth": 13,
+				"remnants": 0,
+				"hairBack": 6
+			},
+			{
+				"neck": [
+					61,
+					63
+				],
+				"neckLength": 4,
+				"neckWidth": 5,
+				"headWidth": 26,
+				"cheekWidth": 13,
+				"remnants": 0,
+				"hairBack": 7
+			},
+			{
+				"neck": [
+					61,
+					63
+				],
+				"neckLength": 4,
+				"neckWidth": 5,
+				"headWidth": 26,
+				"cheekWidth": 13,
+				"remnants": 0,
+				"hairBack": 6
+			}
+		],
+		"walk-outfit-E": [
+			{
+				"neck": [
+					63,
+					62
+				],
+				"baseNeck": [
+					61,
+					64
+				],
+				"shift": [
+					2,
+					-3
+				],
+				"match": 0.647,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 0
+			},
+			{
+				"neck": [
+					63,
+					62
+				],
+				"baseNeck": [
+					61,
+					64
+				],
+				"shift": [
+					2,
+					-3
+				],
+				"match": 0.633,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 0
+			},
+			{
+				"neck": [
+					63,
+					62
+				],
+				"baseNeck": [
+					61,
+					64
+				],
+				"shift": [
+					2,
+					-3
+				],
+				"match": 0.648,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 0
+			},
+			{
+				"neck": [
+					63,
+					62
+				],
+				"baseNeck": [
+					60,
+					64
+				],
+				"shift": [
+					3,
+					-3
+				],
+				"match": 0.642,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 0
+			},
+			{
+				"neck": [
+					63,
+					61
+				],
+				"baseNeck": [
+					61,
+					64
+				],
+				"shift": [
+					2,
+					-3
+				],
+				"match": 0.606,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 0
+			},
+			{
+				"neck": [
+					62,
+					61
+				],
+				"baseNeck": [
+					61,
+					63
+				],
+				"shift": [
+					2,
+					-3
+				],
+				"match": 0.595,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 0
+			},
+			{
+				"neck": [
+					63,
+					61
+				],
+				"baseNeck": [
+					61,
+					63
+				],
+				"shift": [
+					2,
+					-3
+				],
+				"match": 0.629,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 0
+			},
+			{
+				"neck": [
+					63,
+					61
+				],
+				"baseNeck": [
+					61,
+					63
+				],
+				"shift": [
+					3,
+					-3
+				],
+				"match": 0.618,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 0
+			}
+		],
+		"walk-bare-N": [
+			{
+				"neck": [
+					59,
+					64
+				],
+				"neckLength": 1,
+				"neckWidth": 4,
+				"headWidth": 28,
+				"cheekWidth": 0,
+				"remnants": 0,
+				"hairBack": 6
+			},
+			{
+				"neck": [
+					60,
+					64
+				],
+				"neckLength": 1,
+				"neckWidth": 5,
+				"headWidth": 28,
+				"cheekWidth": 0,
+				"remnants": 0,
+				"hairBack": 5
+			},
+			{
+				"neck": [
+					59,
+					65
+				],
+				"neckLength": 1,
+				"neckWidth": 6,
+				"headWidth": 28,
+				"cheekWidth": 0,
+				"remnants": 0,
+				"hairBack": 0
+			},
+			{
+				"neck": [
+					60,
+					65
+				],
+				"neckLength": 1,
+				"neckWidth": 5,
+				"headWidth": 27,
+				"cheekWidth": 0,
+				"remnants": 0,
+				"hairBack": 2
+			},
+			{
+				"neck": [
+					59,
+					64
+				],
+				"neckLength": 1,
+				"neckWidth": 6,
+				"headWidth": 28,
+				"cheekWidth": 0,
+				"remnants": 0,
+				"hairBack": 0
+			},
+			{
+				"neck": [
+					59,
+					64
+				],
+				"neckLength": 1,
+				"neckWidth": 5,
+				"headWidth": 28,
+				"cheekWidth": 0,
+				"remnants": 0,
+				"hairBack": 5
+			},
+			{
+				"neck": [
+					59,
+					65
+				],
+				"neckLength": 1,
+				"neckWidth": 6,
+				"headWidth": 28,
+				"cheekWidth": 0,
+				"remnants": 0,
+				"hairBack": 0
+			},
+			{
+				"neck": [
+					59,
+					64
+				],
+				"neckLength": 2,
+				"neckWidth": 5,
+				"headWidth": 27,
+				"cheekWidth": 0,
+				"remnants": 0,
+				"hairBack": 5
+			}
+		],
+		"walk-outfit-N": [
+			{
+				"neck": [
+					59,
+					63
+				],
+				"baseNeck": [
+					59,
+					64
+				],
+				"shift": [
+					0,
+					-3
+				],
+				"match": 0.609,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 1
+			},
+			{
+				"neck": [
+					59,
+					64
+				],
+				"baseNeck": [
+					60,
+					64
+				],
+				"shift": [
+					2,
+					-2
+				],
+				"match": 0.619,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 0
+			},
+			{
+				"neck": [
+					60,
+					64
+				],
+				"baseNeck": [
+					59,
+					65
+				],
+				"shift": [
+					3,
+					-2
+				],
+				"match": 0.617,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 2
+			},
+			{
+				"neck": [
+					60,
+					64
+				],
+				"baseNeck": [
+					60,
+					65
+				],
+				"shift": [
+					0,
+					-3
+				],
+				"match": 0.588,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 0
+			},
+			{
+				"neck": [
+					59,
+					63
+				],
+				"baseNeck": [
+					59,
+					64
+				],
+				"shift": [
+					0,
+					-3
+				],
+				"match": 0.631,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 2
+			},
+			{
+				"neck": [
+					60,
+					63
+				],
+				"baseNeck": [
+					59,
+					64
+				],
+				"shift": [
+					0,
+					-3
+				],
+				"match": 0.626,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 1
+			},
+			{
+				"neck": [
+					59,
+					63
+				],
+				"baseNeck": [
+					59,
+					65
+				],
+				"shift": [
+					0,
+					-3
+				],
+				"match": 0.605,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 1
+			},
+			{
+				"neck": [
+					59,
+					63
+				],
+				"baseNeck": [
+					59,
+					64
+				],
+				"shift": [
+					1,
+					-3
+				],
+				"match": 0.609,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 0
+			}
+		],
+		"run-bare-E": [
+			{
+				"neck": [
+					76,
+					67
+				],
+				"neckLength": 2,
+				"neckWidth": 7,
+				"headWidth": 28,
+				"cheekWidth": 10,
+				"remnants": 0,
+				"hairBack": 13
+			},
+			{
+				"neck": [
+					76,
+					65
+				],
+				"neckLength": 2,
+				"neckWidth": 6,
+				"headWidth": 29,
+				"cheekWidth": 12,
+				"remnants": 0,
+				"hairBack": 26
+			},
+			{
+				"neck": [
+					75,
+					65
+				],
+				"neckLength": 4,
+				"neckWidth": 7,
+				"headWidth": 28,
+				"cheekWidth": 12,
+				"remnants": 0,
+				"hairBack": 39
+			},
+			{
+				"neck": [
+					76,
+					65
+				],
+				"neckLength": 2,
+				"neckWidth": 6,
+				"headWidth": 28,
+				"cheekWidth": 12,
+				"remnants": 0,
+				"hairBack": 4
+			},
+			{
+				"neck": [
+					76,
+					65
+				],
+				"neckLength": 1,
+				"neckWidth": 7,
+				"headWidth": 29,
+				"cheekWidth": 12,
+				"remnants": 0,
+				"hairBack": 4
+			},
+			{
+				"neck": [
+					75,
+					66
+				],
+				"neckLength": 1,
+				"neckWidth": 7,
+				"headWidth": 28,
+				"cheekWidth": 10,
+				"remnants": 0,
+				"hairBack": 3
+			},
+			{
+				"neck": [
+					75,
+					65
+				],
+				"neckLength": 3,
+				"neckWidth": 7,
+				"headWidth": 28,
+				"cheekWidth": 12,
+				"remnants": 0,
+				"hairBack": 4
+			},
+			{
+				"neck": [
+					76,
+					65
+				],
+				"neckLength": 2,
+				"neckWidth": 6,
+				"headWidth": 28,
+				"cheekWidth": 12,
+				"remnants": 0,
+				"hairBack": 5
+			}
+		],
+		"run-outfit-E": [
+			{
+				"neck": [
+					79,
+					65
+				],
+				"baseNeck": [
+					76,
+					67
+				],
+				"shift": [
+					1,
+					0
+				],
+				"match": 0.547,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 0
+			},
+			{
+				"neck": [
+					79,
+					64
+				],
+				"baseNeck": [
+					76,
+					65
+				],
+				"shift": [
+					1,
+					-1
+				],
+				"match": 0.541,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 0
+			},
+			{
+				"neck": [
+					78,
+					65
+				],
+				"baseNeck": [
+					75,
+					65
+				],
+				"shift": [
+					1,
+					0
+				],
+				"match": 0.541,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 0
+			},
+			{
+				"neck": [
+					79,
+					66
+				],
+				"baseNeck": [
+					76,
+					65
+				],
+				"shift": [
+					2,
+					1
+				],
+				"match": 0.554,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 0
+			},
+			{
+				"neck": [
+					79,
+					64
+				],
+				"baseNeck": [
+					76,
+					65
+				],
+				"shift": [
+					1,
+					-1
+				],
+				"match": 0.587,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 1
+			},
+			{
+				"neck": [
+					78,
+					64
+				],
+				"baseNeck": [
+					75,
+					66
+				],
+				"shift": [
+					1,
+					0
+				],
+				"match": 0.544,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 1
+			},
+			{
+				"neck": [
+					78,
+					65
+				],
+				"baseNeck": [
+					75,
+					65
+				],
+				"shift": [
+					1,
+					1
+				],
+				"match": 0.514,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 1
+			},
+			{
+				"neck": [
+					78,
+					65
+				],
+				"baseNeck": [
+					76,
+					65
+				],
+				"shift": [
+					0,
+					0
+				],
+				"match": 0.535,
+				"remnants": 0,
+				"holes": 0,
+				"collar": 0
+			}
+		]
+	}
+}

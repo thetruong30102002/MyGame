@@ -1,0 +1,262 @@
+{
+	"about": "Đòn HÚC KHIÊN E class Khiên (chủ dự án 30/10; chiêu cuối \"dồn lực sau khiên rồi lao vào đập\"; luật đòn đánh chỉ bắc + ngang): hai tay nắm quai sau khiên tròn (tay chồng dọc — bladeDeg 90, khiên vẽ mặt chĩa tới weaponDeg 0, thấy 0,42 mặt). Lấy đà: co người nép sau khiên, ngả lùi 6, hạ hông 4, dồn chân sau; bùng ra như thế lao của Thương (đã duyệt): bước 19 px, hông hạ 8, thân đổ 13, tay duỗi hết đập khiên tới ngang ngực (chạm khung 10) → hồi. Khiên thấp hơn cằm lúc thủ (tay −25°) để không che mặt.",
+	"character": "Q0-outfit-bald-E",
+	"rest": "Q0-outfit-bald-E#5702",
+	"direction": "east",
+	"pad": [
+		0,
+		0,
+		0,
+		0
+	],
+	"handGapPx": 6,
+	"frames": [
+		{
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0,
+			"arm": [
+				-25,
+				0.6
+			],
+			"bladeDeg": 90,
+			"weaponDeg": 0,
+			"bladeLen": 0.42
+		},
+		{
+			"lean": -1,
+			"hip": [
+				-1,
+				1
+			],
+			"step": 0,
+			"back": -1,
+			"arm": [
+				-25,
+				0.55
+			],
+			"bladeDeg": 90,
+			"weaponDeg": 0,
+			"bladeLen": 0.42
+		},
+		{
+			"lean": -3,
+			"hip": [
+				-2,
+				2
+			],
+			"step": 0,
+			"back": -3,
+			"arm": [
+				-24,
+				0.5
+			],
+			"bladeDeg": 90,
+			"weaponDeg": 0,
+			"bladeLen": 0.42
+		},
+		{
+			"lean": -5,
+			"hip": [
+				-3,
+				3
+			],
+			"step": 1,
+			"back": -5,
+			"arm": [
+				-22,
+				0.47
+			],
+			"bladeDeg": 90,
+			"weaponDeg": 0,
+			"bladeLen": 0.42
+		},
+		{
+			"lean": -6,
+			"hip": [
+				-3,
+				4
+			],
+			"step": 1,
+			"back": -6,
+			"arm": [
+				-20,
+				0.45
+			],
+			"bladeDeg": 90,
+			"weaponDeg": 0,
+			"bladeLen": 0.42
+		},
+		{
+			"lean": -6,
+			"hip": [
+				-3,
+				4
+			],
+			"step": 1,
+			"back": -6,
+			"arm": [
+				-20,
+				0.45
+			],
+			"bladeDeg": 90,
+			"weaponDeg": 0,
+			"bladeLen": 0.42
+		},
+		{
+			"lean": -6,
+			"hip": [
+				-3,
+				4
+			],
+			"step": 1,
+			"back": -6,
+			"arm": [
+				-21,
+				0.47
+			],
+			"bladeDeg": 90,
+			"weaponDeg": 0,
+			"bladeLen": 0.42
+		},
+		{
+			"lean": 2,
+			"hip": [
+				2,
+				5
+			],
+			"step": 8,
+			"back": -7,
+			"arm": [
+				-16,
+				0.74
+			],
+			"square": 0.4,
+			"bladeDeg": 90,
+			"weaponDeg": 0,
+			"bladeLen": 0.42
+		},
+		{
+			"lean": 9,
+			"hip": [
+				6,
+				7
+			],
+			"step": 15,
+			"back": -8,
+			"arm": [
+				-13,
+				0.94
+			],
+			"square": 0.8,
+			"bladeDeg": 90,
+			"weaponDeg": 0,
+			"bladeLen": 0.42
+		},
+		{
+			"lean": 13,
+			"hip": [
+				9,
+				8
+			],
+			"step": 19,
+			"back": -8,
+			"arm": [
+				-12,
+				1
+			],
+			"square": 1,
+			"bladeDeg": 90,
+			"weaponDeg": 0,
+			"bladeLen": 0.42
+		},
+		{
+			"lean": 13,
+			"hip": [
+				9,
+				8
+			],
+			"step": 19,
+			"back": -8,
+			"arm": [
+				-12,
+				1
+			],
+			"square": 1,
+			"bladeDeg": 90,
+			"weaponDeg": 0,
+			"bladeLen": 0.42
+		},
+		{
+			"lean": 10,
+			"hip": [
+				7,
+				7
+			],
+			"step": 16,
+			"back": -7,
+			"arm": [
+				-14,
+				0.92
+			],
+			"square": 0.8,
+			"bladeDeg": 90,
+			"weaponDeg": 0,
+			"bladeLen": 0.42
+		},
+		{
+			"lean": 6,
+			"hip": [
+				4,
+				4
+			],
+			"step": 10,
+			"back": -5,
+			"arm": [
+				-18,
+				0.8
+			],
+			"square": 0.5,
+			"bladeDeg": 90,
+			"weaponDeg": 0,
+			"bladeLen": 0.42
+		},
+		{
+			"lean": 2,
+			"hip": [
+				1,
+				2
+			],
+			"step": 4,
+			"back": -2,
+			"arm": [
+				-22,
+				0.68
+			],
+			"square": 0.2,
+			"bladeDeg": 90,
+			"weaponDeg": 0,
+			"bladeLen": 0.42
+		},
+		{
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0,
+			"arm": [
+				-25,
+				0.6
+			],
+			"bladeDeg": 90,
+			"weaponDeg": 0,
+			"bladeLen": 0.42
+		}
+	]
+}

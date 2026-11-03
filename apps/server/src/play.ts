@@ -5,7 +5,7 @@
 //   GET /play/m/         → bản điện thoại (ảnh ASTC nhẹ) ở data/webgl/m — trang PC tự chuyển sang khi là điện thoại
 // Unity nén sẵn gzip (`*.gz`): gửi kèm Content-Encoding để trình duyệt tự giải nén, Content-Type theo đuôi gốc, và X-Decoded-Length = cỡ sau
 // giải nén (trình duyệt đếm byte đã giải nén) để màn tải hiện đúng "đã tải / tổng MB".
-import { closeSync, createReadStream, existsSync, openSync, readSync, statSync } from 'node:fs';
+import { closeSync, createReadStream, existsSync, openSync, readSync, readFileSync, statSync } from 'node:fs';
 import type { IncomingMessage, ServerResponse } from 'node:http';
 import { dirname, extname, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -56,8 +56,8 @@ export function sendPlay(rawPath: string, path: string, res: ServerResponse, req
 		if (index) res.writeHead(503, { 'Content-Type': 'text/plain; charset=utf-8' }).end('Bản chơi trên web chưa được phát.');
 		return index;
 	}
-	const gz = p.endsWith('.gz');
-	const type = TYPES[extname(gz ? p.slice(0, -3) : p).toLowerCase()];
+	const gz = p.endsWith('.gz'), br=p.endsWith('.br');
+	const type = TYPES[extname(gz||br ? p.slice(0, -3) : p).toLowerCase()];
 	if (!type) return false;
 	const stat = statSync(p);
 	const etag = 'W/"' + stat.size.toString(16) + '-' + stat.mtimeMs.toString(16) + '"';
@@ -71,11 +71,17 @@ export function sendPlay(rawPath: string, path: string, res: ServerResponse, req
 		headers['Content-Encoding'] = 'gzip';
 		headers['X-Decoded-Length'] = String(gzipSize(p, stat.size));
 	}
+	if(br){
+		headers['Content-Encoding']='br';
+		const sizeFile=resolve(dirname(dirname(p)),'decoded-sizes.json');
+		if(existsSync(sizeFile)){const sizes=JSON.parse(readFileSync(sizeFile,'utf8')) as Record<string,number>;const key='Build/'+p.split(/[\\/]/).at(-1);if(sizes[key])headers['X-Decoded-Length']=String(sizes[key]);}
+	}
 	if (req.headers['if-none-match'] === etag) {
 		res.writeHead(304, headers).end();
 		return true;
 	}
 	res.writeHead(200, { ...headers, 'Content-Length': String(stat.size) });
+	if(req.method==='HEAD'){res.end();return true;}
 	createReadStream(p).pipe(res);
 	return true;
 }

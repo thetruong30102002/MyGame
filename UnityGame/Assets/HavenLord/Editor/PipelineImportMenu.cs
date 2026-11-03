@@ -109,6 +109,7 @@ namespace HavenLord.Importer
                     Progress("Hiệu ứng", 0);
                     VfxImporter.ImportAll(src, report);
                     CharacterImporter.ImportAll(src, report, Progress);
+                    LayeredImporter.ImportAll(src, report);
                     MapImporter.ImportAll(src, report, Progress);
                 }
                 finally

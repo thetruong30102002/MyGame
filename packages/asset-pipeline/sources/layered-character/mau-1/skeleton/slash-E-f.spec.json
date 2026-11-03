@@ -1,0 +1,24 @@
+{
+	"about": "Đòn chém E cho thân NỮ: chép từ slash-E.spec.json (bản 2 đã duyệt: vung thẳng tay, kiếm dựng thẳng lên rồi bổ xuống) — arm là góc / độ duỗi tính từ vai nên tự khớp tầm tay nữ.",
+	"character": "F1-outfit-f-char",
+	"direction": "east",
+	"pad": [8, 8, 16, 0],
+	"handGapPx": 3,
+	"frames": [
+		{ "arm": [-60, 0.8], "bladeDeg": 40, "lean": 0, "hip": [0, 0], "step": 0, "back": 0, "square": 0 },
+		{ "arm": [-25, 0.85], "bladeDeg": 65, "lean": -1, "hip": [-1, 0], "step": 0, "back": -1, "square": 0 },
+		{ "arm": [25, 0.9], "bladeDeg": 100, "weaponDeg": 90, "lean": -2, "hip": [-1, 0], "step": 0, "back": -2, "square": 0.3 },
+		{ "arm": [70, 0.95], "bladeDeg": 130, "weaponDeg": 95, "lean": -3, "hip": [-2, 0], "step": 0, "back": -3, "square": 0.6 },
+		{ "arm": [100, 1.0], "bladeDeg": 160, "weaponDeg": 100, "lean": -3, "hip": [-2, 0], "step": 0, "back": -3, "square": 0.8 },
+		{ "arm": [118, 1.0], "bladeDeg": 185, "weaponDeg": 105, "lean": -4, "hip": [-2, 0], "step": 0, "back": -3, "square": 1 },
+		{ "arm": [105, 1.0], "bladeDeg": 165, "weaponDeg": 100, "lean": -2, "hip": [-1, 0], "step": 2, "back": -3, "square": 1 },
+		{ "arm": [75, 1.0], "bladeDeg": 110, "weaponDeg": 95, "lean": 0, "hip": [1, 1], "step": 4, "back": -3, "square": 1 },
+		{ "arm": [35, 1.0], "bladeDeg": 45, "lean": 3, "hip": [2, 2], "step": 6, "back": -3, "square": 1 },
+		{ "arm": [-5, 1.0], "bladeDeg": -10, "lean": 5, "hip": [3, 2], "step": 8, "back": -3, "square": 1 },
+		{ "arm": [-30, 1.0], "bladeDeg": -40, "lean": 5, "hip": [3, 2], "step": 8, "back": -3, "square": 1 },
+		{ "arm": [-45, 0.95], "bladeDeg": -50, "lean": 4, "hip": [3, 2], "step": 8, "back": -3, "square": 1 },
+		{ "arm": [-50, 0.9], "bladeDeg": -30, "lean": 3, "hip": [2, 1], "step": 7, "back": -2, "square": 0.7 },
+		{ "arm": [-55, 0.85], "bladeDeg": 5, "lean": 1, "hip": [1, 1], "step": 5, "back": -1, "square": 0.4 },
+		{ "arm": [-60, 0.8], "bladeDeg": 35, "lean": 0, "hip": [1, 0], "step": 3, "back": -1, "square": 0.1 }
+	]
+}

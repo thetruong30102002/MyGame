@@ -11,6 +11,12 @@ namespace HavenLord.Client
     {
         private bool VerifyCompleteCharacter(CharacterView view)
         {
+            if (view?.Def != null && view.Def.id.StartsWith("player_pl_"))
+            {
+                if (view.Renderer.sprite == null || view.Def.frameSize != new Vector2Int(160,160) || Vector2.Distance(view.Def.anchor,new Vector2(.5f,.9f))>.0001f || view.Renderer.sprite.pixelsPerUnit!=48 || view.Renderer.sprite.texture.filterMode!=FilterMode.Point || Vector3.Distance(view.transform.lossyScale,Vector3.one)>.001f)
+                { Fail("Sai chuẩn PixelLab nam canvas160 / root80,144 / PPU48");return false; }
+                return true;
+            }
             if (view?.Def == null || (view.Def.id != GameController.IntegratedCharacterId && PlayerRoster.Find(view.Def.id) == null) || view.Renderer.sprite == null)
             { Fail("Nhân vật Lữ khách mới chưa là mặc định"); return false; }
             if (view.GetComponentsInChildren<SpriteRenderer>(true).Length != 1)

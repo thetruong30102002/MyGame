@@ -1,6 +1,22 @@
+<!-- pixellab-only-male-release-20261102 -->
+
+**CHỐT 02/11 — DISCARD ANIMATION GPT:** Chủ dự án bỏ toàn bộ thử nghiệm vẽ/retime GPT. Không đưa lại ImageGen/GPT animation, vũ khí thử hoặc trang xem thử đã loại vào nguồn/build. Bộ hiện hành dùng PixelLab gốc tại `sources/layered-character/mau-1/baseline-pixellab-v1`; bản đầu 25 lựa chọn nam (5 tộc × 5 class), một đầu/tộc, một bộ/class, 15 frame đòn gốc. Xuất bằng `scripts/export-pixellab-male-roster.mts`, nhập/build `PixelLabMaleRelease`. Giữ nguồn đầu–thân–vũ khí; atlas game chỉ đóng gói trước các lớp gốc, không sinh hình mới. Tư liệu bị loại đã cách ly ngoài đầu vào build/site; không phục hồi nếu chưa có chỉ thị mới. Không reset DB.
+
 <!-- underwear-base-body-28-10 -->
 
-**CHỐT MỚI NHẤT28/10 (thay phần "BỎ cởi đồ/thân nền đồ lót" của chốt27/10 ngay dưới): tháo đồ về thân nền — nam mặc quần cởi trần, nữ mặc áo+quần, body đẹp vừa phải. MỌI TỘC CÙNG MỘT MÀU DA (thân và cổ đầu), nên chỉ vẽ1 thân nền nam +1 nữ, có đủ đứng/đi/chạy8 hướng và5 đòn tấn công của5 vũ khí (cởi đồ vẫn đánh được). Vẫn tách đầu–thân–vũ khí, vẽ bằng PixelLab. Mỗi class12 bộ:5 bộ shop +7 bộ rớt cấp max;7 chủ đề rớt chung cho5 class; mỗi bộ chỉ có thao tác của class nó. Làm theo5 phiên, phiên nào cũng đủ5 class (`character-gear-phase-1`…`5` trong kế hoạch).**
+**CHỐT MỚI NHẤT28/10 (thay phần "BỎ cởi đồ/thân nền đồ lót" của chốt27/10 ngay dưới): tháo đồ về thân nền — nam mặc QUẦN ĐÙI cởi trần chân trần, nữ mặc BIKINI có ngực (chốt 28/10; quai qua vai, cấm dây buộc quanh cổ), body đẹp vừa phải. MỌI TỘC CÙNG MỘT MÀU DA (thân và cổ đầu), nên chỉ vẽ1 thân nền nam +1 nữ, có đủ đứng/đi/chạy8 hướng và5 đòn tấn công của5 vũ khí (cởi đồ vẫn đánh được). Vẫn tách đầu–thân–vũ khí, vẽ bằng PixelLab. Mỗi class12 bộ:5 bộ shop +7 bộ rớt cấp max;7 chủ đề rớt chung cho5 class; mỗi bộ chỉ có thao tác của class nó. Làm theo5 phiên, phiên nào cũng đủ5 class (`character-gear-phase-1`…`5` trong kế hoạch).**
+
+**CHỐT 30/10 — THÂN GIỮ CỔ, KHÔNG GIỮ HÀM (một khuôn): thân dùng chung chỉ giữ cổ trơn — bỏ góc viền hàm / bóng hàm của đầu trọc tới hàng neo + `body.mouldNeckCut` (S 4, E 2, N 1); mỗi đầu lấp bằng cổ của CHÍNH nó ở lớp dưới thân. Cấm dời / nâng riêng đầu để chữa cổ ngắn (lộ hàm cũ = ghép đè hai đầu); đầu mặt dài thì vẽ lại. Kiểm `cli.ts mould` phải in "hở cổ: 0".**
+
+**CHỐT 31/10 — ĐÒN HƯỚNG THẲNG (N) CHÂN KHÔNG CHÙNG BÈ: cấm ngồi xổm gối mở hai bên. Cận chiến (kiếm, thương, khiên) chỉ hạ người khi bước một chân về hướng đánh (thế lao); cung, trượng đứng thẳng chân. Bảng tư thế N bắt buộc gối "depth" + `stance` ("lunge" / "upright", chuẩn `animations[].stance`, `straightAttackRule`) — bộ dựng khung xương và bộ kiểm kế hoạch chặn sai luật. Vũ khí một tay nhìn sau lưng: tay kia thả bên sườn, không vươn chéo qua lưng.**
+
+**CHỐT 30/10 — ĐÒN ĐÁNH CHỈ 3 HƯỚNG: BẮC (N) VÀ NGANG (E, W lật từ E). Đánh về nam thì nhân vật xoay ngang dùng clip E / W (SE → E, SW → W, thẳng nam theo phía ngang đang nhìn — `LayeredCharacterView.PlayAttack`). KHÔNG vẽ đòn hướng S cho class nào (xấu, khó vẽ); đứng / đi / chạy vẫn đủ 4 hướng. Chuẩn `animations[].drawDirections` = ["E","N"], bộ kiểm kế hoạch chặn món đòn S; bản S đã vẽ đánh dấu `dropped`, giữ nguồn, không xuất.**
+
+**CHỐT 30/10: GAME CHỈ 4 HƯỚNG (S, E, N, W) thay 8 hướng — PixelLab chỉ vẽ S, E, N; W lật gương từ E; không vẽ thêm hướng chéo (đầu việc `game-four-directions`). Chuẩn điểm đặt đầu = neo cằm đo trên mặt (chính diện: tâm + đáy mảng da mặt; nghiêng: mép trước + đáy cằm; sau lưng: tâm + đáy khối đầu), cùng một luật cho mọi đầu.**
+
+**CHỐT 29/10 (thay phần "cổ da cũ phải tách khỏi thân" của chỉ thị 27/10 bên dưới): CỔ DA THUỘC THÂN, ĐẦU CẮT TỚI CẰM. Mọi tộc chung một màu da nên cổ của thân hợp mọi đầu; đầu 8 hướng đặt theo NEO CẰM của từng khung thân (đáy cằm đầu trùng đỉnh cổ thân), đầu chỉ dịch nguyên pixel. Đầu giữ bản cổ của chính nó ở lớp DƯỚI thân để lấp khe dưới hàm. MỘT bộ đồ đủ thao tác dùng chung cho mọi đầu cùng giới — không vẽ bộ đồ / động tác riêng cho từng đầu. Vẫn cấm ghép đè hai đầu (thân không còn tóc / mặt / tai / sừng / hàm của đầu gốc).**
+
+**Chuẩn nhân vật ghép lớp (28/10): [docs/thiet-ke/chuan-nhan-vat-ghep-lop.md](docs/thiet-ke/chuan-nhan-vat-ghep-lop.md), nguồn máy đọc `packages/asset-pipeline/sources/layered-character/standard.json` (bộ kiểm `src/layered/standard.ts` chặn sai chuẩn). PHONG CÁCH ĐÃ CHỐT: anime như hai NPC tóc trắng ở sảnh; CẤM tạo nhân vật PixelLab chỉ bằng chữ — sửa chính ảnh NPC mẫu rồi xoay 8 hướng. Lệnh: `npx tsx packages/asset-pipeline/src/layered/cli.ts plan|run|process`.**
 
 <!-- starter-class-no-undress -->
 

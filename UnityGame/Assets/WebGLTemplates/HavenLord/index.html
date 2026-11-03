@@ -44,7 +44,7 @@
     </div>
     <script>
       // Đếm byte đã tải của các file Build/ (bọc fetch mà loader Unity dùng) để hiện "đã tải / tổng MB · tốc độ" — gói dữ liệu vài trăm MB,
-      // mạng chậm thì người chơi vẫn thấy đang chạy. Tổng lấy từ X-Decoded-Length (cỡ sau giải nén, máy chủ play.ts gửi), thiếu thì Content-Length.
+      // mạng chậm thì người chơi vẫn thấy đang chạy. Tổng hiển thị theo gói nén Content-Length; byte giải nén chỉ dùng tính tỷ lệ tiến độ.
       (function () {
         var files = {}, started = performance.now(), mb = document.getElementById("mb"), fill = document.getElementById("fill");
         var fmt = function (n) { return (n / 1048576).toFixed(n < 10485760 ? 1 : 0).replace(".", ","); };
@@ -61,14 +61,16 @@
           var url = typeof input === "string" ? input : (input && input.url) || "";
           return realFetch.apply(this, arguments).then(function (res) {
             if (!/(^|\/)Build\//.test(String(url)) || !res.body || res.status !== 200) return res;
-            var total = +res.headers.get("X-Decoded-Length") || +res.headers.get("Content-Length") || 0;
-            var f = files[url] = { got: 0, total: total };
+            var decodedTotal = +res.headers.get("X-Decoded-Length") || +res.headers.get("Content-Length") || 0;
+            var total = +res.headers.get("Content-Length") || decodedTotal;
+            var f = files[url] = { got: 0, total: total, decoded: 0 };
             var reader = res.body.getReader();
             var body = new ReadableStream({
               pull: function (ctrl) {
                 return reader.read().then(function (r) {
                   if (r.done) { ctrl.close(); return; }
-                  f.got += r.value.length;
+                  f.decoded += r.value.length;
+                  f.got = decodedTotal > 0 ? Math.min(f.total, f.decoded / decodedTotal * f.total) : f.decoded;
                   if (f.got > f.total) f.total = f.got;
                   show();
                   ctrl.enqueue(r.value);
@@ -100,6 +102,8 @@
         companyName: {{{ JSON.stringify(COMPANY_NAME) }}},
         productName: {{{ JSON.stringify(PRODUCT_NAME) }}},
         productVersion: {{{ JSON.stringify(PRODUCT_VERSION) }}},
+        // Pixel art trên điện thoại chỉ cần một pixel render / CSS pixel; tránh vẽ gấp 4–9 lần vì màn hình DPR cao.
+        devicePixelRatio: /\/m\//.test(location.pathname) || /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ? 1 : Math.min(window.devicePixelRatio || 1, 2),
         // Cài đặt / phím tắt (PlayerPrefs) tự ghi xuống IndexedDB khi đổi.
         autoSyncPersistentDataPath: true,
       }, function (progress) {

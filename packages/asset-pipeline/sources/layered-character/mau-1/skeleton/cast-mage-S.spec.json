@@ -1,0 +1,247 @@
+{
+	"about": "Đòn NIỆM PHÉP S của class Trượng: trượng dựng đứng bên phải người (bên trái ảnh, tránh che mặt) → nhấc lên cao cạnh vai, đầu trượng trên đầu (giữ 6–7) → nghiêng đầu trượng chĩa VỀ NGƯỜI XEM (hình chiếu trượng ngắn lại — bladeLen, tay duỗi về người xem — forward), chạm khung 10 → hồi thế; khung 15 trùng khung 1. Hướng N lật gương từ bảng này (cli mirror). Dựng trên khung xương đứng của thân Kiếm sĩ (cùng khuôn G1) rồi retarget sang ảnh Pháp sư. Khung thủ / giơ (1–7, 13–15): trượng vẽ ngả ra ngoài (weaponDeg 102°) cho đầu trượng tránh má (tay giữ nguyên). Khung 8 (bắt đầu nghiêng tới): trượng vẽ ngả ra ngoài 104° — bản đầu cắt chéo qua mặt (kiểm thử 30/10).",
+	"character": "Q0-outfit-bald-S",
+	"rest": "Q0-outfit-bald-S#5722",
+	"direction": "south",
+	"pad": [
+		0,
+		0,
+		0,
+		0
+	],
+	"handGapPx": 6,
+	"knees": "out",
+	"frames": [
+		{
+			"grip": [
+				52,
+				64
+			],
+			"bladeDeg": 85,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0,
+			"weaponDeg": 102
+		},
+		{
+			"grip": [
+				51,
+				60
+			],
+			"bladeDeg": 87,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0,
+			"weaponDeg": 102
+		},
+		{
+			"grip": [
+				50,
+				54
+			],
+			"bladeDeg": 90,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0,
+			"weaponDeg": 102
+		},
+		{
+			"grip": [
+				49,
+				48
+			],
+			"bladeDeg": 93,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0,
+			"weaponDeg": 102
+		},
+		{
+			"grip": [
+				48,
+				42
+			],
+			"bladeDeg": 96,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0,
+			"weaponDeg": 102
+		},
+		{
+			"grip": [
+				48,
+				38
+			],
+			"bladeDeg": 98,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0,
+			"weaponDeg": 102
+		},
+		{
+			"grip": [
+				48,
+				38
+			],
+			"bladeDeg": 98,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0,
+			"weaponDeg": 102
+		},
+		{
+			"grip": [
+				52,
+				44
+			],
+			"bladeDeg": 75,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0,
+			"bladeLen": 0.8,
+			"weaponDeg": 104
+		},
+		{
+			"grip": [
+				57,
+				50
+			],
+			"bladeDeg": 50,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0,
+			"bladeLen": 0.5,
+			"forward": 150
+		},
+		{
+			"grip": [
+				60,
+				54
+			],
+			"bladeDeg": -90,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0,
+			"bladeLen": 0.3,
+			"forward": 165
+		},
+		{
+			"grip": [
+				60,
+				54
+			],
+			"bladeDeg": -90,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0,
+			"bladeLen": 0.3,
+			"forward": 165
+		},
+		{
+			"grip": [
+				57,
+				55
+			],
+			"bladeDeg": 55,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0,
+			"bladeLen": 0.6,
+			"forward": 145
+		},
+		{
+			"grip": [
+				54,
+				59
+			],
+			"bladeDeg": 75,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0,
+			"bladeLen": 0.9,
+			"weaponDeg": 102
+		},
+		{
+			"grip": [
+				52,
+				62
+			],
+			"bladeDeg": 83,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0,
+			"weaponDeg": 102
+		},
+		{
+			"grip": [
+				52,
+				64
+			],
+			"bladeDeg": 85,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0,
+			"weaponDeg": 102
+		}
+	]
+}

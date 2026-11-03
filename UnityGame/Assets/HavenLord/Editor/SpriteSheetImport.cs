@@ -39,9 +39,14 @@ namespace HavenLord.Importer
 
         private const int WebGLMobileMaxSize = 2048;
 
-        private static bool CompressWebGL(TextureImporter ti, bool big, int maxSize) => WebGLMobile
-            ? Compress(ti, "WebGL", big ? TextureImporterFormat.ASTC_6x6 : TextureImporterFormat.RGBA32, big, Math.Min(maxSize, WebGLMobileMaxSize))
-            : Compress(ti, "WebGL", big ? TextureImporterFormat.BC7 : TextureImporterFormat.RGBA32, big, maxSize);
+        private static bool CompressWebGL(TextureImporter ti, bool big, int maxSize)
+        {
+            // Bộ PixelLab mới đã trim alpha: giữ nguyên pixel, không nén khối làm bệt nét người/đầu.
+            if(ti.assetPath.Contains("/Characters/player_pl_"))return Compress(ti,"WebGL",TextureImporterFormat.RGBA32,false,Math.Min(maxSize,WebGLMobileMaxSize));
+            if(!WebGLMobile)return Compress(ti,"WebGL",big?TextureImporterFormat.BC7:TextureImporterFormat.RGBA32,big,maxSize);
+            var scenery=ti.assetPath.Contains("/Maps/")||ti.assetPath.Contains("/World/");
+            return Compress(ti,"WebGL",big?(scenery?TextureImporterFormat.ASTC_8x8:TextureImporterFormat.ASTC_6x6):TextureImporterFormat.RGBA32,big,Math.Min(maxSize,WebGLMobileMaxSize));
+        }
 
         /// <summary>Đổi chế độ ảnh WebGL (PC BC7 ↔ điện thoại ASTC) cho mọi ảnh trong Imported; cỡ gốc và ảnh lớn/nhỏ đọc lại từ mục Android.</summary>
         public static void SetWebGLMobile(bool mobile)

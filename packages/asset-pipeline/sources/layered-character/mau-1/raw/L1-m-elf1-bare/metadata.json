@@ -1,0 +1,36 @@
+{
+  "group_id": "4502fed1-3b5a-4e9f-9e3e-fd0823123ba9",
+  "states": [
+    {
+      "character": {
+        "id": "e3d95db5-7fdd-492b-aac6-c3b6aff2a956",
+        "name": "Idle",
+        "prompt": "adult male fantasy RPG hero, slim athletic build, short fluffy platinum blond anime hair, soft spiky layered strands, lots of volume, long side-swept bangs, short nape, long pointed elf ears clearly visible, brown eyes, bare chest and bare arms, only plain dark shorts above the knee, barefoot, natural short neck in normal proportion, not long, chin close to the shoulders, no collar, no scarf, no hood covering the neck, arms relaxed at the sides away from the head, standing straight, calm neutral face, even top-center lighting, symmetric design, no weapon",
+        "size": {
+          "width": 128,
+          "height": 128
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-10-29T15:20:19.046806+00:00"
+      },
+      "folder": "Idle",
+      "frames": {
+        "rotations": {
+          "south": "Idle/rotations/south.png",
+          "south-east": "Idle/rotations/south-east.png",
+          "east": "Idle/rotations/east.png",
+          "north-east": "Idle/rotations/north-east.png",
+          "north": "Idle/rotations/north.png",
+          "north-west": "Idle/rotations/north-west.png",
+          "west": "Idle/rotations/west.png",
+          "south-west": "Idle/rotations/south-west.png"
+        },
+        "animations": {}
+      }
+    }
+  ],
+  "export_version": "3.1",
+  "export_date": "2026-10-29T15:23:15.021966"
+}

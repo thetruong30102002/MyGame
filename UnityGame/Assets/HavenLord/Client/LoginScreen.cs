@@ -42,6 +42,8 @@ namespace HavenLord.Client
         private bool female;
         private string selectedClass = "sword";
         private string selectedModel;
+        internal string SelectedStarterModel => selectedModel;
+        private bool trialCreate;
         private bool showServer;
         private string error = "";
 
@@ -241,7 +243,8 @@ namespace HavenLord.Client
             if (card != null) Destroy(card.gameObject);
             var h = step == Step.Login ? 330 : step == Step.Register ? 400 : step == Step.Create ? 520 : 140 + Math.Max(1, characters.Count) * 76;
             if (showServer && (step == Step.Login || step == Step.Register)) h += 66;
-            card = UiKit.Rect(root, "Card", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 1), new Vector2(0, step == Step.Create ? 205 : 150), new Vector2(step == Step.Create ? 820 : 420, h));
+            var cardWidth=Mathf.Min(step==Step.Create?820:420,root.rect.width-32);
+            card = UiKit.Rect(root, "Card", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 1), new Vector2(0, step == Step.Create ? 205 : 150), new Vector2(cardWidth, h));
             UiStyle.Card(card, UiStyle.CardKind.Hud, 18, true, true);
             errorText = null;
             switch (step)
@@ -255,7 +258,7 @@ namespace HavenLord.Client
                     break;
                 case Step.Create:
                     BuildCreate();
-                    charName.text = keepName;
+                    charName.text = trialCreate && string.IsNullOrEmpty(keepName) ? "Lữ khách" : keepName;
                     break;
             }
             ShowError();
@@ -299,7 +302,7 @@ namespace HavenLord.Client
                 Rebuild();
             }, false);
             Button(card, "Lab", new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(0, 12), new Vector2(120, 26), "Thử chiêu ›", PlayLab, false);
-            Button(card, "Offline", new Vector2(1, 0), new Vector2(1, 0), new Vector2(-18, 12), new Vector2(120, 26), "Chơi offline ›", PlayOffline, false);
+            Button(card, "Offline", new Vector2(1, 0), new Vector2(1, 0), new Vector2(-18, 12), new Vector2(120, 26), "Chọn chơi thử ›", () => { trialCreate = true; step = Step.Create; Rebuild(); }, false);
             if (pass != null) pass.onSubmit.AddListener(_ => Run(() => Auth(reg)));
         }
 
@@ -336,35 +339,55 @@ namespace HavenLord.Client
             var current = PlayerRoster.Find(selectedModel);
             if (current == null || current.classId != selectedClass)
             {
-                current = Array.Find(PlayerRoster.Choices, c => c.classId == selectedClass && c.gender == (female ? "female" : "male"))
+                current = Array.Find(PlayerRoster.Choices, c => c.classId == selectedClass && c.raceId == current?.raceId)
+                    ?? Array.Find(PlayerRoster.Choices, c => c.classId == selectedClass && c.gender == (female ? "female" : "male"))
                     ?? Array.Find(PlayerRoster.Choices,c=>c.classId==selectedClass) ?? PlayerRoster.Choices[0];
                 selectedModel = current.id;
                 selectedClass = current.classId;
                 female = current.gender == "female";
             }
             UiKit.Label(UiKit.Rect(card, "H", new Vector2(.5f, 1), new Vector2(.5f, 1), new Vector2(0, -16), new Vector2(780, 28)), "Chọn nhân vật khởi đầu", 21, UiStyle.GoldHi, TextAnchor.MiddleCenter, true);
-            UiKit.Label(UiKit.Rect(card, "Note", new Vector2(.5f, 1), new Vector2(.5f, 1), new Vector2(0, -49), new Vector2(780, 22)), PlayerRoster.Choices.Length==30 ? "5 class · Mỗi class 3 nam, 3 nữ · Mỗi tài khoản một nhân vật" : "Đang mở " + PlayerRoster.Choices.Length + " tạo hình đủ chuyển động · Các mẫu còn lại đang hoàn thiện", 13, UiStyle.ParchmentDim, TextAnchor.MiddleCenter);
-            for (var i = 0; i < PlayerRoster.Classes.Length; i++)
+            UiKit.Label(UiKit.Rect(card, "Note", new Vector2(.5f, 1), new Vector2(.5f, 1), new Vector2(0, -49), new Vector2(780, 22)), "Nhân vật nam · 5 tộc · 5 class · Bộ chuyển động PixelLab", 13, UiStyle.ParchmentDim, TextAnchor.MiddleCenter);
+            UiKit.Icon(UiKit.Rect(card,"StarterPreview",new Vector2(.5f,1),new Vector2(.5f,1),new Vector2(0,-86),new Vector2(220,220)),Hero(current.id));
+            UiKit.Label(UiKit.Rect(card,"HeadLabel",new Vector2(.5f,1),new Vector2(.5f,1),new Vector2(0,-78),new Vector2(240,26)),"Đầu / tộc: "+current.raceLabel,15,UiStyle.Parchment,TextAnchor.MiddleCenter,true);
+            StarterArrow("HeadPrev",-154,-138,"‹",()=>CycleStarterHead(-1));
+            StarterArrow("HeadNext",154,-138,"›",()=>CycleStarterHead(1));
+            StarterArrow("ClassPrev",-154,-237,"‹",()=>CycleStarterClass(-1));
+            StarterArrow("ClassNext",154,-237,"›",()=>CycleStarterClass(1));
+            UiKit.Label(UiKit.Rect(card,"ClassLabel",new Vector2(.5f,1),new Vector2(.5f,1),new Vector2(0,-307),new Vector2(360,26)),"Bộ / class: "+current.classLabel,17,UiStyle.GoldHi,TextAnchor.MiddleCenter,true);
+            charName = Field(card, "Tên nhân vật", -349, "3–16 ký tự", false);
+            if(card.rect.width<760)
             {
-                var key = PlayerRoster.Classes[i];
-                Button(card, "Class-" + key, new Vector2(.5f, 1), new Vector2(.5f, 1), new Vector2((i - (PlayerRoster.Classes.Length-1)*.5f) * 152, -81), new Vector2(142, 34), (selectedClass == key ? "• " : "") + PlayerRoster.ClassLabels[i], () => { selectedClass = key; Rebuild(); }, false);
+                var nameRect=(RectTransform)charName.transform;nameRect.anchorMin=nameRect.anchorMax=new Vector2(.5f,1);nameRect.pivot=new Vector2(.5f,1);nameRect.anchoredPosition=new Vector2(0,-369);nameRect.sizeDelta=new Vector2(Mathf.Min(372,card.rect.width-48),40);
             }
-            var choices = Array.FindAll(PlayerRoster.Choices, c => c.classId == selectedClass);
-            for (var i = 0; i < choices.Length; i++)
-            {
-                var c = choices[i];
-                var chosen = c.id == selectedModel;
-                var rt = UiKit.Rect(card, c.id, new Vector2(.5f, 1), new Vector2(.5f, 1), new Vector2((i - (choices.Length-1)*.5f) * 130, -131), new Vector2(120, 170));
-                UiStyle.Card(rt, chosen ? UiStyle.CardKind.Paper : UiStyle.CardKind.Chip, 12, false, true);
-                UiKit.Icon(UiKit.Rect(rt, "P", new Vector2(.5f, 1), new Vector2(.5f, 1), new Vector2(0, -5), new Vector2(110, 117)), Hero(c.id));
-                UiKit.Label(UiKit.Rect(rt, "N", new Vector2(.5f, 0), new Vector2(.5f, 0), new Vector2(0, 27), new Vector2(114, 24)), c.displayName, 14, chosen ? UiStyle.InkBrown : UiStyle.Parchment, TextAnchor.MiddleCenter, true, !chosen);
-                UiKit.Label(UiKit.Rect(rt, "Sex", new Vector2(.5f, 0), new Vector2(.5f, 0), new Vector2(0, 7), new Vector2(110, 20)), (c.gender == "female" ? "Nữ " : "Nam ") + c.variant, 12, chosen ? UiStyle.InkBrown : UiStyle.ParchmentDim, TextAnchor.MiddleCenter, false, !chosen);
-                UiKit.Press(rt, () => { selectedModel = c.id; female = c.gender == "female"; Rebuild(); });
-            }
-            charName = Field(card, "Tên nhân vật", -326, "3–16 ký tự", false);
-            UiKit.Label(UiKit.Rect(card, "Chosen", new Vector2(1, 1), new Vector2(1, 1), new Vector2(-28, -342), new Vector2(350, 58)), current.displayName + " · " + current.classLabel + "\n" + (female ? "Nữ" : "Nam") + " · Ngoại hình được lưu cùng nhân vật", 15, UiStyle.GoldHi, TextAnchor.MiddleCenter, true);
-            Button(card, "Go", new Vector2(.5f, 0), new Vector2(.5f, 0), new Vector2(0, 50), new Vector2(372, 46), "Tạo và vào thế giới", () => Run(CreateAsync));
+            else UiKit.Label(UiKit.Rect(card, "Chosen", new Vector2(1, 1), new Vector2(1, 1), new Vector2(-28, -365), new Vector2(350, 52)), current.raceLabel + " · " + current.classLabel + "\nNam · Vũ khí cơ bản đúng class", 14, UiStyle.GoldHi, TextAnchor.MiddleCenter, true);
+            Button(card, "Go", new Vector2(.5f, 0), new Vector2(.5f, 0), new Vector2(0, 50), new Vector2(372, 46), trialCreate ? "Vào chơi thử" : "Tạo và vào thế giới", () => Run(CreateAsync));
             errorText = UiKit.Label(UiKit.Rect(card, "Err", new Vector2(.5f, 0), new Vector2(.5f, 0), new Vector2(0, 19), new Vector2(760, 22)), "", 12, new Color(1f, .6f, .5f), TextAnchor.MiddleCenter, true);
+        }
+
+        private void CycleStarterHead(int stepBy)
+        {
+            var choices=Array.FindAll(PlayerRoster.Choices,c=>c.classId==selectedClass);
+            if(choices.Length==0)return;
+            var index=Array.FindIndex(choices,c=>c.id==selectedModel);
+            var next=choices[(Math.Max(0,index)+stepBy+choices.Length)%choices.Length];
+            selectedModel=next.id;female=false;Rebuild();
+        }
+
+        private void StarterArrow(string name,float x,float y,string text,Action click)
+        {
+            var arrow=Button(card,name,new Vector2(.5f,1),new Vector2(.5f,.5f),new Vector2(x,y),new Vector2(76,76),text,click,false);
+            arrow.GetComponentInChildren<TMP_Text>().fontSize=30;
+        }
+
+        private void CycleStarterClass(int stepBy)
+        {
+            var classes=PlayerRoster.Classes;if(classes.Length==0)return;
+            var race=PlayerRoster.Find(selectedModel)?.raceId;
+            var index=Array.IndexOf(classes,selectedClass);
+            selectedClass=classes[(Math.Max(0,index)+stepBy+classes.Length)%classes.Length];
+            var next=Array.Find(PlayerRoster.Choices,c=>c.classId==selectedClass&&c.raceId==race)??Array.Find(PlayerRoster.Choices,c=>c.classId==selectedClass);
+            selectedModel=next?.id;female=false;Rebuild();
         }
 
         private void ShowError()
@@ -405,6 +428,7 @@ namespace HavenLord.Client
 
         private async Task Auth(bool register)
         {
+            trialCreate = false;
             var u = user.text.Trim();
             if (u.Length == 0) throw new ApiException(0, "Bạn chưa gõ tên đăng nhập");
             if (pass.text.Length == 0) throw new ApiException(0, "Bạn chưa gõ mật khẩu");
@@ -432,6 +456,7 @@ namespace HavenLord.Client
             }
             var choice = PlayerRoster.Find(selectedModel);
             if (choice == null) throw new ApiException(0, "Chọn một nhân vật trước khi vào game");
+            if (trialCreate) { PlayerRoster.OfflineModelId = choice.id; PlayOffline(); return; }
             var c = await api.CreateCharacterAsync(name, choice.gender, choice.id, choice.classId);
             Enter(c);
         }

@@ -63,7 +63,9 @@ namespace HavenLord.Client
                 t.adminRun = Array.IndexOf(args, "-havenAdmin") >= 0;
                 t.uiRun = Array.IndexOf(args, "-havenUi") >= 0;
                 t.rosterRun = Array.IndexOf(args, "-havenRoster") >= 0;
+                t.pixelLabRosterRun = Array.IndexOf(args, "-havenPixelLabRoster") >= 0;
                 t.weatherRun = Array.IndexOf(args, "-havenWeather") >= 0;
+                t.layeredRun = Array.IndexOf(args, "-havenLayered") >= 0;
                 return;
             }
         }
@@ -76,6 +78,11 @@ namespace HavenLord.Client
             var login = FindFirstObjectByType<LoginScreen>();
             yield return new WaitForSeconds(1f);
             yield return Shot("0-login");
+            if (pixelLabRosterRun)
+            {
+                yield return PixelLabSelectionTest(login);
+                if(failed)yield break;
+            }
             if (rosterRun)
                 foreach (var role in PlayerRoster.Classes)
                 {
@@ -124,6 +131,12 @@ namespace HavenLord.Client
             yield return new WaitForSeconds(2.5f);
             if (game == null || game.Player == null) { Fail("Không nạp được nhân vật mặc định mới"); yield break; }
             if (!VerifyCompleteCharacter(game.Player.View)) yield break;
+            if (pixelLabRosterRun)
+            {
+                yield return PixelLabRosterTest(game);
+                if (failed) yield break;
+                log.WriteLine("xong"); log.Close(); Application.Quit(0); yield break;
+            }
             if (rosterRun)
             {
                 yield return RosterTest(game);
@@ -133,6 +146,15 @@ namespace HavenLord.Client
             if (lab)
             {
                 yield return LabTest(game);
+                if (failed) yield break;
+                log.WriteLine("xong");
+                log.Close();
+                Application.Quit(0);
+                yield break;
+            }
+            if (layeredRun)
+            {
+                yield return LayeredTest(game);
                 if (failed) yield break;
                 log.WriteLine("xong");
                 log.Close();

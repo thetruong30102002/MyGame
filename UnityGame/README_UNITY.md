@@ -81,6 +81,7 @@ npx tsx UnityGame/Tools~/vectors-ground.mts          # vector mặt đất → T
 
 Kiểm bản build tự động: `Build/Windows/HavenLord.exe -havenShot <thư mục>` → vào chơi offline, đi các hướng, chụp màn hình từng bước
 + `autotest.log` (vị trí, map, hoạt ảnh) rồi tự thoát.
+Thêm `-havenLayered`: mẫu thử nhân vật ghép lớp thân–đầu–vũ khí (`LayeredCharacterView`, dữ liệu `assets/layered/`) cạnh Mira ở quảng trường — chụp đứng 4 hướng + từng khung đi / chạy / chém (`docs/thiet-ke/chuan-nhan-vat-ghep-lop.md`).
 Thêm `-havenWeather`: chụp trạm (cạnh cột dịch chuyển) + một map săn của từng vùng để soát thời tiết theo vùng (`Client/Weather.cs`).
 
 Thiết lập dự án do `GameSetup.ConfigureProject` đặt — sửa ở đó, đừng sửa tay trong Project Settings: Windows dùng **IL2CPP** từ 11/10/2026

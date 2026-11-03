@@ -348,7 +348,7 @@ export function createApi(store: Store, admin: AdminOps = new AdminOps(store), c
 		// Trang chủ game (site.ts): /game → /game/, rồi trang + ảnh + tin tức.
 		if (req.method === 'GET' && (siteRedirect(req.url??'/', res) || sendSite(path, res, undefined, req))) return;
 		// Bản chơi trên trình duyệt (play.ts): /play/…
-		if (req.method === 'GET' && sendPlay(rawPath, path, res, req)) return;
+		if ((req.method === 'GET'||req.method === 'HEAD') && sendPlay(rawPath, path, res, req)) return;
 		// File gói client (luồng nhị phân, không qua JSON): /api/client/file/<tên> hoặc /api/client/latest/<windows|android>.
 		const file = req.method === 'GET' ? path.match(/^\/api\/client\/file\/([^/]+)$/) : null;
 		const latest = req.method === 'GET' ? path.match(/^\/api\/client\/latest\/(windows-zip|windows|android)$/) : null;

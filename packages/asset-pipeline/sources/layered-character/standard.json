@@ -1,0 +1,770 @@
+{
+  "id": "havenlord-layered-character",
+  "version": 1,
+  "status": "draft",
+  "doc": "docs/thiet-ke/chuan-nhan-vat-ghep-lop.md",
+  "supersedes": [
+    "packages/asset-pipeline/sources/player-rig-v3/head-standard.json (thước HD 2×, canvas đầu 96 / PPU 96)",
+    "docs/thiet-ke/quy-chuan-net-ve-nhan-vat.md mục \"Kiếm riêng, nhân vật vẫn liền\" và bảng thước HD 288/PPU 96"
+  ],
+  "pixel": {
+    "ppu": 48,
+    "sampling": "point",
+    "runtimeScale": 1,
+    "allowRuntimeOffsetPerAsset": false,
+    "allowResample": false,
+    "nominalBodyHeightPx": 106,
+    "clarityReference": [
+      "npc_silver_youth",
+      "npc_silver_youth_f"
+    ]
+  },
+  "generation": {
+    "account": "PIXELLAB_TOKENS #1",
+    "tool": "create_character",
+    "mode": "v3",
+    "size": 88,
+    "view": "low top-down",
+    "outline": "single color black outline",
+    "detail": "high detail",
+    "bodyType": "humanoid",
+    "mirrorDirections": true,
+    "drawDirections": [
+      "S",
+      "SE",
+      "E",
+      "NE",
+      "N"
+    ],
+    "method": "reference",
+    "sizeNote": "Xoay từ ảnh tham chiếu: canvas theo ảnh tham chiếu (NPC 80×88), không truyền size."
+  },
+  "cell": {
+    "width": 160,
+    "height": 160,
+    "root": [
+      80,
+      144
+    ],
+    "cellNote": "128×128 root (64,112) → 160×160 root (80,144) ngày 29/10: tỷ lệ người lớn mới cao ~106px (chủ dự án: \"trẻ con quá, người hơi lùn\"), cần chỗ trên đầu cho kiếm giơ cao (36px) và hai bên cho đường vung.",
+    "rootRule": "Chân chạm đất (tâm hai bàn chân) của ảnh xoay đứng yên đặt đúng root; mỗi clip × hướng dịch MỘT offset nguyên pixel tính từ frame 0, không fit từng frame."
+  },
+  "directions": [
+    {
+      "id": "S",
+      "pixellab": "south",
+      "mirrorOf": null
+    },
+    {
+      "id": "SW",
+      "pixellab": "south-west",
+      "mirrorOf": "SE"
+    },
+    {
+      "id": "W",
+      "pixellab": "west",
+      "mirrorOf": "E"
+    },
+    {
+      "id": "NW",
+      "pixellab": "north-west",
+      "mirrorOf": "NE"
+    },
+    {
+      "id": "N",
+      "pixellab": "north",
+      "mirrorOf": null
+    },
+    {
+      "id": "NE",
+      "pixellab": "north-east",
+      "mirrorOf": null
+    },
+    {
+      "id": "E",
+      "pixellab": "east",
+      "mirrorOf": null
+    },
+    {
+      "id": "SE",
+      "pixellab": "south-east",
+      "mirrorOf": null
+    }
+  ],
+  "head": {
+    "canvas": [
+      48,
+      48
+    ],
+    "canvasNote": "40×40 neo (20,33) → 48×48 neo (24,40) ngày 29/10: tóc bob nữ hất ra sau khi chạy tràn quá 20px sau cổ (bộ kiểm báo lỗi, không cắt im lặng); sừng Ma tộc cũng cần chỗ phía trên. Mọi lớp đầu đặt theo neo nên đổi canvas không đổi vị trí ghép.",
+    "neckAnchor": [
+      24,
+      40
+    ],
+    "bareNeckMaxPx": 2,
+    "cheekWidthPx": null,
+    "cheekTolerancePx": 1,
+    "measure": "Đo trên mặt và xương hàm hướng S của thân gốc (không lấy tóc/tai/sừng/alpha bounds); cheekWidthPx ghi sau vòng thử 1 rồi khoá.",
+    "poses": "8 hướng tĩnh cho đứng / đi / đánh (trong đòn chỉ đổi hướng đầu theo khung, không nghiêng / cúi / xoay ảnh). Clip trong head.animatedClips có khung đầu riêng.",
+    "longHair": "Tóc rủ dưới đường cổ tách sang lớp hairBack (sau thân).",
+    "source": "Sửa ảnh thân gốc cởi trần hướng S (chỉ đổi phần đầu) rồi xoay 8 hướng — lớp đầu không thể chứa áo.",
+    "animatedClips": [
+      "run"
+    ],
+    "animatedRule": "Nhân vật \"thân gốc + tóc\" (nguồn tách đầu) chạy bằng CÙNG template với thân → cắt đầu từng khung; đầu khung i khớp cổ thân khung i, tóc nảy theo bước (chủ dự án 28/10: \"có cả frame đầu lúc chạy\").",
+    "eyes": "Mắt nâu cho MỌI đầu (chủ dự án 28/10)."
+  },
+  "body": {
+    "baseHead": "bald",
+    "skin": "Một bảng da chung mọi tộc (thân, cổ, tay của đầu và thân cùng màu).",
+    "maleBase": "Quần đùi trơn sẫm màu trên gối, cởi trần, chân trần (chủ dự án 28/10); KHÔNG áo, cổ áo, dây chuyền, khăn, mũ trùm, giáp vai — quanh cổ chỉ có da.",
+    "femaleBase": "Bikini hai mảnh trơn (có ngực, dáng người lớn, không gợi dục), áo có quai qua vai, CẤM kiểu buộc dây quanh cổ (halter); chân trần; cùng neo cổ và chiều cao khối đầu.",
+    "outfits": "Bộ đồ: sửa ảnh hướng S của nhân vật có đầu (edit_image_pixen, prompt outfitEdit — chỉ đổi quần áo, giữ đầu / cổ / thân / pose), chủ dự án chọn bản, xoay 8 hướng bằng v3 có ảnh tham chiếu (prompt heroMale), rồi làm động tác bằng CÙNG template (ai_freedom 0) với thân gốc. Rẻ hơn create_character_state (10–25 lượt, không có bản để chọn).",
+    "necklineRule": "Mọi bộ đồ: viền cổ áo nằm DƯỚI đường cổ của thân gốc ở cùng khung; cấm cổ áo cao, mũ trùm, khăn quấn cổ, giáp che cằm. Cắt theo đường cổ đo trên thân gốc (cùng khung xương), không đo lại trên ảnh có áo.",
+    "neckLengthPx": [
+      2,
+      5
+    ],
+    "neckLengthRule": "Đo trên thân gốc hướng S: từ hàng đáy cằm tới đường vai (hàng thân bắt đầu rộng ra). Ngoài khoảng → loại thân gốc, vẽ lại trước khi làm động tác (chủ dự án 28/10: cổ dài trông buồn cười, xấu).",
+    "mouldNeckCut": {
+      "S": 4,
+      "E": 2,
+      "N": 1
+    },
+    "mouldNeckRule": "THÂN GIỮ CỔ, KHÔNG GIỮ HÀM (chủ dự án 30/10: \"cắt là giữ lại cổ thôi giữ hàm làm gì\", \"ghi chuẩn vào thân giữ cổ k hàm\"). Thân dùng chung (một khuôn) bỏ mọi da + viền sát da quanh cổ từ trên xuống tới hàng neo + mouldNeckCut[hướng] — hết góc viền hàm và bóng hàm của đầu trọc (S: bóng 3 hàng dưới neo → cắt +4; E: bóng cổ họng 2 hàng → +2; N: bóng dưới gáy → +1); mọi khung động tác cắt cùng số hàng theo neo của khung. Mỗi đầu lấp phần đó bằng CỔ CỦA CHÍNH NÓ (ảnh sửa trên cùng G1) tới chỗ cắt + 2 hàng, ở lớp dưới thân. Cấm dời / nâng riêng đầu để chữa cổ ngắn — đầu dài mặt thì vẽ lại."
+  },
+  "layers": [
+    {
+      "id": "hairBack",
+      "z": 0,
+      "owner": "head",
+      "optional": true
+    },
+    {
+      "id": "weaponBack",
+      "z": 1,
+      "owner": "weapon",
+      "optional": true
+    },
+    {
+      "id": "body",
+      "z": 2,
+      "owner": "body",
+      "optional": false
+    },
+    {
+      "id": "head",
+      "z": 3,
+      "owner": "head",
+      "optional": false
+    },
+    {
+      "id": "bodyFront",
+      "z": 4,
+      "owner": "body",
+      "optional": true
+    },
+    {
+      "id": "weaponFront",
+      "z": 5,
+      "owner": "weapon",
+      "optional": true
+    },
+    {
+      "id": "handFront",
+      "z": 6,
+      "owner": "body",
+      "optional": true
+    }
+  ],
+  "skeleton": {
+    "format": "COCO-18",
+    "joints": [
+      "NOSE",
+      "NECK",
+      "RIGHT SHOULDER",
+      "RIGHT ELBOW",
+      "RIGHT ARM",
+      "LEFT SHOULDER",
+      "LEFT ELBOW",
+      "LEFT ARM",
+      "RIGHT HIP",
+      "RIGHT KNEE",
+      "RIGHT LEG",
+      "LEFT HIP",
+      "LEFT KNEE",
+      "LEFT LEG",
+      "RIGHT EYE",
+      "LEFT EYE",
+      "RIGHT EAR",
+      "LEFT EAR"
+    ],
+    "canonical": "Một bộ keypoint của dự án cho mỗi hành động × hướng, dùng chung thân gốc và mọi bộ đồ; khớp NECK là gợi ý neo cổ, pipeline đo lại trên ảnh."
+  },
+  "animations": [
+    {
+      "id": "idle",
+      "frames": 4,
+      "loop": true,
+      "durationsMs": [
+        220,
+        220,
+        220,
+        220
+      ],
+      "source": {
+        "tool": "animate_character",
+        "mode": "template",
+        "template": "breathing-idle"
+      },
+      "pilot": false
+    },
+    {
+      "id": "walk",
+      "frames": 8,
+      "loop": true,
+      "durationsMs": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "source": {
+        "tool": "animate_character",
+        "mode": "template",
+        "template": "walking-8-frames"
+      },
+      "pilot": true,
+      "pilotDirections": [
+        "S",
+        "E",
+        "N"
+      ]
+    },
+    {
+      "id": "run",
+      "frames": 8,
+      "loop": true,
+      "durationsMs": [
+        70,
+        70,
+        70,
+        70,
+        70,
+        70,
+        70,
+        70
+      ],
+      "source": {
+        "tool": "animate_character",
+        "mode": "template",
+        "template": "running-8-frames"
+      },
+      "pilot": true,
+      "pilotDirections": [
+        "E"
+      ]
+    },
+    {
+      "id": "slash",
+      "frames": 15,
+      "loop": false,
+      "hitFrame": 10,
+      "durationsMs": [
+        80,
+        75,
+        70,
+        65,
+        55,
+        45,
+        35,
+        30,
+        25,
+        25,
+        30,
+        40,
+        50,
+        60,
+        70
+      ],
+      "phases": {
+        "windup": [
+          1,
+          6
+        ],
+        "accelerate": [
+          7,
+          9
+        ],
+        "impact": [
+          10,
+          11
+        ],
+        "recover": [
+          12,
+          15
+        ]
+      },
+      "source": {
+        "tool": "animate_with_skeleton_v3",
+        "mode": "skeleton",
+        "template": null
+      },
+      "pilot": true,
+      "drawDirections": [
+        "E",
+        "N"
+      ],
+      "stance": "lunge"
+    },
+    {
+      "id": "cast",
+      "frames": 15,
+      "loop": false,
+      "hitFrame": 10,
+      "durationsMs": [
+        80,
+        75,
+        70,
+        65,
+        55,
+        45,
+        35,
+        30,
+        25,
+        25,
+        30,
+        40,
+        50,
+        60,
+        70
+      ],
+      "phases": {
+        "windup": [
+          1,
+          6
+        ],
+        "accelerate": [
+          7,
+          9
+        ],
+        "impact": [
+          10,
+          11
+        ],
+        "recover": [
+          12,
+          15
+        ]
+      },
+      "source": {
+        "tool": "animate_with_skeleton_v3",
+        "mode": "skeleton",
+        "template": null
+      },
+      "pilot": false,
+      "note": "Đòn niệm phép class Trượng (chủ dự án 30/10): cùng nhịp đòn kiếm — lấy đà chậm, đẩy trượng nhanh, chạm khung 10 (phóng tia phép), hồi gọn.",
+      "drawDirections": [
+        "E",
+        "N"
+      ],
+      "stance": "upright"
+    },
+    {
+      "id": "thrust",
+      "frames": 15,
+      "loop": false,
+      "hitFrame": 10,
+      "durationsMs": [
+        80,
+        75,
+        70,
+        65,
+        55,
+        45,
+        35,
+        30,
+        25,
+        25,
+        30,
+        40,
+        50,
+        60,
+        70
+      ],
+      "phases": {
+        "windup": [
+          1,
+          6
+        ],
+        "accelerate": [
+          7,
+          9
+        ],
+        "impact": [
+          10,
+          11
+        ],
+        "recover": [
+          12,
+          15
+        ]
+      },
+      "source": {
+        "tool": "animate_with_skeleton_v3",
+        "mode": "skeleton",
+        "template": null
+      },
+      "pilot": false,
+      "note": "Đòn đâm class Thương (chủ dự án 30/10): cùng nhịp đòn kiếm — kéo giáo lùi chậm, đâm nhanh, chạm khung 10 (mũi giáo xa nhất), hồi gọn.",
+      "drawDirections": [
+        "E",
+        "N"
+      ],
+      "stance": "lunge"
+    },
+    {
+      "id": "bash",
+      "frames": 15,
+      "loop": false,
+      "hitFrame": 10,
+      "durationsMs": [
+        80,
+        75,
+        70,
+        65,
+        55,
+        45,
+        35,
+        30,
+        25,
+        25,
+        30,
+        40,
+        50,
+        60,
+        70
+      ],
+      "phases": {
+        "windup": [
+          1,
+          6
+        ],
+        "accelerate": [
+          7,
+          9
+        ],
+        "impact": [
+          10,
+          11
+        ],
+        "recover": [
+          12,
+          15
+        ]
+      },
+      "source": {
+        "tool": "animate_with_skeleton_v3",
+        "mode": "skeleton",
+        "template": null
+      },
+      "pilot": false,
+      "note": "Đòn húc khiên class Khiên (chủ dự án 30/10; chiêu cuối \"dồn lực sau khiên rồi lao vào đập\"): cùng nhịp đòn kiếm — co người nép sau khiên chậm, lao bước dài đập khiên tới nhanh, chạm khung 10, hồi gọn. Chỉ vẽ E / N (đòn đánh bắc + ngang).",
+      "drawDirections": [
+        "E",
+        "N"
+      ],
+      "stance": "lunge"
+    },
+    {
+      "id": "shoot",
+      "frames": 15,
+      "loop": false,
+      "hitFrame": 10,
+      "durationsMs": [
+        80,
+        75,
+        70,
+        65,
+        55,
+        45,
+        35,
+        30,
+        25,
+        25,
+        30,
+        40,
+        50,
+        60,
+        70
+      ],
+      "phases": {
+        "windup": [
+          1,
+          6
+        ],
+        "accelerate": [
+          7,
+          9
+        ],
+        "impact": [
+          10,
+          11
+        ],
+        "recover": [
+          12,
+          15
+        ]
+      },
+      "source": {
+        "tool": "animate_with_skeleton_v3",
+        "mode": "skeleton",
+        "template": null
+      },
+      "pilot": false,
+      "note": "Đòn bắn cung class Cung (chủ dự án 30/10; chiêu cuối \"kéo căng dây, thả một mũi tên cực mạnh\"): nâng cung chậm, kéo dây, giữ ngắm, BUÔNG ở khung chạm 10 (tên rời dây — đạn bay do game vẽ), hồi gọn. Chỉ vẽ E / N (đòn đánh bắc + ngang).",
+      "drawDirections": [
+        "E",
+        "N"
+      ],
+      "stance": "upright"
+    }
+  ],
+  "frameMeta": {
+    "required": [
+      "neck",
+      "headFacing",
+      "headFrame",
+      "durationMs"
+    ],
+    "weaponRequired": [
+      "grip",
+      "weaponAngleDeg",
+      "weaponLayer"
+    ],
+    "optional": [
+      "handFrontMask",
+      "bodyFrontMask",
+      "event"
+    ],
+    "headFrameRule": "headFrame = số khung đầu trong clip đầu cùng tên (clip thuộc head.animatedClips), null = đầu tĩnh theo headFacing."
+  },
+  "weapon": {
+    "angles": 16,
+    "rotateInCode": false,
+    "pickRule": "Mỗi frame chọn góc vẽ sẵn gần weaponAngleDeg nhất, đặt điểm nắm của vũ khí trùng grip của frame thân.",
+    "hand": "Tay gần người xem: hướng vẽ (S, SE, E, NE, N) cầm tay phải, hướng lật cầm tay trái.",
+    "defaultLayer": "front",
+    "layerRule": "Vũ khí luôn hiện phía trước thân (weaponFront); hướng N cầm chếch ra bên thân để không bị lưng che. weaponBack chỉ dùng khi chủ dự án duyệt từng khung."
+  },
+  "qa": {
+    "headRemovedAbovePx": 0,
+    "neckDriftMaxPx": 1,
+    "neckSeamHolesMax": 0,
+    "rootDriftMaxPx": 1,
+    "cheekWidthToleranceMaxPx": 1,
+    "outlineDeltaEMax": 8,
+    "sourcePixelsOnly": true,
+    "reviewScales": [
+      0.5,
+      1
+    ],
+    "reviewBackground": "map thật, đặt cạnh npc_silver_youth",
+    "headForeignColorPxMax": 0,
+    "headForeignColorRule": "Pixel cắt sang lớp đầu phải thuộc bảng màu đầu (da, tóc, sừng, mắt, viền) lấy từ đầu mẫu; có màu vải / kim loại = cắt dính áo → loại khung."
+  },
+  "budget": {
+    "rerollFactor": 1.3,
+    "stopIfOverEstimatePct": 20,
+    "rounds": [
+      {
+        "id": "mau-1-A",
+        "estimate": 15,
+        "scope": "Sửa ảnh NPC tóc trắng S thành thân gốc trọc quần đùi (chọn 1) → xoay 8 hướng (ảnh gốc sửa đầu) + đầu 1 tóc đen sửa từ bản đã chọn (chọn 1) → xoay 8 hướng → đi hướng S trên nhân vật có tóc; cắt thân / đầu thử",
+        "gate": "chủ dự án duyệt thân đã cắt đầu sạch từng khung, đầu 1 tóc đen, chỗ nối cổ khi đi",
+        "approved": "2026-10-28 — chủ dự án duyệt trang soi mau-1-a (đầu 1 bản 232, 3 lớp tóc sau / thân / đầu, 8 hướng + đi S); thật 17 lượt."
+      },
+      {
+        "id": "mau-1-B",
+        "estimate": 28,
+        "scope": "Bộ đồ Kiếm sĩ cơ bản (sửa ảnh S của nhân vật đầu 1, chọn 1 trong 3 → xoay 8 hướng); đi E/N cho thân trần, đi S/E/N cho bộ đồ; chạy E cho thân trần (khung đầu 1) và bộ đồ",
+        "gate": "chủ dự án duyệt ghép đứng / đi / chạy, mặc và tháo đồ, chỗ nối cổ",
+        "approved": "2026-10-29 — chủ dự án duyệt trang soi mau-1-b (\"ngon rồi\"); đầu bộ đồ cắt từ chính khung mặc đồ, đầu / thân không chồng pixel; thật 17 lượt."
+      },
+      {
+        "id": "mau-1-C",
+        "estimate": 30,
+        "scope": "Chém 15 khung hướng S và E cho bộ đồ Kiếm sĩ + kiếm các góc cần cho đòn + lớp ngón tay",
+        "gate": "chủ dự án duyệt đòn chém ở 0,5× và 1×",
+        "approved": "2026-10-29 — chủ dự án duyệt trang soi mau-1-c (\"ok tiếp tục\"): chém E bản 2 vung thẳng tay + S bản 2 kiếm dựng thẳng rồi bổ xuống, W lật từ E, kiếm 16 góc tách lớp; thật 16 lượt + 1 lượt đo khung xương."
+      },
+      {
+        "id": "mau-1-D",
+        "estimate": 12,
+        "estimateNote": "10 → 12 (29/10): thêm 3 lượt vẽ lại chạy E đầu 2 bằng skeleton-v3 — bản template vẽ mắt xanh dương, trái luật mắt nâu.",
+        "scope": "Đầu 2 Ma tộc nam có sừng (sửa ảnh thân gốc trọc, chọn 1 trong 3 → xoay 8 hướng) + chạy E cho khung đầu khi chạy; ghép đầu 2 lên thân bộ Kiếm sĩ đã cắt (đứng / đi / chạy / chém) — thử đổi đầu thật",
+        "gate": "chủ dự án duyệt đầu 2 và bản ghép đổi đầu trên mọi động tác",
+        "approved": "2026-10-29 — chủ dự án duyệt trang soi mau-1-d (\"ok tiếp\"): đầu 2 Ma tộc bản 4101 ghép lên thân bộ Kiếm sĩ ở đứng / đi / chạy / chém không vẽ lại thân; thật 11 lượt."
+      },
+      {
+        "id": "mau-1-E",
+        "estimate": 19,
+        "estimateNote": "15 → 19 (29/10): vẽ lại đi S nữ bằng skeleton-v3 — bản template co người nữ còn 67px (ảnh đứng 74px), trái chuẩn một cơ thể / không co phóng.",
+        "scope": "Thân gốc NỮ: sửa ảnh npc_silver_youth_f hướng S thành đầu trọc bikini quai qua vai (chọn 1 trong 3) → xoay 8 hướng; đầu nữ 1 sửa từ bản đã chọn (chọn 1) → xoay 8 hướng → đi S; cắt thân / đầu như chặng A",
+        "gate": "chủ dự án duyệt thân gốc nữ đã cắt đầu sạch từng khung, đầu nữ 1, chỗ nối cổ khi đi",
+        "approved": "2026-10-29 — chủ dự án duyệt trang soi mau-1-e (\"ok\"): thân gốc nữ 5505 dáng thon, đầu nữ 1 bản 6101 (giữ tóc bob dù chạm vai), đi S skeleton-v3 cùng cỡ; thật 15 lượt."
+      },
+      {
+        "id": "mau-1-G",
+        "estimate": 20,
+        "estimateNote": "8 → 16 (29/10): chủ dự án chọn 9404 (lượt 2, dáng khỏe vừa) — thêm xoay 8 hướng thân gốc, đầu nam 1 vẽ lại trên thân mới (chọn 1 trong 3), xoay, đi S. 16 → 20: đi S template co người ~12% ở canvas 128 → vẽ lại bằng skeleton-v3 (từ nay mọi động tác tỷ lệ mới dùng skeleton-v3).",
+        "scope": "Thử tỷ lệ NGƯỜI LỚN (chủ dự án 29/10: \"trẻ con quá, cảm giác người hơi lùn\" → giữ cỡ / style đầu, thân + chân dài ra ~4 đầu, cao ~100px): sửa ảnh thân gốc nam trọc 404 trên canvas đệm 128×128, chọn 1 trong 3; đạt thì làm tiếp nữ và cả chuỗi",
+        "gate": "chủ dự án duyệt tỷ lệ mới trên thân gốc nam",
+        "approved": "2026-10-29 — chủ dự án duyệt trang soi mau-1-g (\"ok ngon rồi đấy\"): thân 9404 cao 106px ~4,8 đầu, đầu nam 1 bản 9933, đi S skeleton-v3; thật 19 lượt."
+      },
+      {
+        "id": "mau-1-H",
+        "estimate": 55,
+        "scope": "Bộ Kiếm sĩ cơ bản trên thân nam tỷ lệ mới (sửa ảnh S của nhân vật đầu 9933, chọn 1 trong 3 → xoay 8 hướng); đi S/E/N, chạy E, chém E/S 15 khung (bảng tư thế bản 2 đã duyệt, quy đổi theo tầm tay mới) — mọi động tác skeleton-v3; kiếm ghép theo điểm nắm",
+        "gate": "chủ dự án duyệt bộ Kiếm sĩ tỷ lệ mới ở đứng / đi / chạy / chém, mặc / tháo đồ",
+        "estimateNote": "45 → 55 (29/10): vẽ lại chém S chéo (H6), chém E/S \"con lắc\" (H7, H8) theo góp ý chủ dự án; H8 vẽ 3 lượt vì chữ \"sword\" trong action làm PixelLab vẽ gậy thừa.",
+        "approved": "2026-10-29 — chủ dự án chốt trang soi mau-1-h (\"thôi chốt đi rồi làm tiếp\"): bộ Kiếm sĩ 1633 trên thân nam tỷ lệ mới, đi S/E/N, chạy E, chém E bản 3 con lắc, chém S bản 4 chéo một trục; thật 45 lượt."
+      },
+      {
+        "id": "mau-1-I",
+        "estimate": 60,
+        "scope": "Thân NỮ tỷ lệ người lớn (~4 đầu, như nam 9404) + đầu nữ mới (mặt trưởng thành, tóc ngắn tỉa tầng — chủ dự án 29/10 \"chốt đi\" giao chọn) + bộ Kiếm sĩ nữ, đi / chạy / chém con lắc (skeleton-v3)",
+        "gate": "chủ dự án duyệt trang soi mau-1-i",
+        "estimateNote": "40 → 60 (29/10): 2 lượt kéo dài thân nữ nhỏ bị loại (PixelLab phóng cả đầu, 6 lượt) → sửa từ thân nam 9404; thêm 3 bản đầu tóc tém; còn chém E/S (8) và dự phòng vẽ lại.",
+        "approved": "2026-10-29 — chủ dự án sau khi xem trang soi mau-1-i: \"Ok giờ làm gì tiếp nào\", \"Ok làm tiếp\": thân nữ 9722 (sửa từ thân nam 9404), đầu nữ 2 tóc tém 9866, bộ Kiếm sĩ 1722, đi S/E/N, chạy E, chém E/S; thật 44 lượt."
+      },
+      {
+        "id": "mau-1-Q",
+        "estimate": 60,
+        "scope": "Thân Kiếm sĩ nam dùng chung một khuôn: mặc đồ lên chính ảnh xoay G1 S / E / N (đầu trọc), động tác vẽ từ chính các ảnh đó theo tư thế H1",
+        "gate": "chủ dự án xem ảnh phóng to có vạch kẻ",
+        "estimateNote": "40 → 60 (30/10): chủ dự án \"thiếu hướng chém lên trên lưng quay vào màn hình và chạy thẳng lên xuống\" — chạy S / N của H1 để đo khung xương (6) + chạy S / N (6) + chém N (4), ×1,3. 8 → 40 (30/10): chủ dự án duyệt cách một khuôn (\"Ok ngon rồi\") — thân dùng chung đủ hướng S / E / N: mặc đồ S / N (4) + đi S / E / N (9) + chém E / S (8) + chạy E (3, đã có), ×1,3"
+      },
+      {
+        "id": "mau-1-R",
+        "estimate": 200,
+        "scope": "Bốn class nam còn lại (Trượng, Khiên, Cung, Thương) một khuôn trên G1: mặc đồ S / E / N + đi / chạy / đòn đánh S / E / N (W lật từ E)",
+        "gate": "chủ dự án chọn bản mặc đồ hướng S từng class trước khi vẽ E / N và động tác",
+        "estimateNote": "30/10 chủ dự án: \"làm gói nốt class nam trượng, khiên, cung, thương đi rồi sang nữ\" — mỗi class: mặc đồ S / E / N 2 bản (6) + đi S / E / N (9) + chạy S / E / N (9) + đòn đánh S / E / N (12) ≈ 36; ×4 ≈ 144, ×1,3 vẽ lại ≈ 190"
+      },
+      {
+        "id": "mau-1-T",
+        "estimate": 320,
+        "scope": "Bộ nữ một khuôn: thân nền nữ thon (sửa + xoay) + 15 đầu nữ sửa trên ảnh xoay S / E / N + 5 class mặc đồ S / E / N + đi / chạy S / E / N + đòn đánh E / N",
+        "gate": "chủ dự án chọn thân nền nữ thon trước khi xoay; duyệt 3–4 đầu nữ đầu tiên trước khi vẽ đủ; chọn bản mặc đồ S từng class trước khi vẽ E / N và động tác",
+        "estimateNote": "31/10: thân thon 3 + xoay 2 ≈ 5; đầu 15 × 3 hướng × 2 bản = 90; mỗi class: đồ 6 + đi 9 + chạy 9 + đòn E / N 8 = 32, ×5 = 160 → ≈ 255, ×1,25 vẽ lại ≈ 320"
+      },
+      {
+        "id": "mau-1-P",
+        "estimate": 120,
+        "scope": "15 đầu nam vẽ trên CÙNG ảnh xoay thân nền trọc G1 từng hướng S / E / N (W lật từ E) — một khuôn với thân Kiếm sĩ dùng chung (chặng Q)",
+        "gate": "chủ dự án xem ảnh 4 hướng gắn thân rồi mới làm 12 đầu còn lại",
+        "estimateNote": "16 → 115 (30/10): chủ dự án duyệt cách một khuôn (\"Ok ngon rồi\") — 13 đầu nam còn lại (kể cả Nhân tộc 1 và Ma tộc 1 vẽ lại trên G1) × 3 hướng × 2 bản = 78 + Sói N vẽ lại 2, ×1,3"
+      },
+      {
+        "id": "mau-1-L",
+        "estimate": 560,
+        "scope": "Một bộ Kiếm sĩ nam dùng chung đội đủ 15 đầu nam: 13 đầu mới × (sửa đầu 3 + sửa đồ 3 + xoay thân trần 2 + xoay bộ đồ 2 + đi S/E/N 9 + chạy E 3 + chém E/S 8 = 30) + đầu Ma tộc vẽ lại theo khung xương H1 (20) ≈ 410, ×1,3 vẽ lại",
+        "gate": "chủ dự án duyệt trang soi mau-1-l (15 đầu trên cùng thân)"
+      },
+      {
+        "id": "mau-1-K",
+        "estimate": 70,
+        "scope": "Đầu Ma tộc ghép như đầu thường: bộ Kiếm sĩ trên đầu Ma tộc nam / nữ (sửa đồ 3 + xoay 2 + đi S/E/N 9 + chạy E 3 + chém E/S 8 mỗi giới ≈ 50, ×1,3 vẽ lại)",
+        "gate": "chủ dự án duyệt trang soi mau-1-k"
+      },
+      {
+        "id": "mau-1-J",
+        "estimate": 32,
+        "scope": "Đổi đầu trên tỷ lệ mới, mỗi thân chỉ đầu cùng giới: đầu Ma tộc nam trên thân nam 9404 và đầu Ma tộc nữ trên thân nữ 9722 (mỗi đầu chọn 1/3 → xoay 8 hướng → chạy E skeleton-v3); ghép lên bộ Kiếm sĩ nam / nữ mọi chuyển động (không vẽ lại thân)",
+        "gate": "chủ dự án duyệt trang soi mau-1-j",
+        "estimateNote": "15 → 25 (29/10): thêm đầu Ma tộc NỮ trên thân nữ (sửa đầu 3 + xoay 2 + chạy E 3) thay phép ghép chéo đầu nam lên thân nữ bị chủ dự án loại (\"mỗi tộc là 3 đầu nam 3 đầu nữ\"). 25 → 32: xoay lại đầu Ma tộc nữ (J6, 2) + chạy E (J7, 3) — lượt J4 vẽ cổ ngắn ở hướng nghiêng (chủ dự án: \"lệch cổ và pixel thừa\")."
+      },
+      {
+        "id": "mau-1-F",
+        "estimate": 35,
+        "scope": "Bộ Kiếm sĩ cơ bản cho thân NỮ (sửa ảnh S của nhân vật nữ đầu 1, chọn 1 trong 3 → xoay 8 hướng); đi S/E/N, chạy E bằng skeleton-v3 (template co người nữ); chém E/S 15 khung tay không theo khung xương nữ; kiếm ghép theo điểm nắm",
+        "gate": "chủ dự án duyệt bộ Kiếm sĩ nữ ở đứng / đi / chạy / chém, mặc / tháo đồ"
+      }
+    ]
+  },
+  "mirror": {
+    "axis": "Lật quanh tâm cột root: x' = 2·root.x − x (cell) và x' = 2·neckAnchor.x − x (đầu); cột 0 phải trong suốt vì lật ra ngoài ô.",
+    "labels": "Khung xương lật thì đổi nhãn LEFT ↔ RIGHT.",
+    "runtime": "Unity lật bằng SpriteRenderer.flipX, pivot ở tâm cột root; metadata (neck, grip, góc vũ khí) lật sẵn trong pipeline.",
+    "handSwap": "Đổi tay cầm ở ranh S↔SW và N↔NW — chấp nhận.",
+    "designRule": "Đầu / bộ đồ / vũ khí chịu được lật: không chữ, không huy hiệu có chiều; nguồn sáng chính giữa phía trên."
+  },
+  "prompts": {
+    "language": "en",
+    "baseMale": "adult male fantasy RPG hero base body, slim athletic build, completely bald smooth head with no hair, bare chest and bare arms, only plain dark shorts above the knee, barefoot, no shirt, no collar, no necklace, no scarf, no hood, no shoulder armor, nothing worn above the waist, natural short neck in normal proportion, not long, chin close to the shoulders, arms relaxed at the sides away from the head, standing straight, calm neutral face, even top-center lighting, symmetric design",
+    "baseFemale": "adult female fantasy RPG hero base body, slim hourglass build (narrow waist, rounded hips), completely bald smooth head with no hair, plain simple two-piece bikini, bikini top with straps over the shoulders, no halter neck tie, normal adult female chest, modest and non-sexualized, barefoot, no collar, no necklace, no scarf, no hood, natural short neck in normal proportion, not long, arms relaxed at the sides away from the head, standing straight, calm neutral face, even top-center lighting, symmetric design",
+    "headEdit": "Change ONLY the head: {hair}, {raceFeatures}, brown eyes. Keep exactly the same anime face shape, eye shape, head size, neck, skin color, body, shorts, pose, outline and pixel art style. Hair stays above the shoulders and does not touch the neck or shoulders. Do not add any clothing, collar, necklace or scarf.",
+    "forbiddenNearNeck": [
+      "collar",
+      "high collar",
+      "hood",
+      "scarf",
+      "necklace",
+      "choker",
+      "shoulder armor reaching the neck",
+      "hair touching the shoulders (vòng thử)",
+      "halter neck tie (bikini buộc dây quanh cổ)"
+    ],
+    "forbiddenWords": [
+      "long neck",
+      "slender neck",
+      "neck clearly visible",
+      "elongated neck"
+    ],
+    "baseMaleEdit": "Make him completely bald with a smooth shaved head, remove all hair. Remove the coat, shirt, gloves, belt, trousers and boots: bare chest, bare arms, bare legs and bare feet, wearing only plain dark shorts above the knee. Natural short neck in normal proportion, not long. Keep exactly the same anime face, big eyes, head size, body proportions, pose, outline and pixel art style. No scarf, no collar, no necklace, no hood, no shoulder armor, no bracers.",
+    "baseFemaleEdit": "Make her completely bald with a smooth shaved head, remove all hair. Replace all clothes with a plain two-piece bikini: top with straps over the shoulders, no halter neck tie, modest and non-sexualized. Adult hourglass figure: medium chest, narrow waist, rounded hips, slim arms and legs, bare feet. Natural short neck, not long. Keep exactly the same anime face, big eyes, head size, height, pose, outline and pixel art style. No scarf, no collar, no necklace, no hood.",
+    "outfitEdit": "Change ONLY the clothes: dress this character in {outfit}. Keep the same head, hair, same anime face, brown eyes, natural short neck, skin, body, pose, outline and pixel art style. Neckline low below the neck, the neck stays bare skin: no collar, no scarf, no hood, no cape, no shoulder armor. No weapon.",
+    "tallEdit": "Make the body taller with adult proportions, about four heads tall: longer torso and long legs, feet at the bottom of the image. Healthy athletic build: thicker arms and legs, solid shoulders and thighs, not skinny. Keep exactly the same head and head size, same anime face, big eyes, skin color, clothing, pose, outline and pixel art style. Natural short neck in normal proportion, not long. No scarf, no collar, no necklace, no hood.",
+    "tallEditFemale": "Make the body taller with adult proportions, about four heads tall: longer torso and long legs, feet at the bottom of the image. Adult hourglass figure: narrow waist, rounded hips, toned slim arms and legs. Keep exactly the same head and head size in pixels, do not enlarge the head or face, same anime face, big eyes, skin color, clothing, pose, outline and pixel art style. Natural short neck, not long. No scarf, no collar, no necklace, no hood.",
+    "slashBodyFemale": "adult female fantasy RPG hero, slim hourglass build (narrow waist, rounded hips), {hair}, brown eyes, {outfit}, modest and non-sexualized, natural short neck, no collar, no scarf, no hood. EMPTY HANDS: both hands closed into fists together as if gripping an invisible sword hilt, holding nothing, no weapon, no sword, no blade, no stick.",
+    "slashBody": "adult male fantasy RPG hero, slim athletic build, {hair}, brown eyes, {outfit}, natural short neck, no collar, no scarf, no hood. EMPTY HANDS: both hands closed into fists together as if gripping an invisible sword hilt, holding nothing, no weapon, no sword, no blade, no stick.",
+    "heroFemale": "adult female fantasy RPG hero, slim hourglass build (narrow waist, rounded hips), {hair}, {raceFeatures}, brown eyes, {outfit}, modest and non-sexualized, natural short neck in normal proportion, not long, chin close to the shoulders, no collar, no scarf, no hood covering the neck, arms relaxed at the sides away from the head, standing straight, calm neutral face, even top-center lighting, symmetric design, no weapon",
+    "heroMale": "adult male fantasy RPG hero, slim athletic build, {hair}, {raceFeatures}, brown eyes, {outfit}, natural short neck in normal proportion, not long, chin close to the shoulders, no collar, no scarf, no hood covering the neck, arms relaxed at the sides away from the head, standing straight, calm neutral face, even top-center lighting, symmetric design, no weapon",
+    "femaleFromMaleEdit": "Turn this character into an adult woman with the same height and same head size: soft feminine anime face, big eyes, narrower shoulders, adult hourglass figure, medium chest, narrow waist, rounded hips, toned slim arms and legs. Head stays completely bald and smooth. Replace the shorts with a plain two-piece bikini, straps over the shoulders, modest and non-sexualized. Bare feet. Same skin color, pose, outline and pixel art style. Natural short neck. No collar, no scarf, no necklace.",
+    "poseBody": "adult male fantasy RPG hero, slim athletic build, {hair}, {raceFeatures}, brown eyes, {outfit}, natural short neck, no collar, no scarf, no hood. Same character, follow the given pose exactly, empty hands, no weapon, no sword.",
+    "poseBodyFemale": "adult female fantasy RPG hero, slim hourglass build (narrow waist, rounded hips), {hair}, {raceFeatures}, brown eyes, {outfit}, modest and non-sexualized, natural short neck, no collar, no scarf, no hood. Same character, follow the given pose exactly, empty hands, no weapon, no sword.",
+    "slimFemaleEdit": "Make her slimmer and more graceful: slender adult hourglass figure, narrow waist, softly rounded hips, slim thighs, slender calves and thin ankles, slim toned arms, narrower shoulders. Keep exactly the same bald head and same head size in pixels, same anime face, big eyes, same height, same pose, same two-piece bikini with straps over the shoulders, same skin color, outline and pixel art style. Natural short neck, not long. Modest and non-sexualized. No collar, no scarf, no necklace.",
+    "petiteFemaleEdit": "Make her petite and more slender: smaller delicate frame, narrow shoulders, small ribcage, very narrow waist, small softly rounded hips, very slim thighs, thin slender calves and ankles, thin arms. Keep exactly the same bald head and same head size in pixels, same anime face, big eyes, same height, same pose, same two-piece bikini with straps over the shoulders, same skin color, outline and pixel art style. Natural short neck, not long. Modest and non-sexualized. No collar, no scarf.",
+    "slimLegsFemaleEdit": "Make only her legs much slimmer: slim thighs about one third narrower with a small gap between them, slim knees, thin calves and ankles, slightly narrower hips. Keep everything above the hips unchanged: same bald head and same head size, same anime face, same shoulders, arms, chest, waist and bikini top, same height, same feet position, same bikini bottom, skin color, outline and pixel art style. Modest and non-sexualized. Natural short neck.",
+    "headEditLong": "Change ONLY the head: {hair}, {raceFeatures}, brown eyes. Keep the same anime face, eye shape, head size, neck, skin color, body, bikini, pose, outline and pixel art style. Long hair falls behind the shoulders down the back; the front of the neck stays bare, hair does not cover the face, neck or chest. No clothing, collar, necklace or scarf.",
+    "headEditFemale": "Change ONLY the head: {hair}, {raceFeatures}, brown eyes. Keep exactly the same anime face shape, eye shape, head size, neck, skin color, body, bikini, pose, outline and pixel art style. Hair stays above the shoulders and does not touch the neck or shoulders. Do not add any clothing, collar, necklace or scarf."
+  },
+  "sample1": {
+    "head": {
+      "race": "Nhân tộc",
+      "gender": "nam",
+      "hair": "short black hair",
+      "note": "chủ dự án 28/10: đầu nam đầu tiên tóc đen"
+    },
+    "outfit": "Kiếm sĩ cơ bản (bộ shop đầu)",
+    "weapon": "kiếm cơ bản"
+  },
+  "style": {
+    "decided": "chủ dự án 28/10/2026: anime như NPC tóc trắng ở sảnh (không phải roster trang chủ)",
+    "reference": {
+      "male": "npc_silver_youth/idle_S_0",
+      "female": "npc_silver_youth_f/idle_S_0"
+    },
+    "look": "Anime pixel: đầu to, mắt to, mặt trẻ, dáng hơi chibi, viền tối mảnh, bóng mềm có chủ đích — đúng nét hai NPC.",
+    "method": "Sửa CHÍNH ảnh mẫu (edit_image_pixen, giữ nét / tỷ lệ / pose) thành thân gốc → create_character v3 với reference_image xoay 8 hướng.",
+    "textOnlyForbidden": true,
+    "lesson": "28/10: create_character v3 chỉ bằng chữ ra người lực lưỡng kiểu phương Tây, còn tự thêm khăn / giáp vai trái prompt → loại (mất 2 lượt)."
+  },
+  "attackDirectionRule": "Chủ dự án 30/10: đòn đánh chỉ 3 hướng — bắc (N) và ngang (E, W lật từ E). Đánh về phía nam thì nhân vật xoay ngang dùng clip E / W (theo phía mục tiêu, thẳng dưới thì giữ phía ngang đang nhìn). Không vẽ đòn hướng S (xấu, khó vẽ); bản S đã vẽ giữ nguồn, không xuất.",
+  "straightAttackRule": "Chủ dự án 31/10: \"tấn công hướng chính diện chân đừng trùng xuống\", \"chỉ có tiến lên và thấp nhân vật xuống mà tấn công, ví dụ kiếm, thương\". Đòn hướng thẳng (N; S đã bỏ) không chùng chân bè ra hai bên như ngồi xổm: bảng tư thế gối \"depth\" (gối nằm trên đường hông → cổ chân, gập theo chiều sâu). Cận chiến (stance \"lunge\" — kiếm, thương, khiên) chỉ hạ người khi bước một chân về hướng đánh, hạ hông ≤ độ bước + 1 px; đánh xa / phép (stance \"upright\" — cung, trượng) đứng thẳng: hạ hông ≤ 1 px, bàn chân dời ≤ 2 px. Vũ khí cầm một tay nhìn sau lưng: tay kia thả bên sườn, không vươn chéo qua lưng (Pháp sư N 31/10 \"tay vòng sau lưng dị tật\")."
+}

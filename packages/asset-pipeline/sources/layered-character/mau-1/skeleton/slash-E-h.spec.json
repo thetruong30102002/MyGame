@@ -1,0 +1,236 @@
+{
+	"about": "Đòn chém E thân nam tỷ lệ mới — BẢN 3 \"con lắc\" (chủ dự án 29/10: \"bổ kiếm cứ vòng vòng nhìn hài\"): bản 2 hồi thế xoay kiếm quanh nắm tay (tay đứng yên, lưỡi −50° → 35°) rồi nối về khung đầu nên kiếm quay tròn liên tục. Bản này: kiếm LUÔN NỐI THẲNG CÁNH TAY (góc lưỡi ≈ góc tay, lệch ≤ 20°), nâng một lần theo cung trước mặt lên thẳng trên đầu (giữ thế 6–7, kiếm 100–105°), bổ một lần cùng cung xuống ngang trước mặt (chạm khung 10, 0°), theo đà −25…−30°, hồi thế thu chân về — khung 15 trùng khung 1 (thủ trung bình thấp: tay −35°, mũi kiếm −15°). Góc kiếm chỉ đi lên rồi đi xuống, không đảo chiều lần nào khác. Bản 2 giữ ở slash-E-h.v1.spec.json.",
+	"character": "H1-tall-outfit-char",
+	"direction": "east",
+	"pad": [
+		0,
+		0,
+		0,
+		0
+	],
+	"handGapPx": 3,
+	"frames": [
+		{
+			"arm": [
+				-35,
+				0.85
+			],
+			"bladeDeg": -15,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"arm": [
+				-20,
+				0.9
+			],
+			"bladeDeg": 0,
+			"lean": -1,
+			"hip": [
+				-1,
+				0
+			],
+			"step": 0,
+			"back": -1
+		},
+		{
+			"arm": [
+				10,
+				0.9
+			],
+			"bladeDeg": 30,
+			"lean": -2,
+			"hip": [
+				-2,
+				0
+			],
+			"step": 0,
+			"back": -3,
+			"square": 0.3
+		},
+		{
+			"arm": [
+				40,
+				0.95
+			],
+			"bladeDeg": 60,
+			"lean": -3,
+			"hip": [
+				-2,
+				0
+			],
+			"step": 0,
+			"back": -4,
+			"square": 0.5
+		},
+		{
+			"arm": [
+				70,
+				1
+			],
+			"bladeDeg": 85,
+			"lean": -5,
+			"hip": [
+				-3,
+				0
+			],
+			"step": 0,
+			"back": -5,
+			"square": 0.8
+		},
+		{
+			"arm": [
+				95,
+				1
+			],
+			"bladeDeg": 100,
+			"lean": -6,
+			"hip": [
+				-3,
+				0
+			],
+			"step": 0,
+			"back": -5,
+			"square": 1
+		},
+		{
+			"arm": [
+				100,
+				1
+			],
+			"bladeDeg": 105,
+			"lean": -6,
+			"hip": [
+				-3,
+				0
+			],
+			"step": 0,
+			"back": -5,
+			"square": 1
+		},
+		{
+			"arm": [
+				85,
+				1
+			],
+			"bladeDeg": 95,
+			"lean": -3,
+			"hip": [
+				-1,
+				1
+			],
+			"step": 4,
+			"back": -5,
+			"square": 1
+		},
+		{
+			"arm": [
+				45,
+				1
+			],
+			"bladeDeg": 50,
+			"lean": 3,
+			"hip": [
+				3,
+				2
+			],
+			"step": 9,
+			"back": -5,
+			"square": 1
+		},
+		{
+			"arm": [
+				0,
+				1
+			],
+			"bladeDeg": 0,
+			"lean": 8,
+			"hip": [
+				5,
+				3
+			],
+			"step": 13,
+			"back": -5,
+			"square": 1
+		},
+		{
+			"arm": [
+				-25,
+				1
+			],
+			"bladeDeg": -25,
+			"lean": 8,
+			"hip": [
+				5,
+				3
+			],
+			"step": 13,
+			"back": -5,
+			"square": 1
+		},
+		{
+			"arm": [
+				-35,
+				0.95
+			],
+			"bladeDeg": -30,
+			"lean": 6,
+			"hip": [
+				4,
+				3
+			],
+			"step": 13,
+			"back": -5,
+			"square": 0.8
+		},
+		{
+			"arm": [
+				-35,
+				0.9
+			],
+			"bladeDeg": -25,
+			"lean": 4,
+			"hip": [
+				3,
+				2
+			],
+			"step": 10,
+			"back": -4,
+			"square": 0.5
+		},
+		{
+			"arm": [
+				-35,
+				0.85
+			],
+			"bladeDeg": -20,
+			"lean": 2,
+			"hip": [
+				1,
+				1
+			],
+			"step": 5,
+			"back": -2,
+			"square": 0.2
+		},
+		{
+			"arm": [
+				-35,
+				0.85
+			],
+			"bladeDeg": -15,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		}
+	]
+}

@@ -1,0 +1,280 @@
+{
+  "version": "pixellab-male-v1",
+  "characters": [
+    {
+      "id": "player_pl_human_sword_m1",
+      "displayName": "Nhân tộc",
+      "classId": "sword",
+      "classLabel": "Kiếm sĩ",
+      "gender": "male",
+      "raceId": "human",
+      "raceLabel": "Nhân tộc",
+      "variant": 1,
+      "playable": true
+    },
+    {
+      "id": "player_pl_elf_sword_m1",
+      "displayName": "Elf",
+      "classId": "sword",
+      "classLabel": "Kiếm sĩ",
+      "gender": "male",
+      "raceId": "elf",
+      "raceLabel": "Elf",
+      "variant": 1,
+      "playable": true
+    },
+    {
+      "id": "player_pl_demon_sword_m1",
+      "displayName": "Ma tộc",
+      "classId": "sword",
+      "classLabel": "Kiếm sĩ",
+      "gender": "male",
+      "raceId": "demon",
+      "raceLabel": "Ma tộc",
+      "variant": 1,
+      "playable": true
+    },
+    {
+      "id": "player_pl_beast_sword_m1",
+      "displayName": "Thú nhân",
+      "classId": "sword",
+      "classLabel": "Kiếm sĩ",
+      "gender": "male",
+      "raceId": "beast",
+      "raceLabel": "Thú nhân",
+      "variant": 1,
+      "playable": true
+    },
+    {
+      "id": "player_pl_dragon_sword_m1",
+      "displayName": "Long tộc",
+      "classId": "sword",
+      "classLabel": "Kiếm sĩ",
+      "gender": "male",
+      "raceId": "dragon",
+      "raceLabel": "Long tộc",
+      "variant": 1,
+      "playable": true
+    },
+    {
+      "id": "player_pl_human_staff_m1",
+      "displayName": "Nhân tộc",
+      "classId": "staff",
+      "classLabel": "Pháp sư",
+      "gender": "male",
+      "raceId": "human",
+      "raceLabel": "Nhân tộc",
+      "variant": 1,
+      "playable": true
+    },
+    {
+      "id": "player_pl_elf_staff_m1",
+      "displayName": "Elf",
+      "classId": "staff",
+      "classLabel": "Pháp sư",
+      "gender": "male",
+      "raceId": "elf",
+      "raceLabel": "Elf",
+      "variant": 1,
+      "playable": true
+    },
+    {
+      "id": "player_pl_demon_staff_m1",
+      "displayName": "Ma tộc",
+      "classId": "staff",
+      "classLabel": "Pháp sư",
+      "gender": "male",
+      "raceId": "demon",
+      "raceLabel": "Ma tộc",
+      "variant": 1,
+      "playable": true
+    },
+    {
+      "id": "player_pl_beast_staff_m1",
+      "displayName": "Thú nhân",
+      "classId": "staff",
+      "classLabel": "Pháp sư",
+      "gender": "male",
+      "raceId": "beast",
+      "raceLabel": "Thú nhân",
+      "variant": 1,
+      "playable": true
+    },
+    {
+      "id": "player_pl_dragon_staff_m1",
+      "displayName": "Long tộc",
+      "classId": "staff",
+      "classLabel": "Pháp sư",
+      "gender": "male",
+      "raceId": "dragon",
+      "raceLabel": "Long tộc",
+      "variant": 1,
+      "playable": true
+    },
+    {
+      "id": "player_pl_human_spear_m1",
+      "displayName": "Nhân tộc",
+      "classId": "spear",
+      "classLabel": "Thương thủ",
+      "gender": "male",
+      "raceId": "human",
+      "raceLabel": "Nhân tộc",
+      "variant": 1,
+      "playable": true
+    },
+    {
+      "id": "player_pl_elf_spear_m1",
+      "displayName": "Elf",
+      "classId": "spear",
+      "classLabel": "Thương thủ",
+      "gender": "male",
+      "raceId": "elf",
+      "raceLabel": "Elf",
+      "variant": 1,
+      "playable": true
+    },
+    {
+      "id": "player_pl_demon_spear_m1",
+      "displayName": "Ma tộc",
+      "classId": "spear",
+      "classLabel": "Thương thủ",
+      "gender": "male",
+      "raceId": "demon",
+      "raceLabel": "Ma tộc",
+      "variant": 1,
+      "playable": true
+    },
+    {
+      "id": "player_pl_beast_spear_m1",
+      "displayName": "Thú nhân",
+      "classId": "spear",
+      "classLabel": "Thương thủ",
+      "gender": "male",
+      "raceId": "beast",
+      "raceLabel": "Thú nhân",
+      "variant": 1,
+      "playable": true
+    },
+    {
+      "id": "player_pl_dragon_spear_m1",
+      "displayName": "Long tộc",
+      "classId": "spear",
+      "classLabel": "Thương thủ",
+      "gender": "male",
+      "raceId": "dragon",
+      "raceLabel": "Long tộc",
+      "variant": 1,
+      "playable": true
+    },
+    {
+      "id": "player_pl_human_bow_m1",
+      "displayName": "Nhân tộc",
+      "classId": "bow",
+      "classLabel": "Cung thủ",
+      "gender": "male",
+      "raceId": "human",
+      "raceLabel": "Nhân tộc",
+      "variant": 1,
+      "playable": true
+    },
+    {
+      "id": "player_pl_elf_bow_m1",
+      "displayName": "Elf",
+      "classId": "bow",
+      "classLabel": "Cung thủ",
+      "gender": "male",
+      "raceId": "elf",
+      "raceLabel": "Elf",
+      "variant": 1,
+      "playable": true
+    },
+    {
+      "id": "player_pl_demon_bow_m1",
+      "displayName": "Ma tộc",
+      "classId": "bow",
+      "classLabel": "Cung thủ",
+      "gender": "male",
+      "raceId": "demon",
+      "raceLabel": "Ma tộc",
+      "variant": 1,
+      "playable": true
+    },
+    {
+      "id": "player_pl_beast_bow_m1",
+      "displayName": "Thú nhân",
+      "classId": "bow",
+      "classLabel": "Cung thủ",
+      "gender": "male",
+      "raceId": "beast",
+      "raceLabel": "Thú nhân",
+      "variant": 1,
+      "playable": true
+    },
+    {
+      "id": "player_pl_dragon_bow_m1",
+      "displayName": "Long tộc",
+      "classId": "bow",
+      "classLabel": "Cung thủ",
+      "gender": "male",
+      "raceId": "dragon",
+      "raceLabel": "Long tộc",
+      "variant": 1,
+      "playable": true
+    },
+    {
+      "id": "player_pl_human_shield_m1",
+      "displayName": "Nhân tộc",
+      "classId": "shield",
+      "classLabel": "Hộ vệ",
+      "gender": "male",
+      "raceId": "human",
+      "raceLabel": "Nhân tộc",
+      "variant": 1,
+      "playable": true
+    },
+    {
+      "id": "player_pl_elf_shield_m1",
+      "displayName": "Elf",
+      "classId": "shield",
+      "classLabel": "Hộ vệ",
+      "gender": "male",
+      "raceId": "elf",
+      "raceLabel": "Elf",
+      "variant": 1,
+      "playable": true
+    },
+    {
+      "id": "player_pl_demon_shield_m1",
+      "displayName": "Ma tộc",
+      "classId": "shield",
+      "classLabel": "Hộ vệ",
+      "gender": "male",
+      "raceId": "demon",
+      "raceLabel": "Ma tộc",
+      "variant": 1,
+      "playable": true
+    },
+    {
+      "id": "player_pl_beast_shield_m1",
+      "displayName": "Thú nhân",
+      "classId": "shield",
+      "classLabel": "Hộ vệ",
+      "gender": "male",
+      "raceId": "beast",
+      "raceLabel": "Thú nhân",
+      "variant": 1,
+      "playable": true
+    },
+    {
+      "id": "player_pl_dragon_shield_m1",
+      "displayName": "Long tộc",
+      "classId": "shield",
+      "classLabel": "Hộ vệ",
+      "gender": "male",
+      "raceId": "dragon",
+      "raceLabel": "Long tộc",
+      "variant": 1,
+      "playable": true
+    }
+  ]
+}

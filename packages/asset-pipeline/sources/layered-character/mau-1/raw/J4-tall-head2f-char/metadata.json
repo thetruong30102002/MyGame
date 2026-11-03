@@ -1,0 +1,49 @@
+{
+  "group_id": "ec37a057-0ea3-4733-9fe5-cba1845c7453",
+  "states": [
+    {
+      "character": {
+        "id": "d58d3ebd-d7a4-4b3b-9736-8ad8a379536c",
+        "name": "Idle",
+        "prompt": "adult female fantasy RPG hero, slim hourglass build (narrow waist, rounded hips), short layered dark crimson red anime hair, soft volume on top, side-swept bangs, ends above the jaw, short tidy nape, two small curved black horns on top of the head, slightly pointed ears, brown eyes, plain dark two-piece bikini with straps over the shoulders, barefoot, modest and non-sexualized, natural short neck in normal proportion, not long, chin close to the shoulders, no collar, no scarf, no hood covering the neck, arms relaxed at the sides away from the head, standing straight, calm neutral face, even top-center lighting, symmetric design, no weapon",
+        "size": {
+          "width": 128,
+          "height": 128
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-10-29T12:24:42.857994+00:00"
+      },
+      "folder": "Idle",
+      "frames": {
+        "rotations": {
+          "south": "Idle/rotations/south.png",
+          "south-east": "Idle/rotations/south-east.png",
+          "east": "Idle/rotations/east.png",
+          "north-east": "Idle/rotations/north-east.png",
+          "north": "Idle/rotations/north.png",
+          "north-west": "Idle/rotations/north-west.png",
+          "west": "Idle/rotations/west.png",
+          "south-west": "Idle/rotations/south-west.png"
+        },
+        "animations": {
+          "run": {
+            "east": [
+              "Idle/animations/run/east/frame_000.png",
+              "Idle/animations/run/east/frame_001.png",
+              "Idle/animations/run/east/frame_002.png",
+              "Idle/animations/run/east/frame_003.png",
+              "Idle/animations/run/east/frame_004.png",
+              "Idle/animations/run/east/frame_005.png",
+              "Idle/animations/run/east/frame_006.png",
+              "Idle/animations/run/east/frame_007.png"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "export_version": "3.1",
+  "export_date": "2026-10-29T12:31:18.316691"
+}

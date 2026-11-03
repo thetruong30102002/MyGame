@@ -1,0 +1,61 @@
+{
+  "group_id": "c86a48d1-04f4-4e01-beef-dbc164a53dd9",
+  "states": [
+    {
+      "character": {
+        "id": "edc53283-a69f-4a8d-a9a9-b8f61d4504c4",
+        "name": "Idle",
+        "prompt": "adult female fantasy RPG hero, petite slender build, short chestnut brown anime bob hair with soft volume, side-swept bangs, ends above the jaw, hair does not touch the neck, normal human ears, brown eyes, plain two-piece bikini with straps over the shoulders, barefoot, modest and non-sexualized, natural short neck in normal proportion, not long, chin close to the shoulders, no collar, no scarf, no hood covering the neck, arms relaxed at the sides away from the head, standing straight, calm neutral face, even top-center lighting, symmetric design, no weapon",
+        "size": {
+          "width": 80,
+          "height": 88
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-10-29T03:40:34.419424+00:00"
+      },
+      "folder": "Idle",
+      "frames": {
+        "rotations": {
+          "south": "Idle/rotations/south.png",
+          "south-east": "Idle/rotations/south-east.png",
+          "east": "Idle/rotations/east.png",
+          "north-east": "Idle/rotations/north-east.png",
+          "north": "Idle/rotations/north.png",
+          "north-west": "Idle/rotations/north-west.png",
+          "west": "Idle/rotations/west.png",
+          "south-west": "Idle/rotations/south-west.png"
+        },
+        "animations": {
+          "walk-s-redo": {
+            "south": [
+              "Idle/animations/walk-s-redo/south/frame_000.png",
+              "Idle/animations/walk-s-redo/south/frame_001.png",
+              "Idle/animations/walk-s-redo/south/frame_002.png",
+              "Idle/animations/walk-s-redo/south/frame_003.png",
+              "Idle/animations/walk-s-redo/south/frame_004.png",
+              "Idle/animations/walk-s-redo/south/frame_005.png",
+              "Idle/animations/walk-s-redo/south/frame_006.png",
+              "Idle/animations/walk-s-redo/south/frame_007.png"
+            ]
+          },
+          "walk": {
+            "south": [
+              "Idle/animations/walk/south/frame_000.png",
+              "Idle/animations/walk/south/frame_001.png",
+              "Idle/animations/walk/south/frame_002.png",
+              "Idle/animations/walk/south/frame_003.png",
+              "Idle/animations/walk/south/frame_004.png",
+              "Idle/animations/walk/south/frame_005.png",
+              "Idle/animations/walk/south/frame_006.png",
+              "Idle/animations/walk/south/frame_007.png"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "export_version": "3.1",
+  "export_date": "2026-10-29T03:50:14.670403"
+}

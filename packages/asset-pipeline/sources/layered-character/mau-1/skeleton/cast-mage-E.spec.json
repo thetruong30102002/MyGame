@@ -1,0 +1,242 @@
+{
+	"about": "Đòn NIỆM PHÉP E của class Trượng (pháp sư tập sự, chủ dự án 30/10): thủ trượng dựng đứng trước hông → nhấc trượng lên, ngả ra sau lấy đà (giữ thế 6–7) → đẩy trượng chĩa tới trước, tay duỗi, bước tới (chạm khung 10, đầu trượng ngang trước mặt — điểm phóng tia phép) → hồi thế; khung 15 trùng khung 1. Góc trượng chỉ ngả ra sau rồi đẩy tới, không quay vòng (cùng luật con lắc của kiếm). Hai tay nắm cán cách 6 px. Dựng trên khung xương đứng của thân Kiếm sĩ (cùng khuôn G1) rồi retarget sang ảnh Pháp sư. Khung thủ thế 1–3 / 13–15: trượng vẽ ngả tới trước (weaponDeg 56–76°) cho viên tinh thể ra trước mặt, không che mặt (tay giữ nguyên).",
+	"character": "Q0-outfit-bald-E",
+	"rest": "Q0-outfit-bald-E#5702",
+	"direction": "east",
+	"pad": [
+		0,
+		0,
+		0,
+		0
+	],
+	"handGapPx": 6,
+	"frames": [
+		{
+			"arm": [
+				-70,
+				0.8
+			],
+			"bladeDeg": 80,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0,
+			"weaponDeg": 66
+		},
+		{
+			"arm": [
+				-60,
+				0.8
+			],
+			"bladeDeg": 82,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0,
+			"weaponDeg": 68
+		},
+		{
+			"arm": [
+				-40,
+				0.82
+			],
+			"bladeDeg": 88,
+			"lean": -1,
+			"hip": [
+				-1,
+				0
+			],
+			"step": 0,
+			"back": -1,
+			"weaponDeg": 76
+		},
+		{
+			"arm": [
+				-10,
+				0.82
+			],
+			"bladeDeg": 98,
+			"lean": -2,
+			"hip": [
+				-1,
+				0
+			],
+			"step": 0,
+			"back": -2,
+			"square": 0.2
+		},
+		{
+			"arm": [
+				20,
+				0.85
+			],
+			"bladeDeg": 108,
+			"lean": -3,
+			"hip": [
+				-2,
+				0
+			],
+			"step": 0,
+			"back": -3,
+			"square": 0.4
+		},
+		{
+			"arm": [
+				40,
+				0.85
+			],
+			"bladeDeg": 112,
+			"lean": -3,
+			"hip": [
+				-2,
+				0
+			],
+			"step": 0,
+			"back": -3,
+			"square": 0.5
+		},
+		{
+			"arm": [
+				42,
+				0.85
+			],
+			"bladeDeg": 112,
+			"lean": -3,
+			"hip": [
+				-2,
+				0
+			],
+			"step": 0,
+			"back": -3,
+			"square": 0.5
+		},
+		{
+			"arm": [
+				30,
+				0.95
+			],
+			"bladeDeg": 75,
+			"lean": 0,
+			"hip": [
+				0,
+				1
+			],
+			"step": 3,
+			"back": -3,
+			"square": 0.7
+		},
+		{
+			"arm": [
+				15,
+				1
+			],
+			"bladeDeg": 35,
+			"lean": 4,
+			"hip": [
+				2,
+				1
+			],
+			"step": 7,
+			"back": -3,
+			"square": 0.9
+		},
+		{
+			"arm": [
+				5,
+				1
+			],
+			"bladeDeg": 12,
+			"lean": 6,
+			"hip": [
+				3,
+				2
+			],
+			"step": 10,
+			"back": -3,
+			"square": 1
+		},
+		{
+			"arm": [
+				5,
+				1
+			],
+			"bladeDeg": 10,
+			"lean": 6,
+			"hip": [
+				3,
+				2
+			],
+			"step": 10,
+			"back": -3,
+			"square": 1
+		},
+		{
+			"arm": [
+				-5,
+				0.95
+			],
+			"bladeDeg": 25,
+			"lean": 4,
+			"hip": [
+				2,
+				1
+			],
+			"step": 8,
+			"back": -2,
+			"square": 0.7
+		},
+		{
+			"arm": [
+				-30,
+				0.88
+			],
+			"bladeDeg": 50,
+			"lean": 2,
+			"hip": [
+				1,
+				1
+			],
+			"step": 5,
+			"back": -1,
+			"square": 0.4,
+			"weaponDeg": 56
+		},
+		{
+			"arm": [
+				-55,
+				0.82
+			],
+			"bladeDeg": 70,
+			"lean": 1,
+			"hip": [
+				0,
+				0
+			],
+			"step": 2,
+			"back": 0,
+			"square": 0.1,
+			"weaponDeg": 62
+		},
+		{
+			"arm": [
+				-70,
+				0.8
+			],
+			"bladeDeg": 80,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0,
+			"weaponDeg": 66
+		}
+	]
+}

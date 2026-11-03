@@ -1,0 +1,203 @@
+{
+	"sample": "mau-1",
+	"stage": "A",
+	"standardVersion": 1,
+	"source": "G3-tall-head1-char",
+	"rotations": {
+		"S": {
+			"neck": [
+				79,
+				63
+			],
+			"neckLength": 4,
+			"neckWidth": 8,
+			"headWidth": 31,
+			"cheekWidth": 19,
+			"remnants": 0,
+			"hairBack": 11,
+			"baldNeckY": 63
+		},
+		"SE": {
+			"neck": [
+				86,
+				64
+			],
+			"neckLength": 3,
+			"neckWidth": 7,
+			"headWidth": 29,
+			"cheekWidth": 13,
+			"remnants": 0,
+			"hairBack": 1,
+			"baldNeckY": 63
+		},
+		"E": {
+			"neck": [
+				79,
+				64
+			],
+			"neckLength": 3,
+			"neckWidth": 7,
+			"headWidth": 30,
+			"cheekWidth": 13,
+			"remnants": 0,
+			"hairBack": 3,
+			"baldNeckY": 65
+		},
+		"NE": {
+			"neck": [
+				72,
+				65
+			],
+			"neckLength": 2,
+			"neckWidth": 8,
+			"headWidth": 29,
+			"cheekWidth": 0,
+			"remnants": 0,
+			"hairBack": 0,
+			"baldNeckY": 64
+		},
+		"N": {
+			"neck": [
+				81,
+				67
+			],
+			"neckLength": 1,
+			"neckWidth": 9,
+			"headWidth": 31,
+			"cheekWidth": 1,
+			"remnants": 0,
+			"hairBack": 0,
+			"baldNeckY": 64
+		}
+	},
+	"walk": [
+		{
+			"neck": [
+				80,
+				63
+			],
+			"neckLength": 4,
+			"neckWidth": 8,
+			"headWidth": 31,
+			"cheekWidth": 17,
+			"remnants": 0,
+			"hairBack": 5,
+			"foot": [
+				80,
+				144
+			]
+		},
+		{
+			"neck": [
+				79,
+				63
+			],
+			"neckLength": 3,
+			"neckWidth": 8,
+			"headWidth": 31,
+			"cheekWidth": 15,
+			"remnants": 0,
+			"hairBack": 4,
+			"foot": [
+				86,
+				147
+			]
+		},
+		{
+			"neck": [
+				80,
+				62
+			],
+			"neckLength": 4,
+			"neckWidth": 8,
+			"headWidth": 31,
+			"cheekWidth": 19,
+			"remnants": 0,
+			"hairBack": 5,
+			"foot": [
+				85,
+				148
+			]
+		},
+		{
+			"neck": [
+				79,
+				62
+			],
+			"neckLength": 4,
+			"neckWidth": 8,
+			"headWidth": 31,
+			"cheekWidth": 19,
+			"remnants": 0,
+			"hairBack": 7,
+			"foot": [
+				85,
+				146
+			]
+		},
+		{
+			"neck": [
+				80,
+				62
+			],
+			"neckLength": 3,
+			"neckWidth": 8,
+			"headWidth": 32,
+			"cheekWidth": 18,
+			"remnants": 0,
+			"hairBack": 6,
+			"foot": [
+				75,
+				146
+			]
+		},
+		{
+			"neck": [
+				81,
+				62
+			],
+			"neckLength": 4,
+			"neckWidth": 8,
+			"headWidth": 31,
+			"cheekWidth": 19,
+			"remnants": 0,
+			"hairBack": 11,
+			"foot": [
+				76,
+				148
+			]
+		},
+		{
+			"neck": [
+				81,
+				63
+			],
+			"neckLength": 3,
+			"neckWidth": 8,
+			"headWidth": 31,
+			"cheekWidth": 16,
+			"remnants": 0,
+			"hairBack": 5,
+			"foot": [
+				77,
+				148
+			]
+		},
+		{
+			"neck": [
+				81,
+				63
+			],
+			"neckLength": 3,
+			"neckWidth": 7,
+			"headWidth": 31,
+			"cheekWidth": 16,
+			"remnants": 0,
+			"hairBack": 4,
+			"foot": [
+				77,
+				147
+			]
+		}
+	]
+}
