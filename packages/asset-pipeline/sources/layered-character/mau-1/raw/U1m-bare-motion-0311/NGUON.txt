@@ -1,0 +1,1 @@
+Bản sao gói đi / chạy thân trần nam 80px của phiên 03/11 (starter-redesign-20261103/bare-bases-v1/motion-male), đệm 4px trên/dưới thành 80×88 như ảnh xoay U1 — CHỈ để đo khung xương đi / chạy cho chặng U (không xuất game).

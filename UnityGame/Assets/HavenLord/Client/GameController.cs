@@ -22,7 +22,8 @@ namespace HavenLord.Client
     /// </summary>
     public sealed partial class GameController : MonoBehaviour, ICombatHooks
     {
-        private const float RunSpeed = 150;
+        /// <summary>Tốc chạy (px/giây). 150 → 128 (−15%, chủ dự án 05/11 duyệt; chốt 03/11 "giảm nhịp chân và tốc độ chạy bằng code").</summary>
+        public const float RunSpeed = 128;
         private const float StaminaDrain = 22;
         private const float ActionMoveScale = 0.4f;
         private const float OccludedAlpha = 0.55f;
@@ -89,6 +90,8 @@ namespace HavenLord.Client
             if (input == null) input = gameObject.AddComponent<GameInput>();
             entities = new GameObject("Entities").transform;
             if (pixelCamera != null) new GameObject("Weather").AddComponent<Weather>().Init(() => pixelCamera != null ? pixelCamera.Cam : null, () => Map);
+            // Nước chuyển động (05/11/2026): vệt sáng trôi theo dòng suối, sóng lăn tăn, lấp lánh, bọt dung nham.
+            if (pixelCamera != null) new GameObject("WaterMotion").AddComponent<WaterMotion>().Init(() => pixelCamera != null ? pixelCamera.Cam : null, () => Map);
         }
 
         private void Start()

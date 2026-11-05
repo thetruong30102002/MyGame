@@ -112,6 +112,7 @@ tài khoản Claude dùng chung, ai cũng thấy). Không sửa tay hai file sin
 
 ### Luật của dự án (đừng phá)
 
+- Boss NGHIÊM CẤM đòn chung (chốt 05/11/2026): mỗi boss / rồng có đòn thường + chiêu riêng, không bắn chung quả cầu đen `dark_orb`, không dùng chung hình chiêu với boss khác; kiểm bằng `packages/sim/tests/boss-unique-attacks.test.ts` (danh sách nợ boss cũ → kế hoạch `boss-unique-attacks`).
 - Không tự vẽ art bằng CSS / SVG / emoji; hình TẠM = biến tấu hình có sẵn (đổi màu, phóng) và ghi rõ TẠM để thay khi có PixelLab.
 - Trang bị phải hiện trên người (mục Trang bị). Máy chủ là nguồn sự thật cho kim cương, cấp / EXP / xu / bình, điểm tiềm năng
   thưởng (`progress.bonusPoints` — client cộng vào điểm theo cấp ở MỌI chỗ tính điểm: `talentPoints` / `unspent(…, bonus)`).

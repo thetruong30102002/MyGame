@@ -1,0 +1,136 @@
+{
+  "entries": [
+    {
+      "id": "sword-male",
+      "bounds": [
+        21,
+        2,
+        55,
+        75
+      ],
+      "height": 73,
+      "referenceHeight": 73,
+      "heightDelta": 0,
+      "artApproved": false
+    },
+    {
+      "id": "sword-female",
+      "bounds": [
+        22,
+        4,
+        59,
+        75
+      ],
+      "height": 71,
+      "referenceHeight": 71,
+      "heightDelta": 0,
+      "artApproved": false
+    },
+    {
+      "id": "staff-male",
+      "bounds": [
+        21,
+        2,
+        53,
+        75
+      ],
+      "height": 73,
+      "referenceHeight": 73,
+      "heightDelta": 0,
+      "artApproved": false
+    },
+    {
+      "id": "staff-female",
+      "bounds": [
+        21,
+        4,
+        59,
+        75
+      ],
+      "height": 71,
+      "referenceHeight": 71,
+      "heightDelta": 0,
+      "artApproved": false
+    },
+    {
+      "id": "spear-male",
+      "bounds": [
+        21,
+        2,
+        53,
+        75
+      ],
+      "height": 73,
+      "referenceHeight": 73,
+      "heightDelta": 0,
+      "artApproved": false
+    },
+    {
+      "id": "spear-female",
+      "bounds": [
+        21,
+        4,
+        59,
+        75
+      ],
+      "height": 71,
+      "referenceHeight": 71,
+      "heightDelta": 0,
+      "artApproved": false
+    },
+    {
+      "id": "bow-male",
+      "bounds": [
+        21,
+        2,
+        54,
+        76
+      ],
+      "height": 74,
+      "referenceHeight": 73,
+      "heightDelta": 1,
+      "artApproved": false
+    },
+    {
+      "id": "bow-female",
+      "bounds": [
+        21,
+        4,
+        59,
+        75
+      ],
+      "height": 71,
+      "referenceHeight": 71,
+      "heightDelta": 0,
+      "artApproved": false
+    },
+    {
+      "id": "shield-male",
+      "bounds": [
+        21,
+        2,
+        55,
+        76
+      ],
+      "height": 74,
+      "referenceHeight": 73,
+      "heightDelta": 1,
+      "artApproved": false
+    },
+    {
+      "id": "shield-female",
+      "bounds": [
+        21,
+        4,
+        59,
+        75
+      ],
+      "height": 71,
+      "referenceHeight": 71,
+      "heightDelta": 0,
+      "artApproved": false
+    }
+  ],
+  "artApproved": false,
+  "scope": "Standing designs only; mechanical sheet assembly, no pixel alteration or per-character fitting."
+}

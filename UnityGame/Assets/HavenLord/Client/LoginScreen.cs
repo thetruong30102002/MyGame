@@ -347,9 +347,15 @@ namespace HavenLord.Client
                 female = current.gender == "female";
             }
             UiKit.Label(UiKit.Rect(card, "H", new Vector2(.5f, 1), new Vector2(.5f, 1), new Vector2(0, -16), new Vector2(780, 28)), "Chọn nhân vật khởi đầu", 21, UiStyle.GoldHi, TextAnchor.MiddleCenter, true);
-            UiKit.Label(UiKit.Rect(card, "Note", new Vector2(.5f, 1), new Vector2(.5f, 1), new Vector2(0, -49), new Vector2(780, 22)), "Nhân vật nam · 5 tộc · 5 class · Bộ chuyển động PixelLab", 13, UiStyle.ParchmentDim, TextAnchor.MiddleCenter);
+            UiKit.Label(UiKit.Rect(card, "Note", new Vector2(.5f, 1), new Vector2(.5f, 1), new Vector2(0, -49), new Vector2(780, 22)), PlayerRoster.HasFemale ? "Nam / Nữ · 5 tộc × 3 đầu · 5 class · Di chuyển 8 hướng" : "Nhân vật nam · 5 tộc · 5 class · Bộ chuyển động PixelLab", 13, UiStyle.ParchmentDim, TextAnchor.MiddleCenter);
+            if (PlayerRoster.HasFemale)
+            {
+                // Chọn giới (bộ cỡ NPC 04/11): đổi giới giữ tộc / số đầu / class.
+                Button(card, "Male", new Vector2(.5f, 1), new Vector2(.5f, 1), new Vector2(-62, -10), new Vector2(110, 30), female ? "Nam" : "• Nam •", () => SwitchGender(false), false);
+                Button(card, "Female", new Vector2(.5f, 1), new Vector2(.5f, 1), new Vector2(62, -10), new Vector2(110, 30), female ? "• Nữ •" : "Nữ", () => SwitchGender(true), false);
+            }
             UiKit.Icon(UiKit.Rect(card,"StarterPreview",new Vector2(.5f,1),new Vector2(.5f,1),new Vector2(0,-86),new Vector2(220,220)),Hero(current.id));
-            UiKit.Label(UiKit.Rect(card,"HeadLabel",new Vector2(.5f,1),new Vector2(.5f,1),new Vector2(0,-78),new Vector2(240,26)),"Đầu / tộc: "+current.raceLabel,15,UiStyle.Parchment,TextAnchor.MiddleCenter,true);
+            UiKit.Label(UiKit.Rect(card,"HeadLabel",new Vector2(.5f,1),new Vector2(.5f,1),new Vector2(0,-78),new Vector2(240,26)),"Đầu / tộc: "+current.raceLabel+(PlayerRoster.HasFemale?" "+current.variant:""),15,UiStyle.Parchment,TextAnchor.MiddleCenter,true);
             StarterArrow("HeadPrev",-154,-138,"‹",()=>CycleStarterHead(-1));
             StarterArrow("HeadNext",154,-138,"›",()=>CycleStarterHead(1));
             StarterArrow("ClassPrev",-154,-237,"‹",()=>CycleStarterClass(-1));
@@ -360,18 +366,33 @@ namespace HavenLord.Client
             {
                 var nameRect=(RectTransform)charName.transform;nameRect.anchorMin=nameRect.anchorMax=new Vector2(.5f,1);nameRect.pivot=new Vector2(.5f,1);nameRect.anchoredPosition=new Vector2(0,-369);nameRect.sizeDelta=new Vector2(Mathf.Min(372,card.rect.width-48),40);
             }
-            else UiKit.Label(UiKit.Rect(card, "Chosen", new Vector2(1, 1), new Vector2(1, 1), new Vector2(-28, -365), new Vector2(350, 52)), current.raceLabel + " · " + current.classLabel + "\nNam · Vũ khí cơ bản đúng class", 14, UiStyle.GoldHi, TextAnchor.MiddleCenter, true);
+            else UiKit.Label(UiKit.Rect(card, "Chosen", new Vector2(1, 1), new Vector2(1, 1), new Vector2(-28, -365), new Vector2(350, 52)), current.raceLabel + " · " + current.classLabel + "\n" + (current.gender == "female" ? "Nữ" : "Nam") + " · Vũ khí cơ bản đúng class", 14, UiStyle.GoldHi, TextAnchor.MiddleCenter, true);
             Button(card, "Go", new Vector2(.5f, 0), new Vector2(.5f, 0), new Vector2(0, 50), new Vector2(372, 46), trialCreate ? "Vào chơi thử" : "Tạo và vào thế giới", () => Run(CreateAsync));
             errorText = UiKit.Label(UiKit.Rect(card, "Err", new Vector2(.5f, 0), new Vector2(.5f, 0), new Vector2(0, 19), new Vector2(760, 22)), "", 12, new Color(1f, .6f, .5f), TextAnchor.MiddleCenter, true);
         }
 
         private void CycleStarterHead(int stepBy)
         {
-            var choices=Array.FindAll(PlayerRoster.Choices,c=>c.classId==selectedClass);
+            // Đầu cùng class VÀ cùng giới (bộ cỡ NPC: 15 đầu mỗi giới — đầu nam chỉ đội thân nam, đầu nữ chỉ thân nữ).
+            var gender=female?"female":"male";
+            var choices=Array.FindAll(PlayerRoster.Choices,c=>c.classId==selectedClass&&c.gender==gender);
+            if(choices.Length==0)choices=Array.FindAll(PlayerRoster.Choices,c=>c.classId==selectedClass);
             if(choices.Length==0)return;
             var index=Array.FindIndex(choices,c=>c.id==selectedModel);
             var next=choices[(Math.Max(0,index)+stepBy+choices.Length)%choices.Length];
-            selectedModel=next.id;female=false;Rebuild();
+            selectedModel=next.id;female=next.gender=="female";Rebuild();
+        }
+
+        private void SwitchGender(bool toFemale)
+        {
+            if(female==toFemale)return;
+            var cur=PlayerRoster.Find(selectedModel);
+            var gender=toFemale?"female":"male";
+            var next=Array.Find(PlayerRoster.Choices,c=>c.gender==gender&&c.classId==selectedClass&&c.raceId==cur?.raceId&&c.variant==cur?.variant)
+                ??Array.Find(PlayerRoster.Choices,c=>c.gender==gender&&c.classId==selectedClass)
+                ??Array.Find(PlayerRoster.Choices,c=>c.gender==gender);
+            if(next==null)return;
+            selectedModel=next.id;female=toFemale;Rebuild();
         }
 
         private void StarterArrow(string name,float x,float y,string text,Action click)
@@ -386,8 +407,11 @@ namespace HavenLord.Client
             var race=PlayerRoster.Find(selectedModel)?.raceId;
             var index=Array.IndexOf(classes,selectedClass);
             selectedClass=classes[(Math.Max(0,index)+stepBy+classes.Length)%classes.Length];
-            var next=Array.Find(PlayerRoster.Choices,c=>c.classId==selectedClass&&c.raceId==race)??Array.Find(PlayerRoster.Choices,c=>c.classId==selectedClass);
-            selectedModel=next?.id;female=false;Rebuild();
+            var cur=PlayerRoster.Find(selectedModel);var gender=female?"female":"male";
+            var next=Array.Find(PlayerRoster.Choices,c=>c.classId==selectedClass&&c.raceId==race&&c.gender==gender&&c.variant==cur?.variant)
+                ??Array.Find(PlayerRoster.Choices,c=>c.classId==selectedClass&&c.raceId==race&&c.gender==gender)
+                ??Array.Find(PlayerRoster.Choices,c=>c.classId==selectedClass&&c.raceId==race)??Array.Find(PlayerRoster.Choices,c=>c.classId==selectedClass);
+            selectedModel=next?.id;female=next?.gender=="female";Rebuild();
         }
 
         private void ShowError()

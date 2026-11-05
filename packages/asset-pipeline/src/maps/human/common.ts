@@ -31,8 +31,13 @@ export interface MonsterZone {
 	x: number;
 	y: number;
 	radius: number;
-	/** Mỗi map CHỈ MỘT loại quái (chủ dự án chốt 07/10/2026) — pipeline kiểm. */
+	/** Mỗi map CHỈ MỘT loại quái (chủ dự án chốt 07/10/2026) — pipeline kiểm; ngoại lệ duy nhất là bầy quái sông (`river`). */
 	monsters: string[];
+	/**
+	 * Bầy QUÁI SÔNG (chủ dự án 05/11/2026: "có thêm quái ở sông"): loài sống nước, tâm bầy SÁT bờ (cách nước 1,5–4 ô). Một map được thêm
+	 * đúng một loài quái sông ngoài loài chính; luật "tâm bầy cách nước ≥ MIN_WATER_GAP" không áp cho bầy này.
+	 */
+	river?: boolean;
 	/** Số con của bầy. Cả bầy dùng chung một `home` nên một con thấy người chơi là cả bầy lao vào. */
 	count: number;
 	/** `fromAge`: chỉ sinh khi đủ tuổi; `onDemand`: chỉ sinh khi nhiệm vụ gọi (`onGive.zone`). */
@@ -226,6 +231,30 @@ export class Layout {
 				put(this.pick(pool), Math.round((cx + Math.cos(a) * d) * TILE), Math.round((cy + Math.sin(a) * d * 0.8) * TILE));
 			}
 		}
+	}
+
+	/**
+	 * Suối / sông (chủ dự án 05/11/2026: "cố gắng nhiều sông suối hơn", "suối làm sinh động hơn"): khắc nước dọc các điểm (ô) bằng cọ
+	 * TRÒN, bề rộng `width` ô (số, hoặc hàm theo tiến độ 0–1 dọc dòng để suối phình / thắt). Chỗ suối cắt qua đường (`d` / `c`) thành
+	 * cầu gỗ `b` — đường nào cắt suối cũng có cầu. Gọi SAU khi vẽ đường, TRƯỚC khi rải đồ vật và đặt bầy (luật tâm bầy cách nước).
+	 */
+	stream(points: [number, number][], width: number | ((t: number) => number) = 2): void {
+		const w = typeof width === 'number' ? () => width : width;
+		for (let i = 0; i < points.length; i += 1) {
+			const [x, y] = points[i]!;
+			this.pool(x + 0.5, y + 0.5, w(points.length > 1 ? i / (points.length - 1) : 0) / 2);
+		}
+	}
+
+	/** Vũng nước tròn tâm (cx, cy) ô, bán kính r ô; đè lên đường thì thành cầu gỗ như `stream`. */
+	pool(cx: number, cy: number, r: number): void {
+		for (let y = Math.floor(cy - r); y <= Math.ceil(cy + r); y += 1)
+			for (let x = Math.floor(cx - r); x <= Math.ceil(cx + r); x += 1) {
+				if (Math.hypot(x + 0.5 - cx, y + 0.5 - cy) > r) continue;
+				const t = this.at(x, y);
+				if (t === '#' || t === '') continue;
+				this.set(x, y, t === 'd' || t === 'c' || t === 'b' ? 'b' : 'w');
+			}
 	}
 
 	pick<T>(list: readonly T[]): T {

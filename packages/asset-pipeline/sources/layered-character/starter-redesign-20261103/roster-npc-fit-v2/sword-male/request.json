@@ -1,0 +1,11 @@
+{
+  "description": "Edit outfit only: short fitted midnight-blue duelist coat, pale cross-body sash, narrow steel bracers, tidy leather belt, split coat tails, fitted trousers and boots. Long sleeves and trousers. Keep original NPC height, body width, slim proportions, shoulders, head, hair, face, stance and foot placement. Armor lies flush, no bulky shoulder pads. Match original crisp pixel art and contrast. No weapons or glow.",
+  "image_base64": "<packages/asset-pipeline/sources/pixellab/npc_silver_youth/Idle/rotations/south.png>",
+  "width": 80,
+  "height": 80,
+  "no_background": true,
+  "seed": 73300,
+  "referenceSha256": "043f2a95ba9d38c118cf56fa674298df91ed8c6ac7da6e605b44ae2901a22379",
+  "previewOnly": true,
+  "artApproved": false
+}

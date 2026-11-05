@@ -1,0 +1,13 @@
+{
+  "id": "26e31977-ddbf-470c-b755-bf3adda86a24",
+  "action": "walk",
+  "template": "walking-8-frames",
+  "directions": [
+    "south",
+    "south-east",
+    "east",
+    "north-east",
+    "north"
+  ],
+  "receipt": "character: 26e31977-ddbf-470c-b755-bf3adda86a24\nanimation: walking-8-frames\nmode: template\ndirections: south, south-east, east, north-east, north (5 jobs)\njob_ids: south=01794293-c984-48ca-9a55-bcc8bcb316d2, south-east=824aae94-6672-408a-9a4b-eb3e94d48bc7, east=a4c2d174-8732-46b9-b9cb-6a478b791a72, north-east=bad0d70e-7a96-4408-9044-452fbacb3bdc, north=99796d13-5f0b-4401-8bcb-942e2b23d7a6\ngroup: 4fa43dff-6a24-4961-a7a3-a216a6d4640e\ncost: 5 generations (1/dir x 5)\neta: ~2-4 min\nadd more directions to this group: animate_character(character_id=\"26e31977-ddbf-470c-b755-bf3adda86a24\", template_animation_id=\"walking-8-frames\", animation_group_id=\"4fa43dff-6a24-4961-a7a3-a216a6d4640e\", directions=[...])\n\nhint: get_character(character_id=\"26e31977-ddbf-470c-b755-bf3adda86a24\")\nif poor: delete_animation(character_id=\"26e31977-ddbf-470c-b755-bf3adda86a24\", animation_type=\"...\") then retry with mode=\"v3\""
+}

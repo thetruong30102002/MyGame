@@ -1,0 +1,11 @@
+{
+  "description": "Edit outfit only: fitted slate-blue high-collar fencing jacket with diagonal button closure, one small flat silver shoulder guard, narrow silver bracers, plain horizontal leather belt, fitted charcoal trousers and boots. No sash, crossed straps, cape or coat tails. Long sleeves and trousers. Keep original NPC height, body width, slim proportions, shoulders, head, hair, face, stance and foot placement. Armor lies flush, no bulky shoulder pads. Keep crisp pixels. No weapons or glow.",
+  "image_base64": "<packages/asset-pipeline/sources/pixellab/npc_silver_youth/Idle/rotations/south.png>",
+  "width": 80,
+  "height": 80,
+  "no_background": true,
+  "seed": 73400,
+  "referenceSha256": "043f2a95ba9d38c118cf56fa674298df91ed8c6ac7da6e605b44ae2901a22379",
+  "previewOnly": true,
+  "artApproved": false
+}

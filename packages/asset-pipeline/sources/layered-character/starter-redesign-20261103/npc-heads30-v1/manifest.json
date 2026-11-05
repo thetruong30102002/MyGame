@@ -1,0 +1,240 @@
+{
+  "entries": [
+    {
+      "id": "m-human1",
+      "race": "human",
+      "sex": "male",
+      "variant": 1,
+      "source": "packages\\asset-pipeline\\sources\\pixellab\\npc_silver_youth\\Idle\\rotations\\south.png",
+      "image": "m-human1/S.png"
+    },
+    {
+      "id": "m-human2",
+      "race": "human",
+      "sex": "male",
+      "variant": 2,
+      "source": "packages\\asset-pipeline\\sources\\pixellab\\npc_silver_youth\\Idle\\rotations\\south.png",
+      "image": "m-human2/S.png"
+    },
+    {
+      "id": "m-human3",
+      "race": "human",
+      "sex": "male",
+      "variant": 3,
+      "source": "packages\\asset-pipeline\\sources\\pixellab\\npc_silver_youth\\Idle\\rotations\\south.png",
+      "image": "m-human3/S.png"
+    },
+    {
+      "id": "f-human1",
+      "race": "human",
+      "sex": "female",
+      "variant": 1,
+      "source": "packages\\asset-pipeline\\sources\\pixellab\\npc_silver_youth_f\\Idle\\rotations\\south.png",
+      "image": "f-human1/S.png"
+    },
+    {
+      "id": "m-elf1",
+      "race": "elf",
+      "sex": "male",
+      "variant": 1,
+      "source": "packages\\asset-pipeline\\sources\\pixellab\\npc_silver_youth\\Idle\\rotations\\south.png",
+      "image": "m-elf1/S.png"
+    },
+    {
+      "id": "m-elf2",
+      "race": "elf",
+      "sex": "male",
+      "variant": 2,
+      "source": "packages\\asset-pipeline\\sources\\pixellab\\npc_silver_youth\\Idle\\rotations\\south.png",
+      "image": "m-elf2/S.png"
+    },
+    {
+      "id": "m-elf3",
+      "race": "elf",
+      "sex": "male",
+      "variant": 3,
+      "source": "packages\\asset-pipeline\\sources\\pixellab\\npc_silver_youth\\Idle\\rotations\\south.png",
+      "image": "m-elf3/S.png"
+    },
+    {
+      "id": "f-elf1",
+      "race": "elf",
+      "sex": "female",
+      "variant": 1,
+      "source": "packages\\asset-pipeline\\sources\\pixellab\\npc_silver_youth_f\\Idle\\rotations\\south.png",
+      "image": "f-elf1/S.png"
+    },
+    {
+      "id": "f-elf2",
+      "race": "elf",
+      "sex": "female",
+      "variant": 2,
+      "source": "packages\\asset-pipeline\\sources\\pixellab\\npc_silver_youth_f\\Idle\\rotations\\south.png",
+      "image": "f-elf2/S.png"
+    },
+    {
+      "id": "f-elf3",
+      "race": "elf",
+      "sex": "female",
+      "variant": 3,
+      "source": "packages\\asset-pipeline\\sources\\pixellab\\npc_silver_youth_f\\Idle\\rotations\\south.png",
+      "image": "f-elf3/S.png"
+    },
+    {
+      "id": "m-demon1",
+      "race": "demon",
+      "sex": "male",
+      "variant": 1,
+      "source": "packages\\asset-pipeline\\sources\\pixellab\\npc_silver_youth\\Idle\\rotations\\south.png",
+      "image": "m-demon1/S.png"
+    },
+    {
+      "id": "m-demon2",
+      "race": "demon",
+      "sex": "male",
+      "variant": 2,
+      "source": "packages\\asset-pipeline\\sources\\pixellab\\npc_silver_youth\\Idle\\rotations\\south.png",
+      "image": "m-demon2/S.png"
+    },
+    {
+      "id": "m-demon3",
+      "race": "demon",
+      "sex": "male",
+      "variant": 3,
+      "source": "packages\\asset-pipeline\\sources\\pixellab\\npc_silver_youth\\Idle\\rotations\\south.png",
+      "image": "m-demon3/S.png"
+    },
+    {
+      "id": "f-demon1",
+      "race": "demon",
+      "sex": "female",
+      "variant": 1,
+      "source": "packages\\asset-pipeline\\sources\\pixellab\\npc_silver_youth_f\\Idle\\rotations\\south.png",
+      "image": "f-demon1/S.png"
+    },
+    {
+      "id": "f-demon2",
+      "race": "demon",
+      "sex": "female",
+      "variant": 2,
+      "source": "packages\\asset-pipeline\\sources\\pixellab\\npc_silver_youth_f\\Idle\\rotations\\south.png",
+      "image": "f-demon2/S.png"
+    },
+    {
+      "id": "f-demon3",
+      "race": "demon",
+      "sex": "female",
+      "variant": 3,
+      "source": "packages\\asset-pipeline\\sources\\pixellab\\npc_silver_youth_f\\Idle\\rotations\\south.png",
+      "image": "f-demon3/S.png"
+    },
+    {
+      "id": "m-beast1",
+      "race": "beast",
+      "sex": "male",
+      "variant": 1,
+      "source": "packages\\asset-pipeline\\sources\\pixellab\\npc_silver_youth\\Idle\\rotations\\south.png",
+      "image": "m-beast1/S.png"
+    },
+    {
+      "id": "m-beast2",
+      "race": "beast",
+      "sex": "male",
+      "variant": 2,
+      "source": "packages\\asset-pipeline\\sources\\pixellab\\npc_silver_youth\\Idle\\rotations\\south.png",
+      "image": "m-beast2/S.png"
+    },
+    {
+      "id": "m-beast3",
+      "race": "beast",
+      "sex": "male",
+      "variant": 3,
+      "source": "packages\\asset-pipeline\\sources\\pixellab\\npc_silver_youth\\Idle\\rotations\\south.png",
+      "image": "m-beast3/S.png"
+    },
+    {
+      "id": "f-beast1",
+      "race": "beast",
+      "sex": "female",
+      "variant": 1,
+      "source": "packages\\asset-pipeline\\sources\\pixellab\\npc_silver_youth_f\\Idle\\rotations\\south.png",
+      "image": "f-beast1/S.png"
+    },
+    {
+      "id": "f-beast2",
+      "race": "beast",
+      "sex": "female",
+      "variant": 2,
+      "source": "packages\\asset-pipeline\\sources\\pixellab\\npc_silver_youth_f\\Idle\\rotations\\south.png",
+      "image": "f-beast2/S.png"
+    },
+    {
+      "id": "f-beast3",
+      "race": "beast",
+      "sex": "female",
+      "variant": 3,
+      "source": "packages\\asset-pipeline\\sources\\pixellab\\npc_silver_youth_f\\Idle\\rotations\\south.png",
+      "image": "f-beast3/S.png"
+    },
+    {
+      "id": "m-dragon1",
+      "race": "dragon",
+      "sex": "male",
+      "variant": 1,
+      "source": "packages\\asset-pipeline\\sources\\pixellab\\npc_silver_youth\\Idle\\rotations\\south.png",
+      "image": "m-dragon1/S.png"
+    },
+    {
+      "id": "m-dragon2",
+      "race": "dragon",
+      "sex": "male",
+      "variant": 2,
+      "source": "packages\\asset-pipeline\\sources\\pixellab\\npc_silver_youth\\Idle\\rotations\\south.png",
+      "image": "m-dragon2/S.png"
+    },
+    {
+      "id": "m-dragon3",
+      "race": "dragon",
+      "sex": "male",
+      "variant": 3,
+      "source": "packages\\asset-pipeline\\sources\\pixellab\\npc_silver_youth\\Idle\\rotations\\south.png",
+      "image": "m-dragon3/S.png"
+    },
+    {
+      "id": "f-dragon1",
+      "race": "dragon",
+      "sex": "female",
+      "variant": 1,
+      "source": "packages\\asset-pipeline\\sources\\pixellab\\npc_silver_youth_f\\Idle\\rotations\\south.png",
+      "image": "f-dragon1/S.png"
+    },
+    {
+      "id": "f-dragon2",
+      "race": "dragon",
+      "sex": "female",
+      "variant": 2,
+      "source": "packages\\asset-pipeline\\sources\\pixellab\\npc_silver_youth_f\\Idle\\rotations\\south.png",
+      "image": "f-dragon2/S.png"
+    },
+    {
+      "id": "f-dragon3",
+      "race": "dragon",
+      "sex": "female",
+      "variant": 3,
+      "source": "packages\\asset-pipeline\\sources\\pixellab\\npc_silver_youth_f\\Idle\\rotations\\south.png",
+      "image": "f-dragon3/S.png"
+    }
+  ],
+  "reference": "NPC native 80px",
+  "stage": "south master drafts",
+  "rejected": [
+    {
+      "id": "f-human2",
+      "reason": "human variant with horns"
+    },
+    {
+      "id": "f-human3",
+      "reason": "human variant with animal ears"
+    }
+  ]
+}

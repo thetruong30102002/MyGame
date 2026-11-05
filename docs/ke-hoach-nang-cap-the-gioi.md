@@ -1,5 +1,13 @@
 # Kế hoạch tổng — tái thiết thế giới và phát triển Haven
 
+## Chốt mới 03/11/2026 — đứng / đi / chạy 8 hướng, tạm dừng vẽ tấn công
+
+**Bổ sung tạo hình cùng ngày:** vẽ lại thiết kế đồ cơ bản cho rõ từng class, không chỉ đổi màu bộ cũ; thân khỏe và đầy đặn hơn mẫu cũ hơi gầy nhưng không đô, không thay đổi chiều cao giữa hành động. Kiếm sĩ: giáp nhẹ/ngực và vai nhỏ, áo chiến gọn, đai da; Pháp sư: áo choàng/pháp bào có nếp và họa tiết phép tiết chế; Cung thủ: đồ săn cơ động, áo khoác ngắn/túi tên; Thương thủ: áo chiến gọn, bảo vệ vai/cẳng tay, tà tách dễ bước; Khiên thủ: giáp chắc hơn, mảng bảo vệ ngực/chân rõ. Tất cả vẫn đồ khởi đầu cơ bản, không hào quang/cánh/hoàng gia; chừa cấp nâng cấp thời trang sau. Thử một mẫu Kiếm sĩ đứng từ chính ảnh NPC nam trước, duyệt dáng/chất liệu rồi mới nhân rộng 5 class và các hướng/frame. Chưa duyệt mẫu thì tiến độ vẫn0%; vũ khí và đầu vẫn tách, cấm ghép đè đầu. Không sinh thêm tấn công.
+
+Chủ dự án yêu cầu di chuyển đủ 8 hướng, thay giới hạn 4 hướng trước đây cho đứng / đi / chạy. Vẽ S, SE, E, NE, N; SW, W, NW lật đồng bộ đầu–thân–vũ khí từ SE, E, NE. Vẽ lại thân theo chiều cao và tỷ lệ hai NPC tóc trắng (nguồn ảnh cao khoảng 71–73px; mẫu hiện tại khai báo 106px), kiểm cả khối đầu / cổ / chân tại cùng PPU trước khi nhân rộng. Khi đi / chạy đeo vũ khí sau lưng, vẫn giữ lớp vũ khí riêng. Giảm nhịp chân và tốc độ chạy qua map là phần chỉnh code, không tốn lượt PixelLab; cần đồng bộ bước chân để không trượt. Tạm dừng sinh ảnh tấn công để chủ dự án tìm giải pháp, không sửa bản tấn công đang dùng trong lần ghi kế hoạch này.
+
+Dự tính mới cho 5 bộ nam cơ bản của 5 class: mẫu tỷ lệ 5–10 lượt + đứng 5 hướng × 5 bộ 25 + đi 8 frame × 5 hướng × 5 bộ 75 + chạy tương tự 75 + dự phòng góc vũ khí sau lưng 10–25 = 190–210 lượt trước dự phòng, khoảng **250–280 lượt** khi cộng khoảng 30% vẽ lại. Nếu làm cả 5 bộ nữ: khoảng **500–560 lượt**. Thân dùng chung mọi đầu/tộc, không nhân thêm theo số tộc. Chưa gồm vẽ lại đầu, thiết kế vũ khí mới hoặc tấn công. Đây là dự toán, chưa tiêu lượt hay triển khai / nghiệm thu thay đổi mới; admin đầu việc `game-four-directions` giữ ID cũ nhưng chuyển sang phạm vi 8 hướng và tiến độ 0%.
+
 ## Chốt hiện hành — thân nền đồ lót và chọn nghề qua NPC
 
 CHỐT HIỆN HÀNH27/10: tạo nhân vật chọn TỘC → ĐẦU, mặc đồ lót tối giản (nam quần, nữ áo+quần), chạy/đi nói chuyện NPC để chọn nghề rồi nhận bộ đồ+vũ khí. Đợt đầu5 class có5 bộ đồ cơ bản+5 vũ khí cơ bản; không còn bộ vải tân thủ riêng. Tháo bộ đồ trở về thân đồ lót, giữ đầu/tộc. Mỗi tộc3 đầu nam+3 đầu nữ khác tóc,4 tộc=24 bộ đầu. Bỏ hạn mức3 bộ/tộc hoặc3 bộ/class và phép nhân72/360 trước đó. Ba nhóm tài nguyên: nguyên đầu (mặt+tóc+tai/sừng+cổ DA), thân mặc bộ đồ, vũ khí. Cổ áo/áo choàng thuộc thân, không dính avatar. Một dáng thân THON CHUNG NAM/NỮ: vai/eo/chi gọn, giữ chiều cao/khối đầu/neo cổ, không vẽ riêng một thân đô khi ghép đầu nữ. Khóa khối đầu/mắt/má/cằm/cổ; chung rig/hướng/pose/PPU/root/neo cổ/lớp che; không scale theo tóc/bộ/frame hoặc dùng một đầu đứng tĩnh cho mọi hoạt động. Đầu mọi tộc ghép chung mọi bộ class; da hở thân/tay khớp da đầu. Thú nhân chỉ phần đầu, KHÔNG ĐUÔI/animation đuôi. Bộ đồ chỉ vẽ đứng/đi/chạy/đánh của class hỗ trợ, không nhân qua5 class. Vũ khí+bộ đồ cùng class/animationFamilyId. Thân trang phục thay nguyên thân đồ lót, không chồng hai bộ. Thân nền đồ lót dùng chung khi chưa có/tháo đồ, cần pose tương thích hành động đang hỗ trợ. Bộ xanh V7 được chọn làm thiết kế cơ bản kiếm sĩ, vẽ lại thon; hai đầu nam hiện có tiếp tục dùng. Đổi nghề có phí phải đổi đồng bộ class, tẩy phân bổ điểm skill nghề cũ/hoàn điểm để học nghề mới, thay bộ skill/passive, cập nhật thanh chiêu và cặp đồ–vũ khí/animation. Máy chủ kiểm điểm thực/chiêu hợp lệ và giao dịch phí/nghề/skill/đồ đồng bộ, tránh mất phí hoặc còn skill nghề cũ. Loại tiền, mức phí, giới hạn đổi, xử lý đồ cũ và việc tẩy điểm chỉ số cơ thể chưa chốt; không tự đặt phí/loại tiền. Nguyên tố vẫn theo thiên phú cấp10, không tự reroll khi đổi nghề. Xem [đặc tả hiện hành](thiet-ke/nhan-vat-ghep-da-vu-khi.md). Các hạn mức2/3 bộ và48/72/360 phía dưới là lịch sử đã thay.
@@ -6810,6 +6818,129 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "requiresNewArt": true
     },
     {
+      "id": "boss-seal-quest",
+      "group": "Tính năng đã chốt",
+      "name": "Ấn phong hang boss — tìm vật phẩm điều kiện để giải phong ấn",
+      "detail": "Chủ dự án 05/11/2026: \"có nhiều map quái boss cần phải đi kiếm vật phẩm điều kiện để có thể đặt vào giải phong ấn mới có thể vào được quái boss trong hang… điều kiện lấy vật phẩm là đang làm nhiệm vụ phải đi đánh quái, boss có tỉ lệ ra\". Cửa hang boss có phong ấn (đá ấn / bệ đặt vật phẩm); vật phẩm điều kiện chỉ rớt khi ĐANG nhận nhiệm vụ tương ứng, rớt theo tỉ lệ từ quái thường / boss nhỏ của map; đủ vật phẩm thì đặt vào bệ để mở lối vào hang boss. Máy chủ giữ nguồn sự thật (rớt, kho, mở ấn). Tỉ lệ rớt, số vật phẩm, map nào có ấn: chưa chốt — cần chủ dự án duyệt thiết kế trước khi làm.",
+      "weight": 4,
+      "phase": 3,
+      "region": null,
+      "depends": [],
+      "steps": [
+        {
+          "label": "Thiết kế: map nào có ấn, vật phẩm điều kiện, nhiệm vụ gắn kèm, tỉ lệ rớt — chủ dự án duyệt",
+          "weight": 20,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Luật sim + máy chủ: rớt khi đang làm nhiệm vụ, kho vật phẩm, đặt vào bệ mở ấn",
+          "weight": 35,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Hình: bệ / cửa ấn, vật phẩm điều kiện, hiệu ứng giải ấn",
+          "weight": 20,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Ghép client + kiểm thử trên máy chủ thử, chủ dự án nghiệm thu",
+          "weight": 25,
+          "done": false,
+          "evidence": ""
+        }
+      ],
+      "requiresNewArt": true
+    },
+    {
+      "id": "map-streams-decor",
+      "group": "Cảnh quan",
+      "name": "Thêm sông suối, cây, đá, tượng đá và quái sông cho mọi map (giữ style cũ)",
+      "detail": "Chủ dự án 05/11/2026 sau khi bỏ style map mới (\"thôi giữ style cũ đi\"): \"thêm cây cối, tượng đá, đá…\", \"cố gắng nhiều sông suối hơn\", \"có thêm quái ở sông\". Bộ dựng kit (vùng 2–14): mỗi map săn 1–2 dòng suối uốn lượn nối hai mép (núi lửa là dòng dung nham), đường cắt suối thành cầu gỗ, thiếu chỗ cho bầy thì tự bớt suối; bầy quái sông (`river`) sát bờ — luật mới: mỗi map thêm đúng một loài quái sông ngoài loài chính, tâm bầy cách nước 1,5–4 ô. Vùng 1 dựng tay: thêm suối / đá / tượng từng map; quái sông vùng 1 là loài mới Cua đá suối.",
+      "weight": 5,
+      "phase": 2,
+      "region": null,
+      "depends": [],
+      "steps": [
+        {
+          "label": "Bộ dựng kit: suối + cầu tự đặt + bớt suối khi thiếu chỗ (vùng 2–14 dựng thử ở thư mục nháp)",
+          "weight": 20,
+          "done": false,
+          "evidence": "05/11: kit.ts (streams, meander, riverSpot), Layout.stream; dựng thử 13 vùng vào .havenlord-stage/maps-v2 không lỗi — chờ chủ dự án duyệt"
+        },
+        {
+          "label": "Luật quái sông (river) trong bộ kiểm map + một loài quái sông mỗi vùng",
+          "weight": 15,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Thêm cây, đá, tượng đá dày hơn (kit + 12 map vùng 1)",
+          "weight": 20,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Vùng 1: suối / cầu / quái sông Cua đá suối cho các map dựng tay",
+          "weight": 20,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Ghép vào game (máy chủ + client cùng lúc), soát đi được mọi lối, chủ dự án duyệt",
+          "weight": 25,
+          "done": false,
+          "evidence": ""
+        }
+      ],
+      "requiresNewArt": true
+    },
+    {
+      "id": "boss-unique-attacks",
+      "group": "Boss cũ",
+      "name": "Boss nghiêm cấm đòn chung — đòn thường + chiêu riêng mỗi boss",
+      "detail": "Chốt 05/11/2026 của chủ dự án: \"với các đòn đánh boss thấy bắn ra cầu tròn đen cần phải có đòn riêng\", \"boss nghiêm cấm đòn chung\", \"thêm vào luật\". Hiện 16 boss / rồng kiểu caster bắn chung quả cầu đen dark_orb (đòn xa ranged 'shadow') và 5 hình chiêu dùng chung giữa hai boss (boss_hellfire, boss_avalanche, boss_frost_roar, boss_oblivion_mist, boss_forge_sigil). Mỗi boss cần đạn / hiệu ứng đòn thường riêng theo chủ đề (vd Lich: sọ xanh, Kraken: tia mực, Hoả thần: cầu lửa…) và chiêu không trùng boss khác; hiệu ứng làm bằng vfx_workbench (không tốn lượt) hoặc PixelLab khi cần. Luật ghi ở CLAUDE.md + mục Luật dự án; test packages/sim/tests/boss-unique-attacks.test.ts chặn vi phạm mới, danh sách nợ giảm dần tới 0.",
+      "weight": 3,
+      "phase": 4,
+      "region": null,
+      "depends": [],
+      "steps": [
+        {
+          "label": "Ghi luật + bộ kiểm tự động chặn đòn chung",
+          "weight": 10,
+          "done": true,
+          "evidence": "05/11: CLAUDE.md + docs/the-gioi-haven.md mục Luật dự án; packages/sim/tests/boss-unique-attacks.test.ts (chặn boss mới bắn dark_orb / dùng chung hình chiêu; nợ 16 boss + 5 hình chiêu)"
+        },
+        {
+          "label": "Thiết kế đòn thường riêng cho 16 boss / rồng đang bắn cầu đen",
+          "weight": 20,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Tách 5 hình chiêu đang dùng chung thành chiêu riêng từng boss",
+          "weight": 15,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Vẽ hiệu ứng / đạn riêng (vfx_workbench hoặc PixelLab) và gắn sim + client",
+          "weight": 35,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Kiểm thử trong game, danh sách nợ trong test về 0, chủ dự án duyệt",
+          "weight": 20,
+          "done": false,
+          "evidence": ""
+        }
+      ],
+      "requiresNewArt": true
+    },
+    {
       "id": "boss-boss_demon_001",
       "group": "Boss cũ",
       "name": "Quỷ vương rừng sâu — frame / kích thước",
@@ -8359,8 +8490,8 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
     {
       "id": "game-four-directions",
       "group": "Nhân vật",
-      "name": "Game chỉ 4 hướng (S, E, N, W) thay 8 hướng — rút lượt vẽ",
-      "detail": "Chốt 30/10 của chủ dự án: \"game chỉ có 4 hướng thôi thay vì 8 hướng sẽ rút được lượt vẽ\". Mọi nhân vật ghép lớp (thân / bộ đồ / đầu / vũ khí) chỉ cần 4 hướng S, E, N, W; PixelLab chỉ vẽ S, E, N, hướng W lật gương từ E (không vẽ SE / NE / SW / NW). Đầu: mỗi đầu 3 hướng vẽ (30 đầu × 4 hướng = 120 hình thay 240); thân / bộ đồ: đi / chạy vẽ S, E, N; đòn đánh chỉ vẽ E, N. Chốt bổ sung 30/10 của chủ dự án: \"tấn công chỉ nên có 3 hướng thôi, bắc và ngang (khi tấn công nhân vật sẽ xoay ngang nhìn sẽ đẹp nhất, bỏ hướng nam đi vì nó xấu và khó vẽ)\" — đòn đánh mọi class chỉ có N, E, W (W lật từ E); đánh về phía nam thì nhân vật xoay ngang dùng E / W (SE → E, SW → W, thẳng nam theo phía ngang đang nhìn). Đứng / đi / chạy vẫn đủ 4 hướng. Không vẽ đòn hướng S cho class nào (Khiên, Cung và bộ nữ bớt mỗi class 4 lượt); đòn S đã vẽ của Kiếm sĩ / Pháp sư / Thương giữ nguồn, không xuất vào game. Client Unity / sim: nhân vật quay mặt 4 hướng — di chuyển chéo chọn hướng ngang hoặc dọc gần nhất; atlas / LayeredCharacterView chỉ tra 4 hướng. Rà quái / NPC / nhân vật cũ còn dùng 8 hướng để quy về cùng chuẩn. Không vẽ lại phần 8 hướng đã có, chỉ ngừng vẽ thêm hướng chéo.",
+      "name": "Đứng / đi / chạy 8 hướng — thân bằng NPC mẫu, vũ khí sau lưng",
+      "detail": "Chốt 03/11/2026 thay giới hạn 4 hướng cho đứng/đi/chạy: vẽ S, SE, E, NE, N; SW, W, NW lật đồng bộ đầu–thân–vũ khí. Vẽ lại thân theo chiều cao và tỷ lệ hai NPC tóc trắng; nguồn mẫu 71–73px, chuẩn nhân vật hiện 106px. Kiểm đầu/cổ/thân/chân tại cùng PPU trước khi nhân rộng, không co riêng thân gây đầu quá lớn. Di chuyển đeo vũ khí sau lưng, giữ vũ khí tách lớp. Giảm nhịp chân và tốc độ chạy qua map bằng code, đồng bộ để không trượt chân. Tạm dừng vẽ tấn công chờ giải pháp của chủ dự án; chưa thay đòn đang dùng hoặc mở rộng hướng tấn công. Dự toán 5 bộ nam/5class: mẫu tỷ lệ 5–10 + đứng25 + đi75 + chạy75 + góc vũ khí sau lưng10–25 = 190–210, cộng ~30% vẽ lại khoảng250–280 lượt; đủ nam/nữ5class khoảng500–560. Dùng chung thân theo đầu/tộc, không nhân5tộc. Chưa gồm đầu/vũ khí thiết kế mới/tấn công. Chỉ mới ghi kế hoạch,0% nghiệm thu; chưa tiêu lượt hoặc thay build game. Giữ ID game-four-directions để không đứt liên kết cũ. Bổ sung tạo hình03/11: thân khỏe/đầy đặn hơn mẫu cũ hơi gầy, không đô; thiết kế5bộ khởi đầu có nhận diện riêng: Kiếm sĩ giáp nhẹ/ngực/vai nhỏ và áo chiến; Pháp sư pháp bào; Cung thủ đồ săn/túi tên; Thương thủ áo chiến tà tách/găng/giáp vai gọn; Khiên thủ giáp ngực/chân chắc hơn. Chất liệu vải/da/kim loại rõ, không chỉ đổi màu, không thêm đồ hoàng gia/hào quang. Thử một mẫu Kiếm sĩ đứng từ ảnh NPC nam để duyệt trước khi nhân rộng hướng/di chuyển; mẫu mới chưa nghiệm thu, không tăng tiến độ. Đầu và vũ khí vẫn tách riêng; cấm ghép đè đầu. Tấn công vẫn dừng. Mẫu đứng Kiếm sĩ đang thử bằng PixelLab sửa trực tiếp từ NPC tóc trắng, chiều cao73px, giáp ngực/vai nhỏ và tay áo kín; chưa duyệt mỹ thuật hoặc chuyển động. Xem: https://admin.tail024813.ts.net/game/site/media/layered/starter-redesign-20261103/index.html . [Mẫu Kiếm sĩ nam cỡ NPC 04/11 — ĐÃ DUYỆT] Chủ dự án 04/11: \"vẽ lại thân và đầu cùng kích thước với 2 npc tóc trắng, di chuyển 8 hướng, nhớ kiểm tra kĩ phần cổ\"; chọn giống hệt NPC, thử nam trước, thân nền \"làm lại xịn hơn\", \"tự thiết kế 5 bộ mới\", \"pháp sư lấy luôn bộ npc\". Chặng U (mau-1): thân nền nam trọc sửa từ chính ảnh NPC (lượt 1 loại vì mặt mất nét anime; chọn 11505, mắt nâu, quần đùi, khỏe vừa) → xoay 8 hướng → bộ Kiếm sĩ mới (áo chần đỏ sẫm không tay trên sơ mi xám, dây da chéo ngực, bọc cổ tay; chọn 11901) và đầu Nhân tộc nam 1 sửa trên chính ảnh xoay S/SE/E/NE/N (SW/W/NW lật) → đi/chạy 5 hướng vẽ bằng skeleton-v3 theo khung xương gói thân trần 03/11 dời từng khớp (NE dựng lại nửa sau chu kỳ vì nguồn tự xoay nghiêng). Ghép một khuôn 8 hướng, cắt cổ cố định theo thân nền; hở cổ 0 và soi cổ 6× đủ 8 hướng × đứng/đi/chạy. Chủ dự án duyệt mẫu (\"Ok\"). Sau duyệt: kiếm tra vỏ đeo sau lưng là lớp vũ khí riêng vẽ theo thiết kế (sau thân S/SE/E, trên lưng NE/N, lật cho hướng tây); nhịp chân chậm hơn cho khuôn mới (đi 130ms, chạy 95ms/khung); xuất Unity thân \"u\" + đầu \"npc-m-human1\" có nhãn khuôn npc (đầu chỉ đội thân cùng khuôn), nhập Unity OK. Chưa vào gameplay/build, chưa chỉnh tốc độ chạy qua map; 4 class còn lại và các đầu chưa làm. 75 lượt PixelLab cho chặng U. [Đủ bộ cỡ NPC nam + nữ 05/11 — CHƯA build / phát hành] Theo chỉ thị chủ dự án 04–05/11 (\"vẽ luôn các class khác\", \"full đầu\", \"cho vào game cả nữ\", đánh \"tạm dùng dáng đứng\", \"đủ 3 đầu mỗi tộc\"): 5 class × 2 giới cỡ NPC một khuôn — Pháp sư dùng áo khoác NPC, Kiếm sĩ / Thương / Khiên / Cung thiết kế mới; 15 đầu nam + 15 đầu nữ (7 tóc dài, lớp tóc dài riêng); thân nữ vẽ lại đầu nhỏ ~10% (chủ dự án \"đầu nữ hơi to\"); đi / chạy 5 hướng vẽ + 3 lật cho cả 10 bộ. Vũ khí đeo lưng: PixelLab vẽ riêng — 05/11 đổi sang ĐỒNG NHẤT: mỗi vũ khí dài MỘT tranh chéo lưng, quay lưng đè lên thân, quay mặt nằm dưới thân, xoay ngang dùng tranh dọc sau lưng song song với người; vũ khí sau thân nằm ngoài tóc dài; tốc chạy gameplay 150 → 128 px/giây (−15%, chủ dự án duyệt 05/11; `GameController.RunSpeed`, người chơi khác dùng chung hằng số); bản build thử 05/11 chạy AutoTest `-havenNpcRoster` đạt offline và online máy chủ thử :3201 (bấm thật Nam / Nữ, 5 class, 15 đầu; 150 mẫu × 4 động tác × 8 hướng = 25.200 khung; chạy 1 giây 128–130 px) — chờ chủ dự án duyệt trong game, chưa phát bản; khiên một mặt luôn gắn cẳng tay trái theo khung xương; trước đó vẽ từng hướng trong 8 hướng theo MỘT ảnh mẫu mỗi vũ khí (inpaint trong khung hình học 3D: kiếm lộ lưỡi ~45px, trượng pha lê đồng thau, thương tua đỏ mũi thép cán gỗ nâu (05/11, thay cán bạc), khiên đồng, cung), nhìn ngang kiếm chỉ ló chuôi, trượng / thương dựng cả cây sau mép lưng (05/11), hướng tây lật từ hướng đông cả hình vũ khí, cả vũ khí một lớp (quay lưng đè thân dưới đầu, mặt trước sau thân). Kiểm cổ: 10 khuôn \"hở cổ 0\" + soi 6× — sửa thêm vệt đen ngang cổ (da sáng không nhận là da, tóc dài lộ qua lỗ cổ) và thêm kiểm tự động cho kiểu này. Game: scripts/export-npc-roster.mts đóng gói 150 nhân vật (2 giới × 15 đầu × 5 class) 8 hướng, đòn đánh tạm khung đứng; protocol thêm NPC_MODELS (giữ mẫu cũ); Unity NpcRosterRelease nhập 150 lựa chọn, màn tạo nhân vật thêm Nam / Nữ + đổi đầu trong giới. Test sim / asset-pipeline đạt. Chưa build Windows / web, chưa đổi tốc độ chạy qua map — chờ chủ dự án cho phép.",
       "weight": 3,
       "phase": 2,
       "region": null,
@@ -8369,31 +8500,37 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       ],
       "steps": [
         {
-          "label": "Chốt chuẩn 4 hướng trong chuẩn ghép lớp / pipeline (vẽ S, E, N; W lật từ E; đòn đánh chỉ vẽ E, N), bỏ hướng chéo khỏi kế hoạch vẽ",
+          "label": "Duyệt một mẫu Kiếm sĩ khỏe vừa, đồ cơ bản rõ class; chiều cao/tỷ lệ đầu–thân–cổ theo hai NPC tóc trắng tại cùng PPU",
+          "weight": 15,
+          "done": true,
+          "evidence": "04/11 chủ dự án duyệt (\"Ok\") mẫu Kiếm sĩ nam cỡ NPC một khuôn: thân nền 11505 cao 72px sửa từ NPC, bộ Kiếm sĩ mới 11901, đầu Nhân tộc nam 1, đứng/đi/chạy 8 hướng, hở cổ 0 + soi cổ 6× mọi khung — trang https://admin.tail024813.ts.net/site/media/layered/mau-1-mot-khuon-npc/index.html"
+        },
+        {
+          "label": "Thiết kế5bộ cơ bản rõ từngclass, PixelLab vẽ thân đứng/đi/chạy S, SE, E, NE, N; đối hướng lật đồng bộ, không đổi kích thước/nét giữa frame",
+          "weight": 30,
+          "done": true,
+          "evidence": "04–05/11 chủ dự án duyệt từng bước (\"Ok\", \"Vẽ luôn các class khác\", \"làm nốt… cho vào game cả nữ\"): 5 bộ cơ bản riêng kiếm / trượng (bộ NPC) / thương / khiên / cung × nam / nữ cỡ NPC, đứng / đi / chạy S, SE, E, NE, N vẽ PixelLab + SW, W, NW lật đồng bộ; 10 khuôn \"hở cổ 0\" + soi cổ 6× (trang mau-1-mot-khuon-npc*, mau-1-mot-khuon-npc-nu*)"
+        },
+        {
+          "label": "Ghép vũ khí tách lớp sau lưng, đúng hướng/lớp che qua từng frame đi/chạy",
+          "weight": 15,
+          "done": true,
+          "evidence": "05/11 chủ dự án duyệt (\"Ok giờ làm gì tiếp\"): vũ khí dài một tranh chéo lưng — quay lưng đè thân, quay mặt nằm dưới thân, xoay ngang tranh dọc sau lưng song song người; vũ khí sau thân ngoài tóc dài; khiên một mặt gắn cẳng tay trái theo khung xương từng khung; thương cán gỗ nâu mũi dài (carryLayer, cli.ts)"
+        },
+        {
+          "label": "Client/sim hỗ trợ đủ8hướng; giảm tốc độ di chuyển và nhịp chân đồng bộ",
           "weight": 20,
-          "done": false,
-          "evidence": ""
+          "done": true,
+          "evidence": "05/11: 150 mẫu (2 giới × 15 đầu × 5 class) nhập Unity (NpcRosterRelease), chọn Nam / Nữ / class / đầu ở màn tạo nhân vật; nhịp chân đi 130 / chạy 95 ms/khung; tốc chạy 150 → 128 px/giây (−15%, chủ dự án \"Ok làm đi\"); AutoTest -havenNpcRoster đạt offline + online máy chủ thử :3201 (25.200 khung, chạy 1 giây 128–130 px)"
         },
         {
-          "label": "Client Unity / sim: nhân vật quay mặt 4 hướng, di chuyển chéo chọn hướng gần nhất, đánh về nam xoay ngang E / W, LayeredCharacterView / atlas tra 4 hướng",
-          "weight": 40,
-          "done": false,
-          "evidence": ""
-        },
-        {
-          "label": "Rà quái / NPC / nhân vật cũ còn 8 hướng, quy về 4 hướng",
-          "weight": 20,
-          "done": false,
-          "evidence": ""
-        },
-        {
-          "label": "QA PC / Android: đi, chạy đủ 4 hướng; đòn đánh bắc + ngang (nam xoay ngang) trên map thật",
+          "label": "Kiểm 8hướng trên map thật PC/web/mobile: đầu/cổ không lệch, không phình/nhòe, không trượt chân; chủ dự án duyệt trước phát hành",
           "weight": 20,
           "done": false,
           "evidence": ""
         }
       ],
-      "requiresNewArt": false,
+      "requiresNewArt": true,
       "priority": 1
     },
     {
@@ -8423,8 +8560,8 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
         {
           "label": "30 đầu PixelLab × 8 hướng cùng màu da (heads30-eight-directions)",
           "weight": 10,
-          "done": false,
-          "evidence": ""
+          "done": true,
+          "evidence": "Xong ở heads30-eight-directions (05/11): 15 nam + 15 nữ × 8 hướng cỡ NPC, cùng một màu da"
         },
         {
           "label": "Bộ 1 của 5 class × nam/nữ: đứng/đi/chạy/đòn class, 8 hướng",
@@ -9128,32 +9265,32 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
         {
           "label": "Catalog 30 đầu (tộc/giới tính/kiểu tóc) và prompt PixelLab cùng style hai NPC tóc trắng",
           "weight": 10,
-          "done": false,
-          "evidence": ""
+          "done": true,
+          "evidence": "plan.json stages.U heads (15 nam) + headsFemale (15 nữ): 5 tộc × 3 kiểu tóc mỗi giới, prompt sửa từ thân / đầu NPC tóc trắng"
         },
         {
           "label": "Thử 2 đầu PixelLab (Nhân tộc, Ma tộc có sừng) × 8 hướng; chủ dự án duyệt style/độ nét",
           "weight": 15,
-          "done": false,
-          "evidence": ""
+          "done": true,
+          "evidence": "04/11 mẫu Kiếm sĩ nam cỡ NPC + đầu Nhân tộc nam 1 được chủ dự án duyệt (\"Ok\") rồi cho vẽ \"Full đầu\""
         },
         {
           "label": "Vẽ đủ 30 đầu × 8 hướng bằng PixelLab",
           "weight": 35,
-          "done": false,
-          "evidence": ""
+          "done": true,
+          "evidence": "05/11: 15 đầu nam + 15 đầu nữ × S, SE, E, NE, N vẽ PixelLab, SW, W, NW lật (U3/U14); nữ đầu nhỏ hơn ~10% theo chủ dự án \"đầu nữ hơi to\"; tóc dài nữ lớp riêng"
         },
         {
           "label": "Chuẩn hóa theo head-standard.json, bake neo cổ, xuất 240 hình",
           "weight": 20,
-          "done": false,
-          "evidence": ""
+          "done": true,
+          "evidence": "Khuôn cỡ NPC (chốt 03/11) dùng neo cổ / cắt cổ cố định riêng thay head-standard 96px cũ; đầu bake neo cổ nguyên pixel, xuất assets/layered/mau-1/heads.png + hairs.png (đầu npc-*)"
         },
         {
           "label": "Rà nét/tỷ lệ/tai/sừng, ghép thân PixelLab và cổ áo ở đủ 8 hướng",
           "weight": 20,
-          "done": false,
-          "evidence": ""
+          "done": true,
+          "evidence": "10 thân × 15 đầu mỗi giới × 8 hướng: \"hở cổ 0\", soi cổ 6× mọi khung (sửa vệt đen ngang cổ da sáng 05/11); không ghép đè hai đầu"
         }
       ]
     },

@@ -1,0 +1,5 @@
+{
+  "jobId": "4077a026-29d9-4d29-b36e-08e5ff808463",
+  "frames": 1,
+  "balanceAfter": "credits: $0.00\ngenerations_remaining: 4113.00\ngenerations_used: 887.00\ngenerations_total: 5000\nnote: fractions come from small steps billed per use — prompt enhancement 0.05, skeleton estimation and colour reduction 0.1, sprite import 0.25, /chat builder model calls — most are not jobs, so list_jobs does not show them\nsubscription: active (Tier 2: Pixel Artisan)\ngenerations_reset: 2026-11-28\nnote: generations_total is this cycle's allowance (prorated on a mid-cycle upgrade); it refills on generations_reset"
+}

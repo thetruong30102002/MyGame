@@ -56,8 +56,75 @@ export const BASIC_SWORD: WeaponDesign = {
 	],
 };
 
+/**
+ * Kiếm lộ lưỡi đeo sau lưng cỡ NPC (chủ dự án 04/11: "kiếm cần vẽ lộ cả kiếm, không có vỏ"; "kiếm ngắn quá cần vẽ dài hơn, trượng
+ * cũng vậy") — cùng thiết kế kiếm cơ bản (lưỡi sắt thẳng, chắn tay sắt, chuôi da): tổng ~45px, lưỡi ~35px, bản rộng theo kiếm mẫu PixelLab đã chọn (chủ dự án 04/11: "giữ 1 chuẩn" →
+ * "kiếm dài ~45px, 8 hướng"; bản 25px rồi 34px bị chê ngắn / gầy).
+ */
+export const SWORD_BACK: WeaponDesign = {
+	id: 'sword-basic-back',
+	canvas: 80,
+	outline: [9, 13, 28, 255],
+	parts: [
+		{ u0: -7.5, u1: -5.5, w0: 1.8, w1: 1.8, tone: IRON },
+		{ u0: -5.5, u1: 1, w0: 1.1, w1: 1.1, tone: LEATHER },
+		{ u0: 1, u1: 2.6, w0: 4.5, w1: 4.5, tone: IRON },
+		{ u0: 2.6, u1: 33, w0: 2, w1: 1.7, tone: STEEL },
+		{ u0: 33, u1: 37.5, w0: 1.7, w1: 0.05, tone: STEEL },
+	],
+};
+
+const SPEAR_WOOD: [RGBA, RGBA, RGBA] = [[156, 102, 62, 255], [116, 74, 46, 255], [74, 46, 32, 255]];
+const DARK_WOOD: [RGBA, RGBA, RGBA] = [[120, 78, 52, 255], [86, 54, 38, 255], [56, 34, 26, 255]];
+const TASSEL: [RGBA, RGBA, RGBA] = [[222, 64, 54, 255], [178, 34, 36, 255], [118, 20, 28, 255]];
+const BRASS: [RGBA, RGBA, RGBA] = [[232, 196, 104, 255], [186, 142, 60, 255], [124, 88, 38, 255]];
 const WOOD: [RGBA, RGBA, RGBA] = [[176, 122, 74, 255], [138, 90, 54, 255], [96, 60, 38, 255]];
 const CRYSTAL: [RGBA, RGBA, RGBA] = [[214, 244, 255, 255], [128, 196, 240, 255], [62, 112, 190, 255]];
+
+/**
+ * Vũ khí đeo sau lưng cỡ NPC (thân ~72px, chặng U — cùng thiết kế vũ khí cơ bản, dài ~0,68 bản cũ cho thân ~106px): trượng ~52px, giáo
+ * ~63px, khiên tròn Ø ~21px, cung ~42px — theo tỷ lệ kiếm ~45px đã chốt 04/11 (bản ngắn hơn bị chê ngắn). Điểm nắm (tâm canvas) đặt giữa lưng.
+ */
+/**
+ * Trượng đeo lưng bản 2 (chủ dự án 04/11: "trượng cần vẽ lại, này xấu quá"): cán gỗ sẫm bịt đồng thau, vòng đồng thau, móng vuốt đồng ôm
+ * viên pha lê xanh lớn nhọn; ~54px.
+ */
+export const STAFF_BACK: WeaponDesign = {
+	id: 'staff-crystal-back',
+	canvas: 80,
+	outline: [9, 13, 28, 255],
+	parts: [
+		{ u0: -16, u1: -14, w0: 1.5, w1: 1.5, tone: BRASS },
+		{ u0: -14, u1: 24, w0: 1.2, w1: 1.2, tone: DARK_WOOD },
+		{ u0: 24, u1: 25.5, w0: 2.2, w1: 2.2, tone: BRASS },
+		{ u0: 25.5, u1: 28.5, w0: 2.2, w1: 3.6, tone: BRASS },
+		{ u0: 28.5, u1: 34, w0: 3.2, w1: 2, tone: CRYSTAL },
+		{ u0: 34, u1: 38, w0: 2, w1: 0.05, tone: CRYSTAL },
+	],
+};
+/**
+ * Thương đeo lưng kiểu thương bạc Triệu Tử (chủ dự án 04/11: "vẽ lại thương, xấu quá, nhìn xịn hơn — thương như Triệu Tử ấy"): mũi thép
+ * bạc dài thon, chùm tua đỏ dưới mũi, khâu vàng đồng, cán bạc, bịt đuôi đồng; ~64px. Bản 2 (04/11: "khiên và thương cũng cần sửa cho chi
+ * tiết như trượng"): mũi / tua / khâu to hơn để PixelLab vẽ được hoa văn. Bản 3 (05/11: "vẽ lại cái thương sang vũ khí chuôi nâu"):
+ * cán gỗ nâu thay cán bạc, giữ mũi thép / tua đỏ / khâu đồng. Mũi dài 16px thon nhọn (05/11: "thương hơi cụt đầu") — mũi cũ 11px bè
+ * khiến PixelLab vẽ cùn / bằng đầu; cán rút 3px để tổng dài giữ ~63px.
+ */
+export const SPEAR_BACK: WeaponDesign = {
+	id: 'spear-wood-back',
+	canvas: 96,
+	outline: [9, 13, 28, 255],
+	parts: [
+		{ u0: -27, u1: -24, w0: 1.7, w1: 1.4, tone: BRASS },
+		{ u0: -24, u1: 12.5, w0: 1.3, w1: 1.3, tone: SPEAR_WOOD },
+		{ u0: 12.5, u1: 17.5, w0: 2, w1: 4, tone: TASSEL },
+		{ u0: 17.5, u1: 19.5, w0: 2.2, w1: 2.2, tone: BRASS },
+		{ u0: 19.5, u1: 21, w0: 1.4, w1: 1.6, tone: STEEL },
+		{ u0: 21, u1: 25, w0: 1.6, w1: 2.6, tone: STEEL },
+		{ u0: 25, u1: 36, w0: 2.6, w1: 0.05, tone: STEEL },
+	],
+};
+export const SHIELD_BACK: WeaponDesign = { id: 'shield-ornate-back', canvas: 48, outline: [9, 13, 28, 255], parts: [], shield: { radius: 10.5, rim: 2, boss: 2.4, plank: 3.8 }, offset: 0 };
+export const BOW_BACK: WeaponDesign = { id: 'bow-basic-back', canvas: 64, outline: [34, 22, 18, 255], parts: [], bow: { half: 21, bend: 4.5, arrowHead: 2 } };
 
 /**
  * Trượng tân thủ (class Trượng / pháp sư tập sự, chủ dự án 30/10): cán gỗ thẳng ~38px, chuôi đế bịt sắt, đai sắt ôm viên tinh thể xanh

@@ -1,0 +1,2198 @@
+{
+ "notice": "Ảnh cắt nguyên pixel từ atlas game (bộ cỡ NPC 8 hướng, 05/11). Đòn đánh đang tạm dùng dáng đứng; vũ khí đeo lưng, khiên gắn tay.",
+ "cell": [
+  112,
+  128
+ ],
+ "directions": [
+  "S",
+  "SE",
+  "E",
+  "NE",
+  "N",
+  "NW",
+  "W",
+  "SW"
+ ],
+ "states": [
+  {
+   "id": "idle",
+   "label": "Đứng",
+   "frames": 1,
+   "ms": 500
+  },
+  {
+   "id": "walk",
+   "label": "Đi",
+   "frames": 8,
+   "ms": 130
+  },
+  {
+   "id": "run",
+   "label": "Chạy",
+   "frames": 8,
+   "ms": 95
+  }
+ ],
+ "roles": [
+  {
+   "id": "sword",
+   "name": "Kiếm sĩ",
+   "weapon": "Kiếm",
+   "description": "Áo chẽn đỏ sẫm, dây chéo ngực, kiếm dài đeo chéo lưng — nhìn ngang dựng dọc sau lưng."
+  },
+  {
+   "id": "staff",
+   "name": "Pháp sư",
+   "weapon": "Trượng",
+   "description": "Áo choàng xanh viền vàng như NPC mẫu, trượng pha lê đeo chéo lưng."
+  },
+  {
+   "id": "spear",
+   "name": "Thương thủ",
+   "weapon": "Thương",
+   "description": "Giáp da vàng nâu, thương mũi thép tua đỏ cán gỗ nâu đeo chéo lưng."
+  },
+  {
+   "id": "bow",
+   "name": "Cung thủ",
+   "weapon": "Cung",
+   "description": "Áo da nâu, áo lót xanh rêu, cung gỗ đeo chéo lưng."
+  },
+  {
+   "id": "shield",
+   "name": "Hộ vệ",
+   "weapon": "Khiên",
+   "description": "Giáp thép nhẹ, khiên tròn một mặt luôn gắn cẳng tay trái."
+  }
+ ],
+ "races": [
+  {
+   "id": "human",
+   "name": "Nhân tộc",
+   "description": "Người thường của Haven — đủ màu tóc, hợp mọi con đường."
+  },
+  {
+   "id": "elf",
+   "name": "Elf",
+   "description": "Tai dài nhọn, nét mặt thanh, tóc sáng màu."
+  },
+  {
+   "id": "demon",
+   "name": "Ma tộc",
+   "description": "Sừng nhỏ trên đầu, tóc rực hoặc sẫm màu."
+  },
+  {
+   "id": "beast",
+   "name": "Thú nhân",
+   "description": "Đôi tai thú trên đầu, không có đuôi."
+  },
+  {
+   "id": "dragon",
+   "name": "Long tộc",
+   "description": "Hình người, sừng nhỏ và vảy ở thái dương."
+  }
+ ],
+ "characters": [
+  {
+   "id": "player_npc_human1_sword_m",
+   "name": "Nhân tộc 1",
+   "role": "sword",
+   "gender": "male",
+   "race": "human",
+   "raceLabel": "Nhân tộc",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_human1_sword_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_human1_sword_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_human1_sword_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_human1_staff_m",
+   "name": "Nhân tộc 1",
+   "role": "staff",
+   "gender": "male",
+   "race": "human",
+   "raceLabel": "Nhân tộc",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_human1_staff_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_human1_staff_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_human1_staff_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_human1_spear_m",
+   "name": "Nhân tộc 1",
+   "role": "spear",
+   "gender": "male",
+   "race": "human",
+   "raceLabel": "Nhân tộc",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_human1_spear_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_human1_spear_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_human1_spear_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_human1_bow_m",
+   "name": "Nhân tộc 1",
+   "role": "bow",
+   "gender": "male",
+   "race": "human",
+   "raceLabel": "Nhân tộc",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_human1_bow_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_human1_bow_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_human1_bow_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_human1_shield_m",
+   "name": "Nhân tộc 1",
+   "role": "shield",
+   "gender": "male",
+   "race": "human",
+   "raceLabel": "Nhân tộc",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_human1_shield_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_human1_shield_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_human1_shield_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_human1_sword_f",
+   "name": "Nhân tộc 1",
+   "role": "sword",
+   "gender": "female",
+   "race": "human",
+   "raceLabel": "Nhân tộc",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_human1_sword_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_human1_sword_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_human1_sword_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_human1_staff_f",
+   "name": "Nhân tộc 1",
+   "role": "staff",
+   "gender": "female",
+   "race": "human",
+   "raceLabel": "Nhân tộc",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_human1_staff_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_human1_staff_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_human1_staff_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_human1_spear_f",
+   "name": "Nhân tộc 1",
+   "role": "spear",
+   "gender": "female",
+   "race": "human",
+   "raceLabel": "Nhân tộc",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_human1_spear_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_human1_spear_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_human1_spear_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_human1_bow_f",
+   "name": "Nhân tộc 1",
+   "role": "bow",
+   "gender": "female",
+   "race": "human",
+   "raceLabel": "Nhân tộc",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_human1_bow_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_human1_bow_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_human1_bow_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_human1_shield_f",
+   "name": "Nhân tộc 1",
+   "role": "shield",
+   "gender": "female",
+   "race": "human",
+   "raceLabel": "Nhân tộc",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_human1_shield_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_human1_shield_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_human1_shield_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_human2_sword_m",
+   "name": "Nhân tộc 2",
+   "role": "sword",
+   "gender": "male",
+   "race": "human",
+   "raceLabel": "Nhân tộc",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_human2_sword_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_human2_sword_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_human2_sword_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_human2_staff_m",
+   "name": "Nhân tộc 2",
+   "role": "staff",
+   "gender": "male",
+   "race": "human",
+   "raceLabel": "Nhân tộc",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_human2_staff_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_human2_staff_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_human2_staff_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_human2_spear_m",
+   "name": "Nhân tộc 2",
+   "role": "spear",
+   "gender": "male",
+   "race": "human",
+   "raceLabel": "Nhân tộc",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_human2_spear_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_human2_spear_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_human2_spear_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_human2_bow_m",
+   "name": "Nhân tộc 2",
+   "role": "bow",
+   "gender": "male",
+   "race": "human",
+   "raceLabel": "Nhân tộc",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_human2_bow_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_human2_bow_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_human2_bow_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_human2_shield_m",
+   "name": "Nhân tộc 2",
+   "role": "shield",
+   "gender": "male",
+   "race": "human",
+   "raceLabel": "Nhân tộc",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_human2_shield_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_human2_shield_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_human2_shield_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_human2_sword_f",
+   "name": "Nhân tộc 2",
+   "role": "sword",
+   "gender": "female",
+   "race": "human",
+   "raceLabel": "Nhân tộc",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_human2_sword_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_human2_sword_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_human2_sword_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_human2_staff_f",
+   "name": "Nhân tộc 2",
+   "role": "staff",
+   "gender": "female",
+   "race": "human",
+   "raceLabel": "Nhân tộc",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_human2_staff_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_human2_staff_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_human2_staff_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_human2_spear_f",
+   "name": "Nhân tộc 2",
+   "role": "spear",
+   "gender": "female",
+   "race": "human",
+   "raceLabel": "Nhân tộc",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_human2_spear_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_human2_spear_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_human2_spear_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_human2_bow_f",
+   "name": "Nhân tộc 2",
+   "role": "bow",
+   "gender": "female",
+   "race": "human",
+   "raceLabel": "Nhân tộc",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_human2_bow_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_human2_bow_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_human2_bow_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_human2_shield_f",
+   "name": "Nhân tộc 2",
+   "role": "shield",
+   "gender": "female",
+   "race": "human",
+   "raceLabel": "Nhân tộc",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_human2_shield_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_human2_shield_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_human2_shield_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_human3_sword_m",
+   "name": "Nhân tộc 3",
+   "role": "sword",
+   "gender": "male",
+   "race": "human",
+   "raceLabel": "Nhân tộc",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_human3_sword_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_human3_sword_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_human3_sword_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_human3_staff_m",
+   "name": "Nhân tộc 3",
+   "role": "staff",
+   "gender": "male",
+   "race": "human",
+   "raceLabel": "Nhân tộc",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_human3_staff_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_human3_staff_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_human3_staff_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_human3_spear_m",
+   "name": "Nhân tộc 3",
+   "role": "spear",
+   "gender": "male",
+   "race": "human",
+   "raceLabel": "Nhân tộc",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_human3_spear_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_human3_spear_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_human3_spear_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_human3_bow_m",
+   "name": "Nhân tộc 3",
+   "role": "bow",
+   "gender": "male",
+   "race": "human",
+   "raceLabel": "Nhân tộc",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_human3_bow_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_human3_bow_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_human3_bow_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_human3_shield_m",
+   "name": "Nhân tộc 3",
+   "role": "shield",
+   "gender": "male",
+   "race": "human",
+   "raceLabel": "Nhân tộc",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_human3_shield_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_human3_shield_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_human3_shield_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_human3_sword_f",
+   "name": "Nhân tộc 3",
+   "role": "sword",
+   "gender": "female",
+   "race": "human",
+   "raceLabel": "Nhân tộc",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_human3_sword_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_human3_sword_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_human3_sword_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_human3_staff_f",
+   "name": "Nhân tộc 3",
+   "role": "staff",
+   "gender": "female",
+   "race": "human",
+   "raceLabel": "Nhân tộc",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_human3_staff_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_human3_staff_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_human3_staff_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_human3_spear_f",
+   "name": "Nhân tộc 3",
+   "role": "spear",
+   "gender": "female",
+   "race": "human",
+   "raceLabel": "Nhân tộc",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_human3_spear_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_human3_spear_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_human3_spear_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_human3_bow_f",
+   "name": "Nhân tộc 3",
+   "role": "bow",
+   "gender": "female",
+   "race": "human",
+   "raceLabel": "Nhân tộc",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_human3_bow_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_human3_bow_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_human3_bow_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_human3_shield_f",
+   "name": "Nhân tộc 3",
+   "role": "shield",
+   "gender": "female",
+   "race": "human",
+   "raceLabel": "Nhân tộc",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_human3_shield_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_human3_shield_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_human3_shield_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_elf1_sword_m",
+   "name": "Elf 1",
+   "role": "sword",
+   "gender": "male",
+   "race": "elf",
+   "raceLabel": "Elf",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_elf1_sword_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_elf1_sword_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_elf1_sword_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_elf1_staff_m",
+   "name": "Elf 1",
+   "role": "staff",
+   "gender": "male",
+   "race": "elf",
+   "raceLabel": "Elf",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_elf1_staff_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_elf1_staff_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_elf1_staff_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_elf1_spear_m",
+   "name": "Elf 1",
+   "role": "spear",
+   "gender": "male",
+   "race": "elf",
+   "raceLabel": "Elf",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_elf1_spear_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_elf1_spear_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_elf1_spear_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_elf1_bow_m",
+   "name": "Elf 1",
+   "role": "bow",
+   "gender": "male",
+   "race": "elf",
+   "raceLabel": "Elf",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_elf1_bow_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_elf1_bow_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_elf1_bow_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_elf1_shield_m",
+   "name": "Elf 1",
+   "role": "shield",
+   "gender": "male",
+   "race": "elf",
+   "raceLabel": "Elf",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_elf1_shield_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_elf1_shield_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_elf1_shield_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_elf1_sword_f",
+   "name": "Elf 1",
+   "role": "sword",
+   "gender": "female",
+   "race": "elf",
+   "raceLabel": "Elf",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_elf1_sword_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_elf1_sword_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_elf1_sword_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_elf1_staff_f",
+   "name": "Elf 1",
+   "role": "staff",
+   "gender": "female",
+   "race": "elf",
+   "raceLabel": "Elf",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_elf1_staff_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_elf1_staff_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_elf1_staff_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_elf1_spear_f",
+   "name": "Elf 1",
+   "role": "spear",
+   "gender": "female",
+   "race": "elf",
+   "raceLabel": "Elf",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_elf1_spear_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_elf1_spear_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_elf1_spear_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_elf1_bow_f",
+   "name": "Elf 1",
+   "role": "bow",
+   "gender": "female",
+   "race": "elf",
+   "raceLabel": "Elf",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_elf1_bow_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_elf1_bow_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_elf1_bow_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_elf1_shield_f",
+   "name": "Elf 1",
+   "role": "shield",
+   "gender": "female",
+   "race": "elf",
+   "raceLabel": "Elf",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_elf1_shield_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_elf1_shield_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_elf1_shield_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_elf2_sword_m",
+   "name": "Elf 2",
+   "role": "sword",
+   "gender": "male",
+   "race": "elf",
+   "raceLabel": "Elf",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_elf2_sword_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_elf2_sword_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_elf2_sword_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_elf2_staff_m",
+   "name": "Elf 2",
+   "role": "staff",
+   "gender": "male",
+   "race": "elf",
+   "raceLabel": "Elf",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_elf2_staff_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_elf2_staff_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_elf2_staff_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_elf2_spear_m",
+   "name": "Elf 2",
+   "role": "spear",
+   "gender": "male",
+   "race": "elf",
+   "raceLabel": "Elf",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_elf2_spear_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_elf2_spear_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_elf2_spear_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_elf2_bow_m",
+   "name": "Elf 2",
+   "role": "bow",
+   "gender": "male",
+   "race": "elf",
+   "raceLabel": "Elf",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_elf2_bow_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_elf2_bow_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_elf2_bow_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_elf2_shield_m",
+   "name": "Elf 2",
+   "role": "shield",
+   "gender": "male",
+   "race": "elf",
+   "raceLabel": "Elf",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_elf2_shield_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_elf2_shield_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_elf2_shield_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_elf2_sword_f",
+   "name": "Elf 2",
+   "role": "sword",
+   "gender": "female",
+   "race": "elf",
+   "raceLabel": "Elf",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_elf2_sword_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_elf2_sword_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_elf2_sword_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_elf2_staff_f",
+   "name": "Elf 2",
+   "role": "staff",
+   "gender": "female",
+   "race": "elf",
+   "raceLabel": "Elf",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_elf2_staff_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_elf2_staff_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_elf2_staff_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_elf2_spear_f",
+   "name": "Elf 2",
+   "role": "spear",
+   "gender": "female",
+   "race": "elf",
+   "raceLabel": "Elf",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_elf2_spear_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_elf2_spear_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_elf2_spear_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_elf2_bow_f",
+   "name": "Elf 2",
+   "role": "bow",
+   "gender": "female",
+   "race": "elf",
+   "raceLabel": "Elf",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_elf2_bow_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_elf2_bow_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_elf2_bow_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_elf2_shield_f",
+   "name": "Elf 2",
+   "role": "shield",
+   "gender": "female",
+   "race": "elf",
+   "raceLabel": "Elf",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_elf2_shield_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_elf2_shield_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_elf2_shield_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_elf3_sword_m",
+   "name": "Elf 3",
+   "role": "sword",
+   "gender": "male",
+   "race": "elf",
+   "raceLabel": "Elf",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_elf3_sword_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_elf3_sword_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_elf3_sword_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_elf3_staff_m",
+   "name": "Elf 3",
+   "role": "staff",
+   "gender": "male",
+   "race": "elf",
+   "raceLabel": "Elf",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_elf3_staff_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_elf3_staff_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_elf3_staff_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_elf3_spear_m",
+   "name": "Elf 3",
+   "role": "spear",
+   "gender": "male",
+   "race": "elf",
+   "raceLabel": "Elf",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_elf3_spear_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_elf3_spear_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_elf3_spear_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_elf3_bow_m",
+   "name": "Elf 3",
+   "role": "bow",
+   "gender": "male",
+   "race": "elf",
+   "raceLabel": "Elf",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_elf3_bow_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_elf3_bow_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_elf3_bow_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_elf3_shield_m",
+   "name": "Elf 3",
+   "role": "shield",
+   "gender": "male",
+   "race": "elf",
+   "raceLabel": "Elf",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_elf3_shield_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_elf3_shield_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_elf3_shield_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_elf3_sword_f",
+   "name": "Elf 3",
+   "role": "sword",
+   "gender": "female",
+   "race": "elf",
+   "raceLabel": "Elf",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_elf3_sword_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_elf3_sword_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_elf3_sword_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_elf3_staff_f",
+   "name": "Elf 3",
+   "role": "staff",
+   "gender": "female",
+   "race": "elf",
+   "raceLabel": "Elf",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_elf3_staff_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_elf3_staff_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_elf3_staff_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_elf3_spear_f",
+   "name": "Elf 3",
+   "role": "spear",
+   "gender": "female",
+   "race": "elf",
+   "raceLabel": "Elf",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_elf3_spear_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_elf3_spear_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_elf3_spear_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_elf3_bow_f",
+   "name": "Elf 3",
+   "role": "bow",
+   "gender": "female",
+   "race": "elf",
+   "raceLabel": "Elf",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_elf3_bow_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_elf3_bow_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_elf3_bow_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_elf3_shield_f",
+   "name": "Elf 3",
+   "role": "shield",
+   "gender": "female",
+   "race": "elf",
+   "raceLabel": "Elf",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_elf3_shield_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_elf3_shield_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_elf3_shield_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_demon1_sword_m",
+   "name": "Ma tộc 1",
+   "role": "sword",
+   "gender": "male",
+   "race": "demon",
+   "raceLabel": "Ma tộc",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_demon1_sword_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_demon1_sword_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_demon1_sword_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_demon1_staff_m",
+   "name": "Ma tộc 1",
+   "role": "staff",
+   "gender": "male",
+   "race": "demon",
+   "raceLabel": "Ma tộc",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_demon1_staff_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_demon1_staff_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_demon1_staff_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_demon1_spear_m",
+   "name": "Ma tộc 1",
+   "role": "spear",
+   "gender": "male",
+   "race": "demon",
+   "raceLabel": "Ma tộc",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_demon1_spear_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_demon1_spear_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_demon1_spear_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_demon1_bow_m",
+   "name": "Ma tộc 1",
+   "role": "bow",
+   "gender": "male",
+   "race": "demon",
+   "raceLabel": "Ma tộc",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_demon1_bow_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_demon1_bow_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_demon1_bow_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_demon1_shield_m",
+   "name": "Ma tộc 1",
+   "role": "shield",
+   "gender": "male",
+   "race": "demon",
+   "raceLabel": "Ma tộc",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_demon1_shield_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_demon1_shield_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_demon1_shield_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_demon1_sword_f",
+   "name": "Ma tộc 1",
+   "role": "sword",
+   "gender": "female",
+   "race": "demon",
+   "raceLabel": "Ma tộc",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_demon1_sword_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_demon1_sword_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_demon1_sword_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_demon1_staff_f",
+   "name": "Ma tộc 1",
+   "role": "staff",
+   "gender": "female",
+   "race": "demon",
+   "raceLabel": "Ma tộc",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_demon1_staff_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_demon1_staff_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_demon1_staff_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_demon1_spear_f",
+   "name": "Ma tộc 1",
+   "role": "spear",
+   "gender": "female",
+   "race": "demon",
+   "raceLabel": "Ma tộc",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_demon1_spear_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_demon1_spear_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_demon1_spear_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_demon1_bow_f",
+   "name": "Ma tộc 1",
+   "role": "bow",
+   "gender": "female",
+   "race": "demon",
+   "raceLabel": "Ma tộc",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_demon1_bow_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_demon1_bow_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_demon1_bow_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_demon1_shield_f",
+   "name": "Ma tộc 1",
+   "role": "shield",
+   "gender": "female",
+   "race": "demon",
+   "raceLabel": "Ma tộc",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_demon1_shield_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_demon1_shield_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_demon1_shield_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_demon2_sword_m",
+   "name": "Ma tộc 2",
+   "role": "sword",
+   "gender": "male",
+   "race": "demon",
+   "raceLabel": "Ma tộc",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_demon2_sword_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_demon2_sword_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_demon2_sword_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_demon2_staff_m",
+   "name": "Ma tộc 2",
+   "role": "staff",
+   "gender": "male",
+   "race": "demon",
+   "raceLabel": "Ma tộc",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_demon2_staff_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_demon2_staff_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_demon2_staff_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_demon2_spear_m",
+   "name": "Ma tộc 2",
+   "role": "spear",
+   "gender": "male",
+   "race": "demon",
+   "raceLabel": "Ma tộc",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_demon2_spear_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_demon2_spear_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_demon2_spear_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_demon2_bow_m",
+   "name": "Ma tộc 2",
+   "role": "bow",
+   "gender": "male",
+   "race": "demon",
+   "raceLabel": "Ma tộc",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_demon2_bow_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_demon2_bow_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_demon2_bow_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_demon2_shield_m",
+   "name": "Ma tộc 2",
+   "role": "shield",
+   "gender": "male",
+   "race": "demon",
+   "raceLabel": "Ma tộc",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_demon2_shield_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_demon2_shield_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_demon2_shield_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_demon2_sword_f",
+   "name": "Ma tộc 2",
+   "role": "sword",
+   "gender": "female",
+   "race": "demon",
+   "raceLabel": "Ma tộc",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_demon2_sword_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_demon2_sword_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_demon2_sword_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_demon2_staff_f",
+   "name": "Ma tộc 2",
+   "role": "staff",
+   "gender": "female",
+   "race": "demon",
+   "raceLabel": "Ma tộc",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_demon2_staff_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_demon2_staff_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_demon2_staff_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_demon2_spear_f",
+   "name": "Ma tộc 2",
+   "role": "spear",
+   "gender": "female",
+   "race": "demon",
+   "raceLabel": "Ma tộc",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_demon2_spear_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_demon2_spear_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_demon2_spear_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_demon2_bow_f",
+   "name": "Ma tộc 2",
+   "role": "bow",
+   "gender": "female",
+   "race": "demon",
+   "raceLabel": "Ma tộc",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_demon2_bow_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_demon2_bow_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_demon2_bow_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_demon2_shield_f",
+   "name": "Ma tộc 2",
+   "role": "shield",
+   "gender": "female",
+   "race": "demon",
+   "raceLabel": "Ma tộc",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_demon2_shield_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_demon2_shield_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_demon2_shield_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_demon3_sword_m",
+   "name": "Ma tộc 3",
+   "role": "sword",
+   "gender": "male",
+   "race": "demon",
+   "raceLabel": "Ma tộc",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_demon3_sword_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_demon3_sword_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_demon3_sword_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_demon3_staff_m",
+   "name": "Ma tộc 3",
+   "role": "staff",
+   "gender": "male",
+   "race": "demon",
+   "raceLabel": "Ma tộc",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_demon3_staff_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_demon3_staff_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_demon3_staff_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_demon3_spear_m",
+   "name": "Ma tộc 3",
+   "role": "spear",
+   "gender": "male",
+   "race": "demon",
+   "raceLabel": "Ma tộc",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_demon3_spear_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_demon3_spear_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_demon3_spear_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_demon3_bow_m",
+   "name": "Ma tộc 3",
+   "role": "bow",
+   "gender": "male",
+   "race": "demon",
+   "raceLabel": "Ma tộc",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_demon3_bow_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_demon3_bow_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_demon3_bow_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_demon3_shield_m",
+   "name": "Ma tộc 3",
+   "role": "shield",
+   "gender": "male",
+   "race": "demon",
+   "raceLabel": "Ma tộc",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_demon3_shield_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_demon3_shield_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_demon3_shield_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_demon3_sword_f",
+   "name": "Ma tộc 3",
+   "role": "sword",
+   "gender": "female",
+   "race": "demon",
+   "raceLabel": "Ma tộc",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_demon3_sword_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_demon3_sword_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_demon3_sword_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_demon3_staff_f",
+   "name": "Ma tộc 3",
+   "role": "staff",
+   "gender": "female",
+   "race": "demon",
+   "raceLabel": "Ma tộc",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_demon3_staff_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_demon3_staff_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_demon3_staff_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_demon3_spear_f",
+   "name": "Ma tộc 3",
+   "role": "spear",
+   "gender": "female",
+   "race": "demon",
+   "raceLabel": "Ma tộc",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_demon3_spear_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_demon3_spear_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_demon3_spear_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_demon3_bow_f",
+   "name": "Ma tộc 3",
+   "role": "bow",
+   "gender": "female",
+   "race": "demon",
+   "raceLabel": "Ma tộc",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_demon3_bow_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_demon3_bow_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_demon3_bow_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_demon3_shield_f",
+   "name": "Ma tộc 3",
+   "role": "shield",
+   "gender": "female",
+   "race": "demon",
+   "raceLabel": "Ma tộc",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_demon3_shield_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_demon3_shield_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_demon3_shield_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_beast1_sword_m",
+   "name": "Thú nhân 1",
+   "role": "sword",
+   "gender": "male",
+   "race": "beast",
+   "raceLabel": "Thú nhân",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_beast1_sword_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_beast1_sword_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_beast1_sword_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_beast1_staff_m",
+   "name": "Thú nhân 1",
+   "role": "staff",
+   "gender": "male",
+   "race": "beast",
+   "raceLabel": "Thú nhân",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_beast1_staff_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_beast1_staff_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_beast1_staff_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_beast1_spear_m",
+   "name": "Thú nhân 1",
+   "role": "spear",
+   "gender": "male",
+   "race": "beast",
+   "raceLabel": "Thú nhân",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_beast1_spear_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_beast1_spear_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_beast1_spear_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_beast1_bow_m",
+   "name": "Thú nhân 1",
+   "role": "bow",
+   "gender": "male",
+   "race": "beast",
+   "raceLabel": "Thú nhân",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_beast1_bow_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_beast1_bow_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_beast1_bow_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_beast1_shield_m",
+   "name": "Thú nhân 1",
+   "role": "shield",
+   "gender": "male",
+   "race": "beast",
+   "raceLabel": "Thú nhân",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_beast1_shield_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_beast1_shield_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_beast1_shield_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_beast1_sword_f",
+   "name": "Thú nhân 1",
+   "role": "sword",
+   "gender": "female",
+   "race": "beast",
+   "raceLabel": "Thú nhân",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_beast1_sword_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_beast1_sword_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_beast1_sword_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_beast1_staff_f",
+   "name": "Thú nhân 1",
+   "role": "staff",
+   "gender": "female",
+   "race": "beast",
+   "raceLabel": "Thú nhân",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_beast1_staff_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_beast1_staff_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_beast1_staff_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_beast1_spear_f",
+   "name": "Thú nhân 1",
+   "role": "spear",
+   "gender": "female",
+   "race": "beast",
+   "raceLabel": "Thú nhân",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_beast1_spear_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_beast1_spear_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_beast1_spear_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_beast1_bow_f",
+   "name": "Thú nhân 1",
+   "role": "bow",
+   "gender": "female",
+   "race": "beast",
+   "raceLabel": "Thú nhân",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_beast1_bow_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_beast1_bow_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_beast1_bow_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_beast1_shield_f",
+   "name": "Thú nhân 1",
+   "role": "shield",
+   "gender": "female",
+   "race": "beast",
+   "raceLabel": "Thú nhân",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_beast1_shield_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_beast1_shield_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_beast1_shield_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_beast2_sword_m",
+   "name": "Thú nhân 2",
+   "role": "sword",
+   "gender": "male",
+   "race": "beast",
+   "raceLabel": "Thú nhân",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_beast2_sword_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_beast2_sword_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_beast2_sword_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_beast2_staff_m",
+   "name": "Thú nhân 2",
+   "role": "staff",
+   "gender": "male",
+   "race": "beast",
+   "raceLabel": "Thú nhân",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_beast2_staff_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_beast2_staff_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_beast2_staff_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_beast2_spear_m",
+   "name": "Thú nhân 2",
+   "role": "spear",
+   "gender": "male",
+   "race": "beast",
+   "raceLabel": "Thú nhân",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_beast2_spear_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_beast2_spear_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_beast2_spear_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_beast2_bow_m",
+   "name": "Thú nhân 2",
+   "role": "bow",
+   "gender": "male",
+   "race": "beast",
+   "raceLabel": "Thú nhân",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_beast2_bow_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_beast2_bow_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_beast2_bow_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_beast2_shield_m",
+   "name": "Thú nhân 2",
+   "role": "shield",
+   "gender": "male",
+   "race": "beast",
+   "raceLabel": "Thú nhân",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_beast2_shield_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_beast2_shield_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_beast2_shield_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_beast2_sword_f",
+   "name": "Thú nhân 2",
+   "role": "sword",
+   "gender": "female",
+   "race": "beast",
+   "raceLabel": "Thú nhân",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_beast2_sword_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_beast2_sword_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_beast2_sword_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_beast2_staff_f",
+   "name": "Thú nhân 2",
+   "role": "staff",
+   "gender": "female",
+   "race": "beast",
+   "raceLabel": "Thú nhân",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_beast2_staff_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_beast2_staff_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_beast2_staff_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_beast2_spear_f",
+   "name": "Thú nhân 2",
+   "role": "spear",
+   "gender": "female",
+   "race": "beast",
+   "raceLabel": "Thú nhân",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_beast2_spear_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_beast2_spear_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_beast2_spear_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_beast2_bow_f",
+   "name": "Thú nhân 2",
+   "role": "bow",
+   "gender": "female",
+   "race": "beast",
+   "raceLabel": "Thú nhân",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_beast2_bow_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_beast2_bow_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_beast2_bow_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_beast2_shield_f",
+   "name": "Thú nhân 2",
+   "role": "shield",
+   "gender": "female",
+   "race": "beast",
+   "raceLabel": "Thú nhân",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_beast2_shield_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_beast2_shield_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_beast2_shield_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_beast3_sword_m",
+   "name": "Thú nhân 3",
+   "role": "sword",
+   "gender": "male",
+   "race": "beast",
+   "raceLabel": "Thú nhân",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_beast3_sword_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_beast3_sword_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_beast3_sword_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_beast3_staff_m",
+   "name": "Thú nhân 3",
+   "role": "staff",
+   "gender": "male",
+   "race": "beast",
+   "raceLabel": "Thú nhân",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_beast3_staff_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_beast3_staff_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_beast3_staff_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_beast3_spear_m",
+   "name": "Thú nhân 3",
+   "role": "spear",
+   "gender": "male",
+   "race": "beast",
+   "raceLabel": "Thú nhân",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_beast3_spear_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_beast3_spear_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_beast3_spear_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_beast3_bow_m",
+   "name": "Thú nhân 3",
+   "role": "bow",
+   "gender": "male",
+   "race": "beast",
+   "raceLabel": "Thú nhân",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_beast3_bow_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_beast3_bow_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_beast3_bow_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_beast3_shield_m",
+   "name": "Thú nhân 3",
+   "role": "shield",
+   "gender": "male",
+   "race": "beast",
+   "raceLabel": "Thú nhân",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_beast3_shield_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_beast3_shield_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_beast3_shield_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_beast3_sword_f",
+   "name": "Thú nhân 3",
+   "role": "sword",
+   "gender": "female",
+   "race": "beast",
+   "raceLabel": "Thú nhân",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_beast3_sword_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_beast3_sword_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_beast3_sword_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_beast3_staff_f",
+   "name": "Thú nhân 3",
+   "role": "staff",
+   "gender": "female",
+   "race": "beast",
+   "raceLabel": "Thú nhân",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_beast3_staff_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_beast3_staff_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_beast3_staff_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_beast3_spear_f",
+   "name": "Thú nhân 3",
+   "role": "spear",
+   "gender": "female",
+   "race": "beast",
+   "raceLabel": "Thú nhân",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_beast3_spear_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_beast3_spear_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_beast3_spear_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_beast3_bow_f",
+   "name": "Thú nhân 3",
+   "role": "bow",
+   "gender": "female",
+   "race": "beast",
+   "raceLabel": "Thú nhân",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_beast3_bow_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_beast3_bow_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_beast3_bow_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_beast3_shield_f",
+   "name": "Thú nhân 3",
+   "role": "shield",
+   "gender": "female",
+   "race": "beast",
+   "raceLabel": "Thú nhân",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_beast3_shield_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_beast3_shield_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_beast3_shield_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_dragon1_sword_m",
+   "name": "Long tộc 1",
+   "role": "sword",
+   "gender": "male",
+   "race": "dragon",
+   "raceLabel": "Long tộc",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_dragon1_sword_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_dragon1_sword_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_dragon1_sword_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_dragon1_staff_m",
+   "name": "Long tộc 1",
+   "role": "staff",
+   "gender": "male",
+   "race": "dragon",
+   "raceLabel": "Long tộc",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_dragon1_staff_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_dragon1_staff_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_dragon1_staff_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_dragon1_spear_m",
+   "name": "Long tộc 1",
+   "role": "spear",
+   "gender": "male",
+   "race": "dragon",
+   "raceLabel": "Long tộc",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_dragon1_spear_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_dragon1_spear_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_dragon1_spear_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_dragon1_bow_m",
+   "name": "Long tộc 1",
+   "role": "bow",
+   "gender": "male",
+   "race": "dragon",
+   "raceLabel": "Long tộc",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_dragon1_bow_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_dragon1_bow_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_dragon1_bow_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_dragon1_shield_m",
+   "name": "Long tộc 1",
+   "role": "shield",
+   "gender": "male",
+   "race": "dragon",
+   "raceLabel": "Long tộc",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_dragon1_shield_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_dragon1_shield_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_dragon1_shield_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_dragon1_sword_f",
+   "name": "Long tộc 1",
+   "role": "sword",
+   "gender": "female",
+   "race": "dragon",
+   "raceLabel": "Long tộc",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_dragon1_sword_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_dragon1_sword_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_dragon1_sword_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_dragon1_staff_f",
+   "name": "Long tộc 1",
+   "role": "staff",
+   "gender": "female",
+   "race": "dragon",
+   "raceLabel": "Long tộc",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_dragon1_staff_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_dragon1_staff_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_dragon1_staff_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_dragon1_spear_f",
+   "name": "Long tộc 1",
+   "role": "spear",
+   "gender": "female",
+   "race": "dragon",
+   "raceLabel": "Long tộc",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_dragon1_spear_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_dragon1_spear_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_dragon1_spear_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_dragon1_bow_f",
+   "name": "Long tộc 1",
+   "role": "bow",
+   "gender": "female",
+   "race": "dragon",
+   "raceLabel": "Long tộc",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_dragon1_bow_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_dragon1_bow_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_dragon1_bow_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_dragon1_shield_f",
+   "name": "Long tộc 1",
+   "role": "shield",
+   "gender": "female",
+   "race": "dragon",
+   "raceLabel": "Long tộc",
+   "variant": 1,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_dragon1_shield_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_dragon1_shield_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_dragon1_shield_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_dragon2_sword_m",
+   "name": "Long tộc 2",
+   "role": "sword",
+   "gender": "male",
+   "race": "dragon",
+   "raceLabel": "Long tộc",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_dragon2_sword_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_dragon2_sword_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_dragon2_sword_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_dragon2_staff_m",
+   "name": "Long tộc 2",
+   "role": "staff",
+   "gender": "male",
+   "race": "dragon",
+   "raceLabel": "Long tộc",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_dragon2_staff_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_dragon2_staff_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_dragon2_staff_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_dragon2_spear_m",
+   "name": "Long tộc 2",
+   "role": "spear",
+   "gender": "male",
+   "race": "dragon",
+   "raceLabel": "Long tộc",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_dragon2_spear_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_dragon2_spear_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_dragon2_spear_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_dragon2_bow_m",
+   "name": "Long tộc 2",
+   "role": "bow",
+   "gender": "male",
+   "race": "dragon",
+   "raceLabel": "Long tộc",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_dragon2_bow_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_dragon2_bow_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_dragon2_bow_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_dragon2_shield_m",
+   "name": "Long tộc 2",
+   "role": "shield",
+   "gender": "male",
+   "race": "dragon",
+   "raceLabel": "Long tộc",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_dragon2_shield_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_dragon2_shield_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_dragon2_shield_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_dragon2_sword_f",
+   "name": "Long tộc 2",
+   "role": "sword",
+   "gender": "female",
+   "race": "dragon",
+   "raceLabel": "Long tộc",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_dragon2_sword_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_dragon2_sword_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_dragon2_sword_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_dragon2_staff_f",
+   "name": "Long tộc 2",
+   "role": "staff",
+   "gender": "female",
+   "race": "dragon",
+   "raceLabel": "Long tộc",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_dragon2_staff_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_dragon2_staff_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_dragon2_staff_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_dragon2_spear_f",
+   "name": "Long tộc 2",
+   "role": "spear",
+   "gender": "female",
+   "race": "dragon",
+   "raceLabel": "Long tộc",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_dragon2_spear_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_dragon2_spear_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_dragon2_spear_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_dragon2_bow_f",
+   "name": "Long tộc 2",
+   "role": "bow",
+   "gender": "female",
+   "race": "dragon",
+   "raceLabel": "Long tộc",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_dragon2_bow_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_dragon2_bow_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_dragon2_bow_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_dragon2_shield_f",
+   "name": "Long tộc 2",
+   "role": "shield",
+   "gender": "female",
+   "race": "dragon",
+   "raceLabel": "Long tộc",
+   "variant": 2,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_dragon2_shield_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_dragon2_shield_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_dragon2_shield_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_dragon3_sword_m",
+   "name": "Long tộc 3",
+   "role": "sword",
+   "gender": "male",
+   "race": "dragon",
+   "raceLabel": "Long tộc",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_dragon3_sword_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_dragon3_sword_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_dragon3_sword_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_dragon3_staff_m",
+   "name": "Long tộc 3",
+   "role": "staff",
+   "gender": "male",
+   "race": "dragon",
+   "raceLabel": "Long tộc",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_dragon3_staff_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_dragon3_staff_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_dragon3_staff_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_dragon3_spear_m",
+   "name": "Long tộc 3",
+   "role": "spear",
+   "gender": "male",
+   "race": "dragon",
+   "raceLabel": "Long tộc",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_dragon3_spear_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_dragon3_spear_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_dragon3_spear_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_dragon3_bow_m",
+   "name": "Long tộc 3",
+   "role": "bow",
+   "gender": "male",
+   "race": "dragon",
+   "raceLabel": "Long tộc",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_dragon3_bow_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_dragon3_bow_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_dragon3_bow_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_dragon3_shield_m",
+   "name": "Long tộc 3",
+   "role": "shield",
+   "gender": "male",
+   "race": "dragon",
+   "raceLabel": "Long tộc",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_dragon3_shield_m/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_dragon3_shield_m/walk.webp",
+    "run": "site/media/roster-npc/player_npc_dragon3_shield_m/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_dragon3_sword_f",
+   "name": "Long tộc 3",
+   "role": "sword",
+   "gender": "female",
+   "race": "dragon",
+   "raceLabel": "Long tộc",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_dragon3_sword_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_dragon3_sword_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_dragon3_sword_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_dragon3_staff_f",
+   "name": "Long tộc 3",
+   "role": "staff",
+   "gender": "female",
+   "race": "dragon",
+   "raceLabel": "Long tộc",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_dragon3_staff_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_dragon3_staff_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_dragon3_staff_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_dragon3_spear_f",
+   "name": "Long tộc 3",
+   "role": "spear",
+   "gender": "female",
+   "race": "dragon",
+   "raceLabel": "Long tộc",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_dragon3_spear_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_dragon3_spear_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_dragon3_spear_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_dragon3_bow_f",
+   "name": "Long tộc 3",
+   "role": "bow",
+   "gender": "female",
+   "race": "dragon",
+   "raceLabel": "Long tộc",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_dragon3_bow_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_dragon3_bow_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_dragon3_bow_f/run.webp"
+   }
+  },
+  {
+   "id": "player_npc_dragon3_shield_f",
+   "name": "Long tộc 3",
+   "role": "shield",
+   "gender": "female",
+   "race": "dragon",
+   "raceLabel": "Long tộc",
+   "variant": 3,
+   "sheets": {
+    "idle": "site/media/roster-npc/player_npc_dragon3_shield_f/idle.webp",
+    "walk": "site/media/roster-npc/player_npc_dragon3_shield_f/walk.webp",
+    "run": "site/media/roster-npc/player_npc_dragon3_shield_f/run.webp"
+   }
+  }
+ ]
+}

@@ -1,0 +1,30 @@
+{
+  "entries": [
+    {
+      "id": "sword-male",
+      "label": "Kiếm sĩ",
+      "sex": "male",
+      "file": "sword-male/S.png",
+      "source": "packages/asset-pipeline/sources/pixellab/npc_silver_youth/Idle/rotations/south.png",
+      "method": "PixelLab edit_image_pixen",
+      "artApproved": false,
+      "jobId": "80eedde4-9445-4241-a11b-471f621d7172"
+    },
+    {
+      "id": "sword-female",
+      "label": "Kiếm sĩ",
+      "sex": "female",
+      "file": "sword-female/S.png",
+      "source": "packages/asset-pipeline/sources/pixellab/npc_silver_youth_f/Idle/rotations/south.png",
+      "method": "PixelLab edit_image_pixen",
+      "artApproved": false,
+      "jobId": "ac1d30af-0ef6-4d73-ad7a-15e6b4d39eb9"
+    }
+  ],
+  "balanceBefore": "credits: $0.00\ngenerations_remaining: 4099.00\ngenerations_used: 901.00\ngenerations_total: 5000\nnote: fractions come from small steps billed per use — prompt enhancement 0.05, skeleton estimation and colour reduction 0.1, sprite import 0.25, /chat builder model calls — most are not jobs, so list_jobs does not show them\nsubscription: active (Tier 2: Pixel Artisan)\ngenerations_reset: 2026-11-28\nnote: generations_total is this cycle's allowance (prorated on a mid-cycle upgrade); it refills on generations_reset",
+  "scope": "2 front standing outfit designs only, no animation or game build",
+  "heads": "NPC identity retained solely in full reference image. No runtime avatar overpainting. Remove old head before exporting any body layer.",
+  "weapons": "Separate later; not baked into outfit.",
+  "attack": "paused by user",
+  "artApproved": false
+}

@@ -33,6 +33,13 @@ export interface KitTheme {
 	/** Đồ điểm xuyết quanh bãi bầy (tượng, cột đổ…). */
 	landmarks: readonly string[];
 	water: 'none' | 'ponds' | 'lakes' | 'coast';
+	/**
+	 * Số dòng suối băng qua map săn (chủ dự án 05/11/2026: "cố gắng nhiều sông suối hơn"); vắng = 2 dòng (thiếu chỗ cho bầy thì bớt dần). Trạm / thánh địa / Long
+	 * Huyệt không có suối. Nước theo bảng màu biome (núi lửa là dòng dung nham). Đường cắt suối thành cầu gỗ.
+	 */
+	streams?: number;
+	/** Loài quái sông (chủ dự án 05/11/2026: "có thêm quái ở sông"): một bầy sát bờ suối / hồ, ngoài loài chính của map. */
+	riverMonster?: string;
 	sign: string;
 	/** Tag tấm decal (`d1` đồng cỏ, `d2` đất chết); vắng = không decal. */
 	decal?: string;
@@ -127,7 +134,22 @@ function distanceField(L: Layout, hit: (c: string) => boolean): Float32Array {
 
 const isRoad = (c: string): boolean => c === 'd' || c === 'c' || c === 'b';
 
+/**
+ * Dựng map; suối chiếm chỗ làm thiếu bãi trống cho bầy (luật tâm bầy cách nước) thì dựng lại với ít suối hơn (2 → 1 → 0) — map
+ * nào cũng có suối khi đủ chỗ, không map nào hỏng vì suối.
+ */
 export function buildKitMap(spec: KitMapSpec, exits: readonly KitExit[], meta: Record<string, PropMeta>, decalIds: string[]): MapData {
+	const first = spec.theme.streams ?? 2;
+	for (let n = first; ; n -= 1) {
+		try {
+			return buildKitMapOnce({ ...spec, theme: { ...spec.theme, streams: n } }, exits, meta, decalIds);
+		} catch (e) {
+			if (n <= 0 || !(e instanceof Error) || !e.message.includes('không đủ chỗ')) throw e;
+		}
+	}
+}
+
+function buildKitMapOnce(spec: KitMapSpec, exits: readonly KitExit[], meta: Record<string, PropMeta>, decalIds: string[]): MapData {
 	// Món chủ đề chưa có ảnh (đợt vẽ thêm chưa xong) thì lọc bỏ trước — không để lượt đặt rơi vào món thiếu làm map thưa đi.
 	const has = (ids: readonly string[]): string[] => ids.filter((id) => meta[id]);
 	const t: KitTheme = { ...spec.theme, trees: has(spec.theme.trees), rocks: has(spec.theme.rocks), flats: has(spec.theme.flats), landmarks: has(spec.theme.landmarks) };
@@ -159,6 +181,54 @@ export function buildKitMap(spec: KitMapSpec, exits: readonly KitExit[], meta: R
 		if (hub) L.path([[inner.x, inner.y], [J.x, J.y]], 2, t.road);
 		else wiggle(L, inner, J, 2, t.road, R);
 		L.reserve(inner.x + 0.5, inner.y + 0.5, 3.2);
+	}
+
+	// 2. Suối: 1–2 dòng uốn lượn nối hai mép, xa lối vào và ngã ba; cắt đường thì thành cầu gỗ (`Layout.stream`).
+	const nStreams = hub || arena ? 0 : (t.streams ?? 2);
+	for (let k = 0, made = 0; k < 40 && made < nStreams; k += 1) {
+		const edgesAll: Edge[] = ['N', 'E', 'S', 'W'];
+		const a = edgesAll[Math.floor(L.rand() * 4)]!;
+		const b = L.rand() < 0.7 ? ({ N: 'S', S: 'N', E: 'W', W: 'E' } as const)[a] : edgesAll.filter((e) => e !== a)[Math.floor(L.rand() * 3)]!;
+		const along = (e: Edge): Pt | null => {
+			const len = e === 'N' || e === 'S' ? spec.w : spec.h;
+			for (let tries = 0; tries < 30; tries += 1) {
+				const c = Ri(5, len - 7);
+				if (exitInfo.some((x) => x.e.edge === e && Math.abs(x.c - c) < 8)) continue;
+				return e === 'N' ? { x: c, y: 0 } : e === 'S' ? { x: c, y: spec.h - 2 } : e === 'W' ? { x: 0, y: c } : { x: spec.w - 2, y: c };
+			}
+			return null;
+		};
+		const p0 = along(a);
+		const p1 = along(b);
+		if (!p0 || !p1) continue;
+		const pts = meander(p0, p1, R);
+		const clear = (ps: [number, number][]): boolean => !ps.some(([x, y]) => Math.hypot(x - J.x, y - J.y) < 6 || exitInfo.some((e) => Math.hypot(x - e.inner.x, y - e.inner.y) < 5));
+		if (!clear(pts)) continue;
+		// Sinh động (05/11 "suối nhìn nhàm chán"): bề rộng phình / thắt 1,2–3,6 ô, vũng to ở khúc quanh (có khi có cù lao), nhánh phụ.
+		const base = R(1.7, 2.4);
+		const f = R(1.5, 3);
+		const ph = R(0, Math.PI * 2);
+		L.stream(pts, (u) => Math.max(1.2, Math.min(3.6, base + 0.9 * Math.sin(u * Math.PI * f + ph) + 0.45 * Math.sin(u * Math.PI * 7 + ph * 2))));
+		for (let q = 0, pools = Ri(1, 2); q < pools; q += 1) {
+			const [x, y] = pts[Math.floor(pts.length * R(0.25, 0.75))]!;
+			if (Math.hypot(x - J.x, y - J.y) < 9) continue;
+			const r = R(2.4, 3.4);
+			L.pool(x + 0.5, y + 0.5, r);
+			L.pool(x + 0.5 + R(-1.5, 1.5), y + 0.5 + R(-1.2, 1.2), r * R(0.6, 0.85));
+			if (r > 2.9 && L.rand() < 0.45) for (const [ix, iy] of [[x, y], [x + 1, y]] as const) if (L.at(ix, iy) === 'w') L.set(ix, iy, 'g');
+		}
+		if (L.rand() < 0.5) {
+			const from = pts[Math.floor(pts.length * R(0.3, 0.6))]!;
+			const to = L.rand() < 0.5 ? along(edgesAll.filter((e) => e !== a && e !== b)[Math.floor(L.rand() * 2)]!) : { x: Ri(6, spec.w - 7), y: Ri(6, spec.h - 7) };
+			if (to) {
+				const branch = meander({ x: from[0], y: from[1] }, to, R);
+				if (clear(branch)) {
+					L.stream(branch, (u) => 1.3 + 0.5 * Math.sin(u * Math.PI * 2 + ph));
+					if (to.x > 1 && to.y > 1 && to.x < spec.w - 3 && to.y < spec.h - 3) L.pool(to.x + 0.5, to.y + 0.5, R(1.8, 2.6));
+				}
+			}
+		}
+		made += 1;
 	}
 
 	// Trạm: quảng trường. Thánh địa / Long Huyệt: sân đá lớn giữa map.
@@ -227,6 +297,31 @@ export function buildKitMap(spec: KitMapSpec, exits: readonly KitExit[], meta: R
 		}
 	}
 
+	// Bãi quái sông: bờ nước (cách nước 2–3,4 ô), xa đường, xa các bãi khác, xa ngã ba / lối — giữ trống TRƯỚC khi rải cây / đá.
+	let riverSpot: Pt | null = null;
+	if (t.riverMonster && !hub && !arena && zoneSpecs.length) {
+		const wd = distanceField(L, (c) => c === 'w');
+		const rd = distanceField(L, isRoad);
+		let best: Pt | null = null;
+		let bestScore = -Infinity;
+		for (let tries = 0; tries < 1500; tries += 1) {
+			const p = { x: Ri(4, spec.w - 5), y: Ri(4, spec.h - 5) };
+			const i = p.y * spec.w + p.x;
+			if (wd[i]! < 2 || wd[i]! > 3.4 || rd[i]! < 2.5 || L.at(p.x, p.y) === 'w') continue;
+			if (Math.hypot(p.x - J.x, p.y - J.y) < 7 || exitPts.some((e) => Math.hypot(p.x - e.x, p.y - e.y) < 7)) continue;
+			const near = clearings.reduce((m, c) => Math.min(m, Math.hypot(p.x - c.p.x, p.y - c.p.y) - c.r), Infinity);
+			if (near < 4) continue;
+			const score = Math.min(near, 12) + L.rand() * 2;
+			if (score > bestScore) {
+				bestScore = score;
+				best = p;
+			}
+		}
+		if (best) {
+			L.reserve(best.x, best.y, 2.6);
+			riverSpot = best;
+		}
+	}
 	// Thánh địa / Long Huyệt: vòng nước quanh sân (hồ Hydra, dung nham, hồ băng, biển) chừa hướng các lối vào.
 	if (arena && t.water !== 'none') {
 		const gaps = exitInfo.map(({ inner }) => Math.atan2(inner.y - J.y, inner.x - J.x));
@@ -341,6 +436,8 @@ export function buildKitMap(spec: KitMapSpec, exits: readonly KitExit[], meta: R
 			level: z.level,
 		});
 	});
+	if (riverSpot && t.riverMonster)
+		zones.push({ id: `${spec.id}_river`, name: `${spec.name} · bờ suối`, x: px(riverSpot.x), y: px(riverSpot.y), radius: Math.round(1.8 * TILE), monsters: [t.riverMonster], count: 3, fromAge: 16, level: Math.min(...zoneSpecs.map((z) => z.level)), river: true });
 	const bossCenter = arena ? J : lair?.p;
 	if (spec.boss && bossCenter) {
 		bossAt(bossCenter, arena ? arenaR : lair!.r, spec.boss);
@@ -360,8 +457,11 @@ export function buildKitMap(spec: KitMapSpec, exits: readonly KitExit[], meta: R
 	}
 	for (const z of zones) L.keepSpawnsClear(z);
 
-	// 5. Cây, viền mép, đá, cảnh nền, đồ điểm xuyết.
+	// 5. Cây, viền mép, đá, cảnh nền, đồ điểm xuyết. Chủ dự án 05/11/2026 "thêm cây cối, tượng đá, đá…": cây ×1,35, đá ×1,5, đá / cảnh
+	// nền dọc bờ suối, tượng quanh ngã ba + dọc đường.
 	const area = spec.w * spec.h;
+	const TREE_BOOST = 1.35;
+	const ROCK_BOOST = 1.5;
 	const ground = (x: number, y: number): string => L.at(Math.floor(x / TILE), Math.floor(y / TILE));
 	if (t.trees.length) {
 		// Hàng cây chủ đạo dọc đường (nền trống, map săn): ô cách mép đường đúng 2 ô, cứ ~4 ô một cây, lệch nhẹ cho khỏi cứng — đặt
@@ -375,7 +475,7 @@ export function buildKitMap(spec: KitMapSpec, exits: readonly KitExit[], meta: R
 				}
 		}
 		// Khóm cùng loài (5–9 cây quanh một tâm) thay cho rải lốm đốm từng cây — rừng có mảng rõ ràng, nhìn có quy tắc.
-		L.clumps(Math.round((area * t.treeDensity) / 100), t.trees, 7, 2.6, (id, x, y) => L.place(id, x, y, { canopy: true }));
+		L.clumps(Math.round((area * t.treeDensity * TREE_BOOST) / 100), t.trees, 7, 2.6, (id, x, y) => L.place(id, x, y, { canopy: true }));
 		// Viền: cây dày trong 3 ô sát mép (trừ quanh lối — đã giữ trống) để map có bờ tự nhiên.
 		L.scatter(Math.round((spec.w + spec.h) * 9), (x, y) => {
 			const tx = x / TILE;
@@ -385,7 +485,23 @@ export function buildKitMap(spec: KitMapSpec, exits: readonly KitExit[], meta: R
 		});
 	}
 	if (t.rocks.length) {
-		L.clumps(Math.round((area * t.rockDensity) / 100), t.rocks, 3, 1.4, (id, x, y) => L.place(id, x, y));
+		L.clumps(Math.round((area * t.rockDensity * ROCK_BOOST) / 100), t.rocks, 3, 1.4, (id, x, y) => L.place(id, x, y));
+		// Bờ suối / ao: đá lác đác sát mép nước (ô cách nước đúng 1 ô).
+		const wd = distanceField(L, (c) => c === 'w');
+		for (let y = 1; y < spec.h - 1; y += 1)
+			for (let x = 1; x < spec.w - 1; x += 1)
+				if (wd[y * spec.w + x] === 1 && L.rand() < 0.12) {
+					const [bx, by] = [px(x) + R(-8, 8), px(y) + TILE / 2 + R(-6, 4)];
+					if (ground(bx, by - 1) !== 'w') L.place(L.pick(t.rocks), bx, by);
+				}
+		// Bờ: cảnh nền thấp (lau sậy, hoa, cỏ) dày dọc mép nước.
+		if (t.flats.length)
+			for (let y = 1; y < spec.h - 1; y += 1)
+				for (let x = 1; x < spec.w - 1; x += 1)
+					if (wd[y * spec.w + x] === 1 && L.rand() < 0.16) {
+						const [bx, by] = [px(x) + R(-10, 10), px(y) + TILE / 2 + R(-8, 2)];
+						if (ground(bx, by - 1) !== 'w') L.place(L.pick(t.flats), bx, by);
+					}
 		// Map ít cây: thêm viền đá sát mép cho có bờ.
 		if (t.treeDensity < 10)
 			L.scatter(Math.round((spec.w + spec.h) * (t.trees.length ? 3 : 6)), (x, y) => {
@@ -394,13 +510,25 @@ export function buildKitMap(spec: KitMapSpec, exits: readonly KitExit[], meta: R
 			});
 	}
 	if (t.flats.length) L.clumps(Math.round((area * t.flatDensity) / 100), t.flats, 4, 1.6, (id, x, y) => (ground(x, y) === 'g' || ground(x, y) === 'f' ? L.place(id, x, y) : false));
-	if (t.landmarks.length)
+	if (t.landmarks.length) {
 		for (const c of herd)
-			for (let k = 0, made = 0; k < 40 && made < 3; k += 1) {
+			for (let k = 0, made = 0; k < 50 && made < 4; k += 1) {
 				const a = L.rand() * Math.PI * 2;
 				const rr = c.r + 1.4 + L.rand() * 1.5;
 				if (L.place(L.pick(t.landmarks), px(c.p.x + Math.cos(a) * rr), px(c.p.y + Math.sin(a) * rr))) made += 1;
 			}
+		// Tượng / cảnh điểm xuyết quanh ngã ba và dọc đường (cách mép đường 2 ô, thưa).
+		if (!hub && !arena)
+			for (let k = 0, made = 0; k < 60 && made < 3; k += 1) {
+				const a = L.rand() * Math.PI * 2;
+				const rr = 3.5 + L.rand() * 2;
+				if (L.place(L.pick(t.landmarks), px(J.x + Math.cos(a) * rr), px(J.y + Math.sin(a) * rr))) made += 1;
+			}
+		const rdL = distanceField(L, isRoad);
+		for (let y = 3; y < spec.h - 3; y += 1)
+			for (let x = 3; x < spec.w - 3; x += 1)
+				if (rdL[y * spec.w + x] === 2 && L.rand() < 0.012 && ground(px(x), px(y) + TILE / 2 - 1) !== 'w') L.place(L.pick(t.landmarks), px(x), px(y) + TILE / 2);
+	}
 	if (t.decal) L.sprinkleDecals(decalsOf(decalIds, t.decal), Math.round(area * 0.6));
 
 	const mapExits: MapExit[] = exitInfo.map(({ e, c }, i) => ({
@@ -467,8 +595,30 @@ function wiggle(L: Layout, a: Pt, b: Pt, width: number, c: string, R: (x: number
 		const off = env * (amp * Math.sin(t * Math.PI * f1) + 1.1 * Math.sin(t * Math.PI * 4 + ph));
 		const x = Math.round(a.x + dx * t + nx * off);
 		const y = Math.round(a.y + dy * t + ny * off);
-		L.rect(x, y, x + width - 1, y + width - 1, c);
+		// Lối mòn băng qua suối: ô nước thành cầu gỗ, không lấp suối.
+		for (let yy = y; yy < y + width; yy += 1) for (let xx = x; xx < x + width; xx += 1) L.set(xx, yy, L.at(xx, yy) === 'w' ? 'b' : c);
 	}
+}
+
+/** Đường uốn lượn cho suối (các điểm ô), cùng kiểu dao động với `wiggle`. */
+function meander(a: Pt, b: Pt, R: (x: number, y: number) => number): [number, number][] {
+	const dx = b.x - a.x;
+	const dy = b.y - a.y;
+	const dist = Math.hypot(dx, dy);
+	const nx = -dy / dist;
+	const ny = dx / dist;
+	const amp = Math.min(6, dist / 4) * (R(0, 1) < 0.5 ? -1 : 1);
+	const f1 = R(0.8, 1.8);
+	const ph = R(0, Math.PI * 2);
+	const steps = Math.ceil(dist * 2);
+	const out: [number, number][] = [];
+	for (let i = 0; i <= steps; i += 1) {
+		const t = i / steps;
+		const env = Math.sin(t * Math.PI);
+		const off = env * (amp * Math.sin(t * Math.PI * f1) + 1.4 * Math.sin(t * Math.PI * 3 + ph));
+		out.push([Math.round(a.x + dx * t + nx * off), Math.round(a.y + dy * t + ny * off)]);
+	}
+	return out;
 }
 
 /** Lối mòn hẹp (đất) từ tâm bãi về ô đường gần nhất, uốn nhẹ. */

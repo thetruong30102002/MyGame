@@ -1,0 +1,2141 @@
+{
+  "canvas": [
+    80,
+    80
+  ],
+  "ppu": 48,
+  "headPreviewScale": 0.8,
+  "mirror": {
+    "NW": "NE",
+    "W": "E",
+    "SW": "SE"
+  },
+  "bodies": {
+    "male": {
+      "idle_S": [
+        {
+          "body": "male/idle/S/00.body.png",
+          "neck": [
+            36,
+            27
+          ]
+        }
+      ],
+      "idle_SE": [
+        {
+          "body": "male/idle/SE/00.body.png",
+          "neck": [
+            38,
+            28
+          ]
+        }
+      ],
+      "idle_E": [
+        {
+          "body": "male/idle/E/00.body.png",
+          "neck": [
+            36,
+            28
+          ]
+        }
+      ],
+      "idle_NE": [
+        {
+          "body": "male/idle/NE/00.body.png",
+          "neck": [
+            36,
+            26
+          ]
+        }
+      ],
+      "idle_N": [
+        {
+          "body": "male/idle/N/00.body.png",
+          "neck": [
+            38,
+            26
+          ]
+        }
+      ],
+      "idle_NW": [
+        {
+          "body": "male/idle/NW/00.body.png",
+          "neck": [
+            43,
+            26
+          ]
+        }
+      ],
+      "idle_W": [
+        {
+          "body": "male/idle/W/00.body.png",
+          "neck": [
+            43,
+            28
+          ]
+        }
+      ],
+      "idle_SW": [
+        {
+          "body": "male/idle/SW/00.body.png",
+          "neck": [
+            41,
+            28
+          ]
+        }
+      ],
+      "walk_S": [
+        {
+          "body": "male/walk/S/00.body.png",
+          "neck": [
+            39,
+            29
+          ]
+        },
+        {
+          "body": "male/walk/S/01.body.png",
+          "neck": [
+            39,
+            29
+          ]
+        },
+        {
+          "body": "male/walk/S/02.body.png",
+          "neck": [
+            39,
+            29
+          ]
+        },
+        {
+          "body": "male/walk/S/03.body.png",
+          "neck": [
+            38,
+            29
+          ]
+        },
+        {
+          "body": "male/walk/S/04.body.png",
+          "neck": [
+            39,
+            29
+          ]
+        },
+        {
+          "body": "male/walk/S/05.body.png",
+          "neck": [
+            39,
+            29
+          ]
+        },
+        {
+          "body": "male/walk/S/06.body.png",
+          "neck": [
+            39,
+            28
+          ]
+        },
+        {
+          "body": "male/walk/S/07.body.png",
+          "neck": [
+            40,
+            29
+          ]
+        }
+      ],
+      "walk_SE": [
+        {
+          "body": "male/walk/SE/00.body.png",
+          "neck": [
+            39,
+            30
+          ]
+        },
+        {
+          "body": "male/walk/SE/01.body.png",
+          "neck": [
+            38,
+            29
+          ]
+        },
+        {
+          "body": "male/walk/SE/02.body.png",
+          "neck": [
+            39,
+            29
+          ]
+        },
+        {
+          "body": "male/walk/SE/03.body.png",
+          "neck": [
+            38,
+            29
+          ]
+        },
+        {
+          "body": "male/walk/SE/04.body.png",
+          "neck": [
+            39,
+            29
+          ]
+        },
+        {
+          "body": "male/walk/SE/05.body.png",
+          "neck": [
+            41,
+            29
+          ]
+        },
+        {
+          "body": "male/walk/SE/06.body.png",
+          "neck": [
+            39,
+            29
+          ]
+        },
+        {
+          "body": "male/walk/SE/07.body.png",
+          "neck": [
+            41,
+            29
+          ]
+        }
+      ],
+      "walk_E": [
+        {
+          "body": "male/walk/E/00.body.png",
+          "neck": [
+            38,
+            30
+          ]
+        },
+        {
+          "body": "male/walk/E/01.body.png",
+          "neck": [
+            40,
+            30
+          ]
+        },
+        {
+          "body": "male/walk/E/02.body.png",
+          "neck": [
+            40,
+            29
+          ]
+        },
+        {
+          "body": "male/walk/E/03.body.png",
+          "neck": [
+            40,
+            29
+          ]
+        },
+        {
+          "body": "male/walk/E/04.body.png",
+          "neck": [
+            40,
+            29
+          ]
+        },
+        {
+          "body": "male/walk/E/05.body.png",
+          "neck": [
+            40,
+            29
+          ]
+        },
+        {
+          "body": "male/walk/E/06.body.png",
+          "neck": [
+            40,
+            29
+          ]
+        },
+        {
+          "body": "male/walk/E/07.body.png",
+          "neck": [
+            39,
+            29
+          ]
+        }
+      ],
+      "walk_NE": [
+        {
+          "body": "male/walk/NE/00.body.png",
+          "neck": [
+            37,
+            27
+          ]
+        },
+        {
+          "body": "male/walk/NE/01.body.png",
+          "neck": [
+            38,
+            27
+          ]
+        },
+        {
+          "body": "male/walk/NE/02.body.png",
+          "neck": [
+            37,
+            27
+          ]
+        },
+        {
+          "body": "male/walk/NE/03.body.png",
+          "neck": [
+            38,
+            27
+          ]
+        },
+        {
+          "body": "male/walk/NE/04.body.png",
+          "neck": [
+            38,
+            27
+          ]
+        },
+        {
+          "body": "male/walk/NE/05.body.png",
+          "neck": [
+            37,
+            27
+          ]
+        },
+        {
+          "body": "male/walk/NE/06.body.png",
+          "neck": [
+            37,
+            27
+          ]
+        },
+        {
+          "body": "male/walk/NE/07.body.png",
+          "neck": [
+            37,
+            28
+          ]
+        }
+      ],
+      "walk_N": [
+        {
+          "body": "male/walk/N/00.body.png",
+          "neck": [
+            39,
+            28
+          ]
+        },
+        {
+          "body": "male/walk/N/01.body.png",
+          "neck": [
+            39,
+            28
+          ]
+        },
+        {
+          "body": "male/walk/N/02.body.png",
+          "neck": [
+            40,
+            28
+          ]
+        },
+        {
+          "body": "male/walk/N/03.body.png",
+          "neck": [
+            40,
+            28
+          ]
+        },
+        {
+          "body": "male/walk/N/04.body.png",
+          "neck": [
+            39,
+            28
+          ]
+        },
+        {
+          "body": "male/walk/N/05.body.png",
+          "neck": [
+            39,
+            28
+          ]
+        },
+        {
+          "body": "male/walk/N/06.body.png",
+          "neck": [
+            39,
+            28
+          ]
+        },
+        {
+          "body": "male/walk/N/07.body.png",
+          "neck": [
+            38,
+            28
+          ]
+        }
+      ],
+      "walk_NW": [
+        {
+          "body": "male/walk/NW/00.body.png",
+          "neck": [
+            42,
+            27
+          ]
+        },
+        {
+          "body": "male/walk/NW/01.body.png",
+          "neck": [
+            41,
+            27
+          ]
+        },
+        {
+          "body": "male/walk/NW/02.body.png",
+          "neck": [
+            42,
+            27
+          ]
+        },
+        {
+          "body": "male/walk/NW/03.body.png",
+          "neck": [
+            41,
+            27
+          ]
+        },
+        {
+          "body": "male/walk/NW/04.body.png",
+          "neck": [
+            41,
+            27
+          ]
+        },
+        {
+          "body": "male/walk/NW/05.body.png",
+          "neck": [
+            42,
+            27
+          ]
+        },
+        {
+          "body": "male/walk/NW/06.body.png",
+          "neck": [
+            42,
+            27
+          ]
+        },
+        {
+          "body": "male/walk/NW/07.body.png",
+          "neck": [
+            42,
+            28
+          ]
+        }
+      ],
+      "walk_W": [
+        {
+          "body": "male/walk/W/00.body.png",
+          "neck": [
+            41,
+            30
+          ]
+        },
+        {
+          "body": "male/walk/W/01.body.png",
+          "neck": [
+            39,
+            30
+          ]
+        },
+        {
+          "body": "male/walk/W/02.body.png",
+          "neck": [
+            39,
+            29
+          ]
+        },
+        {
+          "body": "male/walk/W/03.body.png",
+          "neck": [
+            39,
+            29
+          ]
+        },
+        {
+          "body": "male/walk/W/04.body.png",
+          "neck": [
+            39,
+            29
+          ]
+        },
+        {
+          "body": "male/walk/W/05.body.png",
+          "neck": [
+            39,
+            29
+          ]
+        },
+        {
+          "body": "male/walk/W/06.body.png",
+          "neck": [
+            39,
+            29
+          ]
+        },
+        {
+          "body": "male/walk/W/07.body.png",
+          "neck": [
+            40,
+            29
+          ]
+        }
+      ],
+      "walk_SW": [
+        {
+          "body": "male/walk/SW/00.body.png",
+          "neck": [
+            40,
+            30
+          ]
+        },
+        {
+          "body": "male/walk/SW/01.body.png",
+          "neck": [
+            41,
+            29
+          ]
+        },
+        {
+          "body": "male/walk/SW/02.body.png",
+          "neck": [
+            40,
+            29
+          ]
+        },
+        {
+          "body": "male/walk/SW/03.body.png",
+          "neck": [
+            41,
+            29
+          ]
+        },
+        {
+          "body": "male/walk/SW/04.body.png",
+          "neck": [
+            40,
+            29
+          ]
+        },
+        {
+          "body": "male/walk/SW/05.body.png",
+          "neck": [
+            38,
+            29
+          ]
+        },
+        {
+          "body": "male/walk/SW/06.body.png",
+          "neck": [
+            40,
+            29
+          ]
+        },
+        {
+          "body": "male/walk/SW/07.body.png",
+          "neck": [
+            38,
+            29
+          ]
+        }
+      ],
+      "run_S": [
+        {
+          "body": "male/run/S/00.body.png",
+          "neck": [
+            41,
+            32
+          ]
+        },
+        {
+          "body": "male/run/S/01.body.png",
+          "neck": [
+            41,
+            32
+          ]
+        },
+        {
+          "body": "male/run/S/02.body.png",
+          "neck": [
+            41,
+            31
+          ]
+        },
+        {
+          "body": "male/run/S/03.body.png",
+          "neck": [
+            39,
+            32
+          ]
+        },
+        {
+          "body": "male/run/S/04.body.png",
+          "neck": [
+            38,
+            31
+          ]
+        },
+        {
+          "body": "male/run/S/05.body.png",
+          "neck": [
+            39,
+            31
+          ]
+        },
+        {
+          "body": "male/run/S/06.body.png",
+          "neck": [
+            38,
+            31
+          ]
+        },
+        {
+          "body": "male/run/S/07.body.png",
+          "neck": [
+            39,
+            32
+          ]
+        }
+      ],
+      "run_SE": [
+        {
+          "body": "male/run/SE/00.body.png",
+          "neck": [
+            36,
+            32
+          ]
+        },
+        {
+          "body": "male/run/SE/01.body.png",
+          "neck": [
+            39,
+            31
+          ]
+        },
+        {
+          "body": "male/run/SE/02.body.png",
+          "neck": [
+            40,
+            30
+          ]
+        },
+        {
+          "body": "male/run/SE/03.body.png",
+          "neck": [
+            40,
+            32
+          ]
+        },
+        {
+          "body": "male/run/SE/04.body.png",
+          "neck": [
+            38,
+            31
+          ]
+        },
+        {
+          "body": "male/run/SE/05.body.png",
+          "neck": [
+            36,
+            30
+          ]
+        },
+        {
+          "body": "male/run/SE/06.body.png",
+          "neck": [
+            41,
+            31
+          ]
+        },
+        {
+          "body": "male/run/SE/07.body.png",
+          "neck": [
+            37,
+            32
+          ]
+        }
+      ],
+      "run_E": [
+        {
+          "body": "male/run/E/00.body.png",
+          "neck": [
+            41,
+            30
+          ]
+        },
+        {
+          "body": "male/run/E/01.body.png",
+          "neck": [
+            41,
+            29
+          ]
+        },
+        {
+          "body": "male/run/E/02.body.png",
+          "neck": [
+            39,
+            29
+          ]
+        },
+        {
+          "body": "male/run/E/03.body.png",
+          "neck": [
+            42,
+            31
+          ]
+        },
+        {
+          "body": "male/run/E/04.body.png",
+          "neck": [
+            39,
+            31
+          ]
+        },
+        {
+          "body": "male/run/E/05.body.png",
+          "neck": [
+            40,
+            29
+          ]
+        },
+        {
+          "body": "male/run/E/06.body.png",
+          "neck": [
+            39,
+            30
+          ]
+        },
+        {
+          "body": "male/run/E/07.body.png",
+          "neck": [
+            41,
+            31
+          ]
+        }
+      ],
+      "run_NE": [
+        {
+          "body": "male/run/NE/00.body.png",
+          "neck": [
+            39,
+            27
+          ]
+        },
+        {
+          "body": "male/run/NE/01.body.png",
+          "neck": [
+            37,
+            28
+          ]
+        },
+        {
+          "body": "male/run/NE/02.body.png",
+          "neck": [
+            39,
+            27
+          ]
+        },
+        {
+          "body": "male/run/NE/03.body.png",
+          "neck": [
+            40,
+            27
+          ]
+        },
+        {
+          "body": "male/run/NE/04.body.png",
+          "neck": [
+            40,
+            27
+          ]
+        },
+        {
+          "body": "male/run/NE/05.body.png",
+          "neck": [
+            38,
+            27
+          ]
+        },
+        {
+          "body": "male/run/NE/06.body.png",
+          "neck": [
+            39,
+            28
+          ]
+        },
+        {
+          "body": "male/run/NE/07.body.png",
+          "neck": [
+            39,
+            27
+          ]
+        }
+      ],
+      "run_N": [
+        {
+          "body": "male/run/N/00.body.png",
+          "neck": [
+            39,
+            28
+          ]
+        },
+        {
+          "body": "male/run/N/01.body.png",
+          "neck": [
+            39,
+            27
+          ]
+        },
+        {
+          "body": "male/run/N/02.body.png",
+          "neck": [
+            40,
+            27
+          ]
+        },
+        {
+          "body": "male/run/N/03.body.png",
+          "neck": [
+            40,
+            27
+          ]
+        },
+        {
+          "body": "male/run/N/04.body.png",
+          "neck": [
+            40,
+            27
+          ]
+        },
+        {
+          "body": "male/run/N/05.body.png",
+          "neck": [
+            39,
+            27
+          ]
+        },
+        {
+          "body": "male/run/N/06.body.png",
+          "neck": [
+            39,
+            27
+          ]
+        },
+        {
+          "body": "male/run/N/07.body.png",
+          "neck": [
+            39,
+            27
+          ]
+        }
+      ],
+      "run_NW": [
+        {
+          "body": "male/run/NW/00.body.png",
+          "neck": [
+            40,
+            27
+          ]
+        },
+        {
+          "body": "male/run/NW/01.body.png",
+          "neck": [
+            42,
+            28
+          ]
+        },
+        {
+          "body": "male/run/NW/02.body.png",
+          "neck": [
+            40,
+            27
+          ]
+        },
+        {
+          "body": "male/run/NW/03.body.png",
+          "neck": [
+            39,
+            27
+          ]
+        },
+        {
+          "body": "male/run/NW/04.body.png",
+          "neck": [
+            39,
+            27
+          ]
+        },
+        {
+          "body": "male/run/NW/05.body.png",
+          "neck": [
+            41,
+            27
+          ]
+        },
+        {
+          "body": "male/run/NW/06.body.png",
+          "neck": [
+            40,
+            28
+          ]
+        },
+        {
+          "body": "male/run/NW/07.body.png",
+          "neck": [
+            40,
+            27
+          ]
+        }
+      ],
+      "run_W": [
+        {
+          "body": "male/run/W/00.body.png",
+          "neck": [
+            38,
+            30
+          ]
+        },
+        {
+          "body": "male/run/W/01.body.png",
+          "neck": [
+            38,
+            29
+          ]
+        },
+        {
+          "body": "male/run/W/02.body.png",
+          "neck": [
+            40,
+            29
+          ]
+        },
+        {
+          "body": "male/run/W/03.body.png",
+          "neck": [
+            37,
+            31
+          ]
+        },
+        {
+          "body": "male/run/W/04.body.png",
+          "neck": [
+            40,
+            31
+          ]
+        },
+        {
+          "body": "male/run/W/05.body.png",
+          "neck": [
+            39,
+            29
+          ]
+        },
+        {
+          "body": "male/run/W/06.body.png",
+          "neck": [
+            40,
+            30
+          ]
+        },
+        {
+          "body": "male/run/W/07.body.png",
+          "neck": [
+            38,
+            31
+          ]
+        }
+      ],
+      "run_SW": [
+        {
+          "body": "male/run/SW/00.body.png",
+          "neck": [
+            43,
+            32
+          ]
+        },
+        {
+          "body": "male/run/SW/01.body.png",
+          "neck": [
+            40,
+            31
+          ]
+        },
+        {
+          "body": "male/run/SW/02.body.png",
+          "neck": [
+            39,
+            30
+          ]
+        },
+        {
+          "body": "male/run/SW/03.body.png",
+          "neck": [
+            39,
+            32
+          ]
+        },
+        {
+          "body": "male/run/SW/04.body.png",
+          "neck": [
+            41,
+            31
+          ]
+        },
+        {
+          "body": "male/run/SW/05.body.png",
+          "neck": [
+            43,
+            30
+          ]
+        },
+        {
+          "body": "male/run/SW/06.body.png",
+          "neck": [
+            38,
+            31
+          ]
+        },
+        {
+          "body": "male/run/SW/07.body.png",
+          "neck": [
+            42,
+            32
+          ]
+        }
+      ]
+    },
+    "female": {
+      "idle_S": [
+        {
+          "body": "female/idle/S/00.body.png",
+          "neck": [
+            36,
+            30
+          ]
+        }
+      ],
+      "idle_SE": [
+        {
+          "body": "female/idle/SE/00.body.png",
+          "neck": [
+            37,
+            29
+          ]
+        }
+      ],
+      "idle_E": [
+        {
+          "body": "female/idle/E/00.body.png",
+          "neck": [
+            38,
+            38
+          ]
+        }
+      ],
+      "idle_NE": [
+        {
+          "body": "female/idle/NE/00.body.png",
+          "neck": [
+            35,
+            32
+          ]
+        }
+      ],
+      "idle_N": [
+        {
+          "body": "female/idle/N/00.body.png",
+          "neck": [
+            39,
+            36
+          ]
+        }
+      ],
+      "idle_NW": [
+        {
+          "body": "female/idle/NW/00.body.png",
+          "neck": [
+            44,
+            32
+          ]
+        }
+      ],
+      "idle_W": [
+        {
+          "body": "female/idle/W/00.body.png",
+          "neck": [
+            41,
+            38
+          ]
+        }
+      ],
+      "idle_SW": [
+        {
+          "body": "female/idle/SW/00.body.png",
+          "neck": [
+            42,
+            29
+          ]
+        }
+      ],
+      "walk_S": [
+        {
+          "body": "female/walk/S/00.body.png",
+          "neck": [
+            40,
+            29
+          ]
+        },
+        {
+          "body": "female/walk/S/01.body.png",
+          "neck": [
+            39,
+            29
+          ]
+        },
+        {
+          "body": "female/walk/S/02.body.png",
+          "neck": [
+            39,
+            28
+          ]
+        },
+        {
+          "body": "female/walk/S/03.body.png",
+          "neck": [
+            39,
+            28
+          ]
+        },
+        {
+          "body": "female/walk/S/04.body.png",
+          "neck": [
+            39,
+            29
+          ]
+        },
+        {
+          "body": "female/walk/S/05.body.png",
+          "neck": [
+            38,
+            30
+          ]
+        },
+        {
+          "body": "female/walk/S/06.body.png",
+          "neck": [
+            38,
+            30
+          ]
+        },
+        {
+          "body": "female/walk/S/07.body.png",
+          "neck": [
+            40,
+            29
+          ]
+        }
+      ],
+      "walk_SE": [
+        {
+          "body": "female/walk/SE/00.body.png",
+          "neck": [
+            39,
+            30
+          ]
+        },
+        {
+          "body": "female/walk/SE/01.body.png",
+          "neck": [
+            39,
+            30
+          ]
+        },
+        {
+          "body": "female/walk/SE/02.body.png",
+          "neck": [
+            39,
+            30
+          ]
+        },
+        {
+          "body": "female/walk/SE/03.body.png",
+          "neck": [
+            38,
+            29
+          ]
+        },
+        {
+          "body": "female/walk/SE/04.body.png",
+          "neck": [
+            38,
+            30
+          ]
+        },
+        {
+          "body": "female/walk/SE/05.body.png",
+          "neck": [
+            40,
+            30
+          ]
+        },
+        {
+          "body": "female/walk/SE/06.body.png",
+          "neck": [
+            41,
+            30
+          ]
+        },
+        {
+          "body": "female/walk/SE/07.body.png",
+          "neck": [
+            40,
+            29
+          ]
+        }
+      ],
+      "walk_E": [
+        {
+          "body": "female/walk/E/00.body.png",
+          "neck": [
+            38,
+            29
+          ]
+        },
+        {
+          "body": "female/walk/E/01.body.png",
+          "neck": [
+            43,
+            39
+          ]
+        },
+        {
+          "body": "female/walk/E/02.body.png",
+          "neck": [
+            39,
+            29
+          ]
+        },
+        {
+          "body": "female/walk/E/03.body.png",
+          "neck": [
+            42,
+            38
+          ]
+        },
+        {
+          "body": "female/walk/E/04.body.png",
+          "neck": [
+            42,
+            38
+          ]
+        },
+        {
+          "body": "female/walk/E/05.body.png",
+          "neck": [
+            42,
+            38
+          ]
+        },
+        {
+          "body": "female/walk/E/06.body.png",
+          "neck": [
+            43,
+            38
+          ]
+        },
+        {
+          "body": "female/walk/E/07.body.png",
+          "neck": [
+            39,
+            28
+          ]
+        }
+      ],
+      "walk_NE": [
+        {
+          "body": "female/walk/NE/00.body.png",
+          "neck": [
+            38,
+            38
+          ]
+        },
+        {
+          "body": "female/walk/NE/01.body.png",
+          "neck": [
+            36,
+            37
+          ]
+        },
+        {
+          "body": "female/walk/NE/02.body.png",
+          "neck": [
+            39,
+            37
+          ]
+        },
+        {
+          "body": "female/walk/NE/03.body.png",
+          "neck": [
+            38,
+            37
+          ]
+        },
+        {
+          "body": "female/walk/NE/04.body.png",
+          "neck": [
+            38,
+            27
+          ]
+        },
+        {
+          "body": "female/walk/NE/05.body.png",
+          "neck": [
+            37,
+            38
+          ]
+        },
+        {
+          "body": "female/walk/NE/06.body.png",
+          "neck": [
+            38,
+            27
+          ]
+        },
+        {
+          "body": "female/walk/NE/07.body.png",
+          "neck": [
+            35,
+            37
+          ]
+        }
+      ],
+      "walk_N": [
+        {
+          "body": "female/walk/N/00.body.png",
+          "neck": [
+            41,
+            39
+          ]
+        },
+        {
+          "body": "female/walk/N/01.body.png",
+          "neck": [
+            40,
+            39
+          ]
+        },
+        {
+          "body": "female/walk/N/02.body.png",
+          "neck": [
+            43,
+            38
+          ]
+        },
+        {
+          "body": "female/walk/N/03.body.png",
+          "neck": [
+            42,
+            39
+          ]
+        },
+        {
+          "body": "female/walk/N/04.body.png",
+          "neck": [
+            40,
+            38
+          ]
+        },
+        {
+          "body": "female/walk/N/05.body.png",
+          "neck": [
+            36,
+            38
+          ]
+        },
+        {
+          "body": "female/walk/N/06.body.png",
+          "neck": [
+            33,
+            38
+          ]
+        },
+        {
+          "body": "female/walk/N/07.body.png",
+          "neck": [
+            36,
+            39
+          ]
+        }
+      ],
+      "walk_NW": [
+        {
+          "body": "female/walk/NW/00.body.png",
+          "neck": [
+            41,
+            38
+          ]
+        },
+        {
+          "body": "female/walk/NW/01.body.png",
+          "neck": [
+            43,
+            37
+          ]
+        },
+        {
+          "body": "female/walk/NW/02.body.png",
+          "neck": [
+            40,
+            37
+          ]
+        },
+        {
+          "body": "female/walk/NW/03.body.png",
+          "neck": [
+            41,
+            37
+          ]
+        },
+        {
+          "body": "female/walk/NW/04.body.png",
+          "neck": [
+            41,
+            27
+          ]
+        },
+        {
+          "body": "female/walk/NW/05.body.png",
+          "neck": [
+            42,
+            38
+          ]
+        },
+        {
+          "body": "female/walk/NW/06.body.png",
+          "neck": [
+            41,
+            27
+          ]
+        },
+        {
+          "body": "female/walk/NW/07.body.png",
+          "neck": [
+            44,
+            37
+          ]
+        }
+      ],
+      "walk_W": [
+        {
+          "body": "female/walk/W/00.body.png",
+          "neck": [
+            41,
+            29
+          ]
+        },
+        {
+          "body": "female/walk/W/01.body.png",
+          "neck": [
+            36,
+            39
+          ]
+        },
+        {
+          "body": "female/walk/W/02.body.png",
+          "neck": [
+            40,
+            29
+          ]
+        },
+        {
+          "body": "female/walk/W/03.body.png",
+          "neck": [
+            37,
+            38
+          ]
+        },
+        {
+          "body": "female/walk/W/04.body.png",
+          "neck": [
+            37,
+            38
+          ]
+        },
+        {
+          "body": "female/walk/W/05.body.png",
+          "neck": [
+            37,
+            38
+          ]
+        },
+        {
+          "body": "female/walk/W/06.body.png",
+          "neck": [
+            36,
+            38
+          ]
+        },
+        {
+          "body": "female/walk/W/07.body.png",
+          "neck": [
+            40,
+            28
+          ]
+        }
+      ],
+      "walk_SW": [
+        {
+          "body": "female/walk/SW/00.body.png",
+          "neck": [
+            40,
+            30
+          ]
+        },
+        {
+          "body": "female/walk/SW/01.body.png",
+          "neck": [
+            40,
+            30
+          ]
+        },
+        {
+          "body": "female/walk/SW/02.body.png",
+          "neck": [
+            40,
+            30
+          ]
+        },
+        {
+          "body": "female/walk/SW/03.body.png",
+          "neck": [
+            41,
+            29
+          ]
+        },
+        {
+          "body": "female/walk/SW/04.body.png",
+          "neck": [
+            41,
+            30
+          ]
+        },
+        {
+          "body": "female/walk/SW/05.body.png",
+          "neck": [
+            39,
+            30
+          ]
+        },
+        {
+          "body": "female/walk/SW/06.body.png",
+          "neck": [
+            38,
+            30
+          ]
+        },
+        {
+          "body": "female/walk/SW/07.body.png",
+          "neck": [
+            39,
+            29
+          ]
+        }
+      ],
+      "run_S": [
+        {
+          "body": "female/run/S/00.body.png",
+          "neck": [
+            39,
+            33
+          ]
+        },
+        {
+          "body": "female/run/S/01.body.png",
+          "neck": [
+            38,
+            32
+          ]
+        },
+        {
+          "body": "female/run/S/02.body.png",
+          "neck": [
+            40,
+            33
+          ]
+        },
+        {
+          "body": "female/run/S/03.body.png",
+          "neck": [
+            39,
+            33
+          ]
+        },
+        {
+          "body": "female/run/S/04.body.png",
+          "neck": [
+            40,
+            33
+          ]
+        },
+        {
+          "body": "female/run/S/05.body.png",
+          "neck": [
+            39,
+            32
+          ]
+        },
+        {
+          "body": "female/run/S/06.body.png",
+          "neck": [
+            39,
+            32
+          ]
+        },
+        {
+          "body": "female/run/S/07.body.png",
+          "neck": [
+            39,
+            33
+          ]
+        }
+      ],
+      "run_SE": [
+        {
+          "body": "female/run/SE/00.body.png",
+          "neck": [
+            39,
+            32
+          ]
+        },
+        {
+          "body": "female/run/SE/01.body.png",
+          "neck": [
+            38,
+            39
+          ]
+        },
+        {
+          "body": "female/run/SE/02.body.png",
+          "neck": [
+            39,
+            31
+          ]
+        },
+        {
+          "body": "female/run/SE/03.body.png",
+          "neck": [
+            42,
+            34
+          ]
+        },
+        {
+          "body": "female/run/SE/04.body.png",
+          "neck": [
+            38,
+            31
+          ]
+        },
+        {
+          "body": "female/run/SE/05.body.png",
+          "neck": [
+            38,
+            36
+          ]
+        },
+        {
+          "body": "female/run/SE/06.body.png",
+          "neck": [
+            38,
+            31
+          ]
+        },
+        {
+          "body": "female/run/SE/07.body.png",
+          "neck": [
+            38,
+            32
+          ]
+        }
+      ],
+      "run_E": [
+        {
+          "body": "female/run/E/00.body.png",
+          "neck": [
+            39,
+            32
+          ]
+        },
+        {
+          "body": "female/run/E/01.body.png",
+          "neck": [
+            35,
+            38
+          ]
+        },
+        {
+          "body": "female/run/E/02.body.png",
+          "neck": [
+            39,
+            39
+          ]
+        },
+        {
+          "body": "female/run/E/03.body.png",
+          "neck": [
+            40,
+            40
+          ]
+        },
+        {
+          "body": "female/run/E/04.body.png",
+          "neck": [
+            39,
+            38
+          ]
+        },
+        {
+          "body": "female/run/E/05.body.png",
+          "neck": [
+            39,
+            39
+          ]
+        },
+        {
+          "body": "female/run/E/06.body.png",
+          "neck": [
+            38,
+            40
+          ]
+        },
+        {
+          "body": "female/run/E/07.body.png",
+          "neck": [
+            39,
+            39
+          ]
+        }
+      ],
+      "run_NE": [
+        {
+          "body": "female/run/NE/00.body.png",
+          "neck": [
+            40,
+            29
+          ]
+        },
+        {
+          "body": "female/run/NE/01.body.png",
+          "neck": [
+            42,
+            38
+          ]
+        },
+        {
+          "body": "female/run/NE/02.body.png",
+          "neck": [
+            39,
+            29
+          ]
+        },
+        {
+          "body": "female/run/NE/03.body.png",
+          "neck": [
+            39,
+            29
+          ]
+        },
+        {
+          "body": "female/run/NE/04.body.png",
+          "neck": [
+            40,
+            28
+          ]
+        },
+        {
+          "body": "female/run/NE/05.body.png",
+          "neck": [
+            37,
+            39
+          ]
+        },
+        {
+          "body": "female/run/NE/06.body.png",
+          "neck": [
+            37,
+            38
+          ]
+        },
+        {
+          "body": "female/run/NE/07.body.png",
+          "neck": [
+            42,
+            30
+          ]
+        }
+      ],
+      "run_N": [
+        {
+          "body": "female/run/N/00.body.png",
+          "neck": [
+            41,
+            40
+          ]
+        },
+        {
+          "body": "female/run/N/01.body.png",
+          "neck": [
+            34,
+            38
+          ]
+        },
+        {
+          "body": "female/run/N/02.body.png",
+          "neck": [
+            34,
+            40
+          ]
+        },
+        {
+          "body": "female/run/N/03.body.png",
+          "neck": [
+            38,
+            43
+          ]
+        },
+        {
+          "body": "female/run/N/04.body.png",
+          "neck": [
+            42,
+            40
+          ]
+        },
+        {
+          "body": "female/run/N/05.body.png",
+          "neck": [
+            41,
+            39
+          ]
+        },
+        {
+          "body": "female/run/N/06.body.png",
+          "neck": [
+            42,
+            41
+          ]
+        },
+        {
+          "body": "female/run/N/07.body.png",
+          "neck": [
+            42,
+            40
+          ]
+        }
+      ],
+      "run_NW": [
+        {
+          "body": "female/run/NW/00.body.png",
+          "neck": [
+            39,
+            29
+          ]
+        },
+        {
+          "body": "female/run/NW/01.body.png",
+          "neck": [
+            37,
+            38
+          ]
+        },
+        {
+          "body": "female/run/NW/02.body.png",
+          "neck": [
+            40,
+            29
+          ]
+        },
+        {
+          "body": "female/run/NW/03.body.png",
+          "neck": [
+            40,
+            29
+          ]
+        },
+        {
+          "body": "female/run/NW/04.body.png",
+          "neck": [
+            39,
+            28
+          ]
+        },
+        {
+          "body": "female/run/NW/05.body.png",
+          "neck": [
+            42,
+            39
+          ]
+        },
+        {
+          "body": "female/run/NW/06.body.png",
+          "neck": [
+            42,
+            38
+          ]
+        },
+        {
+          "body": "female/run/NW/07.body.png",
+          "neck": [
+            37,
+            30
+          ]
+        }
+      ],
+      "run_W": [
+        {
+          "body": "female/run/W/00.body.png",
+          "neck": [
+            40,
+            32
+          ]
+        },
+        {
+          "body": "female/run/W/01.body.png",
+          "neck": [
+            44,
+            38
+          ]
+        },
+        {
+          "body": "female/run/W/02.body.png",
+          "neck": [
+            40,
+            39
+          ]
+        },
+        {
+          "body": "female/run/W/03.body.png",
+          "neck": [
+            39,
+            40
+          ]
+        },
+        {
+          "body": "female/run/W/04.body.png",
+          "neck": [
+            40,
+            38
+          ]
+        },
+        {
+          "body": "female/run/W/05.body.png",
+          "neck": [
+            40,
+            39
+          ]
+        },
+        {
+          "body": "female/run/W/06.body.png",
+          "neck": [
+            41,
+            40
+          ]
+        },
+        {
+          "body": "female/run/W/07.body.png",
+          "neck": [
+            40,
+            39
+          ]
+        }
+      ],
+      "run_SW": [
+        {
+          "body": "female/run/SW/00.body.png",
+          "neck": [
+            40,
+            32
+          ]
+        },
+        {
+          "body": "female/run/SW/01.body.png",
+          "neck": [
+            41,
+            39
+          ]
+        },
+        {
+          "body": "female/run/SW/02.body.png",
+          "neck": [
+            40,
+            31
+          ]
+        },
+        {
+          "body": "female/run/SW/03.body.png",
+          "neck": [
+            37,
+            34
+          ]
+        },
+        {
+          "body": "female/run/SW/04.body.png",
+          "neck": [
+            41,
+            31
+          ]
+        },
+        {
+          "body": "female/run/SW/05.body.png",
+          "neck": [
+            41,
+            36
+          ]
+        },
+        {
+          "body": "female/run/SW/06.body.png",
+          "neck": [
+            41,
+            31
+          ]
+        },
+        {
+          "body": "female/run/SW/07.body.png",
+          "neck": [
+            41,
+            32
+          ]
+        }
+      ]
+    }
+  },
+  "heads": [
+    {
+      "id": "m-elf1",
+      "sex": "male",
+      "directions": 8
+    },
+    {
+      "id": "m-beast1",
+      "sex": "male",
+      "directions": 8
+    },
+    {
+      "id": "m-human1",
+      "sex": "male",
+      "directions": 8
+    },
+    {
+      "id": "m-demon1",
+      "sex": "male",
+      "directions": 8
+    },
+    {
+      "id": "m-human2",
+      "sex": "male",
+      "directions": 8
+    },
+    {
+      "id": "m-human3",
+      "sex": "male",
+      "directions": 8
+    },
+    {
+      "id": "m-elf2",
+      "sex": "male",
+      "directions": 8
+    },
+    {
+      "id": "m-elf3",
+      "sex": "male",
+      "directions": 8
+    },
+    {
+      "id": "m-demon2",
+      "sex": "male",
+      "directions": 8
+    },
+    {
+      "id": "m-demon3",
+      "sex": "male",
+      "directions": 8
+    },
+    {
+      "id": "m-beast2",
+      "sex": "male",
+      "directions": 8
+    },
+    {
+      "id": "m-beast3",
+      "sex": "male",
+      "directions": 8
+    },
+    {
+      "id": "m-dragon1",
+      "sex": "male",
+      "directions": 8
+    },
+    {
+      "id": "m-dragon2",
+      "sex": "male",
+      "directions": 8
+    },
+    {
+      "id": "m-dragon3",
+      "sex": "male",
+      "directions": 8
+    },
+    {
+      "id": "f-human1",
+      "sex": "female",
+      "directions": 8
+    },
+    {
+      "id": "f-human2",
+      "sex": "female",
+      "directions": 8
+    },
+    {
+      "id": "f-human3",
+      "sex": "female",
+      "directions": 8
+    },
+    {
+      "id": "f-elf1",
+      "sex": "female",
+      "directions": 8
+    },
+    {
+      "id": "f-elf2",
+      "sex": "female",
+      "directions": 8
+    },
+    {
+      "id": "f-beast1",
+      "sex": "female",
+      "directions": 8
+    },
+    {
+      "id": "f-beast2",
+      "sex": "female",
+      "directions": 8
+    },
+    {
+      "id": "f-demon1",
+      "sex": "female",
+      "directions": 8
+    },
+    {
+      "id": "f-demon2",
+      "sex": "female",
+      "directions": 8
+    }
+  ]
+}

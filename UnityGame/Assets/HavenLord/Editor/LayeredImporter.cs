@@ -76,7 +76,7 @@ namespace HavenLord.Importer
                 var cells = Sheet(sampleDir, folder, b.sheet, "c" + b.id + "_", cellSize, json.cell.columns, cellPivot);
                 Sprite C(int i) => i >= 0 && cells.TryGetValue(i, out var s) ? s : null;
                 Sprite H(int i) => i >= 0 && headSprites.TryGetValue(i, out var s) ? s : null;
-                var body = new LayeredBody { id = b.id, gender = b.gender, nativeHead = b.nativeHead };
+                var body = new LayeredBody { id = b.id, gender = b.gender, mould = b.mould, nativeHead = b.nativeHead };
                 foreach (var kv in b.clips)
                 {
                     var frames = new LayeredFrame[kv.Value.Count];
@@ -85,7 +85,7 @@ namespace HavenLord.Importer
                         var f = kv.Value[i];
                         frames[i] = new LayeredFrame
                         {
-                            body = C(f.body), front = C(f.front), hand = C(f.hand), weapon = C(f.weapon), weaponBehind = f.weaponBehind,
+                            body = C(f.body), front = C(f.front), hand = C(f.hand), weapon = C(f.weapon), weaponBehind = f.weaponBehind, weaponMid = C(f.weaponMid),
                             head = H(f.head), hairBack = H(f.hairBack), neck = new Vector2Int(f.neck[0], f.neck[1]), chin = f.chin != null ? new Vector2Int(f.chin[0], f.chin[1]) : new Vector2Int(f.neck[0], f.neck[1]), ms = f.ms, hit = f.@event == "hit",
                         };
                     }
@@ -105,7 +105,7 @@ namespace HavenLord.Importer
                     hairLong = r.hairLong >= 0 && longSprites.TryGetValue(r.hairLong, out var l) ? l : null,
                     hairLongFront = r.hairLongFront,
                 };
-                var head = new LayeredHead { id = h.id, gender = h.gender, label = h.label };
+                var head = new LayeredHead { id = h.id, gender = h.gender, mould = h.mould, label = h.label };
                 foreach (var kv in h.dirs)
                     if (Dir8Util.TryParse(kv.Key, out var d)) head.dirs[(int)d] = F(kv.Value);
                 foreach (var kv in h.clips) head.clips.Add(new LayeredHeadClip { name = kv.Key, frames = kv.Value.ConvertAll(F).ToArray() });
@@ -170,6 +170,7 @@ namespace HavenLord.Importer
         {
             public string id;
             public string gender;
+            public string mould;
             public string nativeHead;
             public string sheet;
             public Dictionary<string, List<FrameJson>> clips = new Dictionary<string, List<FrameJson>>();
@@ -177,7 +178,7 @@ namespace HavenLord.Importer
 
         private sealed class FrameJson
         {
-            public int body = -1, front = -1, hand = -1, weapon = -1, head = -1, hairBack = -1;
+            public int body = -1, front = -1, hand = -1, weapon = -1, weaponMid = -1, head = -1, hairBack = -1;
             public bool weaponBehind;
             public int[] neck;
             public int[] chin;
@@ -189,6 +190,7 @@ namespace HavenLord.Importer
         {
             public string id;
             public string gender;
+            public string mould;
             public string label;
             public Dictionary<string, HeadRefJson> dirs = new Dictionary<string, HeadRefJson>();
             public Dictionary<string, List<HeadRefJson>> clips = new Dictionary<string, List<HeadRefJson>>();

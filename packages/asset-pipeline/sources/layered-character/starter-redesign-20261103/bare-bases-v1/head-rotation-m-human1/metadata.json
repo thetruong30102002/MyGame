@@ -1,0 +1,36 @@
+{
+  "group_id": "6e276625-bad1-481d-a6a7-4ebb838e4177",
+  "states": [
+    {
+      "character": {
+        "id": "f72b4416-63be-496a-bea2-18782fb4440e",
+        "name": "Idle",
+        "prompt": "Same adult male as exact reference, chestnut short tousled hair, normal human ears and warm skin. Plain dark blue underwear briefs. Preserve exact 80px canvas, 73px height, skull size, short neck, body, original anime pixel clusters and pose across all 8 directions. No robe, collar, weapon or accessories.",
+        "size": {
+          "width": 80,
+          "height": 80
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-11-03T16:08:59.016023+00:00"
+      },
+      "folder": "Idle",
+      "frames": {
+        "rotations": {
+          "south": "Idle/rotations/south.png",
+          "south-east": "Idle/rotations/south-east.png",
+          "east": "Idle/rotations/east.png",
+          "north-east": "Idle/rotations/north-east.png",
+          "north": "Idle/rotations/north.png",
+          "north-west": "Idle/rotations/north-west.png",
+          "west": "Idle/rotations/west.png",
+          "south-west": "Idle/rotations/south-west.png"
+        },
+        "animations": {}
+      }
+    }
+  ],
+  "export_version": "3.1",
+  "export_date": "2026-11-03T16:11:23.978026"
+}

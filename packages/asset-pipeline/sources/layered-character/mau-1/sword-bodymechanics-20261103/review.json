@@ -1,0 +1,11 @@
+{
+  "artApproved": false,
+  "status": "rejected",
+  "reasons": [
+    "Nhân vật xoay từ N qua nghiêng tới mặt trước; sai hướng đánh cố định.",
+    "Frame 11 không nhìn thấy kiếm trong khi tay cầm lộ ra; grip không liên tục.",
+    "Kết thúc chân bè và đổi mặt, không hồi thế về ảnh nguồn.",
+    "Chưa tách kiếm, không đủ điều kiện đưa vào game."
+  ],
+  "nextTrial": "sword-bodymechanics-v2-20261103: khóa ảnh kết thúc, yêu cầu lưng luôn hướng camera; không dùng bộ xương cũ."
+}

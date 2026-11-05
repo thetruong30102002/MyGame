@@ -20,7 +20,7 @@ import { blit, cloneImage, createImage, encodePng, readPng, writePng, type RGBAI
 import { callWhenFree, waitCharacter, waitImages } from '../pixellab/jobs.js';
 import { estimateSkeleton, type Keypoint } from '../pixellab/skeleton.js';
 import { buildSlash, mirrorSpecToNorth, padKeypoints, type SlashSpec } from './slashSkeleton.js';
-import { BASIC_BOW, BASIC_SHIELD, BASIC_SPEAR, BASIC_STAFF, BASIC_SWORD, drawWeapon, nearestAngle, type WeaponDesign } from './weapon.js';
+import { BASIC_BOW, BASIC_SHIELD, BASIC_SPEAR, BASIC_STAFF, BASIC_SWORD, BOW_BACK, drawWeapon, nearestAngle, SHIELD_BACK, SPEAR_BACK, STAFF_BACK, SWORD_BACK, type WeaponDesign } from './weapon.js';
 import { extractJobId, padCenter } from '../vfx/pixellabVfx.js';
 import { PixelLabMcp } from '../pixellab/mcp.js';
 import { downloadPixelLab, PixelLabSource } from '../pixellab/source.js';
@@ -222,7 +222,11 @@ async function run(sample: string, stageId: string, itemId: string, yes: boolean
 		// Sửa CHÍNH ảnh mẫu phong cách (giữ nét anime) — mỗi seed một bản; cạnh bội 4 theo yêu cầu công cụ (đệm trong suốt, không scale).
 		let src: RGBAImage;
 		if (item.sourceItem && (item.sourcePick === null || item.sourcePick === undefined)) throw new Error(`${item.id}: chủ dự án chưa chọn bản nguồn từ ${item.sourceItem} (điền "sourcePick" trong plan.json)`);
-		if (item.sourceRotation) src = rotationImage(sample, item.sourceRotation.item, item.sourceRotation.dir, std);
+		if (item.sourceGuide) {
+			// Khung hình học vũ khí (lệnh weapon-guides) — dựng lại mỗi lần chạy từ điểm gắn hiện hành.
+			const [attack, view] = item.sourceGuide.split('/') as [string, string];
+			src = weaponGuide(attack, view);
+		} else if (item.sourceRotation) src = rotationImage(sample, item.sourceRotation.item, item.sourceRotation.dir, std);
 		else if (item.sourceItem) src = readPng(join(rawDir, item.sourceItem, `seed-${item.sourcePick}.png`));
 		else {
 			const [charId, frame] = std.style.reference[item.source!].split('/') as [string, string];
@@ -238,6 +242,52 @@ async function run(sample: string, stageId: string, itemId: string, yes: boolean
 			jobIds.push(jobId);
 			const [img] = await waitImages(mcp, jobId, 1);
 			writePng(join(rawDir, item.id, `seed-${seed}.png`), img!);
+			console.log(`  ✔ bản seed ${seed} → raw/${item.id}/seed-${seed}.png`);
+		}
+		const after = await remaining(mcp);
+		const rec: JobRecord = { item: item.id, tool: item.tool, characterId: '', jobIds, estimate: item.estimate, actual: before - after, balanceBefore: before, balanceAfter: after, at: new Date().toISOString() };
+		writeLedger(sample, [...readLedger(sample).filter((j) => j.item !== item.id || j.rejected), rec]);
+		console.log(`✔ ${item.id}: thật ${rec.actual} lượt (dự tính ${item.estimate}), còn ${after}`);
+		if (((rec.actual! - item.estimate) / item.estimate) * 100 > std.budget.stopIfOverEstimatePct) throw new Error('DỪNG: vượt dự tính quá ngưỡng');
+		return;
+	}
+	if (item.tool === 'inpaint_image_pro_flash') {
+		// Vũ khí đeo lưng: vẽ trong hình khung (mặt nạ = khung nở 1px, trắng = vẽ), ảnh mẫu kiểu dáng là tranh đã chọn của hướng khác.
+		const [attack, dir] = item.sourceGuide!.split('/') as [string, string];
+		const guide = weaponGuide(attack, dir);
+		const mask = createImage(guide.width, guide.height);
+		for (let y = 0; y < guide.height; y += 1)
+			for (let x = 0; x < guide.width; x += 1) {
+				const near = [[0, 0], [1, 0], [-1, 0], [0, 1], [0, -1]].some(([dx, dy]) => {
+					const [xx, yy] = [x + dx!, y + dy!];
+					return xx >= 0 && yy >= 0 && xx < guide.width && yy < guide.height && guide.data[(yy * guide.width + xx) * 4 + 3] !== 0;
+				});
+				const v = near ? 255 : 0;
+				mask.data.set([v, v, v, 255], (y * guide.width + x) * 4);
+			}
+		const [refItem, refSeed] = item.styleRef!.split('#') as [string, string];
+		const ref = readPng(join(rawDir, refItem, `seed-${refSeed}.png`));
+		const pair = createImage(ref.width + guide.width, Math.max(ref.height, guide.height));
+		blit(pair, ref, 0, 0);
+		blit(pair, guide, ref.width, 0);
+		const outDir = join(rawDir, item.id);
+		mkdirSync(outDir, { recursive: true });
+		writePng(join(outDir, 'source.png'), guide);
+		writePng(join(outDir, 'mask.png'), mask);
+		const description = String(itemArgs(item, std).description ?? item.weapon);
+		const jobIds: string[] = [];
+		for (const seed of item.seeds!) {
+			const text = await callWhenFree(mcp, item.tool, {
+				description, image_base64: encodePng(guide).toString('base64'), mask_image_base64: encodePng(mask).toString('base64'), no_background: true, seed,
+				// Ảnh ngữ cảnh phải CHỨA ảnh nguồn (bounding_box): ghép [kiếm mẫu | khung cần vẽ].
+				context_image: { base64: encodePng(pair).toString('base64'), usage_description: 'the left item is the reference: draw exactly this same sword design, colors and pixel style' },
+				bounding_box: { x: ref.width, y: 0, width: guide.width, height: guide.height },
+			});
+			const jobId = extractJobId(text);
+			if (!jobId) throw new Error(`Không đọc được job: ${text.slice(0, 300)}`);
+			jobIds.push(jobId);
+			const [img] = await waitImages(mcp, jobId, 1);
+			writePng(join(outDir, `seed-${seed}.png`), img!);
 			console.log(`  ✔ bản seed ${seed} → raw/${item.id}/seed-${seed}.png`);
 		}
 		const after = await remaining(mcp);
@@ -378,7 +428,14 @@ function splitHaired(cell: RGBAImage, baldCell: RGBAImage, nearY: number, d: Dir
 		if (fixedNeck) throw new Error('neo theo thân nền');
 		m = measureNeck(cell, { nearY });
 	} catch {
-		const bm = measureNeck(baldCell, { nearY });
+		// Thân nền trọc: đo "từ vai lên" quanh nearY; không thấy vai (thân nữ cỡ NPC hướng E — vai nghiêng hẹp, 05/11) thì lấy phép đo từ đỉnh
+		// đầu xuống của chính thân nền (cùng ảnh nearY đã dùng).
+		let bm: NeckMeasure;
+		try {
+			bm = measureNeck(baldCell, { nearY });
+		} catch {
+			bm = measureNeck(baldCell);
+		}
 		const [dx, dy] = torsoShift(baldCell, cell, bm.neck[1] + 3);
 		const sh = shiftCut(bm, dx, dy);
 		m = { ...bm, ...sh, headTopY: headTopAt(cell, sh.neck[0], sh.neck[1]) };
@@ -429,7 +486,9 @@ function largestComponent(d: Uint8Array | Uint8ClampedArray, w: number, h: numbe
 const isSkin = (d: Uint8Array | Uint8ClampedArray, i: number): boolean => {
 	if (!d[i + 3]) return false;
 	const [r, g, b] = [d[i]!, d[i + 1]!, d[i + 2]!];
-	return r >= 140 && g >= 80 && b >= 55 && r - g >= 40 && r - g <= 80 && g - b >= 15 && g - b <= 55;
+	// Da rất sáng (thân nữ cỡ NPC 05/11: (250, 211, 179) có r − g = 39) vẫn là da — trước đây bị tưởng là vải áo nên viền cằm tụt xuống cổ không bị
+	// cắt, thành vệt đen ngang cổ.
+	return r >= 140 && g >= 80 && b >= 55 && r - g >= (r >= 230 ? 30 : 40) && r - g <= 80 && g - b >= 15 && g - b <= 55;
 };
 const isDark = (d: Uint8Array | Uint8ClampedArray, i: number): boolean => d[i + 3] !== 0 && d[i]! + d[i + 1]! + d[i + 2]! < 200;
 
@@ -1938,44 +1997,59 @@ function exportUnity(sample: string, std: LayeredStandard): void {
 	const [hw, hh] = std.head.canvas;
 	const heads = new GridSheet(hw, hh, 16);
 	const hairs = new GridSheet(LONG_HAIR_CANVAS[0], LONG_HAIR_CANVAS[1], 16);
-	type FrameOut = { body: number; front: number; hand: number; weapon: number; weaponBehind?: boolean; neck: Point; chin: Point; ms: number; head: number; hairBack: number; event?: string };
-	const outBodies: Array<{ id: string; gender: string; nativeHead: string; sheet: string; clips: Record<string, FrameOut[]> }> = [];
+	type FrameOut = { body: number; front: number; hand: number; weapon: number; weaponBehind?: boolean; weaponMid?: number; neck: Point; chin: Point; ms: number; head: number; hairBack: number; event?: string };
+	const outBodies: Array<{ id: string; gender: string; mould?: string; nativeHead: string; sheet: string; clips: Record<string, FrameOut[]> }> = [];
 	const outDir = join(REPO, 'assets', 'layered', sample);
 	mkdirSync(outDir, { recursive: true });
-	const headsOf = { male: mouldHeads(sample, std, 'male'), female: mouldHeads(sample, std, 'female') };
+	const headsOf: Record<BaseId, ReturnType<typeof mouldHeads>> = { male: mouldHeads(sample, std, 'male'), female: mouldHeads(sample, std, 'female'), npcMale: mouldHeads(sample, std, 'npcMale'), npcFemale: mouldHeads(sample, std, 'npcFemale') };
 	const moulds = MOULDS.filter((m) => mouldReady(sample, std, m)).map((spec) => ({ spec, mould: mouldBody(sample, std, spec) }));
-	for (const { spec, mould } of moulds) sealMould(mould, headsOf[spec.base], std);
-	// Mốc neo chung mọi khuôn cùng giới (thân Kiếm sĩ đứng): chin khung = mốc + độ dời, chinOffset đầu = mốc − neo cổ đầu.
-	const refOf = (base: BaseId): Record<DirId, Layers> | null => moulds.find((m) => m.spec.base === base && m.spec.key === (base === 'male' ? 'm' : 'f'))?.mould.rest ?? null;
-	const near: Record<DirId, DirId> = { S: 'S', E: 'E', N: 'N', W: 'W', SE: 'E', SW: 'W', NE: 'N', NW: 'N' };
+	for (const { spec, mould } of moulds) sealMould(mould, headsOf[spec.base], std, isNpc(spec.base));
+	// Mốc neo chung mọi khuôn cùng thân nền (thân Kiếm sĩ đứng): chin khung = mốc + độ dời, chinOffset đầu = mốc − neo cổ đầu.
+	const REF_KEY: Record<BaseId, string> = { male: 'm', female: 'f', npcMale: 'u', npcFemale: 'uf' };
+	const refOf = (base: BaseId): Record<DirId, Layers> | null => moulds.find((m) => m.spec.base === base && m.spec.key === REF_KEY[base])?.mould.rest ?? null;
+	// Khuôn cũ 4 hướng: hướng chéo lấy hướng kề; khuôn cỡ NPC đủ 8 hướng (5 vẽ + 3 lật).
+	const NEAR4: Record<DirId, DirId> = { S: 'S', E: 'E', N: 'N', W: 'W', SE: 'E', SW: 'W', NE: 'N', NW: 'N' };
+	const nearOf = (base: BaseId): Record<DirId, DirId> => (isNpc(base) ? (Object.fromEntries(ALL.map((d) => [d, d])) as Record<DirId, DirId>) : NEAR4);
+	// Nhãn khuôn: đầu chỉ đội thân cùng khuôn (đầu cỡ NPC trên thân cũ cao ~106px sẽ lệch cỡ) — Unity `LayeredCharacterDef.Fits`.
+	const MOULD_TAG: Partial<Record<BaseId, string>> = { npcMale: 'npc', npcFemale: 'npc' };
+	const headId = (base: BaseId, id: string): string => (MOULD_TAG[base] ? `${MOULD_TAG[base]}-${id}` : id);
 	for (const { spec, mould } of moulds) {
 		const ref = refOf(spec.base);
 		if (!ref) throw new Error(`Khuôn ${spec.key}: chưa có thân Kiếm sĩ ${BASES[spec.base].label.toLowerCase()} làm mốc neo`);
 		const cells = new GridSheet(cw, ch, 16);
 		const clips: Record<string, FrameOut[]> = {};
+		const near = nearOf(spec.base);
 		const frame = (fr: MouldFrame, d: DirId): FrameOut => {
 			const a = fr.l as AttackLayers;
 			const r = ref[d].neck;
+			// Cỡ NPC: tấn công tạm dừng — vũ khí đeo lưng / khiên gắn tay ở lớp vũ khí mọi khung đứng / đi / chạy (`carryLayer`).
+			const carry = isNpc(spec.base) && !a.weapon ? carryLayer(spec.attack, d, a.neck, fr.arm, std) : null;
+			// Vũ khí đeo lưng không nằm sau thân thì vẽ trên cùng — ngoài tóc (chủ dự án 05/11).
+			const weapon = carry ? carry.mid ?? carry.behind : a.weapon;
+			const behind = carry ? !carry.mid && !!carry.behind : a.weaponBehind;
+			const mid = null as RGBAImage | null;
 			return {
-				body: cells.add(a.body), front: a.bodyFront ? cells.add(a.bodyFront) : -1, hand: a.handFront ? cells.add(a.handFront) : -1, weapon: a.weapon ? cells.add(a.weapon) : -1, ...(a.weaponBehind ? { weaponBehind: true } : {}),
+				body: cells.add(a.body), front: a.bodyFront ? cells.add(a.bodyFront) : -1, hand: a.handFront ? cells.add(a.handFront) : -1, weapon: weapon ? cells.add(weapon) : -1, ...(behind ? { weaponBehind: true } : {}), ...(mid ? { weaponMid: cells.add(mid) } : {}),
 				neck: a.neck, chin: [r[0] + fr.shift[0], r[1] + fr.shift[1]], ms: fr.ms, head: -1, hairBack: -1, ...(fr.hit ? { event: 'hit' } : {}),
 			};
 		};
 		for (const d of ALL) clips[`idle_${d}`] = [frame(mould.clips[`idle_${near[d]}`]![0]!, near[d])];
 		for (const [key, frames] of Object.entries(mould.clips)) if (!key.startsWith('idle_')) clips[key] = frames.map((fr) => frame(fr, key.split('_')[1] as DirId));
 		writePng(join(outDir, `cells-${spec.key}.png`), cells.image());
-		outBodies.push({ id: spec.key, gender: BASES[spec.base].gender, nativeHead: 'bald', sheet: `cells-${spec.key}.png`, clips });
+		outBodies.push({ id: spec.key, gender: BASES[spec.base].gender, ...(MOULD_TAG[spec.base] ? { mould: MOULD_TAG[spec.base] } : {}), nativeHead: 'bald', sheet: `cells-${spec.key}.png`, clips });
 		console.log(`  thân ${spec.key} — ${spec.label} ${BASES[spec.base].label.toLowerCase()} (một khuôn): ${Object.keys(clips).length} clip, ${cells.cells.length} ô`);
 	}
 	// Đầu theo giới (đầu nam chỉ đội thân nam, đầu nữ chỉ thân nữ — Unity chặn ghép khác giới); tóc dài ở tấm hairs.png, cờ trước / sau thân.
 	const outHeads: unknown[] = [];
-	for (const base of ['male', 'female'] as BaseId[]) {
+	for (const base of Object.keys(BASES) as BaseId[]) {
 		const ref = refOf(base);
 		if (!ref) continue;
+		const near = nearOf(base);
 		for (const h of headsOf[base])
 			outHeads.push({
-				id: h.id,
+				id: headId(base, h.id),
 				gender: BASES[base].gender,
+				...(MOULD_TAG[base] ? { mould: MOULD_TAG[base] } : {}),
 				label: h.label,
 				dirs: Object.fromEntries(
 					ALL.map((d) => {
@@ -2009,7 +2083,7 @@ function exportUnity(sample: string, std: LayeredStandard): void {
  * - Chém (khung xương tự soạn): lấy thẳng khung xương đã giao cho thân (`skeleton/<tên>.json` của món chém).
  * Toạ độ dời theo lệch hông giữa ảnh xoay đứng của hai nhân vật cùng hướng; ảnh xoay đích đệm ra cỡ khung động tác (không scale).
  */
-async function buildFollow(sample: string, name: string, bodyItem: string, anim: string, dir: DirId, target: string, std: LayeredStandard): Promise<void> {
+async function buildFollow(sample: string, name: string, bodyItem: string, anim: string, dir: DirId, target: string, std: LayeredStandard, joints = false): Promise<void> {
 	const pl = std.directions.find((x) => x.id === dir)!.pixellab;
 	type Rest = { size: [number, number]; keypoints: Keypoint[] };
 	// Đích dạng "<món sửa ảnh>#<bản>": khung đầu là ảnh sửa (thân mặc đồ sửa trên ảnh xoay thân nền) — đo khung xương ảnh đó một lần.
@@ -2071,11 +2145,21 @@ async function buildFollow(sample: string, name: string, bodyItem: string, anim:
 	const pad: [number, number, number, number] = [(W - rw) / 2, (W - rw) / 2, (H - rh) / 2, (H - rh) / 2];
 	const dx = tx + pad[0] - (sx + source.pad[0]);
 	const dy = ty + pad[2] - (sy + source.pad[1]);
+	const jointShift = (label: string): Point => {
+		const [a, b] = [srcRest.keypoints.find((k) => k.label === label), tgtRest.keypoints.find((k) => k.label === label)];
+		if (!a || !b) throw new Error(`Thiếu khớp ${label} ở khung xương đứng nguồn / đích`);
+		return [b.x * rw + pad[0] - (a.x * srcRest.size[0] + source.pad[0]), b.y * rh + pad[2] - (a.y * srcRest.size[1] + source.pad[1])];
+	};
 	const frames: BuiltSkeleton['frames'] = source.frames.map((kp, i) => {
 		const ex = source.extra?.[i];
 		return {
 			...(ex ?? { bladeDeg: 0 }),
-			keypoints: kp.map((k) => ({ ...k, x: (k.x * W + dx) / W, y: (k.y * H + dy) / H, z_index: Math.round(k.z_index) })),
+			keypoints: kp.map((k) => {
+				// `joints` (chặng U, 04/11): nguồn là thân khác cỡ chút (gói đi / chạy 03/11, ~70px) — mỗi khớp dời theo khớp đứng đích − khớp đứng
+				// nguồn (như `transfer`), giữ nhịp bước mà đúng vai / hông / chân của thân đích; không thì dời cả khung theo tâm hông.
+				const [jx, jy] = joints ? jointShift(k.label) : [dx, dy];
+				return { ...k, x: (k.x * W + jx) / W, y: (k.y * H + jy) / H, z_index: Math.round(k.z_index) };
+			}),
 			grip: ex ? ([Math.round(ex.grip[0] + dx), Math.round(ex.grip[1] + dy)] as Point) : [0, 0],
 		};
 	});
@@ -2520,6 +2604,8 @@ interface MouldFrame {
 	removed?: Uint8Array;
 	/** Thân của khung TRƯỚC khi cắt cổ — trả lại pixel mép cổ mà không đầu nào che được (`sealMould`). */
 	orig?: RGBAImage;
+	/** Cẳng tay TRÁI (khuỷu, cổ tay) toạ độ ô — khung xương PixelLab; khiên gắn tay (`carryLayer`). */
+	arm?: { elbow: Point; wrist: Point };
 }
 
 /**
@@ -2549,8 +2635,21 @@ interface MouldSpec {
 const BASES = {
 	male: { gender: 'male', label: 'NAM', rotation: 'G1-tall-male-ref', headStage: 'P', baldStage: 'Q', baldPrefix: 'Q0-outfit-bald-' },
 	female: { gender: 'female', label: 'NỮ', rotation: 'T3-female-slim-ref', headStage: 'T', baldStage: 'T', baldPrefix: 'T4-outfit-f-' },
+	// Cỡ NPC (chặng U, chủ dự án 04/11: "cùng kích thước với 2 npc tóc trắng, di chuyển 8 hướng") — thân nền nam 11505, cao ~72px.
+	npcMale: { gender: 'male', label: 'NAM', rotation: 'U1-npc-male-base-ref', headStage: 'U', baldStage: 'U', baldPrefix: 'U2-sword-outfit-' },
+	// Nữ cỡ NPC (04/11): thân nền 15707 (đầu nhỏ ~10% — chủ dự án "đầu nữ hơi to") xoay U13b; đầu nữ ở stages.U.headsFemale.
+	npcFemale: { gender: 'female', label: 'NỮ', rotation: 'U13b-npc-female-base-ref', headStage: 'U', baldStage: 'U', baldPrefix: 'U15-sword-outfit-f-', headsKey: 'headsFemale' },
 } as const;
+/** Khuôn cỡ NPC 8 hướng (nam / nữ). */
+const isNpc = (base: BaseId): boolean => base === 'npcMale' || base === 'npcFemale';
 type BaseId = keyof typeof BASES;
+/** Hướng VẼ của khuôn: cỡ NPC 5 hướng (8 hướng di chuyển), khuôn cũ 3 hướng (game 4 hướng, chốt 30/10). */
+const mouldDraw = (base: BaseId): DirId[] => (isNpc(base) ? ['S', 'SE', 'E', 'NE', 'N'] : ['S', 'E', 'N']);
+/** Hướng lật gương: W ← E, SW ← SE, NW ← NE (chỉ những hướng có nguồn trong khuôn). */
+const MIRROR_OF: Array<[DirId, DirId]> = [['W', 'E'], ['SW', 'SE'], ['NW', 'NE']];
+const mouldMirrors = (base: BaseId): Array<[DirId, DirId]> => MIRROR_OF.filter(([, from]) => mouldDraw(base).includes(from));
+/** Mọi hướng hiển thị của khuôn (vẽ + lật). */
+const mouldDirs = (base: BaseId): DirId[] => [...mouldDraw(base), ...mouldMirrors(base).map(([to]) => to)];
 const MOULDS: MouldSpec[] = [
 	{ key: 'm', label: 'Kiếm sĩ', stage: 'Q', prefix: 'Q0-outfit-bald-', attack: 'slash', weapon: BASIC_SWORD, base: 'male' },
 	{ key: 'm-mage', label: 'Pháp sư', stage: 'R', prefix: 'R0-mage-outfit-', attack: 'cast', weapon: BASIC_STAFF, base: 'male' },
@@ -2559,6 +2658,17 @@ const MOULDS: MouldSpec[] = [
 	{ key: 'm-archer', label: 'Cung thủ', stage: 'R', prefix: 'R0-archer-outfit-', attack: 'shoot', weapon: BASIC_BOW, base: 'male' },
 	// Bộ NỮ (chặng T, chủ dự án 31/10): thân nền nữ thon T3; Kiếm sĩ nữ trước, các class nữ sau.
 	{ key: 'f', label: 'Kiếm sĩ', stage: 'T', prefix: 'T4-outfit-f-', attack: 'slash', weapon: BASIC_SWORD, base: 'female' },
+	// Cỡ NPC 8 hướng (chặng U, 04/11): Kiếm sĩ thiết kế mới; chỉ đứng / đi / chạy — tấn công tạm dừng (chốt 03/11).
+	{ key: 'u', label: 'Kiếm sĩ cỡ NPC', stage: 'U', prefix: 'U2-sword-outfit-', attack: 'slash', weapon: BASIC_SWORD, base: 'npcMale' },
+	{ key: 'u-mage', label: 'Pháp sư cỡ NPC', stage: 'U', prefix: 'U5-mage-outfit-', attack: 'cast', weapon: BASIC_STAFF, base: 'npcMale' },
+	{ key: 'u-lancer', label: 'Thương thủ cỡ NPC', stage: 'U', prefix: 'U5-lancer-outfit-', attack: 'thrust', weapon: BASIC_SPEAR, base: 'npcMale' },
+	{ key: 'u-guard', label: 'Khiên thủ cỡ NPC', stage: 'U', prefix: 'U5-guard-outfit-', attack: 'bash', weapon: BASIC_SHIELD, base: 'npcMale' },
+	{ key: 'u-archer', label: 'Cung thủ cỡ NPC', stage: 'U', prefix: 'U5-archer-outfit-', attack: 'shoot', weapon: BASIC_BOW, base: 'npcMale' },
+	{ key: 'uf', label: 'Kiếm sĩ cỡ NPC', stage: 'U', prefix: 'U15-sword-outfit-f-', attack: 'slash', weapon: BASIC_SWORD, base: 'npcFemale' },
+	{ key: 'uf-mage', label: 'Pháp sư cỡ NPC', stage: 'U', prefix: 'U15-mage-outfit-f-', attack: 'cast', weapon: BASIC_STAFF, base: 'npcFemale' },
+	{ key: 'uf-lancer', label: 'Thương thủ cỡ NPC', stage: 'U', prefix: 'U15-lancer-outfit-f-', attack: 'thrust', weapon: BASIC_SPEAR, base: 'npcFemale' },
+	{ key: 'uf-guard', label: 'Khiên thủ cỡ NPC', stage: 'U', prefix: 'U15-guard-outfit-f-', attack: 'bash', weapon: BASIC_SHIELD, base: 'npcFemale' },
+	{ key: 'uf-archer', label: 'Cung thủ cỡ NPC', stage: 'U', prefix: 'U15-archer-outfit-f-', attack: 'shoot', weapon: BASIC_BOW, base: 'npcFemale' },
 ];
 const mouldSpec = (key = 'm'): MouldSpec => {
 	const m = MOULDS.find((x) => x.key === key);
@@ -2576,16 +2686,18 @@ function mouldBody(sample: string, std: LayeredStandard, spec: MouldSpec = MOULD
 	const Q = plan.stages[spec.stage] as (typeof plan.stages)[string] & { picks?: Record<string, number> };
 	const rest: Partial<Record<DirId, Layers>> = {};
 	const clips: Record<string, MouldFrame[]> = {};
-	for (const d of ['S', 'E', 'N'] as DirId[]) {
+	for (const d of mouldDraw(spec.base)) {
 		const seed = Q?.picks?.[`${spec.prefix}${d}`];
 		if (!seed) throw new Error(`Chưa chọn thân ${spec.label} mặc đồ hướng ${d} (stages.${spec.stage}.picks)`);
-		const r = collarToBody(layersOnBase(sample, std, `${spec.prefix}${d}`, seed, d, BASES[spec.base].rotation), baldHead(sample, std, d, spec.base), std);
+		const r = collarToBody(layersOnBase(sample, std, `${spec.prefix}${d}`, seed, d, BASES[spec.base].rotation, undefined, isNpc(spec.base)), baldHead(sample, std, d, spec.base), std);
+		// Cỡ NPC nhìn trước / ngang: xoá vệt viền cằm tụt xuống cổ cả ở dáng đứng (05/11 Cung thủ nữ E).
+		if (isNpc(spec.base) && frontNeck(d)) neckLine(r.body, r.neck, mouldNeckCut(std, d), true, -2);
 		const cut = neckOnly(r.body, r.neck, mouldNeckCut(std, d));
 		rest[d] = { ...r, body: cut.body };
 		// Đứng cũng là một khung (bịt hở cổ như khung động tác — bộ đồ class khác cổ áo khác thân Kiếm sĩ).
 		clips[`idle_${d}`] = [{ l: rest[d]!, removed: cut.removed, orig: r.body, shift: [0, 0], ms: 500 }];
 	}
-	rest.W = mirrorLayers(rest.E!, 'lật từ E', std);
+	for (const [to, from] of mouldMirrors(spec.base)) rest[to] = mirrorLayers(rest[from]!, `lật từ ${from}`, std);
 	// Món đã bỏ theo luật mới (đòn hướng S — chủ dự án 30/10: đòn đánh chỉ bắc và ngang) không dựng.
 	for (const it of (Q?.items ?? []).filter((x) => x.tool === 'animate_with_skeleton_v3' && String(x.character).startsWith(spec.prefix) && !x.dropped)) {
 		const fdir = join(LAYERED_SOURCES, sample, 'raw', it.id);
@@ -2601,6 +2713,10 @@ function mouldBody(sample: string, std: LayeredStandard, spec: MouldSpec = MOULD
 			return [k.x * sk.size[0], k.y * sk.size[1]];
 		};
 		const [rx, ry] = kpOf(sk.first, 'NECK');
+		const armOf = (f: Keypoint[]): { elbow: Point; wrist: Point } => ({ elbow: toCell(kpOf(f, 'LEFT ELBOW')), wrist: toCell(kpOf(f, 'LEFT ARM')) });
+		// Dáng đứng = ảnh mặc đồ, cũng là ảnh đầu (`first`) của khung xương động tác cùng hướng.
+		const idle = clips[`idle_${d}`]?.[0];
+		if (idle && !idle.arm) idle.arm = armOf(sk.first);
 		const def = std.animations.find((a) => a.id === it.animation)!;
 		const r = rest[d]!;
 		const frames: MouldFrame[] = sk.frames.map((f, i) => {
@@ -2625,21 +2741,26 @@ function mouldBody(sample: string, std: LayeredStandard, spec: MouldSpec = MOULD
 			const bh = baldHead(sample, std, d, spec.base);
 			const lk = collarToBody(l, { ...bh, neck: [bh.neck[0] + l.neck[0] - r.neck[0], bh.neck[1] + l.neck[1] - r.neck[1]] }, std);
 			const scrubbed = scrubBald(lk.body, l.neck, r.head, std);
+			// Cỡ NPC: xoá vệt viền cằm đầu trọc PixelLab vẽ tụt xuống cổ ở khung nhún ngay trong ẢNH GỐC khung (cũng là nguồn trả pixel khi bịt cổ).
+			if (isNpc(spec.base) && frontNeck(d)) neckLine(scrubbed, l.neck, mouldNeckCut(std, d), true, -2);
 			const cutL = neckOnly(scrubbed, l.neck, mouldNeckCut(std, d));
 			const lc = { ...l, body: cutL.body };
-			return { l: lc, removed: cutL.removed, orig: scrubbed, shift: [l.neck[0] - r.neck[0] + fix[0]!, l.neck[1] - r.neck[1] + fix[1]!] as Point, ms: def.durationsMs[i % def.durationsMs.length]!, hit: it.animation === spec.attack && i + 1 === def.hitFrame };
+			const ms = (isNpc(spec.base) && def.durationsMsNpc) || def.durationsMs;
+			return { l: lc, arm: armOf(f.keypoints), removed: cutL.removed, orig: scrubbed, shift: [l.neck[0] - r.neck[0] + fix[0]!, l.neck[1] - r.neck[1] + fix[1]!] as Point, ms: ms[i % ms.length]!, hit: it.animation === spec.attack && i + 1 === def.hitFrame };
 		});
 		clips[`${it.animation}_${d}`] = frames;
 	}
-	// W lật từ E (đứng + mọi động tác).
-	for (const key of Object.keys(clips).filter((k) => k.endsWith('_E')))
-		clips[`${key.slice(0, -2)}_W`] = clips[key]!.map((fr) => {
-			const m = 'weapon' in fr.l ? mirrorAttack(fr.l as AttackLayers, std) : mirrorLayers(fr.l, 'lật từ E', std);
+	// Hướng tây lật từ hướng đông (đứng + mọi động tác): W ← E, SW ← SE, NW ← NE. Tên clip "<động tác>_<hướng>" — so đúng hậu tố hướng.
+	for (const [to, from] of mouldMirrors(spec.base))
+	for (const key of Object.keys(clips).filter((k) => k.split('_').pop() === from))
+		clips[`${key.slice(0, -from.length)}${to}`] = clips[key]!.map((fr) => {
+			const m = 'weapon' in fr.l ? mirrorAttack(fr.l as AttackLayers, std) : mirrorLayers(fr.l, `lật từ ${from}`, std);
 			const W = m.body.width;
 			const ax = std.cell.root[0];
 			const removed = fr.removed && new Uint8Array(fr.removed.length);
 			if (removed && fr.removed) for (let k = 0; k < removed.length; k += 1) if (fr.removed[k]) { const x = 2 * ax - (k % W); if (x >= 0 && x < W) removed[Math.floor(k / W) * W + x] = 1; }
-			return { ...fr, l: m, removed, orig: fr.orig && mirrorImage(fr.orig, ax), shift: [-fr.shift[0], fr.shift[1]] as Point };
+			const mx = ([x, y]: Point): Point => [2 * ax - x, y];
+			return { ...fr, l: m, removed, orig: fr.orig && mirrorImage(fr.orig, ax), shift: [-fr.shift[0], fr.shift[1]] as Point, ...(fr.arm ? { arm: { elbow: mx(fr.arm.elbow), wrist: mx(fr.arm.wrist) } } : {}) };
 		});
 	return { rest: rest as Record<DirId, Layers>, clips };
 }
@@ -2751,7 +2872,7 @@ function mouldHead(sample: string, std: LayeredStandard, hid: string, picks: Par
 	const B = BASES[base];
 	const g1 = new PixelLabSource(join(LAYERED_SOURCES, sample, 'raw', B.rotation));
 	const item = (d: DirId): string => `${fix.prefix ?? `P0-${hid}-`}${d}`;
-	for (const d of ['S', 'E', 'N'] as DirId[]) {
+	for (const d of mouldDraw(base)) {
 		const seed = picks[d];
 		if (!seed || !existsSync(join(LAYERED_SOURCES, sample, 'raw', item(d), `seed-${seed}.png`))) return null;
 		const prep =
@@ -2763,17 +2884,21 @@ function mouldHead(sample: string, std: LayeredStandard, hid: string, picks: Par
 						? mirrorHorn(fix.mirrorHornS.box, fix.mirrorHornS.axis)
 						: undefined;
 		// Khuôn nữ: cắt ở đường cổ thân nền (khuôn nam đã soi từng đầu, neo đo trùng thân nền ±1px — giữ nguyên).
-		out[d] = layersOnBase(sample, std, item(d), seed, d, B.rotation, prep, base === 'female');
+		// Cỡ NPC (chặng U, 04/11): cổ chỉ 1–2 hàng, dò "từ vai lên" trên ảnh sửa nhận nhầm vai / cổ áo (hướng N: vai rơi vào lớp đầu) → cắt
+		// cố định như khuôn nữ.
+		out[d] = layersOnBase(sample, std, item(d), seed, d, B.rotation, prep, base !== 'male');
 		const bald = baldHead(sample, std, d, base);
-		out[d] = ownNeck(out[d]!, bald.body, bald.neck, mouldNeckCut(std, d), std);
+		out[d] = ownNeck(out[d]!, bald.body, bald.neck, mouldNeckCut(std, d), std, isNpc(base));
 		if (fix.long) {
 			const baseImg = g1.rotation(d)!;
 			binarizeAlpha(baseImg);
-			out[d] = { ...out[d]!, hairLong: longHair(out[d]!, placeInCell(baseImg, cellOffset(baseImg, std), std), std), hairLongFront: d === 'N' };
+			out[d] = { ...out[d]!, hairLong: longHair(out[d]!, placeInCell(baseImg, cellOffset(baseImg, std), std), std, isNpc(base)), hairLongFront: d === 'N' || d === 'NE' };
 		}
 	}
-	out.W = mirrorLayers(out.E!, 'lật từ E', std);
-	if (fix.long) out.W = { ...out.W, hairLong: out.E!.hairLong ? mirrorImage(out.E!.hairLong, LONG_HAIR_ANCHOR[0]) : null, hairLongFront: false };
+	for (const [to, from] of mouldMirrors(base)) out[to] = mirrorLayers(out[from]!, `lật từ ${from}`, std);
+	// Tóc dài lật theo hướng nguồn (W ← E, SW ← SE, NW ← NE); nhìn sau (N, NE, NW) tóc phủ lưng — trên thân (05/11: NE / NW tóc nằm dưới thân thì
+	// kiếm đeo lưng đè lên tóc).
+	if (fix.long) for (const [to, from] of mouldMirrors(base)) out[to] = { ...out[to]!, hairLong: out[from]!.hairLong ? mirrorImage(out[from]!.hairLong!, LONG_HAIR_ANCHOR[0]) : null, hairLongFront: !!out[from]!.hairLongFront };
 	return out as Record<DirId, Layers>;
 }
 
@@ -2784,7 +2909,7 @@ function mouldHead(sample: string, std: LayeredStandard, hid: string, picks: Par
  * Chỉ giữ mảng (8 hướng) chạm đáy lớp đầu / dải ngay dưới neo cổ — bỏ chỗ PixelLab tô lại lặt vặt trên thân. Đặt vào canvas
  * `LONG_HAIR_CANVAS` cùng neo cổ.
  */
-function longHair(l: Layers, baseCell: RGBAImage, std: LayeredStandard): RGBAImage {
+function longHair(l: Layers, baseCell: RGBAImage, std: LayeredStandard, npc = false): RGBAImage {
 	const [ax, ay] = LONG_HAIR_ANCHOR;
 	const [hax, hay] = std.head.neckAnchor;
 	const out = createImage(LONG_HAIR_CANVAS[0], LONG_HAIR_CANVAS[1]);
@@ -2797,6 +2922,9 @@ function longHair(l: Layers, baseCell: RGBAImage, std: LayeredStandard): RGBAIma
 	for (let k = 0; k < W * H; k += 1) {
 		const i = k * 4;
 		const [x, y] = [k % W, Math.floor(k / W)];
+		// Cỡ NPC (05/11, Ma tộc nữ 1 hướng N: PixelLab xê dịch chân trần ở ảnh sửa đầu → chân lọt vào lớp tóc dài, đè lên ủng của bộ đồ): bỏ điểm màu
+		// da và mọi thứ dưới hông (tóc tới giữa lưng ≈ 32 hàng dưới neo cổ ở thân ~72px).
+		if (npc && (isSkin(body.data, i) || y > l.neck[1] + 32)) continue;
 		if (body.data[i + 3] && y >= l.neck[1] - 2 && inCanvas(x, y) && (!baseCell.data[i + 3] || diff(i) > 48)) cand[k] = 1;
 	}
 	// Da thân bị PixelLab xê dịch 1–2px (dẫm 31/10 tóc dài N: 16 pixel da sáng lưng dưới lọt vào tóc): pixel sáng mà thân nền trong ±3px có
@@ -2931,7 +3059,13 @@ function collarToBody(l: Layers, template: Layers, std: LayeredStandard): Layers
 }
 
 /** Số hàng dưới neo cổ bắt đầu giữ cổ thân (chuẩn `body.mouldNeckCut`, W theo E). */
-const mouldNeckCut = (std: LayeredStandard, d: DirId): number => std.body.mouldNeckCut[d === 'W' ? 'E' : (d as 'S' | 'E' | 'N')];
+const mouldNeckCut = (std: LayeredStandard, d: DirId): number => {
+	// Chéo (8 hướng, chặng U): SE / SW nhìn trước như S, NE / NW nhìn sau như N — trừ khi chuẩn ghi riêng.
+	const c = std.body.mouldNeckCut;
+	if (d === 'SE' || d === 'SW') return c.SE ?? c.S;
+	if (d === 'NE' || d === 'NW') return c.NE ?? c.N;
+	return c[d === 'W' ? 'E' : (d as 'S' | 'E' | 'N')];
+};
 
 /** Lớp đầu trọc của thân dùng chung lúc đứng hướng `d` (ảnh mặc đồ Q0 sửa trên G1, CHƯA cắt cổ) — mốc cổ / hàm của thân. */
 const baldCache = new Map<string, Layers>();
@@ -2942,7 +3076,7 @@ function baldHead(sample: string, std: LayeredStandard, d: DirId, base: BaseId =
 		const st = checkedPlan(sample, std).stages[B.baldStage] as { picks?: Record<string, number> };
 		const seed = st.picks?.[`${B.baldPrefix}${d}`];
 		if (!seed) throw new Error(`Chưa chọn bộ Kiếm sĩ ${B.label.toLowerCase()} hướng ${d} (stages.${B.baldStage}.picks.${B.baldPrefix}${d}) — đầu trọc mẫu của khuôn`);
-		baldCache.set(key, layersOnBase(sample, std, `${B.baldPrefix}${d}`, seed, d, B.rotation));
+		baldCache.set(key, layersOnBase(sample, std, `${B.baldPrefix}${d}`, seed, d, B.rotation, undefined, isNpc(base)));
 	}
 	return baldCache.get(key)!;
 }
@@ -2983,11 +3117,39 @@ function neckOnly(body: RGBAImage, neck: Point, cut: number): { body: RGBAImage;
 }
 
 /**
+ * VỆT ĐEN NGANG CỔ (05/11, bộ nữ cỡ NPC chạy S: PixelLab vẽ thừa nét viền cằm / cổ trên thân ở vài khung, nằm NGAY DƯỚI hàng cắt cổ —
+ * đè lên cổ của đầu thành vòng tối như vòng cổ; bộ đo hở cổ không bắt vì không phải khe). Từ hàng `from` (mặc định hàng cắt) tới 5 hàng dưới
+ * hàng cắt, quanh cột giữa cổ:
+ * pixel viền rất tối (tổng < 100) có da ngay dưới (1–2 hàng) và phía trên là da / đã cắt / trong suốt, không sát vải áo → tô màu da bên dưới.
+ * Trả số pixel đã sửa (`fix` = false: chỉ đếm — kiểm tự động).
+ */
+function neckLine(body: RGBAImage, neck: Point, cut: number, fix: boolean, from?: number): number {
+	const W = body.width;
+	const at = (x: number, y: number): number => (y * W + x) * 4;
+	const inside = (x: number, y: number): boolean => x >= 0 && y >= 0 && x < W && y < body.height;
+	const skin = (x: number, y: number): boolean => inside(x, y) && body.data[at(x, y) + 3] !== 0 && isSkin(body.data, at(x, y));
+	const empty = (x: number, y: number): boolean => !inside(x, y) || body.data[at(x, y) + 3] === 0;
+	const dark = (x: number, y: number): boolean => inside(x, y) && body.data[at(x, y) + 3] !== 0 && body.data[at(x, y)]! + body.data[at(x, y) + 1]! + body.data[at(x, y) + 2]! < 100;
+	const cloth = (x: number, y: number): boolean => inside(x, y) && body.data[at(x, y) + 3] !== 0 && !isSkin(body.data, at(x, y)) && !dark(x, y);
+	let n = 0;
+	for (let y = neck[1] + (from ?? cut); y < Math.min(body.height - 2, neck[1] + cut + 5); y += 1)
+		for (let x = neck[0] - 4; x <= neck[0] + 4; x += 1) {
+			if (!dark(x, y)) continue;
+			const below = skin(x, y + 1) ? 1 : skin(x, y + 2) && dark(x, y + 1) ? 2 : 0;
+			if (!below || !(skin(x, y - 1) || empty(x, y - 1))) continue;
+			if (cloth(x - 1, y) || cloth(x + 1, y)) continue;
+			n += 1;
+			if (fix) for (let k = 0; k < below; k += 1) body.data.set(body.data.subarray(at(x, y + below), at(x, y + below) + 4), at(x, y + k));
+		}
+	return n;
+}
+
+/**
  * Cổ của CHÍNH đầu này lấp phần thân đã bỏ (`neckOnly`): lấy pixel ảnh sửa của đầu (cùng khuôn G1) trong vùng cổ / hàm đầu trọc đã bỏ khỏi
  * thân + 2 hàng cổ thân ngay dưới chỗ cắt (chồng mép), nới 1 px ngang; đặt vào lớp DƯỚI thân (hairBack) theo neo của đầu. Bóng dưới cằm vì
  * thế luôn khớp hàm của đầu đó; dưới chỗ cắt thân vẽ đè lên nên chỉ lộ phần cổ giữa cằm và chỗ cắt.
  */
-function ownNeck(head: Layers, restBody: RGBAImage, restNeck: Point, cut: number, std: LayeredStandard): Layers {
+function ownNeck(head: Layers, restBody: RGBAImage, restNeck: Point, cut: number, std: LayeredStandard, skinOnly = false): Layers {
 	const { removed } = neckOnly(restBody, restNeck, cut);
 	const W = restBody.width;
 	const mask = new Uint8Array(removed);
@@ -3008,13 +3170,24 @@ function ownNeck(head: Layers, restBody: RGBAImage, restNeck: Point, cut: number
 		const [hx, hy] = [mx - ox, my - oy];
 		if (!head.full.data[si + 3] || hx < 0 || hy < 0 || hx >= cw || hy >= ch) continue;
 		const di = (hy * cw + hx) * 4;
-		if (!back.data[di + 3]) back.data.set(head.full.data.subarray(si, si + 4), di);
+		// Cỡ NPC (05/11): nét tối nằm NGANG giữa hai bên da (quai bikini / viền cổ áo của ảnh sửa đầu) không đưa vào cổ của đầu — khung động tác có lỗ
+		// cổ thân sâu hơn thì nét này lộ thành vệt đen ngang cổ (chạy S bộ nữ). Thay bằng da ngay trên; nét mép trái / phải cổ giữ nguyên.
+		let src = si;
+		if (skinOnly && isDark(head.full.data, si)) {
+			const sk = (o: number): boolean => o >= 0 && o < head.full.data.length && head.full.data[o + 3] !== 0 && isSkin(head.full.data, o);
+			if (sk(si - 4) && sk(si + 4)) {
+				const up = si - W * 4;
+				if (!sk(up)) continue;
+				src = up;
+			}
+		}
+		if (!back.data[di + 3]) back.data.set(head.full.data.subarray(src, src + 4), di);
 	}
 	return { ...head, hairBack: back };
 }
 
 /** Số pixel vùng đã bỏ khỏi thân của khung `fr` mà đầu `h` (lớp đầu + cổ của đầu) và lớp trước thân không che; `each` nhận từng pixel hở. */
-function uncovered(fr: MouldFrame, h: Layers, std: LayeredStandard, each?: (k: number) => void): number {
+function uncovered(fr: MouldFrame, h: Layers, std: LayeredStandard, each?: (k: number) => void, skinBack = false): number {
 	if (!fr.removed) return 0;
 	const [hax, hay] = std.head.neckAnchor;
 	const at = (img: RGBAImage | null | undefined, x: number, y: number): boolean => !!img && x >= 0 && y >= 0 && x < img.width && y < img.height && img.data[(y * img.width + x) * 4 + 3] !== 0;
@@ -3026,7 +3199,10 @@ function uncovered(fr: MouldFrame, h: Layers, std: LayeredStandard, each?: (k: n
 		if (!fr.removed[k]) continue;
 		const [x, y] = [k % W, Math.floor(k / W)];
 		const [hx, hy] = [x - (nx - hax), y - (ny - hay)];
-		if (at(h.head, hx, hy) || at(h.hairBack, hx, hy) || at(a.bodyFront, x, y) || at(a.handFront, x, y) || at(a.weapon, x, y)) continue;
+		// `skinBack` (cỡ NPC nhìn trước / ngang, 05/11): lớp sau của đầu chỉ tính là che khi là DA cổ — tóc dài sau gáy lộ qua lỗ cổ thân thành vệt
+		// tối ngang cổ (chạy S bộ nữ) chứ không phải che.
+		const backOk = at(h.hairBack, hx, hy) && (!skinBack || isSkin(h.hairBack!.data, (hy * h.hairBack!.width + hx) * 4));
+		if (at(h.head, hx, hy) || backOk || at(a.bodyFront, x, y) || at(a.handFront, x, y) || at(a.weapon, x, y)) continue;
 		n += 1;
 		each?.(k);
 	}
@@ -3118,14 +3294,16 @@ function neckColumnGaps(fr: MouldFrame, h: Layers, std: LayeredStandard, cut: nu
  * được đầu che → hở nền. Pixel nào KHÔNG được MỌI đầu che thì trả lại thân (pixel mép / viền cổ của chính khung, không phải hàm — hàm nằm
  * trong vùng đầu nào cũng che). Thân dùng chung nên xét cùng lúc mọi đầu đang có.
  */
-function sealMould(body: { clips: Record<string, MouldFrame[]> }, heads: Array<{ rot: Record<DirId, Layers> }>, std: LayeredStandard): number {
+/** Cỡ NPC: hướng nhìn trước / ngang (gáy không quay về người xem) — cổ phải là da, tóc sau không được lộ qua lỗ cổ. */
+const frontNeck = (d: DirId): boolean => !d.includes('N');
+function sealMould(body: { clips: Record<string, MouldFrame[]> }, heads: Array<{ rot: Record<DirId, Layers> }>, std: LayeredStandard, npc = false): number {
 	let restored = 0;
 	for (const [key, frames] of Object.entries(body.clips)) {
 		const d = key.split('_')[1] as DirId;
 		for (const fr of frames) {
 			if (!fr.removed || !fr.orig) continue;
 			const back = new Set<number>();
-			for (const h of heads) uncovered(fr, h.rot[d], std, (k) => back.add(k));
+			for (const h of heads) uncovered(fr, h.rot[d], std, (k) => back.add(k), npc && frontNeck(d));
 			if (!back.size) continue;
 			const b = cloneImage(fr.l.body);
 			for (const k of back) {
@@ -3155,15 +3333,177 @@ function sealMould(body: { clips: Record<string, MouldFrame[]> }, heads: Array<{
 	return restored;
 }
 
+/**
+ * VŨ KHÍ ĐEO LƯNG — QUY CHUẨN 3D (khuôn cỡ NPC; chủ dự án 04/11: "các vật phẩm đeo nhìn thật xíu từ 8 góc, hiện thấy thừa thừa, méo mó,
+ * không có quy chuẩn"; "kiếm vẽ lộ cả kiếm, không có vỏ"). Mỗi vũ khí MỘT điểm gắn trên lưng trong không gian thân — toạ độ px so với neo cổ:
+ * x sang PHẢI nhân vật, y lên trên, z ra SAU lưng — và một hướng (đơn vị). Mỗi hướng nhìn xoay thân quanh trục đứng (S 0°, SE 45°, E 90°,
+ * NE 135°, N 180°): ngang màn = −x·cos − z·sin, sâu (về phía người xem) = x·sin − z·cos. Vũ khí dài vẽ theo hình chiếu (co trục khi chĩa
+ * về / ra xa người xem — `drawWeapon` length, vẽ lại từ thiết kế, không co ảnh); cả vũ khí một lớp theo hướng nhìn: quay lưng (N, NE,
+ * NW) và phần ló ra khi nhìn ngang → lớp vũ khí TRÊN CÙNG, ngoài tóc (chủ dự án 05/11: "nên để vũ khí ngoài tóc đi cho dễ"); mặt trước → sau thân. Hướng tây lật gương cả lớp như thân (dây đeo trên áo cũng lật).
+ * Bám neo cổ từng khung nên nhún theo bước. Cùng một điểm gắn cho cả 8 hướng — không chỉnh tay từng hướng.
+ */
+type V3 = [number, number, number];
+const YAW: Partial<Record<DirId, number>> = { S: 0, SE: 45, E: 90, NE: 135, N: 180 };
+/**
+ * Điểm gắn: kiếm chuôi trên vai TRÁI, lưỡi chéo xuống hông phải — trùng dây chéo lưng của áo (vai phải thì lưỡi cắt chéo dây thành chữ X);
+ * Hướng đều chếch ~20° khỏi mặt lưng (z): phần DƯỚI chĩa ra sau — nhìn ngang vũ khí nằm chéo, chuôi / đầu ló trên vai sau gáy, phần dưới
+ * ló ra sau lưng như quy ước tranh / game (chủ dự án 04/11: "nhân vật xoay ngang xem nguồn trên mạng để vũ khí ngang như nào vẽ cho giống";
+ * bản nằm phẳng trên lưng nhìn ngang dựng đứng như cây gậy).
+ * trượng / giáo / cung chéo lưng, đầu nhọn ló NGOÀI vai phải (nghiêng thấp — dựng đứng thì đầu trượng nằm ngang tai như khuyên tai); khiên giữa lưng.
+ */
+/**
+ * `side`: nhìn ngang (E; W lật) — kiếm chỉ vẽ CHUÔI (u < `hilt`) ló từ bả vai; trượng / thương vẽ CẢ CÂY gần dựng đứng ngay sau mép lưng, sau
+ * thân (`behind`): thấy đường cán dọc lưng, đầu nhô sau đầu, đuôi tới bắp chân (chủ dự án 05/11: "xấu nhất là hướng ngang của trượng và
+ * thương" — bản chỉ ló đầu sau gáy trông như sừng / kẹp tóc) (chủ dự án 04/11: "ngang thì không nên hiện lưỡi kiếm lên trước, quay chuôi ra thôi"). `at` = điểm nắm so với neo cổ trên màn (px, y xuống), `deg` = hướng lưỡi (chúc vào thân).
+ */
+const BACK_MOUNT: Record<string, { design: WeaponDesign; at: V3; dir: V3; up?: V3; front?: { at: V3; dir: V3 }; side?: { at: Point; deg: number; hilt?: number; tipFrom?: number; stave?: number; behind?: boolean } }> = {
+	// Kiếm (chủ dự án 04/11: "ngang thì không nên hiện lưỡi kiếm lên trước, quay chuôi ra thôi; chính diện kiếm cũng không hiện chuôi"):
+	// chuôi ngả RA SAU gáy, lưỡi chúc vào thân (z âm) — nhìn ngang chỉ ló chuôi; điểm nắm ra mép vai trái, cao ngang cằm để chính diện ló chuôi.
+	// `up`: điểm nắm của bản DỌC nhìn ngang (`carryLayer`; chủ dự án 05/11 "xoay ngang thì để vũ khí sau lưng song song với người") — kiếm
+	// chuôi lên ló sau gáy, trượng / thương / cung đầu lên nhô trên đỉnh đầu; z = độ lùi ra sau lưng.
+	slash: { design: SWORD_BACK, at: [-9, 1, 4], dir: [0.36, -0.88, -0.32], up: [5, 9, 9], side: { at: [-7, 5], deg: -45, hilt: 2.6 } },
+	// `front` (S / SE; SW lật) — chủ dự án 05/11 "vũ khí khi đeo lỗi hết": nhìn trước trượng / thương dựng gần thẳng sau lưng, chỉ ló ĐẦU nhô cao
+	// hơn đỉnh đầu (đặt chéo thì đầu trượng / tua thương nằm ngang tai như khuyên tai), đuôi giấu sau chân (không ló cạnh tay như đang cầm).
+	cast: { design: STAFF_BACK, at: [-1, -12, 5], dir: [0.62, 0.7, -0.35], up: [4, -4, 9], front: { at: [4, -12, 5], dir: [0.5, 0.87, 0] }, side: { at: [-8, 14], deg: 100, behind: true } },
+	thrust: { design: SPEAR_BACK, at: [-2, -13, 5], dir: [0.56, 0.75, -0.35], up: [4, -4, 9], front: { at: [7, -8, 5], dir: [0.55, 0.84, 0] }, side: { at: [-8, 12], deg: 100, behind: true } },
+	// Cung nhìn ngang: thân cung chếch lên ra sau lưng, nằm DƯỚI thân — chỉ ló nửa trên ra sau lưng / qua vai.
+	shoot: { design: BOW_BACK, at: [0, -11, 5], dir: [0.56, 0.75, -0.35], up: [7, -4, 9], side: { at: [-5, 6], deg: 30, stave: 118, behind: true } },
+	bash: { design: SHIELD_BACK, at: [0, -11, 6], dir: [0, 0, 1] },
+};
+/** Điểm gắn theo hướng: nhìn trước (S, SE, SW) dùng `front` nếu có. */
+const mountAt = (mount: (typeof BACK_MOUNT)[string], view: string): { at: V3; dir: V3 } => (mount.front && (view === 'S' || view === 'SE' || view === 'SW') ? mount.front : mount);
+/** Vũ khí dài dựng DỌC (bản đeo lưng đồng nhất): kiếm chuôi lên (lưỡi chúc xuống), trượng / thương đầu lên; cung thân dọc, bụng cong ngang. */
+const uprightSprite = (design: WeaponDesign): ReturnType<typeof drawWeapon> =>
+	design.bow ? drawWeapon(design, 0, 1, false, { staveDeg: 90, arrow: false }) : drawWeapon(design, design.id.startsWith('sword') ? -90 : 90, 1);
+/** Thiết kế chỉ phần chuôi (u < `hilt`). */
+const hiltOf = (design: WeaponDesign, hilt: number): WeaponDesign => ({ ...design, id: `${design.id}-hilt`, parts: design.parts.filter((p) => p.u1 <= hilt) });
+/** Ảnh vũ khí nhìn ngang (cung: cả cây, bụng cung hẹp vì nhìn gần cạnh). */
+const sideSprite = (design: WeaponDesign, side: NonNullable<(typeof BACK_MOUNT)[string]['side']>): ReturnType<typeof drawWeapon> =>
+	design.bow ? drawWeapon(design, side.deg, 0.4, false, { staveDeg: side.stave, arrow: false }) : drawWeapon(sideOf(design, side), side.deg);
+/** Phần thấy được khi nhìn ngang: chuôi kiếm (u < hilt) hoặc đầu trượng / thương (u ≥ tipFrom, đoạn cán dưới bị thân che). */
+const sideOf = (design: WeaponDesign, side: { hilt?: number; tipFrom?: number }): WeaponDesign =>
+	side.hilt !== undefined ? hiltOf(design, side.hilt) : { ...design, id: `${design.id}-tip`, parts: design.parts.filter((p) => p.u0 >= (side.tipFrom ?? -Infinity)) };
+/** Góc chiếu cũ v0 / v45 / v90 (đợt thử U7 04/11 — vũ khí phẳng chỉ phụ thuộc |cos góc xoay|); nay vẽ riêng từng hướng. */
+const VIEW_YAW = { v0: 0, v45: 45, v90: 90 } as const;
+/** Khung hình học (code dựng) của vũ khí dài ở một góc chiếu: ảnh canvas thiết kế, điểm nắm ở tâm — nguồn cho PixelLab vẽ lại. */
+function weaponGuide(attack: string, view: string): RGBAImage {
+	const mount = BACK_MOUNT[attack];
+	// Theo hướng (chủ dự án 04/11 "phải vẽ đủ 8 hướng"): hướng tây = khung hướng đông lật (thân hướng tây là thân hướng đông lật, dây đeo lật
+	// theo) — chỉ KHUNG lật; tranh PixelLab vẽ riêng từng hướng.
+	if (view === 'up') return uprightSprite(mount!.design).image;
+	const west = MIRROR_OF.find(([to]) => to === view)?.[1];
+	if (west) {
+		const g = weaponGuide(attack, west);
+		return mirrorImage(g, g.width / 2);
+	}
+	const yaw = (YAW as Record<string, number | undefined>)[view] ?? VIEW_YAW[view as keyof typeof VIEW_YAW];
+	if (!mount || yaw === undefined) throw new Error(`Không có khung vũ khí ${attack}/${view}`);
+	if (view === 'E' && mount.side) return sideSprite(mount.design, mount.side).image;
+	const D = project(mountAt(mount, view).dir, yaw);
+	const deg = (Math.atan2(-D.sy, D.sx) * 180) / Math.PI;
+	if (mount.design.shield) return drawWeapon(mount.design, (Math.atan2(D.depth, D.sx) * 180) / Math.PI, Math.max(0.3, Math.abs(D.depth)), D.depth < 0).image;
+	if (mount.design.bow) {
+		const bend = project([-mount.dir[1], mount.dir[0], 0], yaw);
+		return drawWeapon(mount.design, (Math.atan2(-bend.sy, bend.sx) * 180) / Math.PI, Math.hypot(bend.sx, bend.sy), false, { staveDeg: deg, arrow: false }).image;
+	}
+	return drawWeapon(mount.design, deg, Math.max(0.2, Math.hypot(D.sx, D.sy))).image;
+}
+/**
+ * Tranh PixelLab đã chọn cho một hướng (stages.U.picks `U10-<đòn>-<hướng>`: seed, hoặc tên hướng khác để dùng chung) — vẽ inpaint trong
+ * hình khung theo MỘT kiếm mẫu (chủ dự án 04/11: "sao nhiều kiếm khác nhau thế, giữ 1 chuẩn thôi"). PixelLab giữ dáng nhưng có khi lệch chỗ vài px → căn lại
+ * bằng phép dời nguyên pixel khớp nhiều nhất với khung hình học (điểm nắm về đúng tâm). null = chưa có → dùng khung code.
+ */
+const artCache = new Map<string, RGBAImage | null>();
+function weaponArt(attack: string, view: string): RGBAImage | null {
+	// Xem trước hình học bằng khung code (không dùng tranh đã vẽ theo khung cũ): WEAPON_GUIDES_ONLY=<đòn,…>.
+	if ((process.env.WEAPON_GUIDES_ONLY ?? '').split(',').includes(attack)) return null;
+	const key = `${attack}/${view}`;
+	if (!artCache.has(key)) {
+		const pick = (checkedPlan('mau-1', loadLayeredStandard()).stages.U as { picks?: Record<string, number | string> }).picks?.[`U10-${attack}-${view}`];
+		const id = typeof pick === 'string' ? `U10-${attack}-${pick}` : `U10-${attack}-${view}`;
+		const seed = typeof pick === 'string' ? (checkedPlan('mau-1', loadLayeredStandard()).stages.U as { picks?: Record<string, number> }).picks?.[id] : pick;
+		const path = join(LAYERED_SOURCES, 'mau-1', 'raw', id, `seed-${seed}.png`);
+		let img: RGBAImage | null = null;
+		if (seed && existsSync(path)) {
+			const raw = readPng(path);
+			binarizeAlpha(raw);
+			const guide = weaponGuide(attack, typeof pick === 'string' ? pick : view);
+			const a = (im: RGBAImage, x: number, y: number): boolean => x >= 0 && y >= 0 && x < im.width && y < im.height && im.data[(y * im.width + x) * 4 + 3] !== 0;
+			let best: [number, number, number] = [0, 0, -1];
+			for (let dy = -12; dy <= 12; dy += 1)
+				for (let dx = -12; dx <= 12; dx += 1) {
+					let n = 0;
+					for (let y = 0; y < guide.height; y += 1) for (let x = 0; x < guide.width; x += 1) if (a(guide, x, y) && a(raw, x + dx, y + dy)) n += 1;
+					if (n > best[2]) best = [dx, dy, n];
+				}
+			img = createImage(raw.width, raw.height);
+			blit(img, raw, -best[0], -best[1]);
+		}
+		artCache.set(key, img);
+	}
+	return artCache.get(key)!;
+}
+const project = (v: V3, yaw: number): { sx: number; sy: number; depth: number } => {
+	const [c, s] = [Math.cos((yaw * Math.PI) / 180), Math.sin((yaw * Math.PI) / 180)];
+	return { sx: -v[0] * c - v[2] * s, sy: -v[1], depth: v[0] * s - v[2] * c };
+};
+/**
+ * ĐỒNG NHẤT (chủ dự án 05/11: "nên đồng nhất thôi — cung, thương, trượng, kiếm để sau lưng vẽ 1 hình đặt phía sau; sau lưng thì xoay chéo,
+ * quay mặt về màn hình thì để xoay chéo dưới lớp ảnh nhân vật. Riêng khiên vẽ 1 mặt rồi luôn gắn tay"). Thay bản vẽ riêng 8 hướng (tranh U10 các hướng khác giữ làm nguồn, không dùng).
+ * Vũ khí dài: MỘT tranh chéo lưng — bản nhìn sau lưng `U10-<đòn>-N`. Điểm gắn trên lưng chiếu theo hướng (`BACK_MOUNT.at`), tranh không
+ * đổi: quay lưng (N, NE; NW lật) đè lên thân, lớp trên cùng; mặt trước (S, SE; SW lật) lật gương quanh điểm nắm và nằm DƯỚI thân.
+ * Nhìn ngang (E; W lật) dùng tranh DỌC `U10-<đòn>-up` sau lưng, song song với người, dưới thân (chủ dự án 05/11: "mọi hướng chéo đúng nhưng
+ * khi nhân vật xoay ngang thì để vũ khí sau lưng song song với người"; điểm gắn `BACK_MOUNT.up`). Hướng tây lật cả lớp từ hướng đông như thân.
+ * Khiên: MỘT mặt (tranh `U10-bash-N`, mặt có núm) tâm ở cẳng tay trái theo khung xương từng khung; tay trái phía xa (SE, E, NE; tây lật)
+ * nằm dưới thân, S / N đè lên thân.
+ */
+function carryLayer(attack: string, d: DirId, neck: Point, arm: MouldFrame['arm'], std: LayeredStandard): { behind: RGBAImage | null; mid: RGBAImage | null } | null {
+	const from = MIRROR_OF.find(([to]) => to === d)?.[1];
+	const ax = std.cell.root[0];
+	if (from) {
+		const mx = ([x, y]: Point): Point => [2 * ax - x, y];
+		const m = carryLayer(attack, from, mx(neck), arm && { elbow: mx(arm.elbow), wrist: mx(arm.wrist) }, std);
+		return m && { behind: m.behind && mirrorImage(m.behind, ax), mid: m.mid && mirrorImage(m.mid, ax) };
+	}
+	const mount = BACK_MOUNT[attack];
+	const yaw = YAW[d];
+	if (!mount || yaw === undefined) return null;
+	const img = createImage(std.cell.width, std.cell.height);
+	if (mount.design.shield) {
+		if (!arm) throw new Error(`Khiên gắn tay: khung ${d} thiếu khung xương tay trái`);
+		const face = weaponArt(attack, 'N') ?? weaponGuide(attack, 'N');
+		const at: Point = [0.35 * arm.elbow[0] + 0.65 * arm.wrist[0], 0.35 * arm.elbow[1] + 0.65 * arm.wrist[1]];
+		blit(img, face, Math.round(at[0] - face.width / 2), Math.round(at[1] - face.height / 2));
+		return d === 'S' || d === 'N' ? { behind: null, mid: img } : { behind: img, mid: null };
+	}
+	const side = d === 'E' && !!mount.up;
+	const N = project(mount.dir, 180);
+	const deg = (x: number, y: number): number => (Math.atan2(-y, x) * 180) / Math.PI;
+	const bend = project([-mount.dir[1], mount.dir[0], 0], 180);
+	const sp = side
+		? uprightSprite(mount.design)
+		: mount.design.bow
+			? drawWeapon(mount.design, deg(bend.sx, bend.sy), Math.hypot(bend.sx, bend.sy), false, { staveDeg: deg(N.sx, N.sy), arrow: false })
+			: drawWeapon(mount.design, deg(N.sx, N.sy), Math.max(0.2, Math.hypot(N.sx, N.sy)));
+	const art = weaponArt(attack, side ? 'up' : 'N') ?? sp.image;
+	const back = d.includes('N');
+	const P = project(side ? mount.up! : mount.at, yaw);
+	const pic = back ? art : mirrorImage(art, sp.grip[0]);
+	blit(img, pic, Math.round(neck[0] + P.sx - sp.grip[0]), Math.round(neck[1] + P.sy - sp.grip[1]));
+	return back ? { behind: null, mid: img } : { behind: img, mid: null };
+}
+
 /** Neo cổ đặt đầu h trên khung thân: toạ độ của đầu trên ảnh gốc + độ dời đầu trọc của khung. */
 const mouldAt = (h: Layers, shift: Point): Point => [h.neck[0] + shift[0], h.neck[1] + shift[1]];
 
 /** Danh sách đầu nam một khuôn đã chọn đủ 3 hướng (chặng P). */
 function mouldHeads(sample: string, std: LayeredStandard, base: BaseId = 'male'): Array<{ id: string; label: string; rot: Record<DirId, Layers> }> {
 	const plan = checkedPlan(sample, std);
-	const P = plan.stages[BASES[base].headStage] as (typeof plan.stages)[string] & { heads?: Record<string, { label: string; picks?: Partial<Record<DirId, number>> } & MouldHeadFix> };
+	type HeadDefs = Record<string, { label: string; picks?: Partial<Record<DirId, number>> } & MouldHeadFix>;
+	const P = plan.stages[BASES[base].headStage] as (typeof plan.stages)[string] & Record<string, HeadDefs | undefined>;
+	const key = ('headsKey' in BASES[base] ? (BASES[base] as { headsKey: string }).headsKey : 'heads');
 	const out: Array<{ id: string; label: string; rot: Record<DirId, Layers> }> = [];
-	for (const [hid, h] of Object.entries(P?.heads ?? {})) {
+	for (const [hid, h] of Object.entries(P?.[key] ?? {})) {
 		const rot = h.picks ? mouldHead(sample, std, hid, h.picks, h, base) : null;
 		if (rot) out.push({ id: hid, label: h.label, rot });
 	}
@@ -3175,18 +3515,23 @@ function processMould(sample: string, std: LayeredStandard, key = 'm'): void {
 	const spec = mouldSpec(key);
 	const body = mouldBody(sample, std, spec);
 	const heads = mouldHeads(sample, std, spec.base);
-	const sealed = sealMould(body, heads, std);
-	const view = (fr: MouldFrame | { l: Layers; shift: Point; ms: number }, h: Layers | null, label: string[] = []): ReviewFrame => {
+	const sealed = sealMould(body, heads, std, isNpc(spec.base));
+	const view = (fr: MouldFrame | { l: Layers; shift: Point; ms: number }, h: Layers | null, label: string[] = [], d?: DirId): ReviewFrame => {
 		const a = fr.l as AttackLayers;
+		// Cỡ NPC: tấn công tạm dừng, kiếm đeo sau lưng ở mọi khung đứng / đi / chạy.
+		const carry = isNpc(spec.base) && d && !a.weapon ? carryLayer(spec.attack, d, fr.l.neck, 'arm' in fr ? fr.arm : undefined, std) : null;
+		// Chủ dự án 05/11: "nên để vũ khí ngoài tóc đi cho dễ" — phần không nằm sau thân vẽ TRÊN CÙNG (đè tóc / đầu), không còn lớp giữa.
+		if (carry) return { ...view(fr, h, label), weapon: carry.mid ?? carry.behind, weaponBehind: !carry.mid && !!carry.behind };
 		return {
 			body: fr.l.body, head: h ? h.head : fr.l.head, hairBack: h ? h.hairBack : fr.l.hairBack, hairLong: h?.hairLong ?? null, hairLongFront: h?.hairLongFront, hairLongAnchor: LONG_HAIR_ANCHOR, bodyFront: a.bodyFront, weapon: a.weapon, handFront: a.handFront, weaponBehind: a.weaponBehind,
 			neck: h ? mouldAt(h, fr.shift) : fr.l.neck, durationMs: fr.ms, issues: label,
 		};
 	};
 	const clips: ReviewClip[] = [];
-	for (const d of ['S', 'E', 'N', 'W'] as DirId[])
-		clips.push({ id: `all-${d}`, label: `${heads.length} ĐẦU ${BASES[spec.base].label} trên cùng thân ${spec.label} ${BASES[spec.base].label.toLowerCase()} (một khuôn) — đứng ${d}`, dir: d, loop: true, frames: heads.map((h) => view({ ...body.clips[`idle_${d}`]![0]!, ms: 600 }, h.rot[d], [h.label])) });
-	clips.push({ id: 'body-bald', label: `Thân ${spec.label} dùng chung — đầu trọc của khuôn (4 hướng)`, dir: 'S E N W', loop: true, frames: (['S', 'E', 'N', 'W'] as DirId[]).map((d) => view({ ...body.clips[`idle_${d}`]![0]!, ms: 600 }, null, [d])) });
+	const dirs = mouldDirs(spec.base);
+	for (const d of dirs)
+		clips.push({ id: `all-${d}`, label: `${heads.length} ĐẦU ${BASES[spec.base].label} trên cùng thân ${spec.label} ${BASES[spec.base].label.toLowerCase()} (một khuôn) — đứng ${d}`, dir: d, loop: true, frames: heads.map((h) => view({ ...body.clips[`idle_${d}`]![0]!, ms: 600 }, h.rot[d], [h.label], d)) });
+	clips.push({ id: 'body-bald', label: `Thân ${spec.label} dùng chung — đầu trọc của khuôn (${dirs.length} hướng)`, dir: dirs.join(' '), loop: true, frames: dirs.map((d) => view({ ...body.clips[`idle_${d}`]![0]!, ms: 600 }, null, [d])) });
 	const keys = Object.keys(body.clips).filter((k) => !k.startsWith('idle_')).sort();
 	const motionLabel = (k: string): string => (k.startsWith('walk') ? 'Đi' : k.startsWith('run') ? 'Chạy' : k.startsWith('cast') ? 'Niệm phép' : k.startsWith('thrust') ? 'Đâm' : k.startsWith('bash') ? 'Húc khiên' : k.startsWith('shoot') ? 'Bắn cung' : 'Chém');
 	for (const key of keys)
@@ -3195,16 +3540,19 @@ function processMould(sample: string, std: LayeredStandard, key = 'm'): void {
 		for (const key of keys) {
 			const d = key.split('_')[1] as DirId;
 			const frames = body.clips[key]!;
-			clips.push({ id: `${h.id}-${key}`, label: `${motionLabel(key)} ${d} — ${h.label}`, dir: d, loop: !key.startsWith(spec.attack), frames: frames.map((fr) => view(fr, h.rot[d], fr.hit ? ['★ khung chạm'] : [])) });
+			clips.push({ id: `${h.id}-${key}`, label: `${motionLabel(key)} ${d} — ${h.label}`, dir: d, loop: !key.startsWith(spec.attack), frames: frames.map((fr) => view(fr, h.rot[d], fr.hit ? ['★ khung chạm'] : [], d)) });
 		}
 	// Kiểm hở cổ (thân giữ cổ, không giữ hàm): mọi pixel cổ / hàm đầu trọc đã bỏ khỏi thân phải được lớp đầu / cổ của đầu / lớp trước thân che.
 	const gaps: string[] = [];
 	for (const h of heads)
 		for (const key of Object.keys(body.clips).sort()) {
 			const d = key.split('_')[1] as DirId;
-			const per = body.clips[key]!.map((fr) => uncovered(fr, h.rot[d], std) + neckHoles(fr, h.rot[d], std, mouldNeckCut(std, d)) + neckColumnGaps(fr, h.rot[d], std, mouldNeckCut(std, d)));
+			const parts = body.clips[key]!.map((fr) => [uncovered(fr, h.rot[d], std, undefined, isNpc(spec.base) && frontNeck(d)), neckHoles(fr, h.rot[d], std, mouldNeckCut(std, d)), neckColumnGaps(fr, h.rot[d], std, mouldNeckCut(std, d)), isNpc(spec.base) && frontNeck(d) ? neckLine(fr.l.body, fr.l.neck, mouldNeckCut(std, d), false) : 0]);
+			const per = parts.map((p) => p.reduce((n, v) => n + v, 0));
 			const worst = Math.max(0, ...per);
-			if (worst) gaps.push(`${h.id} ${key}: ${per.filter(Boolean).length} khung hở, tối đa ${worst} px`);
+			// Tách loại: chưa che / lỗ kín / cổ đứt / vệt đen ngang cổ.
+			const kinds = ['chưa che', 'lỗ kín', 'cổ đứt', 'vệt đen'].filter((_, i) => parts.some((p) => p[i]! > 0)).join(', ');
+			if (worst) gaps.push(`${h.id} ${key}: ${per.filter(Boolean).length} khung hở, tối đa ${worst} px (${kinds})`);
 		}
 	console.log(`  bịt hở cổ: trả lại thân ${sealed} pixel mép cổ / da cổ lỗ kín (không phải đầu nào cũng che)`);
 	console.log(gaps.length ? `Hở cổ (vùng bỏ khỏi thân không được đầu che):\n  ${gaps.join('\n  ')}` : '✔ hở cổ: 0 — mọi vùng cổ / hàm đầu trọc bỏ khỏi thân đều được đầu che');
@@ -3215,7 +3563,8 @@ function processMould(sample: string, std: LayeredStandard, key = 'm'): void {
 	];
 	// m → mot-khuon, m-x → mot-khuon-x; f → mot-khuon-nu, f-x → mot-khuon-nu-x.
 	const [g, cls] = [spec.key.split('-')[0], spec.key.split('-').slice(1).join('-')];
-	const slug = `${sample}-mot-khuon${g === 'f' ? '-nu' : ''}${cls ? `-${cls}` : ''}`;
+	// u → mot-khuon-npc, u-x → mot-khuon-npc-x (cỡ NPC 8 hướng, chặng U).
+	const slug = `${sample}-mot-khuon${g === 'f' ? '-nu' : g === 'u' ? '-npc' : g === 'uf' ? '-npc-nu' : ''}${cls ? `-${cls}` : ''}`;
 	const page = writeReview({ id: slug, title: `Mẫu 1 — một khuôn: một bộ ${spec.label} nam đội mọi đầu nam`, notes, clips, reference: { label: 'npc_silver_youth (chuẩn độ nét)', image: referenceInCell('npc_silver_youth', std) }, mapTile: townGroundPatch(join(LAYERED_SOURCES, sample, 'processed', 'map.png')) ?? undefined }, join(REVIEW_ROOT, slug), std);
 	console.log(`✔ trang soi: ${page}\n  link: https://admin.tail024813.ts.net/site/media/layered/${slug}/index.html`);
 }
@@ -3245,9 +3594,14 @@ async function main(): Promise<void> {
 		return processF(args[0]!, std, DEMON_MALE_STAGE);
 	}
 	if (cmd === 'export' && args[0]) return exportUnity(args[0], std);
+	if (cmd === 'weapon-guides' && args[0]) {
+		// Xem trước khung hình học 8 hướng (không tiêu lượt): raw/_guides/<đòn>-<hướng>.png
+		for (const v of ALL) writePng(join(LAYERED_SOURCES, 'mau-1', 'raw', '_guides', `${args[0]}-${v}.png`), weaponGuide(args[0], v));
+		return void console.log(`✔ khung ${args[0]} 8 hướng → raw/_guides/`);
+	}
 	if (cmd === 'chins' && args[0]) return printChins(args[0], std);
 	if (cmd === 'share' && args[3]) return shareCmd(args[0]!, args[1]!, args[2]!, args[3], std);
-	if (cmd === 'follow' && args[5]) return buildFollow(args[0]!, args[1]!, args[2]!, args[3]!, args[4] as DirId, args[5], std);
+	if (cmd === 'follow' && args[5]) return buildFollow(args[0]!, args[1]!, args[2]!, args[3]!, args[4] as DirId, args[5], std, args.includes('--joints'));
 	if (cmd === 'mirror' && args[3]) return mirrorFollow(args[0]!, args[1]!, args[2]!, args[3], args.includes('--away'));
 	if (cmd === 'upright' && args[1]) return uprightHead(args[0]!, args[1]);
 	if (cmd === 'retarget' && args[3]) return retargetSkeleton(args[0]!, args[1]!, args[2]!, args[3]);

@@ -64,6 +64,9 @@ namespace HavenLord.Client
                 t.uiRun = Array.IndexOf(args, "-havenUi") >= 0;
                 t.rosterRun = Array.IndexOf(args, "-havenRoster") >= 0;
                 t.pixelLabRosterRun = Array.IndexOf(args, "-havenPixelLabRoster") >= 0;
+                t.npcRosterRun = Array.IndexOf(args, "-havenNpcRoster") >= 0;
+                t.bannerRun = Array.IndexOf(args, "-havenBanner") >= 0;
+                t.waterRun = Array.IndexOf(args, "-havenWater") >= 0;
                 t.weatherRun = Array.IndexOf(args, "-havenWeather") >= 0;
                 t.layeredRun = Array.IndexOf(args, "-havenLayered") >= 0;
                 return;
@@ -82,6 +85,11 @@ namespace HavenLord.Client
             {
                 yield return PixelLabSelectionTest(login);
                 if(failed)yield break;
+            }
+            if (npcRosterRun)
+            {
+                yield return NpcSelectionTest(login);
+                if (failed) yield break;
             }
             if (rosterRun)
                 foreach (var role in PlayerRoster.Classes)
@@ -131,9 +139,25 @@ namespace HavenLord.Client
             yield return new WaitForSeconds(2.5f);
             if (game == null || game.Player == null) { Fail("Không nạp được nhân vật mặc định mới"); yield break; }
             if (!VerifyCompleteCharacter(game.Player.View)) yield break;
+            if (waterRun)
+            {
+                yield return WaterTest(game);
+                log.WriteLine("xong"); log.Close(); Application.Quit(0); yield break;
+            }
+            if (bannerRun)
+            {
+                yield return BannerShots(game);
+                log.WriteLine("xong"); log.Close(); Application.Quit(0); yield break;
+            }
             if (pixelLabRosterRun)
             {
                 yield return PixelLabRosterTest(game);
+                if (failed) yield break;
+                log.WriteLine("xong"); log.Close(); Application.Quit(0); yield break;
+            }
+            if (npcRosterRun)
+            {
+                yield return NpcRosterTest(game);
                 if (failed) yield break;
                 log.WriteLine("xong"); log.Close(); Application.Quit(0); yield break;
             }
@@ -1187,6 +1211,17 @@ namespace HavenLord.Client
 
         private IEnumerator Shot(string name)
         {
+            // Chạy ẩn (-batchmode, chủ dự án 05/11 "test thì đừng mở cửa sổ"): không có khung hình màn hình nên WaitForEndOfFrame không
+            // bao giờ tới — vẽ thẳng ngoài màn hình.
+            if (Application.isBatchMode)
+            {
+                yield return null;
+                var hidden = OffscreenShot();
+                File.WriteAllBytes(Path.Combine(dir, name + ".png"), hidden.EncodeToPNG());
+                Destroy(hidden);
+                log.WriteLine("chụp " + name + " (chạy ẩn → vẽ ngoài màn hình)");
+                yield break;
+            }
             yield return new WaitForEndOfFrame();
             var tex = ScreenCapture.CaptureScreenshotAsTexture();
             var offscreen = Blank(tex);
@@ -1213,14 +1248,14 @@ namespace HavenLord.Client
         /// Vẽ khung hình vào RenderTexture: tạm chuyển các canvas Overlay sang ScreenSpaceCamera của camera chính rồi trả lại — GPU vẫn
         /// chạy khi màn hình tắt nên soát được bố cục UI.
         /// </summary>
-        private static Texture2D OffscreenShot()
+        private static Texture2D OffscreenShot(bool ui = true)
         {
             var cam = Camera.main;
             var w = Screen.width;
             var h = Screen.height;
             var rt = RenderTexture.GetTemporary(w, h, 24);
             var swapped = new List<(Canvas canvas, int order)>();
-            foreach (var c in FindObjectsByType<Canvas>(FindObjectsSortMode.None))
+            foreach (var c in ui ? FindObjectsByType<Canvas>(FindObjectsSortMode.None) : new Canvas[0])
             {
                 if (!c.isRootCanvas || c.renderMode != RenderMode.ScreenSpaceOverlay) continue;
                 var order = c.sortingOrder;

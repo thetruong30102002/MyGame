@@ -243,7 +243,18 @@
         "S",
         "E",
         "N"
-      ]
+      ],
+      "durationsMsNpc": [
+        130,
+        130,
+        130,
+        130,
+        130,
+        130,
+        130,
+        130
+      ],
+      "npcNote": "Khuôn cỡ NPC (chặng U, chốt 03/11 \"giảm nhịp chân\"): khung dài hơn bản cũ (đi 100 → 130 ms, chạy 70 → 95 ms); tốc độ di chuyển trong game chỉnh khi thay nhân vật người chơi."
     },
     {
       "id": "run",
@@ -267,7 +278,18 @@
       "pilot": true,
       "pilotDirections": [
         "E"
-      ]
+      ],
+      "durationsMsNpc": [
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95
+      ],
+      "npcNote": "Khuôn cỡ NPC (chặng U, chốt 03/11 \"giảm nhịp chân\"): khung dài hơn bản cũ (đi 100 → 130 ms, chạy 70 → 95 ms); tốc độ di chuyển trong game chỉnh khi thay nhân vật người chơi."
     },
     {
       "id": "slash",
@@ -694,6 +716,13 @@
         "estimate": 35,
         "scope": "Bộ Kiếm sĩ cơ bản cho thân NỮ (sửa ảnh S của nhân vật nữ đầu 1, chọn 1 trong 3 → xoay 8 hướng); đi S/E/N, chạy E bằng skeleton-v3 (template co người nữ); chém E/S 15 khung tay không theo khung xương nữ; kiếm ghép theo điểm nắm",
         "gate": "chủ dự án duyệt bộ Kiếm sĩ nữ ở đứng / đi / chạy / chém, mặc / tháo đồ"
+      },
+      {
+        "id": "mau-1-U",
+        "estimate": 1700,
+        "scope": "Cỡ NPC (chủ dự án 04/11: \"vẽ lại thân và đầu cùng kích thước với 2 npc tóc trắng, di chuyển 8 hướng\"): thân nền nam trọc sửa từ chính ảnh NPC (4 bản, chọn 1) → xoay 8 hướng → đầu Nhân tộc nam 1 + bộ Kiếm sĩ mới sửa trên chính ảnh xoay S / SE / E / NE / N (W / SW / NW lật) → đi / chạy 5 hướng vẽ → ghép một khuôn, soi cổ. Tấn công tạm dừng.",
+        "gate": "chủ dự án chọn thân nền (U0), duyệt Kiếm sĩ đứng trước khi vẽ đi / chạy; rồi duyệt GIF 8 hướng + soi cổ",
+        "estimateNote": "70 → 90 (04/11): vẽ lại thân nền lượt 2 (mặt mất nét anime), bộ đồ NE / N + đầu NE (quay mặt ra trước) — dự phòng ×1,3; 90 → 280 (04/11): chủ dự án \"vẽ luôn các class khác đi\" — 4 class nam còn lại × (S 3 bản + 4 hướng × 2 bản + đi / chạy 10 clip × 3 lượt ≈ 41) ≈ 165, dự phòng ×1,3; 280 → 300 (04/11): tổng món đã khai 221 lượt (gồm món vẽ lại) × 1,3; 300 → 360 (04/11): vũ khí đeo lưng vẽ lại bằng PixelLab (chủ dự án \"toàn bộ vũ khí quá xấu cần làm lại\") — 5 vũ khí × 3 góc × 2 bản ≈ 30, khiên thêm góc; 360 → 420 (04/11): vũ khí MỘT CHUẨN vẽ inpaint 5 lượt / hướng × 8 hướng; 420 → 650 (04/11): 4 vũ khí còn lại × (mẫu + 8 hướng inpaint) ≈ 170; 650 → 850 (04/11): chủ dự án \"full đầu\" — 14 đầu nam còn lại × 5 hướng × 2 bản = 140; 850 → 1100 (04/11): vẽ lại vũ khí theo mẫu chi tiết + nghiêng hướng ngang; bộ nữ sắp tới; 1100 → 1700 (04/11): bộ nữ cỡ NPC — 15 đầu × 5 × 2 = 150, 5 bộ (3 + 8) = 55, đi / chạy 50 × 3 = 150"
       }
     ]
   },
@@ -742,7 +771,10 @@
     "petiteFemaleEdit": "Make her petite and more slender: smaller delicate frame, narrow shoulders, small ribcage, very narrow waist, small softly rounded hips, very slim thighs, thin slender calves and ankles, thin arms. Keep exactly the same bald head and same head size in pixels, same anime face, big eyes, same height, same pose, same two-piece bikini with straps over the shoulders, same skin color, outline and pixel art style. Natural short neck, not long. Modest and non-sexualized. No collar, no scarf.",
     "slimLegsFemaleEdit": "Make only her legs much slimmer: slim thighs about one third narrower with a small gap between them, slim knees, thin calves and ankles, slightly narrower hips. Keep everything above the hips unchanged: same bald head and same head size, same anime face, same shoulders, arms, chest, waist and bikini top, same height, same feet position, same bikini bottom, skin color, outline and pixel art style. Modest and non-sexualized. Natural short neck.",
     "headEditLong": "Change ONLY the head: {hair}, {raceFeatures}, brown eyes. Keep the same anime face, eye shape, head size, neck, skin color, body, bikini, pose, outline and pixel art style. Long hair falls behind the shoulders down the back; the front of the neck stays bare, hair does not cover the face, neck or chest. No clothing, collar, necklace or scarf.",
-    "headEditFemale": "Change ONLY the head: {hair}, {raceFeatures}, brown eyes. Keep exactly the same anime face shape, eye shape, head size, neck, skin color, body, bikini, pose, outline and pixel art style. Hair stays above the shoulders and does not touch the neck or shoulders. Do not add any clothing, collar, necklace or scarf."
+    "headEditFemale": "Change ONLY the head: {hair}, {raceFeatures}, brown eyes. Keep exactly the same anime face shape, eye shape, head size, neck, skin color, body, bikini, pose, outline and pixel art style. Hair stays above the shoulders and does not touch the neck or shoulders. Do not add any clothing, collar, necklace or scarf.",
+    "baseMaleNpcEdit": "Make him completely bald with a smooth shaved head. Remove all clothes: bare chest, bare arms, bare legs and bare feet, only plain dark shorts above the knee. Healthy athletic build, slightly fuller arms and legs, not skinny, not bulky, soft muscle shading. Keep the same anime face, youthful, with the same big anime eyes recolored to brown eyes. Natural short neck. Keep the same head size, height, pose, dark outline and pixel art style. No collar, no scarf, no hood, no necklace.",
+    "weaponEdit": "Redraw this into a detailed pixel art {weapon}. Keep exactly the same position, angle, length and silhouette in the image. Crisp dark outline, clean shading and highlights, clear material detail, anime fantasy RPG style. Transparent background, only the item, no hand, no character, no strap, no glow, no shadow.",
+    "baseFemaleNpcEdit": "Make her completely bald with a smooth shaved head. Remove all clothes: adult non-sexualized base body in a plain dark two-piece bikini with straps over the shoulders, no halter. Slim hourglass figure, slim legs, bare arms and feet. Make the head about 10 percent smaller. Keep the same anime face, youthful, with the same big anime eyes recolored to brown eyes. Natural short neck. Keep the same height, pose, dark outline and pixel art style. No collar, no scarf, no hood, no necklace."
   },
   "sample1": {
     "head": {

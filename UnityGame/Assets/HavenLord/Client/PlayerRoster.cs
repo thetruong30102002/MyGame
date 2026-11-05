@@ -9,7 +9,7 @@ namespace HavenLord.Client
     {
         [Serializable] public sealed class Choice
         {
-            public string id, displayName, classId, classLabel, gender, raceId, raceLabel;
+            public string id, displayName, classId, classLabel, gender, raceId, raceLabel, headLabel;
             public int variant;
             public bool? playable;
             public string Combat => classId == "staff" ? "cast" : classId == "bow" ? "shoot" : classId == "spear" ? "thrust" : classId == "shield" ? "bash" : "attack";
@@ -26,6 +26,14 @@ namespace HavenLord.Client
 
         private static Choice[] Load()
         {
+            // Cỡ NPC 8 hướng (04/11): 2 giới × 15 đầu × 5 class — ưu tiên khi đã nhập (NpcRosterRelease).
+            var npc = Resources.Load<TextAsset>("NpcRoster");
+            if (npc != null)
+            {
+                var list = JsonConvert.DeserializeObject<Catalog>(npc.text)?.characters;
+                if (list != null && list.Length == 150 && Array.TrueForAll(list, c => c.id.StartsWith("player_npc_"))) return list;
+                throw new InvalidOperationException("Danh mục cỡ NPC chưa đủ 150 lựa chọn");
+            }
             var file = Resources.Load<TextAsset>("PixelLabMaleRoster") ?? Resources.Load<TextAsset>("PlayerRoster");
             // Web có 30 mẫu nhưng chưa đủ chuyển động để nhập roster; giữ nguyên nhân vật đã phát.
             if (file == null) return new[] {new Choice {id=GameController.IntegratedCharacterId,displayName="Lữ khách",classId="sword",classLabel="Kiếm / Trượng",gender="male",variant=1}};
@@ -39,6 +47,8 @@ namespace HavenLord.Client
         }
         public static Choice Find(string id) => id==GameController.IntegratedCharacterId ? null : Array.Find(Choices, c => c.id == id);
         public static Choice Default(bool female) => Array.Find(Choices, c => c.gender == (female ? "female" : "male") && c.classId == (female ? "staff" : "sword")) ?? Choices[0];
+        /// <summary>Có cả nhân vật nữ để chọn (bộ cỡ NPC).</summary>
+        public static bool HasFemale => Array.Exists(Choices, c => c.gender == "female");
         public static string Resolve(string id, bool female) => Find(id) is Choice c && c.gender == (female ? "female" : "male") ? c.id : Default(female).id;
     }
 }

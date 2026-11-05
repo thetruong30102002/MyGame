@@ -1,11 +1,11 @@
 import { useState, useEffect, useCallback, useDeferredValue, useTransition, useRef, useMemo, type FormEvent, type ReactNode } from 'react';
 import { ApiContext, useApi, useLoad, cacheFor, json, type Api } from './api';
-import { RosterGallery } from '../roster';
+import { NpcRosterGallery } from '../rosterNpc';
 import type { readDevelopmentPlan } from '../../src/developmentPlan';
 import type { WORLD_DESIGN } from '../../../../packages/sim/src/worldDesign';
 import './studio.css';
 import './classic-studio.css';
-import {Brand,AccountMenu,UiIcon} from '../ui';
+import {Brand,AccountMenu,UiIcon,roleImage} from '../ui';
 import {PlanView} from './planView';
 type Plan = ReturnType<typeof readDevelopmentPlan> & {
     worldDesign: typeof WORLD_DESIGN;
@@ -149,7 +149,7 @@ function Comments({ id }: {
     return <div className="ra-comments"><Failure error={error}/>{data?.comments.map(c => <article key={c.id}><small>{c.author} · {date(c.at)}</small><p>{c.body}</p><MutateButton confirmText={'Ẩn bình luận của ' + c.author + '?'} work={() => api('api/comments/' + c.id, { method: 'DELETE' })} onDone={reload}>Ẩn bình luận</MutateButton></article>)}{data?.comments.length === 0 && <p>Chưa có bình luận.</p>}</div>;
 }
 function LogPage() { const [id, setId] = useState(''), filter = useDeferredValue(id), { data, error, reload } = useLoad<Log[]>('api/admin/log?limit=200&characterId=' + encodeURIComponent(filter)); return <Panel title="Nhật ký điều chỉnh"><div className="ra-filters"><input placeholder="Lọc ID nhân vật" aria-label="ID nhân vật" value={id} onChange={e => setId(e.target.value)}/><button onClick={reload}>Tải lại</button></div><Failure error={error}/>{!data && <Notice>Đang tải…</Notice>}<div className="ra-table"><table><thead><tr>{['Thời điểm', 'Quản trị', 'Nhân vật', 'Thay đổi', 'Lý do'].map(h => <th key={h}>{h}</th>)}</tr></thead><tbody>{data?.map((l, i) => <tr key={l.id || i}><td>{date(l.at)}</td><td>{l.admin}</td><td>{l.characterName}</td><td>{l.field}: {l.from} → {l.to}</td><td>{l.reason}</td></tr>)}</tbody></table></div>{data?.length === 0 && <Notice>Chưa có điều chỉnh.</Notice>}</Panel>; }
-function AccessFrame({children}:{children:ReactNode}){return <div className="ra-access"><aside><Brand href="./" admin/><div><span className="ra-eyebrow">PHÁT TRIỂN MỘT THẾ GIỚI</span><h1>HAVEN LORD<br/><span>STUDIO.</span></h1><p>Từ một điểm ảnh,<br/>đến những hành trình.</p></div><div className="ra-access-art"><img src="site/media/roster/player_staff_m01/S.png" width="336" height="336" alt="Tinh Vân — Pháp sư"/><span>HỒ SƠ LỮ HÀNH / 01</span></div></aside><div className="ra-access-form">{children}</div></div>}
+function AccessFrame({children}:{children:ReactNode}){return <div className="ra-access"><aside><Brand href="./" admin/><div><span className="ra-eyebrow">PHÁT TRIỂN MỘT THẾ GIỚI</span><h1>HAVEN LORD<br/><span>STUDIO.</span></h1><p>Từ một điểm ảnh,<br/>đến những hành trình.</p></div><div className="ra-access-art"><img src={roleImage('player_npc_elf2_staff_f')} width="336" height="384" alt="Tinh Vân — Pháp sư"/><span>HỒ SƠ LỮ HÀNH / 01</span></div></aside><div className="ra-access-form">{children}</div></div>}
 export default function App() {
     const [token, setToken] = useState(() => localStorage.getItem('havenlord.web.token') || ''), [user, setUser] = useState<{
         username: string;
@@ -177,7 +177,7 @@ export default function App() {
         setUser(undefined);
     } }; window.addEventListener('havenlord:session', sync); window.addEventListener('storage', sync); return () => { window.removeEventListener('havenlord:session', sync); window.removeEventListener('storage', sync); }; }, [token, api]);
     useEffect(() => { if (!user?.admin)
-        return; ['api/admin/plan?view=dashboard', 'api/admin/characters?q=', 'api/admin/feedback?limit=500', 'api/admin/news', 'api/posts?limit=20&q=&category=&before=', 'api/admin/log?limit=200&characterId=', 'site/roster.json'].forEach(path => void cacheFor(api).load(path).catch(() => { })); }, [user?.admin, api]);
+        return; ['api/admin/plan?view=dashboard', 'api/admin/characters?q=', 'api/admin/feedback?limit=500', 'api/admin/news', 'api/posts?limit=20&q=&category=&before=', 'api/admin/log?limit=200&characterId=', 'site/roster-npc.json'].forEach(path => void cacheFor(api).load(path).catch(() => { })); }, [user?.admin, api]);
     useEffect(() => {
         if (!token) {
             setChecking(false);
@@ -239,7 +239,7 @@ export default function App() {
             setChecking(false);
         }
     }
-    const pages = useMemo<Record<string, ReactNode>>(() => ({ plan: <PlanView />, world:<WorldPage/>, roster: <Panel title="30 nhân vật · 5 class"><Notice>Mỗi class có 3 nam và 3 nữ. Tóc, trang phục và một vũ khí được vẽ liền nhân vật. Các nhân vật đời cũ dành cho NPC trong hướng phát triển mới.</Notice><RosterGallery /></Panel>, res: <Resources />, fb: <FeedbackPage />, news: <NewsPage />, posts: <PostsPage />, log: <LogPage /> }), []);
+    const pages = useMemo<Record<string, ReactNode>>(() => ({ plan: <PlanView />, world:<WorldPage/>, roster: <Panel title="150 nhân vật · 5 class"><Notice>Bộ cỡ NPC 8 hướng: mỗi class 15 đầu nam và 15 đầu nữ (5 tộc × 3), thân / đầu / vũ khí tách lớp, cùng cỡ hai NPC tóc trắng. Ảnh cắt nguyên pixel từ atlas game. Đòn đánh tạm dùng dáng đứng; bộ chưa phát cho người chơi.</Notice><NpcRosterGallery /></Panel>, res: <Resources />, fb: <FeedbackPage />, news: <NewsPage />, posts: <PostsPage />, log: <LogPage /> }), []);
     if (!user)
         return <AccessFrame><Panel title="Cổng quản trị Haven"><p>Kế hoạch phát triển và vận hành thế giới.</p>{token ? <><Notice>{checking ? 'Đang xác minh phiên…' : authError || 'Chưa kết nối được máy chủ.'}</Notice>{!checking && <button onClick={() => void logout()}>Đổi tài khoản</button>}</> : <form onSubmit={login}><label>Tên đăng nhập<input name="username" autoComplete="username" required/></label><label>Mật khẩu<input name="password" type="password" autoComplete="current-password" required/></label><Failure error={authError}/><button className="primary" disabled={checking}>Đăng nhập</button></form>}<a href="./">← Về trang chủ</a></Panel></AccessFrame>;
     if (!user.admin)

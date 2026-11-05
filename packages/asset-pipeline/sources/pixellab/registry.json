@@ -1078,5 +1078,35 @@
 			"death-fix": "3df5b1a2-7479-4e73-a721-2ba36bc2b2be",
 			"walk-fix": "616b6ffa-fce7-4dc1-8488-05571f71b218"
 		}
+	},
+	"boss_cursed_oak_001": {
+		"uuid": "90ddc38a-f802-4910-8f0c-c8f58842c78d",
+		"token": 0,
+		"groups": {
+			"walk": "84d95db2-2434-4cf8-a272-9441586949a6",
+			"idle": "66e35b9f-9c84-4232-acf9-dc06402db946",
+			"attack": "69cd1cb1-3bfd-499e-84f2-887b16052eef",
+			"death": "3d6b5a83-f72b-4bfc-a835-d0e44e1e74e9"
+		}
+	},
+	"mob_field_hyena_001": {
+		"uuid": "486778da-2829-47bc-a50b-48b2a3bad9a1",
+		"token": 0,
+		"groups": {
+			"walk": "fd602a30-8ca9-40e8-a60d-18b88f7d30ca",
+			"idle": "0162918a-0f26-4cc2-8984-c186f2a7dd0d",
+			"attack": "f7c60158-8c68-40fc-8b30-91828b2fedb1",
+			"death": "f8103011-cc63-4aea-8281-f1bc702623dc"
+		}
+	},
+	"mob_stream_crab_001": {
+		"uuid": "39a78ad0-eddc-49ac-bc8d-cc175a049d9f",
+		"token": 0,
+		"groups": {
+			"walk": "be3f8102-cc02-4bed-a06a-42cd10af31d2",
+			"idle": "f9879889-c211-45ce-96bd-461df7735054",
+			"attack": "2af3bf2c-cf31-4e7d-9c4d-c92063a09501",
+			"death": "eab598f5-cf49-45e7-91d1-8488f0cba0c9"
+		}
 	}
 }

@@ -1,0 +1,75 @@
+{
+  "jobId": "e9d02fcd-fcc0-4722-8c13-8ffd4caaa118",
+  "frames": 17,
+  "dimensions": [
+    [
+      160,
+      160
+    ],
+    [
+      160,
+      160
+    ],
+    [
+      160,
+      160
+    ],
+    [
+      160,
+      160
+    ],
+    [
+      160,
+      160
+    ],
+    [
+      160,
+      160
+    ],
+    [
+      160,
+      160
+    ],
+    [
+      160,
+      160
+    ],
+    [
+      160,
+      160
+    ],
+    [
+      160,
+      160
+    ],
+    [
+      160,
+      160
+    ],
+    [
+      160,
+      160
+    ],
+    [
+      160,
+      160
+    ],
+    [
+      160,
+      160
+    ],
+    [
+      160,
+      160
+    ],
+    [
+      160,
+      160
+    ],
+    [
+      160,
+      160
+    ]
+  ],
+  "balanceAfter": "credits: $0.00\ngenerations_remaining: 4120.00\ngenerations_used: 880.00\ngenerations_total: 5000\nnote: fractions come from small steps billed per use — prompt enhancement 0.05, skeleton estimation and colour reduction 0.1, sprite import 0.25, /chat builder model calls — most are not jobs, so list_jobs does not show them\nsubscription: active (Tier 2: Pixel Artisan)\ngenerations_reset: 2026-11-28\nnote: generations_total is this cycle's allowance (prorated on a mid-cycle upgrade); it refills on generations_reset"
+}

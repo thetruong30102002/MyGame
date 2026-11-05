@@ -1,0 +1,50 @@
+{
+  "entries": [
+    {
+      "id": "sword-male",
+      "label": "Kiếm sĩ",
+      "sex": "male",
+      "file": "sword-male/S.png",
+      "source": "packages/asset-pipeline/sources/pixellab/npc_silver_youth/Idle/rotations/south.png",
+      "method": "PixelLab edit_image_pixen",
+      "artApproved": false,
+      "jobId": "650a5a2c-1b87-4fa0-92f7-949d353e7b3b"
+    },
+    {
+      "id": "sword-female",
+      "label": "Kiếm sĩ",
+      "sex": "female",
+      "file": "sword-female/S.png",
+      "source": "packages/asset-pipeline/sources/pixellab/npc_silver_youth_f/Idle/rotations/south.png",
+      "method": "PixelLab edit_image_pixen",
+      "artApproved": false,
+      "jobId": "e6575ad6-6461-45c9-becc-8fe2331f2dfb"
+    },
+    {
+      "id": "shield-male",
+      "label": "Khiên thủ",
+      "sex": "male",
+      "file": "shield-male/S.png",
+      "source": "packages/asset-pipeline/sources/pixellab/npc_silver_youth/Idle/rotations/south.png",
+      "method": "PixelLab edit_image_pixen",
+      "artApproved": false,
+      "jobId": "c2d13118-5f26-4f63-9613-0dc36722b85c"
+    },
+    {
+      "id": "shield-female",
+      "label": "Khiên thủ",
+      "sex": "female",
+      "file": "shield-female/S.png",
+      "source": "packages/asset-pipeline/sources/pixellab/npc_silver_youth_f/Idle/rotations/south.png",
+      "method": "PixelLab edit_image_pixen",
+      "artApproved": false,
+      "jobId": "afdca9e2-6780-4fe7-838a-210d0427d361"
+    }
+  ],
+  "balanceBefore": "credits: $0.00\ngenerations_remaining: 4103.00\ngenerations_used: 897.00\ngenerations_total: 5000\nnote: fractions come from small steps billed per use — prompt enhancement 0.05, skeleton estimation and colour reduction 0.1, sprite import 0.25, /chat builder model calls — most are not jobs, so list_jobs does not show them\nsubscription: active (Tier 2: Pixel Artisan)\ngenerations_reset: 2026-11-28\nnote: generations_total is this cycle's allowance (prorated on a mid-cycle upgrade); it refills on generations_reset",
+  "scope": "4 front standing outfit designs only, no animation or game build",
+  "heads": "NPC identity retained solely in full reference image. No runtime avatar overpainting. Remove old head before exporting any body layer.",
+  "weapons": "Separate later; not baked into outfit.",
+  "attack": "paused by user",
+  "artApproved": false
+}

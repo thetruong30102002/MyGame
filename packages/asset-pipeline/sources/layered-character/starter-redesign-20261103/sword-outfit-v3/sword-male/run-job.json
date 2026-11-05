@@ -1,0 +1,11 @@
+{
+  "directions": [
+    "south",
+    "south-east",
+    "east",
+    "north-east",
+    "north"
+  ],
+  "template": "running-8-frames",
+  "receipt": "character: 581327e9-139a-43b7-bb7f-0f745189082f\nanimation: running-8-frames\nmode: template\ndirections: south, south-east, east, north-east, north (5 jobs)\njob_ids: south=211b1fce-8d18-48a1-b385-34fa28e5a11c, south-east=48b5d879-c38b-404b-a40a-2b7f10351d1c, east=0c98d32d-a161-43e9-a69a-75f8b4417894, north-east=fb1b3e39-6660-4199-930f-4f5f6f997cc9, north=5556848b-0040-470e-ba23-b918759bbbe5\ngroup: 3c4e6af3-e1e0-470a-a4f1-ffd9ecfc0414\ncost: 5 generations (1/dir x 5)\neta: ~2-4 min\nadd more directions to this group: animate_character(character_id=\"581327e9-139a-43b7-bb7f-0f745189082f\", template_animation_id=\"running-8-frames\", animation_group_id=\"3c4e6af3-e1e0-470a-a4f1-ffd9ecfc0414\", directions=[...])\n\nhint: get_character(character_id=\"581327e9-139a-43b7-bb7f-0f745189082f\")\nif poor: delete_animation(character_id=\"581327e9-139a-43b7-bb7f-0f745189082f\", animation_type=\"...\") then retry with mode=\"v3\""
+}

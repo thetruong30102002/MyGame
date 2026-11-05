@@ -1,0 +1,13 @@
+{
+  "id": "dbe2152b-b508-4d7e-9bf2-95821d9a274e",
+  "action": "run",
+  "template": "running-8-frames",
+  "directions": [
+    "south",
+    "south-east",
+    "east",
+    "north-east",
+    "north"
+  ],
+  "receipt": "character: dbe2152b-b508-4d7e-9bf2-95821d9a274e\nanimation: running-8-frames\nmode: template\ndirections: south, south-east, east, north-east, north (5 jobs)\njob_ids: south=95a4ae72-828c-412e-a58a-bbd113cf2002, south-east=4877d648-09f1-44d6-b2c2-54cf7104391b, east=2817da5f-941f-4850-b826-3a49f13f547a, north-east=10f66b59-0085-421a-be71-a119fc3b2930, north=cd897ebd-ad6f-4c51-b02f-081d09f8486d\ngroup: a33d0168-7012-4c48-9f51-a5ccdf7d60d6\ncost: 5 generations (1/dir x 5)\neta: ~2-4 min\nadd more directions to this group: animate_character(character_id=\"dbe2152b-b508-4d7e-9bf2-95821d9a274e\", template_animation_id=\"running-8-frames\", animation_group_id=\"a33d0168-7012-4c48-9f51-a5ccdf7d60d6\", directions=[...])\n\nhint: get_character(character_id=\"dbe2152b-b508-4d7e-9bf2-95821d9a274e\")\nif poor: delete_animation(character_id=\"dbe2152b-b508-4d7e-9bf2-95821d9a274e\", animation_type=\"...\") then retry with mode=\"v3\""
+}

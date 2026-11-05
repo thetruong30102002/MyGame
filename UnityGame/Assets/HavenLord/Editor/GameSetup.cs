@@ -251,7 +251,7 @@ namespace HavenLord.Importer
 
         /// <summary>
         /// Bản WebGL cho điện thoại → Build/WebGL-mobile, máy chủ phát ở /game/play/m/ (trang PC tự chuyển sang khi GPU hiểu ASTC mà không hiểu
-        /// BC7). Ảnh ASTC 6×6 tối đa 2048px, trần bộ nhớ 2GB. Xong thì trả ảnh về chế độ PC.
+        /// BC7). Ảnh ASTC (nhân vật 4×4, còn lại 6×6) tối đa 2048px, trần bộ nhớ 2GB; canvas phóng kiểu pixel (template). Xong thì trả ảnh về chế độ PC.
         /// </summary>
         public static bool BuildWebGLMobile()
         {

@@ -1,0 +1,9 @@
+{
+  "description": "Change clothes ONLY: moss-green fitted jacket, brown leather chest harness, belt pouches, dark olive full trousers, long sleeves touching brown gloves, leather boots. Small shoulder mantle BELOW neck only, NO HOOD or hat. Preserve exact UNCOVERED white hair, head, face, height, neck position, feet, pose and original pixel clusters. Slightly fuller athletic body, not bulky. Clear cloth/leather shading. No exposed arm or leg skin. No weapons. Nothing above shoulders changes.",
+  "image_base64": "<packages/asset-pipeline/sources/pixellab/npc_silver_youth/Idle/rotations/south.png>",
+  "width": 80,
+  "height": 80,
+  "no_background": true,
+  "seed": 73230,
+  "artApproved": false
+}

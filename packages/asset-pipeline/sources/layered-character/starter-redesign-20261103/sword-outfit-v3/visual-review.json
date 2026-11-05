@@ -1,0 +1,46 @@
+[
+  {
+    "sex": "male",
+    "file": "packages\\asset-pipeline\\sources\\pixellab\\npc_silver_youth\\Idle\\rotations\\south.png",
+    "bounds": [
+      21,
+      2,
+      53,
+      75
+    ],
+    "height": 73
+  },
+  {
+    "sex": "male",
+    "file": "packages\\asset-pipeline\\sources\\layered-character\\starter-redesign-20261103\\sword-outfit-v3\\sword-male\\S.png",
+    "bounds": [
+      21,
+      2,
+      53,
+      75
+    ],
+    "height": 73
+  },
+  {
+    "sex": "female",
+    "file": "packages\\asset-pipeline\\sources\\pixellab\\npc_silver_youth_f\\Idle\\rotations\\south.png",
+    "bounds": [
+      21,
+      4,
+      59,
+      75
+    ],
+    "height": 71
+  },
+  {
+    "sex": "female",
+    "file": "packages\\asset-pipeline\\sources\\layered-character\\starter-redesign-20261103\\sword-outfit-v3\\sword-female\\S.png",
+    "bounds": [
+      21,
+      4,
+      59,
+      75
+    ],
+    "height": 71
+  }
+]

@@ -1,6 +1,6 @@
 /* Cổng game và bàn tiến độ: cùng màu giấy cũ, đồng vàng, rừng đêm. */
 body { background-image: radial-gradient(ellipse at 5% 0%, #24453555, transparent 42rem); }
-body h1, .portal-title, .portal-heading { font-family: Georgia, 'Times New Roman', serif; font-weight: 500; }
+body h1, .portal-title, .portal-heading { font-family: Cambria,'Times New Roman',serif; font-weight: 500; }
 .bar, #top { background-color: #0b1713f5; }
 #top { border-bottom: 1px solid #d9ba7630; }
 #top nav a { letter-spacing: .015em; }
@@ -53,7 +53,7 @@ body[data-page] main > header h1 { font-size: clamp(2.2rem,5vw,3.6rem); }
 .portal-section-desc { font-size: .9rem; color: #afbdaf; line-height: 1.9; max-width: 700px; margin-top: 12px; }
 .portal-journal { display: grid; grid-template-columns: 130px 1fr auto; align-items: start; gap: 24px; padding: 30px; border: 1px solid #c9ab6d30; border-left: 3px solid #c9ab6d; background: #17271f; }
 .portal-journal time { font-size: .75rem; color: #a9b7a6; }
-.portal-journal h3 { font-family: Georgia,serif; font-size: 1.55rem; color: #ede3cc; }
+.portal-journal h3 { font-family: Cambria,'Times New Roman',serif; font-size: 1.55rem; color: #ede3cc; }
 .portal-journal p { color: #b7c2b4; line-height: 1.9; font-size: .86rem; margin-top: 10px; }
 .portal-gallery { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; }
 .portal-gallery figure { position: relative; border: 1px solid #d5b87440; overflow: hidden; cursor: zoom-in; }
@@ -64,7 +64,7 @@ body[data-page] main > header h1 { font-size: clamp(2.2rem,5vw,3.6rem); }
 .portal-post strong { color: #e5dfce; font-size: .92rem; }
 .portal-post small { display: block; color: #9eaf9d; font-size: .72rem; margin-top: 7px; }
 .portal-aside { border: 1px solid #c9ab6d33; padding: 24px; background: #192c22; }
-.portal-aside h3 { font-family: Georgia,serif; font-size: 1.7rem; color: #e7d4ab; }
+.portal-aside h3 { font-family: Cambria,'Times New Roman',serif; font-size: 1.7rem; color: #e7d4ab; }
 .portal-aside p { font-size: .85rem; color: #b4bfae; line-height: 1.9; margin: 12px 0 22px; }
 .portal-end { text-align: center; padding: 76px 20px; margin-top: 56px; border-top: 1px solid #c9ab6d33; background: radial-gradient(ellipse at bottom,#344f3044,transparent); }
 .portal-end p { color: #afbdaf; font-size: .9rem; margin: 16px 0 26px; }
@@ -124,7 +124,7 @@ body[data-page] main > header h1 { font-size: clamp(2.2rem,5vw,3.6rem); }
 .world-design-pin { cursor: pointer; }.world-design-pin:focus { outline: none; }.world-design-pin:focus circle { stroke: #fff1ca; }
 .world-design-legend { color: #b7c2ad; font-size: .68rem; line-height: 1.8; margin: 10px 0; }
 .world-design-info { min-width: 0; }.world-design-region { font-size: .77rem; line-height: 1.9; color: #c2cbbb; padding-top: 14px; overflow-wrap: anywhere; }
-.world-design-region h3,.world-design-heading { font: 1.4rem Georgia,serif; color: #e4cfa4; margin-bottom: 16px; }
+.world-design-region h3,.world-design-heading { font: 1.4rem Cambria,'Times New Roman',serif; color: #e4cfa4; margin-bottom: 16px; }
 .world-design-region p + p { margin-top: 8px; }.world-design-region ul,.world-design-list { list-style: disc; padding-left: 18px; margin-top: 12px; }
 .world-design-quote { padding: 10px 14px; border-left: 2px solid #cdb37a; margin-top: 12px; color: #dfd5bb; }
 .world-design-route { font-size: .7rem; color: #b9cbb3; overflow-wrap: anywhere; }

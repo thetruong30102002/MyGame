@@ -1,0 +1,10 @@
+{
+  "artApproved": false,
+  "status": "rejected",
+  "reasons": [
+    "Giữ được hướng N nhưng chỉ nâng và hạ kiếm, thiếu pha chém qua người phía trước.",
+    "Chân và trọng tâm chưa tham gia rõ vào nhát chém.",
+    "Không dùng làm mẫu chuyển động hoặc nguồn build."
+  ],
+  "nextApproach": "Dựng 3 tư thế mới trong 3D, IK giữ độ dài xương, chỉ dùng rest skeleton đo tỷ lệ; không dùng lại buildSlash hoặc clip tấn công cũ."
+}

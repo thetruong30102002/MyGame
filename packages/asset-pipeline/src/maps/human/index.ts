@@ -125,8 +125,12 @@ export function validateRegion(maps: MapData[], levels: readonly [number, number
 		return !!t && t !== 'w' && t !== '#';
 	};
 	for (const m of maps) {
-		const types = new Set(m.monsterZones.filter((z) => !z.boss).flatMap((z) => z.monsters));
+		const types = new Set(m.monsterZones.filter((z) => !z.boss && !z.river).flatMap((z) => z.monsters));
 		if (types.size > 1) out.push(`${m.id}: ${types.size} loại quái (${[...types].join(', ')}) — mỗi map chỉ một loại`);
+		// Quái sông (05/11/2026): thêm đúng MỘT loài sống nước, khác loài chính.
+		const riverTypes = new Set(m.monsterZones.filter((z) => z.river).flatMap((z) => z.monsters));
+		if (riverTypes.size > 1) out.push(`${m.id}: ${riverTypes.size} loài quái sông (${[...riverTypes].join(', ')}) — mỗi map chỉ một loài`);
+		for (const t of riverTypes) if (types.has(t)) out.push(`${m.id}: quái sông ${t} trùng loài chính của map`);
 		// Cột dịch chuyển: mọi map có địa điểm `waystone` (NPC cột của vùng đứng ở map nào có) — id này được trùng.
 		for (const s of m.spots) if (s.id !== WAYSTONE_SPOT) unique('địa điểm', s.id, m.id);
 		if (!m.spots.some((s) => s.id === WAYSTONE_SPOT)) out.push(`${m.id}: thiếu địa điểm ${WAYSTONE_SPOT} (cột dịch chuyển)`);
@@ -140,11 +144,14 @@ export function validateRegion(maps: MapData[], levels: readonly [number, number
 		for (const z of m.monsterZones) {
 			if (z.level !== undefined && !(Number.isInteger(z.level) && z.level >= levels[0] && z.level <= levels[1]))
 				out.push(`${m.id}: khu ${z.id} cấp ${z.level} ngoài khoảng cấp vùng ${levels[0]}–${levels[1]}`);
+			if (z.river && !water.length) out.push(`${m.id}: bầy quái sông ${z.id} nhưng map không có nước`);
 			if (!z.boss && water.length) {
 				const tx = (z.x - TILE / 2) / TILE;
 				const ty = (z.y - TILE / 2) / TILE;
 				const gap = water.reduce((best, [x, y]) => Math.min(best, Math.hypot(x - tx, y - ty)), Infinity);
-				if (gap < MIN_WATER_GAP) out.push(`${m.id}: tâm bầy ${z.id} cách nước ${gap.toFixed(1)} ô (< ${MIN_WATER_GAP}) — quái kẹt bên bờ`);
+				if (z.river) {
+					if (gap < 1.5 || gap > 4) out.push(`${m.id}: bầy quái sông ${z.id} cách nước ${gap.toFixed(1)} ô (cần 1,5–4 ô, sát bờ)`);
+				} else if (gap < MIN_WATER_GAP) out.push(`${m.id}: tâm bầy ${z.id} cách nước ${gap.toFixed(1)} ô (< ${MIN_WATER_GAP}) — quái kẹt bên bờ`);
 			}
 			if (!z.onDemand && (z.fromAge ?? 0) < ADULT_AGE && !(z.untilAge !== undefined && z.untilAge < ADULT_AGE))
 				out.push(`${m.id}: khu tuổi thơ ${z.id} (từ ${z.fromAge ?? 0} tuổi) thiếu untilAge ≤ ${ADULT_AGE - 1}`);

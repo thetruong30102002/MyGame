@@ -1,0 +1,11 @@
+{
+  "description": "Edit outfit only: fitted charcoal tabard with muted bronze edging, flat dark steel chest panel, snug leather gauntlets, sturdy boots and small shin guards. Long sleeves and trousers. Keep original NPC height, body width, slim proportions, shoulders, head, hair, face, stance and foot placement. Armor lies flush, no bulky shoulder pads. Match original crisp pixel art and contrast. No weapons or glow.",
+  "image_base64": "<packages/asset-pipeline/sources/pixellab/npc_silver_youth_f/Idle/rotations/south.png>",
+  "width": 80,
+  "height": 80,
+  "no_background": true,
+  "seed": 73303,
+  "referenceSha256": "b6c230ecc4d535349eab176623f5c970ced17e961698f9eaeef60c993a01d892",
+  "previewOnly": true,
+  "artApproved": false
+}

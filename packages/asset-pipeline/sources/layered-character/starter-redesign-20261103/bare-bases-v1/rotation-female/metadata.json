@@ -1,0 +1,36 @@
+{
+  "group_id": "c0b4a747-0d5d-4c05-b137-fd13838ee2ce",
+  "states": [
+    {
+      "character": {
+        "id": "371c3002-0291-490f-b8a1-b3dec23c1019",
+        "name": "Idle",
+        "prompt": "Same adult female bald base as reference. Plain dark-blue modest two-piece bikini with simple shoulder straps and briefs. Bare arms, legs and feet. Same 71px height, head size, short neck, body width, skin tone and anime pixel style in all 8 directions. No hair, robe, weapons, accessories or shadows.",
+        "size": {
+          "width": 80,
+          "height": 80
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-11-03T16:03:48.582210+00:00"
+      },
+      "folder": "Idle",
+      "frames": {
+        "rotations": {
+          "south": "Idle/rotations/south.png",
+          "south-east": "Idle/rotations/south-east.png",
+          "east": "Idle/rotations/east.png",
+          "north-east": "Idle/rotations/north-east.png",
+          "north": "Idle/rotations/north.png",
+          "north-west": "Idle/rotations/north-west.png",
+          "west": "Idle/rotations/west.png",
+          "south-west": "Idle/rotations/south-west.png"
+        },
+        "animations": {}
+      }
+    }
+  ],
+  "export_version": "3.1",
+  "export_date": "2026-11-03T16:06:43.418055"
+}

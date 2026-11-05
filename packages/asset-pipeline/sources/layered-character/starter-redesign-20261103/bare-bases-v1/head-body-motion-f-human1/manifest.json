@@ -1,0 +1,2092 @@
+{
+  "canvas": [
+    80,
+    80
+  ],
+  "head": "f-human1",
+  "sex": "female",
+  "frameGeometry": "integer translation only",
+  "directions": {
+    "walk_south": [
+      {
+        "index": 0,
+        "body": "walk/south/00-body.png",
+        "head": "walk/south/00-head.png",
+        "bodyFront": "walk/south/00-body-front.png",
+        "joined": "walk/south/00-joined.png",
+        "neck": [
+          40,
+          13
+        ],
+        "headTranslation": [
+          4,
+          -17
+        ],
+        "gap": []
+      },
+      {
+        "index": 1,
+        "body": "walk/south/01-body.png",
+        "head": "walk/south/01-head.png",
+        "bodyFront": "walk/south/01-body-front.png",
+        "joined": "walk/south/01-joined.png",
+        "neck": [
+          41,
+          29
+        ],
+        "headTranslation": [
+          5,
+          -1
+        ],
+        "gap": []
+      },
+      {
+        "index": 2,
+        "body": "walk/south/02-body.png",
+        "head": "walk/south/02-head.png",
+        "bodyFront": "walk/south/02-body-front.png",
+        "joined": "walk/south/02-joined.png",
+        "neck": [
+          41,
+          34
+        ],
+        "headTranslation": [
+          5,
+          4
+        ],
+        "gap": []
+      },
+      {
+        "index": 3,
+        "body": "walk/south/03-body.png",
+        "head": "walk/south/03-head.png",
+        "bodyFront": "walk/south/03-body-front.png",
+        "joined": "walk/south/03-joined.png",
+        "neck": [
+          44,
+          30
+        ],
+        "headTranslation": [
+          8,
+          0
+        ],
+        "gap": []
+      },
+      {
+        "index": 4,
+        "body": "walk/south/04-body.png",
+        "head": "walk/south/04-head.png",
+        "bodyFront": "walk/south/04-body-front.png",
+        "joined": "walk/south/04-joined.png",
+        "neck": [
+          39,
+          30
+        ],
+        "headTranslation": [
+          3,
+          0
+        ],
+        "gap": []
+      },
+      {
+        "index": 5,
+        "body": "walk/south/05-body.png",
+        "head": "walk/south/05-head.png",
+        "bodyFront": "walk/south/05-body-front.png",
+        "joined": "walk/south/05-joined.png",
+        "neck": [
+          41,
+          28
+        ],
+        "headTranslation": [
+          5,
+          -2
+        ],
+        "gap": []
+      },
+      {
+        "index": 6,
+        "body": "walk/south/06-body.png",
+        "head": "walk/south/06-head.png",
+        "bodyFront": "walk/south/06-body-front.png",
+        "joined": "walk/south/06-joined.png",
+        "neck": [
+          39,
+          28
+        ],
+        "headTranslation": [
+          3,
+          -2
+        ],
+        "gap": []
+      },
+      {
+        "index": 7,
+        "body": "walk/south/07-body.png",
+        "head": "walk/south/07-head.png",
+        "bodyFront": "walk/south/07-body-front.png",
+        "joined": "walk/south/07-joined.png",
+        "neck": [
+          41,
+          28
+        ],
+        "headTranslation": [
+          5,
+          -2
+        ],
+        "gap": []
+      }
+    ],
+    "walk_south-east": [
+      {
+        "index": 0,
+        "body": "walk/south-east/00-body.png",
+        "head": "walk/south-east/00-head.png",
+        "bodyFront": "walk/south-east/00-body-front.png",
+        "joined": "walk/south-east/00-joined.png",
+        "neck": [
+          43,
+          28
+        ],
+        "headTranslation": [
+          4,
+          -2
+        ],
+        "gap": []
+      },
+      {
+        "index": 1,
+        "body": "walk/south-east/01-body.png",
+        "head": "walk/south-east/01-head.png",
+        "bodyFront": "walk/south-east/01-body-front.png",
+        "joined": "walk/south-east/01-joined.png",
+        "neck": [
+          43,
+          28
+        ],
+        "headTranslation": [
+          4,
+          -2
+        ],
+        "gap": []
+      },
+      {
+        "index": 2,
+        "body": "walk/south-east/02-body.png",
+        "head": "walk/south-east/02-head.png",
+        "bodyFront": "walk/south-east/02-body-front.png",
+        "joined": "walk/south-east/02-joined.png",
+        "neck": [
+          42,
+          28
+        ],
+        "headTranslation": [
+          3,
+          -2
+        ],
+        "gap": []
+      },
+      {
+        "index": 3,
+        "body": "walk/south-east/03-body.png",
+        "head": "walk/south-east/03-head.png",
+        "bodyFront": "walk/south-east/03-body-front.png",
+        "joined": "walk/south-east/03-joined.png",
+        "neck": [
+          41,
+          29
+        ],
+        "headTranslation": [
+          2,
+          -1
+        ],
+        "gap": []
+      },
+      {
+        "index": 4,
+        "body": "walk/south-east/04-body.png",
+        "head": "walk/south-east/04-head.png",
+        "bodyFront": "walk/south-east/04-body-front.png",
+        "joined": "walk/south-east/04-joined.png",
+        "neck": [
+          41,
+          28
+        ],
+        "headTranslation": [
+          2,
+          -2
+        ],
+        "gap": []
+      },
+      {
+        "index": 5,
+        "body": "walk/south-east/05-body.png",
+        "head": "walk/south-east/05-head.png",
+        "bodyFront": "walk/south-east/05-body-front.png",
+        "joined": "walk/south-east/05-joined.png",
+        "neck": [
+          42,
+          29
+        ],
+        "headTranslation": [
+          3,
+          -1
+        ],
+        "gap": []
+      },
+      {
+        "index": 6,
+        "body": "walk/south-east/06-body.png",
+        "head": "walk/south-east/06-head.png",
+        "bodyFront": "walk/south-east/06-body-front.png",
+        "joined": "walk/south-east/06-joined.png",
+        "neck": [
+          42,
+          28
+        ],
+        "headTranslation": [
+          3,
+          -2
+        ],
+        "gap": []
+      },
+      {
+        "index": 7,
+        "body": "walk/south-east/07-body.png",
+        "head": "walk/south-east/07-head.png",
+        "bodyFront": "walk/south-east/07-body-front.png",
+        "joined": "walk/south-east/07-joined.png",
+        "neck": [
+          42,
+          28
+        ],
+        "headTranslation": [
+          3,
+          -2
+        ],
+        "gap": []
+      }
+    ],
+    "walk_east": [
+      {
+        "index": 0,
+        "body": "walk/east/00-body.png",
+        "head": "walk/east/00-head.png",
+        "bodyFront": "walk/east/00-body-front.png",
+        "joined": "walk/east/00-joined.png",
+        "neck": [
+          36,
+          31
+        ],
+        "headTranslation": [
+          0,
+          1
+        ],
+        "gap": []
+      },
+      {
+        "index": 1,
+        "body": "walk/east/01-body.png",
+        "head": "walk/east/01-head.png",
+        "bodyFront": "walk/east/01-body-front.png",
+        "joined": "walk/east/01-joined.png",
+        "neck": [
+          36,
+          31
+        ],
+        "headTranslation": [
+          0,
+          1
+        ],
+        "gap": []
+      },
+      {
+        "index": 2,
+        "body": "walk/east/02-body.png",
+        "head": "walk/east/02-head.png",
+        "bodyFront": "walk/east/02-body-front.png",
+        "joined": "walk/east/02-joined.png",
+        "neck": [
+          36,
+          31
+        ],
+        "headTranslation": [
+          0,
+          1
+        ],
+        "gap": []
+      },
+      {
+        "index": 3,
+        "body": "walk/east/03-body.png",
+        "head": "walk/east/03-head.png",
+        "bodyFront": "walk/east/03-body-front.png",
+        "joined": "walk/east/03-joined.png",
+        "neck": [
+          36,
+          31
+        ],
+        "headTranslation": [
+          0,
+          1
+        ],
+        "gap": []
+      },
+      {
+        "index": 4,
+        "body": "walk/east/04-body.png",
+        "head": "walk/east/04-head.png",
+        "bodyFront": "walk/east/04-body-front.png",
+        "joined": "walk/east/04-joined.png",
+        "neck": [
+          36,
+          31
+        ],
+        "headTranslation": [
+          0,
+          1
+        ],
+        "gap": []
+      },
+      {
+        "index": 5,
+        "body": "walk/east/05-body.png",
+        "head": "walk/east/05-head.png",
+        "bodyFront": "walk/east/05-body-front.png",
+        "joined": "walk/east/05-joined.png",
+        "neck": [
+          36,
+          31
+        ],
+        "headTranslation": [
+          0,
+          1
+        ],
+        "gap": []
+      },
+      {
+        "index": 6,
+        "body": "walk/east/06-body.png",
+        "head": "walk/east/06-head.png",
+        "bodyFront": "walk/east/06-body-front.png",
+        "joined": "walk/east/06-joined.png",
+        "neck": [
+          36,
+          31
+        ],
+        "headTranslation": [
+          0,
+          1
+        ],
+        "gap": []
+      },
+      {
+        "index": 7,
+        "body": "walk/east/07-body.png",
+        "head": "walk/east/07-head.png",
+        "bodyFront": "walk/east/07-body-front.png",
+        "joined": "walk/east/07-joined.png",
+        "neck": [
+          36,
+          31
+        ],
+        "headTranslation": [
+          0,
+          1
+        ],
+        "gap": []
+      }
+    ],
+    "walk_north-east": [
+      {
+        "index": 0,
+        "body": "walk/north-east/00-body.png",
+        "head": "walk/north-east/00-head.png",
+        "bodyFront": "walk/north-east/00-body-front.png",
+        "joined": "walk/north-east/00-joined.png",
+        "neck": [
+          38,
+          30
+        ],
+        "headTranslation": [
+          0,
+          0
+        ],
+        "gap": []
+      },
+      {
+        "index": 1,
+        "body": "walk/north-east/01-body.png",
+        "head": "walk/north-east/01-head.png",
+        "bodyFront": "walk/north-east/01-body-front.png",
+        "joined": "walk/north-east/01-joined.png",
+        "neck": [
+          38,
+          30
+        ],
+        "headTranslation": [
+          0,
+          0
+        ],
+        "gap": []
+      },
+      {
+        "index": 2,
+        "body": "walk/north-east/02-body.png",
+        "head": "walk/north-east/02-head.png",
+        "bodyFront": "walk/north-east/02-body-front.png",
+        "joined": "walk/north-east/02-joined.png",
+        "neck": [
+          38,
+          29
+        ],
+        "headTranslation": [
+          0,
+          -1
+        ],
+        "gap": []
+      },
+      {
+        "index": 3,
+        "body": "walk/north-east/03-body.png",
+        "head": "walk/north-east/03-head.png",
+        "bodyFront": "walk/north-east/03-body-front.png",
+        "joined": "walk/north-east/03-joined.png",
+        "neck": [
+          38,
+          29
+        ],
+        "headTranslation": [
+          0,
+          -1
+        ],
+        "gap": []
+      },
+      {
+        "index": 4,
+        "body": "walk/north-east/04-body.png",
+        "head": "walk/north-east/04-head.png",
+        "bodyFront": "walk/north-east/04-body-front.png",
+        "joined": "walk/north-east/04-joined.png",
+        "neck": [
+          38,
+          29
+        ],
+        "headTranslation": [
+          0,
+          -1
+        ],
+        "gap": []
+      },
+      {
+        "index": 5,
+        "body": "walk/north-east/05-body.png",
+        "head": "walk/north-east/05-head.png",
+        "bodyFront": "walk/north-east/05-body-front.png",
+        "joined": "walk/north-east/05-joined.png",
+        "neck": [
+          38,
+          29
+        ],
+        "headTranslation": [
+          0,
+          -1
+        ],
+        "gap": []
+      },
+      {
+        "index": 6,
+        "body": "walk/north-east/06-body.png",
+        "head": "walk/north-east/06-head.png",
+        "bodyFront": "walk/north-east/06-body-front.png",
+        "joined": "walk/north-east/06-joined.png",
+        "neck": [
+          38,
+          29
+        ],
+        "headTranslation": [
+          0,
+          -1
+        ],
+        "gap": []
+      },
+      {
+        "index": 7,
+        "body": "walk/north-east/07-body.png",
+        "head": "walk/north-east/07-head.png",
+        "bodyFront": "walk/north-east/07-body-front.png",
+        "joined": "walk/north-east/07-joined.png",
+        "neck": [
+          38,
+          29
+        ],
+        "headTranslation": [
+          0,
+          -1
+        ],
+        "gap": []
+      }
+    ],
+    "walk_north": [
+      {
+        "index": 0,
+        "body": "walk/north/00-body.png",
+        "head": "walk/north/00-head.png",
+        "bodyFront": "walk/north/00-body-front.png",
+        "joined": "walk/north/00-joined.png",
+        "neck": [
+          38,
+          30
+        ],
+        "headTranslation": [
+          0,
+          0
+        ],
+        "gap": []
+      },
+      {
+        "index": 1,
+        "body": "walk/north/01-body.png",
+        "head": "walk/north/01-head.png",
+        "bodyFront": "walk/north/01-body-front.png",
+        "joined": "walk/north/01-joined.png",
+        "neck": [
+          38,
+          30
+        ],
+        "headTranslation": [
+          0,
+          0
+        ],
+        "gap": []
+      },
+      {
+        "index": 2,
+        "body": "walk/north/02-body.png",
+        "head": "walk/north/02-head.png",
+        "bodyFront": "walk/north/02-body-front.png",
+        "joined": "walk/north/02-joined.png",
+        "neck": [
+          38,
+          30
+        ],
+        "headTranslation": [
+          0,
+          0
+        ],
+        "gap": []
+      },
+      {
+        "index": 3,
+        "body": "walk/north/03-body.png",
+        "head": "walk/north/03-head.png",
+        "bodyFront": "walk/north/03-body-front.png",
+        "joined": "walk/north/03-joined.png",
+        "neck": [
+          38,
+          30
+        ],
+        "headTranslation": [
+          0,
+          0
+        ],
+        "gap": []
+      },
+      {
+        "index": 4,
+        "body": "walk/north/04-body.png",
+        "head": "walk/north/04-head.png",
+        "bodyFront": "walk/north/04-body-front.png",
+        "joined": "walk/north/04-joined.png",
+        "neck": [
+          40,
+          30
+        ],
+        "headTranslation": [
+          2,
+          0
+        ],
+        "gap": []
+      },
+      {
+        "index": 5,
+        "body": "walk/north/05-body.png",
+        "head": "walk/north/05-head.png",
+        "bodyFront": "walk/north/05-body-front.png",
+        "joined": "walk/north/05-joined.png",
+        "neck": [
+          38,
+          30
+        ],
+        "headTranslation": [
+          0,
+          0
+        ],
+        "gap": []
+      },
+      {
+        "index": 6,
+        "body": "walk/north/06-body.png",
+        "head": "walk/north/06-head.png",
+        "bodyFront": "walk/north/06-body-front.png",
+        "joined": "walk/north/06-joined.png",
+        "neck": [
+          38,
+          30
+        ],
+        "headTranslation": [
+          0,
+          0
+        ],
+        "gap": []
+      },
+      {
+        "index": 7,
+        "body": "walk/north/07-body.png",
+        "head": "walk/north/07-head.png",
+        "bodyFront": "walk/north/07-body-front.png",
+        "joined": "walk/north/07-joined.png",
+        "neck": [
+          38,
+          30
+        ],
+        "headTranslation": [
+          0,
+          0
+        ],
+        "gap": []
+      }
+    ],
+    "walk_north-west": [
+      {
+        "index": 0,
+        "body": "walk/north-west/00-body.png",
+        "head": "walk/north-west/00-head.png",
+        "bodyFront": "walk/north-west/00-body-front.png",
+        "joined": "walk/north-west/00-joined.png",
+        "neck": [
+          41,
+          30
+        ],
+        "headTranslation": [
+          0,
+          0
+        ],
+        "gap": []
+      },
+      {
+        "index": 1,
+        "body": "walk/north-west/01-body.png",
+        "head": "walk/north-west/01-head.png",
+        "bodyFront": "walk/north-west/01-body-front.png",
+        "joined": "walk/north-west/01-joined.png",
+        "neck": [
+          41,
+          30
+        ],
+        "headTranslation": [
+          0,
+          0
+        ],
+        "gap": []
+      },
+      {
+        "index": 2,
+        "body": "walk/north-west/02-body.png",
+        "head": "walk/north-west/02-head.png",
+        "bodyFront": "walk/north-west/02-body-front.png",
+        "joined": "walk/north-west/02-joined.png",
+        "neck": [
+          41,
+          29
+        ],
+        "headTranslation": [
+          0,
+          -1
+        ],
+        "gap": []
+      },
+      {
+        "index": 3,
+        "body": "walk/north-west/03-body.png",
+        "head": "walk/north-west/03-head.png",
+        "bodyFront": "walk/north-west/03-body-front.png",
+        "joined": "walk/north-west/03-joined.png",
+        "neck": [
+          41,
+          29
+        ],
+        "headTranslation": [
+          0,
+          -1
+        ],
+        "gap": []
+      },
+      {
+        "index": 4,
+        "body": "walk/north-west/04-body.png",
+        "head": "walk/north-west/04-head.png",
+        "bodyFront": "walk/north-west/04-body-front.png",
+        "joined": "walk/north-west/04-joined.png",
+        "neck": [
+          41,
+          29
+        ],
+        "headTranslation": [
+          0,
+          -1
+        ],
+        "gap": []
+      },
+      {
+        "index": 5,
+        "body": "walk/north-west/05-body.png",
+        "head": "walk/north-west/05-head.png",
+        "bodyFront": "walk/north-west/05-body-front.png",
+        "joined": "walk/north-west/05-joined.png",
+        "neck": [
+          41,
+          29
+        ],
+        "headTranslation": [
+          0,
+          -1
+        ],
+        "gap": []
+      },
+      {
+        "index": 6,
+        "body": "walk/north-west/06-body.png",
+        "head": "walk/north-west/06-head.png",
+        "bodyFront": "walk/north-west/06-body-front.png",
+        "joined": "walk/north-west/06-joined.png",
+        "neck": [
+          41,
+          29
+        ],
+        "headTranslation": [
+          0,
+          -1
+        ],
+        "gap": []
+      },
+      {
+        "index": 7,
+        "body": "walk/north-west/07-body.png",
+        "head": "walk/north-west/07-head.png",
+        "bodyFront": "walk/north-west/07-body-front.png",
+        "joined": "walk/north-west/07-joined.png",
+        "neck": [
+          41,
+          29
+        ],
+        "headTranslation": [
+          0,
+          -1
+        ],
+        "gap": []
+      }
+    ],
+    "walk_west": [
+      {
+        "index": 0,
+        "body": "walk/west/00-body.png",
+        "head": "walk/west/00-head.png",
+        "bodyFront": "walk/west/00-body-front.png",
+        "joined": "walk/west/00-joined.png",
+        "neck": [
+          43,
+          31
+        ],
+        "headTranslation": [
+          0,
+          1
+        ],
+        "gap": []
+      },
+      {
+        "index": 1,
+        "body": "walk/west/01-body.png",
+        "head": "walk/west/01-head.png",
+        "bodyFront": "walk/west/01-body-front.png",
+        "joined": "walk/west/01-joined.png",
+        "neck": [
+          43,
+          31
+        ],
+        "headTranslation": [
+          0,
+          1
+        ],
+        "gap": []
+      },
+      {
+        "index": 2,
+        "body": "walk/west/02-body.png",
+        "head": "walk/west/02-head.png",
+        "bodyFront": "walk/west/02-body-front.png",
+        "joined": "walk/west/02-joined.png",
+        "neck": [
+          43,
+          31
+        ],
+        "headTranslation": [
+          0,
+          1
+        ],
+        "gap": []
+      },
+      {
+        "index": 3,
+        "body": "walk/west/03-body.png",
+        "head": "walk/west/03-head.png",
+        "bodyFront": "walk/west/03-body-front.png",
+        "joined": "walk/west/03-joined.png",
+        "neck": [
+          43,
+          31
+        ],
+        "headTranslation": [
+          0,
+          1
+        ],
+        "gap": []
+      },
+      {
+        "index": 4,
+        "body": "walk/west/04-body.png",
+        "head": "walk/west/04-head.png",
+        "bodyFront": "walk/west/04-body-front.png",
+        "joined": "walk/west/04-joined.png",
+        "neck": [
+          43,
+          31
+        ],
+        "headTranslation": [
+          0,
+          1
+        ],
+        "gap": []
+      },
+      {
+        "index": 5,
+        "body": "walk/west/05-body.png",
+        "head": "walk/west/05-head.png",
+        "bodyFront": "walk/west/05-body-front.png",
+        "joined": "walk/west/05-joined.png",
+        "neck": [
+          43,
+          31
+        ],
+        "headTranslation": [
+          0,
+          1
+        ],
+        "gap": []
+      },
+      {
+        "index": 6,
+        "body": "walk/west/06-body.png",
+        "head": "walk/west/06-head.png",
+        "bodyFront": "walk/west/06-body-front.png",
+        "joined": "walk/west/06-joined.png",
+        "neck": [
+          43,
+          31
+        ],
+        "headTranslation": [
+          0,
+          1
+        ],
+        "gap": []
+      },
+      {
+        "index": 7,
+        "body": "walk/west/07-body.png",
+        "head": "walk/west/07-head.png",
+        "bodyFront": "walk/west/07-body-front.png",
+        "joined": "walk/west/07-joined.png",
+        "neck": [
+          43,
+          31
+        ],
+        "headTranslation": [
+          0,
+          1
+        ],
+        "gap": []
+      }
+    ],
+    "walk_south-west": [
+      {
+        "index": 0,
+        "body": "walk/south-west/00-body.png",
+        "head": "walk/south-west/00-head.png",
+        "bodyFront": "walk/south-west/00-body-front.png",
+        "joined": "walk/south-west/00-joined.png",
+        "neck": [
+          36,
+          28
+        ],
+        "headTranslation": [
+          4,
+          -2
+        ],
+        "gap": []
+      },
+      {
+        "index": 1,
+        "body": "walk/south-west/01-body.png",
+        "head": "walk/south-west/01-head.png",
+        "bodyFront": "walk/south-west/01-body-front.png",
+        "joined": "walk/south-west/01-joined.png",
+        "neck": [
+          36,
+          28
+        ],
+        "headTranslation": [
+          4,
+          -2
+        ],
+        "gap": []
+      },
+      {
+        "index": 2,
+        "body": "walk/south-west/02-body.png",
+        "head": "walk/south-west/02-head.png",
+        "bodyFront": "walk/south-west/02-body-front.png",
+        "joined": "walk/south-west/02-joined.png",
+        "neck": [
+          37,
+          28
+        ],
+        "headTranslation": [
+          3,
+          -2
+        ],
+        "gap": []
+      },
+      {
+        "index": 3,
+        "body": "walk/south-west/03-body.png",
+        "head": "walk/south-west/03-head.png",
+        "bodyFront": "walk/south-west/03-body-front.png",
+        "joined": "walk/south-west/03-joined.png",
+        "neck": [
+          38,
+          29
+        ],
+        "headTranslation": [
+          2,
+          -1
+        ],
+        "gap": []
+      },
+      {
+        "index": 4,
+        "body": "walk/south-west/04-body.png",
+        "head": "walk/south-west/04-head.png",
+        "bodyFront": "walk/south-west/04-body-front.png",
+        "joined": "walk/south-west/04-joined.png",
+        "neck": [
+          38,
+          28
+        ],
+        "headTranslation": [
+          2,
+          -2
+        ],
+        "gap": []
+      },
+      {
+        "index": 5,
+        "body": "walk/south-west/05-body.png",
+        "head": "walk/south-west/05-head.png",
+        "bodyFront": "walk/south-west/05-body-front.png",
+        "joined": "walk/south-west/05-joined.png",
+        "neck": [
+          37,
+          29
+        ],
+        "headTranslation": [
+          3,
+          -1
+        ],
+        "gap": []
+      },
+      {
+        "index": 6,
+        "body": "walk/south-west/06-body.png",
+        "head": "walk/south-west/06-head.png",
+        "bodyFront": "walk/south-west/06-body-front.png",
+        "joined": "walk/south-west/06-joined.png",
+        "neck": [
+          37,
+          28
+        ],
+        "headTranslation": [
+          3,
+          -2
+        ],
+        "gap": []
+      },
+      {
+        "index": 7,
+        "body": "walk/south-west/07-body.png",
+        "head": "walk/south-west/07-head.png",
+        "bodyFront": "walk/south-west/07-body-front.png",
+        "joined": "walk/south-west/07-joined.png",
+        "neck": [
+          37,
+          28
+        ],
+        "headTranslation": [
+          3,
+          -2
+        ],
+        "gap": []
+      }
+    ],
+    "run_south": [
+      {
+        "index": 0,
+        "body": "run/south/00-body.png",
+        "head": "run/south/00-head.png",
+        "bodyFront": "run/south/00-body-front.png",
+        "joined": "run/south/00-joined.png",
+        "neck": [
+          42,
+          36
+        ],
+        "headTranslation": [
+          6,
+          6
+        ],
+        "gap": []
+      },
+      {
+        "index": 1,
+        "body": "run/south/01-body.png",
+        "head": "run/south/01-head.png",
+        "bodyFront": "run/south/01-body-front.png",
+        "joined": "run/south/01-joined.png",
+        "neck": [
+          40,
+          36
+        ],
+        "headTranslation": [
+          4,
+          6
+        ],
+        "gap": []
+      },
+      {
+        "index": 2,
+        "body": "run/south/02-body.png",
+        "head": "run/south/02-head.png",
+        "bodyFront": "run/south/02-body-front.png",
+        "joined": "run/south/02-joined.png",
+        "neck": [
+          43,
+          36
+        ],
+        "headTranslation": [
+          7,
+          6
+        ],
+        "gap": []
+      },
+      {
+        "index": 3,
+        "body": "run/south/03-body.png",
+        "head": "run/south/03-head.png",
+        "bodyFront": "run/south/03-body-front.png",
+        "joined": "run/south/03-joined.png",
+        "neck": [
+          39,
+          37
+        ],
+        "headTranslation": [
+          3,
+          7
+        ],
+        "gap": []
+      },
+      {
+        "index": 4,
+        "body": "run/south/04-body.png",
+        "head": "run/south/04-head.png",
+        "bodyFront": "run/south/04-body-front.png",
+        "joined": "run/south/04-joined.png",
+        "neck": [
+          40,
+          36
+        ],
+        "headTranslation": [
+          4,
+          6
+        ],
+        "gap": []
+      },
+      {
+        "index": 5,
+        "body": "run/south/05-body.png",
+        "head": "run/south/05-head.png",
+        "bodyFront": "run/south/05-body-front.png",
+        "joined": "run/south/05-joined.png",
+        "neck": [
+          37,
+          35
+        ],
+        "headTranslation": [
+          1,
+          5
+        ],
+        "gap": []
+      },
+      {
+        "index": 6,
+        "body": "run/south/06-body.png",
+        "head": "run/south/06-head.png",
+        "bodyFront": "run/south/06-body-front.png",
+        "joined": "run/south/06-joined.png",
+        "neck": [
+          39,
+          35
+        ],
+        "headTranslation": [
+          3,
+          5
+        ],
+        "gap": []
+      },
+      {
+        "index": 7,
+        "body": "run/south/07-body.png",
+        "head": "run/south/07-head.png",
+        "bodyFront": "run/south/07-body-front.png",
+        "joined": "run/south/07-joined.png",
+        "neck": [
+          40,
+          36
+        ],
+        "headTranslation": [
+          4,
+          6
+        ],
+        "gap": []
+      }
+    ],
+    "run_south-east": [
+      {
+        "index": 0,
+        "body": "run/south-east/00-body.png",
+        "head": "run/south-east/00-head.png",
+        "bodyFront": "run/south-east/00-body-front.png",
+        "joined": "run/south-east/00-joined.png",
+        "neck": [
+          47,
+          35
+        ],
+        "headTranslation": [
+          8,
+          5
+        ],
+        "gap": []
+      },
+      {
+        "index": 1,
+        "body": "run/south-east/01-body.png",
+        "head": "run/south-east/01-head.png",
+        "bodyFront": "run/south-east/01-body-front.png",
+        "joined": "run/south-east/01-joined.png",
+        "neck": [
+          48,
+          32
+        ],
+        "headTranslation": [
+          9,
+          5
+        ],
+        "gap": []
+      },
+      {
+        "index": 2,
+        "body": "run/south-east/02-body.png",
+        "head": "run/south-east/02-head.png",
+        "bodyFront": "run/south-east/02-body-front.png",
+        "joined": "run/south-east/02-joined.png",
+        "neck": [
+          41,
+          18
+        ],
+        "headTranslation": [
+          2,
+          -12
+        ],
+        "gap": []
+      },
+      {
+        "index": 3,
+        "body": "run/south-east/03-body.png",
+        "head": "run/south-east/03-head.png",
+        "bodyFront": "run/south-east/03-body-front.png",
+        "joined": "run/south-east/03-joined.png",
+        "neck": [
+          45,
+          35
+        ],
+        "headTranslation": [
+          6,
+          5
+        ],
+        "gap": []
+      },
+      {
+        "index": 4,
+        "body": "run/south-east/04-body.png",
+        "head": "run/south-east/04-head.png",
+        "bodyFront": "run/south-east/04-body-front.png",
+        "joined": "run/south-east/04-joined.png",
+        "neck": [
+          47,
+          32
+        ],
+        "headTranslation": [
+          8,
+          2
+        ],
+        "gap": []
+      },
+      {
+        "index": 5,
+        "body": "run/south-east/05-body.png",
+        "head": "run/south-east/05-head.png",
+        "bodyFront": "run/south-east/05-body-front.png",
+        "joined": "run/south-east/05-joined.png",
+        "neck": [
+          46,
+          33
+        ],
+        "headTranslation": [
+          7,
+          3
+        ],
+        "gap": []
+      },
+      {
+        "index": 6,
+        "body": "run/south-east/06-body.png",
+        "head": "run/south-east/06-head.png",
+        "bodyFront": "run/south-east/06-body-front.png",
+        "joined": "run/south-east/06-joined.png",
+        "neck": [
+          44,
+          33
+        ],
+        "headTranslation": [
+          5,
+          3
+        ],
+        "gap": []
+      },
+      {
+        "index": 7,
+        "body": "run/south-east/07-body.png",
+        "head": "run/south-east/07-head.png",
+        "bodyFront": "run/south-east/07-body-front.png",
+        "joined": "run/south-east/07-joined.png",
+        "neck": [
+          47,
+          33
+        ],
+        "headTranslation": [
+          8,
+          3
+        ],
+        "gap": []
+      }
+    ],
+    "run_east": [
+      {
+        "index": 0,
+        "body": "run/east/00-body.png",
+        "head": "run/east/00-head.png",
+        "bodyFront": "run/east/00-body-front.png",
+        "joined": "run/east/00-joined.png",
+        "neck": [
+          41,
+          32
+        ],
+        "headTranslation": [
+          5,
+          2
+        ],
+        "gap": []
+      },
+      {
+        "index": 1,
+        "body": "run/east/01-body.png",
+        "head": "run/east/01-head.png",
+        "bodyFront": "run/east/01-body-front.png",
+        "joined": "run/east/01-joined.png",
+        "neck": [
+          39,
+          31
+        ],
+        "headTranslation": [
+          3,
+          1
+        ],
+        "gap": []
+      },
+      {
+        "index": 2,
+        "body": "run/east/02-body.png",
+        "head": "run/east/02-head.png",
+        "bodyFront": "run/east/02-body-front.png",
+        "joined": "run/east/02-joined.png",
+        "neck": [
+          40,
+          30
+        ],
+        "headTranslation": [
+          4,
+          0
+        ],
+        "gap": []
+      },
+      {
+        "index": 3,
+        "body": "run/east/03-body.png",
+        "head": "run/east/03-head.png",
+        "bodyFront": "run/east/03-body-front.png",
+        "joined": "run/east/03-joined.png",
+        "neck": [
+          41,
+          32
+        ],
+        "headTranslation": [
+          5,
+          2
+        ],
+        "gap": []
+      },
+      {
+        "index": 4,
+        "body": "run/east/04-body.png",
+        "head": "run/east/04-head.png",
+        "bodyFront": "run/east/04-body-front.png",
+        "joined": "run/east/04-joined.png",
+        "neck": [
+          41,
+          32
+        ],
+        "headTranslation": [
+          5,
+          2
+        ],
+        "gap": []
+      },
+      {
+        "index": 5,
+        "body": "run/east/05-body.png",
+        "head": "run/east/05-head.png",
+        "bodyFront": "run/east/05-body-front.png",
+        "joined": "run/east/05-joined.png",
+        "neck": [
+          41,
+          31
+        ],
+        "headTranslation": [
+          5,
+          1
+        ],
+        "gap": []
+      },
+      {
+        "index": 6,
+        "body": "run/east/06-body.png",
+        "head": "run/east/06-head.png",
+        "bodyFront": "run/east/06-body-front.png",
+        "joined": "run/east/06-joined.png",
+        "neck": [
+          41,
+          32
+        ],
+        "headTranslation": [
+          5,
+          2
+        ],
+        "gap": []
+      },
+      {
+        "index": 7,
+        "body": "run/east/07-body.png",
+        "head": "run/east/07-head.png",
+        "bodyFront": "run/east/07-body-front.png",
+        "joined": "run/east/07-joined.png",
+        "neck": [
+          41,
+          32
+        ],
+        "headTranslation": [
+          5,
+          2
+        ],
+        "gap": []
+      }
+    ],
+    "run_north-east": [
+      {
+        "index": 0,
+        "body": "run/north-east/00-body.png",
+        "head": "run/north-east/00-head.png",
+        "bodyFront": "run/north-east/00-body-front.png",
+        "joined": "run/north-east/00-joined.png",
+        "neck": [
+          40,
+          30
+        ],
+        "headTranslation": [
+          2,
+          0
+        ],
+        "gap": []
+      },
+      {
+        "index": 1,
+        "body": "run/north-east/01-body.png",
+        "head": "run/north-east/01-head.png",
+        "bodyFront": "run/north-east/01-body-front.png",
+        "joined": "run/north-east/01-joined.png",
+        "neck": [
+          42,
+          30
+        ],
+        "headTranslation": [
+          4,
+          0
+        ],
+        "gap": []
+      },
+      {
+        "index": 2,
+        "body": "run/north-east/02-body.png",
+        "head": "run/north-east/02-head.png",
+        "bodyFront": "run/north-east/02-body-front.png",
+        "joined": "run/north-east/02-joined.png",
+        "neck": [
+          39,
+          30
+        ],
+        "headTranslation": [
+          1,
+          0
+        ],
+        "gap": []
+      },
+      {
+        "index": 3,
+        "body": "run/north-east/03-body.png",
+        "head": "run/north-east/03-head.png",
+        "bodyFront": "run/north-east/03-body-front.png",
+        "joined": "run/north-east/03-joined.png",
+        "neck": [
+          40,
+          30
+        ],
+        "headTranslation": [
+          2,
+          0
+        ],
+        "gap": []
+      },
+      {
+        "index": 4,
+        "body": "run/north-east/04-body.png",
+        "head": "run/north-east/04-head.png",
+        "bodyFront": "run/north-east/04-body-front.png",
+        "joined": "run/north-east/04-joined.png",
+        "neck": [
+          40,
+          30
+        ],
+        "headTranslation": [
+          2,
+          0
+        ],
+        "gap": []
+      },
+      {
+        "index": 5,
+        "body": "run/north-east/05-body.png",
+        "head": "run/north-east/05-head.png",
+        "bodyFront": "run/north-east/05-body-front.png",
+        "joined": "run/north-east/05-joined.png",
+        "neck": [
+          38,
+          30
+        ],
+        "headTranslation": [
+          0,
+          0
+        ],
+        "gap": []
+      },
+      {
+        "index": 6,
+        "body": "run/north-east/06-body.png",
+        "head": "run/north-east/06-head.png",
+        "bodyFront": "run/north-east/06-body-front.png",
+        "joined": "run/north-east/06-joined.png",
+        "neck": [
+          40,
+          30
+        ],
+        "headTranslation": [
+          2,
+          0
+        ],
+        "gap": []
+      },
+      {
+        "index": 7,
+        "body": "run/north-east/07-body.png",
+        "head": "run/north-east/07-head.png",
+        "bodyFront": "run/north-east/07-body-front.png",
+        "joined": "run/north-east/07-joined.png",
+        "neck": [
+          40,
+          30
+        ],
+        "headTranslation": [
+          2,
+          0
+        ],
+        "gap": []
+      }
+    ],
+    "run_north": [
+      {
+        "index": 0,
+        "body": "run/north/00-body.png",
+        "head": "run/north/00-head.png",
+        "bodyFront": "run/north/00-body-front.png",
+        "joined": "run/north/00-joined.png",
+        "neck": [
+          40,
+          30
+        ],
+        "headTranslation": [
+          2,
+          0
+        ],
+        "gap": []
+      },
+      {
+        "index": 1,
+        "body": "run/north/01-body.png",
+        "head": "run/north/01-head.png",
+        "bodyFront": "run/north/01-body-front.png",
+        "joined": "run/north/01-joined.png",
+        "neck": [
+          40,
+          30
+        ],
+        "headTranslation": [
+          2,
+          0
+        ],
+        "gap": []
+      },
+      {
+        "index": 2,
+        "body": "run/north/02-body.png",
+        "head": "run/north/02-head.png",
+        "bodyFront": "run/north/02-body-front.png",
+        "joined": "run/north/02-joined.png",
+        "neck": [
+          40,
+          29
+        ],
+        "headTranslation": [
+          2,
+          -1
+        ],
+        "gap": []
+      },
+      {
+        "index": 3,
+        "body": "run/north/03-body.png",
+        "head": "run/north/03-head.png",
+        "bodyFront": "run/north/03-body-front.png",
+        "joined": "run/north/03-joined.png",
+        "neck": [
+          40,
+          29
+        ],
+        "headTranslation": [
+          2,
+          -1
+        ],
+        "gap": []
+      },
+      {
+        "index": 4,
+        "body": "run/north/04-body.png",
+        "head": "run/north/04-head.png",
+        "bodyFront": "run/north/04-body-front.png",
+        "joined": "run/north/04-joined.png",
+        "neck": [
+          40,
+          29
+        ],
+        "headTranslation": [
+          2,
+          -1
+        ],
+        "gap": []
+      },
+      {
+        "index": 5,
+        "body": "run/north/05-body.png",
+        "head": "run/north/05-head.png",
+        "bodyFront": "run/north/05-body-front.png",
+        "joined": "run/north/05-joined.png",
+        "neck": [
+          40,
+          29
+        ],
+        "headTranslation": [
+          2,
+          -1
+        ],
+        "gap": []
+      },
+      {
+        "index": 6,
+        "body": "run/north/06-body.png",
+        "head": "run/north/06-head.png",
+        "bodyFront": "run/north/06-body-front.png",
+        "joined": "run/north/06-joined.png",
+        "neck": [
+          40,
+          29
+        ],
+        "headTranslation": [
+          2,
+          -1
+        ],
+        "gap": []
+      },
+      {
+        "index": 7,
+        "body": "run/north/07-body.png",
+        "head": "run/north/07-head.png",
+        "bodyFront": "run/north/07-body-front.png",
+        "joined": "run/north/07-joined.png",
+        "neck": [
+          40,
+          29
+        ],
+        "headTranslation": [
+          2,
+          -1
+        ],
+        "gap": []
+      }
+    ],
+    "run_north-west": [
+      {
+        "index": 0,
+        "body": "run/north-west/00-body.png",
+        "head": "run/north-west/00-head.png",
+        "bodyFront": "run/north-west/00-body-front.png",
+        "joined": "run/north-west/00-joined.png",
+        "neck": [
+          39,
+          30
+        ],
+        "headTranslation": [
+          2,
+          0
+        ],
+        "gap": []
+      },
+      {
+        "index": 1,
+        "body": "run/north-west/01-body.png",
+        "head": "run/north-west/01-head.png",
+        "bodyFront": "run/north-west/01-body-front.png",
+        "joined": "run/north-west/01-joined.png",
+        "neck": [
+          37,
+          30
+        ],
+        "headTranslation": [
+          4,
+          0
+        ],
+        "gap": []
+      },
+      {
+        "index": 2,
+        "body": "run/north-west/02-body.png",
+        "head": "run/north-west/02-head.png",
+        "bodyFront": "run/north-west/02-body-front.png",
+        "joined": "run/north-west/02-joined.png",
+        "neck": [
+          40,
+          30
+        ],
+        "headTranslation": [
+          1,
+          0
+        ],
+        "gap": []
+      },
+      {
+        "index": 3,
+        "body": "run/north-west/03-body.png",
+        "head": "run/north-west/03-head.png",
+        "bodyFront": "run/north-west/03-body-front.png",
+        "joined": "run/north-west/03-joined.png",
+        "neck": [
+          39,
+          30
+        ],
+        "headTranslation": [
+          2,
+          0
+        ],
+        "gap": []
+      },
+      {
+        "index": 4,
+        "body": "run/north-west/04-body.png",
+        "head": "run/north-west/04-head.png",
+        "bodyFront": "run/north-west/04-body-front.png",
+        "joined": "run/north-west/04-joined.png",
+        "neck": [
+          39,
+          30
+        ],
+        "headTranslation": [
+          2,
+          0
+        ],
+        "gap": []
+      },
+      {
+        "index": 5,
+        "body": "run/north-west/05-body.png",
+        "head": "run/north-west/05-head.png",
+        "bodyFront": "run/north-west/05-body-front.png",
+        "joined": "run/north-west/05-joined.png",
+        "neck": [
+          41,
+          30
+        ],
+        "headTranslation": [
+          0,
+          0
+        ],
+        "gap": []
+      },
+      {
+        "index": 6,
+        "body": "run/north-west/06-body.png",
+        "head": "run/north-west/06-head.png",
+        "bodyFront": "run/north-west/06-body-front.png",
+        "joined": "run/north-west/06-joined.png",
+        "neck": [
+          39,
+          30
+        ],
+        "headTranslation": [
+          2,
+          0
+        ],
+        "gap": []
+      },
+      {
+        "index": 7,
+        "body": "run/north-west/07-body.png",
+        "head": "run/north-west/07-head.png",
+        "bodyFront": "run/north-west/07-body-front.png",
+        "joined": "run/north-west/07-joined.png",
+        "neck": [
+          39,
+          30
+        ],
+        "headTranslation": [
+          2,
+          0
+        ],
+        "gap": []
+      }
+    ],
+    "run_west": [
+      {
+        "index": 0,
+        "body": "run/west/00-body.png",
+        "head": "run/west/00-head.png",
+        "bodyFront": "run/west/00-body-front.png",
+        "joined": "run/west/00-joined.png",
+        "neck": [
+          38,
+          32
+        ],
+        "headTranslation": [
+          5,
+          2
+        ],
+        "gap": []
+      },
+      {
+        "index": 1,
+        "body": "run/west/01-body.png",
+        "head": "run/west/01-head.png",
+        "bodyFront": "run/west/01-body-front.png",
+        "joined": "run/west/01-joined.png",
+        "neck": [
+          40,
+          31
+        ],
+        "headTranslation": [
+          3,
+          1
+        ],
+        "gap": []
+      },
+      {
+        "index": 2,
+        "body": "run/west/02-body.png",
+        "head": "run/west/02-head.png",
+        "bodyFront": "run/west/02-body-front.png",
+        "joined": "run/west/02-joined.png",
+        "neck": [
+          39,
+          30
+        ],
+        "headTranslation": [
+          4,
+          0
+        ],
+        "gap": []
+      },
+      {
+        "index": 3,
+        "body": "run/west/03-body.png",
+        "head": "run/west/03-head.png",
+        "bodyFront": "run/west/03-body-front.png",
+        "joined": "run/west/03-joined.png",
+        "neck": [
+          38,
+          32
+        ],
+        "headTranslation": [
+          5,
+          2
+        ],
+        "gap": []
+      },
+      {
+        "index": 4,
+        "body": "run/west/04-body.png",
+        "head": "run/west/04-head.png",
+        "bodyFront": "run/west/04-body-front.png",
+        "joined": "run/west/04-joined.png",
+        "neck": [
+          38,
+          32
+        ],
+        "headTranslation": [
+          5,
+          2
+        ],
+        "gap": []
+      },
+      {
+        "index": 5,
+        "body": "run/west/05-body.png",
+        "head": "run/west/05-head.png",
+        "bodyFront": "run/west/05-body-front.png",
+        "joined": "run/west/05-joined.png",
+        "neck": [
+          38,
+          31
+        ],
+        "headTranslation": [
+          5,
+          1
+        ],
+        "gap": []
+      },
+      {
+        "index": 6,
+        "body": "run/west/06-body.png",
+        "head": "run/west/06-head.png",
+        "bodyFront": "run/west/06-body-front.png",
+        "joined": "run/west/06-joined.png",
+        "neck": [
+          38,
+          32
+        ],
+        "headTranslation": [
+          5,
+          2
+        ],
+        "gap": []
+      },
+      {
+        "index": 7,
+        "body": "run/west/07-body.png",
+        "head": "run/west/07-head.png",
+        "bodyFront": "run/west/07-body-front.png",
+        "joined": "run/west/07-joined.png",
+        "neck": [
+          38,
+          32
+        ],
+        "headTranslation": [
+          5,
+          2
+        ],
+        "gap": []
+      }
+    ],
+    "run_south-west": [
+      {
+        "index": 0,
+        "body": "run/south-west/00-body.png",
+        "head": "run/south-west/00-head.png",
+        "bodyFront": "run/south-west/00-body-front.png",
+        "joined": "run/south-west/00-joined.png",
+        "neck": [
+          32,
+          35
+        ],
+        "headTranslation": [
+          8,
+          5
+        ],
+        "gap": []
+      },
+      {
+        "index": 1,
+        "body": "run/south-west/01-body.png",
+        "head": "run/south-west/01-head.png",
+        "bodyFront": "run/south-west/01-body-front.png",
+        "joined": "run/south-west/01-joined.png",
+        "neck": [
+          31,
+          32
+        ],
+        "headTranslation": [
+          9,
+          5
+        ],
+        "gap": []
+      },
+      {
+        "index": 2,
+        "body": "run/south-west/02-body.png",
+        "head": "run/south-west/02-head.png",
+        "bodyFront": "run/south-west/02-body-front.png",
+        "joined": "run/south-west/02-joined.png",
+        "neck": [
+          38,
+          18
+        ],
+        "headTranslation": [
+          2,
+          -12
+        ],
+        "gap": []
+      },
+      {
+        "index": 3,
+        "body": "run/south-west/03-body.png",
+        "head": "run/south-west/03-head.png",
+        "bodyFront": "run/south-west/03-body-front.png",
+        "joined": "run/south-west/03-joined.png",
+        "neck": [
+          34,
+          35
+        ],
+        "headTranslation": [
+          6,
+          5
+        ],
+        "gap": []
+      },
+      {
+        "index": 4,
+        "body": "run/south-west/04-body.png",
+        "head": "run/south-west/04-head.png",
+        "bodyFront": "run/south-west/04-body-front.png",
+        "joined": "run/south-west/04-joined.png",
+        "neck": [
+          32,
+          32
+        ],
+        "headTranslation": [
+          8,
+          2
+        ],
+        "gap": []
+      },
+      {
+        "index": 5,
+        "body": "run/south-west/05-body.png",
+        "head": "run/south-west/05-head.png",
+        "bodyFront": "run/south-west/05-body-front.png",
+        "joined": "run/south-west/05-joined.png",
+        "neck": [
+          33,
+          33
+        ],
+        "headTranslation": [
+          7,
+          3
+        ],
+        "gap": []
+      },
+      {
+        "index": 6,
+        "body": "run/south-west/06-body.png",
+        "head": "run/south-west/06-head.png",
+        "bodyFront": "run/south-west/06-body-front.png",
+        "joined": "run/south-west/06-joined.png",
+        "neck": [
+          35,
+          33
+        ],
+        "headTranslation": [
+          5,
+          3
+        ],
+        "gap": []
+      },
+      {
+        "index": 7,
+        "body": "run/south-west/07-body.png",
+        "head": "run/south-west/07-head.png",
+        "bodyFront": "run/south-west/07-body-front.png",
+        "joined": "run/south-west/07-joined.png",
+        "neck": [
+          32,
+          33
+        ],
+        "headTranslation": [
+          8,
+          3
+        ],
+        "gap": []
+      }
+    ]
+  },
+  "issues": []
+}

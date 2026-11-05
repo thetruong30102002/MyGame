@@ -47,7 +47,7 @@ try{
   }
  }
  assert.equal((await fetch(base+'/site/ke-hoach-nang-cap-the-gioi.md')).status,404);
- for(const path of ['/game/','/game/admin','/game/the-gioi','/game/tin-tuc','/game/dien-dan','/game/tai-game','/game/gop-y','/game/site/roster.json','/game/site/home.js'])assert.equal((await fetch(base+path)).status,200,path);
+ for(const path of ['/game/','/game/admin','/game/the-gioi','/game/tin-tuc','/game/dien-dan','/game/tai-game','/game/gop-y','/game/site/roster.json','/game/site/roster-npc.json','/game/site/img/banner-town.webp','/game/site/home.js'])assert.equal((await fetch(base+path)).status,200,path);
  assert.equal((await fetch(base+'/game/site/plan.js')).status,404);
  assert.equal((await fetch(base+'/game/site/world-design.js')).status,404);
  console.log('PASS: tiến độ có trọng số, dữ liệu sai bị chặn, API 401/403/200 ở cả mount, tài liệu riêng admin, các trang web trả 200.');

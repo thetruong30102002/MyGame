@@ -33,6 +33,8 @@ export interface AnimationDef {
 	loop: boolean;
 	hitFrame?: number;
 	durationsMs: number[];
+	/** Khuôn cỡ NPC (chặng U): nhịp chậm hơn (chốt 03/11 "giảm nhịp chân"). */
+	durationsMsNpc?: number[];
 	/** Pha theo số thứ tự frame tính từ 1, hai đầu đều tính. */
 	phases?: Record<string, [number, number]>;
 	source: { tool: string; mode: string; template: string | null };
@@ -55,14 +57,14 @@ export interface LayeredStandard {
 	cell: { width: number; height: number; root: Point };
 	directions: DirectionDef[];
 	head: { canvas: Point; neckAnchor: Point; bareNeckMaxPx: number; cheekWidthPx: number | null; cheekTolerancePx: number; animatedClips: string[] };
-	body: { neckLengthPx: [number, number]; mouldNeckCut: { S: number; E: number; N: number } };
+	body: { neckLengthPx: [number, number]; mouldNeckCut: { S: number; E: number; N: number; SE?: number; NE?: number } };
 	layers: LayerDef[];
 	skeleton: { format: 'COCO-18'; joints: string[] };
 	animations: AnimationDef[];
 	frameMeta: { required: string[]; weaponRequired: string[]; optional: string[] };
 	weapon: { angles: number; rotateInCode: boolean; defaultLayer: 'front' | 'back' };
 	qa: Record<string, number | boolean | number[] | string>;
-	prompts: { language: string; baseMale: string; baseFemale: string; baseMaleEdit: string; baseFemaleEdit: string; headEdit: string; outfitEdit: string; heroMale: string; heroFemale: string; slashBody: string; slashBodyFemale: string; tallEdit: string; tallEditFemale: string; femaleFromMaleEdit: string; slimFemaleEdit: string; petiteFemaleEdit: string; slimLegsFemaleEdit: string; headEditLong: string; headEditFemale: string; poseBody: string; poseBodyFemale: string; forbiddenNearNeck: string[]; forbiddenWords: string[] };
+	prompts: { language: string; baseMale: string; baseFemale: string; baseMaleEdit: string; baseMaleNpcEdit: string; baseFemaleNpcEdit?: string; baseFemaleEdit: string; headEdit: string; outfitEdit: string; heroMale: string; heroFemale: string; slashBody: string; slashBodyFemale: string; tallEdit: string; tallEditFemale: string; femaleFromMaleEdit: string; slimFemaleEdit: string; petiteFemaleEdit: string; slimLegsFemaleEdit: string; headEditLong: string; headEditFemale: string; weaponEdit?: string; poseBody: string; poseBodyFemale: string; forbiddenNearNeck: string[]; forbiddenWords: string[] };
 	style: { reference: { male: string; female: string }; method: string; textOnlyForbidden: boolean };
 	budget: { rerollFactor: number; stopIfOverEstimatePct: number; rounds: { id: string; estimate: number; scope: string; gate: string }[] };
 }
@@ -162,6 +164,7 @@ export function validateLayeredStandard(s: LayeredStandard): string[] {
 		if (!isInt(a.frames) || a.frames < 1) fail(`${at}.frames phải số nguyên dương`);
 		if (a.durationsMs.length !== a.frames) fail(`${at}.durationsMs có ${a.durationsMs.length} giá trị, cần ${a.frames}`);
 		if (a.durationsMs.some((d) => !isInt(d) || d < 16 || d > 1000)) fail(`${at}.durationsMs mỗi frame phải 16–1000ms`);
+		if (a.durationsMsNpc && (a.durationsMsNpc.length !== a.frames || a.durationsMsNpc.some((d) => !isInt(d) || d < 16 || d > 1000))) fail(`${at}.durationsMsNpc cần ${a.frames} giá trị 16–1000ms`);
 		if (a.source.tool === 'animate_with_skeleton_v3' && (a.frames < SKELETON_FRAMES[0] || a.frames > SKELETON_FRAMES[1]))
 			fail(`${at}: animate_with_skeleton_v3 chỉ nhận ${SKELETON_FRAMES[0]}–${SKELETON_FRAMES[1]} frame`);
 		if (a.source.mode === 'template' && !a.source.template) fail(`${at}: mode template cần tên template`);
@@ -210,21 +213,24 @@ export function validateLayeredStandard(s: LayeredStandard): string[] {
 	const p = s.prompts;
 	if (!p || p.language !== 'en' || !p.baseMale || !p.headEdit) fail('prompts cần baseMale, headEdit bằng tiếng Anh');
 	else {
-		for (const [key, text] of [['baseMale', p.baseMale], ['baseFemale', p.baseFemale], ['baseMaleEdit', p.baseMaleEdit], ['baseFemaleEdit', p.baseFemaleEdit]] as const) {
+		for (const [key, text] of [['baseMale', p.baseMale], ['baseFemale', p.baseFemale], ['baseMaleEdit', p.baseMaleEdit], ['baseMaleNpcEdit', p.baseMaleNpcEdit ?? ''], ['baseFemaleNpcEdit', p.baseFemaleNpcEdit ?? ''], ['baseFemaleEdit', p.baseFemaleEdit]] as const) {
 			if (!/bald/i.test(text)) fail(`prompts.${key} phải ghi đầu trọc (bald) để cắt đầu không sót tóc`);
 			if (!/no collar/i.test(text) || !/no scarf/i.test(text) || !/no hood/i.test(text)) fail(`prompts.${key} phải cấm collar / scarf / hood quanh cổ`);
 		}
-		for (const [key, text] of [['baseMale', p.baseMale], ['baseFemale', p.baseFemale], ['baseMaleEdit', p.baseMaleEdit], ['baseFemaleEdit', p.baseFemaleEdit], ['headEdit', p.headEdit], ['outfitEdit', p.outfitEdit], ['heroMale', p.heroMale], ['heroFemale', p.heroFemale ?? ''], ['tallEdit', p.tallEdit ?? ''], ['tallEditFemale', p.tallEditFemale ?? ''], ['femaleFromMaleEdit', p.femaleFromMaleEdit ?? '']] as const) {
+		for (const [key, text] of [['baseMale', p.baseMale], ['baseFemale', p.baseFemale], ['baseMaleEdit', p.baseMaleEdit], ['baseMaleNpcEdit', p.baseMaleNpcEdit ?? ''], ['baseFemaleEdit', p.baseFemaleEdit], ['headEdit', p.headEdit], ['outfitEdit', p.outfitEdit], ['heroMale', p.heroMale], ['heroFemale', p.heroFemale ?? ''], ['tallEdit', p.tallEdit ?? ''], ['tallEditFemale', p.tallEditFemale ?? ''], ['femaleFromMaleEdit', p.femaleFromMaleEdit ?? '']] as const) {
 			const bad = (p.forbiddenWords ?? []).find((w) => text.toLowerCase().includes(w.toLowerCase()));
 			if (bad) fail(`prompts.${key} có cụm cấm "${bad}" — dễ làm cổ dài`);
 		}
 		if (!['long neck', 'slender neck', 'neck clearly visible'].every((w) => (p.forbiddenWords ?? []).includes(w))) fail('prompts.forbiddenWords phải cấm long neck / slender neck / neck clearly visible');
-		for (const [key, text] of [['baseMale', p.baseMale], ['baseFemale', p.baseFemale], ['baseMaleEdit', p.baseMaleEdit], ['baseFemaleEdit', p.baseFemaleEdit]] as const) {
+		for (const [key, text] of [['baseMale', p.baseMale], ['baseFemale', p.baseFemale], ['baseMaleEdit', p.baseMaleEdit], ['baseMaleNpcEdit', p.baseMaleNpcEdit ?? ''], ['baseFemaleNpcEdit', p.baseFemaleNpcEdit ?? ''], ['baseFemaleEdit', p.baseFemaleEdit]] as const) {
 			if (!/short neck/i.test(text)) fail(`prompts.${key} phải ghi short neck — cổ không được dài`);
 			if (key.endsWith('Edit') && !/same anime face/i.test(text)) fail(`prompts.${key} phải giữ nguyên mặt anime / nét của ảnh mẫu`);
 		}
-		if (!/shorts/i.test(p.baseMale) || !/shorts/i.test(p.baseMaleEdit)) fail('prompts nam phải mặc quần đùi (shorts) — chủ dự án 28/10');
-		for (const [key, text] of [['baseFemale', p.baseFemale], ['baseFemaleEdit', p.baseFemaleEdit]] as const) {
+		if (!/shorts/i.test(p.baseMale) || !/shorts/i.test(p.baseMaleEdit) || !/shorts/i.test(p.baseMaleNpcEdit ?? '')) fail('prompts nam phải mặc quần đùi (shorts) — chủ dự án 28/10');
+		// Thân cỡ NPC (04/11): vẽ lại khỏe hơn bộ gầy cũ (chốt 03/11), mắt nâu như mọi đầu.
+		if (!/brown eyes/i.test(p.baseMaleNpcEdit ?? '') || !/not skinny/i.test(p.baseMaleNpcEdit ?? '') || !/same anime face/i.test(p.baseMaleNpcEdit ?? ''))
+			fail('prompts.baseMaleNpcEdit phải ghi brown eyes, not skinny, same anime face');
+		for (const [key, text] of [['baseFemale', p.baseFemale], ['baseFemaleEdit', p.baseFemaleEdit], ['baseFemaleNpcEdit', p.baseFemaleNpcEdit ?? 'bikini no halter straps over the shoulders non-sexualized adult']] as const) {
 			if (!/bikini/i.test(text)) fail(`prompts.${key} phải mặc bikini — chủ dự án 28/10`);
 			if (!/no halter/i.test(text) || !/straps over the shoulders/i.test(text)) fail(`prompts.${key} phải quai qua vai và cấm halter (dây buộc quanh cổ dính vào cổ khi cắt đầu)`);
 			if (!/non-sexualized/i.test(text) || !/adult/i.test(text)) fail(`prompts.${key} phải ghi người lớn, không gợi dục`);

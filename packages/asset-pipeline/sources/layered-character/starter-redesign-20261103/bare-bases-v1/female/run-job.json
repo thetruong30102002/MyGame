@@ -1,0 +1,13 @@
+{
+  "id": "371c3002-0291-490f-b8a1-b3dec23c1019",
+  "action": "run",
+  "template": "running-8-frames",
+  "directions": [
+    "south",
+    "south-east",
+    "east",
+    "north-east",
+    "north"
+  ],
+  "receipt": "character: 371c3002-0291-490f-b8a1-b3dec23c1019\nanimation: running-8-frames\nmode: template\ndirections: south, south-east, east, north-east, north (5 jobs)\njob_ids: south=68066a2c-75cf-45fe-9c27-b4cb9f029336, south-east=5cd3c114-bd6a-4280-bd15-429c20183706, east=0a3c35aa-d35e-4725-9e75-52ed7857bab6, north-east=a56ec207-b709-4755-b42c-4b4a09c36bbb, north=60849138-a5f0-4586-a5df-9e94a27a8606\ngroup: a3bb4ff9-0c84-41a5-bf24-904babcb74b0\ncost: 5 generations (1/dir x 5)\neta: ~2-4 min\nadd more directions to this group: animate_character(character_id=\"371c3002-0291-490f-b8a1-b3dec23c1019\", template_animation_id=\"running-8-frames\", animation_group_id=\"a3bb4ff9-0c84-41a5-bf24-904babcb74b0\", directions=[...])\n\nhint: get_character(character_id=\"371c3002-0291-490f-b8a1-b3dec23c1019\")\nif poor: delete_animation(character_id=\"371c3002-0291-490f-b8a1-b3dec23c1019\", animation_type=\"...\") then retry with mode=\"v3\""
+}

@@ -1,0 +1,68 @@
+[
+  {
+    "sex": "male",
+    "file": "packages\\asset-pipeline\\sources\\pixellab\\npc_silver_youth\\Idle\\rotations\\south.png",
+    "bounds": [
+      21,
+      2,
+      53,
+      75
+    ],
+    "height": 73
+  },
+  {
+    "sex": "male",
+    "file": "packages\\asset-pipeline\\sources\\layered-character\\starter-redesign-20261103\\roster-npc-fit-v2\\sword-male\\S.png",
+    "bounds": [
+      22,
+      2,
+      54,
+      75
+    ],
+    "height": 73
+  },
+  {
+    "sex": "male",
+    "file": "packages\\asset-pipeline\\sources\\layered-character\\starter-redesign-20261103\\roster-npc-fit-v2\\shield-male\\S.png",
+    "bounds": [
+      22,
+      2,
+      55,
+      75
+    ],
+    "height": 73
+  },
+  {
+    "sex": "female",
+    "file": "packages\\asset-pipeline\\sources\\pixellab\\npc_silver_youth_f\\Idle\\rotations\\south.png",
+    "bounds": [
+      21,
+      4,
+      59,
+      75
+    ],
+    "height": 71
+  },
+  {
+    "sex": "female",
+    "file": "packages\\asset-pipeline\\sources\\layered-character\\starter-redesign-20261103\\roster-npc-fit-v2\\sword-female\\S.png",
+    "bounds": [
+      21,
+      4,
+      59,
+      75
+    ],
+    "height": 71
+  },
+  {
+    "sex": "female",
+    "file": "packages\\asset-pipeline\\sources\\layered-character\\starter-redesign-20261103\\roster-npc-fit-v2\\shield-female\\S.png",
+    "bounds": [
+      22,
+      4,
+      59,
+      76
+    ],
+    "height": 72
+  }
+]

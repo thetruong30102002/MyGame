@@ -32,7 +32,7 @@ namespace HavenLord.Importer
     {
         /// <summary>
         /// Bản WebGL cho điện thoại (chủ dự án 28/10/2026: iPhone tải xong lại tự tải lại trang): GPU điện thoại không hiểu BC7 nên Unity giải nén
-        /// ảnh về RGBA (~1,8GB) và Safari giết tab. Bật cờ này thì ảnh lớn cho WebGL nén ASTC 6×6 (3,56 bit/px, iPhone / Android đọc thẳng)
+        /// ảnh về RGBA (~1,8GB) và Safari giết tab. Bật cờ này thì ảnh lớn cho WebGL nén ASTC (nhân vật cỡ NPC 4×4, còn lại 6×6 3,56 bit/px; iPhone / Android đọc thẳng)
         /// và tối đa 2048px. Đổi cờ bằng <see cref="SetWebGLMobile"/> để áp lại cho mọi ảnh đã nhập.
         /// </summary>
         public static bool WebGLMobile { get; private set; }
@@ -44,8 +44,10 @@ namespace HavenLord.Importer
             // Bộ PixelLab mới đã trim alpha: giữ nguyên pixel, không nén khối làm bệt nét người/đầu.
             if(ti.assetPath.Contains("/Characters/player_pl_"))return Compress(ti,"WebGL",TextureImporterFormat.RGBA32,false,Math.Min(maxSize,WebGLMobileMaxSize));
             if(!WebGLMobile)return Compress(ti,"WebGL",big?TextureImporterFormat.BC7:TextureImporterFormat.RGBA32,big,maxSize);
-            var scenery=ti.assetPath.Contains("/Maps/")||ti.assetPath.Contains("/World/");
-            return Compress(ti,"WebGL",big?(scenery?TextureImporterFormat.ASTC_8x8:TextureImporterFormat.ASTC_6x6):TextureImporterFormat.RGBA32,big,Math.Min(maxSize,WebGLMobileMaxSize));
+            // Chủ dự án 05/11 "bản mobile mờ lắm, cố gắng tối ưu": nhân vật người chơi cỡ NPC ASTC 4×4 (1 byte/điểm như BC7 bản PC; 150 atlas
+            // ~85MB thay ~38MB của 6×6), cảnh map 6×6 thay 8×8; còn lại giữ 6×6.
+            var hero=ti.assetPath.Contains("/Characters/player_npc_");
+            return Compress(ti,"WebGL",big?(hero?TextureImporterFormat.ASTC_4x4:TextureImporterFormat.ASTC_6x6):TextureImporterFormat.RGBA32,big,Math.Min(maxSize,WebGLMobileMaxSize));
         }
 
         /// <summary>Đổi chế độ ảnh WebGL (PC BC7 ↔ điện thoại ASTC) cho mọi ảnh trong Imported; cỡ gốc và ảnh lớn/nhỏ đọc lại từ mục Android.</summary>
@@ -70,7 +72,7 @@ namespace HavenLord.Importer
             {
                 AssetDatabase.StopAssetEditing();
             }
-            Debug.Log($"[HavenLord] Ảnh WebGL chế độ {(mobile ? "điện thoại (ASTC 6×6, ≤2048px)" : "PC (BC7)")}: nhập lại {changed.Count} ảnh");
+            Debug.Log($"[HavenLord] Ảnh WebGL chế độ {(mobile ? "điện thoại (ASTC 4×4 nhân vật, 6×6 còn lại, ≤2048px)" : "PC (BC7)")}: nhập lại {changed.Count} ảnh");
         }
 
         public static void Apply(string assetPath, TextureSpec spec, IList<SliceRect> slices)

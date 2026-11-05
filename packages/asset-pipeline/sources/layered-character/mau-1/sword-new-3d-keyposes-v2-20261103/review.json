@@ -1,0 +1,21 @@
+{
+  "artApproved": false,
+  "status": "rejected-by-user",
+  "frames": 3,
+  "fullAnimation": false,
+  "gameBuilt": false,
+  "skeleton": "New 3D poses; two-bone IK; no buildSlash or existing attack clip. Rest skeleton only calibrates proportions.",
+  "checks": [
+    "All three frames have fixed 3D arm and leg bone lengths.",
+    "No per-frame body rescaling, blur, sharpen or warping.",
+    "Original bald head removed before compositing avatar; body-only contact inspected.",
+    "Sword remains a separate layer; body occludes it when hand crosses in front of torso in north view."
+  ],
+  "limitations": [
+    "North view hides the weapon hand through much of the strike; grip and action silhouette are not yet sufficiently readable.",
+    "Only three key poses: no in-between frames, no final timing or gameplay integration.",
+    "Fixed bone lengths and clean layer export do not constitute artistic acceptance."
+  ],
+  "userFeedback": "Khuỷu và tay bè sang ngang quá nhiều; cần nâng tay trên vai, không vòng rộng ra bên.",
+  "nextTrial": "sword-new-3d-keyposes-v3-20261103"
+}

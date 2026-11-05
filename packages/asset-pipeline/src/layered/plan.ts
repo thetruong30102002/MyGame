@@ -12,9 +12,11 @@ export const LAYERED_SOURCES = join(dirname(fileURLToPath(import.meta.url)), '..
 
 export interface PlanItem {
 	id: string;
-	tool: 'edit_image_pixen' | 'create_character' | 'animate_character' | 'animate_with_skeleton_v3';
+	tool: 'edit_image_pixen' | 'create_character' | 'animate_character' | 'animate_with_skeleton_v3' | 'inpaint_image_pro_flash';
+	/** inpaint_image_pro_flash: ảnh mẫu kiểu dáng "<món>#<bản>" (context_image). */
+	styleRef?: string;
 	/** Khoá prompt trong chuẩn (prompts.<khoá>): edit_image_pixen → baseMaleEdit / baseFemaleEdit, create_character → baseMale / baseFemale. */
-	prompt?: 'baseMale' | 'baseFemale' | 'baseMaleEdit' | 'baseFemaleEdit' | 'headEdit' | 'headEditLong' | 'headEditFemale' | 'outfitEdit' | 'heroMale' | 'heroFemale' | 'slashBody' | 'slashBodyFemale' | 'tallEdit' | 'tallEditFemale' | 'femaleFromMaleEdit' | 'slimFemaleEdit' | 'petiteFemaleEdit' | 'slimLegsFemaleEdit' | 'poseBody' | 'poseBodyFemale';
+	prompt?: 'baseMale' | 'baseFemale' | 'baseMaleEdit' | 'baseMaleNpcEdit' | 'baseFemaleNpcEdit' | 'baseFemaleEdit' | 'headEdit' | 'headEditLong' | 'headEditFemale' | 'weaponEdit' | 'outfitEdit' | 'heroMale' | 'heroFemale' | 'slashBody' | 'slashBodyFemale' | 'tallEdit' | 'tallEditFemale' | 'femaleFromMaleEdit' | 'slimFemaleEdit' | 'petiteFemaleEdit' | 'slimLegsFemaleEdit' | 'poseBody' | 'poseBodyFemale';
 	/** edit_image_pixen sửa đầu: sửa từ ảnh một món đã vẽ (bản sourcePick) thay vì ảnh mẫu phong cách. */
 	sourceItem?: string;
 	/** null = chủ dự án chưa chọn bản nguồn → lệnh run từ chối. */
@@ -50,6 +52,13 @@ export interface PlanItem {
 	 * ảnh thân / mặt / cổ của hướng đó nên cùng điểm đặt (chủ dự án 30/10: "vẽ lại thân có cổ, đầu không cổ rồi ghép cho hẳn hoi").
 	 */
 	sourceRotation?: { item: string; dir: string };
+	/**
+	 * edit_image_pixen weaponEdit: khung hình học vũ khí đeo lưng do code dựng ("&lt;đòn&gt;/&lt;góc&gt;", góc v0 / v45 / v90 — lệnh
+	 * `weapon-guides`), ghi ở raw/&lt;món&gt;/guide.png; PixelLab vẽ lại giữ dáng / vị trí.
+	 */
+	sourceGuide?: string;
+	/** weaponEdit: điền vào {weapon} của prompt. */
+	weapon?: string;
 	args: Record<string, unknown>;
 	estimate: number;
 	purpose: string;
@@ -70,7 +79,7 @@ export const loadPlan = (sample: string): SamplePlan => JSON.parse(readFileSync(
 /** Tham số gửi PixelLab của một món (prompt chèn từ chuẩn — một nguồn duy nhất, không chép tay vào plan). */
 export function itemArgs(item: PlanItem, std: LayeredStandard): Record<string, unknown> {
 	if (!item.prompt) return { ...item.args };
-	const description = std.prompts[item.prompt].replace('{hair}', item.hair ?? '').replace('{raceFeatures}', item.raceFeatures ?? '').replace('{outfit}', item.outfit ?? '');
+	const description = (std.prompts[item.prompt] ?? '').replace('{hair}', item.hair ?? '').replace('{raceFeatures}', item.raceFeatures ?? '').replace('{outfit}', item.outfit ?? '').replace('{weapon}', item.weapon ?? '');
 	return { ...item.args, description };
 }
 
@@ -167,6 +176,11 @@ export function validatePlan(plan: SamplePlan, std: LayeredStandard, options:{re
 				if (it.source !== 'female') fail(`${at}: ${it.prompt} cần source: "female"`);
 				if (!it.seeds?.length || new Set(it.seeds).size !== it.seeds.length) fail(`${at}: cần seeds không trùng`);
 				else if (it.estimate !== it.seeds.length) fail(`${at}: estimate phải bằng số bản (${it.seeds.length} × 1 lượt)`);
+			} else if (it.tool === 'edit_image_pixen' && it.prompt === 'weaponEdit') {
+				if (!it.sourceGuide || !/^[a-z]+\/(v0|v45|v90|up|S|SE|E|NE|N|SW|W|NW)$/.test(it.sourceGuide)) fail(`${at}: weaponEdit cần sourceGuide "<đòn>/<hướng>"`);
+				if (!it.weapon) fail(`${at}: weaponEdit cần weapon (mô tả vũ khí)`);
+				if (!it.seeds?.length || new Set(it.seeds).size !== it.seeds.length) fail(`${at}: cần seeds không trùng`);
+				else if (it.estimate !== it.seeds.length) fail(`${at}: estimate phải bằng số bản (${it.seeds.length} × 1 lượt)`);
 			} else if (it.tool === 'edit_image_pixen' && it.prompt === 'outfitEdit') {
 				// Sửa đồ: từ bản đầu đã chọn (nhân vật có tóc hướng S) — giữ đầu / cổ / thân, chỉ đổi quần áo; hoặc mặc đồ lên chính ảnh xoay
 				// một hướng của thân nền trọc (sourceRotation — thân và mọi đầu chung một khuôn, chủ dự án 30/10).
@@ -181,10 +195,17 @@ export function validatePlan(plan: SamplePlan, std: LayeredStandard, options:{re
 				if (!it.seeds?.length || new Set(it.seeds).size !== it.seeds.length) fail(`${at}: cần seeds không trùng`);
 				else if (it.estimate !== it.seeds.length) fail(`${at}: estimate phải bằng số bản (${it.seeds.length} × 1 lượt)`);
 			} else if (it.tool === 'edit_image_pixen') {
-				if (it.prompt !== 'baseMaleEdit' && it.prompt !== 'baseFemaleEdit') fail(`${at}: prompt phải baseMaleEdit / baseFemaleEdit / headEdit / outfitEdit`);
+				if (it.prompt !== 'baseMaleEdit' && it.prompt !== 'baseMaleNpcEdit' && it.prompt !== 'baseFemaleNpcEdit' && it.prompt !== 'baseFemaleEdit') fail(`${at}: prompt phải baseMaleEdit / baseMaleNpcEdit / baseFemaleEdit / headEdit / outfitEdit`);
+				if (it.prompt === 'baseMaleNpcEdit' && it.source !== 'male') fail(`${at}: baseMaleNpcEdit sửa ảnh NPC nam (source: "male")`);
+				if (it.prompt === 'baseFemaleNpcEdit' && it.source !== 'female') fail(`${at}: baseFemaleNpcEdit sửa ảnh NPC nữ (source: "female")`);
 				if (it.source !== 'male' && it.source !== 'female') fail(`${at}: source phải male / female (ảnh mẫu phong cách đã chốt)`);
 				if (!it.seeds?.length || new Set(it.seeds).size !== it.seeds.length) fail(`${at}: cần seeds không trùng (mỗi seed một bản để chọn)`);
 				else if (it.estimate !== it.seeds.length) fail(`${at}: estimate phải bằng số bản (${it.seeds.length} × 1 lượt)`);
+			} else if (it.tool === 'inpaint_image_pro_flash') {
+				// Vũ khí đeo lưng vẽ TRONG hình khung (mặt nạ) — giữ cỡ / góc; 5 lượt / ảnh 64px.
+				if (!it.sourceGuide || !it.weapon || !it.styleRef || !/^U\d+-[a-z0-9]+-[A-Z]+#\d+$/.test(it.styleRef)) fail(`${at}: inpaint vũ khí cần sourceGuide, weapon, styleRef "<món ảnh mẫu>#<bản>"`);
+				if (!it.seeds?.length) fail(`${at}: cần seeds`);
+				else if (it.estimate !== it.seeds.length * 5) fail(`${at}: estimate phải ${it.seeds.length} × 5 lượt`);
 			} else if (it.tool === 'create_character') {
 				const g = std.generation;
 				const want: Record<string, unknown> = { mode: g.mode, view: g.view, outline: g.outline, detail: g.detail, body_type: g.bodyType };

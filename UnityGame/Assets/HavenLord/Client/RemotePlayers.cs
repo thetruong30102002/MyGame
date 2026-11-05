@@ -147,7 +147,7 @@ namespace HavenLord.Client
                 }
                 if (a.View.Busy && a.View.Animation == "death") a.View.EndAction();
                 var dir = Dir8Util.TryParse(r.Dir, out var d) ? d : Dir8.S;
-                a.View.Set(anim, dir, anim == "run" ? 150 / CharacterView.WalkSpeedReference : 1);
+                a.View.Set(anim, dir, anim == "run" ? GameController.RunSpeed / CharacterView.WalkSpeedReference : 1);
                 a.View.Tick(dt);
                 a.SyncTransform();
             }

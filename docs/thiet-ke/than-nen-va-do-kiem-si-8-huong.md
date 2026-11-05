@@ -1,8 +1,10 @@
-> **Ưu tiên mới nhất:** kiếm sĩ3 bộ/3 kiếm: tặng ban đầu,lv5,lv10. Thay phom/cấu trúc từng cấp, không chỉ đổi màu; mỗi bộ có nam/nữ, nữ nhỏ nhắn, đi/chạy/chém8 hướng, kiếm tách riêng. Cấu hình: `player-rig-v4/tiers.json`. Bỏ toàn bộ nhánh đồ lót bên dưới.
+> **Cập nhật 03/11/2026 theo yêu cầu mới nhất:** Khôi phục thân nền khi tháo đồ. Đầu và thân là hai asset độc lập; 30 đầu (5 tộc × 3 nam + 3 nữ) dùng chung chuẩn kích thước sọ, mắt, cằm và neo cổ, không chứa áo hay pixel của đầu khác. **Tất cả đầu dùng chung màu da với thân**, kể cả Ma tộc; đặc trưng tộc nằm ở tai, sừng, tóc và mắt. Có một thân nền nam mặc quần lót và một thân nền nữ mặc bikini kín đáo, cùng tỷ lệ NPC và đủ frame/hướng tương ứng với hành động. Bộ đồ theo class thay thế thân nền ở đúng frame, không chồng lên bộ đang mặc; khi tháo đồ hiện thân nền. Vũ khí vẫn là asset riêng. Chỉ xuất/ghép sau khi kiểm từng hướng, cổ, tóc sau vai, tay che đầu và tỷ lệ đứng/đi/chạy/đánh. **Trạng thái:** hai thân nền NPC 80×80 đã vẽ đủ 8 hướng đứng, đi/chạy 8 frame cho 5 hướng nguồn; hai đầu Nhân tộc mẫu đã xoay và ghép thử đi/chạy đủ 8 hướng với phép kiểm hở cổ. 28 ảnh đầu chính diện cũ là bản nháp, 2 mẫu Nhân tộc nữ sai tộc đã loại. Các đầu khác, tóc dài, tấn công, đồ class và xuất game chưa hoàn tất; chưa build.
+
+> **Lịch sử 27/10:** kiếm sĩ 3 bộ/3 kiếm: tặng ban đầu, lv5, lv10. Thay phom/cấu trúc từng cấp, không chỉ đổi màu; mỗi bộ có nam/nữ, nữ nhỏ nhắn, đi/chạy/chém 8 hướng, kiếm tách riêng. Cấu hình: `player-rig-v4/tiers.json`. Quyết định bỏ đồ lót phía dưới đã được yêu cầu ngày 03/11 thay thế.
 
 <!-- starter-class-no-undress -->
 
-**CHỐT MỚI NHẤT27/10: bắt chọn class ngay lúc tạo nhân vật, cấp1 đồ và1 vũ khí cơ bản đúng class. BỎ cởi đồ/thân nền đồ lót, ngừng vẽ thân đồ lót/tấn công5 vũ khí trên thân không đồ. Hình luôn tối thiểu bộ cơ bản của class; thay/bỏ trang bị quay về bộ cơ bản. Đồ chỉ đi/chạy/đánh theo class của nó; đầu và vũ khí vẫn tách riêng. Nữ nhỏ nhắn thanh hơn nhưng giữ chuẩn đầu/neo cổ chung. Chỉ thị này thay các đoạn đồ lót/NPC chọn nghề bên dưới, không reset DB.**
+**Lịch sử 27/10 (đã thay đổi một phần ngày 03/11):** bắt chọn class ngay lúc tạo nhân vật, cấp 1 đồ và 1 vũ khí cơ bản đúng class. Đồ chỉ đi/chạy/đánh theo class của nó; đầu và vũ khí vẫn tách riêng. Nữ nhỏ nhắn thanh hơn nhưng giữ chuẩn đầu/neo cổ chung. Phần bỏ cởi đồ/thân nền đồ lót không còn áp dụng; không tự reset DB.
 
 # Thân nền, đồ kiếm sĩ và vũ khí thay được — 27/10/2026
 

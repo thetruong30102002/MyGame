@@ -495,3 +495,26 @@ Chủ dự án: "Ok tiếp tục làm đi" (sau 5 class nam); "nữ thon thả �
   - Kiếm sĩ nữ: đi / chạy S / E / N, chém E / N (26 lượt).
   - Kiểm: hở cổ 0, lỗ / khe kín quanh cổ 0; tóc dài bám đúng khi đi / chạy / chém.
   - Bộ kiểm kế hoạch nhận giới qua `sourceRotation` (món sửa trên thân nền nữ dùng mẫu chữ nữ).
+
+## Khuôn cỡ NPC 8 hướng (chặng U, 04/11/2026)
+
+Chủ dự án 04/11: vẽ lại thân và đầu cùng kích thước hai NPC tóc trắng, di chuyển 8 hướng, kiểm kĩ cổ. Mẫu Kiếm sĩ nam đã duyệt ("Ok").
+
+- **Thân nền:** sửa CHÍNH ảnh `npc_silver_youth` S (prompt `baseMaleNpcEdit`: trọc, quần đùi, khỏe vừa — không 6 múi, giữ mắt to anime đổi sang mắt nâu) → `U1-npc-male-base-ref` xoay 8 hướng, cao ~72px trong ảnh 80×88.
+- **Một khuôn 8 hướng:** bộ đồ và mọi đầu sửa trên chính ảnh xoay S / SE / E / NE / N; SW ← SE, W ← E, NW ← NE lật gương (`mouldDraw`, `mouldMirrors`). Hướng nhìn sau (NE, N) phải ghi "BACK VIEW" cả ở món bộ đồ (`outfit`) lẫn đầu — thiếu chữ PixelLab vẽ quay mặt ra trước.
+- **Cắt cổ cố định:** cổ cỡ NPC chỉ 1–2 hàng, dò "từ vai lên" nhận nhầm vai (hướng N mất vai) → thân, đầu trọc mẫu và mọi đầu cắt theo đường cổ thân nền (`fixedNeck`, như khuôn nữ). Chéo: SE / SW cắt như S, NE / NW như N (`mouldNeckCut`).
+- **Đi / chạy:** skeleton-v3 từ chính ảnh mặc đồ, khung xương lấy từ gói đi / chạy thân trần 03/11 (bản sao đệm 80×88 `raw/U1m-bare-motion-0311`), dời TỪNG KHỚP theo khớp đứng của thân đích (`follow … --joints`). Nguồn NE tự xoay nghiêng ở khung 4–7 → dựng lại nửa sau bằng nửa đầu đổi bên tay / chân.
+- **Nhịp:** `animations[].durationsMsNpc` — đi 130ms, chạy 95ms mỗi khung (chậm hơn bản cũ 100 / 70ms, chốt 03/11 "giảm nhịp chân").
+- **Kiếm sau lưng:** `SHEATHED_SWORD` (weapon.ts) vẽ theo thiết kế, đặt theo neo cổ từng khung (`BACK_CARRY`): sau thân ở S / SE / E (chỉ chuôi ló trên vai), trên lưng dọc dây chéo ở NE / N (chuôi hạ xuống bả vai, không đè tóc); hướng tây lật.
+- **Unity:** thân `u`, đầu `npc-<đầu>` mang `mould: "npc"`; `LayeredCharacterDef.Fits` đòi cùng giới VÀ cùng khuôn (đầu cỡ NPC không đội thân cũ cao ~106px).
+
+### Bộ đủ cỡ NPC (05/11/2026)
+
+- **10 khuôn:** `u`, `u-mage`, `u-lancer`, `u-guard`, `u-archer` (nam, thân U1) và `uf…` (nữ, thân U13b: vẽ lại đầu nhỏ ~10% theo chủ dự án "đầu nữ hơi to"). Đầu ở `stages.U.heads` / `headsFemale`; tóc dài có lớp riêng, nhìn sau (N, NE, NW) phủ lưng.
+- **Vũ khí đeo — ĐỒNG NHẤT (chủ dự án 05/11):** "cung, thương, trượng, kiếm để sau lưng vẽ 1 hình đặt phía sau; sau lưng thì xoay chéo, quay mặt về màn hình thì để xoay chéo dưới lớp ảnh nhân vật; riêng khiên vẽ 1 mặt rồi luôn gắn tay"; "hướng ngang thì để sau lưng là được". `carryLayer` (cli.ts):
+  - Vũ khí dài: tranh chéo lưng `U10-<đòn>-N` (inpaint trong khung `weaponGuide` theo ảnh mẫu `U11-*`) cho mọi hướng trừ ngang. Quay lưng (N, NE, NW) tranh đè lên thân, lớp trên cùng ngoài tóc; mặt trước (S, SE, SW) cùng tranh lật gương quanh điểm nắm, nằm DƯỚI thân. Nhìn ngang (E, W) dùng tranh DỌC `U10-<đòn>-up`, sau lưng song song với người, dưới thân (chủ dự án 05/11: "mọi hướng chéo đúng nhưng khi xoay ngang thì để vũ khí sau lưng song song với người"; điểm gắn `BACK_MOUNT.up`, kiếm chuôi lên). Điểm gắn chiếu theo hướng, bám neo cổ từng khung; hướng tây lật cả lớp từ hướng đông.
+  - Thứ tự lớp (`export-npc-roster.mts`, trang soi, `LayeredCharacterView`): tóc dài sau → tóc sau → vũ khí sau thân → thân → vũ khí quay lưng / tóc dài trước → đầu → … Vũ khí sau thân vẫn NGOÀI tóc (tóc xoã ngoài cùng sau lưng), tóc dài không che vũ khí khi nhìn trước / ngang.
+  - Khiên: MỘT mặt (tranh `U10-bash-N`, mặt có núm), tâm ở cẳng tay trái (khuỷu 35 % – cổ tay 65 %) theo khung xương PixelLab từng khung đứng / đi / chạy. S, N đè lên thân; SE, E, NE (và bản lật) tay trái phía xa nên nằm dưới thân.
+  - Tranh U10 các hướng khác giữ làm nguồn, không dùng nữa. Thương bản 3 (05/11): cán gỗ nâu (mẫu `U11-thrust4-S#13402`), mũi thép dài 16px thon nhọn ("thương hơi cụt đầu").
+- **Vệt đen ngang cổ:** `isSkin` nhận da rất sáng; `neckLine` xoá viền cằm đầu trọc tụt xuống cổ trong ảnh gốc khung (nhìn trước / ngang); lớp sau của đầu chỉ tính là che lỗ cổ khi là da (`uncovered … skinBack`); bộ kiểm in loại lỗi (chưa che / lỗ kín / cổ đứt / vệt đen).
+- **Game:** `scripts/export-npc-roster.mts` → `assets/characters/player_npc_<tộc><số>_<class>_<m|f>` (150 atlas 1024 rộng, 8 hướng, đòn đánh tạm khung đứng) + `assets/player-roster/npc-v1/catalog.json` + `NPC_MODELS` trong protocol; Unity `NpcRosterRelease.ImportBatch`.

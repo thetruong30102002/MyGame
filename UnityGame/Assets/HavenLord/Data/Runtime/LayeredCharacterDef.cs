@@ -16,6 +16,8 @@ namespace HavenLord.Data
         public Sprite weapon;
         /// <summary>Kiếm vẽ dưới cùng (thủ thế kiếm trên vai, lưỡi ngả ra sau vai / đầu).</summary>
         public bool weaponBehind;
+        /// <summary>Phần vũ khí đeo lưng nằm phía người xem: vẽ trên thân nhưng DƯỚI đầu (tóc che) — chia lớp theo độ sâu từng pixel.</summary>
+        public Sprite weaponMid;
         /// <summary>Đầu gốc của thân cắt từ chính khung này (dùng khi đội đúng đầu gốc).</summary>
         public Sprite head;
         public Sprite hairBack;
@@ -40,6 +42,8 @@ namespace HavenLord.Data
         public string id;
         /// <summary>male | female — chỉ đội đầu cùng giới (mỗi tộc 3 đầu nam + 3 đầu nữ).</summary>
         public string gender;
+        /// <summary>Khuôn (thân nền chung): rỗng = khuôn cũ cao ~106px; "npc" = cỡ NPC 8 hướng (chặng U). Đầu chỉ đội thân cùng khuôn.</summary>
+        public string mould;
         /// <summary>Đầu vẽ cùng thân — đội đầu này thì lấy đầu từng khung (tóc nảy theo bước), đầu khác lấy ảnh theo hướng.</summary>
         public string nativeHead;
         public List<LayeredClip> clips = new List<LayeredClip>();
@@ -74,6 +78,8 @@ namespace HavenLord.Data
         public string id;
         /// <summary>male | female — đầu nam chỉ đội thân nam, đầu nữ chỉ đội thân nữ.</summary>
         public string gender;
+        /// <summary>Khuôn vẽ đầu (cùng nghĩa <see cref="LayeredBody.mould"/>).</summary>
+        public string mould;
         public string label;
         /// <summary>Đầu đứng theo hướng, chỉ số = (int)Dir8.</summary>
         public LayeredHeadFrame[] dirs = new LayeredHeadFrame[Dir8Util.Count];
@@ -100,8 +106,8 @@ namespace HavenLord.Data
         public LayeredBody Body(string bodyId) => bodies.Find(b => b.id == bodyId);
         public LayeredHead Head(string headId) => heads.Find(h => h.id == headId);
 
-        /// <summary>Đầu đội được thân này: cùng giới (chủ dự án 29/10 loại ghép chéo đầu nam lên thân nữ).</summary>
-        public static bool Fits(LayeredBody body, LayeredHead head) => body != null && head != null && body.gender == head.gender;
+        /// <summary>Đầu đội được thân này: cùng giới (chủ dự án 29/10 loại ghép chéo đầu nam lên thân nữ) và cùng khuôn (đầu cỡ NPC không đội thân cũ).</summary>
+        public static bool Fits(LayeredBody body, LayeredHead head) => body != null && head != null && body.gender == head.gender && (body.mould ?? "") == (head.mould ?? "");
 
         /// <summary>Clip của thân theo hướng; hướng chưa vẽ lấy hướng kề (FALLBACK như atlas cũ). null = thân chưa có động tác này.</summary>
         public LayeredClip Clip(LayeredBody body, string anim, Dir8 dir)

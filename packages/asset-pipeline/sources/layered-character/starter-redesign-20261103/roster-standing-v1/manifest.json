@@ -1,0 +1,111 @@
+{
+  "entries": [
+    {
+      "id": "sword-male",
+      "label": "Kiếm sĩ",
+      "sex": "male",
+      "file": "sword-male/S.png",
+      "source": "packages/asset-pipeline/sources/layered-character/starter-redesign-20261103/sword-male-pilot-covered/sword-male-S.png",
+      "method": "existing PixelLab standing pilot",
+      "artApproved": false
+    },
+    {
+      "id": "sword-female",
+      "label": "Kiếm sĩ",
+      "sex": "female",
+      "file": "sword-female/S.png",
+      "source": "packages/asset-pipeline/sources/pixellab/npc_silver_youth_f/Idle/rotations/south.png",
+      "method": "PixelLab edit_image_pixen",
+      "artApproved": false,
+      "jobId": "fab20c99-8e5d-4dce-8ead-33dd88312f9f"
+    },
+    {
+      "id": "staff-male",
+      "label": "Pháp sư",
+      "sex": "male",
+      "file": "staff-male/S.png",
+      "source": "packages/asset-pipeline/sources/pixellab/npc_silver_youth/Idle/rotations/south.png",
+      "method": "original NPC outfit, unchanged",
+      "approvedDesignByUser": true
+    },
+    {
+      "id": "staff-female",
+      "label": "Pháp sư",
+      "sex": "female",
+      "file": "staff-female/S.png",
+      "source": "packages/asset-pipeline/sources/pixellab/npc_silver_youth_f/Idle/rotations/south.png",
+      "method": "original NPC outfit, unchanged",
+      "approvedDesignByUser": true
+    },
+    {
+      "id": "spear-male",
+      "label": "Thương thủ",
+      "sex": "male",
+      "file": "spear-male/S.png",
+      "source": "packages/asset-pipeline/sources/pixellab/npc_silver_youth/Idle/rotations/south.png",
+      "method": "PixelLab edit_image_pixen",
+      "artApproved": false,
+      "jobId": "bdb72beb-f845-4524-ac83-175ae797e11d"
+    },
+    {
+      "id": "spear-female",
+      "label": "Thương thủ",
+      "sex": "female",
+      "file": "spear-female/S.png",
+      "source": "packages/asset-pipeline/sources/pixellab/npc_silver_youth_f/Idle/rotations/south.png",
+      "method": "PixelLab edit_image_pixen",
+      "artApproved": false,
+      "jobId": "99aa9b0a-d39d-44ea-90be-a736d095d45c"
+    },
+    {
+      "id": "bow-male",
+      "label": "Cung thủ",
+      "sex": "male",
+      "file": "bow-male/no-hood-v2/S.png",
+      "source": "packages/asset-pipeline/sources/pixellab/npc_silver_youth/Idle/rotations/south.png",
+      "method": "PixelLab edit_image_pixen, no-hood-v2",
+      "artApproved": false,
+      "jobId": "2ec29b90-497f-4c88-8f7c-404fe3d7bc48",
+      "rejectedFile": "bow-male/S.png",
+      "reason": "v1 introduced hood and changed head silhouette; v2 preserves uncovered NPC head"
+    },
+    {
+      "id": "bow-female",
+      "label": "Cung thủ",
+      "sex": "female",
+      "file": "bow-female/no-hood-v2/S.png",
+      "source": "packages/asset-pipeline/sources/pixellab/npc_silver_youth_f/Idle/rotations/south.png",
+      "method": "PixelLab edit_image_pixen, no-hood-v2",
+      "artApproved": false,
+      "jobId": "f5928576-e881-4f5e-b8b0-5be047419b60",
+      "rejectedFile": "bow-female/S.png",
+      "reason": "v1 introduced hood and changed head silhouette; v2 preserves uncovered NPC head"
+    },
+    {
+      "id": "shield-male",
+      "label": "Khiên thủ",
+      "sex": "male",
+      "file": "shield-male/S.png",
+      "source": "packages/asset-pipeline/sources/pixellab/npc_silver_youth/Idle/rotations/south.png",
+      "method": "PixelLab edit_image_pixen",
+      "artApproved": false,
+      "jobId": "158987af-39d4-4274-b37b-8289884fd360"
+    },
+    {
+      "id": "shield-female",
+      "label": "Khiên thủ",
+      "sex": "female",
+      "file": "shield-female/S.png",
+      "source": "packages/asset-pipeline/sources/pixellab/npc_silver_youth_f/Idle/rotations/south.png",
+      "method": "PixelLab edit_image_pixen",
+      "artApproved": false,
+      "jobId": "dd027b4f-7392-4128-993a-b25176542551"
+    }
+  ],
+  "balanceBefore": "credits: $0.00\ngenerations_remaining: 4112.00\ngenerations_used: 888.00\ngenerations_total: 5000\nnote: fractions come from small steps billed per use — prompt enhancement 0.05, skeleton estimation and colour reduction 0.1, sprite import 0.25, /chat builder model calls — most are not jobs, so list_jobs does not show them\nsubscription: active (Tier 2: Pixel Artisan)\ngenerations_reset: 2026-11-28\nnote: generations_total is this cycle's allowance (prorated on a mid-cycle upgrade); it refills on generations_reset",
+  "scope": "10 front standing outfit designs only, no animation or game build",
+  "heads": "NPC identity retained solely in full reference image. No runtime avatar overpainting. Remove old head before exporting any body layer.",
+  "weapons": "Separate later; not baked into outfit.",
+  "attack": "paused by user",
+  "artApproved": false
+}

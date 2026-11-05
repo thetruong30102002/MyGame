@@ -1,0 +1,12 @@
+{
+  "description": "Redesign outfit as a capable starter swordsman: slate-blue fitted tunic, modest steel chest plates and small shoulder guards, brown leather straps and belt, split short tassets, charcoal trousers, leather gloves, bracers and sturdy boots. Slightly fuller shoulders, arms and thighs, athletic not bulky. Preserve exact head, face, hair, 73px height, feet and pose. Crisp original pixel clusters, cloth seams, leather edges, steel highlights. No gold, cape, glow, crown or weapons.",
+  "image_base64": "<packages/asset-pipeline/sources/pixellab/npc_silver_youth/Idle/rotations/south.png>",
+  "width": 80,
+  "height": 80,
+  "no_background": true,
+  "seed": 73170,
+  "referenceSha256": "043f2a95ba9d38c118cf56fa674298df91ed8c6ac7da6e605b44ae2901a22379",
+  "previewOnly": true,
+  "artApproved": false,
+  "note": "NPC head retained ONLY in full visual design reference; never overlay another head or export this as a body layer. Head removal required before any runtime avatar composition. Attack paused; no animations requested."
+}

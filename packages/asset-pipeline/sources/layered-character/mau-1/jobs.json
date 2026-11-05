@@ -4059,5 +4059,6561 @@
 		"balanceBefore": 4164,
 		"balanceAfter": 4162,
 		"at": "2026-10-31T07:38:24.611Z"
+	},
+	{
+		"item": "U0-npc-male-base-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"e7c23a37-d4ef-45e1-bf23-bcede2f0f88a",
+			"bd192352-8764-491d-8bf1-05ad38766f03",
+			"66e16498-8807-4ca4-950f-f4d4e6d63940",
+			"186ce1ba-e16b-4448-a765-748dfaed62d9"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 3986,
+		"balanceAfter": 3982,
+		"at": "2026-11-04T03:21:48.639Z",
+		"rejected": "04/11 tự loại: mặt mất nét anime NPC (mắt nhỏ, mày nặng, trông già), cơ bụng 6 múi quá tay so với \"đầy đặn vừa phải\""
+	},
+	{
+		"item": "U0-npc-male-base-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"c3e60ae8-5440-41fa-ba6f-667582ed3bb1",
+			"016980c2-c023-4296-9996-328fdc8fd301",
+			"4d34a129-f64c-4bfd-97be-83a43dfa23f2",
+			"88260647-faf9-4d3b-8ed1-0be51f507d5d"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 3982,
+		"balanceAfter": 3978,
+		"at": "2026-11-04T03:27:10.577Z"
+	},
+	{
+		"item": "U1-npc-male-base-ref",
+		"tool": "create_character",
+		"characterId": "d3738b12-c519-4860-82da-2259c1e9e18e",
+		"estimate": 2,
+		"actual": 1,
+		"balanceBefore": 3978,
+		"balanceAfter": 3977,
+		"at": "2026-11-04T03:40:04.333Z"
+	},
+	{
+		"item": "U2-sword-outfit-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"9a3b7cb0-5183-40a2-8c81-1c5d0a3614c0",
+			"42c12186-0ce4-4d92-bc20-11238fa65239",
+			"f5eb7bcf-2f81-497d-8540-0fb2b5014f65"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3977,
+		"balanceAfter": 3974,
+		"at": "2026-11-04T03:44:57.104Z"
+	},
+	{
+		"item": "U2-sword-outfit-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"319dc255-a8d7-4e02-874b-49d365cd8b29",
+			"843d5c06-a109-4b1c-b927-924c50e4217f"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3974,
+		"balanceAfter": 3972,
+		"at": "2026-11-04T03:56:52.091Z"
+	},
+	{
+		"item": "U2-sword-outfit-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"36bbd560-a24b-491f-9f5e-14def313de6d",
+			"a5629872-2523-4b96-9a85-2648f9af180f"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3972,
+		"balanceAfter": 3970,
+		"at": "2026-11-04T03:58:34.688Z"
+	},
+	{
+		"item": "U2-sword-outfit-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"c0ac5ace-b02b-48e3-8895-14fae4ff3fea",
+			"bc8d5188-37cb-40ba-8839-cd56ad2caef1"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3970,
+		"balanceAfter": 3968,
+		"at": "2026-11-04T04:00:34.423Z",
+		"rejected": "04/11: cả hai bản quay đầu lộ mặt nghiêng (ảnh nguồn nhìn sau chéo); 11911 còn tự mọc tóc nâu"
+	},
+	{
+		"item": "U2-sword-outfit-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"1cfb0e71-a2a5-4273-b1cc-ab37045fd10e",
+			"d249de37-000f-4fdd-942e-24851369a680"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3968,
+		"balanceAfter": 3966,
+		"at": "2026-11-04T04:02:51.832Z",
+		"rejected": "04/11: cả hai bản vẽ thành nhìn chính diện lộ mặt (ảnh nguồn nhìn sau); 11911 còn tự mọc tóc nâu"
+	},
+	{
+		"item": "U3-m-human1-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"b5b37b06-d376-40e0-a841-e1f76bb9055a",
+			"cdb5238d-2914-4ac1-8517-e3ce1b38eb8c"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3966,
+		"balanceAfter": 3964,
+		"at": "2026-11-04T04:04:33.742Z"
+	},
+	{
+		"item": "U3-m-human1-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"0ac3d108-e00d-4b12-bd45-3bb366db9c24",
+			"fb6ee034-9cf4-4419-b00b-d1111874ba51"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3964,
+		"balanceAfter": 3962,
+		"at": "2026-11-04T04:05:58.180Z"
+	},
+	{
+		"item": "U3-m-human1-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"72d9e32d-bac1-4f8a-8860-2045fe80ba3a",
+			"a8216fa6-77b0-4d0c-a49f-a6d7d617a2e1"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3962,
+		"balanceAfter": 3960,
+		"at": "2026-11-04T04:07:58.149Z"
+	},
+	{
+		"item": "U3-m-human1-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"6f7fc92b-2987-4dd1-84d0-ce2e7f7d9a44",
+			"7b47f611-96b0-4426-be8f-9ee8ccc2c756"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3960,
+		"balanceAfter": 3958,
+		"at": "2026-11-04T04:09:58.249Z",
+		"rejected": "04/11: cả hai bản đầu quay nghiêng lộ mặt — NE phải thấy gáy, chỉ ló má / tai"
+	},
+	{
+		"item": "U3-m-human1-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"67a8f968-cb83-4c14-9251-ce8f015d5ebb",
+			"f83e2256-7f42-472a-be3d-7284f7f4f821"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3958,
+		"balanceAfter": 3956,
+		"at": "2026-11-04T04:11:58.456Z"
+	},
+	{
+		"item": "U2-sword-outfit-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"02fe3b6c-d5f5-42ff-bf87-300981bec0ae",
+			"0524f405-4169-4025-8167-6b81e588c2c8"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3956,
+		"balanceAfter": 3954,
+		"at": "2026-11-04T04:55:28.110Z"
+	},
+	{
+		"item": "U2-sword-outfit-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"52b1d4c3-7517-4dcc-b2a5-02b49406dedf",
+			"bf986722-6083-44f7-96bc-63d30410f950"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3954,
+		"balanceAfter": 3952,
+		"at": "2026-11-04T04:57:52.519Z"
+	},
+	{
+		"item": "U3-m-human1-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"a2325627-21be-4c72-8c0c-f3a5e9eb5b35",
+			"7737f3c7-2650-462e-9191-6baa5b73da1a"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3952,
+		"balanceAfter": 3950,
+		"at": "2026-11-04T04:59:17.826Z"
+	},
+	{
+		"item": "U4-sword-walk-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"e770c0e9-262d-4943-a396-3de9d93a7f04"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3941,
+		"balanceAfter": 3938,
+		"at": "2026-11-04T05:05:38.927Z"
+	},
+	{
+		"item": "U4-sword-walk-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"5c3640ad-ba60-4bb6-b7f6-1e4ee214acc4"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3938,
+		"balanceAfter": 3935,
+		"at": "2026-11-04T05:08:06.984Z"
+	},
+	{
+		"item": "U4-sword-walk-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"89d24693-fe02-4f6c-a63a-72607d066d6d"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3935,
+		"balanceAfter": 3932,
+		"at": "2026-11-04T05:10:59.001Z"
+	},
+	{
+		"item": "U4-sword-walk-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"fe5fcf69-17b5-4d58-b00b-e0fdabc61fa8"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3932,
+		"balanceAfter": 3929,
+		"at": "2026-11-04T05:13:43.842Z",
+		"rejected": "04/11: khung 4–7 xoay người sang nghiêng lộ mặt — do khung xương nguồn NE (gói 03/11) tự xoay; dựng lại nửa sau bằng nửa đầu đổi bên (half_swap)"
+	},
+	{
+		"item": "U4-sword-walk-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"58350344-2233-4492-92b7-ff96f3da5191"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3929,
+		"balanceAfter": 3926,
+		"at": "2026-11-04T05:15:53.367Z"
+	},
+	{
+		"item": "U4-sword-run-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"0d57d054-c6de-4738-b7cb-0434f14c8e14"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3926,
+		"balanceAfter": 3923,
+		"at": "2026-11-04T05:18:20.733Z"
+	},
+	{
+		"item": "U4-sword-run-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"48a1a717-af52-42fe-909a-f30640d997d6"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3923,
+		"balanceAfter": 3920,
+		"at": "2026-11-04T05:20:31.967Z"
+	},
+	{
+		"item": "U4-sword-run-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"fb63c85d-3989-4387-9a3a-0d95dac12ead"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3920,
+		"balanceAfter": 3917,
+		"at": "2026-11-04T05:22:42.903Z"
+	},
+	{
+		"item": "U4-sword-run-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"0d3a6a30-b362-49c7-aadd-6fa882339b6f"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3917,
+		"balanceAfter": 3914,
+		"at": "2026-11-04T05:25:11.506Z",
+		"rejected": "04/11: khung 4–7 xoay người sang nghiêng lộ mặt — do khung xương nguồn NE (gói 03/11) tự xoay; dựng lại nửa sau bằng nửa đầu đổi bên (half_swap)"
+	},
+	{
+		"item": "U4-sword-run-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"2e41d095-5a38-4f42-b1a3-4470b9ad45b5"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3914,
+		"balanceAfter": 3911,
+		"at": "2026-11-04T05:27:38.764Z"
+	},
+	{
+		"item": "U4-sword-walk-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"cfe2687d-edf7-4289-8cda-5942e2efe4b7"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3911,
+		"balanceAfter": 3908,
+		"at": "2026-11-04T05:30:38.658Z"
+	},
+	{
+		"item": "U4-sword-run-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"4699fb97-4610-404d-a56d-26b32f65d5f6"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3908,
+		"balanceAfter": 3905,
+		"at": "2026-11-04T05:32:48.770Z"
+	},
+	{
+		"item": "U5-mage-outfit-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"0e5b5f5b-e068-43e0-a389-d5cd1ea42d06",
+			"115d1a28-5dad-40b5-8091-11374e8a5c21",
+			"651b8402-1199-4da4-9693-b6645fa14495"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3905,
+		"balanceAfter": 3902,
+		"at": "2026-11-04T06:37:06.995Z"
+	},
+	{
+		"item": "U5-lancer-outfit-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"0a8e9077-e45b-4a9e-a24c-da0c7b4ac762",
+			"fc945530-4d86-4f75-8f14-df9578c57f01",
+			"49c65ce8-58c3-4dd5-8689-52b4178d9e16"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3902,
+		"balanceAfter": 3899,
+		"at": "2026-11-04T06:39:38.722Z"
+	},
+	{
+		"item": "U5-guard-outfit-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"392f7d1b-cea1-4728-a1df-db8922d08a19",
+			"ba1a5f61-37a0-42f4-8ce2-2d5937fbc100",
+			"06aad399-3179-40bb-ae44-c9b3b0f51b45"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3899,
+		"balanceAfter": 3896,
+		"at": "2026-11-04T06:42:10.026Z"
+	},
+	{
+		"item": "U5-archer-outfit-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"db6f84b2-5fe1-4816-9bc8-6b00cb812429",
+			"602467b3-2bda-46a0-9d77-884f189f6278",
+			"70b218d4-2c4c-4d80-bb0c-17492cb0dd15"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3896,
+		"balanceAfter": 3893,
+		"at": "2026-11-04T06:44:41.083Z"
+	},
+	{
+		"item": "U5-mage-outfit-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"81bc7fa5-da65-416f-82ce-b635fceadf4e",
+			"a1f9b6fe-3cd5-46aa-b3db-7ca88a8c14df"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3893,
+		"balanceAfter": 3891,
+		"at": "2026-11-04T06:53:10.272Z"
+	},
+	{
+		"item": "U5-mage-outfit-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"e99cf9bd-b91d-46bc-b9dc-bca9a7397c7e",
+			"6ecf841f-eba5-44f9-a90d-9877da10977e"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3891,
+		"balanceAfter": 3889,
+		"at": "2026-11-04T06:55:10.936Z"
+	},
+	{
+		"item": "U5-mage-outfit-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"f3996fd1-3541-4596-ba57-e2e1db6130cc",
+			"432eb0ab-c9ba-40c5-b711-490fa4ab28f6"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3889,
+		"balanceAfter": 3887,
+		"at": "2026-11-04T06:56:53.148Z"
+	},
+	{
+		"item": "U5-mage-outfit-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"124cd2f9-9255-45d9-be3c-317cec67d237",
+			"cbd536f3-b797-4f6e-a192-ffd7af90f476"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3887,
+		"balanceAfter": 3885,
+		"at": "2026-11-04T06:59:10.980Z"
+	},
+	{
+		"item": "U5-lancer-outfit-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"3a02df00-8ba7-43bc-b791-b98842b61ea6",
+			"4c82abcc-8114-4417-8530-0d44b436cc60"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3885,
+		"balanceAfter": 3883,
+		"at": "2026-11-04T07:00:53.224Z"
+	},
+	{
+		"item": "U5-lancer-outfit-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"bc7c4ae4-b199-4862-b921-3f9110cebb4b",
+			"eb60014e-0c38-4497-a35e-7408fbcd0b1a"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3883,
+		"balanceAfter": 3881,
+		"at": "2026-11-04T07:01:59.860Z"
+	},
+	{
+		"item": "U5-lancer-outfit-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"cf72e193-60be-40b8-87ec-6210ebafaec2",
+			"78b904e6-4051-4324-adb4-5af601911bb4"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3881,
+		"balanceAfter": 3879,
+		"at": "2026-11-04T07:04:35.566Z"
+	},
+	{
+		"item": "U5-lancer-outfit-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"fd7a028e-6897-4959-9837-b7344be75768",
+			"c3547c16-c3b8-4b4c-948d-260f8686f9b5"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3879,
+		"balanceAfter": 3877,
+		"at": "2026-11-04T07:05:59.946Z"
+	},
+	{
+		"item": "U5-guard-outfit-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"9baec6a9-003f-49ed-82c7-911db7b31942",
+			"8ac42ebc-9883-4b21-a2d2-a6bab9e25fb5"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3877,
+		"balanceAfter": 3875,
+		"at": "2026-11-04T07:07:42.210Z"
+	},
+	{
+		"item": "U5-guard-outfit-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"5f1056a2-1632-4965-8b21-ac93461478f9",
+			"db9c5857-1daa-4ed7-b814-5191c8b12e59"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3875,
+		"balanceAfter": 3873,
+		"at": "2026-11-04T07:09:06.504Z"
+	},
+	{
+		"item": "U5-guard-outfit-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"d6f6baf6-9a14-4750-8abf-381101b6e805",
+			"8bcc9e6d-3c7f-48d5-a798-4393642fade2"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3873,
+		"balanceAfter": 3871,
+		"at": "2026-11-04T07:10:30.552Z"
+	},
+	{
+		"item": "U5-guard-outfit-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"c3badb52-3389-406a-9439-1bcd8146ac11",
+			"9b0c1807-49f2-4a56-96d8-521df408e587"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3871,
+		"balanceAfter": 3869,
+		"at": "2026-11-04T07:11:37.170Z"
+	},
+	{
+		"item": "U5-archer-outfit-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"69f1b712-b25e-4a18-9a8b-68d5d1869958",
+			"6b14f552-3970-4909-8cab-09c1eac15d72"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3869,
+		"balanceAfter": 3867,
+		"at": "2026-11-04T07:13:19.056Z"
+	},
+	{
+		"item": "U5-archer-outfit-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"69bc98ba-3105-468d-8b46-e2d2d507303d",
+			"de493e08-0498-466e-9cbf-c4b5cf26acbc"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3867,
+		"balanceAfter": 3865,
+		"at": "2026-11-04T07:15:01.133Z"
+	},
+	{
+		"item": "U5-archer-outfit-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"6366b9a9-919c-425b-9c88-fa9aaf584cb5",
+			"4f3f8c33-5c48-4f06-879f-9797f804ce85"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3865,
+		"balanceAfter": 3863,
+		"at": "2026-11-04T07:17:00.900Z"
+	},
+	{
+		"item": "U5-archer-outfit-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"d873bab2-cd50-4018-a1ff-0a6a6bb64c2e",
+			"f99fe620-f103-41e0-935c-313719f99c13"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3863,
+		"balanceAfter": 3861,
+		"at": "2026-11-04T07:18:43.064Z"
+	},
+	{
+		"item": "U6-lancer-walk-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"77dc3594-4f7f-4631-a2b7-6ea2b915fde9"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3859,
+		"balanceAfter": 3850,
+		"at": "2026-11-04T07:21:51.227Z",
+		"note": "04/11: ba tiến trình chạy song song (lỗi điều phối), lượt đo theo số dư bị cộng dồn — ghi đúng 3 lượt / clip; số dư chung 3859 → 3850 cho 3 clip đầu + 3 clip tải lại sau"
+	},
+	{
+		"item": "U6-guard-run-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"cee74f82-6bd7-40f3-8173-85de436dade3"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3859,
+		"balanceAfter": 3850,
+		"at": "2026-11-04T07:21:51.373Z",
+		"note": "04/11: ba tiến trình chạy song song (lỗi điều phối), lượt đo theo số dư bị cộng dồn — ghi đúng 3 lượt / clip; số dư chung 3859 → 3850 cho 3 clip đầu + 3 clip tải lại sau"
+	},
+	{
+		"item": "U6-lancer-walk-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"afa93c21-7acf-4f92-9b80-53abdb532776"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3850,
+		"balanceAfter": 3850,
+		"at": "2026-11-04T07:24:01.579Z",
+		"note": "04/11: ba tiến trình chạy song song (lỗi điều phối), lượt đo theo số dư bị cộng dồn — ghi đúng 3 lượt / clip; số dư chung 3859 → 3850 cho 3 clip đầu + 3 clip tải lại sau"
+	},
+	{
+		"item": "U6-guard-run-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"73d78d17-2623-4625-95c0-3c2e056c509c"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3850,
+		"balanceAfter": 3850,
+		"at": "2026-11-04T07:24:02.952Z",
+		"note": "04/11: ba tiến trình chạy song song (lỗi điều phối), lượt đo theo số dư bị cộng dồn — ghi đúng 3 lượt / clip; số dư chung 3859 → 3850 cho 3 clip đầu + 3 clip tải lại sau"
+	},
+	{
+		"item": "U6-mage-walk-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"5fe4a416-5a4e-4ad1-ae27-008e520a5834"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3859,
+		"balanceAfter": 3850,
+		"at": "2026-11-04T07:22:15.217Z",
+		"note": "04/11: ba tiến trình chạy song song (lỗi điều phối), lượt đo theo số dư bị cộng dồn — ghi đúng 3 lượt / clip; số dư chung 3859 → 3850 cho 3 clip đầu + 3 clip tải lại sau"
+	},
+	{
+		"item": "U6-mage-walk-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"4fc07139-dfb8-4fca-b5cb-2f2cae29abbc"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3850,
+		"balanceAfter": 3850,
+		"at": "2026-11-04T07:24:08.020Z",
+		"note": "04/11: ba tiến trình chạy song song (lỗi điều phối), lượt đo theo số dư bị cộng dồn — ghi đúng 3 lượt / clip; số dư chung 3859 → 3850 cho 3 clip đầu + 3 clip tải lại sau"
+	},
+	{
+		"item": "U6-mage-walk-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"008d4d3e-4b89-470c-9773-9fef9a9e076a"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3838,
+		"balanceAfter": 3835,
+		"at": "2026-11-04T07:27:18.921Z"
+	},
+	{
+		"item": "U6-mage-walk-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"74efd3d3-6509-4bf0-80eb-acfc1c7e4eb1"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3835,
+		"balanceAfter": 3832,
+		"at": "2026-11-04T07:29:28.396Z"
+	},
+	{
+		"item": "U6-mage-walk-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"977c91f1-59fa-496b-b8b0-c124c444c916"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3832,
+		"balanceAfter": 3829,
+		"at": "2026-11-04T07:31:55.667Z"
+	},
+	{
+		"item": "U6-mage-run-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"a60dd2c4-4fd6-4ec6-9864-8e3c2a991518"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3829,
+		"balanceAfter": 3826,
+		"at": "2026-11-04T07:34:22.924Z"
+	},
+	{
+		"item": "U6-mage-run-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"bc552d5d-9da4-43d1-a9b7-d10e70a90f3b"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3826,
+		"balanceAfter": 3823,
+		"at": "2026-11-04T07:36:32.844Z"
+	},
+	{
+		"item": "U6-mage-run-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"86003c2c-7683-4b3e-8da1-a8f3264bdd22"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3823,
+		"balanceAfter": 3820,
+		"at": "2026-11-04T07:38:42.657Z"
+	},
+	{
+		"item": "U6-mage-run-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"ac224072-6068-4f58-8c95-a9d7072ff8a3"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3820,
+		"balanceAfter": 3817,
+		"at": "2026-11-04T07:40:51.982Z"
+	},
+	{
+		"item": "U6-mage-run-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"b5eb65d0-7721-42e4-9b25-4715cb2ec6b9"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3817,
+		"balanceAfter": 3814,
+		"at": "2026-11-04T07:43:18.997Z"
+	},
+	{
+		"item": "U6-lancer-walk-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"ece75245-2e09-4877-bd05-1f47fe1bc9dd"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3814,
+		"balanceAfter": 3811,
+		"at": "2026-11-04T07:45:47.347Z"
+	},
+	{
+		"item": "U6-lancer-walk-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"96086b2e-d357-4ba9-8e66-63acd5b260b1"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3811,
+		"balanceAfter": 3808,
+		"at": "2026-11-04T07:48:15.008Z"
+	},
+	{
+		"item": "U6-lancer-walk-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"d7ad4972-e038-49af-a3e4-8cf40d3c4f93"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3808,
+		"balanceAfter": 3805,
+		"at": "2026-11-04T07:50:44.286Z"
+	},
+	{
+		"item": "U6-lancer-run-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"51a41f59-55fb-4f1e-8703-50a3d7cd0cf0"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3805,
+		"balanceAfter": 3802,
+		"at": "2026-11-04T07:53:11.982Z"
+	},
+	{
+		"item": "U6-lancer-run-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"ee102336-bd26-4c97-889f-2ffea38d47e2"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3802,
+		"balanceAfter": 3799,
+		"at": "2026-11-04T07:55:05.282Z"
+	},
+	{
+		"item": "U6-lancer-run-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"54c4103a-96f4-460e-a4dd-37c4c03908e6"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3799,
+		"balanceAfter": 3796,
+		"at": "2026-11-04T07:56:57.500Z"
+	},
+	{
+		"item": "U6-lancer-run-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"cfb9fd09-d7d3-4bc0-991d-35bc9af015ef"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3796,
+		"balanceAfter": 3793,
+		"at": "2026-11-04T07:58:49.533Z"
+	},
+	{
+		"item": "U6-lancer-run-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"6173b893-08ee-44b2-9c5e-18aed6385501"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3793,
+		"balanceAfter": 3790,
+		"at": "2026-11-04T08:01:17.224Z"
+	},
+	{
+		"item": "U6-guard-walk-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"6c27d4b3-0d9f-4a87-a8e2-d88e1e0eeae0"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3790,
+		"balanceAfter": 3787,
+		"at": "2026-11-04T08:03:47.461Z"
+	},
+	{
+		"item": "U6-guard-walk-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"5dd680d4-13cd-42ac-8d98-953b32afd552"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3787,
+		"balanceAfter": 3784,
+		"at": "2026-11-04T08:05:58.098Z"
+	},
+	{
+		"item": "U6-guard-walk-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"83a26429-788b-45a2-b4b3-c76505b28895"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3784,
+		"balanceAfter": 3781,
+		"at": "2026-11-04T08:07:49.897Z"
+	},
+	{
+		"item": "U6-guard-walk-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"2a8c53e1-0a6f-448a-9c9e-97fc199581d8"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3781,
+		"balanceAfter": 3778,
+		"at": "2026-11-04T08:09:45.217Z"
+	},
+	{
+		"item": "U6-guard-walk-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"d5725f75-f6f6-43dc-b2a6-ce11578d7a3c"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3778,
+		"balanceAfter": 3775,
+		"at": "2026-11-04T08:11:58.847Z"
+	},
+	{
+		"item": "U6-guard-run-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"815a2d04-79b9-4a9c-aebc-82982a3f8eb6"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3775,
+		"balanceAfter": 3772,
+		"at": "2026-11-04T08:14:09.225Z"
+	},
+	{
+		"item": "U6-guard-run-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"7764092d-40cd-41b7-b2f7-bf068fb30831"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3772,
+		"balanceAfter": 3769,
+		"at": "2026-11-04T08:16:18.964Z"
+	},
+	{
+		"item": "U6-guard-run-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"56859fc0-2a86-4f37-8459-210e1119aff8"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3769,
+		"balanceAfter": 3766,
+		"at": "2026-11-04T08:18:30.843Z"
+	},
+	{
+		"item": "U6-archer-walk-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"2e5c0d9b-274d-434b-b4a7-af122bce838a"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3766,
+		"balanceAfter": 3763,
+		"at": "2026-11-04T08:20:41.563Z"
+	},
+	{
+		"item": "U6-archer-walk-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"5281a177-665b-49de-a6a2-227f4631dc03"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3763,
+		"balanceAfter": 3760,
+		"at": "2026-11-04T08:23:09.441Z"
+	},
+	{
+		"item": "U6-archer-walk-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"c67c92e3-b7e8-417b-a63f-7d44fb8e2d92"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3760,
+		"balanceAfter": 3757,
+		"at": "2026-11-04T08:25:36.738Z"
+	},
+	{
+		"item": "U6-archer-walk-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"6c222d1b-b822-4e35-8d3d-db72be3d651a"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3757,
+		"balanceAfter": 3754,
+		"at": "2026-11-04T08:33:40.520Z"
+	},
+	{
+		"item": "U6-archer-walk-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"131a9ac7-b643-4af6-b1ce-f4d0859a338b"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3754,
+		"balanceAfter": 3751,
+		"at": "2026-11-04T08:36:25.719Z"
+	},
+	{
+		"item": "U6-archer-run-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"d5d9ea97-e7d7-4124-b311-3185900fe466"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3751,
+		"balanceAfter": 3748,
+		"at": "2026-11-04T08:38:36.395Z"
+	},
+	{
+		"item": "U6-archer-run-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"20840bee-15b0-4046-b06d-d8ba59c2a08e"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3748,
+		"balanceAfter": 3745,
+		"at": "2026-11-04T08:41:22.042Z"
+	},
+	{
+		"item": "U6-archer-run-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"4e45b809-7462-4df6-a112-711506461a38"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3745,
+		"balanceAfter": 3742,
+		"at": "2026-11-04T08:43:49.467Z"
+	},
+	{
+		"item": "U6-archer-run-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"ce2409e8-5ae4-469e-b8ed-754106ccaea1"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3742,
+		"balanceAfter": 3739,
+		"at": "2026-11-04T08:45:41.378Z"
+	},
+	{
+		"item": "U6-archer-run-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"eec5dc46-3bca-408c-9eba-342c19afb3b2"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3739,
+		"balanceAfter": 3736,
+		"at": "2026-11-04T08:48:44.501Z"
+	},
+	{
+		"item": "U7-slash-v0",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"d943e155-9b27-4b51-913a-f19535f2d0f2",
+			"48250ca2-742d-41ed-8316-92870e82271c"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3736,
+		"balanceAfter": 3734,
+		"at": "2026-11-04T08:53:18.091Z"
+	},
+	{
+		"item": "U7-slash-v45",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"c49b5968-7306-4c27-81f0-0f44d96f979f",
+			"f6164fbc-82ae-4ab8-98d0-f447b31d4446"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3734,
+		"balanceAfter": 3732,
+		"at": "2026-11-04T08:55:18.826Z"
+	},
+	{
+		"item": "U7-slash-v90",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"7640bfab-07ce-45a7-9b86-201ffbd63600",
+			"98c940b4-3823-4342-a462-55b485899251"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3732,
+		"balanceAfter": 3730,
+		"at": "2026-11-04T08:57:00.789Z"
+	},
+	{
+		"item": "U8-slash-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"0c763d13-5e99-4693-acc3-93c8a1cb5b1f",
+			"0da24fa7-acb1-4705-ae60-575675f707d7"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3730,
+		"balanceAfter": 3728,
+		"at": "2026-11-04T09:11:08.881Z"
+	},
+	{
+		"item": "U8-slash-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"386fd5a1-affa-4418-aeeb-92fe348502e6",
+			"f607e3f0-5cbf-491e-9e36-797ef987e82a"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3728,
+		"balanceAfter": 3726,
+		"at": "2026-11-04T09:12:33.265Z"
+	},
+	{
+		"item": "U8-slash-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"0573283d-4c91-4d85-b972-6393ff326583",
+			"e1f794c7-4298-4afb-ac4b-7a65a1bd68ae"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3726,
+		"balanceAfter": 3724,
+		"at": "2026-11-04T09:14:15.416Z"
+	},
+	{
+		"item": "U8-slash-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"2d4fa0fd-b7a2-421b-aa0e-e270bccbebee",
+			"9b4339cc-7a6c-4edf-a701-9cb2f48a936d"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3724,
+		"balanceAfter": 3722,
+		"at": "2026-11-04T09:16:32.964Z",
+		"rejected": "04/11: cả hai bản sai góc (vẽ thẳng đứng / ngược chuôi thay vì chéo chuôi trên trái, mũi dưới phải)"
+	},
+	{
+		"item": "U8-slash-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"0f572a3a-316e-4e40-a3ab-94f27ad7ec15",
+			"8aa3b5e7-8bfa-4cad-be11-f126b1cef0d1"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3722,
+		"balanceAfter": 3720,
+		"at": "2026-11-04T09:18:24.261Z"
+	},
+	{
+		"item": "U8-slash-SW",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"a3f68f40-365c-45bd-8aa7-208b100eedf1",
+			"ef91f28b-2a33-423f-a07a-49bc779325a9"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3720,
+		"balanceAfter": 3718,
+		"at": "2026-11-04T09:20:23.910Z",
+		"rejected": "04/11: cả hai bản sai góc (vẽ thẳng đứng / ngược chuôi thay vì chéo chuôi trên trái, mũi dưới phải)"
+	},
+	{
+		"item": "U8-slash-W",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"a20e2ea1-3d90-4fa1-930a-b49a5e7f8ef5",
+			"8b56b07d-94e7-4e53-ac50-17f553b1ca16"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3718,
+		"balanceAfter": 3716,
+		"at": "2026-11-04T09:22:05.925Z"
+	},
+	{
+		"item": "U8-slash-NW",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"60fde2b1-786e-4056-905a-89c55160b127",
+			"42728210-d9e0-4514-832e-c4a48823b9f6"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3716,
+		"balanceAfter": 3714,
+		"at": "2026-11-04T09:24:05.617Z"
+	},
+	{
+		"item": "U8-slash-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"85996704-573b-44b3-9890-61fcb8c96ef1",
+			"c80e5409-de0e-4c76-b7dc-e628cd240150"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3714,
+		"balanceAfter": 3712,
+		"at": "2026-11-04T09:27:03.077Z"
+	},
+	{
+		"item": "U8-slash-SW",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"c025728f-495a-46e8-ba95-367ae0911a51",
+			"12b2abf9-a282-4bac-8931-72060d32e2fd"
+		],
+		"estimate": 2,
+		"actual": 1,
+		"balanceBefore": 3712,
+		"balanceAfter": 3711,
+		"at": "2026-11-04T09:28:27.389Z"
+	},
+	{
+		"item": "U9-slash-NE",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"58159e77-3e1f-4f55-a200-5c945dbceda4"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3710,
+		"balanceAfter": 3705,
+		"at": "2026-11-04T09:30:42.121Z"
+	},
+	{
+		"item": "U9-slash-SW",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"da2a0d02-2988-4ec6-aad0-159938dd118d"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3705,
+		"balanceAfter": 3700,
+		"at": "2026-11-04T09:31:35.555Z"
+	},
+	{
+		"item": "U10-slash-S",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"6c54f7f2-089e-4802-803d-0a15c34d1f0c"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3700,
+		"balanceAfter": 3695,
+		"at": "2026-11-04T09:37:50.080Z",
+		"rejected": "04/11: vị trí kiếm mới (chủ dự án \"ngang thì không hiện lưỡi, quay chuôi ra; chính diện không hiện chuôi\") — vẽ lại theo khung mới"
+	},
+	{
+		"item": "U10-slash-SE",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"bc0f050c-d287-4d0b-96dc-1822ddc9546a"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3695,
+		"balanceAfter": 3690,
+		"at": "2026-11-04T09:38:25.914Z",
+		"rejected": "04/11: khung cũ nằm phẳng trên lưng — nhìn ngang / chéo dựng đứng như cây gậy; chủ dự án \"xem nguồn trên mạng để vũ khí ngang như nào vẽ cho giống\" → phần dưới chếch ra sau ~20°, vẽ lại"
+	},
+	{
+		"item": "U10-slash-E",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"8238578a-cc62-49fe-8ba3-74b73c39468a"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3690,
+		"balanceAfter": 3685,
+		"at": "2026-11-04T09:39:02.080Z",
+		"rejected": "04/11: khung cũ nằm phẳng trên lưng — nhìn ngang / chéo dựng đứng như cây gậy; chủ dự án \"xem nguồn trên mạng để vũ khí ngang như nào vẽ cho giống\" → phần dưới chếch ra sau ~20°, vẽ lại"
+	},
+	{
+		"item": "U10-slash-NE",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"5a54e522-d2f9-42a1-93c0-437d8117be92"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3685,
+		"balanceAfter": 3680,
+		"at": "2026-11-04T09:39:38.119Z",
+		"rejected": "04/11: khung cũ nằm phẳng trên lưng — nhìn ngang / chéo dựng đứng như cây gậy; chủ dự án \"xem nguồn trên mạng để vũ khí ngang như nào vẽ cho giống\" → phần dưới chếch ra sau ~20°, vẽ lại"
+	},
+	{
+		"item": "U10-slash-N",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"4a3d6a20-55cd-4844-ba22-80be12538220"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3680,
+		"balanceAfter": 3675,
+		"at": "2026-11-04T09:40:14.172Z",
+		"rejected": "04/11: vị trí kiếm mới (chủ dự án \"ngang thì không hiện lưỡi, quay chuôi ra; chính diện không hiện chuôi\") — vẽ lại theo khung mới"
+	},
+	{
+		"item": "U10-slash-SW",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"9d0654cc-fa75-4077-9c46-71310e869d47"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3675,
+		"balanceAfter": 3670,
+		"at": "2026-11-04T09:40:50.053Z",
+		"rejected": "04/11: khung cũ nằm phẳng trên lưng — nhìn ngang / chéo dựng đứng như cây gậy; chủ dự án \"xem nguồn trên mạng để vũ khí ngang như nào vẽ cho giống\" → phần dưới chếch ra sau ~20°, vẽ lại"
+	},
+	{
+		"item": "U10-slash-W",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"fc007241-e2d9-4478-8245-04a47a7df487"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3670,
+		"balanceAfter": 3665,
+		"at": "2026-11-04T09:41:25.948Z",
+		"rejected": "04/11: khung cũ nằm phẳng trên lưng — nhìn ngang / chéo dựng đứng như cây gậy; chủ dự án \"xem nguồn trên mạng để vũ khí ngang như nào vẽ cho giống\" → phần dưới chếch ra sau ~20°, vẽ lại"
+	},
+	{
+		"item": "U10-slash-NW",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"e83d31a2-e7b7-49ad-8ed0-c2265575c28c"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3665,
+		"balanceAfter": 3660,
+		"at": "2026-11-04T09:42:01.924Z",
+		"rejected": "04/11: khung cũ nằm phẳng trên lưng — nhìn ngang / chéo dựng đứng như cây gậy; chủ dự án \"xem nguồn trên mạng để vũ khí ngang như nào vẽ cho giống\" → phần dưới chếch ra sau ~20°, vẽ lại"
+	},
+	{
+		"item": "U11-cast-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"d1601f53-822e-4890-a58b-775ba2ff67a6",
+			"4ba36e33-b66b-40da-aa03-9c917c7b3b78"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3660,
+		"balanceAfter": 3658,
+		"at": "2026-11-04T09:56:09.632Z"
+	},
+	{
+		"item": "U11-thrust-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"bebdfb39-5ba5-43d0-8b71-08728657f661",
+			"211df755-04d9-4a3e-b1df-74881ddde273"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3658,
+		"balanceAfter": 3656,
+		"at": "2026-11-04T09:57:34.082Z"
+	},
+	{
+		"item": "U11-bash-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"28a8761d-cfb0-4042-85f1-7d3157ac09c9",
+			"13eda148-7878-4bb2-ada8-7ee0a1d55976"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3656,
+		"balanceAfter": 3654,
+		"at": "2026-11-04T09:59:16.046Z"
+	},
+	{
+		"item": "U11-shoot-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"580ea23b-60c1-4bf4-a3ad-3b92925b1677",
+			"064b5cf4-c03a-4e7a-81a7-97a6d93af680"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3654,
+		"balanceAfter": 3652,
+		"at": "2026-11-04T10:00:58.593Z"
+	},
+	{
+		"item": "U11-thrust2-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"22989ea1-40e4-499e-89a1-06ad8f5255d1",
+			"87046d08-5cc6-4fbb-8e7c-645073950df1",
+			"adfb4ecb-c8e3-4d02-86cb-6f92a8b171a4"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3652,
+		"balanceAfter": 3649,
+		"at": "2026-11-04T10:04:29.405Z"
+	},
+	{
+		"item": "U10-cast-S",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"c53ef446-bdd1-4d1d-a950-069130cb283f"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3649,
+		"balanceAfter": 3644,
+		"at": "2026-11-04T10:05:43.114Z",
+		"rejected": "04/11: vẽ theo mẫu cũ (chủ dự án đổi mẫu trượng / thương / khiên chi tiết hơn)"
+	},
+	{
+		"item": "U10-cast-SE",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"579d539c-fb7f-452c-9b16-038f2cb571d0"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3644,
+		"balanceAfter": 3639,
+		"at": "2026-11-04T10:06:18.694Z",
+		"rejected": "04/11: vẽ theo mẫu cũ (chủ dự án đổi mẫu trượng / thương / khiên chi tiết hơn)"
+	},
+	{
+		"item": "U10-cast-E",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"2fb0bb48-1ca2-4907-95ef-a801d1b38b0f"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3639,
+		"balanceAfter": 3634,
+		"at": "2026-11-04T10:06:54.168Z",
+		"rejected": "04/11: vẽ theo mẫu cũ (chủ dự án đổi mẫu trượng / thương / khiên chi tiết hơn)"
+	},
+	{
+		"item": "U10-cast-NE",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"9afa5c8d-b31d-4b1d-9bca-a1a7ca147dd7"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3634,
+		"balanceAfter": 3629,
+		"at": "2026-11-04T10:07:29.759Z",
+		"rejected": "04/11: vẽ theo mẫu cũ (chủ dự án đổi mẫu trượng / thương / khiên chi tiết hơn)"
+	},
+	{
+		"item": "U10-cast-N",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"d82fa40c-6bee-4cca-b932-1419ad52385b"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3629,
+		"balanceAfter": 3624,
+		"at": "2026-11-04T10:08:05.846Z",
+		"rejected": "04/11: vẽ theo mẫu cũ (chủ dự án đổi mẫu trượng / thương / khiên chi tiết hơn)"
+	},
+	{
+		"item": "U10-cast-SW",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"7e1ad1aa-a18a-4694-b340-00f4ca0e2b39"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3624,
+		"balanceAfter": 3619,
+		"at": "2026-11-04T10:08:41.393Z",
+		"rejected": "04/11: vẽ theo mẫu cũ (chủ dự án đổi mẫu trượng / thương / khiên chi tiết hơn)"
+	},
+	{
+		"item": "U10-cast-W",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"5e246a2d-6ea8-4aca-becb-c5627ba27fa5"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3619,
+		"balanceAfter": 3614,
+		"at": "2026-11-04T10:09:16.871Z",
+		"rejected": "04/11: vẽ theo mẫu cũ (chủ dự án đổi mẫu trượng / thương / khiên chi tiết hơn)"
+	},
+	{
+		"item": "U10-cast-NW",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"f07a02fa-e661-498d-af07-ad2ce6cca9fd"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3614,
+		"balanceAfter": 3609,
+		"at": "2026-11-04T10:09:52.379Z",
+		"rejected": "04/11: vẽ theo mẫu cũ (chủ dự án đổi mẫu trượng / thương / khiên chi tiết hơn)"
+	},
+	{
+		"item": "U10-thrust-S",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"02f58d67-d872-4df3-9e80-3de29f88f442"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3609,
+		"balanceAfter": 3604,
+		"at": "2026-11-04T10:10:27.972Z",
+		"rejected": "04/11: vẽ theo mẫu cũ (chủ dự án đổi mẫu trượng / thương / khiên chi tiết hơn)"
+	},
+	{
+		"item": "U10-thrust-SE",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"6563b193-d92f-4e4f-bec1-d242769e5f1d"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3604,
+		"balanceAfter": 3599,
+		"at": "2026-11-04T10:11:03.455Z",
+		"rejected": "04/11: khung cũ nằm phẳng trên lưng — nhìn ngang / chéo dựng đứng như cây gậy; chủ dự án \"xem nguồn trên mạng để vũ khí ngang như nào vẽ cho giống\" → phần dưới chếch ra sau ~20°, vẽ lại"
+	},
+	{
+		"item": "U10-thrust-E",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"18f2c6cc-fceb-4d69-b890-929b2cade3bb"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3599,
+		"balanceAfter": 3594,
+		"at": "2026-11-04T10:11:38.923Z",
+		"rejected": "04/11: khung cũ nằm phẳng trên lưng — nhìn ngang / chéo dựng đứng như cây gậy; chủ dự án \"xem nguồn trên mạng để vũ khí ngang như nào vẽ cho giống\" → phần dưới chếch ra sau ~20°, vẽ lại"
+	},
+	{
+		"item": "U10-thrust-NE",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"cd2fe535-13dc-4907-b435-c110e63fe74d"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3594,
+		"balanceAfter": 3589,
+		"at": "2026-11-04T10:12:32.304Z",
+		"rejected": "04/11: khung cũ nằm phẳng trên lưng — nhìn ngang / chéo dựng đứng như cây gậy; chủ dự án \"xem nguồn trên mạng để vũ khí ngang như nào vẽ cho giống\" → phần dưới chếch ra sau ~20°, vẽ lại"
+	},
+	{
+		"item": "U10-thrust-N",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"707e2247-a5cb-4173-b9b2-62e9b8a8652b"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3589,
+		"balanceAfter": 3584,
+		"at": "2026-11-04T10:13:08.111Z",
+		"rejected": "04/11: vẽ theo mẫu cũ (chủ dự án đổi mẫu trượng / thương / khiên chi tiết hơn)"
+	},
+	{
+		"item": "U10-thrust-SW",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"387e5407-a856-41d6-b1e0-6abf872b1571"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3584,
+		"balanceAfter": 3579,
+		"at": "2026-11-04T10:14:01.960Z",
+		"rejected": "04/11: khung cũ nằm phẳng trên lưng — nhìn ngang / chéo dựng đứng như cây gậy; chủ dự án \"xem nguồn trên mạng để vũ khí ngang như nào vẽ cho giống\" → phần dưới chếch ra sau ~20°, vẽ lại"
+	},
+	{
+		"item": "U10-thrust-W",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"18be2213-dfef-4ab8-a66e-ab420157c4f0"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3579,
+		"balanceAfter": 3574,
+		"at": "2026-11-04T10:14:55.473Z",
+		"rejected": "04/11: khung cũ nằm phẳng trên lưng — nhìn ngang / chéo dựng đứng như cây gậy; chủ dự án \"xem nguồn trên mạng để vũ khí ngang như nào vẽ cho giống\" → phần dưới chếch ra sau ~20°, vẽ lại"
+	},
+	{
+		"item": "U11-cast2-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"518b0ee7-25bc-48b2-83fe-2672b353869d",
+			"1061f3bb-896e-40d0-a801-af9661735165",
+			"9d14fff5-94e4-412b-8289-5c80110b96ff"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3574,
+		"balanceAfter": 3571,
+		"at": "2026-11-04T10:18:38.709Z"
+	},
+	{
+		"item": "U10-slash-SE",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"f63eb334-576b-4716-ae7d-313cbd58d81d"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3571,
+		"balanceAfter": 3566,
+		"at": "2026-11-04T10:19:20.536Z",
+		"rejected": "04/11: vị trí kiếm mới (chủ dự án \"ngang thì không hiện lưỡi, quay chuôi ra; chính diện không hiện chuôi\") — vẽ lại theo khung mới"
+	},
+	{
+		"item": "U10-slash-E",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"b4134d59-ff72-4131-8e22-68378d31b56c"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3566,
+		"balanceAfter": 3561,
+		"at": "2026-11-04T10:19:55.979Z",
+		"rejected": "04/11: vị trí kiếm mới (chủ dự án \"ngang thì không hiện lưỡi, quay chuôi ra; chính diện không hiện chuôi\") — vẽ lại theo khung mới"
+	},
+	{
+		"item": "U10-slash-NE",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"93ad7ed0-edaa-4fe7-bd95-39ba951cc16a"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3561,
+		"balanceAfter": 3556,
+		"at": "2026-11-04T10:20:31.440Z",
+		"rejected": "04/11: vị trí kiếm mới (chủ dự án \"ngang thì không hiện lưỡi, quay chuôi ra; chính diện không hiện chuôi\") — vẽ lại theo khung mới"
+	},
+	{
+		"item": "U10-slash-SW",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"a99c298b-149a-4136-908a-b8bdc01d2f87"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3556,
+		"balanceAfter": 3551,
+		"at": "2026-11-04T10:21:06.958Z",
+		"rejected": "04/11: vị trí kiếm mới (chủ dự án \"ngang thì không hiện lưỡi, quay chuôi ra; chính diện không hiện chuôi\") — vẽ lại theo khung mới"
+	},
+	{
+		"item": "U10-slash-W",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"0fb81986-1567-4668-b498-555f109174ad"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3551,
+		"balanceAfter": 3546,
+		"at": "2026-11-04T10:21:42.401Z",
+		"rejected": "04/11: vị trí kiếm mới (chủ dự án \"ngang thì không hiện lưỡi, quay chuôi ra; chính diện không hiện chuôi\") — vẽ lại theo khung mới"
+	},
+	{
+		"item": "U10-slash-NW",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"1143bae5-28ab-4b02-9c4a-02fdc388155e"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3546,
+		"balanceAfter": 3541,
+		"at": "2026-11-04T10:22:17.900Z",
+		"rejected": "04/11: vị trí kiếm mới (chủ dự án \"ngang thì không hiện lưỡi, quay chuôi ra; chính diện không hiện chuôi\") — vẽ lại theo khung mới"
+	},
+	{
+		"item": "U10-thrust-SE",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"31d41cb3-82dd-4dd1-99e1-c334f0fcff0b"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3541,
+		"balanceAfter": 3536,
+		"at": "2026-11-04T10:22:53.434Z",
+		"rejected": "04/11: vẽ theo mẫu cũ (chủ dự án đổi mẫu trượng / thương / khiên chi tiết hơn)"
+	},
+	{
+		"item": "U10-thrust-E",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"fed2ae3a-b563-4ae8-bf23-11d7cf569675"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3536,
+		"balanceAfter": 3531,
+		"at": "2026-11-04T10:23:29.058Z",
+		"rejected": "04/11: vẽ theo mẫu cũ (chủ dự án đổi mẫu trượng / thương / khiên chi tiết hơn)"
+	},
+	{
+		"item": "U10-thrust-NE",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"a79732f8-3c6a-408e-80da-47f4addb0801"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3531,
+		"balanceAfter": 3526,
+		"at": "2026-11-04T10:24:04.638Z",
+		"rejected": "04/11: vẽ theo mẫu cũ (chủ dự án đổi mẫu trượng / thương / khiên chi tiết hơn)"
+	},
+	{
+		"item": "U10-thrust-SW",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"e613d6cb-8dc7-480d-83ea-a68166411d70"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3526,
+		"balanceAfter": 3521,
+		"at": "2026-11-04T10:24:40.291Z",
+		"rejected": "04/11: vẽ theo mẫu cũ (chủ dự án đổi mẫu trượng / thương / khiên chi tiết hơn)"
+	},
+	{
+		"item": "U11-thrust3-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"e37b53c6-e81d-4eff-977b-6e029f5e3b0d",
+			"3078374f-8c50-4586-9782-708d3200c129",
+			"0d24d39d-cef2-49fe-88e9-26460b576b03"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3521,
+		"balanceAfter": 3518,
+		"at": "2026-11-04T10:28:01.670Z"
+	},
+	{
+		"item": "U11-bash3-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"6ad7e25f-927a-4ad8-b1b7-50c8e6138de0",
+			"65a7f321-c8a6-4d1e-92a2-15d5027fa421",
+			"668a8634-4077-429f-bbea-f1389e50b760"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3518,
+		"balanceAfter": 3515,
+		"at": "2026-11-04T10:30:50.057Z"
+	},
+	{
+		"item": "U10-cast-S",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"ba86e339-e7ee-484f-bd6a-db3260024aea"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3515,
+		"balanceAfter": 3510,
+		"at": "2026-11-04T10:31:59.962Z",
+		"rejected": "05/11: vị trí mới (chủ dự án \"vũ khí khi đeo lỗi hết\") — nhìn trước trượng / thương chéo ló cán từ sau vai, nhìn ngang chỉ ló phần đầu; vẽ lại theo khung mới"
+	},
+	{
+		"item": "U10-cast-SE",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"860d181e-9df0-4168-98f1-cf3a386575bc"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3510,
+		"balanceAfter": 3505,
+		"at": "2026-11-04T10:32:35.523Z",
+		"rejected": "05/11: vị trí mới (chủ dự án \"vũ khí khi đeo lỗi hết\") — nhìn trước trượng / thương chéo ló cán từ sau vai, nhìn ngang chỉ ló phần đầu; vẽ lại theo khung mới"
+	},
+	{
+		"item": "U10-cast-E",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"3dd68220-6871-4b8f-8bb9-f5553f6e1606"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3505,
+		"balanceAfter": 3500,
+		"at": "2026-11-04T10:33:10.979Z",
+		"rejected": "04/11: vị trí kiếm mới (chủ dự án \"ngang thì không hiện lưỡi, quay chuôi ra; chính diện không hiện chuôi\") — vẽ lại theo khung mới"
+	},
+	{
+		"item": "U10-cast-NE",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"16fd0709-9222-4081-ba54-a22221927ec0"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3500,
+		"balanceAfter": 3495,
+		"at": "2026-11-04T10:33:46.429Z"
+	},
+	{
+		"item": "U10-cast-N",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"5275f914-31cc-4646-9653-ab335c8a14ea"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3495,
+		"balanceAfter": 3490,
+		"at": "2026-11-04T10:34:22.328Z"
+	},
+	{
+		"item": "U10-cast-SW",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"bd333d2e-f67e-4c83-9354-af620ee2d0a3"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3490,
+		"balanceAfter": 3485,
+		"at": "2026-11-04T10:34:58.213Z"
+	},
+	{
+		"item": "U10-cast-W",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"be7e04ea-0c39-47e0-9f31-0994853c3427"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3485,
+		"balanceAfter": 3480,
+		"at": "2026-11-04T10:35:34.446Z",
+		"rejected": "04/11: vị trí kiếm mới (chủ dự án \"ngang thì không hiện lưỡi, quay chuôi ra; chính diện không hiện chuôi\") — vẽ lại theo khung mới"
+	},
+	{
+		"item": "U10-cast-NW",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"a102a5bf-c259-4db2-b76b-34457215710b"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3480,
+		"balanceAfter": 3475,
+		"at": "2026-11-04T10:36:27.843Z"
+	},
+	{
+		"item": "U10-thrust-S",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"8a7ca0b9-64d6-416d-ab98-6c3abf0a80d8"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3475,
+		"balanceAfter": 3470,
+		"at": "2026-11-04T10:37:21.078Z",
+		"rejected": "05/11: vị trí mới (chủ dự án \"vũ khí khi đeo lỗi hết\") — nhìn trước trượng / thương chéo ló cán từ sau vai, nhìn ngang chỉ ló phần đầu; vẽ lại theo khung mới"
+	},
+	{
+		"item": "U10-thrust-SE",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"bb3f727e-6ad7-4abc-b593-3248f28a5ea9"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3470,
+		"balanceAfter": 3465,
+		"at": "2026-11-04T10:37:56.617Z",
+		"rejected": "05/11: vị trí mới (chủ dự án \"vũ khí khi đeo lỗi hết\") — nhìn trước trượng / thương chéo ló cán từ sau vai, nhìn ngang chỉ ló phần đầu; vẽ lại theo khung mới"
+	},
+	{
+		"item": "U10-thrust-E",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"67e2df51-c52b-43a8-81b4-a48626e04eb7"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3465,
+		"balanceAfter": 3460,
+		"at": "2026-11-04T10:38:32.069Z",
+		"rejected": "04/11: vị trí kiếm mới (chủ dự án \"ngang thì không hiện lưỡi, quay chuôi ra; chính diện không hiện chuôi\") — vẽ lại theo khung mới"
+	},
+	{
+		"item": "U10-thrust-NE",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"8642e467-c579-482d-8091-acd1dd7ed2ea"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3460,
+		"balanceAfter": 3455,
+		"at": "2026-11-04T10:39:07.584Z",
+		"rejected": "05/11: chủ dự án \"vẽ lại cái thương sang vũ khí chuôi nâu\" — vẽ lại theo mẫu cán gỗ U11-thrust4-S#13402"
+	},
+	{
+		"item": "U10-thrust-N",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"6c9498cd-8878-40b7-a23c-83cc3ac77b5b"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3455,
+		"balanceAfter": 3450,
+		"at": "2026-11-04T10:39:43.052Z",
+		"rejected": "05/11: chủ dự án \"vẽ lại cái thương sang vũ khí chuôi nâu\" — vẽ lại theo mẫu cán gỗ U11-thrust4-S#13402"
+	},
+	{
+		"item": "U10-thrust-SW",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"db3c1025-08d7-4fbe-8eb0-67674c1795e2"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3450,
+		"balanceAfter": 3445,
+		"at": "2026-11-04T10:40:36.270Z"
+	},
+	{
+		"item": "U10-thrust-W",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"36296182-11e0-4521-92fb-fc0218cba2c9"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3445,
+		"balanceAfter": 3440,
+		"at": "2026-11-04T10:41:11.741Z",
+		"rejected": "04/11: vị trí kiếm mới (chủ dự án \"ngang thì không hiện lưỡi, quay chuôi ra; chính diện không hiện chuôi\") — vẽ lại theo khung mới"
+	},
+	{
+		"item": "U10-thrust-NW",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"6bd7390c-4e2e-4d32-8804-9e79cde4ae2b"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3440,
+		"balanceAfter": 3435,
+		"at": "2026-11-04T10:41:47.114Z"
+	},
+	{
+		"item": "U10-bash-S",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"09a3345d-fc05-4182-86dd-5a8a1f0c7ff0"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3435,
+		"balanceAfter": 3430,
+		"at": "2026-11-04T10:42:40.375Z"
+	},
+	{
+		"item": "U10-bash-SE",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"e17c7e29-a9a7-4665-b7c8-1973af0e4074"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3430,
+		"balanceAfter": 3425,
+		"at": "2026-11-04T10:43:34.154Z"
+	},
+	{
+		"item": "U10-bash-E",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"02544446-0ab4-4437-b4db-008e41e04b9f"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3425,
+		"balanceAfter": 3420,
+		"at": "2026-11-04T10:44:09.785Z"
+	},
+	{
+		"item": "U10-bash-NE",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"851a8d4c-7f2c-45e2-9b53-2c5f08af1419"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3420,
+		"balanceAfter": 3415,
+		"at": "2026-11-04T10:44:45.207Z"
+	},
+	{
+		"item": "U10-bash-N",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"e8810cd9-74d6-48a4-80be-304ab2e21b54"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3415,
+		"balanceAfter": 3410,
+		"at": "2026-11-04T10:45:38.409Z"
+	},
+	{
+		"item": "U10-bash-SW",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"a842c020-4389-44db-9a36-a6e3b6081ce1"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3410,
+		"balanceAfter": 3405,
+		"at": "2026-11-04T10:46:13.953Z"
+	},
+	{
+		"item": "U10-bash-W",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"e4b62a6f-c1ff-48ad-b311-1dbd3b8b130f"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3405,
+		"balanceAfter": 3400,
+		"at": "2026-11-04T10:46:49.518Z"
+	},
+	{
+		"item": "U10-bash-NW",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"469ee393-1748-4057-91f2-6a4671158c82"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3400,
+		"balanceAfter": 3395,
+		"at": "2026-11-04T10:47:24.863Z"
+	},
+	{
+		"item": "U10-shoot-S",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"1255bc0a-0dda-4c21-8f01-4838f7c01085"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3395,
+		"balanceAfter": 3390,
+		"at": "2026-11-04T10:48:18.123Z"
+	},
+	{
+		"item": "U10-shoot-SE",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"6d1ad607-448f-480b-a002-6c9fc36bcb5f"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3390,
+		"balanceAfter": 3385,
+		"at": "2026-11-04T10:48:53.587Z"
+	},
+	{
+		"item": "U10-shoot-E",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"7d08b468-8290-46be-91bd-6b333afbe406"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3385,
+		"balanceAfter": 3380,
+		"at": "2026-11-04T10:49:29.059Z",
+		"rejected": "04/11: vị trí kiếm mới (chủ dự án \"ngang thì không hiện lưỡi, quay chuôi ra; chính diện không hiện chuôi\") — vẽ lại theo khung mới"
+	},
+	{
+		"item": "U10-shoot-NE",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"55bc7b7f-0230-4aa0-aff1-e759a5eaa6fb"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3380,
+		"balanceAfter": 3375,
+		"at": "2026-11-04T10:50:04.651Z"
+	},
+	{
+		"item": "U10-shoot-N",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"40f1fa33-51ae-4ad8-9056-9d3c246a9b9f"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3375,
+		"balanceAfter": 3370,
+		"at": "2026-11-04T10:50:40.054Z"
+	},
+	{
+		"item": "U10-shoot-SW",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"12155240-3bc3-4c91-9cb0-44395a1603ce"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3370,
+		"balanceAfter": 3365,
+		"at": "2026-11-04T10:51:15.605Z"
+	},
+	{
+		"item": "U10-shoot-W",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"7a7d2153-d459-4acd-a51e-6a53a319784a"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3365,
+		"balanceAfter": 3360,
+		"at": "2026-11-04T10:51:51.191Z",
+		"rejected": "04/11: vị trí kiếm mới (chủ dự án \"ngang thì không hiện lưỡi, quay chuôi ra; chính diện không hiện chuôi\") — vẽ lại theo khung mới"
+	},
+	{
+		"item": "U10-shoot-NW",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"fefbae5a-e210-49bf-a1e1-4878e857ba23"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3360,
+		"balanceAfter": 3355,
+		"at": "2026-11-04T10:52:26.790Z"
+	},
+	{
+		"item": "U12-npc-female-base-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"a71ac475-92ab-4eb3-8f28-9b213fcda68c",
+			"0f7ace40-a683-42d2-b88b-46c330174202",
+			"b2d0dd5a-6072-4826-8d6a-7c310fc6a549",
+			"ee5f6c9b-aef6-4e82-8c0b-941a6350eb0d"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 3355,
+		"balanceAfter": 3351,
+		"at": "2026-11-04T10:56:15.289Z"
+	},
+	{
+		"item": "U3-m-human2-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"be9aadb8-ef4a-440a-b927-f2308e071ee7",
+			"b2ada660-5dbc-4aae-8f02-aed095f75b25"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3351,
+		"balanceAfter": 3349,
+		"at": "2026-11-04T10:57:39.820Z"
+	},
+	{
+		"item": "U3-m-human2-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"0c14c215-984b-4ff8-b8b8-70be092e6367",
+			"7ceb8947-ffa8-4623-aca3-1ee6ed505c16"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3349,
+		"balanceAfter": 3347,
+		"at": "2026-11-04T10:59:21.960Z"
+	},
+	{
+		"item": "U3-m-human2-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"51dd8631-3641-4259-bdcd-77b7275c4eeb",
+			"81700317-40f2-4be9-bdc6-52f7ad9e2599"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3347,
+		"balanceAfter": 3345,
+		"at": "2026-11-04T11:01:22.222Z"
+	},
+	{
+		"item": "U3-m-human2-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"3cef388d-05fe-432d-8ec5-fb2e9477fdc5",
+			"939575fa-e882-4eaf-b700-450f95dad732"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3345,
+		"balanceAfter": 3343,
+		"at": "2026-11-04T11:03:23.738Z"
+	},
+	{
+		"item": "U3-m-human2-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"847fba49-c2ab-4926-be70-f137042dff20",
+			"d3142fc0-b3fc-4b68-a3f5-1f724340db35"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3343,
+		"balanceAfter": 3341,
+		"at": "2026-11-04T11:04:48.004Z"
+	},
+	{
+		"item": "U3-m-human3-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"42ff753e-5d7d-401b-b9df-2bf40d9afdb0",
+			"df2deb5d-2494-47f7-9e38-d431e2888f85"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3341,
+		"balanceAfter": 3339,
+		"at": "2026-11-04T11:05:54.586Z"
+	},
+	{
+		"item": "U3-m-human3-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"6d34fa9c-e865-441a-a8de-68a36f6d8b8d",
+			"0514cd60-d4f9-405d-be69-0f364cc9c4fa"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3339,
+		"balanceAfter": 3337,
+		"at": "2026-11-04T11:07:36.882Z"
+	},
+	{
+		"item": "U3-m-human3-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"627a7ca1-f85b-4ca6-8e6d-a3bed63c07d7",
+			"2535f056-83cc-412a-ada0-26c411db2428"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3337,
+		"balanceAfter": 3335,
+		"at": "2026-11-04T11:09:54.167Z"
+	},
+	{
+		"item": "U3-m-human3-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"4e19e4f2-19cf-4798-979a-af827745bdaa",
+			"5a5df582-6c29-4dcc-9190-e63904b3b22b"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3335,
+		"balanceAfter": 3333,
+		"at": "2026-11-04T11:11:36.197Z"
+	},
+	{
+		"item": "U3-m-human3-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"98677eb9-e17b-4802-9c3c-32e390ffd5f2",
+			"c2e87e71-7b20-435b-92d7-c8dcc609534b"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3333,
+		"balanceAfter": 3331,
+		"at": "2026-11-04T11:12:42.728Z"
+	},
+	{
+		"item": "U3-m-elf1-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"92e06ffa-0b8a-4870-a9b3-2a6db81ac55c",
+			"403ddc2f-9dc5-4f1b-96b7-87f97a4a1fe9"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3331,
+		"balanceAfter": 3329,
+		"at": "2026-11-04T11:14:42.280Z"
+	},
+	{
+		"item": "U3-m-elf1-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"b552363d-d8a4-4634-842d-cf71820385f1",
+			"b3a6aee5-a7b1-4bf7-8a65-b65e4715dfd1"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3329,
+		"balanceAfter": 3327,
+		"at": "2026-11-04T11:16:24.291Z"
+	},
+	{
+		"item": "U3-m-elf1-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"22a91d0d-ea06-4cb5-b3b8-8071a94efec5",
+			"9b67d413-8986-4151-aae2-bb318c4f3b31"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3327,
+		"balanceAfter": 3325,
+		"at": "2026-11-04T11:17:48.740Z"
+	},
+	{
+		"item": "U3-m-elf1-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"b89e4eb7-fd57-4be2-9792-eb52356bf1f7",
+			"4e9e2c56-7faa-4826-91d4-d84b5b672a6f"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3325,
+		"balanceAfter": 3323,
+		"at": "2026-11-04T11:19:13.136Z"
+	},
+	{
+		"item": "U3-m-elf1-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"685745a0-0bd5-4c00-adec-142ffe726c9d",
+			"5ef41052-47b1-42ba-ba89-ee87322b008d"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3323,
+		"balanceAfter": 3321,
+		"at": "2026-11-04T11:21:12.756Z"
+	},
+	{
+		"item": "U3-m-elf2-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"bcfde0c5-2a56-41c7-9040-9d83715dd522",
+			"a5cb3fba-2caf-4d0d-ab3f-6c04d8ed9c39"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3321,
+		"balanceAfter": 3319,
+		"at": "2026-11-04T11:22:54.810Z"
+	},
+	{
+		"item": "U3-m-elf2-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"13fc4dbe-7cc7-451f-8f80-36ff9b7f563b",
+			"1ab08dc9-50dd-40a4-9acf-bb2b3ee0c213"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3319,
+		"balanceAfter": 3317,
+		"at": "2026-11-04T11:24:36.878Z"
+	},
+	{
+		"item": "U3-m-elf2-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"40772179-365e-4a19-bb0f-59cfdf5456c0",
+			"8084e8c5-7ed8-4fda-aa37-22ba4aa7622f"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3317,
+		"balanceAfter": 3315,
+		"at": "2026-11-04T11:26:36.685Z"
+	},
+	{
+		"item": "U3-m-elf2-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"f335d3e8-862f-4abd-b662-aa5d77c899a7",
+			"47429b8e-bbcb-4f02-9727-bc9cea41bc1c"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3315,
+		"balanceAfter": 3313,
+		"at": "2026-11-04T11:28:01.083Z"
+	},
+	{
+		"item": "U3-m-elf2-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"3a38bb3b-1a59-4216-99cf-a9fe0675bf95",
+			"b07be1cf-c41f-4dab-8643-65176d8a0414"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3313,
+		"balanceAfter": 3311,
+		"at": "2026-11-04T11:29:42.994Z"
+	},
+	{
+		"item": "U3-m-elf3-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"7797f0fd-986e-445e-af06-370583455585",
+			"9592634d-37d0-40a6-883b-ae70c71a7d92"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3311,
+		"balanceAfter": 3309,
+		"at": "2026-11-04T11:31:25.021Z"
+	},
+	{
+		"item": "U3-m-elf3-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"42ba58f4-4c04-43ca-a8e8-275800e371b3",
+			"9cd95f32-7c34-41e8-8b49-8707bba689a7"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3309,
+		"balanceAfter": 3307,
+		"at": "2026-11-04T11:32:31.611Z"
+	},
+	{
+		"item": "U3-m-elf3-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"46a6023e-1a3a-4262-af6e-77f8393442a8",
+			"219c8bfc-cc92-458a-9676-c1ddbe76cf05"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3307,
+		"balanceAfter": 3305,
+		"at": "2026-11-04T11:34:13.731Z"
+	},
+	{
+		"item": "U3-m-elf3-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"acf38424-c070-43ba-827d-0ee1d1aef5bb",
+			"ba0ba7df-3ebf-4c4a-b6f5-d902b70479d9"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3305,
+		"balanceAfter": 3303,
+		"at": "2026-11-04T11:35:38.149Z"
+	},
+	{
+		"item": "U3-m-elf3-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"2b93aa3f-d26f-4b53-842f-2c8201785ad9",
+			"83d1f6f2-2087-440f-a47d-31b6e9f030b8"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3303,
+		"balanceAfter": 3301,
+		"at": "2026-11-04T11:36:44.879Z"
+	},
+	{
+		"item": "U3-m-demon1-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"a7e0d68c-7596-4288-9aa1-4f365433b8ed",
+			"bfba11c8-31a6-458b-b884-f7a66e89ef88"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3301,
+		"balanceAfter": 3299,
+		"at": "2026-11-04T11:38:09.413Z"
+	},
+	{
+		"item": "U3-m-demon1-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"041cd75d-4586-4caf-9fda-173fb636e60a",
+			"f36a9e03-8c5d-48bc-b61c-0c3254271bd1"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3299,
+		"balanceAfter": 3297,
+		"at": "2026-11-04T11:39:33.619Z"
+	},
+	{
+		"item": "U3-m-demon1-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"eec7cc67-087e-4553-a059-75c81e1f61ec",
+			"e944ad40-e6e0-4a28-a6fc-43ee061cf079"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3297,
+		"balanceAfter": 3295,
+		"at": "2026-11-04T11:41:33.392Z"
+	},
+	{
+		"item": "U3-m-demon1-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"8d531d10-6eab-4c71-9113-e2f96f610945",
+			"ba8e9969-18b5-4089-b63f-457a435f2889"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3295,
+		"balanceAfter": 3293,
+		"at": "2026-11-04T11:43:32.974Z"
+	},
+	{
+		"item": "U3-m-demon1-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"48ae2b73-c20d-404c-8128-51ad714e6e11",
+			"dd7a072f-74eb-4a2a-86ea-16fa1b4e1a9e"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3293,
+		"balanceAfter": 3291,
+		"at": "2026-11-04T11:45:15.001Z"
+	},
+	{
+		"item": "U3-m-demon2-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"f9c1d2e7-b9be-42f2-9431-3282e10d57df",
+			"901bf1e2-f464-472a-b2d7-b1bb19e48624"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3291,
+		"balanceAfter": 3289,
+		"at": "2026-11-04T11:46:57.565Z"
+	},
+	{
+		"item": "U3-m-demon2-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"f9a908a8-797b-4710-b293-cfddd7c689e7",
+			"24abbbbc-e44c-4537-89d7-8a1eaad0cdd4"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3289,
+		"balanceAfter": 3287,
+		"at": "2026-11-04T11:48:57.467Z"
+	},
+	{
+		"item": "U3-m-demon2-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"608bddce-cecc-4780-aa75-f65710e3d401",
+			"01ed8e27-aca1-4477-a3af-2db74bf4a38b"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3287,
+		"balanceAfter": 3285,
+		"at": "2026-11-04T11:50:39.533Z"
+	},
+	{
+		"item": "U3-m-demon2-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"cc7889d5-cfa8-4d0a-8c2a-6946c46a4a1a",
+			"c53a18a7-4cc9-469c-ab51-b510ecb0dd19"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3285,
+		"balanceAfter": 3283,
+		"at": "2026-11-04T11:52:21.553Z"
+	},
+	{
+		"item": "U3-m-demon2-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"e03b0987-5a55-47ed-84e3-69271dc99047",
+			"d61e105a-9576-4017-888e-786c718fd5b8"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3283,
+		"balanceAfter": 3281,
+		"at": "2026-11-04T11:53:45.917Z"
+	},
+	{
+		"item": "U3-m-demon3-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"17e5b5b3-9d66-4b0d-b37f-78337dfe08fd",
+			"6666032b-af6e-4408-a629-9d876a50c5fa"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3281,
+		"balanceAfter": 3279,
+		"at": "2026-11-04T11:55:45.466Z"
+	},
+	{
+		"item": "U3-m-demon3-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"a04db03b-ff1d-4253-a877-285d95ed7703",
+			"c62e95bf-1dec-4657-b48f-b96cff96cb18"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3279,
+		"balanceAfter": 3277,
+		"at": "2026-11-04T11:57:45.249Z"
+	},
+	{
+		"item": "U3-m-demon3-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"28a27e4e-ff15-4c5d-b88a-66c1b19c53f2",
+			"8b113b71-a7b1-46ef-9789-705834d90229"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3277,
+		"balanceAfter": 3275,
+		"at": "2026-11-04T11:59:09.726Z"
+	},
+	{
+		"item": "U3-m-demon3-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"148e0726-ae83-475d-99a6-037987590e7d",
+			"6b7dd649-ac32-479f-b1d1-98be6acdbf07"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3275,
+		"balanceAfter": 3273,
+		"at": "2026-11-04T12:01:09.404Z"
+	},
+	{
+		"item": "U3-m-demon3-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"2334a879-b510-498b-84fc-21f09e500b27",
+			"7b0b0996-d360-4724-ba18-dd9af45a6d03"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3273,
+		"balanceAfter": 3271,
+		"at": "2026-11-04T12:02:51.468Z"
+	},
+	{
+		"item": "U3-m-beast1-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"7f4ec6fa-bc85-412e-bb65-68741e7a9ff2",
+			"60add8c7-1238-42e0-883a-daf0f5a7bf46"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3271,
+		"balanceAfter": 3269,
+		"at": "2026-11-04T12:04:33.619Z"
+	},
+	{
+		"item": "U3-m-beast1-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"523bbc71-eed4-4871-a605-96272ee8889a",
+			"805dc0bf-e69d-430e-b2e0-4fd7afc1739f"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3269,
+		"balanceAfter": 3267,
+		"at": "2026-11-04T12:05:58.153Z"
+	},
+	{
+		"item": "U3-m-beast1-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"274937a3-1fe9-4602-8271-36d992aa5e23",
+			"266661e7-ecd8-45ee-8b8b-1f795ea065e2"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3267,
+		"balanceAfter": 3265,
+		"at": "2026-11-04T12:07:57.891Z"
+	},
+	{
+		"item": "U3-m-beast1-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"f808ac26-60a8-40b5-82df-88c09010d709",
+			"ba037fcc-fbef-46bc-a497-bc0fd69b049d"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3265,
+		"balanceAfter": 3263,
+		"at": "2026-11-04T12:09:22.340Z"
+	},
+	{
+		"item": "U3-m-beast1-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"55514a2c-57ff-4fe8-b6ea-3f9111cd0672",
+			"1e10648e-7d19-4c2e-98b7-a3192fbaf64e"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3263,
+		"balanceAfter": 3261,
+		"at": "2026-11-04T12:10:46.776Z"
+	},
+	{
+		"item": "U3-m-beast2-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"8761c03d-f642-4af3-aff4-1addea16139e",
+			"02a8c1c1-8dbd-423b-b348-6dbc3556dfb7"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3261,
+		"balanceAfter": 3259,
+		"at": "2026-11-04T12:12:46.571Z"
+	},
+	{
+		"item": "U3-m-beast2-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"d67a049c-a91c-47b4-a2b4-eea984f2fe12",
+			"c96741b8-d54a-4444-8937-fad54013656b"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3259,
+		"balanceAfter": 3257,
+		"at": "2026-11-04T12:14:11.407Z"
+	},
+	{
+		"item": "U3-m-beast2-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"cac02771-4f65-4f64-b173-8acc568def8b",
+			"a1a2d09d-52ae-47c9-acfe-2b43be6834f1"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3257,
+		"balanceAfter": 3255,
+		"at": "2026-11-04T12:15:53.417Z"
+	},
+	{
+		"item": "U3-m-beast2-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"0de9cd21-23c4-4d78-a6c0-d338e1704d9a",
+			"07d4c9ae-791d-4e73-8fcd-0ababdecc6ec"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3255,
+		"balanceAfter": 3253,
+		"at": "2026-11-04T12:17:17.928Z"
+	},
+	{
+		"item": "U3-m-beast2-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"476e716f-000b-41d1-8a1a-0a28ee30472f",
+			"3ef1a22b-e81e-459d-bf1e-22ba2809c219"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3253,
+		"balanceAfter": 3251,
+		"at": "2026-11-04T12:19:17.669Z"
+	},
+	{
+		"item": "U3-m-beast3-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"2063c260-54a4-4b9e-be34-bb037e4f97b4",
+			"b1ae6624-79dd-4a9a-923e-94dc1741b199"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3251,
+		"balanceAfter": 3249,
+		"at": "2026-11-04T12:21:17.363Z"
+	},
+	{
+		"item": "U3-m-beast3-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"0b335791-114d-416e-9b09-418ed016e4bf",
+			"d094e0fe-26c2-468c-b246-fd5c7b407c73"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3249,
+		"balanceAfter": 3247,
+		"at": "2026-11-04T12:23:52.579Z"
+	},
+	{
+		"item": "U3-m-beast3-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"6efd9bdd-87c9-4370-96ee-3926a0557224",
+			"afb492af-227c-4244-8bc2-b3f11d6a83c9"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3247,
+		"balanceAfter": 3245,
+		"at": "2026-11-04T12:25:34.710Z"
+	},
+	{
+		"item": "U3-m-beast3-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"e5ac5af0-996e-4f17-8409-32316ac98b9c",
+			"2257ffe9-1ff5-44e1-8924-3b22c23dcb26"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3245,
+		"balanceAfter": 3243,
+		"at": "2026-11-04T12:26:59.054Z"
+	},
+	{
+		"item": "U3-m-beast3-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"ed126bff-11c3-49ed-bb66-c48af12a161d",
+			"d7c5a717-f9be-46d8-9d87-d06557743dfc"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3243,
+		"balanceAfter": 3241,
+		"at": "2026-11-04T12:28:41.146Z"
+	},
+	{
+		"item": "U3-m-dragon1-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"1c567916-9bdb-45a1-b112-f13d516a92ca",
+			"28633ffd-13b5-4371-8571-8040b68b3b7d"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3241,
+		"balanceAfter": 3239,
+		"at": "2026-11-04T12:30:41.453Z"
+	},
+	{
+		"item": "U3-m-dragon1-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"e40e922f-f9bc-4ca0-89d0-7434a5c93259",
+			"2f1a3a86-d56a-4570-a41b-17011c550e93"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3239,
+		"balanceAfter": 3237,
+		"at": "2026-11-04T12:32:23.456Z"
+	},
+	{
+		"item": "U3-m-dragon1-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"35430d3c-0bd3-475d-82c6-bde5948e2012",
+			"3f1ba561-ece4-4e1a-9a22-f98d8d3d07d1"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3237,
+		"balanceAfter": 3235,
+		"at": "2026-11-04T12:33:47.786Z"
+	},
+	{
+		"item": "U3-m-dragon1-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"b8a10de4-5add-4e2c-b090-bf33c2beea5f",
+			"6d5408f7-073e-4b20-85dd-d71056d793b0"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3235,
+		"balanceAfter": 3233,
+		"at": "2026-11-04T12:35:12.658Z"
+	},
+	{
+		"item": "U3-m-dragon1-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"fd8006b0-23d4-491f-bf21-02e5e6475dc6",
+			"1d900130-4686-4ca1-992b-ad8a9907a9de"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3233,
+		"balanceAfter": 3231,
+		"at": "2026-11-04T12:37:30.152Z"
+	},
+	{
+		"item": "U3-m-dragon2-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"80be552a-654a-480a-8337-ff40987aedba",
+			"8f46b0ac-778f-40ad-add5-a9ccb321af6f"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3231,
+		"balanceAfter": 3229,
+		"at": "2026-11-04T12:39:12.248Z"
+	},
+	{
+		"item": "U3-m-dragon2-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"f862943d-195d-494a-b78b-15ad4ee5bcb6",
+			"91f141de-f75f-4f6c-a2eb-68023520fad7"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3229,
+		"balanceAfter": 3227,
+		"at": "2026-11-04T12:41:11.943Z"
+	},
+	{
+		"item": "U3-m-dragon2-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"6c125c7c-95d4-4a60-b9d7-fdc2c369671d",
+			"a044ce1f-39a4-48e6-9992-144b31098a9c"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3227,
+		"balanceAfter": 3225,
+		"at": "2026-11-04T12:42:54.035Z"
+	},
+	{
+		"item": "U3-m-dragon2-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"7c5ba453-524a-4115-b072-f852371628ff",
+			"ce2549de-df74-4883-be9b-0ea244001e3b"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3225,
+		"balanceAfter": 3223,
+		"at": "2026-11-04T12:44:36.068Z"
+	},
+	{
+		"item": "U3-m-dragon2-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"271cce1c-1442-4a7a-9899-838b2336937b",
+			"6e0480bf-b43b-4d78-ae5d-e1303aba3128"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3223,
+		"balanceAfter": 3221,
+		"at": "2026-11-04T12:46:18.151Z"
+	},
+	{
+		"item": "U3-m-dragon3-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"3a2b9751-6ca3-40d0-8c99-214b23e0fade",
+			"eeec3ae7-f909-45d1-a78a-6bf5a31baf99"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3221,
+		"balanceAfter": 3219,
+		"at": "2026-11-04T12:48:00.399Z"
+	},
+	{
+		"item": "U3-m-dragon3-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"b800e7fe-afaf-461d-a0f0-a64301768a97",
+			"3423b258-5360-4e14-98bf-5f32032b15c8"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3219,
+		"balanceAfter": 3217,
+		"at": "2026-11-04T12:49:42.417Z"
+	},
+	{
+		"item": "U3-m-dragon3-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"cfd2ce0e-952f-4183-9b2d-b8cbbe9900f0",
+			"a0e5b29b-f44e-4e95-a175-6f500a4bf8fb"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3217,
+		"balanceAfter": 3215,
+		"at": "2026-11-04T12:51:24.490Z"
+	},
+	{
+		"item": "U3-m-dragon3-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"8682685a-872d-4475-8b69-31fb880d3f0a",
+			"78b96cc7-1429-412c-9f7b-8fa4e24c0211"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3215,
+		"balanceAfter": 3213,
+		"at": "2026-11-04T12:52:48.895Z"
+	},
+	{
+		"item": "U3-m-dragon3-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"02f7b467-64b2-4272-8276-97ca9d213215",
+			"981c72fe-aaea-4c11-b40b-e2c2b35cc09b"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3213,
+		"balanceAfter": 3211,
+		"at": "2026-11-04T12:55:24.377Z"
+	},
+	{
+		"item": "U13-npc-female-base-ref",
+		"tool": "create_character",
+		"characterId": "7b4e4576-2553-4525-9c33-6788e82e6241",
+		"estimate": 2,
+		"actual": 1,
+		"balanceBefore": 3211,
+		"balanceAfter": 3210,
+		"at": "2026-11-04T12:57:45.514Z"
+	},
+	{
+		"item": "U10-slash-S",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"5fdfc878-ae04-41c3-ba9b-efdc02d325b4"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3210,
+		"balanceAfter": 3205,
+		"at": "2026-11-04T13:00:47.089Z"
+	},
+	{
+		"item": "U10-slash-SE",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"2a28660c-0b9f-46a7-a1d4-f23bd9bbcf5e"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3205,
+		"balanceAfter": 3200,
+		"at": "2026-11-04T13:01:22.657Z"
+	},
+	{
+		"item": "U10-slash-E",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"ca7d00e1-3a2e-4887-a005-08e1f80d310e"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3200,
+		"balanceAfter": 3195,
+		"at": "2026-11-04T13:01:58.093Z"
+	},
+	{
+		"item": "U10-slash-NE",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"faef7f7d-ee45-4508-ab47-4c47ffbfc348"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3195,
+		"balanceAfter": 3190,
+		"at": "2026-11-04T13:02:51.416Z"
+	},
+	{
+		"item": "U10-slash-N",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"4b95ecb2-2511-4ae0-b971-efbc77051538"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3190,
+		"balanceAfter": 3185,
+		"at": "2026-11-04T13:03:26.957Z"
+	},
+	{
+		"item": "U10-slash-SW",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"6ad2bf9c-c190-414d-b5a7-845024e1d569"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3185,
+		"balanceAfter": 3180,
+		"at": "2026-11-04T13:04:20.391Z"
+	},
+	{
+		"item": "U10-slash-W",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"a403bcaa-284a-4045-a08d-5d1d3aa17250"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3180,
+		"balanceAfter": 3175,
+		"at": "2026-11-04T13:04:55.831Z"
+	},
+	{
+		"item": "U10-slash-NW",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"3dc30949-66de-4d66-9748-6e1ab02f9da5"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3175,
+		"balanceAfter": 3170,
+		"at": "2026-11-04T13:05:31.202Z"
+	},
+	{
+		"item": "U10-cast-E",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"0a37e333-71d8-497b-8480-4d2e795cb06c"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3170,
+		"balanceAfter": 3165,
+		"at": "2026-11-04T13:06:06.679Z",
+		"rejected": "05/11: vị trí mới (chủ dự án \"vũ khí khi đeo lỗi hết\") — nhìn trước trượng / thương chéo ló cán từ sau vai, nhìn ngang chỉ ló phần đầu; vẽ lại theo khung mới"
+	},
+	{
+		"item": "U10-cast-W",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"bd8d99eb-9a9a-4efb-b4b4-f1cdd91861be"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3165,
+		"balanceAfter": 3160,
+		"at": "2026-11-04T13:06:42.116Z"
+	},
+	{
+		"item": "U10-thrust-E",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"a80caa58-4635-4ebf-9cde-121451e9b0ab"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3160,
+		"balanceAfter": 3155,
+		"at": "2026-11-04T13:07:17.597Z",
+		"rejected": "05/11: vị trí mới (chủ dự án \"vũ khí khi đeo lỗi hết\") — nhìn trước trượng / thương chéo ló cán từ sau vai, nhìn ngang chỉ ló phần đầu; vẽ lại theo khung mới"
+	},
+	{
+		"item": "U10-shoot-E",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"b43d105d-ce08-4ee3-a6fd-7a005b3e1cc4"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3155,
+		"balanceAfter": 3150,
+		"at": "2026-11-04T13:08:28.760Z"
+	},
+	{
+		"item": "U10-shoot-W",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"01e8077e-fead-45ef-833f-fe28f8f74356"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3150,
+		"balanceAfter": 3145,
+		"at": "2026-11-04T13:09:22.033Z"
+	},
+	{
+		"item": "U10-thrust-W",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"98fe7c82-cc81-4cf7-8371-185b8b14014e"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 3145,
+		"balanceAfter": 3140,
+		"at": "2026-11-04T13:10:36.948Z"
+	},
+	{
+		"item": "U15-sword-outfit-f-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"f9474866-be50-4864-bdc7-6c59d6d26961",
+			"be4961b3-ff92-4dfb-84bc-0edb7b1a59e0",
+			"ecf74f9a-6dc2-4b11-94ad-75e9d273ceee"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3140,
+		"balanceAfter": 3137,
+		"at": "2026-11-04T13:12:50.529Z",
+		"rejected": "04/11: vẽ trên thân nền nữ cũ đầu to (chủ dự án \"tôi thấy đầu nữ hơi to\") → vẽ lại trên thân U13b"
+	},
+	{
+		"item": "U15-mage-outfit-f-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"102a2720-42e2-42b3-86b6-133aba40afe6",
+			"68e6278c-1f92-4f57-9684-4e225341df53",
+			"6dda6571-8466-4700-aa1c-b0cf07973a8c"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3137,
+		"balanceAfter": 3134,
+		"at": "2026-11-04T13:15:21.371Z",
+		"rejected": "04/11: vẽ trên thân nền nữ cũ đầu to (chủ dự án \"tôi thấy đầu nữ hơi to\") → vẽ lại trên thân U13b"
+	},
+	{
+		"item": "U15-lancer-outfit-f-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"bf55655e-917e-4be1-83fe-71e4912c1b16",
+			"52af47c2-9c6d-401b-ad9a-766b9ba29932",
+			"f4a74fea-7b17-4fa1-a5aa-34295daefbfb"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3134,
+		"balanceAfter": 3131,
+		"at": "2026-11-04T13:17:34.419Z",
+		"rejected": "04/11: vẽ trên thân nền nữ cũ đầu to (chủ dự án \"tôi thấy đầu nữ hơi to\") → vẽ lại trên thân U13b"
+	},
+	{
+		"item": "U15-guard-outfit-f-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"90fdb088-a7d9-4946-b829-c5dacb50fef1",
+			"312b1ffb-b450-4dca-919d-49b9d48a13aa",
+			"6a5eec86-7759-40c4-94f7-9f45dfbd4f83"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3131,
+		"balanceAfter": 3128,
+		"at": "2026-11-04T13:20:05.387Z",
+		"rejected": "04/11: vẽ trên thân nền nữ cũ đầu to (chủ dự án \"tôi thấy đầu nữ hơi to\") → vẽ lại trên thân U13b"
+	},
+	{
+		"item": "U15-archer-outfit-f-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"e8f0af2f-5c07-4d77-89c4-c8505f1eda3d",
+			"0f57af75-93c1-4b30-882c-ce5f72b6dee3",
+			"cdce97f8-fec4-48e0-b433-f123ba97bbf1"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3128,
+		"balanceAfter": 3125,
+		"at": "2026-11-04T13:24:58.207Z",
+		"rejected": "04/11: vẽ trên thân nền nữ cũ đầu to (chủ dự án \"tôi thấy đầu nữ hơi to\") → vẽ lại trên thân U13b"
+	},
+	{
+		"item": "U14-f-human1-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"b161c00f-500a-41dc-8572-fca3f4b9fe7b",
+			"c012c2aa-a7a2-440c-b0e2-dd0e8bbebd05"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3125,
+		"balanceAfter": 3123,
+		"at": "2026-11-04T13:26:04.949Z",
+		"rejected": "04/11: vẽ trên thân nền nữ cũ đầu to (chủ dự án \"tôi thấy đầu nữ hơi to\") → vẽ lại trên thân U13b"
+	},
+	{
+		"item": "U14-f-human1-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"02e05215-2836-4c10-9bfb-195651e4b325",
+			"d6b0603f-689a-4567-b774-a39f346b9012"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3123,
+		"balanceAfter": 3121,
+		"at": "2026-11-04T13:28:04.908Z",
+		"rejected": "04/11: vẽ trên thân nền nữ cũ đầu to (chủ dự án \"tôi thấy đầu nữ hơi to\") → vẽ lại trên thân U13b"
+	},
+	{
+		"item": "U14-f-human1-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"d0312633-8ead-4280-867a-8d395ed9e514",
+			"c3799d30-c03f-4805-85e4-d6174818e0f4"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3121,
+		"balanceAfter": 3119,
+		"at": "2026-11-04T13:29:46.933Z",
+		"rejected": "04/11: vẽ trên thân nền nữ cũ đầu to (chủ dự án \"tôi thấy đầu nữ hơi to\") → vẽ lại trên thân U13b"
+	},
+	{
+		"item": "U14-f-human1-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"ffacce30-5535-4ed0-9e4e-99705861c13a",
+			"785c3490-eea7-4f5b-be4b-adfe33f47f31"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3119,
+		"balanceAfter": 3117,
+		"at": "2026-11-04T13:32:22.154Z",
+		"rejected": "04/11: vẽ trên thân nền nữ cũ đầu to (chủ dự án \"tôi thấy đầu nữ hơi to\") → vẽ lại trên thân U13b"
+	},
+	{
+		"item": "U14-f-human1-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"a049a666-ba2d-4ec1-8ddb-4a0044c865fd",
+			"981ae1d4-125d-4ebb-a80a-2b01ba89995a"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3117,
+		"balanceAfter": 3115,
+		"at": "2026-11-04T13:34:04.351Z",
+		"rejected": "04/11: vẽ trên thân nền nữ cũ đầu to (chủ dự án \"tôi thấy đầu nữ hơi to\") → vẽ lại trên thân U13b"
+	},
+	{
+		"item": "U14-f-human2-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"ca766aab-0cfc-40af-94ef-58d088875fb9",
+			"dd78a829-0433-4555-8a8e-d83add2e38e1"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3115,
+		"balanceAfter": 3113,
+		"at": "2026-11-04T13:35:46.281Z",
+		"rejected": "04/11: vẽ trên thân nền nữ cũ đầu to (chủ dự án \"tôi thấy đầu nữ hơi to\") → vẽ lại trên thân U13b"
+	},
+	{
+		"item": "U14-f-human2-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"c96132b5-ad66-436c-8eba-9a38aaf861ee",
+			"e5887c64-acf2-4f68-a8ee-cf9324aeff24"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3113,
+		"balanceAfter": 3111,
+		"at": "2026-11-04T13:37:28.622Z",
+		"rejected": "04/11: vẽ trên thân nền nữ cũ đầu to (chủ dự án \"tôi thấy đầu nữ hơi to\") → vẽ lại trên thân U13b"
+	},
+	{
+		"item": "U14-f-human2-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"b4082130-0f3d-47c5-929b-517baed031fa",
+			"7e9ad574-284f-4a68-9190-434d2558727c"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3111,
+		"balanceAfter": 3109,
+		"at": "2026-11-04T13:39:10.755Z",
+		"rejected": "04/11: vẽ trên thân nền nữ cũ đầu to (chủ dự án \"tôi thấy đầu nữ hơi to\") → vẽ lại trên thân U13b"
+	},
+	{
+		"item": "U14-f-human2-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"9ad40fff-0b3f-493c-b247-be280747761d",
+			"88e76b96-5e04-4ad6-b2ed-f2b9e6336892"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3109,
+		"balanceAfter": 3107,
+		"at": "2026-11-04T13:40:52.740Z",
+		"rejected": "04/11: vẽ trên thân nền nữ cũ đầu to (chủ dự án \"tôi thấy đầu nữ hơi to\") → vẽ lại trên thân U13b"
+	},
+	{
+		"item": "U14-f-human2-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"80521a94-100b-4d45-9418-7bdf9a0941ab",
+			"07cd32c8-11ce-4c80-821a-ece640fda6ed"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3107,
+		"balanceAfter": 3105,
+		"at": "2026-11-04T13:42:34.682Z",
+		"rejected": "04/11: vẽ trên thân nền nữ cũ đầu to (chủ dự án \"tôi thấy đầu nữ hơi to\") → vẽ lại trên thân U13b"
+	},
+	{
+		"item": "U14-f-human3-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"788ad7ba-0312-4baa-902a-c0864b613403",
+			"6de7beed-82fe-4e00-be46-8371bf319daf"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3105,
+		"balanceAfter": 3103,
+		"at": "2026-11-04T13:44:16.618Z",
+		"rejected": "04/11: vẽ trên thân nền nữ cũ đầu to (chủ dự án \"tôi thấy đầu nữ hơi to\") → vẽ lại trên thân U13b"
+	},
+	{
+		"item": "U14-f-human3-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"c492996a-3b90-4d23-826b-c0514de24dc3",
+			"b38e110e-1f5f-4032-8cb2-fd6db82c228d"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3103,
+		"balanceAfter": 3101,
+		"at": "2026-11-04T13:46:16.560Z",
+		"rejected": "04/11: vẽ trên thân nền nữ cũ đầu to (chủ dự án \"tôi thấy đầu nữ hơi to\") → vẽ lại trên thân U13b"
+	},
+	{
+		"item": "U14-f-human3-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"db6e53c0-839f-4be7-b70b-66eb71fe3040",
+			"67139580-bd21-4f2c-bcdd-f116fea5fcee"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3101,
+		"balanceAfter": 3099,
+		"at": "2026-11-04T13:47:58.535Z",
+		"rejected": "04/11: vẽ trên thân nền nữ cũ đầu to (chủ dự án \"tôi thấy đầu nữ hơi to\") → vẽ lại trên thân U13b"
+	},
+	{
+		"item": "U14-f-human3-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"4bc597cd-61a6-4a6c-aa54-def4e3b7938e",
+			"77956d9c-34a0-48ad-96a9-8c83dfe6f07c"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3099,
+		"balanceAfter": 3097,
+		"at": "2026-11-04T13:49:36.097Z",
+		"rejected": "04/11: vẽ trên thân nền nữ cũ đầu to (chủ dự án \"tôi thấy đầu nữ hơi to\") → vẽ lại trên thân U13b"
+	},
+	{
+		"item": "U14-f-human3-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"da46ad24-135e-44d5-a754-e886bc71798a",
+			"8e3f032d-1832-4051-b72d-ac651ced9f34"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3097,
+		"balanceAfter": 3095,
+		"at": "2026-11-04T13:51:00.499Z",
+		"rejected": "04/11: vẽ trên thân nền nữ cũ đầu to (chủ dự án \"tôi thấy đầu nữ hơi to\") → vẽ lại trên thân U13b"
+	},
+	{
+		"item": "U14-f-elf1-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"2a3487b6-bc8f-4c32-8505-0f1735fa3f41",
+			"ce6c66ce-5896-4e33-b0bd-5a85334cb0ef"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3095,
+		"balanceAfter": 3093,
+		"at": "2026-11-04T13:52:24.901Z",
+		"rejected": "04/11: vẽ trên thân nền nữ cũ đầu to (chủ dự án \"tôi thấy đầu nữ hơi to\") → vẽ lại trên thân U13b"
+	},
+	{
+		"item": "U14-f-elf1-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"9f4b5685-f92e-4d73-8177-30c7658dc92f",
+			"94e34380-f509-408e-b21f-c18a231fdcf0"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3093,
+		"balanceAfter": 3091,
+		"at": "2026-11-04T13:54:24.858Z",
+		"rejected": "04/11: vẽ trên thân nền nữ cũ đầu to (chủ dự án \"tôi thấy đầu nữ hơi to\") → vẽ lại trên thân U13b"
+	},
+	{
+		"item": "U14-f-elf1-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"fc776e89-63d5-4147-b94b-a048e9456d7a",
+			"d049bd31-3e12-412d-87df-3bec99f69a1a"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3091,
+		"balanceAfter": 3089,
+		"at": "2026-11-04T13:56:06.820Z",
+		"rejected": "04/11: vẽ trên thân nền nữ cũ đầu to (chủ dự án \"tôi thấy đầu nữ hơi to\") → vẽ lại trên thân U13b"
+	},
+	{
+		"item": "U14-f-elf1-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"34f03e79-93f8-4a6a-a8c1-644b62422262",
+			"25a13b12-03c5-4b1a-aa59-9658403826f7"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3089,
+		"balanceAfter": 3087,
+		"at": "2026-11-04T13:57:48.781Z",
+		"rejected": "04/11: vẽ trên thân nền nữ cũ đầu to (chủ dự án \"tôi thấy đầu nữ hơi to\") → vẽ lại trên thân U13b"
+	},
+	{
+		"item": "U14-f-elf1-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"227b7387-d6cc-409f-8f6a-981d0589d3e1",
+			"fbc9a4af-3e26-42e0-b4b6-51abbbed077c"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3087,
+		"balanceAfter": 3085,
+		"at": "2026-11-04T13:59:48.593Z",
+		"rejected": "04/11: vẽ trên thân nền nữ cũ đầu to (chủ dự án \"tôi thấy đầu nữ hơi to\") → vẽ lại trên thân U13b"
+	},
+	{
+		"item": "U14-f-elf2-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"03593841-ad26-41a2-bcca-197f5806dd42",
+			"d8e0dd8f-e438-461c-82f5-14f5e094d7b1"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3085,
+		"balanceAfter": 3083,
+		"at": "2026-11-04T14:01:13.083Z",
+		"rejected": "04/11: vẽ trên thân nền nữ cũ đầu to (chủ dự án \"tôi thấy đầu nữ hơi to\") → vẽ lại trên thân U13b"
+	},
+	{
+		"item": "U14-f-elf2-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"e988ba6e-31ca-4bce-a466-b1661ac83ef9",
+			"75d68509-295a-459f-a69f-67cbd9da133e"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3083,
+		"balanceAfter": 3081,
+		"at": "2026-11-04T14:02:37.390Z",
+		"rejected": "04/11: vẽ trên thân nền nữ cũ đầu to (chủ dự án \"tôi thấy đầu nữ hơi to\") → vẽ lại trên thân U13b"
+	},
+	{
+		"item": "U14-f-elf2-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"d7cf1da9-7c29-4806-a09a-340c2d1566f3",
+			"c8db0d84-be36-4eb3-9a4a-598383cbc676"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3081,
+		"balanceAfter": 3079,
+		"at": "2026-11-04T14:04:37.128Z",
+		"rejected": "04/11: vẽ trên thân nền nữ cũ đầu to (chủ dự án \"tôi thấy đầu nữ hơi to\") → vẽ lại trên thân U13b"
+	},
+	{
+		"item": "U14-f-elf2-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"dfb18e39-72d2-44b2-928c-98b061c22ff5",
+			"bbc3d620-0e84-4733-b6e7-62934230b49d"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3079,
+		"balanceAfter": 3077,
+		"at": "2026-11-04T14:06:54.983Z",
+		"rejected": "04/11: vẽ trên thân nền nữ cũ đầu to (chủ dự án \"tôi thấy đầu nữ hơi to\") → vẽ lại trên thân U13b"
+	},
+	{
+		"item": "U14-f-elf2-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"ba0d547e-3394-41e0-b648-0cb483b79156",
+			"94a81461-1d75-4bc9-ba43-4007eed6be6e"
+		],
+		"estimate": 2,
+		"actual": 1,
+		"balanceBefore": 3077,
+		"balanceAfter": 3076,
+		"at": "2026-11-04T14:08:37.495Z",
+		"rejected": "04/11: vẽ trên thân nền nữ cũ đầu to (chủ dự án \"tôi thấy đầu nữ hơi to\") → vẽ lại trên thân U13b"
+	},
+	{
+		"item": "U14-f-elf3-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"99b20e57-b631-4ff3-8ee5-0dcb70a809f6",
+			"f7c1f5d8-8c8b-4293-b6f9-46f84737a7e9"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3075,
+		"balanceAfter": 3073,
+		"at": "2026-11-04T14:11:13.115Z",
+		"rejected": "04/11: vẽ trên thân nền nữ cũ đầu to (chủ dự án \"tôi thấy đầu nữ hơi to\") → vẽ lại trên thân U13b"
+	},
+	{
+		"item": "U14-f-elf3-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"cda048d4-326e-4bed-b758-978379fde804",
+			"4e23ea0d-1bd9-4bdf-8caf-55c5fa05fd23"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3073,
+		"balanceAfter": 3071,
+		"at": "2026-11-04T14:12:37.678Z",
+		"rejected": "04/11: vẽ trên thân nền nữ cũ đầu to (chủ dự án \"tôi thấy đầu nữ hơi to\") → vẽ lại trên thân U13b"
+	},
+	{
+		"item": "U14-f-elf3-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"0f7b3f86-aafa-43d5-88d7-fb37656737d9",
+			"b026456a-9197-4e2e-85fa-9f908a606c2a"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3071,
+		"balanceAfter": 3069,
+		"at": "2026-11-04T14:14:20.269Z",
+		"rejected": "04/11: vẽ trên thân nền nữ cũ đầu to (chủ dự án \"tôi thấy đầu nữ hơi to\") → vẽ lại trên thân U13b"
+	},
+	{
+		"item": "U14-f-elf3-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"d4ca65f6-1558-4181-abc6-cef53c352639",
+			"e2ef2fd0-bf45-4188-8a6c-e4730e4cc436"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3069,
+		"balanceAfter": 3067,
+		"at": "2026-11-04T14:15:44.694Z",
+		"rejected": "04/11: vẽ trên thân nền nữ cũ đầu to (chủ dự án \"tôi thấy đầu nữ hơi to\") → vẽ lại trên thân U13b"
+	},
+	{
+		"item": "U14-f-elf3-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"4f63778c-2f72-4c71-a0a0-cb2c24213999",
+			"f02e6079-d7ba-4c91-9a29-ec38a5e4cb2c"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3067,
+		"balanceAfter": 3065,
+		"at": "2026-11-04T14:17:26.889Z",
+		"rejected": "04/11: vẽ trên thân nền nữ cũ đầu to (chủ dự án \"tôi thấy đầu nữ hơi to\") → vẽ lại trên thân U13b"
+	},
+	{
+		"item": "U14-f-beast1-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"5c18b7ac-d6ce-498b-b6be-c0374d11a6aa",
+			"4f27bd42-c5f3-4812-a386-b0c3de78da09"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3065,
+		"balanceAfter": 3063,
+		"at": "2026-11-04T14:18:51.288Z",
+		"rejected": "04/11: vẽ trên thân nền nữ cũ đầu to (chủ dự án \"tôi thấy đầu nữ hơi to\") → vẽ lại trên thân U13b"
+	},
+	{
+		"item": "U12b-npc-female-base-edit",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"3cdbac98-1827-4431-bf3b-1b5b567d64ab",
+			"e6934c0e-32cd-46f6-bdae-3296046c2baa",
+			"8c0a8b97-2916-416c-a543-5ca50e4e4f27",
+			"29f11a00-eaa7-4c11-b92e-e4493feb6137"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 3062,
+		"balanceAfter": 3058,
+		"at": "2026-11-04T14:24:16.138Z"
+	},
+	{
+		"item": "U13b-npc-female-base-ref",
+		"tool": "create_character",
+		"characterId": "6d22dfc9-5198-4a65-a25a-fff871628e98",
+		"estimate": 2,
+		"actual": 1,
+		"balanceBefore": 3058,
+		"balanceAfter": 3057,
+		"at": "2026-11-04T14:28:00.784Z",
+		"note": "04/11: ghi sổ lỗi khoá tệp — số dư 3058 → 3057"
+	},
+	{
+		"item": "U15-sword-outfit-f-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"2f1690c2-3007-40bb-993e-8671bee86f69",
+			"49153247-7576-4fb6-95d7-14683e0b3dcc",
+			"1bd8acf6-ce5e-456a-9114-f8f8aa5ed8e6"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3057,
+		"balanceAfter": 3054,
+		"at": "2026-11-04T14:33:15.688Z"
+	},
+	{
+		"item": "U15-mage-outfit-f-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"801fc8f9-ee4e-4e65-87e5-32b0430f268c",
+			"926bccf3-5208-422d-87b9-a7014e60a2ab",
+			"3a6ebbf9-b886-4266-a8c6-282569f13e83"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3054,
+		"balanceAfter": 3051,
+		"at": "2026-11-04T14:35:29.416Z"
+	},
+	{
+		"item": "U15-lancer-outfit-f-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"15b57b67-8347-4f47-9d58-9945d5eec33a",
+			"1f4ea4fd-e87c-4679-a22d-fdb742b8aaf9",
+			"78e3f126-596f-45a0-a772-85c78d674332"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3051,
+		"balanceAfter": 3048,
+		"at": "2026-11-04T14:37:24.994Z"
+	},
+	{
+		"item": "U15-guard-outfit-f-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"1c3fb882-6690-4d70-b2fa-4671beb6e1ff",
+			"0bfd159c-7e22-4ada-8c8f-2fc1857cabc3",
+			"d3882821-8b18-40cc-8667-c3f80c4b948b"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3048,
+		"balanceAfter": 3045,
+		"at": "2026-11-04T14:39:55.739Z"
+	},
+	{
+		"item": "U15-archer-outfit-f-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"b7f2b46d-e4a9-46af-9679-a7c7695b05ce",
+			"83faa033-4841-4421-a660-0b36e4f3e5ed",
+			"3c988894-2dfc-4bae-8b85-2e9f61b92a63"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 3045,
+		"balanceAfter": 3042,
+		"at": "2026-11-04T14:42:08.871Z"
+	},
+	{
+		"item": "U14-f-human1-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"3a2dbe4c-3c7b-4f96-8a8d-1d69ac8865dc",
+			"7248e6cd-408b-4a5e-8ee6-da2f2244699f"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3042,
+		"balanceAfter": 3040,
+		"at": "2026-11-04T14:43:51.433Z"
+	},
+	{
+		"item": "U14-f-human1-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"75465241-1393-4de7-a8a3-9e7be38ce433",
+			"263295f2-5a4d-4390-8b71-f589accdd3ee"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3040,
+		"balanceAfter": 3038,
+		"at": "2026-11-04T14:45:16.608Z"
+	},
+	{
+		"item": "U14-f-human1-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"a2bd7b6c-65d5-4df6-aaa7-a7dc88d33917",
+			"08da83b1-b1e3-45a2-9c25-889514520dab"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3038,
+		"balanceAfter": 3036,
+		"at": "2026-11-04T14:46:59.132Z"
+	},
+	{
+		"item": "U14-f-human1-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"a9c214cc-9b59-4bfd-9a0c-b889337e383b",
+			"e1614d91-e7f1-40d0-bb0f-11e55959de2e"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3036,
+		"balanceAfter": 3034,
+		"at": "2026-11-04T14:48:58.789Z"
+	},
+	{
+		"item": "U14-f-human1-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"1e667086-c1df-49bc-a9b2-ed78806d420f",
+			"a3c22dee-93dd-4b7d-ada2-66af65549959"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3034,
+		"balanceAfter": 3032,
+		"at": "2026-11-04T14:50:58.408Z"
+	},
+	{
+		"item": "U14-f-human2-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"b28c676d-389b-43a8-b0b6-fa6f5dd768df",
+			"0dfe74f3-9cf1-4fc1-9678-1c44a461387c"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3032,
+		"balanceAfter": 3030,
+		"at": "2026-11-04T14:52:40.290Z"
+	},
+	{
+		"item": "U14-f-human2-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"8cfb8ed6-25db-489d-a57e-e71910f594ce",
+			"5b5f790b-471c-4617-af0d-4236f900529a"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3030,
+		"balanceAfter": 3028,
+		"at": "2026-11-04T14:54:22.779Z"
+	},
+	{
+		"item": "U14-f-human2-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"91de3c9d-44ed-402e-bfa8-f38917877d48",
+			"2be01044-01ec-472e-bbbf-b2d2d5b5ed8a"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3028,
+		"balanceAfter": 3026,
+		"at": "2026-11-04T14:56:22.500Z"
+	},
+	{
+		"item": "U14-f-human2-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"7c85c812-53d2-42d9-bcda-583997657a8c",
+			"109d1444-825a-4697-a2b4-a2332fbf4618"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3026,
+		"balanceAfter": 3024,
+		"at": "2026-11-04T14:58:04.377Z"
+	},
+	{
+		"item": "U14-f-human2-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"2c5bb886-c141-4377-9062-c25b8ce8d7f2",
+			"0046fd6c-8233-4546-8ba0-5d89bb6f0359"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3024,
+		"balanceAfter": 3022,
+		"at": "2026-11-04T14:59:28.689Z"
+	},
+	{
+		"item": "U14-f-human3-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"27fc0c43-3763-4dd1-ab15-b9ba5efb4c97",
+			"0bfceaab-73bc-4e09-b2c8-81004982ffb2"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3022,
+		"balanceAfter": 3020,
+		"at": "2026-11-04T15:01:10.865Z"
+	},
+	{
+		"item": "U14-f-human3-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"076e18eb-4c7e-4b9c-ab97-74b39a2eb969",
+			"662666ef-9245-452f-92a4-a00ff4a24020"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3020,
+		"balanceAfter": 3018,
+		"at": "2026-11-04T15:02:53.002Z"
+	},
+	{
+		"item": "U14-f-human3-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"f33addc7-fb5b-4b02-913c-17ddfa37f575",
+			"dfab1faa-f35f-4e7d-a9fe-0f7100975f20"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3018,
+		"balanceAfter": 3016,
+		"at": "2026-11-04T15:04:17.467Z"
+	},
+	{
+		"item": "U14-f-human3-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"17d28207-221d-473a-9a8c-747560968c3a",
+			"290e2077-543b-49c6-8665-569fd7c770f0"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3016,
+		"balanceAfter": 3014,
+		"at": "2026-11-04T15:07:47.224Z"
+	},
+	{
+		"item": "U14-f-elf1-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"65b828bf-af8b-41c9-bffe-5f35a0d340c4",
+			"54f59695-24f7-43b1-aef6-00d2197382e0"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3014,
+		"balanceAfter": 3012,
+		"at": "2026-11-04T15:10:04.975Z"
+	},
+	{
+		"item": "U14-f-elf1-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"dee9794d-567b-4599-805a-fafedcf56eca",
+			"d03c37f1-cb61-4571-a64a-41c74e0bbab9"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3012,
+		"balanceAfter": 3010,
+		"at": "2026-11-04T15:12:22.369Z"
+	},
+	{
+		"item": "U14-f-elf1-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"c7ff14b9-187e-41cd-8662-0aceb2ecc26b",
+			"9cd919e5-62fd-4aff-bb98-e962b6b4ff95"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3010,
+		"balanceAfter": 3008,
+		"at": "2026-11-04T15:14:04.595Z"
+	},
+	{
+		"item": "U14-f-elf1-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"c6677081-7c61-48cc-bc3f-495e4e2ee3b2",
+			"da519920-b721-46b4-8487-2b87c51cbbee"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3008,
+		"balanceAfter": 3006,
+		"at": "2026-11-04T15:15:46.556Z"
+	},
+	{
+		"item": "U14-f-elf1-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"b1bbb937-9ce8-4215-9a8e-27c6f15ceaae",
+			"eb3c803a-d390-4bdf-81f4-45185d4b5c1f"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3006,
+		"balanceAfter": 3004,
+		"at": "2026-11-04T15:17:28.662Z"
+	},
+	{
+		"item": "U14-f-elf2-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"5a252711-569a-46d7-9cfe-ccda2c94ecf7",
+			"6810ffac-d903-451b-b455-49f314ca1a95"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3004,
+		"balanceAfter": 3002,
+		"at": "2026-11-04T15:20:03.875Z"
+	},
+	{
+		"item": "U14-f-elf2-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"54286d86-3304-4eff-bc52-e2a732f72ed3",
+			"231eff50-119e-46e6-9ffd-27f77eb90873"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3002,
+		"balanceAfter": 3000,
+		"at": "2026-11-04T15:22:22.154Z"
+	},
+	{
+		"item": "U14-f-elf2-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"97f438bf-933e-4862-9934-adccea9aff17",
+			"d0390516-e742-4465-a057-208e1d366583"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 3000,
+		"balanceAfter": 2998,
+		"at": "2026-11-04T15:24:04.690Z"
+	},
+	{
+		"item": "U14-f-elf2-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"5f5c4307-d581-4cb5-b31e-38a579b1d26b",
+			"42949b8b-90d8-42ec-9011-c1ccb6e8cc8d"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2998,
+		"balanceAfter": 2996,
+		"at": "2026-11-04T15:25:29.382Z"
+	},
+	{
+		"item": "U14-f-elf2-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"a2877de9-e61a-47c1-8a08-f166e32cc409",
+			"0f1dd868-5d67-4cce-9419-904bc1a1ea23"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2996,
+		"balanceAfter": 2994,
+		"at": "2026-11-04T15:27:28.843Z"
+	},
+	{
+		"item": "U14-f-elf3-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"57070351-6f84-4cde-9277-4e6edeca3bc7",
+			"101d1c70-770c-4ec6-a3dc-6cb889f37eea"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2994,
+		"balanceAfter": 2992,
+		"at": "2026-11-04T15:28:53.209Z"
+	},
+	{
+		"item": "U14-f-elf3-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"757e411e-f1a7-45f4-98b7-6bc4d39ac969",
+			"f80ad711-65e3-44a0-944e-7e49b00e27be"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2992,
+		"balanceAfter": 2990,
+		"at": "2026-11-04T15:30:17.812Z"
+	},
+	{
+		"item": "U14-f-elf3-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"f2f88a07-d80e-47b1-9b05-0ed4a80e43ba",
+			"067db041-2db0-409b-8235-f7531d165a75"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2990,
+		"balanceAfter": 2988,
+		"at": "2026-11-04T15:31:42.252Z"
+	},
+	{
+		"item": "U14-f-elf3-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"471c3e66-81ca-4eed-922c-e7cd47835b75",
+			"374000c3-d26e-4be1-987e-9bbbf5c933c8"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2988,
+		"balanceAfter": 2986,
+		"at": "2026-11-04T15:33:59.666Z"
+	},
+	{
+		"item": "U14-f-elf3-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"e996113c-70a3-424c-b1f5-5fab616e3854",
+			"ad86b06a-e963-440e-bdb3-8b718e212c86"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2986,
+		"balanceAfter": 2984,
+		"at": "2026-11-04T15:35:23.836Z"
+	},
+	{
+		"item": "U14-f-beast1-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"2ca9591a-4b83-43a2-a83d-13f638eb002c",
+			"b17f5d0e-ead7-4bf7-b621-ea2a4374413e"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2984,
+		"balanceAfter": 2982,
+		"at": "2026-11-04T15:36:48.294Z"
+	},
+	{
+		"item": "U14-f-beast1-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"a674d16d-4569-4969-a1e8-4d4564602fc5",
+			"c4f0af42-66e9-450a-8cb7-65125f0979d2"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2982,
+		"balanceAfter": 2980,
+		"at": "2026-11-04T15:38:12.989Z"
+	},
+	{
+		"item": "U14-f-beast1-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"8d83fdc8-2c01-4e2b-94b2-b22e21058a5b",
+			"44b544a3-c78d-4ef5-b395-d8c669b07ebb"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2980,
+		"balanceAfter": 2978,
+		"at": "2026-11-04T15:39:55.104Z"
+	},
+	{
+		"item": "U14-f-beast1-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"eddba113-85b6-4763-9788-c9c0e32ba8ef",
+			"89009cf9-489b-424d-9564-0e13be7f3cb2"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2978,
+		"balanceAfter": 2976,
+		"at": "2026-11-04T15:41:19.261Z"
+	},
+	{
+		"item": "U14-f-beast1-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"1627d321-b9fe-4d8f-820a-f7901a102fbd",
+			"17997d36-c1f6-4351-a624-667cb8d0f150"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2976,
+		"balanceAfter": 2974,
+		"at": "2026-11-04T15:43:01.275Z"
+	},
+	{
+		"item": "U14-f-beast2-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"debb72db-fce2-4eb3-ad0e-392e475c91a5",
+			"e30ff7a7-6560-495d-a144-a13a79f763b8"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2974,
+		"balanceAfter": 2972,
+		"at": "2026-11-04T15:44:25.492Z"
+	},
+	{
+		"item": "U14-f-beast2-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"7405327c-f76c-4e53-a5b6-f98ae1989cf8",
+			"072e8b5d-1b92-4c0e-b74b-4b55e6541c38"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2972,
+		"balanceAfter": 2970,
+		"at": "2026-11-04T15:46:08.067Z"
+	},
+	{
+		"item": "U14-f-beast2-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"f11cc164-db2d-48d2-a9f0-bc24b1d0ee7d",
+			"d877ff87-bd94-40cb-8d9e-1d49672e97ea"
+		],
+		"estimate": 2,
+		"actual": 1,
+		"balanceBefore": 2970,
+		"balanceAfter": 2969,
+		"at": "2026-11-04T15:48:08.093Z"
+	},
+	{
+		"item": "U14-f-beast2-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"92aba481-c1dd-4ad3-98de-b195a6bc5647",
+			"8e08bc87-96ca-423a-8006-4fb20476d9aa"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2968,
+		"balanceAfter": 2966,
+		"at": "2026-11-04T15:49:50.172Z"
+	},
+	{
+		"item": "U14-f-beast2-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"2ceec0c1-e3b2-4ec5-810a-d40f1d08ee1d",
+			"9dc929c7-b8b1-4567-9add-143b12f24c8b"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2966,
+		"balanceAfter": 2964,
+		"at": "2026-11-04T15:51:32.323Z"
+	},
+	{
+		"item": "U14-f-beast3-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"7d7933be-d6f8-4ae3-bcb9-d85f192fb477",
+			"603dc850-3347-41ed-990e-80f8261c3a15"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2964,
+		"balanceAfter": 2962,
+		"at": "2026-11-04T15:52:56.775Z"
+	},
+	{
+		"item": "U14-f-beast3-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"9fbdff05-0c28-4d1a-a4ff-dd095e8b4c88",
+			"70d44742-1cd0-455a-a911-d87bf9866a91"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2962,
+		"balanceAfter": 2960,
+		"at": "2026-11-04T15:54:39.089Z"
+	},
+	{
+		"item": "U14-f-beast3-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"7805821a-bb72-4e4c-853f-5f298687d1f5",
+			"2c6a09e4-ac53-4f6b-a868-4a49a8ef5750"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2960,
+		"balanceAfter": 2958,
+		"at": "2026-11-04T15:56:40.654Z"
+	},
+	{
+		"item": "U14-f-beast3-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"cfa95213-fcc5-4ea9-ab23-c148534b113f",
+			"3ec7dff1-b9ed-49d3-8089-b246e4b8e2a7"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2958,
+		"balanceAfter": 2956,
+		"at": "2026-11-04T15:58:40.250Z"
+	},
+	{
+		"item": "U14-f-beast3-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"99d81a50-491e-4839-b234-2040918ae7e8",
+			"ca00d9d0-6f17-4598-b8e7-3b3acaf999d6"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2956,
+		"balanceAfter": 2954,
+		"at": "2026-11-04T16:01:51.747Z"
+	},
+	{
+		"item": "U14-f-demon1-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"a292a108-d691-494d-b856-ce51ee778036",
+			"d7315d26-b891-4557-8a96-510d99529c15"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2954,
+		"balanceAfter": 2952,
+		"at": "2026-11-04T16:03:16.030Z"
+	},
+	{
+		"item": "U14-f-demon1-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"5b7ce275-3f3d-4a19-81ef-75a8553f7c47",
+			"5bfc2be8-3ea0-49d8-af2a-a7fda019110c"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2952,
+		"balanceAfter": 2950,
+		"at": "2026-11-04T16:04:58.070Z"
+	},
+	{
+		"item": "U14-f-demon1-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"891f7f9c-b747-4955-aa30-2060e2912ce6",
+			"95bf3bfb-6829-4637-9bbe-ab22433f2031"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2950,
+		"balanceAfter": 2948,
+		"at": "2026-11-04T16:06:40.021Z"
+	},
+	{
+		"item": "U14-f-demon1-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"5a31ed29-71d0-4fde-8ac7-add4ce4b18a0",
+			"b66ae2cc-88fd-4019-8dda-d24042264952"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2948,
+		"balanceAfter": 2946,
+		"at": "2026-11-04T16:08:22.176Z"
+	},
+	{
+		"item": "U14-f-demon1-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"ca822bfe-25d5-4457-b787-1dd2a62ab45e",
+			"bd0f6690-9be7-4a5a-8ede-93b3f84404f9"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2946,
+		"balanceAfter": 2944,
+		"at": "2026-11-04T16:09:46.593Z"
+	},
+	{
+		"item": "U14-f-demon2-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"f7e70d42-757f-4f16-9363-4ccdc23047c2",
+			"01325519-84c4-42a0-9c1f-debdb5fc21f3"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2944,
+		"balanceAfter": 2942,
+		"at": "2026-11-04T16:11:10.818Z"
+	},
+	{
+		"item": "U14-f-demon2-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"26d83aff-689b-444e-9562-35f0df486a76",
+			"191443fc-3141-4964-bb4c-73f0b6a99fd5"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2942,
+		"balanceAfter": 2940,
+		"at": "2026-11-04T16:12:35.180Z"
+	},
+	{
+		"item": "U14-f-demon2-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"2c6fe98c-a449-4f3f-abdc-f4786854877f",
+			"93345c13-4c55-4337-a14f-eaa6e2689428"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2940,
+		"balanceAfter": 2938,
+		"at": "2026-11-04T16:14:17.291Z"
+	},
+	{
+		"item": "U14-f-demon2-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"0316583e-c089-4fb7-b749-9e2e7be91090",
+			"0e833a64-31e0-48b8-b43e-4c58761dc00c"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2938,
+		"balanceAfter": 2936,
+		"at": "2026-11-04T16:15:42.160Z"
+	},
+	{
+		"item": "U14-f-demon2-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"be58219c-5c95-473a-b6dc-481cff3c2d7b",
+			"90b5b202-1e96-4550-8b86-542e1bc1cff7"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2936,
+		"balanceAfter": 2934,
+		"at": "2026-11-04T16:17:24.122Z"
+	},
+	{
+		"item": "U14-f-demon3-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"fcf58019-5d4b-40dc-a6ac-9b7e1c532a7e",
+			"67332943-1120-4e88-943b-7fe13c04d270"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2934,
+		"balanceAfter": 2932,
+		"at": "2026-11-04T16:19:41.744Z"
+	},
+	{
+		"item": "U14-f-demon3-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"a92ba9f7-9a63-4ebf-9095-34a569bf20e0",
+			"5d187a51-4799-4136-acbf-6d3fa481fd98"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2932,
+		"balanceAfter": 2930,
+		"at": "2026-11-04T16:21:24.313Z"
+	},
+	{
+		"item": "U14-f-demon3-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"9d65214f-7539-4aad-bff9-9db78411fe17",
+			"4e72dddb-0106-4aca-8dfe-40857e35be89"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2930,
+		"balanceAfter": 2928,
+		"at": "2026-11-04T16:23:24.099Z"
+	},
+	{
+		"item": "U14-f-demon3-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"a3e97200-649f-4a69-8f9f-3e332bbc2a2f",
+			"4909be0d-c376-46f8-b328-c2b380975a28"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2928,
+		"balanceAfter": 2926,
+		"at": "2026-11-04T16:25:23.805Z"
+	},
+	{
+		"item": "U14-f-demon3-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"1e275b1b-4c53-4621-8fee-2440d36e461d",
+			"7b595570-cafc-4af1-8f19-8d971f15446b"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2926,
+		"balanceAfter": 2924,
+		"at": "2026-11-04T16:27:05.918Z"
+	},
+	{
+		"item": "U14-f-dragon1-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"85fc2879-57b6-4724-ab85-a105119b3693",
+			"b2d01008-a102-4807-b560-4fdb98d35bd1"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2924,
+		"balanceAfter": 2922,
+		"at": "2026-11-04T16:29:05.741Z"
+	},
+	{
+		"item": "U14-f-dragon1-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"3db9555a-c9ac-4e82-805f-4a85061cf50e",
+			"0702beb2-2cee-42fa-9b54-1a7c5336bb72"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2922,
+		"balanceAfter": 2920,
+		"at": "2026-11-04T16:30:47.811Z"
+	},
+	{
+		"item": "U14-f-dragon1-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"0ee72617-46ac-45c3-9475-326a8f00aef1",
+			"45df90fa-3fb5-41b9-a60b-f64d20fac537"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2920,
+		"balanceAfter": 2918,
+		"at": "2026-11-04T16:32:29.855Z"
+	},
+	{
+		"item": "U14-f-dragon1-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"19633639-df95-4d90-b00d-4f5eb1e6c0c7",
+			"cb45869e-cd4c-4dfb-82fc-b521bae758dc"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2918,
+		"balanceAfter": 2916,
+		"at": "2026-11-04T16:34:11.714Z"
+	},
+	{
+		"item": "U14-f-dragon1-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"21ce5783-5b0b-4df3-8d5b-a22d87fa3bb1",
+			"26610159-1cac-4451-9094-076ec7d7cd97"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2916,
+		"balanceAfter": 2914,
+		"at": "2026-11-04T16:35:36.066Z"
+	},
+	{
+		"item": "U14-f-dragon2-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"c84cb5fa-6ee6-46c4-bf3f-6e8691adfd3c",
+			"09aa3209-45c1-4f0f-8551-23bce70aa1b0"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2914,
+		"balanceAfter": 2912,
+		"at": "2026-11-04T16:37:00.833Z"
+	},
+	{
+		"item": "U14-f-dragon2-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"869242a5-86a0-4a45-9152-97865386c6b9",
+			"06475e77-a1c7-47b4-8dd6-a3fd02c22f81"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2912,
+		"balanceAfter": 2910,
+		"at": "2026-11-04T16:38:42.744Z"
+	},
+	{
+		"item": "U14-f-dragon2-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"b96d22ed-c354-48e4-9826-ec69bd18f12b",
+			"2562c00c-ee4d-4a6b-a297-605c5e63f134"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2910,
+		"balanceAfter": 2908,
+		"at": "2026-11-04T16:40:25.137Z"
+	},
+	{
+		"item": "U14-f-dragon2-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"36f07714-0084-4301-8fcd-5b2c783ae6a8",
+			"36e7b16f-7722-4415-8992-d5bc4d6ad52a"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2908,
+		"balanceAfter": 2906,
+		"at": "2026-11-04T16:42:07.969Z"
+	},
+	{
+		"item": "U14-f-dragon2-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"1ac0c1ce-4466-42d2-b05e-169ce9a217a8",
+			"12b92165-71a4-42a8-a649-df5539b11ed9"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2906,
+		"balanceAfter": 2904,
+		"at": "2026-11-04T16:43:50.118Z"
+	},
+	{
+		"item": "U14-f-dragon3-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"cf1734ed-2d9f-481c-9b76-af4bd8b16637",
+			"ae707ea9-8b77-4f8b-b522-f09ed857be0e"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2904,
+		"balanceAfter": 2902,
+		"at": "2026-11-04T16:45:14.647Z"
+	},
+	{
+		"item": "U14-f-dragon3-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"a43dcb19-c445-4f68-9f86-0197f70996ca",
+			"64f2fc18-0b3e-49dc-8c13-aec566630d3c"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2902,
+		"balanceAfter": 2900,
+		"at": "2026-11-04T16:46:56.890Z"
+	},
+	{
+		"item": "U14-f-dragon3-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"12038e9b-55aa-4f94-8354-029ec298a6f9",
+			"f528c778-abc6-4587-ae70-b99b357653f0"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2900,
+		"balanceAfter": 2898,
+		"at": "2026-11-04T16:48:38.931Z"
+	},
+	{
+		"item": "U14-f-dragon3-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"8ddc29f9-a5b6-4437-94b7-8f6ce0496e11",
+			"7b7639dc-680a-4895-9fda-790169d336db"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2898,
+		"balanceAfter": 2896,
+		"at": "2026-11-04T16:50:03.269Z"
+	},
+	{
+		"item": "U14-f-dragon3-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"838eca23-c2d8-4adc-9a12-c65c6dac4ba5",
+			"58ff91a2-e9f2-46ed-8b7f-54b9ed054a23"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2896,
+		"balanceAfter": 2894,
+		"at": "2026-11-04T16:52:38.489Z"
+	},
+	{
+		"item": "U14-f-human3-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"15e4a1f5-ef9b-4ca7-96e1-c00919c1902f",
+			"b0e4ae1e-0b86-4927-afd2-5a85e14fb3c3"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2894,
+		"balanceAfter": 2892,
+		"at": "2026-11-04T16:54:48.258Z"
+	},
+	{
+		"item": "U15-sword-outfit-f-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"a9ecd869-64a8-432c-b44a-3fe3811ba32b",
+			"51ae12e8-9b22-4603-af3e-88e4cfc255f3"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2892,
+		"balanceAfter": 2890,
+		"at": "2026-11-04T16:56:47.921Z"
+	},
+	{
+		"item": "U15-sword-outfit-f-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"50cc2444-5eef-416e-97e0-5c908f2b090a",
+			"ecb7f68f-2e4e-482b-9291-9d2590be216f"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2890,
+		"balanceAfter": 2888,
+		"at": "2026-11-04T16:58:47.781Z"
+	},
+	{
+		"item": "U15-sword-outfit-f-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"9e4e4131-e4e8-42c0-8367-faf39e5ed5e2",
+			"bc804dfb-3a95-4193-a97f-192bb5915529"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2888,
+		"balanceAfter": 2886,
+		"at": "2026-11-04T17:00:48.546Z"
+	},
+	{
+		"item": "U15-sword-outfit-f-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"894d02a5-c87b-49ee-8c90-f959969d4cbe",
+			"eb37aed3-f782-4bdb-9d62-ddc889378e95"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2886,
+		"balanceAfter": 2884,
+		"at": "2026-11-04T17:02:30.547Z"
+	},
+	{
+		"item": "U15-mage-outfit-f-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"7d738ca3-8d5a-441a-82ea-5e21cfe70cd9",
+			"697d83df-a991-40b4-b712-d9061a1c0719"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2884,
+		"balanceAfter": 2882,
+		"at": "2026-11-04T17:04:13.331Z"
+	},
+	{
+		"item": "U15-mage-outfit-f-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"41aaacf0-8588-45ec-bba0-d91b42c29889",
+			"a99ea946-65fc-42c8-ac97-fb5916581ac3"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2882,
+		"balanceAfter": 2880,
+		"at": "2026-11-04T17:06:13.042Z"
+	},
+	{
+		"item": "U15-mage-outfit-f-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"89988f18-4db8-4347-8c06-aea56909b592",
+			"12bffa74-bd7f-45a1-9267-126e3089fc00"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2880,
+		"balanceAfter": 2878,
+		"at": "2026-11-04T17:07:37.699Z"
+	},
+	{
+		"item": "U15-mage-outfit-f-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"e42eba18-433d-42bc-8fa3-66c728aee332",
+			"b78ede54-0384-4e18-9f2e-bffa7d4afa14"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2878,
+		"balanceAfter": 2876,
+		"at": "2026-11-04T17:09:37.611Z"
+	},
+	{
+		"item": "U15-lancer-outfit-f-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"f401a79c-552f-4639-ab7f-89f8bbc0145c",
+			"224b2197-9102-4ea0-9849-4068ebc7bff8"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2876,
+		"balanceAfter": 2874,
+		"at": "2026-11-04T17:11:01.985Z"
+	},
+	{
+		"item": "U15-lancer-outfit-f-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"cc078819-6060-4c87-ae04-0c274770e327",
+			"72d33441-e59d-40c0-bfde-3a45d1b8b171"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2874,
+		"balanceAfter": 2872,
+		"at": "2026-11-04T17:13:01.739Z"
+	},
+	{
+		"item": "U15-lancer-outfit-f-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"d6bf639b-cb13-4b54-bb4b-38c5143dad4c",
+			"6336cfbd-8445-4e27-8cf0-b8ec268795e6"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2872,
+		"balanceAfter": 2870,
+		"at": "2026-11-04T17:14:43.962Z"
+	},
+	{
+		"item": "U15-lancer-outfit-f-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"3f95ab47-ee10-4cff-8a6c-013ab9af07a1",
+			"0742c792-2ac5-4312-8181-fa213f950d2c"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2870,
+		"balanceAfter": 2868,
+		"at": "2026-11-04T17:16:08.407Z"
+	},
+	{
+		"item": "U15-guard-outfit-f-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"95bd65c2-b22d-446f-9429-dbb6b8f91297",
+			"bb10bb59-906e-40ef-ae0c-9bf13de40ab4"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2868,
+		"balanceAfter": 2866,
+		"at": "2026-11-04T17:18:08.275Z"
+	},
+	{
+		"item": "U15-guard-outfit-f-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"dfda84a0-af62-4036-8cc0-678b66173406",
+			"24126c60-4dea-48bf-8e52-042490690344"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2866,
+		"balanceAfter": 2864,
+		"at": "2026-11-04T17:19:14.852Z"
+	},
+	{
+		"item": "U15-guard-outfit-f-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"35fb5614-39c3-4bee-b86c-fe8859aef5be",
+			"3fbcd877-b2fa-427c-9def-5f8137d48bda"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2864,
+		"balanceAfter": 2862,
+		"at": "2026-11-04T17:20:57.326Z"
+	},
+	{
+		"item": "U15-guard-outfit-f-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"736ac5d3-783a-4076-af46-bbd3106b1bb2",
+			"1468db6e-97ad-4365-9912-c254433c48e9"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2862,
+		"balanceAfter": 2860,
+		"at": "2026-11-04T17:22:21.862Z"
+	},
+	{
+		"item": "U15-archer-outfit-f-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"f934d4c8-09bd-4a62-843e-da241263df68",
+			"57d025f8-e133-40f5-aaff-adb49713a748"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2860,
+		"balanceAfter": 2858,
+		"at": "2026-11-04T17:24:21.634Z"
+	},
+	{
+		"item": "U15-archer-outfit-f-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"b455747c-9343-4dcb-b906-ebf68e09a30d",
+			"eeceddb6-6b84-4918-ac8a-e460dc09e4ab"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2858,
+		"balanceAfter": 2856,
+		"at": "2026-11-04T17:25:46.027Z"
+	},
+	{
+		"item": "U15-archer-outfit-f-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"f7cb7982-f3eb-448a-b69a-77687eacc5a5",
+			"a50aa530-3629-438b-8336-b04d2e94f4ef"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2856,
+		"balanceAfter": 2854,
+		"at": "2026-11-04T17:27:28.081Z"
+	},
+	{
+		"item": "U15-archer-outfit-f-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"fe2a464c-ae08-450d-802c-dbae83b258ad",
+			"59878fd5-bad7-483f-abf9-6e5d107bf5cf"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2854,
+		"balanceAfter": 2852,
+		"at": "2026-11-04T17:28:53.116Z"
+	},
+	{
+		"item": "U16-sword-f-walk-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"5a6dbc86-3c24-4f0d-bfe9-2da8775a4be1"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2849,
+		"balanceAfter": 2846,
+		"at": "2026-11-04T17:32:11.288Z"
+	},
+	{
+		"item": "U16-sword-f-walk-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"46f2eff7-6320-49c0-8553-2b9d674c4d1b"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2846,
+		"balanceAfter": 2843,
+		"at": "2026-11-04T17:34:21.135Z"
+	},
+	{
+		"item": "U16-sword-f-walk-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"3560d8c9-a57a-4f11-a941-41c58be45eda"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2843,
+		"balanceAfter": 2840,
+		"at": "2026-11-04T17:36:31.161Z"
+	},
+	{
+		"item": "U16-sword-f-walk-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"3d5a9a62-3ae1-40b9-bf31-820fb35e7439"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2840,
+		"balanceAfter": 2837,
+		"at": "2026-11-04T17:38:58.972Z"
+	},
+	{
+		"item": "U16-sword-f-walk-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"252689e5-8de8-4dfd-8b26-1ed005e511f7"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2837,
+		"balanceAfter": 2834,
+		"at": "2026-11-04T17:41:08.497Z"
+	},
+	{
+		"item": "U16-sword-f-run-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"71ab28b3-22ca-4a70-a268-3f6a25a680d8"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2834,
+		"balanceAfter": 2831,
+		"at": "2026-11-04T17:43:17.908Z"
+	},
+	{
+		"item": "U16-sword-f-run-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"cc307189-1726-4890-ac99-eb40edbe2448"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2831,
+		"balanceAfter": 2828,
+		"at": "2026-11-04T17:45:46.775Z"
+	},
+	{
+		"item": "U16-sword-f-run-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"db9362c7-5f95-43c6-af9c-b63508dc1ab9"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2828,
+		"balanceAfter": 2825,
+		"at": "2026-11-04T17:48:14.147Z"
+	},
+	{
+		"item": "U16-sword-f-run-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"c46b97e6-2bf9-4994-a362-6cdddbf20e3b"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2825,
+		"balanceAfter": 2822,
+		"at": "2026-11-04T17:51:00.563Z"
+	},
+	{
+		"item": "U16-sword-f-run-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"ad873b76-458c-44a3-bd1d-d84f370d7f2f"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2822,
+		"balanceAfter": 2819,
+		"at": "2026-11-04T17:53:31.910Z"
+	},
+	{
+		"item": "U16-mage-f-walk-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"89ca66f1-95eb-40a9-8d53-c32234abbaa7"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2819,
+		"balanceAfter": 2816,
+		"at": "2026-11-04T17:55:42.171Z"
+	},
+	{
+		"item": "U16-mage-f-walk-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"a2d18a2a-600d-4c48-9b19-088158ce785c"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2816,
+		"balanceAfter": 2813,
+		"at": "2026-11-04T17:57:51.897Z"
+	},
+	{
+		"item": "U16-mage-f-walk-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"8c507d3d-b482-4ae5-b15f-9040f8b24859"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2813,
+		"balanceAfter": 2810,
+		"at": "2026-11-04T18:00:01.890Z"
+	},
+	{
+		"item": "U16-mage-f-walk-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"bf57e4ed-aa9c-4eba-8ab1-5a6356cd88d5"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2810,
+		"balanceAfter": 2807,
+		"at": "2026-11-04T18:02:47.238Z"
+	},
+	{
+		"item": "U16-mage-f-walk-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"27f8ed44-862a-4563-ba87-af8ade43cbab"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2807,
+		"balanceAfter": 2804,
+		"at": "2026-11-04T18:04:56.836Z"
+	},
+	{
+		"item": "U16-mage-f-run-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"36d4ae3c-d030-409e-9fe2-a48af7a0c7e7"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2804,
+		"balanceAfter": 2801,
+		"at": "2026-11-04T18:07:06.714Z"
+	},
+	{
+		"item": "U16-mage-f-run-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"48926a5a-2a17-4253-be7b-ec7e93ba00f4"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2801,
+		"balanceAfter": 2798,
+		"at": "2026-11-04T18:09:33.982Z"
+	},
+	{
+		"item": "U16-mage-f-run-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"349e4727-9e36-4672-bfb8-760739dc0bbe"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2798,
+		"balanceAfter": 2795,
+		"at": "2026-11-04T18:11:43.935Z"
+	},
+	{
+		"item": "U16-mage-f-run-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"1954f4d0-f665-49dd-b133-cba60d3adfd7"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2795,
+		"balanceAfter": 2792,
+		"at": "2026-11-04T18:15:04.461Z"
+	},
+	{
+		"item": "U16-mage-f-run-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"9d1aa7f6-5e7a-419c-bf7e-408aa33de524"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2792,
+		"balanceAfter": 2789,
+		"at": "2026-11-04T18:18:07.519Z"
+	},
+	{
+		"item": "U16-lancer-f-walk-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"60d364fe-e342-4511-ba0a-311cb4305077"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2789,
+		"balanceAfter": 2786,
+		"at": "2026-11-04T18:20:52.872Z"
+	},
+	{
+		"item": "U16-lancer-f-walk-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"8c156de8-bfa5-46d0-967c-7b7ac90a313d"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2786,
+		"balanceAfter": 2783,
+		"at": "2026-11-04T18:24:49.473Z"
+	},
+	{
+		"item": "U16-lancer-f-walk-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"dce159d4-36d4-48e9-9997-1d07db155ff5"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2783,
+		"balanceAfter": 2780,
+		"at": "2026-11-04T18:27:34.735Z"
+	},
+	{
+		"item": "U16-lancer-f-walk-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"ef006461-f1a5-410a-bdfc-e626c4272cd3"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2780,
+		"balanceAfter": 2777,
+		"at": "2026-11-04T18:30:20.274Z"
+	},
+	{
+		"item": "U16-lancer-f-walk-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"0408c214-196c-4909-b326-17062fa75cdf"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2777,
+		"balanceAfter": 2774,
+		"at": "2026-11-04T18:32:13.247Z"
+	},
+	{
+		"item": "U16-lancer-f-run-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"b2705a45-06f9-4564-8c81-162186cd5fc7"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2774,
+		"balanceAfter": 2771,
+		"at": "2026-11-04T18:34:58.653Z"
+	},
+	{
+		"item": "U16-lancer-f-run-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"29d6277e-c9f1-4f1d-8c10-6e9ea571c00c"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2771,
+		"balanceAfter": 2768,
+		"at": "2026-11-04T18:37:08.760Z"
+	},
+	{
+		"item": "U16-lancer-f-run-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"2651f05c-eba5-44d9-b02d-71dc1d369c44"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2768,
+		"balanceAfter": 2765,
+		"at": "2026-11-04T18:39:55.047Z"
+	},
+	{
+		"item": "U16-lancer-f-run-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"96a1e1c4-5374-48df-81dd-f812270b7eba"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2765,
+		"balanceAfter": 2762,
+		"at": "2026-11-04T18:42:40.420Z"
+	},
+	{
+		"item": "U16-lancer-f-run-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"1c049581-bfac-4192-81b9-da6a7ff7b339"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2762,
+		"balanceAfter": 2759,
+		"at": "2026-11-04T18:45:08.051Z"
+	},
+	{
+		"item": "U16-guard-f-walk-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"c4fe5104-8ac3-45bc-8325-7bfed1d372d8"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2759,
+		"balanceAfter": 2756,
+		"at": "2026-11-04T18:47:35.789Z"
+	},
+	{
+		"item": "U16-guard-f-walk-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"dd5fe22b-b3c5-48e3-ac82-3492f9dc9895"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2756,
+		"balanceAfter": 2753,
+		"at": "2026-11-04T18:49:45.830Z"
+	},
+	{
+		"item": "U16-guard-f-walk-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"43153dcf-4f5a-4aa9-bc71-5ac494ce9f85"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2753,
+		"balanceAfter": 2750,
+		"at": "2026-11-04T18:51:38.123Z"
+	},
+	{
+		"item": "U16-guard-f-walk-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"7f04ab19-06fe-4907-afc4-6e90a7a50189"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2750,
+		"balanceAfter": 2747,
+		"at": "2026-11-04T18:53:47.889Z"
+	},
+	{
+		"item": "U16-guard-f-walk-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"9db47299-d05b-4d16-ba55-048d3c5e66c0"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2747,
+		"balanceAfter": 2744,
+		"at": "2026-11-04T18:56:15.616Z"
+	},
+	{
+		"item": "U16-guard-f-run-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"6fb873c1-4f76-4551-b39d-1dc26d4cef55"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2744,
+		"balanceAfter": 2741,
+		"at": "2026-11-04T18:58:07.609Z"
+	},
+	{
+		"item": "U16-guard-f-run-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"d7eeba81-6595-4a66-b153-d00ea7f7c57f"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2741,
+		"balanceAfter": 2738,
+		"at": "2026-11-04T18:59:59.955Z"
+	},
+	{
+		"item": "U16-guard-f-run-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"9cbd6555-3589-44a4-9fba-5cb51e3a340e"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2738,
+		"balanceAfter": 2735,
+		"at": "2026-11-04T19:01:52.055Z"
+	},
+	{
+		"item": "U16-guard-f-run-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"bf2a96fd-2590-4ad5-b710-f64d72581c99"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2735,
+		"balanceAfter": 2732,
+		"at": "2026-11-04T19:04:01.963Z"
+	},
+	{
+		"item": "U16-guard-f-run-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"6b9ac4f9-43e7-401e-82b4-70b480e77969"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2732,
+		"balanceAfter": 2729,
+		"at": "2026-11-04T19:05:55.984Z"
+	},
+	{
+		"item": "U16-archer-f-walk-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"dd09e534-201b-490a-83c0-3f686ffa46ea"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2729,
+		"balanceAfter": 2726,
+		"at": "2026-11-04T19:08:05.922Z"
+	},
+	{
+		"item": "U16-archer-f-walk-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"6aa8dafd-a092-4bf0-881c-cd1fd73b608a"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2726,
+		"balanceAfter": 2723,
+		"at": "2026-11-04T19:16:10.860Z"
+	},
+	{
+		"item": "U16-archer-f-walk-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"dffbda3d-8143-4f61-9ba1-7512eaf560fa"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2723,
+		"balanceAfter": 2720,
+		"at": "2026-11-04T19:20:24.778Z"
+	},
+	{
+		"item": "U16-archer-f-walk-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"49b9adc0-2d00-4556-94af-ff145a91a44c"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2720,
+		"balanceAfter": 2717,
+		"at": "2026-11-04T19:22:52.142Z"
+	},
+	{
+		"item": "U16-archer-f-walk-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"c450e2f9-cba8-43aa-8558-c57a8e4708ce"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2717,
+		"balanceAfter": 2714,
+		"at": "2026-11-04T19:24:44.158Z"
+	},
+	{
+		"item": "U16-archer-f-run-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"1c0d76a4-6c64-47cd-bf86-54f7ddad063a"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2714,
+		"balanceAfter": 2711,
+		"at": "2026-11-04T19:26:43.225Z"
+	},
+	{
+		"item": "U16-archer-f-run-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"42b96711-bad1-4203-b441-075ba46ca8d4"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2711,
+		"balanceAfter": 2708,
+		"at": "2026-11-04T19:28:53.292Z"
+	},
+	{
+		"item": "U16-archer-f-run-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"b6d83e0f-12fc-401f-9c7a-adaf6fbbb39e"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2708,
+		"balanceAfter": 2705,
+		"at": "2026-11-04T19:31:38.540Z"
+	},
+	{
+		"item": "U16-archer-f-run-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"64da425e-fe5e-495f-8a77-7292f58b23aa"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2705,
+		"balanceAfter": 2702,
+		"at": "2026-11-04T19:33:48.926Z"
+	},
+	{
+		"item": "U16-archer-f-run-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"0dac58b8-a32d-44ba-b841-df08454534ae"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2702,
+		"balanceAfter": 2699,
+		"at": "2026-11-04T19:36:16.969Z"
+	},
+	{
+		"item": "U10-cast-S",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"92704772-2c4c-4997-a82f-df0a6cbde042"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 2699,
+		"balanceAfter": 2694,
+		"at": "2026-11-05T01:33:05.100Z"
+	},
+	{
+		"item": "U10-cast-SE",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"15f732b8-1ec3-4b4c-a4f6-d393250f53cd"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 2694,
+		"balanceAfter": 2689,
+		"at": "2026-11-05T01:33:40.553Z"
+	},
+	{
+		"item": "U10-cast-E",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"96795c48-6a8b-47da-a482-37518c4b21c1"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 2689,
+		"balanceAfter": 2684,
+		"at": "2026-11-05T01:34:16.058Z",
+		"rejected": "05/11: chủ dự án \"xấu nhất là hướng ngang của trượng và thương\" — vẽ lại cả cây dựng đứng sau mép lưng"
+	},
+	{
+		"item": "U10-thrust-S",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"ace3cb24-65f3-491e-9f67-eaf50c8aa334"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 2684,
+		"balanceAfter": 2679,
+		"at": "2026-11-05T01:35:09.424Z",
+		"rejected": "05/11: chủ dự án \"vẽ lại cái thương sang vũ khí chuôi nâu\" — vẽ lại theo mẫu cán gỗ U11-thrust4-S#13402"
+	},
+	{
+		"item": "U10-thrust-SE",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"295401d2-a879-40e8-a74e-1bb493843c9d"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 2679,
+		"balanceAfter": 2674,
+		"at": "2026-11-05T01:35:45.169Z",
+		"rejected": "05/11: chủ dự án \"vẽ lại cái thương sang vũ khí chuôi nâu\" — vẽ lại theo mẫu cán gỗ U11-thrust4-S#13402"
+	},
+	{
+		"item": "U10-thrust-E",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"ec6b6758-b11b-4858-9b0d-c77c0bda4af7"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 2674,
+		"balanceAfter": 2669,
+		"at": "2026-11-05T01:36:21.061Z",
+		"rejected": "05/11: chủ dự án \"xấu nhất là hướng ngang của trượng và thương\" — vẽ lại cả cây dựng đứng sau mép lưng"
+	},
+	{
+		"item": "U10-cast-E",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"36a04bf8-cbcb-4e95-870e-b1332358385d"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 2669,
+		"balanceAfter": 2664,
+		"at": "2026-11-05T01:40:32.657Z"
+	},
+	{
+		"item": "U10-thrust-E",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"2a14630a-cf0a-41e0-9745-586b486b93e4"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 2664,
+		"balanceAfter": 2659,
+		"at": "2026-11-05T01:41:25.860Z",
+		"rejected": "05/11: chủ dự án \"vẽ lại cái thương sang vũ khí chuôi nâu\" — vẽ lại theo mẫu cán gỗ U11-thrust4-S#13402"
+	},
+	{
+		"item": "U11-thrust4-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"e155d315-933b-44fd-bb90-a3b6003eaf28",
+			"54e6f61f-9660-436a-b2a8-befb22a86034",
+			"33879da1-cbdd-4c3f-ac13-48182b8ec62c"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2659,
+		"balanceAfter": 2656,
+		"at": "2026-11-05T01:49:48.795Z"
+	},
+	{
+		"item": "U10-thrust-S",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"183815a0-30d4-45c6-a303-5852c62ccceb"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 2656,
+		"balanceAfter": 2651,
+		"at": "2026-11-05T01:50:43.945Z",
+		"rejected": "05/11: chủ dự án \"thương hơi cụt đầu\" — khung mũi cũ 11px bè nên mũi vẽ cùn / bằng đầu; khung mới mũi 16px thon nhọn, vẽ lại"
+	},
+	{
+		"item": "U10-thrust-SE",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"c87b0c46-7df7-4855-8c59-ef98ee920864"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 2651,
+		"balanceAfter": 2646,
+		"at": "2026-11-05T01:51:19.723Z",
+		"rejected": "05/11: chủ dự án \"thương hơi cụt đầu\" — khung mũi cũ 11px bè nên mũi vẽ cùn / bằng đầu; khung mới mũi 16px thon nhọn, vẽ lại"
+	},
+	{
+		"item": "U10-thrust-E",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"4a796ea5-437b-4052-a68a-e5229d1b39eb"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 2646,
+		"balanceAfter": 2641,
+		"at": "2026-11-05T01:51:55.263Z",
+		"rejected": "05/11: bản 19811 vẽ hỏng — cán đứt khúc, mất mũi thương, lệch khỏi khung; vẽ lại 2 bản"
+	},
+	{
+		"item": "U10-thrust-NE",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"191e03e0-c8d5-49f3-b327-62e960551164"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 2641,
+		"balanceAfter": 2636,
+		"at": "2026-11-05T01:52:48.455Z",
+		"rejected": "05/11: chủ dự án \"thương hơi cụt đầu\" — khung mũi cũ 11px bè nên mũi vẽ cùn / bằng đầu; khung mới mũi 16px thon nhọn, vẽ lại"
+	},
+	{
+		"item": "U10-thrust-N",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"f8c45fd0-6dc6-465f-9209-b635822011ff"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 2636,
+		"balanceAfter": 2631,
+		"at": "2026-11-05T01:53:23.974Z",
+		"rejected": "05/11: chủ dự án \"thương hơi cụt đầu\" — khung mũi cũ 11px bè nên mũi vẽ cùn / bằng đầu; khung mới mũi 16px thon nhọn, vẽ lại"
+	},
+	{
+		"item": "U10-thrust-E",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"91ee4c95-b919-4c32-b4b0-11b7973d6b05",
+			"0550d0d7-a2d4-41db-8007-5fad1fe7660f"
+		],
+		"estimate": 10,
+		"actual": 10,
+		"balanceBefore": 2631,
+		"balanceAfter": 2621,
+		"at": "2026-11-05T01:57:44.748Z",
+		"rejected": "05/11: chủ dự án \"thương hơi cụt đầu\" — khung mũi cũ 11px bè nên mũi vẽ cùn / bằng đầu; khung mới mũi 16px thon nhọn, vẽ lại"
+	},
+	{
+		"item": "U10-thrust-S",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"c36b8e5c-acfc-44d0-8b16-2d4fa427858e"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 2621,
+		"balanceAfter": 2616,
+		"at": "2026-11-05T02:06:50.009Z"
+	},
+	{
+		"item": "U10-thrust-SE",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"458c0c41-de17-4d13-8b6a-602f3a7a5d14"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 2616,
+		"balanceAfter": 2611,
+		"at": "2026-11-05T02:07:25.561Z"
+	},
+	{
+		"item": "U10-thrust-E",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"105d2a53-030d-4386-bcd9-0ff8c9af9c98"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 2611,
+		"balanceAfter": 2606,
+		"at": "2026-11-05T02:08:01.336Z"
+	},
+	{
+		"item": "U10-thrust-NE",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"471dacda-383a-41bd-ace1-ee7410488911"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 2606,
+		"balanceAfter": 2601,
+		"at": "2026-11-05T02:08:36.990Z"
+	},
+	{
+		"item": "U10-thrust-N",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"885575fa-1e82-438a-9d08-ffba29ca2a28"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 2601,
+		"balanceAfter": 2596,
+		"at": "2026-11-05T02:09:30.365Z"
+	},
+	{
+		"item": "U10-slash-up",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"f4e28428-4bdd-4ffb-805b-75b0d2ca8ae4"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 2596,
+		"balanceAfter": 2591,
+		"at": "2026-11-05T02:26:52.848Z"
+	},
+	{
+		"item": "U10-cast-up",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"3d7d8890-c4a0-4480-9064-0df7fe026319"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 2591,
+		"balanceAfter": 2586,
+		"at": "2026-11-05T02:27:29.105Z"
+	},
+	{
+		"item": "U10-thrust-up",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"23e4628c-5684-4f94-a89b-c86af137d657"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 2586,
+		"balanceAfter": 2581,
+		"at": "2026-11-05T02:28:22.340Z"
+	},
+	{
+		"item": "U10-shoot-up",
+		"tool": "inpaint_image_pro_flash",
+		"characterId": "",
+		"jobIds": [
+			"a189c711-dc9d-4bad-a419-0ab7b698f1e6"
+		],
+		"estimate": 5,
+		"actual": 5,
+		"balanceBefore": 2581,
+		"balanceAfter": 2576,
+		"at": "2026-11-05T02:28:57.982Z"
 	}
 ]

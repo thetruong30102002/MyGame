@@ -14,7 +14,7 @@ namespace HavenLord.Client
         private LayeredCharacterDef def;
         private LayeredBody body;
         private LayeredHead head;
-        private SpriteRenderer weaponBack, hairLongBack, hairBack, bodyR, hairLongFront, headR, front, weapon, hand;
+        private SpriteRenderer weaponBack, hairLongBack, hairBack, bodyR, weaponMid, hairLongFront, headR, front, weapon, hand;
         private LayeredClip clip;
         private Dir8 clipDir;
         private bool loop = true;
@@ -57,15 +57,18 @@ namespace HavenLord.Client
             head = Fitting(d.Head(headId));
             if (bodyR == null)
             {
-                weaponBack = Layer("weapon-back", 0);
-                hairLongBack = Layer("hair-long-back", 1);
-                hairBack = Layer("hair-back", 2);
+                // Vũ khí sau thân vẫn ngoài tóc (chủ dự án 05/11): tóc dài / tóc sau dưới, vũ khí trên, thân đè lên.
+                hairLongBack = Layer("hair-long-back", 0);
+                hairBack = Layer("hair-back", 1);
+                weaponBack = Layer("weapon-back", 2);
                 bodyR = Layer("body", 3);
-                hairLongFront = Layer("hair-long-front", 4);
-                headR = Layer("head", 5);
-                front = Layer("arm-front", 6);
-                weapon = Layer("weapon", 7);
-                hand = Layer("hand", 8);
+                // Phần vũ khí đeo lưng nằm phía người xem (khuôn cỡ NPC): trên thân, dưới tóc / đầu.
+                weaponMid = Layer("weapon-mid", 4);
+                hairLongFront = Layer("hair-long-front", 5);
+                headR = Layer("head", 6);
+                front = Layer("arm-front", 7);
+                weapon = Layer("weapon", 8);
+                hand = Layer("hand", 9);
             }
             clip = null;
             Play("idle", Dir8.S);
@@ -79,11 +82,11 @@ namespace HavenLord.Client
             if (f >= 0) Apply(f);
         }
 
-        /// <summary>Đầu khác giới với thân thì không đội (null) — mỗi tộc có đầu nam / nữ riêng.</summary>
+        /// <summary>Đầu khác giới hoặc khác khuôn với thân thì không đội (null) — mỗi tộc có đầu nam / nữ riêng; đầu cỡ NPC chỉ đội thân cỡ NPC.</summary>
         private LayeredHead Fitting(LayeredHead h)
         {
             if (h == null || LayeredCharacterDef.Fits(body, h)) return h;
-            Debug.LogError($"[layered] đầu {h.id} ({h.gender}) không đội được thân {body?.id} ({body?.gender}) — đầu theo giới");
+            Debug.LogError($"[layered] đầu {h.id} ({h.gender}/{h.mould}) không đội được thân {body?.id} ({body?.gender}/{body?.mould}) — đầu theo giới và khuôn");
             return null;
         }
 
@@ -164,6 +167,7 @@ namespace HavenLord.Client
             hand.sprite = fr.hand;
             weapon.sprite = fr.weaponBehind ? null : fr.weapon;
             weaponBack.sprite = fr.weaponBehind ? fr.weapon : null;
+            weaponMid.sprite = fr.weaponMid;
             var (h, hb, neck, hf) = HeadFor(fr, f);
             headR.sprite = h;
             hairBack.sprite = hb;

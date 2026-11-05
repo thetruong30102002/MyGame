@@ -1,0 +1,19 @@
+{
+  "referenceBounds": [
+    21,
+    2,
+    53,
+    75
+  ],
+  "pilotBounds": [
+    21,
+    2,
+    55,
+    75
+  ],
+  "referenceHeight": 73,
+  "pilotHeight": 73,
+  "upperHeadPixelIdentical": false,
+  "artApproved": false,
+  "scope": "one standing outfit edit only; no runtime avatar composition or animation"
+}

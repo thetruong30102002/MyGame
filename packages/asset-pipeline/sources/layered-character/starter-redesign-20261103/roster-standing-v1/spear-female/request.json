@@ -1,0 +1,11 @@
+{
+  "description": "Change ONLY outfit: burgundy split warcoat to mid-thigh, modest steel collar and narrow shoulder guards, leather belt, long bracers, charcoal trousers, knee guards and boots. Feminine athletic build, slightly fuller limbs and hips, modest fitted waist; not bulky. Fully covered arms/legs, gloves; no skin gaps. Keep exact head, hair, face, height, feet, pose and crisp pixel clusters. Clear cloth seams, leather edges, steel highlights. No weapons, glow, crown.",
+  "image_base64": "<packages/asset-pipeline/sources/pixellab/npc_silver_youth_f/Idle/rotations/south.png>",
+  "width": 80,
+  "height": 80,
+  "no_background": true,
+  "seed": 73205,
+  "referenceSha256": "b6c230ecc4d535349eab176623f5c970ced17e961698f9eaeef60c993a01d892",
+  "previewOnly": true,
+  "artApproved": false
+}

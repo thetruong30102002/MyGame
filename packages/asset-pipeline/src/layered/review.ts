@@ -25,6 +25,8 @@ export interface ReviewFrame {
 	handFront?: RGBAImage | null;
 	/** Vũ khí vẽ dưới cùng (sau tóc sau / thân / đầu) — kiếm thủ trên vai ngả ra sau. */
 	weaponBehind?: boolean;
+	/** Vũ khí trên thân, DƯỚI đầu (phần vũ khí đeo lưng phía người xem — tóc che). */
+	weaponMid?: RGBAImage | null;
 	neck: Point;
 	durationMs: number;
 	/** Ghi chú QA hiện dưới khung (vd "Q2: 1 pixel sót"). */
@@ -79,13 +81,13 @@ export function writeReview(bundle: ReviewBundle, outDir: string, std: Pick<Laye
 				long = `${frameDir}/${ci}-${fi}-hairlong.png`;
 				writePng(join(outDir, long), f.hairLong);
 			}
-			const extra = (key: 'bodyFront' | 'weapon' | 'handFront', img?: RGBAImage | null): string | null => {
+			const extra = (key: 'bodyFront' | 'weapon' | 'handFront' | 'weaponMid', img?: RGBAImage | null): string | null => {
 				if (!img) return null;
 				const path = `${frameDir}/${ci}-${fi}-${key.toLowerCase()}.png`;
 				writePng(join(outDir, path), img);
 				return path;
 			};
-			return { body, head, back, ...(long ? { long, la: f.hairLongAnchor ?? std.head.neckAnchor, ...(f.hairLongFront ? { lf: true } : {}) } : {}), front: extra('bodyFront', f.bodyFront), weapon: extra('weapon', f.weapon), hand: extra('handFront', f.handFront), ...(f.weaponBehind ? { wb: true } : {}), neck: f.neck, ms: f.durationMs, issues: f.issues ?? [] };
+			return { body, head, back, ...(long ? { long, la: f.hairLongAnchor ?? std.head.neckAnchor, ...(f.hairLongFront ? { lf: true } : {}) } : {}), front: extra('bodyFront', f.bodyFront), weapon: extra('weapon', f.weapon), hand: extra('handFront', f.handFront), ...(f.weaponBehind ? { wb: true } : {}), ...(f.weaponMid ? { wm: extra('weaponMid', f.weaponMid) } : {}), neck: f.neck, ms: f.durationMs, issues: f.issues ?? [] };
 		}),
 	}));
 	let reference: { label: string; src: string } | null = null;
@@ -147,11 +149,12 @@ async function paint(ctx,f,z){const c=D.cell;ctx.imageSmoothingEnabled=false;ctx
  else if(S.bg==='check'||(S.bg==='map'&&!D.map)){for(let y=0;y<c.height;y+=8)for(let x=0;x<c.width;x+=8){ctx.fillStyle=((x+y)/8)%2?'#bbb':'#888';ctx.fillRect(x*z,y*z,8*z,8*z);}}
  else{ctx.fillStyle=bgs[S.bg];ctx.fillRect(0,0,c.width*z,c.height*z);}
  const at=f.neck?[f.neck[0]-D.head.neckAnchor[0],f.neck[1]-D.head.neckAnchor[1]]:[0,0];
- if(S.weapon&&f.weapon&&f.wb)ctx.drawImage(await load(f.weapon),0,0,c.width*z,c.height*z);
  const al=f.long?[f.neck[0]-f.la[0],f.neck[1]-f.la[1]]:at;
  if(S.head&&f.long&&!f.lf){const h=await load(f.long);ctx.drawImage(h,al[0]*z,al[1]*z,h.width*z,h.height*z);}
  if(S.head&&f.back){const h=await load(f.back);ctx.drawImage(h,at[0]*z,at[1]*z,h.width*z,h.height*z);}
+ if(S.weapon&&f.weapon&&f.wb)ctx.drawImage(await load(f.weapon),0,0,c.width*z,c.height*z);
  if(S.body)ctx.drawImage(await load(f.body),0,0,c.width*z,c.height*z);
+ if(S.weapon&&f.wm)ctx.drawImage(await load(f.wm),0,0,c.width*z,c.height*z);
  if(S.head&&f.long&&f.lf){const h=await load(f.long);ctx.drawImage(h,al[0]*z,al[1]*z,h.width*z,h.height*z);}
  if(S.head&&f.head){const h=await load(f.head),ox=f.neck[0]-D.head.neckAnchor[0],oy=f.neck[1]-D.head.neckAnchor[1];ctx.drawImage(h,ox*z,oy*z,h.width*z,h.height*z);}
  if(S.body&&f.front)ctx.drawImage(await load(f.front),0,0,c.width*z,c.height*z);

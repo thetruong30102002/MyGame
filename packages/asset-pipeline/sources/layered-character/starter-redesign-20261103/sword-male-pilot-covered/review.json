@@ -1,0 +1,20 @@
+{
+  "artApproved": false,
+  "frames": 1,
+  "nativeSize": [
+    80,
+    80
+  ],
+  "nativeBounds": [
+    21,
+    2,
+    55,
+    75
+  ],
+  "nativeHeight": 73,
+  "bodyRescaled": false,
+  "headOverpaint": false,
+  "sleevesCovered": true,
+  "gameBuilt": false,
+  "note": "Standing design pilot only, NPC identity in source preserved for design comparison; head removal/actual avatar composition and animation still pending."
+}

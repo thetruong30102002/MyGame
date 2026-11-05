@@ -1,0 +1,12 @@
+{
+  "description": "Change ONLY the small exposed skin patches on both arms into dark navy cloth sleeves reaching the brown gloves, so no arm skin is visible. Keep the exact same swordsman outfit, steel shoulder guards and chest plate, leather straps, trousers, boots, body width, 73px height, pose, head, face, hair and original crisp pixel style. No other changes; no weapons.",
+  "image_base64": "<packages/asset-pipeline/sources/layered-character/starter-redesign-20261103/sword-male-pilot/sword-male-S.png>",
+  "width": 80,
+  "height": 80,
+  "no_background": true,
+  "seed": 73171,
+  "referenceSha256": "6c8abc575104e94c2fbed78e5d4ca1e692903817bd15acee42261c4a2fcbbabd",
+  "previewOnly": true,
+  "artApproved": false,
+  "note": "NPC head retained ONLY in full visual design reference; never overlay another head or export this as a body layer. Head removal required before any runtime avatar composition. Attack paused; no animations requested."
+}

@@ -1,0 +1,4 @@
+{
+  "jobId": "3d2c4d95-b212-45b9-99a7-91f8ef8ccdad",
+  "receipt": "id: 3d2c4d95-b212-45b9-99a7-91f8ef8ccdad\njob_id: 3d2c4d95-b212-45b9-99a7-91f8ef8ccdad\ndescription: Slim bald young man, fitted brown leather vest, ivory long sleeves, brown gloves, narrow brown trousers and boots. Empty closed fists. Same crisp pixel art, anatomy and short neck as reference.\naction: one-handed diagonal cut key poses\nframes: 3\nsize: 128x128px\ntransparent: True\ncost: 2 generations\nstatus: processing (~4 min)\n\nhint: get_image(job_id=\"3d2c4d95-b212-45b9-99a7-91f8ef8ccdad\")\nwithout get_image: GET https://api.pixellab.ai/mcp/images/3d2c4d95-b212-45b9-99a7-91f8ef8ccdad/download (423 + Retry-After until ready; ?index=N for the Nth of several images)\nasset_id: b0c19b89-6a23-5a74-918e-c3778b915e52\nasset_status: pending (saved to your gallery when generation completes)"
+}

@@ -1,0 +1,22 @@
+{
+  "artApproved": false,
+  "status": "three-keyposes-for-user-review",
+  "userCorrection": "Nâng tay lên trên vai; khuỷu hướng về trước, không bè ngang hoặc vòng rộng sang bên.",
+  "changes": [
+    "Right elbow IK pole changed from lateral to forward.",
+    "Raised fist moved over weapon shoulder; sword axis nearly vertical.",
+    "Strike and finish use same forward elbow bend plane.",
+    "PixelLab redrew all three body keyposes; no image warping."
+  ],
+  "checks": [
+    "geometry-check.json: raised elbow within 3 native pixels of shoulder x; fist above elbow above shoulder.",
+    "Native raw, composited and headless body contact sheets visually inspected.",
+    "Preview and assets return HTTP 200 on Tailscale."
+  ],
+  "limitations": [
+    "Three key poses only, no in-between attack animation yet.",
+    "North view naturally occludes weapon hand during cross-body phases; final readability still needs user review."
+  ],
+  "gameBuilt": false,
+  "idleAndMovementModified": false
+}

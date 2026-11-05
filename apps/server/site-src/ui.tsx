@@ -5,9 +5,11 @@ export function UiIcon({name,className=''}:{name:string;className?:string}){cons
 export function Brand({href='./',admin=false}:{href?:string;admin?:boolean}){return <a href={href} className="ac-brand"><svg aria-hidden="true" viewBox="0 0 32 32"><path fill="currentColor" d="M12 2h8v4h4v8h4v16h-8v-8h-8v8H4V14h4V6h4zm0 12v4h8v-4h-4v-4h-4z"/></svg><span>HAVEN<small>{admin?'LORD / QUẢN TRỊ':'LORD'}</small></span></a>;}
 export function AccountMenu({username,admin,onLogout}:{username:string;admin:boolean;onLogout:()=>void}){return <Dropdown.Root><Dropdown.Trigger className="ac-user-button"><span className="ac-avatar">{username.slice(0,1).toUpperCase()}</span><span>{username}</span><UiIcon name="chevron"/></Dropdown.Trigger><Dropdown.Portal><Dropdown.Content className="ac-dropdown" align="end" sideOffset={12} collisionPadding={12}><Dropdown.Label className="ac-dropdown-label">TÀI KHOẢN / {username}</Dropdown.Label><Dropdown.Item asChild><a href="./"><UiIcon name="home"/>Cổng game</a></Dropdown.Item><Dropdown.Item asChild><a href="gop-y"><UiIcon name="chat"/>Góp ý của tôi</a></Dropdown.Item><Dropdown.Item asChild><a href="dien-dan#viet"><UiIcon name="forum"/>Viết bài</a></Dropdown.Item>{admin&&<Dropdown.Item asChild><a href="admin#plan"><UiIcon name="plan"/>Trang quản trị</a></Dropdown.Item>}<Dropdown.Separator className="ac-dropdown-separator"/><Dropdown.Item onSelect={onLogout} className="ac-logout"><UiIcon name="logout"/>Đăng xuất</Dropdown.Item></Dropdown.Content></Dropdown.Portal></Dropdown.Root>;}
 export const roleArt=[
- {id:'sword',name:'Kiếm sĩ',model:'player_verdant_sword',character:'Lục Phong',line:'Một đường kiếm. Một quyết định.'},
- {id:'staff',name:'Pháp sư',model:'player_staff_m01',character:'Tinh Vân',line:'Đánh thức sức mạnh bên trong.'},
- {id:'bow',name:'Cung thủ',model:'player_bow_f01',character:'Hoa Tiễn',line:'Khoảng cách là lợi thế.'},
- {id:'spear',name:'Thương sĩ',model:'player_spear_f01',character:'Lam Thương',line:'Mở lối bằng một mũi thương.'},
- {id:'shield',name:'Vệ sĩ',model:'player_shield_m01',character:'Thiết Vệ',line:'Đứng vững để đồng đội tiến lên.'},
+ {id:'sword',name:'Kiếm sĩ',model:'player_npc_human1_sword_m',character:'Lục Phong',line:'Một đường kiếm. Một quyết định.'},
+ {id:'staff',name:'Pháp sư',model:'player_npc_elf2_staff_f',character:'Tinh Vân',line:'Đánh thức sức mạnh bên trong.'},
+ {id:'bow',name:'Cung thủ',model:'player_npc_beast1_bow_f',character:'Hoa Tiễn',line:'Khoảng cách là lợi thế.'},
+ {id:'spear',name:'Thương sĩ',model:'player_npc_dragon1_spear_m',character:'Lam Thương',line:'Mở lối bằng một mũi thương.'},
+ {id:'shield',name:'Vệ sĩ',model:'player_npc_demon1_shield_m',character:'Thiết Vệ',line:'Đứng vững để đồng đội tiến lên.'},
 ];
+/** Ảnh đứng nhìn trước của mẫu cỡ NPC (cắt từ atlas game — `scripts/export-site-npc-roster.mts`). */
+export const roleImage=(model:string)=>'site/media/roster-npc/'+model+'/S.webp';
