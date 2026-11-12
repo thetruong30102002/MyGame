@@ -477,11 +477,13 @@ namespace HavenLord.Client
                 var w = Mathf.Min(wall.width, x1 - x);
                 HousePiece(parent, wall, new Rect(0, 0, w, wall.height), x, 134 - wall.height, -158);
             }
-            if (map.def.id == "house" && stairs != null)
+            // Cầu thang của nhà đứng đúng chỗ cầu thang gỗ có sẵn (giữa tường phải phòng khách, chân cầu thang = chân đồ gốc).
+            var wood = map.transform.Find("Props")?.Cast<Transform>().FirstOrDefault(c => c.name.StartsWith("gv_cau_thang_go", StringComparison.Ordinal));
+            if (map.def.id == "house" && stairs != null && wood != null)
             {
-                var sr = HousePiece(parent, stairs, new Rect(0, 0, stairs.width, stairs.height), 548 - stairs.width / 2f, 134 - stairs.height, 0);
+                var sr = HousePiece(parent, stairs, new Rect(0, 0, stairs.width, stairs.height), 0, 0, 0);
                 sr.sprite = Sprite.Create(stairs, new Rect(0, 0, stairs.width, stairs.height), new Vector2(.5f, 0), WorldCoords.PixelsPerUnit, 0, SpriteMeshType.FullRect);
-                sr.transform.localPosition = WorldCoords.PxToWorld(548, 134);sr.spriteSortPoint = SpriteSortPoint.Pivot;sr.sortingOrder = 0;
+                sr.transform.position = wood.position;sr.spriteSortPoint = SpriteSortPoint.Pivot;sr.sortingOrder = 0;
             }
         }
 

@@ -100,13 +100,15 @@ const put=(r:Room,id:string,fx:number,fy:number)=>r.props.push(p(id,X(fx),Y(fy))
 const flat=(r:Room,id:string,fx:number,fy:number)=>r.decals.push(p(id,X(fx),Y(fy)+meta[id]!.h));
 const hang=(r:Room,id:string,fx:number)=>r.decals.push(p(id,X(fx),4+meta[id]!.h));
 
-// Phòng khách 18×9: lối ra vườn cạnh dưới, cửa trái sang bếp, cầu thang góc phải lên tầng.
+// Phòng khách 18×9: lối ra vườn cạnh dưới, cửa trái sang bếp, cầu thang giữa tường phải lên tầng (chủ dự án 12/11: "cầu thang nên cho ra
+// giữa bên phải sát vào tường thay vì cho vào góc"); bộ sofa + bàn trà + thảm ra giữa phòng ("ghế … nên xếp gần bàn trà chứ giữa trống quá").
 const lv=makeRoom('house','Phòng khách',18,9,woodFloor(18*T,9*T,[176,124,78]),[['dot-2','tuong_thach_cao'],['dot-3','tuong_thach_cao_cua_so']],{bottom:true,left:true});
-onWall(lv,'gv_dong_ho_dung',36);onWall(lv,'home_bookshelf',98);onWall(lv,'home_fireplace',178);onWall(lv,'gv_ghe_dai',296);onWall(lv,'gv_ke_trung_bay',404);onWall(lv,'gv_cau_thang_go',516);
-flat(lv,'gv_tham_lon',296,20);put(lv,'gv_ban_tra',296,64);put(lv,'home_potted_plant',40,280);put(lv,'home_potted_plant',536,280);hang(lv,'gv_den_chum_go',296);
-lv.spots.push({id:'door_garden',name:'Ra khuôn viên',x:X(288),y:Y(272),r:70},{id:'door_kitchen',name:'Sang bếp',x:X(16),y:Y(160),r:70},{id:'stairs_up',name:'Lên phòng ngủ',x:X(516),y:Y(30),r:80},
- {id:'from_garden',name:'Cửa vào',x:X(288),y:Y(236),r:40},{id:'from_kitchen',name:'Cửa bếp',x:X(48),y:Y(160),r:40},{id:'from_bedroom',name:'Chân cầu thang',x:X(470),y:Y(50),r:40});
-lv.spots.push({id:'steward',name:'Quản gia',x:X(200),y:Y(150),r:80});
+onWall(lv,'gv_dong_ho_dung',36);onWall(lv,'home_bookshelf',98);onWall(lv,'home_fireplace',178);onWall(lv,'gv_ke_trung_bay',296);onWall(lv,'gv_chau_cay_lon',404);
+const stW=meta['gv_cau_thang_go']!.w,stX=576-stW/2-2;put(lv,'gv_cau_thang_go',stX,176);
+flat(lv,'gv_tham_lon',296,190-meta['gv_tham_lon']!.h);put(lv,'gv_ghe_dai',296,142);put(lv,'gv_ban_tra',296,178);put(lv,'home_potted_plant',40,280);put(lv,'home_potted_plant',536,280);hang(lv,'gv_den_chum_go',296);
+lv.spots.push({id:'door_garden',name:'Ra khuôn viên',x:X(288),y:Y(272),r:70},{id:'door_kitchen',name:'Sang bếp',x:X(16),y:Y(160),r:70},{id:'stairs_up',name:'Lên phòng ngủ',x:X(576-stW-4),y:Y(160),r:80},
+ {id:'from_garden',name:'Cửa vào',x:X(288),y:Y(236),r:40},{id:'from_kitchen',name:'Cửa bếp',x:X(48),y:Y(160),r:40},{id:'from_bedroom',name:'Chân cầu thang',x:X(576-stW-34),y:Y(190),r:40});
+lv.spots.push({id:'steward',name:'Quản gia',x:X(120),y:Y(170),r:80});
 lv.spawn={x:X(288),y:Y(236)};
 // Bếp 14×9: cửa phải về phòng khách; điểm nấu ăn.
 const kt=makeRoom('kitchen','Bếp',14,9,flagFloor(14*T,9*T,[168,150,128]),[['dot-3','tuong_bep_gach']],{right:true});

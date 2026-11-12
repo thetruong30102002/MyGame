@@ -106,7 +106,7 @@ namespace HavenLord.Client
             if (game.Map?.id != "house") { Fail("Không vào được phòng khách"); yield break; }
             yield return Shot("farm-5-phong-khach");
             // Nhà 3 phòng, mỗi phòng một map: sang bếp (cửa trái), về, lên phòng ngủ (cầu thang góc phải), đổi đồ ở tủ.
-            foreach (var (room, walkX, walkY, backX, backY) in new[] { ("kitchen", 60f, 288f, 450f, 288f), ("bedroom", 548f, 170f, 416f, 350f) })
+            foreach (var (room, walkX, walkY, backX, backY) in new[] { ("kitchen", 60f, 288f, 450f, 288f), ("bedroom", 500f, 290f, 416f, 350f) })
             {
                 yield return FarmWalk(game, walkX, walkY);game.FarmSend("go", room: room);
                 for (var i = 0; i < 100 && game.Map?.id != room; i++) yield return new WaitForSeconds(.1f);
