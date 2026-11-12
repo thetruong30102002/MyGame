@@ -1,0 +1,13 @@
+{
+	"description": "A sprite sheet of SIXTEEN separate game menu icons arranged in a 4x4 grid, each centered in its own 48x48 cell with empty space around it. Row 1: a brown leather backpack with buckles; a hero portrait bust of a young adventurer with a red scarf, no hat; two friendly figures side by side (friends); a rolled parchment world map with a red dot. Row 2: an open quest journal with a feather quill; a merchant coin pouch with gold coins (shop); a cozy cottage with a red roof and chimney smoke (home); a bronze cog gear (settings). Row 3: a sealed letter envelope with a red wax seal (mail); a golden trophy cup (achievements); two crossed swords over a round shield (skills); a guild banner flag on a pole. Row 4: a calendar page with a gold star (events); a speech bubble (chat); a paw print on a round badge (pets); a horn speaker with sound waves (sound). Chunky pixel art icons, thick dark outline, warm saturated colours, soft cel shading, same style and size as the reference icons. Plain flat solid bright magenta (#FF00FF) chroma-key background. No text, no letters, no frames.",
+	"width": 192,
+	"height": 192,
+	"no_background": false,
+	"style_image": {
+		"path": "C:/Users/thetr/AppData/Local/Temp/claude/D--truong-MyGame/cdb7ca6c-1ebf-4310-bffa-5ab719a0121e/scratchpad/ui_icon_style.png",
+		"usage_description": "Match the icon style, outline and shading of these game UI icons."
+	},
+	"jobId": "3c941d89-66d8-44b6-a3a9-1c0bc35aea12",
+	"token": 0,
+	"createdAt": "2026-11-12T15:31:41.615Z"
+}

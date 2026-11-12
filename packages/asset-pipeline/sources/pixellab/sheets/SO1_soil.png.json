@@ -1,0 +1,13 @@
+{
+	"description": "A 2x2 sprite sheet of FOUR square top-down farmland ground tiles, each exactly 32x32 pixels, no gaps between them. Top left: untilled plot of packed brown earth, smooth with a few tiny pebbles. Top right: freshly tilled brown soil with three horizontal raised furrow rows and dark grooves between them. Bottom left: the same tilled soil freshly watered, darker wet brown furrows with a few small shiny water glints. Bottom right: green grass with a small wooden stake in the middle tied with a short rope, marking a plot for sale. Each tile fills its whole square edge to edge and tiles seamlessly with copies of itself (the three soil tiles also join each other). Flat straight-down view, same chunky pixel blocks, warm earthy palette and soft shading as the reference ground. No border frame, no text, no characters.",
+	"width": 64,
+	"height": 64,
+	"no_background": false,
+	"style_image": {
+		"path": "C:/Users/thetr/AppData/Local/Temp/claude/D--truong-MyGame/cdb7ca6c-1ebf-4310-bffa-5ab719a0121e/scratchpad/soil_style.png",
+		"usage_description": "Match the grass and dirt path colours and pixel style of this game ground."
+	},
+	"jobId": "d8d92634-b15f-46c7-95c2-aea49e21c8d5",
+	"token": 0,
+	"createdAt": "2026-11-12T15:06:22.966Z"
+}

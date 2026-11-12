@@ -1,0 +1,13 @@
+{
+	"description": "A sprite sheet of separate game UI ornament pieces for a warm wooden fantasy RPG interface, each piece separated by empty space. Top left: the LEFT end cap of a title ribbon bar, a curled scroll end of brown leather with a thin gold trim and two small gold rivets, about 40x56 pixels, its flat right edge ready to join a horizontal bar. Top middle: a square gold filigree corner ornament, about 40x40, an L-shaped curl of gold leaves for the top-left corner of a window frame. Top right: a round bronze crest emblem with a small blue crystal in the centre and short wings, about 72x48, to sit at the middle of a skill bar. Bottom: the LEFT side wing of a skill hotbar frame, a long ornate bronze and dark iron metal wing sweeping outward with engraved feather shapes and gold edges, about 120x56, its flat right edge ready to join the bar. Chunky pixel art, thick dark outline, warm brown, bronze and gold palette, soft cel shading, same pixel style as the reference frame. Plain flat solid bright magenta (#FF00FF) chroma-key background. No text, no letters, no characters.",
+	"width": 256,
+	"height": 128,
+	"no_background": false,
+	"style_image": {
+		"path": "C:/Users/thetr/AppData/Local/Temp/claude/D--truong-MyGame/cdb7ca6c-1ebf-4310-bffa-5ab719a0121e/scratchpad/ui_frame_style.png",
+		"usage_description": "Match the pixel style, outline and gold-wood palette of this game UI frame."
+	},
+	"jobId": "bd53e506-3538-46dd-907e-3c229d2cc743",
+	"token": 0,
+	"createdAt": "2026-11-12T15:32:56.546Z"
+}
