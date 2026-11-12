@@ -118,7 +118,7 @@ export class Farm {
     if(op==='cook'||op==='eat'){
      const [base,qq]=String(raw.item||'').split('@');const q=(qq??'perfect') as CookQuality;const d=FARM_DISHES.find(x=>x.id===base);if(!d||!COOK_QUALITY[q])throw new Error('Không có món này');
      if(op==='eat'){const key=String(raw.item);if(!((s.inventory[key]??0)>0))throw new Error('Kho không có món này');if(q==='burnt')throw new Error('Món cháy rồi, ăn không được');
-      s.inventory[key]=(s.inventory[key]??0)-1;const k=COOK_QUALITY[q].buff;return{value:null,buff:{kind:d.buff.kind,mult:1+(d.buff.mult-1)*k,ms:d.buff.ms}};}
+      s.inventory[key]=(s.inventory[key]??0)-1;const k=COOK_QUALITY[q].buff;return{value:null,buff:{kind:d.buff.kind,mult:1+(d.buff.mult-1)*k,ms:d.buff.ms}};}// giáp 0,88 × 0,5 → 0,94
      // Nấu: đứng cạnh bếp lò củi đã đặt trong phòng (bày trí dời được), đủ nguyên liệu trong kho.
      const room=roomOf(account,at.map);if(!room||!decorOf(s,room).some(q=>q.id===FARM_STOVE&&near(q.x,q.y)))throw new Error('Hãy tới cạnh bếp lò trong nhà');
      if(s.cooking)throw new Error('Chảo đang có món, hãy nhấc ra trước');

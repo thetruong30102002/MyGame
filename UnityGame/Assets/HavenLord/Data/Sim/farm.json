@@ -225,7 +225,7 @@
 			"scale": 0.6,
 			"pen": "chicken",
 			"max": 8,
-			"price": 60,
+			"price": 300,
 			"feed": 1,
 			"product": "farm_egg",
 			"meat": "meat_chicken",
@@ -239,7 +239,7 @@
 			"scale": 2,
 			"pen": "pasture",
 			"max": 3,
-			"price": 400,
+			"price": 1500,
 			"feed": 2,
 			"product": "farm_milk",
 			"meat": "meat_beef",
@@ -253,7 +253,7 @@
 			"scale": 1.5,
 			"pen": "pasture",
 			"max": 4,
-			"price": 250,
+			"price": 1100,
 			"feed": 2,
 			"product": "farm_wool",
 			"meat": "meat_lamb",
@@ -267,7 +267,7 @@
 			"scale": 1,
 			"pen": "hives",
 			"max": 3,
-			"price": 150,
+			"price": 800,
 			"feed": 0,
 			"product": "farm_honey",
 			"meat": null,
@@ -280,127 +280,127 @@
 			"id": "wheat",
 			"name": "Lúa mì",
 			"ms": 300000,
-			"seed": 5,
-			"sell": 9
+			"seed": 4,
+			"sell": 10
 		},
 		{
 			"id": "carrot",
 			"name": "Cà rốt",
 			"ms": 900000,
 			"seed": 8,
-			"sell": 16
+			"sell": 22
 		},
 		{
 			"id": "potato",
 			"name": "Khoai",
 			"ms": 1800000,
 			"seed": 12,
-			"sell": 26
+			"sell": 36
 		},
 		{
 			"id": "strawberry",
 			"name": "Dâu",
 			"ms": 3600000,
 			"seed": 20,
-			"sell": 45
+			"sell": 60
 		},
 		{
 			"id": "haven_pumpkin",
 			"name": "Bí ngô Haven",
 			"ms": 10800000,
-			"seed": 35,
-			"sell": 85
+			"seed": 40,
+			"sell": 140
 		},
 		{
 			"id": "silver_grass",
 			"name": "Cỏ bạc",
 			"ms": 28800000,
-			"seed": 60,
-			"sell": 150
+			"seed": 70,
+			"sell": 280
 		},
 		{
 			"id": "rice",
 			"name": "Lúa nước",
 			"ms": 1200000,
-			"seed": 10,
-			"sell": 20
+			"seed": 8,
+			"sell": 26
 		},
 		{
 			"id": "corn",
 			"name": "Ngô",
 			"ms": 1500000,
-			"seed": 10,
-			"sell": 22
+			"seed": 9,
+			"sell": 30
 		},
 		{
 			"id": "tomato",
 			"name": "Cà chua",
 			"ms": 2400000,
-			"seed": 15,
-			"sell": 34
+			"seed": 14,
+			"sell": 44
 		},
 		{
 			"id": "watermelon",
 			"name": "Dưa hấu",
 			"ms": 7200000,
 			"seed": 30,
-			"sell": 75
+			"sell": 110
 		},
 		{
 			"id": "grape",
 			"name": "Nho",
 			"ms": 5400000,
-			"seed": 25,
-			"sell": 60
+			"seed": 24,
+			"sell": 84
 		},
 		{
 			"id": "chili",
 			"name": "Ớt",
 			"ms": 2700000,
-			"seed": 15,
-			"sell": 36
+			"seed": 14,
+			"sell": 46
 		},
 		{
 			"id": "tea",
 			"name": "Chè",
 			"ms": 7200000,
-			"seed": 28,
-			"sell": 70
+			"seed": 32,
+			"sell": 112
 		},
 		{
 			"id": "sunflower",
 			"name": "Hướng dương",
 			"ms": 3000000,
-			"seed": 18,
-			"sell": 42
+			"seed": 16,
+			"sell": 52
 		},
 		{
 			"id": "glowcap",
 			"name": "Nấm sáng",
 			"ms": 10800000,
-			"seed": 40,
-			"sell": 100
+			"seed": 45,
+			"sell": 160
 		},
 		{
 			"id": "moonflower",
 			"name": "Hoa trăng",
 			"ms": 14400000,
-			"seed": 50,
-			"sell": 130
+			"seed": 60,
+			"sell": 220
 		},
 		{
 			"id": "starfruit",
 			"name": "Quả sao",
 			"ms": 21600000,
-			"seed": 70,
-			"sell": 180
+			"seed": 90,
+			"sell": 340
 		},
 		{
 			"id": "golden_wheat",
 			"name": "Lúa vàng",
 			"ms": 36000000,
-			"seed": 120,
-			"sell": 320
+			"seed": 150,
+			"sell": 600
 		}
 	],
 	"FARM_DISHES": [
@@ -414,7 +414,7 @@
 			},
 			"buff": {
 				"kind": "guard",
-				"mult": 1.1,
+				"mult": 0.9,
 				"ms": 900000
 			},
 			"sell": 40
@@ -459,7 +459,7 @@
 			},
 			"buff": {
 				"kind": "guard",
-				"mult": 1.12,
+				"mult": 0.88,
 				"ms": 1200000
 			},
 			"sell": 140
@@ -504,7 +504,7 @@
 			},
 			"buff": {
 				"kind": "guard",
-				"mult": 1.15,
+				"mult": 0.85,
 				"ms": 1200000
 			},
 			"sell": 130
@@ -534,85 +534,245 @@
 			"id": "crucian",
 			"name": "Cá diếc",
 			"weight": 30,
-			"sell": 7,
-			"night": false
+			"sell": 8,
+			"night": false,
+			"rare": false
 		},
 		{
 			"id": "carp",
 			"name": "Cá chép",
 			"weight": 23,
-			"sell": 10,
-			"night": false
+			"sell": 12,
+			"night": false,
+			"rare": false
 		},
 		{
 			"id": "perch",
 			"name": "Cá rô",
 			"weight": 20,
-			"sell": 9,
-			"night": false
+			"sell": 11,
+			"night": false,
+			"rare": false
 		},
 		{
 			"id": "eel",
 			"name": "Lươn đồng",
 			"weight": 12,
-			"sell": 15,
-			"night": false
+			"sell": 20,
+			"night": false,
+			"rare": false
 		},
 		{
 			"id": "prawn",
 			"name": "Tôm càng",
 			"weight": 10,
-			"sell": 18,
-			"night": false
+			"sell": 22,
+			"night": false,
+			"rare": false
 		},
 		{
 			"id": "golden_carp",
 			"name": "Cá chép vàng",
 			"weight": 3,
-			"sell": 70,
-			"night": false
+			"sell": 150,
+			"night": false,
+			"rare": false
 		},
 		{
 			"id": "night_catfish",
 			"name": "Cá trê đêm",
 			"weight": 14,
-			"sell": 23,
-			"night": true
+			"sell": 30,
+			"night": true,
+			"rare": false
 		},
 		{
 			"id": "haven",
 			"name": "Cá Haven",
 			"weight": 2,
-			"sell": 100,
-			"night": false
+			"sell": 250,
+			"night": false,
+			"rare": false
+		},
+		{
+			"id": "lantern",
+			"name": "Cá đèn lồng đầm lầy",
+			"weight": 0,
+			"sell": 20000,
+			"night": false,
+			"rare": true
+		},
+		{
+			"id": "swamp_pike",
+			"name": "Cá chó độc tím",
+			"weight": 0,
+			"sell": 20000,
+			"night": false,
+			"rare": true
+		},
+		{
+			"id": "oasis_carp",
+			"name": "Chép vàng ốc đảo",
+			"weight": 0,
+			"sell": 20000,
+			"night": false,
+			"rare": true
+		},
+		{
+			"id": "oasis_jewel",
+			"name": "Cá ngọc lam ốc đảo",
+			"weight": 0,
+			"sell": 20000,
+			"night": false,
+			"rare": true
+		},
+		{
+			"id": "feather_trout",
+			"name": "Cá hồi cánh lông",
+			"weight": 0,
+			"sell": 20000,
+			"night": false,
+			"rare": true
+		},
+		{
+			"id": "cloud_koi",
+			"name": "Cá koi mây",
+			"weight": 0,
+			"sell": 20000,
+			"night": false,
+			"rare": true
+		},
+		{
+			"id": "crystal_salmon",
+			"name": "Cá hồi pha lê",
+			"weight": 0,
+			"sell": 20000,
+			"night": false,
+			"rare": true
+		},
+		{
+			"id": "frost_pike",
+			"name": "Cá chó băng",
+			"weight": 0,
+			"sell": 20000,
+			"night": false,
+			"rare": true
+		},
+		{
+			"id": "magma",
+			"name": "Cá dung nham",
+			"weight": 0,
+			"sell": 20000,
+			"night": false,
+			"rare": true
+		},
+		{
+			"id": "ember_betta",
+			"name": "Cá betta lửa",
+			"weight": 0,
+			"sell": 20000,
+			"night": false,
+			"rare": true
+		},
+		{
+			"id": "rainbow_parrot",
+			"name": "Cá vẹt cầu vồng",
+			"weight": 0,
+			"sell": 20000,
+			"night": false,
+			"rare": true
+		},
+		{
+			"id": "pearl_seahorse",
+			"name": "Cá ngựa ngọc trai",
+			"weight": 0,
+			"sell": 20000,
+			"night": false,
+			"rare": true
+		},
+		{
+			"id": "moon_carp",
+			"name": "Cá chép trăng bạc",
+			"weight": 0,
+			"sell": 20000,
+			"night": false,
+			"rare": true
+		},
+		{
+			"id": "cave_glow",
+			"name": "Cá hang đốm sáng",
+			"weight": 0,
+			"sell": 20000,
+			"night": false,
+			"rare": true
+		},
+		{
+			"id": "dragon_koi",
+			"name": "Cá koi rồng Haven",
+			"weight": 0,
+			"sell": 20000,
+			"night": false,
+			"rare": true
+		},
+		{
+			"id": "rune_arowana",
+			"name": "Cá rồng cổ khắc rune",
+			"weight": 0,
+			"sell": 20000,
+			"night": false,
+			"rare": true
 		}
 	],
 	"FARM_FRUIT": [
 		{
 			"id": "apple",
 			"name": "Táo",
-			"sapling": 80,
-			"growMs": 3600000,
-			"fruitMs": 1800000,
-			"sell": 25
+			"sapling": 400,
+			"growMs": 7200000,
+			"fruitMs": 3600000,
+			"sell": 15
 		},
 		{
 			"id": "orange",
 			"name": "Cam",
-			"sapling": 90,
-			"growMs": 4500000,
-			"fruitMs": 2100000,
-			"sell": 28
+			"sapling": 450,
+			"growMs": 9000000,
+			"fruitMs": 3600000,
+			"sell": 18
 		},
 		{
 			"id": "peach",
 			"name": "Đào Haven",
-			"sapling": 150,
-			"growMs": 7200000,
-			"fruitMs": 3600000,
-			"sell": 55
+			"sapling": 800,
+			"growMs": 14400000,
+			"fruitMs": 7200000,
+			"sell": 35
 		}
 	],
+	"FARM_FURNITURE_PRICE": {
+		"small": 300,
+		"medium": 800,
+		"large": 2000,
+		"feature": 5000
+	},
+	"FARM_HOUSE_PRICES": {
+		"dq": 0,
+		"nk": 8000,
+		"dv": 15000,
+		"cx": 22000,
+		"tt": 30000,
+		"ns": 40000,
+		"bh": 52000,
+		"sm": 65000,
+		"ct": 80000,
+		"gd": 100000,
+		"pd": 125000,
+		"ln": 155000,
+		"ld": 190000,
+		"lk": 230000,
+		"lb": 280000,
+		"hv": 350000
+	},
 	"FARM_LAYOUT": {
 		"tile": 32,
 		"width": 48,
@@ -666,7 +826,7 @@
 		{
 			"id": "flour_mill",
 			"name": "Cối xay bột",
-			"price": 300,
+			"price": 800,
 			"recipes": [
 				{
 					"id": "flour",
@@ -681,7 +841,7 @@
 		{
 			"id": "oven",
 			"name": "Lò nướng bánh",
-			"price": 400,
+			"price": 1200,
 			"recipes": [
 				{
 					"id": "bread",
@@ -696,7 +856,7 @@
 		{
 			"id": "pickle_jar",
 			"name": "Hũ muối dưa",
-			"price": 250,
+			"price": 1000,
 			"recipes": [
 				{
 					"id": "pickles_chili",
@@ -719,7 +879,7 @@
 		{
 			"id": "fruit_press",
 			"name": "Máy ép quả",
-			"price": 350,
+			"price": 1200,
 			"recipes": [
 				{
 					"id": "juice_apple",
@@ -742,7 +902,7 @@
 		{
 			"id": "wine_barrel",
 			"name": "Thùng ủ rượu",
-			"price": 500,
+			"price": 2500,
 			"recipes": [
 				{
 					"id": "wine",
@@ -757,7 +917,7 @@
 		{
 			"id": "drying_rack",
 			"name": "Giá sấy quả",
-			"price": 200,
+			"price": 900,
 			"recipes": [
 				{
 					"id": "dried_peach",
@@ -770,7 +930,7 @@
 				{
 					"id": "dried_apple",
 					"in": {
-						"farm_apple": 2
+						"farm_apple": 3
 					},
 					"out": "prod_dried_fruit",
 					"ms": 2700000
@@ -955,30 +1115,30 @@
 		}
 	],
 	"FARM_PRODUCT_SELL": {
-		"farm_egg": 12,
-		"farm_milk": 30,
-		"farm_wool": 40,
-		"meat_chicken": 30,
-		"meat_beef": 60,
-		"meat_lamb": 50,
-		"dish_grilled_fish": 40,
-		"dish_fish_soup": 45,
-		"dish_fried_rice": 80,
-		"dish_pumpkin_soup": 140,
-		"dish_strawberry_cake": 150,
-		"dish_roast_chicken": 120,
-		"dish_beef_stew": 130,
-		"dish_lamb_skewer": 110,
-		"farm_apple": 25,
-		"farm_orange": 28,
-		"farm_peach": 55,
-		"farm_honey": 60,
-		"prod_flour": 24,
-		"prod_bread": 45,
-		"prod_pickles": 90,
-		"prod_juice": 70,
-		"prod_wine": 260,
-		"prod_dried_fruit": 130
+		"farm_egg": 25,
+		"farm_milk": 70,
+		"farm_wool": 90,
+		"farm_honey": 80,
+		"meat_chicken": 45,
+		"meat_beef": 120,
+		"meat_lamb": 100,
+		"farm_apple": 15,
+		"farm_orange": 18,
+		"farm_peach": 35,
+		"prod_flour": 32,
+		"prod_bread": 55,
+		"prod_pickles": 130,
+		"prod_juice": 50,
+		"prod_wine": 400,
+		"prod_dried_fruit": 110,
+		"dish_grilled_fish": 90,
+		"dish_fish_soup": 85,
+		"dish_fried_rice": 130,
+		"dish_pumpkin_soup": 240,
+		"dish_strawberry_cake": 230,
+		"dish_roast_chicken": 140,
+		"dish_beef_stew": 250,
+		"dish_lamb_skewer": 220
 	},
 	"FARM_ROOMS": {
 		"house": {
@@ -1012,13 +1172,13 @@
 		{
 			"id": "plots",
 			"name": "Mở thêm 4 ô ruộng",
-			"coins": 150,
-			"step": 50
+			"coins": 600,
+			"step": 300
 		},
 		{
 			"id": "tank",
 			"name": "Bể cá trong nhà",
-			"coins": 500,
+			"coins": 2000,
 			"step": 0
 		}
 	],
@@ -1063,10 +1223,11 @@
 		332,
 		158
 	],
+	"FISH_RARE_CHANCE": 0.00001,
 	"HAVEN_DAY_MS": 2880000,
 	"PET_GACHA": {
-		"one": 100,
-		"ten": 900,
+		"one": 30,
+		"ten": 270,
 		"rates": [
 			70,
 			22,

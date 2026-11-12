@@ -1062,6 +1062,134 @@
       "h": 49
     },
     {
+      "id": "fish_lantern",
+      "name": "Cá đèn lồng đầm lầy",
+      "source": "sheet:F14_rare_fish#0@4x2",
+      "file": "items/fish_lantern.png",
+      "w": 53,
+      "h": 43
+    },
+    {
+      "id": "fish_swamp_pike",
+      "name": "Cá chó độc tím",
+      "source": "sheet:F14_rare_fish#1@4x2",
+      "file": "items/fish_swamp_pike.png",
+      "w": 58,
+      "h": 33
+    },
+    {
+      "id": "fish_oasis_carp",
+      "name": "Chép vàng ốc đảo",
+      "source": "sheet:F14_rare_fish#2@4x2",
+      "file": "items/fish_oasis_carp.png",
+      "w": 53,
+      "h": 36
+    },
+    {
+      "id": "fish_oasis_jewel",
+      "name": "Cá ngọc lam ốc đảo",
+      "source": "sheet:F14_rare_fish#3@4x2",
+      "file": "items/fish_oasis_jewel.png",
+      "w": 52,
+      "h": 38
+    },
+    {
+      "id": "fish_feather_trout",
+      "name": "Cá hồi cánh lông",
+      "source": "sheet:F14_rare_fish#4@4x2",
+      "file": "items/fish_feather_trout.png",
+      "w": 56,
+      "h": 48
+    },
+    {
+      "id": "fish_cloud_koi",
+      "name": "Cá koi mây",
+      "source": "sheet:F14_rare_fish#5@4x2",
+      "file": "items/fish_cloud_koi.png",
+      "w": 55,
+      "h": 44
+    },
+    {
+      "id": "fish_crystal_salmon",
+      "name": "Cá hồi pha lê",
+      "source": "sheet:F14_rare_fish#6@4x2",
+      "file": "items/fish_crystal_salmon.png",
+      "w": 55,
+      "h": 43
+    },
+    {
+      "id": "fish_frost_pike",
+      "name": "Cá chó băng",
+      "source": "sheet:F14_rare_fish#7@4x2",
+      "file": "items/fish_frost_pike.png",
+      "w": 59,
+      "h": 33
+    },
+    {
+      "id": "fish_magma",
+      "name": "Cá dung nham",
+      "source": "sheet:F15_rare_fish#0@4x2",
+      "file": "items/fish_magma.png",
+      "w": 57,
+      "h": 49
+    },
+    {
+      "id": "fish_ember_betta",
+      "name": "Cá betta lửa",
+      "source": "sheet:F15_rare_fish#1@4x2",
+      "file": "items/fish_ember_betta.png",
+      "w": 54,
+      "h": 60
+    },
+    {
+      "id": "fish_rainbow_parrot",
+      "name": "Cá vẹt cầu vồng",
+      "source": "sheet:F15_rare_fish#2@4x2",
+      "file": "items/fish_rainbow_parrot.png",
+      "w": 61,
+      "h": 44
+    },
+    {
+      "id": "fish_pearl_seahorse",
+      "name": "Cá ngựa ngọc trai",
+      "source": "sheet:F15_rare_fish#3@4x2",
+      "file": "items/fish_pearl_seahorse.png",
+      "w": 35,
+      "h": 64
+    },
+    {
+      "id": "fish_moon_carp",
+      "name": "Cá chép trăng bạc",
+      "source": "sheet:F15_rare_fish#4@4x2",
+      "file": "items/fish_moon_carp.png",
+      "w": 57,
+      "h": 43
+    },
+    {
+      "id": "fish_cave_glow",
+      "name": "Cá hang đốm sáng",
+      "source": "sheet:F15_rare_fish#5@4x2",
+      "file": "items/fish_cave_glow.png",
+      "w": 54,
+      "h": 43
+    },
+    {
+      "id": "fish_dragon_koi",
+      "name": "Cá koi rồng Haven",
+      "source": "sheet:F15_rare_fish#6@4x2",
+      "file": "items/fish_dragon_koi.png",
+      "w": 57,
+      "h": 75
+    },
+    {
+      "id": "fish_rune_arowana",
+      "name": "Cá rồng cổ khắc rune",
+      "source": "sheet:F15_rare_fish#7@4x2",
+      "file": "items/fish_rune_arowana.png",
+      "w": 60,
+      "h": 37
+    },
+    {
       "id": "farm_egg",
       "name": "Trứng gà",
       "source": "sheet:B2_animal_buildings#4@3x2",

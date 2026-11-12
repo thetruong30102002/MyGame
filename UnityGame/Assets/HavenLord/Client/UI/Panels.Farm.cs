@@ -72,7 +72,7 @@ namespace HavenLord.Client.UI
                 {
                     // Nấu ăn ở bếp lò: món đủ nguyên liệu thì nấu; món trong kho thì ăn (bùa ngắn) hoặc mang ra hộp gửi hàng bán.
                     var dishes = game.Sim.Modules["farm"]["FARM_DISHES"] as JArray ?? new JArray();var inv = state["inventory"] as JObject;
-                    string Buff(JToken b) => $"{((string)b["kind"] == "dmg" ? "sát thương" : (string)b["kind"] == "guard" ? "giáp" : "kinh nghiệm")} ×{(double)b["mult"]:0.##} · {(double)b["ms"] / 60000:0} phút";
+                    string Buff(JToken b) { var m = (double)b["mult"]; var k = (string)b["kind"]; var t = k == "guard" ? $"giảm sát thương nhận {(1 - m) * 100:0}%" : k == "dmg" ? $"sát thương +{(m - 1) * 100:0}%" : $"kinh nghiệm +{(m - 1) * 100:0}%"; return $"{t} · {(double)b["ms"] / 60000:0} phút"; }
                     FarmText("Tên", "Bếp lò · nấu món từ nông sản, cá, thành phẩm máy (công thức thử)", 0, 32, 18);
                     for (var i = 0; i < dishes.Count; i++)
                     {

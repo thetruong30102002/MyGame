@@ -1,32 +1,54 @@
 import {DECOR_DEFAULT,DECOR_DOORS,DECOR_FIXED,DECOR_FLOOR,DECOR_ITEMS} from './farmDecor.generated.ts';
 export {DECOR_ITEMS};
 /** Gia viên: luật máy chủ dùng chung, thời gian thật; giá tạm để thử, chưa chốt cân bằng. */
+/**
+ * Giá cân lại 12/11 (chủ dự án: "Giá các đồ bạn căn chỉnh hợp lý giúp tôi"). Mốc thu nhập: quái cho 4 + 1,2 × cấp xu (cấp 10 ≈ 16, cấp 50
+ * ≈ 64 xu / con, ~2–3 con / phút), nhiệm vụ 120–300 xu, bộ đồ shop cấp 5 = 450 xu. Ruộng là nguồn thu song song: một ô lãi ~70 xu / giờ
+ * với cây ngắn (phải chăm liên tục) giảm dần còn ~40 xu / giờ với cây dài (trồng rồi đi đánh quái / offline); cây hiếm lãi mỗi lần lớn hơn.
+ */
 export const FARM_CROPS = [
- {id:'wheat',name:'Lúa mì',ms:5*60000,seed:5,sell:9},
- {id:'carrot',name:'Cà rốt',ms:15*60000,seed:8,sell:16},
- {id:'potato',name:'Khoai',ms:30*60000,seed:12,sell:26},
- {id:'strawberry',name:'Dâu',ms:60*60000,seed:20,sell:45},
- {id:'haven_pumpkin',name:'Bí ngô Haven',ms:180*60000,seed:35,sell:85},
- {id:'silver_grass',name:'Cỏ bạc',ms:480*60000,seed:60,sell:150},
- // Mở rộng 11/11 (kế hoạch 9.8) — giá / thời gian thử, chưa cân bằng; hạt mua ở người bán đồ Gia viên / quầy Bram.
- {id:'rice',name:'Lúa nước',ms:20*60000,seed:10,sell:20},{id:'corn',name:'Ngô',ms:25*60000,seed:10,sell:22},
- {id:'tomato',name:'Cà chua',ms:40*60000,seed:15,sell:34},{id:'watermelon',name:'Dưa hấu',ms:120*60000,seed:30,sell:75},
- {id:'grape',name:'Nho',ms:90*60000,seed:25,sell:60},{id:'chili',name:'Ớt',ms:45*60000,seed:15,sell:36},
- {id:'tea',name:'Chè',ms:120*60000,seed:28,sell:70},{id:'sunflower',name:'Hướng dương',ms:50*60000,seed:18,sell:42},
- {id:'glowcap',name:'Nấm sáng',ms:180*60000,seed:40,sell:100},{id:'moonflower',name:'Hoa trăng',ms:240*60000,seed:50,sell:130},
- {id:'starfruit',name:'Quả sao',ms:360*60000,seed:70,sell:180},{id:'golden_wheat',name:'Lúa vàng',ms:600*60000,seed:120,sell:320},
+ {id:'wheat',name:'Lúa mì',ms:5*60000,seed:4,sell:10},
+ {id:'carrot',name:'Cà rốt',ms:15*60000,seed:8,sell:22},
+ {id:'potato',name:'Khoai',ms:30*60000,seed:12,sell:36},
+ {id:'strawberry',name:'Dâu',ms:60*60000,seed:20,sell:60},
+ {id:'haven_pumpkin',name:'Bí ngô Haven',ms:180*60000,seed:40,sell:140},
+ {id:'silver_grass',name:'Cỏ bạc',ms:480*60000,seed:70,sell:280},
+ {id:'rice',name:'Lúa nước',ms:20*60000,seed:8,sell:26},{id:'corn',name:'Ngô',ms:25*60000,seed:9,sell:30},
+ {id:'tomato',name:'Cà chua',ms:40*60000,seed:14,sell:44},{id:'watermelon',name:'Dưa hấu',ms:120*60000,seed:30,sell:110},
+ {id:'grape',name:'Nho',ms:90*60000,seed:24,sell:84},{id:'chili',name:'Ớt',ms:45*60000,seed:14,sell:46},
+ {id:'tea',name:'Chè',ms:120*60000,seed:32,sell:112},{id:'sunflower',name:'Hướng dương',ms:50*60000,seed:16,sell:52},
+ {id:'glowcap',name:'Nấm sáng',ms:180*60000,seed:45,sell:160},{id:'moonflower',name:'Hoa trăng',ms:240*60000,seed:60,sell:220},
+ {id:'starfruit',name:'Quả sao',ms:360*60000,seed:90,sell:340},{id:'golden_wheat',name:'Lúa vàng',ms:600*60000,seed:150,sell:600},
 ] as const;
 /** Hạt tặng khi mở Gia viên: chỉ 6 cây vùng 1 đầu tiên. */
 export const FARM_STARTER_CROPS = ['wheat','carrot','potato','strawberry','haven_pumpkin','silver_grass'] as const;
 export const FARM_FISH = [
- {id:'crucian',name:'Cá diếc',weight:30,sell:7,night:false},
- {id:'carp',name:'Cá chép',weight:23,sell:10,night:false},
- {id:'perch',name:'Cá rô',weight:20,sell:9,night:false},
- {id:'eel',name:'Lươn đồng',weight:12,sell:15,night:false},
- {id:'prawn',name:'Tôm càng',weight:10,sell:18,night:false},
- {id:'golden_carp',name:'Cá chép vàng',weight:3,sell:70,night:false},
- {id:'night_catfish',name:'Cá trê đêm',weight:14,sell:23,night:true},
- {id:'haven',name:'Cá Haven',weight:2,sell:100,night:false},
+ {id:'crucian',name:'Cá diếc',weight:30,sell:8,night:false,rare:false},
+ {id:'carp',name:'Cá chép',weight:23,sell:12,night:false,rare:false},
+ {id:'perch',name:'Cá rô',weight:20,sell:11,night:false,rare:false},
+ {id:'eel',name:'Lươn đồng',weight:12,sell:20,night:false,rare:false},
+ {id:'prawn',name:'Tôm càng',weight:10,sell:22,night:false,rare:false},
+ {id:'golden_carp',name:'Cá chép vàng',weight:3,sell:150,night:false,rare:false},
+ {id:'night_catfish',name:'Cá trê đêm',weight:14,sell:30,night:true,rare:false},
+ {id:'haven',name:'Cá Haven',weight:2,sell:250,night:false,rare:false},
+ // 16 cá hiếm sưu tầm (tấm F14 / F15) — chủ dự án 12/11: "cho 16 loại cá hiếm vào hồ … tỉ lệ cá hiếm phải 0,001 %": MỖI loài 0,001 %
+ // một lần cá cắn (FISH_RARE_CHANCE), cả 16 loài ≈ 0,016 % ≈ 1 / 6.250 lần. Khoẻ nhất khi kéo; thả bể sưu tầm hoặc bán.
+ {id:'lantern',name:'Cá đèn lồng đầm lầy',weight:0,sell:20000,night:false,rare:true},
+ {id:'swamp_pike',name:'Cá chó độc tím',weight:0,sell:20000,night:false,rare:true},
+ {id:'oasis_carp',name:'Chép vàng ốc đảo',weight:0,sell:20000,night:false,rare:true},
+ {id:'oasis_jewel',name:'Cá ngọc lam ốc đảo',weight:0,sell:20000,night:false,rare:true},
+ {id:'feather_trout',name:'Cá hồi cánh lông',weight:0,sell:20000,night:false,rare:true},
+ {id:'cloud_koi',name:'Cá koi mây',weight:0,sell:20000,night:false,rare:true},
+ {id:'crystal_salmon',name:'Cá hồi pha lê',weight:0,sell:20000,night:false,rare:true},
+ {id:'frost_pike',name:'Cá chó băng',weight:0,sell:20000,night:false,rare:true},
+ {id:'magma',name:'Cá dung nham',weight:0,sell:20000,night:false,rare:true},
+ {id:'ember_betta',name:'Cá betta lửa',weight:0,sell:20000,night:false,rare:true},
+ {id:'rainbow_parrot',name:'Cá vẹt cầu vồng',weight:0,sell:20000,night:false,rare:true},
+ {id:'pearl_seahorse',name:'Cá ngựa ngọc trai',weight:0,sell:20000,night:false,rare:true},
+ {id:'moon_carp',name:'Cá chép trăng bạc',weight:0,sell:20000,night:false,rare:true},
+ {id:'cave_glow',name:'Cá hang đốm sáng',weight:0,sell:20000,night:false,rare:true},
+ {id:'dragon_koi',name:'Cá koi rồng Haven',weight:0,sell:20000,night:false,rare:true},
+ {id:'rune_arowana',name:'Cá rồng cổ khắc rune',weight:0,sell:20000,night:false,rare:true},
 ] as const;
 /** Hồ câu: MỘT map câu cá duy nhất trong game, mỗi nhà một hồ riêng sau Gia viên `home/<tài khoản>_pond` (chủ dự án 12/11: "Câu cá chỉ
  * có 1 map thôi sau gia viên và bạn bè có thể vào hồ nhà nhau câu cá chung với bạn bè tối đa 6 người trong một hồ"): cổng ở mép nam
@@ -55,8 +77,8 @@ export const FARM_TANK = {item:'gv_be_ca',slots:6,water:{x0:-38,x1:38,y0:-70,y1:
  * và cách đặt đồ). Mở ô ruộng: mỗi lần +4 ô, giá tăng dần theo số lần đã mở.
  */
 export const FARM_SHOP = [
- {id:'plots',name:'Mở thêm 4 ô ruộng',coins:150,step:50},
- {id:'tank',name:'Bể cá trong nhà',coins:500,step:0},
+ {id:'plots',name:'Mở thêm 4 ô ruộng',coins:600,step:300},
+ {id:'tank',name:'Bể cá trong nhà',coins:2000,step:0},
 ] as const;
 /**
  * Thú cưng quay kim cương (kế hoạch 9.9, chủ dự án 11/11 duyệt "ok"; 12/11: "Thú cưng chỉ là con vật di chuyển tự do ở gia viên và trong
@@ -72,7 +94,7 @@ export const FARM_PETS = [
  {id:'pet2_cat_oddeye',name:'Mèo mắt hai màu',rarity:3},{id:'pet2_cat_royal',name:'Mèo trắng nơ hoàng gia',rarity:3},{id:'pet2_dog_samoyed',name:'Chó Samoyed bông tuyết',rarity:3},{id:'pet2_dog_hound',name:'Chó săn Haven lông bạc',rarity:3},
  {id:'pet2_cat_spirit',name:'Mèo linh hồn lam',rarity:4},{id:'pet2_cat_fire',name:'Mèo lửa',rarity:4},{id:'pet_moonwolf_002',name:'Sói trăng con',rarity:4},{id:'pet2_dog_cloud',name:'Chó thần mây',rarity:4},
 ] as const;
-export const PET_GACHA = {one:100,ten:900,rates:[70,22,7,1],pity:80,shards:[1,3,8,20],trade:[30,60,120,300],out:6} as const;
+export const PET_GACHA = {one:30,ten:270,rates:[70,22,7,1],pity:80,shards:[1,3,8,20],trade:[30,60,120,300],out:6} as const;
 export const PET_RARITY = ['','Thường','Hiếm','Sử thi','Huyền thoại'] as const;
 /** Một lượt quay: `rollRarity`, `rollPet` ∈ [0, 1); `minRarity` = bảo đảm (lượt 10 / mốc 80). */
 export function rollPet(rollRarity:number,rollPet:number,minRarity=1):string{
@@ -97,9 +119,9 @@ export function decorPlaceIssue(room:string,list:readonly {id:string;x:number;y:
  * `growMs`, từ đó ra quả mỗi `fruitMs`, hái nhiều lần. Thời gian / giá thử, chưa cân bằng.
  */
 export const FARM_FRUIT = [
- {id:'apple',name:'Táo',sapling:80,growMs:60*60000,fruitMs:30*60000,sell:25},
- {id:'orange',name:'Cam',sapling:90,growMs:75*60000,fruitMs:35*60000,sell:28},
- {id:'peach',name:'Đào Haven',sapling:150,growMs:120*60000,fruitMs:60*60000,sell:55},
+ {id:'apple',name:'Táo',sapling:400,growMs:120*60000,fruitMs:60*60000,sell:15},
+ {id:'orange',name:'Cam',sapling:450,growMs:150*60000,fruitMs:60*60000,sell:18},
+ {id:'peach',name:'Đào Haven',sapling:800,growMs:240*60000,fruitMs:120*60000,sell:35},
 ] as const;
 export const FARM_TREE_SPOTS = [[360,800],[440,800],[520,800],[600,800]] as const;
 /** Giai đoạn cây ăn quả: 0 non · 1 lớn · 2 có quả. */
@@ -109,16 +131,23 @@ export function treeStage(t:{plantedAt:number;lastHarvest:number},kind:string,no
  * thành phẩm; thành phẩm bán ở hộp gửi hàng (sau: nấu ăn). Công thức / giá / thời gian thử.
  */
 export const FARM_MACHINES = [
- {id:'flour_mill',name:'Cối xay bột',price:300,recipes:[{id:'flour',in:{farm_wheat:2},out:'prod_flour',ms:5*60000}]},
- {id:'oven',name:'Lò nướng bánh',price:400,recipes:[{id:'bread',in:{prod_flour:1},out:'prod_bread',ms:10*60000}]},
- {id:'pickle_jar',name:'Hũ muối dưa',price:250,recipes:[{id:'pickles_chili',in:{farm_chili:2},out:'prod_pickles',ms:30*60000},{id:'pickles_tomato',in:{farm_tomato:2},out:'prod_pickles',ms:30*60000}]},
- {id:'fruit_press',name:'Máy ép quả',price:350,recipes:[{id:'juice_apple',in:{farm_apple:2},out:'prod_juice',ms:15*60000},{id:'juice_orange',in:{farm_orange:2},out:'prod_juice',ms:15*60000}]},
- {id:'wine_barrel',name:'Thùng ủ rượu',price:500,recipes:[{id:'wine',in:{farm_grape:3},out:'prod_wine',ms:120*60000}]},
- {id:'drying_rack',name:'Giá sấy quả',price:200,recipes:[{id:'dried_peach',in:{farm_peach:2},out:'prod_dried_fruit',ms:45*60000},{id:'dried_apple',in:{farm_apple:2},out:'prod_dried_fruit',ms:45*60000}]},
+ {id:'flour_mill',name:'Cối xay bột',price:800,recipes:[{id:'flour',in:{farm_wheat:2},out:'prod_flour',ms:5*60000}]},
+ {id:'oven',name:'Lò nướng bánh',price:1200,recipes:[{id:'bread',in:{prod_flour:1},out:'prod_bread',ms:10*60000}]},
+ {id:'pickle_jar',name:'Hũ muối dưa',price:1000,recipes:[{id:'pickles_chili',in:{farm_chili:2},out:'prod_pickles',ms:30*60000},{id:'pickles_tomato',in:{farm_tomato:2},out:'prod_pickles',ms:30*60000}]},
+ {id:'fruit_press',name:'Máy ép quả',price:1200,recipes:[{id:'juice_apple',in:{farm_apple:2},out:'prod_juice',ms:15*60000},{id:'juice_orange',in:{farm_orange:2},out:'prod_juice',ms:15*60000}]},
+ {id:'wine_barrel',name:'Thùng ủ rượu',price:2500,recipes:[{id:'wine',in:{farm_grape:3},out:'prod_wine',ms:120*60000}]},
+ {id:'drying_rack',name:'Giá sấy quả',price:900,recipes:[{id:'dried_peach',in:{farm_peach:2},out:'prod_dried_fruit',ms:45*60000},{id:'dried_apple',in:{farm_apple:3},out:'prod_dried_fruit',ms:45*60000}]},
 ] as const;
 export const FARM_MACHINE_SPOTS:Record<string,readonly [number,number]> = {flour_mill:[612,566],oven:[680,566],pickle_jar:[748,566],fruit_press:[816,566],wine_barrel:[748,636],drying_rack:[816,636]};
 /** Giá bán ở hộp gửi hàng của quả và thành phẩm (giá thử). */
-export const FARM_PRODUCT_SELL:Record<string,number> = {farm_egg:12,farm_milk:30,farm_wool:40,meat_chicken:30,meat_beef:60,meat_lamb:50,dish_grilled_fish:40,dish_fish_soup:45,dish_fried_rice:80,dish_pumpkin_soup:140,dish_strawberry_cake:150,dish_roast_chicken:120,dish_beef_stew:130,dish_lamb_skewer:110,farm_apple:25,farm_orange:28,farm_peach:55,farm_honey:60,prod_flour:24,prod_bread:45,prod_pickles:90,prod_juice:70,prod_wine:260,prod_dried_fruit:130};
+export const FARM_PRODUCT_SELL:Record<string,number> = {
+ // thịt / sản phẩm chăn nuôi
+ farm_egg:25,farm_milk:70,farm_wool:90,farm_honey:80,meat_chicken:45,meat_beef:120,meat_lamb:100,
+ // quả + thành phẩm máy (chế biến lãi thêm ~30–60 % so với bán nguyên liệu)
+ farm_apple:15,farm_orange:18,farm_peach:35,prod_flour:32,prod_bread:55,prod_pickles:130,prod_juice:50,prod_wine:400,prod_dried_fruit:110,
+ // món nấu chín tới (tái / chín kỹ / cháy nhân theo COOK_QUALITY)
+ dish_grilled_fish:90,dish_fish_soup:85,dish_fried_rice:130,dish_pumpkin_soup:240,dish_strawberry_cake:230,dish_roast_chicken:140,dish_beef_stew:250,dish_lamb_skewer:220,
+};
 /**
  * Nấu ăn (kế hoạch 2.4 / 9.2 / 9.11, hình K1): đứng cạnh bếp lò củi đã đặt trong nhà (`gv_bep_lo_cui`, dời được khi bày trí) → nấu món từ
  * nông sản / cá / thành phẩm máy; ăn món nhận bùa ngắn (sát thương / giáp / kinh nghiệm), hoặc bán ở hộp gửi hàng. Món thịt cần thịt từ
@@ -126,13 +155,13 @@ export const FARM_PRODUCT_SELL:Record<string,number> = {farm_egg:12,farm_milk:30
  */
 export const FARM_STOVE = 'gv_bep_lo_cui';
 export const FARM_DISHES = [
- {id:'dish_grilled_fish',name:'Cá nướng',cookMs:7000,in:{fish_carp:1,farm_chili:1},buff:{kind:'guard',mult:1.1,ms:15*60000},sell:40},
+ {id:'dish_grilled_fish',name:'Cá nướng',cookMs:7000,in:{fish_carp:1,farm_chili:1},buff:{kind:'guard',mult:0.9,ms:15*60000},sell:40},
  {id:'dish_fish_soup',name:'Súp cá',cookMs:9000,in:{fish_crucian:2,farm_potato:1},buff:{kind:'exp',mult:1.1,ms:20*60000},sell:45},
  {id:'dish_fried_rice',name:'Cơm chiên dứa',cookMs:6000,in:{farm_rice:2,farm_corn:1},buff:{kind:'exp',mult:1.15,ms:20*60000},sell:80},
- {id:'dish_pumpkin_soup',name:'Súp bí',cookMs:9000,in:{farm_haven_pumpkin:1,farm_carrot:1},buff:{kind:'guard',mult:1.12,ms:20*60000},sell:140},
+ {id:'dish_pumpkin_soup',name:'Súp bí',cookMs:9000,in:{farm_haven_pumpkin:1,farm_carrot:1},buff:{kind:'guard',mult:0.88,ms:20*60000},sell:140},
  {id:'dish_strawberry_cake',name:'Bánh kem dâu',cookMs:10000,in:{farm_strawberry:2,prod_flour:1},buff:{kind:'dmg',mult:1.12,ms:20*60000},sell:150},
  {id:'dish_roast_chicken',name:'Gà quay',cookMs:10000,in:{meat_chicken:1,farm_potato:1},buff:{kind:'dmg',mult:1.15,ms:20*60000},sell:120},
- {id:'dish_beef_stew',name:'Bò hầm',cookMs:11000,in:{meat_beef:1,farm_carrot:2},buff:{kind:'guard',mult:1.15,ms:20*60000},sell:130},
+ {id:'dish_beef_stew',name:'Bò hầm',cookMs:11000,in:{meat_beef:1,farm_carrot:2},buff:{kind:'guard',mult:0.85,ms:20*60000},sell:130},
  {id:'dish_lamb_skewer',name:'Xiên cừu nướng',cookMs:7000,in:{meat_lamb:1,farm_chili:1},buff:{kind:'dmg',mult:1.12,ms:15*60000},sell:110},
 ] as const;
 /**
@@ -142,10 +171,10 @@ export const FARM_DISHES = [
  */
 export const HAVEN_DAY_MS = 48*60000;
 export const FARM_ANIMALS = [
- {id:'chicken',name:'Gà',character:'farm_chicken_001',scale:0.6,pen:'chicken',max:8,price:60,feed:1,product:'farm_egg',meat:'meat_chicken',meatN:2,start:2},
- {id:'cow',name:'Bò sữa',character:'farm_cow_001',scale:2,pen:'pasture',max:3,price:400,feed:2,product:'farm_milk',meat:'meat_beef',meatN:3,start:1},
- {id:'sheep',name:'Cừu',character:'farm_sheep_001',scale:1.5,pen:'pasture',max:4,price:250,feed:2,product:'farm_wool',meat:'meat_lamb',meatN:2,start:1},
- {id:'bee',name:'Đàn ong',character:null,scale:1,pen:'hives',max:3,price:150,feed:0,product:'farm_honey',meat:null,meatN:0,start:1},
+ {id:'chicken',name:'Gà',character:'farm_chicken_001',scale:0.6,pen:'chicken',max:8,price:300,feed:1,product:'farm_egg',meat:'meat_chicken',meatN:2,start:2},
+ {id:'cow',name:'Bò sữa',character:'farm_cow_001',scale:2,pen:'pasture',max:3,price:1500,feed:2,product:'farm_milk',meat:'meat_beef',meatN:3,start:1},
+ {id:'sheep',name:'Cừu',character:'farm_sheep_001',scale:1.5,pen:'pasture',max:4,price:1100,feed:2,product:'farm_wool',meat:'meat_lamb',meatN:2,start:1},
+ {id:'bee',name:'Đàn ong',character:null,scale:1,pen:'hives',max:3,price:800,feed:0,product:'farm_honey',meat:null,meatN:0,start:1},
 ] as const;
 /** Chỗ đứng (cổng bãi / tổ ong) và vùng trong bãi cho con vật đi lại — toạ độ khuôn viên (scripts/export-home-maps.mts). */
 export const FARM_PENS:Record<string,{gate:readonly [number,number];area:{x0:number;x1:number;y0:number;y1:number}}> = {
@@ -156,6 +185,9 @@ export const FARM_PENS:Record<string,{gate:readonly [number,number];area:{x0:num
 export const FARM_FEED = ['farm_wheat','farm_corn'] as const;
 /** Đàn của người chơi (chưa từng mua bán = đàn có sẵn). */
 export function livestockOf(state:Pick<FarmState,'livestock'>):Record<string,{count:number;fedAt:number}>{const l=state.livestock??{};return Object.fromEntries(FARM_ANIMALS.map(a=>[a.id,l[a.id]??{count:a.start,fedAt:0}]));}
+/** Giá đề xuất 12/11 cho nhà Gia viên theo thang 16 bậc (bậc 1 Đồng quê có sẵn) và đồ bày trí — CHƯA mở bán (cần hệ thống đổi nhà). */
+export const FARM_HOUSE_PRICES:Record<string,number> = {dq:0,nk:8000,dv:15000,cx:22000,tt:30000,ns:40000,bh:52000,sm:65000,ct:80000,gd:100000,pd:125000,ln:155000,ld:190000,lk:230000,lb:280000,hv:350000};
+export const FARM_FURNITURE_PRICE = {small:300,medium:800,large:2000,feature:5000} as const;
 export function shopPrice(id:string,state:Pick<FarmState,'plots'>):number{const it=FARM_SHOP.find(x=>x.id===id);if(!it)return Infinity;return id==='plots'?it.coins+it.step*Math.max(0,(state.plots.length-FARM_LAYOUT.plots)/4):it.coins;}
 export type FarmRoom = keyof typeof FARM_ROOMS;
 /** Chỗ câu gần nhất trong bán kính `r` px (null = không đứng ở bờ hồ). */
@@ -167,4 +199,9 @@ export function growPlot(p:FarmPlot,now:number):void {if(!p.crop)return;const c=
 export function cropStage(p:FarmPlot):number{const c=FARM_CROPS.find(x=>x.id===p.crop);return c?Math.min(3,Math.floor(p.growth/c.ms*4)):0;}
 export function plotPoint(i:number){return{x:FARM_LAYOUT.plotX+(i%FARM_LAYOUT.plotCols)*32,y:FARM_LAYOUT.plotY+Math.floor(i/FARM_LAYOUT.plotCols)*32};}
 export function havenHour(now:number):number{return(now%(48*60000))/(48*60000)*24;}
-export function chooseFarmFish(now:number,roll:number):string{const h=havenHour(now);const list=FARM_FISH.filter(x=>!x.night||h>=20||h<4.5);let n=Math.max(0,Math.min(.999999,roll))*list.reduce((s,x)=>s+x.weight,0);for(const f of list){n-=f.weight;if(n<0)return f.id;}return list[0]!.id;}
+/** Tỉ lệ MỖI loài cá hiếm trên một lần cá cắn: 0,001 %. */
+export const FISH_RARE_CHANCE = 0.00001;
+export function chooseFarmFish(now:number,roll:number):string{
+ // Cá hiếm trước: roll < 16 × 0,001 % → loài thứ floor(roll / 0,001 %); còn lại chia lại roll cho cá thường theo trọng số.
+ const rares=FARM_FISH.filter(x=>x.rare);if(roll<rares.length*FISH_RARE_CHANCE)return rares[Math.min(rares.length-1,Math.floor(roll/FISH_RARE_CHANCE))]!.id;
+ roll=(roll-rares.length*FISH_RARE_CHANCE)/(1-rares.length*FISH_RARE_CHANCE);const h=havenHour(now);const list=FARM_FISH.filter(x=>!x.rare&&(!x.night||h>=20||h<4.5));let n=Math.max(0,Math.min(.999999,roll))*list.reduce((s,x)=>s+x.weight,0);for(const f of list){n-=f.weight;if(n<0)return f.id;}return list[0]!.id;}

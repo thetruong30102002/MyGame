@@ -20,8 +20,9 @@ export class FarmStore {
    if(result.coins!==undefined||result.potions){const balance=result.coins??p.coins;this.db.prepare("UPDATE characters SET progress=json_set(progress,'$.coins',?,'$.potions',?),updated_at=? WHERE id=?").run(balance,(p.potions||0)+(result.potions||0),now,character);this.db.prepare('INSERT INTO eco_ledger(character_id,coins,potions,exp,reason,at) VALUES(?,?,?,0,?,?)').run(character,balance-p.coins,result.potions||0,'gia_vien',now);}
    // Bùa món ăn: `true` = món hầm quầy làng (sát thương ×1,1 · 10 phút); object = món nấu ở Gia viên.
    const buff=result.buff===true?{kind:'dmg',mult:1.1,ms:600000}:result.buff||null;
-   if(buff){const active=this.db.prepare('SELECT mult FROM buffs WHERE character_id=? AND kind=?').get(character,buff.kind) as {mult:number}|undefined;if(active&&active.mult>buff.mult)throw new Error('Bạn đang dùng hiệu ứng mạnh hơn món ăn này');
-    this.db.prepare('INSERT INTO buffs(character_id,kind,mult,remaining_ms) VALUES(?,?,?,?) ON CONFLICT(character_id,kind) DO UPDATE SET mult=max(mult,excluded.mult),remaining_ms=min(remaining_ms+excluded.remaining_ms,18000000)').run(character,buff.kind,buff.mult,buff.ms);}
+   // Giáp là hệ số sát thương NHẬN (thấp hơn = mạnh hơn); sát thương / kinh nghiệm cao hơn = mạnh hơn.
+   if(buff){const lower=buff.kind==='guard';const active=this.db.prepare('SELECT mult FROM buffs WHERE character_id=? AND kind=?').get(character,buff.kind) as {mult:number}|undefined;if(active&&(lower?active.mult<buff.mult:active.mult>buff.mult))throw new Error('Bạn đang dùng hiệu ứng mạnh hơn món ăn này');
+    this.db.prepare(`INSERT INTO buffs(character_id,kind,mult,remaining_ms) VALUES(?,?,?,?) ON CONFLICT(character_id,kind) DO UPDATE SET mult=${lower?'min':'max'}(mult,excluded.mult),remaining_ms=min(remaining_ms+excluded.remaining_ms,18000000)`).run(character,buff.kind,buff.mult,buff.ms);}
    this.db.exec('COMMIT');return result.value;
   }catch(e){this.db.exec('ROLLBACK');throw e;}
  }
