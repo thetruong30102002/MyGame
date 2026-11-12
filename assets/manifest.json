@@ -48911,6 +48911,1245 @@
 					]
 				}
 			}
+		},
+		"pet2_cat_black": {
+			"displayName": "Mèo mun",
+			"role": "npc",
+			"identity": {
+				"characterId": "pet2_cat_black",
+				"hair": "none",
+				"eyes": "animal",
+				"skin": "animal",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "pet_01"
+			},
+			"atlas": "characters/pet2_cat_black/pet2_cat_black.json",
+			"frameSize": {
+				"width": 80,
+				"height": 80
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "Thú cưng gacha độ hiếm 1 (kế hoạch 9.9). PixelLab Pro Flash 64 px 11/11/2026, đứng / đi hướng S / E / N (W lật từ E), hướng chéo dùng ảnh xoay. Chỉ đi lại tự do trong Gia viên (chốt 12/11).",
+			"bodyHeight": 56,
+			"portrait": "portraits/pet2_cat_black.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"pet2_cat_calico": {
+			"displayName": "Mèo tam thể",
+			"role": "npc",
+			"identity": {
+				"characterId": "pet2_cat_calico",
+				"hair": "none",
+				"eyes": "animal",
+				"skin": "animal",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "pet_01"
+			},
+			"atlas": "characters/pet2_cat_calico/pet2_cat_calico.json",
+			"frameSize": {
+				"width": 80,
+				"height": 80
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "Thú cưng gacha độ hiếm 2 (kế hoạch 9.9). PixelLab Pro Flash 64 px 11/11/2026, đứng / đi hướng S / E / N (W lật từ E), hướng chéo dùng ảnh xoay. Chỉ đi lại tự do trong Gia viên (chốt 12/11).",
+			"bodyHeight": 48,
+			"portrait": "portraits/pet2_cat_calico.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"pet2_cat_grey": {
+			"displayName": "Mèo xám",
+			"role": "npc",
+			"identity": {
+				"characterId": "pet2_cat_grey",
+				"hair": "none",
+				"eyes": "animal",
+				"skin": "animal",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "pet_01"
+			},
+			"atlas": "characters/pet2_cat_grey/pet2_cat_grey.json",
+			"frameSize": {
+				"width": 80,
+				"height": 80
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "Thú cưng gacha độ hiếm 1 (kế hoạch 9.9). PixelLab Pro Flash 64 px 11/11/2026, đứng / đi hướng S / E / N (W lật từ E), hướng chéo dùng ảnh xoay. Chỉ đi lại tự do trong Gia viên (chốt 12/11).",
+			"bodyHeight": 48,
+			"portrait": "portraits/pet2_cat_grey.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"pet2_cat_oddeye": {
+			"displayName": "Mèo mắt hai màu",
+			"role": "npc",
+			"identity": {
+				"characterId": "pet2_cat_oddeye",
+				"hair": "none",
+				"eyes": "animal",
+				"skin": "animal",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "pet_01"
+			},
+			"atlas": "characters/pet2_cat_oddeye/pet2_cat_oddeye.json",
+			"frameSize": {
+				"width": 80,
+				"height": 80
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "Thú cưng gacha độ hiếm 3 (kế hoạch 9.9). PixelLab Pro Flash 64 px 11/11/2026, đứng / đi hướng S / E / N (W lật từ E), hướng chéo dùng ảnh xoay. Chỉ đi lại tự do trong Gia viên (chốt 12/11).",
+			"bodyHeight": 49,
+			"portrait": "portraits/pet2_cat_oddeye.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"pet2_cat_persian": {
+			"displayName": "Mèo Ba Tư",
+			"role": "npc",
+			"identity": {
+				"characterId": "pet2_cat_persian",
+				"hair": "none",
+				"eyes": "animal",
+				"skin": "animal",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "pet_01"
+			},
+			"atlas": "characters/pet2_cat_persian/pet2_cat_persian.json",
+			"frameSize": {
+				"width": 80,
+				"height": 80
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "Thú cưng gacha độ hiếm 2 (kế hoạch 9.9). PixelLab Pro Flash 64 px 11/11/2026, đứng / đi hướng S / E / N (W lật từ E), hướng chéo dùng ảnh xoay. Chỉ đi lại tự do trong Gia viên (chốt 12/11).",
+			"bodyHeight": 61,
+			"portrait": "portraits/pet2_cat_persian.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"pet2_cat_royal": {
+			"displayName": "Mèo trắng nơ hoàng gia",
+			"role": "npc",
+			"identity": {
+				"characterId": "pet2_cat_royal",
+				"hair": "none",
+				"eyes": "animal",
+				"skin": "animal",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "pet_01"
+			},
+			"atlas": "characters/pet2_cat_royal/pet2_cat_royal.json",
+			"frameSize": {
+				"width": 80,
+				"height": 80
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "Thú cưng gacha độ hiếm 3 (kế hoạch 9.9). PixelLab Pro Flash 64 px 11/11/2026, đứng / đi hướng S / E / N (W lật từ E), hướng chéo dùng ảnh xoay. Chỉ đi lại tự do trong Gia viên (chốt 12/11).",
+			"bodyHeight": 46,
+			"portrait": "portraits/pet2_cat_royal.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"pet2_cat_siamese": {
+			"displayName": "Mèo Xiêm",
+			"role": "npc",
+			"identity": {
+				"characterId": "pet2_cat_siamese",
+				"hair": "none",
+				"eyes": "animal",
+				"skin": "animal",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "pet_01"
+			},
+			"atlas": "characters/pet2_cat_siamese/pet2_cat_siamese.json",
+			"frameSize": {
+				"width": 80,
+				"height": 80
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "Thú cưng gacha độ hiếm 2 (kế hoạch 9.9). PixelLab Pro Flash 64 px 11/11/2026, đứng / đi hướng S / E / N (W lật từ E), hướng chéo dùng ảnh xoay. Chỉ đi lại tự do trong Gia viên (chốt 12/11).",
+			"bodyHeight": 49,
+			"portrait": "portraits/pet2_cat_siamese.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"pet2_cat_spirit": {
+			"displayName": "Mèo linh hồn lam",
+			"role": "npc",
+			"identity": {
+				"characterId": "pet2_cat_spirit",
+				"hair": "none",
+				"eyes": "animal",
+				"skin": "animal",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "pet_01"
+			},
+			"atlas": "characters/pet2_cat_spirit/pet2_cat_spirit.json",
+			"frameSize": {
+				"width": 80,
+				"height": 80
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "Thú cưng gacha độ hiếm 4 (kế hoạch 9.9). PixelLab Pro Flash 64 px 11/11/2026, đứng / đi hướng S / E / N (W lật từ E), hướng chéo dùng ảnh xoay. Chỉ đi lại tự do trong Gia viên (chốt 12/11).",
+			"bodyHeight": 62,
+			"portrait": "portraits/pet2_cat_spirit.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"pet2_cat_tabby": {
+			"displayName": "Mèo mướp cam",
+			"role": "npc",
+			"identity": {
+				"characterId": "pet2_cat_tabby",
+				"hair": "none",
+				"eyes": "animal",
+				"skin": "animal",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "pet_01"
+			},
+			"atlas": "characters/pet2_cat_tabby/pet2_cat_tabby.json",
+			"frameSize": {
+				"width": 80,
+				"height": 80
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "Thú cưng gacha độ hiếm 1 (kế hoạch 9.9). PixelLab Pro Flash 64 px 11/11/2026, đứng / đi hướng S / E / N (W lật từ E), hướng chéo dùng ảnh xoay. Chỉ đi lại tự do trong Gia viên (chốt 12/11).",
+			"bodyHeight": 49,
+			"portrait": "portraits/pet2_cat_tabby.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"pet2_cat_white": {
+			"displayName": "Mèo trắng",
+			"role": "npc",
+			"identity": {
+				"characterId": "pet2_cat_white",
+				"hair": "none",
+				"eyes": "animal",
+				"skin": "animal",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "pet_01"
+			},
+			"atlas": "characters/pet2_cat_white/pet2_cat_white.json",
+			"frameSize": {
+				"width": 80,
+				"height": 80
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "Thú cưng gacha độ hiếm 1 (kế hoạch 9.9). PixelLab Pro Flash 64 px 11/11/2026, đứng / đi hướng S / E / N (W lật từ E), hướng chéo dùng ảnh xoay. Chỉ đi lại tự do trong Gia viên (chốt 12/11).",
+			"bodyHeight": 57,
+			"portrait": "portraits/pet2_cat_white.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"pet2_dog_black": {
+			"displayName": "Chó mực",
+			"role": "npc",
+			"identity": {
+				"characterId": "pet2_dog_black",
+				"hair": "none",
+				"eyes": "animal",
+				"skin": "animal",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "pet_01"
+			},
+			"atlas": "characters/pet2_dog_black/pet2_dog_black.json",
+			"frameSize": {
+				"width": 80,
+				"height": 80
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "Thú cưng gacha độ hiếm 1 (kế hoạch 9.9). PixelLab Pro Flash 64 px 11/11/2026, đứng / đi hướng S / E / N (W lật từ E), hướng chéo dùng ảnh xoay. Chỉ đi lại tự do trong Gia viên (chốt 12/11).",
+			"bodyHeight": 61,
+			"portrait": "portraits/pet2_dog_black.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"pet2_dog_cloud": {
+			"displayName": "Chó thần mây",
+			"role": "npc",
+			"identity": {
+				"characterId": "pet2_dog_cloud",
+				"hair": "none",
+				"eyes": "animal",
+				"skin": "animal",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "pet_01"
+			},
+			"atlas": "characters/pet2_dog_cloud/pet2_dog_cloud.json",
+			"frameSize": {
+				"width": 80,
+				"height": 80
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "Thú cưng gacha độ hiếm 4 (kế hoạch 9.9). PixelLab Pro Flash 64 px 11/11/2026, đứng / đi hướng S / E / N (W lật từ E), hướng chéo dùng ảnh xoay. Chỉ đi lại tự do trong Gia viên (chốt 12/11).",
+			"bodyHeight": 58,
+			"portrait": "portraits/pet2_dog_cloud.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"pet2_dog_corgi": {
+			"displayName": "Chó Corgi",
+			"role": "npc",
+			"identity": {
+				"characterId": "pet2_dog_corgi",
+				"hair": "none",
+				"eyes": "animal",
+				"skin": "animal",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "pet_01"
+			},
+			"atlas": "characters/pet2_dog_corgi/pet2_dog_corgi.json",
+			"frameSize": {
+				"width": 80,
+				"height": 80
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "Thú cưng gacha độ hiếm 1 (kế hoạch 9.9). PixelLab Pro Flash 64 px 11/11/2026, đứng / đi hướng S / E / N (W lật từ E), hướng chéo dùng ảnh xoay. Chỉ đi lại tự do trong Gia viên (chốt 12/11).",
+			"bodyHeight": 52,
+			"portrait": "portraits/pet2_dog_corgi.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"pet2_dog_golden": {
+			"displayName": "Chó vàng",
+			"role": "npc",
+			"identity": {
+				"characterId": "pet2_dog_golden",
+				"hair": "none",
+				"eyes": "animal",
+				"skin": "animal",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "pet_01"
+			},
+			"atlas": "characters/pet2_dog_golden/pet2_dog_golden.json",
+			"frameSize": {
+				"width": 80,
+				"height": 80
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "Thú cưng gacha độ hiếm 1 (kế hoạch 9.9). PixelLab Pro Flash 64 px 11/11/2026, đứng / đi hướng S / E / N (W lật từ E), hướng chéo dùng ảnh xoay. Chỉ đi lại tự do trong Gia viên (chốt 12/11).",
+			"bodyHeight": 53,
+			"portrait": "portraits/pet2_dog_golden.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"pet2_dog_hound": {
+			"displayName": "Chó săn Haven lông bạc",
+			"role": "npc",
+			"identity": {
+				"characterId": "pet2_dog_hound",
+				"hair": "none",
+				"eyes": "animal",
+				"skin": "animal",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "pet_01"
+			},
+			"atlas": "characters/pet2_dog_hound/pet2_dog_hound.json",
+			"frameSize": {
+				"width": 80,
+				"height": 80
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "Thú cưng gacha độ hiếm 3 (kế hoạch 9.9). PixelLab Pro Flash 64 px 11/11/2026, đứng / đi hướng S / E / N (W lật từ E), hướng chéo dùng ảnh xoay. Chỉ đi lại tự do trong Gia viên (chốt 12/11).",
+			"bodyHeight": 62,
+			"portrait": "portraits/pet2_dog_hound.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"pet2_dog_husky": {
+			"displayName": "Chó Husky",
+			"role": "npc",
+			"identity": {
+				"characterId": "pet2_dog_husky",
+				"hair": "none",
+				"eyes": "animal",
+				"skin": "animal",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "pet_01"
+			},
+			"atlas": "characters/pet2_dog_husky/pet2_dog_husky.json",
+			"frameSize": {
+				"width": 80,
+				"height": 80
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "Thú cưng gacha độ hiếm 2 (kế hoạch 9.9). PixelLab Pro Flash 64 px 11/11/2026, đứng / đi hướng S / E / N (W lật từ E), hướng chéo dùng ảnh xoay. Chỉ đi lại tự do trong Gia viên (chốt 12/11).",
+			"bodyHeight": 54,
+			"portrait": "portraits/pet2_dog_husky.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"pet2_dog_poodle": {
+			"displayName": "Chó Poodle xù",
+			"role": "npc",
+			"identity": {
+				"characterId": "pet2_dog_poodle",
+				"hair": "none",
+				"eyes": "animal",
+				"skin": "animal",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "pet_01"
+			},
+			"atlas": "characters/pet2_dog_poodle/pet2_dog_poodle.json",
+			"frameSize": {
+				"width": 80,
+				"height": 80
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "Thú cưng gacha độ hiếm 2 (kế hoạch 9.9). PixelLab Pro Flash 64 px 11/11/2026, đứng / đi hướng S / E / N (W lật từ E), hướng chéo dùng ảnh xoay. Chỉ đi lại tự do trong Gia viên (chốt 12/11).",
+			"bodyHeight": 57,
+			"portrait": "portraits/pet2_dog_poodle.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"pet2_dog_samoyed": {
+			"displayName": "Chó Samoyed bông tuyết",
+			"role": "npc",
+			"identity": {
+				"characterId": "pet2_dog_samoyed",
+				"hair": "none",
+				"eyes": "animal",
+				"skin": "animal",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "pet_01"
+			},
+			"atlas": "characters/pet2_dog_samoyed/pet2_dog_samoyed.json",
+			"frameSize": {
+				"width": 80,
+				"height": 80
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "Thú cưng gacha độ hiếm 3 (kế hoạch 9.9). PixelLab Pro Flash 64 px 11/11/2026, đứng / đi hướng S / E / N (W lật từ E), hướng chéo dùng ảnh xoay. Chỉ đi lại tự do trong Gia viên (chốt 12/11).",
+			"bodyHeight": 48,
+			"portrait": "portraits/pet2_dog_samoyed.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"pet2_dog_shiba": {
+			"displayName": "Chó Shiba",
+			"role": "npc",
+			"identity": {
+				"characterId": "pet2_dog_shiba",
+				"hair": "none",
+				"eyes": "animal",
+				"skin": "animal",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "pet_01"
+			},
+			"atlas": "characters/pet2_dog_shiba/pet2_dog_shiba.json",
+			"frameSize": {
+				"width": 80,
+				"height": 80
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "Thú cưng gacha độ hiếm 2 (kế hoạch 9.9). PixelLab Pro Flash 64 px 11/11/2026, đứng / đi hướng S / E / N (W lật từ E), hướng chéo dùng ảnh xoay. Chỉ đi lại tự do trong Gia viên (chốt 12/11).",
+			"bodyHeight": 50,
+			"portrait": "portraits/pet2_dog_shiba.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"pet2_dog_spotted": {
+			"displayName": "Chó đốm",
+			"role": "npc",
+			"identity": {
+				"characterId": "pet2_dog_spotted",
+				"hair": "none",
+				"eyes": "animal",
+				"skin": "animal",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "pet_01"
+			},
+			"atlas": "characters/pet2_dog_spotted/pet2_dog_spotted.json",
+			"frameSize": {
+				"width": 80,
+				"height": 80
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "Thú cưng gacha độ hiếm 1 (kế hoạch 9.9). PixelLab Pro Flash 64 px 11/11/2026, đứng / đi hướng S / E / N (W lật từ E), hướng chéo dùng ảnh xoay. Chỉ đi lại tự do trong Gia viên (chốt 12/11).",
+			"bodyHeight": 53,
+			"portrait": "portraits/pet2_dog_spotted.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"pet_moonwolf_002": {
+			"displayName": "Sói trăng con",
+			"role": "npc",
+			"identity": {
+				"characterId": "pet_moonwolf_002",
+				"hair": "none",
+				"eyes": "animal",
+				"skin": "animal",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "pet_01"
+			},
+			"atlas": "characters/pet_moonwolf_002/pet_moonwolf_002.json",
+			"frameSize": {
+				"width": 80,
+				"height": 80
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "Thú cưng gacha độ hiếm 4 (kế hoạch 9.9). PixelLab Pro Flash 64 px 11/11/2026, đứng / đi hướng S / E / N (W lật từ E), hướng chéo dùng ảnh xoay. Chỉ đi lại tự do trong Gia viên (chốt 12/11).",
+			"bodyHeight": 52,
+			"portrait": "portraits/pet_moonwolf_002.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
 		}
 	}
 }

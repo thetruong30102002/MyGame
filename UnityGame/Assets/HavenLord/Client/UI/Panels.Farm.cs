@@ -45,7 +45,31 @@ namespace HavenLord.Client.UI
                     FarmButton("Nhà", "Nhà Gia viên · sắp mở", 512, 135, () => { }, false);
                     FarmButton("ĐồVật", "Đồ vật trang trí · sắp mở", 768, 135, () => { }, false);
                     FarmText("GiáThử", "Giá đang là giá thử. Nhà và đồ vật sẽ mở bán khi chốt giá và cách đặt đồ trong nhà.", 185, 50);
-                    FarmButton("Về", "Cư dân / Gia viên", 0, 240, () => game.ShowFarm());
+                    FarmButton("ThúCưng", "Quay thú cưng (kim cương)", 0, 240, () => game.ShowPets());
+                    FarmButton("Về", "Cư dân / Gia viên", 256, 240, () => game.ShowFarm());
+                    return;
+                }
+                if (key == "pets")
+                {
+                    // Gacha thú cưng — máy chủ quay, trừ kim cương; tỉ lệ công khai (sim PET_GACHA). Thú chỉ đi lại trong Gia viên.
+                    var farm = game.Sim.Modules["farm"];var g = farm["PET_GACHA"];var all = farm["FARM_PETS"] as JArray ?? new JArray();var rn = farm["PET_RARITY"] as JArray;
+                    var owned = (state["pets"] as JArray)?.Select(x => (string)x).ToList() ?? new System.Collections.Generic.List<string>();
+                    var outs = (state["petsOut"] as JArray)?.Select(x => (string)x).ToList() ?? new System.Collections.Generic.List<string>();
+                    string PetName(string id) { var p = all.FirstOrDefault(x => (string)x["id"] == id); return p == null ? id : $"{p["name"]} ({rn?[(int)p["rarity"]]})"; }
+                    FarmText("Tên", $"Thú cưng · {owned.Count}/{all.Count} loài · {game.Diamonds} kim cương · mảnh {(int?)state["petShards"] ?? 0}", 0, 32, 19);
+                    FarmText("Tỉ lệ", $"Tỉ lệ: Thường {g?["rates"]?[0]}% · Hiếm {g?["rates"]?[1]}% · Sử thi {g?["rates"]?[2]}% · Huyền thoại {g?["rates"]?[3]}% · 10 lượt chắc chắn ≥ 1 Hiếm · {(int?)g?["pity"]} lượt chắc chắn Huyền thoại (đã quay {(int?)state["petPity"] ?? 0}).", 40, 50);
+                    FarmButton("Quay1", $"Quay 1 lần · {g?["one"]} KC", 0, 95, () => game.FarmSend("gacha", plot: 1));
+                    FarmButton("Quay10", $"Quay 10 lần · {g?["ten"]} KC", 256, 95, () => game.FarmSend("gacha", plot: 10));
+                    FarmButton("Về", "Quản gia", 512, 95, () => game.OpenSteward());
+                    var last = state["lastSpin"] as JArray;
+                    if (last != null && last.Count > 0) FarmText("Kết quả", "Vừa quay: " + string.Join(" · ", last.Select(x => PetName((string)x["pet"]) + ((bool?)x["dup"] == true ? " → mảnh" : " ✦ mới"))), 145, 60);
+                    FarmText("Thả", $"Bấm thú đã có để thả / cất (tối đa {(int?)g?["out"] ?? 6} con đi lại trong Gia viên). Thú chưa có: đổi bằng mảnh.", 210, 30);
+                    for (var i = 0; i < all.Count; i++)
+                    {
+                        var id = (string)all[i]["id"];var have = owned.Contains(id);var trade = (int?)g?["trade"]?[(int)all[i]["rarity"] - 1] ?? 0;
+                        var label = have ? (outs.Contains(id) ? "✓ " : "") + all[i]["name"] : $"{all[i]["name"]} · {trade} mảnh";
+                        FarmButton("Pet" + id, label, i % 4 * 256, 245 + i / 4 * 42, () => game.FarmSend(have ? "petOut" : "petTrade", item: id));
+                    }
                     return;
                 }
                 if (key == "village_food") FarmButton("Món", "Món hầm · 30 xu", 0, 135, () => game.FarmSend("service", item: "village_food"));

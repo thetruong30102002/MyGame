@@ -1,0 +1,59 @@
+{
+	"identity": {
+		"characterId": "pet2_dog_golden",
+		"hair": "none",
+		"eyes": "animal",
+		"skin": "animal",
+		"outfit": "none",
+		"weapon": "none",
+		"palette": "pet_01"
+	},
+	"displayName": "Chó vàng",
+	"role": "npc",
+	"provider": "pixellab",
+	"pixellab": {
+		"animations": {
+			"idle": "idle",
+			"walk": "walk"
+		},
+		"mirrorWest": true
+	},
+	"frameSize": {
+		"width": 80,
+		"height": 80
+	},
+	"baselineY": 72,
+	"animations": {
+		"idle": {
+			"fps": 6,
+			"minFrames": 4,
+			"maxFrames": 8
+		},
+		"walk": {
+			"fps": 10,
+			"minFrames": 4,
+			"maxFrames": 8
+		}
+	},
+	"cleanup": {
+		"alignToIdle": true,
+		"removeForeignObjects": true,
+		"removeIslands": true
+	},
+	"quality": {
+		"maxHeightDrift": 0.3,
+		"minSilhouette": 0.15
+	},
+	"provisional": [
+		"SE",
+		"NE",
+		"SW",
+		"NW"
+	],
+	"notes": "Thú cưng gacha độ hiếm 1 (kế hoạch 9.9). PixelLab Pro Flash 64 px 11/11/2026, đứng / đi hướng S / E / N (W lật từ E), hướng chéo dùng ảnh xoay. Chỉ đi lại tự do trong Gia viên (chốt 12/11).",
+	"review": {
+		"status": "approved",
+		"date": "11/11/2026",
+		"notes": "Duyệt lô 22 con 11/11 (63 clip không lỗi)."
+	}
+}

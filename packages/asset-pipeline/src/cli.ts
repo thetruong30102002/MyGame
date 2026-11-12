@@ -6,7 +6,7 @@ import { annotateAtlas } from './atlas/gearAnchors.js';
 import { contactSheet, packAtlas } from './atlas/packAtlas.js';
 import { describeSecret, loadEnv } from './env.js';
 import { decodePng, readPng, writePng } from './image/rgba.js';
-import { alignToIdle, eraseRegions, padToLargest, removeForeignObjects, removeThinProtrusions, type EraseRule, type ThinOptions } from './normalize/cleanup.js';
+import { alignToIdle, eraseRegions, padToLargest, removeForeignObjects, removeIslands, removeThinProtrusions, type EraseRule, type ThinOptions } from './normalize/cleanup.js';
 import { flatten, mapFrames, normalizeCharacter, type AnimationFrames } from './normalize/PixelStyleNormalizer.js';
 import { applyPalette, buildPalette } from './normalize/palette.js';
 import { applyRecolor, type RecolorRule } from './normalize/recolor.js';
@@ -101,7 +101,7 @@ interface CharacterSpec {
 	 * `keepThinIn`: animation THẬT SỰ cầm vũ khí, không gỡ (mặc định `["attack"]` — kiếm gỗ là chủ ý). `cast` là
 	 * "empty hands" nên vẫn gỡ: PixelLab animate từ ảnh xoay còn que, không gỡ thì que hiện ra lúc niệm phép.
 	 */
-	cleanup?: { removeForeignObjects?: boolean; erase?: EraseRule[]; removeThin?: ThinOptions; keepThinIn?: AnimationName[]; alignToIdle?: boolean };
+	cleanup?: { removeForeignObjects?: boolean; erase?: EraseRule[]; removeThin?: ThinOptions; keepThinIn?: AnimationName[]; alignToIdle?: boolean; removeIslands?: boolean };
 	recolor?: RecolorRule[];
 	/** Ép mọi frame về một bảng màu chung `size` màu (ảnh sinh AI dùng 240–256 màu). */
 	paletteLock?: { size: number };
@@ -236,6 +236,11 @@ async function buildCharacter(specPath: string): Promise<boolean> {
 		const r = removeForeignObjects(normalized);
 		cleaned = r.frames;
 		console.log(`  dọn vật lạ: ${before.foreignClusters.length} cụm phát hiện, xoá ${r.removedPixels} px`);
+	}
+	if (spec.cleanup?.removeIslands) {
+		const r = removeIslands(cleaned, 1);
+		cleaned = r.frames;
+		console.log(`  dọn đảo rời (vệt hiệu ứng lơ lửng): xoá ${r.removedPixels} px`);
 	}
 	if (spec.cleanup?.erase?.length) {
 		const r = eraseRegions(cleaned, spec.cleanup.erase);

@@ -81,8 +81,28 @@ namespace HavenLord.Client
                 : new Dictionary<string, NpcDef>();
         }
 
+        /// <summary>Thú cưng Gia viên (chốt 12/11: chỉ đi lại tự do trong khuôn viên và trong nhà) — tách khỏi NPC: không nói chuyện, không chọn mục tiêu.</summary>
+        public readonly List<Actor> Pets = new List<Actor>();
+
+        public void ClearPets()
+        {
+            foreach (var a in Pets) if (a != null) UnityEngine.Object.Destroy(a.gameObject);
+            Pets.Clear();
+        }
+
+        public void SpawnPet(string id, double x, double y, double radius)
+        {
+            var def = db.Character(id);
+            if (def == null) return;
+            var a = Actor.Spawn(def, parent, x, y, id);
+            a.Wander = new WanderArea { X = x, Y = y, Radius = radius };
+            a.WanderSpeed = 26;
+            Pets.Add(a);
+        }
+
         public void Clear()
         {
+            ClearPets();
             foreach (var n in Npcs)
             {
                 if (n.Actor != null) UnityEngine.Object.Destroy(n.Actor.gameObject);
@@ -169,6 +189,7 @@ namespace HavenLord.Client
 
         public void Update(float dt, Func<double, double, double, double, bool> blocked, bool talking)
         {
+            TickPets(dt, blocked);
             foreach (var n in Npcs)
             {
                 if (n.Actor == null) continue;
@@ -178,6 +199,17 @@ namespace HavenLord.Client
                 n.Y = n.Actor.Y;
                 n.Actor.View.Tick(dt);
                 n.Actor.SyncTransform(dt);
+            }
+        }
+
+        private void TickPets(float dt, Func<double, double, double, double, bool> blocked)
+        {
+            foreach (var a in Pets)
+            {
+                if (a == null) continue;
+                a.Think(dt, blocked);
+                a.View.Tick(dt);
+                a.SyncTransform(dt);
             }
         }
 

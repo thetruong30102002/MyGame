@@ -45,12 +45,34 @@ export const FARM_SHOP = [
  {id:'plots',name:'Mở thêm 4 ô ruộng',coins:150,step:50},
  {id:'tank',name:'Bể cá trong nhà',coins:500,step:0},
 ] as const;
+/**
+ * Thú cưng quay kim cương (kế hoạch 9.9, chủ dự án 11/11 duyệt "ok"; 12/11: "Thú cưng chỉ là con vật di chuyển tự do ở gia viên và trong
+ * nhà"): 22 loài 4 độ hiếm, tỉ lệ công khai Thường 70 · Hiếm 22 · Sử thi 7 · Huyền thoại 1 (%). 1 lượt 100 kim cương; 10 lượt 900 và chắc
+ * chắn ≥ 1 Hiếm trở lên; 80 lượt chưa ra Huyền thoại thì lượt sau chắc chắn ra. Trùng → mảnh theo độ hiếm, gom mảnh đổi con muốn.
+ * Thú chỉ làm đẹp, không tăng chỉ số; tối đa PET_OUT con thả đi lại trong Gia viên cùng lúc.
+ */
+export const FARM_PETS = [
+ {id:'pet2_cat_tabby',name:'Mèo mướp cam',rarity:1},{id:'pet2_cat_black',name:'Mèo mun',rarity:1},{id:'pet2_cat_white',name:'Mèo trắng',rarity:1},{id:'pet2_cat_grey',name:'Mèo xám',rarity:1},
+ {id:'pet2_dog_golden',name:'Chó vàng',rarity:1},{id:'pet2_dog_black',name:'Chó mực',rarity:1},{id:'pet2_dog_spotted',name:'Chó đốm',rarity:1},{id:'pet2_dog_corgi',name:'Chó Corgi',rarity:1},
+ {id:'pet2_cat_calico',name:'Mèo tam thể',rarity:2},{id:'pet2_cat_siamese',name:'Mèo Xiêm',rarity:2},{id:'pet2_cat_persian',name:'Mèo Ba Tư',rarity:2},
+ {id:'pet2_dog_husky',name:'Chó Husky',rarity:2},{id:'pet2_dog_shiba',name:'Chó Shiba',rarity:2},{id:'pet2_dog_poodle',name:'Chó Poodle xù',rarity:2},
+ {id:'pet2_cat_oddeye',name:'Mèo mắt hai màu',rarity:3},{id:'pet2_cat_royal',name:'Mèo trắng nơ hoàng gia',rarity:3},{id:'pet2_dog_samoyed',name:'Chó Samoyed bông tuyết',rarity:3},{id:'pet2_dog_hound',name:'Chó săn Haven lông bạc',rarity:3},
+ {id:'pet2_cat_spirit',name:'Mèo linh hồn lam',rarity:4},{id:'pet2_cat_fire',name:'Mèo lửa',rarity:4},{id:'pet_moonwolf_002',name:'Sói trăng con',rarity:4},{id:'pet2_dog_cloud',name:'Chó thần mây',rarity:4},
+] as const;
+export const PET_GACHA = {one:100,ten:900,rates:[70,22,7,1],pity:80,shards:[1,3,8,20],trade:[30,60,120,300],out:6} as const;
+export const PET_RARITY = ['','Thường','Hiếm','Sử thi','Huyền thoại'] as const;
+/** Một lượt quay: `rollRarity`, `rollPet` ∈ [0, 1); `minRarity` = bảo đảm (lượt 10 / mốc 80). */
+export function rollPet(rollRarity:number,rollPet:number,minRarity=1):string{
+ const total=PET_GACHA.rates.reduce((s,x,i)=>i+1>=minRarity?s+x:s,0);let n=Math.max(0,Math.min(.999999,rollRarity))*total,rarity=4;
+ for(let i=0;i<4;i++){if(i+1<minRarity)continue;n-=PET_GACHA.rates[i]!;if(n<0){rarity=i+1;break;}}
+ const pool=FARM_PETS.filter(p=>p.rarity===rarity);return pool[Math.min(pool.length-1,Math.floor(Math.max(0,rollPet)*pool.length))]!.id;
+}
 export function shopPrice(id:string,state:Pick<FarmState,'plots'>):number{const it=FARM_SHOP.find(x=>x.id===id);if(!it)return Infinity;return id==='plots'?it.coins+it.step*Math.max(0,(state.plots.length-FARM_LAYOUT.plots)/4):it.coins;}
 export type FarmRoom = keyof typeof FARM_ROOMS;
 /** Chỗ câu gần nhất trong bán kính `r` px (null = không đứng ở bờ hồ). */
 export function pondSpotNear(x:number,y:number,r=70):readonly [number,number]|null{let best:readonly [number,number]|null=null,d=r;for(const s of FARM_LAYOUT.pondSpots){const k=Math.hypot(x-s[0],y-s[1]);if(k<=d){d=k;best=s;}}return best;}
 export interface FarmPlot {tilled:boolean;crop:string|null;plantedAt:number;lastAt:number;growth:number;watered:boolean}
-export interface FarmState {version:1;visited:string[];unlocked:boolean;plots:FarmPlot[];inventory:Record<string,number>;outfit:'farmer1'|'gardener';fish:{nonce:string;biteAt:number;expires:number;reward:string}|null;lastAction:number;lastEntry?:number;tank?:string[];owned?:string[]}
+export interface FarmState {version:1;visited:string[];unlocked:boolean;plots:FarmPlot[];inventory:Record<string,number>;outfit:'farmer1'|'gardener';fish:{nonce:string;biteAt:number;expires:number;reward:string}|null;lastAction:number;lastEntry?:number;tank?:string[];owned?:string[];pets?:string[];petsOut?:string[];petShards?:number;petPity?:number;lastSpin?:{pet:string;dup:boolean}[]}
 export function newFarm():FarmState{return{version:1,visited:[],unlocked:false,plots:Array.from({length:12},()=>({tilled:false,crop:null,plantedAt:0,lastAt:0,growth:0,watered:false})),inventory:{},outfit:'farmer1',fish:null,lastAction:0,tank:[]};}
 export function growPlot(p:FarmPlot,now:number):void {if(!p.crop)return;const c=FARM_CROPS.find(x=>x.id===p.crop);if(!c)return;p.growth=Math.min(c.ms,p.growth+Math.max(0,now-p.lastAt)*(p.watered?1:.5));p.lastAt=Math.max(p.lastAt,now);}
 export function cropStage(p:FarmPlot):number{const c=FARM_CROPS.find(x=>x.id===p.crop);return c?Math.min(3,Math.floor(p.growth/c.ms*4)):0;}

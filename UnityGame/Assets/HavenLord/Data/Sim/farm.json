@@ -143,6 +143,118 @@
 			]
 		]
 	},
+	"FARM_PETS": [
+		{
+			"id": "pet2_cat_tabby",
+			"name": "Mèo mướp cam",
+			"rarity": 1
+		},
+		{
+			"id": "pet2_cat_black",
+			"name": "Mèo mun",
+			"rarity": 1
+		},
+		{
+			"id": "pet2_cat_white",
+			"name": "Mèo trắng",
+			"rarity": 1
+		},
+		{
+			"id": "pet2_cat_grey",
+			"name": "Mèo xám",
+			"rarity": 1
+		},
+		{
+			"id": "pet2_dog_golden",
+			"name": "Chó vàng",
+			"rarity": 1
+		},
+		{
+			"id": "pet2_dog_black",
+			"name": "Chó mực",
+			"rarity": 1
+		},
+		{
+			"id": "pet2_dog_spotted",
+			"name": "Chó đốm",
+			"rarity": 1
+		},
+		{
+			"id": "pet2_dog_corgi",
+			"name": "Chó Corgi",
+			"rarity": 1
+		},
+		{
+			"id": "pet2_cat_calico",
+			"name": "Mèo tam thể",
+			"rarity": 2
+		},
+		{
+			"id": "pet2_cat_siamese",
+			"name": "Mèo Xiêm",
+			"rarity": 2
+		},
+		{
+			"id": "pet2_cat_persian",
+			"name": "Mèo Ba Tư",
+			"rarity": 2
+		},
+		{
+			"id": "pet2_dog_husky",
+			"name": "Chó Husky",
+			"rarity": 2
+		},
+		{
+			"id": "pet2_dog_shiba",
+			"name": "Chó Shiba",
+			"rarity": 2
+		},
+		{
+			"id": "pet2_dog_poodle",
+			"name": "Chó Poodle xù",
+			"rarity": 2
+		},
+		{
+			"id": "pet2_cat_oddeye",
+			"name": "Mèo mắt hai màu",
+			"rarity": 3
+		},
+		{
+			"id": "pet2_cat_royal",
+			"name": "Mèo trắng nơ hoàng gia",
+			"rarity": 3
+		},
+		{
+			"id": "pet2_dog_samoyed",
+			"name": "Chó Samoyed bông tuyết",
+			"rarity": 3
+		},
+		{
+			"id": "pet2_dog_hound",
+			"name": "Chó săn Haven lông bạc",
+			"rarity": 3
+		},
+		{
+			"id": "pet2_cat_spirit",
+			"name": "Mèo linh hồn lam",
+			"rarity": 4
+		},
+		{
+			"id": "pet2_cat_fire",
+			"name": "Mèo lửa",
+			"rarity": 4
+		},
+		{
+			"id": "pet_moonwolf_002",
+			"name": "Sói trăng con",
+			"rarity": 4
+		},
+		{
+			"id": "pet2_dog_cloud",
+			"name": "Chó thần mây",
+			"rarity": 4
+		}
+	],
 	"FARM_ROOMS": {
 		"house": {
 			"garden": [
@@ -200,6 +312,37 @@
 	"FARM_WARDROBE": [
 		332,
 		158
+	],
+	"PET_GACHA": {
+		"one": 100,
+		"ten": 900,
+		"rates": [
+			70,
+			22,
+			7,
+			1
+		],
+		"pity": 80,
+		"shards": [
+			1,
+			3,
+			8,
+			20
+		],
+		"trade": [
+			30,
+			60,
+			120,
+			300
+		],
+		"out": 6
+	},
+	"PET_RARITY": [
+		"",
+		"Thường",
+		"Hiếm",
+		"Sử thi",
+		"Huyền thoại"
 	],
 	"POND_MAP": "home/pond"
 }

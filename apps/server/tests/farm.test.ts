@@ -6,7 +6,7 @@ import {join,resolve} from 'node:path';
 import {Store} from '../src/db.ts';
 import {Farm,homeMap,roomMap} from '../src/farm.ts';
 import {newProgress} from '../src/http.ts';
-import {POND_MAP,chooseFarmFish} from '@havenlord/sim/farm';
+import {FARM_PETS,POND_MAP,chooseFarmFish} from '@havenlord/sim/farm';
 import type {ServerMessage} from '@havenlord/protocol';
 
 const dir=mkdtempSync(join(tmpdir(),'havenlord-farm-'));const file=join(dir,'test.db');let store=new Store(file);
@@ -61,6 +61,14 @@ try{
  store.farm.run(acc,id,now,(_s,c)=>({value:null,coins:c-150}));// trả lại đúng số xu thử đã cộng
  at={map:homeMap(acc),x:352+32*4,y:544+32};act('hoe',{plot:12});assert(store.farm.read(acc).plots[12]!.tilled);
  at={map:homeMap(acc),x:576,y:280};act('room');
+ // Thú cưng quay kim cương: không đủ kim cương thì chặn; 10 lượt trừ 900, chắc chắn ≥ 1 Hiếm; trùng → mảnh; thả / cất thú; đổi mảnh.
+ act('gacha',{plot:1});assert(failed(),'chưa có kim cương');assert.equal(store.diamonds(id),0);
+ store.addDiamonds(id,1000,'test');act('gacha',{plot:10});
+ {const f=store.farm.read(acc);assert.equal(store.diamonds(id),100);assert.equal(f.lastSpin!.length,10);assert(f.lastSpin!.some(x=>FARM_PETS.find(p=>p.id===x.pet)!.rarity>=2),'10 lượt có ≥ 1 Hiếm');
+  assert.equal(f.pets!.length+f.lastSpin!.filter(x=>x.dup).length,10);assert(f.petsOut!.length<=6);
+  act('petOut',{item:f.pets![0]});assert(!store.farm.read(acc).petsOut!.includes(f.pets![0]!));act('petOut',{item:f.pets![0]});assert(store.farm.read(acc).petsOut!.includes(f.pets![0]!));}
+ store.farm.run(acc,id,now,s=>{s.petPity=79;return{value:null};});act('gacha',{plot:1});assert.equal(FARM_PETS.find(p=>p.id===store.farm.read(acc).lastSpin![0]!.pet)!.rarity,4,'mốc 80 chắc chắn Huyền thoại');assert.equal(store.diamonds(id),0);
+ store.farm.run(acc,id,now,s=>{s.petShards=30;return{value:null};});{const want=FARM_PETS.find(p=>p.rarity===1&&!store.farm.read(acc).pets!.includes(p.id));if(want){act('petTrade',{item:want.id});assert(store.farm.read(acc).pets!.includes(want.id));assert.equal(store.farm.read(acc).petShards,0);}}
  // Bể cá phòng khách: thả cá đã câu vào bể, cá trong bể không bị bán, lấy lại được.
  at={map:roomMap(acc,'house'),x:200,y:300};act('tank',{item:'crucian'});assert(failed(),'phải tới bể');
  at={map:roomMap(acc,'house'),x:492,y:350};act('tank',{item:'carp'});assert(failed(),'kho không có cá chép');

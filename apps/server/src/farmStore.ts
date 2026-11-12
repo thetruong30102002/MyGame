@@ -5,12 +5,14 @@ import {newFarm,type FarmState} from '@havenlord/sim/farm';
 export class FarmStore {
  constructor(private db:DatabaseSync){db.exec(`CREATE TABLE IF NOT EXISTS farm_accounts(account_id INTEGER PRIMARY KEY REFERENCES accounts(id) ON DELETE CASCADE,state TEXT NOT NULL,updated_at INTEGER NOT NULL);`);}
  read(account:number):FarmState{const row=this.db.prepare('SELECT state FROM farm_accounts WHERE account_id=?').get(account) as {state:string}|undefined;return row?JSON.parse(row.state) as FarmState:newFarm();}
- run<T>(account:number,character:string,now:number,fn:(state:FarmState,coins:number)=>{value:T;coins?:number;potions?:number;buff?:boolean}):T{
+ run<T>(account:number,character:string,now:number,fn:(state:FarmState,coins:number,diamonds:number)=>{value:T;coins?:number;potions?:number;buff?:boolean;diamonds?:number}):T{
   this.db.exec('BEGIN IMMEDIATE');
   try{
    const row=this.db.prepare('SELECT progress FROM characters WHERE id=? AND account_id=?').get(character,account) as {progress:string}|undefined;
    if(!row)throw new Error('Nhân vật không thuộc tài khoản');
-   const p=JSON.parse(row.progress) as {coins:number;potions:number};const state=this.read(account);const result=fn(state,p.coins||0);
+   const p=JSON.parse(row.progress) as {coins:number;potions:number};const state=this.read(account);const gems=(this.db.prepare('SELECT diamonds FROM wallets WHERE character_id=?').get(character) as {diamonds:number}|undefined)?.diamonds??0;const result=fn(state,p.coins||0,gems);
+   // Kim cương (quay thú cưng): trừ + ghi sổ trong CÙNG transaction với trạng thái Gia viên — không bao giờ mất kim cương mà không ra thú.
+   if(result.diamonds!==undefined&&result.diamonds!==gems){if(result.diamonds<0)throw new Error('Không đủ kim cương');this.db.prepare('INSERT INTO wallets(character_id,diamonds) VALUES(?,?) ON CONFLICT(character_id) DO UPDATE SET diamonds=excluded.diamonds').run(character,result.diamonds);this.db.prepare('INSERT INTO diamond_ledger(character_id,delta,balance,reason,ref,at) VALUES(?,?,?,?,NULL,?)').run(character,result.diamonds-gems,result.diamonds,'gia_vien_pet',now);}
    this.db.prepare('INSERT INTO farm_accounts(account_id,state,updated_at) VALUES(?,?,?) ON CONFLICT(account_id) DO UPDATE SET state=excluded.state,updated_at=excluded.updated_at').run(account,JSON.stringify(state),now);
    if(result.potions&&(p.potions||0)+result.potions>999)throw new Error('Bạn đã mang đủ thuốc hồi phục');
    if(result.coins!==undefined||result.potions){const balance=result.coins??p.coins;this.db.prepare("UPDATE characters SET progress=json_set(progress,'$.coins',?,'$.potions',?),updated_at=? WHERE id=?").run(balance,(p.potions||0)+(result.potions||0),now,character);this.db.prepare('INSERT INTO eco_ledger(character_id,coins,potions,exp,reason,at) VALUES(?,?,?,0,?,?)').run(character,balance-p.coins,result.potions||0,'gia_vien',now);}

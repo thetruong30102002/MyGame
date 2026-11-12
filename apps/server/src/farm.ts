@@ -1,5 +1,5 @@
 import {randomInt,randomUUID} from 'node:crypto';
-import {FARM_CROPS,FARM_FISH,FARM_LAYOUT,FARM_ROOMS,FARM_SHOP,FARM_TANK,FARM_WARDROBE,POND_MAP,chooseFarmFish,growPlot,plotPoint,pondSpotNear,shopPrice,type FarmRoom,type FarmState} from '@havenlord/sim/farm';
+import {FARM_CROPS,FARM_FISH,FARM_LAYOUT,FARM_ROOMS,FARM_SHOP,FARM_TANK,FARM_PETS,FARM_WARDROBE,PET_GACHA,POND_MAP,chooseFarmFish,rollPet,growPlot,plotPoint,pondSpotNear,shopPrice,type FarmRoom,type FarmState} from '@havenlord/sim/farm';
 import {STORY} from '@havenlord/sim/story/story';
 import {VILLAGE_SHOP} from '@havenlord/sim/village';
 import type {ServerMessage} from '@havenlord/protocol';
@@ -55,7 +55,7 @@ export class Farm {
     const target=roomMap(account,to);
     this.host.send(id,{t:'farm',state:{travel:to,spot:`from_${from}`,map:target}});this.host.move(id,target);this.send(id,account);return;
    }
-   this.store.farm.run<unknown>(account,id,this.now(),(s,coins)=>{
+   this.store.farm.run<unknown>(account,id,this.now(),(s,coins,gems)=>{
     if(op==='talk'){
      const npc=this.roster().find(n=>n.id===raw.npc);if(!npc||at.map!=='human/town'||!near(npc.x,npc.y,130))throw new Error('Hãy tới gần người muốn trò chuyện');
      if(!s.visited.includes(npc.id))s.visited.push(npc.id);
@@ -70,6 +70,28 @@ export class Farm {
      const item=VILLAGE_SHOP.find(x=>x.id===raw.item);const npc=this.roster().find(n=>n.id===item?.npc);if(!item||!npc||at.map!=='human/town'||!near(npc.x,npc.y,160))throw new Error('Hãy tới đúng quầy hàng');if(coins<item.coins)throw new Error('Không đủ xu');return{value:null,coins:coins-item.coins,...('potions'in item?{potions:item.potions}:{buff:true})};
     }
     if(!s.unlocked||!farmMaps(account).includes(at.map))throw new Error('Chỉ chủ nhà được thao tác trong Gia viên đã mở');
+    if(op==='gacha'||op==='petOut'||op==='petTrade'){
+     if(!s.unlocked||!farmMaps(account).includes(at.map))throw new Error('Thú cưng ở trong Gia viên của bạn');
+     const pets=s.pets??(s.pets=[]),out=s.petsOut??(s.petsOut=[]);
+     if(op==='gacha'){
+      // Máy chủ quay + giữ kết quả; client chỉ thấy kết quả sau khi đã trừ kim cương.
+      const count=raw.plot===10?10:1,cost=count===10?PET_GACHA.ten:PET_GACHA.one;if(gems<cost)throw new Error('Không đủ kim cương');
+      const spins:{pet:string;dup:boolean}[]=[];let pity=s.petPity??0;
+      for(let k=0;k<count;k++){
+       const guaranteeRare=count===10&&k===9&&!spins.some(x=>(FARM_PETS.find(p=>p.id===x.pet)?.rarity??1)>=2);
+       const min=pity+1>=PET_GACHA.pity?4:guaranteeRare?2:1;
+       const pet=rollPet(this.random(),this.random(),min),rarity=FARM_PETS.find(p=>p.id===pet)!.rarity;
+       pity=rarity===4?0:pity+1;
+       const dup=pets.includes(pet);if(dup)s.petShards=(s.petShards??0)+PET_GACHA.shards[rarity-1]!;else{pets.push(pet);if(out.length<PET_GACHA.out)out.push(pet);}
+       spins.push({pet,dup});
+      }
+      s.petPity=pity;s.lastSpin=spins;return{value:null,diamonds:gems-cost};
+     }
+     const pet=FARM_PETS.find(p=>p.id===raw.item);if(!pet)throw new Error('Không có thú cưng này');
+     if(op==='petOut'){if(!pets.includes(pet.id))throw new Error('Bạn chưa có thú cưng này');const i=out.indexOf(pet.id);if(i>=0)out.splice(i,1);else{if(out.length>=PET_GACHA.out)throw new Error(`Tối đa ${PET_GACHA.out} thú đi lại cùng lúc`);out.push(pet.id);}return{value:null};}
+     if(pets.includes(pet.id))throw new Error('Bạn đã có thú cưng này');const price=PET_GACHA.trade[pet.rarity-1]!;if((s.petShards??0)<price)throw new Error('Không đủ mảnh');
+     s.petShards=(s.petShards??0)-price;pets.push(pet.id);if(out.length<PET_GACHA.out)out.push(pet.id);return{value:null};
+    }
     if(op==='buy'){
      // Cửa hàng Quản gia (đứng ở khuôn viên): mở ô ruộng / mua bể cá; máy chủ trừ xu và ghi đồ đã có trong cùng một giao dịch.
      if(at.map!==homeMap(account)||!near(FARM_LAYOUT.stewardX,FARM_LAYOUT.stewardY,130))throw new Error('Hãy tới gặp Quản gia ở khuôn viên');
@@ -116,7 +138,7 @@ export class Farm {
     else if(op==='harvest'){const c=FARM_CROPS.find(x=>x.id===p.crop);if(!c||p.growth<c.ms)throw new Error('Cây chưa chín');const key=`farm_${c.id}`;s.inventory[key]=(s.inventory[key]||0)+1;Object.assign(p,{crop:null,growth:0,watered:false,lastAt:0,plantedAt:0});}
     else throw new Error('Thao tác Gia viên không hợp lệ');s.lastAction=this.now();return{value:null};
    });
-   this.host.refresh(id);this.send(id,account);
+   this.host.refresh(id);if(op==='gacha')this.host.send(id,{t:'wallet',diamonds:this.store.diamonds(id)});this.send(id,account);
   }catch(e){this.host.send(id,{t:'system',text:e instanceof Error?e.message:'Không thực hiện được thao tác'});}
  }
 }

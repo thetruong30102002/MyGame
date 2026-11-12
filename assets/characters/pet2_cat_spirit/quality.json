@@ -1,0 +1,81 @@
+{
+	"checks": [
+		{
+			"id": "anim-idle",
+			"label": "Animation idle: đủ 8 hướng, 4–8 frame",
+			"status": "pass",
+			"detail": "S:6 W:6 N:6 E:6 · TẠM ảnh tĩnh: SW, NW, NE, SE"
+		},
+		{
+			"id": "anim-walk",
+			"label": "Animation walk: đủ 8 hướng, 4–8 frame",
+			"status": "pass",
+			"detail": "S:6 W:6 N:6 E:6 · TẠM ảnh tĩnh: SW, NW, NE, SE"
+		},
+		{
+			"id": "no-empty-frames",
+			"label": "Không có frame rỗng (ô trống trong sheet nguồn)",
+			"status": "pass",
+			"detail": "mọi frame có hình"
+		},
+		{
+			"id": "dimensions",
+			"label": "Đúng kích thước 80×80",
+			"status": "pass",
+			"detail": "mọi frame đúng cỡ"
+		},
+		{
+			"id": "transparent-bg",
+			"label": "Nền trong suốt (viền canvas rỗng)",
+			"status": "pass",
+			"detail": "mọi frame có viền rỗng"
+		},
+		{
+			"id": "crisp-alpha",
+			"label": "Mép cứng: không có pixel bán trong suốt (không AA)",
+			"status": "pass",
+			"detail": "0 pixel bán trong suốt"
+		},
+		{
+			"id": "no-blur",
+			"label": "Không nhoè: số màu/frame và tỉ lệ chuyển màu li ti",
+			"status": "pass",
+			"detail": "tối đa 56 màu/frame (ngưỡng 128), micro-step 0.8% (ngưỡng 12%)"
+		},
+		{
+			"id": "silhouette-size",
+			"label": "Silhouette đủ lớn để đọc được (15–95% chiều cao canvas)",
+			"status": "pass",
+			"detail": "cao 49–61px trên 80px"
+		},
+		{
+			"id": "silhouette-solid",
+			"label": "Silhouette liền khối (không mảnh rời)",
+			"status": "pass",
+			"detail": "mọi frame liền khối"
+		},
+		{
+			"id": "proportions",
+			"label": "Tỉ lệ nhất quán giữa các frame cùng hướng (lệch cao ≤ 30%)",
+			"status": "pass",
+			"detail": "ổn định"
+		},
+		{
+			"id": "no-foreign-objects",
+			"label": "Không có vật/màu lạ chỉ xuất hiện ở vài frame (vũ khí ngẫu nhiên, đổi áo/tóc)",
+			"status": "pass",
+			"detail": "bảng màu nhất quán"
+		},
+		{
+			"id": "anatomy",
+			"label": "Duyệt bằng mắt: giải phẫu, vũ khí/trang phục/tóc không đổi giữa frame",
+			"status": "pass",
+			"detail": "11/11/2026: Duyệt lô 22 con 11/11 (63 clip không lỗi)."
+		}
+	],
+	"stats": {
+		"frames": 88,
+		"maxColorsPerFrame": 56,
+		"microStepRatio": 0.0075380036017305245
+	}
+}

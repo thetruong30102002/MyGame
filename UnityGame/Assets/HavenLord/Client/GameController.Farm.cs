@@ -89,7 +89,7 @@ namespace HavenLord.Client
             farmPoll += dt;
             if (farmPoll >= 4) { farmPoll = 0; FarmSend("get"); }
             if (!InFarm) return;
-            if (FarmState != null && farmDrawn != FarmVersion) { DrawFarmPlots(); DrawFishTank(); RefreshFarmBody(); farmDrawn = FarmVersion; }
+            if (FarmState != null && farmDrawn != FarmVersion) { DrawFarmPlots(); DrawFishTank(); DrawPets(); RefreshFarmBody(); farmDrawn = FarmVersion; }
             SwimTankFish();
             if (farmView == null) return;
             if (!FarmBusy)
@@ -130,6 +130,7 @@ namespace HavenLord.Client
             combat.Interrupt();
             FarmBusy = false;
             farmDrawn = -1;
+            petsDrawn = null;
             RefreshFarmBody();
         }
 
@@ -198,6 +199,36 @@ namespace HavenLord.Client
         private (float x, float y) PlotPos(int i) => ((float)((double?)Layout?["plotX"] ?? 352) + i % PlotCols * 32, (float)((double?)Layout?["plotY"] ?? 544) + i / PlotCols * 32);
         private int PlotCount => (FarmState?["plots"] as JArray)?.Count ?? 0;
         private Vector2 Steward => new Vector2((float)((double?)Layout?["stewardX"] ?? 780), (float)((double?)Layout?["stewardY"] ?? 470));
+
+        // ---- Thú cưng: con đang thả (petsOut) đi lang thang trong khuôn viên / các phòng của chủ; hồ câu chung không có thú ----
+        private string petsDrawn;
+        private static readonly Dictionary<string, (float x, float y, float r)> PetAreas = new Dictionary<string, (float, float, float)>
+        {
+            ["garden"] = (640, 500, 170), ["house"] = (320, 300, 150), ["kitchen"] = (240, 250, 110), ["bedroom"] = (240, 330, 110),
+        };
+
+        private void DrawPets()
+        {
+            var outList = (FarmState?["petsOut"] as JArray)?.Select(x => (string)x).ToArray() ?? new string[0];
+            var key = map?.def.id + "|" + string.Join(",", outList);
+            if (key == petsDrawn) return;
+            petsDrawn = key;
+            population.ClearPets();
+            if (map == null || !PetAreas.TryGetValue(map.def.id, out var area)) return;
+            for (var i = 0; i < outList.Length; i++)
+            {
+                var a = i * 2.4f;
+                population.SpawnPet(outList[i], area.x + Mathf.Cos(a) * area.r * .5f, area.y + Mathf.Sin(a) * area.r * .4f, area.r);
+            }
+        }
+
+        /// <summary>Bảng quay thú cưng (gọi từ cửa hàng Quản gia).</summary>
+        public void ShowPets()
+        {
+            VillageKey = "pets";
+            FarmSend("get");
+            hud.Panels.Show(Panels.Kind.Farm);
+        }
 
         /// <summary>Quản gia ở khuôn viên: mở bảng cửa hàng Gia viên (mở ô ruộng, bể cá).</summary>
         public void OpenSteward()

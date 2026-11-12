@@ -466,3 +466,55 @@ export function eachFrame(frames: AnimationFrames, fn: (img: RGBAImage, anim: An
 		for (const [dir, list] of Object.entries(dirs) as [Direction, RGBAImage[]][]) list.forEach((img, i) => fn(img, anim, dir, i));
 	}
 }
+
+/**
+ * Dọn "đảo rời" (12/11/2026, thú cưng gacha): PixelLab hay vẽ thêm vệt hiệu ứng lơ lửng trên đầu ở vài khung đứng / đi. Mỗi khung chỉ
+ * giữ khối liền lớn nhất (8 hướng) và các mảnh nằm cách khối đó ≤ `gap` px (râu, đuôi tách nét); còn lại xoá.
+ */
+export function removeIslands(frames: AnimationFrames, gap = 2): { frames: AnimationFrames; removedPixels: number } {
+	let removedPixels = 0;
+	const result = mapFrames(frames, (src) => {
+		const { width: W, height: H } = src;
+		const label = new Int32Array(W * H).fill(-1);
+		const sizes: number[] = [];
+		for (let i = 0; i < W * H; i += 1) {
+			if (label[i]! >= 0 || alphaAt(src, i % W, (i / W) | 0) === 0) continue;
+			const id = sizes.length;
+			let n = 0;
+			const stack = [i];
+			label[i] = id;
+			while (stack.length) {
+				const p = stack.pop()!;
+				n += 1;
+				const x = p % W, y = (p / W) | 0;
+				for (let dy = -1; dy <= 1; dy += 1) for (let dx = -1; dx <= 1; dx += 1) {
+					const nx = x + dx, ny = y + dy;
+					if (nx < 0 || ny < 0 || nx >= W || ny >= H) continue;
+					const q = ny * W + nx;
+					if (label[q]! < 0 && alphaAt(src, nx, ny) > 0) { label[q] = id; stack.push(q); }
+				}
+			}
+			sizes.push(n);
+		}
+		if (sizes.length <= 1) return src;
+		const main = sizes.indexOf(Math.max(...sizes));
+		// Vùng giữ: khối chính nở thêm `gap` px; mảnh nào chạm vùng này thì giữ cả mảnh.
+		const near = new Uint8Array(W * H);
+		for (let i = 0; i < W * H; i += 1) {
+			if (label[i] !== main) continue;
+			const x = i % W, y = (i / W) | 0;
+			for (let dy = -gap; dy <= gap; dy += 1) for (let dx = -gap; dx <= gap; dx += 1) {
+				const nx = x + dx, ny = y + dy;
+				if (nx >= 0 && ny >= 0 && nx < W && ny < H) near[ny * W + nx] = 1;
+			}
+		}
+		const keep = new Set<number>([main]);
+		for (let i = 0; i < W * H; i += 1) if (near[i] && label[i]! >= 0) keep.add(label[i]!);
+		const out = cloneImage(src);
+		for (let i = 0; i < W * H; i += 1) {
+			if (label[i]! >= 0 && !keep.has(label[i]!)) { setPixel(out, i % W, (i / W) | 0, [0, 0, 0, 0]); removedPixels += 1; }
+		}
+		return out;
+	});
+	return { frames: result, removedPixels };
+}
