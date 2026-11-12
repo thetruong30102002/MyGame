@@ -1,0 +1,13 @@
+{
+	"description": "A sprite sheet of FOUR separate staircases arranged in a grid of 2 columns and 2 rows, each centered in its own cell. Top left: red brick townhouse: dark polished walnut steps, walnut handrail with white turned balusters, red brick newel posts with walnut caps. Top right: east asian manor: black lacquered steps, red lacquered handrail and lattice balusters, red newel posts with gold caps. Bottom left: dwarven forge hall: dark basalt block steps, riveted brass handrail and iron balusters, basalt newel posts with glowing orange runes. Bottom right: castle: grey stone steps with a red carpet runner, carved stone balustrade with round balusters, stone newel posts topped with stone balls. Each cell holds ONE indoor staircase seen from the side exactly like the reference: a straight flight of six steps rising from the lower left to the upper right, a closed side panel under the steps, a handrail on balusters following the steps, a tall newel post at the bottom left and another at the top right, standing on a flat bottom line. Same size, viewing angle, chunky pixel blocks, thick dark outline and soft cel shading as the reference. Every staircase centered in its own cell with empty space around it, on a plain flat solid bright magenta (#FF00FF) chroma-key background. No text, no letters, no floor, no wall, no people, no animals.",
+	"width": 256,
+	"height": 256,
+	"no_background": false,
+	"style_image": {
+		"path": "packages/asset-pipeline/sources/gpt-review/dot-2/chuan-hoa/cau_thang_go.png",
+		"usage_description": "Copy ONLY the art style and the staircase shape of this reference: side view, six steps rising left to right, handrail, two newel posts, chunky pixel blocks, thick dark outline. Change materials and colours as described."
+	},
+	"jobId": "cbbcfdf1-c55f-4278-9a4a-194b94e79e49",
+	"token": 0,
+	"createdAt": "2026-11-12T07:41:02.097Z"
+}

@@ -1,0 +1,13 @@
+{
+	"description": "A sprite sheet of FOUR separate staircases arranged in a grid of 2 columns and 2 rows, each centered in its own cell. Top left: giant mushroom house: steps of pale smooth mushroom stem, handrail and balusters of twisted roots, newel posts topped with small red-capped mushrooms with white spots. Top right: highland stone house: grey fieldstone block steps, dark wrought iron handrail and balusters, stone newel posts with iron caps. Bottom left: flower windmill farmhouse: white painted wooden steps with blue trim, white balusters with small carved tulips, blue newel posts. Bottom right: cedar log cabin: thick round pine log steps, rustic log handrail and branch balusters, chunky log newel posts with bark. Each cell holds ONE indoor staircase seen from the side exactly like the reference: a straight flight of six steps rising from the lower left to the upper right, a closed side panel under the steps, a handrail on balusters following the steps, a tall newel post at the bottom left and another at the top right, standing on a flat bottom line. Same size, viewing angle, chunky pixel blocks, thick dark outline and soft cel shading as the reference. Every staircase centered in its own cell with empty space around it, on a plain flat solid bright magenta (#FF00FF) chroma-key background. No text, no letters, no floor, no wall, no people, no animals.",
+	"width": 256,
+	"height": 256,
+	"no_background": false,
+	"style_image": {
+		"path": "packages/asset-pipeline/sources/gpt-review/dot-2/chuan-hoa/cau_thang_go.png",
+		"usage_description": "Copy ONLY the art style and the staircase shape of this reference: side view, six steps rising left to right, handrail, two newel posts, chunky pixel blocks, thick dark outline. Change materials and colours as described."
+	},
+	"jobId": "5337af93-a981-44fe-b8ef-5843619e8382",
+	"token": 0,
+	"createdAt": "2026-11-12T07:39:17.901Z"
+}

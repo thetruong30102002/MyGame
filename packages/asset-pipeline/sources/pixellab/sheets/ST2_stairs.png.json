@@ -1,0 +1,13 @@
+{
+	"description": "A sprite sheet of FOUR separate staircases arranged in a grid of 2 columns and 2 rows, each centered in its own cell. Top left: swamp stilt house: bamboo pole steps, bamboo handrail lashed with rope, bamboo balusters, newel posts wrapped with rope. Top right: seaside captain house: whitewashed plank steps, thick rope handrail on brass stanchions, a newel post shaped like a ship mast with a small brass bell. Bottom left: desert dome house: sandstone steps with blue glazed tile risers, carved dark cedar handrail and turned balusters, sandstone newel posts with brass star caps. Bottom right: elven treehouse: curved living honey-coloured wood steps, handrail of a twisting vine with green leaves, newel posts that are living tree trunks with leaves. Each cell holds ONE indoor staircase seen from the side exactly like the reference: a straight flight of six steps rising from the lower left to the upper right, a closed side panel under the steps, a handrail on balusters following the steps, a tall newel post at the bottom left and another at the top right, standing on a flat bottom line. Same size, viewing angle, chunky pixel blocks, thick dark outline and soft cel shading as the reference. Every staircase centered in its own cell with empty space around it, on a plain flat solid bright magenta (#FF00FF) chroma-key background. No text, no letters, no floor, no wall, no people, no animals.",
+	"width": 256,
+	"height": 256,
+	"no_background": false,
+	"style_image": {
+		"path": "packages/asset-pipeline/sources/gpt-review/dot-2/chuan-hoa/cau_thang_go.png",
+		"usage_description": "Copy ONLY the art style and the staircase shape of this reference: side view, six steps rising left to right, handrail, two newel posts, chunky pixel blocks, thick dark outline. Change materials and colours as described."
+	},
+	"jobId": "cf75428a-9de2-4522-8d98-bfad403478a4",
+	"token": 0,
+	"createdAt": "2026-11-12T07:40:10.035Z"
+}
