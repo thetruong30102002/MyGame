@@ -8,7 +8,16 @@ export const FARM_CROPS = [
  {id:'strawberry',name:'Dâu',ms:60*60000,seed:20,sell:45},
  {id:'haven_pumpkin',name:'Bí ngô Haven',ms:180*60000,seed:35,sell:85},
  {id:'silver_grass',name:'Cỏ bạc',ms:480*60000,seed:60,sell:150},
+ // Mở rộng 11/11 (kế hoạch 9.8) — giá / thời gian thử, chưa cân bằng; hạt mua ở người bán đồ Gia viên / quầy Bram.
+ {id:'rice',name:'Lúa nước',ms:20*60000,seed:10,sell:20},{id:'corn',name:'Ngô',ms:25*60000,seed:10,sell:22},
+ {id:'tomato',name:'Cà chua',ms:40*60000,seed:15,sell:34},{id:'watermelon',name:'Dưa hấu',ms:120*60000,seed:30,sell:75},
+ {id:'grape',name:'Nho',ms:90*60000,seed:25,sell:60},{id:'chili',name:'Ớt',ms:45*60000,seed:15,sell:36},
+ {id:'tea',name:'Chè',ms:120*60000,seed:28,sell:70},{id:'sunflower',name:'Hướng dương',ms:50*60000,seed:18,sell:42},
+ {id:'glowcap',name:'Nấm sáng',ms:180*60000,seed:40,sell:100},{id:'moonflower',name:'Hoa trăng',ms:240*60000,seed:50,sell:130},
+ {id:'starfruit',name:'Quả sao',ms:360*60000,seed:70,sell:180},{id:'golden_wheat',name:'Lúa vàng',ms:600*60000,seed:120,sell:320},
 ] as const;
+/** Hạt tặng khi mở Gia viên: chỉ 6 cây vùng 1 đầu tiên. */
+export const FARM_STARTER_CROPS = ['wheat','carrot','potato','strawberry','haven_pumpkin','silver_grass'] as const;
 export const FARM_FISH = [
  {id:'crucian',name:'Cá diếc',weight:30,sell:7,night:false},
  {id:'carp',name:'Cá chép',weight:23,sell:10,night:false},

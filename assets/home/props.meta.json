@@ -287,6 +287,582 @@
       "h": 0
     }
   },
+  "farm_crop_rice_0": {
+    "kind": "flower",
+    "w": 35,
+    "h": 23,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_rice_1": {
+    "kind": "flower",
+    "w": 32,
+    "h": 35,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_rice_2": {
+    "kind": "flower",
+    "w": 40,
+    "h": 45,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_rice_3": {
+    "kind": "flower",
+    "w": 44,
+    "h": 46,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_corn_0": {
+    "kind": "flower",
+    "w": 25,
+    "h": 27,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_corn_1": {
+    "kind": "flower",
+    "w": 34,
+    "h": 43,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_corn_2": {
+    "kind": "flower",
+    "w": 36,
+    "h": 54,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_corn_3": {
+    "kind": "flower",
+    "w": 36,
+    "h": 54,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_tomato_0": {
+    "kind": "flower",
+    "w": 22,
+    "h": 25,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_tomato_1": {
+    "kind": "flower",
+    "w": 38,
+    "h": 37,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_tomato_2": {
+    "kind": "flower",
+    "w": 41,
+    "h": 48,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_tomato_3": {
+    "kind": "flower",
+    "w": 43,
+    "h": 49,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_watermelon_0": {
+    "kind": "flower",
+    "w": 23,
+    "h": 21,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_watermelon_1": {
+    "kind": "flower",
+    "w": 42,
+    "h": 36,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_watermelon_2": {
+    "kind": "flower",
+    "w": 44,
+    "h": 42,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_watermelon_3": {
+    "kind": "flower",
+    "w": 48,
+    "h": 46,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_grape_0": {
+    "kind": "flower",
+    "w": 20,
+    "h": 24,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_grape_1": {
+    "kind": "flower",
+    "w": 30,
+    "h": 40,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_grape_2": {
+    "kind": "flower",
+    "w": 39,
+    "h": 43,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_grape_3": {
+    "kind": "flower",
+    "w": 42,
+    "h": 48,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_chili_0": {
+    "kind": "flower",
+    "w": 21,
+    "h": 23,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_chili_1": {
+    "kind": "flower",
+    "w": 31,
+    "h": 43,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_chili_2": {
+    "kind": "flower",
+    "w": 42,
+    "h": 46,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_chili_3": {
+    "kind": "flower",
+    "w": 43,
+    "h": 46,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_tea_0": {
+    "kind": "flower",
+    "w": 21,
+    "h": 23,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_tea_1": {
+    "kind": "flower",
+    "w": 35,
+    "h": 35,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_tea_2": {
+    "kind": "flower",
+    "w": 43,
+    "h": 57,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_tea_3": {
+    "kind": "flower",
+    "w": 45,
+    "h": 46,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_sunflower_0": {
+    "kind": "flower",
+    "w": 21,
+    "h": 21,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_sunflower_1": {
+    "kind": "flower",
+    "w": 30,
+    "h": 44,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_sunflower_2": {
+    "kind": "flower",
+    "w": 33,
+    "h": 48,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_sunflower_3": {
+    "kind": "flower",
+    "w": 38,
+    "h": 48,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_glowcap_0": {
+    "kind": "flower",
+    "w": 18,
+    "h": 18,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_glowcap_1": {
+    "kind": "flower",
+    "w": 30,
+    "h": 29,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_glowcap_2": {
+    "kind": "flower",
+    "w": 35,
+    "h": 35,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_glowcap_3": {
+    "kind": "flower",
+    "w": 37,
+    "h": 38,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_moonflower_0": {
+    "kind": "flower",
+    "w": 22,
+    "h": 24,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_moonflower_1": {
+    "kind": "flower",
+    "w": 34,
+    "h": 34,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_moonflower_2": {
+    "kind": "flower",
+    "w": 31,
+    "h": 40,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_moonflower_3": {
+    "kind": "flower",
+    "w": 33,
+    "h": 45,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_starfruit_0": {
+    "kind": "flower",
+    "w": 22,
+    "h": 20,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_starfruit_1": {
+    "kind": "flower",
+    "w": 37,
+    "h": 35,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_starfruit_2": {
+    "kind": "flower",
+    "w": 39,
+    "h": 38,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_starfruit_3": {
+    "kind": "flower",
+    "w": 40,
+    "h": 38,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_golden_wheat_0": {
+    "kind": "flower",
+    "w": 22,
+    "h": 23,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_golden_wheat_1": {
+    "kind": "flower",
+    "w": 36,
+    "h": 33,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_golden_wheat_2": {
+    "kind": "flower",
+    "w": 39,
+    "h": 45,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_golden_wheat_3": {
+    "kind": "flower",
+    "w": 40,
+    "h": 45,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
   "home_fence": {
     "kind": "decor",
     "w": 54,

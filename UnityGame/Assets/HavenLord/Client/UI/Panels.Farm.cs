@@ -117,35 +117,37 @@ namespace HavenLord.Client.UI
             if (crops != null) for (var i = 0; i < crops.Count; i++)
             {
                 var c = crops[i];var id = (string)c["id"];var n = (int?)state["inventory"]?["seed_" + id] ?? 0;
-                FarmButton("Hạt" + id, $"{c["name"]} · {n} hạt" + (game.FarmCrop == id ? " ✓" : ""), i % 3 * 256, 165 + i / 3 * 48, () => { game.FarmCrop = id;Refresh(); });
+                FarmButton("Hạt" + id, $"{c["name"]} · {n} hạt" + (game.FarmCrop == id ? " ✓" : ""), i % 4 * 256, 165 + i / 4 * 42, () => { game.FarmCrop = id;Refresh(); });
             }
-            FarmText("Kho", "Kho: " + string.Join(" · ", (state["inventory"] as JObject)?.Properties().Where(p => (int)p.Value > 0 && !p.Name.StartsWith("seed_", StringComparison.Ordinal)).Select(p => $"{FarmItemName(p.Name)} ×{p.Value}") ?? Enumerable.Empty<string>()), 270, 60);
+            // 18 cây: lưới 4 cột; các phần bên dưới dời theo chiều cao lưới hạt.
+            var dy = Math.Max(0, 165 + ((crops?.Count ?? 0) + 3) / 4 * 42 + 10 - 270);
+            FarmText("Kho", "Kho: " + string.Join(" · ", (state["inventory"] as JObject)?.Properties().Where(p => (int)p.Value > 0 && !p.Name.StartsWith("seed_", StringComparison.Ordinal)).Select(p => $"{FarmItemName(p.Name)} ×{p.Value}") ?? Enumerable.Empty<string>()), 270 + dy, 60);
             if (game.InFarm && game.Map.id == "bedroom")
             {
-                FarmButton("Nông gia", "Mặc bộ Nông gia (tới tủ)", 0, 350, () => game.FarmSend("outfit", outfit: "farmer1"));
-                FarmButton("Thợ vườn", "Mặc bộ Thợ vườn (tới tủ)", 256, 350, () => game.FarmSend("outfit", outfit: "gardener"));
+                FarmButton("Nông gia", "Mặc bộ Nông gia (tới tủ)", 0, 350 + dy, () => game.FarmSend("outfit", outfit: "farmer1"));
+                FarmButton("Thợ vườn", "Mặc bộ Thợ vườn (tới tủ)", 256, 350 + dy, () => game.FarmSend("outfit", outfit: "gardener"));
             }
             if (game.InFarm && System.Array.IndexOf(GameController.HouseRooms, game.Map.id) >= 0 && game.RoomDecor().Any(q => (string)q["id"] == "gv_be_ca"))
             {
-                if (!game.OwnsTank) FarmText("Bể", "Chưa có bể cá · mua ở người bán đồ Gia viên ngoài khuôn viên.", 350);
+                if (!game.OwnsTank) FarmText("Bể", "Chưa có bể cá · mua ở người bán đồ Gia viên ngoài khuôn viên.", 350 + dy);
                 else
                 {
                     // Bể cá: thả cá trong kho vào bể (đứng cạnh bể), bấm cá trong bể để lấy lại.
                     var tank = state["tank"] as JArray ?? new JArray();
-                    FarmText("Bể", $"Bể cá · {tank.Count}/6 con · đứng cạnh bể để thả / lấy cá", 340);
+                    FarmText("Bể", $"Bể cá · {tank.Count}/6 con · đứng cạnh bể để thả / lấy cá", 340 + dy);
                     var fish = (state["inventory"] as JObject)?.Properties().Where(p => p.Name.StartsWith("fish_", StringComparison.Ordinal) && (int)p.Value > 0).ToArray() ?? new JProperty[0];
-                    for (var i = 0; i < fish.Length && i < 6; i++) { var id = fish[i].Name.Substring(5); FarmButton("Thả" + id, $"Thả {FarmItemName(fish[i].Name)}", i % 3 * 256, 372 + i / 3 * 44, () => game.FarmSend("tank", item: id)); }
-                    for (var i = 0; i < tank.Count; i++) { var idx = i; FarmButton("Lấy" + i, $"Lấy {FarmItemName("fish_" + tank[i])}", 768, 372 + i * 44, () => game.FarmSend("untank", plot: idx)); }
+                    for (var i = 0; i < fish.Length && i < 6; i++) { var id = fish[i].Name.Substring(5); FarmButton("Thả" + id, $"Thả {FarmItemName(fish[i].Name)}", i % 3 * 256, 372 + dy + i / 3 * 44, () => game.FarmSend("tank", item: id)); }
+                    for (var i = 0; i < tank.Count; i++) { var idx = i; FarmButton("Lấy" + i, $"Lấy {FarmItemName("fish_" + tank[i])}", 768, 372 + dy + i * 44, () => game.FarmSend("untank", plot: idx)); }
                 }
             }
-            else if (game.InFarm && game.Map.id == "kitchen") FarmText("Bếp", "Nấu ăn sẽ bổ sung sau đợt trồng trọt / câu cá này.", 350);
+            else if (game.InFarm && game.Map.id == "kitchen") FarmText("Bếp", "Nấu ăn sẽ bổ sung sau đợt trồng trọt / câu cá này.", 350 + dy);
             else if (!game.InFarm && crops != null)
             {
-                FarmText("Mua hạt", "Mua thêm tại quầy Bram · giá thử, chưa chốt cân bằng:", 335);
+                FarmText("Mua hạt", "Mua thêm tại quầy Bram · giá thử, chưa chốt cân bằng:", 335 + dy);
                 for (var i = 0; i < crops.Count; i++)
                 {
                     var c = crops[i];var id = (string)c["id"];
-                    FarmButton("Mua" + id, $"{c["name"]} · {c["seed"]} xu", i % 3 * 256, 375 + i / 3 * 45, () => game.FarmSend("buySeed", crop: id));
+                    FarmButton("Mua" + id, $"{c["name"]} · {c["seed"]} xu", i % 4 * 256, 375 + dy + i / 4 * 42, () => game.FarmSend("buySeed", crop: id));
                 }
             }
         }

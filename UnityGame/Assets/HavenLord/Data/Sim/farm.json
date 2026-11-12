@@ -259,6 +259,90 @@
 			"ms": 28800000,
 			"seed": 60,
 			"sell": 150
+		},
+		{
+			"id": "rice",
+			"name": "Lúa nước",
+			"ms": 1200000,
+			"seed": 10,
+			"sell": 20
+		},
+		{
+			"id": "corn",
+			"name": "Ngô",
+			"ms": 1500000,
+			"seed": 10,
+			"sell": 22
+		},
+		{
+			"id": "tomato",
+			"name": "Cà chua",
+			"ms": 2400000,
+			"seed": 15,
+			"sell": 34
+		},
+		{
+			"id": "watermelon",
+			"name": "Dưa hấu",
+			"ms": 7200000,
+			"seed": 30,
+			"sell": 75
+		},
+		{
+			"id": "grape",
+			"name": "Nho",
+			"ms": 5400000,
+			"seed": 25,
+			"sell": 60
+		},
+		{
+			"id": "chili",
+			"name": "Ớt",
+			"ms": 2700000,
+			"seed": 15,
+			"sell": 36
+		},
+		{
+			"id": "tea",
+			"name": "Chè",
+			"ms": 7200000,
+			"seed": 28,
+			"sell": 70
+		},
+		{
+			"id": "sunflower",
+			"name": "Hướng dương",
+			"ms": 3000000,
+			"seed": 18,
+			"sell": 42
+		},
+		{
+			"id": "glowcap",
+			"name": "Nấm sáng",
+			"ms": 10800000,
+			"seed": 40,
+			"sell": 100
+		},
+		{
+			"id": "moonflower",
+			"name": "Hoa trăng",
+			"ms": 14400000,
+			"seed": 50,
+			"sell": 130
+		},
+		{
+			"id": "starfruit",
+			"name": "Quả sao",
+			"ms": 21600000,
+			"seed": 70,
+			"sell": 180
+		},
+		{
+			"id": "golden_wheat",
+			"name": "Lúa vàng",
+			"ms": 36000000,
+			"seed": 120,
+			"sell": 320
 		}
 	],
 	"FARM_FISH": [
@@ -516,6 +600,14 @@
 			"coins": 500,
 			"step": 0
 		}
+	],
+	"FARM_STARTER_CROPS": [
+		"wheat",
+		"carrot",
+		"potato",
+		"strawberry",
+		"haven_pumpkin",
+		"silver_grass"
 	],
 	"FARM_TANK": {
 		"item": "gv_be_ca",

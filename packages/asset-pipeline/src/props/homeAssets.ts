@@ -8,6 +8,9 @@ import { loadSheetCell, parseSheetPath } from './sheet.js';
 /** Gói Gia viên 07/11: chỉ cắt các tấm đã vẽ, giữ nguyên nét và kích thước nguồn. */
 export const HOME_CROPS = ['wheat', 'carrot', 'potato', 'strawberry', 'haven_pumpkin', 'silver_grass'] as const;
 export const HOME_CROP_NAMES = ['Lúa mì', 'Cà rốt', 'Khoai', 'Dâu', 'Bí ngô Haven', 'Cỏ bạc'] as const;
+/** 12 cây mở rộng (11/11, kế hoạch 9.8): F6 / F7 / F8 lưới 4×4 (hàng = cây, cột = giai đoạn 1–4), icon nông sản F9 ô 0–11, túi hạt F10 ô 0–11. */
+export const HOME_CROPS_2 = ['rice', 'corn', 'tomato', 'watermelon', 'grape', 'chili', 'tea', 'sunflower', 'glowcap', 'moonflower', 'starfruit', 'golden_wheat'] as const;
+export const HOME_CROP_NAMES_2 = ['Lúa nước', 'Ngô', 'Cà chua', 'Dưa hấu', 'Nho', 'Ớt', 'Chè', 'Hướng dương', 'Nấm sáng', 'Hoa trăng', 'Quả sao', 'Lúa vàng'] as const;
 const cell = (sheet: string, index: number, grid: string) => `sheet:${sheet}#${index}@${grid}`;
 const prop = (id: string, path: string, blocks = true, width = 0.8, height = 12): PropDef => ({
 	id, path, kind: 'decor', blocks, footprint: { w: blocks ? width : 0, h: blocks ? height : 0 },
@@ -16,6 +19,10 @@ const prop = (id: string, path: string, blocks = true, width = 0.8, height = 12)
 export const HOME_PROPS: PropDef[] = [
 	...HOME_CROPS.flatMap((id, row) => Array.from({ length: 4 }, (_, stage) => ({
 		...prop(`farm_crop_${id}_${stage}`, row < 2 ? cell('F1_crops', row * 4 + stage, '4x2') : cell('F2_crops', (row - 2) * 4 + stage, '4x4'), false),
+		kind: 'flower' as const,
+	}))),
+	...HOME_CROPS_2.flatMap((id, n) => Array.from({ length: 4 }, (_, stage) => ({
+		...prop(`farm_crop_${id}_${stage}`, cell(['F6_crops', 'F7_crops', 'F8_crops'][Math.floor(n / 4)]!, (n % 4) * 4 + stage, '4x4'), false),
 		kind: 'flower' as const,
 	}))),
 	// F4 ô 0/1 là mẫu màu đất; không đưa hình ô đất vào atlas (ruộng dựng theo lưới 32 px).
@@ -48,6 +55,8 @@ export const HOME_PROPS: PropDef[] = [
 export const HOME_ICONS = [
 	...HOME_CROPS.map((id, index) => ({ id: `farm_${id}`, name: HOME_CROP_NAMES[index]!, path: cell('F3_crop_icons', index, '4x3') })),
 	...HOME_CROPS.map((id, index) => ({ id: `seed_${id}`, name: `Hạt ${HOME_CROP_NAMES[index]!.toLowerCase()}`, path: cell('F3_crop_icons', index + 6, '4x3') })),
+	...HOME_CROPS_2.map((id, index) => ({ id: `farm_${id}`, name: HOME_CROP_NAMES_2[index]!, path: cell('F9_produce_icons', index, '4x4') })),
+	...HOME_CROPS_2.map((id, index) => ({ id: `seed_${id}`, name: `Hạt ${HOME_CROP_NAMES_2[index]!.toLowerCase()}`, path: cell('F10_seed_icons', index, '4x4') })),
 	...['crucian', 'carp', 'perch', 'eel', 'prawn', 'golden_carp', 'night_catfish', 'haven'].map((id, index) => ({
 		id: `fish_${id}`, name: ['Cá diếc', 'Cá chép', 'Cá rô', 'Lươn đồng', 'Tôm càng', 'Cá chép vàng', 'Cá trê đêm', 'Cá Haven'][index]!, path: cell('F5_fish_icons', index, '4x2'),
 	})),

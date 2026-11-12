@@ -1,5 +1,5 @@
 import {randomInt,randomUUID} from 'node:crypto';
-import {FARM_CROPS,FARM_FISH,FARM_LAYOUT,FARM_ROOMS,FARM_SHOP,FARM_TANK,FARM_PETS,FARM_WARDROBE,PET_GACHA,POND_MAP,DECOR_ITEMS,chooseFarmFish,decorOf,decorPlaceIssue,rollPet,growPlot,plotPoint,pondSpotNear,shopPrice,type FarmRoom,type FarmState} from '@havenlord/sim/farm';
+import {FARM_CROPS,FARM_FISH,FARM_LAYOUT,FARM_ROOMS,FARM_SHOP,FARM_TANK,FARM_PETS,FARM_STARTER_CROPS,FARM_WARDROBE,PET_GACHA,POND_MAP,DECOR_ITEMS,chooseFarmFish,decorOf,decorPlaceIssue,rollPet,growPlot,plotPoint,pondSpotNear,shopPrice,type FarmRoom,type FarmState} from '@havenlord/sim/farm';
 import {STORY} from '@havenlord/sim/story/story';
 import {VILLAGE_SHOP} from '@havenlord/sim/village';
 import type {ServerMessage} from '@havenlord/protocol';
@@ -59,7 +59,7 @@ export class Farm {
     if(op==='talk'){
      const npc=this.roster().find(n=>n.id===raw.npc);if(!npc||at.map!=='human/town'||!near(npc.x,npc.y,130))throw new Error('Hãy tới gần người muốn trò chuyện');
      if(!s.visited.includes(npc.id))s.visited.push(npc.id);
-     if(!s.unlocked&&this.roster().every(n=>s.visited.includes(n.id))){s.unlocked=true;for(const c of FARM_CROPS)s.inventory[`seed_${c.id}`]=3;this.host.send(id,{t:'system',text:'Bạn đã quen cư dân Thistlewood. Gia viên đã mở; nhận 3 hạt mỗi loại trong kho!'});}
+     if(!s.unlocked&&this.roster().every(n=>s.visited.includes(n.id))){s.unlocked=true;for(const c of FARM_STARTER_CROPS)s.inventory[`seed_${c}`]=3;this.host.send(id,{t:'system',text:'Bạn đã quen cư dân Thistlewood. Gia viên đã mở; nhận 3 hạt mỗi loại trong kho!'});}
      return{value:null};
     }
     if(op==='buySeed'){

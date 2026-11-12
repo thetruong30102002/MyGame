@@ -146,6 +146,294 @@
       "h": 42
     },
     {
+      "id": "farm_crop_rice_0",
+      "source": "sheet:F6_crops#0@4x4",
+      "w": 35,
+      "h": 23
+    },
+    {
+      "id": "farm_crop_rice_1",
+      "source": "sheet:F6_crops#1@4x4",
+      "w": 32,
+      "h": 35
+    },
+    {
+      "id": "farm_crop_rice_2",
+      "source": "sheet:F6_crops#2@4x4",
+      "w": 40,
+      "h": 45
+    },
+    {
+      "id": "farm_crop_rice_3",
+      "source": "sheet:F6_crops#3@4x4",
+      "w": 44,
+      "h": 46
+    },
+    {
+      "id": "farm_crop_corn_0",
+      "source": "sheet:F6_crops#4@4x4",
+      "w": 25,
+      "h": 27
+    },
+    {
+      "id": "farm_crop_corn_1",
+      "source": "sheet:F6_crops#5@4x4",
+      "w": 34,
+      "h": 43
+    },
+    {
+      "id": "farm_crop_corn_2",
+      "source": "sheet:F6_crops#6@4x4",
+      "w": 36,
+      "h": 54
+    },
+    {
+      "id": "farm_crop_corn_3",
+      "source": "sheet:F6_crops#7@4x4",
+      "w": 36,
+      "h": 54
+    },
+    {
+      "id": "farm_crop_tomato_0",
+      "source": "sheet:F6_crops#8@4x4",
+      "w": 22,
+      "h": 25
+    },
+    {
+      "id": "farm_crop_tomato_1",
+      "source": "sheet:F6_crops#9@4x4",
+      "w": 38,
+      "h": 37
+    },
+    {
+      "id": "farm_crop_tomato_2",
+      "source": "sheet:F6_crops#10@4x4",
+      "w": 41,
+      "h": 48
+    },
+    {
+      "id": "farm_crop_tomato_3",
+      "source": "sheet:F6_crops#11@4x4",
+      "w": 43,
+      "h": 49
+    },
+    {
+      "id": "farm_crop_watermelon_0",
+      "source": "sheet:F6_crops#12@4x4",
+      "w": 23,
+      "h": 21
+    },
+    {
+      "id": "farm_crop_watermelon_1",
+      "source": "sheet:F6_crops#13@4x4",
+      "w": 42,
+      "h": 36
+    },
+    {
+      "id": "farm_crop_watermelon_2",
+      "source": "sheet:F6_crops#14@4x4",
+      "w": 44,
+      "h": 42
+    },
+    {
+      "id": "farm_crop_watermelon_3",
+      "source": "sheet:F6_crops#15@4x4",
+      "w": 48,
+      "h": 46
+    },
+    {
+      "id": "farm_crop_grape_0",
+      "source": "sheet:F7_crops#0@4x4",
+      "w": 20,
+      "h": 24
+    },
+    {
+      "id": "farm_crop_grape_1",
+      "source": "sheet:F7_crops#1@4x4",
+      "w": 30,
+      "h": 40
+    },
+    {
+      "id": "farm_crop_grape_2",
+      "source": "sheet:F7_crops#2@4x4",
+      "w": 39,
+      "h": 43
+    },
+    {
+      "id": "farm_crop_grape_3",
+      "source": "sheet:F7_crops#3@4x4",
+      "w": 42,
+      "h": 48
+    },
+    {
+      "id": "farm_crop_chili_0",
+      "source": "sheet:F7_crops#4@4x4",
+      "w": 21,
+      "h": 23
+    },
+    {
+      "id": "farm_crop_chili_1",
+      "source": "sheet:F7_crops#5@4x4",
+      "w": 31,
+      "h": 43
+    },
+    {
+      "id": "farm_crop_chili_2",
+      "source": "sheet:F7_crops#6@4x4",
+      "w": 42,
+      "h": 46
+    },
+    {
+      "id": "farm_crop_chili_3",
+      "source": "sheet:F7_crops#7@4x4",
+      "w": 43,
+      "h": 46
+    },
+    {
+      "id": "farm_crop_tea_0",
+      "source": "sheet:F7_crops#8@4x4",
+      "w": 21,
+      "h": 23
+    },
+    {
+      "id": "farm_crop_tea_1",
+      "source": "sheet:F7_crops#9@4x4",
+      "w": 35,
+      "h": 35
+    },
+    {
+      "id": "farm_crop_tea_2",
+      "source": "sheet:F7_crops#10@4x4",
+      "w": 43,
+      "h": 57
+    },
+    {
+      "id": "farm_crop_tea_3",
+      "source": "sheet:F7_crops#11@4x4",
+      "w": 45,
+      "h": 46
+    },
+    {
+      "id": "farm_crop_sunflower_0",
+      "source": "sheet:F7_crops#12@4x4",
+      "w": 21,
+      "h": 21
+    },
+    {
+      "id": "farm_crop_sunflower_1",
+      "source": "sheet:F7_crops#13@4x4",
+      "w": 30,
+      "h": 44
+    },
+    {
+      "id": "farm_crop_sunflower_2",
+      "source": "sheet:F7_crops#14@4x4",
+      "w": 33,
+      "h": 48
+    },
+    {
+      "id": "farm_crop_sunflower_3",
+      "source": "sheet:F7_crops#15@4x4",
+      "w": 38,
+      "h": 48
+    },
+    {
+      "id": "farm_crop_glowcap_0",
+      "source": "sheet:F8_crops#0@4x4",
+      "w": 18,
+      "h": 18
+    },
+    {
+      "id": "farm_crop_glowcap_1",
+      "source": "sheet:F8_crops#1@4x4",
+      "w": 30,
+      "h": 29
+    },
+    {
+      "id": "farm_crop_glowcap_2",
+      "source": "sheet:F8_crops#2@4x4",
+      "w": 35,
+      "h": 35
+    },
+    {
+      "id": "farm_crop_glowcap_3",
+      "source": "sheet:F8_crops#3@4x4",
+      "w": 37,
+      "h": 38
+    },
+    {
+      "id": "farm_crop_moonflower_0",
+      "source": "sheet:F8_crops#4@4x4",
+      "w": 22,
+      "h": 24
+    },
+    {
+      "id": "farm_crop_moonflower_1",
+      "source": "sheet:F8_crops#5@4x4",
+      "w": 34,
+      "h": 34
+    },
+    {
+      "id": "farm_crop_moonflower_2",
+      "source": "sheet:F8_crops#6@4x4",
+      "w": 31,
+      "h": 40
+    },
+    {
+      "id": "farm_crop_moonflower_3",
+      "source": "sheet:F8_crops#7@4x4",
+      "w": 33,
+      "h": 45
+    },
+    {
+      "id": "farm_crop_starfruit_0",
+      "source": "sheet:F8_crops#8@4x4",
+      "w": 22,
+      "h": 20
+    },
+    {
+      "id": "farm_crop_starfruit_1",
+      "source": "sheet:F8_crops#9@4x4",
+      "w": 37,
+      "h": 35
+    },
+    {
+      "id": "farm_crop_starfruit_2",
+      "source": "sheet:F8_crops#10@4x4",
+      "w": 39,
+      "h": 38
+    },
+    {
+      "id": "farm_crop_starfruit_3",
+      "source": "sheet:F8_crops#11@4x4",
+      "w": 40,
+      "h": 38
+    },
+    {
+      "id": "farm_crop_golden_wheat_0",
+      "source": "sheet:F8_crops#12@4x4",
+      "w": 22,
+      "h": 23
+    },
+    {
+      "id": "farm_crop_golden_wheat_1",
+      "source": "sheet:F8_crops#13@4x4",
+      "w": 36,
+      "h": 33
+    },
+    {
+      "id": "farm_crop_golden_wheat_2",
+      "source": "sheet:F8_crops#14@4x4",
+      "w": 39,
+      "h": 45
+    },
+    {
+      "id": "farm_crop_golden_wheat_3",
+      "source": "sheet:F8_crops#15@4x4",
+      "w": 40,
+      "h": 45
+    },
+    {
       "id": "home_fence",
       "source": "sheet:F4_farm_props#2@4x2",
       "w": 54,
@@ -386,6 +674,198 @@
       "file": "items/seed_silver_grass.png",
       "w": 40,
       "h": 48
+    },
+    {
+      "id": "farm_rice",
+      "name": "Lúa nước",
+      "source": "sheet:F9_produce_icons#0@4x4",
+      "file": "items/farm_rice.png",
+      "w": 42,
+      "h": 42
+    },
+    {
+      "id": "farm_corn",
+      "name": "Ngô",
+      "source": "sheet:F9_produce_icons#1@4x4",
+      "file": "items/farm_corn.png",
+      "w": 40,
+      "h": 46
+    },
+    {
+      "id": "farm_tomato",
+      "name": "Cà chua",
+      "source": "sheet:F9_produce_icons#2@4x4",
+      "file": "items/farm_tomato.png",
+      "w": 48,
+      "h": 41
+    },
+    {
+      "id": "farm_watermelon",
+      "name": "Dưa hấu",
+      "source": "sheet:F9_produce_icons#3@4x4",
+      "file": "items/farm_watermelon.png",
+      "w": 47,
+      "h": 46
+    },
+    {
+      "id": "farm_grape",
+      "name": "Nho",
+      "source": "sheet:F9_produce_icons#4@4x4",
+      "file": "items/farm_grape.png",
+      "w": 38,
+      "h": 45
+    },
+    {
+      "id": "farm_chili",
+      "name": "Ớt",
+      "source": "sheet:F9_produce_icons#5@4x4",
+      "file": "items/farm_chili.png",
+      "w": 42,
+      "h": 44
+    },
+    {
+      "id": "farm_tea",
+      "name": "Chè",
+      "source": "sheet:F9_produce_icons#6@4x4",
+      "file": "items/farm_tea.png",
+      "w": 46,
+      "h": 45
+    },
+    {
+      "id": "farm_sunflower",
+      "name": "Hướng dương",
+      "source": "sheet:F9_produce_icons#7@4x4",
+      "file": "items/farm_sunflower.png",
+      "w": 48,
+      "h": 48
+    },
+    {
+      "id": "farm_glowcap",
+      "name": "Nấm sáng",
+      "source": "sheet:F9_produce_icons#8@4x4",
+      "file": "items/farm_glowcap.png",
+      "w": 42,
+      "h": 45
+    },
+    {
+      "id": "farm_moonflower",
+      "name": "Hoa trăng",
+      "source": "sheet:F9_produce_icons#9@4x4",
+      "file": "items/farm_moonflower.png",
+      "w": 43,
+      "h": 45
+    },
+    {
+      "id": "farm_starfruit",
+      "name": "Quả sao",
+      "source": "sheet:F9_produce_icons#10@4x4",
+      "file": "items/farm_starfruit.png",
+      "w": 48,
+      "h": 45
+    },
+    {
+      "id": "farm_golden_wheat",
+      "name": "Lúa vàng",
+      "source": "sheet:F9_produce_icons#11@4x4",
+      "file": "items/farm_golden_wheat.png",
+      "w": 44,
+      "h": 50
+    },
+    {
+      "id": "seed_rice",
+      "name": "Hạt lúa nước",
+      "source": "sheet:F10_seed_icons#0@4x4",
+      "file": "items/seed_rice.png",
+      "w": 37,
+      "h": 41
+    },
+    {
+      "id": "seed_corn",
+      "name": "Hạt ngô",
+      "source": "sheet:F10_seed_icons#1@4x4",
+      "file": "items/seed_corn.png",
+      "w": 37,
+      "h": 41
+    },
+    {
+      "id": "seed_tomato",
+      "name": "Hạt cà chua",
+      "source": "sheet:F10_seed_icons#2@4x4",
+      "file": "items/seed_tomato.png",
+      "w": 37,
+      "h": 41
+    },
+    {
+      "id": "seed_watermelon",
+      "name": "Hạt dưa hấu",
+      "source": "sheet:F10_seed_icons#3@4x4",
+      "file": "items/seed_watermelon.png",
+      "w": 38,
+      "h": 41
+    },
+    {
+      "id": "seed_grape",
+      "name": "Hạt nho",
+      "source": "sheet:F10_seed_icons#4@4x4",
+      "file": "items/seed_grape.png",
+      "w": 37,
+      "h": 42
+    },
+    {
+      "id": "seed_chili",
+      "name": "Hạt ớt",
+      "source": "sheet:F10_seed_icons#5@4x4",
+      "file": "items/seed_chili.png",
+      "w": 37,
+      "h": 42
+    },
+    {
+      "id": "seed_tea",
+      "name": "Hạt chè",
+      "source": "sheet:F10_seed_icons#6@4x4",
+      "file": "items/seed_tea.png",
+      "w": 38,
+      "h": 42
+    },
+    {
+      "id": "seed_sunflower",
+      "name": "Hạt hướng dương",
+      "source": "sheet:F10_seed_icons#7@4x4",
+      "file": "items/seed_sunflower.png",
+      "w": 38,
+      "h": 42
+    },
+    {
+      "id": "seed_glowcap",
+      "name": "Hạt nấm sáng",
+      "source": "sheet:F10_seed_icons#8@4x4",
+      "file": "items/seed_glowcap.png",
+      "w": 38,
+      "h": 42
+    },
+    {
+      "id": "seed_moonflower",
+      "name": "Hạt hoa trăng",
+      "source": "sheet:F10_seed_icons#9@4x4",
+      "file": "items/seed_moonflower.png",
+      "w": 37,
+      "h": 42
+    },
+    {
+      "id": "seed_starfruit",
+      "name": "Hạt quả sao",
+      "source": "sheet:F10_seed_icons#10@4x4",
+      "file": "items/seed_starfruit.png",
+      "w": 38,
+      "h": 42
+    },
+    {
+      "id": "seed_golden_wheat",
+      "name": "Hạt lúa vàng",
+      "source": "sheet:F10_seed_icons#11@4x4",
+      "file": "items/seed_golden_wheat.png",
+      "w": 38,
+      "h": 42
     },
     {
       "id": "fish_crucian",

@@ -19,11 +19,11 @@ namespace HavenLord.Importer
                 var db = AssetDatabase.LoadAssetAtPath<GameDatabase>(GameSetup.DatabasePath);
                 Require(db != null && db.homeProps != null && db.homeArtCatalog != null, "Thiếu gói Gia viên trong GameDatabase");
                 var catalog = JObject.Parse(db.homeArtCatalog.text);
-                Require(db.homeProps.props.Count == 48 && catalog["props"].Count() == 48, "Gia viên cần đủ 48 sprite");
+                Require(db.homeProps.props.Count == 96 && catalog["props"].Count() == 96, "Gia viên cần đủ 96 sprite (18 cây × 4 giai đoạn + đồ vật)");
                 foreach (var p in catalog["props"])
                     Require(db.homeProps.Find((string)p["id"])?.sprite != null, "Thiếu sprite " + p["id"]);
                 var items = db.uiSets.Find(x => x.setId == "items");
-                Require(items != null && catalog["icons"].Count() == 20, "Thiếu bộ 20 icon Gia viên");
+                Require(items != null && catalog["icons"].Count() == 44, "Thiếu bộ 44 icon Gia viên");
                 foreach (var icon in catalog["icons"])
                     Require(items.Get((string)icon["id"]) != null, "Thiếu icon " + icon["id"]);
 
@@ -55,7 +55,7 @@ namespace HavenLord.Importer
                             Require(clip.segments.Any(s => s.name == segment.Item1 && s.first == segment.Item2 && s.last == segment.Item3), "Sai đoạn câu cá " + id + "/" + direction);
                     }
                 }
-                Debug.Log("[HavenLord home audit] ĐẠT: 48 sprite, 20 icon, 150 mẫu bộ 2, 4 thân Gia viên × 12 clip, đúng hitFrame và 3 đoạn câu cá");
+                Debug.Log("[HavenLord home audit] ĐẠT: 96 sprite, 44 icon, 150 mẫu bộ 2, 4 thân Gia viên × 12 clip, đúng hitFrame và 3 đoạn câu cá");
             }
             catch (Exception e)
             {
