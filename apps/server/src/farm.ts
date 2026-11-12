@@ -1,6 +1,7 @@
 import {randomInt,randomUUID} from 'node:crypto';
 import {FARM_CROPS,FARM_FISH,FARM_LAYOUT,FARM_ROOMS,FARM_SHOP,FARM_TANK,FARM_DISHES,FARM_FRUIT,FARM_MACHINES,FARM_STOVE,FARM_MACHINE_SPOTS,FARM_PETS,FARM_PRODUCT_SELL,FARM_STARTER_CROPS,FARM_TREE_SPOTS,FARM_WARDROBE,treeStage,PET_GACHA,isPondMap,pondMap,DECOR_ITEMS,chooseFarmFish,decorOf,decorPlaceIssue,rollPet,growPlot,plotPoint,pondSpotNear,shopPrice,type FarmRoom,type FarmState} from '@havenlord/sim/farm';
 import {STORY} from '@havenlord/sim/story/story';
+import {COOK_QUALITY,FISH_MAX_TICKS,FISH_TICK_MS,cookQuality,fishFight,fishPower,type CookQuality} from '@havenlord/sim/minigames';
 import {VILLAGE_SHOP} from '@havenlord/sim/village';
 import type {ServerMessage} from '@havenlord/protocol';
 import {spotOf} from './maps.ts';
@@ -21,8 +22,8 @@ export class Farm {
  constructor(private store:Store,private host:FarmHost,private mapsDir:string,private now:()=>number=Date.now,private random:()=>number=()=>randomInt(1000000)/1000000){}
  roster(){return Object.entries(STORY.npcs).flatMap(([id,n])=>{const s=spotOf(this.mapsDir,'human/town',n.at.spot);return n.sprite&&(!n.region||n.region==='human')&&s&&n.ages[0]<=16&&n.ages[1]>=16?[{id,name:n.name,x:s.x+(n.at.dx??0),y:s.y+(n.at.dy??0)}]:[];});}
  canEnter(account:number){return this.store.farm.read(account).unlocked;}
- private send(id:string,account:number,enter=false){const state=this.store.farm.read(account);for(const p of state.plots)growPlot(p,this.now());const at=this.host.where(id);const fish=state.fish?{nonce:state.fish.nonce,biteAt:state.fish.biteAt,expires:state.fish.expires}:null;const inRoom=roomOf(account,at?.map);const room=at&&isPondMap(at.map)?'pond':inRoom??'garden';this.host.send(id,{t:'farm',state:{...state,fish,required:this.roster(),map:room==='pond'?at!.map:inRoom?roomMap(account,inRoom):homeMap(account),room,now:this.now(),enter}});}
- handle(id:string,account:number,raw:{op?:unknown;plot?:unknown;crop?:unknown;npc?:unknown;nonce?:unknown;outfit?:unknown;item?:unknown;room?:unknown}):void{
+ private send(id:string,account:number,enter=false){const state=this.store.farm.read(account);for(const p of state.plots)growPlot(p,this.now());const at=this.host.where(id);const fish=state.fish?{nonce:state.fish.nonce,biteAt:state.fish.biteAt,expires:state.fish.expires,hookedAt:state.fish.hookedAt??null,seed:state.fish.seed??null,power:state.fish.power??null}:null;const inRoom=roomOf(account,at?.map);const room=at&&isPondMap(at.map)?'pond':inRoom??'garden';this.host.send(id,{t:'farm',state:{...state,fish,required:this.roster(),map:room==='pond'?at!.map:inRoom?roomMap(account,inRoom):homeMap(account),room,now:this.now(),enter}});}
+ handle(id:string,account:number,raw:{op?:unknown;plot?:unknown;crop?:unknown;npc?:unknown;nonce?:unknown;outfit?:unknown;item?:unknown;room?:unknown;toggles?:unknown}):void{
   const op=String(raw.op||'');const at=this.host.where(id);if(!at)return;
   const near=(x:number,y:number,r=110)=>Math.hypot(at.x-x,at.y-y)<=r;
   try{
@@ -86,7 +87,7 @@ export class Farm {
     if(op==='service'){
      const item=VILLAGE_SHOP.find(x=>x.id===raw.item);const npc=this.roster().find(n=>n.id===item?.npc);if(!item||!npc||at.map!=='human/town'||!near(npc.x,npc.y,160))throw new Error('Hãy tới đúng quầy hàng');if(coins<item.coins)throw new Error('Không đủ xu');return{value:null,coins:coins-item.coins,...('potions'in item?{potions:item.potions}:{buff:true})};
     }
-    if(!s.unlocked||!(farmMaps(account).includes(at.map)||(isPondMap(at.map)&&(op==='cast'||op==='pull'))))throw new Error('Chỉ chủ nhà được thao tác trong Gia viên đã mở');
+    if(!s.unlocked||!(farmMaps(account).includes(at.map)||(isPondMap(at.map)&&(op==='cast'||op==='pull'||op==='land'))))throw new Error('Chỉ chủ nhà được thao tác trong Gia viên đã mở');
     if(op==='gacha'||op==='petOut'||op==='petTrade'){
      if(!s.unlocked||!farmMaps(account).includes(at.map))throw new Error('Thú cưng ở trong Gia viên của bạn');
      const pets=s.pets??(s.pets=[]),out=s.petsOut??(s.petsOut=[]);
@@ -109,13 +110,20 @@ export class Farm {
      if(pets.includes(pet.id))throw new Error('Bạn đã có thú cưng này');const price=PET_GACHA.trade[pet.rarity-1]!;if((s.petShards??0)<price)throw new Error('Không đủ mảnh');
      s.petShards=(s.petShards??0)-price;pets.push(pet.id);if(out.length<PET_GACHA.out)out.push(pet.id);return{value:null};
     }
+    if(op==='cookDone'){
+     // Nhấc món khỏi chảo: độ chín = thời gian máy chủ đo ÷ thời gian món → tái / chín / chín kỹ / cháy.
+     const c=s.cooking;if(!c)throw new Error('Chảo đang trống');const d=FARM_DISHES.find(x=>x.id===c.dish)!;const q=cookQuality(this.now()-c.startedAt,d.cookMs);
+     const key=q==='perfect'?d.id:`${d.id}@${q}`;s.inventory[key]=(s.inventory[key]||0)+1;s.cooking=null;return{value:q};
+    }
     if(op==='cook'||op==='eat'){
-     const d=FARM_DISHES.find(x=>x.id===raw.item);if(!d)throw new Error('Không có món này');
-     if(op==='eat'){if(!((s.inventory[d.id]??0)>0))throw new Error('Kho không có món này');s.inventory[d.id]=(s.inventory[d.id]??0)-1;return{value:null,buff:{...d.buff}};}
+     const [base,qq]=String(raw.item||'').split('@');const q=(qq??'perfect') as CookQuality;const d=FARM_DISHES.find(x=>x.id===base);if(!d||!COOK_QUALITY[q])throw new Error('Không có món này');
+     if(op==='eat'){const key=String(raw.item);if(!((s.inventory[key]??0)>0))throw new Error('Kho không có món này');if(q==='burnt')throw new Error('Món cháy rồi, ăn không được');
+      s.inventory[key]=(s.inventory[key]??0)-1;const k=COOK_QUALITY[q].buff;return{value:null,buff:{kind:d.buff.kind,mult:1+(d.buff.mult-1)*k,ms:d.buff.ms}};}
      // Nấu: đứng cạnh bếp lò củi đã đặt trong phòng (bày trí dời được), đủ nguyên liệu trong kho.
      const room=roomOf(account,at.map);if(!room||!decorOf(s,room).some(q=>q.id===FARM_STOVE&&near(q.x,q.y)))throw new Error('Hãy tới cạnh bếp lò trong nhà');
+     if(s.cooking)throw new Error('Chảo đang có món, hãy nhấc ra trước');
      if(!Object.entries(d.in).every(([k,n])=>(s.inventory[k]??0)>=n))throw new Error('Kho thiếu nguyên liệu');
-     for(const [k,n] of Object.entries(d.in))s.inventory[k]=(s.inventory[k]??0)-n;s.inventory[d.id]=(s.inventory[d.id]??0)+1;return{value:null};
+     for(const [k,n] of Object.entries(d.in))s.inventory[k]=(s.inventory[k]??0)-n;s.cooking={dish:d.id,startedAt:this.now()};return{value:null};
     }
     if(op==='treePlant'||op==='treeHarvest'||op==='machineStart'||op==='machineCollect'){
      if(at.map!==homeMap(account))throw new Error('Hãy ra khuôn viên trước');
@@ -170,18 +178,31 @@ export class Farm {
      return{value:null};
     }
     if(op==='outfit'){if(at.map!==roomMap(account,'bedroom')||!near(...FARM_WARDROBE))throw new Error('Hãy tới tủ quần áo trong phòng ngủ');if(raw.outfit!=='farmer1'&&raw.outfit!=='gardener')throw new Error('Không có bộ đồ này');s.outfit=raw.outfit;return{value:null};}
-    const fishing=op==='cast'||op==='pull';if(fishing&&!isPondMap(at.map))throw new Error('Hãy ra hồ câu cạnh khuôn viên');if(!fishing&&at.map!==homeMap(account))throw new Error('Hãy ra khuôn viên trước');
+    const fishing=op==='cast'||op==='pull'||op==='land';if(fishing&&!isPondMap(at.map))throw new Error('Hãy ra hồ câu cạnh khuôn viên');if(!fishing&&at.map!==homeMap(account))throw new Error('Hãy ra khuôn viên trước');
     if(op==='sell'){
      if(!near(736,352))throw new Error('Hãy tới hộp gửi hàng');let total=0;
      for(const c of FARM_CROPS){const k=`farm_${c.id}`;total+=(s.inventory[k]||0)*c.sell;s.inventory[k]=0;}
      for(const f of FARM_FISH){const k=`fish_${f.id}`;total+=(s.inventory[k]||0)*f.sell;s.inventory[k]=0;}
-     for(const [k,price] of Object.entries(FARM_PRODUCT_SELL)){total+=(s.inventory[k]||0)*price;s.inventory[k]=0;}
+     for(const [k,price] of Object.entries(FARM_PRODUCT_SELL)){total+=(s.inventory[k]||0)*price;s.inventory[k]=0;
+      if(k.startsWith('dish_'))for(const q of ['raw','well','burnt'] as const){const kk=`${k}@${q}`;total+=Math.round((s.inventory[kk]||0)*price*COOK_QUALITY[q].sell);s.inventory[kk]=0;}}
      if(!total)throw new Error('Kho chưa có nông sản hoặc cá để bán');return{value:null,coins:coins+total};
     }
     if(op==='pull'){
-     const f=s.fish;if(!f||f.nonce!==raw.nonce)throw new Error('Lượt câu không hợp lệ');
+     // Giật cần khi phao chìm → cá mắc câu, bắt đầu trận kéo (máy chủ giữ hạt giống + sức cá).
+     const f=s.fish;if(!f||f.nonce!==raw.nonce)throw new Error('Lượt câu không hợp lệ');if(f.hookedAt)throw new Error('Cá đã mắc câu, đang kéo');
      if(this.now()<f.biteAt)throw new Error('Cá chưa cắn câu');if(this.now()>f.expires){s.fish=null;return{value:'miss'};}
-     if(!pondSpotNear(at.x,at.y))throw new Error('Bạn đã rời mép hồ');s.inventory[`fish_${f.reward}`]=(s.inventory[`fish_${f.reward}`]||0)+1;s.fish=null;return{value:null};
+     if(!pondSpotNear(at.x,at.y))throw new Error('Bạn đã rời mép hồ');
+     f.hookedAt=this.now();f.seed=Math.floor(this.random()*4294967296)>>>0;f.power=fishPower(FARM_FISH.find(x=>x.id===f.reward)?.weight??30);return{value:null};
+    }
+    if(op==='land'){
+     // Kết thúc trận kéo: chạy lại mô phỏng từ hạt giống + nhịp giữ / thả client gửi; thời gian thật phải khớp số nhịp.
+     const f=s.fish;if(!f||f.nonce!==raw.nonce||!f.hookedAt||f.seed===undefined||f.power===undefined)throw new Error('Lượt câu không hợp lệ');
+     const toggles=Array.isArray(raw.toggles)?raw.toggles.map(Number).filter(Number.isInteger).slice(0,2000):[];
+     for(let i=1;i<toggles.length;i++)if(toggles[i]!<=toggles[i-1]!)throw new Error('Nhịp kéo không hợp lệ');
+     const r=fishFight(f.seed,f.power,toggles);const real=this.now()-f.hookedAt;s.fish=null;
+     if(r.result==='open'||real<r.tick*FISH_TICK_MS*0.7||real>FISH_MAX_TICKS*FISH_TICK_MS+8000)return{value:'escape'};
+     if(r.result!=='caught')return{value:r.result};
+     s.inventory[`fish_${f.reward}`]=(s.inventory[`fish_${f.reward}`]||0)+1;return{value:'caught'};
     }
     if(this.now()-s.lastAction<600)throw new Error('Chờ thao tác trước hoàn tất');
     if(op==='cast'){

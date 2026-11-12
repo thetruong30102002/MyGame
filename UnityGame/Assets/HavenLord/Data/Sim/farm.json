@@ -349,6 +349,7 @@
 		{
 			"id": "dish_grilled_fish",
 			"name": "Cá nướng",
+			"cookMs": 7000,
 			"in": {
 				"fish_carp": 1,
 				"farm_chili": 1
@@ -363,6 +364,7 @@
 		{
 			"id": "dish_fish_soup",
 			"name": "Súp cá",
+			"cookMs": 9000,
 			"in": {
 				"fish_crucian": 2,
 				"farm_potato": 1
@@ -377,6 +379,7 @@
 		{
 			"id": "dish_fried_rice",
 			"name": "Cơm chiên dứa",
+			"cookMs": 6000,
 			"in": {
 				"farm_rice": 2,
 				"farm_corn": 1
@@ -391,6 +394,7 @@
 		{
 			"id": "dish_pumpkin_soup",
 			"name": "Súp bí",
+			"cookMs": 9000,
 			"in": {
 				"farm_haven_pumpkin": 1,
 				"farm_carrot": 1
@@ -405,6 +409,7 @@
 		{
 			"id": "dish_strawberry_cake",
 			"name": "Bánh kem dâu",
+			"cookMs": 10000,
 			"in": {
 				"farm_strawberry": 2,
 				"prod_flour": 1
@@ -419,6 +424,7 @@
 		{
 			"id": "dish_roast_chicken",
 			"name": "Gà quay",
+			"cookMs": 10000,
 			"in": {
 				"meat_chicken": 1,
 				"farm_potato": 1
@@ -433,6 +439,7 @@
 		{
 			"id": "dish_beef_stew",
 			"name": "Bò hầm",
+			"cookMs": 11000,
 			"in": {
 				"meat_beef": 1,
 				"farm_carrot": 2
@@ -447,6 +454,7 @@
 		{
 			"id": "dish_lamb_skewer",
 			"name": "Xiên cừu nướng",
+			"cookMs": 7000,
 			"in": {
 				"meat_lamb": 1,
 				"farm_chili": 1

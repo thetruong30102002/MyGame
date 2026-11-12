@@ -126,21 +126,21 @@ export const FARM_PRODUCT_SELL:Record<string,number> = {dish_grilled_fish:40,dis
  */
 export const FARM_STOVE = 'gv_bep_lo_cui';
 export const FARM_DISHES = [
- {id:'dish_grilled_fish',name:'Cá nướng',in:{fish_carp:1,farm_chili:1},buff:{kind:'guard',mult:1.1,ms:15*60000},sell:40},
- {id:'dish_fish_soup',name:'Súp cá',in:{fish_crucian:2,farm_potato:1},buff:{kind:'exp',mult:1.1,ms:20*60000},sell:45},
- {id:'dish_fried_rice',name:'Cơm chiên dứa',in:{farm_rice:2,farm_corn:1},buff:{kind:'exp',mult:1.15,ms:20*60000},sell:80},
- {id:'dish_pumpkin_soup',name:'Súp bí',in:{farm_haven_pumpkin:1,farm_carrot:1},buff:{kind:'guard',mult:1.12,ms:20*60000},sell:140},
- {id:'dish_strawberry_cake',name:'Bánh kem dâu',in:{farm_strawberry:2,prod_flour:1},buff:{kind:'dmg',mult:1.12,ms:20*60000},sell:150},
- {id:'dish_roast_chicken',name:'Gà quay',in:{meat_chicken:1,farm_potato:1},buff:{kind:'dmg',mult:1.15,ms:20*60000},sell:120},
- {id:'dish_beef_stew',name:'Bò hầm',in:{meat_beef:1,farm_carrot:2},buff:{kind:'guard',mult:1.15,ms:20*60000},sell:130},
- {id:'dish_lamb_skewer',name:'Xiên cừu nướng',in:{meat_lamb:1,farm_chili:1},buff:{kind:'dmg',mult:1.12,ms:15*60000},sell:110},
+ {id:'dish_grilled_fish',name:'Cá nướng',cookMs:7000,in:{fish_carp:1,farm_chili:1},buff:{kind:'guard',mult:1.1,ms:15*60000},sell:40},
+ {id:'dish_fish_soup',name:'Súp cá',cookMs:9000,in:{fish_crucian:2,farm_potato:1},buff:{kind:'exp',mult:1.1,ms:20*60000},sell:45},
+ {id:'dish_fried_rice',name:'Cơm chiên dứa',cookMs:6000,in:{farm_rice:2,farm_corn:1},buff:{kind:'exp',mult:1.15,ms:20*60000},sell:80},
+ {id:'dish_pumpkin_soup',name:'Súp bí',cookMs:9000,in:{farm_haven_pumpkin:1,farm_carrot:1},buff:{kind:'guard',mult:1.12,ms:20*60000},sell:140},
+ {id:'dish_strawberry_cake',name:'Bánh kem dâu',cookMs:10000,in:{farm_strawberry:2,prod_flour:1},buff:{kind:'dmg',mult:1.12,ms:20*60000},sell:150},
+ {id:'dish_roast_chicken',name:'Gà quay',cookMs:10000,in:{meat_chicken:1,farm_potato:1},buff:{kind:'dmg',mult:1.15,ms:20*60000},sell:120},
+ {id:'dish_beef_stew',name:'Bò hầm',cookMs:11000,in:{meat_beef:1,farm_carrot:2},buff:{kind:'guard',mult:1.15,ms:20*60000},sell:130},
+ {id:'dish_lamb_skewer',name:'Xiên cừu nướng',cookMs:7000,in:{meat_lamb:1,farm_chili:1},buff:{kind:'dmg',mult:1.12,ms:15*60000},sell:110},
 ] as const;
 export function shopPrice(id:string,state:Pick<FarmState,'plots'>):number{const it=FARM_SHOP.find(x=>x.id===id);if(!it)return Infinity;return id==='plots'?it.coins+it.step*Math.max(0,(state.plots.length-FARM_LAYOUT.plots)/4):it.coins;}
 export type FarmRoom = keyof typeof FARM_ROOMS;
 /** Chỗ câu gần nhất trong bán kính `r` px (null = không đứng ở bờ hồ). */
 export function pondSpotNear(x:number,y:number,r=70):readonly [number,number]|null{let best:readonly [number,number]|null=null,d=r;for(const s of FARM_LAYOUT.pondSpots){const k=Math.hypot(x-s[0],y-s[1]);if(k<=d){d=k;best=s;}}return best;}
 export interface FarmPlot {tilled:boolean;crop:string|null;plantedAt:number;lastAt:number;growth:number;watered:boolean}
-export interface FarmState {version:1;visited:string[];unlocked:boolean;plots:FarmPlot[];inventory:Record<string,number>;outfit:'farmer1'|'gardener';fish:{nonce:string;biteAt:number;expires:number;reward:string}|null;lastAction:number;lastEntry?:number;tank?:string[];owned?:string[];pets?:string[];petsOut?:string[];petShards?:number;petPity?:number;lastSpin?:{pet:string;dup:boolean}[];decor?:Record<string,{id:string;x:number;y:number}[]>;storage?:Record<string,number>;trees?:({kind:string;plantedAt:number;lastHarvest:number}|null)[];machines?:Record<string,{recipe:string;readyAt:number}|null>}
+export interface FarmState {version:1;visited:string[];unlocked:boolean;plots:FarmPlot[];inventory:Record<string,number>;outfit:'farmer1'|'gardener';fish:{nonce:string;biteAt:number;expires:number;reward:string;hookedAt?:number;seed?:number;power?:number}|null;cooking?:{dish:string;startedAt:number}|null;lastAction:number;lastEntry?:number;tank?:string[];owned?:string[];pets?:string[];petsOut?:string[];petShards?:number;petPity?:number;lastSpin?:{pet:string;dup:boolean}[];decor?:Record<string,{id:string;x:number;y:number}[]>;storage?:Record<string,number>;trees?:({kind:string;plantedAt:number;lastHarvest:number}|null)[];machines?:Record<string,{recipe:string;readyAt:number}|null>}
 export function newFarm():FarmState{return{version:1,visited:[],unlocked:false,plots:Array.from({length:12},()=>({tilled:false,crop:null,plantedAt:0,lastAt:0,growth:0,watered:false})),inventory:{},outfit:'farmer1',fish:null,lastAction:0,tank:[]};}
 export function growPlot(p:FarmPlot,now:number):void {if(!p.crop)return;const c=FARM_CROPS.find(x=>x.id===p.crop);if(!c)return;p.growth=Math.min(c.ms,p.growth+Math.max(0,now-p.lastAt)*(p.watered?1:.5));p.lastAt=Math.max(p.lastAt,now);}
 export function cropStage(p:FarmPlot):number{const c=FARM_CROPS.find(x=>x.id===p.crop);return c?Math.min(3,Math.floor(p.growth/c.ms*4)):0;}

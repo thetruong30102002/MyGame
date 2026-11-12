@@ -555,7 +555,7 @@ export interface PlayerView {
 }
 
 export type ClientMessage =
-	| { t:'farm'; op:string; plot?:number; crop?:string; npc?:string; nonce?:string; outfit?:string; item?:string; room?:string }
+	| { t:'farm'; op:string; plot?:number; crop?:string; npc?:string; nonce?:string; outfit?:string; item?:string; room?:string; toggles?:number[] }
 	/** Tin đầu tiên sau khi mở kết nối: xác thực bằng token phiên (không đặt token trên URL để khỏi lọt vào log). */
 	| { t: 'hello'; token: string; character: string }
 	| { t: 'move'; x: number; y: number; dir: string; anim: string; sprite: string; hp?: number; hpMax?: number }

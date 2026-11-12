@@ -8,6 +8,9 @@ import {Farm,homeMap,roomMap} from '../src/farm.ts';
 import {newProgress} from '../src/http.ts';
 import {DECOR_DEFAULT} from '@havenlord/sim/farmDecor.generated';
 import {FARM_PETS,chooseFarmFish,pondMap} from '@havenlord/sim/farm';
+import {FISH_START,fishStep,rng32} from '@havenlord/sim/minigames';
+/** Người chơi mô phỏng: giữ tới căng 55, thả tới 25 — trả các nhịp đổi giữ / thả và số nhịp tới khi xong. */
+const play=(seed:number,power:number)=>{const rand=rng32(seed),st={...FISH_START,burst:0};let hold=false;const t:number[]=[];for(let i=0;i<900;i++){const w=hold?st.tension<55:st.tension<25;if(w!==hold){hold=w;t.push(i);}fishStep(st,rand,power,hold);if(st.distance<=0||st.tension>=100||st.distance>=100)return{toggles:t,ticks:i};}return{toggles:t,ticks:900};};
 import type {ServerMessage} from '@havenlord/protocol';
 
 const dir=mkdtempSync(join(tmpdir(),'havenlord-farm-'));const file=join(dir,'test.db');let store=new Store(file);
@@ -36,8 +39,12 @@ try{
  act('cast');const fish=store.farm.read(acc).fish!;assert(fish);
  const packet=messages.find(m=>m.t==='farm');assert(packet?.t==='farm');assert(!('reward' in (packet.state as {fish:object}).fish));
  act('pull',{nonce:fish.nonce});assert(failed());assert(store.farm.read(acc).fish);
- now=fish.biteAt+100;act('pull',{nonce:fish.nonce});assert.equal(store.farm.read(acc).inventory.fish_crucian,1);
- act('pull',{nonce:fish.nonce});assert(failed());assert.equal(store.farm.read(acc).inventory.fish_crucian,1);
+ now=fish.biteAt+100;act('pull',{nonce:fish.nonce});const hooked=store.farm.read(acc).fish!;assert(hooked.hookedAt&&hooked.seed!==undefined,'mắc câu → trận kéo');
+ {const p=play(hooked.seed!,hooked.power!);act('land',{nonce:fish.nonce,toggles:[0]});assert.equal(store.farm.read(acc).inventory.fish_crucian,undefined,'giữ liên tục → đứt dây');}
+ act('cast');{const f2=store.farm.read(acc).fish!;now=f2.biteAt+100;act('pull',{nonce:f2.nonce});const h=store.farm.read(acc).fish!;const p=play(h.seed!,h.power!);
+  act('land',{nonce:f2.nonce,toggles:p.toggles});assert.equal(store.farm.read(acc).inventory.fish_crucian,undefined,'xong quá nhanh so với số nhịp → không nhận');
+  act('cast');const f3=store.farm.read(acc).fish!;now=f3.biteAt+100;act('pull',{nonce:f3.nonce});const h3=store.farm.read(acc).fish!;const p3=play(h3.seed!,h3.power!);now+=p3.ticks*50;
+  act('land',{nonce:f3.nonce,toggles:p3.toggles});assert.equal(store.farm.read(acc).inventory.fish_crucian,1,'kéo khéo + đúng thời gian → bắt được');}
  act('cast');const missed=store.farm.read(acc).fish!;now=missed.expires+1;act('pull',{nonce:missed.nonce});assert.equal(store.farm.read(acc).fish,null);assert.equal(store.farm.read(acc).inventory.fish_crucian,1);
  // Câu cùng bạn: chưa là bạn thì chặn; kết bạn rồi khách (đã mở Gia viên) sang hồ chủ; hồ đủ 6 người thì chặn.
  {const g=(op:string,extra:Record<string,unknown>={})=>{messages.length=0;farm.handle(guest,acc2,{op,...extra});now+=700;};
@@ -71,8 +78,14 @@ try{
  {const stove=DECOR_DEFAULT.kitchen!.find(q=>q.id==='gv_bep_lo_cui')!;store.farm.run(acc,id,now,s=>{s.inventory.farm_haven_pumpkin=1;s.inventory.farm_carrot=1;return{value:null};});
   at={map:roomMap(acc,'kitchen'),x:100,y:400};act('cook',{item:'dish_pumpkin_soup'});assert(failed(),'phải tới bếp');
   at={map:roomMap(acc,'kitchen'),x:stove.x,y:stove.y+30};act('cook',{item:'dish_fish_soup'});assert(failed(),'thiếu cá');
-  act('cook',{item:'dish_pumpkin_soup'});assert.equal(store.farm.read(acc).inventory.dish_pumpkin_soup,1);assert.equal(store.farm.read(acc).inventory.farm_carrot,0);
+  act('cook',{item:'dish_pumpkin_soup'});assert.equal(store.farm.read(acc).inventory.farm_carrot,0);act('cook',{item:'dish_pumpkin_soup'});assert(failed(),'chảo đang có món');
+  now+=9000*0.5;act('cookDone');assert.equal(store.farm.read(acc).inventory.dish_pumpkin_soup,1,'nhấc đúng lúc → chín');
+  store.farm.run(acc,id,now,s=>{s.inventory.farm_haven_pumpkin=2;s.inventory.farm_carrot=2;return{value:null};});
+  act('cook',{item:'dish_pumpkin_soup'});now+=1000;act('cookDone');assert.equal(store.farm.read(acc).inventory['dish_pumpkin_soup@raw'],1,'nhấc sớm → tái');
+  act('cook',{item:'dish_pumpkin_soup'});now+=12000;act('cookDone');assert.equal(store.farm.read(acc).inventory['dish_pumpkin_soup@burnt'],1,'để lâu → cháy');
+  act('eat',{item:'dish_pumpkin_soup@burnt'});assert(failed(),'món cháy không ăn được');
   act('eat',{item:'dish_pumpkin_soup'});assert(store.buffs(id).some(b=>b.kind==='guard'),'ăn súp bí được bùa giáp');assert.equal(store.farm.read(acc).inventory.dish_pumpkin_soup,0);}
+ store.farm.run(acc,id,now,s=>{delete s.inventory['dish_pumpkin_soup@raw'];delete s.inventory['dish_pumpkin_soup@burnt'];return{value:null};});
  // Vườn cây ăn quả + máy chế biến: mua cây giống / máy ở người bán đồ, trồng → lớn → có quả → hái; xay bột, bán thành phẩm.
  store.farm.run(acc,id,now,(_s,c)=>({value:null,coins:c+1000}));
  {const c0=store.ecoOf(id)!.coins;at={map:homeMap(acc),x:780,y:500};act('buy',{item:'sapling_apple'});act('buy',{item:'machine_flour_mill'});assert.equal(store.ecoOf(id)!.coins,c0-80-300);

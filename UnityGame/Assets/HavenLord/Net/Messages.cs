@@ -105,6 +105,7 @@ namespace HavenLord.Net
         [JsonProperty("outfit")] public string Outfit;
         [JsonProperty("item")] public string Item;
         [JsonProperty("room")] public string Room;
+        [JsonProperty("toggles", NullValueHandling = NullValueHandling.Ignore)] public System.Collections.Generic.List<int> Toggles;
     }
     public sealed class ServerFarm : ServerMessage
     {

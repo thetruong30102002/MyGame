@@ -32,10 +32,10 @@ namespace HavenLord.Client
         private SpriteRenderer fishBobber;
         public double FarmNow => DateTimeOffset.UtcNow.ToUnixTimeMilliseconds() + farmTimeOffset;
 
-        public void FarmSend(string op, int? plot = null, string crop = null, string npc = null, string nonce = null, string outfit = null, string item = null, string room = null)
+        public void FarmSend(string op, int? plot = null, string crop = null, string npc = null, string nonce = null, string outfit = null, string item = null, string room = null, List<int> toggles = null)
         {
             if (online == null) { hud.Toast("Gia viên cần chơi trực tuyến", "warn"); return; }
-            online.Send(new ClientFarm { Op = op, Plot = plot, Crop = crop, Npc = npc, Nonce = nonce, Outfit = outfit, Item = item, Room = room });
+            online.Send(new ClientFarm { Op = op, Plot = plot, Crop = crop, Npc = npc, Nonce = nonce, Outfit = outfit, Item = item, Room = room, Toggles = toggles });
         }
 
         public void ShowFarm()
@@ -92,7 +92,9 @@ namespace HavenLord.Client
             if (FarmState != null && farmDrawn != FarmVersion) { DrawFarmPlots(); DrawDecor(); DrawOrchard(); DrawPets(); RefreshFarmBody(); farmDrawn = FarmVersion; }
             orchardClock += dt; if (orchardClock > 20) { orchardClock = 0; DrawOrchard(); }
             SwimTankFish();
+            TickCooking();
             if (farmView == null) return;
+            if (TickFight(dt)) return;
             if (!FarmBusy)
             {
                 var fish = FarmState?["fish"] as JObject;
@@ -223,6 +225,82 @@ namespace HavenLord.Client
                 var a = i * 2.4f;
                 population.SpawnPet(outList[i], area.x + Mathf.Cos(a) * area.r * .5f, area.y + Mathf.Sin(a) * area.r * .4f, area.r);
             }
+        }
+
+        // ---- Trận kéo cá (chủ dự án 12/11: "căn cần kéo thả dây lết cá mệt như câu thật") — mô phỏng FishFight giống hệt máy chủ;
+        // giữ chuột / E / Space = thu dây, thả = nhả dây; gửi các nhịp đổi giữ / thả để máy chủ chạy lại xác nhận. ----
+        private FishFight.State fight;
+        private FishFight.Rng32 fightRng;
+        private double fightPower;
+        private string fightNonce;
+        private readonly List<int> fightToggles = new List<int>();
+        private int fightTick;
+        private float fightAcc;
+        private bool fightHold;
+        public bool Fighting => fight != null;
+
+        private bool TickFight(float dt)
+        {
+            var fish = FarmState?["fish"] as JObject;
+            var hooked = fish != null && fish["hookedAt"] != null && fish["hookedAt"].Type != JTokenType.Null && fish["seed"] != null && fish["seed"].Type != JTokenType.Null;
+            if (!hooked)
+            {
+                if (fight != null) { fight = null; hud.HideFish(); }
+                return false;
+            }
+            var nonce = (string)fish["nonce"];
+            if (fightNonce != nonce)
+            {
+                if (fight != null && fightNonce != null) return true; // trận cũ đang gửi kết quả
+                fightNonce = nonce; fight = new FishFight.State(); fightRng = new FishFight.Rng32((uint)(long)fish["seed"]);
+                fightPower = (double)fish["power"]; fightToggles.Clear(); fightTick = 0; fightAcc = 0; fightHold = false;
+            }
+            if (fight == null) return true;
+            var hold = !hud.Blocking && (UnityEngine.Input.GetMouseButton(0) || UnityEngine.Input.GetKey(KeyCode.E) || UnityEngine.Input.GetKey(KeyCode.Space));
+            fightAcc += dt;
+            string outcome = null;
+            while (fightAcc >= FishFight.TickMs / 1000f && outcome == null && fightTick < FishFight.MaxTicks)
+            {
+                fightAcc -= FishFight.TickMs / 1000f;
+                if (hold != fightHold) { fightToggles.Add(fightTick); fightHold = hold; }
+                FishFight.Step(fight, fightRng, fightPower, fightHold);
+                fightTick++;
+                outcome = FishFight.Outcome(fight);
+            }
+            if (outcome == null && fightTick >= FishFight.MaxTicks) outcome = "escape";
+            hud.FishOverlay(hud.Set("items")?.Get("fish_carp"), fight.Tension, fight.Distance, fight.Pull, fightHold);
+            if (farmAnim != "fish_wait") { farmView.PlaySegment("fish", Dir8.E, "wait"); farmAnim = "fish_wait"; }
+            DrawFishingLine(fight.Pull > .9);
+            if (outcome != null)
+            {
+                FarmSend("land", nonce: nonce, toggles: new List<int>(fightToggles));
+                hud.Toast(outcome == "caught" ? "Kéo được cá lên bờ!" : outcome == "snap" ? "Căng quá — đứt dây rồi!" : "Cá lết ra xa, sổng mất…", outcome == "caught" ? "good" : "warn");
+                fight = null; hud.HideFish(); ClearFishingLine(); farmAnim = null;
+            }
+            return true;
+        }
+
+        // ---- Chảo nấu (canh độ chín: tái / chín / chín kỹ / cháy — máy chủ đo thời gian) ----
+        private bool cookLifting;
+        private void TickCooking()
+        {
+            var c = FarmState?["cooking"] as JObject;
+            if (c == null) { hud.HideCook(); cookLifting = false; return; }
+            var dish = (FarmMod["FARM_DISHES"] as JArray)?.FirstOrDefault(x => (string)x["id"] == (string)c["dish"]);
+            if (dish == null) return;
+            var done = (float)((FarmNow - (double)c["startedAt"]) / (double)dish["cookMs"]);
+            hud.CookOverlay(hud.Set("items")?.Get((string)dish["id"]), (string)dish["name"], done, LiftPan);
+        }
+
+        public void LiftPan()
+        {
+            var c = FarmState?["cooking"] as JObject;
+            if (c == null || cookLifting) return;
+            cookLifting = true;
+            var dish = (FarmMod["FARM_DISHES"] as JArray)?.FirstOrDefault(x => (string)x["id"] == (string)c["dish"]);
+            var done = dish == null ? 0 : (FarmNow - (double)c["startedAt"]) / (double)dish["cookMs"];
+            hud.Toast(done < .55 ? "Nhấc sớm quá — món còn tái" : done < .8 ? "Chín tới, thơm lừng!" : done < 1 ? "Hơi kỹ lửa — chín kỹ" : "Cháy mất rồi…", done >= .55 && done < .8 ? "good" : "info");
+            FarmSend("cookDone");
         }
 
         // ---- Vườn cây ăn quả + máy chế biến ngoài khuôn viên (sim FARM_TREE_SPOTS / FARM_MACHINE_SPOTS), vẽ theo dữ liệu máy chủ ----
@@ -399,7 +477,7 @@ namespace HavenLord.Client
 
         private void FarmClick(Vector2 at)
         {
-            if (FarmBusy) return;
+            if (FarmBusy || Fighting || FarmState?["cooking"] is JObject) return;
             if (RoomDoors.ContainsKey(map.def.id))
             {
                 foreach (var (to, door) in RoomDoors[map.def.id])
@@ -430,7 +508,8 @@ namespace HavenLord.Client
 
         public void FarmInteract()
         {
-            if (FarmBusy) return;
+            if (FarmBusy || Fighting) return;
+            if (FarmState?["cooking"] is JObject) { LiftPan(); return; }
             var me = new Vector2((float)player.X, (float)player.Y);
             if (FarmRoomAction(me)) return;
             if (map.def.id == "pond")
