@@ -247,9 +247,9 @@ const pondProps=[p('home_gate',96,330),p('log_bench',250,250),p('log_bench',250,
 for(const [x,y] of [[340,160],[340,400],[340,600]])pondProps.push(p('lamp',x!-30,y!));
 for(let x=64;x<848;x+=64){pondProps.push(p('tree',x,92));pondProps.push(p('tree',x,690));}
 for(let y=200;y<640;y+=90)if(y<300||y>420)pondProps.push(p('tree',64,y));
-const pond={...base,id:'pond',name:'Hồ câu Gia viên',width:28,height:22,decals:[] as Pt[],terrain:pondTerrain,spawn:{x:160,y:352},props:pondProps,
+const pond={...base,id:'pond',name:'Hồ câu sau Gia viên',width:28,height:22,decals:[] as Pt[],terrain:pondTerrain,spawn:{x:160,y:352},props:pondProps,
  spots:[{id:'garden_gate',name:'Cổng về khuôn viên',x:96,y:352,r:80},{id:'from_garden',name:'Cổng vào hồ',x:160,y:352,r:40},
-  ...[[360,192],[360,288],[480,352],[360,448],[360,544]].map(([x,y],i)=>({id:`fish${i+1}`,name:'Chỗ câu',x:x!,y:y!,r:60}))]};
+  ...[[360,160],[360,240],[480,352],[360,440],[360,520],[360,592]].map(([x,y],i)=>({id:`fish${i+1}`,name:'Chỗ câu',x:x!,y:y!,r:60}))]};
 
 // Tự kiểm: đồ không chạm nhau (chân cách ≥ 8 px, chủ dự án 12/11 "quá xấu"), không tràn mép, đồ trong nhà nằm trọn trên sàn.
 const maps=[garden,pond,...rooms];

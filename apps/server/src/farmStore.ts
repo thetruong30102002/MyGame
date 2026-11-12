@@ -4,6 +4,8 @@ import {newFarm,type FarmState} from '@havenlord/sim/farm';
 /** Migration Gia viên v1: bảng riêng theo tài khoản, không thay / xoá dữ liệu nhân vật cũ. */
 export class FarmStore {
  constructor(private db:DatabaseSync){db.exec(`CREATE TABLE IF NOT EXISTS farm_accounts(account_id INTEGER PRIMARY KEY REFERENCES accounts(id) ON DELETE CASCADE,state TEXT NOT NULL,updated_at INTEGER NOT NULL);`);}
+ /** Tài khoản của một nhân vật (ghé hồ bạn bè). */
+ accountOf(character:string):number|null{const r=this.db.prepare('SELECT account_id FROM characters WHERE id=?').get(character) as {account_id:number}|undefined;return r?.account_id??null;}
  read(account:number):FarmState{const row=this.db.prepare('SELECT state FROM farm_accounts WHERE account_id=?').get(account) as {state:string}|undefined;return row?JSON.parse(row.state) as FarmState:newFarm();}
  run<T>(account:number,character:string,now:number,fn:(state:FarmState,coins:number,diamonds:number)=>{value:T;coins?:number;potions?:number;buff?:boolean;diamonds?:number}):T{
   this.db.exec('BEGIN IMMEDIATE');

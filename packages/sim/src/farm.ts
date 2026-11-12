@@ -28,12 +28,14 @@ export const FARM_FISH = [
  {id:'night_catfish',name:'Cá trê đêm',weight:14,sell:23,night:true},
  {id:'haven',name:'Cá Haven',weight:2,sell:100,night:false},
 ] as const;
-/** Hồ câu là MAP RIÊNG dùng chung `home/pond` (chủ dự án 12/11: "Hồ câu cá là một map bên cạnh … câu cùng bạn bè"): cổng ở mép nam
- * khuôn viên (`pondGate*`), trong map hồ có cổng về (`pondBack*`) và các chỗ câu dọc bờ tây + đầu cầu (nước ở phía đông người câu). */
+/** Hồ câu: MỘT map câu cá duy nhất trong game, mỗi nhà một hồ riêng sau Gia viên `home/<tài khoản>_pond` (chủ dự án 12/11: "Câu cá chỉ
+ * có 1 map thôi sau gia viên và bạn bè có thể vào hồ nhà nhau câu cá chung với bạn bè tối đa 6 người trong một hồ"): cổng ở mép nam
+ * khuôn viên (`pondGate*`), trong hồ có cổng về (`pondBack*`) và 6 chỗ câu dọc bờ tây + đầu cầu (nước ở phía đông người câu). */
 export const FARM_LAYOUT = {tile:32,width:48,height:32,plots:12,plotsMax:48,plotCols:8,plotX:352,plotY:544,shopX:780,shopY:470,stewardX:232,stewardY:278,doorX:576,doorY:264,exitX:832,exitY:416,
  pondGateX:240,pondGateY:960,pondBackX:96,pondBackY:352,
- pondSpots:[[360,192],[360,288],[480,352],[360,448],[360,544]] as readonly (readonly [number,number])[]};
-export const POND_MAP='home/pond';
+ pondSpots:[[360,160],[360,240],[480,352],[360,440],[360,520],[360,592]] as readonly (readonly [number,number])[],pondMax:6};
+export const pondMap=(account:number)=>`home/${account}_pond`;
+export const isPondMap=(map:string)=>/^home\/\d+_pond$/.test(map);
 /** Nhà 3 phòng, mỗi phòng một map (chủ dự án 11/11 "nhà thì phải có đủ phòng", "Mỗi phòng là 1 map", "Phòng ngủ nên để trên tầng"):
  * phòng khách `house` (cửa dưới ra vườn, cửa trái sang bếp, cầu thang góc phải lên phòng ngủ), bếp `kitchen`, phòng ngủ tầng 2 `bedroom`
  * (tủ quần áo đổi bộ đồ ở nhà). Toạ độ cửa khớp `scripts/export-home-maps.mts`. */

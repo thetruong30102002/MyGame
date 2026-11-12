@@ -7,7 +7,7 @@ import {Store} from '../src/db.ts';
 import {Farm,homeMap,roomMap} from '../src/farm.ts';
 import {newProgress} from '../src/http.ts';
 import {DECOR_DEFAULT} from '@havenlord/sim/farmDecor.generated';
-import {FARM_PETS,POND_MAP,chooseFarmFish} from '@havenlord/sim/farm';
+import {FARM_PETS,chooseFarmFish,pondMap} from '@havenlord/sim/farm';
 import type {ServerMessage} from '@havenlord/protocol';
 
 const dir=mkdtempSync(join(tmpdir(),'havenlord-farm-'));const file=join(dir,'test.db');let store=new Store(file);
@@ -15,8 +15,8 @@ try{
  const acc=store.createAccount('farm_test','unused')!;const progress=newProgress();progress.coins=200;
  const id=store.createCharacter('farm-character',acc,'Nông gia thử','male',progress,'player_npc_human1_sword_m')!.id;
  const acc2=store.createAccount('farm_guest','unused')!;const guest=store.createCharacter('guest-character',acc2,'Khách thử','female',newProgress(),'player_npc_elf1_sword_f')!.id;
- let now=1700000000000;let at={map:'human/town',x:1080,y:1368};const messages:ServerMessage[]=[];
- const farm=new Farm(store,{where:()=>at,send:(_id,m)=>messages.push(m),move:(_id,map)=>{at={...at,map};},refresh:()=>{}},resolve('../../assets/maps'),()=>now,()=>0);
+ let now=1700000000000;let at={map:'human/town',x:1080,y:1368};const messages:ServerMessage[]=[];let pondCount=0;
+ const farm=new Farm(store,{where:()=>at,send:(_id,m)=>messages.push(m),move:(_id,map)=>{at={...at,map};},refresh:()=>{},count:()=>pondCount},resolve('../../assets/maps'),()=>now,()=>0);
  const act=(op:string,extra:Record<string,unknown>={})=>{messages.length=0;farm.handle(id,acc,{op,...extra});now+=700;};
  const failed=()=>messages.some(m=>m.t==='system');
  act('enter');assert(failed());assert.equal(at.map,'human/town');
@@ -31,16 +31,21 @@ try{
  act('water',{plot:0});const watered=store.farm.read(acc).plots[0]!;assert(watered.watered);assert(watered.growth>=75000&&watered.growth<90000);
  now+=225000;act('harvest',{plot:0});assert.equal(store.farm.read(acc).inventory.farm_wheat,1);assert.equal(store.farm.read(acc).plots[0]!.crop,null);
  at={map:homeMap(acc),x:360,y:288};act('cast');assert(failed(),'câu cá chỉ ở hồ câu');assert.equal(store.farm.read(acc).fish,null);
- act('pond');assert(failed(),'phải tới cổng hồ');at={map:homeMap(acc),x:240,y:940};act('pond');assert.equal(at.map,POND_MAP);
- at={map:POND_MAP,x:200,y:200};act('cast');assert(failed(),'phải đứng ở chỗ câu');at={map:POND_MAP,x:360,y:288};
+ act('pond');assert(failed(),'phải tới cổng hồ');at={map:homeMap(acc),x:240,y:940};act('pond');assert.equal(at.map,pondMap(acc));
+ at={map:pondMap(acc),x:200,y:200};act('cast');assert(failed(),'phải đứng ở chỗ câu');at={map:pondMap(acc),x:360,y:288};
  act('cast');const fish=store.farm.read(acc).fish!;assert(fish);
  const packet=messages.find(m=>m.t==='farm');assert(packet?.t==='farm');assert(!('reward' in (packet.state as {fish:object}).fish));
  act('pull',{nonce:fish.nonce});assert(failed());assert(store.farm.read(acc).fish);
  now=fish.biteAt+100;act('pull',{nonce:fish.nonce});assert.equal(store.farm.read(acc).inventory.fish_crucian,1);
  act('pull',{nonce:fish.nonce});assert(failed());assert.equal(store.farm.read(acc).inventory.fish_crucian,1);
  act('cast');const missed=store.farm.read(acc).fish!;now=missed.expires+1;act('pull',{nonce:missed.nonce});assert.equal(store.farm.read(acc).fish,null);assert.equal(store.farm.read(acc).inventory.fish_crucian,1);
- farm.handle(guest,acc2,{op:'cast'});assert.equal(store.farm.read(acc2).fish,null);
- at={map:POND_MAP,x:96,y:352};act('pond');assert.equal(at.map,homeMap(acc));
+ // Câu cùng bạn: chưa là bạn thì chặn; kết bạn rồi khách (đã mở Gia viên) sang hồ chủ; hồ đủ 6 người thì chặn.
+ {const g=(op:string,extra:Record<string,unknown>={})=>{messages.length=0;farm.handle(guest,acc2,{op,...extra});now+=700;};
+  store.farm.run(acc2,guest,now,s=>{s.unlocked=true;return{value:null};});const back=at;at={map:'human/town',x:0,y:0};
+  g('visitPond',{item:id});assert(failed(),'chưa là bạn');store.addFriendship(id,guest);pondCount=6;g('visitPond',{item:id});assert(failed(),'hồ đủ 6 người');
+  pondCount=1;g('visitPond',{item:id});assert.equal(at.map,pondMap(acc),'khách sang hồ chủ');assert(farm.canEnterMap(guest,acc2,pondMap(acc)));
+  at={map:pondMap(acc),x:360,y:240};g('cast');assert(store.farm.read(acc2).fish,'khách câu bằng lượt của mình');at=back;pondCount=0;}
+ at={map:pondMap(acc),x:96,y:352};act('pond');assert.equal(at.map,homeMap(acc));
  act('sell');assert(failed());at={map:homeMap(acc),x:736,y:352};act('sell');assert.equal(store.ecoOf(id)!.coins,216);assert.equal(store.farm.read(acc).inventory.farm_wheat,0);
  // Nhà 3 phòng, mỗi phòng một map: vào phòng khách từ cửa nhà, sang bếp / lên phòng ngủ phải đứng đúng cửa, đổi đồ ở tủ phòng ngủ.
  at={map:homeMap(acc),x:576,y:280};act('room');assert.equal(at.map,roomMap(acc,'house'));

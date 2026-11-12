@@ -370,9 +370,9 @@ namespace HavenLord.Client
             }
         }
 
-        // Hồ câu là map riêng dùng chung `home/pond` (FARM_LAYOUT trong sim): cổng mép nam khuôn viên ⇄ cổng bờ tây hồ; chỗ câu dọc bờ.
+        // Hồ câu: map câu cá duy nhất, mỗi nhà một hồ sau Gia viên (máy chủ `home/<tài khoản>_pond`, client nạp map `home/pond`); bạn bè ghé câu chung tối đa 6 người.
         private static readonly Vector2 PondGate = new Vector2(240, 960), PondBack = new Vector2(96, 352);
-        private static readonly Vector2[] PondSpots = { new Vector2(360, 192), new Vector2(360, 288), new Vector2(480, 352), new Vector2(360, 448), new Vector2(360, 544) };
+        private static readonly Vector2[] PondSpots = { new Vector2(360, 160), new Vector2(360, 240), new Vector2(480, 352), new Vector2(360, 440), new Vector2(360, 520), new Vector2(360, 592) };
         private bool NearPondSpot(Vector2 at, float r = 70) => PondSpots.Any(s => Vector2.Distance(at, s) <= r);
 
         // Nhà 3 phòng, mỗi phòng một map (sim FARM_ROOMS): cửa / cầu thang của từng phòng → phòng bên kia; "garden" = ra vườn.

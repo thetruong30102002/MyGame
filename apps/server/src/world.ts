@@ -8,7 +8,7 @@ import { MobRegistry, mapZonesFromDisk } from './mobs.ts';
 import { Rewards } from './rewards.ts';
 import { BUFF_TICK_MS, Shop } from './shop.ts';
 import { Economy } from './economy.ts';
-import { Farm, farmMaps } from './farm.ts';
+import { Farm } from './farm.ts';
 import { newPvpState, Pvp, type PvpState } from './pvp.ts';
 import { resetDiamonds } from '@havenlord/sim/talents';
 import { dirname, join } from 'node:path';
@@ -180,6 +180,7 @@ export class World {
 			where: id => {const c=this.conns.get(id);return c?{map:c.map,x:c.view.x,y:c.view.y}:null;},
 			send: (id,msg) => {const c=this.conns.get(id);if(c)send(c.ws,msg);},
 			move: (id,map) => {const c=this.conns.get(id);if(c)this.changeMap(c,map,true);},
+			count: map => this.inMap(map).length,
 			refresh: id => {this.economy.online(id);const c=this.conns.get(id);if(c)send(c.ws,{t:'buffs',list:store.buffs(id)});},
 		}, mapsDir, now);
 	}
@@ -452,7 +453,7 @@ export class World {
 	private changeMap(c: Conn, raw: unknown, trusted = false): void {
 		const map = String(raw ?? '');
 		if (!MAP_ID.test(map) || map === c.map || (!trusted && !c.maps.allow('map'))) return;
-		if (map.startsWith('home/') && (!trusted || !farmMaps(c.accountId).includes(map) || !this.farm.canEnter(c.accountId))) return;
+		if (map.startsWith('home/') && (!trusted || !this.farm.canEnterMap(c.view.id, c.accountId, map) || !this.farm.canEnter(c.accountId))) return;
 		// Quái dùng chung của map cũ: thôi nhận (client bật lại cho map mới nếu ở thế giới người lớn).
 		this.mobs.unsubscribe(c.view.id);
 		for (const o of this.inMap(c.map)) if (o !== c) send(o.ws, { t: 'leave', id: c.view.id });

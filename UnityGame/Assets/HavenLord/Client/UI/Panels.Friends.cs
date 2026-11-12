@@ -68,6 +68,8 @@ namespace HavenLord.Client.UI
                 var p = friends[i];
                 var row = PersonRow(left, "F" + i, new Vector2(10, -40 - i * 38), 500, p, true);
                 SmallButton(row, "W", -246, "Nhắn", () => game.StartWhisper(p.Id, p.Name));
+                // Câu cùng bạn ở hồ sau Gia viên nhà bạn (chủ dự án 12/11: tối đa 6 người một hồ; máy chủ kiểm bạn bè / chỗ trống).
+                if (p.Online) SmallButton(row, "C", -326, "Câu cá", () => { Close(); game.FarmSend("visitPond", item: p.Id); });
                 SmallButton(row, "R", -166, Confirming("rm" + p.Id) ? "Chắc chưa?" : "Huỷ bạn", () => Confirm("rm" + p.Id, () => game.FriendRemove(p.Id)));
                 SmallButton(row, "B", -86, Confirming("bl" + p.Id) ? "Chắc chưa?" : "Chặn", () => Confirm("bl" + p.Id, () => game.Block(p.Id, true)));
             }

@@ -1,38 +1,55 @@
 import {randomInt,randomUUID} from 'node:crypto';
-import {FARM_CROPS,FARM_FISH,FARM_LAYOUT,FARM_ROOMS,FARM_SHOP,FARM_TANK,FARM_FRUIT,FARM_MACHINES,FARM_MACHINE_SPOTS,FARM_PETS,FARM_PRODUCT_SELL,FARM_STARTER_CROPS,FARM_TREE_SPOTS,FARM_WARDROBE,treeStage,PET_GACHA,POND_MAP,DECOR_ITEMS,chooseFarmFish,decorOf,decorPlaceIssue,rollPet,growPlot,plotPoint,pondSpotNear,shopPrice,type FarmRoom,type FarmState} from '@havenlord/sim/farm';
+import {FARM_CROPS,FARM_FISH,FARM_LAYOUT,FARM_ROOMS,FARM_SHOP,FARM_TANK,FARM_FRUIT,FARM_MACHINES,FARM_MACHINE_SPOTS,FARM_PETS,FARM_PRODUCT_SELL,FARM_STARTER_CROPS,FARM_TREE_SPOTS,FARM_WARDROBE,treeStage,PET_GACHA,isPondMap,pondMap,DECOR_ITEMS,chooseFarmFish,decorOf,decorPlaceIssue,rollPet,growPlot,plotPoint,pondSpotNear,shopPrice,type FarmRoom,type FarmState} from '@havenlord/sim/farm';
 import {STORY} from '@havenlord/sim/story/story';
 import {VILLAGE_SHOP} from '@havenlord/sim/village';
 import type {ServerMessage} from '@havenlord/protocol';
 import {spotOf} from './maps.ts';
 import type {Store} from './db.ts';
 
-export interface FarmHost {where(id:string):{map:string;x:number;y:number}|null;send(id:string,msg:ServerMessage):void;move(id:string,map:string):void;refresh(id:string):void}
+export interface FarmHost {where(id:string):{map:string;x:number;y:number}|null;send(id:string,msg:ServerMessage):void;move(id:string,map:string):void;refresh(id:string):void;count?(map:string):number}
 export const homeMap=(account:number,inside=false)=>`home/${account}${inside?'_inside':''}`;
 /** Map từng phòng trong nhà: phòng khách giữ id cũ `_inside`, thêm bếp / phòng ngủ. */
 export const roomMap=(account:number,room:FarmRoom)=>room==='house'?homeMap(account,true):`home/${account}_${room}`;
 const roomOf=(account:number,map:string|undefined):FarmRoom|null=>(Object.keys(FARM_ROOMS) as FarmRoom[]).find(r=>roomMap(account,r)===map)??null;
 /** Map Gia viên người này được vào: khuôn viên + nhà riêng + hồ câu dùng chung. */
-export const farmMaps=(account:number)=>[homeMap(account),POND_MAP,...(Object.keys(FARM_ROOMS) as FarmRoom[]).map(r=>roomMap(account,r))];
+export const farmMaps=(account:number)=>[homeMap(account),isPondMap,pondMap,...(Object.keys(FARM_ROOMS) as FarmRoom[]).map(r=>roomMap(account,r))];
 export class Farm {
+ /** Khách ghé hồ bạn: nhân vật → hồ được phép vào (đặt khi máy chủ đã kiểm bạn bè + chỗ trống). */
+ private pondGuests=new Map<string,string>();
+ /** Map Gia viên nhân vật này được vào: Gia viên của mình + hồ bạn đang được mời. */
+ canEnterMap(id:string,account:number,map:string){return farmMaps(account).includes(map)||this.pondGuests.get(id)===map;}
  constructor(private store:Store,private host:FarmHost,private mapsDir:string,private now:()=>number=Date.now,private random:()=>number=()=>randomInt(1000000)/1000000){}
  roster(){return Object.entries(STORY.npcs).flatMap(([id,n])=>{const s=spotOf(this.mapsDir,'human/town',n.at.spot);return n.sprite&&(!n.region||n.region==='human')&&s&&n.ages[0]<=16&&n.ages[1]>=16?[{id,name:n.name,x:s.x+(n.at.dx??0),y:s.y+(n.at.dy??0)}]:[];});}
  canEnter(account:number){return this.store.farm.read(account).unlocked;}
- private send(id:string,account:number,enter=false){const state=this.store.farm.read(account);for(const p of state.plots)growPlot(p,this.now());const at=this.host.where(id);const fish=state.fish?{nonce:state.fish.nonce,biteAt:state.fish.biteAt,expires:state.fish.expires}:null;const inRoom=roomOf(account,at?.map);const room=at?.map===POND_MAP?'pond':inRoom??'garden';this.host.send(id,{t:'farm',state:{...state,fish,required:this.roster(),map:room==='pond'?POND_MAP:inRoom?roomMap(account,inRoom):homeMap(account),room,now:this.now(),enter}});}
+ private send(id:string,account:number,enter=false){const state=this.store.farm.read(account);for(const p of state.plots)growPlot(p,this.now());const at=this.host.where(id);const fish=state.fish?{nonce:state.fish.nonce,biteAt:state.fish.biteAt,expires:state.fish.expires}:null;const inRoom=roomOf(account,at?.map);const room=at&&isPondMap(at.map)?'pond':inRoom??'garden';this.host.send(id,{t:'farm',state:{...state,fish,required:this.roster(),map:room==='pond'?at!.map:inRoom?roomMap(account,inRoom):homeMap(account),room,now:this.now(),enter}});}
  handle(id:string,account:number,raw:{op?:unknown;plot?:unknown;crop?:unknown;npc?:unknown;nonce?:unknown;outfit?:unknown;item?:unknown;room?:unknown}):void{
   const op=String(raw.op||'');const at=this.host.where(id);if(!at)return;
   const near=(x:number,y:number,r=110)=>Math.hypot(at.x-x,at.y-y)<=r;
   try{
    if(op==='get'){this.send(id,account);return;}
-   if(op==='leave'){if(!farmMaps(account).includes(at.map))throw new Error('Bạn chưa ở Gia viên');this.host.send(id,{t:'farm',state:{leave:true}});this.host.move(id,'human/town');return;}
+   if(op==='leave'){if(!farmMaps(account).includes(at.map)&&!isPondMap(at.map))throw new Error('Bạn chưa ở Gia viên');this.pondGuests.delete(id);this.host.send(id,{t:'farm',state:{leave:true}});this.host.move(id,'human/town');return;}
    if(op==='pond'){
     // Đi bộ qua cổng: khuôn viên (cổng mép nam) ⇄ hồ câu dùng chung (cổng bờ tây).
     if(!this.canEnter(account))throw new Error('Hãy làm quen hết cư dân Thistlewood trước khi nhận Gia viên');
-    const fromGarden=at.map===homeMap(account);if(!fromGarden&&at.map!==POND_MAP)throw new Error('Hồ câu nằm cạnh khuôn viên của bạn');
+    const fromGarden=at.map===homeMap(account);if(!fromGarden&&!isPondMap(at.map))throw new Error('Hồ câu nằm cạnh khuôn viên của bạn');
     if(fromGarden&&!near(FARM_LAYOUT.pondGateX,FARM_LAYOUT.pondGateY))throw new Error('Hãy tới cổng ra hồ câu');
     if(!fromGarden&&!near(FARM_LAYOUT.pondBackX,FARM_LAYOUT.pondBackY))throw new Error('Hãy tới cổng về khuôn viên');
     if(!fromGarden)this.store.farm.run(account,id,this.now(),s=>{s.fish=null;return{value:null};});
-    const target=fromGarden?POND_MAP:homeMap(account);
+    if(fromGarden&&(this.host.count?.(pondMap(account))??0)>=FARM_LAYOUT.pondMax)throw new Error(`Hồ đã đủ ${FARM_LAYOUT.pondMax} người`);
+    if(!fromGarden)this.pondGuests.delete(id);
+    const target=fromGarden?pondMap(account):homeMap(account);
     this.host.send(id,{t:'farm',state:{travel:fromGarden?'pond':'garden',spot:fromGarden?'from_garden':'from_pond',map:target}});this.host.move(id,target);this.send(id,account);return;
+   }
+   if(op==='visitPond'){
+    // Câu cùng bạn: sang hồ sau Gia viên của một người bạn (hai người là bạn, bạn đã mở Gia viên, hồ còn chỗ — tối đa 6 người).
+    if(!this.canEnter(account))throw new Error('Hãy mở Gia viên của bạn trước');
+    const friend=String(raw.item||'');if(!this.store.areFriends(id,friend))throw new Error('Chỉ ghé hồ nhà bạn bè');
+    const owner=this.store.farm.accountOf(friend);if(owner===null||!this.store.farm.read(owner).unlocked)throw new Error('Bạn này chưa có Gia viên');
+    if(!farmMaps(account).includes(at.map)&&at.map!=='human/town'&&!isPondMap(at.map))throw new Error('Hãy về Thistlewood hoặc Gia viên trước');
+    const target=pondMap(owner);if(at.map===target)throw new Error('Bạn đang ở hồ này');
+    if((this.host.count?.(target)??0)>=FARM_LAYOUT.pondMax)throw new Error(`Hồ đã đủ ${FARM_LAYOUT.pondMax} người`);
+    this.store.farm.run(account,id,this.now(),s=>{s.fish=null;return{value:null};});
+    this.pondGuests.set(id,target);this.host.send(id,{t:'farm',state:{travel:'pond',spot:'from_garden',map:target}});this.host.move(id,target);this.send(id,account);return;
    }
    if(op==='enter'||op==='room'){
     if(!this.canEnter(account))throw new Error('Hãy làm quen hết cư dân Thistlewood trước khi nhận Gia viên');
@@ -69,7 +86,7 @@ export class Farm {
     if(op==='service'){
      const item=VILLAGE_SHOP.find(x=>x.id===raw.item);const npc=this.roster().find(n=>n.id===item?.npc);if(!item||!npc||at.map!=='human/town'||!near(npc.x,npc.y,160))throw new Error('Hãy tới đúng quầy hàng');if(coins<item.coins)throw new Error('Không đủ xu');return{value:null,coins:coins-item.coins,...('potions'in item?{potions:item.potions}:{buff:true})};
     }
-    if(!s.unlocked||!farmMaps(account).includes(at.map))throw new Error('Chỉ chủ nhà được thao tác trong Gia viên đã mở');
+    if(!s.unlocked||!(farmMaps(account).includes(at.map)||(isPondMap(at.map)&&(op==='cast'||op==='pull'))))throw new Error('Chỉ chủ nhà được thao tác trong Gia viên đã mở');
     if(op==='gacha'||op==='petOut'||op==='petTrade'){
      if(!s.unlocked||!farmMaps(account).includes(at.map))throw new Error('Thú cưng ở trong Gia viên của bạn');
      const pets=s.pets??(s.pets=[]),out=s.petsOut??(s.petsOut=[]);
@@ -145,7 +162,7 @@ export class Farm {
      return{value:null};
     }
     if(op==='outfit'){if(at.map!==roomMap(account,'bedroom')||!near(...FARM_WARDROBE))throw new Error('Hãy tới tủ quần áo trong phòng ngủ');if(raw.outfit!=='farmer1'&&raw.outfit!=='gardener')throw new Error('Không có bộ đồ này');s.outfit=raw.outfit;return{value:null};}
-    const fishing=op==='cast'||op==='pull';if(fishing&&at.map!==POND_MAP)throw new Error('Hãy ra hồ câu cạnh khuôn viên');if(!fishing&&at.map!==homeMap(account))throw new Error('Hãy ra khuôn viên trước');
+    const fishing=op==='cast'||op==='pull';if(fishing&&!isPondMap(at.map))throw new Error('Hãy ra hồ câu cạnh khuôn viên');if(!fishing&&at.map!==homeMap(account))throw new Error('Hãy ra khuôn viên trước');
     if(op==='sell'){
      if(!near(736,352))throw new Error('Hãy tới hộp gửi hàng');let total=0;
      for(const c of FARM_CROPS){const k=`farm_${c.id}`;total+=(s.inventory[k]||0)*c.sell;s.inventory[k]=0;}
