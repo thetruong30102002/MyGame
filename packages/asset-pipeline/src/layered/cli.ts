@@ -2041,15 +2041,31 @@ function exportUnity(sample: string, std: LayeredStandard): void {
 		for (const d of ALL) clips[`idle_${d}`] = [frame(mould.clips[`idle_${near[d]}`]![0]!, near[d])];
 		for (const [key, frames] of Object.entries(mould.clips)) if (!key.startsWith('idle_')) clips[key] = frames.map((fr) => {
 			const out = frame(fr, key.split('_')[1] as DirId);
-			// Cần câu liền thân: đầu cần là pixel cao nhất của lớp dụng cụ / thân đã tách đầu; chỉ xuất toạ độ, không sửa hình.
+			// Cần câu liền thân: đầu cần = pixel xa cổ nhất (trên ngang thắt lưng) của KHỐI LIỀN LỚN NHẤT (thân + cần) — bỏ vụn lẻ và đoạn
+			// dây vẽ thả rời. Trước đây lấy pixel cao nhất nên khung chờ cá (cần chĩa ngang) bắt nhầm vụn sát đầu, dây câu mọc từ đầu.
+			// Chỉ xuất toạ độ, không sửa hình.
 			if (spec.attack === 'farm' && key.startsWith('fish_')) {
 				const layers = [fr.l.body, (fr.l as AttackLayers).bodyFront].filter(Boolean) as RGBAImage[];
-				for (let y = 0; y < ch && !out.toolTip; y++) {
-					let best = -1;
-					for (let x = 0; x < cw; x++) if (layers.some(img => img.data[(y * cw + x) * 4 + 3]))
-						if (best < 0 || Math.abs(x - fr.l.neck[0]) > Math.abs(best - fr.l.neck[0])) best = x;
-					if (best >= 0) out.toolTip = [best, y];
+				const on = (x: number, y: number) => x >= 0 && y >= 0 && x < cw && y < ch && layers.some(img => img.data[(y * cw + x) * 4 + 3]);
+				const seen = new Uint8Array(cw * ch), [nx, ny] = fr.l.neck;
+				let best: Point | undefined, top: Point | undefined, main: Point[] = [], far = -1, reach = -1;
+				for (let y0 = 0; y0 < Math.min(ch, ny + 25); y0++) for (let x0 = 0; x0 < cw; x0++) {
+					if (seen[y0 * cw + x0] || !on(x0, y0)) continue;
+					const blob: Point[] = [], stack: Point[] = [[x0, y0]];seen[y0 * cw + x0] = 1;
+					while (stack.length) {
+						const [x, y] = stack.pop()!;blob.push([x, y]);
+						for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) {
+							const X = x + dx, Y = y + dy;
+							if (Y < ny + 25 && on(X, Y) && !seen[Y * cw + X]) { seen[Y * cw + X] = 1;stack.push([X, Y]); }
+						}
+					}
+					if (blob.length >= 8) for (const [x, y] of blob) if (!top || y < top[1]) top = [x, y];
+					if (blob.length > far) { far = blob.length;main = blob; }
 				}
+				// Nhìn sau lưng (N) cần chĩa lên trời, có thể tách rời thân: lấy điểm cao nhất của các khối ≥ 8 px.
+				if (key.endsWith('_N')) best = top;
+				else for (const [x, y] of main) { const d = Math.hypot(x - nx, y - ny);if (d > reach) { reach = d;best = [x, y]; } }
+				if (best) out.toolTip = best;
 			}
 			return out;
 		});
