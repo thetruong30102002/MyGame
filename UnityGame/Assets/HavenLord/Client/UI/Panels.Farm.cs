@@ -68,6 +68,22 @@ namespace HavenLord.Client.UI
                     }
                     return;
                 }
+                if (key == "houses")
+                {
+                    // 16 kiểu nhà (sim FARM_HOUSES, giá đề xuất 12/11): mua → dọn vào ở ngay; nhà đã có bấm để đổi; về nhà nhỏ có sẵn.
+                    var hs = (game.Sim.Modules["farmHouses.generated"]?["FARM_HOUSES"] as JObject)?.Properties().OrderBy(p => (int)p.Value["tier"]).ToArray() ?? new JProperty[0];
+                    var owned = (state["houses"] as JArray)?.Select(x => (string)x).ToList() ?? new System.Collections.Generic.List<string>();var cur = game.HouseId;
+                    FarmText("Tên", "Nhà Gia viên · mặt ngoài, tường, sàn, cầu thang theo kiểu nhà; đồ bày trí giữ nguyên khi đổi nhà", 0, 32, 17);
+                    FarmButton("Nhỏ", (cur == "" ? "✓ " : "") + "Nhà nhỏ có sẵn", 0, 40, () => game.FarmSend("houseSet", item: ""), cur != "");
+                    for (var i = 0; i < hs.Length; i++)
+                    {
+                        var h = hs[i];var hid = h.Name;var have = owned.Contains(hid);
+                        var label = have ? (cur == hid ? "✓ " : "Dọn sang ") + h.Value["name"] : $"{h.Value["name"]} · {(int)h.Value["price"]:#,0} xu";
+                        FarmButton("Nhà" + hid, label, i % 4 * 256, 86 + i / 4 * 42, () => game.FarmSend(have ? "houseSet" : "buy", item: have ? hid : "house:" + hid), !(have && cur == hid));
+                    }
+                    FarmButton("Về", "Người bán đồ", 768, 40, () => game.OpenShop());
+                    return;
+                }
                 if (key == "furniture")
                 {
                     // Bộ sưu tập đồ bày trí (chủ dự án 12/11 chọn B: mua bằng xu, Quản gia đặt trong nhà) — lọc theo nhóm, giá theo danh mục.
@@ -132,7 +148,7 @@ namespace HavenLord.Client.UI
                     int Price(string id) { var it = shop?.FirstOrDefault(x => (string)x["id"] == id); return it == null ? 0 : (int)it["coins"] + (id == "plots" ? (int)it["step"] * Math.Max(0, (plotsNow - start) / 4) : 0); }
                     FarmButton("Ruộng", plotsNow >= max ? $"Ruộng đã mở hết {max} ô" : $"Mở 4 ô ruộng · {Price("plots")} xu ({plotsNow}/{max})", 0, 135, () => game.FarmSend("buy", item: "plots"), plotsNow < max);
                     FarmButton("BểCá", game.OwnsTank ? "Đã có bể cá trong nhà" : $"Bể cá trong nhà · {Price("tank")} xu", 256, 135, () => game.FarmSend("buy", item: "tank"), !game.OwnsTank);
-                    FarmButton("Nhà", "Nhà Gia viên · sắp mở", 512, 135, () => { }, false);
+                    FarmButton("Nhà", "Nhà Gia viên (16 kiểu)", 512, 135, () => game.ShowHouses());
                     FarmButton("ĐồVật", "Đồ bày trí (bộ sưu tập)", 768, 135, () => game.ShowFurniture());
                     FarmText("GiáThử", "Đồ bày trí mua về vào kho, nói chuyện với Quản gia trong nhà để đặt. Nhà Gia viên sẽ mở bán khi có chức năng đổi nhà.", 185, 50);
                     FarmButton("ThúCưng", "Quay thú cưng (kim cương)", 0, 240, () => game.ShowPets());

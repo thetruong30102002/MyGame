@@ -1,4 +1,6 @@
 import {DECOR_DEFAULT,DECOR_DOORS,DECOR_FIXED,DECOR_FLOOR,DECOR_ITEMS} from './farmDecor.generated.ts';
+import {FARM_HOUSES} from './farmHouses.generated.ts';
+export {FARM_HOUSES};
 export {DECOR_ITEMS};
 /** Gia viên: luật máy chủ dùng chung, thời gian thật; giá tạm để thử, chưa chốt cân bằng. */
 /**
@@ -53,7 +55,7 @@ export const FARM_FISH = [
 /** Hồ câu: MỘT map câu cá duy nhất trong game, mỗi nhà một hồ riêng sau Gia viên `home/<tài khoản>_pond` (chủ dự án 12/11: "Câu cá chỉ
  * có 1 map thôi sau gia viên và bạn bè có thể vào hồ nhà nhau câu cá chung với bạn bè tối đa 6 người trong một hồ"): cổng ở mép nam
  * khuôn viên (`pondGate*`), trong hồ có cổng về (`pondBack*`) và 6 chỗ câu dọc bờ tây + đầu cầu (nước ở phía đông người câu). */
-export const FARM_LAYOUT = {tile:32,width:48,height:32,plots:12,plotsMax:48,plotCols:8,plotX:352,plotY:544,shopX:780,shopY:470,stewardX:232,stewardY:278,doorX:576,doorY:264,exitX:832,exitY:416,
+export const FARM_LAYOUT = {tile:32,width:48,height:32,bigDoorY:440,sellX:880,sellY:520,plots:12,plotsMax:48,plotCols:8,plotX:352,plotY:544,shopX:780,shopY:470,stewardX:232,stewardY:278,doorX:576,doorY:264,exitX:832,exitY:416,
  pondGateX:240,pondGateY:960,pondBackX:96,pondBackY:352,
  pondSpots:[[360,160],[360,240],[480,352],[360,440],[360,520],[360,592]] as readonly (readonly [number,number])[],pondMax:6};
 export const pondMap=(account:number)=>`home/${account}_pond`;
@@ -197,12 +199,14 @@ export function livestockOf(state:Pick<FarmState,'livestock'>):Record<string,{co
 /** Giá đề xuất 12/11 cho nhà Gia viên theo thang 16 bậc (bậc 1 Đồng quê có sẵn) và đồ bày trí — CHƯA mở bán (cần hệ thống đổi nhà). */
 export const FARM_HOUSE_PRICES:Record<string,number> = {dq:0,nk:8000,dv:15000,cx:22000,tt:30000,ns:40000,bh:52000,sm:65000,ct:80000,gd:100000,pd:125000,ln:155000,ld:190000,lk:230000,lb:280000,hv:350000};
 export const FARM_FURNITURE_PRICE = {small:300,medium:800,large:2000,feature:5000} as const;
+/** Cửa nhà đang ở: nhà nhỏ có sẵn (576, 264), nhà lớn mua được (576, 440) — scripts/export-home-maps.mts dọn vùng nhà lớn. */
+export function farmDoor(state:Pick<FarmState,'house'>):{x:number;y:number}{return{x:FARM_LAYOUT.doorX,y:state.house&&FARM_HOUSES[state.house]?FARM_LAYOUT.bigDoorY:FARM_LAYOUT.doorY};}
 export function shopPrice(id:string,state:Pick<FarmState,'plots'>):number{const it=FARM_SHOP.find(x=>x.id===id);if(!it)return Infinity;return id==='plots'?it.coins+it.step*Math.max(0,(state.plots.length-FARM_LAYOUT.plots)/4):it.coins;}
 export type FarmRoom = keyof typeof FARM_ROOMS;
 /** Chỗ câu gần nhất trong bán kính `r` px (null = không đứng ở bờ hồ). */
 export function pondSpotNear(x:number,y:number,r=70):readonly [number,number]|null{let best:readonly [number,number]|null=null,d=r;for(const s of FARM_LAYOUT.pondSpots){const k=Math.hypot(x-s[0],y-s[1]);if(k<=d){d=k;best=s;}}return best;}
 export interface FarmPlot {tilled:boolean;crop:string|null;plantedAt:number;lastAt:number;growth:number;watered:boolean}
-export interface FarmState {version:1;visited:string[];unlocked:boolean;plots:FarmPlot[];inventory:Record<string,number>;outfit:'farmer1'|'gardener';fish:{nonce:string;biteAt:number;expires:number;reward:string;hookedAt?:number;seed?:number;power?:number}|null;cooking?:{dish:string;startedAt:number}|null;lastAction:number;lastEntry?:number;tank?:string[];owned?:string[];pets?:string[];petsOut?:string[];petShards?:number;petPity?:number;lastSpin?:{pet:string;dup:boolean}[];decor?:Record<string,{id:string;x:number;y:number}[]>;storage?:Record<string,number>;trees?:({kind:string;plantedAt:number;lastHarvest:number}|null)[];livestock?:Record<string,{count:number;fedAt:number}>;machines?:Record<string,{recipe:string;readyAt:number}|null>}
+export interface FarmState {version:1;visited:string[];unlocked:boolean;plots:FarmPlot[];inventory:Record<string,number>;outfit:'farmer1'|'gardener';fish:{nonce:string;biteAt:number;expires:number;reward:string;hookedAt?:number;seed?:number;power?:number}|null;cooking?:{dish:string;startedAt:number}|null;lastAction:number;lastEntry?:number;tank?:string[];owned?:string[];pets?:string[];petsOut?:string[];petShards?:number;petPity?:number;lastSpin?:{pet:string;dup:boolean}[];decor?:Record<string,{id:string;x:number;y:number}[]>;storage?:Record<string,number>;trees?:({kind:string;plantedAt:number;lastHarvest:number}|null)[];livestock?:Record<string,{count:number;fedAt:number}>;houses?:string[];house?:string;machines?:Record<string,{recipe:string;readyAt:number}|null>}
 export function newFarm():FarmState{return{version:1,visited:[],unlocked:false,plots:Array.from({length:12},()=>({tilled:false,crop:null,plantedAt:0,lastAt:0,growth:0,watered:false})),inventory:{},outfit:'farmer1',fish:null,lastAction:0,tank:[]};}
 export function growPlot(p:FarmPlot,now:number):void {if(!p.crop)return;const c=FARM_CROPS.find(x=>x.id===p.crop);if(!c)return;p.growth=Math.min(c.ms,p.growth+Math.max(0,now-p.lastAt)*(p.watered?1:.5));p.lastAt=Math.max(p.lastAt,now);}
 export function cropStage(p:FarmPlot):number{const c=FARM_CROPS.find(x=>x.id===p.crop);return c?Math.min(3,Math.floor(p.growth/c.ms*4)):0;}

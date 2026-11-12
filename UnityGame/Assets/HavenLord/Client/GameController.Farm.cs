@@ -202,6 +202,8 @@ namespace HavenLord.Client
         private int PlotsMax => (int?)Layout?["plotsMax"] ?? 48;
         private (float x, float y) PlotPos(int i) => ((float)((double?)Layout?["plotX"] ?? 352) + i % PlotCols * 32, (float)((double?)Layout?["plotY"] ?? 544) + i / PlotCols * 32);
         private int PlotCount => (FarmState?["plots"] as JArray)?.Count ?? 0;
+        private Vector2 DoorSpot => new Vector2(576, HouseId != "" ? (float)((double?)Layout?["bigDoorY"] ?? 440) : 264);
+        private Vector2 SellSpot => new Vector2((float)((double?)Layout?["sellX"] ?? 880), (float)((double?)Layout?["sellY"] ?? 520));
         private Vector2 ShopSpot => new Vector2((float)((double?)Layout?["shopX"] ?? 780), (float)((double?)Layout?["shopY"] ?? 470));
         private Vector2 Steward => new Vector2((float)((double?)Layout?["stewardX"] ?? 232), (float)((double?)Layout?["stewardY"] ?? 278));
 
@@ -358,6 +360,7 @@ namespace HavenLord.Client
                     var ready = p.Value.Type == JTokenType.Object && FarmNow >= (double)p.Value["readyAt"];
                     Put("machine_" + p.Name, (float)at[0], (float)at[1], 26, 14, ready ? new Color(1f, 1f, .75f) : Color.white);
                 }
+            DrawHouseExterior(farmOrchard.transform, solids);
             map.SetExtraSolids(solids);
         }
 
@@ -403,8 +406,77 @@ namespace HavenLord.Client
             return false;
         }
 
+        // ---- Kiểu nhà đang ở (sim FARM_HOUSES, ảnh Resources/HomeHouses/<mã>/…): mặt ngoài ở khuôn viên (cửa 576, 440, ẩn nhà nhỏ có sẵn),
+        // trong nhà lát mẫu sàn + dải tường lặp + cầu thang của nhà (ẩn cầu thang gỗ có sẵn). Nhà nhỏ có sẵn = map gốc, không vẽ đè. ----
+        public string HouseId => (string)FarmState?["house"] ?? "";
+        private static readonly Dictionary<string, Texture2D> houseTex = new Dictionary<string, Texture2D>();
+        private static Texture2D HouseTex(string house, string part)
+        {
+            var key = house + "/" + part;
+            if (!houseTex.TryGetValue(key, out var t)) houseTex[key] = t = Resources.Load<Texture2D>($"HomeHouses/{house}/{part}");
+            return t;
+        }
+        /// <summary>Một ảnh (hoặc phần cắt) đặt ở (x, y) px, neo góc trên trái; trả SpriteRenderer.</summary>
+        private static SpriteRenderer HousePiece(Transform parent, Texture2D tex, Rect rect, float x, float y, int order)
+        {
+            var sr = new GameObject(tex.name).AddComponent<SpriteRenderer>();sr.transform.SetParent(parent, false);
+            sr.sprite = Sprite.Create(tex, rect, new Vector2(0, 1), WorldCoords.PixelsPerUnit, 0, SpriteMeshType.FullRect);
+            sr.transform.localPosition = WorldCoords.PxToWorld(x, y);sr.sortingOrder = order;
+            return sr;
+        }
+        private void HideMapProps(string prefix, bool hide)
+        {
+            var props = map.transform.Find("Props");
+            if (props == null) return;
+            foreach (Transform c in props) if (c.name.StartsWith(prefix, StringComparison.Ordinal)) c.gameObject.SetActive(!hide);
+        }
+
+        private void DrawHouseExterior(Transform parent, List<(float, float, float, float)> solids)
+        {
+            var house = HouseId;var ext = house != "" ? HouseTex(house, "exterior") : null;
+            HideMapProps("gv_nha_chinh", ext != null);
+            if (ext == null) return;
+            var door = new Vector2(576, (float)((double?)Layout?["bigDoorY"] ?? 440));
+            var sr = HousePiece(parent, ext, new Rect(0, 0, ext.width, ext.height), door.x - ext.width / 2f, door.y - ext.height, 0);
+            sr.spriteSortPoint = SpriteSortPoint.Pivot;
+            // Neo sắp lớp ở chân nhà: đặt pivot đáy bằng cách dời cha — đơn giản hơn: dùng sprite pivot đáy.
+            sr.sprite = Sprite.Create(ext, new Rect(0, 0, ext.width, ext.height), new Vector2(.5f, 0), WorldCoords.PixelsPerUnit, 0, SpriteMeshType.FullRect);
+            sr.transform.localPosition = WorldCoords.PxToWorld(door.x, door.y);
+            var fw = ext.width * .86f;solids.Add((door.x - fw / 2, door.y - 58, door.x + fw / 2, door.y));
+        }
+
+        private void DrawHouseRoom(Transform parent)
+        {
+            var house = HouseId;
+            HideMapProps("gv_cau_thang_go", house != "" && map.def.id == "house");
+            if (house == "" || !HouseRooms.Contains(map.def.id)) return;
+            var floor = HouseTex(house, "floor");var wall = HouseTex(house, "wall");var stairs = HouseTex(house, "stairs");
+            if (floor == null || wall == null) return;
+            // Sàn: phòng chiếm cột 1 … W-2, hàng 4 … H-2 (scripts/export-home-maps.mts); lát mẫu sàn, cắt mép phải / dưới.
+            float x0 = 32, y0 = 128, x1 = (map.def.width - 1) * 32, y1 = (map.def.height - 1) * 32;
+            for (var y = y0; y < y1; y += floor.height)
+                for (var x = x0; x < x1; x += floor.width)
+                {
+                    float w = Mathf.Min(floor.width, x1 - x), h = Mathf.Min(floor.height, y1 - y);
+                    HousePiece(parent, floor, new Rect(0, floor.height - h, w, h), x, y, -160);
+                }
+            // Dải tường: chân tường ở y 134 như dải mặc định, lặp cặp tường theo bề ngang.
+            for (var x = x0; x < x1; x += wall.width)
+            {
+                var w = Mathf.Min(wall.width, x1 - x);
+                HousePiece(parent, wall, new Rect(0, 0, w, wall.height), x, 134 - wall.height, -158);
+            }
+            if (map.def.id == "house" && stairs != null)
+            {
+                var sr = HousePiece(parent, stairs, new Rect(0, 0, stairs.width, stairs.height), 548 - stairs.width / 2f, 134 - stairs.height, 0);
+                sr.sprite = Sprite.Create(stairs, new Rect(0, 0, stairs.width, stairs.height), new Vector2(.5f, 0), WorldCoords.PixelsPerUnit, 0, SpriteMeshType.FullRect);
+                sr.transform.localPosition = WorldCoords.PxToWorld(548, 134);sr.spriteSortPoint = SpriteSortPoint.Pivot;sr.sortingOrder = 0;
+            }
+        }
+
         /// <summary>Bộ sưu tập đồ bày trí ở người bán đồ Gia viên (lọc theo nhóm).</summary>
         public string FurnitureCat = "Giường";
+        public void ShowHouses() { VillageKey = "houses"; FarmSend("get"); hud.Panels.Show(Panels.Kind.Farm); }
         public void ShowFurniture() { VillageKey = "furniture"; FarmSend("get"); hud.Panels.Show(Panels.Kind.Farm); }
 
         /// <summary>Bảng quay thú cưng (gọi từ cửa hàng Quản gia).</summary>
@@ -464,6 +536,7 @@ namespace HavenLord.Client
                 if (m != null && (bool?)m["blocks"] == true) solids.Add((x + (float)m["fx"], y - (float)m["fh"], x + (float)m["fx"] + (float)m["fw"], y));
                 if (id == (string)Tank["item"] && farmTank == null) farmTank = go;
             }
+            DrawHouseRoom(farmDecor.transform);
             map.SetExtraSolids(solids);
             if (farmTank == null) return;
             var list = FarmState?["tank"] as JArray ?? new JArray();
@@ -551,8 +624,8 @@ namespace HavenLord.Client
                 return;
             }
             if (Vector2.Distance(at, PondGate) < 90) { FarmSend("pond"); return; }
-            if (Vector2.Distance(at, new Vector2(576, 264)) < 90) { FarmSend("room"); return; }
-            if (Vector2.Distance(at, new Vector2(736, 352)) < 75) { FarmSend("sell"); return; }
+            if (Vector2.Distance(at, DoorSpot) < 90) { FarmSend("room"); return; }
+            if (Vector2.Distance(at, SellSpot) < 75) { FarmSend("sell"); return; }
         }
 
         public void FarmInteract()
@@ -568,7 +641,8 @@ namespace HavenLord.Client
                 return;
             }
             if (Vector2.Distance(me, PondGate) < 100) { FarmSend("pond"); return; }
-            if (Math.Abs(player.X - 576) < 100 && Math.Abs(player.Y - 264) < 100) { FarmSend("room"); return; }
+            if (Vector2.Distance(me, DoorSpot) < 100) { FarmSend("room"); return; }
+            if (Vector2.Distance(me, SellSpot) < 90) { FarmSend("sell"); return; }
             if (Vector2.Distance(me, ShopSpot) < 110) { OpenShop(); return; }
             if (OrchardAction(me) || PenAction(me)) return;
             if (PlotCount == 0) return;

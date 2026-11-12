@@ -53,7 +53,7 @@ try{
   pondCount=1;g('visitPond',{item:id});assert.equal(at.map,pondMap(acc),'khách sang hồ chủ');assert(farm.canEnterMap(guest,acc2,pondMap(acc)));
   at={map:pondMap(acc),x:360,y:240};g('cast');assert(store.farm.read(acc2).fish,'khách câu bằng lượt của mình');at=back;pondCount=0;}
  at={map:pondMap(acc),x:96,y:352};act('pond');assert.equal(at.map,homeMap(acc));
- act('sell');assert(failed());at={map:homeMap(acc),x:736,y:352};act('sell');assert.equal(store.ecoOf(id)!.coins,218);assert.equal(store.farm.read(acc).inventory.farm_wheat,0);
+ act('sell');assert(failed());at={map:homeMap(acc),x:880,y:520};act('sell');assert.equal(store.ecoOf(id)!.coins,218);assert.equal(store.farm.read(acc).inventory.farm_wheat,0);
  // Nhà 3 phòng, mỗi phòng một map: vào phòng khách từ cửa nhà, sang bếp / lên phòng ngủ phải đứng đúng cửa, đổi đồ ở tủ phòng ngủ.
  at={map:homeMap(acc),x:576,y:280};act('room');assert.equal(at.map,roomMap(acc,'house'));
  at={map:roomMap(acc,'house'),x:200,y:300};act('go',{room:'kitchen'});assert(failed(),'phải tới cửa bếp');
@@ -102,7 +102,7 @@ try{
   store.farm.run(acc,id,now,s=>{s.inventory.farm_wheat=(s.inventory.farm_wheat??0)+2;return{value:null};});
   at={map:homeMap(acc),x:612,y:590};act('machineStart',{item:'flour_mill'});assert.equal(store.farm.read(acc).machines!.flour_mill!.recipe,'flour');act('machineCollect',{item:'flour_mill'});assert(failed(),'chưa xong');
   now+=5*60000+1000;act('machineCollect',{item:'flour_mill'});assert.equal(store.farm.read(acc).inventory.prod_flour,1);
-  at={map:homeMap(acc),x:736,y:352};const c1=store.ecoOf(id)!.coins;act('sell');assert.equal(store.ecoOf(id)!.coins,c1+3*15+32,'bán táo + bột');
+  at={map:homeMap(acc),x:880,y:520};const c1=store.ecoOf(id)!.coins;act('sell');assert.equal(store.ecoOf(id)!.coins,c1+3*15+32,'bán táo + bột');
   store.farm.run(acc,id,now,(_s,c)=>({value:null,coins:c-(c1+3*15+32-c0)-3000}));}
  // Thú cưng quay kim cương: không đủ kim cương thì chặn; 10 lượt trừ 900, chắc chắn ≥ 1 Hiếm; trùng → mảnh; thả / cất thú; đổi mảnh.
  act('gacha',{plot:1});assert(failed(),'chưa có kim cương');assert.equal(store.diamonds(id),0);
@@ -126,6 +126,12 @@ try{
   at={map:homeMap(acc),x:576,y:280};act('room');at={map:roomMap(acc,'house'),x:300,y:330};act('decorPlace',{item:'gv_lk_tham'});act('decorPlace',{item:'gv_pd_den'});
   const d=store.farm.read(acc).decor!.house!;assert(d.some(q=>q.id==='gv_lk_tham'),'thảm đặt được ngay cả chỗ có đồ');assert.equal(d.find(q=>q.id==='gv_pd_den')!.y,16+DECOR_ITEMS.gv_pd_den!.h,'đèn treo gờ trần');
   store.farm.run(acc,id,now,(_s,c)=>({value:null,coins:c0-40000}));}
+ // Nhà: mua nhà Nấm ở người bán đồ → dọn vào ngay, cửa dời xuống (576, 440); đổi về nhà nhỏ; chưa có nhà thì không đổi được.
+ {at={map:roomMap(acc,'house'),x:320,y:400};act('room');store.farm.run(acc,id,now,(_s,c)=>({value:null,coins:c+9000}));const c0=store.ecoOf(id)!.coins;at={map:homeMap(acc),x:780,y:500};
+  act('buy',{item:'house:nk'});assert.equal(store.ecoOf(id)!.coins,c0-8000);assert.equal(store.farm.read(acc).house,'nk');act('buy',{item:'house:nk'});assert(failed(),'mua 1 lần');
+  at={map:homeMap(acc),x:576,y:280};act('room');assert(failed(),'cửa nhà lớn đã dời');at={map:homeMap(acc),x:576,y:460};act('room');assert.equal(at.map,roomMap(acc,'house'));
+  act('houseSet',{item:'hv'});assert(failed(),'chưa có nhà Haven');act('houseSet',{item:''});assert.equal(store.farm.read(acc).house,'');
+  store.farm.run(acc,id,now,(_s,c)=>({value:null,coins:c-1000}));}
  // Bể cá phòng khách: thả cá đã câu vào bể, cá trong bể không bị bán, lấy lại được.
  at={map:roomMap(acc,'house'),x:200,y:300};act('tank',{item:'crucian'});assert(failed(),'phải tới bể');
  {const t=store.farm.read(acc).decor!.house!.find(q=>q.id==='gv_be_ca')!;at={map:roomMap(acc,'house'),x:t.x,y:t.y+24};}
@@ -134,7 +140,7 @@ try{
  act('tank',{item:'carp'});assert.deepEqual(store.farm.read(acc).tank,['carp']);assert.equal(store.farm.read(acc).inventory.fish_carp,0);
  act('untank',{plot:0});assert.deepEqual(store.farm.read(acc).tank,[]);assert.equal(store.farm.read(acc).inventory.fish_carp,1);
  act('tank',{item:'carp'});assert.deepEqual(store.farm.read(acc).tank,['carp']);
- at={map:roomMap(acc,'house'),x:320,y:400};act('room');at={map:homeMap(acc),x:736,y:352};act('sell');assert(failed(),'cá trong bể không bị bán');assert.deepEqual(store.farm.read(acc).tank,['carp']);
+ at={map:roomMap(acc,'house'),x:320,y:400};act('room');at={map:homeMap(acc),x:880,y:520};act('sell');assert(failed(),'cá trong bể không bị bán');assert.deepEqual(store.farm.read(acc).tank,['carp']);
  at={map:roomMap(acc,'bedroom'),x:416,y:350};
  at={map:roomMap(acc,'bedroom'),x:416,y:350};act('go',{room:'house'});assert.equal(at.map,roomMap(acc,'house'));
  at={map:roomMap(acc,'house'),x:320,y:400};act('room');assert.equal(at.map,homeMap(acc));

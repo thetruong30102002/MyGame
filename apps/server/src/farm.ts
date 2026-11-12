@@ -1,5 +1,5 @@
 import {randomInt,randomUUID} from 'node:crypto';
-import {FARM_CROPS,FARM_FISH,FARM_LAYOUT,FARM_ROOMS,FARM_SHOP,FARM_TANK,FARM_ANIMALS,FARM_DISHES,FARM_FEED,FARM_FRUIT,FARM_PENS,HAVEN_DAY_MS,livestockOf,FARM_MACHINES,FARM_STOVE,FARM_MACHINE_SPOTS,FARM_PETS,FARM_PRODUCT_SELL,FARM_STARTER_CROPS,FARM_TREE_SPOTS,FARM_WARDROBE,treeStage,PET_GACHA,isPondMap,pondMap,DECOR_ITEMS,chooseFarmFish,decorOf,decorPlaceIssue,decorSpot,rollPet,growPlot,plotPoint,pondSpotNear,shopPrice,type FarmRoom,type FarmState} from '@havenlord/sim/farm';
+import {FARM_CROPS,FARM_FISH,FARM_LAYOUT,FARM_ROOMS,FARM_SHOP,FARM_TANK,FARM_ANIMALS,FARM_DISHES,FARM_HOUSES,farmDoor,FARM_FEED,FARM_FRUIT,FARM_PENS,HAVEN_DAY_MS,livestockOf,FARM_MACHINES,FARM_STOVE,FARM_MACHINE_SPOTS,FARM_PETS,FARM_PRODUCT_SELL,FARM_STARTER_CROPS,FARM_TREE_SPOTS,FARM_WARDROBE,treeStage,PET_GACHA,isPondMap,pondMap,DECOR_ITEMS,chooseFarmFish,decorOf,decorPlaceIssue,decorSpot,rollPet,growPlot,plotPoint,pondSpotNear,shopPrice,type FarmRoom,type FarmState} from '@havenlord/sim/farm';
 import {STORY} from '@havenlord/sim/story/story';
 import {COOK_QUALITY,FISH_MAX_TICKS,FISH_TICK_MS,cookQuality,fishFight,fishPower,type CookQuality} from '@havenlord/sim/minigames';
 import {VILLAGE_SHOP} from '@havenlord/sim/village';
@@ -57,11 +57,11 @@ export class Farm {
     if(op==='enter'&&at.map!=='human/town')throw new Error('Hãy trở về Thistlewood để về nhà');
     if(op==='enter')this.store.farm.run(account,id,this.now(),s=>{if(s.lastEntry&&this.now()-s.lastEntry<300000)throw new Error('Về Gia viên đang hồi: tối đa một lần mỗi 5 phút');s.lastEntry=this.now();return{value:null};});
     if(op==='room'&&at.map!==homeMap(account)&&at.map!==homeMap(account,true))throw new Error('Ra vườn phải đi từ phòng khách');
-    if(op==='room'&&at.map===homeMap(account)&&!near(FARM_LAYOUT.doorX,FARM_LAYOUT.doorY))throw new Error('Hãy tới cửa nhà');
+    if(op==='room'&&at.map===homeMap(account)){const d=farmDoor(this.store.farm.read(account));if(!near(d.x,d.y))throw new Error('Hãy tới cửa nhà');}
     if(op==='room'&&at.map===homeMap(account,true)&&!near(...FARM_ROOMS.house.garden))throw new Error('Hãy tới cửa ra vườn');
     const target=homeMap(account,op==='room'&&at.map===homeMap(account));
     const inside=target.endsWith('_inside');
-    this.host.send(id,{t:'farm',state:{travel:inside?'house':'garden',spot:op==='enter'?null:inside?'from_garden':'from_house',map:target}});this.host.move(id,target);this.send(id,account);return;
+    this.host.send(id,{t:'farm',state:{travel:inside?'house':'garden',spot:op==='enter'?null:inside?'from_garden':this.store.farm.read(account).house?'from_house_big':'from_house',map:target}});this.host.move(id,target);this.send(id,account);return;
    }
    if(op==='go'){
     // Đi giữa các phòng trong nhà: phải đứng ở đúng cửa / đầu cầu thang của phòng hiện tại.
@@ -163,6 +163,10 @@ export class Farm {
      }
      if(!job)throw new Error('Máy chưa chạy');if(this.now()<job.readyAt)throw new Error('Chưa xong, đợi thêm chút');const r=m.recipes.find(x=>x.id===job.recipe)!;s.inventory[r.out]=(s.inventory[r.out]||0)+1;ms[m.id]=null;return{value:null};
     }
+    if(op==='houseSet'){
+     // Đổi nhà đang ở (đã mua) hoặc về nhà nhỏ có sẵn (''); đồ bày trí trong nhà giữ nguyên, chỉ đổi mặt ngoài / tường / sàn / cầu thang.
+     const hid=String(raw.item||'');if(hid&&!(s.houses??[]).includes(hid))throw new Error('Bạn chưa có nhà này');s.house=hid;return{value:null};
+    }
     if(op==='decorStore'||op==='decorPlace'){
      // Bày trí (Quản gia mở bảng): cất đồ của phòng đang đứng vào kho, hoặc đặt đồ trong kho ngay trước chỗ đang đứng.
      const room=roomOf(account,at.map);if(!room)throw new Error('Bày trí chỉ ở trong nhà');
@@ -177,6 +181,8 @@ export class Farm {
      if(at.map!==homeMap(account)||!near(FARM_LAYOUT.shopX,FARM_LAYOUT.shopY,130))throw new Error('Hãy tới người bán đồ Gia viên ở khuôn viên');
      const sap=FARM_FRUIT.find(f=>`sapling_${f.id}`===raw.item),mach=FARM_MACHINES.find(m=>`machine_${m.id}`===raw.item);
      if(sap){if(coins<sap.sapling)throw new Error('Không đủ xu');s.inventory[`sapling_${sap.id}`]=(s.inventory[`sapling_${sap.id}`]||0)+1;return{value:null,coins:coins-sap.sapling};}
+     const hid=typeof raw.item==='string'&&raw.item.startsWith('house:')?raw.item.slice(6):'';const house=hid?FARM_HOUSES[hid]:undefined;
+     if(house){const hs=s.houses??(s.houses=[]);if(hs.includes(hid))throw new Error('Bạn đã có nhà này');if(coins<house.price)throw new Error('Không đủ xu');hs.push(hid);s.house=hid;return{value:null,coins:coins-house.price};}
      const dec=typeof raw.item==='string'&&raw.item.startsWith('decor:')?DECOR_ITEMS[raw.item.slice(6)]:undefined;
      if(dec){const did=String(raw.item).slice(6);if(coins<dec.price)throw new Error('Không đủ xu');const st=s.storage??(s.storage={});st[did]=(st[did]??0)+1;return{value:null,coins:coins-dec.price};}
      const ani=FARM_ANIMALS.find(a=>`animal_${a.id}`===raw.item);
@@ -203,7 +209,7 @@ export class Farm {
     if(op==='outfit'){if(at.map!==roomMap(account,'bedroom')||!near(...FARM_WARDROBE))throw new Error('Hãy tới tủ quần áo trong phòng ngủ');if(raw.outfit!=='farmer1'&&raw.outfit!=='gardener')throw new Error('Không có bộ đồ này');s.outfit=raw.outfit;return{value:null};}
     const fishing=op==='cast'||op==='pull'||op==='land';if(fishing&&!isPondMap(at.map))throw new Error('Hãy ra hồ câu cạnh khuôn viên');if(!fishing&&at.map!==homeMap(account))throw new Error('Hãy ra khuôn viên trước');
     if(op==='sell'){
-     if(!near(736,352))throw new Error('Hãy tới hộp gửi hàng');let total=0;
+     if(!near(FARM_LAYOUT.sellX,FARM_LAYOUT.sellY))throw new Error('Hãy tới hộp gửi hàng');let total=0;
      for(const c of FARM_CROPS){const k=`farm_${c.id}`;total+=(s.inventory[k]||0)*c.sell;s.inventory[k]=0;}
      for(const f of FARM_FISH){const k=`fish_${f.id}`;total+=(s.inventory[k]||0)*f.sell;s.inventory[k]=0;}
      for(const [k,price] of Object.entries(FARM_PRODUCT_SELL)){total+=(s.inventory[k]||0)*price;s.inventory[k]=0;

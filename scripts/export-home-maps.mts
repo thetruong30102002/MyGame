@@ -222,15 +222,16 @@ const rooms=[lv,kt,bd].map(roomMap);
 const GW=48,GH=32;
 const terrain=Array.from({length:GH},(_,y)=>Array.from({length:GW},(_,x)=>{
  if(x===0||y===0||x===GW-1||y===GH-1)return'#';
- if((x===7||x===8)&&y>=13&&y<=GH-1)return'd';// lối xuống cổng hồ câu
- if(y>=12&&y<=13&&x<=28||x>=17&&x<=18&&y>=8&&y<=13)return'd';
+ if((x===7||x===8)&&y>=14&&y<=GH-1)return'd';// lối xuống cổng hồ câu
+ // Đường ngang hàng 14–15 (dưới chân nhà lớn, cửa y = 440); lối lên cửa nhà nhỏ cột 17–18.
+ if(y>=14&&y<=15&&x<=28||x>=17&&x<=18&&y>=9&&y<=15)return'd';
  return'g';
 }).join(''));
-const props=[p('gv_nha_chinh',576,264),p('gv_gieng',744,232),p('gv_nha_kinh',196,246),p('home_shipping_box',736,352),p('home_scarecrow',384,400),p('home_water_barrel',420,312),p('home_tool_rack',470,312),
- p('home_gate',900,420),p('log_bench',624,480),p('lamp',672,448),p('lamp',860,380),
- p('home_gate',240,996),p('lamp',300,960),p('flower_planter',160,520),p('barrel',300,470)];
-// Rào gỗ GPT ghép liền cạnh nhà kính (đoạn 211 px chồng 1 cột), cột góc hai đầu.
-props.push(p('gv_rao_cot',150,290),p('gv_rao_go',256,290),p('gv_rao_cot',362,290));
+// Nhà nhỏ có sẵn (cửa 576, 264); nhà lớn mua được vẽ lúc chạy, cửa (576, 440) — chủ dự án 12/11 "Ok làm đi" (đổi nhà). Vùng nhà lớn
+// x 230–922 × y 20–445 không đặt đồ (chỉ hàng cây nền phía sau).
+const props=[p('gv_nha_chinh',576,264),p('gv_gieng',180,440),p('gv_nha_kinh',150,246),p('home_shipping_box',880,520),p('home_scarecrow',620,700),p('home_water_barrel',312,620),p('home_tool_rack',312,690),
+ p('home_gate',930,520),p('log_bench',520,750),p('lamp',672,530),p('lamp',944,400),
+ p('home_gate',240,996),p('lamp',300,960),p('flower_planter',120,600)];
 /** Đặt một bãi quây: (ox, oy) là góc trên trái khung bãi trong map; lớp rào neo chân giữa đáy; đồ bên trong theo toạ độ trong khung. */
 function placePen(pen:string,ox:number,oy:number,inside:[string,number,number][]):void{
  const info=pens[pen]!;
@@ -248,10 +249,10 @@ placePen('san_ga',960,600,[['gv_chuong_ga_lon',130,250],['gv_cho_tam_cat',370,16
 // Ngoài bãi: chuồng bò lớn, xe sữa, cuộn rơm, cột gãi; tổ ong cạnh bồn hoa (ong cần hoa).
 props.push(p('gv_chuong_bo_lon',760,860),p('gv_xe_thung_sua',660,620),p('gv_cuon_rom_tron',890,640),p('gv_cuon_rom_tron',890,690),p('gv_cot_gai_bo',900,560),p('gv_xe_cut_kit_rom',320,780),
  p('gv_bon_hoa_ong',480,950),p('gv_to_ong_go',380,930),p('gv_to_ong_rom',590,940));
-for(let x=64;x<GW*32-64;x+=64){if(x<120||x>460&&x<900)props.push(p('tree',x,92));if(x>1480)props.push(p('tree',x,GH*32-44));}
+for(let x=64;x<GW*32-64;x+=64){if(x>460&&x<900)props.push(p('tree',x,92));if(x>1480)props.push(p('tree',x,GH*32-44));}
 for(let y=300;y<GH*32-60;y+=70)props.push(p('tree',64,y));
 const garden={...base,id:'garden',name:'Gia viên của bạn',width:GW,height:GH,decals:[] as Pt[],terrain,spawn:{x:860,y:416},props,
- spots:[{id:'door',name:'Cửa nhà',x:576,y:264,r:70},{id:'pond_gate',name:'Cổng ra hồ câu',x:240,y:960,r:80},{id:'from_house',name:'Trước cửa nhà',x:576,y:300,r:40},{id:'from_pond',name:'Cổng hồ câu',x:240,y:924,r:40},
+ spots:[{id:'door',name:'Cửa nhà',x:576,y:264,r:70},{id:'door_big',name:'Cửa nhà lớn',x:576,y:440,r:70},{id:'from_house_big',name:'Trước cửa nhà lớn',x:576,y:476,r:40},{id:'pond_gate',name:'Cổng ra hồ câu',x:240,y:960,r:80},{id:'from_house',name:'Trước cửa nhà',x:576,y:300,r:40},{id:'from_pond',name:'Cổng hồ câu',x:240,y:924,r:40},
   {id:'shop',name:'Người bán đồ Gia viên',x:780,y:470,r:90},{id:'field',name:'Ruộng',x:464,y:608,r:140},{id:'pasture',name:'Bãi quây bò cừu',x:1220,y:300,r:160},{id:'chicken_run',name:'Sân gà',x:1230,y:820,r:140},{id:'barn',name:'Chuồng bò',x:760,y:880,r:90},{id:'hives',name:'Tổ ong',x:560,y:960,r:100}]};
 
 // ---- Hồ câu dùng chung: hồ ở phía đông (động tác câu vẽ hướng E), chỗ câu dọc bờ tây + đầu cầu gỗ (FARM_LAYOUT.pondSpots) ----
@@ -282,7 +283,37 @@ for(const m of maps){
 // Chỗ trồng cây ăn quả / đặt máy chế biến (sim FARM_TREE_SPOTS / FARM_MACHINE_SPOTS, vẽ lúc chạy theo dữ liệu người chơi) phải trống.
 for(const [x,y] of [[360,800],[440,800],[520,800],[600,800],[612,566],[680,566],[748,566],[816,566],[748,636],[816,636]] as const){
  for(const q of garden.props){const mt=meta[q.id]!;if(!mt.blocks)continue;const x0=q.x+mt.footprint.x,x1=x0+mt.footprint.w,y0=q.y+mt.footprint.y;if(x0<x+34&&x1>x-34&&y0<y+8&&q.y>y-18)throw new Error(`garden: ${q.id} đè chỗ cây / máy (${x}, ${y})`);}}
+for(const q of garden.props){if(q.id==='tree'||q.id==='gv_nha_chinh')continue;const mt=meta[q.id]!;if(q.x+mt.w/2>230&&q.x-mt.w/2<922&&q.y>20&&q.y-mt.h<445)throw new Error('garden: '+q.id+' nằm trong vùng nhà lớn');}
 {const F={x0:336,x1:592,y0:512,y1:704};for(const q of garden.props){const mt=meta[q.id]!;if(!mt.blocks)continue;const x0=q.x+mt.footprint.x,x1=x0+mt.footprint.w,y0=q.y+mt.footprint.y;if(x0<F.x1&&x1>F.x0&&y0<F.y1&&q.y>F.y0)throw new Error('garden: '+q.id+' đè lên ruộng');}}
+// ---- 16 kiểu nhà mua được: hình riêng từng nhà (Unity nạp theo nhà đang dùng, không nhét chung atlas map) ----
+{
+ const FLOOR_STYLE:Record<string,(x:number,y:number)=>RGB>={};
+ const wood=(b:RGB)=>(x:number,y:number):RGB=>{const j=Math.floor(y/T),row=Math.floor((y%T)/8),y0=row*8,yy=y%T,off=(row*40+(j%4)*56)%96,gx=x+off;let k=[1,0.92,1.06,0.96,1.02,0.9][(Math.floor(gx/96)+row*2+(j%4)*3)%6]!;if(yy===y0+7||gx%96===0)k=0.55;else if(yy===y0)k*=1.1;else if((gx*5+yy*3)%37===0)k*=0.85;return b.map(v=>v*k) as RGB;};
+ const flag=(b:RGB)=>(x:number,y:number):RGB=>{const sh=Math.floor(y/16)%2?8:0,sx=(x+sh)%16;let k=[1,0.94,1.05,0.97][(Math.floor((x+sh)/16)+Math.floor(y/16)*3)%4]!;if(y%16===0||sx===0)k=0.62;else if(y%16===1||sx===1)k*=1.08;return b.map(v=>v*k) as RGB;};
+ const bamboo=(b:RGB)=>(x:number,y:number):RGB=>{const col=Math.floor(x/8);let k=[1,0.93,1.05,0.97][col%4]!;if(x%8===7)k=0.6;else if((y+col*11)%40<2)k*=0.8;return b.map(v=>v*k) as RGB;};
+ const parquet=(a:RGB,c:RGB)=>(x:number,y:number):RGB=>{const q=(Math.floor(x/16)+Math.floor(y/16))%2;let base=q?a:c,k=1;if((q&&y%4===3)||(!q&&x%4===3))k=0.78;if(x%16===0||y%16===0)k*=0.6;return base.map(v=>v*k) as RGB;};
+ const marble=(a:RGB,c:RGB,gold=false)=>(x:number,y:number):RGB=>{const q=(Math.floor(x/16)+Math.floor(y/16))%2;let col=q===0?a:c,k=1;if(x%16===15||y%16===15)k=0.78;else if(x%16===0||y%16===0)k=1.06;if(gold&&(x%16===0||y%16===0))return[196,160,70];return col.map(v=>v*k) as RGB;};
+ Object.assign(FLOOR_STYLE,{dq:wood([128,88,54]),dv:flag([140,136,128]),tt:wood([176,124,74]),ns:bamboo([196,164,98]),sm:flag([206,172,120]),gd:parquet([132,78,46],[104,60,36]),
+  ld:marble([178,120,96],[206,192,166]),hv:marble([236,230,216],[214,206,190],true),nk:wood([150,110,64]),cx:wood([206,186,150]),bh:wood([178,174,162]),ct:wood([134,108,62]),
+  pd:bamboo([192,178,118]),ln:flag([78,72,70]),lk:marble([226,234,220],[160,196,160]),lb:marble([214,234,244],[176,210,230])});
+ const EXTERIOR:Record<string,[string,string]>={dq:['dot-7','nha_go_dong_que'],nk:['dot-10','nha_nam_khong_lo'],dv:['dot-7','nha_da_vung_cao'],cx:['dot-10','nha_coi_xay_hoa'],tt:['dot-7','nha_go_tuyet_tung'],ns:['dot-7','nha_san_dam_lay'],
+  bh:['dot-10','nha_bien_hai_cang'],sm:['dot-7','nha_vom_sa_mac'],ct:['dot-10','nha_cay_tien'],gd:['dot-7','nha_gach_do_pho'],pd:['dot-10','nha_phuong_dong'],ln:['dot-10','nha_lun_nui_lua'],
+  ld:['dot-7','dinh_thu_lau_dai'],lk:['dot-10','lau_kinh_vuon_hoa'],lb:['dot-10','lau_dai_bang'],hv:['dot-7','biet_thu_haven']};
+ const HOUSE_PRICE:Record<string,number>={dq:5000,nk:8000,dv:15000,cx:22000,tt:30000,ns:40000,bh:52000,sm:65000,ct:80000,gd:100000,pd:125000,ln:155000,ld:190000,lk:230000,lb:280000,hv:350000};
+ const dir='assets/home/houses',info:Record<string,unknown>={};
+ HOUSE_TIERS.forEach(([pre,name,batch],tier)=>{
+  const d=join(dir,pre);mkdirSync(d,{recursive:true});
+  const ext=gpt(EXTERIOR[pre]![0],EXTERIOR[pre]![1]);writePng(join(d,'exterior.png'),ext);
+  // Mẫu sàn 192 × 128 (bội số chu kỳ ván 96 / đá 16 / ô 32) — client lát lặp kín sàn phòng.
+  const fl=createImage(192,128),f=FLOOR_STYLE[pre]!;for(let y=0;y<128;y++)for(let x=0;x<192;x++){const c=f(x,y);fl.data.set([Math.min(255,Math.round(c[0])),Math.min(255,Math.round(c[1])),Math.min(255,Math.round(c[2])),255],(y*192+x)*4);}writePng(join(d,'floor.png'),fl);
+  // Cặp tường trơn + cửa sổ ghép liền (chồng 4 px chỗ cột) — client lát lặp ngang dải tường.
+  const w0=gpt(batch,`${pre}_tuong`),w1=gpt(batch,`${pre}_tuong_cua_so`),wall=createImage(w0.width+w1.width-4,Math.max(w0.height,w1.height));blit(wall,w0,0,0);blit(wall,w1,w0.width-4,0);writePng(join(d,'wall.png'),wall);
+  const stairs=readPng(join('packages/asset-pipeline/sources/home-stairs',`cau_thang_${pre}.png`));writePng(join(d,'stairs.png'),stairs);
+  info[pre]={name:`Nhà ${name}`,tier:tier+1,price:HOUSE_PRICE[pre],exterior:{w:ext.width,h:ext.height},wall:{w:wall.width,h:wall.height},stairs:{w:stairs.width,h:stairs.height}};
+ });
+ writeFileSync(join(dir,'houses.json'),JSON.stringify(info,null,1));
+ writeFileSync('packages/sim/src/farmHouses.generated.ts',`// SINH TỰ ĐỘNG bởi scripts/export-home-maps.mts — 16 kiểu nhà Gia viên mua được (giá đề xuất 12/11, cỡ ảnh px).\nexport const FARM_HOUSES: Record<string,{name:string;tier:number;price:number;exterior:{w:number;h:number};wall:{w:number;h:number};stairs:{w:number;h:number}}> = ${JSON.stringify(info)};\n`);
+}
 for(const m of maps)writeFileSync(join(out,m.id+'.json'),JSON.stringify(m));
 writeFileSync(join(out,'world.json'),JSON.stringify({region:'home',start:'garden',maps:Object.fromEntries(maps.map(m=>[m.id,{name:m.name,width:m.width*32,height:m.height*32,exits:[],spots:m.spots.map(s=>s.id),zones:[],dummies:[],boss:null}]))}));
 console.log(`Gia viên: khuôn viên ${garden.props.length} đồ / hồ câu chung ${pond.props.length} đồ / nhà 3 phòng (${rooms.map(r=>`${r.name} ${r.width}×${r.height} ô ${r.props.length} đồ`).join(', ')}), atlas ${image.width}×${image.height} tại ${out}`);

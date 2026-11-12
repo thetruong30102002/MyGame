@@ -109,6 +109,21 @@ namespace HavenLord.Importer
             if (File.Exists(catalog)) ImportUtil.CopyAsset(catalog, $"{region.folder}/Catalog.json");
             var maps = Path.Combine(dir, "maps");
             if (Directory.Exists(maps)) ImportRegion(maps, report, (_, __) => false, "home", $"{ImportUtil.Root}/Home/Maps");
+            // 16 kiểu nhà Gia viên (mặt ngoài / mẫu sàn / cặp tường / cầu thang): ảnh rời trong Resources, game nạp theo nhà đang ở.
+            var houses = Path.Combine(dir, "houses");
+            if (Directory.Exists(houses))
+            {
+                var n = 0;
+                foreach (var house in Directory.GetDirectories(houses))
+                    foreach (var png in Directory.GetFiles(house, "*.png"))
+                    {
+                        var asset = $"{ImportUtil.Root}/Resources/HomeHouses/{Path.GetFileName(house)}/{Path.GetFileName(png)}";
+                        ImportUtil.CopyAsset(png, asset);
+                        SpriteSheetImport.Apply(asset, new TextureSpec { mode = SpriteImportMode.Single, maxSize = 1024, alignment = SpriteAlignment.TopLeft, pivot = new Vector2(0, 1) }, null);
+                        n++;
+                    }
+                report.Count("Ảnh kiểu nhà Gia viên", n);
+            }
         }
 
         private static void ImportProps(Region r, ImportReport report)

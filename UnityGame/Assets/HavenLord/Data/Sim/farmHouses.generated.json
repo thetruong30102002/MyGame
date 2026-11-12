@@ -1,0 +1,276 @@
+{
+	"FARM_HOUSES": {
+		"dq": {
+			"name": "Nhà Đồng quê",
+			"tier": 1,
+			"price": 5000,
+			"exterior": {
+				"w": 663,
+				"h": 380
+			},
+			"wall": {
+				"w": 292,
+				"h": 128
+			},
+			"stairs": {
+				"w": 84,
+				"h": 95
+			}
+		},
+		"nk": {
+			"name": "Nhà Nấm khổng lồ",
+			"tier": 2,
+			"price": 8000,
+			"exterior": {
+				"w": 526,
+				"h": 400
+			},
+			"wall": {
+				"w": 276,
+				"h": 128
+			},
+			"stairs": {
+				"w": 84,
+				"h": 105
+			}
+		},
+		"dv": {
+			"name": "Nhà Đá vùng cao",
+			"tier": 3,
+			"price": 15000,
+			"exterior": {
+				"w": 601,
+				"h": 400
+			},
+			"wall": {
+				"w": 267,
+				"h": 128
+			},
+			"stairs": {
+				"w": 87,
+				"h": 105
+			}
+		},
+		"cx": {
+			"name": "Nhà Cối xay hoa",
+			"tier": 4,
+			"price": 22000,
+			"exterior": {
+				"w": 604,
+				"h": 420
+			},
+			"wall": {
+				"w": 274,
+				"h": 128
+			},
+			"stairs": {
+				"w": 84,
+				"h": 105
+			}
+		},
+		"tt": {
+			"name": "Nhà Gỗ tuyết tùng",
+			"tier": 5,
+			"price": 30000,
+			"exterior": {
+				"w": 544,
+				"h": 400
+			},
+			"wall": {
+				"w": 310,
+				"h": 128
+			},
+			"stairs": {
+				"w": 87,
+				"h": 105
+			}
+		},
+		"ns": {
+			"name": "Nhà Nhà sàn",
+			"tier": 6,
+			"price": 40000,
+			"exterior": {
+				"w": 586,
+				"h": 380
+			},
+			"wall": {
+				"w": 372,
+				"h": 128
+			},
+			"stairs": {
+				"w": 88,
+				"h": 105
+			}
+		},
+		"bh": {
+			"name": "Nhà Thuyền trưởng",
+			"tier": 7,
+			"price": 52000,
+			"exterior": {
+				"w": 601,
+				"h": 420
+			},
+			"wall": {
+				"w": 375,
+				"h": 128
+			},
+			"stairs": {
+				"w": 102,
+				"h": 109
+			}
+		},
+		"sm": {
+			"name": "Nhà Sa mạc",
+			"tier": 8,
+			"price": 65000,
+			"exterior": {
+				"w": 588,
+				"h": 400
+			},
+			"wall": {
+				"w": 266,
+				"h": 128
+			},
+			"stairs": {
+				"w": 90,
+				"h": 109
+			}
+		},
+		"ct": {
+			"name": "Nhà Nhà cây Elf",
+			"tier": 9,
+			"price": 80000,
+			"exterior": {
+				"w": 526,
+				"h": 420
+			},
+			"wall": {
+				"w": 262,
+				"h": 128
+			},
+			"stairs": {
+				"w": 100,
+				"h": 109
+			}
+		},
+		"gd": {
+			"name": "Nhà Gạch đỏ",
+			"tier": 10,
+			"price": 100000,
+			"exterior": {
+				"w": 560,
+				"h": 420
+			},
+			"wall": {
+				"w": 299,
+				"h": 128
+			},
+			"stairs": {
+				"w": 84,
+				"h": 103
+			}
+		},
+		"pd": {
+			"name": "Nhà Phương Đông",
+			"tier": 11,
+			"price": 125000,
+			"exterior": {
+				"w": 626,
+				"h": 400
+			},
+			"wall": {
+				"w": 442,
+				"h": 128
+			},
+			"stairs": {
+				"w": 86,
+				"h": 105
+			}
+		},
+		"ln": {
+			"name": "Nhà Người lùn",
+			"tier": 12,
+			"price": 155000,
+			"exterior": {
+				"w": 592,
+				"h": 400
+			},
+			"wall": {
+				"w": 318,
+				"h": 128
+			},
+			"stairs": {
+				"w": 86,
+				"h": 105
+			}
+		},
+		"ld": {
+			"name": "Nhà Lâu đài",
+			"tier": 13,
+			"price": 190000,
+			"exterior": {
+				"w": 675,
+				"h": 420
+			},
+			"wall": {
+				"w": 304,
+				"h": 128
+			},
+			"stairs": {
+				"w": 88,
+				"h": 105
+			}
+		},
+		"lk": {
+			"name": "Nhà Lâu kính",
+			"tier": 14,
+			"price": 230000,
+			"exterior": {
+				"w": 588,
+				"h": 420
+			},
+			"wall": {
+				"w": 288,
+				"h": 128
+			},
+			"stairs": {
+				"w": 85,
+				"h": 102
+			}
+		},
+		"lb": {
+			"name": "Nhà Lâu đài băng",
+			"tier": 15,
+			"price": 280000,
+			"exterior": {
+				"w": 607,
+				"h": 420
+			},
+			"wall": {
+				"w": 281,
+				"h": 128
+			},
+			"stairs": {
+				"w": 84,
+				"h": 102
+			}
+		},
+		"hv": {
+			"name": "Nhà Haven",
+			"tier": 16,
+			"price": 350000,
+			"exterior": {
+				"w": 536,
+				"h": 420
+			},
+			"wall": {
+				"w": 300,
+				"h": 128
+			},
+			"stairs": {
+				"w": 85,
+				"h": 99
+			}
+		}
+	}
+}
