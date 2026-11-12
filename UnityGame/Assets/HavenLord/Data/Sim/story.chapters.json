@@ -9,7 +9,7 @@
 		"nyra": {
 			"name": "Nyra",
 			"title": "Thầy thuốc đầm lầy",
-			"sprite": null,
+			"sprite": "npc_lx_nyra_001",
 			"at": {
 				"spot": "__voice__"
 			},
@@ -22,7 +22,7 @@
 		"odessa": {
 			"name": "Odessa",
 			"title": "Phù thuỷ đầm",
-			"sprite": null,
+			"sprite": "npc_lx_odessa_001",
 			"at": {
 				"spot": "__voice__"
 			},
@@ -35,7 +35,7 @@
 		"zahra": {
 			"name": "Zahra",
 			"title": "Thủ lĩnh phe nổi dậy",
-			"sprite": null,
+			"sprite": "npc_sa_zahra_001",
 			"at": {
 				"spot": "__voice__"
 			},
@@ -48,7 +48,7 @@
 		"hassim": {
 			"name": "Hassim",
 			"title": "Tể tướng Sahrin",
-			"sprite": null,
+			"sprite": "npc_sa_hassim_001",
 			"at": {
 				"spot": "__voice__"
 			},
@@ -61,7 +61,7 @@
 		"orrin": {
 			"name": "Orrin",
 			"title": "Pháp sư gió",
-			"sprite": null,
+			"sprite": "npc_gh_orrin_001",
 			"at": {
 				"spot": "__voice__"
 			},
@@ -74,7 +74,7 @@
 		"wenna": {
 			"name": "Bà Wenna",
 			"title": "Chủ cối xay",
-			"sprite": null,
+			"sprite": "npc_gh_wenna_001",
 			"at": {
 				"spot": "__voice__"
 			},
@@ -87,7 +87,7 @@
 		"kael": {
 			"name": "Kael",
 			"title": "Thợ săn Tuyết Phong",
-			"sprite": null,
+			"sprite": "npc_tp_kael_001",
 			"at": {
 				"spot": "__voice__"
 			},
@@ -100,7 +100,7 @@
 		"hilde": {
 			"name": "Hilde",
 			"title": "Nữ vương rèn Đe Đỏ",
-			"sprite": null,
+			"sprite": "npc_dd_hilde_001",
 			"at": {
 				"spot": "__voice__"
 			},
@@ -113,7 +113,7 @@
 		"durin": {
 			"name": "Durin",
 			"title": "Em trai nữ vương",
-			"sprite": null,
+			"sprite": "npc_dd_durin_001",
 			"at": {
 				"spot": "__voice__"
 			},
@@ -126,7 +126,7 @@
 		"grey_man": {
 			"name": "Người áo xám",
 			"title": "???",
-			"sprite": null,
+			"sprite": "npc_grey_man_001",
 			"at": {
 				"spot": "__voice__"
 			},
@@ -139,7 +139,7 @@
 		"maris": {
 			"name": "Maris",
 			"title": "Công chúa người cá",
-			"sprite": null,
+			"sprite": "npc_sc_maris_001",
 			"at": {
 				"spot": "__voice__"
 			},
@@ -152,7 +152,7 @@
 		"corvin": {
 			"name": "Corvin",
 			"title": "Thuyền trưởng Hải Âu Bạc",
-			"sprite": null,
+			"sprite": "npc_sc_corvin_001",
 			"at": {
 				"spot": "__voice__"
 			},
@@ -184,7 +184,7 @@
 		"amira": {
 			"name": "Nữ hoàng Amira",
 			"title": "Ốc đảo Sahrin",
-			"sprite": "npc_elin_001",
+			"sprite": "npc_sa_amira_001",
 			"at": {
 				"spot": "plaza",
 				"dx": 130,
@@ -222,7 +222,7 @@
 		"bjorn": {
 			"name": "Bjorn",
 			"title": "Thợ săn già Tuyết Phong",
-			"sprite": "npc_garrick_001",
+			"sprite": "npc_tp_bjorn_001",
 			"at": {
 				"spot": "plaza",
 				"dx": 130,
@@ -260,7 +260,7 @@
 		"coral": {
 			"name": "Mẹ Coral",
 			"title": "Bếp lửa làng chài San Hô",
-			"sprite": "npc_elin_001",
+			"sprite": "npc_sc_coral_001",
 			"at": {
 				"spot": "plaza",
 				"dx": 130,

@@ -16,8 +16,8 @@ const L = (speaker: string, text: string): Line => ({ speaker, text });
 /** EXP thưởng = phần của một cấp tại cấp đó (theo đường cong `expForLevel`) — giữ nhịp ~2 cấp / vùng từ nhiệm vụ. */
 const xp = (level: number, part: number): number => Math.round(expForLevel(level) * part);
 
-/** NPC chỉ để hiện tên trong hộp thoại (không đứng ở map nào). */
-const voice = (name: string, title: string): NpcDef => ({ name, title, sprite: null, at: { spot: '__voice__' }, ages: [99, 99], idle: [] });
+/** NPC chỉ để hiện tên + chân dung trong hộp thoại (không đứng ở map nào); hình PixelLab riêng vẽ 13/11. */
+const voice = (name: string, title: string, sprite: string | null = null): NpcDef => ({ name, title, sprite, at: { spot: '__voice__' }, ages: [99, 99], idle: [] });
 
 /** Người giao việc đứng ở quảng trường trạm của vùng (lệch khỏi Bram / Sein / Sera / cột dịch chuyển). */
 const elder = (region: string, name: string, title: string, sprite: string, idle: string[]): NpcDef => ({
@@ -43,24 +43,24 @@ const god = (region: string, name: string, title: string, prop: string, spot: st
 });
 
 export const CHAPTER_NPCS: Record<string, NpcDef> = {
-	nyra: voice('Nyra', 'Thầy thuốc đầm lầy'),
-	odessa: voice('Odessa', 'Phù thuỷ đầm'),
-	zahra: voice('Zahra', 'Thủ lĩnh phe nổi dậy'),
-	hassim: voice('Hassim', 'Tể tướng Sahrin'),
-	orrin: voice('Orrin', 'Pháp sư gió'),
-	wenna: voice('Bà Wenna', 'Chủ cối xay'),
-	kael: voice('Kael', 'Thợ săn Tuyết Phong'),
-	hilde: voice('Hilde', 'Nữ vương rèn Đe Đỏ'),
-	durin: voice('Durin', 'Em trai nữ vương'),
-	grey_man: voice('Người áo xám', '???'),
-	maris: voice('Maris', 'Công chúa người cá'),
-	corvin: voice('Corvin', 'Thuyền trưởng Hải Âu Bạc'),
+	nyra: voice('Nyra', 'Thầy thuốc đầm lầy', 'npc_lx_nyra_001'),
+	odessa: voice('Odessa', 'Phù thuỷ đầm', 'npc_lx_odessa_001'),
+	zahra: voice('Zahra', 'Thủ lĩnh phe nổi dậy', 'npc_sa_zahra_001'),
+	hassim: voice('Hassim', 'Tể tướng Sahrin', 'npc_sa_hassim_001'),
+	orrin: voice('Orrin', 'Pháp sư gió', 'npc_gh_orrin_001'),
+	wenna: voice('Bà Wenna', 'Chủ cối xay', 'npc_gh_wenna_001'),
+	kael: voice('Kael', 'Thợ săn Tuyết Phong', 'npc_tp_kael_001'),
+	hilde: voice('Hilde', 'Nữ vương rèn Đe Đỏ', 'npc_dd_hilde_001'),
+	durin: voice('Durin', 'Em trai nữ vương', 'npc_dd_durin_001'),
+	grey_man: voice('Người áo xám', '???', 'npc_grey_man_001'),
+	maris: voice('Maris', 'Công chúa người cá', 'npc_sc_maris_001'),
+	corvin: voice('Corvin', 'Thuyền trưởng Hải Âu Bạc', 'npc_sc_corvin_001'),
 
 	ysolde: elder('swamp', 'Bà Ysolde', 'Trưởng làng Lau Xám', 'npc_ysolde_001', [
 		'Sương hôm nay đặc. Đặc như hồi đập mới xây.',
 		'Trà trong ấm còn. Uống đi rồi hẵng nói chuyện người Rowanmere.',
 	]),
-	amira: elder('desert', 'Nữ hoàng Amira', 'Ốc đảo Sahrin', 'npc_elin_001', [
+	amira: elder('desert', 'Nữ hoàng Amira', 'Ốc đảo Sahrin', 'npc_sa_amira_001', [
 		'Nước trong giếng hoàng gia mỗi tuần thấp thêm một gang. Ta đếm từng gang.',
 		'Ở Sahrin, khách là người được uống trước. Cậu đã uống chưa?',
 	]),
@@ -68,7 +68,7 @@ export const CHAPTER_NPCS: Record<string, NpcDef> = {
 		'Huy hiệu bảy vòng nặng hơn tớ tưởng. Mà cũng có thể là tớ nhẹ đi.',
 		'Lời ngoéo tay năm tám tuổi vẫn còn nhé, Lior.',
 	]),
-	bjorn: elder('tundra', 'Bjorn', 'Thợ săn già Tuyết Phong', 'npc_garrick_001', [
+	bjorn: elder('tundra', 'Bjorn', 'Thợ săn già Tuyết Phong', 'npc_tp_bjorn_001', [
 		'Đọc gió trước, rồi mới đọc dấu chân. Ai dạy cậu thế? Hừm. Người đó biết việc.',
 		'Bão chưa tan. Ở lại thêm một đêm cũng chẳng chết ai.',
 	]),
@@ -76,7 +76,7 @@ export const CHAPTER_NPCS: Record<string, NpcDef> = {
 		'Ở đây ta băng cho cả lính hai phe. Máu thì cùng một màu, Lior.',
 		'Đừng khoe vội. Câu đó ta nói từ hồi con sáu tuổi, giờ vẫn đúng.',
 	]),
-	coral: elder('isles', 'Mẹ Coral', 'Bếp lửa làng chài San Hô', 'npc_elin_001', [
+	coral: elder('isles', 'Mẹ Coral', 'Bếp lửa làng chài San Hô', 'npc_sc_coral_001', [
 		'Ăn đi rồi khóc. Đói thì khóc không ra hơi.',
 		'Biển trong tới mức thấy đáy. Mà đáy toàn tàu, con ạ.',
 	]),

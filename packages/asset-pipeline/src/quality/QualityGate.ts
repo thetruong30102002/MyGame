@@ -120,6 +120,8 @@ export function runQualityGate(characterId: string, frames: AnimationFrames, opt
 
 	const drift: string[] = [];
 	for (const [anim, dirs] of Object.entries(frames) as [AnimationName, Partial<Record<Direction, RGBAImage[]>>][]) {
+		// Ngủ (thú cưng 13/11): đứng → nằm xuống, thấp đi là đúng động tác.
+		if (anim === 'sleep') continue;
 		for (const [dir, imgs] of Object.entries(dirs) as [Direction, RGBAImage[]][]) {
 			const hs = imgs.flatMap((img) => {
 				const b = opaqueBounds(img);

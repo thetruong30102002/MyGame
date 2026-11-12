@@ -76,6 +76,36 @@
 	"stats": {
 		"frames": 88,
 		"maxColorsPerFrame": 47,
-		"microStepRatio": 0.0706163240183376
-	}
+		"microStepRatio": 0.07064189739387587
+	},
+	"optional": [
+		{
+			"animation": "sleep",
+			"direction": "S",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "sleep",
+			"direction": "N",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "sleep",
+			"direction": "E",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "sleep",
+			"direction": "W",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		}
+	]
 }

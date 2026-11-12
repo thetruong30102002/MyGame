@@ -9645,14 +9645,14 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
         {
           "label": "Kiểm kê NPC và lập danh sách / vai trò / nhân dạng riêng theo vùng, mẫu sự kiện chung",
           "weight": 20,
-          "done": false,
-          "evidence": ""
+          "done": true,
+          "evidence": "13/11/2026: danh sách 7 vai / khu (vũ khí, trang bị, thợ rèn, nâng cấp, quán rượu, ngân hàng, hồi phục) × 12 khu + Thistlewood thêm 3, nhân dạng theo dân vùng; mã npc_<vùng>_<vai>_001 (docs/ke-hoach-nha-rieng.md mục 13/11)."
         },
         {
-          "label": "GPT vẽ mẫu NPC theo ảnh tham chiếu game; chủ dự án duyệt rồi mới mở rộng, pose đứng là đủ",
+          "label": "PixelLab vẽ NPC (chốt 12/11, không GPT) theo ảnh tham chiếu game; chủ dự án duyệt rồi mới mở rộng, pose đứng là đủ",
           "weight": 30,
           "done": false,
-          "evidence": ""
+          "evidence": "13/11/2026: 2 mẫu Pro (chủ quán Lau Xám, thợ rèn Đe Đỏ) chủ dự án duyệt; 100 NPC vẽ bằng Pro Flash theo tấm 8 NPC (vùng + NPC truyện có giọng), xuất qua cổng chất lượng vào assets/characters. Chờ chủ dự án nghiệm thu cả lô."
         },
         {
           "label": "Nhập NPC và tích hợp đủ chức năng shop / rèn / đồ ăn / hồi phục / sự kiện theo thiết kế được duyệt",

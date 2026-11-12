@@ -1,0 +1,32 @@
+{
+  "group_id": "sheet",
+  "export_version": "sheet-cut",
+  "export_date": "2026-11-13",
+  "states": [
+    {
+      "character": {
+        "id": "npc_gh_weapon_001",
+        "name": "Idle",
+        "prompt": "highland man weapon seller, short brown wavy hair, holding a longbow",
+        "size": {
+          "width": 80,
+          "height": 80
+        }
+      },
+      "folder": "Idle",
+      "frames": {
+        "rotations": {
+          "south": "Idle/rotations/south.png",
+          "south-east": "Idle/rotations/south-east.png",
+          "east": "Idle/rotations/east.png",
+          "north-east": "Idle/rotations/north-east.png",
+          "north": "Idle/rotations/north.png",
+          "north-west": "Idle/rotations/north-west.png",
+          "west": "Idle/rotations/west.png",
+          "south-west": "Idle/rotations/south-west.png"
+        },
+        "animations": {}
+      }
+    }
+  ]
+}

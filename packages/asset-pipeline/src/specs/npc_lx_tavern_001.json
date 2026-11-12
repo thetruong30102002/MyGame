@@ -1,0 +1,60 @@
+{
+	"identity": {
+		"characterId": "npc_lx_tavern_001",
+		"hair": "see_prompt",
+		"eyes": "see_prompt",
+		"skin": "see_prompt",
+		"outfit": "see_prompt",
+		"weapon": "none",
+		"palette": "npc_lx_01"
+	},
+	"displayName": "Chủ quán rượu Lau Xám",
+	"role": "npc",
+	"provider": "pixellab",
+	"frameSize": {
+		"width": 80,
+		"height": 88
+	},
+	"baselineY": 84,
+	"animations": {
+		"idle": {
+			"fps": 6,
+			"minFrames": 4,
+			"maxFrames": 8
+		},
+		"walk": {
+			"fps": 10,
+			"minFrames": 6,
+			"maxFrames": 8
+		}
+	},
+	"cleanup": {
+		"alignToIdle": true
+	},
+	"quality": {
+		"maxHeightDrift": 0.15
+	},
+	"provisional": [
+		"S",
+		"SW",
+		"W",
+		"NW",
+		"N",
+		"NE",
+		"E",
+		"SE"
+	],
+	"notes": "PixelLab Pro 12/11/2026 (token #0, 10 lượt), ảnh mẫu nét = NPC tóc trắng, không đội mũ — mẫu thử NPC vùng: chủ quán rượu Lau Xám: tóc tết xanh rêu, áo đan sậy, tạp dề. NPC ĐỨNG YÊN.",
+	"review": {
+		"status": "approved",
+		"date": "13/11/2026",
+		"notes": "Chủ dự án duyệt mẫu 13/11 (\"Ok vẽ và làm đi\")."
+	},
+	"pixellab": {
+		"animations": {
+			"idle": "idle",
+			"walk": "walk"
+		},
+		"mirrorWest": true
+	}
+}

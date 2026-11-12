@@ -1,0 +1,36 @@
+{
+  "group_id": "14f2e386-4aea-477d-9738-0880710d8987",
+  "states": [
+    {
+      "character": {
+        "id": "8d866a97-9ef3-4e15-bcf4-791c655f26c6",
+        "name": "Idle",
+        "prompt": "a cheerful marsh-village tavern keeper woman in her thirties with long dark green hair tied in a low braid, warm amber eyes, wearing a reed-woven vest over a moss green linen blouse, a rolled-up sleeve, a stained cream apron with a wooden ladle tucked in, dark brown wrap skirt, simple straw sandals, same height and proportions as the reference character, anime pixel art, thick dark outline, soft cel shading, no hat, no hood, no helmet, standing facing the viewer",
+        "size": {
+          "width": 80,
+          "height": 80
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-11-12T17:18:39.401392+00:00"
+      },
+      "folder": "Idle",
+      "frames": {
+        "rotations": {
+          "south": "Idle/rotations/south.png",
+          "south-east": "Idle/rotations/south-east.png",
+          "east": "Idle/rotations/east.png",
+          "north-east": "Idle/rotations/north-east.png",
+          "north": "Idle/rotations/north.png",
+          "north-west": "Idle/rotations/north-west.png",
+          "west": "Idle/rotations/west.png",
+          "south-west": "Idle/rotations/south-west.png"
+        },
+        "animations": {}
+      }
+    }
+  ],
+  "export_version": "3.1",
+  "export_date": "2026-11-12T17:21:14.393417"
+}

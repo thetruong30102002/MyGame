@@ -14,7 +14,8 @@
 	"pixellab": {
 		"animations": {
 			"idle": "idle",
-			"walk": "walk"
+			"walk": "walk",
+			"sleep": "sleep"
 		},
 		"mirrorWest": true
 	},
@@ -33,6 +34,12 @@
 			"fps": 10,
 			"minFrames": 4,
 			"maxFrames": 8
+		},
+		"sleep": {
+			"fps": 5,
+			"minFrames": 4,
+			"maxFrames": 8,
+			"optional": true
 		}
 	},
 	"cleanup": {

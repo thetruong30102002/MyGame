@@ -1332,7 +1332,9 @@
 		"groups": {
 			"walk": "21c0a2c2-7221-40f8-99dd-aed3f410c366",
 			"idle": "a9fc4921-f786-4413-8f47-4d86f7eb3e10",
-			"sleep": "b9418b71-d300-4e21-ab04-0c5de89e85b7"
+			"sleep": "b9418b71-d300-4e21-ab04-0c5de89e85b7",
+			"sit": "335127da-e8ba-4918-9047-4c51267914fc",
+			"sitting": "ef90137d-731c-43cb-b1df-fb81973bd53f"
 		}
 	},
 	"pet2_cat_siamese": {

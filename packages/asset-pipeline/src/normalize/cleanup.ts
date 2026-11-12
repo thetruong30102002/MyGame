@@ -253,7 +253,8 @@ export function alignToIdle(frames: AnimationFrames, maxShift = 6): { frames: An
 			}
 			const best = imgs.map((img) => bestShift(ref, img, maxShift));
 			const med = (k: 0 | 1): number => [...best.map((b) => b[k])].sort((a, b) => a - b)[Math.floor(best.length / 2)]!;
-			const shift: [number, number] = [med(0), med(1)];
+			// Ngủ (đứng → nằm): khung đầu còn đứng mới so được với ảnh đứng; khung nằm khớp sai làm thú nằm lơ lửng.
+			const shift: [number, number] = anim === 'sleep' ? best[0]! : [med(0), med(1)];
 			shifts[`${anim}/${dir}`] = shift;
 			next[dir] = shift[0] || shift[1] ? imgs.map((img) => translate(img, shift[0], shift[1])) : imgs;
 		}

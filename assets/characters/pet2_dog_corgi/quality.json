@@ -77,5 +77,35 @@
 		"frames": 88,
 		"maxColorsPerFrame": 48,
 		"microStepRatio": 0.0484068781411487
-	}
+	},
+	"optional": [
+		{
+			"animation": "sleep",
+			"direction": "S",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "sleep",
+			"direction": "N",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "sleep",
+			"direction": "E",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "sleep",
+			"direction": "W",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		}
+	]
 }

@@ -12,7 +12,7 @@ export type Direction = (typeof DIRECTIONS)[number];
 export const ANIMATIONS = [
 	'idle', 'walk', 'run', 'attack', 'cast', 'hit', 'death', 'dodge', 'block', 'backslash', 'thrust', 'throw', 'channel', 'push', 'skycall',
 	'stomp', 'charge', 'smash', 'lunge', 'parry', 'spin', 'flurry', 'wave', 'fling', 'vanish', 'ultimate', 'revive', 'drink',
-	'idlesword', 'walksword', 'idlestaff', 'walkstaff',
+	'idlesword', 'walksword', 'idlestaff', 'walkstaff', 'sleep',
 	'hitsword', 'hitstaff', 'dodgesword', 'dodgestaff', 'deathsword', 'deathstaff', 'revivesword', 'revivestaff', 'drinksword', 'drinkstaff',
 ] as const;
 export type AnimationName = (typeof ANIMATIONS)[number];

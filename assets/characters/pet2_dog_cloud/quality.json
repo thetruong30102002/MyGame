@@ -40,13 +40,13 @@
 			"id": "no-blur",
 			"label": "Không nhoè: số màu/frame và tỉ lệ chuyển màu li ti",
 			"status": "pass",
-			"detail": "tối đa 74 màu/frame (ngưỡng 128), micro-step 6.1% (ngưỡng 12%)"
+			"detail": "tối đa 74 màu/frame (ngưỡng 128), micro-step 4.9% (ngưỡng 12%)"
 		},
 		{
 			"id": "silhouette-size",
 			"label": "Silhouette đủ lớn để đọc được (15–95% chiều cao canvas)",
 			"status": "pass",
-			"detail": "cao 49–58px trên 80px"
+			"detail": "cao 46–58px trên 80px"
 		},
 		{
 			"id": "silhouette-solid",
@@ -76,6 +76,36 @@
 	"stats": {
 		"frames": 88,
 		"maxColorsPerFrame": 74,
-		"microStepRatio": 0.06058420900022306
-	}
+		"microStepRatio": 0.04935162461207442
+	},
+	"optional": [
+		{
+			"animation": "sleep",
+			"direction": "S",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "sleep",
+			"direction": "N",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "sleep",
+			"direction": "E",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		},
+		{
+			"animation": "sleep",
+			"direction": "W",
+			"frames": 6,
+			"passed": true,
+			"failed": []
+		}
+	]
 }

@@ -1,0 +1,60 @@
+{
+	"identity": {
+		"characterId": "npc_lx_armor_001",
+		"hair": "see_prompt",
+		"eyes": "see_prompt",
+		"skin": "see_prompt",
+		"outfit": "see_prompt",
+		"weapon": "none",
+		"palette": "npc_lx_01"
+	},
+	"displayName": "Người bán trang bị Lau Xám",
+	"role": "npc",
+	"provider": "pixellab",
+	"frameSize": {
+		"width": 80,
+		"height": 88
+	},
+	"baselineY": 84,
+	"animations": {
+		"idle": {
+			"fps": 6,
+			"minFrames": 4,
+			"maxFrames": 8
+		},
+		"walk": {
+			"fps": 10,
+			"minFrames": 6,
+			"maxFrames": 8
+		}
+	},
+	"cleanup": {
+		"alignToIdle": true
+	},
+	"quality": {
+		"maxHeightDrift": 0.15
+	},
+	"provisional": [
+		"S",
+		"SW",
+		"W",
+		"NW",
+		"N",
+		"NE",
+		"E",
+		"SE"
+	],
+	"notes": "PixelLab Pro Flash 13/11/2026: tấm nhiều NPC (ảnh mẫu nét = NPC tóc trắng + chủ quán Lau Xám + thợ rèn Đe Đỏ), cắt ô thành ảnh nhìn thẳng. Vùng Lau Xám, vai armor. NPC ĐỨNG YÊN (chốt 12/11): mọi hướng dùng chung ảnh nhìn thẳng. Tả: swamp woman armor seller, long brown braid, padded reed armor vest, arms crossed",
+	"review": {
+		"status": "approved",
+		"date": "13/11/2026",
+		"notes": "Chủ dự án duyệt hướng vẽ 13/11 (\"Ok vẽ và làm đi\"); rà cỡ 60–74 px, không mũ."
+	},
+	"pixellab": {
+		"animations": {
+			"idle": "idle",
+			"walk": "walk"
+		},
+		"mirrorWest": true
+	}
+}

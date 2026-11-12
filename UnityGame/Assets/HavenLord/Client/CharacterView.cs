@@ -100,9 +100,13 @@ namespace HavenLord.Client
             var a = def.Find(anim);
             var fps = a != null ? a.fps : 8;
             var total = shown.frames.Length;
-            phase = (phase + dt * fps * speedScale) % total;
+            // Ngủ (thú cưng 13/11): đứng → nằm xuống một lần rồi giữ khung nằm, không lặp lại cú nằm.
+            phase = anim == "sleep" ? Mathf.Min(phase + dt * fps * speedScale, total - 1) : (phase + dt * fps * speedScale) % total;
             Apply(Mathf.FloorToInt(phase) % total);
         }
+
+        /// <summary>Atlas có clip nền này (ít nhất một hướng).</summary>
+        public bool Has(string anim) => def != null && def.Has(anim);
 
         /// <summary>Atlas đã vẽ động tác này cho hướng (hoặc hướng kề ≤45°).</summary>
         public bool HasAction(string action, Dir8 d) => def != null && def.ActionFrames(CompleteAction(action, d), d) != null;

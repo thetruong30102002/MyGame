@@ -116,6 +116,13 @@ namespace HavenLord.Client
             if (dist < 2)
             {
                 targetX = null;
+                // Thú cưng có clip ngủ (13/11): thỉnh thoảng nằm ngủ một lúc lâu rồi mới đi tiếp.
+                if (View.Has("sleep") && UnityEngine.Random.value < .3f)
+                {
+                    restTimer = 10 + UnityEngine.Random.value * 14;
+                    View.Set("sleep", View.Direction);
+                    return;
+                }
                 restTimer = 1.5f + UnityEngine.Random.value * 3.5f;
                 View.Set("idle", View.Direction);
                 return;

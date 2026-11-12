@@ -1,0 +1,36 @@
+{
+  "group_id": "0b75b78c-f182-4e4a-a446-cecd0334bd8f",
+  "states": [
+    {
+      "character": {
+        "id": "7fbd80a0-a841-4bb8-afdc-766e1ff9c92b",
+        "name": "Idle",
+        "prompt": "a short stocky dwarf blacksmith man with a thick braided red-brown beard and short bristly red hair, bushy brows, soot-smudged cheeks, wearing a heavy scorched leather apron over a sleeveless dark grey tunic, thick leather gloves and bracers, a smith hammer hanging at his belt, sturdy iron-capped boots, broad shoulders, shorter than the reference character, same height and proportions as the reference character, anime pixel art, thick dark outline, soft cel shading, no hat, no hood, no helmet, standing facing the viewer",
+        "size": {
+          "width": 80,
+          "height": 80
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-11-12T17:18:43.018007+00:00"
+      },
+      "folder": "Idle",
+      "frames": {
+        "rotations": {
+          "south": "Idle/rotations/south.png",
+          "south-east": "Idle/rotations/south-east.png",
+          "east": "Idle/rotations/east.png",
+          "north-east": "Idle/rotations/north-east.png",
+          "north": "Idle/rotations/north.png",
+          "north-west": "Idle/rotations/north-west.png",
+          "west": "Idle/rotations/west.png",
+          "south-west": "Idle/rotations/south-west.png"
+        },
+        "animations": {}
+      }
+    }
+  ],
+  "export_version": "3.1",
+  "export_date": "2026-11-12T17:21:36.240938"
+}
