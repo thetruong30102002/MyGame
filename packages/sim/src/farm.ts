@@ -118,7 +118,23 @@ export const FARM_MACHINES = [
 ] as const;
 export const FARM_MACHINE_SPOTS:Record<string,readonly [number,number]> = {flour_mill:[612,566],oven:[680,566],pickle_jar:[748,566],fruit_press:[816,566],wine_barrel:[748,636],drying_rack:[816,636]};
 /** Giá bán ở hộp gửi hàng của quả và thành phẩm (giá thử). */
-export const FARM_PRODUCT_SELL:Record<string,number> = {farm_apple:25,farm_orange:28,farm_peach:55,farm_honey:60,prod_flour:24,prod_bread:45,prod_pickles:90,prod_juice:70,prod_wine:260,prod_dried_fruit:130};
+export const FARM_PRODUCT_SELL:Record<string,number> = {dish_grilled_fish:40,dish_fish_soup:45,dish_fried_rice:80,dish_pumpkin_soup:140,dish_strawberry_cake:150,dish_roast_chicken:120,dish_beef_stew:130,dish_lamb_skewer:110,farm_apple:25,farm_orange:28,farm_peach:55,farm_honey:60,prod_flour:24,prod_bread:45,prod_pickles:90,prod_juice:70,prod_wine:260,prod_dried_fruit:130};
+/**
+ * Nấu ăn (kế hoạch 2.4 / 9.2 / 9.11, hình K1): đứng cạnh bếp lò củi đã đặt trong nhà (`gv_bep_lo_cui`, dời được khi bày trí) → nấu món từ
+ * nông sản / cá / thành phẩm máy; ăn món nhận bùa ngắn (sát thương / giáp / kinh nghiệm), hoặc bán ở hộp gửi hàng. Món thịt cần thịt từ
+ * chăn nuôi (chưa mở). Công thức / hiệu ứng / giá thử, chưa cân bằng.
+ */
+export const FARM_STOVE = 'gv_bep_lo_cui';
+export const FARM_DISHES = [
+ {id:'dish_grilled_fish',name:'Cá nướng',in:{fish_carp:1,farm_chili:1},buff:{kind:'guard',mult:1.1,ms:15*60000},sell:40},
+ {id:'dish_fish_soup',name:'Súp cá',in:{fish_crucian:2,farm_potato:1},buff:{kind:'exp',mult:1.1,ms:20*60000},sell:45},
+ {id:'dish_fried_rice',name:'Cơm chiên dứa',in:{farm_rice:2,farm_corn:1},buff:{kind:'exp',mult:1.15,ms:20*60000},sell:80},
+ {id:'dish_pumpkin_soup',name:'Súp bí',in:{farm_haven_pumpkin:1,farm_carrot:1},buff:{kind:'guard',mult:1.12,ms:20*60000},sell:140},
+ {id:'dish_strawberry_cake',name:'Bánh kem dâu',in:{farm_strawberry:2,prod_flour:1},buff:{kind:'dmg',mult:1.12,ms:20*60000},sell:150},
+ {id:'dish_roast_chicken',name:'Gà quay',in:{meat_chicken:1,farm_potato:1},buff:{kind:'dmg',mult:1.15,ms:20*60000},sell:120},
+ {id:'dish_beef_stew',name:'Bò hầm',in:{meat_beef:1,farm_carrot:2},buff:{kind:'guard',mult:1.15,ms:20*60000},sell:130},
+ {id:'dish_lamb_skewer',name:'Xiên cừu nướng',in:{meat_lamb:1,farm_chili:1},buff:{kind:'dmg',mult:1.12,ms:15*60000},sell:110},
+] as const;
 export function shopPrice(id:string,state:Pick<FarmState,'plots'>):number{const it=FARM_SHOP.find(x=>x.id===id);if(!it)return Infinity;return id==='plots'?it.coins+it.step*Math.max(0,(state.plots.length-FARM_LAYOUT.plots)/4):it.coins;}
 export type FarmRoom = keyof typeof FARM_ROOMS;
 /** Chỗ câu gần nhất trong bán kính `r` px (null = không đứng ở bờ hồ). */

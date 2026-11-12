@@ -67,6 +67,12 @@ try{
  store.farm.run(acc,id,now,(_s,c)=>({value:null,coins:c-150}));// trả lại đúng số xu thử đã cộng
  at={map:homeMap(acc),x:352+32*4,y:544+32};act('hoe',{plot:12});assert(store.farm.read(acc).plots[12]!.tilled);
  at={map:homeMap(acc),x:576,y:280};act('room');
+ // Nấu ăn: phải đứng cạnh bếp lò trong nhà; thiếu nguyên liệu thì chặn; nấu xong có món; ăn món nhận bùa giáp; bán món.
+ {const stove=DECOR_DEFAULT.kitchen!.find(q=>q.id==='gv_bep_lo_cui')!;store.farm.run(acc,id,now,s=>{s.inventory.farm_haven_pumpkin=1;s.inventory.farm_carrot=1;return{value:null};});
+  at={map:roomMap(acc,'kitchen'),x:100,y:400};act('cook',{item:'dish_pumpkin_soup'});assert(failed(),'phải tới bếp');
+  at={map:roomMap(acc,'kitchen'),x:stove.x,y:stove.y+30};act('cook',{item:'dish_fish_soup'});assert(failed(),'thiếu cá');
+  act('cook',{item:'dish_pumpkin_soup'});assert.equal(store.farm.read(acc).inventory.dish_pumpkin_soup,1);assert.equal(store.farm.read(acc).inventory.farm_carrot,0);
+  act('eat',{item:'dish_pumpkin_soup'});assert(store.buffs(id).some(b=>b.kind==='guard'),'ăn súp bí được bùa giáp');assert.equal(store.farm.read(acc).inventory.dish_pumpkin_soup,0);}
  // Vườn cây ăn quả + máy chế biến: mua cây giống / máy ở người bán đồ, trồng → lớn → có quả → hái; xay bột, bán thành phẩm.
  store.farm.run(acc,id,now,(_s,c)=>({value:null,coins:c+1000}));
  {const c0=store.ecoOf(id)!.coins;at={map:homeMap(acc),x:780,y:500};act('buy',{item:'sapling_apple'});act('buy',{item:'machine_flour_mill'});assert.equal(store.ecoOf(id)!.coins,c0-80-300);

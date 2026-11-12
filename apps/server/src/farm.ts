@@ -1,5 +1,5 @@
 import {randomInt,randomUUID} from 'node:crypto';
-import {FARM_CROPS,FARM_FISH,FARM_LAYOUT,FARM_ROOMS,FARM_SHOP,FARM_TANK,FARM_FRUIT,FARM_MACHINES,FARM_MACHINE_SPOTS,FARM_PETS,FARM_PRODUCT_SELL,FARM_STARTER_CROPS,FARM_TREE_SPOTS,FARM_WARDROBE,treeStage,PET_GACHA,isPondMap,pondMap,DECOR_ITEMS,chooseFarmFish,decorOf,decorPlaceIssue,rollPet,growPlot,plotPoint,pondSpotNear,shopPrice,type FarmRoom,type FarmState} from '@havenlord/sim/farm';
+import {FARM_CROPS,FARM_FISH,FARM_LAYOUT,FARM_ROOMS,FARM_SHOP,FARM_TANK,FARM_DISHES,FARM_FRUIT,FARM_MACHINES,FARM_STOVE,FARM_MACHINE_SPOTS,FARM_PETS,FARM_PRODUCT_SELL,FARM_STARTER_CROPS,FARM_TREE_SPOTS,FARM_WARDROBE,treeStage,PET_GACHA,isPondMap,pondMap,DECOR_ITEMS,chooseFarmFish,decorOf,decorPlaceIssue,rollPet,growPlot,plotPoint,pondSpotNear,shopPrice,type FarmRoom,type FarmState} from '@havenlord/sim/farm';
 import {STORY} from '@havenlord/sim/story/story';
 import {VILLAGE_SHOP} from '@havenlord/sim/village';
 import type {ServerMessage} from '@havenlord/protocol';
@@ -108,6 +108,14 @@ export class Farm {
      if(op==='petOut'){if(!pets.includes(pet.id))throw new Error('Bạn chưa có thú cưng này');const i=out.indexOf(pet.id);if(i>=0)out.splice(i,1);else{if(out.length>=PET_GACHA.out)throw new Error(`Tối đa ${PET_GACHA.out} thú đi lại cùng lúc`);out.push(pet.id);}return{value:null};}
      if(pets.includes(pet.id))throw new Error('Bạn đã có thú cưng này');const price=PET_GACHA.trade[pet.rarity-1]!;if((s.petShards??0)<price)throw new Error('Không đủ mảnh');
      s.petShards=(s.petShards??0)-price;pets.push(pet.id);if(out.length<PET_GACHA.out)out.push(pet.id);return{value:null};
+    }
+    if(op==='cook'||op==='eat'){
+     const d=FARM_DISHES.find(x=>x.id===raw.item);if(!d)throw new Error('Không có món này');
+     if(op==='eat'){if(!((s.inventory[d.id]??0)>0))throw new Error('Kho không có món này');s.inventory[d.id]=(s.inventory[d.id]??0)-1;return{value:null,buff:{...d.buff}};}
+     // Nấu: đứng cạnh bếp lò củi đã đặt trong phòng (bày trí dời được), đủ nguyên liệu trong kho.
+     const room=roomOf(account,at.map);if(!room||!decorOf(s,room).some(q=>q.id===FARM_STOVE&&near(q.x,q.y)))throw new Error('Hãy tới cạnh bếp lò trong nhà');
+     if(!Object.entries(d.in).every(([k,n])=>(s.inventory[k]??0)>=n))throw new Error('Kho thiếu nguyên liệu');
+     for(const [k,n] of Object.entries(d.in))s.inventory[k]=(s.inventory[k]??0)-n;s.inventory[d.id]=(s.inventory[d.id]??0)+1;return{value:null};
     }
     if(op==='treePlant'||op==='treeHarvest'||op==='machineStart'||op==='machineCollect'){
      if(at.map!==homeMap(account))throw new Error('Hãy ra khuôn viên trước');

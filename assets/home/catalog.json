@@ -966,6 +966,102 @@
       "h": 31
     },
     {
+      "id": "meat_chicken",
+      "name": "Thịt gà",
+      "source": "sheet:K1_meat_dishes#0@4x3",
+      "file": "items/meat_chicken.png",
+      "w": 47,
+      "h": 43
+    },
+    {
+      "id": "meat_beef",
+      "name": "Thịt bò",
+      "source": "sheet:K1_meat_dishes#1@4x3",
+      "file": "items/meat_beef.png",
+      "w": 48,
+      "h": 39
+    },
+    {
+      "id": "meat_lamb",
+      "name": "Thịt cừu",
+      "source": "sheet:K1_meat_dishes#2@4x3",
+      "file": "items/meat_lamb.png",
+      "w": 48,
+      "h": 49
+    },
+    {
+      "id": "fish_fillet",
+      "name": "Phi lê cá",
+      "source": "sheet:K1_meat_dishes#3@4x3",
+      "file": "items/fish_fillet.png",
+      "w": 52,
+      "h": 35
+    },
+    {
+      "id": "dish_roast_chicken",
+      "name": "Gà quay",
+      "source": "sheet:K1_meat_dishes#4@4x3",
+      "file": "items/dish_roast_chicken.png",
+      "w": 52,
+      "h": 41
+    },
+    {
+      "id": "dish_beef_stew",
+      "name": "Bò hầm",
+      "source": "sheet:K1_meat_dishes#5@4x3",
+      "file": "items/dish_beef_stew.png",
+      "w": 48,
+      "h": 39
+    },
+    {
+      "id": "dish_lamb_skewer",
+      "name": "Xiên cừu nướng",
+      "source": "sheet:K1_meat_dishes#6@4x3",
+      "file": "items/dish_lamb_skewer.png",
+      "w": 49,
+      "h": 43
+    },
+    {
+      "id": "dish_grilled_fish",
+      "name": "Cá nướng",
+      "source": "sheet:K1_meat_dishes#7@4x3",
+      "file": "items/dish_grilled_fish.png",
+      "w": 53,
+      "h": 42
+    },
+    {
+      "id": "dish_fish_soup",
+      "name": "Súp cá",
+      "source": "sheet:K1_meat_dishes#8@4x3",
+      "file": "items/dish_fish_soup.png",
+      "w": 48,
+      "h": 41
+    },
+    {
+      "id": "dish_fried_rice",
+      "name": "Cơm chiên dứa",
+      "source": "sheet:K1_meat_dishes#9@4x3",
+      "file": "items/dish_fried_rice.png",
+      "w": 49,
+      "h": 49
+    },
+    {
+      "id": "dish_pumpkin_soup",
+      "name": "Súp bí",
+      "source": "sheet:K1_meat_dishes#10@4x3",
+      "file": "items/dish_pumpkin_soup.png",
+      "w": 48,
+      "h": 40
+    },
+    {
+      "id": "dish_strawberry_cake",
+      "name": "Bánh kem dâu",
+      "source": "sheet:K1_meat_dishes#11@4x3",
+      "file": "items/dish_strawberry_cake.png",
+      "w": 52,
+      "h": 49
+    },
+    {
       "id": "seed_rice",
       "name": "Hạt lúa nước",
       "source": "sheet:F10_seed_icons#0@4x4",

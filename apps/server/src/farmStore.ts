@@ -7,7 +7,7 @@ export class FarmStore {
  /** Tài khoản của một nhân vật (ghé hồ bạn bè). */
  accountOf(character:string):number|null{const r=this.db.prepare('SELECT account_id FROM characters WHERE id=?').get(character) as {account_id:number}|undefined;return r?.account_id??null;}
  read(account:number):FarmState{const row=this.db.prepare('SELECT state FROM farm_accounts WHERE account_id=?').get(account) as {state:string}|undefined;return row?JSON.parse(row.state) as FarmState:newFarm();}
- run<T>(account:number,character:string,now:number,fn:(state:FarmState,coins:number,diamonds:number)=>{value:T;coins?:number;potions?:number;buff?:boolean;diamonds?:number}):T{
+ run<T>(account:number,character:string,now:number,fn:(state:FarmState,coins:number,diamonds:number)=>{value:T;coins?:number;potions?:number;buff?:boolean|{kind:string;mult:number;ms:number};diamonds?:number}):T{
   this.db.exec('BEGIN IMMEDIATE');
   try{
    const row=this.db.prepare('SELECT progress FROM characters WHERE id=? AND account_id=?').get(character,account) as {progress:string}|undefined;
@@ -18,8 +18,10 @@ export class FarmStore {
    this.db.prepare('INSERT INTO farm_accounts(account_id,state,updated_at) VALUES(?,?,?) ON CONFLICT(account_id) DO UPDATE SET state=excluded.state,updated_at=excluded.updated_at').run(account,JSON.stringify(state),now);
    if(result.potions&&(p.potions||0)+result.potions>999)throw new Error('Bạn đã mang đủ thuốc hồi phục');
    if(result.coins!==undefined||result.potions){const balance=result.coins??p.coins;this.db.prepare("UPDATE characters SET progress=json_set(progress,'$.coins',?,'$.potions',?),updated_at=? WHERE id=?").run(balance,(p.potions||0)+(result.potions||0),now,character);this.db.prepare('INSERT INTO eco_ledger(character_id,coins,potions,exp,reason,at) VALUES(?,?,?,0,?,?)').run(character,balance-p.coins,result.potions||0,'gia_vien',now);}
-   if(result.buff){const active=this.db.prepare("SELECT mult FROM buffs WHERE character_id=? AND kind='dmg'").get(character) as {mult:number}|undefined;if(active&&active.mult>1.1)throw new Error('Bạn đang dùng hiệu ứng mạnh hơn món ăn này');}
-   if(result.buff)this.db.prepare("INSERT INTO buffs(character_id,kind,mult,remaining_ms) VALUES(?,'dmg',1.1,600000) ON CONFLICT(character_id,kind) DO UPDATE SET mult=max(mult,1.1),remaining_ms=min(remaining_ms+600000,18000000)").run(character);
+   // Bùa món ăn: `true` = món hầm quầy làng (sát thương ×1,1 · 10 phút); object = món nấu ở Gia viên.
+   const buff=result.buff===true?{kind:'dmg',mult:1.1,ms:600000}:result.buff||null;
+   if(buff){const active=this.db.prepare('SELECT mult FROM buffs WHERE character_id=? AND kind=?').get(character,buff.kind) as {mult:number}|undefined;if(active&&active.mult>buff.mult)throw new Error('Bạn đang dùng hiệu ứng mạnh hơn món ăn này');
+    this.db.prepare('INSERT INTO buffs(character_id,kind,mult,remaining_ms) VALUES(?,?,?,?) ON CONFLICT(character_id,kind) DO UPDATE SET mult=max(mult,excluded.mult),remaining_ms=min(remaining_ms+excluded.remaining_ms,18000000)').run(character,buff.kind,buff.mult,buff.ms);}
    this.db.exec('COMMIT');return result.value;
   }catch(e){this.db.exec('ROLLBACK');throw e;}
  }

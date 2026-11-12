@@ -48,6 +48,24 @@ namespace HavenLord.Client.UI
                     for (var i = 0; i < stock.Length; i++) { var id = stock[i].Name; FarmButton("Đặt" + id, $"Đặt {DName(id)} ×{stock[i].Value}", i % 4 * 256, y + 30 + i / 4 * 42, () => game.FarmSend("decorPlace", item: id)); }
                     return;
                 }
+                if (key == "cook")
+                {
+                    // Nấu ăn ở bếp lò: món đủ nguyên liệu thì nấu; món trong kho thì ăn (bùa ngắn) hoặc mang ra hộp gửi hàng bán.
+                    var dishes = game.Sim.Modules["farm"]["FARM_DISHES"] as JArray ?? new JArray();var inv = state["inventory"] as JObject;
+                    string Buff(JToken b) => $"{((string)b["kind"] == "dmg" ? "sát thương" : (string)b["kind"] == "guard" ? "giáp" : "kinh nghiệm")} ×{(double)b["mult"]:0.##} · {(double)b["ms"] / 60000:0} phút";
+                    FarmText("Tên", "Bếp lò · nấu món từ nông sản, cá, thành phẩm máy (công thức thử)", 0, 32, 18);
+                    for (var i = 0; i < dishes.Count; i++)
+                    {
+                        var d = dishes[i];var did = (string)d["id"];var ins = ((JObject)d["in"]).Properties().ToArray();
+                        var ok = ins.All(p => ((int?)inv?[p.Name] ?? 0) >= (int)p.Value);
+                        var need = string.Join(" + ", ins.Select(p => $"{FarmItemName(p.Name)} ×{p.Value}"));
+                        FarmButton("Nấu" + did, $"{d["name"]}: {need}", i % 2 * 512, 45 + i / 2 * 44, () => game.FarmSend("cook", item: did), ok);
+                        var have = (int?)inv?[did] ?? 0;
+                        if (have > 0) FarmButton("Ăn" + did, $"Ăn {d["name"]} ×{have} · {Buff(d["buff"])}", i % 2 * 512 + 256, 45 + i / 2 * 44, () => game.FarmSend("eat", item: did));
+                    }
+                    FarmText("Thịt", "Gà quay / bò hầm / xiên cừu cần thịt từ chăn nuôi (sắp mở).", 45 + (dishes.Count + 1) / 2 * 44 + 6, 30);
+                    return;
+                }
                 if (key.StartsWith("machine:", StringComparison.Ordinal))
                 {
                     // Máy chế biến: chọn công thức (bỏ nguyên liệu trong kho) → chờ → lấy thành phẩm.

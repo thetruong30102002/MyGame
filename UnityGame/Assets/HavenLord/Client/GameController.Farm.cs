@@ -391,6 +391,8 @@ namespace HavenLord.Client
             foreach (var (to, at) in doors)
                 if (Vector2.Distance(me, at) < 100) { if (to == "garden") FarmSend("room"); else FarmSend("go", room: to); return true; }
             if (map.def.id == "house" && Vector2.Distance(me, Steward) < 110) { OpenDecor(); return true; }
+            // Bếp lò củi (món bày trí, dời được): mở bảng nấu ăn.
+            if (RoomDecor().Any(q => (string)q["id"] == (string)FarmMod["FARM_STOVE"] && Vector2.Distance(me, new Vector2((float)q["x"], (float)q["y"])) < 90)) { VillageKey = "cook"; FarmSend("get"); hud.Panels.Show(Panels.Kind.Farm); return true; }
             ShowFarm();
             return true;
         }

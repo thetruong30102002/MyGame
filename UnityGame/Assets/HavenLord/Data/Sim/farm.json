@@ -345,6 +345,120 @@
 			"sell": 320
 		}
 	],
+	"FARM_DISHES": [
+		{
+			"id": "dish_grilled_fish",
+			"name": "Cá nướng",
+			"in": {
+				"fish_carp": 1,
+				"farm_chili": 1
+			},
+			"buff": {
+				"kind": "guard",
+				"mult": 1.1,
+				"ms": 900000
+			},
+			"sell": 40
+		},
+		{
+			"id": "dish_fish_soup",
+			"name": "Súp cá",
+			"in": {
+				"fish_crucian": 2,
+				"farm_potato": 1
+			},
+			"buff": {
+				"kind": "exp",
+				"mult": 1.1,
+				"ms": 1200000
+			},
+			"sell": 45
+		},
+		{
+			"id": "dish_fried_rice",
+			"name": "Cơm chiên dứa",
+			"in": {
+				"farm_rice": 2,
+				"farm_corn": 1
+			},
+			"buff": {
+				"kind": "exp",
+				"mult": 1.15,
+				"ms": 1200000
+			},
+			"sell": 80
+		},
+		{
+			"id": "dish_pumpkin_soup",
+			"name": "Súp bí",
+			"in": {
+				"farm_haven_pumpkin": 1,
+				"farm_carrot": 1
+			},
+			"buff": {
+				"kind": "guard",
+				"mult": 1.12,
+				"ms": 1200000
+			},
+			"sell": 140
+		},
+		{
+			"id": "dish_strawberry_cake",
+			"name": "Bánh kem dâu",
+			"in": {
+				"farm_strawberry": 2,
+				"prod_flour": 1
+			},
+			"buff": {
+				"kind": "dmg",
+				"mult": 1.12,
+				"ms": 1200000
+			},
+			"sell": 150
+		},
+		{
+			"id": "dish_roast_chicken",
+			"name": "Gà quay",
+			"in": {
+				"meat_chicken": 1,
+				"farm_potato": 1
+			},
+			"buff": {
+				"kind": "dmg",
+				"mult": 1.15,
+				"ms": 1200000
+			},
+			"sell": 120
+		},
+		{
+			"id": "dish_beef_stew",
+			"name": "Bò hầm",
+			"in": {
+				"meat_beef": 1,
+				"farm_carrot": 2
+			},
+			"buff": {
+				"kind": "guard",
+				"mult": 1.15,
+				"ms": 1200000
+			},
+			"sell": 130
+		},
+		{
+			"id": "dish_lamb_skewer",
+			"name": "Xiên cừu nướng",
+			"in": {
+				"meat_lamb": 1,
+				"farm_chili": 1
+			},
+			"buff": {
+				"kind": "dmg",
+				"mult": 1.12,
+				"ms": 900000
+			},
+			"sell": 110
+		}
+	],
 	"FARM_FISH": [
 		{
 			"id": "crucian",
@@ -733,6 +847,14 @@
 		}
 	],
 	"FARM_PRODUCT_SELL": {
+		"dish_grilled_fish": 40,
+		"dish_fish_soup": 45,
+		"dish_fried_rice": 80,
+		"dish_pumpkin_soup": 140,
+		"dish_strawberry_cake": 150,
+		"dish_roast_chicken": 120,
+		"dish_beef_stew": 130,
+		"dish_lamb_skewer": 110,
 		"farm_apple": 25,
 		"farm_orange": 28,
 		"farm_peach": 55,
@@ -794,6 +916,7 @@
 		"haven_pumpkin",
 		"silver_grass"
 	],
+	"FARM_STOVE": "gv_bep_lo_cui",
 	"FARM_TANK": {
 		"item": "gv_be_ca",
 		"slots": 6,

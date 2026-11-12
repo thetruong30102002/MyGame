@@ -61,6 +61,9 @@ export const HOME_ICONS = [
 	...(['apple', 'orange', 'peach', 'honey'] as const).map((id, i) => ({ id: `farm_${id}`, name: ['Táo', 'Cam', 'Đào Haven', 'Hũ mật ong'][i]!, path: cell('F9_produce_icons', 12 + i, '4x4') })),
 	...(['apple', 'orange', 'peach'] as const).map((id, i) => ({ id: `sapling_${id}`, name: ['Cây giống táo', 'Cây giống cam', 'Cây giống đào Haven'][i]!, path: cell('F10_seed_icons', 12 + i, '4x4') })),
 	...(['bread', 'pickles', 'juice', 'wine', 'flour', 'dried_fruit'] as const).map((id, i) => ({ id: `prod_${id}`, name: ['Bánh mì', 'Dưa muối', 'Nước quả', 'Rượu vang', 'Bột mì', 'Quả sấy'][i]!, path: cell('M1_machines', [6, 7, 8, 9, 10, 11][i]!, '4x3') })),
+	...(['meat_chicken', 'meat_beef', 'meat_lamb', 'fish_fillet', 'dish_roast_chicken', 'dish_beef_stew', 'dish_lamb_skewer', 'dish_grilled_fish', 'dish_fish_soup', 'dish_fried_rice', 'dish_pumpkin_soup', 'dish_strawberry_cake'] as const).map((id, i) => ({
+		id, name: ['Thịt gà', 'Thịt bò', 'Thịt cừu', 'Phi lê cá', 'Gà quay', 'Bò hầm', 'Xiên cừu nướng', 'Cá nướng', 'Súp cá', 'Cơm chiên dứa', 'Súp bí', 'Bánh kem dâu'][i]!, path: cell('K1_meat_dishes', i, '4x3'),
+	})),
 	...HOME_CROPS_2.map((id, index) => ({ id: `seed_${id}`, name: `Hạt ${HOME_CROP_NAMES_2[index]!.toLowerCase()}`, path: cell('F10_seed_icons', index, '4x4') })),
 	...['crucian', 'carp', 'perch', 'eel', 'prawn', 'golden_carp', 'night_catfish', 'haven'].map((id, index) => ({
 		id: `fish_${id}`, name: ['Cá diếc', 'Cá chép', 'Cá rô', 'Lươn đồng', 'Tôm càng', 'Cá chép vàng', 'Cá trê đêm', 'Cá Haven'][index]!, path: cell('F5_fish_icons', index, '4x2'),
