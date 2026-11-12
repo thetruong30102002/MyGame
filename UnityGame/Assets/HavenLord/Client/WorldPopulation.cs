@@ -90,14 +90,16 @@ namespace HavenLord.Client
             Pets.Clear();
         }
 
-        public void SpawnPet(string id, double x, double y, double radius)
+        public Actor SpawnPet(string id, double x, double y, double radius, float scale = 1, float speed = 26)
         {
             var def = db.Character(id);
-            if (def == null) return;
+            if (def == null) return null;
             var a = Actor.Spawn(def, parent, x, y, id);
             a.Wander = new WanderArea { X = x, Y = y, Radius = radius };
-            a.WanderSpeed = 26;
+            a.WanderSpeed = speed;
+            if (scale != 1) a.transform.localScale = new Vector3(scale, scale, 1);
             Pets.Add(a);
+            return a;
         }
 
         public void Clear()

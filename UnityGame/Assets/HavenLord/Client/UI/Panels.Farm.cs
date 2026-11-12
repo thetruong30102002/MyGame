@@ -48,6 +48,26 @@ namespace HavenLord.Client.UI
                     for (var i = 0; i < stock.Length; i++) { var id = stock[i].Name; FarmButton("Đặt" + id, $"Đặt {DName(id)} ×{stock[i].Value}", i % 4 * 256, y + 30 + i / 4 * 42, () => game.FarmSend("decorPlace", item: id)); }
                     return;
                 }
+                if (key.StartsWith("pen:", StringComparison.Ordinal))
+                {
+                    // Chuồng: mỗi loài trong bãi — cho ăn (lúa mì / ngô), thu sản phẩm sau một ngày Haven, xuất chuồng lấy thịt.
+                    var pen = key.Substring(4);var animals = (game.Sim.Modules["farm"]["FARM_ANIMALS"] as JArray ?? new JArray()).Where(a => (string)a["pen"] == pen).ToArray();
+                    var dayMs = (double?)game.Sim.Modules["farm"]["HAVEN_DAY_MS"] ?? 2880000;var herd = game.Livestock();
+                    FarmText("Tên", pen == "pasture" ? "Bãi quây bò · cừu" : pen == "chicken" ? "Sân gà" : "Tổ ong", 0, 32, 20);
+                    for (var i = 0; i < animals.Length; i++)
+                    {
+                        var a = animals[i];var aid = (string)a["id"];var n = herd.TryGetValue(aid, out var c) ? c : 0;var e = state["livestock"]?[aid];
+                        var fed = e != null && e.Type == JTokenType.Object ? (double)e["fedAt"] : 0;var feedN = (int)a["feed"];
+                        var left = fed > 0 ? (fed + dayMs - game.FarmNow) / 60000 : -1;
+                        var status = n == 0 ? "chưa có con nào" : feedN > 0 && fed <= 0 ? "đói — cần cho ăn" : left > 0 ? $"còn khoảng {Math.Ceiling(left)} phút ra {FarmItemName((string)a["product"])}" : $"đã có {FarmItemName((string)a["product"])}, thu được";
+                        var y = 45 + i * 90;
+                        FarmText("Đàn" + aid, $"{a["name"]} ×{n}/{a["max"]} · {status}", y, 28, 16);
+                        if (feedN > 0) FarmButton("Ăn" + aid, $"Cho ăn ({feedN * n} lúa mì / ngô)", 0, y + 32, () => game.FarmSend("feed", item: aid), n > 0 && fed <= 0);
+                        FarmButton("Thu" + aid, "Thu " + FarmItemName((string)a["product"]), 256, y + 32, () => game.FarmSend("collect", item: aid), n > 0);
+                        if (a["meat"] != null && a["meat"].Type != JTokenType.Null) FarmButton("Xuất" + aid, $"Xuất chuồng 1 con → {FarmItemName((string)a["meat"])} ×{a["meatN"]}", 512, y + 32, () => game.FarmSend("butcher", item: aid), n > 0);
+                    }
+                    return;
+                }
                 if (key == "cook")
                 {
                     // Nấu ăn ở bếp lò: món đủ nguyên liệu thì nấu; món trong kho thì ăn (bùa ngắn) hoặc mang ra hộp gửi hàng bán.
@@ -103,6 +123,8 @@ namespace HavenLord.Client.UI
                     var fruits = game.Sim.Modules["farm"]["FARM_FRUIT"] as JArray;var machines = game.Sim.Modules["farm"]["FARM_MACHINES"] as JArray;var have = state["machines"] as JObject;
                     var row = 0;
                     if (fruits != null) foreach (var f in fruits) { var fid = (string)f["id"]; FarmButton("Giống" + fid, $"Cây giống {f["name"]} · {f["sapling"]} xu", row % 4 * 256, 290 + row / 4 * 42, () => game.FarmSend("buy", item: "sapling_" + fid)); row++; }
+                    var animalsShop = game.Sim.Modules["farm"]["FARM_ANIMALS"] as JArray;var herdShop = game.Livestock();
+                    if (animalsShop != null) foreach (var a in animalsShop) { var aid = (string)a["id"]; var full = herdShop.TryGetValue(aid, out var cnt) && cnt >= (int)a["max"]; FarmButton("Con" + aid, full ? $"{a["name"]} đã đủ {a["max"]}" : $"Mua {a["name"]} · {a["price"]} xu", row % 4 * 256, 290 + row / 4 * 42, () => game.FarmSend("buy", item: "animal_" + aid), !full); row++; }
                     if (machines != null) foreach (var m in machines) { var mid = (string)m["id"]; var got = have?[mid] != null || (have?.ContainsKey(mid) ?? false); FarmButton("Máy" + mid, got ? $"Đã có {m["name"]}" : $"{m["name"]} · {m["price"]} xu", row % 4 * 256, 290 + row / 4 * 42, () => game.FarmSend("buy", item: "machine_" + mid), !got); row++; }
                     var seedY = 290 + (row + 3) / 4 * 42 + 6;
                     var seeds = game.Sim.Modules["farm"]["FARM_CROPS"] as JArray;

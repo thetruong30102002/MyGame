@@ -64,6 +64,9 @@ export const HOME_ICONS = [
 	...(['meat_chicken', 'meat_beef', 'meat_lamb', 'fish_fillet', 'dish_roast_chicken', 'dish_beef_stew', 'dish_lamb_skewer', 'dish_grilled_fish', 'dish_fish_soup', 'dish_fried_rice', 'dish_pumpkin_soup', 'dish_strawberry_cake'] as const).map((id, i) => ({
 		id, name: ['Thịt gà', 'Thịt bò', 'Thịt cừu', 'Phi lê cá', 'Gà quay', 'Bò hầm', 'Xiên cừu nướng', 'Cá nướng', 'Súp cá', 'Cơm chiên dứa', 'Súp bí', 'Bánh kem dâu'][i]!, path: cell('K1_meat_dishes', i, '4x3'),
 	})),
+	{ id: 'farm_egg', name: 'Trứng gà', path: cell('B2_animal_buildings', 4, '3x2') },
+	{ id: 'farm_milk', name: 'Sữa bò', path: cell('B2_animal_buildings', 5, '3x2') },
+	{ id: 'farm_wool', name: 'Len cừu', path: cell('HL2_highland_village', 7, '3x3') },
 	...HOME_CROPS_2.map((id, index) => ({ id: `seed_${id}`, name: `Hạt ${HOME_CROP_NAMES_2[index]!.toLowerCase()}`, path: cell('F10_seed_icons', index, '4x4') })),
 	...['crucian', 'carp', 'perch', 'eel', 'prawn', 'golden_carp', 'night_catfish', 'haven'].map((id, index) => ({
 		id: `fish_${id}`, name: ['Cá diếc', 'Cá chép', 'Cá rô', 'Lươn đồng', 'Tôm càng', 'Cá chép vàng', 'Cá trê đêm', 'Cá Haven'][index]!, path: cell('F5_fish_icons', index, '4x2'),

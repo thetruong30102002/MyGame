@@ -205,6 +205,10 @@ export class PixelLabSource {
 				}
 				if (list.length) dirs[dir] = list;
 			}
+			// Nhân vật vẽ 4 hướng (vật nuôi 11/11) không có ảnh xoay chéo: hướng chéo trong `provisional` mượn hướng ngang cùng phía.
+			if (!isOptional)
+				for (const [diag, side] of [['SE', 'E'], ['NE', 'E'], ['SW', 'W'], ['NW', 'W']] as [Direction, Direction][])
+					if (!dirs[diag] && provisional.includes(diag) && dirs[side]) dirs[diag] = dirs[side];
 			if (!isOptional || Object.keys(dirs).length) out[anim] = dirs;
 		}
 		return out;

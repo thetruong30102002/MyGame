@@ -1,0 +1,60 @@
+{
+	"identity": {
+		"characterId": "farm_cow_001",
+		"hair": "none",
+		"eyes": "animal",
+		"skin": "animal",
+		"outfit": "none",
+		"weapon": "none",
+		"palette": "farm_01"
+	},
+	"displayName": "Bò sữa",
+	"role": "npc",
+	"provider": "pixellab",
+	"pixellab": {
+		"animations": {
+			"idle": "idle",
+			"walk": "walk"
+		},
+		"mirrorWest": true
+	},
+	"frameSize": {
+		"width": 80,
+		"height": 80
+	},
+	"baselineY": 72,
+	"animations": {
+		"idle": {
+			"fps": 6,
+			"minFrames": 4,
+			"maxFrames": 8
+		},
+		"walk": {
+			"fps": 8,
+			"minFrames": 4,
+			"maxFrames": 8
+		}
+	},
+	"cleanup": {
+		"alignToIdle": true,
+		"removeForeignObjects": true,
+		"removeIslands": true
+	},
+	"quality": {
+		"maxHeightDrift": 0.3,
+		"minSilhouette": 0.1
+	},
+	"provisional": [
+		"S",
+		"SE",
+		"NE",
+		"SW",
+		"NW"
+	],
+	"notes": "Vật nuôi Gia viên (kế hoạch 9.8, PixelLab 11/11): đứng / đi E + N (W lật), S và chéo dùng ảnh xoay. Trong game phóng theo tỉ lệ chốt 12/11 (bò ×2, cừu ×1,5, gà ×0,6) bằng transform, đi lại trong bãi quây.",
+	"review": {
+		"status": "approved",
+		"date": "11/11/2026",
+		"notes": "Duyệt lô chăn nuôi 11/11; tỉ lệ chốt 12/11."
+	}
+}

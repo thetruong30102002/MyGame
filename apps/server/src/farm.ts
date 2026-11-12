@@ -1,5 +1,5 @@
 import {randomInt,randomUUID} from 'node:crypto';
-import {FARM_CROPS,FARM_FISH,FARM_LAYOUT,FARM_ROOMS,FARM_SHOP,FARM_TANK,FARM_DISHES,FARM_FRUIT,FARM_MACHINES,FARM_STOVE,FARM_MACHINE_SPOTS,FARM_PETS,FARM_PRODUCT_SELL,FARM_STARTER_CROPS,FARM_TREE_SPOTS,FARM_WARDROBE,treeStage,PET_GACHA,isPondMap,pondMap,DECOR_ITEMS,chooseFarmFish,decorOf,decorPlaceIssue,rollPet,growPlot,plotPoint,pondSpotNear,shopPrice,type FarmRoom,type FarmState} from '@havenlord/sim/farm';
+import {FARM_CROPS,FARM_FISH,FARM_LAYOUT,FARM_ROOMS,FARM_SHOP,FARM_TANK,FARM_ANIMALS,FARM_DISHES,FARM_FEED,FARM_FRUIT,FARM_PENS,HAVEN_DAY_MS,livestockOf,FARM_MACHINES,FARM_STOVE,FARM_MACHINE_SPOTS,FARM_PETS,FARM_PRODUCT_SELL,FARM_STARTER_CROPS,FARM_TREE_SPOTS,FARM_WARDROBE,treeStage,PET_GACHA,isPondMap,pondMap,DECOR_ITEMS,chooseFarmFish,decorOf,decorPlaceIssue,rollPet,growPlot,plotPoint,pondSpotNear,shopPrice,type FarmRoom,type FarmState} from '@havenlord/sim/farm';
 import {STORY} from '@havenlord/sim/story/story';
 import {COOK_QUALITY,FISH_MAX_TICKS,FISH_TICK_MS,cookQuality,fishFight,fishPower,type CookQuality} from '@havenlord/sim/minigames';
 import {VILLAGE_SHOP} from '@havenlord/sim/village';
@@ -125,6 +125,25 @@ export class Farm {
      if(!Object.entries(d.in).every(([k,n])=>(s.inventory[k]??0)>=n))throw new Error('Kho thiếu nguyên liệu');
      for(const [k,n] of Object.entries(d.in))s.inventory[k]=(s.inventory[k]??0)-n;s.cooking={dish:d.id,startedAt:this.now()};return{value:null};
     }
+    if(op==='feed'||op==='collect'||op==='butcher'){
+     // Chăn nuôi: đứng ở cổng bãi / cạnh tổ ong của loài đó.
+     if(at.map!==homeMap(account))throw new Error('Hãy ra khuôn viên trước');
+     const a=FARM_ANIMALS.find(x=>x.id===raw.item);if(!a)throw new Error('Không có loài này');const pen=FARM_PENS[a.pen]!;if(!near(pen.gate[0],pen.gate[1],120))throw new Error('Hãy tới cổng chuồng');
+     const l=livestockOf(s),e=l[a.id]!;if(e.count<=0)throw new Error(`Chưa có ${a.name.toLowerCase()} nào`);
+     if(op==='feed'){
+      if(a.feed===0)throw new Error('Ong tự kiếm mật, không cần cho ăn');if(e.fedAt)throw new Error('Đã cho ăn, chờ thu sản phẩm');
+      let need=a.feed*e.count;const take:Record<string,number>={};for(const f of FARM_FEED){const n=Math.min(need,s.inventory[f]??0);take[f]=n;need-=n;}
+      if(need>0)throw new Error(`Cần ${a.feed*e.count} lúa mì / ngô để cho ăn`);for(const [k,n] of Object.entries(take))s.inventory[k]=(s.inventory[k]??0)-n;
+      e.fedAt=this.now();s.livestock=l;return{value:null};
+     }
+     if(op==='collect'){
+      // Ong: lần đầu tính từ lúc nhận Gia viên (fedAt = 0 → bắt đầu đếm ngày); loài khác phải cho ăn trước.
+      if(a.feed===0&&!e.fedAt){e.fedAt=this.now();s.livestock=l;this.host.send(id,{t:'system',text:'Đàn ong vừa bắt đầu làm mật, quay lại sau một ngày Haven'});return{value:null};}
+      if(!e.fedAt)throw new Error('Hãy cho ăn trước');if(this.now()-e.fedAt<HAVEN_DAY_MS)throw new Error('Chưa tới lúc thu, chờ hết ngày Haven');
+      s.inventory[a.product]=(s.inventory[a.product]||0)+e.count;e.fedAt=a.feed===0?this.now():0;s.livestock=l;return{value:null};
+     }
+     if(!a.meat)throw new Error('Loài này không xuất chuồng');e.count-=1;s.inventory[a.meat]=(s.inventory[a.meat]||0)+a.meatN;s.livestock=l;return{value:null};
+    }
     if(op==='treePlant'||op==='treeHarvest'||op==='machineStart'||op==='machineCollect'){
      if(at.map!==homeMap(account))throw new Error('Hãy ra khuôn viên trước');
      if(op==='treePlant'||op==='treeHarvest'){
@@ -158,6 +177,8 @@ export class Farm {
      if(at.map!==homeMap(account)||!near(FARM_LAYOUT.shopX,FARM_LAYOUT.shopY,130))throw new Error('Hãy tới người bán đồ Gia viên ở khuôn viên');
      const sap=FARM_FRUIT.find(f=>`sapling_${f.id}`===raw.item),mach=FARM_MACHINES.find(m=>`machine_${m.id}`===raw.item);
      if(sap){if(coins<sap.sapling)throw new Error('Không đủ xu');s.inventory[`sapling_${sap.id}`]=(s.inventory[`sapling_${sap.id}`]||0)+1;return{value:null,coins:coins-sap.sapling};}
+     const ani=FARM_ANIMALS.find(a=>`animal_${a.id}`===raw.item);
+     if(ani){const l=livestockOf(s);const e=l[ani.id]!;if(e.count>=ani.max)throw new Error(`Chuồng đã đủ ${ani.max} con`);if(coins<ani.price)throw new Error('Không đủ xu');e.count+=1;s.livestock=l;return{value:null,coins:coins-ani.price};}
      if(mach){const ms=s.machines??(s.machines={});if(mach.id in ms)throw new Error('Bạn đã có máy này');if(coins<mach.price)throw new Error('Không đủ xu');ms[mach.id]=null;return{value:null,coins:coins-mach.price};}
      const it=FARM_SHOP.find(x=>x.id===raw.item);if(!it)throw new Error('Không bán món này');
      const owned=s.owned??(s.owned=[]);

@@ -50276,6 +50276,186 @@
 				"E",
 				"SE"
 			]
+		},
+		"farm_cow_001": {
+			"displayName": "Bò sữa",
+			"role": "npc",
+			"identity": {
+				"characterId": "farm_cow_001",
+				"hair": "none",
+				"eyes": "animal",
+				"skin": "animal",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "farm_01"
+			},
+			"atlas": "characters/farm_cow_001/farm_cow_001.json",
+			"frameSize": {
+				"width": 80,
+				"height": 80
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 8
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "Vật nuôi Gia viên (kế hoạch 9.8, PixelLab 11/11): đứng / đi E + N (W lật), S và chéo dùng ảnh xoay. Trong game phóng theo tỉ lệ chốt 12/11 (bò ×2, cừu ×1,5, gà ×0,6) bằng transform, đi lại trong bãi quây.",
+			"bodyHeight": 47,
+			"portrait": "portraits/farm_cow_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"farm_sheep_001": {
+			"displayName": "Cừu",
+			"role": "npc",
+			"identity": {
+				"characterId": "farm_sheep_001",
+				"hair": "none",
+				"eyes": "animal",
+				"skin": "animal",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "farm_01"
+			},
+			"atlas": "characters/farm_sheep_001/farm_sheep_001.json",
+			"frameSize": {
+				"width": 80,
+				"height": 80
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 8
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "Vật nuôi Gia viên (kế hoạch 9.8, PixelLab 11/11): đứng / đi E + N (W lật), S và chéo dùng ảnh xoay. Trong game phóng theo tỉ lệ chốt 12/11 (bò ×2, cừu ×1,5, gà ×0,6) bằng transform, đi lại trong bãi quây.",
+			"bodyHeight": 41,
+			"portrait": "portraits/farm_sheep_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
+		},
+		"farm_chicken_001": {
+			"displayName": "Gà mái",
+			"role": "npc",
+			"identity": {
+				"characterId": "farm_chicken_001",
+				"hair": "none",
+				"eyes": "animal",
+				"skin": "animal",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "farm_01"
+			},
+			"atlas": "characters/farm_chicken_001/farm_chicken_001.json",
+			"frameSize": {
+				"width": 80,
+				"height": 80
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 8
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "Vật nuôi Gia viên (kế hoạch 9.8, PixelLab 11/11): đứng / đi E + N (W lật), S và chéo dùng ảnh xoay. Trong game phóng theo tỉ lệ chốt 12/11 (bò ×2, cừu ×1,5, gà ×0,6) bằng transform, đi lại trong bãi quây.",
+			"bodyHeight": 45,
+			"portrait": "portraits/farm_chicken_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
 		}
 	}
 }

@@ -217,6 +217,64 @@
 			"blocks": true
 		}
 	},
+	"FARM_ANIMALS": [
+		{
+			"id": "chicken",
+			"name": "Gà",
+			"character": "farm_chicken_001",
+			"scale": 0.6,
+			"pen": "chicken",
+			"max": 8,
+			"price": 60,
+			"feed": 1,
+			"product": "farm_egg",
+			"meat": "meat_chicken",
+			"meatN": 2,
+			"start": 2
+		},
+		{
+			"id": "cow",
+			"name": "Bò sữa",
+			"character": "farm_cow_001",
+			"scale": 2,
+			"pen": "pasture",
+			"max": 3,
+			"price": 400,
+			"feed": 2,
+			"product": "farm_milk",
+			"meat": "meat_beef",
+			"meatN": 3,
+			"start": 1
+		},
+		{
+			"id": "sheep",
+			"name": "Cừu",
+			"character": "farm_sheep_001",
+			"scale": 1.5,
+			"pen": "pasture",
+			"max": 4,
+			"price": 250,
+			"feed": 2,
+			"product": "farm_wool",
+			"meat": "meat_lamb",
+			"meatN": 2,
+			"start": 1
+		},
+		{
+			"id": "bee",
+			"name": "Đàn ong",
+			"character": null,
+			"scale": 1,
+			"pen": "hives",
+			"max": 3,
+			"price": 150,
+			"feed": 0,
+			"product": "farm_honey",
+			"meat": null,
+			"meatN": 0,
+			"start": 1
+		}
+	],
 	"FARM_CROPS": [
 		{
 			"id": "wheat",
@@ -466,6 +524,10 @@
 			},
 			"sell": 110
 		}
+	],
+	"FARM_FEED": [
+		"farm_wheat",
+		"farm_corn"
 	],
 	"FARM_FISH": [
 		{
@@ -742,6 +804,44 @@
 			636
 		]
 	},
+	"FARM_PENS": {
+		"pasture": {
+			"gate": [
+				1219,
+				474
+			],
+			"area": {
+				"x0": 1000,
+				"x1": 1440,
+				"y0": 170,
+				"y1": 375
+			}
+		},
+		"chicken": {
+			"gate": [
+				1230,
+				954
+			],
+			"area": {
+				"x0": 1110,
+				"x1": 1440,
+				"y0": 720,
+				"y1": 880
+			}
+		},
+		"hives": {
+			"gate": [
+				480,
+				975
+			],
+			"area": {
+				"x0": 360,
+				"x1": 610,
+				"y0": 900,
+				"y1": 950
+			}
+		}
+	},
 	"FARM_PETS": [
 		{
 			"id": "pet2_cat_tabby",
@@ -855,6 +955,12 @@
 		}
 	],
 	"FARM_PRODUCT_SELL": {
+		"farm_egg": 12,
+		"farm_milk": 30,
+		"farm_wool": 40,
+		"meat_chicken": 30,
+		"meat_beef": 60,
+		"meat_lamb": 50,
 		"dish_grilled_fish": 40,
 		"dish_fish_soup": 45,
 		"dish_fried_rice": 80,
@@ -957,6 +1063,7 @@
 		332,
 		158
 	],
+	"HAVEN_DAY_MS": 2880000,
 	"PET_GACHA": {
 		"one": 100,
 		"ten": 900,

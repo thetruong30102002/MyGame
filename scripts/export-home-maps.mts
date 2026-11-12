@@ -225,8 +225,9 @@ function placePen(pen:string,ox:number,oy:number,inside:[string,number,number][]
  }
 }
 // Bãi quây bò / cừu (góc đông bắc) và sân gà (đông nam) — bố cục trong bãi chép bản ghép thử pen_bo_cuu / pen_san_ga.
-placePen('bo_cuu',930,30,[['gv_bo_e',150,220],['gv_bo_s',330,290],['gv_cuu_s',440,210],['gv_cuu_w',260,340],['gv_mang_nuoc_da',130,345],['gv_gia_co_kho',470,330]]);
-placePen('san_ga',960,600,[['gv_chuong_ga_lon',130,250],['gv_cho_tam_cat',370,160],['gv_mang_thoc_ga',300,270],['gv_ga_s',260,170],['gv_ga_e',330,215],['gv_ga_w',420,245],['gv_ga_s',240,240],['gv_ga_e',440,180]]);
+// Con vật đi lại trong bãi theo đàn của người chơi (client, sim FARM_PENS) — bãi chỉ giữ máng / giá cỏ / chuồng gà / ổ tắm cát.
+placePen('bo_cuu',930,30,[['gv_mang_nuoc_da',130,345],['gv_gia_co_kho',470,330]]);
+placePen('san_ga',960,600,[['gv_chuong_ga_lon',130,250],['gv_cho_tam_cat',370,160],['gv_mang_thoc_ga',300,270]]);
 // Ngoài bãi: chuồng bò lớn, xe sữa, cuộn rơm, cột gãi; tổ ong cạnh bồn hoa (ong cần hoa).
 props.push(p('gv_chuong_bo_lon',760,860),p('gv_xe_thung_sua',660,620),p('gv_cuon_rom_tron',890,640),p('gv_cuon_rom_tron',890,690),p('gv_cot_gai_bo',900,560),p('gv_xe_cut_kit_rom',320,780),
  p('gv_bon_hoa_ong',480,950),p('gv_to_ong_go',380,930),p('gv_to_ong_rom',590,940));

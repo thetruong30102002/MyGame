@@ -215,10 +215,23 @@ namespace HavenLord.Client
         private void DrawPets()
         {
             var outList = (FarmState?["petsOut"] as JArray)?.Select(x => (string)x).ToArray() ?? new string[0];
-            var key = map?.def.id + "|" + string.Join(",", outList);
+            var herd = map?.def.id == "garden" ? Livestock() : new Dictionary<string, int>();
+            var key = map?.def.id + "|" + string.Join(",", outList) + "|" + string.Join(",", herd.Select(h => h.Key + h.Value));
             if (key == petsDrawn) return;
             petsDrawn = key;
             population.ClearPets();
+            // Vật nuôi đi lại trong bãi quây (tỉ lệ chốt 12/11: bò ×2, cừu ×1,5, gà ×0,6); ong không có hình con.
+            foreach (var a in (FarmMod["FARM_ANIMALS"] as JArray) ?? new JArray())
+            {
+                var ch = (string)a["character"]; if (ch == null || !herd.TryGetValue((string)a["id"], out var n)) continue;
+                var r = FarmMod["FARM_PENS"]?[(string)a["pen"]]?["area"]; if (r == null) continue;
+                float x0 = (float)r["x0"], x1 = (float)r["x1"], y0 = (float)r["y0"], y1 = (float)r["y1"];
+                for (var i = 0; i < n; i++)
+                {
+                    var x = Mathf.Lerp(x0 + 30, x1 - 30, (i * 0.37f + (((string)a["id"]).Length * .13f)) % 1f); var y = Mathf.Lerp(y0 + 20, y1, (i * 0.53f + .3f) % 1f);
+                    population.SpawnPet(ch, x, y, Mathf.Min(x1 - x0, y1 - y0) / 2, (float)(double)a["scale"], 18);
+                }
+            }
             if (map == null || !PetAreas.TryGetValue(map.def.id, out var area)) return;
             for (var i = 0; i < outList.Length; i++)
             {
@@ -369,6 +382,27 @@ namespace HavenLord.Client
             return false;
         }
 
+        /// <summary>Đàn của người chơi (số con mỗi loài) — như sim livestockOf: chưa mua bán thì đàn có sẵn.</summary>
+        public Dictionary<string, int> Livestock()
+        {
+            var d = new Dictionary<string, int>();
+            foreach (var a in (FarmMod["FARM_ANIMALS"] as JArray) ?? new JArray())
+            {
+                var id = (string)a["id"]; var e = FarmState?["livestock"]?[id];
+                d[id] = e != null && e.Type == JTokenType.Object ? (int)e["count"] : (int)a["start"];
+            }
+            return d;
+        }
+
+        /// <summary>Đứng ở cổng bãi / cạnh tổ ong: mở bảng chuồng của bãi đó.</summary>
+        private bool PenAction(Vector2 me)
+        {
+            if (!(FarmMod["FARM_PENS"] is JObject pens)) return false;
+            foreach (var p in pens.Properties())
+                if (Vector2.Distance(me, new Vector2((float)p.Value["gate"][0], (float)p.Value["gate"][1])) < 110) { VillageKey = "pen:" + p.Name; FarmSend("get"); hud.Panels.Show(Panels.Kind.Farm); return true; }
+            return false;
+        }
+
         /// <summary>Bảng quay thú cưng (gọi từ cửa hàng Quản gia).</summary>
         public void ShowPets()
         {
@@ -493,6 +527,7 @@ namespace HavenLord.Client
             }
             if (Vector2.Distance(at, ShopSpot) < 60 && Vector2.Distance(me, ShopSpot) < 130) { OpenShop(); return; }
             if (Vector2.Distance(me, at) < 100 && OrchardAction(at)) return;
+            if (Vector2.Distance(me, at) < 120 && PenAction(me)) return;
             var (px0, py0) = PlotPos(0);
             var col = Mathf.RoundToInt((at.x - px0) / 32);var row = Mathf.RoundToInt((at.y - py0 + 10) / 32);
             if (col >= 0 && col < PlotCols && row >= 0 && row * PlotCols + col < PlotsMax)
@@ -521,7 +556,7 @@ namespace HavenLord.Client
             if (Vector2.Distance(me, PondGate) < 100) { FarmSend("pond"); return; }
             if (Math.Abs(player.X - 576) < 100 && Math.Abs(player.Y - 264) < 100) { FarmSend("room"); return; }
             if (Vector2.Distance(me, ShopSpot) < 110) { OpenShop(); return; }
-            if (OrchardAction(me)) return;
+            if (OrchardAction(me) || PenAction(me)) return;
             if (PlotCount == 0) return;
             var nearest = Enumerable.Range(0, PlotCount).OrderBy(i => Math.Pow(player.X - PlotPos(i).x, 2) + Math.Pow(player.Y - PlotPos(i).y, 2)).First();
             FarmPlotAction(nearest);

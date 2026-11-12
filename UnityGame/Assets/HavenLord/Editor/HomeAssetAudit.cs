@@ -23,7 +23,7 @@ namespace HavenLord.Importer
                 foreach (var p in catalog["props"])
                     Require(db.homeProps.Find((string)p["id"])?.sprite != null, "Thiếu sprite " + p["id"]);
                 var items = db.uiSets.Find(x => x.setId == "items");
-                Require(items != null && catalog["icons"].Count() == 69, "Thiếu bộ 69 icon Gia viên");
+                Require(items != null && catalog["icons"].Count() == 72, "Thiếu bộ 72 icon Gia viên");
                 foreach (var icon in catalog["icons"])
                     Require(items.Get((string)icon["id"]) != null, "Thiếu icon " + icon["id"]);
 
@@ -55,7 +55,7 @@ namespace HavenLord.Importer
                             Require(clip.segments.Any(s => s.name == segment.Item1 && s.first == segment.Item2 && s.last == segment.Item3), "Sai đoạn câu cá " + id + "/" + direction);
                     }
                 }
-                Debug.Log("[HavenLord home audit] ĐẠT: 111 sprite, 69 icon, 150 mẫu bộ 2, 4 thân Gia viên × 12 clip, đúng hitFrame và 3 đoạn câu cá");
+                Debug.Log("[HavenLord home audit] ĐẠT: 111 sprite, 72 icon, 150 mẫu bộ 2, 4 thân Gia viên × 12 clip, đúng hitFrame và 3 đoạn câu cá");
             }
             catch (Exception e)
             {

@@ -118,7 +118,7 @@ export const FARM_MACHINES = [
 ] as const;
 export const FARM_MACHINE_SPOTS:Record<string,readonly [number,number]> = {flour_mill:[612,566],oven:[680,566],pickle_jar:[748,566],fruit_press:[816,566],wine_barrel:[748,636],drying_rack:[816,636]};
 /** Giá bán ở hộp gửi hàng của quả và thành phẩm (giá thử). */
-export const FARM_PRODUCT_SELL:Record<string,number> = {dish_grilled_fish:40,dish_fish_soup:45,dish_fried_rice:80,dish_pumpkin_soup:140,dish_strawberry_cake:150,dish_roast_chicken:120,dish_beef_stew:130,dish_lamb_skewer:110,farm_apple:25,farm_orange:28,farm_peach:55,farm_honey:60,prod_flour:24,prod_bread:45,prod_pickles:90,prod_juice:70,prod_wine:260,prod_dried_fruit:130};
+export const FARM_PRODUCT_SELL:Record<string,number> = {farm_egg:12,farm_milk:30,farm_wool:40,meat_chicken:30,meat_beef:60,meat_lamb:50,dish_grilled_fish:40,dish_fish_soup:45,dish_fried_rice:80,dish_pumpkin_soup:140,dish_strawberry_cake:150,dish_roast_chicken:120,dish_beef_stew:130,dish_lamb_skewer:110,farm_apple:25,farm_orange:28,farm_peach:55,farm_honey:60,prod_flour:24,prod_bread:45,prod_pickles:90,prod_juice:70,prod_wine:260,prod_dried_fruit:130};
 /**
  * Nấu ăn (kế hoạch 2.4 / 9.2 / 9.11, hình K1): đứng cạnh bếp lò củi đã đặt trong nhà (`gv_bep_lo_cui`, dời được khi bày trí) → nấu món từ
  * nông sản / cá / thành phẩm máy; ăn món nhận bùa ngắn (sát thương / giáp / kinh nghiệm), hoặc bán ở hộp gửi hàng. Món thịt cần thịt từ
@@ -135,12 +135,33 @@ export const FARM_DISHES = [
  {id:'dish_beef_stew',name:'Bò hầm',cookMs:11000,in:{meat_beef:1,farm_carrot:2},buff:{kind:'guard',mult:1.15,ms:20*60000},sell:130},
  {id:'dish_lamb_skewer',name:'Xiên cừu nướng',cookMs:7000,in:{meat_lamb:1,farm_chili:1},buff:{kind:'dmg',mult:1.12,ms:15*60000},sell:110},
 ] as const;
+/**
+ * Chăn nuôi (kế hoạch 2.3 / 9.8 / 9.11): con vật đi lại trong bãi quây (bò / cừu ở bãi đông bắc, gà ở sân đông nam), tổ ong cạnh bồn hoa.
+ * Đứng ở cổng bãi: cho ăn (lúa mì / ngô trong kho) → sau một ngày Haven (48 phút) thu sản phẩm mỗi con một món; ong không cần cho ăn.
+ * Xuất chuồng: đổi một con lấy thịt (món thịt ở bếp). Gia viên có sẵn 2 gà, 1 bò, 1 cừu, 1 đàn ong. Giá / thời gian / lượng thử.
+ */
+export const HAVEN_DAY_MS = 48*60000;
+export const FARM_ANIMALS = [
+ {id:'chicken',name:'Gà',character:'farm_chicken_001',scale:0.6,pen:'chicken',max:8,price:60,feed:1,product:'farm_egg',meat:'meat_chicken',meatN:2,start:2},
+ {id:'cow',name:'Bò sữa',character:'farm_cow_001',scale:2,pen:'pasture',max:3,price:400,feed:2,product:'farm_milk',meat:'meat_beef',meatN:3,start:1},
+ {id:'sheep',name:'Cừu',character:'farm_sheep_001',scale:1.5,pen:'pasture',max:4,price:250,feed:2,product:'farm_wool',meat:'meat_lamb',meatN:2,start:1},
+ {id:'bee',name:'Đàn ong',character:null,scale:1,pen:'hives',max:3,price:150,feed:0,product:'farm_honey',meat:null,meatN:0,start:1},
+] as const;
+/** Chỗ đứng (cổng bãi / tổ ong) và vùng trong bãi cho con vật đi lại — toạ độ khuôn viên (scripts/export-home-maps.mts). */
+export const FARM_PENS:Record<string,{gate:readonly [number,number];area:{x0:number;x1:number;y0:number;y1:number}}> = {
+ pasture:{gate:[1219,474],area:{x0:1000,x1:1440,y0:170,y1:375}},
+ chicken:{gate:[1230,954],area:{x0:1110,x1:1440,y0:720,y1:880}},
+ hives:{gate:[480,975],area:{x0:360,x1:610,y0:900,y1:950}},
+};
+export const FARM_FEED = ['farm_wheat','farm_corn'] as const;
+/** Đàn của người chơi (chưa từng mua bán = đàn có sẵn). */
+export function livestockOf(state:Pick<FarmState,'livestock'>):Record<string,{count:number;fedAt:number}>{const l=state.livestock??{};return Object.fromEntries(FARM_ANIMALS.map(a=>[a.id,l[a.id]??{count:a.start,fedAt:0}]));}
 export function shopPrice(id:string,state:Pick<FarmState,'plots'>):number{const it=FARM_SHOP.find(x=>x.id===id);if(!it)return Infinity;return id==='plots'?it.coins+it.step*Math.max(0,(state.plots.length-FARM_LAYOUT.plots)/4):it.coins;}
 export type FarmRoom = keyof typeof FARM_ROOMS;
 /** Chỗ câu gần nhất trong bán kính `r` px (null = không đứng ở bờ hồ). */
 export function pondSpotNear(x:number,y:number,r=70):readonly [number,number]|null{let best:readonly [number,number]|null=null,d=r;for(const s of FARM_LAYOUT.pondSpots){const k=Math.hypot(x-s[0],y-s[1]);if(k<=d){d=k;best=s;}}return best;}
 export interface FarmPlot {tilled:boolean;crop:string|null;plantedAt:number;lastAt:number;growth:number;watered:boolean}
-export interface FarmState {version:1;visited:string[];unlocked:boolean;plots:FarmPlot[];inventory:Record<string,number>;outfit:'farmer1'|'gardener';fish:{nonce:string;biteAt:number;expires:number;reward:string;hookedAt?:number;seed?:number;power?:number}|null;cooking?:{dish:string;startedAt:number}|null;lastAction:number;lastEntry?:number;tank?:string[];owned?:string[];pets?:string[];petsOut?:string[];petShards?:number;petPity?:number;lastSpin?:{pet:string;dup:boolean}[];decor?:Record<string,{id:string;x:number;y:number}[]>;storage?:Record<string,number>;trees?:({kind:string;plantedAt:number;lastHarvest:number}|null)[];machines?:Record<string,{recipe:string;readyAt:number}|null>}
+export interface FarmState {version:1;visited:string[];unlocked:boolean;plots:FarmPlot[];inventory:Record<string,number>;outfit:'farmer1'|'gardener';fish:{nonce:string;biteAt:number;expires:number;reward:string;hookedAt?:number;seed?:number;power?:number}|null;cooking?:{dish:string;startedAt:number}|null;lastAction:number;lastEntry?:number;tank?:string[];owned?:string[];pets?:string[];petsOut?:string[];petShards?:number;petPity?:number;lastSpin?:{pet:string;dup:boolean}[];decor?:Record<string,{id:string;x:number;y:number}[]>;storage?:Record<string,number>;trees?:({kind:string;plantedAt:number;lastHarvest:number}|null)[];livestock?:Record<string,{count:number;fedAt:number}>;machines?:Record<string,{recipe:string;readyAt:number}|null>}
 export function newFarm():FarmState{return{version:1,visited:[],unlocked:false,plots:Array.from({length:12},()=>({tilled:false,crop:null,plantedAt:0,lastAt:0,growth:0,watered:false})),inventory:{},outfit:'farmer1',fish:null,lastAction:0,tank:[]};}
 export function growPlot(p:FarmPlot,now:number):void {if(!p.crop)return;const c=FARM_CROPS.find(x=>x.id===p.crop);if(!c)return;p.growth=Math.min(c.ms,p.growth+Math.max(0,now-p.lastAt)*(p.watered?1:.5));p.lastAt=Math.max(p.lastAt,now);}
 export function cropStage(p:FarmPlot):number{const c=FARM_CROPS.find(x=>x.id===p.crop);return c?Math.min(3,Math.floor(p.growth/c.ms*4)):0;}

@@ -1062,6 +1062,30 @@
       "h": 49
     },
     {
+      "id": "farm_egg",
+      "name": "Trứng gà",
+      "source": "sheet:B2_animal_buildings#4@3x2",
+      "file": "items/farm_egg.png",
+      "w": 55,
+      "h": 61
+    },
+    {
+      "id": "farm_milk",
+      "name": "Sữa bò",
+      "source": "sheet:B2_animal_buildings#5@3x2",
+      "file": "items/farm_milk.png",
+      "w": 58,
+      "h": 60
+    },
+    {
+      "id": "farm_wool",
+      "name": "Len cừu",
+      "source": "sheet:HL2_highland_village#7@3x3",
+      "file": "items/farm_wool.png",
+      "w": 42,
+      "h": 44
+    },
+    {
       "id": "seed_rice",
       "name": "Hạt lúa nước",
       "source": "sheet:F10_seed_icons#0@4x4",

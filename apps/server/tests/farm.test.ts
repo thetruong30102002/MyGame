@@ -86,6 +86,13 @@ try{
   act('eat',{item:'dish_pumpkin_soup@burnt'});assert(failed(),'món cháy không ăn được');
   act('eat',{item:'dish_pumpkin_soup'});assert(store.buffs(id).some(b=>b.kind==='guard'),'ăn súp bí được bùa giáp');assert.equal(store.farm.read(acc).inventory.dish_pumpkin_soup,0);}
  store.farm.run(acc,id,now,s=>{delete s.inventory['dish_pumpkin_soup@raw'];delete s.inventory['dish_pumpkin_soup@burnt'];return{value:null};});
+ // Chăn nuôi: cho ăn ở cổng (thiếu thóc thì chặn), sau một ngày Haven thu trứng; mua thêm gà; xuất chuồng lấy thịt; ong thu mật.
+ {at={map:homeMap(acc),x:1230,y:960};act('collect',{item:'chicken'});assert(failed(),'chưa cho ăn');act('feed',{item:'chicken'});assert(failed(),'thiếu thóc');
+  store.farm.run(acc,id,now,s=>{s.inventory.farm_wheat=(s.inventory.farm_wheat??0)+2;return{value:null};});act('feed',{item:'chicken'});assert(store.farm.read(acc).livestock!.chicken!.fedAt>0);
+  act('collect',{item:'chicken'});assert(failed(),'chưa hết ngày');now+=48*60000;act('collect',{item:'chicken'});assert.equal(store.farm.read(acc).inventory.farm_egg,2,'2 gà → 2 trứng');
+  act('butcher',{item:'chicken'});assert.equal(store.farm.read(acc).inventory.meat_chicken,2);assert.equal(store.farm.read(acc).livestock!.chicken!.count,1);
+  at={map:homeMap(acc),x:480,y:970};act('collect',{item:'bee'});assert(failed(),'ong bắt đầu đếm ngày');now+=48*60000;act('collect',{item:'bee'});assert.equal(store.farm.read(acc).inventory.farm_honey,1);
+  store.farm.run(acc,id,now,s=>{delete s.inventory.farm_egg;delete s.inventory.meat_chicken;delete s.inventory.farm_honey;return{value:null};});}
  // Vườn cây ăn quả + máy chế biến: mua cây giống / máy ở người bán đồ, trồng → lớn → có quả → hái; xay bột, bán thành phẩm.
  store.farm.run(acc,id,now,(_s,c)=>({value:null,coins:c+1000}));
  {const c0=store.ecoOf(id)!.coins;at={map:homeMap(acc),x:780,y:500};act('buy',{item:'sapling_apple'});act('buy',{item:'machine_flour_mill'});assert.equal(store.ecoOf(id)!.coins,c0-80-300);
