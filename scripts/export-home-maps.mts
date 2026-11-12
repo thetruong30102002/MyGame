@@ -300,6 +300,8 @@ for(const q of garden.props){if(q.id==='tree'||q.id==='gv_nha_chinh')continue;co
   bh:['dot-10','nha_bien_hai_cang'],sm:['dot-7','nha_vom_sa_mac'],ct:['dot-10','nha_cay_tien'],gd:['dot-7','nha_gach_do_pho'],pd:['dot-10','nha_phuong_dong'],ln:['dot-10','nha_lun_nui_lua'],
   ld:['dot-7','dinh_thu_lau_dai'],lk:['dot-10','lau_kinh_vuon_hoa'],lb:['dot-10','lau_dai_bang'],hv:['dot-7','biet_thu_haven']};
  const HOUSE_PRICE:Record<string,number>={dq:5000,nk:8000,dv:15000,cx:22000,tt:30000,ns:40000,bh:52000,sm:65000,ct:80000,gd:100000,pd:125000,ln:155000,ld:190000,lk:230000,lb:280000,hv:350000};
+ // Tên bán ở Cô Lựu theo đúng mặt ngoài (tránh "Nhà Nhà sàn").
+ const HOUSE_NAME:Record<string,string>={dq:'Nhà gỗ đồng quê',nk:'Nhà nấm khổng lồ',dv:'Nhà đá vùng cao',cx:'Nhà cối xay hoa',tt:'Nhà gỗ tuyết tùng',ns:'Nhà sàn đầm lầy',bh:'Nhà biển hải cảng',sm:'Nhà vòm sa mạc',ct:'Nhà cây tiên',gd:'Nhà gạch đỏ phố',pd:'Nhà Phương Đông',ln:'Nhà lùn núi lửa',ld:'Dinh thự lâu đài',lk:'Lâu kính vườn hoa',lb:'Lâu đài băng',hv:'Biệt thự Haven'};
  const dir='assets/home/houses',info:Record<string,unknown>={};
  HOUSE_TIERS.forEach(([pre,name,batch],tier)=>{
   const d=join(dir,pre);mkdirSync(d,{recursive:true});
@@ -309,7 +311,7 @@ for(const q of garden.props){if(q.id==='tree'||q.id==='gv_nha_chinh')continue;co
   // Cặp tường trơn + cửa sổ ghép liền (chồng 4 px chỗ cột) — client lát lặp ngang dải tường.
   const w0=gpt(batch,`${pre}_tuong`),w1=gpt(batch,`${pre}_tuong_cua_so`),wall=createImage(w0.width+w1.width-4,Math.max(w0.height,w1.height));blit(wall,w0,0,0);blit(wall,w1,w0.width-4,0);writePng(join(d,'wall.png'),wall);
   const stairs=readPng(join('packages/asset-pipeline/sources/home-stairs',`cau_thang_${pre}.png`));writePng(join(d,'stairs.png'),stairs);
-  info[pre]={name:`Nhà ${name}`,tier:tier+1,price:HOUSE_PRICE[pre],exterior:{w:ext.width,h:ext.height},wall:{w:wall.width,h:wall.height},stairs:{w:stairs.width,h:stairs.height}};
+  info[pre]={name:HOUSE_NAME[pre]??`Nhà ${name}`,tier:tier+1,price:HOUSE_PRICE[pre],exterior:{w:ext.width,h:ext.height},wall:{w:wall.width,h:wall.height},stairs:{w:stairs.width,h:stairs.height}};
  });
  writeFileSync(join(dir,'houses.json'),JSON.stringify(info,null,1));
  writeFileSync('packages/sim/src/farmHouses.generated.ts',`// SINH TỰ ĐỘNG bởi scripts/export-home-maps.mts — 16 kiểu nhà Gia viên mua được (giá đề xuất 12/11, cỡ ảnh px).\nexport const FARM_HOUSES: Record<string,{name:string;tier:number;price:number;exterior:{w:number;h:number};wall:{w:number;h:number};stairs:{w:number;h:number}}> = ${JSON.stringify(info)};\n`);

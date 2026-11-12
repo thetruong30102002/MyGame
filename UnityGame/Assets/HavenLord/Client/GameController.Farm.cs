@@ -253,6 +253,8 @@ namespace HavenLord.Client
         private float fightAcc;
         private bool fightHold;
         public bool Fighting => fight != null;
+        /// <summary>Chỉ AutoTest: thay tay giữ cần (nhận lực căng dây hiện tại).</summary>
+        public Func<double, bool> FightAuto;
 
         private bool TickFight(float dt)
         {
@@ -271,7 +273,7 @@ namespace HavenLord.Client
                 fightPower = (double)fish["power"]; fightToggles.Clear(); fightTick = 0; fightAcc = 0; fightHold = false;
             }
             if (fight == null) return true;
-            var hold = !hud.Blocking && (UnityEngine.Input.GetMouseButton(0) || UnityEngine.Input.GetKey(KeyCode.E) || UnityEngine.Input.GetKey(KeyCode.Space));
+            var hold = FightAuto != null ? FightAuto(fight.Tension) : !hud.Blocking && (UnityEngine.Input.GetMouseButton(0) || UnityEngine.Input.GetKey(KeyCode.E) || UnityEngine.Input.GetKey(KeyCode.Space));
             fightAcc += dt;
             string outcome = null;
             while (fightAcc >= FishFight.TickMs / 1000f && outcome == null && fightTick < FishFight.MaxTicks)
@@ -620,7 +622,7 @@ namespace HavenLord.Client
             if (col >= 0 && col < PlotCols && row >= 0 && row * PlotCols + col < PlotsMax)
             {
                 if (row * PlotCols + col < PlotCount) FarmPlotAction(row * PlotCols + col);
-                else hud.Toast("Ô đất chưa mở · gặp Quản gia để mở thêm", "info");
+                else hud.Toast("Ô đất chưa mở · gặp Cô Lựu để mở thêm", "info");
                 return;
             }
             if (Vector2.Distance(at, PondGate) < 90) { FarmSend("pond"); return; }

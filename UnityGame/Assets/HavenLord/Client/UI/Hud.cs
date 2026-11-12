@@ -511,6 +511,7 @@ namespace HavenLord.Client.UI
 
         public void Toast(string text, string kind)
         {
+            if (Application.isBatchMode) Debug.Log("[Toast] " + kind + ": " + text); // AutoTest đọc lỗi máy chủ trong player.log
             Color c = UiStyle.Parchment;
             string icon = null;
             var size = 15;

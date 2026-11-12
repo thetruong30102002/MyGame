@@ -15,6 +15,8 @@ try{
  const state=JSON.parse(row.state);assert(state.plots[0].crop==='wheat'&&state.plots[0].watered);
  state.plots[0].lastAt=Date.now()-600000;
  db.prepare('UPDATE farm_accounts SET state=? WHERE account_id=?').run(JSON.stringify(state),row.account_id);
+ // Xu thử để AutoTest mua nhà Gia viên (Lùn núi lửa 155.000 + Biệt thự Haven 350.000).
+ db.prepare("UPDATE characters SET progress=json_set(progress,'$.coins',coalesce(json_extract(progress,'$.coins'),0)+600000) WHERE id=?").run(character);
  writeFileSync(join(dir,'farm-growth-ready.txt'),'Đã mô phỏng 10 phút offline trong test.db, đúng nhân vật AutoTest.');
  console.log('✔ Fixture cây offline đã đặt trên test.db của nhân vật AutoTest');
 }finally{db.close();}

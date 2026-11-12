@@ -4,7 +4,7 @@ import {mkdtempSync,rmSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join,resolve} from 'node:path';
 import {Store} from '../src/db.ts';
-import {Farm,homeMap,roomMap} from '../src/farm.ts';
+import {Farm,farmMaps,homeMap,roomMap} from '../src/farm.ts';
 import {newProgress} from '../src/http.ts';
 import {DECOR_DEFAULT,DECOR_ITEMS} from '@havenlord/sim/farmDecor.generated';
 import {FARM_PETS,chooseFarmFish,pondMap} from '@havenlord/sim/farm';
@@ -132,6 +132,8 @@ try{
   at={map:homeMap(acc),x:576,y:280};act('room');assert(failed(),'cửa nhà lớn đã dời');at={map:homeMap(acc),x:576,y:460};act('room');assert.equal(at.map,roomMap(acc,'house'));
   act('houseSet',{item:'hv'});assert(failed(),'chưa có nhà Haven');act('houseSet',{item:''});assert.equal(store.farm.read(acc).house,'');
   store.farm.run(acc,id,now,(_s,c)=>({value:null,coins:c-1000}));}
+ // Chủ nhà được ở hồ câu của chính mình (world.changeMap kiểm qua canEnterMap) — lỗi cũ ghi nhầm hàm vào danh sách map.
+ assert(farmMaps(acc).includes(pondMap(acc))&&farmMaps(acc).every(m=>typeof m==='string'),'hồ câu chủ nhà thuộc map Gia viên');
  // Bể cá phòng khách: thả cá đã câu vào bể, cá trong bể không bị bán, lấy lại được.
  at={map:roomMap(acc,'house'),x:200,y:300};act('tank',{item:'crucian'});assert(failed(),'phải tới bể');
  {const t=store.farm.read(acc).decor!.house!.find(q=>q.id==='gv_be_ca')!;at={map:roomMap(acc,'house'),x:t.x,y:t.y+24};}

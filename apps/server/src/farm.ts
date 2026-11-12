@@ -13,7 +13,7 @@ export const homeMap=(account:number,inside=false)=>`home/${account}${inside?'_i
 export const roomMap=(account:number,room:FarmRoom)=>room==='house'?homeMap(account,true):`home/${account}_${room}`;
 const roomOf=(account:number,map:string|undefined):FarmRoom|null=>(Object.keys(FARM_ROOMS) as FarmRoom[]).find(r=>roomMap(account,r)===map)??null;
 /** Map Gia viên người này được vào: khuôn viên + nhà riêng + hồ câu dùng chung. */
-export const farmMaps=(account:number)=>[homeMap(account),isPondMap,pondMap,...(Object.keys(FARM_ROOMS) as FarmRoom[]).map(r=>roomMap(account,r))];
+export const farmMaps=(account:number)=>[homeMap(account),pondMap(account),...(Object.keys(FARM_ROOMS) as FarmRoom[]).map(r=>roomMap(account,r))];
 export class Farm {
  /** Khách ghé hồ bạn: nhân vật → hồ được phép vào (đặt khi máy chủ đã kiểm bạn bè + chỗ trống). */
  private pondGuests=new Map<string,string>();

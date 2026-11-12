@@ -1,7 +1,7 @@
 {
 	"FARM_HOUSES": {
 		"dq": {
-			"name": "Nhà Đồng quê",
+			"name": "Nhà gỗ đồng quê",
 			"tier": 1,
 			"price": 5000,
 			"exterior": {
@@ -18,7 +18,7 @@
 			}
 		},
 		"nk": {
-			"name": "Nhà Nấm khổng lồ",
+			"name": "Nhà nấm khổng lồ",
 			"tier": 2,
 			"price": 8000,
 			"exterior": {
@@ -35,7 +35,7 @@
 			}
 		},
 		"dv": {
-			"name": "Nhà Đá vùng cao",
+			"name": "Nhà đá vùng cao",
 			"tier": 3,
 			"price": 15000,
 			"exterior": {
@@ -52,7 +52,7 @@
 			}
 		},
 		"cx": {
-			"name": "Nhà Cối xay hoa",
+			"name": "Nhà cối xay hoa",
 			"tier": 4,
 			"price": 22000,
 			"exterior": {
@@ -69,7 +69,7 @@
 			}
 		},
 		"tt": {
-			"name": "Nhà Gỗ tuyết tùng",
+			"name": "Nhà gỗ tuyết tùng",
 			"tier": 5,
 			"price": 30000,
 			"exterior": {
@@ -86,7 +86,7 @@
 			}
 		},
 		"ns": {
-			"name": "Nhà Nhà sàn",
+			"name": "Nhà sàn đầm lầy",
 			"tier": 6,
 			"price": 40000,
 			"exterior": {
@@ -103,7 +103,7 @@
 			}
 		},
 		"bh": {
-			"name": "Nhà Thuyền trưởng",
+			"name": "Nhà biển hải cảng",
 			"tier": 7,
 			"price": 52000,
 			"exterior": {
@@ -120,7 +120,7 @@
 			}
 		},
 		"sm": {
-			"name": "Nhà Sa mạc",
+			"name": "Nhà vòm sa mạc",
 			"tier": 8,
 			"price": 65000,
 			"exterior": {
@@ -137,7 +137,7 @@
 			}
 		},
 		"ct": {
-			"name": "Nhà Nhà cây Elf",
+			"name": "Nhà cây tiên",
 			"tier": 9,
 			"price": 80000,
 			"exterior": {
@@ -154,7 +154,7 @@
 			}
 		},
 		"gd": {
-			"name": "Nhà Gạch đỏ",
+			"name": "Nhà gạch đỏ phố",
 			"tier": 10,
 			"price": 100000,
 			"exterior": {
@@ -188,7 +188,7 @@
 			}
 		},
 		"ln": {
-			"name": "Nhà Người lùn",
+			"name": "Nhà lùn núi lửa",
 			"tier": 12,
 			"price": 155000,
 			"exterior": {
@@ -205,7 +205,7 @@
 			}
 		},
 		"ld": {
-			"name": "Nhà Lâu đài",
+			"name": "Dinh thự lâu đài",
 			"tier": 13,
 			"price": 190000,
 			"exterior": {
@@ -222,7 +222,7 @@
 			}
 		},
 		"lk": {
-			"name": "Nhà Lâu kính",
+			"name": "Lâu kính vườn hoa",
 			"tier": 14,
 			"price": 230000,
 			"exterior": {
@@ -239,7 +239,7 @@
 			}
 		},
 		"lb": {
-			"name": "Nhà Lâu đài băng",
+			"name": "Lâu đài băng",
 			"tier": 15,
 			"price": 280000,
 			"exterior": {
@@ -256,7 +256,7 @@
 			}
 		},
 		"hv": {
-			"name": "Nhà Haven",
+			"name": "Biệt thự Haven",
 			"tier": 16,
 			"price": 350000,
 			"exterior": {

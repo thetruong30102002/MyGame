@@ -14,6 +14,7 @@ namespace HavenLord.Client
         private IEnumerator FarmTest(GameController game)
         {
             if (onlineUrl != "http://127.0.0.1:3201") { Fail("-havenFarm chỉ chạy máy chủ thử http://127.0.0.1:3201"); yield break; }
+            GameClock.Override = 12; // ảnh duyệt chụp ban ngày
             var hud = FindFirstObjectByType<UI.Hud>();
             for (var i = 0; i < 300 && (hud.Cinematic.Open || hud.DialogOpen); i++)
             {
@@ -70,14 +71,30 @@ namespace HavenLord.Client
             for (var i = 0; i < 100 && game.Map?.id != "pond"; i++) yield return new WaitForSeconds(.1f);
             yield return new WaitForSeconds(.5f);
             if (game.Map?.id != "pond") { Fail("Không sang được map hồ câu"); yield break; }
-            yield return FarmWalk(game, 360, 288);
-            game.FarmFish();
-            for (var i = 0; i < 100 && game.FarmState["fish"]?.Type != JTokenType.Object; i++) yield return new WaitForSeconds(.1f);
-            if (!(game.FarmState["fish"] is JObject fish)) { Fail("Không quăng được cần"); yield break; }
-            while (game.FarmNow < (double)fish["biteAt"]) yield return null;
-            yield return Shot("farm-4-phao-giat");
-            game.FarmFish();yield return new WaitForSeconds(1);
-            if (!(game.FarmState["inventory"] is JObject inv) || !inv.Properties().Any(p => p.Name.StartsWith("fish_", StringComparison.Ordinal) && (int)p.Value > 0)) { Fail("Kéo cá chưa vào kho"); yield break; }
+            yield return FarmWalk(game, 360, 240);
+            // Trận kéo cá: giữ cần khi dây chưa căng quá 65, thả khi căng — tối đa 4 lần quăng (cá có thể sổng / đứt dây).
+            game.FightAuto = t => t < 65;
+            JObject inv = null;
+            for (var cast = 0; cast < 4 && inv == null; cast++)
+            {
+                game.FarmFish();
+                for (var i = 0; i < 100 && game.FarmState["fish"]?.Type != JTokenType.Object; i++) yield return new WaitForSeconds(.1f);
+                if (!(game.FarmState["fish"] is JObject fish)) { Fail("Không quăng được cần"); yield break; }
+                while (game.FarmNow < (double)fish["biteAt"]) yield return null;
+                if (cast == 0) yield return Shot("farm-4-phao-giat");
+                game.FarmFish();
+                var shot = false;
+                for (var i = 0; i < 600 && game.FarmState["fish"]?.Type == JTokenType.Object; i++)
+                {
+                    if (!shot && game.Fighting && i > 20) { yield return Shot("farm-4-keo-ca"); shot = true; }
+                    yield return new WaitForSeconds(.1f);
+                }
+                yield return new WaitForSeconds(.6f);
+                if (game.FarmState["inventory"] is JObject iv && iv.Properties().Any(p => p.Name.StartsWith("fish_", StringComparison.Ordinal) && (int)p.Value > 0)) inv = iv;
+                else log.WriteLine("Lần quăng " + (cast + 1) + ": cá sổng / đứt dây, quăng lại");
+            }
+            game.FightAuto = null;
+            if (inv == null) { Fail("Kéo cá chưa vào kho sau 4 lần quăng"); yield break; }
             log.WriteLine("PASS cuốc / gieo / tưới / thu hoạch / quăng–chờ–kéo; kho máy chủ: " + inv.ToString(Newtonsoft.Json.Formatting.None));
             yield return FarmWalk(game, 96, 352);game.FarmSend("pond");
             for (var i = 0; i < 100 && game.Map?.id != "garden"; i++) yield return new WaitForSeconds(.1f);
@@ -104,6 +121,39 @@ namespace HavenLord.Client
             yield return FarmWalk(game, 332, 170);game.FarmSend("outfit", outfit: "gardener");yield return new WaitForSeconds(.8f);
             if (!game.FarmView.BodyId.EndsWith("gardener", StringComparison.Ordinal)) { Fail("Tủ chưa đổi bộ Thợ vườn"); yield break; }
             yield return Shot("farm-6-doi-bo-tho-vuon");
+            // Mua / đổi nhà: fixture đã cộng xu thử trên test.db; mua Biệt thự Haven ở Cô Lựu → mặt ngoài, sàn, tường, cầu thang đổi theo nhà.
+            yield return FarmWalk(game, 416, 350);game.FarmSend("go", room: "house");
+            for (var i = 0; i < 100 && game.Map?.id != "house"; i++) yield return new WaitForSeconds(.1f);
+            yield return new WaitForSeconds(.5f);
+            yield return FarmWalk(game, 320, 400);game.FarmSend("room");
+            for (var i = 0; i < 100 && game.Map?.id != "garden"; i++) yield return new WaitForSeconds(.1f);
+            yield return new WaitForSeconds(.5f);
+            yield return FarmWalk(game, 780, 520);
+            game.ShowHouses();yield return new WaitForSeconds(.8f);
+            yield return Shot("farm-8-bang-nha");
+            hud.Panels.Close();
+            foreach (var (hid, tag) in new[] { ("ln", "lun-nui-lua"), ("hv", "biet-thu-haven") })
+            {
+                game.FarmSend("buy", item: "house:" + hid);
+                for (var i = 0; i < 50 && game.HouseId != hid; i++) yield return new WaitForSeconds(.1f);
+                if (game.HouseId != hid) { Fail("Mua nhà " + hid + " không thành (xu fixture?)"); yield break; }
+                yield return new WaitForSeconds(.6f);
+                yield return FarmWalk(game, 576, 600);
+                yield return Shot("farm-9-ngoai-" + tag);
+                yield return FarmWalk(game, 576, 455);game.FarmSend("room");
+                for (var i = 0; i < 100 && game.Map?.id != "house"; i++) yield return new WaitForSeconds(.1f);
+                yield return new WaitForSeconds(.6f);
+                if (game.Map?.id != "house") { Fail("Không vào được cửa nhà lớn " + hid); yield break; }
+                yield return Shot("farm-9-trong-" + tag);
+                yield return FarmWalk(game, 320, 400);game.FarmSend("room");
+                for (var i = 0; i < 100 && game.Map?.id != "garden"; i++) yield return new WaitForSeconds(.1f);
+                yield return new WaitForSeconds(.5f);
+                yield return FarmWalk(game, 780, 520);
+            }
+            game.FarmSend("houseSet", item: "ln");
+            for (var i = 0; i < 50 && game.HouseId != "ln"; i++) yield return new WaitForSeconds(.1f);
+            if (game.HouseId != "ln") { Fail("Đổi lại nhà đã mua không được"); yield break; }
+            log.WriteLine("PASS mua 2 nhà (Lùn núi lửa, Biệt thự Haven), vào cửa nhà lớn, đổi lại nhà đã có");
             game.FarmSend("leave");
             for (var i = 0; i < 100 && game.Map?.region == "home"; i++) yield return new WaitForSeconds(.1f);
             yield return new WaitForSeconds(.5f);
