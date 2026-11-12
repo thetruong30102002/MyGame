@@ -156,6 +156,21 @@ namespace HavenLord.Client
         }
 
         private static Sprite farmSoil;
+        // Ô ruộng PixelLab (Resources/HomeSoil: tấm 2×2 ô 32px). 0 đất chưa cuốc · 1 đã cuốc · 2 đã tưới · 3 cỏ cọc dây (ô bán).
+        private static Sprite[] soilTiles;
+        private static Sprite SoilTile(int k)
+        {
+            if (soilTiles == null)
+            {
+                var tex = Resources.Load<Texture2D>("HomeSoil");
+                soilTiles = new Sprite[4];
+                if (tex != null)
+                    for (var i = 0; i < 4; i++)
+                        soilTiles[i] = Sprite.Create(tex, new Rect(i % 2 * 32, i < 2 ? 32 : 0, 32, 32), new Vector2(.5f, 1), WorldCoords.PixelsPerUnit, 0, SpriteMeshType.FullRect);
+            }
+            return soilTiles[k] ?? SoilSprite();
+        }
+
         private static Sprite SoilSprite()
         {
             if (farmSoil != null) return farmSoil;
@@ -176,18 +191,18 @@ namespace HavenLord.Client
             if (map?.def.id != "garden" || !(FarmState?["plots"] is JArray plots)) return;
             farmPlots = new GameObject("Ruộng 32px");farmPlots.transform.SetParent(map.transform, false);
             var crops = sim.Modules["farm"]["FARM_CROPS"] as JArray;
-            for (var i = plots.Count; i < PlotsMax; i++)
+            // Ô chưa mở: chỉ hàng kế tiếp mua được cắm cọc dây (các hàng sau để cỏ của map).
+            for (var i = plots.Count; i < Math.Min(PlotsMax, (plots.Count + PlotCols - 1) / PlotCols * PlotCols + PlotCols); i++)
             {
                 var (lx, ly) = PlotPos(i);
                 var locked = new GameObject("Ô chưa mở " + i).AddComponent<SpriteRenderer>();locked.transform.SetParent(farmPlots.transform, false);locked.transform.localPosition = WorldCoords.PxToWorld(lx, ly);
-                locked.sprite = SoilSprite();locked.sortingOrder = -150;locked.color = new Color(.55f, .62f, .45f, .22f);
+                locked.sprite = SoilTile(3);locked.sortingOrder = -150;
             }
             for (var i = 0; i < plots.Count; i++)
             {
                 var p = plots[i]; var (x, y) = PlotPos(i);
                 var soil = new GameObject("Ô ruộng " + i).AddComponent<SpriteRenderer>();soil.transform.SetParent(farmPlots.transform, false);soil.transform.localPosition = WorldCoords.PxToWorld(x, y);
-                soil.sprite = SoilSprite();soil.sortingOrder = -150;
-                soil.color = (bool)p["tilled"] ? (bool)p["watered"] ? new Color(.65f, .66f, .75f, 1) : Color.white : new Color(.7f, .72f, .6f, .35f);
+                soil.sprite = SoilTile((bool)p["tilled"] ? (bool)p["watered"] ? 2 : 1 : 0);soil.sortingOrder = -150;
                 var crop = (string)p["crop"]; if (crop == null) continue;
                 var ms = (double?)crops?.FirstOrDefault(c => (string)c["id"] == crop)?["ms"] ?? 1;
                 var stage = Math.Min(3, (int)((double)p["growth"] / ms * 4));
@@ -489,6 +504,19 @@ namespace HavenLord.Client
 
         /// <summary>Bộ sưu tập đồ bày trí ở người bán đồ Gia viên (lọc theo nhóm).</summary>
         public string FurnitureCat = "Giường";
+        public int FurniturePage;
+        public int HousePage;
+        public string ShopCat = "Hạt giống";
+        /// <summary>Hình đồ vật Gia viên cho ô cửa hàng: atlas map nhà (đồ bày trí), không có thì atlas đồ Gia viên (máy, cây…).</summary>
+        public Sprite HomePropSprite(string id) => map?.def.propCatalog?.Find(id)?.sprite ?? database.homeProps?.Find(id)?.sprite;
+        private static readonly Dictionary<string, Sprite> houseThumbs = new Dictionary<string, Sprite>();
+        /// <summary>Ảnh mặt ngoài kiểu nhà (Resources/HomeHouses) làm hình ô bảng nhà.</summary>
+        public Sprite HouseThumb(string house)
+        {
+            if (houseThumbs.TryGetValue(house, out var s)) return s;
+            var t = HouseTex(house, "exterior");
+            return houseThumbs[house] = t == null ? null : Sprite.Create(t, new Rect(0, 0, t.width, t.height), new Vector2(.5f, .5f), 100);
+        }
         public void ShowHouses() { VillageKey = "houses"; FarmSend("get"); hud.Panels.Show(Panels.Kind.Farm); }
         public void ShowFurniture() { VillageKey = "furniture"; FarmSend("get"); hud.Panels.Show(Panels.Kind.Farm); }
 

@@ -197,13 +197,35 @@ namespace HavenLord.Client.UI
             si.type = Image.Type.Sliced;
             si.raycastTarget = false;
 
-            var bg = UiKit.Stretch(window, "Bg");
-            bg.offsetMin = new Vector2(1, 1);
-            bg.offsetMax = new Vector2(-1, -1);
-            UiKit.Panel(bg, UiStyle.Surface);
+            // Khung kiểu bảng gỗ: viền ngoài kem vàng 6px → chỉ nâu sẫm 2px → ruột gỗ nâu; thanh tiêu đề da nâu chạy ngang đỉnh.
             var frame = UiKit.Stretch(window, "Frame");
-            UiStyle.Pill(frame, UiStyle.Line, 7);
+            UiStyle.Pill(frame, UiStyle.FrameCream, 9);
+            var inner = UiKit.Stretch(window, "FrameDark");
+            inner.offsetMin = new Vector2(6, 6);
+            inner.offsetMax = new Vector2(-6, -6);
+            UiStyle.Pill(inner, UiStyle.FrameDark, 6);
+            var bg = UiKit.Stretch(window, "Bg");
+            bg.offsetMin = new Vector2(8, 8);
+            bg.offsetMax = new Vector2(-8, -8);
+            UiStyle.Pill(bg, UiStyle.Surface, 5);
+            var bar = UiKit.Rect(window, "TitleBar", new Vector2(0, 1), new Vector2(0, 1), new Vector2(206, -10), new Vector2(WindowSize.x - 216, 52));
+            UiStyle.Pill(bar, UiStyle.FrameDark, 6);
+            var barFace = UiKit.Stretch(bar, "face");
+            barFace.offsetMin = new Vector2(2, 2);
+            barFace.offsetMax = new Vector2(-2, -2);
+            UiStyle.Card(barFace, UiStyle.CardKind.Chip, 5, false);
+            barFace.GetComponent<Image>().color = UiStyle.TitleBar;
+            var gild = UiKit.Rect(bar, "Gild", new Vector2(0, 0), new Vector2(0, 0), new Vector2(10, 5), new Vector2(WindowSize.x - 236, 1.5f));
+            UiStyle.Pill(gild, UiStyle.Gold * new Color(1, 1, 1, .7f), 1);
+            // Đầu cuộn da hai đầu thanh tiêu đề + góc hoa văn vàng bốn góc (mảnh PixelLab, ảnh mẫu chủ dự án 12/11).
+            UiKit.Ornament(bar, "title_cap_left", new Vector2(0, .5f), new Vector2(1, .5f), new Vector2(14, 0), 1.1f);
+            UiKit.Ornament(bar, "title_cap_left", new Vector2(1, .5f), new Vector2(1, .5f), new Vector2(-14, 0), 1.1f, true);
+            UiKit.Ornament(window, "corner_gold", new Vector2(0, 1), new Vector2(0, 1), new Vector2(-6, 6), 1f);
+            UiKit.Ornament(window, "corner_gold", new Vector2(1, 1), new Vector2(0, 1), new Vector2(6, 6), 1f, true);
+            UiKit.Ornament(window, "corner_gold", new Vector2(0, 0), new Vector2(0, 1), new Vector2(-6, -6), 1f, false, true);
+            UiKit.Ornament(window, "corner_gold", new Vector2(1, 0), new Vector2(0, 1), new Vector2(6, -6), 1f, true, true);
             frame.SetAsFirstSibling();
+            sh.SetAsFirstSibling();
             var sidebar = UiKit.Rect(bg, "Sidebar", new Vector2(0, 0), new Vector2(0, 0), Vector2.zero, new Vector2(198, 638));
             UiStyle.Pill(sidebar, UiStyle.SurfaceWell, 5);
             UiKit.Label(UiKit.Rect(bg, "Brand", new Vector2(0, 1), new Vector2(0, 1), new Vector2(22, -15), new Vector2(155, 28)), "HAVEN LORD", 16, UiStyle.Gold, TextAnchor.MiddleLeft, true, false).characterSpacing = 3;
@@ -212,9 +234,11 @@ namespace HavenLord.Client.UI
             title.characterSpacing = 1;
             var rule = UiKit.Rect(window, "HeaderLine", new Vector2(0, 1), new Vector2(0, 1), new Vector2(214, -58), new Vector2(886, 1));
             UiStyle.Pill(rule, UiStyle.Line, 1);
-            var close = UiKit.Rect(window, "Close", new Vector2(1, 1), new Vector2(0.5f, 0.5f), new Vector2(-36, -34), new Vector2(34, 34));
-            UiStyle.Pill(close, UiStyle.SurfaceRaised, 5);
-            UiKit.Label(UiKit.Stretch(close, "x"), "×", 25, UiKit.TextDim, TextAnchor.MiddleCenter, false, false);
+            var close = UiKit.Rect(window, "Close", new Vector2(1, 1), new Vector2(0.5f, 0.5f), new Vector2(-36, -36), new Vector2(34, 34));
+            UiStyle.Pill(close, UiStyle.FrameCream, 5);
+            var closeIn = UiKit.Rect(close, "in", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(29, 29));
+            UiStyle.Pill(closeIn, UiStyle.FrameDark, 4);
+            UiKit.Label(UiKit.Stretch(closeIn, "x"), "×", 25, UiStyle.GoldHi, TextAnchor.MiddleCenter, true, false);
             UiKit.Press(close, Close);
         }
 
@@ -316,7 +340,7 @@ namespace HavenLord.Client.UI
             if (enabled)
             {
                 var press = UiKit.Press(rt, click);
-                press.Enter = () => img.color = UiStyle.Hex(0x35454e);
+                press.Enter = () => img.color = UiStyle.Hover;
                 press.Exit = () => img.color = UiStyle.SurfaceRaised;
             }
             return rt;

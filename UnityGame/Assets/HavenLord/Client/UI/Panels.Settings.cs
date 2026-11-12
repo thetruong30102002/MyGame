@@ -81,11 +81,6 @@ namespace HavenLord.Client.UI
             });
 
             var play = Group(new Vector2(456, -38), "TRÒ CHƠI", out var row2);
-            Selector(play, row2(), "Thu phóng màn chơi", "×" + game.Camera.Zoom, d =>
-            {
-                game.Camera.SetZoom(game.Camera.Zoom + d);
-                Refresh();
-            });
             Switch(play, row2(), "Tên trên đầu nhân vật", hud.ShowNames, v => hud.ShowNames = v);
             Switch(play, row2(), "Bảng phím góc trái", hud.HelpShown, _ => hud.ToggleHelp());
             Switch(play, row2(), "Hiệu ứng thời tiết", Weather.Enabled, v => Weather.Enabled = v);

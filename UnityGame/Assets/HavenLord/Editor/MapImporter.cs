@@ -124,6 +124,23 @@ namespace HavenLord.Importer
                     }
                 report.Count("Ảnh kiểu nhà Gia viên", n);
             }
+            // Mảnh khung UI + 16 icon menu PixelLab (12/11, assets/ui/ornaments): ảnh rời trong Resources/UiOrnaments, HUD / cửa sổ nạp theo tên.
+            var orn = Path.Combine(Path.GetDirectoryName(dir), "ui", "ornaments");
+            if (Directory.Exists(orn))
+                foreach (var png in Directory.GetFiles(orn, "*.png"))
+                {
+                    var asset = $"{ImportUtil.Root}/Resources/UiOrnaments/{Path.GetFileName(png)}";
+                    ImportUtil.CopyAsset(png, asset);
+                    SpriteSheetImport.Apply(asset, new TextureSpec { mode = SpriteImportMode.Single, maxSize = 256, alignment = SpriteAlignment.Center, pivot = new Vector2(.5f, .5f) }, null);
+                }
+            // Ô ruộng PixelLab (12/11): tấm 2×2 ô 32px — đất chưa cuốc, đã cuốc, đã tưới, cỏ cọc dây (ô chưa mở).
+            var soil = Path.Combine(dir, "soil", "soil.png");
+            if (File.Exists(soil))
+            {
+                var asset = $"{ImportUtil.Root}/Resources/HomeSoil.png";
+                ImportUtil.CopyAsset(soil, asset);
+                SpriteSheetImport.Apply(asset, new TextureSpec { mode = SpriteImportMode.Single, maxSize = 64, alignment = SpriteAlignment.TopLeft, pivot = new Vector2(0, 1) }, null);
+            }
         }
 
         private static void ImportProps(Region r, ImportReport report)

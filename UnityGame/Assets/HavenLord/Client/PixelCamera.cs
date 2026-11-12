@@ -19,7 +19,9 @@ namespace HavenLord.Client
         private float shakeDuration;
         private float shakeStrength;
 
-        public int Zoom { get; private set; } = 2;
+        /// <summary>Tỉ lệ cố định ×1,75 (chủ dự án 12/11: "bỏ cài đặt phóng to thu nhỏ game chỉ có tỉ lệ 1.75x"); không còn chỉnh ở Cài đặt.</summary>
+        public const float FixedZoom = 1.75f;
+        public float Zoom { get; private set; } = FixedZoom;
         public Vector2 Bounds { get; set; }
         public Camera Cam => cam;
 
@@ -29,13 +31,11 @@ namespace HavenLord.Client
             cam.orthographic = true;
             cam.clearFlags = CameraClearFlags.SolidColor;
             cam.backgroundColor = new Color(0.02f, 0.024f, 0.04f);
-            Zoom = DefaultZoom(Screen.width, Screen.height);
+            Zoom = FixedZoom;
         }
 
-        /// <summary>Mặc định ×1 mọi màn hình (chủ dự án 11/10/2026: "mặc định cấu hình game nên để 1x thay vì 2x" — trước đây ×2 từ 1080p); đổi ở Cài đặt.</summary>
-        public static int DefaultZoom(int w, int h) => 1;
-
-        public void SetZoom(int z) => Zoom = Mathf.Clamp(z, 1, 8);
+        /// <summary>Chỉ AutoTest chụp soi (×1 / ×2…); trò chơi luôn ×1,75.</summary>
+        public void SetZoom(float z) => Zoom = Mathf.Clamp(z, 1, 8);
 
         public void SnapTo(float px, float py)
         {

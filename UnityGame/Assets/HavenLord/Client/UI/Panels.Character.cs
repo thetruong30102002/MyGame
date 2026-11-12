@@ -7,7 +7,7 @@ using UnityEngine.UI;
 namespace HavenLord.Client.UI
 {
     /// <summary>
-    /// Tab Nhân vật (gộp Túi đồ 11/10/2026): nhân vật SỐNG đứng thở trên vòng phép, 10 ô trang bị quanh người, Lực chiến / cấp / EXP,
+    /// Tab Nhân vật (gộp Túi đồ 11/10/2026): nhân vật SỐNG đứng thở (bỏ vòng phép 12/11), 10 ô trang bị quanh người, Lực chiến / cấp / EXP,
     /// 8 ô chỉ số (phần đồ cộng thêm ghi xanh), hành trang + thẻ chi tiết (`Panels.Inventory.cs`).
     /// </summary>
     public sealed partial class Panels
@@ -131,7 +131,7 @@ namespace HavenLord.Client.UI
         // ———————————————————————————— người + ô trang bị (dùng chung 2 tab) ————————————————————————————
 
         /// <summary>
-        /// Nhân vật đứng trên vòng phép, 5 ô trang bị mỗi bên. <paramref name="feet"/>: điểm chân (neo giữa trên của <paramref name="box"/>);
+        /// Nhân vật đứng giữa quầng sáng, 5 ô trang bị mỗi bên. <paramref name="feet"/>: điểm chân (neo giữa trên của <paramref name="box"/>);
         /// <paramref name="scale"/>: phóng nguyên lần ảnh pixel.
         /// </summary>
         private void Paperdoll(RectTransform box, Vector2 feet, int scale, float slotSize, float step, float top, float side, bool compact)
@@ -140,15 +140,7 @@ namespace HavenLord.Client.UI
             var glow = UiKit.Rect(box, "Glow", new Vector2(0.5f, 1), new Vector2(0.5f, 0.5f), feet + new Vector2(0, 40 * scale), new Vector2(glowSize, glowSize));
             UiWidgets.Radial(glow, new Color(1, 0.78f, 0.4f, 0.12f));
 
-            var circle = game.Database.VfxClip("magic_circle");
-            var holder = UiKit.Rect(box, "Circle", new Vector2(0.5f, 1), new Vector2(0.5f, 0.5f), feet, new Vector2(10, 10));
-            holder.localScale = new Vector3(1, 0.42f, 1);
-            if (circle != null && circle.frames.Length > 0 && circle.frames[0] != null)
-            {
-                var cr = UiKit.Rect(holder, "fx", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, Vector2.zero);
-                var w = circle.frames[0].rect.width;
-                UiWidgets.Anim(cr, circle.frames, 12, 86f * scale / w, false, new Color(1, 0.86f, 0.5f, 0.9f));
-            }
+            // Bỏ vòng phép dưới chân (chủ dự án 12/11: "Bỏ vòng phép") — chỉ còn quầng sáng + bóng chân.
             var shadow = UiKit.Rect(box, "Shadow", new Vector2(0.5f, 1), new Vector2(0.5f, 0.5f), feet, new Vector2(30 * scale, 8 * scale));
             UiWidgets.Radial(shadow, new Color(0, 0, 0, 0.55f));
 
@@ -225,11 +217,13 @@ namespace HavenLord.Client.UI
                 var sel = UiKit.Rect(rt, "Sel", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(size + 4, size + 4));
                 UiStyle.Pill(sel, UiStyle.GoldHi, 5);
             }
-            UiStyle.Pill(rt, UiStyle.Line, 5).raycastTarget = true;
+            // Kiểu ảnh mẫu 12/11: ô gỗ nâu sẫm viền sáng; đồ từ Tốt trở lên viền + nền ngả màu độ hiếm (xanh lục / lam / tím / cam) cho nhận ra ngay.
+            var rare = def != null && def.Rarity != null && def.Rarity != "common";
+            UiStyle.Pill(rt, rare ? Rarity(def.Rarity) * new Color(.85f, .85f, .85f, 1) : UiStyle.Line, 5).raycastTarget = true;
             var well = UiKit.Rect(rt, "Well", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(size - 4, size - 4));
-            UiStyle.Pill(well, UiStyle.SurfaceWell, 4);
+            UiStyle.Pill(well, UiStyle.Hex(0x24170f), 4);
             var back = UiKit.Rect(rt, "Back", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(size - 6, size - 6));
-            UiStyle.Pill(back, def != null ? Rarity(def.Rarity) * new Color(1, 1, 1, 0.10f) : UiStyle.SurfaceWell, 4);
+            UiStyle.Pill(back, def != null ? Rarity(def.Rarity) * new Color(1, 1, 1, rare ? 0.32f : 0.08f) : UiStyle.Hex(0x2e1f15), 4);
             if (def != null)
             {
                 var hl = UiKit.Rect(back, "Glow", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(size, size));

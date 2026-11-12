@@ -17,12 +17,19 @@ namespace HavenLord.Client.UI
         public static readonly Color Exp = Hex(0x9585bc);
         public static readonly Color GoldHi = Hex(0xe1c18b);
         public static readonly Color Gold = Hex(0xc0a16e);
-        public static readonly Color Surface = Hex(0x141c24, .97f);
-        public static readonly Color SurfaceRaised = Hex(0x202c36, .96f);
-        public static readonly Color SurfaceWell = Hex(0x0e161d, .96f);
-        public static readonly Color Bark = Hex(0x141c24, .94f);
-        public static readonly Color BarkSoft = Hex(0x202c36, .92f);
-        public static readonly Color Line = Hex(0x637078, .50f);
+        // Tông gỗ nâu ấm (chủ dự án 12/11: "tham khảo UI của ảnh này và làm theo nên có chất của game" — bảng gỗ nâu, viền kem vàng,
+        // ô đồ nâu sẫm) thay tông xanh đá lạnh cũ. Chữ vẫn sáng trên nền nâu.
+        public static readonly Color Surface = Hex(0x2b1d14, .97f);
+        public static readonly Color SurfaceRaised = Hex(0x4a3222, .96f);
+        public static readonly Color SurfaceWell = Hex(0x1e140e, .96f);
+        public static readonly Color Bark = Hex(0x2b1d14, .94f);
+        public static readonly Color BarkSoft = Hex(0x4a3222, .92f);
+        public static readonly Color Line = Hex(0xb48a58, .60f);
+        /// <summary>Viền khung cửa sổ: kem vàng ngoài, nâu sẫm trong; thanh tiêu đề da nâu.</summary>
+        public static readonly Color FrameCream = Hex(0xead3a2);
+        public static readonly Color FrameDark = Hex(0x5a3a22);
+        public static readonly Color TitleBar = Hex(0x6b4528);
+        public static readonly Color Hover = Hex(0x654430, .96f);
         public static readonly Color Paper = Hex(0xf7e6c4);
         public static readonly Color PaperSunk = Hex(0xecd3a4);
         public static readonly Color PaperLine = Hex(0xc9a578);
@@ -122,7 +129,7 @@ namespace HavenLord.Client.UI
             switch (kind)
             {
                 case CardKind.Paper: edge = PaperLine; face = Paper; break;
-                case CardKind.Chip: edge = Hex(0x8f815f, .65f); face = BarkSoft; break;
+                case CardKind.Chip: edge = Hex(0xc9a066, .75f); face = BarkSoft; break;
                 case CardKind.Dark: edge = Line; face = SurfaceWell; break;
                 default: edge = Line; face = Bark; break;
             }

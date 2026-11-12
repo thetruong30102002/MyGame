@@ -172,7 +172,7 @@ namespace HavenLord.Client
             var tex = ScreenCapture.CaptureScreenshotAsTexture(); var offscreen = Blank(tex);
             if (offscreen) { Destroy(tex); tex = OffscreenShot(); }
             var root = game.Camera.Cam.WorldToScreenPoint(game.Player.transform.position);
-            var zoom = game.Camera.Zoom; var size = 144 * zoom;
+            var zoom = game.Camera.Zoom; var size = Mathf.RoundToInt(144 * zoom);
             var x = Mathf.RoundToInt(root.x - 72 * zoom); var y = Mathf.RoundToInt(root.y - 16 * zoom);
             if (x < 0 || y < 0 || x + size > tex.width || y + size > tex.height)
             { Destroy(tex); Fail("Khung chụp chuyển động ra ngoài màn hình"); yield break; }

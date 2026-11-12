@@ -366,6 +366,11 @@ namespace HavenLord.Client.UI
                 };
                 slots[i] = slot;
             }
+            // Cánh đồng thau hai bên + huy hiệu pha lê giữa thanh chiêu (mảnh PixelLab 12/11) — nhỏ, sát thanh, không che màn chơi.
+            UiKit.Ornament(bar, "hotbar_wing_left", new Vector2(0, .5f), new Vector2(1, .5f), new Vector2(10, 4), .45f).SetAsFirstSibling();
+            UiKit.Ornament(bar, "hotbar_wing_left", new Vector2(1, .5f), new Vector2(1, .5f), new Vector2(-10, 4), .45f, true).SetAsFirstSibling();
+            UiKit.Ornament(bar, "crest", new Vector2(.5f, 1), new Vector2(.5f, 0), new Vector2(0, -8), .5f);
+            BuildMenuRow(width);
             expBar = SmoothBar.Make(root, "Exp", new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(-30, 8), new Vector2(width - 60, 8), UiStyle.Exp);
             expText = UiKit.Label(UiKit.Rect(expBar.Root, "t", new Vector2(1, 0.5f), new Vector2(0, 0.5f), new Vector2(8, 0), new Vector2(120, 14)), "", 11, new Color(0.86f, 0.76f, 1f), TextAnchor.MiddleLeft, true);
 
@@ -376,6 +381,48 @@ namespace HavenLord.Client.UI
             tooltipText.rectTransform.offsetMax = new Vector2(-12, -8);
             tooltipText.textWrappingMode = TextWrappingModes.Normal;
             tooltip.gameObject.SetActive(false);
+        }
+
+        /// <summary>
+        /// Hàng nút icon (chủ dự án 12/11: "thêm hàng nút icon nhưng cố đừng che", "sắp xếp cho hợp lý như ảnh mẫu", "k che nội dung trên
+        /// map"): 8 icon PixelLab nhỏ + chữ dưới, không nền, sát đáy góc phải cạnh thanh chiêu (điện thoại: dưới bản đồ nhỏ góc phải trên vì
+        /// đáy phải là nút đánh). Bấm = mở thẳng tab cửa sổ; rê chuột = sáng icon.
+        /// </summary>
+        private void BuildMenuRow(float barWidth)
+        {
+            var items = new (string icon, string label, Panels.Kind kind)[]
+            {
+                ("menu_bag", "Túi đồ", Panels.Kind.Inventory), ("menu_hero", "Nhân vật", Panels.Kind.Character), ("menu_skills", "Tiềm năng", Panels.Kind.Talents),
+                ("menu_friends", "Bạn bè", Panels.Kind.Friends), ("menu_map", "Bản đồ", Panels.Kind.WorldMap), ("menu_quest", "Thư viện", Panels.Kind.Codex),
+                ("menu_event", "Điểm danh", Panels.Kind.Calendar), ("menu_settings", "Cài đặt", Panels.Kind.Settings),
+            };
+            const float w = 38, gap = 2;
+            var mobile = Application.isMobilePlatform;
+            var row = mobile
+                ? UiKit.Rect(root, "MenuRow", new Vector2(1, 1), new Vector2(1, 1), new Vector2(-12, -262), new Vector2(items.Length * (w + gap), 46))
+                : UiKit.Rect(root, "MenuRow", new Vector2(1, 0), new Vector2(1, 0), new Vector2(-10, 6), new Vector2(items.Length * (w + gap), 46));
+            for (var i = 0; i < items.Length; i++)
+            {
+                var it = items[i];
+                var b = UiKit.Rect(row, it.label, new Vector2(0, 0), new Vector2(0, 0), new Vector2(i * (w + gap), 0), new Vector2(w, 46));
+                var hit = b.gameObject.AddComponent<Image>();hit.color = Color.clear;hit.raycastTarget = true;
+                var s = UiKit.Ornament(it.icon);
+                Image ic = null;
+                if (s != null)
+                {
+                    var k = Mathf.Min(28 / s.rect.width, 28 / s.rect.height);
+                    ic = UiKit.Icon(UiKit.Rect(b, "i", new Vector2(.5f, 1), new Vector2(.5f, 1), new Vector2(0, 0), s.rect.size * k), s);
+                    ic.color = new Color(1, 1, 1, .92f);
+                }
+                UiKit.Label(UiKit.Rect(b, "t", new Vector2(.5f, 0), new Vector2(.5f, 0), new Vector2(0, 0), new Vector2(w + 8, 14)), it.label, 10, UiStyle.Parchment, TextAnchor.MiddleCenter, true, true);
+                var kind = it.kind;
+                var press = UiKit.Press(b, () => Panels.Show(kind));
+                if (ic != null)
+                {
+                    press.Enter = () => ic.color = Color.white;
+                    press.Exit = () => ic.color = new Color(1, 1, 1, .92f);
+                }
+            }
         }
 
         private void BuildToasts()

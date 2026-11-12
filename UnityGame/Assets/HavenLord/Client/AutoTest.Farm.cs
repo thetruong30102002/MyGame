@@ -131,6 +131,14 @@ namespace HavenLord.Client
             yield return FarmWalk(game, 780, 520);
             game.ShowHouses();yield return new WaitForSeconds(.8f);
             yield return Shot("farm-8-bang-nha");
+            // Ảnh duyệt UI tông gỗ (12/11): cửa hàng Cô Lựu (lưới hạt giống, máy) và bộ sưu tập đồ bày trí.
+            game.OpenShop();yield return new WaitForSeconds(.8f);
+            yield return Shot("farm-8-cua-hang");
+            game.ShopCat = "Máy chế biến";hud.Panels.Show(UI.Panels.Kind.Farm);yield return new WaitForSeconds(.6f);
+            yield return Shot("farm-8-cua-hang-may");
+            game.ShowFurniture();yield return new WaitForSeconds(.8f);
+            yield return Shot("farm-8-do-bay-tri");
+            game.ShopCat = "Hạt giống";
             hud.Panels.Close();
             foreach (var (hid, tag) in new[] { ("ln", "lun-nui-lua"), ("hv", "biet-thu-haven") })
             {

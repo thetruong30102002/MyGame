@@ -6,6 +6,14 @@ tham chiếu 1280×720 (`CanvasScaler` co theo màn thật, khớp 0,5 rộng/ca
 `Assets/HavenLord/Resources/Fonts`, đủ dấu tiếng Việt). Khung / ô / nút / băng-rôn / icon là hình PixelLab (`UiSprites`, 9 mảnh) —
 không tự vẽ hình; nền thẻ là mảng màu tối trong mờ.
 
+**Cập nhật 12/11/2026 (chủ dự án gửi ảnh UI tham khảo: "làm theo nên có chất của game", "thêm hàng nút icon nhưng cố đừng che",
+"k che nội dung trên map", "bỏ cài đặt phóng to thu nhỏ game chỉ có tỉ lệ 1.75x"):** tông gỗ nâu ấm thay xanh đá (`UiStyle.Surface*`,
+chữ kem); cửa sổ viền kem vàng + chỉ nâu, thanh tiêu đề da nâu có đầu cuộn, góc hoa văn vàng; thanh chiêu có cánh đồng thau + huy hiệu
+pha lê; hàng 8 nút icon PixelLab có chữ nhỏ, không nền, sát đáy góc phải (điện thoại: dưới bản đồ nhỏ) — mở thẳng tab cửa sổ. Mảnh
+PixelLab ở `assets/ui/ornaments` → `Resources/UiOrnaments` (`UiKit.Ornament`). Cửa hàng Gia viên dạng lưới ô có hình: nhà / đồ bày trí ô
+to, hạt giống / vật nuôi / máy ô nhỏ. Camera cố định ×1,75 (`PixelCamera.FixedZoom`), bỏ mục "Thu phóng" ở Cài đặt. Tab dọc của cửa
+sổ vẫn chỉ chữ như cũ.
+
 ## Thư viện
 
 | Thư viện | Dùng cho | Nguồn |

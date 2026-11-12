@@ -22,6 +22,51 @@ namespace HavenLord.Client.UI
         private void FarmText(string id, string text, float y, float height = 28, float size = 15) => Text(content, id, new Vector2(0, 1), new Vector2(0, 1), new Vector2(0, -y), new Vector2(1020, height), text, size, UiStyle.Parchment);
         private void FarmButton(string id, string text, float x, float y, Action action, bool enabled = true) => GoldButton(content, id, new Vector2(0, 1), new Vector2(0, 1), new Vector2(x, -y), new Vector2(240, 38), text, action, enabled);
 
+        /// <summary>
+        /// Ô món kiểu lưới túi đồ (chủ dự án 12/11, ảnh UI tham khảo): ô gỗ nâu sẫm viền sáng, hình giữa ô, tên dưới, giá vàng, góc phải trên
+        /// ghi số trong kho / đã có; ✓ = đang dùng; mờ = không mua được. Mặc định 116 × 132 — 8 ô một hàng.
+        /// </summary>
+        private void FarmCard(string id, Sprite icon, string name, string price, float x, float y, Action action, bool enabled = true, string corner = null, bool selected = false, float w = 116, float h = 132)
+        {
+            var rt = UiKit.Rect(content, id, new Vector2(0, 1), new Vector2(0, 1), new Vector2(x, -y), new Vector2(w, h));
+            var edge = UiStyle.Pill(rt, selected ? UiStyle.GoldHi : UiStyle.Line, 6);
+            edge.raycastTarget = true;
+            var face = UiKit.Stretch(rt, "face");
+            face.offsetMin = new Vector2(2, 2);
+            face.offsetMax = new Vector2(-2, -2);
+            var fi = UiStyle.Pill(face, UiStyle.SurfaceWell, 5);
+            var well = UiKit.Rect(rt, "well", new Vector2(.5f, 1), new Vector2(.5f, 1), new Vector2(0, -6), new Vector2(w - 12, h - 58));
+            UiStyle.Pill(well, UiStyle.Hex(0x3a281b), 4);
+            if (icon != null)
+            {
+                var r = icon.rect;var k = Mathf.Min((w - 20) / r.width, (h - 66) / r.height);
+                var ir = UiKit.Rect(well, "i", new Vector2(.5f, .5f), new Vector2(.5f, .5f), Vector2.zero, new Vector2(r.width * k, r.height * k));
+                UiKit.Icon(ir, icon).color = enabled ? Color.white : new Color(1, 1, 1, .45f);
+            }
+            var tn = Text(rt, "n", new Vector2(.5f, 0), new Vector2(.5f, 0), new Vector2(0, 22), new Vector2(w - 8, 28), name, 12, enabled ? UiKit.TextMain : UiKit.TextDim, TextAnchor.MiddleCenter, true);
+            tn.textWrappingMode = TMPro.TextWrappingModes.Normal;tn.enableAutoSizing = true;tn.fontSizeMin = 9;tn.fontSizeMax = 12;
+            Text(rt, "p", new Vector2(.5f, 0), new Vector2(.5f, 0), new Vector2(0, 4), new Vector2(w - 8, 18), price, 12, enabled ? UiStyle.GoldHi : UiKit.TextDim, TextAnchor.MiddleCenter, true);
+            if (!string.IsNullOrEmpty(corner)) Text(rt, "c", new Vector2(1, 1), new Vector2(1, 1), new Vector2(-8, -6), new Vector2(60, 16), corner, 12, UiKit.TextMain, TextAnchor.UpperRight, true, true);
+            if (selected) Text(rt, "v", new Vector2(0, 1), new Vector2(0, 1), new Vector2(8, -6), new Vector2(20, 18), "✓", 15, UiStyle.GoldHi, TextAnchor.UpperLeft, true, true);
+            if (!enabled) return;
+            var press = UiKit.Press(rt, action);
+            press.Enter = () => fi.color = UiStyle.Hover;
+            press.Exit = () => fi.color = UiStyle.SurfaceWell;
+        }
+
+        /// <summary>Thanh nhóm (tab ngang nhỏ) cho lưới ô: nhóm đang chọn nền vàng chữ nâu.</summary>
+        private void FarmTabs(string id, string[] tabs, string current, float y, Action<string> pick, float w = 130)
+        {
+            for (var i = 0; i < tabs.Length; i++)
+            {
+                var t = tabs[i];var on = t == current;
+                var rt = UiKit.Rect(content, id + i, new Vector2(0, 1), new Vector2(0, 1), new Vector2(i * (w + 6), -y), new Vector2(w, 30));
+                UiStyle.Pill(rt, on ? UiStyle.Gold : UiStyle.SurfaceRaised, 5).raycastTarget = true;
+                Text(rt, "t", new Vector2(.5f, .5f), new Vector2(.5f, .5f), Vector2.zero, new Vector2(w - 6, 26), t, 13, on ? UiStyle.InkBrown : UiKit.TextMain, TextAnchor.MiddleCenter, true);
+                UiKit.Press(rt, () => pick(t));
+            }
+        }
+
         private void BuildFarm()
         {
             farmVersionDrawn = game.FarmVersion;
@@ -78,14 +123,21 @@ namespace HavenLord.Client.UI
                     var hs = (game.Sim.Modules["farmHouses.generated"]?["FARM_HOUSES"] as JObject)?.Properties().OrderBy(p => (int)p.Value["tier"]).ToArray() ?? new JProperty[0];
                     var owned = (state["houses"] as JArray)?.Select(x => (string)x).ToList() ?? new System.Collections.Generic.List<string>();var cur = game.HouseId;
                     FarmText("Tên", "Nhà Gia viên · mặt ngoài, tường, sàn, cầu thang theo kiểu nhà; đồ bày trí giữ nguyên khi đổi nhà", 0, 32, 17);
-                    FarmButton("Nhỏ", (cur == "" ? "✓ " : "") + "Nhà nhỏ có sẵn", 0, 40, () => game.FarmSend("houseSet", item: ""), cur != "");
-                    for (var i = 0; i < hs.Length; i++)
+                    FarmButton("Nhỏ", (cur == "" ? "✓ " : "") + "Nhà nhỏ có sẵn", 0, 36, () => game.FarmSend("houseSet", item: ""), cur != "");
+                    FarmButton("Về", "‹ Người bán đồ", 768, 36, () => game.OpenShop());
+                    // Ô to (chủ dự án 12/11: "nhà, đồ đạc trong nhà thì ô to") — 4 × 2 nhà một trang, ảnh mặt ngoài xem rõ trước khi mua.
+                    var hPages = (hs.Length + 7) / 8;var hPage = Math.Min(game.HousePage, Math.Max(0, hPages - 1));
+                    if (hPages > 1)
                     {
-                        var h = hs[i];var hid = h.Name;var have = owned.Contains(hid);
-                        var label = have ? (cur == hid ? "✓ " : "Dọn sang ") + h.Value["name"] : $"{h.Value["name"]} · {(int)h.Value["price"]:#,0} xu";
-                        FarmButton("Nhà" + hid, label, i % 4 * 256, 86 + i / 4 * 42, () => game.FarmSend(have ? "houseSet" : "buy", item: have ? hid : "house:" + hid), !(have && cur == hid));
+                        FarmButton("Trước", "‹ Trang trước", 256, 36, () => { game.HousePage = Math.Max(0, hPage - 1); Refresh(); }, hPage > 0);
+                        FarmButton("Sau", $"Trang sau ({hPage + 1}/{hPages}) ›", 512, 36, () => { game.HousePage = hPage + 1; Refresh(); }, hPage < hPages - 1);
                     }
-                    FarmButton("Về", "Người bán đồ", 768, 40, () => game.OpenShop());
+                    for (var i = 0; i < 8 && hPage * 8 + i < hs.Length; i++)
+                    {
+                        var h = hs[hPage * 8 + i];var hid = h.Name;var have = owned.Contains(hid);
+                        FarmCard("Nhà" + hid, game.HouseThumb(hid), (string)h.Value["name"], have ? (cur == hid ? "Đang ở" : "Dọn sang") : $"{(int)h.Value["price"]:#,0} xu",
+                            i % 4 * 252, 86 + i / 4 * 212, () => game.FarmSend(have ? "houseSet" : "buy", item: have ? hid : "house:" + hid), true, have ? "Đã có" : null, cur == hid, 244, 204);
+                    }
                     return;
                 }
                 if (key == "furniture")
@@ -94,15 +146,22 @@ namespace HavenLord.Client.UI
                     var items = game.DecorItems as JObject;var st = state["storage"] as JObject;
                     var cats = items?.Properties().Select(p => (string)p.Value["cat"]).Distinct().OrderBy(c => c).ToArray() ?? new string[0];
                     FarmText("Tên", "Đồ bày trí · mua về vào kho, nhờ Quản gia đặt trong nhà", 0, 32, 18);
-                    for (var i = 0; i < cats.Length; i++) { var c = cats[i]; FarmButton("Nhóm" + c, (game.FurnitureCat == c ? "✓ " : "") + c, i % 5 * 204, 38 + i / 5 * 40, () => { game.FurnitureCat = c; Refresh(); }); }
-                    var y0 = 38 + (cats.Length + 4) / 5 * 40 + 6;
+                    FarmButton("Về", "‹ Người bán đồ", 768, 0, () => game.OpenShop());
+                    FarmTabs("Nhóm", cats, game.FurnitureCat, 40, c => { game.FurnitureCat = c; game.FurniturePage = 0; Refresh(); }, 118);
                     var list = items?.Properties().Where(p => (string)p.Value["cat"] == game.FurnitureCat).OrderBy(p => (int)p.Value["price"]).ToArray() ?? new JProperty[0];
-                    for (var i = 0; i < list.Length && i < 28; i++)
+                    // Ô to 6 × 2 một trang (đồ trong nhà xem rõ hình); ‹ › khi nhóm nhiều đồ.
+                    var pages = Math.Max(1, (list.Length + 11) / 12);var page = Math.Min(game.FurniturePage, pages - 1);
+                    for (var i = 0; i < 12 && page * 12 + i < list.Length; i++)
                     {
-                        var p = list[i];var did = p.Name;var have = (int?)st?[did] ?? 0;
-                        FarmButton("Đồ" + did, $"{p.Value["name"]} · {p.Value["price"]} xu" + (have > 0 ? $" (kho {have})" : ""), i % 4 * 256, y0 + i / 4 * 40, () => game.FarmSend("buy", item: "decor:" + did));
+                        var p = list[page * 12 + i];var did = p.Name;var have = (int?)st?[did] ?? 0;
+                        FarmCard("Đồ" + did, game.HomePropSprite(did), (string)p.Value["name"], $"{(int)p.Value["price"]:#,0} xu", i % 6 * 168, 80 + i / 6 * 186,
+                            () => game.FarmSend("buy", item: "decor:" + did), true, have > 0 ? "×" + have : null, false, 160, 178);
                     }
-                    FarmButton("Về", "Người bán đồ", 768, 0, () => game.OpenShop());
+                    if (pages > 1)
+                    {
+                        FarmButton("Trước", "‹ Trang trước", 256, 80 + 2 * 186 + 6, () => { game.FurniturePage = Math.Max(0, page - 1); Refresh(); }, page > 0);
+                        FarmButton("Sau", $"Trang sau ({page + 1}/{pages}) ›", 512, 80 + 2 * 186 + 6, () => { game.FurniturePage = Math.Min(pages - 1, page + 1); Refresh(); }, page < pages - 1);
+                    }
                     return;
                 }
                 if (key == "cook")
@@ -150,23 +209,36 @@ namespace HavenLord.Client.UI
                     var plotsNow = (state["plots"] as JArray)?.Count ?? 0;var layout = game.Sim.Modules["farm"]["FARM_LAYOUT"];var max = (int?)layout?["plotsMax"] ?? 48;var start = (int?)layout?["plots"] ?? 12;
                     var shop = game.Sim.Modules["farm"]["FARM_SHOP"] as JArray;
                     int Price(string id) { var it = shop?.FirstOrDefault(x => (string)x["id"] == id); return it == null ? 0 : (int)it["coins"] + (id == "plots" ? (int)it["step"] * Math.Max(0, (plotsNow - start) / 4) : 0); }
-                    FarmButton("Ruộng", plotsNow >= max ? $"Ruộng đã mở hết {max} ô" : $"Mở 4 ô ruộng · {Price("plots")} xu ({plotsNow}/{max})", 0, 135, () => game.FarmSend("buy", item: "plots"), plotsNow < max);
-                    FarmButton("BểCá", game.OwnsTank ? "Đã có bể cá trong nhà" : $"Bể cá trong nhà · {Price("tank")} xu", 256, 135, () => game.FarmSend("buy", item: "tank"), !game.OwnsTank);
-                    FarmButton("Nhà", "Nhà Gia viên (16 kiểu)", 512, 135, () => game.ShowHouses());
-                    FarmButton("ĐồVật", "Đồ bày trí (bộ sưu tập)", 768, 135, () => game.ShowFurniture());
-                    FarmText("GiáThử", "Đồ bày trí mua về vào kho, nói chuyện với Quản gia trong nhà để đặt. Nhà Gia viên sẽ mở bán khi có chức năng đổi nhà.", 185, 50);
-                    FarmButton("ThúCưng", "Quay thú cưng (kim cương)", 0, 240, () => game.ShowPets());
-                    FarmButton("Về", "Cư dân / Gia viên", 256, 240, () => game.ShowFarm());
-                    var fruits = game.Sim.Modules["farm"]["FARM_FRUIT"] as JArray;var machines = game.Sim.Modules["farm"]["FARM_MACHINES"] as JArray;var have = state["machines"] as JObject;
-                    var row = 0;
-                    if (fruits != null) foreach (var f in fruits) { var fid = (string)f["id"]; FarmButton("Giống" + fid, $"Cây giống {f["name"]} · {f["sapling"]} xu", row % 4 * 256, 290 + row / 4 * 42, () => game.FarmSend("buy", item: "sapling_" + fid)); row++; }
-                    var animalsShop = game.Sim.Modules["farm"]["FARM_ANIMALS"] as JArray;var herdShop = game.Livestock();
-                    if (animalsShop != null) foreach (var a in animalsShop) { var aid = (string)a["id"]; var full = herdShop.TryGetValue(aid, out var cnt) && cnt >= (int)a["max"]; FarmButton("Con" + aid, full ? $"{a["name"]} đã đủ {a["max"]}" : $"Mua {a["name"]} · {a["price"]} xu", row % 4 * 256, 290 + row / 4 * 42, () => game.FarmSend("buy", item: "animal_" + aid), !full); row++; }
-                    if (machines != null) foreach (var m in machines) { var mid = (string)m["id"]; var got = have?[mid] != null || (have?.ContainsKey(mid) ?? false); FarmButton("Máy" + mid, got ? $"Đã có {m["name"]}" : $"{m["name"]} · {m["price"]} xu", row % 4 * 256, 290 + row / 4 * 42, () => game.FarmSend("buy", item: "machine_" + mid), !got); row++; }
-                    var seedY = 290 + (row + 3) / 4 * 42 + 6;
-                    var seeds = game.Sim.Modules["farm"]["FARM_CROPS"] as JArray;
-                    FarmText("Hạt", "Hạt giống · giá thử:", seedY, 28, 16);
-                    if (seeds != null) for (var i = 0; i < seeds.Count; i++) { var c = seeds[i]; var id = (string)c["id"]; FarmButton("MuaHạt" + id, $"{c["name"]} · {c["seed"]} xu", i % 4 * 256, seedY + 30 + i / 4 * 42, () => game.FarmSend("buySeed", crop: id)); }
+                    // Hàng dịch vụ (ruộng, bể cá, nhà, đồ bày trí, thú cưng) rồi lưới ô theo nhóm: hạt giống / cây ăn quả / vật nuôi / máy.
+                    FarmButton("Ruộng", plotsNow >= max ? $"Ruộng đủ {max} ô" : $"Mở 4 ô · {Price("plots"):#,0} xu", 0, 100, () => game.FarmSend("buy", item: "plots"), plotsNow < max);
+                    FarmButton("BểCá", game.OwnsTank ? "Đã có bể cá" : $"Bể cá · {Price("tank"):#,0} xu", 256, 100, () => game.FarmSend("buy", item: "tank"), !game.OwnsTank);
+                    FarmButton("Nhà", "Nhà Gia viên ›", 512, 100, () => game.ShowHouses());
+                    FarmButton("ĐồVật", "Đồ bày trí ›", 768, 100, () => game.ShowFurniture());
+                    FarmButton("ThúCưng", "Quay thú cưng ›", 768, 52, () => game.ShowPets());
+                    var farmMod = game.Sim.Modules["farm"];var inv = state["inventory"] as JObject;var have = state["machines"] as JObject;
+                    FarmTabs("Nhóm", new[] { "Hạt giống", "Cây ăn quả", "Vật nuôi", "Máy chế biến" }, game.ShopCat, 150, c => { game.ShopCat = c; Refresh(); });
+                    var n = 0;
+                    // Ô nhỏ 10 một hàng (hạt giống, cây giống, vật nuôi, máy).
+                    void Card(string cid, Sprite ic, string name, string price, Action buy, bool ok = true, string corner = null) { FarmCard(cid, ic, name, price, n % 10 * 101, 190 + n / 10 * 122, buy, ok, corner, false, 95, 116); n++; }
+                    if (game.ShopCat == "Hạt giống" && farmMod["FARM_CROPS"] is JArray seeds)
+                        foreach (var c in seeds) { var id = (string)c["id"];var k = (int?)inv?["seed_" + id] ?? 0; Card("Hạt" + id, ItemSprite("seed_" + id), (string)c["name"], $"{c["seed"]} xu", () => game.FarmSend("buySeed", crop: id), true, k > 0 ? "×" + k : null); }
+                    if (game.ShopCat == "Cây ăn quả" && farmMod["FARM_FRUIT"] is JArray fruits)
+                        foreach (var f in fruits) { var fid = (string)f["id"]; Card("Giống" + fid, ItemSprite("sapling_" + fid), "Cây giống " + f["name"], $"{f["sapling"]} xu", () => game.FarmSend("buy", item: "sapling_" + fid)); }
+                    if (game.ShopCat == "Vật nuôi" && farmMod["FARM_ANIMALS"] is JArray animals)
+                    {
+                        var herd = game.Livestock();var product = new System.Collections.Generic.Dictionary<string, string> { ["chicken"] = "farm_egg", ["cow"] = "farm_milk", ["sheep"] = "farm_wool", ["bee"] = "farm_honey" };
+                        foreach (var a in animals)
+                        {
+                            var aid = (string)a["id"];herd.TryGetValue(aid, out var cnt);var full = cnt >= (int)a["max"];
+                            Card("Con" + aid, ItemSprite(product.TryGetValue(aid, out var pr) ? pr : aid), (string)a["name"], full ? "Đã đủ" : $"{a["price"]} xu", () => game.FarmSend("buy", item: "animal_" + aid), !full, $"{cnt}/{a["max"]}");
+                        }
+                    }
+                    if (game.ShopCat == "Máy chế biến" && farmMod["FARM_MACHINES"] is JArray machines)
+                        foreach (var m in machines)
+                        {
+                            var mid = (string)m["id"];var got = have?.ContainsKey(mid) ?? false;
+                            Card("Máy" + mid, game.HomePropSprite("machine_" + mid), (string)m["name"], got ? "Đã có" : $"{(int)m["price"]:#,0} xu", () => game.FarmSend("buy", item: "machine_" + mid), !got);
+                        }
                     return;
                 }
                 if (key == "pets")

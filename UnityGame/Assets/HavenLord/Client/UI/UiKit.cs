@@ -24,8 +24,8 @@ namespace HavenLord.Client.UI
         public static readonly Color Ink = new Color(0.07f, 0.075f, 0.1f, 0.78f);
         public static readonly Color InkSoft = new Color(0.07f, 0.075f, 0.1f, 0.55f);
         public static readonly Color Gold = new Color(1f, 0.85f, 0.5f);
-        public static readonly Color TextMain = new Color(0.96f, 0.95f, 0.92f);
-        public static readonly Color TextDim = new Color(0.72f, 0.74f, 0.8f);
+        public static readonly Color TextMain = new Color(0.98f, 0.94f, 0.86f);
+        public static readonly Color TextDim = new Color(0.82f, 0.72f, 0.58f);
 
         /// <summary>Font asset ĐỘNG từ Inter (Resources/Fonts — đủ dấu tiếng Việt): glyph sinh khi cần, nhiều atlas khi đầy.</summary>
         public static void LoadFonts()
@@ -107,6 +107,24 @@ namespace HavenLord.Client.UI
             }
             else img.preserveAspect = true;
             return img;
+        }
+
+        private static readonly System.Collections.Generic.Dictionary<string, Sprite> ornaments = new System.Collections.Generic.Dictionary<string, Sprite>();
+        /// <summary>Mảnh khung / icon menu PixelLab (Resources/UiOrnaments/&lt;tên&gt;): title_cap_left, corner_gold, crest, hotbar_wing_left, menu_*.</summary>
+        public static Sprite Ornament(string name)
+        {
+            if (!ornaments.TryGetValue(name, out var s)) ornaments[name] = s = Resources.Load<Sprite>("UiOrnaments/" + name);
+            return s;
+        }
+
+        /// <summary>Đặt một mảnh trang trí (đúng tỉ lệ ảnh × <paramref name="scale"/>), lật ngang / dọc nếu cần; không bắt chuột.</summary>
+        public static RectTransform Ornament(RectTransform parent, string name, Vector2 anchor, Vector2 pivot, Vector2 pos, float scale, bool flipX = false, bool flipY = false)
+        {
+            var s = Ornament(name);
+            var rt = Rect(parent, name, anchor, pivot, pos, s == null ? Vector2.zero : s.rect.size * scale);
+            if (s != null) Icon(rt, s);
+            rt.localScale = new Vector3(flipX ? -1 : 1, flipY ? -1 : 1, 1);
+            return rt;
         }
 
         public static Image Icon(RectTransform rt, Sprite s, bool raycast = false)
