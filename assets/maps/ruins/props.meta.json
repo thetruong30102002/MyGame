@@ -1006,5 +1006,113 @@
 			"w": 17,
 			"h": 10
 		}
+	},
+	"ph_thap_haven_do": {
+		"kind": "building",
+		"w": 230,
+		"h": 280,
+		"blocks": true,
+		"footprint": {
+			"x": -92,
+			"y": -64,
+			"w": 184,
+			"h": 64
+		}
+	},
+	"ph_cong_vom_vo": {
+		"kind": "decor",
+		"w": 95,
+		"h": 96,
+		"blocks": true,
+		"footprint": {
+			"x": -41,
+			"y": -14,
+			"w": 81,
+			"h": 14
+		}
+	},
+	"ph_cot_rune_do": {
+		"kind": "rock",
+		"w": 112,
+		"h": 40,
+		"blocks": true,
+		"footprint": {
+			"x": -48,
+			"y": -14,
+			"w": 95,
+			"h": 14
+		}
+	},
+	"ph_be_pha_le_nut": {
+		"kind": "decor",
+		"w": 34,
+		"h": 80,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -12,
+			"w": 20,
+			"h": 12
+		}
+	},
+	"ph_bia_co": {
+		"kind": "decor",
+		"w": 53,
+		"h": 72,
+		"blocks": true,
+		"footprint": {
+			"x": -19,
+			"y": -12,
+			"w": 37,
+			"h": 12
+		}
+	},
+	"ph_bac_da_noi": {
+		"kind": "rock",
+		"w": 72,
+		"h": 72,
+		"blocks": true,
+		"footprint": {
+			"x": -22,
+			"y": -12,
+			"w": 43,
+			"h": 12
+		}
+	},
+	"ph_tuong_vo_day_leo": {
+		"kind": "decor",
+		"w": 145,
+		"h": 84,
+		"blocks": true,
+		"footprint": {
+			"x": -66,
+			"y": -16,
+			"w": 131,
+			"h": 16
+		}
+	},
+	"ph_dai_phun_can": {
+		"kind": "decor",
+		"w": 75,
+		"h": 64,
+		"blocks": true,
+		"footprint": {
+			"x": -32,
+			"y": -18,
+			"w": 64,
+			"h": 18
+		}
+	},
+	"ph_dong_gach_vang": {
+		"kind": "rock",
+		"w": 98,
+		"h": 36,
+		"blocks": true,
+		"footprint": {
+			"x": -42,
+			"y": -12,
+			"w": 83,
+			"h": 12
+		}
 	}
 }

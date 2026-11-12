@@ -1,0 +1,14 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a beginner RPG outfit item icon: sleeveless dark red padded tunic over a grey long-sleeved shirt, brown chest strap, wide belt, leather bracers, grey trousers, short brown boots, an empty headless set of clothes like on an invisible mannequin, no head, no face, no hair, no person, front view, centered, simple chunky game item icon",
+	"width": 48,
+	"height": 48,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "medium detail",
+	"seed": 8811,
+	"jobId": "5df2d110-1e03-408e-bf34-90411e05b977",
+	"token": 0,
+	"createdAt": "2026-11-06T01:03:53.607Z"
+}

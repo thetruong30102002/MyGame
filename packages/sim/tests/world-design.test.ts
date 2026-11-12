@@ -41,8 +41,8 @@ test('không lộ chương bị khóa, không mở bằng cấp NaN hoặc cờ 
 	assert.equal(archiveChapterGate('memory',{level:100,evidence:all,read:['origin','pact','burden']}),null);
 	assert(archiveChapterGate('invalid',{level:100,evidence:all,read:[]}));
 });
-test('174 map thật liên thông và cổng hai chiều có đúng điểm đến',()=>{
-	const audit=auditWorldConnections(maps);assert.equal(audit.mapCount,174);assert.deepEqual(audit.errors,[]);assert.deepEqual(audit.unreachable,[]);assert.equal(audit.connections.length,12);assert.equal(audit.crossRegionLinks,24);
+test('175 map thật liên thông và cổng hai chiều có đúng điểm đến',()=>{
+	const audit=auditWorldConnections(maps);assert.equal(audit.mapCount,175);assert.deepEqual(audit.errors,[]);assert.deepEqual(audit.unreachable,[]);assert.equal(audit.connections.length,12);assert.equal(audit.crossRegionLinks,24);
 });
 test('audit bắt đích sai, điểm đến thiếu và lối chỉ có một chiều',()=>{
 	const m:WorldLinkMap[]=[{key:'a/start',spots:[],exits:[{id:'bad',to:'x/missing'},{id:'missing-spot',to:'b/hub',toSpot:'absent'}]},{key:'b/hub',spots:[],exits:[]}];

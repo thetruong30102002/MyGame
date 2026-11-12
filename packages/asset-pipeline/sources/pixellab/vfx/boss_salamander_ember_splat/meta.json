@@ -1,0 +1,32 @@
+{
+	"id": "boss_salamander_ember_splat",
+	"kind": "burst",
+	"canvas": {
+		"w": 64,
+		"h": 64
+	},
+	"first": {
+		"prompt": "a small splash of molten orange lava just hitting, dark crust pieces and sparks, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "8874a2bb-d4bb-473b-88ce-85fc893b75c1",
+		"drawn": "first_drawn.png"
+	},
+	"action": "the lava splashes outward into glowing droplets and sparks, then cools into dark crust bits and smoke that fade",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "d57d25ec-95f5-4895-8014-349ef71eb56e",
+	"createdAt": "2026-11-05T15:03:26.661Z",
+	"token": 0
+}

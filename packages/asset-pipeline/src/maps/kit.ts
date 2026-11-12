@@ -1,6 +1,7 @@
 import type { PropMeta } from '../props/buildProps.js';
 import { decalsOf, Layout, px, species, TILE, type Biome, type Edge, type MapData, type MapExit, type MonsterZone } from './human/common.js';
 import { MIN_WATER_GAP, validateRegion, worldIndex, type WorldIndex } from './human/index.js';
+import { finishWithStory } from './storyBits.js';
 
 /**
  * Bộ dựng map dùng chung cho vùng 2–7 (10/10/2026 — chủ dự án: "làm hết các vùng luôn đi"). Vùng 1 viết tay từng map; các vùng
@@ -302,12 +303,36 @@ function buildKitMapOnce(spec: KitMapSpec, exits: readonly KitExit[], meta: Reco
 	if (t.riverMonster && !hub && !arena && zoneSpecs.length) {
 		const wd = distanceField(L, (c) => c === 'w');
 		const rd = distanceField(L, isRoad);
+		// Chỉ bờ ĐI BỘ TỚI ĐƯỢC từ ngã ba (loang trên địa hình, cầu đi qua được): bờ bên kia suối không cầu / bãi bị nước vây thì bỏ —
+		// bộ kiểm `apps/server/tests/worldmaps.test.ts` đòi mọi điểm sinh quái tới được bằng chân.
+		const dry = new Uint8Array(spec.w * spec.h);
+		const stack = [Math.round(J.y) * spec.w + Math.round(J.x)];
+		dry[stack[0]!] = 1;
+		while (stack.length) {
+			const i = stack.pop()!;
+			const x = i % spec.w;
+			const y = (i - x) / spec.w;
+			for (const [nx, ny] of [[x + 1, y], [x - 1, y], [x, y + 1], [x, y - 1]] as const) {
+				if (nx < 0 || ny < 0 || nx >= spec.w || ny >= spec.h) continue;
+				const j = ny * spec.w + nx;
+				if (dry[j] || L.at(nx, ny) === 'w') continue;
+				dry[j] = 1;
+				stack.push(j);
+			}
+		}
 		let best: Pt | null = null;
 		let bestScore = -Infinity;
 		for (let tries = 0; tries < 1500; tries += 1) {
 			const p = { x: Ri(4, spec.w - 5), y: Ri(4, spec.h - 5) };
 			const i = p.y * spec.w + p.x;
-			if (wd[i]! < 2 || wd[i]! > 3.4 || rd[i]! < 2.5 || L.at(p.x, p.y) === 'w') continue;
+			if (wd[i]! < 2 || wd[i]! > 3.4 || rd[i]! < 2.5 || L.at(p.x, p.y) === 'w' || !dry[i]) continue;
+			// Cả vòng 2 ô quanh tâm (chỗ 3 con sinh) phải đi bộ tới được.
+			if ([[-2, 0], [2, 0], [0, -2], [0, 2]].some(([dx, dy]) => !dry[(p.y + dy!) * spec.w + p.x + dx!] && L.at(p.x + dx!, p.y + dy!) !== 'w')) continue;
+			// Khoảng cách THẬT (đường chim bay) tới ô nước gần nhất — trường khoảng cách đo theo bước ô, đi chéo thì 3,4 bước thành
+			// ~4,2 ô, vượt luật quái sông 1,5–4 ô của bộ kiểm map.
+			let wet = Infinity;
+			for (let dy = -5; dy <= 5; dy += 1) for (let dx = -5; dx <= 5; dx += 1) if (L.at(p.x + dx, p.y + dy) === 'w') wet = Math.min(wet, Math.hypot(dx, dy));
+			if (wet < 2 || wet > 3.3) continue;
 			if (Math.hypot(p.x - J.x, p.y - J.y) < 7 || exitPts.some((e) => Math.hypot(p.x - e.x, p.y - e.y) < 7)) continue;
 			const near = clearings.reduce((m, c) => Math.min(m, Math.hypot(p.x - c.p.x, p.y - c.p.y) - c.r), Infinity);
 			if (near < 4) continue;
@@ -382,6 +407,13 @@ function buildKitMapOnce(spec: KitMapSpec, exits: readonly KitExit[], meta: Reco
 				const sl = slots[si++]!;
 				if (!L.place(id, px(sl.x), px(sl.y))) continue;
 				done = true;
+				// Công trình biểu tượng (GPT đợt 12, cao ~280 px): giữ trống quanh thân để cây / đá rải sau không che mặt tiền.
+				const big = meta[id]!;
+				if (big.h > 240) {
+					L.reserve(sl.x, sl.y - big.h / TILE / 2, Math.max(big.w, big.h) / TILE / 2 + 0.5);
+					// Tán cây gốc dưới chân vẫn trùm lên mặt tiền → giữ trống thêm dải trước cửa.
+					L.reserve(sl.x, sl.y + 2, big.w / TILE / 2 + 1.5);
+				}
 				// Đồ sân nhà: hai bên hông, cùng hàng chân nhà.
 				for (const k of [-1, 1]) if (yard.length && L.rand() < 0.75) L.place(L.pick(yard), px(sl.x + sl.ux * k * 2.4 - sl.uy * 0), px(sl.y + sl.uy * k * 2.4) - 4);
 			}
@@ -540,7 +572,7 @@ function buildKitMapOnce(spec: KitMapSpec, exits: readonly KitExit[], meta: Reco
 		label: e.label,
 	}));
 	const entry = spots[0] ?? { x: px(J.x), y: px(J.y) };
-	return L.finish({
+	return finishWithStory(L, spec.role === 'hunt' ? 4 : 2, {
 		id: spec.id,
 		name: spec.name,
 		biome: t.biome,

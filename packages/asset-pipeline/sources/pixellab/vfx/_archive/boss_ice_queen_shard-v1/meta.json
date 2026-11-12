@@ -1,0 +1,27 @@
+{
+	"id": "boss_ice_queen_shard",
+	"kind": "loop",
+	"canvas": {
+		"w": 36,
+		"h": 36
+	},
+	"first": {
+		"prompt": "a long slender pale blue ice crystal shard flying toward the right, faceted with white highlights, sharp point, a sparkle of frost behind it to the left, side view, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "de02da0b-321b-4d01-ad5f-2be77651c8bf"
+	},
+	"action": "the ice shard glints and frost sparkles trail behind it, seamless loop",
+	"frameCount": 4,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png"
+	],
+	"animateJobId": "d25e3f1c-6ee1-4f9e-ad87-6f65d76895b0",
+	"createdAt": "2026-11-05T14:44:27.565Z",
+	"token": 0
+}

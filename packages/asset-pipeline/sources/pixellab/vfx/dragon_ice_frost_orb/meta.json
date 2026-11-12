@@ -1,0 +1,27 @@
+{
+	"id": "dragon_ice_frost_orb",
+	"kind": "loop",
+	"canvas": {
+		"w": 44,
+		"h": 44
+	},
+	"first": {
+		"prompt": "a round sphere of solid pale blue ice with a few sharp ice crystal spikes, cold white mist trailing behind it to the left, flying toward the right, just energy and particles, no creature, no face, no eyes, side view, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "77ca6cd4-c2ea-43d1-baa1-cc30d5e15f7a"
+	},
+	"action": "the frost orb glints, cold mist curls behind it and ice crystals sparkle, seamless loop",
+	"frameCount": 4,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png"
+	],
+	"animateJobId": "d3797cc2-d28e-4549-8dad-5ef01151b9ed",
+	"createdAt": "2026-11-05T16:23:48.235Z",
+	"token": 0
+}

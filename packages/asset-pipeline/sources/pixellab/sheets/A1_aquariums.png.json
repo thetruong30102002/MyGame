@@ -1,0 +1,20 @@
+{
+	"description": "A sprite sheet of EIGHT separate home aquarium objects arranged in a grid of 4 columns and 2 rows, each centered in its own cell, all aquariums EMPTY of fish. Top row: a small glass fish bowl with clear water and pebbles, a wooden-framed rectangular aquarium tank with water plants and sand, a large ornate golden-framed aquarium tank with coral and glowing light, a round stone garden fish pond with lily pads and clear water. Bottom row: a cluster of green aquarium water plants, a small pink coral decoration, a tiny sunken treasure chest decoration, a little stone castle aquarium ornament. Front view, slight top-down, thick dark outline, soft cel shading, every object fully separate on a plain flat solid bright magenta (#FF00FF) chroma-key background, no fish, no animals, no characters, no shadow, no text, no numbers, no border, no frame",
+	"width": 256,
+	"height": 192,
+	"no_background": false,
+	"seed": 1108,
+	"style_options": {
+		"color_palette": false,
+		"outline": true,
+		"shading": true,
+		"detail": false
+	},
+	"style_image": {
+		"path": "sources/pixellab/sheets/N1_nature.png",
+		"usage_description": "Copy ONLY the art style of this reference: chunky chibi pixel art, thick dark outline on every shape, soft cel shading, front-facing view, one object centered in each cell. Do not copy these objects, their colors or their layout."
+	},
+	"jobId": "bca44b10-0c3f-4443-a1f3-a51c9cac57d2",
+	"token": 0,
+	"createdAt": "2026-11-11T09:38:10.169Z"
+}

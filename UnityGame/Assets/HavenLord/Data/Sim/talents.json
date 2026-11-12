@@ -1,5 +1,4 @@
 {
-	"HAVEN_PER_LEVEL": 0.03,
 	"BRANCHES": [
 		"sword",
 		"kiem_than",
@@ -59,6 +58,7 @@
 	"FREE_FIRST_TIER": [
 		"sword"
 	],
+	"HAVEN_PER_LEVEL": 0.03,
 	"HOME_SLOT": {
 		"slash": 0,
 		"haven_bolt": 1,

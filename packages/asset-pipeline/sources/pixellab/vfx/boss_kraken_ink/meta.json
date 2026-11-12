@@ -1,0 +1,27 @@
+{
+	"id": "boss_kraken_ink",
+	"kind": "loop",
+	"canvas": {
+		"w": 36,
+		"h": 36
+	},
+	"first": {
+		"prompt": "a glob of liquid black and deep violet squid ink flying toward the right, teardrop shape with a pointed splashing tail of ink droplets behind it to the left, glossy purple highlight, just liquid, no face, no eyes, no creature, side view, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "beac7290-277f-4b69-86f0-4f35f3b6f4fd"
+	},
+	"action": "the ink blob wobbles and ripples as it flies, small droplets trail and drip behind it, seamless loop",
+	"frameCount": 4,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png"
+	],
+	"animateJobId": "0baf63e9-ad07-474c-b0b5-ee848144b705",
+	"createdAt": "2026-11-05T14:12:27.896Z",
+	"token": 0
+}

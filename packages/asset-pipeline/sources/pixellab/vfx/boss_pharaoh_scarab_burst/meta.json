@@ -1,0 +1,32 @@
+{
+	"id": "boss_pharaoh_scarab_burst",
+	"kind": "burst",
+	"canvas": {
+		"w": 64,
+		"h": 64
+	},
+	"first": {
+		"prompt": "a small burst of glowing golden sand just starting, with a faint turquoise glyph light, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "de14ad7b-90f7-4d04-8d03-b34a87f407f3",
+		"drawn": "first_drawn.png"
+	},
+	"action": "the golden sand bursts outward in a swirl with a brief turquoise glyph flash, then the sand scatters and fades",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "80b5865f-1951-4396-998a-1de1b6525478",
+	"createdAt": "2026-11-05T14:58:24.197Z",
+	"token": 0
+}

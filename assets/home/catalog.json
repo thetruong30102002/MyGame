@@ -1,0 +1,455 @@
+{
+  "version": 1,
+  "props": [
+    {
+      "id": "farm_crop_wheat_0",
+      "source": "sheet:F1_crops#0@4x2",
+      "w": 26,
+      "h": 26
+    },
+    {
+      "id": "farm_crop_wheat_1",
+      "source": "sheet:F1_crops#1@4x2",
+      "w": 56,
+      "h": 43
+    },
+    {
+      "id": "farm_crop_wheat_2",
+      "source": "sheet:F1_crops#2@4x2",
+      "w": 61,
+      "h": 71
+    },
+    {
+      "id": "farm_crop_wheat_3",
+      "source": "sheet:F1_crops#3@4x2",
+      "w": 45,
+      "h": 71
+    },
+    {
+      "id": "farm_crop_carrot_0",
+      "source": "sheet:F1_crops#4@4x2",
+      "w": 28,
+      "h": 27
+    },
+    {
+      "id": "farm_crop_carrot_1",
+      "source": "sheet:F1_crops#5@4x2",
+      "w": 38,
+      "h": 51
+    },
+    {
+      "id": "farm_crop_carrot_2",
+      "source": "sheet:F1_crops#6@4x2",
+      "w": 59,
+      "h": 61
+    },
+    {
+      "id": "farm_crop_carrot_3",
+      "source": "sheet:F1_crops#7@4x2",
+      "w": 46,
+      "h": 69
+    },
+    {
+      "id": "farm_crop_potato_0",
+      "source": "sheet:F2_crops#0@4x4",
+      "w": 24,
+      "h": 23
+    },
+    {
+      "id": "farm_crop_potato_1",
+      "source": "sheet:F2_crops#1@4x4",
+      "w": 33,
+      "h": 34
+    },
+    {
+      "id": "farm_crop_potato_2",
+      "source": "sheet:F2_crops#2@4x4",
+      "w": 43,
+      "h": 43
+    },
+    {
+      "id": "farm_crop_potato_3",
+      "source": "sheet:F2_crops#3@4x4",
+      "w": 46,
+      "h": 45
+    },
+    {
+      "id": "farm_crop_strawberry_0",
+      "source": "sheet:F2_crops#4@4x4",
+      "w": 24,
+      "h": 24
+    },
+    {
+      "id": "farm_crop_strawberry_1",
+      "source": "sheet:F2_crops#5@4x4",
+      "w": 33,
+      "h": 36
+    },
+    {
+      "id": "farm_crop_strawberry_2",
+      "source": "sheet:F2_crops#6@4x4",
+      "w": 44,
+      "h": 41
+    },
+    {
+      "id": "farm_crop_strawberry_3",
+      "source": "sheet:F2_crops#7@4x4",
+      "w": 46,
+      "h": 42
+    },
+    {
+      "id": "farm_crop_haven_pumpkin_0",
+      "source": "sheet:F2_crops#8@4x4",
+      "w": 24,
+      "h": 26
+    },
+    {
+      "id": "farm_crop_haven_pumpkin_1",
+      "source": "sheet:F2_crops#9@4x4",
+      "w": 42,
+      "h": 36
+    },
+    {
+      "id": "farm_crop_haven_pumpkin_2",
+      "source": "sheet:F2_crops#10@4x4",
+      "w": 51,
+      "h": 42
+    },
+    {
+      "id": "farm_crop_haven_pumpkin_3",
+      "source": "sheet:F2_crops#11@4x4",
+      "w": 53,
+      "h": 44
+    },
+    {
+      "id": "farm_crop_silver_grass_0",
+      "source": "sheet:F2_crops#12@4x4",
+      "w": 24,
+      "h": 25
+    },
+    {
+      "id": "farm_crop_silver_grass_1",
+      "source": "sheet:F2_crops#13@4x4",
+      "w": 36,
+      "h": 38
+    },
+    {
+      "id": "farm_crop_silver_grass_2",
+      "source": "sheet:F2_crops#14@4x4",
+      "w": 44,
+      "h": 42
+    },
+    {
+      "id": "farm_crop_silver_grass_3",
+      "source": "sheet:F2_crops#15@4x4",
+      "w": 47,
+      "h": 42
+    },
+    {
+      "id": "home_fence",
+      "source": "sheet:F4_farm_props#2@4x2",
+      "w": 54,
+      "h": 38
+    },
+    {
+      "id": "home_gate",
+      "source": "sheet:F4_farm_props#3@4x2",
+      "w": 52,
+      "h": 44
+    },
+    {
+      "id": "home_shipping_box",
+      "source": "sheet:F4_farm_props#4@4x2",
+      "w": 46,
+      "h": 45
+    },
+    {
+      "id": "home_scarecrow",
+      "source": "sheet:F4_farm_props#5@4x2",
+      "w": 58,
+      "h": 64
+    },
+    {
+      "id": "home_water_barrel",
+      "source": "sheet:F4_farm_props#6@4x2",
+      "w": 46,
+      "h": 51
+    },
+    {
+      "id": "home_tool_rack",
+      "source": "sheet:F4_farm_props#7@4x2",
+      "w": 58,
+      "h": 57
+    },
+    {
+      "id": "home_bed",
+      "source": "sheet:I1_interior#0@4x3",
+      "w": 49,
+      "h": 59
+    },
+    {
+      "id": "home_dining_table",
+      "source": "sheet:I1_interior#1@4x3",
+      "w": 49,
+      "h": 44
+    },
+    {
+      "id": "home_chair",
+      "source": "sheet:I1_interior#2@4x3",
+      "w": 29,
+      "h": 49
+    },
+    {
+      "id": "home_stove",
+      "source": "sheet:I1_interior#3@4x3",
+      "w": 43,
+      "h": 61
+    },
+    {
+      "id": "home_chest",
+      "source": "sheet:I1_interior#4@4x3",
+      "w": 50,
+      "h": 41
+    },
+    {
+      "id": "home_wardrobe",
+      "source": "sheet:I1_interior#5@4x3",
+      "w": 47,
+      "h": 66
+    },
+    {
+      "id": "home_bookshelf",
+      "source": "sheet:I1_interior#6@4x3",
+      "w": 48,
+      "h": 65
+    },
+    {
+      "id": "home_fireplace",
+      "source": "sheet:I1_interior#7@4x3",
+      "w": 51,
+      "h": 65
+    },
+    {
+      "id": "home_rug",
+      "source": "sheet:I1_interior#8@4x3",
+      "w": 52,
+      "h": 51
+    },
+    {
+      "id": "home_table_lamp",
+      "source": "sheet:I1_interior#9@4x3",
+      "w": 32,
+      "h": 44
+    },
+    {
+      "id": "home_wall_clock",
+      "source": "sheet:I1_interior#10@4x3",
+      "w": 42,
+      "h": 48
+    },
+    {
+      "id": "home_painting",
+      "source": "sheet:I1_interior#11@4x3",
+      "w": 50,
+      "h": 45
+    },
+    {
+      "id": "home_window",
+      "source": "sheet:I2_interior#0@3x2",
+      "w": 58,
+      "h": 60
+    },
+    {
+      "id": "home_potted_plant",
+      "source": "sheet:I2_interior#1@3x2",
+      "w": 56,
+      "h": 66
+    },
+    {
+      "id": "home_drying_rack",
+      "source": "sheet:I2_interior#2@3x2",
+      "w": 68,
+      "h": 62
+    },
+    {
+      "id": "home_rice_bin",
+      "source": "sheet:I2_interior#3@3x2",
+      "w": 50,
+      "h": 65
+    },
+    {
+      "id": "home_vase",
+      "source": "sheet:I2_interior#4@3x2",
+      "w": 48,
+      "h": 69
+    },
+    {
+      "id": "home_armchair",
+      "source": "sheet:I2_interior#5@3x2",
+      "w": 60,
+      "h": 69
+    }
+  ],
+  "icons": [
+    {
+      "id": "farm_wheat",
+      "name": "Lúa mì",
+      "source": "sheet:F3_crop_icons#0@4x3",
+      "file": "items/farm_wheat.png",
+      "w": 46,
+      "h": 49
+    },
+    {
+      "id": "farm_carrot",
+      "name": "Cà rốt",
+      "source": "sheet:F3_crop_icons#1@4x3",
+      "file": "items/farm_carrot.png",
+      "w": 46,
+      "h": 49
+    },
+    {
+      "id": "farm_potato",
+      "name": "Khoai",
+      "source": "sheet:F3_crop_icons#2@4x3",
+      "file": "items/farm_potato.png",
+      "w": 48,
+      "h": 41
+    },
+    {
+      "id": "farm_strawberry",
+      "name": "Dâu",
+      "source": "sheet:F3_crop_icons#3@4x3",
+      "file": "items/farm_strawberry.png",
+      "w": 50,
+      "h": 45
+    },
+    {
+      "id": "farm_haven_pumpkin",
+      "name": "Bí ngô Haven",
+      "source": "sheet:F3_crop_icons#4@4x3",
+      "file": "items/farm_haven_pumpkin.png",
+      "w": 47,
+      "h": 44
+    },
+    {
+      "id": "farm_silver_grass",
+      "name": "Cỏ bạc",
+      "source": "sheet:F3_crop_icons#5@4x3",
+      "file": "items/farm_silver_grass.png",
+      "w": 44,
+      "h": 50
+    },
+    {
+      "id": "seed_wheat",
+      "name": "Hạt lúa mì",
+      "source": "sheet:F3_crop_icons#6@4x3",
+      "file": "items/seed_wheat.png",
+      "w": 41,
+      "h": 46
+    },
+    {
+      "id": "seed_carrot",
+      "name": "Hạt cà rốt",
+      "source": "sheet:F3_crop_icons#7@4x3",
+      "file": "items/seed_carrot.png",
+      "w": 40,
+      "h": 46
+    },
+    {
+      "id": "seed_potato",
+      "name": "Hạt khoai",
+      "source": "sheet:F3_crop_icons#8@4x3",
+      "file": "items/seed_potato.png",
+      "w": 40,
+      "h": 47
+    },
+    {
+      "id": "seed_strawberry",
+      "name": "Hạt dâu",
+      "source": "sheet:F3_crop_icons#9@4x3",
+      "file": "items/seed_strawberry.png",
+      "w": 40,
+      "h": 48
+    },
+    {
+      "id": "seed_haven_pumpkin",
+      "name": "Hạt bí ngô haven",
+      "source": "sheet:F3_crop_icons#10@4x3",
+      "file": "items/seed_haven_pumpkin.png",
+      "w": 40,
+      "h": 47
+    },
+    {
+      "id": "seed_silver_grass",
+      "name": "Hạt cỏ bạc",
+      "source": "sheet:F3_crop_icons#11@4x3",
+      "file": "items/seed_silver_grass.png",
+      "w": 40,
+      "h": 48
+    },
+    {
+      "id": "fish_crucian",
+      "name": "Cá diếc",
+      "source": "sheet:F5_fish_icons#0@4x2",
+      "file": "items/fish_crucian.png",
+      "w": 45,
+      "h": 32
+    },
+    {
+      "id": "fish_carp",
+      "name": "Cá chép",
+      "source": "sheet:F5_fish_icons#1@4x2",
+      "file": "items/fish_carp.png",
+      "w": 53,
+      "h": 38
+    },
+    {
+      "id": "fish_perch",
+      "name": "Cá rô",
+      "source": "sheet:F5_fish_icons#2@4x2",
+      "file": "items/fish_perch.png",
+      "w": 50,
+      "h": 41
+    },
+    {
+      "id": "fish_eel",
+      "name": "Lươn đồng",
+      "source": "sheet:F5_fish_icons#3@4x2",
+      "file": "items/fish_eel.png",
+      "w": 48,
+      "h": 29
+    },
+    {
+      "id": "fish_prawn",
+      "name": "Tôm càng",
+      "source": "sheet:F5_fish_icons#4@4x2",
+      "file": "items/fish_prawn.png",
+      "w": 49,
+      "h": 36
+    },
+    {
+      "id": "fish_golden_carp",
+      "name": "Cá chép vàng",
+      "source": "sheet:F5_fish_icons#5@4x2",
+      "file": "items/fish_golden_carp.png",
+      "w": 49,
+      "h": 40
+    },
+    {
+      "id": "fish_night_catfish",
+      "name": "Cá trê đêm",
+      "source": "sheet:F5_fish_icons#6@4x2",
+      "file": "items/fish_night_catfish.png",
+      "w": 50,
+      "h": 35
+    },
+    {
+      "id": "fish_haven",
+      "name": "Cá Haven",
+      "source": "sheet:F5_fish_icons#7@4x2",
+      "file": "items/fish_haven.png",
+      "w": 47,
+      "h": 39
+    }
+  ]
+}

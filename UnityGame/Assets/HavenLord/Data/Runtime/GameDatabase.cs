@@ -18,6 +18,9 @@ namespace HavenLord.Data
         public List<WorldIndex> regions = new List<WorldIndex>();
         public List<VfxDef> vfx = new List<VfxDef>();
         public List<UiSpriteSet> uiSets = new List<UiSpriteSet>();
+        /// <summary>Hình cây trồng / đồ sân vườn / nội thất Gia viên, tách riêng atlas map chính.</summary>
+        public PropCatalog homeProps;
+        public TextAsset homeArtCatalog;
         /// <summary>JSON xuất từ packages/sim (Data/Sim/*.json) — nạp vào Core.SimData lúc chạy.</summary>
         public List<TextAsset> simModules = new List<TextAsset>();
         /// <summary>Dữ liệu hình / NPC của client (Data/Client/*.json — Tools~/export-client-data.mts).</summary>

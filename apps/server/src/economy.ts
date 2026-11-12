@@ -74,6 +74,13 @@ export class Economy {
 		this.host.send(player, { t: 'eco', ...next, gain, bonusPoints });
 	}
 
+	/** Giao dịch bộ đồ đã được Store ghi cùng xu; đồng bộ bộ nhớ để lần hạ quái sau không ghi đè số xu mới. */
+	shopApplied(player: string, next: Eco, itemName: string, price: number): void {
+		if (!this.eco.has(player)) return;
+		this.eco.set(player, next);
+		this.host.send(player, { t: 'eco', ...next, gain: { exp: 0, coins: -price, potions: 0, levels: 0, reason: 'spend', what: itemName } });
+	}
+
 	/**
 	 * Quái DÙNG CHUNG gục, người này được tính công (MobRegistry): EXP (× bình EXP đang dùng) + xu theo chỉ số của CHÍNH con quái đó
 	 * (`stats` — đã nhân theo cấp của khu); vắng thì theo bảng gốc của loại.

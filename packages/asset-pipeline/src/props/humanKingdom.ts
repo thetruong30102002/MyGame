@@ -44,6 +44,10 @@ const CAVE = (i: number) => cell('CV1_cave_nature', i, '3x3');
 const CAVE_PROPS = (i: number) => cell('CV2_cave_props', i, '3x3');
 /** Tấm chương 1: lưới 2 cột × 3 hàng (ô rộng 96×64 cho lều / thuyền); `grow` = nới ô khi món vẽ lấn qua đường lưới (`props/sheet.ts`). */
 const CHAPTER1 = (i: number, grow = 0) => `${cell('C1_chapter1', i, '2x3')}${grow ? `+${grow}` : ''}`;
+/** Tấm đồ vật kể chuyện vùng 1 (05/11/2026, cụm cảnh `maps/storyBits.ts`): lưới 2 cột × 3 hàng như tấm chương 1. */
+const STORY = (i: number) => cell('C2_story', i, '2x3');
+/** Tấm đồ sân vườn / ngoài phố (06/11/2026): ghế công viên cạnh đèn (chủ dự án chê ghế cũ "xấu quá") + đồ khuôn viên Gia viên. */
+const GARDEN = (i: number) => cell('C3_garden', i, '2x3');
 
 export const HUMAN_KINGDOM_PROPS: PropDef[] = [
 	// Chỉ xuất hiện khi ảnh mới đã vẽ và qua cổng tỷ lệ; nhà trọ cũ vẫn giữ trong atlas.
@@ -160,6 +164,19 @@ export const HUMAN_KINGDOM_PROPS: PropDef[] = [
 	{ id: 'beehive', path: CHAPTER1(3), kind: 'decor', footprint: { w: 0.8, h: 14 }, blocks: true },
 	{ id: 'reed_clump', path: CHAPTER1(4, 2), kind: 'flower', footprint: { w: 0, h: 0 }, blocks: false },
 	{ id: 'mooring_post', path: CHAPTER1(5), kind: 'decor', footprint: { w: 0.4, h: 10 }, blocks: true },
+	// Đồ vật kể chuyện (05/11/2026): trại lữ khách, xe hàng, bãi chiến trận… của `maps/storyBits.ts`; lửa trại là nguồn sáng (Lighting.cs).
+	{ id: 'canvas_tent', path: STORY(0), kind: 'building', footprint: { w: 0.85, h: 18 }, blocks: true },
+	{ id: 'campfire', path: STORY(1), kind: 'decor', footprint: { w: 0.7, h: 12 }, blocks: true },
+	{ id: 'firewood_pile', path: STORY(2), kind: 'decor', footprint: { w: 0.85, h: 14 }, blocks: true },
+	{ id: 'treasure_chest', path: STORY(3), kind: 'decor', footprint: { w: 0.8, h: 14 }, blocks: true },
+	{ id: 'grain_sacks', path: STORY(4), kind: 'decor', footprint: { w: 0.8, h: 14 }, blocks: true },
+	{ id: 'weapon_rack', path: STORY(5), kind: 'decor', footprint: { w: 0.85, h: 10 }, blocks: true },
+	{ id: 'park_bench', path: GARDEN(0), kind: 'decor', footprint: { w: 0.9, h: 8 }, blocks: true, downscale: 2 },
+	{ id: 'log_bench', path: GARDEN(1), kind: 'decor', footprint: { w: 0.9, h: 12 }, blocks: true },
+	{ id: 'stone_bench', path: GARDEN(2), kind: 'decor', footprint: { w: 0.9, h: 12 }, blocks: true },
+	{ id: 'flower_planter', path: GARDEN(3), kind: 'decor', footprint: { w: 0.9, h: 12 }, blocks: true },
+	{ id: 'garden_table', path: GARDEN(4), kind: 'decor', footprint: { w: 0.85, h: 14 }, blocks: true },
+	{ id: 'garden_swing', path: GARDEN(5), kind: 'decor', footprint: { w: 0.85, h: 10 }, blocks: true },
 ];
 
 /**

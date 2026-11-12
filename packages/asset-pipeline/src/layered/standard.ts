@@ -37,6 +37,8 @@ export interface AnimationDef {
 	durationsMsNpc?: number[];
 	/** Pha theo số thứ tự frame tính từ 1, hai đầu đều tính. */
 	phases?: Record<string, [number, number]>;
+	/** Đoạn clip gameplay (câu cá: quăng / chờ / kéo), mốc tính từ 1, gồm hai đầu. */
+	segments?: Record<string, [number, number]>;
 	source: { tool: string; mode: string; template: string | null };
 	pilot: boolean;
 	/**
@@ -45,7 +47,7 @@ export interface AnimationDef {
 	 */
 	drawDirections?: DirId[];
 	/** Thế chân đòn hướng thẳng (luật 31/10, `straightAttackRule`): "lunge" cận chiến bước lên mới hạ người, "upright" đánh xa / phép đứng thẳng. */
-	stance?: 'lunge' | 'upright';
+	stance?: 'lunge' | 'upright' | 'kneel';
 }
 
 export interface LayeredStandard {
@@ -169,10 +171,14 @@ export function validateLayeredStandard(s: LayeredStandard): string[] {
 			fail(`${at}: animate_with_skeleton_v3 chỉ nhận ${SKELETON_FRAMES[0]}–${SKELETON_FRAMES[1]} frame`);
 		if (a.source.mode === 'template' && !a.source.template) fail(`${at}: mode template cần tên template`);
 		if (a.hitFrame !== undefined && (!isInt(a.hitFrame) || a.hitFrame < 1 || a.hitFrame > a.frames)) fail(`${at}.hitFrame ngoài 1–${a.frames}`);
+		for (const [name, range] of Object.entries(a.segments ?? {}))
+			if (range.length !== 2 || !range.every(isInt) || range[0] < 1 || range[1] < range[0] || range[1] > a.frames) fail(`${at}.segments.${name} ngoài 1–${a.frames}`);
 		// Đòn đánh chỉ N + ngang (luật 30/10): có khung chạm thì phải khai hướng vẽ, không có S.
 		if (a.hitFrame !== undefined && (!a.drawDirections || a.drawDirections.includes('S') || !a.drawDirections.includes('E') || !a.drawDirections.includes('N')))
 			fail(`${at}.drawDirections phải là ["E", "N"] — đòn đánh chỉ bắc và ngang (W lật từ E), đánh về nam xoay ngang`);
-		if (a.hitFrame !== undefined && a.stance !== 'lunge' && a.stance !== 'upright')
+		// `kneel` (ngồi thụp) chỉ cho động tác gia viên không phải đòn đánh (06/11: gieo hạt / thu hoạch).
+		if (a.stance === 'kneel' && a.id !== 'plant') fail(`${at}.stance "kneel" chỉ dành cho động tác gia viên plant — đòn đánh phải lunge / upright`);
+		if (a.hitFrame !== undefined && a.stance !== 'lunge' && a.stance !== 'upright' && a.stance !== 'kneel')
 			fail(`${at}.stance phải "lunge" (cận chiến) hoặc "upright" (đánh xa / phép) — luật chân đòn hướng thẳng 31/10`);
 		if (a.phases) {
 			const ranges = Object.values(a.phases).sort((p, q) => p[0] - q[0]);

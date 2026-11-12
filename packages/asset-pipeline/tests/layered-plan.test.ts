@@ -90,4 +90,16 @@ test('vượt ngân sách chặng (kể cả hệ số vẽ lại) thì chặn',
 	broken((p) => (A(p)[CREATE]!.estimate = 10), 'vượt ngân sách');
 });
 
+test('nghiêm cấm áo đội mũ (06/11/2026): bộ đồ có mũ trùm / mũ / mũ giáp bị chặn; "no hood" và ngoại lệ cũ có lý do thì qua', () => {
+	const U = (p: SamplePlan) => p.stages.U!.items;
+	const sword = (p: SamplePlan) => U(p).find((i) => i.id === 'U2-sword-outfit-S')!;
+	broken((p) => (sword(p).outfit = 'a red tunic with a hood up over the head'), 'áo đội mũ');
+	broken((p) => (sword(p).outfit = 'plate armor and a steel helmet'), 'áo đội mũ');
+	broken((p) => (sword(p).outfit = 'a leather jacket and a wide brim hat'), 'áo đội mũ');
+	const ok = structuredClone(real);
+	sword(ok).outfit = 'a red tunic, no hood, no hat';
+	assert.deepEqual(validatePlan(ok, std), []);
+	broken((p) => delete U(p).find((i) => i.legacyHood)!.legacyHood, 'áo đội mũ');
+});
+
 console.log(`${passed} nhóm kiểm đạt`);

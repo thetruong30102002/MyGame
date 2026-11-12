@@ -1,0 +1,268 @@
+{
+	"about": "Bản 2 gieo hạt / thu hoạch N (06/11): bản 1 (thế lao, hạ hông 7) người hạ không đủ, chân trái đá ngang. Bản này thế `kneel`: hai bàn chân giữ chỗ, ngồi thụp hạ hông 11, gối depth (không bè hai bên), người đổ tới, hai tay với xuống đất trước mặt (khuất sau thân), đứng lên. Tay không.",
+	"character": "U30-farmer1-outfit-N",
+	"rest": "U30-farmer1-outfit-N#26043",
+	"direction": "north",
+	"pad": [
+		4,
+		4,
+		0,
+		0
+	],
+	"handGapPx": 3,
+	"knees": "depth",
+	"stance": "kneel",
+	"frames": [
+		{
+			"grip": [
+				44,
+				54
+			],
+			"bladeDeg": 0,
+			"depthR": 110,
+			"depthL": 110,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				44,
+				56
+			],
+			"bladeDeg": 0,
+			"depthR": 104,
+			"depthL": 104,
+			"lean": 0,
+			"hip": [
+				0,
+				2
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				44,
+				58
+			],
+			"bladeDeg": 0,
+			"depthR": 98,
+			"depthL": 98,
+			"lean": 0,
+			"hip": [
+				0,
+				4
+			],
+			"step": 0,
+			"back": 0,
+			"leanY": -1
+		},
+		{
+			"grip": [
+				44,
+				60
+			],
+			"bladeDeg": 0,
+			"depthR": 92,
+			"depthL": 92,
+			"lean": 0,
+			"hip": [
+				0,
+				6
+			],
+			"step": 0,
+			"back": 0,
+			"leanY": -2
+		},
+		{
+			"grip": [
+				44,
+				62
+			],
+			"bladeDeg": 0,
+			"depthR": 86,
+			"depthL": 86,
+			"lean": 0,
+			"hip": [
+				0,
+				8
+			],
+			"step": 0,
+			"back": 0,
+			"leanY": -2
+		},
+		{
+			"grip": [
+				44,
+				62
+			],
+			"bladeDeg": 0,
+			"depthR": 80,
+			"depthL": 80,
+			"lean": 0,
+			"hip": [
+				0,
+				10
+			],
+			"step": 0,
+			"back": 0,
+			"leanY": -3
+		},
+		{
+			"grip": [
+				44,
+				62
+			],
+			"bladeDeg": 0,
+			"depthR": 76,
+			"depthL": 76,
+			"lean": 0,
+			"hip": [
+				0,
+				11
+			],
+			"step": 0,
+			"back": 0,
+			"leanY": -3
+		},
+		{
+			"grip": [
+				44,
+				62
+			],
+			"bladeDeg": 0,
+			"depthR": 74,
+			"depthL": 74,
+			"lean": 0,
+			"hip": [
+				0,
+				11
+			],
+			"step": 0,
+			"back": 0,
+			"leanY": -3
+		},
+		{
+			"grip": [
+				44,
+				62
+			],
+			"bladeDeg": 0,
+			"depthR": 76,
+			"depthL": 76,
+			"lean": 0,
+			"hip": [
+				0,
+				11
+			],
+			"step": 0,
+			"back": 0,
+			"leanY": -3
+		},
+		{
+			"grip": [
+				44,
+				62
+			],
+			"bladeDeg": 0,
+			"depthR": 80,
+			"depthL": 80,
+			"lean": 0,
+			"hip": [
+				0,
+				10
+			],
+			"step": 0,
+			"back": 0,
+			"leanY": -3
+		},
+		{
+			"grip": [
+				44,
+				62
+			],
+			"bladeDeg": 0,
+			"depthR": 86,
+			"depthL": 86,
+			"lean": 0,
+			"hip": [
+				0,
+				8
+			],
+			"step": 0,
+			"back": 0,
+			"leanY": -2
+		},
+		{
+			"grip": [
+				44,
+				60
+			],
+			"bladeDeg": 0,
+			"depthR": 92,
+			"depthL": 92,
+			"lean": 0,
+			"hip": [
+				0,
+				6
+			],
+			"step": 0,
+			"back": 0,
+			"leanY": -2
+		},
+		{
+			"grip": [
+				44,
+				58
+			],
+			"bladeDeg": 0,
+			"depthR": 98,
+			"depthL": 98,
+			"lean": 0,
+			"hip": [
+				0,
+				4
+			],
+			"step": 0,
+			"back": 0,
+			"leanY": -1
+		},
+		{
+			"grip": [
+				44,
+				56
+			],
+			"bladeDeg": 0,
+			"depthR": 104,
+			"depthL": 104,
+			"lean": 0,
+			"hip": [
+				0,
+				2
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				44,
+				54
+			],
+			"bladeDeg": 0,
+			"depthR": 110,
+			"depthL": 110,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		}
+	]
+}

@@ -554,6 +554,262 @@
         "N"
       ],
       "stance": "upright"
+    },
+    {
+      "id": "hoe",
+      "frames": 15,
+      "loop": false,
+      "hitFrame": 10,
+      "durationsMs": [
+        160,
+        120,
+        120,
+        110,
+        120,
+        160,
+        90,
+        60,
+        50,
+        50,
+        60,
+        200,
+        120,
+        110,
+        160
+      ],
+      "phases": {
+        "windup": [
+          1,
+          6
+        ],
+        "accelerate": [
+          7,
+          9
+        ],
+        "impact": [
+          10,
+          11
+        ],
+        "recover": [
+          12,
+          15
+        ]
+      },
+      "source": {
+        "tool": "animate_with_skeleton_v3",
+        "mode": "skeleton",
+        "template": null
+      },
+      "pilot": false,
+      "drawDirections": [
+        "E",
+        "N"
+      ],
+      "stance": "lunge",
+      "note": "Gia viên (06/11): cuốc đất — bộ đồ ở nhà, cái cuốc PixelLab vẽ LIỀN THÂN. Chỉ E + N (W lật, nam xoay ngang; chủ dự án \"cuốc đất 4 hướng đủ r\"). Khung chạm 10 = ô đất trước mặt được xới."
+    },
+    {
+      "id": "water",
+      "frames": 15,
+      "loop": false,
+      "hitFrame": 7,
+      "durationsMs": [
+        200,
+        180,
+        160,
+        150,
+        140,
+        120,
+        100,
+        100,
+        100,
+        100,
+        100,
+        120,
+        130,
+        140,
+        160
+      ],
+      "phases": {
+        "windup": [
+          1,
+          5
+        ],
+        "accelerate": [
+          6,
+          6
+        ],
+        "impact": [
+          7,
+          11
+        ],
+        "recover": [
+          12,
+          15
+        ]
+      },
+      "source": {
+        "tool": "animate_with_skeleton_v3",
+        "mode": "skeleton",
+        "template": null
+      },
+      "pilot": false,
+      "drawDirections": [
+        "E",
+        "N"
+      ],
+      "stance": "upright",
+      "note": "Gia viên (06/11): tưới cây — bình tưới vẽ liền thân. Chỉ E + N (W lật, nam xoay ngang). Nghiêng bình (1–6), dòng nước rơi xuống ô trước mặt (7–11, khung 7 = ô được tưới), dựng bình về (12–15)."
+    },
+    {
+      "id": "plant",
+      "frames": 15,
+      "loop": false,
+      "hitFrame": 8,
+      "durationsMs": [
+        160,
+        150,
+        140,
+        130,
+        120,
+        80,
+        80,
+        80,
+        80,
+        140,
+        140,
+        130,
+        120,
+        120,
+        140
+      ],
+      "phases": {
+        "windup": [
+          1,
+          5
+        ],
+        "accelerate": [
+          6,
+          6
+        ],
+        "impact": [
+          7,
+          9
+        ],
+        "recover": [
+          10,
+          15
+        ]
+      },
+      "source": {
+        "tool": "animate_with_skeleton_v3",
+        "mode": "skeleton",
+        "template": null
+      },
+      "pilot": false,
+      "drawDirections": [
+        "E",
+        "N"
+      ],
+      "stance": "kneel",
+      "note": "Gia viên (06/11): gieo hạt / thu hoạch — một clip: khuỵu xuống, một tay chạm đất trước mặt (khung 8 = hạt vào đất / nhổ cây), đứng lên. Tay không, không dụng cụ; thu hoạch thì game hiện nông sản trên đầu. Chỉ E + N (W lật, nam xoay ngang). Hướng N ngồi thụp thế `kneel` (gối depth, hạ hông ≤ 12) — thế lao làm người hạ không đủ, chân đá ngang (bản 1)."
+    },
+    {
+      "id": "fish",
+      "frames": 15,
+      "loop": false,
+      "hitFrame": 6,
+      "durationsMs": [
+        160,
+        150,
+        140,
+        130,
+        80,
+        70,
+        70,
+        220,
+        220,
+        220,
+        220,
+        120,
+        80,
+        90,
+        160
+      ],
+      "phases": {
+        "windup": [
+          1,
+          4
+        ],
+        "accelerate": [
+          5,
+          5
+        ],
+        "impact": [
+          6,
+          7
+        ],
+        "recover": [
+          8,
+          15
+        ]
+      },
+      "source": {
+        "tool": "animate_with_skeleton_v3",
+        "mode": "skeleton",
+        "template": null
+      },
+      "pilot": false,
+      "drawDirections": [
+        "E",
+        "N"
+      ],
+      "stance": "upright",
+      "segments": {
+        "cast": [
+          1,
+          7
+        ],
+        "wait": [
+          8,
+          11
+        ],
+        "pull": [
+          12,
+          15
+        ]
+      },
+      "note": "Gia viên (06/11): câu cá — một clip 3 đoạn: quăng cần (1–7, khung 6 = phao chạm nước), giữ cần chờ cá (8–11, game LẶP đoạn này tới khi phao giật), giật kéo (12–15). Cần câu PixelLab vẽ liền thân; dây + phao là hiệu ứng game (phao nằm trên mặt nước cách người vài ô). Chỉ E + N (W lật, nam xoay ngang)."
+    },
+    {
+      "id": "jump",
+      "frames": 7,
+      "loop": false,
+      "durationsMs": [
+        110,
+        90,
+        80,
+        90,
+        100,
+        90,
+        140
+      ],
+      "durationsMsNpc": [
+        120,
+        100,
+        90,
+        100,
+        110,
+        100,
+        160
+      ],
+      "source": {
+        "tool": "animate_character",
+        "mode": "template",
+        "template": "two-footed-jump"
+      },
+      "pilot": false,
+      "note": "BỎ 11/11 (chủ dự án: \"Thôi dừng bỏ nhảy\") — không vẽ / không xuất. Nhảy nhân vật (chủ dự án 11/11: \"nhảy 8 hướng\", \"chỉ cần nhảy lên trên thôi k phải tiến về phía trước\", \"xuống sẽ dậm tại nơi\"): bật hai chân TẠI CHỖ — khuỵu lấy đà, bật lên, tiếp đất dậm đúng chỗ cũ; không né đòn, không qua vật cản. Vẽ S / SE / E / NE / N, 3 hướng tây lật. Khung xương theo clip two-footed-jump của thân trần U1m-bare-motion-0311; độ cao bay + lún khi dậm + bụi do game làm. Quái không nhảy."
     }
   ],
   "frameMeta": {
@@ -719,10 +975,10 @@
       },
       {
         "id": "mau-1-U",
-        "estimate": 1700,
+        "estimate": 2300,
         "scope": "Cỡ NPC (chủ dự án 04/11: \"vẽ lại thân và đầu cùng kích thước với 2 npc tóc trắng, di chuyển 8 hướng\"): thân nền nam trọc sửa từ chính ảnh NPC (4 bản, chọn 1) → xoay 8 hướng → đầu Nhân tộc nam 1 + bộ Kiếm sĩ mới sửa trên chính ảnh xoay S / SE / E / NE / N (W / SW / NW lật) → đi / chạy 5 hướng vẽ → ghép một khuôn, soi cổ. Tấn công tạm dừng.",
         "gate": "chủ dự án chọn thân nền (U0), duyệt Kiếm sĩ đứng trước khi vẽ đi / chạy; rồi duyệt GIF 8 hướng + soi cổ",
-        "estimateNote": "70 → 90 (04/11): vẽ lại thân nền lượt 2 (mặt mất nét anime), bộ đồ NE / N + đầu NE (quay mặt ra trước) — dự phòng ×1,3; 90 → 280 (04/11): chủ dự án \"vẽ luôn các class khác đi\" — 4 class nam còn lại × (S 3 bản + 4 hướng × 2 bản + đi / chạy 10 clip × 3 lượt ≈ 41) ≈ 165, dự phòng ×1,3; 280 → 300 (04/11): tổng món đã khai 221 lượt (gồm món vẽ lại) × 1,3; 300 → 360 (04/11): vũ khí đeo lưng vẽ lại bằng PixelLab (chủ dự án \"toàn bộ vũ khí quá xấu cần làm lại\") — 5 vũ khí × 3 góc × 2 bản ≈ 30, khiên thêm góc; 360 → 420 (04/11): vũ khí MỘT CHUẨN vẽ inpaint 5 lượt / hướng × 8 hướng; 420 → 650 (04/11): 4 vũ khí còn lại × (mẫu + 8 hướng inpaint) ≈ 170; 650 → 850 (04/11): chủ dự án \"full đầu\" — 14 đầu nam còn lại × 5 hướng × 2 bản = 140; 850 → 1100 (04/11): vẽ lại vũ khí theo mẫu chi tiết + nghiêng hướng ngang; bộ nữ sắp tới; 1100 → 1700 (04/11): bộ nữ cỡ NPC — 15 đầu × 5 × 2 = 150, 5 bộ (3 + 8) = 55, đi / chạy 50 × 3 = 150"
+        "estimateNote": "70 → 90 (04/11): vẽ lại thân nền lượt 2 (mặt mất nét anime), bộ đồ NE / N + đầu NE (quay mặt ra trước) — dự phòng ×1,3; 90 → 280 (04/11): chủ dự án \"vẽ luôn các class khác đi\" — 4 class nam còn lại × (S 3 bản + 4 hướng × 2 bản + đi / chạy 10 clip × 3 lượt ≈ 41) ≈ 165, dự phòng ×1,3; 280 → 300 (04/11): tổng món đã khai 221 lượt (gồm món vẽ lại) × 1,3; 300 → 360 (04/11): vũ khí đeo lưng vẽ lại bằng PixelLab (chủ dự án \"toàn bộ vũ khí quá xấu cần làm lại\") — 5 vũ khí × 3 góc × 2 bản ≈ 30, khiên thêm góc; 360 → 420 (04/11): vũ khí MỘT CHUẨN vẽ inpaint 5 lượt / hướng × 8 hướng; 420 → 650 (04/11): 4 vũ khí còn lại × (mẫu + 8 hướng inpaint) ≈ 170; 650 → 850 (04/11): chủ dự án \"full đầu\" — 14 đầu nam còn lại × 5 hướng × 2 bản = 140; 850 → 1100 (04/11): vẽ lại vũ khí theo mẫu chi tiết + nghiêng hướng ngang; bộ nữ sắp tới; 1100 → 1700 (04/11): bộ nữ cỡ NPC — 15 đầu × 5 × 2 = 150, 5 bộ (3 + 8) = 55, đi / chạy 50 × 3 = 150; 1700 → 2100 (06/11): thân nền tháo đồ nam / nữ đi / chạy (20 clip), bộ shop 2 cả 5 class × nam / nữ (đồ 5 hướng × 2 bản + đi / chạy 10 clip), vẽ lại giáp Thương / áo choàng Hộ vệ cho đồng nhất mọi góc — nằm trong ngân sách 2.431 lượt chủ dự án duyệt (pixellab-budget-1128); 2100 → 2300 (07/11): gói Gia viên — bộ Nông gia + Thợ vườn nam nữ chung (đồ 5 hướng, đi / chạy, cuốc / tưới / gieo / câu E + N)."
       }
     ]
   },

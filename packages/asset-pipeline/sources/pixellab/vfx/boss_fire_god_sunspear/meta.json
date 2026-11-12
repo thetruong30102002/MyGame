@@ -1,0 +1,27 @@
+{
+	"id": "boss_fire_god_sunspear",
+	"kind": "loop",
+	"canvas": {
+		"w": 36,
+		"h": 36
+	},
+	"first": {
+		"prompt": "a short spear of blazing golden-white sunfire flying toward the right, sharp glowing tip, rippling gold and orange flame trail behind it to the left, side view, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "0169ab35-eaef-4aba-87bd-8f1475389e61"
+	},
+	"action": "the sunfire spear blazes and its golden flame trail ripples, seamless loop",
+	"frameCount": 4,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png"
+	],
+	"animateJobId": "d6f458ff-e309-4d14-89a8-dc16f8d24be4",
+	"createdAt": "2026-11-05T14:34:04.139Z",
+	"token": 0
+}

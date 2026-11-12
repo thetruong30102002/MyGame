@@ -50,6 +50,9 @@ namespace HavenLord.Client.Combat
             ["boss_demon_001"] = new[] { new BossSkill(Shape.Blast, "boss_hellfire", 66, add: true), new BossSkill(Shape.Line, "boss_fire_wave", 30, aim: true) },
             ["boss_lich_001"] = new[] { new BossSkill(Shape.Blast, "boss_curse_blast", 66), new BossSkill(Shape.Scatter, "boss_bone_rise", 34) },
             ["boss_stone_gargoyle_001"] = new[] { new BossSkill(Shape.Ring, "boss_stone_slam", 30) },
+            // Cổ Thụ Nguyền Rủa (05/11/2026, Đồng Cỏ Linh Cẩu): rễ gai trồi rải quanh người chơi, quất cành quét vòng quanh thân, vùng bào tử độc —
+            // ba hình RIÊNG (luật "boss nghiêm cấm đòn chung"), không bắn cầu bóng tối.
+            ["boss_cursed_oak_001"] = new[] { new BossSkill(Shape.Scatter, "boss_root_spikes", 34), new BossSkill(Shape.Ring, "boss_branch_sweep", 0, ground: true), new BossSkill(Shape.Pool, "boss_spore_cloud", 0, ground: true) },
             // Vùng 2 — Đầm lầy Mù Sương.
             ["boss_mother_frog_001"] = new[] { new BossSkill(Shape.Pool, "boss_toxic_pool", 34) },
             ["boss_swamp_witch_001"] = new[] { new BossSkill(Shape.Scatter, "boss_hex", 40, add: true) },
@@ -64,12 +67,12 @@ namespace HavenLord.Client.Combat
             ["boss_wind_drake_001"] = new[] { new BossSkill(Shape.Pool, "boss_gale_storm", 66), new BossSkill(Shape.Line, "boss_wind_breath", 30, aim: true) },
             // Vùng 5 — Lãnh nguyên.
             ["boss_yeti_001"] = new[] { new BossSkill(Shape.Blast, "boss_avalanche", 64), new BossSkill(Shape.Ring, "boss_frost_roar", 0, ground: true) },
-            ["boss_ice_queen_001"] = new[] { new BossSkill(Shape.Blast, "boss_ice_embrace", 50), new BossSkill(Shape.Pool, "boss_oblivion_mist", 0, ground: true) },
-            ["boss_ice_guardian_001"] = new[] { new BossSkill(Shape.Ring, "boss_frost_roar", 0, ground: true), new BossSkill(Shape.Scatter, "boss_avalanche", 64) },
+            ["boss_ice_queen_001"] = new[] { new BossSkill(Shape.Blast, "boss_ice_embrace", 50), new BossSkill(Shape.Pool, "boss_blizzard_veil", 0, ground: true) },
+            ["boss_ice_guardian_001"] = new[] { new BossSkill(Shape.Ring, "boss_glacier_stomp", 0, ground: true), new BossSkill(Shape.Scatter, "boss_ice_hail", 64) },
             // Vùng 6 — Núi lửa.
             ["boss_salamander_001"] = new[] { new BossSkill(Shape.Line, "boss_lava_spit", 30, aim: true) },
             ["boss_ancient_lava_golem_001"] = new[] { new BossSkill(Shape.Line, "boss_magma_fissure", 0, ground: true, aim: true), new BossSkill(Shape.Ring, "boss_forge_sigil", 0, ground: true, add: true) },
-            ["boss_fire_god_001"] = new[] { new BossSkill(Shape.Scatter, "boss_ash_fall", 0, ground: true), new BossSkill(Shape.Ring, "boss_forge_sigil", 0, ground: true, add: true), new BossSkill(Shape.Blast, "boss_hellfire", 66, add: true) },
+            ["boss_fire_god_001"] = new[] { new BossSkill(Shape.Scatter, "boss_ash_fall", 0, ground: true), new BossSkill(Shape.Ring, "boss_sun_halo", 0, ground: true, add: true), new BossSkill(Shape.Blast, "boss_solar_flare", 66, add: true) },
             // Vùng 7 — Quần đảo.
             ["boss_crab_king_001"] = new[] { new BossSkill(Shape.Scatter, "boss_coral_spikes", 40) },
             ["boss_ghost_captain_001"] = new[] { new BossSkill(Shape.Ring, "boss_ghost_lantern", 30, add: true), new BossSkill(Shape.Pool, "boss_oblivion_mist", 0, ground: true) },

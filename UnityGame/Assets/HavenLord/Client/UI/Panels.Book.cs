@@ -256,7 +256,7 @@ namespace HavenLord.Client.UI
                 facts.Add($"{(string.IsNullOrEmpty(s.Ranged) ? "Đánh gần" : "Đánh xa")} · {s.Exp} EXP · {s.Coins} xu · đã hạ <b>{(kills.TryGetValue(e.Id, out var k) ? k : 0):#,0}</b>");
             }
             if (known && e.Ages.Count > 0) facts.Add("Gặp được: " + AgesText(e.Ages));
-            if (e.Places.Count > 0) facts.Add("Nơi ở: " + string.Join(", ", e.Places.Take(4)) + (e.Places.Count > 4 ? "…" : ""));
+            if (e.Places.Count > 0) facts.Add("Nơi ở: " + string.Join(", ", e.Places.Take(7)) + (e.Places.Count > 7 ? $" (+{e.Places.Count - 7} map)" : ""));
             var ft = Text(p, "F", new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -252), new Vector2(370, 62), string.Join("\n", facts), 12, Ink, TextAnchor.UpperCenter);
             ft.textWrappingMode = TextWrappingModes.Normal;
             ft.enableAutoSizing = true;

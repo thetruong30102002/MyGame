@@ -19,7 +19,7 @@ namespace HavenLord.Client.UI
         private int rewardsDrawn = -1;
 
         /// <summary>Cửa sổ mở bằng NPC — không vẽ thanh tab trái, nội dung rộng hết khung.</summary>
-        private static bool IsService(Kind k) => k == Kind.Shop || k == Kind.Waystone || k == Kind.Glory || k == Kind.Admin || k == Kind.Barber;
+        private static bool IsService(Kind k) => k == Kind.Shop || k == Kind.Waystone || k == Kind.Glory || k == Kind.Admin || k == Kind.Barber || k == Kind.Farm;
 
         private static string ServiceTitle(Kind k) => k switch
         {
@@ -28,6 +28,7 @@ namespace HavenLord.Client.UI
             Kind.Glory => "Bia Danh Vọng",
             Kind.Admin => "Quản trị",
             Kind.Barber => "Mira · Tiệm tóc",
+            Kind.Farm => "Gia viên và cư dân Thistlewood",
             _ => "",
         };
 
@@ -53,9 +54,12 @@ namespace HavenLord.Client.UI
         {
             ["exp"] = UiStyle.Hex(0xc59bff), ["dmg"] = UiStyle.Hex(0xff8a7a), ["guard"] = UiStyle.Hex(0x8fd0ff),
         };
+        private bool shopShowOutfits;
+        public void ShowOutfitShop() { shopShowOutfits = true; Show(Kind.Shop); }
 
         private void BuildShop()
         {
+            GoldButton(content, "Seeds", new Vector2(1, 0), new Vector2(1, 0), new Vector2(0, 0), new Vector2(180, 34), "Hạt giống / Gia viên", () => game.ShowFarm(), true);
             rewardsDrawn = game.RewardsVersion;
             if (!game.Online)
             {
@@ -63,9 +67,27 @@ namespace HavenLord.Client.UI
                 return;
             }
             Text(content, "Sub", new Vector2(0, 1), new Vector2(0, 1), Vector2.zero, new Vector2(700, 34),
-                "Bình mua bằng kim cương — tác dụng tính theo giờ CHƠI (thoát game thì ngừng đếm), cùng loại cộng dồn tối đa 5 giờ.", 14, UiStyle.Parchment);
+                shopShowOutfits ? "Bộ đồ thứ hai mua bằng xu; giá và chỉ số tạm, chờ duyệt." : "Bình mua bằng kim cương — tác dụng tính theo giờ CHƠI (thoát game thì ngừng đếm), cùng loại cộng dồn tối đa 5 giờ.", 14, UiStyle.Parchment);
             Diamonds(content);
-            var active = UiKit.Rect(content, "Active", new Vector2(0, 1), new Vector2(0, 1), new Vector2(0, -42), new Vector2(1040, 30));
+            GoldButton(content, "BuffTab", new Vector2(0, 1), new Vector2(0, 1), new Vector2(0, -42), new Vector2(180, 36), "Bình kim cương", () => { shopShowOutfits = false; Refresh(); }, true);
+            GoldButton(content, "OutfitTab", new Vector2(0, 1), new Vector2(0, 1), new Vector2(190, -42), new Vector2(180, 36), "Bộ đồ · xu", () => { shopShowOutfits = true; Refresh(); }, true);
+            if (shopShowOutfits)
+            {
+                var outfits = game.ShopRules.Outfits;
+                for (var i = 0; i < outfits.Count; i += 1)
+                {
+                    var it = outfits[i];
+                    var className = it.ClassId switch { "sword" => "Kiếm sĩ", "staff" => "Pháp sư", "spear" => "Thương thủ", "shield" => "Hộ vệ", "bow" => "Cung thủ", _ => it.ClassId };
+                    var card = Box(content, "O" + it.Id, new Vector2(0, 1), new Vector2(0, 1), new Vector2((i % 2) * 485, -98 - (i / 2) * 145), new Vector2(470, 132), 0.5f);
+                    Text(card, "Name", new Vector2(0, 1), new Vector2(0, 1), new Vector2(16, -12), new Vector2(430, 26), it.Name, 17, UiKit.TextMain, TextAnchor.MiddleLeft, true);
+                    Text(card, "Info", new Vector2(0, 1), new Vector2(0, 1), new Vector2(16, -42), new Vector2(430, 22), $"Nghề: {className} · Cấp {it.LevelReq:0} · Giá/chỉ số đang chờ duyệt", 13, UiStyle.Parchment);
+                    var id = it.Id;
+                    var canBuy = it.ClassId == game.CurrentClassId && game.Combat.Pc.Level >= it.LevelReq && game.Combat.Pc.Coins >= it.Price;
+                    GoldButton(card, "Buy", new Vector2(0, 0), new Vector2(0, 0), new Vector2(16, 10), new Vector2(190, 36), $"Mua · {it.Price:0} xu", () => game.BuyOutfit(id), canBuy);
+                }
+                return;
+            }
+            var active = UiKit.Rect(content, "Active", new Vector2(0, 1), new Vector2(0, 1), new Vector2(0, -84), new Vector2(1040, 30));
             var any = false;
             var x = 0f;
             foreach (var b in game.Buffs)
@@ -87,7 +109,7 @@ namespace HavenLord.Client.UI
                 var it = items[i];
                 var col = i % 4;
                 var row = i / 4;
-                var card = Box(content, "I" + it.Id, new Vector2(0, 1), new Vector2(0, 1), new Vector2(col * 236, -84 - row * 214), new Vector2(226, 204), 0.5f);
+                var card = Box(content, "I" + it.Id, new Vector2(0, 1), new Vector2(0, 1), new Vector2(col * 236, -124 - row * 214), new Vector2(226, 204), 0.5f);
                 var ic = UiKit.Rect(card, "Ic", new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -12), new Vector2(56, 56));
                 UiWidgets.Radial(UiKit.Rect(card, "Glow", new Vector2(0.5f, 1), new Vector2(0.5f, 0.5f), new Vector2(0, -40), new Vector2(110, 90)),
                     (BuffTint.TryGetValue(it.Buff.Kind, out var tc) ? tc : Color.white) * new Color(1, 1, 1, 0.35f));

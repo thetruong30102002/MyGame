@@ -47,6 +47,7 @@ namespace HavenLord.Net
             ["spend"] = () => new ClientSpend(),
             ["potion"] = () => new ClientPotion(),
             ["pvpDown"] = () => new ClientPvpDown(),
+            ["farm"] = () => new ClientFarm(),
         };
     }
 
@@ -89,7 +90,26 @@ namespace HavenLord.Net
             ["eco"] = () => new ServerEco(),
             ["pvpHit"] = () => new ServerPvpHit(),
             ["pvpKill"] = () => new ServerPvpKill(),
+            ["farm"] = () => new ServerFarm(),
         };
+    }
+
+    public sealed class ClientFarm : ClientMessage
+    {
+        protected override string Tag => "farm";
+        [JsonProperty("op")] public string Op;
+        [JsonProperty("plot")] public int? Plot;
+        [JsonProperty("crop")] public string Crop;
+        [JsonProperty("npc")] public string Npc;
+        [JsonProperty("nonce")] public string Nonce;
+        [JsonProperty("outfit")] public string Outfit;
+        [JsonProperty("item")] public string Item;
+        [JsonProperty("room")] public string Room;
+    }
+    public sealed class ServerFarm : ServerMessage
+    {
+        protected override string Tag => "farm";
+        [JsonProperty("state")] public JObject State;
     }
 
     /// <summary>Tin có <c>t</c> lạ (máy bản mới hơn) — giữ nguyên JSON, bên nhận bỏ qua.</summary>
@@ -525,6 +545,7 @@ namespace HavenLord.Net
     {
         protected override string Tag => "bought";
         [JsonProperty("item")] public string Item;
+        [JsonProperty("gear")] public JObject Gear;
     }
 
     /// <summary>Trạm đã tới + (tuỳ chọn) mọi map đã tới.</summary>

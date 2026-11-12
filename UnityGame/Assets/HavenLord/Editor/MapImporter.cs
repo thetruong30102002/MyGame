@@ -64,10 +64,10 @@ namespace HavenLord.Importer
             }
         }
 
-        private static void ImportRegion(string dir, ImportReport report, Func<string, float, bool> progress)
+        private static void ImportRegion(string dir, ImportReport report, Func<string, float, bool> progress, string regionName = null, string targetFolder = null)
         {
-            var r = new Region { name = Path.GetFileName(dir), dir = dir };
-            r.folder = $"{ImportUtil.Root}/Maps/{r.name}";
+            var r = new Region { name = regionName ?? Path.GetFileName(dir), dir = dir };
+            r.folder = targetFolder ?? $"{ImportUtil.Root}/Maps/{r.name}";
             ImportProps(r, report);
 
             var mapFiles = Directory.GetFiles(dir, "*.json")
@@ -97,6 +97,19 @@ namespace HavenLord.Importer
         }
 
         // ---------- Đồ vật ----------
+
+        /// <summary>Nhập bộ đồ vật Gia viên riêng, chưa dựng map; không thêm vùng trống vào bản đồ thế giới.</summary>
+        public static void ImportHomeProps(string src, ImportReport report)
+        {
+            var dir = Path.Combine(src, "home");
+            if (!Directory.Exists(dir)) return;
+            var region = new Region { name = "home", dir = dir, folder = $"{ImportUtil.Root}/Home" };
+            ImportProps(region, report);
+            var catalog = Path.Combine(dir, "catalog.json");
+            if (File.Exists(catalog)) ImportUtil.CopyAsset(catalog, $"{region.folder}/Catalog.json");
+            var maps = Path.Combine(dir, "maps");
+            if (Directory.Exists(maps)) ImportRegion(maps, report, (_, __) => false, "home", $"{ImportUtil.Root}/Home/Maps");
+        }
 
         private static void ImportProps(Region r, ImportReport report)
         {
@@ -240,6 +253,7 @@ namespace HavenLord.Importer
                 level = z.level ?? -1,
                 onDemand = z.onDemand ?? false,
                 boss = z.boss ?? false,
+                river = z.river ?? false,
             }).ToList();
             def.hasBoss = m.boss != null;
             def.boss = m.boss == null ? null : new MapBoss { characterId = m.boss.characterId, x = (float)m.boss.x, y = (float)m.boss.y, radius = (float)m.boss.radius };
@@ -505,7 +519,7 @@ namespace HavenLord.Importer
                     map = def,
                     exits = (e.exits ?? new List<WorldExitJson>()).Select(x => new WorldExitRef { id = x.id, to = x.to, x = (float)x.x, y = (float)x.y, label = x.label }).ToList(),
                     spots = e.spots?.ToArray() ?? Array.Empty<string>(),
-                    zones = (e.zones ?? new List<WorldZoneJson>()).Select(z => new WorldZoneRef { id = z.id, monsters = z.monsters?.ToArray() ?? Array.Empty<string>() }).ToList(),
+                    zones = (e.zones ?? new List<WorldZoneJson>()).Select(z => new WorldZoneRef { id = z.id, monsters = z.monsters?.ToArray() ?? Array.Empty<string>(), level = z.level ?? -1, river = z.river ?? false }).ToList(),
                     dummies = e.dummies?.ToArray() ?? Array.Empty<string>(),
                     boss = e.boss ?? "",
                     hasLevels = e.levels != null && e.levels.Length >= 2,

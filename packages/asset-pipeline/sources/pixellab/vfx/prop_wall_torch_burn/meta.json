@@ -1,0 +1,28 @@
+{
+	"id": "prop_wall_torch_burn",
+	"kind": "loop",
+	"canvas": {
+		"w": 32,
+		"h": 64
+	},
+	"first": {
+		"prompt": null,
+		"image": "first.png",
+		"source": "file"
+	},
+	"action": "the torch flame burns and flickers, dancing up and swaying slightly, the torch handle stays perfectly still, seamless loop",
+	"frameCount": 6,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png"
+	],
+	"animateJobId": "9c5a3dfd-af46-4ad3-8ae5-dbad405ee6a2",
+	"createdAt": "2026-11-06T09:19:31.076Z",
+	"token": 0
+}

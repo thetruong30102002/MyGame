@@ -140,6 +140,14 @@
 					"monsters": [
 						"mob_mushroom_001"
 					]
+				},
+				{
+					"id": "mossvale_river",
+					"monsters": [
+						"mob_stream_crab_001"
+					],
+					"level": 3,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -299,6 +307,14 @@
 					"monsters": [
 						"mob_skeleton_archer_001"
 					]
+				},
+				{
+					"id": "bonehills_river",
+					"monsters": [
+						"mob_stream_crab_001"
+					],
+					"level": 5,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -360,6 +376,14 @@
 					"monsters": [
 						"mob_gargoyle_001"
 					]
+				},
+				{
+					"id": "cliffs_river",
+					"monsters": [
+						"mob_stream_crab_001"
+					],
+					"level": 6,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -390,12 +414,20 @@
 					"x": 1080,
 					"y": 1992,
 					"label": "Hẻm Cửa Sông · cấp 9+ · đường sang vùng 2"
+				},
+				{
+					"id": "to_hyenafield_rf",
+					"to": "hyenafield",
+					"x": 24,
+					"y": 1440,
+					"label": "Đồng Cỏ Linh Cẩu · cấp 4+"
 				}
 			],
 			"spots": [
 				"north_entry_rf",
 				"south_entry_rf",
 				"east_entry_rf",
+				"west_entry_rf",
 				"old_landing",
 				"new_landing",
 				"low_well",
@@ -434,6 +466,14 @@
 						"mob_mushroom_001"
 					],
 					"level": 4
+				},
+				{
+					"id": "riverflats_river",
+					"monsters": [
+						"mob_stream_crab_001"
+					],
+					"level": 3,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -441,6 +481,76 @@
 			"levels": [
 				1,
 				4
+			]
+		},
+		"hyenafield": {
+			"name": "Đồng Cỏ Linh Cẩu",
+			"width": 2304,
+			"height": 2112,
+			"exits": [
+				{
+					"id": "hyenafield_x1",
+					"to": "riverflats",
+					"x": 2280,
+					"y": 960,
+					"label": "Bãi Bồi Brightwater"
+				}
+			],
+			"spots": [
+				"hf_east_entry",
+				"hyenafield_lair",
+				"waystone"
+			],
+			"zones": [
+				{
+					"id": "hyenafield_z1",
+					"monsters": [
+						"mob_field_hyena_001"
+					],
+					"level": 4
+				},
+				{
+					"id": "hyenafield_z2",
+					"monsters": [
+						"mob_field_hyena_001"
+					],
+					"level": 5
+				},
+				{
+					"id": "hyenafield_z3",
+					"monsters": [
+						"mob_field_hyena_001"
+					],
+					"level": 5
+				},
+				{
+					"id": "hyenafield_z4",
+					"monsters": [
+						"mob_field_hyena_001"
+					],
+					"level": 6
+				},
+				{
+					"id": "hyenafield_river",
+					"monsters": [
+						"mob_stream_crab_001"
+					],
+					"level": 4,
+					"river": true
+				},
+				{
+					"id": "hyenafield_boss",
+					"monsters": [
+						"boss_cursed_oak_001"
+					],
+					"level": 6
+				}
+			],
+			"dummies": [],
+			"boss": null,
+			"levels": [
+				4,
+				6
 			]
 		},
 		"mossrift": {
@@ -582,6 +692,14 @@
 						"mob_zombie_001"
 					],
 					"level": 7
+				},
+				{
+					"id": "nameless_river",
+					"monsters": [
+						"mob_stream_crab_001"
+					],
+					"level": 6,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -662,6 +780,14 @@
 						"mob_skeleton_archer_001"
 					],
 					"level": 8
+				},
+				{
+					"id": "oldfort_river",
+					"monsters": [
+						"mob_stream_crab_001"
+					],
+					"level": 7,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -805,6 +931,14 @@
 						"mob_gargoyle_001"
 					],
 					"level": 10
+				},
+				{
+					"id": "rivergate_river",
+					"monsters": [
+						"mob_stream_crab_001"
+					],
+					"level": 9,
+					"river": true
 				}
 			],
 			"dummies": [],

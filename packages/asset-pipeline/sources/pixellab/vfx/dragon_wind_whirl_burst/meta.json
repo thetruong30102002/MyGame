@@ -1,0 +1,32 @@
+{
+	"id": "dragon_wind_whirl_burst",
+	"kind": "burst",
+	"canvas": {
+		"w": 80,
+		"h": 80
+	},
+	"first": {
+		"prompt": "a burst of pale green and white wind just starting, swirling streaks and leaves, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "a855e999-15cc-4939-8539-9d989dbcd721",
+		"drawn": "first_drawn.png"
+	},
+	"action": "the wind bursts outward into a spiral of streaks and scattered leaves, then the streaks thin and fade",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "8346d3c9-019f-4f3a-9de5-bceec887644e",
+	"createdAt": "2026-11-05T15:58:26.558Z",
+	"token": 0
+}

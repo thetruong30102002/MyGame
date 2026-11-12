@@ -1,0 +1,27 @@
+{
+	"id": "boss_pharaoh_scarab",
+	"kind": "loop",
+	"canvas": {
+		"w": 36,
+		"h": 36
+	},
+	"first": {
+		"prompt": "a glowing golden scarab beetle amulet flying toward the right with spread wings, turquoise gem on its back, trailing golden sand sparkles behind it to the left, top-down three-quarter view, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "eb3a4124-4e36-4f49-96f0-9c2bb666e0ae"
+	},
+	"action": "the golden scarab flutters its wings and glints, golden sand sparkles trail behind, seamless loop",
+	"frameCount": 4,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png"
+	],
+	"animateJobId": "3d6bea47-a058-494d-886c-6b0c00df2295",
+	"createdAt": "2026-11-05T14:54:32.730Z",
+	"token": 0
+}

@@ -1,0 +1,578 @@
+{
+  "farm_crop_wheat_0": {
+    "kind": "flower",
+    "w": 26,
+    "h": 26,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_wheat_1": {
+    "kind": "flower",
+    "w": 56,
+    "h": 43,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_wheat_2": {
+    "kind": "flower",
+    "w": 61,
+    "h": 71,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_wheat_3": {
+    "kind": "flower",
+    "w": 45,
+    "h": 71,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_carrot_0": {
+    "kind": "flower",
+    "w": 28,
+    "h": 27,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_carrot_1": {
+    "kind": "flower",
+    "w": 38,
+    "h": 51,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_carrot_2": {
+    "kind": "flower",
+    "w": 59,
+    "h": 61,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_carrot_3": {
+    "kind": "flower",
+    "w": 46,
+    "h": 69,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_potato_0": {
+    "kind": "flower",
+    "w": 24,
+    "h": 23,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_potato_1": {
+    "kind": "flower",
+    "w": 33,
+    "h": 34,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_potato_2": {
+    "kind": "flower",
+    "w": 43,
+    "h": 43,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_potato_3": {
+    "kind": "flower",
+    "w": 46,
+    "h": 45,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_strawberry_0": {
+    "kind": "flower",
+    "w": 24,
+    "h": 24,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_strawberry_1": {
+    "kind": "flower",
+    "w": 33,
+    "h": 36,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_strawberry_2": {
+    "kind": "flower",
+    "w": 44,
+    "h": 41,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_strawberry_3": {
+    "kind": "flower",
+    "w": 46,
+    "h": 42,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_haven_pumpkin_0": {
+    "kind": "flower",
+    "w": 24,
+    "h": 26,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_haven_pumpkin_1": {
+    "kind": "flower",
+    "w": 42,
+    "h": 36,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_haven_pumpkin_2": {
+    "kind": "flower",
+    "w": 51,
+    "h": 42,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_haven_pumpkin_3": {
+    "kind": "flower",
+    "w": 53,
+    "h": 44,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_silver_grass_0": {
+    "kind": "flower",
+    "w": 24,
+    "h": 25,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_silver_grass_1": {
+    "kind": "flower",
+    "w": 36,
+    "h": 38,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_silver_grass_2": {
+    "kind": "flower",
+    "w": 44,
+    "h": 42,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "farm_crop_silver_grass_3": {
+    "kind": "flower",
+    "w": 47,
+    "h": 42,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "home_fence": {
+    "kind": "decor",
+    "w": 54,
+    "h": 38,
+    "blocks": true,
+    "footprint": {
+      "x": -27,
+      "y": -8,
+      "w": 54,
+      "h": 8
+    }
+  },
+  "home_gate": {
+    "kind": "decor",
+    "w": 52,
+    "h": 44,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "home_shipping_box": {
+    "kind": "decor",
+    "w": 46,
+    "h": 45,
+    "blocks": true,
+    "footprint": {
+      "x": -20,
+      "y": -16,
+      "w": 39,
+      "h": 16
+    }
+  },
+  "home_scarecrow": {
+    "kind": "decor",
+    "w": 58,
+    "h": 64,
+    "blocks": true,
+    "footprint": {
+      "x": -9,
+      "y": -10,
+      "w": 17,
+      "h": 10
+    }
+  },
+  "home_water_barrel": {
+    "kind": "decor",
+    "w": 46,
+    "h": 51,
+    "blocks": true,
+    "footprint": {
+      "x": -19,
+      "y": -16,
+      "w": 37,
+      "h": 16
+    }
+  },
+  "home_tool_rack": {
+    "kind": "decor",
+    "w": 58,
+    "h": 57,
+    "blocks": true,
+    "footprint": {
+      "x": -23,
+      "y": -12,
+      "w": 46,
+      "h": 12
+    }
+  },
+  "home_bed": {
+    "kind": "decor",
+    "w": 49,
+    "h": 59,
+    "blocks": true,
+    "footprint": {
+      "x": -21,
+      "y": -30,
+      "w": 42,
+      "h": 30
+    }
+  },
+  "home_dining_table": {
+    "kind": "decor",
+    "w": 49,
+    "h": 44,
+    "blocks": true,
+    "footprint": {
+      "x": -22,
+      "y": -20,
+      "w": 44,
+      "h": 20
+    }
+  },
+  "home_chair": {
+    "kind": "decor",
+    "w": 29,
+    "h": 49,
+    "blocks": true,
+    "footprint": {
+      "x": -10,
+      "y": -12,
+      "w": 20,
+      "h": 12
+    }
+  },
+  "home_stove": {
+    "kind": "decor",
+    "w": 43,
+    "h": 61,
+    "blocks": true,
+    "footprint": {
+      "x": -19,
+      "y": -18,
+      "w": 37,
+      "h": 18
+    }
+  },
+  "home_chest": {
+    "kind": "decor",
+    "w": 50,
+    "h": 41,
+    "blocks": true,
+    "footprint": {
+      "x": -22,
+      "y": -14,
+      "w": 43,
+      "h": 14
+    }
+  },
+  "home_wardrobe": {
+    "kind": "decor",
+    "w": 47,
+    "h": 66,
+    "blocks": true,
+    "footprint": {
+      "x": -21,
+      "y": -18,
+      "w": 42,
+      "h": 18
+    }
+  },
+  "home_bookshelf": {
+    "kind": "decor",
+    "w": 48,
+    "h": 65,
+    "blocks": true,
+    "footprint": {
+      "x": -22,
+      "y": -16,
+      "w": 43,
+      "h": 16
+    }
+  },
+  "home_fireplace": {
+    "kind": "decor",
+    "w": 51,
+    "h": 65,
+    "blocks": true,
+    "footprint": {
+      "x": -23,
+      "y": -16,
+      "w": 46,
+      "h": 16
+    }
+  },
+  "home_rug": {
+    "kind": "decor",
+    "w": 52,
+    "h": 51,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "home_table_lamp": {
+    "kind": "decor",
+    "w": 32,
+    "h": 44,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "home_wall_clock": {
+    "kind": "decor",
+    "w": 42,
+    "h": 48,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "home_painting": {
+    "kind": "decor",
+    "w": 50,
+    "h": 45,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "home_window": {
+    "kind": "decor",
+    "w": 58,
+    "h": 60,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "home_potted_plant": {
+    "kind": "decor",
+    "w": 56,
+    "h": 66,
+    "blocks": true,
+    "footprint": {
+      "x": -17,
+      "y": -10,
+      "w": 34,
+      "h": 10
+    }
+  },
+  "home_drying_rack": {
+    "kind": "decor",
+    "w": 68,
+    "h": 62,
+    "blocks": true,
+    "footprint": {
+      "x": -29,
+      "y": -14,
+      "w": 58,
+      "h": 14
+    }
+  },
+  "home_rice_bin": {
+    "kind": "decor",
+    "w": 50,
+    "h": 65,
+    "blocks": true,
+    "footprint": {
+      "x": -20,
+      "y": -14,
+      "w": 40,
+      "h": 14
+    }
+  },
+  "home_vase": {
+    "kind": "decor",
+    "w": 48,
+    "h": 69,
+    "blocks": false,
+    "footprint": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    }
+  },
+  "home_armchair": {
+    "kind": "decor",
+    "w": 60,
+    "h": 69,
+    "blocks": true,
+    "footprint": {
+      "x": -26,
+      "y": -18,
+      "w": 51,
+      "h": 18
+    }
+  }
+}

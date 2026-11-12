@@ -1,0 +1,257 @@
+{
+	"about": "Câu cá N bộ Nông gia nam (gói Gia viên 06/11): lưng quay, hai tay cầm cần trước bụng; vung cần ngược ra sau vai về phía người xem (1–4), quăng ra trước (5–7, khung 6 phao chạm nước), giữ cần chờ (8–11, game lặp), giật cần lên (12–14), hạ về (15). Đứng thẳng (upright). Cần PixelLab vẽ liền thân, dây + phao là hiệu ứng game; đệm trên 36 cho ngọn cần.",
+	"character": "U30-farmer1-outfit-N",
+	"rest": "U30-farmer1-outfit-N#26043",
+	"direction": "north",
+	"pad": [
+		8,
+		8,
+		36,
+		0
+	],
+	"handGapPx": 3,
+	"knees": "depth",
+	"stance": "upright",
+	"frames": [
+		{
+			"grip": [
+				42,
+				50
+			],
+			"bladeDeg": 90,
+			"depthR": 96,
+			"depthL": 96,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				43,
+				44
+			],
+			"bladeDeg": 95,
+			"depthR": 110,
+			"depthL": 110,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				40,
+				35
+			],
+			"bladeDeg": 100,
+			"depthR": 124,
+			"depthL": 124,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				41,
+				30
+			],
+			"bladeDeg": 105,
+			"depthR": 138,
+			"depthL": 138,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				40,
+				35
+			],
+			"bladeDeg": 95,
+			"depthR": 116,
+			"depthL": 116,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				43,
+				44
+			],
+			"bladeDeg": 90,
+			"depthR": 96,
+			"depthL": 96,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				42,
+				48
+			],
+			"bladeDeg": 88,
+			"depthR": 88,
+			"depthL": 88,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				42,
+				47
+			],
+			"bladeDeg": 90,
+			"depthR": 88,
+			"depthL": 88,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				42,
+				48
+			],
+			"bladeDeg": 90,
+			"depthR": 88,
+			"depthL": 88,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				42,
+				47
+			],
+			"bladeDeg": 90,
+			"depthR": 88,
+			"depthL": 88,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				42,
+				48
+			],
+			"bladeDeg": 90,
+			"depthR": 88,
+			"depthL": 88,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				43,
+				42
+			],
+			"bladeDeg": 95,
+			"depthR": 104,
+			"depthL": 104,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				41,
+				32
+			],
+			"bladeDeg": 100,
+			"depthR": 128,
+			"depthL": 128,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				41,
+				31
+			],
+			"bladeDeg": 100,
+			"depthR": 132,
+			"depthL": 132,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				42,
+				48
+			],
+			"bladeDeg": 90,
+			"depthR": 94,
+			"depthL": 94,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		}
+	]
+}

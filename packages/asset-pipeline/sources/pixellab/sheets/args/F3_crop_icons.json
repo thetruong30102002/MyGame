@@ -1,0 +1,15 @@
+{
+	"description": "A sprite sheet of TWELVE separate game item icons arranged in a grid of 4 columns and 3 rows, each centered in its own cell. Row 1: a bundle of golden wheat ears tied with twine, a fresh orange carrot with green leaves, two brown potatoes, a pile of bright red strawberries. Row 2: a ripe orange pumpkin with a glowing teal swirl mark, a sprig of silver herb with pale blue glowing buds, a small cloth seed pouch with a wheat ear symbol, a small cloth seed pouch with a carrot symbol. Row 3: small cloth seed pouches with symbols of a potato, a strawberry, a pumpkin, and a silver leaf. Chunky simple item icons, front view, thick dark outline, soft cel shading, every item fully separate on a plain flat solid bright magenta (#FF00FF) chroma-key background, no text, no numbers",
+	"width": 256,
+	"height": 192,
+	"no_background": false,
+	"seed": 703,
+	"style_options": {
+		"color_palette": false,
+		"outline": true,
+		"shading": true,
+		"detail": false
+	},
+	"style_image_path": "sources/pixellab/sheets/N1_nature.png",
+	"style_usage": "Copy ONLY the art style of this reference: chunky chibi pixel art, thick dark outline on every shape, soft cel shading, front-facing view, one object centered in each cell. Do not copy these objects, their colors or their layout."
+}

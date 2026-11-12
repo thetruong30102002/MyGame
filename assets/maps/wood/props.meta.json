@@ -1018,5 +1018,113 @@
 			"w": 12,
 			"h": 14
 		}
+	},
+	"ct_vong_da_co": {
+		"kind": "building",
+		"w": 299,
+		"h": 280,
+		"blocks": true,
+		"footprint": {
+			"x": -120,
+			"y": -64,
+			"w": 239,
+			"h": 64
+		}
+	},
+	"ct_goc_cay_rong": {
+		"kind": "decor",
+		"w": 58,
+		"h": 56,
+		"blocks": true,
+		"footprint": {
+			"x": -23,
+			"y": -14,
+			"w": 46,
+			"h": 14
+		}
+	},
+	"ct_nam_tai_go": {
+		"kind": "rock",
+		"w": 84,
+		"h": 36,
+		"blocks": true,
+		"footprint": {
+			"x": -36,
+			"y": -12,
+			"w": 71,
+			"h": 12
+		}
+	},
+	"ct_den_dom_dom": {
+		"kind": "decor",
+		"w": 49,
+		"h": 76,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -10,
+			"w": 20,
+			"h": 10
+		}
+	},
+	"ct_da_reu_xep": {
+		"kind": "rock",
+		"w": 56,
+		"h": 56,
+		"blocks": true,
+		"footprint": {
+			"x": -21,
+			"y": -14,
+			"w": 42,
+			"h": 14
+		}
+	},
+	"ct_suoi_da": {
+		"kind": "flower",
+		"w": 88,
+		"h": 32,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"ct_dong_cui": {
+		"kind": "decor",
+		"w": 78,
+		"h": 44,
+		"blocks": true,
+		"footprint": {
+			"x": -33,
+			"y": -14,
+			"w": 66,
+			"h": 14
+		}
+	},
+	"ct_coc_go_khac": {
+		"kind": "decor",
+		"w": 33,
+		"h": 84,
+		"blocks": true,
+		"footprint": {
+			"x": -9,
+			"y": -10,
+			"w": 17,
+			"h": 10
+		}
+	},
+	"ct_bui_qua_rung": {
+		"kind": "decor",
+		"w": 47,
+		"h": 40,
+		"blocks": true,
+		"footprint": {
+			"x": -17,
+			"y": -12,
+			"w": 33,
+			"h": 12
+		}
 	}
 }

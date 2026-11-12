@@ -1,0 +1,20 @@
+{
+	"description": "A sprite sheet of SIX separate fruit trees arranged in a grid of 3 columns and 2 rows, each centered in its own cell, growth from left to right (young sapling, grown tree, fruiting tree). Row 1 desert date palm: small young palm sprout with a few fronds, tall date palm with a rough trunk and green fronds, tall date palm with hanging orange-brown date clusters. Row 2 tropical coconut palm: small young palm sprout, tall curved coconut palm with green fronds, tall curved coconut palm with brown coconuts under the fronds. Each tree stands on a small sandy base, front view, slight top-down, thick dark outline, soft cel shading, natural colors, every tree fully separate on a plain flat solid bright magenta (#FF00FF) chroma-key background, no ground, no shadow, no text, no numbers, no border, no frame",
+	"width": 256,
+	"height": 192,
+	"no_background": false,
+	"seed": 1103,
+	"style_options": {
+		"color_palette": false,
+		"outline": true,
+		"shading": true,
+		"detail": false
+	},
+	"style_image": {
+		"path": "sources/pixellab/sheets/N1_nature.png",
+		"usage_description": "Copy ONLY the art style of this reference: chunky chibi pixel art, thick dark outline on every shape, soft cel shading, front-facing view, one object centered in each cell. Do not copy these objects, their colors or their layout."
+	},
+	"jobId": "2f9cef68-ca3f-419c-8736-a87fb405261e",
+	"token": 0,
+	"createdAt": "2026-11-11T09:29:45.876Z"
+}

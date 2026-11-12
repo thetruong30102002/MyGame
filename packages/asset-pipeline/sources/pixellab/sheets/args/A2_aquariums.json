@@ -1,0 +1,15 @@
+{
+	"description": "A sprite sheet of SIX separate home aquarium tanks arranged in a grid of 3 columns and 2 rows, each centered in its own cell, all tanks EMPTY of fish, growing fancier from first to last. Top row: a small simple glass tank with a light pine wood rim and a few pebbles, a tall round cylinder glass aquarium on a wooden base with plants, a wide double aquarium tank with a dark walnut wood cabinet and lamp hood. Bottom row: a large wall aquarium framed in white marble with corals, an outdoor koi pond with a small arched stone bridge and lanterns, a luxurious crystal dome aquarium on a golden pedestal with glowing blue Haven crystals. Front view, slight top-down, thick dark outline, soft cel shading, every object fully separate on a plain flat solid bright magenta (#FF00FF) chroma-key background with empty space around it, no fish, no animals, no characters, no shadow, no text, no numbers, no border, no frame",
+	"width": 256,
+	"height": 192,
+	"no_background": false,
+	"seed": 1113,
+	"style_options": {
+		"color_palette": false,
+		"outline": true,
+		"shading": true,
+		"detail": false
+	},
+	"style_image_path": "sources/pixellab/sheets/N1_nature.png",
+	"style_usage": "Copy ONLY the art style of this reference: chunky chibi pixel art, thick dark outline on every shape, soft cel shading, front-facing view, one object centered in each cell. Do not copy these objects, their colors or their layout."
+}

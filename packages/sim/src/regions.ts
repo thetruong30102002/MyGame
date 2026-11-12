@@ -63,6 +63,12 @@ const planned = (o: Pick<RegionDef, 'id' | 'order' | 'name' | 'levels' | 'chief'
  * địa điểm `waystone` của trạm.
  */
 const built = (o: Parameters<typeof planned>[0]): RegionDef => ({ ...planned(o), ready: true });
+/**
+ * Vùng ĐÓNG TẠM (chủ dự án 05/11/2026: "các map đó tạm thời đóng lại, chỉn chu các phần map dưới đã"): đã dựng map nhưng còn mượn
+ * nguyên quái + boss của vùng khác (Rừng Cổ Thụ, Rừng Nấm Ngầm ← Đầm lầy; Thánh Địa Bình Minh, Phế tích Haven ← Cao nguyên; Vực Ám
+ * Ma, Vực Hư Không ← Núi lửa) → cổng vùng báo "đang được xây dựng", không có cột dịch chuyển. Map giữ nguyên; có quái riêng thì bỏ `closed`.
+ */
+const closed = (r: RegionDef): RegionDef => ({ ...r, ready: false });
 
 export const REGIONS: readonly RegionDef[] = [
 	{
@@ -144,7 +150,7 @@ export const REGIONS: readonly RegionDef[] = [
 		intro: 'Bãi cát, rạn san hô, làng chài và tàu đắm.',
 		element: { name: 'Thuỷ', weak: 'Phong, Thổ' },
 	}),
-	built({
+	closed(built({
 		id: 'fungal',
 		order: 8,
 		name: 'Rừng Nấm Ngầm',
@@ -153,8 +159,8 @@ export const REGIONS: readonly RegionDef[] = [
 		settlement: { kind: 'village', name: 'Làng người nấm Ánh Tím', role: 'Tộc người nấm dưới lòng đất, chỉ tin người đã giúp họ.', services: ['shop', 'smith', 'waystone'] },
 		intro: 'Hang ngầm, nấm khổng lồ phát sáng và mạch tinh thể.',
 		element: { name: 'Thổ', weak: 'Phong' },
-	}),
-	built({
+	})),
+	closed(built({
 		id: 'ruins',
 		order: 9,
 		name: 'Phế tích Haven',
@@ -168,8 +174,8 @@ export const REGIONS: readonly RegionDef[] = [
 		},
 		intro: 'Thành cổ đổ nát, cột ma pháp và máy móc cổ.',
 		element: { name: 'Haven / thép (kháng phép)', weak: 'Kiếm' },
-	}),
-	built({
+	})),
+	closed(built({
 		id: 'void',
 		order: 10,
 		name: 'Vực Hư Không',
@@ -178,10 +184,10 @@ export const REGIONS: readonly RegionDef[] = [
 		settlement: { kind: 'castle', name: 'Thành trì Hư Không', role: 'Tiền đồn cuối cùng trước Ma vương — liên quân các vùng đóng ở đây.', services: ['shop', 'smith', 'waystone'] },
 		intro: 'Đảo trôi trên nền tím đen, khe nứt không gian.',
 		element: { name: 'Bóng tối / hỗn hợp', weak: 'Haven, Hoả' },
-	}),
-	{ ...built({"id":"wood","name":"Rừng Cổ Thụ","order":11,"levels":[20,30],"chief":null,"settlement":{"kind":"village","name":"Rừng Cổ Thụ","role":"Trạm nghỉ vùng nguyên tố; cổng dẫn về Thistlewood.","services":["shop","waystone"]},"intro":"Vùng nhánh Rừng Cổ Thụ — đi qua Cổng Nguyên Tố phía tây Thistlewood.","element":{"name":"Mộc","weak":"Theo từng loài quái"}}), branch: true },
-	{ ...built({"id":"light","name":"Thánh Địa Bình Minh","order":12,"levels":[30,40],"chief":null,"settlement":{"kind":"village","name":"Thánh Địa Bình Minh","role":"Trạm nghỉ vùng nguyên tố; cổng dẫn về Thistlewood.","services":["shop","waystone"]},"intro":"Vùng nhánh Thánh Địa Bình Minh — đi qua Cổng Nguyên Tố phía tây Thistlewood.","element":{"name":"Ánh sáng","weak":"Theo từng loài quái"}}), branch: true },
-	{ ...built({"id":"dark","name":"Vực Ám Ma","order":13,"levels":[40,50],"chief":null,"settlement":{"kind":"village","name":"Vực Ám Ma","role":"Trạm nghỉ vùng nguyên tố; cổng dẫn về Thistlewood.","services":["shop","waystone"]},"intro":"Vùng nhánh Vực Ám Ma — đi qua Cổng Nguyên Tố phía tây Thistlewood.","element":{"name":"Bóng tối","weak":"Theo từng loài quái"}}), branch: true },
+	})),
+	closed({ ...built({"id":"wood","name":"Rừng Cổ Thụ","order":11,"levels":[20,30],"chief":null,"settlement":{"kind":"village","name":"Rừng Cổ Thụ","role":"Trạm nghỉ vùng nguyên tố; cổng dẫn về Thistlewood.","services":["shop","waystone"]},"intro":"Vùng nhánh Rừng Cổ Thụ — đi qua Cổng Nguyên Tố phía tây Thistlewood.","element":{"name":"Mộc","weak":"Theo từng loài quái"}}), branch: true }),
+	closed({ ...built({"id":"light","name":"Thánh Địa Bình Minh","order":12,"levels":[30,40],"chief":null,"settlement":{"kind":"village","name":"Thánh Địa Bình Minh","role":"Trạm nghỉ vùng nguyên tố; cổng dẫn về Thistlewood.","services":["shop","waystone"]},"intro":"Vùng nhánh Thánh Địa Bình Minh — đi qua Cổng Nguyên Tố phía tây Thistlewood.","element":{"name":"Ánh sáng","weak":"Theo từng loài quái"}}), branch: true }),
+	closed({ ...built({"id":"dark","name":"Vực Ám Ma","order":13,"levels":[40,50],"chief":null,"settlement":{"kind":"village","name":"Vực Ám Ma","role":"Trạm nghỉ vùng nguyên tố; cổng dẫn về Thistlewood.","services":["shop","waystone"]},"intro":"Vùng nhánh Vực Ám Ma — đi qua Cổng Nguyên Tố phía tây Thistlewood.","element":{"name":"Bóng tối","weak":"Theo từng loài quái"}}), branch: true }),
 ];
 
 /** Vùng đầu tiên — bản lưu không có / sai vùng thì về đây. */

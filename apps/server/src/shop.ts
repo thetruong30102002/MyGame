@@ -1,5 +1,6 @@
 import type { ServerMessage } from '@havenlord/protocol';
-import { BUFF_MAX_MS, buffPower, MERCHANTS, SHOP } from '@havenlord/sim/shop';
+import { BUFF_MAX_MS, buffPower, MERCHANTS, OUTFIT_SHOP, SHOP } from '@havenlord/sim/shop';
+import type { Eco } from '@havenlord/sim/economy';
 import type { Store } from './db.ts';
 import { nearNpc } from './maps.ts';
 
@@ -7,6 +8,7 @@ import { nearNpc } from './maps.ts';
 export interface ShopHost {
 	send(player: string, msg: ServerMessage): void;
 	where(player: string): { map: string; x: number; y: number } | null;
+	outfitPurchased?(player: string, eco: Eco, name: string, price: number): void;
 }
 
 /** Nhịp trừ giờ chơi của bình (ms) — đủ mịn cho đồng hồ phút:giây ở client (client tự đếm lùi giữa hai nhịp). */
@@ -50,10 +52,22 @@ export class Shop {
 	}
 
 	buy(player: string, raw: unknown): void {
+		const outfit = OUTFIT_SHOP.find((x) => x.id === String(raw ?? ''));
 		const item = SHOP.find((x) => x.id === String(raw ?? ''));
-		if (!item) return;
+		if (!item && !outfit) return;
 		const at = this.host.where(player);
 		if (!MERCHANTS.some((m) => nearNpc(this.mapsDir, at, m))) return this.send(player, { t: 'system', text: 'Hãy tới quầy của người bán hàng (như Bram ở quảng trường Thistlewood) để mua hàng' });
+		if (outfit) {
+			const bought = this.store.buyOutfit(player, outfit);
+			if (typeof bought === 'string') {
+				const reason = { poor: 'Không đủ xu', level: `Cần cấp ${outfit.levelReq}`, class: 'Bộ đồ không đúng nghề', full: 'Túi đã đầy', owned: 'Bạn đã có bộ này' }[bought];
+				return this.send(player, { t: 'system', text: reason });
+			}
+			this.host.outfitPurchased?.(player, bought.eco, outfit.name, outfit.price);
+			this.send(player, { t: 'bought', item: outfit.id, gear: bought.gear });
+			return;
+		}
+		if (!item) return;
 		// Trừ giờ đã chơi TRƯỚC khi so bình đang có / cộng thời gian — không thì phần chơi từ nhịp trước được tính lại.
 		this.spend(player);
 		const r = this.store.buyBuff(player, { id: item.id, price: item.price, kind: item.buff.kind, mult: item.buff.mult, ms: item.buff.minutes * 60_000 }, buffPower, BUFF_MAX_MS);

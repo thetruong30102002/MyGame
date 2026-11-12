@@ -28,6 +28,7 @@ namespace HavenLord.Client.UI
             else if (kind == Kind.Admin && game.AdminVersion != adminDrawn) Refresh();
             else if (kind == Kind.Settings && settingsTab == 2 && game.FeedbackVersion != feedbackDrawn) Refresh();
             else if (NeedsRewardsRedraw) Refresh();
+            else if (kind == Kind.Farm && farmVersionDrawn != game.FarmVersion) Refresh();
         }
 
         private void BuildFriends()

@@ -71,6 +71,15 @@ namespace HavenLord.Client
                         if (resetPending) ApplyBuildReset();
                         break;
                     }
+                    if (bo.Gear != null)
+                    {
+                        gear = equipment.CleanGear(bo.Gear);
+                        ApplyGear();
+                        SaveGear();
+                        var outfit = FindOutfitShopItem(bo.Item);
+                        hud.Toast(outfit != null ? $"Đã mua {outfit.Name}; áo đã vào túi" : "Đã mua áo; áo đã vào túi", "loot");
+                        break;
+                    }
                     var item = FindShopItem(bo.Item);
                     hud.Toast(item != null ? $"Đã mua {item.Name}" : "Đã mua", "loot");
                     break;
@@ -90,6 +99,14 @@ namespace HavenLord.Client
             foreach (var it in ShopRules.Items) if (it.Id == id) return it;
             return null;
         }
+
+        private OutfitShopItem FindOutfitShopItem(string id)
+        {
+            foreach (var it in ShopRules.Outfits) if (it.Id == id) return it;
+            return null;
+        }
+
+        public string CurrentClassId => PlayerRoster.Find(PlayerSprite(personaFemale))?.classId;
 
         /// <summary>Giây còn lại của một bình (đếm lùi tại máy từ lúc nhận).</summary>
         public double BuffRemaining((BuffView buff, float at) b) => Math.Max(0, b.buff.Remaining - (Time.time - b.at));
@@ -131,9 +148,21 @@ namespace HavenLord.Client
             online.Send(new ClientShopBuy { Item = itemId });
         }
 
+        public void BuyOutfit(string itemId)
+        {
+            var it = FindOutfitShopItem(itemId);
+            if (it == null || online == null) return;
+            if (it.ClassId != CurrentClassId) { hud.Toast("Bộ đồ này không đúng nghề hiện tại", "warn"); return; }
+            if (combat.Pc.Level < it.LevelReq) { hud.Toast($"Cần cấp {it.LevelReq:0}", "warn"); return; }
+            if (combat.Pc.Coins < it.Price) { hud.Toast($"Cần {it.Price:0} xu", "warn"); return; }
+            online.Send(new ClientShopBuy { Item = itemId });
+        }
+
         /// <summary>NPC dịch vụ: quầy Bram → cửa hàng, cột dịch chuyển → bảng trạm, Bia Danh Vọng → mục tiêu. false = NPC thường (thoại).</summary>
         private bool OpenService(Npc n)
         {
+            NoteFarmNpc(n);
+            if (OpenVillageService(n)) return true;
             if (online == null) return false;
             var key = n.Key ?? "";
             foreach (var mk in ShopRules.MerchantNpcs)

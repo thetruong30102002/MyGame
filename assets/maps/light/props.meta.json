@@ -1042,5 +1042,113 @@
 			"w": 14,
 			"h": 14
 		}
+	},
+	"as_den_binh_minh": {
+		"kind": "building",
+		"w": 260,
+		"h": 280,
+		"blocks": true,
+		"footprint": {
+			"x": -104,
+			"y": -64,
+			"w": 208,
+			"h": 64
+		}
+	},
+	"as_cot_trang_vang": {
+		"kind": "decor",
+		"w": 65,
+		"h": 96,
+		"blocks": true,
+		"footprint": {
+			"x": -23,
+			"y": -14,
+			"w": 46,
+			"h": 14
+		}
+	},
+	"as_dai_phun_thanh": {
+		"kind": "decor",
+		"w": 65,
+		"h": 72,
+		"blocks": true,
+		"footprint": {
+			"x": -28,
+			"y": -18,
+			"w": 55,
+			"h": 18
+		}
+	},
+	"as_khung_chuong_vang": {
+		"kind": "decor",
+		"w": 66,
+		"h": 88,
+		"blocks": true,
+		"footprint": {
+			"x": -28,
+			"y": -14,
+			"w": 56,
+			"h": 14
+		}
+	},
+	"as_be_sen": {
+		"kind": "flower",
+		"w": 71,
+		"h": 32,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"as_den_mat_troi": {
+		"kind": "decor",
+		"w": 38,
+		"h": 80,
+		"blocks": true,
+		"footprint": {
+			"x": -8,
+			"y": -10,
+			"w": 15,
+			"h": 10
+		}
+	},
+	"as_cong_hoa": {
+		"kind": "decor",
+		"w": 74,
+		"h": 96,
+		"blocks": true,
+		"footprint": {
+			"x": -32,
+			"y": -12,
+			"w": 63,
+			"h": 12
+		}
+	},
+	"as_bia_anh_sang": {
+		"kind": "decor",
+		"w": 32,
+		"h": 72,
+		"blocks": true,
+		"footprint": {
+			"x": -10,
+			"y": -12,
+			"w": 19,
+			"h": 12
+		}
+	},
+	"as_ghe_da_trang": {
+		"kind": "decor",
+		"w": 70,
+		"h": 36,
+		"blocks": true,
+		"footprint": {
+			"x": -30,
+			"y": -12,
+			"w": 60,
+			"h": 12
+		}
 	}
 }

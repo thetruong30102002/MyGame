@@ -1,5 +1,6 @@
 import type { PropMeta } from '../../props/buildProps.js';
-import { decalsOf, GROUND_PLANTS, Layout, TILE, TREES, px, type MapData } from './common.js';
+import { decalsOf, GROUND_PLANTS, Layout, TILE, TREES, px, type MapData, riverZone } from './common.js';
+import { finishWithStory } from '../storyBits.js';
 
 /**
  * Rừng Mossvale: CHỈ một loại quái — nấm rừng — sống theo BẦY ở các khoảng trống (một con thấy người chơi là cả bầy
@@ -85,6 +86,8 @@ export function buildMossvale(meta: Record<string, PropMeta>, decalIds: string[]
 		[26, 9],
 	];
 	for (const [x, y] of pickupSpots) L.reserve(x, y, 1.3);
+	// Suối rừng (05/11/2026 "nhiều sông suối hơn"): tự tìm đường né bãi bầy, điểm nhặt nấm, lối ra, ngã ba; cắt đường thành cầu gỗ.
+	L.autoStream({ avoid: Object.values(clearings), keep: [...pickupSpots, [1, 21], [23, 1], [35, 42], [40, 1], [3, 21], [6, 26], [23, 21]] });
 
 	L.place('signpost', px(3), px(19) + 10, { force: true });
 	L.place('signpost', px(26), px(2) + 10, { force: true });
@@ -92,6 +95,8 @@ export function buildMossvale(meta: Record<string, PropMeta>, decalIds: string[]
 	L.place('signpost', px(37), px(2) + 10, { force: true });
 
 	// Rừng dày: một loại cây (tán được chồng nhau, gốc cách nhau ≥ 70px), rồi đá, gốc cây, dương xỉ, bụi.
+	// Bãi quái sông Cua đá suối (05/11/2026): sát bờ, giữ trống trước khi rải cây / đá.
+	const crab = L.riverSpot(Object.values(clearings));
 	L.clumps(1100, TREES, 7, 2.6, (id, x, y) => L.place(id, x, y, { canopy: true }));
 	L.clumps(170, ['rock_mossy', 'rock_gray', 'stump', 'fern', 'fern', 'bush'], 3, 1.4, (id, x, y) => L.place(id, x, y));
 	L.clumps(60, GROUND_PLANTS, 4, 1.6, (id, x, y) => (L.at(Math.floor(x / TILE), Math.floor(y / TILE)) === 'g' ? L.place(id, x, y) : false));
@@ -109,7 +114,7 @@ export function buildMossvale(meta: Record<string, PropMeta>, decalIds: string[]
 		...extra,
 	});
 
-	return L.finish({
+	return finishWithStory(L, 3, {
 		id: 'mossvale',
 		name: 'Rừng Mossvale',
 		spawn: { x: px(3), y: px(21) + 24 },
@@ -121,6 +126,7 @@ export function buildMossvale(meta: Record<string, PropMeta>, decalIds: string[]
 			zone('mossvale_east', 'Bãi nấm phía đông', clearings.east, 4, { fromAge: 16 }),
 			zone('mossvale_south', 'Bãi nấm phía nam', clearings.south, 4, { fromAge: 16 }),
 			zone('mossvale_north', 'Bãi nấm phía bắc', clearings.north, 4, { fromAge: 16 }),
+			...(crab ? [riverZone(crab, 'mossvale', 'Rừng Mossvale', 3)] : []),
 		],
 		boss: null,
 		spots: [

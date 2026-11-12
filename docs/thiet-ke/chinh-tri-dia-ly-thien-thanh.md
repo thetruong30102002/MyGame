@@ -189,7 +189,7 @@ Tọa độ 0–100 dưới đây dành cho sơ đồ thiết kế; không áp l
 
 ### Kiểm cổng thực tế
 
-Đã rà **174 map**, **424 lối một chiều khai trong dữ liệu**, **12 cặp kết nối vùng / 24 lối qua vùng**. Mọi map đi tới được từ human/town khi bỏ qua điều kiện cấp/boss; mọi cổng có đường quay lại và toSpot tồn tại. Đây là kiểm cấu trúc, chưa là nghiệm thu collision hay di chuyển thật trong Unity.
+Đã rà **175 map**, **426 lối một chiều khai trong dữ liệu**, **12 cặp kết nối vùng / 24 lối qua vùng**. Mọi map đi tới được từ human/town khi bỏ qua điều kiện cấp/boss; mọi cổng có đường quay lại và toSpot tồn tại. Đây là kiểm cấu trúc, chưa là nghiệm thu collision hay di chuyển thật trong Unity.
 
 | Cặp vùng | Map đầu | Map đích | Loại tuyến theo thiết kế |
 |---|---|---|---|

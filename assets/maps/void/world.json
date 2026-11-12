@@ -101,6 +101,14 @@
 						"mob_lava_lizard_001"
 					],
 					"level": 90
+				},
+				{
+					"id": "h1_river",
+					"monsters": [
+						"mob_lava_eel_001"
+					],
+					"level": 90,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -163,6 +171,14 @@
 						"mob_lava_golem_001"
 					],
 					"level": 92
+				},
+				{
+					"id": "h2_river",
+					"monsters": [
+						"mob_lava_eel_001"
+					],
+					"level": 91,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -225,6 +241,14 @@
 						"mob_fire_bat_001"
 					],
 					"level": 92
+				},
+				{
+					"id": "h3_river",
+					"monsters": [
+						"mob_lava_eel_001"
+					],
+					"level": 92,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -295,6 +319,14 @@
 						"mob_fire_spirit_001"
 					],
 					"level": 94
+				},
+				{
+					"id": "h4_river",
+					"monsters": [
+						"mob_lava_eel_001"
+					],
+					"level": 93,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -365,6 +397,14 @@
 						"mob_fire_demon_001"
 					],
 					"level": 94
+				},
+				{
+					"id": "h5_river",
+					"monsters": [
+						"mob_lava_eel_001"
+					],
+					"level": 94,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -435,6 +475,14 @@
 						"mob_lava_lizard_001"
 					],
 					"level": 96
+				},
+				{
+					"id": "h6_river",
+					"monsters": [
+						"mob_lava_eel_001"
+					],
+					"level": 95,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -499,6 +547,14 @@
 						"mob_lava_golem_001"
 					],
 					"level": 96
+				},
+				{
+					"id": "h7_river",
+					"monsters": [
+						"mob_lava_eel_001"
+					],
+					"level": 96,
+					"river": true
 				},
 				{
 					"id": "h7_boss",
@@ -576,6 +632,14 @@
 						"mob_fire_bat_001"
 					],
 					"level": 98
+				},
+				{
+					"id": "h8_river",
+					"monsters": [
+						"mob_lava_eel_001"
+					],
+					"level": 97,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -638,6 +702,14 @@
 						"mob_fire_spirit_001"
 					],
 					"level": 98
+				},
+				{
+					"id": "h9_river",
+					"monsters": [
+						"mob_lava_eel_001"
+					],
+					"level": 98,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -694,6 +766,14 @@
 						"mob_fire_demon_001"
 					],
 					"level": 100
+				},
+				{
+					"id": "h10_river",
+					"monsters": [
+						"mob_lava_eel_001"
+					],
+					"level": 99,
+					"river": true
 				},
 				{
 					"id": "h10_boss",

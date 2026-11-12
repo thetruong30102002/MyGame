@@ -1,0 +1,32 @@
+{
+	"id": "boss_ice_queen_shard_burst",
+	"kind": "burst",
+	"canvas": {
+		"w": 64,
+		"h": 64
+	},
+	"first": {
+		"prompt": "a small shatter of pale blue ice crystals just starting, white frost at the center, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "e366707f-2a66-4f49-a4db-83defb1c81c4",
+		"drawn": "first_drawn.png"
+	},
+	"action": "the ice crystals shatter outward into glittering shards and a snowflake-shaped frost flash, then melt into sparkles and fade",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "86bf50d8-de49-4744-8d11-88331bf4723c",
+	"createdAt": "2026-11-05T14:47:08.231Z",
+	"token": 0
+}

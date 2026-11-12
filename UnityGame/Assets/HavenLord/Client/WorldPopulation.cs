@@ -27,6 +27,7 @@ namespace HavenLord.Client
         [JsonProperty("ages")] public double[] Ages;
         [JsonProperty("idle")] public string[] Idle = Array.Empty<string>();
         [JsonProperty("region")] public string Region;
+        [JsonProperty("stationary")] public bool Stationary;
     }
 
     /// <summary>NPC đang đứng trên map: nhân vật (có sprite) hoặc vật thay (bia đá, cột dịch chuyển).</summary>
@@ -146,7 +147,7 @@ namespace HavenLord.Client
             if (def != null)
             {
                 n.Actor = Actor.Spawn(def, parent, x, y, key);
-                n.Actor.Wander = new WanderArea { X = x, Y = y, Radius = 24 };
+                n.Actor.Wander = d.Stationary ? null : new WanderArea { X = x, Y = y, Radius = 24 };
                 n.Actor.WanderSpeed = 30;
             }
             else if (!string.IsNullOrEmpty(d.Prop) && map.propCatalog != null)

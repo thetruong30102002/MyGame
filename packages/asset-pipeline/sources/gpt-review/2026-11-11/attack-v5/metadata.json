@@ -1,0 +1,74 @@
+{
+  "tool": "built-in image_gen",
+  "status": "Ảnh tấn công chờ duyệt; chưa nhập runtime",
+  "action": "Quào tay không: lấy đà, bước tới, chạm đòn, thu tay",
+  "prompts": {
+    "E": "Create an eight-frame BASIC MELEE ATTACK sprite sheet of the exact haunted scarecrow in the reference. This is a monster, not a human player character. It fights with its empty woody claw hands; do not add a weapon. Preserve the exact sack head, three straw tufts, amber side eye, stitched smile, olive tunic, burgundy shoulder rags and knee patch, rope belt and front knot, woody hands, straw feet. All eight frames face EAST / RIGHT in profile, same slightly elevated RPG camera.\nLayout: exactly 4 columns by 2 rows, eight equal cells in reading order. Canvas aspect 4:3, equivalent source grid 1448x1086 with cells362x543. One common sprite scale, body approximately53 native pixels tall in a logical64x72 cell. Identical root and floor baseline. No fitting or zooming individual poses. Head width, head height, torso thickness, garment length and leg length remain equal to the standing reference; the pose changes, NOT the anatomy or size.\nAttack is ONE deliberate forward claw swipe, with a clear wind-up, fast contact and recovery. Frame1 neutral relaxed standing. Frame2 plant feet, turn shoulder slightly back and bend attacking elbow to draw the nearer hand back near lower ribs. Frame3 fully anticipate, near claw lifted beside shoulder below eye level, elbow bent naturally, weight on back foot; free hand remains at waist, not spread out. Frame4 launch: small forward step and shoulder rotation, attacking elbow starts opening, body leans forward slightly from hips. Frame5 contact: attacking near hand reaches forward toward screen right around chest height, open claw angled a little downward, elbow almost but not fully straight; back foot braces. Frame6 follow through: claw sweeps slightly downward toward waist ahead of body, torso remains solid and connected. Frame7 retract bent elbow and hand toward body, step back. Frame8 returns to identical neutral frame1 for clean loop. No overhead two-handed slam, no spinning, no huge jump, no flailing, no rubber arms. Clearly distinguish all phases; do not make eight near-identical standing poses. Shoulder-elbow-wrist chain must remain connected and coherent. Only 1 to 2 logical pixels of deliberate torso displacement; head never expands or changes face.\nRender exactly the reference's compact game pixel-art clusters, crisp selective dark-brown one-native-pixel outline, restrained warm tan/olive/burgundy/brown palette, simple three-tone materials. Preserve original detail density and consistent pixel grid; no extra painted microdetails, noise, gradients, blur, antialias, motion blur, smear, slash effect, glow, translucent interior, cast shadow, scenery, floor, letters, labels, grid lines, numbers or watermark. Full figure visible in every equal cell with generous transparent gutters. Genuine transparent background. Output only the eight right-facing attack frames.",
+    "N": "Create the NORTH / BACK VIEW of this exact scarecrow's eight-frame basic claw attack. Reference image1 is the character identity and exact BACK costume, image2 is the timing reference of the same attack seen from the side. Rotate the ACTION into north-facing, do not copy the side-view face. This is one empty-handed forward swipe, no weapon, no overhead slam. No face, eye, mouth or front belt knot visible from the back.\nExactly8 sprites in4columns x2rows, reading order. Same canvas aspect4:3, equal cells equivalent362x543 on1448x1086. Each character about53 native pixels high in logical64x72. Same head dimensions, torso width, limb lengths and pixel density as reference1; do not swell/zoom any pose. Same root center and ground baseline across all cells. Keep plain tan sack back with central seam and3 straw tufts; burgundy shoulder rag, olive tunic, rope waist, burgundy lower patch, woody hands and straw feet. Match the reference's crisp compact pixel clusters, 3tone material shading, selective darkbrown outline, modest warm palette.\nFrames:1 relaxed back-facing neutral;2 plant feet, weight back, attacking RIGHT elbow begins drawing back near ribs;3 wind-up with right elbow bent, right claw near its shoulder below head height, other arm rests near left hip;4 small step AWAY from viewer and shoulder rotates forward, right arm begins reaching in depth;5 contact: right claw swipes FORWARD AWAY from camera toward target to north, arm naturally foreshortened and partly occluded by head/shoulder, not thrown sideways;6 follow-through slightly downward in front of body away from camera, right elbow still coherent;7 retract arm and recover step;8 identical neutral1. Both knees remain naturally close, not a wide squat. Torso moves at most1-2 logical pixels; do not contort spine. Every shoulder-elbow-wrist chain stays anatomically connected. Hands do not duplicate or disappear except physically correct occlusion. Maintain exact scale across all8frames.\nKeep all full figures inside cells with transparent gutters. No added equipment, hat, bow, textures, extra details, grain, dithering, gradient, blur, smear, antialias, effects, glow, shadows, scenery, grid, labels, numbers or text. Opaque character pixels and genuinely transparent background. Output only the8 NORTH-facing attack frames.",
+    "S": "Make an eight-frame SOUTH / FRONT basic claw attack of the EXACT haunted scarecrow in reference1. Reference1 locks character design; reference2 is timing of the SAME attack viewed from right. Rotate action toward viewer, not the character into side view. Keep original tan sack head with two amber eyes, stitched smile and3straw tufts, burgundy shoulder rags, olive tunic, cream rope belt with FRONT knot, burgundy lower patch, woody empty hands, straw feet. No weapon or accessory.\nExactly4columns x2rows =8equal full-body cells in reading order, source aspect4:3, intended1448x1086/cell362x543. Each logicalcell64x72, body about53native pixels tall. LOCK head width/height, torso thickness, shoulder width, limb lengths, palette, detail density and source pixel scale throughout. Each sprite centers precisely in its own equal cell with no cumulative drift. One groundbaseline. Do not individually enlarge/fill cells.\nAnimation is ONE claw swipe toward the viewer with the character's RIGHT arm (screen LEFT), other hand stays near waist. Frame1 original front neutral. Frame2 plant feet, load weight on back leg, right elbow starts pulling back beside ribs. Frame3 wind-up: right elbow naturally bent, claw beside shoulder below eye level, torso slight twist while head stays front. Frame4 small step toward viewer, shoulder leads right claw toward camera, elbow opens. Frame5 impact: right claw reaches toward viewer at chest height with natural foreshortening, about1nativepixel perspective size difference maximum, not a huge fist, shoulder/elbow/wrist clear and connected; knees naturally aligned, not wide squat. Frame6 follow-through claw moves downward toward waist in front of body, modest forward lean. Frame7 bend elbow to retract hand and recover stance. Frame8 exact neutral frame1. Body moves intentionally at most1-2nativepixels, no inflation or compression. Keep face and skull rigid, identical head dimensions, no expression change, no head tilt stretching.\nMaintain compact crisp pixel-art clusters and selective darkbrown1pixel outline, warm tan/olive/mutedburgundy palette, simple3tone shading exactly as source. No realistic painting, no noisy texture, antialias, blur, smear, glow, slash VFX, grain, dithering, gradients or translucent interior. Full head and feet visible in each cell, generous transparent gutters. No ground, castshadow, grid, labels, frame numbers, text or watermark. Genuine transparent background. Only eight front-facing full-body attack sprites."
+  },
+  "layout": {
+    "canvas": [
+      1448,
+      1086
+    ],
+    "cell": [
+      362,
+      543
+    ],
+    "grid": [
+      4,
+      2
+    ],
+    "framesPerDirection": 8,
+    "order": "Theo hàng, W lật từng ô E và giữ thứ tự"
+  },
+  "review": {
+    "scale": 0.1111111111111111,
+    "canvas": [
+      64,
+      72
+    ],
+    "root": [
+      32,
+      66
+    ],
+    "sourceAnchors": {
+      "S": [
+        181,
+        490
+      ],
+      "E": [
+        181,
+        502
+      ],
+      "N": [
+        181,
+        501
+      ],
+      "W": [
+        180,
+        502
+      ]
+    },
+    "timingMs": [
+      240,
+      150,
+      180,
+      70,
+      80,
+      90,
+      130,
+      280
+    ],
+    "contactFrame": 5
+  },
+  "checks": {
+    "west": "Đã kiểm lật RGBA chính xác 8 ô",
+    "limitations": [
+      "Chưa duyệt chuyển tiếp đứng–đi–đánh; góc E đầu vẫn có biến thiên nhỏ.",
+      "Dải đo đầu có thể lẫn tay, không phải phép đo hộp sọ.",
+      "Chưa chuẩn hóa palette / alpha runtime; chưa có trúng đòn / gục."
+    ]
+  }
+}

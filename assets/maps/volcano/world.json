@@ -101,6 +101,14 @@
 						"mob_lava_lizard_001"
 					],
 					"level": 51
+				},
+				{
+					"id": "blackrock_river",
+					"monsters": [
+						"mob_lava_eel_001"
+					],
+					"level": 50,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -225,6 +233,14 @@
 						"mob_fire_bat_001"
 					],
 					"level": 53
+				},
+				{
+					"id": "batcave_river",
+					"monsters": [
+						"mob_lava_eel_001"
+					],
+					"level": 52,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -303,6 +319,14 @@
 						"mob_fire_spirit_001"
 					],
 					"level": 54
+				},
+				{
+					"id": "oldforge_river",
+					"monsters": [
+						"mob_lava_eel_001"
+					],
+					"level": 53,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -373,6 +397,14 @@
 						"mob_fire_demon_001"
 					],
 					"level": 55
+				},
+				{
+					"id": "crater_river",
+					"monsters": [
+						"mob_lava_eel_001"
+					],
+					"level": 54,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -443,6 +475,14 @@
 						"mob_lava_lizard_001"
 					],
 					"level": 56
+				},
+				{
+					"id": "cinderflats_river",
+					"monsters": [
+						"mob_lava_eel_001"
+					],
+					"level": 55,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -499,6 +539,14 @@
 						"mob_lava_golem_001"
 					],
 					"level": 57
+				},
+				{
+					"id": "lavariver_river",
+					"monsters": [
+						"mob_lava_eel_001"
+					],
+					"level": 56,
+					"river": true
 				},
 				{
 					"id": "lavariver_boss",
@@ -576,6 +624,14 @@
 						"mob_fire_bat_001"
 					],
 					"level": 58
+				},
+				{
+					"id": "emberhollow_river",
+					"monsters": [
+						"mob_lava_eel_001"
+					],
+					"level": 57,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -646,6 +702,14 @@
 						"mob_fire_spirit_001"
 					],
 					"level": 59
+				},
+				{
+					"id": "runeforge_river",
+					"monsters": [
+						"mob_lava_eel_001"
+					],
+					"level": 58,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -710,6 +774,14 @@
 						"mob_fire_demon_001"
 					],
 					"level": 60
+				},
+				{
+					"id": "craterrim_river",
+					"monsters": [
+						"mob_lava_eel_001"
+					],
+					"level": 59,
+					"river": true
 				},
 				{
 					"id": "craterrim_boss",

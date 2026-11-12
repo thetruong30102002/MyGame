@@ -1,5 +1,20 @@
 {
 	"MONSTER_INFO": {
+		"mob_field_hyena_001": {
+			"name": "Linh cẩu đồng",
+			"kind": "Quái thường · đồng cỏ",
+			"lore": "Săn theo bầy trên Đồng Cỏ Linh Cẩu, cười khành khạch khi vây mồi. Nhanh ngang người đi bộ, một con thấy là cả bầy ùa tới; da mỏng nên đánh dồn là gục. Đừng để bị bao vây giữa bãi trống."
+		},
+		"mob_stream_crab_001": {
+			"name": "Cua đá suối",
+			"kind": "Quái sông · bờ suối",
+			"lore": "Nằm im sát bờ suối, mai giống hệt hòn đá sông phủ rêu nên dễ bước nhầm tới. Giáp dày, bò chậm, càng kẹp đau. Đánh từ xa hoặc phá giáp trước rồi hẵng áp sát."
+		},
+		"boss_cursed_oak_001": {
+			"name": "Cổ Thụ Nguyền Rủa",
+			"kind": "Boss khu · hang cổ thụ",
+			"lore": "Cây sồi ngàn năm nhiễm lời nguyền, ngủ trong hang sâu dưới Đồng Cỏ Linh Cẩu. Thức dậy là rễ gai trồi lên dưới chân kẻ lạ, cành gai quất quét quanh thân, bào tử độc phủ kín mặt đất. Chậm — tránh vùng báo trước rồi đánh vào lúc nó gồng."
+		},
 		"mob_mushroom_001": {
 			"name": "Nấm rừng",
 			"kind": "Quái thường · rừng",
@@ -54,6 +69,36 @@
 			"name": "Nấm phát quang",
 			"kind": "Quái thường · Rừng Ngập Nấm",
 			"lore": "Họ hàng của nấm rừng Mossvale, mọc trong bóng tối Rừng Ngập Nấm và phóng bào tử sáng từ xa. Áp sát là xong; đừng đứng yên trước làn bào tử."
+		},
+		"mob_mud_catfish_001": {
+			"name": "Cá trê bùn",
+			"kind": "Quái sông · bờ suối đầm lầy",
+			"lore": "Rúc dưới bùn sát mép nước, chống hai vây trước bò lên bờ đớp chân người qua đường. Da nhớt dày, chịu đòn tốt nhưng bò rất chậm — giữ khoảng cách, đừng đứng sát mép nước."
+		},
+		"mob_oasis_croc_001": {
+			"name": "Cá sấu ốc đảo",
+			"kind": "Quái sông · bờ ốc đảo",
+			"lore": "Nằm phơi nắng sát mép ốc đảo, trông như khúc gỗ khô cho tới lúc há mõm đớp. Giáp vảy dày, bò chậm trên cát; đứng xa mép nước mà đánh."
+		},
+		"mob_gale_otter_001": {
+			"name": "Rái cá suối gió",
+			"kind": "Quái sông · suối cao nguyên",
+			"lore": "Lướt dọc suối cao nguyên nhanh như gió, đuôi cuộn luồng gió nhỏ hất người ngã. Da mỏng, chạy nhanh — đợi nó lao tới rồi đánh trả."
+		},
+		"mob_ice_walrus_001": {
+			"name": "Hải mã băng",
+			"kind": "Quái sông · bờ hồ băng",
+			"lore": "Nằm ì bên hồ băng, cặp ngà nứt dài đâm xuyên áo giáp. Mỡ dày chịu đòn rất lâu nhưng lê thân chậm; lửa làm nó tan mỡ nhanh hơn."
+		},
+		"mob_lava_eel_001": {
+			"name": "Lươn dung nham",
+			"kind": "Quái sông · dòng dung nham",
+			"lore": "Trồi lên từ dòng dung nham, vảy đá nguội nứt toác ánh lửa bên trong. Quật mạnh, cắn đau; nước và băng làm vỏ đá nó nguội giòn dễ vỡ."
+		},
+		"mob_spike_turtle_001": {
+			"name": "Rùa biển gai",
+			"kind": "Quái sông · bờ biển đảo",
+			"lore": "Bò lên bãi đá gần mép nước, mai đầy gai san hô cứa rách tay kẻ đánh trần. Rất trâu, chậm chạp — phá giáp trước, đừng đánh thẳng vào mai."
 		},
 		"mob_water_snake_001": {
 			"name": "Rắn nước",

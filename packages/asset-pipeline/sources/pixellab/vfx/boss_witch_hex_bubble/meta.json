@@ -1,0 +1,27 @@
+{
+	"id": "boss_witch_hex_bubble",
+	"kind": "loop",
+	"canvas": {
+		"w": 36,
+		"h": 36
+	},
+	"first": {
+		"prompt": "a floating translucent poison bubble, sickly green with swirling purple hex smoke inside and a tiny skull rune glowing at its center, a few tiny bubbles around it, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "5c4f5b37-790c-4e18-a58e-337c0b34d749"
+	},
+	"action": "the hex bubble wobbles, the purple smoke inside swirls and the skull rune pulses, seamless loop",
+	"frameCount": 4,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png"
+	],
+	"animateJobId": "b5f82632-147e-46cd-91f6-703fd62bd998",
+	"createdAt": "2026-11-05T15:27:17.329Z",
+	"token": 0
+}

@@ -26,6 +26,143 @@
 			"levelReq": 1,
 			"bound": true
 		},
+		"mage_outfit_1": {
+			"id": "mage_outfit_1",
+			"name": "Bộ pháp sư tân thủ",
+			"desc": "Áo khoác hành trình xanh thẫm viền vàng, tặng khi chọn pháp sư.",
+			"icon": "/assets/items/mage_outfit_1.png",
+			"w": 48,
+			"h": 48,
+			"kind": "equip",
+			"equip": "body",
+			"rarity": "common",
+			"levelReq": 1,
+			"bound": true
+		},
+		"lancer_outfit_1": {
+			"id": "lancer_outfit_1",
+			"name": "Bộ thương thủ tân thủ",
+			"desc": "Áo gambeson chần bông màu vàng đất, giáp vai da, tặng khi chọn thương thủ.",
+			"icon": "/assets/items/lancer_outfit_1.png",
+			"w": 48,
+			"h": 48,
+			"kind": "equip",
+			"equip": "body",
+			"rarity": "common",
+			"levelReq": 1,
+			"bound": true
+		},
+		"guard_outfit_1": {
+			"id": "guard_outfit_1",
+			"name": "Bộ hộ vệ tân thủ",
+			"desc": "Giáp ngực thép trơn trên áo đệm xanh, giáp gối thép, tặng khi chọn hộ vệ.",
+			"icon": "/assets/items/guard_outfit_1.png",
+			"w": 48,
+			"h": 48,
+			"kind": "equip",
+			"equip": "body",
+			"rarity": "common",
+			"levelReq": 1,
+			"bound": true
+		},
+		"archer_outfit_1": {
+			"id": "archer_outfit_1",
+			"name": "Bộ cung thủ tân thủ",
+			"desc": "Áo da nâu ngắn trên áo xanh rêu, dây ống tên chéo ngực, tặng khi chọn cung thủ.",
+			"icon": "/assets/items/archer_outfit_1.png",
+			"w": 48,
+			"h": 48,
+			"kind": "equip",
+			"equip": "body",
+			"rarity": "common",
+			"levelReq": 1,
+			"bound": true
+		},
+		"swordsman_outfit_2": {
+			"id": "swordsman_outfit_2",
+			"name": "Bộ kiếm sĩ bộ 2",
+			"desc": "Đồ kiếm sĩ bậc hai, kiểu dáng riêng. Giá và chỉ số tạm chờ duyệt.",
+			"icon": "/assets/items/swordsman_outfit_1.png",
+			"w": 48,
+			"h": 48,
+			"kind": "equip",
+			"equip": "body",
+			"stats": {
+				"atk": 3,
+				"def": 2
+			},
+			"rarity": "fine",
+			"levelReq": 5,
+			"price": 450
+		},
+		"mage_outfit_2": {
+			"id": "mage_outfit_2",
+			"name": "Bộ pháp sư bộ 2",
+			"desc": "Pháp bào bậc hai, kiểu dáng riêng. Giá và chỉ số tạm chờ duyệt.",
+			"icon": "/assets/items/mage_outfit_1.png",
+			"w": 48,
+			"h": 48,
+			"kind": "equip",
+			"equip": "body",
+			"stats": {
+				"mag": 3,
+				"mp": 8
+			},
+			"rarity": "fine",
+			"levelReq": 5,
+			"price": 450
+		},
+		"lancer_outfit_2": {
+			"id": "lancer_outfit_2",
+			"name": "Bộ thương thủ bộ 2",
+			"desc": "Đồ thương thủ bậc hai, kiểu dáng riêng. Giá và chỉ số tạm chờ duyệt.",
+			"icon": "/assets/items/lancer_outfit_1.png",
+			"w": 48,
+			"h": 48,
+			"kind": "equip",
+			"equip": "body",
+			"stats": {
+				"atk": 2,
+				"def": 3
+			},
+			"rarity": "fine",
+			"levelReq": 5,
+			"price": 450
+		},
+		"guard_outfit_2": {
+			"id": "guard_outfit_2",
+			"name": "Bộ hộ vệ bộ 2",
+			"desc": "Giáp hộ vệ bậc hai, kiểu dáng riêng. Giá và chỉ số tạm chờ duyệt.",
+			"icon": "/assets/items/guard_outfit_1.png",
+			"w": 48,
+			"h": 48,
+			"kind": "equip",
+			"equip": "body",
+			"stats": {
+				"def": 4,
+				"hp": 10
+			},
+			"rarity": "fine",
+			"levelReq": 5,
+			"price": 450
+		},
+		"archer_outfit_2": {
+			"id": "archer_outfit_2",
+			"name": "Bộ cung thủ bộ 2",
+			"desc": "Đồ cung thủ bậc hai, kiểu dáng riêng. Giá và chỉ số tạm chờ duyệt.",
+			"icon": "/assets/items/archer_outfit_1.png",
+			"w": 48,
+			"h": 48,
+			"kind": "equip",
+			"equip": "body",
+			"stats": {
+				"atk": 2,
+				"crit": 1
+			},
+			"rarity": "fine",
+			"levelReq": 5,
+			"price": 450
+		},
 		"swordsman_outfit_5": {
 			"id": "swordsman_outfit_5",
 			"name": "Bộ kiếm sĩ hành lộ",

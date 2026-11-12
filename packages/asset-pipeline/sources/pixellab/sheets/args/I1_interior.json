@@ -1,0 +1,15 @@
+{
+	"description": "A sprite sheet of TWELVE separate indoor furniture props arranged in a grid of 4 columns and 3 rows, each centered in its own cell. Row 1: a single wooden bed with a patchwork quilt and a white pillow, a small square wooden dining table, a simple wooden chair, a small cast iron cooking stove with a kettle. Row 2: a wooden storage chest with iron bands, a tall wooden wardrobe with two doors, a wooden bookshelf full of colorful books, a stone fireplace with a small fire. Row 3: a round woven rug seen from above, a small table lamp with a warm glowing shade, a round wooden wall clock, a framed landscape painting. Cozy rustic cottage furniture, front view, slight top-down, thick dark outline, soft cel shading, warm wood tones, every item fully separate on a plain flat solid bright magenta (#FF00FF) chroma-key background with empty space around it, no floor, no wall, no shadow, no text, no numbers, no characters",
+	"width": 256,
+	"height": 256,
+	"no_background": false,
+	"seed": 721,
+	"style_options": {
+		"color_palette": false,
+		"outline": true,
+		"shading": true,
+		"detail": false
+	},
+	"style_image_path": "sources/pixellab/sheets/N1_nature.png",
+	"style_usage": "Copy ONLY the art style of this reference: chunky chibi pixel art, thick dark outline on every shape, soft cel shading, front-facing view, one object centered in each cell. Do not copy these objects, their colors or their layout."
+}

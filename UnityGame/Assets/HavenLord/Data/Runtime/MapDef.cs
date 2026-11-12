@@ -42,6 +42,8 @@ namespace HavenLord.Data
         public int level = -1;
         public bool onDemand;
         public bool boss;
+        /// <summary>Bầy quái sông (05/11/2026) — sát bờ, loài thứ hai của map.</summary>
+        public bool river;
     }
 
     [Serializable]

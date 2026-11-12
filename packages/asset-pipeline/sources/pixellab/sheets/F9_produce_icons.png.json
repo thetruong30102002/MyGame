@@ -1,0 +1,20 @@
+{
+	"description": "A sprite sheet of SIXTEEN separate game item icons arranged in a grid of 4 columns and 4 rows, each centered in its own cell. Row 1: a sheaf of golden rice, a yellow corn cob in green husk, two red tomatoes, a sliced green striped watermelon. Row 2: a bunch of purple grapes, three red chili peppers, a handful of fresh green tea leaves, a big yellow sunflower head. Row 3: a cluster of glowing teal mushrooms, a pale glowing moonflower, golden glowing star-shaped fruits, a sparkling bundle of radiant golden wheat. Row 4: a shiny red apple, an orange with a leaf, a pink Haven peach with a faint glow, a small clay jar of golden honey. Chunky simple game item icons, front view, thick dark outline, soft cel shading, every item fully separate on a plain flat solid bright magenta (#FF00FF) chroma-key background with empty space around it, no text, no numbers, no border, no frame",
+	"width": 256,
+	"height": 256,
+	"no_background": false,
+	"seed": 751,
+	"style_options": {
+		"color_palette": false,
+		"outline": true,
+		"shading": true,
+		"detail": false
+	},
+	"style_image": {
+		"path": "sources/pixellab/sheets/N1_nature.png",
+		"usage_description": "Copy ONLY the art style of this reference: chunky chibi pixel art, thick dark outline on every shape, soft cel shading, front-facing view, one object centered in each cell. Do not copy these objects, their colors or their layout."
+	},
+	"jobId": "84c1f18e-19eb-423b-81ba-318fb7b0344f",
+	"token": 0,
+	"createdAt": "2026-11-11T03:13:23.244Z"
+}

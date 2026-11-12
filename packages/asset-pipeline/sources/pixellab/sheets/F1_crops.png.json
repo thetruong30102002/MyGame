@@ -1,0 +1,20 @@
+{
+	"description": "A sprite sheet of EIGHT separate small crop plants arranged in a grid of 4 columns and 2 rows, each centered in its own cell, growth stages from left to right. Top row, wheat: 1 a tiny green sprout of two blades, 2 a small tuft of green wheat grass, 3 a tall clump of green wheat stalks, 4 a ripe golden wheat bundle with heavy grain ears ready to harvest. Bottom row, carrot: 1 a tiny pair of seed leaves, 2 a small bunch of feathery carrot leaves, 3 a bigger bunch of feathery leaves, 4 lush feathery carrot leaves with a bright orange carrot top showing at the base, ready to harvest. Each plant stands upright on a tiny dark soil mound, front view, slight top-down, thick dark outline, soft cel shading, natural colors, every plant fully separate on a plain flat solid bright magenta (#FF00FF) chroma-key background with empty space around it, no field, no shadow, no text, no numbers",
+	"width": 256,
+	"height": 192,
+	"no_background": false,
+	"seed": 701,
+	"style_options": {
+		"color_palette": false,
+		"outline": true,
+		"shading": true,
+		"detail": false
+	},
+	"style_image": {
+		"path": "sources/pixellab/sheets/N1_nature.png",
+		"usage_description": "Copy ONLY the art style of this reference: chunky chibi pixel art, thick dark outline on every shape, soft cel shading, front-facing view, one object centered in each cell. Do not copy these objects, their colors or their layout."
+	},
+	"jobId": "d7c12fa8-2aa1-4a1b-a845-09f76b058db9",
+	"token": 0,
+	"createdAt": "2026-11-06T22:34:27.295Z"
+}

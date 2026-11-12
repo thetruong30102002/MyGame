@@ -12,3 +12,11 @@ export function resolveSwordAppearance(gear:GearState,level:number){
  const blade=SWORD_TIERS.find(t=>t.weapon===gear.equip.main?.id&&t.level<=level)??SWORD_TIERS[0];
  return{outfit:body.outfit,weapon:blade.weapon};
 }
+
+/**
+ * Bộ tân thủ theo class của mẫu nhân vật (`classId` trong danh mục roster, 06/11/2026). Vào game chưa từng nhận thì phát và mặc sẵn vào ô
+ * Áo; tháo bộ ra (ô Áo trống) thì hình đổi sang bản tháo áo `<mẫu>_bare` — thân nền nam quần đùi / nữ bikini, vẫn đeo vũ khí class.
+ */
+export const CLASS_STARTER_OUTFIT:Record<string,string>={sword:'swordsman_outfit_1',staff:'mage_outfit_1',spear:'lancer_outfit_1',shield:'guard_outfit_1',bow:'archer_outfit_1'};
+/** Bộ shop 2 đúng từng class; giá và chỉ số đang là bản tạm chờ chủ dự án duyệt. */
+export const CLASS_SHOP2_OUTFIT:Record<string,string>={sword:'swordsman_outfit_2',staff:'mage_outfit_2',spear:'lancer_outfit_2',shield:'guard_outfit_2',bow:'archer_outfit_2'};

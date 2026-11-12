@@ -12,17 +12,33 @@ import { fileURLToPath } from 'node:url';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..', '..', '..');
 const skills = readFileSync(join(root, 'packages/sim/src/skills.ts'), 'utf8');
 const bosses = readFileSync(join(root, 'UnityGame/Assets/HavenLord/Client/Combat/CombatSystem.Bosses.cs'), 'utf8');
+/** Danh sách hiệu ứng được đóng atlas — hình đạn / chiêu boss khai mà thiếu ở đây thì trong game tàng hình. */
+const vfxList = readFileSync(join(root, 'packages/asset-pipeline/src/vfx/buildVfx.ts'), 'utf8');
+const hasVfx = (id: string): boolean => vfxList.includes(`id: '${id}',`);
 
 /** Nợ: boss / rồng còn bắn quả cầu đen chung (05/11/2026). */
-const OWED_ORB = new Set(['boss_demon_001', 'boss_fire_god_001', 'boss_ghost_captain_001', 'boss_ice_queen_001', 'boss_kraken_001', 'boss_lich_001', 'boss_mud_hydra_001', 'boss_pharaoh_001', 'boss_salamander_001', 'boss_swamp_witch_001', 'boss_wind_drake_001', 'boss_wind_mage_001', 'dragon_fire_001', 'dragon_ice_001', 'dragon_water_001', 'dragon_wind_001']);
+const OWED_ORB = new Set<string>([]);
 /** Nợ: hình chiêu đang dùng chung giữa hai boss (05/11/2026). */
-const OWED_LOOK = new Set(['boss_hellfire', 'boss_avalanche', 'boss_frost_roar', 'boss_oblivion_mist', 'boss_forge_sigil']);
+const OWED_LOOK = new Set<string>([]);
 
 const BOSS = /^(boss|dragon)_/;
 // Đòn xa cầu đen: kiểu caster của bảng boss thế giới + chỉ số viết tay có `ranged: 'shadow'`.
 const orb = new Set<string>();
 for (const m of skills.matchAll(/\['((?:boss|dragon)_[a-z0-9_]+)', \d+, '(\w+)', '\w+', '\w+'\]/g)) if (m[2] === 'caster') orb.add(m[1]!);
 for (const m of skills.matchAll(/\t([a-z0-9_]+): \{[^}\n]*ranged: 'shadow'/g)) if (BOSS.test(m[1]!)) orb.add(m[1]!);
+// Boss có đạn riêng trong `BOSS_SHOTS` (skills.ts) thì không còn bắn cầu đen; mỗi hình đạn / hình nổ chỉ thuộc một boss.
+const shotBlock = skills.split('export const BOSS_SHOTS')[1]?.split(/\r?\n\};/)[0] ?? '';
+const shotArt = new Map<string, string>();
+for (const m of shotBlock.matchAll(/\t((?:boss|dragon)_[a-z0-9_]+): \{ vfx: '([a-z0-9_]+)', impact: '([a-z0-9_]+)'/g)) {
+	orb.delete(m[1]!);
+	for (const art of [m[2]!, m[3]!]) {
+		assert.ok(!shotArt.has(art) || shotArt.get(art) === m[1], `Hình đạn boss dùng chung: ${art} (${shotArt.get(art)}, ${m[1]})`);
+		assert.notEqual(art, 'dark_orb', `${m[1]} vẫn dùng quả cầu đen chung`);
+		assert.ok(hasVfx(art), `${m[1]}: hình ${art} chưa có trong buildVfx.ts (đạn tàng hình)`);
+		shotArt.set(art, m[1]!);
+	}
+}
+assert.ok(shotArt.size >= 4, 'Không đọc được bảng BOSS_SHOTS trong skills.ts');
 const newOrb = [...orb].filter((b) => !OWED_ORB.has(b));
 assert.deepEqual(newOrb, [], `Boss mới bắn chung quả cầu đen (dark_orb) — cần đòn riêng: ${newOrb.join(', ')}`);
 
@@ -31,6 +47,8 @@ const owners = new Map<string, Set<string>>();
 for (const m of bosses.matchAll(/\["((?:boss|dragon)_[a-z0-9_]+)"\] = new\[\] \{(.*?)\},\r?\n/g))
 	for (const s of m[2]!.matchAll(/BossSkill\(Shape\.\w+, "([a-z0-9_]+)"/g)) owners.set(s[1]!, (owners.get(s[1]!) ?? new Set()).add(m[1]!));
 assert.ok(owners.size >= 20, 'Không đọc được bảng chiêu boss trong CombatSystem.Bosses.cs');
+const missingLook = [...owners.keys()].filter((l) => !hasVfx(l));
+assert.deepEqual(missingLook, [], `Hình chiêu boss chưa có trong buildVfx.ts: ${missingLook.join(', ')}`);
 const shared = [...owners].filter(([look, who]) => who.size > 1 && !OWED_LOOK.has(look)).map(([look, who]) => `${look} (${[...who].join(', ')})`);
 assert.deepEqual(shared, [], `Hình chiêu boss dùng chung — mỗi boss phải có chiêu riêng: ${shared.join('; ')}`);
 

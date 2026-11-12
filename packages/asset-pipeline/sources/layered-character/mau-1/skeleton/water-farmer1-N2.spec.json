@@ -1,0 +1,377 @@
+{
+	"about": "Bản 2 tưới cây N (06/11): bản 1 (ôm bình trước bụng) bình khuất hẳn sau lưng — bản này tay PHẢI xách bình bên hông phải, nâng nghiêng ra trước khi rót, tay trái thả bên sườn (luật một tay nhìn sau lưng); bình + dòng nước lộ cạnh thân. Đứng thẳng.",
+	"character": "U30-farmer1-outfit-N",
+	"rest": "U30-farmer1-outfit-N#26043",
+	"direction": "north",
+	"pad": [
+		4,
+		12,
+		8,
+		0
+	],
+	"handGapPx": 3,
+	"knees": "depth",
+	"stance": "upright",
+	"frames": [
+		{
+			"grip": [
+				50,
+				55
+			],
+			"bladeDeg": 0,
+			"depthR": 128,
+			"wristL": [
+				26,
+				56
+			],
+			"elbowL": [
+				27,
+				47
+			],
+			"depthL": 128,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				51,
+				54
+			],
+			"bladeDeg": 0,
+			"depthR": 124,
+			"wristL": [
+				26,
+				56
+			],
+			"elbowL": [
+				27,
+				47
+			],
+			"depthL": 128,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				52,
+				53
+			],
+			"bladeDeg": 0,
+			"depthR": 118,
+			"wristL": [
+				26,
+				56
+			],
+			"elbowL": [
+				27,
+				47
+			],
+			"depthL": 128,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				52,
+				51
+			],
+			"bladeDeg": 0,
+			"depthR": 112,
+			"wristL": [
+				26,
+				56
+			],
+			"elbowL": [
+				27,
+				47
+			],
+			"depthL": 128,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				52,
+				50
+			],
+			"bladeDeg": 0,
+			"depthR": 108,
+			"wristL": [
+				26,
+				56
+			],
+			"elbowL": [
+				27,
+				47
+			],
+			"depthL": 128,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				52,
+				49
+			],
+			"bladeDeg": 0,
+			"depthR": 104,
+			"wristL": [
+				26,
+				56
+			],
+			"elbowL": [
+				27,
+				47
+			],
+			"depthL": 128,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				52,
+				49
+			],
+			"bladeDeg": 0,
+			"depthR": 102,
+			"wristL": [
+				26,
+				56
+			],
+			"elbowL": [
+				27,
+				47
+			],
+			"depthL": 128,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				52,
+				48
+			],
+			"bladeDeg": 0,
+			"depthR": 102,
+			"wristL": [
+				26,
+				56
+			],
+			"elbowL": [
+				27,
+				47
+			],
+			"depthL": 128,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				52,
+				49
+			],
+			"bladeDeg": 0,
+			"depthR": 102,
+			"wristL": [
+				26,
+				56
+			],
+			"elbowL": [
+				27,
+				47
+			],
+			"depthL": 128,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				52,
+				48
+			],
+			"bladeDeg": 0,
+			"depthR": 102,
+			"wristL": [
+				26,
+				56
+			],
+			"elbowL": [
+				27,
+				47
+			],
+			"depthL": 128,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				52,
+				49
+			],
+			"bladeDeg": 0,
+			"depthR": 102,
+			"wristL": [
+				26,
+				56
+			],
+			"elbowL": [
+				27,
+				47
+			],
+			"depthL": 128,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				52,
+				50
+			],
+			"bladeDeg": 0,
+			"depthR": 108,
+			"wristL": [
+				26,
+				56
+			],
+			"elbowL": [
+				27,
+				47
+			],
+			"depthL": 128,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				52,
+				52
+			],
+			"bladeDeg": 0,
+			"depthR": 116,
+			"wristL": [
+				26,
+				56
+			],
+			"elbowL": [
+				27,
+				47
+			],
+			"depthL": 128,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				51,
+				54
+			],
+			"bladeDeg": 0,
+			"depthR": 122,
+			"wristL": [
+				26,
+				56
+			],
+			"elbowL": [
+				27,
+				47
+			],
+			"depthL": 128,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				50,
+				55
+			],
+			"bladeDeg": 0,
+			"depthR": 128,
+			"wristL": [
+				26,
+				56
+			],
+			"elbowL": [
+				27,
+				47
+			],
+			"depthL": 128,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		}
+	]
+}

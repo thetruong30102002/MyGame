@@ -811,6 +811,10 @@ namespace HavenLord.Client.Combat
             public readonly HashSet<Fighter> Hit = new HashSet<Fighter>();
             /// <summary>Đạn KIẾM: lần trúng đầu tính một nhát cho Thế Áp Đảo.</summary>
             public bool Press;
+            /// <summary>Hình nổ riêng khi trúng (đạn boss BOSS_SHOTS); null = theo hệ.</summary>
+            public string ImpactId;
+            /// <summary>Lắc ngang đường bay (px, chỉ hình).</summary>
+            public float Wobble;
         }
 
         private void Fire(double x, double y, double vx, double vy, double life, Team team, double damage, string element, bool pierce,
@@ -864,7 +868,13 @@ namespace HavenLord.Client.Combat
                 pr.Ft += dt;
                 if (pr.Frames.Length > 0) pr.Sr.sprite = pr.Frames[(int)(pr.Ft * 16) % pr.Frames.Length];
                 if (pr.Spin != 0) pr.Go.transform.Rotate(0, 0, -pr.Spin * dt * Mathf.Rad2Deg);
-                Place(pr.Go, pr.X, pr.Y);
+                if (pr.Wobble > 0)
+                {
+                    var sp = Math.Sqrt(pr.Vx * pr.Vx + pr.Vy * pr.Vy);
+                    var off = sp > 0 ? pr.Wobble * Math.Sin(pr.Ft * 9) / sp : 0;
+                    Place(pr.Go, pr.X - pr.Vy * off, pr.Y + pr.Vx * off);
+                }
+                else Place(pr.Go, pr.X, pr.Y);
                 if (pr.Halo != null)
                 {
                     var c = pr.GlowColor;
@@ -933,7 +943,9 @@ namespace HavenLord.Client.Combat
                         gone = true;
                 }
                 if (!gone) continue;
-                if (!pr.Ghost) Impact(pr.Element, pr.X, pr.Y, 0.7f, pr.Team == Team.Player);
+                if (pr.Ghost) { }
+                else if (pr.ImpactId != null) vfx.Play(pr.ImpactId, pr.X, pr.Y, new VfxOpts { Fps = 22 });
+                else Impact(pr.Element, pr.X, pr.Y, 0.7f, pr.Team == Team.Player);
                 UnityEngine.Object.Destroy(pr.Go);
                 projectiles[i] = projectiles[projectiles.Count - 1];
                 projectiles.RemoveAt(projectiles.Count - 1);

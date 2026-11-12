@@ -1,0 +1,190 @@
+[
+  {
+    "id": "rao_go_doc",
+    "file": "rao_go_doc.png",
+    "prompt": "A straight rustic wooden paddock fence line running directly away from the viewer, seen from above at a steep top-down angle: four square wooden posts stacked one above another down the image, evenly spaced, two thick split-log rails seen from the side as two parallel vertical bars connecting the posts, both the top and bottom ends cut flat through the middle of a post, narrow tall shape (about four times taller than wide).\n\nChunky chibi pixel art game sprite of an outdoor farm object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (short grass or dirt right at the foot only). No cast shadow, no scenery, no field, no sky, no text, no letters, no numbers, no signs with writing, no people, no animals, no birds, no bees, no insects, no characters, no hats.\nThe third image is the first attempt. Correct it: show a true side-running fence as a straight narrow vertical strip, with rails as two parallel vertical lines and posts stacked vertically. At BOTH image ends, depict the post sliced at its exact midpoint by a clean straight horizontal plane: no full post cap, no rounded top, no grass at either cut end. The cut face at the upper edge of the object must match the cut face at the lower edge in width, rail alignment and color, so identical copies tile seamlessly end-to-end. Keep the whole object at least 10% away from all four image borders.",
+    "refs": [
+      "mau-tham-chieu/highland_barn_x4.png",
+      "dot-7/rao_go_ngang.png",
+      "dot-10/rao_go_doc-v2.png"
+    ],
+    "tries": 3,
+    "note": "Lề trái/trên/phải/dưới (%): 39.92/9.67/39.92/6.26. Chưa đạt nối liền tuyệt đối: hai đầu đã phẳng và cùng bề rộng nhưng mặt cắt/màu ở đầu trên và dưới chưa trùng từng pixel sau 3 lần vẽ; cần căn mép khi ghép. Nền magenta có biến thiên nhẹ, cần chuẩn hóa khi tách nền."
+  },
+  {
+    "id": "cong_rao_go_doc",
+    "file": "cong_rao_go_doc.png",
+    "prompt": "The same rustic wooden fence line running directly away from the viewer, seen from above, with a closed wooden gate section in the middle (gate seen edge-on from the side, X brace visible from above, iron hinges and latch), a thick post at the top and bottom ends cut flat through the middle, narrow tall shape.\n\nChunky chibi pixel art game sprite of an outdoor farm object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (short grass or dirt right at the foot only). No cast shadow, no scenery, no field, no sky, no text, no letters, no numbers, no signs with writing, no people, no animals, no birds, no bees, no insects, no characters, no hats.\nThe third image is the first attempt. Correct it: show a true side-running fence as a straight narrow vertical strip, with rails as two parallel vertical lines and posts stacked vertically. At BOTH image ends, depict the post sliced at its exact midpoint by a clean straight horizontal plane: no full post cap, no rounded top, no grass at either cut end. The cut face at the upper edge of the object must match the cut face at the lower edge in width, rail alignment and color, so identical copies tile seamlessly end-to-end. Keep the whole object at least 10% away from all four image borders.",
+    "refs": [
+      "mau-tham-chieu/highland_barn_x4.png",
+      "dot-7/cong_rao_doi.png",
+      "dot-10/cong_rao_go_doc-v2.png"
+    ],
+    "tries": 3,
+    "note": "Lề trái/trên/phải/dưới (%): 39.68/7.95/39.68/8.06. Chưa đạt nối liền tuyệt đối: hai đầu đã phẳng và cùng bề rộng nhưng mặt cắt/màu ở đầu trên và dưới chưa trùng từng pixel sau 3 lần vẽ; cần căn mép khi ghép. Nền magenta có biến thiên nhẹ, cần chuẩn hóa khi tách nền."
+  },
+  {
+    "id": "rao_luoi_doc",
+    "file": "rao_luoi_doc.png",
+    "prompt": "A straight low chicken-run fence line running directly away from the viewer, seen from above at a steep top-down angle: thin wooden posts stacked one above another down the image with a light wooden top rail and silver hexagonal chicken-wire mesh between them seen from the side, both the top and bottom ends cut flat through the middle of a post, narrow tall shape.\n\nChunky chibi pixel art game sprite of an outdoor farm object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (short grass or dirt right at the foot only). No cast shadow, no scenery, no field, no sky, no text, no letters, no numbers, no signs with writing, no people, no animals, no birds, no bees, no insects, no characters, no hats.\nThe third image is the first attempt. Correct it: show a true side-running fence as a straight narrow vertical strip, with rails as two parallel vertical lines and posts stacked vertically. At BOTH image ends, depict the post sliced at its exact midpoint by a clean straight horizontal plane: no full post cap, no rounded top, no grass at either cut end. The cut face at the upper edge of the object must match the cut face at the lower edge in width, rail alignment and color, so identical copies tile seamlessly end-to-end. Keep the whole object at least 10% away from all four image borders.",
+    "refs": [
+      "mau-tham-chieu/home_chest_x4.png",
+      "dot-7/rao_luoi_ga.png",
+      "dot-10/rao_luoi_doc-v2.png"
+    ],
+    "tries": 3,
+    "note": "Lề trái/trên/phải/dưới (%): 37.71/8.06/37.71/7.83. Chưa đạt nối liền tuyệt đối: hai đầu đã phẳng và cùng bề rộng nhưng mặt cắt/màu ở đầu trên và dưới chưa trùng từng pixel sau 3 lần vẽ; cần căn mép khi ghép. Nền magenta có biến thiên nhẹ, cần chuẩn hóa khi tách nền."
+  },
+  {
+    "id": "cong_luoi_doc",
+    "file": "cong_luoi_doc.png",
+    "prompt": "The same low chicken-wire fence line running directly away from the viewer, seen from above, with a small closed wooden gate with chicken-wire mesh in the middle seen edge-on from the side, posts at the top and bottom ends cut flat through the middle, narrow tall shape.\n\nChunky chibi pixel art game sprite of an outdoor farm object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (short grass or dirt right at the foot only). No cast shadow, no scenery, no field, no sky, no text, no letters, no numbers, no signs with writing, no people, no animals, no birds, no bees, no insects, no characters, no hats.\nThe third image is the first attempt. Correct it: show a true side-running fence as a straight narrow vertical strip, with rails as two parallel vertical lines and posts stacked vertically. At BOTH image ends, depict the post sliced at its exact midpoint by a clean straight horizontal plane: no full post cap, no rounded top, no grass at either cut end. The cut face at the upper edge of the object must match the cut face at the lower edge in width, rail alignment and color, so identical copies tile seamlessly end-to-end. Keep the whole object at least 10% away from all four image borders.",
+    "refs": [
+      "mau-tham-chieu/home_chest_x4.png",
+      "dot-7/cong_rao_luoi.png",
+      "dot-10/cong_luoi_doc-v2.png"
+    ],
+    "tries": 3,
+    "note": "Lề trái/trên/phải/dưới (%): 39.06/7.81/39.06/7.81. Chưa đạt nối liền tuyệt đối: hai đầu đã phẳng và cùng bề rộng nhưng mặt cắt/màu ở đầu trên và dưới chưa trùng từng pixel sau 3 lần vẽ; cần căn mép khi ghép. Nền magenta có biến thiên nhẹ, cần chuẩn hóa khi tách nền."
+  },
+  {
+    "id": "cot_luoi_goc",
+    "file": "cot_luoi_goc.png",
+    "prompt": "A single thin wooden chicken-run corner post with a small flat top and short stubs of the top rail and chicken-wire mesh on two sides, seen from the front.\n\nChunky chibi pixel art game sprite of an outdoor farm object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (short grass or dirt right at the foot only). No cast shadow, no scenery, no field, no sky, no text, no letters, no numbers, no signs with writing, no people, no animals, no birds, no bees, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/home_chest_x4.png",
+      "dot-7/rao_luoi_ga.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái/trên/phải/dưới (%): 18.9/20.68/18.83/16.35. Đạt tạo hình cột góc. Nền magenta có biến thiên nhẹ, cần chuẩn hóa khi tách nền."
+  },
+  {
+    "id": "ngan_chuong_doc",
+    "file": "ngan_chuong_doc.png",
+    "prompt": "A straight low wooden livestock stall partition wall running directly away from the viewer, seen from above at a steep top-down angle: thick planks with a top rail seen from the side, square posts at intervals stacked down the image, iron brackets, both the top and bottom ends cut flat through the middle of a post, narrow tall shape (about four times taller than wide).\n\nChunky chibi pixel art game sprite of an outdoor farm object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (short grass or dirt right at the foot only). No cast shadow, no scenery, no field, no sky, no text, no letters, no numbers, no signs with writing, no people, no animals, no birds, no bees, no insects, no characters, no hats.\nThe third image is the first attempt. Correct it: show a true side-running stall partition as a straight narrow vertical strip. At BOTH ends, depict the post sliced at its exact midpoint by a clean straight horizontal plane: no full post cap, no rounded top, no grass. The upper and lower cut faces must match in width, plank alignment and color so identical copies tile seamlessly. Keep the object at least 10% away from all four image borders.",
+    "refs": [
+      "mau-tham-chieu/home_chair_x4.png",
+      "dot-6/ngan_chuong.png",
+      "dot-10/ngan_chuong_doc-v2.png"
+    ],
+    "tries": 3,
+    "note": "Lề trái/trên/phải/dưới (%): 37.29/7/37.15/7.04. Chưa đạt nối liền tuyệt đối: hai đầu đã phẳng và cùng bề rộng nhưng mặt cắt/màu ở đầu trên và dưới chưa trùng từng pixel sau 3 lần vẽ; cần căn mép khi ghép. Nền magenta có biến thiên nhẹ, cần chuẩn hóa khi tách nền."
+  },
+  {
+    "id": "cot_chuong_goc",
+    "file": "cot_chuong_goc.png",
+    "prompt": "A single thick square wooden stall corner post with iron bands and short stubs of plank partition on two sides, seen from the front.\n\nChunky chibi pixel art game sprite of an outdoor farm object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (short grass or dirt right at the foot only). No cast shadow, no scenery, no field, no sky, no text, no letters, no numbers, no signs with writing, no people, no animals, no birds, no bees, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/home_chair_x4.png",
+      "dot-6/ngan_chuong.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái/trên/phải/dưới (%): 17.94/18.82/17.94/17.94. Đạt tạo hình cột góc. Nền magenta có biến thiên nhẹ, cần chuẩn hóa khi tách nền."
+  },
+  {
+    "id": "cong_chuong_doc",
+    "file": "cong_chuong_doc.png",
+    "prompt": "The same low wooden stall partition running directly away from the viewer, seen from above, with a half-height swinging wooden stall gate in the middle seen edge-on from the side, iron hinges, posts at both ends cut flat through the middle, narrow tall shape.\n\nChunky chibi pixel art game sprite of an outdoor farm object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (short grass or dirt right at the foot only). No cast shadow, no scenery, no field, no sky, no text, no letters, no numbers, no signs with writing, no people, no animals, no birds, no bees, no insects, no characters, no hats.\nThe third image is the first attempt. Correct it: show a true side-running stall partition as a straight narrow vertical strip. At BOTH ends, depict the post sliced at its exact midpoint by a clean straight horizontal plane: no full post cap, no rounded top, no grass. The upper and lower cut faces must match in width, plank alignment and color so identical copies tile seamlessly. Keep the object at least 10% away from all four image borders.",
+    "refs": [
+      "mau-tham-chieu/home_chair_x4.png",
+      "dot-6/ngan_chuong.png",
+      "dot-10/cong_chuong_doc-v2.png"
+    ],
+    "tries": 3,
+    "note": "Lề trái/trên/phải/dưới (%): 38.12/10.41/37.71/12.75. Chưa đạt nối liền tuyệt đối: hai đầu đã phẳng và cùng bề rộng nhưng mặt cắt/màu ở đầu trên và dưới chưa trùng từng pixel sau 3 lần vẽ; cần căn mép khi ghép. Nền magenta có biến thiên nhẹ, cần chuẩn hóa khi tách nền."
+  },
+  {
+    "id": "nha_cay_tien",
+    "file": "nha_cay_tien.png",
+    "prompt": "A grand elven treehouse built around a huge ancient tree with a wide green leafy canopy: curved wooden rooms with round windows and leaf-shaped shingle roofs wrapped around the trunk on two levels, spiral wooden stairs with vine railings, glowing pale-green lanterns, a carved arched door at the base of the trunk. Front yard base: mossy grass with flat stepping stones, ferns and small white flowers.\n\nChunky chibi pixel art game sprite of a large house with its own front yard in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 2×2 image pixels, very large detailed building), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The house includes one attached shallow flat front-yard strip matching its style, exactly as described, as wide as the house with a straight bottom edge. The central main entrance is clearly visible on the front facade. No cast shadow, no scenery, no field, no sky, no text, no letters, no numbers, no signs with writing, no people, no animals, no birds, no bees, no insects, no characters, no hats.\nLandscape canvas 1536×1024 pixels.\nThe third image is the first attempt. Keep its composition and details, but scale the entire house AND attached yard down uniformly so all four magenta margins are at least 10% of the canvas. Do not crop the roof, tree canopy, or yard. Keep a straight flat bottom edge and the central front door.",
+    "refs": [
+      "mau-tham-chieu/swamp_willow_x4.png",
+      "dot-7/nha_go_dong_que.png",
+      "dot-10/nha_cay_tien-v2.png"
+    ],
+    "tries": 2,
+    "note": "Lề trái/trên/phải/dưới (%): 19.99/11.62/19.92/16.5. Đạt tạo hình nhà, cửa chính giữa mặt trước và dải sân gắn liền đáy thẳng. Nền magenta có biến thiên nhẹ, cần chuẩn hóa khi tách nền."
+  },
+  {
+    "id": "nha_nam_khong_lo",
+    "file": "nha_nam_khong_lo.png",
+    "prompt": "A whimsical house made of three giant mushrooms joined together: a tall central red-capped mushroom with white spots and two smaller orange and purple capped mushrooms, round windows and doors in the stems, small balconies, softly glowing blue mushroom lamps. Front yard base: soft moss ground with a winding pebble path and tiny glowing mushrooms.\n\nChunky chibi pixel art game sprite of a large house with its own front yard in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 2×2 image pixels, very large detailed building), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The house includes one attached shallow flat front-yard strip matching its style, exactly as described, as wide as the house with a straight bottom edge. The central main entrance is clearly visible on the front facade. No cast shadow, no scenery, no field, no sky, no text, no letters, no numbers, no signs with writing, no people, no animals, no birds, no bees, no insects, no characters, no hats.\nLandscape canvas 1536×1024 pixels.",
+    "refs": [
+      "mau-tham-chieu/home_potted_plant_x4.png",
+      "dot-7/nha_go_dong_que.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái/trên/phải/dưới (%): 11.2/6.45/12.43/6.45. Đạt tạo hình nhà, cửa chính giữa mặt trước và dải sân gắn liền đáy thẳng. Nền magenta có biến thiên nhẹ, cần chuẩn hóa khi tách nền."
+  },
+  {
+    "id": "nha_phuong_dong",
+    "file": "nha_phuong_dong.png",
+    "prompt": "A large East Asian style wooden manor with sweeping curved dark-blue tiled roofs on two levels, red lacquered pillars, carved wooden lattice windows, round red paper lanterns hanging from the eaves, a wide wooden veranda and a central gate-like entrance. Front yard base: raked white gravel with flat stepping stones, a small stone lantern and two pruned pine bonsai shrubs.\n\nChunky chibi pixel art game sprite of a large house with its own front yard in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 2×2 image pixels, very large detailed building), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The house includes one attached shallow flat front-yard strip matching its style, exactly as described, as wide as the house with a straight bottom edge. The central main entrance is clearly visible on the front facade. No cast shadow, no scenery, no field, no sky, no text, no letters, no numbers, no signs with writing, no people, no animals, no birds, no bees, no insects, no characters, no hats.\nLandscape canvas 1536×1024 pixels.",
+    "refs": [
+      "mau-tham-chieu/human_church_x4.png",
+      "dot-7/nha_go_dong_que.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái/trên/phải/dưới (%): 7.03/10.84/6.97/6.74. Đạt tạo hình nhà, cửa chính giữa mặt trước và dải sân gắn liền đáy thẳng. Nền magenta có biến thiên nhẹ, cần chuẩn hóa khi tách nền."
+  },
+  {
+    "id": "nha_bien_hai_cang",
+    "file": "nha_bien_hai_cang.png",
+    "prompt": "A big seaside captain's house painted white and sea-blue with weathered wooden shingle roofs, a tall round lighthouse-style tower with a glowing lamp room on one side, porthole windows, a ship's wheel and coiled ropes on the porch, nets and buoys on the walls. Front yard base: wooden boardwalk over pale sand with seashells, a small rowboat and a mooring post.\n\nChunky chibi pixel art game sprite of a large house with its own front yard in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 2×2 image pixels, very large detailed building), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The house includes one attached shallow flat front-yard strip matching its style, exactly as described, as wide as the house with a straight bottom edge. The central main entrance is clearly visible on the front facade. No cast shadow, no scenery, no field, no sky, no text, no letters, no numbers, no signs with writing, no people, no animals, no birds, no bees, no insects, no characters, no hats.\nLandscape canvas 1536×1024 pixels.\nThe third image is the first attempt. Keep its composition and details, but scale the entire house AND attached yard down uniformly so all four magenta margins are at least 10% of the canvas. Do not crop the roof, tree canopy, or yard. Keep a straight flat bottom edge and the central front door.",
+    "refs": [
+      "mau-tham-chieu/isles_fisher_cottage_x4.png",
+      "dot-7/nha_go_dong_que.png",
+      "dot-10/nha_bien_hai_cang-v2.png"
+    ],
+    "tries": 2,
+    "note": "Lề trái/trên/phải/dưới (%): 17.64/14.55/18.68/18.75. Đạt tạo hình nhà, cửa chính giữa mặt trước và dải sân gắn liền đáy thẳng. Nền magenta có biến thiên nhẹ, cần chuẩn hóa khi tách nền."
+  },
+  {
+    "id": "nha_lun_nui_lua",
+    "file": "nha_lun_nui_lua.png",
+    "prompt": "A massive dwarven stone hall carved into dark volcanic rock: huge square stone pillars, a heavy round brass vault-like door with rivets, glowing orange forge windows, brass pipes and chimneys puffing smoke, a small channel of glowing lava running beside the front steps with a stone bridge. Front yard base: dark basalt flagstones with brass rails along the lava channel.\n\nChunky chibi pixel art game sprite of a large house with its own front yard in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 2×2 image pixels, very large detailed building), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The house includes one attached shallow flat front-yard strip matching its style, exactly as described, as wide as the house with a straight bottom edge. The central main entrance is clearly visible on the front facade. No cast shadow, no scenery, no field, no sky, no text, no letters, no numbers, no signs with writing, no people, no animals, no birds, no bees, no insects, no characters, no hats.\nLandscape canvas 1536×1024 pixels.\nThe third image is the first attempt. Keep its composition and details, but scale the entire house AND attached yard down uniformly so all four magenta margins are at least 10% of the canvas. Do not crop the roof, tower, chimney smoke, or yard. Keep a straight flat bottom edge and the central front door.",
+    "refs": [
+      "mau-tham-chieu/volcano_dwarf_house_x4.png",
+      "dot-7/nha_go_dong_que.png",
+      "dot-10/nha_lun_nui_lua-v2.png"
+    ],
+    "tries": 2,
+    "note": "Lề trái/trên/phải/dưới (%): 15.56/12.21/15.56/17.97. Đạt tạo hình nhà, cửa chính giữa mặt trước và dải sân gắn liền đáy thẳng. Nền magenta có biến thiên nhẹ, cần chuẩn hóa khi tách nền."
+  },
+  {
+    "id": "lau_dai_bang",
+    "file": "lau_dai_bang.png",
+    "prompt": "An elegant ice palace of translucent pale-blue ice and white snow stone with tall slender crystal spires, frosted arched windows glowing soft blue, icicle trims, a grand staircase of ice leading to tall ice doors. Front yard base: smooth snow-white courtyard with ice crystal lamp posts and frosted shrubs.\n\nChunky chibi pixel art game sprite of a large house with its own front yard in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 2×2 image pixels, very large detailed building), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The house includes one attached shallow flat front-yard strip matching its style, exactly as described, as wide as the house with a straight bottom edge. The central main entrance is clearly visible on the front facade. No cast shadow, no scenery, no field, no sky, no text, no letters, no numbers, no signs with writing, no people, no animals, no birds, no bees, no insects, no characters, no hats.\nLandscape canvas 1536×1024 pixels.\nThe third image is the first attempt. Keep its composition and details, but scale the entire house AND attached yard down uniformly so all four magenta margins are at least 10% of the canvas. Do not crop the roof, tower, chimney smoke, or yard. Keep a straight flat bottom edge and the central front door.",
+    "refs": [
+      "mau-tham-chieu/tundra_frost_cedar_x4.png",
+      "dot-7/nha_go_dong_que.png",
+      "dot-10/lau_dai_bang-v2.png"
+    ],
+    "tries": 2,
+    "note": "Lề trái/trên/phải/dưới (%): 14.32/10.25/14.26/15.72. Đạt tạo hình nhà, cửa chính giữa mặt trước và dải sân gắn liền đáy thẳng. Nền magenta có biến thiên nhẹ, cần chuẩn hóa khi tách nền."
+  },
+  {
+    "id": "nha_coi_xay_hoa",
+    "file": "nha_coi_xay_hoa.png",
+    "prompt": "A large cheerful farmhouse attached to a tall brick windmill with four big white-sailed blades, a blue-trimmed white house with a steep orange roof, flower boxes, a wooden balcony, a red barn door. Front yard base: neat rows of red, yellow and pink tulips along a cobblestone path with a little wooden bridge over a narrow canal.\n\nChunky chibi pixel art game sprite of a large house with its own front yard in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 2×2 image pixels, very large detailed building), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The house includes one attached shallow flat front-yard strip matching its style, exactly as described, as wide as the house with a straight bottom edge. The central main entrance is clearly visible on the front facade. No cast shadow, no scenery, no field, no sky, no text, no letters, no numbers, no signs with writing, no people, no animals, no birds, no bees, no insects, no characters, no hats.\nLandscape canvas 1536×1024 pixels.\nThe third image is the first attempt. Keep its composition and details, but scale the entire house AND attached yard down uniformly so all four magenta margins are at least 10% of the canvas. Do not crop the roof, tower, chimney smoke, or yard. Keep a straight flat bottom edge and the central front door.",
+    "refs": [
+      "mau-tham-chieu/highland_windmill_x4.png",
+      "dot-7/nha_go_dong_que.png",
+      "dot-10/nha_coi_xay_hoa-v2.png"
+    ],
+    "tries": 2,
+    "note": "Lề trái/trên/phải/dưới (%): 17.51/13.28/17.12/18.55. Đạt tạo hình nhà, cửa chính giữa mặt trước và dải sân gắn liền đáy thẳng. Nền magenta có biến thiên nhẹ, cần chuẩn hóa khi tách nền."
+  },
+  {
+    "id": "lau_kinh_vuon_hoa",
+    "file": "lau_kinh_vuon_hoa.png",
+    "prompt": "A grand Victorian glass conservatory mansion: a white wrought-iron frame with a big central glass dome and two glass wings, full of lush green plants and colorful flowers visible inside, a white stone entrance with columns, hanging flower baskets. Front yard base: white gravel garden paths with round flower beds, a small fountain and trimmed hedges.\n\nChunky chibi pixel art game sprite of a large house with its own front yard in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 2×2 image pixels, very large detailed building), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The house includes one attached shallow flat front-yard strip matching its style, exactly as described, as wide as the house with a straight bottom edge. The central main entrance is clearly visible on the front facade. No cast shadow, no scenery, no field, no sky, no text, no letters, no numbers, no signs with writing, no people, no animals, no birds, no bees, no insects, no characters, no hats.\nLandscape canvas 1536×1024 pixels.\nThe third image is the first attempt. Keep its composition and details, but scale the entire house AND attached yard down uniformly so all four magenta margins are at least 10% of the canvas. Do not crop the roof, tower, chimney smoke, or yard. Keep a straight flat bottom edge and the central front door.",
+    "refs": [
+      "mau-tham-chieu/home_potted_plant_x4.png",
+      "dot-7/nha_go_dong_que.png",
+      "dot-10/lau_kinh_vuon_hoa-v2.png"
+    ],
+    "tries": 2,
+    "note": "Lề trái/trên/phải/dưới (%): 16.73/12.7/16.73/16.02. Đạt tạo hình nhà, cửa chính giữa mặt trước và dải sân gắn liền đáy thẳng. Nền magenta có biến thiên nhẹ, cần chuẩn hóa khi tách nền."
+  }
+]

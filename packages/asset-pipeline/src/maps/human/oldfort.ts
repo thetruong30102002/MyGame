@@ -1,5 +1,6 @@
 import type { PropMeta } from '../../props/buildProps.js';
-import { decalsOf, Layout, TILE, px, type MapData, type MonsterZone } from './common.js';
+import { decalsOf, Layout, TILE, px, type MapData, type MonsterZone, riverZone } from './common.js';
+import { finishWithStory } from '../storyBits.js';
 
 /**
  * Luỹ Hiệp Sĩ Cũ — luỹ đá của đội hiệp sĩ Đoàn Ấn Ký trên sống núi phía đông Đồi Xương (thiết kế 12 map vùng 1,
@@ -133,6 +134,10 @@ export function buildOldfort(meta: Record<string, PropMeta>, decalIds: string[],
 	L.place('rune_stone', Math.round(44.4 * TILE), Math.round(2.9 * TILE), { force: true });
 	L.place('stone_lantern', Math.round(46.6 * TILE), Math.round(2.9 * TILE), { force: true });
 
+	// Suối (05/11/2026 "nhiều sông suối hơn"): tự tìm đường né bầy, chỗ giữ trống, đồ vật đã đặt; cắt đường thành cầu gỗ.
+	L.autoStream({ avoid: packs, keep: [] });
+	// Bãi quái sông Cua đá suối (05/11/2026): sát bờ, giữ trống trước khi rải cây / đá.
+	const crab = L.riverSpot(packs);
 	L.clumps(40, ['tree_pine_dry', 'tree_pine_dry_flip'], 5, 2.2, (id, x, y) => (outside(x, y) ? L.place(id, x, y, { canopy: true }) : false));
 	L.clumps(80, ['boulder', 'rock_outcrop', 'pale_rocks', 'rock_spire', 'rock_gray'], 3, 1.4, (id, x, y) => (outside(x, y) ? L.place(id, x, y) : false));
 	L.sprinkleDecals(decalsOf(decalIds, 'd2'), 900);
@@ -149,13 +154,13 @@ export function buildOldfort(meta: Record<string, PropMeta>, decalIds: string[],
 		level: p.level,
 	});
 
-	return L.finish({
+	return finishWithStory(L, 2, {
 		id: 'oldfort',
 		name: 'Luỹ Hiệp Sĩ Cũ',
 		biome: 'rocky',
 		spawn: { x: px(2), y: px(13) + 24 },
 		npcs: [],
-		monsterZones: packs.map(zone),
+		monsterZones: [...packs.map(zone), ...(crab ? [riverZone(crab, 'oldfort', 'Luỹ Hiệp Sĩ', 7)] : [])],
 		boss: null,
 		spots: [
 			{ id: 'west_entry_of', name: 'Đường về Đồi Xương', x: px(2), y: px(13) + 24, r: 60 },

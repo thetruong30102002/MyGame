@@ -26,7 +26,9 @@ import { renderOverview, writeMinimap } from './maps/overview.js';
 import { addOutline, downscaleMode, extractDecals, loadFreePixelImage, packShelf, propIssues, propMeta, trim, type PropMeta } from './props/buildProps.js';
 import { PIXELLAB_PREFIX } from './props/humanKingdom.js';
 import { loadWorldArt, WORLD_ART_PREFIX } from './props/worldArt.js';
+import { GPT_ART_PREFIX, loadGptArt } from './props/gptArt.js';
 import { keyMagenta, loadSheetCell, parseSheetPath, sheetPreview } from './props/sheet.js';
+import { buildHomeAssets } from './props/homeAssets.js';
 import { buildSkillIcons, buildSkillIconsV2 } from './props/skillIcons.js';
 import { filledSlice, measureHollow, UI_ASSETS, type NineSlice } from './props/uiAssets.js';
 import { buildVfxFrames, VFX } from './vfx/buildVfx.js';
@@ -986,9 +988,14 @@ async function buildMap(region = 'human'): Promise<void> {
 	for (const def of build.props) {
 		const plName = def.path.startsWith(PIXELLAB_PREFIX) ? def.path.slice(PIXELLAB_PREFIX.length) : null;
 		const worldArt = def.path.startsWith(WORLD_ART_PREFIX) ? def.path.slice(WORLD_ART_PREFIX.length) : null;
+		const gptArt = def.path.startsWith(GPT_ART_PREFIX) ? def.path.slice(GPT_ART_PREFIX.length) : null;
 		const cell = parseSheetPath(def.path);
 		let raw: RGBAImage;
-		if (cell) {
+		if (gptArt) {
+			const img = loadGptArt(join(ROOT, 'packages/asset-pipeline/sources/gpt-review'), gptArt);
+			if (!img) { console.log(`  … ${def.id}: chưa có ảnh GPT chuẩn hoá ${gptArt} — bỏ qua`); continue; }
+			raw = img;
+		} else if (cell) {
 			if (!existsSync(join(sheetsDir, `${cell.sheet}.png`))) {
 				console.log(`  … ${def.id}: chưa có tấm ${cell.sheet} (lệnh \`pixellab image\`) — bỏ qua`);
 				continue;
@@ -1022,7 +1029,7 @@ async function buildMap(region = 'human'): Promise<void> {
 		if (def.flip) raw = flipX(raw);
 		const trimmed = def.downscale ? trim(downscaleMode(raw, def.downscale)) : trim(raw);
 		// PixelLab (ảnh rời lẫn tấm) đã có viền đen của chính nó; chỉ ảnh ngoài mới thêm viền tự động.
-		const img = plName || cell || worldArt ? trimmed : addOutline(trimmed);
+		const img = plName || cell || worldArt || gptArt ? trimmed : addOutline(trimmed);
 		items.push({ id: def.id, img });
 		meta[def.id] = propMeta(def, img);
 	}
@@ -1577,6 +1584,7 @@ ${await mcp.call('get_balance').catch((e: Error) => e.message)}
 		return;
 	}
 	if (cmd === 'map') return buildMap(args[0]);
+	if (cmd === 'home-assets') return buildHomeAssets(join(PIXELLAB_SOURCES, 'sheets'), WEB_ASSETS);
 	if (cmd === 'map-overview') return buildMapOverview(args[0]);
 	if (cmd === 'vfx') return buildVfx();
 	if (cmd === 'ui') return buildUi();

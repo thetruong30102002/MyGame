@@ -1,0 +1,27 @@
+{
+	"id": "boss_drake_wind_crescent",
+	"kind": "loop",
+	"canvas": {
+		"w": 36,
+		"h": 36
+	},
+	"first": {
+		"prompt": "a sharp crescent blade of pale cyan wind flying toward the right, convex side facing right, white streak lines, a few small leaves caught in it, side view, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "e19fde38-943a-433e-85e9-c2a7e3c8a99f"
+	},
+	"action": "the wind crescent shimmers and its white streak lines rush backward, seamless loop",
+	"frameCount": 4,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png"
+	],
+	"animateJobId": "695da235-c63b-4342-8480-f33ad6a6441f",
+	"createdAt": "2026-11-05T15:33:48.294Z",
+	"token": 0
+}

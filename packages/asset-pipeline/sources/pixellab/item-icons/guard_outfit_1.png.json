@@ -1,0 +1,14 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a beginner RPG outfit item icon: plain steel breastplate with small pauldrons over a blue padded tunic, thick leather gloves, steel knee guards, grey trousers, boots, an empty headless set of clothes like on an invisible mannequin, no head, no face, no hood, no hat, no helmet, nothing on the neck opening, no person, front view, centered, simple chunky game item icon",
+	"width": 48,
+	"height": 48,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "medium detail",
+	"seed": 8822,
+	"jobId": "daca24f0-1156-4d79-9d21-fb6581e71913",
+	"token": 0,
+	"createdAt": "2026-11-06T01:33:18.319Z"
+}

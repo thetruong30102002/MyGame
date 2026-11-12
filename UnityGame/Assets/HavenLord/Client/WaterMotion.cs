@@ -10,7 +10,9 @@ namespace HavenLord.Client
     /// Nước chuyển động (chủ dự án 05/11/2026: "suối làm sinh động hơn… chuyển động của nó nữa cho xịn"). Nền đất nướng sẵn thành ảnh
     /// tĩnh nên mặt nước đứng yên; lớp này phủ hạt pixel sinh trong code (0 lượt vẽ) ngay trên nền, dưới đồ vật / nhân vật:
     /// - suối (ô nước thuộc dải hẹp — hướng ước từ phân bố ô nước quanh nó): vệt sáng trôi theo dòng;
-    /// - mọi ô nước: vòng sóng lăn tăn + ánh lấp lánh; vùng núi lửa: bọt dung nham sôi rồi vỡ.
+    /// - mọi ô nước: lớp GỢN phủ kín (05/11 "chuyển động cho nước sinh động hơn") — vệt sóng chạy theo dòng ở suối, lấp lánh đều ở ao
+    ///   hồ; hoạ tiết tuần hoàn 96px theo toạ độ thế giới nên các ô nối liền, không lộ lưới; vòng sóng lăn tăn + ánh lấp lánh;
+    /// - vùng núi lửa: gợn sáng cam chảy chậm + bọt dung nham sôi rồi vỡ.
     /// Chỉ sinh trong khung nhìn, trần số hạt (điện thoại một nửa); tắt cùng công tắc thời tiết (`Weather.Enabled`).
     /// </summary>
     public sealed class WaterMotion : MonoBehaviour
@@ -43,7 +45,8 @@ namespace HavenLord.Client
         private readonly List<Cell> cells = new List<Cell>();
         private readonly List<int> visible = new List<int>();
         private readonly List<P> parts = new List<P>();
-        private float glintAcc, rippleAcc, sparkleAcc;
+        private float glintAcc, rippleAcc, sparkleAcc, shimmerT;
+        private readonly List<SpriteRenderer> tiles = new List<SpriteRenderer>();
         private static readonly Dictionary<string, Sprite> sprites = new Dictionary<string, Sprite>();
 
         public void Init(Func<Camera> camera, Func<MapDef> map)
@@ -52,7 +55,7 @@ namespace HavenLord.Client
             mapOf = map;
         }
 
-        private int Cap => Application.isMobilePlatform ? 45 : 90;
+        private int Cap => Application.isMobilePlatform ? 80 : 160;
 
         private void LateUpdate()
         {
@@ -63,6 +66,7 @@ namespace HavenLord.Client
             var on = Weather.Enabled && map != null && cells.Count > 0;
             var dt = Mathf.Min(Time.deltaTime, 0.1f);
             if (on) Spawn(map, dt);
+            Shimmer(map, on, dt);
             foreach (var p in parts)
             {
                 if (!p.Live) continue;
@@ -81,6 +85,7 @@ namespace HavenLord.Client
             drawnFor = map;
             cells.Clear();
             foreach (var p in parts) Kill(p);
+            foreach (var t in tiles) t.enabled = false;
             if (map == null || map.terrain == null) return;
             lava = map.biome == Biome.Volcanic;
             for (var ty = 0; ty < map.height; ty += 1)
@@ -122,9 +127,9 @@ namespace HavenLord.Client
             }
             if (visible.Count == 0) return;
             // Nhịp sinh theo số ô nước đang thấy: dòng suối dày vệt sáng, mặt nước thưa sóng / lấp lánh.
-            glintAcc += dt * visible.Count * (lava ? 0.03f : 0.09f);
-            rippleAcc += dt * visible.Count * 0.02f;
-            sparkleAcc += dt * visible.Count * (lava ? 0.05f : 0.04f);
+            glintAcc += dt * visible.Count * (lava ? 0.05f : 0.22f);
+            rippleAcc += dt * visible.Count * 0.04f;
+            sparkleAcc += dt * visible.Count * (lava ? 0.08f : 0.08f);
             for (; glintAcc >= 1; glintAcc -= 1) Emit(map, lava ? Kind.Bubble : Kind.Glint, true);
             for (; rippleAcc >= 1; rippleAcc -= 1) Emit(map, lava ? Kind.Bubble : Kind.Ripple, false);
             for (; sparkleAcc >= 1; sparkleAcc -= 1) Emit(map, Kind.Sparkle, false);
@@ -157,7 +162,8 @@ namespace HavenLord.Client
                     p.Vx = cell.Dx * v;
                     p.Vy = cell.Dy * v;
                     p.Life = Random.Range(1.3f, 2.2f);
-                    p.Sr.sprite = Random.value < 0.5f ? Line("glint3", 3) : Line("glint5", 5);
+                    var len = Random.value;
+                    p.Sr.sprite = len < 0.4f ? Line("glint3", 3) : len < 0.8f ? Line("glint5", 5) : Line("glint8", 8);
                     break;
                 case Kind.Ripple:
                     p.Life = 1.2f;
@@ -200,6 +206,63 @@ namespace HavenLord.Client
             }
             p.Sr.color = tint;
             p.Sr.transform.position = WorldCoords.PxToWorld(Mathf.Round(p.X), Mathf.Round(p.Y));
+        }
+
+        /// <summary>
+        /// Lớp gợn phủ ô nước đang thấy (dùng chung khung cho mọi ô — hoạ tiết theo toạ độ thế giới nên nối liền). Suối dọc / ngang chạy
+        /// theo dòng (8 khung, ~24 px/giây), ao hồ lấp lánh tại chỗ; dung nham chậm hơn.
+        /// </summary>
+        private void Shimmer(MapDef map, bool on, float dt)
+        {
+            var used = 0;
+            if (on)
+            {
+                shimmerT += dt;
+                var frame = (int)(shimmerT * (lava ? 5 : 8)) % 8;
+                var ts = map.tileSize;
+                foreach (var i in visible)
+                {
+                    var c = cells[i];
+                    var kind = !c.Flow ? 'P' : Mathf.Abs(c.Dx) >= Mathf.Abs(c.Dy) ? 'H' : 'V';
+                    if (used == tiles.Count)
+                    {
+                        var go = new GameObject("water-shimmer");
+                        go.transform.SetParent(transform, false);
+                        var sr = go.AddComponent<SpriteRenderer>();
+                        sr.sortingOrder = Order - 1;
+                        tiles.Add(sr);
+                    }
+                    var t = tiles[used++];
+                    t.enabled = true;
+                    t.sprite = Wave(kind, (c.X & 1) + (c.Y & 1) * 2, frame, ts);
+                    t.color = lava ? new Color(1f, 0.82f, 0.38f, 0.38f) : new Color(0.86f, 0.96f, 1f, 0.3f);
+                    t.transform.position = WorldCoords.PxToWorld((c.X + 0.5f) * ts, (c.Y + 0.5f) * ts);
+                }
+            }
+            for (var k = used; k < tiles.Count; k += 1) tiles[k].enabled = false;
+        }
+
+        /// <summary>Một khung gợn cho ô có toạ độ chẵn / lẻ `variant` (chu kỳ 2 ô = 96px theo toạ độ thế giới).</summary>
+        private static Sprite Wave(char kind, int variant, int frame, int ts)
+        {
+            var id = $"wave{kind}{variant}{frame}";
+            if (sprites.TryGetValue(id, out var s)) return s;
+            const float Tau = Mathf.PI * 2;
+            var period = ts * 2f;
+            var phi = Tau * frame / 8f;
+            var ox = (variant & 1) * ts;
+            var oy = (variant >> 1) * ts;
+            return Tone(id, ts, ts, (x, y) =>
+            {
+                float gx = ox + x, gy = oy + (ts - 1 - y);
+                if (kind == 'P')
+                    return Mathf.Sin(Tau * 5 * gx / period) * Mathf.Sin(Tau * 4 * gy / period + phi) > 0.94f ? 1f : 0f;
+                // u dọc theo dòng, v ngang dòng: sợi mảnh song song dòng (uốn nhẹ), cắt thành đoạn trôi theo +u khi khung tăng.
+                float u = kind == 'H' ? gx : gy, v = kind == 'H' ? gy : gx;
+                var line = Mathf.Sin(Tau * 3 * v / period + 1.3f * Mathf.Sin(Tau * u / period));
+                var seg = Mathf.Sin(Tau * 2 * u / period - phi) + 0.6f * Mathf.Sin(Tau * 3 * u / period - phi + v * 0.05f);
+                return line > 0.9f && seg > 0.55f ? 1f : 0f;
+            });
         }
 
         private P Take()

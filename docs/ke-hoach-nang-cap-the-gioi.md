@@ -1,5 +1,13 @@
 # Kế hoạch tổng — tái thiết thế giới và phát triển Haven
 
+## Chốt 08/11/2026 — viết lại toàn bộ truyện, nhịp cấp, NPC và mở Gia viên
+
+Chủ dự án yêu cầu viết lại **100% cốt truyện** có chiều sâu, cảm xúc và cú lật có căn nguyên; biên soạn nhiệm vụ chính / phụ mới, giữ tuyến theo cấp / Ma thần và các trụ cột thế giới đã chốt. Cần giảm nhịp lên cấp, duyệt lại đường cong EXP / phần thưởng. **Gia viên chỉ mở sau tuyến làm quen toàn bộ NPC cố định map đầu Thistlewood**, có máy chủ xác nhận và bảo toàn tài sản tài khoản cũ.
+
+Mỗi vùng có đủ năm NPC dịch vụ riêng (bán trang bị; rèn vũ khí / trang bị; bán vũ khí; đồ ăn buff; vật phẩm hồi phục) và **một NPC sự kiện dùng chung danh tính / tạo hình giữa các vùng**. Bổ sung cư dân và NPC nhiệm vụ. Nhà chính / quầy / xưởng cần cao lớn và chi tiết hơn nhưng đúng style game và kiến trúc vùng. Kế hoạch dùng GPT vẽ NPC + nhà; NPC đứng yên là đủ, duyệt mẫu cạnh nhân vật hiện hành trước khi nhân rộng. **Lượt này chỉ cập nhật kế hoạch, không sinh hình hoặc sửa gameplay.**
+
+Chi tiết: [Tái thiết cốt truyện, nhịp lên cấp, NPC và nhà dịch vụ](thiet-ke/tai-thiet-cot-truyen-npc-2026-11.md). Thêm bốn đầu việc ở 0%: progression-slower, regional-service-npcs, regional-service-buildings, starter-npc-onboarding; mở rộng story-reboot-game và ràng buộc home / hub-*. Giữ nguyên các mốc đã nghiệm thu. Ngày 08/11 thêm khối lượng tương đối 4 + 5 + 5 + 3 cho phạm vi mới; % tổng có thể giảm do mẫu số tăng, không phải huỷ việc cũ đã làm. “100%” trong yêu cầu viết lại là phạm vi, không phải % tiến độ.
+
 ## Chốt mới 03/11/2026 — đứng / đi / chạy 8 hướng, tạm dừng vẽ tấn công
 
 **Bổ sung tạo hình cùng ngày:** vẽ lại thiết kế đồ cơ bản cho rõ từng class, không chỉ đổi màu bộ cũ; thân khỏe và đầy đặn hơn mẫu cũ hơi gầy nhưng không đô, không thay đổi chiều cao giữa hành động. Kiếm sĩ: giáp nhẹ/ngực và vai nhỏ, áo chiến gọn, đai da; Pháp sư: áo choàng/pháp bào có nếp và họa tiết phép tiết chế; Cung thủ: đồ săn cơ động, áo khoác ngắn/túi tên; Thương thủ: áo chiến gọn, bảo vệ vai/cẳng tay, tà tách dễ bước; Khiên thủ: giáp chắc hơn, mảng bảo vệ ngực/chân rõ. Tất cả vẫn đồ khởi đầu cơ bản, không hào quang/cánh/hoàng gia; chừa cấp nâng cấp thời trang sau. Thử một mẫu Kiếm sĩ đứng từ chính ảnh NPC nam trước, duyệt dáng/chất liệu rồi mới nhân rộng 5 class và các hướng/frame. Chưa duyệt mẫu thì tiến độ vẫn0%; vũ khí và đầu vẫn tách, cấm ghép đè đầu. Không sinh thêm tấn công.
@@ -178,7 +186,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
 ```json
 {
   "version": 1,
-  "updated": "2026-11-02",
+  "updated": "2026-11-08",
   "title": "Tái thiết thế giới Haven",
   "scope": "Tiến độ của kế hoạch nâng cấp này; không phải % hoàn thành toàn bộ game.",
   "method": "Mỗi việc = tổng trọng số các mốc đã hoàn thành / tổng trọng số mốc. Tổng = trung bình có trọng số khối lượng việc. Chỉ tích mốc khi có bằng chứng; không tự tăng theo thời gian.",
@@ -4780,13 +4788,14 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "id": "hub-human",
       "group": "Trung tâm vùng",
       "name": "Thị trấn Thistlewood — xây lại trung tâm",
-      "detail": "Gỗ sồi, đá kem, mái ngói xanh rêu; nhà phố 2–3 tầng, nhà hội và tháp chuông. Xe hàng, giếng, bảng hội, lò bánh, vườn rau, quán trọ có khách. Giữ nhà nhỏ cũ làm nhà phụ. Đề xuất 8–12 nhà chính, 2 điểm nhấn cao, 3 cụm sinh hoạt; điều chỉnh theo map, không rải prop kín đường. Dự tính PixelLab 28/10: ~190 lượt trả phí (8–12 nhà chính, 2 điểm nhấn, cụm sinh hoạt + NPC; đã cộng ~30% vẽ lại).",
+      "detail": "Gỗ sồi, đá kem, mái ngói xanh rêu; nhà phố 2–3 tầng, nhà hội và tháp chuông. Xe hàng, giếng, bảng hội, lò bánh, vườn rau, quán trọ có khách. Giữ nhà nhỏ cũ làm nhà phụ. Đề xuất 8–12 nhà chính, 2 điểm nhấn cao, 3 cụm sinh hoạt; điều chỉnh theo map, không rải prop kín đường. Dự tính PixelLab 28/10: ~190 lượt trả phí (8–12 nhà chính, 2 điểm nhấn, cụm sinh hoạt + NPC; đã cộng ~30% vẽ lại). BỔ SUNG 08/11/2026: trung tâm vùng phải đủ 5 NPC dịch vụ riêng theo vùng (trang bị, rèn, vũ khí, đồ ăn buff, hồi phục) và NPC sự kiện chung giữa các vùng; nhà chính cao lớn, chi tiết hơn theo style nhân vật game hiện hành. Kế hoạch GPT vẽ NPC / nhà, NPC đứng yên là đủ; duyệt mẫu trước khi nhân rộng. Số lượt PixelLab ở đoạn cũ là ước tính lịch sử, không phải dự toán GPT mới. Xem regional-service-npcs, regional-service-buildings và docs/thiet-ke/tai-thiet-cot-truyen-npc-2026-11.md.",
       "weight": 6,
       "phase": 2,
       "region": "human",
       "depends": [
         "style",
-        "politics"
+        "politics",
+        "regional-service-buildings"
       ],
       "steps": [
         {
@@ -4937,13 +4946,14 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "id": "hub-swamp",
       "group": "Trung tâm vùng",
       "name": "Làng nhà sàn Lau Xám — xây lại trung tâm",
-      "detail": "Gỗ chống ẩm, mái sậy, nhà sàn 2 tầng; đại sảnh trên cọc và cầu gỗ phân nhánh. Bến đò, chợ cá, giỏ thuốc, lưới phơi, đèn dầu và bè chở hàng. Giữ nhà nhỏ cũ làm nhà phụ. Đề xuất 8–12 nhà chính, 2 điểm nhấn cao, 3 cụm sinh hoạt; điều chỉnh theo map, không rải prop kín đường. Dự tính PixelLab 28/10: ~190 lượt trả phí (8–12 nhà chính, 2 điểm nhấn, cụm sinh hoạt + NPC; đã cộng ~30% vẽ lại).",
+      "detail": "Gỗ chống ẩm, mái sậy, nhà sàn 2 tầng; đại sảnh trên cọc và cầu gỗ phân nhánh. Bến đò, chợ cá, giỏ thuốc, lưới phơi, đèn dầu và bè chở hàng. Giữ nhà nhỏ cũ làm nhà phụ. Đề xuất 8–12 nhà chính, 2 điểm nhấn cao, 3 cụm sinh hoạt; điều chỉnh theo map, không rải prop kín đường. Dự tính PixelLab 28/10: ~190 lượt trả phí (8–12 nhà chính, 2 điểm nhấn, cụm sinh hoạt + NPC; đã cộng ~30% vẽ lại). BỔ SUNG 08/11/2026: trung tâm vùng phải đủ 5 NPC dịch vụ riêng theo vùng (trang bị, rèn, vũ khí, đồ ăn buff, hồi phục) và NPC sự kiện chung giữa các vùng; nhà chính cao lớn, chi tiết hơn theo style nhân vật game hiện hành. Kế hoạch GPT vẽ NPC / nhà, NPC đứng yên là đủ; duyệt mẫu trước khi nhân rộng. Số lượt PixelLab ở đoạn cũ là ước tính lịch sử, không phải dự toán GPT mới. Xem regional-service-npcs, regional-service-buildings và docs/thiet-ke/tai-thiet-cot-truyen-npc-2026-11.md.",
       "weight": 6,
       "phase": 3,
       "region": "swamp",
       "depends": [
         "style",
-        "politics"
+        "politics",
+        "regional-service-buildings"
       ],
       "steps": [
         {
@@ -5094,13 +5104,14 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "id": "hub-desert",
       "group": "Trung tâm vùng",
       "name": "Thành ốc đảo Sahrin — xây lại trung tâm",
-      "detail": "Sa thạch đỏ, vòm mái, gạch men lam; thành Sahrin có cổng cao, cung điện và phố bậc thang. Chợ vải, guồng nước, bể chứa, đoàn lạc đà, quầy gia vị, vườn trong sân. Giữ nhà nhỏ cũ làm nhà phụ. Đề xuất 8–12 nhà chính, 2 điểm nhấn cao, 3 cụm sinh hoạt; điều chỉnh theo map, không rải prop kín đường. Dự tính PixelLab 28/10: ~190 lượt trả phí (8–12 nhà chính, 2 điểm nhấn, cụm sinh hoạt + NPC; đã cộng ~30% vẽ lại).",
+      "detail": "Sa thạch đỏ, vòm mái, gạch men lam; thành Sahrin có cổng cao, cung điện và phố bậc thang. Chợ vải, guồng nước, bể chứa, đoàn lạc đà, quầy gia vị, vườn trong sân. Giữ nhà nhỏ cũ làm nhà phụ. Đề xuất 8–12 nhà chính, 2 điểm nhấn cao, 3 cụm sinh hoạt; điều chỉnh theo map, không rải prop kín đường. Dự tính PixelLab 28/10: ~190 lượt trả phí (8–12 nhà chính, 2 điểm nhấn, cụm sinh hoạt + NPC; đã cộng ~30% vẽ lại). BỔ SUNG 08/11/2026: trung tâm vùng phải đủ 5 NPC dịch vụ riêng theo vùng (trang bị, rèn, vũ khí, đồ ăn buff, hồi phục) và NPC sự kiện chung giữa các vùng; nhà chính cao lớn, chi tiết hơn theo style nhân vật game hiện hành. Kế hoạch GPT vẽ NPC / nhà, NPC đứng yên là đủ; duyệt mẫu trước khi nhân rộng. Số lượt PixelLab ở đoạn cũ là ước tính lịch sử, không phải dự toán GPT mới. Xem regional-service-npcs, regional-service-buildings và docs/thiet-ke/tai-thiet-cot-truyen-npc-2026-11.md.",
       "weight": 6,
       "phase": 3,
       "region": "desert",
       "depends": [
         "style",
-        "politics"
+        "politics",
+        "regional-service-buildings"
       ],
       "steps": [
         {
@@ -5251,13 +5262,14 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "id": "hub-highland",
       "group": "Trung tâm vùng",
       "name": "Làng Cối Xay Gió — xây lại trung tâm",
-      "detail": "Đá sáng và gỗ đón gió, mái dốc; nhà cao sát sườn đồi, tháp cối xay nhiều tầng. Cầu treo, cờ hướng gió, sân tập, dây phơi, chuồng chim, hàng vải. Giữ nhà nhỏ cũ làm nhà phụ. Đề xuất 8–12 nhà chính, 2 điểm nhấn cao, 3 cụm sinh hoạt; điều chỉnh theo map, không rải prop kín đường. Dự tính PixelLab 28/10: ~190 lượt trả phí (8–12 nhà chính, 2 điểm nhấn, cụm sinh hoạt + NPC; đã cộng ~30% vẽ lại).",
+      "detail": "Đá sáng và gỗ đón gió, mái dốc; nhà cao sát sườn đồi, tháp cối xay nhiều tầng. Cầu treo, cờ hướng gió, sân tập, dây phơi, chuồng chim, hàng vải. Giữ nhà nhỏ cũ làm nhà phụ. Đề xuất 8–12 nhà chính, 2 điểm nhấn cao, 3 cụm sinh hoạt; điều chỉnh theo map, không rải prop kín đường. Dự tính PixelLab 28/10: ~190 lượt trả phí (8–12 nhà chính, 2 điểm nhấn, cụm sinh hoạt + NPC; đã cộng ~30% vẽ lại). BỔ SUNG 08/11/2026: trung tâm vùng phải đủ 5 NPC dịch vụ riêng theo vùng (trang bị, rèn, vũ khí, đồ ăn buff, hồi phục) và NPC sự kiện chung giữa các vùng; nhà chính cao lớn, chi tiết hơn theo style nhân vật game hiện hành. Kế hoạch GPT vẽ NPC / nhà, NPC đứng yên là đủ; duyệt mẫu trước khi nhân rộng. Số lượt PixelLab ở đoạn cũ là ước tính lịch sử, không phải dự toán GPT mới. Xem regional-service-npcs, regional-service-buildings và docs/thiet-ke/tai-thiet-cot-truyen-npc-2026-11.md.",
       "weight": 6,
       "phase": 3,
       "region": "highland",
       "depends": [
         "style",
-        "politics"
+        "politics",
+        "regional-service-buildings"
       ],
       "steps": [
         {
@@ -5408,13 +5420,14 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "id": "hub-tundra",
       "group": "Trung tâm vùng",
       "name": "Làng gỗ Tuyết Phong — xây lại trung tâm",
-      "detail": "Gỗ thông dày, đá xám, mái tuyết; đại sảnh thợ săn 2–3 tầng với ống khói lớn. Kho củi, xe trượt, da thú, lò sưởi, cá đông, đèn ấm và lối tuyết nén. Giữ nhà nhỏ cũ làm nhà phụ. Đề xuất 8–12 nhà chính, 2 điểm nhấn cao, 3 cụm sinh hoạt; điều chỉnh theo map, không rải prop kín đường. Dự tính PixelLab 28/10: ~190 lượt trả phí (8–12 nhà chính, 2 điểm nhấn, cụm sinh hoạt + NPC; đã cộng ~30% vẽ lại).",
+      "detail": "Gỗ thông dày, đá xám, mái tuyết; đại sảnh thợ săn 2–3 tầng với ống khói lớn. Kho củi, xe trượt, da thú, lò sưởi, cá đông, đèn ấm và lối tuyết nén. Giữ nhà nhỏ cũ làm nhà phụ. Đề xuất 8–12 nhà chính, 2 điểm nhấn cao, 3 cụm sinh hoạt; điều chỉnh theo map, không rải prop kín đường. Dự tính PixelLab 28/10: ~190 lượt trả phí (8–12 nhà chính, 2 điểm nhấn, cụm sinh hoạt + NPC; đã cộng ~30% vẽ lại). BỔ SUNG 08/11/2026: trung tâm vùng phải đủ 5 NPC dịch vụ riêng theo vùng (trang bị, rèn, vũ khí, đồ ăn buff, hồi phục) và NPC sự kiện chung giữa các vùng; nhà chính cao lớn, chi tiết hơn theo style nhân vật game hiện hành. Kế hoạch GPT vẽ NPC / nhà, NPC đứng yên là đủ; duyệt mẫu trước khi nhân rộng. Số lượt PixelLab ở đoạn cũ là ước tính lịch sử, không phải dự toán GPT mới. Xem regional-service-npcs, regional-service-buildings và docs/thiet-ke/tai-thiet-cot-truyen-npc-2026-11.md.",
       "weight": 6,
       "phase": 3,
       "region": "tundra",
       "depends": [
         "style",
-        "politics"
+        "politics",
+        "regional-service-buildings"
       ],
       "steps": [
         {
@@ -5565,13 +5578,14 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "id": "hub-volcano",
       "group": "Trung tâm vùng",
       "name": "Pháo đài người lùn Đe Đỏ — xây lại trung tâm",
-      "detail": "Bazan đen, đồng đỏ, thép; pháo đài Đe Đỏ nhiều tầng, lò rèn đại và đường vận quặng. Xe mỏ, băng chuyền, bể tôi, ống khói, tời nâng, khu chợ thợ rèn. Giữ nhà nhỏ cũ làm nhà phụ. Đề xuất 8–12 nhà chính, 2 điểm nhấn cao, 3 cụm sinh hoạt; điều chỉnh theo map, không rải prop kín đường. Dự tính PixelLab 28/10: ~190 lượt trả phí (8–12 nhà chính, 2 điểm nhấn, cụm sinh hoạt + NPC; đã cộng ~30% vẽ lại).",
+      "detail": "Bazan đen, đồng đỏ, thép; pháo đài Đe Đỏ nhiều tầng, lò rèn đại và đường vận quặng. Xe mỏ, băng chuyền, bể tôi, ống khói, tời nâng, khu chợ thợ rèn. Giữ nhà nhỏ cũ làm nhà phụ. Đề xuất 8–12 nhà chính, 2 điểm nhấn cao, 3 cụm sinh hoạt; điều chỉnh theo map, không rải prop kín đường. Dự tính PixelLab 28/10: ~190 lượt trả phí (8–12 nhà chính, 2 điểm nhấn, cụm sinh hoạt + NPC; đã cộng ~30% vẽ lại). BỔ SUNG 08/11/2026: trung tâm vùng phải đủ 5 NPC dịch vụ riêng theo vùng (trang bị, rèn, vũ khí, đồ ăn buff, hồi phục) và NPC sự kiện chung giữa các vùng; nhà chính cao lớn, chi tiết hơn theo style nhân vật game hiện hành. Kế hoạch GPT vẽ NPC / nhà, NPC đứng yên là đủ; duyệt mẫu trước khi nhân rộng. Số lượt PixelLab ở đoạn cũ là ước tính lịch sử, không phải dự toán GPT mới. Xem regional-service-npcs, regional-service-buildings và docs/thiet-ke/tai-thiet-cot-truyen-npc-2026-11.md.",
       "weight": 6,
       "phase": 3,
       "region": "volcano",
       "depends": [
         "style",
-        "politics"
+        "politics",
+        "regional-service-buildings"
       ],
       "steps": [
         {
@@ -5683,7 +5697,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "id": "newboss-volcano",
       "group": "Quái và boss",
       "name": "Núi lửa Hoả Sơn — boss mới",
-      "detail": "Ý tưởng: Cự Tượng Đe Đỏ. Thiết kế đấu trường, đòn báo trước và phần thưởng riêng; tên/chỉ số cần duyệt, chưa được vẽ hoặc gắn vào game. Dự tính PixelLab 28/10: ~150 lượt trả phí (boss + chiêu + vùng báo trước; đã cộng ~30% vẽ lại).",
+      "detail": "Ý tưởng: Cự Tượng Đe Đỏ. Thiết kế đấu trường, đòn báo trước và phần thưởng riêng; tên/chỉ số cần duyệt, chưa được vẽ hoặc gắn vào game. Dự tính PixelLab 28/10: ~150 lượt trả phí (boss + chiêu + vùng báo trước; đã cộng ~30% vẽ lại). Chủ dự án 06/11/2026: \"tôi cần 1 con boss chó 3 đầu Cerberus\" → chọn đặt ở vùng Núi lửa (ổ boss mới ở Hốc Than Hồng, cấp ~58). Đã vẽ mẫu xoay 4 hướng (registry boss_cerberus_001: chó ngục ba đầu lông đen, bờm than hồng, mắt lửa / độc / băng, xích cổ, đuôi lửa; ~7 lượt); chủ dự án \"Ceberus thấy chưa ưng ghi vào kế hoạch thôi\" → CHƯA đưa vào game, chưa vẽ động tác; làm lại thiết kế sau. Đòn riêng dự kiến (luật boss nghiêm cấm đòn chung): đạn 3 đầu khác hệ, Tam Đầu Phun Lửa (nón), Tiếng Hú Âm Ngục (vòng choáng), Cắn Xé Liên Hoàn.",
       "weight": 5,
       "phase": 4,
       "region": "volcano",
@@ -5722,13 +5736,14 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "id": "hub-isles",
       "group": "Trung tâm vùng",
       "name": "Cảng chài San Hô — xây lại trung tâm",
-      "detail": "Gỗ tàu, đá san hô, vải trắng lam; cảng nhiều tầng, hải đăng và nhà hội hàng hải. Cầu tàu, cần cẩu, kho muối, thuyền neo, chợ hải sản, quán cảng. Giữ nhà nhỏ cũ làm nhà phụ. Đề xuất 8–12 nhà chính, 2 điểm nhấn cao, 3 cụm sinh hoạt; điều chỉnh theo map, không rải prop kín đường. Dự tính PixelLab 28/10: ~190 lượt trả phí (8–12 nhà chính, 2 điểm nhấn, cụm sinh hoạt + NPC; đã cộng ~30% vẽ lại).",
+      "detail": "Gỗ tàu, đá san hô, vải trắng lam; cảng nhiều tầng, hải đăng và nhà hội hàng hải. Cầu tàu, cần cẩu, kho muối, thuyền neo, chợ hải sản, quán cảng. Giữ nhà nhỏ cũ làm nhà phụ. Đề xuất 8–12 nhà chính, 2 điểm nhấn cao, 3 cụm sinh hoạt; điều chỉnh theo map, không rải prop kín đường. Dự tính PixelLab 28/10: ~190 lượt trả phí (8–12 nhà chính, 2 điểm nhấn, cụm sinh hoạt + NPC; đã cộng ~30% vẽ lại). BỔ SUNG 08/11/2026: trung tâm vùng phải đủ 5 NPC dịch vụ riêng theo vùng (trang bị, rèn, vũ khí, đồ ăn buff, hồi phục) và NPC sự kiện chung giữa các vùng; nhà chính cao lớn, chi tiết hơn theo style nhân vật game hiện hành. Kế hoạch GPT vẽ NPC / nhà, NPC đứng yên là đủ; duyệt mẫu trước khi nhân rộng. Số lượt PixelLab ở đoạn cũ là ước tính lịch sử, không phải dự toán GPT mới. Xem regional-service-npcs, regional-service-buildings và docs/thiet-ke/tai-thiet-cot-truyen-npc-2026-11.md.",
       "weight": 6,
       "phase": 3,
       "region": "isles",
       "depends": [
         "style",
-        "politics"
+        "politics",
+        "regional-service-buildings"
       ],
       "steps": [
         {
@@ -5879,13 +5894,14 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "id": "hub-fungal",
       "group": "Trung tâm vùng",
       "name": "Làng người nấm Ánh Tím — xây lại trung tâm",
-      "detail": "Hang nhiều tầng, nấm khổng lồ tím lam; nhà mọc từ thân nấm, cầu tơ bào tử, đại sảnh vòm nấm. Vườn bào tử, đèn sinh học, xe quặng tinh thể, bàn chế thuốc, giỏ thu hoạch. Giữ nhà nhỏ cũ làm nhà phụ. Đề xuất 8–12 nhà chính, 2 điểm nhấn cao, 3 cụm sinh hoạt; điều chỉnh theo map, không rải prop kín đường. Dự tính PixelLab 28/10: ~190 lượt trả phí (8–12 nhà chính, 2 điểm nhấn, cụm sinh hoạt + NPC; đã cộng ~30% vẽ lại).",
+      "detail": "Hang nhiều tầng, nấm khổng lồ tím lam; nhà mọc từ thân nấm, cầu tơ bào tử, đại sảnh vòm nấm. Vườn bào tử, đèn sinh học, xe quặng tinh thể, bàn chế thuốc, giỏ thu hoạch. Giữ nhà nhỏ cũ làm nhà phụ. Đề xuất 8–12 nhà chính, 2 điểm nhấn cao, 3 cụm sinh hoạt; điều chỉnh theo map, không rải prop kín đường. Dự tính PixelLab 28/10: ~190 lượt trả phí (8–12 nhà chính, 2 điểm nhấn, cụm sinh hoạt + NPC; đã cộng ~30% vẽ lại). BỔ SUNG 08/11/2026: trung tâm vùng phải đủ 5 NPC dịch vụ riêng theo vùng (trang bị, rèn, vũ khí, đồ ăn buff, hồi phục) và NPC sự kiện chung giữa các vùng; nhà chính cao lớn, chi tiết hơn theo style nhân vật game hiện hành. Kế hoạch GPT vẽ NPC / nhà, NPC đứng yên là đủ; duyệt mẫu trước khi nhân rộng. Số lượt PixelLab ở đoạn cũ là ước tính lịch sử, không phải dự toán GPT mới. Xem regional-service-npcs, regional-service-buildings và docs/thiet-ke/tai-thiet-cot-truyen-npc-2026-11.md.",
       "weight": 6,
       "phase": 2,
       "region": "fungal",
       "depends": [
         "style",
-        "politics"
+        "politics",
+        "regional-service-buildings"
       ],
       "steps": [
         {
@@ -5958,7 +5974,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "id": "mob-fungal",
       "group": "Quái và boss",
       "name": "Rừng Nấm Ngầm — thêm quái",
-      "detail": "Đề xuất ít nhất 3 loài mới: Nấm khiên, sâu bào tử, dơi tinh thể. Vẽ đủ đứng/đi/đánh/trúng đòn/gục, ghép spawn và cân bằng; giữ giới hạn tổng quái và hiệu năng. Dự tính PixelLab 28/10: ~120 lượt trả phí (3 loài × ~40: đứng/đi/đánh/trúng đòn/gục; đã cộng ~30% vẽ lại).",
+      "detail": "Đề xuất ít nhất 3 loài mới: Nấm khiên, sâu bào tử, dơi tinh thể. Vẽ đủ đứng/đi/đánh/trúng đòn/gục, ghép spawn và cân bằng; giữ giới hạn tổng quái và hiệu năng. Dự tính PixelLab 28/10: ~120 lượt trả phí (3 loài × ~40: đứng/đi/đánh/trúng đòn/gục; đã cộng ~30% vẽ lại). Rà 05/11: vùng này đang MƯỢN nguyên 5 loài quái + 3 boss của Đầm lầy. Chốt lại 05/11: vùng ĐÓNG TẠM (sim regions.ts `closed`), quái riêng của vùng làm khi mở lại — không dùng lượt đợt trước 28/11.",
       "weight": 4,
       "phase": 4,
       "region": "fungal",
@@ -5997,7 +6013,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "id": "newboss-fungal",
       "group": "Quái và boss",
       "name": "Rừng Nấm Ngầm — boss mới",
-      "detail": "Ý tưởng: Mẫu Thể Bào Tử. Thiết kế đấu trường, đòn báo trước và phần thưởng riêng; tên/chỉ số cần duyệt, chưa được vẽ hoặc gắn vào game. Dự tính PixelLab 28/10: ~150 lượt trả phí (boss + chiêu + vùng báo trước; đã cộng ~30% vẽ lại).",
+      "detail": "Ý tưởng: Mẫu Thể Bào Tử. Thiết kế đấu trường, đòn báo trước và phần thưởng riêng; tên/chỉ số cần duyệt, chưa được vẽ hoặc gắn vào game. Dự tính PixelLab 28/10: ~150 lượt trả phí (boss + chiêu + vùng báo trước; đã cộng ~30% vẽ lại). Rà 05/11: vùng đang mượn 3 boss của Đầm lầy; dời sang sau đợt nạp lượt 28/11, mỗi boss phải có đòn thường + chiêu riêng (luật boss nghiêm cấm đòn chung).",
       "weight": 5,
       "phase": 4,
       "region": "fungal",
@@ -6036,13 +6052,14 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "id": "hub-ruins",
       "group": "Trung tâm vùng",
       "name": "Toà thành Haven cổ — xây lại trung tâm",
-      "detail": "Đá cẩm thạch rạn, đồng cổ, rune lam; tòa thành Haven đổ nát nhưng hùng vĩ, khu phục dựng của học giả. Cột gãy, tượng triều đại, đồng hồ thiên văn, máy cổ, bàn khai quật và kho di vật. Giữ nhà nhỏ cũ làm nhà phụ. Đề xuất 8–12 nhà chính, 2 điểm nhấn cao, 3 cụm sinh hoạt; điều chỉnh theo map, không rải prop kín đường. Dự tính PixelLab 28/10: ~190 lượt trả phí (8–12 nhà chính, 2 điểm nhấn, cụm sinh hoạt + NPC; đã cộng ~30% vẽ lại).",
+      "detail": "Đá cẩm thạch rạn, đồng cổ, rune lam; tòa thành Haven đổ nát nhưng hùng vĩ, khu phục dựng của học giả. Cột gãy, tượng triều đại, đồng hồ thiên văn, máy cổ, bàn khai quật và kho di vật. Giữ nhà nhỏ cũ làm nhà phụ. Đề xuất 8–12 nhà chính, 2 điểm nhấn cao, 3 cụm sinh hoạt; điều chỉnh theo map, không rải prop kín đường. Dự tính PixelLab 28/10: ~190 lượt trả phí (8–12 nhà chính, 2 điểm nhấn, cụm sinh hoạt + NPC; đã cộng ~30% vẽ lại). BỔ SUNG 08/11/2026: trung tâm vùng phải đủ 5 NPC dịch vụ riêng theo vùng (trang bị, rèn, vũ khí, đồ ăn buff, hồi phục) và NPC sự kiện chung giữa các vùng; nhà chính cao lớn, chi tiết hơn theo style nhân vật game hiện hành. Kế hoạch GPT vẽ NPC / nhà, NPC đứng yên là đủ; duyệt mẫu trước khi nhân rộng. Số lượt PixelLab ở đoạn cũ là ước tính lịch sử, không phải dự toán GPT mới. Xem regional-service-npcs, regional-service-buildings và docs/thiet-ke/tai-thiet-cot-truyen-npc-2026-11.md.",
       "weight": 6,
       "phase": 2,
       "region": "ruins",
       "depends": [
         "style",
-        "politics"
+        "politics",
+        "regional-service-buildings"
       ],
       "steps": [
         {
@@ -6115,7 +6132,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "id": "mob-ruins",
       "group": "Quái và boss",
       "name": "Phế tích Haven — thêm quái",
-      "detail": "Đề xuất ít nhất 3 loài mới: Lính cơ giới, thư linh, tượng rune tuần tra. Vẽ đủ đứng/đi/đánh/trúng đòn/gục, ghép spawn và cân bằng; giữ giới hạn tổng quái và hiệu năng. Dự tính PixelLab 28/10: ~120 lượt trả phí (3 loài × ~40: đứng/đi/đánh/trúng đòn/gục; đã cộng ~30% vẽ lại).",
+      "detail": "Đề xuất ít nhất 3 loài mới: Lính cơ giới, thư linh, tượng rune tuần tra. Vẽ đủ đứng/đi/đánh/trúng đòn/gục, ghép spawn và cân bằng; giữ giới hạn tổng quái và hiệu năng. Dự tính PixelLab 28/10: ~120 lượt trả phí (3 loài × ~40: đứng/đi/đánh/trúng đòn/gục; đã cộng ~30% vẽ lại). Rà 05/11: vùng này đang MƯỢN nguyên 5 loài quái + 3 boss của Cao nguyên. Chốt lại 05/11: vùng ĐÓNG TẠM (sim regions.ts `closed`), quái riêng của vùng làm khi mở lại — không dùng lượt đợt trước 28/11.",
       "weight": 4,
       "phase": 4,
       "region": "ruins",
@@ -6154,7 +6171,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "id": "newboss-ruins",
       "group": "Quái và boss",
       "name": "Phế tích Haven — boss mới",
-      "detail": "Ý tưởng: Nhiếp Chính Cơ Giới. Thiết kế đấu trường, đòn báo trước và phần thưởng riêng; tên/chỉ số cần duyệt, chưa được vẽ hoặc gắn vào game. Dự tính PixelLab 28/10: ~150 lượt trả phí (boss + chiêu + vùng báo trước; đã cộng ~30% vẽ lại).",
+      "detail": "Ý tưởng: Nhiếp Chính Cơ Giới. Thiết kế đấu trường, đòn báo trước và phần thưởng riêng; tên/chỉ số cần duyệt, chưa được vẽ hoặc gắn vào game. Dự tính PixelLab 28/10: ~150 lượt trả phí (boss + chiêu + vùng báo trước; đã cộng ~30% vẽ lại). Rà 05/11: vùng đang mượn 3 boss của Cao nguyên; dời sang sau đợt nạp lượt 28/11, mỗi boss phải có đòn thường + chiêu riêng (luật boss nghiêm cấm đòn chung).",
       "weight": 5,
       "phase": 4,
       "region": "ruins",
@@ -6193,13 +6210,14 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "id": "hub-void",
       "group": "Trung tâm vùng",
       "name": "Thành trì Hư Không — xây lại trung tâm",
-      "detail": "Đảo đá lơ lửng, kiến trúc gãy, cầu năng lượng có giới hạn; thành trì liên quân trong không gian rách. Neo không gian, kho tiếp tế, tháp canh, lều quân y, mảnh kiến trúc treo. Giữ nhà nhỏ cũ làm nhà phụ. Đề xuất 8–12 nhà chính, 2 điểm nhấn cao, 3 cụm sinh hoạt; điều chỉnh theo map, không rải prop kín đường. Dự tính PixelLab 28/10: ~190 lượt trả phí (8–12 nhà chính, 2 điểm nhấn, cụm sinh hoạt + NPC; đã cộng ~30% vẽ lại).",
+      "detail": "Đảo đá lơ lửng, kiến trúc gãy, cầu năng lượng có giới hạn; thành trì liên quân trong không gian rách. Neo không gian, kho tiếp tế, tháp canh, lều quân y, mảnh kiến trúc treo. Giữ nhà nhỏ cũ làm nhà phụ. Đề xuất 8–12 nhà chính, 2 điểm nhấn cao, 3 cụm sinh hoạt; điều chỉnh theo map, không rải prop kín đường. Dự tính PixelLab 28/10: ~190 lượt trả phí (8–12 nhà chính, 2 điểm nhấn, cụm sinh hoạt + NPC; đã cộng ~30% vẽ lại). BỔ SUNG 08/11/2026: trung tâm vùng phải đủ 5 NPC dịch vụ riêng theo vùng (trang bị, rèn, vũ khí, đồ ăn buff, hồi phục) và NPC sự kiện chung giữa các vùng; nhà chính cao lớn, chi tiết hơn theo style nhân vật game hiện hành. Kế hoạch GPT vẽ NPC / nhà, NPC đứng yên là đủ; duyệt mẫu trước khi nhân rộng. Số lượt PixelLab ở đoạn cũ là ước tính lịch sử, không phải dự toán GPT mới. Xem regional-service-npcs, regional-service-buildings và docs/thiet-ke/tai-thiet-cot-truyen-npc-2026-11.md.",
       "weight": 6,
       "phase": 3,
       "region": "void",
       "depends": [
         "style",
-        "politics"
+        "politics",
+        "regional-service-buildings"
       ],
       "steps": [
         {
@@ -6272,7 +6290,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "id": "mob-void",
       "group": "Quái và boss",
       "name": "Vực Hư Không — thêm quái",
-      "detail": "Đề xuất ít nhất 3 loài mới: Ký sinh khe nứt, chiến binh rỗng, mắt hư vô. Vẽ đủ đứng/đi/đánh/trúng đòn/gục, ghép spawn và cân bằng; giữ giới hạn tổng quái và hiệu năng. Dự tính PixelLab 28/10: ~120 lượt trả phí (3 loài × ~40: đứng/đi/đánh/trúng đòn/gục; đã cộng ~30% vẽ lại).",
+      "detail": "Đề xuất ít nhất 3 loài mới: Ký sinh khe nứt, chiến binh rỗng, mắt hư vô. Vẽ đủ đứng/đi/đánh/trúng đòn/gục, ghép spawn và cân bằng; giữ giới hạn tổng quái và hiệu năng. Dự tính PixelLab 28/10: ~120 lượt trả phí (3 loài × ~40: đứng/đi/đánh/trúng đòn/gục; đã cộng ~30% vẽ lại). Rà 05/11: vùng này đang MƯỢN nguyên 5 loài quái + 3 boss của Núi lửa. Chốt lại 05/11: vùng ĐÓNG TẠM (sim regions.ts `closed`), quái riêng của vùng làm khi mở lại — không dùng lượt đợt trước 28/11.",
       "weight": 4,
       "phase": 4,
       "region": "void",
@@ -6311,7 +6329,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "id": "newboss-void",
       "group": "Quái và boss",
       "name": "Vực Hư Không — boss mới",
-      "detail": "Ý tưởng: Kẻ Nuốt Chân Trời. Thiết kế đấu trường, đòn báo trước và phần thưởng riêng; tên/chỉ số cần duyệt, chưa được vẽ hoặc gắn vào game. Dự tính PixelLab 28/10: ~150 lượt trả phí (boss + chiêu + vùng báo trước; đã cộng ~30% vẽ lại).",
+      "detail": "Ý tưởng: Kẻ Nuốt Chân Trời. Thiết kế đấu trường, đòn báo trước và phần thưởng riêng; tên/chỉ số cần duyệt, chưa được vẽ hoặc gắn vào game. Dự tính PixelLab 28/10: ~150 lượt trả phí (boss + chiêu + vùng báo trước; đã cộng ~30% vẽ lại). Rà 05/11: vùng đang mượn 3 boss của Núi lửa; dời sang sau đợt nạp lượt 28/11, mỗi boss phải có đòn thường + chiêu riêng (luật boss nghiêm cấm đòn chung).",
       "weight": 5,
       "phase": 4,
       "region": "void",
@@ -6350,13 +6368,14 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "id": "hub-wood",
       "group": "Trung tâm vùng",
       "name": "Rừng Cổ Thụ — xây lại trung tâm",
-      "detail": "Rễ cây đại thụ, gỗ sống, đá phủ rêu; nhà ôm thân cây và đại sảnh nhiều tầng bằng cành đan. Vườn dược, cầu rễ, giọt nhựa, hoa lớn, tổ chim, bàn chạm gỗ. Giữ nhà nhỏ cũ làm nhà phụ. Đề xuất 8–12 nhà chính, 2 điểm nhấn cao, 3 cụm sinh hoạt; điều chỉnh theo map, không rải prop kín đường. Dự tính PixelLab 28/10: ~190 lượt trả phí (8–12 nhà chính, 2 điểm nhấn, cụm sinh hoạt + NPC; đã cộng ~30% vẽ lại).",
+      "detail": "Rễ cây đại thụ, gỗ sống, đá phủ rêu; nhà ôm thân cây và đại sảnh nhiều tầng bằng cành đan. Vườn dược, cầu rễ, giọt nhựa, hoa lớn, tổ chim, bàn chạm gỗ. Giữ nhà nhỏ cũ làm nhà phụ. Đề xuất 8–12 nhà chính, 2 điểm nhấn cao, 3 cụm sinh hoạt; điều chỉnh theo map, không rải prop kín đường. Dự tính PixelLab 28/10: ~190 lượt trả phí (8–12 nhà chính, 2 điểm nhấn, cụm sinh hoạt + NPC; đã cộng ~30% vẽ lại). BỔ SUNG 08/11/2026: trung tâm vùng phải đủ 5 NPC dịch vụ riêng theo vùng (trang bị, rèn, vũ khí, đồ ăn buff, hồi phục) và NPC sự kiện chung giữa các vùng; nhà chính cao lớn, chi tiết hơn theo style nhân vật game hiện hành. Kế hoạch GPT vẽ NPC / nhà, NPC đứng yên là đủ; duyệt mẫu trước khi nhân rộng. Số lượt PixelLab ở đoạn cũ là ước tính lịch sử, không phải dự toán GPT mới. Xem regional-service-npcs, regional-service-buildings và docs/thiet-ke/tai-thiet-cot-truyen-npc-2026-11.md.",
       "weight": 6,
       "phase": 2,
       "region": "wood",
       "depends": [
         "style",
-        "politics"
+        "politics",
+        "regional-service-buildings"
       ],
       "steps": [
         {
@@ -6429,7 +6448,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "id": "mob-wood",
       "group": "Quái và boss",
       "name": "Rừng Cổ Thụ — thêm quái",
-      "detail": "Đề xuất ít nhất 3 loài mới: Hươu mầm, hộ vệ vỏ cây, nhện dây leo. Vẽ đủ đứng/đi/đánh/trúng đòn/gục, ghép spawn và cân bằng; giữ giới hạn tổng quái và hiệu năng. Dự tính PixelLab 28/10: ~120 lượt trả phí (3 loài × ~40: đứng/đi/đánh/trúng đòn/gục; đã cộng ~30% vẽ lại).",
+      "detail": "Đề xuất ít nhất 3 loài mới: Hươu mầm, hộ vệ vỏ cây, nhện dây leo. Vẽ đủ đứng/đi/đánh/trúng đòn/gục, ghép spawn và cân bằng; giữ giới hạn tổng quái và hiệu năng. Dự tính PixelLab 28/10: ~120 lượt trả phí (3 loài × ~40: đứng/đi/đánh/trúng đòn/gục; đã cộng ~30% vẽ lại). Rà 05/11: vùng này đang MƯỢN nguyên 5 loài quái + 3 boss của Đầm lầy. Chốt lại 05/11: vùng ĐÓNG TẠM (sim regions.ts `closed`), quái riêng của vùng làm khi mở lại — không dùng lượt đợt trước 28/11.",
       "weight": 4,
       "phase": 4,
       "region": "wood",
@@ -6468,7 +6487,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "id": "newboss-wood",
       "group": "Quái và boss",
       "name": "Rừng Cổ Thụ — boss mới",
-      "detail": "Ý tưởng: Thủ Hộ Rễ Ngàn Năm. Thiết kế đấu trường, đòn báo trước và phần thưởng riêng; tên/chỉ số cần duyệt, chưa được vẽ hoặc gắn vào game. Dự tính PixelLab 28/10: ~150 lượt trả phí (boss + chiêu + vùng báo trước; đã cộng ~30% vẽ lại).",
+      "detail": "Ý tưởng: Thủ Hộ Rễ Ngàn Năm. Thiết kế đấu trường, đòn báo trước và phần thưởng riêng; tên/chỉ số cần duyệt, chưa được vẽ hoặc gắn vào game. Dự tính PixelLab 28/10: ~150 lượt trả phí (boss + chiêu + vùng báo trước; đã cộng ~30% vẽ lại). Rà 05/11: vùng đang mượn 3 boss của Đầm lầy; dời sang sau đợt nạp lượt 28/11, mỗi boss phải có đòn thường + chiêu riêng (luật boss nghiêm cấm đòn chung).",
       "weight": 5,
       "phase": 4,
       "region": "wood",
@@ -6507,13 +6526,14 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "id": "hub-light",
       "group": "Trung tâm vùng",
       "name": "Thánh Địa Bình Minh — xây lại trung tâm",
-      "detail": "Đá trắng ngà, vàng nhạt, kính màu; thành thánh có tháp cao, bậc thềm, thư viện và thánh đường. Đài nước, vườn huệ, chợ kinh sách, cờ lễ, sảnh cứu trợ và đèn pha lê. Giữ nhà nhỏ cũ làm nhà phụ. Đề xuất 8–12 nhà chính, 2 điểm nhấn cao, 3 cụm sinh hoạt; điều chỉnh theo map, không rải prop kín đường. Dự tính PixelLab 28/10: ~190 lượt trả phí (8–12 nhà chính, 2 điểm nhấn, cụm sinh hoạt + NPC; đã cộng ~30% vẽ lại).",
+      "detail": "Đá trắng ngà, vàng nhạt, kính màu; thành thánh có tháp cao, bậc thềm, thư viện và thánh đường. Đài nước, vườn huệ, chợ kinh sách, cờ lễ, sảnh cứu trợ và đèn pha lê. Giữ nhà nhỏ cũ làm nhà phụ. Đề xuất 8–12 nhà chính, 2 điểm nhấn cao, 3 cụm sinh hoạt; điều chỉnh theo map, không rải prop kín đường. Dự tính PixelLab 28/10: ~190 lượt trả phí (8–12 nhà chính, 2 điểm nhấn, cụm sinh hoạt + NPC; đã cộng ~30% vẽ lại). BỔ SUNG 08/11/2026: trung tâm vùng phải đủ 5 NPC dịch vụ riêng theo vùng (trang bị, rèn, vũ khí, đồ ăn buff, hồi phục) và NPC sự kiện chung giữa các vùng; nhà chính cao lớn, chi tiết hơn theo style nhân vật game hiện hành. Kế hoạch GPT vẽ NPC / nhà, NPC đứng yên là đủ; duyệt mẫu trước khi nhân rộng. Số lượt PixelLab ở đoạn cũ là ước tính lịch sử, không phải dự toán GPT mới. Xem regional-service-npcs, regional-service-buildings và docs/thiet-ke/tai-thiet-cot-truyen-npc-2026-11.md.",
       "weight": 6,
       "phase": 2,
       "region": "light",
       "depends": [
         "style",
-        "politics"
+        "politics",
+        "regional-service-buildings"
       ],
       "steps": [
         {
@@ -6586,7 +6606,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "id": "mob-light",
       "group": "Quái và boss",
       "name": "Thánh Địa Bình Minh — thêm quái",
-      "detail": "Đề xuất ít nhất 3 loài mới: Hộ vệ kính, sư tử nhật quang, linh tượng lạc ánh. Vẽ đủ đứng/đi/đánh/trúng đòn/gục, ghép spawn và cân bằng; giữ giới hạn tổng quái và hiệu năng. Dự tính PixelLab 28/10: ~120 lượt trả phí (3 loài × ~40: đứng/đi/đánh/trúng đòn/gục; đã cộng ~30% vẽ lại).",
+      "detail": "Đề xuất ít nhất 3 loài mới: Hộ vệ kính, sư tử nhật quang, linh tượng lạc ánh. Vẽ đủ đứng/đi/đánh/trúng đòn/gục, ghép spawn và cân bằng; giữ giới hạn tổng quái và hiệu năng. Dự tính PixelLab 28/10: ~120 lượt trả phí (3 loài × ~40: đứng/đi/đánh/trúng đòn/gục; đã cộng ~30% vẽ lại). Rà 05/11: vùng này đang MƯỢN nguyên 5 loài quái + 3 boss của Cao nguyên. Chốt lại 05/11: vùng ĐÓNG TẠM (sim regions.ts `closed`), quái riêng của vùng làm khi mở lại — không dùng lượt đợt trước 28/11.",
       "weight": 4,
       "phase": 4,
       "region": "light",
@@ -6625,7 +6645,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "id": "newboss-light",
       "group": "Quái và boss",
       "name": "Thánh Địa Bình Minh — boss mới",
-      "detail": "Ý tưởng: Chấp Chính Nhật Luân. Thiết kế đấu trường, đòn báo trước và phần thưởng riêng; tên/chỉ số cần duyệt, chưa được vẽ hoặc gắn vào game. Dự tính PixelLab 28/10: ~150 lượt trả phí (boss + chiêu + vùng báo trước; đã cộng ~30% vẽ lại).",
+      "detail": "Ý tưởng: Chấp Chính Nhật Luân. Thiết kế đấu trường, đòn báo trước và phần thưởng riêng; tên/chỉ số cần duyệt, chưa được vẽ hoặc gắn vào game. Dự tính PixelLab 28/10: ~150 lượt trả phí (boss + chiêu + vùng báo trước; đã cộng ~30% vẽ lại). Rà 05/11: vùng đang mượn 3 boss của Cao nguyên; dời sang sau đợt nạp lượt 28/11, mỗi boss phải có đòn thường + chiêu riêng (luật boss nghiêm cấm đòn chung).",
       "weight": 5,
       "phase": 4,
       "region": "light",
@@ -6664,13 +6684,14 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "id": "hub-dark",
       "group": "Trung tâm vùng",
       "name": "Vực Ám Ma — xây lại trung tâm",
-      "detail": "Đá obsidian, sắt đen, tím than; thành trú ẩn nhiều tầng, tháp đêm và phố đèn tím. Kính thiên văn, vườn dược đêm, đèn lồng, chợ đêm, tượng hộ mệnh. Giữ nhà nhỏ cũ làm nhà phụ. Đề xuất 8–12 nhà chính, 2 điểm nhấn cao, 3 cụm sinh hoạt; điều chỉnh theo map, không rải prop kín đường. Dự tính PixelLab 28/10: ~190 lượt trả phí (8–12 nhà chính, 2 điểm nhấn, cụm sinh hoạt + NPC; đã cộng ~30% vẽ lại).",
+      "detail": "Đá obsidian, sắt đen, tím than; thành trú ẩn nhiều tầng, tháp đêm và phố đèn tím. Kính thiên văn, vườn dược đêm, đèn lồng, chợ đêm, tượng hộ mệnh. Giữ nhà nhỏ cũ làm nhà phụ. Đề xuất 8–12 nhà chính, 2 điểm nhấn cao, 3 cụm sinh hoạt; điều chỉnh theo map, không rải prop kín đường. Dự tính PixelLab 28/10: ~190 lượt trả phí (8–12 nhà chính, 2 điểm nhấn, cụm sinh hoạt + NPC; đã cộng ~30% vẽ lại). BỔ SUNG 08/11/2026: trung tâm vùng phải đủ 5 NPC dịch vụ riêng theo vùng (trang bị, rèn, vũ khí, đồ ăn buff, hồi phục) và NPC sự kiện chung giữa các vùng; nhà chính cao lớn, chi tiết hơn theo style nhân vật game hiện hành. Kế hoạch GPT vẽ NPC / nhà, NPC đứng yên là đủ; duyệt mẫu trước khi nhân rộng. Số lượt PixelLab ở đoạn cũ là ước tính lịch sử, không phải dự toán GPT mới. Xem regional-service-npcs, regional-service-buildings và docs/thiet-ke/tai-thiet-cot-truyen-npc-2026-11.md.",
       "weight": 6,
       "phase": 2,
       "region": "dark",
       "depends": [
         "style",
-        "politics"
+        "politics",
+        "regional-service-buildings"
       ],
       "steps": [
         {
@@ -6743,7 +6764,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "id": "mob-dark",
       "group": "Quái và boss",
       "name": "Vực Ám Ma — thêm quái",
-      "detail": "Đề xuất ít nhất 3 loài mới: Miêu bóng, chiến binh dạ giáp, bướm đêm linh. Vẽ đủ đứng/đi/đánh/trúng đòn/gục, ghép spawn và cân bằng; giữ giới hạn tổng quái và hiệu năng. Dự tính PixelLab 28/10: ~120 lượt trả phí (3 loài × ~40: đứng/đi/đánh/trúng đòn/gục; đã cộng ~30% vẽ lại).",
+      "detail": "Đề xuất ít nhất 3 loài mới: Miêu bóng, chiến binh dạ giáp, bướm đêm linh. Vẽ đủ đứng/đi/đánh/trúng đòn/gục, ghép spawn và cân bằng; giữ giới hạn tổng quái và hiệu năng. Dự tính PixelLab 28/10: ~120 lượt trả phí (3 loài × ~40: đứng/đi/đánh/trúng đòn/gục; đã cộng ~30% vẽ lại). Rà 05/11: vùng này đang MƯỢN nguyên 5 loài quái + 3 boss của Núi lửa. Chốt lại 05/11: vùng ĐÓNG TẠM (sim regions.ts `closed`), quái riêng của vùng làm khi mở lại — không dùng lượt đợt trước 28/11.",
       "weight": 4,
       "phase": 4,
       "region": "dark",
@@ -6782,7 +6803,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "id": "newboss-dark",
       "group": "Quái và boss",
       "name": "Vực Ám Ma — boss mới",
-      "detail": "Ý tưởng: Nữ Vương Dạ Kính. Thiết kế đấu trường, đòn báo trước và phần thưởng riêng; tên/chỉ số cần duyệt, chưa được vẽ hoặc gắn vào game. Dự tính PixelLab 28/10: ~150 lượt trả phí (boss + chiêu + vùng báo trước; đã cộng ~30% vẽ lại).",
+      "detail": "Ý tưởng: Nữ Vương Dạ Kính. Thiết kế đấu trường, đòn báo trước và phần thưởng riêng; tên/chỉ số cần duyệt, chưa được vẽ hoặc gắn vào game. Dự tính PixelLab 28/10: ~150 lượt trả phí (boss + chiêu + vùng báo trước; đã cộng ~30% vẽ lại). Rà 05/11: vùng đang mượn 3 boss của Núi lửa; dời sang sau đợt nạp lượt 28/11, mỗi boss phải có đòn thường + chiêu riêng (luật boss nghiêm cấm đòn chung).",
       "weight": 5,
       "phase": 4,
       "region": "dark",
@@ -6821,7 +6842,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "id": "boss-seal-quest",
       "group": "Tính năng đã chốt",
       "name": "Ấn phong hang boss — tìm vật phẩm điều kiện để giải phong ấn",
-      "detail": "Chủ dự án 05/11/2026: \"có nhiều map quái boss cần phải đi kiếm vật phẩm điều kiện để có thể đặt vào giải phong ấn mới có thể vào được quái boss trong hang… điều kiện lấy vật phẩm là đang làm nhiệm vụ phải đi đánh quái, boss có tỉ lệ ra\". Cửa hang boss có phong ấn (đá ấn / bệ đặt vật phẩm); vật phẩm điều kiện chỉ rớt khi ĐANG nhận nhiệm vụ tương ứng, rớt theo tỉ lệ từ quái thường / boss nhỏ của map; đủ vật phẩm thì đặt vào bệ để mở lối vào hang boss. Máy chủ giữ nguồn sự thật (rớt, kho, mở ấn). Tỉ lệ rớt, số vật phẩm, map nào có ấn: chưa chốt — cần chủ dự án duyệt thiết kế trước khi làm.",
+      "detail": "Chủ dự án 05/11/2026: \"có nhiều map quái boss cần phải đi kiếm vật phẩm điều kiện để có thể đặt vào giải phong ấn mới có thể vào được quái boss trong hang… điều kiện lấy vật phẩm là đang làm nhiệm vụ phải đi đánh quái, boss có tỉ lệ ra\". Cửa hang boss có phong ấn (đá ấn / bệ đặt vật phẩm); vật phẩm điều kiện chỉ rớt khi ĐANG nhận nhiệm vụ tương ứng, rớt theo tỉ lệ từ quái thường / boss nhỏ của map; đủ vật phẩm thì đặt vào bệ để mở lối vào hang boss. Máy chủ giữ nguồn sự thật (rớt, kho, mở ấn). Tỉ lệ rớt, số vật phẩm, map nào có ấn: chưa chốt — cần chủ dự án duyệt thiết kế trước khi làm. Đồ bệ / vật phẩm phong ấn chỉ vẽ sau khi chủ dự án duyệt thiết kế. 06/11 từng gộp vào gói Gia viên (mục home); chủ dự án 07/11: \"Đấy là các map bên ngoài\" → TÁCH khỏi gói Gia viên, làm riêng cùng phần map / boss bên ngoài (bản thiết kế mẫu Hang Gargoyle ở docs/ke-hoach-nha-rieng.md mục 9.5 giữ làm đề xuất).",
       "weight": 4,
       "phase": 3,
       "region": null,
@@ -6858,7 +6879,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "id": "map-streams-decor",
       "group": "Cảnh quan",
       "name": "Thêm sông suối, cây, đá, tượng đá và quái sông cho mọi map (giữ style cũ)",
-      "detail": "Chủ dự án 05/11/2026 sau khi bỏ style map mới (\"thôi giữ style cũ đi\"): \"thêm cây cối, tượng đá, đá…\", \"cố gắng nhiều sông suối hơn\", \"có thêm quái ở sông\". Bộ dựng kit (vùng 2–14): mỗi map săn 1–2 dòng suối uốn lượn nối hai mép (núi lửa là dòng dung nham), đường cắt suối thành cầu gỗ, thiếu chỗ cho bầy thì tự bớt suối; bầy quái sông (`river`) sát bờ — luật mới: mỗi map thêm đúng một loài quái sông ngoài loài chính, tâm bầy cách nước 1,5–4 ô. Vùng 1 dựng tay: thêm suối / đá / tượng từng map; quái sông vùng 1 là loài mới Cua đá suối.",
+      "detail": "Chủ dự án 05/11/2026 sau khi bỏ style map mới (\"thôi giữ style cũ đi\"): \"thêm cây cối, tượng đá, đá…\", \"cố gắng nhiều sông suối hơn\", \"có thêm quái ở sông\". Bộ dựng kit (vùng 2–14): mỗi map săn 1–2 dòng suối uốn lượn nối hai mép (núi lửa là dòng dung nham), đường cắt suối thành cầu gỗ, thiếu chỗ cho bầy thì tự bớt suối; bầy quái sông (`river`) sát bờ — luật mới: mỗi map thêm đúng một loài quái sông ngoài loài chính, tâm bầy cách nước 1,5–4 ô. Vùng 1 dựng tay: thêm suối / đá / tượng từng map; quái sông vùng 1 là loài mới Cua đá suối. Quái sông vùng 2–14 (chia lại 05/11): 6 vùng gốc (đầm lầy, sa mạc, cao nguyên, tuyết, núi lửa, đảo) vẽ 6 loài riêng ~180 lượt; 6 vùng mượn quái đang đóng tạm — quái sông của chúng làm khi mở lại (pixellab-budget-1128), thử 1 loài trước.",
       "weight": 5,
       "phase": 2,
       "region": null,
@@ -6874,13 +6895,25 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
           "label": "Luật quái sông (river) trong bộ kiểm map + một loài quái sông mỗi vùng",
           "weight": 15,
           "done": false,
-          "evidence": ""
+          "evidence": "06/11: 6 loài quái sông cho 6 vùng đang mở — Cá trê bùn (đầm lầy), Cá sấu ốc đảo (sa mạc), Rái cá suối gió (cao nguyên), Hải mã băng (tuyết), Lươn dung nham (núi lửa), Rùa biển gai (đảo); mỗi loài 4 hướng đứng/đi/đánh/gục (PixelLab, ~111 lượt kể cả vẽ lại), chỉ số WORLD_ROSTER + sách quái; kit đặt bầy bờ suối theo khoảng cách THẬT tới nước (1,5–4 ô); dựng lại 13 vùng, bộ kiểm map / sim / C# đạt. Lỗi nhỏ còn lại: cá sấu bò hơi dựng đuôi (khuôn dáng chó của PixelLab, vẽ lại không đổi), rùa thiếu đòn hướng N và rái cá thiếu gục hướng N (bộ kiểm loại, dùng hình thay) — chờ chủ dự án duyệt trong game"
         },
         {
           "label": "Thêm cây, đá, tượng đá dày hơn (kit + 12 map vùng 1)",
-          "weight": 20,
+          "weight": 10,
           "done": false,
           "evidence": ""
+        },
+        {
+          "label": "Cụm cảnh kể chuyện theo video tham khảo map (trại bỏ hoang, xe hàng đổ, bãi chiến trận, miếu đá, mộ lữ khách, vườn ong, bến thuyền) — ghép đồ sẵn có, không vẽ thêm",
+          "weight": 5,
+          "done": false,
+          "evidence": "05/11: maps/storyBits.ts + Layout.group (được cả hoặc bỏ cả, ≥ 3 món, tránh bầy / địa điểm / lối); 2–4 cụm mỗi map, đã dựng 13 vùng vào assets/maps, bộ kiểm map + sim đạt — chờ build và chủ dự án duyệt trong game"
+        },
+        {
+          "label": "Nền \"gọn\" theo video tham khảo: ngọn cỏ mọc thành vạt, vạt cỏ cao mép lượn có bóng đổ, sỏi / búi cỏ gom mảng (decal mỗi map ~1.300 → ~400)",
+          "weight": 5,
+          "done": false,
+          "evidence": "05/11: groundShade.ts tallGrass + GroundShader.cs chép khớp (vector mặt đất 95 vùng, test C# đạt), Layout.sprinkleDecals gom mảng; đã dựng 13 vùng — chờ build và chủ dự án duyệt trong game"
         },
         {
           "label": "Vùng 1: suối / cầu / quái sông Cua đá suối cho các map dựng tay",
@@ -6898,10 +6931,172 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "requiresNewArt": true
     },
     {
+      "id": "pixellab-budget-1128",
+      "group": "Chuẩn bị",
+      "name": "Ngân sách 2.431 lượt PixelLab đến 28/11 — dùng hết đúng kế hoạch, không lãng phí",
+      "detail": "Chủ dự án 05/11/2026: \"Ok ổn đó làm đi đừng lẵng phí mà không đủ kế hoạch\". Còn 2.431,5 / 5.000 lượt (Tier 2), nạp lại 5.000 ngày 28/11/2026, lượt KHÔNG cộng dồn nên phải dùng hết trước hạn. Ước tính theo lượt thật đã tiêu 05/11 (3 quái / boss đủ 4 hướng đứng/đi/đánh/gục + 3 hiệu ứng chiêu vẽ lại 3 lần ≈ 145 lượt: ~30 lượt / loài, ~4 lượt / hiệu ứng). Luật chi: mỗi món thử 1–2 mẫu cho chủ dự án duyệt rồi mới vẽ hàng loạt; món nào vượt ước tính thì dừng hỏi; không vẽ đòn tấn công nhân vật (đang tạm dừng) — phần dự phòng giữ cho việc đó nếu chủ dự án chốt cách làm trước 28/11. Thứ tự: boss → đồ vật kể chuyện → quái sông → thân nền → bộ shop 2 → nội thất + phong ấn → quái thường → dự phòng. Chia lại 05/11 (chủ dự án: \"Xem có vẽ nốt quái cho các map cộng map mới luôn không\", \"Nếu k đủ thì làm theo kế hoạch nãy đề ra\"): rà map thấy 6 vùng MƯỢN nguyên quái + boss của vùng khác (Rừng Cổ Thụ, Rừng Nấm Ngầm ← Đầm lầy; Thánh Địa Bình Minh, Phế tích Haven ← Cao nguyên; Vực Ám Ma, Vực Hư Không ← Núi lửa) → ưu tiên 30 loài quái riêng cho 6 vùng này (mỗi vùng 5 loài, 1 loài là quái sông). Map mới dựng bằng code, không tốn lượt. Dời sang sau đợt nạp 28/11: 18 boss riêng cho 6 vùng mượn (kèm đòn / chiêu riêng) và bộ shop 2. Nếu phần quái vượt ước tính thì dừng quái, quay về thứ tự kế hoạch trước (thân nền, nội thất, bộ shop 2). Chốt lại 05/11 (chủ dự án: \"Thôi các map đó tạm thời đóng lại chỉn chu các phần map dưới đã\", \"Thế dồn lượt vẽ cho các phần theo kế hoạch cũ\"): 6 vùng mượn quái ĐÓNG TẠM (sim regions.ts `closed`, cổng vùng báo \"đang được xây dựng\"); bỏ phần 30 loài quái cho 6 vùng đó, quay về kế hoạch cũ; quái sông + quái thường bổ sung chỉ cho 7 vùng đang mở. 2 loài mẫu Vực Ám Ma đã gửi trước khi đổi (Miêu bóng, Chiến binh dạ giáp, ~12 lượt) giữ nguồn trong registry, chưa vẽ động tác — dùng khi mở lại vùng. Chủ dự án 05/11/2026: \"Nếu dư thì vẽ bộ 3 shop full class nhé nhớ càng bộ sau càng đẹp càng xịn và lực\". Phần dư (dự phòng chưa dùng, món nào rẻ hơn ước tính) dồn cho bộ shop 3 của cả 5 class × nam/nữ (~450 lượt) — bộ sau phải đẹp / xịn / uy lực hơn bộ trước. Chốt lại lần 3 (06/11, sau khi chủ dự án chọn trồng trọt kiểu Stardew): sau bộ shop 2 → build + test trong game (0 lượt) → trồng trọt 4 bộ đồ ở nhà + cây (~450) → nội thất + phong ấn (~200) → quái thường thêm (~500) → dự phòng (~250); bộ shop 3 dời sau 28/11 (dư lượt thì làm sớm). Gộp lần 4 (06/11): trồng trọt + nội thất + phong ấn thành gói Gia viên (~600 lượt, mục home); còn dư ~200 làm sớm một phần bộ shop 3. 06/11: thêm hồ câu cá vào gói Gia viên (~685 lượt), phần dư còn ~110. 07/11: phần VẼ gói Gia viên xong ~247 lượt (thay ~685): 2 bộ đồ ở nhà nam nữ chung (đầu nữ đội thân nam), 6 cây × 4 giai đoạn + icon, đồ sân vườn, nội thất 18 món, icon 8 cá; phong ấn tách khỏi gói (map bên ngoài). Còn 1.319 lượt → quái thường 7 vùng (~500) → dự phòng (~250) → bộ shop 3 làm sớm (~570). Chủ dự án 11/11: TẠM DỪNG bộ shop 3; chia lại 1.319 lượt: mở rộng Gia viên ~265 (12 cây, cây ăn quả, chăn nuôi, máy chế biến, công trình, trang trí, thú cưng — docs/ke-hoach-nha-rieng.md mục 9.8) · nhảy nhân vật 8 hướng 24 thân ~375 · quái thường 7 vùng ~500 · dự phòng ~180. 11/11 sau đó: BỎ NHẢY (đã tốn 30 lượt thử); mở rộng Gia viên vẽ xong ~135 lượt; còn 1.154 lượt.",
+      "weight": 2,
+      "phase": 2,
+      "region": null,
+      "depends": [],
+      "requiresNewArt": true,
+      "steps": [
+        {
+          "label": "Đòn riêng 16 boss + tách 5 hình chiêu trùng (boss-unique-attacks) — ~130 lượt thật",
+          "weight": 5,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Đồ vật kể chuyện vùng 1 (story-props-r1) — ~6 lượt thật",
+          "weight": 2,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Quái sông 6 vùng đang mở (map-streams-decor) — ~111 lượt thật",
+          "weight": 6,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Thân nền tháo đồ + bản tháo áo 150 mẫu + icon bộ tân thủ (character-gear-phase-1) — ~146 lượt thật",
+          "weight": 8,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Bộ shop 2 cho 5 class × nam/nữ (character-gear-phase-2) — ~470 lượt",
+          "weight": 22,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Gói Gia viên (home): 4 bộ đồ ở nhà có thao tác vườn + câu cá, cây trồng, đồ sân vườn, nội thất nhà mẫu, hồ câu, phong ấn boss — ~685 lượt",
+          "weight": 29,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Quái thường bổ sung cho 7 vùng đang mở — ~500 lượt",
+          "weight": 18,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Dự phòng vẽ lại / đòn tấn công nếu được chốt; dư (~110) thì một phần bộ shop 3 — ~250 lượt",
+          "weight": 10,
+          "done": false,
+          "evidence": ""
+        }
+      ]
+    },
+    {
+      "id": "story-props-r1",
+      "group": "Cảnh quan",
+      "name": "Đồ vật kể chuyện vùng 1 — lửa trại, lều vải, đống củi, rương báu…",
+      "detail": "Chủ dự án 05/11/2026: \"Ok ổn đó làm đi đừng lẵng phí mà không đủ kế hoạch\". Cụm cảnh kể chuyện (maps/storyBits.ts) ở vùng 1 đang phải mượn chậu lửa / chòi nhỏ vì vùng 1 chưa có lửa trại, lều. Vẽ ~10 món cùng style đồ vật vùng 1 (PixelLab map object): lửa trại, lều vải, đống củi, rương báu, bao tải, cuộn dây, giá phơi, cọc buộc ngựa, cối xay tay, xe kéo đổ; lửa trại / đèn thêm vào nguồn sáng của Lighting.cs. Ngân sách ~50 lượt (pixellab-budget-1128).",
+      "weight": 2,
+      "phase": 2,
+      "region": "human",
+      "depends": [
+        "map-streams-decor"
+      ],
+      "requiresNewArt": true,
+      "steps": [
+        {
+          "label": "Danh sách món + thử 2 món đầu (lửa trại, lều) cho chủ dự án duyệt",
+          "weight": 20,
+          "done": false,
+          "evidence": "05/11: tấm C2_story (6 món, ~6 lượt): lều vải, lửa trại vòng đá, đống củi + rìu, rương báu, bao thóc, giá vũ khí — đạt style vùng 1; đã vào atlas vùng 1, cụm cảnh trại / xe hàng / bãi chiến trận / mộ dùng món mới, lửa trại là nguồn sáng; chờ duyệt"
+        },
+        {
+          "label": "Vẽ phần còn lại, cắt tấm, vào atlas vùng 1",
+          "weight": 40,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Cập nhật cụm cảnh + nguồn sáng, dựng lại map vùng 1",
+          "weight": 20,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Kiểm trong game, chủ dự án duyệt",
+          "weight": 20,
+          "done": false,
+          "evidence": ""
+        }
+      ]
+    },
+    {
+      "id": "house-interiors",
+      "group": "Cảnh quan",
+      "name": "Nội thất nhà — vào được nhà ở thị trấn (học theo video tham khảo map)",
+      "detail": "Chủ dự án 05/11/2026 gửi video tham khảo map (World of Anterra: \"ý tưởng map và đồ vật game khá ngon\") rồi duyệt hướng dùng lượt còn dư. Cửa nhà ở thị trấn (nhà trọ, lò rèn, cửa hàng, nhà thờ, nhà dân) dẫn vào map nội thất nhỏ: sàn gỗ / đá, tường, bàn ghế, giường, kệ, lò sưởi, thùng, đèn (nguồn sáng Lighting.cs). Giữ style đồ vật cũ, không theo bộ ô Wang đã loại. Ngân sách ~120 lượt chung với đồ phong ấn (pixellab-budget-1128). Cần chủ dự án duyệt bố cục 1 nhà mẫu trước. Gộp vào gói Gia viên của mục home (06/11/2026).",
+      "weight": 3,
+      "phase": 3,
+      "region": "human",
+      "depends": [],
+      "requiresNewArt": true,
+      "steps": [
+        {
+          "label": "Thiết kế: nhà nào vào được, cỡ phòng, NPC nào đứng trong — chủ dự án duyệt 1 nhà mẫu",
+          "weight": 15,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Vẽ nền sàn / tường + ~12 món nội thất (thử 2 món trước)",
+          "weight": 35,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Bộ dựng map nội thất + cửa ra vào hai chiều, máy chủ + client",
+          "weight": 30,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Kiểm trong game, chủ dự án duyệt",
+          "weight": 20,
+          "done": false,
+          "evidence": ""
+        }
+      ]
+    },
+    {
+      "id": "day-night-cycle",
+      "group": "Cảnh quan",
+      "name": "Ngày đêm trong game — đèn, lửa sáng rực ban đêm",
+      "detail": "Chủ dự án 05/11/2026: \"thêm cho tôi thời gian vào game cũng có tối sáng, các đèn, lửa sẽ sáng hơn\". GameClock.cs: 1 ngày Haven = 48 phút thật, tính từ giờ UTC nên mọi người chơi cùng một buổi (sáng 7–17, hoàng hôn 17–20, đêm 20–4:30, bình minh 4:30–7). Lighting.cs: map ngoài trời ám cam tím lúc chuyển buổi, xanh thẫm ban đêm (tối nhất 0,6); hang / ngục / Vực Ám vẫn tối cố định. Ban đêm đèn đường, đèn đá, chậu lửa, lửa trại, đuốc, pha lê… lan rộng hơn 25% kèm quầng sáng cộng màu + đốm rực ở bóng đèn; cửa sổ nhà hắt ánh vàng. HUD: đồng hồ buổi + giờ dưới minimap (khung nhiệm vụ dời xuống). Không tốn lượt vẽ. 06/11: chủ dự án chê bóng tối phủ lớp xám \"xấu và cùi bắp\" → làm lại kiểu chiếu sáng 2D: camera phụ vẽ bản đồ ánh sáng (màu trời + vũng sáng cộng màu) rồi NHÂN lên cảnh (shader LightMultiply) — giữ màu / tương phản, GPU, nhẹ hơn; \"cần các lửa trại chuyển động… kiểu lửa đang cháy\" → lửa trại / chậu lửa / đuốc tường thay ảnh tĩnh bằng chuyển động PixelLab vẽ từ chính ảnh đồ vật (prop_*_burn, 3 lượt) + tàn lửa bay (PropFire.cs); \"đèn khi tối sẽ có đom đóm bay… không cần vẽ\" → đom đóm code quanh cột đèn theo độ đêm; \"trước đèn nên có một cái ghế\" + \"ghế cần vẽ\" + \"đặt chỗ trông xấu\" → tấm C3_garden (ghế công viên, ghế khúc gỗ, ghế đá, bồn hoa, bàn tròn, xích đu — 6 lượt), ghế công viên chỉ đặt ngay cạnh cột đèn cùng hàng, thiếu chỗ thì bỏ.",
+      "weight": 2,
+      "phase": 2,
+      "region": null,
+      "depends": [],
+      "requiresNewArt": false,
+      "steps": [
+        {
+          "label": "Đồng hồ game + lớp sáng ngày đêm + quầng đèn / lửa + đồng hồ HUD (code)",
+          "weight": 50,
+          "done": false,
+          "evidence": "05/11: GameClock.cs, Lighting.cs, Hud.Clock.cs; biên dịch đạt; ảnh dựng thử trưa / hoàng hôn / nửa đêm thị trấn gửi chủ dự án; AutoTest -havenLight chụp thị trấn 4 mốc giờ + hang · 06/11: build 2026.11.06-1556 + AutoTest -havenLight: thị trấn trưa / hoàng hôn / nửa đêm / bình minh đúng; Hang Gargoyle chưa tối (thiếu `#`) → sửa nhận *_cave + trong nhà ít đèn tối vừa; làm lại GPU nhân sáng, lửa cháy, tàn lửa, đom đóm, ghế cạnh đèn — biên dịch đạt, chờ build lại"
+        },
+        {
+          "label": "Build, chụp trong game PC / web / điện thoại (độ mượt WebGL), chủ dự án duyệt",
+          "weight": 50,
+          "done": false,
+          "evidence": ""
+        }
+      ]
+    },
+    {
       "id": "boss-unique-attacks",
       "group": "Boss cũ",
       "name": "Boss nghiêm cấm đòn chung — đòn thường + chiêu riêng mỗi boss",
-      "detail": "Chốt 05/11/2026 của chủ dự án: \"với các đòn đánh boss thấy bắn ra cầu tròn đen cần phải có đòn riêng\", \"boss nghiêm cấm đòn chung\", \"thêm vào luật\". Hiện 16 boss / rồng kiểu caster bắn chung quả cầu đen dark_orb (đòn xa ranged 'shadow') và 5 hình chiêu dùng chung giữa hai boss (boss_hellfire, boss_avalanche, boss_frost_roar, boss_oblivion_mist, boss_forge_sigil). Mỗi boss cần đạn / hiệu ứng đòn thường riêng theo chủ đề (vd Lich: sọ xanh, Kraken: tia mực, Hoả thần: cầu lửa…) và chiêu không trùng boss khác; hiệu ứng làm bằng vfx_workbench (không tốn lượt) hoặc PixelLab khi cần. Luật ghi ở CLAUDE.md + mục Luật dự án; test packages/sim/tests/boss-unique-attacks.test.ts chặn vi phạm mới, danh sách nợ giảm dần tới 0.",
+      "detail": "Chốt 05/11/2026 của chủ dự án: \"với các đòn đánh boss thấy bắn ra cầu tròn đen cần phải có đòn riêng\", \"boss nghiêm cấm đòn chung\", \"thêm vào luật\". Hiện 16 boss / rồng kiểu caster bắn chung quả cầu đen dark_orb (đòn xa ranged 'shadow') và 5 hình chiêu dùng chung giữa hai boss (boss_hellfire, boss_avalanche, boss_frost_roar, boss_oblivion_mist, boss_forge_sigil). Mỗi boss cần đạn / hiệu ứng đòn thường riêng theo chủ đề (vd Lich: sọ xanh, Kraken: tia mực, Hoả thần: cầu lửa…) và chiêu không trùng boss khác; hiệu ứng làm bằng vfx_workbench (không tốn lượt) hoặc PixelLab khi cần. Luật ghi ở CLAUDE.md + mục Luật dự án; test packages/sim/tests/boss-unique-attacks.test.ts chặn vi phạm mới, danh sách nợ giảm dần tới 0. Ngân sách ~300 lượt (pixellab-budget-1128, 05/11): thử 2 boss mẫu trước; hiệu ứng nào vẽ được bằng vfx_workbench thì không tốn lượt.",
       "weight": 3,
       "phase": 4,
       "region": null,
@@ -6917,19 +7112,19 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
           "label": "Thiết kế đòn thường riêng cho 16 boss / rồng đang bắn cầu đen",
           "weight": 20,
           "done": false,
-          "evidence": ""
+          "evidence": "05/11: BOSS_SHOTS (packages/sim skills.ts) cho đủ 16 boss / rồng từng bắn cầu đen — mỗi con hình đạn + hình nổ + số viên / độ xoè / tốc độ / lắc riêng (vd Hoả thần quạt 5 giáo lửa, Hydra 3 cục bùn, Phù thuỷ 3 bóng độc trôi lắc); chờ duyệt trong game"
         },
         {
           "label": "Tách 5 hình chiêu đang dùng chung thành chiêu riêng từng boss",
           "weight": 15,
           "done": false,
-          "evidence": ""
+          "evidence": "05/11: 5 hình chiêu trùng tách — Hoả thần: boss_solar_flare + boss_sun_halo (Quỷ vương giữ hellfire, Golem giữ forge_sigil); Nghê Băng: boss_glacier_stomp + boss_ice_hail (Yeti giữ avalanche, frost_roar); Nữ hoàng băng: boss_blizzard_veil (Thuyền trưởng ma giữ oblivion_mist); chờ duyệt"
         },
         {
           "label": "Vẽ hiệu ứng / đạn riêng (vfx_workbench hoặc PixelLab) và gắn sim + client",
           "weight": 35,
           "done": false,
-          "evidence": ""
+          "evidence": "05/11: 37 hiệu ứng PixelLab (32 đạn / nổ + 5 chiêu) đã soi từng khung, vẽ lại 9 món lỗi (mặt / sinh vật / bệ đá / cột đá / chéo 45°), bỏ khung đọng cuối 3 món; atlas vfx-boss 80 hiệu ứng 2041×3454; sim + client gắn xong, test nợ 0 boss cầu đen / 0 hình chung + chặn hình đạn chưa có trong atlas; tổng ~130 lượt — chờ build và duyệt trong game"
         },
         {
           "label": "Kiểm thử trong game, danh sách nợ trong test về 0, chủ dự án duyệt",
@@ -8128,32 +8323,34 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "id": "home",
       "group": "Tính năng đã chốt",
       "name": "Khuôn viên, nhà và thăm bạn bè",
-      "detail": "Mỗi user một khuôn viên; xây/sửa/trang trí; khách tham quan không tự lấy đồ hoặc thu hoạch. Dự tính PixelLab 28/10: ~625 lượt trả phí (ngoài: 12 công trình, nền, ~50 đồ sân vườn; trong: tường/sàn 3 phong cách, ~140 nội thất, ~50 đồ treo/nhỏ, hướng xoay, ngồi/nằm — docs/ke-hoach-nha-rieng.md mục 4.1; đã cộng ~30% vẽ lại).",
+      "detail": "Mỗi user một khuôn viên; xây/sửa/trang trí; khách tham quan không tự lấy đồ hoặc thu hoạch. Dự tính PixelLab 28/10: ~625 lượt trả phí (ngoài: 12 công trình, nền, ~50 đồ sân vườn; trong: tường/sàn 3 phong cách, ~140 nội thất, ~50 đồ treo/nhỏ, hướng xoay, ngồi/nằm — docs/ke-hoach-nha-rieng.md mục 4.1; đã cộng ~30% vẽ lại). GÓI GIA VIÊN (chủ dự án 06/11/2026: \"ghép vào kế hoạch làm gia viên đi xem đủ lượt còn lại không\"): đợt trước 28/11 làm bản nhỏ gộp trồng trọt (production) + nội thất (house-interiors) (phong ấn boss-seal-quest TÁCH ra 07/11 — thuộc map bên ngoài): mỗi user một khuôn viên sát rìa Thistlewood — nhà dùng lại nhà sẵn có, ô ruộng + rào + ~20 đồ sân vườn (tấm lưới) (~20 lượt); nội thất 1 nhà mẫu: sàn / tường + ~18 món (tấm lưới) (~30); 4 bộ đồ ở nhà 2 nam + 2 nữ có thao tác vườn (~400; 07/11 rút còn 2 bộ nam nữ chung — đầu nữ đội thân nam, ~180); 6–8 cây × 4 giai đoạn + hạt + icon (~40); bệ / vật phẩm phong ấn (~20); dự phòng ×1,3 (~90) → ~600 lượt. Bản đầy đủ (12 công trình, ~140 nội thất, 3 phong cách) ~625 lượt để sau đợt nạp 28/11. Duyệt trước: bố cục khuôn viên + 1 nhà mẫu, cách chơi phong ấn, 1 bộ đồ ở nhà nam với thao tác cuốc đất. Thêm HỒ CÂU CÁ trong khuôn viên (chủ dự án 06/11: \"nhớ có cả 1 hồ câu cá\"): quăng cần → chờ phao giật → bấm kéo, máy chủ chọn cá theo tỉ lệ + giờ GameClock, 8 cá hồ vùng 1, thao tác câu trên 4 bộ đồ ở nhà 3 hướng (~65 lượt) → gói Gia viên ~685 lượt. Thiết kế chi tiết: docs/ke-hoach-nha-rieng.md mục 9. CHỐT 08/11/2026: chỉ mở Gia viên sau tuyến làm quen TOÀN BỘ NPC cố định ở map đầu Thistlewood (NPC truyện và dịch vụ); máy chủ xác nhận, lưu quyền theo tài khoản, chặn cả cổng / HUD / lệnh gọi thẳng. NPC sự kiện có giới thiệu thường trực, không bắt chờ sự kiện. Không reset DB hoặc làm mất tài sản cũ. Xem docs/thiet-ke/tai-thiet-cot-truyen-npc-2026-11.md mục 3 và đầu việc starter-npc-onboarding.",
       "weight": 7,
       "phase": 7,
       "region": null,
-      "depends": [],
+      "depends": [
+        "starter-npc-onboarding"
+      ],
       "steps": [
         {
-          "label": "Thiết kế và thông số",
+          "label": "Thiết kế gói Gia viên: bố cục khuôn viên + 1 nhà mẫu, vòng trồng trọt / nấu ăn, cách chơi phong ấn — chủ dự án duyệt",
           "weight": 10,
+          "done": true,
+          "evidence": "06/11/2026 chủ dự án duyệt (\"Ok ổn r\") thiết kế gói Gia viên — docs/ke-hoach-nha-rieng.md mục 9: khuôn viên + nhà mẫu, 6 cây vùng 1, 4 món + món cá, 4 bộ đồ ở nhà, nội thất 18 món, hồ câu 8 cá, phong ấn Hang Gargoyle"
+        },
+        {
+          "label": "Vẽ: 2 bộ đồ ở nhà NAM NỮ CHUNG (chủ dự án 07/11: \"dùng luôn bộ Nam cho đỡ tốn lượt, nam nữ chung\"; thao tác cuốc / tưới / gieo / câu vẽ E + N), cây trồng, đồ sân vườn, nội thất nhà mẫu, icon cá (~320 lượt, tính lại 07/11; phong ấn tách ra)",
+          "weight": 40,
           "done": false,
           "evidence": ""
         },
         {
-          "label": "Vẽ / triển khai",
-          "weight": 45,
+          "label": "Code: khuôn viên riêng mỗi user (máy chủ giữ ruộng / giờ gieo), cuốc / gieo / tưới / thu hoạch, chợ + nấu ăn, vào nhà, đổi đồ ở nhà; chỉ mở sau tuyến làm quen hết NPC map đầu, máy chủ giữ cờ mở theo tài khoản",
+          "weight": 30,
           "done": false,
           "evidence": ""
         },
         {
-          "label": "Ghép vào game / web",
-          "weight": 25,
-          "done": false,
-          "evidence": ""
-        },
-        {
-          "label": "Kiểm thử và nghiệm thu",
+          "label": "Kiểm thử máy chủ thử + PC / Android, chủ dự án nghiệm thu",
           "weight": 20,
           "done": false,
           "evidence": ""
@@ -8165,7 +8362,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "id": "production",
       "group": "Tính năng đã chốt",
       "name": "Trồng trọt, chế tạo và nấu ăn",
-      "detail": "Thu hoạch thực phẩm/nhiên liệu/nguyên liệu; máy chủ xác minh thời gian và công thức. Dự tính PixelLab 28/10: ~870 lượt trả phí (cuốc/tưới/gieo/cho ăn trên thân nền + bộ đồ làm vườn chung, ~30 cây, ~6 vật nuôi, ~60 icon; đã cộng ~30% vẽ lại).",
+      "detail": "Thu hoạch thực phẩm/nhiên liệu/nguyên liệu; máy chủ xác minh thời gian và công thức. Dự tính PixelLab 28/10: ~870 lượt trả phí (cuốc/tưới/gieo/cho ăn trên thân nền + bộ đồ làm vườn chung, ~30 cây, ~6 vật nuôi, ~60 icon; đã cộng ~30% vẽ lại). Chủ dự án 06/11/2026: tham khảo Stardew Valley (lấy cách chơi dòng game nông trại, không chép nội dung / hình / tên cây); \"nên làm bộ đồ (kiểu như mặc ở nhà) cho user lựa chọn vì bộ đồ đó sẽ làm các thao tác liên quan đến gia viên\", \"rút lại tổng 4 bộ thay vì 6\". Thiết kế đợt trước 28/11: 4 BỘ ĐỒ Ở NHÀ (2 nam + 2 nữ) — chỉ các bộ này có thao tác vườn (cuốc đất, tưới, gieo / thu hoạch cúi người, có thể bê đồ; vẽ E + N, W lật, đánh về nam dùng clip ngang — chủ dự án 06/11 \"cuốc đất 4 hướng đủ r\"), bộ class không vẽ thao tác vườn; đứng / đi / chạy 8 hướng như bộ class; NGHIÊM CẤM ÁO ĐỘI MŨ (không mũ rơm — dùng khăn quàng / tạp dề). Vòng chơi: cuốc → gieo → tưới → cây lớn theo ngày Haven (GameClock 48 phút / ngày; máy chủ giữ giờ gieo nên offline vẫn lớn) → thu hoạch → bán chợ / nấu 3–4 món tăng sức chiến đấu; 6–8 cây riêng của Haven × 4 giai đoạn (vẽ theo tấm lưới); đồ hái lượm mọc lại mỗi ngày ở vùng 1. Thử trước 1 bộ nam với thao tác cuốc đất (rủi ro: thao tác tay khó như đòn đánh đang tạm dừng) rồi mới làm hàng loạt. Ngân sách ~450 lượt (pixellab-budget-1128). Gộp vào gói Gia viên của mục home (06/11/2026).",
       "weight": 6,
       "phase": 7,
       "region": null,
@@ -8204,7 +8401,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "id": "fishing",
       "group": "Tính năng đã chốt",
       "name": "Hồ câu cá cùng bạn bè",
-      "detail": "Map chung, cùng vào câu; máy chủ xác minh lượt/cá, cơ chế tổ đội và vật phẩm sẽ thiết kế thêm. Dự tính PixelLab 28/10: ~225 lượt trả phí (hồ, cầu gỗ, ~30 loại cá, cần/phao, động tác câu; đã cộng ~30% vẽ lại).",
+      "detail": "Map chung, cùng vào câu; máy chủ xác minh lượt/cá, cơ chế tổ đội và vật phẩm sẽ thiết kế thêm. Dự tính PixelLab 28/10: ~225 lượt trả phí (hồ, cầu gỗ, ~30 loại cá, cần/phao, động tác câu; đã cộng ~30% vẽ lại). 06/11: bản nhỏ hồ câu trong khuôn viên riêng làm trước trong gói Gia viên (mục home); hồ câu chung cùng bạn bè dùng lại luật câu, để sau.",
       "weight": 5,
       "phase": 7,
       "region": null,
@@ -8537,7 +8734,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "id": "character-gear-phase-1",
       "group": "Nhân vật",
       "name": "Phiên 1 nhân vật — thân nền, 30 đầu, bộ 1 và vũ khí cơ bản cho cả 5 class",
-      "detail": "Chốt 28/10 của chủ dự án: vẫn tách đầu–thân–vũ khí vẽ bằng PixelLab. Mỗi class 12 bộ: 5 bộ mua ở shop + 7 bộ rớt từ quái/boss cấp max; 7 chủ đề rớt dùng chung cho cả 5 class (vd chủ đề Rồng: kiếm rồng + giáp rồng của kiếm sĩ, cung rồng + giáp rồng của cung thủ…). Mỗi bộ đồ chỉ vẽ đứng/đi/chạy/đòn của class nó, không vẽ 5 đòn trên mọi bộ. Tháo đồ về thân nền: nam mặc quần đùi cởi trần chân trần, nữ mặc bikini có ngực (chốt 28/10), body đẹp vừa phải; MỌI TỘC CÙNG MỘT MÀU DA nên chỉ vẽ 1 thân nền nam + 1 nữ, thân nền có đủ 5 đòn tấn công của 5 vũ khí vì cởi đồ vẫn đánh được. Đầu: 30 đầu chọn lúc tạo nhân vật, dùng chung mọi bộ, cùng màu da thân. Mỗi phiên làm đủ 5 class. Lượt tính: thân/bộ (8 hướng, đứng/đi/chạy/đòn, +30% vẽ lại) ~145, vũ khí ~35 (~16 góc). Phiên 1 ~2.700 lượt: thân nền đồ lót nam/nữ với đứng/đi/chạy + 5 đòn (~700), mẫu thử Kiếm sĩ duyệt style (~100), 30 đầu × 8 hướng (~150, heads30-eight-directions), bộ 1 (bộ cơ bản = bộ shop đầu) của 5 class × nam/nữ (~1.450), 5 vũ khí cơ bản (~175), icon (~15). Xong phiên 1 cả 5 class chơi được.",
+      "detail": "Chốt 28/10 của chủ dự án: vẫn tách đầu–thân–vũ khí vẽ bằng PixelLab. Mỗi class 12 bộ: 5 bộ mua ở shop + 7 bộ rớt từ quái/boss cấp max; 7 chủ đề rớt dùng chung cho cả 5 class (vd chủ đề Rồng: kiếm rồng + giáp rồng của kiếm sĩ, cung rồng + giáp rồng của cung thủ…). Mỗi bộ đồ chỉ vẽ đứng/đi/chạy/đòn của class nó, không vẽ 5 đòn trên mọi bộ. Tháo đồ về thân nền: nam mặc quần đùi cởi trần chân trần, nữ mặc bikini có ngực (chốt 28/10), body đẹp vừa phải; MỌI TỘC CÙNG MỘT MÀU DA nên chỉ vẽ 1 thân nền nam + 1 nữ, thân nền có đủ 5 đòn tấn công của 5 vũ khí vì cởi đồ vẫn đánh được. Đầu: 30 đầu chọn lúc tạo nhân vật, dùng chung mọi bộ, cùng màu da thân. Mỗi phiên làm đủ 5 class. Lượt tính: thân/bộ (8 hướng, đứng/đi/chạy/đòn, +30% vẽ lại) ~145, vũ khí ~35 (~16 góc). Phiên 1 ~2.700 lượt: thân nền đồ lót nam/nữ với đứng/đi/chạy + 5 đòn (~700), mẫu thử Kiếm sĩ duyệt style (~100), 30 đầu × 8 hướng (~150, heads30-eight-directions), bộ 1 (bộ cơ bản = bộ shop đầu) của 5 class × nam/nữ (~1.450), 5 vũ khí cơ bản (~175), icon (~15). Xong phiên 1 cả 5 class chơi được. Thân nền tháo đồ (nam quần đùi / nữ bikini) đứng/đi/chạy 8 hướng: ngân sách ~400 lượt đợt trước 28/11 (pixellab-budget-1128); đòn tấn công vẫn tạm dừng. NGHIÊM CẤM ÁO ĐỘI MŨ (chủ dự án 06/11/2026): mọi bộ đồ và icon đồ không có mũ trùm / mũ / mũ giáp / khăn đội / vương miện / mặt nạ — đầu là lớp riêng; bộ kiểm plan.ts HEADWEAR chặn.",
       "weight": 6,
       "phase": 2,
       "region": null,
@@ -8549,13 +8746,13 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
           "label": "Thân nền nam quần đùi cởi trần / nữ bikini có ngực, body đẹp, một màu da chung mọi tộc",
           "weight": 10,
           "done": false,
-          "evidence": ""
+          "evidence": "06/11: thân nền là CHÍNH khuôn cỡ NPC đã duyệt (U1 nam quần đùi cởi trần chân trần 11505, U13b nữ bikini quai qua vai 15707) — không vẽ thân mới; chờ chủ dự án duyệt ảnh soi"
         },
         {
           "label": "Thân nền đứng/đi/chạy 8 hướng + 5 đòn tấn công của 5 vũ khí",
           "weight": 20,
           "done": false,
-          "evidence": ""
+          "evidence": "06/11: đi / chạy 5 hướng vẽ (U21-bare-*, 20 món animate_with_skeleton_v3 theo cùng khung xương gói 03/11 như bộ class, ~139 lượt) + 3 hướng lật; mould u-bare / uf-bare \"hở cổ: 0\", soi cổ 5× đầu Ma tộc sừng / Elf tóc dài; 30 atlas player_npc_<đầu>_bare_<giới> (không đeo vũ khí). 5 đòn tấn công: chưa — tấn công đang tạm dừng (chốt 03/11)"
         },
         {
           "label": "30 đầu PixelLab × 8 hướng cùng màu da (heads30-eight-directions)",
@@ -8579,7 +8776,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
           "label": "Ráp Unity: mặc/tháo đồ về thân nền, đánh khi cởi đồ, QA PC/Android",
           "weight": 20,
           "done": false,
-          "evidence": ""
+          "evidence": "06/11 (chủ dự án: \"khi tháo áo có hiện\" vũ khí): 150 bản tháo áo player_npc_<đầu>_<class>_<giới>_bare = thân nền class đó + vũ khí đeo lưng như bộ class (10 khuôn u-bare*/uf-bare*); bộ tân thủ đủ 5 class (sim CLASS_STARTER_OUTFIT, thêm mage/lancer/guard/archer_outfit_1 + 5 icon PixelLab mới); client phát + mặc sẵn bộ tân thủ cho bản lưu chưa nhận (outfitV), ô Áo trống → đổi actor sang bản _bare, mặc lại → về mẫu; máy chủ bareOrModel chỉ nhận mẫu đã chọn hoặc bản tháo áo của chính nó (test bare-sprite); AutoTest -havenBare. Đánh khi cởi đồ: chờ bộ đòn (tấn công đang tạm dừng). Chờ build + QA PC/Android"
         }
       ],
       "requiresNewArt": true,
@@ -8589,7 +8786,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "id": "character-gear-phase-2",
       "group": "Nhân vật",
       "name": "Phiên 2 trang bị — bộ shop 2, 3, 4 cho cả 5 class",
-      "detail": "Chốt 28/10 của chủ dự án: vẫn tách đầu–thân–vũ khí vẽ bằng PixelLab. Mỗi class 12 bộ: 5 bộ mua ở shop + 7 bộ rớt từ quái/boss cấp max; 7 chủ đề rớt dùng chung cho cả 5 class (vd chủ đề Rồng: kiếm rồng + giáp rồng của kiếm sĩ, cung rồng + giáp rồng của cung thủ…). Mỗi bộ đồ chỉ vẽ đứng/đi/chạy/đòn của class nó, không vẽ 5 đòn trên mọi bộ. Tháo đồ về thân nền: nam mặc quần đùi cởi trần chân trần, nữ mặc bikini có ngực (chốt 28/10), body đẹp vừa phải; MỌI TỘC CÙNG MỘT MÀU DA nên chỉ vẽ 1 thân nền nam + 1 nữ, thân nền có đủ 5 đòn tấn công của 5 vũ khí vì cởi đồ vẫn đánh được. Đầu: 30 đầu chọn lúc tạo nhân vật, dùng chung mọi bộ, cùng màu da thân. Mỗi phiên làm đủ 5 class. Lượt tính: thân/bộ (8 hướng, đứng/đi/chạy/đòn, +30% vẽ lại) ~145, vũ khí ~35 (~16 góc). Phiên 2: bộ shop 2, 3, 4 cho cả 5 class, mỗi bộ có thân nam/nữ + vũ khí riêng. Dự tính ~4.900 lượt PixelLab (vừa gói 5.000 lượt/tháng).",
+      "detail": "Chốt 28/10 của chủ dự án: vẫn tách đầu–thân–vũ khí vẽ bằng PixelLab. Mỗi class 12 bộ: 5 bộ mua ở shop + 7 bộ rớt từ quái/boss cấp max; 7 chủ đề rớt dùng chung cho cả 5 class (vd chủ đề Rồng: kiếm rồng + giáp rồng của kiếm sĩ, cung rồng + giáp rồng của cung thủ…). Mỗi bộ đồ chỉ vẽ đứng/đi/chạy/đòn của class nó, không vẽ 5 đòn trên mọi bộ. Tháo đồ về thân nền: nam mặc quần đùi cởi trần chân trần, nữ mặc bikini có ngực (chốt 28/10), body đẹp vừa phải; MỌI TỘC CÙNG MỘT MÀU DA nên chỉ vẽ 1 thân nền nam + 1 nữ, thân nền có đủ 5 đòn tấn công của 5 vũ khí vì cởi đồ vẫn đánh được. Đầu: 30 đầu chọn lúc tạo nhân vật, dùng chung mọi bộ, cùng màu da thân. Mỗi phiên làm đủ 5 class. Lượt tính: thân/bộ (8 hướng, đứng/đi/chạy/đòn, +30% vẽ lại) ~145, vũ khí ~35 (~16 góc). Phiên 2: bộ shop 2, 3, 4 cho cả 5 class, mỗi bộ có thân nam/nữ + vũ khí riêng. Dự tính ~4.900 lượt PixelLab (vừa gói 5.000 lượt/tháng). Chốt lại 05/11: bộ shop 2 làm trong đợt trước 28/11 (5 class × nam/nữ, đứng/đi/chạy 8 hướng), ngân sách ~450 lượt (pixellab-budget-1128); bộ 3, 4 sau đợt nạp lượt. Chủ dự án 05/11/2026: \"Nếu dư thì vẽ bộ 3 shop full class nhé nhớ càng bộ sau càng đẹp càng xịn và lực\". LUẬT NÂNG CẤP: bộ sau phải đẹp hơn, xịn hơn và trông uy lực hơn bộ trước (bộ 1 cơ bản → bộ 2 → bộ 3…): chất liệu tốt hơn, chi tiết / hoạ tiết nhiều hơn, dáng giáp / áo khí thế hơn; vẫn đúng chất class, cùng thân / tỷ lệ / chuẩn ghép đầu. Bộ shop 3: chốt 06/11 dời sau đợt nạp 28/11 (dư lượt thì làm sớm). NGHIÊM CẤM ÁO ĐỘI MŨ (chủ dự án 06/11/2026): mọi bộ đồ và icon đồ không có mũ trùm / mũ / mũ giáp / khăn đội / vương miện / mặt nạ — đầu là lớp riêng; bộ kiểm plan.ts HEADWEAR chặn.",
       "weight": 5,
       "phase": 2,
       "region": null,
@@ -8601,7 +8798,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
           "label": "Chốt thiết kế/prompt từng bộ theo class, duyệt mẫu",
           "weight": 10,
           "done": false,
-          "evidence": ""
+          "evidence": "06/11: mẫu Kiếm sĩ bộ 2 \"hành lộ\" — chủ dự án chọn bản B (áo khoác đỏ thẫm khuy đồng, giáp vai thép một bên, ủng cao); nam + nữ 5 hướng (U22/U24) + đi/chạy 5 hướng (U23/U25), mould u-sword2 / uf-sword2 \"hở cổ: 0\", ~83 lượt; chờ duyệt ảnh ghép đầu · 06/11: bộ 2 Pháp sư A, Thương B, Khiên A, Cung B (chủ dự án chọn) × nam / nữ — 5 hướng đồ + đi / chạy 5 hướng; vẽ lại 13 hướng Thương / Khiên cho đồng nhất giáp / áo choàng mọi góc (chủ dự án báo lệch), đổi ảnh đứng E Thương nam hở cổ 1 px; 10 khuôn bộ 2 \"hở cổ: 0\"; tổng bộ 2 cả 5 class ~460 lượt; chờ duyệt ảnh ghép đầu 8 hướng"
         },
         {
           "label": "Vẽ thân mặc đồ nam/nữ: đứng/đi/chạy/đòn class, 8 hướng",
@@ -8629,7 +8826,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "id": "character-gear-phase-3",
       "group": "Nhân vật",
       "name": "Phiên 3 trang bị — bộ shop 5 + chủ đề rớt cấp max 1, 2 cho cả 5 class",
-      "detail": "Chốt 28/10 của chủ dự án: vẫn tách đầu–thân–vũ khí vẽ bằng PixelLab. Mỗi class 12 bộ: 5 bộ mua ở shop + 7 bộ rớt từ quái/boss cấp max; 7 chủ đề rớt dùng chung cho cả 5 class (vd chủ đề Rồng: kiếm rồng + giáp rồng của kiếm sĩ, cung rồng + giáp rồng của cung thủ…). Mỗi bộ đồ chỉ vẽ đứng/đi/chạy/đòn của class nó, không vẽ 5 đòn trên mọi bộ. Tháo đồ về thân nền: nam mặc quần đùi cởi trần chân trần, nữ mặc bikini có ngực (chốt 28/10), body đẹp vừa phải; MỌI TỘC CÙNG MỘT MÀU DA nên chỉ vẽ 1 thân nền nam + 1 nữ, thân nền có đủ 5 đòn tấn công của 5 vũ khí vì cởi đồ vẫn đánh được. Đầu: 30 đầu chọn lúc tạo nhân vật, dùng chung mọi bộ, cùng màu da thân. Mỗi phiên làm đủ 5 class. Lượt tính: thân/bộ (8 hướng, đứng/đi/chạy/đòn, +30% vẽ lại) ~145, vũ khí ~35 (~16 góc). Phiên 3: bộ shop 5 + chủ đề rớt cấp max 1, 2 cho cả 5 class, mỗi bộ có thân nam/nữ + vũ khí riêng. Dự tính ~4.900 lượt PixelLab (vừa gói 5.000 lượt/tháng).",
+      "detail": "Chốt 28/10 của chủ dự án: vẫn tách đầu–thân–vũ khí vẽ bằng PixelLab. Mỗi class 12 bộ: 5 bộ mua ở shop + 7 bộ rớt từ quái/boss cấp max; 7 chủ đề rớt dùng chung cho cả 5 class (vd chủ đề Rồng: kiếm rồng + giáp rồng của kiếm sĩ, cung rồng + giáp rồng của cung thủ…). Mỗi bộ đồ chỉ vẽ đứng/đi/chạy/đòn của class nó, không vẽ 5 đòn trên mọi bộ. Tháo đồ về thân nền: nam mặc quần đùi cởi trần chân trần, nữ mặc bikini có ngực (chốt 28/10), body đẹp vừa phải; MỌI TỘC CÙNG MỘT MÀU DA nên chỉ vẽ 1 thân nền nam + 1 nữ, thân nền có đủ 5 đòn tấn công của 5 vũ khí vì cởi đồ vẫn đánh được. Đầu: 30 đầu chọn lúc tạo nhân vật, dùng chung mọi bộ, cùng màu da thân. Mỗi phiên làm đủ 5 class. Lượt tính: thân/bộ (8 hướng, đứng/đi/chạy/đòn, +30% vẽ lại) ~145, vũ khí ~35 (~16 góc). Phiên 3: bộ shop 5 + chủ đề rớt cấp max 1, 2 cho cả 5 class, mỗi bộ có thân nam/nữ + vũ khí riêng. Dự tính ~4.900 lượt PixelLab (vừa gói 5.000 lượt/tháng). NGHIÊM CẤM ÁO ĐỘI MŨ (chủ dự án 06/11/2026): mọi bộ đồ và icon đồ không có mũ trùm / mũ / mũ giáp / khăn đội / vương miện / mặt nạ — đầu là lớp riêng; bộ kiểm plan.ts HEADWEAR chặn.",
       "weight": 5,
       "phase": 2,
       "region": null,
@@ -8669,7 +8866,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "id": "character-gear-phase-4",
       "group": "Nhân vật",
       "name": "Phiên 4 trang bị — chủ đề rớt cấp max 3, 4, 5 cho cả 5 class",
-      "detail": "Chốt 28/10 của chủ dự án: vẫn tách đầu–thân–vũ khí vẽ bằng PixelLab. Mỗi class 12 bộ: 5 bộ mua ở shop + 7 bộ rớt từ quái/boss cấp max; 7 chủ đề rớt dùng chung cho cả 5 class (vd chủ đề Rồng: kiếm rồng + giáp rồng của kiếm sĩ, cung rồng + giáp rồng của cung thủ…). Mỗi bộ đồ chỉ vẽ đứng/đi/chạy/đòn của class nó, không vẽ 5 đòn trên mọi bộ. Tháo đồ về thân nền: nam mặc quần đùi cởi trần chân trần, nữ mặc bikini có ngực (chốt 28/10), body đẹp vừa phải; MỌI TỘC CÙNG MỘT MÀU DA nên chỉ vẽ 1 thân nền nam + 1 nữ, thân nền có đủ 5 đòn tấn công của 5 vũ khí vì cởi đồ vẫn đánh được. Đầu: 30 đầu chọn lúc tạo nhân vật, dùng chung mọi bộ, cùng màu da thân. Mỗi phiên làm đủ 5 class. Lượt tính: thân/bộ (8 hướng, đứng/đi/chạy/đòn, +30% vẽ lại) ~145, vũ khí ~35 (~16 góc). Phiên 4: chủ đề rớt cấp max 3, 4, 5 cho cả 5 class, mỗi bộ có thân nam/nữ + vũ khí riêng. Dự tính ~4.900 lượt PixelLab (vừa gói 5.000 lượt/tháng).",
+      "detail": "Chốt 28/10 của chủ dự án: vẫn tách đầu–thân–vũ khí vẽ bằng PixelLab. Mỗi class 12 bộ: 5 bộ mua ở shop + 7 bộ rớt từ quái/boss cấp max; 7 chủ đề rớt dùng chung cho cả 5 class (vd chủ đề Rồng: kiếm rồng + giáp rồng của kiếm sĩ, cung rồng + giáp rồng của cung thủ…). Mỗi bộ đồ chỉ vẽ đứng/đi/chạy/đòn của class nó, không vẽ 5 đòn trên mọi bộ. Tháo đồ về thân nền: nam mặc quần đùi cởi trần chân trần, nữ mặc bikini có ngực (chốt 28/10), body đẹp vừa phải; MỌI TỘC CÙNG MỘT MÀU DA nên chỉ vẽ 1 thân nền nam + 1 nữ, thân nền có đủ 5 đòn tấn công của 5 vũ khí vì cởi đồ vẫn đánh được. Đầu: 30 đầu chọn lúc tạo nhân vật, dùng chung mọi bộ, cùng màu da thân. Mỗi phiên làm đủ 5 class. Lượt tính: thân/bộ (8 hướng, đứng/đi/chạy/đòn, +30% vẽ lại) ~145, vũ khí ~35 (~16 góc). Phiên 4: chủ đề rớt cấp max 3, 4, 5 cho cả 5 class, mỗi bộ có thân nam/nữ + vũ khí riêng. Dự tính ~4.900 lượt PixelLab (vừa gói 5.000 lượt/tháng). NGHIÊM CẤM ÁO ĐỘI MŨ (chủ dự án 06/11/2026): mọi bộ đồ và icon đồ không có mũ trùm / mũ / mũ giáp / khăn đội / vương miện / mặt nạ — đầu là lớp riêng; bộ kiểm plan.ts HEADWEAR chặn.",
       "weight": 5,
       "phase": 2,
       "region": null,
@@ -8709,7 +8906,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "id": "character-gear-phase-5",
       "group": "Nhân vật",
       "name": "Phiên 5 trang bị — chủ đề rớt cấp max 6, 7 cho cả 5 class",
-      "detail": "Chốt 28/10 của chủ dự án: vẫn tách đầu–thân–vũ khí vẽ bằng PixelLab. Mỗi class 12 bộ: 5 bộ mua ở shop + 7 bộ rớt từ quái/boss cấp max; 7 chủ đề rớt dùng chung cho cả 5 class (vd chủ đề Rồng: kiếm rồng + giáp rồng của kiếm sĩ, cung rồng + giáp rồng của cung thủ…). Mỗi bộ đồ chỉ vẽ đứng/đi/chạy/đòn của class nó, không vẽ 5 đòn trên mọi bộ. Tháo đồ về thân nền: nam mặc quần đùi cởi trần chân trần, nữ mặc bikini có ngực (chốt 28/10), body đẹp vừa phải; MỌI TỘC CÙNG MỘT MÀU DA nên chỉ vẽ 1 thân nền nam + 1 nữ, thân nền có đủ 5 đòn tấn công của 5 vũ khí vì cởi đồ vẫn đánh được. Đầu: 30 đầu chọn lúc tạo nhân vật, dùng chung mọi bộ, cùng màu da thân. Mỗi phiên làm đủ 5 class. Lượt tính: thân/bộ (8 hướng, đứng/đi/chạy/đòn, +30% vẽ lại) ~145, vũ khí ~35 (~16 góc). Phiên 5: chủ đề rớt cấp max 6, 7 cho cả 5 class, mỗi bộ có thân nam/nữ + vũ khí riêng. Dự tính ~3.300 lượt PixelLab (vừa gói 5.000 lượt/tháng).",
+      "detail": "Chốt 28/10 của chủ dự án: vẫn tách đầu–thân–vũ khí vẽ bằng PixelLab. Mỗi class 12 bộ: 5 bộ mua ở shop + 7 bộ rớt từ quái/boss cấp max; 7 chủ đề rớt dùng chung cho cả 5 class (vd chủ đề Rồng: kiếm rồng + giáp rồng của kiếm sĩ, cung rồng + giáp rồng của cung thủ…). Mỗi bộ đồ chỉ vẽ đứng/đi/chạy/đòn của class nó, không vẽ 5 đòn trên mọi bộ. Tháo đồ về thân nền: nam mặc quần đùi cởi trần chân trần, nữ mặc bikini có ngực (chốt 28/10), body đẹp vừa phải; MỌI TỘC CÙNG MỘT MÀU DA nên chỉ vẽ 1 thân nền nam + 1 nữ, thân nền có đủ 5 đòn tấn công của 5 vũ khí vì cởi đồ vẫn đánh được. Đầu: 30 đầu chọn lúc tạo nhân vật, dùng chung mọi bộ, cùng màu da thân. Mỗi phiên làm đủ 5 class. Lượt tính: thân/bộ (8 hướng, đứng/đi/chạy/đòn, +30% vẽ lại) ~145, vũ khí ~35 (~16 góc). Phiên 5: chủ đề rớt cấp max 6, 7 cho cả 5 class, mỗi bộ có thân nam/nữ + vũ khí riêng. Dự tính ~3.300 lượt PixelLab (vừa gói 5.000 lượt/tháng). NGHIÊM CẤM ÁO ĐỘI MŨ (chủ dự án 06/11/2026): mọi bộ đồ và icon đồ không có mũ trùm / mũ / mũ giáp / khăn đội / vương miện / mặt nạ — đầu là lớp riêng; bộ kiểm plan.ts HEADWEAR chặn.",
       "weight": 5,
       "phase": 2,
       "region": null,
@@ -8835,8 +9032,8 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
     {
       "id": "story-reboot-game",
       "group": "Cốt truyện",
-      "name": "Biên soạn nhiệm vụ mới và phân vai NPC đời cũ",
-      "detail": "Thay tuyến nhân vật chính cố định trong client bằng hành trình chọn class. Viết vai trò NPC cho nhân vật cũ, chuyển trạng thái nhiệm vụ/save có kiểm thử. Đợt web hiện tại chưa sửa quest sản xuất. CHỐT THAY THẾ27/10 (mới nhất): BỎ toàn bộ nhánh cởi đồ/thân nền đồ lót và yêu cầu tấn công5 vũ khí trên thân không trang bị. Khi tạo nhân vật BẮT BUỘC chọn1 trong5 class kiếm/cung/trượng/thương/khiên; cấp1 bộ đồ cơ bản và1 vũ khí cơ bản đúng class. Hình nhân vật luôn có tối thiểu bộ cơ bản của class, không có trạng thái cởi trần/đồ lót. Khi thay/bỏ trang bị thì quay về hình bộ cơ bản, không về thân khỏa/đồ lót. Đồ chỉ vẽ động tác class tương ứng, đi8/chạy8/đánh15 frame đủ8 hướng. Kiếm/vũ khí vẫn asset riêng có điểm nắm/lớp ngón tay, thay được độc lập. Hai dáng nam/nữ, nữ nhỏ nhắn thanh hơn, cùng HEAD_STANDARD và neo cổ. Ưu tiên hoàn tất mẫu kiếm sĩ nam/nữ mới trong game; các nguồn đồ lót đã thử bị loại khỏi runtime và ngừng vẽ. Các đoạn kế hoạch thân nền đồ lót trước đó là LỊCH SỬ ĐÃ HỦY, không được thực thi. Không reset DB hiện có.",
+      "name": "Viết lại 100% cốt truyện, nhiệm vụ chính / phụ và vai trò NPC",
+      "detail": "Chốt chủ dự án 08/11/2026: làm lại toàn bộ cốt truyện có chiều sâu, cảm động, động cơ và quan hệ nhân vật rõ, cú lật có gieo dấu hiệu và hậu quả; biên soạn nhiệm vụ mới, hội thoại và phần thưởng. Giữ tuyến chính theo cấp / Ma thần, bổ sung nhiệm vụ phụ có câu chuyện; giữ các trụ cột 5 tộc / 5 class / 8 nguyên tố phát hiện cấp 10 / Thiên Thành. 100% là phạm vi phải viết lại, KHÔNG phải tiến độ hoàn thành. Tuyến mở đầu phải giới thiệu mọi NPC cố định map đầu trước khi mở Gia viên. Duyệt bản chữ toàn bộ trước khi chuyển dữ liệu sim / máy chủ / Unity; chuyển save có phiên bản, không reset DB. Luật tạo hình / trang bị theo chốt kỹ thuật hiện hành, không suy từ mô tả truyện cũ. Chi tiết: docs/thiet-ke/tai-thiet-cot-truyen-npc-2026-11.md BỔ SUNG 08/11: skill đang chơi vẫn bản cũ; nhiệm vụ mới phải theo kế hoạch 140 chiêu (mỗi bộ 10 gồm 3 bị động, Kiếm 3 phái, Pháp sư 8 hệ), không lấy luật mở / học skill cũ làm chuẩn. Thêm NPC truyện tại các map quái, nối động cơ / quan hệ / dấu vết / hậu quả qua nhiều map thành tuyến có chiều sâu và drama có căn nguyên. Ưu tiên Gia viên và NPC vùng 1 trước.",
       "weight": 6,
       "phase": 2,
       "region": null,
@@ -8846,13 +9043,13 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "requiresNewArt": false,
       "steps": [
         {
-          "label": "Biên soạn tuyến mới và vai trò NPC",
+          "label": "Viết lại toàn bộ bản chữ, tuyến chính theo cấp / Ma thần, nhiệm vụ phụ, quan hệ NPC và các cú lật để chủ dự án duyệt",
           "weight": 30,
           "done": false,
           "evidence": ""
         },
         {
-          "label": "Dữ liệu nhiệm vụ và quy tắc chuyển save",
+          "label": "Dữ liệu nhiệm vụ / hội thoại / phần thưởng mới và phương án chuyển save không mất tiến độ / tài sản",
           "weight": 30,
           "done": false,
           "evidence": ""
@@ -8869,7 +9066,8 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
           "done": false,
           "evidence": ""
         }
-      ]
+      ],
+      "priority": 1
     },
     {
       "id": "web-spa",
@@ -9388,6 +9586,170 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
         }
       ],
       "detail": "Bản Windows431482 (2026.10.27-2223) trong phòng Thử chiêu.3 bộ/3 kiếm mốc1/5/10; tân thủ vải/giáp nhẹ,lv5 áo da vạt quấn/dây ngực/giáp vai lệch,lv10 giáp ngực ghép mảnh/áo choàng lưng/giáp tay-chân.6 dáng nam/nữ, nữ thanh nhỏ hơn;90 nguồn motion,1536 pose:1 đứng+8 đi+8 chạy+15 bổ ×8 hướng×6 thân.5 hướng nguồn,3 đối hướng lật quanh root, ghi rõ metadata. Kiếm là lớp riêng,3 dáng lưỡi/hộ thủ/đốc khác,4608 tổ hợp lớp kiếm; ngón tay che chuôi. Thân thật không đầu/không vũ khí; nguồn đồ lót bị hủy, không vào runtime. HEAD_STANDARD giữ nguyên,30 đầu/240 hướng. Sửa cắt mất cổ ở biên ô bằng tách alpha trọn thân, neo cổ theo silhouette/viền cổ theo pose, không scale/offset avatar runtime. Test asset1536/4608 và Unity đầy đủ PASS; kiểm mốc cấp, đổi đồ/kiếm trong kho, túi đồ dùng cùng4 lớp mới không còn nhân vật cũ, ẩn đầu/kiếm và khôi phục người gốc. Tài liệu/prompt: packages/asset-pipeline/sources/player-rig-v4/README.md. Đã có6 item/levelReq, chưa tự đặt chỉ số/giá/nguồn nhận hai bậc sau. Phạm vi PHÒNG THỬ CHIÊU, chưa thay roster/luồng tạo nhân vật chính; quà chọn class mới là dữ liệu/helper, chưa phát cho tài khoản thật. Chưa nghiệm thu mỹ thuật thay chủ dự án, còn rà nét so NPC/duyệt chuyển động trước production. DB14 accounts/14chars không reset. Link review: /site/media/weapon-proof-v2/rig-v4/."
+    },
+    {
+      "id": "progression-slower",
+      "group": "Tính năng đã chốt",
+      "name": "Lên cấp chậm hơn — cân bằng EXP và phần thưởng nhiệm vụ",
+      "detail": "Chủ dự án 08/11/2026: level tăng chậm hơn. Rà đường cong EXP, quái / boss / quest chính–phụ và hoạt động lặp; lập thời gian mục tiêu từng chặng, nhất là 1–5, 5–10 và chuyển vùng. Không tự chốt hệ số giảm EXP; cần duyệt và thử trải nghiệm. Giữ cấp / tài sản cũ khi chuyển luật, không reset DB hoặc kéo dài chỉ bằng giết lặp. Khớp mốc nguyên tố cấp 10 và trang bị. Chi tiết: docs/thiet-ke/tai-thiet-cot-truyen-npc-2026-11.md mục 2.",
+      "weight": 4,
+      "phase": 2,
+      "region": null,
+      "depends": [
+        "story-reboot-game"
+      ],
+      "requiresNewArt": false,
+      "priority": 1,
+      "steps": [
+        {
+          "label": "Đo nhịp hiện tại và đề xuất thời gian từng chặng / đường cong EXP",
+          "weight": 25,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Cân bằng EXP quái / boss / nhiệm vụ và kiểm cách chuyển tài khoản cũ",
+          "weight": 35,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Tích hợp luật sim / máy chủ / Unity đồng nhất",
+          "weight": 20,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Thử người mới / tài khoản cũ trên 3201, chủ dự án nghiệm thu nhịp lên cấp",
+          "weight": 20,
+          "done": false,
+          "evidence": ""
+        }
+      ]
+    },
+    {
+      "id": "regional-service-npcs",
+      "group": "Trung tâm vùng",
+      "name": "NPC dịch vụ đủ mỗi vùng — 5 nghề riêng và NPC sự kiện dùng chung",
+      "detail": "Chủ dự án 08/11/2026: mỗi vùng đủ người bán trang bị, thợ rèn vũ khí / trang bị, người bán vũ khí, người bán đồ ăn buff, người bán vật phẩm hồi phục và NPC sự kiện. Chỉ NPC sự kiện giống nhau giữa các vùng (chung danh tính / tạo hình); năm NPC dịch vụ thường phải có thiết kế và câu chuyện riêng theo vùng. Bổ sung cư dân / NPC nhiệm vụ để thị trấn sinh động. Kế hoạch dùng GPT vẽ theo style nhân vật game hiện hành, NPC có thể đứng yên, không bắt buộc bộ di chuyển / tấn công. Duyệt một mẫu cạnh nhân vật thật trước khi nhân rộng. 13 vùng tương ứng 65 vị trí dịch vụ thường + 13 vị trí NPC sự kiện; rà NPC có sẵn trước khi chốt số mẫu mới. Chưa sinh hình, chưa chốt chi phí / công thức / giá. Vùng đang đóng không tự mở. Chi tiết: docs/thiet-ke/tai-thiet-cot-truyen-npc-2026-11.md mục 4, 6. Bổ sung 08/11: có cả NPC theo tuyến nhiệm vụ ở map quái, liên kết chặt với NPC thị trấn và các map trước–sau; không chỉ thêm người bán. Ưu tiên vùng 1 trước, dùng hình đã có trong đợt code / build hiện tại. CHỐT 12/11/2026 (chủ dự án: \"Mỗi vùng cần các npc khác nhau mà cần vẽ đấy pixelab\"): NPC vẽ bằng PixelLab, KHÔNG GPT (mẫu NPC GPT bị loại 12/11 vì lệch style PixelLab); tạo hình anime cùng nét hai NPC tóc trắng, khung 80×88 như npc_bram_001, mỗi vùng NPC khác nhau theo dân / chất vùng (người nấm ở Ánh Tím, người lùn ở Đe Đỏ, dân chài ở San Hô, lính liên quân ở Hư Không…), không đội mũ (theo chốt 06/11). Vì tiệm là phòng vào được (chốt 12/11) nên mỗi khu dân cư thêm chủ quán rượu (kiêm đồ ăn buff), chủ ngân hàng và thợ nâng cấp: đề xuất 7 NPC / khu (vũ khí, trang bị, thợ rèn, thợ nâng cấp, quán rượu, ngân hàng, hồi phục) — 12 khu × 7 + Thistlewood thêm 3 (quán rượu, ngân hàng, nâng cấp) = 87 NPC + NPC sự kiện chung + NPC truyện chỉ có giọng (Nyra, Odessa, Zahra, Hassim, Orrin, Wenna, Kael, Hilde, Durin, Maris, Corvin). Dự tính ~14 lượt / NPC (tạo + 8 hướng + đứng thở) ≈ 1.200 lượt, cộng 30% vẽ lại ≈ 1.600. Thử 2 mẫu trước, duyệt cạnh nhân vật thật rồi mới vẽ hàng loạt. Danh sách: docs/ke-hoach-nha-rieng.md mục 9.12.",
+      "weight": 5,
+      "phase": 2,
+      "region": null,
+      "depends": [
+        "style",
+        "story-reboot-game"
+      ],
+      "requiresNewArt": true,
+      "priority": 1,
+      "steps": [
+        {
+          "label": "Kiểm kê NPC và lập danh sách / vai trò / nhân dạng riêng theo vùng, mẫu sự kiện chung",
+          "weight": 20,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "GPT vẽ mẫu NPC theo ảnh tham chiếu game; chủ dự án duyệt rồi mới mở rộng, pose đứng là đủ",
+          "weight": 30,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Nhập NPC và tích hợp đủ chức năng shop / rèn / đồ ăn / hồi phục / sự kiện theo thiết kế được duyệt",
+          "weight": 30,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Kiểm từng vùng đủ vai trò, khác nhân dạng vùng, chung NPC sự kiện; chủ dự án nghiệm thu",
+          "weight": 20,
+          "done": false,
+          "evidence": ""
+        }
+      ]
+    },
+    {
+      "id": "regional-service-buildings",
+      "group": "Trung tâm vùng",
+      "name": "Nhà và cửa hàng cao lớn, chi tiết hơn — đúng style từng vùng",
+      "detail": "Chủ dự án 08/11/2026: kế hoạch GPT vẽ nhà + NPC theo style hình game hiện tại. Nhà chính / cửa hàng / xưởng cần cao, to, chi tiết hơn, vật liệu và thiết kế rõ chức năng; giữ bản sắc vùng. Bố trí cửa hàng trang bị, xưởng rèn, cửa hàng vũ khí, quán ăn, tiệm hồi phục và vị trí NPC sự kiện. Đo cửa / tầng / mái với NPC hiện hành ở cùng PPU, duyệt mẫu trên map thật; không phóng ảnh cũ, không đổi style nền / cây cũ. Giữ nhà nhỏ làm nhà phụ. Chưa sinh hình hoặc chốt số công trình / chi phí; cách gộp quầy cùng nhà chờ duyệt bố cục. Chi tiết: docs/thiet-ke/tai-thiet-cot-truyen-npc-2026-11.md mục 5–6.",
+      "weight": 5,
+      "phase": 2,
+      "region": null,
+      "depends": [
+        "style",
+        "regional-service-npcs"
+      ],
+      "requiresNewArt": true,
+      "priority": 1,
+      "steps": [
+        {
+          "label": "Thiết kế nhà / quầy dịch vụ và thước tỷ lệ theo NPC cho từng vùng",
+          "weight": 20,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "GPT vẽ mẫu chi tiết hơn đúng style, duyệt trước khi nhân rộng các nhà vùng",
+          "weight": 35,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Nhập hình, bố trí nhà / quầy / NPC và giữ lối đi, cửa tương tác hợp tỷ lệ",
+          "weight": 25,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Kiểm tỷ lệ và nét trên map PC / web / mobile, chủ dự án nghiệm thu",
+          "weight": 20,
+          "done": false,
+          "evidence": ""
+        }
+      ]
+    },
+    {
+      "id": "starter-npc-onboarding",
+      "group": "Cốt truyện",
+      "name": "Làm quen toàn bộ NPC map đầu rồi mới mở Gia viên",
+      "detail": "Chủ dự án 08/11/2026: Gia viên chỉ mở sau khi người chơi hoàn thành tuyến làm quen hết NPC cố định map đầu Thistlewood, gồm NPC truyện và đủ các dịch vụ mới. Danh sách khai bằng dữ liệu; NPC sự kiện có hội thoại giới thiệu cả ngoài thời gian sự kiện, không bắt chờ sự kiện hoặc mua hàng để qua hướng dẫn. Sau bước cuối mới nhận quyền về khuôn viên. Máy chủ lưu xác nhận và cờ mở theo tài khoản; chặn cả cổng / HUD / gọi lệnh thẳng khi chưa đạt. Có phương án chuyển tài khoản cũ bảo toàn tài sản, không reset DB. Chi tiết: docs/thiet-ke/tai-thiet-cot-truyen-npc-2026-11.md mục 3.",
+      "weight": 3,
+      "phase": 2,
+      "region": "human",
+      "depends": [
+        "story-reboot-game",
+        "regional-service-npcs",
+        "progression-slower"
+      ],
+      "requiresNewArt": false,
+      "priority": 1,
+      "steps": [
+        {
+          "label": "Duyệt tuyến mở đầu, danh sách đầy đủ NPC Thistlewood và nhiệm vụ bàn giao Gia viên",
+          "weight": 25,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Máy chủ lưu và xác minh các bước / cờ mở Gia viên theo tài khoản, có chuyển save cũ",
+          "weight": 35,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Client dẫn truyện / tương tác NPC và hiện điều kiện mở cổng / HUD",
+          "weight": 20,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Thử thiếu một NPC, đủ NPC, đăng nhập lại, ngoài thời gian sự kiện và tài khoản cũ; chủ dự án duyệt",
+          "weight": 20,
+          "done": false,
+          "evidence": ""
+        }
+      ]
     }
   ],
   "worldDesign": {
@@ -10468,8 +10830,8 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "Thiên Thành có một vị thần hé lộ tri thức toàn thế giới và lịch sử khởi nguyên. Bản đồ tổng sẽ vẽ lại sau khi bố trí được duyệt."
     ],
     "topology": {
-      "mapCount": 174,
-      "directedLinks": 424,
+      "mapCount": 175,
+      "directedLinks": 426,
       "crossRegionLinks": 24,
       "connections": [
         {

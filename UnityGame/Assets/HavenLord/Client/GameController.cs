@@ -92,6 +92,10 @@ namespace HavenLord.Client
             if (pixelCamera != null) new GameObject("Weather").AddComponent<Weather>().Init(() => pixelCamera != null ? pixelCamera.Cam : null, () => Map);
             // Nước chuyển động (05/11/2026): vệt sáng trôi theo dòng suối, sóng lăn tăn, lấp lánh, bọt dung nham.
             if (pixelCamera != null) new GameObject("WaterMotion").AddComponent<WaterMotion>().Init(() => pixelCamera != null ? pixelCamera.Cam : null, () => Map);
+            // Ánh sáng – bóng tối hang / ngục (05/11/2026).
+            if (pixelCamera != null) new GameObject("Lighting").AddComponent<Lighting>().Init(() => pixelCamera != null ? pixelCamera.Cam : null, () => Map, () => player != null ? new Vector2((float)player.X, (float)player.Y) : Vector2.zero);
+            // Lửa trại / chậu lửa / đuốc đang cháy + tàn lửa, đom đóm quanh đèn ban đêm (06/11/2026).
+            if (pixelCamera != null) new GameObject("PropFire").AddComponent<PropFire>().Init(() => pixelCamera != null ? pixelCamera.Cam : null, () => Map, () => map != null ? map.transform : null, id => database != null ? database.VfxClip(id)?.frames : null);
         }
 
         private void Start()
@@ -218,14 +222,14 @@ namespace HavenLord.Client
             if (LabMode && online == null) TickLab();
             var realDt = Mathf.Min(Time.deltaTime, 0.1f);
             TickBuffs(realDt);
-            TickStory();
+            if (!InFarm) TickStory();
             ScanCodex(realDt);
             var talking = hud.Blocking;
             GameInput.Typing = (hud.Chat != null && hud.Chat.Typing) || hud.Panels.Typing;
             HandleKeys(talking);
             HandlePointer(talking);
 
-            var intent = changing || talking || combat.Pc.Dead ? default : input.Intent();
+            var intent = changing || talking || combat.Pc.Dead || FarmBusy ? default : input.Intent();
             var stepCap = double.MaxValue;
             TickAutoWalk(ref intent, ref stepCap, talking, realDt);
             var moving = combat.Pc.Dash == null && (intent.x != 0 || intent.y != 0);
@@ -271,6 +275,7 @@ namespace HavenLord.Client
             hud.FadeAlpha = fade;
             SendMove(realDt);
             SendMobPositions(realDt);
+            TickFarm(realDt);
         }
 
         private bool Blocked(double x, double y, double rx, double ry) => map != null && map.Blocker(x, y, rx, ry);
@@ -431,6 +436,7 @@ namespace HavenLord.Client
             if (at.HasValue)
             {
                 var w = pixelCamera.ScreenToPx(at.Value);
+                if (InFarm) { FarmClick(w); mouseHeldL = mouseHeldR = false; return; }
                 var hit = WorldPopulation.FocusAt(Candidates(true, true), w.x, w.y);
                 if (hit is Npc n)
                 {
@@ -442,6 +448,7 @@ namespace HavenLord.Client
                 if (hit != null) focus = hit;
                 if (button >= 0) CastSlot(button, false);
             }
+            if (InFarm) return;
             if (mouseHeldL) CastSlot(0, true);
             if (mouseHeldR) CastSlot(1, true);
         }
@@ -476,6 +483,7 @@ namespace HavenLord.Client
 
         private void CastSlot(int slot, bool repeat)
         {
+            if (InFarm) return;
             if (slot >= loadout.Count || loadout[slot] == null) return;
             var idx = -1;
             for (var i = 0; i < combat.Skills.Count; i += 1)
@@ -539,6 +547,7 @@ namespace HavenLord.Client
 
         public void Interact()
         {
+            if (InFarm) { FarmInteract(); return; }
             if (hud.DialogOpen)
             {
                 AdvanceDialog();
@@ -552,6 +561,8 @@ namespace HavenLord.Client
 
         private void Talk(Npc n)
         {
+            NoteFarmNpc(n);
+            if (OpenVillageService(n)) return;
             talkingTo = n;
             if (n.Actor != null) n.Actor.View.Set("idle", GameInput.DirectionOf((float)(player.X - n.X), (float)(player.Y - n.Y)));
             var lines = n.Def.Idle;
@@ -683,9 +694,9 @@ namespace HavenLord.Client
                 }
                 population.Populate(map.def, region.region, age, online != null);
                 areaName = map.def.AreaAt(at.x, at.y);
-                PvpHere = !SafeMaps().Contains(idx.region + "/" + mapId);
+                PvpHere = idx.region != "home" && !SafeMaps().Contains(idx.region + "/" + mapId);
                 hud.Banner(map.def.displayName + (PvpHere ? "  ·  PvP" : "  ·  Vùng an toàn"));
-                if (online != null)
+                if (online != null && idx.region != "home")
                 {
                     online.Progress.Map = idx.region + "/" + mapId;
                     online.Send(new ClientMap { Map = online.Progress.Map });
@@ -693,7 +704,8 @@ namespace HavenLord.Client
                     if (HasSharedZones()) online.Send(new ClientMobSub { On = true });
                     SavePosition();
                 }
-                OnMapReadyStory(first);
+                if (idx.region != "home") OnMapReadyStory(first);
+                FarmMapReady(idx.region == "home");
             }
             finally
             {

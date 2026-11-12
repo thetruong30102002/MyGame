@@ -1,0 +1,20 @@
+{
+	"description": "A sprite sheet of TWELVE separate underwater aquarium decorations arranged in a grid of 4 columns and 3 rows, each centered in its own cell, seen from the side as in a fish tank. Row 1: a pink branching coral, an orange sea fan coral, a purple brain coral, blue tube corals. Row 2: a swaying sea anemone, a scallop shell, a spiral conch shell, an orange starfish. Row 3: an open clam with a shining pearl, a sunken clay amphora, a glowing blue Haven crystal cluster, a tiny sunken wooden shipwreck. Side view, thick dark outline, soft cel shading, every object fully separate on a plain flat solid bright magenta (#FF00FF) chroma-key background with empty space around it, no fish, no animals, no characters, no shadow, no text, no numbers, no border, no frame",
+	"width": 256,
+	"height": 256,
+	"no_background": false,
+	"seed": 1115,
+	"style_options": {
+		"color_palette": false,
+		"outline": true,
+		"shading": true,
+		"detail": false
+	},
+	"style_image": {
+		"path": "sources/pixellab/sheets/N1_nature.png",
+		"usage_description": "Copy ONLY the art style of this reference: chunky chibi pixel art, thick dark outline on every shape, soft cel shading, front-facing view, one object centered in each cell. Do not copy these objects, their colors or their layout."
+	},
+	"jobId": "8b90b67a-f7eb-412c-97e8-74e4510a7092",
+	"token": 0,
+	"createdAt": "2026-11-11T09:58:44.147Z"
+}

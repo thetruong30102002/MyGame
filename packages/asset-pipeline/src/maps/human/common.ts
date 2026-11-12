@@ -1,4 +1,5 @@
 import type { PropMeta } from '../../props/buildProps.js';
+import { fbm } from '../noise.js';
 
 /**
  * Phần dùng chung của các map vùng Human Kingdom. Mỗi map sinh từ hạt giống cố định → chạy lại ra đúng map cũ;
@@ -86,7 +87,42 @@ export interface MapData {
 	exits: MapExit[];
 }
 
+/** Phần map do từng file map khai (bàn dựng `Layout` thêm lưới, đồ vật, decal). */
+export type MapBase = Omit<MapData, 'tileSize' | 'width' | 'height' | 'seed' | 'terrain' | 'props' | 'decals'>;
+
 export const px = (t: number): number => Math.round(t * TILE + TILE / 2);
+
+/** Loài quái sông vùng 1 (05/11/2026). */
+export const RIVER_CRAB = 'mob_stream_crab_001';
+
+/** Bầy quái sông (3 con, sát bờ) ở ô `at` của `riverSpot` — cấp theo map (nấc cấp vùng 1). */
+export function riverZone(at: { x: number; y: number }, mapId: string, mapName: string, level: number): MonsterZone {
+	return { id: `${mapId}_river`, name: `${mapName} · bờ suối`, x: px(at.x), y: px(at.y), radius: Math.round(1.8 * TILE), monsters: [RIVER_CRAB], count: 3, fromAge: 16, level, river: true };
+}
+
+/** Tâm bầy cách TÂM dòng suối: luật `MIN_WATER_GAP` (6 ô) + nửa bề rộng lớn nhất (1,6 ô) + 0,4 ô dư. */
+const MIN_WATER_GAP_STREAM = 8;
+
+/** Đường uốn lượn (các điểm ô) từ a tới b — dùng cho suối (`Layout.autoStream`, bộ dựng kit). */
+export function meanderPts(a: [number, number], b: [number, number], R: (x: number, y: number) => number, maxAmp = 6): [number, number][] {
+	const dx = b[0] - a[0];
+	const dy = b[1] - a[1];
+	const dist = Math.hypot(dx, dy) || 1;
+	const nx = -dy / dist;
+	const ny = dx / dist;
+	const amp = Math.min(maxAmp, dist / 4) * (R(0, 1) < 0.5 ? -1 : 1);
+	const f1 = R(0.8, 1.8);
+	const ph = R(0, Math.PI * 2);
+	const steps = Math.ceil(dist * 2);
+	const out: [number, number][] = [];
+	for (let i = 0; i <= steps; i += 1) {
+		const t = i / steps;
+		const env = Math.sin(t * Math.PI);
+		const off = env * (amp * Math.sin(t * Math.PI * f1) + Math.min(1.4, maxAmp / 2) * Math.sin(t * Math.PI * 3 + ph));
+		out.push([Math.round(a[0] + dx * t + nx * off), Math.round(a[1] + dy * t + ny * off)]);
+	}
+	return out;
+}
 
 /** Địa điểm cột dịch chuyển — MỌI map có một (cùng id, luật "id địa điểm không trùng" chừa riêng id này). */
 export const WAYSTONE_SPOT = 'waystone';
@@ -107,6 +143,17 @@ interface PlaceOpts {
 	force?: boolean;
 	allowRoad?: boolean;
 	canopy?: boolean;
+	/** Không đặt ngay sau gốc cây (tán cây phía nam sẽ che mất) — dùng cho cụm cảnh kể chuyện. */
+	clearOfTrees?: boolean;
+}
+
+/** Một món trong cụm cảnh: danh sách id thay thế theo vùng (lấy id ĐẦU TIÊN có trong atlas), lệch (px) so với tâm cụm. */
+export interface GroupPiece {
+	ids: readonly string[];
+	dx: number;
+	dy: number;
+	/** Món đặt trên mặt nước (thuyền): mặt nước dưới chân, cả hai đầu thuyền (±40px) cũng là nước. */
+	onWater?: boolean;
 }
 
 /** Bàn dựng một map: lưới địa hình + đặt đồ vật có kiểm chồng hình/đường/nước + rải decal. */
@@ -194,6 +241,7 @@ export class Layout {
 				? this.trunks.some((t) => Math.hypot(t.x - x, (t.y - y) * 1.6) < 70) || this.boxes.some((b) => foot.x0 < b.x1 && foot.x1 > b.x0 && foot.y0 < b.y1 && foot.y1 > b.y0)
 				: this.boxes.some((b) => box.x0 < b.x1 - 6 && box.x1 > b.x0 + 6 && box.y0 < b.y1 - 6 && box.y1 > b.y0 + 6);
 			if (overlap) return false;
+			if (opts.clearOfTrees && this.trunks.some((t) => Math.abs(t.x - x) < 48 && t.y - y > -30 && t.y - y < 120)) return false;
 			for (let ty = Math.floor(foot.y0 / TILE); ty <= Math.floor((foot.y1 - 1) / TILE); ty += 1) {
 				for (let tx = Math.floor(foot.x0 / TILE); tx <= Math.floor((foot.x1 - 1) / TILE); tx += 1) {
 					const t = this.at(tx, ty);
@@ -204,6 +252,46 @@ export class Layout {
 		this.props.push({ id, x: Math.round(x), y: Math.round(y) });
 		if (opts.canopy) this.trunks.push({ x, y });
 		else this.boxes.push(box);
+		return true;
+	}
+
+	/** Id đầu tiên trong danh sách có trong atlas (đồ vật thay thế theo vùng); không có thì `null`. */
+	resolve(ids: readonly string[]): string | null {
+		return ids.find((id) => this.meta[id]) ?? null;
+	}
+
+	/**
+	 * Đặt một CỤM đồ vật quanh tâm (x, y) px, kiểu được cả hoặc bỏ cả: cần ≥ 3 món có trong atlas; món đầu (món chính) phải đặt được và ≥ 3/4 số món có trong
+	 * atlas phải đặt được, không thì gỡ hết các món vừa đặt. Đặt xong giữ trống quanh cụm (cây rải sau không mọc chồng lên).
+	 */
+	group(pieces: readonly GroupPiece[], x: number, y: number): boolean {
+		const ids = pieces.map((p) => this.resolve(p.ids));
+		// Vùng thiếu đồ (dưới 3 món có trong atlas) thì cụm trông lẻ loi — bỏ.
+		if (!ids[0] || ids.filter(Boolean).length < 3) return false;
+		const [np, nb, nt] = [this.props.length, this.boxes.length, this.trunks.length];
+		let made = 0;
+		let want = 0;
+		for (let i = 0; i < pieces.length; i += 1) {
+			const id = ids[i];
+			if (!id) continue;
+			want += 1;
+			const p = pieces[i]!;
+			const [qx, qy] = [x + p.dx, y + p.dy];
+			let ok: boolean;
+			if (p.onWater) {
+				const ty = Math.floor((qy - 4) / TILE);
+				ok = [-40, 0, 40].every((o) => this.at(Math.floor((qx + o) / TILE), ty) === 'w') && this.place(id, qx, qy, { force: true });
+			} else ok = this.place(id, qx, qy, { clearOfTrees: true });
+			if (ok) made += 1;
+			else if (i === 0) break;
+		}
+		if (made === 0 || this.props.length === np || made < Math.ceil(want * 0.75) || !this.props.slice(np).some((q) => q.id === ids[0])) {
+			this.props.length = np;
+			this.boxes.length = nb;
+			this.trunks.length = nt;
+			return false;
+		}
+		this.reserve(x / TILE, y / TILE - 0.3, 2.2);
 		return true;
 	}
 
@@ -246,6 +334,82 @@ export class Layout {
 		}
 	}
 
+	/**
+	 * Suối tự tìm đường cho map dựng tay (vùng 1, chủ dự án 05/11/2026 "nhiều sông suối hơn"): thử tới `tries` đường uốn lượn nối hai
+	 * mép, bỏ đường nào chạm vùng cấm — tâm bầy (`avoid`, giữ cách nước ≥ MIN_WATER_GAP + 1,5 ô và ≥ bán kính bãi + 2), điểm nhiệm vụ /
+	 * lối ra (`keep`, ≥ 3 ô) — rồi khắc đường đầu tiên hợp lệ (bề rộng phình / thắt + một vũng). Trả về có khắc được không.
+	 */
+	autoStream(opts: { avoid: readonly { x: number; y: number; r: number }[]; keep: readonly [number, number][]; tries?: number }): boolean {
+		const R = (a: number, b: number): number => a + this.rand() * (b - a);
+		const edgePt = (e: number): [number, number] => {
+			const len = e % 2 === 0 ? this.w : this.h;
+			const c = Math.round(R(5, len - 6));
+			return e === 0 ? [c, 0] : e === 2 ? [c, this.h - 2] : e === 3 ? [0, c] : [this.w - 2, c];
+		};
+		// Cũng né mọi chỗ đã giữ trống (`reserve`: lối, điểm nhiệm vụ…) và chân đồ vật đã đặt (bia, tường, nhà…).
+		const feet = [...this.trunks.map((t) => [t.x / TILE, t.y / TILE] as const), ...this.boxes.map((b) => [(b.x0 + b.x1) / 2 / TILE, b.y1 / TILE] as const)];
+		const ok = ([x, y]: [number, number], pad = 0): boolean =>
+			opts.avoid.every((z) => Math.hypot(x - z.x, y - z.y) >= Math.max(z.r + 2, MIN_WATER_GAP_STREAM) + pad) &&
+			opts.keep.every(([kx, ky]) => Math.hypot(x - kx, y - ky) >= 3 + pad) &&
+			this.keepOut.every((k) => Math.hypot(x + 0.5 - k.x, y + 0.5 - k.y) >= k.r + 0.8 + pad) &&
+			feet.every(([fx, fy]) => Math.hypot(x + 0.5 - fx, y + 0.5 - fy) >= 1.6 + pad);
+		const tries = opts.tries ?? 1500;
+		// Nửa đầu số lượt: dòng băng qua map (mép → mép); không có thì suối từ mép đổ vào một ao trong map.
+		for (let t = 0; t < tries * 2; t += 1) {
+			const across = t < tries;
+			const a = Math.floor(this.rand() * 4);
+			const b = this.rand() < 0.6 ? (a + 2) % 4 : (a + 1 + Math.floor(this.rand() * 3)) % 4;
+			if (a === b) continue;
+			const p0 = edgePt(a);
+			const p1: [number, number] = across ? edgePt(b) : [Math.round(R(6, this.w - 7)), Math.round(R(6, this.h - 7))];
+			// Không nhận đoạn cắt góc: dòng băng qua ≥ 75% cạnh ngắn, suối đổ ao ≥ 28%.
+			if (Math.hypot(p1[0] - p0[0], p1[1] - p0[1]) < Math.min(this.w, this.h) * (across ? 0.75 : 0.28)) continue;
+			if (!across && !ok(p1, 2.5)) continue;
+			// Map dựng tay dày điểm cố định: uốn nhẹ dần theo số lượt thử (6 → 2 ô) để lọt hành lang hẹp.
+			const pts = meanderPts(p0, p1, R, 6 - 4 * ((t % tries) / tries));
+			if (!pts.every((p) => ok(p))) continue;
+			const base = R(1.7, 2.3);
+			const ph = R(0, Math.PI * 2);
+			this.stream(pts, (u) => Math.max(1.2, Math.min(3.2, base + 0.8 * Math.sin(u * Math.PI * 2.3 + ph))));
+			const mid = across ? pts[Math.floor(pts.length * R(0.3, 0.7))]! : p1;
+			if (ok(mid, 2.5)) this.pool(mid[0] + 0.5, mid[1] + 0.5, R(2.2, 2.9));
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * Bãi QUÁI SÔNG (chủ dự án 05/11/2026 "có thêm quái ở sông"): ô cạn cách nước 2–3,4 ô (luật bầy sông 1,5–4), cách đường ≥ 2,5 ô,
+	 * xa các bãi khác (`avoid`, ≥ bán kính + 4) và chỗ giữ trống; giữ trống luôn bán kính 2,6 ô để cây / đá không mọc chặn. Gọi SAU khi
+	 * khắc suối / sông, TRƯỚC khi rải đồ vật. Không có chỗ thì null (map đó không có quái sông).
+	 */
+	riverSpot(avoid: readonly { x: number; y: number; r: number }[]): { x: number; y: number } | null {
+		const cells: [number, number][] = [];
+		for (let y = 0; y < this.h; y += 1) for (let x = 0; x < this.w; x += 1) if (this.at(x, y) === 'w') cells.push([x, y]);
+		if (!cells.length) return null;
+		const near = (x: number, y: number, hit: (c: string) => boolean, max: number): number => {
+			let best = Infinity;
+			for (let dy = -max; dy <= max; dy += 1) for (let dx = -max; dx <= max; dx += 1) if (hit(this.at(x + dx, y + dy))) best = Math.min(best, Math.hypot(dx, dy));
+			return best;
+		};
+		let pick: { x: number; y: number } | null = null;
+		let score = -Infinity;
+		for (let t = 0; t < 1500; t += 1) {
+			const x = 3 + Math.floor(this.rand() * (this.w - 6));
+			const y = 3 + Math.floor(this.rand() * (this.h - 6));
+			const c = this.at(x, y);
+			if (c === 'w' || c === '#' || c === 'b' || c === 'd' || c === 'c') continue;
+			const wd = near(x, y, (k) => k === 'w', 4);
+			if (wd < 2 || wd > 3.4 || near(x, y, (k) => k === 'd' || k === 'c' || k === 'b', 3) < 2.5) continue;
+			const far = avoid.reduce((m, z) => Math.min(m, Math.hypot(x - z.x, y - z.y) - z.r), Infinity);
+			if (far < 4 || this.keepOut.some((k) => Math.hypot(x + 0.5 - k.x, y + 0.5 - k.y) < k.r + 1)) continue;
+			const s = Math.min(far, 12) + this.rand() * 2;
+			if (s > score) (score = s), (pick = { x, y });
+		}
+		if (pick) this.reserve(pick.x + 0.5, pick.y + 0.5, 2.6);
+		return pick;
+	}
+
 	/** Vũng nước tròn tâm (cx, cy) ô, bán kính r ô; đè lên đường thì thành cầu gỗ như `stream`. */
 	pool(cx: number, cy: number, r: number): void {
 		for (let y = Math.floor(cy - r); y <= Math.ceil(cy + r); y += 1)
@@ -268,8 +432,17 @@ export class Layout {
 		for (let i = 0; i < count; i += 1) {
 			const x = Math.round(this.rand() * this.w * TILE);
 			const y = Math.round(this.rand() * this.h * TILE);
-			const t = this.at(Math.floor(x / TILE), Math.floor(y / TILE));
+			const tx = Math.floor(x / TILE);
+			const ty = Math.floor(y / TILE);
+			const t = this.at(tx, ty);
 			if (t === 'w' || t === 'b' || t === 'c') continue;
+			// Gom thành MẢNG (chủ dự án 05/11/2026 so map tham khảo: "clean"): búi cỏ / sỏi dày trong mảng nhiễu rộng ~5 ô, ngoài mảng
+			// chỉ lác đác — nền có chỗ nghỉ mắt thay cho lấm tấm đều khắp map. Sỏi trên đường dồn về hai mép đường.
+			const keep =
+				t === 'd'
+					? [this.at(tx - 1, ty), this.at(tx + 1, ty), this.at(tx, ty - 1), this.at(tx, ty + 1)].some((c) => c !== 'd' && c !== 'c') ? 0.55 : 0.12
+					: fbm(x / 240, y / 240, this.seed + 91, 2) > 0.57 ? 0.8 : 0.08;
+			if (this.rand() >= keep) continue;
 			const pool = t === 'd' ? pebbles : grass;
 			if (pool.length) this.decals.push({ id: this.pick(pool), x, y });
 		}
@@ -314,8 +487,56 @@ export class Layout {
 		return null;
 	}
 
-	finish(base: Omit<MapData, 'tileSize' | 'width' | 'height' | 'seed' | 'terrain' | 'props' | 'decals'>): MapData {
+	finish(base: MapBase): MapData {
+		this.benchByLamps();
 		if (this.missing.size) console.log(`  ⚠ ${base.id}: bỏ qua đồ vật chưa có trong atlas: ${[...this.missing].join(', ')}`);
+		return {
+			...base,
+			spots: this.waystoneSpots(base),
+			tileSize: TILE,
+			width: this.w,
+			height: this.h,
+			seed: this.seed,
+			terrain: this.T.map((row) => row.join('')),
+			props: [...this.props].sort((a, b) => a.y - b.y),
+			decals: this.decals,
+		};
+	}
+
+	/**
+	 * Ghế cạnh cột đèn (chủ dự án 06/11/2026: "trước đèn nên có một cái ghế là nhìn đẹp"): mỗi cột đèn thử đặt một ghế gỗ ngay bên phải, không
+	 * được thì bên trái, rồi phía trước — đặt theo luật chồng hình / đường / chỗ sinh quái như mọi đồ vật, không ép.
+	 */
+	private benchByLamps(): void {
+		const bench = this.resolve(['park_bench', 'bench', 'cloud_bench']);
+		if (!bench) return;
+		const bm = this.meta[bench]!;
+		for (const p of [...this.props]) {
+			if (species(p.id) !== 'lamp') continue;
+			// Chỉ ngay bên cạnh cột đèn, CÙNG hàng (đèn đứng ở đầu ghế như ghế công viên) — chủ dự án 06/11: "đặt chỗ trông xấu thế cũng đặt" khi
+			// ghế chắn trước chân đèn / lệch vào vạt cỏ. Hai bên không đủ chỗ thì bỏ, không nhét chỗ khác.
+			const gap = Math.round((this.meta[p.id]?.w ?? 19) / 2 + bm.w / 2 + 1);
+			for (const [dx, dy] of [[-gap, 0], [gap, 0]] as const) {
+				const [x, y] = [p.x + dx, p.y + dy];
+				// Hoa cỏ đi xuyên (không chặn đường) chiếm chỗ ghế thì gạt đi — ghế cạnh đèn quan trọng hơn khóm hoa; đặt không được thì trả lại.
+				const box = { x0: x - bm.w / 2, y0: y - bm.h, x1: x + bm.w / 2, y1: y };
+				const soft = this.props.filter((q) => {
+					const m = this.meta[q.id];
+					return m && !m.blocks && m.kind !== 'building' && m.kind !== 'tree' && q.x + m.w / 2 > box.x0 && q.x - m.w / 2 < box.x1 && q.y > box.y0 && q.y - m.h < box.y1;
+				});
+				const softBoxes = this.boxes.filter((b) => soft.some((q) => { const m = this.meta[q.id]!; return b.x0 === q.x - m.w / 2 && b.y1 === q.y && b.x1 === q.x + m.w / 2; }));
+				const [props, boxes] = [this.props.slice(), this.boxes.slice()];
+				this.props.splice(0, this.props.length, ...this.props.filter((q) => !soft.includes(q)));
+				this.boxes.splice(0, this.boxes.length, ...this.boxes.filter((b) => !softBoxes.includes(b)));
+				if (this.place(bench, x, y)) break;
+				this.props.splice(0, this.props.length, ...props);
+				this.boxes.splice(0, this.boxes.length, ...boxes);
+			}
+		}
+	}
+
+	/** Địa điểm của map, thêm chỗ cột dịch chuyển nếu map chưa tự khai. */
+	waystoneSpots(base: MapBase): MapData['spots'] {
 		// Cột dịch chuyển ở MỌI map (chủ dự án 14/10/2026: "thêm các đá dịch chuyển ở các map con nữa"): NPC cột của vùng
 		// (`@havenlord/sim/story/services`) đứng ở địa điểm `waystone` của map nào có. Trạm tự khai chỗ; map khác lấy chỗ trống gần điểm vào.
 		let spots = base.spots;
@@ -328,17 +549,7 @@ export class Layout {
 			if (!at) throw new Error(`${base.id}: không tìm được chỗ trống cho cột dịch chuyển gần điểm vào`);
 			spots = [...spots, { id: WAYSTONE_SPOT, name: 'Cột dịch chuyển', x: at.x, y: at.y, r: 80 }];
 		}
-		return {
-			...base,
-			spots,
-			tileSize: TILE,
-			width: this.w,
-			height: this.h,
-			seed: this.seed,
-			terrain: this.T.map((row) => row.join('')),
-			props: [...this.props].sort((a, b) => a.y - b.y),
-			decals: this.decals,
-		};
+		return spots;
 	}
 }
 

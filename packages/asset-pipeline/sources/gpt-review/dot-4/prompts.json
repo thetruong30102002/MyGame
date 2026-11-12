@@ -1,0 +1,424 @@
+[
+  {
+    "id": "lo_cau_thang_xuong",
+    "file": "lo_cau_thang_xuong.png",
+    "prompt": "A rectangular stairwell opening in a wooden floor seen from above at a slight top-down angle, wooden steps going DOWN into darkness away from the viewer (each lower step darker), a wooden banister railing with turned posts along the left side and the front edge, the right side and back open.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no animals, no characters, no helmets, no hats.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_rug_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-2/cau_thang_go.png"
+    ],
+    "tries": 3,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 10.93/8.46/10.93/8.46. Tạo hình đúng mô tả."
+  },
+  {
+    "id": "tuong_da_lo_ren",
+    "file": "tuong_da_lo_ren.png",
+    "prompt": "A straight front-facing interior wall panel of dark rough stone blocks with soot stains, a row of hanging blacksmith tools (tongs, hammers, horseshoes) on iron hooks, thick dark wooden posts on the left and right edges, a heavy wooden beam along the top.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no animals, no characters, no helmets, no hats.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/volcano_great_forge_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-2/tuong_go_ke.png"
+    ],
+    "tries": 1,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 7.62/7.13/7.75/6.64. Tạo hình đúng mô tả."
+  },
+  {
+    "id": "tuong_go_cua_hang",
+    "file": "tuong_go_cua_hang.png",
+    "prompt": "A straight front-facing interior wall panel of light wooden planks with two long wall shelves holding jars, folded cloth, rope coils and small boxes, thick wooden posts on the left and right edges, a ceiling beam along the top.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no animals, no characters, no helmets, no hats.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/human_house_store_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-2/tuong_go_ke.png"
+    ],
+    "tries": 1,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 10.94/9.28/10.94/8.20. Tạo hình đúng mô tả."
+  },
+  {
+    "id": "lo_ren",
+    "file": "lo_ren.png",
+    "prompt": "A big stone blacksmith forge with a glowing orange coal bed, a stone chimney hood above, a large leather bellows on the side, a few iron bars heating in the fire.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no animals, no characters, no helmets, no hats.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/volcano_great_forge_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-3/lo_nuong_banh.png"
+    ],
+    "tries": 2,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 6.45/7.57/7.33/7.18. Tạo hình đúng mô tả."
+  },
+  {
+    "id": "de_bua",
+    "file": "de_bua.png",
+    "prompt": "A heavy iron anvil on a thick tree-stump base, a blacksmith hammer resting on the anvil, a glowing hot sword blade on top.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no animals, no characters, no helmets, no hats.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_chest_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-2/ket_sat.png"
+    ],
+    "tries": 1,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 14.51/12.04/14.59/10.37. Tạo hình đúng mô tả."
+  },
+  {
+    "id": "thung_toi",
+    "file": "thung_toi.png",
+    "prompt": "A wooden quenching tub full of water with a little steam rising, a pair of iron tongs leaning in it.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no animals, no characters, no helmets, no hats.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_chest_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-2/thung_ruou_lon.png"
+    ],
+    "tries": 1,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 15.47/8.69/13.80/7.26. Tạo hình đúng mô tả."
+  },
+  {
+    "id": "gia_vu_khi",
+    "file": "gia_vu_khi.png",
+    "prompt": "A wooden weapon rack holding three swords, two spears, a bow and a battle axe upright.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no animals, no characters, no helmets, no hats.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_bookshelf_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-3/ke_trung_bay.png"
+    ],
+    "tries": 1,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 9.26/13.11/9.26/13.26. Tạo hình đúng mô tả."
+  },
+  {
+    "id": "gia_giap",
+    "file": "gia_giap.png",
+    "prompt": "A wooden armor stand wearing a steel chest plate with shoulder pauldrons only (NO helmet, nothing on top), two round shields leaning against its base.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no animals, no characters, no helmets, no hats.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_wardrobe_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-3/ke_trung_bay.png"
+    ],
+    "tries": 1,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 18.09/15.07/18.09/14.04. Tạo hình đúng mô tả."
+  },
+  {
+    "id": "ban_mai",
+    "file": "ban_mai.png",
+    "prompt": "A large round grinding wheel of stone on a wooden frame with a foot pedal and a small water drip bucket.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no animals, no characters, no helmets, no hats.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_chair_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-2/ket_sat.png"
+    ],
+    "tries": 1,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 17.15/9.33/11.56/9.33. Tạo hình đúng mô tả."
+  },
+  {
+    "id": "quay_hang",
+    "file": "quay_hang.png",
+    "prompt": "A long wooden shop counter with a brass weighing scale, a small cash box, a few wrapped parcels, a jar of candies and a basket of eggs on top, panelled front.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no animals, no characters, no helmets, no hats.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_dining_table_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-2/quay_bar.png"
+    ],
+    "tries": 3,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 6.91/5.25/6.91/7.46. Tạo hình đúng mô tả."
+  },
+  {
+    "id": "ke_hang",
+    "file": "ke_hang.png",
+    "prompt": "A tall wooden shop shelf full of goods: jars of jam, bottles of oil, cheese wheels, bread loaves, folded blankets and lanterns.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no animals, no characters, no helmets, no hats.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_bookshelf_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-2/ke_ruou.png"
+    ],
+    "tries": 3,
+    "note": "Chưa đạt sau 3 lượt: lề trên, dưới < 5%. Lề trái/trên/phải/dưới (%): 9.74/4.73/9.93/4.18. Tạo hình đúng mô tả."
+  },
+  {
+    "id": "bao_thung_hang",
+    "file": "bao_thung_hang.png",
+    "prompt": "A stack of burlap grain sacks and wooden crates, one crate open with apples, one sack open with flour.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no animals, no characters, no helmets, no hats.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_chest_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-3/thung_tao_rau.png"
+    ],
+    "tries": 1,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 11.05/9.51/13.72/7.67. Tạo hình đúng mô tả."
+  },
+  {
+    "id": "ke_rau_qua",
+    "file": "ke_rau_qua.png",
+    "prompt": "A tiered wooden market display stand with wicker baskets of apples, oranges, grapes, carrots and pumpkins.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no animals, no characters, no helmets, no hats.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_chest_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-3/thung_tao_rau.png"
+    ],
+    "tries": 1,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 13.80/11.09/13.87/10.34. Tạo hình đúng mô tả."
+  },
+  {
+    "id": "gia_vai",
+    "file": "gia_vai.png",
+    "prompt": "A wooden rack holding colorful rolls of cloth (red, blue, green, yellow, purple) standing upright, a pair of scissors and a measuring tape hanging on the side.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no animals, no characters, no helmets, no hats.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_wardrobe_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-3/tu_ngan_keo.png"
+    ],
+    "tries": 1,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 13.54/13.39/13.62/13.39. Tạo hình đúng mô tả."
+  },
+  {
+    "id": "thung_go_nho",
+    "file": "thung_go_nho.png",
+    "prompt": "A small closed wooden crate with iron corners and a rope handle.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no animals, no characters, no helmets, no hats.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_chest_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-3/thung_tao_rau.png"
+    ],
+    "tries": 1,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 22.41/20.93/22.41/17.26. Tạo hình đúng mô tả."
+  },
+  {
+    "id": "noi_luyen_thuoc",
+    "file": "noi_luyen_thuoc.png",
+    "prompt": "A big black iron alchemy cauldron on short legs over a small fire, bubbling glowing green potion with rising bubbles and sparkles.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no animals, no characters, no helmets, no hats.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_stove_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-3/bep_lo_cui.png"
+    ],
+    "tries": 1,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 17.97/11.10/20.93/13.50. Tạo hình đúng mô tả."
+  },
+  {
+    "id": "ke_thuoc",
+    "file": "ke_thuoc.png",
+    "prompt": "A tall dark wooden apothecary shelf full of glass potion bottles of many colors and shapes (red, blue, green, purple, gold), a few corked flasks and a small crystal ball.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no animals, no characters, no helmets, no hats.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_bookshelf_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-2/ke_ruou.png"
+    ],
+    "tries": 3,
+    "note": "Chưa đạt sau 3 lượt: lề trên, dưới < 5%. Lề trái/trên/phải/dưới (%): 9.00/4.79/9.09/3.97. Tạo hình đúng mô tả."
+  },
+  {
+    "id": "ban_gia_kim",
+    "file": "ban_gia_kim.png",
+    "prompt": "A wooden alchemy workbench with a glass distillation apparatus, a mortar and pestle, scattered herbs, an open spell book with only drawings and glowing vials.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no animals, no characters, no helmets, no hats.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_dining_table_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-2/ban_lam_viec.png"
+    ],
+    "tries": 3,
+    "note": "Chưa đạt sau 3 lượt: lề trên, dưới < 5%. Lề trái/trên/phải/dưới (%): 8.24/3.28/8.62/2.44. Tạo hình đúng mô tả."
+  },
+  {
+    "id": "tu_thao_duoc",
+    "file": "tu_thao_duoc.png",
+    "prompt": "A tall apothecary cabinet with many small square wooden drawers with brass knobs, bundles of dried herbs and mushrooms hanging on top.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no animals, no characters, no helmets, no hats.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_wardrobe_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-3/tu_ngan_keo.png"
+    ],
+    "tries": 1,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 13.58/8.16/13.67/7.53. Tạo hình đúng mô tả."
+  },
+  {
+    "id": "gia_phoi_thao_duoc",
+    "file": "gia_phoi_thao_duoc.png",
+    "prompt": "A standing wooden drying rack with bundles of green and purple herbs, flowers and mushrooms hanging upside down from its bars.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no animals, no characters, no helmets, no hats.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_chair_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-3/ke_gia_vi.png"
+    ],
+    "tries": 1,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 26.63/8.89/26.63/10.35. Tạo hình đúng mô tả."
+  },
+  {
+    "id": "tuong_go_tiem_thuoc",
+    "file": "tuong_go_tiem_thuoc.png",
+    "prompt": "A straight front-facing interior wall panel of dark green painted wooden planks with a round window of colored glass, hanging dried herbs and small potion bottles on a narrow shelf, thick wooden posts on the left and right edges, a ceiling beam along the top.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no animals, no characters, no helmets, no hats.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_fireplace_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-2/tuong_go_ke.png"
+    ],
+    "tries": 1,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 7.68/6.45/7.55/6.54. Tạo hình đúng mô tả."
+  },
+  {
+    "id": "chau_hoa_ma_thuat",
+    "file": "chau_hoa_ma_thuat.png",
+    "prompt": "A potted magical plant with glowing blue-violet bell-shaped flowers and curling leaves in a ceramic pot.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no animals, no characters, no helmets, no hats.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_potted_plant_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-3/chau_cay_lon.png"
+    ],
+    "tries": 3,
+    "note": "Chưa đạt sau 3 lượt: lề trên < 5%. Lề trái/trên/phải/dưới (%): 15.76/4.41/16.36/5.07. Tạo hình đúng mô tả."
+  },
+  {
+    "id": "ban_tron_don",
+    "file": "ban_tron_don.png",
+    "prompt": "A round wooden tavern table with two foam beer mugs and a plate of bread, no chairs.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no animals, no characters, no helmets, no hats.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-2/ban_tron_ghe.png"
+    ],
+    "tries": 1,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 25.59/6.54/25.59/5.41. Tạo hình đúng mô tả."
+  },
+  {
+    "id": "ghe_dau",
+    "file": "ghe_dau.png",
+    "prompt": "A single round wooden tavern stool with three legs.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no animals, no characters, no helmets, no hats.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-2/ban_tron_ghe.png"
+    ],
+    "tries": 1,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 32.75/14.09/32.86/11.84. Tạo hình đúng mô tả."
+  },
+  {
+    "id": "khach_nong_dan",
+    "file": "khach_nong_dan.png",
+    "prompt": "A cheerful young farmer man with short messy brown hair, a plain linen shirt with rolled sleeves, brown suspenders and trousers, boots, sitting on a wooden stool facing RIGHT in side view, holding up a foam beer mug.\n\nChunky chibi anime pixel art game character sprite in EXACTLY the same style as the attached reference characters: big head about\none third of the body height, large anime eyes, fluffy hair, thick dark near-black outline, soft cel shading with 2–3 tones,\nwarm saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size,\nabout 4×4 image pixels), no anti-aliasing, no gradients, no blur. One single seated character with their stool, full body visible,\ncentered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. Nothing on the head:\nno hat, no hood, no helmet, no headscarf, no crown. No table, no floor, no cast shadow, no text, no other characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_silver_youth_idle_S_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_silver_youth_idle_E_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_silver_youth_f_idle_E_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_bram_idle_S_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_elin_idle_SE_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_garrick_idle_E_x4.png",
+      "C:/Users/thetr/.codex/generated_images/01a1cb1c-4087-7621-ad71-ef4786514a14/npc-six-reference-sheet.png"
+    ],
+    "tries": 1,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 25.36/10.69/22.01/11.88. Đúng hướng nhìn, ngồi trên ghế, chân cùng mức chân ghế, không đồ đội đầu. Sáu mẫu NPC được gửi trong một ảnh ghép."
+  },
+  {
+    "id": "khach_thuong_nhan_nu",
+    "file": "khach_thuong_nhan_nu.png",
+    "prompt": "A young merchant woman with a long auburn braid, a green vest over a cream blouse, a long brown skirt and a coin pouch on her belt, sitting on a wooden stool facing RIGHT in side view, resting her chin on her hand.\n\nChunky chibi anime pixel art game character sprite in EXACTLY the same style as the attached reference characters: big head about\none third of the body height, large anime eyes, fluffy hair, thick dark near-black outline, soft cel shading with 2–3 tones,\nwarm saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size,\nabout 4×4 image pixels), no anti-aliasing, no gradients, no blur. One single seated character with their stool, full body visible,\ncentered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. Nothing on the head:\nno hat, no hood, no helmet, no headscarf, no crown. No table, no floor, no cast shadow, no text, no other characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_silver_youth_idle_S_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_silver_youth_idle_E_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_silver_youth_f_idle_E_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_bram_idle_S_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_elin_idle_SE_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_garrick_idle_E_x4.png",
+      "C:/Users/thetr/.codex/generated_images/01a1cb1c-4087-7621-ad71-ef4786514a14/npc-six-reference-sheet.png"
+    ],
+    "tries": 1,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 25.02/11.20/29.77/12.88. Đúng hướng nhìn, ngồi trên ghế, chân cùng mức chân ghế, không đồ đội đầu. Sáu mẫu NPC được gửi trong một ảnh ghép."
+  },
+  {
+    "id": "khach_ong_lao",
+    "file": "khach_ong_lao.png",
+    "prompt": "A kind old man with short white hair and a long white beard, a brown wool cardigan over a shirt, sitting on a wooden stool facing RIGHT in side view, holding a small cup of tea with both hands.\n\nChunky chibi anime pixel art game character sprite in EXACTLY the same style as the attached reference characters: big head about\none third of the body height, large anime eyes, fluffy hair, thick dark near-black outline, soft cel shading with 2–3 tones,\nwarm saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size,\nabout 4×4 image pixels), no anti-aliasing, no gradients, no blur. One single seated character with their stool, full body visible,\ncentered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. Nothing on the head:\nno hat, no hood, no helmet, no headscarf, no crown. No table, no floor, no cast shadow, no text, no other characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_silver_youth_idle_S_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_silver_youth_idle_E_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_silver_youth_f_idle_E_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_bram_idle_S_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_elin_idle_SE_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_garrick_idle_E_x4.png",
+      "C:/Users/thetr/.codex/generated_images/01a1cb1c-4087-7621-ad71-ef4786514a14/npc-six-reference-sheet.png"
+    ],
+    "tries": 1,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 31.10/11.32/33.09/11.64. Đúng hướng nhìn, ngồi trên ghế, chân cùng mức chân ghế, không đồ đội đầu. Sáu mẫu NPC được gửi trong một ảnh ghép."
+  },
+  {
+    "id": "khach_tho_ren",
+    "file": "khach_tho_ren.png",
+    "prompt": "A burly blacksmith man with short black hair and a thick short beard, a leather apron over a sleeveless shirt, muscular arms, sitting on a wooden stool facing RIGHT in side view, laughing and raising a big tankard.\n\nChunky chibi anime pixel art game character sprite in EXACTLY the same style as the attached reference characters: big head about\none third of the body height, large anime eyes, fluffy hair, thick dark near-black outline, soft cel shading with 2–3 tones,\nwarm saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size,\nabout 4×4 image pixels), no anti-aliasing, no gradients, no blur. One single seated character with their stool, full body visible,\ncentered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. Nothing on the head:\nno hat, no hood, no helmet, no headscarf, no crown. No table, no floor, no cast shadow, no text, no other characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_silver_youth_idle_S_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_silver_youth_idle_E_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_silver_youth_f_idle_E_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_bram_idle_S_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_elin_idle_SE_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_garrick_idle_E_x4.png",
+      "C:/Users/thetr/.codex/generated_images/01a1cb1c-4087-7621-ad71-ef4786514a14/npc-six-reference-sheet.png"
+    ],
+    "tries": 1,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 23.60/7.74/15.71/7.81. Đúng hướng nhìn, ngồi trên ghế, chân cùng mức chân ghế, không đồ đội đầu. Sáu mẫu NPC được gửi trong một ảnh ghép."
+  },
+  {
+    "id": "khach_nu_mao_hiem",
+    "file": "khach_nu_mao_hiem.png",
+    "prompt": "A young adventurer woman with a short silver-blue bob haircut, a light leather jacket, a travel cloak on her shoulders (hood down), sitting on a wooden stool facing RIGHT in side view, eating a piece of bread.\n\nChunky chibi anime pixel art game character sprite in EXACTLY the same style as the attached reference characters: big head about\none third of the body height, large anime eyes, fluffy hair, thick dark near-black outline, soft cel shading with 2–3 tones,\nwarm saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size,\nabout 4×4 image pixels), no anti-aliasing, no gradients, no blur. One single seated character with their stool, full body visible,\ncentered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. Nothing on the head:\nno hat, no hood, no helmet, no headscarf, no crown. No table, no floor, no cast shadow, no text, no other characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_silver_youth_idle_S_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_silver_youth_idle_E_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_silver_youth_f_idle_E_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_bram_idle_S_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_elin_idle_SE_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_garrick_idle_E_x4.png",
+      "C:/Users/thetr/.codex/generated_images/01a1cb1c-4087-7621-ad71-ef4786514a14/npc-six-reference-sheet.png"
+    ],
+    "tries": 1,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 30.46/13.32/34.21/13.24. Đúng hướng nhìn, ngồi trên ghế, chân cùng mức chân ghế, không đồ đội đầu. Sáu mẫu NPC được gửi trong một ảnh ghép."
+  },
+  {
+    "id": "khach_nhac_cong",
+    "file": "khach_nhac_cong.png",
+    "prompt": "A young bard man with short wavy blond hair, a colorful red-and-yellow tunic, sitting on a wooden stool facing RIGHT in side view, playing a wooden lute.\n\nChunky chibi anime pixel art game character sprite in EXACTLY the same style as the attached reference characters: big head about\none third of the body height, large anime eyes, fluffy hair, thick dark near-black outline, soft cel shading with 2–3 tones,\nwarm saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size,\nabout 4×4 image pixels), no anti-aliasing, no gradients, no blur. One single seated character with their stool, full body visible,\ncentered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. Nothing on the head:\nno hat, no hood, no helmet, no headscarf, no crown. No table, no floor, no cast shadow, no text, no other characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_silver_youth_idle_S_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_silver_youth_idle_E_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_silver_youth_f_idle_E_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_bram_idle_S_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_elin_idle_SE_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_garrick_idle_E_x4.png",
+      "C:/Users/thetr/.codex/generated_images/01a1cb1c-4087-7621-ad71-ef4786514a14/npc-six-reference-sheet.png"
+    ],
+    "tries": 1,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 29.82/8.61/25.12/11.24. Đúng hướng nhìn, ngồi trên ghế, chân cùng mức chân ghế, không đồ đội đầu. Sáu mẫu NPC được gửi trong một ảnh ghép."
+  },
+  {
+    "id": "khach_thu_nhan",
+    "file": "khach_thu_nhan.png",
+    "prompt": "A young cat-eared beast-folk woman with short orange hair and cat ears (no tail), a simple blue dress with a white apron, sitting on a wooden stool facing RIGHT in side view, sipping from a mug.\n\nChunky chibi anime pixel art game character sprite in EXACTLY the same style as the attached reference characters: big head about\none third of the body height, large anime eyes, fluffy hair, thick dark near-black outline, soft cel shading with 2–3 tones,\nwarm saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size,\nabout 4×4 image pixels), no anti-aliasing, no gradients, no blur. One single seated character with their stool, full body visible,\ncentered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. Nothing on the head:\nno hat, no hood, no helmet, no headscarf, no crown. No table, no floor, no cast shadow, no text, no other characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_silver_youth_idle_S_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_silver_youth_idle_E_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_silver_youth_f_idle_E_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_bram_idle_S_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_elin_idle_SE_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_garrick_idle_E_x4.png",
+      "C:/Users/thetr/.codex/generated_images/01a1cb1c-4087-7621-ad71-ef4786514a14/npc-six-reference-sheet.png"
+    ],
+    "tries": 1,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 27.77/12.04/32.53/10.75. Đúng hướng nhìn, ngồi trên ghế, chân cùng mức chân ghế, không đồ đội đầu. Sáu mẫu NPC được gửi trong một ảnh ghép."
+  },
+  {
+    "id": "khach_ngu_dan",
+    "file": "khach_ngu_dan.png",
+    "prompt": "A sun-tanned fisherman man with short dark curly hair, a striped sailor shirt and rolled-up trousers, sitting on a wooden stool facing the VIEWER (front view), holding a foam beer mug on his knee and smiling.\n\nChunky chibi anime pixel art game character sprite in EXACTLY the same style as the attached reference characters: big head about\none third of the body height, large anime eyes, fluffy hair, thick dark near-black outline, soft cel shading with 2–3 tones,\nwarm saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size,\nabout 4×4 image pixels), no anti-aliasing, no gradients, no blur. One single seated character with their stool, full body visible,\ncentered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. Nothing on the head:\nno hat, no hood, no helmet, no headscarf, no crown. No table, no floor, no cast shadow, no text, no other characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_silver_youth_idle_S_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_silver_youth_idle_E_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_silver_youth_f_idle_E_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_bram_idle_S_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_elin_idle_SE_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_garrick_idle_E_x4.png",
+      "C:/Users/thetr/.codex/generated_images/01a1cb1c-4087-7621-ad71-ef4786514a14/npc-six-reference-sheet.png"
+    ],
+    "tries": 1,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 27.67/7.81/29.19/8.21. Đúng hướng nhìn, ngồi trên ghế, chân cùng mức chân ghế, không đồ đội đầu. Sáu mẫu NPC được gửi trong một ảnh ghép."
+  },
+  {
+    "id": "khach_co_gai_hoa",
+    "file": "khach_co_gai_hoa.png",
+    "prompt": "A young flower-seller girl with short pink hair, a light yellow dress, a small basket of flowers on her lap, sitting on a wooden stool facing the VIEWER (front view).\n\nChunky chibi anime pixel art game character sprite in EXACTLY the same style as the attached reference characters: big head about\none third of the body height, large anime eyes, fluffy hair, thick dark near-black outline, soft cel shading with 2–3 tones,\nwarm saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size,\nabout 4×4 image pixels), no anti-aliasing, no gradients, no blur. One single seated character with their stool, full body visible,\ncentered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. Nothing on the head:\nno hat, no hood, no helmet, no headscarf, no crown. No table, no floor, no cast shadow, no text, no other characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_silver_youth_idle_S_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_silver_youth_idle_E_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_silver_youth_f_idle_E_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_bram_idle_S_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_elin_idle_SE_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_garrick_idle_E_x4.png",
+      "C:/Users/thetr/.codex/generated_images/01a1cb1c-4087-7621-ad71-ef4786514a14/npc-six-reference-sheet.png"
+    ],
+    "tries": 1,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 32.89/8.83/34.07/13.61. Đúng hướng nhìn, ngồi trên ghế, chân cùng mức chân ghế, không đồ đội đầu. Sáu mẫu NPC được gửi trong một ảnh ghép."
+  },
+  {
+    "id": "khach_linh_gac",
+    "file": "khach_linh_gac.png",
+    "prompt": "An off-duty town guard man with short brown hair, a blue padded gambeson with a small town emblem shape (no letters), no helmet, sitting on a wooden stool facing the VIEWER (front view), arms crossed, relaxed.\n\nChunky chibi anime pixel art game character sprite in EXACTLY the same style as the attached reference characters: big head about\none third of the body height, large anime eyes, fluffy hair, thick dark near-black outline, soft cel shading with 2–3 tones,\nwarm saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size,\nabout 4×4 image pixels), no anti-aliasing, no gradients, no blur. One single seated character with their stool, full body visible,\ncentered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. Nothing on the head:\nno hat, no hood, no helmet, no headscarf, no crown. No table, no floor, no cast shadow, no text, no other characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_silver_youth_idle_S_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_silver_youth_idle_E_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_silver_youth_f_idle_E_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_bram_idle_S_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_elin_idle_SE_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/npc_garrick_idle_E_x4.png",
+      "C:/Users/thetr/.codex/generated_images/01a1cb1c-4087-7621-ad71-ef4786514a14/npc-six-reference-sheet.png"
+    ],
+    "tries": 1,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 31.53/6.86/31.86/9.98. Đúng hướng nhìn, ngồi trên ghế, chân cùng mức chân ghế, không đồ đội đầu. Sáu mẫu NPC được gửi trong một ảnh ghép."
+  }
+]

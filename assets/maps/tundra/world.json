@@ -101,6 +101,14 @@
 						"mob_snow_wolf_001"
 					],
 					"level": 41
+				},
+				{
+					"id": "snowpines_river",
+					"monsters": [
+						"mob_ice_walrus_001"
+					],
+					"level": 40,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -163,6 +171,14 @@
 						"mob_ice_wisp_001"
 					],
 					"level": 42
+				},
+				{
+					"id": "frostmere_river",
+					"monsters": [
+						"mob_ice_walrus_001"
+					],
+					"level": 41,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -225,6 +241,14 @@
 						"mob_snowman_001"
 					],
 					"level": 43
+				},
+				{
+					"id": "snowfield_river",
+					"monsters": [
+						"mob_ice_walrus_001"
+					],
+					"level": 42,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -295,6 +319,14 @@
 						"mob_war_penguin_001"
 					],
 					"level": 44
+				},
+				{
+					"id": "icecoast_river",
+					"monsters": [
+						"mob_ice_walrus_001"
+					],
+					"level": 43,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -365,6 +397,14 @@
 						"mob_ice_bear_001"
 					],
 					"level": 45
+				},
+				{
+					"id": "bearcave_river",
+					"monsters": [
+						"mob_ice_walrus_001"
+					],
+					"level": 44,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -435,6 +475,14 @@
 						"mob_snow_wolf_001"
 					],
 					"level": 46
+				},
+				{
+					"id": "wolfwood_river",
+					"monsters": [
+						"mob_ice_walrus_001"
+					],
+					"level": 45,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -491,6 +539,14 @@
 						"mob_ice_wisp_001"
 					],
 					"level": 47
+				},
+				{
+					"id": "icelake_river",
+					"monsters": [
+						"mob_ice_walrus_001"
+					],
+					"level": 46,
+					"river": true
 				},
 				{
 					"id": "icelake_boss",
@@ -572,6 +628,14 @@
 					"level": 48
 				},
 				{
+					"id": "snowmanpass_river",
+					"monsters": [
+						"mob_ice_walrus_001"
+					],
+					"level": 47,
+					"river": true
+				},
+				{
 					"id": "snowmanpass_boss",
 					"monsters": [
 						"boss_yeti_001"
@@ -647,6 +711,14 @@
 						"mob_war_penguin_001"
 					],
 					"level": 49
+				},
+				{
+					"id": "penguinrocks_river",
+					"monsters": [
+						"mob_ice_walrus_001"
+					],
+					"level": 48,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -717,6 +789,14 @@
 						"mob_ice_bear_001"
 					],
 					"level": 50
+				},
+				{
+					"id": "frozenhollow_river",
+					"monsters": [
+						"mob_ice_walrus_001"
+					],
+					"level": 49,
+					"river": true
 				}
 			],
 			"dummies": [],

@@ -1,0 +1,15 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a cute plump white farm hen standing facing the viewer, red comb and wattle, small orange beak, orange legs, round body, front view, chunky chibi pixel art, thick dark outline, soft cel shading, single creature centered, game sprite",
+	"width": 48,
+	"height": 48,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "medium detail",
+	"view": "low top-down",
+	"seed": 7901,
+	"jobId": "41c4a2fa-8d48-4efb-97b8-d6131ba39edc",
+	"token": 0,
+	"createdAt": "2026-11-11T03:33:06.471Z"
+}

@@ -1,0 +1,27 @@
+{
+	"id": "boss_salamander_ember",
+	"kind": "loop",
+	"canvas": {
+		"w": 36,
+		"h": 36
+	},
+	"first": {
+		"prompt": "a molten blob of glowing lava rock flying toward the right, dark crust cracked with bright orange-yellow magma, smoking ember trail behind it to the left, no face, side view, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "6aea5be0-4a27-4720-b588-5141d778299f"
+	},
+	"action": "the molten blob glows and pulses, embers and smoke stream behind it, seamless loop",
+	"frameCount": 4,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png"
+	],
+	"animateJobId": "07d3dab5-efd0-405a-8764-4704e28cc33e",
+	"createdAt": "2026-11-05T15:01:03.082Z",
+	"token": 0
+}

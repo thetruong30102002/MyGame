@@ -642,6 +642,248 @@ Object.assign(PIXELLAB_VFX_PRESETS, {
 		action: 'the forge sigil pulses with heat, flames run around the ring and sparks rise from the runes, the ashen runes flicker and their red threads pulse, seamless loop',
 		frames: 8,
 	},
+	// Cổ Thụ Nguyền Rủa (05/11/2026) — chiêu RIÊNG, không dùng chung hình boss nào (luật "boss nghiêm cấm đòn chung").
+	boss_root_spikes: {
+		// Lượt 1 (05/11) vẽ kèm khối đất vuông kiểu sa bàn — ghi rõ không nền / không bệ.
+		first: `a cluster of thick gnarled dark brown tree roots with sharp black thorns bursting straight up, sickly green cursed light glowing between them, only the roots and the light, no ground tile, no platform, no soil block, no base, floating on a fully transparent background, three-quarter top-down view, roots rising from the bottom of the frame, ${STYLE}`,
+		action: 'the thorny roots punch up out of the cracked earth with a flash of sickly green light and flying dirt, hold for a moment, then sink back down into the ground as the green glow fades',
+		frames: 8,
+	},
+	boss_branch_sweep: {
+		first: `a wide circular sweep of a long knotted dark wooden branch lashed with black thorny vines, a trailing arc of torn withered purple leaves and green cursed sparks, seen from above, empty transparent surroundings, ${GLOW}`,
+		action: 'the thorny branch whips around in a full fast circle leaving a trail of withered purple leaves and green sparks, then the leaves scatter and drift away',
+		frames: 8,
+	},
+	boss_spore_cloud: {
+		// Lượt 2 ra khói gần trắng — nhấn màu độc.
+		first: `a loose flat wispy cloud of toxic poison gas seen from directly above, saturated acid green puffs with deep purple swirls and dark violet edges, tiny glowing lime spore specks, clearly poisonous, only the gas cloud, no white smoke, no ground tile, no platform, fully transparent background, ${GLOW}`,
+		action: 'the poison spore cloud billows and swirls slowly, spores puff up and drift and tiny specks twinkle, seamless loop',
+		frames: 8,
+	},
+	// Đạn RIÊNG boss (05/11/2026, luật "boss nghiêm cấm đòn chung" — thay quả cầu đen `dark_orb`; bảng BOSS_SHOTS của sim).
+	boss_lich_skull: {
+		first: `a small flying skull projectile, pale bone-white skull with glowing bright green eye sockets, wreathed in eerie lime-green ghost fire streaming back behind it to the left, flying toward the right, side view, ${STYLE}`,
+		action: 'the green ghost fire around the flying skull flickers and streams backward, the skull jaw chatters, seamless loop',
+		frames: 4,
+	},
+	boss_lich_skull_burst: {
+		first: `a small burst of eerie lime-green ghost fire just starting, with tiny white bone shards at the center, ${STYLE}`,
+		action: 'the green ghost fire bursts outward with flying bone shards and ghostly wisps, then fades away into thin green smoke',
+		frames: 8,
+		firstScale: 0.5,
+	},
+	boss_kraken_ink: {
+		// Lượt 1 (05/11) vẽ cục mực có hai mắt như con slime — cấm mặt / sinh vật.
+		first: `a glob of liquid black and deep violet squid ink flying toward the right, teardrop shape with a pointed splashing tail of ink droplets behind it to the left, glossy purple highlight, just liquid, no face, no eyes, no creature, side view, ${STYLE}`,
+		action: 'the ink blob wobbles and ripples as it flies, small droplets trail and drip behind it, seamless loop',
+		frames: 4,
+	},
+	boss_kraken_ink_splash: {
+		// Lượt 1 (05/11) ra một con mực nhỏ — ghi rõ chỉ là vệt chất lỏng văng, không sinh vật.
+		first: `a flat splatter of liquid black and deep violet squid ink seen from above, a central puddle with radiating splash streaks and round droplets, glossy purple highlights, just liquid, no squid, no octopus, no creature, no face, ${STYLE}`,
+		action: 'the ink splashes outward into a wide splatter of dark purple droplets and drips, then the splatter shrinks and fades away',
+		frames: 8,
+		firstScale: 0.5,
+	},
+	// Đạn riêng 14 boss còn lại + 5 chiêu tách khỏi hình dùng chung (05/11/2026, luật "boss nghiêm cấm đòn chung").
+	boss_demon_hellbolt: {
+		first: `a horned crimson and black hellfire bolt flying toward the right, a fanged demonic face shape in the dark flame, bright orange core, ragged black smoke tail behind it to the left, side view, ${STYLE}`,
+		action: 'the hellfire bolt flickers and roars, dark flames lick backward, seamless loop',
+		frames: 4,
+	},
+	boss_demon_hellbolt_burst: {
+		first: `a small burst of crimson and black hellfire just starting, bright orange core, ${STYLE}`,
+		action: 'the hellfire bursts outward into ragged crimson flames and black smoke with flying embers, then burns out and fades',
+		frames: 8,
+		firstScale: 0.5,
+	},
+	boss_fire_god_sunspear: {
+		first: `a short spear of blazing golden-white sunfire flying toward the right, sharp glowing tip, rippling gold and orange flame trail behind it to the left, side view, ${STYLE}`,
+		action: 'the sunfire spear blazes and its golden flame trail ripples, seamless loop',
+		frames: 4,
+	},
+	boss_fire_god_sunspear_burst: {
+		first: `a small bright golden-white starburst of sunfire just starting, ${STYLE}`,
+		action: 'the golden starburst flares outward with radiant rays and golden sparks, then dims into orange embers and fades',
+		frames: 8,
+		firstScale: 0.5,
+	},
+	boss_ghost_cannonball: {
+		first: `a black iron cannonball wreathed in eerie sea-green ghost fire flying toward the right, a trail of pale ghostly mist and green sparks behind it to the left, side view, ${STYLE}`,
+		action: 'the ghost fire around the cannonball flickers and the misty trail swirls, seamless loop',
+		frames: 4,
+	},
+	boss_ghost_cannonball_burst: {
+		first: `a small ghostly explosion just starting, sea-green ghost fire and grey smoke with tiny wooden splinters, ${STYLE}`,
+		action: 'the ghostly explosion bursts into sea-green flames, grey smoke and flying splinters, then dissolves into pale mist and fades',
+		frames: 8,
+		firstScale: 0.5,
+	},
+	boss_ice_queen_shard: {
+		first: `a long slender pale blue ice crystal shard lying perfectly horizontal, sharp point aimed straight to the right, flat side view, faceted with white highlights, a sparkle of frost trailing behind it to the left, not tilted, not diagonal, ${STYLE}`,
+		action: 'the ice shard glints and frost sparkles trail behind it, seamless loop',
+		frames: 4,
+	},
+	boss_ice_queen_shard_burst: {
+		first: `a small shatter of pale blue ice crystals just starting, white frost at the center, ${STYLE}`,
+		action: 'the ice crystals shatter outward into glittering shards and a snowflake-shaped frost flash, then melt into sparkles and fade',
+		frames: 8,
+		firstScale: 0.5,
+	},
+	boss_hydra_mud_glob: {
+		first: `a thick glob of wet brown-green swamp mud flying toward the right, glossy wet highlights, dripping mud droplets behind it to the left, just mud, no face, no creature, side view, ${STYLE}`,
+		action: 'the mud glob wobbles and drips as it flies, seamless loop',
+		frames: 4,
+	},
+	boss_hydra_mud_splat: {
+		first: `a flat splat of wet brown-green swamp mud seen from above, a central puddle with splash streaks and mud droplets, just mud, no face, no creature, ${STYLE}`,
+		action: 'the mud splats outward into a wide puddle with flying mud drops, then the splat settles and fades away',
+		frames: 8,
+		firstScale: 0.5,
+	},
+	boss_pharaoh_scarab: {
+		first: `a glowing golden scarab beetle amulet flying toward the right with spread wings, turquoise gem on its back, trailing golden sand sparkles behind it to the left, top-down three-quarter view, ${STYLE}`,
+		action: 'the golden scarab flutters its wings and glints, golden sand sparkles trail behind, seamless loop',
+		frames: 4,
+	},
+	boss_pharaoh_scarab_burst: {
+		first: `a small burst of glowing golden sand just starting, with a faint turquoise glyph light, ${STYLE}`,
+		action: 'the golden sand bursts outward in a swirl with a brief turquoise glyph flash, then the sand scatters and fades',
+		frames: 8,
+		firstScale: 0.5,
+	},
+	boss_salamander_ember: {
+		first: `a molten blob of glowing lava rock flying toward the right, dark crust cracked with bright orange-yellow magma, smoking ember trail behind it to the left, no face, side view, ${STYLE}`,
+		action: 'the molten blob glows and pulses, embers and smoke stream behind it, seamless loop',
+		frames: 4,
+	},
+	boss_salamander_ember_splat: {
+		first: `a small splash of molten orange lava just hitting, dark crust pieces and sparks, ${STYLE}`,
+		action: 'the lava splashes outward into glowing droplets and sparks, then cools into dark crust bits and smoke that fade',
+		frames: 8,
+		firstScale: 0.5,
+	},
+	boss_witch_hex_bubble: {
+		first: `a floating translucent poison bubble, sickly green with swirling purple hex smoke inside and a tiny skull rune glowing at its center, a few tiny bubbles around it, ${STYLE}`,
+		action: 'the hex bubble wobbles, the purple smoke inside swirls and the skull rune pulses, seamless loop',
+		frames: 4,
+	},
+	boss_witch_hex_pop: {
+		first: `a translucent green poison bubble bursting apart, a ring of toxic green droplets flying outward and a puff of purple hex smoke, just energy and particles, no creature, no face, no eyes, ${STYLE}`,
+		action: 'the bubble pops into a spray of toxic green droplets and a curl of purple hex smoke, then the smoke thins and fades',
+		frames: 8,
+		firstScale: 0.5,
+	},
+	boss_drake_wind_crescent: {
+		first: `a sharp crescent blade of pale cyan wind flying toward the right, convex side facing right, white streak lines, a few small leaves caught in it, side view, ${STYLE}`,
+		action: 'the wind crescent shimmers and its white streak lines rush backward, seamless loop',
+		frames: 4,
+	},
+	boss_drake_wind_gust: {
+		first: `a small swirling gust of pale cyan wind just starting, white streak lines and a few leaves, ${STYLE}`,
+		action: 'the gust bursts outward in swirling streaks with tumbling leaves, then thins out and fades',
+		frames: 8,
+		firstScale: 0.5,
+	},
+	boss_wind_mage_storm_orb: {
+		first: `a small swirling orb of teal wind with crackling white-yellow lightning sparks inside, wispy air currents spinning around it, ${STYLE}`,
+		action: 'the storm orb spins, air currents whirl and tiny lightning sparks crackle, seamless loop',
+		frames: 4,
+	},
+	boss_wind_mage_thunderclap: {
+		first: `a bright starburst of white-yellow forked lightning bolts radiating outward with a ring of teal wind streaks, just energy and particles, no creature, no face, no eyes, ${STYLE}`,
+		action: 'the thunderclap bursts with branching lightning sparks and a ring of teal wind, then the sparks fizzle and fade',
+		frames: 8,
+		firstScale: 0.5,
+	},
+	dragon_fire_fireball: {
+		first: `a large dragon fireball flying toward the right, white-hot core, swirling red-orange flames, a long roaring flame tail behind it to the left, side view, ${STYLE}`,
+		action: 'the dragon fireball roars and its flame tail swirls, seamless loop',
+		frames: 4,
+	},
+	dragon_fire_fireball_blast: {
+		first: `a fiery explosion just starting, white-hot core with red-orange flames, ${STYLE}`,
+		action: 'the explosion blasts outward into a big ball of red-orange flame and black smoke with flying embers, then burns out and fades',
+		frames: 8,
+		firstScale: 0.5,
+	},
+	dragon_ice_frost_orb: {
+		first: `a round sphere of solid pale blue ice with a few sharp ice crystal spikes, cold white mist trailing behind it to the left, flying toward the right, just energy and particles, no creature, no face, no eyes, side view, ${STYLE}`,
+		action: 'the frost orb glints, cold mist curls behind it and ice crystals sparkle, seamless loop',
+		frames: 4,
+	},
+	dragon_ice_frost_bloom: {
+		first: `a burst of pale blue ice crystals blooming outward just starting, white frost at the center, ${STYLE}`,
+		action: 'jagged ice crystals bloom outward like a frozen flower with cold mist, then crack apart into glittering frost and fade',
+		frames: 8,
+		firstScale: 0.5,
+	},
+	dragon_water_jet: {
+		first: `a high-pressure jet bolt of bright aqua water flying toward the right, spiraling water rings around it, white foam at the tip, spray droplets behind it to the left, side view, ${STYLE}`,
+		action: 'the water jet spirals and churns with white foam and spray, seamless loop',
+		frames: 4,
+	},
+	dragon_water_burst: {
+		first: `a big splash of bright aqua water just hitting, white foam at the center, ${STYLE}`,
+		action: 'the water bursts outward in a wide crown splash with foam and droplets, then the spray falls and fades',
+		frames: 8,
+		firstScale: 0.5,
+	},
+	dragon_wind_whirl: {
+		first: `a small spinning whirlwind of pale green and white air, funnel shape with swirling streaks and tiny leaves orbiting it, ${STYLE}`,
+		action: 'the little whirlwind spins fast, streaks swirl and leaves orbit around it, seamless loop',
+		frames: 4,
+	},
+	dragon_wind_whirl_burst: {
+		first: `a burst of pale green and white wind just starting, swirling streaks and leaves, ${STYLE}`,
+		action: 'the wind bursts outward into a spiral of streaks and scattered leaves, then the streaks thin and fade',
+		frames: 8,
+		firstScale: 0.5,
+	},
+	boss_solar_flare: {
+		// Lượt 1–2 (05/11) PixelLab vẽ thành cột đá / đuốc trên bệ — đổi hẳn sang quả cầu mặt trời nổ.
+		first: `a small radiant golden-white sun orb with short sharp light rays, blazing in mid-air, made only of light and fire, no object, no stand, ${STYLE}`,
+		action: 'the sun orb swells brighter then explodes outward into a huge ring of golden flames and radiant rays, then the flames scatter into golden sparks and fade',
+		frames: 10,
+		firstScale: 0.5,
+	},
+	boss_sun_halo: {
+		first: `a wide thin circle of small golden flames seen from directly above, with glowing sun ray lines pointing outward between the flames, bright gold and orange fire only, the inside of the circle is empty and fully transparent, no floor, no tiles, no platform, no stone, no base, ${STYLE}`,
+		action: 'the golden fire ring burns and the sun ray marks pulse with light, flames flicker around the ring, seamless loop',
+		frames: 8,
+	},
+	boss_glacier_stomp: {
+		first: `a ring of jagged pale blue glacier ice cracks spreading across the ground from a central impact, seen from above, white frost dust, only the ice cracks and frost, no ground tile, no platform, ${STYLE}`,
+		action: 'the impact sends a ring of glacier ice cracks racing outward with bursts of frost dust, then the cracks shatter into ice chips and fade',
+		frames: 8,
+	},
+	boss_ice_hail: {
+		first: `several round white-blue hailstones falling diagonally from the top of the frame with long frosty motion streaks behind them, scattered and separate, nothing on the ground yet, no pile, no blocks, no cubes, ${STYLE}`,
+		action: 'the hailstones plunge down with frosty streaks and smash into icy fragments and frost puffs, then the fragments melt away',
+		frames: 8,
+	},
+	boss_blizzard_veil: {
+		first: `a flat swirling veil of blizzard snow and icy wind seen from above, pale blue and white snow swirls with glittering ice specks, only the snow swirl, no ground tile, no platform, ${STYLE}`,
+		action: 'the blizzard veil swirls slowly, snow streaks spiral and ice specks glitter, seamless loop',
+		frames: 8,
+	},
+	// Lửa đồ vật đang cháy (06/11/2026, chủ dự án: "cần các lửa trại chuyển động… kiểu lửa đang cháy"): vẽ từ CHÍNH ảnh đồ vật (--first-image,
+	// đệm trong suốt phía trên cho lửa bốc), chỉ ngọn lửa chuyển động — đá / củi / chân giữ nguyên. Client `PropFire` thay ảnh tĩnh.
+	prop_campfire_burn: {
+		first: `a campfire ring of grey stones with burning logs and bright orange flames, ${STYLE}`,
+		action: 'the campfire flames burn and flicker with dancing tongues of fire rising up and a few tiny sparks, the stones and logs stay perfectly still, seamless loop',
+		frames: 6,
+	},
+	prop_brazier_burn: {
+		first: `an iron brazier with burning coals and bright orange flames, ${STYLE}`,
+		action: 'the brazier fire burns and flickers with dancing flames rising up and tiny sparks, the iron bowl and stand stay perfectly still, seamless loop',
+		frames: 6,
+	},
+	prop_wall_torch_burn: {
+		first: `a wall torch with a bright orange flame, ${STYLE}`,
+		action: 'the torch flame burns and flickers, dancing up and swaying slightly, the torch handle stays perfectly still, seamless loop',
+		frames: 6,
+	},
 	boss_coral_spikes: {
 		first: `a cluster of jagged pink and white coral spikes bursting up out of cracked white sand with a pulse of glowing aqua water light and bubbles at the center, three-quarter top-down view, base at the bottom of the frame, ${STYLE}`,
 		action: 'the coral spikes thrust up out of the sand while the aqua water light pulses outward with bubbles, then the spikes crumble back into sand and the light fades',

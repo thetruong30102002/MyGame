@@ -1,6 +1,7 @@
 import { REGIONS } from '../regions.ts';
 import { CHRONICLER } from '../rewards.ts';
 import type { NpcDef } from './storyTypes.ts';
+import { VILLAGE_NPCS } from '../village.ts';
 
 /**
  * NPC DỊCH VỤ (không thuộc cốt truyện): đứng cố định, bấm E mở bảng riêng thay cho thoại (docs/pixellab-ke-hoach-ve.md mục
@@ -32,6 +33,7 @@ const WAYSTONES: Record<string, NpcDef> = Object.fromEntries(
 );
 
 export const SERVICE_NPCS: Record<string, NpcDef> = {
+	...VILLAGE_NPCS,
 	...WAYSTONES,
 	barber_mira: {
 		name: 'Mira', title: 'Thợ làm tóc', sprite: 'npc_silver_youth_f',

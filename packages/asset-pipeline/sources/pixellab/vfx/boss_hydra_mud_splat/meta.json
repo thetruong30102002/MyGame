@@ -1,0 +1,37 @@
+{
+	"id": "boss_hydra_mud_splat",
+	"kind": "burst",
+	"canvas": {
+		"w": 64,
+		"h": 64
+	},
+	"first": {
+		"prompt": "a flat splat of wet brown-green swamp mud seen from above, a central puddle with splash streaks and mud droplets, just mud, no face, no creature, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "474445c5-9c17-4fbc-b57b-44bde296559b",
+		"drawn": "first_drawn.png"
+	},
+	"action": "the mud splats outward into a wide puddle with flying mud drops, then the splat settles and fades away",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "0e52490d-6616-4dc9-bbc0-dd2e139155f4",
+	"createdAt": "2026-11-05T14:51:53.930Z",
+	"token": 0,
+	"drop": [
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	]
+}

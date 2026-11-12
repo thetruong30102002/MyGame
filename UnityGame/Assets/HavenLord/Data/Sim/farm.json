@@ -1,0 +1,175 @@
+{
+	"FARM_CROPS": [
+		{
+			"id": "wheat",
+			"name": "Lúa mì",
+			"ms": 300000,
+			"seed": 5,
+			"sell": 9
+		},
+		{
+			"id": "carrot",
+			"name": "Cà rốt",
+			"ms": 900000,
+			"seed": 8,
+			"sell": 16
+		},
+		{
+			"id": "potato",
+			"name": "Khoai",
+			"ms": 1800000,
+			"seed": 12,
+			"sell": 26
+		},
+		{
+			"id": "strawberry",
+			"name": "Dâu",
+			"ms": 3600000,
+			"seed": 20,
+			"sell": 45
+		},
+		{
+			"id": "haven_pumpkin",
+			"name": "Bí ngô Haven",
+			"ms": 10800000,
+			"seed": 35,
+			"sell": 85
+		},
+		{
+			"id": "silver_grass",
+			"name": "Cỏ bạc",
+			"ms": 28800000,
+			"seed": 60,
+			"sell": 150
+		}
+	],
+	"FARM_FISH": [
+		{
+			"id": "crucian",
+			"name": "Cá diếc",
+			"weight": 30,
+			"sell": 7,
+			"night": false
+		},
+		{
+			"id": "carp",
+			"name": "Cá chép",
+			"weight": 23,
+			"sell": 10,
+			"night": false
+		},
+		{
+			"id": "perch",
+			"name": "Cá rô",
+			"weight": 20,
+			"sell": 9,
+			"night": false
+		},
+		{
+			"id": "eel",
+			"name": "Lươn đồng",
+			"weight": 12,
+			"sell": 15,
+			"night": false
+		},
+		{
+			"id": "prawn",
+			"name": "Tôm càng",
+			"weight": 10,
+			"sell": 18,
+			"night": false
+		},
+		{
+			"id": "golden_carp",
+			"name": "Cá chép vàng",
+			"weight": 3,
+			"sell": 70,
+			"night": false
+		},
+		{
+			"id": "night_catfish",
+			"name": "Cá trê đêm",
+			"weight": 14,
+			"sell": 23,
+			"night": true
+		},
+		{
+			"id": "haven",
+			"name": "Cá Haven",
+			"weight": 2,
+			"sell": 100,
+			"night": false
+		}
+	],
+	"FARM_LAYOUT": {
+		"tile": 32,
+		"width": 48,
+		"height": 32,
+		"plots": 12,
+		"plotX": 192,
+		"plotY": 320,
+		"doorX": 576,
+		"doorY": 264,
+		"exitX": 832,
+		"exitY": 416,
+		"pondGateX": 240,
+		"pondGateY": 960,
+		"pondBackX": 96,
+		"pondBackY": 352,
+		"pondSpots": [
+			[
+				360,
+				192
+			],
+			[
+				360,
+				288
+			],
+			[
+				480,
+				352
+			],
+			[
+				360,
+				448
+			],
+			[
+				360,
+				544
+			]
+		]
+	},
+	"FARM_ROOMS": {
+		"house": {
+			"garden": [
+				320,
+				400
+			],
+			"kitchen": [
+				48,
+				288
+			],
+			"bedroom": [
+				548,
+				158
+			]
+		},
+		"kitchen": {
+			"house": [
+				464,
+				288
+			]
+		},
+		"bedroom": {
+			"house": [
+				416,
+				358
+			]
+		}
+	},
+	"FARM_WARDROBE": [
+		332,
+		158
+	],
+	"POND_MAP": "home/pond"
+}

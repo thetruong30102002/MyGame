@@ -1,0 +1,224 @@
+[
+  {
+    "id": "tuong_go_cua_so",
+    "file": "tuong_go_cua_so.png",
+    "prompt": "A straight front-facing interior wall panel of warm horizontal wooden planks with a darker wooden wainscot at the bottom, a four-pane window with short curtains in the middle, a thick vertical wooden post on the left and right edges, a wooden ceiling beam along the top.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached reference: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space\naround it, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_wardrobe_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_bookshelf_x4.png"
+    ],
+    "tries": 1,
+    "note": "Sinh bằng image_gen tích hợp với nguyên mô tả + đuôi prompt chung và đúng ảnh mẫu. Ảnh nguồn 1312×1199; 52008 màu RGB, chưa đạt giới hạn 32 màu; lưới pixel chưa đồng nhất 4×4. Nền chưa phẳng đúng #FF00FF (RGB bốn góc: 235,15,238 / 244,20,243 / 234,36,232 / 237,29,235). Lề trái/trên/phải/dưới (%) 9.91/9.34/9.91/9.01: đạt mốc 5% theo phép đo nền gần magenta. Chưa đạt mép ghép: dầm và chân cột nhô ra; hai mép chưa cắt thành đường dọc phẳng. Giữ nguyên ảnh nguồn, chưa chuẩn hóa/cắt nền/chạy pipeline/build."
+  },
+  {
+    "id": "tuong_go_ke",
+    "file": "tuong_go_ke.png",
+    "prompt": "A straight front-facing interior wall panel of warm wooden planks with a dark wainscot, a long wall shelf holding jars and plates, a few hanging herbs, thick wooden posts on the left and right edges, a ceiling beam along the top.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached reference: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space\naround it, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_bookshelf_x4.png"
+    ],
+    "tries": 1,
+    "note": "Sinh bằng image_gen tích hợp với nguyên mô tả + đuôi prompt chung và đúng ảnh mẫu. Ảnh nguồn 1536×1024; 73434 màu RGB, chưa đạt giới hạn 32 màu; lưới pixel chưa đồng nhất 4×4. Nền chưa phẳng đúng #FF00FF (RGB bốn góc: 234,14,236 / 243,13,240 / 235,35,228 / 238,33,235). Lề trái/trên/phải/dưới (%) 7.68/6.45/7.62/6.54: đạt mốc 5% theo phép đo nền gần magenta. Chưa đạt mép ghép: dầm và chân cột nhô ra; hai mép chưa cắt thành đường dọc phẳng. Giữ nguyên ảnh nguồn, chưa chuẩn hóa/cắt nền/chạy pipeline/build."
+  },
+  {
+    "id": "tuong_thach_cao",
+    "file": "tuong_thach_cao.png",
+    "prompt": "A straight front-facing interior wall panel of cream plaster with dark timber framing (half-timbered), a small framed picture, thick wooden posts on the left and right edges, a ceiling beam along the top.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached reference: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space\naround it, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_fireplace_x4.png"
+    ],
+    "tries": 1,
+    "note": "Sinh bằng image_gen tích hợp với nguyên mô tả + đuôi prompt chung và đúng ảnh mẫu. Ảnh nguồn 1182×1330; 47380 màu RGB, chưa đạt giới hạn 32 màu; lưới pixel chưa đồng nhất 4×4. Nền chưa phẳng đúng #FF00FF (RGB bốn góc: 240,15,242 / 246,18,244 / 238,37,234 / 241,32,239). Lề trái/trên/phải/dưới (%) 5.75/12.71/5.67/8.87: đạt mốc 5% theo phép đo nền gần magenta. Chưa đạt mép ghép: dầm và chân cột nhô ra; hai mép chưa cắt thành đường dọc phẳng. Giữ nguyên ảnh nguồn, chưa chuẩn hóa/cắt nền/chạy pipeline/build."
+  },
+  {
+    "id": "tuong_da_vom",
+    "file": "tuong_da_vom.png",
+    "prompt": "A straight front-facing interior wall panel of pale cut stone blocks with a tall arched window with iron lattice, a dark red wall banner with a plain gold coin emblem, square stone pilasters on the left and right edges, a carved stone cornice along the top.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached reference: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space\naround it, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_fireplace_x4.png"
+    ],
+    "tries": 1,
+    "note": "Sinh bằng image_gen tích hợp với nguyên mô tả + đuôi prompt chung và đúng ảnh mẫu. Ảnh nguồn 1536×1024; 73141 màu RGB, chưa đạt giới hạn 32 màu; lưới pixel chưa đồng nhất 4×4. Nền chưa phẳng đúng #FF00FF (RGB bốn góc: 242,15,241 / 246,17,243 / 238,38,236 / 241,32,237). Lề trái/trên/phải/dưới (%) 15.56/9.28/15.56/9.47: đạt mốc 5% theo phép đo nền gần magenta. Chưa đạt mép ghép: đầu và chân trụ nhô ra; hai mép chưa cắt thành đường dọc phẳng. Giữ nguyên ảnh nguồn, chưa chuẩn hóa/cắt nền/chạy pipeline/build."
+  },
+  {
+    "id": "cot_go",
+    "file": "cot_go.png",
+    "prompt": "A single thick square wooden support pillar with a stone base and diagonal wooden braces at the top holding a short beam piece.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached reference: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space\naround it, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_wardrobe_x4.png"
+    ],
+    "tries": 1,
+    "note": "Sinh bằng image_gen tích hợp với nguyên mô tả + đuôi prompt chung và đúng ảnh mẫu. Ảnh nguồn 1058×1486; 25171 màu RGB, chưa đạt giới hạn 32 màu; lưới pixel chưa đồng nhất 4×4. Nền chưa phẳng đúng #FF00FF (RGB bốn góc: 240,15,241 / 245,17,242 / 236,36,238 / 241,29,240). Lề trái/trên/phải/dưới (%) 8.22/7.81/8.22/7.54: đạt mốc 5% theo phép đo nền gần magenta. Tạo hình chờ duyệt; không thấy người/thú/hoạt ảnh hoặc chữ. Giữ nguyên ảnh nguồn, chưa chuẩn hóa/cắt nền/chạy pipeline/build."
+  },
+  {
+    "id": "cot_cam_thach",
+    "file": "cot_cam_thach.png",
+    "prompt": "A single round white marble column with gold rings, a square base and a decorated capital.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached reference: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space\naround it, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_fireplace_x4.png"
+    ],
+    "tries": 1,
+    "note": "Sinh bằng image_gen tích hợp với nguyên mô tả + đuôi prompt chung và đúng ảnh mẫu. Ảnh nguồn 1111×1416; 55344 màu RGB, chưa đạt giới hạn 32 màu; lưới pixel chưa đồng nhất 4×4. Nền chưa phẳng đúng #FF00FF (RGB bốn góc: 240,16,240 / 245,18,241 / 238,38,235 / 241,32,238). Lề trái/trên/phải/dưới (%) 21.51/2.68/21.51/3.46: chưa đủ 5% mọi phía. Tạo hình chờ duyệt; không thấy người/thú/hoạt ảnh hoặc chữ. Giữ nguyên ảnh nguồn, chưa chuẩn hóa/cắt nền/chạy pipeline/build."
+  },
+  {
+    "id": "cau_thang_go",
+    "file": "cau_thang_go.png",
+    "prompt": "A wooden indoor staircase going up to the right, with wooden railing and banister posts.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached reference: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space\naround it, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_bookshelf_x4.png"
+    ],
+    "tries": 1,
+    "note": "Sinh bằng image_gen tích hợp với nguyên mô tả + đuôi prompt chung và đúng ảnh mẫu. Ảnh nguồn 1078×1460; 47873 màu RGB, chưa đạt giới hạn 32 màu; lưới pixel chưa đồng nhất 4×4. Nền chưa phẳng đúng #FF00FF (RGB bốn góc: 245,14,243 / 247,19,242 / 238,34,235 / 244,30,239). Lề trái/trên/phải/dưới (%) 6.03/6.58/6.68/9.86: đạt mốc 5% theo phép đo nền gần magenta. Tạo hình chờ duyệt; không thấy người/thú/hoạt ảnh hoặc chữ. Giữ nguyên ảnh nguồn, chưa chuẩn hóa/cắt nền/chạy pipeline/build."
+  },
+  {
+    "id": "cua_ra_go",
+    "file": "cua_ra_go.png",
+    "prompt": "A front-facing wooden double door with iron hinges and a small doormat in front, set in a wooden door frame.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached reference: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space\naround it, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_wardrobe_x4.png"
+    ],
+    "tries": 2,
+    "note": "Sinh bằng image_gen tích hợp với nguyên mô tả + đuôi prompt chung và đúng ảnh mẫu. Ảnh nguồn 1055×1491; 38142 màu RGB, chưa đạt giới hạn 32 màu; lưới pixel chưa đồng nhất 4×4. Nền chưa phẳng đúng #FF00FF (RGB bốn góc: 235,13,239 / 241,22,242 / 233,36,235 / 235,34,237). Lề trái/trên/phải/dưới (%) 8.82/4.43/8.72/4.23: chưa đủ 5% mọi phía. Chưa đạt tạo hình: có chân và dáng tủ thay vì cửa lắp tường. Đã thử 2 lần cùng prompt/refs; giữ lượt 1 ở file chính, lượt 2 ở cua_ra_go-v2.png. Giữ nguyên ảnh nguồn, chưa chuẩn hóa/cắt nền/chạy pipeline/build."
+  },
+  {
+    "id": "quay_bar",
+    "file": "quay_bar.png",
+    "prompt": "A long wooden tavern bar counter seen from the front, polished top with a few foam beer mugs and a cloth, panelled front.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached reference: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space\naround it, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_dining_table_x4.png"
+    ],
+    "tries": 1,
+    "note": "Sinh bằng image_gen tích hợp với nguyên mô tả + đuôi prompt chung và đúng ảnh mẫu. Ảnh nguồn 2172×724; 45968 màu RGB, chưa đạt giới hạn 32 màu; lưới pixel chưa đồng nhất 4×4. Nền chưa phẳng đúng #FF00FF (RGB bốn góc: 240,14,237 / 246,19,241 / 239,38,234 / 239,32,235). Lề trái/trên/phải/dưới (%) 6.4/7.04/6.54/8.29: đạt mốc 5% theo phép đo nền gần magenta. Tạo hình chờ duyệt; không thấy người/thú/hoạt ảnh hoặc chữ. Giữ nguyên ảnh nguồn, chưa chuẩn hóa/cắt nền/chạy pipeline/build."
+  },
+  {
+    "id": "ke_ruou",
+    "file": "ke_ruou.png",
+    "prompt": "A tall wooden back-bar shelf full of colorful bottles, stacked mugs and small kegs, with a mirror strip in the middle.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached reference: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space\naround it, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_bookshelf_x4.png"
+    ],
+    "tries": 1,
+    "note": "Sinh bằng image_gen tích hợp với nguyên mô tả + đuôi prompt chung và đúng ảnh mẫu. Ảnh nguồn 1078×1460; 133078 màu RGB, chưa đạt giới hạn 32 màu; lưới pixel chưa đồng nhất 4×4. Nền chưa phẳng đúng #FF00FF (RGB bốn góc: 233,13,234 / 240,19,240 / 233,37,231 / 234,32,232). Lề trái/trên/phải/dưới (%) 8.44/3.29/8.44/3.22: chưa đủ 5% mọi phía. Tạo hình chờ duyệt; không thấy người/thú/hoạt ảnh hoặc chữ. Giữ nguyên ảnh nguồn, chưa chuẩn hóa/cắt nền/chạy pipeline/build."
+  },
+  {
+    "id": "thung_ruou_lon",
+    "file": "thung_ruou_lon.png",
+    "prompt": "A big wooden ale barrel lying on a wooden rack, iron hoops, a brass tap with a mug under it.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached reference: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space\naround it, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_wardrobe_x4.png"
+    ],
+    "tries": 1,
+    "note": "Sinh bằng image_gen tích hợp với nguyên mô tả + đuôi prompt chung và đúng ảnh mẫu. Ảnh nguồn 1199×1312; 63240 màu RGB, chưa đạt giới hạn 32 màu; lưới pixel chưa đồng nhất 4×4. Nền chưa phẳng đúng #FF00FF (RGB bốn góc: 239,13,239 / 245,18,243 / 236,35,234 / 240,30,238). Lề trái/trên/phải/dưới (%) 11.68/2.06/11.68/1.75: chưa đủ 5% mọi phía. Tạo hình chờ duyệt; không thấy người/thú/hoạt ảnh hoặc chữ. Giữ nguyên ảnh nguồn, chưa chuẩn hóa/cắt nền/chạy pipeline/build."
+  },
+  {
+    "id": "ban_tron_ghe",
+    "file": "ban_tron_ghe.png",
+    "prompt": "A round wooden tavern table with two foam beer mugs and a plate of bread, two wooden stools on the left and right.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached reference: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space\naround it, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_dining_table_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_chair_x4.png"
+    ],
+    "tries": 2,
+    "note": "Sinh bằng image_gen tích hợp với nguyên mô tả + đuôi prompt chung và đúng ảnh mẫu. Ảnh nguồn 1774×887; 73084 màu RGB, chưa đạt giới hạn 32 màu; lưới pixel chưa đồng nhất 4×4. Nền chưa phẳng đúng #FF00FF (RGB bốn góc: 239,13,238 / 245,19,241 / 236,37,231 / 240,32,236). Lề trái/trên/phải/dưới (%) 4.68/6.43/4.62/5.41: chưa đủ 5% mọi phía. Chưa đạt mô tả ghế: cả hai lượt đều vẽ ghế có tựa thay ghế đẩu. Giữ lượt 1 ở file chính, lượt 2 ở ban_tron_ghe-v2.png. Giữ nguyên ảnh nguồn, chưa chuẩn hóa/cắt nền/chạy pipeline/build."
+  },
+  {
+    "id": "lo_suoi_lon",
+    "file": "lo_suoi_lon.png",
+    "prompt": "A big stone hearth fireplace with a roaring fire, a cooking pot hanging on a hook, firewood stacked at the side, a wooden mantel with candles.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached reference: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space\naround it, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_fireplace_x4.png"
+    ],
+    "tries": 1,
+    "note": "Sinh bằng image_gen tích hợp với nguyên mô tả + đuôi prompt chung và đúng ảnh mẫu. Ảnh nguồn 1111×1416; 82557 màu RGB, chưa đạt giới hạn 32 màu; lưới pixel chưa đồng nhất 4×4. Nền chưa phẳng đúng #FF00FF (RGB bốn góc: 233,14,235 / 241,21,239 / 230,36,231 / 233,33,234). Lề trái/trên/phải/dưới (%) 3.15/1.62/3.24/3.74: chưa đủ 5% mọi phía. Tạo hình chờ duyệt; không thấy người/thú/hoạt ảnh hoặc chữ. Giữ nguyên ảnh nguồn, chưa chuẩn hóa/cắt nền/chạy pipeline/build."
+  },
+  {
+    "id": "den_chum_go",
+    "file": "den_chum_go.png",
+    "prompt": "A wagon-wheel wooden chandelier hanging from short chains, with lit candles around the rim.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached reference: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space\naround it, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_chair_x4.png"
+    ],
+    "tries": 1,
+    "note": "Sinh bằng image_gen tích hợp với nguyên mô tả + đuôi prompt chung và đúng ảnh mẫu. Ảnh nguồn 1219×1290; 75385 màu RGB, chưa đạt giới hạn 32 màu; lưới pixel chưa đồng nhất 4×4. Nền chưa phẳng đúng #FF00FF (RGB bốn góc: 238,16,240 / 244,20,241 / 235,38,235 / 238,32,237). Lề trái/trên/phải/dưới (%) 9.43/3.72/9.43/4.19: chưa đủ 5% mọi phía. Tạo hình chờ duyệt; không thấy người/thú/hoạt ảnh hoặc chữ. Giữ nguyên ảnh nguồn, chưa chuẩn hóa/cắt nền/chạy pipeline/build."
+  },
+  {
+    "id": "san_khau_nho",
+    "file": "san_khau_nho.png",
+    "prompt": "A small raised wooden stage platform with two steps and a single wooden stool on it.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached reference: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space\naround it, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_dining_table_x4.png"
+    ],
+    "tries": 1,
+    "note": "Sinh bằng image_gen tích hợp với nguyên mô tả + đuôi prompt chung và đúng ảnh mẫu. Ảnh nguồn 1323×1189; 24970 màu RGB, chưa đạt giới hạn 32 màu; lưới pixel chưa đồng nhất 4×4. Nền chưa phẳng đúng #FF00FF (RGB bốn góc: 241,13,240 / 247,18,242 / 238,34,235 / 240,31,237). Lề trái/trên/phải/dưới (%) 11.26/10.01/11.26/9.34: đạt mốc 5% theo phép đo nền gần magenta. Tạo hình chờ duyệt; không thấy người/thú/hoạt ảnh hoặc chữ. Giữ nguyên ảnh nguồn, chưa chuẩn hóa/cắt nền/chạy pipeline/build."
+  },
+  {
+    "id": "quay_giao_dich",
+    "file": "quay_giao_dich.png",
+    "prompt": "A long front-facing bank teller counter of polished dark wood with a marble top, three teller windows with brass bars, a small bell and stacks of coins on the counter.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached reference: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space\naround it, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_dining_table_x4.png"
+    ],
+    "tries": 1,
+    "note": "Sinh bằng image_gen tích hợp với nguyên mô tả + đuôi prompt chung và đúng ảnh mẫu. Ảnh nguồn 1790×879; 78247 màu RGB, chưa đạt giới hạn 32 màu; lưới pixel chưa đồng nhất 4×4. Nền chưa phẳng đúng #FF00FF (RGB bốn góc: 231,17,232 / 237,19,236 / 226,37,227 / 230,32,230). Lề trái/trên/phải/dưới (%) 1.96/4.78/1.96/5.01: chưa đủ 5% mọi phía. Tạo hình chờ duyệt; không thấy người/thú/hoạt ảnh hoặc chữ. Giữ nguyên ảnh nguồn, chưa chuẩn hóa/cắt nền/chạy pipeline/build."
+  },
+  {
+    "id": "cua_ket_lon",
+    "file": "cua_ket_lon.png",
+    "prompt": "A giant round steel bank vault door set in a stone wall frame, big spoke handle wheel, heavy bolts and rivets.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached reference: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space\naround it, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_wardrobe_x4.png"
+    ],
+    "tries": 1,
+    "note": "Sinh bằng image_gen tích hợp với nguyên mô tả + đuôi prompt chung và đúng ảnh mẫu. Ảnh nguồn 1312×1199; 64967 màu RGB, chưa đạt giới hạn 32 màu; lưới pixel chưa đồng nhất 4×4. Nền chưa phẳng đúng #FF00FF (RGB bốn góc: 240,13,240 / 247,19,242 / 236,35,233 / 238,28,235). Lề trái/trên/phải/dưới (%) 5.49/2.75/5.49/3.75: chưa đủ 5% mọi phía. Tạo hình chờ duyệt; không thấy người/thú/hoạt ảnh hoặc chữ. Giữ nguyên ảnh nguồn, chưa chuẩn hóa/cắt nền/chạy pipeline/build."
+  },
+  {
+    "id": "ket_sat",
+    "file": "ket_sat.png",
+    "prompt": "A small heavy iron safe with a dial lock and a brass handle.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached reference: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space\naround it, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_wardrobe_x4.png"
+    ],
+    "tries": 1,
+    "note": "Sinh bằng image_gen tích hợp với nguyên mô tả + đuôi prompt chung và đúng ảnh mẫu. Ảnh nguồn 1165×1350; 27276 màu RGB, chưa đạt giới hạn 32 màu; lưới pixel chưa đồng nhất 4×4. Nền chưa phẳng đúng #FF00FF (RGB bốn góc: 237,15,238 / 245,19,242 / 237,33,235 / 241,31,240). Lề trái/trên/phải/dưới (%) 11.76/11.78/11.76/9.04: đạt mốc 5% theo phép đo nền gần magenta. Tạo hình chờ duyệt; không thấy người/thú/hoạt ảnh hoặc chữ. Giữ nguyên ảnh nguồn, chưa chuẩn hóa/cắt nền/chạy pipeline/build."
+  },
+  {
+    "id": "ban_lam_viec",
+    "file": "ban_lam_viec.png",
+    "prompt": "A wooden desk with an open ledger book, a quill in an inkpot, a small brass coin scale and a stack of gold coins.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached reference: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space\naround it, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_dining_table_x4.png"
+    ],
+    "tries": 1,
+    "note": "Sinh bằng image_gen tích hợp với nguyên mô tả + đuôi prompt chung và đúng ảnh mẫu. Ảnh nguồn 1323×1189; 84842 màu RGB, chưa đạt giới hạn 32 màu; lưới pixel chưa đồng nhất 4×4. Nền chưa phẳng đúng #FF00FF (RGB bốn góc: 236,14,240 / 243,19,241 / 232,37,230 / 237,31,237). Lề trái/trên/phải/dưới (%) 8.01/2.78/8.24/2.35: chưa đủ 5% mọi phía. Tạo hình chờ duyệt; không thấy người/thú/hoạt ảnh hoặc chữ. Giữ nguyên ảnh nguồn, chưa chuẩn hóa/cắt nền/chạy pipeline/build."
+  },
+  {
+    "id": "coc_day_chan",
+    "file": "coc_day_chan.png",
+    "prompt": "Two brass stanchion posts joined by a red velvet rope.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached reference: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space\naround it, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_chair_x4.png"
+    ],
+    "tries": 1,
+    "note": "Sinh bằng image_gen tích hợp với nguyên mô tả + đuôi prompt chung và đúng ảnh mẫu. Ảnh nguồn 1536×1024; 44185 màu RGB, chưa đạt giới hạn 32 màu; lưới pixel chưa đồng nhất 4×4. Nền chưa phẳng đúng #FF00FF (RGB bốn góc: 242,14,241 / 246,18,244 / 238,36,236 / 241,27,240). Lề trái/trên/phải/dưới (%) 15.89/16.31/15.82/15.62: đạt mốc 5% theo phép đo nền gần magenta. Tạo hình chờ duyệt; không thấy người/thú/hoạt ảnh hoặc chữ. Giữ nguyên ảnh nguồn, chưa chuẩn hóa/cắt nền/chạy pipeline/build."
+  },
+  {
+    "id": "chong_vang",
+    "file": "chong_vang.png",
+    "prompt": "A pile of shiny gold coins with a few stacked gold bars and a small open treasure sack.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached reference: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space\naround it, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_dining_table_x4.png"
+    ],
+    "tries": 1,
+    "note": "Sinh bằng image_gen tích hợp với nguyên mô tả + đuôi prompt chung và đúng ảnh mẫu. Ảnh nguồn 1323×1189; 82652 màu RGB, chưa đạt giới hạn 32 màu; lưới pixel chưa đồng nhất 4×4. Nền chưa phẳng đúng #FF00FF (RGB bốn góc: 242,14,241 / 246,19,242 / 238,37,235 / 241,31,238). Lề trái/trên/phải/dưới (%) 8.69/17.16/12.62/14.72: đạt mốc 5% theo phép đo nền gần magenta. Tạo hình chờ duyệt; không thấy người/thú/hoạt ảnh hoặc chữ. Giữ nguyên ảnh nguồn, chưa chuẩn hóa/cắt nền/chạy pipeline/build."
+  },
+  {
+    "id": "den_chum_vang",
+    "file": "den_chum_vang.png",
+    "prompt": "An elegant golden chandelier with crystal drops and lit candles, hanging from a short chain.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached reference: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space\naround it, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_chair_x4.png"
+    ],
+    "tries": 1,
+    "note": "Sinh bằng image_gen tích hợp với nguyên mô tả + đuôi prompt chung và đúng ảnh mẫu. Ảnh nguồn 1230×1278; 82246 màu RGB, chưa đạt giới hạn 32 màu; lưới pixel chưa đồng nhất 4×4. Nền chưa phẳng đúng #FF00FF (RGB bốn góc: 241,11,241 / 246,19,243 / 236,34,233 / 243,29,239). Lề trái/trên/phải/dưới (%) 11.46/3.68/11.38/5.4: chưa đủ 5% mọi phía. Tạo hình chờ duyệt; không thấy người/thú/hoạt ảnh hoặc chữ. Giữ nguyên ảnh nguồn, chưa chuẩn hóa/cắt nền/chạy pipeline/build."
+  }
+]

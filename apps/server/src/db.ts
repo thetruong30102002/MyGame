@@ -4,7 +4,9 @@ import { DatabaseSync } from 'node:sqlite';
 import type { AdminChange, AdminField, AdminLogEntry, BuffKind, FeedbackEntry, FeedbackKind, FeedbackStatus, MyFeedback, BuffView, CharacterInfo, CharacterProgress, Gender } from '@havenlord/protocol';
 import type { Eco } from '@havenlord/sim/economy';
 import { cleanBonusPoints } from '@havenlord/sim/talents';
+import { addItem, cleanGear, BAG_SIZE, type GearState } from '@havenlord/sim/equipment';
 import { playerModel, defaultPlayerModel } from '@havenlord/protocol';
+import { FarmStore } from './farmStore.ts';
 
 /**
  * Lưu trữ bằng SQLite có sẵn trong Node (`node:sqlite`) — không cần cài máy chủ CSDL riêng. Đủ cho vài
@@ -12,6 +14,7 @@ import { playerModel, defaultPlayerModel } from '@havenlord/protocol';
  */
 export class Store {
 	private readonly db: DatabaseSync;
+	readonly farm: FarmStore;
 
 	constructor(path: string) {
 		mkdirSync(dirname(path), { recursive: true });
@@ -215,6 +218,7 @@ export class Store {
 		this.addColumn('feedback', 'reply_at', 'INTEGER');
 		this.addColumn('feedback', 'replied_by', 'TEXT');
 		this.db.exec('CREATE INDEX IF NOT EXISTS feedback_account ON feedback(account_id)');
+		this.farm = new FarmStore(this.db);
 	}
 
 	/** Thêm cột vào bảng đã có (CSDL cũ) — có rồi thì bỏ qua. */
@@ -336,6 +340,32 @@ export class Store {
 			ok = true;
 		});
 		return ok;
+	}
+
+	/** Mua bộ shop 2 bằng xu: trừ xu và bỏ áo vào túi trong cùng giao dịch; không nhận giá từ client. */
+	buyOutfit(id: string, item: { id: string; classId: string; price: number; levelReq: number }): { eco: Eco; gear: GearState } | 'poor' | 'level' | 'class' | 'full' | 'owned' {
+		let result: { eco: Eco; gear: GearState } | 'poor' | 'level' | 'class' | 'full' | 'owned' = 'class';
+		this.tx(() => {
+			const row = this.db.prepare('SELECT class_id, progress FROM characters WHERE id = ?').get(id) as { class_id: string; progress: string } | undefined;
+			if (!row || row.class_id !== item.classId) return void (result = 'class');
+			const progress = JSON.parse(row.progress) as Record<string, unknown>;
+			const level = Number(progress.level) || 1;
+			if (level < item.levelReq) return void (result = 'level');
+			const story = progress.story && typeof progress.story === 'object' ? progress.story as Record<string, unknown> : {};
+			const gear = cleanGear(story.gear);
+			if (gear.bag.some((x) => x.id === item.id) || Object.values(gear.equip).some((x) => x?.id === item.id)) return void (result = 'owned');
+			const coins = Number(progress.coins) || 0;
+			if (coins < item.price) return void (result = 'poor');
+			if (gear.bag.length >= BAG_SIZE) return void (result = 'full');
+			const added = addItem(gear, item.id);
+			if (added.overflow) return void (result = 'full');
+			const next = { ...progress, coins: coins - item.price, story: { ...story, gear: added.g, gearV: 1 } };
+			this.db.prepare('UPDATE characters SET progress = ?, updated_at = ? WHERE id = ?').run(JSON.stringify(next), Date.now(), id);
+			this.db.prepare('INSERT INTO eco_ledger (character_id, coins, potions, exp, reason, ref, at) VALUES (?, ?, 0, 0, ?, NULL, ?)')
+				.run(id, -item.price, `shop:${item.id}`, Date.now());
+			result = { eco: { level, exp: Number(progress.exp) || 0, coins: coins - item.price, potions: Number(progress.potions) || 0 }, gear: added.g };
+		});
+		return result;
 	}
 
 	/** Phần ghi của `saveEco` (gọi TRONG transaction) — trang quản trị dùng chung câu ghi + nhật ký (`adminGrant`). */

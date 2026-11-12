@@ -101,6 +101,14 @@
 						"mob_scorpion_001"
 					],
 					"level": 21
+				},
+				{
+					"id": "reddunes_river",
+					"monsters": [
+						"mob_oasis_croc_001"
+					],
+					"level": 20,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -163,6 +171,14 @@
 						"mob_sand_snake_001"
 					],
 					"level": 22
+				},
+				{
+					"id": "snakegully_river",
+					"monsters": [
+						"mob_oasis_croc_001"
+					],
+					"level": 21,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -225,6 +241,14 @@
 						"mob_mummy_001"
 					],
 					"level": 23
+				},
+				{
+					"id": "sandtombs_river",
+					"monsters": [
+						"mob_oasis_croc_001"
+					],
+					"level": 22,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -295,6 +319,14 @@
 						"mob_vulture_001"
 					],
 					"level": 24
+				},
+				{
+					"id": "vulturecliff_river",
+					"monsters": [
+						"mob_oasis_croc_001"
+					],
+					"level": 23,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -365,6 +397,14 @@
 						"mob_sand_spirit_001"
 					],
 					"level": 25
+				},
+				{
+					"id": "redruins_river",
+					"monsters": [
+						"mob_oasis_croc_001"
+					],
+					"level": 24,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -435,6 +475,14 @@
 						"mob_scorpion_001"
 					],
 					"level": 26
+				},
+				{
+					"id": "scorchdunes_river",
+					"monsters": [
+						"mob_oasis_croc_001"
+					],
+					"level": 25,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -491,6 +539,14 @@
 						"mob_sand_snake_001"
 					],
 					"level": 27
+				},
+				{
+					"id": "snakepass_river",
+					"monsters": [
+						"mob_oasis_croc_001"
+					],
+					"level": 26,
+					"river": true
 				},
 				{
 					"id": "snakepass_boss",
@@ -576,6 +632,14 @@
 						"mob_mummy_001"
 					],
 					"level": 28
+				},
+				{
+					"id": "deeptombs_river",
+					"monsters": [
+						"mob_oasis_croc_001"
+					],
+					"level": 27,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -638,6 +702,14 @@
 						"mob_vulture_001"
 					],
 					"level": 29
+				},
+				{
+					"id": "bonemesa_river",
+					"monsters": [
+						"mob_oasis_croc_001"
+					],
+					"level": 28,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -702,6 +774,14 @@
 						"mob_sand_spirit_001"
 					],
 					"level": 30
+				},
+				{
+					"id": "sunkentemple_river",
+					"monsters": [
+						"mob_oasis_croc_001"
+					],
+					"level": 29,
+					"river": true
 				},
 				{
 					"id": "sunkentemple_boss",

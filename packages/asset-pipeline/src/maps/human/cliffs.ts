@@ -1,5 +1,6 @@
 import type { PropMeta } from '../../props/buildProps.js';
-import { decalsOf, Layout, TILE, px, type MapData, type MonsterZone } from './common.js';
+import { decalsOf, Layout, TILE, px, type MapData, type MonsterZone, riverZone } from './common.js';
+import { finishWithStory } from '../storyBits.js';
 
 /**
  * Vách Gargoyle — phía bắc Nghĩa địa. CHỈ một loại quái: gargoyle, mỗi gờ đá một bầy. Phế tích cổ nằm giữa một hẻm núi
@@ -85,6 +86,10 @@ export function buildCliffs(meta: Record<string, PropMeta>, decalIds: string[], 
 	L.reserve(22.5, CLIFFS_H - 1, 3);
 	L.reserve(25.5, 1, 3);
 
+	// Suối (05/11/2026 "nhiều sông suối hơn"): tự tìm đường né bầy, chỗ giữ trống, đồ vật đã đặt; cắt đường thành cầu gỗ.
+	L.autoStream({ avoid: [...ledges, plaza], keep: [] });
+	// Bãi quái sông Cua đá suối (05/11/2026): sát bờ, giữ trống trước khi rải cây / đá.
+	const crab = L.riverSpot([...ledges, plaza]);
 	L.clumps(60, ['tree_pine_dry', 'tree_pine_dry_flip', 'tree_dead'], 5, 2.2, (id, x, y) => L.place(id, x, y, { canopy: true }));
 	L.clumps(150, ['rock_outcrop', 'rock_spire', 'boulder', 'rock_gray', 'ruin_wall', 'column_fallen', 'dead_bush', 'pale_rocks'], 3, 1.4, (id, x, y) => L.place(id, x, y));
 	L.sprinkleDecals(decalsOf(decalIds, 'd2'), 900);
@@ -107,13 +112,13 @@ export function buildCliffs(meta: Record<string, PropMeta>, decalIds: string[], 
 		fromAge: 16,
 	});
 
-	return L.finish({
+	return finishWithStory(L, 3, {
 		id: 'cliffs',
 		name: 'Vách Gargoyle',
 		biome: 'rocky',
 		spawn: { x: px(22) + 24, y: px(37) },
 		npcs: [],
-		monsterZones: ledges.map(zone),
+		monsterZones: [...ledges.map(zone), ...(crab ? [riverZone(crab, 'cliffs', 'Vách Gargoyle', 6)] : [])],
 		boss: null,
 		spots: [
 			{ id: 'south_entry_cl', name: 'Đường về Nghĩa địa', x: px(22) + 24, y: px(37), r: 60 },

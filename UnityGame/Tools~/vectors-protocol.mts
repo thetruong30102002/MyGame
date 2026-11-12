@@ -202,6 +202,7 @@ const serverMessages: ServerMessage[] = [
 	{ t: 'gift', reason: 'checkin', title: 'Điểm danh ngày 3', gift: { diamonds: 5, coins: 100, potions: 1 } },
 	{ t: 'buffs', list: [{ kind: 'exp', mult: 1.5, remaining: 1799.5 }] },
 	{ t: 'bought', item: 'buff_exp_30' },
+	{ t: 'farm', state: { travel: 'kitchen', spot: 'from_house', map: 'home/1_kitchen' } },
 	{ t: 'hubs', list: ['human/town'] },
 	{ t: 'hubs', list: ['human/town'], maps: ['human/town', 'human/forest_1'] },
 	{ t: 'eco', level: 13, exp: 120, coins: 9900, potions: 7 },

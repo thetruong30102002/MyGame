@@ -1,0 +1,20 @@
+{
+	"description": "A sprite sheet of SIXTEEN separate small crop plants arranged in a grid of 4 columns and 4 rows, each centered in its own cell, growth stages from left to right (1 sprout, 2 young, 3 growing, 4 ripe ready to harvest). Row 1 desert cactus fruit: tiny round cactus nub, small green cactus, cactus with pink flower buds, round cactus topped with bright magenta-red prickly pear fruits. Row 2 snow strawberry: tiny frosty sprout, small plant with icy blue-green leaves, plant with white flowers and frost, plant with pale white-pink strawberries dusted with snow. Row 3 snow radish: tiny sprout, small leafy tuft, bushy leaves with white root top showing, big pale blue-white radish bulging from the soil with frosty leaves. Row 4 volcano fire melon: tiny dark red sprout, small vine with ember-orange leaves, vine with a small glowing orange melon, big round dark red melon with glowing orange lava cracks. Each plant upright on a tiny dark soil mound, front view, slight top-down, thick dark outline, soft cel shading, every plant fully separate on a plain flat solid bright magenta (#FF00FF) chroma-key background, no field, no shadow, no text, no numbers",
+	"width": 256,
+	"height": 256,
+	"no_background": false,
+	"seed": 1101,
+	"style_options": {
+		"color_palette": false,
+		"outline": true,
+		"shading": true,
+		"detail": false
+	},
+	"style_image": {
+		"path": "sources/pixellab/sheets/N1_nature.png",
+		"usage_description": "Copy ONLY the art style of this reference: chunky chibi pixel art, thick dark outline on every shape, soft cel shading, front-facing view, one object centered in each cell. Do not copy these objects, their colors or their layout."
+	},
+	"jobId": "f08665cc-a2c4-4bdc-83ab-bbcc7cb0a877",
+	"token": 0,
+	"createdAt": "2026-11-11T09:26:20.267Z"
+}

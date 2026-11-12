@@ -142,7 +142,9 @@ namespace HavenLord.Core.Tests
                 var seenA = wb.Players.SingleOrDefault(p => p.Id == a.Id);
                 Assert.That(seenA, Is.Not.Null, "B phải thấy A");
                 Assert.That(seenA.Name, Is.EqualTo(a.Name));
-                Assert.That((seenA.X, seenA.Y, seenA.Dir, seenA.Sprite), Is.EqualTo((400.0, 300.0, "SE", "player_hero_adult")));
+                Assert.That((seenA.X, seenA.Y, seenA.Dir), Is.EqualTo((400.0, 300.0, "SE")));
+                // Máy chủ đặt hình theo mẫu nhân vật đã chọn (`modelId`, roster NPC 05/11/2026), không lấy hình client gửi.
+                Assert.That(seenA.Sprite, Does.StartWith("player_npc_"));
 
                 // B đi → A nhận join; A đổi đồ gắn + đi tiếp → B nhận gear + snapshot; B chat → A nhận.
                 var joinB = sa.WaitForAsync<ServerJoin>(m => m.Player.Id == b.Id, Wait);

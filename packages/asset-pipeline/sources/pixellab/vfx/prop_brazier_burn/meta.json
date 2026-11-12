@@ -1,0 +1,28 @@
+{
+	"id": "prop_brazier_burn",
+	"kind": "loop",
+	"canvas": {
+		"w": 48,
+		"h": 64
+	},
+	"first": {
+		"prompt": null,
+		"image": "first.png",
+		"source": "file"
+	},
+	"action": "the brazier fire burns and flickers with dancing flames rising up and tiny sparks, the iron bowl and stand stay perfectly still, seamless loop",
+	"frameCount": 6,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png"
+	],
+	"animateJobId": "a10658d2-0ef8-4787-b7fd-a36a9039c959",
+	"createdAt": "2026-11-06T09:18:16.137Z",
+	"token": 0
+}

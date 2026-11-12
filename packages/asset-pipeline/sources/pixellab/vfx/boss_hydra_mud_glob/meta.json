@@ -1,0 +1,27 @@
+{
+	"id": "boss_hydra_mud_glob",
+	"kind": "loop",
+	"canvas": {
+		"w": 36,
+		"h": 36
+	},
+	"first": {
+		"prompt": "a thick glob of wet brown-green swamp mud flying toward the right, glossy wet highlights, dripping mud droplets behind it to the left, just mud, no face, no creature, side view, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "a08b4978-fa09-4f13-8fcd-f6dc866f4fbf"
+	},
+	"action": "the mud glob wobbles and drips as it flies, seamless loop",
+	"frameCount": 4,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png"
+	],
+	"animateJobId": "4aba1852-ebc5-403c-99d7-8f71a853d763",
+	"createdAt": "2026-11-05T14:49:29.299Z",
+	"token": 0
+}

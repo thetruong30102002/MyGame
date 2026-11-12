@@ -101,6 +101,14 @@
 						"mob_wind_wolf_001"
 					],
 					"level": 31
+				},
+				{
+					"id": "h1_river",
+					"monsters": [
+						"mob_gale_otter_001"
+					],
+					"level": 31,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -163,6 +171,14 @@
 						"mob_hawk_001"
 					],
 					"level": 32
+				},
+				{
+					"id": "h2_river",
+					"monsters": [
+						"mob_gale_otter_001"
+					],
+					"level": 32,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -225,6 +241,14 @@
 						"mob_wind_fairy_001"
 					],
 					"level": 33
+				},
+				{
+					"id": "h3_river",
+					"monsters": [
+						"mob_gale_otter_001"
+					],
+					"level": 33,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -295,6 +319,14 @@
 						"mob_flying_rock_001"
 					],
 					"level": 34
+				},
+				{
+					"id": "h4_river",
+					"monsters": [
+						"mob_gale_otter_001"
+					],
+					"level": 34,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -365,6 +397,14 @@
 						"mob_wind_goblin_001"
 					],
 					"level": 35
+				},
+				{
+					"id": "h5_river",
+					"monsters": [
+						"mob_gale_otter_001"
+					],
+					"level": 35,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -435,6 +475,14 @@
 						"mob_wind_wolf_001"
 					],
 					"level": 36
+				},
+				{
+					"id": "h6_river",
+					"monsters": [
+						"mob_gale_otter_001"
+					],
+					"level": 36,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -499,6 +547,14 @@
 						"mob_hawk_001"
 					],
 					"level": 37
+				},
+				{
+					"id": "h7_river",
+					"monsters": [
+						"mob_gale_otter_001"
+					],
+					"level": 37,
+					"river": true
 				},
 				{
 					"id": "h7_boss",
@@ -576,6 +632,14 @@
 						"mob_wind_fairy_001"
 					],
 					"level": 38
+				},
+				{
+					"id": "h8_river",
+					"monsters": [
+						"mob_gale_otter_001"
+					],
+					"level": 38,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -638,6 +702,14 @@
 						"mob_flying_rock_001"
 					],
 					"level": 39
+				},
+				{
+					"id": "h9_river",
+					"monsters": [
+						"mob_gale_otter_001"
+					],
+					"level": 39,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -694,6 +766,14 @@
 						"mob_wind_goblin_001"
 					],
 					"level": 40
+				},
+				{
+					"id": "h10_river",
+					"monsters": [
+						"mob_gale_otter_001"
+					],
+					"level": 40,
+					"river": true
 				},
 				{
 					"id": "h10_boss",

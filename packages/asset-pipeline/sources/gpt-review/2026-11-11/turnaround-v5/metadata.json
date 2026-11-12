@@ -1,0 +1,78 @@
+{
+  "mode": "built-in image_gen",
+  "status": "mẫu đứng bốn hướng để duyệt, chưa nhập runtime",
+  "sourceCanvas": [
+    1103,
+    1426
+  ],
+  "sourceScaleForReview": 0.041666666666666664,
+  "reviewCanvas": [
+    64,
+    72
+  ],
+  "reviewRoot": [
+    32,
+    66
+  ],
+  "directions": {
+    "S": {
+      "file": "S.png",
+      "from": "../bu-nhin-ma-standing-front-v5.png",
+      "sourceAnchor": [
+        524,
+        1393
+      ],
+      "opaqueBounds": [
+        129,
+        80,
+        918,
+        1393
+      ]
+    },
+    "E": {
+      "file": "E.png",
+      "sourceAnchor": [
+        524,
+        1393
+      ],
+      "opaqueBounds": [
+        326,
+        79,
+        725,
+        1392
+      ],
+      "prompt": "Identity-preserving sprite turnaround edit. Rotate the EXACT haunted scarecrow in the reference to face EAST / RIGHT PROFILE. Deliver one complete standing right-facing side-view sprite on transparent background. This is the same monster, same costume, same proportions and same rendering, not a redesign. Preserve the reference's native pixel cluster size and palette, short three straw tufts, small rounded tan sack head, amber eye and crooked stitched mouth seen only in profile, olive tunic, ragged burgundy shoulder cloth, cream rope belt and knot, burgundy sewn cloth patch, woody empty claw hands, thick straw calves and broad straw feet. Body is unarmed: no bow, arrows, quiver, stick, shield, bag or extra equipment. No hat or hood. In profile the near arm hangs naturally down, far arm is partly occluded by torso; legs occupy two subtle depth planes without changing their length or build. Head, shoulders, waist, knees and feet must remain at the same heights as the front reference: do not shrink or fatten the character. Keep its upright neutral standing pose and the same slightly elevated RPG camera. Show the right-facing profile with facial features on the right edge of the head, no full frontal eyes. Keep exactly the same cloth and rope materials, discrete flat color patches, crisp dark-brown selective one-native-pixel outline, and same 3-shade pixel-art shading. Do not add tiny texture or dither; do not smooth or blur or paint over with gradients. Image must read as the same 53-native-pixel-high game sprite at an integer display enlargement, rather than a high-resolution illustration. Keep full head tufts, hands and feet inside the canvas with transparent margins. Preserve the reference canvas aspect ratio, overall figure height and feet baseline so it can use one common scale when imported. No ground, shadow, scenery, platform, text, labels, border or watermark. Genuine transparent alpha background."
+    },
+    "N": {
+      "file": "N.png",
+      "sourceAnchor": [
+        524,
+        1393
+      ],
+      "opaqueBounds": [
+        127,
+        81,
+        920,
+        1394
+      ],
+      "prompt": "Identity-preserving sprite turnaround edit: rotate the EXACT haunted scarecrow in the reference to face NORTH, with its BACK TOWARD THE VIEWER. Deliver one complete neutral standing back-view game sprite on transparent background. Same character and exact costume design, not a redesign. Keep the same native pixel density, scale, body height, limb length, head width, feet baseline and slightly elevated RPG camera as the front reference. The sack head has the same three short straw tufts; seen from behind it has a plain tan burlap back with one simple vertical seam, ABSOLUTELY NO EYES, NO MOUTH OR FACE visible on the back. Same burgundy ragged shoulder cloth wrapping across both shoulders, same olive tunic, pale rope belt visible around the waist, woody empty claw hands naturally down at both sides, same compact thick straw calves with dark wraps and broad straw feet. Back of tunic has a single restrained small sewn burgundy patch consistent with the existing outfit; no belt knot on the center back if it belongs on the front. No hood, no hat, no backpack, no quiver, no arrows, no bow or any weapon. Preserve the front reference's deliberate flat color clusters and three-tone materials, crisp dark-brown one-native-pixel contour and warm desaturated palette. Do not add painterly textures, random straw strands, dithering, gradients, glow, blur, antialias or translucent interior. It must look like the very same 53-native-pixel-high hand-pixelled enemy rotated in place using the same logical pixel grid, with one uniform integer display enlargement. Keep full straw tufts and feet inside canvas; preserve the reference canvas aspect ratio and figure height, with clear transparent margins. No ground, cast shadow, base, scenery, text, labels, border or watermark. Genuinely transparent background."
+    },
+    "W": {
+      "file": "W.png",
+      "mirrorOf": "E",
+      "sourceAnchor": [
+        578,
+        1393
+      ],
+      "note": "Lật toàn bộ canvas E theo trục giữa ảnh; sourceAnchor được biến đổi cùng hình, bản duyệt cùng root và scale."
+    }
+  },
+  "limits": [
+    "Chỉ có đứng; chưa có đi/đánh/trúng/gục",
+    "Nguồn chưa chuẩn hoá alpha/palette cho game",
+    "Không tự tăng % hoặc build web/game"
+  ],
+  "references": [
+    "../bu-nhin-ma-standing-front-v5.png"
+  ]
+}

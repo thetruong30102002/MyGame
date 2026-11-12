@@ -1,0 +1,28 @@
+{
+	"id": "prop_campfire_burn",
+	"kind": "loop",
+	"canvas": {
+		"w": 64,
+		"h": 64
+	},
+	"first": {
+		"prompt": null,
+		"image": "first.png",
+		"source": "file"
+	},
+	"action": "the campfire flames burn and flicker with dancing tongues of fire rising up and a few tiny sparks, the stones and logs stay perfectly still, seamless loop",
+	"frameCount": 6,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png"
+	],
+	"animateJobId": "6991735d-b3a3-42a6-871e-dfbb9be063e2",
+	"createdAt": "2026-11-06T09:16:42.625Z",
+	"token": 0
+}

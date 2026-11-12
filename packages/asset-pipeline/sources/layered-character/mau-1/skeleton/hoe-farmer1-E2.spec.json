@@ -1,0 +1,237 @@
+{
+	"about": "Bản 2 cuốc đất E (06/11): bản 1 (hoe-farmer1-E) tay lên 92° ra sau gáy → đầu ngoảnh, lệnh có chữ \"hoe\" → PixelLab vẽ cả cuốc + ụ đất vào thân. Bản này đỉnh đòn tay 72–78° (nắm tay trước trán), cán cuốc ngả ra sau vai bằng góc cán 110–120°; lệnh không nhắc dụng cụ. Cuốc đất E bộ Nông gia nam (gói Gia viên 06/11, kế hoạch home): theo kiểu \"con lắc\" của đòn bổ hai tay đã duyệt — nâng cuốc theo cung trước mặt lên qua đầu (khung 5–6), bổ nhanh xuống, lưỡi cuốc cắm đất trước mũi chân (khung 10–11, chân trước bước nhẹ, người đổ tới), rút cuốc về thế cầm thấp. bladeDeg = hướng cán cuốc; khung cuối trùng khung đầu. 15 khung theo chuẩn clip slash (khung 13 hồi thế nối).",
+	"character": "U30-farmer1-outfit-E",
+	"rest": "U30-farmer1-outfit-E#26012",
+	"direction": "east",
+	"pad": [
+		0,
+		0,
+		0,
+		0
+	],
+	"handGapPx": 3,
+	"frames": [
+		{
+			"arm": [
+				-40,
+				0.8
+			],
+			"bladeDeg": -50,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"arm": [
+				-15,
+				0.85
+			],
+			"bladeDeg": -15,
+			"lean": -1,
+			"hip": [
+				-1,
+				0
+			],
+			"step": 0,
+			"back": -1
+		},
+		{
+			"arm": [
+				20,
+				0.9
+			],
+			"bladeDeg": 30,
+			"lean": -2,
+			"hip": [
+				-1,
+				0
+			],
+			"step": 0,
+			"back": -2,
+			"square": 0.3
+		},
+		{
+			"arm": [
+				50,
+				0.95
+			],
+			"bladeDeg": 80,
+			"lean": -3,
+			"hip": [
+				-2,
+				0
+			],
+			"step": 0,
+			"back": -3,
+			"square": 0.6
+		},
+		{
+			"arm": [
+				72,
+				1
+			],
+			"bladeDeg": 110,
+			"lean": -4,
+			"hip": [
+				-2,
+				0
+			],
+			"step": 0,
+			"back": -3,
+			"square": 0.9
+		},
+		{
+			"arm": [
+				78,
+				1
+			],
+			"bladeDeg": 120,
+			"lean": -4,
+			"hip": [
+				-2,
+				0
+			],
+			"step": 0,
+			"back": -3,
+			"square": 1
+		},
+		{
+			"arm": [
+				62,
+				1
+			],
+			"bladeDeg": 95,
+			"lean": -1,
+			"hip": [
+				0,
+				1
+			],
+			"step": 2,
+			"back": -3,
+			"square": 1
+		},
+		{
+			"arm": [
+				25,
+				1
+			],
+			"bladeDeg": 15,
+			"lean": 3,
+			"hip": [
+				2,
+				1
+			],
+			"step": 4,
+			"back": -3,
+			"square": 1
+		},
+		{
+			"arm": [
+				-20,
+				1
+			],
+			"bladeDeg": -40,
+			"lean": 5,
+			"hip": [
+				3,
+				2
+			],
+			"step": 5,
+			"back": -3,
+			"square": 1
+		},
+		{
+			"arm": [
+				-45,
+				0.95
+			],
+			"bladeDeg": -65,
+			"lean": 7,
+			"hip": [
+				3,
+				3
+			],
+			"step": 5,
+			"back": -3,
+			"square": 1
+		},
+		{
+			"arm": [
+				-45,
+				0.9
+			],
+			"bladeDeg": -62,
+			"lean": 6,
+			"hip": [
+				3,
+				3
+			],
+			"step": 5,
+			"back": -3,
+			"square": 0.9
+		},
+		{
+			"arm": [
+				-35,
+				0.85
+			],
+			"bladeDeg": -45,
+			"lean": 4,
+			"hip": [
+				2,
+				2
+			],
+			"step": 3,
+			"back": -2,
+			"square": 0.6
+		},
+		{
+			"arm": [
+				-38,
+				0.82
+			],
+			"bladeDeg": -48,
+			"lean": 2,
+			"hip": [
+				1,
+				1
+			],
+			"step": 2,
+			"back": -1,
+			"square": 0.4
+		},
+		{
+			"arm": [
+				-40,
+				0.8
+			],
+			"bladeDeg": -50,
+			"lean": 1,
+			"hip": [
+				1,
+				1
+			],
+			"step": 1,
+			"back": -1,
+			"square": 0.2
+		},
+		{
+			"arm": [
+				-40,
+				0.8
+			],
+			"bladeDeg": -50,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		}
+	]
+}

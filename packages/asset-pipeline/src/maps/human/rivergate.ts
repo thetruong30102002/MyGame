@@ -1,5 +1,6 @@
 import type { PropMeta } from '../../props/buildProps.js';
-import { decalsOf, Layout, TILE, px, type MapData, type MonsterZone } from './common.js';
+import { decalsOf, Layout, TILE, px, type MapData, type MonsterZone, riverZone } from './common.js';
+import { finishWithStory } from '../storyBits.js';
 
 /**
  * Hẻm Cửa Sông — hẻm đá nơi sông Brightwater rời thung lũng (thiết kế 12 map vùng 1: docs/thiet-ke/vung1-12-map.md).
@@ -136,6 +137,8 @@ export function buildRivergate(meta: Record<string, PropMeta>, decalIds: string[
 		L.place(L.pick(['fern', 'bush', 'fern', 'rock_mossy']), Math.round((tx + L.rand()) * TILE), Math.round((ty + L.rand()) * TILE));
 	}
 	// Vách: đá chỉ trên ô 'f' (vách tây, gờ, bờ đông, dải nam).
+	// Bãi quái sông Cua đá suối (05/11/2026): sát bờ, giữ trống trước khi rải cây / đá.
+	const crab = L.riverSpot(herds);
 	L.scatter(900, (x, y) => (L.at(Math.floor(x / TILE), Math.floor(y / TILE)) === 'f' ? L.place(L.pick(CLIFF_ROCKS), x, y) : false));
 	// Lòng hẻm: vài tảng đá lăn rải rác.
 	L.clumps(170, ['rock_gray', 'cave_boulder', 'rock_mossy', 'boulder', 'rock_gray', 'rock_pillar'], 3, 1.4, (id, x, y) => (L.at(Math.floor(x / TILE), Math.floor(y / TILE)) === 'g' ? L.place(id, x, y) : false));
@@ -159,13 +162,13 @@ export function buildRivergate(meta: Record<string, PropMeta>, decalIds: string[
 		fromAge: 16,
 	});
 
-	return L.finish({
+	return finishWithStory(L, 3, {
 		id: 'rivergate',
 		name: 'Hẻm Cửa Sông',
 		biome: 'rocky',
 		spawn: { x: px(21) + 24, y: px(2) },
 		npcs: [],
-		monsterZones: herds.map(zone),
+		monsterZones: [...herds.map(zone), ...(crab ? [riverZone(crab, 'rivergate', 'Hẻm Cửa Sông', 9)] : [])],
 		boss: null,
 		spots: [
 			{ id: 'north_entry_vg', name: 'Đường về Bãi Bồi', x: px(21) + 24, y: px(2), r: 60 },

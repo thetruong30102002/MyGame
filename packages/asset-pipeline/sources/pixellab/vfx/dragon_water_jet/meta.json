@@ -1,0 +1,27 @@
+{
+	"id": "dragon_water_jet",
+	"kind": "loop",
+	"canvas": {
+		"w": 44,
+		"h": 44
+	},
+	"first": {
+		"prompt": "a high-pressure jet bolt of bright aqua water flying toward the right, spiraling water rings around it, white foam at the tip, spray droplets behind it to the left, side view, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "b81e0e4d-2d7a-4b20-9108-fa8cf0b905fc"
+	},
+	"action": "the water jet spirals and churns with white foam and spray, seamless loop",
+	"frameCount": 4,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png"
+	],
+	"animateJobId": "dd06c5b9-0b68-4d87-b0c4-5345afcd85a1",
+	"createdAt": "2026-11-05T15:50:24.761Z",
+	"token": 0
+}

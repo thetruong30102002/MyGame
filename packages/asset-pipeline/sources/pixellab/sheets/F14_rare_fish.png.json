@@ -1,0 +1,20 @@
+{
+	"description": "A sprite sheet of EIGHT separate rare fish item icons arranged in a grid of 4 columns and 2 rows, each centered in its own cell. Top row: a swamp lantern fish with a glowing green lure on its head, a dark purple swamp pike with toxic violet spots, a shiny golden oasis carp with sand-gold scales, a small turquoise oasis jewel fish with sparkling fins. Bottom row: a highland trout with long feather-like white fins, a white and sky-blue cloud koi, a translucent ice crystal salmon with frosty pale blue body, a silver frost pike with icy spikes on its back. Every fish drawn in side view facing right, no water, no bubbles. Chunky simple game item icons, thick dark outline, soft cel shading, every item fully separate on a plain flat solid bright magenta (#FF00FF) chroma-key background with empty space around it, no text, no letters, no numbers, no border, no frame",
+	"width": 256,
+	"height": 192,
+	"no_background": false,
+	"seed": 1106,
+	"style_options": {
+		"color_palette": false,
+		"outline": true,
+		"shading": true,
+		"detail": false
+	},
+	"style_image": {
+		"path": "sources/pixellab/sheets/N1_nature.png",
+		"usage_description": "Copy ONLY the art style of this reference: chunky chibi pixel art, thick dark outline on every shape, soft cel shading, front-facing view, one object centered in each cell. Do not copy these objects, their colors or their layout."
+	},
+	"jobId": "a4cc768c-a18f-4f36-9704-3e4d1a3f8cb2",
+	"token": 0,
+	"createdAt": "2026-11-11T09:35:49.324Z"
+}

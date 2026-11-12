@@ -5,7 +5,7 @@ import { existsSync, mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import type { ServerMessage } from '@havenlord/protocol';
-import { hubKeys, REGIONS, regionDef, regionGate, splitMapKey, START_REGION } from '@havenlord/sim/regions';
+import { hubKeys, REGIONS, regionDef, regionGate, regionNeeds, splitMapKey, START_REGION } from '@havenlord/sim/regions';
 import { MERCHANTS } from '@havenlord/sim/shop';
 import { elementMult } from '@havenlord/sim/skills';
 import { Store } from '../src/db.ts';
@@ -47,13 +47,18 @@ test('id map `vùng/map`: tách được; thiếu tiền tố thì là map cùng
 	assert.deepEqual(splitMapKey('swamp/hub', 'human'), { region: 'swamp', map: 'hub' });
 	assert.deepEqual(splitMapKey('mossvale', 'human'), { region: 'human', map: 'mossvale' });
 	// Vùng 2–7 dựng map 10/10/2026 (bộ dựng `packages/asset-pipeline/src/maps/kit`); vùng 8–10 còn đang xây.
-	assert.deepEqual(hubKeys(), ['human/town', 'swamp/hub', 'desert/hub', 'highland/hub', 'tundra/hub', 'volcano/hub', 'isles/hub', 'fungal/hub', 'ruins/hub', 'void/hub', 'wood/hub', 'light/hub', 'dark/hub']);
+	// 6 vùng mượn quái ĐÓNG TẠM (05/11/2026, sim regions.ts `closed`): không có cột dịch chuyển tới.
+	assert.deepEqual(hubKeys(), ['human/town', 'swamp/hub', 'desert/hub', 'highland/hub', 'tundra/hub', 'volcano/hub', 'isles/hub']);
 });
 
 test('cổng vùng: vùng đầu luôn mở; vùng chưa có map → đang xây; đủ map thì xét cấp + boss chúa vùng trước', () => {
 	assert.equal(regionGate('human', { level: 1, bossKills: {} }), null);
-	assert.equal(regionGate('fungal', { level: 99, bossKills: { boss_kraken_001: 1 } }), null);
-	assert.match(regionGate('fungal', { level: 69, bossKills: { boss_kraken_001: 1 } })!, /Cần cấp 70/);
+	// Rừng Nấm Ngầm đã có map nhưng ĐÓNG TẠM (05/11/2026, mượn quái vùng khác) → đủ cấp + boss vẫn báo đang xây.
+	assert.match(regionGate('fungal', { level: 99, bossKills: { boss_kraken_001: 1 } })!, /đang được xây dựng/);
+	const isles = regionNeeds('isles')!;
+	const islesKills = isles.chief ? { [isles.chief.id]: 1 } : {};
+	assert.equal(regionGate('isles', { level: 99, bossKills: islesKills }), null);
+	assert.match(regionGate('isles', { level: isles.level - 1, bossKills: islesKills })!, new RegExp(`Cần cấp ${isles.level}`));
 	assert.match(regionGate('nowhere', { level: 1, bossKills: {} })!, /Không có vùng/);
 	// Thứ tự điều kiện: cấp trước, rồi boss chúa vùng trước.
 	assert.match(regionGate('swamp', { level: 9, bossKills: { boss_demon_001: 1 } })!, /Cần cấp 10/);
@@ -121,10 +126,10 @@ try {
 
 console.log(`${passed} test qua`);
 
-test('ba vùng nhánh chỉ kiểm cấp, không cần boss tuyến chính', () => {
+test('ba vùng nhánh đang đóng tạm (05/11/2026, mượn quái vùng khác): đủ cấp vẫn báo đang xây', () => {
  for (const id of ['wood','light','dark']) {
   const r = regionDef(id)!;
-  assert.equal(regionGate(id, {level:r.levels[0],bossKills:{}}), null);
-  assert.match(regionGate(id, {level:r.levels[0]-1,bossKills:{}})!, /Cần cấp/);
+  assert.equal(r.branch, true);
+  assert.match(regionGate(id, {level:r.levels[0],bossKills:{}})!, /đang được xây dựng/);
  }
 });

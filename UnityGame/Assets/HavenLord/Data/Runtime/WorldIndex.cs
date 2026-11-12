@@ -20,6 +20,10 @@ namespace HavenLord.Data
     {
         public string id;
         public string[] monsters = Array.Empty<string>();
+        /// <summary>Cấp khu (−1 = cấp gốc của loài).</summary>
+        public int level = -1;
+        /// <summary>Bầy quái sông (sát bờ).</summary>
+        public bool river;
     }
 
     [Serializable]

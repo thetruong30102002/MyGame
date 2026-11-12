@@ -78,9 +78,10 @@ export interface SlashSpec {
 	/**
 	 * Thế chân đòn hướng thẳng (chủ dự án 31/10: "tấn công hướng chính diện chân đừng trùng xuống", "chỉ có tiến lên và thấp nhân vật
 	 * xuống mà tấn công, ví dụ kiếm, thương"): `lunge` (cận chiến — kiếm, thương, khiên): chỉ hạ người khi bước một chân về hướng đánh,
-	 * hạ hông ≤ độ bước + 1 px; `upright` (cung, trượng): đứng thẳng, hạ hông ≤ 1 px, bàn chân dời ≤ 2 px.
+	 * hạ hông ≤ độ bước + 1 px; `upright` (cung, trượng): đứng thẳng, hạ hông ≤ 1 px, bàn chân dời ≤ 2 px. `kneel` (CHỈ động tác gia viên
+	 * — gieo hạt / thu hoạch, 06/11; không phải đòn đánh): ngồi thụp, gối vẫn `depth` (không bè hai bên), hạ hông ≤ 12 px, bàn chân dời ≤ 4 px.
 	 */
-	stance?: 'lunge' | 'upright';
+	stance?: 'lunge' | 'upright' | 'kneel';
 	frames: SlashFrameSpec[];
 }
 
@@ -136,6 +137,8 @@ export function checkStraightStance(spec: SlashSpec): void {
 		const step = Math.max(0, toward * (f.stepY ?? 0), toward * (f.backY ?? 0));
 		if (spec.stance === 'upright' && (drop > 1 || Math.abs(f.stepY ?? 0) > 2 || Math.abs(f.backY ?? 0) > 2))
 			throw new Error(`${at} khung ${i + 1}: thế đứng thẳng — hạ hông ${drop} px (≤ 1), bàn chân dời ≤ 2 px`);
+		if (spec.stance === 'kneel' && (drop > 12 || Math.abs(f.stepY ?? 0) > 4 || Math.abs(f.backY ?? 0) > 4))
+			throw new Error(`${at} khung ${i + 1}: thế ngồi thụp — hạ hông ${drop} px (≤ 12), bàn chân dời ≤ 4 px`);
 		if (spec.stance === 'lunge' && drop > step + 1)
 			throw new Error(`${at} khung ${i + 1}: hạ hông ${drop} px mà chỉ bước ${step} px về hướng đánh — chỉ hạ người khi bước chân lên (≤ bước + 1)`);
 	});

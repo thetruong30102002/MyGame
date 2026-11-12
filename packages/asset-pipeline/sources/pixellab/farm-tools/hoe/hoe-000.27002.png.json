@@ -1,0 +1,17 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a simple wooden farming hoe lying horizontally: long straight light brown wooden handle pointing left, small flat dark iron hoe blade at the right end bent straight down at a right angle, plain beginner farm tool, single object, side view, centered, game sprite",
+	"width": 64,
+	"height": 64,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "medium detail",
+	"seed": 27002,
+	"init_image_strength": 300,
+	"color_image_path": "sources/pixellab/farm-tools/hoe/palette.png",
+	"init_image_path": "sources/pixellab/farm-tools/hoe/init/hoe-000.init.png",
+	"jobId": "aa82b27c-02b9-4d69-9bb8-5f9bc325430e",
+	"token": 0,
+	"createdAt": "2026-11-06T14:20:28.939Z"
+}

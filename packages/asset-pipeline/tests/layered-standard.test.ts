@@ -28,6 +28,12 @@ test('chuẩn trong repo hợp lệ', () => {
 	assert.equal(real.directions.length, 8);
 });
 
+test('đoạn câu cá nằm đúng trong clip 15 khung', () => {
+	assert.deepEqual(real.animations.find((a) => a.id === 'fish')!.segments, { cast: [1, 7], wait: [8, 11], pull: [12, 15] });
+	broken((s) => (s.animations.find((a) => a.id === 'fish')!.segments!.pull = [12, 16]), 'segments.pull');
+	broken((s) => (s.animations.find((a) => a.id === 'fish')!.segments!.wait = [11, 8]), 'segments.wait');
+});
+
 test('cấm scale / offset riêng / xoay vũ khí bằng code; vũ khí luôn phía trước', () => {
 	broken((s) => (s.pixel.runtimeScale = 2), 'runtimeScale');
 	broken((s) => (s.pixel.allowRuntimeOffsetPerAsset = true), 'allowRuntimeOffsetPerAsset');

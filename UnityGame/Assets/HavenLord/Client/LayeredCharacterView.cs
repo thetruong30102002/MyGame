@@ -20,12 +20,21 @@ namespace HavenLord.Client
         private bool loop = true;
         private double t;
         private int frame = -1;
+        private int rangeFirst, rangeLast;
 
         /// <summary>Hệ số tốc độ phát (0,5 = chậm một nửa để soi nhịp).</summary>
         public float Speed = 1;
         public LayeredClip Clip => clip;
         public int Frame => frame;
-        public bool Finished => clip != null && !loop && frame == clip.frames.Length - 1 && t >= TotalMs;
+        public bool Finished => clip != null && !loop && frame == rangeLast && t >= TotalMs;
+        public Vector3 ToolTipWorld
+        {
+            get
+            {
+                var tip = clip != null && frame >= 0 ? clip.frames[frame].toolTip : new Vector2Int(-1, -1);
+                return tip.x < 0 ? transform.position : transform.TransformPoint(new Vector3((tip.x - def.root.x) / WorldCoords.PixelsPerUnit, -(tip.y - def.root.y) / WorldCoords.PixelsPerUnit));
+            }
+        }
         public string BodyId => body?.id;
         public string HeadId => head?.id;
 
@@ -34,7 +43,7 @@ namespace HavenLord.Client
             get
             {
                 var n = 0;
-                if (clip != null) foreach (var f in clip.frames) n += f.ms;
+                if (clip != null) for (var i = rangeFirst; i <= rangeLast; i++) n += clip.frames[i].ms;
                 return n;
             }
         }
@@ -107,9 +116,20 @@ namespace HavenLord.Client
             clip = c;
             Dir8Util.TryParse(c.name.Substring(c.name.LastIndexOf('_') + 1), out clipDir);
             loop = looping;
+            rangeFirst = 0; rangeLast = c.frames.Length - 1;
             t = 0;
             frame = -1;
             Apply(0);
+            return true;
+        }
+
+        /// <summary>Phát đúng đoạn quăng / chờ / kéo; chỉ đoạn chờ lặp, không chạy qua nhịp kéo trước khi có cá.</summary>
+        public bool PlaySegment(string anim, Dir8 dir, string segment)
+        {
+            if (!Play(anim, dir, segment == "wait")) return false;
+            var s = System.Array.Find(clip.segments, x => x.name == segment);
+            if (s == null) return false;
+            rangeFirst = s.first - 1; rangeLast = s.last - 1; t = 0; frame = -1; Apply(rangeFirst);
             return true;
         }
 
@@ -148,8 +168,8 @@ namespace HavenLord.Client
             var total = TotalMs;
             if (total <= 0) return;
             var x = loop ? t % total : System.Math.Min(t, total - 1e-6);
-            var i = 0;
-            for (; i < clip.frames.Length - 1; i += 1)
+            var i = rangeFirst;
+            for (; i < rangeLast; i += 1)
             {
                 x -= clip.frames[i].ms;
                 if (x < 0) break;

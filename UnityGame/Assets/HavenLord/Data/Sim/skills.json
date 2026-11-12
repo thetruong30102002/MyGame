@@ -1,4 +1,140 @@
 {
+	"BOSS_SHOTS": {
+		"boss_lich_001": {
+			"vfx": "boss_lich_skull",
+			"impact": "boss_lich_skull_burst",
+			"count": 3,
+			"spread": 0.34,
+			"speed": 190,
+			"aim": true,
+			"wobble": 5
+		},
+		"boss_kraken_001": {
+			"vfx": "boss_kraken_ink",
+			"impact": "boss_kraken_ink_splash",
+			"count": 2,
+			"spread": 0.1,
+			"speed": 320,
+			"aim": true
+		},
+		"boss_demon_001": {
+			"vfx": "boss_demon_hellbolt",
+			"impact": "boss_demon_hellbolt_burst",
+			"count": 3,
+			"spread": 0.28,
+			"speed": 260,
+			"aim": true
+		},
+		"boss_fire_god_001": {
+			"vfx": "boss_fire_god_sunspear",
+			"impact": "boss_fire_god_sunspear_burst",
+			"count": 5,
+			"spread": 0.6,
+			"speed": 290,
+			"aim": true
+		},
+		"boss_ghost_captain_001": {
+			"vfx": "boss_ghost_cannonball",
+			"impact": "boss_ghost_cannonball_burst",
+			"count": 1,
+			"spread": 0,
+			"speed": 340,
+			"aim": true
+		},
+		"boss_ice_queen_001": {
+			"vfx": "boss_ice_queen_shard",
+			"impact": "boss_ice_queen_shard_burst",
+			"count": 4,
+			"spread": 0.36,
+			"speed": 300,
+			"aim": true
+		},
+		"boss_mud_hydra_001": {
+			"vfx": "boss_hydra_mud_glob",
+			"impact": "boss_hydra_mud_splat",
+			"count": 3,
+			"spread": 0.5,
+			"speed": 210,
+			"aim": true,
+			"wobble": 3
+		},
+		"boss_pharaoh_001": {
+			"vfx": "boss_pharaoh_scarab",
+			"impact": "boss_pharaoh_scarab_burst",
+			"count": 3,
+			"spread": 0.3,
+			"speed": 230,
+			"aim": true,
+			"wobble": 6
+		},
+		"boss_salamander_001": {
+			"vfx": "boss_salamander_ember",
+			"impact": "boss_salamander_ember_splat",
+			"count": 2,
+			"spread": 0.16,
+			"speed": 280,
+			"aim": true
+		},
+		"boss_swamp_witch_001": {
+			"vfx": "boss_witch_hex_bubble",
+			"impact": "boss_witch_hex_pop",
+			"count": 3,
+			"spread": 0.36,
+			"speed": 170,
+			"wobble": 8
+		},
+		"boss_wind_drake_001": {
+			"vfx": "boss_drake_wind_crescent",
+			"impact": "boss_drake_wind_gust",
+			"count": 2,
+			"spread": 0.2,
+			"speed": 360,
+			"aim": true
+		},
+		"boss_wind_mage_001": {
+			"vfx": "boss_wind_mage_storm_orb",
+			"impact": "boss_wind_mage_thunderclap",
+			"count": 1,
+			"spread": 0,
+			"speed": 230,
+			"wobble": 5
+		},
+		"dragon_fire_001": {
+			"vfx": "dragon_fire_fireball",
+			"impact": "dragon_fire_fireball_blast",
+			"count": 3,
+			"spread": 0.26,
+			"speed": 300,
+			"scale": 2
+		},
+		"dragon_ice_001": {
+			"vfx": "dragon_ice_frost_orb",
+			"impact": "dragon_ice_frost_bloom",
+			"count": 3,
+			"spread": 0.32,
+			"speed": 260,
+			"aim": true,
+			"scale": 2
+		},
+		"dragon_water_001": {
+			"vfx": "dragon_water_jet",
+			"impact": "dragon_water_burst",
+			"count": 2,
+			"spread": 0.12,
+			"speed": 380,
+			"aim": true,
+			"scale": 2
+		},
+		"dragon_wind_001": {
+			"vfx": "dragon_wind_whirl",
+			"impact": "dragon_wind_whirl_burst",
+			"count": 3,
+			"spread": 0.42,
+			"speed": 240,
+			"wobble": 5,
+			"scale": 2
+		}
+	},
 	"ENEMY_BASE_LEVEL": {
 		"mob_mushroom_001": 2,
 		"mob_zombie_001": 4,
@@ -8,11 +144,15 @@
 		"boss_demon_001": 5,
 		"boss_lich_001": 6,
 		"boss_stone_gargoyle_001": 10,
+		"mob_field_hyena_001": 5,
+		"mob_stream_crab_001": 3,
+		"boss_cursed_oak_001": 6,
 		"mob_poison_frog_001": 13,
 		"mob_swamp_leech_001": 14,
 		"mob_glow_mushroom_001": 15,
 		"mob_water_snake_001": 16,
 		"mob_mud_merfolk_001": 17,
+		"mob_mud_catfish_001": 14,
 		"boss_mother_frog_001": 17,
 		"boss_swamp_witch_001": 20,
 		"boss_mud_hydra_001": 20,
@@ -21,6 +161,7 @@
 		"mob_mummy_001": 25,
 		"mob_vulture_001": 26,
 		"mob_sand_spirit_001": 27,
+		"mob_oasis_croc_001": 24,
 		"boss_scorpion_queen_001": 27,
 		"boss_pharaoh_001": 30,
 		"boss_sandworm_001": 30,
@@ -29,6 +170,7 @@
 		"mob_wind_fairy_001": 35,
 		"mob_flying_rock_001": 36,
 		"mob_wind_goblin_001": 37,
+		"mob_gale_otter_001": 34,
 		"boss_storm_eagle_001": 37,
 		"boss_wind_mage_001": 40,
 		"boss_wind_drake_001": 40,
@@ -38,6 +180,7 @@
 		"mob_snowman_001": 45,
 		"mob_war_penguin_001": 46,
 		"mob_ice_bear_001": 47,
+		"mob_ice_walrus_001": 44,
 		"boss_ice_queen_001": 47,
 		"boss_yeti_001": 48,
 		"boss_ice_guardian_001": 50,
@@ -47,6 +190,7 @@
 		"mob_fire_bat_001": 55,
 		"mob_fire_spirit_001": 56,
 		"mob_fire_demon_001": 57,
+		"mob_lava_eel_001": 54,
 		"boss_ancient_lava_golem_001": 57,
 		"boss_salamander_001": 60,
 		"boss_fire_god_001": 60,
@@ -56,6 +200,7 @@
 		"mob_pirate_001": 65,
 		"mob_coral_merfolk_001": 66,
 		"mob_wreck_octopus_001": 67,
+		"mob_spike_turtle_001": 64,
 		"boss_crab_king_001": 67,
 		"boss_ghost_captain_001": 70,
 		"boss_kraken_001": 70,
@@ -157,6 +302,39 @@
 			"exp": 800,
 			"coins": 290
 		},
+		"mob_field_hyena_001": {
+			"hp": 260,
+			"atk": 15,
+			"def": 2,
+			"speed": 62,
+			"aggro": 230,
+			"reach": 32,
+			"attackCd": 1.1,
+			"exp": 44,
+			"coins": 10
+		},
+		"mob_stream_crab_001": {
+			"hp": 180,
+			"atk": 10,
+			"def": 5,
+			"speed": 36,
+			"aggro": 150,
+			"reach": 30,
+			"attackCd": 1.6,
+			"exp": 26,
+			"coins": 7
+		},
+		"boss_cursed_oak_001": {
+			"hp": 3000,
+			"atk": 30,
+			"def": 8,
+			"speed": 44,
+			"aggro": 320,
+			"reach": 60,
+			"attackCd": 1.5,
+			"exp": 560,
+			"coins": 210
+		},
 		"mob_poison_frog_001": {
 			"hp": 765,
 			"atk": 32,
@@ -233,6 +411,22 @@
 			"ranged": "arrow",
 			"exp": 636,
 			"coins": 24,
+			"resist": {
+				"water": 0.75,
+				"earth": 1.25,
+				"wind": 1.25
+			}
+		},
+		"mob_mud_catfish_001": {
+			"hp": 1310,
+			"atk": 30,
+			"def": 11,
+			"speed": 38,
+			"aggro": 200,
+			"reach": 38,
+			"attackCd": 1.6,
+			"exp": 384,
+			"coins": 21,
 			"resist": {
 				"water": 0.75,
 				"earth": 1.25,
@@ -375,6 +569,23 @@
 				"ice": 1.25
 			}
 		},
+		"mob_oasis_croc_001": {
+			"hp": 2195,
+			"atk": 45,
+			"def": 13,
+			"speed": 38,
+			"aggro": 200,
+			"reach": 38,
+			"attackCd": 1.6,
+			"exp": 1560,
+			"coins": 33,
+			"resist": {
+				"earth": 0.75,
+				"fire": 0.8,
+				"water": 1.25,
+				"ice": 1.25
+			}
+		},
 		"boss_scorpion_queen_001": {
 			"hp": 12610,
 			"atk": 89,
@@ -499,6 +710,21 @@
 			"ranged": "arrow",
 			"exp": 4808,
 			"coins": 48,
+			"resist": {
+				"wind": 0.75,
+				"earth": 1.3
+			}
+		},
+		"mob_gale_otter_001": {
+			"hp": 1615,
+			"atk": 56,
+			"def": 10,
+			"speed": 74,
+			"aggro": 250,
+			"reach": 32,
+			"attackCd": 1,
+			"exp": 3859,
+			"coins": 45,
 			"resist": {
 				"wind": 0.75,
 				"earth": 1.3
@@ -643,6 +869,21 @@
 				"fire": 1.3
 			}
 		},
+		"mob_ice_walrus_001": {
+			"hp": 4260,
+			"atk": 74,
+			"def": 18,
+			"speed": 38,
+			"aggro": 200,
+			"reach": 38,
+			"attackCd": 1.6,
+			"exp": 7544,
+			"coins": 57,
+			"resist": {
+				"ice": 0.7,
+				"fire": 1.3
+			}
+		},
 		"boss_ice_queen_001": {
 			"hp": 13565,
 			"atk": 118,
@@ -780,6 +1021,22 @@
 			"attackCd": 1.7,
 			"exp": 14787,
 			"coins": 72,
+			"resist": {
+				"fire": 0.6,
+				"water": 1.25,
+				"ice": 1.25
+			}
+		},
+		"mob_lava_eel_001": {
+			"hp": 4325,
+			"atk": 118,
+			"def": 18,
+			"speed": 40,
+			"aggro": 200,
+			"reach": 40,
+			"attackCd": 1.7,
+			"exp": 12848,
+			"coins": 69,
 			"resist": {
 				"fire": 0.6,
 				"water": 1.25,
@@ -929,6 +1186,22 @@
 			"attackCd": 1.7,
 			"exp": 22512,
 			"coins": 84,
+			"resist": {
+				"water": 0.75,
+				"wind": 1.25,
+				"earth": 1.25
+			}
+		},
+		"mob_spike_turtle_001": {
+			"hp": 5990,
+			"atk": 103,
+			"def": 23,
+			"speed": 38,
+			"aggro": 200,
+			"reach": 38,
+			"attackCd": 1.6,
+			"exp": 19984,
+			"coins": 81,
 			"resist": {
 				"water": 0.75,
 				"wind": 1.25,

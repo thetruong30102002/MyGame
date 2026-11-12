@@ -1,5 +1,6 @@
 import type { PropMeta } from '../../props/buildProps.js';
 import { decalsOf, Layout, TILE, px, type MapData, type MonsterZone } from './common.js';
+import { finishWithStory } from '../storyBits.js';
 
 /**
  * Nghĩa địa Hoàng Hôn — phía bắc thị trấn, qua cổng bắc. CHỈ một loại quái: xác sống (zombie), mỗi khu mộ một bầy.
@@ -97,11 +98,13 @@ export function buildGraveyard(meta: Record<string, PropMeta>, decalIds: string[
 	for (const y of [16, 24, 30, 36]) L.place('ghost_lantern', px(20), px(y), { force: true });
 	L.place('ghost_lantern', px(10), px(18), { force: true });
 
+	// Suối (05/11/2026 "nhiều sông suối hơn"): tự tìm đường né bầy, chỗ giữ trống, đồ vật đã đặt; cắt đường thành cầu gỗ.
+	L.autoStream({ avoid: [...plots.map((p) => ({ x: (p.x0 + p.x1) / 2, y: (p.y0 + p.y1) / 2, r: Math.hypot(p.x1 - p.x0, p.y1 - p.y0) / 2.4 })), crypt], keep: [] });
 	L.clumps(170, DEAD_TREES, 5, 2.2, (id, x, y) => L.place(id, x, y, { canopy: true }));
 	L.clumps(70, ['dead_bush', 'dead_bush', 'skull_pile', 'coffin', 'pale_rocks', 'skull_pile'], 3, 1.4, (id, x, y) => L.place(id, x, y));
 	L.sprinkleDecals(decalsOf(decalIds, 'd2'), 1300);
 
-	return L.finish({
+	return finishWithStory(L, 2, {
 		id: 'graveyard',
 		name: 'Nghĩa địa Hoàng Hôn',
 		biome: 'deadland',

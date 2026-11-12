@@ -1,0 +1,226 @@
+{
+	"about": "Tưới cây E bộ Nông gia nam (gói Gia viên 06/11): hai tay ôm bình tưới trước bụng, người hơi đổ tới, nghiêng bình (1–6), giữ nghiêng rót nước xuống ô đất trước mặt (7–11, tay rung nhẹ), dựng bình về (12–15). Bình tưới PixelLab vẽ liền thân như cái cuốc; đệm phải 12 px cho vòi + dòng nước. bladeDeg = độ nghiêng bình (chỉ để ghi, không ghép vũ khí).",
+	"character": "U30-farmer1-outfit-E",
+	"rest": "U30-farmer1-outfit-E#26012",
+	"direction": "east",
+	"pad": [
+		0,
+		12,
+		0,
+		0
+	],
+	"handGapPx": 3,
+	"stance": "upright",
+	"frames": [
+		{
+			"arm": [
+				-50,
+				0.7
+			],
+			"bladeDeg": 0,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"arm": [
+				-42,
+				0.74
+			],
+			"bladeDeg": 0,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"arm": [
+				-34,
+				0.78
+			],
+			"bladeDeg": -5,
+			"lean": 1,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"arm": [
+				-28,
+				0.82
+			],
+			"bladeDeg": -12,
+			"lean": 2,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"arm": [
+				-24,
+				0.86
+			],
+			"bladeDeg": -22,
+			"lean": 3,
+			"hip": [
+				1,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"arm": [
+				-22,
+				0.88
+			],
+			"bladeDeg": -32,
+			"lean": 3,
+			"hip": [
+				1,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"arm": [
+				-22,
+				0.88
+			],
+			"bladeDeg": -40,
+			"lean": 3,
+			"hip": [
+				1,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"arm": [
+				-20,
+				0.88
+			],
+			"bladeDeg": -42,
+			"lean": 3,
+			"hip": [
+				1,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"arm": [
+				-22,
+				0.88
+			],
+			"bladeDeg": -40,
+			"lean": 3,
+			"hip": [
+				1,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"arm": [
+				-24,
+				0.88
+			],
+			"bladeDeg": -42,
+			"lean": 3,
+			"hip": [
+				1,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"arm": [
+				-22,
+				0.88
+			],
+			"bladeDeg": -40,
+			"lean": 3,
+			"hip": [
+				1,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"arm": [
+				-28,
+				0.84
+			],
+			"bladeDeg": -22,
+			"lean": 2,
+			"hip": [
+				1,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"arm": [
+				-36,
+				0.78
+			],
+			"bladeDeg": -10,
+			"lean": 1,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"arm": [
+				-44,
+				0.74
+			],
+			"bladeDeg": -4,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"arm": [
+				-50,
+				0.7
+			],
+			"bladeDeg": 0,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		}
+	]
+}

@@ -428,6 +428,96 @@
 			"out": 12
 		},
 		{
+			"type": "mob_field_hyena_001",
+			"level": null,
+			"out": 5
+		},
+		{
+			"type": "mob_field_hyena_001",
+			"level": 0,
+			"out": 5
+		},
+		{
+			"type": "mob_field_hyena_001",
+			"level": 1,
+			"out": 1
+		},
+		{
+			"type": "mob_field_hyena_001",
+			"level": 3,
+			"out": 3
+		},
+		{
+			"type": "mob_field_hyena_001",
+			"level": 7.6,
+			"out": 8
+		},
+		{
+			"type": "mob_field_hyena_001",
+			"level": 12,
+			"out": 12
+		},
+		{
+			"type": "mob_stream_crab_001",
+			"level": null,
+			"out": 3
+		},
+		{
+			"type": "mob_stream_crab_001",
+			"level": 0,
+			"out": 3
+		},
+		{
+			"type": "mob_stream_crab_001",
+			"level": 1,
+			"out": 1
+		},
+		{
+			"type": "mob_stream_crab_001",
+			"level": 3,
+			"out": 3
+		},
+		{
+			"type": "mob_stream_crab_001",
+			"level": 7.6,
+			"out": 8
+		},
+		{
+			"type": "mob_stream_crab_001",
+			"level": 12,
+			"out": 12
+		},
+		{
+			"type": "boss_cursed_oak_001",
+			"level": null,
+			"out": 6
+		},
+		{
+			"type": "boss_cursed_oak_001",
+			"level": 0,
+			"out": 6
+		},
+		{
+			"type": "boss_cursed_oak_001",
+			"level": 1,
+			"out": 1
+		},
+		{
+			"type": "boss_cursed_oak_001",
+			"level": 3,
+			"out": 3
+		},
+		{
+			"type": "boss_cursed_oak_001",
+			"level": 7.6,
+			"out": 8
+		},
+		{
+			"type": "boss_cursed_oak_001",
+			"level": 12,
+			"out": 12
+		},
+		{
 			"type": "mob_poison_frog_001",
 			"level": null,
 			"out": 13
@@ -574,6 +664,36 @@
 		},
 		{
 			"type": "mob_mud_merfolk_001",
+			"level": 12,
+			"out": 12
+		},
+		{
+			"type": "mob_mud_catfish_001",
+			"level": null,
+			"out": 14
+		},
+		{
+			"type": "mob_mud_catfish_001",
+			"level": 0,
+			"out": 14
+		},
+		{
+			"type": "mob_mud_catfish_001",
+			"level": 1,
+			"out": 1
+		},
+		{
+			"type": "mob_mud_catfish_001",
+			"level": 3,
+			"out": 3
+		},
+		{
+			"type": "mob_mud_catfish_001",
+			"level": 7.6,
+			"out": 8
+		},
+		{
+			"type": "mob_mud_catfish_001",
 			"level": 12,
 			"out": 12
 		},
@@ -818,6 +938,36 @@
 			"out": 12
 		},
 		{
+			"type": "mob_oasis_croc_001",
+			"level": null,
+			"out": 24
+		},
+		{
+			"type": "mob_oasis_croc_001",
+			"level": 0,
+			"out": 24
+		},
+		{
+			"type": "mob_oasis_croc_001",
+			"level": 1,
+			"out": 1
+		},
+		{
+			"type": "mob_oasis_croc_001",
+			"level": 3,
+			"out": 3
+		},
+		{
+			"type": "mob_oasis_croc_001",
+			"level": 7.6,
+			"out": 8
+		},
+		{
+			"type": "mob_oasis_croc_001",
+			"level": 12,
+			"out": 12
+		},
+		{
 			"type": "boss_scorpion_queen_001",
 			"level": null,
 			"out": 27
@@ -1054,6 +1204,36 @@
 		},
 		{
 			"type": "mob_wind_goblin_001",
+			"level": 12,
+			"out": 12
+		},
+		{
+			"type": "mob_gale_otter_001",
+			"level": null,
+			"out": 34
+		},
+		{
+			"type": "mob_gale_otter_001",
+			"level": 0,
+			"out": 34
+		},
+		{
+			"type": "mob_gale_otter_001",
+			"level": 1,
+			"out": 1
+		},
+		{
+			"type": "mob_gale_otter_001",
+			"level": 3,
+			"out": 3
+		},
+		{
+			"type": "mob_gale_otter_001",
+			"level": 7.6,
+			"out": 8
+		},
+		{
+			"type": "mob_gale_otter_001",
 			"level": 12,
 			"out": 12
 		},
@@ -1328,6 +1508,36 @@
 			"out": 12
 		},
 		{
+			"type": "mob_ice_walrus_001",
+			"level": null,
+			"out": 44
+		},
+		{
+			"type": "mob_ice_walrus_001",
+			"level": 0,
+			"out": 44
+		},
+		{
+			"type": "mob_ice_walrus_001",
+			"level": 1,
+			"out": 1
+		},
+		{
+			"type": "mob_ice_walrus_001",
+			"level": 3,
+			"out": 3
+		},
+		{
+			"type": "mob_ice_walrus_001",
+			"level": 7.6,
+			"out": 8
+		},
+		{
+			"type": "mob_ice_walrus_001",
+			"level": 12,
+			"out": 12
+		},
+		{
 			"type": "boss_ice_queen_001",
 			"level": null,
 			"out": 47
@@ -1598,6 +1808,36 @@
 			"out": 12
 		},
 		{
+			"type": "mob_lava_eel_001",
+			"level": null,
+			"out": 54
+		},
+		{
+			"type": "mob_lava_eel_001",
+			"level": 0,
+			"out": 54
+		},
+		{
+			"type": "mob_lava_eel_001",
+			"level": 1,
+			"out": 1
+		},
+		{
+			"type": "mob_lava_eel_001",
+			"level": 3,
+			"out": 3
+		},
+		{
+			"type": "mob_lava_eel_001",
+			"level": 7.6,
+			"out": 8
+		},
+		{
+			"type": "mob_lava_eel_001",
+			"level": 12,
+			"out": 12
+		},
+		{
 			"type": "boss_ancient_lava_golem_001",
 			"level": null,
 			"out": 57
@@ -1864,6 +2104,36 @@
 		},
 		{
 			"type": "mob_wreck_octopus_001",
+			"level": 12,
+			"out": 12
+		},
+		{
+			"type": "mob_spike_turtle_001",
+			"level": null,
+			"out": 64
+		},
+		{
+			"type": "mob_spike_turtle_001",
+			"level": 0,
+			"out": 64
+		},
+		{
+			"type": "mob_spike_turtle_001",
+			"level": 1,
+			"out": 1
+		},
+		{
+			"type": "mob_spike_turtle_001",
+			"level": 3,
+			"out": 3
+		},
+		{
+			"type": "mob_spike_turtle_001",
+			"level": 7.6,
+			"out": 8
+		},
+		{
+			"type": "mob_spike_turtle_001",
 			"level": 12,
 			"out": 12
 		},
@@ -3343,6 +3613,501 @@
 			}
 		},
 		{
+			"type": "mob_field_hyena_001",
+			"level": null,
+			"out": {
+				"hp": 260,
+				"atk": 15,
+				"def": 2,
+				"speed": 62,
+				"aggro": 230,
+				"reach": 32,
+				"attackCd": 1.1,
+				"exp": 44,
+				"coins": 10
+			}
+		},
+		{
+			"type": "mob_field_hyena_001",
+			"level": 1,
+			"out": {
+				"hp": 170,
+				"atk": 12,
+				"def": 1,
+				"speed": 62,
+				"aggro": 230,
+				"reach": 32,
+				"attackCd": 1.1,
+				"exp": 31,
+				"coins": 8
+			}
+		},
+		{
+			"type": "mob_field_hyena_001",
+			"level": 2,
+			"out": {
+				"hp": 170,
+				"atk": 12,
+				"def": 1,
+				"speed": 62,
+				"aggro": 230,
+				"reach": 32,
+				"attackCd": 1.1,
+				"exp": 31,
+				"coins": 8
+			}
+		},
+		{
+			"type": "mob_field_hyena_001",
+			"level": 4,
+			"out": {
+				"hp": 225,
+				"atk": 14,
+				"def": 2,
+				"speed": 62,
+				"aggro": 230,
+				"reach": 32,
+				"attackCd": 1.1,
+				"exp": 39,
+				"coins": 9
+			}
+		},
+		{
+			"type": "mob_field_hyena_001",
+			"level": 5,
+			"out": {
+				"hp": 260,
+				"atk": 15,
+				"def": 2,
+				"speed": 62,
+				"aggro": 230,
+				"reach": 32,
+				"attackCd": 1.1,
+				"exp": 44,
+				"coins": 10
+			}
+		},
+		{
+			"type": "mob_field_hyena_001",
+			"level": 6,
+			"out": {
+				"hp": 300,
+				"atk": 16,
+				"def": 3,
+				"speed": 62,
+				"aggro": 230,
+				"reach": 32,
+				"attackCd": 1.1,
+				"exp": 49,
+				"coins": 11
+			}
+		},
+		{
+			"type": "mob_field_hyena_001",
+			"level": 8,
+			"out": {
+				"hp": 395,
+				"atk": 19,
+				"def": 4,
+				"speed": 62,
+				"aggro": 230,
+				"reach": 32,
+				"attackCd": 1.1,
+				"exp": 62,
+				"coins": 13
+			}
+		},
+		{
+			"type": "mob_field_hyena_001",
+			"level": 10,
+			"out": {
+				"hp": 525,
+				"atk": 23,
+				"def": 5,
+				"speed": 62,
+				"aggro": 230,
+				"reach": 32,
+				"attackCd": 1.1,
+				"exp": 78,
+				"coins": 16
+			}
+		},
+		{
+			"type": "mob_field_hyena_001",
+			"level": 12,
+			"out": {
+				"hp": 600,
+				"atk": 25,
+				"def": 5,
+				"speed": 62,
+				"aggro": 230,
+				"reach": 32,
+				"attackCd": 1.1,
+				"exp": 87,
+				"coins": 18
+			}
+		},
+		{
+			"type": "mob_field_hyena_001",
+			"level": 15,
+			"out": {
+				"hp": 600,
+				"atk": 25,
+				"def": 5,
+				"speed": 62,
+				"aggro": 230,
+				"reach": 32,
+				"attackCd": 1.1,
+				"exp": 87,
+				"coins": 18
+			}
+		},
+		{
+			"type": "mob_field_hyena_001",
+			"level": 20,
+			"out": {
+				"hp": 600,
+				"atk": 25,
+				"def": 5,
+				"speed": 62,
+				"aggro": 230,
+				"reach": 32,
+				"attackCd": 1.1,
+				"exp": 87,
+				"coins": 18
+			}
+		},
+		{
+			"type": "mob_stream_crab_001",
+			"level": null,
+			"out": {
+				"hp": 180,
+				"atk": 10,
+				"def": 5,
+				"speed": 36,
+				"aggro": 150,
+				"reach": 30,
+				"attackCd": 1.6,
+				"exp": 26,
+				"coins": 7
+			}
+		},
+		{
+			"type": "mob_stream_crab_001",
+			"level": 1,
+			"out": {
+				"hp": 135,
+				"atk": 8,
+				"def": 4,
+				"speed": 36,
+				"aggro": 150,
+				"reach": 30,
+				"attackCd": 1.6,
+				"exp": 21,
+				"coins": 6
+			}
+		},
+		{
+			"type": "mob_stream_crab_001",
+			"level": 2,
+			"out": {
+				"hp": 155,
+				"atk": 9,
+				"def": 5,
+				"speed": 36,
+				"aggro": 150,
+				"reach": 30,
+				"attackCd": 1.6,
+				"exp": 23,
+				"coins": 6
+			}
+		},
+		{
+			"type": "mob_stream_crab_001",
+			"level": 4,
+			"out": {
+				"hp": 205,
+				"atk": 11,
+				"def": 6,
+				"speed": 36,
+				"aggro": 150,
+				"reach": 30,
+				"attackCd": 1.6,
+				"exp": 29,
+				"coins": 8
+			}
+		},
+		{
+			"type": "mob_stream_crab_001",
+			"level": 5,
+			"out": {
+				"hp": 240,
+				"atk": 12,
+				"def": 6,
+				"speed": 36,
+				"aggro": 150,
+				"reach": 30,
+				"attackCd": 1.6,
+				"exp": 33,
+				"coins": 8
+			}
+		},
+		{
+			"type": "mob_stream_crab_001",
+			"level": 6,
+			"out": {
+				"hp": 275,
+				"atk": 13,
+				"def": 7,
+				"speed": 36,
+				"aggro": 150,
+				"reach": 30,
+				"attackCd": 1.6,
+				"exp": 37,
+				"coins": 9
+			}
+		},
+		{
+			"type": "mob_stream_crab_001",
+			"level": 8,
+			"out": {
+				"hp": 360,
+				"atk": 15,
+				"def": 8,
+				"speed": 36,
+				"aggro": 150,
+				"reach": 30,
+				"attackCd": 1.6,
+				"exp": 46,
+				"coins": 11
+			}
+		},
+		{
+			"type": "mob_stream_crab_001",
+			"level": 10,
+			"out": {
+				"hp": 415,
+				"atk": 17,
+				"def": 8,
+				"speed": 36,
+				"aggro": 150,
+				"reach": 30,
+				"attackCd": 1.6,
+				"exp": 51,
+				"coins": 12
+			}
+		},
+		{
+			"type": "mob_stream_crab_001",
+			"level": 12,
+			"out": {
+				"hp": 415,
+				"atk": 17,
+				"def": 8,
+				"speed": 36,
+				"aggro": 150,
+				"reach": 30,
+				"attackCd": 1.6,
+				"exp": 51,
+				"coins": 12
+			}
+		},
+		{
+			"type": "mob_stream_crab_001",
+			"level": 15,
+			"out": {
+				"hp": 415,
+				"atk": 17,
+				"def": 8,
+				"speed": 36,
+				"aggro": 150,
+				"reach": 30,
+				"attackCd": 1.6,
+				"exp": 51,
+				"coins": 12
+			}
+		},
+		{
+			"type": "mob_stream_crab_001",
+			"level": 20,
+			"out": {
+				"hp": 415,
+				"atk": 17,
+				"def": 8,
+				"speed": 36,
+				"aggro": 150,
+				"reach": 30,
+				"attackCd": 1.6,
+				"exp": 51,
+				"coins": 12
+			}
+		},
+		{
+			"type": "boss_cursed_oak_001",
+			"level": null,
+			"out": {
+				"hp": 3000,
+				"atk": 30,
+				"def": 8,
+				"speed": 44,
+				"aggro": 320,
+				"reach": 60,
+				"attackCd": 1.5,
+				"exp": 560,
+				"coins": 210
+			}
+		},
+		{
+			"type": "boss_cursed_oak_001",
+			"level": 1,
+			"out": {
+				"hp": 1975,
+				"atk": 23,
+				"def": 7,
+				"speed": 44,
+				"aggro": 320,
+				"reach": 60,
+				"attackCd": 1.5,
+				"exp": 399,
+				"coins": 158
+			}
+		},
+		{
+			"type": "boss_cursed_oak_001",
+			"level": 2,
+			"out": {
+				"hp": 1975,
+				"atk": 23,
+				"def": 7,
+				"speed": 44,
+				"aggro": 320,
+				"reach": 60,
+				"attackCd": 1.5,
+				"exp": 399,
+				"coins": 158
+			}
+		},
+		{
+			"type": "boss_cursed_oak_001",
+			"level": 4,
+			"out": {
+				"hp": 2270,
+				"atk": 25,
+				"def": 7,
+				"speed": 44,
+				"aggro": 320,
+				"reach": 60,
+				"attackCd": 1.5,
+				"exp": 446,
+				"coins": 174
+			}
+		},
+		{
+			"type": "boss_cursed_oak_001",
+			"level": 5,
+			"out": {
+				"hp": 2610,
+				"atk": 28,
+				"def": 8,
+				"speed": 44,
+				"aggro": 320,
+				"reach": 60,
+				"attackCd": 1.5,
+				"exp": 500,
+				"coins": 191
+			}
+		},
+		{
+			"type": "boss_cursed_oak_001",
+			"level": 6,
+			"out": {
+				"hp": 3000,
+				"atk": 30,
+				"def": 8,
+				"speed": 44,
+				"aggro": 320,
+				"reach": 60,
+				"attackCd": 1.5,
+				"exp": 560,
+				"coins": 210
+			}
+		},
+		{
+			"type": "boss_cursed_oak_001",
+			"level": 8,
+			"out": {
+				"hp": 3965,
+				"atk": 36,
+				"def": 9,
+				"speed": 44,
+				"aggro": 320,
+				"reach": 60,
+				"attackCd": 1.5,
+				"exp": 702,
+				"coins": 254
+			}
+		},
+		{
+			"type": "boss_cursed_oak_001",
+			"level": 10,
+			"out": {
+				"hp": 5245,
+				"atk": 42,
+				"def": 10,
+				"speed": 44,
+				"aggro": 320,
+				"reach": 60,
+				"attackCd": 1.5,
+				"exp": 881,
+				"coins": 307
+			}
+		},
+		{
+			"type": "boss_cursed_oak_001",
+			"level": 12,
+			"out": {
+				"hp": 6940,
+				"atk": 50,
+				"def": 11,
+				"speed": 44,
+				"aggro": 320,
+				"reach": 60,
+				"attackCd": 1.5,
+				"exp": 1105,
+				"coins": 372
+			}
+		},
+		{
+			"type": "boss_cursed_oak_001",
+			"level": 15,
+			"out": {
+				"hp": 6940,
+				"atk": 50,
+				"def": 11,
+				"speed": 44,
+				"aggro": 320,
+				"reach": 60,
+				"attackCd": 1.5,
+				"exp": 1105,
+				"coins": 372
+			}
+		},
+		{
+			"type": "boss_cursed_oak_001",
+			"level": 20,
+			"out": {
+				"hp": 6940,
+				"atk": 50,
+				"def": 11,
+				"speed": 44,
+				"aggro": 320,
+				"reach": 60,
+				"attackCd": 1.5,
+				"exp": 1105,
+				"coins": 372
+			}
+		},
+		{
 			"type": "mob_poison_frog_001",
 			"level": null,
 			"out": {
@@ -4457,6 +5222,226 @@
 				"ranged": "arrow",
 				"exp": 894,
 				"coins": 32,
+				"resist": {
+					"water": 0.75,
+					"earth": 1.25,
+					"wind": 1.25
+				}
+			}
+		},
+		{
+			"type": "mob_mud_catfish_001",
+			"level": null,
+			"out": {
+				"hp": 1310,
+				"atk": 30,
+				"def": 11,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 384,
+				"coins": 21,
+				"resist": {
+					"water": 0.75,
+					"earth": 1.25,
+					"wind": 1.25
+				}
+			}
+		},
+		{
+			"type": "mob_mud_catfish_001",
+			"level": 1,
+			"out": {
+				"hp": 860,
+				"atk": 23,
+				"def": 10,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 273,
+				"coins": 16,
+				"resist": {
+					"water": 0.75,
+					"earth": 1.25,
+					"wind": 1.25
+				}
+			}
+		},
+		{
+			"type": "mob_mud_catfish_001",
+			"level": 2,
+			"out": {
+				"hp": 860,
+				"atk": 23,
+				"def": 10,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 273,
+				"coins": 16,
+				"resist": {
+					"water": 0.75,
+					"earth": 1.25,
+					"wind": 1.25
+				}
+			}
+		},
+		{
+			"type": "mob_mud_catfish_001",
+			"level": 4,
+			"out": {
+				"hp": 860,
+				"atk": 23,
+				"def": 10,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 273,
+				"coins": 16,
+				"resist": {
+					"water": 0.75,
+					"earth": 1.25,
+					"wind": 1.25
+				}
+			}
+		},
+		{
+			"type": "mob_mud_catfish_001",
+			"level": 5,
+			"out": {
+				"hp": 860,
+				"atk": 23,
+				"def": 10,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 273,
+				"coins": 16,
+				"resist": {
+					"water": 0.75,
+					"earth": 1.25,
+					"wind": 1.25
+				}
+			}
+		},
+		{
+			"type": "mob_mud_catfish_001",
+			"level": 6,
+			"out": {
+				"hp": 860,
+				"atk": 23,
+				"def": 10,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 273,
+				"coins": 16,
+				"resist": {
+					"water": 0.75,
+					"earth": 1.25,
+					"wind": 1.25
+				}
+			}
+		},
+		{
+			"type": "mob_mud_catfish_001",
+			"level": 8,
+			"out": {
+				"hp": 860,
+				"atk": 23,
+				"def": 10,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 273,
+				"coins": 16,
+				"resist": {
+					"water": 0.75,
+					"earth": 1.25,
+					"wind": 1.25
+				}
+			}
+		},
+		{
+			"type": "mob_mud_catfish_001",
+			"level": 10,
+			"out": {
+				"hp": 860,
+				"atk": 23,
+				"def": 10,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 273,
+				"coins": 16,
+				"resist": {
+					"water": 0.75,
+					"earth": 1.25,
+					"wind": 1.25
+				}
+			}
+		},
+		{
+			"type": "mob_mud_catfish_001",
+			"level": 12,
+			"out": {
+				"hp": 990,
+				"atk": 25,
+				"def": 10,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 306,
+				"coins": 17,
+				"resist": {
+					"water": 0.75,
+					"earth": 1.25,
+					"wind": 1.25
+				}
+			}
+		},
+		{
+			"type": "mob_mud_catfish_001",
+			"level": 15,
+			"out": {
+				"hp": 1505,
+				"atk": 33,
+				"def": 12,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 430,
+				"coins": 23,
+				"resist": {
+					"water": 0.75,
+					"earth": 1.25,
+					"wind": 1.25
+				}
+			}
+		},
+		{
+			"type": "mob_mud_catfish_001",
+			"level": 20,
+			"out": {
+				"hp": 3030,
+				"atk": 50,
+				"def": 14,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 758,
+				"coins": 37,
 				"resist": {
 					"water": 0.75,
 					"earth": 1.25,
@@ -6313,6 +7298,237 @@
 			}
 		},
 		{
+			"type": "mob_oasis_croc_001",
+			"level": null,
+			"out": {
+				"hp": 2195,
+				"atk": 45,
+				"def": 13,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 1560,
+				"coins": 33,
+				"resist": {
+					"earth": 0.75,
+					"fire": 0.8,
+					"water": 1.25,
+					"ice": 1.25
+				}
+			}
+		},
+		{
+			"type": "mob_oasis_croc_001",
+			"level": 1,
+			"out": {
+				"hp": 1445,
+				"atk": 35,
+				"def": 12,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 1110,
+				"coins": 25,
+				"resist": {
+					"earth": 0.75,
+					"fire": 0.8,
+					"water": 1.25,
+					"ice": 1.25
+				}
+			}
+		},
+		{
+			"type": "mob_oasis_croc_001",
+			"level": 2,
+			"out": {
+				"hp": 1445,
+				"atk": 35,
+				"def": 12,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 1110,
+				"coins": 25,
+				"resist": {
+					"earth": 0.75,
+					"fire": 0.8,
+					"water": 1.25,
+					"ice": 1.25
+				}
+			}
+		},
+		{
+			"type": "mob_oasis_croc_001",
+			"level": 4,
+			"out": {
+				"hp": 1445,
+				"atk": 35,
+				"def": 12,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 1110,
+				"coins": 25,
+				"resist": {
+					"earth": 0.75,
+					"fire": 0.8,
+					"water": 1.25,
+					"ice": 1.25
+				}
+			}
+		},
+		{
+			"type": "mob_oasis_croc_001",
+			"level": 5,
+			"out": {
+				"hp": 1445,
+				"atk": 35,
+				"def": 12,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 1110,
+				"coins": 25,
+				"resist": {
+					"earth": 0.75,
+					"fire": 0.8,
+					"water": 1.25,
+					"ice": 1.25
+				}
+			}
+		},
+		{
+			"type": "mob_oasis_croc_001",
+			"level": 6,
+			"out": {
+				"hp": 1445,
+				"atk": 35,
+				"def": 12,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 1110,
+				"coins": 25,
+				"resist": {
+					"earth": 0.75,
+					"fire": 0.8,
+					"water": 1.25,
+					"ice": 1.25
+				}
+			}
+		},
+		{
+			"type": "mob_oasis_croc_001",
+			"level": 8,
+			"out": {
+				"hp": 1445,
+				"atk": 35,
+				"def": 12,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 1110,
+				"coins": 25,
+				"resist": {
+					"earth": 0.75,
+					"fire": 0.8,
+					"water": 1.25,
+					"ice": 1.25
+				}
+			}
+		},
+		{
+			"type": "mob_oasis_croc_001",
+			"level": 10,
+			"out": {
+				"hp": 1445,
+				"atk": 35,
+				"def": 12,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 1110,
+				"coins": 25,
+				"resist": {
+					"earth": 0.75,
+					"fire": 0.8,
+					"water": 1.25,
+					"ice": 1.25
+				}
+			}
+		},
+		{
+			"type": "mob_oasis_croc_001",
+			"level": 12,
+			"out": {
+				"hp": 1445,
+				"atk": 35,
+				"def": 12,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 1110,
+				"coins": 25,
+				"resist": {
+					"earth": 0.75,
+					"fire": 0.8,
+					"water": 1.25,
+					"ice": 1.25
+				}
+			}
+		},
+		{
+			"type": "mob_oasis_croc_001",
+			"level": 15,
+			"out": {
+				"hp": 1445,
+				"atk": 35,
+				"def": 12,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 1110,
+				"coins": 25,
+				"resist": {
+					"earth": 0.75,
+					"fire": 0.8,
+					"water": 1.25,
+					"ice": 1.25
+				}
+			}
+		},
+		{
+			"type": "mob_oasis_croc_001",
+			"level": 20,
+			"out": {
+				"hp": 1445,
+				"atk": 35,
+				"def": 12,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 1110,
+				"coins": 25,
+				"resist": {
+					"earth": 0.75,
+					"fire": 0.8,
+					"water": 1.25,
+					"ice": 1.25
+				}
+			}
+		},
+		{
 			"type": "boss_scorpion_queen_001",
 			"level": null,
 			"out": {
@@ -8077,6 +9293,215 @@
 				"ranged": "arrow",
 				"exp": 3422,
 				"coins": 36,
+				"resist": {
+					"wind": 0.75,
+					"earth": 1.3
+				}
+			}
+		},
+		{
+			"type": "mob_gale_otter_001",
+			"level": null,
+			"out": {
+				"hp": 1615,
+				"atk": 56,
+				"def": 10,
+				"speed": 74,
+				"aggro": 250,
+				"reach": 32,
+				"attackCd": 1,
+				"exp": 3859,
+				"coins": 45,
+				"resist": {
+					"wind": 0.75,
+					"earth": 1.3
+				}
+			}
+		},
+		{
+			"type": "mob_gale_otter_001",
+			"level": 1,
+			"out": {
+				"hp": 1060,
+				"atk": 43,
+				"def": 9,
+				"speed": 74,
+				"aggro": 250,
+				"reach": 32,
+				"attackCd": 1,
+				"exp": 2747,
+				"coins": 34,
+				"resist": {
+					"wind": 0.75,
+					"earth": 1.3
+				}
+			}
+		},
+		{
+			"type": "mob_gale_otter_001",
+			"level": 2,
+			"out": {
+				"hp": 1060,
+				"atk": 43,
+				"def": 9,
+				"speed": 74,
+				"aggro": 250,
+				"reach": 32,
+				"attackCd": 1,
+				"exp": 2747,
+				"coins": 34,
+				"resist": {
+					"wind": 0.75,
+					"earth": 1.3
+				}
+			}
+		},
+		{
+			"type": "mob_gale_otter_001",
+			"level": 4,
+			"out": {
+				"hp": 1060,
+				"atk": 43,
+				"def": 9,
+				"speed": 74,
+				"aggro": 250,
+				"reach": 32,
+				"attackCd": 1,
+				"exp": 2747,
+				"coins": 34,
+				"resist": {
+					"wind": 0.75,
+					"earth": 1.3
+				}
+			}
+		},
+		{
+			"type": "mob_gale_otter_001",
+			"level": 5,
+			"out": {
+				"hp": 1060,
+				"atk": 43,
+				"def": 9,
+				"speed": 74,
+				"aggro": 250,
+				"reach": 32,
+				"attackCd": 1,
+				"exp": 2747,
+				"coins": 34,
+				"resist": {
+					"wind": 0.75,
+					"earth": 1.3
+				}
+			}
+		},
+		{
+			"type": "mob_gale_otter_001",
+			"level": 6,
+			"out": {
+				"hp": 1060,
+				"atk": 43,
+				"def": 9,
+				"speed": 74,
+				"aggro": 250,
+				"reach": 32,
+				"attackCd": 1,
+				"exp": 2747,
+				"coins": 34,
+				"resist": {
+					"wind": 0.75,
+					"earth": 1.3
+				}
+			}
+		},
+		{
+			"type": "mob_gale_otter_001",
+			"level": 8,
+			"out": {
+				"hp": 1060,
+				"atk": 43,
+				"def": 9,
+				"speed": 74,
+				"aggro": 250,
+				"reach": 32,
+				"attackCd": 1,
+				"exp": 2747,
+				"coins": 34,
+				"resist": {
+					"wind": 0.75,
+					"earth": 1.3
+				}
+			}
+		},
+		{
+			"type": "mob_gale_otter_001",
+			"level": 10,
+			"out": {
+				"hp": 1060,
+				"atk": 43,
+				"def": 9,
+				"speed": 74,
+				"aggro": 250,
+				"reach": 32,
+				"attackCd": 1,
+				"exp": 2747,
+				"coins": 34,
+				"resist": {
+					"wind": 0.75,
+					"earth": 1.3
+				}
+			}
+		},
+		{
+			"type": "mob_gale_otter_001",
+			"level": 12,
+			"out": {
+				"hp": 1060,
+				"atk": 43,
+				"def": 9,
+				"speed": 74,
+				"aggro": 250,
+				"reach": 32,
+				"attackCd": 1,
+				"exp": 2747,
+				"coins": 34,
+				"resist": {
+					"wind": 0.75,
+					"earth": 1.3
+				}
+			}
+		},
+		{
+			"type": "mob_gale_otter_001",
+			"level": 15,
+			"out": {
+				"hp": 1060,
+				"atk": 43,
+				"def": 9,
+				"speed": 74,
+				"aggro": 250,
+				"reach": 32,
+				"attackCd": 1,
+				"exp": 2747,
+				"coins": 34,
+				"resist": {
+					"wind": 0.75,
+					"earth": 1.3
+				}
+			}
+		},
+		{
+			"type": "mob_gale_otter_001",
+			"level": 20,
+			"out": {
+				"hp": 1060,
+				"atk": 43,
+				"def": 9,
+				"speed": 74,
+				"aggro": 250,
+				"reach": 32,
+				"attackCd": 1,
+				"exp": 2747,
+				"coins": 34,
 				"resist": {
 					"wind": 0.75,
 					"earth": 1.3
@@ -10002,6 +11427,215 @@
 				"attackCd": 1.6,
 				"exp": 6374,
 				"coins": 45,
+				"resist": {
+					"ice": 0.7,
+					"fire": 1.3
+				}
+			}
+		},
+		{
+			"type": "mob_ice_walrus_001",
+			"level": null,
+			"out": {
+				"hp": 4260,
+				"atk": 74,
+				"def": 18,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 7544,
+				"coins": 57,
+				"resist": {
+					"ice": 0.7,
+					"fire": 1.3
+				}
+			}
+		},
+		{
+			"type": "mob_ice_walrus_001",
+			"level": 1,
+			"out": {
+				"hp": 2800,
+				"atk": 57,
+				"def": 17,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 5370,
+				"coins": 43,
+				"resist": {
+					"ice": 0.7,
+					"fire": 1.3
+				}
+			}
+		},
+		{
+			"type": "mob_ice_walrus_001",
+			"level": 2,
+			"out": {
+				"hp": 2800,
+				"atk": 57,
+				"def": 17,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 5370,
+				"coins": 43,
+				"resist": {
+					"ice": 0.7,
+					"fire": 1.3
+				}
+			}
+		},
+		{
+			"type": "mob_ice_walrus_001",
+			"level": 4,
+			"out": {
+				"hp": 2800,
+				"atk": 57,
+				"def": 17,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 5370,
+				"coins": 43,
+				"resist": {
+					"ice": 0.7,
+					"fire": 1.3
+				}
+			}
+		},
+		{
+			"type": "mob_ice_walrus_001",
+			"level": 5,
+			"out": {
+				"hp": 2800,
+				"atk": 57,
+				"def": 17,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 5370,
+				"coins": 43,
+				"resist": {
+					"ice": 0.7,
+					"fire": 1.3
+				}
+			}
+		},
+		{
+			"type": "mob_ice_walrus_001",
+			"level": 6,
+			"out": {
+				"hp": 2800,
+				"atk": 57,
+				"def": 17,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 5370,
+				"coins": 43,
+				"resist": {
+					"ice": 0.7,
+					"fire": 1.3
+				}
+			}
+		},
+		{
+			"type": "mob_ice_walrus_001",
+			"level": 8,
+			"out": {
+				"hp": 2800,
+				"atk": 57,
+				"def": 17,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 5370,
+				"coins": 43,
+				"resist": {
+					"ice": 0.7,
+					"fire": 1.3
+				}
+			}
+		},
+		{
+			"type": "mob_ice_walrus_001",
+			"level": 10,
+			"out": {
+				"hp": 2800,
+				"atk": 57,
+				"def": 17,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 5370,
+				"coins": 43,
+				"resist": {
+					"ice": 0.7,
+					"fire": 1.3
+				}
+			}
+		},
+		{
+			"type": "mob_ice_walrus_001",
+			"level": 12,
+			"out": {
+				"hp": 2800,
+				"atk": 57,
+				"def": 17,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 5370,
+				"coins": 43,
+				"resist": {
+					"ice": 0.7,
+					"fire": 1.3
+				}
+			}
+		},
+		{
+			"type": "mob_ice_walrus_001",
+			"level": 15,
+			"out": {
+				"hp": 2800,
+				"atk": 57,
+				"def": 17,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 5370,
+				"coins": 43,
+				"resist": {
+					"ice": 0.7,
+					"fire": 1.3
+				}
+			}
+		},
+		{
+			"type": "mob_ice_walrus_001",
+			"level": 20,
+			"out": {
+				"hp": 2800,
+				"atk": 57,
+				"def": 17,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 5370,
+				"coins": 43,
 				"resist": {
 					"ice": 0.7,
 					"fire": 1.3
@@ -11970,6 +13604,226 @@
 				"attackCd": 1.7,
 				"exp": 10525,
 				"coins": 54,
+				"resist": {
+					"fire": 0.6,
+					"water": 1.25,
+					"ice": 1.25
+				}
+			}
+		},
+		{
+			"type": "mob_lava_eel_001",
+			"level": null,
+			"out": {
+				"hp": 4325,
+				"atk": 118,
+				"def": 18,
+				"speed": 40,
+				"aggro": 200,
+				"reach": 40,
+				"attackCd": 1.7,
+				"exp": 12848,
+				"coins": 69,
+				"resist": {
+					"fire": 0.6,
+					"water": 1.25,
+					"ice": 1.25
+				}
+			}
+		},
+		{
+			"type": "mob_lava_eel_001",
+			"level": 1,
+			"out": {
+				"hp": 2845,
+				"atk": 91,
+				"def": 17,
+				"speed": 40,
+				"aggro": 200,
+				"reach": 40,
+				"attackCd": 1.7,
+				"exp": 9145,
+				"coins": 52,
+				"resist": {
+					"fire": 0.6,
+					"water": 1.25,
+					"ice": 1.25
+				}
+			}
+		},
+		{
+			"type": "mob_lava_eel_001",
+			"level": 2,
+			"out": {
+				"hp": 2845,
+				"atk": 91,
+				"def": 17,
+				"speed": 40,
+				"aggro": 200,
+				"reach": 40,
+				"attackCd": 1.7,
+				"exp": 9145,
+				"coins": 52,
+				"resist": {
+					"fire": 0.6,
+					"water": 1.25,
+					"ice": 1.25
+				}
+			}
+		},
+		{
+			"type": "mob_lava_eel_001",
+			"level": 4,
+			"out": {
+				"hp": 2845,
+				"atk": 91,
+				"def": 17,
+				"speed": 40,
+				"aggro": 200,
+				"reach": 40,
+				"attackCd": 1.7,
+				"exp": 9145,
+				"coins": 52,
+				"resist": {
+					"fire": 0.6,
+					"water": 1.25,
+					"ice": 1.25
+				}
+			}
+		},
+		{
+			"type": "mob_lava_eel_001",
+			"level": 5,
+			"out": {
+				"hp": 2845,
+				"atk": 91,
+				"def": 17,
+				"speed": 40,
+				"aggro": 200,
+				"reach": 40,
+				"attackCd": 1.7,
+				"exp": 9145,
+				"coins": 52,
+				"resist": {
+					"fire": 0.6,
+					"water": 1.25,
+					"ice": 1.25
+				}
+			}
+		},
+		{
+			"type": "mob_lava_eel_001",
+			"level": 6,
+			"out": {
+				"hp": 2845,
+				"atk": 91,
+				"def": 17,
+				"speed": 40,
+				"aggro": 200,
+				"reach": 40,
+				"attackCd": 1.7,
+				"exp": 9145,
+				"coins": 52,
+				"resist": {
+					"fire": 0.6,
+					"water": 1.25,
+					"ice": 1.25
+				}
+			}
+		},
+		{
+			"type": "mob_lava_eel_001",
+			"level": 8,
+			"out": {
+				"hp": 2845,
+				"atk": 91,
+				"def": 17,
+				"speed": 40,
+				"aggro": 200,
+				"reach": 40,
+				"attackCd": 1.7,
+				"exp": 9145,
+				"coins": 52,
+				"resist": {
+					"fire": 0.6,
+					"water": 1.25,
+					"ice": 1.25
+				}
+			}
+		},
+		{
+			"type": "mob_lava_eel_001",
+			"level": 10,
+			"out": {
+				"hp": 2845,
+				"atk": 91,
+				"def": 17,
+				"speed": 40,
+				"aggro": 200,
+				"reach": 40,
+				"attackCd": 1.7,
+				"exp": 9145,
+				"coins": 52,
+				"resist": {
+					"fire": 0.6,
+					"water": 1.25,
+					"ice": 1.25
+				}
+			}
+		},
+		{
+			"type": "mob_lava_eel_001",
+			"level": 12,
+			"out": {
+				"hp": 2845,
+				"atk": 91,
+				"def": 17,
+				"speed": 40,
+				"aggro": 200,
+				"reach": 40,
+				"attackCd": 1.7,
+				"exp": 9145,
+				"coins": 52,
+				"resist": {
+					"fire": 0.6,
+					"water": 1.25,
+					"ice": 1.25
+				}
+			}
+		},
+		{
+			"type": "mob_lava_eel_001",
+			"level": 15,
+			"out": {
+				"hp": 2845,
+				"atk": 91,
+				"def": 17,
+				"speed": 40,
+				"aggro": 200,
+				"reach": 40,
+				"attackCd": 1.7,
+				"exp": 9145,
+				"coins": 52,
+				"resist": {
+					"fire": 0.6,
+					"water": 1.25,
+					"ice": 1.25
+				}
+			}
+		},
+		{
+			"type": "mob_lava_eel_001",
+			"level": 20,
+			"out": {
+				"hp": 2845,
+				"atk": 91,
+				"def": 17,
+				"speed": 40,
+				"aggro": 200,
+				"reach": 40,
+				"attackCd": 1.7,
+				"exp": 9145,
+				"coins": 52,
 				"resist": {
 					"fire": 0.6,
 					"water": 1.25,
@@ -14005,6 +15859,226 @@
 				"attackCd": 1.7,
 				"exp": 16024,
 				"coins": 63,
+				"resist": {
+					"water": 0.75,
+					"wind": 1.25,
+					"earth": 1.25
+				}
+			}
+		},
+		{
+			"type": "mob_spike_turtle_001",
+			"level": null,
+			"out": {
+				"hp": 5990,
+				"atk": 103,
+				"def": 23,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 19984,
+				"coins": 81,
+				"resist": {
+					"water": 0.75,
+					"wind": 1.25,
+					"earth": 1.25
+				}
+			}
+		},
+		{
+			"type": "mob_spike_turtle_001",
+			"level": 1,
+			"out": {
+				"hp": 3940,
+				"atk": 80,
+				"def": 22,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 14224,
+				"coins": 61,
+				"resist": {
+					"water": 0.75,
+					"wind": 1.25,
+					"earth": 1.25
+				}
+			}
+		},
+		{
+			"type": "mob_spike_turtle_001",
+			"level": 2,
+			"out": {
+				"hp": 3940,
+				"atk": 80,
+				"def": 22,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 14224,
+				"coins": 61,
+				"resist": {
+					"water": 0.75,
+					"wind": 1.25,
+					"earth": 1.25
+				}
+			}
+		},
+		{
+			"type": "mob_spike_turtle_001",
+			"level": 4,
+			"out": {
+				"hp": 3940,
+				"atk": 80,
+				"def": 22,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 14224,
+				"coins": 61,
+				"resist": {
+					"water": 0.75,
+					"wind": 1.25,
+					"earth": 1.25
+				}
+			}
+		},
+		{
+			"type": "mob_spike_turtle_001",
+			"level": 5,
+			"out": {
+				"hp": 3940,
+				"atk": 80,
+				"def": 22,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 14224,
+				"coins": 61,
+				"resist": {
+					"water": 0.75,
+					"wind": 1.25,
+					"earth": 1.25
+				}
+			}
+		},
+		{
+			"type": "mob_spike_turtle_001",
+			"level": 6,
+			"out": {
+				"hp": 3940,
+				"atk": 80,
+				"def": 22,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 14224,
+				"coins": 61,
+				"resist": {
+					"water": 0.75,
+					"wind": 1.25,
+					"earth": 1.25
+				}
+			}
+		},
+		{
+			"type": "mob_spike_turtle_001",
+			"level": 8,
+			"out": {
+				"hp": 3940,
+				"atk": 80,
+				"def": 22,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 14224,
+				"coins": 61,
+				"resist": {
+					"water": 0.75,
+					"wind": 1.25,
+					"earth": 1.25
+				}
+			}
+		},
+		{
+			"type": "mob_spike_turtle_001",
+			"level": 10,
+			"out": {
+				"hp": 3940,
+				"atk": 80,
+				"def": 22,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 14224,
+				"coins": 61,
+				"resist": {
+					"water": 0.75,
+					"wind": 1.25,
+					"earth": 1.25
+				}
+			}
+		},
+		{
+			"type": "mob_spike_turtle_001",
+			"level": 12,
+			"out": {
+				"hp": 3940,
+				"atk": 80,
+				"def": 22,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 14224,
+				"coins": 61,
+				"resist": {
+					"water": 0.75,
+					"wind": 1.25,
+					"earth": 1.25
+				}
+			}
+		},
+		{
+			"type": "mob_spike_turtle_001",
+			"level": 15,
+			"out": {
+				"hp": 3940,
+				"atk": 80,
+				"def": 22,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 14224,
+				"coins": 61,
+				"resist": {
+					"water": 0.75,
+					"wind": 1.25,
+					"earth": 1.25
+				}
+			}
+		},
+		{
+			"type": "mob_spike_turtle_001",
+			"level": 20,
+			"out": {
+				"hp": 3940,
+				"atk": 80,
+				"def": 22,
+				"speed": 38,
+				"aggro": 200,
+				"reach": 38,
+				"attackCd": 1.6,
+				"exp": 14224,
+				"coins": 61,
 				"resist": {
 					"water": 0.75,
 					"wind": 1.25,

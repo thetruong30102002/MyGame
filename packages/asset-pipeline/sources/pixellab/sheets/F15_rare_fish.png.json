@@ -1,0 +1,20 @@
+{
+	"description": "A sprite sheet of EIGHT separate rare fish item icons arranged in a grid of 4 columns and 2 rows, each centered in its own cell. Top row: a black magma fish with glowing orange lava cracks, a red-orange ember betta fish with long flowing flame-like fins, a rainbow parrotfish with bright colorful scales, a small pearl-white seahorse with a pink pearl sheen. Bottom row: a silver moon carp with a pale crescent mark, a deep blue cave fish with glowing cyan spots, a long golden-blue Haven dragon koi with whiskers and a radiant aura, an ancient silver arowana with glowing blue rune marks. Every fish drawn in side view facing right, no water, no bubbles. Chunky simple game item icons, thick dark outline, soft cel shading, every item fully separate on a plain flat solid bright magenta (#FF00FF) chroma-key background with empty space around it, no text, no letters, no numbers, no border, no frame",
+	"width": 256,
+	"height": 192,
+	"no_background": false,
+	"seed": 1107,
+	"style_options": {
+		"color_palette": false,
+		"outline": true,
+		"shading": true,
+		"detail": false
+	},
+	"style_image": {
+		"path": "sources/pixellab/sheets/N1_nature.png",
+		"usage_description": "Copy ONLY the art style of this reference: chunky chibi pixel art, thick dark outline on every shape, soft cel shading, front-facing view, one object centered in each cell. Do not copy these objects, their colors or their layout."
+	},
+	"jobId": "88c53517-e86e-4f42-9b16-9d4a5ced3177",
+	"token": 0,
+	"createdAt": "2026-11-11T09:36:59.865Z"
+}

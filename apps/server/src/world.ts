@@ -8,6 +8,7 @@ import { MobRegistry, mapZonesFromDisk } from './mobs.ts';
 import { Rewards } from './rewards.ts';
 import { BUFF_TICK_MS, Shop } from './shop.ts';
 import { Economy } from './economy.ts';
+import { Farm, farmMaps } from './farm.ts';
 import { newPvpState, Pvp, type PvpState } from './pvp.ts';
 import { resetDiamonds } from '@havenlord/sim/talents';
 import { dirname, join } from 'node:path';
@@ -58,6 +59,13 @@ const MAP_ID = /^[a-z0-9_]{1,20}\/[a-z0-9_]{1,20}$/;
  * Thế giới trực tuyến mức 1: biết ai đang ở đâu, phát lại vị trí cho người cùng bản đồ, chat, lưu tiến
  * độ. Chiến đấu vẫn tính ở máy người chơi — chuyển lên máy chủ ở mức 2 (quái dùng chung, rơi đồ).
  */
+/**
+ * Hình phát cho người khác: mẫu đã chọn hoặc bản tháo áo / bộ 2 CỦA CHÍNH mẫu đó. Không cho mượn hình mẫu khác.
+ */
+export function bareOrModel(modelId: string, sent: unknown): string {
+	return sent === `${modelId}_bare` || sent === `${modelId}_outfit_2` ? String(sent) : modelId;
+}
+
 export class World {
 	private readonly conns = new Map<string, Conn>();
 	private readonly timer: NodeJS.Timeout;
@@ -66,6 +74,7 @@ export class World {
 	readonly rewards: Rewards;
 	readonly shop: Shop;
 	readonly economy: Economy;
+	readonly farm: Farm;
 	readonly pvp: Pvp;
 	private readonly buffTimer: NodeJS.Timeout;
 
@@ -151,6 +160,7 @@ export class World {
 					const c = this.conns.get(id);
 					return c && c.view.sprite ? { map: c.map, x: c.view.x, y: c.view.y } : null;
 				},
+				outfitPurchased: (id, eco, name, price) => this.economy.shopApplied(id, eco, name, price),
 			},
 			mapsDir,
 			now,
@@ -166,6 +176,12 @@ export class World {
 				if (c) send(c.ws, msg);
 			},
 		});
+		this.farm = new Farm(store, {
+			where: id => {const c=this.conns.get(id);return c?{map:c.map,x:c.view.x,y:c.view.y}:null;},
+			send: (id,msg) => {const c=this.conns.get(id);if(c)send(c.ws,msg);},
+			move: (id,map) => {const c=this.conns.get(id);if(c)this.changeMap(c,map,true);},
+			refresh: id => {this.economy.online(id);const c=this.conns.get(id);if(c)send(c.ws,{t:'buffs',list:store.buffs(id)});},
+		}, mapsDir, now);
 	}
 
 	get online(): number {
@@ -234,7 +250,7 @@ export class World {
 		const conn: Conn = {
 			ws,
 			accountId: s.accountId,
-			map: p.map || 'human/town',
+			map: p.map?.startsWith('home/') ? 'human/town' : p.map || 'human/town',
 			modelId: ch.modelId!,
 			view: { id: ch.id, name: ch.name, gender: ch.gender, sprite: '', level: p.level, x: p.x, y: p.y, dir: 'S', anim: 'idle' },
 			dirty: false,
@@ -272,6 +288,9 @@ export class World {
 
 	private handle(c: Conn, msg: ClientMessage): void {
 		switch (msg.t) {
+			case 'farm':
+				if (!c.social.allow('farm')) return;
+				return this.farm.handle(c.view.id,c.accountId,msg);
 			case 'move':
 				return this.move(c, msg);
 			case 'chat': {
@@ -390,7 +409,7 @@ export class World {
 			if (Math.hypot(x - c.view.x, y - c.view.y) > MAX_SPEED * dt + 48) return;
 		}
 		c.lastMoveAt = now;
-		Object.assign(c.view, { x: Math.round(x), y: Math.round(y), dir: String(m.dir).slice(0, 2), anim: String(m.anim).slice(0, 12), sprite: c.modelId });
+		Object.assign(c.view, { x: Math.round(x), y: Math.round(y), dir: String(m.dir).slice(0, 2), anim: String(m.anim).slice(0, 12), sprite: bareOrModel(c.modelId, m.sprite) });
 		// Máu máy người chơi báo (PvP: người khác vẽ thanh máu; máy chủ bỏ qua đòn của người đã gục). Số lạ thì giữ số cũ.
 		const hpMax = Number(m.hpMax);
 		const hp = Number(m.hp);
@@ -430,9 +449,10 @@ export class World {
 	 * Người chơi sang map khác: người ở map cũ thấy mình rời đi, mình nhận danh sách người ở map mới. Vị trí đầu
 	 * tiên ở map mới đặt tự do (không chặn theo tốc độ) và báo `join` cho người ở đó — y như lúc vừa vào game.
 	 */
-	private changeMap(c: Conn, raw: unknown): void {
+	private changeMap(c: Conn, raw: unknown, trusted = false): void {
 		const map = String(raw ?? '');
-		if (!MAP_ID.test(map) || map === c.map || !c.maps.allow('map')) return;
+		if (!MAP_ID.test(map) || map === c.map || (!trusted && !c.maps.allow('map'))) return;
+		if (map.startsWith('home/') && (!trusted || !farmMaps(c.accountId).includes(map) || !this.farm.canEnter(c.accountId))) return;
 		// Quái dùng chung của map cũ: thôi nhận (client bật lại cho map mới nếu ở thế giới người lớn).
 		this.mobs.unsubscribe(c.view.id);
 		for (const o of this.inMap(c.map)) if (o !== c) send(o.ws, { t: 'leave', id: c.view.id });

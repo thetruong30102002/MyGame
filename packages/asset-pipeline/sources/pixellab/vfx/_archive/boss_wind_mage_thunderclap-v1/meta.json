@@ -1,0 +1,32 @@
+{
+	"id": "boss_wind_mage_thunderclap",
+	"kind": "burst",
+	"canvas": {
+		"w": 64,
+		"h": 64
+	},
+	"first": {
+		"prompt": "a small thunderclap burst just starting, white-yellow lightning sparks and teal wind, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "d7d7d840-434d-4a3a-8771-9130d264803a",
+		"drawn": "first_drawn.png"
+	},
+	"action": "the thunderclap bursts with branching lightning sparks and a ring of teal wind, then the sparks fizzle and fade",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "63fa3413-f3f5-4a03-af0b-40e51d988fbb",
+	"createdAt": "2026-11-05T15:40:20.559Z",
+	"token": 0
+}

@@ -1801,5 +1801,2409 @@
       "headLabel": "Long tộc nữ 3 (tóc dài bạc)",
       "playable": true
     }
+  ],
+  "bare": [
+    {
+      "id": "player_npc_human1_sword_m_bare",
+      "of": "player_npc_human1_sword_m",
+      "classId": "sword",
+      "gender": "male",
+      "raceId": "human",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_elf1_sword_m_bare",
+      "of": "player_npc_elf1_sword_m",
+      "classId": "sword",
+      "gender": "male",
+      "raceId": "elf",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_beast1_sword_m_bare",
+      "of": "player_npc_beast1_sword_m",
+      "classId": "sword",
+      "gender": "male",
+      "raceId": "beast",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_demon1_sword_m_bare",
+      "of": "player_npc_demon1_sword_m",
+      "classId": "sword",
+      "gender": "male",
+      "raceId": "demon",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_human2_sword_m_bare",
+      "of": "player_npc_human2_sword_m",
+      "classId": "sword",
+      "gender": "male",
+      "raceId": "human",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_human3_sword_m_bare",
+      "of": "player_npc_human3_sword_m",
+      "classId": "sword",
+      "gender": "male",
+      "raceId": "human",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_elf2_sword_m_bare",
+      "of": "player_npc_elf2_sword_m",
+      "classId": "sword",
+      "gender": "male",
+      "raceId": "elf",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_elf3_sword_m_bare",
+      "of": "player_npc_elf3_sword_m",
+      "classId": "sword",
+      "gender": "male",
+      "raceId": "elf",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_demon2_sword_m_bare",
+      "of": "player_npc_demon2_sword_m",
+      "classId": "sword",
+      "gender": "male",
+      "raceId": "demon",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_demon3_sword_m_bare",
+      "of": "player_npc_demon3_sword_m",
+      "classId": "sword",
+      "gender": "male",
+      "raceId": "demon",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_beast2_sword_m_bare",
+      "of": "player_npc_beast2_sword_m",
+      "classId": "sword",
+      "gender": "male",
+      "raceId": "beast",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_beast3_sword_m_bare",
+      "of": "player_npc_beast3_sword_m",
+      "classId": "sword",
+      "gender": "male",
+      "raceId": "beast",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_dragon1_sword_m_bare",
+      "of": "player_npc_dragon1_sword_m",
+      "classId": "sword",
+      "gender": "male",
+      "raceId": "dragon",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_dragon2_sword_m_bare",
+      "of": "player_npc_dragon2_sword_m",
+      "classId": "sword",
+      "gender": "male",
+      "raceId": "dragon",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_dragon3_sword_m_bare",
+      "of": "player_npc_dragon3_sword_m",
+      "classId": "sword",
+      "gender": "male",
+      "raceId": "dragon",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_human1_staff_m_bare",
+      "of": "player_npc_human1_staff_m",
+      "classId": "staff",
+      "gender": "male",
+      "raceId": "human",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_elf1_staff_m_bare",
+      "of": "player_npc_elf1_staff_m",
+      "classId": "staff",
+      "gender": "male",
+      "raceId": "elf",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_beast1_staff_m_bare",
+      "of": "player_npc_beast1_staff_m",
+      "classId": "staff",
+      "gender": "male",
+      "raceId": "beast",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_demon1_staff_m_bare",
+      "of": "player_npc_demon1_staff_m",
+      "classId": "staff",
+      "gender": "male",
+      "raceId": "demon",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_human2_staff_m_bare",
+      "of": "player_npc_human2_staff_m",
+      "classId": "staff",
+      "gender": "male",
+      "raceId": "human",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_human3_staff_m_bare",
+      "of": "player_npc_human3_staff_m",
+      "classId": "staff",
+      "gender": "male",
+      "raceId": "human",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_elf2_staff_m_bare",
+      "of": "player_npc_elf2_staff_m",
+      "classId": "staff",
+      "gender": "male",
+      "raceId": "elf",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_elf3_staff_m_bare",
+      "of": "player_npc_elf3_staff_m",
+      "classId": "staff",
+      "gender": "male",
+      "raceId": "elf",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_demon2_staff_m_bare",
+      "of": "player_npc_demon2_staff_m",
+      "classId": "staff",
+      "gender": "male",
+      "raceId": "demon",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_demon3_staff_m_bare",
+      "of": "player_npc_demon3_staff_m",
+      "classId": "staff",
+      "gender": "male",
+      "raceId": "demon",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_beast2_staff_m_bare",
+      "of": "player_npc_beast2_staff_m",
+      "classId": "staff",
+      "gender": "male",
+      "raceId": "beast",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_beast3_staff_m_bare",
+      "of": "player_npc_beast3_staff_m",
+      "classId": "staff",
+      "gender": "male",
+      "raceId": "beast",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_dragon1_staff_m_bare",
+      "of": "player_npc_dragon1_staff_m",
+      "classId": "staff",
+      "gender": "male",
+      "raceId": "dragon",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_dragon2_staff_m_bare",
+      "of": "player_npc_dragon2_staff_m",
+      "classId": "staff",
+      "gender": "male",
+      "raceId": "dragon",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_dragon3_staff_m_bare",
+      "of": "player_npc_dragon3_staff_m",
+      "classId": "staff",
+      "gender": "male",
+      "raceId": "dragon",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_human1_spear_m_bare",
+      "of": "player_npc_human1_spear_m",
+      "classId": "spear",
+      "gender": "male",
+      "raceId": "human",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_elf1_spear_m_bare",
+      "of": "player_npc_elf1_spear_m",
+      "classId": "spear",
+      "gender": "male",
+      "raceId": "elf",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_beast1_spear_m_bare",
+      "of": "player_npc_beast1_spear_m",
+      "classId": "spear",
+      "gender": "male",
+      "raceId": "beast",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_demon1_spear_m_bare",
+      "of": "player_npc_demon1_spear_m",
+      "classId": "spear",
+      "gender": "male",
+      "raceId": "demon",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_human2_spear_m_bare",
+      "of": "player_npc_human2_spear_m",
+      "classId": "spear",
+      "gender": "male",
+      "raceId": "human",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_human3_spear_m_bare",
+      "of": "player_npc_human3_spear_m",
+      "classId": "spear",
+      "gender": "male",
+      "raceId": "human",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_elf2_spear_m_bare",
+      "of": "player_npc_elf2_spear_m",
+      "classId": "spear",
+      "gender": "male",
+      "raceId": "elf",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_elf3_spear_m_bare",
+      "of": "player_npc_elf3_spear_m",
+      "classId": "spear",
+      "gender": "male",
+      "raceId": "elf",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_demon2_spear_m_bare",
+      "of": "player_npc_demon2_spear_m",
+      "classId": "spear",
+      "gender": "male",
+      "raceId": "demon",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_demon3_spear_m_bare",
+      "of": "player_npc_demon3_spear_m",
+      "classId": "spear",
+      "gender": "male",
+      "raceId": "demon",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_beast2_spear_m_bare",
+      "of": "player_npc_beast2_spear_m",
+      "classId": "spear",
+      "gender": "male",
+      "raceId": "beast",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_beast3_spear_m_bare",
+      "of": "player_npc_beast3_spear_m",
+      "classId": "spear",
+      "gender": "male",
+      "raceId": "beast",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_dragon1_spear_m_bare",
+      "of": "player_npc_dragon1_spear_m",
+      "classId": "spear",
+      "gender": "male",
+      "raceId": "dragon",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_dragon2_spear_m_bare",
+      "of": "player_npc_dragon2_spear_m",
+      "classId": "spear",
+      "gender": "male",
+      "raceId": "dragon",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_dragon3_spear_m_bare",
+      "of": "player_npc_dragon3_spear_m",
+      "classId": "spear",
+      "gender": "male",
+      "raceId": "dragon",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_human1_bow_m_bare",
+      "of": "player_npc_human1_bow_m",
+      "classId": "bow",
+      "gender": "male",
+      "raceId": "human",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_elf1_bow_m_bare",
+      "of": "player_npc_elf1_bow_m",
+      "classId": "bow",
+      "gender": "male",
+      "raceId": "elf",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_beast1_bow_m_bare",
+      "of": "player_npc_beast1_bow_m",
+      "classId": "bow",
+      "gender": "male",
+      "raceId": "beast",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_demon1_bow_m_bare",
+      "of": "player_npc_demon1_bow_m",
+      "classId": "bow",
+      "gender": "male",
+      "raceId": "demon",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_human2_bow_m_bare",
+      "of": "player_npc_human2_bow_m",
+      "classId": "bow",
+      "gender": "male",
+      "raceId": "human",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_human3_bow_m_bare",
+      "of": "player_npc_human3_bow_m",
+      "classId": "bow",
+      "gender": "male",
+      "raceId": "human",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_elf2_bow_m_bare",
+      "of": "player_npc_elf2_bow_m",
+      "classId": "bow",
+      "gender": "male",
+      "raceId": "elf",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_elf3_bow_m_bare",
+      "of": "player_npc_elf3_bow_m",
+      "classId": "bow",
+      "gender": "male",
+      "raceId": "elf",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_demon2_bow_m_bare",
+      "of": "player_npc_demon2_bow_m",
+      "classId": "bow",
+      "gender": "male",
+      "raceId": "demon",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_demon3_bow_m_bare",
+      "of": "player_npc_demon3_bow_m",
+      "classId": "bow",
+      "gender": "male",
+      "raceId": "demon",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_beast2_bow_m_bare",
+      "of": "player_npc_beast2_bow_m",
+      "classId": "bow",
+      "gender": "male",
+      "raceId": "beast",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_beast3_bow_m_bare",
+      "of": "player_npc_beast3_bow_m",
+      "classId": "bow",
+      "gender": "male",
+      "raceId": "beast",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_dragon1_bow_m_bare",
+      "of": "player_npc_dragon1_bow_m",
+      "classId": "bow",
+      "gender": "male",
+      "raceId": "dragon",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_dragon2_bow_m_bare",
+      "of": "player_npc_dragon2_bow_m",
+      "classId": "bow",
+      "gender": "male",
+      "raceId": "dragon",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_dragon3_bow_m_bare",
+      "of": "player_npc_dragon3_bow_m",
+      "classId": "bow",
+      "gender": "male",
+      "raceId": "dragon",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_human1_shield_m_bare",
+      "of": "player_npc_human1_shield_m",
+      "classId": "shield",
+      "gender": "male",
+      "raceId": "human",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_elf1_shield_m_bare",
+      "of": "player_npc_elf1_shield_m",
+      "classId": "shield",
+      "gender": "male",
+      "raceId": "elf",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_beast1_shield_m_bare",
+      "of": "player_npc_beast1_shield_m",
+      "classId": "shield",
+      "gender": "male",
+      "raceId": "beast",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_demon1_shield_m_bare",
+      "of": "player_npc_demon1_shield_m",
+      "classId": "shield",
+      "gender": "male",
+      "raceId": "demon",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_human2_shield_m_bare",
+      "of": "player_npc_human2_shield_m",
+      "classId": "shield",
+      "gender": "male",
+      "raceId": "human",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_human3_shield_m_bare",
+      "of": "player_npc_human3_shield_m",
+      "classId": "shield",
+      "gender": "male",
+      "raceId": "human",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_elf2_shield_m_bare",
+      "of": "player_npc_elf2_shield_m",
+      "classId": "shield",
+      "gender": "male",
+      "raceId": "elf",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_elf3_shield_m_bare",
+      "of": "player_npc_elf3_shield_m",
+      "classId": "shield",
+      "gender": "male",
+      "raceId": "elf",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_demon2_shield_m_bare",
+      "of": "player_npc_demon2_shield_m",
+      "classId": "shield",
+      "gender": "male",
+      "raceId": "demon",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_demon3_shield_m_bare",
+      "of": "player_npc_demon3_shield_m",
+      "classId": "shield",
+      "gender": "male",
+      "raceId": "demon",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_beast2_shield_m_bare",
+      "of": "player_npc_beast2_shield_m",
+      "classId": "shield",
+      "gender": "male",
+      "raceId": "beast",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_beast3_shield_m_bare",
+      "of": "player_npc_beast3_shield_m",
+      "classId": "shield",
+      "gender": "male",
+      "raceId": "beast",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_dragon1_shield_m_bare",
+      "of": "player_npc_dragon1_shield_m",
+      "classId": "shield",
+      "gender": "male",
+      "raceId": "dragon",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_dragon2_shield_m_bare",
+      "of": "player_npc_dragon2_shield_m",
+      "classId": "shield",
+      "gender": "male",
+      "raceId": "dragon",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_dragon3_shield_m_bare",
+      "of": "player_npc_dragon3_shield_m",
+      "classId": "shield",
+      "gender": "male",
+      "raceId": "dragon",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_human1_sword_f_bare",
+      "of": "player_npc_human1_sword_f",
+      "classId": "sword",
+      "gender": "female",
+      "raceId": "human",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_human2_sword_f_bare",
+      "of": "player_npc_human2_sword_f",
+      "classId": "sword",
+      "gender": "female",
+      "raceId": "human",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_human3_sword_f_bare",
+      "of": "player_npc_human3_sword_f",
+      "classId": "sword",
+      "gender": "female",
+      "raceId": "human",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_elf1_sword_f_bare",
+      "of": "player_npc_elf1_sword_f",
+      "classId": "sword",
+      "gender": "female",
+      "raceId": "elf",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_elf2_sword_f_bare",
+      "of": "player_npc_elf2_sword_f",
+      "classId": "sword",
+      "gender": "female",
+      "raceId": "elf",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_elf3_sword_f_bare",
+      "of": "player_npc_elf3_sword_f",
+      "classId": "sword",
+      "gender": "female",
+      "raceId": "elf",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_beast1_sword_f_bare",
+      "of": "player_npc_beast1_sword_f",
+      "classId": "sword",
+      "gender": "female",
+      "raceId": "beast",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_beast2_sword_f_bare",
+      "of": "player_npc_beast2_sword_f",
+      "classId": "sword",
+      "gender": "female",
+      "raceId": "beast",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_beast3_sword_f_bare",
+      "of": "player_npc_beast3_sword_f",
+      "classId": "sword",
+      "gender": "female",
+      "raceId": "beast",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_demon1_sword_f_bare",
+      "of": "player_npc_demon1_sword_f",
+      "classId": "sword",
+      "gender": "female",
+      "raceId": "demon",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_demon2_sword_f_bare",
+      "of": "player_npc_demon2_sword_f",
+      "classId": "sword",
+      "gender": "female",
+      "raceId": "demon",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_demon3_sword_f_bare",
+      "of": "player_npc_demon3_sword_f",
+      "classId": "sword",
+      "gender": "female",
+      "raceId": "demon",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_dragon1_sword_f_bare",
+      "of": "player_npc_dragon1_sword_f",
+      "classId": "sword",
+      "gender": "female",
+      "raceId": "dragon",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_dragon2_sword_f_bare",
+      "of": "player_npc_dragon2_sword_f",
+      "classId": "sword",
+      "gender": "female",
+      "raceId": "dragon",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_dragon3_sword_f_bare",
+      "of": "player_npc_dragon3_sword_f",
+      "classId": "sword",
+      "gender": "female",
+      "raceId": "dragon",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_human1_staff_f_bare",
+      "of": "player_npc_human1_staff_f",
+      "classId": "staff",
+      "gender": "female",
+      "raceId": "human",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_human2_staff_f_bare",
+      "of": "player_npc_human2_staff_f",
+      "classId": "staff",
+      "gender": "female",
+      "raceId": "human",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_human3_staff_f_bare",
+      "of": "player_npc_human3_staff_f",
+      "classId": "staff",
+      "gender": "female",
+      "raceId": "human",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_elf1_staff_f_bare",
+      "of": "player_npc_elf1_staff_f",
+      "classId": "staff",
+      "gender": "female",
+      "raceId": "elf",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_elf2_staff_f_bare",
+      "of": "player_npc_elf2_staff_f",
+      "classId": "staff",
+      "gender": "female",
+      "raceId": "elf",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_elf3_staff_f_bare",
+      "of": "player_npc_elf3_staff_f",
+      "classId": "staff",
+      "gender": "female",
+      "raceId": "elf",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_beast1_staff_f_bare",
+      "of": "player_npc_beast1_staff_f",
+      "classId": "staff",
+      "gender": "female",
+      "raceId": "beast",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_beast2_staff_f_bare",
+      "of": "player_npc_beast2_staff_f",
+      "classId": "staff",
+      "gender": "female",
+      "raceId": "beast",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_beast3_staff_f_bare",
+      "of": "player_npc_beast3_staff_f",
+      "classId": "staff",
+      "gender": "female",
+      "raceId": "beast",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_demon1_staff_f_bare",
+      "of": "player_npc_demon1_staff_f",
+      "classId": "staff",
+      "gender": "female",
+      "raceId": "demon",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_demon2_staff_f_bare",
+      "of": "player_npc_demon2_staff_f",
+      "classId": "staff",
+      "gender": "female",
+      "raceId": "demon",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_demon3_staff_f_bare",
+      "of": "player_npc_demon3_staff_f",
+      "classId": "staff",
+      "gender": "female",
+      "raceId": "demon",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_dragon1_staff_f_bare",
+      "of": "player_npc_dragon1_staff_f",
+      "classId": "staff",
+      "gender": "female",
+      "raceId": "dragon",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_dragon2_staff_f_bare",
+      "of": "player_npc_dragon2_staff_f",
+      "classId": "staff",
+      "gender": "female",
+      "raceId": "dragon",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_dragon3_staff_f_bare",
+      "of": "player_npc_dragon3_staff_f",
+      "classId": "staff",
+      "gender": "female",
+      "raceId": "dragon",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_human1_spear_f_bare",
+      "of": "player_npc_human1_spear_f",
+      "classId": "spear",
+      "gender": "female",
+      "raceId": "human",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_human2_spear_f_bare",
+      "of": "player_npc_human2_spear_f",
+      "classId": "spear",
+      "gender": "female",
+      "raceId": "human",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_human3_spear_f_bare",
+      "of": "player_npc_human3_spear_f",
+      "classId": "spear",
+      "gender": "female",
+      "raceId": "human",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_elf1_spear_f_bare",
+      "of": "player_npc_elf1_spear_f",
+      "classId": "spear",
+      "gender": "female",
+      "raceId": "elf",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_elf2_spear_f_bare",
+      "of": "player_npc_elf2_spear_f",
+      "classId": "spear",
+      "gender": "female",
+      "raceId": "elf",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_elf3_spear_f_bare",
+      "of": "player_npc_elf3_spear_f",
+      "classId": "spear",
+      "gender": "female",
+      "raceId": "elf",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_beast1_spear_f_bare",
+      "of": "player_npc_beast1_spear_f",
+      "classId": "spear",
+      "gender": "female",
+      "raceId": "beast",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_beast2_spear_f_bare",
+      "of": "player_npc_beast2_spear_f",
+      "classId": "spear",
+      "gender": "female",
+      "raceId": "beast",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_beast3_spear_f_bare",
+      "of": "player_npc_beast3_spear_f",
+      "classId": "spear",
+      "gender": "female",
+      "raceId": "beast",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_demon1_spear_f_bare",
+      "of": "player_npc_demon1_spear_f",
+      "classId": "spear",
+      "gender": "female",
+      "raceId": "demon",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_demon2_spear_f_bare",
+      "of": "player_npc_demon2_spear_f",
+      "classId": "spear",
+      "gender": "female",
+      "raceId": "demon",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_demon3_spear_f_bare",
+      "of": "player_npc_demon3_spear_f",
+      "classId": "spear",
+      "gender": "female",
+      "raceId": "demon",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_dragon1_spear_f_bare",
+      "of": "player_npc_dragon1_spear_f",
+      "classId": "spear",
+      "gender": "female",
+      "raceId": "dragon",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_dragon2_spear_f_bare",
+      "of": "player_npc_dragon2_spear_f",
+      "classId": "spear",
+      "gender": "female",
+      "raceId": "dragon",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_dragon3_spear_f_bare",
+      "of": "player_npc_dragon3_spear_f",
+      "classId": "spear",
+      "gender": "female",
+      "raceId": "dragon",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_human1_bow_f_bare",
+      "of": "player_npc_human1_bow_f",
+      "classId": "bow",
+      "gender": "female",
+      "raceId": "human",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_human2_bow_f_bare",
+      "of": "player_npc_human2_bow_f",
+      "classId": "bow",
+      "gender": "female",
+      "raceId": "human",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_human3_bow_f_bare",
+      "of": "player_npc_human3_bow_f",
+      "classId": "bow",
+      "gender": "female",
+      "raceId": "human",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_elf1_bow_f_bare",
+      "of": "player_npc_elf1_bow_f",
+      "classId": "bow",
+      "gender": "female",
+      "raceId": "elf",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_elf2_bow_f_bare",
+      "of": "player_npc_elf2_bow_f",
+      "classId": "bow",
+      "gender": "female",
+      "raceId": "elf",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_elf3_bow_f_bare",
+      "of": "player_npc_elf3_bow_f",
+      "classId": "bow",
+      "gender": "female",
+      "raceId": "elf",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_beast1_bow_f_bare",
+      "of": "player_npc_beast1_bow_f",
+      "classId": "bow",
+      "gender": "female",
+      "raceId": "beast",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_beast2_bow_f_bare",
+      "of": "player_npc_beast2_bow_f",
+      "classId": "bow",
+      "gender": "female",
+      "raceId": "beast",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_beast3_bow_f_bare",
+      "of": "player_npc_beast3_bow_f",
+      "classId": "bow",
+      "gender": "female",
+      "raceId": "beast",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_demon1_bow_f_bare",
+      "of": "player_npc_demon1_bow_f",
+      "classId": "bow",
+      "gender": "female",
+      "raceId": "demon",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_demon2_bow_f_bare",
+      "of": "player_npc_demon2_bow_f",
+      "classId": "bow",
+      "gender": "female",
+      "raceId": "demon",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_demon3_bow_f_bare",
+      "of": "player_npc_demon3_bow_f",
+      "classId": "bow",
+      "gender": "female",
+      "raceId": "demon",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_dragon1_bow_f_bare",
+      "of": "player_npc_dragon1_bow_f",
+      "classId": "bow",
+      "gender": "female",
+      "raceId": "dragon",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_dragon2_bow_f_bare",
+      "of": "player_npc_dragon2_bow_f",
+      "classId": "bow",
+      "gender": "female",
+      "raceId": "dragon",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_dragon3_bow_f_bare",
+      "of": "player_npc_dragon3_bow_f",
+      "classId": "bow",
+      "gender": "female",
+      "raceId": "dragon",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_human1_shield_f_bare",
+      "of": "player_npc_human1_shield_f",
+      "classId": "shield",
+      "gender": "female",
+      "raceId": "human",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_human2_shield_f_bare",
+      "of": "player_npc_human2_shield_f",
+      "classId": "shield",
+      "gender": "female",
+      "raceId": "human",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_human3_shield_f_bare",
+      "of": "player_npc_human3_shield_f",
+      "classId": "shield",
+      "gender": "female",
+      "raceId": "human",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_elf1_shield_f_bare",
+      "of": "player_npc_elf1_shield_f",
+      "classId": "shield",
+      "gender": "female",
+      "raceId": "elf",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_elf2_shield_f_bare",
+      "of": "player_npc_elf2_shield_f",
+      "classId": "shield",
+      "gender": "female",
+      "raceId": "elf",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_elf3_shield_f_bare",
+      "of": "player_npc_elf3_shield_f",
+      "classId": "shield",
+      "gender": "female",
+      "raceId": "elf",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_beast1_shield_f_bare",
+      "of": "player_npc_beast1_shield_f",
+      "classId": "shield",
+      "gender": "female",
+      "raceId": "beast",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_beast2_shield_f_bare",
+      "of": "player_npc_beast2_shield_f",
+      "classId": "shield",
+      "gender": "female",
+      "raceId": "beast",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_beast3_shield_f_bare",
+      "of": "player_npc_beast3_shield_f",
+      "classId": "shield",
+      "gender": "female",
+      "raceId": "beast",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_demon1_shield_f_bare",
+      "of": "player_npc_demon1_shield_f",
+      "classId": "shield",
+      "gender": "female",
+      "raceId": "demon",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_demon2_shield_f_bare",
+      "of": "player_npc_demon2_shield_f",
+      "classId": "shield",
+      "gender": "female",
+      "raceId": "demon",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_demon3_shield_f_bare",
+      "of": "player_npc_demon3_shield_f",
+      "classId": "shield",
+      "gender": "female",
+      "raceId": "demon",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_dragon1_shield_f_bare",
+      "of": "player_npc_dragon1_shield_f",
+      "classId": "shield",
+      "gender": "female",
+      "raceId": "dragon",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_dragon2_shield_f_bare",
+      "of": "player_npc_dragon2_shield_f",
+      "classId": "shield",
+      "gender": "female",
+      "raceId": "dragon",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_dragon3_shield_f_bare",
+      "of": "player_npc_dragon3_shield_f",
+      "classId": "shield",
+      "gender": "female",
+      "raceId": "dragon",
+      "variant": 3
+    }
+  ],
+  "outfits2": [
+    {
+      "id": "player_npc_human1_sword_m_outfit_2",
+      "of": "player_npc_human1_sword_m",
+      "classId": "sword",
+      "gender": "male",
+      "raceId": "human",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_elf1_sword_m_outfit_2",
+      "of": "player_npc_elf1_sword_m",
+      "classId": "sword",
+      "gender": "male",
+      "raceId": "elf",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_beast1_sword_m_outfit_2",
+      "of": "player_npc_beast1_sword_m",
+      "classId": "sword",
+      "gender": "male",
+      "raceId": "beast",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_demon1_sword_m_outfit_2",
+      "of": "player_npc_demon1_sword_m",
+      "classId": "sword",
+      "gender": "male",
+      "raceId": "demon",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_human2_sword_m_outfit_2",
+      "of": "player_npc_human2_sword_m",
+      "classId": "sword",
+      "gender": "male",
+      "raceId": "human",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_human3_sword_m_outfit_2",
+      "of": "player_npc_human3_sword_m",
+      "classId": "sword",
+      "gender": "male",
+      "raceId": "human",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_elf2_sword_m_outfit_2",
+      "of": "player_npc_elf2_sword_m",
+      "classId": "sword",
+      "gender": "male",
+      "raceId": "elf",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_elf3_sword_m_outfit_2",
+      "of": "player_npc_elf3_sword_m",
+      "classId": "sword",
+      "gender": "male",
+      "raceId": "elf",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_demon2_sword_m_outfit_2",
+      "of": "player_npc_demon2_sword_m",
+      "classId": "sword",
+      "gender": "male",
+      "raceId": "demon",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_demon3_sword_m_outfit_2",
+      "of": "player_npc_demon3_sword_m",
+      "classId": "sword",
+      "gender": "male",
+      "raceId": "demon",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_beast2_sword_m_outfit_2",
+      "of": "player_npc_beast2_sword_m",
+      "classId": "sword",
+      "gender": "male",
+      "raceId": "beast",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_beast3_sword_m_outfit_2",
+      "of": "player_npc_beast3_sword_m",
+      "classId": "sword",
+      "gender": "male",
+      "raceId": "beast",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_dragon1_sword_m_outfit_2",
+      "of": "player_npc_dragon1_sword_m",
+      "classId": "sword",
+      "gender": "male",
+      "raceId": "dragon",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_dragon2_sword_m_outfit_2",
+      "of": "player_npc_dragon2_sword_m",
+      "classId": "sword",
+      "gender": "male",
+      "raceId": "dragon",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_dragon3_sword_m_outfit_2",
+      "of": "player_npc_dragon3_sword_m",
+      "classId": "sword",
+      "gender": "male",
+      "raceId": "dragon",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_human1_staff_m_outfit_2",
+      "of": "player_npc_human1_staff_m",
+      "classId": "staff",
+      "gender": "male",
+      "raceId": "human",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_elf1_staff_m_outfit_2",
+      "of": "player_npc_elf1_staff_m",
+      "classId": "staff",
+      "gender": "male",
+      "raceId": "elf",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_beast1_staff_m_outfit_2",
+      "of": "player_npc_beast1_staff_m",
+      "classId": "staff",
+      "gender": "male",
+      "raceId": "beast",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_demon1_staff_m_outfit_2",
+      "of": "player_npc_demon1_staff_m",
+      "classId": "staff",
+      "gender": "male",
+      "raceId": "demon",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_human2_staff_m_outfit_2",
+      "of": "player_npc_human2_staff_m",
+      "classId": "staff",
+      "gender": "male",
+      "raceId": "human",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_human3_staff_m_outfit_2",
+      "of": "player_npc_human3_staff_m",
+      "classId": "staff",
+      "gender": "male",
+      "raceId": "human",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_elf2_staff_m_outfit_2",
+      "of": "player_npc_elf2_staff_m",
+      "classId": "staff",
+      "gender": "male",
+      "raceId": "elf",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_elf3_staff_m_outfit_2",
+      "of": "player_npc_elf3_staff_m",
+      "classId": "staff",
+      "gender": "male",
+      "raceId": "elf",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_demon2_staff_m_outfit_2",
+      "of": "player_npc_demon2_staff_m",
+      "classId": "staff",
+      "gender": "male",
+      "raceId": "demon",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_demon3_staff_m_outfit_2",
+      "of": "player_npc_demon3_staff_m",
+      "classId": "staff",
+      "gender": "male",
+      "raceId": "demon",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_beast2_staff_m_outfit_2",
+      "of": "player_npc_beast2_staff_m",
+      "classId": "staff",
+      "gender": "male",
+      "raceId": "beast",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_beast3_staff_m_outfit_2",
+      "of": "player_npc_beast3_staff_m",
+      "classId": "staff",
+      "gender": "male",
+      "raceId": "beast",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_dragon1_staff_m_outfit_2",
+      "of": "player_npc_dragon1_staff_m",
+      "classId": "staff",
+      "gender": "male",
+      "raceId": "dragon",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_dragon2_staff_m_outfit_2",
+      "of": "player_npc_dragon2_staff_m",
+      "classId": "staff",
+      "gender": "male",
+      "raceId": "dragon",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_dragon3_staff_m_outfit_2",
+      "of": "player_npc_dragon3_staff_m",
+      "classId": "staff",
+      "gender": "male",
+      "raceId": "dragon",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_human1_spear_m_outfit_2",
+      "of": "player_npc_human1_spear_m",
+      "classId": "spear",
+      "gender": "male",
+      "raceId": "human",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_elf1_spear_m_outfit_2",
+      "of": "player_npc_elf1_spear_m",
+      "classId": "spear",
+      "gender": "male",
+      "raceId": "elf",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_beast1_spear_m_outfit_2",
+      "of": "player_npc_beast1_spear_m",
+      "classId": "spear",
+      "gender": "male",
+      "raceId": "beast",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_demon1_spear_m_outfit_2",
+      "of": "player_npc_demon1_spear_m",
+      "classId": "spear",
+      "gender": "male",
+      "raceId": "demon",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_human2_spear_m_outfit_2",
+      "of": "player_npc_human2_spear_m",
+      "classId": "spear",
+      "gender": "male",
+      "raceId": "human",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_human3_spear_m_outfit_2",
+      "of": "player_npc_human3_spear_m",
+      "classId": "spear",
+      "gender": "male",
+      "raceId": "human",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_elf2_spear_m_outfit_2",
+      "of": "player_npc_elf2_spear_m",
+      "classId": "spear",
+      "gender": "male",
+      "raceId": "elf",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_elf3_spear_m_outfit_2",
+      "of": "player_npc_elf3_spear_m",
+      "classId": "spear",
+      "gender": "male",
+      "raceId": "elf",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_demon2_spear_m_outfit_2",
+      "of": "player_npc_demon2_spear_m",
+      "classId": "spear",
+      "gender": "male",
+      "raceId": "demon",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_demon3_spear_m_outfit_2",
+      "of": "player_npc_demon3_spear_m",
+      "classId": "spear",
+      "gender": "male",
+      "raceId": "demon",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_beast2_spear_m_outfit_2",
+      "of": "player_npc_beast2_spear_m",
+      "classId": "spear",
+      "gender": "male",
+      "raceId": "beast",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_beast3_spear_m_outfit_2",
+      "of": "player_npc_beast3_spear_m",
+      "classId": "spear",
+      "gender": "male",
+      "raceId": "beast",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_dragon1_spear_m_outfit_2",
+      "of": "player_npc_dragon1_spear_m",
+      "classId": "spear",
+      "gender": "male",
+      "raceId": "dragon",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_dragon2_spear_m_outfit_2",
+      "of": "player_npc_dragon2_spear_m",
+      "classId": "spear",
+      "gender": "male",
+      "raceId": "dragon",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_dragon3_spear_m_outfit_2",
+      "of": "player_npc_dragon3_spear_m",
+      "classId": "spear",
+      "gender": "male",
+      "raceId": "dragon",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_human1_bow_m_outfit_2",
+      "of": "player_npc_human1_bow_m",
+      "classId": "bow",
+      "gender": "male",
+      "raceId": "human",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_elf1_bow_m_outfit_2",
+      "of": "player_npc_elf1_bow_m",
+      "classId": "bow",
+      "gender": "male",
+      "raceId": "elf",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_beast1_bow_m_outfit_2",
+      "of": "player_npc_beast1_bow_m",
+      "classId": "bow",
+      "gender": "male",
+      "raceId": "beast",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_demon1_bow_m_outfit_2",
+      "of": "player_npc_demon1_bow_m",
+      "classId": "bow",
+      "gender": "male",
+      "raceId": "demon",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_human2_bow_m_outfit_2",
+      "of": "player_npc_human2_bow_m",
+      "classId": "bow",
+      "gender": "male",
+      "raceId": "human",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_human3_bow_m_outfit_2",
+      "of": "player_npc_human3_bow_m",
+      "classId": "bow",
+      "gender": "male",
+      "raceId": "human",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_elf2_bow_m_outfit_2",
+      "of": "player_npc_elf2_bow_m",
+      "classId": "bow",
+      "gender": "male",
+      "raceId": "elf",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_elf3_bow_m_outfit_2",
+      "of": "player_npc_elf3_bow_m",
+      "classId": "bow",
+      "gender": "male",
+      "raceId": "elf",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_demon2_bow_m_outfit_2",
+      "of": "player_npc_demon2_bow_m",
+      "classId": "bow",
+      "gender": "male",
+      "raceId": "demon",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_demon3_bow_m_outfit_2",
+      "of": "player_npc_demon3_bow_m",
+      "classId": "bow",
+      "gender": "male",
+      "raceId": "demon",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_beast2_bow_m_outfit_2",
+      "of": "player_npc_beast2_bow_m",
+      "classId": "bow",
+      "gender": "male",
+      "raceId": "beast",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_beast3_bow_m_outfit_2",
+      "of": "player_npc_beast3_bow_m",
+      "classId": "bow",
+      "gender": "male",
+      "raceId": "beast",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_dragon1_bow_m_outfit_2",
+      "of": "player_npc_dragon1_bow_m",
+      "classId": "bow",
+      "gender": "male",
+      "raceId": "dragon",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_dragon2_bow_m_outfit_2",
+      "of": "player_npc_dragon2_bow_m",
+      "classId": "bow",
+      "gender": "male",
+      "raceId": "dragon",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_dragon3_bow_m_outfit_2",
+      "of": "player_npc_dragon3_bow_m",
+      "classId": "bow",
+      "gender": "male",
+      "raceId": "dragon",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_human1_shield_m_outfit_2",
+      "of": "player_npc_human1_shield_m",
+      "classId": "shield",
+      "gender": "male",
+      "raceId": "human",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_elf1_shield_m_outfit_2",
+      "of": "player_npc_elf1_shield_m",
+      "classId": "shield",
+      "gender": "male",
+      "raceId": "elf",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_beast1_shield_m_outfit_2",
+      "of": "player_npc_beast1_shield_m",
+      "classId": "shield",
+      "gender": "male",
+      "raceId": "beast",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_demon1_shield_m_outfit_2",
+      "of": "player_npc_demon1_shield_m",
+      "classId": "shield",
+      "gender": "male",
+      "raceId": "demon",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_human2_shield_m_outfit_2",
+      "of": "player_npc_human2_shield_m",
+      "classId": "shield",
+      "gender": "male",
+      "raceId": "human",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_human3_shield_m_outfit_2",
+      "of": "player_npc_human3_shield_m",
+      "classId": "shield",
+      "gender": "male",
+      "raceId": "human",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_elf2_shield_m_outfit_2",
+      "of": "player_npc_elf2_shield_m",
+      "classId": "shield",
+      "gender": "male",
+      "raceId": "elf",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_elf3_shield_m_outfit_2",
+      "of": "player_npc_elf3_shield_m",
+      "classId": "shield",
+      "gender": "male",
+      "raceId": "elf",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_demon2_shield_m_outfit_2",
+      "of": "player_npc_demon2_shield_m",
+      "classId": "shield",
+      "gender": "male",
+      "raceId": "demon",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_demon3_shield_m_outfit_2",
+      "of": "player_npc_demon3_shield_m",
+      "classId": "shield",
+      "gender": "male",
+      "raceId": "demon",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_beast2_shield_m_outfit_2",
+      "of": "player_npc_beast2_shield_m",
+      "classId": "shield",
+      "gender": "male",
+      "raceId": "beast",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_beast3_shield_m_outfit_2",
+      "of": "player_npc_beast3_shield_m",
+      "classId": "shield",
+      "gender": "male",
+      "raceId": "beast",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_dragon1_shield_m_outfit_2",
+      "of": "player_npc_dragon1_shield_m",
+      "classId": "shield",
+      "gender": "male",
+      "raceId": "dragon",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_dragon2_shield_m_outfit_2",
+      "of": "player_npc_dragon2_shield_m",
+      "classId": "shield",
+      "gender": "male",
+      "raceId": "dragon",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_dragon3_shield_m_outfit_2",
+      "of": "player_npc_dragon3_shield_m",
+      "classId": "shield",
+      "gender": "male",
+      "raceId": "dragon",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_human1_sword_f_outfit_2",
+      "of": "player_npc_human1_sword_f",
+      "classId": "sword",
+      "gender": "female",
+      "raceId": "human",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_human2_sword_f_outfit_2",
+      "of": "player_npc_human2_sword_f",
+      "classId": "sword",
+      "gender": "female",
+      "raceId": "human",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_human3_sword_f_outfit_2",
+      "of": "player_npc_human3_sword_f",
+      "classId": "sword",
+      "gender": "female",
+      "raceId": "human",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_elf1_sword_f_outfit_2",
+      "of": "player_npc_elf1_sword_f",
+      "classId": "sword",
+      "gender": "female",
+      "raceId": "elf",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_elf2_sword_f_outfit_2",
+      "of": "player_npc_elf2_sword_f",
+      "classId": "sword",
+      "gender": "female",
+      "raceId": "elf",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_elf3_sword_f_outfit_2",
+      "of": "player_npc_elf3_sword_f",
+      "classId": "sword",
+      "gender": "female",
+      "raceId": "elf",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_beast1_sword_f_outfit_2",
+      "of": "player_npc_beast1_sword_f",
+      "classId": "sword",
+      "gender": "female",
+      "raceId": "beast",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_beast2_sword_f_outfit_2",
+      "of": "player_npc_beast2_sword_f",
+      "classId": "sword",
+      "gender": "female",
+      "raceId": "beast",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_beast3_sword_f_outfit_2",
+      "of": "player_npc_beast3_sword_f",
+      "classId": "sword",
+      "gender": "female",
+      "raceId": "beast",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_demon1_sword_f_outfit_2",
+      "of": "player_npc_demon1_sword_f",
+      "classId": "sword",
+      "gender": "female",
+      "raceId": "demon",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_demon2_sword_f_outfit_2",
+      "of": "player_npc_demon2_sword_f",
+      "classId": "sword",
+      "gender": "female",
+      "raceId": "demon",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_demon3_sword_f_outfit_2",
+      "of": "player_npc_demon3_sword_f",
+      "classId": "sword",
+      "gender": "female",
+      "raceId": "demon",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_dragon1_sword_f_outfit_2",
+      "of": "player_npc_dragon1_sword_f",
+      "classId": "sword",
+      "gender": "female",
+      "raceId": "dragon",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_dragon2_sword_f_outfit_2",
+      "of": "player_npc_dragon2_sword_f",
+      "classId": "sword",
+      "gender": "female",
+      "raceId": "dragon",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_dragon3_sword_f_outfit_2",
+      "of": "player_npc_dragon3_sword_f",
+      "classId": "sword",
+      "gender": "female",
+      "raceId": "dragon",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_human1_staff_f_outfit_2",
+      "of": "player_npc_human1_staff_f",
+      "classId": "staff",
+      "gender": "female",
+      "raceId": "human",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_human2_staff_f_outfit_2",
+      "of": "player_npc_human2_staff_f",
+      "classId": "staff",
+      "gender": "female",
+      "raceId": "human",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_human3_staff_f_outfit_2",
+      "of": "player_npc_human3_staff_f",
+      "classId": "staff",
+      "gender": "female",
+      "raceId": "human",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_elf1_staff_f_outfit_2",
+      "of": "player_npc_elf1_staff_f",
+      "classId": "staff",
+      "gender": "female",
+      "raceId": "elf",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_elf2_staff_f_outfit_2",
+      "of": "player_npc_elf2_staff_f",
+      "classId": "staff",
+      "gender": "female",
+      "raceId": "elf",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_elf3_staff_f_outfit_2",
+      "of": "player_npc_elf3_staff_f",
+      "classId": "staff",
+      "gender": "female",
+      "raceId": "elf",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_beast1_staff_f_outfit_2",
+      "of": "player_npc_beast1_staff_f",
+      "classId": "staff",
+      "gender": "female",
+      "raceId": "beast",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_beast2_staff_f_outfit_2",
+      "of": "player_npc_beast2_staff_f",
+      "classId": "staff",
+      "gender": "female",
+      "raceId": "beast",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_beast3_staff_f_outfit_2",
+      "of": "player_npc_beast3_staff_f",
+      "classId": "staff",
+      "gender": "female",
+      "raceId": "beast",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_demon1_staff_f_outfit_2",
+      "of": "player_npc_demon1_staff_f",
+      "classId": "staff",
+      "gender": "female",
+      "raceId": "demon",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_demon2_staff_f_outfit_2",
+      "of": "player_npc_demon2_staff_f",
+      "classId": "staff",
+      "gender": "female",
+      "raceId": "demon",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_demon3_staff_f_outfit_2",
+      "of": "player_npc_demon3_staff_f",
+      "classId": "staff",
+      "gender": "female",
+      "raceId": "demon",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_dragon1_staff_f_outfit_2",
+      "of": "player_npc_dragon1_staff_f",
+      "classId": "staff",
+      "gender": "female",
+      "raceId": "dragon",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_dragon2_staff_f_outfit_2",
+      "of": "player_npc_dragon2_staff_f",
+      "classId": "staff",
+      "gender": "female",
+      "raceId": "dragon",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_dragon3_staff_f_outfit_2",
+      "of": "player_npc_dragon3_staff_f",
+      "classId": "staff",
+      "gender": "female",
+      "raceId": "dragon",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_human1_spear_f_outfit_2",
+      "of": "player_npc_human1_spear_f",
+      "classId": "spear",
+      "gender": "female",
+      "raceId": "human",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_human2_spear_f_outfit_2",
+      "of": "player_npc_human2_spear_f",
+      "classId": "spear",
+      "gender": "female",
+      "raceId": "human",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_human3_spear_f_outfit_2",
+      "of": "player_npc_human3_spear_f",
+      "classId": "spear",
+      "gender": "female",
+      "raceId": "human",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_elf1_spear_f_outfit_2",
+      "of": "player_npc_elf1_spear_f",
+      "classId": "spear",
+      "gender": "female",
+      "raceId": "elf",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_elf2_spear_f_outfit_2",
+      "of": "player_npc_elf2_spear_f",
+      "classId": "spear",
+      "gender": "female",
+      "raceId": "elf",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_elf3_spear_f_outfit_2",
+      "of": "player_npc_elf3_spear_f",
+      "classId": "spear",
+      "gender": "female",
+      "raceId": "elf",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_beast1_spear_f_outfit_2",
+      "of": "player_npc_beast1_spear_f",
+      "classId": "spear",
+      "gender": "female",
+      "raceId": "beast",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_beast2_spear_f_outfit_2",
+      "of": "player_npc_beast2_spear_f",
+      "classId": "spear",
+      "gender": "female",
+      "raceId": "beast",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_beast3_spear_f_outfit_2",
+      "of": "player_npc_beast3_spear_f",
+      "classId": "spear",
+      "gender": "female",
+      "raceId": "beast",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_demon1_spear_f_outfit_2",
+      "of": "player_npc_demon1_spear_f",
+      "classId": "spear",
+      "gender": "female",
+      "raceId": "demon",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_demon2_spear_f_outfit_2",
+      "of": "player_npc_demon2_spear_f",
+      "classId": "spear",
+      "gender": "female",
+      "raceId": "demon",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_demon3_spear_f_outfit_2",
+      "of": "player_npc_demon3_spear_f",
+      "classId": "spear",
+      "gender": "female",
+      "raceId": "demon",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_dragon1_spear_f_outfit_2",
+      "of": "player_npc_dragon1_spear_f",
+      "classId": "spear",
+      "gender": "female",
+      "raceId": "dragon",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_dragon2_spear_f_outfit_2",
+      "of": "player_npc_dragon2_spear_f",
+      "classId": "spear",
+      "gender": "female",
+      "raceId": "dragon",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_dragon3_spear_f_outfit_2",
+      "of": "player_npc_dragon3_spear_f",
+      "classId": "spear",
+      "gender": "female",
+      "raceId": "dragon",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_human1_bow_f_outfit_2",
+      "of": "player_npc_human1_bow_f",
+      "classId": "bow",
+      "gender": "female",
+      "raceId": "human",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_human2_bow_f_outfit_2",
+      "of": "player_npc_human2_bow_f",
+      "classId": "bow",
+      "gender": "female",
+      "raceId": "human",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_human3_bow_f_outfit_2",
+      "of": "player_npc_human3_bow_f",
+      "classId": "bow",
+      "gender": "female",
+      "raceId": "human",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_elf1_bow_f_outfit_2",
+      "of": "player_npc_elf1_bow_f",
+      "classId": "bow",
+      "gender": "female",
+      "raceId": "elf",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_elf2_bow_f_outfit_2",
+      "of": "player_npc_elf2_bow_f",
+      "classId": "bow",
+      "gender": "female",
+      "raceId": "elf",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_elf3_bow_f_outfit_2",
+      "of": "player_npc_elf3_bow_f",
+      "classId": "bow",
+      "gender": "female",
+      "raceId": "elf",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_beast1_bow_f_outfit_2",
+      "of": "player_npc_beast1_bow_f",
+      "classId": "bow",
+      "gender": "female",
+      "raceId": "beast",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_beast2_bow_f_outfit_2",
+      "of": "player_npc_beast2_bow_f",
+      "classId": "bow",
+      "gender": "female",
+      "raceId": "beast",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_beast3_bow_f_outfit_2",
+      "of": "player_npc_beast3_bow_f",
+      "classId": "bow",
+      "gender": "female",
+      "raceId": "beast",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_demon1_bow_f_outfit_2",
+      "of": "player_npc_demon1_bow_f",
+      "classId": "bow",
+      "gender": "female",
+      "raceId": "demon",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_demon2_bow_f_outfit_2",
+      "of": "player_npc_demon2_bow_f",
+      "classId": "bow",
+      "gender": "female",
+      "raceId": "demon",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_demon3_bow_f_outfit_2",
+      "of": "player_npc_demon3_bow_f",
+      "classId": "bow",
+      "gender": "female",
+      "raceId": "demon",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_dragon1_bow_f_outfit_2",
+      "of": "player_npc_dragon1_bow_f",
+      "classId": "bow",
+      "gender": "female",
+      "raceId": "dragon",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_dragon2_bow_f_outfit_2",
+      "of": "player_npc_dragon2_bow_f",
+      "classId": "bow",
+      "gender": "female",
+      "raceId": "dragon",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_dragon3_bow_f_outfit_2",
+      "of": "player_npc_dragon3_bow_f",
+      "classId": "bow",
+      "gender": "female",
+      "raceId": "dragon",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_human1_shield_f_outfit_2",
+      "of": "player_npc_human1_shield_f",
+      "classId": "shield",
+      "gender": "female",
+      "raceId": "human",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_human2_shield_f_outfit_2",
+      "of": "player_npc_human2_shield_f",
+      "classId": "shield",
+      "gender": "female",
+      "raceId": "human",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_human3_shield_f_outfit_2",
+      "of": "player_npc_human3_shield_f",
+      "classId": "shield",
+      "gender": "female",
+      "raceId": "human",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_elf1_shield_f_outfit_2",
+      "of": "player_npc_elf1_shield_f",
+      "classId": "shield",
+      "gender": "female",
+      "raceId": "elf",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_elf2_shield_f_outfit_2",
+      "of": "player_npc_elf2_shield_f",
+      "classId": "shield",
+      "gender": "female",
+      "raceId": "elf",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_elf3_shield_f_outfit_2",
+      "of": "player_npc_elf3_shield_f",
+      "classId": "shield",
+      "gender": "female",
+      "raceId": "elf",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_beast1_shield_f_outfit_2",
+      "of": "player_npc_beast1_shield_f",
+      "classId": "shield",
+      "gender": "female",
+      "raceId": "beast",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_beast2_shield_f_outfit_2",
+      "of": "player_npc_beast2_shield_f",
+      "classId": "shield",
+      "gender": "female",
+      "raceId": "beast",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_beast3_shield_f_outfit_2",
+      "of": "player_npc_beast3_shield_f",
+      "classId": "shield",
+      "gender": "female",
+      "raceId": "beast",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_demon1_shield_f_outfit_2",
+      "of": "player_npc_demon1_shield_f",
+      "classId": "shield",
+      "gender": "female",
+      "raceId": "demon",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_demon2_shield_f_outfit_2",
+      "of": "player_npc_demon2_shield_f",
+      "classId": "shield",
+      "gender": "female",
+      "raceId": "demon",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_demon3_shield_f_outfit_2",
+      "of": "player_npc_demon3_shield_f",
+      "classId": "shield",
+      "gender": "female",
+      "raceId": "demon",
+      "variant": 3
+    },
+    {
+      "id": "player_npc_dragon1_shield_f_outfit_2",
+      "of": "player_npc_dragon1_shield_f",
+      "classId": "shield",
+      "gender": "female",
+      "raceId": "dragon",
+      "variant": 1
+    },
+    {
+      "id": "player_npc_dragon2_shield_f_outfit_2",
+      "of": "player_npc_dragon2_shield_f",
+      "classId": "shield",
+      "gender": "female",
+      "raceId": "dragon",
+      "variant": 2
+    },
+    {
+      "id": "player_npc_dragon3_shield_f_outfit_2",
+      "of": "player_npc_dragon3_shield_f",
+      "classId": "shield",
+      "gender": "female",
+      "raceId": "dragon",
+      "variant": 3
+    }
   ]
 }

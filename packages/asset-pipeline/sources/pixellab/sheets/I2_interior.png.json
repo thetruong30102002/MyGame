@@ -1,0 +1,20 @@
+{
+	"description": "A sprite sheet of SIX separate indoor props arranged in a grid of 3 columns and 2 rows, each centered in its own cell. Top row: a wooden framed cottage window with four panes and short curtains, a potted leafy green plant in a clay pot, a wooden drying rack with herbs and cloth hanging. Bottom row: a wooden rice barrel with a lid and a scoop, a ceramic flower vase with wildflowers, a cushioned wooden armchair. Cozy rustic cottage furniture, front view, slight top-down, thick dark outline, soft cel shading, warm wood tones, every item fully separate on a plain flat solid bright magenta (#FF00FF) chroma-key background with empty space around it, no floor, no wall, no shadow, no text, no numbers, no characters",
+	"width": 256,
+	"height": 192,
+	"no_background": false,
+	"seed": 722,
+	"style_options": {
+		"color_palette": false,
+		"outline": true,
+		"shading": true,
+		"detail": false
+	},
+	"style_image": {
+		"path": "sources/pixellab/sheets/N1_nature.png",
+		"usage_description": "Copy ONLY the art style of this reference: chunky chibi pixel art, thick dark outline on every shape, soft cel shading, front-facing view, one object centered in each cell. Do not copy these objects, their colors or their layout."
+	},
+	"jobId": "b6560793-0b49-4f7b-a8f8-de05c340bece",
+	"token": 0,
+	"createdAt": "2026-11-07T00:54:33.082Z"
+}

@@ -14,7 +14,7 @@ namespace HavenLord.Client.UI
     /// Giao diện trong game (uGUI + TextMeshPro, dựng bằng code). Mỗi thứ ở đúng chỗ mắt tìm, thẻ bo góc gỗ trong mờ viền vàng mảnh,
     /// thanh có vệt trễ, chữ SDF có viền + bóng. Đọc trạng thái từ GameController mỗi khung (không giữ bản sao). Thiết kế: UI.md.
     /// </summary>
-    public sealed class Hud : MonoBehaviour
+    public sealed partial class Hud : MonoBehaviour
     {
         /// <summary>Nhãn phím của ô <paramref name="i"/> theo bảng phím người chơi đặt (Cài đặt → PHÍM).</summary>
         private static string KeyOf(int i) => KeyBinds.LabelOf(KeyBinds.Slots[i]);
@@ -187,6 +187,8 @@ namespace HavenLord.Client.UI
             floatRoot = UiKit.Stretch(root, "Floats");
             BuildPlayerCard();
             BuildTarget();
+            BuildBossBar();
+            BuildClock();
             BuildTopRight();
             BuildSkillBar();
             BuildToasts();
@@ -658,6 +660,8 @@ namespace HavenLord.Client.UI
             UpdateMinimap();
             UpdateExitSigns();
             UpdateTarget(dt);
+            UpdateBossBar(dt);
+            UpdateClock(dt);
             UpdateSlots(dt);
             UpdateToasts(dt);
             UpdateFloats(dt);

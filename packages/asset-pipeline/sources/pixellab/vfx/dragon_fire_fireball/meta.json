@@ -1,0 +1,27 @@
+{
+	"id": "dragon_fire_fireball",
+	"kind": "loop",
+	"canvas": {
+		"w": 44,
+		"h": 44
+	},
+	"first": {
+		"prompt": "a large dragon fireball flying toward the right, white-hot core, swirling red-orange flames, a long roaring flame tail behind it to the left, side view, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "676182dd-912a-4d87-ba18-8fa51349e924"
+	},
+	"action": "the dragon fireball roars and its flame tail swirls, seamless loop",
+	"frameCount": 4,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png"
+	],
+	"animateJobId": "0f8674d2-606f-4873-9ea9-27d54eb37028",
+	"createdAt": "2026-11-05T15:42:06.304Z",
+	"token": 0
+}

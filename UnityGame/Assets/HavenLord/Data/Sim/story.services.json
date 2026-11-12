@@ -1,5 +1,119 @@
 {
 	"SERVICE_NPCS": {
+		"village_armor": {
+			"name": "Ela",
+			"title": "Người bán trang bị",
+			"sprite": "npc_mirelle_001",
+			"region": "human",
+			"at": {
+				"spot": "plaza",
+				"dx": -240,
+				"dy": 40
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Một bộ áo tốt phải giúp người mặc trở về. Bộ thứ hai của mỗi nghề hiện có ở quầy trang bị."
+			]
+		},
+		"village_smith": {
+			"name": "Orin",
+			"title": "Thợ rèn vũ khí và trang bị",
+			"sprite": "npc_garrick_001",
+			"region": "human",
+			"at": {
+				"spot": "plaza",
+				"dx": -340,
+				"dy": 150
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Ta nhận rèn cả vũ khí lẫn trang bị. Đe vẫn còn chờ số thép của đoàn buôn mất tích; công thức rèn sẽ mở cùng tuyến truyện mới."
+			]
+		},
+		"village_weapon": {
+			"name": "Ren",
+			"title": "Người bán vũ khí",
+			"sprite": "npc_aldric_001",
+			"region": "human",
+			"at": {
+				"spot": "plaza",
+				"dx": 260,
+				"dy": 40
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Chọn đúng món của nghề mình. Đừng để một thanh kiếm đẹp quyết định thay cậu sẽ trở thành ai."
+			]
+		},
+		"village_food": {
+			"name": "Mai",
+			"title": "Người bán đồ ăn",
+			"sprite": "npc_elin_001",
+			"region": "human",
+			"at": {
+				"spot": "plaza",
+				"dx": 260,
+				"dy": 180
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Ăn một bữa ấm rồi hãy ra đường. Món hầm của ta giúp cậu vững tay trong chuyến đi."
+			]
+		},
+		"village_heal": {
+			"name": "Lan",
+			"title": "Người bán vật phẩm hồi phục",
+			"sprite": "npc_ysolde_001",
+			"region": "human",
+			"at": {
+				"spot": "church",
+				"dx": 96,
+				"dy": 100
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Đừng đợi kiệt sức mới nhớ mang thuốc. Ta vẫn giữ sổ tên những người chưa quay về."
+			]
+		},
+		"village_event": {
+			"name": "Iris",
+			"title": "Sứ giả sự kiện",
+			"sprite": "npc_silver_youth_f",
+			"region": "human",
+			"at": {
+				"spot": "plaza",
+				"dx": 390,
+				"dy": 110
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Ta mang tin giữa các vùng. Dù chưa có hội lễ, cậu vẫn có thể ghé hỏi thăm; việc nhận nhà không phải đợi sự kiện."
+			]
+		},
 		"waystone_human": {
 			"name": "Cột dịch chuyển",
 			"title": "Thung lũng Thistlewood",
@@ -129,120 +243,6 @@
 				99
 			],
 			"region": "isles",
-			"idle": [
-				"«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»"
-			]
-		},
-		"waystone_fungal": {
-			"name": "Cột dịch chuyển",
-			"title": "Rừng Nấm Ngầm",
-			"sprite": null,
-			"prop": "rune_stone",
-			"at": {
-				"spot": "waystone",
-				"dx": 0,
-				"dy": 0
-			},
-			"ages": [
-				0,
-				99
-			],
-			"region": "fungal",
-			"idle": [
-				"«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»"
-			]
-		},
-		"waystone_ruins": {
-			"name": "Cột dịch chuyển",
-			"title": "Phế tích Haven",
-			"sprite": null,
-			"prop": "rune_stone",
-			"at": {
-				"spot": "waystone",
-				"dx": 0,
-				"dy": 0
-			},
-			"ages": [
-				0,
-				99
-			],
-			"region": "ruins",
-			"idle": [
-				"«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»"
-			]
-		},
-		"waystone_void": {
-			"name": "Cột dịch chuyển",
-			"title": "Vực Hư Không",
-			"sprite": null,
-			"prop": "rune_stone",
-			"at": {
-				"spot": "waystone",
-				"dx": 0,
-				"dy": 0
-			},
-			"ages": [
-				0,
-				99
-			],
-			"region": "void",
-			"idle": [
-				"«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»"
-			]
-		},
-		"waystone_wood": {
-			"name": "Cột dịch chuyển",
-			"title": "Rừng Cổ Thụ",
-			"sprite": null,
-			"prop": "rune_stone",
-			"at": {
-				"spot": "waystone",
-				"dx": 0,
-				"dy": 0
-			},
-			"ages": [
-				0,
-				99
-			],
-			"region": "wood",
-			"idle": [
-				"«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»"
-			]
-		},
-		"waystone_light": {
-			"name": "Cột dịch chuyển",
-			"title": "Thánh Địa Bình Minh",
-			"sprite": null,
-			"prop": "rune_stone",
-			"at": {
-				"spot": "waystone",
-				"dx": 0,
-				"dy": 0
-			},
-			"ages": [
-				0,
-				99
-			],
-			"region": "light",
-			"idle": [
-				"«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»"
-			]
-		},
-		"waystone_dark": {
-			"name": "Cột dịch chuyển",
-			"title": "Vực Ám Ma",
-			"sprite": null,
-			"prop": "rune_stone",
-			"at": {
-				"spot": "waystone",
-				"dx": 0,
-				"dy": 0
-			},
-			"ages": [
-				0,
-				99
-			],
-			"region": "dark",
 			"idle": [
 				"«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»"
 			]

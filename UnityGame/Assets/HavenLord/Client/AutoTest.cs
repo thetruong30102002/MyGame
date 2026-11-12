@@ -67,6 +67,10 @@ namespace HavenLord.Client
                 t.npcRosterRun = Array.IndexOf(args, "-havenNpcRoster") >= 0;
                 t.bannerRun = Array.IndexOf(args, "-havenBanner") >= 0;
                 t.waterRun = Array.IndexOf(args, "-havenWater") >= 0;
+                t.newMobsRun = Array.IndexOf(args, "-havenNewMobs") >= 0;
+                t.lightRun = Array.IndexOf(args, "-havenLight") >= 0;
+                t.bareRun = Array.IndexOf(args, "-havenBare") >= 0;
+                t.farmRun = Array.IndexOf(args, "-havenFarm") >= 0;
                 t.weatherRun = Array.IndexOf(args, "-havenWeather") >= 0;
                 t.layeredRun = Array.IndexOf(args, "-havenLayered") >= 0;
                 return;
@@ -139,6 +143,30 @@ namespace HavenLord.Client
             yield return new WaitForSeconds(2.5f);
             if (game == null || game.Player == null) { Fail("Không nạp được nhân vật mặc định mới"); yield break; }
             if (!VerifyCompleteCharacter(game.Player.View)) yield break;
+            if (farmRun)
+            {
+                yield return FarmTest(game);
+                if (failed) yield break;
+                log.WriteLine("xong"); log.Close(); Application.Quit(0); yield break;
+            }
+            if (bareRun)
+            {
+                yield return BareTest(game);
+                if (failed) yield break;
+                log.WriteLine("xong"); log.Close(); Application.Quit(0); yield break;
+            }
+            if (lightRun)
+            {
+                yield return LightTest(game);
+                if (failed) yield break;
+                log.WriteLine("xong"); log.Close(); Application.Quit(0); yield break;
+            }
+            if (newMobsRun)
+            {
+                yield return NewMobsTest(game);
+                if (failed) yield break;
+                log.WriteLine("xong"); log.Close(); Application.Quit(0); yield break;
+            }
             if (waterRun)
             {
                 yield return WaterTest(game);

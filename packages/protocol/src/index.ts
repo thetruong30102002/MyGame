@@ -555,6 +555,7 @@ export interface PlayerView {
 }
 
 export type ClientMessage =
+	| { t:'farm'; op:string; plot?:number; crop?:string; npc?:string; nonce?:string; outfit?:string; item?:string; room?:string }
 	/** Tin đầu tiên sau khi mở kết nối: xác thực bằng token phiên (không đặt token trên URL để khỏi lọt vào log). */
 	| { t: 'hello'; token: string; character: string }
 	| { t: 'move'; x: number; y: number; dir: string; anim: string; sprite: string; hp?: number; hpMax?: number }
@@ -630,6 +631,7 @@ export type ClientMessage =
 	| { t: 'pvpDown'; by: string };
 
 export type ServerMessage =
+	| { t: 'farm'; state: unknown }
 	| { t: 'welcome'; you: string; players: PlayerView[] }
 	| { t: 'join'; player: PlayerView }
 	| { t: 'leave'; id: string }
@@ -670,7 +672,7 @@ export type ServerMessage =
 	/** Bình đang hiệu lực (sau `welcome`, sau khi mua, khi một bình hết giờ). */
 	| { t: 'buffs'; list: BuffView[] }
 	/** Vừa mua xong món `item` (kim cương đã trừ — tin `wallet` + `buffs` đi kèm). */
-	| { t: 'bought'; item: string }
+	| { t: 'bought'; item: string; gear?: unknown }
 	/**
 	 * Trạm đã từng đặt chân tới (`vùng/map`) — máy chủ ghi lúc vào game / sang map. `maps`: MỌI map đã tới (bản đồ lớn làm mờ map
 	 * chưa tới); client bản cũ bỏ qua trường này.

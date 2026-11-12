@@ -14,6 +14,7 @@ namespace HavenLord.Core
         public Shop(SimData data) => _t = data.EconomyTables;
 
         public IReadOnlyList<ShopItem> Items => _t.Shop;
+        public IReadOnlyList<OutfitShopItem> Outfits => _t.OutfitShop;
         public IReadOnlyList<Merchant> Merchants => _t.Merchants;
         public Merchant Merchant => _t.MerchantFirst;
         public IReadOnlyList<string> MerchantNpcs => _t.MerchantNpcs;

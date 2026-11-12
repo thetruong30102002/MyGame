@@ -1,0 +1,32 @@
+{
+	"id": "dragon_fire_fireball_blast",
+	"kind": "burst",
+	"canvas": {
+		"w": 80,
+		"h": 80
+	},
+	"first": {
+		"prompt": "a fiery explosion just starting, white-hot core with red-orange flames, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "f9899cd7-40c0-4417-a720-4a2266de20be",
+		"drawn": "first_drawn.png"
+	},
+	"action": "the explosion blasts outward into a big ball of red-orange flame and black smoke with flying embers, then burns out and fades",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "bcd65323-7791-427f-8aca-2b128c90616c",
+	"createdAt": "2026-11-05T15:44:29.811Z",
+	"token": 0
+}

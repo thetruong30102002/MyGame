@@ -1,0 +1,15 @@
+{
+	"description": "A sprite sheet of SIXTEEN separate small crop plants arranged in a grid of 4 columns and 4 rows, each centered in its own cell, growth stages from left to right (1 sprout, 2 young, 3 growing, 4 ripe ready to harvest). Row 1 glowcap mushroom: tiny pale mushroom nub, small cluster of pale mushrooms, bigger cluster, cluster of mushrooms with softly glowing teal caps. Row 2 moonflower: tiny silver sprout, small silvery leaves, closed white bud on a stem, open pale moonflower glowing soft blue-white. Row 3 starfruit bush: tiny sprout, small bush, bush with tiny star-shaped buds, bush with glowing golden star-shaped fruits. Row 4 golden wheat (rare): tiny golden sprout, small golden-green tuft, tall shining golden stalks, radiant golden wheat with sparkling grain heads. Each plant upright on a tiny dark soil mound, front view, slight top-down, thick dark outline, soft cel shading, natural colors, every plant fully separate on a plain flat solid bright magenta (#FF00FF) chroma-key background, no field, no shadow, no text, no numbers",
+	"width": 256,
+	"height": 256,
+	"no_background": false,
+	"seed": 743,
+	"style_options": {
+		"color_palette": false,
+		"outline": true,
+		"shading": true,
+		"detail": false
+	},
+	"style_image_path": "sources/pixellab/sheets/N1_nature.png",
+	"style_usage": "Copy ONLY the art style of this reference: chunky chibi pixel art, thick dark outline on every shape, soft cel shading, front-facing view, one object centered in each cell. Do not copy these objects, their colors or their layout."
+}

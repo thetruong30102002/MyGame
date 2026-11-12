@@ -1108,5 +1108,339 @@
 			"attack": "2af3bf2c-cf31-4e7d-9c4d-c92063a09501",
 			"death": "eab598f5-cf49-45e7-91d1-8488f0cba0c9"
 		}
+	},
+	"mob_shadow_cat_001": {
+		"uuid": "396b8ef4-b421-453e-931b-7e0af2428d24",
+		"token": 0
+	},
+	"mob_night_knight_001": {
+		"uuid": "2b39a2c5-39d0-4ec5-b5be-59c2d0449f1a",
+		"token": 0
+	},
+	"mob_mud_catfish_001": {
+		"uuid": "5d008620-4f45-4db3-8e8f-4a86ebd48e57",
+		"token": 0,
+		"groups": {
+			"walk": "59be012e-1779-4b1c-a0d4-027b28b94309",
+			"idle": "53d6ca0f-9caa-4384-be81-37a4db589396",
+			"attack": "7adc6b63-89f8-417e-a6c1-35fa506c1635",
+			"death": "38424713-105d-4488-ad80-bfb7467acc0a"
+		}
+	},
+	"mob_oasis_croc_001": {
+		"uuid": "113a0f1f-0aac-4d36-9566-5e24fd029b15",
+		"token": 0,
+		"groups": {
+			"walk": "61922350-06d5-4efd-b8be-1974068db1f8",
+			"idle": "0cc3d1b5-878d-4f33-8761-04129a4f8d4e",
+			"attack": "34c4f88e-5356-442f-9ca4-38a7ae5eb2bb",
+			"death": "5d6c9529-73b2-4f39-8189-278136fb091f"
+		}
+	},
+	"mob_gale_otter_001": {
+		"uuid": "3c69e93b-4af2-4c13-a3c2-348109252869",
+		"token": 0,
+		"groups": {
+			"idle": "a9a6e583-0d42-401c-8a06-33885376f98e",
+			"death": "572d9cf7-6832-4e1d-ba1d-bf4b35eb7b91",
+			"walk": "60ba807b-0795-4dc5-adc6-a863990bfe05",
+			"attack": "84e1884d-e73e-43a6-81e7-1d67b41ac91f"
+		}
+	},
+	"mob_ice_walrus_001": {
+		"uuid": "fcc9f8c0-35ad-4e2e-8f42-d22426ebfe66",
+		"token": 0,
+		"groups": {
+			"walk": "1a7d2fb5-7c1e-4e2d-9456-63ce79026a2d",
+			"idle": "f34e5dff-c4c7-4769-92a1-ed6dce962a6f",
+			"attack": "45dac0c6-5286-411d-ac93-71c571e76927",
+			"death": "f3a28fdf-1611-45c8-9120-e0a50f83b8ee"
+		}
+	},
+	"mob_lava_eel_001": {
+		"uuid": "01205e28-e059-4365-8527-ddc6125dfcc8",
+		"token": 0,
+		"groups": {
+			"idle": "60242811-48cb-48fb-9175-26de06dfcb2d",
+			"attack": "64806a86-be2e-41dd-a871-15cfa9313c3a",
+			"death": "716accb6-1181-41bd-9464-8b033d2618b3",
+			"walk": "8bf65c86-e5d6-470e-82ef-b379fd3ab3bd"
+		}
+	},
+	"mob_spike_turtle_001": {
+		"uuid": "15d1cc7f-0b36-4696-820c-7e429929b220",
+		"token": 0,
+		"groups": {
+			"walk": "d66f034a-e384-4f65-9c4b-ed78cd0ee29a",
+			"idle": "f2fe29df-d825-49f0-8711-0a9079d18a63",
+			"attack": "bb8de7af-f9b5-4a75-92cc-e1f014b21127",
+			"death": "bc2c4516-efe7-4b6d-a1bb-8c35905fbe86"
+		}
+	},
+	"boss_cerberus_001": {
+		"uuid": "1d3a64f2-59e0-438b-83a7-a8ca34121a1d",
+		"token": 0,
+		"groups": {
+			"walk": "e7429ef2-e2d5-4697-8ce4-4c3953b67c79"
+		}
+	},
+	"farm_cow_001": {
+		"uuid": "3590b102-5bb8-413d-91a4-0237f4b341d0",
+		"token": 0,
+		"groups": {
+			"walk": "08f6812c-3d9e-48ab-a661-231350914c5a",
+			"idle": "ec4d91fc-628b-4de0-81a4-1f490a5ca2b8"
+		}
+	},
+	"farm_sheep_001": {
+		"uuid": "9cb183b3-71cf-4368-890c-923b3cff1905",
+		"token": 0,
+		"groups": {
+			"walk": "dc0295a9-5cec-4ed2-8c9c-20407550f8a5",
+			"idle": "8b0826bb-6696-4b69-999d-22075045e67b"
+		}
+	},
+	"pet_dog_001": {
+		"uuid": "e951b78a-4298-4bf4-b8d2-b959bd530c0c",
+		"token": 0,
+		"groups": {
+			"walk": "8fafd870-c5f9-4bac-8f99-19c51602f314",
+			"idle": "a537653a-991f-4819-b312-51dd24c57889",
+			"sleep": "3c9368f4-c478-4fc7-a20d-f27c6ba8608d"
+		}
+	},
+	"pet_cat_001": {
+		"uuid": "d6841845-bdc5-407c-9e80-4a9228cbea87",
+		"token": 0,
+		"groups": {
+			"walk": "a60e39a2-9355-4981-925b-57572a8d468c",
+			"idle": "6a9fc421-7a39-4274-acc6-f5786c65777e",
+			"sleep": "134921a5-f6c3-4d58-b07f-a8e8a5f8039b",
+			"sleep-b": "496a06b3-4e84-4272-80a0-6a12bf42445f"
+		}
+	},
+	"farm_chicken_001": {
+		"uuid": "bab41e55-1553-46a1-aab2-bedb3f4fbc3f",
+		"token": 0,
+		"groups": {
+			"walk": "dd3ca929-408b-4e45-b8d3-f1e65b6c3ac7",
+			"idle": "8829e0c7-b93c-4b1c-b8eb-c58679bbd9d2"
+		}
+	},
+	"pet_husky_001": {
+		"uuid": "7fa924c9-bc52-45e3-bc19-2e51bfa2f5e7",
+		"token": 0,
+		"groups": {
+			"walk": "f27bc1ef-fbf6-415a-a533-0efbeda4cf54",
+			"idle": "36bb6dfc-eae3-4e83-ae8d-de4c0f4f0b81",
+			"sleep": "dc589e3b-8f2f-4c18-897c-f5d939792c95"
+		}
+	},
+	"pet_moonwolf_001": {
+		"uuid": "bd16c7e0-de83-40a2-81f8-cbb2e85ee60d",
+		"token": 0,
+		"groups": {
+			"walk": "6dfc026d-1d72-48fe-9f48-6d5d5bb14155",
+			"idle": "f1727f45-0d3d-4c02-b76a-fe7dac4d5031",
+			"sleep": "ca524e00-1bbf-4491-939a-b28071a1e3b5"
+		}
+	},
+	"pet_moonwolf_002": {
+		"uuid": "7a0827f7-4109-47b9-9b40-a1a0a6001b51",
+		"token": 0,
+		"groups": {
+			"walk": "464519e4-5425-45b7-abf9-f84b86087dc0",
+			"idle": "5b7d62e4-e4f5-4b04-9a84-02032860c5b7",
+			"sleep": "ff35228c-40f8-4682-a319-8b485819b811"
+		}
+	},
+	"pet2_cat_tabby": {
+		"uuid": "05485928-d01a-4b27-8665-f1bb502696b5",
+		"token": 0,
+		"groups": {
+			"walk": "2ad146b1-af2b-4eb1-8add-644b4da76b90",
+			"idle": "1dc8e019-3634-4dab-8129-b3234178fee0",
+			"sleep": "a78a155b-4903-415c-b17a-fcdce8d32179"
+		}
+	},
+	"pet2_cat_black": {
+		"uuid": "29b9ac74-d6f9-44cc-9846-b32bbdffb5e8",
+		"token": 0,
+		"groups": {
+			"walk": "32a0fd31-8e1b-476f-91ac-f4951e9c8620",
+			"idle": "70518aa9-b0d1-4ce9-a738-bcc1fce028e0",
+			"sleep": "3f218d4d-fb6e-43cc-b908-f4648280e15b"
+		}
+	},
+	"pet2_cat_white": {
+		"uuid": "dd7eca04-b5f8-47a8-8c63-1e7b4ae9e37b",
+		"token": 0,
+		"groups": {
+			"walk": "039b5cf0-f3de-4a25-a048-9f1fea6f5d08",
+			"idle": "1ab7978a-2dc8-4d19-9f7c-0375a49ca277",
+			"sleep": "1630907a-93bc-4562-b483-248e9424c9e4"
+		}
+	},
+	"pet2_cat_grey": {
+		"uuid": "cb3a719a-3ccd-4422-a607-db688511fe1c",
+		"token": 0,
+		"groups": {
+			"walk": "9fc68fc5-5fa2-4c20-b63a-7540c04ce913",
+			"idle": "f658dcea-97fe-4245-8bc2-31810d1cf715",
+			"sleep": "7045d957-1f1a-4427-8d2e-14455d8b61f2"
+		}
+	},
+	"pet2_dog_golden": {
+		"uuid": "4d4bff06-b6ab-4478-9666-a581cc5a9ab9",
+		"token": 0,
+		"groups": {
+			"walk": "2d900e97-fafb-40f8-9b65-86487f82f3ed",
+			"idle": "b8196b90-bd84-4d2f-95a2-bccf6fd04e0f",
+			"sleep": "3adb5c42-63a8-44dd-81c4-a1db2c6f5296"
+		}
+	},
+	"pet2_dog_black": {
+		"uuid": "34cfbf77-2c98-4330-bdba-9038acae2da6",
+		"token": 0,
+		"groups": {
+			"walk": "8e5dd740-93e8-4aee-bb57-a14bf9e25c0f",
+			"idle": "721ff5b6-d3d5-4792-982b-f551fc6a2799",
+			"sleep": "c95cbbda-a472-4f1a-9437-6a510c94a03b"
+		}
+	},
+	"pet2_dog_spotted": {
+		"uuid": "32a5b2af-8304-4682-94e6-067df31db808",
+		"token": 0,
+		"groups": {
+			"walk": "51ad8317-bf7a-4852-b708-21900b2e291a",
+			"idle": "4f137ccd-c567-4d23-acf0-923fc76b3c43",
+			"sleep": "b8460601-a1ed-4662-b15c-dbfdac3707ab"
+		}
+	},
+	"pet2_dog_corgi": {
+		"uuid": "08356b5f-b8ae-4013-8869-2374a332747b",
+		"token": 0,
+		"groups": {
+			"walk": "e9493c0d-75bc-49e4-b3df-43cecaebbf01",
+			"idle": "d5146fd3-4e20-495c-9c66-3ac3b323c3de",
+			"sleep": "bfec9043-ec75-4819-854e-38a5375a289a"
+		}
+	},
+	"pet2_cat_calico": {
+		"uuid": "b86721e3-c180-408a-90d7-a89e6e019dac",
+		"token": 0,
+		"groups": {
+			"walk": "21c0a2c2-7221-40f8-99dd-aed3f410c366",
+			"idle": "a9fc4921-f786-4413-8f47-4d86f7eb3e10",
+			"sleep": "b9418b71-d300-4e21-ab04-0c5de89e85b7"
+		}
+	},
+	"pet2_cat_siamese": {
+		"uuid": "e747657b-d146-4067-b037-7b1e5438c6ef",
+		"token": 0,
+		"groups": {
+			"walk": "a0fa7ae2-4e67-4042-8c2e-525ba00fe5ad",
+			"idle": "dd2b6a85-c950-435d-a685-4a8dd35f195f",
+			"sleep": "2cf62a9e-e797-4446-bfeb-ab8b6fe654bd"
+		}
+	},
+	"pet2_cat_persian": {
+		"uuid": "56e18a5c-5d7c-4311-a50d-293ddf510c22",
+		"token": 0,
+		"groups": {
+			"walk": "5bb6302b-4608-46d7-ba39-e2749809cc85",
+			"idle": "fe6ad81a-4d23-4bad-b842-e9fff86480d3",
+			"sleep": "532ff9c5-1644-4381-8fd2-c33e6fe7e93e"
+		}
+	},
+	"pet2_dog_husky": {
+		"uuid": "abbafb2c-ace0-4f70-abe9-e02f49321bcf",
+		"token": 0,
+		"groups": {
+			"walk": "970f5733-a13e-48d7-bb4a-7da85ce92f1c",
+			"idle": "3b4947da-ec82-47a7-ad43-938b7f8173b9",
+			"sleep": "01e21e99-af63-44bf-ae72-c04f2ef8d6ae"
+		}
+	},
+	"pet2_dog_shiba": {
+		"uuid": "6f9415e1-9088-472a-b251-11daef4252a8",
+		"token": 0,
+		"groups": {
+			"walk": "7e5c384d-90c9-44a9-9c4e-0772905cafff",
+			"idle": "8be9723c-46b4-436b-847f-d3a90684bf02",
+			"sleep": "7caf43c5-187d-46cc-aa82-b4950d62073e"
+		}
+	},
+	"pet2_dog_poodle": {
+		"uuid": "a02fd5c4-7a22-4097-b1f7-3c4bb4fec3f6",
+		"token": 0,
+		"groups": {
+			"walk": "a46f5056-c554-4843-b002-8b2f4c404aa3",
+			"idle": "d937f651-3d21-4542-b5f8-218dff41d42f",
+			"sleep": "74230d43-bcd0-4545-a018-ddee77265435"
+		}
+	},
+	"pet2_cat_oddeye": {
+		"uuid": "d623d8d1-0b10-4d77-97ed-aab14265f5c4",
+		"token": 0,
+		"groups": {
+			"walk": "4e881e8c-32eb-44f1-9af6-d7b76f72a2ac",
+			"idle": "83137ade-415b-4b62-a3d5-8c01e607d019",
+			"sleep": "88c48c09-1604-4bb2-bfdb-132aa80bf12c"
+		}
+	},
+	"pet2_cat_royal": {
+		"uuid": "a28bebfb-b172-4642-8eb7-1157e47025d3",
+		"token": 0,
+		"groups": {
+			"walk": "6e3984bd-296e-404e-9d3a-7c1a3ddf7bfc",
+			"idle": "5cfcdb8c-726a-4f58-bbb6-c71db7c228bf",
+			"sleep": "baad769d-7fa7-4e0a-bb25-c4bce0fdfe6f"
+		}
+	},
+	"pet2_dog_samoyed": {
+		"uuid": "4e955fcc-0920-4e69-8e7a-4c8c9af652d0",
+		"token": 0,
+		"groups": {
+			"walk": "b1e2cbd0-2157-48fa-a841-a02bec7a39b7",
+			"idle": "5951ef12-e0d8-4ecb-bd2a-bbec4ad66294",
+			"sleep": "6ead146f-afa1-4be5-8b2d-1c52978869cc"
+		}
+	},
+	"pet2_dog_hound": {
+		"uuid": "c1736903-a6c9-4db1-887e-a10f1ef4a60e",
+		"token": 0,
+		"groups": {
+			"walk": "7ce3c0e6-7e59-434b-8034-0c6b5f6ef20b",
+			"idle": "8c4b2b71-d061-4d14-a11a-39c39f518e7b",
+			"sleep": "1403eb75-254d-48a2-9baf-0a747e98f0f2"
+		}
+	},
+	"pet2_cat_spirit": {
+		"uuid": "93fce61b-6cae-4795-a39c-5bc4fb630263",
+		"token": 0,
+		"groups": {
+			"walk": "f3fcc52a-0d30-4794-a6e0-62306dcbf596",
+			"idle": "6ea2dba6-516c-47c2-a5da-2ddd43dc379e",
+			"sleep": "ff0bb3f2-ccc2-4687-961d-6b32ec2334a4"
+		}
+	},
+	"pet2_cat_fire": {
+		"uuid": "aba1b131-65a2-42bf-8aea-6def5427eefc",
+		"token": 0,
+		"groups": {
+			"walk": "adc1a411-c2c4-42fb-aa3d-efa84b92612e",
+			"idle": "8ea5456c-cdf9-404a-b252-6457721f7026",
+			"sleep": "f1824f51-d7f0-460d-bf0b-35a92a8fa059"
+		}
+	},
+	"pet2_dog_cloud": {
+		"uuid": "9f650c49-fff5-4915-b38f-db9910476e2a",
+		"token": 0,
+		"groups": {
+			"walk": "05bcd031-6ab9-4c37-8f80-dcf4d7170b64",
+			"idle": "85d99f6b-5c64-47a5-a706-3fffba99f7f0",
+			"sleep": "8c0aaca0-64a8-48ec-b82b-678156a2ac02"
+		}
 	}
 }

@@ -103,6 +103,9 @@ const BLADES = [
 	['.......', '.......', '...l...', '.l.m...', '..mm...', '..dd...'],
 ].map((rows) => rows.map((r) => [...r]));
 
+/** Ngưỡng nhiễu vạt cỏ cao (~15% nền cỏ). */
+const TALL = 0.67;
+
 const PEBBLES = [
 	['.lm.', 'lmmd', '.dd.'],
 	['lm', 'md'],
@@ -299,19 +302,49 @@ export class GroundShader {
 		let lvl = this.grassLevel(x, y);
 		if (this.k2 === F && this.d < 7 && hash2(x, y, s + 70) < (1 - this.d / 7) * 0.55) return this.forest(x, y);
 		if (this.k2 === W && this.d < 4) return this.d < 1.6 ? this.pal.dirt[1]! : this.pal.grass[Math.max(0, lvl - 2)]!;
+		if (this.k2 === G || this.d > 10) {
+			const tall = this.tallGrass(x, y);
+			if (tall) return tall;
+		}
 		const meadow = fbm(x / 90, y / 90, s + 4, 2);
 		const bloom = fbm(x / 45, y / 45, s + 16, 2);
 		if (bloom > 0.64) {
 			const fl = this.flower(x, y, Math.min(0.6, (bloom - 0.64) * 3));
 			if (fl) return fl;
 		}
-		const b = this.blade(x, y, 6, 0.22 + meadow * 0.5, s + 200);
+		// Ngọn cỏ mọc thành VẠT (chủ dự án 05/11/2026 so map tham khảo: "nền đẹp… clean"): vạt cỏ dày mép mềm xen bãi cỏ phẳng yên,
+		// thay cho ngọn cỏ rải đều khắp nơi làm nền lấm tấm.
+		const b = this.blade(x, y, 6, meadow > 0.56 ? Math.min(0.72, 0.3 + (meadow - 0.56) * 2.2) : 0.05, s + 200);
 		if (b === 1) return this.pal.grass[Math.min(6, lvl + 2)]!;
 		if (b === 2) return this.pal.grass[Math.min(6, lvl + 1)]!;
 		if (b === 3) lvl -= 1;
 		// Mép cỏ giáp đường/đá: một viền tối đứt quãng như mép thảm cỏ dày đổ bóng xuống đường.
 		if ((this.k2 === D || this.k2 === C) && this.d < 1.4 && hash2(x >> 1, y >> 1, s + 71) > 0.25) lvl = Math.min(lvl, 1) - 1;
 		return this.pal.grass[Math.max(0, lvl)]!;
+	}
+
+	/**
+	 * Vạt cỏ cao (chủ dự án 05/11/2026 so map tham khảo: "cải tiến xịn như video"): mảng cỏ cao sáng màu, mép lượn răng cưa như ngọn cỏ,
+	 * thớ cỏ dọc, ngọn sáng ở mép trên và dải bóng đổ xuống nền dưới mép dưới — nền có khối, không phẳng một màu. Ngoài vạt: `null`.
+	 */
+	private tallGrass(x: number, y: number): RGB | null {
+		const s = this.seed;
+		// Mép: khối tròn lượn (nhiễu ~10px) + răng cưa ngọn cỏ ngắn (nhiễu kéo dọc 2×4px).
+		const mask = (yy: number): number => fbm(x / 84, yy / 84, s + 30, 2) + (valueNoise(x / 10, yy / 10, s + 33) - 0.5) * 0.1 + (valueNoise(x / 2, yy / 4, s + 31) - 0.5) * 0.04;
+		const here = mask(y) > TALL;
+		const above = mask(y - 7) > TALL;
+		if (!here) {
+			if (!above) return null;
+			// Bóng đổ dưới vạt: đậm sát mép, nhạt dần, mép bóng lởm chởm.
+			return mask(y - 3) > TALL || hash2(x, y, s + 34) < 0.5 ? this.pal.grass[0]! : this.pal.grass[1]!;
+		}
+		const streak = valueNoise(x / 1.5, y / 9, s + 32);
+		// Trong vạt: sáng ở nửa trên, trầm dần xuống chân (khối có chiều cao), thớ cỏ dọc sáng / tối xen kẽ.
+		const body = fbm(x / 30, y / 30, s + 35, 2);
+		let lvl = 3 + (body > 0.5 ? 1 : 0) + (streak > 0.6 ? 1 : 0) + (streak > 0.84 ? 1 : 0) - (streak < 0.22 ? 1 : 0);
+		if (!above) lvl += 1;
+		if (mask(y + 6) <= TALL) lvl -= 1;
+		return this.pal.grass[Math.max(1, Math.min(6, lvl))]!;
 	}
 
 	private forest(x: number, y: number): RGB {

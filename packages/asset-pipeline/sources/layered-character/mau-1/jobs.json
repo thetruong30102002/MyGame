@@ -10615,5 +10615,3310 @@
 		"balanceBefore": 2581,
 		"balanceAfter": 2576,
 		"at": "2026-11-05T02:28:57.982Z"
+	},
+	{
+		"item": "U21-bare-m-walk-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"f4977c90-2cd3-42f4-9ef5-138ecd70f66d"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2184,
+		"balanceAfter": 2181,
+		"at": "2026-11-05T23:04:22.411Z"
+	},
+	{
+		"item": "U21-bare-m-walk-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"1a41bba9-9acf-43cc-bc75-4595abd79ca9"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2181,
+		"balanceAfter": 2178,
+		"at": "2026-11-05T23:06:50.600Z"
+	},
+	{
+		"item": "U21-bare-m-walk-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"27427e5d-3cfe-4d73-8f5a-512928b35e96"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2178,
+		"balanceAfter": 2175,
+		"at": "2026-11-05T23:09:04.665Z"
+	},
+	{
+		"item": "U21-bare-m-walk-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"a3f34c63-d39b-447b-97cd-5fff966c1e66"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2175,
+		"balanceAfter": 2172,
+		"at": "2026-11-05T23:11:57.371Z"
+	},
+	{
+		"item": "U21-bare-m-walk-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"39fa0927-49fa-498a-8ef5-c59c810b6129"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2172,
+		"balanceAfter": 2169,
+		"at": "2026-11-05T23:14:29.335Z"
+	},
+	{
+		"item": "U21-bare-m-run-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"cae51172-b99d-4da2-90ab-d2d22a63b214"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2166,
+		"balanceAfter": 2163,
+		"at": "2026-11-05T23:22:31.868Z"
+	},
+	{
+		"item": "U21-bare-m-run-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"98d6e3b3-57c8-47c8-ac90-93dc8d4d48c4"
+		],
+		"estimate": 3,
+		"actual": 6,
+		"balanceBefore": 2157,
+		"balanceAfter": 2151,
+		"at": "2026-11-05T23:27:21.691Z"
+	},
+	{
+		"item": "U21-bare-m-run-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"54d520a3-c1cc-4746-9582-ed6ea2ff6117"
+		],
+		"estimate": 3,
+		"actual": 6,
+		"balanceBefore": 2145,
+		"balanceAfter": 2139,
+		"at": "2026-11-05T23:31:24.470Z"
+	},
+	{
+		"item": "U21-bare-m-run-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"7e7275a8-098b-4dcd-b5cc-21ff688f87d7"
+		],
+		"estimate": 3,
+		"actual": 12,
+		"balanceBefore": 2139,
+		"balanceAfter": 2127,
+		"at": "2026-11-05T23:33:52.491Z"
+	},
+	{
+		"item": "U21-bare-m-run-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"7402aced-4f3c-42f5-a0c0-4d93edc9fa36"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2118,
+		"balanceAfter": 2115,
+		"at": "2026-11-05T23:38:10.065Z"
+	},
+	{
+		"item": "U21-bare-f-walk-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"f86cef4d-e67b-426c-9227-9577d1050841"
+		],
+		"estimate": 3,
+		"actual": 9,
+		"balanceBefore": 2118,
+		"balanceAfter": 2109,
+		"at": "2026-11-05T23:38:18.783Z"
+	},
+	{
+		"item": "U21-bare-f-walk-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"5aa00a6b-c942-4640-b896-3a1045cfc6a0"
+		],
+		"estimate": 3,
+		"actual": 6,
+		"balanceBefore": 2109,
+		"balanceAfter": 2103,
+		"at": "2026-11-05T23:43:26.495Z"
+	},
+	{
+		"item": "U21-bare-f-walk-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"a3d191f4-3942-44a7-9aeb-2796cf640ca1"
+		],
+		"estimate": 3,
+		"actual": 6,
+		"balanceBefore": 2103,
+		"balanceAfter": 2097,
+		"at": "2026-11-05T23:45:36.433Z"
+	},
+	{
+		"item": "U21-bare-f-walk-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"150d3a0d-501f-4027-8202-970d857953b8"
+		],
+		"estimate": 3,
+		"actual": 6,
+		"balanceBefore": 2100,
+		"balanceAfter": 2094,
+		"at": "2026-11-05T23:47:47.055Z"
+	},
+	{
+		"item": "U21-bare-f-walk-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"c603513f-6e7b-4fa5-bb1a-5a572a47a948"
+		],
+		"estimate": 3,
+		"actual": 12,
+		"balanceBefore": 2091,
+		"balanceAfter": 2079,
+		"at": "2026-11-05T23:51:12.941Z"
+	},
+	{
+		"item": "U21-bare-f-run-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"c7dab6dc-daf0-4aef-8c90-4479d5ecb04f"
+		],
+		"estimate": 3,
+		"actual": 6,
+		"balanceBefore": 2079,
+		"balanceAfter": 2073,
+		"at": "2026-11-05T23:53:23.459Z"
+	},
+	{
+		"item": "U21-bare-f-run-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"32321c07-069a-4e47-9640-989bf45bd870"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2070,
+		"balanceAfter": 2067,
+		"at": "2026-11-05T23:55:51.357Z"
+	},
+	{
+		"item": "U21-bare-f-run-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"40c560cf-29a0-4781-aef1-f574c2cb813a"
+		],
+		"estimate": 3,
+		"actual": 6,
+		"balanceBefore": 2070,
+		"balanceAfter": 2064,
+		"at": "2026-11-05T23:55:59.021Z"
+	},
+	{
+		"item": "U21-bare-f-run-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"2ad728ad-cb40-41b1-ac8e-491db9cfbb22"
+		],
+		"estimate": 3,
+		"actual": 9,
+		"balanceBefore": 2061,
+		"balanceAfter": 2052,
+		"at": "2026-11-06T00:00:13.183Z"
+	},
+	{
+		"item": "U21-bare-f-run-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"92ade5f6-75fe-4861-aa67-59ba72c48295"
+		],
+		"estimate": 3,
+		"actual": 6,
+		"balanceBefore": 2052,
+		"balanceAfter": 2046,
+		"at": "2026-11-06T00:02:58.552Z"
+	},
+	{
+		"item": "U22-sword2-outfit-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"b26a598e-3b87-4d70-bac5-f2d06c272985",
+			"0d441e4d-93c4-4bfe-b8ec-6217c46869f8"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2033,
+		"balanceAfter": 2031,
+		"at": "2026-11-06T02:02:57.807Z"
+	},
+	{
+		"item": "U22-sword2-outfit-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"f3799398-e0dd-4ae8-8993-75b714ea476a",
+			"bb3f9ee0-2143-4cb5-b019-3c475be27fce"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2031,
+		"balanceAfter": 2029,
+		"at": "2026-11-06T02:04:40.407Z"
+	},
+	{
+		"item": "U22-sword2-outfit-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"1204c431-5803-480b-babe-09ce956f2951",
+			"290e4a91-f19f-416b-9394-715ca4644a94"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2029,
+		"balanceAfter": 2027,
+		"at": "2026-11-06T02:06:05.028Z"
+	},
+	{
+		"item": "U22-sword2-outfit-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"74c4e886-be86-4737-a898-ba9fe0fe896b",
+			"f1ea78de-ffed-4bdd-b6bd-2b3042609ee7"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 2027,
+		"balanceAfter": 2025,
+		"at": "2026-11-06T02:07:29.445Z"
+	},
+	{
+		"item": "U23-sword2-walk-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"45458820-11f2-487b-a671-cb707664db4b"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2025,
+		"balanceAfter": 2022,
+		"at": "2026-11-06T02:08:58.861Z"
+	},
+	{
+		"item": "U23-sword2-walk-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"0802da9b-4022-4a26-b234-3c38e35ae2c1"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2022,
+		"balanceAfter": 2019,
+		"at": "2026-11-06T02:11:27.141Z"
+	},
+	{
+		"item": "U23-sword2-walk-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"58c49f36-f42d-4269-9c4b-e3ceb0c2a026"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2019,
+		"balanceAfter": 2016,
+		"at": "2026-11-06T02:13:55.643Z"
+	},
+	{
+		"item": "U23-sword2-walk-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"6b86132d-9205-49c5-a0ae-0e63c381c7cb"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2016,
+		"balanceAfter": 2013,
+		"at": "2026-11-06T02:16:23.868Z"
+	},
+	{
+		"item": "U23-sword2-walk-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"f4d7b928-d51d-4d22-af32-00176202b746"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2013,
+		"balanceAfter": 2010,
+		"at": "2026-11-06T02:18:34.188Z"
+	},
+	{
+		"item": "U23-sword2-run-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"47d73a41-3537-4c77-8e34-b77c04d996e6"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2010,
+		"balanceAfter": 2007,
+		"at": "2026-11-06T02:20:44.401Z"
+	},
+	{
+		"item": "U23-sword2-run-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"40a8c56e-96e8-4fc1-95fa-24741b48b5d7"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2007,
+		"balanceAfter": 2004,
+		"at": "2026-11-06T02:22:54.625Z"
+	},
+	{
+		"item": "U23-sword2-run-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"0913aad3-e358-4276-9250-d5477080235b"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2004,
+		"balanceAfter": 2001,
+		"at": "2026-11-06T02:24:47.588Z"
+	},
+	{
+		"item": "U23-sword2-run-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"2701f65c-4e3c-4999-9fc2-a09db2b96c58"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 2001,
+		"balanceAfter": 1998,
+		"at": "2026-11-06T02:26:57.967Z"
+	},
+	{
+		"item": "U23-sword2-run-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"eb417337-2b0a-4be0-b932-74366a349004"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1998,
+		"balanceAfter": 1995,
+		"at": "2026-11-06T02:29:08.220Z"
+	},
+	{
+		"item": "U24-sword2-outfit-f-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"bae841ee-270f-47d0-9d4a-e3e0c2637de3",
+			"63da28ac-84ae-49a1-8d38-04c1c376aa2c"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1995,
+		"balanceAfter": 1993,
+		"at": "2026-11-06T02:32:41.135Z",
+		"rejected": "06/11: giáp vai sai bên (vai trái) so với các hướng còn lại — vẽ lại ghi rõ vai phải"
+	},
+	{
+		"item": "U24-sword2-outfit-f-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"3aea5c1a-cf71-43f1-8b48-844a4bdf98f5",
+			"acf02e22-afc7-4211-bfe9-744d7d68e134"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1993,
+		"balanceAfter": 1991,
+		"at": "2026-11-06T02:34:15.578Z"
+	},
+	{
+		"item": "U24-sword2-outfit-f-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"5092a0bf-7f46-4362-b50b-ab02c013af15",
+			"531e4639-1769-4c35-8dbe-fd9d073d8c8c"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1991,
+		"balanceAfter": 1989,
+		"at": "2026-11-06T02:36:15.852Z"
+	},
+	{
+		"item": "U24-sword2-outfit-f-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"65f9d650-e760-47bd-bcb4-bdf1ca1b0794",
+			"2fe470c8-7aa6-4a2c-8fbf-19b58b42f473"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1989,
+		"balanceAfter": 1987,
+		"at": "2026-11-06T02:37:40.372Z"
+	},
+	{
+		"item": "U24-sword2-outfit-f-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"b1251db6-56aa-49b6-a673-8499d87a9a5b",
+			"ba86bd69-8eaf-4553-bf88-1136ab050610"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1987,
+		"balanceAfter": 1985,
+		"at": "2026-11-06T02:39:22.484Z"
+	},
+	{
+		"item": "U24-sword2-outfit-f-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"fce0ac40-51bc-43a6-9e55-b761ab875a8e",
+			"51f83ebd-b5db-439d-8c54-0f787a3ccf07"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1985,
+		"balanceAfter": 1983,
+		"at": "2026-11-06T02:41:33.126Z"
+	},
+	{
+		"item": "U25-sword2-f-walk-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"c95602d8-ee5e-438e-9f6f-6bc60a866aa0"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1982,
+		"balanceAfter": 1979,
+		"at": "2026-11-06T02:42:50.714Z"
+	},
+	{
+		"item": "U25-sword2-f-walk-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"540fc955-d644-4208-8160-7dba1541e72e"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1979,
+		"balanceAfter": 1976,
+		"at": "2026-11-06T02:45:20.560Z"
+	},
+	{
+		"item": "U25-sword2-f-walk-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"b398a689-8e9e-40d0-8b09-30c89c352a77"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1976,
+		"balanceAfter": 1973,
+		"at": "2026-11-06T02:47:30.528Z"
+	},
+	{
+		"item": "U25-sword2-f-walk-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"14f86039-9c93-44c2-86b7-e9e4e433ab29"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1973,
+		"balanceAfter": 1970,
+		"at": "2026-11-06T02:50:16.510Z"
+	},
+	{
+		"item": "U25-sword2-f-walk-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"b2439e9f-2540-4ea3-9ce9-c08a65059ede"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1970,
+		"balanceAfter": 1967,
+		"at": "2026-11-06T02:52:44.500Z"
+	},
+	{
+		"item": "U25-sword2-f-run-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"333e65b6-0a65-4928-be0f-812aca7b2107"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1967,
+		"balanceAfter": 1964,
+		"at": "2026-11-06T02:54:37.207Z"
+	},
+	{
+		"item": "U25-sword2-f-run-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"b43e455c-99cc-4bdf-b612-0d870e845b1f"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1964,
+		"balanceAfter": 1961,
+		"at": "2026-11-06T02:57:04.960Z"
+	},
+	{
+		"item": "U25-sword2-f-run-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"a81d9c38-c22c-463e-b5a6-f9701bb323df"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1961,
+		"balanceAfter": 1958,
+		"at": "2026-11-06T02:59:15.642Z"
+	},
+	{
+		"item": "U25-sword2-f-run-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"1a1f60cf-fd3b-403e-b992-cfc79ee98754"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1958,
+		"balanceAfter": 1955,
+		"at": "2026-11-06T03:01:42.928Z"
+	},
+	{
+		"item": "U25-sword2-f-run-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"48dbb068-a26b-4dfb-9831-df689bf2a9eb"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1955,
+		"balanceAfter": 1952,
+		"at": "2026-11-06T03:04:29.051Z"
+	},
+	{
+		"item": "U26-mage2-outfit-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"e53c42d5-e276-456b-a998-b2569090d016",
+			"5d0daed6-f3a1-410a-b9b1-4d49720af762"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1952,
+		"balanceAfter": 1950,
+		"at": "2026-11-06T03:44:09.193Z"
+	},
+	{
+		"item": "U26-lancer2-outfit-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"f139a068-1cf9-4f27-9064-56e142f17b6d",
+			"31f5b65e-05ff-4ec5-a114-c9877b18798f"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1950,
+		"balanceAfter": 1948,
+		"at": "2026-11-06T03:45:34.082Z"
+	},
+	{
+		"item": "U26-guard2-outfit-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"5c077089-b622-4586-ab67-27576093471e",
+			"50793928-c917-47f9-a9fb-5b2bfe1c76c2"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1948,
+		"balanceAfter": 1946,
+		"at": "2026-11-06T03:48:09.464Z"
+	},
+	{
+		"item": "U26-archer2-outfit-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"ea2c9749-a9b9-4ffb-b04d-f22d52f782aa",
+			"fdba2a9b-9c81-4e85-adcc-67e6def97c4c"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1946,
+		"balanceAfter": 1944,
+		"at": "2026-11-06T03:50:27.498Z"
+	},
+	{
+		"item": "U26-mage2-outfit-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"5ec07fa1-8c95-472e-ac22-4779a2425e0c",
+			"fe2d9c80-694b-408e-be45-6991817b8ac1"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1944,
+		"balanceAfter": 1942,
+		"at": "2026-11-06T03:57:50.052Z"
+	},
+	{
+		"item": "U26-mage2-outfit-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"73a4a5ef-2e8a-4019-8a66-c46bb9794836",
+			"6b03182b-9504-4368-9887-70732147aaca"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1942,
+		"balanceAfter": 1940,
+		"at": "2026-11-06T03:59:32.317Z"
+	},
+	{
+		"item": "U26-mage2-outfit-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"727850ec-2458-482a-a969-ff2091681653",
+			"59907f55-b5e0-403a-b679-892d6f137d23"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1940,
+		"balanceAfter": 1938,
+		"at": "2026-11-06T04:01:14.543Z"
+	},
+	{
+		"item": "U26-mage2-outfit-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"03ea2e2b-732f-4349-beac-4ffc574bb7ce",
+			"6a67a25e-53ad-49ac-9be8-53808bc8f26e"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1938,
+		"balanceAfter": 1936,
+		"at": "2026-11-06T04:02:39.341Z"
+	},
+	{
+		"item": "U27-mage2-outfit-f-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"adf2055f-0155-4405-966b-66b016db8ac9",
+			"79fa4e7c-6f6c-4d59-a1cf-7504bec36209"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1936,
+		"balanceAfter": 1934,
+		"at": "2026-11-06T04:04:21.713Z"
+	},
+	{
+		"item": "U27-mage2-outfit-f-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"2d28a2cf-316f-4c8e-9403-c1b72e57de23",
+			"fb4ffe6b-fc72-4ce6-8455-c366d1b73817"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1934,
+		"balanceAfter": 1932,
+		"at": "2026-11-06T04:06:21.577Z"
+	},
+	{
+		"item": "U27-mage2-outfit-f-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"e67fcfd0-6471-423f-91b0-3976eab3a1ce",
+			"84742190-8081-4b80-9909-768480c81266"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1932,
+		"balanceAfter": 1930,
+		"at": "2026-11-06T04:08:03.703Z"
+	},
+	{
+		"item": "U27-mage2-outfit-f-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"2b4cb64b-d9c7-4007-91d0-5e451af02d5d",
+			"585eace7-d2f1-4b81-abfc-461d9cccc334"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1930,
+		"balanceAfter": 1928,
+		"at": "2026-11-06T04:10:25.194Z"
+	},
+	{
+		"item": "U27-mage2-outfit-f-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"fb65878f-8fcb-450b-93d8-a547e075a3cd",
+			"546dfb8a-c426-40ac-b2e6-34e51cc7d5c6"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1928,
+		"balanceAfter": 1926,
+		"at": "2026-11-06T04:12:11.419Z"
+	},
+	{
+		"item": "U26-lancer2-outfit-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"2c4508f3-5828-44ba-98e5-5f6e6cecfffc",
+			"20e67068-eb84-4f46-9e21-4898464340c4"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1926,
+		"balanceAfter": 1924,
+		"at": "2026-11-06T04:13:36.468Z",
+		"rejected": "06/11: chủ dự án báo giáp / áo choàng không đồng nhất giữa các góc — vẽ lại với mô tả đủ món"
+	},
+	{
+		"item": "U26-lancer2-outfit-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"e6aee618-84b5-426a-9b19-8d8038e96adb",
+			"c9b7160e-8529-4697-919d-18880465b55e"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1924,
+		"balanceAfter": 1922,
+		"at": "2026-11-06T04:15:01.692Z",
+		"rejected": "06/11: chủ dự án báo giáp / áo choàng không đồng nhất giữa các góc — vẽ lại với mô tả đủ món"
+	},
+	{
+		"item": "U26-lancer2-outfit-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"3ac9e8c4-0206-43d9-ac1b-7ade925a6a5a",
+			"35067514-e0c9-40c2-9676-1e418c814b76"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1922,
+		"balanceAfter": 1920,
+		"at": "2026-11-06T04:16:08.615Z",
+		"rejected": "06/11: chủ dự án báo giáp / áo choàng không đồng nhất giữa các góc — vẽ lại với mô tả đủ món"
+	},
+	{
+		"item": "U26-lancer2-outfit-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"f6e12ae4-073e-41d7-9a85-f90bcdc06ea2",
+			"7c0cee45-d0f5-4384-bcea-9437b7dfea4a"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1920,
+		"balanceAfter": 1918,
+		"at": "2026-11-06T04:18:26.369Z",
+		"rejected": "06/11: chủ dự án báo giáp / áo choàng không đồng nhất giữa các góc — vẽ lại với mô tả đủ món"
+	},
+	{
+		"item": "U27-lancer2-outfit-f-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"1ed5957f-0ea4-4aad-ad3b-4ff06e69282b",
+			"da95bfec-39a3-419c-be12-ad12fab19df6"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1918,
+		"balanceAfter": 1916,
+		"at": "2026-11-06T04:20:44.958Z",
+		"rejected": "06/11: chủ dự án báo giáp / áo choàng không đồng nhất giữa các góc — vẽ lại với mô tả đủ món"
+	},
+	{
+		"item": "U27-lancer2-outfit-f-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"f5fdacd3-b30f-4d9a-a17e-8cf23d857498",
+			"abfa9796-dbf5-491b-a44f-ba58ffe341b9"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1916,
+		"balanceAfter": 1914,
+		"at": "2026-11-06T04:22:09.761Z",
+		"rejected": "06/11: chủ dự án báo giáp / áo choàng không đồng nhất giữa các góc — vẽ lại với mô tả đủ món"
+	},
+	{
+		"item": "U27-lancer2-outfit-f-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"f08e84db-cc86-4d21-be1f-931546132120",
+			"1af4edba-bc66-4df9-81b1-01a88b803bc5"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1914,
+		"balanceAfter": 1912,
+		"at": "2026-11-06T04:24:09.854Z",
+		"rejected": "06/11: chủ dự án báo giáp / áo choàng không đồng nhất giữa các góc — vẽ lại với mô tả đủ món"
+	},
+	{
+		"item": "U27-lancer2-outfit-f-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"d7b50c10-be9e-4298-93a4-2d14ff94d00b",
+			"0bf0b762-09c7-4772-bfbd-7226bd8a5615"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1912,
+		"balanceAfter": 1910,
+		"at": "2026-11-06T04:25:53.844Z",
+		"rejected": "06/11: chủ dự án báo giáp / áo choàng không đồng nhất giữa các góc — vẽ lại với mô tả đủ món"
+	},
+	{
+		"item": "U27-lancer2-outfit-f-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"7e41b5a5-cbf8-41f8-8e98-0251e47e512f",
+			"2441784d-1996-4052-a37a-16e2aac231b2"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1910,
+		"balanceAfter": 1908,
+		"at": "2026-11-06T04:27:37.851Z",
+		"rejected": "06/11: chủ dự án báo giáp / áo choàng không đồng nhất giữa các góc — vẽ lại với mô tả đủ món"
+	},
+	{
+		"item": "U26-guard2-outfit-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"b5f309ca-5e25-4ae4-b750-2a7f260280c5",
+			"717ef950-4884-4576-bed0-12b28e24e0c5"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1908,
+		"balanceAfter": 1906,
+		"at": "2026-11-06T04:29:38.595Z"
+	},
+	{
+		"item": "U26-guard2-outfit-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"99e1a5fe-5219-439a-90fe-bd436cd578b3",
+			"4932407d-6197-49ac-b6b6-6e4c0d4632bc"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1906,
+		"balanceAfter": 1904,
+		"at": "2026-11-06T04:32:14.432Z"
+	},
+	{
+		"item": "U26-guard2-outfit-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"024bc201-e12a-4d48-a88a-bead4efa6ee1",
+			"18238462-a633-4a5b-8711-14980033621b"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1904,
+		"balanceAfter": 1902,
+		"at": "2026-11-06T04:34:14.304Z",
+		"rejected": "06/11: chủ dự án báo giáp / áo choàng không đồng nhất giữa các góc — vẽ lại với mô tả đủ món"
+	},
+	{
+		"item": "U26-guard2-outfit-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"c54298f6-87cf-470e-8a2c-f983b92134a0",
+			"c7fc938c-e7f9-42f5-bc43-a027a02115c8"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1902,
+		"balanceAfter": 1900,
+		"at": "2026-11-06T04:35:56.448Z",
+		"rejected": "06/11: chủ dự án báo giáp / áo choàng không đồng nhất giữa các góc — vẽ lại với mô tả đủ món"
+	},
+	{
+		"item": "U27-guard2-outfit-f-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"c4765915-5e22-4635-9e5b-7cc394f258c6",
+			"93d8c3aa-3e4f-4e12-99c1-e9e21453b265"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1900,
+		"balanceAfter": 1898,
+		"at": "2026-11-06T04:37:21.168Z"
+	},
+	{
+		"item": "U27-guard2-outfit-f-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"26464f8f-73f9-4a67-8f7c-8fbf2fdfaa1e",
+			"457d777c-c570-49da-997e-7e283367313f"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1898,
+		"balanceAfter": 1896,
+		"at": "2026-11-06T04:38:28.255Z"
+	},
+	{
+		"item": "U27-guard2-outfit-f-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"69d94171-c6f7-4982-bacd-3bfb17ef6059",
+			"32a88ef9-0e66-4a96-9fa5-4851778e77dc"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1896,
+		"balanceAfter": 1894,
+		"at": "2026-11-06T04:39:52.839Z"
+	},
+	{
+		"item": "U27-guard2-outfit-f-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"52876742-1615-422f-8864-ff73cd8aea1b",
+			"e83d313a-8c91-4655-af27-5a2940a62dbd"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1894,
+		"balanceAfter": 1892,
+		"at": "2026-11-06T04:41:52.830Z",
+		"rejected": "06/11: chủ dự án báo giáp / áo choàng không đồng nhất giữa các góc — vẽ lại với mô tả đủ món"
+	},
+	{
+		"item": "U27-guard2-outfit-f-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"e4ae0eb3-7bfb-4c90-964a-d83ebd7bc73c",
+			"62510706-499d-4285-8ca3-d21dbd16557e"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1892,
+		"balanceAfter": 1890,
+		"at": "2026-11-06T04:43:35.536Z",
+		"rejected": "06/11: chủ dự án báo giáp / áo choàng không đồng nhất giữa các góc — vẽ lại với mô tả đủ món"
+	},
+	{
+		"item": "U26-archer2-outfit-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"0a5940c4-0c4f-4f51-ae9f-ad6011b48a01",
+			"84c80809-9f7b-4fed-8492-7ee497a46928"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1890,
+		"balanceAfter": 1888,
+		"at": "2026-11-06T04:45:30.875Z"
+	},
+	{
+		"item": "U26-archer2-outfit-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"966222d2-ec5b-4c81-a1e3-1ff0ef055440",
+			"4aaed148-b0ea-4a45-b263-ee48f98f3054"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1888,
+		"balanceAfter": 1886,
+		"at": "2026-11-06T04:47:30.543Z"
+	},
+	{
+		"item": "U26-archer2-outfit-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"25b3abb6-7f86-4a1e-88a9-206e328cc11b",
+			"f21bffa1-a1c2-4abb-958e-267632fb8495"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1886,
+		"balanceAfter": 1884,
+		"at": "2026-11-06T04:48:55.967Z"
+	},
+	{
+		"item": "U26-archer2-outfit-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"598603a1-fece-49a8-8c57-59bbec3376e7",
+			"e50e268d-dcaa-4dc6-8c32-2c68d417ffa1"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1884,
+		"balanceAfter": 1882,
+		"at": "2026-11-06T04:50:20.801Z"
+	},
+	{
+		"item": "U27-archer2-outfit-f-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"b00b885f-91aa-4065-bad5-181da1288f70",
+			"63df75af-cafe-42ef-9e9e-f68d87ea7d1f"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1882,
+		"balanceAfter": 1880,
+		"at": "2026-11-06T04:51:45.578Z"
+	},
+	{
+		"item": "U27-archer2-outfit-f-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"4fc868aa-e856-42cf-8b48-badcc8fce773",
+			"c044f613-a51a-49ad-ad1d-409bfef074d3"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1880,
+		"balanceAfter": 1878,
+		"at": "2026-11-06T04:53:46.462Z"
+	},
+	{
+		"item": "U27-archer2-outfit-f-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"280bd1ba-0b3d-4b42-ac86-598ecd78e301",
+			"e1ce86f1-8e52-426f-b573-479f7fe84544"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1878,
+		"balanceAfter": 1876,
+		"at": "2026-11-06T04:55:29.343Z"
+	},
+	{
+		"item": "U27-archer2-outfit-f-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"2bfd9e3c-9115-4e87-8a73-c078b0e5b82f",
+			"b76aff8f-36ba-4175-9297-e47da4b0ba77"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1876,
+		"balanceAfter": 1874,
+		"at": "2026-11-06T04:57:11.858Z"
+	},
+	{
+		"item": "U27-archer2-outfit-f-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"b146a40a-f422-41af-a5f7-bfacad3ab99f",
+			"a1d34ffb-1c0c-435c-af7f-f2d5df30f17c"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1874,
+		"balanceAfter": 1872,
+		"at": "2026-11-06T04:58:38.766Z"
+	},
+	{
+		"item": "U26-guard2-outfit-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"9b120b35-c5af-4215-b920-631792d53c61",
+			"03aeb3db-c7c3-4f89-a095-97d63e793f14"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1868,
+		"balanceAfter": 1866,
+		"at": "2026-11-06T05:07:12.086Z"
+	},
+	{
+		"item": "U28-archer2-m-run-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"f5c69eca-dcd2-42e1-aa29-47d6543f6c97"
+		],
+		"estimate": 3,
+		"actual": 6,
+		"balanceBefore": 1868,
+		"balanceAfter": 1862,
+		"at": "2026-11-06T05:06:10.049Z"
+	},
+	{
+		"item": "U26-guard2-outfit-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"098ec1ef-c2cb-4e76-8b4c-ab6d286a8b45",
+			"7ea03c96-96a1-40b9-ab9b-8b6ae16780cc"
+		],
+		"estimate": 2,
+		"actual": 5,
+		"balanceBefore": 1866,
+		"balanceAfter": 1861,
+		"at": "2026-11-06T05:08:54.407Z"
+	},
+	{
+		"item": "U27-guard2-outfit-f-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"5def18da-0b3c-4b31-8209-80c6f7b9986b",
+			"3f90cb1d-5792-4f58-8807-f7ce253be927"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1861,
+		"balanceAfter": 1859,
+		"at": "2026-11-06T05:10:19.232Z"
+	},
+	{
+		"item": "U28-archer2-m-run-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"fc15264b-cf36-41e3-87f5-2fe4bbef05aa"
+		],
+		"estimate": 3,
+		"actual": 6,
+		"balanceBefore": 1862,
+		"balanceAfter": 1856,
+		"at": "2026-11-06T05:08:38.114Z"
+	},
+	{
+		"item": "U27-guard2-outfit-f-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"2acdac35-5f0c-4a97-9cef-09123660fc80",
+			"b4b3938d-2789-4ad0-91d7-7ec9ad5445b2"
+		],
+		"estimate": 2,
+		"actual": 5,
+		"balanceBefore": 1859,
+		"balanceAfter": 1854,
+		"at": "2026-11-06T05:11:44.120Z"
+	},
+	{
+		"item": "U28-archer2-m-run-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"f5c92483-edf0-476e-8c74-f24890bbc9e1"
+		],
+		"estimate": 3,
+		"actual": 6,
+		"balanceBefore": 1856,
+		"balanceAfter": 1850,
+		"at": "2026-11-06T05:10:48.090Z"
+	},
+	{
+		"item": "U26-lancer2-outfit-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"ae1e7c52-95eb-4b03-9d6b-cf082e0b2ba2",
+			"73b71f47-0ac1-415a-a5b2-7f426f3864cf"
+		],
+		"estimate": 2,
+		"actual": 5,
+		"balanceBefore": 1854,
+		"balanceAfter": 1849,
+		"at": "2026-11-06T05:13:26.387Z"
+	},
+	{
+		"item": "U26-lancer2-outfit-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"813227cd-50a9-4bff-941e-ba4faa0bc520",
+			"59cb8ad8-5183-45db-8c3d-26da7bd00941"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1849,
+		"balanceAfter": 1847,
+		"at": "2026-11-06T05:14:50.820Z"
+	},
+	{
+		"item": "U28-archer2-f-walk-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"e9dfd0ec-0a4e-4eee-9038-45946fca1995"
+		],
+		"estimate": 3,
+		"actual": 6,
+		"balanceBefore": 1850,
+		"balanceAfter": 1844,
+		"at": "2026-11-06T05:13:16.510Z"
+	},
+	{
+		"item": "U26-lancer2-outfit-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"cf51292a-f85c-4385-b31e-9ece2bf04e13",
+			"8bd840e0-cca3-4c55-9f19-2618fc1ec274"
+		],
+		"estimate": 2,
+		"actual": 5,
+		"balanceBefore": 1847,
+		"balanceAfter": 1842,
+		"at": "2026-11-06T05:16:33.607Z"
+	},
+	{
+		"item": "U28-archer2-f-walk-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"a7d710bf-d379-4e36-b400-34ca6167eb57"
+		],
+		"estimate": 3,
+		"actual": 6,
+		"balanceBefore": 1844,
+		"balanceAfter": 1838,
+		"at": "2026-11-06T05:15:26.593Z"
+	},
+	{
+		"item": "U26-lancer2-outfit-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"e75d8be2-fbfe-487a-af78-0b575817fffb",
+			"e6c7d2c0-554a-4d37-b72d-f223d7abeec7"
+		],
+		"estimate": 2,
+		"actual": 5,
+		"balanceBefore": 1842,
+		"balanceAfter": 1837,
+		"at": "2026-11-06T05:18:15.694Z"
+	},
+	{
+		"item": "U27-lancer2-outfit-f-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"a5452936-60d1-4fb3-8446-7433ec019c37",
+			"79ff867a-9c2b-46b2-907d-c9071b368223"
+		],
+		"estimate": 2,
+		"actual": 5,
+		"balanceBefore": 1837,
+		"balanceAfter": 1832,
+		"at": "2026-11-06T05:20:15.804Z"
+	},
+	{
+		"item": "U28-archer2-f-walk-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"a61df13b-0893-4751-ad78-3a87459b1887"
+		],
+		"estimate": 3,
+		"actual": 6,
+		"balanceBefore": 1838,
+		"balanceAfter": 1832,
+		"at": "2026-11-06T05:17:54.389Z"
+	},
+	{
+		"item": "U27-lancer2-outfit-f-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"da5a56d9-63c4-4c5f-a32a-e447084d70ca",
+			"780879f6-ac3c-4eec-acb4-e56d401e8cc6"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1832,
+		"balanceAfter": 1830,
+		"at": "2026-11-06T05:22:16.218Z"
+	},
+	{
+		"item": "U28-archer2-f-walk-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"b193b49b-d83f-440e-8367-fc04d011f45a"
+		],
+		"estimate": 3,
+		"actual": 5,
+		"balanceBefore": 1832,
+		"balanceAfter": 1827,
+		"at": "2026-11-06T05:20:39.725Z"
+	},
+	{
+		"item": "U27-lancer2-outfit-f-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"9e5a373b-1567-44c6-80ad-1f5d86f99443",
+			"abce1c4b-41cf-4653-8890-d803fe53644d"
+		],
+		"estimate": 2,
+		"actual": 5,
+		"balanceBefore": 1830,
+		"balanceAfter": 1825,
+		"at": "2026-11-06T05:24:16.130Z"
+	},
+	{
+		"item": "U28-archer2-f-walk-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"e72c67e9-5184-4eb5-a74b-99188f057911"
+		],
+		"estimate": 3,
+		"actual": 5,
+		"balanceBefore": 1827,
+		"balanceAfter": 1822,
+		"at": "2026-11-06T05:22:49.541Z"
+	},
+	{
+		"item": "U27-lancer2-outfit-f-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"b71337ff-4aef-4a44-bf57-9d59f81d5667",
+			"3ad96f9b-b4d5-4a08-a0d6-963ff17b6068"
+		],
+		"estimate": 2,
+		"actual": 5,
+		"balanceBefore": 1825,
+		"balanceAfter": 1820,
+		"at": "2026-11-06T05:25:58.098Z"
+	},
+	{
+		"item": "U27-lancer2-outfit-f-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"25400c76-a57a-4e15-974a-1be7499e8bd4",
+			"0fee4cd9-afc5-47a2-bc8e-cabc54be7017"
+		],
+		"estimate": 2,
+		"actual": 5,
+		"balanceBefore": 1820,
+		"balanceAfter": 1815,
+		"at": "2026-11-06T05:27:28.951Z"
+	},
+	{
+		"item": "U28-archer2-f-run-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"14fa0058-f232-4ffe-bada-c9cdb4b82b1f"
+		],
+		"estimate": 3,
+		"actual": 6,
+		"balanceBefore": 1821,
+		"balanceAfter": 1815,
+		"at": "2026-11-06T05:24:59.621Z"
+	},
+	{
+		"item": "U28-archer2-f-run-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"9621ea2f-e775-4d95-b4c6-7b6c705717de"
+		],
+		"estimate": 3,
+		"actual": 4,
+		"balanceBefore": 1815,
+		"balanceAfter": 1811,
+		"at": "2026-11-06T05:27:35.861Z"
+	},
+	{
+		"item": "U28-archer2-f-run-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"4350b4fe-014a-4e04-bba1-1df169ad79da"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1811,
+		"balanceAfter": 1808,
+		"at": "2026-11-06T05:29:32.398Z"
+	},
+	{
+		"item": "U28-mage2-m-walk-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"16748653-6955-4546-87ed-fd08c079f878"
+		],
+		"estimate": 3,
+		"actual": 6,
+		"balanceBefore": 1811,
+		"balanceAfter": 1805,
+		"at": "2026-11-06T05:29:33.085Z"
+	},
+	{
+		"item": "U28-mage2-m-walk-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"cf681618-57a4-4164-8486-172f1a104590"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1805,
+		"balanceAfter": 1802,
+		"at": "2026-11-06T05:32:00.555Z"
+	},
+	{
+		"item": "U28-mage2-m-walk-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"1d9c70bb-f932-4bc5-be00-e3e56c765f5e"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1802,
+		"balanceAfter": 1799,
+		"at": "2026-11-06T05:33:52.722Z"
+	},
+	{
+		"item": "U28-mage2-m-walk-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"8ab98ce2-33af-4617-85eb-2831971789fe"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1799,
+		"balanceAfter": 1796,
+		"at": "2026-11-06T05:36:20.149Z"
+	},
+	{
+		"item": "U28-mage2-m-walk-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"68f4f53e-a6a9-4fbe-b7c8-74fe6039e392"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1796,
+		"balanceAfter": 1793,
+		"at": "2026-11-06T05:38:12.779Z"
+	},
+	{
+		"item": "U28-mage2-m-run-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"1ebe9cff-deba-4dcb-8423-d29b6b65c9a6"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1793,
+		"balanceAfter": 1790,
+		"at": "2026-11-06T05:40:40.523Z"
+	},
+	{
+		"item": "U28-mage2-m-run-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"cc6ff9c5-3f3c-4186-bcf2-72461cca0be5"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1790,
+		"balanceAfter": 1787,
+		"at": "2026-11-06T05:42:50.405Z"
+	},
+	{
+		"item": "U28-mage2-m-run-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"e45773c2-8949-48ef-a4f3-5838cf5f6054"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1787,
+		"balanceAfter": 1784,
+		"at": "2026-11-06T05:45:18.546Z"
+	},
+	{
+		"item": "U28-mage2-m-run-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"93b06e08-37ff-4986-8a32-61ce6109eb3e"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1784,
+		"balanceAfter": 1781,
+		"at": "2026-11-06T05:47:46.327Z"
+	},
+	{
+		"item": "U28-mage2-m-run-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"bfaf1dbd-351c-4aa0-9b39-0ead71c93f34"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1781,
+		"balanceAfter": 1778,
+		"at": "2026-11-06T05:50:14.411Z"
+	},
+	{
+		"item": "U28-mage2-f-walk-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"8316588a-7757-484a-b8fe-cb5d282b5f35"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1778,
+		"balanceAfter": 1775,
+		"at": "2026-11-06T05:52:42.316Z"
+	},
+	{
+		"item": "U28-mage2-f-walk-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"3f376d8f-e09e-4b0f-be5d-0396da6cfbf7"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1775,
+		"balanceAfter": 1772,
+		"at": "2026-11-06T05:54:52.714Z"
+	},
+	{
+		"item": "U28-mage2-f-walk-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"f26891cc-7d39-49e2-8b14-2fa87d409e99"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1772,
+		"balanceAfter": 1769,
+		"at": "2026-11-06T05:57:03.366Z"
+	},
+	{
+		"item": "U28-mage2-f-walk-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"737e8fd9-623a-4576-9d51-efd5808bc90f"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1769,
+		"balanceAfter": 1766,
+		"at": "2026-11-06T05:59:13.025Z"
+	},
+	{
+		"item": "U28-mage2-f-walk-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"a17acb0f-aadc-4efe-986b-88617f882a36"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1766,
+		"balanceAfter": 1763,
+		"at": "2026-11-06T06:01:41.451Z"
+	},
+	{
+		"item": "U28-mage2-f-run-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"eb854ab7-73dc-499a-8d5a-db65a331349c"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1763,
+		"balanceAfter": 1760,
+		"at": "2026-11-06T06:04:26.653Z"
+	},
+	{
+		"item": "U28-mage2-f-run-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"7b32d073-394c-4822-92a7-23d15ee6834c"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1760,
+		"balanceAfter": 1757,
+		"at": "2026-11-06T06:07:12.718Z"
+	},
+	{
+		"item": "U28-mage2-f-run-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"47c84352-b7ca-4b57-976f-c1a7db8046dc"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1757,
+		"balanceAfter": 1754,
+		"at": "2026-11-06T06:09:23.385Z"
+	},
+	{
+		"item": "U28-mage2-f-run-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"6d9c642a-f81f-4958-b30f-9941365336b3"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1754,
+		"balanceAfter": 1751,
+		"at": "2026-11-06T06:12:27.010Z"
+	},
+	{
+		"item": "U28-mage2-f-run-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"8fe182b5-e17a-4d70-bac4-3a2eeb0ed1fe"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1751,
+		"balanceAfter": 1748,
+		"at": "2026-11-06T06:14:37.219Z"
+	},
+	{
+		"item": "U28-lancer2-m-walk-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"81b558de-db6f-4d94-a46e-628a570818c6"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1748,
+		"balanceAfter": 1745,
+		"at": "2026-11-06T06:17:05.734Z"
+	},
+	{
+		"item": "U28-lancer2-m-walk-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"d0a1c423-fff6-4719-9eb2-446ac37938a9"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1745,
+		"balanceAfter": 1742,
+		"at": "2026-11-06T06:18:58.720Z"
+	},
+	{
+		"item": "U28-lancer2-m-walk-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"a379503c-96ce-48b7-ba72-303d92a11e21"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1742,
+		"balanceAfter": 1739,
+		"at": "2026-11-06T06:21:09.387Z",
+		"rejected": "06/11: đổi ảnh đứng E sang bản 25708 (bản 25707 hở cổ 1 px ở dáng đứng) — vẽ lại đi / chạy E theo ảnh mới"
+	},
+	{
+		"item": "U28-lancer2-m-walk-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"f988bc5b-3f9f-4000-ad3d-4ebc6f4afde2"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1739,
+		"balanceAfter": 1736,
+		"at": "2026-11-06T06:23:37.012Z"
+	},
+	{
+		"item": "U28-lancer2-m-walk-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"58efe6e9-f35e-48f9-9516-b8d826f8233a"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1736,
+		"balanceAfter": 1733,
+		"at": "2026-11-06T06:26:05.327Z"
+	},
+	{
+		"item": "U28-lancer2-m-run-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"4252c5d5-3ca2-488d-8619-405751ca525a"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1733,
+		"balanceAfter": 1730,
+		"at": "2026-11-06T06:27:58.710Z"
+	},
+	{
+		"item": "U28-lancer2-m-run-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"129cfd86-162d-4384-8513-e6dcb3d726b9"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1730,
+		"balanceAfter": 1727,
+		"at": "2026-11-06T06:30:44.338Z"
+	},
+	{
+		"item": "U28-lancer2-m-run-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"77a6f498-161b-4dd4-a18c-7f491a682862"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1727,
+		"balanceAfter": 1724,
+		"at": "2026-11-06T06:32:54.998Z",
+		"rejected": "06/11: đổi ảnh đứng E sang bản 25708 (bản 25707 hở cổ 1 px ở dáng đứng) — vẽ lại đi / chạy E theo ảnh mới"
+	},
+	{
+		"item": "U28-lancer2-m-run-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"d95c48f8-be7e-47d5-80df-b4483a76e03d"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1724,
+		"balanceAfter": 1721,
+		"at": "2026-11-06T06:35:23.159Z"
+	},
+	{
+		"item": "U28-lancer2-m-run-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"246f0bac-1418-4913-a6bd-8cd2994ee971"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1721,
+		"balanceAfter": 1718,
+		"at": "2026-11-06T06:37:33.340Z"
+	},
+	{
+		"item": "U28-lancer2-f-walk-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"b94a673c-2ac1-4cb7-85f1-c32d10aefabc"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1718,
+		"balanceAfter": 1715,
+		"at": "2026-11-06T06:39:43.527Z"
+	},
+	{
+		"item": "U28-lancer2-f-walk-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"643bc6d8-80e4-459b-af49-075b8e1d8dc7"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1715,
+		"balanceAfter": 1712,
+		"at": "2026-11-06T06:42:11.331Z"
+	},
+	{
+		"item": "U28-lancer2-f-walk-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"ea8fbb10-e043-4fa4-95e5-9503023c5d7a"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1712,
+		"balanceAfter": 1709,
+		"at": "2026-11-06T06:44:39.111Z"
+	},
+	{
+		"item": "U28-lancer2-f-walk-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"81b5c283-4423-4bc6-bc38-79f5fe881f3f"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1709,
+		"balanceAfter": 1706,
+		"at": "2026-11-06T06:47:24.754Z"
+	},
+	{
+		"item": "U28-lancer2-f-walk-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"277f6d6f-48da-49f2-a9fc-32ad151e1b0e"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1706,
+		"balanceAfter": 1703,
+		"at": "2026-11-06T06:49:17.408Z"
+	},
+	{
+		"item": "U28-lancer2-f-run-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"d56e1513-e14b-4f33-9020-eebdda5affdc"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1703,
+		"balanceAfter": 1700,
+		"at": "2026-11-06T06:51:28.177Z"
+	},
+	{
+		"item": "U28-lancer2-f-run-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"3860660e-31b1-4fa8-ab41-deb22430daa1"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1700,
+		"balanceAfter": 1697,
+		"at": "2026-11-06T06:53:57.485Z"
+	},
+	{
+		"item": "U28-lancer2-f-run-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"980d4cb9-5cdf-4fd9-b69a-996c7897f41a"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1697,
+		"balanceAfter": 1694,
+		"at": "2026-11-06T06:57:00.711Z"
+	},
+	{
+		"item": "U28-lancer2-f-run-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"47eeeb4e-fa66-4cd4-8c4f-a35de5df3e55"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1694,
+		"balanceAfter": 1691,
+		"at": "2026-11-06T06:59:28.200Z"
+	},
+	{
+		"item": "U28-lancer2-f-run-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"f343cc4d-6c4d-4839-827d-2db5570737cd"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1691,
+		"balanceAfter": 1688,
+		"at": "2026-11-06T07:02:31.690Z"
+	},
+	{
+		"item": "U28-guard2-m-walk-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"be03d4b1-779d-4e89-8844-84a75821c1b2"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1688,
+		"balanceAfter": 1685,
+		"at": "2026-11-06T07:04:41.960Z"
+	},
+	{
+		"item": "U28-guard2-m-walk-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"46a6b255-452f-4b7c-b277-bcdb0fc32d8d"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1685,
+		"balanceAfter": 1682,
+		"at": "2026-11-06T07:06:52.288Z"
+	},
+	{
+		"item": "U28-guard2-m-walk-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"832ccdaa-92e8-42d3-a1e5-aaf6a87e6ae2"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1682,
+		"balanceAfter": 1679,
+		"at": "2026-11-06T07:08:44.717Z"
+	},
+	{
+		"item": "U28-guard2-m-walk-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"08f8f497-3f7f-4ca7-bdec-50d9f8f5c71d"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1679,
+		"balanceAfter": 1676,
+		"at": "2026-11-06T07:11:31.332Z"
+	},
+	{
+		"item": "U28-guard2-m-walk-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"b62eba8c-8c78-40d7-8dd5-c93cbb1c4d14"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1676,
+		"balanceAfter": 1673,
+		"at": "2026-11-06T07:13:58.900Z"
+	},
+	{
+		"item": "U28-guard2-m-run-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"41212dd1-fffc-4a81-84ca-42c7390ba84c"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1673,
+		"balanceAfter": 1670,
+		"at": "2026-11-06T07:16:27.634Z"
+	},
+	{
+		"item": "U28-guard2-m-run-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"3c59b9be-8b8f-4d93-861f-a0b3facdcb9e"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1670,
+		"balanceAfter": 1667,
+		"at": "2026-11-06T07:18:20.258Z"
+	},
+	{
+		"item": "U28-guard2-m-run-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"2098bc2e-5e9d-44d6-9d44-2fbffb4a8ff2"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1667,
+		"balanceAfter": 1664,
+		"at": "2026-11-06T07:20:30.475Z"
+	},
+	{
+		"item": "U28-guard2-m-run-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"319191dc-f525-4ffb-90d4-fcb3ec42b860"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1664,
+		"balanceAfter": 1661,
+		"at": "2026-11-06T07:22:57.975Z"
+	},
+	{
+		"item": "U28-guard2-m-run-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"be2e991c-b335-4c8b-a7a4-65ccdafb70db"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1661,
+		"balanceAfter": 1658,
+		"at": "2026-11-06T07:24:50.195Z"
+	},
+	{
+		"item": "U28-guard2-f-walk-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"d7d427c2-8128-464e-b9eb-0db4f3598174"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1658,
+		"balanceAfter": 1655,
+		"at": "2026-11-06T07:27:17.886Z"
+	},
+	{
+		"item": "U28-guard2-f-walk-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"f96b5593-f2d9-4b28-b429-a76f356408d1"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1655,
+		"balanceAfter": 1652,
+		"at": "2026-11-06T07:29:27.979Z"
+	},
+	{
+		"item": "U28-guard2-f-walk-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"27f0eec2-998b-4bb7-91e0-e0d439d29cf8"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1652,
+		"balanceAfter": 1649,
+		"at": "2026-11-06T07:31:55.582Z"
+	},
+	{
+		"item": "U28-guard2-f-walk-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"2f9bfee8-6f3f-407e-90e9-d0b8adc83d81"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1649,
+		"balanceAfter": 1646,
+		"at": "2026-11-06T07:34:23.924Z"
+	},
+	{
+		"item": "U28-guard2-f-walk-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"937d5c5d-31a4-4526-9642-21d7f152a823"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1646,
+		"balanceAfter": 1643,
+		"at": "2026-11-06T07:36:52.565Z"
+	},
+	{
+		"item": "U28-guard2-f-run-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"2fe67d84-7ea1-4338-9dd5-93dabe85647f"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1643,
+		"balanceAfter": 1640,
+		"at": "2026-11-06T07:39:02.517Z"
+	},
+	{
+		"item": "U28-guard2-f-run-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"32aa860b-9897-4e76-8e99-dc18a00a5485"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1640,
+		"balanceAfter": 1637,
+		"at": "2026-11-06T07:41:30.249Z"
+	},
+	{
+		"item": "U28-guard2-f-run-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"a4d1fc9f-530c-4a72-80c6-f50f4780758f"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1637,
+		"balanceAfter": 1634,
+		"at": "2026-11-06T07:43:40.152Z"
+	},
+	{
+		"item": "U28-guard2-f-run-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"71afd0a0-0ada-49ad-978d-aaa4dc54fedd"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1634,
+		"balanceAfter": 1631,
+		"at": "2026-11-06T07:45:50.070Z"
+	},
+	{
+		"item": "U28-guard2-f-run-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"b7da08fa-d56a-4c3f-b4a5-e728eba45368"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1631,
+		"balanceAfter": 1628,
+		"at": "2026-11-06T07:47:42.622Z"
+	},
+	{
+		"item": "U28-archer2-m-walk-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"0204f110-6c85-4a08-8bc9-74169ba9295d"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1628,
+		"balanceAfter": 1625,
+		"at": "2026-11-06T07:49:52.600Z"
+	},
+	{
+		"item": "U28-archer2-m-walk-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"d4e0a934-9fc6-4725-bd7b-9ad2f0c93275"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1625,
+		"balanceAfter": 1622,
+		"at": "2026-11-06T07:52:02.285Z"
+	},
+	{
+		"item": "U28-archer2-m-walk-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"4ba739e3-ee6f-4f7b-abd0-f80ec2d628b5"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1622,
+		"balanceAfter": 1619,
+		"at": "2026-11-06T07:54:12.394Z"
+	},
+	{
+		"item": "U28-archer2-m-walk-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"75b34f13-02e6-486f-971a-285de09c613d"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1619,
+		"balanceAfter": 1616,
+		"at": "2026-11-06T07:56:42.201Z"
+	},
+	{
+		"item": "U28-archer2-m-walk-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"2792c139-fd75-4b2d-808e-bc4dc3458111"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1616,
+		"balanceAfter": 1613,
+		"at": "2026-11-06T07:58:34.856Z"
+	},
+	{
+		"item": "U28-archer2-m-run-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"cd2e0159-c8c2-4fd3-b342-e501547d4001"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1613,
+		"balanceAfter": 1610,
+		"at": "2026-11-06T08:00:45.271Z"
+	},
+	{
+		"item": "U28-archer2-m-run-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"fa23297b-a468-4995-94b6-3d60802fd914"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1610,
+		"balanceAfter": 1607,
+		"at": "2026-11-06T08:03:30.463Z"
+	},
+	{
+		"item": "U28-archer2-f-run-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"a0ba3f96-366a-4d35-9dc6-ca8b9e6ddc63"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1607,
+		"balanceAfter": 1604,
+		"at": "2026-11-06T08:05:34.438Z"
+	},
+	{
+		"item": "U28-archer2-f-run-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"33dee89d-3c16-4094-995c-8710025227f5"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1604,
+		"balanceAfter": 1601,
+		"at": "2026-11-06T08:07:44.343Z"
+	},
+	{
+		"item": "U28-lancer2-m-walk-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"f43307ef-5b7a-4b71-a906-bee6e8236803"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1601,
+		"balanceAfter": 1598,
+		"at": "2026-11-06T08:18:59.543Z"
+	},
+	{
+		"item": "U28-lancer2-m-run-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"d40d1d6b-20c3-4e8f-839b-a1d698254ff8"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1598,
+		"balanceAfter": 1595,
+		"at": "2026-11-06T08:21:09.393Z"
+	},
+	{
+		"item": "U30-farmer1-outfit-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"e8e93b53-1825-400a-af51-abb3b9e49fab",
+			"4111d424-ba49-4337-be7b-0e5cce5f1b52"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1571,
+		"balanceAfter": 1569,
+		"at": "2026-11-06T12:41:43.541Z"
+	},
+	{
+		"item": "U30-farmer1-outfit-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"ed810bf1-b820-4ddf-82d3-1d07c5b3df00",
+			"0ec86989-58f9-43aa-a360-1ec7c5cb3c99"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1569,
+		"balanceAfter": 1567,
+		"at": "2026-11-06T12:51:32.953Z"
+	},
+	{
+		"item": "U31-farmer1-hoe-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"356fc7e6-4fdc-4d1c-9757-5ffb7bfbcfc8"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 1567,
+		"balanceAfter": 1563,
+		"at": "2026-11-06T12:55:45.129Z"
+	},
+	{
+		"item": "U31b-farmer1-hoe-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"1c335039-eb76-4124-be77-b22860f0a9c9"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 1563,
+		"balanceAfter": 1559,
+		"at": "2026-11-06T12:59:40.927Z"
+	},
+	{
+		"item": "U31c-farmer1-hoe-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"4278b239-2f75-4faf-bf1f-158e4f5aeedc"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 1553,
+		"balanceAfter": 1549,
+		"at": "2026-11-06T14:24:08.199Z"
+	},
+	{
+		"item": "U30-farmer1-outfit-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"010e806c-3870-4d95-af4b-d918c80ad68d",
+			"c19d4da1-f59a-44af-8e08-4774aaadf889"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1549,
+		"balanceAfter": 1547,
+		"at": "2026-11-06T15:03:45.135Z"
+	},
+	{
+		"item": "U30-farmer1-outfit-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"a572ede7-72a5-45da-8af9-4f36d9add6fe",
+			"a45be2db-a9a1-4e69-895c-2521fa9d7d01"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1547,
+		"balanceAfter": 1545,
+		"at": "2026-11-06T15:05:27.436Z",
+		"rejected": "nhìn trước lộ mặt / mọc tóc — thiếu \"BACK VIEW\" (06/11)"
+	},
+	{
+		"item": "U30-farmer1-outfit-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"27fc84b4-c1f0-4ade-84e8-1387df44ad8c",
+			"def0cdc4-4792-4704-a57f-95dada6c06d1"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1545,
+		"balanceAfter": 1543,
+		"at": "2026-11-06T15:06:52.078Z",
+		"rejected": "nhìn trước lộ mặt / mọc tóc — thiếu \"BACK VIEW\" (06/11)"
+	},
+	{
+		"item": "U30-farmer1-outfit-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"07728bc8-12d6-4a81-a07b-4e94d217731f",
+			"8fe480f3-11bc-44e1-af41-1d0380a8cbb9"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1543,
+		"balanceAfter": 1541,
+		"at": "2026-11-06T15:09:01.818Z"
+	},
+	{
+		"item": "U30-farmer1-outfit-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"042eb3c5-61cd-4002-94d0-8f1a28ed1c29",
+			"312cbbda-c2fd-469c-a860-87cb303e9668"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1541,
+		"balanceAfter": 1539,
+		"at": "2026-11-06T15:10:26.100Z"
+	},
+	{
+		"item": "U32-farmer1-hoe-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"4ab760a5-8b56-48f5-ac52-c911762cb7e9"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 1538,
+		"balanceAfter": 1534,
+		"at": "2026-11-06T15:16:34.991Z"
+	},
+	{
+		"item": "U32b-farmer1-hoe-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"37a05c96-8d51-4fd2-9d08-d9a86389e6c8"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 1534,
+		"balanceAfter": 1530,
+		"at": "2026-11-06T15:22:49.184Z"
+	},
+	{
+		"item": "U33-farmer1-water-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"50ad9539-4121-414b-804f-56ab764a7139"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 1530,
+		"balanceAfter": 1526,
+		"at": "2026-11-06T15:56:02.290Z"
+	},
+	{
+		"item": "U34-farmer1-water-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"a8200027-768b-4267-8717-874021c7d090"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 1526,
+		"balanceAfter": 1522,
+		"at": "2026-11-06T15:59:22.659Z"
+	},
+	{
+		"item": "U34b-farmer1-water-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"e57eef5b-3452-403a-a152-72639f1dcce4"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 1522,
+		"balanceAfter": 1518,
+		"at": "2026-11-06T16:03:47.119Z"
+	},
+	{
+		"item": "U35-farmer1-plant-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"bb4e27cf-d4f1-4dc1-8758-de477262e503"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 1518,
+		"balanceAfter": 1514,
+		"at": "2026-11-06T16:17:25.520Z"
+	},
+	{
+		"item": "U36-farmer1-plant-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"7d0a5ba5-8f9c-43cf-b57d-13f2d53ffe8c"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 1514,
+		"balanceAfter": 1510,
+		"at": "2026-11-06T16:22:11.446Z"
+	},
+	{
+		"item": "U36b-farmer1-plant-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"6c65069a-fc8b-457b-ae4b-33fe71e9af99"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 1510,
+		"balanceAfter": 1506,
+		"at": "2026-11-06T16:26:04.662Z"
+	},
+	{
+		"item": "U37-farmer1-walk-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"0d6f5eaf-b917-42f2-a79a-11e0e04b2ddb"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1506,
+		"balanceAfter": 1503,
+		"at": "2026-11-06T16:32:34.566Z"
+	},
+	{
+		"item": "U37-farmer1-walk-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"50bf50a5-9ede-4d63-aa26-ac7676d239b9"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1503,
+		"balanceAfter": 1500,
+		"at": "2026-11-06T16:34:26.917Z"
+	},
+	{
+		"item": "U37-farmer1-walk-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"3eaac21e-0fb6-4d4c-b01f-2338cb8efd03"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1500,
+		"balanceAfter": 1497,
+		"at": "2026-11-06T16:36:54.573Z"
+	},
+	{
+		"item": "U37-farmer1-walk-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"37537a35-344f-4993-9e1b-97ed52a9bf8e"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1497,
+		"balanceAfter": 1494,
+		"at": "2026-11-06T16:38:46.671Z"
+	},
+	{
+		"item": "U37-farmer1-walk-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"eef19a92-6173-47ba-aa2f-602b670555dd"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1494,
+		"balanceAfter": 1491,
+		"at": "2026-11-06T16:41:18.082Z"
+	},
+	{
+		"item": "U37-farmer1-run-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"6cd8a4a0-6c1e-4428-b918-9a758b3e1342"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1491,
+		"balanceAfter": 1488,
+		"at": "2026-11-06T16:43:27.875Z"
+	},
+	{
+		"item": "U37-farmer1-run-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"60cc0cb4-727c-42de-8617-eb64f5f52406"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1488,
+		"balanceAfter": 1485,
+		"at": "2026-11-06T16:45:55.843Z"
+	},
+	{
+		"item": "U37-farmer1-run-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"6810141c-d116-498b-b374-def7b1168446"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1485,
+		"balanceAfter": 1482,
+		"at": "2026-11-06T16:48:23.678Z"
+	},
+	{
+		"item": "U37-farmer1-run-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"321acb4c-72f5-4dca-9b49-de6a1cb9e62c"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1482,
+		"balanceAfter": 1479,
+		"at": "2026-11-06T16:50:16.230Z"
+	},
+	{
+		"item": "U37-farmer1-run-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"c2b62277-4475-479d-9714-89cd971f66f8"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1479,
+		"balanceAfter": 1476,
+		"at": "2026-11-06T16:52:45.678Z"
+	},
+	{
+		"item": "U38-farmer1-fish-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"e4786315-1049-4276-9bd6-85649b592bf8"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 1476,
+		"balanceAfter": 1472,
+		"at": "2026-11-06T16:59:44.771Z"
+	},
+	{
+		"item": "U38b-farmer1-fish-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"e6dd5617-653d-4cf0-b457-c265afcc8fcd"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 1472,
+		"balanceAfter": 1468,
+		"at": "2026-11-06T17:04:19.690Z"
+	},
+	{
+		"item": "U39-farmer1-fish-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"c8d87403-3d77-4fcc-beaf-5bc3f5451833"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 1468,
+		"balanceAfter": 1464,
+		"at": "2026-11-06T17:08:22.908Z"
+	},
+	{
+		"item": "U39b-farmer1-fish-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"6c09c5bb-7d87-4407-8994-7371148f45de"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 1464,
+		"balanceAfter": 1460,
+		"at": "2026-11-06T17:11:54.770Z"
+	},
+	{
+		"item": "U40-farmer1-outfit-f-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"cb5f4701-fed3-43c6-8f89-058fa6eb53f0",
+			"9b387a9c-e034-4362-9473-5bd9552ae523"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1460,
+		"balanceAfter": 1458,
+		"at": "2026-11-06T17:23:47.065Z"
+	},
+	{
+		"item": "U41-gardener-outfit-S",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"e660e10e-46df-4149-9e8d-2d79e7291b1b",
+			"699b4c20-3b43-478f-a81d-cb76f432eeb3"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1458,
+		"balanceAfter": 1456,
+		"at": "2026-11-06T17:43:02.583Z"
+	},
+	{
+		"item": "U41-gardener-outfit-SE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"cab8594f-2977-40cf-a199-82959c0dcdb0",
+			"f81562c8-da5e-4484-9832-a437dbf97c86"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1456,
+		"balanceAfter": 1454,
+		"at": "2026-11-06T17:45:22.058Z"
+	},
+	{
+		"item": "U41-gardener-outfit-E",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"d606511e-cd09-46f2-b3be-0729f3efffa4",
+			"76c97fb5-efd4-4efc-af83-b1af47235088"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1454,
+		"balanceAfter": 1452,
+		"at": "2026-11-06T17:46:46.284Z"
+	},
+	{
+		"item": "U41-gardener-outfit-NE",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"df4cd5c1-1c22-40dc-870c-8fc0c44f3dc9",
+			"d1d102b3-208b-4b5e-a2d1-ba9bb2ef8f44"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1452,
+		"balanceAfter": 1450,
+		"at": "2026-11-06T17:48:46.075Z"
+	},
+	{
+		"item": "U41-gardener-outfit-N",
+		"tool": "edit_image_pixen",
+		"characterId": "",
+		"jobIds": [
+			"77b618ae-dd14-4ff4-9940-13318c046df8",
+			"9ba729b2-06be-43e1-8b0c-7731ff349d25"
+		],
+		"estimate": 2,
+		"actual": 2,
+		"balanceBefore": 1450,
+		"balanceAfter": 1448,
+		"at": "2026-11-06T17:50:28.253Z"
+	},
+	{
+		"item": "U42-gardener-hoe-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"72efa4bd-5b58-4c89-bff2-44b846c9e2dd"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 1448,
+		"balanceAfter": 1444,
+		"at": "2026-11-06T17:52:23.314Z"
+	},
+	{
+		"item": "U42-gardener-hoe-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"673fa9a9-5320-42a0-9243-6c01dfa75ed7"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 1444,
+		"balanceAfter": 1440,
+		"at": "2026-11-06T17:56:24.083Z"
+	},
+	{
+		"item": "U42-gardener-water-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"0287a164-242a-491d-bfdd-63eba281e3db"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 1440,
+		"balanceAfter": 1436,
+		"at": "2026-11-06T17:59:49.407Z"
+	},
+	{
+		"item": "U42-gardener-water-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"eb49cdd2-5b0e-4d8b-9eef-233f5f292a73"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 1436,
+		"balanceAfter": 1432,
+		"at": "2026-11-06T18:02:39.377Z"
+	},
+	{
+		"item": "U42-gardener-plant-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"81eb3b32-311a-4143-b980-df16bc4c7927"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 1432,
+		"balanceAfter": 1428,
+		"at": "2026-11-06T18:06:23.083Z"
+	},
+	{
+		"item": "U42-gardener-plant-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"b65cbe3c-5b58-4b8e-af32-d30202286cf0"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 1428,
+		"balanceAfter": 1424,
+		"at": "2026-11-06T18:09:48.617Z"
+	},
+	{
+		"item": "U42-gardener-fish-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"547516a2-5ed9-40ae-aab4-d303b13a8b9e"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 1424,
+		"balanceAfter": 1420,
+		"at": "2026-11-06T18:13:32.263Z"
+	},
+	{
+		"item": "U42-gardener-fish-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"da805ec4-b17f-489d-961b-2da8d44f0544"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 1420,
+		"balanceAfter": 1416,
+		"at": "2026-11-06T18:16:04.503Z"
+	},
+	{
+		"item": "U43-gardener-walk-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"09a41c1b-b5be-47ed-8b69-79b920755f18"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1416,
+		"balanceAfter": 1413,
+		"at": "2026-11-06T18:19:48.019Z"
+	},
+	{
+		"item": "U43-gardener-walk-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"e67aa9ad-0fa5-4b0f-90fc-6fcf89a3a40d"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1413,
+		"balanceAfter": 1410,
+		"at": "2026-11-06T18:21:57.882Z"
+	},
+	{
+		"item": "U43-gardener-walk-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"fb031525-e069-4db4-bf04-6188349d4289"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1410,
+		"balanceAfter": 1407,
+		"at": "2026-11-06T18:24:07.688Z"
+	},
+	{
+		"item": "U43-gardener-walk-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"2102944c-76bb-4d5b-805a-5ba5510acb00"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1407,
+		"balanceAfter": 1404,
+		"at": "2026-11-06T18:26:17.469Z"
+	},
+	{
+		"item": "U43-gardener-walk-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"352d2873-a935-4688-a2a9-75cfcf857bd1"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1404,
+		"balanceAfter": 1401,
+		"at": "2026-11-06T18:28:45.174Z"
+	},
+	{
+		"item": "U43-gardener-run-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"910e5e17-880f-4cf2-b601-3837935b9345"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1401,
+		"balanceAfter": 1398,
+		"at": "2026-11-06T18:30:55.269Z"
+	},
+	{
+		"item": "U43-gardener-run-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"c4be9830-632f-40aa-81fc-478d72d99edc"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1398,
+		"balanceAfter": 1395,
+		"at": "2026-11-06T18:33:40.619Z"
+	},
+	{
+		"item": "U43-gardener-run-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"2a934644-b78e-4203-962c-24c5527b636c"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1395,
+		"balanceAfter": 1392,
+		"at": "2026-11-06T18:35:50.678Z"
+	},
+	{
+		"item": "U43-gardener-run-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"9cbd5784-b6b7-415c-88fb-c1fd8ee75138"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1392,
+		"balanceAfter": 1389,
+		"at": "2026-11-06T18:38:22.492Z"
+	},
+	{
+		"item": "U43-gardener-run-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"ba0ce25e-4eb9-4833-af8f-b6acae059570"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1389,
+		"balanceAfter": 1386,
+		"at": "2026-11-06T18:40:50.085Z"
+	},
+	{
+		"item": "U42b-gardener-fish-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"00fc7dbf-4d7f-4408-a5f6-9e04c2b04944"
+		],
+		"estimate": 4,
+		"actual": 4,
+		"balanceBefore": 1386,
+		"balanceAfter": 1382,
+		"at": "2026-11-06T18:43:42.470Z"
+	},
+	{
+		"item": "U44-sword-jump-S",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"9b30d648-a044-40de-ba9f-82fffba790ab"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1166,
+		"balanceAfter": 1163,
+		"at": "2026-11-11T04:13:14.285Z"
+	},
+	{
+		"item": "U44-sword-jump-SE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"d83c9cb9-06d1-4ded-9350-7e0660f856df"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1163,
+		"balanceAfter": 1160,
+		"at": "2026-11-11T04:15:05.565Z"
+	},
+	{
+		"item": "U44-sword-jump-E",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"e257718c-ebf7-4dc6-a3c9-2a4e81c8534a"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1160,
+		"balanceAfter": 1157,
+		"at": "2026-11-11T04:17:15.869Z"
+	},
+	{
+		"item": "U44-sword-jump-NE",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"2672d40f-70ca-4eeb-95fc-f85fa5f21182"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1157,
+		"balanceAfter": 1154,
+		"at": "2026-11-11T04:19:30.914Z"
+	},
+	{
+		"item": "U44-sword-jump-N",
+		"tool": "animate_with_skeleton_v3",
+		"characterId": "",
+		"jobIds": [
+			"6934b15e-f852-4d98-ad15-ae82374840cb"
+		],
+		"estimate": 3,
+		"actual": 3,
+		"balanceBefore": 1154,
+		"balanceAfter": 1151,
+		"at": "2026-11-11T04:21:28.748Z"
 	}
 ]

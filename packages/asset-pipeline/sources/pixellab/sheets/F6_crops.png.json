@@ -1,0 +1,20 @@
+{
+	"description": "A sprite sheet of SIXTEEN separate small crop plants arranged in a grid of 4 columns and 4 rows, each centered in its own cell, growth stages from left to right (1 sprout, 2 young, 3 growing, 4 ripe ready to harvest). Row 1 rice paddy: tiny rice sprout in a little puddle, young green rice tuft, tall green rice, golden rice with drooping grain heads. Row 2 corn: tiny sprout, small corn plant, tall corn stalk, tall corn stalk with two yellow corn cobs. Row 3 tomato: tiny sprout, small tomato plant, tomato plant on a stick with yellow flowers, tomato plant with bright red tomatoes. Row 4 watermelon: tiny sprout, small vine, vine with a small striped melon, big ripe striped green watermelon among vines. Each plant upright on a tiny dark soil mound, front view, slight top-down, thick dark outline, soft cel shading, natural colors, every plant fully separate on a plain flat solid bright magenta (#FF00FF) chroma-key background, no field, no shadow, no text, no numbers",
+	"width": 256,
+	"height": 256,
+	"no_background": false,
+	"seed": 741,
+	"style_options": {
+		"color_palette": false,
+		"outline": true,
+		"shading": true,
+		"detail": false
+	},
+	"style_image": {
+		"path": "sources/pixellab/sheets/N1_nature.png",
+		"usage_description": "Copy ONLY the art style of this reference: chunky chibi pixel art, thick dark outline on every shape, soft cel shading, front-facing view, one object centered in each cell. Do not copy these objects, their colors or their layout."
+	},
+	"jobId": "8a0fa060-5178-45ee-923c-2ae17368cc78",
+	"token": 0,
+	"createdAt": "2026-11-11T03:08:18.952Z"
+}

@@ -1,5 +1,6 @@
 import type { PropMeta } from '../../props/buildProps.js';
 import { decalsOf, Layout, TILE, TREES, px, type MapData, type MonsterZone } from './common.js';
+import { finishWithStory } from '../storyBits.js';
 
 /**
  * Vết Rạn Mossvale — rừng bị rút cạn phía nam Mossvale (thiết kế 12 map vùng 1, 10/10/2026). Đây là vết rạn Quỷ vương
@@ -140,6 +141,8 @@ export function buildMossrift(meta: Record<string, PropMeta>, decalIds: string[]
 		L.place(id, Math.round((hx + dx) * TILE), Math.round((hy + dy) * TILE) + 12, { force: true });
 
 	// Rừng úa từ ngoài vào trong theo khoảng cách tới tâm: xa > 17 ô cây xanh, 11–17 ô lá thu, ≤ 11 ô không cây.
+	// Suối (05/11/2026 "nhiều sông suối hơn"): tự tìm đường né bầy, chỗ giữ trống, đồ vật đã đặt; cắt đường thành cầu gỗ.
+	L.autoStream({ avoid: [...rings, { x: heart.x, y: heart.y, r: 4 }], keep: [] });
 	L.scatter(1000, (x, y) => {
 		const d = fromHeart(x, y);
 		if (d <= 11) return false;
@@ -168,7 +171,7 @@ export function buildMossrift(meta: Record<string, PropMeta>, decalIds: string[]
 		level: c.level,
 	});
 
-	return L.finish({
+	return finishWithStory(L, 3, {
 		id: 'mossrift',
 		name: 'Vết Rạn Mossvale',
 		biome: 'deadland',

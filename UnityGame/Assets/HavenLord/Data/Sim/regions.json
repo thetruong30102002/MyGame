@@ -278,7 +278,7 @@
 				"dx": 0,
 				"dy": 0
 			},
-			"ready": true
+			"ready": false
 		},
 		{
 			"id": "ruins",
@@ -312,7 +312,7 @@
 				"dx": 0,
 				"dy": 0
 			},
-			"ready": true
+			"ready": false
 		},
 		{
 			"id": "void",
@@ -344,7 +344,7 @@
 				"dx": 0,
 				"dy": 0
 			},
-			"ready": true
+			"ready": false
 		},
 		{
 			"id": "wood",
@@ -375,7 +375,7 @@
 				"dx": 0,
 				"dy": 0
 			},
-			"ready": true,
+			"ready": false,
 			"branch": true
 		},
 		{
@@ -407,7 +407,7 @@
 				"dx": 0,
 				"dy": 0
 			},
-			"ready": true,
+			"ready": false,
 			"branch": true
 		},
 		{
@@ -439,7 +439,7 @@
 				"dx": 0,
 				"dy": 0
 			},
-			"ready": true,
+			"ready": false,
 			"branch": true
 		}
 	],

@@ -35,6 +35,43 @@
 		"bram",
 		"merchant_bram"
 	],
+	"OUTFIT_SHOP": [
+		{
+			"id": "swordsman_outfit_2",
+			"classId": "sword",
+			"name": "Bộ kiếm sĩ bộ 2",
+			"price": 450,
+			"levelReq": 5
+		},
+		{
+			"id": "mage_outfit_2",
+			"classId": "staff",
+			"name": "Bộ pháp sư bộ 2",
+			"price": 450,
+			"levelReq": 5
+		},
+		{
+			"id": "lancer_outfit_2",
+			"classId": "spear",
+			"name": "Bộ thương thủ bộ 2",
+			"price": 450,
+			"levelReq": 5
+		},
+		{
+			"id": "guard_outfit_2",
+			"classId": "shield",
+			"name": "Bộ hộ vệ bộ 2",
+			"price": 450,
+			"levelReq": 5
+		},
+		{
+			"id": "archer_outfit_2",
+			"classId": "bow",
+			"name": "Bộ cung thủ bộ 2",
+			"price": 450,
+			"levelReq": 5
+		}
+	],
 	"SHOP": [
 		{
 			"id": "exp2_30",

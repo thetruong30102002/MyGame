@@ -26,6 +26,16 @@ namespace HavenLord.Data
         public Vector2Int chin;
         public int ms;
         public bool hit;
+        /// <summary>Đầu cần câu trong ô gốc; âm = không có.</summary>
+        public Vector2Int toolTip = new Vector2Int(-1, -1);
+    }
+
+    [Serializable]
+    public sealed class LayeredSegment
+    {
+        public string name;
+        /// <summary>Mốc đoạn tính từ 1, gồm cả hai đầu, giống standard.json.</summary>
+        public int first, last;
     }
 
     [Serializable]
@@ -34,6 +44,7 @@ namespace HavenLord.Data
         /// <summary>"&lt;động tác&gt;_&lt;hướng&gt;" như atlas cũ (idle_S, walk_E, slash_W…).</summary>
         public string name;
         public LayeredFrame[] frames = Array.Empty<LayeredFrame>();
+        public LayeredSegment[] segments = Array.Empty<LayeredSegment>();
     }
 
     [Serializable]

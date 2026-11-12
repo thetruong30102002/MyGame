@@ -1,5 +1,7 @@
 import type { PropMeta } from '../../props/buildProps.js';
-import { decalsOf, GROUND_PLANTS, Layout, TILE, TREES, px, type MapData, type MonsterZone } from './common.js';
+import { decalsOf, GROUND_PLANTS, Layout, TILE, TREES, px, type MapData, type MonsterZone, riverZone } from './common.js';
+import { HYENAFIELD_SPOT } from './hyenafield.js';
+import { finishWithStory } from '../storyBits.js';
 
 /**
  * Bãi Bồi Brightwater — bãi bồi hạ lưu ngay phía nam Thistlewood (thiết kế 12 map vùng 1: docs/thiet-ke/vung1-12-map.md).
@@ -33,6 +35,9 @@ export function buildRiverflats(meta: Record<string, PropMeta>, decalIds: string
 
 	// Đường đất Bắc–Nam (cột 21–23) nối đường của town xuống Hẻm; đường ngang hàng 14–15 ra mép đông, qua sông bằng cầu gỗ.
 	L.rect(21, 0, 23, RIVERFLATS_H - 1, 'd');
+	// Đường tây (05/11/2026): từ đường Bắc–Nam ra mép tây sang Đồng Cỏ Linh Cẩu (nấc cấp 4–6), phía nam hồ Đảo Liễu.
+	L.path([[0, 29], [21, 29]], 2, 'd');
+	L.reserve(1, 29.5, 3);
 	for (let x = 24; x < RIVERFLATS_W; x += 1) for (let y = 14; y <= 15; y += 1) L.set(x, y, L.at(x, y) === 'w' ? 'b' : 'd');
 
 	// Bến cũ mắc cạn trên bùn khô (sông đã dời đi), bến mới chìa ra dòng nước.
@@ -130,6 +135,8 @@ export function buildRiverflats(meta: Record<string, PropMeta>, decalIds: string
 
 	// Rải: cây (tán chồng được) chỉ ở hai rìa — x < 18 hoặc x > 42 — và cách nước ≥ 2 ô, giữa bãi để trống; bụi cỏ hoa;
 	// đá / dương xỉ / bụi sát bờ.
+	// Bãi quái sông Cua đá suối (05/11/2026): sát bờ, giữ trống trước khi rải cây / đá.
+	const crab = L.riverSpot(herds);
 	L.clumps(150, TREES, 6, 2.4, (id, x, y) => {
 		const tx = Math.floor(x / TILE);
 		const ty = Math.floor(y / TILE);
@@ -161,17 +168,18 @@ export function buildRiverflats(meta: Record<string, PropMeta>, decalIds: string
 		...(h.child ? { fromAge: 8, untilAge: 15 } : { fromAge: 16 }),
 	});
 
-	return L.finish({
+	return finishWithStory(L, 4, {
 		id: 'riverflats',
 		name: 'Bãi Bồi Brightwater',
 		spawn: { x: px(22) + 24, y: px(2) },
 		npcs: [],
-		monsterZones: herds.map(zone),
+		monsterZones: [...herds.map(zone), ...(crab ? [riverZone(crab, 'riverflats', 'Bãi Bồi', 3)] : [])],
 		boss: null,
 		spots: [
 			{ id: 'north_entry_rf', name: 'Đường về Thistlewood', x: px(22) + 24, y: px(2), r: 60 },
 			{ id: 'south_entry_rf', name: 'Đường xuống Hẻm Cửa Sông', x: px(22), y: px(39), r: 60 },
 			{ id: 'east_entry_rf', name: 'Cầu sang Vết Rạn', x: px(47), y: px(14) + 24, r: 60 },
+			{ id: 'west_entry_rf', name: 'Đường sang Đồng Cỏ Linh Cẩu', x: px(2), y: px(29) + 24, r: 60 },
 			{ id: 'old_landing', name: 'Bến sông cũ', x: px(28), y: px(18), r: 80 },
 			// Chỗ bảng lựa chọn Bến sông của Chương 1.
 			{ id: 'new_landing', name: 'Bến sông', x: px(32), y: px(24) + 24, r: 100 },
@@ -191,6 +199,7 @@ export function buildRiverflats(meta: Record<string, PropMeta>, decalIds: string
 			{ id: 'to_town_rf', to: 'town', toSpot: 'south_road', edge: 'N', ...L.exitStrip('N', 20, 24), label: 'Thistlewood' },
 			{ id: 'to_mossrift_rf', to: 'mossrift', toSpot: 'west_entry_rv', edge: 'E', ...L.exitStrip('E', 12, 17), label: 'Vết Rạn Mossvale · cấp 5+' },
 			{ id: 'to_rivergate_rf', to: 'rivergate', toSpot: 'north_entry_vg', edge: 'S', ...L.exitStrip('S', 20, 24), label: 'Hẻm Cửa Sông · cấp 9+ · đường sang vùng 2' },
+			{ id: 'to_hyenafield_rf', to: 'hyenafield', toSpot: HYENAFIELD_SPOT, edge: 'W', ...L.exitStrip('W', 27, 32), label: 'Đồng Cỏ Linh Cẩu · cấp 4+' },
 		],
 	});
 }

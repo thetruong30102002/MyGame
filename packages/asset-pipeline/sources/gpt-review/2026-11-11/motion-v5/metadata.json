@@ -1,0 +1,66 @@
+{
+  "tool": "built-in image_gen",
+  "status": "Bộ bước đi để duyệt, chưa nhập runtime",
+  "prompts": {
+    "E": "Create an animation SPRITE SHEET of the exact scarecrow in the reference, facing EAST/right profile in EVERY frame. The reference is the approved side-view standing design for Haven Lord; preserve its identity, single amber profile eye, stitched mouth, tan sack head with three short straw tufts, olive tunic, burgundy shoulder rags and patch, cream rope belt, woody empty claws and thick straw feet. No weapon or extra accessory. This is a walk-in-place cycle, not a new design.\nLayout: EXACTLY EIGHT separate full-body frames in a regular grid of FOUR COLUMNS and TWO ROWS, read left to right across row 1 then row 2. All eight cells have IDENTICAL size, generous transparent gutters, a common character root and foot baseline, and the same native pixel size. Each logical frame is 64×72 pixels; standing body is approximately 53 pixels tall. Use ONE common integer enlargement across the ENTIRE sheet. Draw distinct walk poses; do not repeat the standing image.\nEight phases: 1 near leg forward contact / far leg back; 2 weight settles on near foot, far heel lifts; 3 far knee passes the standing leg; 4 far foot swings forward with toe slightly lifted; 5 far leg forward contact / near leg back, opposite of 1; 6 weight settles on far foot / near heel lifts; 7 near knee passes; 8 near foot swings toward the next frame 1. Feet take SMALL natural steps, do not march with knees high. Woody arms counter-swing subtly with the opposite legs, hands stay empty, elbows remain anatomically coherent. Body bob no more than ONE logical pixel; head and torso do not swell, stretch, shrink or change shape. Keep the same cloth hems, same patch placement, same face and straw tufts in all frames, only a tiny cloth sway. Figure remains centered in each cell, no camera motion or horizontal drift. Both legs must visibly alternate rather than feet remaining glued together.\nMatch the source pixel-art rendering exactly: compact clear pixel clusters, one-native-pixel selective dark-brown outline, simple controlled 3-tone shading, restrained warm beige / olive / burgundy palette, no noisy texture, grain, dithering, gradient, blur, antialias or glossy lighting. Preserve the source detail density at small game scale, no painted micro-detail. Full figures fit inside all cells; no clipping, no overlap, no missing hand or extra limb. Transparent background, no ground, cast shadow, scene, text, numbers, labels, grid lines, border or watermark. Only the eight right-facing walk animation sprites.",
+    "S": "Create an eight-frame WALK-IN-PLACE animation sprite sheet of the EXACT haunted scarecrow in the reference, facing SOUTH / FRONT in EVERY frame. Keep the same front-facing face with two small amber eyes and crooked stitched smile, sack-head proportions and three short straw tufts, burgundy shoulder rags, olive tunic, cream rope belt and front knot, burgundy knee patch, woody empty claw hands and thick straw feet. No hat, no hood, no weapon or extra accessory. Same slightly elevated front-view RPG camera, no rotation into side view.\nLayout EXACTLY FOUR COLUMNS × TWO ROWS = EIGHT equally sized transparent cells, read left to right then top to bottom. Each logical cell 64×72, body approximately 53 native pixels tall; use the same pixel density and one common integer enlargement across the whole sheet. Same root center and fixed ground-contact baseline in every cell; no horizontal drift. Full head and feet inside every cell, generous transparent gutters, no overlap.\nDraw a restrained natural alternating walk toward the viewer, not eight standing duplicates: 1 character's left leg forward with slightly lower forward foot / right leg back; 2 body settles gently, right heel lifts; 3 right knee passes under the body; 4 right foot swings toward the viewer; 5 right leg forward contact / left leg back, opposite half-cycle; 6 settle on right foot; 7 left knee passes; 8 left foot swings to connect back to 1. Feet take small steps in depth, knees do not spread into a squat. Arms counter-swing modestly from the shoulders, preserving coherent elbows and empty three-fingered hands. Show both legs alternating rather than sliding a fixed torso over glued feet. Head and torso bob at most ONE logical pixel; never enlarge, stretch or soften the body or head. Garment identity, face, rope and patch stay consistent across all eight poses, only slight hem sway.\nMatch the reference's crisp game pixel rendering, limited warm tan / olive / burgundy / dark brown palette, 3-tone flat clustered shading, selective one-native-pixel outline, sharp eye highlights and material details. No grain, random dither, gradient, blur, antialias, glow, glossy finish, texture noise, new costume details, duplicate limb or missing hand. Opaque character interior, transparent background. No ground, cast shadow, scenery, pedestal, border, labels, numbers, grid lines, text or watermark. Only the eight full-body front-facing walking frames.",
+    "N": "Create an eight-frame WALK-IN-PLACE animation sprite sheet of the EXACT scarecrow BACK VIEW shown in the reference. Every frame faces NORTH with its BACK toward the viewer; no face, eye or mouth may appear. Keep the same plain sack back with central seam, same three short straw tufts, same burgundy shoulder cloth across the back, olive tunic, pale rope belt wrapping the waist, one burgundy lower-cloth patch, woody empty hands at the sides, straw calves with wraps, and wide straw feet. No knot suddenly appearing on center back, no hat, hood, weapon or extra accessory.\nEXACTLY EIGHT full-body frames in FOUR COLUMNS and TWO ROWS, read left to right then top to bottom. Identical cells of logical 64×72 pixels, body about 53 native pixels high, common root and contact baseline, one common integer enlargement for the entire sheet. Generous transparent margins and gutters, no clipping or overlapping cells. Same slightly elevated RPG back-view camera in every frame, no rotation into profile.\nAnimation: calm short-step walking away from the viewer. 1 left leg forward in depth / right leg back toward viewer; 2 settle left foot and lift right heel; 3 right knee passes under body; 4 right foot swings away from viewer; 5 right forward contact / left back, opposite half-cycle; 6 settle right foot; 7 left knee passes; 8 left foot swings to connect smoothly back to 1. Distinguish the nearer heel and farther planted foot, with small perspective changes only. Arms counter-swing gently with opposite legs, elbow and hand anatomy stays coherent. Keep knees reasonably close, not a wide squat or high-knee march. Head and torso bob at most ONE native pixel. No scaling, swollen torso, stretched limbs, growing head, changing costume or disappearing hands. Back seam and shoulder rag identity must remain coherent through all eight poses, only a very slight hem sway.\nMatch the source's compact pixel rendering exactly: clear flat pixel clusters, restrained tan / muted burgundy / olive / brown palette, three-tone materials and selective one-native-pixel dark outline. No painted grain, dither, texture noise, gradient, blur, glow, antialias or translucent interior. Do not add more fine detail than the reference. Genuinely transparent background; no ground, cast shadows, pedestal, scenery, captions, letters, numbers, grid lines, labels, border or watermark. Only the eight north-facing back-view walk sprites.",
+    "S_v2": "Correct the layout and head stability of this EXISTING eight-frame south-facing scarecrow walk sheet. Preserve the eight walking poses and the exact character identity, outfit, palette and pixel-art style. Do NOT invent a new cycle or change pose order.\nProblem to fix: in the supplied sheet the head/body centers drift progressively left across columns and a few head silhouettes change size. Fix this so all eight character skull centers and pelvis centers remain on the SAME LOCAL X COORDINATE in their respective equal-size cells. The canvas is a 4-column by 2-row sheet: each sprite must be centered precisely in its own cell, no cumulative leftward drift across a row. Retain one shared character scale and one ground baseline. Do not fit or resize each individual figure.\nUse the sack head from FRAME 1 as the identical head model for all eight frames: same head width, same head height, same straw-tuft arrangement, same two amber eyes, same stitched mouth, same front orientation. Head can translate vertically by at most one native pixel for the gait, but must not stretch, inflate, tilt, turn or change expression. Keep neck/shoulders connected naturally. Body and clothing keep the same width and length throughout. Arms and legs still show the distinct alternating short walking steps already present, with coherent joints and subtle opposite arm swing. Keep patch, belt and rags consistent. Preserve all eight complete sprites, four columns by two rows, with identical cell size and transparent gutters. Match current canvas aspect ratio and pixel density. No bow, hat, extra equipment, text, labels, grid lines, scenery, shadow, blur, glow, smoothing, painted texture or new decorative detail. Genuine transparent background, opaque character pixels. Deliver the corrected sprite sheet only."
+  },
+  "files": {
+    "S": "walk-S-v2.png",
+    "E": "walk-E.png",
+    "N": "walk-N.png",
+    "W": "walk-W.png"
+  },
+  "rejected": {
+    "file": "walk-S.png",
+    "reason": "Trôi tâm đầu theo cột, thay đổi độ rộng đầu; không dùng."
+  },
+  "layout": {
+    "canvas": [
+      1448,
+      1086
+    ],
+    "grid": [
+      4,
+      2
+    ],
+    "cell": [
+      362,
+      543
+    ],
+    "order": "8 frame theo hàng",
+    "W": "Lật từng ô E, giữ thứ tự frame"
+  },
+  "review": {
+    "scale": 0.1111111111111111,
+    "canvas": [
+      64,
+      72
+    ],
+    "root": [
+      32,
+      66
+    ],
+    "sourceAnchors": {
+      "S": [
+        181,
+        509
+      ],
+      "E": [
+        181,
+        490
+      ],
+      "N": [
+        181,
+        497
+      ],
+      "W": [
+        180,
+        490
+      ]
+    },
+    "note": "Không fit hoặc scale riêng từng frame. Alpha và palette nguồn chưa chuẩn hóa runtime."
+  }
+}

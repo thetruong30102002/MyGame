@@ -1,0 +1,392 @@
+{
+	"about": "Bản 2 câu cá N (07/11): bản 1 (hai tay giữa thân) cần dựng thẳng giữa đỉnh đầu như ăng-ten, thân gần như không động. Bản này tay PHẢI cầm cần bên hông phải (như tưới N bản 2), cần chéo ra trước bên phải; vung ngược qua vai phải (1–4), quăng (5–7), giữ chờ (8–11), giật (12–14), hạ (15); tay trái thả bên sườn. Đứng thẳng.",
+	"character": "U30-farmer1-outfit-N",
+	"rest": "U30-farmer1-outfit-N#26043",
+	"direction": "north",
+	"pad": [
+		8,
+		24,
+		36,
+		0
+	],
+	"handGapPx": 3,
+	"knees": "depth",
+	"stance": "upright",
+	"frames": [
+		{
+			"grip": [
+				51,
+				50
+			],
+			"bladeDeg": 65,
+			"weaponDeg": 65,
+			"depthR": 104,
+			"wristL": [
+				26,
+				56
+			],
+			"elbowL": [
+				27,
+				47
+			],
+			"depthL": 128,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				52,
+				46
+			],
+			"bladeDeg": 80,
+			"weaponDeg": 80,
+			"depthR": 116,
+			"wristL": [
+				26,
+				56
+			],
+			"elbowL": [
+				27,
+				47
+			],
+			"depthL": 128,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				53,
+				40
+			],
+			"bladeDeg": 100,
+			"weaponDeg": 100,
+			"depthR": 130,
+			"wristL": [
+				26,
+				56
+			],
+			"elbowL": [
+				27,
+				47
+			],
+			"depthL": 128,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				53,
+				37
+			],
+			"bladeDeg": 115,
+			"weaponDeg": 115,
+			"depthR": 140,
+			"wristL": [
+				26,
+				56
+			],
+			"elbowL": [
+				27,
+				47
+			],
+			"depthL": 128,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				53,
+				40
+			],
+			"bladeDeg": 95,
+			"weaponDeg": 95,
+			"depthR": 120,
+			"wristL": [
+				26,
+				56
+			],
+			"elbowL": [
+				27,
+				47
+			],
+			"depthL": 128,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				52,
+				46
+			],
+			"bladeDeg": 70,
+			"weaponDeg": 70,
+			"depthR": 100,
+			"wristL": [
+				26,
+				56
+			],
+			"elbowL": [
+				27,
+				47
+			],
+			"depthL": 128,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				51,
+				49
+			],
+			"bladeDeg": 60,
+			"weaponDeg": 60,
+			"depthR": 92,
+			"wristL": [
+				26,
+				56
+			],
+			"elbowL": [
+				27,
+				47
+			],
+			"depthL": 128,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				51,
+				49
+			],
+			"bladeDeg": 62,
+			"weaponDeg": 62,
+			"depthR": 92,
+			"wristL": [
+				26,
+				56
+			],
+			"elbowL": [
+				27,
+				47
+			],
+			"depthL": 128,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				51,
+				50
+			],
+			"bladeDeg": 60,
+			"weaponDeg": 60,
+			"depthR": 92,
+			"wristL": [
+				26,
+				56
+			],
+			"elbowL": [
+				27,
+				47
+			],
+			"depthL": 128,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				51,
+				49
+			],
+			"bladeDeg": 62,
+			"weaponDeg": 62,
+			"depthR": 92,
+			"wristL": [
+				26,
+				56
+			],
+			"elbowL": [
+				27,
+				47
+			],
+			"depthL": 128,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				51,
+				50
+			],
+			"bladeDeg": 60,
+			"weaponDeg": 60,
+			"depthR": 92,
+			"wristL": [
+				26,
+				56
+			],
+			"elbowL": [
+				27,
+				47
+			],
+			"depthL": 128,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				52,
+				45
+			],
+			"bladeDeg": 80,
+			"weaponDeg": 80,
+			"depthR": 108,
+			"wristL": [
+				26,
+				56
+			],
+			"elbowL": [
+				27,
+				47
+			],
+			"depthL": 128,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				53,
+				39
+			],
+			"bladeDeg": 100,
+			"weaponDeg": 100,
+			"depthR": 128,
+			"wristL": [
+				26,
+				56
+			],
+			"elbowL": [
+				27,
+				47
+			],
+			"depthL": 128,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				53,
+				38
+			],
+			"bladeDeg": 105,
+			"weaponDeg": 105,
+			"depthR": 132,
+			"wristL": [
+				26,
+				56
+			],
+			"elbowL": [
+				27,
+				47
+			],
+			"depthL": 128,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"grip": [
+				51,
+				50
+			],
+			"bladeDeg": 65,
+			"weaponDeg": 65,
+			"depthR": 100,
+			"wristL": [
+				26,
+				56
+			],
+			"elbowL": [
+				27,
+				47
+			],
+			"depthL": 128,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		}
+	]
+}

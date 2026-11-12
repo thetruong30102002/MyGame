@@ -1018,5 +1018,113 @@
 			"w": 22,
 			"h": 14
 		}
+	},
+	"am_thanh_duong_am": {
+		"kind": "building",
+		"w": 284,
+		"h": 280,
+		"blocks": true,
+		"footprint": {
+			"x": -114,
+			"y": -64,
+			"w": 227,
+			"h": 64
+		}
+	},
+	"am_mo_da": {
+		"kind": "decor",
+		"w": 36,
+		"h": 48,
+		"blocks": true,
+		"footprint": {
+			"x": -15,
+			"y": -12,
+			"w": 29,
+			"h": 12
+		}
+	},
+	"am_quan_tai_xich": {
+		"kind": "decor",
+		"w": 31,
+		"h": 52,
+		"blocks": true,
+		"footprint": {
+			"x": -13,
+			"y": -12,
+			"w": 25,
+			"h": 12
+		}
+	},
+	"am_vac_ma": {
+		"kind": "decor",
+		"w": 37,
+		"h": 52,
+		"blocks": true,
+		"footprint": {
+			"x": -15,
+			"y": -12,
+			"w": 30,
+			"h": 12
+		}
+	},
+	"am_den_ma": {
+		"kind": "decor",
+		"w": 37,
+		"h": 80,
+		"blocks": true,
+		"footprint": {
+			"x": -8,
+			"y": -10,
+			"w": 15,
+			"h": 10
+		}
+	},
+	"am_dong_xuong_nen": {
+		"kind": "flower",
+		"w": 76,
+		"h": 36,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"am_dan_te": {
+		"kind": "decor",
+		"w": 49,
+		"h": 60,
+		"blocks": true,
+		"footprint": {
+			"x": -21,
+			"y": -14,
+			"w": 42,
+			"h": 14
+		}
+	},
+	"am_tru_rune_nut": {
+		"kind": "decor",
+		"w": 42,
+		"h": 88,
+		"blocks": true,
+		"footprint": {
+			"x": -13,
+			"y": -12,
+			"w": 25,
+			"h": 12
+		}
+	},
+	"am_bui_gai_den": {
+		"kind": "decor",
+		"w": 44,
+		"h": 44,
+		"blocks": true,
+		"footprint": {
+			"x": -16,
+			"y": -12,
+			"w": 31,
+			"h": 12
+		}
 	}
 }

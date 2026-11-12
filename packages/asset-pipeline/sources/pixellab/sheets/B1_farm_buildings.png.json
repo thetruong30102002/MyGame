@@ -1,0 +1,20 @@
+{
+	"description": "A sprite sheet of TWELVE separate farm yard buildings arranged in a grid of 4 columns and 3 rows, each centered in its own cell, two upgrade levels side by side (left basic, right upgraded and grander). Row 1: a small wooden greenhouse, a big glass greenhouse with a white iron frame; a simple stone well with a bucket, a fancy stone well with a tiled roof and a pulley. Row 2: a small wooden windmill, a tall stone windmill with big sails; a small wooden storage shed, a big red barn-style storehouse. Row 3: a small wooden fishing dock, a long wooden pier with lanterns; a simple wooden garden gate arch, a grand stone garden gate arch covered in flowering vines. Front view, slight top-down, thick dark outline, soft cel shading, warm natural colors, every object fully separate on a plain flat solid bright magenta (#FF00FF) chroma-key background with empty space around it, no ground, no shadow, no text, no numbers, no characters, no border, no frame",
+	"width": 256,
+	"height": 256,
+	"no_background": false,
+	"seed": 762,
+	"style_options": {
+		"color_palette": false,
+		"outline": true,
+		"shading": true,
+		"detail": false
+	},
+	"style_image": {
+		"path": "sources/pixellab/sheets/N1_nature.png",
+		"usage_description": "Copy ONLY the art style of this reference: chunky chibi pixel art, thick dark outline on every shape, soft cel shading, front-facing view, one object centered in each cell. Do not copy these objects, their colors or their layout."
+	},
+	"jobId": "db2cdf4f-143c-46b6-af0a-bbd8df59f1df",
+	"token": 0,
+	"createdAt": "2026-11-11T03:17:27.326Z"
+}

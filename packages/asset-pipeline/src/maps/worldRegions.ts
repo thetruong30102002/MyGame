@@ -143,6 +143,8 @@ const MARSH: KitTheme = {
 	water: 'ponds',
 	sign: 'swamp_sign',
 	decal: 'd1',
+	// Quái sông đầm lầy (05/11/2026): Cá trê bùn bò lên bờ bằng vây.
+	riverMonster: 'mob_mud_catfish_001',
 };
 const SWAMPWOOD = theme(MARSH, {
 	fill: 'f',
@@ -216,6 +218,8 @@ const DUNES: KitTheme = {
 	landmarks: ['obelisk', 'statue_head', 'stone_tablet', 'buried_urn', 'scarab_block', 'ribcage', 'column_fallen', 'ruin_wall', 'rock_arch', 'dry_well', 'carved_column'],
 	water: 'none',
 	sign: 'signpost',
+	// Quái sông (05/11/2026): Cá sấu ốc đảo.
+	riverMonster: 'mob_oasis_croc_001',
 };
 const TOMBS = theme(DUNES, { road: 'c', rocks: ['red_rock', 'hiero_pillar', 'obelisk', 'statue_head', 'scarab_block', 'column_fallen', 'ruin_wall', 'boulder'], rockDensity: 6, landmarks: ['sarcophagus', 'hiero_pillar', 'torch_stand', 'stone_tablet', 'buried_urn', 'sphinx'] });
 
@@ -282,6 +286,8 @@ const UPLAND: KitTheme = {
 	water: 'ponds',
 	sign: 'windmill_sign',
 	decal: 'd1',
+	// Quái sông (05/11/2026): Rái cá suối gió.
+	riverMonster: 'mob_gale_otter_001',
 };
 const SKYRUINS = theme(UPLAND, {
 	road: 'c',
@@ -358,6 +364,8 @@ const SNOWFIELD: KitTheme = {
 	landmarks: ['ice_pillar', 'ice_stalagmites', 'frost_lantern', 'snow_grave', 'haven_vein', 'purple_ice', 'ice_spire'],
 	water: 'none',
 	sign: 'signpost',
+	// Quái sông (05/11/2026): Hải mã băng.
+	riverMonster: 'mob_ice_walrus_001',
 };
 const PINEWOOD = theme(SNOWFIELD, { fill: 'f', treeDensity: 44 });
 
@@ -429,6 +437,8 @@ const ASHLAND: KitTheme = {
 	landmarks: ['lava_pool', 'fumarole', 'dwarf_statue', 'hammer_head', 'sulfur_pool', 'basalt_column'],
 	water: 'ponds',
 	sign: 'signpost',
+	// Quái sông (05/11/2026): Lươn dung nham.
+	riverMonster: 'mob_lava_eel_001',
 };
 const FORGEWORKS = theme(ASHLAND, { water: 'none', landmarks: ['anvil', 'rune_anvil', 'rune_pillar', 'old_bellows', 'hammer_head', 'dwarf_statue', 'siphon_machine', 'coal_barrel', 'ore_cart', 'rail_track', 'iron_gate', 'ore_pile', 'smith_statue', 'workbench', 'hot_trough', 'kiln', 'armor_stand'] });
 
@@ -500,6 +510,8 @@ const BEACH: KitTheme = {
 	landmarks: ['anchor', 'buoy', 'lobster_trap', 'fish_barrel', 'cannon', 'crate', 'barrel', 'rowboat', 'mooring_post', 'flagpole', 'barrel_stack', 'hook_rack', 'small_rowboat', 'rusty_anchor'],
 	water: 'coast',
 	sign: 'signpost',
+	// Quái sông (05/11/2026): Rùa biển gai.
+	riverMonster: 'mob_spike_turtle_001',
 };
 const WRECKS = theme(BEACH, { landmarks: ['ship_wheel', 'cannon', 'rune_chest', 'gull_figurehead', 'ghost_lantern_brass', 'ship_planks', 'rusty_anchor', 'whale_ribs'], rocks: ['beach_rock', 'abyss_spire', 'brain_coral'] });
 

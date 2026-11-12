@@ -79,6 +79,8 @@ namespace HavenLord.Data.Ground
             public Rgb Foam, FlowerCore, Moss;
             /// <summary>Hoa dại trên nền cỏ (sa mạc, tuyết, tro núi lửa: không).</summary>
             public bool Flowers = true;
+            /// <summary>Vạt cỏ cao trên nền cỏ (sa mạc, tuyết, tro núi lửa, bãi biển: không) — tallGrass() của groundShade.ts.</summary>
+            public bool TallGrass = true;
             /// <summary>Màu phẳng d / c / w của bảng màu này cho minimap (vùng 2–7); false = giữ màu chung như cũ (vùng 1).</summary>
             public bool OwnFlat;
 
@@ -166,6 +168,7 @@ namespace HavenLord.Data.Ground
             Leaf = DryLeaf,
             Moss = Hsv(40, 0.4, 0.5),
             Flowers = false,
+            TallGrass = false,
             OwnFlat = true,
         };
 
@@ -199,6 +202,7 @@ namespace HavenLord.Data.Ground
             Leaf = Ramp((210, 0.1, 0.7), (210, 0.15, 0.6), (210, 0.05, 0.85)),
             Moss = Hsv(200, 0.15, 0.6),
             Flowers = false,
+            TallGrass = false,
             OwnFlat = true,
         };
 
@@ -217,6 +221,7 @@ namespace HavenLord.Data.Ground
             Leaf = Ramp((15, 0.7, 0.5), (25, 0.8, 0.6), (5, 0.6, 0.35)),
             Moss = Hsv(15, 0.6, 0.4),
             Flowers = false,
+            TallGrass = false,
             OwnFlat = true,
         };
 
@@ -233,6 +238,7 @@ namespace HavenLord.Data.Ground
             FlowerCore = Hsv(20, 0.3, 0.9),
             Leaf = DryLeaf,
             Moss = Hsv(90, 0.35, 0.5),
+            TallGrass = false,
             OwnFlat = true,
         };
 
@@ -520,6 +526,11 @@ namespace HavenLord.Data.Ground
             var lvl = GrassLevel(x, y);
             if (k2 == F && d < 7 && Noise.Hash2(x, y, s + 70) < (1 - d / 7) * 0.55) return Forest(x, y);
             if (k2 == W && d < 4) return d < 1.6 ? pal.Dirt[1] : pal.Grass[Math.Max(0, lvl - 2)];
+            if (pal.TallGrass && (k2 == G || d > 10))
+            {
+                var tall = TallGrass(x, y);
+                if (tall.HasValue) return tall.Value;
+            }
             var meadow = Noise.Fbm(x / 90.0, y / 90.0, s + 4, 2);
             var bloom = Noise.Fbm(x / 45.0, y / 45.0, s + 16, 2);
             if (pal.Flowers && bloom > 0.64)
@@ -527,12 +538,44 @@ namespace HavenLord.Data.Ground
                 var fl = Flower(x, y, Math.Min(0.6, (bloom - 0.64) * 3));
                 if (fl.HasValue) return fl.Value;
             }
-            var b = Blade(x, y, 6, 0.22 + meadow * 0.5, s + 200);
+            // Ngọn cỏ mọc thành VẠT (05/11/2026, "clean"): vạt dày mép mềm xen bãi cỏ phẳng yên.
+            var b = Blade(x, y, 6, meadow > 0.56 ? Math.Min(0.72, 0.3 + (meadow - 0.56) * 2.2) : 0.05, s + 200);
             if (b == 1) return pal.Grass[Math.Min(6, lvl + 2)];
             if (b == 2) return pal.Grass[Math.Min(6, lvl + 1)];
             if (b == 3) lvl -= 1;
             if ((k2 == D || k2 == C) && d < 1.4 && Noise.Hash2(x >> 1, y >> 1, s + 71) > 0.25) lvl = Math.Min(lvl, 1) - 1;
             return pal.Grass[Math.Max(0, lvl)];
+        }
+
+        /// <summary>Ngưỡng nhiễu vạt cỏ cao — TALL của groundShade.ts.</summary>
+        private const double Tall = 0.67;
+
+        private double TallMask(int x, int yy)
+        {
+            var s = seed;
+            return Noise.Fbm(x / 84.0, yy / 84.0, s + 30, 2) + (Noise.ValueNoise(x / 10.0, yy / 10.0, s + 33) - 0.5) * 0.1 + (Noise.ValueNoise(x / 2.0, yy / 4.0, s + 31) - 0.5) * 0.04;
+        }
+
+        /// <summary>
+        /// Vạt cỏ cao (05/11/2026, chủ dự án so map tham khảo: "cải tiến xịn như video"): mảng cỏ cao sáng, mép lượn răng cưa, thớ
+        /// dọc, ngọn sáng mép trên, bóng đổ dưới mép dưới. Ngoài vạt: null. Chép tallGrass() của groundShade.ts.
+        /// </summary>
+        private Rgb? TallGrass(int x, int y)
+        {
+            var s = seed;
+            var here = TallMask(x, y) > Tall;
+            var above = TallMask(x, y - 7) > Tall;
+            if (!here)
+            {
+                if (!above) return null;
+                return TallMask(x, y - 3) > Tall || Noise.Hash2(x, y, s + 34) < 0.5 ? pal.Grass[0] : pal.Grass[1];
+            }
+            var streak = Noise.ValueNoise(x / 1.5, y / 9.0, s + 32);
+            var body = Noise.Fbm(x / 30.0, y / 30.0, s + 35, 2);
+            var lvl = 3 + (body > 0.5 ? 1 : 0) + (streak > 0.6 ? 1 : 0) + (streak > 0.84 ? 1 : 0) - (streak < 0.22 ? 1 : 0);
+            if (!above) lvl += 1;
+            if (TallMask(x, y + 6) <= Tall) lvl -= 1;
+            return pal.Grass[Math.Max(1, Math.Min(6, lvl))];
         }
 
         private Rgb Forest(int x, int y)

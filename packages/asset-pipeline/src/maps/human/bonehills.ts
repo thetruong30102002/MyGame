@@ -1,5 +1,6 @@
 import type { PropMeta } from '../../props/buildProps.js';
-import { decalsOf, Layout, TILE, px, type MapData, type MonsterZone } from './common.js';
+import { decalsOf, Layout, TILE, px, type MapData, type MonsterZone, riverZone } from './common.js';
+import { finishWithStory } from '../storyBits.js';
 
 /**
  * Đồi Xương Trắng — phía đông Nghĩa địa. CHỈ một loại quái: cung thủ xương (bắn xa), mỗi bãi xương một bầy nhỏ — bầy
@@ -62,6 +63,10 @@ export function buildBonehills(meta: Record<string, PropMeta>, decalIds: string[
 	] as const)
 		L.place('spike_barricade', px(x), px(y), { force: true });
 
+	// Suối (05/11/2026 "nhiều sông suối hơn"): tự tìm đường né bầy, chỗ giữ trống, đồ vật đã đặt; cắt đường thành cầu gỗ.
+	L.autoStream({ avoid: camps, keep: [] });
+	// Bãi quái sông Cua đá suối (05/11/2026): sát bờ, giữ trống trước khi rải cây / đá.
+	const crab = L.riverSpot(camps);
 	L.clumps(70, ['tree_dead', 'tree_dead_flip', 'dead_stump'], 5, 2.2, (id, x, y) => L.place(id, x, y, { canopy: true }));
 	L.clumps(150, ['pale_rocks', 'bone_pile', 'bone_pile', 'broken_sword', 'dead_bush', 'boulder', 'beast_skull', 'rock_outcrop'], 3, 1.4, (id, x, y) => L.place(id, x, y));
 	L.sprinkleDecals(decalsOf(decalIds, 'd2'), 1400);
@@ -77,13 +82,13 @@ export function buildBonehills(meta: Record<string, PropMeta>, decalIds: string[
 		fromAge: 16,
 	});
 
-	return L.finish({
+	return finishWithStory(L, 3, {
 		id: 'bonehills',
 		name: 'Đồi Xương Trắng',
 		biome: 'deadland',
 		spawn: { x: px(2), y: px(19) + 24 },
 		npcs: [],
-		monsterZones: camps.map(zone),
+		monsterZones: [...camps.map(zone), ...(crab ? [riverZone(crab, 'bonehills', 'Đồi Xương', 5)] : [])],
 		boss: null,
 		spots: [
 			{ id: 'west_entry_bh', name: 'Đường về Nghĩa địa', x: px(2), y: px(19) + 24, r: 60 },

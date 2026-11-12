@@ -1,0 +1,34 @@
+{
+	"id": "boss_solar_flare",
+	"kind": "burst",
+	"canvas": {
+		"w": 160,
+		"h": 160
+	},
+	"first": {
+		"prompt": "a small radiant golden-white sun orb with short sharp light rays, blazing in mid-air, made only of light and fire, no object, no stand, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "b6ddd38d-fc49-45a8-b566-eeb13aad8b97",
+		"drawn": "first_drawn.png"
+	},
+	"action": "the sun orb swells brighter then explodes outward into a huge ring of golden flames and radiant rays, then the flames scatter into golden sparks and fade",
+	"frameCount": 10,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png",
+		"frame_009.png",
+		"frame_010.png"
+	],
+	"animateJobId": "e831dcd7-ad66-4271-b9f6-ef95dbfecdc4",
+	"createdAt": "2026-11-05T15:24:43.136Z",
+	"token": 0
+}

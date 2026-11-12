@@ -1,0 +1,27 @@
+{
+	"id": "boss_ghost_cannonball",
+	"kind": "loop",
+	"canvas": {
+		"w": 36,
+		"h": 36
+	},
+	"first": {
+		"prompt": "a black iron cannonball wreathed in eerie sea-green ghost fire flying toward the right, a trail of pale ghostly mist and green sparks behind it to the left, side view, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "ca5e987d-c469-4563-be87-40914ead1cee"
+	},
+	"action": "the ghost fire around the cannonball flickers and the misty trail swirls, seamless loop",
+	"frameCount": 4,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png"
+	],
+	"animateJobId": "9f623181-5362-4744-a350-439c0556b4e4",
+	"createdAt": "2026-11-05T14:39:41.805Z",
+	"token": 0
+}

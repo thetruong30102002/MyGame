@@ -1,0 +1,27 @@
+{
+	"id": "boss_demon_hellbolt",
+	"kind": "loop",
+	"canvas": {
+		"w": 36,
+		"h": 36
+	},
+	"first": {
+		"prompt": "a horned crimson and black hellfire bolt flying toward the right, a fanged demonic face shape in the dark flame, bright orange core, ragged black smoke tail behind it to the left, side view, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "d1287263-01b2-493b-9329-b15e855a99c5"
+	},
+	"action": "the hellfire bolt flickers and roars, dark flames lick backward, seamless loop",
+	"frameCount": 4,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png"
+	],
+	"animateJobId": "7e3b9e32-dfe1-4238-a985-b508e0b14a41",
+	"createdAt": "2026-11-05T14:29:02.878Z",
+	"token": 0
+}

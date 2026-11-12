@@ -101,6 +101,14 @@
 						"mob_beach_crab_001"
 					],
 					"level": 61
+				},
+				{
+					"id": "whitesands_river",
+					"monsters": [
+						"mob_spike_turtle_001"
+					],
+					"level": 60,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -163,6 +171,14 @@
 						"mob_reef_jellyfish_001"
 					],
 					"level": 62
+				},
+				{
+					"id": "shallowreef_river",
+					"monsters": [
+						"mob_spike_turtle_001"
+					],
+					"level": 61,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -233,6 +249,14 @@
 						"mob_pirate_001"
 					],
 					"level": 63
+				},
+				{
+					"id": "piratecove_river",
+					"monsters": [
+						"mob_spike_turtle_001"
+					],
+					"level": 62,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -303,6 +327,14 @@
 						"mob_coral_merfolk_001"
 					],
 					"level": 64
+				},
+				{
+					"id": "merlagoon_river",
+					"monsters": [
+						"mob_spike_turtle_001"
+					],
+					"level": 63,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -373,6 +405,14 @@
 						"mob_wreck_octopus_001"
 					],
 					"level": 65
+				},
+				{
+					"id": "wreckshore_river",
+					"monsters": [
+						"mob_spike_turtle_001"
+					],
+					"level": 64,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -443,6 +483,14 @@
 						"mob_beach_crab_001"
 					],
 					"level": 66
+				},
+				{
+					"id": "crabbeach_river",
+					"monsters": [
+						"mob_spike_turtle_001"
+					],
+					"level": 65,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -499,6 +547,14 @@
 						"mob_reef_jellyfish_001"
 					],
 					"level": 67
+				},
+				{
+					"id": "coralreef_river",
+					"monsters": [
+						"mob_spike_turtle_001"
+					],
+					"level": 66,
+					"river": true
 				},
 				{
 					"id": "coralreef_boss",
@@ -576,6 +632,14 @@
 						"mob_pirate_001"
 					],
 					"level": 68
+				},
+				{
+					"id": "pirateisle_river",
+					"monsters": [
+						"mob_spike_turtle_001"
+					],
+					"level": 67,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -646,6 +710,14 @@
 						"mob_coral_merfolk_001"
 					],
 					"level": 69
+				},
+				{
+					"id": "merfolkmarsh_river",
+					"monsters": [
+						"mob_spike_turtle_001"
+					],
+					"level": 68,
+					"river": true
 				}
 			],
 			"dummies": [],
@@ -710,6 +782,14 @@
 						"mob_wreck_octopus_001"
 					],
 					"level": 70
+				},
+				{
+					"id": "wreckyard_river",
+					"monsters": [
+						"mob_spike_turtle_001"
+					],
+					"level": 69,
+					"river": true
 				},
 				{
 					"id": "wreckyard_boss",

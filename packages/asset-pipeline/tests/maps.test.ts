@@ -19,9 +19,9 @@ console.log('maps');
 const region = buildHumanRegion({}, []);
 const clone = (): MapData[] => JSON.parse(JSON.stringify(region.maps)) as MapData[];
 
-test('vùng thật đạt luật: 12 map (thiết kế 10/10/2026), lối hai chiều, chỉ mục khớp', () => {
+test('vùng thật đạt luật: 12 map (thiết kế 10/10/2026) + Đồng Cỏ Linh Cẩu (05/11/2026), lối hai chiều, chỉ mục khớp', () => {
 	assert.deepEqual(validateRegion(region.maps), []);
-	assert.deepEqual(Object.keys(region.index.maps).sort(), ['bonehills', 'cliffs', 'gargoyle_cave', 'graveyard', 'mossrift', 'mossvale', 'nameless', 'oldfort', 'riverflats', 'rivergate', 'shrine', 'town']);
+	assert.deepEqual(Object.keys(region.index.maps).sort(), ['bonehills', 'cliffs', 'gargoyle_cave', 'graveyard', 'hyenafield', 'mossrift', 'mossvale', 'nameless', 'oldfort', 'riverflats', 'rivergate', 'shrine', 'town']);
 	const to = (id: string): string[] => region.index.maps[id]!.exits.map((e) => e.to).sort();
 	assert.deepEqual(to('town'), ['graveyard', 'mossvale', 'riverflats']);
 	assert.deepEqual(to('mossvale'), ['mossrift', 'oldfort', 'shrine', 'town']);
@@ -29,14 +29,16 @@ test('vùng thật đạt luật: 12 map (thiết kế 10/10/2026), lối hai ch
 	assert.deepEqual(to('bonehills'), ['graveyard', 'oldfort']);
 	assert.deepEqual(to('cliffs'), ['gargoyle_cave', 'graveyard']);
 	assert.deepEqual(to('shrine'), ['mossvale']);
-	assert.deepEqual(to('riverflats'), ['mossrift', 'rivergate', 'town']);
+	assert.deepEqual(to('riverflats'), ['hyenafield', 'mossrift', 'rivergate', 'town']);
+	assert.deepEqual(to('hyenafield'), ['riverflats']);
 	assert.deepEqual(to('mossrift'), ['mossvale', 'riverflats']);
 	assert.deepEqual(to('nameless'), ['gargoyle_cave', 'graveyard']);
 	assert.deepEqual(to('oldfort'), ['bonehills', 'mossvale']);
 	assert.deepEqual(to('gargoyle_cave'), ['cliffs', 'nameless']);
 	assert.deepEqual(to('rivergate'), ['riverflats', 'swamp/hub']);
-	// 14 cạnh trong vùng (28 lối) + 1 lối sang vùng 2.
-	assert.equal(region.maps.reduce((n, m) => n + m.exits.length, 0), 29);
+	// 15 cạnh trong vùng (30 lối) + 1 lối sang vùng 2.
+	assert.equal(region.maps.reduce((n, m) => n + m.exits.length, 0), 31);
+	assert.ok(region.index.maps.hyenafield!.zones.some((z) => z.monsters.includes('boss_cursed_oak_001')));
 	assert.equal(region.index.maps.shrine!.boss, 'boss_demon_001');
 	assert.ok(region.index.maps.town!.spots.includes('home') && region.index.maps.mossvale!.spots.includes('forest_edge'));
 });
@@ -64,7 +66,7 @@ test('Hang Gargoyle: một khu boss Gargoyle Đá 1 con; quái thường là dơ
 
 test('cấp quái theo khu: map cũ không khai cấp (chỉ số gốc), map mới có; chỉ mục ghi cấp từng khu + khoảng cấp của map', () => {
 	for (const id of ['town', 'mossvale', 'shrine', 'graveyard', 'bonehills', 'cliffs']) {
-		assert.ok(region.maps.find((m) => m.id === id)!.monsterZones.every((z) => z.level === undefined), `${id}: không khai level`);
+		assert.ok(region.maps.find((m) => m.id === id)!.monsterZones.every((z) => z.level === undefined || z.river), `${id}: không khai level (trừ bầy quái sông)`);
 		assert.equal(region.index.maps[id]!.levels, undefined, id);
 	}
 	const levels = (id: string) => region.index.maps[id]!.levels;
@@ -90,6 +92,8 @@ test('cấp quái theo khu: map cũ không khai cấp (chỉ số gốc), map m�
 			['rf_levee', 8, 15, 1],
 			['rf_oldbed', 16, undefined, 3],
 			['rf_east_bank', 16, undefined, 4],
+			// Bầy quái sông Cua đá suối (05/11/2026) sát bờ sông Brightwater.
+			['riverflats_river', 16, undefined, 3],
 		],
 	);
 });
@@ -136,10 +140,11 @@ test('lối hai chiều phải ở hai mép đối diện (ra mép bắc → và
 	assert.ok(validateRegion(a).some((e) => e.startsWith('town') && e.includes('to_riverflats') && e.includes('mép N')));
 });
 
-test('mỗi map chỉ một loại quái, bầy ≥ 3 con (vùng boss 1 con đứng ngoài luật)', () => {
+test('mỗi map chỉ một loại quái (+ tối đa một loài quái sông), bầy ≥ 3 con (vùng boss 1 con đứng ngoài luật)', () => {
 	for (const m of region.maps) {
 		const packs = m.monsterZones.filter((z) => !z.boss);
-		assert.ok(new Set(packs.flatMap((z) => z.monsters)).size <= 1, m.id);
+		assert.ok(new Set(packs.filter((z) => !z.river).flatMap((z) => z.monsters)).size <= 1, m.id);
+		assert.ok(new Set(packs.filter((z) => z.river).flatMap((z) => z.monsters)).size <= 1, `${m.id}: quái sông`);
 		for (const z of packs) assert.ok(z.count >= 3, `${m.id}/${z.id}`);
 		for (const z of m.monsterZones) if (z.boss) assert.ok(z.count === 1 && z.monsters.length === 1, `${m.id}/${z.id}`);
 	}

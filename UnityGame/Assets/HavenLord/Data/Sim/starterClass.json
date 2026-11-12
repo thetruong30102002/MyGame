@@ -1,4 +1,18 @@
 {
+	"CLASS_SHOP2_OUTFIT": {
+		"sword": "swordsman_outfit_2",
+		"staff": "mage_outfit_2",
+		"spear": "lancer_outfit_2",
+		"shield": "guard_outfit_2",
+		"bow": "archer_outfit_2"
+	},
+	"CLASS_STARTER_OUTFIT": {
+		"sword": "swordsman_outfit_1",
+		"staff": "mage_outfit_1",
+		"spear": "lancer_outfit_1",
+		"shield": "guard_outfit_1",
+		"bow": "archer_outfit_1"
+	},
 	"SWORD_TIERS": [
 		{
 			"level": 1,

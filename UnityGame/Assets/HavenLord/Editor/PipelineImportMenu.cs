@@ -111,6 +111,7 @@ namespace HavenLord.Importer
                     CharacterImporter.ImportAll(src, report, Progress);
                     LayeredImporter.ImportAll(src, report);
                     MapImporter.ImportAll(src, report, Progress);
+                    MapImporter.ImportHomeProps(src, report);
                 }
                 finally
                 {

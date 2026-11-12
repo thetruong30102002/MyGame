@@ -1,0 +1,32 @@
+{
+	"id": "boss_kraken_ink_splash",
+	"kind": "burst",
+	"canvas": {
+		"w": 64,
+		"h": 64
+	},
+	"first": {
+		"prompt": "a flat splatter of liquid black and deep violet squid ink seen from above, a central puddle with radiating splash streaks and round droplets, glossy purple highlights, just liquid, no squid, no octopus, no creature, no face, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "e3896974-c712-4e21-a0bf-1c1efa7d5f26",
+		"drawn": "first_drawn.png"
+	},
+	"action": "the ink splashes outward into a wide splatter of dark purple droplets and drips, then the splatter shrinks and fades away",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "f706bd3a-2a2c-4706-81dc-c5ef03b71052",
+	"createdAt": "2026-11-05T14:14:34.370Z",
+	"token": 0
+}

@@ -142,7 +142,7 @@ namespace HavenLord.Client.UI
 
         public static QuestTracker Create(RectTransform canvas, Action click)
         {
-            var rt = UiKit.Rect(canvas, "Quest", new Vector2(1, 1), new Vector2(1, 1), new Vector2(-14, -248), new Vector2(260, 64));
+            var rt = UiKit.Rect(canvas, "Quest", new Vector2(1, 1), new Vector2(1, 1), new Vector2(-14, -286), new Vector2(260, 64));
             var q = rt.gameObject.AddComponent<QuestTracker>();
             q.root = rt;
             UiStyle.Card(rt, UiStyle.CardKind.Hud, 10, true, true);

@@ -40,6 +40,7 @@ namespace HavenLord.Client.UI
             var info = codex["MONSTER_INFO"] as JObject ?? new JObject();
             var lore = codex["NPC_LORE"] as JObject ?? new JObject();
             var outList = new List<CodexEntry>();
+            var prog = new Progression(sim);
             var regions = game.Database.regions.Where(r => r != null).ToList();
             foreach (var kv in sim.EnemyStats)
             {
@@ -53,13 +54,18 @@ namespace HavenLord.Client.UI
                     Sprite = game.Database.HasCharacter(id) ? id : null, Stats = kv.Value,
                 };
                 e.Titles.Add((string)mi?["kind"] ?? (boss ? "Boss" : "Quái thường"));
+                // Nơi ở kèm cấp (chủ dự án 05/11/2026: "tìm quái là sẽ biết ở map nào"): "Rừng Mossvale · cấp 2–3", bầy sát nước thêm "bờ suối".
                 foreach (var r in regions)
                 foreach (var m in r.maps)
                 {
                     if (m == null) continue;
-                    var has = m.boss == id || (m.zones != null && m.zones.Any(z => z.monsters != null && Array.IndexOf(z.monsters, id) >= 0));
-                    if (has && !e.Places.Contains(m.name)) e.Places.Add(m.name);
-                    if (has && !e.Regions.Contains(r.region)) e.Regions.Add(r.region);
+                    var here = m.zones?.Where(z => z.monsters != null && Array.IndexOf(z.monsters, id) >= 0).ToList() ?? new List<HavenLord.Data.WorldZoneRef>();
+                    if (m.boss != id && here.Count == 0) continue;
+                    if (!e.Regions.Contains(r.region)) e.Regions.Add(r.region);
+                    var lv = here.Select(z => prog.EnemyLevel(id, z.level >= 0 ? z.level : (double?)null)).Where(x => x.HasValue).Select(x => x.Value).ToList();
+                    if (lv.Count == 0 && prog.EnemyLevel(id) is int b) lv.Add(b);
+                    var place = m.name + (lv.Count == 0 ? "" : lv.Min() == lv.Max() ? $" · cấp {lv.Min()}" : $" · cấp {lv.Min()}–{lv.Max()}") + (here.Count > 0 && here.All(z => z.river) ? " (bờ suối)" : "");
+                    if (!e.Places.Contains(place)) e.Places.Add(place);
                 }
                 outList.Add(e);
             }

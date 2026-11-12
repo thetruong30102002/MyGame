@@ -1,0 +1,31 @@
+{
+	"id": "boss_ice_hail",
+	"kind": "burst",
+	"canvas": {
+		"w": 128,
+		"h": 128
+	},
+	"first": {
+		"prompt": "a cluster of large hailstones and chunks of pale blue ice falling down from above with frosty streaks, three-quarter top-down view, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "9dd2412a-830f-47ec-a953-2d79b70c72fd"
+	},
+	"action": "the hailstones plunge down with frosty streaks and smash into icy fragments and frost puffs, then the fragments melt away",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "c3029ff6-8419-4bac-93bc-ec11472b7ea3",
+	"createdAt": "2026-11-05T16:06:33.985Z",
+	"token": 0
+}

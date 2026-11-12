@@ -9,6 +9,7 @@ import { buildMossvale } from './mossvale.js';
 import { buildNameless } from './nameless.js';
 import { buildOldfort } from './oldfort.js';
 import { buildRiverflats } from './riverflats.js';
+import { buildHyenafield } from './hyenafield.js';
 import { buildRivergate } from './rivergate.js';
 import { buildShrine } from './shrine.js';
 import { buildTown } from './town.js';
@@ -40,7 +41,7 @@ export interface WorldIndex {
 			exits: { id: string; to: string; x: number; y: number; label: string }[];
 			spots: string[];
 			/** `level`: cấp quái của khu (vắng = chỉ số gốc của loại). */
-			zones: { id: string; monsters: string[]; level?: number }[];
+			zones: { id: string; monsters: string[]; level?: number; river?: boolean }[];
 			dummies: string[];
 			boss: string | null;
 			/** Khoảng cấp quái [thấp, cao] tính từ các khu có khai `level`; map an toàn / map chỉ dùng chỉ số gốc thì vắng. */
@@ -63,6 +64,7 @@ export function buildHumanRegion(meta: Record<string, PropMeta>, decalIds: strin
 		buildBonehills(meta, decalIds),
 		buildCliffs(meta, decalIds),
 		buildRiverflats(meta, decalIds, 20261201),
+		buildHyenafield(meta, decalIds),
 		buildMossrift(meta, decalIds, 20261202),
 		buildNameless(meta, decalIds, 20261203),
 		buildOldfort(meta, decalIds, 20261204),
@@ -81,7 +83,8 @@ export function worldIndex(region: string, start: string, maps: MapData[]): Worl
 		start,
 		maps: Object.fromEntries(
 			maps.map((m) => {
-				const levels = m.monsterZones.flatMap((z) => (z.level === undefined ? [] : [z.level]));
+				// Khoảng cấp của map theo quái CHÍNH — bầy quái sông (cấp theo map, 05/11/2026) không tính.
+				const levels = m.monsterZones.flatMap((z) => (z.level === undefined || z.river ? [] : [z.level]));
 				return [
 					m.id,
 					{
@@ -90,7 +93,7 @@ export function worldIndex(region: string, start: string, maps: MapData[]): Worl
 						height: m.height * m.tileSize,
 						exits: m.exits.map((e) => ({ id: e.id, to: e.to, x: Math.round((e.x0 + e.x1) / 2), y: Math.round((e.y0 + e.y1) / 2), label: e.label })),
 						spots: m.spots.map((s) => s.id),
-						zones: m.monsterZones.map((z) => ({ id: z.id, monsters: z.monsters, ...(z.level === undefined ? {} : { level: z.level }) })),
+						zones: m.monsterZones.map((z) => ({ id: z.id, monsters: z.monsters, ...(z.level === undefined ? {} : { level: z.level }), ...(z.river ? { river: true } : {}) })),
 						dummies: m.dummies.map((d) => d.id),
 						boss: m.boss?.characterId ?? null,
 						...(levels.length ? { levels: [Math.min(...levels), Math.max(...levels)] as [number, number] } : {}),

@@ -922,5 +922,113 @@
 			"w": 9,
 			"h": 10
 		}
+	},
+	"nm_dai_sanh_nam": {
+		"kind": "building",
+		"w": 328,
+		"h": 280,
+		"blocks": true,
+		"footprint": {
+			"x": -131,
+			"y": -64,
+			"w": 262,
+			"h": 64
+		}
+	},
+	"nm_cum_nam_lam": {
+		"kind": "decor",
+		"w": 91,
+		"h": 96,
+		"blocks": true,
+		"footprint": {
+			"x": -28,
+			"y": -14,
+			"w": 55,
+			"h": 14
+		}
+	},
+	"nm_mang_nam_tim": {
+		"kind": "flower",
+		"w": 123,
+		"h": 40,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"nm_mang_da_nhu": {
+		"kind": "rock",
+		"w": 58,
+		"h": 88,
+		"blocks": true,
+		"footprint": {
+			"x": -18,
+			"y": -14,
+			"w": 35,
+			"h": 14
+		}
+	},
+	"nm_den_bao_tu": {
+		"kind": "decor",
+		"w": 44,
+		"h": 72,
+		"blocks": true,
+		"footprint": {
+			"x": -9,
+			"y": -10,
+			"w": 18,
+			"h": 10
+		}
+	},
+	"nm_vung_bao_tu": {
+		"kind": "flower",
+		"w": 75,
+		"h": 28,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"nm_than_nam_do": {
+		"kind": "rock",
+		"w": 93,
+		"h": 44,
+		"blocks": true,
+		"footprint": {
+			"x": -37,
+			"y": -14,
+			"w": 74,
+			"h": 14
+		}
+	},
+	"nm_tinh_the_soi_nam": {
+		"kind": "rock",
+		"w": 48,
+		"h": 64,
+		"blocks": true,
+		"footprint": {
+			"x": -15,
+			"y": -14,
+			"w": 29,
+			"h": 14
+		}
+	},
+	"nm_gian_trong_nam": {
+		"kind": "decor",
+		"w": 57,
+		"h": 76,
+		"blocks": true,
+		"footprint": {
+			"x": -24,
+			"y": -14,
+			"w": 48,
+			"h": 14
+		}
 	}
 }

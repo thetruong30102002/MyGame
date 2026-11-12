@@ -1,0 +1,32 @@
+{
+	"id": "boss_demon_hellbolt_burst",
+	"kind": "burst",
+	"canvas": {
+		"w": 64,
+		"h": 64
+	},
+	"first": {
+		"prompt": "a small burst of crimson and black hellfire just starting, bright orange core, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "6e95b27c-df8f-4bfb-8217-904b2dfa892f",
+		"drawn": "first_drawn.png"
+	},
+	"action": "the hellfire bursts outward into ragged crimson flames and black smoke with flying embers, then burns out and fades",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "d5368eaf-21e2-4aeb-a544-1af8642b9824",
+	"createdAt": "2026-11-05T14:32:01.309Z",
+	"token": 0
+}

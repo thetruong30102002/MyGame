@@ -1,0 +1,32 @@
+{
+	"id": "boss_witch_hex_pop",
+	"kind": "burst",
+	"canvas": {
+		"w": 64,
+		"h": 64
+	},
+	"first": {
+		"prompt": "a translucent green poison bubble bursting apart, a ring of toxic green droplets flying outward and a puff of purple hex smoke, just energy and particles, no creature, no face, no eyes, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "4ea4cae2-a1c8-49db-9a34-be4d66372219",
+		"drawn": "first_drawn.png"
+	},
+	"action": "the bubble pops into a spray of toxic green droplets and a curl of purple hex smoke, then the smoke thins and fades",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "75086718-a911-42f2-9d16-f1ea522f91ca",
+	"createdAt": "2026-11-05T16:14:31.367Z",
+	"token": 0
+}

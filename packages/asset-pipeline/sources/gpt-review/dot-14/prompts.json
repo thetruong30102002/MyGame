@@ -1,0 +1,51 @@
+[
+  {
+    "id": "tl_nha_quan_ruou",
+    "file": "tl_nha_quan_ruou.png",
+    "prompt": "The town tavern and inn, the largest of the service buildings, two floors, warm light through many windows, a hanging emblem board shaped like a foaming mug (no letters), barrels and a bench by the door, built as a cozy medieval timber-framed building of oak beams and cream stone, moss-green tiled roof, small paned windows with flower boxes. Front yard base: a short cobblestone yard with a few flowers right at the foot.\n\nChunky chibi pixel art game sprite of one town building in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 3×3 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single building centered with at least 6% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The front door is in the middle of the front face and clearly visible. The base is a narrow flat strip of its own yard with a straight bottom edge. No cast shadow, no scenery, no sky, no other buildings, no text, no letters, no numbers, no signs with writing, no people, no animals, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/human_house_store_x4.png",
+      "mau-tham-chieu/human_house_inn_x4.png",
+      "dot-1/tl_toa_thi_chinh.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 9.15%, trên 5.75%, phải 1.83%, dưới 4.42%. Chưa đạt: khổ ảnh 1312×1199 thay vì 1536×1024; có lề dưới 5%. Cần vẽ lại khi image_gen mở hạn mức."
+  },
+  {
+    "id": "tl_nha_ngan_hang",
+    "file": "tl_nha_ngan_hang.png",
+    "prompt": "The town bank, a solid dignified building with a heavy reinforced front door, small barred windows, a hanging emblem board shaped like a gold coin (no letters), built as a cozy medieval timber-framed building of oak beams and cream stone, moss-green tiled roof, small paned windows with flower boxes. Front yard base: a short cobblestone yard with a few flowers right at the foot.\n\nChunky chibi pixel art game sprite of one town building in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 3×3 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single building centered with at least 6% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The front door is in the middle of the front face and clearly visible. The base is a narrow flat strip of its own yard with a straight bottom edge. No cast shadow, no scenery, no sky, no other buildings, no text, no letters, no numbers, no signs with writing, no people, no animals, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/human_house_store_x4.png",
+      "mau-tham-chieu/human_house_inn_x4.png",
+      "dot-1/tl_toa_thi_chinh.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 7.93%, trên 2.75%, phải 4.12%, dưới 4.25%. Chưa đạt: khổ ảnh 1312×1199 thay vì 1536×1024; có lề dưới 5%. Cần vẽ lại khi image_gen mở hạn mức."
+  },
+  {
+    "id": "tl_nha_vu_khi",
+    "file": "tl_nha_vu_khi.png",
+    "prompt": "The weapon shop, a hanging emblem board shaped like crossed swords (no letters), a rack of spears and bows under the porch roof, built as a cozy medieval timber-framed building of oak beams and cream stone, moss-green tiled roof, small paned windows with flower boxes. Front yard base: a short cobblestone yard with a few flowers right at the foot.\n\nChunky chibi pixel art game sprite of one town building in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 3×3 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single building centered with at least 6% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The front door is in the middle of the front face and clearly visible. The base is a narrow flat strip of its own yard with a straight bottom edge. No cast shadow, no scenery, no sky, no other buildings, no text, no letters, no numbers, no signs with writing, no people, no animals, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/human_house_store_x4.png",
+      "mau-tham-chieu/human_house_inn_x4.png",
+      "dot-1/tl_toa_thi_chinh.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 8.16%, trên 6.59%, phải 4.88%, dưới 5.34%. Chưa đạt: khổ ảnh 1312×1199 thay vì 1536×1024; có lề dưới 5%. Cần vẽ lại khi image_gen mở hạn mức."
+  },
+  {
+    "id": "tl_nha_trang_bi",
+    "file": "tl_nha_trang_bi.png",
+    "prompt": "The armor and outfit shop, a hanging emblem board shaped like a chest armor plate (no letters), a display window with folded cloaks and boots, built as a cozy medieval timber-framed building of oak beams and cream stone, moss-green tiled roof, small paned windows with flower boxes. Front yard base: a short cobblestone yard with a few flowers right at the foot.\n\nChunky chibi pixel art game sprite of one town building in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 3×3 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single building centered with at least 6% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The front door is in the middle of the front face and clearly visible. The base is a narrow flat strip of its own yard with a straight bottom edge. No cast shadow, no scenery, no sky, no other buildings, no text, no letters, no numbers, no signs with writing, no people, no animals, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/human_house_store_x4.png",
+      "mau-tham-chieu/human_house_inn_x4.png",
+      "dot-1/tl_toa_thi_chinh.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 7.01%, trên 5.92%, phải 4.5%, dưới 5.84%. Chưa đạt: khổ ảnh 1312×1199 thay vì 1536×1024; có lề dưới 5%. Cần vẽ lại khi image_gen mở hạn mức."
+  }
+]
+

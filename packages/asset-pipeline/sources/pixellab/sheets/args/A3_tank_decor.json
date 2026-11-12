@@ -1,0 +1,15 @@
+{
+	"description": "A sprite sheet of TWELVE separate underwater aquarium decorations arranged in a grid of 4 columns and 3 rows, each centered in its own cell, seen from the side as in a fish tank. Row 1: a low patch of colorful aquarium gravel, a soft mound of white sand, a pile of smooth round river stones, a big grey rock arch. Row 2: a mossy green rock, a twisted piece of driftwood, tall green seaweed strands, short red seaweed. Row 3: long wavy brown kelp ribbon, a clump of bright sea grass, a leafy aquatic fern, a round green moss ball. Side view, thick dark outline, soft cel shading, every object fully separate on a plain flat solid bright magenta (#FF00FF) chroma-key background with empty space around it, no fish, no animals, no characters, no shadow, no text, no numbers, no border, no frame",
+	"width": 256,
+	"height": 256,
+	"no_background": false,
+	"seed": 1114,
+	"style_options": {
+		"color_palette": false,
+		"outline": true,
+		"shading": true,
+		"detail": false
+	},
+	"style_image_path": "sources/pixellab/sheets/N1_nature.png",
+	"style_usage": "Copy ONLY the art style of this reference: chunky chibi pixel art, thick dark outline on every shape, soft cel shading, front-facing view, one object centered in each cell. Do not copy these objects, their colors or their layout."
+}

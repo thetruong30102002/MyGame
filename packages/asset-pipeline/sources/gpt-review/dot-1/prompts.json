@@ -1,0 +1,188 @@
+[
+  {
+    "id": "gv_nha_chinh",
+    "file": "gv_nha_chinh.png",
+    "prompt": "A cozy two-storey farmhouse: red clay tile roof, cream plaster walls with dark timber frame, wooden front porch with two posts and a bench, stone chimney, flower boxes under the windows, a round attic window, big wooden front door with a lantern.\n\nChunky chibi pixel art game sprite in EXACTLY the same style as the attached reference: front view with a slight top-down angle,\nthick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm saturated colors,\nlimited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel is the same size, about 4×4 image pixels),\nno anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space around it,\non a perfectly flat solid magenta #FF00FF background. No cast shadow on the ground, no scenery, no text, no letters,\nno numbers, no signs with writing, no people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/human_house_farm_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/human_house_inn_x4.png"
+    ],
+    "tries": 1,
+    "note": "Ảnh nguồn 1292×1218; tạo bằng image_gen tích hợp, giữ nguyên ảnh sinh. Chưa đạt kỹ thuật: lề trái/trên/phải/dưới (%) 9.91/2.46/9.91/1.64, chưa đủ 5% mọi phía; 130113 màu RGB nguồn, vượt 32 màu, lưới pixel chưa đồng nhất 4×4. Tạo hình để duyệt; chưa thấy người/thú sống hoặc chữ. Chưa chuẩn hóa/cắt nền/chạy pipeline. Nền magenta chưa phẳng đúng #FF00FF; bốn góc RGB lần lượt 238,13,238 / 247,18,243 / 237,36,233 / 242,31,237."
+  },
+  {
+    "id": "gv_nha_kho",
+    "file": "gv_nha_kho.png",
+    "prompt": "A large red wooden barn with white trim, big double sliding doors with X braces, a hay loft door at the top with hay sticking out, grey stone foundation.\n\nChunky chibi pixel art game sprite in EXACTLY the same style as the attached reference: front view with a slight top-down angle,\nthick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm saturated colors,\nlimited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel is the same size, about 4×4 image pixels),\nno anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space around it,\non a perfectly flat solid magenta #FF00FF background. No cast shadow on the ground, no scenery, no text, no letters,\nno numbers, no signs with writing, no people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/highland_barn_x4.png"
+    ],
+    "tries": 1,
+    "note": "Ảnh nguồn 1164×1351; tạo bằng image_gen tích hợp, giữ nguyên ảnh sinh. Chưa đạt kỹ thuật: lề trái/trên/phải/dưới (%) 1.37/0.44/1.46/0.3, chưa đủ 5% mọi phía; 103766 màu RGB nguồn, vượt 32 màu, lưới pixel chưa đồng nhất 4×4. Tự thêm chong chóng hình gà ngoài mô tả; cần duyệt lại. Chưa chuẩn hóa/cắt nền/chạy pipeline. Nền magenta chưa phẳng đúng #FF00FF; bốn góc RGB lần lượt 239,13,239 / 246,16,244 / 236,35,233 / 241,31,239."
+  },
+  {
+    "id": "gv_nha_kinh",
+    "file": "gv_nha_kinh.png",
+    "prompt": "A small greenhouse with a white-painted wooden frame and pale blue-green glass panes, gable roof of glass, potted green plants and flowers visible inside, small wooden door.\n\nChunky chibi pixel art game sprite in EXACTLY the same style as the attached reference: front view with a slight top-down angle,\nthick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm saturated colors,\nlimited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel is the same size, about 4×4 image pixels),\nno anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space around it,\non a perfectly flat solid magenta #FF00FF background. No cast shadow on the ground, no scenery, no text, no letters,\nno numbers, no signs with writing, no people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/human_house_store_x4.png"
+    ],
+    "tries": 1,
+    "note": "Ảnh nguồn 1363×1154; tạo bằng image_gen tích hợp, giữ nguyên ảnh sinh. Chưa đạt kỹ thuật: lề trái/trên/phải/dưới (%) 11.45/4.59/11.52/5.29, chưa đủ 5% mọi phía; 130200 màu RGB nguồn, vượt 32 màu, lưới pixel chưa đồng nhất 4×4. Tạo hình để duyệt; chưa thấy người/thú sống hoặc chữ. Chưa chuẩn hóa/cắt nền/chạy pipeline. Nền magenta chưa phẳng đúng #FF00FF; bốn góc RGB lần lượt 241,12,241 / 247,19,243 / 236,35,234 / 241,30,238."
+  },
+  {
+    "id": "gv_coi_xay_gio",
+    "file": "gv_coi_xay_gio.png",
+    "prompt": "A tall wooden farm windmill tower with four large lattice sails, small balcony around the top, stone base with a wooden door, a small window.\n\nChunky chibi pixel art game sprite in EXACTLY the same style as the attached reference: front view with a slight top-down angle,\nthick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm saturated colors,\nlimited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel is the same size, about 4×4 image pixels),\nno anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space around it,\non a perfectly flat solid magenta #FF00FF background. No cast shadow on the ground, no scenery, no text, no letters,\nno numbers, no signs with writing, no people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/highland_windmill_x4.png"
+    ],
+    "tries": 1,
+    "note": "Ảnh nguồn 992×1586; tạo bằng image_gen tích hợp, giữ nguyên ảnh sinh. Chưa đạt kỹ thuật: lề trái/trên/phải/dưới (%) 1.92/1.07/1.51/0.76, chưa đủ 5% mọi phía; 100386 màu RGB nguồn, vượt 32 màu, lưới pixel chưa đồng nhất 4×4. Tạo hình để duyệt; chưa thấy người/thú sống hoặc chữ. Chưa chuẩn hóa/cắt nền/chạy pipeline. Nền magenta chưa phẳng đúng #FF00FF; bốn góc RGB lần lượt 236,14,237 / 243,17,239 / 233,36,230 / 237,29,235."
+  },
+  {
+    "id": "gv_chuong_ga",
+    "file": "gv_chuong_ga.png",
+    "prompt": "A small wooden chicken coop on short legs with a thatched straw roof, a little ramp with crossbars leading to a round door, a nesting box on the side.\n\nChunky chibi pixel art game sprite in EXACTLY the same style as the attached reference: front view with a slight top-down angle,\nthick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm saturated colors,\nlimited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel is the same size, about 4×4 image pixels),\nno anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space around it,\non a perfectly flat solid magenta #FF00FF background. No cast shadow on the ground, no scenery, no text, no letters,\nno numbers, no signs with writing, no people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/highland_barn_x4.png"
+    ],
+    "tries": 1,
+    "note": "Ảnh nguồn 1206×1305; tạo bằng image_gen tích hợp, giữ nguyên ảnh sinh. Chưa đạt kỹ thuật: lề trái/trên/phải/dưới (%) 8.79/1.53/7.79/1.61, chưa đủ 5% mọi phía; 129024 màu RGB nguồn, vượt 32 màu, lưới pixel chưa đồng nhất 4×4. Tự thêm chong chóng hình gà ngoài mô tả; cần duyệt lại. Chưa chuẩn hóa/cắt nền/chạy pipeline. Nền magenta chưa phẳng đúng #FF00FF; bốn góc RGB lần lượt 240,11,238 / 248,16,243 / 236,33,233 / 242,32,239."
+  },
+  {
+    "id": "gv_gieng",
+    "file": "gv_gieng.png",
+    "prompt": "A round stone well with a small wooden roof of red tiles, a crank with rope and a wooden bucket.\n\nChunky chibi pixel art game sprite in EXACTLY the same style as the attached reference: front view with a slight top-down angle,\nthick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm saturated colors,\nlimited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel is the same size, about 4×4 image pixels),\nno anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space around it,\non a perfectly flat solid magenta #FF00FF background. No cast shadow on the ground, no scenery, no text, no letters,\nno numbers, no signs with writing, no people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/human_house_farm_x4.png"
+    ],
+    "tries": 1,
+    "note": "Ảnh nguồn 1254×1254; tạo bằng image_gen tích hợp, giữ nguyên ảnh sinh. Chưa đạt kỹ thuật: lề trái/trên/phải/dưới (%) 14.91/1.28/14.91/3.27, chưa đủ 5% mọi phía; 93646 màu RGB nguồn, vượt 32 màu, lưới pixel chưa đồng nhất 4×4. Tạo hình để duyệt; chưa thấy người/thú sống hoặc chữ. Chưa chuẩn hóa/cắt nền/chạy pipeline. Nền magenta chưa phẳng đúng #FF00FF; bốn góc RGB lần lượt 241,15,240 / 246,17,241 / 237,36,233 / 242,33,238."
+  },
+  {
+    "id": "tl_toa_thi_chinh",
+    "file": "tl_toa_thi_chinh.png",
+    "prompt": "A grand medieval town hall: wide stone ground floor with arched entrance and steps, timber-framed upper floor, red tile roof, a tall central clock tower with a plain round clock face with no numbers, banners in blue and gold.\n\nChunky chibi pixel art game sprite in EXACTLY the same style as the attached reference: front view with a slight top-down angle,\nthick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm saturated colors,\nlimited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel is the same size, about 4×4 image pixels),\nno anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space around it,\non a perfectly flat solid magenta #FF00FF background. No cast shadow on the ground, no scenery, no text, no letters,\nno numbers, no signs with writing, no people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/human_church_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/human_house_inn_x4.png"
+    ],
+    "tries": 1,
+    "note": "Ảnh nguồn 1312×1199; tạo bằng image_gen tích hợp, giữ nguyên ảnh sinh. Chưa đạt kỹ thuật: lề trái/trên/phải/dưới (%) 9.3/0.75/9.38/1.33, chưa đủ 5% mọi phía; 148284 màu RGB nguồn, vượt 32 màu, lưới pixel chưa đồng nhất 4×4. Tạo hình để duyệt; chưa thấy người/thú sống hoặc chữ. Chưa chuẩn hóa/cắt nền/chạy pipeline. Nền magenta chưa phẳng đúng #FF00FF; bốn góc RGB lần lượt 237,14,237 / 244,15,241 / 233,37,234 / 235,32,235."
+  },
+  {
+    "id": "dl_dai_sanh_nha_san",
+    "file": "dl_dai_sanh_nha_san.png",
+    "prompt": "A big swamp longhouse on tall wooden stilts over dark water, steep layered thatched reed roof, rope bridges, hanging green lanterns, fishing nets drying on the side, mossy wooden ladders.\n\nChunky chibi pixel art game sprite in EXACTLY the same style as the attached reference: front view with a slight top-down angle,\nthick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm saturated colors,\nlimited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel is the same size, about 4×4 image pixels),\nno anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space around it,\non a perfectly flat solid magenta #FF00FF background. No cast shadow on the ground, no scenery, no text, no letters,\nno numbers, no signs with writing, no people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/swamp_longhouse_x4.png"
+    ],
+    "tries": 1,
+    "note": "Ảnh nguồn 1536×1024; tạo bằng image_gen tích hợp, giữ nguyên ảnh sinh. Chưa đạt kỹ thuật: lề trái/trên/phải/dưới (%) 0.98/2.34/0.98/2.34, chưa đủ 5% mọi phía; 184738 màu RGB nguồn, vượt 32 màu, lưới pixel chưa đồng nhất 4×4. Chân cọc không cùng đường đáy phẳng; chưa thể hiện rõ mặt nước tối. Chưa chuẩn hóa/cắt nền/chạy pipeline. Nền magenta chưa phẳng đúng #FF00FF; bốn góc RGB lần lượt 237,12,234 / 244,19,239 / 234,36,229 / 240,31,232."
+  },
+  {
+    "id": "sm_cung_dien_oc_dao",
+    "file": "sm_cung_dien_oc_dao.png",
+    "prompt": "An oasis palace of sand-colored adobe with a large white-and-gold onion dome, two slender towers with small domes, arched windows with turquoise tiles, colorful striped awnings, a wide arched gate.\n\nChunky chibi pixel art game sprite in EXACTLY the same style as the attached reference: front view with a slight top-down angle,\nthick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm saturated colors,\nlimited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel is the same size, about 4×4 image pixels),\nno anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space around it,\non a perfectly flat solid magenta #FF00FF background. No cast shadow on the ground, no scenery, no text, no letters,\nno numbers, no signs with writing, no people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/desert_dome_house_x4.png"
+    ],
+    "tries": 1,
+    "note": "Ảnh nguồn 1178×1335; tạo bằng image_gen tích hợp, giữ nguyên ảnh sinh. Chưa đạt kỹ thuật: lề trái/trên/phải/dưới (%) 2.89/0.45/2.89/1.35, chưa đủ 5% mọi phía; 175275 màu RGB nguồn, vượt 32 màu, lưới pixel chưa đồng nhất 4×4. Tạo hình để duyệt; chưa thấy người/thú sống hoặc chữ. Chưa chuẩn hóa/cắt nền/chạy pipeline. Nền magenta chưa phẳng đúng #FF00FF; bốn góc RGB lần lượt 240,14,239 / 247,16,241 / 236,35,231 / 242,33,236."
+  },
+  {
+    "id": "cn_dai_coi_xay",
+    "file": "cn_dai_coi_xay.png",
+    "prompt": "A huge three-storey stone windmill on a hill base, slate roof cap, four giant cloth sails on wooden frames, small balconies and windows on each floor, wind banners on the cap.\n\nChunky chibi pixel art game sprite in EXACTLY the same style as the attached reference: front view with a slight top-down angle,\nthick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm saturated colors,\nlimited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel is the same size, about 4×4 image pixels),\nno anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space around it,\non a perfectly flat solid magenta #FF00FF background. No cast shadow on the ground, no scenery, no text, no letters,\nno numbers, no signs with writing, no people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/highland_windmill_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/highland_stone_cottage_x4.png"
+    ],
+    "tries": 1,
+    "note": "Ảnh nguồn 1144×1375; tạo bằng image_gen tích hợp, giữ nguyên ảnh sinh. Chưa đạt kỹ thuật: lề trái/trên/phải/dưới (%) 13.37/0.8/12.85/1.16, chưa đủ 5% mọi phía; 156648 màu RGB nguồn, vượt 32 màu, lưới pixel chưa đồng nhất 4×4. Đế đồi/cỏ còn nhô thành bệ, chưa đúng đường đáy phẳng. Chưa chuẩn hóa/cắt nền/chạy pipeline. Nền magenta chưa phẳng đúng #FF00FF; bốn góc RGB lần lượt 236,12,235 / 242,15,238 / 234,36,231 / 239,32,235."
+  },
+  {
+    "id": "bg_dai_sanh_go",
+    "file": "bg_dai_sanh_go.png",
+    "prompt": "A great Nordic-style log hall: thick pine log walls, steep roof heavy with snow and hanging icicles, carved wooden dragon-head beam ends on the gables, big double door with iron bands, glowing warm windows, stacked firewood.\n\nChunky chibi pixel art game sprite in EXACTLY the same style as the attached reference: front view with a slight top-down angle,\nthick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm saturated colors,\nlimited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel is the same size, about 4×4 image pixels),\nno anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space around it,\non a perfectly flat solid magenta #FF00FF background. No cast shadow on the ground, no scenery, no text, no letters,\nno numbers, no signs with writing, no people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/tundra_log_cabin_x4.png"
+    ],
+    "tries": 2,
+    "note": "Ảnh nguồn 1312×1199; tạo bằng image_gen tích hợp, giữ nguyên ảnh sinh. Chưa đạt kỹ thuật: lề trái/trên/phải/dưới (%) 3.73/0.92/3.73/1.25, chưa đủ 5% mọi phía; 115708 màu RGB nguồn, vượt 32 màu, lưới pixel chưa đồng nhất 4×4. Chọn lượt 2: khói không còn bị cắt; tự thêm trang trí gạc và khói ngoài mô tả. Lượt 1 giữ ở -v2.png. Chưa chuẩn hóa/cắt nền/chạy pipeline. Nền magenta chưa phẳng đúng #FF00FF; bốn góc RGB lần lượt 237,16,238 / 244,21,242 / 235,38,233 / 237,29,234."
+  },
+  {
+    "id": "nl_dai_lo_ren",
+    "file": "nl_dai_lo_ren.png",
+    "prompt": "A massive dwarven forge hall carved from dark basalt, huge anvil-shaped gate, glowing orange furnace mouths, a channel of molten lava flowing at the base, brass pipes and chimneys puffing smoke, iron reinforcements.\n\nChunky chibi pixel art game sprite in EXACTLY the same style as the attached reference: front view with a slight top-down angle,\nthick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm saturated colors,\nlimited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel is the same size, about 4×4 image pixels),\nno anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space around it,\non a perfectly flat solid magenta #FF00FF background. No cast shadow on the ground, no scenery, no text, no letters,\nno numbers, no signs with writing, no people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/volcano_great_forge_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/volcano_dwarf_house_x4.png"
+    ],
+    "tries": 1,
+    "note": "Ảnh nguồn 1448×1086; tạo bằng image_gen tích hợp, giữ nguyên ảnh sinh. Chưa đạt kỹ thuật: lề trái/trên/phải/dưới (%) 1.1/0.83/1.1/1.2, chưa đủ 5% mọi phía; 165489 màu RGB nguồn, vượt 32 màu, lưới pixel chưa đồng nhất 4×4. Tạo hình để duyệt; chưa thấy người/thú sống hoặc chữ. Chưa chuẩn hóa/cắt nền/chạy pipeline. Nền magenta chưa phẳng đúng #FF00FF; bốn góc RGB lần lượt 237,12,237 / 246,17,242 / 236,36,232 / 240,32,236."
+  },
+  {
+    "id": "sh_hai_dang",
+    "file": "sh_hai_dang.png",
+    "prompt": "A tall red-and-white striped lighthouse on a rocky outcrop with barnacles and seaweed, glass lantern room with a warm glowing light, small balcony railing, a tiny keeper's cottage attached at the base.\n\nChunky chibi pixel art game sprite in EXACTLY the same style as the attached reference: front view with a slight top-down angle,\nthick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm saturated colors,\nlimited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel is the same size, about 4×4 image pixels),\nno anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space around it,\non a perfectly flat solid magenta #FF00FF background. No cast shadow on the ground, no scenery, no text, no letters,\nno numbers, no signs with writing, no people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/isles_fisher_cottage_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/isles_fishing_pier_x4.png"
+    ],
+    "tries": 1,
+    "note": "Ảnh nguồn 1254×1254; tạo bằng image_gen tích hợp, giữ nguyên ảnh sinh. Chưa đạt kỹ thuật: lề trái/trên/phải/dưới (%) 17.38/0.8/19.14/0.88, chưa đủ 5% mọi phía; 142444 màu RGB nguồn, vượt 32 màu, lưới pixel chưa đồng nhất 4×4. Đế đá nhô nhiều, chưa đúng đường đáy phẳng. Chưa chuẩn hóa/cắt nền/chạy pipeline. Nền magenta chưa phẳng đúng #FF00FF; bốn góc RGB lần lượt 244,14,242 / 247,17,243 / 240,37,237 / 242,31,240."
+  },
+  {
+    "id": "cay_dai_thu_soi",
+    "file": "cay_dai_thu_soi.png",
+    "prompt": "A giant ancient oak tree with a thick gnarled trunk, wide exposed roots, a huge round lush green canopy in clustered leaf clumps.\n\nChunky chibi pixel art game sprite in EXACTLY the same style as the attached reference: front view with a slight top-down angle,\nthick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm saturated colors,\nlimited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel is the same size, about 4×4 image pixels),\nno anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space around it,\non a perfectly flat solid magenta #FF00FF background. No cast shadow on the ground, no scenery, no text, no letters,\nno numbers, no signs with writing, no people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/human_tree_x4.png"
+    ],
+    "tries": 1,
+    "note": "Ảnh nguồn 1172×1342; tạo bằng image_gen tích hợp, giữ nguyên ảnh sinh. Chưa đạt kỹ thuật: lề trái/trên/phải/dưới (%) 0.85/0.89/0.94/0.52, chưa đủ 5% mọi phía; 71036 màu RGB nguồn, vượt 32 màu, lưới pixel chưa đồng nhất 4×4. Tạo hình để duyệt; chưa thấy người/thú sống hoặc chữ. Chưa chuẩn hóa/cắt nền/chạy pipeline. Nền magenta chưa phẳng đúng #FF00FF; bốn góc RGB lần lượt 237,14,239 / 245,20,241 / 233,35,231 / 236,32,236."
+  },
+  {
+    "id": "cay_lieu_khong_lo",
+    "file": "cay_lieu_khong_lo.png",
+    "prompt": "A giant weeping willow with a twisted mossy trunk, long hanging drooping branches like curtains, a few glowing green fireflies in the leaves.\n\nChunky chibi pixel art game sprite in EXACTLY the same style as the attached reference: front view with a slight top-down angle,\nthick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm saturated colors,\nlimited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel is the same size, about 4×4 image pixels),\nno anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space around it,\non a perfectly flat solid magenta #FF00FF background. No cast shadow on the ground, no scenery, no text, no letters,\nno numbers, no signs with writing, no people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/swamp_willow_x4.png"
+    ],
+    "tries": 2,
+    "note": "Ảnh nguồn 1127×1396; tạo bằng image_gen tích hợp, giữ nguyên ảnh sinh. Chưa đạt kỹ thuật: lề trái/trên/phải/dưới (%) 0.53/0.36/0.44/1, chưa đủ 5% mọi phía; 94776 màu RGB nguồn, vượt 32 màu, lưới pixel chưa đồng nhất 4×4. Chọn lượt 2: bớt chạm mép trái; vẫn thiếu lề. Lượt 1 giữ ở -v2.png. Chưa chuẩn hóa/cắt nền/chạy pipeline. Nền magenta chưa phẳng đúng #FF00FF; bốn góc RGB lần lượt 236,15,235 / 242,17,238 / 231,34,228 / 236,32,233."
+  },
+  {
+    "id": "cay_tuyet_tung",
+    "file": "cay_tuyet_tung.png",
+    "prompt": "A giant snow-covered pine tree, tiered dark green branches heavy with thick snow, frosty blue highlights, a few icicles.\n\nChunky chibi pixel art game sprite in EXACTLY the same style as the attached reference: front view with a slight top-down angle,\nthick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm saturated colors,\nlimited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel is the same size, about 4×4 image pixels),\nno anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space around it,\non a perfectly flat solid magenta #FF00FF background. No cast shadow on the ground, no scenery, no text, no letters,\nno numbers, no signs with writing, no people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/tundra_frost_cedar_x4.png"
+    ],
+    "tries": 2,
+    "note": "Ảnh nguồn 1081×1455; tạo bằng image_gen tích hợp, giữ nguyên ảnh sinh. Chưa đạt kỹ thuật: lề trái/trên/phải/dưới (%) 1.2/1.92/1.2/0.96, chưa đủ 5% mọi phía; 104125 màu RGB nguồn, vượt 32 màu, lưới pixel chưa đồng nhất 4×4. Chọn lượt 2: ngọn không còn bị cắt. Lượt 1 giữ ở -v2.png. Chưa chuẩn hóa/cắt nền/chạy pipeline. Nền magenta chưa phẳng đúng #FF00FF; bốn góc RGB lần lượt 238,13,238 / 244,21,241 / 235,33,232 / 239,29,236."
+  },
+  {
+    "id": "cay_baobab",
+    "file": "cay_baobab.png",
+    "prompt": "A huge desert baobab tree with a very thick bottle-shaped trunk, short twisting branches at the top with small green leaf clusters.\n\nChunky chibi pixel art game sprite in EXACTLY the same style as the attached reference: front view with a slight top-down angle,\nthick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm saturated colors,\nlimited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel is the same size, about 4×4 image pixels),\nno anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space around it,\non a perfectly flat solid magenta #FF00FF background. No cast shadow on the ground, no scenery, no text, no letters,\nno numbers, no signs with writing, no people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/desert_palm_x4.png"
+    ],
+    "tries": 1,
+    "note": "Ảnh nguồn 1065×1477; tạo bằng image_gen tích hợp, giữ nguyên ảnh sinh. Chưa đạt kỹ thuật: lề trái/trên/phải/dưới (%) 3.57/2.37/3.19/2.44, chưa đủ 5% mọi phía; 68462 màu RGB nguồn, vượt 32 màu, lưới pixel chưa đồng nhất 4×4. Tạo hình để duyệt; chưa thấy người/thú sống hoặc chữ. Chưa chuẩn hóa/cắt nền/chạy pipeline. Nền magenta chưa phẳng đúng #FF00FF; bốn góc RGB lần lượt 237,14,236 / 245,20,242 / 235,37,235 / 239,32,237."
+  },
+  {
+    "id": "man_tai_thistlewood",
+    "file": "man_tai_thistlewood.png",
+    "prompt": "A wide landscape pixel art illustration for a game loading screen, in the same chunky pixel art style as the attached\nreference (thick dark outlines, soft cel shading, warm saturated colors, uniform square pixel blocks, no anti-aliasing):\na peaceful green valley village at golden sunset, timber-framed houses with red tile roofs, a stone church tower, rolling\nhills, a winding river with a small stone bridge, large oak trees, distant blue mountains, soft clouds. Leave the lower\nthird calm and simple (space for a loading bar). No people, no animals, no characters, no text, no letters, no logo.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/human_house_inn_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/human_tree_x4.png"
+    ],
+    "tries": 1,
+    "note": "Chưa đạt khổ yêu cầu: ảnh 1672×941, đề bài 1536×1024. Có vùng trống yên ở một phần ba dưới; không thấy người/thú/chữ. Dùng nguyên prompt riêng và đúng hai ảnh mẫu. Chưa resize hoặc cắt ảnh."
+  }
+]

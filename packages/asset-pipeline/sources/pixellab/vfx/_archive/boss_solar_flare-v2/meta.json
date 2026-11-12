@@ -1,0 +1,33 @@
+{
+	"id": "boss_solar_flare",
+	"kind": "burst",
+	"canvas": {
+		"w": 160,
+		"h": 160
+	},
+	"first": {
+		"prompt": "a column of pure radiant golden-white light and sunfire flames shooting straight up from a small glowing sun rune, made only of light and fire, no stone, no column structure, no pillar object, no ground tile, base at the bottom of the frame, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "cfd14268-33a3-49dd-9edd-718418497ded"
+	},
+	"action": "the golden sunfire pillar blazes up from the rune with radiant rays, flares at its peak, then collapses into golden sparks that fade",
+	"frameCount": 10,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png",
+		"frame_009.png",
+		"frame_010.png"
+	],
+	"animateJobId": "8637ad51-3a9d-4389-a9a1-6b6686739e99",
+	"createdAt": "2026-11-05T15:16:50.245Z",
+	"token": 0
+}

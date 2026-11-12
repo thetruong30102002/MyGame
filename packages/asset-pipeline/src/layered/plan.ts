@@ -24,6 +24,11 @@ export interface PlanItem {
 	/** headEdit / heroMale: điền vào {hair} / {raceFeatures} của prompt. */
 	hair?: string;
 	raceFeatures?: string;
+	/**
+	 * Bộ đồ cũ đã duyệt có mũ trùm BỎ XUỐNG sau lưng (Pháp sư "hood down flat on the back") — ngoại lệ của luật cấm áo đội mũ 06/11/2026,
+	 * ghi lý do; bộ mới không được đặt cờ này.
+	 */
+	legacyHood?: string;
 	/** outfitEdit / heroMale: điền vào {outfit} (bộ đồ, hoặc mô tả thân trần quần đùi). */
 	outfit?: string;
 	/** edit_image_pixen: đệm trong suốt ảnh nguồn lên cỡ này (giữa ảnh, không scale) — chỗ cho thân dài ra khi kéo tỷ lệ (tallEdit). */
@@ -92,6 +97,9 @@ export function blockingStage(plan: SamplePlan, stageId: string): string | null 
 	return null;
 }
 
+/** Đồ đội đầu cấm có trong mô tả bộ đồ (luật 06/11/2026 "nghiêm cấm các loại áo đội mũ"). */
+export const HEADWEAR = /\b(hood|hooded|hoodie|hat|hats|helmet|helm|cap|cowl|headband|headscarf|bandana|crown|circlet|tiara|turban|beret|veil|mask|headwear)\b/i;
+
 /** edit_image_pixen từ chối description dài hơn mức này (lỗi thật 28/10, không tốn lượt). */
 export const EDIT_DESCRIPTION_MAX = 500;
 
@@ -107,6 +115,9 @@ export function validatePlan(plan: SamplePlan, std: LayeredStandard, options:{re
 		let sum = 0;
 		for (const it of stage.items) {
 			const at = `${stageId}/${it.id}`;
+			// NGHIÊM CẤM ÁO ĐỘI MŨ (chủ dự án 06/11/2026): đầu là lớp riêng ghép sau — bộ đồ không được có mũ trùm, mũ, mũ giáp, khăn đội…
+			if (it.outfit && HEADWEAR.test(it.outfit.replace(/\bno (hood|hat|helmet|cap|headwear)s?\b/gi, '')) && !it.legacyHood)
+				fail(`${at}: bộ đồ có đồ đội đầu ("${HEADWEAR.exec(it.outfit)?.[0]}") — nghiêm cấm áo đội mũ (06/11/2026)`);
 			if (ids.has(it.id)) fail(`${at}: trùng id`);
 			ids.add(it.id);
 			if (!(it.estimate > 0)) fail(`${at}: estimate phải > 0`);

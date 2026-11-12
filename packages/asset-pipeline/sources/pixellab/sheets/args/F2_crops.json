@@ -1,0 +1,15 @@
+{
+	"description": "A sprite sheet of SIXTEEN separate small crop plants arranged in a grid of 4 columns and 4 rows, each centered in its own cell, growth stages from left to right (1 sprout, 2 young, 3 growing, 4 ripe ready to harvest). Row 1 potato: tiny sprout, small leafy potato plant, bushy potato plant, bushy plant with white flowers and two brown potatoes peeking from the soil. Row 2 strawberry: tiny sprout, small three-lobed leaves, leafy plant with white flowers, leafy plant with bright red strawberries. Row 3 pumpkin: tiny sprout, small vine with broad leaves, vine with a small green pumpkin, big ripe orange pumpkin with a glowing teal swirl mark among vines. Row 4 silverleaf herb: tiny silver-green sprout, small silvery leaves, tall silvery herb, tall silver herb with pale blue glowing buds. Each plant upright on a tiny dark soil mound, front view, slight top-down, thick dark outline, soft cel shading, natural colors, every plant fully separate on a plain flat solid bright magenta (#FF00FF) chroma-key background, no field, no shadow, no text, no numbers",
+	"width": 256,
+	"height": 256,
+	"no_background": false,
+	"seed": 702,
+	"style_options": {
+		"color_palette": false,
+		"outline": true,
+		"shading": true,
+		"detail": false
+	},
+	"style_image_path": "sources/pixellab/sheets/N1_nature.png",
+	"style_usage": "Copy ONLY the art style of this reference: chunky chibi pixel art, thick dark outline on every shape, soft cel shading, front-facing view, one object centered in each cell. Do not copy these objects, their colors or their layout."
+}

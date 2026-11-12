@@ -1,0 +1,17 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a detailed pixel art farming hoe lying horizontally: long straight wooden handle with visible wood grain pointing left, worn leather grip wrap near the left end, iron socket ring at the right end, broad flat forged iron hoe blade bent straight down at a right angle with a bright sharpened edge, rustic farm tool, single object, side view, centered, game item sprite",
+	"width": 64,
+	"height": 64,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "detailed shading",
+	"detail": "highly detailed",
+	"seed": 27003,
+	"init_image_strength": 90,
+	"color_image_path": "sources/pixellab/farm-tools/hoe/palette.png",
+	"init_image_path": "sources/pixellab/farm-tools/hoe/init/hoe-000.init.png",
+	"jobId": "9554032b-d506-4071-8b5f-b26c91947800",
+	"token": 0,
+	"createdAt": "2026-11-06T14:21:19.105Z"
+}

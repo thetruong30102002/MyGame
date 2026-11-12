@@ -1114,5 +1114,149 @@
 			"w": 18,
 			"h": 10
 		}
+	},
+	"canvas_tent": {
+		"kind": "building",
+		"w": 88,
+		"h": 47,
+		"blocks": true,
+		"footprint": {
+			"x": -38,
+			"y": -18,
+			"w": 75,
+			"h": 18
+		}
+	},
+	"campfire": {
+		"kind": "decor",
+		"w": 54,
+		"h": 51,
+		"blocks": true,
+		"footprint": {
+			"x": -19,
+			"y": -12,
+			"w": 38,
+			"h": 12
+		}
+	},
+	"firewood_pile": {
+		"kind": "decor",
+		"w": 72,
+		"h": 46,
+		"blocks": true,
+		"footprint": {
+			"x": -31,
+			"y": -14,
+			"w": 61,
+			"h": 14
+		}
+	},
+	"treasure_chest": {
+		"kind": "decor",
+		"w": 52,
+		"h": 39,
+		"blocks": true,
+		"footprint": {
+			"x": -21,
+			"y": -14,
+			"w": 42,
+			"h": 14
+		}
+	},
+	"grain_sacks": {
+		"kind": "decor",
+		"w": 62,
+		"h": 42,
+		"blocks": true,
+		"footprint": {
+			"x": -25,
+			"y": -14,
+			"w": 50,
+			"h": 14
+		}
+	},
+	"weapon_rack": {
+		"kind": "decor",
+		"w": 63,
+		"h": 49,
+		"blocks": true,
+		"footprint": {
+			"x": -27,
+			"y": -10,
+			"w": 54,
+			"h": 10
+		}
+	},
+	"park_bench": {
+		"kind": "decor",
+		"w": 44,
+		"h": 23,
+		"blocks": true,
+		"footprint": {
+			"x": -20,
+			"y": -8,
+			"w": 40,
+			"h": 8
+		}
+	},
+	"log_bench": {
+		"kind": "decor",
+		"w": 75,
+		"h": 32,
+		"blocks": true,
+		"footprint": {
+			"x": -34,
+			"y": -12,
+			"w": 68,
+			"h": 12
+		}
+	},
+	"stone_bench": {
+		"kind": "decor",
+		"w": 79,
+		"h": 40,
+		"blocks": true,
+		"footprint": {
+			"x": -36,
+			"y": -12,
+			"w": 71,
+			"h": 12
+		}
+	},
+	"flower_planter": {
+		"kind": "decor",
+		"w": 70,
+		"h": 43,
+		"blocks": true,
+		"footprint": {
+			"x": -32,
+			"y": -12,
+			"w": 63,
+			"h": 12
+		}
+	},
+	"garden_table": {
+		"kind": "decor",
+		"w": 74,
+		"h": 43,
+		"blocks": true,
+		"footprint": {
+			"x": -32,
+			"y": -14,
+			"w": 63,
+			"h": 14
+		}
+	},
+	"garden_swing": {
+		"kind": "decor",
+		"w": 80,
+		"h": 53,
+		"blocks": true,
+		"footprint": {
+			"x": -34,
+			"y": -10,
+			"w": 68,
+			"h": 10
+		}
 	}
 }

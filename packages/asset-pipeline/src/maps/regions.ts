@@ -1,4 +1,5 @@
 import { ELEMENT_PROPS } from '../props/elemental.js';
+import { GPT_REGION_PROPS, withGptArt } from '../props/gptArt.js';
 import { ELEMENT_REGIONS, attachElementGate } from './elemental.js';
 import { FUNGAL_REGION, RUINS_REGION, VOID_REGION } from './lateRegions.js';
 import { attachBuilding, BUILDINGS } from './buildings.js';
@@ -28,9 +29,10 @@ const kit = (def: KitRegionDef, props: RegionBuild['props'], decal = false): Reg
 });
 
 export const REGION_BUILDS: Record<string, RegionBuild> = {
-	wood: kit(ELEMENT_REGIONS.wood, ELEMENT_PROPS.wood),
-	light: kit(ELEMENT_REGIONS.light, ELEMENT_PROPS.light),
-	dark: kit(ELEMENT_REGIONS.dark, ELEMENT_PROPS.dark),
+	// Đợt GPT 12 (12/11/2026): 6 vùng mượn đồ vùng khác có thêm công trình biểu tượng + đồ vật riêng (`props/gptArt.ts`).
+	wood: kit(withGptArt(ELEMENT_REGIONS.wood), [...ELEMENT_PROPS.wood, ...GPT_REGION_PROPS.wood!]),
+	light: kit(withGptArt(ELEMENT_REGIONS.light), [...ELEMENT_PROPS.light, ...GPT_REGION_PROPS.light!]),
+	dark: kit(withGptArt(ELEMENT_REGIONS.dark), [...ELEMENT_PROPS.dark, ...GPT_REGION_PROPS.dark!]),
 	human: { props: HUMAN_KINGDOM_PROPS, decals: HUMAN_KINGDOM_DECAL_SHEETS, build: buildHumanRegion },
 	swamp: kit(SWAMP_REGION, SWAMP_PROPS, true),
 	desert: kit(DESERT_REGION, DESERT_PROPS),
@@ -38,9 +40,9 @@ export const REGION_BUILDS: Record<string, RegionBuild> = {
 	tundra: kit(TUNDRA_REGION, TUNDRA_PROPS),
 	volcano: kit(VOLCANO_REGION, VOLCANO_PROPS),
 	isles: kit(ISLES_REGION, ISLES_PROPS),
-	fungal: kit(FUNGAL_REGION, SWAMP_PROPS),
-	ruins: kit(RUINS_REGION, HIGHLAND_PROPS),
-	void: kit(VOID_REGION, VOLCANO_PROPS),
+	fungal: kit(withGptArt(FUNGAL_REGION), [...SWAMP_PROPS, ...GPT_REGION_PROPS.fungal!]),
+	ruins: kit(withGptArt(RUINS_REGION), [...HIGHLAND_PROPS, ...GPT_REGION_PROPS.ruins!]),
+	void: kit(withGptArt(VOID_REGION), [...VOLCANO_PROPS, ...GPT_REGION_PROPS.void!]),
 };
 
 export function regionBuild(id: string): RegionBuild {

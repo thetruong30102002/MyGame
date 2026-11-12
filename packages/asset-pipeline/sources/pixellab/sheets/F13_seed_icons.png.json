@@ -1,0 +1,20 @@
+{
+	"description": "A sprite sheet of TWELVE separate game item icons arranged in a grid of 4 columns and 3 rows, each centered in its own cell. Rows 1 and 2: eight small paper seed packets tied with string, each with a picture of its plant on the front: prickly pear cactus, white snow strawberry, pale blue snow radish, red fire melon, golden pineapple, pink lotus, brown dates, coconut. Row 3: a small potted date palm sapling, a sprouting coconut in a small pot, a brown sack of fertilizer with a green leaf mark, a small metal garden sprinkler. Chunky simple game item icons, front view, thick dark outline, soft cel shading, every item fully separate on a plain flat solid bright magenta (#FF00FF) chroma-key background with empty space around it, no text, no letters, no numbers, no border, no frame",
+	"width": 256,
+	"height": 256,
+	"no_background": false,
+	"seed": 1104,
+	"style_options": {
+		"color_palette": false,
+		"outline": true,
+		"shading": true,
+		"detail": false
+	},
+	"style_image": {
+		"path": "sources/pixellab/sheets/N1_nature.png",
+		"usage_description": "Copy ONLY the art style of this reference: chunky chibi pixel art, thick dark outline on every shape, soft cel shading, front-facing view, one object centered in each cell. Do not copy these objects, their colors or their layout."
+	},
+	"jobId": "5bb1b8e6-3543-45fc-89af-1a76a7426d47",
+	"token": 0,
+	"createdAt": "2026-11-11T09:30:38.416Z"
+}

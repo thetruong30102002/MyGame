@@ -252,17 +252,34 @@ namespace HavenLord.Client.Combat
         public void EnemyShot(Fighter f, double nx, double ny, double ox, double oy)
         {
             var kind = f.Stats.Ranged;
-            var shots = f.Boss ? new[] { -0.28, 0, 0.28 } : new[] { 0.0 };
+            // Boss có đạn riêng (BOSS_SHOTS): đúng hình / số viên / độ xoè / tốc độ của nó, không bắn cầu đen chung.
+            BossShot own = null;
+            if (f.Boss) sim.BossShots.TryGetValue(f.Type, out own);
+            var shots = own != null ? Fan(own.Count, own.Spread) : f.Boss ? new[] { -0.28, 0, 0.28 } : new[] { 0.0 };
+            var look = own != null ? new ArtLayer { Id = own.Vfx, Scale = own.Scale, Aim = own.Aim } : null;
             foreach (var ang in shots)
             {
                 var c = Math.Cos(ang);
                 var s = Math.Sin(ang);
-                var v = kind == "arrow" ? 300 : 240;
+                var v = own != null ? own.Speed : kind == "arrow" ? 300 : 240;
                 var chance = SkillRules.MissChance(f.Miss, f.Daze, rules.Consts.Earth.SandMiss, Pv.GustMiss);
                 var missed = chance > 0 && Random.value < chance;
-                Fire(ox, oy - f.Chest, (nx * c - ny * s) * v, (nx * s + ny * c) * v, 1.6, Team.Enemy, f.Stats.Atk * (f.Boss ? 0.9 : 1), kind,
-                    false, missed: missed, lift: f.Chest, owner: f);
+                Fire(ox, oy - f.Chest, (nx * c - ny * s) * v, (nx * s + ny * c) * v, own != null ? 1.6 * 240 / own.Speed : 1.6, Team.Enemy,
+                    f.Stats.Atk * (f.Boss ? 0.9 : 1), kind, false, look: look, missed: missed, lift: f.Chest, owner: f);
+                if (own == null) continue;
+                var pr = projectiles[projectiles.Count - 1];
+                pr.ImpactId = own.Impact;
+                pr.Wobble = own.Wobble;
             }
+        }
+
+        /// <summary>`n` góc xoè đều trong [-spread, spread] (một viên: thẳng trục).</summary>
+        private static double[] Fan(int n, double spread)
+        {
+            if (n <= 1) return new[] { 0.0 };
+            var a = new double[n];
+            for (var i = 0; i < n; i += 1) a[i] = -spread + 2 * spread * i / (n - 1);
+            return a;
         }
 
 

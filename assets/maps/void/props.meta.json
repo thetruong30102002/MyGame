@@ -898,5 +898,113 @@
 			"w": 16,
 			"h": 10
 		}
+	},
+	"hk_cong_hu_khong": {
+		"kind": "building",
+		"w": 286,
+		"h": 280,
+		"blocks": true,
+		"footprint": {
+			"x": -115,
+			"y": -64,
+			"w": 229,
+			"h": 64
+		}
+	},
+	"hk_da_troi": {
+		"kind": "rock",
+		"w": 71,
+		"h": 72,
+		"blocks": true,
+		"footprint": {
+			"x": -18,
+			"y": -12,
+			"w": 36,
+			"h": 12
+		}
+	},
+	"hk_tinh_the_hu": {
+		"kind": "rock",
+		"w": 65,
+		"h": 72,
+		"blocks": true,
+		"footprint": {
+			"x": -20,
+			"y": -14,
+			"w": 39,
+			"h": 14
+		}
+	},
+	"hk_cot_vo_troi": {
+		"kind": "decor",
+		"w": 37,
+		"h": 96,
+		"blocks": true,
+		"footprint": {
+			"x": -11,
+			"y": -12,
+			"w": 22,
+			"h": 12
+		}
+	},
+	"hk_khe_nut": {
+		"kind": "flower",
+		"w": 101,
+		"h": 28,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"hk_cay_hoa_da": {
+		"kind": "decor",
+		"w": 82,
+		"h": 96,
+		"blocks": true,
+		"footprint": {
+			"x": -13,
+			"y": -12,
+			"w": 25,
+			"h": 12
+		}
+	},
+	"hk_xich_neo_troi": {
+		"kind": "decor",
+		"w": 45,
+		"h": 72,
+		"blocks": true,
+		"footprint": {
+			"x": -14,
+			"y": -12,
+			"w": 27,
+			"h": 12
+		}
+	},
+	"hk_lo_lua_tim": {
+		"kind": "decor",
+		"w": 39,
+		"h": 62,
+		"blocks": true,
+		"footprint": {
+			"x": -14,
+			"y": -12,
+			"w": 27,
+			"h": 12
+		}
+	},
+	"hk_mieng_dao_vo": {
+		"kind": "rock",
+		"w": 65,
+		"h": 56,
+		"blocks": true,
+		"footprint": {
+			"x": -20,
+			"y": -12,
+			"w": 39,
+			"h": 12
+		}
 	}
 }

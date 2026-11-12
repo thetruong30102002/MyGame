@@ -1,0 +1,20 @@
+{
+	"description": "A sprite sheet of SIX separate farm animal buildings and items arranged in a grid of 3 columns and 2 rows, each centered in its own cell. Top row: a small wooden chicken coop with a ramp and a straw nest box, a small wooden cow barn stall with a hay rack, a wooden beehive box on a little stand with honeycomb visible. Bottom row: a wooden feeding trough with hay, a basket of brown and white eggs, a metal milk can with a bucket of milk. Front view, slight top-down, thick dark outline, soft cel shading, warm natural colors, every object fully separate on a plain flat solid bright magenta (#FF00FF) chroma-key background with empty space around it, no ground, no shadow, no text, no numbers, no animals, no border, no frame",
+	"width": 256,
+	"height": 192,
+	"no_background": false,
+	"seed": 771,
+	"style_options": {
+		"color_palette": false,
+		"outline": true,
+		"shading": true,
+		"detail": false
+	},
+	"style_image": {
+		"path": "sources/pixellab/sheets/N1_nature.png",
+		"usage_description": "Copy ONLY the art style of this reference: chunky chibi pixel art, thick dark outline on every shape, soft cel shading, front-facing view, one object centered in each cell. Do not copy these objects, their colors or their layout."
+	},
+	"jobId": "c24aa04d-f256-4a8e-95ed-0525c22d19a2",
+	"token": 0,
+	"createdAt": "2026-11-11T03:49:04.755Z"
+}

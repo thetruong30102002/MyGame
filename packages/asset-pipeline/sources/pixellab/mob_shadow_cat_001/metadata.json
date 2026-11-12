@@ -1,0 +1,36 @@
+{
+  "group_id": "ea3b9728-c1ed-4e43-b346-39d877840eb5",
+  "states": [
+    {
+      "character": {
+        "id": "396b8ef4-b421-453e-931b-7e0af2428d24",
+        "name": "Idle",
+        "prompt": "a sleek shadow cat monster standing on all four legs facing the viewer, slim panther-like body made of smoky black-violet fur that dissolves into wisps of purple shadow at the tail and paws, two long curved ears, glowing pale violet slit eyes, a small silver crescent mark on its forehead, sharp white claws; cute but hostile RPG monster, same chibi anime pixel art style as the reference: big head, black single-color outline, cel shading",
+        "size": {
+          "width": 64,
+          "height": 64
+        },
+        "template_id": "dog",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-11-05T16:05:55.435605+00:00"
+      },
+      "folder": "Idle",
+      "frames": {
+        "rotations": {
+          "south": "Idle/rotations/south.png",
+          "south-east": "Idle/rotations/south-east.png",
+          "east": "Idle/rotations/east.png",
+          "north-east": "Idle/rotations/north-east.png",
+          "north": "Idle/rotations/north.png",
+          "north-west": "Idle/rotations/north-west.png",
+          "west": "Idle/rotations/west.png",
+          "south-west": "Idle/rotations/south-west.png"
+        },
+        "animations": {}
+      }
+    }
+  ],
+  "export_version": "3.1",
+  "export_date": "2026-11-05T16:09:39.147150"
+}

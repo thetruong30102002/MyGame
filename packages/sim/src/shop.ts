@@ -11,6 +11,8 @@
  */
 import type { BuffKind } from '@havenlord/protocol';
 import type { NpcSpot } from './rewards.ts';
+import { CLASS_SHOP2_OUTFIT } from './starterClass.ts';
+import { ITEMS } from './equipment.ts';
 
 /**
  * Người bán hàng ở các vùng (chủ dự án 08/10/2026: "cửa hàng cần đi mua ở NPC" + "mua đồ ở các NPC ở các vùng nữa"): máy chủ chỉ
@@ -45,6 +47,15 @@ export const SHOP: readonly ShopItem[] = [
 	{ id: 'guard10', name: 'Bình Hộ Thân', desc: 'Sát thương nhận từ quái −10% trong 30 phút chơi.', price: 6, buff: { kind: 'guard', mult: 0.9, minutes: 30 } },
 	{ id: 'guard20', name: 'Bình Hộ Thân (mạnh)', desc: 'Sát thương nhận từ quái −20% trong 30 phút chơi.', price: 12, buff: { kind: 'guard', mult: 0.8, minutes: 30 } },
 ];
+
+/** Bộ 2 bán bằng xu tại quầy Bram. Giá/chỉ số tạm, chờ chủ dự án duyệt. */
+export const OUTFIT_SHOP = Object.entries(CLASS_SHOP2_OUTFIT).map(([classId, id]) => ({
+	id,
+	classId,
+	name: ITEMS[id]!.name,
+	price: ITEMS[id]!.price!,
+	levelReq: ITEMS[id]!.levelReq!,
+})) as readonly { id: string; classId: string; name: string; price: number; levelReq: number }[];
 
 /** Một loại bình cộng dồn thời gian tối đa 5 giờ chơi. */
 export const BUFF_MAX_MS = 5 * 3600_000;

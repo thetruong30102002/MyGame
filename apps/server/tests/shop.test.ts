@@ -5,11 +5,11 @@ import { mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import type { ServerMessage } from '@havenlord/protocol';
-import { BUFF_MAX_MS, buffLabel, buffMults, fmtRemaining, MERCHANT, SHOP } from '@havenlord/sim/shop';
+import { BUFF_MAX_MS, buffLabel, buffMults, fmtRemaining, MERCHANT, OUTFIT_SHOP, SHOP } from '@havenlord/sim/shop';
 import { Store } from '../src/db.ts';
 const price = (id: string): number => SHOP.find((x) => x.id === id)!.price;
 import { newProgress } from '../src/http.ts';
-import { World } from '../src/world.ts';
+import { bareOrModel, World } from '../src/world.ts';
 
 let passed = 0;
 const test = (name: string, fn: () => void): void => {
@@ -134,6 +134,36 @@ try {
 		store.addDiamonds(me, 100, 'admin:thử');
 		for (let i = 0; i < 11; i += 1) a.push({ t: 'shopBuy', item: 'dmg10' });
 		assert.equal(store.buffs(me)[0]!.remaining, BUFF_MAX_MS / 1000);
+	});
+
+	test('bộ shop 2: đúng class/cấp, trừ xu và trao áo nguyên tử; mua lặp không trừ thêm', () => {
+		assert.equal(OUTFIT_SHOP.length, 5);
+		const other = store.createAccount('s1', 'x')!;
+		store.createSession('tok1', other, 3600_000);
+		const progress = newProgress();
+		progress.level = 5;
+		progress.coins = 450;
+		const id = store.createCharacter('00000000-0000-0000-0000-0000000000c1', other, 'Áo Bộ Hai', 'male', progress, 'player_npc_human1_sword_m')!.id;
+		const ws = new FakeWs();
+		world.accept(ws as never);
+		ws.push({ t: 'hello', token: 'tok1', character: id });
+		ws.push({ t: 'move', ...AT_BRAM, dir: 'N', anim: 'idle', sprite: 'player_npc_human1_sword_m' });
+		ws.push({ t: 'shopBuy', item: 'mage_outfit_2' });
+		assert.match(ws.last('system')!.text, /không đúng nghề/);
+		assert.equal(store.ecoOf(id)!.coins, 450);
+		ws.push({ t: 'shopBuy', item: 'swordsman_outfit_2', price: 0 });
+		const bought = ws.last('bought')!;
+		assert.equal(bought.item, 'swordsman_outfit_2');
+		assert.equal((bought.gear as { bag: { id: string }[] }).bag[0]!.id, 'swordsman_outfit_2');
+		assert.equal(store.ecoOf(id)!.coins, 0);
+		assert.equal(world.economy.current(id).coins, 0);
+		assert.equal((store.character(id, other)!.progress.story as { gear: { bag: { id: string }[] } }).gear.bag[0]!.id, 'swordsman_outfit_2');
+		ws.push({ t: 'shopBuy', item: 'swordsman_outfit_2' });
+		assert.match(ws.last('system')!.text, /đã có/);
+		assert.equal(store.ecoOf(id)!.coins, 0);
+		assert.equal(bareOrModel('player_npc_human1_sword_m', 'player_npc_human1_sword_m_outfit_2'), 'player_npc_human1_sword_m_outfit_2');
+		assert.equal(bareOrModel('player_npc_human1_sword_m', 'player_npc_elf1_sword_m_outfit_2'), 'player_npc_human1_sword_m');
+		ws.close();
 	});
 } finally {
 	world.stop();

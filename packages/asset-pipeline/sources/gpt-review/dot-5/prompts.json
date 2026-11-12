@@ -1,0 +1,244 @@
+[
+  {
+    "id": "tuong_nha_tro",
+    "file": "tuong_nha_tro.png",
+    "prompt": "A straight front-facing interior wall panel of warm honey-colored wooden planks with a green-and-cream striped wallpaper upper half, a small framed landscape painting and a brass wall sconce with a lit candle, thick wooden posts on the left and right edges, a ceiling beam along the top.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no human figures, no statues of people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_wardrobe_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-3/tuong_thach_cao_cua_so.png"
+    ],
+    "tries": 1,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 8.13/12.76/8.13/9.13. Tạo hình đúng mô tả."
+  },
+  {
+    "id": "quay_le_tan",
+    "file": "quay_le_tan.png",
+    "prompt": "A wooden inn reception counter with a brass service bell, an open guest ledger book with only lines (no writing), a quill in an inkpot and a small vase of flowers on top, panelled front.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no human figures, no statues of people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_dining_table_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-4/quay_hang.png"
+    ],
+    "tries": 2,
+    "note": "Đạt sau lượt 2. Lề trái/trên/phải/dưới (%): 20.63/24.46/20.63/16.57. Tạo hình đúng mô tả."
+  },
+  {
+    "id": "bang_treo_chia_khoa",
+    "file": "bang_treo_chia_khoa.png",
+    "prompt": "A wall-mounted wooden key board with six brass hooks, each holding an old brass room key with a small round wooden tag (tags blank, no numbers).\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no human figures, no statues of people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_bookshelf_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-3/ke_gia_vi.png"
+    ],
+    "tries": 1,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 18.23/14.75/18.23/13.38. Tạo hình đúng mô tả."
+  },
+  {
+    "id": "giuong_don",
+    "file": "giuong_don.png",
+    "prompt": "A simple single wooden bed with one white pillow and a plain blue wool blanket, short wooden headboard, seen from the front with a slight top-down angle.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no human figures, no statues of people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_bed_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-3/giuong_doi.png"
+    ],
+    "tries": 1,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 11.72/11.70/11.72/8.58. Tạo hình đúng mô tả."
+  },
+  {
+    "id": "binh_phong",
+    "file": "binh_phong.png",
+    "prompt": "A three-panel folding wooden room divider screen with cream fabric panels painted with simple pink flowers and branches.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no human figures, no statues of people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_wardrobe_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-3/tu_ngan_keo.png"
+    ],
+    "tries": 1,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 9.59/15.78/9.51/18.14. Tạo hình đúng mô tả."
+  },
+  {
+    "id": "chau_rua_mat",
+    "file": "chau_rua_mat.png",
+    "prompt": "A wooden washstand with a white ceramic basin and a water pitcher on top, a small towel hanging on a side rail, a small mirror above.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no human figures, no statues of people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_chair_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-3/bon_rua.png"
+    ],
+    "tries": 1,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 16.59/5.90/16.67/6.78. Tạo hình đúng mô tả."
+  },
+  {
+    "id": "ruong_hanh_ly",
+    "file": "ruong_hanh_ly.png",
+    "prompt": "A travel trunk of brown leather with brass corners, two leather straps and a buckle, a little travel sticker shape with no writing.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no human figures, no statues of people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_chest_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-4/thung_go_nho.png"
+    ],
+    "tries": 1,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 18.37/22.94/18.37/19.85. Tạo hình đúng mô tả."
+  },
+  {
+    "id": "ghe_tua_cua_so",
+    "file": "ghe_tua_cua_so.png",
+    "prompt": "A small cozy wooden reading armchair with a red cushion and a folded knitted blanket over one arm, facing the viewer.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no human figures, no statues of people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_armchair_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-3/ghe_dai.png"
+    ],
+    "tries": 1,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 19.36/16.26/19.36/15.93. Tạo hình đúng mô tả."
+  },
+  {
+    "id": "tuong_den_kinh_mau",
+    "file": "tuong_den_kinh_mau.png",
+    "prompt": "A straight front-facing interior wall panel of pale cream stone blocks with a tall pointed-arch stained-glass window in blue, teal and gold showing an abstract glowing crystal and star pattern (no figures), square stone pilasters on the left and right edges, a carved stone cornice along the top.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no human figures, no statues of people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_fireplace_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-2/tuong_da_vom.png"
+    ],
+    "tries": 1,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 17.71/9.47/17.64/9.57. Tạo hình đúng mô tả."
+  },
+  {
+    "id": "ban_tho_pha_le",
+    "file": "ban_tho_pha_le.png",
+    "prompt": "A white marble altar with gold trim and three steps in front, on top a large floating glowing cyan Haven crystal surrounded by small light sparkles, two gold candle holders with lit candles on the sides.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no human figures, no statues of people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_fireplace_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-2/cot_cam_thach.png"
+    ],
+    "tries": 1,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 13.76/6.63/13.76/6.55. Tạo hình đúng mô tả."
+  },
+  {
+    "id": "ghe_bang_dai",
+    "file": "ghe_bang_dai.png",
+    "prompt": "A long wooden church pew bench with a tall straight backrest, carved end panels, seen from the BACK at a slight top-down angle (we see the backrest, the seat is facing away from the viewer).\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no human figures, no statues of people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_chair_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-3/ghe_dai.png"
+    ],
+    "tries": 1,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 12.74/19.05/12.74/17.36. Tạo hình đúng mô tả; ghế nhìn từ phía sau."
+  },
+  {
+    "id": "chan_nen_dung",
+    "file": "chan_nen_dung.png",
+    "prompt": "A tall standing gold candelabra with three lit white candles and small dripping wax.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no human figures, no statues of people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_wall_clock_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-2/den_chum_vang.png"
+    ],
+    "tries": 2,
+    "note": "Đạt sau lượt 2. Lề trái/trên/phải/dưới (%): 28.05/19.01/27.97/17.29. Tạo hình đúng mô tả."
+  },
+  {
+    "id": "binh_hoa_lon",
+    "file": "binh_hoa_lon.png",
+    "prompt": "A tall blue-and-white porcelain vase with a big bouquet of white lilies and pale blue flowers.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no human figures, no statues of people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_potted_plant_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-3/chau_cay_lon.png"
+    ],
+    "tries": 2,
+    "note": "Đạt sau lượt 2. Lề trái/trên/phải/dưới (%): 24.07/20.78/26.84/17.69. Tạo hình đúng mô tả."
+  },
+  {
+    "id": "ke_nen_cau_nguyen",
+    "file": "ke_nen_cau_nguyen.png",
+    "prompt": "A tiered iron prayer candle stand with many small lit tea-light candles in rows, a small offering box in front.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no human figures, no statues of people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_bookshelf_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-4/ke_rau_qua.png"
+    ],
+    "tries": 1,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 13.64/9.67/13.64/10.34. Tạo hình đúng mô tả."
+  },
+  {
+    "id": "buc_giang",
+    "file": "buc_giang.png",
+    "prompt": "A carved wooden lectern with an open thick book with only simple decorative lines (no writing), a gold crystal emblem on the front.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no human figures, no statues of people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_chair_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-2/ban_lam_viec.png"
+    ],
+    "tries": 1,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 15.57/7.57/15.57/7.32. Tạo hình đúng mô tả."
+  },
+  {
+    "id": "tham_do_dai",
+    "file": "tham_do_dai.png",
+    "prompt": "A long narrow red carpet runner with gold borders and small gold tassels at both ends, seen from above at a slight angle, lying flat (wide shape, much wider than tall).\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no human figures, no statues of people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_rug_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-3/tham_lon.png"
+    ],
+    "tries": 2,
+    "note": "Đạt sau lượt 2. Lề trái/trên/phải/dưới (%): 7.23/30.66/7.14/26.10. Tạo hình đúng mô tả; thảm nằm phẳng và dài ngang."
+  },
+  {
+    "id": "tuong_phong_tam",
+    "file": "tuong_phong_tam.png",
+    "prompt": "A straight front-facing bathroom wall panel: cream plaster upper half with dark timber framing, lower half covered with small glazed mint-green square ceramic tiles, a small round window, a wooden towel rail with a white towel, thick wooden posts on the left and right edges, a ceiling beam along the top.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no human figures, no statues of people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_stove_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-3/tuong_bep_gach.png"
+    ],
+    "tries": 1,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 5.67/12.71/5.67/8.95. Tạo hình đúng mô tả."
+  },
+  {
+    "id": "bon_tam_go",
+    "file": "bon_tam_go.png",
+    "prompt": "A large round wooden bathtub with iron hoops filled with steaming warm water and soap bubbles, a small wooden step stool beside it, a rubber duck floating (toy, not a real animal).\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no human figures, no statues of people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_water_barrel_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-2/thung_ruou_lon.png"
+    ],
+    "tries": 2,
+    "note": "Đạt sau lượt 2. Lề trái/trên/phải/dưới (%): 11.64/5.02/13.16/5.34. Tạo hình đúng mô tả sau lượt 2; đã loại bỏ vịt đồ chơi để tuân thủ lệnh cấm thú."
+  },
+  {
+    "id": "tu_guong_rua",
+    "file": "tu_guong_rua.png",
+    "prompt": "A wooden bathroom vanity cabinet with a white ceramic sink, a brass tap, a rectangular mirror on top, a soap bar and a toothbrush cup.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no human figures, no statues of people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_wardrobe_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-3/ban_trang_diem.png"
+    ],
+    "tries": 2,
+    "note": "Đạt sau lượt 2. Lề trái/trên/phải/dưới (%): 25.32/14.05/25.40/15.05. Tạo hình đúng mô tả."
+  },
+  {
+    "id": "ke_khan",
+    "file": "ke_khan.png",
+    "prompt": "A narrow wooden shelf with neatly folded towels in white, blue and pink, a basket of soaps and a small potted fern on top.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no human figures, no statues of people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_bookshelf_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-3/tu_ngan_keo.png"
+    ],
+    "tries": 1,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 14.98/5.33/16.37/8.68. Tạo hình đúng mô tả."
+  },
+  {
+    "id": "gio_do_giat",
+    "file": "gio_do_giat.png",
+    "prompt": "A woven wicker laundry basket with a lid slightly open and a few colorful clothes peeking out.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no human figures, no statues of people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_chest_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-3/thung_tao_rau.png"
+    ],
+    "tries": 1,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 18.29/9.26/19.28/8.34. Tạo hình đúng mô tả."
+  },
+  {
+    "id": "chau_cay_duong_xi",
+    "file": "chau_cay_duong_xi.png",
+    "prompt": "A hanging ceramic flower pot on three short ropes with a lush green fern spilling over the edges.\n\nChunky chibi pixel art game sprite of indoor furniture in EXACTLY the same style as the attached references: front view with a\nslight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm\nsaturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about\n4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty\nspace on every side, on a perfectly flat solid magenta #FF00FF background. No floor, no room, no cast shadow, no text, no letters,\nno numbers, no labels, no people, no human figures, no statues of people, no animals, no characters.",
+    "refs": [
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/mau-tham-chieu/home_potted_plant_x4.png",
+      "D:/truong/MyGame/packages/asset-pipeline/sources/gpt-review/dot-3/ke_gia_vi.png"
+    ],
+    "tries": 1,
+    "note": "Đạt. Lề trái/trên/phải/dưới (%): 25.52/5.27/27.08/7.62. Tạo hình đúng mô tả."
+  }
+]

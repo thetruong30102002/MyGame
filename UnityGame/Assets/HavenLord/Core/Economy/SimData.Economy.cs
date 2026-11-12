@@ -49,6 +49,13 @@ namespace HavenLord.Core
         public BuffSpec Buff;
     }
 
+    /// <summary>Bộ đồ cấp 5 bán bằng xu ở quầy Bram; giá/chỉ số tạm chờ duyệt.</summary>
+    public sealed class OutfitShopItem
+    {
+        public string Id, ClassId, Name;
+        public double Price, LevelReq;
+    }
+
     /// <summary>Mục tiêu thành tựu (rewards.ts GoalDef). Kind: "kills" | "bosses" | "maps" | "friends".</summary>
     public sealed class GoalDef
     {
@@ -88,6 +95,7 @@ namespace HavenLord.Core
         public Merchant MerchantFirst;
         public string[] MerchantNpcs;
         public ShopItem[] Shop;
+        public OutfitShopItem[] OutfitShop;
         public double BuffMaxMs;
         public Dictionary<string, string> BuffGroup;
 
@@ -152,6 +160,15 @@ namespace HavenLord.Core
                 });
             }
             t.Shop = items.ToArray();
+
+            var outfits = new List<OutfitShopItem>();
+            foreach (var s in shop["OUTFIT_SHOP"] ?? new JArray())
+                outfits.Add(new OutfitShopItem
+                {
+                    Id = (string)s["id"], ClassId = (string)s["classId"], Name = (string)s["name"],
+                    Price = (double)s["price"], LevelReq = (double)s["levelReq"],
+                });
+            t.OutfitShop = outfits.ToArray();
 
             var goals = new List<GoalDef>();
             foreach (var g in rw["GOALS"])

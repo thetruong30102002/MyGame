@@ -1,0 +1,36 @@
+{
+  "group_id": "3d56b6c7-2e3c-4b12-b81c-9c479a7c3a8b",
+  "states": [
+    {
+      "character": {
+        "id": "2b39a2c5-39d0-4ec5-b5be-59c2d0449f1a",
+        "name": "Idle",
+        "prompt": "a hollow night-armor knight monster standing upright facing the viewer, a suit of dark blue-black plate armor with dented violet-edged plates and a tattered dark purple cape, an empty helmet with a narrow visor glowing faint purple inside, holding a chipped black longsword in the right hand and a small round shield with a moon emblem in the left, wisps of shadow leaking from the armor joints; cute but hostile RPG monster, same chibi anime pixel art style as the reference: big head, black single-color outline, cel shading",
+        "size": {
+          "width": 64,
+          "height": 64
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-11-05T16:05:59.915037+00:00"
+      },
+      "folder": "Idle",
+      "frames": {
+        "rotations": {
+          "south": "Idle/rotations/south.png",
+          "south-east": "Idle/rotations/south-east.png",
+          "east": "Idle/rotations/east.png",
+          "north-east": "Idle/rotations/north-east.png",
+          "north": "Idle/rotations/north.png",
+          "north-west": "Idle/rotations/north-west.png",
+          "west": "Idle/rotations/west.png",
+          "south-west": "Idle/rotations/south-west.png"
+        },
+        "animations": {}
+      }
+    }
+  ],
+  "export_version": "3.1",
+  "export_date": "2026-11-05T16:09:43.089175"
+}

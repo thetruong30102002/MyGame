@@ -115,6 +115,8 @@ namespace HavenLord.Importer
             db.regions = FindAll<WorldIndex>(ImportUtil.Root).OrderBy(r => r.region, StringComparer.Ordinal).ToList();
             db.vfx = FindAll<VfxDef>(ImportUtil.Root).OrderBy(v => v.atlasId, StringComparer.Ordinal).ToList();
             db.uiSets = FindAll<UiSpriteSet>(ImportUtil.Root).OrderBy(u => u.name, StringComparer.Ordinal).ToList();
+            db.homeProps = AssetDatabase.LoadAssetAtPath<PropCatalog>(ImportUtil.Root + "/Home/PropCatalog.asset");
+            db.homeArtCatalog = AssetDatabase.LoadAssetAtPath<TextAsset>(ImportUtil.Root + "/Home/Catalog.json");
             db.simModules = FindAll<TextAsset>(SimDir).OrderBy(t => t.name, StringComparer.Ordinal).ToList();
             db.tempArt = AssetDatabase.LoadAssetAtPath<TextAsset>(ClientDir + "/tempArt.json");
             db.npcs = AssetDatabase.LoadAssetAtPath<TextAsset>(ClientDir + "/npcs.json");

@@ -23,12 +23,15 @@ namespace HavenLord.Client
         {
             switch (m)
             {
+                case ServerFarm farm:
+                    ReceiveFarm(farm.State);
+                    break;
                 case ServerWelcome w:
                     remotes.Clear();
                     foreach (var p in w.Players) remotes.Upsert(p);
                     lastSent = "";
                     SendGearView(true);
-                    if (map != null)
+                    if (map != null && !InFarm)
                     {
                         online.Send(new ClientMap { Map = online.Progress.Map });
                         if (HasSharedZones()) online.Send(new ClientMobSub { On = true });
@@ -279,6 +282,7 @@ namespace HavenLord.Client
         /// <summary>Ghi vị trí hiện tại vào tiến độ; true = có thay đổi.</summary>
         private bool WritePosition()
         {
+            if (InFarm) return false;
             if (online == null || player == null || map == null) return false;
             var pr = online.Progress;
             var x = Js.Round(player.X);

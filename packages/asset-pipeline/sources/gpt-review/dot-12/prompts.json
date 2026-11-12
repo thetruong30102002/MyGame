@@ -1,0 +1,649 @@
+[
+  {
+    "id": "nm_dai_sanh_nam",
+    "file": "nm_dai_sanh_nam.png",
+    "prompt": "A grand underground hall grown from a cluster of giant glowing mushrooms: a huge central teal-capped mushroom with a wide gill underside glowing soft blue, a carved round door in its thick stem, smaller violet and green mushroom towers around it joined by curved root walkways, hanging spore lanterns. Ground base: dark mossy cave soil with tiny glowing mushrooms.\n\nChunky chibi pixel art game sprite in EXACTLY the same style as the attached reference: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel is the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space around it, on a perfectly flat solid magenta #FF00FF background. No cast shadow on the ground, no scenery, no text, no letters, no numbers, no signs with writing, no people, no animals, no characters.\nFor the final sprite, fit the whole structure and its short ground base comfortably inside a 1312×1199 landscape canvas matching the town hall reference. Leave at least 10% completely empty magenta margin on ALL FOUR sides, especially top and bottom. Make the small ground base end in one straight horizontal bottom line. Preserve the described architecture; no extra scenery or sky.",
+    "refs": [
+      "mau-tham-chieu/swamp_willow_x4.png",
+      "mau-tham-chieu/volcano_dwarf_house_x4.png",
+      "dot-1/dl_dai_sanh_nha_san.png",
+      "dot-1/tl_toa_thi_chinh.png",
+      "dot-12/nm_dai_sanh_nam-v2.png"
+    ],
+    "tries": 2,
+    "note": "Lề trái 8.38%, trên 9.01%, phải 8.38%, dưới 13.18%. Đạt. Công trình 1312×1199 px như mẫu tòa thị chính; nền chân gọn, đáy thẳng."
+  },
+  {
+    "id": "nm_cum_nam_lam",
+    "file": "nm_cum_nam_lam.png",
+    "prompt": "A tall cluster of three giant mushrooms with glowing translucent teal-blue caps and pale stems, tiny light spots on the caps.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/swamp_willow_x4.png",
+      "dot-10/nha_nam_khong_lo.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 21.88%, trên 7.23%, phải 24.02%, dưới 7.13%. Đạt."
+  },
+  {
+    "id": "nm_mang_nam_tim",
+    "file": "nm_mang_nam_tim.png",
+    "prompt": "A low wide patch of many small violet and magenta glowing mushrooms on a mossy mound, wide shape.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/swamp_willow_x4.png",
+      "mau-tham-chieu/home_potted_plant_x4.png",
+      "dot-6/dun_rom.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 5.69%, trên 24.35%, phải 5.75%, dưới 18.15%. Đạt."
+  },
+  {
+    "id": "nm_mang_da_nhu",
+    "file": "nm_mang_da_nhu.png",
+    "prompt": "A tall dark cave stalagmite with shelf fungi growing in steps up its side, pale green glowing edges, drips of water.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.\nFit the COMPLETE object in the canvas with at least 10% clean magenta space on all four sides, including above the tallest part and below the lowest detail. Preserve the requested shape and object, with no extra scenery.",
+    "refs": [
+      "mau-tham-chieu/swamp_willow_x4.png",
+      "mau-tham-chieu/volcano_great_forge_x4.png",
+      "dot-1/cay_lieu_khong_lo.png",
+      "dot-12/nm_mang_da_nhu-v2.png"
+    ],
+    "tries": 2,
+    "note": "Lề trái 17.03%, trên 8.66%, phải 17.99%, dưới 9.83%. Đạt."
+  },
+  {
+    "id": "nm_den_bao_tu",
+    "file": "nm_den_bao_tu.png",
+    "prompt": "A crooked wooden post with a glass bulb hanging from it full of floating glowing green spores, roots wrapped around the base.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/swamp_willow_x4.png",
+      "mau-tham-chieu/home_wall_clock_x4.png",
+      "dot-11/nk_den.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 23.84%, trên 9.65%, phải 26.16%, dưới 8.85%. Đạt."
+  },
+  {
+    "id": "nm_vung_bao_tu",
+    "file": "nm_vung_bao_tu.png",
+    "prompt": "A shallow round pool of glowing cyan liquid on the cave floor with tiny floating spore dots above it and small mushrooms on the rim, flat wide shape seen from slightly above.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/swamp_willow_x4.png",
+      "mau-tham-chieu/home_rug_x4.png",
+      "dot-7/cho_tam_cat.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 18.14%, trên 15.19%, phải 18.88%, dưới 14.36%. Đạt."
+  },
+  {
+    "id": "nm_than_nam_do",
+    "file": "nm_than_nam_do.png",
+    "prompt": "A fallen giant mushroom lying on its side: thick pale stem and a broken blue cap, small new mushrooms sprouting along the stem, wide shape.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/swamp_willow_x4.png",
+      "dot-7/cuon_rom_tron.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 11.61%, trên 12.85%, phải 13.42%, dưới 16.35%. Đạt."
+  },
+  {
+    "id": "nm_tinh_the_soi_nam",
+    "file": "nm_tinh_the_soi_nam.png",
+    "prompt": "A cluster of pale lilac crystals wrapped in fine white glowing mycelium threads, small mushrooms at the base.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/swamp_willow_x4.png",
+      "mau-tham-chieu/home_potted_plant_x4.png",
+      "dot-9/hv_dac_trung.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 17.48%, trên 21.22%, phải 19.43%, dưới 22.27%. Đạt."
+  },
+  {
+    "id": "nm_gian_trong_nam",
+    "file": "nm_gian_trong_nam.png",
+    "prompt": "An old abandoned wooden rack of three shelves holding logs with small brown and blue mushrooms growing on them, cobwebby corners.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/swamp_willow_x4.png",
+      "mau-tham-chieu/home_bookshelf_x4.png",
+      "dot-6/ke_kho_lon.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 11.78%, trên 12.19%, phải 11.78%, dưới 12.12%. Đạt."
+  },
+  {
+    "id": "ph_thap_haven_do",
+    "file": "ph_thap_haven_do.png",
+    "prompt": "A tall ruined ancient Haven spire of cream-white stone with faded gold trim, the top half broken off with a large glowing cyan Haven crystal floating above the broken top, cracked arched windows, ivy climbing the walls, fallen blocks at the base. Ground base: cracked white stone tiles with grass between them.\n\nChunky chibi pixel art game sprite in EXACTLY the same style as the attached reference: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel is the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space around it, on a perfectly flat solid magenta #FF00FF background. No cast shadow on the ground, no scenery, no text, no letters, no numbers, no signs with writing, no people, no animals, no characters.\nThis is the THIRD and final composition. Reproduce the described building at only 70% of the canvas height, centered in the same 1312×1199 landscape image as the town hall reference. Leave a large uninterrupted magenta band of at least 12% above the very top spire, crystal or sun symbol and at least 12% below the straight base, with generous side margins. The whole structure must be visible, nothing clipped.",
+    "refs": [
+      "mau-tham-chieu/highland_stone_cottage_x4.png",
+      "mau-tham-chieu/human_church_x4.png",
+      "dot-1/tl_toa_thi_chinh.png",
+      "dot-1/tl_toa_thi_chinh.png",
+      "dot-12/ph_thap_haven_do-v3.png"
+    ],
+    "tries": 3,
+    "note": "Lề trái 24.39%, trên 14.85%, phải 24.24%, dưới 16.85%. Đạt. Công trình 1312×1199 px như mẫu tòa thị chính; nền chân gọn, đáy thẳng."
+  },
+  {
+    "id": "ph_cong_vom_vo",
+    "file": "ph_cong_vom_vo.png",
+    "prompt": "A broken ancient stone archway of cream-white blocks with faded gold trim, one side collapsed, a faint glowing cyan rune on the keystone, ivy hanging down.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/highland_stone_cottage_x4.png",
+      "dot-1/tl_toa_thi_chinh.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 9.57%, trên 9.41%, phải 9.81%, dưới 9.17%. Đạt."
+  },
+  {
+    "id": "ph_cot_rune_do",
+    "file": "ph_cot_rune_do.png",
+    "prompt": "A fallen white marble column broken into two pieces lying on the ground, glowing cyan geometric runes along its side, moss in the cracks, wide shape.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/highland_stone_cottage_x4.png",
+      "dot-9/ld_tuong.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 5.07%, trên 18.26%, phải 5.24%, dưới 17.59%. Đạt."
+  },
+  {
+    "id": "ph_be_pha_le_nut",
+    "file": "ph_be_pha_le_nut.png",
+    "prompt": "A cracked ancient stone pedestal with gold bands holding a chipped floating cyan Haven crystal that flickers with light.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/highland_stone_cottage_x4.png",
+      "mau-tham-chieu/home_wall_clock_x4.png",
+      "dot-9/hv_dac_trung.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 28.71%, trên 14.19%, phải 28.81%, dưới 20.18%. Đạt."
+  },
+  {
+    "id": "ph_bia_co",
+    "file": "ph_bia_co.png",
+    "prompt": "A tall ancient stone tablet with a rounded top, carved with glowing cyan geometric symbols (no letters), cracked edge, ivy at the base.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/highland_stone_cottage_x4.png",
+      "dot-1/tl_toa_thi_chinh.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 16.68%, trên 7.85%, phải 16.85%, dưới 9.53%. Đạt."
+  },
+  {
+    "id": "ph_bac_da_noi",
+    "file": "ph_bac_da_noi.png",
+    "prompt": "Three broken stone stair blocks floating one above another in a short diagonal, each with faint cyan glow underneath, small pebbles floating around.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/highland_stone_cottage_x4.png",
+      "dot-1/cn_dai_coi_xay.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 21.85%, trên 19.86%, phải 20.65%, dưới 22.81%. Đạt."
+  },
+  {
+    "id": "ph_tuong_vo_day_leo",
+    "file": "ph_tuong_vo_day_leo.png",
+    "prompt": "A broken section of ancient white stone wall with an empty arched window, faded gold trim, thick green ivy and small white flowers covering one side, wide shape.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/highland_stone_cottage_x4.png",
+      "dot-2/tuong_da_vom.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 12.57%, trên 5.64%, phải 12.57%, dưới 7.78%. Đạt."
+  },
+  {
+    "id": "ph_dai_phun_can",
+    "file": "ph_dai_phun_can.png",
+    "prompt": "A dry ancient round stone fountain with a cracked basin, a tall broken center spout, dead leaves and moss inside, faded gold rim.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/highland_stone_cottage_x4.png",
+      "mau-tham-chieu/home_water_barrel_x4.png",
+      "dot-10/lau_kinh_vuon_hoa.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 22.4%, trên 15.62%, phải 23.44%, dưới 15.43%. Đạt."
+  },
+  {
+    "id": "ph_dong_gach_vang",
+    "file": "ph_dong_gach_vang.png",
+    "prompt": "A low pile of broken white stone blocks and gold-glazed roof tiles with a small glowing cyan crystal shard sticking out, wide shape.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/highland_stone_cottage_x4.png",
+      "mau-tham-chieu/home_chest_x4.png",
+      "dot-6/chong_bao_tai.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 9.08%, trên 25.82%, phải 9.19%, dưới 14.32%. Đạt."
+  },
+  {
+    "id": "hk_cong_hu_khong",
+    "file": "hk_cong_hu_khong.png",
+    "prompt": "A colossal ring gate of black obsidian stone blocks floating slightly above a broken platform, the inside of the ring filled with a swirling deep violet and indigo void vortex with tiny star specks, shattered stone pieces orbiting around it, glowing violet cracks in the platform. Ground base: a broken dark floating island edge with jagged rock underneath.\n\nChunky chibi pixel art game sprite in EXACTLY the same style as the attached reference: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel is the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space around it, on a perfectly flat solid magenta #FF00FF background. No cast shadow on the ground, no scenery, no text, no letters, no numbers, no signs with writing, no people, no animals, no characters.\nFor the final sprite, fit the whole structure and its short ground base comfortably inside a 1312×1199 landscape canvas matching the town hall reference. Leave at least 10% completely empty magenta margin on ALL FOUR sides, especially top and bottom. Make the small ground base end in one straight horizontal bottom line. Preserve the described architecture; no extra scenery or sky.",
+    "refs": [
+      "mau-tham-chieu/volcano_great_forge_x4.png",
+      "dot-1/nl_dai_lo_ren.png",
+      "dot-1/tl_toa_thi_chinh.png",
+      "dot-12/hk_cong_hu_khong-v2.png"
+    ],
+    "tries": 2,
+    "note": "Lề trái 12.04%, trên 8.26%, phải 12.2%, dưới 10.51%. Đạt. Công trình 1312×1199 px như mẫu tòa thị chính; nền chân gọn, đáy thẳng."
+  },
+  {
+    "id": "hk_da_troi",
+    "file": "hk_da_troi.png",
+    "prompt": "A chunk of dark purple-black rock floating in the air with a jagged bottom, glowing violet cracks, small pebbles floating below it.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/volcano_great_forge_x4.png",
+      "dot-1/nl_dai_lo_ren.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 11.13%, trên 10.34%, phải 12.58%, dưới 5.75%. Đạt."
+  },
+  {
+    "id": "hk_tinh_the_hu",
+    "file": "hk_tinh_the_hu.png",
+    "prompt": "A cluster of sharp black and deep violet crystals with glowing purple cores and a faint dark aura of tiny sparkles.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/volcano_great_forge_x4.png",
+      "mau-tham-chieu/home_potted_plant_x4.png",
+      "dot-9/hv_dac_trung.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 15.24%, trên 12.61%, phải 17.98%, dưới 14.42%. Đạt."
+  },
+  {
+    "id": "hk_cot_vo_troi",
+    "file": "hk_cot_vo_troi.png",
+    "prompt": "A dark stone pillar shattered into four pieces that float apart vertically in a line, violet light glowing between the pieces.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/volcano_great_forge_x4.png",
+      "mau-tham-chieu/highland_stone_cottage_x4.png",
+      "dot-9/ld_tuong.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 26.56%, trên 9.57%, phải 26.66%, dưới 10.03%. Đạt."
+  },
+  {
+    "id": "hk_khe_nut",
+    "file": "hk_khe_nut.png",
+    "prompt": "A jagged crack in dark rocky ground glowing deep violet from inside with tiny star specks, flat wide shape seen from slightly above.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/volcano_great_forge_x4.png",
+      "mau-tham-chieu/home_rug_x4.png",
+      "dot-7/cho_tam_cat.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 13.03%, trên 25.41%, phải 13.03%, dưới 13.4%. Đạt."
+  },
+  {
+    "id": "hk_cay_hoa_da",
+    "file": "hk_cay_hoa_da.png",
+    "prompt": "A dead petrified tree of pale grey-white stone with twisted bare branches, faint violet cracks running through the trunk.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.\nFit the COMPLETE object in the canvas with at least 10% clean magenta space on all four sides, including above the tallest part and below the lowest detail. Preserve the requested shape and object, with no extra scenery.",
+    "refs": [
+      "mau-tham-chieu/volcano_great_forge_x4.png",
+      "dot-1/cay_lieu_khong_lo.png",
+      "dot-12/hk_cay_hoa_da-v2.png"
+    ],
+    "tries": 2,
+    "note": "Lề trái 9.23%, trên 11.17%, phải 9.49%, dưới 12.39%. Đạt."
+  },
+  {
+    "id": "hk_xich_neo_troi",
+    "file": "hk_xich_neo_troi.png",
+    "prompt": "A heavy dark iron anchor block floating in the air with thick broken chains hanging down, violet runes glowing on the block.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.\nFit the COMPLETE object in the canvas with at least 10% clean magenta space on all four sides, including above the tallest part and below the lowest detail. Preserve the requested shape and object, with no extra scenery.",
+    "refs": [
+      "mau-tham-chieu/volcano_great_forge_x4.png",
+      "dot-1/nl_dai_lo_ren.png",
+      "dot-12/hk_xich_neo_troi-v2.png"
+    ],
+    "tries": 2,
+    "note": "Lề trái 23.29%, trên 8.05%, phải 23.29%, dưới 7.1%. Đạt."
+  },
+  {
+    "id": "hk_lo_lua_tim",
+    "file": "hk_lo_lua_tim.png",
+    "prompt": "A black stone brazier on three clawed legs burning with a tall pale violet ghostly flame.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/volcano_great_forge_x4.png",
+      "mau-tham-chieu/home_fireplace_x4.png",
+      "dot-11/lb_lo_suoi.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 22.9%, trên 6.55%, phải 23.71%, dưới 8.36%. Đạt."
+  },
+  {
+    "id": "hk_mieng_dao_vo",
+    "file": "hk_mieng_dao_vo.png",
+    "prompt": "A small floating island fragment with a flat top of dark rocky ground and a few pale grey grass tufts, jagged rock hanging underneath, a faint violet glow below.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/volcano_great_forge_x4.png",
+      "dot-1/nl_dai_lo_ren.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 8.21%, trên 17.07%, phải 8.29%, dưới 11%. Đạt."
+  },
+  {
+    "id": "am_thanh_duong_am",
+    "file": "am_thanh_duong_am.png",
+    "prompt": "A large ruined gothic cathedral of black stone with tall pointed spires, broken stained-glass windows glowing violet and blood red, thorny black vines climbing the walls, a heavy iron-bound door, candles on the steps. Ground base: dark cracked flagstones with purple mist at the edges.\n\nChunky chibi pixel art game sprite in EXACTLY the same style as the attached reference: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel is the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space around it, on a perfectly flat solid magenta #FF00FF background. No cast shadow on the ground, no scenery, no text, no letters, no numbers, no signs with writing, no people, no animals, no characters.\nThis is the THIRD and final composition. Reproduce the described building at only 70% of the canvas height, centered in the same 1312×1199 landscape image as the town hall reference. Leave a large uninterrupted magenta band of at least 12% above the very top spire, crystal or sun symbol and at least 12% below the straight base, with generous side margins. The whole structure must be visible, nothing clipped.",
+    "refs": [
+      "mau-tham-chieu/dark_lantern_tree_x4.png",
+      "mau-tham-chieu/human_church_x4.png",
+      "dot-1/tl_toa_thi_chinh.png",
+      "dot-1/tl_toa_thi_chinh.png",
+      "dot-12/am_thanh_duong_am-v3.png"
+    ],
+    "tries": 3,
+    "note": "Lề trái 17.61%, trên 14.1%, phải 17.61%, dưới 15.93%. Đạt. Công trình 1312×1199 px như mẫu tòa thị chính; nền chân gọn, đáy thẳng."
+  },
+  {
+    "id": "am_mo_da",
+    "file": "am_mo_da.png",
+    "prompt": "An old dark stone gravestone with a pointed top, carved with a simple geometric pattern (no letters), cracked, a red candle melting at its base.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/dark_lantern_tree_x4.png",
+      "mau-tham-chieu/dark_chained_tree_x4.png",
+      "dot-1/tl_toa_thi_chinh.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 18.27%, trên 8.77%, phải 18.35%, dưới 13.26%. Đạt."
+  },
+  {
+    "id": "am_quan_tai_xich",
+    "file": "am_quan_tai_xich.png",
+    "prompt": "A closed black wooden coffin standing upright, wrapped in heavy iron chains with a big padlock, faint violet light leaking from the seams.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/dark_lantern_tree_x4.png",
+      "mau-tham-chieu/dark_chained_tree_x4.png",
+      "dot-6/thung_go_chong.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 24.72%, trên 9.25%, phải 24.72%, dưới 7.18%. Đạt."
+  },
+  {
+    "id": "am_vac_ma",
+    "file": "am_vac_ma.png",
+    "prompt": "A big black iron cauldron on three legs over a small fire, bubbling with dark violet liquid, wisps of purple smoke.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/dark_lantern_tree_x4.png",
+      "mau-tham-chieu/home_stove_x4.png",
+      "dot-4/noi_luyen_thuoc.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 17.88%, trên 11.1%, phải 21.02%, dưới 13.65%. Đạt."
+  },
+  {
+    "id": "am_den_ma",
+    "file": "am_den_ma.png",
+    "prompt": "A tall crooked black iron lamp post with a cracked glass lantern glowing pale green-white, thorny vines winding up the post.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/dark_lantern_tree_x4.png",
+      "dot-11/nk_den.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 27.43%, trên 6.06%, phải 31.42%, dưới 5.82%. Đạt."
+  },
+  {
+    "id": "am_dong_xuong_nen",
+    "file": "am_dong_xuong_nen.png",
+    "prompt": "A low pile of old bones with several melting red and black candles burning on top, wide shape.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/dark_lantern_tree_x4.png",
+      "mau-tham-chieu/dark_chained_tree_x4.png",
+      "dot-6/chong_bao_tai.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 6.88%, trên 8.57%, phải 7.33%, dưới 9.81%. Đạt."
+  },
+  {
+    "id": "am_dan_te",
+    "file": "am_dan_te.png",
+    "prompt": "A black stone altar slab on thick legs with a glowing blood-red crystal on top, candles at the corners and dark red runes on the front.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/dark_lantern_tree_x4.png",
+      "mau-tham-chieu/volcano_great_forge_x4.png",
+      "dot-5/ban_tho_pha_le.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 11.76%, trên 6.71%, phải 11.68%, dưới 7.32%. Đạt."
+  },
+  {
+    "id": "am_tru_rune_nut",
+    "file": "am_tru_rune_nut.png",
+    "prompt": "A tall cracked black obelisk with glowing violet geometric runes (no letters) and a thin purple mist around its base.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.\nFit the COMPLETE object in the canvas with at least 10% clean magenta space on all four sides, including above the tallest part and below the lowest detail. Preserve the requested shape and object, with no extra scenery.",
+    "refs": [
+      "mau-tham-chieu/dark_lantern_tree_x4.png",
+      "mau-tham-chieu/dark_chained_tree_x4.png",
+      "dot-1/tl_toa_thi_chinh.png",
+      "dot-12/am_tru_rune_nut-v2.png"
+    ],
+    "tries": 2,
+    "note": "Lề trái 21.88%, trên 10.61%, phải 21.39%, dưới 10.81%. Đạt."
+  },
+  {
+    "id": "am_bui_gai_den",
+    "file": "am_bui_gai_den.png",
+    "prompt": "A dense bush of black thorny branches with a few shiny blood-red berries.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/dark_lantern_tree_x4.png",
+      "dot-3/chau_cay_lon.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 8.01%, trên 12.5%, phải 8.34%, dưới 10.67%. Đạt."
+  },
+  {
+    "id": "as_den_binh_minh",
+    "file": "as_den_binh_minh.png",
+    "prompt": "A radiant temple of white marble with a large golden sun dome, tall slender columns with gold capitals, sunrise pink and orange glass windows, a wide staircase with white flower urns, a glowing golden sun disc above the entrance. Ground base: white marble plaza tiles with small golden flowers.\n\nChunky chibi pixel art game sprite in EXACTLY the same style as the attached reference: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel is the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space around it, on a perfectly flat solid magenta #FF00FF background. No cast shadow on the ground, no scenery, no text, no letters, no numbers, no signs with writing, no people, no animals, no characters.\nThis is the THIRD and final composition. Reproduce the described building at only 70% of the canvas height, centered in the same 1312×1199 landscape image as the town hall reference. Leave a large uninterrupted magenta band of at least 12% above the very top spire, crystal or sun symbol and at least 12% below the straight base, with generous side margins. The whole structure must be visible, nothing clipped.",
+    "refs": [
+      "mau-tham-chieu/light_golden_tree_x4.png",
+      "mau-tham-chieu/human_church_x4.png",
+      "dot-1/tl_toa_thi_chinh.png",
+      "dot-1/tl_toa_thi_chinh.png",
+      "dot-12/as_den_binh_minh-v3.png"
+    ],
+    "tries": 3,
+    "note": "Lề trái 19.28%, trên 11.18%, phải 19.21%, dưới 16.43%. Đạt. Công trình 1312×1199 px như mẫu tòa thị chính; nền chân gọn, đáy thẳng."
+  },
+  {
+    "id": "as_cot_trang_vang",
+    "file": "as_cot_trang_vang.png",
+    "prompt": "A tall white marble column with gold capital and base, a gold sun emblem in the middle, white flowers at its foot.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/light_golden_tree_x4.png",
+      "mau-tham-chieu/light_crystal_tree_x4.png",
+      "dot-9/hv_tuong.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 20.73%, trên 7.02%, phải 20.89%, dưới 6.3%. Đạt."
+  },
+  {
+    "id": "as_dai_phun_thanh",
+    "file": "as_dai_phun_thanh.png",
+    "prompt": "A white marble two-tier fountain with gold trim and sparkling golden-white glowing water, white lotus flowers in the basin.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/light_golden_tree_x4.png",
+      "mau-tham-chieu/home_water_barrel_x4.png",
+      "dot-10/lau_kinh_vuon_hoa.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 24.09%, trên 5.96%, phải 24.28%, dưới 7.62%. Đạt."
+  },
+  {
+    "id": "as_khung_chuong_vang",
+    "file": "as_khung_chuong_vang.png",
+    "prompt": "A white marble frame with a small gold roof holding a large shining golden bell.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/light_golden_tree_x4.png",
+      "dot-1/cn_dai_coi_xay.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 12.97%, trên 5.03%, phải 13.05%, dưới 7.73%. Đạt."
+  },
+  {
+    "id": "as_be_sen",
+    "file": "as_be_sen.png",
+    "prompt": "A low round white marble basin with clear water, white and pink lotus flowers and green pads, wide shape.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/light_golden_tree_x4.png",
+      "mau-tham-chieu/home_rug_x4.png",
+      "dot-7/mang_nuoc_da.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 10.14%, trên 7.05%, phải 10.35%, dưới 7.54%. Đạt."
+  },
+  {
+    "id": "as_den_mat_troi",
+    "file": "as_den_mat_troi.png",
+    "prompt": "A slender white and gold lamp post topped with a glowing golden sun-shaped crystal lamp.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/light_golden_tree_x4.png",
+      "mau-tham-chieu/light_crystal_tree_x4.png",
+      "dot-11/nk_den.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 30.3%, trên 7.74%, phải 30.3%, dưới 9.73%. Đạt."
+  },
+  {
+    "id": "as_cong_hoa",
+    "file": "as_cong_hoa.png",
+    "prompt": "A graceful white marble arch covered with climbing white roses and small golden flowers.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/light_golden_tree_x4.png",
+      "dot-6/gian_day_leo.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 11.86%, trên 8.74%, phải 12.38%, dưới 8.22%. Đạt."
+  },
+  {
+    "id": "as_bia_anh_sang",
+    "file": "as_bia_anh_sang.png",
+    "prompt": "A tall golden crystal stele standing on a white marble base, glowing warm light, gold sun pattern carved on the base (no letters).\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/light_golden_tree_x4.png",
+      "mau-tham-chieu/light_crystal_tree_x4.png",
+      "dot-9/hv_dac_trung.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 25.1%, trên 10.68%, phải 25.2%, dưới 14.32%. Đạt."
+  },
+  {
+    "id": "as_ghe_da_trang",
+    "file": "as_ghe_da_trang.png",
+    "prompt": "A white marble garden bench with gold-trimmed curled armrests, wide shape.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/light_golden_tree_x4.png",
+      "mau-tham-chieu/home_armchair_x4.png",
+      "dot-3/ghe_dai.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 12.4%, trên 11.72%, phải 12.4%, dưới 10.94%. Đạt."
+  },
+  {
+    "id": "ct_vong_da_co",
+    "file": "ct_vong_da_co.png",
+    "prompt": "An ancient stone circle of tall mossy standing stones around a gigantic old hollow oak with an arched doorway glowing warm gold inside, roots spreading over the stones, hanging moss and floating golden firefly lights. Ground base: mossy forest floor with ferns and small white flowers.\n\nChunky chibi pixel art game sprite in EXACTLY the same style as the attached reference: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, warm saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel is the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with empty space around it, on a perfectly flat solid magenta #FF00FF background. No cast shadow on the ground, no scenery, no text, no letters, no numbers, no signs with writing, no people, no animals, no characters.\nFor the final sprite, fit the whole structure and its short ground base comfortably inside a 1312×1199 landscape canvas matching the town hall reference. Leave at least 10% completely empty magenta margin on ALL FOUR sides, especially top and bottom. Make the small ground base end in one straight horizontal bottom line. Preserve the described architecture; no extra scenery or sky.",
+    "refs": [
+      "mau-tham-chieu/wood_hollow_oak_x4.png",
+      "dot-10/nha_cay_tien.png",
+      "dot-1/tl_toa_thi_chinh.png",
+      "dot-12/ct_vong_da_co-v2.png"
+    ],
+    "tries": 2,
+    "note": "Lề trái 10.44%, trên 7.01%, phải 10.37%, dưới 11.68%. Đạt. Công trình 1312×1199 px như mẫu tòa thị chính; nền chân gọn, đáy thẳng."
+  },
+  {
+    "id": "ct_goc_cay_rong",
+    "file": "ct_goc_cay_rong.png",
+    "prompt": "A huge old hollow tree stump with a dark opening, thick moss on top, small mushrooms and ferns around the roots.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.\nFit the COMPLETE object in the canvas with at least 10% clean magenta space on all four sides, including above the tallest part and below the lowest detail. Preserve the requested shape and object, with no extra scenery.",
+    "refs": [
+      "mau-tham-chieu/wood_hollow_oak_x4.png",
+      "dot-1/cay_dai_thu_soi.png",
+      "dot-12/ct_goc_cay_rong-v2.png"
+    ],
+    "tries": 2,
+    "note": "Lề trái 9.81%, trên 11.24%, phải 9.89%, dưới 11.56%. Đạt."
+  },
+  {
+    "id": "ct_nam_tai_go",
+    "file": "ct_nam_tai_go.png",
+    "prompt": "A mossy fallen log with orange shelf fungi growing along its side, wide shape.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/wood_hollow_oak_x4.png",
+      "mau-tham-chieu/wood_firefly_tree_x4.png",
+      "dot-7/cuon_rom_tron.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 8.12%, trên 13.87%, phải 7.95%, dưới 13.98%. Đạt."
+  },
+  {
+    "id": "ct_den_dom_dom",
+    "file": "ct_den_dom_dom.png",
+    "prompt": "A rustic wooden post with a woven twig lantern glowing warm gold with tiny firefly-like light dots inside, ivy on the post.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/wood_hollow_oak_x4.png",
+      "mau-tham-chieu/wood_firefly_tree_x4.png",
+      "dot-11/nk_den.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 25.6%, trên 9.17%, phải 22.09%, dưới 9.41%. Đạt."
+  },
+  {
+    "id": "ct_da_reu_xep",
+    "file": "ct_da_reu_xep.png",
+    "prompt": "A stack of three flat mossy stones balanced on each other with small ferns at the base.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/wood_hollow_oak_x4.png",
+      "dot-1/cay_dai_thu_soi.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 11.07%, trên 16.17%, phải 10.98%, dưới 9.45%. Đạt."
+  },
+  {
+    "id": "ct_suoi_da",
+    "file": "ct_suoi_da.png",
+    "prompt": "A small clear spring pool ringed with round mossy stones, ferns and tiny white flowers on the edge, wide shape seen from slightly above.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/wood_hollow_oak_x4.png",
+      "mau-tham-chieu/home_water_barrel_x4.png",
+      "dot-7/mang_nuoc_da.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 12.43%, trên 8.7%, phải 13.54%, dưới 9.94%. Đạt."
+  },
+  {
+    "id": "ct_dong_cui",
+    "file": "ct_dong_cui.png",
+    "prompt": "A neat pile of split firewood logs with a wood axe stuck in a chopping stump beside it.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/wood_hollow_oak_x4.png",
+      "mau-tham-chieu/home_chest_x4.png",
+      "dot-6/thung_go_chong.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 8.13%, trên 26.95%, phải 8.21%, dưới 25.84%. Đạt."
+  },
+  {
+    "id": "ct_coc_go_khac",
+    "file": "ct_coc_go_khac.png",
+    "prompt": "A tall weathered wooden pole carved with leaf and spiral patterns (no faces), moss and small hanging vines on it.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.\nFit the COMPLETE object in the canvas with at least 10% clean magenta space on all four sides, including above the tallest part and below the lowest detail. Preserve the requested shape and object, with no extra scenery.",
+    "refs": [
+      "mau-tham-chieu/wood_hollow_oak_x4.png",
+      "dot-1/cay_dai_thu_soi.png",
+      "dot-12/ct_coc_go_khac-v2.png"
+    ],
+    "tries": 2,
+    "note": "Lề trái 25.39%, trên 9.38%, phải 28.22%, dưới 12.43%. Đạt."
+  },
+  {
+    "id": "ct_bui_qua_rung",
+    "file": "ct_bui_qua_rung.png",
+    "prompt": "A round leafy green forest bush with clusters of red and dark blue wild berries.\n\nChunky chibi pixel art game sprite of an outdoor map object in EXACTLY the same style as the attached references: front view with a slight top-down angle, thick dark near-black outline around every shape, soft cel shading with 2–3 tones per material, saturated colors, limited palette (at most 32 colors), crisp uniform square pixel blocks (every art pixel the same size, about 4×4 image pixels), no anti-aliasing, no gradients, no blur, no texture noise. One single object centered with at least 8% empty space on every side, on a perfectly flat solid magenta #FF00FF background. The base is a flat bottom line (a little ground right at the foot only). No cast shadow, no scenery, no sky, no text, no letters, no numbers, no people, no statues, no animals, no birds, no insects, no characters, no hats.",
+    "refs": [
+      "mau-tham-chieu/wood_hollow_oak_x4.png",
+      "mau-tham-chieu/wood_firefly_tree_x4.png",
+      "dot-3/chau_cay_lon.png"
+    ],
+    "tries": 1,
+    "note": "Lề trái 9.01%, trên 14.67%, phải 10.69%, dưới 16.83%. Đạt."
+  }
+]
+

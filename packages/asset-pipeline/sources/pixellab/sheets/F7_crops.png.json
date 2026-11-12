@@ -1,0 +1,20 @@
+{
+	"description": "A sprite sheet of SIXTEEN separate small crop plants arranged in a grid of 4 columns and 4 rows, each centered in its own cell, growth stages from left to right (1 sprout, 2 young, 3 growing, 4 ripe ready to harvest). Row 1 grape: tiny sprout, small vine on a short wooden trellis, leafy vine on trellis, trellis vine with purple grape bunches. Row 2 chili pepper: tiny sprout, small pepper plant, bushy pepper plant with white flowers, bushy plant with red chili peppers. Row 3 tea: tiny sprout, small tea shrub, round tea bush, lush round tea bush with fresh light green tips. Row 4 sunflower: tiny sprout, small sunflower stem, tall stem with a green bud, tall sunflower with a big yellow bloom. Each plant upright on a tiny dark soil mound, front view, slight top-down, thick dark outline, soft cel shading, natural colors, every plant fully separate on a plain flat solid bright magenta (#FF00FF) chroma-key background, no field, no shadow, no text, no numbers",
+	"width": 256,
+	"height": 256,
+	"no_background": false,
+	"seed": 742,
+	"style_options": {
+		"color_palette": false,
+		"outline": true,
+		"shading": true,
+		"detail": false
+	},
+	"style_image": {
+		"path": "sources/pixellab/sheets/N1_nature.png",
+		"usage_description": "Copy ONLY the art style of this reference: chunky chibi pixel art, thick dark outline on every shape, soft cel shading, front-facing view, one object centered in each cell. Do not copy these objects, their colors or their layout."
+	},
+	"jobId": "13f0b172-4e13-4f23-8095-8cda295d679b",
+	"token": 0,
+	"createdAt": "2026-11-11T03:09:29.296Z"
+}

@@ -1,0 +1,20 @@
+{
+	"description": "A sprite sheet of EIGHT separate seated tavern customer characters arranged in a grid of 4 columns and 2 rows, each centered in its own cell, every character SITTING on their own small round three-legged wooden stool, thighs horizontal, lower legs hanging down, feet on the ground next to the stool legs, full body visible. Row 1: (1) a cheerful young farmer man with short messy brown hair, linen shirt with rolled sleeves, brown suspenders, facing right in side view, raising a foam beer mug; (2) a young merchant woman with a long auburn braid, green vest over a cream blouse, long brown skirt, facing right in side view, chin resting on her hand; (3) a kind old man with short white hair and a long white beard, brown wool cardigan, facing right in side view, holding a small tea cup; (4) a burly blacksmith man with short black hair and a short beard, leather apron, bare muscular arms, facing right in side view, laughing with a big tankard raised. Row 2: (5) a young adventurer woman with a short silver-blue bob haircut, light leather jacket, travel cloak with the hood down, facing right in side view, eating bread; (6) a young bard man with short wavy blond hair, red-and-yellow tunic, facing right in side view, playing a lute; (7) a young cat-eared beast-folk woman with short orange hair and cat ears, no tail, blue dress with white apron, facing right in side view, sipping from a mug; (8) a sun-tanned fisherman man with short dark curly hair, striped sailor shirt, facing the viewer in front view, beer mug on his knee, smiling. Chibi anime proportions with a big head about one third of the height, large anime eyes, fluffy hair, nothing on any head: no hat, no hood up, no helmet, no headscarf. Thick dark outline, soft cel shading, every character fully separate on a plain flat solid bright magenta (#FF00FF) chroma-key background with empty space around it, no table, no floor, no shadow, no text, no numbers, no border, no frame",
+	"width": 256,
+	"height": 192,
+	"no_background": false,
+	"seed": 1201,
+	"style_options": {
+		"color_palette": false,
+		"outline": true,
+		"shading": true,
+		"detail": true
+	},
+	"style_image": {
+		"path": "sources/pixellab/sheets/S0_npc_style_ref.png",
+		"usage_description": "Copy ONLY the art style of these reference characters: chibi anime pixel art at this exact pixel scale (characters about 60-75 pixels tall), big heads, large anime eyes, fluffy hair, thick dark outline, soft cel shading. Do not copy their faces, hair colors, clothes or poses."
+	},
+	"jobId": "36467eae-a6d2-4dc6-981c-13e3fd741713",
+	"token": 0,
+	"createdAt": "2026-11-11T17:59:57.236Z"
+}

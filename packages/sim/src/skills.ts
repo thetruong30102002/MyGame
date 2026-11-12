@@ -544,6 +544,8 @@ const WORLD_ROSTER: readonly (readonly [string, number, WorldArchetype, WorldRan
 	['mob_glow_mushroom_001', 15, 'caster', 'mob', 'swamp'],
 	['mob_water_snake_001', 16, 'swift', 'mob', 'swamp'],
 	['mob_mud_merfolk_001', 17, 'archer', 'mob', 'swamp'],
+	// Quái sông đầm lầy (05/11/2026): trâu, chậm, sát bờ suối.
+	['mob_mud_catfish_001', 14, 'tank', 'mob', 'swamp'],
 	['boss_mother_frog_001', 17, 'brute', 'boss', 'swamp'],
 	['boss_swamp_witch_001', 20, 'caster', 'boss', 'swamp'],
 	['boss_mud_hydra_001', 20, 'caster', 'chief', 'swamp'],
@@ -552,6 +554,8 @@ const WORLD_ROSTER: readonly (readonly [string, number, WorldArchetype, WorldRan
 	['mob_mummy_001', 25, 'tank', 'mob', 'desert'],
 	['mob_vulture_001', 26, 'swift', 'mob', 'desert'],
 	['mob_sand_spirit_001', 27, 'caster', 'mob', 'desert'],
+	// Quái sông (05/11/2026), sát bờ suối / hồ.
+	['mob_oasis_croc_001', 24, 'tank', 'mob', 'desert'],
 	['boss_scorpion_queen_001', 27, 'brute', 'boss', 'desert'],
 	['boss_pharaoh_001', 30, 'caster', 'boss', 'desert'],
 	['boss_sandworm_001', 30, 'brute', 'chief', 'desert'],
@@ -560,6 +564,8 @@ const WORLD_ROSTER: readonly (readonly [string, number, WorldArchetype, WorldRan
 	['mob_wind_fairy_001', 35, 'caster', 'mob', 'highland'],
 	['mob_flying_rock_001', 36, 'tank', 'mob', 'highland'],
 	['mob_wind_goblin_001', 37, 'archer', 'mob', 'highland'],
+	// Quái sông (05/11/2026), sát bờ suối / hồ.
+	['mob_gale_otter_001', 34, 'swift', 'mob', 'highland'],
 	['boss_storm_eagle_001', 37, 'swift', 'boss', 'highland'],
 	['boss_wind_mage_001', 40, 'caster', 'boss', 'highland'],
 	['boss_wind_drake_001', 40, 'caster', 'chief', 'highland'],
@@ -569,6 +575,8 @@ const WORLD_ROSTER: readonly (readonly [string, number, WorldArchetype, WorldRan
 	['mob_snowman_001', 45, 'brute', 'mob', 'tundra'],
 	['mob_war_penguin_001', 46, 'standard', 'mob', 'tundra'],
 	['mob_ice_bear_001', 47, 'tank', 'mob', 'tundra'],
+	// Quái sông (05/11/2026), sát bờ suối / hồ.
+	['mob_ice_walrus_001', 44, 'tank', 'mob', 'tundra'],
 	['boss_ice_queen_001', 47, 'caster', 'boss', 'tundra'],
 	['boss_yeti_001', 48, 'brute', 'boss', 'tundra'],
 	['boss_ice_guardian_001', 50, 'tank', 'chief', 'tundra'],
@@ -578,6 +586,8 @@ const WORLD_ROSTER: readonly (readonly [string, number, WorldArchetype, WorldRan
 	['mob_fire_bat_001', 55, 'swift', 'mob', 'volcano'],
 	['mob_fire_spirit_001', 56, 'caster', 'mob', 'volcano'],
 	['mob_fire_demon_001', 57, 'brute', 'mob', 'volcano'],
+	// Quái sông (05/11/2026), sát bờ suối / hồ.
+	['mob_lava_eel_001', 54, 'brute', 'mob', 'volcano'],
 	['boss_ancient_lava_golem_001', 57, 'tank', 'boss', 'volcano'],
 	['boss_salamander_001', 60, 'caster', 'boss', 'volcano'],
 	['boss_fire_god_001', 60, 'caster', 'chief', 'volcano'],
@@ -587,6 +597,8 @@ const WORLD_ROSTER: readonly (readonly [string, number, WorldArchetype, WorldRan
 	['mob_pirate_001', 65, 'standard', 'mob', 'isles'],
 	['mob_coral_merfolk_001', 66, 'archer', 'mob', 'isles'],
 	['mob_wreck_octopus_001', 67, 'brute', 'mob', 'isles'],
+	// Quái sông (05/11/2026), sát bờ suối / hồ.
+	['mob_spike_turtle_001', 64, 'tank', 'mob', 'isles'],
 	['boss_crab_king_001', 67, 'tank', 'boss', 'isles'],
 	['boss_ghost_captain_001', 70, 'caster', 'boss', 'isles'],
 	['boss_kraken_001', 70, 'caster', 'chief', 'isles'],
@@ -624,6 +636,56 @@ export function elementMult(stats: Pick<EnemyStats, 'resist'>, element: Element)
 	const m = stats.resist?.[element];
 	return m === undefined || !Number.isFinite(m) ? 1 : Math.max(0.25, Math.min(3, m));
 }
+
+/**
+ * Đạn RIÊNG của boss (luật 05/11/2026 — chủ dự án: "boss nghiêm cấm đòn chung"): boss có đòn xa (`ranged`) mà có mục ở đây thì client
+ * bắn đúng hình đạn / hình nổ / cách bắn của nó thay cho quả cầu đen chung `dark_orb`. Sát thương, hệ và nhịp bắn vẫn theo
+ * `ENEMY_STATS` — chỉ đổi hình và đường đạn. Mỗi `vfx` / `impact` chỉ thuộc MỘT boss (bộ kiểm `tests/boss-unique-attacks.test.ts`).
+ * - `count` viên xoè đều trong góc `spread` (rad, hai viên ngoài cùng cách trục); `speed` px/giây.
+ * - `wobble`: biên độ lắc ngang đường bay (px, chỉ là hình — va chạm theo trục); `aim`: xoay hình theo hướng bay (hình vẽ hướng phải).
+ */
+export interface BossShot {
+	vfx: string;
+	impact: string;
+	count: number;
+	spread: number;
+	speed: number;
+	scale?: number;
+	aim?: boolean;
+	wobble?: number;
+}
+
+export const BOSS_SHOTS: Record<string, BossShot> = {
+	// Vua Lich: quạt 3 sọ lửa ma xanh lục bay chậm, lắc lư — né qua khe giữa hai sọ.
+	boss_lich_001: { vfx: 'boss_lich_skull', impact: 'boss_lich_skull_burst', count: 3, spread: 0.34, speed: 190, aim: true, wobble: 5 },
+	// Kraken: hai cục mực phun nhanh, gần như song song.
+	boss_kraken_001: { vfx: 'boss_kraken_ink', impact: 'boss_kraken_ink_splash', count: 2, spread: 0.1, speed: 320, aim: true },
+	// Quỷ vương: quạt 3 tia hoả ngục đỏ đen.
+	boss_demon_001: { vfx: 'boss_demon_hellbolt', impact: 'boss_demon_hellbolt_burst', count: 3, spread: 0.28, speed: 260, aim: true },
+	// Hoả thần: quạt rộng 5 giáo lửa mặt trời.
+	boss_fire_god_001: { vfx: 'boss_fire_god_sunspear', impact: 'boss_fire_god_sunspear_burst', count: 5, spread: 0.6, speed: 290, aim: true },
+	// Thuyền trưởng ma: một phát đạn đại bác lửa ma, nặng và nhanh.
+	boss_ghost_captain_001: { vfx: 'boss_ghost_cannonball', impact: 'boss_ghost_cannonball_burst', count: 1, spread: 0, speed: 340, aim: true },
+	// Nữ hoàng băng: 4 mũi băng dài xoè hẹp.
+	boss_ice_queen_001: { vfx: 'boss_ice_queen_shard', impact: 'boss_ice_queen_shard_burst', count: 4, spread: 0.36, speed: 300, aim: true },
+	// Hydra bùn: 3 đầu phun 3 cục bùn xoè rộng, chậm, lắc.
+	boss_mud_hydra_001: { vfx: 'boss_hydra_mud_glob', impact: 'boss_hydra_mud_splat', count: 3, spread: 0.5, speed: 210, aim: true, wobble: 3 },
+	// Pharaoh: 3 bọ hung vàng bay chập chờn.
+	boss_pharaoh_001: { vfx: 'boss_pharaoh_scarab', impact: 'boss_pharaoh_scarab_burst', count: 3, spread: 0.3, speed: 230, aim: true, wobble: 6 },
+	// Salamander: 2 cục dung nham.
+	boss_salamander_001: { vfx: 'boss_salamander_ember', impact: 'boss_salamander_ember_splat', count: 2, spread: 0.16, speed: 280, aim: true },
+	// Phù thuỷ đầm: 3 bong bóng độc trôi chậm, lắc mạnh.
+	boss_swamp_witch_001: { vfx: 'boss_witch_hex_bubble', impact: 'boss_witch_hex_pop', count: 3, spread: 0.36, speed: 170, wobble: 8 },
+	// Rồng gió (con Tuyệt Vân): 2 lưỡi gió liềm rất nhanh.
+	boss_wind_drake_001: { vfx: 'boss_drake_wind_crescent', impact: 'boss_drake_wind_gust', count: 2, spread: 0.2, speed: 360, aim: true },
+	// Pháp sư gió: 1 cầu bão xoáy, chậm, lắc.
+	boss_wind_mage_001: { vfx: 'boss_wind_mage_storm_orb', impact: 'boss_wind_mage_thunderclap', count: 1, spread: 0, speed: 230, wobble: 5 },
+	// Rồng nguyên tố: viên to, cỡ ×2.
+	dragon_fire_001: { vfx: 'dragon_fire_fireball', impact: 'dragon_fire_fireball_blast', count: 3, spread: 0.26, speed: 300, scale: 2 },
+	dragon_ice_001: { vfx: 'dragon_ice_frost_orb', impact: 'dragon_ice_frost_bloom', count: 3, spread: 0.32, speed: 260, aim: true, scale: 2 },
+	dragon_water_001: { vfx: 'dragon_water_jet', impact: 'dragon_water_burst', count: 2, spread: 0.12, speed: 380, aim: true, scale: 2 },
+	dragon_wind_001: { vfx: 'dragon_wind_whirl', impact: 'dragon_wind_whirl_burst', count: 3, spread: 0.42, speed: 240, wobble: 5, scale: 2 },
+};
 
 /**
  * Chỉ số theo nhân vật. Nấm rừng cân cho người chơi cấp 1–2 (8 tuổi). Quái từ 16 tuổi (Nghĩa địa, Vách Gargoyle,
@@ -669,6 +731,14 @@ export const ENEMY_STATS: Record<string, EnemyStats> = {
 	// Gargoyle Đá (boss khu Hang Gargoyle, cấp 10, hồi sinh như Vua Lich): số của Vua Lich nâng từ cấp 6 lên 10 bằng `enemyStatsAt`
 	// rồi làm tròn tay. Cận chiến + vòng nổ boss dùng chung (hình `boss_stone_slam`); KHÔNG đánh xa, KHÔNG đặt `resist` (quái vùng 1).
 	boss_stone_gargoyle_001: { hp: 4600, atk: 36, def: 12, speed: 48, aggro: 320, reach: 56, attackCd: 1.4, exp: 800, coins: 290 },
+	// Quái mới vùng 1 (05/11/2026, chủ dự án: "thêm quái", "có thêm quái ở sông"): Linh cẩu đồng — Đồng Cỏ Linh Cẩu cấp 4–6, săn theo
+	// bầy, nhanh (gần tốc đi bộ), giòn, cắn dồn.
+	mob_field_hyena_001: { hp: 260, atk: 15, def: 2, speed: 62, aggro: 230, reach: 32, attackCd: 1.1, exp: 44, coins: 10 },
+	// Cua đá suối — quái SÔNG vùng 1 (bầy sát bờ các map có nước, cấp theo map): mai đá giáp cao, chậm, kẹp đau.
+	mob_stream_crab_001: { hp: 180, atk: 10, def: 5, speed: 36, aggro: 150, reach: 30, attackCd: 1.6, exp: 26, coins: 7 },
+	// Cổ Thụ Nguyền Rủa — boss khu Đồng Cỏ Linh Cẩu (cấp 6): trâu, chậm, CẬN CHIẾN + chiêu riêng (rễ gai, quất cành, bào tử) — không
+	// bắn cầu bóng tối chung (luật 05/11 "boss nghiêm cấm đòn chung").
+	boss_cursed_oak_001: { hp: 3000, atk: 30, def: 8, speed: 44, aggro: 320, reach: 60, attackCd: 1.5, exp: 560, coins: 210 },
 	...WORLD_ENEMY_STATS,
 };
 
@@ -686,6 +756,9 @@ export const ENEMY_BASE_LEVEL: Readonly<Record<string, number>> = {
 	boss_demon_001: 5,
 	boss_lich_001: 6,
 	boss_stone_gargoyle_001: 10,
+	mob_field_hyena_001: 5,
+	mob_stream_crab_001: 3,
+	boss_cursed_oak_001: 6,
 	...WORLD_BASE_LEVEL,
 };
 

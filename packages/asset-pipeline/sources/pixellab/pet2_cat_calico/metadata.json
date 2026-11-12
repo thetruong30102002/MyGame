@@ -1,0 +1,115 @@
+{
+  "group_id": "90bda37c-ce17-47af-ba84-31ffd7ca94cd",
+  "states": [
+    {
+      "character": {
+        "id": "b86721e3-c180-408a-90d7-a89e6e019dac",
+        "name": "Idle",
+        "prompt": "a rare calico cat pet with white, orange and black patches, green eyes, a small flower on its collar, standing on all four legs, cute, detailed anime pixel art, thick dark outline, soft cel shading",
+        "size": {
+          "width": 64,
+          "height": 64
+        },
+        "template_id": "cat",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-11-11T05:26:52.260307+00:00"
+      },
+      "folder": "Idle",
+      "frames": {
+        "rotations": {
+          "south": "Idle/rotations/south.png",
+          "south-east": "Idle/rotations/south-east.png",
+          "east": "Idle/rotations/east.png",
+          "north-east": "Idle/rotations/north-east.png",
+          "north": "Idle/rotations/north.png",
+          "north-west": "Idle/rotations/north-west.png",
+          "west": "Idle/rotations/west.png",
+          "south-west": "Idle/rotations/south-west.png"
+        },
+        "animations": {
+          "walk": {
+            "east": [
+              "Idle/animations/walk/east/frame_000.png",
+              "Idle/animations/walk/east/frame_001.png",
+              "Idle/animations/walk/east/frame_002.png",
+              "Idle/animations/walk/east/frame_003.png",
+              "Idle/animations/walk/east/frame_004.png",
+              "Idle/animations/walk/east/frame_005.png"
+            ],
+            "south": [
+              "Idle/animations/walk/south/frame_000.png",
+              "Idle/animations/walk/south/frame_001.png",
+              "Idle/animations/walk/south/frame_002.png",
+              "Idle/animations/walk/south/frame_003.png",
+              "Idle/animations/walk/south/frame_004.png",
+              "Idle/animations/walk/south/frame_005.png"
+            ],
+            "north": [
+              "Idle/animations/walk/north/frame_000.png",
+              "Idle/animations/walk/north/frame_001.png",
+              "Idle/animations/walk/north/frame_002.png",
+              "Idle/animations/walk/north/frame_003.png",
+              "Idle/animations/walk/north/frame_004.png",
+              "Idle/animations/walk/north/frame_005.png"
+            ]
+          },
+          "idle": {
+            "north": [
+              "Idle/animations/idle/north/frame_000.png",
+              "Idle/animations/idle/north/frame_001.png",
+              "Idle/animations/idle/north/frame_002.png",
+              "Idle/animations/idle/north/frame_003.png",
+              "Idle/animations/idle/north/frame_004.png",
+              "Idle/animations/idle/north/frame_005.png"
+            ],
+            "south": [
+              "Idle/animations/idle/south/frame_000.png",
+              "Idle/animations/idle/south/frame_001.png",
+              "Idle/animations/idle/south/frame_002.png",
+              "Idle/animations/idle/south/frame_003.png",
+              "Idle/animations/idle/south/frame_004.png",
+              "Idle/animations/idle/south/frame_005.png"
+            ],
+            "east": [
+              "Idle/animations/idle/east/frame_000.png",
+              "Idle/animations/idle/east/frame_001.png",
+              "Idle/animations/idle/east/frame_002.png",
+              "Idle/animations/idle/east/frame_003.png",
+              "Idle/animations/idle/east/frame_004.png",
+              "Idle/animations/idle/east/frame_005.png"
+            ]
+          },
+          "sleep": {
+            "north": [
+              "Idle/animations/sleep/north/frame_000.png",
+              "Idle/animations/sleep/north/frame_001.png",
+              "Idle/animations/sleep/north/frame_002.png",
+              "Idle/animations/sleep/north/frame_003.png",
+              "Idle/animations/sleep/north/frame_004.png",
+              "Idle/animations/sleep/north/frame_005.png"
+            ],
+            "east": [
+              "Idle/animations/sleep/east/frame_000.png",
+              "Idle/animations/sleep/east/frame_001.png",
+              "Idle/animations/sleep/east/frame_002.png",
+              "Idle/animations/sleep/east/frame_003.png",
+              "Idle/animations/sleep/east/frame_004.png",
+              "Idle/animations/sleep/east/frame_005.png"
+            ],
+            "south": [
+              "Idle/animations/sleep/south/frame_000.png",
+              "Idle/animations/sleep/south/frame_001.png",
+              "Idle/animations/sleep/south/frame_002.png",
+              "Idle/animations/sleep/south/frame_003.png",
+              "Idle/animations/sleep/south/frame_004.png",
+              "Idle/animations/sleep/south/frame_005.png"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "export_version": "3.1",
+  "export_date": "2026-11-11T06:23:57.313353"
+}

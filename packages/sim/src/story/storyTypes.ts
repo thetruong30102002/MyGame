@@ -63,6 +63,8 @@ export interface QuestDef {
 }
 
 export interface NpcDef {
+	/** NPC dịch vụ mới đứng yên, không cần bộ di chuyển. */
+	stationary?: boolean;
 	name: string;
 	title: string;
 	/** Sprite trong manifest; null = chưa có sprite (nói chuyện qua cửa nhà / điểm tương tác). */

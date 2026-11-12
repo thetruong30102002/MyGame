@@ -1,0 +1,79 @@
+{
+	"identity": {
+		"characterId": "mob_gale_otter_001",
+		"hair": "long_whiskers",
+		"eyes": "yellow",
+		"skin": "slimy_olive_mud",
+		"outfit": "algae_patches",
+		"weapon": "bite",
+		"palette": "swamp_mob_river"
+	},
+	"displayName": "Rái cá suối gió",
+	"role": "monster",
+	"provider": "pixellab",
+	"pixellab": {
+		"animations": {
+			"idle": "idle",
+			"walk": "walk",
+			"attack": "attack",
+			"death": "death"
+		},
+		"mirrorWest": true
+	},
+	"frameSize": {
+		"width": 76,
+		"height": 68
+	},
+	"baselineY": 64,
+	"animations": {
+		"idle": {
+			"fps": 6,
+			"minFrames": 4,
+			"maxFrames": 8
+		},
+		"walk": {
+			"fps": 10,
+			"minFrames": 6,
+			"maxFrames": 8
+		},
+		"attack": {
+			"fps": 14,
+			"minFrames": 4,
+			"maxFrames": 12,
+			"optional": true,
+			"hitFrame": 4
+		},
+		"death": {
+			"fps": 10,
+			"minFrames": 4,
+			"maxFrames": 12,
+			"optional": true
+		}
+	},
+	"cleanup": {
+		"alignToIdle": true
+	},
+	"quality": {
+		"maxHeightDrift": 0.15,
+		"driftAnims": {
+			"death": 0.75,
+			"attack": 0.25
+		}
+	},
+	"provisional": [
+		"S",
+		"SW",
+		"W",
+		"NW",
+		"N",
+		"NE",
+		"E",
+		"SE"
+	],
+	"notes": "PixelLab Pro Flash (05/11/2026), 64px, ảnh mẫu phong cách = Nấm rừng. Quái sông vùng 1 (bầy sát bờ, cấp theo map). Động tác v3: đi 8, đứng 4, đánh 8, gục 8 khung.",
+	"review": {
+		"status": "approved",
+		"date": "05/11/2026",
+		"notes": "Chủ dự án duyệt dáng 8 hướng (\"Ok duyệt quái, boss\"); động tác 4 hướng S/E/N vẽ PixelLab, phía tây lật gương (chủ dự án: \"quái chỉ cần 4 hướng… 2 hướng lật được\", \"boss cũng vậy\")."
+	}
+}

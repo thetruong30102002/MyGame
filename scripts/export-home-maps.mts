@@ -1,0 +1,223 @@
+/** Ghép map Gia viên từ các atlas đã có + hình GPT đã chuẩn hoá; không sinh hình mới hoặc sửa map thế giới thật. */
+import {readFileSync,writeFileSync,mkdirSync,existsSync} from 'node:fs';
+import {join} from 'node:path';
+import {blit,createImage,crop,readPng,writePng,type RGBAImage} from '../packages/asset-pipeline/src/image/rgba.js';
+import {packShelf,propMeta,type PropMeta} from '../packages/asset-pipeline/src/props/buildProps.js';
+import type {PropKind} from '../packages/asset-pipeline/src/props/humanKingdom.js';
+const out='assets/home/maps';mkdirSync(out,{recursive:true});
+const homeAtlas=JSON.parse(readFileSync('assets/home/props.json','utf8'));
+const homeMeta=JSON.parse(readFileSync('assets/home/props.meta.json','utf8'));
+const townAtlas=JSON.parse(readFileSync('assets/maps/human/props.json','utf8'));
+const townMeta=JSON.parse(readFileSync('assets/maps/human/props.meta.json','utf8'));
+const home=readPng('assets/home/props.png'),town=readPng('assets/maps/human/props.png');
+const items=Object.entries(homeAtlas.frames).map(([k,v]:[string,any])=>({id:k.split('/')[1]!,img:crop(home,v.frame.x,v.frame.y,v.frame.w,v.frame.h)}));
+const meta:Record<string,PropMeta>={...homeMeta};
+for(const id of ['tree','barrel','log_bench','lamp','flower_planter']){const f=townAtlas.frames['human/'+id].frame;items.push({id,img:crop(town,f.x,f.y,f.w,f.h)});meta[id]=townMeta[id];}
+
+// ---- Hình GPT (Codex) đã chuẩn hoá — docs/ke-hoach-nha-rieng.md mục 9.12 ----
+const GPT='packages/asset-pipeline/sources/gpt-review';
+const gpt=(batch:string,name:string):RGBAImage=>{const f=join(GPT,batch,'chuan-hoa',name+'.png');if(!existsSync(f))throw new Error('Thiếu ảnh GPT chuẩn hoá '+f);return readPng(f);};
+/** Đồ GPT đứng trên nền: chân chặn theo tỉ lệ bề ngang (w) và độ sâu (h px). */
+const addGpt=(id:string,batch:string,name:string,kind:PropKind,w:number,h:number,blocks=true)=>{const img=gpt(batch,name);items.push({id,img});meta[id]=propMeta({id,path:'',kind,footprint:{w:blocks?w:0,h:blocks?h:0},blocks},img);};
+const addImg=(id:string,img:RGBAImage)=>{items.push({id,img});meta[id]=propMeta({id,path:'',kind:'flower',footprint:{w:0,h:0},blocks:false},img);};
+// Khuôn viên: nhà chính / giếng / nhà kính / chuồng gà đợt 1, rào gỗ đợt 7.
+addGpt('gv_nha_chinh','dot-1','gv_nha_chinh','building',0.86,58);
+addGpt('gv_gieng','dot-1','gv_gieng','decor',0.8,18);
+addGpt('gv_nha_kinh','dot-1','gv_nha_kinh','building',0.9,46);
+addGpt('gv_chuong_ga','dot-1','gv_chuong_ga','building',0.85,34);
+addGpt('gv_rao_go','dot-7','rao_go_ngang','decor',1,8);
+addGpt('gv_rao_cot','dot-7','rao_go_cot','decor',0.5,8);
+// Trong nhà: 3 phòng đúng bố cục ảnh ghép thử đã gửi (chủ dự án 11/11 "nhà thì phải có đủ phòng chứ phòng ngủ, bếp, khách",
+// "Mỗi phòng là 1 map chứ nhìn mới đúng", "Phòng ngủ nên để trên tầng") — đồ GPT đợt 2 / 3 / 4 + đồ PixelLab Gia viên.
+const W2=(n:string,w=0.9,h=16)=>addGpt('gv_'+n,'dot-2',n,'decor',w,h),W3=(n:string,w=0.9,h=16)=>addGpt('gv_'+n,'dot-3',n,'decor',w,h);
+W3('dong_ho_dung',0.8,12);W3('ghe_dai',0.9,20);W3('ke_trung_bay');W2('cau_thang_go',0.7,10);W3('ban_tra',0.85,14);
+W3('chan_bat');W3('bep_lo_cui',0.9,18);W3('bon_rua',0.85,14);W3('lo_nuong_banh',0.9,18);W3('tu_lanh_da',0.9,18);W3('quay_so_che',0.95,22);W3('thung_tao_rau',0.85,14);W3('ban_an_dai',0.9,26);
+W3('chau_cay_lon',0.6,12);W3('ban_trang_diem',0.9,16);W3('giuong_doi',0.9,48);W3('tu_dau_giuong',0.9,14);W3('tu_ngan_keo',0.9,14);
+addGpt('gv_lo_cau_thang_xuong','dot-4','lo_cau_thang_xuong','decor',0.9,80);
+addGpt('gv_ke_gia_vi','dot-3','ke_gia_vi','flower',0,0,false);
+addGpt('gv_tham_lon','dot-3','tham_lon','flower',0,0,false);
+addGpt('gv_den_chum_go','dot-2','den_chum_go','flower',0,0,false);
+
+// ---- Nền trong nhà: sàn vẽ bằng code + tường GPT ghép liền + thảm chùi chân ở cửa — nướng vào ảnh nền (decal) ----
+const T=32,WALL=128;// hàng 0–3 là dải tường (128 px), sàn bắt đầu ở y = 128; viền 1 ô trái / phải / dưới
+type RGB=[number,number,number];
+const shade=(img:RGBAImage,x:number,y:number,c:RGB,k:number)=>img.data.set([Math.min(255,Math.round(c[0]*k)),Math.min(255,Math.round(c[1]*k)),Math.min(255,Math.round(c[2]*k)),255],(y*img.width+x)*4);
+/** Sàn ván gỗ: ván dài 96 px, 4 hàng ván / ô 32 px, mạch và sắc lệch theo hàng (cùng công thức bản ghép thử). */
+function woodFloor(w:number,h:number,base:RGB):RGBAImage{
+ const img=createImage(w,h),tones=[1,0.92,1.06,0.96,1.02,0.9];
+ for(let y=0;y<h;y++)for(let x=0;x<w;x++){
+  const j=Math.floor(y/T),row=Math.floor((y%T)/8),y0=row*8,yy=y%T,off=(row*40+(j%4)*56)%96,gx=x+off;
+  const plank=Math.floor(gx/96)+row*2+(j%4)*3;let k=tones[plank%tones.length]!;
+  if(yy===y0+7||gx%96===0)k=0.55;else if(yy===y0)k*=1.1;else if((gx*5+yy*3)%37===0)k*=0.85;
+  shade(img,x,y,base,k);
+ }
+ return img;
+}
+/** Sàn đá lát bếp: viên 16 px so le, mạch tối. */
+function flagFloor(w:number,h:number,base:RGB):RGBAImage{
+ const img=createImage(w,h),tones=[1,0.94,1.05,0.97];
+ for(let y=0;y<h;y++)for(let x=0;x<w;x++){
+  const sh=Math.floor(y/16)%2?8:0,sx=(x+sh)%16,stone=(Math.floor((x+sh)/16)+Math.floor(y/16)*3)%4;let k=tones[stone]!;
+  if(y%16===0||sx===0)k=0.62;else if(y%16===1||sx===1)k*=1.08;
+  shade(img,x,y,base,k);
+ }
+ return img;
+}
+/** Thảm chùi chân ở khoảng hở cửa (ngang cho cửa dưới, dọc cho cửa bên). */
+function mat(w:number,h:number):RGBAImage{
+ const m=createImage(w,h);
+ for(let y=0;y<h;y++)for(let x=0;x<w;x++){
+  const edge=x<2||y<2||x>=w-2||y>=h-2,stripe=w>h?x>=4&&x<w-4&&(x-4)%6<2:y>=4&&y<h-4&&(y-4)%6<2;
+  m.data.set(edge?[40,26,18,255]:stripe?[186,120,70,255]:[150,64,46,255],(y*w+x)*4);
+ }
+ return m;
+}
+addImg('gv_tham_cua_ngang',mat(52,14));addImg('gv_tham_cua_doc',mat(14,52));
+/** Dải tường: các mảng xen kẽ, chồng 4 px chỗ nối cột, bóng đổ 6 px dưới chân tường. */
+function wallBand(id:string,names:readonly (readonly [string,string])[],width:number):void{
+ const ws=names.map(([b,n])=>gpt(b,n)),band=createImage(width,ws[0]!.height+6);
+ for(let x=0,k=0;x<width;k++){const w=ws[k%ws.length]!;blit(band,crop(w,0,0,Math.min(w.width,width-x),w.height),x,0);x+=w.width-4;}
+ for(let y=band.height-6;y<band.height;y++)for(let x=0;x<width;x++)if(!band.data[(y*width+x)*4+3])band.data.set([24,16,10,255],(y*width+x)*4);
+ addImg(id,band);
+}
+
+// ---- Dựng 3 phòng (toạ độ chép từ ảnh ghép thử: sàn x = fx + 32, y = fy + 128; đồ dựa tường chân ở y = 134) ----
+type Pt={id:string;x:number;y:number};type Spot={id:string;name:string;x:number;y:number;r:number};
+interface Room{id:string;name:string;cols:number;rows:number;doors:{bottom?:boolean;left?:boolean;right?:boolean};props:Pt[];decals:Pt[];spots:Spot[];spawn:{x:number;y:number}}
+const p=(id:string,x:number,y:number):Pt=>({id,x,y});
+const X=(fx:number)=>fx+T,Y=(fy:number)=>fy+WALL;
+function makeRoom(id:string,name:string,cols:number,rows:number,floor:RGBAImage,walls:readonly (readonly [string,string])[],doors:Room['doors']):Room{
+ addImg(`gv_san_${id}`,floor);wallBand(`gv_tuong_${id}`,walls,cols*T);
+ const r:Room={id,name,cols,rows,doors,props:[],decals:[p(`gv_san_${id}`,X(cols*T/2),Y(rows*T)),p(`gv_tuong_${id}`,X(cols*T/2),Y(4)+6)],spots:[],spawn:{x:X(cols*T/2),y:Y(rows*T-40)}};
+ const midY=Y(rows*T/2+16);
+ if(doors.bottom)r.decals.push(p('gv_tham_cua_ngang',X(cols*T/2),Y(rows*T)));
+ if(doors.left)r.decals.push(p('gv_tham_cua_doc',X(9),midY+26));
+ if(doors.right)r.decals.push(p('gv_tham_cua_doc',X(cols*T-9),midY+26));
+ return r;
+}
+const onWall=(r:Room,id:string,fx:number,lift=0)=>{if(lift)r.decals.push(p(id,X(fx),Y(6)-lift));else r.props.push(p(id,X(fx),Y(6)));};
+const put=(r:Room,id:string,fx:number,fy:number)=>r.props.push(p(id,X(fx),Y(fy)));
+const flat=(r:Room,id:string,fx:number,fy:number)=>r.decals.push(p(id,X(fx),Y(fy)+meta[id]!.h));
+const hang=(r:Room,id:string,fx:number)=>r.decals.push(p(id,X(fx),4+meta[id]!.h));
+
+// Phòng khách 18×9: lối ra vườn cạnh dưới, cửa trái sang bếp, cầu thang góc phải lên tầng.
+const lv=makeRoom('house','Phòng khách',18,9,woodFloor(18*T,9*T,[176,124,78]),[['dot-2','tuong_thach_cao'],['dot-3','tuong_thach_cao_cua_so']],{bottom:true,left:true});
+onWall(lv,'gv_dong_ho_dung',36);onWall(lv,'home_bookshelf',98);onWall(lv,'home_fireplace',178);onWall(lv,'gv_ghe_dai',296);onWall(lv,'gv_ke_trung_bay',404);onWall(lv,'gv_cau_thang_go',516);
+flat(lv,'gv_tham_lon',296,20);put(lv,'gv_ban_tra',296,64);put(lv,'home_potted_plant',40,280);put(lv,'home_potted_plant',536,280);hang(lv,'gv_den_chum_go',296);
+lv.spots.push({id:'door_garden',name:'Ra khuôn viên',x:X(288),y:Y(272),r:70},{id:'door_kitchen',name:'Sang bếp',x:X(16),y:Y(160),r:70},{id:'stairs_up',name:'Lên phòng ngủ',x:X(516),y:Y(30),r:80},
+ {id:'from_garden',name:'Cửa vào',x:X(288),y:Y(236),r:40},{id:'from_kitchen',name:'Cửa bếp',x:X(48),y:Y(160),r:40},{id:'from_bedroom',name:'Chân cầu thang',x:X(470),y:Y(50),r:40});
+lv.spawn={x:X(288),y:Y(236)};
+// Bếp 14×9: cửa phải về phòng khách; điểm nấu ăn.
+const kt=makeRoom('kitchen','Bếp',14,9,flagFloor(14*T,9*T,[168,150,128]),[['dot-3','tuong_bep_gach']],{right:true});
+onWall(kt,'gv_chan_bat',44);onWall(kt,'gv_bep_lo_cui',132);onWall(kt,'gv_ke_gia_vi',206,58);onWall(kt,'gv_bon_rua',212);onWall(kt,'gv_lo_nuong_banh',300);onWall(kt,'gv_tu_lanh_da',395);
+put(kt,'gv_quay_so_che',170,96);put(kt,'gv_thung_tao_rau',40,120);put(kt,'home_rice_bin',40,190);put(kt,'home_water_barrel',410,120);put(kt,'gv_ban_an_dai',210,250);hang(kt,'gv_den_chum_go',210);
+kt.spots.push({id:'door_house',name:'Về phòng khách',x:X(432),y:Y(160),r:70},{id:'from_house',name:'Cửa phòng khách',x:X(400),y:Y(160),r:40},{id:'stove',name:'Bếp lò',x:X(132),y:Y(40),r:70});
+kt.spawn={x:X(400),y:Y(160)};
+// Phòng ngủ tầng 2, 14×9: lỗ cầu thang xuống góc phải; tủ quần áo đổi bộ đồ ở nhà.
+const bd=makeRoom('bedroom','Phòng ngủ',14,9,woodFloor(14*T,9*T,[168,112,72]),[['dot-3','tuong_thach_cao_cua_so'],['dot-2','tuong_thach_cao']],{});
+onWall(bd,'gv_chau_cay_lon',36);onWall(bd,'home_wardrobe',300);onWall(bd,'gv_ban_trang_diem',370);
+put(bd,'gv_giuong_doi',170,meta['gv_giuong_doi']!.h-34);put(bd,'gv_tu_dau_giuong',108,20);put(bd,'gv_tu_dau_giuong',232,20);flat(bd,'gv_tham_lon',170,40);
+put(bd,'home_chest',170,136);put(bd,'gv_tu_ngan_keo',40,200);put(bd,'gv_lo_cau_thang_xuong',384,280);
+bd.spots.push({id:'stairs_down',name:'Xuống phòng khách',x:X(384),y:Y(230),r:80},{id:'from_house',name:'Đầu cầu thang',x:X(300),y:Y(250),r:40},{id:'wardrobe',name:'Tủ quần áo',x:X(300),y:Y(30),r:80});
+bd.spawn={x:X(300),y:Y(250)};
+
+// ---- Khu chăn nuôi ngoài trời (chủ dự án 12/11: "Chăn nuôi thì phải có cả chuồng ngoài trời bên ngoài nhà nữa chứ", "Ở ngoài nhà sắp xếp
+// k đúng lắm còn nơi chuồng gà, chuồng heo"): bãi quây bò / cừu + sân gà kín 4 phía (lớp rào dựng sẵn bằng `scripts/build-home-pens.py`
+// theo bản ghép thử đã duyệt), con vật PixelLab đứng tĩnh (bò ×2, cừu ×1,5, gà ×0,6), đồ chăn nuôi GPT đợt 7. Chưa có heo: chờ vẽ.
+const PENS='packages/asset-pipeline/sources/home-pens';
+interface PenInfo{width:number;height:number;backY:number;frontY:number;inner:{x0:number;x1:number;y0:number;y1:number};layers:Record<string,{x:number;y:number;w:number;h:number}>}
+const pens:Record<string,PenInfo>={};
+for(const pen of ['bo_cuu','san_ga']){
+ if(!existsSync(join(PENS,pen,'pen.json')))throw new Error('Chưa dựng lớp rào — chạy python -I scripts/build-home-pens.py');
+ const info=JSON.parse(readFileSync(join(PENS,pen,'pen.json'),'utf8')) as PenInfo;pens[pen]=info;
+ for(const [layer,box] of Object.entries(info.layers)){
+  const id=`gv_rao_${pen}_${layer}`,img=readPng(join(PENS,pen,layer+'.png'));items.push({id,img});
+  // Hàng sau / trước chặn dải 8 px ở chân; cạnh bên chặn suốt chiều dọc.
+  meta[id]=propMeta({id,path:'',kind:'decor',footprint:layer.startsWith('side')?{w:1,h:box.h-6}:{w:1,h:8},blocks:true},img);
+ }
+}
+for(const a of ['bo_e','bo_s','cuu_s','cuu_w','ga_s','ga_e','ga_w']){const id='gv_'+a,img=readPng(join(PENS,'animals',a+'.png'));items.push({id,img});meta[id]=propMeta({id,path:'',kind:'decor',footprint:{w:0.5,h:8},blocks:true},img);}
+for(const [n,w,h] of [['chuong_bo_lon',0.9,60],['chuong_ga_lon',0.9,30],['mang_nuoc_da',0.95,14],['mang_thoc_ga',0.9,12],['gia_co_kho',0.85,16],['cuon_rom_tron',0.85,12],
+ ['xe_thung_sua',0.85,12],['xe_cut_kit_rom',0.85,10],['to_ong_go',0.8,12],['to_ong_rom',0.8,12],['cot_gai_bo',0.6,10]] as const)addGpt('gv_'+n,'dot-7',n,'decor',w,h);
+addGpt('gv_cho_tam_cat','dot-7','cho_tam_cat','flower',0,0,false);addGpt('gv_bon_hoa_ong','dot-7','bon_hoa_ong','decor',0.9,10);
+
+const {image,frames}=packShelf(items,1024);writePng(join(out,'props.png'),image);
+writeFileSync(join(out,'props.json'),JSON.stringify({frames:Object.fromEntries(Object.entries(frames).map(([id,frame])=>['home/'+id,{frame}])),meta:{image:'props.png',size:{w:image.width,h:image.height}}}));
+writeFileSync(join(out,'props.meta.json'),JSON.stringify(meta));
+const base={tileSize:32,seed:20261108,npcs:[],monsterZones:[],boss:null,dummies:[],exits:[],areas:[]};
+const roomMap=(r:Room)=>{
+ const H=r.rows+5,W=r.cols+2,mid=Math.floor(Y(r.rows*T/2+16)/T);
+ return {...base,id:r.id,name:r.name,width:W,height:H,spawn:r.spawn,props:r.props,decals:r.decals,spots:r.spots,
+  terrain:Array.from({length:H},(_,y)=>Array.from({length:W},(_,x)=>{
+   if(x>=1&&x<=r.cols&&y>=4&&y<=r.rows+3)return'b';
+   if(r.doors.bottom&&y===H-1&&(x===Math.floor(W/2)-1||x===Math.floor(W/2)))return'b';
+   if((r.doors.left&&x===0||r.doors.right&&x===W-1)&&(y===mid||y===mid-1))return'b';
+   return'#';
+  }).join(''))};
+};
+const rooms=[lv,kt,bd].map(roomMap);
+
+// ---- Khuôn viên 48 × 32 ô: nửa tây giữ nhà / ruộng / giếng / hộp gửi hàng (toạ độ luật máy chủ `FARM_LAYOUT`), nửa đông là khu chăn
+// nuôi; hồ câu là map riêng dùng chung `home/pond` (chủ dự án 12/11), cổng ra hồ ở mép nam (FARM_LAYOUT.pondGate*). ----
+const GW=48,GH=32;
+const terrain=Array.from({length:GH},(_,y)=>Array.from({length:GW},(_,x)=>{
+ if(x===0||y===0||x===GW-1||y===GH-1)return'#';
+ if((x===7||x===8)&&y>=13&&y<=GH-1)return'd';// lối xuống cổng hồ câu
+ if(y>=12&&y<=13&&x<=28||x>=17&&x<=18&&y>=8&&y<=13)return'd';
+ return'g';
+}).join(''));
+const props=[p('gv_nha_chinh',576,264),p('gv_gieng',744,232),p('gv_nha_kinh',196,246),p('home_shipping_box',736,352),p('home_scarecrow',384,400),p('home_water_barrel',420,312),p('home_tool_rack',470,312),
+ p('home_gate',900,420),p('log_bench',624,480),p('lamp',672,448),p('lamp',860,380),
+ p('home_gate',240,996),p('lamp',300,960),p('flower_planter',160,520),p('flower_planter',352,520),p('barrel',400,600)];
+// Rào gỗ GPT ghép liền phía trên ruộng (đoạn 211 px chồng 1 cột), cột góc hai đầu.
+props.push(p('gv_rao_cot',150,290),p('gv_rao_go',256,290),p('gv_rao_cot',362,290));
+/** Đặt một bãi quây: (ox, oy) là góc trên trái khung bãi trong map; lớp rào neo chân giữa đáy; đồ bên trong theo toạ độ trong khung. */
+function placePen(pen:string,ox:number,oy:number,inside:[string,number,number][]):void{
+ const info=pens[pen]!;
+ for(const [layer,box] of Object.entries(info.layers))props.push(p(`gv_rao_${pen}_${layer}`,ox+box.x+box.w/2,oy+box.y+box.h));
+ for(const [id,x,y] of inside){
+  const mt=meta[id]!,l=x-mt.w/2,r=x+mt.w/2,t=y-mt.h;
+  if(l<info.inner.x0||r>info.inner.x1||t<info.inner.y0||y>info.inner.y1)throw new Error(`${pen}: ${id} dính rào (${x}, ${y}); vùng trong ${JSON.stringify(info.inner)}`);
+  props.push(p(id,ox+x,oy+y));
+ }
+}
+// Bãi quây bò / cừu (góc đông bắc) và sân gà (đông nam) — bố cục trong bãi chép bản ghép thử pen_bo_cuu / pen_san_ga.
+placePen('bo_cuu',930,30,[['gv_bo_e',150,220],['gv_bo_s',330,290],['gv_cuu_s',440,210],['gv_cuu_w',260,340],['gv_mang_nuoc_da',130,345],['gv_gia_co_kho',470,330]]);
+placePen('san_ga',960,600,[['gv_chuong_ga_lon',130,250],['gv_cho_tam_cat',370,160],['gv_mang_thoc_ga',300,270],['gv_ga_s',260,170],['gv_ga_e',330,215],['gv_ga_w',420,245],['gv_ga_s',240,240],['gv_ga_e',440,180]]);
+// Ngoài bãi: chuồng bò lớn, xe sữa, cuộn rơm, cột gãi; tổ ong cạnh bồn hoa (ong cần hoa).
+props.push(p('gv_chuong_bo_lon',640,760),p('gv_xe_thung_sua',800,720),p('gv_cuon_rom_tron',420,760),p('gv_cuon_rom_tron',470,760),p('gv_cot_gai_bo',820,620),p('gv_xe_cut_kit_rom',460,640),
+ p('gv_bon_hoa_ong',560,950),p('gv_to_ong_go',440,930),p('gv_to_ong_rom',700,930),p('gv_to_ong_go',780,960));
+for(let x=64;x<GW*32-64;x+=64){if(x<120||x>460&&x<900)props.push(p('tree',x,92));if(x>860&&x<930||x>1480)props.push(p('tree',x,GH*32-44));}
+for(let y=300;y<GH*32-60;y+=70)props.push(p('tree',64,y));
+const garden={...base,id:'garden',name:'Gia viên của bạn',width:GW,height:GH,decals:[] as Pt[],terrain,spawn:{x:860,y:416},props,
+ spots:[{id:'door',name:'Cửa nhà',x:576,y:264,r:70},{id:'pond_gate',name:'Cổng ra hồ câu',x:240,y:960,r:80},{id:'from_house',name:'Trước cửa nhà',x:576,y:300,r:40},{id:'from_pond',name:'Cổng hồ câu',x:240,y:924,r:40},
+  {id:'pasture',name:'Bãi quây bò cừu',x:1220,y:300,r:160},{id:'chicken_run',name:'Sân gà',x:1230,y:820,r:140},{id:'barn',name:'Chuồng bò',x:640,y:780,r:90},{id:'hives',name:'Tổ ong',x:560,y:960,r:100}]};
+
+// ---- Hồ câu dùng chung: hồ ở phía đông (động tác câu vẽ hướng E), chỗ câu dọc bờ tây + đầu cầu gỗ (FARM_LAYOUT.pondSpots) ----
+const pondTerrain=Array.from({length:22},(_,y)=>Array.from({length:28},(_,x)=>{
+ if(x===0||y===0||x===27||y===21)return'#';
+ if(x>=11&&x<=15&&y>=10&&y<=11)return'b';
+ if(x>=12&&x<=24&&y>=4&&y<=18)return'w';
+ if(y>=10&&y<=11&&x<=10)return'd';return'g';
+}).join(''));
+const pondProps=[p('home_gate',96,330),p('log_bench',250,250),p('log_bench',250,500),p('barrel',230,420),p('flower_planter',200,140),p('flower_planter',200,600),p('home_water_barrel',240,640)];
+for(const [x,y] of [[340,160],[340,400],[340,600]])pondProps.push(p('lamp',x!-30,y!));
+for(let x=64;x<848;x+=64){pondProps.push(p('tree',x,92));pondProps.push(p('tree',x,690));}
+for(let y=200;y<640;y+=90)if(y<300||y>420)pondProps.push(p('tree',64,y));
+const pond={...base,id:'pond',name:'Hồ câu Gia viên',width:28,height:22,decals:[] as Pt[],terrain:pondTerrain,spawn:{x:160,y:352},props:pondProps,
+ spots:[{id:'garden_gate',name:'Cổng về khuôn viên',x:96,y:352,r:80},{id:'from_garden',name:'Cổng vào hồ',x:160,y:352,r:40},
+  ...[[360,192],[360,288],[480,352],[360,448],[360,544]].map(([x,y],i)=>({id:`fish${i+1}`,name:'Chỗ câu',x:x!,y:y!,r:60}))]};
+
+// Tự kiểm: đồ không chạm nhau (chân cách ≥ 8 px, chủ dự án 12/11 "quá xấu"), không tràn mép, đồ trong nhà nằm trọn trên sàn.
+const maps=[garden,pond,...rooms];
+for(const m of maps){
+ const box=(q:Pt)=>{const mt=meta[q.id]!;return{x0:q.x+mt.footprint.x,x1:q.x+mt.footprint.x+mt.footprint.w,y0:q.y+mt.footprint.y,y1:q.y};};
+ for(const q of [...m.props,...m.decals])if(!meta[q.id])throw new Error(`${m.id}: thiếu đồ ${q.id}`);
+ const solid=m.props.filter(q=>meta[q.id]!.blocks&&q.id!=='tree');
+ for(let i=0;i<solid.length;i++)for(let j=i+1;j<solid.length;j++){const a=box(solid[i]!),b=box(solid[j]!);if(a.x0<b.x1+8&&b.x0<a.x1+8&&a.y0<b.y1+8&&b.y0<a.y1+8&&!(solid[i]!.id.startsWith('gv_rao')&&solid[j]!.id.startsWith('gv_rao'))&&!(solid[i]!.id.startsWith('gv_rao_')!==solid[j]!.id.startsWith('gv_rao_')&&[solid[i]!,solid[j]!].some(q=>/^gv_(bo|cuu|ga)_|^gv_(mang|gia_co|chuong_ga_lon)/.test(q.id))))throw new Error(`${m.id}: ${solid[i]!.id} chạm ${solid[j]!.id}`);}
+ for(const q of m.props){const mt=meta[q.id]!;if(q.x-mt.w/2<0||q.x+mt.w/2>m.width*T)throw new Error(`${m.id}: ${q.id} tràn mép map`);}
+ if(rooms.includes(m as never))for(const q of m.props){const mt=meta[q.id]!;if(q.x-mt.w/2<T||q.x+mt.w/2>(m.width-1)*T||q.y>(m.height-1)*T)throw new Error(`${m.id}: ${q.id} ra ngoài sàn`);}
+}
+for(const m of maps)writeFileSync(join(out,m.id+'.json'),JSON.stringify(m));
+writeFileSync(join(out,'world.json'),JSON.stringify({region:'home',start:'garden',maps:Object.fromEntries(maps.map(m=>[m.id,{name:m.name,width:m.width*32,height:m.height*32,exits:[],spots:m.spots.map(s=>s.id),zones:[],dummies:[],boss:null}]))}));
+console.log(`Gia viên: khuôn viên ${garden.props.length} đồ / hồ câu chung ${pond.props.length} đồ / nhà 3 phòng (${rooms.map(r=>`${r.name} ${r.width}×${r.height} ô ${r.props.length} đồ`).join(', ')}), atlas ${image.width}×${image.height} tại ${out}`);

@@ -1,0 +1,17 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a garden hoe, L-shaped farm tool: long straight wooden handle lying horizontally with wood grain and a leather grip wrap, at the right end a short flat iron hoe blade hanging straight down at a right angle like the letter L upside down, iron collar binding the blade to the handle, not a sword, not a shovel, not an axe, single object, side view, game item sprite",
+	"width": 64,
+	"height": 64,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "detailed shading",
+	"detail": "highly detailed",
+	"seed": 27005,
+	"init_image_strength": 180,
+	"color_image_path": "sources/pixellab/farm-tools/hoe/palette.png",
+	"init_image_path": "sources/pixellab/farm-tools/hoe/init/hoe-000.init.png",
+	"jobId": "c5997268-ac84-4948-893e-8b9278e1eb66",
+	"token": 0,
+	"createdAt": "2026-11-06T14:22:25.106Z"
+}

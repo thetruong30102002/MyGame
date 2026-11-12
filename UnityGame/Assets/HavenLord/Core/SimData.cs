@@ -30,6 +30,19 @@ namespace HavenLord.Core
         }
     }
 
+    /// <summary>Đạn riêng của một boss (packages/sim skills.ts BossShot — luật "boss nghiêm cấm đòn chung" 05/11/2026).</summary>
+    public sealed class BossShot
+    {
+        [JsonProperty("vfx")] public string Vfx;
+        [JsonProperty("impact")] public string Impact;
+        [JsonProperty("count")] public int Count = 1;
+        [JsonProperty("spread")] public double Spread;
+        [JsonProperty("speed")] public double Speed = 240;
+        [JsonProperty("scale")] public float? Scale;
+        [JsonProperty("aim")] public bool Aim;
+        [JsonProperty("wobble")] public float Wobble;
+    }
+
     /// <summary>
     /// Dữ liệu tĩnh xuất từ packages/sim (UnityGame/Tools~/export-sim-data.mts → Assets/HavenLord/Data/Sim/*.json). Core không đọc
     /// file: Unity nạp TextAsset, test đọc đĩa — cả hai đưa CHUỖI JSON vào <see cref="Load"/>.
@@ -38,6 +51,8 @@ namespace HavenLord.Core
     {
         public Dictionary<string, EnemyStats> EnemyStats = new Dictionary<string, EnemyStats>();
         public Dictionary<string, int> EnemyBaseLevel = new Dictionary<string, int>();
+        /// <summary>skills.ts BOSS_SHOTS: boss id → đạn riêng.</summary>
+        public Dictionary<string, BossShot> BossShots = new Dictionary<string, BossShot>();
         public int EnemyLevelSpreadMin;
         public int EnemyLevelSpreadMax;
         public int ExpCurveKnee;
@@ -62,6 +77,7 @@ namespace HavenLord.Core
             var skills = d.Modules["skills"];
             d.EnemyStats = skills["ENEMY_STATS"].ToObject<Dictionary<string, EnemyStats>>();
             d.EnemyBaseLevel = skills["ENEMY_BASE_LEVEL"].ToObject<Dictionary<string, int>>();
+            if (skills["BOSS_SHOTS"] is JObject shots) d.BossShots = shots.ToObject<Dictionary<string, BossShot>>();
             d.EnemyLevelSpreadMin = (int)skills["ENEMY_LEVEL_SPREAD"]["min"];
             d.EnemyLevelSpreadMax = (int)skills["ENEMY_LEVEL_SPREAD"]["max"];
             d.ExpCurveKnee = (int)skills["EXP_CURVE_KNEE"];

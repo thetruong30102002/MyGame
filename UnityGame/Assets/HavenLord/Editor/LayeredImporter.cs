@@ -87,9 +87,21 @@ namespace HavenLord.Importer
                         {
                             body = C(f.body), front = C(f.front), hand = C(f.hand), weapon = C(f.weapon), weaponBehind = f.weaponBehind, weaponMid = C(f.weaponMid),
                             head = H(f.head), hairBack = H(f.hairBack), neck = new Vector2Int(f.neck[0], f.neck[1]), chin = f.chin != null ? new Vector2Int(f.chin[0], f.chin[1]) : new Vector2Int(f.neck[0], f.neck[1]), ms = f.ms, hit = f.@event == "hit",
+                            toolTip = f.toolTip != null ? new Vector2Int(f.toolTip[0], f.toolTip[1]) : new Vector2Int(-1, -1),
                         };
                     }
-                    body.clips.Add(new LayeredClip { name = kv.Key, frames = frames });
+                    var segments = new List<LayeredSegment>();
+                    var separator = kv.Key.LastIndexOf('_');
+                    var action = separator >= 0 ? kv.Key.Substring(0, separator) : kv.Key;
+                    if (json.animations.TryGetValue(action, out var animation))
+                        foreach (var segment in animation.segments)
+                        {
+                            var range = segment.Value;
+                            if (range == null || range.Length != 2 || range[0] < 1 || range[1] < range[0] || range[1] > frames.Length)
+                                throw new InvalidDataException($"Đoạn {kv.Key}/{segment.Key} vượt số khung");
+                            segments.Add(new LayeredSegment { name = segment.Key, first = range[0], last = range[1] });
+                        }
+                    body.clips.Add(new LayeredClip { name = kv.Key, frames = frames, segments = segments.ToArray() });
                 }
                 def.bodies.Add(body);
                 report.Count("Thân ghép lớp");
@@ -147,6 +159,12 @@ namespace HavenLord.Importer
             public HeadSheetJson head;
             public List<BodyJson> bodies = new List<BodyJson>();
             public List<HeadJson> heads = new List<HeadJson>();
+            public Dictionary<string, AnimationJson> animations = new Dictionary<string, AnimationJson>();
+        }
+
+        private sealed class AnimationJson
+        {
+            public Dictionary<string, int[]> segments = new Dictionary<string, int[]>();
         }
 
         private sealed class CellJson
@@ -184,6 +202,7 @@ namespace HavenLord.Importer
             public int[] chin;
             public int ms;
             public string @event;
+            public int[] toolTip;
         }
 
         private sealed class HeadJson

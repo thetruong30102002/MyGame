@@ -1,0 +1,226 @@
+{
+	"about": "Câu cá E bộ Nông gia nam (gói Gia viên 06/11): hai tay cầm cần trước bụng; vung cần ra sau vai (1–4), quăng tới (5–7, khung 6 phao chạm nước), giữ cần chờ (8–11, nhấp nhẹ — game lặp), giật cần lên ra sau (12–14), hạ về (15). bladeDeg = hướng cần câu. Cần PixelLab vẽ liền thân; đệm phải 24 / trên 16 px cho ngọn cần.",
+	"character": "U30-farmer1-outfit-E",
+	"rest": "U30-farmer1-outfit-E#26012",
+	"direction": "east",
+	"pad": [
+		0,
+		24,
+		16,
+		0
+	],
+	"handGapPx": 3,
+	"stance": "upright",
+	"frames": [
+		{
+			"arm": [
+				-25,
+				0.8
+			],
+			"bladeDeg": 35,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"arm": [
+				-5,
+				0.85
+			],
+			"bladeDeg": 60,
+			"lean": -1,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"arm": [
+				25,
+				0.9
+			],
+			"bladeDeg": 95,
+			"lean": -2,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"arm": [
+				50,
+				0.9
+			],
+			"bladeDeg": 120,
+			"lean": -3,
+			"hip": [
+				-1,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"arm": [
+				30,
+				0.95
+			],
+			"bladeDeg": 90,
+			"lean": -1,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"arm": [
+				0,
+				1
+			],
+			"bladeDeg": 40,
+			"lean": 2,
+			"hip": [
+				1,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"arm": [
+				-10,
+				1
+			],
+			"bladeDeg": 25,
+			"lean": 3,
+			"hip": [
+				1,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"arm": [
+				-15,
+				0.9
+			],
+			"bladeDeg": 28,
+			"lean": 1,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"arm": [
+				-14,
+				0.9
+			],
+			"bladeDeg": 30,
+			"lean": 1,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"arm": [
+				-15,
+				0.9
+			],
+			"bladeDeg": 28,
+			"lean": 1,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"arm": [
+				-16,
+				0.9
+			],
+			"bladeDeg": 27,
+			"lean": 1,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"arm": [
+				5,
+				0.9
+			],
+			"bladeDeg": 55,
+			"lean": -1,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"arm": [
+				30,
+				0.9
+			],
+			"bladeDeg": 80,
+			"lean": -3,
+			"hip": [
+				-1,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"arm": [
+				35,
+				0.88
+			],
+			"bladeDeg": 85,
+			"lean": -3,
+			"hip": [
+				-1,
+				0
+			],
+			"step": 0,
+			"back": 0
+		},
+		{
+			"arm": [
+				-10,
+				0.85
+			],
+			"bladeDeg": 45,
+			"lean": 0,
+			"hip": [
+				0,
+				0
+			],
+			"step": 0,
+			"back": 0
+		}
+	]
+}

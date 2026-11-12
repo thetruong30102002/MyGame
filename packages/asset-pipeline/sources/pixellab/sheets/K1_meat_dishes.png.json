@@ -1,0 +1,20 @@
+{
+	"description": "A sprite sheet of TWELVE separate food item icons arranged in a grid of 4 columns and 3 rows, each centered in its own cell. Row 1 raw ingredients: a raw chicken drumstick, a raw marbled beef steak, a raw lamb chop with bone, a raw pink fish fillet. Row 2 cooked dishes: a golden roast chicken on a plate, a bowl of hearty beef stew with carrots, three grilled lamb skewers, a whole grilled fish on a plate with lemon. Row 3 cooked dishes: a bowl of creamy fish soup, fried rice served in a hollowed pineapple, a bowl of orange pumpkin soup, a slice of strawberry cream cake. Chunky simple game item icons, thick dark outline, soft cel shading, every item fully separate on a plain flat solid bright magenta (#FF00FF) chroma-key background with empty space around it, no text, no letters, no numbers, no border, no frame",
+	"width": 256,
+	"height": 192,
+	"no_background": false,
+	"seed": 1105,
+	"style_options": {
+		"color_palette": false,
+		"outline": true,
+		"shading": true,
+		"detail": false
+	},
+	"style_image": {
+		"path": "sources/pixellab/sheets/N1_nature.png",
+		"usage_description": "Copy ONLY the art style of this reference: chunky chibi pixel art, thick dark outline on every shape, soft cel shading, front-facing view, one object centered in each cell. Do not copy these objects, their colors or their layout."
+	},
+	"jobId": "1cd72fd7-7607-42fe-b443-719b573c5d4e",
+	"token": 0,
+	"createdAt": "2026-11-11T09:34:38.809Z"
+}

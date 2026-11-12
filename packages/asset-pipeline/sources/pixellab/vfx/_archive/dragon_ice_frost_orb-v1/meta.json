@@ -1,0 +1,27 @@
+{
+	"id": "dragon_ice_frost_orb",
+	"kind": "loop",
+	"canvas": {
+		"w": 44,
+		"h": 44
+	},
+	"first": {
+		"prompt": "a frozen orb of pale blue ice with jagged ice crystals growing out of it, cold white mist trailing behind it to the left, flying toward the right, side view, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "071ebd93-6ec8-491f-bf8f-8796974958f0"
+	},
+	"action": "the frost orb glints, cold mist curls behind it and ice crystals sparkle, seamless loop",
+	"frameCount": 4,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png"
+	],
+	"animateJobId": "f9bd3f30-a922-43ea-9e29-c5f3f00a7b7b",
+	"createdAt": "2026-11-05T15:46:14.956Z",
+	"token": 0
+}

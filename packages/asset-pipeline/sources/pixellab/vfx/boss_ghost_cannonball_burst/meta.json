@@ -1,0 +1,38 @@
+{
+	"id": "boss_ghost_cannonball_burst",
+	"kind": "burst",
+	"canvas": {
+		"w": 64,
+		"h": 64
+	},
+	"first": {
+		"prompt": "a small ghostly explosion just starting, sea-green ghost fire and grey smoke with tiny wooden splinters, pixel art game effect, crisp dark outline, limited palette, transparent background, chibi RPG style, no character, no text",
+		"image": "first.png",
+		"source": "create_image_pixen",
+		"jobId": "a8d3fb75-43e3-4d5d-867f-b690fb489598",
+		"drawn": "first_drawn.png"
+	},
+	"action": "the ghostly explosion bursts into sea-green flames, grey smoke and flying splinters, then dissolves into pale mist and fades",
+	"frameCount": 8,
+	"inputIncluded": true,
+	"files": [
+		"frame_000.png",
+		"frame_001.png",
+		"frame_002.png",
+		"frame_003.png",
+		"frame_004.png",
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	],
+	"animateJobId": "44ab344e-648b-4199-9bb8-bfe306f7d83d",
+	"createdAt": "2026-11-05T14:42:41.740Z",
+	"token": 0,
+	"drop": [
+		"frame_005.png",
+		"frame_006.png",
+		"frame_007.png",
+		"frame_008.png"
+	]
+}

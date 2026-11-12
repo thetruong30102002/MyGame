@@ -1,0 +1,20 @@
+{
+	"description": "A sprite sheet of EIGHT separate common fish item icons arranged in a grid of 4 columns and 2 rows, each centered in its own cell. Top row: a dark mottled snakehead fish, a small olive climbing perch, a brown mudskipper with bulging eyes, a long spotted swamp gar with a narrow snout. Bottom row: a grey-silver tilapia, a tiny bright blue desert pupfish, a sandy striped barb, a small speckled oasis loach. Every fish drawn in side view facing right, no water, no bubbles. Ordinary everyday fish, natural colors, no glow, no sparkles. Chunky simple game item icons, thick dark outline, soft cel shading, every item fully separate on a plain flat solid bright magenta (#FF00FF) chroma-key background with empty space around it, no text, no letters, no numbers, no border, no frame",
+	"width": 256,
+	"height": 192,
+	"no_background": false,
+	"seed": 1109,
+	"style_options": {
+		"color_palette": false,
+		"outline": true,
+		"shading": true,
+		"detail": false
+	},
+	"style_image": {
+		"path": "sources/pixellab/sheets/N1_nature.png",
+		"usage_description": "Copy ONLY the art style of this reference: chunky chibi pixel art, thick dark outline on every shape, soft cel shading, front-facing view, one object centered in each cell. Do not copy these objects, their colors or their layout."
+	},
+	"jobId": "88f85322-daa6-446d-96ca-b23e34174984",
+	"token": 0,
+	"createdAt": "2026-11-11T09:41:54.998Z"
+}

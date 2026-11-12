@@ -115,6 +115,7 @@ namespace HavenLord.Importer.Json
         public int? level;
         public bool? onDemand;
         public bool? boss;
+        public bool? river;
     }
 
     internal sealed class BossJson
@@ -219,6 +220,8 @@ namespace HavenLord.Importer.Json
     {
         public string id;
         public List<string> monsters;
+        public int? level;
+        public bool? river;
     }
 
     internal sealed class WorldMapJson

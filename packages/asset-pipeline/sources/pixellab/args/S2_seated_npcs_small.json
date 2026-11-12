@@ -1,0 +1,15 @@
+{
+  "description": "Sprite sheet of TWELVE small seated tavern customers, grid 4 columns x 3 rows, one per cell, each about 56 pixels tall, each SITTING on their own small round three-legged wooden stool, thighs horizontal, feet on the ground, full body. Row 1, all facing right in side view: (1) young farmer man, short messy brown hair, linen shirt, suspenders, raising a beer mug; (2) young merchant woman, long auburn braid, green vest, long brown skirt, chin on hand; (3) old man, short white hair, long white beard, brown cardigan, holding a tea cup; (4) burly blacksmith, short black hair, short beard, leather apron, bare arms, laughing, tankard raised. Row 2, all facing right in side view: (5) young adventurer woman, short silver-blue bob, leather jacket, green cloak hood down, eating bread; (6) young bard man, short wavy blond hair, red-yellow tunic, playing a lute; (7) young woman with short orange hair and orange cat ears, NO tail at all, blue dress, white apron, sipping a mug; (8) old woman, grey hair bun, purple shawl, knitting. Row 3, all facing the viewer in front view: (9) tanned fisherman, short dark curly hair, blue-white striped shirt, mug on knee, smiling; (10) flower-seller girl, short pink hair, yellow dress, flower basket on lap; (11) off-duty guard man, short brown hair, blue padded gambeson, arms crossed; (12) young scholar man, short black hair, round glasses, dark green coat, reading a book. Chibi anime, big head, large anime eyes, fluffy hair, nothing on any head (no hat, no hood up, no helmet, no headscarf). Thick dark outline, soft cel shading, flat solid bright magenta (#FF00FF) background, empty space around each, no table, no floor, no shadow, no text, no border, no frame",
+  "width": 256,
+  "height": 192,
+  "no_background": false,
+  "seed": 1202,
+  "style_options": {
+    "color_palette": false,
+    "outline": true,
+    "shading": true,
+    "detail": true
+  },
+  "style_image_path": "sources/pixellab/sheets/S0_npc_style_ref.png",
+  "style_usage": "Copy ONLY the art style and the exact pixel scale of these reference characters: chibi anime pixel art, the standing references are about 72 pixels tall so a SEATED character must be about 56 pixels tall with a head about 20 pixels wide, large anime eyes, fluffy hair, thick dark outline, soft cel shading. Do not copy their faces, hair colors, clothes or poses."
+}

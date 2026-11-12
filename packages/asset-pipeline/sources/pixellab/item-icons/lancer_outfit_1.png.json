@@ -1,0 +1,14 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a beginner RPG outfit icon: short ochre yellow quilted gambeson with split skirt, leather shoulder pad, bracers, brown trousers, shin wraps, boots, shown as an empty set of clothes standing upright with no person inside, front view, centered, simple chunky game item icon",
+	"width": 48,
+	"height": 48,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "medium detail",
+	"seed": 8803,
+	"jobId": "e6ebc1f3-fd1d-4b28-9325-c84317d21dfb",
+	"token": 0,
+	"createdAt": "2026-11-06T01:01:16.757Z"
+}

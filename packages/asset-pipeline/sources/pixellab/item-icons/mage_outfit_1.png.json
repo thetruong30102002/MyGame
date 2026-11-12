@@ -1,0 +1,14 @@
+{
+	"tool": "create_image_pixflux",
+	"description": "a beginner RPG outfit item icon: a long navy blue travel coat with gold trim and a stand-up collar, worn open over a light blue shirt, brown belt, brown trousers, gloves and boots, all on the same mannequin, one single complete outfit, an empty headless set of clothes like on an invisible mannequin, no head, no face, no hood, no hat, no helmet, open bare neck opening, no person, front view, centered, simple chunky game item icon",
+	"width": 48,
+	"height": 48,
+	"no_background": true,
+	"outline": "single color black outline",
+	"shading": "basic shading",
+	"detail": "medium detail",
+	"seed": 8831,
+	"jobId": "b4a88517-7b4b-4dff-b139-e1942e778806",
+	"token": 0,
+	"createdAt": "2026-11-06T01:34:11.203Z"
+}
