@@ -1,5 +1,5 @@
 import {randomInt,randomUUID} from 'node:crypto';
-import {FARM_CROPS,FARM_FISH,FARM_LAYOUT,FARM_ROOMS,FARM_SHOP,FARM_TANK,FARM_PETS,FARM_STARTER_CROPS,FARM_WARDROBE,PET_GACHA,POND_MAP,DECOR_ITEMS,chooseFarmFish,decorOf,decorPlaceIssue,rollPet,growPlot,plotPoint,pondSpotNear,shopPrice,type FarmRoom,type FarmState} from '@havenlord/sim/farm';
+import {FARM_CROPS,FARM_FISH,FARM_LAYOUT,FARM_ROOMS,FARM_SHOP,FARM_TANK,FARM_FRUIT,FARM_MACHINES,FARM_MACHINE_SPOTS,FARM_PETS,FARM_PRODUCT_SELL,FARM_STARTER_CROPS,FARM_TREE_SPOTS,FARM_WARDROBE,treeStage,PET_GACHA,POND_MAP,DECOR_ITEMS,chooseFarmFish,decorOf,decorPlaceIssue,rollPet,growPlot,plotPoint,pondSpotNear,shopPrice,type FarmRoom,type FarmState} from '@havenlord/sim/farm';
 import {STORY} from '@havenlord/sim/story/story';
 import {VILLAGE_SHOP} from '@havenlord/sim/village';
 import type {ServerMessage} from '@havenlord/protocol';
@@ -92,6 +92,25 @@ export class Farm {
      if(pets.includes(pet.id))throw new Error('Bạn đã có thú cưng này');const price=PET_GACHA.trade[pet.rarity-1]!;if((s.petShards??0)<price)throw new Error('Không đủ mảnh');
      s.petShards=(s.petShards??0)-price;pets.push(pet.id);if(out.length<PET_GACHA.out)out.push(pet.id);return{value:null};
     }
+    if(op==='treePlant'||op==='treeHarvest'||op==='machineStart'||op==='machineCollect'){
+     if(at.map!==homeMap(account))throw new Error('Hãy ra khuôn viên trước');
+     if(op==='treePlant'||op==='treeHarvest'){
+      // Vườn cây ăn quả: trồng cây giống vào chỗ trống, hái khi có quả (cây ra quả lại sau fruitMs).
+      const i=Number(raw.plot);const spot=FARM_TREE_SPOTS[i];if(!spot)throw new Error('Không có chỗ trồng này');if(!near(spot[0],spot[1]))throw new Error('Hãy tới gần chỗ trồng cây');
+      const trees=s.trees??(s.trees=FARM_TREE_SPOTS.map(()=>null));const t=trees[i]??null;
+      if(op==='treePlant'){const f=FARM_FRUIT.find(x=>x.id===raw.item);if(!f)throw new Error('Không có cây giống này');if(t)throw new Error('Chỗ này đã có cây');const k=`sapling_${f.id}`;if(!((s.inventory[k]??0)>0))throw new Error('Kho không có cây giống này');s.inventory[k]=(s.inventory[k]??0)-1;trees[i]={kind:f.id,plantedAt:this.now(),lastHarvest:0};return{value:null};}
+      if(!t||treeStage(t,t.kind,this.now())!==2)throw new Error('Cây chưa có quả');t.lastHarvest=this.now();const k=`farm_${t.kind}`;s.inventory[k]=(s.inventory[k]||0)+3;return{value:null};
+     }
+     // Máy chế biến: bỏ nguyên liệu (trừ ngay khỏi kho) → chờ → lấy thành phẩm.
+     const m=FARM_MACHINES.find(x=>x.id===raw.item);const ms=s.machines??(s.machines={});if(!m||!(m.id in ms))throw new Error('Bạn chưa có máy này');
+     const spot=FARM_MACHINE_SPOTS[m.id]!;if(!near(spot[0],spot[1]))throw new Error('Hãy tới cạnh máy');const job=ms[m.id]??null;
+     if(op==='machineStart'){
+      if(job)throw new Error('Máy đang chạy');const r=m.recipes.find(x=>x.id===raw.crop)??m.recipes.find(x=>Object.entries(x.in).every(([k,n])=>(s.inventory[k]??0)>=n));
+      if(!r||!Object.entries(r.in).every(([k,n])=>(s.inventory[k]??0)>=n))throw new Error('Kho thiếu nguyên liệu');
+      for(const [k,n] of Object.entries(r.in))s.inventory[k]=(s.inventory[k]??0)-n;ms[m.id]={recipe:r.id,readyAt:this.now()+r.ms};return{value:null};
+     }
+     if(!job)throw new Error('Máy chưa chạy');if(this.now()<job.readyAt)throw new Error('Chưa xong, đợi thêm chút');const r=m.recipes.find(x=>x.id===job.recipe)!;s.inventory[r.out]=(s.inventory[r.out]||0)+1;ms[m.id]=null;return{value:null};
+    }
     if(op==='decorStore'||op==='decorPlace'){
      // Bày trí (Quản gia mở bảng): cất đồ của phòng đang đứng vào kho, hoặc đặt đồ trong kho ngay trước chỗ đang đứng.
      const room=roomOf(account,at.map);if(!room)throw new Error('Bày trí chỉ ở trong nhà');
@@ -104,6 +123,9 @@ export class Farm {
     if(op==='buy'){
      // Cửa hàng Quản gia (đứng ở khuôn viên): mở ô ruộng / mua bể cá; máy chủ trừ xu và ghi đồ đã có trong cùng một giao dịch.
      if(at.map!==homeMap(account)||!near(FARM_LAYOUT.shopX,FARM_LAYOUT.shopY,130))throw new Error('Hãy tới người bán đồ Gia viên ở khuôn viên');
+     const sap=FARM_FRUIT.find(f=>`sapling_${f.id}`===raw.item),mach=FARM_MACHINES.find(m=>`machine_${m.id}`===raw.item);
+     if(sap){if(coins<sap.sapling)throw new Error('Không đủ xu');s.inventory[`sapling_${sap.id}`]=(s.inventory[`sapling_${sap.id}`]||0)+1;return{value:null,coins:coins-sap.sapling};}
+     if(mach){const ms=s.machines??(s.machines={});if(mach.id in ms)throw new Error('Bạn đã có máy này');if(coins<mach.price)throw new Error('Không đủ xu');ms[mach.id]=null;return{value:null,coins:coins-mach.price};}
      const it=FARM_SHOP.find(x=>x.id===raw.item);if(!it)throw new Error('Không bán món này');
      const owned=s.owned??(s.owned=[]);
      if(it.id==='plots'&&s.plots.length>=FARM_LAYOUT.plotsMax)throw new Error('Ruộng đã mở hết');
@@ -128,6 +150,7 @@ export class Farm {
      if(!near(736,352))throw new Error('Hãy tới hộp gửi hàng');let total=0;
      for(const c of FARM_CROPS){const k=`farm_${c.id}`;total+=(s.inventory[k]||0)*c.sell;s.inventory[k]=0;}
      for(const f of FARM_FISH){const k=`fish_${f.id}`;total+=(s.inventory[k]||0)*f.sell;s.inventory[k]=0;}
+     for(const [k,price] of Object.entries(FARM_PRODUCT_SELL)){total+=(s.inventory[k]||0)*price;s.inventory[k]=0;}
      if(!total)throw new Error('Kho chưa có nông sản hoặc cá để bán');return{value:null,coins:coins+total};
     }
     if(op==='pull'){

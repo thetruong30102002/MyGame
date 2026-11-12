@@ -90,12 +90,39 @@ export function decorPlaceIssue(room:string,list:readonly {id:string;x:number;y:
  if((DECOR_DOORS[room]??[]).some(d=>d.x>a.x0-40&&d.x<a.x1+40&&d.y>a.y0-40&&d.y<a.y1+40))return'Phải chừa lối cửa / cầu thang';
  return null;
 }
+/**
+ * Vườn cây ăn quả (kế hoạch 9.8, hình T1): trồng cây giống (mua ở người bán đồ Gia viên) vào FARM_TREE_SPOTS; cây non → cây lớn sau
+ * `growMs`, từ đó ra quả mỗi `fruitMs`, hái nhiều lần. Thời gian / giá thử, chưa cân bằng.
+ */
+export const FARM_FRUIT = [
+ {id:'apple',name:'Táo',sapling:80,growMs:60*60000,fruitMs:30*60000,sell:25},
+ {id:'orange',name:'Cam',sapling:90,growMs:75*60000,fruitMs:35*60000,sell:28},
+ {id:'peach',name:'Đào Haven',sapling:150,growMs:120*60000,fruitMs:60*60000,sell:55},
+] as const;
+export const FARM_TREE_SPOTS = [[360,800],[440,800],[520,800],[600,800]] as const;
+/** Giai đoạn cây ăn quả: 0 non · 1 lớn · 2 có quả. */
+export function treeStage(t:{plantedAt:number;lastHarvest:number},kind:string,now:number):0|1|2{const f=FARM_FRUIT.find(x=>x.id===kind);if(!f)return 0;if(now-t.plantedAt<f.growMs)return 0;return now-Math.max(t.lastHarvest,t.plantedAt+f.growMs)>=f.fruitMs?2:1;}
+/**
+ * Máy chế biến (hình M1): mua ở người bán đồ Gia viên, đứng ở FARM_MACHINE_SPOTS ngoài khuôn viên. Bỏ nguyên liệu trong kho → chờ → lấy
+ * thành phẩm; thành phẩm bán ở hộp gửi hàng (sau: nấu ăn). Công thức / giá / thời gian thử.
+ */
+export const FARM_MACHINES = [
+ {id:'flour_mill',name:'Cối xay bột',price:300,recipes:[{id:'flour',in:{farm_wheat:2},out:'prod_flour',ms:5*60000}]},
+ {id:'oven',name:'Lò nướng bánh',price:400,recipes:[{id:'bread',in:{prod_flour:1},out:'prod_bread',ms:10*60000}]},
+ {id:'pickle_jar',name:'Hũ muối dưa',price:250,recipes:[{id:'pickles_chili',in:{farm_chili:2},out:'prod_pickles',ms:30*60000},{id:'pickles_tomato',in:{farm_tomato:2},out:'prod_pickles',ms:30*60000}]},
+ {id:'fruit_press',name:'Máy ép quả',price:350,recipes:[{id:'juice_apple',in:{farm_apple:2},out:'prod_juice',ms:15*60000},{id:'juice_orange',in:{farm_orange:2},out:'prod_juice',ms:15*60000}]},
+ {id:'wine_barrel',name:'Thùng ủ rượu',price:500,recipes:[{id:'wine',in:{farm_grape:3},out:'prod_wine',ms:120*60000}]},
+ {id:'drying_rack',name:'Giá sấy quả',price:200,recipes:[{id:'dried_peach',in:{farm_peach:2},out:'prod_dried_fruit',ms:45*60000},{id:'dried_apple',in:{farm_apple:2},out:'prod_dried_fruit',ms:45*60000}]},
+] as const;
+export const FARM_MACHINE_SPOTS:Record<string,readonly [number,number]> = {flour_mill:[612,566],oven:[680,566],pickle_jar:[748,566],fruit_press:[816,566],wine_barrel:[748,636],drying_rack:[816,636]};
+/** Giá bán ở hộp gửi hàng của quả và thành phẩm (giá thử). */
+export const FARM_PRODUCT_SELL:Record<string,number> = {farm_apple:25,farm_orange:28,farm_peach:55,farm_honey:60,prod_flour:24,prod_bread:45,prod_pickles:90,prod_juice:70,prod_wine:260,prod_dried_fruit:130};
 export function shopPrice(id:string,state:Pick<FarmState,'plots'>):number{const it=FARM_SHOP.find(x=>x.id===id);if(!it)return Infinity;return id==='plots'?it.coins+it.step*Math.max(0,(state.plots.length-FARM_LAYOUT.plots)/4):it.coins;}
 export type FarmRoom = keyof typeof FARM_ROOMS;
 /** Chỗ câu gần nhất trong bán kính `r` px (null = không đứng ở bờ hồ). */
 export function pondSpotNear(x:number,y:number,r=70):readonly [number,number]|null{let best:readonly [number,number]|null=null,d=r;for(const s of FARM_LAYOUT.pondSpots){const k=Math.hypot(x-s[0],y-s[1]);if(k<=d){d=k;best=s;}}return best;}
 export interface FarmPlot {tilled:boolean;crop:string|null;plantedAt:number;lastAt:number;growth:number;watered:boolean}
-export interface FarmState {version:1;visited:string[];unlocked:boolean;plots:FarmPlot[];inventory:Record<string,number>;outfit:'farmer1'|'gardener';fish:{nonce:string;biteAt:number;expires:number;reward:string}|null;lastAction:number;lastEntry?:number;tank?:string[];owned?:string[];pets?:string[];petsOut?:string[];petShards?:number;petPity?:number;lastSpin?:{pet:string;dup:boolean}[];decor?:Record<string,{id:string;x:number;y:number}[]>;storage?:Record<string,number>}
+export interface FarmState {version:1;visited:string[];unlocked:boolean;plots:FarmPlot[];inventory:Record<string,number>;outfit:'farmer1'|'gardener';fish:{nonce:string;biteAt:number;expires:number;reward:string}|null;lastAction:number;lastEntry?:number;tank?:string[];owned?:string[];pets?:string[];petsOut?:string[];petShards?:number;petPity?:number;lastSpin?:{pet:string;dup:boolean}[];decor?:Record<string,{id:string;x:number;y:number}[]>;storage?:Record<string,number>;trees?:({kind:string;plantedAt:number;lastHarvest:number}|null)[];machines?:Record<string,{recipe:string;readyAt:number}|null>}
 export function newFarm():FarmState{return{version:1,visited:[],unlocked:false,plots:Array.from({length:12},()=>({tilled:false,crop:null,plantedAt:0,lastAt:0,growth:0,watered:false})),inventory:{},outfit:'farmer1',fish:null,lastAction:0,tank:[]};}
 export function growPlot(p:FarmPlot,now:number):void {if(!p.crop)return;const c=FARM_CROPS.find(x=>x.id===p.crop);if(!c)return;p.growth=Math.min(c.ms,p.growth+Math.max(0,now-p.lastAt)*(p.watered?1:.5));p.lastAt=Math.max(p.lastAt,now);}
 export function cropStage(p:FarmPlot):number{const c=FARM_CROPS.find(x=>x.id===p.crop);return c?Math.min(3,Math.floor(p.growth/c.ms*4)):0;}

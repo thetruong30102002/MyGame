@@ -403,6 +403,32 @@
 			"night": false
 		}
 	],
+	"FARM_FRUIT": [
+		{
+			"id": "apple",
+			"name": "Táo",
+			"sapling": 80,
+			"growMs": 3600000,
+			"fruitMs": 1800000,
+			"sell": 25
+		},
+		{
+			"id": "orange",
+			"name": "Cam",
+			"sapling": 90,
+			"growMs": 4500000,
+			"fruitMs": 2100000,
+			"sell": 28
+		},
+		{
+			"id": "peach",
+			"name": "Đào Haven",
+			"sapling": 150,
+			"growMs": 7200000,
+			"fruitMs": 3600000,
+			"sell": 55
+		}
+	],
 	"FARM_LAYOUT": {
 		"tile": 32,
 		"width": 48,
@@ -445,6 +471,148 @@
 				360,
 				544
 			]
+		]
+	},
+	"FARM_MACHINES": [
+		{
+			"id": "flour_mill",
+			"name": "Cối xay bột",
+			"price": 300,
+			"recipes": [
+				{
+					"id": "flour",
+					"in": {
+						"farm_wheat": 2
+					},
+					"out": "prod_flour",
+					"ms": 300000
+				}
+			]
+		},
+		{
+			"id": "oven",
+			"name": "Lò nướng bánh",
+			"price": 400,
+			"recipes": [
+				{
+					"id": "bread",
+					"in": {
+						"prod_flour": 1
+					},
+					"out": "prod_bread",
+					"ms": 600000
+				}
+			]
+		},
+		{
+			"id": "pickle_jar",
+			"name": "Hũ muối dưa",
+			"price": 250,
+			"recipes": [
+				{
+					"id": "pickles_chili",
+					"in": {
+						"farm_chili": 2
+					},
+					"out": "prod_pickles",
+					"ms": 1800000
+				},
+				{
+					"id": "pickles_tomato",
+					"in": {
+						"farm_tomato": 2
+					},
+					"out": "prod_pickles",
+					"ms": 1800000
+				}
+			]
+		},
+		{
+			"id": "fruit_press",
+			"name": "Máy ép quả",
+			"price": 350,
+			"recipes": [
+				{
+					"id": "juice_apple",
+					"in": {
+						"farm_apple": 2
+					},
+					"out": "prod_juice",
+					"ms": 900000
+				},
+				{
+					"id": "juice_orange",
+					"in": {
+						"farm_orange": 2
+					},
+					"out": "prod_juice",
+					"ms": 900000
+				}
+			]
+		},
+		{
+			"id": "wine_barrel",
+			"name": "Thùng ủ rượu",
+			"price": 500,
+			"recipes": [
+				{
+					"id": "wine",
+					"in": {
+						"farm_grape": 3
+					},
+					"out": "prod_wine",
+					"ms": 7200000
+				}
+			]
+		},
+		{
+			"id": "drying_rack",
+			"name": "Giá sấy quả",
+			"price": 200,
+			"recipes": [
+				{
+					"id": "dried_peach",
+					"in": {
+						"farm_peach": 2
+					},
+					"out": "prod_dried_fruit",
+					"ms": 2700000
+				},
+				{
+					"id": "dried_apple",
+					"in": {
+						"farm_apple": 2
+					},
+					"out": "prod_dried_fruit",
+					"ms": 2700000
+				}
+			]
+		}
+	],
+	"FARM_MACHINE_SPOTS": {
+		"flour_mill": [
+			612,
+			566
+		],
+		"oven": [
+			680,
+			566
+		],
+		"pickle_jar": [
+			748,
+			566
+		],
+		"fruit_press": [
+			816,
+			566
+		],
+		"wine_barrel": [
+			748,
+			636
+		],
+		"drying_rack": [
+			816,
+			636
 		]
 	},
 	"FARM_PETS": [
@@ -559,6 +727,18 @@
 			"rarity": 4
 		}
 	],
+	"FARM_PRODUCT_SELL": {
+		"farm_apple": 25,
+		"farm_orange": 28,
+		"farm_peach": 55,
+		"farm_honey": 60,
+		"prod_flour": 24,
+		"prod_bread": 45,
+		"prod_pickles": 90,
+		"prod_juice": 70,
+		"prod_wine": 260,
+		"prod_dried_fruit": 130
+	},
 	"FARM_ROOMS": {
 		"house": {
 			"garden": [
@@ -619,6 +799,24 @@
 			"y1": -36
 		}
 	},
+	"FARM_TREE_SPOTS": [
+		[
+			360,
+			800
+		],
+		[
+			440,
+			800
+		],
+		[
+			520,
+			800
+		],
+		[
+			600,
+			800
+		]
+	],
 	"FARM_WARDROBE": [
 		332,
 		158

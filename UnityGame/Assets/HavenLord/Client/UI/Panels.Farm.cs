@@ -48,6 +48,27 @@ namespace HavenLord.Client.UI
                     for (var i = 0; i < stock.Length; i++) { var id = stock[i].Name; FarmButton("Đặt" + id, $"Đặt {DName(id)} ×{stock[i].Value}", i % 4 * 256, y + 30 + i / 4 * 42, () => game.FarmSend("decorPlace", item: id)); }
                     return;
                 }
+                if (key.StartsWith("machine:", StringComparison.Ordinal))
+                {
+                    // Máy chế biến: chọn công thức (bỏ nguyên liệu trong kho) → chờ → lấy thành phẩm.
+                    var mid = key.Substring(8);var m = (game.Sim.Modules["farm"]["FARM_MACHINES"] as JArray)?.FirstOrDefault(x => (string)x["id"] == mid);
+                    var job = state["machines"]?[mid];
+                    FarmText("Tên", $"{m?["name"]}", 0, 32, 20);
+                    if (job != null && job.Type == JTokenType.Object)
+                    {
+                        var left = Math.Max(0, ((double)job["readyAt"] - game.FarmNow) / 60000);
+                        FarmText("Đang", left > 0 ? $"Đang làm · còn khoảng {Math.Ceiling(left)} phút" : "Đã xong · lấy thành phẩm", 45, 30);
+                        FarmButton("Lấy", "Lấy thành phẩm", 0, 85, () => game.FarmSend("machineCollect", item: mid), left <= 0);
+                    }
+                    else if (m?["recipes"] is JArray rs)
+                        for (var i = 0; i < rs.Count; i++)
+                        {
+                            var r = rs[i];var rid = (string)r["id"];var need = string.Join(" + ", ((JObject)r["in"]).Properties().Select(p => $"{FarmItemName(p.Name)} ×{p.Value}"));
+                            FarmButton("CT" + rid, $"{need} → {FarmItemName((string)r["out"])}", 0, 45 + i * 46, () => game.FarmSend("machineStart", item: mid, crop: rid));
+                        }
+                    FarmButton("Về", "Cư dân / Gia viên", 512, 85, () => game.ShowFarm());
+                    return;
+                }
                 if (key == "village_homeshop")
                 {
                     // Người bán đồ Gia viên — giá thử (sim FARM_SHOP), máy chủ trừ xu; nhà / đồ vật chờ chốt giá.
@@ -61,9 +82,14 @@ namespace HavenLord.Client.UI
                     FarmText("GiáThử", "Giá đang là giá thử. Nhà và đồ vật sẽ mở bán khi chốt giá và cách đặt đồ trong nhà.", 185, 50);
                     FarmButton("ThúCưng", "Quay thú cưng (kim cương)", 0, 240, () => game.ShowPets());
                     FarmButton("Về", "Cư dân / Gia viên", 256, 240, () => game.ShowFarm());
+                    var fruits = game.Sim.Modules["farm"]["FARM_FRUIT"] as JArray;var machines = game.Sim.Modules["farm"]["FARM_MACHINES"] as JArray;var have = state["machines"] as JObject;
+                    var row = 0;
+                    if (fruits != null) foreach (var f in fruits) { var fid = (string)f["id"]; FarmButton("Giống" + fid, $"Cây giống {f["name"]} · {f["sapling"]} xu", row % 4 * 256, 290 + row / 4 * 42, () => game.FarmSend("buy", item: "sapling_" + fid)); row++; }
+                    if (machines != null) foreach (var m in machines) { var mid = (string)m["id"]; var got = have?[mid] != null || (have?.ContainsKey(mid) ?? false); FarmButton("Máy" + mid, got ? $"Đã có {m["name"]}" : $"{m["name"]} · {m["price"]} xu", row % 4 * 256, 290 + row / 4 * 42, () => game.FarmSend("buy", item: "machine_" + mid), !got); row++; }
+                    var seedY = 290 + (row + 3) / 4 * 42 + 6;
                     var seeds = game.Sim.Modules["farm"]["FARM_CROPS"] as JArray;
-                    FarmText("Hạt", "Hạt giống · giá thử:", 290, 28, 16);
-                    if (seeds != null) for (var i = 0; i < seeds.Count; i++) { var c = seeds[i]; var id = (string)c["id"]; FarmButton("MuaHạt" + id, $"{c["name"]} · {c["seed"]} xu", i % 4 * 256, 320 + i / 4 * 42, () => game.FarmSend("buySeed", crop: id)); }
+                    FarmText("Hạt", "Hạt giống · giá thử:", seedY, 28, 16);
+                    if (seeds != null) for (var i = 0; i < seeds.Count; i++) { var c = seeds[i]; var id = (string)c["id"]; FarmButton("MuaHạt" + id, $"{c["name"]} · {c["seed"]} xu", i % 4 * 256, seedY + 30 + i / 4 * 42, () => game.FarmSend("buySeed", crop: id)); }
                     return;
                 }
                 if (key == "pets")

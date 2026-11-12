@@ -434,6 +434,96 @@
       "h": 45
     },
     {
+      "id": "fruit_apple_0",
+      "source": "sheet:T1_fruit_trees#0@3x3",
+      "w": 37,
+      "h": 52
+    },
+    {
+      "id": "fruit_apple_1",
+      "source": "sheet:T1_fruit_trees#1@3x3",
+      "w": 62,
+      "h": 62
+    },
+    {
+      "id": "fruit_apple_2",
+      "source": "sheet:T1_fruit_trees#2@3x3",
+      "w": 61,
+      "h": 62
+    },
+    {
+      "id": "fruit_orange_0",
+      "source": "sheet:T1_fruit_trees#3@3x3",
+      "w": 37,
+      "h": 51
+    },
+    {
+      "id": "fruit_orange_1",
+      "source": "sheet:T1_fruit_trees#4@3x3",
+      "w": 62,
+      "h": 65
+    },
+    {
+      "id": "fruit_orange_2",
+      "source": "sheet:T1_fruit_trees#5@3x3",
+      "w": 61,
+      "h": 64
+    },
+    {
+      "id": "fruit_peach_0",
+      "source": "sheet:T1_fruit_trees#6@3x3",
+      "w": 37,
+      "h": 51
+    },
+    {
+      "id": "fruit_peach_1",
+      "source": "sheet:T1_fruit_trees#7@3x3",
+      "w": 63,
+      "h": 60
+    },
+    {
+      "id": "fruit_peach_2",
+      "source": "sheet:T1_fruit_trees#8@3x3",
+      "w": 61,
+      "h": 60
+    },
+    {
+      "id": "machine_oven",
+      "source": "sheet:M1_machines#0@4x3",
+      "w": 52,
+      "h": 55
+    },
+    {
+      "id": "machine_pickle_jar",
+      "source": "sheet:M1_machines#1@4x3",
+      "w": 41,
+      "h": 46
+    },
+    {
+      "id": "machine_fruit_press",
+      "source": "sheet:M1_machines#2@4x3",
+      "w": 53,
+      "h": 59
+    },
+    {
+      "id": "machine_wine_barrel",
+      "source": "sheet:M1_machines#3@4x3",
+      "w": 47,
+      "h": 51
+    },
+    {
+      "id": "machine_flour_mill",
+      "source": "sheet:M1_machines#4@4x3",
+      "w": 53,
+      "h": 45
+    },
+    {
+      "id": "machine_drying_rack",
+      "source": "sheet:M1_machines#5@4x3",
+      "w": 51,
+      "h": 48
+    },
+    {
       "id": "home_fence",
       "source": "sheet:F4_farm_props#2@4x2",
       "w": 54,
@@ -770,6 +860,110 @@
       "file": "items/farm_golden_wheat.png",
       "w": 44,
       "h": 50
+    },
+    {
+      "id": "farm_apple",
+      "name": "Táo",
+      "source": "sheet:F9_produce_icons#12@4x4",
+      "file": "items/farm_apple.png",
+      "w": 39,
+      "h": 42
+    },
+    {
+      "id": "farm_orange",
+      "name": "Cam",
+      "source": "sheet:F9_produce_icons#13@4x4",
+      "file": "items/farm_orange.png",
+      "w": 44,
+      "h": 44
+    },
+    {
+      "id": "farm_peach",
+      "name": "Đào Haven",
+      "source": "sheet:F9_produce_icons#14@4x4",
+      "file": "items/farm_peach.png",
+      "w": 45,
+      "h": 43
+    },
+    {
+      "id": "farm_honey",
+      "name": "Hũ mật ong",
+      "source": "sheet:F9_produce_icons#15@4x4",
+      "file": "items/farm_honey.png",
+      "w": 40,
+      "h": 44
+    },
+    {
+      "id": "sapling_apple",
+      "name": "Cây giống táo",
+      "source": "sheet:F10_seed_icons#12@4x4",
+      "file": "items/sapling_apple.png",
+      "w": 39,
+      "h": 43
+    },
+    {
+      "id": "sapling_orange",
+      "name": "Cây giống cam",
+      "source": "sheet:F10_seed_icons#13@4x4",
+      "file": "items/sapling_orange.png",
+      "w": 38,
+      "h": 43
+    },
+    {
+      "id": "sapling_peach",
+      "name": "Cây giống đào Haven",
+      "source": "sheet:F10_seed_icons#14@4x4",
+      "file": "items/sapling_peach.png",
+      "w": 38,
+      "h": 43
+    },
+    {
+      "id": "prod_bread",
+      "name": "Bánh mì",
+      "source": "sheet:M1_machines#6@4x3",
+      "file": "items/prod_bread.png",
+      "w": 45,
+      "h": 33
+    },
+    {
+      "id": "prod_pickles",
+      "name": "Dưa muối",
+      "source": "sheet:M1_machines#7@4x3",
+      "file": "items/prod_pickles.png",
+      "w": 36,
+      "h": 43
+    },
+    {
+      "id": "prod_juice",
+      "name": "Nước quả",
+      "source": "sheet:M1_machines#8@4x3",
+      "file": "items/prod_juice.png",
+      "w": 20,
+      "h": 51
+    },
+    {
+      "id": "prod_wine",
+      "name": "Rượu vang",
+      "source": "sheet:M1_machines#9@4x3",
+      "file": "items/prod_wine.png",
+      "w": 19,
+      "h": 54
+    },
+    {
+      "id": "prod_flour",
+      "name": "Bột mì",
+      "source": "sheet:M1_machines#10@4x3",
+      "file": "items/prod_flour.png",
+      "w": 42,
+      "h": 48
+    },
+    {
+      "id": "prod_dried_fruit",
+      "name": "Quả sấy",
+      "source": "sheet:M1_machines#11@4x3",
+      "file": "items/prod_dried_fruit.png",
+      "w": 43,
+      "h": 31
     },
     {
       "id": "seed_rice",

@@ -89,7 +89,8 @@ namespace HavenLord.Client
             farmPoll += dt;
             if (farmPoll >= 4) { farmPoll = 0; FarmSend("get"); }
             if (!InFarm) return;
-            if (FarmState != null && farmDrawn != FarmVersion) { DrawFarmPlots(); DrawDecor(); DrawPets(); RefreshFarmBody(); farmDrawn = FarmVersion; }
+            if (FarmState != null && farmDrawn != FarmVersion) { DrawFarmPlots(); DrawDecor(); DrawOrchard(); DrawPets(); RefreshFarmBody(); farmDrawn = FarmVersion; }
+            orchardClock += dt; if (orchardClock > 20) { orchardClock = 0; DrawOrchard(); }
             SwimTankFish();
             if (farmView == null) return;
             if (!FarmBusy)
@@ -124,6 +125,7 @@ namespace HavenLord.Client
                 farmView = null; player.View.gameObject.SetActive(true);
                 if (farmPlots != null) Destroy(farmPlots);
                 if (farmDecor != null) Destroy(farmDecor);
+                if (farmOrchard != null) Destroy(farmOrchard);
                 ClearFishingLine();
                 return;
             }
@@ -221,6 +223,72 @@ namespace HavenLord.Client
                 var a = i * 2.4f;
                 population.SpawnPet(outList[i], area.x + Mathf.Cos(a) * area.r * .5f, area.y + Mathf.Sin(a) * area.r * .4f, area.r);
             }
+        }
+
+        // ---- Vườn cây ăn quả + máy chế biến ngoài khuôn viên (sim FARM_TREE_SPOTS / FARM_MACHINE_SPOTS), vẽ theo dữ liệu máy chủ ----
+        private GameObject farmOrchard;
+        private float orchardClock;
+        private JToken FarmMod => sim.Modules["farm"];
+
+        /// <summary>Giai đoạn cây ăn quả như sim treeStage: 0 non · 1 lớn · 2 có quả.</summary>
+        public int TreeStage(JToken t)
+        {
+            var f = (FarmMod["FARM_FRUIT"] as JArray)?.FirstOrDefault(x => (string)x["id"] == (string)t?["kind"]);
+            if (t == null || t.Type == JTokenType.Null || f == null) return -1;
+            double now = FarmNow, planted = (double)t["plantedAt"], grow = (double)f["growMs"], fruit = (double)f["fruitMs"];
+            if (now - planted < grow) return 0;
+            return now - Math.Max((double)t["lastHarvest"], planted + grow) >= fruit ? 2 : 1;
+        }
+
+        private void DrawOrchard()
+        {
+            if (farmOrchard != null) Destroy(farmOrchard);
+            if (map?.def.id != "garden" || FarmState == null) return;
+            farmOrchard = new GameObject("Vườn cây + máy");farmOrchard.transform.SetParent(map.transform, false);
+            var solids = new List<(float, float, float, float)>();
+            void Put(string sprite, float x, float y, float halfW, float depth, Color tint)
+            {
+                var go = new GameObject(sprite);go.transform.SetParent(farmOrchard.transform, false);go.transform.localPosition = WorldCoords.PxToWorld(x, y);
+                var sr = go.AddComponent<SpriteRenderer>();sr.sprite = database.homeProps?.Find(sprite)?.sprite;sr.spriteSortPoint = SpriteSortPoint.Pivot;sr.color = tint;
+                if (depth > 0) solids.Add((x - halfW, y - depth, x + halfW, y));
+            }
+            var spots = FarmMod["FARM_TREE_SPOTS"] as JArray;var trees = FarmState["trees"] as JArray;
+            for (var i = 0; spots != null && i < spots.Count; i++)
+            {
+                float x = (float)spots[i][0], y = (float)spots[i][1];var t = trees != null && i < trees.Count ? trees[i] : null;var st = TreeStage(t);
+                if (st < 0) { var soil = new GameObject("Chỗ trồng cây").AddComponent<SpriteRenderer>();soil.transform.SetParent(farmOrchard.transform, false);soil.transform.localPosition = WorldCoords.PxToWorld(x, y);soil.sprite = SoilSprite();soil.sortingOrder = -150;soil.color = new Color(.8f, .7f, .55f, .55f);continue; }
+                Put($"fruit_{t["kind"]}_{st}", x, y, 10, 10, Color.white);
+            }
+            var owned = FarmState["machines"] as JObject;var mspots = FarmMod["FARM_MACHINE_SPOTS"] as JObject;
+            if (owned != null && mspots != null)
+                foreach (var p in owned.Properties())
+                {
+                    var at = mspots[p.Name];if (at == null) continue;
+                    var ready = p.Value.Type == JTokenType.Object && FarmNow >= (double)p.Value["readyAt"];
+                    Put("machine_" + p.Name, (float)at[0], (float)at[1], 26, 14, ready ? new Color(1f, 1f, .75f) : Color.white);
+                }
+            map.SetExtraSolids(solids);
+        }
+
+        /// <summary>Đứng cạnh chỗ trồng / máy: trồng cây giống đầu tiên trong kho, hái quả, hoặc mở bảng máy. Trả true nếu đã xử lý.</summary>
+        private bool OrchardAction(Vector2 me)
+        {
+            var spots = FarmMod["FARM_TREE_SPOTS"] as JArray;var trees = FarmState?["trees"] as JArray;
+            for (var i = 0; spots != null && i < spots.Count; i++)
+            {
+                if (Vector2.Distance(me, new Vector2((float)spots[i][0], (float)spots[i][1])) > 60) continue;
+                var t = trees != null && i < trees.Count ? trees[i] : null;var st = TreeStage(t);
+                if (st == 2) { FarmSend("treeHarvest", plot: i); return true; }
+                if (st >= 0) { hud.Toast(st == 0 ? "Cây còn non, chờ lớn" : "Cây chưa có quả", "info"); return true; }
+                var sap = (FarmState?["inventory"] as JObject)?.Properties().FirstOrDefault(p => p.Name.StartsWith("sapling_", StringComparison.Ordinal) && (int)p.Value > 0);
+                if (sap == null) hud.Toast("Chưa có cây giống · mua ở người bán đồ Gia viên", "info"); else FarmSend("treePlant", plot: i, item: sap.Name.Substring(8));
+                return true;
+            }
+            var mspots = FarmMod["FARM_MACHINE_SPOTS"] as JObject;var owned = FarmState?["machines"] as JObject;
+            if (mspots != null && owned != null)
+                foreach (var p in owned.Properties())
+                    if (mspots[p.Name] is JArray at && Vector2.Distance(me, new Vector2((float)at[0], (float)at[1])) < 60) { VillageKey = "machine:" + p.Name; FarmSend("get"); hud.Panels.Show(Panels.Kind.Farm); return true; }
+            return false;
         }
 
         /// <summary>Bảng quay thú cưng (gọi từ cửa hàng Quản gia).</summary>
@@ -344,6 +412,7 @@ namespace HavenLord.Client
                 return;
             }
             if (Vector2.Distance(at, ShopSpot) < 60 && Vector2.Distance(me, ShopSpot) < 130) { OpenShop(); return; }
+            if (Vector2.Distance(me, at) < 100 && OrchardAction(at)) return;
             var (px0, py0) = PlotPos(0);
             var col = Mathf.RoundToInt((at.x - px0) / 32);var row = Mathf.RoundToInt((at.y - py0 + 10) / 32);
             if (col >= 0 && col < PlotCols && row >= 0 && row * PlotCols + col < PlotsMax)
@@ -371,6 +440,7 @@ namespace HavenLord.Client
             if (Vector2.Distance(me, PondGate) < 100) { FarmSend("pond"); return; }
             if (Math.Abs(player.X - 576) < 100 && Math.Abs(player.Y - 264) < 100) { FarmSend("room"); return; }
             if (Vector2.Distance(me, ShopSpot) < 110) { OpenShop(); return; }
+            if (OrchardAction(me)) return;
             if (PlotCount == 0) return;
             var nearest = Enumerable.Range(0, PlotCount).OrderBy(i => Math.Pow(player.X - PlotPos(i).x, 2) + Math.Pow(player.Y - PlotPos(i).y, 2)).First();
             FarmPlotAction(nearest);

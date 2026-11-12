@@ -228,7 +228,7 @@ function placePen(pen:string,ox:number,oy:number,inside:[string,number,number][]
 placePen('bo_cuu',930,30,[['gv_bo_e',150,220],['gv_bo_s',330,290],['gv_cuu_s',440,210],['gv_cuu_w',260,340],['gv_mang_nuoc_da',130,345],['gv_gia_co_kho',470,330]]);
 placePen('san_ga',960,600,[['gv_chuong_ga_lon',130,250],['gv_cho_tam_cat',370,160],['gv_mang_thoc_ga',300,270],['gv_ga_s',260,170],['gv_ga_e',330,215],['gv_ga_w',420,245],['gv_ga_s',240,240],['gv_ga_e',440,180]]);
 // Ngoài bãi: chuồng bò lớn, xe sữa, cuộn rơm, cột gãi; tổ ong cạnh bồn hoa (ong cần hoa).
-props.push(p('gv_chuong_bo_lon',760,860),p('gv_xe_thung_sua',660,620),p('gv_cuon_rom_tron',890,640),p('gv_cuon_rom_tron',890,690),p('gv_cot_gai_bo',820,580),p('gv_xe_cut_kit_rom',320,780),
+props.push(p('gv_chuong_bo_lon',760,860),p('gv_xe_thung_sua',660,620),p('gv_cuon_rom_tron',890,640),p('gv_cuon_rom_tron',890,690),p('gv_cot_gai_bo',900,560),p('gv_xe_cut_kit_rom',320,780),
  p('gv_bon_hoa_ong',480,950),p('gv_to_ong_go',380,930),p('gv_to_ong_rom',590,940));
 for(let x=64;x<GW*32-64;x+=64){if(x<120||x>460&&x<900)props.push(p('tree',x,92));if(x>1480)props.push(p('tree',x,GH*32-44));}
 for(let y=300;y<GH*32-60;y+=70)props.push(p('tree',64,y));
@@ -261,6 +261,9 @@ for(const m of maps){
  for(const q of m.props){const mt=meta[q.id]!;if(q.x-mt.w/2<0||q.x+mt.w/2>m.width*T)throw new Error(`${m.id}: ${q.id} tràn mép map`);}
  if(rooms.includes(m as never))for(const q of m.props){const mt=meta[q.id]!;if(q.x-mt.w/2<T||q.x+mt.w/2>(m.width-1)*T||q.y>(m.height-1)*T)throw new Error(`${m.id}: ${q.id} ra ngoài sàn`);}
 }
+// Chỗ trồng cây ăn quả / đặt máy chế biến (sim FARM_TREE_SPOTS / FARM_MACHINE_SPOTS, vẽ lúc chạy theo dữ liệu người chơi) phải trống.
+for(const [x,y] of [[360,800],[440,800],[520,800],[600,800],[612,566],[680,566],[748,566],[816,566],[748,636],[816,636]] as const){
+ for(const q of garden.props){const mt=meta[q.id]!;if(!mt.blocks)continue;const x0=q.x+mt.footprint.x,x1=x0+mt.footprint.w,y0=q.y+mt.footprint.y;if(x0<x+34&&x1>x-34&&y0<y+8&&q.y>y-18)throw new Error(`garden: ${q.id} đè chỗ cây / máy (${x}, ${y})`);}}
 {const F={x0:336,x1:592,y0:512,y1:704};for(const q of garden.props){const mt=meta[q.id]!;if(!mt.blocks)continue;const x0=q.x+mt.footprint.x,x1=x0+mt.footprint.w,y0=q.y+mt.footprint.y;if(x0<F.x1&&x1>F.x0&&y0<F.y1&&q.y>F.y0)throw new Error('garden: '+q.id+' đè lên ruộng');}}
 for(const m of maps)writeFileSync(join(out,m.id+'.json'),JSON.stringify(m));
 writeFileSync(join(out,'world.json'),JSON.stringify({region:'home',start:'garden',maps:Object.fromEntries(maps.map(m=>[m.id,{name:m.name,width:m.width*32,height:m.height*32,exits:[],spots:m.spots.map(s=>s.id),zones:[],dummies:[],boss:null}]))}));

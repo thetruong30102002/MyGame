@@ -863,6 +863,186 @@
       "h": 0
     }
   },
+  "fruit_apple_0": {
+    "kind": "decor",
+    "w": 37,
+    "h": 52,
+    "blocks": true,
+    "footprint": {
+      "x": -6,
+      "y": -10,
+      "w": 11,
+      "h": 10
+    }
+  },
+  "fruit_apple_1": {
+    "kind": "decor",
+    "w": 62,
+    "h": 62,
+    "blocks": true,
+    "footprint": {
+      "x": -10,
+      "y": -10,
+      "w": 19,
+      "h": 10
+    }
+  },
+  "fruit_apple_2": {
+    "kind": "decor",
+    "w": 61,
+    "h": 62,
+    "blocks": true,
+    "footprint": {
+      "x": -9,
+      "y": -10,
+      "w": 18,
+      "h": 10
+    }
+  },
+  "fruit_orange_0": {
+    "kind": "decor",
+    "w": 37,
+    "h": 51,
+    "blocks": true,
+    "footprint": {
+      "x": -6,
+      "y": -10,
+      "w": 11,
+      "h": 10
+    }
+  },
+  "fruit_orange_1": {
+    "kind": "decor",
+    "w": 62,
+    "h": 65,
+    "blocks": true,
+    "footprint": {
+      "x": -10,
+      "y": -10,
+      "w": 19,
+      "h": 10
+    }
+  },
+  "fruit_orange_2": {
+    "kind": "decor",
+    "w": 61,
+    "h": 64,
+    "blocks": true,
+    "footprint": {
+      "x": -9,
+      "y": -10,
+      "w": 18,
+      "h": 10
+    }
+  },
+  "fruit_peach_0": {
+    "kind": "decor",
+    "w": 37,
+    "h": 51,
+    "blocks": true,
+    "footprint": {
+      "x": -6,
+      "y": -10,
+      "w": 11,
+      "h": 10
+    }
+  },
+  "fruit_peach_1": {
+    "kind": "decor",
+    "w": 63,
+    "h": 60,
+    "blocks": true,
+    "footprint": {
+      "x": -10,
+      "y": -10,
+      "w": 19,
+      "h": 10
+    }
+  },
+  "fruit_peach_2": {
+    "kind": "decor",
+    "w": 61,
+    "h": 60,
+    "blocks": true,
+    "footprint": {
+      "x": -9,
+      "y": -10,
+      "w": 18,
+      "h": 10
+    }
+  },
+  "machine_oven": {
+    "kind": "decor",
+    "w": 52,
+    "h": 55,
+    "blocks": true,
+    "footprint": {
+      "x": -22,
+      "y": -14,
+      "w": 44,
+      "h": 14
+    }
+  },
+  "machine_pickle_jar": {
+    "kind": "decor",
+    "w": 41,
+    "h": 46,
+    "blocks": true,
+    "footprint": {
+      "x": -18,
+      "y": -14,
+      "w": 35,
+      "h": 14
+    }
+  },
+  "machine_fruit_press": {
+    "kind": "decor",
+    "w": 53,
+    "h": 59,
+    "blocks": true,
+    "footprint": {
+      "x": -23,
+      "y": -14,
+      "w": 45,
+      "h": 14
+    }
+  },
+  "machine_wine_barrel": {
+    "kind": "decor",
+    "w": 47,
+    "h": 51,
+    "blocks": true,
+    "footprint": {
+      "x": -20,
+      "y": -14,
+      "w": 40,
+      "h": 14
+    }
+  },
+  "machine_flour_mill": {
+    "kind": "decor",
+    "w": 53,
+    "h": 45,
+    "blocks": true,
+    "footprint": {
+      "x": -23,
+      "y": -14,
+      "w": 45,
+      "h": 14
+    }
+  },
+  "machine_drying_rack": {
+    "kind": "decor",
+    "w": 51,
+    "h": 48,
+    "blocks": true,
+    "footprint": {
+      "x": -22,
+      "y": -14,
+      "w": 43,
+      "h": 14
+    }
+  },
   "home_fence": {
     "kind": "decor",
     "w": 54,

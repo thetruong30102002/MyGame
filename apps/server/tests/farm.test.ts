@@ -62,6 +62,17 @@ try{
  store.farm.run(acc,id,now,(_s,c)=>({value:null,coins:c-150}));// trả lại đúng số xu thử đã cộng
  at={map:homeMap(acc),x:352+32*4,y:544+32};act('hoe',{plot:12});assert(store.farm.read(acc).plots[12]!.tilled);
  at={map:homeMap(acc),x:576,y:280};act('room');
+ // Vườn cây ăn quả + máy chế biến: mua cây giống / máy ở người bán đồ, trồng → lớn → có quả → hái; xay bột, bán thành phẩm.
+ store.farm.run(acc,id,now,(_s,c)=>({value:null,coins:c+1000}));
+ {const c0=store.ecoOf(id)!.coins;at={map:homeMap(acc),x:780,y:500};act('buy',{item:'sapling_apple'});act('buy',{item:'machine_flour_mill'});assert.equal(store.ecoOf(id)!.coins,c0-80-300);
+  act('buy',{item:'machine_flour_mill'});assert(failed(),'máy mua 1 lần');
+  at={map:homeMap(acc),x:360,y:820};act('treePlant',{plot:0,item:'apple'});assert.equal(store.farm.read(acc).trees![0]!.kind,'apple');act('treeHarvest',{plot:0});assert(failed(),'cây non chưa có quả');
+  now+=60*60000+30*60000+1000;act('treeHarvest',{plot:0});assert.equal(store.farm.read(acc).inventory.farm_apple,3);act('treeHarvest',{plot:0});assert(failed(),'vừa hái xong');
+  store.farm.run(acc,id,now,s=>{s.inventory.farm_wheat=(s.inventory.farm_wheat??0)+2;return{value:null};});
+  at={map:homeMap(acc),x:612,y:590};act('machineStart',{item:'flour_mill'});assert.equal(store.farm.read(acc).machines!.flour_mill!.recipe,'flour');act('machineCollect',{item:'flour_mill'});assert(failed(),'chưa xong');
+  now+=5*60000+1000;act('machineCollect',{item:'flour_mill'});assert.equal(store.farm.read(acc).inventory.prod_flour,1);
+  at={map:homeMap(acc),x:736,y:352};const c1=store.ecoOf(id)!.coins;act('sell');assert.equal(store.ecoOf(id)!.coins,c1+3*25+24,'bán táo + bột');
+  store.farm.run(acc,id,now,(_s,c)=>({value:null,coins:c-(c1+3*25+24-c0+1000)+1000-1000}));}
  // Thú cưng quay kim cương: không đủ kim cương thì chặn; 10 lượt trừ 900, chắc chắn ≥ 1 Hiếm; trùng → mảnh; thả / cất thú; đổi mảnh.
  act('gacha',{plot:1});assert(failed(),'chưa có kim cương');assert.equal(store.diamonds(id),0);
  store.addDiamonds(id,1000,'test');act('gacha',{plot:10});

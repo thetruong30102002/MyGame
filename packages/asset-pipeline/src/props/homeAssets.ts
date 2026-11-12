@@ -25,6 +25,8 @@ export const HOME_PROPS: PropDef[] = [
 		...prop(`farm_crop_${id}_${stage}`, cell(['F6_crops', 'F7_crops', 'F8_crops'][Math.floor(n / 4)]!, (n % 4) * 4 + stage, '4x4'), false),
 		kind: 'flower' as const,
 	}))),
+	...(['apple', 'orange', 'peach'] as const).flatMap((id, row) => [0, 1, 2].map((stage) => prop(`fruit_${id}_${stage}`, cell('T1_fruit_trees', row * 3 + stage, '3x3'), true, 0.3, 10))),
+	...(['oven', 'pickle_jar', 'fruit_press', 'wine_barrel', 'flour_mill', 'drying_rack'] as const).map((id, i) => prop(`machine_${id}`, cell('M1_machines', i, '4x3'), true, 0.85, 14)),
 	// F4 ô 0/1 là mẫu màu đất; không đưa hình ô đất vào atlas (ruộng dựng theo lưới 32 px).
 	prop('home_fence', cell('F4_farm_props', 2, '4x2'), true, 1, 8),
 	prop('home_gate', cell('F4_farm_props', 3, '4x2'), false),
@@ -56,6 +58,9 @@ export const HOME_ICONS = [
 	...HOME_CROPS.map((id, index) => ({ id: `farm_${id}`, name: HOME_CROP_NAMES[index]!, path: cell('F3_crop_icons', index, '4x3') })),
 	...HOME_CROPS.map((id, index) => ({ id: `seed_${id}`, name: `Hạt ${HOME_CROP_NAMES[index]!.toLowerCase()}`, path: cell('F3_crop_icons', index + 6, '4x3') })),
 	...HOME_CROPS_2.map((id, index) => ({ id: `farm_${id}`, name: HOME_CROP_NAMES_2[index]!, path: cell('F9_produce_icons', index, '4x4') })),
+	...(['apple', 'orange', 'peach', 'honey'] as const).map((id, i) => ({ id: `farm_${id}`, name: ['Táo', 'Cam', 'Đào Haven', 'Hũ mật ong'][i]!, path: cell('F9_produce_icons', 12 + i, '4x4') })),
+	...(['apple', 'orange', 'peach'] as const).map((id, i) => ({ id: `sapling_${id}`, name: ['Cây giống táo', 'Cây giống cam', 'Cây giống đào Haven'][i]!, path: cell('F10_seed_icons', 12 + i, '4x4') })),
+	...(['bread', 'pickles', 'juice', 'wine', 'flour', 'dried_fruit'] as const).map((id, i) => ({ id: `prod_${id}`, name: ['Bánh mì', 'Dưa muối', 'Nước quả', 'Rượu vang', 'Bột mì', 'Quả sấy'][i]!, path: cell('M1_machines', [6, 7, 8, 9, 10, 11][i]!, '4x3') })),
 	...HOME_CROPS_2.map((id, index) => ({ id: `seed_${id}`, name: `Hạt ${HOME_CROP_NAMES_2[index]!.toLowerCase()}`, path: cell('F10_seed_icons', index, '4x4') })),
 	...['crucian', 'carp', 'perch', 'eel', 'prawn', 'golden_carp', 'night_catfish', 'haven'].map((id, index) => ({
 		id: `fish_${id}`, name: ['Cá diếc', 'Cá chép', 'Cá rô', 'Lươn đồng', 'Tôm càng', 'Cá chép vàng', 'Cá trê đêm', 'Cá Haven'][index]!, path: cell('F5_fish_icons', index, '4x2'),
