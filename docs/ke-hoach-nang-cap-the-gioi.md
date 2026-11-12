@@ -9651,8 +9651,8 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
         {
           "label": "PixelLab vẽ NPC (chốt 12/11, không GPT) theo ảnh tham chiếu game; chủ dự án duyệt rồi mới mở rộng, pose đứng là đủ",
           "weight": 30,
-          "done": false,
-          "evidence": "13/11/2026: 2 mẫu Pro (chủ quán Lau Xám, thợ rèn Đe Đỏ) chủ dự án duyệt; 100 NPC vẽ bằng Pro Flash theo tấm 8 NPC (vùng + NPC truyện có giọng), xuất qua cổng chất lượng vào assets/characters. Chờ chủ dự án nghiệm thu cả lô."
+          "done": true,
+          "evidence": "13/11/2026: 2 mẫu Pro (chủ quán Lau Xám, thợ rèn Đe Đỏ) chủ dự án duyệt; 100 NPC vẽ bằng Pro Flash theo tấm 8 NPC (vùng + NPC truyện có giọng), xuất qua cổng chất lượng vào assets/characters (commit ae75cfa45). Chủ dự án nghiệm thu cả lô 13/11 (\"Npc ok\")."
         },
         {
           "label": "Nhập NPC và tích hợp đủ chức năng shop / rèn / đồ ăn / hồi phục / sự kiện theo thiết kế được duyệt",
