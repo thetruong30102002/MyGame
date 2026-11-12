@@ -106,8 +106,12 @@
 		"width": 48,
 		"height": 32,
 		"plots": 12,
-		"plotX": 192,
-		"plotY": 320,
+		"plotsMax": 48,
+		"plotCols": 8,
+		"plotX": 352,
+		"plotY": 544,
+		"stewardX": 780,
+		"stewardY": 470,
 		"doorX": 576,
 		"doorY": 264,
 		"exitX": 832,
@@ -165,6 +169,32 @@
 				416,
 				358
 			]
+		}
+	},
+	"FARM_SHOP": [
+		{
+			"id": "plots",
+			"name": "Mở thêm 4 ô ruộng",
+			"coins": 150,
+			"step": 50
+		},
+		{
+			"id": "tank",
+			"name": "Bể cá trong nhà",
+			"coins": 500,
+			"step": 0
+		}
+	],
+	"FARM_TANK": {
+		"room": "house",
+		"x": 492,
+		"y": 328,
+		"slots": 6,
+		"water": {
+			"x0": -38,
+			"x1": 38,
+			"y0": -70,
+			"y1": -36
 		}
 	},
 	"FARM_WARDROBE": [

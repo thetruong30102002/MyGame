@@ -309,6 +309,23 @@
 				"Đừng đợi kiệt sức mới nhớ mang thuốc. Ta vẫn giữ sổ tên những người chưa quay về."
 			]
 		},
+		"village_steward": {
+			"name": "Bác Tôn",
+			"title": "Quản gia Gia viên",
+			"sprite": "npc_bram_001",
+			"region": "home",
+			"at": {
+				"spot": "steward"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Muốn mở thêm ruộng hay sắm bể cá thì cứ nói, ta lo cho."
+			]
+		},
 		"village_event": {
 			"name": "Iris",
 			"title": "Sứ giả sự kiện",

@@ -89,7 +89,8 @@ namespace HavenLord.Client
             farmPoll += dt;
             if (farmPoll >= 4) { farmPoll = 0; FarmSend("get"); }
             if (!InFarm) return;
-            if (FarmState != null && farmDrawn != FarmVersion) { DrawFarmPlots(); RefreshFarmBody(); farmDrawn = FarmVersion; }
+            if (FarmState != null && farmDrawn != FarmVersion) { DrawFarmPlots(); DrawFishTank(); RefreshFarmBody(); farmDrawn = FarmVersion; }
+            SwimTankFish();
             if (farmView == null) return;
             if (!FarmBusy)
             {
@@ -122,6 +123,7 @@ namespace HavenLord.Client
                 if (farmView != null) Destroy(farmView.gameObject);
                 farmView = null; player.View.gameObject.SetActive(true);
                 if (farmPlots != null) Destroy(farmPlots);
+                if (farmTank != null) Destroy(farmTank);
                 ClearFishingLine();
                 return;
             }
@@ -169,9 +171,15 @@ namespace HavenLord.Client
             if (map?.def.id != "garden" || !(FarmState?["plots"] is JArray plots)) return;
             farmPlots = new GameObject("Ruộng 32px");farmPlots.transform.SetParent(map.transform, false);
             var crops = sim.Modules["farm"]["FARM_CROPS"] as JArray;
+            for (var i = plots.Count; i < PlotsMax; i++)
+            {
+                var (lx, ly) = PlotPos(i);
+                var locked = new GameObject("Ô chưa mở " + i).AddComponent<SpriteRenderer>();locked.transform.SetParent(farmPlots.transform, false);locked.transform.localPosition = WorldCoords.PxToWorld(lx, ly);
+                locked.sprite = SoilSprite();locked.sortingOrder = -150;locked.color = new Color(.55f, .62f, .45f, .22f);
+            }
             for (var i = 0; i < plots.Count; i++)
             {
-                var p = plots[i]; var x = 192 + i % 4 * 32; var y = 320 + i / 4 * 32;
+                var p = plots[i]; var (x, y) = PlotPos(i);
                 var soil = new GameObject("Ô ruộng " + i).AddComponent<SpriteRenderer>();soil.transform.SetParent(farmPlots.transform, false);soil.transform.localPosition = WorldCoords.PxToWorld(x, y);
                 soil.sprite = SoilSprite();soil.sortingOrder = -150;
                 soil.color = (bool)p["tilled"] ? (bool)p["watered"] ? new Color(.65f, .66f, .75f, 1) : Color.white : new Color(.7f, .72f, .6f, .35f);
@@ -180,6 +188,67 @@ namespace HavenLord.Client
                 var stage = Math.Min(3, (int)((double)p["growth"] / ms * 4));
                 var sprite = database.homeProps?.Find($"farm_crop_{crop}_{stage}")?.sprite;
                 var plant = new GameObject("Cây " + crop).AddComponent<SpriteRenderer>();plant.transform.SetParent(farmPlots.transform, false);plant.transform.localPosition = WorldCoords.PxToWorld(x, y - 2);plant.transform.localScale = new Vector3(.5f, .5f, 1);plant.sprite = sprite;
+            }
+        }
+
+        // Ruộng theo sim FARM_LAYOUT: lưới plotCols cột từ (plotX, plotY), mở dần tới plotsMax ô qua Quản gia.
+        private JToken Layout => sim.Modules["farm"]["FARM_LAYOUT"];
+        private int PlotCols => (int?)Layout?["plotCols"] ?? 8;
+        private int PlotsMax => (int?)Layout?["plotsMax"] ?? 48;
+        private (float x, float y) PlotPos(int i) => ((float)((double?)Layout?["plotX"] ?? 352) + i % PlotCols * 32, (float)((double?)Layout?["plotY"] ?? 544) + i / PlotCols * 32);
+        private int PlotCount => (FarmState?["plots"] as JArray)?.Count ?? 0;
+        private Vector2 Steward => new Vector2((float)((double?)Layout?["stewardX"] ?? 780), (float)((double?)Layout?["stewardY"] ?? 470));
+
+        /// <summary>Quản gia ở khuôn viên: mở bảng cửa hàng Gia viên (mở ô ruộng, bể cá).</summary>
+        public void OpenSteward()
+        {
+            VillageKey = "village_steward";
+            FarmSend("get");
+            hud.Panels.Show(Panels.Kind.Farm);
+        }
+
+        // ---- Bể cá phòng khách (sim FARM_TANK): chỉ hiện khi đã mua; cá trong bể bơi qua lại, lật khi đổi hướng, nhấp nhô ----
+        private GameObject farmTank;
+        private readonly List<(SpriteRenderer sr, float speed, float phase)> tankFish = new List<(SpriteRenderer, float, float)>();
+        private JToken Tank => sim.Modules["farm"]["FARM_TANK"];
+        public bool OwnsTank => (FarmState?["owned"] as JArray)?.Any(x => (string)x == "tank") == true;
+
+        private void DrawFishTank()
+        {
+            if (farmTank != null) Destroy(farmTank);
+            tankFish.Clear();
+            if (map?.def.id != "house" || !OwnsTank) return;
+            var tx = (float)(double)Tank["x"]; var ty = (float)(double)Tank["y"];
+            farmTank = new GameObject("Bể cá");farmTank.transform.SetParent(map.transform, false);
+            var body = farmTank.AddComponent<SpriteRenderer>();body.sprite = map.def.propCatalog?.Find("gv_be_ca")?.sprite;body.spriteSortPoint = SpriteSortPoint.Pivot;
+            farmTank.transform.localPosition = WorldCoords.PxToWorld(tx, ty);
+            var list = FarmState?["tank"] as JArray ?? new JArray();
+            for (var i = 0; i < list.Count; i++)
+            {
+                var icon = hud.Set("items")?.Get("fish_" + (string)list[i]);
+                if (icon == null) continue;
+                var f = new GameObject("Cá " + list[i]).AddComponent<SpriteRenderer>();f.transform.SetParent(farmTank.transform, false);
+                f.sprite = icon;f.sortingOrder = 1;
+                var k = 18f / Mathf.Max(icon.rect.width, icon.rect.height);f.transform.localScale = new Vector3(k, k, 1);
+                tankFish.Add((f, 10 + i * 3.7f % 9, i * 1.9f));
+            }
+        }
+
+        private void SwimTankFish()
+        {
+            if (farmTank == null || tankFish.Count == 0) return;
+            var w = Tank["water"];
+            float x0 = (float)(double)w["x0"] + 8, x1 = (float)(double)w["x1"] - 8, y0 = (float)(double)w["y0"] + 6, y1 = (float)(double)w["y1"] - 6;
+            var t = Time.time;
+            for (var i = 0; i < tankFish.Count; i++)
+            {
+                var (sr, speed, phase) = tankFish[i];
+                var u = Mathf.PingPong(t * speed / (x1 - x0) + phase, 1);
+                var dir = Mathf.Sign(Mathf.Cos((t * speed / (x1 - x0) + phase) * Mathf.PI));
+                var px = Mathf.Lerp(x0, x1, u);
+                var py = Mathf.Lerp(y0, y1, (i + .5f) / tankFish.Count) + Mathf.Sin(t * 2 + phase) * 1.5f;
+                sr.flipX = dir < 0;
+                sr.transform.localPosition = WorldCoords.PxToWorld(px, py) - WorldCoords.PxToWorld(0, 0);
             }
         }
 
@@ -223,8 +292,15 @@ namespace HavenLord.Client
                 if (NearPondSpot(me)) FarmFish(); else hud.Toast("Hãy tới chỗ câu bên bờ hồ", "info");
                 return;
             }
-            var col = Mathf.RoundToInt((at.x - 192) / 32);var row = Mathf.RoundToInt((at.y - 320 + 10) / 32);
-            if (col >= 0 && col < 4 && row >= 0 && row < 3) { FarmPlotAction(row * 4 + col); return; }
+            if (Vector2.Distance(at, Steward) < 60 && Vector2.Distance(me, Steward) < 130) { OpenSteward(); return; }
+            var (px0, py0) = PlotPos(0);
+            var col = Mathf.RoundToInt((at.x - px0) / 32);var row = Mathf.RoundToInt((at.y - py0 + 10) / 32);
+            if (col >= 0 && col < PlotCols && row >= 0 && row * PlotCols + col < PlotsMax)
+            {
+                if (row * PlotCols + col < PlotCount) FarmPlotAction(row * PlotCols + col);
+                else hud.Toast("Ô đất chưa mở · gặp Quản gia để mở thêm", "info");
+                return;
+            }
             if (Vector2.Distance(at, PondGate) < 90) { FarmSend("pond"); return; }
             if (Vector2.Distance(at, new Vector2(576, 264)) < 90) { FarmSend("room"); return; }
             if (Vector2.Distance(at, new Vector2(736, 352)) < 75) { FarmSend("sell"); return; }
@@ -243,14 +319,17 @@ namespace HavenLord.Client
             }
             if (Vector2.Distance(me, PondGate) < 100) { FarmSend("pond"); return; }
             if (Math.Abs(player.X - 576) < 100 && Math.Abs(player.Y - 264) < 100) { FarmSend("room"); return; }
-            var nearest = Enumerable.Range(0, 12).OrderBy(i => Math.Pow(player.X - (192 + i % 4 * 32), 2) + Math.Pow(player.Y - (320 + i / 4 * 32), 2)).First();
+            if (Vector2.Distance(me, Steward) < 110) { OpenSteward(); return; }
+            if (PlotCount == 0) return;
+            var nearest = Enumerable.Range(0, PlotCount).OrderBy(i => Math.Pow(player.X - PlotPos(i).x, 2) + Math.Pow(player.Y - PlotPos(i).y, 2)).First();
             FarmPlotAction(nearest);
         }
 
         public void FarmPlotAction(int i)
         {
-            if (!InFarm || FarmBusy || !(FarmState?["plots"] is JArray plots) || i < 0 || i >= 12) return;
-            if (Math.Sqrt(Math.Pow(player.X - (192 + i % 4 * 32), 2) + Math.Pow(player.Y - (320 + i / 4 * 32), 2)) > 105) { hud.Toast("Hãy bước tới gần ô ruộng", "info"); return; }
+            if (!InFarm || FarmBusy || !(FarmState?["plots"] is JArray plots) || i < 0 || i >= plots.Count) return;
+            var (ppx, ppy) = PlotPos(i);
+            if (Math.Sqrt(Math.Pow(player.X - ppx, 2) + Math.Pow(player.Y - ppy, 2)) > 105) { hud.Toast("Hãy bước tới gần ô ruộng", "info"); return; }
             var p = plots[i];
             var op = !(bool)p["tilled"] ? "hoe" : p["crop"].Type == JTokenType.Null ? "plant" : !(bool)p["watered"] ? "water" : "harvest";
             StartCoroutine(FarmAction(op, i));
@@ -262,7 +341,7 @@ namespace HavenLord.Client
             FarmBusy = true;
             var anim = op == "harvest" ? "plant" : op;
             var dir = player.View.Direction;
-            if (plot.HasValue) dir = GameInput.DirectionOf((float)(192 + plot.Value % 4 * 32 - player.X), (float)(320 + plot.Value / 4 * 32 - player.Y));
+            if (plot.HasValue) dir = GameInput.DirectionOf((float)(PlotPos(plot.Value).x - player.X), (float)(PlotPos(plot.Value).y - player.Y));
             farmView.Speed = 1;
             if (op == "fish") farmView.PlaySegment("fish", Dir8.E, "cast");
             else farmView.PlayAttack(anim, dir, dir != Dir8.W && dir != Dir8.SW);

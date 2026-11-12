@@ -141,6 +141,22 @@ for(const [n,w,h] of [['chuong_bo_lon',0.9,60],['chuong_ga_lon',0.9,30],['mang_n
  ['xe_thung_sua',0.85,12],['xe_cut_kit_rom',0.85,10],['to_ong_go',0.8,12],['to_ong_rom',0.8,12],['cot_gai_bo',0.6,10]] as const)addGpt('gv_'+n,'dot-7',n,'decor',w,h);
 addGpt('gv_cho_tam_cat','dot-7','cho_tam_cat','flower',0,0,false);addGpt('gv_bon_hoa_ong','dot-7','bon_hoa_ong','decor',0.9,10);
 
+/** Bể cá tạm vẽ bằng code (chủ dự án 12/11 "Bể cá cũng là trang trí trong nhà"): tủ gỗ 22 px + bể kính 88 × 54, nước hai tông, cát, sỏi,
+ * rong; vùng nước khớp `FARM_TANK.water` (neo giữa đáy). Thay bằng hình GPT khi có (đề bài đợt sau). */
+function fishTank():RGBAImage{
+ const W=96,H=88,img=createImage(W,H);
+ const rect=(x0:number,y0:number,x1:number,y1:number,c:[number,number,number])=>{for(let y=y0;y<y1;y++)for(let x=x0;x<x1;x++)img.data.set([...c,255],(y*W+x)*4);};
+ rect(2,64,94,88,[40,26,18]);rect(4,66,92,86,[138,88,50]);rect(4,66,92,68,[176,116,66]);// tủ gỗ
+ for(let x=10;x<90;x+=20)rect(x,70,x+16,84,[118,74,42]);
+ rect(4,8,92,64,[24,30,40]);// khung bể
+ rect(6,10,90,62,[96,176,210]);rect(6,10,90,18,[150,214,236]);// nước + mặt nước sáng
+ rect(6,52,90,62,[214,190,130]);for(let x=8;x<88;x+=7)rect(x,50+(x%3),x+4,54,[150,140,128]);// cát + sỏi
+ for(const [x,h] of [[16,26],[22,18],[72,30],[78,20]] as const)for(let y=52-h;y<52;y++)rect(x+((y>>2)%2),y,x+2+((y>>2)%2),y+1,[46,130,70]);
+ for(let i=0;i<10;i++)rect(80-i,14+i*2,82-i,15+i*2,[210,240,250]);// vệt sáng kính
+ rect(4,6,92,10,[60,44,30]);// nắp
+ return img;
+}
+addImg('gv_be_ca',fishTank());
 const {image,frames}=packShelf(items,1024);writePng(join(out,'props.png'),image);
 writeFileSync(join(out,'props.json'),JSON.stringify({frames:Object.fromEntries(Object.entries(frames).map(([id,frame])=>['home/'+id,{frame}])),meta:{image:'props.png',size:{w:image.width,h:image.height}}}));
 writeFileSync(join(out,'props.meta.json'),JSON.stringify(meta));
@@ -168,8 +184,8 @@ const terrain=Array.from({length:GH},(_,y)=>Array.from({length:GW},(_,x)=>{
 }).join(''));
 const props=[p('gv_nha_chinh',576,264),p('gv_gieng',744,232),p('gv_nha_kinh',196,246),p('home_shipping_box',736,352),p('home_scarecrow',384,400),p('home_water_barrel',420,312),p('home_tool_rack',470,312),
  p('home_gate',900,420),p('log_bench',624,480),p('lamp',672,448),p('lamp',860,380),
- p('home_gate',240,996),p('lamp',300,960),p('flower_planter',160,520),p('flower_planter',352,520),p('barrel',400,600)];
-// Rào gỗ GPT ghép liền phía trên ruộng (đoạn 211 px chồng 1 cột), cột góc hai đầu.
+ p('home_gate',240,996),p('lamp',300,960),p('flower_planter',160,520),p('barrel',300,470)];
+// Rào gỗ GPT ghép liền cạnh nhà kính (đoạn 211 px chồng 1 cột), cột góc hai đầu.
 props.push(p('gv_rao_cot',150,290),p('gv_rao_go',256,290),p('gv_rao_cot',362,290));
 /** Đặt một bãi quây: (ox, oy) là góc trên trái khung bãi trong map; lớp rào neo chân giữa đáy; đồ bên trong theo toạ độ trong khung. */
 function placePen(pen:string,ox:number,oy:number,inside:[string,number,number][]):void{
@@ -185,13 +201,13 @@ function placePen(pen:string,ox:number,oy:number,inside:[string,number,number][]
 placePen('bo_cuu',930,30,[['gv_bo_e',150,220],['gv_bo_s',330,290],['gv_cuu_s',440,210],['gv_cuu_w',260,340],['gv_mang_nuoc_da',130,345],['gv_gia_co_kho',470,330]]);
 placePen('san_ga',960,600,[['gv_chuong_ga_lon',130,250],['gv_cho_tam_cat',370,160],['gv_mang_thoc_ga',300,270],['gv_ga_s',260,170],['gv_ga_e',330,215],['gv_ga_w',420,245],['gv_ga_s',240,240],['gv_ga_e',440,180]]);
 // Ngoài bãi: chuồng bò lớn, xe sữa, cuộn rơm, cột gãi; tổ ong cạnh bồn hoa (ong cần hoa).
-props.push(p('gv_chuong_bo_lon',640,760),p('gv_xe_thung_sua',800,720),p('gv_cuon_rom_tron',420,760),p('gv_cuon_rom_tron',470,760),p('gv_cot_gai_bo',820,620),p('gv_xe_cut_kit_rom',460,640),
- p('gv_bon_hoa_ong',560,950),p('gv_to_ong_go',440,930),p('gv_to_ong_rom',700,930),p('gv_to_ong_go',780,960));
-for(let x=64;x<GW*32-64;x+=64){if(x<120||x>460&&x<900)props.push(p('tree',x,92));if(x>860&&x<930||x>1480)props.push(p('tree',x,GH*32-44));}
+props.push(p('gv_chuong_bo_lon',760,860),p('gv_xe_thung_sua',660,620),p('gv_cuon_rom_tron',890,640),p('gv_cuon_rom_tron',890,690),p('gv_cot_gai_bo',820,580),p('gv_xe_cut_kit_rom',320,780),
+ p('gv_bon_hoa_ong',480,950),p('gv_to_ong_go',380,930),p('gv_to_ong_rom',590,940));
+for(let x=64;x<GW*32-64;x+=64){if(x<120||x>460&&x<900)props.push(p('tree',x,92));if(x>1480)props.push(p('tree',x,GH*32-44));}
 for(let y=300;y<GH*32-60;y+=70)props.push(p('tree',64,y));
 const garden={...base,id:'garden',name:'Gia viên của bạn',width:GW,height:GH,decals:[] as Pt[],terrain,spawn:{x:860,y:416},props,
  spots:[{id:'door',name:'Cửa nhà',x:576,y:264,r:70},{id:'pond_gate',name:'Cổng ra hồ câu',x:240,y:960,r:80},{id:'from_house',name:'Trước cửa nhà',x:576,y:300,r:40},{id:'from_pond',name:'Cổng hồ câu',x:240,y:924,r:40},
-  {id:'pasture',name:'Bãi quây bò cừu',x:1220,y:300,r:160},{id:'chicken_run',name:'Sân gà',x:1230,y:820,r:140},{id:'barn',name:'Chuồng bò',x:640,y:780,r:90},{id:'hives',name:'Tổ ong',x:560,y:960,r:100}]};
+  {id:'steward',name:'Quản gia',x:780,y:470,r:90},{id:'field',name:'Ruộng',x:464,y:608,r:140},{id:'pasture',name:'Bãi quây bò cừu',x:1220,y:300,r:160},{id:'chicken_run',name:'Sân gà',x:1230,y:820,r:140},{id:'barn',name:'Chuồng bò',x:760,y:880,r:90},{id:'hives',name:'Tổ ong',x:560,y:960,r:100}]};
 
 // ---- Hồ câu dùng chung: hồ ở phía đông (động tác câu vẽ hướng E), chỗ câu dọc bờ tây + đầu cầu gỗ (FARM_LAYOUT.pondSpots) ----
 const pondTerrain=Array.from({length:22},(_,y)=>Array.from({length:28},(_,x)=>{
@@ -218,6 +234,7 @@ for(const m of maps){
  for(const q of m.props){const mt=meta[q.id]!;if(q.x-mt.w/2<0||q.x+mt.w/2>m.width*T)throw new Error(`${m.id}: ${q.id} tràn mép map`);}
  if(rooms.includes(m as never))for(const q of m.props){const mt=meta[q.id]!;if(q.x-mt.w/2<T||q.x+mt.w/2>(m.width-1)*T||q.y>(m.height-1)*T)throw new Error(`${m.id}: ${q.id} ra ngoài sàn`);}
 }
+{const F={x0:336,x1:592,y0:512,y1:704};for(const q of garden.props){const mt=meta[q.id]!;if(!mt.blocks)continue;const x0=q.x+mt.footprint.x,x1=x0+mt.footprint.w,y0=q.y+mt.footprint.y;if(x0<F.x1&&x1>F.x0&&y0<F.y1&&q.y>F.y0)throw new Error('garden: '+q.id+' đè lên ruộng');}}
 for(const m of maps)writeFileSync(join(out,m.id+'.json'),JSON.stringify(m));
 writeFileSync(join(out,'world.json'),JSON.stringify({region:'home',start:'garden',maps:Object.fromEntries(maps.map(m=>[m.id,{name:m.name,width:m.width*32,height:m.height*32,exits:[],spots:m.spots.map(s=>s.id),zones:[],dummies:[],boss:null}]))}));
 console.log(`Gia viên: khuôn viên ${garden.props.length} đồ / hồ câu chung ${pond.props.length} đồ / nhà 3 phòng (${rooms.map(r=>`${r.name} ${r.width}×${r.height} ô ${r.props.length} đồ`).join(', ')}), atlas ${image.width}×${image.height} tại ${out}`);

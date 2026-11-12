@@ -44,7 +44,7 @@ namespace HavenLord.Client
             yield return new WaitForSeconds(1);
             if (game.Map?.id != "garden" || game.FarmView == null || game.FarmView.HeadId == null) { Fail("Không vào được Gia viên / thiếu đầu ghép"); yield break; }
             yield return Shot("farm-1-khuon-vien");
-            yield return FarmWalk(game, 192, 352);
+            yield return FarmWalk(game, 352, 576);
             foreach (var op in new[] { "hoe", "plant", "water" })
             {
                 var routine = StartCoroutine(game.FarmAction(op, 0));

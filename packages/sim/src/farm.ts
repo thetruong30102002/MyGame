@@ -19,7 +19,7 @@ export const FARM_FISH = [
 ] as const;
 /** Hồ câu là MAP RIÊNG dùng chung `home/pond` (chủ dự án 12/11: "Hồ câu cá là một map bên cạnh … câu cùng bạn bè"): cổng ở mép nam
  * khuôn viên (`pondGate*`), trong map hồ có cổng về (`pondBack*`) và các chỗ câu dọc bờ tây + đầu cầu (nước ở phía đông người câu). */
-export const FARM_LAYOUT = {tile:32,width:48,height:32,plots:12,plotX:192,plotY:320,doorX:576,doorY:264,exitX:832,exitY:416,
+export const FARM_LAYOUT = {tile:32,width:48,height:32,plots:12,plotsMax:48,plotCols:8,plotX:352,plotY:544,stewardX:780,stewardY:470,doorX:576,doorY:264,exitX:832,exitY:416,
  pondGateX:240,pondGateY:960,pondBackX:96,pondBackY:352,
  pondSpots:[[360,192],[360,288],[480,352],[360,448],[360,544]] as readonly (readonly [number,number])[]};
 export const POND_MAP='home/pond';
@@ -32,14 +32,28 @@ export const FARM_ROOMS = {
  bedroom:{house:[416,358]},
 } as const;
 export const FARM_WARDROBE = [332,158] as const;
+/** Bể cá — món trang trí trong nhà (chủ dự án 12/11: "Bể cá cũng là trang trí trong nhà nhé"): đặt ở phòng khách, thả cá đã câu từ kho
+ * vào để ngắm / sưu tầm, lấy lại được. `water` = vùng nước tính từ chân bể (neo giữa đáy) để client cho cá bơi. Hình bể tạm vẽ bằng code
+ * (`scripts/export-home-maps.mts`), thay bằng hình GPT khi có. */
+export const FARM_TANK = {room:'house',x:492,y:328,slots:6,water:{x0:-38,x1:38,y0:-70,y1:-36}} as const;
+/**
+ * Cửa hàng Gia viên của NPC Quản gia đứng ở khuôn viên (chủ dự án 12/11: "1 npc ở gia viên để mua đồ đạc: mua nhà, mua đồ vật, mua bể cá",
+ * "chỗ trồng cây gia viên nữa cần rộng còn mở ô đất nữa"). GIÁ THỬ — chủ dự án chưa chốt giá; nhà / đồ vật chưa mở bán (chờ chốt giá
+ * và cách đặt đồ). Mở ô ruộng: mỗi lần +4 ô, giá tăng dần theo số lần đã mở.
+ */
+export const FARM_SHOP = [
+ {id:'plots',name:'Mở thêm 4 ô ruộng',coins:150,step:50},
+ {id:'tank',name:'Bể cá trong nhà',coins:500,step:0},
+] as const;
+export function shopPrice(id:string,state:Pick<FarmState,'plots'>):number{const it=FARM_SHOP.find(x=>x.id===id);if(!it)return Infinity;return id==='plots'?it.coins+it.step*Math.max(0,(state.plots.length-FARM_LAYOUT.plots)/4):it.coins;}
 export type FarmRoom = keyof typeof FARM_ROOMS;
 /** Chỗ câu gần nhất trong bán kính `r` px (null = không đứng ở bờ hồ). */
 export function pondSpotNear(x:number,y:number,r=70):readonly [number,number]|null{let best:readonly [number,number]|null=null,d=r;for(const s of FARM_LAYOUT.pondSpots){const k=Math.hypot(x-s[0],y-s[1]);if(k<=d){d=k;best=s;}}return best;}
 export interface FarmPlot {tilled:boolean;crop:string|null;plantedAt:number;lastAt:number;growth:number;watered:boolean}
-export interface FarmState {version:1;visited:string[];unlocked:boolean;plots:FarmPlot[];inventory:Record<string,number>;outfit:'farmer1'|'gardener';fish:{nonce:string;biteAt:number;expires:number;reward:string}|null;lastAction:number;lastEntry?:number}
-export function newFarm():FarmState{return{version:1,visited:[],unlocked:false,plots:Array.from({length:12},()=>({tilled:false,crop:null,plantedAt:0,lastAt:0,growth:0,watered:false})),inventory:{},outfit:'farmer1',fish:null,lastAction:0};}
+export interface FarmState {version:1;visited:string[];unlocked:boolean;plots:FarmPlot[];inventory:Record<string,number>;outfit:'farmer1'|'gardener';fish:{nonce:string;biteAt:number;expires:number;reward:string}|null;lastAction:number;lastEntry?:number;tank?:string[];owned?:string[]}
+export function newFarm():FarmState{return{version:1,visited:[],unlocked:false,plots:Array.from({length:12},()=>({tilled:false,crop:null,plantedAt:0,lastAt:0,growth:0,watered:false})),inventory:{},outfit:'farmer1',fish:null,lastAction:0,tank:[]};}
 export function growPlot(p:FarmPlot,now:number):void {if(!p.crop)return;const c=FARM_CROPS.find(x=>x.id===p.crop);if(!c)return;p.growth=Math.min(c.ms,p.growth+Math.max(0,now-p.lastAt)*(p.watered?1:.5));p.lastAt=Math.max(p.lastAt,now);}
 export function cropStage(p:FarmPlot):number{const c=FARM_CROPS.find(x=>x.id===p.crop);return c?Math.min(3,Math.floor(p.growth/c.ms*4)):0;}
-export function plotPoint(i:number){return{x:FARM_LAYOUT.plotX+(i%4)*32,y:FARM_LAYOUT.plotY+Math.floor(i/4)*32};}
+export function plotPoint(i:number){return{x:FARM_LAYOUT.plotX+(i%FARM_LAYOUT.plotCols)*32,y:FARM_LAYOUT.plotY+Math.floor(i/FARM_LAYOUT.plotCols)*32};}
 export function havenHour(now:number):number{return(now%(48*60000))/(48*60000)*24;}
 export function chooseFarmFish(now:number,roll:number):string{const h=havenHour(now);const list=FARM_FISH.filter(x=>!x.night||h>=20||h<4.5);let n=Math.max(0,Math.min(.999999,roll))*list.reduce((s,x)=>s+x.weight,0);for(const f of list){n-=f.weight;if(n<0)return f.id;}return list[0]!.id;}

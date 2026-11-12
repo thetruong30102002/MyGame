@@ -1,5 +1,5 @@
 import {randomInt,randomUUID} from 'node:crypto';
-import {FARM_CROPS,FARM_FISH,FARM_LAYOUT,FARM_ROOMS,FARM_WARDROBE,POND_MAP,chooseFarmFish,growPlot,plotPoint,pondSpotNear,type FarmRoom,type FarmState} from '@havenlord/sim/farm';
+import {FARM_CROPS,FARM_FISH,FARM_LAYOUT,FARM_ROOMS,FARM_SHOP,FARM_TANK,FARM_WARDROBE,POND_MAP,chooseFarmFish,growPlot,plotPoint,pondSpotNear,shopPrice,type FarmRoom,type FarmState} from '@havenlord/sim/farm';
 import {STORY} from '@havenlord/sim/story/story';
 import {VILLAGE_SHOP} from '@havenlord/sim/village';
 import type {ServerMessage} from '@havenlord/protocol';
@@ -70,6 +70,27 @@ export class Farm {
      const item=VILLAGE_SHOP.find(x=>x.id===raw.item);const npc=this.roster().find(n=>n.id===item?.npc);if(!item||!npc||at.map!=='human/town'||!near(npc.x,npc.y,160))throw new Error('Hãy tới đúng quầy hàng');if(coins<item.coins)throw new Error('Không đủ xu');return{value:null,coins:coins-item.coins,...('potions'in item?{potions:item.potions}:{buff:true})};
     }
     if(!s.unlocked||!farmMaps(account).includes(at.map))throw new Error('Chỉ chủ nhà được thao tác trong Gia viên đã mở');
+    if(op==='buy'){
+     // Cửa hàng Quản gia (đứng ở khuôn viên): mở ô ruộng / mua bể cá; máy chủ trừ xu và ghi đồ đã có trong cùng một giao dịch.
+     if(at.map!==homeMap(account)||!near(FARM_LAYOUT.stewardX,FARM_LAYOUT.stewardY,130))throw new Error('Hãy tới gặp Quản gia ở khuôn viên');
+     const it=FARM_SHOP.find(x=>x.id===raw.item);if(!it)throw new Error('Quản gia không bán món này');
+     const owned=s.owned??(s.owned=[]);
+     if(it.id==='plots'&&s.plots.length>=FARM_LAYOUT.plotsMax)throw new Error('Ruộng đã mở hết');
+     if(it.id==='tank'&&owned.includes('tank'))throw new Error('Bạn đã có bể cá');
+     const price=shopPrice(it.id,s);if(coins<price)throw new Error('Không đủ xu');
+     if(it.id==='plots')for(let k=0;k<4;k++)s.plots.push({tilled:false,crop:null,plantedAt:0,lastAt:0,growth:0,watered:false});
+     else owned.push(it.id);
+     return{value:null,coins:coins-price};
+    }
+    if(op==='tank'||op==='untank'){
+     if(!(s.owned??[]).includes('tank'))throw new Error('Hãy mua bể cá ở chỗ Quản gia trước');
+     // Bể cá ở phòng khách: thả cá trong kho vào bể (tối đa FARM_TANK.slots con) hoặc lấy lại về kho; cá trong bể không bị bán.
+     if(at.map!==roomMap(account,'house')||!near(FARM_TANK.x,FARM_TANK.y))throw new Error('Hãy tới bể cá trong phòng khách');
+     const tank=s.tank??(s.tank=[]);
+     if(op==='tank'){const f=FARM_FISH.find(x=>x.id===raw.item);const key=`fish_${f?.id}`;if(!f||!((s.inventory[key]??0)>0))throw new Error('Kho không có con cá này');if(tank.length>=FARM_TANK.slots)throw new Error('Bể đã đầy');s.inventory[key]=(s.inventory[key]??0)-1;tank.push(f.id);}
+     else{const i=Number(raw.plot);if(!Number.isInteger(i)||i<0||i>=tank.length)throw new Error('Bể không có con cá này');const [f]=tank.splice(i,1);s.inventory[`fish_${f}`]=(s.inventory[`fish_${f}`]||0)+1;}
+     return{value:null};
+    }
     if(op==='outfit'){if(at.map!==roomMap(account,'bedroom')||!near(...FARM_WARDROBE))throw new Error('Hãy tới tủ quần áo trong phòng ngủ');if(raw.outfit!=='farmer1'&&raw.outfit!=='gardener')throw new Error('Không có bộ đồ này');s.outfit=raw.outfit;return{value:null};}
     const fishing=op==='cast'||op==='pull';if(fishing&&at.map!==POND_MAP)throw new Error('Hãy ra hồ câu cạnh khuôn viên');if(!fishing&&at.map!==homeMap(account))throw new Error('Hãy ra khuôn viên trước');
     if(op==='sell'){
@@ -88,7 +109,7 @@ export class Farm {
      if(!pondSpotNear(at.x,at.y))throw new Error('Hãy tới chỗ câu bên bờ hồ');if(s.fish&&this.now()<s.fish.expires)throw new Error('Bạn đang câu cá');
      const biteAt=this.now()+3000+Math.floor(this.random()*9001);s.fish={nonce:randomUUID(),biteAt,expires:biteAt+1800,reward:chooseFarmFish(this.now(),this.random())};s.lastAction=this.now();return{value:null};
     }
-    const i=Number(raw.plot);if(!Number.isInteger(i)||i<0||i>=12)throw new Error('Ô ruộng không hợp lệ');const point=plotPoint(i);if(!near(point.x,point.y,105))throw new Error('Hãy tới gần ô ruộng');const p=s.plots[i]!;growPlot(p,this.now());
+    const i=Number(raw.plot);if(!Number.isInteger(i)||i<0||i>=s.plots.length)throw new Error('Ô ruộng chưa mở hoặc không hợp lệ');const point=plotPoint(i);if(!near(point.x,point.y,105))throw new Error('Hãy tới gần ô ruộng');const p=s.plots[i]!;growPlot(p,this.now());
     if(op==='hoe'){if(p.crop)throw new Error('Ô này đang có cây');p.tilled=true;}
     else if(op==='plant'){const c=FARM_CROPS.find(x=>x.id===raw.crop);if(!p.tilled||p.crop||!c)throw new Error('Cần ô đất đã xới và chưa có cây');const key=`seed_${c.id}`;if(!((s.inventory[key]??0)>0))throw new Error('Bạn hết hạt giống này');s.inventory[key]=(s.inventory[key]??0)-1;Object.assign(p,{crop:c.id,plantedAt:this.now(),lastAt:this.now(),growth:0,watered:false});}
     else if(op==='water'){if(!p.crop)throw new Error('Hãy gieo cây trước');p.watered=true;}
