@@ -105,12 +105,21 @@ export function rollPet(rollRarity:number,rollPet:number,minRarity=1):string{
 /** Đồ bày trí của một phòng (chưa sắp xếp lần nào = bố cục mặc định). */
 export function decorOf(state:Pick<FarmState,'decor'>,room:string):{id:string;x:number;y:number}[]{return state.decor?.[room]??(DECOR_DEFAULT[room]??[]).map(p=>({...p}));}
 /** Đặt được không: nằm trọn trên sàn, chân không chồng đồ khác / khối cố định, chừa lối cửa và cầu thang (null = được). */
+/** Chân đèn treo: đèn móc gờ trần (đáy đèn cách đỉnh tường 16 px + cao ảnh), client vẽ xích từ gờ xuống. */
+export const DECOR_LAMP_TOP = 16;
+/** Toạ độ đặt theo cách đặt của món, tính từ chỗ người chơi đứng: đồ sàn ngay trước mặt, thảm giữa chân, đèn ngay trên đầu ở gờ trần. */
+export function decorSpot(id:string,px:number,py:number):{x:number;y:number}{const it=DECOR_ITEMS[id];if(!it)return{x:px,y:py};
+ if(it.place==='lamp')return{x:Math.round(px),y:DECOR_LAMP_TOP+it.h};if(it.place==='rug')return{x:Math.round(px),y:Math.round(py+it.h/2)};return{x:Math.round(px),y:Math.round(py)-24};}
 export function decorPlaceIssue(room:string,list:readonly {id:string;x:number;y:number}[],id:string,x:number,y:number):string|null{
  const it=DECOR_ITEMS[id],floor=DECOR_FLOOR[room];if(!it||!floor)return'Không đặt được món này ở đây';
+ // Đèn: chỉ cần nằm trong bề ngang phòng, không chồng đèn khác. Thảm: nằm trọn trên sàn, không chồng thảm khác (đồ đặt đè lên thảm được).
+ if(it.place==='lamp'){if(x-it.w/2<floor.x0||x+it.w/2>floor.x1)return'Đèn phải treo trong phòng';return list.some(q=>DECOR_ITEMS[q.id]?.place==='lamp'&&Math.abs(q.x-x)<(DECOR_ITEMS[q.id]!.w+it.w)/2+8)?'Chỗ này đã có đèn':null;}
+ if(it.place==='rug'){if(x-it.w/2<floor.x0||x+it.w/2>floor.x1||y-it.h<floor.y0||y>floor.y1)return'Thảm phải nằm trọn trên sàn';
+  return list.some(q=>{const m=DECOR_ITEMS[q.id];return m?.place==='rug'&&Math.abs(q.x-x)<(m.w+it.w)/2&&Math.abs((q.y-m.h/2)-(y-it.h/2))<(m.h+it.h)/2;})?'Chỗ này đã có thảm':null;}
  if(x-it.w/2<floor.x0||x+it.w/2>floor.x1||y>floor.y1||y-Math.max(it.fh,8)<floor.y0)return'Đồ phải nằm trọn trên sàn phòng';
  const box=(q:{id:string;x:number;y:number})=>{const m=DECOR_ITEMS[q.id]!;return{x0:q.x+m.fx,x1:q.x+m.fx+Math.max(m.fw,8),y0:q.y-Math.max(m.fh,8),y1:q.y};};
  const a=box({id,x,y});const hit=(b:{x0:number;x1:number;y0:number;y1:number})=>a.x0<b.x1+4&&b.x0<a.x1+4&&a.y0<b.y1+4&&b.y0<a.y1+4;
- if(list.some(q=>DECOR_ITEMS[q.id]&&hit(box(q)))||(DECOR_FIXED[room]??[]).some(hit))return'Chỗ này vướng đồ khác';
+ if(list.some(q=>DECOR_ITEMS[q.id]&&DECOR_ITEMS[q.id]!.place==='floor'&&hit(box(q)))||(DECOR_FIXED[room]??[]).some(hit))return'Chỗ này vướng đồ khác';
  if((DECOR_DOORS[room]??[]).some(d=>d.x>a.x0-40&&d.x<a.x1+40&&d.y>a.y0-40&&d.y<a.y1+40))return'Phải chừa lối cửa / cầu thang';
  return null;
 }

@@ -6,7 +6,7 @@ import {join,resolve} from 'node:path';
 import {Store} from '../src/db.ts';
 import {Farm,homeMap,roomMap} from '../src/farm.ts';
 import {newProgress} from '../src/http.ts';
-import {DECOR_DEFAULT} from '@havenlord/sim/farmDecor.generated';
+import {DECOR_DEFAULT,DECOR_ITEMS} from '@havenlord/sim/farmDecor.generated';
 import {FARM_PETS,chooseFarmFish,pondMap} from '@havenlord/sim/farm';
 import {FISH_START,fishStep,rng32} from '@havenlord/sim/minigames';
 /** Người chơi mô phỏng: giữ tới căng 55, thả tới 25 — trả các nhịp đổi giữ / thả và số nhịp tới khi xong. */
@@ -119,6 +119,13 @@ try{
   at={map:roomMap(acc,'house'),x:320,y:400};act('decorPlace',{item:DECOR_DEFAULT.house![0]!.id});assert(failed(),'chắn cửa ra vườn');
   at={map:roomMap(acc,'house'),x:40,y:200};act('decorPlace',{item:DECOR_DEFAULT.house![0]!.id});assert(failed(),'ra ngoài sàn');
   at={map:roomMap(acc,'house'),x:placed.x,y:placed.y+24};act('tank',{item:'carp'});assert(failed(),'kho chưa có cá chép');}
+ // Bộ sưu tập: mua giường Haven / thảm / đèn ở người bán đồ → kho; đặt thảm dưới đồ, đèn ở gờ trần; giá theo danh mục.
+ {at={map:roomMap(acc,'house'),x:320,y:400};act('room');store.farm.run(acc,id,now,(_s,c)=>({value:null,coins:c+40000}));const c0=store.ecoOf(id)!.coins;at={map:homeMap(acc),x:780,y:500};
+  for(const it of ['gv_hv_giuong','gv_lk_tham','gv_pd_den'])act('buy',{item:'decor:'+it});
+  assert.equal(store.ecoOf(id)!.coins,c0-DECOR_ITEMS.gv_hv_giuong!.price-DECOR_ITEMS.gv_lk_tham!.price-DECOR_ITEMS.gv_pd_den!.price);assert.equal(store.farm.read(acc).storage!.gv_lk_tham,1);
+  at={map:homeMap(acc),x:576,y:280};act('room');at={map:roomMap(acc,'house'),x:300,y:330};act('decorPlace',{item:'gv_lk_tham'});act('decorPlace',{item:'gv_pd_den'});
+  const d=store.farm.read(acc).decor!.house!;assert(d.some(q=>q.id==='gv_lk_tham'),'thảm đặt được ngay cả chỗ có đồ');assert.equal(d.find(q=>q.id==='gv_pd_den')!.y,16+DECOR_ITEMS.gv_pd_den!.h,'đèn treo gờ trần');
+  store.farm.run(acc,id,now,(_s,c)=>({value:null,coins:c0-40000}));}
  // Bể cá phòng khách: thả cá đã câu vào bể, cá trong bể không bị bán, lấy lại được.
  at={map:roomMap(acc,'house'),x:200,y:300};act('tank',{item:'crucian'});assert(failed(),'phải tới bể');
  {const t=store.farm.read(acc).decor!.house!.find(q=>q.id==='gv_be_ca')!;at={map:roomMap(acc,'house'),x:t.x,y:t.y+24};}

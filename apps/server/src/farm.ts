@@ -1,5 +1,5 @@
 import {randomInt,randomUUID} from 'node:crypto';
-import {FARM_CROPS,FARM_FISH,FARM_LAYOUT,FARM_ROOMS,FARM_SHOP,FARM_TANK,FARM_ANIMALS,FARM_DISHES,FARM_FEED,FARM_FRUIT,FARM_PENS,HAVEN_DAY_MS,livestockOf,FARM_MACHINES,FARM_STOVE,FARM_MACHINE_SPOTS,FARM_PETS,FARM_PRODUCT_SELL,FARM_STARTER_CROPS,FARM_TREE_SPOTS,FARM_WARDROBE,treeStage,PET_GACHA,isPondMap,pondMap,DECOR_ITEMS,chooseFarmFish,decorOf,decorPlaceIssue,rollPet,growPlot,plotPoint,pondSpotNear,shopPrice,type FarmRoom,type FarmState} from '@havenlord/sim/farm';
+import {FARM_CROPS,FARM_FISH,FARM_LAYOUT,FARM_ROOMS,FARM_SHOP,FARM_TANK,FARM_ANIMALS,FARM_DISHES,FARM_FEED,FARM_FRUIT,FARM_PENS,HAVEN_DAY_MS,livestockOf,FARM_MACHINES,FARM_STOVE,FARM_MACHINE_SPOTS,FARM_PETS,FARM_PRODUCT_SELL,FARM_STARTER_CROPS,FARM_TREE_SPOTS,FARM_WARDROBE,treeStage,PET_GACHA,isPondMap,pondMap,DECOR_ITEMS,chooseFarmFish,decorOf,decorPlaceIssue,decorSpot,rollPet,growPlot,plotPoint,pondSpotNear,shopPrice,type FarmRoom,type FarmState} from '@havenlord/sim/farm';
 import {STORY} from '@havenlord/sim/story/story';
 import {COOK_QUALITY,FISH_MAX_TICKS,FISH_TICK_MS,cookQuality,fishFight,fishPower,type CookQuality} from '@havenlord/sim/minigames';
 import {VILLAGE_SHOP} from '@havenlord/sim/village';
@@ -168,7 +168,7 @@ export class Farm {
      const room=roomOf(account,at.map);if(!room)throw new Error('Bày trí chỉ ở trong nhà');
      const list=decorOf(s,room),st=s.storage??(s.storage={});
      if(op==='decorStore'){const i=Number(raw.plot);if(!Number.isInteger(i)||i<0||i>=list.length)throw new Error('Không có món này trong phòng');const [q]=list.splice(i,1);st[q!.id]=(st[q!.id]??0)+1;}
-     else{const id=String(raw.item||'');if(!DECOR_ITEMS[id]||!((st[id]??0)>0))throw new Error('Kho không có món này');const x=Math.round(at.x),y=Math.round(at.y)-24;
+     else{const id=String(raw.item||'');if(!DECOR_ITEMS[id]||!((st[id]??0)>0))throw new Error('Kho không có món này');const {x,y}=decorSpot(id,at.x,at.y);
       const issue=decorPlaceIssue(room,list,id,x,y);if(issue)throw new Error(issue);list.push({id,x,y});st[id]=(st[id]??0)-1;}
      (s.decor??(s.decor={}))[room]=list;return{value:null};
     }
@@ -177,6 +177,8 @@ export class Farm {
      if(at.map!==homeMap(account)||!near(FARM_LAYOUT.shopX,FARM_LAYOUT.shopY,130))throw new Error('Hãy tới người bán đồ Gia viên ở khuôn viên');
      const sap=FARM_FRUIT.find(f=>`sapling_${f.id}`===raw.item),mach=FARM_MACHINES.find(m=>`machine_${m.id}`===raw.item);
      if(sap){if(coins<sap.sapling)throw new Error('Không đủ xu');s.inventory[`sapling_${sap.id}`]=(s.inventory[`sapling_${sap.id}`]||0)+1;return{value:null,coins:coins-sap.sapling};}
+     const dec=typeof raw.item==='string'&&raw.item.startsWith('decor:')?DECOR_ITEMS[raw.item.slice(6)]:undefined;
+     if(dec){const did=String(raw.item).slice(6);if(coins<dec.price)throw new Error('Không đủ xu');const st=s.storage??(s.storage={});st[did]=(st[did]??0)+1;return{value:null,coins:coins-dec.price};}
      const ani=FARM_ANIMALS.find(a=>`animal_${a.id}`===raw.item);
      if(ani){const l=livestockOf(s);const e=l[ani.id]!;if(e.count>=ani.max)throw new Error(`Chuồng đã đủ ${ani.max} con`);if(coins<ani.price)throw new Error('Không đủ xu');e.count+=1;s.livestock=l;return{value:null,coins:coins-ani.price};}
      if(mach){const ms=s.machines??(s.machines={});if(mach.id in ms)throw new Error('Bạn đã có máy này');if(coins<mach.price)throw new Error('Không đủ xu');ms[mach.id]=null;return{value:null,coins:coins-mach.price};}

@@ -403,6 +403,10 @@ namespace HavenLord.Client
             return false;
         }
 
+        /// <summary>Bộ sưu tập đồ bày trí ở người bán đồ Gia viên (lọc theo nhóm).</summary>
+        public string FurnitureCat = "Giường";
+        public void ShowFurniture() { VillageKey = "furniture"; FarmSend("get"); hud.Panels.Show(Panels.Kind.Farm); }
+
         /// <summary>Bảng quay thú cưng (gọi từ cửa hàng Quản gia).</summary>
         public void ShowPets()
         {
@@ -446,7 +450,17 @@ namespace HavenLord.Client
                 var id = (string)q["id"]; float x = (float)q["x"], y = (float)q["y"];
                 var go = new GameObject(id);go.transform.SetParent(farmDecor.transform, false);go.transform.localPosition = WorldCoords.PxToWorld(x, y);
                 var sr = go.AddComponent<SpriteRenderer>();sr.sprite = map.def.propCatalog?.Find(id)?.sprite;sr.spriteSortPoint = SpriteSortPoint.Pivot;
-                var m = DecorItems?[id];
+                var m = DecorItems?[id];var place = (string)m?["place"];
+                if (place == "rug") sr.sortingOrder = -140; // thảm nằm phẳng dưới mọi đồ và nhân vật
+                if (place == "lamp")
+                {
+                    // Đèn treo gờ trần: xích 1 px từ gờ (y 6) xuống đỉnh đèn.
+                    var top = y - (float)m["h"];
+                    var chain = new GameObject("Xích").AddComponent<SpriteRenderer>();chain.transform.SetParent(go.transform, false);
+                    chain.sprite = UI.UiKit.WhiteSprite();chain.color = new Color(.25f, .2f, .16f);
+                    chain.transform.localPosition = WorldCoords.PxToWorld(0, -(float)m["h"] - (top - 6) / 2) - WorldCoords.PxToWorld(0, 0);
+                    chain.transform.localScale = new Vector3(2, Mathf.Max(1, top - 6), 1);
+                }
                 if (m != null && (bool?)m["blocks"] == true) solids.Add((x + (float)m["fx"], y - (float)m["fh"], x + (float)m["fx"] + (float)m["fw"], y));
                 if (id == (string)Tank["item"] && farmTank == null) farmTank = go;
             }

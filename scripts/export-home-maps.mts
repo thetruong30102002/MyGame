@@ -158,7 +158,19 @@ function fishTank():RGBAImage{
  return img;
 }
 addImg('gv_be_ca',fishTank());
-const {image,frames}=packShelf(items,1024);writePng(join(out,'props.png'),image);
+// ---- Bộ sưu tập đồ bày trí (chủ dự án 12/11 chọn B: mua bằng xu ở người bán đồ Gia viên, Quản gia đặt) ----
+// Nội thất 16 kiểu nhà (đợt 8 / 9 / 11: giường, sofa, lò sưởi, đèn treo, thảm, món đặc trưng — giá tăng theo bậc nhà) + đồ đợt 3 / 5
+// (tên theo bảng đề bài, giá theo cỡ). Tường đi theo kiểu nhà, không bán lẻ. Đèn treo gờ trần, thảm nằm phẳng dưới đồ.
+const HOUSE_TIERS:[string,string,string][]=[['dq','Đồng quê','dot-8'],['nk','Nấm khổng lồ','dot-11'],['dv','Đá vùng cao','dot-8'],['cx','Cối xay hoa','dot-11'],['tt','Gỗ tuyết tùng','dot-8'],['ns','Nhà sàn','dot-8'],['bh','Thuyền trưởng','dot-11'],['sm','Sa mạc','dot-9'],['ct','Nhà cây Elf','dot-11'],['gd','Gạch đỏ','dot-9'],['pd','Phương Đông','dot-11'],['ln','Người lùn','dot-11'],['ld','Lâu đài','dot-9'],['lk','Lâu kính','dot-11'],['lb','Lâu đài băng','dot-11'],['hv','Haven','dot-9']];
+const HOUSE_KINDS:[string,string,number][]=[['giuong','Giường',800],['sofa','Sofa',800],['lo_suoi','Lò sưởi',2000],['den','Đèn treo',300],['tham','Thảm',300],['dac_trung','Món đặc trưng',5000]];
+const collection:{id:string;name:string;price:number}[]=[];
+HOUSE_TIERS.forEach(([pre,house,batch],tier)=>{for(const [k,label,base] of HOUSE_KINDS){const id=`gv_${pre}_${k}`;const flat=k==='tham'||k==='den';
+ if(!meta[id])addGpt(id,batch,`${pre}_${k}`,flat?'flower':'decor',k==='giuong'?0.9:0.85,flat?0:k==='giuong'?40:18,!flat);
+ collection.push({id,name:`${label} · ${house}`,price:Math.round(base*(1+tier*0.25)/50)*50});}});
+for(const [batch,n,name] of [['dot-3','ban_an_dai','Bàn ăn dài + ghế'],['dot-3','ban_tra','Bàn trà thấp'],['dot-3','ban_trang_diem','Bàn trang điểm gương'],['dot-3','bep_lo_cui','Bếp lò củi'],['dot-3','bon_rua','Bồn rửa đá có bơm tay'],['dot-3','chan_bat','Chạn bát'],['dot-3','chau_cay_lon','Chậu cây lớn'],['dot-3','dong_ho_dung','Đồng hồ quả lắc đứng'],['dot-3','ghe_dai','Ghế dài bọc nệm (sofa)'],['dot-3','giuong_doi','Giường đôi lớn'],['dot-3','ke_gia_vi','Kệ gia vị + giá treo'],['dot-3','ke_trung_bay','Tủ kính trưng bày'],['dot-3','lo_nuong_banh','Lò nướng bánh gạch'],['dot-3','quay_so_che','Quầy sơ chế (thớt)'],['dot-3','tham_lon','Thảm lớn chữ nhật'],['dot-3','thung_tao_rau','Thùng rau củ'],['dot-3','tu_dau_giuong','Tủ đầu giường + đèn'],['dot-3','tu_lanh_da','Tủ đá ướp lạnh'],['dot-3','tu_ngan_keo','Tủ ngăn kéo'],['dot-5','ban_tho_pha_le','Bàn thờ pha lê Haven'],['dot-5','bang_treo_chia_khoa','Bảng treo chìa khoá'],['dot-5','binh_hoa_lon','Bình hoa lớn'],['dot-5','binh_phong','Bình phong gấp'],['dot-5','bon_tam_go','Bồn tắm gỗ'],['dot-5','buc_giang','Bục giảng'],['dot-5','chan_nen_dung','Chân nến đứng'],['dot-5','chau_cay_duong_xi','Chậu dương xỉ treo'],['dot-5','chau_rua_mat','Giá chậu rửa mặt'],['dot-5','ghe_bang_dai','Ghế băng dài trong đền'],['dot-5','ghe_tua_cua_so','Ghế tựa đọc sách'],['dot-5','gio_do_giat','Giỏ đồ giặt'],['dot-5','giuong_don','Giường đơn phòng trọ'],['dot-5','ke_khan','Kệ khăn tắm'],['dot-5','ke_nen_cau_nguyen','Kệ nến cầu nguyện'],['dot-5','quay_le_tan','Quầy lễ tân nhà trọ'],['dot-5','ruong_hanh_ly','Rương hành lý'],['dot-5','tham_do_dai','Thảm đỏ dài'],['dot-5','tu_guong_rua','Tủ gương rửa mặt']] as const){const id=`gv_${n}`;const flat=n.startsWith('tham')||n.startsWith('den_chum');
+ if(!meta[id])addGpt(id,batch,n,flat?'flower':'decor',0.85,flat?0:16,!flat);
+ const m=meta[id]!,big=Math.max(m.w,m.h);collection.push({id,name,price:big<60?300:big<100?800:2000});}
+const {image,frames}=packShelf(items,2048);writePng(join(out,'props.png'),image);
 writeFileSync(join(out,'props.json'),JSON.stringify({frames:Object.fromEntries(Object.entries(frames).map(([id,frame])=>['home/'+id,{frame}])),meta:{image:'props.png',size:{w:image.width,h:image.height}}}));
 writeFileSync(join(out,'props.meta.json'),JSON.stringify(meta));
 const base={tileSize:32,seed:20261108,npcs:[],monsterZones:[],boss:null,dummies:[],exits:[],areas:[]};
@@ -182,16 +194,21 @@ const DECOR_NAMES:Record<string,string>={gv_dong_ho_dung:'Đồng hồ cây',hom
  gv_ban_trang_diem:'Bàn trang điểm',gv_giuong_doi:'Giường đôi',gv_tu_dau_giuong:'Tủ đầu giường',home_chest:'Rương',gv_tu_ngan_keo:'Tủ ngăn kéo',gv_be_ca:'Bể cá'};
 const decorDefault:Record<string,Pt[]>={},fixedProps:Record<string,Pt[]>={};
 for(const r of [lv,kt,bd]){decorDefault[r.id]=r.props.filter(q=>!FIXED.has(q.id));fixedProps[r.id]=r.props.filter(q=>FIXED.has(q.id));r.props=fixedProps[r.id]!;}
+for(const c of collection)DECOR_NAMES[c.id]=c.name;
 for(const id of new Set([...Object.values(decorDefault).flat().map(q=>q.id),'gv_be_ca']))if(!DECOR_NAMES[id])throw new Error('Thiếu tên đồ bày trí '+id);
+const priceOf=(id:string)=>collection.find(c=>c.id===id)?.price??(()=>{const m=meta[id]!,big=Math.max(m.w,m.h);return big<60?300:big<100?800:2000;})();
+const catOf=(id:string)=>/giuong/.test(id)?'Giường':/den/.test(id)?'Đèn':/tham/.test(id)?'Thảm':/lo_suoi|fireplace/.test(id)?'Lò sưởi':/bon_tam|chau_rua|gio_do|ke_khan|tu_guong/.test(id)?'Phòng tắm':
+ /bep|lo_nuong|bon_rua|quay_so_che|tu_lanh|thung|chan_bat|ke_gia_vi|rice_bin|water_barrel|ban_an/.test(id)?'Bếp':/sofa|ghe|armchair/.test(id)?'Ghế · sofa':/ban_/.test(id)?'Bàn':/tu_|ke_|chest|ruong|bookshelf|wardrobe/.test(id)?'Tủ · kệ':'Trang trí';
+const placeOf=(id:string)=>/_den$|den_chum/.test(id)?'lamp':/tham/.test(id)?'rug':'floor';
 {
- const fp=(id:string)=>{const m=meta[id]!;return{name:DECOR_NAMES[id]??id,w:m.w,h:m.h,fx:m.footprint.x,fw:m.footprint.w,fh:m.footprint.h,blocks:m.blocks};};
- const items=Object.fromEntries([...new Set([...Object.values(decorDefault).flat().map(q=>q.id),'gv_be_ca'])].sort().map(id=>[id,fp(id)]));
+ const fp=(id:string)=>{const m=meta[id]!;return{name:DECOR_NAMES[id]??id,w:m.w,h:m.h,fx:m.footprint.x,fw:m.footprint.w,fh:m.footprint.h,blocks:m.blocks,cat:catOf(id),price:priceOf(id),place:placeOf(id)};};
+ const items=Object.fromEntries([...new Set([...Object.values(decorDefault).flat().map(q=>q.id),'gv_be_ca',...collection.map(c=>c.id)])].sort().map(id=>[id,fp(id)]));
  const floor=Object.fromEntries([lv,kt,bd].map(r=>[r.id,{x0:X(0),x1:X(r.cols*T),y0:Y(0),y1:Y(r.rows*T)}]));
  const solids=Object.fromEntries([lv,kt,bd].map(r=>[r.id,fixedProps[r.id]!.filter(q=>meta[q.id]!.blocks).map(q=>{const m=meta[q.id]!;return{x0:q.x+m.footprint.x,x1:q.x+m.footprint.x+m.footprint.w,y0:q.y+m.footprint.y,y1:q.y};})]));
  const doors=Object.fromEntries([lv,kt,bd].map(r=>[r.id,r.spots.filter(sp=>/^door_|^stairs_|^wardrobe$/.test(sp.id)).map(sp=>({x:sp.x,y:sp.y}))]));
  writeFileSync('packages/sim/src/farmDecor.generated.ts',`// SINH TỰ ĐỘNG bởi scripts/export-home-maps.mts — đừng sửa tay. Đồ bày trí trong nhà Gia viên: danh mục (cỡ ảnh + chân chặn, px),
 // bố cục mặc định từng phòng (ảnh ghép thử đã duyệt), sàn đặt được, khối cố định (cầu thang / tủ quần áo) và các cửa phải chừa lối.
-export const DECOR_ITEMS: Record<string,{name:string;w:number;h:number;fx:number;fw:number;fh:number;blocks:boolean}> = ${JSON.stringify(items)};
+export const DECOR_ITEMS: Record<string,{name:string;w:number;h:number;fx:number;fw:number;fh:number;blocks:boolean;cat:string;price:number;place:'floor'|'rug'|'lamp'}> = ${JSON.stringify(items)};
 export const DECOR_DEFAULT: Record<string,{id:string;x:number;y:number}[]> = ${JSON.stringify(decorDefault)};
 export const DECOR_FLOOR: Record<string,{x0:number;x1:number;y0:number;y1:number}> = ${JSON.stringify(floor)};
 export const DECOR_FIXED: Record<string,{x0:number;x1:number;y0:number;y1:number}[]> = ${JSON.stringify(solids)};
