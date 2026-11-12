@@ -176,7 +176,9 @@ namespace HavenLord.Client
             if (map == null || map.terrain == null) return;
             // Trong nhà / hang: tường gạch `#` (ngục, nội điện) hoặc hang dựng vách bằng nền đá (`*_cave`, vd Hang Gargoyle).
             indoor = map.id != null && map.id.EndsWith("_cave", StringComparison.Ordinal);
-            foreach (var row in map.terrain) if (!indoor && row != null && row.IndexOf('#') >= 0) { indoor = true; break; }
+            // Gia viên (khuôn viên, hồ câu, các phòng nhà riêng): tường `#` chỉ là rào / vách phòng, không phải hang — sáng theo giờ như ngoài trời.
+            if (map.region != "home")
+                foreach (var row in map.terrain) if (!indoor && row != null && row.IndexOf('#') >= 0) { indoor = true; break; }
             darkLand = map.biome == Biome.Dark;
             foreach (var p in map.props)
             {

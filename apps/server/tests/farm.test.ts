@@ -129,7 +129,7 @@ try{
  // Nhà: mua nhà Nấm ở người bán đồ → dọn vào ngay, cửa dời xuống (576, 440); đổi về nhà nhỏ; chưa có nhà thì không đổi được.
  {at={map:roomMap(acc,'house'),x:320,y:400};act('room');store.farm.run(acc,id,now,(_s,c)=>({value:null,coins:c+9000}));const c0=store.ecoOf(id)!.coins;at={map:homeMap(acc),x:780,y:500};
   act('buy',{item:'house:nk'});assert.equal(store.ecoOf(id)!.coins,c0-8000);assert.equal(store.farm.read(acc).house,'nk');act('buy',{item:'house:nk'});assert(failed(),'mua 1 lần');
-  at={map:homeMap(acc),x:576,y:280};act('room');assert(failed(),'cửa nhà lớn đã dời');at={map:homeMap(acc),x:576,y:460};act('room');assert.equal(at.map,roomMap(acc,'house'));
+  at={map:homeMap(acc),x:576,y:230};act('room');assert(failed(),'cửa nhà lớn đã dời');at={map:homeMap(acc),x:576,y:440-80+20};act('room');assert.equal(at.map,roomMap(acc,'house'));
   act('houseSet',{item:'hv'});assert(failed(),'chưa có nhà Haven');act('houseSet',{item:''});assert.equal(store.farm.read(acc).house,'');
   store.farm.run(acc,id,now,(_s,c)=>({value:null,coins:c-1000}));}
  // Chủ nhà được ở hồ câu của chính mình (world.changeMap kiểm qua canEnterMap) — lỗi cũ ghi nhầm hàm vào danh sách map.

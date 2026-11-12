@@ -32,8 +32,12 @@ namespace HavenLord.Client.UI
             if (key != null)
             {
                 var npc = game.Population.NpcDefOf(key);
-                FarmText("Tên", $"{npc?.Name} · {npc?.Title}", 0, 32, 20);
-                FarmText("Thoại", npc?.Idle?.FirstOrDefault() ?? "Rất vui được gặp cậu.", 45, 70);
+                // Bảng con (nhà, đồ bày trí, thú cưng, chuồng, bếp, máy…) không phải NPC: không in tên / lời chào NPC đè lên danh sách.
+                if (npc != null)
+                {
+                    FarmText("Tên", $"{npc.Name} · {npc.Title}", 0, 32, 20);
+                    FarmText("Thoại", npc.Idle?.FirstOrDefault() ?? "Rất vui được gặp cậu.", 45, 70);
+                }
                 if (key == "decor")
                 {
                     // Bày trí (Quản gia, chủ dự án 12/11): đồ của phòng đang đứng — bấm để cất vào kho; đồ trong kho — bấm để đặt ngay trước chỗ đang đứng.

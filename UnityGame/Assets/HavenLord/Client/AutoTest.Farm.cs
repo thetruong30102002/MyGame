@@ -140,7 +140,7 @@ namespace HavenLord.Client
                 yield return new WaitForSeconds(.6f);
                 yield return FarmWalk(game, 576, 600);
                 yield return Shot("farm-9-ngoai-" + tag);
-                yield return FarmWalk(game, 576, 455);game.FarmSend("room");
+                yield return FarmWalk(game, 576, game.HouseDoor.y + 16);game.FarmSend("room");
                 for (var i = 0; i < 100 && game.Map?.id != "house"; i++) yield return new WaitForSeconds(.1f);
                 yield return new WaitForSeconds(.6f);
                 if (game.Map?.id != "house") { Fail("Không vào được cửa nhà lớn " + hid); yield break; }

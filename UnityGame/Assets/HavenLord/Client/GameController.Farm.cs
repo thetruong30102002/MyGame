@@ -59,7 +59,7 @@ namespace HavenLord.Client
                 InFarm = true;
                 hud.Panels.Close();
                 // Máy chủ gửi kèm điểm đến (cửa / đầu cầu thang phía bên kia) để bước qua cửa là đứng đúng chỗ.
-                StartCoroutine(ChangeMap("home/" + room, (string)state["spot"], false));
+                StartCoroutine(Travel("home/" + room, (string)state["spot"]));
                 return;
             }
             FarmState = state;
@@ -202,7 +202,8 @@ namespace HavenLord.Client
         private int PlotsMax => (int?)Layout?["plotsMax"] ?? 48;
         private (float x, float y) PlotPos(int i) => ((float)((double?)Layout?["plotX"] ?? 352) + i % PlotCols * 32, (float)((double?)Layout?["plotY"] ?? 544) + i / PlotCols * 32);
         private int PlotCount => (FarmState?["plots"] as JArray)?.Count ?? 0;
-        private Vector2 DoorSpot => new Vector2(576, HouseId != "" ? (float)((double?)Layout?["bigDoorY"] ?? 440) : 264);
+        public Vector2 HouseDoor => DoorSpot;
+        private Vector2 DoorSpot => new Vector2(576, HouseId != "" ? (float)((double?)Layout?["bigDoorY"] ?? 440) - (float)((double?)HouseInfo?["door"] ?? 0) : 264);
         private Vector2 SellSpot => new Vector2((float)((double?)Layout?["sellX"] ?? 880), (float)((double?)Layout?["sellY"] ?? 520));
         private Vector2 ShopSpot => new Vector2((float)((double?)Layout?["shopX"] ?? 780), (float)((double?)Layout?["shopY"] ?? 470));
         private Vector2 Steward => new Vector2((float)((double?)Layout?["stewardX"] ?? 232), (float)((double?)Layout?["stewardY"] ?? 278));
@@ -252,6 +253,14 @@ namespace HavenLord.Client
         private int fightTick;
         private float fightAcc;
         private bool fightHold;
+        /// <summary>Đổi map Gia viên; ra khỏi nhà lớn thì đứng ngay dưới cánh cửa của kiểu nhà đang ở (cửa mỗi nhà cao thấp khác nhau).</summary>
+        private IEnumerator Travel(string map, string spot)
+        {
+            yield return ChangeMap(map, spot, false);
+            if (spot != "from_house_big" || HouseId == "") yield break;
+            var d = DoorSpot;player.X = d.x;player.Y = d.y + 30;player.SyncTransform();
+        }
+
         public bool Fighting => fight != null;
         /// <summary>Chỉ AutoTest: thay tay giữ cần (nhận lực căng dây hiện tại).</summary>
         public Func<double, bool> FightAuto;
@@ -411,6 +420,7 @@ namespace HavenLord.Client
         // ---- Kiểu nhà đang ở (sim FARM_HOUSES, ảnh Resources/HomeHouses/<mã>/…): mặt ngoài ở khuôn viên (cửa 576, 440, ẩn nhà nhỏ có sẵn),
         // trong nhà lát mẫu sàn + dải tường lặp + cầu thang của nhà (ẩn cầu thang gỗ có sẵn). Nhà nhỏ có sẵn = map gốc, không vẽ đè. ----
         public string HouseId => (string)FarmState?["house"] ?? "";
+        private JObject HouseInfo => HouseId == "" ? null : (Sim.Modules["farmHouses.generated"]?["FARM_HOUSES"] as JObject)?[HouseId] as JObject;
         private static readonly Dictionary<string, Texture2D> houseTex = new Dictionary<string, Texture2D>();
         private static Texture2D HouseTex(string house, string part)
         {
@@ -438,13 +448,12 @@ namespace HavenLord.Client
             var house = HouseId;var ext = house != "" ? HouseTex(house, "exterior") : null;
             HideMapProps("gv_nha_chinh", ext != null);
             if (ext == null) return;
-            var door = new Vector2(576, (float)((double?)Layout?["bigDoorY"] ?? 440));
-            var sr = HousePiece(parent, ext, new Rect(0, 0, ext.width, ext.height), door.x - ext.width / 2f, door.y - ext.height, 0);
-            sr.spriteSortPoint = SpriteSortPoint.Pivot;
-            // Neo sắp lớp ở chân nhà: đặt pivot đáy bằng cách dời cha — đơn giản hơn: dùng sprite pivot đáy.
-            sr.sprite = Sprite.Create(ext, new Rect(0, 0, ext.width, ext.height), new Vector2(.5f, 0), WorldCoords.PixelsPerUnit, 0, SpriteMeshType.FullRect);
-            sr.transform.localPosition = WorldCoords.PxToWorld(door.x, door.y);
-            var fw = ext.width * .86f;solids.Add((door.x - fw / 2, door.y - 58, door.x + fw / 2, door.y));
+            // Đáy ảnh ở y 440; neo sắp lớp ở chân cánh cửa (đứng trên sân trước cửa thì vẽ trước nhà), chặn thân nhà phía trên cửa.
+            float bottom = (float)((double?)Layout?["bigDoorY"] ?? 440), lift = (float)((double?)HouseInfo?["door"] ?? 0), door = bottom - lift;
+            var sr = HousePiece(parent, ext, new Rect(0, 0, ext.width, ext.height), 0, 0, 0);
+            sr.sprite = Sprite.Create(ext, new Rect(0, 0, ext.width, ext.height), new Vector2(.5f, lift / ext.height), WorldCoords.PixelsPerUnit, 0, SpriteMeshType.FullRect);
+            sr.transform.localPosition = WorldCoords.PxToWorld(576, door);sr.spriteSortPoint = SpriteSortPoint.Pivot;
+            var fw = ext.width * .86f;solids.Add((576 - fw / 2, door - 70, 576 - 22, door));solids.Add((576 + 22, door - 70, 576 + fw / 2, door));solids.Add((576 - 22, door - 70, 576 + 22, door - 12));
         }
 
         private void DrawHouseRoom(Transform parent)

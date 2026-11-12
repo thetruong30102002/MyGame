@@ -199,8 +199,8 @@ export function livestockOf(state:Pick<FarmState,'livestock'>):Record<string,{co
 /** Giá đề xuất 12/11 cho nhà Gia viên theo thang 16 bậc (bậc 1 Đồng quê có sẵn) và đồ bày trí — CHƯA mở bán (cần hệ thống đổi nhà). */
 export const FARM_HOUSE_PRICES:Record<string,number> = {dq:0,nk:8000,dv:15000,cx:22000,tt:30000,ns:40000,bh:52000,sm:65000,ct:80000,gd:100000,pd:125000,ln:155000,ld:190000,lk:230000,lb:280000,hv:350000};
 export const FARM_FURNITURE_PRICE = {small:300,medium:800,large:2000,feature:5000} as const;
-/** Cửa nhà đang ở: nhà nhỏ có sẵn (576, 264), nhà lớn mua được (576, 440) — scripts/export-home-maps.mts dọn vùng nhà lớn. */
-export function farmDoor(state:Pick<FarmState,'house'>):{x:number;y:number}{return{x:FARM_LAYOUT.doorX,y:state.house&&FARM_HOUSES[state.house]?FARM_LAYOUT.bigDoorY:FARM_LAYOUT.doorY};}
+/** Cửa nhà đang ở: nhà nhỏ có sẵn (576, 264); nhà lớn mua được đáy ảnh ở y 440, cửa cao hơn đáy `door` px (sân trước đi lên được). */
+export function farmDoor(state:Pick<FarmState,'house'>):{x:number;y:number}{const h=state.house?FARM_HOUSES[state.house]:undefined;return{x:FARM_LAYOUT.doorX,y:h?FARM_LAYOUT.bigDoorY-h.door:FARM_LAYOUT.doorY};}
 export function shopPrice(id:string,state:Pick<FarmState,'plots'>):number{const it=FARM_SHOP.find(x=>x.id===id);if(!it)return Infinity;return id==='plots'?it.coins+it.step*Math.max(0,(state.plots.length-FARM_LAYOUT.plots)/4):it.coins;}
 export type FarmRoom = keyof typeof FARM_ROOMS;
 /** Chỗ câu gần nhất trong bán kính `r` px (null = không đứng ở bờ hồ). */

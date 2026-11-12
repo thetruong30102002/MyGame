@@ -2237,6 +2237,7 @@
 			"name": "Nhà gỗ đồng quê",
 			"tier": 1,
 			"price": 5000,
+			"door": 86,
 			"exterior": {
 				"w": 663,
 				"h": 380
@@ -2254,6 +2255,7 @@
 			"name": "Nhà nấm khổng lồ",
 			"tier": 2,
 			"price": 8000,
+			"door": 80,
 			"exterior": {
 				"w": 526,
 				"h": 400
@@ -2271,6 +2273,7 @@
 			"name": "Nhà đá vùng cao",
 			"tier": 3,
 			"price": 15000,
+			"door": 66,
 			"exterior": {
 				"w": 601,
 				"h": 400
@@ -2288,6 +2291,7 @@
 			"name": "Nhà cối xay hoa",
 			"tier": 4,
 			"price": 22000,
+			"door": 88,
 			"exterior": {
 				"w": 604,
 				"h": 420
@@ -2305,6 +2309,7 @@
 			"name": "Nhà gỗ tuyết tùng",
 			"tier": 5,
 			"price": 30000,
+			"door": 56,
 			"exterior": {
 				"w": 544,
 				"h": 400
@@ -2322,6 +2327,7 @@
 			"name": "Nhà sàn đầm lầy",
 			"tier": 6,
 			"price": 40000,
+			"door": 96,
 			"exterior": {
 				"w": 586,
 				"h": 380
@@ -2339,6 +2345,7 @@
 			"name": "Nhà biển hải cảng",
 			"tier": 7,
 			"price": 52000,
+			"door": 84,
 			"exterior": {
 				"w": 601,
 				"h": 420
@@ -2356,6 +2363,7 @@
 			"name": "Nhà vòm sa mạc",
 			"tier": 8,
 			"price": 65000,
+			"door": 72,
 			"exterior": {
 				"w": 588,
 				"h": 400
@@ -2373,6 +2381,7 @@
 			"name": "Nhà cây tiên",
 			"tier": 9,
 			"price": 80000,
+			"door": 72,
 			"exterior": {
 				"w": 526,
 				"h": 420
@@ -2390,6 +2399,7 @@
 			"name": "Nhà gạch đỏ phố",
 			"tier": 10,
 			"price": 100000,
+			"door": 56,
 			"exterior": {
 				"w": 560,
 				"h": 420
@@ -2407,6 +2417,7 @@
 			"name": "Nhà Phương Đông",
 			"tier": 11,
 			"price": 125000,
+			"door": 110,
 			"exterior": {
 				"w": 626,
 				"h": 400
@@ -2424,6 +2435,7 @@
 			"name": "Nhà lùn núi lửa",
 			"tier": 12,
 			"price": 155000,
+			"door": 76,
 			"exterior": {
 				"w": 592,
 				"h": 400
@@ -2441,6 +2453,7 @@
 			"name": "Dinh thự lâu đài",
 			"tier": 13,
 			"price": 190000,
+			"door": 90,
 			"exterior": {
 				"w": 675,
 				"h": 420
@@ -2458,6 +2471,7 @@
 			"name": "Lâu kính vườn hoa",
 			"tier": 14,
 			"price": 230000,
+			"door": 108,
 			"exterior": {
 				"w": 588,
 				"h": 420
@@ -2475,6 +2489,7 @@
 			"name": "Lâu đài băng",
 			"tier": 15,
 			"price": 280000,
+			"door": 114,
 			"exterior": {
 				"w": 607,
 				"h": 420
@@ -2492,6 +2507,7 @@
 			"name": "Biệt thự Haven",
 			"tier": 16,
 			"price": 350000,
+			"door": 106,
 			"exterior": {
 				"w": 536,
 				"h": 420
