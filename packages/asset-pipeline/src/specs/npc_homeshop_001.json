@@ -1,0 +1,60 @@
+{
+	"identity": {
+		"characterId": "npc_homeshop_001",
+		"hair": "auburn_side_braid",
+		"eyes": "green",
+		"skin": "fair",
+		"outfit": "cream_blouse_green_apron_brown_skirt_basket",
+		"weapon": "none",
+		"palette": "npc_home_01"
+	},
+	"displayName": "Cô Lựu",
+	"role": "npc",
+	"provider": "pixellab",
+	"frameSize": {
+		"width": 80,
+		"height": 88
+	},
+	"baselineY": 84,
+	"animations": {
+		"idle": {
+			"fps": 6,
+			"minFrames": 4,
+			"maxFrames": 8
+		},
+		"walk": {
+			"fps": 10,
+			"minFrames": 6,
+			"maxFrames": 8
+		}
+	},
+	"cleanup": {
+		"alignToIdle": true
+	},
+	"quality": {
+		"maxHeightDrift": 0.15
+	},
+	"provisional": [
+		"S",
+		"SW",
+		"W",
+		"NW",
+		"N",
+		"NE",
+		"E",
+		"SE"
+	],
+	"notes": "PixelLab Pro 12/11/2026 (token #0, 10 lượt), ảnh mẫu nét = NPC tóc trắng, không đội mũ. Người bán đồ Gia viên ở khuôn viên (bán hạt, ô ruộng, bể cá, nhà, quay thú cưng). NPC ĐỨNG YÊN (chủ dự án 12/11: \"Quy định các npc là đứng yên\") — đứng / đi đều dùng ảnh xoay tĩnh.",
+	"review": {
+		"status": "approved",
+		"date": "12/11/2026",
+		"notes": "Duyệt bằng mắt cạnh NPC tóc trắng: cùng chiều cao 73–74 px, đúng nét, không mũ."
+	},
+	"pixellab": {
+		"animations": {
+			"idle": "idle",
+			"walk": "walk"
+		},
+		"mirrorWest": true
+	}
+}

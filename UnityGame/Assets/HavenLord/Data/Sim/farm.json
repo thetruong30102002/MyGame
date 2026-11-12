@@ -1,4 +1,222 @@
 {
+	"DECOR_ITEMS": {
+		"gv_ban_an_dai": {
+			"name": "Bàn ăn dài",
+			"w": 117,
+			"h": 64,
+			"fx": -53,
+			"fw": 105,
+			"fh": 26,
+			"blocks": true
+		},
+		"gv_ban_tra": {
+			"name": "Bàn trà",
+			"w": 39,
+			"h": 36,
+			"fx": -17,
+			"fw": 33,
+			"fh": 14,
+			"blocks": true
+		},
+		"gv_ban_trang_diem": {
+			"name": "Bàn trang điểm",
+			"w": 79,
+			"h": 96,
+			"fx": -36,
+			"fw": 71,
+			"fh": 16,
+			"blocks": true
+		},
+		"gv_be_ca": {
+			"name": "Bể cá",
+			"w": 96,
+			"h": 88,
+			"fx": 0,
+			"fw": 0,
+			"fh": 0,
+			"blocks": false
+		},
+		"gv_bep_lo_cui": {
+			"name": "Bếp lò củi",
+			"w": 72,
+			"h": 96,
+			"fx": -33,
+			"fw": 65,
+			"fh": 18,
+			"blocks": true
+		},
+		"gv_bon_rua": {
+			"name": "Bồn rửa",
+			"w": 58,
+			"h": 70,
+			"fx": -25,
+			"fw": 49,
+			"fh": 14,
+			"blocks": true
+		},
+		"gv_chan_bat": {
+			"name": "Chạn bát",
+			"w": 76,
+			"h": 110,
+			"fx": -34,
+			"fw": 68,
+			"fh": 16,
+			"blocks": true
+		},
+		"gv_chau_cay_lon": {
+			"name": "Chậu cây lớn",
+			"w": 54,
+			"h": 84,
+			"fx": -16,
+			"fw": 32,
+			"fh": 12,
+			"blocks": true
+		},
+		"gv_dong_ho_dung": {
+			"name": "Đồng hồ cây",
+			"w": 48,
+			"h": 120,
+			"fx": -19,
+			"fw": 38,
+			"fh": 12,
+			"blocks": true
+		},
+		"gv_ghe_dai": {
+			"name": "Ghế sofa dài",
+			"w": 117,
+			"h": 60,
+			"fx": -53,
+			"fw": 105,
+			"fh": 20,
+			"blocks": true
+		},
+		"gv_giuong_doi": {
+			"name": "Giường đôi",
+			"w": 72,
+			"h": 84,
+			"fx": -33,
+			"fw": 65,
+			"fh": 48,
+			"blocks": true
+		},
+		"gv_ke_trung_bay": {
+			"name": "Tủ kính trưng bày",
+			"w": 72,
+			"h": 110,
+			"fx": -33,
+			"fw": 65,
+			"fh": 16,
+			"blocks": true
+		},
+		"gv_lo_nuong_banh": {
+			"name": "Lò nướng bánh",
+			"w": 89,
+			"h": 100,
+			"fx": -40,
+			"fw": 80,
+			"fh": 18,
+			"blocks": true
+		},
+		"gv_quay_so_che": {
+			"name": "Quầy sơ chế",
+			"w": 186,
+			"h": 60,
+			"fx": -89,
+			"fw": 177,
+			"fh": 22,
+			"blocks": true
+		},
+		"gv_thung_tao_rau": {
+			"name": "Thùng rau củ",
+			"w": 48,
+			"h": 44,
+			"fx": -21,
+			"fw": 41,
+			"fh": 14,
+			"blocks": true
+		},
+		"gv_tu_dau_giuong": {
+			"name": "Tủ đầu giường",
+			"w": 38,
+			"h": 52,
+			"fx": -17,
+			"fw": 34,
+			"fh": 14,
+			"blocks": true
+		},
+		"gv_tu_lanh_da": {
+			"name": "Tủ đá",
+			"w": 68,
+			"h": 84,
+			"fx": -31,
+			"fw": 61,
+			"fh": 18,
+			"blocks": true
+		},
+		"gv_tu_ngan_keo": {
+			"name": "Tủ ngăn kéo",
+			"w": 48,
+			"h": 72,
+			"fx": -22,
+			"fw": 43,
+			"fh": 14,
+			"blocks": true
+		},
+		"home_bookshelf": {
+			"name": "Kệ sách",
+			"w": 48,
+			"h": 65,
+			"fx": -22,
+			"fw": 43,
+			"fh": 16,
+			"blocks": true
+		},
+		"home_chest": {
+			"name": "Rương",
+			"w": 50,
+			"h": 41,
+			"fx": -22,
+			"fw": 43,
+			"fh": 14,
+			"blocks": true
+		},
+		"home_fireplace": {
+			"name": "Lò sưởi đá",
+			"w": 51,
+			"h": 65,
+			"fx": -23,
+			"fw": 46,
+			"fh": 16,
+			"blocks": true
+		},
+		"home_potted_plant": {
+			"name": "Chậu cây nhỏ",
+			"w": 56,
+			"h": 66,
+			"fx": -17,
+			"fw": 34,
+			"fh": 10,
+			"blocks": true
+		},
+		"home_rice_bin": {
+			"name": "Thùng gạo",
+			"w": 50,
+			"h": 65,
+			"fx": -20,
+			"fw": 40,
+			"fh": 14,
+			"blocks": true
+		},
+		"home_water_barrel": {
+			"name": "Thùng nước",
+			"w": 46,
+			"h": 51,
+			"fx": -19,
+			"fw": 37,
+			"fh": 16,
+			"blocks": true
+		}
+	},
 	"FARM_CROPS": [
 		{
 			"id": "wheat",
@@ -110,8 +328,10 @@
 		"plotCols": 8,
 		"plotX": 352,
 		"plotY": 544,
-		"stewardX": 780,
-		"stewardY": 470,
+		"shopX": 780,
+		"shopY": 470,
+		"stewardX": 232,
+		"stewardY": 278,
 		"doorX": 576,
 		"doorY": 264,
 		"exitX": 832,
@@ -298,9 +518,7 @@
 		}
 	],
 	"FARM_TANK": {
-		"room": "house",
-		"x": 492,
-		"y": 328,
+		"item": "gv_be_ca",
 		"slots": 6,
 		"water": {
 			"x0": -38,

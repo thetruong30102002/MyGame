@@ -1,3 +1,5 @@
+import {DECOR_DEFAULT,DECOR_DOORS,DECOR_FIXED,DECOR_FLOOR,DECOR_ITEMS} from './farmDecor.generated.ts';
+export {DECOR_ITEMS};
 /** Gia viên: luật máy chủ dùng chung, thời gian thật; giá tạm để thử, chưa chốt cân bằng. */
 export const FARM_CROPS = [
  {id:'wheat',name:'Lúa mì',ms:5*60000,seed:5,sell:9},
@@ -19,7 +21,7 @@ export const FARM_FISH = [
 ] as const;
 /** Hồ câu là MAP RIÊNG dùng chung `home/pond` (chủ dự án 12/11: "Hồ câu cá là một map bên cạnh … câu cùng bạn bè"): cổng ở mép nam
  * khuôn viên (`pondGate*`), trong map hồ có cổng về (`pondBack*`) và các chỗ câu dọc bờ tây + đầu cầu (nước ở phía đông người câu). */
-export const FARM_LAYOUT = {tile:32,width:48,height:32,plots:12,plotsMax:48,plotCols:8,plotX:352,plotY:544,stewardX:780,stewardY:470,doorX:576,doorY:264,exitX:832,exitY:416,
+export const FARM_LAYOUT = {tile:32,width:48,height:32,plots:12,plotsMax:48,plotCols:8,plotX:352,plotY:544,shopX:780,shopY:470,stewardX:232,stewardY:278,doorX:576,doorY:264,exitX:832,exitY:416,
  pondGateX:240,pondGateY:960,pondBackX:96,pondBackY:352,
  pondSpots:[[360,192],[360,288],[480,352],[360,448],[360,544]] as readonly (readonly [number,number])[]};
 export const POND_MAP='home/pond';
@@ -35,7 +37,7 @@ export const FARM_WARDROBE = [332,158] as const;
 /** Bể cá — món trang trí trong nhà (chủ dự án 12/11: "Bể cá cũng là trang trí trong nhà nhé"): đặt ở phòng khách, thả cá đã câu từ kho
  * vào để ngắm / sưu tầm, lấy lại được. `water` = vùng nước tính từ chân bể (neo giữa đáy) để client cho cá bơi. Hình bể tạm vẽ bằng code
  * (`scripts/export-home-maps.mts`), thay bằng hình GPT khi có. */
-export const FARM_TANK = {room:'house',x:492,y:328,slots:6,water:{x0:-38,x1:38,y0:-70,y1:-36}} as const;
+export const FARM_TANK = {item:'gv_be_ca',slots:6,water:{x0:-38,x1:38,y0:-70,y1:-36}} as const;
 /**
  * Cửa hàng Gia viên của NPC Quản gia đứng ở khuôn viên (chủ dự án 12/11: "1 npc ở gia viên để mua đồ đạc: mua nhà, mua đồ vật, mua bể cá",
  * "chỗ trồng cây gia viên nữa cần rộng còn mở ô đất nữa"). GIÁ THỬ — chủ dự án chưa chốt giá; nhà / đồ vật chưa mở bán (chờ chốt giá
@@ -67,12 +69,24 @@ export function rollPet(rollRarity:number,rollPet:number,minRarity=1):string{
  for(let i=0;i<4;i++){if(i+1<minRarity)continue;n-=PET_GACHA.rates[i]!;if(n<0){rarity=i+1;break;}}
  const pool=FARM_PETS.filter(p=>p.rarity===rarity);return pool[Math.min(pool.length-1,Math.floor(Math.max(0,rollPet)*pool.length))]!.id;
 }
+/** Đồ bày trí của một phòng (chưa sắp xếp lần nào = bố cục mặc định). */
+export function decorOf(state:Pick<FarmState,'decor'>,room:string):{id:string;x:number;y:number}[]{return state.decor?.[room]??(DECOR_DEFAULT[room]??[]).map(p=>({...p}));}
+/** Đặt được không: nằm trọn trên sàn, chân không chồng đồ khác / khối cố định, chừa lối cửa và cầu thang (null = được). */
+export function decorPlaceIssue(room:string,list:readonly {id:string;x:number;y:number}[],id:string,x:number,y:number):string|null{
+ const it=DECOR_ITEMS[id],floor=DECOR_FLOOR[room];if(!it||!floor)return'Không đặt được món này ở đây';
+ if(x-it.w/2<floor.x0||x+it.w/2>floor.x1||y>floor.y1||y-Math.max(it.fh,8)<floor.y0)return'Đồ phải nằm trọn trên sàn phòng';
+ const box=(q:{id:string;x:number;y:number})=>{const m=DECOR_ITEMS[q.id]!;return{x0:q.x+m.fx,x1:q.x+m.fx+Math.max(m.fw,8),y0:q.y-Math.max(m.fh,8),y1:q.y};};
+ const a=box({id,x,y});const hit=(b:{x0:number;x1:number;y0:number;y1:number})=>a.x0<b.x1+4&&b.x0<a.x1+4&&a.y0<b.y1+4&&b.y0<a.y1+4;
+ if(list.some(q=>DECOR_ITEMS[q.id]&&hit(box(q)))||(DECOR_FIXED[room]??[]).some(hit))return'Chỗ này vướng đồ khác';
+ if((DECOR_DOORS[room]??[]).some(d=>d.x>a.x0-40&&d.x<a.x1+40&&d.y>a.y0-40&&d.y<a.y1+40))return'Phải chừa lối cửa / cầu thang';
+ return null;
+}
 export function shopPrice(id:string,state:Pick<FarmState,'plots'>):number{const it=FARM_SHOP.find(x=>x.id===id);if(!it)return Infinity;return id==='plots'?it.coins+it.step*Math.max(0,(state.plots.length-FARM_LAYOUT.plots)/4):it.coins;}
 export type FarmRoom = keyof typeof FARM_ROOMS;
 /** Chỗ câu gần nhất trong bán kính `r` px (null = không đứng ở bờ hồ). */
 export function pondSpotNear(x:number,y:number,r=70):readonly [number,number]|null{let best:readonly [number,number]|null=null,d=r;for(const s of FARM_LAYOUT.pondSpots){const k=Math.hypot(x-s[0],y-s[1]);if(k<=d){d=k;best=s;}}return best;}
 export interface FarmPlot {tilled:boolean;crop:string|null;plantedAt:number;lastAt:number;growth:number;watered:boolean}
-export interface FarmState {version:1;visited:string[];unlocked:boolean;plots:FarmPlot[];inventory:Record<string,number>;outfit:'farmer1'|'gardener';fish:{nonce:string;biteAt:number;expires:number;reward:string}|null;lastAction:number;lastEntry?:number;tank?:string[];owned?:string[];pets?:string[];petsOut?:string[];petShards?:number;petPity?:number;lastSpin?:{pet:string;dup:boolean}[]}
+export interface FarmState {version:1;visited:string[];unlocked:boolean;plots:FarmPlot[];inventory:Record<string,number>;outfit:'farmer1'|'gardener';fish:{nonce:string;biteAt:number;expires:number;reward:string}|null;lastAction:number;lastEntry?:number;tank?:string[];owned?:string[];pets?:string[];petsOut?:string[];petShards?:number;petPity?:number;lastSpin?:{pet:string;dup:boolean}[];decor?:Record<string,{id:string;x:number;y:number}[]>;storage?:Record<string,number>}
 export function newFarm():FarmState{return{version:1,visited:[],unlocked:false,plots:Array.from({length:12},()=>({tilled:false,crop:null,plantedAt:0,lastAt:0,growth:0,watered:false})),inventory:{},outfit:'farmer1',fish:null,lastAction:0,tank:[]};}
 export function growPlot(p:FarmPlot,now:number):void {if(!p.crop)return;const c=FARM_CROPS.find(x=>x.id===p.crop);if(!c)return;p.growth=Math.min(c.ms,p.growth+Math.max(0,now-p.lastAt)*(p.watered?1:.5));p.lastAt=Math.max(p.lastAt,now);}
 export function cropStage(p:FarmPlot):number{const c=FARM_CROPS.find(x=>x.id===p.crop);return c?Math.min(3,Math.floor(p.growth/c.ms*4)):0;}

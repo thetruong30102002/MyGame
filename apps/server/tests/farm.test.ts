@@ -6,6 +6,7 @@ import {join,resolve} from 'node:path';
 import {Store} from '../src/db.ts';
 import {Farm,homeMap,roomMap} from '../src/farm.ts';
 import {newProgress} from '../src/http.ts';
+import {DECOR_DEFAULT} from '@havenlord/sim/farmDecor.generated';
 import {FARM_PETS,POND_MAP,chooseFarmFish} from '@havenlord/sim/farm';
 import type {ServerMessage} from '@havenlord/protocol';
 
@@ -69,9 +70,17 @@ try{
   act('petOut',{item:f.pets![0]});assert(!store.farm.read(acc).petsOut!.includes(f.pets![0]!));act('petOut',{item:f.pets![0]});assert(store.farm.read(acc).petsOut!.includes(f.pets![0]!));}
  store.farm.run(acc,id,now,s=>{s.petPity=79;return{value:null};});act('gacha',{plot:1});assert.equal(FARM_PETS.find(p=>p.id===store.farm.read(acc).lastSpin![0]!.pet)!.rarity,4,'mốc 80 chắc chắn Huyền thoại');assert.equal(store.diamonds(id),0);
  store.farm.run(acc,id,now,s=>{s.petShards=30;return{value:null};});{const want=FARM_PETS.find(p=>p.rarity===1&&!store.farm.read(acc).pets!.includes(p.id));if(want){act('petTrade',{item:want.id});assert(store.farm.read(acc).pets!.includes(want.id));assert.equal(store.farm.read(acc).petShards,0);}}
+ // Bày trí: cất đồ vào kho, đặt lại trước chỗ đứng; chặn đặt ngoài sàn / chồng đồ / chắn cửa; bể cá mua về nằm trong kho, đặt rồi mới thả cá.
+ at={map:roomMap(acc,'house'),x:320,y:380};
+ {const def=store.farm.read(acc);assert.equal(def.decor,undefined);act('decorStore',{plot:0});const f=store.farm.read(acc);assert.equal(f.decor!.house!.length,DECOR_DEFAULT.house!.length-1);assert.equal(f.storage![DECOR_DEFAULT.house![0]!.id],1);
+  act('decorPlace',{item:'gv_be_ca'});const placed=store.farm.read(acc).decor!.house!.find(q=>q.id==='gv_be_ca');assert(placed,'đặt bể cá');
+  at={map:roomMap(acc,'house'),x:320,y:400};act('decorPlace',{item:DECOR_DEFAULT.house![0]!.id});assert(failed(),'chắn cửa ra vườn');
+  at={map:roomMap(acc,'house'),x:40,y:200};act('decorPlace',{item:DECOR_DEFAULT.house![0]!.id});assert(failed(),'ra ngoài sàn');
+  at={map:roomMap(acc,'house'),x:placed.x,y:placed.y+24};act('tank',{item:'carp'});assert(failed(),'kho chưa có cá chép');}
  // Bể cá phòng khách: thả cá đã câu vào bể, cá trong bể không bị bán, lấy lại được.
  at={map:roomMap(acc,'house'),x:200,y:300};act('tank',{item:'crucian'});assert(failed(),'phải tới bể');
- at={map:roomMap(acc,'house'),x:492,y:350};act('tank',{item:'carp'});assert(failed(),'kho không có cá chép');
+ {const t=store.farm.read(acc).decor!.house!.find(q=>q.id==='gv_be_ca')!;at={map:roomMap(acc,'house'),x:t.x,y:t.y+24};}
+ act('tank',{item:'carp'});assert(failed(),'kho không có cá chép');
  store.farm.run(acc,id,now,s=>{s.inventory.fish_carp=1;return{value:null};});
  act('tank',{item:'carp'});assert.deepEqual(store.farm.read(acc).tank,['carp']);assert.equal(store.farm.read(acc).inventory.fish_carp,0);
  act('untank',{plot:0});assert.deepEqual(store.farm.read(acc).tank,[]);assert.equal(store.farm.read(acc).inventory.fish_carp,1);

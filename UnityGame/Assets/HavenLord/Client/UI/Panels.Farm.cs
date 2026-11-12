@@ -34,9 +34,23 @@ namespace HavenLord.Client.UI
                 var npc = game.Population.NpcDefOf(key);
                 FarmText("Tên", $"{npc?.Name} · {npc?.Title}", 0, 32, 20);
                 FarmText("Thoại", npc?.Idle?.FirstOrDefault() ?? "Rất vui được gặp cậu.", 45, 70);
-                if (key == "village_steward")
+                if (key == "decor")
                 {
-                    // Cửa hàng Quản gia — giá thử (sim FARM_SHOP), máy chủ trừ xu; nhà / đồ vật chờ chốt giá và cách đặt đồ.
+                    // Bày trí (Quản gia, chủ dự án 12/11): đồ của phòng đang đứng — bấm để cất vào kho; đồ trong kho — bấm để đặt ngay trước chỗ đang đứng.
+                    var items = game.DecorItems;var room = game.RoomDecor();var st = state["storage"] as JObject;
+                    string DName(string id) => (string)items?[id]?["name"] ?? id;
+                    FarmText("Hướng dẫn", "Đứng ở chỗ muốn đặt rồi bấm món trong kho (đồ đặt ngay trước mặt). Bấm món trong phòng để cất. Đồ phải nằm trên sàn, không chồng đồ khác, chừa lối cửa / cầu thang.", 95, 60);
+                    FarmText("Phòng", $"Trong phòng ({room.Count} món):", 160, 28, 16);
+                    for (var i = 0; i < room.Count; i++) { var idx = i; FarmButton("Cất" + i, "Cất " + DName((string)room[i]["id"]), i % 4 * 256, 190 + i / 4 * 42, () => game.FarmSend("decorStore", plot: idx)); }
+                    var y = 190 + ((room.Count + 3) / 4) * 42 + 10;
+                    var stock = st?.Properties().Where(p => (int)p.Value > 0).ToArray() ?? new JProperty[0];
+                    FarmText("Kho", stock.Length == 0 ? "Kho đồ trống · mua thêm đồ ở người bán đồ Gia viên (sắp mở)." : "Kho đồ:", y, 28, 16);
+                    for (var i = 0; i < stock.Length; i++) { var id = stock[i].Name; FarmButton("Đặt" + id, $"Đặt {DName(id)} ×{stock[i].Value}", i % 4 * 256, y + 30 + i / 4 * 42, () => game.FarmSend("decorPlace", item: id)); }
+                    return;
+                }
+                if (key == "village_homeshop")
+                {
+                    // Người bán đồ Gia viên — giá thử (sim FARM_SHOP), máy chủ trừ xu; nhà / đồ vật chờ chốt giá.
                     var plotsNow = (state["plots"] as JArray)?.Count ?? 0;var layout = game.Sim.Modules["farm"]["FARM_LAYOUT"];var max = (int?)layout?["plotsMax"] ?? 48;var start = (int?)layout?["plots"] ?? 12;
                     var shop = game.Sim.Modules["farm"]["FARM_SHOP"] as JArray;
                     int Price(string id) { var it = shop?.FirstOrDefault(x => (string)x["id"] == id); return it == null ? 0 : (int)it["coins"] + (id == "plots" ? (int)it["step"] * Math.Max(0, (plotsNow - start) / 4) : 0); }
@@ -47,6 +61,9 @@ namespace HavenLord.Client.UI
                     FarmText("GiáThử", "Giá đang là giá thử. Nhà và đồ vật sẽ mở bán khi chốt giá và cách đặt đồ trong nhà.", 185, 50);
                     FarmButton("ThúCưng", "Quay thú cưng (kim cương)", 0, 240, () => game.ShowPets());
                     FarmButton("Về", "Cư dân / Gia viên", 256, 240, () => game.ShowFarm());
+                    var seeds = game.Sim.Modules["farm"]["FARM_CROPS"] as JArray;
+                    FarmText("Hạt", "Hạt giống · giá thử:", 290, 28, 16);
+                    if (seeds != null) for (var i = 0; i < seeds.Count; i++) { var c = seeds[i]; var id = (string)c["id"]; FarmButton("MuaHạt" + id, $"{c["name"]} · {c["seed"]} xu", i % 4 * 256, 320 + i / 4 * 42, () => game.FarmSend("buySeed", crop: id)); }
                     return;
                 }
                 if (key == "pets")
@@ -60,7 +77,7 @@ namespace HavenLord.Client.UI
                     FarmText("Tỉ lệ", $"Tỉ lệ: Thường {g?["rates"]?[0]}% · Hiếm {g?["rates"]?[1]}% · Sử thi {g?["rates"]?[2]}% · Huyền thoại {g?["rates"]?[3]}% · 10 lượt chắc chắn ≥ 1 Hiếm · {(int?)g?["pity"]} lượt chắc chắn Huyền thoại (đã quay {(int?)state["petPity"] ?? 0}).", 40, 50);
                     FarmButton("Quay1", $"Quay 1 lần · {g?["one"]} KC", 0, 95, () => game.FarmSend("gacha", plot: 1));
                     FarmButton("Quay10", $"Quay 10 lần · {g?["ten"]} KC", 256, 95, () => game.FarmSend("gacha", plot: 10));
-                    FarmButton("Về", "Quản gia", 512, 95, () => game.OpenSteward());
+                    FarmButton("Về", "Người bán đồ", 512, 95, () => game.OpenShop());
                     var last = state["lastSpin"] as JArray;
                     if (last != null && last.Count > 0) FarmText("Kết quả", "Vừa quay: " + string.Join(" · ", last.Select(x => PetName((string)x["pet"]) + ((bool?)x["dup"] == true ? " → mảnh" : " ✦ mới"))), 145, 60);
                     FarmText("Thả", $"Bấm thú đã có để thả / cất (tối đa {(int?)g?["out"] ?? 6} con đi lại trong Gia viên). Thú chưa có: đổi bằng mảnh.", 210, 30);
@@ -108,9 +125,9 @@ namespace HavenLord.Client.UI
                 FarmButton("Nông gia", "Mặc bộ Nông gia (tới tủ)", 0, 350, () => game.FarmSend("outfit", outfit: "farmer1"));
                 FarmButton("Thợ vườn", "Mặc bộ Thợ vườn (tới tủ)", 256, 350, () => game.FarmSend("outfit", outfit: "gardener"));
             }
-            else if (game.InFarm && game.Map.id == "house")
+            if (game.InFarm && System.Array.IndexOf(GameController.HouseRooms, game.Map.id) >= 0 && game.RoomDecor().Any(q => (string)q["id"] == "gv_be_ca"))
             {
-                if (!game.OwnsTank) FarmText("Bể", "Chưa có bể cá · mua ở chỗ Quản gia ngoài khuôn viên.", 350);
+                if (!game.OwnsTank) FarmText("Bể", "Chưa có bể cá · mua ở người bán đồ Gia viên ngoài khuôn viên.", 350);
                 else
                 {
                     // Bể cá: thả cá trong kho vào bể (đứng cạnh bể), bấm cá trong bể để lấy lại.

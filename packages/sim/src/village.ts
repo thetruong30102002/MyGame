@@ -6,8 +6,9 @@ export const VILLAGE_NPCS:Record<string,NpcDef>={
  village_weapon:{name:'Ren',title:'Người bán vũ khí',sprite:'npc_aldric_001',region:'human',at:{spot:'plaza',dx:260,dy:40},ages:[16,99],stationary:true,idle:['Chọn đúng món của nghề mình. Đừng để một thanh kiếm đẹp quyết định thay cậu sẽ trở thành ai.']},
  village_food:{name:'Mai',title:'Người bán đồ ăn',sprite:'npc_elin_001',region:'human',at:{spot:'plaza',dx:260,dy:180},ages:[16,99],stationary:true,idle:['Ăn một bữa ấm rồi hãy ra đường. Món hầm của ta giúp cậu vững tay trong chuyến đi.']},
  village_heal:{name:'Lan',title:'Người bán vật phẩm hồi phục',sprite:'npc_ysolde_001',region:'human',at:{spot:'church',dx:96,dy:100},ages:[16,99],stationary:true,idle:['Đừng đợi kiệt sức mới nhớ mang thuốc. Ta vẫn giữ sổ tên những người chưa quay về.']},
- // Quản gia Gia viên: bán mở ô ruộng / bể cá (sau: nhà, đồ vật). Hình TẠM mượn Bram — cần vẽ NPC riêng bằng PixelLab (chốt 12/11).
- village_steward:{name:'Bác Tôn',title:'Quản gia Gia viên',sprite:'npc_bram_001',region:'home',at:{spot:'steward'},ages:[16,99],stationary:true,idle:['Muốn mở thêm ruộng hay sắm bể cá thì cứ nói, ta lo cho.']},
+ // Gia viên (chủ dự án 12/11): người bán đồ ở khuôn viên (hạt, ô ruộng, bể cá, nhà, quay thú cưng) + Quản gia trong phòng khách mở bảng bày trí. Hình PixelLab riêng, đứng yên.
+ village_homeshop:{name:'Cô Lựu',title:'Người bán đồ Gia viên',sprite:'npc_homeshop_001',region:'home',at:{spot:'shop'},ages:[16,99],stationary:true,idle:['Hạt giống, ô ruộng, bể cá hay một chú mèo con — muốn gì cứ hỏi.']},
+ village_steward:{name:'Bác Tôn',title:'Quản gia',sprite:'npc_steward_001',region:'home',at:{spot:'steward'},ages:[16,99],stationary:true,idle:['Cậu muốn kê lại đồ đạc trong nhà à? Cứ bảo ta.']},
  village_event:{name:'Iris',title:'Sứ giả sự kiện',sprite:'npc_silver_youth_f',region:'human',at:{spot:'plaza',dx:390,dy:110},ages:[16,99],stationary:true,idle:['Ta mang tin giữa các vùng. Dù chưa có hội lễ, cậu vẫn có thể ghé hỏi thăm; việc nhận nhà không phải đợi sự kiện.']},
 };
 export const VILLAGE_SHOP=[

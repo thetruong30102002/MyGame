@@ -89,7 +89,7 @@ namespace HavenLord.Client
             farmPoll += dt;
             if (farmPoll >= 4) { farmPoll = 0; FarmSend("get"); }
             if (!InFarm) return;
-            if (FarmState != null && farmDrawn != FarmVersion) { DrawFarmPlots(); DrawFishTank(); DrawPets(); RefreshFarmBody(); farmDrawn = FarmVersion; }
+            if (FarmState != null && farmDrawn != FarmVersion) { DrawFarmPlots(); DrawDecor(); DrawPets(); RefreshFarmBody(); farmDrawn = FarmVersion; }
             SwimTankFish();
             if (farmView == null) return;
             if (!FarmBusy)
@@ -123,7 +123,7 @@ namespace HavenLord.Client
                 if (farmView != null) Destroy(farmView.gameObject);
                 farmView = null; player.View.gameObject.SetActive(true);
                 if (farmPlots != null) Destroy(farmPlots);
-                if (farmTank != null) Destroy(farmTank);
+                if (farmDecor != null) Destroy(farmDecor);
                 ClearFishingLine();
                 return;
             }
@@ -198,7 +198,8 @@ namespace HavenLord.Client
         private int PlotsMax => (int?)Layout?["plotsMax"] ?? 48;
         private (float x, float y) PlotPos(int i) => ((float)((double?)Layout?["plotX"] ?? 352) + i % PlotCols * 32, (float)((double?)Layout?["plotY"] ?? 544) + i / PlotCols * 32);
         private int PlotCount => (FarmState?["plots"] as JArray)?.Count ?? 0;
-        private Vector2 Steward => new Vector2((float)((double?)Layout?["stewardX"] ?? 780), (float)((double?)Layout?["stewardY"] ?? 470));
+        private Vector2 ShopSpot => new Vector2((float)((double?)Layout?["shopX"] ?? 780), (float)((double?)Layout?["shopY"] ?? 470));
+        private Vector2 Steward => new Vector2((float)((double?)Layout?["stewardX"] ?? 232), (float)((double?)Layout?["stewardY"] ?? 278));
 
         // ---- Thú cưng: con đang thả (petsOut) đi lang thang trong khuôn viên / các phòng của chủ; hồ câu chung không có thú ----
         private string petsDrawn;
@@ -230,29 +231,47 @@ namespace HavenLord.Client
             hud.Panels.Show(Panels.Kind.Farm);
         }
 
-        /// <summary>Quản gia ở khuôn viên: mở bảng cửa hàng Gia viên (mở ô ruộng, bể cá).</summary>
-        public void OpenSteward()
-        {
-            VillageKey = "village_steward";
-            FarmSend("get");
-            hud.Panels.Show(Panels.Kind.Farm);
-        }
+        /// <summary>Người bán đồ Gia viên ở khuôn viên: hạt giống, ô ruộng, bể cá, nhà, quay thú cưng.</summary>
+        public void OpenShop() { VillageKey = "village_homeshop"; FarmSend("get"); hud.Panels.Show(Panels.Kind.Farm); }
 
-        // ---- Bể cá phòng khách (sim FARM_TANK): chỉ hiện khi đã mua; cá trong bể bơi qua lại, lật khi đổi hướng, nhấp nhô ----
-        private GameObject farmTank;
+        /// <summary>Quản gia trong phòng khách: bảng bày trí — cất / đặt đồ của phòng đang đứng.</summary>
+        public void OpenDecor() { VillageKey = "decor"; FarmSend("get"); hud.Panels.Show(Panels.Kind.Farm); }
+
+        // ---- Bày trí trong nhà (sim decorOf / DECOR_ITEMS): đồ của phòng đang đứng vẽ theo dữ liệu máy chủ + khối chặn chân đồ;
+        // bể cá (FARM_TANK.item) đặt ở đâu thì cá trong bể bơi ở đó. ----
+        private GameObject farmDecor, farmTank;
         private readonly List<(SpriteRenderer sr, float speed, float phase)> tankFish = new List<(SpriteRenderer, float, float)>();
         private JToken Tank => sim.Modules["farm"]["FARM_TANK"];
         public bool OwnsTank => (FarmState?["owned"] as JArray)?.Any(x => (string)x == "tank") == true;
+        public static readonly string[] HouseRooms = { "house", "kitchen", "bedroom" };
+        public JToken DecorItems => sim.Modules["farmDecor.generated"]?["DECOR_ITEMS"];
 
-        private void DrawFishTank()
+        /// <summary>Đồ bày trí của phòng hiện tại: dữ liệu máy chủ, chưa sắp xếp thì bố cục mặc định.</summary>
+        public JArray RoomDecor()
         {
-            if (farmTank != null) Destroy(farmTank);
+            if (map == null || !HouseRooms.Contains(map.def.id)) return new JArray();
+            return FarmState?["decor"]?[map.def.id] as JArray ?? sim.Modules["farmDecor.generated"]?["DECOR_DEFAULT"]?[map.def.id] as JArray ?? new JArray();
+        }
+
+        private void DrawDecor()
+        {
+            if (farmDecor != null) Destroy(farmDecor);
+            farmTank = null;
             tankFish.Clear();
-            if (map?.def.id != "house" || !OwnsTank) return;
-            var tx = (float)(double)Tank["x"]; var ty = (float)(double)Tank["y"];
-            farmTank = new GameObject("Bể cá");farmTank.transform.SetParent(map.transform, false);
-            var body = farmTank.AddComponent<SpriteRenderer>();body.sprite = map.def.propCatalog?.Find("gv_be_ca")?.sprite;body.spriteSortPoint = SpriteSortPoint.Pivot;
-            farmTank.transform.localPosition = WorldCoords.PxToWorld(tx, ty);
+            if (map == null || !HouseRooms.Contains(map.def.id)) return;
+            farmDecor = new GameObject("Đồ bày trí");farmDecor.transform.SetParent(map.transform, false);
+            var solids = new List<(float, float, float, float)>();
+            foreach (var q in RoomDecor())
+            {
+                var id = (string)q["id"]; float x = (float)q["x"], y = (float)q["y"];
+                var go = new GameObject(id);go.transform.SetParent(farmDecor.transform, false);go.transform.localPosition = WorldCoords.PxToWorld(x, y);
+                var sr = go.AddComponent<SpriteRenderer>();sr.sprite = map.def.propCatalog?.Find(id)?.sprite;sr.spriteSortPoint = SpriteSortPoint.Pivot;
+                var m = DecorItems?[id];
+                if (m != null && (bool?)m["blocks"] == true) solids.Add((x + (float)m["fx"], y - (float)m["fh"], x + (float)m["fx"] + (float)m["fw"], y));
+                if (id == (string)Tank["item"] && farmTank == null) farmTank = go;
+            }
+            map.SetExtraSolids(solids);
+            if (farmTank == null) return;
             var list = FarmState?["tank"] as JArray ?? new JArray();
             for (var i = 0; i < list.Count; i++)
             {
@@ -303,6 +322,7 @@ namespace HavenLord.Client
             if (!RoomDoors.TryGetValue(map.def.id, out var doors)) return false;
             foreach (var (to, at) in doors)
                 if (Vector2.Distance(me, at) < 100) { if (to == "garden") FarmSend("room"); else FarmSend("go", room: to); return true; }
+            if (map.def.id == "house" && Vector2.Distance(me, Steward) < 110) { OpenDecor(); return true; }
             ShowFarm();
             return true;
         }
@@ -323,7 +343,7 @@ namespace HavenLord.Client
                 if (NearPondSpot(me)) FarmFish(); else hud.Toast("Hãy tới chỗ câu bên bờ hồ", "info");
                 return;
             }
-            if (Vector2.Distance(at, Steward) < 60 && Vector2.Distance(me, Steward) < 130) { OpenSteward(); return; }
+            if (Vector2.Distance(at, ShopSpot) < 60 && Vector2.Distance(me, ShopSpot) < 130) { OpenShop(); return; }
             var (px0, py0) = PlotPos(0);
             var col = Mathf.RoundToInt((at.x - px0) / 32);var row = Mathf.RoundToInt((at.y - py0 + 10) / 32);
             if (col >= 0 && col < PlotCols && row >= 0 && row * PlotCols + col < PlotsMax)
@@ -350,7 +370,7 @@ namespace HavenLord.Client
             }
             if (Vector2.Distance(me, PondGate) < 100) { FarmSend("pond"); return; }
             if (Math.Abs(player.X - 576) < 100 && Math.Abs(player.Y - 264) < 100) { FarmSend("room"); return; }
-            if (Vector2.Distance(me, Steward) < 110) { OpenSteward(); return; }
+            if (Vector2.Distance(me, ShopSpot) < 110) { OpenShop(); return; }
             if (PlotCount == 0) return;
             var nearest = Enumerable.Range(0, PlotCount).OrderBy(i => Math.Pow(player.X - PlotPos(i).x, 2) + Math.Pow(player.Y - PlotPos(i).y, 2)).First();
             FarmPlotAction(nearest);

@@ -1,0 +1,36 @@
+{
+  "group_id": "462f6fc8-cafc-423e-b4fe-14ae7d78cfe2",
+  "states": [
+    {
+      "character": {
+        "id": "43b69423-fff0-47c2-b0bf-90ecb999f134",
+        "name": "Idle",
+        "prompt": "a cheerful young woman farm-goods merchant with warm auburn hair tied in a side braid, freckles, bright green eyes, wearing a cream blouse with rolled sleeves, a leaf-green apron with seed packets in its pocket, a brown skirt, brown boots, a small woven basket on her arm, same height and proportions as the reference character, anime pixel art, thick dark outline, soft cel shading, no hat, no hood, no helmet, standing facing the viewer",
+        "size": {
+          "width": 80,
+          "height": 80
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-11-12T07:30:21.352546+00:00"
+      },
+      "folder": "Idle",
+      "frames": {
+        "rotations": {
+          "south": "Idle/rotations/south.png",
+          "south-east": "Idle/rotations/south-east.png",
+          "east": "Idle/rotations/east.png",
+          "north-east": "Idle/rotations/north-east.png",
+          "north": "Idle/rotations/north.png",
+          "north-west": "Idle/rotations/north-west.png",
+          "west": "Idle/rotations/west.png",
+          "south-west": "Idle/rotations/south-west.png"
+        },
+        "animations": {}
+      }
+    }
+  ],
+  "export_version": "3.1",
+  "export_date": "2026-11-12T07:32:22.653860"
+}

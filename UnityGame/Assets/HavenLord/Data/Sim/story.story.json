@@ -356,10 +356,27 @@
 					"Đừng đợi kiệt sức mới nhớ mang thuốc. Ta vẫn giữ sổ tên những người chưa quay về."
 				]
 			},
+			"village_homeshop": {
+				"name": "Cô Lựu",
+				"title": "Người bán đồ Gia viên",
+				"sprite": "npc_homeshop_001",
+				"region": "home",
+				"at": {
+					"spot": "shop"
+				},
+				"ages": [
+					16,
+					99
+				],
+				"stationary": true,
+				"idle": [
+					"Hạt giống, ô ruộng, bể cá hay một chú mèo con — muốn gì cứ hỏi."
+				]
+			},
 			"village_steward": {
 				"name": "Bác Tôn",
-				"title": "Quản gia Gia viên",
-				"sprite": "npc_bram_001",
+				"title": "Quản gia",
+				"sprite": "npc_steward_001",
 				"region": "home",
 				"at": {
 					"spot": "steward"
@@ -370,7 +387,7 @@
 				],
 				"stationary": true,
 				"idle": [
-					"Muốn mở thêm ruộng hay sắm bể cá thì cứ nói, ta lo cho."
+					"Cậu muốn kê lại đồ đạc trong nhà à? Cứ bảo ta."
 				]
 			},
 			"village_event": {

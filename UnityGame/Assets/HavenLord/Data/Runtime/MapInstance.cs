@@ -46,6 +46,14 @@ namespace HavenLord.Data
         /// <summary>Bỏ cache va chạm (sau khi đổi def lúc chạy).</summary>
         public void ResetCollision() => blocker = null;
 
+        /// <summary>Khối chặn thêm lúc chạy (px: x0, y0, x1, y1) — đồ bày trí Gia viên đặt theo dữ liệu người chơi, không nằm trong map.</summary>
+        public void SetExtraSolids(System.Collections.Generic.IEnumerable<(float x0, float y0, float x1, float y1)> rects)
+        {
+            blocker = null;
+            EnsureCollision();
+            foreach (var r in rects) Collision.AddSolid(solids, new HavenLord.Core.World.Rect(r.x0, r.y0, r.x1, r.y1));
+        }
+
         private void OnDrawGizmosSelected()
         {
             if (def == null) return;

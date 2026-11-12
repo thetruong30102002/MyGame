@@ -50150,6 +50150,132 @@
 				"SW",
 				"NW"
 			]
+		},
+		"npc_homeshop_001": {
+			"displayName": "Cô Lựu",
+			"role": "npc",
+			"identity": {
+				"characterId": "npc_homeshop_001",
+				"hair": "auburn_side_braid",
+				"eyes": "green",
+				"skin": "fair",
+				"outfit": "cream_blouse_green_apron_brown_skirt_basket",
+				"weapon": "none",
+				"palette": "npc_home_01"
+			},
+			"atlas": "characters/npc_homeshop_001/npc_homeshop_001.json",
+			"frameSize": {
+				"width": 80,
+				"height": 88
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9545454545454546
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro 12/11/2026 (token #0, 10 lượt), ảnh mẫu nét = NPC tóc trắng, không đội mũ. Người bán đồ Gia viên ở khuôn viên (bán hạt, ô ruộng, bể cá, nhà, quay thú cưng). NPC ĐỨNG YÊN (chủ dự án 12/11: \"Quy định các npc là đứng yên\") — đứng / đi đều dùng ảnh xoay tĩnh.",
+			"bodyHeight": 74,
+			"portrait": "portraits/npc_homeshop_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			]
+		},
+		"npc_steward_001": {
+			"displayName": "Bác Tôn",
+			"role": "npc",
+			"identity": {
+				"characterId": "npc_steward_001",
+				"hair": "grey_short_moustache",
+				"eyes": "brown",
+				"skin": "fair",
+				"outfit": "green_waistcoat_cream_shirt_keys",
+				"weapon": "none",
+				"palette": "npc_home_01"
+			},
+			"atlas": "characters/npc_steward_001/npc_steward_001.json",
+			"frameSize": {
+				"width": 80,
+				"height": 88
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9545454545454546
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro 12/11/2026 (token #0, 10 lượt), ảnh mẫu nét = NPC tóc trắng, không đội mũ. Quản gia trong phòng khách — mở bảng bày trí đồ đạc trong nhà. NPC ĐỨNG YÊN (chủ dự án 12/11: \"Quy định các npc là đứng yên\") — đứng / đi đều dùng ảnh xoay tĩnh.",
+			"bodyHeight": 74,
+			"portrait": "portraits/npc_steward_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			]
 		}
 	}
 }

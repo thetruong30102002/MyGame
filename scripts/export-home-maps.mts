@@ -106,6 +106,7 @@ onWall(lv,'gv_dong_ho_dung',36);onWall(lv,'home_bookshelf',98);onWall(lv,'home_f
 flat(lv,'gv_tham_lon',296,20);put(lv,'gv_ban_tra',296,64);put(lv,'home_potted_plant',40,280);put(lv,'home_potted_plant',536,280);hang(lv,'gv_den_chum_go',296);
 lv.spots.push({id:'door_garden',name:'Ra khuôn viên',x:X(288),y:Y(272),r:70},{id:'door_kitchen',name:'Sang bếp',x:X(16),y:Y(160),r:70},{id:'stairs_up',name:'Lên phòng ngủ',x:X(516),y:Y(30),r:80},
  {id:'from_garden',name:'Cửa vào',x:X(288),y:Y(236),r:40},{id:'from_kitchen',name:'Cửa bếp',x:X(48),y:Y(160),r:40},{id:'from_bedroom',name:'Chân cầu thang',x:X(470),y:Y(50),r:40});
+lv.spots.push({id:'steward',name:'Quản gia',x:X(200),y:Y(150),r:80});
 lv.spawn={x:X(288),y:Y(236)};
 // Bếp 14×9: cửa phải về phòng khách; điểm nấu ăn.
 const kt=makeRoom('kitchen','Bếp',14,9,flagFloor(14*T,9*T,[168,150,128]),[['dot-3','tuong_bep_gach']],{right:true});
@@ -171,6 +172,32 @@ const roomMap=(r:Room)=>{
    return'#';
   }).join(''))};
 };
+// ---- Bày trí (chủ dự án 12/11: "Quản gia chỉ là người để mở bảng chọn các đồ vật trong nhà sắp xếp như bếp, giường, ghế, bể cá"):
+// đồ trong 3 phòng thành ĐỒ BÀY TRÍ theo dữ liệu người chơi (máy chủ giữ), bố cục ảnh ghép thử là MẶC ĐỊNH; chỉ cầu thang, lỗ cầu thang và
+// tủ quần áo (chỗ đổi bộ đồ ở nhà) giữ cố định trong map. Ghi danh mục + mặc định sang `packages/sim/src/farmDecor.generated.ts`.
+const FIXED=new Set(['gv_cau_thang_go','gv_lo_cau_thang_xuong','home_wardrobe']);
+const DECOR_NAMES:Record<string,string>={gv_dong_ho_dung:'Đồng hồ cây',home_bookshelf:'Kệ sách',home_fireplace:'Lò sưởi đá',gv_ghe_dai:'Ghế sofa dài',gv_ke_trung_bay:'Tủ kính trưng bày',
+ gv_ban_tra:'Bàn trà',home_potted_plant:'Chậu cây nhỏ',gv_chan_bat:'Chạn bát',gv_bep_lo_cui:'Bếp lò củi',gv_bon_rua:'Bồn rửa',gv_lo_nuong_banh:'Lò nướng bánh',gv_tu_lanh_da:'Tủ đá',
+ gv_quay_so_che:'Quầy sơ chế',gv_thung_tao_rau:'Thùng rau củ',home_rice_bin:'Thùng gạo',home_water_barrel:'Thùng nước',gv_ban_an_dai:'Bàn ăn dài',gv_chau_cay_lon:'Chậu cây lớn',
+ gv_ban_trang_diem:'Bàn trang điểm',gv_giuong_doi:'Giường đôi',gv_tu_dau_giuong:'Tủ đầu giường',home_chest:'Rương',gv_tu_ngan_keo:'Tủ ngăn kéo',gv_be_ca:'Bể cá'};
+const decorDefault:Record<string,Pt[]>={},fixedProps:Record<string,Pt[]>={};
+for(const r of [lv,kt,bd]){decorDefault[r.id]=r.props.filter(q=>!FIXED.has(q.id));fixedProps[r.id]=r.props.filter(q=>FIXED.has(q.id));r.props=fixedProps[r.id]!;}
+for(const id of new Set([...Object.values(decorDefault).flat().map(q=>q.id),'gv_be_ca']))if(!DECOR_NAMES[id])throw new Error('Thiếu tên đồ bày trí '+id);
+{
+ const fp=(id:string)=>{const m=meta[id]!;return{name:DECOR_NAMES[id]??id,w:m.w,h:m.h,fx:m.footprint.x,fw:m.footprint.w,fh:m.footprint.h,blocks:m.blocks};};
+ const items=Object.fromEntries([...new Set([...Object.values(decorDefault).flat().map(q=>q.id),'gv_be_ca'])].sort().map(id=>[id,fp(id)]));
+ const floor=Object.fromEntries([lv,kt,bd].map(r=>[r.id,{x0:X(0),x1:X(r.cols*T),y0:Y(0),y1:Y(r.rows*T)}]));
+ const solids=Object.fromEntries([lv,kt,bd].map(r=>[r.id,fixedProps[r.id]!.filter(q=>meta[q.id]!.blocks).map(q=>{const m=meta[q.id]!;return{x0:q.x+m.footprint.x,x1:q.x+m.footprint.x+m.footprint.w,y0:q.y+m.footprint.y,y1:q.y};})]));
+ const doors=Object.fromEntries([lv,kt,bd].map(r=>[r.id,r.spots.filter(sp=>/^door_|^stairs_|^wardrobe$/.test(sp.id)).map(sp=>({x:sp.x,y:sp.y}))]));
+ writeFileSync('packages/sim/src/farmDecor.generated.ts',`// SINH TỰ ĐỘNG bởi scripts/export-home-maps.mts — đừng sửa tay. Đồ bày trí trong nhà Gia viên: danh mục (cỡ ảnh + chân chặn, px),
+// bố cục mặc định từng phòng (ảnh ghép thử đã duyệt), sàn đặt được, khối cố định (cầu thang / tủ quần áo) và các cửa phải chừa lối.
+export const DECOR_ITEMS: Record<string,{name:string;w:number;h:number;fx:number;fw:number;fh:number;blocks:boolean}> = ${JSON.stringify(items)};
+export const DECOR_DEFAULT: Record<string,{id:string;x:number;y:number}[]> = ${JSON.stringify(decorDefault)};
+export const DECOR_FLOOR: Record<string,{x0:number;x1:number;y0:number;y1:number}> = ${JSON.stringify(floor)};
+export const DECOR_FIXED: Record<string,{x0:number;x1:number;y0:number;y1:number}[]> = ${JSON.stringify(solids)};
+export const DECOR_DOORS: Record<string,{x:number;y:number}[]> = ${JSON.stringify(doors)};
+`);
+}
 const rooms=[lv,kt,bd].map(roomMap);
 
 // ---- Khuôn viên 48 × 32 ô: nửa tây giữ nhà / ruộng / giếng / hộp gửi hàng (toạ độ luật máy chủ `FARM_LAYOUT`), nửa đông là khu chăn
@@ -207,7 +234,7 @@ for(let x=64;x<GW*32-64;x+=64){if(x<120||x>460&&x<900)props.push(p('tree',x,92))
 for(let y=300;y<GH*32-60;y+=70)props.push(p('tree',64,y));
 const garden={...base,id:'garden',name:'Gia viên của bạn',width:GW,height:GH,decals:[] as Pt[],terrain,spawn:{x:860,y:416},props,
  spots:[{id:'door',name:'Cửa nhà',x:576,y:264,r:70},{id:'pond_gate',name:'Cổng ra hồ câu',x:240,y:960,r:80},{id:'from_house',name:'Trước cửa nhà',x:576,y:300,r:40},{id:'from_pond',name:'Cổng hồ câu',x:240,y:924,r:40},
-  {id:'steward',name:'Quản gia',x:780,y:470,r:90},{id:'field',name:'Ruộng',x:464,y:608,r:140},{id:'pasture',name:'Bãi quây bò cừu',x:1220,y:300,r:160},{id:'chicken_run',name:'Sân gà',x:1230,y:820,r:140},{id:'barn',name:'Chuồng bò',x:760,y:880,r:90},{id:'hives',name:'Tổ ong',x:560,y:960,r:100}]};
+  {id:'shop',name:'Người bán đồ Gia viên',x:780,y:470,r:90},{id:'field',name:'Ruộng',x:464,y:608,r:140},{id:'pasture',name:'Bãi quây bò cừu',x:1220,y:300,r:160},{id:'chicken_run',name:'Sân gà',x:1230,y:820,r:140},{id:'barn',name:'Chuồng bò',x:760,y:880,r:90},{id:'hives',name:'Tổ ong',x:560,y:960,r:100}]};
 
 // ---- Hồ câu dùng chung: hồ ở phía đông (động tác câu vẽ hướng E), chỗ câu dọc bờ tây + đầu cầu gỗ (FARM_LAYOUT.pondSpots) ----
 const pondTerrain=Array.from({length:22},(_,y)=>Array.from({length:28},(_,x)=>{

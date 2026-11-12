@@ -1,0 +1,36 @@
+{
+  "group_id": "2dba4247-6205-4ea0-86f6-3f2430275da3",
+  "states": [
+    {
+      "character": {
+        "id": "da2fdc99-578a-4fa4-9e75-f1cfd4f26752",
+        "name": "Idle",
+        "prompt": "a kind middle-aged house steward with short neat grey hair and a tidy grey moustache, calm brown eyes, wearing a dark green waistcoat over a cream long-sleeved shirt, a ring of brass keys and a small ledger at his belt, dark brown trousers, polished brown shoes, same height and proportions as the reference character, anime pixel art, thick dark outline, soft cel shading, no hat, no hood, no helmet, standing facing the viewer",
+        "size": {
+          "width": 80,
+          "height": 80
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-11-12T07:30:25.656197+00:00"
+      },
+      "folder": "Idle",
+      "frames": {
+        "rotations": {
+          "south": "Idle/rotations/south.png",
+          "south-east": "Idle/rotations/south-east.png",
+          "east": "Idle/rotations/east.png",
+          "north-east": "Idle/rotations/north-east.png",
+          "north": "Idle/rotations/north.png",
+          "north-west": "Idle/rotations/north-west.png",
+          "west": "Idle/rotations/west.png",
+          "south-west": "Idle/rotations/south-west.png"
+        },
+        "animations": {}
+      }
+    }
+  ],
+  "export_version": "3.1",
+  "export_date": "2026-11-12T07:32:25.161995"
+}
