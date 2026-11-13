@@ -46,7 +46,7 @@ table_path = CLIENT / 'i18n.en.json'
 table = json.loads(table_path.read_text(encoding='utf-8'))
 manual = json.loads((CLIENT / 'i18n.client.manual.json').read_text(encoding='utf-8'))
 fixes = {
-    'Bọc {0} · {1}s': 'Elemental Coating {0} · {1}s',
+    'Bọc {0} · {1}s': 'Coating {0} · {1}s',
     'Đã áp {0} thay đổi cho {1}': 'Applied {0} changes to {1}',
     'Nhận {0}': 'Received {0}',
     'Con đường: {0}': 'Path: {0}',
