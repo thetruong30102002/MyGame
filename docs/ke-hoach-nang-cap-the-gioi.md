@@ -9102,6 +9102,44 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "priority": 2
     },
     {
+      "id": "ui-ux-ra-soat",
+      "group": "Giao diện",
+      "name": "Rà soát và làm lại UI / UX toàn game theo chuẩn game",
+      "detail": "Chủ dự án 13/11/2026: \"tất cả thao tác game trông rất xấu và không ổn, cần rà hết một lượt UI UX cho hợp lý, chuẩn game, tham khảo các nguồn\". Bản rà soát + luật UI chung (cỡ chữ, tương phản theo Xbox Accessibility Guidelines 101/102, một bộ nút, món luôn là lưới ô có hình, không tràn bảng, phản hồi mọi thao tác) ở docs/thiet-ke/ra-soat-ui-ux-2026-11.md. Làm 3 đợt: P1 cỡ chữ + tương phản, khung nhân vật tròn, bảng Gia viên; P2 thống nhất nút, HUD, nhân vật, Tiềm năng; P3 cài đặt cỡ chữ / tương phản cao, so sánh đồ, bản đồ / phím.",
+      "weight": 4,
+      "phase": 2,
+      "region": null,
+      "depends": [],
+      "requiresNewArt": false,
+      "steps": [
+        {
+          "label": "Rà soát + luật UI chung",
+          "weight": 10,
+          "done": false,
+          "evidence": "14/11/2026: chụp đủ màn bản build 14/11 03:55, viết docs/thiet-ke/ra-soat-ui-ux-2026-11.md — chờ chủ dự án duyệt."
+        },
+        {
+          "label": "Đợt 1 (P1)",
+          "weight": 35,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Đợt 2 (P2)",
+          "weight": 35,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Đợt 3 (P3)",
+          "weight": 20,
+          "done": false,
+          "evidence": ""
+        }
+      ],
+      "priority": 1
+    },
+    {
       "id": "web-spa",
       "group": "Web và công bố",
       "name": "Toàn bộ cổng web dùng chung khung React, chuyển mục không reload",
