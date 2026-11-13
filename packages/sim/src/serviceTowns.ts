@@ -46,6 +46,9 @@ const IDLE: Record<string, string> = {
 	heal: 'Đừng đợi kiệt sức mới nhớ mang thuốc.',
 };
 
+/** Tên riêng NPC quầy (chủ dự án 13/11/2026: "Tất cả npc sẽ có tên tiếng Anh") — theo chất vùng; chức danh vẫn tiếng Việt. */
+export const KEEPER_NAMES: Record<string, Record<string, string>> = {"tl": {"tavern": "Bess", "bank": "Alden", "upgrade": "Quinn"}, "lx": {"tavern": "Marla", "bank": "Fenwick", "weapon": "Reed", "armor": "Willa", "smith": "Hollis", "upgrade": "Moss", "heal": "Fern"}, "sa": {"tavern": "Samira", "bank": "Rashid", "weapon": "Tariq", "armor": "Leila", "smith": "Karim", "upgrade": "Nadir", "heal": "Yasmin"}, "gh": {"tavern": "Greta", "bank": "Henrik", "weapon": "Lukas", "armor": "Ingrid", "smith": "Otto", "upgrade": "Felix", "heal": "Elsa"}, "tp": {"tavern": "Sigrid", "bank": "Halvard", "weapon": "Ulf", "armor": "Astrid", "smith": "Torvald", "upgrade": "Eira", "heal": "Solveig"}, "dd": {"tavern": "Dagna", "bank": "Brokk", "weapon": "Thrain", "armor": "Helga", "smith": "Gunnar", "upgrade": "Grimm", "heal": "Runa"}, "sc": {"tavern": "Marisol", "bank": "Cormac", "weapon": "Finn", "armor": "Nerys", "smith": "Brennan", "upgrade": "Pearl", "heal": "Delphine"}};
+
 /** NPC đứng quầy các khu (trừ 4 người bán cũ của Thistlewood): khoá `village_<mã>_<vai>`. */
 export const SERVICE_KEEPER_NPCS: Record<string, NpcDef> = Object.fromEntries(
 	SERVICE_TOWNS.flatMap((t) =>
@@ -54,8 +57,8 @@ export const SERVICE_KEEPER_NPCS: Record<string, NpcDef> = Object.fromEntries(
 			return [
 				`village_${t.code}_${info.role}`,
 				{
-					name: info.title,
-					title: t.town,
+					name: KEEPER_NAMES[t.code]?.[info.role] ?? info.title,
+					title: `${info.title} · ${t.town}`,
 					sprite: `npc_${t.code}_${info.role}_001`,
 					region: t.region,
 					at: { spot: serviceNpcSpot(r) },

@@ -18,7 +18,7 @@
 |---|---|---|
 | Chính | `q2_main_01` tự mở; mỗi việc sau cần việc trước, cấp và vùng như bản chữ; `q2_main_07` cần cấp 10 | Mở vùng chỉ sau xác nhận mốc bàn giao M06/M09/M11/M14/M16/M18/M20/M22/M25; không hạ ngưỡng cổng đã có của tài khoản cũ |
 | Phụ | `q2_side_01`…`26`, gặp NPC giao việc, đủ vùng/cấp; có thể nhận song song | Mỗi chuỗi là 2–3 việc với `.a`, `.b`, `.c`; không bắt buộc hoàn tất để tiếp Chính |
-| Phụ xuyên vùng | `q2_cross_01a`…`01d` (Yên Đan), `02a`…`02d` (Kha), `03a`…`03c` (Sael), `04a`…`04c` (Nhã Lân) | Mỗi chặng cần chặng trước của cùng chuỗi, không cần chuỗi phụ khác |
+| Phụ xuyên vùng | `q2_cross_01a`…`01d` (Edda), `02a`…`02d` (Kai), `03a`…`03c` (Sael), `04a`…`04c` (Linnea) | Mỗi chặng cần chặng trước của cùng chuỗi, không cần chuỗi phụ khác |
 | Hằng ngày | Mẫu `q2_daily_01`…`10`; bản được giao có ID `dateKey/slot/templateId` | Chỉ máy chủ chọn bốn mẫu từ nhóm hợp lệ, cùng nhân vật/ngày không bốc lại |
 | Thế giới | Mẫu `q2_world_01`…`04`; phiên có ID bất biến `worldTemplate/startAt/sequence` | Máy chủ giữ tổng và phần góp, không dùng `progress.story` cũ |
 
@@ -32,17 +32,17 @@
 | `q2_side_04` | Thuốc qua bờ | Mù Sương / Nyra | Vào vùng, cấp 10 |
 | `q2_side_05` | Giá của một gáo nước | Hồng Cát / người trực giếng | Vào vùng, cấp 20 |
 | `q2_side_06` | Một trang trong cát | Hồng Cát / Zahra | M10 xong hoặc đã tìm hợp đồng, cấp 20 |
-| `q2_side_07` | Bản vẽ hai bờ | Gió Hú / Kha | Vào vùng, cấp 30 |
+| `q2_side_07` | Bản vẽ hai bờ | Gió Hú / Kai | Vào vùng, cấp 30 |
 | `q2_side_08` | Lời hứa cối xay | Gió Hú / Wenna | Vào vùng, cấp 30 |
 | `q2_side_09` | Nửa bản đồ còn lại | Băng Giá / Kael | Vào vùng, cấp 40 |
 | `q2_side_10` | Lửa cho kho trú | Băng Giá / người giữ kho | Vào vùng, cấp 40 |
 | `q2_side_11` | Mỏ có người ở | Hoả Sơn / Durin | Vào vùng, cấp 50 |
 | `q2_side_12` | Thép cho chiếc nồi | Hoả Sơn / thợ rèn vùng | Vào vùng, cấp 50 |
-| `q2_side_13` | Lá thư không người nhận | San Hô / Yên Đan | Vào vùng, cấp 60 |
-| `q2_side_14` | Cá đầu mùa | San Hô / ngư dân Bảy | Câu cá đã mở, cấp 60 |
+| `q2_side_13` | Lá thư không người nhận | San Hô / Edda | Vào vùng, cấp 60 |
+| `q2_side_14` | Cá đầu mùa | San Hô / ngư dân Sev | Câu cá đã mở, cấp 60 |
 | `q2_side_15` | Đèn mọc từ đất | Rừng Nấm Ngầm / người chăm vườn | Vào vùng, cấp 70 |
 | `q2_side_16` | Người thuê đường rễ | Rừng Nấm Ngầm / đại diện chợ | Vào vùng, cấp 70 |
-| `q2_side_17` | Một vòng năm không mùa | Rừng Cổ Thụ / Nhã Lân | Vào vùng, cấp 20 |
+| `q2_side_17` | Một vòng năm không mùa | Rừng Cổ Thụ / Linnea | Vào vùng, cấp 20 |
 | `q2_side_18` | Xin một cành, giữ một rễ | Rừng Cổ Thụ / hội giữ rừng | Vào vùng, cấp 20 |
 | `q2_side_19` | Bản chép bị che | Thánh Địa Bình Minh / học trò | Vào vùng, cấp 30 |
 | `q2_side_20` | Đèn cho người về muộn | Thánh Địa Bình Minh / thợ kính | Vào vùng, cấp 30 |
@@ -80,36 +80,36 @@ Mỗi cặp sau là **câu đầu bước / câu trả bước**, đi cùng bư�
 
 | Mốc | Câu đầu bước | Câu trả bước |
 |---|---|---|
-| M01 | Bà Nhiên: “Mang hộ ta phần bánh này. Đừng hỏi vì sao ta làm thừa.” | Tâm: “Chỗ đó có chị em. Em vẫn còn nhớ tiếng chị gọi.” |
+| M01 | Bà Nell: “Mang hộ ta phần bánh này. Đừng hỏi vì sao ta làm thừa.” | Pip: “Chỗ đó có chị em. Em vẫn còn nhớ tiếng chị gọi.” |
 | M02 | Người hướng dẫn: “Cậu đã chọn nghề. Giờ thử món đồ vừa tay trên hình nộm.” | Ren: “Học cách giữ sức để về nhà đã; chiêu đẹp để sau.” |
-| M03 | Bà Nhiên: “Ta muốn nghe mỗi người nhớ gì, không muốn một danh sách dấu tick.” | Orin: “Ta nợ một cái đĩa. Không nhớ tên người nhận không xóa món nợ.” |
+| M03 | Bà Nell: “Ta muốn nghe mỗi người nhớ gì, không muốn một danh sách dấu tick.” | Orin: “Ta nợ một cái đĩa. Không nhớ tên người nhận không xóa món nợ.” |
 | M04 | Lan: “Đỡ người ngã trước. Tấm biển gãy chưa chạy đi đâu.” | Iris: “Cái mực này cũng có ở sổ trạm. Không chỉ chợ mình gặp chuyện.” |
-| M05 | Bà Nhiên: “Cậu đã biết người ở đây. Giờ cậu có một chỗ để trở về.” | Bác Tôn: “Chìa khóa mở cửa; người đến thăm mới làm thành nhà.” |
-| M06 | Yên Đan: “Lệnh điều khiển cột mốc nằm ở nghĩa địa. Chữ ký là người sống.” | “Quỷ vương đã gục, nhưng ai viết lệnh cho nó thức?” |
+| M05 | Bà Nell: “Cậu đã biết người ở đây. Giờ cậu có một chỗ để trở về.” | Bác Tôn: “Chìa khóa mở cửa; người đến thăm mới làm thành nhà.” |
+| M06 | Edda: “Lệnh điều khiển cột mốc nằm ở nghĩa địa. Chữ ký là người sống.” | “Quỷ vương đã gục, nhưng ai viết lệnh cho nó thức?” |
 | M07 | Người hướng dẫn: “Tám ngọn đèn sáng như nhau. Đừng chọn người khác hộ mình.” | “Đèn cho biết cậu nghe dòng nào, không bảo cậu phải thành ai.” |
-| M08 | Kha: “Đo cả hai bờ. Một con số đúng ở bờ này có thể là tai họa bờ kia.” | Người giữ phà: “Bến thứ bảy có hàng về, sao không có tên trên bản đồ?” |
-| M09 | Yên Đan: “Đem sổ cho cả hai làng. Đừng để một bên đọc thay bên kia.” | “Người đầu tiên đã đồng ý. Chữ ở dòng sau không còn là chữ của họ.” |
+| M08 | Kai: “Đo cả hai bờ. Một con số đúng ở bờ này có thể là tai họa bờ kia.” | Người giữ phà: “Bến thứ bảy có hàng về, sao không có tên trên bản đồ?” |
+| M09 | Edda: “Đem sổ cho cả hai làng. Đừng để một bên đọc thay bên kia.” | “Người đầu tiên đã đồng ý. Chữ ở dòng sau không còn là chữ của họ.” |
 | M10 | Người trạm xa: “Giếng không cạn, nhưng phần nước của chúng tôi nhỏ đi mỗi tuần.” | “Nếu công bố giá, xin công bố cả người đã trả tiền trước chúng ta.” |
 | M11 | Zahra: “Giữ người mang bản sao sống tới lúc đọc được hợp đồng.” | “Một chữ ký không trả nước về ngay; nó buộc người ký phải trả lời.” |
-| M12 | Yên Đan: “Dấu bưu này muộn hơn ngày người ta bảo mẹ tôi biến mất.” | “Tôi biết mẹ còn sống lúc gửi. Tôi chưa biết ngày hôm nay.” |
-| M13 | Kha: “Cột gió báo sớm cho cả hai bờ, trước khi ai sửa nó.” | Vân: “Cổng đứng rồi. Tên người gác ở đâu trong sổ của các cậu?” |
-| M14 | Kha: “Tôi đã chuyển lực sang làng bên. Tôi phải đưa họ bản vẽ.” | “Sửa cầu là việc của hai bờ; không bên nào được biến mất khỏi bản đo.” |
+| M12 | Edda: “Dấu bưu này muộn hơn ngày người ta bảo mẹ tôi biến mất.” | “Tôi biết mẹ còn sống lúc gửi. Tôi chưa biết ngày hôm nay.” |
+| M13 | Kai: “Cột gió báo sớm cho cả hai bờ, trước khi ai sửa nó.” | Vera: “Cổng đứng rồi. Tên người gác ở đâu trong sổ của các cậu?” |
+| M14 | Kai: “Tôi đã chuyển lực sang làng bên. Tôi phải đưa họ bản vẽ.” | “Sửa cầu là việc của hai bờ; không bên nào được biến mất khỏi bản đo.” |
 | M15 | Kael: “Nửa bản đồ kia trong hộp đồ chơi. Hãy hỏi trước khi mở.” | Người thân: “Đừng nói mọi chuyện ổn. Chỉ ngồi đây một lát được không?” |
 | M16 | Người giữ kho: “Mở cửa cho người còn ở ngoài trước khi đọc máy.” | “Nơi trú có lối ra. Giữ mùa đông mãi là khóa cả người bên trong.” |
 | M17 | Thợ rèn: “Cậu xin thép cho kiếm. Tôi cần thép để cầu không đổ.” | Quân y: “Cái nồi này cứu được bữa tối. Mai mới tính đến áo giáp.” |
 | M18 | Hilde: “Hợp kim chia tải, không nuốt cái rạn giúp ta.” | “Không một vùng nào tự sửa mạng cũ một mình.” |
-| M19 | Yên Đan: “Xếp thư theo dấu bưu. Đừng đọc số phận người nhận từ mặt phong bì.” | “Tàu chở thư trở về; người viết có thể không trở về cùng nó.” |
-| M20 | Yên Đan: “Đừng đổi tên ai khác để lấy mẹ tôi.” | “Bốn bản Khởi Ước khác nhau. Có người đã sửa chuyện này nhiều lần.” |
+| M19 | Edda: “Xếp thư theo dấu bưu. Đừng đọc số phận người nhận từ mặt phong bì.” | “Tàu chở thư trở về; người viết có thể không trở về cùng nó.” |
+| M20 | Edda: “Đừng đổi tên ai khác để lấy mẹ tôi.” | “Bốn bản Khởi Ước khác nhau. Có người đã sửa chuyện này nhiều lần.” |
 | M21 | Người giữ chợ ngầm: “Đường dưới chân các cậu là nhà của chúng tôi.” | “Muốn mượn đường, hãy viết cả quyền đóng đường của chúng tôi vào hợp đồng.” |
 | M22 | Người trở về: “Tôi biết đây là nhà. Tên những người trong nhà thì chưa.” | “Trả lại một dòng sổ không trả lại ngay những năm đã mất.” |
-| M23 | Sael: “Xem cả bản của học viện và bản của thành đêm.” | Nhã Lân: “Thừa kế chứng cứ không có nghĩa thừa kế tội.” |
+| M23 | Sael: “Xem cả bản của học viện và bản của thành đêm.” | Linnea: “Thừa kế chứng cứ không có nghĩa thừa kế tội.” |
 | M24 | Thợ phục chế: “Ghi nguồn từng bản trước khi đặt vào máy.” | “Chữ ‘tự nguyện’ ở bản sau đã đè lên một chữ khác.” |
-| M25 | Vân: “Ta khóa mục đó vì sợ một cuộc chiến khác.” | “Bà sợ đúng một phần. Người bị dùng làm neo vẫn không hề được hỏi.” |
+| M25 | Vera: “Ta khóa mục đó vì sợ một cuộc chiến khác.” | “Bà sợ đúng một phần. Người bị dùng làm neo vẫn không hề được hỏi.” |
 | M26 | Sael: “Tôi chữa cho họ trước. Ngày mai hãy hỏi tôi về sừng.” | “Năm tộc giữ một cổng; không ai phải đưa tên mình làm vật liệu.” |
-| M27 | Kha: “Giữ chân nó thêm một nhịp. Đội sửa cầu đang ở dưới.” | “Boss gục là thời gian chúng ta mua, không phải cây cầu tự mọc.” |
-| M28 | Thần Tri Thức: “Ta nhớ từng tên. Ta đã để người khác quyết ai được nghe.” | Tâm, qua thư chị: “Đừng nhớ chị bằng cách quên một người khác.” |
-| M29 | Đại diện dân đầm: “Chúng tôi giữ quyền dừng máy nếu nước đổi dòng.” | Vân: “Đây là mọi lệnh ta đã ký. Hãy đọc cả phần ta muốn giấu.” |
-| M30 | Tâm: “Hôm nay em đọc những tên đã kiểm được, cả những chỗ còn trống.” | Bà Nhiên: “Hôm nay con ăn cùng chúng ta không?” |
+| M27 | Kai: “Giữ chân nó thêm một nhịp. Đội sửa cầu đang ở dưới.” | “Boss gục là thời gian chúng ta mua, không phải cây cầu tự mọc.” |
+| M28 | Thần Tri Thức: “Ta nhớ từng tên. Ta đã để người khác quyết ai được nghe.” | Pip, qua thư chị: “Đừng nhớ chị bằng cách quên một người khác.” |
+| M29 | Đại diện dân đầm: “Chúng tôi giữ quyền dừng máy nếu nước đổi dòng.” | Vera: “Đây là mọi lệnh ta đã ký. Hãy đọc cả phần ta muốn giấu.” |
+| M30 | Pip: “Hôm nay em đọc những tên đã kiểm được, cả những chỗ còn trống.” | Bà Nell: “Hôm nay con ăn cùng chúng ta không?” |
 
 ## 4. Thưởng thử có thể nhập dữ liệu, chưa cân bằng
 
@@ -174,7 +174,7 @@ Nếu `questId` hợp lệ nhưng `index` lệch, lấy vị trí ID thực tế
 
 ## 7. Kiểm nội dung, ngôn ngữ và việc Claude cần làm
 
-1. Trước khi sửa code, chốt ID/name/vị trí của Bà Nhiên, Tâm, Yên Đan, Kha, Sael, Nhã Lân, Vân và NPC ở map quái. Các NPC mới cần chân dung PixelLab theo chuẩn đã chốt; không dùng lại vai/đời cũ của Lior. Trong lúc thiếu hình, khóa quest phụ thuộc hoặc dùng điểm tương tác có ghi “hình tạm” để kiểm logic trên `:3201`.
+1. Trước khi sửa code, chốt ID/name/vị trí của Bà Nell, Pip, Edda, Kai, Sael, Linnea, Vera và NPC ở map quái. Các NPC mới cần chân dung PixelLab theo chuẩn đã chốt; không dùng lại vai/đời cũ của Lior. Trong lúc thiếu hình, khóa quest phụ thuộc hoặc dùng điểm tương tác có ghi “hình tạm” để kiểm logic trên `:3201`.
 2. Dựng `QuestDef.kind`, nhiều `steps`, `unlock`, `reward`, `lines`; tách trạng thái nhân vật/phiên thế giới; kiểm server trước khi nối client. Dữ liệu mới là nguồn chữ Việt; đưa **mọi** tiêu đề, mục tiêu, thoại, thông báo mới vào bảng Việt–Anh đã có, giữ tên riêng.
 3. Tab Nhiệm vụ đổi “Sự kiện” thành “Thế giới”; hiện nhiều nhiệm vụ cùng lúc, nguồn thưởng và thời hạn; cho chọn một việc theo dõi trên HUD, tự đi tới đúng bước. Không hiển thị các quest cũ như đã làm trong truyện mới.
 4. Viết test mới cho bốc ngày tất định, điều kiện/thưởng server, đóng góp phiên thế giới, chuyển save idempotent; chạy biên dịch EditorCompile, test sim, test máy chủ. Test action/gear/roster đỏ sẵn cần phân biệt với lỗi mới. Không reset DB.

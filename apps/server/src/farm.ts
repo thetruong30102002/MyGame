@@ -91,7 +91,7 @@ export class Farm {
      const c=FARM_CROPS.find(c=>c.id===raw.crop);if(!c)throw new Error('Không có hạt này');if(coins<c.seed)throw new Error('Không đủ xu');s.inventory[`seed_${c.id}`]=(s.inventory[`seed_${c.id}`]||0)+1;return{value:null,coins:coins-c.seed};
     }
     if(op==='service'){
-     // Quầy mỗi khu (13/11): túi thuốc ở người bán hồi phục, món ăn ở chủ quán rượu (hoặc Mai ở quảng trường Thistlewood).
+     // Quầy mỗi khu (13/11): túi thuốc ở người bán hồi phục, món ăn ở chủ quán rượu (hoặc Maya ở quảng trường Thistlewood).
      const item=VILLAGE_SHOP.find(x=>x.id===raw.item);const key=typeof raw.npc==='string'?raw.npc:item?.npc??'';const npc=item&&serviceRole(key)===serviceRole(item.npc)?this.npcPlace(key):null;
      if(!item||!npc||at.map!==npc.map||!near(npc.x,npc.y,160))throw new Error('Hãy tới đúng quầy hàng');if(coins<item.coins)throw new Error('Không đủ xu');return{value:null,coins:coins-item.coins,...('potions'in item?{potions:item.potions}:{buff:true})};
     }

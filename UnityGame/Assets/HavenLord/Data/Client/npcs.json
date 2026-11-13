@@ -310,7 +310,7 @@
 			]
 		},
 		"village_homeshop": {
-			"name": "Cô Lựu",
+			"name": "Ruby",
 			"title": "Người bán đồ Gia viên",
 			"sprite": "npc_homeshop_001",
 			"region": "home",
@@ -327,7 +327,7 @@
 			]
 		},
 		"village_steward": {
-			"name": "Bác Tôn",
+			"name": "Tobias",
 			"title": "Quản gia",
 			"sprite": "npc_steward_001",
 			"region": "home",

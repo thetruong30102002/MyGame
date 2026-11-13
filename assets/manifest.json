@@ -50382,7 +50382,7 @@
 			]
 		},
 		"npc_homeshop_001": {
-			"displayName": "Cô Lựu",
+			"displayName": "Ruby",
 			"role": "npc",
 			"identity": {
 				"characterId": "npc_homeshop_001",
@@ -50445,7 +50445,7 @@
 			]
 		},
 		"npc_steward_001": {
-			"displayName": "Bác Tôn",
+			"displayName": "Tobias",
 			"role": "npc",
 			"identity": {
 				"characterId": "npc_steward_001",

@@ -661,7 +661,7 @@ namespace HavenLord.Client
             if (col >= 0 && col < PlotCols && row >= 0 && row * PlotCols + col < PlotsMax)
             {
                 if (row * PlotCols + col < PlotCount) FarmPlotAction(row * PlotCols + col);
-                else hud.Toast("Ô đất chưa mở · gặp Cô Lựu để mở thêm", "info");
+                else hud.Toast("Ô đất chưa mở · gặp Ruby để mở thêm", "info");
                 return;
             }
             if (Vector2.Distance(at, PondGate) < 90) { FarmSend("pond"); return; }

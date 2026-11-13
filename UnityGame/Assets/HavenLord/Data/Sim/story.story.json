@@ -313,7 +313,7 @@
 				]
 			},
 			"village_food": {
-				"name": "Mai",
+				"name": "Maya",
 				"title": "Người bán đồ ăn",
 				"sprite": "npc_elin_001",
 				"region": "human",
@@ -332,7 +332,7 @@
 				]
 			},
 			"village_heal": {
-				"name": "Lan",
+				"name": "Lena",
 				"title": "Người bán vật phẩm hồi phục",
 				"sprite": "npc_ysolde_001",
 				"region": "human",
@@ -349,7 +349,7 @@
 				]
 			},
 			"village_homeshop": {
-				"name": "Cô Lựu",
+				"name": "Ruby",
 				"title": "Người bán đồ Gia viên",
 				"sprite": "npc_homeshop_001",
 				"region": "home",
@@ -366,7 +366,7 @@
 				]
 			},
 			"village_steward": {
-				"name": "Bác Tôn",
+				"name": "Tobias",
 				"title": "Quản gia",
 				"sprite": "npc_steward_001",
 				"region": "home",
@@ -383,8 +383,8 @@
 				]
 			},
 			"village_tl_tavern": {
-				"name": "Chủ quán rượu",
-				"title": "Thistlewood",
+				"name": "Bess",
+				"title": "Chủ quán rượu · Thistlewood",
 				"sprite": "npc_tl_tavern_001",
 				"region": "human",
 				"at": {
@@ -400,8 +400,8 @@
 				]
 			},
 			"village_tl_bank": {
-				"name": "Chủ ngân hàng",
-				"title": "Thistlewood",
+				"name": "Alden",
+				"title": "Chủ ngân hàng · Thistlewood",
 				"sprite": "npc_tl_bank_001",
 				"region": "human",
 				"at": {
@@ -417,8 +417,8 @@
 				]
 			},
 			"village_tl_upgrade": {
-				"name": "Thợ nâng cấp",
-				"title": "Thistlewood",
+				"name": "Quinn",
+				"title": "Thợ nâng cấp · Thistlewood",
 				"sprite": "npc_tl_upgrade_001",
 				"region": "human",
 				"at": {
@@ -434,8 +434,8 @@
 				]
 			},
 			"village_lx_tavern": {
-				"name": "Chủ quán rượu",
-				"title": "Lau Xám",
+				"name": "Marla",
+				"title": "Chủ quán rượu · Lau Xám",
 				"sprite": "npc_lx_tavern_001",
 				"region": "swamp",
 				"at": {
@@ -451,8 +451,8 @@
 				]
 			},
 			"village_lx_bank": {
-				"name": "Chủ ngân hàng",
-				"title": "Lau Xám",
+				"name": "Fenwick",
+				"title": "Chủ ngân hàng · Lau Xám",
 				"sprite": "npc_lx_bank_001",
 				"region": "swamp",
 				"at": {
@@ -468,8 +468,8 @@
 				]
 			},
 			"village_lx_weapon": {
-				"name": "Người bán vũ khí",
-				"title": "Lau Xám",
+				"name": "Reed",
+				"title": "Người bán vũ khí · Lau Xám",
 				"sprite": "npc_lx_weapon_001",
 				"region": "swamp",
 				"at": {
@@ -485,8 +485,8 @@
 				]
 			},
 			"village_lx_armor": {
-				"name": "Người bán trang bị",
-				"title": "Lau Xám",
+				"name": "Willa",
+				"title": "Người bán trang bị · Lau Xám",
 				"sprite": "npc_lx_armor_001",
 				"region": "swamp",
 				"at": {
@@ -502,8 +502,8 @@
 				]
 			},
 			"village_lx_smith": {
-				"name": "Thợ rèn",
-				"title": "Lau Xám",
+				"name": "Hollis",
+				"title": "Thợ rèn · Lau Xám",
 				"sprite": "npc_lx_smith_001",
 				"region": "swamp",
 				"at": {
@@ -519,8 +519,8 @@
 				]
 			},
 			"village_lx_upgrade": {
-				"name": "Thợ nâng cấp",
-				"title": "Lau Xám",
+				"name": "Moss",
+				"title": "Thợ nâng cấp · Lau Xám",
 				"sprite": "npc_lx_upgrade_001",
 				"region": "swamp",
 				"at": {
@@ -536,8 +536,8 @@
 				]
 			},
 			"village_lx_heal": {
-				"name": "Người bán hồi phục",
-				"title": "Lau Xám",
+				"name": "Fern",
+				"title": "Người bán hồi phục · Lau Xám",
 				"sprite": "npc_lx_heal_001",
 				"region": "swamp",
 				"at": {
@@ -553,8 +553,8 @@
 				]
 			},
 			"village_sa_tavern": {
-				"name": "Chủ quán rượu",
-				"title": "Sahrin",
+				"name": "Samira",
+				"title": "Chủ quán rượu · Sahrin",
 				"sprite": "npc_sa_tavern_001",
 				"region": "desert",
 				"at": {
@@ -570,8 +570,8 @@
 				]
 			},
 			"village_sa_bank": {
-				"name": "Chủ ngân hàng",
-				"title": "Sahrin",
+				"name": "Rashid",
+				"title": "Chủ ngân hàng · Sahrin",
 				"sprite": "npc_sa_bank_001",
 				"region": "desert",
 				"at": {
@@ -587,8 +587,8 @@
 				]
 			},
 			"village_sa_weapon": {
-				"name": "Người bán vũ khí",
-				"title": "Sahrin",
+				"name": "Tariq",
+				"title": "Người bán vũ khí · Sahrin",
 				"sprite": "npc_sa_weapon_001",
 				"region": "desert",
 				"at": {
@@ -604,8 +604,8 @@
 				]
 			},
 			"village_sa_armor": {
-				"name": "Người bán trang bị",
-				"title": "Sahrin",
+				"name": "Leila",
+				"title": "Người bán trang bị · Sahrin",
 				"sprite": "npc_sa_armor_001",
 				"region": "desert",
 				"at": {
@@ -621,8 +621,8 @@
 				]
 			},
 			"village_sa_smith": {
-				"name": "Thợ rèn",
-				"title": "Sahrin",
+				"name": "Karim",
+				"title": "Thợ rèn · Sahrin",
 				"sprite": "npc_sa_smith_001",
 				"region": "desert",
 				"at": {
@@ -638,8 +638,8 @@
 				]
 			},
 			"village_sa_upgrade": {
-				"name": "Thợ nâng cấp",
-				"title": "Sahrin",
+				"name": "Nadir",
+				"title": "Thợ nâng cấp · Sahrin",
 				"sprite": "npc_sa_upgrade_001",
 				"region": "desert",
 				"at": {
@@ -655,8 +655,8 @@
 				]
 			},
 			"village_sa_heal": {
-				"name": "Người bán hồi phục",
-				"title": "Sahrin",
+				"name": "Yasmin",
+				"title": "Người bán hồi phục · Sahrin",
 				"sprite": "npc_sa_heal_001",
 				"region": "desert",
 				"at": {
@@ -672,8 +672,8 @@
 				]
 			},
 			"village_gh_tavern": {
-				"name": "Chủ quán rượu",
-				"title": "Cối Xay Gió",
+				"name": "Greta",
+				"title": "Chủ quán rượu · Cối Xay Gió",
 				"sprite": "npc_gh_tavern_001",
 				"region": "highland",
 				"at": {
@@ -689,8 +689,8 @@
 				]
 			},
 			"village_gh_bank": {
-				"name": "Chủ ngân hàng",
-				"title": "Cối Xay Gió",
+				"name": "Henrik",
+				"title": "Chủ ngân hàng · Cối Xay Gió",
 				"sprite": "npc_gh_bank_001",
 				"region": "highland",
 				"at": {
@@ -706,8 +706,8 @@
 				]
 			},
 			"village_gh_weapon": {
-				"name": "Người bán vũ khí",
-				"title": "Cối Xay Gió",
+				"name": "Lukas",
+				"title": "Người bán vũ khí · Cối Xay Gió",
 				"sprite": "npc_gh_weapon_001",
 				"region": "highland",
 				"at": {
@@ -723,8 +723,8 @@
 				]
 			},
 			"village_gh_armor": {
-				"name": "Người bán trang bị",
-				"title": "Cối Xay Gió",
+				"name": "Ingrid",
+				"title": "Người bán trang bị · Cối Xay Gió",
 				"sprite": "npc_gh_armor_001",
 				"region": "highland",
 				"at": {
@@ -740,8 +740,8 @@
 				]
 			},
 			"village_gh_smith": {
-				"name": "Thợ rèn",
-				"title": "Cối Xay Gió",
+				"name": "Otto",
+				"title": "Thợ rèn · Cối Xay Gió",
 				"sprite": "npc_gh_smith_001",
 				"region": "highland",
 				"at": {
@@ -757,8 +757,8 @@
 				]
 			},
 			"village_gh_upgrade": {
-				"name": "Thợ nâng cấp",
-				"title": "Cối Xay Gió",
+				"name": "Felix",
+				"title": "Thợ nâng cấp · Cối Xay Gió",
 				"sprite": "npc_gh_upgrade_001",
 				"region": "highland",
 				"at": {
@@ -774,8 +774,8 @@
 				]
 			},
 			"village_gh_heal": {
-				"name": "Người bán hồi phục",
-				"title": "Cối Xay Gió",
+				"name": "Elsa",
+				"title": "Người bán hồi phục · Cối Xay Gió",
 				"sprite": "npc_gh_heal_001",
 				"region": "highland",
 				"at": {
@@ -791,8 +791,8 @@
 				]
 			},
 			"village_tp_tavern": {
-				"name": "Chủ quán rượu",
-				"title": "Tuyết Phong",
+				"name": "Sigrid",
+				"title": "Chủ quán rượu · Tuyết Phong",
 				"sprite": "npc_tp_tavern_001",
 				"region": "tundra",
 				"at": {
@@ -808,8 +808,8 @@
 				]
 			},
 			"village_tp_bank": {
-				"name": "Chủ ngân hàng",
-				"title": "Tuyết Phong",
+				"name": "Halvard",
+				"title": "Chủ ngân hàng · Tuyết Phong",
 				"sprite": "npc_tp_bank_001",
 				"region": "tundra",
 				"at": {
@@ -825,8 +825,8 @@
 				]
 			},
 			"village_tp_weapon": {
-				"name": "Người bán vũ khí",
-				"title": "Tuyết Phong",
+				"name": "Ulf",
+				"title": "Người bán vũ khí · Tuyết Phong",
 				"sprite": "npc_tp_weapon_001",
 				"region": "tundra",
 				"at": {
@@ -842,8 +842,8 @@
 				]
 			},
 			"village_tp_armor": {
-				"name": "Người bán trang bị",
-				"title": "Tuyết Phong",
+				"name": "Astrid",
+				"title": "Người bán trang bị · Tuyết Phong",
 				"sprite": "npc_tp_armor_001",
 				"region": "tundra",
 				"at": {
@@ -859,8 +859,8 @@
 				]
 			},
 			"village_tp_smith": {
-				"name": "Thợ rèn",
-				"title": "Tuyết Phong",
+				"name": "Torvald",
+				"title": "Thợ rèn · Tuyết Phong",
 				"sprite": "npc_tp_smith_001",
 				"region": "tundra",
 				"at": {
@@ -876,8 +876,8 @@
 				]
 			},
 			"village_tp_upgrade": {
-				"name": "Thợ nâng cấp",
-				"title": "Tuyết Phong",
+				"name": "Eira",
+				"title": "Thợ nâng cấp · Tuyết Phong",
 				"sprite": "npc_tp_upgrade_001",
 				"region": "tundra",
 				"at": {
@@ -893,8 +893,8 @@
 				]
 			},
 			"village_tp_heal": {
-				"name": "Người bán hồi phục",
-				"title": "Tuyết Phong",
+				"name": "Solveig",
+				"title": "Người bán hồi phục · Tuyết Phong",
 				"sprite": "npc_tp_heal_001",
 				"region": "tundra",
 				"at": {
@@ -910,8 +910,8 @@
 				]
 			},
 			"village_dd_tavern": {
-				"name": "Chủ quán rượu",
-				"title": "Đe Đỏ",
+				"name": "Dagna",
+				"title": "Chủ quán rượu · Đe Đỏ",
 				"sprite": "npc_dd_tavern_001",
 				"region": "volcano",
 				"at": {
@@ -927,8 +927,8 @@
 				]
 			},
 			"village_dd_bank": {
-				"name": "Chủ ngân hàng",
-				"title": "Đe Đỏ",
+				"name": "Brokk",
+				"title": "Chủ ngân hàng · Đe Đỏ",
 				"sprite": "npc_dd_bank_001",
 				"region": "volcano",
 				"at": {
@@ -944,8 +944,8 @@
 				]
 			},
 			"village_dd_weapon": {
-				"name": "Người bán vũ khí",
-				"title": "Đe Đỏ",
+				"name": "Thrain",
+				"title": "Người bán vũ khí · Đe Đỏ",
 				"sprite": "npc_dd_weapon_001",
 				"region": "volcano",
 				"at": {
@@ -961,8 +961,8 @@
 				]
 			},
 			"village_dd_armor": {
-				"name": "Người bán trang bị",
-				"title": "Đe Đỏ",
+				"name": "Helga",
+				"title": "Người bán trang bị · Đe Đỏ",
 				"sprite": "npc_dd_armor_001",
 				"region": "volcano",
 				"at": {
@@ -978,8 +978,8 @@
 				]
 			},
 			"village_dd_smith": {
-				"name": "Thợ rèn",
-				"title": "Đe Đỏ",
+				"name": "Gunnar",
+				"title": "Thợ rèn · Đe Đỏ",
 				"sprite": "npc_dd_smith_001",
 				"region": "volcano",
 				"at": {
@@ -995,8 +995,8 @@
 				]
 			},
 			"village_dd_upgrade": {
-				"name": "Thợ nâng cấp",
-				"title": "Đe Đỏ",
+				"name": "Grimm",
+				"title": "Thợ nâng cấp · Đe Đỏ",
 				"sprite": "npc_dd_upgrade_001",
 				"region": "volcano",
 				"at": {
@@ -1012,8 +1012,8 @@
 				]
 			},
 			"village_dd_heal": {
-				"name": "Người bán hồi phục",
-				"title": "Đe Đỏ",
+				"name": "Runa",
+				"title": "Người bán hồi phục · Đe Đỏ",
 				"sprite": "npc_dd_heal_001",
 				"region": "volcano",
 				"at": {
@@ -1029,8 +1029,8 @@
 				]
 			},
 			"village_sc_tavern": {
-				"name": "Chủ quán rượu",
-				"title": "San Hô",
+				"name": "Marisol",
+				"title": "Chủ quán rượu · San Hô",
 				"sprite": "npc_sc_tavern_001",
 				"region": "isles",
 				"at": {
@@ -1046,8 +1046,8 @@
 				]
 			},
 			"village_sc_bank": {
-				"name": "Chủ ngân hàng",
-				"title": "San Hô",
+				"name": "Cormac",
+				"title": "Chủ ngân hàng · San Hô",
 				"sprite": "npc_sc_bank_001",
 				"region": "isles",
 				"at": {
@@ -1063,8 +1063,8 @@
 				]
 			},
 			"village_sc_weapon": {
-				"name": "Người bán vũ khí",
-				"title": "San Hô",
+				"name": "Finn",
+				"title": "Người bán vũ khí · San Hô",
 				"sprite": "npc_sc_weapon_001",
 				"region": "isles",
 				"at": {
@@ -1080,8 +1080,8 @@
 				]
 			},
 			"village_sc_armor": {
-				"name": "Người bán trang bị",
-				"title": "San Hô",
+				"name": "Nerys",
+				"title": "Người bán trang bị · San Hô",
 				"sprite": "npc_sc_armor_001",
 				"region": "isles",
 				"at": {
@@ -1097,8 +1097,8 @@
 				]
 			},
 			"village_sc_smith": {
-				"name": "Thợ rèn",
-				"title": "San Hô",
+				"name": "Brennan",
+				"title": "Thợ rèn · San Hô",
 				"sprite": "npc_sc_smith_001",
 				"region": "isles",
 				"at": {
@@ -1114,8 +1114,8 @@
 				]
 			},
 			"village_sc_upgrade": {
-				"name": "Thợ nâng cấp",
-				"title": "San Hô",
+				"name": "Pearl",
+				"title": "Thợ nâng cấp · San Hô",
 				"sprite": "npc_sc_upgrade_001",
 				"region": "isles",
 				"at": {
@@ -1131,8 +1131,8 @@
 				]
 			},
 			"village_sc_heal": {
-				"name": "Người bán hồi phục",
-				"title": "San Hô",
+				"name": "Delphine",
+				"title": "Người bán hồi phục · San Hô",
 				"sprite": "npc_sc_heal_001",
 				"region": "isles",
 				"at": {
