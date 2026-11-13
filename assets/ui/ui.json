@@ -275,6 +275,11 @@
 			"left": 8
 		}
 	},
+	"ui2_player_card": {
+		"file": "ui2_player_card.png",
+		"w": 177,
+		"h": 66
+	},
 	"ui2_level_badge": {
 		"file": "ui2_level_badge.png",
 		"w": 32,

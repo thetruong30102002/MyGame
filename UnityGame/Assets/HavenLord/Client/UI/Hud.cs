@@ -200,8 +200,14 @@ namespace HavenLord.Client.UI
             BuildOverlays();
         }
 
+        private bool roundCard;
+        private Image classIcon;
+        private string classShown;
+
         private void BuildPlayerCard()
         {
+            var art = UiIcon("ui2_player_card");
+            if (art != null) { BuildRoundCard(art); return; }
             var card = UiKit.Rect(root, "PlayerCard", new Vector2(0, 1), new Vector2(0, 1), new Vector2(18, -18), new Vector2(280, 100));
             var face = UiStyle.Card(card, UiStyle.CardKind.Hud, 12);
             // Bấm cả khung nhân vật = mở cửa sổ tổng (chủ dự án 10/10/2026 bỏ hàng nút menu; phím C / B / T / O vẫn mở thẳng tab).
@@ -225,6 +231,40 @@ namespace HavenLord.Client.UI
             hpBar = BarWithIcon(card, "Hp", -34, 19, UiStyle.Hp, UiIcon("icon_hp"), 11);
             mpBar = BarWithIcon(card, "Mp", -60, 13, UiStyle.Mana, UiIcon("icon_mp"), 9);
             staBar = BarWithIcon(card, "Stamina", -82, 6, UiStyle.Stamina, BoltSprite(), 0);
+        }
+
+        /// <summary>
+        /// Thẻ nhân vật bo tròn PixelLab (chủ dự án 13/11/2026: "Khung nhân vật cứng nhắc thế mềm mại hơn đi tròn tròn"): ảnh 177 × 66 phóng
+        /// ×1,75 — chân dung tròn (icon vũ khí của nghề), ba thanh viên thuốc Máu / MP / Thể lực nằm đúng lỗ trong ảnh, số cấp trên đồng
+        /// xu; tên ngay trên thẻ. Toạ độ lỗ đo trên ảnh gốc (px).
+        /// </summary>
+        private void BuildRoundCard(Sprite art)
+        {
+            roundCard = true;
+            const float k = 1.75f;
+            var card = UiKit.Rect(root, "PlayerCard", new Vector2(0, 1), new Vector2(0, 1), new Vector2(18, -30), new Vector2(art.rect.width * k, art.rect.height * k));
+            var disc = UiKit.Rect(card, "Disc", new Vector2(0, 1), new Vector2(0.5f, 0.5f), new Vector2(31 * k, -32 * k), new Vector2(46 * k, 46 * k));
+            UiStyle.Pill(disc, UiStyle.Hex(0x2a1a10, 0.92f), Mathf.RoundToInt(23 * k));
+            classIcon = UiKit.Icon(UiKit.Rect(card, "Class", new Vector2(0, 1), new Vector2(0.5f, 0.5f), new Vector2(31 * k, -32 * k), new Vector2(30 * k, 30 * k)), null);
+            var img = UiKit.Stretch(card, "Art").gameObject.AddComponent<Image>();
+            img.sprite = art;
+            img.raycastTarget = true;
+            var press = UiKit.Press(card, () => Panels.Toggle(Panels.Kind.Character));
+            press.Enter = () => img.color = new Color(1.1f, 1.05f, 0.95f);
+            press.Exit = () => img.color = Color.white;
+            hpBar = SmoothBar.Make(card, "Hp", new Vector2(0, 1), new Vector2(0, 1), new Vector2(64 * k, -11 * k), new Vector2(106 * k, 8 * k), UiStyle.Hp, 10, 6);
+            mpBar = SmoothBar.Make(card, "Mp", new Vector2(0, 1), new Vector2(0, 1), new Vector2(64 * k, -29 * k), new Vector2(106 * k, 8 * k), UiStyle.Mana, 9, 6);
+            staBar = SmoothBar.Make(card, "Stamina", new Vector2(0, 1), new Vector2(0, 1), new Vector2(64 * k, -47 * k), new Vector2(106 * k, 8 * k), UiStyle.Stamina, 0, 6);
+            nameText = UiKit.Label(UiKit.Rect(root, "Name", new Vector2(0, 1), new Vector2(0, 1), new Vector2(18 + 64 * k, -8), new Vector2(200, 20)), "", 15, UiStyle.Parchment, TextAnchor.MiddleLeft, true);
+            levelText = UiKit.Label(UiKit.Rect(card, "Level", new Vector2(0, 1), new Vector2(0.5f, 0.5f), new Vector2(49 * k, -56 * k), new Vector2(26, 18)), "1", 11, UiStyle.InkBrown, TextAnchor.MiddleCenter, true, false);
+            var badge = UiKit.Rect(root, "Points", new Vector2(0, 1), new Vector2(0, 1), new Vector2(18 + 64 * k + 205, -8), new Vector2(24, 20));
+            UiStyle.Pill(badge, UiStyle.Hex(0xfff1c9), 10);
+            var bin = UiKit.Rect(badge, "in", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(20, 16));
+            UiStyle.Pill(bin, UiStyle.Hex(0xd4341d), 8);
+            pointsText = UiKit.Label(UiKit.Stretch(bin, "t"), "", 11, Color.white, TextAnchor.MiddleCenter, true, false);
+            UiWidgets.Pulse(badge, 1.12f, 1.4f);
+            pointsBadge = badge.gameObject;
+            pointsBadge.SetActive(false);
         }
 
         private SmoothBar BarWithIcon(RectTransform card, string name, float y, float h, Color c, Sprite icon, int textSize)
@@ -694,7 +734,16 @@ namespace HavenLord.Client.UI
             if (flash.color.a > 0) flash.color = new Color(flash.color.r, flash.color.g, flash.color.b, Mathf.Max(0, flash.color.a - dt * 1.6f));
 
             nameText.text = game.PlayerName;
-            levelText.text = "Lv " + pc.Level;
+            levelText.text = roundCard ? pc.Level.ToString() : "Lv " + pc.Level;
+            // Chân dung tròn: icon vũ khí bậc 1 của nghề đang chơi (đổi nghề thì đổi theo).
+            if (roundCard && classIcon != null && game.CurrentClassId != classShown)
+            {
+                classShown = game.CurrentClassId;
+                var sp = classShown != null ? Set("items")?.Get($"shop_{classShown}_5") : null;
+                classIcon.sprite = sp;
+                classIcon.enabled = sp != null;
+                if (sp != null) classIcon.preserveAspect = true;
+            }
             // Chấm đỏ: điểm tiềm năng + điểm thuộc tính chưa cộng (phòng Thử chiêu không tính).
             var pts = game.InLab ? 0 : Math.Max(0, game.UnspentPoints) + Math.Max(0, game.AttrUnspent);
             if (pts != shownPoints)

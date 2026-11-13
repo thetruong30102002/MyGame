@@ -45,6 +45,8 @@ export const UI_ASSETS: UiAssetDef[] = [
 	{ id: 'ui2_small_button', path: 'sheet:UI2_small_button#0@1x1', nine: 'filled', capX: 0.25, capY: 0.25 },
 	{ id: 'ui2_tab_on', path: 'sheet:UI2_tab_on#0@1x1', nine: 'filled', capX: 0.2, capY: 0.4 },
 	{ id: 'ui2_tab_off', path: 'sheet:UI2_tab_off#0@1x1', nine: 'filled', capX: 0.2, capY: 0.4 },
+	// Thẻ nhân vật bo tròn (chủ dự án 13/11: "Khung nhân vật cứng nhắc thế mềm mại hơn đi tròn tròn"): chân dung tròn + 3 thanh viên thuốc + đồng xu cấp.
+	{ id: 'ui2_player_card', path: 'sheet:UI2_player_card#0@1x1' },
 	...(['level_badge', 'close_button', 'scroll_knob'] as const).map((id) => ({ id: `ui2_${id}`, path: `sheet:UI2_${id}#0@1x1` })),
 ];
 
