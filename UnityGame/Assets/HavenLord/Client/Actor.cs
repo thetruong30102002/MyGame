@@ -160,7 +160,9 @@ namespace HavenLord.Client
             foreach (var r in GetComponentsInChildren<SpriteRenderer>())
             {
                 var c = r.color;
-                c.a = r.gameObject == gameObject || r == View.Renderer ? a : a * 0.28f;
+                // Chỉ cái bóng dưới chân nhạt (×0,28); mọi lớp hình khác (thân, đầu, đồ, vũ khí, hình Gia viên ghép lớp) theo đúng `a`. Trước đây
+                // mọi con khác thân chính đều ×0,28 → nhân vật ở Gia viên (hình ghép lớp riêng) mờ như bóng ma (13/11/2026).
+                c.a = r.gameObject.name == "shadow" ? a * 0.28f : a;
                 r.color = c;
             }
         }
