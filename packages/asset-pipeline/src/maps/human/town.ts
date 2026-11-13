@@ -40,6 +40,16 @@ export function buildTown(meta: Record<string, PropMeta>, decalIds: string[], se
 		// Nhà cũ thành khu phụ cạnh lò rèn; giữ nguyên ảnh và ID, không đè dưới nhà mới.
 		L.place('house_inn', THISTLEWOOD_INN.auxiliaryInn.x, THISTLEWOOD_INN.auxiliaryInn.y, { force: true });
 	} else L.place('house_inn', px(35), px(10), { force: true });
+	// Nhà dịch vụ vào được (13/11/2026, GPT đợt 14): khu phố đông nam (quán rượu, ngân hàng, vũ khí, trang bị), lò rèn đầu đường bắc,
+	// tiệm hồi phục + xưởng nâng cấp góc tây bắc — chỗ trước nay chỉ có cây rải. Cửa / lối vào phòng gắn ở `maps/serviceRooms`.
+	for (const [id, x, y] of [
+		['svc_house_qr', 1408, px(42)], ['svc_house_nh', 1768, px(42)], ['svc_house_vk', 1390, px(50)], ['svc_house_tb', 1720, px(50)],
+		['svc_house_lr', 1340, px(8)], ['svc_house_hp', 264, px(8)], ['svc_house_nc', 240, px(16)],
+	] as const)
+		if (meta[id]) {
+			L.place(id, x, y, { force: true });
+			L.reserve(x / TILE, y / TILE + 1.4, 1.6);
+		}
 	// Hình nộm rơm ("Ông Rơm") cho nhiệm vụ tập kiếm/phép: sân sau nhà Ashvale và bờ sông.
 	L.place('training_dummy', px(6), px(24) + 10, { force: true });
 	L.place('training_dummy', px(38), px(30) + 10, { force: true });

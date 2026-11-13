@@ -9658,7 +9658,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
           "label": "Nhập NPC và tích hợp đủ chức năng shop / rèn / đồ ăn / hồi phục / sự kiện theo thiết kế được duyệt",
           "weight": 30,
           "done": false,
-          "evidence": ""
+          "evidence": "13/11/2026: 49 NPC quầy đứng trong phòng nhà dịch vụ 7 khu (Thistlewood: Ren / Ela / Orin / Lan chuyển vào quầy); hồi phục bán túi thuốc, quán rượu bán món ăn, trang bị mở cửa hàng bộ đồ; ngân hàng / nâng cấp / rèn / vũ khí mới có lời thoại chờ thiết kế. Khu 8–13 chờ GPT đợt 20–25. CHƯA thử trong game."
         },
         {
           "label": "Kiểm từng vùng đủ vai trò, khác nhân dạng vùng, chung NPC sự kiện; chủ dự án nghiệm thu",
@@ -9686,20 +9686,20 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
         {
           "label": "Thiết kế nhà / quầy dịch vụ và thước tỷ lệ theo NPC cho từng vùng",
           "weight": 20,
-          "done": false,
-          "evidence": ""
+          "done": true,
+          "evidence": "13/11/2026: 7 nhà / khu (quán rượu, ngân hàng, vũ khí, trang bị, lò rèn, nâng cấp, hồi phục) + 7 phòng vào được, bố cục quầy + NPC; chủ dự án duyệt ảnh ghép thử 7 khu (\"ok lam di\")."
         },
         {
           "label": "GPT vẽ mẫu chi tiết hơn đúng style, duyệt trước khi nhân rộng các nhà vùng",
           "weight": 35,
           "done": false,
-          "evidence": ""
+          "evidence": "13/11/2026: GPT đợt 14–19 xong 7 khu (Thistlewood + 6 vùng đang mở, 301 món, chuẩn hoá chuan-hoa/); đợt 20 Ánh Tím mới 4/49, đợt 21–25 chưa vẽ (GPT hết lượt)."
         },
         {
           "label": "Nhập hình, bố trí nhà / quầy / NPC và giữ lối đi, cửa tương tác hợp tỷ lệ",
           "weight": 25,
           "done": false,
-          "evidence": ""
+          "evidence": "13/11/2026: code xong 7 khu — maps/serviceRooms.ts đặt 7 nhà ở trạm (trạm vùng 2–7 nới 56 × 46 ô), cửa nhà là lối sang 49 map phòng svc_* (sàn code + tường / đồ GPT), NPC quầy PixelLab; máy chủ bán thuốc / món ăn đúng quầy từng khu. CHƯA thử trong game (chờ build)."
         },
         {
           "label": "Kiểm tỷ lệ và nét trên map PC / web / mobile, chủ dự án nghiệm thu",
@@ -10830,8 +10830,8 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "Thiên Thành có một vị thần hé lộ tri thức toàn thế giới và lịch sử khởi nguyên. Bản đồ tổng sẽ vẽ lại sau khi bố trí được duyệt."
     ],
     "topology": {
-      "mapCount": 175,
-      "directedLinks": 426,
+      "mapCount": 224,
+      "directedLinks": 524,
       "crossRegionLinks": 24,
       "connections": [
         {

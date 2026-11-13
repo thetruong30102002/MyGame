@@ -1,0 +1,13 @@
+{
+	"map": "svc_tb",
+	"image": "svc_tb.minimap.png",
+	"width": 56,
+	"height": 48,
+	"downscale": 8,
+	"world": {
+		"width": 448,
+		"height": 384,
+		"tileSize": 32
+	},
+	"version": "836b05f7"
+}

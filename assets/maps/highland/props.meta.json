@@ -1006,5 +1006,509 @@
 			"w": 17,
 			"h": 10
 		}
+	},
+	"svc_house_qr": {
+		"kind": "building",
+		"w": 297,
+		"h": 300,
+		"blocks": true,
+		"footprint": {
+			"x": -128,
+			"y": -56,
+			"w": 255,
+			"h": 56
+		}
+	},
+	"svc_qr_bg": {
+		"kind": "flower",
+		"w": 384,
+		"h": 352,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"svc_qr_ke_ruou": {
+		"kind": "decor",
+		"w": 67,
+		"h": 104,
+		"blocks": true,
+		"footprint": {
+			"x": -29,
+			"y": -16,
+			"w": 57,
+			"h": 16
+		}
+	},
+	"svc_qr_dac_trung": {
+		"kind": "decor",
+		"w": 99,
+		"h": 96,
+		"blocks": true,
+		"footprint": {
+			"x": -42,
+			"y": -16,
+			"w": 84,
+			"h": 16
+		}
+	},
+	"svc_qr_quay_bar": {
+		"kind": "decor",
+		"w": 184,
+		"h": 64,
+		"blocks": true,
+		"footprint": {
+			"x": -88,
+			"y": -22,
+			"w": 175,
+			"h": 22
+		}
+	},
+	"svc_qr_ban_ghe": {
+		"kind": "decor",
+		"w": 112,
+		"h": 56,
+		"blocks": true,
+		"footprint": {
+			"x": -45,
+			"y": -14,
+			"w": 90,
+			"h": 14
+		}
+	},
+	"svc_house_nh": {
+		"kind": "building",
+		"w": 239,
+		"h": 280,
+		"blocks": true,
+		"footprint": {
+			"x": -103,
+			"y": -56,
+			"w": 206,
+			"h": 56
+		}
+	},
+	"svc_nh_bg": {
+		"kind": "flower",
+		"w": 384,
+		"h": 352,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"svc_nh_ket_sat": {
+		"kind": "decor",
+		"w": 53,
+		"h": 64,
+		"blocks": true,
+		"footprint": {
+			"x": -23,
+			"y": -16,
+			"w": 45,
+			"h": 16
+		}
+	},
+	"svc_nh_cua_ket": {
+		"kind": "decor",
+		"w": 111,
+		"h": 120,
+		"blocks": true,
+		"footprint": {
+			"x": -47,
+			"y": -16,
+			"w": 94,
+			"h": 16
+		}
+	},
+	"svc_nh_quay": {
+		"kind": "decor",
+		"w": 137,
+		"h": 64,
+		"blocks": true,
+		"footprint": {
+			"x": -65,
+			"y": -22,
+			"w": 130,
+			"h": 22
+		}
+	},
+	"svc_nh_ruong_vang": {
+		"kind": "decor",
+		"w": 59,
+		"h": 60,
+		"blocks": true,
+		"footprint": {
+			"x": -24,
+			"y": -14,
+			"w": 47,
+			"h": 14
+		}
+	},
+	"svc_house_vk": {
+		"kind": "building",
+		"w": 269,
+		"h": 250,
+		"blocks": true,
+		"footprint": {
+			"x": -116,
+			"y": -56,
+			"w": 231,
+			"h": 56
+		}
+	},
+	"svc_vk_bg": {
+		"kind": "flower",
+		"w": 384,
+		"h": 352,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"svc_vk_gia_kiem_thuong": {
+		"kind": "decor",
+		"w": 70,
+		"h": 104,
+		"blocks": true,
+		"footprint": {
+			"x": -30,
+			"y": -16,
+			"w": 60,
+			"h": 16
+		}
+	},
+	"svc_vk_gia_cung_truong": {
+		"kind": "decor",
+		"w": 85,
+		"h": 88,
+		"blocks": true,
+		"footprint": {
+			"x": -36,
+			"y": -16,
+			"w": 72,
+			"h": 16
+		}
+	},
+	"svc_vk_quay": {
+		"kind": "decor",
+		"w": 178,
+		"h": 64,
+		"blocks": true,
+		"footprint": {
+			"x": -85,
+			"y": -22,
+			"w": 169,
+			"h": 22
+		}
+	},
+	"svc_vk_gia_khien": {
+		"kind": "decor",
+		"w": 73,
+		"h": 72,
+		"blocks": true,
+		"footprint": {
+			"x": -29,
+			"y": -14,
+			"w": 58,
+			"h": 14
+		}
+	},
+	"svc_house_tb": {
+		"kind": "building",
+		"w": 224,
+		"h": 250,
+		"blocks": true,
+		"footprint": {
+			"x": -97,
+			"y": -56,
+			"w": 193,
+			"h": 56
+		}
+	},
+	"svc_tb_bg": {
+		"kind": "flower",
+		"w": 384,
+		"h": 352,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"svc_tb_gia_ao": {
+		"kind": "decor",
+		"w": 90,
+		"h": 96,
+		"blocks": true,
+		"footprint": {
+			"x": -39,
+			"y": -16,
+			"w": 77,
+			"h": 16
+		}
+	},
+	"svc_tb_ke_giay_gang": {
+		"kind": "decor",
+		"w": 54,
+		"h": 80,
+		"blocks": true,
+		"footprint": {
+			"x": -23,
+			"y": -16,
+			"w": 46,
+			"h": 16
+		}
+	},
+	"svc_tb_quay": {
+		"kind": "decor",
+		"w": 188,
+		"h": 64,
+		"blocks": true,
+		"footprint": {
+			"x": -90,
+			"y": -22,
+			"w": 179,
+			"h": 22
+		}
+	},
+	"svc_tb_gia_giap": {
+		"kind": "decor",
+		"w": 84,
+		"h": 96,
+		"blocks": true,
+		"footprint": {
+			"x": -34,
+			"y": -14,
+			"w": 67,
+			"h": 14
+		}
+	},
+	"svc_house_lr": {
+		"kind": "building",
+		"w": 277,
+		"h": 250,
+		"blocks": true,
+		"footprint": {
+			"x": -119,
+			"y": -56,
+			"w": 238,
+			"h": 56
+		}
+	},
+	"svc_lr_bg": {
+		"kind": "flower",
+		"w": 384,
+		"h": 352,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"svc_lr_gia_dung_cu": {
+		"kind": "decor",
+		"w": 84,
+		"h": 84,
+		"blocks": true,
+		"footprint": {
+			"x": -36,
+			"y": -16,
+			"w": 71,
+			"h": 16
+		}
+	},
+	"svc_lr_lo_ren": {
+		"kind": "decor",
+		"w": 93,
+		"h": 110,
+		"blocks": true,
+		"footprint": {
+			"x": -40,
+			"y": -16,
+			"w": 79,
+			"h": 16
+		}
+	},
+	"svc_lr_de_bua": {
+		"kind": "decor",
+		"w": 51,
+		"h": 56,
+		"blocks": true,
+		"footprint": {
+			"x": -24,
+			"y": -22,
+			"w": 48,
+			"h": 22
+		}
+	},
+	"svc_lr_thung_toi": {
+		"kind": "decor",
+		"w": 44,
+		"h": 52,
+		"blocks": true,
+		"footprint": {
+			"x": -18,
+			"y": -14,
+			"w": 35,
+			"h": 14
+		}
+	},
+	"svc_house_nc": {
+		"kind": "building",
+		"w": 196,
+		"h": 260,
+		"blocks": true,
+		"footprint": {
+			"x": -85,
+			"y": -56,
+			"w": 169,
+			"h": 56
+		}
+	},
+	"svc_nc_bg": {
+		"kind": "flower",
+		"w": 384,
+		"h": 352,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"svc_nc_ke_da": {
+		"kind": "decor",
+		"w": 63,
+		"h": 88,
+		"blocks": true,
+		"footprint": {
+			"x": -27,
+			"y": -16,
+			"w": 54,
+			"h": 16
+		}
+	},
+	"svc_nc_lo_tinh_luyen": {
+		"kind": "decor",
+		"w": 73,
+		"h": 104,
+		"blocks": true,
+		"footprint": {
+			"x": -31,
+			"y": -16,
+			"w": 62,
+			"h": 16
+		}
+	},
+	"svc_nc_ban_khac_rune": {
+		"kind": "decor",
+		"w": 71,
+		"h": 64,
+		"blocks": true,
+		"footprint": {
+			"x": -34,
+			"y": -22,
+			"w": 67,
+			"h": 22
+		}
+	},
+	"svc_nc_vong_phap": {
+		"kind": "flower",
+		"w": 73,
+		"h": 48,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"svc_house_hp": {
+		"kind": "building",
+		"w": 257,
+		"h": 240,
+		"blocks": true,
+		"footprint": {
+			"x": -111,
+			"y": -56,
+			"w": 221,
+			"h": 56
+		}
+	},
+	"svc_hp_bg": {
+		"kind": "flower",
+		"w": 384,
+		"h": 352,
+		"blocks": false,
+		"footprint": {
+			"x": 0,
+			"y": 0,
+			"w": 0,
+			"h": 0
+		}
+	},
+	"svc_hp_ke_thuoc": {
+		"kind": "decor",
+		"w": 62,
+		"h": 96,
+		"blocks": true,
+		"footprint": {
+			"x": -27,
+			"y": -16,
+			"w": 53,
+			"h": 16
+		}
+	},
+	"svc_hp_dac_trung": {
+		"kind": "decor",
+		"w": 69,
+		"h": 80,
+		"blocks": true,
+		"footprint": {
+			"x": -30,
+			"y": -16,
+			"w": 59,
+			"h": 16
+		}
+	},
+	"svc_hp_quay": {
+		"kind": "decor",
+		"w": 155,
+		"h": 64,
+		"blocks": true,
+		"footprint": {
+			"x": -74,
+			"y": -22,
+			"w": 147,
+			"h": 22
+		}
+	},
+	"svc_hp_noi_thuoc": {
+		"kind": "decor",
+		"w": 57,
+		"h": 64,
+		"blocks": true,
+		"footprint": {
+			"x": -23,
+			"y": -14,
+			"w": 46,
+			"h": 14
+		}
 	}
 }

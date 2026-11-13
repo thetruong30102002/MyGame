@@ -6,9 +6,7 @@
 			"sprite": "npc_mirelle_001",
 			"region": "human",
 			"at": {
-				"spot": "plaza",
-				"dx": -240,
-				"dy": 40
+				"spot": "svc_tb_keeper"
 			},
 			"ages": [
 				16,
@@ -25,9 +23,7 @@
 			"sprite": "npc_garrick_001",
 			"region": "human",
 			"at": {
-				"spot": "plaza",
-				"dx": -340,
-				"dy": 150
+				"spot": "svc_lr_keeper"
 			},
 			"ages": [
 				16,
@@ -44,9 +40,7 @@
 			"sprite": "npc_aldric_001",
 			"region": "human",
 			"at": {
-				"spot": "plaza",
-				"dx": 260,
-				"dy": 40
+				"spot": "svc_vk_keeper"
 			},
 			"ages": [
 				16,
@@ -82,9 +76,7 @@
 			"sprite": "npc_ysolde_001",
 			"region": "human",
 			"at": {
-				"spot": "church",
-				"dx": 96,
-				"dy": 100
+				"spot": "svc_hp_keeper"
 			},
 			"ages": [
 				16,
@@ -127,6 +119,771 @@
 			"stationary": true,
 			"idle": [
 				"Cậu muốn kê lại đồ đạc trong nhà à? Cứ bảo ta."
+			]
+		},
+		"village_tl_tavern": {
+			"name": "Chủ quán rượu",
+			"title": "Thistlewood",
+			"sprite": "npc_tl_tavern_001",
+			"region": "human",
+			"at": {
+				"spot": "svc_qr_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Ngồi xuống đi, món nóng của quán giúp cậu vững tay cả buổi."
+			]
+		},
+		"village_tl_bank": {
+			"name": "Chủ ngân hàng",
+			"title": "Thistlewood",
+			"sprite": "npc_tl_bank_001",
+			"region": "human",
+			"at": {
+				"spot": "svc_nh_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Két ở đây chắc nhất vùng. Sổ gửi đồ sẽ mở khi hội buôn duyệt xong luật."
+			]
+		},
+		"village_tl_upgrade": {
+			"name": "Thợ nâng cấp",
+			"title": "Thistlewood",
+			"sprite": "npc_tl_upgrade_001",
+			"region": "human",
+			"at": {
+				"spot": "svc_nc_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Đá cường hoá cần thời gian tinh luyện. Quay lại khi xưởng nhận việc."
+			]
+		},
+		"village_lx_tavern": {
+			"name": "Chủ quán rượu",
+			"title": "Lau Xám",
+			"sprite": "npc_lx_tavern_001",
+			"region": "swamp",
+			"at": {
+				"spot": "svc_qr_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Ngồi xuống đi, món nóng của quán giúp cậu vững tay cả buổi."
+			]
+		},
+		"village_lx_bank": {
+			"name": "Chủ ngân hàng",
+			"title": "Lau Xám",
+			"sprite": "npc_lx_bank_001",
+			"region": "swamp",
+			"at": {
+				"spot": "svc_nh_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Két ở đây chắc nhất vùng. Sổ gửi đồ sẽ mở khi hội buôn duyệt xong luật."
+			]
+		},
+		"village_lx_weapon": {
+			"name": "Người bán vũ khí",
+			"title": "Lau Xám",
+			"sprite": "npc_lx_weapon_001",
+			"region": "swamp",
+			"at": {
+				"spot": "svc_vk_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Chọn đúng món của nghề mình. Hàng mới về theo từng chuyến buôn."
+			]
+		},
+		"village_lx_armor": {
+			"name": "Người bán trang bị",
+			"title": "Lau Xám",
+			"sprite": "npc_lx_armor_001",
+			"region": "swamp",
+			"at": {
+				"spot": "svc_tb_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Một bộ áo tốt phải giúp người mặc trở về."
+			]
+		},
+		"village_lx_smith": {
+			"name": "Thợ rèn",
+			"title": "Lau Xám",
+			"sprite": "npc_lx_smith_001",
+			"region": "swamp",
+			"at": {
+				"spot": "svc_lr_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Lò còn đỏ đấy. Công thức rèn sẽ mở cùng tuyến truyện mới."
+			]
+		},
+		"village_lx_upgrade": {
+			"name": "Thợ nâng cấp",
+			"title": "Lau Xám",
+			"sprite": "npc_lx_upgrade_001",
+			"region": "swamp",
+			"at": {
+				"spot": "svc_nc_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Đá cường hoá cần thời gian tinh luyện. Quay lại khi xưởng nhận việc."
+			]
+		},
+		"village_lx_heal": {
+			"name": "Người bán hồi phục",
+			"title": "Lau Xám",
+			"sprite": "npc_lx_heal_001",
+			"region": "swamp",
+			"at": {
+				"spot": "svc_hp_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Đừng đợi kiệt sức mới nhớ mang thuốc."
+			]
+		},
+		"village_sa_tavern": {
+			"name": "Chủ quán rượu",
+			"title": "Sahrin",
+			"sprite": "npc_sa_tavern_001",
+			"region": "desert",
+			"at": {
+				"spot": "svc_qr_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Ngồi xuống đi, món nóng của quán giúp cậu vững tay cả buổi."
+			]
+		},
+		"village_sa_bank": {
+			"name": "Chủ ngân hàng",
+			"title": "Sahrin",
+			"sprite": "npc_sa_bank_001",
+			"region": "desert",
+			"at": {
+				"spot": "svc_nh_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Két ở đây chắc nhất vùng. Sổ gửi đồ sẽ mở khi hội buôn duyệt xong luật."
+			]
+		},
+		"village_sa_weapon": {
+			"name": "Người bán vũ khí",
+			"title": "Sahrin",
+			"sprite": "npc_sa_weapon_001",
+			"region": "desert",
+			"at": {
+				"spot": "svc_vk_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Chọn đúng món của nghề mình. Hàng mới về theo từng chuyến buôn."
+			]
+		},
+		"village_sa_armor": {
+			"name": "Người bán trang bị",
+			"title": "Sahrin",
+			"sprite": "npc_sa_armor_001",
+			"region": "desert",
+			"at": {
+				"spot": "svc_tb_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Một bộ áo tốt phải giúp người mặc trở về."
+			]
+		},
+		"village_sa_smith": {
+			"name": "Thợ rèn",
+			"title": "Sahrin",
+			"sprite": "npc_sa_smith_001",
+			"region": "desert",
+			"at": {
+				"spot": "svc_lr_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Lò còn đỏ đấy. Công thức rèn sẽ mở cùng tuyến truyện mới."
+			]
+		},
+		"village_sa_upgrade": {
+			"name": "Thợ nâng cấp",
+			"title": "Sahrin",
+			"sprite": "npc_sa_upgrade_001",
+			"region": "desert",
+			"at": {
+				"spot": "svc_nc_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Đá cường hoá cần thời gian tinh luyện. Quay lại khi xưởng nhận việc."
+			]
+		},
+		"village_sa_heal": {
+			"name": "Người bán hồi phục",
+			"title": "Sahrin",
+			"sprite": "npc_sa_heal_001",
+			"region": "desert",
+			"at": {
+				"spot": "svc_hp_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Đừng đợi kiệt sức mới nhớ mang thuốc."
+			]
+		},
+		"village_gh_tavern": {
+			"name": "Chủ quán rượu",
+			"title": "Cối Xay Gió",
+			"sprite": "npc_gh_tavern_001",
+			"region": "highland",
+			"at": {
+				"spot": "svc_qr_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Ngồi xuống đi, món nóng của quán giúp cậu vững tay cả buổi."
+			]
+		},
+		"village_gh_bank": {
+			"name": "Chủ ngân hàng",
+			"title": "Cối Xay Gió",
+			"sprite": "npc_gh_bank_001",
+			"region": "highland",
+			"at": {
+				"spot": "svc_nh_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Két ở đây chắc nhất vùng. Sổ gửi đồ sẽ mở khi hội buôn duyệt xong luật."
+			]
+		},
+		"village_gh_weapon": {
+			"name": "Người bán vũ khí",
+			"title": "Cối Xay Gió",
+			"sprite": "npc_gh_weapon_001",
+			"region": "highland",
+			"at": {
+				"spot": "svc_vk_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Chọn đúng món của nghề mình. Hàng mới về theo từng chuyến buôn."
+			]
+		},
+		"village_gh_armor": {
+			"name": "Người bán trang bị",
+			"title": "Cối Xay Gió",
+			"sprite": "npc_gh_armor_001",
+			"region": "highland",
+			"at": {
+				"spot": "svc_tb_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Một bộ áo tốt phải giúp người mặc trở về."
+			]
+		},
+		"village_gh_smith": {
+			"name": "Thợ rèn",
+			"title": "Cối Xay Gió",
+			"sprite": "npc_gh_smith_001",
+			"region": "highland",
+			"at": {
+				"spot": "svc_lr_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Lò còn đỏ đấy. Công thức rèn sẽ mở cùng tuyến truyện mới."
+			]
+		},
+		"village_gh_upgrade": {
+			"name": "Thợ nâng cấp",
+			"title": "Cối Xay Gió",
+			"sprite": "npc_gh_upgrade_001",
+			"region": "highland",
+			"at": {
+				"spot": "svc_nc_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Đá cường hoá cần thời gian tinh luyện. Quay lại khi xưởng nhận việc."
+			]
+		},
+		"village_gh_heal": {
+			"name": "Người bán hồi phục",
+			"title": "Cối Xay Gió",
+			"sprite": "npc_gh_heal_001",
+			"region": "highland",
+			"at": {
+				"spot": "svc_hp_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Đừng đợi kiệt sức mới nhớ mang thuốc."
+			]
+		},
+		"village_tp_tavern": {
+			"name": "Chủ quán rượu",
+			"title": "Tuyết Phong",
+			"sprite": "npc_tp_tavern_001",
+			"region": "tundra",
+			"at": {
+				"spot": "svc_qr_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Ngồi xuống đi, món nóng của quán giúp cậu vững tay cả buổi."
+			]
+		},
+		"village_tp_bank": {
+			"name": "Chủ ngân hàng",
+			"title": "Tuyết Phong",
+			"sprite": "npc_tp_bank_001",
+			"region": "tundra",
+			"at": {
+				"spot": "svc_nh_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Két ở đây chắc nhất vùng. Sổ gửi đồ sẽ mở khi hội buôn duyệt xong luật."
+			]
+		},
+		"village_tp_weapon": {
+			"name": "Người bán vũ khí",
+			"title": "Tuyết Phong",
+			"sprite": "npc_tp_weapon_001",
+			"region": "tundra",
+			"at": {
+				"spot": "svc_vk_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Chọn đúng món của nghề mình. Hàng mới về theo từng chuyến buôn."
+			]
+		},
+		"village_tp_armor": {
+			"name": "Người bán trang bị",
+			"title": "Tuyết Phong",
+			"sprite": "npc_tp_armor_001",
+			"region": "tundra",
+			"at": {
+				"spot": "svc_tb_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Một bộ áo tốt phải giúp người mặc trở về."
+			]
+		},
+		"village_tp_smith": {
+			"name": "Thợ rèn",
+			"title": "Tuyết Phong",
+			"sprite": "npc_tp_smith_001",
+			"region": "tundra",
+			"at": {
+				"spot": "svc_lr_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Lò còn đỏ đấy. Công thức rèn sẽ mở cùng tuyến truyện mới."
+			]
+		},
+		"village_tp_upgrade": {
+			"name": "Thợ nâng cấp",
+			"title": "Tuyết Phong",
+			"sprite": "npc_tp_upgrade_001",
+			"region": "tundra",
+			"at": {
+				"spot": "svc_nc_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Đá cường hoá cần thời gian tinh luyện. Quay lại khi xưởng nhận việc."
+			]
+		},
+		"village_tp_heal": {
+			"name": "Người bán hồi phục",
+			"title": "Tuyết Phong",
+			"sprite": "npc_tp_heal_001",
+			"region": "tundra",
+			"at": {
+				"spot": "svc_hp_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Đừng đợi kiệt sức mới nhớ mang thuốc."
+			]
+		},
+		"village_dd_tavern": {
+			"name": "Chủ quán rượu",
+			"title": "Đe Đỏ",
+			"sprite": "npc_dd_tavern_001",
+			"region": "volcano",
+			"at": {
+				"spot": "svc_qr_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Ngồi xuống đi, món nóng của quán giúp cậu vững tay cả buổi."
+			]
+		},
+		"village_dd_bank": {
+			"name": "Chủ ngân hàng",
+			"title": "Đe Đỏ",
+			"sprite": "npc_dd_bank_001",
+			"region": "volcano",
+			"at": {
+				"spot": "svc_nh_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Két ở đây chắc nhất vùng. Sổ gửi đồ sẽ mở khi hội buôn duyệt xong luật."
+			]
+		},
+		"village_dd_weapon": {
+			"name": "Người bán vũ khí",
+			"title": "Đe Đỏ",
+			"sprite": "npc_dd_weapon_001",
+			"region": "volcano",
+			"at": {
+				"spot": "svc_vk_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Chọn đúng món của nghề mình. Hàng mới về theo từng chuyến buôn."
+			]
+		},
+		"village_dd_armor": {
+			"name": "Người bán trang bị",
+			"title": "Đe Đỏ",
+			"sprite": "npc_dd_armor_001",
+			"region": "volcano",
+			"at": {
+				"spot": "svc_tb_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Một bộ áo tốt phải giúp người mặc trở về."
+			]
+		},
+		"village_dd_smith": {
+			"name": "Thợ rèn",
+			"title": "Đe Đỏ",
+			"sprite": "npc_dd_smith_001",
+			"region": "volcano",
+			"at": {
+				"spot": "svc_lr_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Lò còn đỏ đấy. Công thức rèn sẽ mở cùng tuyến truyện mới."
+			]
+		},
+		"village_dd_upgrade": {
+			"name": "Thợ nâng cấp",
+			"title": "Đe Đỏ",
+			"sprite": "npc_dd_upgrade_001",
+			"region": "volcano",
+			"at": {
+				"spot": "svc_nc_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Đá cường hoá cần thời gian tinh luyện. Quay lại khi xưởng nhận việc."
+			]
+		},
+		"village_dd_heal": {
+			"name": "Người bán hồi phục",
+			"title": "Đe Đỏ",
+			"sprite": "npc_dd_heal_001",
+			"region": "volcano",
+			"at": {
+				"spot": "svc_hp_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Đừng đợi kiệt sức mới nhớ mang thuốc."
+			]
+		},
+		"village_sc_tavern": {
+			"name": "Chủ quán rượu",
+			"title": "San Hô",
+			"sprite": "npc_sc_tavern_001",
+			"region": "isles",
+			"at": {
+				"spot": "svc_qr_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Ngồi xuống đi, món nóng của quán giúp cậu vững tay cả buổi."
+			]
+		},
+		"village_sc_bank": {
+			"name": "Chủ ngân hàng",
+			"title": "San Hô",
+			"sprite": "npc_sc_bank_001",
+			"region": "isles",
+			"at": {
+				"spot": "svc_nh_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Két ở đây chắc nhất vùng. Sổ gửi đồ sẽ mở khi hội buôn duyệt xong luật."
+			]
+		},
+		"village_sc_weapon": {
+			"name": "Người bán vũ khí",
+			"title": "San Hô",
+			"sprite": "npc_sc_weapon_001",
+			"region": "isles",
+			"at": {
+				"spot": "svc_vk_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Chọn đúng món của nghề mình. Hàng mới về theo từng chuyến buôn."
+			]
+		},
+		"village_sc_armor": {
+			"name": "Người bán trang bị",
+			"title": "San Hô",
+			"sprite": "npc_sc_armor_001",
+			"region": "isles",
+			"at": {
+				"spot": "svc_tb_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Một bộ áo tốt phải giúp người mặc trở về."
+			]
+		},
+		"village_sc_smith": {
+			"name": "Thợ rèn",
+			"title": "San Hô",
+			"sprite": "npc_sc_smith_001",
+			"region": "isles",
+			"at": {
+				"spot": "svc_lr_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Lò còn đỏ đấy. Công thức rèn sẽ mở cùng tuyến truyện mới."
+			]
+		},
+		"village_sc_upgrade": {
+			"name": "Thợ nâng cấp",
+			"title": "San Hô",
+			"sprite": "npc_sc_upgrade_001",
+			"region": "isles",
+			"at": {
+				"spot": "svc_nc_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Đá cường hoá cần thời gian tinh luyện. Quay lại khi xưởng nhận việc."
+			]
+		},
+		"village_sc_heal": {
+			"name": "Người bán hồi phục",
+			"title": "San Hô",
+			"sprite": "npc_sc_heal_001",
+			"region": "isles",
+			"at": {
+				"spot": "svc_hp_keeper"
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Đừng đợi kiệt sức mới nhớ mang thuốc."
 			]
 		},
 		"village_event": {

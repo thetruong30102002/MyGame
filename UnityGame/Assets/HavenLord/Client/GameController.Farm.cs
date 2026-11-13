@@ -69,14 +69,15 @@ namespace HavenLord.Client
 
         private void NoteFarmNpc(Npc n)
         {
-            if (online != null && region?.region == "human" && map?.def.id == "town") FarmSend("talk", npc: n.Key);
+            // Cư dân Thistlewood ở quảng trường hoặc đứng quầy trong nhà dịch vụ (`svc_*`, 13/11/2026).
+            if (online != null && region?.region == "human" && (map?.def.id == "town" || map?.def.id.StartsWith("svc_") == true)) FarmSend("talk", npc: n.Key);
         }
 
         private bool OpenVillageService(Npc n)
         {
             if (!n.Key.StartsWith("village_", StringComparison.Ordinal)) return false;
             VillageKey = n.Key;
-            if (n.Key == "village_armor") hud.Panels.ShowOutfitShop();
+            if (n.Key == "village_armor" || n.Key.EndsWith("_armor", StringComparison.Ordinal)) hud.Panels.ShowOutfitShop();
             else hud.Panels.Show(Panels.Kind.Farm);
             FarmSend("get");
             return true;

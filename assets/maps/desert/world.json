@@ -4,36 +4,85 @@
 	"maps": {
 		"hub": {
 			"name": "Thành ốc đảo Sahrin",
-			"width": 2112,
-			"height": 1728,
+			"width": 2688,
+			"height": 2208,
 			"exits": [
 				{
 					"id": "hub_x1",
 					"to": "reddunes",
-					"x": 1152,
-					"y": 1704,
+					"x": 1440,
+					"y": 2184,
 					"label": "Cồn Cát Đỏ · cấp 20–21"
 				},
 				{
 					"id": "hub_x2",
 					"to": "redruins",
 					"x": 24,
-					"y": 1008,
+					"y": 1248,
 					"label": "Phế tích Đá Đỏ · cấp 24–25"
 				},
 				{
 					"id": "hub_x3",
 					"to": "snakepass",
-					"x": 1152,
+					"x": 1440,
 					"y": 24,
 					"label": "Hẻm Rắn · cấp 26–27"
 				},
 				{
 					"id": "hub_x4",
 					"to": "swamp/mistchasm",
-					"x": 2088,
-					"y": 1008,
+					"x": 2664,
+					"y": 1248,
 					"label": "Vực Sương Xanh · Đầm lầy Mù Sương"
+				},
+				{
+					"id": "to_svc_qr",
+					"to": "svc_qr",
+					"x": 1705,
+					"y": 1641,
+					"label": "Quán rượu"
+				},
+				{
+					"id": "to_svc_nh",
+					"to": "svc_nh",
+					"x": 1267,
+					"y": 1641,
+					"label": "Ngân hàng"
+				},
+				{
+					"id": "to_svc_vk",
+					"to": "svc_vk",
+					"x": 1249,
+					"y": 921,
+					"label": "Tiệm vũ khí"
+				},
+				{
+					"id": "to_svc_tb",
+					"to": "svc_tb",
+					"x": 1673,
+					"y": 921,
+					"label": "Tiệm trang bị"
+				},
+				{
+					"id": "to_svc_lr",
+					"to": "svc_lr",
+					"x": 854,
+					"y": 1502,
+					"label": "Lò rèn"
+				},
+				{
+					"id": "to_svc_nc",
+					"to": "svc_nc",
+					"x": 854,
+					"y": 1127,
+					"label": "Xưởng nâng cấp"
+				},
+				{
+					"id": "to_svc_hp",
+					"to": "svc_hp",
+					"x": 2074,
+					"y": 1127,
+					"label": "Tiệm hồi phục"
 				}
 			],
 			"spots": [
@@ -42,7 +91,14 @@
 				"hub_n",
 				"east_gate",
 				"waystone",
-				"plaza"
+				"plaza",
+				"svc_qr_out",
+				"svc_nh_out",
+				"svc_vk_out",
+				"svc_tb_out",
+				"svc_lr_out",
+				"svc_nc_out",
+				"svc_hp_out"
 			],
 			"zones": [],
 			"dummies": [],
@@ -831,6 +887,153 @@
 				30,
 				30
 			]
+		},
+		"svc_qr": {
+			"name": "Quán rượu Sahrin",
+			"width": 448,
+			"height": 384,
+			"exits": [
+				{
+					"id": "to_hub_qr",
+					"to": "hub",
+					"x": 224,
+					"y": 368,
+					"label": "Sahrin"
+				}
+			],
+			"spots": [
+				"svc_qr_door",
+				"svc_qr_keeper"
+			],
+			"zones": [],
+			"dummies": [],
+			"boss": null
+		},
+		"svc_nh": {
+			"name": "Ngân hàng Sahrin",
+			"width": 448,
+			"height": 384,
+			"exits": [
+				{
+					"id": "to_hub_nh",
+					"to": "hub",
+					"x": 224,
+					"y": 368,
+					"label": "Sahrin"
+				}
+			],
+			"spots": [
+				"svc_nh_door",
+				"svc_nh_keeper"
+			],
+			"zones": [],
+			"dummies": [],
+			"boss": null
+		},
+		"svc_vk": {
+			"name": "Tiệm vũ khí Sahrin",
+			"width": 448,
+			"height": 384,
+			"exits": [
+				{
+					"id": "to_hub_vk",
+					"to": "hub",
+					"x": 224,
+					"y": 368,
+					"label": "Sahrin"
+				}
+			],
+			"spots": [
+				"svc_vk_door",
+				"svc_vk_keeper"
+			],
+			"zones": [],
+			"dummies": [],
+			"boss": null
+		},
+		"svc_tb": {
+			"name": "Tiệm trang bị Sahrin",
+			"width": 448,
+			"height": 384,
+			"exits": [
+				{
+					"id": "to_hub_tb",
+					"to": "hub",
+					"x": 224,
+					"y": 368,
+					"label": "Sahrin"
+				}
+			],
+			"spots": [
+				"svc_tb_door",
+				"svc_tb_keeper"
+			],
+			"zones": [],
+			"dummies": [],
+			"boss": null
+		},
+		"svc_lr": {
+			"name": "Lò rèn Sahrin",
+			"width": 448,
+			"height": 384,
+			"exits": [
+				{
+					"id": "to_hub_lr",
+					"to": "hub",
+					"x": 224,
+					"y": 368,
+					"label": "Sahrin"
+				}
+			],
+			"spots": [
+				"svc_lr_door",
+				"svc_lr_keeper"
+			],
+			"zones": [],
+			"dummies": [],
+			"boss": null
+		},
+		"svc_nc": {
+			"name": "Xưởng nâng cấp Sahrin",
+			"width": 448,
+			"height": 384,
+			"exits": [
+				{
+					"id": "to_hub_nc",
+					"to": "hub",
+					"x": 224,
+					"y": 368,
+					"label": "Sahrin"
+				}
+			],
+			"spots": [
+				"svc_nc_door",
+				"svc_nc_keeper"
+			],
+			"zones": [],
+			"dummies": [],
+			"boss": null
+		},
+		"svc_hp": {
+			"name": "Tiệm hồi phục Sahrin",
+			"width": 448,
+			"height": 384,
+			"exits": [
+				{
+					"id": "to_hub_hp",
+					"to": "hub",
+					"x": 224,
+					"y": 368,
+					"label": "Sahrin"
+				}
+			],
+			"spots": [
+				"svc_hp_door",
+				"svc_hp_keeper"
+			],
+			"zones": [],
+			"dummies": [],
+			"boss": null
 		},
 		"pyramid": {
 			"name": "Kim tự tháp Sa Thạch",

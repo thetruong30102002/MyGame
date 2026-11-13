@@ -14,7 +14,7 @@ assert(snapshot.tasks.some(t=>t.id==='web-spa'));
 assert(snapshot.tasks.every(t=>t.progress>=0&&t.progress<=100));
 assert.equal(snapshot.progress,planProgress(snapshot.tasks));
 const design=(snapshot as unknown as {worldDesign:{factions:unknown[];chapters:unknown[];topology:{mapCount:number;errors:unknown[]}}}).worldDesign;
-assert.equal(design.factions.length,20);assert.equal(design.chapters.length,4);assert.equal(design.topology.mapCount,174);assert.deepEqual(design.topology.errors,[]);
+assert.equal(design.factions.length,20);assert.equal(design.chapters.length,4);assert.equal(design.topology.mapCount,224);assert.deepEqual(design.topology.errors,[]);
 const fixture=(weight:number,done:boolean):PlanTask=>({id:'t',group:'g',name:'n',detail:'d',weight,phase:1,region:null,depends:[],steps:[{label:'m',weight:100,done,evidence:done?'ảnh nghiệm thu':''}]});
 assert.equal(planProgress([fixture(1,true),fixture(3,false)]),25);
 assert.equal(planProgress([]),0);

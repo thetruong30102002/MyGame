@@ -26,6 +26,7 @@ import { renderOverview, writeMinimap } from './maps/overview.js';
 import { addOutline, downscaleMode, extractDecals, loadFreePixelImage, packShelf, propIssues, propMeta, trim, type PropMeta } from './props/buildProps.js';
 import { PIXELLAB_PREFIX } from './props/humanKingdom.js';
 import { loadWorldArt, WORLD_ART_PREFIX } from './props/worldArt.js';
+import { SERVICE_BG_PREFIX, serviceBackground } from './maps/serviceRooms.js';
 import { GPT_ART_PREFIX, loadGptArt } from './props/gptArt.js';
 import { keyMagenta, loadSheetCell, parseSheetPath, sheetPreview } from './props/sheet.js';
 import { buildHomeAssets } from './props/homeAssets.js';
@@ -994,6 +995,13 @@ async function buildMap(region = 'human'): Promise<void> {
 		const plName = def.path.startsWith(PIXELLAB_PREFIX) ? def.path.slice(PIXELLAB_PREFIX.length) : null;
 		const worldArt = def.path.startsWith(WORLD_ART_PREFIX) ? def.path.slice(WORLD_ART_PREFIX.length) : null;
 		const gptArt = def.path.startsWith(GPT_ART_PREFIX) ? def.path.slice(GPT_ART_PREFIX.length) : null;
+		// Ảnh nền phòng nhà dịch vụ (sàn vẽ bằng code + tường GPT) — ảnh đặc kín, không qua cổng kiểm nền / cắt sát.
+		if (def.path.startsWith(SERVICE_BG_PREFIX)) {
+			const img = serviceBackground(ROOT, def.path.slice(SERVICE_BG_PREFIX.length));
+			items.push({ id: def.id, img });
+			meta[def.id] = propMeta(def, img);
+			continue;
+		}
 		const cell = parseSheetPath(def.path);
 		let raw: RGBAImage;
 		if (gptArt) {

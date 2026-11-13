@@ -25,7 +25,9 @@ try{
  act('enter');assert(failed());assert.equal(at.map,'human/town');
  at.x=0;at.y=0;act('talk',{npc:farm.roster()[0]!.id});assert(failed());assert.equal(store.farm.read(acc).visited.length,0);
  assert(farm.roster().some(n=>n.id==='village_event'));assert(farm.roster().some(n=>n.id==='village_armor'));
- for(const n of farm.roster()){at={map:'human/town',x:n.x,y:n.y};act('talk',{npc:n.id});}
+ // 13/11: người bán cũ đứng quầy trong nhà dịch vụ (map human/svc_*), cư dân khác ở quảng trường.
+ assert.equal(farm.roster().find(n=>n.id==='village_armor')!.map,'human/svc_tb');
+ for(const n of farm.roster()){at={map:n.map,x:n.x,y:n.y};act('talk',{npc:n.id});}
  assert(store.farm.read(acc).unlocked);assert.equal(Object.values(store.farm.read(acc).inventory).reduce((s,n)=>s+n,0),18);
  act('enter');assert.equal(at.map,homeMap(acc));
  at={map:homeMap(acc),x:352,y:544};act('hoe',{plot:0});assert(store.farm.read(acc).plots[0]!.tilled);

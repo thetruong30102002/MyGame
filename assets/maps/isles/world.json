@@ -4,36 +4,85 @@
 	"maps": {
 		"hub": {
 			"name": "Cảng chài San Hô",
-			"width": 2112,
-			"height": 1728,
+			"width": 2688,
+			"height": 2208,
 			"exits": [
 				{
 					"id": "hub_x1",
 					"to": "whitesands",
-					"x": 1152,
-					"y": 1704,
+					"x": 1440,
+					"y": 2184,
 					"label": "Bãi Cát Trắng · cấp 60–61"
 				},
 				{
 					"id": "hub_x2",
 					"to": "wreckshore",
 					"x": 24,
-					"y": 960,
+					"y": 1200,
 					"label": "Bờ Ván Vỡ · cấp 64–65"
 				},
 				{
 					"id": "hub_x3",
 					"to": "coralreef",
-					"x": 1152,
+					"x": 1440,
 					"y": 24,
 					"label": "Rạn San Hô · cấp 66–67"
 				},
 				{
 					"id": "hub_x4",
 					"to": "volcano/craterrim",
-					"x": 2088,
-					"y": 960,
+					"x": 2664,
+					"y": 1200,
 					"label": "Vành Miệng Núi · Núi lửa Hoả Sơn"
+				},
+				{
+					"id": "to_svc_qr",
+					"to": "svc_qr",
+					"x": 1731,
+					"y": 1593,
+					"label": "Quán rượu"
+				},
+				{
+					"id": "to_svc_nh",
+					"to": "svc_nh",
+					"x": 1223,
+					"y": 1593,
+					"label": "Ngân hàng"
+				},
+				{
+					"id": "to_svc_vk",
+					"to": "svc_vk",
+					"x": 1220,
+					"y": 873,
+					"label": "Tiệm vũ khí"
+				},
+				{
+					"id": "to_svc_tb",
+					"to": "svc_tb",
+					"x": 1681,
+					"y": 873,
+					"label": "Tiệm trang bị"
+				},
+				{
+					"id": "to_svc_lr",
+					"to": "svc_lr",
+					"x": 854,
+					"y": 1454,
+					"label": "Lò rèn"
+				},
+				{
+					"id": "to_svc_nc",
+					"to": "svc_nc",
+					"x": 854,
+					"y": 1079,
+					"label": "Xưởng nâng cấp"
+				},
+				{
+					"id": "to_svc_hp",
+					"to": "svc_hp",
+					"x": 2074,
+					"y": 1079,
+					"label": "Tiệm hồi phục"
 				}
 			],
 			"spots": [
@@ -42,7 +91,14 @@
 				"hub_n",
 				"east_gate",
 				"waystone",
-				"plaza"
+				"plaza",
+				"svc_qr_out",
+				"svc_nh_out",
+				"svc_vk_out",
+				"svc_tb_out",
+				"svc_lr_out",
+				"svc_nc_out",
+				"svc_hp_out"
 			],
 			"zones": [],
 			"dummies": [],
@@ -873,6 +929,153 @@
 				70,
 				70
 			]
+		},
+		"svc_qr": {
+			"name": "Quán rượu San Hô",
+			"width": 448,
+			"height": 384,
+			"exits": [
+				{
+					"id": "to_hub_qr",
+					"to": "hub",
+					"x": 224,
+					"y": 368,
+					"label": "San Hô"
+				}
+			],
+			"spots": [
+				"svc_qr_door",
+				"svc_qr_keeper"
+			],
+			"zones": [],
+			"dummies": [],
+			"boss": null
+		},
+		"svc_nh": {
+			"name": "Ngân hàng San Hô",
+			"width": 448,
+			"height": 384,
+			"exits": [
+				{
+					"id": "to_hub_nh",
+					"to": "hub",
+					"x": 224,
+					"y": 368,
+					"label": "San Hô"
+				}
+			],
+			"spots": [
+				"svc_nh_door",
+				"svc_nh_keeper"
+			],
+			"zones": [],
+			"dummies": [],
+			"boss": null
+		},
+		"svc_vk": {
+			"name": "Tiệm vũ khí San Hô",
+			"width": 448,
+			"height": 384,
+			"exits": [
+				{
+					"id": "to_hub_vk",
+					"to": "hub",
+					"x": 224,
+					"y": 368,
+					"label": "San Hô"
+				}
+			],
+			"spots": [
+				"svc_vk_door",
+				"svc_vk_keeper"
+			],
+			"zones": [],
+			"dummies": [],
+			"boss": null
+		},
+		"svc_tb": {
+			"name": "Tiệm trang bị San Hô",
+			"width": 448,
+			"height": 384,
+			"exits": [
+				{
+					"id": "to_hub_tb",
+					"to": "hub",
+					"x": 224,
+					"y": 368,
+					"label": "San Hô"
+				}
+			],
+			"spots": [
+				"svc_tb_door",
+				"svc_tb_keeper"
+			],
+			"zones": [],
+			"dummies": [],
+			"boss": null
+		},
+		"svc_lr": {
+			"name": "Lò rèn San Hô",
+			"width": 448,
+			"height": 384,
+			"exits": [
+				{
+					"id": "to_hub_lr",
+					"to": "hub",
+					"x": 224,
+					"y": 368,
+					"label": "San Hô"
+				}
+			],
+			"spots": [
+				"svc_lr_door",
+				"svc_lr_keeper"
+			],
+			"zones": [],
+			"dummies": [],
+			"boss": null
+		},
+		"svc_nc": {
+			"name": "Xưởng nâng cấp San Hô",
+			"width": 448,
+			"height": 384,
+			"exits": [
+				{
+					"id": "to_hub_nc",
+					"to": "hub",
+					"x": 224,
+					"y": 368,
+					"label": "San Hô"
+				}
+			],
+			"spots": [
+				"svc_nc_door",
+				"svc_nc_keeper"
+			],
+			"zones": [],
+			"dummies": [],
+			"boss": null
+		},
+		"svc_hp": {
+			"name": "Tiệm hồi phục San Hô",
+			"width": 448,
+			"height": 384,
+			"exits": [
+				{
+					"id": "to_hub_hp",
+					"to": "hub",
+					"x": 224,
+					"y": 368,
+					"label": "San Hô"
+				}
+			],
+			"spots": [
+				"svc_hp_door",
+				"svc_hp_keeper"
+			],
+			"zones": [],
+			"dummies": [],
+			"boss": null
 		},
 		"ghost_ship": {
 			"name": "Khoang tàu ma",

@@ -136,7 +136,8 @@ export function validateRegion(maps: MapData[], levels: readonly [number, number
 		for (const t of riverTypes) if (types.has(t)) out.push(`${m.id}: quái sông ${t} trùng loài chính của map`);
 		// Cột dịch chuyển: mọi map có địa điểm `waystone` (NPC cột của vùng đứng ở map nào có) — id này được trùng.
 		for (const s of m.spots) if (s.id !== WAYSTONE_SPOT) unique('địa điểm', s.id, m.id);
-		if (!m.spots.some((s) => s.id === WAYSTONE_SPOT)) out.push(`${m.id}: thiếu địa điểm ${WAYSTONE_SPOT} (cột dịch chuyển)`);
+		// Phòng nhà dịch vụ (`svc_*`, 13/11/2026) không đặt cột dịch chuyển trong nhà.
+		if (!/^svc_/.test(m.id) && !m.spots.some((s) => s.id === WAYSTONE_SPOT)) out.push(`${m.id}: thiếu địa điểm ${WAYSTONE_SPOT} (cột dịch chuyển)`);
 		for (const z of m.monsterZones) unique('vùng quái', z.id, m.id);
 		for (const d of m.dummies) unique('hình nộm', d.id, m.id);
 		for (const s of m.spots) if (!walkable(m, s.x, s.y)) out.push(`${m.id}: địa điểm ${s.id} nằm trên nước/ngoài map`);

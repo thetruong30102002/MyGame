@@ -34,6 +34,55 @@
 					"x": 24,
 					"y": 1272,
 					"label": "Cổng Nguyên Tố"
+				},
+				{
+					"id": "to_svc_qr",
+					"to": "svc_qr",
+					"x": 1408,
+					"y": 2049,
+					"label": "Quán rượu"
+				},
+				{
+					"id": "to_svc_nh",
+					"to": "svc_nh",
+					"x": 1768,
+					"y": 2049,
+					"label": "Ngân hàng"
+				},
+				{
+					"id": "to_svc_vk",
+					"to": "svc_vk",
+					"x": 1390,
+					"y": 2433,
+					"label": "Tiệm vũ khí"
+				},
+				{
+					"id": "to_svc_tb",
+					"to": "svc_tb",
+					"x": 1720,
+					"y": 2433,
+					"label": "Tiệm trang bị"
+				},
+				{
+					"id": "to_svc_lr",
+					"to": "svc_lr",
+					"x": 1340,
+					"y": 417,
+					"label": "Lò rèn"
+				},
+				{
+					"id": "to_svc_nc",
+					"to": "svc_nc",
+					"x": 240,
+					"y": 801,
+					"label": "Xưởng nâng cấp"
+				},
+				{
+					"id": "to_svc_hp",
+					"to": "svc_hp",
+					"x": 264,
+					"y": 417,
+					"label": "Tiệm hồi phục"
 				}
 			],
 			"spots": [
@@ -52,7 +101,14 @@
 				"herb_spot_2",
 				"herb_spot_3",
 				"herb_spot_4",
-				"element_gate_outside"
+				"element_gate_outside",
+				"svc_qr_out",
+				"svc_nh_out",
+				"svc_vk_out",
+				"svc_tb_out",
+				"svc_lr_out",
+				"svc_nc_out",
+				"svc_hp_out"
 			],
 			"zones": [],
 			"dummies": [
@@ -989,6 +1045,153 @@
 				"dark_gate",
 				"waystone",
 				"element_plaza"
+			],
+			"zones": [],
+			"dummies": [],
+			"boss": null
+		},
+		"svc_qr": {
+			"name": "Quán rượu Thistlewood",
+			"width": 448,
+			"height": 384,
+			"exits": [
+				{
+					"id": "to_town_qr",
+					"to": "town",
+					"x": 224,
+					"y": 368,
+					"label": "Thistlewood"
+				}
+			],
+			"spots": [
+				"svc_qr_door",
+				"svc_qr_keeper"
+			],
+			"zones": [],
+			"dummies": [],
+			"boss": null
+		},
+		"svc_nh": {
+			"name": "Ngân hàng Thistlewood",
+			"width": 448,
+			"height": 384,
+			"exits": [
+				{
+					"id": "to_town_nh",
+					"to": "town",
+					"x": 224,
+					"y": 368,
+					"label": "Thistlewood"
+				}
+			],
+			"spots": [
+				"svc_nh_door",
+				"svc_nh_keeper"
+			],
+			"zones": [],
+			"dummies": [],
+			"boss": null
+		},
+		"svc_vk": {
+			"name": "Tiệm vũ khí Thistlewood",
+			"width": 448,
+			"height": 384,
+			"exits": [
+				{
+					"id": "to_town_vk",
+					"to": "town",
+					"x": 224,
+					"y": 368,
+					"label": "Thistlewood"
+				}
+			],
+			"spots": [
+				"svc_vk_door",
+				"svc_vk_keeper"
+			],
+			"zones": [],
+			"dummies": [],
+			"boss": null
+		},
+		"svc_tb": {
+			"name": "Tiệm trang bị Thistlewood",
+			"width": 448,
+			"height": 384,
+			"exits": [
+				{
+					"id": "to_town_tb",
+					"to": "town",
+					"x": 224,
+					"y": 368,
+					"label": "Thistlewood"
+				}
+			],
+			"spots": [
+				"svc_tb_door",
+				"svc_tb_keeper"
+			],
+			"zones": [],
+			"dummies": [],
+			"boss": null
+		},
+		"svc_lr": {
+			"name": "Lò rèn Thistlewood",
+			"width": 448,
+			"height": 384,
+			"exits": [
+				{
+					"id": "to_town_lr",
+					"to": "town",
+					"x": 224,
+					"y": 368,
+					"label": "Thistlewood"
+				}
+			],
+			"spots": [
+				"svc_lr_door",
+				"svc_lr_keeper"
+			],
+			"zones": [],
+			"dummies": [],
+			"boss": null
+		},
+		"svc_nc": {
+			"name": "Xưởng nâng cấp Thistlewood",
+			"width": 448,
+			"height": 384,
+			"exits": [
+				{
+					"id": "to_town_nc",
+					"to": "town",
+					"x": 224,
+					"y": 368,
+					"label": "Thistlewood"
+				}
+			],
+			"spots": [
+				"svc_nc_door",
+				"svc_nc_keeper"
+			],
+			"zones": [],
+			"dummies": [],
+			"boss": null
+		},
+		"svc_hp": {
+			"name": "Tiệm hồi phục Thistlewood",
+			"width": 448,
+			"height": 384,
+			"exits": [
+				{
+					"id": "to_town_hp",
+					"to": "town",
+					"x": 224,
+					"y": 368,
+					"label": "Thistlewood"
+				}
+			],
+			"spots": [
+				"svc_hp_door",
+				"svc_hp_keeper"
 			],
 			"zones": [],
 			"dummies": [],

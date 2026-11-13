@@ -264,8 +264,11 @@ namespace HavenLord.Client.UI
                     }
                     return;
                 }
-                if (key == "village_food") FarmButton("Món", "Món hầm · 30 xu", 0, 135, () => game.FarmSend("service", item: "village_food"));
-                else if (key == "village_heal") FarmButton("Thuốc", "Túi thuốc · 12 xu", 0, 135, () => game.FarmSend("service", item: "village_heal"));
+                // NPC quầy mỗi khu (`village_<mã>_<vai>`, 13/11/2026): chủ quán rượu bán món ăn, người bán hồi phục bán túi thuốc.
+                if (key == "village_food" || key.EndsWith("_tavern", StringComparison.Ordinal)) FarmButton("Món", "Món hầm · 30 xu", 0, 135, () => game.FarmSend("service", item: "village_food", npc: key));
+                else if (key == "village_heal" || key.EndsWith("_heal", StringComparison.Ordinal)) FarmButton("Thuốc", "Túi thuốc · 12 xu", 0, 135, () => game.FarmSend("service", item: "village_heal", npc: key));
+                else if (key.EndsWith("_bank", StringComparison.Ordinal)) FarmText("Chuẩn bị", "Két gửi đồ và gửi xu sẽ mở khi luật ngân hàng được duyệt.", 135, 65);
+                else if (key.EndsWith("_upgrade", StringComparison.Ordinal)) FarmText("Chuẩn bị", "Cường hoá vũ khí / trang bị sẽ mở khi bảng đá cường hoá được duyệt.", 135, 65);
                 else if (key == "village_event") FarmText("Sự kiện", "Chưa có sự kiện đang diễn ra. Bạn đã có thể làm quen Iris để nhận Gia viên.", 135, 60);
                 else FarmText("Chuẩn bị", "Danh mục vũ khí và công thức rèn sẽ mở theo thiết kế nghề / nhiệm vụ mới được duyệt.", 135, 65);
                 FarmButton("Về", "Cư dân / Gia viên", 0, 240, () => game.ShowFarm());

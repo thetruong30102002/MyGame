@@ -387,7 +387,7 @@ function buildKitMapOnce(spec: KitMapSpec, exits: readonly KitExit[], meta: Reco
 			return { ux: (inner.x - J.x) / len, uy: (inner.y - J.y) / len, len };
 		});
 		const STEP = 5.2;
-		const slots: { x: number; y: number; ux: number; uy: number }[] = [];
+		const slots: { x: number; y: number; ux: number; uy: number; nx: number }[] = [];
 		for (let s = 7.5; s < 30; s += STEP)
 			for (const st of streets) {
 				if (s > st.len - 4) continue;
@@ -396,7 +396,7 @@ function buildKitMapOnce(spec: KitMapSpec, exits: readonly KitExit[], meta: Reco
 					const ny = st.ux * side;
 					// Nhà phía dưới đường cần lùi thêm (ảnh neo ở mép dưới, mái chìa lên trên).
 					const off = 3.2 + (ny > 0.5 ? 1.4 : 0);
-					slots.push({ x: J.x + 1 + st.ux * s + nx * off, y: J.y + 1 + st.uy * s + ny * off, ux: st.ux, uy: st.uy });
+					slots.push({ x: J.x + 1 + st.ux * s + nx * off, y: J.y + 1 + st.uy * s + ny * off, ux: st.ux, uy: st.uy, nx });
 				}
 			}
 		const left: string[] = [];
@@ -404,7 +404,12 @@ function buildKitMapOnce(spec: KitMapSpec, exits: readonly KitExit[], meta: Reco
 		for (const id of queue) {
 			let done = false;
 			while (si < slots.length && !done) {
-				const sl = slots[si++]!;
+				const sl0 = slots[si++]!;
+				// Nhà dịch vụ (~300 px) bên đường dọc: lùi thêm cho mép nhà không đè lòng đường.
+				const half = (meta[id]?.w ?? 0) / TILE / 2;
+				const sl = id.startsWith('svc_house_') && Math.abs(sl0.nx) > 0.5 && half + 1.6 > 3.2 ? { ...sl0, x: sl0.x + sl0.nx * (half + 1.6 - 3.2) } : sl0;
+				// Nhà dịch vụ vào được (`maps/serviceRooms`): trước cửa phải đi được (không nước / vách).
+				if (id.startsWith('svc_house_') && [0.6, 1.4].some((d) => /[w#]/.test(L.at(Math.floor(sl.x + 0.5), Math.floor(sl.y + 0.5 + d))))) continue;
 				if (!L.place(id, px(sl.x), px(sl.y))) continue;
 				done = true;
 				// Công trình biểu tượng (GPT đợt 12, cao ~280 px): giữ trống quanh thân để cây / đá rải sau không che mặt tiền.

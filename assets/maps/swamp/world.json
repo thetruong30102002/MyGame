@@ -4,36 +4,85 @@
 	"maps": {
 		"hub": {
 			"name": "Làng nhà sàn Lau Xám",
-			"width": 2112,
-			"height": 1728,
+			"width": 2688,
+			"height": 2208,
 			"exits": [
 				{
 					"id": "hub_x1",
 					"to": "reedbank",
-					"x": 960,
-					"y": 1704,
+					"x": 1248,
+					"y": 2184,
 					"label": "Bãi Lau Sậy · cấp 10–11"
 				},
 				{
 					"id": "hub_x2",
 					"to": "mistshore",
 					"x": 24,
-					"y": 1008,
+					"y": 1248,
 					"label": "Bờ Sương · cấp 14–15"
 				},
 				{
 					"id": "hub_x3",
 					"to": "leechcanal",
-					"x": 960,
+					"x": 1248,
 					"y": 24,
 					"label": "Kênh Đỉa · cấp 16–17"
 				},
 				{
 					"id": "hub_x4",
 					"to": "human/rivergate",
-					"x": 2088,
-					"y": 1008,
+					"x": 2664,
+					"y": 1248,
 					"label": "Hẻm Cửa Sông · Thung lũng Thistlewood"
+				},
+				{
+					"id": "to_svc_qr",
+					"to": "svc_qr",
+					"x": 1541,
+					"y": 1641,
+					"label": "Quán rượu"
+				},
+				{
+					"id": "to_svc_nh",
+					"to": "svc_nh",
+					"x": 1020,
+					"y": 1641,
+					"label": "Ngân hàng"
+				},
+				{
+					"id": "to_svc_vk",
+					"to": "svc_vk",
+					"x": 1035,
+					"y": 921,
+					"label": "Tiệm vũ khí"
+				},
+				{
+					"id": "to_svc_tb",
+					"to": "svc_tb",
+					"x": 1518,
+					"y": 921,
+					"label": "Tiệm trang bị"
+				},
+				{
+					"id": "to_svc_lr",
+					"to": "svc_lr",
+					"x": 662,
+					"y": 1502,
+					"label": "Lò rèn"
+				},
+				{
+					"id": "to_svc_nc",
+					"to": "svc_nc",
+					"x": 662,
+					"y": 1127,
+					"label": "Xưởng nâng cấp"
+				},
+				{
+					"id": "to_svc_hp",
+					"to": "svc_hp",
+					"x": 1882,
+					"y": 1127,
+					"label": "Tiệm hồi phục"
 				}
 			],
 			"spots": [
@@ -42,7 +91,14 @@
 				"hub_n",
 				"east_gate",
 				"waystone",
-				"plaza"
+				"plaza",
+				"svc_qr_out",
+				"svc_nh_out",
+				"svc_vk_out",
+				"svc_tb_out",
+				"svc_lr_out",
+				"svc_nc_out",
+				"svc_hp_out"
 			],
 			"zones": [],
 			"dummies": [],
@@ -831,6 +887,153 @@
 				20,
 				20
 			]
+		},
+		"svc_qr": {
+			"name": "Quán rượu Lau Xám",
+			"width": 448,
+			"height": 384,
+			"exits": [
+				{
+					"id": "to_hub_qr",
+					"to": "hub",
+					"x": 224,
+					"y": 368,
+					"label": "Lau Xám"
+				}
+			],
+			"spots": [
+				"svc_qr_door",
+				"svc_qr_keeper"
+			],
+			"zones": [],
+			"dummies": [],
+			"boss": null
+		},
+		"svc_nh": {
+			"name": "Ngân hàng Lau Xám",
+			"width": 448,
+			"height": 384,
+			"exits": [
+				{
+					"id": "to_hub_nh",
+					"to": "hub",
+					"x": 224,
+					"y": 368,
+					"label": "Lau Xám"
+				}
+			],
+			"spots": [
+				"svc_nh_door",
+				"svc_nh_keeper"
+			],
+			"zones": [],
+			"dummies": [],
+			"boss": null
+		},
+		"svc_vk": {
+			"name": "Tiệm vũ khí Lau Xám",
+			"width": 448,
+			"height": 384,
+			"exits": [
+				{
+					"id": "to_hub_vk",
+					"to": "hub",
+					"x": 224,
+					"y": 368,
+					"label": "Lau Xám"
+				}
+			],
+			"spots": [
+				"svc_vk_door",
+				"svc_vk_keeper"
+			],
+			"zones": [],
+			"dummies": [],
+			"boss": null
+		},
+		"svc_tb": {
+			"name": "Tiệm trang bị Lau Xám",
+			"width": 448,
+			"height": 384,
+			"exits": [
+				{
+					"id": "to_hub_tb",
+					"to": "hub",
+					"x": 224,
+					"y": 368,
+					"label": "Lau Xám"
+				}
+			],
+			"spots": [
+				"svc_tb_door",
+				"svc_tb_keeper"
+			],
+			"zones": [],
+			"dummies": [],
+			"boss": null
+		},
+		"svc_lr": {
+			"name": "Lò rèn Lau Xám",
+			"width": 448,
+			"height": 384,
+			"exits": [
+				{
+					"id": "to_hub_lr",
+					"to": "hub",
+					"x": 224,
+					"y": 368,
+					"label": "Lau Xám"
+				}
+			],
+			"spots": [
+				"svc_lr_door",
+				"svc_lr_keeper"
+			],
+			"zones": [],
+			"dummies": [],
+			"boss": null
+		},
+		"svc_nc": {
+			"name": "Xưởng nâng cấp Lau Xám",
+			"width": 448,
+			"height": 384,
+			"exits": [
+				{
+					"id": "to_hub_nc",
+					"to": "hub",
+					"x": 224,
+					"y": 368,
+					"label": "Lau Xám"
+				}
+			],
+			"spots": [
+				"svc_nc_door",
+				"svc_nc_keeper"
+			],
+			"zones": [],
+			"dummies": [],
+			"boss": null
+		},
+		"svc_hp": {
+			"name": "Tiệm hồi phục Lau Xám",
+			"width": 448,
+			"height": 384,
+			"exits": [
+				{
+					"id": "to_hub_hp",
+					"to": "hub",
+					"x": 224,
+					"y": 368,
+					"label": "Lau Xám"
+				}
+			],
+			"spots": [
+				"svc_hp_door",
+				"svc_hp_keeper"
+			],
+			"zones": [],
+			"dummies": [],
+			"boss": null
 		},
 		"stone_dam": {
 			"name": "Thân đập đá của Đoàn",

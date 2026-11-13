@@ -696,7 +696,8 @@ namespace HavenLord.Client.UI
         /// </summary>
         private List<MapTile> TileLayout(WorldIndex idx, RegionDef def)
         {
-            var maps = idx.maps.Where(m => m != null).ToList();
+            // Phòng nhà dịch vụ (`svc_*`, 13/11/2026) nằm trong trạm, không thành ô riêng trên bản đồ vùng.
+            var maps = idx.maps.Where(m => m != null && !m.id.StartsWith("svc_", System.StringComparison.Ordinal)).ToList();
             var outList = new List<MapTile>();
             if (Atlas["REGION_LAYOUTS"]?[idx.region]?["nodes"] is JObject hand)
             {

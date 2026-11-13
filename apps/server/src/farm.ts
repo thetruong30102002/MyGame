@@ -3,6 +3,7 @@ import {FARM_CROPS,FARM_FISH,FARM_LAYOUT,FARM_ROOMS,FARM_SHOP,FARM_TANK,FARM_ANI
 import {STORY} from '@havenlord/sim/story/story';
 import {COOK_QUALITY,FISH_MAX_TICKS,FISH_TICK_MS,cookQuality,fishFight,fishPower,type CookQuality} from '@havenlord/sim/minigames';
 import {VILLAGE_SHOP} from '@havenlord/sim/village';
+import {SERVICE_ROOMS,SERVICE_TOWNS,serviceRole} from '@havenlord/sim/serviceTowns';
 import type {ServerMessage} from '@havenlord/protocol';
 import {spotOf} from './maps.ts';
 import type {Store} from './db.ts';
@@ -20,7 +21,11 @@ export class Farm {
  /** Map Gia viên nhân vật này được vào: Gia viên của mình + hồ bạn đang được mời. */
  canEnterMap(id:string,account:number,map:string){return farmMaps(account).includes(map)||this.pondGuests.get(id)===map;}
  constructor(private store:Store,private host:FarmHost,private mapsDir:string,private now:()=>number=Date.now,private random:()=>number=()=>randomInt(1000000)/1000000){}
- roster(){return Object.entries(STORY.npcs).flatMap(([id,n])=>{const s=spotOf(this.mapsDir,'human/town',n.at.spot);return n.sprite&&(!n.region||n.region==='human')&&s&&n.ages[0]<=16&&n.ages[1]>=16?[{id,name:n.name,x:s.x+(n.at.dx??0),y:s.y+(n.at.dy??0)}]:[];});}
+ /** Chỗ đứng NPC: map trạm của vùng hoặc phòng nhà dịch vụ (`svc_*`, 13/11/2026). */
+ npcPlace(id:string):{map:string;x:number;y:number}|null{const n=STORY.npcs[id];if(!n)return null;const region=n.region??'human';const hub=SERVICE_TOWNS.find(t=>t.region===region)?.hub??(region==='human'?'town':'hub');
+  for(const m of [hub,...SERVICE_ROOMS.map(r=>`svc_${r}`)]){const s=spotOf(this.mapsDir,`${region}/${m}`,n.at.spot);if(s)return{map:`${region}/${m}`,x:s.x+(n.at.dx??0),y:s.y+(n.at.dy??0)};}return null;}
+ /** Cư dân Thistlewood cần làm quen để mở Gia viên: như trước 13/11 (người bán cũ nay đứng quầy trong nhà vẫn tính), NPC quầy mới `village_tl_*` không tính. */
+ roster(){return Object.entries(STORY.npcs).flatMap(([id,n])=>{if(/^village_[a-z]{2}_/.test(id)||!n.sprite||(n.region&&n.region!=='human')||n.ages[0]>16||n.ages[1]<16)return[];const p=this.npcPlace(id);return p?[{id,name:n.name,map:p.map,x:p.x,y:p.y}]:[];});}
  canEnter(account:number){return this.store.farm.read(account).unlocked;}
  private send(id:string,account:number,enter=false){const state=this.store.farm.read(account);for(const p of state.plots)growPlot(p,this.now());const at=this.host.where(id);const fish=state.fish?{nonce:state.fish.nonce,biteAt:state.fish.biteAt,expires:state.fish.expires,hookedAt:state.fish.hookedAt??null,seed:state.fish.seed??null,power:state.fish.power??null}:null;const inRoom=roomOf(account,at?.map);const room=at&&isPondMap(at.map)?'pond':inRoom??'garden';this.host.send(id,{t:'farm',state:{...state,fish,required:this.roster(),map:room==='pond'?at!.map:inRoom?roomMap(account,inRoom):homeMap(account),room,now:this.now(),enter}});}
  handle(id:string,account:number,raw:{op?:unknown;plot?:unknown;crop?:unknown;npc?:unknown;nonce?:unknown;outfit?:unknown;item?:unknown;room?:unknown;toggles?:unknown}):void{
@@ -75,7 +80,7 @@ export class Farm {
    }
    this.store.farm.run<unknown>(account,id,this.now(),(s,coins,gems)=>{
     if(op==='talk'){
-     const npc=this.roster().find(n=>n.id===raw.npc);if(!npc||at.map!=='human/town'||!near(npc.x,npc.y,130))throw new Error('Hãy tới gần người muốn trò chuyện');
+     const npc=this.roster().find(n=>n.id===raw.npc);if(!npc||at.map!==npc.map||!near(npc.x,npc.y,130))throw new Error('Hãy tới gần người muốn trò chuyện');
      if(!s.visited.includes(npc.id))s.visited.push(npc.id);
      if(!s.unlocked&&this.roster().every(n=>s.visited.includes(n.id))){s.unlocked=true;for(const c of FARM_STARTER_CROPS)s.inventory[`seed_${c}`]=3;this.host.send(id,{t:'system',text:'Bạn đã quen cư dân Thistlewood. Gia viên đã mở; nhận 3 hạt mỗi loại trong kho!'});}
      return{value:null};
@@ -85,7 +90,9 @@ export class Farm {
      const c=FARM_CROPS.find(c=>c.id===raw.crop);if(!c)throw new Error('Không có hạt này');if(coins<c.seed)throw new Error('Không đủ xu');s.inventory[`seed_${c.id}`]=(s.inventory[`seed_${c.id}`]||0)+1;return{value:null,coins:coins-c.seed};
     }
     if(op==='service'){
-     const item=VILLAGE_SHOP.find(x=>x.id===raw.item);const npc=this.roster().find(n=>n.id===item?.npc);if(!item||!npc||at.map!=='human/town'||!near(npc.x,npc.y,160))throw new Error('Hãy tới đúng quầy hàng');if(coins<item.coins)throw new Error('Không đủ xu');return{value:null,coins:coins-item.coins,...('potions'in item?{potions:item.potions}:{buff:true})};
+     // Quầy mỗi khu (13/11): túi thuốc ở người bán hồi phục, món ăn ở chủ quán rượu (hoặc Mai ở quảng trường Thistlewood).
+     const item=VILLAGE_SHOP.find(x=>x.id===raw.item);const key=typeof raw.npc==='string'?raw.npc:item?.npc??'';const npc=item&&serviceRole(key)===serviceRole(item.npc)?this.npcPlace(key):null;
+     if(!item||!npc||at.map!==npc.map||!near(npc.x,npc.y,160))throw new Error('Hãy tới đúng quầy hàng');if(coins<item.coins)throw new Error('Không đủ xu');return{value:null,coins:coins-item.coins,...('potions'in item?{potions:item.potions}:{buff:true})};
     }
     if(!s.unlocked||!(farmMaps(account).includes(at.map)||(isPondMap(at.map)&&(op==='cast'||op==='pull'||op==='land'))))throw new Error('Chỉ chủ nhà được thao tác trong Gia viên đã mở');
     if(op==='gacha'||op==='petOut'||op==='petTrade'){

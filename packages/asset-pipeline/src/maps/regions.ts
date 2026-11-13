@@ -3,6 +3,7 @@ import { GPT_REGION_PROPS, withGptArt } from '../props/gptArt.js';
 import { ELEMENT_REGIONS, attachElementGate } from './elemental.js';
 import { FUNGAL_REGION, RUINS_REGION, VOID_REGION } from './lateRegions.js';
 import { attachBuilding, BUILDINGS } from './buildings.js';
+import { attachServiceTown, serviceProps, withServiceHouses } from './serviceRooms.js';
 import type { PropMeta } from '../props/buildProps.js';
 import { HUMAN_KINGDOM_DECAL_SHEETS, HUMAN_KINGDOM_PROPS } from '../props/humanKingdom.js';
 import { DESERT_PROPS, HIGHLAND_PROPS, ISLES_PROPS, SWAMP_PROPS, TUNDRA_PROPS, VOLCANO_PROPS } from '../props/worldRegions.js';
@@ -33,13 +34,13 @@ export const REGION_BUILDS: Record<string, RegionBuild> = {
 	wood: kit(withGptArt(ELEMENT_REGIONS.wood), [...ELEMENT_PROPS.wood, ...GPT_REGION_PROPS.wood!]),
 	light: kit(withGptArt(ELEMENT_REGIONS.light), [...ELEMENT_PROPS.light, ...GPT_REGION_PROPS.light!]),
 	dark: kit(withGptArt(ELEMENT_REGIONS.dark), [...ELEMENT_PROPS.dark, ...GPT_REGION_PROPS.dark!]),
-	human: { props: HUMAN_KINGDOM_PROPS, decals: HUMAN_KINGDOM_DECAL_SHEETS, build: buildHumanRegion },
-	swamp: kit(SWAMP_REGION, SWAMP_PROPS, true),
-	desert: kit(DESERT_REGION, DESERT_PROPS),
-	highland: kit(HIGHLAND_REGION, HIGHLAND_PROPS, true),
-	tundra: kit(TUNDRA_REGION, TUNDRA_PROPS),
-	volcano: kit(VOLCANO_REGION, VOLCANO_PROPS),
-	isles: kit(ISLES_REGION, ISLES_PROPS),
+	human: { props: [...HUMAN_KINGDOM_PROPS, ...serviceProps('human')], decals: HUMAN_KINGDOM_DECAL_SHEETS, build: buildHumanRegion },
+	swamp: kit(withServiceHouses(SWAMP_REGION), [...SWAMP_PROPS, ...serviceProps('swamp')], true),
+	desert: kit(withServiceHouses(DESERT_REGION), [...DESERT_PROPS, ...serviceProps('desert')]),
+	highland: kit(withServiceHouses(HIGHLAND_REGION), [...HIGHLAND_PROPS, ...serviceProps('highland')], true),
+	tundra: kit(withServiceHouses(TUNDRA_REGION), [...TUNDRA_PROPS, ...serviceProps('tundra')]),
+	volcano: kit(withServiceHouses(VOLCANO_REGION), [...VOLCANO_PROPS, ...serviceProps('volcano')]),
+	isles: kit(withServiceHouses(ISLES_REGION), [...ISLES_PROPS, ...serviceProps('isles')]),
 	fungal: kit(withGptArt(FUNGAL_REGION), [...SWAMP_PROPS, ...GPT_REGION_PROPS.fungal!]),
 	ruins: kit(withGptArt(RUINS_REGION), [...HIGHLAND_PROPS, ...GPT_REGION_PROPS.ruins!]),
 	void: kit(withGptArt(VOID_REGION), [...VOLCANO_PROPS, ...GPT_REGION_PROPS.void!]),
@@ -53,6 +54,8 @@ export function regionBuild(id: string): RegionBuild {
 		build: (meta, decalIds) => {
 			const result = r.build(meta, decalIds);
 			if (id === 'human') attachElementGate(result.maps, meta);
+			// Nhà dịch vụ vào được (13/11/2026): cửa 7 nhà ở trạm + 7 map phòng.
+			attachServiceTown(result.maps, id, meta);
 			const spec = BUILDINGS[id];
 			if (!spec) return result;
 			result.maps.push(attachBuilding(result.maps, spec, meta));
