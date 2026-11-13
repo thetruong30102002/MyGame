@@ -28,6 +28,8 @@ export interface MobHost {
 	credited(player: string, type: string, stats: EnemyStats): void;
 	/** Boss vùng vừa xuất hiện ở khu `channel` của map `map` (khoá gốc, không kèm khu) — thông báo thế giới. Vắng = không báo. */
 	bossAppeared?(map: string, type: string, channel: number): void;
+	/** Boss vùng vừa gục + những người được tính công (phiên nhiệm vụ Thế giới). */
+	bossKilled?(type: string, credit: readonly string[]): void;
 }
 
 interface Mob extends MobView {
@@ -170,6 +172,7 @@ export class MobRegistry {
 		const credit = [...mob.hitters].filter(([, at]) => t - at <= MOB_CREDIT_SECONDS * 1000).map(([p]) => p);
 		mob.hitters.clear();
 		for (const p of credit) this.host.credited(p, mob.type, mob.stats);
+		if (mob.regionBoss) this.host.bossKilled?.(mob.type, credit);
 		this.broadcast(m, { t: 'mobDie', id: mob.id, by: player, credit });
 	}
 

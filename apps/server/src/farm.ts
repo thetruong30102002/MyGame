@@ -9,7 +9,7 @@ import type {ServerMessage} from '@havenlord/protocol';
 import {spotOf} from './maps.ts';
 import type {Store} from './db.ts';
 
-export interface FarmHost {where(id:string):{map:string;x:number;y:number}|null;send(id:string,msg:ServerMessage):void;move(id:string,map:string):void;refresh(id:string):void;count?(map:string):number}
+export interface FarmHost {life?(id:string,kind:'harvest'|'fish'|'cook'|'feed'):void;where(id:string):{map:string;x:number;y:number}|null;send(id:string,msg:ServerMessage):void;move(id:string,map:string):void;refresh(id:string):void;count?(map:string):number}
 export const homeMap=(account:number,inside=false)=>`home/${account}${inside?'_inside':''}`;
 /** Map từng phòng trong nhà: phòng khách giữ id cũ `_inside`, thêm bếp / phòng ngủ. */
 export const roomMap=(account:number,room:FarmRoom)=>room==='house'?homeMap(account,true):`home/${account}_${room}`;
@@ -26,8 +26,10 @@ export class Farm {
  npcPlace(id:string):{map:string;x:number;y:number}|null{const n=STORY.npcs[id];if(!n)return null;const region=n.region??'human';const hub=SERVICE_TOWNS.find(t=>t.region===region)?.hub??(region==='human'?'town':'hub');
   for(const m of [hub,...SERVICE_ROOMS.map(r=>`svc_${r}`)]){const s=spotOf(this.mapsDir,`${region}/${m}`,n.at.spot);if(s)return{map:`${region}/${m}`,x:s.x+(n.at.dx??0),y:s.y+(n.at.dy??0)};}return null;}
  /** Cư dân Thistlewood cần làm quen để mở Gia viên: như trước 13/11 (người bán cũ nay đứng quầy trong nhà vẫn tính), NPC quầy mới `village_tl_*` không tính. */
- roster(){return Object.entries(STORY.npcs).flatMap(([id,n])=>{if(/^village_[a-z]{2}_/.test(id)||!n.sprite||(n.region&&n.region!=='human')||n.ages[0]>16||n.ages[1]<16)return[];const p=this.npcPlace(id);return p?[{id,name:n.name,map:p.map,x:p.x,y:p.y}]:[];});}
+ roster(){return Object.entries(STORY.npcs).flatMap(([id,n])=>{if(/^village_[a-z]{2}_|^q2_/.test(id)||!n.sprite||(n.region&&n.region!=='human')||n.ages[0]>16||n.ages[1]<16)return[];const p=this.npcPlace(id);return p?[{id,name:n.name,map:p.map,x:p.x,y:p.y}]:[];});}
  canEnter(account:number){return this.store.farm.read(account).unlocked;}
+ /** Nhiệm vụ mới M05 "Bàn giao khuôn viên" (13/11/2026) mở Gia viên + hạt khởi đầu; đã mở thì giữ nguyên. */
+ unlockByQuest(id:string,account:number){this.store.farm.run(account,id,this.now(),s=>{if(!s.unlocked){s.unlocked=true;for(const c of FARM_STARTER_CROPS)s.inventory[`seed_${c}`]=3;}return{value:null};});}
  private send(id:string,account:number,enter=false){const state=this.store.farm.read(account);for(const p of state.plots)growPlot(p,this.now());const at=this.host.where(id);const fish=state.fish?{nonce:state.fish.nonce,biteAt:state.fish.biteAt,expires:state.fish.expires,hookedAt:state.fish.hookedAt??null,seed:state.fish.seed??null,power:state.fish.power??null}:null;const inRoom=roomOf(account,at?.map);const room=at&&isPondMap(at.map)?'pond':inRoom??'garden';this.host.send(id,{t:'farm',state:{...state,fish,bank:accrue(state.bank,this.now()),bankQuote:bankQuote(this.now()),required:this.roster(),map:room==='pond'?at!.map:inRoom?roomMap(account,inRoom):homeMap(account),room,now:this.now(),enter}});}
  handle(id:string,account:number,raw:{op?:unknown;plot?:unknown;crop?:unknown;npc?:unknown;nonce?:unknown;outfit?:unknown;item?:unknown;room?:unknown;toggles?:unknown}):void{
   const op=String(raw.op||'');const at=this.host.where(id);if(!at)return;
@@ -79,7 +81,7 @@ export class Farm {
     const target=roomMap(account,to);
     this.host.send(id,{t:'farm',state:{travel:to,spot:`from_${from}`,map:target}});this.host.move(id,target);this.send(id,account);return;
    }
-   this.store.farm.run<unknown>(account,id,this.now(),(s,coins,gems)=>{
+   const value=this.store.farm.run<unknown>(account,id,this.now(),(s,coins,gems)=>{
     if(op==='talk'){
      const npc=this.roster().find(n=>n.id===raw.npc);if(!npc||at.map!==npc.map||!near(npc.x,npc.y,130))throw new Error('Hãy tới gần người muốn trò chuyện');
      if(!s.visited.includes(npc.id))s.visited.push(npc.id);
@@ -261,6 +263,8 @@ export class Farm {
     else if(op==='harvest'){const c=FARM_CROPS.find(x=>x.id===p.crop);if(!c||p.growth<c.ms)throw new Error('Cây chưa chín');const key=`farm_${c.id}`;s.inventory[key]=(s.inventory[key]||0)+1;Object.assign(p,{crop:null,growth:0,watered:false,lastAt:0,plantedAt:0});}
     else throw new Error('Thao tác Gia viên không hợp lệ');s.lastAction=this.now();return{value:null};
    });
+   // Nhiệm vụ mới (13/11): việc sinh hoạt đã commit → sự kiện cho việc hằng ngày / phụ.
+   const life=op==='harvest'?'harvest':op==='cookDone'?'cook':op==='feed'?'feed':op==='land'&&value==='caught'?'fish':null;if(life)this.host.life?.(id,life);
    this.host.refresh(id);if(op==='gacha')this.host.send(id,{t:'wallet',diamonds:this.store.diamonds(id)});this.send(id,account);
   }catch(e){this.host.send(id,{t:'system',text:e instanceof Error?e.message:'Không thực hiện được thao tác'});}
  }

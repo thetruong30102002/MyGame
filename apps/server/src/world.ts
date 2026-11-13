@@ -9,6 +9,7 @@ import { Rewards } from './rewards.ts';
 import { BUFF_TICK_MS, Shop } from './shop.ts';
 import { Economy } from './economy.ts';
 import { Farm } from './farm.ts';
+import { Quests2 } from './quests2.ts';
 import { newPvpState, Pvp, type PvpState } from './pvp.ts';
 import { resetDiamonds } from '@havenlord/sim/talents';
 import { REGIONS } from '@havenlord/sim/regions';
@@ -82,6 +83,7 @@ export class World {
 	readonly shop: Shop;
 	readonly economy: Economy;
 	readonly farm: Farm;
+	readonly quests2: Quests2;
 	readonly pvp: Pvp;
 	private readonly buffTimer: NodeJS.Timeout;
 
@@ -116,12 +118,15 @@ export class World {
 				credited: (id, type, stats) => {
 					this.store.addKill(id, type);
 					this.economy.sharedKill(id, type, stats);
+					this.quests2.kill(id, type, this.conns.get(id)?.map ?? null);
 				},
+				bossKilled: (type, credit) => this.quests2.bossKilled(type, credit),
 				// Boss vùng chỉ ở một khu: báo cả thế giới tên boss, map, số khu (chủ dự án 13/11/2026).
 				bossAppeared: (map, type, channel) => {
 					const name = REGIONS.find((r) => r.chief?.id === type)?.chief?.name ?? type;
 					const text = `⚔ ${name} đã xuất hiện ở ${mapName(mapsDir, map) ?? map} · Khu ${channel}!`;
 					for (const o of this.conns.values()) send(o.ws, { t: 'system', text });
+					this.quests2.bossAppeared(map, type, channel);
 				},
 			},
 			zonesOf,
@@ -141,6 +146,7 @@ export class World {
 					}
 				},
 				map: (id) => this.conns.get(id)?.map ?? null,
+				killed: (id, type) => this.quests2.kill(id, type, this.conns.get(id)?.map ?? null),
 			},
 			mapsDir,
 			now,
@@ -190,11 +196,22 @@ export class World {
 			},
 		});
 		this.farm = new Farm(store, {
+			life: (id, kind) => this.quests2.life(id, kind),
 			where: id => {const c=this.conns.get(id);return c?{map:c.map,x:c.view.x,y:c.view.y}:null;},
 			send: (id,msg) => {const c=this.conns.get(id);if(c)send(c.ws,msg);},
 			move: (id,map) => {const c=this.conns.get(id);if(c)this.changeMap(c,map,true);},
 			count: map => this.inMap(map).length,
 			refresh: id => {this.economy.online(id);const c=this.conns.get(id);if(c)send(c.ws,{t:'buffs',list:store.buffs(id)});},
+		}, mapsDir, now);
+		// Nhiệm vụ mới bốn loại (13/11/2026): máy chủ kiểm vị trí, đếm sự kiện thật, trao thưởng một lần.
+		this.quests2 = new Quests2(store.quests2, {
+			where: (id) => { const c = this.conns.get(id); return c ? { map: c.map, x: c.view.x, y: c.view.y } : null; },
+			send: (id, msg) => { const c = this.conns.get(id); if (c) send(c.ws, msg); },
+			level: (id) => this.economy.get(id)?.level ?? this.conns.get(id)?.view.level ?? 1,
+			account: (id) => this.conns.get(id)?.accountId ?? null,
+			farmOpen: (acc) => store.farm.read(acc).unlocked,
+			unlockFarm: (id, acc) => this.farm.unlockByQuest(id, acc),
+			reward: (id, exp, coins, ref, title) => this.economy.questReward(id, exp, coins, ref, title),
 		}, mapsDir, now);
 	}
 
@@ -305,6 +322,9 @@ export class World {
 
 	private handle(c: Conn, msg: ClientMessage): void {
 		switch (msg.t) {
+			case 'q2':
+				if (!c.social.allow('q2')) return;
+				return this.quests2.handle(c.view.id, msg);
 			case 'farm':
 				if (!c.social.allow('farm')) return;
 				return this.farm.handle(c.view.id,c.accountId,msg);

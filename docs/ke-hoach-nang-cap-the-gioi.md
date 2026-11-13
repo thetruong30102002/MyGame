@@ -9045,14 +9045,14 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
         {
           "label": "Duyệt bản chữ bốn loại nhiệm vụ, tuyến chính theo cấp / Ma thần, quan hệ NPC và các cú lật",
           "weight": 30,
-          "done": false,
-          "evidence": "13/11/2026: bản chữ docs/thiet-ke/he-nhiem-vu-bon-loai-2026-11.md có 30 việc Chính, 26 chuỗi Phụ, 4 chuỗi xuyên vùng, bảng Hằng ngày và 4 mẫu Thế giới. Bản bàn giao he-nhiem-vu-bon-loai-ban-giao.md bổ sung ID bền, thoại theo 30 mốc, thưởng thử, quy tắc server, bốc ngày, phiên thế giới và chuyển 61 quest cũ chỉ ở tầng kỹ thuật. Theo chốt mới bỏ hoàn toàn chuyển sinh/kiếp trước/tuổi thơ Lior khỏi truyện mới. Chủ dự án sẽ nhờ Claude dựng sau; chưa nghiệm thu/game, giữ % cũ."
+          "done": true,
+          "evidence": "13/11/2026: bản chữ docs/thiet-ke/he-nhiem-vu-bon-loai-2026-11.md (Codex) + bản sửa drama mục 1b (Claude: mẹ con Nell / Kai, Vera neo con gái, người chơi bị neo, Edda và Kẻ Trả Về, Iris chuyển tên); chủ dự án duyệt \"Ok làm đi\". 24 NPC mới vẽ PixelLab tên tiếng Anh (npc_q2_*)."
         },
         {
           "label": "Dữ liệu nhiệm vụ / hội thoại / phần thưởng mới và phương án chuyển save không mất tiến độ / tài sản",
           "weight": 30,
           "done": false,
-          "evidence": ""
+          "evidence": "13/11/2026 đợt 1: packages/sim/src/quests2.ts — Hồi I Chính M01–M07, 2 chuỗi Phụ Thistlewood, 11 mẫu Hằng ngày, Thế giới báo động boss vùng; máy chủ apps/server/src/quests2.ts (bảng quest2_states, kiểm vị trí talk / reach, đếm hạ quái / boss / Gia viên, thưởng một lần theo ref, bốc việc ngày tất định, phiên boss 30 phút). Test sim + máy chủ. Còn: Hồi II–V, 24 chuỗi Phụ, chuyển save, client."
         },
         {
           "label": "Tích hợp Unity/máy chủ",

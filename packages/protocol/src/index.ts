@@ -579,6 +579,8 @@ export type ClientMessage =
 	| { t: 'map'; map: string }
 	/** Đổi khu của map đang đứng (`@havenlord/sim/channels`); `channel: 0` = chỉ hỏi số người từng khu. */
 	| { t: 'channel'; channel: number }
+	/** Nhiệm vụ mới (`@havenlord/sim/quests2`): `get` / `talk` npc / `reach` spot / `track` id — máy chủ kiểm vị trí. */
+	| { t: 'q2'; op: string; npc?: string; spot?: string; id?: string }
 	| { t: 'ping'; at: number }
 	/** Mời kết bạn — theo id (bấm tên) hoặc theo tên gõ tay. */
 	| { t: 'friendAdd'; id?: string; name?: string }
@@ -643,6 +645,8 @@ export type ServerMessage =
 	| { t: 'system'; text: string }
 	/** Khu đang đứng + số người từng khu của map này (gửi khi vào map, đổi khu, hoặc khi hỏi). */
 	| { t: 'channel'; channel: number; counts: number[] }
+	/** Trạng thái nhiệm vụ mới của mình + phiên Thế giới đang mở. */
+	| { t: 'q2'; state: unknown; world: { id: string; title: string; boss: string; map: string; channel: number; endAt: number }[] }
 	/** `fx` chỉ có khi mã chiêu có thật và phần chiêu hợp lệ (máy chủ đã chuẩn hoá + kẹp điểm nhắm quanh người gửi). */
 	| { t: 'action'; id: string; anim: ActionAnim; dir: string; skill?: string; fx?: ActionFx }
 	/** `hit` chỉ có khi đúng `true` (đòn đã qua khung chạm — xem tin `actionEnd` của máy khách). */

@@ -1,5 +1,6 @@
 import type {NpcDef} from './story/storyTypes.ts';
 import {SERVICE_KEEPER_NPCS} from './serviceTowns.ts';
+import {Q2_NPCS} from './quests2.ts';
 /** Vùng 1: dùng hình đã có, các tên / giá mới là bản thử chờ duyệt cốt truyện. */
 export const VILLAGE_NPCS:Record<string,NpcDef>={
  village_armor:{name:'Ela',title:'Người bán trang bị',sprite:'npc_mirelle_001',region:'human',at:{spot:'svc_tb_keeper'},ages:[16,99],stationary:true,idle:['Một bộ áo tốt phải giúp người mặc trở về. Bộ thứ hai của mỗi nghề hiện có ở quầy trang bị.']},
@@ -12,6 +13,8 @@ export const VILLAGE_NPCS:Record<string,NpcDef>={
  village_steward:{name:'Tobias',title:'Quản gia',sprite:'npc_steward_001',region:'home',at:{spot:'steward'},ages:[16,99],stationary:true,idle:['Cậu muốn kê lại đồ đạc trong nhà à? Cứ bảo ta.']},
  // 13/11: Ela / Orin / Ren / Lan đứng quầy trong nhà dịch vụ Thistlewood (`serviceTowns.ts`); NPC quầy các khu khác thêm dưới.
  ...SERVICE_KEEPER_NPCS,
+ // NPC truyện hệ nhiệm vụ mới (13/11/2026, `quests2.ts`).
+ ...Q2_NPCS,
  village_event:{name:'Iris',title:'Sứ giả sự kiện',sprite:'npc_silver_youth_f',region:'human',at:{spot:'plaza',dx:390,dy:110},ages:[16,99],stationary:true,idle:['Ta mang tin giữa các vùng. Dù chưa có hội lễ, cậu vẫn có thể ghé hỏi thăm; việc nhận nhà không phải đợi sự kiện.']},
 };
 export const VILLAGE_SHOP=[

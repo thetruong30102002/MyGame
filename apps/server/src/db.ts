@@ -7,6 +7,7 @@ import { cleanBonusPoints } from '@havenlord/sim/talents';
 import { addItem, cleanGear, BAG_SIZE, type GearState } from '@havenlord/sim/equipment';
 import { playerModel, defaultPlayerModel } from '@havenlord/protocol';
 import { FarmStore } from './farmStore.ts';
+import { Quest2Store } from './quests2.ts';
 
 /**
  * Lưu trữ bằng SQLite có sẵn trong Node (`node:sqlite`) — không cần cài máy chủ CSDL riêng. Đủ cho vài
@@ -15,6 +16,7 @@ import { FarmStore } from './farmStore.ts';
 export class Store {
 	private readonly db: DatabaseSync;
 	readonly farm: FarmStore;
+	readonly quests2: Quest2Store;
 
 	constructor(path: string) {
 		mkdirSync(dirname(path), { recursive: true });
@@ -219,6 +221,7 @@ export class Store {
 		this.addColumn('feedback', 'replied_by', 'TEXT');
 		this.db.exec('CREATE INDEX IF NOT EXISTS feedback_account ON feedback(account_id)');
 		this.farm = new FarmStore(this.db);
+		this.quests2 = new Quest2Store(this.db);
 	}
 
 	/** Thêm cột vào bảng đã có (CSDL cũ) — có rồi thì bỏ qua. */

@@ -886,6 +886,101 @@
 				"Đừng đợi kiệt sức mới nhớ mang thuốc."
 			]
 		},
+		"q2_nell": {
+			"name": "Nell",
+			"title": "Bà chủ quán",
+			"sprite": "npc_q2_nell_001",
+			"region": "human",
+			"at": {
+				"spot": "plaza",
+				"dx": -210,
+				"dy": -120
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Ta vẫn làm thừa một phần bánh. Tay ta nhớ, đầu ta thì không."
+			]
+		},
+		"q2_pip": {
+			"name": "Pip",
+			"title": "Cô bé ở chợ",
+			"sprite": "npc_q2_pip_001",
+			"region": "human",
+			"at": {
+				"spot": "plaza",
+				"dx": 150,
+				"dy": -130
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Em ghi tên mọi người vào sổ. Mai em quên thì còn hỏi lại được."
+			]
+		},
+		"q2_gareth": {
+			"name": "Gareth",
+			"title": "Người hướng dẫn nghề",
+			"sprite": "npc_q2_gareth_001",
+			"region": "human",
+			"at": {
+				"spot": "backyard",
+				"dx": 70,
+				"dy": 10
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Nghề nào cũng bắt đầu bằng việc giữ được hơi thở."
+			]
+		},
+		"q2_edda": {
+			"name": "Edda",
+			"title": "Người đưa thư",
+			"sprite": "npc_q2_edda_001",
+			"region": "human",
+			"at": {
+				"spot": "plaza",
+				"dx": -270,
+				"dy": 150
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Thư không người nhận vẫn là thư. Ta đưa nó tới khi có người nhận."
+			]
+		},
+		"q2_tobin": {
+			"name": "Tobin",
+			"title": "Người gác đường nghĩa địa",
+			"sprite": "npc_q2_tobin_001",
+			"region": "human",
+			"at": {
+				"spot": "south_gate_gy",
+				"dx": 70,
+				"dy": -50
+			},
+			"ages": [
+				16,
+				99
+			],
+			"stationary": true,
+			"idle": [
+				"Đường này ta gác ba mươi năm. Ta nhớ từng bia mộ."
+			]
+		},
 		"village_event": {
 			"name": "Iris",
 			"title": "Sứ giả sự kiện",

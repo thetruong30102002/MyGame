@@ -15,6 +15,8 @@ const RESPAWN_MS = 14_000;
 export interface EconomyHost {
 	send(player: string, msg: ServerMessage): void;
 	map(player: string): string | null;
+	/** Hạ quái riêng / boss cốt truyện đã được máy chủ công nhận (nhiệm vụ mới đếm). */
+	killed?(player: string, type: string): void;
 }
 
 /**
@@ -108,6 +110,7 @@ export class Economy {
 		if (!this.privateKills.allow(player)) return;
 		const s = enemyStatsAt(type, found.kind === 'zone' ? found.level : undefined)!;
 		let exp = Math.round(s.exp * buffMults(this.store.buffs(player)).exp);
+		this.host.killed?.(player, type);
 		if (found.kind === 'boss') return void this.change(player, { exp, coins: s.coins }, 'boss', type, `boss:${type}`);
 		if (found.child) {
 			const cur = this.eco.get(player)!;
@@ -121,6 +124,11 @@ export class Economy {
 		const q = questDef(String(raw ?? ''));
 		if (!q || !this.eco.has(player)) return;
 		this.change(player, { exp: q.reward.exp, coins: q.reward.coins ?? 0, potions: q.reward.potions ?? 0 }, 'quest', q.title, `quest:${q.id}`);
+	}
+
+	/** Thưởng nhiệm vụ mới (`quests2.ts`): EXP / xu do máy chủ tính, `ref` duy nhất chống nhận hai lần (sổ `eco_ledger`). */
+	questReward(player: string, exp: number, coins: number, ref: string, title: string): void {
+		this.change(player, { exp: Math.max(0, Math.round(exp)), coins: Math.max(0, Math.round(coins)) }, 'quest', title, ref);
 	}
 
 	/** Quà điểm danh (xu + bình — kim cương đã vào ví riêng). `ref` chống trao lặp. */
