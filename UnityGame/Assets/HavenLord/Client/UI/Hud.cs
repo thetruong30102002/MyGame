@@ -125,9 +125,9 @@ namespace HavenLord.Client.UI
         public bool ShowNames = true;
         /// <summary>
         /// Số trên thanh Máu / MP / Thể lực (chủ dự án 13/11/2026: "Hiện cả số 100/100 (có thể cấu hình % hoặc chi tiết) trong cài đặt"):
-        /// 0 chi tiết "100 / 100", 1 phần trăm "100%", 2 ẩn số. Lưu PlayerPrefs (riêng máy).
+        /// 0 chi tiết "còn / tối đa" (vd 85 / 115), 1 phần trăm (vd 74%), 2 ẩn số. Lưu PlayerPrefs (riêng máy).
         /// </summary>
-        public static readonly string[] BarNumberNames = { "Chi tiết (100 / 100)", "Phần trăm (100%)", "Ẩn số" };
+        public static readonly string[] BarNumberNames = { "Chi tiết (còn / tối đa)", "Phần trăm (%)", "Ẩn số" };
         public int BarNumbers
         {
             get => PlayerPrefs.GetInt("havenlord.hud.barNumbers", 0);
