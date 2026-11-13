@@ -434,6 +434,338 @@
 			"rarity": "rare",
 			"bound": true
 		},
+		"shop_sword_5": {
+			"id": "shop_sword_5",
+			"name": "Kiếm thép dài",
+			"desc": "Vũ khí tiệm bậc 1. Cần cấp 5.",
+			"icon": "/assets/items/shop_sword_5.png",
+			"w": 48,
+			"h": 48,
+			"kind": "equip",
+			"equip": "weapon",
+			"stats": {
+				"atk": 4
+			},
+			"rarity": "common",
+			"levelReq": 5,
+			"price": 300
+		},
+		"shop_sword_10": {
+			"id": "shop_sword_10",
+			"name": "Katana lưỡi cong",
+			"desc": "Vũ khí tiệm bậc 2. Cần cấp 10.",
+			"icon": "/assets/items/shop_sword_10.png",
+			"w": 48,
+			"h": 48,
+			"kind": "equip",
+			"equip": "weapon",
+			"stats": {
+				"atk": 8
+			},
+			"rarity": "fine",
+			"levelReq": 10,
+			"price": 900
+		},
+		"shop_sword_20": {
+			"id": "shop_sword_20",
+			"name": "Kiếm hiệp sĩ cánh bạc",
+			"desc": "Vũ khí tiệm bậc 3. Cần cấp 20.",
+			"icon": "/assets/items/shop_sword_20.png",
+			"w": 48,
+			"h": 48,
+			"kind": "equip",
+			"equip": "weapon",
+			"stats": {
+				"atk": 16
+			},
+			"rarity": "rare",
+			"levelReq": 20,
+			"price": 2800
+		},
+		"shop_sword_30": {
+			"id": "shop_sword_30",
+			"name": "Kiếm rune hoàng kim",
+			"desc": "Vũ khí tiệm bậc 4. Cần cấp 30.",
+			"icon": "/assets/items/shop_sword_30.png",
+			"w": 48,
+			"h": 48,
+			"kind": "equip",
+			"equip": "weapon",
+			"stats": {
+				"atk": 28
+			},
+			"rarity": "epic",
+			"levelReq": 30,
+			"price": 7000
+		},
+		"shop_staff_5": {
+			"id": "shop_staff_5",
+			"name": "Trượng gỗ ngọc lục",
+			"desc": "Vũ khí tiệm bậc 1. Cần cấp 5.",
+			"icon": "/assets/items/shop_staff_5.png",
+			"w": 48,
+			"h": 48,
+			"kind": "equip",
+			"equip": "weapon",
+			"stats": {
+				"mag": 4
+			},
+			"rarity": "common",
+			"levelReq": 5,
+			"price": 300
+		},
+		"shop_staff_10": {
+			"id": "shop_staff_10",
+			"name": "Trượng trăng khuyết",
+			"desc": "Vũ khí tiệm bậc 2. Cần cấp 10.",
+			"icon": "/assets/items/shop_staff_10.png",
+			"w": 48,
+			"h": 48,
+			"kind": "equip",
+			"equip": "weapon",
+			"stats": {
+				"mag": 8
+			},
+			"rarity": "fine",
+			"levelReq": 10,
+			"price": 900
+		},
+		"shop_staff_20": {
+			"id": "shop_staff_20",
+			"name": "Trượng pha lê bạc",
+			"desc": "Vũ khí tiệm bậc 3. Cần cấp 20.",
+			"icon": "/assets/items/shop_staff_20.png",
+			"w": 48,
+			"h": 48,
+			"kind": "equip",
+			"equip": "weapon",
+			"stats": {
+				"mag": 16
+			},
+			"rarity": "rare",
+			"levelReq": 20,
+			"price": 2800
+		},
+		"shop_staff_30": {
+			"id": "shop_staff_30",
+			"name": "Trượng mặt trời",
+			"desc": "Vũ khí tiệm bậc 4. Cần cấp 30.",
+			"icon": "/assets/items/shop_staff_30.png",
+			"w": 48,
+			"h": 48,
+			"kind": "equip",
+			"equip": "weapon",
+			"stats": {
+				"mag": 28
+			},
+			"rarity": "epic",
+			"levelReq": 30,
+			"price": 7000
+		},
+		"shop_spear_5": {
+			"id": "shop_spear_5",
+			"name": "Thương mũi sắt",
+			"desc": "Vũ khí tiệm bậc 1. Cần cấp 5.",
+			"icon": "/assets/items/shop_spear_5.png",
+			"w": 48,
+			"h": 48,
+			"kind": "equip",
+			"equip": "weapon",
+			"stats": {
+				"atk": 3,
+				"def": 1
+			},
+			"rarity": "common",
+			"levelReq": 5,
+			"price": 300
+		},
+		"shop_spear_10": {
+			"id": "shop_spear_10",
+			"name": "Thương lá tua đỏ",
+			"desc": "Vũ khí tiệm bậc 2. Cần cấp 10.",
+			"icon": "/assets/items/shop_spear_10.png",
+			"w": 48,
+			"h": 48,
+			"kind": "equip",
+			"equip": "weapon",
+			"stats": {
+				"atk": 6,
+				"def": 2
+			},
+			"rarity": "fine",
+			"levelReq": 10,
+			"price": 900
+		},
+		"shop_spear_20": {
+			"id": "shop_spear_20",
+			"name": "Thương ngọc lam",
+			"desc": "Vũ khí tiệm bậc 3. Cần cấp 20.",
+			"icon": "/assets/items/shop_spear_20.png",
+			"w": 48,
+			"h": 48,
+			"kind": "equip",
+			"equip": "weapon",
+			"stats": {
+				"atk": 12,
+				"def": 4
+			},
+			"rarity": "rare",
+			"levelReq": 20,
+			"price": 2800
+		},
+		"shop_spear_30": {
+			"id": "shop_spear_30",
+			"name": "Thương lửa hoàng kim",
+			"desc": "Vũ khí tiệm bậc 4. Cần cấp 30.",
+			"icon": "/assets/items/shop_spear_30.png",
+			"w": 48,
+			"h": 48,
+			"kind": "equip",
+			"equip": "weapon",
+			"stats": {
+				"atk": 21,
+				"def": 7
+			},
+			"rarity": "epic",
+			"levelReq": 30,
+			"price": 7000
+		},
+		"shop_shield_5": {
+			"id": "shop_shield_5",
+			"name": "Khiên gỗ tròn",
+			"desc": "Vũ khí tiệm bậc 1. Cần cấp 5.",
+			"icon": "/assets/items/shop_shield_5.png",
+			"w": 48,
+			"h": 48,
+			"kind": "equip",
+			"equip": "weapon",
+			"stats": {
+				"def": 4,
+				"hp": 10
+			},
+			"rarity": "common",
+			"levelReq": 5,
+			"price": 300
+		},
+		"shop_shield_10": {
+			"id": "shop_shield_10",
+			"name": "Khiên chữ thập",
+			"desc": "Vũ khí tiệm bậc 2. Cần cấp 10.",
+			"icon": "/assets/items/shop_shield_10.png",
+			"w": 48,
+			"h": 48,
+			"kind": "equip",
+			"equip": "weapon",
+			"stats": {
+				"def": 8,
+				"hp": 20
+			},
+			"rarity": "fine",
+			"levelReq": 10,
+			"price": 900
+		},
+		"shop_shield_20": {
+			"id": "shop_shield_20",
+			"name": "Khiên sư tử bạc",
+			"desc": "Vũ khí tiệm bậc 3. Cần cấp 20.",
+			"icon": "/assets/items/shop_shield_20.png",
+			"w": 48,
+			"h": 48,
+			"kind": "equip",
+			"equip": "weapon",
+			"stats": {
+				"def": 16,
+				"hp": 40
+			},
+			"rarity": "rare",
+			"levelReq": 20,
+			"price": 2800
+		},
+		"shop_shield_30": {
+			"id": "shop_shield_30",
+			"name": "Khiên mặt trời",
+			"desc": "Vũ khí tiệm bậc 4. Cần cấp 30.",
+			"icon": "/assets/items/shop_shield_30.png",
+			"w": 48,
+			"h": 48,
+			"kind": "equip",
+			"equip": "weapon",
+			"stats": {
+				"def": 28,
+				"hp": 70
+			},
+			"rarity": "epic",
+			"levelReq": 30,
+			"price": 7000
+		},
+		"shop_bow_5": {
+			"id": "shop_bow_5",
+			"name": "Cung gỗ dài",
+			"desc": "Vũ khí tiệm bậc 1. Cần cấp 5.",
+			"icon": "/assets/items/shop_bow_5.png",
+			"w": 48,
+			"h": 48,
+			"kind": "equip",
+			"equip": "weapon",
+			"stats": {
+				"atk": 3,
+				"crit": 1
+			},
+			"rarity": "common",
+			"levelReq": 5,
+			"price": 300
+		},
+		"shop_bow_10": {
+			"id": "shop_bow_10",
+			"name": "Cung cong da lục",
+			"desc": "Vũ khí tiệm bậc 2. Cần cấp 10.",
+			"icon": "/assets/items/shop_bow_10.png",
+			"w": 48,
+			"h": 48,
+			"kind": "equip",
+			"equip": "weapon",
+			"stats": {
+				"atk": 6,
+				"crit": 2
+			},
+			"rarity": "fine",
+			"levelReq": 10,
+			"price": 900
+		},
+		"shop_bow_20": {
+			"id": "shop_bow_20",
+			"name": "Cung bạc ngọc lam",
+			"desc": "Vũ khí tiệm bậc 3. Cần cấp 20.",
+			"icon": "/assets/items/shop_bow_20.png",
+			"w": 48,
+			"h": 48,
+			"kind": "equip",
+			"equip": "weapon",
+			"stats": {
+				"atk": 12,
+				"crit": 4
+			},
+			"rarity": "rare",
+			"levelReq": 20,
+			"price": 2800
+		},
+		"shop_bow_30": {
+			"id": "shop_bow_30",
+			"name": "Cung cánh vàng",
+			"desc": "Vũ khí tiệm bậc 4. Cần cấp 30.",
+			"icon": "/assets/items/shop_bow_30.png",
+			"w": 48,
+			"h": 48,
+			"kind": "equip",
+			"equip": "weapon",
+			"stats": {
+				"atk": 21,
+				"crit": 7
+			},
+			"rarity": "epic",
+			"levelReq": 30,
+			"price": 7000
+		},
 		"potion": {
 			"id": "potion",
 			"name": "Bình mật ong",
@@ -478,6 +810,34 @@
 		"rare",
 		"epic",
 		"legendary"
+	],
+	"SHOP_WEAPON_CLASS": {
+		"shop_sword_5": "sword",
+		"shop_sword_10": "sword",
+		"shop_sword_20": "sword",
+		"shop_sword_30": "sword",
+		"shop_staff_5": "staff",
+		"shop_staff_10": "staff",
+		"shop_staff_20": "staff",
+		"shop_staff_30": "staff",
+		"shop_spear_5": "spear",
+		"shop_spear_10": "spear",
+		"shop_spear_20": "spear",
+		"shop_spear_30": "spear",
+		"shop_shield_5": "shield",
+		"shop_shield_10": "shield",
+		"shop_shield_20": "shield",
+		"shop_shield_30": "shield",
+		"shop_bow_5": "bow",
+		"shop_bow_10": "bow",
+		"shop_bow_20": "bow",
+		"shop_bow_30": "bow"
+	},
+	"SHOP_WEAPON_TIERS": [
+		5,
+		10,
+		20,
+		30
 	],
 	"SLOT_KIND": {
 		"head": "head",

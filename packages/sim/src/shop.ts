@@ -12,7 +12,8 @@
 import type { BuffKind } from '@havenlord/protocol';
 import type { NpcSpot } from './rewards.ts';
 import { CLASS_SHOP2_OUTFIT } from './starterClass.ts';
-import { ITEMS } from './equipment.ts';
+import { ITEMS, SHOP_WEAPON_CLASS } from './equipment.ts';
+import { SERVICE_KEEPERS_TL, SERVICE_TOWNS } from './serviceTowns.ts';
 
 /**
  * Người bán hàng ở các vùng (chủ dự án 08/10/2026: "cửa hàng cần đi mua ở NPC" + "mua đồ ở các NPC ở các vùng nữa"): máy chủ chỉ
@@ -21,6 +22,13 @@ import { ITEMS } from './equipment.ts';
  */
 export const MERCHANTS: readonly (NpcSpot & { keys: readonly string[] })[] = [
 	{ npc: 'bram', keys: ['bram', 'merchant_bram'], map: 'human/town', spot: 'plaza', dx: -110, dy: -40, range: 240 },
+	// Nhà dịch vụ (13/11/2026): người bán trang bị / vũ khí đứng quầy trong phòng `svc_tb` / `svc_vk` của 7 khu.
+	...SERVICE_TOWNS.flatMap((t) =>
+		(['tb', 'vk'] as const).map((room) => {
+			const key = t.code === 'tl' ? SERVICE_KEEPERS_TL[room]! : `village_${t.code}_${room === 'tb' ? 'armor' : 'weapon'}`;
+			return { npc: key, keys: [key], map: `${t.region}/svc_${room}`, spot: `svc_${room}_keeper`, dx: 0, dy: 0, range: 200 };
+		}),
+	),
 ];
 /** Người bán đầu tiên (Bram ở Thistlewood). */
 export const MERCHANT = MERCHANTS[0]!;
@@ -55,7 +63,9 @@ export const OUTFIT_SHOP = Object.entries(CLASS_SHOP2_OUTFIT).map(([classId, id]
 	name: ITEMS[id]!.name,
 	price: ITEMS[id]!.price!,
 	levelReq: ITEMS[id]!.levelReq!,
-})) as readonly { id: string; classId: string; name: string; price: number; levelReq: number }[];
+}))
+	// Vũ khí tiệm (13/11/2026): cùng cách mua (xu, đúng nghề, đủ cấp, chưa có) — ở người bán vũ khí các khu.
+	.concat(Object.entries(SHOP_WEAPON_CLASS).map(([id, classId]) => ({ id, classId, name: ITEMS[id]!.name, price: ITEMS[id]!.price!, levelReq: ITEMS[id]!.levelReq! }))) as readonly { id: string; classId: string; name: string; price: number; levelReq: number }[];
 
 /** Một loại bình cộng dồn thời gian tối đa 5 giờ chơi. */
 export const BUFF_MAX_MS = 5 * 3600_000;

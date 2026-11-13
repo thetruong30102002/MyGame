@@ -153,11 +153,11 @@ export const FARM_MACHINE_SPOTS:Record<string,readonly [number,number]> = {flour
 /** Giá bán ở hộp gửi hàng của quả và thành phẩm (giá thử). */
 export const FARM_PRODUCT_SELL:Record<string,number> = {
  // thịt / sản phẩm chăn nuôi
- farm_egg:25,farm_milk:70,farm_wool:90,farm_honey:80,meat_chicken:45,meat_beef:120,meat_lamb:100,
+ farm_egg:25,farm_milk:70,farm_wool:90,farm_honey:80,meat_chicken:45,meat_beef:120,meat_lamb:100,meat_pork:95,farm_truffle:160,
  // quả + thành phẩm máy (chế biến lãi thêm ~30–60 % so với bán nguyên liệu)
  farm_apple:15,farm_orange:18,farm_peach:35,prod_flour:32,prod_bread:55,prod_pickles:130,prod_juice:50,prod_wine:400,prod_dried_fruit:110,
  // món nấu chín tới (tái / chín kỹ / cháy nhân theo COOK_QUALITY)
- dish_grilled_fish:90,dish_fish_soup:85,dish_fried_rice:130,dish_pumpkin_soup:240,dish_strawberry_cake:230,dish_roast_chicken:140,dish_beef_stew:250,dish_lamb_skewer:220,
+ dish_grilled_fish:90,dish_fish_soup:85,dish_fried_rice:130,dish_pumpkin_soup:240,dish_strawberry_cake:230,dish_roast_chicken:140,dish_beef_stew:250,dish_lamb_skewer:220,dish_pork_ribs:230,dish_braised_pork:210,
 };
 /**
  * Nấu ăn (kế hoạch 2.4 / 9.2 / 9.11, hình K1): đứng cạnh bếp lò củi đã đặt trong nhà (`gv_bep_lo_cui`, dời được khi bày trí) → nấu món từ
@@ -174,6 +174,9 @@ export const FARM_DISHES = [
  {id:'dish_roast_chicken',name:'Gà quay',cookMs:10000,in:{meat_chicken:1,farm_potato:1},buff:{kind:'dmg',mult:1.15,ms:20*60000},sell:120},
  {id:'dish_beef_stew',name:'Bò hầm',cookMs:11000,in:{meat_beef:1,farm_carrot:2},buff:{kind:'guard',mult:0.85,ms:20*60000},sell:130},
  {id:'dish_lamb_skewer',name:'Xiên cừu nướng',cookMs:7000,in:{meat_lamb:1,farm_chili:1},buff:{kind:'dmg',mult:1.12,ms:15*60000},sell:110},
+ // Heo (13/11/2026): sườn nướng (công), thịt kho trứng (giáp).
+ {id:'dish_pork_ribs',name:'Sườn nướng',cookMs:9000,in:{meat_pork:1,farm_chili:1},buff:{kind:'dmg',mult:1.13,ms:20*60000},sell:115},
+ {id:'dish_braised_pork',name:'Thịt kho trứng',cookMs:12000,in:{meat_pork:1,farm_egg:2},buff:{kind:'guard',mult:0.87,ms:20*60000},sell:105},
 ] as const;
 /**
  * Chăn nuôi (kế hoạch 2.3 / 9.8 / 9.11): con vật đi lại trong bãi quây (bò / cừu ở bãi đông bắc, gà ở sân đông nam), tổ ong cạnh bồn hoa.
@@ -185,6 +188,8 @@ export const FARM_ANIMALS = [
  {id:'chicken',name:'Gà',character:'farm_chicken_001',scale:0.6,pen:'chicken',max:8,price:300,feed:1,product:'farm_egg',meat:'meat_chicken',meatN:2,start:2},
  {id:'cow',name:'Bò sữa',character:'farm_cow_001',scale:2,pen:'pasture',max:3,price:1500,feed:2,product:'farm_milk',meat:'meat_beef',meatN:3,start:1},
  {id:'sheep',name:'Cừu',character:'farm_sheep_001',scale:1.5,pen:'pasture',max:4,price:1100,feed:2,product:'farm_wool',meat:'meat_lamb',meatN:2,start:1},
+ // Heo (13/11/2026): ở chung bãi bò / cừu, cho ăn xong ủi đất ra nấm truffle; xuất chuồng lấy thịt heo. Chưa có sẵn, mua ở người bán.
+ {id:'pig',name:'Heo',character:'farm_pig_001',scale:1.3,pen:'pasture',max:3,price:1200,feed:2,product:'farm_truffle',meat:'meat_pork',meatN:3,start:0},
  {id:'bee',name:'Đàn ong',character:null,scale:1,pen:'hives',max:3,price:800,feed:0,product:'farm_honey',meat:null,meatN:0,start:1},
 ] as const;
 /** Chỗ đứng (cổng bãi / tổ ong) và vùng trong bãi cho con vật đi lại — toạ độ khuôn viên (scripts/export-home-maps.mts). */

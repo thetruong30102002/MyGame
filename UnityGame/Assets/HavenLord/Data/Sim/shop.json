@@ -29,11 +29,179 @@
 			"dx": -110,
 			"dy": -40,
 			"range": 240
+		},
+		{
+			"npc": "village_armor",
+			"keys": [
+				"village_armor"
+			],
+			"map": "human/svc_tb",
+			"spot": "svc_tb_keeper",
+			"dx": 0,
+			"dy": 0,
+			"range": 200
+		},
+		{
+			"npc": "village_weapon",
+			"keys": [
+				"village_weapon"
+			],
+			"map": "human/svc_vk",
+			"spot": "svc_vk_keeper",
+			"dx": 0,
+			"dy": 0,
+			"range": 200
+		},
+		{
+			"npc": "village_lx_armor",
+			"keys": [
+				"village_lx_armor"
+			],
+			"map": "swamp/svc_tb",
+			"spot": "svc_tb_keeper",
+			"dx": 0,
+			"dy": 0,
+			"range": 200
+		},
+		{
+			"npc": "village_lx_weapon",
+			"keys": [
+				"village_lx_weapon"
+			],
+			"map": "swamp/svc_vk",
+			"spot": "svc_vk_keeper",
+			"dx": 0,
+			"dy": 0,
+			"range": 200
+		},
+		{
+			"npc": "village_sa_armor",
+			"keys": [
+				"village_sa_armor"
+			],
+			"map": "desert/svc_tb",
+			"spot": "svc_tb_keeper",
+			"dx": 0,
+			"dy": 0,
+			"range": 200
+		},
+		{
+			"npc": "village_sa_weapon",
+			"keys": [
+				"village_sa_weapon"
+			],
+			"map": "desert/svc_vk",
+			"spot": "svc_vk_keeper",
+			"dx": 0,
+			"dy": 0,
+			"range": 200
+		},
+		{
+			"npc": "village_gh_armor",
+			"keys": [
+				"village_gh_armor"
+			],
+			"map": "highland/svc_tb",
+			"spot": "svc_tb_keeper",
+			"dx": 0,
+			"dy": 0,
+			"range": 200
+		},
+		{
+			"npc": "village_gh_weapon",
+			"keys": [
+				"village_gh_weapon"
+			],
+			"map": "highland/svc_vk",
+			"spot": "svc_vk_keeper",
+			"dx": 0,
+			"dy": 0,
+			"range": 200
+		},
+		{
+			"npc": "village_tp_armor",
+			"keys": [
+				"village_tp_armor"
+			],
+			"map": "tundra/svc_tb",
+			"spot": "svc_tb_keeper",
+			"dx": 0,
+			"dy": 0,
+			"range": 200
+		},
+		{
+			"npc": "village_tp_weapon",
+			"keys": [
+				"village_tp_weapon"
+			],
+			"map": "tundra/svc_vk",
+			"spot": "svc_vk_keeper",
+			"dx": 0,
+			"dy": 0,
+			"range": 200
+		},
+		{
+			"npc": "village_dd_armor",
+			"keys": [
+				"village_dd_armor"
+			],
+			"map": "volcano/svc_tb",
+			"spot": "svc_tb_keeper",
+			"dx": 0,
+			"dy": 0,
+			"range": 200
+		},
+		{
+			"npc": "village_dd_weapon",
+			"keys": [
+				"village_dd_weapon"
+			],
+			"map": "volcano/svc_vk",
+			"spot": "svc_vk_keeper",
+			"dx": 0,
+			"dy": 0,
+			"range": 200
+		},
+		{
+			"npc": "village_sc_armor",
+			"keys": [
+				"village_sc_armor"
+			],
+			"map": "isles/svc_tb",
+			"spot": "svc_tb_keeper",
+			"dx": 0,
+			"dy": 0,
+			"range": 200
+		},
+		{
+			"npc": "village_sc_weapon",
+			"keys": [
+				"village_sc_weapon"
+			],
+			"map": "isles/svc_vk",
+			"spot": "svc_vk_keeper",
+			"dx": 0,
+			"dy": 0,
+			"range": 200
 		}
 	],
 	"MERCHANT_NPCS": [
 		"bram",
-		"merchant_bram"
+		"merchant_bram",
+		"village_armor",
+		"village_weapon",
+		"village_lx_armor",
+		"village_lx_weapon",
+		"village_sa_armor",
+		"village_sa_weapon",
+		"village_gh_armor",
+		"village_gh_weapon",
+		"village_tp_armor",
+		"village_tp_weapon",
+		"village_dd_armor",
+		"village_dd_weapon",
+		"village_sc_armor",
+		"village_sc_weapon"
 	],
 	"OUTFIT_SHOP": [
 		{
@@ -70,6 +238,146 @@
 			"name": "Bộ cung thủ bộ 2",
 			"price": 450,
 			"levelReq": 5
+		},
+		{
+			"id": "shop_sword_5",
+			"classId": "sword",
+			"name": "Kiếm thép dài",
+			"price": 300,
+			"levelReq": 5
+		},
+		{
+			"id": "shop_sword_10",
+			"classId": "sword",
+			"name": "Katana lưỡi cong",
+			"price": 900,
+			"levelReq": 10
+		},
+		{
+			"id": "shop_sword_20",
+			"classId": "sword",
+			"name": "Kiếm hiệp sĩ cánh bạc",
+			"price": 2800,
+			"levelReq": 20
+		},
+		{
+			"id": "shop_sword_30",
+			"classId": "sword",
+			"name": "Kiếm rune hoàng kim",
+			"price": 7000,
+			"levelReq": 30
+		},
+		{
+			"id": "shop_staff_5",
+			"classId": "staff",
+			"name": "Trượng gỗ ngọc lục",
+			"price": 300,
+			"levelReq": 5
+		},
+		{
+			"id": "shop_staff_10",
+			"classId": "staff",
+			"name": "Trượng trăng khuyết",
+			"price": 900,
+			"levelReq": 10
+		},
+		{
+			"id": "shop_staff_20",
+			"classId": "staff",
+			"name": "Trượng pha lê bạc",
+			"price": 2800,
+			"levelReq": 20
+		},
+		{
+			"id": "shop_staff_30",
+			"classId": "staff",
+			"name": "Trượng mặt trời",
+			"price": 7000,
+			"levelReq": 30
+		},
+		{
+			"id": "shop_spear_5",
+			"classId": "spear",
+			"name": "Thương mũi sắt",
+			"price": 300,
+			"levelReq": 5
+		},
+		{
+			"id": "shop_spear_10",
+			"classId": "spear",
+			"name": "Thương lá tua đỏ",
+			"price": 900,
+			"levelReq": 10
+		},
+		{
+			"id": "shop_spear_20",
+			"classId": "spear",
+			"name": "Thương ngọc lam",
+			"price": 2800,
+			"levelReq": 20
+		},
+		{
+			"id": "shop_spear_30",
+			"classId": "spear",
+			"name": "Thương lửa hoàng kim",
+			"price": 7000,
+			"levelReq": 30
+		},
+		{
+			"id": "shop_shield_5",
+			"classId": "shield",
+			"name": "Khiên gỗ tròn",
+			"price": 300,
+			"levelReq": 5
+		},
+		{
+			"id": "shop_shield_10",
+			"classId": "shield",
+			"name": "Khiên chữ thập",
+			"price": 900,
+			"levelReq": 10
+		},
+		{
+			"id": "shop_shield_20",
+			"classId": "shield",
+			"name": "Khiên sư tử bạc",
+			"price": 2800,
+			"levelReq": 20
+		},
+		{
+			"id": "shop_shield_30",
+			"classId": "shield",
+			"name": "Khiên mặt trời",
+			"price": 7000,
+			"levelReq": 30
+		},
+		{
+			"id": "shop_bow_5",
+			"classId": "bow",
+			"name": "Cung gỗ dài",
+			"price": 300,
+			"levelReq": 5
+		},
+		{
+			"id": "shop_bow_10",
+			"classId": "bow",
+			"name": "Cung cong da lục",
+			"price": 900,
+			"levelReq": 10
+		},
+		{
+			"id": "shop_bow_20",
+			"classId": "bow",
+			"name": "Cung bạc ngọc lam",
+			"price": 2800,
+			"levelReq": 20
+		},
+		{
+			"id": "shop_bow_30",
+			"classId": "bow",
+			"name": "Cung cánh vàng",
+			"price": 7000,
+			"levelReq": 30
 		}
 	],
 	"SHOP": [

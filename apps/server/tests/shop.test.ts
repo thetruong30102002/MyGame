@@ -137,7 +137,9 @@ try {
 	});
 
 	test('bộ shop 2: đúng class/cấp, trừ xu và trao áo nguyên tử; mua lặp không trừ thêm', () => {
-		assert.equal(OUTFIT_SHOP.length, 5);
+		// 5 bộ 2 + 20 vũ khí tiệm (13/11/2026).
+		assert.equal(OUTFIT_SHOP.length, 25);
+		assert.equal(OUTFIT_SHOP.filter((o) => !o.id.startsWith('shop_')).length, 5);
 		const other = store.createAccount('s1', 'x')!;
 		store.createSession('tok1', other, 3600_000);
 		const progress = newProgress();

@@ -77,6 +77,7 @@ namespace HavenLord.Client
             if (!n.Key.StartsWith("village_", StringComparison.Ordinal)) return false;
             VillageKey = n.Key;
             if (n.Key == "village_armor" || n.Key.EndsWith("_armor", StringComparison.Ordinal)) hud.Panels.ShowOutfitShop();
+            else if (n.Key == "village_weapon" || n.Key.EndsWith("_weapon", StringComparison.Ordinal)) hud.Panels.ShowWeaponShop();
             else hud.Panels.Show(Panels.Kind.Farm);
             FarmSend("get");
             return true;
@@ -237,7 +238,7 @@ namespace HavenLord.Client
             if (key == petsDrawn) return;
             petsDrawn = key;
             population.ClearPets();
-            // Vật nuôi đi lại trong bãi quây (tỉ lệ chốt 12/11: bò ×2, cừu ×1,5, gà ×0,6); ong không có hình con.
+            // Vật nuôi đi lại trong bãi quây (tỉ lệ chốt 12/11: bò ×2, cừu ×1,5, gà ×0,6; heo ×1,3 từ 13/11); ong không có hình con.
             foreach (var a in (FarmMod["FARM_ANIMALS"] as JArray) ?? new JArray())
             {
                 var ch = (string)a["character"]; if (ch == null || !herd.TryGetValue((string)a["id"], out var n)) continue;

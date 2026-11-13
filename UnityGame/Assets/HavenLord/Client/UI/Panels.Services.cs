@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using HavenLord.Core;
 using HavenLord.Core.World;
 using HavenLord.Data;
@@ -55,7 +56,10 @@ namespace HavenLord.Client.UI
             ["exp"] = UiStyle.Hex(0xc59bff), ["dmg"] = UiStyle.Hex(0xff8a7a), ["guard"] = UiStyle.Hex(0x8fd0ff),
         };
         private bool shopShowOutfits;
-        public void ShowOutfitShop() { shopShowOutfits = true; Show(Kind.Shop); }
+        /// <summary>Tab vũ khí (người bán vũ khí các khu, 13/11/2026): cùng danh sách mua bằng xu, chỉ hiện món `shop_*` của nghề đang chơi.</summary>
+        private bool shopWeapons;
+        public void ShowOutfitShop() { shopShowOutfits = true; shopWeapons = false; Show(Kind.Shop); }
+        public void ShowWeaponShop() { shopShowOutfits = true; shopWeapons = true; Show(Kind.Shop); }
 
         private void BuildShop()
         {
@@ -70,10 +74,12 @@ namespace HavenLord.Client.UI
                 shopShowOutfits ? "Bộ đồ thứ hai mua bằng xu; giá và chỉ số tạm, chờ duyệt." : "Bình mua bằng kim cương — tác dụng tính theo giờ CHƠI (thoát game thì ngừng đếm), cùng loại cộng dồn tối đa 5 giờ.", 14, UiStyle.Parchment);
             Diamonds(content);
             GoldButton(content, "BuffTab", new Vector2(0, 1), new Vector2(0, 1), new Vector2(0, -42), new Vector2(180, 36), "Bình kim cương", () => { shopShowOutfits = false; Refresh(); }, true);
-            GoldButton(content, "OutfitTab", new Vector2(0, 1), new Vector2(0, 1), new Vector2(190, -42), new Vector2(180, 36), "Bộ đồ · xu", () => { shopShowOutfits = true; Refresh(); }, true);
+            GoldButton(content, "OutfitTab", new Vector2(0, 1), new Vector2(0, 1), new Vector2(190, -42), new Vector2(180, 36), "Bộ đồ · xu", () => { shopShowOutfits = true; shopWeapons = false; Refresh(); }, true);
+            GoldButton(content, "WeaponTab", new Vector2(0, 1), new Vector2(0, 1), new Vector2(380, -42), new Vector2(180, 36), "Vũ khí · xu", () => { shopShowOutfits = true; shopWeapons = true; Refresh(); }, true);
             if (shopShowOutfits)
             {
-                var outfits = game.ShopRules.Outfits;
+                var outfits = game.ShopRules.Outfits.Where(o => o.Id.StartsWith("shop_", System.StringComparison.Ordinal) == shopWeapons && (!shopWeapons || o.ClassId == game.CurrentClassId)).ToList();
+                if (outfits.Count == 0) Text(content, "Empty", new Vector2(0, 1), new Vector2(0, 1), new Vector2(0, -98), new Vector2(700, 26), "Chưa có món cho nghề của bạn.", 14, UiKit.TextDim);
                 for (var i = 0; i < outfits.Count; i += 1)
                 {
                     var it = outfits[i];
@@ -81,6 +87,8 @@ namespace HavenLord.Client.UI
                     var card = Box(content, "O" + it.Id, new Vector2(0, 1), new Vector2(0, 1), new Vector2((i % 2) * 485, -98 - (i / 2) * 145), new Vector2(470, 132), 0.5f);
                     Text(card, "Name", new Vector2(0, 1), new Vector2(0, 1), new Vector2(16, -12), new Vector2(430, 26), it.Name, 17, UiKit.TextMain, TextAnchor.MiddleLeft, true);
                     Text(card, "Info", new Vector2(0, 1), new Vector2(0, 1), new Vector2(16, -42), new Vector2(430, 22), $"Nghề: {className} · Cấp {it.LevelReq:0} · Giá/chỉ số đang chờ duyệt", 13, UiStyle.Parchment);
+                    var icon = ItemSprite(it.Id);
+                    if (icon != null) UiKit.Icon(UiKit.Rect(card, "Ic", new Vector2(1, 0.5f), new Vector2(1, 0.5f), new Vector2(-24, 0), new Vector2(icon.rect.width, icon.rect.height) * 1.5f), icon);
                     var id = it.Id;
                     var canBuy = it.ClassId == game.CurrentClassId && game.Combat.Pc.Level >= it.LevelReq && game.Combat.Pc.Coins >= it.Price;
                     GoldButton(card, "Buy", new Vector2(0, 0), new Vector2(0, 0), new Vector2(16, 10), new Vector2(190, 36), $"Mua · {it.Price:0} xu", () => game.BuyOutfit(id), canBuy);

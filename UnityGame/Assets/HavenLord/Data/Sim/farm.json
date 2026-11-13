@@ -1738,6 +1738,20 @@
 			"start": 1
 		},
 		{
+			"id": "pig",
+			"name": "Heo",
+			"character": "farm_pig_001",
+			"scale": 1.3,
+			"pen": "pasture",
+			"max": 3,
+			"price": 1200,
+			"feed": 2,
+			"product": "farm_truffle",
+			"meat": "meat_pork",
+			"meatN": 3,
+			"start": 0
+		},
+		{
 			"id": "bee",
 			"name": "Đàn ong",
 			"character": null,
@@ -2000,6 +2014,36 @@
 				"ms": 900000
 			},
 			"sell": 110
+		},
+		{
+			"id": "dish_pork_ribs",
+			"name": "Sườn nướng",
+			"cookMs": 9000,
+			"in": {
+				"meat_pork": 1,
+				"farm_chili": 1
+			},
+			"buff": {
+				"kind": "dmg",
+				"mult": 1.13,
+				"ms": 1200000
+			},
+			"sell": 115
+		},
+		{
+			"id": "dish_braised_pork",
+			"name": "Thịt kho trứng",
+			"cookMs": 12000,
+			"in": {
+				"meat_pork": 1,
+				"farm_egg": 2
+			},
+			"buff": {
+				"kind": "guard",
+				"mult": 0.87,
+				"ms": 1200000
+			},
+			"sell": 105
 		}
 	],
 	"FARM_FEED": [
@@ -2892,6 +2936,8 @@
 		"meat_chicken": 45,
 		"meat_beef": 120,
 		"meat_lamb": 100,
+		"meat_pork": 95,
+		"farm_truffle": 160,
 		"farm_apple": 15,
 		"farm_orange": 18,
 		"farm_peach": 35,
@@ -2908,7 +2954,9 @@
 		"dish_strawberry_cake": 230,
 		"dish_roast_chicken": 140,
 		"dish_beef_stew": 250,
-		"dish_lamb_skewer": 220
+		"dish_lamb_skewer": 220,
+		"dish_pork_ribs": 230,
+		"dish_braised_pork": 210
 	},
 	"FARM_ROOMS": {
 		"house": {

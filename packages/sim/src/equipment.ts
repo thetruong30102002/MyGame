@@ -93,6 +93,31 @@ export interface ItemDef {
 }
 
 /**
+ * Vũ khí tiệm vũ khí (13/11/2026, hình PixelLab `shop_<nghề>_<cấp>`): mỗi nghề 4 bậc cấp 5 / 10 / 20 / 30, mua bằng xu ở người bán vũ
+ * khí các khu. Cầm trên tay vẫn hiện vũ khí của nghề (chưa vẽ hình cầm riêng). Chỉ số / giá là bản thử chờ chủ dự án duyệt.
+ */
+export const SHOP_WEAPON_TIERS = [5, 10, 20, 30] as const;
+const W_TIER = [{ k: 1, price: 300, rarity: 'common' }, { k: 2, price: 900, rarity: 'fine' }, { k: 4, price: 2800, rarity: 'rare' }, { k: 7, price: 7000, rarity: 'epic' }] as const;
+const W_CLASS: Record<string, { names: readonly string[]; stats: (k: number) => Partial<Stats> }> = {
+	sword: { names: ['Kiếm thép dài', 'Katana lưỡi cong', 'Kiếm hiệp sĩ cánh bạc', 'Kiếm rune hoàng kim'], stats: (k) => ({ atk: 4 * k }) },
+	staff: { names: ['Trượng gỗ ngọc lục', 'Trượng trăng khuyết', 'Trượng pha lê bạc', 'Trượng mặt trời'], stats: (k) => ({ mag: 4 * k }) },
+	spear: { names: ['Thương mũi sắt', 'Thương lá tua đỏ', 'Thương ngọc lam', 'Thương lửa hoàng kim'], stats: (k) => ({ atk: 3 * k, def: k }) },
+	shield: { names: ['Khiên gỗ tròn', 'Khiên chữ thập', 'Khiên sư tử bạc', 'Khiên mặt trời'], stats: (k) => ({ def: 4 * k, hp: 10 * k }) },
+	bow: { names: ['Cung gỗ dài', 'Cung cong da lục', 'Cung bạc ngọc lam', 'Cung cánh vàng'], stats: (k) => ({ atk: 3 * k, crit: k }) },
+};
+export const SHOP_WEAPON_CLASS: Record<string, string> = {};
+const SHOP_WEAPON_ITEMS: Record<string, ItemDef> = Object.fromEntries(
+	Object.entries(W_CLASS).flatMap(([cls, w]) =>
+		SHOP_WEAPON_TIERS.map((lv, t) => {
+			const id = `shop_${cls}_${lv}`;
+			SHOP_WEAPON_CLASS[id] = cls;
+			const def: ItemDef = { id, name: w.names[t]!, desc: `Vũ khí tiệm bậc ${t + 1}. Cần cấp ${lv}.`, icon: `/assets/items/${id}.png`, w: 48, h: 48, kind: 'equip', equip: 'weapon', stats: w.stats(W_TIER[t]!.k), rarity: W_TIER[t]!.rarity, levelReq: lv, price: W_TIER[t]!.price };
+			return [id, def] as const;
+		}),
+	),
+);
+
+/**
  * Mọi vật phẩm. id ĐÃ LƯU chỉ được THÊM. Đồ khởi đầu có chỉ số 0 → cân bằng hiện tại không đổi khi có hệ trang bị.
  * Bình mật ong và xu KHÔNG nằm trong túi thật: HUD, phím R, tẩy điểm và máy chủ đang đọc `player.potions` / `player.coins`,
  * nên túi dựng chồng ẢO cho bình từ `player.potions`, còn xu hiện ở ví.
@@ -157,6 +182,7 @@ export const ITEMS: Record<string, ItemDef> = {
 	dragon_boots: { id: 'dragon_boots', name: 'Ủng Long Vệ', desc: 'Ủng thép tối màu viền vàng.', icon: '/assets/items/dragon_boots.png', w: 48, h: 48, kind: 'equip', equip: 'feet', rarity: 'rare', bound: true },
 	moonsteel_sword: { id: 'moonsteel_sword', name: 'Kiếm Nguyệt Cương', desc: 'Lưỡi thép bạc khắc rãnh lam, đốc trăng vàng và ngọc xanh; cầm khi đánh Trảm.', icon: '/assets/items/moonsteel_sword.png', w: 48, h: 48, kind: 'equip', equip: 'weapon', rarity: 'rare', bound: true },
 	haven_staff: { id: 'haven_staff', name: 'Trượng Haven', desc: 'Trượng của Ngân Lam; cầm khi niệm Tia Haven.', icon: '/assets/items/haven_staff.png', w: 48, h: 48, kind: 'equip', equip: 'weapon', rarity: 'rare', bound: true },
+	...SHOP_WEAPON_ITEMS,
 	potion: {
 		id: 'potion',
 		name: 'Bình mật ong',

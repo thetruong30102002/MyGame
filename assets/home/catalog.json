@@ -1062,6 +1062,198 @@
       "h": 49
     },
     {
+      "id": "shop_shield_5",
+      "name": "shield 5",
+      "source": "sheet:W1_class_weapons#3@5x4",
+      "file": "items/shop_shield_5.png",
+      "w": 27,
+      "h": 27
+    },
+    {
+      "id": "shop_shield_10",
+      "name": "shield 10",
+      "source": "sheet:W1_class_weapons#8@5x4",
+      "file": "items/shop_shield_10.png",
+      "w": 25,
+      "h": 34
+    },
+    {
+      "id": "shop_shield_20",
+      "name": "shield 20",
+      "source": "sheet:W1_class_weapons#13@5x4",
+      "file": "items/shop_shield_20.png",
+      "w": 25,
+      "h": 44
+    },
+    {
+      "id": "shop_shield_30",
+      "name": "shield 30",
+      "source": "sheet:W1_class_weapons#18@5x4",
+      "file": "items/shop_shield_30.png",
+      "w": 33,
+      "h": 39
+    },
+    {
+      "id": "shop_sword_5",
+      "name": "sword 5",
+      "source": "sheet:W2_class_weapons_slim#0@4x4",
+      "file": "items/shop_sword_5.png",
+      "w": 41,
+      "h": 42
+    },
+    {
+      "id": "shop_sword_10",
+      "name": "sword 10",
+      "source": "sheet:W2_class_weapons_slim#4@4x4",
+      "file": "items/shop_sword_10.png",
+      "w": 39,
+      "h": 44
+    },
+    {
+      "id": "shop_sword_20",
+      "name": "sword 20",
+      "source": "sheet:W2_class_weapons_slim#8@4x4",
+      "file": "items/shop_sword_20.png",
+      "w": 39,
+      "h": 44
+    },
+    {
+      "id": "shop_sword_30",
+      "name": "sword 30",
+      "source": "sheet:W2_class_weapons_slim#12@4x4",
+      "file": "items/shop_sword_30.png",
+      "w": 38,
+      "h": 39
+    },
+    {
+      "id": "shop_staff_5",
+      "name": "staff 5",
+      "source": "sheet:W2_class_weapons_slim#1@4x4",
+      "file": "items/shop_staff_5.png",
+      "w": 40,
+      "h": 44
+    },
+    {
+      "id": "shop_staff_10",
+      "name": "staff 10",
+      "source": "sheet:W2_class_weapons_slim#5@4x4",
+      "file": "items/shop_staff_10.png",
+      "w": 41,
+      "h": 47
+    },
+    {
+      "id": "shop_staff_20",
+      "name": "staff 20",
+      "source": "sheet:W2_class_weapons_slim#9@4x4",
+      "file": "items/shop_staff_20.png",
+      "w": 29,
+      "h": 45
+    },
+    {
+      "id": "shop_staff_30",
+      "name": "staff 30",
+      "source": "sheet:W2_class_weapons_slim#13@4x4",
+      "file": "items/shop_staff_30.png",
+      "w": 36,
+      "h": 40
+    },
+    {
+      "id": "shop_spear_5",
+      "name": "spear 5",
+      "source": "sheet:W2_class_weapons_slim#2@4x4",
+      "file": "items/shop_spear_5.png",
+      "w": 42,
+      "h": 44
+    },
+    {
+      "id": "shop_spear_10",
+      "name": "spear 10",
+      "source": "sheet:W2_class_weapons_slim#6@4x4",
+      "file": "items/shop_spear_10.png",
+      "w": 43,
+      "h": 46
+    },
+    {
+      "id": "shop_spear_20",
+      "name": "spear 20",
+      "source": "sheet:W2_class_weapons_slim#10@4x4",
+      "file": "items/shop_spear_20.png",
+      "w": 42,
+      "h": 49
+    },
+    {
+      "id": "shop_spear_30",
+      "name": "spear 30",
+      "source": "sheet:W2_class_weapons_slim#14@4x4",
+      "file": "items/shop_spear_30.png",
+      "w": 40,
+      "h": 40
+    },
+    {
+      "id": "shop_bow_5",
+      "name": "bow 5",
+      "source": "sheet:W2_class_weapons_slim#3@4x4",
+      "file": "items/shop_bow_5.png",
+      "w": 42,
+      "h": 46
+    },
+    {
+      "id": "shop_bow_10",
+      "name": "bow 10",
+      "source": "sheet:W2_class_weapons_slim#7@4x4",
+      "file": "items/shop_bow_10.png",
+      "w": 41,
+      "h": 47
+    },
+    {
+      "id": "shop_bow_20",
+      "name": "bow 20",
+      "source": "sheet:W2_class_weapons_slim#11@4x4",
+      "file": "items/shop_bow_20.png",
+      "w": 35,
+      "h": 52
+    },
+    {
+      "id": "shop_bow_30",
+      "name": "bow 30",
+      "source": "sheet:W2_class_weapons_slim#15@4x4",
+      "file": "items/shop_bow_30.png",
+      "w": 41,
+      "h": 44
+    },
+    {
+      "id": "meat_pork",
+      "name": "Thịt heo",
+      "source": "sheet:P1_pork#0@4x1",
+      "file": "items/meat_pork.png",
+      "w": 42,
+      "h": 38
+    },
+    {
+      "id": "farm_truffle",
+      "name": "Nấm truffle",
+      "source": "sheet:P1_pork#1@4x1",
+      "file": "items/farm_truffle.png",
+      "w": 35,
+      "h": 34
+    },
+    {
+      "id": "dish_pork_ribs",
+      "name": "Sườn nướng",
+      "source": "sheet:P1_pork#2@4x1",
+      "file": "items/dish_pork_ribs.png",
+      "w": 43,
+      "h": 41
+    },
+    {
+      "id": "dish_braised_pork",
+      "name": "Thịt kho trứng",
+      "source": "sheet:P1_pork#3@4x1",
+      "file": "items/dish_braised_pork.png",
+      "w": 45,
+      "h": 40
+    },
+    {
       "id": "gold_bar",
       "name": "Thỏi vàng",
       "source": "sheet:G1_gold_bar#0@1x1",

@@ -64,6 +64,13 @@ export const HOME_ICONS = [
 	...(['meat_chicken', 'meat_beef', 'meat_lamb', 'fish_fillet', 'dish_roast_chicken', 'dish_beef_stew', 'dish_lamb_skewer', 'dish_grilled_fish', 'dish_fish_soup', 'dish_fried_rice', 'dish_pumpkin_soup', 'dish_strawberry_cake'] as const).map((id, i) => ({
 		id, name: ['Thịt gà', 'Thịt bò', 'Thịt cừu', 'Phi lê cá', 'Gà quay', 'Bò hầm', 'Xiên cừu nướng', 'Cá nướng', 'Súp cá', 'Cơm chiên dứa', 'Súp bí', 'Bánh kem dâu'][i]!, path: cell('K1_meat_dishes', i, '4x3'),
 	})),
+	// Vũ khí tiệm vũ khí (13/11/2026, PixelLab): hàng = bậc cấp 5 / 10 / 20 / 30. Khiên lấy cột 4 tấm W1 (chủ dự án: "Khiên đạt"); kiếm,
+	// trượng, thương, cung vẽ lại dáng dài mảnh ("phải thanh thoát… vẫn phải là thương, kiếm có thể là katana") ở tấm W2 4 × 4 — tấm W2 đã
+	// xếp lại mỗi món vào giữa ô 80 × 64 theo từng cụm điểm (bản vẽ gốc có món chạm mép ô).
+	...[5, 10, 20, 30].map((lv, r) => ({ id: `shop_shield_${lv}`, name: `shield ${lv}`, path: cell('W1_class_weapons', r * 5 + 3, '5x4') })),
+	...(['sword', 'staff', 'spear', 'bow'] as const).flatMap((cls, c) => [5, 10, 20, 30].map((lv, r) => ({ id: `shop_${cls}_${lv}`, name: `${cls} ${lv}`, path: cell('W2_class_weapons_slim', r * 4 + c, '4x4') }))),
+	// Heo (13/11/2026, PixelLab tấm 4 × 1): thịt heo, nấm truffle heo ủi được, sườn nướng, thịt kho trứng.
+	...(['meat_pork', 'farm_truffle', 'dish_pork_ribs', 'dish_braised_pork'] as const).map((id, i) => ({ id, name: ['Thịt heo', 'Nấm truffle', 'Sườn nướng', 'Thịt kho trứng'][i]!, path: cell('P1_pork', i, '4x1') })),
 	// Thỏi vàng ngân hàng (13/11/2026, PixelLab 1 ảnh — `packages/sim/src/bank.ts`).
 	{ id: 'gold_bar', name: 'Thỏi vàng', path: cell('G1_gold_bar', 0, '1x1') },
 	// 16 cá hiếm (11/11, tấm F14 / F15) — câu được ở hồ sau Gia viên, tỉ lệ cực thấp (chốt 12/11).

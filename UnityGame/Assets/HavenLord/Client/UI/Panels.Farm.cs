@@ -121,7 +121,7 @@ namespace HavenLord.Client.UI
                     // Chuồng: mỗi loài trong bãi — cho ăn (lúa mì / ngô), thu sản phẩm sau một ngày Haven, xuất chuồng lấy thịt.
                     var pen = key.Substring(4);var animals = (game.Sim.Modules["farm"]["FARM_ANIMALS"] as JArray ?? new JArray()).Where(a => (string)a["pen"] == pen).ToArray();
                     var dayMs = (double?)game.Sim.Modules["farm"]["HAVEN_DAY_MS"] ?? 2880000;var herd = game.Livestock();
-                    FarmText("Tên", pen == "pasture" ? "Bãi quây bò · cừu" : pen == "chicken" ? "Sân gà" : "Tổ ong", 0, 32, 20);
+                    FarmText("Tên", pen == "pasture" ? "Bãi quây bò · cừu · heo" : pen == "chicken" ? "Sân gà" : "Tổ ong", 0, 32, 20);
                     for (var i = 0; i < animals.Length; i++)
                     {
                         var a = animals[i];var aid = (string)a["id"];var n = herd.TryGetValue(aid, out var c) ? c : 0;var e = state["livestock"]?[aid];
@@ -245,7 +245,7 @@ namespace HavenLord.Client.UI
                         foreach (var f in fruits) { var fid = (string)f["id"]; Card("Giống" + fid, ItemSprite("sapling_" + fid), "Cây giống " + f["name"], $"{f["sapling"]} xu", () => game.FarmSend("buy", item: "sapling_" + fid)); }
                     if (game.ShopCat == "Vật nuôi" && farmMod["FARM_ANIMALS"] is JArray animals)
                     {
-                        var herd = game.Livestock();var product = new System.Collections.Generic.Dictionary<string, string> { ["chicken"] = "farm_egg", ["cow"] = "farm_milk", ["sheep"] = "farm_wool", ["bee"] = "farm_honey" };
+                        var herd = game.Livestock();var product = new System.Collections.Generic.Dictionary<string, string> { ["chicken"] = "farm_egg", ["cow"] = "farm_milk", ["sheep"] = "farm_wool", ["bee"] = "farm_honey", ["pig"] = "farm_truffle" };
                         foreach (var a in animals)
                         {
                             var aid = (string)a["id"];herd.TryGetValue(aid, out var cnt);var full = cnt >= (int)a["max"];

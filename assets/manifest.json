@@ -57182,6 +57182,66 @@
 				"E",
 				"SE"
 			]
+		},
+		"farm_pig_001": {
+			"displayName": "Heo",
+			"role": "npc",
+			"identity": {
+				"characterId": "farm_pig_001",
+				"hair": "none",
+				"eyes": "animal",
+				"skin": "animal",
+				"outfit": "none",
+				"weapon": "none",
+				"palette": "farm_01"
+			},
+			"atlas": "characters/farm_pig_001/farm_pig_001.json",
+			"frameSize": {
+				"width": 96,
+				"height": 80
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 8
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "Vật nuôi Gia viên (kế hoạch 9.8, PixelLab 11/11; heo 13/11): đứng / đi E + N (W lật), S và chéo dùng ảnh xoay. Trong game phóng theo tỉ lệ chốt 12/11 (bò ×2, cừu ×1,5, heo ×1,3, gà ×0,6) bằng transform, đi lại trong bãi quây. Heo 13/11: khung 96 × 80 vì đuôi khi đi ngang lấn mép khung 80.",
+			"bodyHeight": 51,
+			"portrait": "portraits/farm_pig_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SE",
+				"NE",
+				"SW",
+				"NW"
+			]
 		}
 	}
 }
