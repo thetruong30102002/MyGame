@@ -1,5 +1,8 @@
 import { fbm, hash2, valueNoise } from './noise.js';
 
+/** Vạt cỏ cao ("cụm rêu nổi") — tắt 13/11/2026 theo chủ dự án; Unity `GroundShader.Palette.TallGrass` cùng tắt. */
+const TALL_GRASS = false;
+
 export interface TerrainGrid {
 	tileSize: number;
 	width: number;
@@ -302,7 +305,8 @@ export class GroundShader {
 		let lvl = this.grassLevel(x, y);
 		if (this.k2 === F && this.d < 7 && hash2(x, y, s + 70) < (1 - this.d / 7) * 0.55) return this.forest(x, y);
 		if (this.k2 === W && this.d < 4) return this.d < 1.6 ? this.pal.dirt[1]! : this.pal.grass[Math.max(0, lvl - 2)]!;
-		if (this.k2 === G || this.d > 10) {
+		// Vạt cỏ cao (05/11) BỎ 13/11/2026 — chủ dự án: "bỏ các cụm rêu nổi ở map nhé xấu quá". Giữ hàm `tallGrass` để đối chiếu.
+		if (TALL_GRASS && (this.k2 === G || this.d > 10)) {
 			const tall = this.tallGrass(x, y);
 			if (tall) return tall;
 		}

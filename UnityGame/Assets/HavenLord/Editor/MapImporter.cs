@@ -25,7 +25,8 @@ namespace HavenLord.Importer
         /// <summary>Cạnh ảnh mặt đất nướng sẵn (16 ô) — ≤1024 để hợp máy di động.</summary>
         private const int ChunkPx = 768;
         /// <summary>Đổi khi sửa GroundShader / cách nướng để buộc nướng lại mọi map.</summary>
-        private const string BakeVersion = "ground-v1";
+        // ground-v2 (13/11/2026): bỏ vạt cỏ cao — tô lại nền mọi map.
+        private const string BakeVersion = "ground-v2";
         public const int TerrainOrder = -300;
         public const int GroundOrder = -200;
 

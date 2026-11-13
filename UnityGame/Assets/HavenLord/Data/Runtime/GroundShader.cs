@@ -79,8 +79,9 @@ namespace HavenLord.Data.Ground
             public Rgb Foam, FlowerCore, Moss;
             /// <summary>Hoa dại trên nền cỏ (sa mạc, tuyết, tro núi lửa: không).</summary>
             public bool Flowers = true;
-            /// <summary>Vạt cỏ cao trên nền cỏ (sa mạc, tuyết, tro núi lửa, bãi biển: không) — tallGrass() của groundShade.ts.</summary>
-            public bool TallGrass = true;
+            /// <summary>Vạt cỏ cao trên nền cỏ — tallGrass() của groundShade.ts. TẮT mọi vùng từ 13/11/2026 (chủ dự án: "bỏ các cụm rêu nổi ở
+            /// map nhé xấu quá").</summary>
+            public bool TallGrass = false;
             /// <summary>Màu phẳng d / c / w của bảng màu này cho minimap (vùng 2–7); false = giữ màu chung như cũ (vùng 1).</summary>
             public bool OwnFlat;
 

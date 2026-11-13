@@ -6,7 +6,7 @@
 			"oy": 0,
 			"w": 160,
 			"h": 160,
-			"sha1": "36e6430c8eaa9190ec14a06915374406455cadfd"
+			"sha1": "2065ec72e5fcd6a43f969edcbdb636e09da8272e"
 		},
 		{
 			"map": "bonehills",
@@ -22,7 +22,7 @@
 			"oy": 1760,
 			"w": 160,
 			"h": 160,
-			"sha1": "0bbbc1d7de9b6999bf695f77082a0163cd11b913"
+			"sha1": "f5c0c46da7c36b05b69ad2864c3a76930dd80c69"
 		},
 		{
 			"map": "bonehills",
@@ -30,7 +30,7 @@
 			"oy": 708,
 			"w": 160,
 			"h": 160,
-			"sha1": "d58f5353bb3558e158fa5e78d7893668575849c6"
+			"sha1": "98dd5d2910afcc05fc95211887005628e45f252c"
 		},
 		{
 			"map": "bonehills",
@@ -38,7 +38,7 @@
 			"oy": 708,
 			"w": 160,
 			"h": 160,
-			"sha1": "220b662300f3d50c814dba23877fe9ddf492f5a0"
+			"sha1": "0c759119f7d172a992e2ccdc644001624354e275"
 		},
 		{
 			"map": "bonehills",
@@ -46,7 +46,7 @@
 			"oy": 564,
 			"w": 160,
 			"h": 160,
-			"sha1": "fea88dec313db9da7f64a37e062e52c21e0f5a69"
+			"sha1": "dbee5416c19ebcaa0730d952fe7ed50517646900"
 		},
 		{
 			"map": "bonehills",
@@ -54,7 +54,7 @@
 			"oy": 36,
 			"w": 160,
 			"h": 160,
-			"sha1": "f093b03991c9a9948a075369562b09fe78636f2c"
+			"sha1": "e7ac58463aef1c2643efc52c754cf687b5be14e2"
 		},
 		{
 			"map": "cliffs",
@@ -62,7 +62,7 @@
 			"oy": 0,
 			"w": 160,
 			"h": 160,
-			"sha1": "020b577fa70c8e63fae155b3950dc964ec22f715"
+			"sha1": "2a5e6b71b364ba77b7ce4fa3d3b41eb45b29e40d"
 		},
 		{
 			"map": "cliffs",
@@ -78,7 +78,7 @@
 			"oy": 1760,
 			"w": 160,
 			"h": 160,
-			"sha1": "8fd64f3447501700c85c5243ffa6d3d9da00f129"
+			"sha1": "b3cd5919d872bea43b4b18ede37280061e0ff952"
 		},
 		{
 			"map": "cliffs",
@@ -94,7 +94,7 @@
 			"oy": 132,
 			"w": 160,
 			"h": 160,
-			"sha1": "32825aaa186aae97f447b705fe74ed3592a9ee27"
+			"sha1": "1bee3bfe316efa21427f5717e258576e92ceee98"
 		},
 		{
 			"map": "cliffs",
@@ -102,7 +102,7 @@
 			"oy": 0,
 			"w": 160,
 			"h": 160,
-			"sha1": "b5e071a40079884c5989b9d28ada0951c5be2744"
+			"sha1": "e4407a72f925dedf1f95f9bf4e7d767b6cd55ac8"
 		},
 		{
 			"map": "cliffs",
@@ -110,7 +110,7 @@
 			"oy": 36,
 			"w": 160,
 			"h": 160,
-			"sha1": "acbacdc7856c9331f17bb1dc6a76944eef57a965"
+			"sha1": "8b266ac884e537f84e581c7c3c6550fa3e5ec569"
 		},
 		{
 			"map": "element_gate",
@@ -118,7 +118,7 @@
 			"oy": 0,
 			"w": 160,
 			"h": 160,
-			"sha1": "6cbb7c5408c29cdac2e3b3696de3d849bed39c34"
+			"sha1": "c31919a667f68633fdf6273e7e337e529a0e5a01"
 		},
 		{
 			"map": "element_gate",
@@ -134,7 +134,7 @@
 			"oy": 2144,
 			"w": 160,
 			"h": 160,
-			"sha1": "116ce8de512f5d41cb07bbe93fe5eaace3b85ac9"
+			"sha1": "920465c3feac0e1e1959d9f895a5ae63ecd46f93"
 		},
 		{
 			"map": "element_gate",
@@ -142,7 +142,7 @@
 			"oy": 0,
 			"w": 160,
 			"h": 160,
-			"sha1": "d6e914fa2eec6781655755d4d8b2a258108a711f"
+			"sha1": "88388ba22703cad5a580d43698ef6e2691163bab"
 		},
 		{
 			"map": "element_gate",
@@ -150,7 +150,7 @@
 			"oy": 852,
 			"w": 160,
 			"h": 160,
-			"sha1": "bf6cacabfc98e62fe4503ed85a176773f02b5ddc"
+			"sha1": "41f615b453e03d3851aa5680a9cab037358d48e7"
 		},
 		{
 			"map": "gargoyle_cave",
@@ -190,7 +190,7 @@
 			"oy": 132,
 			"w": 160,
 			"h": 160,
-			"sha1": "4f8ab0e47b021cd651277bbc2b54b6e084fd3749"
+			"sha1": "76ddd955d3e2cf69725f959b77d4cd371c386e02"
 		},
 		{
 			"map": "gargoyle_cave",
@@ -198,7 +198,7 @@
 			"oy": 420,
 			"w": 160,
 			"h": 160,
-			"sha1": "a231c66ef329eb26091ad3e5b1596a09b29697d7"
+			"sha1": "5e6a5136ab0715a89d7b3c23540e9ee47051dce3"
 		},
 		{
 			"map": "gargoyle_cave",
@@ -214,7 +214,7 @@
 			"oy": 0,
 			"w": 160,
 			"h": 160,
-			"sha1": "fb55cfb946fb56440139fcce937402fbae622ccf"
+			"sha1": "67ac5aac8a6c302402630a57f3268d2b1ed2e749"
 		},
 		{
 			"map": "graveyard",
@@ -222,7 +222,7 @@
 			"oy": 1008,
 			"w": 160,
 			"h": 160,
-			"sha1": "74b45ef9b7581424d62afb71788c357f40f77aab"
+			"sha1": "f70dbca4d2a37b1ff1bba4580726cc513051eb3d"
 		},
 		{
 			"map": "graveyard",
@@ -230,7 +230,7 @@
 			"oy": 1856,
 			"w": 160,
 			"h": 160,
-			"sha1": "e0e9d31491a7728e8d27b48bee531f4357b4aac8"
+			"sha1": "2d10b15d0a3f02fc8637bc4d15f33e6faf45edd8"
 		},
 		{
 			"map": "graveyard",
@@ -238,7 +238,7 @@
 			"oy": 0,
 			"w": 160,
 			"h": 160,
-			"sha1": "9f8db9d804da40fc0f62c1367e9b8198da60f73f"
+			"sha1": "b6b2c390adc6240be8d74c7818a687f87fd1919b"
 		},
 		{
 			"map": "graveyard",
@@ -246,7 +246,7 @@
 			"oy": 276,
 			"w": 160,
 			"h": 160,
-			"sha1": "7301e0e5f41ff5f54ca6f24bc7af1852b2ac4801"
+			"sha1": "333ac3e3de6c2f6bf42aa9738d70a57545cbb091"
 		},
 		{
 			"map": "graveyard",
@@ -262,7 +262,7 @@
 			"oy": 0,
 			"w": 160,
 			"h": 160,
-			"sha1": "33f00064a8f855dbba31a31c5f27add25ba207fe"
+			"sha1": "74c2db7e99e953df111706f5b01af623cc558ec2"
 		},
 		{
 			"map": "hyenafield",
@@ -270,7 +270,7 @@
 			"oy": 1056,
 			"w": 160,
 			"h": 160,
-			"sha1": "77e2dcddbc4837a6d7ac8c26cfb918e0e9ff0c07"
+			"sha1": "b48840aca191221faf8845fe402a9bb8b1b748c9"
 		},
 		{
 			"map": "hyenafield",
@@ -278,7 +278,7 @@
 			"oy": 1952,
 			"w": 160,
 			"h": 160,
-			"sha1": "549f68c0de00dab73f5dce2fe7a7f22bb8e32537"
+			"sha1": "28a2638dd42fe60ced5502a5e83d43d9448d2b14"
 		},
 		{
 			"map": "hyenafield",
@@ -286,7 +286,7 @@
 			"oy": 84,
 			"w": 160,
 			"h": 160,
-			"sha1": "b6894ae573ccbac0e3735f6c2ce8b55db6d6c98f"
+			"sha1": "9595deb601fa04393dd60c1049bba26a09840820"
 		},
 		{
 			"map": "hyenafield",
@@ -294,7 +294,7 @@
 			"oy": 372,
 			"w": 160,
 			"h": 160,
-			"sha1": "33e644717fae46c727818a4a60aee7f57d3bd072"
+			"sha1": "93b9b59b4f8b18a0568d34c59b518d78ce94078a"
 		},
 		{
 			"map": "mossrift",
@@ -310,7 +310,7 @@
 			"oy": 1008,
 			"w": 160,
 			"h": 160,
-			"sha1": "fbd265b7257cf6ba2e1ffc6d3654b3791dc9c945"
+			"sha1": "4dcb573e043d5d0bb0762d9791cd8007c0ac6795"
 		},
 		{
 			"map": "mossrift",
@@ -406,7 +406,7 @@
 			"oy": 0,
 			"w": 160,
 			"h": 160,
-			"sha1": "1dee4ac9ca892220a8573cc9d6933c68195a4006"
+			"sha1": "5826dfbf4d0f6f9970932f6246ae154fd340583f"
 		},
 		{
 			"map": "nameless",
@@ -414,7 +414,7 @@
 			"oy": 960,
 			"w": 160,
 			"h": 160,
-			"sha1": "360185e15378080e721f60739d1d7994b8b484da"
+			"sha1": "4da61b5db58c79aca82672e0b73ce892fc0e7bdb"
 		},
 		{
 			"map": "nameless",
@@ -422,7 +422,7 @@
 			"oy": 1760,
 			"w": 160,
 			"h": 160,
-			"sha1": "658461b8e147d5235b865afb4b07c7a628268656"
+			"sha1": "a05064172ab05ba47629152c312058c050549473"
 		},
 		{
 			"map": "nameless",
@@ -430,7 +430,7 @@
 			"oy": 852,
 			"w": 160,
 			"h": 160,
-			"sha1": "3602bd17af1b7940b71512309c41e40fddc80e8d"
+			"sha1": "da411520aa3a35cbe81bb5649733a370362a763b"
 		},
 		{
 			"map": "nameless",
@@ -438,7 +438,7 @@
 			"oy": 0,
 			"w": 160,
 			"h": 160,
-			"sha1": "b32c4ab7dd8fb0695dd4b3abd0cf672c2283899d"
+			"sha1": "d4eac8c910f30688909c6066a74aad66fbdd533f"
 		},
 		{
 			"map": "nameless",
@@ -446,7 +446,7 @@
 			"oy": 0,
 			"w": 160,
 			"h": 160,
-			"sha1": "fadbf87d8f9ae770f42a9f69e29d0d5362045522"
+			"sha1": "cc027b1317e793450e9b0f44bc9f9ba403c3e096"
 		},
 		{
 			"map": "nameless",
@@ -454,7 +454,7 @@
 			"oy": 228,
 			"w": 160,
 			"h": 160,
-			"sha1": "6a8e6d6e2e855bc89e1bf319d7a1a772bfee876d"
+			"sha1": "50a9dd0d4a1525725a8f500a7b67a5ab8e3e61a2"
 		},
 		{
 			"map": "oldfort",
@@ -462,7 +462,7 @@
 			"oy": 0,
 			"w": 160,
 			"h": 160,
-			"sha1": "2d7d92c995fa40fe2a95f89c7bcdbba6aea34551"
+			"sha1": "97f47d785d7dea264b00b4999bb5ce91b277060b"
 		},
 		{
 			"map": "oldfort",
@@ -470,7 +470,7 @@
 			"oy": 960,
 			"w": 160,
 			"h": 160,
-			"sha1": "52d5b0c68ac54e5d6a22872a746ef99460ce325c"
+			"sha1": "f371937231a80c535bf8a1b3a79bd36d8cef5a52"
 		},
 		{
 			"map": "oldfort",
@@ -494,7 +494,7 @@
 			"oy": 0,
 			"w": 160,
 			"h": 160,
-			"sha1": "b295877f0ce67bb3c0f49fb47c99c2a73631ce37"
+			"sha1": "06227e47d74fa5e37b58b7d3548081541dbb9c18"
 		},
 		{
 			"map": "oldfort",
@@ -518,7 +518,7 @@
 			"oy": 36,
 			"w": 160,
 			"h": 160,
-			"sha1": "d73254273c71d5a7315ae5c2d9f53c6609d92a52"
+			"sha1": "aa9372bc5e5fdb0ce889fb191ec009d41283e077"
 		},
 		{
 			"map": "riverflats",
@@ -526,7 +526,7 @@
 			"oy": 0,
 			"w": 160,
 			"h": 160,
-			"sha1": "f91fa72306184cf067a5c32a817a115c0de5a54f"
+			"sha1": "c55c37b75a5a1f7060be9db08118a95a9fea826f"
 		},
 		{
 			"map": "riverflats",
@@ -534,7 +534,7 @@
 			"oy": 1008,
 			"w": 160,
 			"h": 160,
-			"sha1": "76d37d3510246f450629038ba00e59d2106d2050"
+			"sha1": "482557c148f91847c02338fe1630d40722f1f86f"
 		},
 		{
 			"map": "riverflats",
@@ -542,7 +542,7 @@
 			"oy": 1856,
 			"w": 160,
 			"h": 160,
-			"sha1": "da921f891da1686614fb254fd891feceb1f57b1c"
+			"sha1": "48355dd63b2a476d31847d88660b413db69a7fa3"
 		},
 		{
 			"map": "riverflats",
@@ -550,7 +550,7 @@
 			"oy": 612,
 			"w": 160,
 			"h": 160,
-			"sha1": "4f20639ac823a5c8c29f9f7b7b963ba50703eed1"
+			"sha1": "98426645bb7aee95cb9c4d385ccf0050b7c74db5"
 		},
 		{
 			"map": "riverflats",
@@ -558,7 +558,7 @@
 			"oy": 0,
 			"w": 160,
 			"h": 160,
-			"sha1": "ee68b574597fc5fbaa8863f08a42ee55f33a86d8"
+			"sha1": "4f3e2a8f5ae2781bc54a66ad457b17ba1dc2309c"
 		},
 		{
 			"map": "riverflats",
@@ -574,7 +574,7 @@
 			"oy": 948,
 			"w": 160,
 			"h": 160,
-			"sha1": "3363a78ee5270d84bf961581e94422ced5495027"
+			"sha1": "ae29eea8311db0d689ff76f64b5c6107d46b6ac1"
 		},
 		{
 			"map": "rivergate",
@@ -590,7 +590,7 @@
 			"oy": 1056,
 			"w": 160,
 			"h": 160,
-			"sha1": "fbb6ca7aaac5eeed61a563194ae7826509d6eb64"
+			"sha1": "ee2da89b94065908e3310353fe525c19745d4ce4"
 		},
 		{
 			"map": "rivergate",
@@ -606,7 +606,7 @@
 			"oy": 0,
 			"w": 160,
 			"h": 160,
-			"sha1": "e466c7066d596847bbc723fd124295bf5c116c4a"
+			"sha1": "ab092fbb3c3fd74f3483f7d2389ad9df22452c92"
 		},
 		{
 			"map": "rivergate",
@@ -614,7 +614,7 @@
 			"oy": 0,
 			"w": 160,
 			"h": 160,
-			"sha1": "e2d75c3f71a4b29dfc702ac0cfc589dc428037c9"
+			"sha1": "8c0687cafb1271c0a6e262be3f8032e1c6dada2a"
 		},
 		{
 			"map": "rivergate",
@@ -670,7 +670,7 @@
 			"oy": 624,
 			"w": 160,
 			"h": 160,
-			"sha1": "d05c4a0d1bb377b28cae9686069bc3606df5d2fb"
+			"sha1": "f89a20e7ed516d1dddbd13f2703f5fc06ab9b60a"
 		},
 		{
 			"map": "shrine",
@@ -686,7 +686,7 @@
 			"oy": 324,
 			"w": 160,
 			"h": 160,
-			"sha1": "b7a458bb0fd5b6c95b91709b7481a1b36585b012"
+			"sha1": "1d657232f0a2f5786c1ada71c6d217863440bbe3"
 		},
 		{
 			"map": "shrine",
@@ -697,12 +697,236 @@
 			"sha1": "b6556d0fbccc10fbd81ee1c1f655dd7d0000cecf"
 		},
 		{
+			"map": "svc_hp",
+			"ox": 0,
+			"oy": 0,
+			"w": 160,
+			"h": 160,
+			"sha1": "ec268aef3c8853f14621665bee4bf6d0ce89342e"
+		},
+		{
+			"map": "svc_hp",
+			"ox": 224,
+			"oy": 192,
+			"w": 160,
+			"h": 160,
+			"sha1": "d45ced45b9712def5cbe45045d3f8fc82047197f"
+		},
+		{
+			"map": "svc_hp",
+			"ox": 288,
+			"oy": 224,
+			"w": 160,
+			"h": 160,
+			"sha1": "e1bfad6563855c532a726886b1a28f20c9700aa3"
+		},
+		{
+			"map": "svc_hp",
+			"ox": 0,
+			"oy": 68,
+			"w": 160,
+			"h": 160,
+			"sha1": "0ed35b47a40b5d5da100ab9c88fd5e6c8277f544"
+		},
+		{
+			"map": "svc_lr",
+			"ox": 0,
+			"oy": 0,
+			"w": 160,
+			"h": 160,
+			"sha1": "aca68a063d0492cf9f0ec7ad02ab065c36ca7cc5"
+		},
+		{
+			"map": "svc_lr",
+			"ox": 224,
+			"oy": 192,
+			"w": 160,
+			"h": 160,
+			"sha1": "ce0806a2c5ae91a78ea8043e6093c5ae729682bb"
+		},
+		{
+			"map": "svc_lr",
+			"ox": 288,
+			"oy": 224,
+			"w": 160,
+			"h": 160,
+			"sha1": "b7bc7544ecf12c2fc08727e9beac2254864cb4cf"
+		},
+		{
+			"map": "svc_lr",
+			"ox": 0,
+			"oy": 68,
+			"w": 160,
+			"h": 160,
+			"sha1": "08cf3387c08acab5b116d915d144ba7a07d60aa1"
+		},
+		{
+			"map": "svc_nc",
+			"ox": 0,
+			"oy": 0,
+			"w": 160,
+			"h": 160,
+			"sha1": "f4718d44509cdbfa138dde26af23be1d47e36ed0"
+		},
+		{
+			"map": "svc_nc",
+			"ox": 224,
+			"oy": 192,
+			"w": 160,
+			"h": 160,
+			"sha1": "749de60a3bd7160755892a8fe0ea82a227191d2e"
+		},
+		{
+			"map": "svc_nc",
+			"ox": 288,
+			"oy": 224,
+			"w": 160,
+			"h": 160,
+			"sha1": "8c24eaec3fb4f830773fe0a4b4ac4ea738635ebe"
+		},
+		{
+			"map": "svc_nc",
+			"ox": 0,
+			"oy": 68,
+			"w": 160,
+			"h": 160,
+			"sha1": "8036b6c0fe4844cff4dc8b35db32d1807349da62"
+		},
+		{
+			"map": "svc_nh",
+			"ox": 0,
+			"oy": 0,
+			"w": 160,
+			"h": 160,
+			"sha1": "701a29c72dbeb64bb3634ada36ff87ee0816230b"
+		},
+		{
+			"map": "svc_nh",
+			"ox": 224,
+			"oy": 192,
+			"w": 160,
+			"h": 160,
+			"sha1": "bfc5b168715803aad33fc6a38dea595dd8580b11"
+		},
+		{
+			"map": "svc_nh",
+			"ox": 288,
+			"oy": 224,
+			"w": 160,
+			"h": 160,
+			"sha1": "20ca25bf1c004cb523d041504ef2c634515236ce"
+		},
+		{
+			"map": "svc_nh",
+			"ox": 0,
+			"oy": 68,
+			"w": 160,
+			"h": 160,
+			"sha1": "1a839f086a282ac5eb28dd75e3b43e820ef2260e"
+		},
+		{
+			"map": "svc_qr",
+			"ox": 0,
+			"oy": 0,
+			"w": 160,
+			"h": 160,
+			"sha1": "aca68a063d0492cf9f0ec7ad02ab065c36ca7cc5"
+		},
+		{
+			"map": "svc_qr",
+			"ox": 224,
+			"oy": 192,
+			"w": 160,
+			"h": 160,
+			"sha1": "ce0806a2c5ae91a78ea8043e6093c5ae729682bb"
+		},
+		{
+			"map": "svc_qr",
+			"ox": 288,
+			"oy": 224,
+			"w": 160,
+			"h": 160,
+			"sha1": "b7bc7544ecf12c2fc08727e9beac2254864cb4cf"
+		},
+		{
+			"map": "svc_qr",
+			"ox": 0,
+			"oy": 68,
+			"w": 160,
+			"h": 160,
+			"sha1": "08cf3387c08acab5b116d915d144ba7a07d60aa1"
+		},
+		{
+			"map": "svc_tb",
+			"ox": 0,
+			"oy": 0,
+			"w": 160,
+			"h": 160,
+			"sha1": "701a29c72dbeb64bb3634ada36ff87ee0816230b"
+		},
+		{
+			"map": "svc_tb",
+			"ox": 224,
+			"oy": 192,
+			"w": 160,
+			"h": 160,
+			"sha1": "bfc5b168715803aad33fc6a38dea595dd8580b11"
+		},
+		{
+			"map": "svc_tb",
+			"ox": 288,
+			"oy": 224,
+			"w": 160,
+			"h": 160,
+			"sha1": "20ca25bf1c004cb523d041504ef2c634515236ce"
+		},
+		{
+			"map": "svc_tb",
+			"ox": 0,
+			"oy": 68,
+			"w": 160,
+			"h": 160,
+			"sha1": "1a839f086a282ac5eb28dd75e3b43e820ef2260e"
+		},
+		{
+			"map": "svc_vk",
+			"ox": 0,
+			"oy": 0,
+			"w": 160,
+			"h": 160,
+			"sha1": "aca68a063d0492cf9f0ec7ad02ab065c36ca7cc5"
+		},
+		{
+			"map": "svc_vk",
+			"ox": 224,
+			"oy": 192,
+			"w": 160,
+			"h": 160,
+			"sha1": "ce0806a2c5ae91a78ea8043e6093c5ae729682bb"
+		},
+		{
+			"map": "svc_vk",
+			"ox": 288,
+			"oy": 224,
+			"w": 160,
+			"h": 160,
+			"sha1": "b7bc7544ecf12c2fc08727e9beac2254864cb4cf"
+		},
+		{
+			"map": "svc_vk",
+			"ox": 0,
+			"oy": 68,
+			"w": 160,
+			"h": 160,
+			"sha1": "08cf3387c08acab5b116d915d144ba7a07d60aa1"
+		},
+		{
 			"map": "town",
 			"ox": 0,
 			"oy": 0,
 			"w": 160,
 			"h": 160,
-			"sha1": "314fe49fba757b3b87197230fffe1f971476bc9e"
+			"sha1": "deb9ff26e6dc329dff30d4afd8e6214d3ec5af7e"
 		},
 		{
 			"map": "town",
@@ -710,7 +934,7 @@
 			"oy": 1248,
 			"w": 160,
 			"h": 160,
-			"sha1": "fbbcf4986c6fd913e4bee266145c191ddef094df"
+			"sha1": "d67ded9f630e1d57dbb6ec3e9a9a8e339abcc93f"
 		},
 		{
 			"map": "town",
@@ -718,7 +942,7 @@
 			"oy": 2336,
 			"w": 160,
 			"h": 160,
-			"sha1": "384ebf5a8feef0eaee704346657b8a8c378067d8"
+			"sha1": "413fc847b92eb36f3e2e49c781dcd1f43fbb023e"
 		},
 		{
 			"map": "town",
@@ -734,7 +958,7 @@
 			"oy": 0,
 			"w": 160,
 			"h": 160,
-			"sha1": "117158f02ffe4a12114f1174b037dabc38c84f0e"
+			"sha1": "2d5d7f0b4bea55bee0da88d6339a58fcb3f4e16f"
 		},
 		{
 			"map": "town",
@@ -742,7 +966,7 @@
 			"oy": 0,
 			"w": 160,
 			"h": 160,
-			"sha1": "93c76f22bed968a98716ddccb3316a509db32ec1"
+			"sha1": "09a610697289524d89039ed1b7b9dabed28eb9ff"
 		},
 		{
 			"map": "town",
@@ -750,7 +974,7 @@
 			"oy": 948,
 			"w": 160,
 			"h": 160,
-			"sha1": "8d1df15e8ca51cfdf003972afe7a681938fed1ee"
+			"sha1": "c0c25d62587a0deaf209c60a17e5ee2e3d4fe5be"
 		}
 	],
 	"colors": [

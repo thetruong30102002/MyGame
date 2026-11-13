@@ -300,7 +300,10 @@ namespace HavenLord.Client.UI
             UiKit.Icon(UiKit.Rect(wallet, "PotionIcon", new Vector2(1, 0.5f), new Vector2(1, 0.5f), new Vector2(-40, 0), new Vector2(18, 22)), UiIcon("icon_potion"));
             potionText = UiKit.Label(UiKit.Rect(wallet, "Potions", new Vector2(1, 0.5f), new Vector2(1, 0.5f), new Vector2(-10, 0), new Vector2(28, 22)), "0", 14, UiStyle.Parchment, TextAnchor.MiddleRight, true);
 
-            var mm = UiKit.Rect(root, "Minimap", new Vector2(1, 1), new Vector2(1, 1), new Vector2(-14, -54), new Vector2(192, 198));
+            // Chủ dự án 13/11/2026: "Tiền, bình máu k cần hiện ở ngoài tab vào kho để xem" — ẩn ví (xu / bình xem trong Túi đồ), bản đồ nhỏ
+            // dời lên góc.
+            wallet.gameObject.SetActive(false);
+            var mm = UiKit.Rect(root, "Minimap", new Vector2(1, 1), new Vector2(1, 1), new Vector2(-14, -14), new Vector2(192, 198));
             UiStyle.Card(mm, UiStyle.CardKind.Hud, 12);
             mapName = UiKit.Label(UiKit.Rect(mm, "Name", new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -6), new Vector2(180, 18)), "", 12, UiStyle.GoldHi, TextAnchor.MiddleCenter, true);
             minimapView = UiKit.Rect(mm, "View", new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(0, 30), new Vector2(178, 142));
@@ -403,7 +406,7 @@ namespace HavenLord.Client.UI
             const float w = 38, gap = 2;
             var mobile = Application.isMobilePlatform;
             var row = mobile
-                ? UiKit.Rect(root, "MenuRow", new Vector2(1, 1), new Vector2(1, 1), new Vector2(-12, -262), new Vector2(items.Length * (w + gap), 46))
+                ? UiKit.Rect(root, "MenuRow", new Vector2(1, 1), new Vector2(1, 1), new Vector2(-12, -222), new Vector2(items.Length * (w + gap), 46))
                 : UiKit.Rect(root, "MenuRow", new Vector2(1, 0), new Vector2(1, 0), new Vector2(-10, 6), new Vector2(items.Length * (w + gap), 46));
             for (var i = 0; i < items.Length; i++)
             {

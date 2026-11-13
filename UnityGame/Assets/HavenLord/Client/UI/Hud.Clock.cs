@@ -15,7 +15,7 @@ namespace HavenLord.Client.UI
 
         private void BuildClock()
         {
-            var rt = UiKit.Rect(root, "Clock", new Vector2(1, 1), new Vector2(1, 1), new Vector2(-14, -258), new Vector2(192, 22));
+            var rt = UiKit.Rect(root, "Clock", new Vector2(1, 1), new Vector2(1, 1), new Vector2(-14, -218), new Vector2(192, 22));
             UiStyle.Card(rt, UiStyle.CardKind.Hud, 11);
             clockDot = UiStyle.Pill(UiKit.Rect(rt, "Dot", new Vector2(0, 0.5f), new Vector2(0, 0.5f), new Vector2(10, 0), new Vector2(10, 10)), UiStyle.GoldHi, 5);
             clockText = UiKit.Label(UiKit.Rect(rt, "Time", new Vector2(0, 0.5f), new Vector2(0, 0.5f), new Vector2(26, 0), new Vector2(160, 20)), "", 12, UiStyle.Parchment, TextAnchor.MiddleLeft, true);

@@ -15,7 +15,7 @@ namespace HavenLord.Client.UI
 
         private void BuildChannel()
         {
-            channelSign = UiKit.Rect(root, "Channel", new Vector2(1, 1), new Vector2(1, 1), new Vector2(-212, -258), new Vector2(86, 22));
+            channelSign = UiKit.Rect(root, "Channel", new Vector2(1, 1), new Vector2(1, 1), new Vector2(-212, -218), new Vector2(86, 22));
             UiStyle.Card(channelSign, UiStyle.CardKind.Hud, 11);
             channelText = UiKit.Label(UiKit.Stretch(channelSign, "t"), "", 12, UiStyle.GoldHi, TextAnchor.MiddleCenter, true);
             UiKit.Press(channelSign, () =>
@@ -23,7 +23,7 @@ namespace HavenLord.Client.UI
                 channelList.gameObject.SetActive(!channelList.gameObject.activeSelf);
                 if (channelList.gameObject.activeSelf) game.AskChannels();
             });
-            channelList = UiKit.Rect(root, "ChannelList", new Vector2(1, 1), new Vector2(1, 1), new Vector2(-212, -284), new Vector2(150, 5 * 26 + 8));
+            channelList = UiKit.Rect(root, "ChannelList", new Vector2(1, 1), new Vector2(1, 1), new Vector2(-212, -244), new Vector2(150, 5 * 26 + 8));
             UiStyle.Card(channelList, UiStyle.CardKind.Hud, 10);
             channelList.gameObject.SetActive(false);
             channelSign.gameObject.SetActive(false);
