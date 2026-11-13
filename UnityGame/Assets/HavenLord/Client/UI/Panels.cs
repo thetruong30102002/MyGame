@@ -330,6 +330,8 @@ namespace HavenLord.Client.UI
             var rt = UiKit.Rect(parent, name, anchor, pivot, pos, size);
             var img = UiStyle.Card(rt, UiStyle.CardKind.Chip, 5, false, true);
             if (!enabled) img.color = new Color(0.36f, 0.34f, 0.33f, 0.8f);
+            // Nút gỗ PixelLab (13/11/2026): ảnh thường / rê / khoá phủ lên nền cũ; chưa có ảnh thì giữ nền vẽ bằng code.
+            var art = UiStyle.Frame(rt, enabled ? "ui2_btn_normal" : "ui2_btn_disabled", 1);
             var t = UiKit.Label(UiKit.Stretch(rt, "t"), label, Mathf.Min(16, size.y * 0.42f), enabled ? UiStyle.GoldHi : new Color(1, 1, 1, 0.4f), TextAnchor.MiddleCenter, true, enabled);
             t.rectTransform.offsetMin = new Vector2(icon != null ? 26 : 0, 1);
             if (icon != null)
@@ -340,8 +342,8 @@ namespace HavenLord.Client.UI
             if (enabled)
             {
                 var press = UiKit.Press(rt, click);
-                press.Enter = () => img.color = UiStyle.Hover;
-                press.Exit = () => img.color = UiStyle.SurfaceRaised;
+                press.Enter = () => { img.color = UiStyle.Hover; if (art != null) art.sprite = UiStyle.Art("ui2_btn_hover") ?? art.sprite; };
+                press.Exit = () => { img.color = UiStyle.SurfaceRaised; if (art != null) art.sprite = UiStyle.Art("ui2_btn_normal") ?? art.sprite; };
             }
             return rt;
         }

@@ -33,6 +33,19 @@ export const UI_ASSETS: UiAssetDef[] = [
 	{ id: 'icon_magic', path: I(6) },
 	{ id: 'icon_defense', path: I(7) },
 	{ id: 'icon_star', path: I(8) },
+	// Bộ khung UI tối giản gỗ nâu nẹp vàng (13/11/2026, PixelLab; chủ dự án duyệt khung bản đồ "Ổn hơn rồi tiếp đi"): mỗi mảnh một tấm
+	// `UI2_<id>` đã cắt theo cụm điểm + lề 2 px. Khung rỗng ruột đo viền tự động; tấm đặc giãn theo phần mũ hai đầu.
+	...(['minimap_frame', 'window_frame', 'portrait_frame', 'skill_slot', 'potion_slot'] as const).map((id) => ({ id: `ui2_${id}`, path: `sheet:UI2_${id}#0@1x1`, nine: 'hollow' as const })),
+	...(['btn_normal', 'btn_hover', 'btn_pressed', 'btn_disabled'] as const).map((id) => ({ id: `ui2_${id}`, path: `sheet:UI2_${id}#0@1x1`, nine: 'filled' as const, capX: 0.08, capY: 0.4 })),
+	{ id: 'ui2_bar_frame', path: 'sheet:UI2_bar_frame#0@1x1', nine: 'filled', capX: 0.08, capY: 0.45 },
+	{ id: 'ui2_dialog_box', path: 'sheet:UI2_dialog_box#0@1x1', nine: 'filled', capX: 0.06, capY: 0.22 },
+	{ id: 'ui2_ribbon', path: 'sheet:UI2_ribbon#0@1x1', nine: 'filled', capX: 0.08, capY: 0.4 },
+	{ id: 'ui2_ribbon_alert', path: 'sheet:UI2_ribbon_alert#0@1x1', nine: 'filled', capX: 0.08, capY: 0.4 },
+	{ id: 'ui2_inv_slot', path: 'sheet:UI2_inv_slot#0@1x1', nine: 'filled', capX: 0.22, capY: 0.22 },
+	{ id: 'ui2_small_button', path: 'sheet:UI2_small_button#0@1x1', nine: 'filled', capX: 0.25, capY: 0.25 },
+	{ id: 'ui2_tab_on', path: 'sheet:UI2_tab_on#0@1x1', nine: 'filled', capX: 0.2, capY: 0.4 },
+	{ id: 'ui2_tab_off', path: 'sheet:UI2_tab_off#0@1x1', nine: 'filled', capX: 0.2, capY: 0.4 },
+	...(['level_badge', 'close_button', 'scroll_knob'] as const).map((id) => ({ id: `ui2_${id}`, path: `sheet:UI2_${id}#0@1x1` })),
 ];
 
 export interface NineSlice {

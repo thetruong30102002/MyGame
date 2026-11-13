@@ -182,6 +182,7 @@ namespace HavenLord.Client.UI
 
         private void Build()
         {
+            UiStyle.Art = UiIcon;
             signRoot = UiKit.Stretch(root, "ExitSigns");
             plateRoot = UiKit.Stretch(root, "Plates");
             floatRoot = UiKit.Stretch(root, "Floats");
@@ -304,9 +305,12 @@ namespace HavenLord.Client.UI
             // dời lên góc.
             wallet.gameObject.SetActive(false);
             var mm = UiKit.Rect(root, "Minimap", new Vector2(1, 1), new Vector2(1, 1), new Vector2(-14, -14), new Vector2(192, 198));
-            UiStyle.Card(mm, UiStyle.CardKind.Hud, 12);
+            UiStyle.Card(mm, UiStyle.CardKind.Hud, 12, frame: "ui2_minimap_frame");
             mapName = UiKit.Label(UiKit.Rect(mm, "Name", new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -6), new Vector2(180, 18)), "", 12, UiStyle.GoldHi, TextAnchor.MiddleCenter, true);
-            minimapView = UiKit.Rect(mm, "View", new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(0, 30), new Vector2(178, 142));
+            // Lòng khung bản đồ PixelLab (viền 18 px): bản đồ nằm gọn trong ô rỗng, tên map trên dải gỗ cạnh trên, nhãn PvP trên cạnh dưới.
+            minimapView = UiKit.Stretch(mm, "View");
+            minimapView.offsetMin = new Vector2(19, 30);
+            minimapView.offsetMax = new Vector2(-19, -26);
             UiStyle.Pill(minimapView, new Color(0, 0, 0, 0.35f), 8);
             minimapView.gameObject.AddComponent<RectMask2D>();
             minimap = UiKit.Icon(UiKit.Stretch(minimapView, "Map"), null);
@@ -435,7 +439,8 @@ namespace HavenLord.Client.UI
         {
             toastRoot = UiKit.Rect(root, "Toasts", new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -92), new Vector2(600, 220));
             bannerRoot = UiKit.Rect(root, "Banner", new Vector2(0.5f, 1), new Vector2(0.5f, 0.5f), new Vector2(0, -168), new Vector2(460, 78));
-            UiStyle.Card(bannerRoot, UiStyle.CardKind.Chip, 5);
+            // Băng rôn tên map (13/11/2026): dải ruy băng gỗ PixelLab.
+            UiStyle.Card(bannerRoot, UiStyle.CardKind.Chip, 5, frame: "ui2_ribbon");
             bannerText = UiKit.Label(UiKit.Stretch(bannerRoot, "t"), "", 22, UiStyle.GoldHi, TextAnchor.MiddleCenter, true, false);
             bannerText.characterSpacing = 2;
             bannerRoot.gameObject.SetActive(false);

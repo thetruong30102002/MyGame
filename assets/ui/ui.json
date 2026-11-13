@@ -87,5 +87,207 @@
 		"file": "icon_star.png",
 		"w": 45,
 		"h": 42
+	},
+	"ui2_minimap_frame": {
+		"file": "ui2_minimap_frame.png",
+		"w": 155,
+		"h": 157,
+		"slice": {
+			"top": 18,
+			"right": 18,
+			"bottom": 18,
+			"left": 18
+		}
+	},
+	"ui2_window_frame": {
+		"file": "ui2_window_frame.png",
+		"w": 212,
+		"h": 111,
+		"slice": {
+			"top": 13,
+			"right": 13,
+			"bottom": 13,
+			"left": 13
+		}
+	},
+	"ui2_portrait_frame": {
+		"file": "ui2_portrait_frame.png",
+		"w": 71,
+		"h": 70,
+		"slice": {
+			"top": 10,
+			"right": 10,
+			"bottom": 10,
+			"left": 10
+		}
+	},
+	"ui2_skill_slot": {
+		"file": "ui2_skill_slot.png",
+		"w": 36,
+		"h": 37,
+		"slice": {
+			"top": 8,
+			"right": 8,
+			"bottom": 8,
+			"left": 8
+		}
+	},
+	"ui2_potion_slot": {
+		"file": "ui2_potion_slot.png",
+		"w": 40,
+		"h": 42,
+		"slice": {
+			"top": 9,
+			"right": 9,
+			"bottom": 9,
+			"left": 9
+		}
+	},
+	"ui2_btn_normal": {
+		"file": "ui2_btn_normal.png",
+		"w": 159,
+		"h": 26,
+		"slice": {
+			"top": 10,
+			"right": 13,
+			"bottom": 10,
+			"left": 13
+		}
+	},
+	"ui2_btn_hover": {
+		"file": "ui2_btn_hover.png",
+		"w": 159,
+		"h": 27,
+		"slice": {
+			"top": 11,
+			"right": 13,
+			"bottom": 11,
+			"left": 13
+		}
+	},
+	"ui2_btn_pressed": {
+		"file": "ui2_btn_pressed.png",
+		"w": 159,
+		"h": 28,
+		"slice": {
+			"top": 11,
+			"right": 13,
+			"bottom": 11,
+			"left": 13
+		}
+	},
+	"ui2_btn_disabled": {
+		"file": "ui2_btn_disabled.png",
+		"w": 159,
+		"h": 27,
+		"slice": {
+			"top": 11,
+			"right": 13,
+			"bottom": 11,
+			"left": 13
+		}
+	},
+	"ui2_bar_frame": {
+		"file": "ui2_bar_frame.png",
+		"w": 132,
+		"h": 8,
+		"slice": {
+			"top": 4,
+			"right": 11,
+			"bottom": 4,
+			"left": 11
+		}
+	},
+	"ui2_dialog_box": {
+		"file": "ui2_dialog_box.png",
+		"w": 225,
+		"h": 60,
+		"slice": {
+			"top": 13,
+			"right": 14,
+			"bottom": 13,
+			"left": 14
+		}
+	},
+	"ui2_ribbon": {
+		"file": "ui2_ribbon.png",
+		"w": 221,
+		"h": 21,
+		"slice": {
+			"top": 8,
+			"right": 18,
+			"bottom": 8,
+			"left": 18
+		}
+	},
+	"ui2_ribbon_alert": {
+		"file": "ui2_ribbon_alert.png",
+		"w": 221,
+		"h": 21,
+		"slice": {
+			"top": 8,
+			"right": 18,
+			"bottom": 8,
+			"left": 18
+		}
+	},
+	"ui2_inv_slot": {
+		"file": "ui2_inv_slot.png",
+		"w": 37,
+		"h": 37,
+		"slice": {
+			"top": 8,
+			"right": 8,
+			"bottom": 8,
+			"left": 8
+		}
+	},
+	"ui2_small_button": {
+		"file": "ui2_small_button.png",
+		"w": 25,
+		"h": 24,
+		"slice": {
+			"top": 6,
+			"right": 6,
+			"bottom": 6,
+			"left": 6
+		}
+	},
+	"ui2_tab_on": {
+		"file": "ui2_tab_on.png",
+		"w": 42,
+		"h": 15,
+		"slice": {
+			"top": 6,
+			"right": 8,
+			"bottom": 6,
+			"left": 8
+		}
+	},
+	"ui2_tab_off": {
+		"file": "ui2_tab_off.png",
+		"w": 42,
+		"h": 15,
+		"slice": {
+			"top": 6,
+			"right": 8,
+			"bottom": 6,
+			"left": 8
+		}
+	},
+	"ui2_level_badge": {
+		"file": "ui2_level_badge.png",
+		"w": 32,
+		"h": 32
+	},
+	"ui2_close_button": {
+		"file": "ui2_close_button.png",
+		"w": 21,
+		"h": 20
+	},
+	"ui2_scroll_knob": {
+		"file": "ui2_scroll_knob.png",
+		"w": 10,
+		"h": 35
 	}
 }

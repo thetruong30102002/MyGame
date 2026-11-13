@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -111,8 +112,32 @@ namespace HavenLord.Client.UI
 
         public enum CardKind { Hud, Paper, Chip, Dark }
 
-        /// <summary>Thẻ bo góc: bóng đổ + viền mảnh + mặt. Trả Image MẶT (đổi màu mặt qua nó).</summary>
-        public static Image Card(RectTransform rt, CardKind kind = CardKind.Hud, int radius = 10, bool shadowOn = true, bool raycast = false)
+        /// <summary>
+        /// Ảnh khung UI PixelLab (`assets/ui/ui2_*`, 13/11/2026 — gỗ nâu nẹp vàng tối giản, chủ dự án duyệt khung bản đồ). Hud gán lúc dựng;
+        /// chưa có ảnh thì mọi thẻ giữ kiểu vẽ bằng code như cũ.
+        /// </summary>
+        public static Func<string, Sprite> Art;
+
+        /// <summary>Phủ khung ảnh 9 mảnh `id` lên `rt` (nới ra `pad` px mỗi phía), dưới nội dung thêm sau. Không có ảnh: null.</summary>
+        public static Image Frame(RectTransform rt, string id, float pad = 0)
+        {
+            var sp = Art?.Invoke(id);
+            if (sp == null) return null;
+            var f = UiKit.Stretch(rt, "frame");
+            f.offsetMin = new Vector2(-pad, -pad);
+            f.offsetMax = new Vector2(pad, pad);
+            var img = f.gameObject.AddComponent<Image>();
+            img.sprite = sp;
+            img.type = sp.border == Vector4.zero ? Image.Type.Simple : Image.Type.Sliced;
+            img.raycastTarget = false;
+            return img;
+        }
+
+        /// <summary>
+        /// Thẻ bo góc: bóng đổ + viền mảnh + mặt. Trả Image MẶT (đổi màu mặt qua nó). `frame`: khung ảnh phủ lên — null = tự chọn (thẻ
+        /// Hud / Giấy đủ lớn → khung cửa sổ, ô Tối → khung ô kỹ năng; thẻ nhỏ dưới 48 × 36 px và thẻ Chip giữ kiểu cũ), "" = không khung.
+        /// </summary>
+        public static Image Card(RectTransform rt, CardKind kind = CardKind.Hud, int radius = 10, bool shadowOn = true, bool raycast = false, string frame = null)
         {
             if (shadowOn)
             {
@@ -147,6 +172,9 @@ namespace HavenLord.Client.UI
             faceImg.color = face;
             faceImg.raycastTarget = false;
             inner.SetSiblingIndex(shadowOn ? 1 : 0);
+            var big = rt.sizeDelta.x >= 48 && rt.sizeDelta.y >= 36;
+            frame ??= !big || kind == CardKind.Chip ? "" : kind == CardKind.Dark ? "ui2_skill_slot" : "ui2_window_frame";
+            if (frame.Length > 0) Frame(rt, frame, kind == CardKind.Dark ? 2 : 3);
             return faceImg;
         }
 
