@@ -1,0 +1,2656 @@
+{
+  "[HavenLord update] version.json hỏng: ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\AutoUpdate.cs:85"
+  ],
+  "Đang mở link tải bản mới — tải xong bấm Cài đặt.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\AutoUpdate.cs:102"
+  ],
+  "Đang tải bản mới… {0} / {1} MB": [
+    "UnityGame\\Assets\\HavenLord\\Client\\AutoUpdate.cs:124"
+  ],
+  "Tải bản mới lỗi: ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\AutoUpdate.cs:127"
+  ],
+  "không rõ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\AutoUpdate.cs:127"
+  ],
+  "Đang kiểm tra file…": [
+    "UnityGame\\Assets\\HavenLord\\Client\\AutoUpdate.cs:130"
+  ],
+  "Đang giải nén bản mới…": [
+    "UnityGame\\Assets\\HavenLord\\Client\\AutoUpdate.cs:137"
+  ],
+  "\nBản này quá cũ để vào game — kiểm tra mạng rồi thử lại.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\AutoUpdate.cs:150"
+  ],
+  " — vào game bằng bản hiện tại.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\AutoUpdate.cs:155"
+  ],
+  "Đang cài bản mới — game sẽ tự mở lại…": [
+    "UnityGame\\Assets\\HavenLord\\Client\\AutoUpdate.cs:160"
+  ],
+  "Không chạy được bộ cài: ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\AutoUpdate.cs:166"
+  ],
+  "[HavenLord update] Không ghi được mục Apps: ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\AutoUpdate.cs:254"
+  ],
+  "Gói cập nhật thiếu HavenLord.exe": [
+    "UnityGame\\Assets\\HavenLord\\Client\\AutoUpdate.cs:265"
+  ],
+  "Không giải nén được bản mới: ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\AutoUpdate.cs:269"
+  ],
+  "Không thấy file vừa tải": [
+    "UnityGame\\Assets\\HavenLord\\Client\\AutoUpdate.cs:354"
+  ],
+  "File tải về sai cỡ ({0} / {1} byte)": [
+    "UnityGame\\Assets\\HavenLord\\Client\\AutoUpdate.cs:355"
+  ],
+  "File tải về hỏng (sai mã kiểm)": [
+    "UnityGame\\Assets\\HavenLord\\Client\\AutoUpdate.cs:361"
+  ],
+  "Không kiểm được file: ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\AutoUpdate.cs:366"
+  ],
+  "Thử lại": [
+    "UnityGame\\Assets\\HavenLord\\Client\\AutoUpdate.cs:381"
+  ],
+  "Có bản mới — đang cập nhật": [
+    "UnityGame\\Assets\\HavenLord\\Client\\AutoUpdate.cs:401"
+  ],
+  "Bản {0}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\AutoUpdate.cs:404"
+  ],
+  "Đang chuẩn bị…": [
+    "UnityGame\\Assets\\HavenLord\\Client\\AutoUpdate.cs:414"
+  ],
+  "Vỡ Vụn!": [
+    "UnityGame\\Assets\\HavenLord\\Client\\Combat\\CombatSystem.cs:321"
+  ],
+  "Tan Chảy!": [
+    "UnityGame\\Assets\\HavenLord\\Client\\Combat\\CombatSystem.cs:332",
+    "UnityGame\\Assets\\HavenLord\\Client\\Combat\\CombatSystem.cs:377"
+  ],
+  "Hơi Nước!": [
+    "UnityGame\\Assets\\HavenLord\\Client\\Combat\\CombatSystem.cs:337",
+    "UnityGame\\Assets\\HavenLord\\Client\\Combat\\CombatSystem.cs:349"
+  ],
+  "Bùng Lửa!": [
+    "UnityGame\\Assets\\HavenLord\\Client\\Combat\\CombatSystem.cs:358"
+  ],
+  "Băng Giá!": [
+    "UnityGame\\Assets\\HavenLord\\Client\\Combat\\CombatSystem.cs:364"
+  ],
+  "Bão Cát!": [
+    "UnityGame\\Assets\\HavenLord\\Client\\Combat\\CombatSystem.cs:370"
+  ],
+  "Đóng Băng!": [
+    "UnityGame\\Assets\\HavenLord\\Client\\Combat\\CombatSystem.cs:384",
+    "UnityGame\\Assets\\HavenLord\\Client\\Combat\\CombatSystem.cs:548"
+  ],
+  "Bùn Lầy!": [
+    "UnityGame\\Assets\\HavenLord\\Client\\Combat\\CombatSystem.cs:411"
+  ],
+  "Phá giáp": [
+    "UnityGame\\Assets\\HavenLord\\Client\\Combat\\CombatSystem.cs:530"
+  ],
+  "Vỡ giáp!": [
+    "UnityGame\\Assets\\HavenLord\\Client\\Combat\\CombatSystem.cs:535"
+  ],
+  "Ông Rơm": [
+    "UnityGame\\Assets\\HavenLord\\Client\\Combat\\CombatSystem.Dummies.cs:29"
+  ],
+  "Áp Đảo!": [
+    "UnityGame\\Assets\\HavenLord\\Client\\Combat\\CombatSystem.Passives.cs:95"
+  ],
+  "Vỡ băng!": [
+    "UnityGame\\Assets\\HavenLord\\Client\\Combat\\CombatSystem.Passives.cs:158"
+  ],
+  "Né đúng lúc!": [
+    "UnityGame\\Assets\\HavenLord\\Client\\Combat\\CombatSystem.Passives.cs:242"
+  ],
+  "Phản đòn!": [
+    "UnityGame\\Assets\\HavenLord\\Client\\Combat\\CombatSystem.Passives.cs:243",
+    "UnityGame\\Assets\\HavenLord\\Client\\Combat\\CombatSystem.Player.cs:788"
+  ],
+  "Bóng Mờ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\Combat\\CombatSystem.Passives.cs:265"
+  ],
+  "Chưa học “{0}”": [
+    "UnityGame\\Assets\\HavenLord\\Client\\Combat\\CombatSystem.Player.cs:34"
+  ],
+  "“{0}” cần Bọc Nguyên Tố trước": [
+    "UnityGame\\Assets\\HavenLord\\Client\\Combat\\CombatSystem.Player.cs:40"
+  ],
+  "Chưa chọn nguyên tố để bọc kiếm": [
+    "UnityGame\\Assets\\HavenLord\\Client\\Combat\\CombatSystem.Player.cs:45"
+  ],
+  "Không đủ MP": [
+    "UnityGame\\Assets\\HavenLord\\Client\\Combat\\CombatSystem.Player.cs:51"
+  ],
+  "Không có mục tiêu trong tầm": [
+    "UnityGame\\Assets\\HavenLord\\Client\\Combat\\CombatSystem.Player.cs:72"
+  ],
+  "Thế đỡ!": [
+    "UnityGame\\Assets\\HavenLord\\Client\\Combat\\CombatSystem.Player.cs:344"
+  ],
+  "Giữ thế": [
+    "UnityGame\\Assets\\HavenLord\\Client\\Combat\\CombatSystem.Player.cs:344"
+  ],
+  "Né!": [
+    "UnityGame\\Assets\\HavenLord\\Client\\Combat\\CombatSystem.Player.cs:543"
+  ],
+  "Hết bình hồi phục": [
+    "UnityGame\\Assets\\HavenLord\\Client\\Combat\\CombatSystem.Player.cs:698"
+  ],
+  "Trượt": [
+    "UnityGame\\Assets\\HavenLord\\Client\\Combat\\CombatSystem.Player.cs:758"
+  ],
+  "Phản lại!": [
+    "UnityGame\\Assets\\HavenLord\\Client\\Combat\\CombatSystem.Player.cs:788"
+  ],
+  "Chặn!": [
+    "UnityGame\\Assets\\HavenLord\\Client\\Combat\\CombatSystem.Player.cs:788"
+  ],
+  "Gạt": [
+    "UnityGame\\Assets\\HavenLord\\Client\\Combat\\CombatSystem.Player.cs:795"
+  ],
+  "Đúng lúc!": [
+    "UnityGame\\Assets\\HavenLord\\Client\\Combat\\CombatSystem.Player.cs:823"
+  ],
+  "Bạn đã gục ngã…": [
+    "UnityGame\\Assets\\HavenLord\\Client\\Combat\\CombatSystem.Player.cs:916"
+  ],
+  "Toàn màn (không viền)": [
+    "UnityGame\\Assets\\HavenLord\\Client\\DisplaySettings.cs:28"
+  ],
+  "Toàn màn hình": [
+    "UnityGame\\Assets\\HavenLord\\Client\\DisplaySettings.cs:29"
+  ],
+  "Cửa sổ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\DisplaySettings.cs:30"
+  ],
+  "Tối đa": [
+    "UnityGame\\Assets\\HavenLord\\Client\\DisplaySettings.cs:134"
+  ],
+  "Theo màn hình": [
+    "UnityGame\\Assets\\HavenLord\\Client\\DisplaySettings.cs:134"
+  ],
+  " khung/giây": [
+    "UnityGame\\Assets\\HavenLord\\Client\\DisplaySettings.cs:134"
+  ],
+  "Đêm": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameClock.cs:44",
+    "UnityGame\\Assets\\HavenLord\\Client\\GameClock.cs:44"
+  ],
+  "Bình minh": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameClock.cs:44"
+  ],
+  "Sáng": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameClock.cs:44"
+  ],
+  "Trưa": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameClock.cs:44"
+  ],
+  "Chiều": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameClock.cs:44"
+  ],
+  "Hoàng hôn": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameClock.cs:44"
+  ],
+  "Không có gì thay đổi (đã chạm trần / sàn)": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Admin.cs:105"
+  ],
+  "Map này ở vùng khác — sang vùng đó trước": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.AutoWalk.cs:59"
+  ],
+  "Bạn đang ở map này": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.AutoWalk.cs:64"
+  ],
+  "Đã tới {0}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.AutoWalk.cs:110"
+  ],
+  "Không tìm được đường tới map đó": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.AutoWalk.cs:111"
+  ],
+  "Nhiệm vụ này không cần đi đâu cả": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.AutoWalk.cs:112"
+  ],
+  "Không tìm được đường": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.AutoWalk.cs:124",
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.AutoWalk.cs:147"
+  ],
+  "Chỉ đi được tới gần chỗ đó": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.AutoWalk.cs:127"
+  ],
+  "Có địch!": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.AutoWalk.cs:148"
+  ],
+  "Đi tới {0}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.AutoWalk.cs:388"
+  ],
+  "Hình nộm luyện tập": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.AutoWalk.cs:469"
+  ],
+  "Đá phong ấn": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.AutoWalk.cs:479",
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.AutoWalk.cs:481"
+  ],
+  "Nấm Ánh Lam": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.AutoWalk.cs:500",
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Story.cs:40"
+  ],
+  "Cỏ thuốc": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.AutoWalk.cs:501",
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Story.cs:40"
+  ],
+  "Đá": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.AutoWalk.cs:503",
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Story.cs:40"
+  ],
+  "Đã sang khu {0}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Channel.cs:34"
+  ],
+  "Lữ khách": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.cs:64",
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:274",
+    "UnityGame\\Assets\\HavenLord\\Client\\PlayerRoster.cs:39"
+  ],
+  "[HavenLord] GameController thiếu GameDatabase — chạy menu Haven Lord/Nhập dữ liệu từ pipeline rồi Haven/Dựng scene chơi.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.cs:105"
+  ],
+  "[HavenLord] Không có vùng ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.cs:119"
+  ],
+  "[HavenLord] Không có nhân vật người chơi": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.cs:155"
+  ],
+  "Pháp sư không lướt né — giữ khoảng cách, dùng phép khống chế": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.cs:473"
+  ],
+  "Vùng này chưa mở — vùng đất đang được xây dựng.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.cs:630"
+  ],
+  "[HavenLord] Không có map {0}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.cs:658"
+  ],
+  "  ·  Vùng an toàn": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.cs:699"
+  ],
+  "Lên cấp {0}!": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.cs:811"
+  ],
+  "Bạn tỉnh lại ở quảng trường": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.cs:823"
+  ],
+  "Gia viên cần chơi trực tuyến": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Farm.cs:36"
+  ],
+  "Bộ đồ ở nhà": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Farm.cs:153"
+  ],
+  "Ruộng 32px": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Farm.cs:192"
+  ],
+  "Ô chưa mở ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Farm.cs:198"
+  ],
+  "Ô ruộng ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Farm.cs:204"
+  ],
+  "Cây ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Farm.cs:210"
+  ],
+  "Kéo được cá lên bờ!": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Farm.cs:318"
+  ],
+  "Căng quá — đứt dây rồi!": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Farm.cs:318"
+  ],
+  "Cá lết ra xa, sổng mất…": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Farm.cs:318"
+  ],
+  "Nhấc sớm quá — món còn tái": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Farm.cs:343"
+  ],
+  "Chín tới, thơm lừng!": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Farm.cs:343"
+  ],
+  "Hơi kỹ lửa — chín kỹ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Farm.cs:343"
+  ],
+  "Cháy mất rồi…": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Farm.cs:343"
+  ],
+  "Vườn cây + máy": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Farm.cs:366"
+  ],
+  "Chỗ trồng cây": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Farm.cs:378"
+  ],
+  "Cây còn non, chờ lớn": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Farm.cs:402"
+  ],
+  "Cây chưa có quả": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Farm.cs:402"
+  ],
+  "Chưa có cây giống · mua ở người bán đồ Gia viên": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Farm.cs:404"
+  ],
+  "Giường": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Farm.cs:506"
+  ],
+  "Hạt giống": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Farm.cs:509",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:238",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:242"
+  ],
+  "Đồ bày trí": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Farm.cs:559"
+  ],
+  "Xích": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Farm.cs:572"
+  ],
+  "Cá ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Farm.cs:588"
+  ],
+  "Hãy tới chỗ câu bên bờ hồ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Farm.cs:653",
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Farm.cs:681"
+  ],
+  "Ô đất chưa mở · gặp Cô Lựu để mở thêm": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Farm.cs:664"
+  ],
+  "Hãy bước tới gần ô ruộng": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Farm.cs:698"
+  ],
+  "Đợi phao giật rồi hãy kéo": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Farm.cs:731"
+  ],
+  "Dây câu": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Farm.cs:747"
+  ],
+  "Phao câu": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Farm.cs:748"
+  ],
+  "Chơi thử offline không gửi được — đăng nhập để góp ý.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Feedback.cs:32"
+  ],
+  "Viết thêm chút nữa nhé (ít nhất 3 ký tự).": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Feedback.cs:33"
+  ],
+  "Tối đa {0} ký tự.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Feedback.cs:34"
+  ],
+  "Đã gửi góp ý — cảm ơn bạn!": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Feedback.cs:52"
+  ],
+  "Bộ đồ này không đúng nghề hiện tại": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Gear.cs:107",
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Rewards.cs:155"
+  ],
+  "Phòng Thử chiêu: mọi nhánh mốc 10 · Lữ khách mới sẵn sàng": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Lab.cs:53"
+  ],
+  "Bị đẩy ra: ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Net.cs:53"
+  ],
+  "Bạn đã hạ gục {0}!": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Net.cs:74"
+  ],
+  "{0} đã hạ gục bạn": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Net.cs:74"
+  ],
+  "{0} hạ gục {1}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Net.cs:74"
+  ],
+  "Thư viện có trang mới: {0} (L)": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Regions.cs:83"
+  ],
+  "Không có vùng này.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Regions.cs:94"
+  ],
+  "{0} kim cương": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Rewards.cs:56",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:43"
+  ],
+  "{0} bình": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Rewards.cs:58"
+  ],
+  "Đã mua {0}; áo đã vào túi": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Rewards.cs:80"
+  ],
+  "Đã mua áo; áo đã vào túi": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Rewards.cs:80"
+  ],
+  "Đã mua {0}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Rewards.cs:84"
+  ],
+  "Đã mua": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Rewards.cs:84"
+  ],
+  "Cần {0} kim cương (đang có {1})": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Rewards.cs:145"
+  ],
+  "Cần cấp {0}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Rewards.cs:156",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Inventory.cs:114"
+  ],
+  "Cần {0} xu": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Rewards.cs:157"
+  ],
+  "Bạn đang ở map này rồi": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Rewards.cs:202"
+  ],
+  "Chưa tới {0} — phải đặt chân tới một lần mới dịch chuyển được": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Rewards.cs:207"
+  ],
+  "Cần {0} xu để dịch chuyển (đang có {1})": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Rewards.cs:213"
+  ],
+  "−{0} xu · dịch chuyển tới {1}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Rewards.cs:225"
+  ],
+  "Chơi offline — không có ai để trò chuyện": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Social.cs:123"
+  ],
+  "Chưa có ai nhắn riêng cho bạn": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Social.cs:134"
+  ],
+  "Kiếp thứ hai": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Story.cs:72"
+  ],
+  "con gái": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Story.cs:143"
+  ],
+  "Tám năm sau · Mười sáu tuổi": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Story.cs:147"
+  ],
+  "Bốn tuổi": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Story.cs:147"
+  ],
+  "Sáu tuổi": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Story.cs:147"
+  ],
+  "Tám tuổi": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Story.cs:147"
+  ],
+  "{0} tuổi": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Story.cs:147",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Codex.cs:98"
+  ],
+  "{0} (nghĩ thầm)": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Story.cs:162"
+  ],
+  "Hoàn thành: {0}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Story.cs:191"
+  ],
+  "+{0} Bình hồi phục": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Story.cs:197"
+  ],
+  "Đá phong ấn rung chuyển — ánh đỏ bùng lên…": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Story.cs:258"
+  ],
+  "Hết chương": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Story.cs:299"
+  ],
+  "Đi về phía {0} — {1}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Story.cs:331"
+  ],
+  "Mục tiêu ở map khác — đi theo lối ra trên bản đồ nhỏ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Story.cs:332",
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Story.cs:341"
+  ],
+  "Mục tiêu ở phía {0} — đã đánh dấu": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Story.cs:339"
+  ],
+  "Tới {0}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Story.cs:341"
+  ],
+  "đông": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Story.cs:408"
+  ],
+  "đông bắc": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Story.cs:408"
+  ],
+  "bắc": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Story.cs:408"
+  ],
+  "tây bắc": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Story.cs:408"
+  ],
+  "tây": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Story.cs:408"
+  ],
+  "tây nam": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Story.cs:408"
+  ],
+  "đông nam": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Story.cs:408"
+  ],
+  "{0} ở {1}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Story.cs:419"
+  ],
+  "Mở nhánh {0} — học phép đầu ở bảng Tiềm năng (T)": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Story.cs:445"
+  ],
+  "Theo kiếm của cha · Kiếm sĩ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Story.cs:523"
+  ],
+  "Kiếm +{0}% sát thương, máu và giáp dày · phép −{1}%, ít MP": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Story.cs:523"
+  ],
+  "Theo phép của mẹ · Pháp sư": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Story.cs:524"
+  ],
+  "Phép +{0}% sát thương, nhiều MP · kiếm −{1}%, máu mỏng": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Story.cs:524"
+  ],
+  "Ngã rẽ · Mười sáu tuổi": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Story.cs:526"
+  ],
+  "Sáng hôm ấy, cha đặt thanh kiếm gỗ năm nào lên bàn. Mẹ đặt cây trượng tập bên cạnh.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Story.cs:528"
+  ],
+  "“Mười năm nay con học cả hai,” mẹ nói. “Nhưng một người chỉ có hai bàn tay, và một ngày chỉ có một buổi sáng.”": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Story.cs:529"
+  ],
+  "Cha chỉ nói: “…Chọn đi. Chọn gì cha mẹ cũng mừng.”": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Story.cs:530"
+  ],
+  "Chưa cộng điểm nào để tẩy": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Talents.cs:201"
+  ],
+  "Tẩy điểm cần {0} kim cương (đang có {1})": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Talents.cs:212"
+  ],
+  "Đã tẩy {0} điểm — chọn lại lớp, nguyên tố rồi cộng lại điểm": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Talents.cs:240"
+  ],
+  "Đã tẩy {0} điểm — chọn lại nguyên tố và cộng lại điểm": [
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Talents.cs:240"
+  ],
+  "Đi lên": [
+    "UnityGame\\Assets\\HavenLord\\Client\\KeyBinds.cs:26"
+  ],
+  "Đi xuống": [
+    "UnityGame\\Assets\\HavenLord\\Client\\KeyBinds.cs:26"
+  ],
+  "Sang trái": [
+    "UnityGame\\Assets\\HavenLord\\Client\\KeyBinds.cs:26"
+  ],
+  "Sang phải": [
+    "UnityGame\\Assets\\HavenLord\\Client\\KeyBinds.cs:26"
+  ],
+  "Chạy (giữ)": [
+    "UnityGame\\Assets\\HavenLord\\Client\\KeyBinds.cs:27"
+  ],
+  "Chiêu ô 3": [
+    "UnityGame\\Assets\\HavenLord\\Client\\KeyBinds.cs:28"
+  ],
+  "Chiêu ô 4": [
+    "UnityGame\\Assets\\HavenLord\\Client\\KeyBinds.cs:28"
+  ],
+  "Chiêu ô 5": [
+    "UnityGame\\Assets\\HavenLord\\Client\\KeyBinds.cs:28"
+  ],
+  "Chiêu ô 6": [
+    "UnityGame\\Assets\\HavenLord\\Client\\KeyBinds.cs:29"
+  ],
+  "Chiêu ô 7": [
+    "UnityGame\\Assets\\HavenLord\\Client\\KeyBinds.cs:29"
+  ],
+  "Chiêu ô 8": [
+    "UnityGame\\Assets\\HavenLord\\Client\\KeyBinds.cs:29"
+  ],
+  "Chiêu ô 9": [
+    "UnityGame\\Assets\\HavenLord\\Client\\KeyBinds.cs:30"
+  ],
+  "Chiêu ô 10": [
+    "UnityGame\\Assets\\HavenLord\\Client\\KeyBinds.cs:30"
+  ],
+  "Né": [
+    "UnityGame\\Assets\\HavenLord\\Client\\KeyBinds.cs:31",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.cs:605"
+  ],
+  "Uống bình": [
+    "UnityGame\\Assets\\HavenLord\\Client\\KeyBinds.cs:31"
+  ],
+  "Nói chuyện / nhặt": [
+    "UnityGame\\Assets\\HavenLord\\Client\\KeyBinds.cs:31"
+  ],
+  "Đổi mục tiêu": [
+    "UnityGame\\Assets\\HavenLord\\Client\\KeyBinds.cs:32"
+  ],
+  "Mở chat": [
+    "UnityGame\\Assets\\HavenLord\\Client\\KeyBinds.cs:32"
+  ],
+  "Bảng phím": [
+    "UnityGame\\Assets\\HavenLord\\Client\\KeyBinds.cs:32"
+  ],
+  "Nhân vật": [
+    "UnityGame\\Assets\\HavenLord\\Client\\KeyBinds.cs:33",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.cs:466",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Book.cs:77",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Book.cs:77",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Book.cs:230",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.cs:21"
+  ],
+  "Túi đồ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\KeyBinds.cs:33",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.cs:466"
+  ],
+  "Tiềm năng": [
+    "UnityGame\\Assets\\HavenLord\\Client\\KeyBinds.cs:33",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.cs:466",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.cs:23"
+  ],
+  "Bản đồ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\KeyBinds.cs:34",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.cs:468",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.cs:24",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.WorldMap.cs:132"
+  ],
+  "Bạn bè": [
+    "UnityGame\\Assets\\HavenLord\\Client\\KeyBinds.cs:34",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.cs:468",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.cs:25"
+  ],
+  "Thư viện": [
+    "UnityGame\\Assets\\HavenLord\\Client\\KeyBinds.cs:34",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.cs:468",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.cs:26"
+  ],
+  "Cài đặt": [
+    "UnityGame\\Assets\\HavenLord\\Client\\KeyBinds.cs:35",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.cs:469",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.cs:28"
+  ],
+  "Trái": [
+    "UnityGame\\Assets\\HavenLord\\Client\\KeyBinds.cs:61"
+  ],
+  "Phải": [
+    "UnityGame\\Assets\\HavenLord\\Client\\KeyBinds.cs:61"
+  ],
+  "{0} · trời ({1}, {2}, {3}) · trong nhà/hang {4} · đêm {5} · nguồn sáng {6}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\Lighting.cs:106"
+  ],
+  "Tiếng Việt ▾": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:90",
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:103"
+  ],
+  "Thế giới Haven": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:144"
+  ],
+  "Bản Unity · PC / Android · bản {0}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:148"
+  ],
+  "BẢN BETA": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:230"
+  ],
+  "Bản thử nghiệm đồ hoạ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:232"
+  ],
+  "Haven Lord đang trong giai đoạn <b>thử nghiệm đồ hoạ</b> — game <b>chưa chính thức đi vào hoạt động</b>. ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:234"
+  ],
+  "Nhiều hình nhân vật, quái, hiệu ứng và bản đồ vẫn là bản tạm, sẽ được vẽ lại dần.\n\n": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:235"
+  ],
+  "Đừng chê nhé — hãy <b>góp ý</b> để game tốt hơn! Mọi góp ý đều được đọc.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:236"
+  ],
+  "Góp ý ở: vào game → <color=#ffd166><b>Cài đặt (phím O)</b></color> → tab <color=#ffd166><b>Góp ý</b></color>": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:240"
+  ],
+  "Đã hiểu": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:244"
+  ],
+  "Đăng nhập": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:284"
+  ],
+  "Tạo tài khoản": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:289",
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:310"
+  ],
+  "Tên đăng nhập": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:295"
+  ],
+  "Mật khẩu": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:297"
+  ],
+  "Nhập lại mật khẩu": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:301"
+  ],
+  "gõ lại cho chắc": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:301"
+  ],
+  "Máy chủ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:306"
+  ],
+  "Vào thế giới": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:310"
+  ],
+  "‹ Ẩn máy chủ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:312"
+  ],
+  "Máy chủ ›": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:312"
+  ],
+  "Thử chiêu ›": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:317"
+  ],
+  "Chọn chơi thử ›": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:318"
+  ],
+  "Chọn nhân vật": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:324"
+  ],
+  "Vào": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:339"
+  ],
+  "‹ Đăng xuất": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:342"
+  ],
+  "Chọn nhân vật khởi đầu": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:362"
+  ],
+  "Nam / Nữ · 5 tộc × 3 đầu · 5 class · Di chuyển 8 hướng": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:363"
+  ],
+  "Nhân vật nam · 5 tộc · 5 class · Bộ chuyển động PixelLab": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:363"
+  ],
+  "• Nữ •": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:368"
+  ],
+  "Nữ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:368",
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:382",
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.LegacyCreate.cs:14"
+  ],
+  "Đầu / tộc: ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:371"
+  ],
+  "Bộ / class: ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:376"
+  ],
+  "Tên nhân vật": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:377",
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.LegacyCreate.cs:15"
+  ],
+  "3–16 ký tự": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:377",
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.LegacyCreate.cs:15"
+  ],
+  " · Vũ khí cơ bản đúng class": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:382"
+  ],
+  "Vào chơi thử": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:383"
+  ],
+  "Tạo và vào thế giới": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:383",
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.LegacyCreate.cs:16"
+  ],
+  "Đang mở cổng…": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:445"
+  ],
+  "Không kết nối được máy chủ: ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:456"
+  ],
+  "Bạn chưa gõ tên đăng nhập": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:470"
+  ],
+  "Bạn chưa gõ mật khẩu": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:471"
+  ],
+  "Hai lần gõ mật khẩu chưa giống nhau": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:472"
+  ],
+  "Tên nhân vật cần 3–16 ký tự": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:489"
+  ],
+  "Chọn một nhân vật trước khi vào game": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:495"
+  ],
+  "Tạo nhân vật": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.LegacyCreate.cs:11"
+  ],
+  "Lữ khách · Bộ tạo hình đang dùng\nMẫu kiếm HD có thể thử riêng trong phòng Thử chiêu": [
+    "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.LegacyCreate.cs:12"
+  ],
+  "[HavenLord net] Lưu khi thoát lỗi: ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\OnlineSession.cs:80"
+  ],
+  "Kiếm": [
+    "UnityGame\\Assets\\HavenLord\\Client\\PlayerRoster.cs:22"
+  ],
+  "Trượng": [
+    "UnityGame\\Assets\\HavenLord\\Client\\PlayerRoster.cs:22"
+  ],
+  "Thương": [
+    "UnityGame\\Assets\\HavenLord\\Client\\PlayerRoster.cs:22"
+  ],
+  "Khiên": [
+    "UnityGame\\Assets\\HavenLord\\Client\\PlayerRoster.cs:22"
+  ],
+  "Danh mục cỡ NPC chưa đủ 150 lựa chọn": [
+    "UnityGame\\Assets\\HavenLord\\Client\\PlayerRoster.cs:35"
+  ],
+  "Kiếm / Trượng": [
+    "UnityGame\\Assets\\HavenLord\\Client\\PlayerRoster.cs:39"
+  ],
+  "Danh mục nhân vật chưa đủ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\PlayerRoster.cs:42"
+  ],
+  "Chưa nhập hai mẫu chơi cơ bản": [
+    "UnityGame\\Assets\\HavenLord\\Client\\PlayerRoster.cs:45"
+  ],
+  "Nói chuyện với {0}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\StoryDirector.cs:133"
+  ],
+  "Báo lại cho {0}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\StoryDirector.cs:134"
+  ],
+  "Tất cả": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\ChatBox.cs:17"
+  ],
+  "Thế giới": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\ChatBox.cs:17"
+  ],
+  "Riêng": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\ChatBox.cs:17"
+  ],
+  "Trò chuyện": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\ChatBox.cs:139"
+  ],
+  "Trò chuyện »": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\ChatBox.cs:151",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\ChatBox.cs:275"
+  ],
+  "→ {0}  ×": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\ChatBox.cs:246"
+  ],
+  "Nhắn riêng cho {0}…": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\ChatBox.cs:247"
+  ],
+  "Kênh Thế giới (tốn kim cương)": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\ChatBox.cs:248"
+  ],
+  "/w tên nội dung · /r trả lời": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\ChatBox.cs:249"
+  ],
+  "Nói trên map · Enter gửi · Esc đóng": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\ChatBox.cs:250"
+  ],
+  "Chưa ai nói gì trên map này": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\ChatBox.cs:312"
+  ],
+  "Kênh Thế giới đang yên ắng": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\ChatBox.cs:313"
+  ],
+  "Chưa có tin nhắn riêng — bấm tên một người để nhắn": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\ChatBox.cs:314"
+  ],
+  "Enter để trò chuyện": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\ChatBox.cs:315"
+  ],
+  "<color={0}>[Thế giới]</color> ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\ChatBox.cs:325"
+  ],
+  "Nhắn riêng": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\ChatBox.cs:349"
+  ],
+  "Kết bạn": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\ChatBox.cs:351"
+  ],
+  "Bỏ chặn": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\ChatBox.cs:352",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Friends.cs:101"
+  ],
+  "Chặn": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\ChatBox.cs:352",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Friends.cs:74"
+  ],
+  "Chọn một con đường": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Cinematic.cs:83"
+  ],
+  "E · Space · bấm để tiếp tục": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Cinematic.cs:100",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\MangaCutscene.cs:83"
+  ],
+  "E · Space · bấm để đọc tiếp": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Cinematic.cs:100"
+  ],
+  "NHIỆM VỤ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Cinematic.cs:149"
+  ],
+  "\n<color=#9fe39a>» Đang tự đi · {0}</color>": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Cinematic.cs:167"
+  ],
+  "\n<color=#ffffff66>bấm để tự đi</color>": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Cinematic.cs:167"
+  ],
+  "{0}  <size=13><color=#d9c08f>Cấp {1}</color></size>": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.BossBar.cs:91"
+  ],
+  "<color=#ff9a4a>Cháy</color>": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.BossBar.cs:95"
+  ],
+  "<color=#7fc4ff>Ướt</color>": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.BossBar.cs:96"
+  ],
+  "<color=#bfefff>Đóng băng</color>": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.BossBar.cs:97"
+  ],
+  "<color=#ffe27a>Choáng</color>": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.BossBar.cs:98"
+  ],
+  "<color=#e0a0ff>Vỡ giáp</color>": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.BossBar.cs:99"
+  ],
+  "Chi tiết (còn / tối đa)": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.cs:130"
+  ],
+  "Phần trăm (%)": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.cs:130"
+  ],
+  "Ẩn số": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.cs:130"
+  ],
+  "Gia viên": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.cs:467",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:92"
+  ],
+  "Điểm danh": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.cs:469",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.cs:27",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:386",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:403"
+  ],
+  "Đóng  ·  E": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.cs:526"
+  ],
+  "Nói chuyện": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.cs:538"
+  ],
+  "Điều khiển  ·  {0} để ẩn  ·  đổi phím: Cài đặt": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.cs:545"
+  ],
+  "đi  ({0} chạy)": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.cs:548"
+  ],
+  "Chuột": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.cs:549"
+  ],
+  "trái chém · phải phép thường": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.cs:549"
+  ],
+  "chiêu đã gán": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.cs:550"
+  ],
+  "lăn né (chỉ Kiếm sĩ)": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.cs:551"
+  ],
+  "lăn né": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.cs:551"
+  ],
+  "uống bình": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.cs:552"
+  ],
+  "đổi mục tiêu": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.cs:553"
+  ],
+  "nói chuyện": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.cs:554"
+  ],
+  "bảng nhân vật · hoặc bấm ảnh": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.cs:555"
+  ],
+  "Cấp tối đa": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.cs:781",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Character.cs:50"
+  ],
+  "Bạn đã gục ngã\n<size=15><color=#d9c08f>Hồi sinh ở quảng trường sau {0} giây</color></size>": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.cs:802"
+  ],
+  "Mất kết nối — đang nối lại…": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.cs:805"
+  ],
+  "Vùng PvP": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.cs:821"
+  ],
+  "Vùng an toàn": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.cs:821"
+  ],
+  "Sang vùng mới": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.cs:922"
+  ],
+  "<b><color=#ffd166>{0}</color></b>  <size=11><color=#d9c08f>[{1}]{2}  ·  hồi {3}s</color></size>\n{4}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.cs:1098"
+  ],
+  "Chảo nấu": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.FarmGames.cs:24"
+  ],
+  "Tên": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.FarmGames.cs:26",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.FarmGames.cs:93",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:102",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:124",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:144",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:167",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:191",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:209",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:270"
+  ],
+  "Chảo": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.FarmGames.cs:28"
+  ],
+  "Lòng": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.FarmGames.cs:30"
+  ],
+  "Cán": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.FarmGames.cs:31"
+  ],
+  "Món": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.FarmGames.cs:32",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:288"
+  ],
+  "Độ chín": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.FarmGames.cs:34"
+  ],
+  "Tái": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.FarmGames.cs:36"
+  ],
+  "Chín": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.FarmGames.cs:37"
+  ],
+  "Chín kỹ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.FarmGames.cs:38"
+  ],
+  "Cháy": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.FarmGames.cs:39"
+  ],
+  "Mốc": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.FarmGames.cs:42"
+  ],
+  "Tái                 Chín          Chín kỹ     Cháy": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.FarmGames.cs:42"
+  ],
+  "Nhấc": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.FarmGames.cs:43"
+  ],
+  "Chữ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.FarmGames.cs:45"
+  ],
+  "Nhấc ra (E)": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.FarmGames.cs:45"
+  ],
+  "{0} · canh lửa cho vừa chín": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.FarmGames.cs:49"
+  ],
+  "Khói": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.FarmGames.cs:61"
+  ],
+  "Kéo cá": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.FarmGames.cs:91"
+  ],
+  "Cá cắn câu! Giữ chuột / E để thu dây · thả để nhả dây": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.FarmGames.cs:93"
+  ],
+  "Nước": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.FarmGames.cs:95"
+  ],
+  "Bờ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.FarmGames.cs:97"
+  ],
+  "Cá": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.FarmGames.cs:98"
+  ],
+  "Căng": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.FarmGames.cs:101"
+  ],
+  "Mức": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.FarmGames.cs:103"
+  ],
+  "Gợi ý": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.FarmGames.cs:105",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:303"
+  ],
+  "Dây sắp đứt — THẢ ra!": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.FarmGames.cs:114"
+  ],
+  "Cá đang giãy mạnh, nhả dây chờ cá mệt": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.FarmGames.cs:114"
+  ],
+  "Đang thu dây…": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.FarmGames.cs:114"
+  ],
+  "Cá đuối sức — giữ để kéo vào": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.FarmGames.cs:114"
+  ],
+  "LỮ KHÁCH · KIẾM / TRƯỢNG": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\LabCharacterPanel.cs:43"
+  ],
+  "Kiếm · chém": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\LabCharacterPanel.cs:44",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\LabCharacterPanel.cs:70"
+  ],
+  "Trượng · niệm": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\LabCharacterPanel.cs:45"
+  ],
+  "Tây Nam": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\LabCharacterPanel.cs:48"
+  ],
+  "Tây": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\LabCharacterPanel.cs:48",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.WorldMap.cs:608"
+  ],
+  "Tây Bắc": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\LabCharacterPanel.cs:48"
+  ],
+  "Bắc": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\LabCharacterPanel.cs:48",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.WorldMap.cs:608"
+  ],
+  "Đông Bắc": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\LabCharacterPanel.cs:48"
+  ],
+  "Đông": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\LabCharacterPanel.cs:48",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.WorldMap.cs:608"
+  ],
+  "Đông Nam": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\LabCharacterPanel.cs:48"
+  ],
+  "Đứng": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\LabCharacterPanel.cs:52"
+  ],
+  "Thử đòn đang cầm": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\LabCharacterPanel.cs:56"
+  ],
+  "WASD đi · Shift chạy · Chuột trái đánh": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\LabCharacterPanel.cs:58"
+  ],
+  "Đang thi triển": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\LabCharacterPanel.cs:70"
+  ],
+  "Trượng · phép Haven": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\LabCharacterPanel.cs:70"
+  ],
+  "Tay không": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\LabCharacterPanel.cs:70"
+  ],
+  "Kim cương": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Admin.cs:21",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Admin.cs:27"
+  ],
+  "Bình hồi phục": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Admin.cs:21",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Admin.cs:27",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Character.cs:74"
+  ],
+  "Điểm tiềm năng": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Admin.cs:22"
+  ],
+  "Cấp": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Admin.cs:27"
+  ],
+  "Điểm tiềm năng thưởng": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Admin.cs:27"
+  ],
+  "Tài khoản này không có quyền quản trị.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Admin.cs:72"
+  ],
+  "Nhân vật  ·  quản trị: {0}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Admin.cs:90"
+  ],
+  "Tên nhân vật / tài khoản…": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Admin.cs:91"
+  ],
+  "Tìm": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Admin.cs:93"
+  ],
+  "Đang tìm…": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Admin.cs:96"
+  ],
+  "Không thấy nhân vật nào.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Admin.cs:96"
+  ],
+  "Cấp {0}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Admin.cs:108"
+  ],
+  "Chọn một nhân vật ở cột trái.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Admin.cs:125"
+  ],
+  "Cấp {0} · EXP {1} · Xu {2} · KC {3} · Bình {4} · Điểm thưởng {5}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Admin.cs:131"
+  ],
+  "tối đa {0}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Admin.cs:149"
+  ],
+  "Đặt cấp": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Admin.cs:157"
+  ],
+  "Lý do": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Admin.cs:164"
+  ],
+  "bắt buộc — lưu vào nhật ký": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Admin.cs:165"
+  ],
+  "Đang gửi…": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Admin.cs:175",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Feedback.cs:47"
+  ],
+  "Bấm lần nữa để áp dụng": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Admin.cs:175"
+  ],
+  "Áp dụng": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Admin.cs:175",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Admin.cs:188",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Settings.cs:64"
+  ],
+  "<b>Xác nhận:</b> ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Admin.cs:202"
+  ],
+  "Sẽ đổi: ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Admin.cs:202"
+  ],
+  "<color=#9fe39a>Vừa áp: ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Admin.cs:204"
+  ],
+  "<color=#9fe39a>Vừa áp: không đổi gì</color>": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Admin.cs:204"
+  ],
+  "Chưa chọn nhân vật": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Admin.cs:264"
+  ],
+  "{0}: chỉ gõ chữ số": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Admin.cs:270"
+  ],
+  "{0}: mỗi lần cộng / trừ tối đa {1}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Admin.cs:271"
+  ],
+  "Đặt cấp: số 1–{0}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Admin.cs:279"
+  ],
+  "Chưa nhập thay đổi nào": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Admin.cs:283"
+  ],
+  "Ghi lý do (bắt buộc — lưu vào nhật ký)": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Admin.cs:284"
+  ],
+  "Lý do tối đa {0} ký tự": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Admin.cs:285"
+  ],
+  "Nhật ký · {0}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Admin.cs:335"
+  ],
+  "Nhật ký": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Admin.cs:335"
+  ],
+  "Chưa có lần cộng / trừ nào.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Admin.cs:345"
+  ],
+  "Nhân vật hiện dùng diện mạo Lữ khách hoàn chỉnh.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Barber.cs:8"
+  ],
+  "Đầm lầy": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Book.cs:41"
+  ],
+  "Sa mạc": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Book.cs:42"
+  ],
+  "Cao nguyên": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Book.cs:43"
+  ],
+  "Lãnh nguyên": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Book.cs:44"
+  ],
+  "Núi lửa": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Book.cs:45"
+  ],
+  "Quần đảo": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Book.cs:46"
+  ],
+  "Cấp {0}–{1}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Book.cs:63",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:216",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:296"
+  ],
+  "Hệ {0} · yếu {1}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Book.cs:64"
+  ],
+  "Miền chưa ghi": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Book.cs:73"
+  ],
+  "Khác": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Book.cs:73"
+  ],
+  "Những sinh vật gặp ngoài các vùng đã vẽ bản đồ.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Book.cs:73"
+  ],
+  "Những người Lior đã gặp trên đường — từ thuở nhỏ ở Thistlewood tới những miền xa.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Book.cs:77"
+  ],
+  "— Hết chương —": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Book.cs:145"
+  ],
+  "PHỤ LỤC": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Book.cs:181"
+  ],
+  "CHƯƠNG {0}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Book.cs:181"
+  ],
+  "Đã ghi chép {0} / {1} trang": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Book.cs:196"
+  ],
+  "\n<size=12>Đã hạ tổng cộng {0}</size>": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Book.cs:196"
+  ],
+  "MỤC LỤC": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Book.cs:201"
+  ],
+  "Bấm tên để lật tới trang · ← → lật trang": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Book.cs:224"
+  ],
+  "CHƯA GẶP": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Book.cs:231"
+  ],
+  "Máu <b>{0}</b> · Công <b>{1}</b> · Giáp <b>{2}</b> · Tốc {3}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Book.cs:255"
+  ],
+  "Gặp được: ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Book.cs:258"
+  ],
+  "Nơi ở: ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Book.cs:259"
+  ],
+  "<i>Trang này còn trống. Lại gần để ghi chép.</i>": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Book.cs:268"
+  ],
+  "‹ Trang trước": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Book.cs:284",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:151",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:181"
+  ],
+  "LỰC CHIẾN": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Character.cs:38"
+  ],
+  "CẤP": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Character.cs:46"
+  ],
+  "Cộng {0} điểm tiềm năng": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Character.cs:55"
+  ],
+  "Hành trang  <size=12><color=#b8bcc8>{0} / {1}</color></size>": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Character.cs:94"
+  ],
+  "Chưa chọn con đường": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Character.cs:115"
+  ],
+  "xoay nhân vật": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Character.cs:155"
+  ],
+  "×": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Character.cs:238",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.cs:243",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:177",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:243"
+  ],
+  "Quái thường": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Codex.cs:56"
+  ],
+  " · cấp {0}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Codex.cs:67",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.WorldMap.cs:219"
+  ],
+  " · cấp {0}–{1}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Codex.cs:67"
+  ],
+  " (bờ suối)": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Codex.cs:67"
+  ],
+  "từ {0} tuổi": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Codex.cs:98"
+  ],
+  "{0}–{1} tuổi": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Codex.cs:98"
+  ],
+  "Nhiệm vụ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.cs:22"
+  ],
+  "Esc · đóng cửa sổ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.cs:277"
+  ],
+  "Sổ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:25"
+  ],
+  "Sổ gửi: {0} xu · Thỏi vàng: {1} (bán hôm nay ≈ {2} xu)": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:25"
+  ],
+  "Lãi": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:26"
+  ],
+  "Lãi gửi hôm nay: {0} % / ngày (tính trên tối đa 200.000 xu, cộng mỗi ngày, đổi theo ngày).": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:26"
+  ],
+  "Giá": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:27"
+  ],
+  "Giá vàng hôm nay: {0} xu {1} · mua {2} · bán {3} — 7 ngày: {4}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:27"
+  ],
+  "Vàng": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:28"
+  ],
+  "Thỏi vàng": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:28"
+  ],
+  "Gửi 100 xu": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:30"
+  ],
+  "Gửi 1.000 xu": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:31"
+  ],
+  "Gửi 10.000 xu": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:32"
+  ],
+  "Rút 100 xu": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:33"
+  ],
+  "Rút 1.000 xu": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:34"
+  ],
+  "Rút hết": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:35"
+  ],
+  "Mua 1 thỏi · {0} xu": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:36"
+  ],
+  "Mua 10 thỏi · {0} xu": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:37"
+  ],
+  "Bán 1 thỏi · {0} xu": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:38"
+  ],
+  "Bán 10 thỏi": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:39"
+  ],
+  "Bán hết": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:40"
+  ],
+  "Lưu ý": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:41"
+  ],
+  "Gửi xu luôn có lãi. Thỏi vàng có thể lời hoặc lỗ: giá lên xuống mỗi ngày quanh 1.000 xu. Sổ dùng chung mọi chủ ngân hàng.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:41"
+  ],
+  "Chờ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:94"
+  ],
+  "Đang hỏi máy chủ về khuôn viên…": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:94"
+  ],
+  "Thoại": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:103"
+  ],
+  "Rất vui được gặp cậu.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:103"
+  ],
+  "Hướng dẫn": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:110",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:312"
+  ],
+  "Đứng ở chỗ muốn đặt rồi bấm món trong kho (đồ đặt ngay trước mặt). Bấm món trong phòng để cất. Đồ phải nằm trên sàn, không chồng đồ khác, chừa lối cửa / cầu thang.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:110"
+  ],
+  "Phòng": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:111"
+  ],
+  "Trong phòng ({0} món):": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:111"
+  ],
+  "Cất": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:112"
+  ],
+  "Cất ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:112"
+  ],
+  "Kho đồ trống · mua thêm đồ ở người bán đồ Gia viên (sắp mở).": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:115"
+  ],
+  "Kho đồ:": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:115"
+  ],
+  "Đặt": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:116"
+  ],
+  "Đặt {0} ×{1}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:116"
+  ],
+  "Bãi quây bò · cừu · heo": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:124"
+  ],
+  "Sân gà": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:124"
+  ],
+  "Tổ ong": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:124"
+  ],
+  "chưa có con nào": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:130"
+  ],
+  "đói — cần cho ăn": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:130"
+  ],
+  "còn khoảng {0} phút ra {1}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:130"
+  ],
+  "đã có {0}, thu được": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:130"
+  ],
+  "Đàn": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:132"
+  ],
+  "{0} ×{1}/{2} · {3}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:132"
+  ],
+  "Ăn": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:133",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:199"
+  ],
+  "Cho ăn ({0} lúa mì / ngô)": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:133"
+  ],
+  "Xuất": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:135"
+  ],
+  "Xuất chuồng 1 con → {0} ×{1}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:135"
+  ],
+  "Nhà Gia viên · mặt ngoài, tường, sàn, cầu thang theo kiểu nhà; đồ bày trí giữ nguyên khi đổi nhà": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:144"
+  ],
+  "Nhỏ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:145"
+  ],
+  "Nhà nhỏ có sẵn": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:145"
+  ],
+  "Về": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:146",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:168",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:222",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:274",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:293"
+  ],
+  "‹ Người bán đồ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:146",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:168"
+  ],
+  "Trước": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:151",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:181"
+  ],
+  "Nhà": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:157",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:234",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:306"
+  ],
+  "Đang ở": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:157"
+  ],
+  "Dọn sang": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:157"
+  ],
+  "Đã có": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:158",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:259"
+  ],
+  "Đồ bày trí · mua về vào kho, nhờ Quản gia đặt trong nhà": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:167"
+  ],
+  "Nhóm": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:169",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:238"
+  ],
+  "Đồ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:176"
+  ],
+  "giảm sát thương nhận {0}%": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:190"
+  ],
+  "sát thương +{0}%": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:190"
+  ],
+  "kinh nghiệm +{0}%": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:190"
+  ],
+  "{0} · {1} phút": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:190"
+  ],
+  "Bếp lò · nấu món từ nông sản, cá, thành phẩm máy (công thức thử)": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:191"
+  ],
+  "{0} ×{1}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:196",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:219",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:321"
+  ],
+  "Nấu": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:197"
+  ],
+  "Ăn {0} ×{1} · {2}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:199"
+  ],
+  "Thịt": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:201"
+  ],
+  "Gà quay / bò hầm / xiên cừu cần thịt từ chăn nuôi (sắp mở).": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:201"
+  ],
+  "Đang": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:213"
+  ],
+  "Đang làm · còn khoảng {0} phút": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:213"
+  ],
+  "Đã xong · lấy thành phẩm": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:213"
+  ],
+  "Lấy": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:214",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:337"
+  ],
+  "Lấy thành phẩm": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:214"
+  ],
+  "Cư dân / Gia viên": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:222",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:293"
+  ],
+  "Ruộng": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:232"
+  ],
+  "Ruộng đủ {0} ô": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:232"
+  ],
+  "Mở 4 ô · {0} xu": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:232"
+  ],
+  "BểCá": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:233"
+  ],
+  "Đã có bể cá": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:233"
+  ],
+  "Bể cá · {0} xu": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:233"
+  ],
+  "Nhà Gia viên ›": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:234"
+  ],
+  "ĐồVật": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:235"
+  ],
+  "Đồ bày trí ›": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:235"
+  ],
+  "ThúCưng": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:236"
+  ],
+  "Quay thú cưng ›": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:236"
+  ],
+  "Cây ăn quả": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:238",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:244"
+  ],
+  "Vật nuôi": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:238",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:246"
+  ],
+  "Máy chế biến": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:238",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:255"
+  ],
+  "Hạt": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:243",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:317"
+  ],
+  "Giống": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:245"
+  ],
+  "Cây giống ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:245"
+  ],
+  "Đã đủ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:252"
+  ],
+  "Máy": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:259"
+  ],
+  "Tỉ lệ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:271"
+  ],
+  "Người bán đồ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:274"
+  ],
+  "Kết quả": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:276"
+  ],
+  "Vừa quay: ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:276"
+  ],
+  " → mảnh": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:276"
+  ],
+  " ✦ mới": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:276"
+  ],
+  "Thả": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:277",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:336"
+  ],
+  "{0} · {1} mảnh": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:281"
+  ],
+  "Món hầm · 30 xu": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:288"
+  ],
+  "Thuốc": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:289"
+  ],
+  "Túi thuốc · 12 xu": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:289"
+  ],
+  "Chuẩn bị": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:290",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:292"
+  ],
+  "Cường hoá vũ khí / trang bị sẽ mở khi bảng đá cường hoá được duyệt.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:290"
+  ],
+  "Sự kiện": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:291",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Quests.cs:74"
+  ],
+  "Chưa có sự kiện đang diễn ra. Bạn đã có thể làm quen Iris để nhận Gia viên.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:291"
+  ],
+  "Danh mục vũ khí và công thức rèn sẽ mở theo thiết kế nghề / nhiệm vụ mới được duyệt.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:292"
+  ],
+  "Tình trạng": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:298"
+  ],
+  "Gia viên đã mở · kho và cây được máy chủ lưu": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:298"
+  ],
+  "Làm quen cư dân: {0}/{1} · hoàn tất để nhận Gia viên": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:298"
+  ],
+  "Chưa gặp": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:302"
+  ],
+  "Cần ghé: ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:302"
+  ],
+  "Tới gần rồi trò chuyện với mỗi người. Không cần mua hàng; Iris luôn có mặt kể cả ngoài thời gian sự kiện.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:303"
+  ],
+  "Về Thistlewood": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:306"
+  ],
+  "Về Gia viên": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:306"
+  ],
+  "Cửa": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:309"
+  ],
+  "Ra khuôn viên": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:309"
+  ],
+  "Vào nhà (tới cửa)": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:309"
+  ],
+  "Bán": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:310"
+  ],
+  "Gửi nông sản / cá (tới hộp)": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:310"
+  ],
+  "Bấm ô ruộng hoặc E khi đứng gần: cuốc → gieo → tưới → thu. Bấm đầu cầu / E để câu, đợi phao giật rồi bấm lại để kéo.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:312"
+  ],
+  "{0} · {1} hạt": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:317"
+  ],
+  "Nông gia": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:324"
+  ],
+  "Mặc bộ Nông gia (tới tủ)": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:324"
+  ],
+  "Thợ vườn": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:325"
+  ],
+  "Mặc bộ Thợ vườn (tới tủ)": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:325"
+  ],
+  "Bể": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:329",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:334"
+  ],
+  "Chưa có bể cá · mua ở người bán đồ Gia viên ngoài khuôn viên.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:329"
+  ],
+  "Bể cá · {0}/6 con · đứng cạnh bể để thả / lấy cá": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:334"
+  ],
+  "Thả {0}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:336"
+  ],
+  "Lấy {0}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:337"
+  ],
+  "Bếp": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:340"
+  ],
+  "Nấu ăn sẽ bổ sung sau đợt trồng trọt / câu cá này.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:340"
+  ],
+  "Mua hạt": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:343"
+  ],
+  "Mua thêm tại quầy Bram · giá thử, chưa chốt cân bằng:": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs:343"
+  ],
+  "Góp ý cho bản thử nghiệm": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Feedback.cs:31"
+  ],
+  "Game đang là bản <b>beta thử nghiệm đồ hoạ</b>, chưa chính thức hoạt động — hình, nhân vật, hiệu ứng còn nhiều chỗ tạm. ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Feedback.cs:33"
+  ],
+  "Thấy chỗ nào xấu, khó chơi, lỗi, hay muốn có thêm gì, cứ viết vào đây. Mọi góp ý đều được đọc.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Feedback.cs:34"
+  ],
+  "{0} / {1} ký tự": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Feedback.cs:42"
+  ],
+  "Gửi góp ý": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Feedback.cs:54"
+  ],
+  "Góp ý nhận được ({0})": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Feedback.cs:74"
+  ],
+  "Tải lại": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Feedback.cs:77"
+  ],
+  "Chưa có góp ý nào.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Feedback.cs:93"
+  ],
+  "Ví dụ: nhân vật đi hơi chậm, map Đầm lầy hơi tối, muốn có thêm thú cưỡi…": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Feedback.cs:107"
+  ],
+  "Bạn bè cần chơi online.\n<size=13>Đăng nhập máy chủ ở màn đầu để kết bạn, nhắn riêng và thấy bạn đang ở đâu.</size>": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Friends.cs:41"
+  ],
+  "Kết bạn theo tên": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Friends.cs:47"
+  ],
+  "Tên nhân vật…": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Friends.cs:48"
+  ],
+  "Gửi lời mời": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Friends.cs:49"
+  ],
+  "Đã gửi lời mời tới {0}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Friends.cs:55"
+  ],
+  "{0} bạn": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Friends.cs:57"
+  ],
+  "Bạn bè  ·  {0} đang online": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Friends.cs:60"
+  ],
+  "Chưa có bạn nào — gõ tên ở trên, hoặc bấm tên một người trong khung chat → Kết bạn.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Friends.cs:65"
+  ],
+  "Nhắn": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Friends.cs:70"
+  ],
+  "Câu cá": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Friends.cs:72"
+  ],
+  "Chắc chưa?": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Friends.cs:73",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Friends.cs:74"
+  ],
+  "Huỷ bạn": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Friends.cs:73"
+  ],
+  "… và {0} bạn nữa": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Friends.cs:76"
+  ],
+  "Lời mời đến": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Friends.cs:80"
+  ],
+  "Đồng ý": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Friends.cs:84"
+  ],
+  "Từ chối": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Friends.cs:85"
+  ],
+  "Đã gửi, chờ trả lời": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Friends.cs:89"
+  ],
+  "Thu hồi": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Friends.cs:93"
+  ],
+  "Đã chặn": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Friends.cs:97"
+  ],
+  "— trống —": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Friends.cs:119"
+  ],
+  "Đang mặc · ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Inventory.cs:75"
+  ],
+  "Chọn một món để xem chi tiết · bấm đúp để mặc / dùng ngay": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Inventory.cs:92"
+  ],
+  "Tiêu hao": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Inventory.cs:99"
+  ],
+  "Vật phẩm": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Inventory.cs:99"
+  ],
+  "  ·  Gắn với nhân vật": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Inventory.cs:103"
+  ],
+  "Không cộng chỉ số": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Inventory.cs:111"
+  ],
+  "Tháo ra": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Inventory.cs:127"
+  ],
+  "Uống": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Inventory.cs:128"
+  ],
+  "Mặc vào": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Inventory.cs:129"
+  ],
+  "Máu đang đầy": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Inventory.cs:133"
+  ],
+  "Phím": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Keys.cs:54"
+  ],
+  "Góp ý": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Keys.cs:54"
+  ],
+  "Bấm phím mới cho «{0}» · Esc để huỷ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Keys.cs:84"
+  ],
+  "Bấm một ô phím để đổi · trùng phím thì hai việc đổi chỗ cho nhau · cố định: Esc, phím mũi tên, chuột trái / phải (= ô 1 / ô 2)": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Keys.cs:85"
+  ],
+  "Khôi phục mặc định": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Keys.cs:89"
+  ],
+  "Đã đưa phím về mặc định": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Keys.cs:93"
+  ],
+  "  <color=#8a7a63><size=11>· trống</size></color>": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Keys.cs:107"
+  ],
+  "bấm phím…": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Keys.cs:113"
+  ],
+  "{0}: {1} · «{2}» đổi sang {3}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Keys.cs:149"
+  ],
+  "Cây tiềm năng": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Loadout.cs:20"
+  ],
+  "Gán ô · Bọc Nguyên Tố": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Loadout.cs:20"
+  ],
+  "Kế hoạch (QTV)": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Loadout.cs:21"
+  ],
+  "<color=#ffd166>{0}</color> điểm tiềm năng chưa cộng": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Loadout.cs:39"
+  ],
+  "Đã cộng hết điểm": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Loadout.cs:39"
+  ],
+  "Thanh 10 ô  <size=12><color=#c9b48a>đã gán {0}/{1} · học {2} chiêu</color></size>": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Loadout.cs:60"
+  ],
+  "Đang cầm «{0}» — bấm ô muốn đặt (ô đang có chiêu thì hai ô đổi chỗ)": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Loadout.cs:64"
+  ],
+  "Bấm một chiêu rồi bấm ô để gán · đổi phím của ô ở Cài đặt → Phím · bị động không chiếm ô": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Loadout.cs:65"
+  ],
+  "Gỡ khỏi ô": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Loadout.cs:72"
+  ],
+  "trống": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Loadout.cs:95"
+  ],
+  "+{0} chiêu nữa": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Loadout.cs:156"
+  ],
+  "Nguyên tố của Pháp sư": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Loadout.cs:184"
+  ],
+  "Bọc Nguyên Tố": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Loadout.cs:184"
+  ],
+  "Chưa chọn nguyên tố. Cộng điểm tiềm năng vào MỘT nguyên tố — chọn xong thì bốn hệ kia khoá (đổi phải tẩy điểm bằng kim cương).": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Loadout.cs:189"
+  ],
+  "Hệ <color=#{0}>{1}</color> mốc {2}. Phản ứng nguyên tố (Hơi Nước, Tan Chảy…) là lối đánh NHÓM: đánh cùng người hệ khác lên một con quái.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Loadout.cs:190"
+  ],
+  "Kiếm sĩ bọc nguyên tố vào lưỡi kiếm bằng kỹ năng <b>Bọc Nguyên Tố</b>: cần Kiếm mốc {0} và MỘT nguyên tố mốc {1}. Chưa chọn nguyên tố — cộng điểm vào một nhánh nguyên tố ở bảng Tiềm năng.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Loadout.cs:192"
+  ],
+  "<color=#7be07f>Đang bọc · còn {0} giây</color>": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Loadout.cs:199"
+  ],
+  "Sẵn sàng — gắn kỹ năng Bọc Nguyên Tố lên thanh chiêu rồi bấm": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Loadout.cs:199"
+  ],
+  "<color=#c9806f>Cần Kiếm mốc {0} và {1} mốc {2} (đang {3})</color>": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Loadout.cs:199"
+  ],
+  "Hệ <color=#{0}>{1}</color> · bọc {2} giây (10 + 1 mỗi mốc, tối đa 20) · {3}\n": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Loadout.cs:200"
+  ],
+  "Trong lúc bọc, mọi đòn Kiếm mang hệ {0}: {1} Kiếm pháp nguyên tố chỉ ra đòn khi đang bọc.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Loadout.cs:201"
+  ],
+  "Nhiệm vụ chính": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Quests.cs:55"
+  ],
+  "Đã xong toàn bộ chuỗi nhiệm vụ chính.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Quests.cs:59"
+  ],
+  "Chưa có nhiệm vụ.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Quests.cs:59"
+  ],
+  "Nhiệm vụ phụ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Quests.cs:70"
+  ],
+  "Chưa có nhiệm vụ phụ — sẽ mở theo cốt truyện mới.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Quests.cs:71"
+  ],
+  "Hằng ngày": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Quests.cs:72"
+  ],
+  "Nhiệm vụ hằng ngày chưa mở.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Quests.cs:73"
+  ],
+  "Chưa có sự kiện đang diễn ra.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Quests.cs:75"
+  ],
+  "Chọn một nhiệm vụ để xem chi tiết.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Quests.cs:83"
+  ],
+  "NHIỆM VỤ CHÍNH · ĐANG LÀM": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Quests.cs:88"
+  ],
+  "NHIỆM VỤ CHÍNH · ĐÃ XONG": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Quests.cs:88"
+  ],
+  "NHIỆM VỤ CHÍNH": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Quests.cs:88"
+  ],
+  "Người giao: {0}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Quests.cs:93"
+  ],
+  "<color=#e9c46a>Mục tiêu</color>\n{0}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Quests.cs:97"
+  ],
+  "{0} bình hồi phục": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Quests.cs:105"
+  ],
+  "mở chiêu mới": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Quests.cs:106"
+  ],
+  "<color=#e9c46a>Phần thưởng</color>\n{0}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Quests.cs:107"
+  ],
+  "Tự đi tới mục tiêu": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Quests.cs:111"
+  ],
+  "Chưa có dữ liệu kế hoạch (roadmap.json)": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Roadmap.cs:18"
+  ],
+  "Tiến độ phần game <color=#ffd166><b>{0}%</b></color> · còn <color=#ffd166><b>{1}</b></color> lượt PixelLab": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Roadmap.cs:32"
+  ],
+  "cập nhật {0} · nguồn packages/sim/src/roadmap.ts": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Roadmap.cs:34"
+  ],
+  "Tính năng · nội dung": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Roadmap.cs:42"
+  ],
+  "Hình PixelLab (lượt còn cần)": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Roadmap.cs:43"
+  ],
+  "{0} lượt": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Roadmap.cs:58"
+  ],
+  "Quầy Bram": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:27",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:70"
+  ],
+  "Cột dịch chuyển": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:28",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:175",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.WorldMap.cs:235"
+  ],
+  "Bia Danh Vọng": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:29",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:338"
+  ],
+  "Quản trị": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:30"
+  ],
+  "Mira · Tiệm tóc": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:31"
+  ],
+  "Gia viên và cư dân Thistlewood": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:32"
+  ],
+  "{0} cần chơi online.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:49"
+  ],
+  "Hạt giống / Gia viên": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:66"
+  ],
+  "Bộ đồ thứ hai mua bằng xu; giá và chỉ số tạm, chờ duyệt.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:74"
+  ],
+  "Bình mua bằng kim cương — tác dụng tính theo giờ CHƠI (thoát game thì ngừng đếm), cùng loại cộng dồn tối đa 5 giờ.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:74"
+  ],
+  "Bình kim cương": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:76"
+  ],
+  "Bộ đồ · xu": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:77"
+  ],
+  "Vũ khí · xu": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:78"
+  ],
+  "Chưa có món cho nghề của bạn.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:82"
+  ],
+  "Kiếm sĩ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:86"
+  ],
+  "Pháp sư": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:86"
+  ],
+  "Thương thủ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:86"
+  ],
+  "Hộ vệ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:86"
+  ],
+  "Cung thủ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:86"
+  ],
+  "Nghề: {0} · Cấp {1} · Giá/chỉ số đang chờ duyệt": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:89"
+  ],
+  "{0} · còn {1}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:109"
+  ],
+  "Chưa có bình nào đang dùng.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:112"
+  ],
+  "VÙNG": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:191"
+  ],
+  "Sắp mở": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:216"
+  ],
+  "{0} xu / lần": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:251"
+  ],
+  "Bạn có {0} xu": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:252"
+  ],
+  "Vùng đất này đang được xây dựng.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:256"
+  ],
+  "Đang hỏi máy chủ…": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:261",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:346",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:393"
+  ],
+  "Trạm · an toàn": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:296"
+  ],
+  "Có quái": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:296"
+  ],
+  "Không có quái": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:296"
+  ],
+  "Trạm": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:301"
+  ],
+  "● Bạn đang ở đây": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:307"
+  ],
+  "Chưa tới": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:312"
+  ],
+  "Dịch chuyển": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:317"
+  ],
+  "Vùng này chưa có cột dịch chuyển.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:328"
+  ],
+  "Làm nên chuyện thì tên được khắc lên bia — đạt mốc nào nhận kim cương mốc đó (một lần).": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:342"
+  ],
+  "Đã nhận": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:368",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:424"
+  ],
+  "Nhận {0}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:372"
+  ],
+  "Tháng {0}/{1}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:397"
+  ],
+  "Chuỗi {0} ngày liên tiếp": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:399"
+  ],
+  "Chưa có chuỗi": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:399"
+  ],
+  " · sang ngày mới lúc 0 giờ (giờ Việt Nam), bỏ một ngày thì chuỗi về ngày 1": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:399"
+  ],
+  "Hôm nay đã điểm danh": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:401"
+  ],
+  "Quà theo chuỗi 7 ngày": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:428"
+  ],
+  "Ngày {0}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:438"
+  ],
+  "{0} kim cương\n{1} xu\n{2} bình": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:441"
+  ],
+  "Quà hôm nay: {0} kim cương, {1} xu, {2} bình": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs:445"
+  ],
+  "HIỂN THỊ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Settings.cs:32"
+  ],
+  "Độ nét": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Settings.cs:37"
+  ],
+  "  (gốc)": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Settings.cs:37"
+  ],
+  "Thấp hơn = nhẹ máy, đỡ nóng và đỡ pin; hình hơi mềm hơn.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Settings.cs:42"
+  ],
+  "Độ phân giải": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Settings.cs:49"
+  ],
+  "{0} × {1}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Settings.cs:49"
+  ],
+  "Chế độ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Settings.cs:57"
+  ],
+  "Màn hình: {0} × {1} · {2}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Settings.cs:69"
+  ],
+  "Đang dùng: {0} × {1}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Settings.cs:73"
+  ],
+  "Khung hình": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Settings.cs:77"
+  ],
+  "TRÒ CHƠI": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Settings.cs:83"
+  ],
+  "Ngôn ngữ / Language": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Settings.cs:84"
+  ],
+  "Tiếng Việt": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Settings.cs:84"
+  ],
+  "Tên trên đầu nhân vật": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Settings.cs:89"
+  ],
+  "Bảng phím góc trái": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Settings.cs:90"
+  ],
+  "Hiệu ứng thời tiết": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Settings.cs:91"
+  ],
+  "Số trên thanh máu": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Settings.cs:93"
+  ],
+  "Kết nối": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Settings.cs:99"
+  ],
+  "Trực tuyến · đã lưu": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Settings.cs:100"
+  ],
+  "Đang nối lại…": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Settings.cs:100"
+  ],
+  "Chơi offline (không lưu)": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Settings.cs:100"
+  ],
+  "Quản trị · cộng xu, điểm cho nhân vật": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Settings.cs:105"
+  ],
+  "Bấm lần nữa để đăng xuất": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Settings.cs:107"
+  ],
+  "Đăng xuất": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Settings.cs:107"
+  ],
+  "Về màn đăng nhập": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Settings.cs:107"
+  ],
+  "Lưu và thoát game": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Settings.cs:120"
+  ],
+  "BẬT": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Settings.cs:166"
+  ],
+  "TẮT": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Settings.cs:166"
+  ],
+  "Thử chiêu · mọi nhánh mốc trần": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:94"
+  ],
+  "điểm tiềm năng · cấp {0} · chọn MỘT nguyên tố": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:95"
+  ],
+  "điểm tiềm năng · cấp {0}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:96"
+  ],
+  "chưa mở": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:163"
+  ],
+  "mốc {0}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:163"
+  ],
+  "mốc {0}/{1}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:163"
+  ],
+  "Thuộc tính": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:197"
+  ],
+  "Đổi 1 điểm tiềm năng dư → {0} điểm": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:204"
+  ],
+  " · đã đổi {0} điểm tiềm năng": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:215"
+  ],
+  "phòng Thử chiêu": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:217"
+  ],
+  "<color=#ffd166>{0}</color> điểm chưa cộng{1}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:217"
+  ],
+  "đã cộng hết · {0} điểm mỗi cấp{1}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:217"
+  ],
+  "{0} điểm · {1}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:235"
+  ],
+  "+{0} máu": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:254"
+  ],
+  "+{0}% kiếm": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:256"
+  ],
+  "+{0}% phép": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:257"
+  ],
+  "+{0} phòng thủ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:258"
+  ],
+  "+{0} thể lực": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:259"
+  ],
+  "Bấm một mốc trên cây để xem nó làm gì rồi bấm <b>Học</b>.\n\n": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:269"
+  ],
+  "• Mỗi nhân vật chỉ <b>MỘT nguyên tố</b>: điểm đầu tiên cộng vào hệ nào thì 4 hệ kia khoá (đổi phải tẩy điểm).\n": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:270"
+  ],
+  "• Kiếm sĩ: 3 lưu phái cộng tự do; nguyên tố dùng để <b>Bọc Nguyên Tố</b> vào kiếm.\n": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:271"
+  ],
+  "• Pháp sư: chỉ trượng — Tia Haven + phép của hệ đã chọn.\n": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:272"
+  ],
+  "• Phản ứng nguyên tố: đánh cùng người chơi hệ khác.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:273"
+  ],
+  "Chiều sâu nhánh": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:293"
+  ],
+  "Bị động": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:293"
+  ],
+  "Chiêu mới": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:293"
+  ],
+  "{0} — mốc {1}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:294"
+  ],
+  "{0} · mốc {1} · {2}{3}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:300"
+  ],
+  "Mỗi mốc sâu hơn làm mọi chiêu của nhánh này mạnh thêm.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:303"
+  ],
+  "Nhánh chưa mở · theo cốt truyện": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:317"
+  ],
+  "Pháp sư không dùng kiếm": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:318"
+  ],
+  "Đã học": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:319",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:327"
+  ],
+  "Mốc này sắp có": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:320"
+  ],
+  "Cần Kiếm mốc {0} (Nhịp Chém)": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:321"
+  ],
+  "Đã chọn nguyên tố khác": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:322"
+  ],
+  "Học các mốc trước": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:323"
+  ],
+  "Thiếu điểm · {0}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:333"
+  ],
+  "Bấm lần nữa: chọn {0}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:333"
+  ],
+  "Chọn hệ {0} · {1}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:333"
+  ],
+  "Học mốc này · {0}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:333"
+  ],
+  "Chọn {0} thì 4 hệ kia khoá. Đổi hệ phải tẩy điểm ({1} kim cương).": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:348"
+  ],
+  "<b>Nguyên tố</b> · chưa chọn — cộng điểm vào MỘT hệ trên cây.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:367"
+  ],
+  "<b>Nguyên tố</b> · <color=#{0}>{1}</color> mốc {2} — phép của hệ này.": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:372"
+  ],
+  "<b>Bọc Nguyên Tố</b> · <color=#{0}>{1}</color> · còn {2} giây": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:377"
+  ],
+  "<b>Bọc Nguyên Tố</b> · <color=#{0}>{1}</color> {2} giây — kỹ năng trên thanh chiêu": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:378"
+  ],
+  "<b>Bọc Nguyên Tố</b> · cần Kiếm mốc {0} + <color=#{1}>{2}</color> mốc {3}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:379"
+  ],
+  "Bấm lần nữa để tẩy hết + chọn lại lớp": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:391"
+  ],
+  "Tẩy điểm / đổi lớp · {0} kim cương": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:391"
+  ],
+  "Tẩy điểm / đổi lớp (miễn phí tới cấp 5)": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs:391"
+  ],
+  "Map này": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.WorldMap.cs:59"
+  ],
+  "Vùng": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.WorldMap.cs:59"
+  ],
+  "Lục địa": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.WorldMap.cs:59"
+  ],
+  "Lăn chuột xuống / chuột phải: thu nhỏ\nLăn chuột lên / bấm vào: phóng to": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.WorldMap.cs:79"
+  ],
+  "Bạn": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.WorldMap.cs:193"
+  ],
+  " <size=8>×{0}</size>": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.WorldMap.cs:226"
+  ],
+  "Lục địa Haven": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.WorldMap.cs:257"
+  ],
+  "Vùng này đang được xây dựng": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.WorldMap.cs:281"
+  ],
+  "Bấm một vùng để xem bản đồ · vàng = đang ở · xanh = vào được · đỏ = chưa đủ điều kiện · xám = đang xây dựng": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.WorldMap.cs:302"
+  ],
+  "Bạn đang ở đây": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.WorldMap.cs:307"
+  ],
+  "Đang xây dựng": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.WorldMap.cs:308"
+  ],
+  "cấp {0}–{1}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.WorldMap.cs:310",
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.WorldMap.cs:590"
+  ],
+  "cần cấp {0}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.WorldMap.cs:310"
+  ],
+  "RỒNG": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.WorldMap.cs:461"
+  ],
+  "Bạn ở đây": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.WorldMap.cs:473"
+  ],
+  "<color=#459e38>■</color> vừa sức   <color=#e68c1f>■</color> khó   <color=#d1382a>■</color> rất khó   <color=#8c8780>■</color> quá dễ     ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.WorldMap.cs:516"
+  ],
+  "<color=#c58a10>●</color> bạn   <color=#3fb8a6>!</color> nhiệm vụ   <color=#ff9a3d>◆</color> sang vùng khác   ⌂ trạm   · bấm 2 lần = xem map": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.WorldMap.cs:517"
+  ],
+  "<color=#{0}>cấp {1}–{2}</color>": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.WorldMap.cs:544"
+  ],
+  "trạm · cột dịch chuyển": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.WorldMap.cs:545"
+  ],
+  "<color=#ffd166>bạn đang ở đây</color>": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.WorldMap.cs:546"
+  ],
+  "<color=#7fe0d0>nhiệm vụ ở đây</color>": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.WorldMap.cs:547"
+  ],
+  "cấp {0}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.WorldMap.cs:590"
+  ],
+  "{0}\n<size=9>{(g.boss ? \"×1\" : $\"×{1}\")}</size>": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.WorldMap.cs:597"
+  ],
+  "<color=#e9c46a>Lối ra</color>": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.WorldMap.cs:604"
+  ],
+  "đang xây dựng": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.WorldMap.cs:613"
+  ],
+  "  <size=10><color=#7be07f>vào được</color></size>": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.WorldMap.cs:614"
+  ],
+  "<color=#e9c46a>Đường đi</color>  ": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.WorldMap.cs:619"
+  ],
+  "Dịch chuyển (quản trị)": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.WorldMap.cs:633"
+  ],
+  "Tự đi tới đây": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.WorldMap.cs:642"
+  ],
+  "Ở vùng khác": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.WorldMap.cs:642"
+  ],
+  "không có đường trong vùng": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.WorldMap.cs:672"
+  ],
+  "{0}  <size=10>({1} lối)</size>": [
+    "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.WorldMap.cs:675"
+  ],
+  "ô nước {0} (suối {1}) · vệt {2}, sóng {3}, lấp lánh {4}, bọt {5}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\WaterMotion.cs:292"
+  ],
+  "{0}×{1}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\Weather.cs:75"
+  ],
+  "cỏ lăn×{0}": [
+    "UnityGame\\Assets\\HavenLord\\Client\\Weather.cs:76"
+  ],
+  "phủ màu": [
+    "UnityGame\\Assets\\HavenLord\\Client\\Weather.cs:77"
+  ],
+  "rỗng": [
+    "UnityGame\\Assets\\HavenLord\\Client\\Weather.cs:79"
+  ],
+  " · khung {0}×{1}px": [
+    "UnityGame\\Assets\\HavenLord\\Client\\Weather.cs:79"
+  ],
+  "child path thử with spaces": [
+    "UnityGame\\Assets\\HavenLord\\Client\\WindowsNativeUpdateTest.cs:73"
+  ],
+  "Haven Lord thử đường dẫn Unicode": [
+    "UnityGame\\Assets\\HavenLord\\Client\\WindowsNativeUpdateTest.cs:95"
+  ]
+}
