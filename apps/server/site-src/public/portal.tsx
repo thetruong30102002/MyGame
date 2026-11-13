@@ -8,6 +8,7 @@ import icons from './icons.json';
 import './redesign.css';
 import '../design.css';
 import '../classic.css';
+import '../game-theme.css';
 import {Brand,AccountMenu,UiIcon} from '../ui';
 const adminModule = () => import('../admin/main');
 const Admin = lazy(adminModule);

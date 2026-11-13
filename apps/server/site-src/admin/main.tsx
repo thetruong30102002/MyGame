@@ -6,6 +6,7 @@ import type { readDevelopmentPlan } from '../../src/developmentPlan';
 import type { WORLD_DESIGN } from '../../../../packages/sim/src/worldDesign';
 import './studio.css';
 import './classic-studio.css';
+import '../game-theme.css';
 import {Brand,AccountMenu,UiIcon,roleImage} from '../ui';
 import {PlanView} from './planView';
 type Plan = ReturnType<typeof readDevelopmentPlan> & {
