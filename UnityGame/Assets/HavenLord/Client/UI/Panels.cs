@@ -13,12 +13,13 @@ namespace HavenLord.Client.UI
     /// </summary>
     public sealed partial class Panels : MonoBehaviour
     {
-        public enum Kind { None, Character, Talents, Inventory, WorldMap, Friends, Codex, Calendar, Settings, Shop, Waystone, Glory, Admin, Barber, Farm }
+        public enum Kind { None, Character, Talents, Inventory, WorldMap, Friends, Codex, Calendar, Settings, Shop, Waystone, Glory, Admin, Barber, Farm, Quests }
 
         /// <summary>Tab chỉ có CHỮ + phím tắt (chủ dự án 10/10/2026: bỏ icon menu — bộ icon không khớp nghĩa, vd lịch = cài đặt).</summary>
         private static readonly (Kind kind, string label, string key)[] Tabs =
         {
             (Kind.Character, "Nhân vật", "C"),
+            (Kind.Quests, "Nhiệm vụ", ""),
             (Kind.Talents, "Tiềm năng", "T"),
             (Kind.WorldMap, "Bản đồ", "M"),
             (Kind.Friends, "Bạn bè", "F"),
@@ -160,6 +161,7 @@ namespace HavenLord.Client.UI
                 case Kind.Talents: BuildTalents(); break;
                 case Kind.Friends: BuildFriends(); break;
                 case Kind.Codex: BuildCodex(); break;
+                case Kind.Quests: BuildQuests(); break;
                 case Kind.WorldMap: BuildWorldMap(); break;
                 case Kind.Calendar: BuildCalendar(); break;
                 case Kind.Shop: BuildShop(); break;

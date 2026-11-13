@@ -50,7 +50,7 @@ namespace HavenLord.Client
             combat.PracticeHit = (el, r) => story?.Practiced(el, r, HavenStandsIn);
         }
 
-        private string NpcName(string key) => population?.NpcDefOf(key)?.Name ?? key;
+        public string NpcName(string key) => population?.NpcDefOf(key)?.Name ?? key;
 
         private bool IsStoryGift(string id) => sim.EconomyTables.StoryGifts != null && Array.IndexOf(sim.EconomyTables.StoryGifts, id) >= 0;
 

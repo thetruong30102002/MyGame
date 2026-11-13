@@ -63,6 +63,9 @@ namespace HavenLord.Client
         private JArray UnlockedArr => (JArray)s["unlocked"];
 
         public QuestDef Quest => Index >= 0 && Index < quests.Count ? quests[Index] : null;
+        /// <summary>Cả chuỗi nhiệm vụ chính + vị trí đang làm (tab Nhiệm vụ: trước = đã xong, sau = chưa mở).</summary>
+        public IReadOnlyList<QuestDef> AllQuests => quests;
+        public int QuestIndex => Index;
 
         /// <summary>Bài luyện phép đang nhận Tia Haven thay chiêu nguyên tố (Game tính theo mốc) — đổi chữ mục tiêu cho khớp.</summary>
         public Func<Objective, bool> HavenStandsIn = _ => false;
