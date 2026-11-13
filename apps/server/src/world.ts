@@ -86,6 +86,7 @@ export class World {
 	readonly farm: Farm;
 	readonly quests2: Quests2;
 	readonly pvp: Pvp;
+	private pkTicks = 0;
 	private readonly buffTimer: NodeJS.Timeout;
 
 	constructor(
@@ -127,6 +128,8 @@ export class World {
 		this.timer = setInterval(() => {
 			this.broadcastSnapshots();
 			this.mobs.tick();
+			// Mỗi phút: tiếng xấu tự giảm theo thời gian online (đồ sát — `@havenlord/sim/pk`).
+			if (++this.pkTicks % (SNAPSHOT_HZ * 60) === 0) for (const c of this.conns.values()) this.pvp.tick(c);
 		}, 1000 / SNAPSHOT_HZ);
 		this.mobs = new MobRegistry(
 			{
@@ -333,6 +336,7 @@ export class World {
 		};
 		conn.channel = channelled(conn.map) ? pickChannel(this.counts(conn.map), 1) : 1;
 		this.conns.set(ch.id, conn);
+		this.pvp.sync(conn);
 		const others = this.inRoom(conn).filter((c) => c !== conn && c.view.sprite);
 		send(ws, { t: 'welcome', you: ch.id, players: others.map((c) => c.view) });
 		this.sendChannel(conn);

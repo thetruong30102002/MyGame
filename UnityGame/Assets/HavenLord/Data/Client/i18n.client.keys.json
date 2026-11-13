@@ -378,16 +378,16 @@
     "UnityGame\\Assets\\HavenLord\\Client\\GameController.Lab.cs:53"
   ],
   "Bị đẩy ra: ": [
-    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Net.cs:59"
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Net.cs:62"
   ],
   "Bạn đã hạ gục {0}!": [
-    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Net.cs:80"
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Net.cs:83"
   ],
   "{0} đã hạ gục bạn": [
-    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Net.cs:80"
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Net.cs:83"
   ],
   "{0} hạ gục {1}": [
-    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Net.cs:80"
+    "UnityGame\\Assets\\HavenLord\\Client\\GameController.Net.cs:83"
   ],
   "Đồ sát chỉ có khi chơi trực tuyến": [
     "UnityGame\\Assets\\HavenLord\\Client\\GameController.Pk.cs:41"
@@ -620,7 +620,7 @@
   "{0} · trời ({1}, {2}, {3}) · trong nhà/hang {4} · đêm {5} · nguồn sáng {6}": [
     "UnityGame\\Assets\\HavenLord\\Client\\Lighting.cs:106"
   ],
-  "Tiếng Việt ▾": [
+  "Tiếng Việt ▼": [
     "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:91",
     "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs:104"
   ],

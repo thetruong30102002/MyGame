@@ -200,7 +200,7 @@ namespace HavenLord.Client.UI
                 var (r, mid) = GameDatabase.SplitMapKey(e.to, regionId);
                 var cross = r != regionId;
                 var dest = cross ? game.RegionRulesPublic.RegionDef(r)?.Name ?? r : idx.Find(mid)?.name ?? mid;
-                // Font thiếu ▶ (ra ô vuông) — dùng « » cho hai lối ngang.
+                // Font thiếu ► (ra ô vuông) — dùng « » cho hai lối ngang.
                 var text = dir.x < 0 ? $"« {dest}" : dir.x > 0 ? $"{dest} »" : dir.y < 0 ? $"▲ {dest}" : $"{dest} ▼";
                 // Nhãn lùi vào trong khung ảnh để không tràn ra ngoài giấy.
                 var tagAt = c + new Vector2(-dir.x * 54, dir.y * 14);

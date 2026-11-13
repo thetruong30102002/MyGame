@@ -42,6 +42,9 @@ namespace HavenLord.Client
                         online.Send(new ClientMap { Map = online.Progress.Map });
                         if (HasSharedZones()) online.Send(new ClientMobSub { On = true });
                     }
+                    // Tin gửi lúc nạp map đầu (trước khi kết nối xong) có thể rơi — xin lại nhiệm vụ + đồ sát mỗi lần máy chủ chào.
+                    online.Send(new ClientQ2 { Op = "get" });
+                    online.Send(new ClientPk { Op = "get" });
                     break;
                 case ServerJoin j:
                     remotes.Upsert(j.Player);
@@ -86,15 +89,20 @@ namespace HavenLord.Client
                     OnChannel(chn);
                     break;
                 case ServerSystem sys:
-                    SystemChat(sys.Text);
+                {
+                    // Font chữ trong game không có "⚔" (máy chủ dùng làm dấu báo động) — cắt đi lúc hiện.
+                    var alarm = sys.Text != null && sys.Text.StartsWith("⚔", StringComparison.Ordinal);
+                    var text = alarm ? sys.Text.Substring(1).TrimStart() : sys.Text;
+                    SystemChat(text);
                     // Boss vùng xuất hiện (máy chủ `channels.ts`, tin bắt đầu "⚔"): dải báo động đỏ thay cho toast thường.
-                    if (sys.Text != null && sys.Text.StartsWith("⚔", StringComparison.Ordinal))
+                    if (alarm)
                     {
-                        hud.Alert(sys.Text);
+                        hud.Alert(text);
                         online?.Send(new ClientQ2 { Op = "get" }); // phiên Thế giới mới → tab Nhiệm vụ cập nhật
                     }
                     else hud.Toast(sys.Text, "info");
                     break;
+                }
                 case ServerWhisper wh:
                     OnWhisper(wh);
                     break;

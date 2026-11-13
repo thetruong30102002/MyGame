@@ -39,7 +39,7 @@ namespace HavenLord.Client.UI
             if (k == channelShown && key == channelCountsShown) return;
             channelShown = k;
             channelCountsShown = key;
-            channelText.text = $"Khu {k} ▾";
+            channelText.text = $"Khu {k} ▼";
             for (var i = channelList.childCount - 1; i >= 0; i--) Destroy(channelList.GetChild(i).gameObject);
             for (var i = 0; i < counts.Length; i++)
             {

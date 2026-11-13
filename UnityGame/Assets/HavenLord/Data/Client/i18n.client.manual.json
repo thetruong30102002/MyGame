@@ -37,7 +37,7 @@
   {
     "file": "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.cs",
     "line": 532,
-    "source": "⚔ Đồ sát: {(on ? \"BẬT\" : \"TẮT\")}{extra}"
+    "source": "Đồ sát: {(on ? \"BẬT\" : \"TẮT\")}{extra}"
   },
   {
     "file": "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.cs",
@@ -87,7 +87,7 @@
   {
     "file": "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Quests.cs",
     "line": 91,
-    "source": "{(questShowDone ? \"▾\" : \"▸\")} Đã xong ({finished.Count})"
+    "source": "{(questShowDone ? \"▼\" : \"►\")} Đã xong ({finished.Count})"
   },
   {
     "file": "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Quests.cs",

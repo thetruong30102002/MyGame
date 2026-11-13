@@ -34,7 +34,7 @@ namespace HavenLord.Client.UI
                 var h = UiKit.Rect(list, "H" + id, new Vector2(0, 1), new Vector2(0, 1), new Vector2(10, y), new Vector2(380, 34));
                 var face = UiStyle.Pill(h, open ? UiStyle.InkBrown : new Color(0, 0, 0, 0.3f), 6);
                 face.raycastTarget = true;
-                Text(h, "t", new Vector2(0, 0.5f), new Vector2(0, 0.5f), new Vector2(12, 0), new Vector2(340, 26), $"{(open ? "▾" : "▸")}  {name}  <color=#ffffff88>({count})</color>", 16, UiStyle.GoldHi, TextAnchor.MiddleLeft, true);
+                Text(h, "t", new Vector2(0, 0.5f), new Vector2(0, 0.5f), new Vector2(12, 0), new Vector2(340, 26), $"{(open ? "▼" : "►")}  {name}  <color=#ffffff88>({count})</color>", 16, UiStyle.GoldHi, TextAnchor.MiddleLeft, true);
                 UiKit.Press(h, () => { if (!questOpen.Remove(id)) questOpen.Add(id); Refresh(); }).Bouncy = false;
                 y -= 40;
             }
@@ -80,7 +80,7 @@ namespace HavenLord.Client.UI
             Header("world", "Thế giới", world.Count);
             if (questOpen.Contains("world"))
             {
-                foreach (var w in world) Row((string)w["id"], $"⚔ {(string)w["title"]} · khu {(int?)w["channel"] ?? 1}", new Color(1f, 0.6f, 0.45f));
+                foreach (var w in world) Row((string)w["id"], $"★ {(string)w["title"]} · khu {(int?)w["channel"] ?? 1}", new Color(1f, 0.6f, 0.45f));
                 if (world.Count == 0) Empty("Chưa có boss vùng nào xuất hiện.");
             }
 
@@ -88,7 +88,7 @@ namespace HavenLord.Client.UI
             if (finished.Count > 0)
             {
                 var t = UiKit.Rect(list, "DoneT", new Vector2(0, 1), new Vector2(0, 1), new Vector2(10, y), new Vector2(380, 24));
-                Text(t, "t", new Vector2(0, 0.5f), new Vector2(0, 0.5f), new Vector2(12, 0), new Vector2(350, 22), $"{(questShowDone ? "▾" : "▸")} Đã xong ({finished.Count})", 13, UiKit.TextDim, TextAnchor.MiddleLeft, true);
+                Text(t, "t", new Vector2(0, 0.5f), new Vector2(0, 0.5f), new Vector2(12, 0), new Vector2(350, 22), $"{(questShowDone ? "▼" : "►")} Đã xong ({finished.Count})", 13, UiKit.TextDim, TextAnchor.MiddleLeft, true);
                 UiKit.Press(t, () => { questShowDone = !questShowDone; Refresh(); }).Bouncy = false;
                 y -= 28;
                 if (questShowDone)

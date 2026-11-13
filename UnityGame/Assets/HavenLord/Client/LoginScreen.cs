@@ -88,7 +88,7 @@ namespace HavenLord.Client
             root = (RectTransform)go.transform;
             BuildBackground();
             Button(root, "Language", new Vector2(1, 1), new Vector2(1, 1), new Vector2(-20, -18), new Vector2(120, 30),
-                Loc.Language == "vi" ? "Tiếng Việt ▾" : "English ▾", ToggleLanguage, false);
+                Loc.Language == "vi" ? "Tiếng Việt ▼" : "English ▼", ToggleLanguage, false);
             Rebuild();
             if (Array.IndexOf(Environment.GetCommandLineArgs(), "-havenShot") < 0) ShowBetaNotice();
             // Tự cập nhật: có bản mới thì tải + cài ngay (phủ màn đăng nhập), không thì không thấy gì.
@@ -101,7 +101,7 @@ namespace HavenLord.Client
             var old = root.Find("Language");
             if (old != null) Destroy(old.gameObject);
             Button(root, "Language", new Vector2(1, 1), new Vector2(1, 1), new Vector2(-20, -18), new Vector2(120, 30),
-                Loc.Language == "vi" ? "Tiếng Việt ▾" : "English ▾", ToggleLanguage, false);
+                Loc.Language == "vi" ? "Tiếng Việt ▼" : "English ▼", ToggleLanguage, false);
             Rebuild();
         }
 

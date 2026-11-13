@@ -129,6 +129,7 @@ export class Pvp {
 	/** Tự giảm điểm ác theo thời gian online (gọi định kỳ + lúc thoát). */
 	tick(p: PvpPlayer): void {
 		const before = p.pvp.pk;
+		if (before.infamy <= 0) return;
 		const after = pkDecay(before, this.now());
 		if (after === before) return;
 		p.pvp.pk = after;
