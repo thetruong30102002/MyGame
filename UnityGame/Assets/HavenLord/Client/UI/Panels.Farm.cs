@@ -327,21 +327,13 @@ namespace HavenLord.Client.UI
                 if (key == "village_food" || key.EndsWith("_tavern", StringComparison.Ordinal)) FarmButton("Món", "Món hầm · 30 xu", 0, 135, () => game.FarmSend("service", item: "village_food", npc: key));
                 else if (key == "village_heal" || key.EndsWith("_heal", StringComparison.Ordinal)) FarmButton("Thuốc", "Túi thuốc · 12 xu", 0, 135, () => game.FarmSend("service", item: "village_heal", npc: key));
                 else if (key.EndsWith("_upgrade", StringComparison.Ordinal)) FarmText("Chuẩn bị", "Cường hoá vũ khí / trang bị sẽ mở khi bảng đá cường hoá được duyệt.", 135, 65);
-                else if (key == "village_event") FarmText("Sự kiện", "Chưa có sự kiện đang diễn ra. Bạn đã có thể làm quen Iris để nhận Gia viên.", 135, 60);
+                else if (key == "village_event") FarmText("Sự kiện", "Chưa có sự kiện đang diễn ra.", 135, 60);
                 else FarmText("Chuẩn bị", "Danh mục vũ khí và công thức rèn sẽ mở theo thiết kế nghề / nhiệm vụ mới được duyệt.", 135, 65);
                 FarmButton("Về", "Cư dân / Gia viên", 0, 240, () => game.ShowFarm());
                 return;
             }
-            var required = state["required"] as JArray ?? new JArray();var visited = state["visited"] as JArray ?? new JArray();
-            var unlocked = (bool?)state["unlocked"] == true;
-            FarmText("Tình trạng", unlocked ? "Gia viên đã mở · kho và cây được máy chủ lưu" : $"Làm quen cư dân: {visited.Count}/{required.Count} · hoàn tất để nhận Gia viên", 0, 32, 19);
-            if (!unlocked)
-            {
-                var missing = required.Where(n => !visited.Any(v => (string)v == (string)n["id"])).Select(n => (string)n["name"]);
-                FarmText("Chưa gặp", "Cần ghé: " + string.Join(", ", missing), 48, 115);
-                FarmText("Gợi ý", "Tới gần rồi trò chuyện với mỗi người. Không cần mua hàng; Iris luôn có mặt kể cả ngoài thời gian sự kiện.", 180, 70);
-                return;
-            }
+            // 13/11/2026: Gia viên mở cho mọi nhân vật — không còn bước làm quen đủ cư dân (lần đầu "Về Gia viên" là máy chủ mở + tặng hạt).
+            FarmText("Tình trạng", "Gia viên của bạn · kho và cây được máy chủ lưu", 0, 32, 19);
             FarmButton("Nhà", game.InFarm ? "Về Thistlewood" : "Về Gia viên", 0, 46, () => { Close();game.FarmSend(game.InFarm ? "leave" : "enter"); });
             if (game.InFarm)
             {

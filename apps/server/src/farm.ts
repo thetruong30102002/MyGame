@@ -38,7 +38,8 @@ export class Farm {
   for(const m of [hub,...SERVICE_ROOMS.map(r=>`svc_${r}`)]){const s=spotOf(this.mapsDir,`${region}/${m}`,n.at.spot);if(s)return{map:`${region}/${m}`,x:s.x+(n.at.dx??0),y:s.y+(n.at.dy??0)};}return null;}
  /** Cư dân Thistlewood cần làm quen để mở Gia viên: như trước 13/11 (người bán cũ nay đứng quầy trong nhà vẫn tính), NPC quầy mới `village_tl_*` không tính. */
  roster(){return Object.entries(STORY.npcs).flatMap(([id,n])=>{if(/^village_[a-z]{2}_|^q2_/.test(id)||!n.sprite||(n.region&&n.region!=='human'))return[];const p=this.npcPlace(id);return p?[{id,name:n.name,map:p.map,x:p.x,y:p.y}]:[];});}
- canEnter(account:number){return this.store.farm.read(account).unlocked;}
+ /** Gia viên mở cho mọi nhân vật (chủ dự án 13/11/2026: "vào gia viên không cần gặp đủ npc nữa") — lần đầu vào thì mở + tặng hạt khởi đầu. */
+ canEnter(_account:number){return true;}
  /** Nhiệm vụ mới M05 "Bàn giao khuôn viên" (13/11/2026) mở Gia viên + hạt khởi đầu; đã mở thì giữ nguyên. */
  unlockByQuest(id:string,account:number){this.store.farm.run(account,id,this.now(),s=>{if(!s.unlocked){s.unlocked=true;for(const c of FARM_STARTER_CROPS)s.inventory[`seed_${c}`]=3;}return{value:null};});}
  private send(id:string,account:number,enter=false){const state=this.store.farm.read(account);for(const p of state.plots)growPlot(p,this.now());const at=this.host.where(id);const fish=state.fish?{nonce:state.fish.nonce,biteAt:state.fish.biteAt,expires:state.fish.expires,hookedAt:state.fish.hookedAt??null,seed:state.fish.seed??null,power:state.fish.power??null}:null;const inRoom=roomOf(account,at?.map);const room=at&&isPondMap(at.map)?'pond':inRoom??'garden';this.host.send(id,{t:'farm',state:{...state,fish,bank:accrue(state.bank,this.now()),bankQuote:bankQuote(this.now()),required:this.roster(),map:room==='pond'?at!.map:inRoom?roomMap(account,inRoom):homeMap(account),room,now:this.now(),enter}});}
@@ -50,7 +51,7 @@ export class Farm {
    if(op==='leave'){if(!farmMaps(account).includes(at.map)&&!isPondMap(at.map))throw new Error('Bạn chưa ở Gia viên');this.pondGuests.delete(id);this.host.send(id,{t:'farm',state:{leave:true}});this.host.move(id,'human/town');return;}
    if(op==='pond'){
     // Đi bộ qua cổng: khuôn viên (cổng mép nam) ⇄ hồ câu dùng chung (cổng bờ tây).
-    if(!this.canEnter(account))throw new Error('Hãy làm quen hết cư dân Thistlewood trước khi nhận Gia viên');
+    this.unlockByQuest(id,account);
     const fromGarden=at.map===homeMap(account);if(!fromGarden&&!isPondMap(at.map))throw new Error('Hồ câu nằm cạnh khuôn viên của bạn');
     if(fromGarden&&!near(FARM_LAYOUT.pondGateX,FARM_LAYOUT.pondGateY))throw new Error('Hãy tới cổng ra hồ câu');
     if(!fromGarden&&!near(FARM_LAYOUT.pondBackX,FARM_LAYOUT.pondBackY))throw new Error('Hãy tới cổng về khuôn viên');
@@ -62,7 +63,7 @@ export class Farm {
    }
    if(op==='visitPond'){
     // Câu cùng bạn: sang hồ sau Gia viên của một người bạn (hai người là bạn, bạn đã mở Gia viên, hồ còn chỗ — tối đa 6 người).
-    if(!this.canEnter(account))throw new Error('Hãy mở Gia viên của bạn trước');
+    this.unlockByQuest(id,account);
     const friend=String(raw.item||'');if(!this.store.areFriends(id,friend))throw new Error('Chỉ ghé hồ nhà bạn bè');
     const owner=this.store.farm.accountOf(friend);if(owner===null||!this.store.farm.read(owner).unlocked)throw new Error('Bạn này chưa có Gia viên');
     if(!farmMaps(account).includes(at.map)&&at.map!=='human/town'&&!isPondMap(at.map))throw new Error('Hãy về Thistlewood hoặc Gia viên trước');
@@ -72,7 +73,7 @@ export class Farm {
     this.pondGuests.set(id,target);this.host.send(id,{t:'farm',state:{travel:'pond',spot:'from_garden',map:target}});this.host.move(id,target);this.send(id,account);return;
    }
    if(op==='enter'||op==='room'){
-    if(!this.canEnter(account))throw new Error('Hãy làm quen hết cư dân Thistlewood trước khi nhận Gia viên');
+    this.unlockByQuest(id,account);
     if(op==='enter'&&at.map!=='human/town')throw new Error('Hãy trở về Thistlewood để về nhà');
     if(op==='enter')this.store.farm.run(account,id,this.now(),s=>{if(s.lastEntry&&this.now()-s.lastEntry<300000)throw new Error('Về Gia viên đang hồi: tối đa một lần mỗi 5 phút');s.lastEntry=this.now();return{value:null};});
     if(op==='room'&&at.map!==homeMap(account)&&at.map!==homeMap(account,true))throw new Error('Ra vườn phải đi từ phòng khách');

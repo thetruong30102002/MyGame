@@ -27,18 +27,8 @@ namespace HavenLord.Client
             game.FarmSend("get");
             for (var i = 0; i < 100 && game.FarmState == null; i++) yield return new WaitForSeconds(.1f);
             if (game.FarmState == null) { Fail("Máy chủ không trả trạng thái Gia viên"); yield break; }
-            var npcs = game.FarmState["required"] as JArray;
-            if (npcs == null || !npcs.Any(n => (string)n["id"] == "village_event")) { Fail("Thiếu NPC dịch vụ vùng 1"); yield break; }
-            foreach (var npc in npcs.OrderBy(n => (double)n["y"]).ToArray())
-            {
-                var x = (float)npc["x"]; var y = (float)npc["y"] + 50;
-                yield return FarmWalk(game, x, y);
-                game.FarmSend("talk", npc: (string)npc["id"]);
-                yield return new WaitForSeconds(.65f);
-            }
-            game.FarmSend("get");yield return new WaitForSeconds(1);
-            if ((bool?)game.FarmState["unlocked"] != true) { Fail("Gặp đủ NPC chưa mở Gia viên: " + game.FarmState["visited"]); yield break; }
-            log.WriteLine("PASS mở Gia viên sau " + npcs.Count + " NPC; máy chủ xác nhận");
+            // 13/11/2026: Gia viên mở cho mọi nhân vật (không cần gặp đủ NPC) — vào thẳng.
+            log.WriteLine("PASS máy chủ trả trạng thái Gia viên (không cần gặp NPC)");
             yield return Shot("farm-0-npc-vung-1");
             game.FarmSend("enter");
             for (var i = 0; i < 100 && game.Map?.region != "home"; i++) yield return new WaitForSeconds(.1f);

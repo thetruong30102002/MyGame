@@ -22,14 +22,9 @@ try{
  const farm=new Farm(store,{where:()=>at,send:(_id,m)=>messages.push(m),move:(_id,map)=>{at={...at,map};},refresh:()=>{},count:()=>pondCount},resolve('../../assets/maps'),()=>now,()=>0.001);
  const act=(op:string,extra:Record<string,unknown>={})=>{messages.length=0;farm.handle(id,acc,{op,...extra});now+=700;};
  const failed=()=>messages.some(m=>m.t==='system');
- act('enter');assert(failed());assert.equal(at.map,'human/town');
- at.x=0;at.y=0;act('talk',{npc:farm.roster()[0]!.id});assert(failed());assert.equal(store.farm.read(acc).visited.length,0);
- assert(farm.roster().some(n=>n.id==='village_event'));assert(farm.roster().some(n=>n.id==='village_armor'));
- // 13/11: người bán cũ đứng quầy trong nhà dịch vụ (map human/svc_*), cư dân khác ở quảng trường.
- assert.equal(farm.roster().find(n=>n.id==='village_armor')!.map,'human/svc_tb');
- for(const n of farm.roster()){at={map:n.map,x:n.x,y:n.y};act('talk',{npc:n.id});}
- assert(store.farm.read(acc).unlocked);assert.equal(Object.values(store.farm.read(acc).inventory).reduce((s,n)=>s+n,0),18);
- act('enter');assert.equal(at.map,homeMap(acc));
+ // 13/11/2026: Gia viên mở cho mọi nhân vật — không cần làm quen đủ cư dân; lần vào đầu mở + tặng hạt khởi đầu.
+ assert(farm.roster().some(n=>n.id==='village_event'));assert.equal(farm.roster().find(n=>n.id==='village_armor')!.map,'human/svc_tb');
+ act('enter');assert.equal(at.map,homeMap(acc));assert(store.farm.read(acc).unlocked);assert.equal(Object.values(store.farm.read(acc).inventory).reduce((x,n)=>x+n,0),18);
  at={map:homeMap(acc),x:352,y:544};act('hoe',{plot:0});assert(store.farm.read(acc).plots[0]!.tilled);
  act('plant',{plot:0,crop:'wheat'});assert.equal(store.farm.read(acc).inventory.seed_wheat,2);
  now+=150000;act('harvest',{plot:0});assert(failed());assert.equal(store.farm.read(acc).inventory.farm_wheat,undefined);
@@ -61,7 +56,7 @@ try{
  at={map:roomMap(acc,'house'),x:200,y:300};act('go',{room:'kitchen'});assert(failed(),'phải tới cửa bếp');
  at={map:roomMap(acc,'house'),x:48,y:288};act('go',{room:'kitchen'});assert.equal(at.map,roomMap(acc,'kitchen'));
  at={map:roomMap(acc,'kitchen'),x:464,y:288};act('go',{room:'bedroom'});assert(failed(),'bếp không thông lên phòng ngủ');act('go',{room:'house'});assert.equal(at.map,roomMap(acc,'house'));
- at={map:roomMap(acc,'house'),x:548,y:170};act('go',{room:'bedroom'});assert.equal(at.map,roomMap(acc,'bedroom'));
+ at={map:roomMap(acc,'house'),x:504,y:290};act('go',{room:'bedroom'});assert.equal(at.map,roomMap(acc,'bedroom'));
  at={map:roomMap(acc,'bedroom'),x:100,y:300};act('outfit',{outfit:'gardener'});assert(failed(),'phải tới tủ');
  at={map:roomMap(acc,'bedroom'),x:332,y:170};act('outfit',{outfit:'gardener'});assert.equal(store.farm.read(acc).outfit,'gardener');
  act('room');assert(failed(),'ra vườn phải qua phòng khách');
