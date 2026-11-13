@@ -29,9 +29,8 @@ export const BRANCH_NAME: Record<Branch, string> = {
 };
 
 /**
- * Nhánh → mã mở khoá trong cốt truyện (`StoryDirector.isUnlocked`). Kiếm mở bằng QUÀ (kiếm gỗ của cha) nên mã là tên
- * món quà. Thổ: mã `earth` do nhiệm vụ tuổi 16 “Sợi tơ màu đất” trao (bia đá cổ ở Nghĩa địa Hoàng Hôn — `youth.ts`);
- * bản lưu đã qua mốc truyện đó được bù mã lúc nạp (`StoryDirector.migrate`). Lưới an toàn tuổi 16 của Game KHÔNG trao Thổ.
+ * Nhánh → mã mở khoá (`isUnlocked` truyền vào). Cốt truyện cũ đã bỏ 13/11/2026 nên client / máy chủ hiện mở mọi mã;
+ * giữ bảng để hệ nhiệm vụ mới có thể khoá nhánh lại sau.
  */
 export const BRANCH_UNLOCK: Record<Branch, string> = {
 	sword: 'sword',
@@ -53,6 +52,22 @@ export const BRANCH_UNLOCK: Record<Branch, string> = {
  * Kiếm sĩ không có nhánh phép để tung (nguyên tố chỉ để Bọc nguyên tố vào kiếm + kiếm pháp), Pháp sư không có nhánh Kiếm.
  */
 export const ELEMENTS: readonly Branch[] = ['fire', 'water', 'wind', 'ice', 'earth'];
+
+/**
+ * Thiên phú nguyên tố (ke-hoach-nguyen-to.md mục 10, chốt 26/10; chủ dự án 13/11/2026 "nguyên tố là random được nhận ở level 10",
+ * "nó cũng nên là 1 trong nhiệm vụ"): xong nhiệm vụ Chính cấp 10 "Tám ngọn đèn" thì MÁY CHỦ bốc đều 1/8 hệ, lưu một lần, không đổi.
+ * Chỉ nhánh của hệ đã nhận được mở. Mộc / Bóng tối / Ánh sáng chưa có nhánh chiêu (chiêu cần vẽ — ghép sau).
+ */
+export const TALENT_ELEMENTS = ['fire', 'water', 'wind', 'ice', 'earth', 'wood', 'dark', 'light'] as const;
+export type TalentElement = (typeof TALENT_ELEMENTS)[number];
+export const TALENT_ELEMENT_NAME: Record<TalentElement, string> = { fire: 'Hoả', water: 'Thuỷ', wind: 'Phong', ice: 'Băng', earth: 'Thổ', wood: 'Mộc', dark: 'Bóng tối', light: 'Ánh sáng' };
+export function isTalentElement(x: unknown): x is TalentElement {
+	return typeof x === 'string' && (TALENT_ELEMENTS as readonly string[]).includes(x);
+}
+/** Mã mở khoá nhánh khi đã nhận hệ `element` (null = chưa tới nhiệm vụ cấp 10): Kiếm luôn mở, nguyên tố chỉ đúng hệ đã nhận. */
+export function talentUnlocked(element: string | null | undefined, code: string): boolean {
+	return code === 'sword' || (!!element && code === element);
+}
 export const STYLE_BRANCHES: readonly Branch[] = ['kiem_than', 'thuy_than', 'bac_than'];
 /** Mốc phái t ⇔ mốc Kiếm cũ t + 2 (giá, thưởng chiều sâu, mốc bị động giữ nguyên như trước khi tách). */
 export const STYLE_OFFSET = 2;
@@ -70,7 +85,7 @@ export function chosenElement(tiers: Tiers): Branch | null {
 	for (const e of ELEMENTS) if ((tiers[e] ?? 0) > 0 && (best === null || (tiers[e] ?? 0) > (tiers[best] ?? 0))) best = e;
 	return best;
 }
-/** Lớp nhân vật: 'none' = chưa chọn (tuổi thơ — học được cả kiếm lẫn phép). */
+/** Lớp nhân vật: 'none' = chưa chọn (học được cả kiếm lẫn phép). */
 export type PathId = 'none' | 'sword' | 'mage';
 /** Lớp này được cộng điểm vào nhánh `b` không: Pháp sư không có nhánh Kiếm / phái. */
 export function pathAllowsBranch(path: PathId, b: Branch): boolean {
@@ -81,7 +96,7 @@ export function pathAllowsBranch(path: PathId, b: Branch): boolean {
  * Lời nhắc riêng khi nhánh CHƯA mở (thiếu thì bảng ghi "Mở theo cốt truyện"). Chỉ là chữ — nhánh mở hay không do mã cốt
  * truyện quyết.
  */
-export const BRANCH_LOCK_NOTE: Partial<Record<Branch, string>> = { earth: 'Mở ở nhiệm vụ “Sợi tơ màu đất” (tuổi 16, Nghĩa địa Hoàng Hôn)' };
+export const BRANCH_LOCK_NOTE: Partial<Record<Branch, string>> = {};
 
 export const MAX_TIER = 10;
 /** Cấp tối đa của nhân vật (100 — `@havenlord/protocol`, máy chủ kẹp cùng số). */

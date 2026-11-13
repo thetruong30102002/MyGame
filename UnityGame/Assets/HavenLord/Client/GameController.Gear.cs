@@ -36,7 +36,7 @@ namespace HavenLord.Client
                     gear = equipment.AddItem(gear, id).g;
                     var it = gear.Bag[gear.Bag.Count - 1];
                     var def = equipment.ItemDef(id);
-                    var r = equipment.EquipItem(gear, it.Uid, equipment.AutoSlot(def?.Equip, gear.Equip), combat.Pc.Level, age);
+                    var r = equipment.EquipItem(gear, it.Uid, equipment.AutoSlot(def?.Equip, gear.Equip), combat.Pc.Level);
                     if (r.Ok) gear = r.G;
                 }
             }
@@ -63,7 +63,7 @@ namespace HavenLord.Client
                 it = gear.Bag.Find(x => x.Id == id);
             }
             if (it == null) return true;
-            var r = equipment.EquipItem(gear, it.Uid, "body", combat.Pc.Level, age);
+            var r = equipment.EquipItem(gear, it.Uid, "body", combat.Pc.Level);
             if (r.Ok) gear = r.G;
             return true;
         }
@@ -110,7 +110,7 @@ namespace HavenLord.Client
             // Kiếm Nguyệt Thạch / trượng Haven luôn vào ô chính để hình cầm và kỹ năng khớp với món đang mặc.
             var slot = it.Id == "moonsteel_sword" || it.Id == "haven_staff"
                 ? "main" : equipment.AutoSlot(def.Equip, gear.Equip);
-            var r = equipment.EquipItem(gear, uid, slot, combat.Pc.Level, age);
+            var r = equipment.EquipItem(gear, uid, slot, combat.Pc.Level);
             if (!r.Ok)
             {
                 hud.Toast(r.Error, "warn");

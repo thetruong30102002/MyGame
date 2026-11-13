@@ -163,7 +163,6 @@ namespace HavenLord.Core.Tests
             if (d.Stats != null) o["stats"] = JObject.FromObject(d.Stats);
             if (d.Rarity != null) o["rarity"] = d.Rarity;
             if (d.LevelReq.HasValue) o["levelReq"] = d.LevelReq.Value;
-            if (d.AgeReq.HasValue) o["ageReq"] = d.AgeReq.Value;
             if (d.Bound.HasValue) o["bound"] = d.Bound.Value;
             if (d.Stack.HasValue) o["stack"] = d.Stack.Value;
             if (d.Price.HasValue) o["price"] = d.Price.Value;
@@ -242,7 +241,7 @@ namespace HavenLord.Core.Tests
         {
             foreach (var v in V["equipment"]["canEquip"])
             {
-                var r = Eq.CanEquip(Eq.ItemDef((string)v["id"]), (string)v["slot"], TestData.Num(v["level"]), TestData.Num(v["age"]));
+                var r = Eq.CanEquip(Eq.ItemDef((string)v["id"]), (string)v["slot"], TestData.Num(v["level"]));
                 Same(v["out"], r == null ? new JValue(true) : new JValue(r), $"canEquip {v.ToString(Formatting.None)}");
             }
         }
@@ -253,7 +252,7 @@ namespace HavenLord.Core.Tests
             foreach (var v in V["equipment"]["equipItem"])
             {
                 var g = State(v);
-                var r = Eq.EquipItem(g, (string)v["uid"], Str(v["slot"]), TestData.Num(v["level"]), TestData.Num(v["age"]));
+                var r = Eq.EquipItem(g, (string)v["uid"], Str(v["slot"]), TestData.Num(v["level"]));
                 var ctx = $"equipItem state {v["state"]} uid {v["uid"]} slot {v["slot"]} lv {v["level"]}";
                 var exp = new JObject();
                 if (v["g"] != null) exp["g"] = v["g"];
@@ -267,7 +266,7 @@ namespace HavenLord.Core.Tests
                 Same(exp, Tok(Eq.UnequipItem(State(v), Str(v["slot"]))), $"unequipItem state {v["state"]} slot {v["slot"]}");
             }
             foreach (var v in V["equipment"]["applyGearRequest"])
-                Same(v["out"], Tok(Eq.ApplyGearRequest(State(v), Req(v["r"]), TestData.Num(v["level"]), TestData.Num(v["age"]))), $"applyGearRequest {v.ToString(Formatting.None)}");
+                Same(v["out"], Tok(Eq.ApplyGearRequest(State(v), Req(v["r"]), TestData.Num(v["level"]))), $"applyGearRequest {v.ToString(Formatting.None)}");
         }
 
         [Test]
@@ -329,7 +328,7 @@ namespace HavenLord.Core.Tests
                         }
                         case "equip":
                         {
-                            var r = Eq.EquipItem(g, (string)st["uid"], Str(st["slot"]), TestData.Num(st["level"]), TestData.Num(st["age"]));
+                            var r = Eq.EquipItem(g, (string)st["uid"], Str(st["slot"]), TestData.Num(st["level"]));
                             Same(st["g"] != null ? new JObject { ["g"] = st["g"] } : new JObject { ["error"] = st["error"] }, Tok(r), ctx);
                             Assert.That(r.Ok && ReferenceEquals(r.G, g), Is.EqualTo((bool)st["same"]), ctx + " (next === g)");
                             if (r.Ok) g = r.G;
@@ -344,7 +343,7 @@ namespace HavenLord.Core.Tests
                         }
                         default:
                         {
-                            var r = Eq.ApplyGearRequest(g, Req(st["r"]), TestData.Num(st["level"]), TestData.Num(st["age"]));
+                            var r = Eq.ApplyGearRequest(g, Req(st["r"]), TestData.Num(st["level"]));
                             Same(st["out"], Tok(r), ctx);
                             if (r != null && r.Error == null) g = r.G;
                             break;
@@ -375,8 +374,6 @@ namespace HavenLord.Core.Tests
                 var (lv, xp, gained) = e.AddExp(TestData.Num(v["level"]), TestData.Num(v["exp"]), TestData.Num(v["gain"]));
                 Same(v["out"], new JObject { ["level"] = Num(lv), ["exp"] = Num(xp), ["levelsGained"] = Num(gained) }, $"addExp {v.ToString(Formatting.None)}");
             }
-            foreach (var v in x["capExpGain"])
-                SameNum(v["out"], e.CapExpGain(TestData.Num(v["level"]), TestData.Num(v["exp"]), TestData.Num(v["gain"]), TestData.Num(v["cap"])), $"capExpGain {v.ToString(Formatting.None)}");
             foreach (var v in x["totalExp"]) SameNum(v["out"], e.TotalExp(TestData.Num(v["level"]), TestData.Num(v["exp"])), $"totalExp {v.ToString(Formatting.None)}");
             foreach (var v in x["fromTotalExp"])
             {

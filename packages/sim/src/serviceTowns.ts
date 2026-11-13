@@ -62,7 +62,6 @@ export const SERVICE_KEEPER_NPCS: Record<string, NpcDef> = Object.fromEntries(
 					sprite: `npc_${t.code}_${info.role}_001`,
 					region: t.region,
 					at: { spot: serviceNpcSpot(r) },
-					ages: [16, 99],
 					stationary: true,
 					idle: [IDLE[info.role]!],
 				} satisfies NpcDef,

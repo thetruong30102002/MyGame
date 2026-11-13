@@ -31,7 +31,6 @@ namespace HavenLord.Client.Combat
         public string Zone;
         public bool Boss;
         public bool RegionBoss;
-        public bool Child;
         public EnemyStats Stats;
         public double Hp;
         public double HpMax;

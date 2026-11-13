@@ -17,5 +17,10 @@ data.update({
     '<vùng>/<map>': '<vùng>/<map>',
     '{0}: {1}{2} → {3} kim cương': '{0}: {1}{2} → {3} diamonds',
     '⚔ {0} đã xuất hiện ở {1} · Khu {2}!': '⚔ {0} has appeared in {1} · Channel {2}!',
+    'Bàn giao khuôn viên': 'Handing Over the Grounds',
+    'Không thực hiện được': 'Could not complete the action',
+    'Thiên phú thức tỉnh: hệ {0}': 'Talent awakened: {0} element',
+    'Hoàn thành nhiệm vụ: {0}': 'Quest complete: {0}',
+    'Đủ việc hằng ngày': 'All daily tasks done',
 })
 path.write_text(json.dumps(dict(sorted(data.items())), ensure_ascii=False, indent=2) + '\n', encoding='utf-8')

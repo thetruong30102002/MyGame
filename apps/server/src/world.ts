@@ -387,12 +387,10 @@ export class World {
 				if (!c.social.allow('rewards')) return send(c.ws, { t: 'system', text: 'Thao tác nhanh quá, chậm lại chút nhé' });
 				return this.rewards.handle(c.view.id, msg);
 			case 'kill':
-			case 'quest':
 			case 'spend':
 			case 'potion':
 				if (!c.eco.allow('eco')) return;
 				if (msg.t === 'kill') return this.economy.privateKill(c.view.id, msg.type, msg.zone);
-				if (msg.t === 'quest') return this.economy.quest(c.view.id, msg.id);
 				if (msg.t === 'spend') return this.economy.spend(c.view.id, msg.reason, msg.amount);
 				return this.economy.usePotion(c.view.id);
 			case 'resetBuild': {

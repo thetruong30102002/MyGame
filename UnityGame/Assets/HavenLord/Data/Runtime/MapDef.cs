@@ -37,8 +37,6 @@ namespace HavenLord.Data
         public float radius;
         public string[] monsters = Array.Empty<string>();
         public int count;
-        public int fromAge = -1;
-        public int untilAge = -1;
         public int level = -1;
         public bool onDemand;
         public bool boss;

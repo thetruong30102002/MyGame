@@ -42,7 +42,7 @@
   ],
   "Bình hồi phục": [
     "apps\\server\\src\\adminOps.ts:129",
-    "apps\\server\\src\\economy.ts:146"
+    "apps\\server\\src\\economy.ts:140"
   ],
   "Điểm tiềm năng": [
     "apps\\server\\src\\adminOps.ts:131"
@@ -132,10 +132,10 @@
     "apps\\server\\src\\board.ts:241"
   ],
   "vùng/map": [
-    "apps\\server\\src\\db.ts:784"
+    "apps\\server\\src\\db.ts:787"
   ],
   "Ánh": [
-    "apps\\server\\src\\db.ts:1026"
+    "apps\\server\\src\\db.ts:1029"
   ],
   "Kế hoạch thiếu khối tiến độ": [
     "apps\\server\\src\\developmentPlan.ts:19"
@@ -156,329 +156,333 @@
     "apps\\server\\src\\developmentPlan.ts:29"
   ],
   "Điểm danh": [
-    "apps\\server\\src\\economy.ts:128"
+    "apps\\server\\src\\economy.ts:122"
   ],
   "khác": [
-    "apps\\server\\src\\economy.ts:136"
+    "apps\\server\\src\\economy.ts:130"
+  ],
+  "Bàn giao khuôn viên": [
+    "apps\\server\\src\\farm.ts:31"
   ],
   "Bạn chưa ở Gia viên": [
-    "apps\\server\\src\\farm.ts:37"
+    "apps\\server\\src\\farm.ts:39"
   ],
   "Hãy làm quen hết cư dân Thistlewood trước khi nhận Gia viên": [
-    "apps\\server\\src\\farm.ts:40",
-    "apps\\server\\src\\farm.ts:62"
-  ],
-  "Hồ câu nằm cạnh khuôn viên của bạn": [
-    "apps\\server\\src\\farm.ts:41"
-  ],
-  "Hãy tới cổng ra hồ câu": [
-    "apps\\server\\src\\farm.ts:42"
-  ],
-  "Hãy tới cổng về khuôn viên": [
-    "apps\\server\\src\\farm.ts:43"
-  ],
-  "Hồ đã đủ {0} người": [
-    "apps\\server\\src\\farm.ts:45",
-    "apps\\server\\src\\farm.ts:57"
-  ],
-  "Hãy mở Gia viên của bạn trước": [
-    "apps\\server\\src\\farm.ts:52"
-  ],
-  "Chỉ ghé hồ nhà bạn bè": [
-    "apps\\server\\src\\farm.ts:53"
-  ],
-  "Bạn này chưa có Gia viên": [
-    "apps\\server\\src\\farm.ts:54"
-  ],
-  "Hãy về Thistlewood hoặc Gia viên trước": [
-    "apps\\server\\src\\farm.ts:55"
-  ],
-  "Bạn đang ở hồ này": [
-    "apps\\server\\src\\farm.ts:56"
-  ],
-  "Hãy trở về Thistlewood để về nhà": [
-    "apps\\server\\src\\farm.ts:63"
-  ],
-  "Về Gia viên đang hồi: tối đa một lần mỗi 5 phút": [
+    "apps\\server\\src\\farm.ts:42",
     "apps\\server\\src\\farm.ts:64"
   ],
-  "Ra vườn phải đi từ phòng khách": [
+  "Hồ câu nằm cạnh khuôn viên của bạn": [
+    "apps\\server\\src\\farm.ts:43"
+  ],
+  "Hãy tới cổng ra hồ câu": [
+    "apps\\server\\src\\farm.ts:44"
+  ],
+  "Hãy tới cổng về khuôn viên": [
+    "apps\\server\\src\\farm.ts:45"
+  ],
+  "Hồ đã đủ {0} người": [
+    "apps\\server\\src\\farm.ts:47",
+    "apps\\server\\src\\farm.ts:59"
+  ],
+  "Hãy mở Gia viên của bạn trước": [
+    "apps\\server\\src\\farm.ts:54"
+  ],
+  "Chỉ ghé hồ nhà bạn bè": [
+    "apps\\server\\src\\farm.ts:55"
+  ],
+  "Bạn này chưa có Gia viên": [
+    "apps\\server\\src\\farm.ts:56"
+  ],
+  "Hãy về Thistlewood hoặc Gia viên trước": [
+    "apps\\server\\src\\farm.ts:57"
+  ],
+  "Bạn đang ở hồ này": [
+    "apps\\server\\src\\farm.ts:58"
+  ],
+  "Hãy trở về Thistlewood để về nhà": [
     "apps\\server\\src\\farm.ts:65"
   ],
-  "Hãy tới cửa nhà": [
+  "Về Gia viên đang hồi: tối đa một lần mỗi 5 phút": [
     "apps\\server\\src\\farm.ts:66"
   ],
-  "Hãy tới cửa ra vườn": [
+  "Ra vườn phải đi từ phòng khách": [
     "apps\\server\\src\\farm.ts:67"
   ],
-  "Bạn chưa ở trong nhà": [
-    "apps\\server\\src\\farm.ts:75"
+  "Hãy tới cửa nhà": [
+    "apps\\server\\src\\farm.ts:68"
   ],
-  "Không có lối sang phòng này": [
+  "Hãy tới cửa ra vườn": [
+    "apps\\server\\src\\farm.ts:69"
+  ],
+  "Bạn chưa ở trong nhà": [
     "apps\\server\\src\\farm.ts:77"
   ],
+  "Không có lối sang phòng này": [
+    "apps\\server\\src\\farm.ts:79"
+  ],
   "Hãy tới cửa / cầu thang": [
-    "apps\\server\\src\\farm.ts:78"
+    "apps\\server\\src\\farm.ts:80"
   ],
   "Hãy tới gần người muốn trò chuyện": [
-    "apps\\server\\src\\farm.ts:84"
+    "apps\\server\\src\\farm.ts:86",
+    "apps\\server\\src\\quests2.ts:88"
   ],
   "Bạn đã quen cư dân Thistlewood. Gia viên đã mở; nhận 3 hạt mỗi loại trong kho!": [
-    "apps\\server\\src\\farm.ts:86"
+    "apps\\server\\src\\farm.ts:88"
   ],
   "Hãy tới quầy Bram hoặc người bán đồ Gia viên mua hạt": [
-    "apps\\server\\src\\farm.ts:90"
+    "apps\\server\\src\\farm.ts:92"
   ],
   "Không có hạt này": [
-    "apps\\server\\src\\farm.ts:91"
+    "apps\\server\\src\\farm.ts:93"
   ],
   "Không đủ xu": [
-    "apps\\server\\src\\farm.ts:91",
-    "apps\\server\\src\\farm.ts:96",
-    "apps\\server\\src\\farm.ts:199",
+    "apps\\server\\src\\farm.ts:93",
+    "apps\\server\\src\\farm.ts:98",
     "apps\\server\\src\\farm.ts:201",
     "apps\\server\\src\\farm.ts:203",
     "apps\\server\\src\\farm.ts:205",
-    "apps\\server\\src\\farm.ts:206",
-    "apps\\server\\src\\farm.ts:211",
+    "apps\\server\\src\\farm.ts:207",
+    "apps\\server\\src\\farm.ts:208",
+    "apps\\server\\src\\farm.ts:213",
     "apps\\server\\src\\shop.ts:63"
   ],
   "Hãy tới đúng quầy hàng": [
-    "apps\\server\\src\\farm.ts:96"
+    "apps\\server\\src\\farm.ts:98"
   ],
   "Hãy tới quầy chủ ngân hàng": [
-    "apps\\server\\src\\farm.ts:101"
+    "apps\\server\\src\\farm.ts:103"
   ],
   "Thao tác không có": [
-    "apps\\server\\src\\farm.ts:102"
+    "apps\\server\\src\\farm.ts:104"
   ],
   "Chỉ chủ nhà được thao tác trong Gia viên đã mở": [
-    "apps\\server\\src\\farm.ts:106"
-  ],
-  "Thú cưng ở trong Gia viên của bạn": [
     "apps\\server\\src\\farm.ts:108"
   ],
+  "Thú cưng ở trong Gia viên của bạn": [
+    "apps\\server\\src\\farm.ts:110"
+  ],
   "Không đủ kim cương": [
-    "apps\\server\\src\\farm.ts:112",
+    "apps\\server\\src\\farm.ts:114",
     "apps\\server\\src\\farmStore.ts:17"
   ],
   "Không có thú cưng này": [
-    "apps\\server\\src\\farm.ts:124"
+    "apps\\server\\src\\farm.ts:126"
   ],
   "Bạn chưa có thú cưng này": [
-    "apps\\server\\src\\farm.ts:125"
+    "apps\\server\\src\\farm.ts:127"
   ],
   "Tối đa {0} thú đi lại cùng lúc": [
-    "apps\\server\\src\\farm.ts:125"
+    "apps\\server\\src\\farm.ts:127"
   ],
   "Bạn đã có thú cưng này": [
-    "apps\\server\\src\\farm.ts:126"
+    "apps\\server\\src\\farm.ts:128"
   ],
   "Không đủ mảnh": [
-    "apps\\server\\src\\farm.ts:126"
+    "apps\\server\\src\\farm.ts:128"
   ],
   "Chảo đang trống": [
-    "apps\\server\\src\\farm.ts:131"
+    "apps\\server\\src\\farm.ts:133"
   ],
   "Không có món này": [
-    "apps\\server\\src\\farm.ts:135"
+    "apps\\server\\src\\farm.ts:137"
   ],
   "Kho không có món này": [
-    "apps\\server\\src\\farm.ts:136",
-    "apps\\server\\src\\farm.ts:191"
+    "apps\\server\\src\\farm.ts:138",
+    "apps\\server\\src\\farm.ts:193"
   ],
   "Món cháy rồi, ăn không được": [
-    "apps\\server\\src\\farm.ts:136"
+    "apps\\server\\src\\farm.ts:138"
   ],
   "Hãy tới cạnh bếp lò trong nhà": [
-    "apps\\server\\src\\farm.ts:139"
+    "apps\\server\\src\\farm.ts:141"
   ],
   "Chảo đang có món, hãy nhấc ra trước": [
-    "apps\\server\\src\\farm.ts:140"
+    "apps\\server\\src\\farm.ts:142"
   ],
   "Kho thiếu nguyên liệu": [
-    "apps\\server\\src\\farm.ts:141",
-    "apps\\server\\src\\farm.ts:177"
+    "apps\\server\\src\\farm.ts:143",
+    "apps\\server\\src\\farm.ts:179"
   ],
   "Hãy ra khuôn viên trước": [
-    "apps\\server\\src\\farm.ts:146",
-    "apps\\server\\src\\farm.ts:164",
-    "apps\\server\\src\\farm.ts:226"
-  ],
-  "Không có loài này": [
-    "apps\\server\\src\\farm.ts:147"
-  ],
-  "Hãy tới cổng chuồng": [
-    "apps\\server\\src\\farm.ts:147"
-  ],
-  "Chưa có {0} nào": [
-    "apps\\server\\src\\farm.ts:148"
-  ],
-  "Ong tự kiếm mật, không cần cho ăn": [
-    "apps\\server\\src\\farm.ts:150"
-  ],
-  "Đã cho ăn, chờ thu sản phẩm": [
-    "apps\\server\\src\\farm.ts:150"
-  ],
-  "Cần {0} lúa mì / ngô để cho ăn": [
-    "apps\\server\\src\\farm.ts:152"
-  ],
-  "Đàn ong vừa bắt đầu làm mật, quay lại sau một ngày Haven": [
-    "apps\\server\\src\\farm.ts:157"
-  ],
-  "Hãy cho ăn trước": [
-    "apps\\server\\src\\farm.ts:158"
-  ],
-  "Chưa tới lúc thu, chờ hết ngày Haven": [
-    "apps\\server\\src\\farm.ts:158"
-  ],
-  "Loài này không xuất chuồng": [
-    "apps\\server\\src\\farm.ts:161"
-  ],
-  "Không có chỗ trồng này": [
-    "apps\\server\\src\\farm.ts:167"
-  ],
-  "Hãy tới gần chỗ trồng cây": [
-    "apps\\server\\src\\farm.ts:167"
-  ],
-  "Không có cây giống này": [
-    "apps\\server\\src\\farm.ts:169"
-  ],
-  "Chỗ này đã có cây": [
-    "apps\\server\\src\\farm.ts:169"
-  ],
-  "Kho không có cây giống này": [
-    "apps\\server\\src\\farm.ts:169"
-  ],
-  "Cây chưa có quả": [
-    "apps\\server\\src\\farm.ts:170"
-  ],
-  "Bạn chưa có máy này": [
-    "apps\\server\\src\\farm.ts:173"
-  ],
-  "Hãy tới cạnh máy": [
-    "apps\\server\\src\\farm.ts:174"
-  ],
-  "Máy đang chạy": [
-    "apps\\server\\src\\farm.ts:176"
-  ],
-  "Máy chưa chạy": [
-    "apps\\server\\src\\farm.ts:180"
-  ],
-  "Chưa xong, đợi thêm chút": [
-    "apps\\server\\src\\farm.ts:180"
-  ],
-  "Bạn chưa có nhà này": [
-    "apps\\server\\src\\farm.ts:184"
-  ],
-  "Bày trí chỉ ở trong nhà": [
-    "apps\\server\\src\\farm.ts:188"
-  ],
-  "Không có món này trong phòng": [
-    "apps\\server\\src\\farm.ts:190"
-  ],
-  "Hãy tới người bán đồ Gia viên ở khuôn viên": [
-    "apps\\server\\src\\farm.ts:197"
-  ],
-  "Bạn đã có nhà này": [
-    "apps\\server\\src\\farm.ts:201"
-  ],
-  "Chuồng đã đủ {0} con": [
-    "apps\\server\\src\\farm.ts:205"
-  ],
-  "Bạn đã có máy này": [
-    "apps\\server\\src\\farm.ts:206"
-  ],
-  "Không bán món này": [
-    "apps\\server\\src\\farm.ts:207"
-  ],
-  "Ruộng đã mở hết": [
-    "apps\\server\\src\\farm.ts:209"
-  ],
-  "Bạn đã có bể cá": [
-    "apps\\server\\src\\farm.ts:210"
-  ],
-  "Hãy mua bể cá ở chỗ Quản gia trước": [
-    "apps\\server\\src\\farm.ts:217"
-  ],
-  "Hãy tới cạnh bể cá đã đặt trong nhà": [
-    "apps\\server\\src\\farm.ts:219"
-  ],
-  "Kho không có con cá này": [
-    "apps\\server\\src\\farm.ts:221"
-  ],
-  "Bể đã đầy": [
-    "apps\\server\\src\\farm.ts:221"
-  ],
-  "Bể không có con cá này": [
-    "apps\\server\\src\\farm.ts:222"
-  ],
-  "Hãy tới tủ quần áo trong phòng ngủ": [
-    "apps\\server\\src\\farm.ts:225"
-  ],
-  "Không có bộ đồ này": [
-    "apps\\server\\src\\farm.ts:225"
-  ],
-  "Hãy ra hồ câu cạnh khuôn viên": [
-    "apps\\server\\src\\farm.ts:226"
-  ],
-  "Hãy tới hộp gửi hàng": [
+    "apps\\server\\src\\farm.ts:148",
+    "apps\\server\\src\\farm.ts:166",
     "apps\\server\\src\\farm.ts:228"
   ],
+  "Không có loài này": [
+    "apps\\server\\src\\farm.ts:149"
+  ],
+  "Hãy tới cổng chuồng": [
+    "apps\\server\\src\\farm.ts:149"
+  ],
+  "Chưa có {0} nào": [
+    "apps\\server\\src\\farm.ts:150"
+  ],
+  "Ong tự kiếm mật, không cần cho ăn": [
+    "apps\\server\\src\\farm.ts:152"
+  ],
+  "Đã cho ăn, chờ thu sản phẩm": [
+    "apps\\server\\src\\farm.ts:152"
+  ],
+  "Cần {0} lúa mì / ngô để cho ăn": [
+    "apps\\server\\src\\farm.ts:154"
+  ],
+  "Đàn ong vừa bắt đầu làm mật, quay lại sau một ngày Haven": [
+    "apps\\server\\src\\farm.ts:159"
+  ],
+  "Hãy cho ăn trước": [
+    "apps\\server\\src\\farm.ts:160"
+  ],
+  "Chưa tới lúc thu, chờ hết ngày Haven": [
+    "apps\\server\\src\\farm.ts:160"
+  ],
+  "Loài này không xuất chuồng": [
+    "apps\\server\\src\\farm.ts:163"
+  ],
+  "Không có chỗ trồng này": [
+    "apps\\server\\src\\farm.ts:169"
+  ],
+  "Hãy tới gần chỗ trồng cây": [
+    "apps\\server\\src\\farm.ts:169"
+  ],
+  "Không có cây giống này": [
+    "apps\\server\\src\\farm.ts:171"
+  ],
+  "Chỗ này đã có cây": [
+    "apps\\server\\src\\farm.ts:171"
+  ],
+  "Kho không có cây giống này": [
+    "apps\\server\\src\\farm.ts:171"
+  ],
+  "Cây chưa có quả": [
+    "apps\\server\\src\\farm.ts:172"
+  ],
+  "Bạn chưa có máy này": [
+    "apps\\server\\src\\farm.ts:175"
+  ],
+  "Hãy tới cạnh máy": [
+    "apps\\server\\src\\farm.ts:176"
+  ],
+  "Máy đang chạy": [
+    "apps\\server\\src\\farm.ts:178"
+  ],
+  "Máy chưa chạy": [
+    "apps\\server\\src\\farm.ts:182"
+  ],
+  "Chưa xong, đợi thêm chút": [
+    "apps\\server\\src\\farm.ts:182"
+  ],
+  "Bạn chưa có nhà này": [
+    "apps\\server\\src\\farm.ts:186"
+  ],
+  "Bày trí chỉ ở trong nhà": [
+    "apps\\server\\src\\farm.ts:190"
+  ],
+  "Không có món này trong phòng": [
+    "apps\\server\\src\\farm.ts:192"
+  ],
+  "Hãy tới người bán đồ Gia viên ở khuôn viên": [
+    "apps\\server\\src\\farm.ts:199"
+  ],
+  "Bạn đã có nhà này": [
+    "apps\\server\\src\\farm.ts:203"
+  ],
+  "Chuồng đã đủ {0} con": [
+    "apps\\server\\src\\farm.ts:207"
+  ],
+  "Bạn đã có máy này": [
+    "apps\\server\\src\\farm.ts:208"
+  ],
+  "Không bán món này": [
+    "apps\\server\\src\\farm.ts:209"
+  ],
+  "Ruộng đã mở hết": [
+    "apps\\server\\src\\farm.ts:211"
+  ],
+  "Bạn đã có bể cá": [
+    "apps\\server\\src\\farm.ts:212"
+  ],
+  "Hãy mua bể cá ở chỗ Quản gia trước": [
+    "apps\\server\\src\\farm.ts:219"
+  ],
+  "Hãy tới cạnh bể cá đã đặt trong nhà": [
+    "apps\\server\\src\\farm.ts:221"
+  ],
+  "Kho không có con cá này": [
+    "apps\\server\\src\\farm.ts:223"
+  ],
+  "Bể đã đầy": [
+    "apps\\server\\src\\farm.ts:223"
+  ],
+  "Bể không có con cá này": [
+    "apps\\server\\src\\farm.ts:224"
+  ],
+  "Hãy tới tủ quần áo trong phòng ngủ": [
+    "apps\\server\\src\\farm.ts:227"
+  ],
+  "Không có bộ đồ này": [
+    "apps\\server\\src\\farm.ts:227"
+  ],
+  "Hãy ra hồ câu cạnh khuôn viên": [
+    "apps\\server\\src\\farm.ts:228"
+  ],
+  "Hãy tới hộp gửi hàng": [
+    "apps\\server\\src\\farm.ts:230"
+  ],
   "Kho chưa có nông sản hoặc cá để bán": [
-    "apps\\server\\src\\farm.ts:233"
+    "apps\\server\\src\\farm.ts:235"
   ],
   "Lượt câu không hợp lệ": [
-    "apps\\server\\src\\farm.ts:237",
-    "apps\\server\\src\\farm.ts:244"
-  ],
-  "Cá đã mắc câu, đang kéo": [
-    "apps\\server\\src\\farm.ts:237"
-  ],
-  "Cá chưa cắn câu": [
-    "apps\\server\\src\\farm.ts:238"
-  ],
-  "Bạn đã rời mép hồ": [
-    "apps\\server\\src\\farm.ts:239"
-  ],
-  "Nhịp kéo không hợp lệ": [
+    "apps\\server\\src\\farm.ts:239",
     "apps\\server\\src\\farm.ts:246"
   ],
+  "Cá đã mắc câu, đang kéo": [
+    "apps\\server\\src\\farm.ts:239"
+  ],
+  "Cá chưa cắn câu": [
+    "apps\\server\\src\\farm.ts:240"
+  ],
+  "Bạn đã rời mép hồ": [
+    "apps\\server\\src\\farm.ts:241"
+  ],
+  "Nhịp kéo không hợp lệ": [
+    "apps\\server\\src\\farm.ts:248"
+  ],
   "Chờ thao tác trước hoàn tất": [
-    "apps\\server\\src\\farm.ts:252"
+    "apps\\server\\src\\farm.ts:254"
   ],
   "Hãy tới chỗ câu bên bờ hồ": [
-    "apps\\server\\src\\farm.ts:254"
+    "apps\\server\\src\\farm.ts:256"
   ],
   "Bạn đang câu cá": [
-    "apps\\server\\src\\farm.ts:254"
+    "apps\\server\\src\\farm.ts:256"
   ],
   "Ô ruộng chưa mở hoặc không hợp lệ": [
-    "apps\\server\\src\\farm.ts:257"
+    "apps\\server\\src\\farm.ts:259"
   ],
   "Hãy tới gần ô ruộng": [
-    "apps\\server\\src\\farm.ts:257"
+    "apps\\server\\src\\farm.ts:259"
   ],
   "Ô này đang có cây": [
-    "apps\\server\\src\\farm.ts:258"
-  ],
-  "Cần ô đất đã xới và chưa có cây": [
-    "apps\\server\\src\\farm.ts:259"
-  ],
-  "Bạn hết hạt giống này": [
-    "apps\\server\\src\\farm.ts:259"
-  ],
-  "Hãy gieo cây trước": [
     "apps\\server\\src\\farm.ts:260"
   ],
-  "Cây chưa chín": [
+  "Cần ô đất đã xới và chưa có cây": [
     "apps\\server\\src\\farm.ts:261"
   ],
-  "Thao tác Gia viên không hợp lệ": [
+  "Bạn hết hạt giống này": [
+    "apps\\server\\src\\farm.ts:261"
+  ],
+  "Hãy gieo cây trước": [
     "apps\\server\\src\\farm.ts:262"
   ],
+  "Cây chưa chín": [
+    "apps\\server\\src\\farm.ts:263"
+  ],
+  "Thao tác Gia viên không hợp lệ": [
+    "apps\\server\\src\\farm.ts:264"
+  ],
   "Không thực hiện được thao tác": [
-    "apps\\server\\src\\farm.ts:265"
+    "apps\\server\\src\\farm.ts:269"
   ],
   "Nhân vật không thuộc tài khoản": [
     "apps\\server\\src\\farmStore.ts:14"
@@ -583,10 +587,22 @@
     "apps\\server\\src\\maps.ts:7"
   ],
   "dịch chuyển": [
-    "apps\\server\\src\\mobs.ts:40"
+    "apps\\server\\src\\mobs.ts:42"
   ],
   "Bản chơi trên web chưa được phát.": [
     "apps\\server\\src\\play.ts:56"
+  ],
+  "Không thực hiện được": [
+    "apps\\server\\src\\quests2.ts:99"
+  ],
+  "Thiên phú thức tỉnh: hệ {0}": [
+    "apps\\server\\src\\quests2.ts:213"
+  ],
+  "Hoàn thành nhiệm vụ: {0}": [
+    "apps\\server\\src\\quests2.ts:215"
+  ],
+  "Đủ việc hằng ngày": [
+    "apps\\server\\src\\quests2.ts:230"
   ],
   "Hôm nay bạn đã điểm danh rồi — quay lại vào ngày mai nhé": [
     "apps\\server\\src\\rewards.ts:90"
@@ -696,37 +712,37 @@
     "apps\\server\\src\\social.ts:164"
   ],
   "<vùng>/<map>": [
-    "apps\\server\\src\\world.ts:62"
+    "apps\\server\\src\\world.ts:63"
   ],
   "Phiên đăng nhập không hợp lệ": [
-    "apps\\server\\src\\world.ts:252"
+    "apps\\server\\src\\world.ts:269"
   ],
   "Nhân vật vừa đăng nhập ở nơi khác": [
-    "apps\\server\\src\\world.ts:259"
+    "apps\\server\\src\\world.ts:276"
   ],
   "Bạn chat nhanh quá, chậm lại chút nhé": [
-    "apps\\server\\src\\world.ts:317"
+    "apps\\server\\src\\world.ts:337"
   ],
   "Thao tác nhanh quá, chậm lại chút nhé": [
-    "apps\\server\\src\\world.ts:346",
-    "apps\\server\\src\\world.ts:367",
-    "apps\\server\\src\\world.ts:379",
-    "apps\\server\\src\\world.ts:389"
+    "apps\\server\\src\\world.ts:366",
+    "apps\\server\\src\\world.ts:387",
+    "apps\\server\\src\\world.ts:397",
+    "apps\\server\\src\\world.ts:407"
   ],
   "Bạn nhắn nhanh quá, chậm lại chút nhé": [
-    "apps\\server\\src\\world.ts:349"
+    "apps\\server\\src\\world.ts:369"
   ],
   "Tẩy điểm cần {0} kim cương — bạn chưa đủ": [
-    "apps\\server\\src\\world.ts:383"
+    "apps\\server\\src\\world.ts:401"
   ],
   "Chat kênh Thế giới tốn {0} kim cương mỗi tin — bạn chưa đủ": [
-    "apps\\server\\src\\world.ts:410",
-    "apps\\server\\src\\world.ts:413"
+    "apps\\server\\src\\world.ts:428",
+    "apps\\server\\src\\world.ts:431"
   ],
   "Kênh Thế giới: mỗi {0} giây một tin thôi nhé": [
-    "apps\\server\\src\\world.ts:411"
+    "apps\\server\\src\\world.ts:429"
   ],
   "Khu {0} đã đầy, chọn khu khác nhé": [
-    "apps\\server\\src\\world.ts:554"
+    "apps\\server\\src\\world.ts:572"
   ]
 }

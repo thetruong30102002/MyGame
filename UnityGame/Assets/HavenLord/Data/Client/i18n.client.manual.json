@@ -10,16 +10,6 @@
     "source": "Đã áp {AdminLastChanges.Count} thay đổi cho {AdminPick?.Name}"
   },
   {
-    "file": "UnityGame\\Assets\\HavenLord\\Client\\GameController.Story.cs",
-    "line": 441,
-    "source": "Nhận {def?.Name ?? id}"
-  },
-  {
-    "file": "UnityGame\\Assets\\HavenLord\\Client\\GameController.Story.cs",
-    "line": 537,
-    "source": "Con đường: {(paths.TryGetValue(id, out var p) ? p.Name : id)}"
-  },
-  {
     "file": "UnityGame\\Assets\\HavenLord\\Client\\GameController.Talents.cs",
     "line": 148,
     "source": "Học được: {combat.Skill(id)?.Name}"
@@ -86,8 +76,23 @@
   },
   {
     "file": "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Quests.cs",
-    "line": 63,
-    "source": "{(questShowDone ? \"▾\" : \"▸\")} Đã xong ({done.Count})"
+    "line": 91,
+    "source": "{(questShowDone ? \"▾\" : \"▸\")} Đã xong ({finished.Count})"
+  },
+  {
+    "file": "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Quests.cs",
+    "line": 130,
+    "source": "{kindName} · {(isActive ? \"ĐANG LÀM\" : done.Contains(q.Id) ? \"ĐÃ XONG\" : \"CHƯA NHẬN\")}"
+  },
+  {
+    "file": "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Quests.cs",
+    "line": 149,
+    "source": "HẰNG NGÀY · {(d.done ? \"ĐÃ XONG\" : \"ĐANG LÀM\")}"
+  },
+  {
+    "file": "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Quests.cs",
+    "line": 161,
+    "source": "<color=#e9c46a>Mục tiêu</color>\\nBoss vùng xuất hiện ở khu {(int?)w[\"channel\"] ?? 1} ({(string)w[\"map\"]}). Góp sức hạ boss trong {Math.Ceiling(left)} phút nữa."
   },
   {
     "file": "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs",

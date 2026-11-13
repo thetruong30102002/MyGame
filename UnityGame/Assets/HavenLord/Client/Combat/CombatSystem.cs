@@ -637,11 +637,6 @@ namespace HavenLord.Client.Combat
                 Pc.Coins += f.Stats.Coins;
                 hooks.Toast($"+{f.Stats.Coins} xu", "loot");
                 long gain = f.Stats.Exp;
-                if (f.Child)
-                {
-                    var cap = (int)sim.Modules["mobs"]["CHILD_ZONE_LEVEL_CAP"];
-                    if (Pc.Level >= cap) gain = 0;
-                }
                 if (gain > 0) GrantExp(gain);
             }
             hooks.EnemyKilled(f);

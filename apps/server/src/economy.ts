@@ -1,9 +1,7 @@
 import type { EcoGain, ServerMessage } from '@havenlord/protocol';
-import { addExp, capExpGain, cleanEco, COIN_CAP, POTION_CAP, type Eco, type EcoReason } from '@havenlord/sim/economy';
-import { CHILD_ZONE_LEVEL_CAP } from '@havenlord/sim/mobs';
+import { addExp, cleanEco, COIN_CAP, POTION_CAP, type Eco, type EcoReason } from '@havenlord/sim/economy';
 import { buffMults } from '@havenlord/sim/shop';
 import { ENEMY_STATS, enemyStatsAt, type EnemyStats } from '@havenlord/sim/skills';
-import { questDef } from '@havenlord/sim/story/quests';
 import { RateLimiter } from './auth.ts';
 import type { Store } from './db.ts';
 import { privateKill } from './maps.ts';
@@ -95,9 +93,8 @@ export class Economy {
 	}
 
 	/**
-	 * Quái RIÊNG (khu tuổi thơ / nhiệm vụ / boss cốt truyện) gục ở máy người chơi: chỉ nhận loại có trong khu riêng (hoặc là boss) của
-	 * map đang đứng, trong nhịp trần; boss cốt truyện trao một lần cho mỗi nhân vật. `rawZone`: khu client báo — EXP / xu theo cấp của
-	 * khu (`enemyStatsAt`), khu tuổi thơ thì EXP không đưa nhân vật quá `CHILD_ZONE_LEVEL_CAP` (xu vẫn nhận).
+	 * Quái RIÊNG (khu nhiệm vụ / boss của map) gục ở máy người chơi: chỉ nhận loại có trong khu riêng (hoặc là boss) của map đang
+	 * đứng, trong nhịp trần; boss trao một lần cho mỗi nhân vật. `rawZone`: khu client báo — EXP / xu theo cấp của khu (`enemyStatsAt`).
 	 */
 	privateKill(player: string, raw: unknown, rawZone?: unknown): void {
 		const type = String(raw ?? '');
@@ -109,21 +106,10 @@ export class Economy {
 		if (found.kind === 'zone' && !this.withinRespawn(`${player}|${map}|${type}`, found.count)) return;
 		if (!this.privateKills.allow(player)) return;
 		const s = enemyStatsAt(type, found.kind === 'zone' ? found.level : undefined)!;
-		let exp = Math.round(s.exp * buffMults(this.store.buffs(player)).exp);
+		const exp = Math.round(s.exp * buffMults(this.store.buffs(player)).exp);
 		this.host.killed?.(player, type);
 		if (found.kind === 'boss') return void this.change(player, { exp, coins: s.coins }, 'boss', type, `boss:${type}`);
-		if (found.child) {
-			const cur = this.eco.get(player)!;
-			exp = capExpGain(cur.level, cur.exp, exp, CHILD_ZONE_LEVEL_CAP);
-		}
 		this.change(player, { exp, coins: s.coins }, 'kill', type);
-	}
-
-	/** Xong nhiệm vụ `id`: thưởng theo dữ liệu truyện của máy chủ, mỗi nhiệm vụ một lần. */
-	quest(player: string, raw: unknown): void {
-		const q = questDef(String(raw ?? ''));
-		if (!q || !this.eco.has(player)) return;
-		this.change(player, { exp: q.reward.exp, coins: q.reward.coins ?? 0, potions: q.reward.potions ?? 0 }, 'quest', q.title, `quest:${q.id}`);
 	}
 
 	/** Thưởng nhiệm vụ mới (`quests2.ts`): EXP / xu do máy chủ tính, `ref` duy nhất chống nhận hai lần (sổ `eco_ledger`). */

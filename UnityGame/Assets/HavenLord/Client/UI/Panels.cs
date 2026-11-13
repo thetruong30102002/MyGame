@@ -45,6 +45,12 @@ namespace HavenLord.Client.UI
         public bool Open => kind != Kind.None;
         public Kind Current => kind;
 
+        /// <summary>Vẽ lại nếu đang mở đúng bảng <paramref name="k"/> (dữ liệu từ máy chủ vừa đổi).</summary>
+        public void RefreshIf(Kind k)
+        {
+            if (kind == k) Refresh();
+        }
+
         public static Panels Create(GameController g, Hud hud, RectTransform canvas)
         {
             var go = new GameObject("Panels", typeof(RectTransform));

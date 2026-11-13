@@ -23,12 +23,11 @@ namespace HavenLord.Client.UI
             public List<string> Places = new List<string>();
             /// <summary>Vùng có mặt (khu quái / sân boss) — chương của sách Thư viện.</summary>
             public List<string> Regions = new List<string>();
-            public List<double[]> Ages = new List<double[]>();
         }
 
         private List<CodexEntry> codexCache;
 
-        /// <summary>Khoá mục NPC: tên chuẩn hoá (một người xuất hiện ở nhiều tuổi với nhiều khoá NPC — gộp làm một).</summary>
+        /// <summary>Khoá mục NPC: tên chuẩn hoá (một người có nhiều khoá NPC — gộp làm một).</summary>
         public static string NpcCodexKey(string name) => "npc:" + (name ?? "").ToLowerInvariant();
 
         private List<CodexEntry> Codex() => codexCache ??= BuildCodexEntries();
@@ -82,9 +81,8 @@ namespace HavenLord.Client.UI
                     outList.Add(e);
                 }
                 if (!string.IsNullOrEmpty(n.Title) && !e.Titles.Contains(n.Title)) e.Titles.Add(n.Title);
-                if (!string.IsNullOrEmpty(n.Sprite) && game.Database.HasCharacter(n.Sprite) && (e.Sprite == null || (n.Ages?[0] ?? 0) >= e.Ages.Max(a => a[0])))
+                if (!string.IsNullOrEmpty(n.Sprite) && game.Database.HasCharacter(n.Sprite) && e.Sprite == null)
                     e.Sprite = n.Sprite;
-                if (n.Ages != null && n.Ages.Length == 2) e.Ages.Add(n.Ages);
                 if (n.Place != null)
                     foreach (var r in regions)
                     foreach (var m in r.maps)
@@ -93,8 +91,5 @@ namespace HavenLord.Client.UI
             }
             return outList;
         }
-
-        private static string AgesText(List<double[]> ages) =>
-            string.Join(" · ", ages.OrderBy(a => a[0]).Select(a => a[1] >= 99 ? $"từ {a[0]} tuổi" : a[0] == a[1] ? $"{a[0]} tuổi" : $"{a[0]}–{a[1]} tuổi").Distinct());
     }
 }

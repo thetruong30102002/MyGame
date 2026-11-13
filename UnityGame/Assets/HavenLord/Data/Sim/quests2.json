@@ -183,10 +183,6 @@
 				"dx": -210,
 				"dy": -120
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Ta vẫn làm thừa một phần bánh. Tay ta nhớ, đầu ta thì không."
@@ -202,10 +198,6 @@
 				"dx": 150,
 				"dy": -130
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Em ghi tên mọi người vào sổ. Mai em quên thì còn hỏi lại được."
@@ -221,10 +213,6 @@
 				"dx": 70,
 				"dy": 10
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Nghề nào cũng bắt đầu bằng việc giữ được hơi thở."
@@ -240,10 +228,6 @@
 				"dx": -270,
 				"dy": 150
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Thư không người nhận vẫn là thư. Ta đưa nó tới khi có người nhận."
@@ -259,10 +243,6 @@
 				"dx": 70,
 				"dy": -50
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Đường này ta gác ba mươi năm. Ta nhớ từng bia mộ."
@@ -597,7 +577,8 @@
 			],
 			"reward": {
 				"expFrac": 0.18,
-				"coins": 20
+				"coins": 20,
+				"element": true
 			}
 		},
 		{

@@ -230,8 +230,8 @@
 		},
 		"sword": {
 			"id": "sword",
-			"name": "Kiếm sắt của cha",
-			"desc": "Thanh kiếm sắt cha rèn thay cho thanh kiếm gỗ năm nào. Lưỡi mài sáng bạc.",
+			"name": "Kiếm sắt tân thủ",
+			"desc": "Thanh kiếm sắt rèn ở lò Thistlewood, trao cho người mới lên đường. Lưỡi mài sáng bạc.",
 			"icon": "/assets/items/iron_sword.png",
 			"w": 49,
 			"h": 49,
@@ -243,8 +243,8 @@
 		},
 		"staff": {
 			"id": "staff",
-			"name": "Trượng gỗ của mẹ",
-			"desc": "Trượng tập của mẹ hồi mười tuổi, đầu quấn sợi đồng.",
+			"name": "Trượng gỗ tân thủ",
+			"desc": "Trượng tập bằng gỗ sồi, đầu quấn sợi đồng — món đầu tiên của người học phép.",
 			"icon": "/assets/items/starter_staff.png",
 			"w": 54,
 			"h": 54,
@@ -896,10 +896,6 @@
 	"STAT_PERCENT": [
 		"crit",
 		"move"
-	],
-	"STORY_GIFTS": [
-		"sword",
-		"staff"
 	],
 	"VIRTUAL_POTION_UID": "potion"
 }

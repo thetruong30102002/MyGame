@@ -15,13 +15,13 @@ namespace HavenLord.Client.Combat
 
         /// <summary>Thêm một quái (addEnemy). <paramref name="level"/>: cấp của khu (null = cấp gốc của loại).</summary>
         public Fighter AddEnemy(Actor actor, string type, WanderArea home, string name, double? level, bool regionBoss = false,
-            string zone = null, bool child = false, NetMob net = null, double dormant = 0)
+            string zone = null, NetMob net = null, double dormant = 0)
         {
             var stats = prog.EnemyStatsAt(type, level);
             if (stats == null) return null;
             var f = new Fighter
             {
-                Actor = actor, Type = type, Name = name, Level = prog.EnemyLevel(type, level) ?? 1, Zone = zone, Child = child,
+                Actor = actor, Type = type, Name = name, Level = prog.EnemyLevel(type, level) ?? 1, Zone = zone,
                 Boss = regionBoss || type.StartsWith("boss_", StringComparison.Ordinal), RegionBoss = regionBoss, Stats = stats,
                 Hp = stats.Hp, HpMax = stats.Hp, Home = home, AttackTimer = 1 + Random.value, Net = net,
             };

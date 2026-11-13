@@ -25,7 +25,7 @@ test('nhiệm vụ mới: M01 qua nói chuyện / tới chỗ, M03 gặp đủ n
 		const q = new Quests2(store.quests2, {
 			where: () => at, send: (_id, m) => void msgs.push(m), level: () => level, account: () => acc,
 			farmOpen: () => farmOpen, unlockFarm: () => void (farmOpen = true), reward: (_id, _e, _c, ref) => void rewards.push(ref),
-		}, resolve('../../assets/maps'), () => now);
+		}, resolve('../../assets/maps'), () => now, (n) => (assert.equal(n, 8), 2));
 		const go = (npc: string) => { at = q.npcPlace(npc)!; q.handle(id, { op: 'talk', npc }); };
 		const state = () => store.quests2.read(id);
 		q.handle(id, { op: 'get' });
@@ -61,6 +61,14 @@ test('nhiệm vụ mới: M01 qua nói chuyện / tới chỗ, M03 gặp đủ n
 		const before = rewards.length;
 		go('q2_nell');
 		assert.equal(rewards.filter((r) => r === 'q2:q2_main_05').length, 1, 'không thưởng lại');
+		// Cấp 10: "Tám ngọn đèn" trao thiên phú nguyên tố một lần (bốc 1/8 ở máy chủ).
+		assert.equal(state().active.q2_main_07, undefined, 'chưa cấp 10 thì chưa có Tám ngọn đèn');
+		level = 10;
+		q.handle(id, { op: 'get' });
+		assert(state().active.q2_main_07, 'cấp 10 tự nhận Tám ngọn đèn');
+		go('q2_gareth');
+		assert.equal(state().element, 'wind', 'nhận hệ do máy chủ bốc');
+		assert(msgs.some((m) => m.t === 'system' && /Thiên phú thức tỉnh: hệ Phong/.test(m.text)));
 		// Việc ngày: đếm sự kiện, đủ bộ có thưởng thêm; sang ngày mới bốc lại.
 		const d1 = state().daily!;
 		now += 24 * 3600_000;

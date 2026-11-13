@@ -625,8 +625,6 @@ export type ClientMessage =
 	 * cũ) = máy chủ chọn khu riêng cấp thấp nhất có loại đó.
 	 */
 	| { t: 'kill'; type: string; zone?: string }
-	/** Vừa xong nhiệm vụ `id` — máy chủ trao thưởng theo dữ liệu truyện (một lần). */
-	| { t: 'quest'; id: string }
 	/** Tiêu `amount` xu (`reason`: tẩy điểm, dịch chuyển…). */
 	| { t: 'spend'; reason: string; amount: number }
 	/** Uống một bình hồi phục. */

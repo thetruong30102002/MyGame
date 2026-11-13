@@ -1,0 +1,177 @@
+{
+	"BRAM": {
+		"name": "Bram",
+		"title": "Thương nhân lữ hành",
+		"sprite": "npc_bram_001",
+		"at": {
+			"spot": "plaza",
+			"dx": -110,
+			"dy": -40
+		},
+		"idle": [
+			"Hàng mới về chưa kịp xếp. Ghé lại sau nhé — mà nhớ mang theo tiền đấy!",
+			"Thế giới này rộng lắm. Rộng hơn cái rừng Mossvale kia nhiều."
+		]
+	},
+	"REGION_NPCS": {
+		"nyra": {
+			"name": "Nyra",
+			"title": "Thầy thuốc đầm lầy",
+			"sprite": "npc_lx_nyra_001",
+			"at": {
+				"spot": "__voice__"
+			},
+			"idle": []
+		},
+		"odessa": {
+			"name": "Odessa",
+			"title": "Phù thuỷ đầm",
+			"sprite": "npc_lx_odessa_001",
+			"at": {
+				"spot": "__voice__"
+			},
+			"idle": []
+		},
+		"zahra": {
+			"name": "Zahra",
+			"title": "Thủ lĩnh phe nổi dậy",
+			"sprite": "npc_sa_zahra_001",
+			"at": {
+				"spot": "__voice__"
+			},
+			"idle": []
+		},
+		"hassim": {
+			"name": "Hassim",
+			"title": "Tể tướng Sahrin",
+			"sprite": "npc_sa_hassim_001",
+			"at": {
+				"spot": "__voice__"
+			},
+			"idle": []
+		},
+		"orrin": {
+			"name": "Orrin",
+			"title": "Pháp sư gió",
+			"sprite": "npc_gh_orrin_001",
+			"at": {
+				"spot": "__voice__"
+			},
+			"idle": []
+		},
+		"wenna": {
+			"name": "Bà Wenna",
+			"title": "Chủ cối xay",
+			"sprite": "npc_gh_wenna_001",
+			"at": {
+				"spot": "__voice__"
+			},
+			"idle": []
+		},
+		"kael": {
+			"name": "Kael",
+			"title": "Thợ săn Tuyết Phong",
+			"sprite": "npc_tp_kael_001",
+			"at": {
+				"spot": "__voice__"
+			},
+			"idle": []
+		},
+		"hilde": {
+			"name": "Hilde",
+			"title": "Nữ vương rèn Đe Đỏ",
+			"sprite": "npc_dd_hilde_001",
+			"at": {
+				"spot": "__voice__"
+			},
+			"idle": []
+		},
+		"durin": {
+			"name": "Durin",
+			"title": "Em trai nữ vương",
+			"sprite": "npc_dd_durin_001",
+			"at": {
+				"spot": "__voice__"
+			},
+			"idle": []
+		},
+		"maris": {
+			"name": "Maris",
+			"title": "Công chúa người cá",
+			"sprite": "npc_sc_maris_001",
+			"at": {
+				"spot": "__voice__"
+			},
+			"idle": []
+		},
+		"corvin": {
+			"name": "Corvin",
+			"title": "Thuyền trưởng Hải Âu Bạc",
+			"sprite": "npc_sc_corvin_001",
+			"at": {
+				"spot": "__voice__"
+			},
+			"idle": []
+		},
+		"ysolde": {
+			"name": "Bà Ysolde",
+			"title": "Trưởng làng Lau Xám",
+			"sprite": "npc_ysolde_001",
+			"at": {
+				"spot": "plaza",
+				"dx": 130,
+				"dy": 70
+			},
+			"region": "swamp",
+			"idle": [
+				"Sương hôm nay đặc. Đặc như hồi đập mới xây.",
+				"Trà trong ấm còn. Uống đi rồi hẵng nói chuyện người Rowanmere."
+			]
+		},
+		"amira": {
+			"name": "Nữ hoàng Amira",
+			"title": "Ốc đảo Sahrin",
+			"sprite": "npc_sa_amira_001",
+			"at": {
+				"spot": "plaza",
+				"dx": 130,
+				"dy": 70
+			},
+			"region": "desert",
+			"idle": [
+				"Nước trong giếng hoàng gia mỗi tuần thấp thêm một gang. Ta đếm từng gang.",
+				"Ở Sahrin, khách là người được uống trước. Cậu đã uống chưa?"
+			]
+		},
+		"bjorn": {
+			"name": "Bjorn",
+			"title": "Thợ săn già Tuyết Phong",
+			"sprite": "npc_tp_bjorn_001",
+			"at": {
+				"spot": "plaza",
+				"dx": 130,
+				"dy": 70
+			},
+			"region": "tundra",
+			"idle": [
+				"Đọc gió trước, rồi mới đọc dấu chân. Ai dạy cậu thế? Hừm. Người đó biết việc.",
+				"Bão chưa tan. Ở lại thêm một đêm cũng chẳng chết ai."
+			]
+		},
+		"coral": {
+			"name": "Mẹ Coral",
+			"title": "Bếp lửa làng chài San Hô",
+			"sprite": "npc_sc_coral_001",
+			"at": {
+				"spot": "plaza",
+				"dx": 130,
+				"dy": 70
+			},
+			"region": "isles",
+			"idle": [
+				"Ăn đi rồi khóc. Đói thì khóc không ra hơi.",
+				"Biển trong tới mức thấy đáy. Mà đáy toàn tàu, con ạ."
+			]
+		}
+	}
+}

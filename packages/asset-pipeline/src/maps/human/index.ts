@@ -18,8 +18,6 @@ export type { MapData, MapExit, MonsterZone } from './common.js';
 
 /** Khoảng cấp của vùng human — khớp `levels` của vùng `human` ở `@havenlord/sim/regions` (pipeline không phụ thuộc gói sim). */
 export const HUMAN_LEVELS: readonly [number, number] = [1, 10];
-/** Tuổi bắt đầu có quái dùng chung — khớp `SHARED_MIN_AGE` của `@havenlord/sim/mobs`: khu bắt đầu sớm hơn là khu tuổi thơ. */
-const ADULT_AGE = 16;
 /** Tâm bầy quái thường phải cách ô nước gần nhất ít nhất chừng này ô (quái đuổi thẳng, đứng sau nước là kẹt bên bờ). */
 export const MIN_WATER_GAP = 6;
 const OPPOSITE: Record<Edge, Edge> = { N: 'S', S: 'N', E: 'W', W: 'E' };
@@ -157,9 +155,7 @@ export function validateRegion(maps: MapData[], levels: readonly [number, number
 					if (gap < 1.5 || gap > 4) out.push(`${m.id}: bầy quái sông ${z.id} cách nước ${gap.toFixed(1)} ô (cần 1,5–4 ô, sát bờ)`);
 				} else if (gap < MIN_WATER_GAP) out.push(`${m.id}: tâm bầy ${z.id} cách nước ${gap.toFixed(1)} ô (< ${MIN_WATER_GAP}) — quái kẹt bên bờ`);
 			}
-			if (!z.onDemand && (z.fromAge ?? 0) < ADULT_AGE && !(z.untilAge !== undefined && z.untilAge < ADULT_AGE))
-				out.push(`${m.id}: khu tuổi thơ ${z.id} (từ ${z.fromAge ?? 0} tuổi) thiếu untilAge ≤ ${ADULT_AGE - 1}`);
-			if (z.untilAge !== undefined && z.untilAge < (z.fromAge ?? 0)) out.push(`${m.id}: khu ${z.id} untilAge ${z.untilAge} < fromAge ${z.fromAge ?? 0} — không bao giờ sinh`);
+			if (z.untilAge !== undefined) out.push(`${m.id}: khu ${z.id} còn untilAge — nhân vật không còn tuổi (13/11/2026), bỏ trường này`);
 		}
 		for (const e of m.exits) {
 			const W = m.width * m.tileSize;

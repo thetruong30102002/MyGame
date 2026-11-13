@@ -12,7 +12,6 @@ import { fileURLToPath } from 'node:url';
 import { ADMIN_LIMITS, MAX_LEVEL, type AdminCharacter, type AdminGrantResult, type AdminLogEntry, type ServerMessage } from '@havenlord/protocol';
 import { addExp, applyAdminEco, fromTotalExp, shiftExp, totalExp } from '@havenlord/sim/economy';
 import { expForLevel } from '@havenlord/sim/skills';
-import { questDef } from '@havenlord/sim/story/quests';
 import { TALENT_BONUS_CAP } from '@havenlord/sim/talents';
 import { AdminOps } from '../src/adminOps.ts';
 import { Store } from '../src/db.ts';
@@ -167,11 +166,10 @@ try {
 		assert.deepEqual({ ...log[0], id: 0, at: 0 }, { id: 0, at: 0, admin: 'quan_tri', characterId: hero, characterName: 'Ánh Dương', field: 'coins', from: 50, to: 550, reason: REASON });
 	});
 
-	await test('bộ nhớ kinh tế đã nhận số quản trị: lần đổi kế (trả nhiệm vụ) cộng TIẾP từ đó, không ghi đè về số cũ', async () => {
-		const q = questDef('y1_mushrooms')!;
-		ws.push({ t: 'quest', id: 'y1_mushrooms' });
-		assert.equal(eco(hero).coins, 550 + (q.reward.coins ?? 0));
-		assert.equal(ws.last('eco')!.coins, 550 + (q.reward.coins ?? 0));
+	await test('bộ nhớ kinh tế đã nhận số quản trị: lần đổi kế (tiêu xu) tính TIẾP từ đó, không ghi đè về số cũ', async () => {
+		ws.push({ t: 'spend', reason: 'thu', amount: 30 });
+		assert.equal(eco(hero).coins, 520);
+		assert.equal(ws.last('eco')!.coins, 520);
 	});
 
 	await test('kim cương: ví + nhật ký kim cương, người online nhận `wallet` ngay; bình + EXP (lên cấp) + điểm thưởng trong CÙNG một lần', async () => {

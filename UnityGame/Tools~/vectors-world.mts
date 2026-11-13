@@ -8,12 +8,10 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildSolids, GRID, isBlocked, slideMove, type CollisionMap, type PropFootprint } from '../../packages/sim/src/collision.ts';
 import { NAV_CELL, NavGrid } from '../../packages/sim/src/NavGrid.ts';
-import { cleanMobAct, cleanMobCc, isChildZone, isSharedZone, mobId, zoneLiveAt, zoneSpawnPoints, type MonsterZoneDef } from '../../packages/sim/src/mobs.ts';
+import { cleanMobAct, cleanMobCc, isSharedZone, mobId, zoneLive, zoneSpawnPoints, type MonsterZoneDef } from '../../packages/sim/src/mobs.ts';
 import { hubKeys, REGIONS, regionDef, regionGate, regionNeeds, splitMapKey } from '../../packages/sim/src/regions.ts';
 import { checkinGift, checkinSlot, dayBefore, killStats, nextStreak, vnDay } from '../../packages/sim/src/rewards.ts';
-import { CHILDHOOD_AGE_CARDS, CHILDHOOD_NPCS, CHILDHOOD_QUESTS, CHILDHOOD_TITLE, PARENT_NPCS_16, PROLOGUE, TIME_SKIP } from '../../packages/sim/src/story/childhood.ts';
-import { QUESTS, questDef } from '../../packages/sim/src/story/quests.ts';
-import { YOUTH_ENDING, YOUTH_NPCS, YOUTH_QUESTS } from '../../packages/sim/src/story/youth.ts';
+import { Q2_DAILY, Q2_QUESTS, objectiveTotal } from '../../packages/sim/src/quests2.ts';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, '..', '..');
@@ -195,10 +193,10 @@ const collisionMaps = [...realMaps.map((m) => ({ ...mapVectors(m, realMeta, true
 const maps = collisionMaps.map((m) => ({ ...m, meta: m.name.startsWith('synth/') ? 'synth' : 'real' }));
 
 // ———— Quái dùng chung ————
-const zoneVariants: Partial<MonsterZoneDef>[] = [{}, { fromAge: 16 }, { fromAge: 16, onDemand: true }, { fromAge: 8 }, { fromAge: 4, untilAge: 8 }, { fromAge: 20, untilAge: 30 }, { onDemand: true }, { fromAge: 15.5 }, { fromAge: 16, untilAge: 16 }];
+const zoneVariants: Partial<MonsterZoneDef>[] = [{}, { onDemand: true }, { onDemand: false }, { boss: true }, { level: 3 }];
 const zonePreds = zoneVariants.map((z) => {
 	const zz = { id: 'z', x: 0, y: 0, radius: 10, monsters: ['a'], count: 1, ...z } as MonsterZoneDef;
-	return { zone: z, shared: isSharedZone(zz), child: isChildZone(zz), live: [0, 4, 8, 12, 15.9, 16, 17, 30, 31, 99].map((age) => [age, zoneLiveAt(zz, age)]) };
+	return { zone: z, shared: isSharedZone(zz), live: zoneLive(zz) };
 });
 const zones: MonsterZoneDef[] = [
 	...realMaps.flatMap((m) => m.zones ?? []),
@@ -264,20 +262,11 @@ const rewards = {
 	killStats: [{}, { mob_a: 3, boss_x: 2, boss_: 1, xboss_y: 4 }, { boss_demon_001: 10 }, { a: 1.5, b: 2.25 }].map((counts) => ({ counts, out: killStats(counts) })),
 };
 
-// ———— Cốt truyện ————
-const story = {
-	childhoodTitle: CHILDHOOD_TITLE,
-	prologue: PROLOGUE,
-	childhoodAgeCards: CHILDHOOD_AGE_CARDS,
-	timeSkip: TIME_SKIP,
-	childhoodNpcs: CHILDHOOD_NPCS,
-	parentNpcs16: PARENT_NPCS_16,
-	childhoodQuests: CHILDHOOD_QUESTS,
-	youthNpcs: YOUTH_NPCS,
-	youthQuests: YOUTH_QUESTS,
-	youthEnding: YOUTH_ENDING,
-	questIds: QUESTS.map((q) => q.id),
-	questDef: [...QUESTS.map((q) => q.id), 'nope'].map((id) => ({ id, out: questDef(id) ?? null })),
+// ———— Nhiệm vụ mới (quests2) ————
+const quests2 = {
+	ids: Q2_QUESTS.map((q) => q.id),
+	daily: Q2_DAILY.map((d) => d.id),
+	steps: Q2_QUESTS.map((q) => ({ id: q.id, objectives: q.steps.map((st) => `${st.objective.kind}:${objectiveTotal(st.objective)}`), element: !!q.reward.element })),
 };
 
 // String(number) — chữ cấp trong câu cổng vùng.
@@ -285,7 +274,7 @@ const numStrIn = [0, -0, 1, -1, 10, 10.5, 19.99, 0.1 + 0.2, 1 / 3, 100, 1e20, 1e
 for (let i = 0; i < 200; i += 1) numStrIn.push(pick([() => range(-1e6, 1e6), () => rnd() * 10 ** Math.floor(range(-30, 30)), () => Math.round(range(0, 1e4)) / 100])());
 const numStr = numStrIn.map((n) => [enc(n), String(n)]);
 
-const out = { consts: { GRID, NAV_CELL }, hypot, numStr, meta: { real: realMeta, synth: synthMeta }, maps, mobs: { zonePreds, spawnPoints, mobIds, cc, act }, regions, rewards, story };
+const out = { consts: { GRID, NAV_CELL }, hypot, numStr, meta: { real: realMeta, synth: synthMeta }, maps, mobs: { zonePreds, spawnPoints, mobIds, cc, act }, regions, rewards, quests2 };
 writeFileSync(join(OUT, 'world.json'), `${JSON.stringify(out)}\n`);
 const nPaths = maps.reduce((s, m) => s + m.nav.paths.length, 0);
 console.log(`✔ vector thế giới → ${join(OUT, 'world.json')}: ${hypot.length} hypot · ${maps.length} map · ${nPaths} đường đi · ${cc.length} cc · ${act.length} act · ${regions.regionGate.length} cổng vùng`);

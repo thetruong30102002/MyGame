@@ -8308,7 +8308,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
           "label": "Ghép vào game / web",
           "weight": 25,
           "done": false,
-          "evidence": ""
+          "evidence": "13/11/2026 (chưa nghiệm thu): luật thiên phú — nhiệm vụ cấp 10 \"Tám ngọn đèn\", máy chủ bốc đều 1/8 hệ (talents.TALENT_ELEMENTS), lưu trong quest2_states, client chỉ mở nhánh nguyên tố đúng hệ đã nhận. Mộc / Bóng tối / Ánh sáng đã có trong danh sách bốc nhưng chưa có nhánh chiêu — chiêu cần vẽ, ghép sau (chủ dự án: \"chỉ các skill cần vẽ thì để sau sẽ ghép\")."
         },
         {
           "label": "Kiểm thử và nghiệm thu",
@@ -9033,7 +9033,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "id": "story-reboot-game",
       "group": "Cốt truyện",
       "name": "Viết lại cốt truyện và hệ nhiệm vụ Chính / Phụ / Hằng ngày / Thế giới",
-      "detail": "Chốt 08/11 và yêu cầu 13/11/2026: làm mới hoàn toàn 100% cốt truyện, nhiệm vụ và vai trò NPC; bốn loại Chính / Phụ / Hằng ngày / Thế giới. Chốt bổ sung: BỎ chuyển sinh, kiếp trước, tuổi thơ/thân thế Lior; người chơi là nhân vật tự tạo hiện tại, quest cũ chỉ còn dữ liệu kỹ thuật để bảo toàn save. Giữ 5 tộc / 5 class / 8 nguyên tố / Ma thần / Thiên Thành. Mở đầu giới thiệu mọi NPC cố định map đầu trước Gia viên; tuyến chính theo cấp/vùng, phụ đa nhánh song song; hằng ngày bốc tất định 0 giờ Việt Nam; thế giới chung máy chủ và thưởng theo đóng góp. Máy chủ kiểm điều kiện/thưởng, không tin số client. Có chuyển save phiên bản, không reset DB. Bản chữ ở docs/thiet-ke/he-nhiem-vu-bon-loai-2026-11.md, đặc tả bàn giao ở docs/thiet-ke/he-nhiem-vu-bon-loai-ban-giao.md. Chủ dự án sẽ nhờ Claude dựng vào game sau; lượt này hoàn thiện tài liệu, chưa sửa sim/máy chủ/Unity. Tiến độ giữ theo việc đã nghiệm thu, phần thưởng là số thử. Quy tắc hình/NPC và bộ 140 chiêu theo các chốt hiện hành.",
+      "detail": "Chốt 08/11 và yêu cầu 13/11/2026: làm mới hoàn toàn 100% cốt truyện, nhiệm vụ và vai trò NPC; bốn loại Chính / Phụ / Hằng ngày / Thế giới. Chốt bổ sung: BỎ chuyển sinh, kiếp trước, tuổi thơ/thân thế Lior; người chơi là nhân vật tự tạo hiện tại. 13/11/2026 chủ dự án: \"Bỏ hết cũ đi, xoá luôn những cái k dùng\", \"Nhân vật không còn tuổi nữa chỉ còn level\", \"Lior k còn thay vào tên của nhân vật mình đặt\" — đã xoá hẳn cốt truyện / nhiệm vụ / tuổi cũ ở sim, máy chủ, Unity (DB đã xoá sạch người chơi nên không cần chuyển save). Thiên phú nguyên tố là một nhiệm vụ: M07 \"Tám ngọn đèn\" mở ở cấp 10, xong thì máy chủ bốc đều 1/8 hệ, lưu một lần. Giữ 5 tộc / 5 class / 8 nguyên tố / Ma thần / Thiên Thành. Mở đầu giới thiệu mọi NPC cố định map đầu trước Gia viên; tuyến chính theo cấp/vùng, phụ đa nhánh song song; hằng ngày bốc tất định 0 giờ Việt Nam; thế giới chung máy chủ và thưởng theo đóng góp. Máy chủ kiểm điều kiện/thưởng, không tin số client. Có chuyển save phiên bản, không reset DB. Bản chữ ở docs/thiet-ke/he-nhiem-vu-bon-loai-2026-11.md, đặc tả bàn giao ở docs/thiet-ke/he-nhiem-vu-bon-loai-ban-giao.md. Chủ dự án sẽ nhờ Claude dựng vào game sau; lượt này hoàn thiện tài liệu, chưa sửa sim/máy chủ/Unity. Tiến độ giữ theo việc đã nghiệm thu, phần thưởng là số thử. Quy tắc hình/NPC và bộ 140 chiêu theo các chốt hiện hành.",
       "weight": 6,
       "phase": 2,
       "region": null,
@@ -9058,7 +9058,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
           "label": "Tích hợp Unity/máy chủ",
           "weight": 20,
           "done": false,
-          "evidence": ""
+          "evidence": "13/11/2026 (chưa nghiệm thu trong bản build): client GameController.Quests.cs — xin trạng thái q2 khi vào map, báo nói chuyện / tới chỗ cho máy chủ, ô theo dõi + tự đi theo việc đang theo; tab Nhiệm vụ 4 nhóm Chính / Phụ / Hằng ngày / Thế giới với nút Theo dõi; dải báo động đỏ khi boss vùng xuất hiện. Xoá StoryDirector, thẻ tuổi, ngã rẽ 16 tuổi, khu quái tuổi thơ, điều kiện tuổi của đồ; lớp Kiếm sĩ / Pháp sư theo class lúc tạo nhân vật. Chờ build để thử."
         },
         {
           "label": "Kiểm người mới và tài khoản cũ",

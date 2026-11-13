@@ -2,7 +2,9 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import type { DatabaseSync } from 'node:sqlite';
 import type { ServerMessage } from '@havenlord/protocol';
+import { randomInt } from 'node:crypto';
 import { expForLevel } from '@havenlord/sim/skills';
+import { TALENT_ELEMENT_NAME, TALENT_ELEMENTS } from '@havenlord/sim/talents';
 import { STORY } from '@havenlord/sim/story/story';
 import {
 	newQ2State,
@@ -67,6 +69,8 @@ export class Quests2 {
 		private readonly host: Quests2Host,
 		private readonly mapsDir: string,
 		private readonly now: () => number = Date.now,
+		/** Bốc thiên phú: số nguyên 0…n−1 (test truyền hàm cố định). */
+		private readonly pick: (n: number) => number = (n) => randomInt(n),
 	) {}
 
 	handle(id: string, raw: { op?: unknown; npc?: unknown; spot?: unknown; id?: unknown }): void {
@@ -146,13 +150,15 @@ export class Quests2 {
 		this.host.send(id, { t: 'q2', state: s, world: this.worldSessions() } as ServerMessage);
 	}
 
-	/** Nhận tự động việc Chính kế tiếp, làm mới bộ việc ngày khi sang ngày (00:00 giờ Việt Nam). */
+	/** Nhận tự động việc Chính kế tiếp (+ việc thiên phú cấp 10), làm mới bộ việc ngày khi sang ngày (00:00 giờ Việt Nam). */
 	private prepare(id: string, s: Q2State): Q2State {
 		const lv = this.host.level(id);
 		if (!Object.keys(s.active).some((q) => q2Quest(q)?.kind === 'main')) {
 			const next = q2Available(s, lv).find((q) => q.kind === 'main');
 			if (next) s.active[next.id] = { step: 0, count: 0 };
 		}
+		// Thiên phú cấp 10 ("Tám ngọn đèn") nhận ngay khi đủ cấp, không chờ việc Chính đang làm.
+		for (const q of q2Available(s, lv)) if (q.reward.element) s.active[q.id] = { step: 0, count: 0 };
 		const date = q2DateKey(this.now());
 		if (s.daily?.date !== date) {
 			const acc = this.host.account(id);
@@ -201,6 +207,10 @@ export class Quests2 {
 			if (q.reward.unlockFarm) {
 				const acc = this.host.account(id);
 				if (acc !== null) this.host.unlockFarm(id, acc);
+			}
+			if (q.reward.element && !s.element) {
+				s.element = TALENT_ELEMENTS[this.pick(TALENT_ELEMENTS.length)]!;
+				this.host.send(id, { t: 'system', text: `Thiên phú thức tỉnh: hệ ${TALENT_ELEMENT_NAME[s.element]}` });
 			}
 			this.host.send(id, { t: 'system', text: `Hoàn thành nhiệm vụ: ${q.title}` });
 		}

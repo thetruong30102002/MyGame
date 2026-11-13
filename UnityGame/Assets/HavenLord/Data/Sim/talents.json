@@ -10,9 +10,7 @@
 		"ice",
 		"earth"
 	],
-	"BRANCH_LOCK_NOTE": {
-		"earth": "Mở ở nhiệm vụ “Sợi tơ màu đất” (tuổi 16, Nghĩa địa Hoàng Hôn)"
-	},
+	"BRANCH_LOCK_NOTE": {},
 	"BRANCH_NAME": {
 		"sword": "Kiếm",
 		"kiem_than": "Kiếm Thần",
@@ -654,6 +652,26 @@
 		}
 	},
 	"TALENT_BONUS_CAP": 999,
+	"TALENT_ELEMENTS": [
+		"fire",
+		"water",
+		"wind",
+		"ice",
+		"earth",
+		"wood",
+		"dark",
+		"light"
+	],
+	"TALENT_ELEMENT_NAME": {
+		"fire": "Hoả",
+		"water": "Thuỷ",
+		"wind": "Phong",
+		"ice": "Băng",
+		"earth": "Thổ",
+		"wood": "Mộc",
+		"dark": "Bóng tối",
+		"light": "Ánh sáng"
+	},
 	"TALENT_LEVEL_CAP": 40,
 	"TIER_COST": [
 		0,

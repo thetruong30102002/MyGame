@@ -26,7 +26,7 @@ export class Farm {
  npcPlace(id:string):{map:string;x:number;y:number}|null{const n=STORY.npcs[id];if(!n)return null;const region=n.region??'human';const hub=SERVICE_TOWNS.find(t=>t.region===region)?.hub??(region==='human'?'town':'hub');
   for(const m of [hub,...SERVICE_ROOMS.map(r=>`svc_${r}`)]){const s=spotOf(this.mapsDir,`${region}/${m}`,n.at.spot);if(s)return{map:`${region}/${m}`,x:s.x+(n.at.dx??0),y:s.y+(n.at.dy??0)};}return null;}
  /** Cư dân Thistlewood cần làm quen để mở Gia viên: như trước 13/11 (người bán cũ nay đứng quầy trong nhà vẫn tính), NPC quầy mới `village_tl_*` không tính. */
- roster(){return Object.entries(STORY.npcs).flatMap(([id,n])=>{if(/^village_[a-z]{2}_|^q2_/.test(id)||!n.sprite||(n.region&&n.region!=='human')||n.ages[0]>16||n.ages[1]<16)return[];const p=this.npcPlace(id);return p?[{id,name:n.name,map:p.map,x:p.x,y:p.y}]:[];});}
+ roster(){return Object.entries(STORY.npcs).flatMap(([id,n])=>{if(/^village_[a-z]{2}_|^q2_/.test(id)||!n.sprite||(n.region&&n.region!=='human'))return[];const p=this.npcPlace(id);return p?[{id,name:n.name,map:p.map,x:p.x,y:p.y}]:[];});}
  canEnter(account:number){return this.store.farm.read(account).unlocked;}
  /** Nhiệm vụ mới M05 "Bàn giao khuôn viên" (13/11/2026) mở Gia viên + hạt khởi đầu; đã mở thì giữ nguyên. */
  unlockByQuest(id:string,account:number){this.store.farm.run(account,id,this.now(),s=>{if(!s.unlocked){s.unlocked=true;for(const c of FARM_STARTER_CROPS)s.inventory[`seed_${c}`]=3;}return{value:null};});}

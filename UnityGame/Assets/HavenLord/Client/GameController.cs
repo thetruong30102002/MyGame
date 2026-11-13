@@ -58,7 +58,6 @@ namespace HavenLord.Client
         private object focus;
         private SpriteRenderer focusMarker;
         private Npc talkingTo;
-        private double age = 16;
         private List<string> loadout = new List<string>();
         private readonly bool[] slotHeld = new bool[10];
         private string playerName = "Lữ khách";
@@ -176,24 +175,19 @@ namespace HavenLord.Client
             StartCoroutine(ChangeMap(startKey, null, true, startAt));
         }
 
-        /// <summary>Tiến độ cốt truyện (progress.story của web): tuổi, mốc tiềm năng, thanh chiêu, con đường. Offline: người lớn, mở hết.</summary>
+        /// <summary>
+        /// Bản lưu nhân vật (`progress.story`: mốc tiềm năng, thanh chiêu, trang bị, Thư viện). Cốt truyện cũ + tuổi đã bỏ 13/11/2026 —
+        /// nhánh mở: Kiếm luôn mở, nguyên tố chỉ hệ thiên phú nhận ở nhiệm vụ cấp 10 (`TalentElement`); offline / phòng Thử chiêu mở hết.
+        /// Lớp Kiếm sĩ / Pháp sư theo class chọn lúc tạo nhân vật (trượng = Pháp sư).
+        /// </summary>
         private void ApplyStory(JObject story, double bonus)
         {
             storyState = story ?? new JObject();
             bonusPoints = bonus;
-            // Online (không phải phòng Thử chiêu): có cốt truyện — nhân vật MỚI (chưa có bản lưu) bắt đầu ở tuổi của nhiệm vụ đầu
-            // (4 tuổi) như web. Offline: chế độ thử — người lớn, mở hết, không cốt truyện.
-            var storyMode = online != null && !LabMode;
-            if (storyMode)
-            {
-                CreateStory();
-                age = this.story.Age;
-            }
-            else if (story != null) age = (double?)story["age"] ?? 16;
-            // Đọc thẳng `unlocked` của bản lưu mỗi lần hỏi — cốt truyện mở thêm giữa lúc chơi.
-            isUnlocked = !storyMode && story == null ? (Func<string, bool>)(_ => true) : id => id == null || (storyState["unlocked"] is JArray ul && ul.Any(x => (string)x == id));
+            var questMode = online != null && !LabMode;
+            isUnlocked = !questMode ? (Func<string, bool>)(_ => true) : id => id == null || id == "sword" || id == TalentElement;
             combat.IsUnlocked = isUnlocked;
-            combat.SetPath((string)storyState["path"]);
+            combat.SetPath(PlayerRoster.Find(PlayerSprite(personaFemale))?.classId == "staff" ? "mage" : "sword");
             combat.SetTalents(talents.TiersFrom(BoughtFromState(), isUnlocked));
             SyncAttrs();
             loadout = storyState["loadout"] is JArray lo ? lo.ToObject<List<string>>() : new List<string>();
@@ -223,7 +217,7 @@ namespace HavenLord.Client
             if (LabMode && online == null) TickLab();
             var realDt = Mathf.Min(Time.deltaTime, 0.1f);
             TickBuffs(realDt);
-            if (!InFarm) TickStory();
+            if (!InFarm) TickQuests();
             ScanCodex(realDt);
             var talking = hud.Blocking;
             GameInput.Typing = (hud.Chat != null && hud.Chat.Typing) || hud.Panels.Typing;
@@ -555,8 +549,9 @@ namespace HavenLord.Client
                 return;
             }
             var n = population.NearestNpc(player.X, player.Y) ?? focus as Npc;
-            if (n == null || OpenService(n)) return;
-            if (story != null && story.Talk(n.Key)) return;
+            if (n == null) return;
+            QuestTalk(n.Key);
+            if (OpenService(n)) return;
             Talk(n);
         }
 
@@ -575,7 +570,6 @@ namespace HavenLord.Client
 
         private void AdvanceDialog()
         {
-            if (AdvanceStoryDialogue()) return;
             hud.HideDialog();
             talkingTo = null;
         }
@@ -693,7 +687,7 @@ namespace HavenLord.Client
                     oldDef.ReleaseArt();
                     StartCoroutine(UnloadUnusedNextFrame());
                 }
-                population.Populate(map.def, region.region, age, online != null);
+                population.Populate(map.def, region.region, online != null);
                 areaName = map.def.AreaAt(at.x, at.y);
                 PvpHere = idx.region != "home" && !SafeMaps().Contains(idx.region + "/" + mapId);
                 hud.Banner(map.def.displayName + (PvpHere ? "  ·  PvP" : "  ·  Vùng an toàn"));
@@ -705,7 +699,7 @@ namespace HavenLord.Client
                     if (HasSharedZones()) online.Send(new ClientMobSub { On = true });
                     SavePosition();
                 }
-                if (idx.region != "home") OnMapReadyStory(first);
+                if (idx.region != "home") OnMapReadyQuests(first);
                 FarmMapReady(idx.region == "home");
             }
             finally
@@ -745,7 +739,7 @@ namespace HavenLord.Client
             foreach (var z in map.def.monsterZones)
             {
                 var d = WorldPopulation.ToCore(z);
-                if (Mobs.ZoneLiveAt(d, age) && mobs.IsSharedZone(d)) return true;
+                if (mobs.IsSharedZone(d)) return true;
             }
             return false;
         }
@@ -814,7 +808,6 @@ namespace HavenLord.Client
         {
             if (focus == f) focus = null;
             NoteKill(f);
-            StoryKill(f);
         }
 
         public void PlayerDied()

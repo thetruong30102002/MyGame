@@ -74,7 +74,7 @@ namespace HavenLord.Client.UI
             var seen = game.CodexSeen();
             var npcs = all.Where(e => e.Kind == "npc").OrderBy(e => seen.Contains(e.Id) ? 0 : 1).ThenBy(e => e.Name).ToList();
             if (npcs.Count > 0)
-                chapters.Add(new Chapter { Id = "npc", Title = "Nhân vật", Short = "Nhân vật", Ribbon = new Color(0.45f, 0.25f, 0.5f), Intro = "Những người Lior đã gặp trên đường — từ thuở nhỏ ở Thistlewood tới những miền xa.", Entries = npcs });
+                chapters.Add(new Chapter { Id = "npc", Title = "Nhân vật", Short = "Nhân vật", Ribbon = new Color(0.45f, 0.25f, 0.5f), Intro = "Những người đã gặp trên đường — từ Thistlewood tới những miền xa.", Entries = npcs });
             return chapters;
         }
 
@@ -255,7 +255,6 @@ namespace HavenLord.Client.UI
                 facts.Add($"Máu <b>{s.Hp:#,0}</b> · Công <b>{s.Atk}</b> · Giáp <b>{s.Def}</b> · Tốc {s.Speed:0}");
                 facts.Add($"{(string.IsNullOrEmpty(s.Ranged) ? "Đánh gần" : "Đánh xa")} · {s.Exp} EXP · {s.Coins} xu · đã hạ <b>{(kills.TryGetValue(e.Id, out var k) ? k : 0):#,0}</b>");
             }
-            if (known && e.Ages.Count > 0) facts.Add("Gặp được: " + AgesText(e.Ages));
             if (e.Places.Count > 0) facts.Add("Nơi ở: " + string.Join(", ", e.Places.Take(7)) + (e.Places.Count > 7 ? $" (+{e.Places.Count - 7} map)" : ""));
             var ft = Text(p, "F", new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -252), new Vector2(370, 62), string.Join("\n", facts), 12, Ink, TextAnchor.UpperCenter);
             ft.textWrappingMode = TextWrappingModes.Normal;

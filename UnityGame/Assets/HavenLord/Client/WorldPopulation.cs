@@ -24,7 +24,6 @@ namespace HavenLord.Client
         [JsonProperty("sprite")] public string Sprite;
         [JsonProperty("prop")] public string Prop;
         [JsonProperty("at")] public At Place;
-        [JsonProperty("ages")] public double[] Ages;
         [JsonProperty("idle")] public string[] Idle = Array.Empty<string>();
         [JsonProperty("region")] public string Region;
         [JsonProperty("stationary")] public bool Stationary;
@@ -114,21 +113,20 @@ namespace HavenLord.Client
             combat.ClearWorld();
         }
 
-        /// <summary>Định nghĩa NPC theo khoá (tên, chức danh, hình) — thoại cốt truyện, chữ nhiệm vụ.</summary>
+        /// <summary>Định nghĩa NPC theo khoá (tên, chức danh, hình) — chữ nhiệm vụ.</summary>
         public NpcDef NpcDefOf(string key) => key != null && npcDefs.TryGetValue(key, out var d) ? d : null;
 
-        /// <summary>Mọi NPC (cốt truyện + dịch vụ, mọi tuổi) — Thư viện gộp theo tên.</summary>
+        /// <summary>Mọi NPC (truyện + dịch vụ) — Thư viện gộp theo tên.</summary>
         public IReadOnlyDictionary<string, NpcDef> AllNpcDefs() => npcDefs;
 
         /// <summary>Dựng NPC + quái cho map vừa nạp. <paramref name="sharedFromServer"/>: khu dùng chung để máy chủ gửi.</summary>
-        public void Populate(MapDef map, string region, double age, bool sharedFromServer)
+        public void Populate(MapDef map, string region, bool sharedFromServer)
         {
             Clear();
             foreach (var kv in npcDefs)
             {
                 var d = kv.Value;
                 if (d.Place == null || (d.Region != null && d.Region != region)) continue;
-                if (d.Ages != null && d.Ages.Length == 2 && (age < d.Ages[0] || age > d.Ages[1])) continue;
                 var spot = map.Spot(d.Place.Spot);
                 if (spot == null) continue;
                 SpawnNpc(kv.Key, d, spot.x + d.Place.Dx, spot.y + d.Place.Dy, map);
@@ -136,7 +134,7 @@ namespace HavenLord.Client
             foreach (var z in map.monsterZones)
             {
                 var def = ToCore(z);
-                if (!Mobs.ZoneLiveAt(def, age)) continue;
+                if (!Mobs.ZoneLive(def)) continue;
                 if (sharedFromServer && mobs.IsSharedZone(def)) continue;
                 foreach (var sp in Mobs.ZoneSpawnPoints(def)) SpawnMob(sp.Type, sp.X, sp.Y, def, null, 0);
             }
@@ -146,7 +144,6 @@ namespace HavenLord.Client
         public static MonsterZoneDef ToCore(MonsterZone z) => new MonsterZoneDef
         {
             Id = z.id, Name = z.name, X = z.x, Y = z.y, Radius = z.radius, Monsters = z.monsters, Count = z.count,
-            FromAge = z.fromAge >= 0 ? z.fromAge : (double?)null, UntilAge = z.untilAge >= 0 ? z.untilAge : (double?)null,
             Level = z.level >= 0 ? z.level : (double?)null, OnDemand = z.onDemand, Boss = z.boss,
         };
 
@@ -156,8 +153,7 @@ namespace HavenLord.Client
             if (def == null) return null;
             var a = Actor.Spawn(def, parent, x, y, type);
             var home = new WanderArea { X = zone?.X ?? x, Y = zone?.Y ?? y, Radius = zone?.Radius ?? 40 };
-            var f = combat.AddEnemy(a, type, home, def.displayName, level ?? zone?.Level, zone?.Boss == true, zone?.Id,
-                zone != null && mobs.IsChildZone(zone), net, dormant);
+            var f = combat.AddEnemy(a, type, home, def.displayName, level ?? zone?.Level, zone?.Boss == true, zone?.Id, net, dormant);
             if (f == null) UnityEngine.Object.Destroy(a.gameObject);
             return f;
         }

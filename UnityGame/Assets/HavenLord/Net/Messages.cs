@@ -25,6 +25,7 @@ namespace HavenLord.Net
             ["gear"] = () => new ClientGear(),
             ["map"] = () => new ClientMap(),
             ["channel"] = () => new ClientChannel(),
+            ["q2"] = () => new ClientQ2(),
             ["ping"] = () => new ClientPing(),
             ["friendAdd"] = () => new ClientFriendAdd(),
             ["friendRespond"] = () => new ClientFriendRespond(),
@@ -44,7 +45,6 @@ namespace HavenLord.Net
             ["resetBuild"] = () => new ClientResetBuild(),
             ["hubs"] = () => new ClientHubs(),
             ["kill"] = () => new ClientKill(),
-            ["quest"] = () => new ClientQuest(),
             ["spend"] = () => new ClientSpend(),
             ["potion"] = () => new ClientPotion(),
             ["pvpDown"] = () => new ClientPvpDown(),
@@ -67,6 +67,7 @@ namespace HavenLord.Net
             ["chat"] = () => new ServerChat(),
             ["system"] = () => new ServerSystem(),
             ["channel"] = () => new ServerChannel(),
+            ["q2"] = () => new ServerQ2(),
             ["action"] = () => new ServerAction(),
             ["actionEnd"] = () => new ServerActionEnd(),
             ["gear"] = () => new ServerGear(),
@@ -217,6 +218,16 @@ namespace HavenLord.Net
         [JsonProperty("channel")] public int Channel;
     }
 
+    /// <summary>Nhiệm vụ mới (`quests2`): get / talk npc / reach spot / track id — máy chủ kiểm vị trí.</summary>
+    public sealed class ClientQ2 : ClientMessage
+    {
+        protected override string Tag => "q2";
+        [JsonProperty("op")] public string Op;
+        [JsonProperty("npc", NullValueHandling = NullValueHandling.Ignore)] public string Npc;
+        [JsonProperty("spot", NullValueHandling = NullValueHandling.Ignore)] public string Spot;
+        [JsonProperty("id", NullValueHandling = NullValueHandling.Ignore)] public string Id;
+    }
+
     public sealed class ClientPing : ClientMessage
     {
         protected override string Tag => "ping";
@@ -340,12 +351,6 @@ namespace HavenLord.Net
         [JsonProperty("zone", NullValueHandling = NullValueHandling.Ignore)] public string Zone;
     }
 
-    public sealed class ClientQuest : ClientMessage
-    {
-        protected override string Tag => "quest";
-        [JsonProperty("id")] public string Id;
-    }
-
     public sealed class ClientSpend : ClientMessage
     {
         protected override string Tag => "spend";
@@ -416,6 +421,14 @@ namespace HavenLord.Net
         protected override string Tag => "channel";
         [JsonProperty("channel")] public int Channel;
         [JsonProperty("counts")] public int[] Counts;
+    }
+
+    /// <summary>Trạng thái nhiệm vụ mới của mình + phiên Thế giới đang mở.</summary>
+    public sealed class ServerQ2 : ServerMessage
+    {
+        protected override string Tag => "q2";
+        [JsonProperty("state")] public Newtonsoft.Json.Linq.JObject State;
+        [JsonProperty("world")] public Newtonsoft.Json.Linq.JArray World;
     }
 
     public sealed class ServerAction : ServerMessage

@@ -59,7 +59,7 @@ export const MONSTER_INFO: Record<string, { name: string; kind: string; lore: st
 	boss_demon_001: {
 		name: 'Quỷ vương rừng sâu',
 		kind: 'Boss cốt truyện · đá phong ấn',
-		lore: 'Bị phong ấn dưới tảng đá cổ sâu trong rừng Mossvale, nơi sợi tơ đỏ rỉ ra từ khe đất. Nổi giận khi mất nửa máu. Đây là lời hứa thuở nhỏ của Lior và Aldric.',
+		lore: 'Bị phong ấn dưới tảng đá cổ sâu trong rừng Mossvale, nơi sợi tơ đỏ rỉ ra từ khe đất. Nổi giận khi mất nửa máu.',
 	},
 	// Vùng 2–7 + 4 rồng nguyên tố (dựng 10/10/2026 — chỉ số trong `WORLD_ROSTER` của @havenlord/sim/skills).
 	mob_poison_frog_001: {
@@ -354,26 +354,11 @@ export const MONSTER_INFO: Record<string, { name: string; kind: string; lore: st
 	},
 };
 
-/** Lời giới thiệu NPC theo TÊN (một người xuất hiện ở nhiều tuổi với nhiều khoá NPC — gộp làm một mục). */
+/** Lời giới thiệu NPC theo TÊN (một người có nhiều khoá NPC — gộp làm một mục). */
 export const NPC_LORE: Record<string, string> = {
-	'Elin Ashvale': 'Mẹ của Lior — pháp sư làng: phép chỉ đủ nhóm bếp, gọi mưa cho vườn rau. Nuôi ong sau nhà. Không hỏi con đang làm gì, chỉ đứng xem.',
-	'Garrick Ashvale': 'Cha của Lior — lính gác cũ, kiếm sĩ ít lời. Thường ngồi mài kiếm ở đầu cầu sông Brightwater. "Con gọi, cha đến."',
-	Mirelle: 'Nữ trị liệu của Thistlewood, pha thuốc ở nhà thờ. Không thấy sợi Haven, nhưng biết cách để không ai bị bỏng.',
 	Bram: 'Thương nhân lữ hành dựng quầy ở quảng trường. Bán bình mật ong, đồ đi đường — và kể đủ chuyện về thế giới rộng hơn rừng Mossvale.',
-	Aldric: 'Bạn thuở nhỏ của Lior, "hiệp sĩ tự phong" với thanh Kiếm Sấm Sét bằng gỗ. Lớn lên canh cổng bắc thật. Hai đứa từng ngoéo tay đi đánh Quỷ vương.',
-	'Bia đá cổ': 'Tấm bia phủ rêu ở cổng nam Nghĩa địa Hoàng Hôn, khắc những dòng chữ đã mòn gần hết.',
 	'Cột dịch chuyển': 'Cột đá cổ ở trạm của mỗi vùng. Đã đặt chân tới trạm nào thì từ cột này dịch chuyển về đó được, trả ít xu.',
 	'Bia Danh Vọng': 'Tấm bia đá giữa quảng trường Thistlewood, khắc tên những người làm nên chuyện: săn quái, hạ boss, đi khắp các vùng, kết bạn. Đạt mục tiêu thì tới đây nhận kim cương.',
-	Sein: 'Lữ khách tóc bạc, anh của Sera. Thuở nhỏ theo đoàn buôn của cha ghé chợ Thistlewood; mười sáu tuổi tự đi khắp lục địa, mơ một ngày săn được rồng phương Đông.',
+	Sein: 'Lữ khách tóc bạc, anh của Sera. Thuở nhỏ theo đoàn buôn của cha ghé chợ Thistlewood; lớn lên tự đi khắp lục địa, mơ một ngày săn được rồng phương Đông.',
 	Sera: 'Lữ khách tóc bạc, em của Sein. Mang theo cuốn sổ vẽ, đi tới đâu ghi lại bản đồ tới đó — muốn tự tay vẽ trọn lục địa Haven.',
 };
-
-
-/** Gộp các khoảng tuổi của NPC thành chữ: "4–8 tuổi · từ 16 tuổi". */
-export function agesText(ages: [number, number][]): string {
-	return [...ages]
-		.sort((a, b) => a[0] - b[0])
-		.map(([a, b]) => (b >= 99 ? `từ ${a} tuổi` : a === b ? `${a} tuổi` : `${a}–${b} tuổi`))
-		.filter((t, i, all) => all.indexOf(t) === i)
-		.join(' · ');
-}

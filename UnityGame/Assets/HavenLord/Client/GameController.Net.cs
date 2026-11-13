@@ -26,6 +26,9 @@ namespace HavenLord.Client
                 case ServerFarm farm:
                     ReceiveFarm(farm.State);
                     break;
+                case ServerQ2 q2:
+                    OnQ2(q2);
+                    break;
                 case ServerWelcome w:
                     remotes.Clear();
                     foreach (var p in w.Players) remotes.Upsert(p);
@@ -81,7 +84,13 @@ namespace HavenLord.Client
                     break;
                 case ServerSystem sys:
                     SystemChat(sys.Text);
-                    hud.Toast(sys.Text, "info");
+                    // Boss vùng xuất hiện (máy chủ `channels.ts`, tin bắt đầu "⚔"): dải báo động đỏ thay cho toast thường.
+                    if (sys.Text != null && sys.Text.StartsWith("⚔", StringComparison.Ordinal))
+                    {
+                        hud.Alert(sys.Text);
+                        online?.Send(new ClientQ2 { Op = "get" }); // phiên Thế giới mới → tab Nhiệm vụ cập nhật
+                    }
+                    else hud.Toast(sys.Text, "info");
                     break;
                 case ServerWhisper wh:
                     OnWhisper(wh);

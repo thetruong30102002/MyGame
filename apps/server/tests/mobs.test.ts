@@ -37,10 +37,9 @@ const reg = new MobRegistry(
 const bossNews: string[] = [];
 const last = <T extends ServerMessage['t']>(p: string, t: T) => (inbox[p] ?? []).filter((m): m is Extract<ServerMessage, { t: T }> => m.t === t).at(-1);
 
-test('khu dùng chung = thế giới người lớn, không gắn nhiệm vụ; chỗ sinh tất định', () => {
-	assert.equal(isSharedZone({ fromAge: 16 }), true);
-	assert.equal(isSharedZone({ fromAge: 16, onDemand: true }), false);
-	assert.equal(isSharedZone({}), false, 'khu tuổi thơ');
+test('khu dùng chung = mọi khu không gắn nhiệm vụ; chỗ sinh tất định', () => {
+	assert.equal(isSharedZone({}), true);
+	assert.equal(isSharedZone({ onDemand: true }), false);
 	const pts = zoneSpawnPoints(ZONES[0]!);
 	assert.equal(pts.length, 3);
 	assert.deepEqual(pts, zoneSpawnPoints(ZONES[0]!), 'gọi lại ra đúng toạ độ');

@@ -80,7 +80,7 @@ export const REGIONS: readonly RegionDef[] = [
 		// Cột góc tây nam quảng trường Thistlewood (địa điểm `waystone` khai 14/10/2026 đúng chỗ cũ `plaza` −150, +110).
 		waystone: W,
 		chief: { id: 'boss_demon_001', name: 'Quỷ vương rừng sâu' },
-		settlement: { kind: 'village', name: 'Thị trấn Thistlewood', role: 'Quê nhà của Lior: nhiệm vụ tuổi thơ và tuổi 16 bắt đầu ở đây.', services: ['shop', 'waystone'] },
+		settlement: { kind: 'village', name: 'Thị trấn Thistlewood', role: 'Nơi mọi người chơi bắt đầu: nhiệm vụ Chính Hồi I mở ở đây.', services: ['shop', 'waystone'] },
 		ready: true,
 		intro: 'Đồng cỏ, rừng rêu và nghĩa địa cổ quanh thị trấn Thistlewood — nơi mọi chuyện bắt đầu.',
 		element: { name: 'Bóng tối', weak: 'Hoả, Haven' },

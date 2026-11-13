@@ -196,7 +196,7 @@ namespace HavenLord.Client
         public bool ResetBuild()
         {
             // Đã chọn lớp thì tẩy được kể cả chưa cộng điểm — để đổi lớp (chủ dự án 13/10/2026: "thiếu tẩy điểm class, đang từ kiếm muốn sang pháp sư").
-            if (talents.SpentPoints(combat.Tiers) <= 0 && AttrRules.Spent(Attrs) <= 0 && Converted <= 0 && storyState["path"] == null)
+            if (talents.SpentPoints(combat.Tiers) <= 0 && AttrRules.Spent(Attrs) <= 0 && Converted <= 0)
             {
                 hud.Toast("Chưa cộng điểm nào để tẩy", "info");
                 return false;
@@ -218,8 +218,8 @@ namespace HavenLord.Client
         }
 
         /// <summary>
-        /// Máy chủ đã trừ kim cương (hoặc miễn phí) — xoá mốc + thuộc tính, nguyên tố được chọn lại; xoá luôn LỚP (Kiếm sĩ / Pháp sư) rồi hỏi
-        /// lại ngã rẽ năm 16 tuổi — chọn lại lớp cũ cũng được.
+        /// Máy chủ đã trừ kim cương (hoặc miễn phí) — xoá mốc + thuộc tính rồi cộng lại. Lớp theo class nhân vật, hệ nguyên tố theo thiên
+        /// phú cấp 10 — tẩy điểm không đổi hai thứ này.
         /// </summary>
         private void ApplyBuildReset()
         {
@@ -231,15 +231,12 @@ namespace HavenLord.Client
             storyState["talentsV"] = TalentsFormat;
             storyState.Remove("enchant");
             storyState.Remove("swordStyle");
-            var hadPath = storyState["path"] != null;
             storyState.Remove("path");
-            combat.SetPath(null);
             combat.ClearImbue();
             SyncTalents(false);
             Save();
-            hud.Toast(hadPath ? $"Đã tẩy {spent} điểm — chọn lại lớp, nguyên tố rồi cộng lại điểm" : $"Đã tẩy {spent} điểm — chọn lại nguyên tố và cộng lại điểm", "info");
+            hud.Toast($"Đã tẩy {spent} điểm — cộng lại điểm ở bảng Tiềm năng", "info");
             RewardsVersion += 1;
-            AskPathIfNeeded();
         }
 
         /// <summary>Gán chiêu <paramref name="skillId"/> vào ô <paramref name="slot"/> (bảng Tiềm năng: bấm chiêu rồi bấm ô).</summary>

@@ -41,12 +41,9 @@ export interface MonsterZone {
 	river?: boolean;
 	/** Số con của bầy. Cả bầy dùng chung một `home` nên một con thấy người chơi là cả bầy lao vào. */
 	count: number;
-	/** `fromAge`: chỉ sinh khi đủ tuổi; `onDemand`: chỉ sinh khi nhiệm vụ gọi (`onGive.zone`). */
+	/** Trường cũ (nhân vật không còn tuổi từ 13/11/2026 — game bỏ qua); `onDemand`: khu riêng của nhiệm vụ, không tự sinh. */
 	fromAge?: number;
-	/**
-	 * Chỉ sinh tới HẾT tuổi này (`untilAge: 15` = trẻ 8 tuổi thấy, người 16+ không thấy — `@havenlord/sim/mobs` `zoneLiveAt`). Khu tuổi
-	 * thơ dùng chung map với người lớn — thiết kế 12 map vùng 1, 10/10/2026.
-	 */
+	/** Trường cũ, đã bỏ — bộ kiểm `index.ts` báo lỗi nếu còn. */
 	untilAge?: number;
 	/**
 	 * Cấp quái của khu (`@havenlord/sim` `enemyStatsAt`): cùng một loại quái ở map sau mạnh hơn. Vắng = chỉ số gốc của

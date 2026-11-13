@@ -15,9 +15,6 @@ namespace HavenLord.Core.World
         [JsonProperty("radius")] public double Radius;
         [JsonProperty("monsters")] public string[] Monsters = Array.Empty<string>();
         [JsonProperty("count")] public double Count;
-        [JsonProperty("fromAge")] public double? FromAge;
-        /// <summary>Chỉ sinh tới hết tuổi này; null = mãi mãi.</summary>
-        [JsonProperty("untilAge")] public double? UntilAge;
         /// <summary>Cấp quái của khu; null = chỉ số gốc.</summary>
         [JsonProperty("level")] public double? Level;
         [JsonProperty("onDemand")] public bool? OnDemand;
@@ -55,8 +52,6 @@ namespace HavenLord.Core.World
     /// <summary>Hằng của mobs.ts (đọc từ dữ liệu xuất).</summary>
     public sealed class MobRules
     {
-        [JsonProperty("SHARED_MIN_AGE")] public double SharedMinAge;
-        [JsonProperty("CHILD_ZONE_LEVEL_CAP")] public int ChildZoneLevelCap;
         [JsonProperty("MOB_CREDIT_SECONDS")] public double MobCreditSeconds;
         [JsonProperty("MOB_HIT_RANGE")] public double MobHitRange;
         [JsonProperty("MOB_OWNER_SWITCH")] public double MobOwnerSwitch;
@@ -89,14 +84,11 @@ namespace HavenLord.Core.World
 
         public Mobs(MobRules rules) => R = rules;
 
-        /// <summary>Khu dùng chung: khu người lớn (fromAge ≥ 16) không gắn nhiệm vụ.</summary>
-        public bool IsSharedZone(MonsterZoneDef z) => z.OnDemand != true && (z.FromAge ?? 0) >= R.SharedMinAge;
+        /// <summary>Khu dùng chung: mọi khu không gắn nhiệm vụ (nhân vật không còn tuổi — 13/11/2026).</summary>
+        public bool IsSharedZone(MonsterZoneDef z) => z.OnDemand != true;
 
-        /// <summary>Khu tuổi thơ (fromAge &lt; 16): EXP bị chặn ở CHILD_ZONE_LEVEL_CAP.</summary>
-        public bool IsChildZone(MonsterZoneDef z) => (z.FromAge ?? 0) < R.SharedMinAge;
-
-        /// <summary>Khu tự có quái ở tuổi `age`: từ fromAge tới hết untilAge (khu nhiệm vụ onDemand không tính).</summary>
-        public static bool ZoneLiveAt(MonsterZoneDef z, double age) => z.OnDemand != true && age >= (z.FromAge ?? 0) && (!z.UntilAge.HasValue || age <= z.UntilAge.Value);
+        /// <summary>Khu tự có quái (khu nhiệm vụ onDemand không tính).</summary>
+        public static bool ZoneLive(MonsterZoneDef z) => z.OnDemand != true;
 
         /// <summary>Mã quái dùng chung `map:khu:thứ tự`.</summary>
         public static string MobId(string map, string zone, int index) => map + ":" + zone + ":" + index.ToString(System.Globalization.CultureInfo.InvariantCulture);

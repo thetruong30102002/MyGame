@@ -7,9 +7,8 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import type { ServerMessage } from '@havenlord/protocol';
 import { addExp, cleanEco } from '@havenlord/sim/economy';
-import { CHILD_ZONE_LEVEL_CAP, mobId, type MonsterZoneDef } from '@havenlord/sim/mobs';
+import { mobId, type MonsterZoneDef } from '@havenlord/sim/mobs';
 import { ENEMY_STATS, enemyStatsAt, expForLevel } from '@havenlord/sim/skills';
-import { questDef } from '@havenlord/sim/story/quests';
 import { Store } from '../src/db.ts';
 import { newProgress } from '../src/http.ts';
 import { mapZonesFromDisk } from '../src/mobs.ts';
@@ -53,7 +52,7 @@ class FakeWs {
 	}
 }
 
-const ZONES: MonsterZoneDef[] = [{ id: 'gy_a', x: 400, y: 400, radius: 120, monsters: ['mob_zombie_001'], count: 3, fromAge: 16 }];
+const ZONES: MonsterZoneDef[] = [{ id: 'gy_a', x: 400, y: 400, radius: 120, monsters: ['mob_zombie_001'], count: 3 }];
 const dir = mkdtempSync(join(tmpdir(), 'havenlord-eco-'));
 const store = new Store(join(dir, 'e.db'));
 let clock = 1_000_000;
@@ -133,17 +132,6 @@ try {
 		assert.equal(store.ecoLedger(me)[0]!.ref, 'boss:boss_demon_001');
 	});
 
-	test('nhiệm vụ: thưởng theo dữ liệu truyện của máy chủ, mỗi nhiệm vụ một lần; id lạ bỏ', () => {
-		const q = questDef('y1_mushrooms')!;
-		const before = eco();
-		ws.push({ t: 'quest', id: 'y1_mushrooms' });
-		ws.push({ t: 'quest', id: 'y1_mushrooms' });
-		ws.push({ t: 'quest', id: 'khong_co' });
-		assert.equal(eco().coins, before.coins + (q.reward.coins ?? 0));
-		assert.equal(eco().potions, before.potions + (q.reward.potions ?? 0));
-		assert.equal(store.ecoLedger(me).filter((r) => r.ref === 'quest:y1_mushrooms').length, 1);
-	});
-
 	test('tiêu xu: đủ thì trừ + nhật ký; thiếu / số bậy thì không trừ, gửi lại số thật', () => {
 		const c = eco().coins;
 		ws.push({ t: 'spend', reason: 'talent_reset', amount: 20 });
@@ -194,17 +182,17 @@ try {
 	rmSync(dir, { recursive: true, force: true });
 }
 
-// Cấp quái theo khu + khu tuổi thơ (thiết kế 12 map vùng 1, 10/10/2026): map giả trong thư mục tạm (dạng y hệt map JSON client) —
-// bãi bồi có 2 khu tuổi thơ cấp 1 (riêng), 1 khu nhiệm vụ 16+ cấp 6 (riêng), 1 khu dùng chung cấp 3.
+// Cấp quái theo khu (thiết kế 12 map vùng 1, 10/10/2026): map giả trong thư mục tạm (dạng y hệt map JSON client) —
+// bãi bồi có 2 khu nhiệm vụ cấp 1 (riêng), 1 khu nhiệm vụ cấp 6 (riêng), 1 khu dùng chung cấp 3.
 {
 	const root = mkdtempSync(join(tmpdir(), 'havenlord-eco-lv-'));
 	const mapsDir = join(root, 'maps');
 	mkdirSync(join(mapsDir, 'human'), { recursive: true });
 	const RF: MonsterZoneDef[] = [
-		{ id: 'rf_orchard', x: 400, y: 400, radius: 96, monsters: ['mob_mushroom_001'], count: 3, fromAge: 8, untilAge: 15, level: 1 },
-		{ id: 'rf_levee', x: 600, y: 1700, radius: 96, monsters: ['mob_mushroom_001'], count: 3, fromAge: 8, untilAge: 15, level: 1 },
-		{ id: 'rf_quest', x: 1500, y: 300, radius: 96, monsters: ['mob_mushroom_001'], count: 2, fromAge: 16, onDemand: true, level: 6 },
-		{ id: 'rf_oldbed', x: 1250, y: 1050, radius: 168, monsters: ['mob_mushroom_001'], count: 4, fromAge: 16, level: 3 },
+		{ id: 'rf_orchard', x: 400, y: 400, radius: 96, monsters: ['mob_mushroom_001'], count: 3, onDemand: true, level: 1 },
+		{ id: 'rf_levee', x: 600, y: 1700, radius: 96, monsters: ['mob_mushroom_001'], count: 3, onDemand: true, level: 1 },
+		{ id: 'rf_quest', x: 1500, y: 300, radius: 96, monsters: ['mob_mushroom_001'], count: 2, onDemand: true, level: 6 },
+		{ id: 'rf_oldbed', x: 1250, y: 1050, radius: 168, monsters: ['mob_mushroom_001'], count: 4, level: 3 },
 	];
 	writeFileSync(join(mapsDir, 'human', 'riverflats.json'), JSON.stringify({ monsterZones: RF, boss: null }));
 	const lvStore = new Store(join(root, 'lv.db'));
@@ -233,22 +221,10 @@ try {
 			assert.deepEqual([kid.eco().exp, kid.eco().coins], [l1.exp, l1.coins], 'bỏ cả ba');
 			const quest = enemyStatsAt('mob_mushroom_001', 6)!;
 			kid.sock.push({ t: 'kill', type: 'mob_mushroom_001', zone: 'rf_quest' });
-			assert.equal(kid.sock.eco.gain?.exp, quest.exp, 'khu nhiệm vụ 16+ cấp 6: không bị chặn, EXP theo cấp 6');
+			assert.equal(kid.sock.eco.gain?.exp, quest.exp, 'khu nhiệm vụ cấp 6: EXP theo cấp 6');
 			// Client bản cũ (không gửi khu): khu riêng CẤP THẤP NHẤT có loại đó — ít EXP nhất.
 			kid.sock.push({ t: 'kill', type: 'mob_mushroom_001' });
 			assert.equal(kid.sock.eco.gain?.exp, l1.exp);
-		});
-
-		test(`khu tuổi thơ: EXP không đưa nhân vật quá cấp ${CHILD_ZONE_LEVEL_CAP} (xu vẫn nhận); khu riêng 16+ thì không chặn`, () => {
-			const near = join2(2, { level: 3, exp: expForLevel(3) - 6, coins: 0 });
-			near.sock.push({ t: 'kill', type: 'mob_mushroom_001', zone: 'rf_levee' });
-			assert.deepEqual([near.eco().level, near.eco().exp], [3, expForLevel(3) - 1], 'dừng sát mốc cấp 4');
-			assert.equal(near.sock.eco.gain?.exp, 5, 'chỉ nhận phần còn chỗ');
-			lvClock += 15_000;
-			near.sock.push({ t: 'kill', type: 'mob_mushroom_001', zone: 'rf_levee' });
-			assert.deepEqual([near.eco().level, near.eco().exp, near.eco().coins], [3, expForLevel(3) - 1, 8], 'chạm trần: 0 EXP, xu vẫn có');
-			near.sock.push({ t: 'kill', type: 'mob_mushroom_001', zone: 'rf_quest' });
-			assert.equal(near.eco().level, 4, 'khu nhiệm vụ 16+ không bị chặn: lên cấp 4');
 		});
 
 		test('quái DÙNG CHUNG ở khu có cấp: máu theo cấp, MobView kèm cấp, EXP / xu lấy thẳng chỉ số của con quái', () => {
@@ -257,7 +233,7 @@ try {
 			adult.sock.push({ t: 'mobSub', on: true });
 			const list = adult.sock.inbox.filter((m): m is Extract<ServerMessage, { t: 'mobs' }> => m.t === 'mobs').at(-1)!.list;
 			const l3 = enemyStatsAt('mob_mushroom_001', 3)!;
-			assert.equal(list.length, 4, 'chỉ khu dùng chung (rf_oldbed) — khu tuổi thơ / nhiệm vụ không vào sổ');
+			assert.equal(list.length, 4, 'chỉ khu dùng chung (rf_oldbed) — khu nhiệm vụ không vào sổ');
 			assert.ok(list.every((m) => m.zone === 'rf_oldbed' && m.level === 3 && m.hpMax === l3.hp), `máu cấp 3 = ${l3.hp}`);
 			const m = list[0]!;
 			adult.sock.push({ t: 'move', x: m.x, y: m.y, dir: 'S', anim: 'idle', sprite: 'player_hero_adult' });

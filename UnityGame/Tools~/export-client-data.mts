@@ -12,6 +12,6 @@ mkdirSync(out, { recursive: true });
 writeFileSync(join(out, 'tempArt.json'), `${JSON.stringify({ TEMP_ART }, null, '\t')}\n`);
 console.log(`tempArt.json: ${Object.keys(TEMP_ART).length} mục`);
 // NPC theo điểm hẹn của map (cốt truyện + dịch vụ: cột dịch chuyển, Bia Danh Vọng, lữ khách) + hình người chơi theo tuổi.
-writeFileSync(join(out, 'npcs.json'), `${JSON.stringify({ NPCS: STORY.npcs, PLAYER_BY_AGE: STORY.playerByAge }, null, '	')}
+writeFileSync(join(out, 'npcs.json'), `${JSON.stringify({ NPCS: STORY.npcs }, null, '	')}
 `);
 console.log(`npcs.json: ${Object.keys(STORY.npcs).length} NPC`);

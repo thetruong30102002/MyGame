@@ -3,8 +3,7 @@ import type { MobAct, MobCc, MobCcKey } from '@havenlord/protocol';
 /**
  * Quái DÙNG CHUNG giữa người chơi (M3.2 — docs/ke-hoach-m3-may-chu-chien-dau.md). Luật thuần cho cả máy chủ (giữ sổ quái)
  * lẫn client (vẽ, chạy AI cho quái mình làm "chủ"):
- * - Khu nào dùng chung: khu thế giới người lớn (`fromAge` ≥ 16) không gắn nhiệm vụ (`onDemand`) — khu nhiệm vụ tuổi thơ và
- *   boss cốt truyện vẫn RIÊNG mỗi người vì cốt truyện mỗi người một khác.
+ * - Khu nào dùng chung: mọi khu không gắn nhiệm vụ (`onDemand`). Nhân vật không còn tuổi (13/11/2026) — không còn khu tuổi thơ.
  * - Chỗ sinh tất định theo thứ tự trong khu: máy chủ và client (chế độ một mình) ra đúng một toạ độ.
  */
 
@@ -16,40 +15,19 @@ export interface MonsterZoneDef {
 	radius: number;
 	monsters: string[];
 	count: number;
-	fromAge?: number;
-	/** Chỉ sinh tới hết tuổi này (khu tuổi thơ dùng chung map với người lớn — Bãi Bồi, thiết kế 12 map vùng 1). Vắng = mãi mãi. */
-	untilAge?: number;
 	/** Cấp quái của khu → chỉ số qua `skills.enemyStatsAt`. Vắng = chỉ số gốc (`ENEMY_STATS`) — 6 map cũ giữ nguyên số. */
 	level?: number;
 	onDemand?: boolean;
 	boss?: boolean;
 }
 
-/** Tuổi cốt truyện của thế giới dùng chung (khu `fromAge` từ mốc này trở lên). */
-export const SHARED_MIN_AGE = 16;
-
-export function isSharedZone(z: Pick<MonsterZoneDef, 'fromAge' | 'onDemand'>): boolean {
-	return !z.onDemand && (z.fromAge ?? 0) >= SHARED_MIN_AGE;
+export function isSharedZone(z: Pick<MonsterZoneDef, 'onDemand'>): boolean {
+	return !z.onDemand;
 }
 
-/** Khu tuổi thơ (`fromAge` < 16, kể cả khu nhiệm vụ 8 tuổi): EXP từ quái ở đây bị chặn ở `CHILD_ZONE_LEVEL_CAP`. */
-export function isChildZone(z: Pick<MonsterZoneDef, 'fromAge'>): boolean {
-	return (z.fromAge ?? 0) < SHARED_MIN_AGE;
-}
-
-/**
- * EXP từ khu tuổi thơ không đưa nhân vật quá cấp này (thiết kế 12 map vùng 1, 10/10/2026): Bãi Bồi có bầy nấm cấp 1 cho trẻ 8 tuổi
- * cày được, chặn ở đây để giữ nhịp cấp đã cân tới Quỷ vương (boss.test: đường tối thiểu vừa qua mốc cấp 4). Client (chơi một mình)
- * và máy chủ (`privateKill`) cùng áp qua `economy.capExpGain`.
- */
-export const CHILD_ZONE_LEVEL_CAP = 3;
-
-/**
- * Khu tự có quái ở tuổi cốt truyện `age` (không tính khu nhiệm vụ `onDemand` — nhiệm vụ tự bật): từ `fromAge` tới hết `untilAge`.
- * Client gọi mỗi lần dựng map / sang tuổi mới — người 16+ không thấy bầy nấm tuổi thơ ở Bãi Bồi nữa.
- */
-export function zoneLiveAt(z: Pick<MonsterZoneDef, 'fromAge' | 'untilAge' | 'onDemand'>, age: number): boolean {
-	return !z.onDemand && age >= (z.fromAge ?? 0) && (z.untilAge === undefined || age <= z.untilAge);
+/** Khu tự có quái (không tính khu nhiệm vụ `onDemand`). */
+export function zoneLive(z: Pick<MonsterZoneDef, 'onDemand'>): boolean {
+	return !z.onDemand;
 }
 
 /** Mã quái dùng chung: `<vùng>/<map>:<khu>:<thứ tự>` — ổn định qua mỗi lần máy chủ khởi động (không phụ thuộc thứ tự nạp). */

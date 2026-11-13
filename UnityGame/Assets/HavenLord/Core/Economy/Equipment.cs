@@ -107,13 +107,12 @@ namespace HavenLord.Core
         private string SlotNameOf(string slot) => slot != null && _t.SlotName.TryGetValue(slot, out var n) ? n : "undefined";
 
         /// <summary>null = mặc được; chuỗi = lý do (TS trả true | chuỗi).</summary>
-        public string CanEquip(ItemDef def, string slot, double level, double age)
+        public string CanEquip(ItemDef def, string slot, double level)
         {
             if (def.Kind != "equip" || string.IsNullOrEmpty(def.Equip)) return "Món này không mặc được";
             var kind = slot != null && _t.SlotKind.TryGetValue(slot, out var k) ? k : null;
             if (kind != def.Equip) return $"Không mặc vào ô {SlotNameOf(slot)} được";
             if ((def.LevelReq ?? 0) > level) return $"Cần cấp {EconomyJs.NumToString(def.LevelReq.Value)}";
-            if ((def.AgeReq ?? 0) > age) return $"Cần {EconomyJs.NumToString(def.AgeReq.Value)} tuổi";
             return null;
         }
 
@@ -128,7 +127,7 @@ namespace HavenLord.Core
         /// Mặc món <paramref name="uid"/> vào <paramref name="slot"/> (null = autoSlot). Ô có đồ thì ĐỔI CHỖ với vị trí của món mới trong
         /// túi; món đang mặc ở ô khác cùng loại thì đổi chỗ hai ô. Không đổi gì → trả CHÍNH <paramref name="g"/>.
         /// </summary>
-        public GearResult EquipItem(GearState g, string uid, string slot, double level, double age)
+        public GearResult EquipItem(GearState g, string uid, string slot, double level)
         {
             var i = g.Bag.FindIndex((s) => s.Uid == uid);
             if (i < 0)
@@ -137,7 +136,7 @@ namespace HavenLord.Core
                 if (from == null) return new GearResult(null, "Không tìm thấy món này trong túi");
                 if (string.IsNullOrEmpty(slot) || slot == from) return new GearResult(g, null);
                 var moving = g.Equip[from];
-                var why = CanEquip(ItemDef(moving.Id), slot, level, age);
+                var why = CanEquip(ItemDef(moving.Id), slot, level);
                 if (why != null) return new GearResult(null, why);
                 var equip = new Dictionary<string, ItemStack>(g.Equip) { [slot] = moving };
                 if (g.Equip.TryGetValue(slot, out var other) && other != null) equip[from] = other;
@@ -149,7 +148,7 @@ namespace HavenLord.Core
             // `slot ?? autoSlot(...)`: chuỗi rỗng KHÔNG phải nullish → target "" → từ chối như TS.
             var target = slot ?? AutoSlot(def.Equip, g.Equip);
             if (string.IsNullOrEmpty(target)) return new GearResult(null, "Món này không mặc được");
-            var ok = CanEquip(def, target, level, age);
+            var ok = CanEquip(def, target, level);
             if (ok != null) return new GearResult(null, ok);
             var bag = new List<ItemStack>(g.Bag);
             if (g.Equip.TryGetValue(target, out var old) && old != null) bag[i] = old;
@@ -171,14 +170,14 @@ namespace HavenLord.Core
         /// Luật của một yêu cầu mặc / tháo từ kho đồ. null = không làm gì (thiếu trường, mã ô lạ, không đổi gì);
         /// Error ≠ null = lý do từ chối; còn lại state mới + câu báo. Lưu ý: TS phân biệt equipSlot null với vắng — C# coi null là vắng.
         /// </summary>
-        public GearRequestResult ApplyGearRequest(GearState g, GearRequest r, double level, double age)
+        public GearRequestResult ApplyGearRequest(GearState g, GearRequest r, double level)
         {
             var slot = r.EquipSlot;
             if (slot != null && Array.IndexOf(_t.EquipSlots, slot) < 0) return null;
             if (r.Kind == "equip")
             {
                 if (string.IsNullOrEmpty(r.Uid)) return null;
-                var next = EquipItem(g, r.Uid, slot, level, age);
+                var next = EquipItem(g, r.Uid, slot, level);
                 if (!next.Ok) return new GearRequestResult { Error = next.Error };
                 if (ReferenceEquals(next.G, g)) return null;
                 var at = EquippedSlotOf(next.G, r.Uid);

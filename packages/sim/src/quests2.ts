@@ -1,4 +1,5 @@
 import type { NpcDef } from './story/storyTypes.ts';
+import type { TalentElement } from './talents.ts';
 
 /**
  * Hệ nhiệm vụ mới bốn loại (docs/thiet-ke/he-nhiem-vu-bon-loai-2026-11.md + bản sửa drama mục 1b; chủ dự án duyệt 13/11/2026 "Ok làm
@@ -33,7 +34,8 @@ export interface Q2Def {
 	unlock: { minLevel?: number; after?: readonly string[]; farm?: boolean };
 	steps: readonly Q2Step[];
 	/** EXP = `expFrac` × EXP cần cho cấp hiện tại (máy chủ tính lúc trao), xu cố định. */
-	reward: { expFrac: number; coins: number; unlockFarm?: boolean };
+	/** `element`: máy chủ bốc thiên phú nguyên tố (1/8, một lần — `talents.TALENT_ELEMENTS`). */
+	reward: { expFrac: number; coins: number; unlockFarm?: boolean; element?: boolean };
 }
 
 const talk = (npc: string): Q2Objective => ({ kind: 'talk', npc });
@@ -41,11 +43,11 @@ const reach = (spot: string): Q2Objective => ({ kind: 'reach', spot });
 
 /** NPC truyện mới (hình PixelLab `npc_q2_*`, tên tiếng Anh) — đứng yên ở map đầu. */
 export const Q2_NPCS: Record<string, NpcDef> = {
-	q2_nell: { name: 'Nell', title: 'Bà chủ quán', sprite: 'npc_q2_nell_001', region: 'human', at: { spot: 'plaza', dx: -210, dy: -120 }, ages: [16, 99], stationary: true, idle: ['Ta vẫn làm thừa một phần bánh. Tay ta nhớ, đầu ta thì không.'] },
-	q2_pip: { name: 'Pip', title: 'Cô bé ở chợ', sprite: 'npc_q2_pip_001', region: 'human', at: { spot: 'plaza', dx: 150, dy: -130 }, ages: [16, 99], stationary: true, idle: ['Em ghi tên mọi người vào sổ. Mai em quên thì còn hỏi lại được.'] },
-	q2_gareth: { name: 'Gareth', title: 'Người hướng dẫn nghề', sprite: 'npc_q2_gareth_001', region: 'human', at: { spot: 'backyard', dx: 70, dy: 10 }, ages: [16, 99], stationary: true, idle: ['Nghề nào cũng bắt đầu bằng việc giữ được hơi thở.'] },
-	q2_edda: { name: 'Edda', title: 'Người đưa thư', sprite: 'npc_q2_edda_001', region: 'human', at: { spot: 'plaza', dx: -270, dy: 150 }, ages: [16, 99], stationary: true, idle: ['Thư không người nhận vẫn là thư. Ta đưa nó tới khi có người nhận.'] },
-	q2_tobin: { name: 'Tobin', title: 'Người gác đường nghĩa địa', sprite: 'npc_q2_tobin_001', region: 'human', at: { spot: 'south_gate_gy', dx: 70, dy: -50 }, ages: [16, 99], stationary: true, idle: ['Đường này ta gác ba mươi năm. Ta nhớ từng bia mộ.'] },
+	q2_nell: { name: 'Nell', title: 'Bà chủ quán', sprite: 'npc_q2_nell_001', region: 'human', at: { spot: 'plaza', dx: -210, dy: -120 }, stationary: true, idle: ['Ta vẫn làm thừa một phần bánh. Tay ta nhớ, đầu ta thì không.'] },
+	q2_pip: { name: 'Pip', title: 'Cô bé ở chợ', sprite: 'npc_q2_pip_001', region: 'human', at: { spot: 'plaza', dx: 150, dy: -130 }, stationary: true, idle: ['Em ghi tên mọi người vào sổ. Mai em quên thì còn hỏi lại được.'] },
+	q2_gareth: { name: 'Gareth', title: 'Người hướng dẫn nghề', sprite: 'npc_q2_gareth_001', region: 'human', at: { spot: 'backyard', dx: 70, dy: 10 }, stationary: true, idle: ['Nghề nào cũng bắt đầu bằng việc giữ được hơi thở.'] },
+	q2_edda: { name: 'Edda', title: 'Người đưa thư', sprite: 'npc_q2_edda_001', region: 'human', at: { spot: 'plaza', dx: -270, dy: 150 }, stationary: true, idle: ['Thư không người nhận vẫn là thư. Ta đưa nó tới khi có người nhận.'] },
+	q2_tobin: { name: 'Tobin', title: 'Người gác đường nghĩa địa', sprite: 'npc_q2_tobin_001', region: 'human', at: { spot: 'south_gate_gy', dx: 70, dy: -50 }, stationary: true, idle: ['Đường này ta gác ba mươi năm. Ta nhớ từng bia mộ.'] },
 };
 
 /** Người cố định map đầu phải gặp ở M03 (không mở Gia viên khi thiếu). */
@@ -112,7 +114,7 @@ export const Q2_QUESTS: readonly Q2Def[] = [
 	{
 		id: 'q2_main_07', kind: 'main', title: 'Tám ngọn đèn', summary: 'Đủ cấp 10, tám ngọn đèn cho biết cậu nghe được dòng nguyên tố nào.', giver: 'q2_gareth', unlock: { after: ['q2_main_02'], minLevel: 10 },
 		steps: [{ id: 'a', text: 'Gặp Gareth thử tám ngọn đèn', objective: talk('q2_gareth'), start: 'Tám ngọn đèn sáng như nhau. Đừng chọn người khác hộ mình.', done: 'Đèn cho biết cậu nghe dòng nào, không bảo cậu phải thành ai.' }],
-		reward: { expFrac: 0.18, coins: 20 },
+		reward: { expFrac: 0.18, coins: 20, element: true },
 	},
 	{
 		id: 'q2_side_01', kind: 'side', title: 'Đĩa nợ chưa rửa', summary: 'Orin nợ một cái đĩa mà không nhớ nợ ai.', giver: 'village_smith', unlock: { after: ['q2_main_01'] },
@@ -199,6 +201,8 @@ export interface Q2State {
 	done: string[];
 	daily: { date: string; slots: { tpl: string; count: number; done: boolean }[]; bonus: boolean } | null;
 	tracked: string | null;
+	/** Thiên phú nguyên tố đã nhận ở "Tám ngọn đèn" — máy chủ đặt một lần, không bao giờ đổi. */
+	element?: TalentElement;
 }
 export const newQ2State = (): Q2State => ({ v: 2, active: {}, done: [], daily: null, tracked: null });
 

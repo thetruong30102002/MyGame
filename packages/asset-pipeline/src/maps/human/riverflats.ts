@@ -164,8 +164,8 @@ export function buildRiverflats(meta: Record<string, PropMeta>, decalIds: string
 		monsters: [MUSHROOM],
 		count: h.count,
 		level: h.level,
-		// Khu tuổi thơ: RIÊNG từng người (máy chủ trao EXP qua privateKill), người 16+ không thấy.
-		...(h.child ? { fromAge: 8, untilAge: 15 } : { fromAge: 16 }),
+		// Nhân vật không còn tuổi (13/11/2026): khu cấp 1 cũ "tuổi thơ" nay là khu dùng chung cho người mới.
+		...(h.child ? {} : { fromAge: 16 }),
 	});
 
 	return finishWithStory(L, 4, {

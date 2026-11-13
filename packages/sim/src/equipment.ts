@@ -81,7 +81,6 @@ export interface ItemDef {
 	stats?: Partial<Stats>;
 	rarity?: Rarity;
 	levelReq?: number;
-	ageReq?: number;
 	/** Kỷ vật: không bán, không vứt. */
 	bound?: boolean;
 	/** Tối đa mỗi chồng; thiếu = 1 (không chồng). */
@@ -142,8 +141,8 @@ export const ITEMS: Record<string, ItemDef> = {
 	swordsman_blade_10: { id:'swordsman_blade_10', name:'Kiếm bạc tinh luyện', desc:'Lưỡi lá hai cạnh, rãnh lam và hộ thủ cánh gọn. Cần cấp10.', icon:'/assets/items/swordsman_blade_10.png', w:48,h:48,kind:'equip',equip:'weapon',rarity:'rare',levelReq:10,bound:true },
 	sword: {
 		id: 'sword',
-		name: 'Kiếm sắt của cha',
-		desc: 'Thanh kiếm sắt cha rèn thay cho thanh kiếm gỗ năm nào. Lưỡi mài sáng bạc.',
+		name: 'Kiếm sắt tân thủ',
+		desc: 'Thanh kiếm sắt rèn ở lò Thistlewood, trao cho người mới lên đường. Lưỡi mài sáng bạc.',
 		icon: '/assets/items/iron_sword.png',
 		w: 49,
 		h: 49,
@@ -155,8 +154,8 @@ export const ITEMS: Record<string, ItemDef> = {
 	},
 	staff: {
 		id: 'staff',
-		name: 'Trượng gỗ của mẹ',
-		desc: 'Trượng tập của mẹ hồi mười tuổi, đầu quấn sợi đồng.',
+		name: 'Trượng gỗ tân thủ',
+		desc: 'Trượng tập bằng gỗ sồi, đầu quấn sợi đồng — món đầu tiên của người học phép.',
 		icon: '/assets/items/starter_staff.png',
 		w: 54,
 		h: 54,
@@ -203,9 +202,6 @@ export const ITEMS: Record<string, ItemDef> = {
 		kind: 'currency',
 	},
 };
-
-/** Mã cốt truyện trao KÈM một món đồ cùng id (cha trao kiếm gỗ = mở Trảm + có kiếm trong hành trang). */
-export const STORY_GIFTS: readonly string[] = ['sword', 'staff'];
 
 /** id không còn trong `ITEMS` (bản lưu của bản game mới hơn, dữ liệu đổi): GIỮ món đó, hiện tên này, không mặc được. */
 export function itemDef(id: string): ItemDef {
@@ -292,11 +288,10 @@ export function autoSlot(kind: EquipKind | undefined, equip: GearState['equip'])
 }
 
 /** true = mặc được; chuỗi = lý do (hiện nguyên văn ở nút / toast). */
-export function canEquip(def: ItemDef, slot: EquipSlotId, level: number, age: number): true | string {
+export function canEquip(def: ItemDef, slot: EquipSlotId, level: number): true | string {
 	if (def.kind !== 'equip' || !def.equip) return 'Món này không mặc được';
 	if (SLOT_KIND[slot] !== def.equip) return `Không mặc vào ô ${SLOT_NAME[slot]} được`;
 	if ((def.levelReq ?? 0) > level) return `Cần cấp ${def.levelReq}`;
-	if ((def.ageReq ?? 0) > age) return `Cần ${def.ageReq} tuổi`;
 	return true;
 }
 
@@ -304,14 +299,14 @@ export function canEquip(def: ItemDef, slot: EquipSlotId, level: number, age: nu
  * Mặc món `uid` (đang trong túi) vào `slot` (thiếu = `autoSlot`). Ô đã có đồ thì ĐỔI CHỖ: món cũ về đúng vị trí của món
  * mới trong túi. Món đang mặc ở ô khác cùng loại (nhẫn 1 → nhẫn 2) thì đổi chỗ hai ô.
  */
-export function equipItem(g: GearState, uid: string, slot: EquipSlotId | undefined, level: number, age: number): GearState | string {
+export function equipItem(g: GearState, uid: string, slot: EquipSlotId | undefined, level: number): GearState | string {
 	const i = g.bag.findIndex((s) => s.uid === uid);
 	if (i < 0) {
 		const from = EQUIP_SLOTS.find((s) => g.equip[s]?.uid === uid);
 		if (!from) return 'Không tìm thấy món này trong túi';
 		if (!slot || slot === from) return g;
 		const it = g.equip[from]!;
-		const ok = canEquip(itemDef(it.id), slot, level, age);
+		const ok = canEquip(itemDef(it.id), slot, level);
 		if (ok !== true) return ok;
 		const equip = { ...g.equip, [slot]: it };
 		const other = g.equip[slot];
@@ -323,7 +318,7 @@ export function equipItem(g: GearState, uid: string, slot: EquipSlotId | undefin
 	const def = itemDef(it.id);
 	const target = slot ?? autoSlot(def.equip, g.equip);
 	if (!target) return 'Món này không mặc được';
-	const ok = canEquip(def, target, level, age);
+	const ok = canEquip(def, target, level);
 	if (ok !== true) return ok;
 	const old = g.equip[target];
 	const bag = [...g.bag];
@@ -347,12 +342,12 @@ export function unequipItem(g: GearState, slot: EquipSlotId): GearState | string
  * test được đường UI → Game. Trả state mới + câu báo; chuỗi = lý do từ chối (Game báo nguyên văn); null = không làm gì
  * (thiếu trường, mã ô lạ, hoặc không đổi gì — vd yêu cầu lặp của một cú bấm trùng mặc lại món đã mặc).
  */
-export function applyGearRequest(g: GearState, r: { kind: 'equip' | 'unequip'; uid?: string; equipSlot?: string }, level: number, age: number): { g: GearState; text: string } | string | null {
+export function applyGearRequest(g: GearState, r: { kind: 'equip' | 'unequip'; uid?: string; equipSlot?: string }, level: number): { g: GearState; text: string } | string | null {
 	const slot = r.equipSlot as EquipSlotId | undefined;
 	if (slot !== undefined && !EQUIP_SLOTS.includes(slot)) return null;
 	if (r.kind === 'equip') {
 		if (!r.uid) return null;
-		const next = equipItem(g, r.uid, slot, level, age);
+		const next = equipItem(g, r.uid, slot, level);
 		if (typeof next === 'string') return next;
 		if (next === g) return null;
 		const at = EQUIP_SLOTS.find((s) => next.equip[s]?.uid === r.uid);

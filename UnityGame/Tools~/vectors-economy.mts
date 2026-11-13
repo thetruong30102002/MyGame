@@ -6,7 +6,7 @@
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { addExp, applyAdminEco, capExpGain, cleanEco, COIN_CAP, fromTotalExp, POTION_CAP, shiftExp, totalExp } from '../../packages/sim/src/economy.ts';
+import { addExp, applyAdminEco, cleanEco, COIN_CAP, fromTotalExp, POTION_CAP, shiftExp, totalExp } from '../../packages/sim/src/economy.ts';
 import {
 	addItem,
 	applyGearRequest,
@@ -51,8 +51,8 @@ const base = { desc: 'thử', icon: '', w: 32, h: 32 } as const;
 const TEST_ITEMS: Record<string, ItemDef> = {
 	t_ring_a: { ...base, id: 't_ring_a', name: 'Nhẫn Ánh Trăng', kind: 'equip', equip: 'ring', stats: { atk: 3, crit: 1.5 }, rarity: 'rare', price: 40 },
 	t_ring_b: { ...base, id: 't_ring_b', name: 'Nhẫn Đá Núi', kind: 'equip', equip: 'ring', stats: { def: 2, hp: 10 }, levelReq: 5 },
-	t_helm: { ...base, id: 't_helm', name: 'Mũ Sắt', kind: 'equip', equip: 'head', stats: { def: 4, hp: 25 }, ageReq: 16 },
-	t_plate: { ...base, id: 't_plate', name: 'Giáp Lá', kind: 'equip', equip: 'body', stats: { def: 7.25, move: -3 }, levelReq: 12, ageReq: 18 },
+	t_helm: { ...base, id: 't_helm', name: 'Mũ Sắt', kind: 'equip', equip: 'head', stats: { def: 4, hp: 25 }, levelReq: 4 },
+	t_plate: { ...base, id: 't_plate', name: 'Giáp Lá', kind: 'equip', equip: 'body', stats: { def: 7.25, move: -3 }, levelReq: 12 },
 	t_blade: { ...base, id: 't_blade', name: 'Đao Thép', kind: 'equip', equip: 'weapon', stats: { atk: 12, crit: 2, mag: 0.1 }, levelReq: 3 },
 	t_amulet: { ...base, id: 't_amulet', name: 'Bùa Gió', kind: 'equip', equip: 'neck', stats: { mp: 15, mag: 0.2, move: 2.5 }, levelReq: 2.5 },
 	t_boots: { ...base, id: 't_boots', name: 'Giày Da', kind: 'equip', equip: 'feet', stats: { move: 4 } },
@@ -112,26 +112,16 @@ const equipment = {
 	autoSlot: STATES.flatMap((g, si) => KINDS.map((kind) => ({ state: si, kind: kind ?? null, out: autoSlot(kind, g.equip) }))),
 	canEquip: ALL_IDS.flatMap((id) =>
 		[...EQUIP_SLOTS, 'tail'].flatMap((slot) =>
-			[
-				[1, 6],
-				[2.5, 15.9],
-				[5, 16],
-				[12, 18],
-				[100, 100],
-				[Number.NaN, Number.NaN],
-			].map(([level, age]) => ({ id, slot, level, age, out: canEquip(itemDef(id), slot as EquipSlotId, level!, age!) })),
+			[1, 2.5, 4, 5, 12, 100, Number.NaN].map((level) => ({ id, slot, level, out: canEquip(itemDef(id), slot as EquipSlotId, level) })),
 		),
 	),
 	equipItem: STATES.flatMap((g, si) => {
 		const uids = [...g.bag.map((s) => s.uid), ...Object.values(g.equip).map((s) => s!.uid), 'nope'];
 		return uids.flatMap((uid) =>
 			SLOTS_X.flatMap((slot) =>
-				[
-					[1, 6],
-					[20, 30],
-				].map(([level, age]) => {
-					const out = equipItem(g, uid, slot as EquipSlotId | undefined, level!, age!);
-					return { state: si, uid, slot: slot ?? null, level, age, same: out === g, ...gearOut(out) };
+				[1, 20].map((level) => {
+					const out = equipItem(g, uid, slot as EquipSlotId | undefined, level);
+					return { state: si, uid, slot: slot ?? null, level, same: out === g, ...gearOut(out) };
 				}),
 			),
 		);
@@ -144,8 +134,8 @@ const equipment = {
 			...SLOTS_X.map((equipSlot) => ({ kind: 'unequip' as const, equipSlot })),
 		];
 		return reqs.map((r) => {
-			const out = applyGearRequest(g, r as Parameters<typeof applyGearRequest>[1], 20, 30);
-			return { state: si, r: { kind: r.kind, uid: 'uid' in r ? (r.uid ?? null) : null, equipSlot: r.equipSlot ?? null }, level: 20, age: 30, out: out === null ? null : typeof out === 'string' ? { error: out } : out };
+			const out = applyGearRequest(g, r as Parameters<typeof applyGearRequest>[1], 20);
+			return { state: si, r: { kind: r.kind, uid: 'uid' in r ? (r.uid ?? null) : null, equipSlot: r.equipSlot ?? null }, level: 20, out: out === null ? null : typeof out === 'string' ? { error: out } : out };
 		});
 	}),
 	addItem: STATES.flatMap((g, si) =>
@@ -203,7 +193,6 @@ const scenarios = Array.from({ length: 60 }, (_, si) => {
 	for (let k = 0; k < 40; k += 1) {
 		const uids = [...g.bag.map((s) => s.uid), ...EQUIP_SLOTS.map((s) => g.equip[s]?.uid).filter((u): u is string => !!u), 'ghost'];
 		const level = pick(r, [1, 3, 5, 12, 20]);
-		const age = pick(r, [6, 16, 18, 30]);
 		const op = pick(r, ['add', 'add', 'equip', 'equip', 'unequip', 'req']);
 		if (op === 'add') {
 			const id = pick(r, ['t_ring_a', 't_ring_b', 't_helm', 't_plate', 't_blade', 't_amulet', 't_boots', 't_herb', 't_ore', 't_note', 'potion', 'mystery']);
@@ -214,8 +203,8 @@ const scenarios = Array.from({ length: 60 }, (_, si) => {
 		} else if (op === 'equip') {
 			const uid = pick(r, uids);
 			const slot = pick(r, SLOTS_X.slice(0, 11));
-			const out = equipItem(g, uid, slot as EquipSlotId | undefined, level, age);
-			steps.push({ op, uid, slot: slot ?? null, level, age, same: out === g, ...gearOut(out) });
+			const out = equipItem(g, uid, slot as EquipSlotId | undefined, level);
+			steps.push({ op, uid, slot: slot ?? null, level, same: out === g, ...gearOut(out) });
 			if (typeof out !== 'string') g = out;
 		} else if (op === 'unequip') {
 			const slot = pick(r, EQUIP_SLOTS);
@@ -226,8 +215,8 @@ const scenarios = Array.from({ length: 60 }, (_, si) => {
 			const kind = pick(r, ['equip', 'equip', 'unequip'] as const);
 			const uid = kind === 'equip' ? pick(r, [...uids, undefined]) : undefined;
 			const equipSlot = pick(r, SLOTS_X);
-			const out = applyGearRequest(g, { kind, uid, equipSlot }, level, age);
-			steps.push({ op, r: { kind, uid: uid ?? null, equipSlot: equipSlot ?? null }, level, age, out: out === null ? null : typeof out === 'string' ? { error: out } : out });
+			const out = applyGearRequest(g, { kind, uid, equipSlot }, level);
+			steps.push({ op, r: { kind, uid: uid ?? null, equipSlot: equipSlot ?? null }, level, out: out === null ? null : typeof out === 'string' ? { error: out } : out });
 			if (out && typeof out !== 'string') g = out.g;
 		}
 	}
@@ -257,9 +246,6 @@ const economy = {
 		{ level: 3, exp: 1e300 },
 	].map((e) => ({ e, out: cleanEco(e as never) })),
 	addExp: nums.flatMap((level) => [0, 1, 99.9, 150, 5000, 1e6, -20, Number.NaN, Number.POSITIVE_INFINITY].flatMap((gain) => [0, 37].map((exp) => ({ level, exp, gain, out: addExp(level, exp, gain) })))),
-	capExpGain: [1, 2, 3, 4.5, 5, 9, 10, 11, 20].flatMap((level) =>
-		[0, 1, 50].flatMap((exp) => [0, 10, 100, 1e5, 1e9, -3, 7.7].flatMap((gain) => [0, 3, 5, 10, 12].map((cap) => ({ level, exp, gain, cap, out: capExpGain(level, exp, gain, cap) })))),
-	),
 	totalExp: [...nums, Number.NaN, -Infinity, 1e9].flatMap((level) => [0, 12.7, 500, -4, 1e15, Number.NaN].map((exp) => ({ level, exp, out: totalExp(level, exp) }))),
 	fromTotalExp: [-10, 0, 99, 100, 249.9, 250, 1000, 5e4, 1e6, 1e9, 1e12, 1e15, 1e18, Number.NaN, Number.POSITIVE_INFINITY].map((total) => ({ total, out: fromTotalExp(total) })),
 	shiftExp: [1, 3, 10, 40, 99, 100].flatMap((level) => [0, 55].flatMap((exp) => [0, 1, -1, 120.8, -120.8, 1e7, -1e7, 1e15, -1e15].map((delta) => ({ level, exp, delta, out: shiftExp(level, exp, delta) })))),

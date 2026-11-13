@@ -55,7 +55,7 @@ namespace HavenLord.Core
         /// <summary>Partial&lt;Stats&gt; (null = không có).</summary>
         public Dictionary<string, double> Stats;
         public string Rarity;
-        public double? LevelReq, AgeReq;
+        public double? LevelReq;
         public bool? Bound;
         public double? Stack, Price;
         public string Effect;
@@ -81,7 +81,6 @@ namespace HavenLord.Core
                 Stats = stats,
                 Rarity = (string)o["rarity"],
                 LevelReq = OptNum(o["levelReq"]),
-                AgeReq = OptNum(o["ageReq"]),
                 Bound = o["bound"] == null || o["bound"].Type == JTokenType.Null ? (bool?)null : (bool)o["bound"],
                 Stack = OptNum(o["stack"]),
                 Price = OptNum(o["price"]),

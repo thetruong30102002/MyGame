@@ -1,161 +1,6 @@
 {
 	"STORY": {
-		"prologue": [
-			"Kiếp trước, tôi tên là Minh. Hai mươi chín tuổi, lập trình viên ca đêm.",
-			"Tôi bỏ dở cây đàn. Bỏ dở những cuộc gọi về nhà. Bỏ dở mọi thứ… “để sau”.",
-			"Một đêm mưa, tôi gục xuống bàn phím và không bao giờ tỉnh lại nữa.",
-			"Ý nghĩ cuối cùng của tôi là: “Mai mình gọi cho mẹ. Mai, chắc chắn.”",
-			"…",
-			"Rồi có ánh sáng. Tiếng một người phụ nữ khóc, tiếng một người đàn ông cười vụng về.",
-			"Một bàn tay thô ráp áp lên má tôi, run run như sợ làm tôi vỡ. Về sau tôi mới biết đó là bàn tay cầm kiếm của cha.",
-			"Tôi được sinh ra lần nữa, ở Thistlewood, một thị trấn nhỏ ven rừng Mossvale. Cha mẹ đặt tên tôi là Lior Ashvale.",
-			"Và ngay từ khi mở mắt, tôi đã nhìn thấy chúng: những sợi Haven óng ánh, trôi trong không khí như tơ nhện dưới nắng sớm.",
-			"Giữa muôn sợi tơ ấy có một sợi màu đỏ sẫm. Nó không trôi. Nó căng thẳng tắp về phía bắc rừng Mossvale, như sợi chỉ rút ra từ một vết nứt trong lòng đất.",
-			"Mẹ ôm tôi vào lòng, ngân nga một bài hát không lời. Sợi đỏ mờ dần sau giọng mẹ.",
-			"Có người hát cho tôi nghe, trước cả khi tôi kịp nghĩ tới hai chữ “để sau”."
-		],
-		"ageCards": {
-			"4": [
-				"Đôi chân chưa chịu nghe lời: đi năm bước, ngã một lần. Cái lưỡi cũng chẳng khá hơn.",
-				"Nhưng mắt tôi thì đã thấy những sợi tơ, rõ như ban ngày.",
-				"Mẹ tôi là pháp sư của làng, loại pháp sư nhóm bếp không cần đá lửa và gọi được mưa nhỏ cho vườn rau. Sau vườn còn có sáu thùng ong, và tiếng vo ve là thứ đầu tiên tôi nghe thấy mỗi sáng.",
-				"Cha tôi là kiếm sĩ. Không phải hiệp sĩ trong truyện, chỉ là một người lính gác cũ, chiều nào cũng ngồi mài kiếm ở đầu cầu.",
-				"Mẹ nhờ việc gì, tôi cũng muốn là người đứng dậy trước. Chỉ có điều, đứng dậy vẫn là một trong những việc khó nhất của tôi."
-			],
-			"6": [
-				"Đêm tôi đi gọi cha về ăn tối năm ấy, cha lấy mũi kiếm khắc một vạch lên khung cửa, ngang đỉnh đầu tôi. Mẹ viết bên cạnh: “Lior, bốn tuổi.”",
-				"Giờ cạnh đó đã có thêm vạch “sáu tuổi”, cao hơn đúng một gang tay. Tôi đã nói tròn câu, và học được cách giấu bớt những gì mình thấy. Chỉ cha mẹ biết.",
-				"Thằng Aldric cùng tuổi vừa tự phong mình làm hiệp sĩ. Lãnh địa của nó là cái ghế đá ngoài quảng trường.",
-				"Sáng nay mẹ dúi vào tay tôi một hũ mật ong: “Mang sang nhà thờ cho cô Mirelle, cô ấy cần làm thuốc bỏng. Đi thẳng. Đừng nếm.”",
-				"Tôi nếm một chút. Chỉ một chút thôi."
-			],
-			"8": [
-				"Tay tôi đã quen chuôi kiếm gỗ của cha, miệng đã biết gọi tên ba loại sợi Haven. Nhưng tôi vẫn chưa biết gọi người khác giúp mình.",
-				"Mùa hè năm ấy, chẳng nhân dịp gì, cha khắc cho tôi một cây sáo sậy. Cha bảo: “Cha không giỏi nói. Nên cha khắc.”",
-				"Tôi thổi được năm nốt đầu của bài hát tôi viết dở trên cây đàn năm nào. Tới nốt thứ sáu thì tôi vẫn chưa nghĩ ra.",
-				"Bác Bram đi Varnhold về, dúi vào tay tôi một đồng xu cổ khắc hình nút thắt. “Từ thời Chiến tranh Ấn Ký đấy,” bác nháy mắt, “hoặc là đồ giả. Ta cũng chẳng rõ.”",
-				"Rồi một chiều cuối thu, bác chạy hớt hải tới cửa nhà tôi: “Thằng Aldric vác kiếm gỗ chạy qua cầu rồi! Nó bảo đi diệt rồng!”"
-			],
-			"16": [
-				"Đêm ấy, cha khắc vạch “tám tuổi” lên khung cửa. Mẹ vẽ thêm bên cạnh một bông tuyết.",
-				"Rồi những vạch khắc cứ thế dày lên. Năm mười tuổi, Ông Rơm cháy mất cái mũ cũ thứ ba của cha. Cha nhìn đống tro rất lâu, rồi bảo: “…Mũ cũ.”",
-				"Sáng tập kiếm với cha ở đầu cầu, chiều tập phép với mẹ ở sân sau. Cha bảo kiếm của cha chỉ ở mức vừa phải, mẹ bảo phép của mẹ cũng vậy. Năm mười bốn tuổi, tôi chém gãy cọc gỗ cha dựng và thổi tắt cả sáu ngọn nến của mẹ chỉ bằng một làn gió.",
-				"Aldric vào đội gác cổng bắc. Thanh Kiếm Sấm Sét bằng gỗ vẫn nằm dưới đáy túi đồ của cậu ấy. Tôi biết, vì tôi đã thấy.",
-				"Cây sáo sậy treo ở bậu cửa sổ. Năm mười lăm tuổi, tôi nghĩ ra nốt thứ sáu, và bài hát bỏ dở năm nào cuối cùng cũng có đoạn kết. Cha nghe xong bảo: “…Hay.” Cha nói thật. Tôi biết, vì cha xin nghe lại lần nữa.",
-				"Mười sáu tuổi. Vạch khắc mới nhất đã nằm ngang tầm mắt cha. Còn sợi đỏ phía bắc rừng thì không còn mảnh như sợi chỉ nữa: nó rỉ ra từ dưới tảng đá cũ mà người già vẫn dặn đừng lại gần, mỗi mùa lại dày thêm một chút.",
-				"Sáng nay mẹ gọi tôi dậy. Tôi “dạ” ngay từ tiếng gọi đầu tiên."
-			]
-		},
 		"npcs": {
-			"mother_elin": {
-				"name": "Elin Ashvale",
-				"title": "Mẹ · Pháp sư làng",
-				"sprite": "npc_elin_001",
-				"at": {
-					"spot": "home",
-					"dx": 60,
-					"dy": 16
-				},
-				"ages": [
-					4,
-					8
-				],
-				"idle": [
-					"Đi đâu thì đi, nhớ về trước bữa tối nhé, con trai.",
-					"Đi qua thùng ong thì đi chậm. Đứng yên là ong không đốt. Chạy là nó tưởng con là bông hoa biết chạy.",
-					"Có chuyện gì thì gọi người lớn. Gọi thật to vào, cả nhà mình ai cũng điếc đặc khi đang làm việc."
-				]
-			},
-			"father_garrick": {
-				"name": "Garrick Ashvale",
-				"title": "Cha · Kiếm sĩ",
-				"sprite": "npc_garrick_001",
-				"at": {
-					"spot": "river_bank",
-					"dx": -72,
-					"dy": 64
-				},
-				"ages": [
-					4,
-					8
-				],
-				"idle": [
-					"…Ừ.",
-					"(Cha giơ thanh kiếm vừa mài lên ngang mắt, ngắm lưỡi một lúc, rồi đưa chuôi cho tôi cầm thử. Nặng trịch. Hình như đó là cả một câu chuyện.)"
-				]
-			},
-			"healer_mirelle": {
-				"name": "Mirelle",
-				"title": "Nữ trị liệu",
-				"sprite": "npc_mirelle_001",
-				"at": {
-					"spot": "church",
-					"dx": 30
-				},
-				"ages": [
-					4,
-					8
-				],
-				"idle": [
-					"Ta đang pha thuốc. Đứng xa cái nồi ra, nó hay phun lắm.",
-					"Cảm ơn mẹ con giùm ta nhé. Thuốc bỏng mà thiếu mật ong nhà Ashvale thì chẳng ra gì."
-				]
-			},
-			"merchant_bram": {
-				"name": "Bram",
-				"title": "Thương nhân lữ hành",
-				"sprite": "npc_bram_001",
-				"at": {
-					"spot": "plaza",
-					"dx": -110,
-					"dy": -40
-				},
-				"ages": [
-					4,
-					8
-				],
-				"idle": [
-					"Ồ, ngài thám hiểm cao ba gang tay của Thistlewood!",
-					"Nhắn cha cháu giùm ta: tiền đá mài tháng trước. Ông ấy sẽ bảo “…Ừ.” rồi quên ngay.",
-					"Thế giới này rộng lắm, nhóc. Rộng hơn rừng Mossvale nhiều. Lớn lên cháu sẽ tự thấy."
-				]
-			},
-			"kid_aldric": {
-				"name": "Aldric",
-				"title": "Hiệp sĩ (tự phong) · 6 tuổi",
-				"sprite": "npc_aldric_child_001",
-				"at": {
-					"spot": "plaza",
-					"dx": -96,
-					"dy": 250
-				},
-				"ages": [
-					6,
-					6
-				],
-				"idle": [
-					"Đứng lại, dân làng! Ta là Hiệp sĩ Aldric, người canh giữ cái ghế đá này!",
-					"…Tổ đội của tớ đang thiếu một pháp sư. Cậu làm nhé? Không cần biết phép đâu. Tớ cũng đâu biết đánh kiếm."
-				]
-			},
-			"kid_aldric_forest": {
-				"name": "Aldric",
-				"title": "Hiệp sĩ (tự phong) · 8 tuổi",
-				"sprite": "npc_aldric_child_001",
-				"at": {
-					"spot": "forest_edge",
-					"dx": 48,
-					"dy": 120
-				},
-				"ages": [
-					8,
-					8
-				],
-				"idle": [
-					"Tớ đang canh bìa rừng. Không phải vì chân tớ còn run đâu nhé.",
-					"Thanh kiếm gỗ này tên là Kiếm Sấm Sét. Sấm thì chưa có. Sét cũng chưa."
-				]
-			},
 			"bram": {
 				"name": "Bram",
 				"title": "Thương nhân lữ hành",
@@ -165,100 +10,9 @@
 					"dx": -110,
 					"dy": -40
 				},
-				"ages": [
-					16,
-					99
-				],
 				"idle": [
 					"Hàng mới về chưa kịp xếp. Ghé lại sau nhé — mà nhớ mang theo tiền đấy!",
-					"Đồng xu ta cho cậu hồi tám tuổi… cậu vẫn giữ chứ? Thế giới này rộng lắm, Lior. Rộng hơn cái rừng Mossvale kia nhiều."
-				]
-			},
-			"aldric": {
-				"name": "Aldric",
-				"title": "Cận vệ cổng bắc",
-				"sprite": "npc_aldric_001",
-				"at": {
-					"spot": "north_gate",
-					"dy": 40
-				},
-				"ages": [
-					16,
-					99
-				],
-				"idle": [
-					"Một ngày nào đó tớ sẽ thành hiệp sĩ hoàng gia. Còn giờ thì… tớ gác cổng. Hừm."
-				]
-			},
-			"mirelle": {
-				"name": "Mirelle",
-				"title": "Nữ trị liệu",
-				"sprite": "npc_mirelle_001",
-				"at": {
-					"spot": "church",
-					"dx": 30
-				},
-				"ages": [
-					16,
-					99
-				],
-				"idle": [
-					"Ta đang pha thuốc. Nếu bị thương, cứ quay về đây."
-				]
-			},
-			"gy_stele": {
-				"name": "Bia đá cổ",
-				"title": "Nghĩa địa Hoàng Hôn",
-				"sprite": null,
-				"prop": "rune_stone",
-				"at": {
-					"spot": "south_gate_gy",
-					"dx": 24,
-					"dy": -288
-				},
-				"ages": [
-					16,
-					99
-				],
-				"idle": [
-					"«…người nằm đây đã về với đất. Đất giữ lời thay cho họ.»",
-					"«Ai còn nhớ, xin ghé qua.»"
-				]
-			},
-			"elin": {
-				"name": "Elin Ashvale",
-				"title": "Mẹ · Pháp sư làng",
-				"sprite": "npc_elin_001",
-				"at": {
-					"spot": "home",
-					"dx": 60,
-					"dy": 16
-				},
-				"ages": [
-					16,
-					99
-				],
-				"idle": [
-					"Đi rừng thì quàng cái khăn len vào. Sáng sớm bên kia sông lạnh lắm.",
-					"Và về trước bữa tối. Mười sáu tuổi hay sáu tuổi thì cũng thế."
-				]
-			},
-			"garrick": {
-				"name": "Garrick Ashvale",
-				"title": "Cha · Kiếm sĩ",
-				"sprite": "npc_garrick_001",
-				"at": {
-					"spot": "river_bank",
-					"dx": -72,
-					"dy": 64
-				},
-				"ages": [
-					16,
-					99
-				],
-				"idle": [
-					"Đủ lớn rồi. Qua cầu đi.",
-					"…Gọi. Cha đến."
+					"Thế giới này rộng lắm. Rộng hơn cái rừng Mossvale kia nhiều."
 				]
 			},
 			"village_armor": {
@@ -269,10 +23,6 @@
 				"at": {
 					"spot": "svc_tb_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Một bộ áo tốt phải giúp người mặc trở về. Bộ thứ hai của mỗi nghề hiện có ở quầy trang bị."
@@ -286,10 +36,6 @@
 				"at": {
 					"spot": "svc_lr_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Ta nhận rèn cả vũ khí lẫn trang bị. Đe vẫn còn chờ số thép của đoàn buôn mất tích; công thức rèn sẽ mở cùng tuyến truyện mới."
@@ -303,10 +49,6 @@
 				"at": {
 					"spot": "svc_vk_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Chọn đúng món của nghề mình. Đừng để một thanh kiếm đẹp quyết định thay cậu sẽ trở thành ai."
@@ -322,10 +64,6 @@
 					"dx": 260,
 					"dy": 180
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Ăn một bữa ấm rồi hãy ra đường. Món hầm của ta giúp cậu vững tay trong chuyến đi."
@@ -339,10 +77,6 @@
 				"at": {
 					"spot": "svc_hp_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Đừng đợi kiệt sức mới nhớ mang thuốc. Ta vẫn giữ sổ tên những người chưa quay về."
@@ -356,10 +90,6 @@
 				"at": {
 					"spot": "shop"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Hạt giống, ô ruộng, bể cá hay một chú mèo con — muốn gì cứ hỏi."
@@ -373,10 +103,6 @@
 				"at": {
 					"spot": "steward"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Cậu muốn kê lại đồ đạc trong nhà à? Cứ bảo ta."
@@ -390,10 +116,6 @@
 				"at": {
 					"spot": "svc_qr_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Ngồi xuống đi, món nóng của quán giúp cậu vững tay cả buổi."
@@ -407,10 +129,6 @@
 				"at": {
 					"spot": "svc_nh_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Két ở đây chắc nhất vùng. Sổ gửi đồ sẽ mở khi hội buôn duyệt xong luật."
@@ -424,10 +142,6 @@
 				"at": {
 					"spot": "svc_nc_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Đá cường hoá cần thời gian tinh luyện. Quay lại khi xưởng nhận việc."
@@ -441,10 +155,6 @@
 				"at": {
 					"spot": "svc_qr_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Ngồi xuống đi, món nóng của quán giúp cậu vững tay cả buổi."
@@ -458,10 +168,6 @@
 				"at": {
 					"spot": "svc_nh_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Két ở đây chắc nhất vùng. Sổ gửi đồ sẽ mở khi hội buôn duyệt xong luật."
@@ -475,10 +181,6 @@
 				"at": {
 					"spot": "svc_vk_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Chọn đúng món của nghề mình. Hàng mới về theo từng chuyến buôn."
@@ -492,10 +194,6 @@
 				"at": {
 					"spot": "svc_tb_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Một bộ áo tốt phải giúp người mặc trở về."
@@ -509,10 +207,6 @@
 				"at": {
 					"spot": "svc_lr_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Lò còn đỏ đấy. Công thức rèn sẽ mở cùng tuyến truyện mới."
@@ -526,10 +220,6 @@
 				"at": {
 					"spot": "svc_nc_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Đá cường hoá cần thời gian tinh luyện. Quay lại khi xưởng nhận việc."
@@ -543,10 +233,6 @@
 				"at": {
 					"spot": "svc_hp_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Đừng đợi kiệt sức mới nhớ mang thuốc."
@@ -560,10 +246,6 @@
 				"at": {
 					"spot": "svc_qr_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Ngồi xuống đi, món nóng của quán giúp cậu vững tay cả buổi."
@@ -577,10 +259,6 @@
 				"at": {
 					"spot": "svc_nh_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Két ở đây chắc nhất vùng. Sổ gửi đồ sẽ mở khi hội buôn duyệt xong luật."
@@ -594,10 +272,6 @@
 				"at": {
 					"spot": "svc_vk_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Chọn đúng món của nghề mình. Hàng mới về theo từng chuyến buôn."
@@ -611,10 +285,6 @@
 				"at": {
 					"spot": "svc_tb_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Một bộ áo tốt phải giúp người mặc trở về."
@@ -628,10 +298,6 @@
 				"at": {
 					"spot": "svc_lr_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Lò còn đỏ đấy. Công thức rèn sẽ mở cùng tuyến truyện mới."
@@ -645,10 +311,6 @@
 				"at": {
 					"spot": "svc_nc_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Đá cường hoá cần thời gian tinh luyện. Quay lại khi xưởng nhận việc."
@@ -662,10 +324,6 @@
 				"at": {
 					"spot": "svc_hp_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Đừng đợi kiệt sức mới nhớ mang thuốc."
@@ -679,10 +337,6 @@
 				"at": {
 					"spot": "svc_qr_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Ngồi xuống đi, món nóng của quán giúp cậu vững tay cả buổi."
@@ -696,10 +350,6 @@
 				"at": {
 					"spot": "svc_nh_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Két ở đây chắc nhất vùng. Sổ gửi đồ sẽ mở khi hội buôn duyệt xong luật."
@@ -713,10 +363,6 @@
 				"at": {
 					"spot": "svc_vk_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Chọn đúng món của nghề mình. Hàng mới về theo từng chuyến buôn."
@@ -730,10 +376,6 @@
 				"at": {
 					"spot": "svc_tb_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Một bộ áo tốt phải giúp người mặc trở về."
@@ -747,10 +389,6 @@
 				"at": {
 					"spot": "svc_lr_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Lò còn đỏ đấy. Công thức rèn sẽ mở cùng tuyến truyện mới."
@@ -764,10 +402,6 @@
 				"at": {
 					"spot": "svc_nc_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Đá cường hoá cần thời gian tinh luyện. Quay lại khi xưởng nhận việc."
@@ -781,10 +415,6 @@
 				"at": {
 					"spot": "svc_hp_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Đừng đợi kiệt sức mới nhớ mang thuốc."
@@ -798,10 +428,6 @@
 				"at": {
 					"spot": "svc_qr_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Ngồi xuống đi, món nóng của quán giúp cậu vững tay cả buổi."
@@ -815,10 +441,6 @@
 				"at": {
 					"spot": "svc_nh_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Két ở đây chắc nhất vùng. Sổ gửi đồ sẽ mở khi hội buôn duyệt xong luật."
@@ -832,10 +454,6 @@
 				"at": {
 					"spot": "svc_vk_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Chọn đúng món của nghề mình. Hàng mới về theo từng chuyến buôn."
@@ -849,10 +467,6 @@
 				"at": {
 					"spot": "svc_tb_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Một bộ áo tốt phải giúp người mặc trở về."
@@ -866,10 +480,6 @@
 				"at": {
 					"spot": "svc_lr_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Lò còn đỏ đấy. Công thức rèn sẽ mở cùng tuyến truyện mới."
@@ -883,10 +493,6 @@
 				"at": {
 					"spot": "svc_nc_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Đá cường hoá cần thời gian tinh luyện. Quay lại khi xưởng nhận việc."
@@ -900,10 +506,6 @@
 				"at": {
 					"spot": "svc_hp_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Đừng đợi kiệt sức mới nhớ mang thuốc."
@@ -917,10 +519,6 @@
 				"at": {
 					"spot": "svc_qr_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Ngồi xuống đi, món nóng của quán giúp cậu vững tay cả buổi."
@@ -934,10 +532,6 @@
 				"at": {
 					"spot": "svc_nh_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Két ở đây chắc nhất vùng. Sổ gửi đồ sẽ mở khi hội buôn duyệt xong luật."
@@ -951,10 +545,6 @@
 				"at": {
 					"spot": "svc_vk_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Chọn đúng món của nghề mình. Hàng mới về theo từng chuyến buôn."
@@ -968,10 +558,6 @@
 				"at": {
 					"spot": "svc_tb_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Một bộ áo tốt phải giúp người mặc trở về."
@@ -985,10 +571,6 @@
 				"at": {
 					"spot": "svc_lr_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Lò còn đỏ đấy. Công thức rèn sẽ mở cùng tuyến truyện mới."
@@ -1002,10 +584,6 @@
 				"at": {
 					"spot": "svc_nc_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Đá cường hoá cần thời gian tinh luyện. Quay lại khi xưởng nhận việc."
@@ -1019,10 +597,6 @@
 				"at": {
 					"spot": "svc_hp_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Đừng đợi kiệt sức mới nhớ mang thuốc."
@@ -1036,10 +610,6 @@
 				"at": {
 					"spot": "svc_qr_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Ngồi xuống đi, món nóng của quán giúp cậu vững tay cả buổi."
@@ -1053,10 +623,6 @@
 				"at": {
 					"spot": "svc_nh_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Két ở đây chắc nhất vùng. Sổ gửi đồ sẽ mở khi hội buôn duyệt xong luật."
@@ -1070,10 +636,6 @@
 				"at": {
 					"spot": "svc_vk_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Chọn đúng món của nghề mình. Hàng mới về theo từng chuyến buôn."
@@ -1087,10 +649,6 @@
 				"at": {
 					"spot": "svc_tb_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Một bộ áo tốt phải giúp người mặc trở về."
@@ -1104,10 +662,6 @@
 				"at": {
 					"spot": "svc_lr_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Lò còn đỏ đấy. Công thức rèn sẽ mở cùng tuyến truyện mới."
@@ -1121,10 +675,6 @@
 				"at": {
 					"spot": "svc_nc_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Đá cường hoá cần thời gian tinh luyện. Quay lại khi xưởng nhận việc."
@@ -1138,10 +688,6 @@
 				"at": {
 					"spot": "svc_hp_keeper"
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Đừng đợi kiệt sức mới nhớ mang thuốc."
@@ -1157,10 +703,6 @@
 					"dx": -210,
 					"dy": -120
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Ta vẫn làm thừa một phần bánh. Tay ta nhớ, đầu ta thì không."
@@ -1176,10 +718,6 @@
 					"dx": 150,
 					"dy": -130
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Em ghi tên mọi người vào sổ. Mai em quên thì còn hỏi lại được."
@@ -1195,10 +733,6 @@
 					"dx": 70,
 					"dy": 10
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Nghề nào cũng bắt đầu bằng việc giữ được hơi thở."
@@ -1214,10 +748,6 @@
 					"dx": -270,
 					"dy": 150
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Thư không người nhận vẫn là thư. Ta đưa nó tới khi có người nhận."
@@ -1233,10 +763,6 @@
 					"dx": 70,
 					"dy": -50
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Đường này ta gác ba mươi năm. Ta nhớ từng bia mộ."
@@ -1252,10 +778,6 @@
 					"dx": 390,
 					"dy": 110
 				},
-				"ages": [
-					16,
-					99
-				],
 				"stationary": true,
 				"idle": [
 					"Ta mang tin giữa các vùng. Dù chưa có hội lễ, cậu vẫn có thể ghé hỏi thăm; việc nhận nhà không phải đợi sự kiện."
@@ -1271,10 +793,6 @@
 					"dx": 0,
 					"dy": 0
 				},
-				"ages": [
-					0,
-					99
-				],
 				"region": "human",
 				"idle": [
 					"«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»"
@@ -1290,10 +808,6 @@
 					"dx": 0,
 					"dy": 0
 				},
-				"ages": [
-					0,
-					99
-				],
 				"region": "swamp",
 				"idle": [
 					"«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»"
@@ -1309,10 +823,6 @@
 					"dx": 0,
 					"dy": 0
 				},
-				"ages": [
-					0,
-					99
-				],
 				"region": "desert",
 				"idle": [
 					"«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»"
@@ -1328,10 +838,6 @@
 					"dx": 0,
 					"dy": 0
 				},
-				"ages": [
-					0,
-					99
-				],
 				"region": "highland",
 				"idle": [
 					"«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»"
@@ -1347,10 +853,6 @@
 					"dx": 0,
 					"dy": 0
 				},
-				"ages": [
-					0,
-					99
-				],
 				"region": "tundra",
 				"idle": [
 					"«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»"
@@ -1366,10 +868,6 @@
 					"dx": 0,
 					"dy": 0
 				},
-				"ages": [
-					0,
-					99
-				],
 				"region": "volcano",
 				"idle": [
 					"«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»"
@@ -1385,10 +883,6 @@
 					"dx": 0,
 					"dy": 0
 				},
-				"ages": [
-					0,
-					99
-				],
 				"region": "isles",
 				"idle": [
 					"«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»"
@@ -1403,10 +897,6 @@
 					"dx": 76,
 					"dy": 96
 				},
-				"ages": [
-					16,
-					99
-				],
 				"region": "human",
 				"idle": [
 					"Ngồi xuống nào. Cậu muốn đổi kiểu tóc chứ?"
@@ -1423,49 +913,9 @@
 					"dy": -40
 				},
 				"region": "human",
-				"ages": [
-					0,
-					99
-				],
 				"idle": [
 					"«Tên những người làm nên chuyện được khắc ở đây.»",
 					"«Chỉ người chơi trực tuyến mới được ghi danh.»"
-				]
-			},
-			"traveler_sein_child": {
-				"name": "Sein",
-				"title": "Cậu bé lữ khách",
-				"sprite": "npc_silver_child",
-				"at": {
-					"spot": "plaza",
-					"dx": -36,
-					"dy": 96
-				},
-				"ages": [
-					0,
-					15
-				],
-				"idle": [
-					"Bọn tớ theo đoàn buôn của cha, mai lại đi rồi.",
-					"Ngoài kia có đầm lầy toàn nhà sàn đấy! Cha kể vậy."
-				]
-			},
-			"traveler_sera_child": {
-				"name": "Sera",
-				"title": "Cô bé lữ khách",
-				"sprite": "npc_silver_child_f",
-				"at": {
-					"spot": "plaza",
-					"dx": 8,
-					"dy": 96
-				},
-				"ages": [
-					0,
-					15
-				],
-				"idle": [
-					"Tóc tớ với anh Sein giống mẹ, ai cũng nhìn.",
-					"Cậu có biết sa mạc phía nam có toà thành ốc đảo không?"
 				]
 			},
 			"traveler_sein": {
@@ -1477,10 +927,6 @@
 					"dx": -36,
 					"dy": 96
 				},
-				"ages": [
-					16,
-					99
-				],
 				"idle": [
 					"Lại gặp nhau rồi! Bọn ta vừa từ cao nguyên Gió Hú về — gió trên đó thổi bay cả mũ.",
 					"Đi đâu cũng nhớ ghé cột dịch chuyển, đỡ mỏi chân lắm."
@@ -1495,10 +941,6 @@
 					"dx": 8,
 					"dy": 96
 				},
-				"ages": [
-					16,
-					99
-				],
 				"idle": [
 					"Anh Sein cứ đòi đi săn rồng phương Đông. Ta thì chỉ muốn vẽ lại bản đồ lục địa.",
 					"Đầm lầy Mù Sương có ếch độc to bằng cái thúng, cẩn thận đấy."
@@ -1511,10 +953,6 @@
 				"at": {
 					"spot": "__voice__"
 				},
-				"ages": [
-					99,
-					99
-				],
 				"idle": []
 			},
 			"odessa": {
@@ -1524,10 +962,6 @@
 				"at": {
 					"spot": "__voice__"
 				},
-				"ages": [
-					99,
-					99
-				],
 				"idle": []
 			},
 			"zahra": {
@@ -1537,10 +971,6 @@
 				"at": {
 					"spot": "__voice__"
 				},
-				"ages": [
-					99,
-					99
-				],
 				"idle": []
 			},
 			"hassim": {
@@ -1550,10 +980,6 @@
 				"at": {
 					"spot": "__voice__"
 				},
-				"ages": [
-					99,
-					99
-				],
 				"idle": []
 			},
 			"orrin": {
@@ -1563,10 +989,6 @@
 				"at": {
 					"spot": "__voice__"
 				},
-				"ages": [
-					99,
-					99
-				],
 				"idle": []
 			},
 			"wenna": {
@@ -1576,10 +998,6 @@
 				"at": {
 					"spot": "__voice__"
 				},
-				"ages": [
-					99,
-					99
-				],
 				"idle": []
 			},
 			"kael": {
@@ -1589,10 +1007,6 @@
 				"at": {
 					"spot": "__voice__"
 				},
-				"ages": [
-					99,
-					99
-				],
 				"idle": []
 			},
 			"hilde": {
@@ -1602,10 +1016,6 @@
 				"at": {
 					"spot": "__voice__"
 				},
-				"ages": [
-					99,
-					99
-				],
 				"idle": []
 			},
 			"durin": {
@@ -1615,23 +1025,6 @@
 				"at": {
 					"spot": "__voice__"
 				},
-				"ages": [
-					99,
-					99
-				],
-				"idle": []
-			},
-			"grey_man": {
-				"name": "Người áo xám",
-				"title": "???",
-				"sprite": "npc_grey_man_001",
-				"at": {
-					"spot": "__voice__"
-				},
-				"ages": [
-					99,
-					99
-				],
 				"idle": []
 			},
 			"maris": {
@@ -1641,10 +1034,6 @@
 				"at": {
 					"spot": "__voice__"
 				},
-				"ages": [
-					99,
-					99
-				],
 				"idle": []
 			},
 			"corvin": {
@@ -1654,10 +1043,6 @@
 				"at": {
 					"spot": "__voice__"
 				},
-				"ages": [
-					99,
-					99
-				],
 				"idle": []
 			},
 			"ysolde": {
@@ -1669,10 +1054,6 @@
 					"dx": 130,
 					"dy": 70
 				},
-				"ages": [
-					16,
-					99
-				],
 				"region": "swamp",
 				"idle": [
 					"Sương hôm nay đặc. Đặc như hồi đập mới xây.",
@@ -1688,33 +1069,10 @@
 					"dx": 130,
 					"dy": 70
 				},
-				"ages": [
-					16,
-					99
-				],
 				"region": "desert",
 				"idle": [
 					"Nước trong giếng hoàng gia mỗi tuần thấp thêm một gang. Ta đếm từng gang.",
 					"Ở Sahrin, khách là người được uống trước. Cậu đã uống chưa?"
-				]
-			},
-			"aldric_hl": {
-				"name": "Aldric",
-				"title": "Hiệp sĩ Đoàn · Cao nguyên",
-				"sprite": "npc_aldric_001",
-				"at": {
-					"spot": "plaza",
-					"dx": 130,
-					"dy": 70
-				},
-				"ages": [
-					16,
-					99
-				],
-				"region": "highland",
-				"idle": [
-					"Huy hiệu bảy vòng nặng hơn tớ tưởng. Mà cũng có thể là tớ nhẹ đi.",
-					"Lời ngoéo tay năm tám tuổi vẫn còn nhé, Lior."
 				]
 			},
 			"bjorn": {
@@ -1726,33 +1084,10 @@
 					"dx": 130,
 					"dy": 70
 				},
-				"ages": [
-					16,
-					99
-				],
 				"region": "tundra",
 				"idle": [
 					"Đọc gió trước, rồi mới đọc dấu chân. Ai dạy cậu thế? Hừm. Người đó biết việc.",
 					"Bão chưa tan. Ở lại thêm một đêm cũng chẳng chết ai."
-				]
-			},
-			"mirelle_forge": {
-				"name": "Mirelle",
-				"title": "Thầy thuốc · trạm thương binh Đe Đỏ",
-				"sprite": "npc_mirelle_001",
-				"at": {
-					"spot": "plaza",
-					"dx": 130,
-					"dy": 70
-				},
-				"ages": [
-					16,
-					99
-				],
-				"region": "volcano",
-				"idle": [
-					"Ở đây ta băng cho cả lính hai phe. Máu thì cùng một màu, Lior.",
-					"Đừng khoe vội. Câu đó ta nói từ hồi con sáu tuổi, giờ vẫn đúng."
 				]
 			},
 			"coral": {
@@ -1764,3186 +1099,12 @@
 					"dx": 130,
 					"dy": 70
 				},
-				"ages": [
-					16,
-					99
-				],
 				"region": "isles",
 				"idle": [
 					"Ăn đi rồi khóc. Đói thì khóc không ra hơi.",
 					"Biển trong tới mức thấy đáy. Mà đáy toàn tàu, con ạ."
 				]
-			},
-			"god_nereth": {
-				"name": "Thuỷ Thần Nereth",
-				"title": "Rắn trắng giữ dòng nước ngầm",
-				"sprite": null,
-				"prop": "serpent_head",
-				"at": {
-					"spot": "hydralake_lair",
-					"dy": 120
-				},
-				"ages": [
-					16,
-					99
-				],
-				"region": "swamp",
-				"idle": [
-					"«…nước nhớ mọi thứ chảy qua nó.»"
-				]
-			},
-			"god_sahra": {
-				"name": "Thái Dương Thần Sahra",
-				"title": "Chim ưng lửa mặt trời",
-				"sprite": null,
-				"prop": "sphinx",
-				"at": {
-					"spot": "devourpit_lair",
-					"dy": 120
-				},
-				"ages": [
-					16,
-					99
-				],
-				"region": "desert",
-				"idle": [
-					"«Dưới nắng, bóng của ngươi không biết nói dối.»"
-				]
-			},
-			"god_aeolin": {
-				"name": "Phong Thần Aeolin",
-				"title": "Đại bàng bốn cánh gió",
-				"sprite": null,
-				"prop": "bird_statue",
-				"at": {
-					"spot": "cloudtemple_lair",
-					"dy": 120
-				},
-				"ages": [
-					16,
-					99
-				],
-				"region": "highland",
-				"idle": [
-					"«Gió không giữ lời hứa. Gió mang lời hứa đi.»"
-				]
-			},
-			"god_hjalma": {
-				"name": "Băng Thần Hjalma",
-				"title": "Sói mẹ của mùa đông",
-				"sprite": null,
-				"prop": "dragon_relief",
-				"at": {
-					"spot": "icethrone_lair",
-					"dy": 120
-				},
-				"ages": [
-					16,
-					99
-				],
-				"region": "tundra",
-				"idle": [
-					"«Quên cũng là một cách giữ ấm.»"
-				]
-			},
-			"god_ignar": {
-				"name": "Lò Thần Ignar",
-				"title": "Người thợ rèn lửa đầu tiên",
-				"sprite": null,
-				"prop": "forge_altar",
-				"at": {
-					"spot": "volcanocore_lair",
-					"dy": 120
-				},
-				"ages": [
-					16,
-					99
-				],
-				"region": "volcano",
-				"idle": [
-					"«Lửa trong lò, lửa trong lòng. Đừng để cái nào tắt.»"
-				]
-			},
-			"god_thalassa": {
-				"name": "Hải Mẫu Thalassa",
-				"title": "Cá voi mang rạn san hô",
-				"sprite": null,
-				"prop": "giant_clam",
-				"at": {
-					"spot": "krakenabyss_lair",
-					"dy": 120
-				},
-				"ages": [
-					16,
-					99
-				],
-				"region": "isles",
-				"idle": [
-					"«Biển trả lại mọi thứ. Chỉ là không theo thứ tự ngươi muốn.»"
-				]
 			}
-		},
-		"quests": [
-			{
-				"id": "c4_silverdew",
-				"age": 4,
-				"title": "Những sợi tơ trong vườn mẹ",
-				"giver": "mother_elin",
-				"objective": {
-					"type": "pickup",
-					"item": "herb",
-					"count": 3
-				},
-				"objectiveText": "Hái cỏ Sương Bạc có sợi tơ sáng ({n}/{total})",
-				"turnIn": "mother_elin",
-				"reward": {
-					"exp": 10
-				},
-				"before": [
-					{
-						"speaker": "mother_elin",
-						"text": "Lior, con dậy rồi à? Mẹ đang cần một người phụ việc cao… ba gang tay."
-					},
-					{
-						"speaker": "mother_elin",
-						"text": "Đàn ong mới về cần một cái thùng thơm. Con ra vườn hái giúp mẹ ba cây cỏ Sương Bạc nhé, mẹ xoa vào thùng là ong chịu ở."
-					},
-					{
-						"speaker": "mother_elin",
-						"text": "Lá bạc, mép răng cưa… mà thôi, con bốn tuổi biết gì, cứ hái cây nào con thích."
-					},
-					{
-						"speaker": "lior",
-						"text": "Dạ! Cỏ… xương… bác!"
-					},
-					{
-						"speaker": "inner",
-						"text": "Lưỡi đứa trẻ bốn tuổi không có nút sửa lỗi chính tả."
-					},
-					{
-						"speaker": "mother_elin",
-						"text": "Sương Bạc, con trai. Quanh nhà mình, chỗ nào ẩm là có. Đi chậm thôi kẻo ngã."
-					},
-					{
-						"speaker": "narrator",
-						"text": "(WASD hoặc phím mũi tên để đi · đứng cạnh vật lấp lánh rồi nhấn E để nhặt.)"
-					}
-				],
-				"after": [
-					{
-						"speaker": "mother_elin",
-						"text": "Ba cây, đúng cả ba. Lại còn chừa ra mấy bụi ngải dại mọc ngay cạnh, trông y hệt. Con nhìn bằng gì vậy, con trai?"
-					},
-					{
-						"speaker": "lior",
-						"text": "Cây này có sợi sáng. Cây kia không có."
-					},
-					{
-						"speaker": "mother_elin",
-						"text": "Mẹ làm phép hai mươi năm mà chưa thấy sợi nào cả. Nhưng ong của mẹ thì đồng ý với con: chúng chỉ bay tới đúng ba cây ấy."
-					},
-					{
-						"speaker": "mother_elin",
-						"text": "Chuyện này nhà mình giữ riêng, nhé. Mẹ khâu cho con cái túi thơm, bỏ vào một nhánh con vừa hái."
-					}
-				],
-				"onReady": [
-					{
-						"speaker": "inner",
-						"text": "Tâm hồn hai mươi chín tuổi, đôi chân bốn tuổi. Riêng cái bậc cửa nhà mình đã hạ tôi bốn lần."
-					},
-					{
-						"speaker": "inner",
-						"text": "Giữa đám bụi giống hệt nhau, chỉ ba cây có sợi tơ bạc quấn quanh. Mẹ nhờ là tôi đi ngay. Chân ngắn thì đi chậm, nhưng đi ngay."
-					}
-				],
-				"onGive": {
-					"pickups": {
-						"item": "herb",
-						"spots": [
-							"herb_spot_1",
-							"herb_spot_2",
-							"herb_spot_3",
-							"herb_spot_4"
-						]
-					}
-				}
-			},
-			{
-				"id": "c4_dinner",
-				"age": 4,
-				"title": "Gọi cha về ăn tối",
-				"giver": "mother_elin",
-				"objective": {
-					"type": "talk",
-					"npc": "father_garrick"
-				},
-				"objectiveText": "Ra bờ sông Brightwater gọi cha về ăn tối",
-				"turnIn": "father_garrick",
-				"reward": {
-					"exp": 15
-				},
-				"before": [
-					{
-						"speaker": "mother_elin",
-						"text": "Súp nấm chín rồi. Con ra bờ sông gọi cha về giúp mẹ nhé."
-					},
-					{
-						"speaker": "mother_elin",
-						"text": "Cha con ngồi mài kiếm ở chỗ cũ, ngay đầu cầu. Gọi to vào, cha con mà mài kiếm là điếc đặc."
-					},
-					{
-						"speaker": "lior",
-						"text": "Con đi liền!"
-					},
-					{
-						"speaker": "mother_elin",
-						"text": "Cứ theo đường lớn về phía mặt trời mọc. Mà chạy đi con, súp nguội mất."
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Giữ Shift để chạy.)"
-					}
-				],
-				"after": [
-					{
-						"speaker": "inner",
-						"text": "Kiếp trước, mẹ gọi “về ăn cơm đi con” qua điện thoại không biết bao nhiêu lần. Tôi toàn bấm tắt. Giờ tôi là người đi gọi."
-					},
-					{
-						"speaker": "lior",
-						"text": "Cha ơiii! Mẹ bảo về ăn tối!"
-					},
-					{
-						"speaker": "father_garrick",
-						"text": "…Ừ."
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Cha tra kiếm vào vỏ, phủi bụi đá mài trên tay, rồi nhấc bổng tôi lên vai.)"
-					},
-					{
-						"speaker": "father_garrick",
-						"text": "Cao chưa?"
-					},
-					{
-						"speaker": "inner",
-						"text": "Tôi từng cao một mét bảy hai. Giờ, tính cả vai cha, tôi là người cao nhất Thistlewood."
-					}
-				]
-			},
-			{
-				"id": "c6_first_thread",
-				"age": 6,
-				"title": "Sợi tơ đầu tiên",
-				"giver": "healer_mirelle",
-				"objective": {
-					"type": "practice",
-					"count": 5,
-					"element": "haven",
-					"dummy": "dummy_backyard"
-				},
-				"objectiveText": "Tung Tia Haven vào Ông Rơm ở sân sau ({n}/{total})",
-				"turnIn": "mother_elin",
-				"reward": {
-					"exp": 20,
-					"unlockSkill": "fire"
-				},
-				"before": [
-					{
-						"speaker": "narrator",
-						"text": "(Tôi đặt hũ mật ong lên bàn. Cô Mirelle đang khuấy một lọ thuốc màu hổ phách. Trong lọ, mấy sợi tơ vàng cam cuộn tròn như đang ngủ.)"
-					},
-					{
-						"speaker": "inner",
-						"text": "Tôi chỉ định chạm thử một sợi. Thật đấy. Chỉ chạm thôi."
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Lọ thuốc sôi sùng sục. Cái nút bần bật thẳng lên trần nhà.)"
-					},
-					{
-						"speaker": "healer_mirelle",
-						"text": "…Lior Ashvale. Con vừa làm gì lọ thuốc của ta thế?"
-					},
-					{
-						"speaker": "lior",
-						"text": "Con chỉ chạm vào sợi tơ thôi ạ. Sợi màu cam ấy."
-					},
-					{
-						"speaker": "healer_mirelle",
-						"text": "Sợi tơ. Ta biết sợi Haven là gì, sách nào cũng vẽ. Nhưng ta là thầy thuốc, không phải pháp sư. Sợi con thấy, ta không thấy."
-					},
-					{
-						"speaker": "healer_mirelle",
-						"text": "Nên phần thấy sợi, ta chịu. Còn làm sao để không ai bị bỏng thì ta biết, ta băng bó cả đời rồi. Phần đó ta dạy được: đừng chĩa vào người, và thả tay ra trước khi nóng."
-					},
-					{
-						"speaker": "healer_mirelle",
-						"text": "Phép thì về hỏi mẹ con. Mẹ con là pháp sư đấy, pháp sư làng thôi, nhưng vẫn là pháp sư."
-					},
-					{
-						"speaker": "healer_mirelle",
-						"text": "À, đừng khoe với ai vội. Thị trấn nhỏ, lời đồn đi nhanh hơn người. Rồi lái buôn khắp vùng sẽ kéo tới, đòi đưa con đi làm trò ở chợ phiên."
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Chiều đó, mẹ nghe cô Mirelle kể chuyện cái nút bần. Mẹ im lặng rất lâu, rồi lục dưới đáy rương ra một cây trượng gỗ ngắn, đầu quấn sợi đồng đã xỉn.)"
-					},
-					{
-						"speaker": "mother_elin",
-						"text": "Trượng tập của mẹ hồi mười tuổi. Phép của mẹ chỉ đủ nhóm bếp với gọi mưa cho vườn rau, nhưng cầm trượng thì tay con đỡ run."
-					},
-					{
-						"speaker": "mother_elin",
-						"text": "Ra sân sau tập với Ông Rơm. Cha con dựng để tập kiếm, ông ta không biết đau. Chĩa vào rơm, không chĩa vào người, càng không chĩa vào mẹ."
-					},
-					{
-						"speaker": "inner",
-						"text": "Cách chạm thì không ai dạy được tôi. Nhưng tôi từng có một cây đàn. Chạm vào sợi như chạm dây đàn: gảy, rồi buông."
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Nhận Trượng gỗ của mẹ · rê chuột để nhắm · chuột phải để tung Tia Haven · màn cảm ứng: chạm xa nhân vật.)"
-					}
-				],
-				"after": [
-					{
-						"speaker": "mother_elin",
-						"text": "Mẹ đứng xem từ phát đầu tiên đấy. Nồi canh trong bếp sôi trào ra hết rồi đây này."
-					},
-					{
-						"speaker": "mother_elin",
-						"text": "Cả đàn ong cũng bay ra xem. Mẹ chưa thấy chúng tò mò thế bao giờ."
-					},
-					{
-						"speaker": "mother_elin",
-						"text": "Mẹ học mười năm mới gảy nổi một đốm lửa bằng đầu que diêm. Con thì… thôi, mẹ không ghen đâu. Mẹ hơi ghen thôi."
-					},
-					{
-						"speaker": "inner",
-						"text": "Mẹ không hỏi đó là gì. Mẹ chỉ đứng xem. Hoá ra có những lúc người ta không cần hiểu, chỉ cần có mặt."
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Trong bếp, sợi Haven quanh ngọn lửa xoắn lại như lò xo. Tôi đưa tay ra, và một sợi xoắn theo ngón tay tôi.)"
-					},
-					{
-						"speaker": "mother_elin",
-						"text": "Lior. Con đang nhìn bếp của mẹ bằng ánh mắt rất đáng lo đấy. Lửa thì ra sân mà tập!"
-					}
-				],
-				"onReady": [
-					{
-						"speaker": "inner",
-						"text": "Phát đầu trượt. Phát thứ hai làm cháy sém một ngọn cỏ. Tới phát thứ năm, Ông Rơm lắc lư như vừa bị ai vỗ vai."
-					},
-					{
-						"speaker": "inner",
-						"text": "Tôi quay lại thì thấy mẹ đứng ở hiên, tay vẫn cầm cái muôi."
-					}
-				],
-				"onGive": {
-					"unlock": "staff"
-				}
-			},
-			{
-				"id": "c6_wooden_sword",
-				"age": 6,
-				"title": "Thanh kiếm gỗ",
-				"giver": "father_garrick",
-				"objective": {
-					"type": "practice",
-					"count": 5,
-					"element": "steel",
-					"dummy": "dummy_riverside"
-				},
-				"objectiveText": "Chém Ông Rơm bên sông bằng kiếm gỗ của cha ({n}/{total})",
-				"turnIn": "father_garrick",
-				"reward": {
-					"exp": 20
-				},
-				"before": [
-					{
-						"speaker": "narrator",
-						"text": "(Chiều hôm ấy, cha gọi tôi ra đầu cầu. Trên tảng đá cha hay ngồi mài kiếm có một vật dài bọc vải.)"
-					},
-					{
-						"speaker": "father_garrick",
-						"text": "Của con."
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Một thanh kiếm gỗ sồi, dài vừa tay tôi. Chuôi quấn da cũ, lưỡi bào nhẵn đến mức không còn một cái dằm. Cha đã gọt nó suốt một mùa đông.)"
-					},
-					{
-						"speaker": "father_garrick",
-						"text": "Mẹ dạy con phép. Cha dạy con cầm kiếm. Học cả hai."
-					},
-					{
-						"speaker": "father_garrick",
-						"text": "Cha không phải hiệp sĩ. Cha là lính gác cũ. Nhưng chém thẳng thì cha dạy được."
-					},
-					{
-						"speaker": "father_garrick",
-						"text": "Ông Rơm bên sông. Năm nhát. Chân trước, tay sau. Đứng sát mới trúng."
-					},
-					{
-						"speaker": "inner",
-						"text": "Kiếp trước tôi chưa từng được ai tặng một thứ làm bằng tay. Thanh kiếm nhẹ hơn tôi tưởng, vậy mà tay tôi vẫn run."
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Nhận Kiếm gỗ của cha · chuột trái để chém · màn cảm ứng: chạm gần nhân vật. Kiếm chỉ trúng khi đứng sát.)"
-					}
-				],
-				"after": [
-					{
-						"speaker": "father_garrick",
-						"text": "…Được."
-					},
-					{
-						"speaker": "father_garrick",
-						"text": "Kiếm để giữ người, không để doạ người. Nhớ."
-					},
-					{
-						"speaker": "inner",
-						"text": "Cả buổi chiều cha nói chưa tới mười câu. Câu cuối cùng thì tôi nhớ đến tận bây giờ."
-					}
-				],
-				"onReady": [
-					{
-						"speaker": "inner",
-						"text": "Nhát đầu chém vào không khí. Nhát thứ ba trúng, rơm bay tứ tung. Tới nhát thứ năm, tôi nghe cha khẽ hắng giọng."
-					},
-					{
-						"speaker": "inner",
-						"text": "Không biết đó là khen hay chê. Với cha, có lẽ là cả hai."
-					}
-				],
-				"onGive": {
-					"unlock": "sword"
-				}
-			},
-			{
-				"id": "c6_old_hat",
-				"age": 6,
-				"title": "Mũ cũ. Đừng cháy.",
-				"giver": "mother_elin",
-				"objective": {
-					"type": "practice",
-					"count": 3,
-					"element": "fire",
-					"dummy": "dummy_backyard"
-				},
-				"objectiveText": "Tung Hoả Cầu vào Ông Rơm, tránh cái mũ ({n}/{total})",
-				"turnIn": "mother_elin",
-				"reward": {
-					"exp": 25,
-					"unlockSkill": "water",
-					"potions": 1
-				},
-				"before": [
-					{
-						"speaker": "mother_elin",
-						"text": "Mẹ nói thật đấy. Bếp của mẹ không phải bia tập. Mà ong của mẹ thì sợ khói."
-					},
-					{
-						"speaker": "mother_elin",
-						"text": "À, sáng nay cha con có dặn trước khi ra sông. Đúng bốn chữ: “Mũ cũ. Đừng cháy.”"
-					},
-					{
-						"speaker": "lior",
-						"text": "Con hiểu rồi ạ. Bắn vào người rơm, tránh cái mũ."
-					},
-					{
-						"speaker": "inner",
-						"text": "Ông Rơm đội cái mũ cũ của cha, vành sờn, lông chim rụng mất một nửa. Con xin lỗi cha trước nhé."
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Nhánh Hoả đã mở: có điểm tiềm năng thì học Hoả Cầu ở bảng Tiềm năng (T) — phím 1, tốn MP và phải chờ hồi chiêu. Chưa học thì tung Tia Haven (chuột phải) vào Ông Rơm cũng được.)"
-					}
-				],
-				"after": [
-					{
-						"speaker": "narrator",
-						"text": "(Cái mũ cũ của cha bốc khói. Rồi bốc lửa. Mẹ vung tay, một quả cầu nước to bằng cái bát bay ra, xèo một tiếng trên đầu Ông Rơm.)"
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Trong quả cầu nước của mẹ, tôi thấy những sợi tơ xanh lam, nặng và mát, chảy xuống như dây đàn buông.)"
-					},
-					{
-						"speaker": "inner",
-						"text": "Phép của mẹ không lớn: một bát nước, một ngọn lửa bếp. Nhưng mẹ vừa chỉ cho tôi sợi tơ thứ ba. (Mở nhánh Thuỷ — học Thuỷ Tiễn ở bảng Tiềm năng (T) khi có điểm.)"
-					},
-					{
-						"speaker": "mother_elin",
-						"text": "Không bỏng chứ? Cầm lấy bình mật ong này, mật nhà mình đấy. Lần sau bỏng thì bôi, mệt thì uống. Còn cái mũ… để mẹ nói với cha."
-					},
-					{
-						"speaker": "father_garrick",
-						"text": "(Tối đó, cha đứng nhìn cái mũ cháy xém rất lâu.) …Mũ cũ."
-					}
-				],
-				"objectiveTextHaven": "Tung Tia Haven vào Ông Rơm, tránh cái mũ ({n}/{total})",
-				"onReady": [
-					{
-						"speaker": "inner",
-						"text": "Phát thứ ba trúng ngay ngực Ông Rơm. Rồi tôi ngửi thấy mùi khét. Không phải mùi rơm. Mùi… vải."
-					}
-				]
-			},
-			{
-				"id": "c8_forest_edge",
-				"age": 8,
-				"title": "Bìa rừng Mossvale",
-				"giver": "father_garrick",
-				"objective": {
-					"type": "kill",
-					"count": 6,
-					"monster": "mob_mushroom_001"
-				},
-				"objectiveText": "Hạ nấm rừng đang vây Aldric ở bìa rừng ({n}/{total})",
-				"turnIn": "kid_aldric_forest",
-				"reward": {
-					"exp": 40,
-					"unlockSkill": "wind",
-					"potions": 1
-				},
-				"before": [
-					{
-						"speaker": "lior",
-						"text": "Cha ơi! Aldric vác kiếm gỗ chạy qua cầu rồi! Nó bảo vào rừng diệt rồng!"
-					},
-					{
-						"speaker": "inner",
-						"text": "Kiếp trước tôi chưa từng nhờ ai, sợ làm phiền. Chân tôi đã định tự chạy qua cầu… rồi tôi quay đầu về phía cha."
-					},
-					{
-						"speaker": "father_garrick",
-						"text": "Rồng. …Nấm thì có. Rồng thì không."
-					},
-					{
-						"speaker": "father_garrick",
-						"text": "Cha giữ đầu cầu. Con vào gọi Aldric. Cha thấy con tập rồi."
-					},
-					{
-						"speaker": "father_garrick",
-						"text": "Nấm co người là sắp lao. Đừng lùi. Bước ngang."
-					},
-					{
-						"speaker": "narrator",
-						"text": "(chuột trái: chém kiếm khi nấm áp sát · chuột phải: Tia Haven từ xa · Space: lăn né, tốn thể lực · R: uống bình mật ong của mẹ · mẹo: mỗi người chỉ theo được MỘT nguyên tố — sau này đánh cùng bạn khác hệ vào một con quái sẽ ra phản ứng như Hơi Nước, Băng Giá!)"
-					},
-					{
-						"speaker": "father_garrick",
-						"text": "Đứng xuôi gió là nó ngửi thấy con. Gió đi đâu, mùi đi đó."
-					},
-					{
-						"speaker": "inner",
-						"text": "Cha chỉ thả một nhúm bụi. Còn tôi thấy cả một dòng sông sợi xanh lục đang chảy về phía tây."
-					}
-				],
-				"after": [
-					{
-						"speaker": "kid_aldric_forest",
-						"text": "Tớ không sợ! Tớ chỉ… đang đứng yên một cách dũng cảm thôi!"
-					},
-					{
-						"speaker": "kid_aldric_forest",
-						"text": "Cậu vừa múa kiếm vừa làm phép, gian lận quá! Thôi được, cậu đứng sau, tớ đứng trước. Lớn lên tụi mình đi đánh Quỷ vương thật, không phải nấm. Ngoéo tay!"
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Hai đứa dắt nhau về đầu cầu. Cha vẫn đứng đúng chỗ cũ. Cha quỳ xuống, phủi bào tử nấm trên tóc tôi.)"
-					},
-					{
-						"speaker": "father_garrick",
-						"text": "Con gọi cha là đúng. Lần sau cũng vậy. Con gọi, cha đến. Lần nào cũng đến."
-					},
-					{
-						"speaker": "inner",
-						"text": "Kiếp trước, điện thoại tôi rung đến tắt mà tôi không nhấc máy. Kiếp này, có người dạy tôi rằng chỉ cần gọi một tiếng."
-					}
-				],
-				"onReady": [
-					{
-						"speaker": "inner",
-						"text": "Con nấm cuối cùng xẹp xuống như cái bánh bao hết hơi. Tóc tôi đầy bào tử, tay còn run. Nhưng tôi không chạy."
-					},
-					{
-						"speaker": "inner",
-						"text": "Lúc ngẩng lên, tôi thấy ở tận phía bắc khu rừng có một sợi tơ đỏ, mảnh như sợi chỉ, rỉ ra từ một khe đất. Nó vẫn ở đó, từ ngày tôi mở mắt."
-					}
-				],
-				"onGive": {
-					"zone": "mossvale_edge"
-				}
-			},
-			{
-				"id": "c8_snow",
-				"age": 8,
-				"title": "Tuyết cho mẹ",
-				"giver": null,
-				"objective": {
-					"type": "practice",
-					"count": 3,
-					"element": "wind",
-					"dummy": "dummy_riverside"
-				},
-				"objectiveText": "Cha hắt nước, con tung Phong Nhận vào Ông Rơm bên sông ({n}/{total})",
-				"turnIn": "mother_elin",
-				"reward": {
-					"exp": 50,
-					"unlockSkill": "ice"
-				},
-				"before": [
-					{
-						"speaker": "narrator",
-						"text": "(Trên đường về, cha dừng lại ở đầu cầu, nhìn về phía nhà mình.)"
-					},
-					{
-						"speaker": "father_garrick",
-						"text": "Mai sinh nhật mẹ. Quê mẹ ở núi phía bắc, mùa đông trắng xoá. Mẹ nhớ tuyết."
-					},
-					{
-						"speaker": "father_garrick",
-						"text": "…Cha không làm ra tuyết được. Con thì sao?"
-					},
-					{
-						"speaker": "father_garrick",
-						"text": "Phép của mẹ ấm thôi, không lạnh được. Mẹ thử mười năm rồi."
-					},
-					{
-						"speaker": "father_garrick",
-						"text": "Ở quê mẹ, áo phơi ướt mà gặp gió bấc là đông cứng. Cha thấy rồi."
-					},
-					{
-						"speaker": "father_garrick",
-						"text": "Ông Rơm bên này không có mũ. Cha hết mũ cũ rồi. Cha hắt nước. Con thổi gió, ngay khi nó còn ướt. Chậm là khô."
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Cha múc nước sông hắt ướt Ông Rơm, rồi con tung Phong Nhận: gió trúng mục tiêu đang ướt sẽ ra Băng Giá — phản ứng nguyên tố là việc của HAI người cùng đánh. Chưa học Phong Nhận thì tung Tia Haven (chuột phải) vào Ông Rơm cũng được.)"
-					},
-					{
-						"speaker": "inner",
-						"text": "Lúc nãy tôi đã nắm được một sợi gió. Cha lo sợi nước. Hai cha con, mỗi người một sợi, tết lại như mẹ tết tóc mỗi sáng."
-					}
-				],
-				"after": [
-					{
-						"speaker": "narrator",
-						"text": "(Tối hôm ấy, tôi đứng giữa sân, tết sợi nước với sợi gió. Từ lòng bàn tay tôi, những bông tuyết bay lên rồi rơi xuống mái nhà Ashvale. Chỉ mái nhà ấy thôi.)"
-					},
-					{
-						"speaker": "mother_elin",
-						"text": "Tuyết… ở Thistlewood? Hai cha con bày trò từ bao giờ thế này?"
-					},
-					{
-						"speaker": "lior",
-						"text": "Cha nghĩ ra. Con chỉ làm phép thôi."
-					},
-					{
-						"speaker": "father_garrick",
-						"text": "…Con làm phần khó."
-					},
-					{
-						"speaker": "inner",
-						"text": "Tôi không xoá được kiếp trước. Nhưng tối nay, có một người mẹ không phải chờ."
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Khuya hôm ấy, tôi ngồi một mình ở hiên, thử tết lại sợi nước với sợi gió. Không có cha, hai sợi cứ tuột khỏi nhau. Nhưng trong lòng bàn tay vẫn đọng lại một mũi băng nhỏ, lạnh buốt. Mở nhánh Băng — học Băng Tiễn ở bảng Tiềm năng (T) khi có điểm. Mỗi người chỉ theo được MỘT nguyên tố; muốn ra phản ứng thì đánh cùng người khác hệ.)"
-					}
-				],
-				"objectiveTextHaven": "Tung Tia Haven vào Ông Rơm bên sông ({n}/{total})",
-				"onReady": [
-					{
-						"speaker": "inner",
-						"text": "Băng Giá! Ông Rơm phủ một lớp sương trắng, rồi những bông tuyết đầu tiên bay lả tả theo gió. Nước của cha, gió của tôi — hai sợi tơ thành một."
-					},
-					{
-						"speaker": "inner",
-						"text": "Kiếp trước, sinh nhật mẹ, tôi chỉ nhắn một dòng: “Con bận, mẹ thông cảm nhé.” Mẹ trả lời bằng một trái tim. Tôi chưa bao giờ biết mẹ đã chờ bao lâu."
-					}
-				],
-				"onComplete": {
-					"vfx": "frost",
-					"spot": "home",
-					"times": 10
-				}
-			},
-			{
-				"id": "y1_mushrooms",
-				"age": 16,
-				"title": "Nấm Ánh Lam",
-				"giver": "mirelle",
-				"objective": {
-					"type": "pickup",
-					"item": "mushroom",
-					"count": 3
-				},
-				"objectiveText": "Hái nấm phát sáng ở rừng Mossvale ({n}/{total})",
-				"turnIn": "mirelle",
-				"reward": {
-					"exp": 60,
-					"potions": 2
-				},
-				"before": [
-					{
-						"speaker": "mirelle",
-						"text": "Lior. Từ hồi con mang hũ mật ong sang làm sôi cả lọ thuốc của ta, tới giờ đã mười năm. Vẫn nhớ lời ta dặn chứ: đừng khoe vội."
-					},
-					{
-						"speaker": "mirelle",
-						"text": "Thuốc trị thương trong làng sắp hết. Trong rừng Mossvale, bên kia sông, có loại nấm phát ánh xanh lam."
-					},
-					{
-						"speaker": "mirelle",
-						"text": "Mang về cho ta ba cây. Và cẩn thận — dạo này ma vật không còn hiền như trước."
-					}
-				],
-				"progress": [
-					{
-						"speaker": "mirelle",
-						"text": "Nấm Ánh Lam mọc dưới bóng cây lớn trong rừng, bên kia sông. Ánh xanh lam rất dễ nhận ra."
-					}
-				],
-				"after": [
-					{
-						"speaker": "mirelle",
-						"text": "Đủ ba cây, lại còn tươi nữa. Giỏi lắm."
-					},
-					{
-						"speaker": "mirelle",
-						"text": "Giờ thì nhìn vào sợi Haven quanh vết thương — đừng kéo, hãy vuốt cho chúng thẳng lại. Như vậy."
-					},
-					{
-						"speaker": "mirelle",
-						"text": "Phép này cần dòng nước trong tay con đủ sâu. Luyện Thuỷ thêm đi, tới lúc tự khắc vuốt được."
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Suối Lành — phép hồi máu — học được khi nhánh Thuỷ đạt mốc 3. Cộng điểm ở bảng Tiềm năng.)"
-					},
-					{
-						"speaker": "mirelle",
-						"text": "Cầm lấy hai bình thuốc này."
-					}
-				],
-				"onGive": {
-					"pickups": {
-						"item": "mushroom",
-						"spots": [
-							"forest_spot_1",
-							"forest_spot_2",
-							"forest_spot_3",
-							"forest_spot_4",
-							"forest_spot_5",
-							"forest_spot_6"
-						]
-					}
-				}
-			},
-			{
-				"id": "y1b_grave_stele",
-				"age": 16,
-				"title": "Sợi tơ màu đất",
-				"giver": null,
-				"objective": {
-					"type": "talk",
-					"npc": "gy_stele"
-				},
-				"objectiveText": "Tới xem bia đá cổ ở Nghĩa địa Hoàng Hôn (qua cổng bắc)",
-				"turnIn": "gy_stele",
-				"reward": {
-					"exp": 0,
-					"unlockSkill": "earth"
-				},
-				"before": [
-					{
-						"speaker": "mirelle",
-						"text": "Còn một chuyện nữa, Lior. Chuyện này ta không nhờ được ai khác."
-					},
-					{
-						"speaker": "mirelle",
-						"text": "Qua cổng bắc là Nghĩa địa Hoàng Hôn. Mấy tuần nay mộ ở đó nứt từ bên dưới lên, và người nằm dưới ấy… không chịu nằm yên nữa."
-					},
-					{
-						"speaker": "mirelle",
-						"text": "Ngay đầu lối vào có một tấm bia đá, cổ hơn cả nhà thờ này. Người xưa dặn: bia còn đứng thì đất còn giữ được người đã khuất."
-					},
-					{
-						"speaker": "mirelle",
-						"text": "Ta nhìn nó chỉ thấy đá với rêu. Con thì nhìn được thứ khác. Tới xem giúp ta — đứng ở đầu lối vào thôi, đừng đi sâu vào các khu mộ."
-					},
-					{
-						"speaker": "inner",
-						"text": "Đất nghĩa địa thì có gì để nhìn? Nhưng hồi bốn tuổi, tôi cũng từng nghĩ cỏ thì có gì để nhìn."
-					}
-				],
-				"after": [
-					{
-						"speaker": "narrator",
-						"text": "(Tấm bia cao ngang vai, rêu phủ kín chân. Những vòng xoáy khắc trên mặt đá đã mòn gần hết, như thể nó mọc lên từ đất chứ không phải do ai dựng.)"
-					},
-					{
-						"speaker": "inner",
-						"text": "Lửa có sợi cam, nước có sợi lam, gió có sợi lục. Mười sáu năm nay tôi vẫn nghĩ đất là thứ duy nhất không có sợi nào."
-					},
-					{
-						"speaker": "inner",
-						"text": "Hoá ra có. Chỉ là chúng không trôi trong không khí. Chúng chạy dưới chân tôi, màu nâu sẫm, chậm và dày như rễ cây — và tất cả đều quấn quanh chân tấm bia này."
-					},
-					{
-						"speaker": "inner",
-						"text": "Vài sợi đã bị giật lỏng, đầu sợi lơ lửng như dây cáp ai rút vội khỏi máy. Thảo nào người nằm dưới kia không ngủ yên."
-					},
-					{
-						"speaker": "inner",
-						"text": "Kiếp trước, giỗ ông nội năm nào tôi cũng hẹn “năm sau con về”. Tới cuối cùng, tôi vẫn không biết mộ ông nằm ở hàng thứ mấy."
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Tôi đặt tay lên mặt đá. Sợi đất không xoắn theo ngón tay như sợi lửa, cũng không chảy theo tay như sợi nước. Nó không chiều ai cả. Nó chỉ chờ xem người chạm vào có chịu đứng yên không.)"
-					},
-					{
-						"speaker": "inner",
-						"text": "Tôi đứng yên. Lâu tới mức quên cả đếm. Rồi dưới lòng bàn tay, một sợi nâu khẽ siết lại — như có ai vừa nắm lấy tay tôi."
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Một hòn đá nhỏ dưới chân bia tự lăn tới mũi giày tôi. Mở nhánh Thổ — học Đá Văng (ném đá, đẩy lùi) ở bảng Tiềm năng (T) khi có điểm.)"
-					}
-				]
-			},
-			{
-				"id": "y1c_stone_dummy",
-				"age": 16,
-				"title": "Đá cho Ông Rơm",
-				"giver": null,
-				"objective": {
-					"type": "practice",
-					"element": "earth",
-					"count": 3,
-					"dummy": "dummy_backyard"
-				},
-				"objectiveText": "Về sân sau thử Đá Văng vào Ông Rơm ({n}/{total})",
-				"objectiveTextHaven": "Về sân sau thử Tia Haven vào Ông Rơm ({n}/{total})",
-				"turnIn": "elin",
-				"reward": {
-					"exp": 0,
-					"potions": 1
-				},
-				"before": [
-					{
-						"speaker": "inner",
-						"text": "Học được phép mới mà tung bừa giữa nghĩa địa thì không phải ý hay. Phải thử ở chỗ an toàn trước đã."
-					},
-					{
-						"speaker": "inner",
-						"text": "Ông Rơm ở sân sau nhà tôi đã sống sót qua lửa, nước, gió và băng. Thêm vài hòn đá chắc cũng không sao."
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Đá Văng học ở bảng Tiềm năng (T) khi có điểm. Chưa học thì tung Tia Haven (chuột phải) vào Ông Rơm cũng được.)"
-					}
-				],
-				"onReady": [
-					{
-						"speaker": "inner",
-						"text": "Phát đầu lăn lông lốc dưới đất. Phát thứ hai bay lệch, trúng ngay chậu húng quế của mẹ. Phát thứ ba trúng bụng, Ông Rơm ngả hẳn về sau rồi mới bật dậy."
-					}
-				],
-				"after": [
-					{
-						"speaker": "elin",
-						"text": "Mẹ còn tưởng có đứa nào ném đá vào nhà mình. Chậu húng quế thì con tự trồng lại nhé."
-					},
-					{
-						"speaker": "elin",
-						"text": "…Đá à? Bao năm nay mẹ chỉ biết nhóm bếp với gọi mưa. Đất thì mẹ chưa chạm được bao giờ."
-					},
-					{
-						"speaker": "elin",
-						"text": "Nó nặng lắm, phải không? Thứ gì giữ được người ta đứng vững thì bao giờ cũng nặng."
-					},
-					{
-						"speaker": "inner",
-						"text": "Mẹ không hỏi tôi đã thấy gì ở nghĩa địa. Mẹ chỉ phủi bụi đất trên tay áo tôi, như hồi tôi bốn tuổi."
-					},
-					{
-						"speaker": "elin",
-						"text": "Cầm thêm hũ mật này. Aldric chạy qua đây ba lần rồi đấy, hỏi con đi đâu. Ra cổng bắc đi — và về trước bữa tối."
-					}
-				]
-			},
-			{
-				"id": "y2_shadows",
-				"age": 16,
-				"title": "Bóng đen trong rừng",
-				"giver": "aldric",
-				"objective": {
-					"type": "kill",
-					"count": 12
-				},
-				"objectiveText": "Hạ ma vật ở Khoảng trống Mossvale ({n}/{total})",
-				"turnIn": "aldric",
-				"reward": {
-					"exp": 120,
-					"coins": 50
-				},
-				"onGive": {
-					"zone": "mossvale_clearing"
-				},
-				"before": [
-					{
-						"speaker": "aldric",
-						"text": "Lior! Đêm qua lính tuần thấy ánh đỏ trong rừng Mossvale. Ma vật đang tụ lại ở khoảng trống phía đông sông."
-					},
-					{
-						"speaker": "aldric",
-						"text": "Lính trong thị trấn không đủ người. Hạ chục con, cho chúng biết nơi này có người canh."
-					},
-					{
-						"speaker": "aldric",
-						"text": "Lời ngoéo tay năm tám tuổi vẫn còn nhé. Quỷ thật đấy, không phải nấm đâu."
-					},
-					{
-						"speaker": "aldric",
-						"text": "Cẩn thận đấy — tớ không muốn phải báo tin xấu cho cha mẹ cậu."
-					}
-				],
-				"progress": [
-					{
-						"speaker": "aldric",
-						"text": "Vẫn còn ma vật ở khoảng trống. Tớ mà không phải gác cổng thì đã đi cùng cậu rồi."
-					}
-				],
-				"after": [
-					{
-						"speaker": "aldric",
-						"text": "Mười mấy con thật à?! Cậu… cậu dùng phép kiểu gì vậy?"
-					},
-					{
-						"speaker": "aldric",
-						"text": "Nhưng có chuyện lạ: ánh đỏ đang mạnh lên ở phía bắc rừng, nơi có tảng đá phong ấn cổ."
-					},
-					{
-						"speaker": "aldric",
-						"text": "Người già bảo dưới đó nhốt một con quỷ từ thời Chiến tranh Ấn Ký. Lior, chỉ cậu mới tới đó kịp."
-					}
-				]
-			},
-			{
-				"id": "y3_demon",
-				"age": 16,
-				"title": "Ác quỷ thức giấc",
-				"giver": null,
-				"objective": {
-					"type": "boss",
-					"id": "boss_demon_001"
-				},
-				"objectiveText": "Tiêu diệt Quỷ vương ở phía bắc rừng Mossvale",
-				"turnIn": "auto",
-				"reward": {
-					"exp": 300
-				},
-				"before": [
-					{
-						"speaker": "inner",
-						"text": "Sợi đỏ giờ dày như sợi thừng, rỉ ra từ dưới tảng đá phong ấn phía bắc khoảng trống. Việc cần làm thì làm ngay. Chân tôi không còn ngắn nữa."
-					}
-				],
-				"after": [
-					{
-						"speaker": "inner",
-						"text": "Con quỷ tan thành tro dưới ánh trăng. Sợi đỏ phía bắc rừng đứt phựt, như dây đàn lên quá tay."
-					},
-					{
-						"speaker": "inner",
-						"text": "Trên mu bàn tay tôi hằn lên một ký hiệu lạ: một nút thắt. Đúng hình nút thắt trên đồng xu cũ của bác Bram."
-					},
-					{
-						"speaker": "inner",
-						"text": "Trong túi áo, đồng xu nóng ran, rồi nguội dần theo nhịp tim tôi."
-					},
-					{
-						"speaker": "inner",
-						"text": "Về tới đầu cầu, tôi thấy một bóng người cầm đèn đứng chờ. Là cha. Tôi gọi trước khi cha kịp gọi."
-					}
-				],
-				"onGive": {
-					"awakenBoss": true
-				}
-			},
-			{
-				"id": "c1_verdea",
-				"age": 16,
-				"title": "Bàn thờ dưới rêu",
-				"giver": null,
-				"objective": {
-					"type": "talk",
-					"npc": "gy_stele"
-				},
-				"objectiveText": "Về bia đá cổ ở Nghĩa địa Hoàng Hôn",
-				"turnIn": "gy_stele",
-				"reward": {
-					"exp": 1026,
-					"potions": 2
-				},
-				"before": [
-					{
-						"speaker": "inner",
-						"text": "Quỷ vương tan rồi, mà sợi đất dưới chân tôi vẫn kéo về một hướng: phía bắc, nơi tấm bia đá cổ đứng giữa nghĩa địa."
-					},
-					{
-						"speaker": "inner",
-						"text": "Lần trước tôi đặt tay lên đó, có ai đó siết lại. Lần này tôi muốn biết là ai."
-					}
-				],
-				"after": [
-					{
-						"speaker": "narrator",
-						"text": "(Rêu trên bia bong ra từng mảng. Dưới lớp rêu là hình khắc một người đàn bà tóc cỏ, váy kết bằng tổ ong. Đàn ong từ đâu bay tới, đậu kín vai tôi mà không đốt.)"
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Một giọng nói không phát ra từ đâu cả, chỉ vang lên trong đất dưới chân.)"
-					},
-					{
-						"speaker": "inner",
-						"text": "«Ta là Verdea. Ba trăm năm người ta khắc ta lên đá rồi quên. Con quỷ kia giật sợi của ta để thức, nên người chết không nằm yên.»"
-					},
-					{
-						"speaker": "inner",
-						"text": "«Ta không bảo ngươi đi đâu. Ta chỉ hỏi: ngươi có về thắp hương cho người đã khuất mỗi mùa gặt không? Quên một mùa, ong bỏ vườn mẹ ngươi.»"
-					},
-					{
-						"speaker": "lior",
-						"text": "Con hứa. Kiếp trước con lỡ hẹn với mộ ông nội cả chục năm. Kiếp này thì không."
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Đàn ong bay lên thành một vòng sáng rồi tan vào bia. Gặp Mẫu Thần Verdea — thần kỹ \"Rễ Mẹ\" sẽ mở bán ở cửa hàng kim cương.)"
-					},
-					{
-						"speaker": "inner",
-						"text": "Phía tây, qua Hẻm Cửa Sông, sợi đỏ vẫn còn rỉ ra từ một vùng đầm lầy. Đồng xu của bác Bram nóng lên mỗi lần tôi nhìn về hướng đó."
-					}
-				]
-			},
-			{
-				"id": "c2_arrive",
-				"age": 16,
-				"title": "Những người chết đuối dưới đập",
-				"giver": null,
-				"objective": {
-					"type": "talk",
-					"npc": "ysolde"
-				},
-				"objectiveText": "Sang Làng nhà sàn Lau Xám (qua Hẻm Cửa Sông, mép tây vùng 1) gặp bà Ysolde",
-				"turnIn": "ysolde",
-				"reward": {
-					"exp": 461
-				},
-				"before": [
-					{
-						"speaker": "inner",
-						"text": "Sương ở đây có vị. Tôi nếm thấy sắt và lá mục."
-					},
-					{
-						"speaker": "inner",
-						"text": "Người lái thuyền không nói một lời từ lúc nghe giọng Rowanmere của tôi. Những thân cây chết đứng thành hàng hai bên kênh, như một hàng rào ai cắm rồi quên."
-					}
-				],
-				"after": [
-					{
-						"speaker": "ysolde",
-						"text": "Người Rowanmere. Lâu lắm rồi mới có người Rowanmere dám bước lên nhà sàn này."
-					},
-					{
-						"speaker": "ysolde",
-						"text": "Chân cậu sưng rồi kìa. Rắn nước cắn ở bến phải không? Nyra, xem cho nó."
-					},
-					{
-						"speaker": "nyra",
-						"text": "Thuốc này đắng như sự thật. Uống hết, đừng nhăn mặt, tôi không có thời gian dỗ người Rowanmere."
-					},
-					{
-						"speaker": "inner",
-						"text": "Đắng thật. Nhưng sợi xanh lục quanh vết cắn thẳng lại ngay, như ai vuốt một mớ tóc rối."
-					},
-					{
-						"speaker": "ysolde",
-						"text": "Muốn ở lại thì làm việc. Ếch độc tràn lên bãi lau, nước mỗi năm một dâng. Đi đi, rồi về đây uống trà."
-					}
-				]
-			},
-			{
-				"id": "c2_frogs",
-				"age": 16,
-				"title": "Cột mốc khắc hươu",
-				"giver": "ysolde",
-				"objective": {
-					"type": "kill",
-					"monster": "mob_poison_frog_001",
-					"count": 30
-				},
-				"objectiveText": "Hạ ếch độc ở Bãi Lau Sậy ({n}/{total})",
-				"turnIn": "ysolde",
-				"reward": {
-					"exp": 2463,
-					"coins": 120
-				},
-				"before": [
-					{
-						"speaker": "ysolde",
-						"text": "Bãi Lau Sậy ở ngay phía nam làng. Ếch độc đẻ khắp nơi từ khi nước dâng. Diệt bớt cho dân còn ra cắt lau."
-					},
-					{
-						"speaker": "ysolde",
-						"text": "Giữa lau có mấy cột mốc gỗ cũ. Đừng đốt. Đó là thứ duy nhất còn lại của đội đắp đập."
-					}
-				],
-				"after": [
-					{
-						"speaker": "ysolde",
-						"text": "Dấu con hươu à? Thợ săn nào chẳng khắc dấu của mình."
-					},
-					{
-						"speaker": "father_garrick",
-						"text": "…Ừ. Dấu thợ săn. Ai cũng khắc vậy."
-					},
-					{
-						"speaker": "inner",
-						"text": "Cha tới từ lúc nào, tôi không biết. Cha nói dối. Sợi chỉ nối cha với cái cột mốc ngoài kia rung lên như dây đàn bị ai gảy."
-					},
-					{
-						"speaker": "ysolde",
-						"text": "(Bà nhìn cha tôi rất lâu, rồi rót cho ông chén trà cuối cùng còn trong ấm.)"
-					}
-				],
-				"onReady": [
-					{
-						"speaker": "narrator",
-						"text": "(Cột mốc gỗ mục gần hết, chỉ còn một hình khắc rõ: một con hươu đang ngoảnh lại.)"
-					},
-					{
-						"speaker": "inner",
-						"text": "Con hươu này tôi thấy mỗi sáng suốt mười sáu năm. Trên khung cửa nhà tôi, cạnh những vạch cha khắc chiều cao của tôi."
-					}
-				],
-				"progress": [
-					{
-						"speaker": "ysolde",
-						"text": "Ếch vẫn kêu ngoài bãi. Tai già này đếm được."
-					}
-				]
-			},
-			{
-				"id": "c2_roofs",
-				"age": 16,
-				"title": "Đèn cho mái nhà chìm",
-				"giver": null,
-				"objective": {
-					"type": "kill",
-					"monster": "mob_glow_mushroom_001",
-					"count": 30
-				},
-				"objectiveText": "Dọn nấm phát quang ở Rừng Ngập Nấm ({n}/{total})",
-				"turnIn": "auto",
-				"reward": {
-					"exp": 3397
-				},
-				"before": [
-					{
-						"speaker": "nyra",
-						"text": "Đi với tôi một đoạn. Không phải vì tôi tin cậu. Vì nấm ở đó cắn người, mà cậu thì cắn lại được."
-					},
-					{
-						"speaker": "inner",
-						"text": "Nấm phát quang mọc trên những mái nhà nhô lên khỏi mặt nước. Cả một ngôi làng nằm dưới chân chúng tôi."
-					}
-				],
-				"after": [
-					{
-						"speaker": "nyra",
-						"text": "Mái nhà kia là nhà tôi. Năm tôi bốn tuổi, đập vỡ. Mẹ ôm tôi trèo lên cây. Cha tôi quay lại cứu con bò."
-					},
-					{
-						"speaker": "nyra",
-						"text": "Con bò sống. Cha tôi thì không. Buồn cười không?"
-					},
-					{
-						"speaker": "inner",
-						"text": "Không buồn cười. Phía sau tôi, cha đứng im, tay siết cán dao đến trắng khớp. Tôi không dám quay lại nhìn mặt cha."
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Nyra cắm một cây nấm phát quang lên mái nhà, làm đèn cho mộ.)"
-					}
-				]
-			},
-			{
-				"id": "c2_journal",
-				"age": 16,
-				"title": "Chữ ký \"Đ.\"",
-				"giver": null,
-				"objective": {
-					"type": "kill",
-					"monster": "mob_water_snake_001",
-					"count": 30
-				},
-				"objectiveText": "Hạ rắn nước quanh xác thuyền ở Đầm Rắn Nước ({n}/{total})",
-				"turnIn": "ysolde",
-				"reward": {
-					"exp": 4183,
-					"coins": 150
-				},
-				"before": [
-					{
-						"speaker": "inner",
-						"text": "Rắn nước tụ quanh một xác thuyền lớn mắc cạn giữa đầm. Trên mạn thuyền vẫn còn vết sơn của đội đắp đập."
-					}
-				],
-				"after": [
-					{
-						"speaker": "ysolde",
-						"text": "Trinh sát G… Ta biết từ lâu rồi, cậu bé. Ấm trà của ta có khắc con hươu dưới đáy. Một đêm trước khi đập xây xong, có người uống trà trong nhà ta."
-					},
-					{
-						"speaker": "ysolde",
-						"text": "Ta không đòi ai quỳ. Ta chỉ muốn người đó nói ra một lần, trước mặt đứa con gái mất cha."
-					},
-					{
-						"speaker": "inner",
-						"text": "\"Để sau\" là câu cả đời trước tôi hay nói nhất. Nhìn cha lúc này, tôi biết nó là câu của ai."
-					}
-				],
-				"onReady": [
-					{
-						"speaker": "narrator",
-						"text": "(Trong hòm thuyền có một cuốn nhật ký ngấm nước. Trang gần cuối: \"Trinh sát G. dẫn lối an toàn qua đầm. Làng phía dưới đã được báo.\")"
-					},
-					{
-						"speaker": "inner",
-						"text": "Làng chưa từng được báo. Nyra kể rồi."
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Trang cuối có một chữ ký khác, nét lạ, viết bằng thứ chữ tôi chưa thấy ở thế giới này: \"Đ.\")"
-					},
-					{
-						"speaker": "inner",
-						"text": "Không phải chữ của thế giới này. Là chữ của thế giới cũ. Chữ của tôi."
-					}
-				]
-			},
-			{
-				"id": "c2_mother_frog",
-				"age": 16,
-				"title": "Cửa cống Kênh Đỉa",
-				"giver": null,
-				"objective": {
-					"type": "kill",
-					"monster": "boss_mother_frog_001",
-					"count": 1
-				},
-				"objectiveText": "Mở cống: hạ Mẹ Ếch ở Kênh Đỉa",
-				"turnIn": "auto",
-				"reward": {
-					"exp": 11417,
-					"potions": 2
-				},
-				"before": [
-					{
-						"speaker": "nyra",
-						"text": "Kênh Đỉa do Đoàn đào để dẫn nước về Mối. Mẹ Ếch đẻ trứng ngay trong cống, ai lại gần là nó phun độc."
-					},
-					{
-						"speaker": "nyra",
-						"text": "Nó chỉ giữ trứng thôi. Nhưng cống không mở thì nước không rút, làng tôi chìm thêm một tấc mỗi mùa."
-					}
-				],
-				"after": [
-					{
-						"speaker": "narrator",
-						"text": "(Cửa cống kẽo kẹt mở ra. Nước bùn chảy xiết về phía Hồ Hydra.)"
-					},
-					{
-						"speaker": "nyra",
-						"text": "Cậu dời mấy ổ trứng ra mép đầm trước khi đánh. Tôi thấy rồi."
-					},
-					{
-						"speaker": "nyra",
-						"text": "…Người Rowanmere mà cũng biết thương con ếch."
-					}
-				]
-			},
-			{
-				"id": "c2_witch",
-				"age": 16,
-				"title": "Kẻ khắc hươu",
-				"giver": null,
-				"objective": {
-					"type": "kill",
-					"monster": "boss_swamp_witch_001",
-					"count": 1
-				},
-				"objectiveText": "Vượt sương, gặp Phù thuỷ đầm ở Vực Sương Xanh",
-				"turnIn": "auto",
-				"reward": {
-					"exp": 20395,
-					"coins": 300
-				},
-				"before": [
-					{
-						"speaker": "inner",
-						"text": "Sương ở Vực Sương Xanh dày tới mức tôi không thấy tay mình. Nhưng sợi Haven thì vẫn thấy. Tôi đi theo sợi."
-					},
-					{
-						"speaker": "odessa",
-						"text": "Người Rowanmere. Và… kẻ khắc hươu. Hai mươi năm, cuối cùng mi cũng dám bước vào sương của ta."
-					},
-					{
-						"speaker": "father_garrick",
-						"text": "Odessa. Tôi—"
-					},
-					{
-						"speaker": "odessa",
-						"text": "Im! Mi nói câu đó muộn hai mươi năm rồi."
-					}
-				],
-				"after": [
-					{
-						"speaker": "odessa",
-						"text": "Ta giữ sương để quái không vào làng. Ta nuôi Hydra để một ngày trả thù Rowanmere. Hai việc đó ta làm bằng cùng một đôi tay."
-					},
-					{
-						"speaker": "odessa",
-						"text": "Ngươi thắng. Vậy xin ngươi một điều: đừng để con bé đi theo người Rowanmere."
-					},
-					{
-						"speaker": "nyra",
-						"text": "Mẹ…"
-					},
-					{
-						"speaker": "inner",
-						"text": "Cha bước lên một bước, rồi đứng lại. Chuyện này chưa xong. Nó chỉ vừa bắt đầu."
-					}
-				]
-			},
-			{
-				"id": "c2_hydra",
-				"age": 16,
-				"title": "Hồ Hydra",
-				"giver": null,
-				"objective": {
-					"type": "kill",
-					"monster": "boss_mud_hydra_001",
-					"count": 1
-				},
-				"objectiveText": "Hạ Hydra bùn ở Hồ Hydra",
-				"turnIn": "auto",
-				"reward": {
-					"exp": 32049,
-					"potions": 3
-				},
-				"before": [
-					{
-						"speaker": "inner",
-						"text": "Hydra bùn lớn lên từ xác làng cũ dưới đáy hồ và từ hai mươi năm oán hận. Đầu nào bị chém cũng mọc lại."
-					},
-					{
-						"speaker": "inner",
-						"text": "Nhưng mỗi cái cổ đều có một sợi bùn nối về cửa cống. Cắt sợi trước, chém cổ sau."
-					}
-				],
-				"after": [
-					{
-						"speaker": "narrator",
-						"text": "(Hydra đổ sập. Mặt hồ rút xuống từng gang, để lộ những mái nhà phủ bùn của làng cũ.)"
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Giữa sân bùn, một cái đầu rắn bằng đá trắng nhô lên, mắt khảm đá xanh ngọc. Sợi nước quanh nó đang chảy ngược.)"
-					}
-				]
-			},
-			{
-				"id": "c2_nereth",
-				"age": 16,
-				"title": "Thuỷ Thần Nereth",
-				"giver": null,
-				"objective": {
-					"type": "talk",
-					"npc": "god_nereth"
-				},
-				"objectiveText": "Tới tượng đầu rắn trắng ở Hồ Hydra",
-				"turnIn": "god_nereth",
-				"reward": {
-					"exp": 23308,
-					"coins": 500
-				},
-				"before": [
-					{
-						"speaker": "inner",
-						"text": "Con đập chặn dòng nước ngầm. Hydra mọc lên từ chỗ dòng nước ấy mục ra. Vậy thì ai là chủ của dòng nước?"
-					}
-				],
-				"after": [
-					{
-						"speaker": "narrator",
-						"text": "(Tượng đá nứt dọc. Từ khe nứt, một con rắn trắng dài như con kênh trườn ra, vảy trong như sương, sừng mọc như lau sậy.)"
-					},
-					{
-						"speaker": "inner",
-						"text": "«Ta là Nereth. Đập của người Rowanmere chặn mạch máu của ta. Phần thân bị chặn mục ra thành con quái ngươi vừa giết.»"
-					},
-					{
-						"speaker": "inner",
-						"text": "«Ta không dẫn đường cho ai. Ta chỉ đổi: ta cho ngươi đi xuyên sương không bao giờ lạc. Đổi lại, mỗi lần đứng trong nước, ngươi sẽ nghe người chết đuối gọi.»"
-					},
-					{
-						"speaker": "lior",
-						"text": "Con nhận. Họ đáng được có người nghe."
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Gặp Thuỷ Thần Nereth — thần kỹ \"Sương Thuỷ Mạch\" sẽ mở bán ở cửa hàng kim cương.)"
-					},
-					{
-						"speaker": "nyra",
-						"text": "Tôi đi với cậu. Đừng hiểu lầm. Tôi muốn tận mắt thấy người Rowanmere trả nợ."
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Một con chim ưng của Đoàn thả xuống mảnh giấy có ấn đỏ: \"Hiệp sĩ Aldric được phong tước. Lần sau gặp, chúng ta sẽ bàn về đồng xu.\")"
-					},
-					{
-						"speaker": "inner",
-						"text": "Lối tây của Vực Sương Xanh dẫn ra một biển cát đỏ. Sa mạc Hồng Cát."
-					}
-				]
-			},
-			{
-				"id": "c3_arrive",
-				"age": 16,
-				"title": "Nước của nữ hoàng",
-				"giver": null,
-				"objective": {
-					"type": "talk",
-					"npc": "amira"
-				},
-				"objectiveText": "Sang Thành ốc đảo Sahrin (lối tây Vực Sương Xanh) yết kiến nữ hoàng Amira",
-				"turnIn": "amira",
-				"reward": {
-					"exp": 4662
-				},
-				"before": [
-					{
-						"speaker": "inner",
-						"text": "Ốc đảo Sahrin hiện ra như một chiếc khiên xanh giữa biển cát đỏ."
-					},
-					{
-						"speaker": "inner",
-						"text": "Bác Bram kéo khăn che mặt lên tới tận mắt. Chuyện chưa từng thấy. Ở cổng thành, lính gác đọc tên bác trong sổ, rồi đọc lại lần nữa."
-					}
-				],
-				"after": [
-					{
-						"speaker": "amira",
-						"text": "Những người đã giết Quỷ vương. Sahrin mở tiệc đón các người, dù giếng hoàng gia mỗi tuần thấp thêm một gang."
-					},
-					{
-						"speaker": "amira",
-						"text": "Còn người thương nhân đi cùng các người… Bram. Mười lăm năm trước, đêm mẹ ông bị xử, ông đã ở đâu?"
-					},
-					{
-						"speaker": "bram",
-						"text": "(Bác không trả lời nữ hoàng. Lúc tiệc tan, bác nói nhỏ với tôi một câu duy nhất.) Đừng tìm Zahra."
-					},
-					{
-						"speaker": "amira",
-						"text": "Đoàn buôn nước của triều đình bị cướp ba lần trong tháng. Ta cần người đi hộ tống. Người không sợ bọ cạp."
-					}
-				]
-			},
-			{
-				"id": "c3_caravan",
-				"age": 16,
-				"title": "Kẻ cướp chia nước",
-				"giver": "amira",
-				"objective": {
-					"type": "kill",
-					"monster": "mob_scorpion_001",
-					"count": 30
-				},
-				"objectiveText": "Hộ tống đoàn buôn nước: hạ bọ cạp ở Cồn Cát Đỏ ({n}/{total})",
-				"turnIn": "amira",
-				"reward": {
-					"exp": 13230,
-					"coins": 300
-				},
-				"before": [
-					{
-						"speaker": "amira",
-						"text": "Cồn Cát Đỏ ở ngay phía nam thành. Bọ cạp đào hang dưới đường xe. Giữ cho đoàn nước qua được."
-					}
-				],
-				"after": [
-					{
-						"speaker": "amira",
-						"text": "Mất hai thùng. Ta nghe rồi. Họ chia nước cho dân ngoài thành."
-					},
-					{
-						"speaker": "amira",
-						"text": "Ngươi biết điều tệ nhất là gì không? Ta không chắc họ sai."
-					}
-				],
-				"onReady": [
-					{
-						"speaker": "narrator",
-						"text": "(Đoàn xe vừa qua cồn thì một toán người bịt mặt lao ra. Họ không đánh ai. Họ khiêng hai thùng nước đi, chia cho dân nghèo ngoài thành, từng gáo một.)"
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Người cầm đầu là một phụ nữ đeo mặt nạ. Cô nhìn bác Bram rất lâu, rồi biến mất sau cồn cát.)"
-					}
-				],
-				"progress": [
-					{
-						"speaker": "amira",
-						"text": "Đoàn nước còn kẹt ở cồn cát. Bọ cạp không biết thương xe nước đâu."
-					}
-				]
-			},
-			{
-				"id": "c3_tombs",
-				"age": 16,
-				"title": "Cái tên bị đục",
-				"giver": null,
-				"objective": {
-					"type": "kill",
-					"monster": "mob_mummy_001",
-					"count": 30
-				},
-				"objectiveText": "Hạ xác ướp canh Lăng Mộ Cát ({n}/{total})",
-				"turnIn": "auto",
-				"reward": {
-					"exp": 18437
-				},
-				"before": [
-					{
-						"speaker": "inner",
-						"text": "Lăng Mộ Cát là nơi chôn các vị vua đã ký Giao Ước. Xác ướp vẫn canh từng bậc thềm, ba trăm năm không ngủ."
-					}
-				],
-				"after": [
-					{
-						"speaker": "narrator",
-						"text": "(Tường lăng khắc lời hứa: \"Sahrin được một ghế trong hội đồng Bảy Mối.\" Ngay chỗ tên Sahrin là một vết đục.)"
-					},
-					{
-						"speaker": "inner",
-						"text": "Tôi chạm vào vết đục. Sợi Haven quanh đó vẫn nhớ hình con chữ, như vết lõm trên gối còn nhớ đầu người."
-					},
-					{
-						"speaker": "inner",
-						"text": "Vết đục còn mới hơn phần đá xung quanh. Ai đó đã xoá Sahrin khỏi Giao Ước. Không phải ba trăm năm trước. Mới đây thôi."
-					}
-				]
-			},
-			{
-				"id": "c3_vultures",
-				"age": 16,
-				"title": "Cỗ máy \"v2.1\"",
-				"giver": null,
-				"objective": {
-					"type": "kill",
-					"monster": "mob_vulture_001",
-					"count": 30
-				},
-				"objectiveText": "Đuổi kền kền ở Vách Kền Kền ({n}/{total})",
-				"turnIn": "amira",
-				"reward": {
-					"exp": 20594,
-					"coins": 350
-				},
-				"before": [
-					{
-						"speaker": "inner",
-						"text": "Kền kền lượn thành vòng trên Vách Kền Kền. Dưới đáy vòng tròn là một đội lính của nữ hoàng."
-					}
-				],
-				"after": [
-					{
-						"speaker": "amira",
-						"text": "Hassim. Người ta tin như tin cái giếng."
-					},
-					{
-						"speaker": "hassim",
-						"text": "(Ở cuối hành lang, tể tướng mỉm cười với tôi, rồi quay đi. Nụ cười của người đã tính trước nước đi tiếp theo.)"
-					},
-					{
-						"speaker": "amira",
-						"text": "Ta không bắt được hắn khi chưa có bản Giao Ước gốc. Nó nằm trong Đền Vùi Cát, có người canh từ ba trăm năm."
-					}
-				],
-				"onReady": [
-					{
-						"speaker": "narrator",
-						"text": "(Trong túi đội trưởng có một bức thư mang ấn tể tướng Hassim, ra lệnh đưa đội đi vào chỗ không có nước.)"
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Cạnh xác lính là một cỗ máy khoan bằng sắt, đinh tán thẳng hàng. Trên vỏ máy khắc: \"v2.1\".)"
-					},
-					{
-						"speaker": "inner",
-						"text": "v2.1. Số phiên bản. Ở thế giới này không ai đánh số phiên bản. Trừ người từng viết phần mềm."
-					}
-				]
-			},
-			{
-				"id": "c3_scorpion_queen",
-				"age": 16,
-				"title": "Em gái Bram",
-				"giver": null,
-				"objective": {
-					"type": "kill",
-					"monster": "boss_scorpion_queen_001",
-					"count": 1
-				},
-				"objectiveText": "Tìm hang phe nổi dậy: đối mặt Bọ cạp chúa ở Hẻm Rắn",
-				"turnIn": "auto",
-				"reward": {
-					"exp": 44502,
-					"potions": 2
-				},
-				"before": [
-					{
-						"speaker": "inner",
-						"text": "Dấu xe nước dẫn về Hẻm Rắn. Ở đó có một cái giếng bí mật, và một con bọ cạp to như căn nhà nằm canh miệng giếng."
-					},
-					{
-						"speaker": "zahra",
-						"text": "Nó là thú cưỡi cũ của hoàng gia. Bị bỏ đói từ ngày triều đình bán nước. Đừng thương nó quá, nó ăn người đấy."
-					}
-				],
-				"after": [
-					{
-						"speaker": "narrator",
-						"text": "(Người phụ nữ đeo mặt nạ tháo mặt nạ ra. Đôi mắt giống hệt bác Bram.)"
-					},
-					{
-						"speaker": "zahra",
-						"text": "Tôi là Zahra. Em gái của người đàn ông đang trốn sau lưng cậu."
-					},
-					{
-						"speaker": "zahra",
-						"text": "Anh ấy về muộn mười lăm năm. Đừng bắt tôi phải mừng."
-					},
-					{
-						"speaker": "bram",
-						"text": "…Zahra."
-					}
-				]
-			},
-			{
-				"id": "c3_pharaoh",
-				"age": 16,
-				"title": "Bản Giao Ước gốc",
-				"giver": null,
-				"objective": {
-					"type": "kill",
-					"monster": "boss_pharaoh_001",
-					"count": 1
-				},
-				"objectiveText": "Vào Đền Vùi Cát: hạ Pharaoh xác ướp",
-				"turnIn": "auto",
-				"reward": {
-					"exp": 58525,
-					"coins": 600
-				},
-				"before": [
-					{
-						"speaker": "inner",
-						"text": "Pharaoh là vị vua Sahrin đầu tiên ký vào Giao Ước. Người ta trói hồn ông ba trăm năm để giữ bản gốc."
-					}
-				],
-				"after": [
-					{
-						"speaker": "narrator",
-						"text": "(Xác ướp đổ xuống như một chiếc áo rỗng. Trong lòng tay ông là một cuộn giấy da đã ố vàng: bản Giao Ước gốc, tên Sahrin còn nguyên.)"
-					},
-					{
-						"speaker": "inner",
-						"text": "Ba trăm năm giữ một tờ giấy. Kiếp trước tôi còn không giữ nổi một lời hẹn ăn tối."
-					}
-				]
-			},
-			{
-				"id": "c3_sandworm",
-				"age": 16,
-				"title": "Hố Cát Nuốt",
-				"giver": null,
-				"objective": {
-					"type": "kill",
-					"monster": "boss_sandworm_001",
-					"count": 1
-				},
-				"objectiveText": "Hạ Sâu cát khổng lồ ở Hố Cát Nuốt",
-				"turnIn": "auto",
-				"reward": {
-					"exp": 91968,
-					"potions": 3
-				},
-				"before": [
-					{
-						"speaker": "inner",
-						"text": "Hassim mở cống ngầm hút cạn ốc đảo. Cả thành rung lên. Sâu cát khổng lồ trồi lên từ Hố Cát Nuốt."
-					},
-					{
-						"speaker": "inner",
-						"text": "Bác Bram bị treo làm mồi trên miệng hố. Tôi không có thời gian để nói \"để sau\"."
-					}
-				],
-				"after": [
-					{
-						"speaker": "narrator",
-						"text": "(Con sâu sụp xuống, kéo theo nửa miệng hố. Tôi kịp cắt dây cho bác Bram.)"
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Dưới đáy hố, cát chảy thành hình một con nhân sư bằng đá, nửa thân còn vùi. Quanh nó, nắng đọng lại như mật.)"
-					}
-				]
-			},
-			{
-				"id": "c3_sahra",
-				"age": 16,
-				"title": "Thái Dương Thần Sahra",
-				"giver": null,
-				"objective": {
-					"type": "talk",
-					"npc": "god_sahra"
-				},
-				"objectiveText": "Tới tượng nhân sư dưới đáy Hố Cát Nuốt",
-				"turnIn": "god_sahra",
-				"reward": {
-					"exp": 66886,
-					"coins": 800
-				},
-				"before": [
-					{
-						"speaker": "inner",
-						"text": "Sâu cát nuốt ánh sáng của cả sa mạc. Giờ nó chết rồi, ánh sáng ấy đi đâu?"
-					}
-				],
-				"after": [
-					{
-						"speaker": "narrator",
-						"text": "(Tượng nhân sư nứt ra. Một con chim ưng lửa bay lên, sải cánh rộng như cổng thành, lông vàng đỏ như cát lúc hoàng hôn.)"
-					},
-					{
-						"speaker": "inner",
-						"text": "«Ta là Sahra. Người ta đục tên Sahrin khỏi Giao Ước, rồi chôn ta dưới cát để không ai đọc lại được.»"
-					},
-					{
-						"speaker": "inner",
-						"text": "«Ta cho ngươi thấy mọi chữ đã bị đục. Đổi lại, ngươi không bao giờ được nói dối dưới nắng. Nói dối, bóng của ngươi sẽ bỏ đi.»"
-					},
-					{
-						"speaker": "lior",
-						"text": "Con nhận. Kiếp trước con nói dối nhiều nhất bằng hai chữ \"con bận\"."
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Gặp Thái Dương Thần Sahra — thần kỹ \"Mặt Trời Rực\" sẽ mở bán ở cửa hàng kim cương.)"
-					},
-					{
-						"speaker": "zahra",
-						"text": "(Ở sân thành, Zahra không tha thứ cho anh trai. Nhưng cô ném cho bác chiếc khăn của mẹ.)"
-					},
-					{
-						"speaker": "inner",
-						"text": "Hassim trốn lên cao nguyên, mang theo cỗ máy hút nước. Lối tây của Đền Vùi Cát dẫn lên những ngọn đồi lộng gió."
-					}
-				]
-			},
-			{
-				"id": "c4_arrive",
-				"age": 16,
-				"title": "Bạn cũ, cờ mới",
-				"giver": null,
-				"objective": {
-					"type": "talk",
-					"npc": "aldric_hl"
-				},
-				"objectiveText": "Lên Làng Cối Xay Gió (lối tây Đền Vùi Cát) tìm Aldric",
-				"turnIn": "aldric_hl",
-				"reward": {
-					"exp": 13377
-				},
-				"before": [
-					{
-						"speaker": "inner",
-						"text": "Trên cao nguyên, gió phải gào. Ở đây gió chỉ thì thào. Cánh cối xay đứng im như những cánh tay giơ lên đầu hàng."
-					},
-					{
-						"speaker": "inner",
-						"text": "Giữa đồng cỏ là ngọn tháp sắt đầu tiên tôi thấy ở thế giới này. Đinh tán thẳng hàng. Ốc vít lục giác."
-					}
-				],
-				"after": [
-					{
-						"speaker": "aldric_hl",
-						"text": "Lior! Thằng quỷ này, cậu giết được Quỷ vương thật à?! Lại đây!"
-					},
-					{
-						"speaker": "aldric_hl",
-						"text": "(Cậu ôm chầm lấy tôi, rồi khựng lại khi thấy Nyra.) …Phù thuỷ đầm?"
-					},
-					{
-						"speaker": "nyra",
-						"text": "Thầy thuốc. Nếu anh bị sói cắn thì sẽ biết khác nhau thế nào."
-					},
-					{
-						"speaker": "wenna",
-						"text": "(Bà chủ cối xay dúi vào tay tôi túi bột mì cuối cùng, nói nhỏ khi Aldric quay đi.) Gió cạn từ ngày có cái tháp ấy. Đừng nói với hiệp sĩ là tôi nói."
-					}
-				]
-			},
-			{
-				"id": "c4_wolves",
-				"age": 16,
-				"title": "Lưng tựa lưng",
-				"giver": "aldric_hl",
-				"objective": {
-					"type": "kill",
-					"monster": "mob_wind_wolf_001",
-					"count": 30
-				},
-				"objectiveText": "Cùng Aldric hạ sói gió ở Đồi Cỏ Cao ({n}/{total})",
-				"turnIn": "aldric_hl",
-				"reward": {
-					"exp": 36420,
-					"coins": 450
-				},
-				"before": [
-					{
-						"speaker": "aldric_hl",
-						"text": "Sói gió hoá điên từ khi gió yếu đi. Đồi Cỏ Cao ở phía nam làng. Như hồi tám tuổi nhé: cậu đứng sau, tớ đứng trước."
-					},
-					{
-						"speaker": "aldric_hl",
-						"text": "À không. Lần này cậu đứng trước. Cậu mạnh hơn tớ rồi."
-					}
-				],
-				"after": [
-					{
-						"speaker": "aldric_hl",
-						"text": "Đánh lưng tựa lưng vẫn ăn ý nhỉ. Như hồi diệt \"rồng\" ở bìa rừng."
-					},
-					{
-						"speaker": "aldric_hl",
-						"text": "Lời ngoéo tay vẫn còn đó, Lior. Tớ vẫn đang đi đánh Quỷ vương thật đây. Chỉ là… dạo này tớ không chắc ai là Quỷ vương nữa."
-					}
-				],
-				"progress": [
-					{
-						"speaker": "aldric_hl",
-						"text": "Còn sói trên đồi. Tớ nghe tiếng tru từ đây."
-					}
-				]
-			},
-			{
-				"id": "c4_fairies",
-				"age": 16,
-				"title": "Chuyện của tiên già",
-				"giver": null,
-				"objective": {
-					"type": "kill",
-					"monster": "mob_wind_fairy_001",
-					"count": 30
-				},
-				"objectiveText": "Ru ngủ tiên gió hoá điên ở Thung Lũng Tiên ({n}/{total})",
-				"turnIn": "auto",
-				"reward": {
-					"exp": 47132
-				},
-				"before": [
-					{
-						"speaker": "inner",
-						"text": "Tiên gió mất nhà vì gió cạn. Chúng hoá điên, quay như lá khô trong cơn lốc. Đánh cho chúng ngất đi là cách duy nhất để chúng ngủ."
-					}
-				],
-				"after": [
-					{
-						"speaker": "narrator",
-						"text": "(Một tiên già, ánh sáng mờ như đom đóm cuối mùa, đậu lên vai tôi.)"
-					},
-					{
-						"speaker": "inner",
-						"text": "«Ba trăm năm trước có một pháp sư Lumeria tên Ostrin buộc Mối Phong. Khi đó ta còn là một đốm sáng. Tuyệt Vân, con rồng gió, giữ Mối từ đó tới giờ.»"
-					},
-					{
-						"speaker": "inner",
-						"text": "«Gió bây giờ không còn đi lối của Tuyệt Vân. Gió đi vào những cái tháp sắt.»"
-					}
-				]
-			},
-			{
-				"id": "c4_floatstones",
-				"age": 16,
-				"title": "Bản vẽ của Kiến Trúc Sư",
-				"giver": null,
-				"objective": {
-					"type": "kill",
-					"monster": "mob_flying_rock_001",
-					"count": 30
-				},
-				"objectiveText": "Hạ đá bay rơi xuống ở Bãi Đá Bay ({n}/{total})",
-				"turnIn": "aldric_hl",
-				"reward": {
-					"exp": 50937,
-					"coins": 500
-				},
-				"before": [
-					{
-						"speaker": "inner",
-						"text": "Gió yếu thì đá bay rơi. Nửa làng ven Bãi Đá Bay đã bị đè sập."
-					}
-				],
-				"after": [
-					{
-						"speaker": "aldric_hl",
-						"text": "Tớ… ký lệnh nghiệm thu. Đoàn bảo đó là tháp đo gió. Tớ không đọc kỹ."
-					},
-					{
-						"speaker": "aldric_hl",
-						"text": "Tớ không đọc kỹ, Lior. Hiệp sĩ mà không đọc kỹ."
-					},
-					{
-						"speaker": "inner",
-						"text": "Kiếp trước tôi cũng từng ký những thứ mình không đọc kỹ, vì sếp bảo \"cứ ký đi, để sau tính\". Tôi biết cảm giác đó. Tôi không nói ra."
-					}
-				],
-				"onReady": [
-					{
-						"speaker": "narrator",
-						"text": "(Sau tảng đá cuối cùng, tôi thấy Hassim đang lắp cỗ máy Sahrin vào chân tháp sắt. Hắn bỏ chạy, đánh rơi một cuộn bản vẽ.)"
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Bản vẽ lắp ráp ghi người thiết kế: \"Kiến Trúc Sư\". Bên dưới, ô nghiệm thu có chữ ký: \"Hiệp sĩ Aldric\".)"
-					}
-				]
-			},
-			{
-				"id": "c4_eagle",
-				"age": 16,
-				"title": "Ba quả trứng",
-				"giver": null,
-				"objective": {
-					"type": "kill",
-					"monster": "boss_storm_eagle_001",
-					"count": 1
-				},
-				"objectiveText": "Leo Vách Chim Ưng: đối mặt Đại bàng bão",
-				"turnIn": "auto",
-				"reward": {
-					"exp": 100961,
-					"potions": 2
-				},
-				"before": [
-					{
-						"speaker": "aldric_hl",
-						"text": "Lệnh của Đoàn: giết đại bàng bão làm tổ trên tháp thu gió. Tớ đi với cậu tới chân vách."
-					},
-					{
-						"speaker": "inner",
-						"text": "Trên đỉnh vách, trong tổ có ba quả trứng. Đại bàng không làm tổ trên tháp vì muốn phá tháp. Nó làm tổ ở đó vì đó là chỗ duy nhất còn gió."
-					}
-				],
-				"after": [
-					{
-						"speaker": "narrator",
-						"text": "(Đại bàng bão bay vút lên mây. Ba quả trứng vẫn nằm yên trong tổ.)"
-					},
-					{
-						"speaker": "inner",
-						"text": "Tôi không báo cáo với Đoàn về ba quả trứng. Aldric cũng không hỏi."
-					}
-				]
-			},
-			{
-				"id": "c4_orrin",
-				"age": 16,
-				"title": "Người dựng tháp",
-				"giver": null,
-				"objective": {
-					"type": "kill",
-					"monster": "boss_wind_mage_001",
-					"count": 1
-				},
-				"objectiveText": "Gặp Pháp sư gió ở Đàn Tế Gió (Cổng Mây)",
-				"turnIn": "auto",
-				"reward": {
-					"exp": 123647,
-					"coins": 900
-				},
-				"before": [
-					{
-						"speaker": "orrin",
-						"text": "Ta là Orrin. Chính tay ta dựng những ngọn tháp ấy cho Đoàn, theo bản vẽ của Kiến Trúc Sư."
-					},
-					{
-						"speaker": "orrin",
-						"text": "Hắn nói như ra lệnh cho cả cơn gió. Ta nghe theo. Giờ ta muốn phá chúng, và Đoàn gửi một hiệp sĩ tới bắt ta."
-					},
-					{
-						"speaker": "aldric_hl",
-						"text": "Lệnh là lệnh, ông già. Lior, tránh ra."
-					}
-				],
-				"after": [
-					{
-						"speaker": "orrin",
-						"text": "Ngươi đánh để ta còn sống mà phá tháp, hay để hiệp sĩ kia khỏi phải bắt ta? Thôi được. Kết quả như nhau."
-					},
-					{
-						"speaker": "aldric_hl",
-						"text": "(Aldric tra kiếm vào vỏ.) Tớ sẽ báo là ông ta chạy mất. Lần đầu tiên tớ nói dối Đoàn."
-					}
-				]
-			},
-			{
-				"id": "c4_drake",
-				"age": 16,
-				"title": "Đền Trên Mây",
-				"giver": null,
-				"objective": {
-					"type": "kill",
-					"monster": "boss_wind_drake_001",
-					"count": 1
-				},
-				"objectiveText": "Hạ Rồng gió ở Đền Trên Mây",
-				"turnIn": "auto",
-				"reward": {
-					"exp": 194303,
-					"potions": 3
-				},
-				"before": [
-					{
-						"speaker": "inner",
-						"text": "Rồng gió là con của Tuyệt Vân. Mối Phong bị hút, nó điên lên vì đói gió. Nó không ác. Nó chỉ đói."
-					}
-				],
-				"after": [
-					{
-						"speaker": "narrator",
-						"text": "(Rồng gió đổ xuống thềm đền. Gió từ đâu kéo về, cuốn mây quanh một bức tượng chim đá bốn cánh ở cuối sân.)"
-					}
-				]
-			},
-			{
-				"id": "c4_aeolin",
-				"age": 16,
-				"title": "Phong Thần Aeolin",
-				"giver": null,
-				"objective": {
-					"type": "talk",
-					"npc": "god_aeolin"
-				},
-				"objectiveText": "Tới tượng chim bốn cánh ở Đền Trên Mây",
-				"turnIn": "god_aeolin",
-				"reward": {
-					"exp": 141311,
-					"coins": 1200
-				},
-				"before": [
-					{
-						"speaker": "inner",
-						"text": "Gió cuốn quanh bức tượng thành bốn luồng khác màu. Như thể nó đang thở."
-					}
-				],
-				"after": [
-					{
-						"speaker": "narrator",
-						"text": "(Bức tượng tan thành mây. Một con đại bàng trắng bốn cánh sải ra, mỗi cánh là một luồng gió khác màu, đuôi kéo thành mây.)"
-					},
-					{
-						"speaker": "inner",
-						"text": "«Ta là Aeolin. Những cái tháp sắt hút gió của ta. Con rồng ngươi vừa hạ chỉ là đứa trẻ đói.»"
-					},
-					{
-						"speaker": "inner",
-						"text": "«Ta cho ngươi đôi giày gió. Đổi lại, ngươi thả một lời hứa đang giữ trong lòng. Gió không giữ lời hứa. Gió mang lời hứa đi.»"
-					},
-					{
-						"speaker": "inner",
-						"text": "Lời ngoéo tay với Aldric nhẹ đi một nửa. Tôi vẫn nhớ, chỉ là không còn nặng như trước."
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Gặp Phong Thần Aeolin — thần kỹ \"Cánh Bão\" sẽ mở bán ở cửa hàng kim cương.)"
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Một bức thư đến chậm ba tuần. Nét chữ nguệch ngoạc của cha, lá thư đầu tiên trong đời ông: \"Mẹ ốm. Con đừng lo. Cha khắc thêm một vạch.\")"
-					},
-					{
-						"speaker": "inner",
-						"text": "Lối tây của Cổng Mây dẫn xuống một vùng trắng xoá. Lãnh nguyên Băng Giá. Cột dịch chuyển ở đó có thể đưa tôi về Thistlewood."
-					}
-				]
-			},
-			{
-				"id": "c5_arrive",
-				"age": 16,
-				"title": "Bức thư đến muộn",
-				"giver": null,
-				"objective": {
-					"type": "talk",
-					"npc": "bjorn"
-				},
-				"objectiveText": "Xuống Làng gỗ Tuyết Phong (lối tây Cổng Mây) gặp thợ săn Bjorn",
-				"turnIn": "bjorn",
-				"reward": {
-					"exp": 28262
-				},
-				"before": [
-					{
-						"speaker": "inner",
-						"text": "Cột dịch chuyển ở làng Tuyết Phong phủ băng dày một gang tay. Tôi cạo băng bằng chuôi dao, và chữ \"Thistlewood\" hiện ra, sáng lên như đang gọi."
-					},
-					{
-						"speaker": "inner",
-						"text": "Thư của cha nằm trong túi áo. \"Mẹ ốm. Con đừng lo.\" Kiếp trước tôi cũng từng nhận một tin như thế. Tôi đã nói \"để sau\"."
-					}
-				],
-				"after": [
-					{
-						"speaker": "bjorn",
-						"text": "Bão băng chặn hết lối ra. Trưởng làng lên hồ ba ngày chưa về. Cậu tới đúng lúc, hay sai lúc, tuỳ cậu."
-					},
-					{
-						"speaker": "bjorn",
-						"text": "Có lá thư găm trên tường quán trọ, ghi tên cậu. Không ai trong làng đọc được thứ chữ ấy."
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Lá thư viết bằng chữ quốc ngữ, nét gọn gàng như in: \"Chào đồng hương. Cậu đi chậm hơn tôi tưởng. — Đ.\")"
-					},
-					{
-						"speaker": "inner",
-						"text": "Tôi đứng trước cột dịch chuyển rất lâu. Rồi tôi quay lại hỏi Bjorn: \"Cần dẫn đường lên hồ phải không?\""
-					}
-				]
-			},
-			{
-				"id": "c5_wolves",
-				"age": 16,
-				"title": "Đọc gió trước",
-				"giver": "bjorn",
-				"objective": {
-					"type": "kill",
-					"monster": "mob_snow_wolf_001",
-					"count": 30
-				},
-				"objectiveText": "Cùng Kael hạ sói tuyết ở Rừng Thông Tuyết ({n}/{total})",
-				"turnIn": "bjorn",
-				"reward": {
-					"exp": 75341,
-					"coins": 600
-				},
-				"before": [
-					{
-						"speaker": "bjorn",
-						"text": "Sói tuyết săn theo bầy, chặn đường lên hồ. Thằng Kael đòi đi một mình. Nó mười bốn tuổi, cha nó mất trong trận bão."
-					},
-					{
-						"speaker": "kael",
-						"text": "Tôi không cần ai đi cùng. Đọc gió trước, rồi mới đọc dấu chân. Cha tôi dạy thế."
-					},
-					{
-						"speaker": "inner",
-						"text": "Cha tôi cũng dạy đúng câu đó. Có lẽ mọi người cha đi săn trên đời đều dạy con câu đó."
-					}
-				],
-				"after": [
-					{
-						"speaker": "kael",
-						"text": "Anh lăn né kiểu gì vậy? Dạy tôi đi. Không phải vì tôi cần. Vì… tôi muốn biết."
-					},
-					{
-						"speaker": "bjorn",
-						"text": "Lần đầu tiên từ trận bão, thằng bé chịu nhờ một người. Cảm ơn cậu."
-					}
-				],
-				"progress": [
-					{
-						"speaker": "bjorn",
-						"text": "Sói còn tru trong rừng thông. Giữ thằng Kael đừng để nó liều."
-					}
-				]
-			},
-			{
-				"id": "c5_wisps",
-				"age": 16,
-				"title": "Người mẹ dưới mặt hồ",
-				"giver": null,
-				"objective": {
-					"type": "kill",
-					"monster": "mob_ice_wisp_001",
-					"count": 30
-				},
-				"objectiveText": "Hạ tinh linh băng ở Hồ Sương Giá ({n}/{total})",
-				"turnIn": "auto",
-				"reward": {
-					"exp": 93800
-				},
-				"before": [
-					{
-						"speaker": "inner",
-						"text": "Tinh linh băng bay quanh Hồ Sương Giá như đàn đom đóm lạnh. Ở giữa hồ, tôi thấy sợi Haven của một con người, đông cứng."
-					}
-				],
-				"after": [
-					{
-						"speaker": "kael",
-						"text": "Trưởng làng kể, có một người mẹ trong làng tự đóng băng mình để giữ mặt hồ khỏi vỡ. Từ đó bà thành Nữ hoàng băng."
-					},
-					{
-						"speaker": "kael",
-						"text": "Bà không còn nhận ra con gái mình nữa. Con gái bà ngày nào cũng ra bờ hồ đứng."
-					},
-					{
-						"speaker": "inner",
-						"text": "Mẹ tôi đang ốm. Tôi đang ở đây. Tôi nhìn cô gái đứng ở bờ hồ, và không dám nghĩ tiếp."
-					}
-				]
-			},
-			{
-				"id": "c5_ship",
-				"age": 16,
-				"title": "Hải Âu Bạc",
-				"giver": null,
-				"objective": {
-					"type": "kill",
-					"monster": "mob_war_penguin_001",
-					"count": 30
-				},
-				"objectiveText": "Dẹp chim cánh cụt chiến quanh tàu kẹt băng ở Bờ Biển Băng ({n}/{total})",
-				"turnIn": "bjorn",
-				"reward": {
-					"exp": 99578,
-					"coins": 700
-				},
-				"before": [
-					{
-						"speaker": "inner",
-						"text": "Một con tàu băng của Đoàn bị kẹt ở Bờ Biển Băng. Chim cánh cụt chiến giữ bãi như giữ thành."
-					}
-				],
-				"after": [
-					{
-						"speaker": "bjorn",
-						"text": "Bram im lặng từ chiều tới giờ. Đàn ông đi biển mà im lặng thì có chuyện."
-					},
-					{
-						"speaker": "bjorn",
-						"text": "Bão sắp tan. Đường lên Hồ Băng mở rồi. Nữ hoàng băng ở đó."
-					}
-				],
-				"onReady": [
-					{
-						"speaker": "narrator",
-						"text": "(Bác Bram đọc tên khắc trên thân tàu và bỗng im bặt. Ai đó đã sơn lại tên mới, nhưng vết khắc cũ vẫn còn: \"Hải Âu Bạc\".)"
-					},
-					{
-						"speaker": "bram",
-						"text": "Tàu của cha ta."
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Trong hòm tàu có một tấm hải đồ đánh dấu Quần đảo San Hô, và một hòm Long Châu niêm ấn Đoàn.)"
-					}
-				]
-			},
-			{
-				"id": "c5_ice_queen",
-				"age": 16,
-				"title": "Để bà được tan",
-				"giver": null,
-				"objective": {
-					"type": "kill",
-					"monster": "boss_ice_queen_001",
-					"count": 1
-				},
-				"objectiveText": "Lên Hồ Băng: giải thoát Nữ hoàng băng",
-				"turnIn": "auto",
-				"reward": {
-					"exp": 188054,
-					"potions": 2
-				},
-				"before": [
-					{
-						"speaker": "inner",
-						"text": "Hạ bà không phải để thắng. Hạ bà là để bà được tan ra, và nghỉ."
-					}
-				],
-				"after": [
-					{
-						"speaker": "narrator",
-						"text": "(Nữ hoàng băng tan thành nước, chảy về phía bờ hồ, nơi con gái bà đang đứng. Mặt hồ không vỡ.)"
-					},
-					{
-						"speaker": "inner",
-						"text": "Có những người ở lại bằng cách đông cứng mình. Tôi không muốn mẹ tôi phải như thế. Tôi không muốn mình phải như thế."
-					}
-				]
-			},
-			{
-				"id": "c5_yeti",
-				"age": 16,
-				"title": "Đàn con sau đèo",
-				"giver": null,
-				"objective": {
-					"type": "kill",
-					"monster": "boss_yeti_001",
-					"count": 1
-				},
-				"objectiveText": "Qua đèo: đối mặt Yeti",
-				"turnIn": "auto",
-				"reward": {
-					"exp": 198636,
-					"coins": 1100
-				},
-				"before": [
-					{
-						"speaker": "inner",
-						"text": "Yeti chặn đèo vì đàn con ở phía sau. Nyra và tôi cãi nhau lần đầu."
-					},
-					{
-						"speaker": "nyra",
-						"text": "Cậu lúc nào cũng muốn cứu hết. Có ai cứu được hết đâu."
-					},
-					{
-						"speaker": "lior",
-						"text": "Còn hơn là không cứu ai."
-					},
-					{
-						"speaker": "inner",
-						"text": "Câu đó tôi nói ra rồi mới thấy nó là câu Kiến Trúc Sư cũng sẽ nói. Tôi hối hận ngay. Nhưng nói rồi."
-					}
-				],
-				"after": [
-					{
-						"speaker": "narrator",
-						"text": "(Yeti lùi về sau, che đàn con bằng thân mình. Đèo mở.)"
-					},
-					{
-						"speaker": "nyra",
-						"text": "…Xin lỗi. Tôi mệt."
-					},
-					{
-						"speaker": "lior",
-						"text": "Tớ cũng xin lỗi. Tớ cũng mệt."
-					}
-				]
-			},
-			{
-				"id": "c5_guardian",
-				"age": 16,
-				"title": "Ngai Băng",
-				"giver": null,
-				"objective": {
-					"type": "kill",
-					"monster": "boss_ice_guardian_001",
-					"count": 1
-				},
-				"objectiveText": "Hạ Vệ thần Ngai Băng",
-				"turnIn": "auto",
-				"reward": {
-					"exp": 347093,
-					"potions": 3
-				},
-				"before": [
-					{
-						"speaker": "inner",
-						"text": "Vệ thần Ngai Băng ngồi đè lên một thứ gì đó. Sợi Haven dưới ngai không phải của nó. Nó là xiềng xích được đúc thành người."
-					}
-				],
-				"after": [
-					{
-						"speaker": "narrator",
-						"text": "(Vệ thần vỡ thành trăm mảnh băng. Dưới ngai, một phù điêu hình sói khổng lồ bắt đầu thở ra hơi lạnh.)"
-					}
-				]
-			},
-			{
-				"id": "c5_hjalma",
-				"age": 16,
-				"title": "Băng Thần Hjalma",
-				"giver": null,
-				"objective": {
-					"type": "talk",
-					"npc": "god_hjalma"
-				},
-				"objectiveText": "Tới phù điêu sói dưới Ngai Băng",
-				"turnIn": "god_hjalma",
-				"reward": {
-					"exp": 252431,
-					"coins": 1500
-				},
-				"before": [
-					{
-						"speaker": "inner",
-						"text": "Mùa đông ở đây không bao giờ hết, vì có kẻ ngồi đè lên mẹ của mùa đông."
-					}
-				],
-				"after": [
-					{
-						"speaker": "narrator",
-						"text": "(Phù điêu nứt. Một con sói cái khổng lồ lông tuyết đứng dậy, trên lưng là cả một cánh rừng thông nhỏ.)"
-					},
-					{
-						"speaker": "inner",
-						"text": "«Ta là Hjalma. Giao Ước đúc xiềng xích thành người, đặt lên lưng ta để giữ mùa đông mãi mãi.»"
-					},
-					{
-						"speaker": "inner",
-						"text": "«Ta dạy ngươi quên một nỗi đau cho nhẹ lòng. Đổi lại, ngươi quên luôn một kỷ niệm đẹp đi kèm nó. Ngươi chọn đi.»"
-					},
-					{
-						"speaker": "inner",
-						"text": "Tôi nghĩ tới cái đêm văn phòng sáng đèn ở thế giới cũ. Đi kèm nó là tiếng mẹ gọi \"về ăn cơm đi con\" qua điện thoại. Tôi không chọn được. Tôi xin giữ cả hai."
-					},
-					{
-						"speaker": "inner",
-						"text": "«Ngươi giữ cả hai. Vậy ngươi lạnh hơn người khác một chút, mãi mãi. Thế cũng được.»"
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Gặp Băng Thần Hjalma — thần kỹ \"Đông Chí\" sẽ mở bán ở cửa hàng kim cương.)"
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Tin từ phương nam: người lùn Đe Đỏ từ chối rèn vũ khí cho Đoàn. Đoàn tuyên chiến. Người dẫn đội tiên phong là Aldric. Mirelle gửi thư: \"Ở đây cần thầy thuốc.\")"
-					},
-					{
-						"speaker": "inner",
-						"text": "Lối tây của Thung Băng Lặng dẫn xuống một vùng đá đen bốc khói: Núi lửa Hoả Sơn."
-					}
-				]
-			},
-			{
-				"id": "c6_arrive",
-				"age": 16,
-				"title": "Lửa trong lò, lửa trong lòng",
-				"giver": null,
-				"objective": {
-					"type": "talk",
-					"npc": "mirelle_forge"
-				},
-				"objectiveText": "Tới Pháo đài Đe Đỏ (lối tây Thung Băng Lặng) tìm Mirelle ở trạm thương binh",
-				"turnIn": "mirelle_forge",
-				"reward": {
-					"exp": 50486
-				},
-				"before": [
-					{
-						"speaker": "inner",
-						"text": "Pháo đài Đe Đỏ nằm trong lòng núi như hòn than trong lòng bàn tay. Tiếng búa không ngừng, kể cả lúc quân Đoàn đã cắm trại dưới chân núi."
-					},
-					{
-						"speaker": "hilde",
-						"text": "(Trên tường thành, một người lùn râu bạc hét xuống.) Rèn cho chúng mày thì chúng mày rèn cho ai?"
-					}
-				],
-				"after": [
-					{
-						"speaker": "mirelle_forge",
-						"text": "Lior. Ta tưởng con còn đang ở cao nguyên."
-					},
-					{
-						"speaker": "mirelle_forge",
-						"text": "Ở đây ta băng cho cả lính hai phe. Nữ vương Hilde muốn đóng cổng giữ trung lập. Em trai bà, Durin, muốn rèn vũ khí cho Đoàn để đổi lấy lửa của Mối Hoả."
-					},
-					{
-						"speaker": "mirelle_forge",
-						"text": "Còn một người đàn ông áo xám đứng cạnh Durin. Hắn nhìn con như nhìn… ta không biết tả thế nào. Như nhìn một dòng chữ viết sai."
-					}
-				]
-			},
-			{
-				"id": "c6_lizards",
-				"age": 16,
-				"title": "Cổng phụ trong đêm",
-				"giver": "mirelle_forge",
-				"objective": {
-					"type": "kill",
-					"monster": "mob_lava_lizard_001",
-					"count": 30
-				},
-				"objectiveText": "Hạ thằn lằn lửa ở Bãi Đá Đen ({n}/{total})",
-				"turnIn": "mirelle_forge",
-				"reward": {
-					"exp": 132885,
-					"coins": 800
-				},
-				"before": [
-					{
-						"speaker": "mirelle_forge",
-						"text": "Thằn lằn lửa chui lên từ khe đá ở Bãi Đá Đen, cắn cả lính gác. Dọn bớt đi, ta hết băng rồi."
-					}
-				],
-				"after": [
-					{
-						"speaker": "mirelle_forge",
-						"text": "Người áo xám nói thứ tiếng gì với con? …Con không cần kể. Mặt con kể rồi."
-					},
-					{
-						"speaker": "mirelle_forge",
-						"text": "Ta không hiểu chuyện của con. Ta chỉ biết băng bó. Nhưng con cứ về đây, lúc nào cũng được."
-					}
-				],
-				"onReady": [
-					{
-						"speaker": "narrator",
-						"text": "(Đêm xuống. Tôi thấy Durin mở cổng phụ của pháo đài. Ngoài cổng, người áo xám đứng chờ.)"
-					},
-					{
-						"speaker": "grey_man",
-						"text": "(Hắn nói khẽ, bằng tiếng Việt.) Cậu chậm quá."
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Rồi hắn biến mất, như một dòng lệnh bị xoá.)"
-					}
-				],
-				"progress": [
-					{
-						"speaker": "mirelle_forge",
-						"text": "Vẫn có lính bị bỏng mang về. Bãi Đá Đen chưa yên."
-					}
-				]
-			},
-			{
-				"id": "c6_bats",
-				"age": 16,
-				"title": "Tấm bản đồ của cha",
-				"giver": null,
-				"objective": {
-					"type": "kill",
-					"monster": "mob_fire_bat_001",
-					"count": 30
-				},
-				"objectiveText": "Hạ dơi lửa ở Hang Dơi Lửa ({n}/{total})",
-				"turnIn": "auto",
-				"reward": {
-					"exp": 161548
-				},
-				"before": [
-					{
-						"speaker": "nyra",
-						"text": "Trong hang có rêu lửa trị bỏng. Đi với tôi. Mà… cho tôi mượn túi của cậu, túi tôi hết chỗ."
-					}
-				],
-				"after": [
-					{
-						"speaker": "narrator",
-						"text": "(Nyra lấy thuốc trong túi tôi và chạm phải tấm bản đồ cha vẽ: dấu con hươu, đường mòn qua đầm cũ.)"
-					},
-					{
-						"speaker": "nyra",
-						"text": "Dấu con hươu. Đường mòn qua làng tôi."
-					},
-					{
-						"speaker": "nyra",
-						"text": "Tôi cần đi một mình một lúc. Đừng theo."
-					},
-					{
-						"speaker": "inner",
-						"text": "Tôi không theo. Lần này tôi không nói \"để sau\". Tôi nói \"tớ ở đây\". Rồi tôi đứng đó, chờ."
-					}
-				]
-			},
-			{
-				"id": "c6_forge",
-				"age": 16,
-				"title": "Thanh kiếm sấm sét",
-				"giver": null,
-				"objective": {
-					"type": "kill",
-					"monster": "mob_fire_spirit_001",
-					"count": 30
-				},
-				"objectiveText": "Hạ lửa tinh linh ở Lò Rèn Bỏ Hoang ({n}/{total})",
-				"turnIn": "mirelle_forge",
-				"reward": {
-					"exp": 169593,
-					"coins": 900
-				},
-				"before": [
-					{
-						"speaker": "inner",
-						"text": "Lửa tinh linh giữ một lò rèn bỏ hoang. Lò đã tắt từ lâu, nhưng lửa vẫn ở lại, như người không chịu về."
-					}
-				],
-				"after": [
-					{
-						"speaker": "mirelle_forge",
-						"text": "Kiếm đẹp. Kiếm đẹp thì hay làm người ta chết. Giữ cho kỹ."
-					},
-					{
-						"speaker": "mirelle_forge",
-						"text": "Đội tiên phong của Aldric đang ở Sông Dung Nham. Ta nghe nói golem cổ thức dậy rồi."
-					}
-				],
-				"onReady": [
-					{
-						"speaker": "narrator",
-						"text": "(Trên đe còn nằm một thanh kiếm. Lưỡi kiếm có vân sấm sét, đúng hình thanh kiếm gỗ Aldric khắc hồi tám tuổi, cái hồi cậu đòi đi diệt rồng.)"
-					},
-					{
-						"speaker": "inner",
-						"text": "Tôi mang nó theo. Một ngày nào đó tôi sẽ trả nó cho đúng người."
-					}
-				]
-			},
-			{
-				"id": "c6_golem",
-				"age": 16,
-				"title": "Tên những người thợ",
-				"giver": null,
-				"objective": {
-					"type": "kill",
-					"monster": "boss_ancient_lava_golem_001",
-					"count": 1
-				},
-				"objectiveText": "Hạ Golem dung nham cổ ở Sông Dung Nham",
-				"turnIn": "auto",
-				"reward": {
-					"exp": 310531,
-					"potions": 2
-				},
-				"before": [
-					{
-						"speaker": "inner",
-						"text": "Golem dung nham cổ do người lùn rèn từ thời Giao Ước để canh Mối. Trên lưng nó khắc tên những người thợ đã hiến sức."
-					}
-				],
-				"after": [
-					{
-						"speaker": "narrator",
-						"text": "(Golem gục. Lõi của nó còn ấm. Trong danh sách tên khắc trên lưng, có tên tổ tiên của nữ vương Hilde.)"
-					},
-					{
-						"speaker": "hilde",
-						"text": "Mang lõi về cho ta. Tổ tiên ta đã nằm trong cái xác ấy ba trăm năm. Đủ rồi."
-					}
-				]
-			},
-			{
-				"id": "c6_salamander",
-				"age": 16,
-				"title": "Lệnh bỏ rơi",
-				"giver": null,
-				"objective": {
-					"type": "kill",
-					"monster": "boss_salamander_001",
-					"count": 1
-				},
-				"objectiveText": "Cứu đội tiên phong: hạ Salamander ở Vành Miệng Núi",
-				"turnIn": "auto",
-				"reward": {
-					"exp": 354832,
-					"coins": 1400
-				},
-				"before": [
-					{
-						"speaker": "inner",
-						"text": "Đội tiên phong của Aldric bị dung nham vây ở Vành Miệng Núi. Lệnh từ trên: rút lui, để họ làm mồi."
-					},
-					{
-						"speaker": "aldric",
-						"text": "Lior?! Đoàn bảo không ai đến. Sao cậu lại—"
-					},
-					{
-						"speaker": "lior",
-						"text": "Cậu gọi, tớ đến. Cha tớ dạy thế."
-					}
-				],
-				"after": [
-					{
-						"speaker": "aldric",
-						"text": "Lần đầu tớ nghe tận tai lệnh bỏ rơi chính đội mình. Tớ còn tưởng mình nghe nhầm."
-					},
-					{
-						"speaker": "aldric",
-						"text": "…Cảm ơn. Tớ nợ cậu. Lần này không phải lời ngoéo tay. Là nợ thật."
-					}
-				]
-			},
-			{
-				"id": "c6_fire_god",
-				"age": 16,
-				"title": "Lõi Núi Lửa",
-				"giver": null,
-				"objective": {
-					"type": "kill",
-					"monster": "boss_fire_god_001",
-					"count": 1
-				},
-				"objectiveText": "Hạ \"Hoả thần\" ở Lõi Núi Lửa",
-				"turnIn": "auto",
-				"reward": {
-					"exp": 557593,
-					"potions": 3
-				},
-				"before": [
-					{
-						"speaker": "inner",
-						"text": "Người lùn gọi nó là Hoả thần. Nhưng sợi Haven của nó rách nát, quay cuồng. Một vị thần không có sợi rách như thế. Đây là ngọn lửa đã hoá điên."
-					}
-				],
-				"after": [
-					{
-						"speaker": "narrator",
-						"text": "(Ngọn lửa điên co lại, chui vào một bệ lò rèn đá ở giữa sân. Bệ lò đỏ rực lên, như có ai vừa thổi bễ.)"
-					}
-				]
-			},
-			{
-				"id": "c6_ignar",
-				"age": 16,
-				"title": "Lò Thần Ignar",
-				"giver": null,
-				"objective": {
-					"type": "talk",
-					"npc": "god_ignar"
-				},
-				"objectiveText": "Tới bệ lò rèn đá trong Lõi Núi Lửa",
-				"turnIn": "god_ignar",
-				"reward": {
-					"exp": 405522,
-					"coins": 1800
-				},
-				"before": [
-					{
-						"speaker": "inner",
-						"text": "Lửa đã về lò. Vậy chủ của lò ở đâu?"
-					}
-				],
-				"after": [
-					{
-						"speaker": "narrator",
-						"text": "(Từ bệ lò, một người thợ rèn khổng lồ thân nham thạch đứng dậy. Râu là ngọn lửa, búa là một khối dung nham đông đặc, ngực có lò than đỏ rực.)"
-					},
-					{
-						"speaker": "inner",
-						"text": "«Ta là Ignar. Thứ ngươi vừa đánh là lửa lò của ta, hoá điên khi Mối Hoả bị hút. Ngươi trả lửa về lò. Ta nợ ngươi một nhát búa.»"
-					},
-					{
-						"speaker": "inner",
-						"text": "«Ta rèn lại một món đồ của ngươi thành đồ thần. Đổi lại, một phần hơi ấm trong tay ngươi ở lại trong lò. Tay ngươi sẽ lạnh mãi về sau.»"
-					},
-					{
-						"speaker": "lior",
-						"text": "Tay con lạnh từ kiếp trước rồi. Con nhận."
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Gặp Lò Thần Ignar — thần kỹ \"Búa Lò Thần\" sẽ mở bán ở cửa hàng kim cương.)"
-					},
-					{
-						"speaker": "bram",
-						"text": "(Bác Bram nhận một mẩu giấy từ một thuỷ thủ qua đường.) \"Hải Âu Bạc đã chìm ở San Hô. Người ta vẫn thấy đèn trên boong mỗi đêm.\" …Zahra đã lên đường tới đó trước."
-					},
-					{
-						"speaker": "inner",
-						"text": "Lối tây của Vành Miệng Núi dẫn ra biển. Quần đảo San Hô."
-					}
-				]
-			},
-			{
-				"id": "c7_arrive",
-				"age": 16,
-				"title": "Con tàu của cha",
-				"giver": null,
-				"objective": {
-					"type": "talk",
-					"npc": "coral"
-				},
-				"objectiveText": "Tới Cảng chài San Hô (lối tây Vành Miệng Núi) ngồi bên bếp lửa của mẹ Coral",
-				"turnIn": "coral",
-				"reward": {
-					"exp": 81104
-				},
-				"before": [
-					{
-						"speaker": "inner",
-						"text": "Biển ở San Hô trong đến mức nhìn thấy đáy, và dưới đáy là những con tàu."
-					},
-					{
-						"speaker": "inner",
-						"text": "Bác Bram đứng ở mũi thuyền chài suốt chặng đường, tay nắm chiếc khăn của mẹ bác."
-					}
-				],
-				"after": [
-					{
-						"speaker": "bram",
-						"text": "Cha ta là thuyền trưởng Corvin. Đồng xu ta cho cậu hồi tám tuổi là của mẹ ta, người đã giữ hình dạng thật của mối nối."
-					},
-					{
-						"speaker": "bram",
-						"text": "Ta chưa từng kể với ai. Ta kể với cậu vì… ta không muốn về muộn thêm lần nào nữa."
-					},
-					{
-						"speaker": "coral",
-						"text": "(Mẹ Coral nghe xong, đặt thêm một con cá lên than.) Ăn đi rồi khóc."
-					},
-					{
-						"speaker": "coral",
-						"text": "Có một phụ nữ Sahrin thuê thuyền ra Bãi Tàu Đắm từ hai hôm trước. Cua chiếm bãi ngoài kia rồi, ra đó phải mở đường."
-					}
-				]
-			},
-			{
-				"id": "c7_crabs",
-				"age": 16,
-				"title": "Mảnh đá ấn khắc \"v3.0\"",
-				"giver": "coral",
-				"objective": {
-					"type": "kill",
-					"monster": "mob_beach_crab_001",
-					"count": 30
-				},
-				"objectiveText": "Hạ cua chiếm Bãi Cát Trắng ({n}/{total})",
-				"turnIn": "coral",
-				"reward": {
-					"exp": 211665,
-					"coins": 1000
-				},
-				"before": [
-					{
-						"speaker": "coral",
-						"text": "Bãi Cát Trắng ở phía nam cảng. Trẻ con ra nhặt đá ấn trôi dạt để bán cho thương lái, mà cua thì to bằng cái thúng. Dọn giúp ta."
-					}
-				],
-				"after": [
-					{
-						"speaker": "coral",
-						"text": "Mua của bọn nhỏ hả? Tốt. Ở đây người ta nhớ ai trả tiền, ai cướp."
-					},
-					{
-						"speaker": "bram",
-						"text": "(Bác cầm mảnh đá khắc tên cha rất lâu.) Ông ấy đã ở đây."
-					}
-				],
-				"onReady": [
-					{
-						"speaker": "narrator",
-						"text": "(Một đứa bé chìa ra hai mảnh đá ấn vỡ, đòi mười xu một mảnh. Tôi trả đủ. Không cướp của trẻ con.)"
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Mảnh thứ nhất khắc tên \"Corvin\". Mảnh thứ hai khắc \"v3.0\".)"
-					},
-					{
-						"speaker": "inner",
-						"text": "v2.1 ở sa mạc. v3.0 ở biển. Hắn đã nâng cấp."
-					}
-				],
-				"progress": [
-					{
-						"speaker": "coral",
-						"text": "Lũ trẻ vẫn chưa dám ra bãi. Còn cua."
-					}
-				]
-			},
-			{
-				"id": "c7_pirates",
-				"age": 16,
-				"title": "Chuyến hàng cuối",
-				"giver": null,
-				"objective": {
-					"type": "kill",
-					"monster": "mob_pirate_001",
-					"count": 30
-				},
-				"objectiveText": "Hạ cướp biển ở Vịnh Cướp Biển ({n}/{total})",
-				"turnIn": "auto",
-				"reward": {
-					"exp": 253204
-				},
-				"before": [
-					{
-						"speaker": "inner",
-						"text": "Cướp biển ở Vịnh Cướp Biển là thuỷ thủ cũ của Corvin. Họ không tin ai, trừ người đánh thắng họ."
-					}
-				],
-				"after": [
-					{
-						"speaker": "narrator",
-						"text": "(Thuyền phó già nằm trên cát, cười ra máu.)"
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Ông kể chuyến hàng cuối của Hải Âu Bạc: Corvin bán vị trí làng người cá cho Đoàn, đổi lấy tự do cho cả thuyền.)"
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Người mua là một người áo xám, trả bằng thứ vàng chưa ai từng thấy.)"
-					},
-					{
-						"speaker": "bram",
-						"text": "…Cha ta bán cả một làng để cứu một con thuyền."
-					}
-				]
-			},
-			{
-				"id": "c7_merfolk",
-				"age": 16,
-				"title": "Không giết ai",
-				"giver": null,
-				"objective": {
-					"type": "kill",
-					"monster": "mob_coral_merfolk_001",
-					"count": 30
-				},
-				"objectiveText": "Đánh ngất người cá canh Phá Người Cá ({n}/{total})",
-				"turnIn": "coral",
-				"reward": {
-					"exp": 263786,
-					"coins": 1200
-				},
-				"before": [
-					{
-						"speaker": "inner",
-						"text": "Người cá căm hận đất liền, và họ có lý do. Tôi đánh cho ngất, không giết ai."
-					},
-					{
-						"speaker": "nyra",
-						"text": "Đánh ngất thì khó hơn đánh chết nhiều. Cậu chọn việc khó thật đấy."
-					}
-				],
-				"after": [
-					{
-						"speaker": "coral",
-						"text": "Maris nói chuyện với cậu à? Ba mươi năm nay người cá chưa nói với người đất liền câu nào."
-					},
-					{
-						"speaker": "coral",
-						"text": "Zahra đi về phía Bãi Tàu Đắm. Đèn trên boong Hải Âu Bạc vẫn sáng mỗi đêm. Đi đi."
-					}
-				],
-				"onReady": [
-					{
-						"speaker": "maris",
-						"text": "Người đất liền mà biết đánh nhẹ tay. Lạ thật. Ta là Maris."
-					},
-					{
-						"speaker": "maris",
-						"text": "Ta giữ một tù binh: thuỷ thủ của Hải Âu Bạc, sống sót nhờ ăn tảo mười năm. Hắn bảo sáng nay có một phụ nữ Sahrin đi ngang qua đây. Một mình."
-					}
-				]
-			},
-			{
-				"id": "c7_crab_king",
-				"age": 16,
-				"title": "Mảnh Mối Thuỷ",
-				"giver": null,
-				"objective": {
-					"type": "kill",
-					"monster": "boss_crab_king_001",
-					"count": 1
-				},
-				"objectiveText": "Hạ Cua chúa ở Rạn San Hô",
-				"turnIn": "auto",
-				"reward": {
-					"exp": 472741,
-					"potions": 2
-				},
-				"before": [
-					{
-						"speaker": "inner",
-						"text": "Cua chúa ôm một mảnh Mối Thuỷ vỡ như ôm con. Sứa phát sáng bơi quanh nó thành vòng."
-					}
-				],
-				"after": [
-					{
-						"speaker": "narrator",
-						"text": "(Mảnh Mối Thuỷ rơi xuống cát, vẫn còn sáng. Sợi nước quanh nó chảy về phía Vực Kraken, như bị ai kéo.)"
-					}
-				]
-			},
-			{
-				"id": "c7_ghost_captain",
-				"age": 16,
-				"title": "Thuyền trưởng ma",
-				"giver": null,
-				"objective": {
-					"type": "kill",
-					"monster": "boss_ghost_captain_001",
-					"count": 1
-				},
-				"objectiveText": "Lên Bãi Tàu Đắm: gặp Thuyền trưởng ma",
-				"turnIn": "auto",
-				"reward": {
-					"exp": 529766,
-					"coins": 2000
-				},
-				"before": [
-					{
-						"speaker": "inner",
-						"text": "Đèn trên boong Hải Âu Bạc vẫn sáng. Thuyền trưởng ma đứng ở mũi tàu, chờ."
-					},
-					{
-						"speaker": "corvin",
-						"text": "Bram. Con về muộn quá."
-					},
-					{
-						"speaker": "bram",
-						"text": "Cha mới là người về muộn. Muộn ba mươi năm."
-					}
-				],
-				"after": [
-					{
-						"speaker": "corvin",
-						"text": "(Hồn ma mờ dần.) Ta bán một làng để cứu một thuyền. Đừng giống ta, con trai. Đừng chọn kiểu đó."
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Dưới khoang, Zahra ôm hòm đá ấn của Sahrin. Bác Bram gọi tên em lần đầu sau mười lăm năm. Cô quay lại, và cười.)"
-					},
-					{
-						"speaker": "zahra",
-						"text": "Anh về rồi à. Muộn, nhưng về."
-					}
-				]
-			},
-			{
-				"id": "c7_kraken",
-				"age": 16,
-				"title": "Vực Kraken",
-				"giver": null,
-				"objective": {
-					"type": "kill",
-					"monster": "boss_kraken_001",
-					"count": 1
-				},
-				"objectiveText": "Hạ Kraken ở Vực Kraken",
-				"turnIn": "auto",
-				"reward": {
-					"exp": 832490,
-					"potions": 3
-				},
-				"before": [
-					{
-						"speaker": "inner",
-						"text": "Cái bẫy của Kiến Trúc Sư sập xuống. Kraken kéo xác Hải Âu Bạc xuống vực."
-					},
-					{
-						"speaker": "zahra",
-						"text": "Anh về muộn mười lăm năm. Lần này anh về trước đi. Em giữ tàu."
-					}
-				],
-				"after": [
-					{
-						"speaker": "narrator",
-						"text": "(Kraken buông xác tàu. Nước lặng dần. Bác Bram nhìn xuống vực rất lâu.)"
-					},
-					{
-						"speaker": "bram",
-						"text": "Em ta bơi giỏi hơn ta. Từ bé đã vậy."
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Dưới đáy vực, một con trai khổng lồ khép miệng, quanh nó san hô sáng lên từng đợt như nhịp thở.)"
-					}
-				]
-			},
-			{
-				"id": "c7_thalassa",
-				"age": 16,
-				"title": "Hải Mẫu Thalassa",
-				"giver": null,
-				"objective": {
-					"type": "talk",
-					"npc": "god_thalassa"
-				},
-				"objectiveText": "Tới con trai khổng lồ dưới đáy Vực Kraken",
-				"turnIn": "god_thalassa",
-				"reward": {
-					"exp": 605447,
-					"coins": 2500
-				},
-				"before": [
-					{
-						"speaker": "inner",
-						"text": "Kraken cuộn quanh một thứ gì đó suốt ba trăm năm. Giờ nó buông rồi."
-					}
-				],
-				"after": [
-					{
-						"speaker": "narrator",
-						"text": "(Con trai khổng lồ mở ra. Từ trong đó, một con cá voi khổng lồ nổi lên, lưng mọc rạn san hô và cả một làng chài nhỏ đã chìm. Mắt nó dịu như mặt biển lặng.)"
-					},
-					{
-						"speaker": "inner",
-						"text": "«Ta là Thalassa. Con quái kia hút sức ta qua từng xúc tu, để mảnh Mối Thuỷ không bao giờ lành.»"
-					},
-					{
-						"speaker": "inner",
-						"text": "«Biển trả lại mọi thứ. Chỉ là không theo thứ tự ngươi muốn. Những người biển đã giữ, ta giữ cho tới ngày nút thắt được tháo.»"
-					},
-					{
-						"speaker": "bram",
-						"text": "(Bác Bram quỳ xuống mép nước.) Vậy là còn hy vọng."
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Gặp Hải Mẫu Thalassa — thần kỹ \"Triều Dâng\" sẽ mở bán ở cửa hàng kim cương.)"
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Bác Bram ở lại San Hô thêm một tuần, rồi lại lên đường bán hàng, vì \"người ta vẫn cần muối\".)"
-					},
-					{
-						"speaker": "narrator",
-						"text": "(Tin dữ: Aldric bị Vua người nấm bắt làm con tin dưới Rừng Nấm Ngầm. Đoàn không đến cứu.)"
-					},
-					{
-						"speaker": "inner",
-						"text": "Rừng Nấm Ngầm đang được dựng. Lần này tôi biết mình sẽ đi ngay. Chỉ cần đường mở."
-					}
-				]
-			}
-		],
-		"ending": [
-			"Bảy vùng đất. Sáu vị thần đã tỉnh, cộng một vị thần đồng cỏ ở quê nhà.",
-			"Trên mu bàn tay tôi, nút thắt hằn sâu thêm một vòng sau mỗi lần một Mối được tháo lỏng.",
-			"Dưới lòng đất, Rừng Nấm Ngầm đang chờ. Và ở đâu đó, một người áo xám vẫn đang đếm từng bước chân tôi.",
-			"(Hết phần đang có. Vùng 8–10 đang được xây dựng.)"
-		],
-		"playerByAge": [
-			{
-				"minAge": 0,
-				"sprite": "player_lior_child"
-			},
-			{
-				"minAge": 16,
-				"sprite": "player_hero_adult"
-			}
-		]
+		}
 	}
 }

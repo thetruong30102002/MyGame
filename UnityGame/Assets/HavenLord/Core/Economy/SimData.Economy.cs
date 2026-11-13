@@ -82,7 +82,6 @@ namespace HavenLord.Core
         public string[] RarityOrder;
         /// <summary>ITEMS theo thứ tự khoá của TS.</summary>
         public Dictionary<string, ItemDef> Items;
-        public string[] StoryGifts;
         public int BagSize;
         public string VirtualPotionUid;
 
@@ -125,7 +124,6 @@ namespace HavenLord.Core
                 RarityName = Map(eq["RARITY_NAME"]),
                 RarityOrder = eq["RARITY_ORDER"].ToObject<string[]>(),
                 Items = new Dictionary<string, ItemDef>(),
-                StoryGifts = eq["STORY_GIFTS"].ToObject<string[]>(),
                 BagSize = (int)eq["BAG_SIZE"],
                 VirtualPotionUid = (string)eq["VIRTUAL_POTION_UID"],
                 CoinCap = (double)eco["COIN_CAP"],

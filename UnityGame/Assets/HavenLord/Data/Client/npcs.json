@@ -1,114 +1,5 @@
 {
 	"NPCS": {
-		"mother_elin": {
-			"name": "Elin Ashvale",
-			"title": "Mẹ · Pháp sư làng",
-			"sprite": "npc_elin_001",
-			"at": {
-				"spot": "home",
-				"dx": 60,
-				"dy": 16
-			},
-			"ages": [
-				4,
-				8
-			],
-			"idle": [
-				"Đi đâu thì đi, nhớ về trước bữa tối nhé, con trai.",
-				"Đi qua thùng ong thì đi chậm. Đứng yên là ong không đốt. Chạy là nó tưởng con là bông hoa biết chạy.",
-				"Có chuyện gì thì gọi người lớn. Gọi thật to vào, cả nhà mình ai cũng điếc đặc khi đang làm việc."
-			]
-		},
-		"father_garrick": {
-			"name": "Garrick Ashvale",
-			"title": "Cha · Kiếm sĩ",
-			"sprite": "npc_garrick_001",
-			"at": {
-				"spot": "river_bank",
-				"dx": -72,
-				"dy": 64
-			},
-			"ages": [
-				4,
-				8
-			],
-			"idle": [
-				"…Ừ.",
-				"(Cha giơ thanh kiếm vừa mài lên ngang mắt, ngắm lưỡi một lúc, rồi đưa chuôi cho tôi cầm thử. Nặng trịch. Hình như đó là cả một câu chuyện.)"
-			]
-		},
-		"healer_mirelle": {
-			"name": "Mirelle",
-			"title": "Nữ trị liệu",
-			"sprite": "npc_mirelle_001",
-			"at": {
-				"spot": "church",
-				"dx": 30
-			},
-			"ages": [
-				4,
-				8
-			],
-			"idle": [
-				"Ta đang pha thuốc. Đứng xa cái nồi ra, nó hay phun lắm.",
-				"Cảm ơn mẹ con giùm ta nhé. Thuốc bỏng mà thiếu mật ong nhà Ashvale thì chẳng ra gì."
-			]
-		},
-		"merchant_bram": {
-			"name": "Bram",
-			"title": "Thương nhân lữ hành",
-			"sprite": "npc_bram_001",
-			"at": {
-				"spot": "plaza",
-				"dx": -110,
-				"dy": -40
-			},
-			"ages": [
-				4,
-				8
-			],
-			"idle": [
-				"Ồ, ngài thám hiểm cao ba gang tay của Thistlewood!",
-				"Nhắn cha cháu giùm ta: tiền đá mài tháng trước. Ông ấy sẽ bảo “…Ừ.” rồi quên ngay.",
-				"Thế giới này rộng lắm, nhóc. Rộng hơn rừng Mossvale nhiều. Lớn lên cháu sẽ tự thấy."
-			]
-		},
-		"kid_aldric": {
-			"name": "Aldric",
-			"title": "Hiệp sĩ (tự phong) · 6 tuổi",
-			"sprite": "npc_aldric_child_001",
-			"at": {
-				"spot": "plaza",
-				"dx": -96,
-				"dy": 250
-			},
-			"ages": [
-				6,
-				6
-			],
-			"idle": [
-				"Đứng lại, dân làng! Ta là Hiệp sĩ Aldric, người canh giữ cái ghế đá này!",
-				"…Tổ đội của tớ đang thiếu một pháp sư. Cậu làm nhé? Không cần biết phép đâu. Tớ cũng đâu biết đánh kiếm."
-			]
-		},
-		"kid_aldric_forest": {
-			"name": "Aldric",
-			"title": "Hiệp sĩ (tự phong) · 8 tuổi",
-			"sprite": "npc_aldric_child_001",
-			"at": {
-				"spot": "forest_edge",
-				"dx": 48,
-				"dy": 120
-			},
-			"ages": [
-				8,
-				8
-			],
-			"idle": [
-				"Tớ đang canh bìa rừng. Không phải vì chân tớ còn run đâu nhé.",
-				"Thanh kiếm gỗ này tên là Kiếm Sấm Sét. Sấm thì chưa có. Sét cũng chưa."
-			]
-		},
 		"bram": {
 			"name": "Bram",
 			"title": "Thương nhân lữ hành",
@@ -118,100 +9,9 @@
 				"dx": -110,
 				"dy": -40
 			},
-			"ages": [
-				16,
-				99
-			],
 			"idle": [
 				"Hàng mới về chưa kịp xếp. Ghé lại sau nhé — mà nhớ mang theo tiền đấy!",
-				"Đồng xu ta cho cậu hồi tám tuổi… cậu vẫn giữ chứ? Thế giới này rộng lắm, Lior. Rộng hơn cái rừng Mossvale kia nhiều."
-			]
-		},
-		"aldric": {
-			"name": "Aldric",
-			"title": "Cận vệ cổng bắc",
-			"sprite": "npc_aldric_001",
-			"at": {
-				"spot": "north_gate",
-				"dy": 40
-			},
-			"ages": [
-				16,
-				99
-			],
-			"idle": [
-				"Một ngày nào đó tớ sẽ thành hiệp sĩ hoàng gia. Còn giờ thì… tớ gác cổng. Hừm."
-			]
-		},
-		"mirelle": {
-			"name": "Mirelle",
-			"title": "Nữ trị liệu",
-			"sprite": "npc_mirelle_001",
-			"at": {
-				"spot": "church",
-				"dx": 30
-			},
-			"ages": [
-				16,
-				99
-			],
-			"idle": [
-				"Ta đang pha thuốc. Nếu bị thương, cứ quay về đây."
-			]
-		},
-		"gy_stele": {
-			"name": "Bia đá cổ",
-			"title": "Nghĩa địa Hoàng Hôn",
-			"sprite": null,
-			"prop": "rune_stone",
-			"at": {
-				"spot": "south_gate_gy",
-				"dx": 24,
-				"dy": -288
-			},
-			"ages": [
-				16,
-				99
-			],
-			"idle": [
-				"«…người nằm đây đã về với đất. Đất giữ lời thay cho họ.»",
-				"«Ai còn nhớ, xin ghé qua.»"
-			]
-		},
-		"elin": {
-			"name": "Elin Ashvale",
-			"title": "Mẹ · Pháp sư làng",
-			"sprite": "npc_elin_001",
-			"at": {
-				"spot": "home",
-				"dx": 60,
-				"dy": 16
-			},
-			"ages": [
-				16,
-				99
-			],
-			"idle": [
-				"Đi rừng thì quàng cái khăn len vào. Sáng sớm bên kia sông lạnh lắm.",
-				"Và về trước bữa tối. Mười sáu tuổi hay sáu tuổi thì cũng thế."
-			]
-		},
-		"garrick": {
-			"name": "Garrick Ashvale",
-			"title": "Cha · Kiếm sĩ",
-			"sprite": "npc_garrick_001",
-			"at": {
-				"spot": "river_bank",
-				"dx": -72,
-				"dy": 64
-			},
-			"ages": [
-				16,
-				99
-			],
-			"idle": [
-				"Đủ lớn rồi. Qua cầu đi.",
-				"…Gọi. Cha đến."
+				"Thế giới này rộng lắm. Rộng hơn cái rừng Mossvale kia nhiều."
 			]
 		},
 		"village_armor": {
@@ -220,14 +20,8 @@
 			"sprite": "npc_mirelle_001",
 			"region": "human",
 			"at": {
-				"spot": "plaza",
-				"dx": -240,
-				"dy": 40
+				"spot": "svc_tb_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Một bộ áo tốt phải giúp người mặc trở về. Bộ thứ hai của mỗi nghề hiện có ở quầy trang bị."
@@ -239,14 +33,8 @@
 			"sprite": "npc_garrick_001",
 			"region": "human",
 			"at": {
-				"spot": "plaza",
-				"dx": -340,
-				"dy": 150
+				"spot": "svc_lr_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Ta nhận rèn cả vũ khí lẫn trang bị. Đe vẫn còn chờ số thép của đoàn buôn mất tích; công thức rèn sẽ mở cùng tuyến truyện mới."
@@ -258,21 +46,15 @@
 			"sprite": "npc_aldric_001",
 			"region": "human",
 			"at": {
-				"spot": "plaza",
-				"dx": 260,
-				"dy": 40
+				"spot": "svc_vk_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Chọn đúng món của nghề mình. Đừng để một thanh kiếm đẹp quyết định thay cậu sẽ trở thành ai."
 			]
 		},
 		"village_food": {
-			"name": "Mai",
+			"name": "Maya",
 			"title": "Người bán đồ ăn",
 			"sprite": "npc_elin_001",
 			"region": "human",
@@ -281,29 +63,19 @@
 				"dx": 260,
 				"dy": 180
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Ăn một bữa ấm rồi hãy ra đường. Món hầm của ta giúp cậu vững tay trong chuyến đi."
 			]
 		},
 		"village_heal": {
-			"name": "Lan",
+			"name": "Lena",
 			"title": "Người bán vật phẩm hồi phục",
 			"sprite": "npc_ysolde_001",
 			"region": "human",
 			"at": {
-				"spot": "church",
-				"dx": 96,
-				"dy": 100
+				"spot": "svc_hp_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Đừng đợi kiệt sức mới nhớ mang thuốc. Ta vẫn giữ sổ tên những người chưa quay về."
@@ -317,10 +89,6 @@
 			"at": {
 				"spot": "shop"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Hạt giống, ô ruộng, bể cá hay một chú mèo con — muốn gì cứ hỏi."
@@ -334,13 +102,669 @@
 			"at": {
 				"spot": "steward"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Cậu muốn kê lại đồ đạc trong nhà à? Cứ bảo ta."
+			]
+		},
+		"village_tl_tavern": {
+			"name": "Bess",
+			"title": "Chủ quán rượu · Thistlewood",
+			"sprite": "npc_tl_tavern_001",
+			"region": "human",
+			"at": {
+				"spot": "svc_qr_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Ngồi xuống đi, món nóng của quán giúp cậu vững tay cả buổi."
+			]
+		},
+		"village_tl_bank": {
+			"name": "Alden",
+			"title": "Chủ ngân hàng · Thistlewood",
+			"sprite": "npc_tl_bank_001",
+			"region": "human",
+			"at": {
+				"spot": "svc_nh_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Két ở đây chắc nhất vùng. Sổ gửi đồ sẽ mở khi hội buôn duyệt xong luật."
+			]
+		},
+		"village_tl_upgrade": {
+			"name": "Quinn",
+			"title": "Thợ nâng cấp · Thistlewood",
+			"sprite": "npc_tl_upgrade_001",
+			"region": "human",
+			"at": {
+				"spot": "svc_nc_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Đá cường hoá cần thời gian tinh luyện. Quay lại khi xưởng nhận việc."
+			]
+		},
+		"village_lx_tavern": {
+			"name": "Marla",
+			"title": "Chủ quán rượu · Lau Xám",
+			"sprite": "npc_lx_tavern_001",
+			"region": "swamp",
+			"at": {
+				"spot": "svc_qr_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Ngồi xuống đi, món nóng của quán giúp cậu vững tay cả buổi."
+			]
+		},
+		"village_lx_bank": {
+			"name": "Fenwick",
+			"title": "Chủ ngân hàng · Lau Xám",
+			"sprite": "npc_lx_bank_001",
+			"region": "swamp",
+			"at": {
+				"spot": "svc_nh_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Két ở đây chắc nhất vùng. Sổ gửi đồ sẽ mở khi hội buôn duyệt xong luật."
+			]
+		},
+		"village_lx_weapon": {
+			"name": "Reed",
+			"title": "Người bán vũ khí · Lau Xám",
+			"sprite": "npc_lx_weapon_001",
+			"region": "swamp",
+			"at": {
+				"spot": "svc_vk_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Chọn đúng món của nghề mình. Hàng mới về theo từng chuyến buôn."
+			]
+		},
+		"village_lx_armor": {
+			"name": "Willa",
+			"title": "Người bán trang bị · Lau Xám",
+			"sprite": "npc_lx_armor_001",
+			"region": "swamp",
+			"at": {
+				"spot": "svc_tb_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Một bộ áo tốt phải giúp người mặc trở về."
+			]
+		},
+		"village_lx_smith": {
+			"name": "Hollis",
+			"title": "Thợ rèn · Lau Xám",
+			"sprite": "npc_lx_smith_001",
+			"region": "swamp",
+			"at": {
+				"spot": "svc_lr_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Lò còn đỏ đấy. Công thức rèn sẽ mở cùng tuyến truyện mới."
+			]
+		},
+		"village_lx_upgrade": {
+			"name": "Moss",
+			"title": "Thợ nâng cấp · Lau Xám",
+			"sprite": "npc_lx_upgrade_001",
+			"region": "swamp",
+			"at": {
+				"spot": "svc_nc_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Đá cường hoá cần thời gian tinh luyện. Quay lại khi xưởng nhận việc."
+			]
+		},
+		"village_lx_heal": {
+			"name": "Fern",
+			"title": "Người bán hồi phục · Lau Xám",
+			"sprite": "npc_lx_heal_001",
+			"region": "swamp",
+			"at": {
+				"spot": "svc_hp_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Đừng đợi kiệt sức mới nhớ mang thuốc."
+			]
+		},
+		"village_sa_tavern": {
+			"name": "Samira",
+			"title": "Chủ quán rượu · Sahrin",
+			"sprite": "npc_sa_tavern_001",
+			"region": "desert",
+			"at": {
+				"spot": "svc_qr_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Ngồi xuống đi, món nóng của quán giúp cậu vững tay cả buổi."
+			]
+		},
+		"village_sa_bank": {
+			"name": "Rashid",
+			"title": "Chủ ngân hàng · Sahrin",
+			"sprite": "npc_sa_bank_001",
+			"region": "desert",
+			"at": {
+				"spot": "svc_nh_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Két ở đây chắc nhất vùng. Sổ gửi đồ sẽ mở khi hội buôn duyệt xong luật."
+			]
+		},
+		"village_sa_weapon": {
+			"name": "Tariq",
+			"title": "Người bán vũ khí · Sahrin",
+			"sprite": "npc_sa_weapon_001",
+			"region": "desert",
+			"at": {
+				"spot": "svc_vk_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Chọn đúng món của nghề mình. Hàng mới về theo từng chuyến buôn."
+			]
+		},
+		"village_sa_armor": {
+			"name": "Leila",
+			"title": "Người bán trang bị · Sahrin",
+			"sprite": "npc_sa_armor_001",
+			"region": "desert",
+			"at": {
+				"spot": "svc_tb_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Một bộ áo tốt phải giúp người mặc trở về."
+			]
+		},
+		"village_sa_smith": {
+			"name": "Karim",
+			"title": "Thợ rèn · Sahrin",
+			"sprite": "npc_sa_smith_001",
+			"region": "desert",
+			"at": {
+				"spot": "svc_lr_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Lò còn đỏ đấy. Công thức rèn sẽ mở cùng tuyến truyện mới."
+			]
+		},
+		"village_sa_upgrade": {
+			"name": "Nadir",
+			"title": "Thợ nâng cấp · Sahrin",
+			"sprite": "npc_sa_upgrade_001",
+			"region": "desert",
+			"at": {
+				"spot": "svc_nc_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Đá cường hoá cần thời gian tinh luyện. Quay lại khi xưởng nhận việc."
+			]
+		},
+		"village_sa_heal": {
+			"name": "Yasmin",
+			"title": "Người bán hồi phục · Sahrin",
+			"sprite": "npc_sa_heal_001",
+			"region": "desert",
+			"at": {
+				"spot": "svc_hp_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Đừng đợi kiệt sức mới nhớ mang thuốc."
+			]
+		},
+		"village_gh_tavern": {
+			"name": "Greta",
+			"title": "Chủ quán rượu · Cối Xay Gió",
+			"sprite": "npc_gh_tavern_001",
+			"region": "highland",
+			"at": {
+				"spot": "svc_qr_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Ngồi xuống đi, món nóng của quán giúp cậu vững tay cả buổi."
+			]
+		},
+		"village_gh_bank": {
+			"name": "Henrik",
+			"title": "Chủ ngân hàng · Cối Xay Gió",
+			"sprite": "npc_gh_bank_001",
+			"region": "highland",
+			"at": {
+				"spot": "svc_nh_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Két ở đây chắc nhất vùng. Sổ gửi đồ sẽ mở khi hội buôn duyệt xong luật."
+			]
+		},
+		"village_gh_weapon": {
+			"name": "Lukas",
+			"title": "Người bán vũ khí · Cối Xay Gió",
+			"sprite": "npc_gh_weapon_001",
+			"region": "highland",
+			"at": {
+				"spot": "svc_vk_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Chọn đúng món của nghề mình. Hàng mới về theo từng chuyến buôn."
+			]
+		},
+		"village_gh_armor": {
+			"name": "Ingrid",
+			"title": "Người bán trang bị · Cối Xay Gió",
+			"sprite": "npc_gh_armor_001",
+			"region": "highland",
+			"at": {
+				"spot": "svc_tb_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Một bộ áo tốt phải giúp người mặc trở về."
+			]
+		},
+		"village_gh_smith": {
+			"name": "Otto",
+			"title": "Thợ rèn · Cối Xay Gió",
+			"sprite": "npc_gh_smith_001",
+			"region": "highland",
+			"at": {
+				"spot": "svc_lr_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Lò còn đỏ đấy. Công thức rèn sẽ mở cùng tuyến truyện mới."
+			]
+		},
+		"village_gh_upgrade": {
+			"name": "Felix",
+			"title": "Thợ nâng cấp · Cối Xay Gió",
+			"sprite": "npc_gh_upgrade_001",
+			"region": "highland",
+			"at": {
+				"spot": "svc_nc_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Đá cường hoá cần thời gian tinh luyện. Quay lại khi xưởng nhận việc."
+			]
+		},
+		"village_gh_heal": {
+			"name": "Elsa",
+			"title": "Người bán hồi phục · Cối Xay Gió",
+			"sprite": "npc_gh_heal_001",
+			"region": "highland",
+			"at": {
+				"spot": "svc_hp_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Đừng đợi kiệt sức mới nhớ mang thuốc."
+			]
+		},
+		"village_tp_tavern": {
+			"name": "Sigrid",
+			"title": "Chủ quán rượu · Tuyết Phong",
+			"sprite": "npc_tp_tavern_001",
+			"region": "tundra",
+			"at": {
+				"spot": "svc_qr_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Ngồi xuống đi, món nóng của quán giúp cậu vững tay cả buổi."
+			]
+		},
+		"village_tp_bank": {
+			"name": "Halvard",
+			"title": "Chủ ngân hàng · Tuyết Phong",
+			"sprite": "npc_tp_bank_001",
+			"region": "tundra",
+			"at": {
+				"spot": "svc_nh_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Két ở đây chắc nhất vùng. Sổ gửi đồ sẽ mở khi hội buôn duyệt xong luật."
+			]
+		},
+		"village_tp_weapon": {
+			"name": "Ulf",
+			"title": "Người bán vũ khí · Tuyết Phong",
+			"sprite": "npc_tp_weapon_001",
+			"region": "tundra",
+			"at": {
+				"spot": "svc_vk_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Chọn đúng món của nghề mình. Hàng mới về theo từng chuyến buôn."
+			]
+		},
+		"village_tp_armor": {
+			"name": "Astrid",
+			"title": "Người bán trang bị · Tuyết Phong",
+			"sprite": "npc_tp_armor_001",
+			"region": "tundra",
+			"at": {
+				"spot": "svc_tb_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Một bộ áo tốt phải giúp người mặc trở về."
+			]
+		},
+		"village_tp_smith": {
+			"name": "Torvald",
+			"title": "Thợ rèn · Tuyết Phong",
+			"sprite": "npc_tp_smith_001",
+			"region": "tundra",
+			"at": {
+				"spot": "svc_lr_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Lò còn đỏ đấy. Công thức rèn sẽ mở cùng tuyến truyện mới."
+			]
+		},
+		"village_tp_upgrade": {
+			"name": "Eira",
+			"title": "Thợ nâng cấp · Tuyết Phong",
+			"sprite": "npc_tp_upgrade_001",
+			"region": "tundra",
+			"at": {
+				"spot": "svc_nc_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Đá cường hoá cần thời gian tinh luyện. Quay lại khi xưởng nhận việc."
+			]
+		},
+		"village_tp_heal": {
+			"name": "Solveig",
+			"title": "Người bán hồi phục · Tuyết Phong",
+			"sprite": "npc_tp_heal_001",
+			"region": "tundra",
+			"at": {
+				"spot": "svc_hp_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Đừng đợi kiệt sức mới nhớ mang thuốc."
+			]
+		},
+		"village_dd_tavern": {
+			"name": "Dagna",
+			"title": "Chủ quán rượu · Đe Đỏ",
+			"sprite": "npc_dd_tavern_001",
+			"region": "volcano",
+			"at": {
+				"spot": "svc_qr_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Ngồi xuống đi, món nóng của quán giúp cậu vững tay cả buổi."
+			]
+		},
+		"village_dd_bank": {
+			"name": "Brokk",
+			"title": "Chủ ngân hàng · Đe Đỏ",
+			"sprite": "npc_dd_bank_001",
+			"region": "volcano",
+			"at": {
+				"spot": "svc_nh_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Két ở đây chắc nhất vùng. Sổ gửi đồ sẽ mở khi hội buôn duyệt xong luật."
+			]
+		},
+		"village_dd_weapon": {
+			"name": "Thrain",
+			"title": "Người bán vũ khí · Đe Đỏ",
+			"sprite": "npc_dd_weapon_001",
+			"region": "volcano",
+			"at": {
+				"spot": "svc_vk_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Chọn đúng món của nghề mình. Hàng mới về theo từng chuyến buôn."
+			]
+		},
+		"village_dd_armor": {
+			"name": "Helga",
+			"title": "Người bán trang bị · Đe Đỏ",
+			"sprite": "npc_dd_armor_001",
+			"region": "volcano",
+			"at": {
+				"spot": "svc_tb_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Một bộ áo tốt phải giúp người mặc trở về."
+			]
+		},
+		"village_dd_smith": {
+			"name": "Gunnar",
+			"title": "Thợ rèn · Đe Đỏ",
+			"sprite": "npc_dd_smith_001",
+			"region": "volcano",
+			"at": {
+				"spot": "svc_lr_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Lò còn đỏ đấy. Công thức rèn sẽ mở cùng tuyến truyện mới."
+			]
+		},
+		"village_dd_upgrade": {
+			"name": "Grimm",
+			"title": "Thợ nâng cấp · Đe Đỏ",
+			"sprite": "npc_dd_upgrade_001",
+			"region": "volcano",
+			"at": {
+				"spot": "svc_nc_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Đá cường hoá cần thời gian tinh luyện. Quay lại khi xưởng nhận việc."
+			]
+		},
+		"village_dd_heal": {
+			"name": "Runa",
+			"title": "Người bán hồi phục · Đe Đỏ",
+			"sprite": "npc_dd_heal_001",
+			"region": "volcano",
+			"at": {
+				"spot": "svc_hp_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Đừng đợi kiệt sức mới nhớ mang thuốc."
+			]
+		},
+		"village_sc_tavern": {
+			"name": "Marisol",
+			"title": "Chủ quán rượu · San Hô",
+			"sprite": "npc_sc_tavern_001",
+			"region": "isles",
+			"at": {
+				"spot": "svc_qr_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Ngồi xuống đi, món nóng của quán giúp cậu vững tay cả buổi."
+			]
+		},
+		"village_sc_bank": {
+			"name": "Cormac",
+			"title": "Chủ ngân hàng · San Hô",
+			"sprite": "npc_sc_bank_001",
+			"region": "isles",
+			"at": {
+				"spot": "svc_nh_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Két ở đây chắc nhất vùng. Sổ gửi đồ sẽ mở khi hội buôn duyệt xong luật."
+			]
+		},
+		"village_sc_weapon": {
+			"name": "Finn",
+			"title": "Người bán vũ khí · San Hô",
+			"sprite": "npc_sc_weapon_001",
+			"region": "isles",
+			"at": {
+				"spot": "svc_vk_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Chọn đúng món của nghề mình. Hàng mới về theo từng chuyến buôn."
+			]
+		},
+		"village_sc_armor": {
+			"name": "Nerys",
+			"title": "Người bán trang bị · San Hô",
+			"sprite": "npc_sc_armor_001",
+			"region": "isles",
+			"at": {
+				"spot": "svc_tb_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Một bộ áo tốt phải giúp người mặc trở về."
+			]
+		},
+		"village_sc_smith": {
+			"name": "Brennan",
+			"title": "Thợ rèn · San Hô",
+			"sprite": "npc_sc_smith_001",
+			"region": "isles",
+			"at": {
+				"spot": "svc_lr_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Lò còn đỏ đấy. Công thức rèn sẽ mở cùng tuyến truyện mới."
+			]
+		},
+		"village_sc_upgrade": {
+			"name": "Pearl",
+			"title": "Thợ nâng cấp · San Hô",
+			"sprite": "npc_sc_upgrade_001",
+			"region": "isles",
+			"at": {
+				"spot": "svc_nc_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Đá cường hoá cần thời gian tinh luyện. Quay lại khi xưởng nhận việc."
+			]
+		},
+		"village_sc_heal": {
+			"name": "Delphine",
+			"title": "Người bán hồi phục · San Hô",
+			"sprite": "npc_sc_heal_001",
+			"region": "isles",
+			"at": {
+				"spot": "svc_hp_keeper"
+			},
+			"stationary": true,
+			"idle": [
+				"Đừng đợi kiệt sức mới nhớ mang thuốc."
+			]
+		},
+		"q2_nell": {
+			"name": "Nell",
+			"title": "Bà chủ quán",
+			"sprite": "npc_q2_nell_001",
+			"region": "human",
+			"at": {
+				"spot": "plaza",
+				"dx": -210,
+				"dy": -120
+			},
+			"stationary": true,
+			"idle": [
+				"Ta vẫn làm thừa một phần bánh. Tay ta nhớ, đầu ta thì không."
+			]
+		},
+		"q2_pip": {
+			"name": "Pip",
+			"title": "Cô bé ở chợ",
+			"sprite": "npc_q2_pip_001",
+			"region": "human",
+			"at": {
+				"spot": "plaza",
+				"dx": 150,
+				"dy": -130
+			},
+			"stationary": true,
+			"idle": [
+				"Em ghi tên mọi người vào sổ. Mai em quên thì còn hỏi lại được."
+			]
+		},
+		"q2_gareth": {
+			"name": "Gareth",
+			"title": "Người hướng dẫn nghề",
+			"sprite": "npc_q2_gareth_001",
+			"region": "human",
+			"at": {
+				"spot": "backyard",
+				"dx": 70,
+				"dy": 10
+			},
+			"stationary": true,
+			"idle": [
+				"Nghề nào cũng bắt đầu bằng việc giữ được hơi thở."
+			]
+		},
+		"q2_edda": {
+			"name": "Edda",
+			"title": "Người đưa thư",
+			"sprite": "npc_q2_edda_001",
+			"region": "human",
+			"at": {
+				"spot": "plaza",
+				"dx": -270,
+				"dy": 150
+			},
+			"stationary": true,
+			"idle": [
+				"Thư không người nhận vẫn là thư. Ta đưa nó tới khi có người nhận."
+			]
+		},
+		"q2_tobin": {
+			"name": "Tobin",
+			"title": "Người gác đường nghĩa địa",
+			"sprite": "npc_q2_tobin_001",
+			"region": "human",
+			"at": {
+				"spot": "south_gate_gy",
+				"dx": 70,
+				"dy": -50
+			},
+			"stationary": true,
+			"idle": [
+				"Đường này ta gác ba mươi năm. Ta nhớ từng bia mộ."
 			]
 		},
 		"village_event": {
@@ -353,10 +777,6 @@
 				"dx": 390,
 				"dy": 110
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Ta mang tin giữa các vùng. Dù chưa có hội lễ, cậu vẫn có thể ghé hỏi thăm; việc nhận nhà không phải đợi sự kiện."
@@ -372,10 +792,6 @@
 				"dx": 0,
 				"dy": 0
 			},
-			"ages": [
-				0,
-				99
-			],
 			"region": "human",
 			"idle": [
 				"«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»"
@@ -391,10 +807,6 @@
 				"dx": 0,
 				"dy": 0
 			},
-			"ages": [
-				0,
-				99
-			],
 			"region": "swamp",
 			"idle": [
 				"«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»"
@@ -410,10 +822,6 @@
 				"dx": 0,
 				"dy": 0
 			},
-			"ages": [
-				0,
-				99
-			],
 			"region": "desert",
 			"idle": [
 				"«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»"
@@ -429,10 +837,6 @@
 				"dx": 0,
 				"dy": 0
 			},
-			"ages": [
-				0,
-				99
-			],
 			"region": "highland",
 			"idle": [
 				"«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»"
@@ -448,10 +852,6 @@
 				"dx": 0,
 				"dy": 0
 			},
-			"ages": [
-				0,
-				99
-			],
 			"region": "tundra",
 			"idle": [
 				"«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»"
@@ -467,10 +867,6 @@
 				"dx": 0,
 				"dy": 0
 			},
-			"ages": [
-				0,
-				99
-			],
 			"region": "volcano",
 			"idle": [
 				"«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»"
@@ -486,10 +882,6 @@
 				"dx": 0,
 				"dy": 0
 			},
-			"ages": [
-				0,
-				99
-			],
 			"region": "isles",
 			"idle": [
 				"«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»"
@@ -504,10 +896,6 @@
 				"dx": 76,
 				"dy": 96
 			},
-			"ages": [
-				16,
-				99
-			],
 			"region": "human",
 			"idle": [
 				"Ngồi xuống nào. Cậu muốn đổi kiểu tóc chứ?"
@@ -524,49 +912,9 @@
 				"dy": -40
 			},
 			"region": "human",
-			"ages": [
-				0,
-				99
-			],
 			"idle": [
 				"«Tên những người làm nên chuyện được khắc ở đây.»",
 				"«Chỉ người chơi trực tuyến mới được ghi danh.»"
-			]
-		},
-		"traveler_sein_child": {
-			"name": "Sein",
-			"title": "Cậu bé lữ khách",
-			"sprite": "npc_silver_child",
-			"at": {
-				"spot": "plaza",
-				"dx": -36,
-				"dy": 96
-			},
-			"ages": [
-				0,
-				15
-			],
-			"idle": [
-				"Bọn tớ theo đoàn buôn của cha, mai lại đi rồi.",
-				"Ngoài kia có đầm lầy toàn nhà sàn đấy! Cha kể vậy."
-			]
-		},
-		"traveler_sera_child": {
-			"name": "Sera",
-			"title": "Cô bé lữ khách",
-			"sprite": "npc_silver_child_f",
-			"at": {
-				"spot": "plaza",
-				"dx": 8,
-				"dy": 96
-			},
-			"ages": [
-				0,
-				15
-			],
-			"idle": [
-				"Tóc tớ với anh Sein giống mẹ, ai cũng nhìn.",
-				"Cậu có biết sa mạc phía nam có toà thành ốc đảo không?"
 			]
 		},
 		"traveler_sein": {
@@ -578,10 +926,6 @@
 				"dx": -36,
 				"dy": 96
 			},
-			"ages": [
-				16,
-				99
-			],
 			"idle": [
 				"Lại gặp nhau rồi! Bọn ta vừa từ cao nguyên Gió Hú về — gió trên đó thổi bay cả mũ.",
 				"Đi đâu cũng nhớ ghé cột dịch chuyển, đỡ mỏi chân lắm."
@@ -596,10 +940,6 @@
 				"dx": 8,
 				"dy": 96
 			},
-			"ages": [
-				16,
-				99
-			],
 			"idle": [
 				"Anh Sein cứ đòi đi săn rồng phương Đông. Ta thì chỉ muốn vẽ lại bản đồ lục địa.",
 				"Đầm lầy Mù Sương có ếch độc to bằng cái thúng, cẩn thận đấy."
@@ -608,157 +948,100 @@
 		"nyra": {
 			"name": "Nyra",
 			"title": "Thầy thuốc đầm lầy",
-			"sprite": null,
+			"sprite": "npc_lx_nyra_001",
 			"at": {
 				"spot": "__voice__"
 			},
-			"ages": [
-				99,
-				99
-			],
 			"idle": []
 		},
 		"odessa": {
 			"name": "Odessa",
 			"title": "Phù thuỷ đầm",
-			"sprite": null,
+			"sprite": "npc_lx_odessa_001",
 			"at": {
 				"spot": "__voice__"
 			},
-			"ages": [
-				99,
-				99
-			],
 			"idle": []
 		},
 		"zahra": {
 			"name": "Zahra",
 			"title": "Thủ lĩnh phe nổi dậy",
-			"sprite": null,
+			"sprite": "npc_sa_zahra_001",
 			"at": {
 				"spot": "__voice__"
 			},
-			"ages": [
-				99,
-				99
-			],
 			"idle": []
 		},
 		"hassim": {
 			"name": "Hassim",
 			"title": "Tể tướng Sahrin",
-			"sprite": null,
+			"sprite": "npc_sa_hassim_001",
 			"at": {
 				"spot": "__voice__"
 			},
-			"ages": [
-				99,
-				99
-			],
 			"idle": []
 		},
 		"orrin": {
 			"name": "Orrin",
 			"title": "Pháp sư gió",
-			"sprite": null,
+			"sprite": "npc_gh_orrin_001",
 			"at": {
 				"spot": "__voice__"
 			},
-			"ages": [
-				99,
-				99
-			],
 			"idle": []
 		},
 		"wenna": {
 			"name": "Bà Wenna",
 			"title": "Chủ cối xay",
-			"sprite": null,
+			"sprite": "npc_gh_wenna_001",
 			"at": {
 				"spot": "__voice__"
 			},
-			"ages": [
-				99,
-				99
-			],
 			"idle": []
 		},
 		"kael": {
 			"name": "Kael",
 			"title": "Thợ săn Tuyết Phong",
-			"sprite": null,
+			"sprite": "npc_tp_kael_001",
 			"at": {
 				"spot": "__voice__"
 			},
-			"ages": [
-				99,
-				99
-			],
 			"idle": []
 		},
 		"hilde": {
 			"name": "Hilde",
 			"title": "Nữ vương rèn Đe Đỏ",
-			"sprite": null,
+			"sprite": "npc_dd_hilde_001",
 			"at": {
 				"spot": "__voice__"
 			},
-			"ages": [
-				99,
-				99
-			],
 			"idle": []
 		},
 		"durin": {
 			"name": "Durin",
 			"title": "Em trai nữ vương",
-			"sprite": null,
+			"sprite": "npc_dd_durin_001",
 			"at": {
 				"spot": "__voice__"
 			},
-			"ages": [
-				99,
-				99
-			],
-			"idle": []
-		},
-		"grey_man": {
-			"name": "Người áo xám",
-			"title": "???",
-			"sprite": null,
-			"at": {
-				"spot": "__voice__"
-			},
-			"ages": [
-				99,
-				99
-			],
 			"idle": []
 		},
 		"maris": {
 			"name": "Maris",
 			"title": "Công chúa người cá",
-			"sprite": null,
+			"sprite": "npc_sc_maris_001",
 			"at": {
 				"spot": "__voice__"
 			},
-			"ages": [
-				99,
-				99
-			],
 			"idle": []
 		},
 		"corvin": {
 			"name": "Corvin",
 			"title": "Thuyền trưởng Hải Âu Bạc",
-			"sprite": null,
+			"sprite": "npc_sc_corvin_001",
 			"at": {
 				"spot": "__voice__"
 			},
-			"ages": [
-				99,
-				99
-			],
 			"idle": []
 		},
 		"ysolde": {
@@ -770,10 +1053,6 @@
 				"dx": 130,
 				"dy": 70
 			},
-			"ages": [
-				16,
-				99
-			],
 			"region": "swamp",
 			"idle": [
 				"Sương hôm nay đặc. Đặc như hồi đập mới xây.",
@@ -783,215 +1062,47 @@
 		"amira": {
 			"name": "Nữ hoàng Amira",
 			"title": "Ốc đảo Sahrin",
-			"sprite": "npc_elin_001",
+			"sprite": "npc_sa_amira_001",
 			"at": {
 				"spot": "plaza",
 				"dx": 130,
 				"dy": 70
 			},
-			"ages": [
-				16,
-				99
-			],
 			"region": "desert",
 			"idle": [
 				"Nước trong giếng hoàng gia mỗi tuần thấp thêm một gang. Ta đếm từng gang.",
 				"Ở Sahrin, khách là người được uống trước. Cậu đã uống chưa?"
 			]
 		},
-		"aldric_hl": {
-			"name": "Aldric",
-			"title": "Hiệp sĩ Đoàn · Cao nguyên",
-			"sprite": "npc_aldric_001",
-			"at": {
-				"spot": "plaza",
-				"dx": 130,
-				"dy": 70
-			},
-			"ages": [
-				16,
-				99
-			],
-			"region": "highland",
-			"idle": [
-				"Huy hiệu bảy vòng nặng hơn tớ tưởng. Mà cũng có thể là tớ nhẹ đi.",
-				"Lời ngoéo tay năm tám tuổi vẫn còn nhé, Lior."
-			]
-		},
 		"bjorn": {
 			"name": "Bjorn",
 			"title": "Thợ săn già Tuyết Phong",
-			"sprite": "npc_garrick_001",
+			"sprite": "npc_tp_bjorn_001",
 			"at": {
 				"spot": "plaza",
 				"dx": 130,
 				"dy": 70
 			},
-			"ages": [
-				16,
-				99
-			],
 			"region": "tundra",
 			"idle": [
 				"Đọc gió trước, rồi mới đọc dấu chân. Ai dạy cậu thế? Hừm. Người đó biết việc.",
 				"Bão chưa tan. Ở lại thêm một đêm cũng chẳng chết ai."
 			]
 		},
-		"mirelle_forge": {
-			"name": "Mirelle",
-			"title": "Thầy thuốc · trạm thương binh Đe Đỏ",
-			"sprite": "npc_mirelle_001",
-			"at": {
-				"spot": "plaza",
-				"dx": 130,
-				"dy": 70
-			},
-			"ages": [
-				16,
-				99
-			],
-			"region": "volcano",
-			"idle": [
-				"Ở đây ta băng cho cả lính hai phe. Máu thì cùng một màu, Lior.",
-				"Đừng khoe vội. Câu đó ta nói từ hồi con sáu tuổi, giờ vẫn đúng."
-			]
-		},
 		"coral": {
 			"name": "Mẹ Coral",
 			"title": "Bếp lửa làng chài San Hô",
-			"sprite": "npc_elin_001",
+			"sprite": "npc_sc_coral_001",
 			"at": {
 				"spot": "plaza",
 				"dx": 130,
 				"dy": 70
 			},
-			"ages": [
-				16,
-				99
-			],
 			"region": "isles",
 			"idle": [
 				"Ăn đi rồi khóc. Đói thì khóc không ra hơi.",
 				"Biển trong tới mức thấy đáy. Mà đáy toàn tàu, con ạ."
 			]
-		},
-		"god_nereth": {
-			"name": "Thuỷ Thần Nereth",
-			"title": "Rắn trắng giữ dòng nước ngầm",
-			"sprite": null,
-			"prop": "serpent_head",
-			"at": {
-				"spot": "hydralake_lair",
-				"dy": 120
-			},
-			"ages": [
-				16,
-				99
-			],
-			"region": "swamp",
-			"idle": [
-				"«…nước nhớ mọi thứ chảy qua nó.»"
-			]
-		},
-		"god_sahra": {
-			"name": "Thái Dương Thần Sahra",
-			"title": "Chim ưng lửa mặt trời",
-			"sprite": null,
-			"prop": "sphinx",
-			"at": {
-				"spot": "devourpit_lair",
-				"dy": 120
-			},
-			"ages": [
-				16,
-				99
-			],
-			"region": "desert",
-			"idle": [
-				"«Dưới nắng, bóng của ngươi không biết nói dối.»"
-			]
-		},
-		"god_aeolin": {
-			"name": "Phong Thần Aeolin",
-			"title": "Đại bàng bốn cánh gió",
-			"sprite": null,
-			"prop": "bird_statue",
-			"at": {
-				"spot": "cloudtemple_lair",
-				"dy": 120
-			},
-			"ages": [
-				16,
-				99
-			],
-			"region": "highland",
-			"idle": [
-				"«Gió không giữ lời hứa. Gió mang lời hứa đi.»"
-			]
-		},
-		"god_hjalma": {
-			"name": "Băng Thần Hjalma",
-			"title": "Sói mẹ của mùa đông",
-			"sprite": null,
-			"prop": "dragon_relief",
-			"at": {
-				"spot": "icethrone_lair",
-				"dy": 120
-			},
-			"ages": [
-				16,
-				99
-			],
-			"region": "tundra",
-			"idle": [
-				"«Quên cũng là một cách giữ ấm.»"
-			]
-		},
-		"god_ignar": {
-			"name": "Lò Thần Ignar",
-			"title": "Người thợ rèn lửa đầu tiên",
-			"sprite": null,
-			"prop": "forge_altar",
-			"at": {
-				"spot": "volcanocore_lair",
-				"dy": 120
-			},
-			"ages": [
-				16,
-				99
-			],
-			"region": "volcano",
-			"idle": [
-				"«Lửa trong lò, lửa trong lòng. Đừng để cái nào tắt.»"
-			]
-		},
-		"god_thalassa": {
-			"name": "Hải Mẫu Thalassa",
-			"title": "Cá voi mang rạn san hô",
-			"sprite": null,
-			"prop": "giant_clam",
-			"at": {
-				"spot": "krakenabyss_lair",
-				"dy": 120
-			},
-			"ages": [
-				16,
-				99
-			],
-			"region": "isles",
-			"idle": [
-				"«Biển trả lại mọi thứ. Chỉ là không theo thứ tự ngươi muốn.»"
-			]
 		}
-	},
-	"PLAYER_BY_AGE": [
-		{
-			"minAge": 0,
-			"sprite": "player_lior_child"
-		},
-		{
-			"minAge": 16,
-			"sprite": "player_hero_adult"
-		}
-	]
+	}
 }

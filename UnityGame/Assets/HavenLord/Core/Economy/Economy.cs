@@ -84,16 +84,6 @@ namespace HavenLord.Core
             return (lv, lv >= _t.MaxLevel ? 0 : x, lv - level);
         }
 
-        /// <summary>Phần EXP được nhận khi nguồn bị chặn ở cấp <paramref name="cap"/>: tối đa tới sát mốc lên cấp cap + 1; quá cap thì 0.</summary>
-        public double CapExpGain(double level, double exp, double gain, double cap)
-        {
-            var g = EconomyJs.Max(0, Math.Floor(gain));
-            if (level > cap) return 0;
-            var room = ExpFor(level) - exp;
-            for (var lv = level + 1; lv <= cap; lv += 1) room += ExpFor(lv);
-            return EconomyJs.Max(0, EconomyJs.Min(g, room - 1));
-        }
-
         /// <summary>Tổng EXP tích từ cấp 1 tới (level, exp). Cấp tối đa: EXP lẻ không tính.</summary>
         public double TotalExp(double level, double exp)
         {

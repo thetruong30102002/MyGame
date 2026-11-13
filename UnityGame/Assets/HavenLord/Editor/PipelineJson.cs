@@ -110,8 +110,6 @@ namespace HavenLord.Importer.Json
         public double radius;
         public List<string> monsters;
         public int count;
-        public int? fromAge;
-        public int? untilAge;
         public int? level;
         public bool? onDemand;
         public bool? boss;

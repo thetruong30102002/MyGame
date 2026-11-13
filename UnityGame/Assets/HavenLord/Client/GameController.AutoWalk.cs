@@ -15,7 +15,7 @@ namespace HavenLord.Client
     public sealed partial class GameController
     {
         /// <summary>&lt; 76px của tầm nói chuyện: tới nơi là hiện ngay gợi ý "Nói chuyện".</summary>
-        private const double StopNpc = 48, StopPickup = 36, StopDummy = 56, StopBoss = 280;
+        private const double StopNpc = 48, StopDummy = 56, StopBoss = 280;
 
         private NavGrid nav;
         private MapDef navFor;
@@ -83,7 +83,7 @@ namespace HavenLord.Client
         {
             get
             {
-                var t = story?.Target();
+                var t = Target();
                 if (t == null || map == null || region == null) return null;
                 var id = MapOfTarget(t, HereId) ?? HereId;
                 return id != null ? $"{region.region}/{id}" : null;
@@ -150,7 +150,7 @@ namespace HavenLord.Client
         }
 
         /// <summary>Ô nhiệm vụ: nhiệm vụ đang theo + dòng "Đang tự đi" khi đang đi.</summary>
-        private void RefreshQuestTracker() => hud.Quest.Set(story?.QuestView(), autoWalk?.Target.Label);
+        private void RefreshQuestTracker() => hud.Quest.Set(QuestView(), autoWalk?.Target.Label);
 
         /// <summary>
         /// Mỗi frame trước khi xử lý đi lại: bơm hướng đi như phím / cần gạt (Space né theo đúng hướng đang đi). <paramref name="stepCap"/>:
@@ -212,7 +212,7 @@ namespace HavenLord.Client
         /// <summary>Đích tự đi của nhiệm vụ đang theo: ở map khác thì là lối đầu tiên phải đi (`questGoal` của web).</summary>
         private WalkGoal QuestGoal()
         {
-            var t = story?.Target();
+            var t = Target();
             if (t == null || map == null || region == null) return null;
             var here = HereId;
             var where = MapOfTarget(t, here);
@@ -409,28 +409,6 @@ namespace HavenLord.Client
                     var by = sp != null ? sp.y : map.def.spawn.y;
                     return new WalkGoal { X = bx + def.Place.Dx, Y = by + def.Place.Dy, Stop = StopNpc, Label = name };
                 }
-                case "pickup":
-                {
-                    var label = PickupName(t.Item);
-                    var best = double.MaxValue;
-                    WalkGoal pick = null;
-                    foreach (var p in pickups)
-                    {
-                        if (p.item != t.Item) continue;
-                        var d = D(p.x, p.y);
-                        if (d >= best) continue;
-                        best = d;
-                        pick = new WalkGoal { X = p.x, Y = p.y, Stop = StopPickup, Label = label, Dynamic = true };
-                    }
-                    if (pick != null) return pick;
-                    if (t.Spots != null)
-                        foreach (var id in t.Spots)
-                        {
-                            var s = map.def.Spot(id);
-                            if (s != null) return new WalkGoal { X = s.x, Y = s.y, Stop = StopPickup, Label = label, Dynamic = true };
-                        }
-                    return null;
-                }
                 case "kill":
                 {
                     MonsterZone z = !string.IsNullOrEmpty(t.Zone) ? map.def.monsterZones.Find(m => m.id == t.Zone) : null;
@@ -475,34 +453,22 @@ namespace HavenLord.Client
                 }
                 case "boss":
                 {
-                    if (storyBoss != null && !storyBoss.Dead)
-                        return new WalkGoal { X = storyBoss.Actor.X, Y = storyBoss.Actor.Y, Stop = StopBoss, Label = "Đá phong ấn", Dynamic = true };
+                    foreach (var f in combat.Enemies)
+                        if (!f.Dead && f.Type == t.Id)
+                            return new WalkGoal { X = f.Actor.X, Y = f.Actor.Y, Stop = StopBoss, Label = f.Name, Dynamic = true };
                     var b = map.def.boss;
-                    return b != null && !string.IsNullOrEmpty(b.characterId) ? new WalkGoal { X = b.x, Y = b.y, Stop = StopBoss, Label = "Đá phong ấn" } : null;
+                    return b != null && b.characterId == t.Id ? new WalkGoal { X = b.x, Y = b.y, Stop = StopBoss, Label = "Boss" } : null;
                 }
                 default:
                     return null;
             }
         }
 
-        /// <summary>Vùng quái đang có quái (đã dựng theo tuổi hoặc nhiệm vụ đã bật).</summary>
+        /// <summary>Vùng quái đang có quái.</summary>
         private bool ZoneActive(MonsterZone z)
         {
-            if (spawnedZones.Contains(z.id)) return true;
             foreach (var f in combat.Enemies) if (!f.Dead && f.Zone == z.id) return true;
             return false;
-        }
-
-        private static string PickupName(string item)
-        {
-            switch (item)
-            {
-                case "mushroom": return "Nấm Ánh Lam";
-                case "herb": return "Cỏ thuốc";
-                case "flower": return "Hoa";
-                case "stone": return "Đá";
-                default: return item;
-            }
         }
     }
 }

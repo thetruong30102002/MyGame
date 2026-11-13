@@ -90,6 +90,10 @@ namespace HavenLord.Client.UI
         private RectTransform bannerRoot;
         private TMP_Text bannerText;
         private float bannerT;
+        private RectTransform alertRoot;
+        private TMP_Text alertText;
+        private float alertT;
+        private const float AlertSeconds = 7f;
 
         private RectTransform floatRoot;
         private readonly List<(RectTransform rt, TMP_Text t, Vector3 world, float life, float max, float drift, float pop)> floats =
@@ -505,6 +509,13 @@ namespace HavenLord.Client.UI
             bannerText = UiKit.Label(UiKit.Stretch(bannerRoot, "t"), "", 22, UiStyle.GoldHi, TextAnchor.MiddleCenter, true, false);
             bannerText.characterSpacing = 2;
             bannerRoot.gameObject.SetActive(false);
+            // Báo động boss vùng (tin "⚔ … đã xuất hiện ở … · Khu n!"): dải ruy băng đỏ ui2_ribbon_alert dưới băng rôn tên map.
+            alertRoot = UiKit.Rect(root, "Alert", new Vector2(0.5f, 1), new Vector2(0.5f, 0.5f), new Vector2(0, -232), new Vector2(560, 52));
+            UiStyle.Frame(alertRoot, "ui2_ribbon_alert");
+            alertText = UiKit.Label(UiKit.Stretch(alertRoot, "t"), "", 18, new Color(1f, 0.93f, 0.86f), TextAnchor.MiddleCenter, true, false);
+            alertText.rectTransform.offsetMin = new Vector2(28, 0);
+            alertText.rectTransform.offsetMax = new Vector2(-28, 0);
+            alertRoot.gameObject.SetActive(false);
         }
 
         private void BuildDialog()
@@ -661,6 +672,16 @@ namespace HavenLord.Client.UI
                 Destroy(toasts[toasts.Count - 1].rt.gameObject);
                 toasts.RemoveAt(toasts.Count - 1);
             }
+        }
+
+        /// <summary>Báo động toàn thế giới (boss vùng xuất hiện) — dải ruy băng đỏ giữa trên màn hình, tự ẩn sau vài giây.</summary>
+        public void Alert(string text)
+        {
+            alertText.text = text;
+            alertRoot.sizeDelta = new Vector2(Mathf.Clamp(alertText.GetPreferredValues(text).x + 80, 320, 760), 52);
+            alertT = AlertSeconds;
+            alertRoot.gameObject.SetActive(true);
+            UiAnim.Bounce(alertRoot, 0.08f);
         }
 
         public void Banner(string text)
@@ -1127,6 +1148,12 @@ namespace HavenLord.Client.UI
                 UiKit.Group(bannerRoot).alpha = Mathf.Clamp01(Mathf.Min(bannerT / 0.6f, appear));
                 bannerRoot.localScale = Vector3.one * Mathf.Lerp(0.85f, 1f, EaseOut(appear));
                 if (bannerT <= 0) bannerRoot.gameObject.SetActive(false);
+            }
+            if (alertT > 0)
+            {
+                alertT -= dt;
+                UiKit.Group(alertRoot).alpha = Mathf.Clamp01(Mathf.Min(alertT / 0.8f, (AlertSeconds - alertT) / 0.25f));
+                if (alertT <= 0) alertRoot.gameObject.SetActive(false);
             }
         }
 

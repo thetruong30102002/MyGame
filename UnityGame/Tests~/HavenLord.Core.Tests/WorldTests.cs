@@ -245,8 +245,7 @@ namespace HavenLord.Core.Tests
                 var z = Zone(x["zone"]);
                 var ctx = x["zone"].ToString(Formatting.None);
                 Assert.That(mobs.IsSharedZone(z), Is.EqualTo((bool)x["shared"]), ctx + " shared");
-                Assert.That(mobs.IsChildZone(z), Is.EqualTo((bool)x["child"]), ctx + " child");
-                foreach (JArray a in x["live"]) Assert.That(Mobs.ZoneLiveAt(z, N(a[0])), Is.EqualTo((bool)a[1]), $"{ctx} tuổi {a[0]}");
+                Assert.That(Mobs.ZoneLive(z), Is.EqualTo((bool)x["live"]), ctx + " live");
             }
             foreach (var x in V["mobs"]["mobIds"]) Assert.That(Mobs.MobId((string)x["map"], (string)x["zone"], (int)x["index"]), Is.EqualTo((string)x["out"]));
         }
@@ -390,36 +389,20 @@ namespace HavenLord.Core.Tests
 
         // ———————— cốt truyện ————————
 
-        /// <summary>Kiểu C# đủ trường: TS → C# → JSON phải ra lại y hệt (thiếu / thừa trường là lỗi).</summary>
+        /// <summary>Bảng nhiệm vụ mới C# (nạp từ Data/Sim/quests2.json) khớp bản TS: thứ tự việc, bước, mục tiêu, thưởng, mẫu việc ngày.</summary>
         [Test]
-        public void StoryTypesRoundTrip()
+        public void Quest2BookMatchesSim()
         {
-            var s = V["story"];
-            foreach (var k in new[] { "childhoodQuests", "youthQuests" })
-                foreach (var q in s[k]) AssertJson(q.ToObject<QuestDef>(), q, $"{k} {q["id"]}");
-            foreach (var k in new[] { "childhoodNpcs", "parentNpcs16", "youthNpcs" })
-                foreach (var p in (JObject)s[k]) AssertJson(p.Value.ToObject<NpcDef>(), p.Value, $"{k} {p.Key}");
-        }
-
-        /// <summary>Dữ liệu cốt truyện C# (nạp từ Data/Sim/story.*.json) khớp bản TS hiện tại + questDef.</summary>
-        [Test]
-        public void StoryDataAndQuestDef()
-        {
-            var book = TestData.Data.WorldData.Story;
-            var s = V["story"];
-            Assert.That(book.ChildhoodTitle, Is.EqualTo((string)s["childhoodTitle"]));
-            AssertJson(book.Prologue, s["prologue"], "prologue");
-            AssertJson(book.ChildhoodAgeCards, s["childhoodAgeCards"], "ageCards");
-            AssertJson(book.TimeSkip, s["timeSkip"], "timeSkip");
-            AssertJson(book.ChildhoodNpcs, s["childhoodNpcs"], "childhoodNpcs");
-            AssertJson(book.ParentNpcs16, s["parentNpcs16"], "parentNpcs16");
-            AssertJson(book.ChildhoodQuests, s["childhoodQuests"], "childhoodQuests");
-            AssertJson(book.YouthNpcs, s["youthNpcs"], "youthNpcs");
-            AssertJson(book.YouthQuests, s["youthQuests"], "youthQuests");
-            AssertJson(book.YouthEnding, s["youthEnding"], "youthEnding");
-            Assert.That(book.Quests.Select(q => q.Id).ToList(), Is.EqualTo(s["questIds"].ToObject<List<string>>()));
-            Assert.That(book.Quests.Count, Is.EqualTo(book.ChildhoodQuests.Count + book.YouthQuests.Count + (book.ChapterQuests?.Count ?? 0)));
-            foreach (var x in s["questDef"]) AssertJson(book.QuestDef((string)x["id"]), x["out"], "questDef " + x["id"]);
+            var book = TestData.Data.WorldData.Quests2;
+            var q = V["quests2"];
+            Assert.That(book.Quests.Select(x => x.Id).ToList(), Is.EqualTo(q["ids"].ToObject<List<string>>()));
+            Assert.That(book.Daily.Select(x => x.Id).ToList(), Is.EqualTo(q["daily"].ToObject<List<string>>()));
+            foreach (var x in q["steps"])
+            {
+                var def = book.Quest((string)x["id"]);
+                Assert.That(def.Steps.Select(st => st.Objective.Kind + ":" + st.Objective.Total).ToList(), Is.EqualTo(x["objectives"].ToObject<List<string>>()), (string)x["id"]);
+                Assert.That(def.Reward.Element == true, Is.EqualTo((bool)x["element"]), (string)x["id"] + " element");
+            }
         }
     }
 }

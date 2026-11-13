@@ -8,10 +8,6 @@
 			"at": {
 				"spot": "svc_tb_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Một bộ áo tốt phải giúp người mặc trở về. Bộ thứ hai của mỗi nghề hiện có ở quầy trang bị."
@@ -25,10 +21,6 @@
 			"at": {
 				"spot": "svc_lr_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Ta nhận rèn cả vũ khí lẫn trang bị. Đe vẫn còn chờ số thép của đoàn buôn mất tích; công thức rèn sẽ mở cùng tuyến truyện mới."
@@ -42,10 +34,6 @@
 			"at": {
 				"spot": "svc_vk_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Chọn đúng món của nghề mình. Đừng để một thanh kiếm đẹp quyết định thay cậu sẽ trở thành ai."
@@ -61,10 +49,6 @@
 				"dx": 260,
 				"dy": 180
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Ăn một bữa ấm rồi hãy ra đường. Món hầm của ta giúp cậu vững tay trong chuyến đi."
@@ -78,10 +62,6 @@
 			"at": {
 				"spot": "svc_hp_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Đừng đợi kiệt sức mới nhớ mang thuốc. Ta vẫn giữ sổ tên những người chưa quay về."
@@ -95,10 +75,6 @@
 			"at": {
 				"spot": "shop"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Hạt giống, ô ruộng, bể cá hay một chú mèo con — muốn gì cứ hỏi."
@@ -112,10 +88,6 @@
 			"at": {
 				"spot": "steward"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Cậu muốn kê lại đồ đạc trong nhà à? Cứ bảo ta."
@@ -129,10 +101,6 @@
 			"at": {
 				"spot": "svc_qr_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Ngồi xuống đi, món nóng của quán giúp cậu vững tay cả buổi."
@@ -146,10 +114,6 @@
 			"at": {
 				"spot": "svc_nh_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Két ở đây chắc nhất vùng. Sổ gửi đồ sẽ mở khi hội buôn duyệt xong luật."
@@ -163,10 +127,6 @@
 			"at": {
 				"spot": "svc_nc_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Đá cường hoá cần thời gian tinh luyện. Quay lại khi xưởng nhận việc."
@@ -180,10 +140,6 @@
 			"at": {
 				"spot": "svc_qr_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Ngồi xuống đi, món nóng của quán giúp cậu vững tay cả buổi."
@@ -197,10 +153,6 @@
 			"at": {
 				"spot": "svc_nh_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Két ở đây chắc nhất vùng. Sổ gửi đồ sẽ mở khi hội buôn duyệt xong luật."
@@ -214,10 +166,6 @@
 			"at": {
 				"spot": "svc_vk_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Chọn đúng món của nghề mình. Hàng mới về theo từng chuyến buôn."
@@ -231,10 +179,6 @@
 			"at": {
 				"spot": "svc_tb_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Một bộ áo tốt phải giúp người mặc trở về."
@@ -248,10 +192,6 @@
 			"at": {
 				"spot": "svc_lr_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Lò còn đỏ đấy. Công thức rèn sẽ mở cùng tuyến truyện mới."
@@ -265,10 +205,6 @@
 			"at": {
 				"spot": "svc_nc_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Đá cường hoá cần thời gian tinh luyện. Quay lại khi xưởng nhận việc."
@@ -282,10 +218,6 @@
 			"at": {
 				"spot": "svc_hp_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Đừng đợi kiệt sức mới nhớ mang thuốc."
@@ -299,10 +231,6 @@
 			"at": {
 				"spot": "svc_qr_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Ngồi xuống đi, món nóng của quán giúp cậu vững tay cả buổi."
@@ -316,10 +244,6 @@
 			"at": {
 				"spot": "svc_nh_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Két ở đây chắc nhất vùng. Sổ gửi đồ sẽ mở khi hội buôn duyệt xong luật."
@@ -333,10 +257,6 @@
 			"at": {
 				"spot": "svc_vk_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Chọn đúng món của nghề mình. Hàng mới về theo từng chuyến buôn."
@@ -350,10 +270,6 @@
 			"at": {
 				"spot": "svc_tb_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Một bộ áo tốt phải giúp người mặc trở về."
@@ -367,10 +283,6 @@
 			"at": {
 				"spot": "svc_lr_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Lò còn đỏ đấy. Công thức rèn sẽ mở cùng tuyến truyện mới."
@@ -384,10 +296,6 @@
 			"at": {
 				"spot": "svc_nc_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Đá cường hoá cần thời gian tinh luyện. Quay lại khi xưởng nhận việc."
@@ -401,10 +309,6 @@
 			"at": {
 				"spot": "svc_hp_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Đừng đợi kiệt sức mới nhớ mang thuốc."
@@ -418,10 +322,6 @@
 			"at": {
 				"spot": "svc_qr_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Ngồi xuống đi, món nóng của quán giúp cậu vững tay cả buổi."
@@ -435,10 +335,6 @@
 			"at": {
 				"spot": "svc_nh_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Két ở đây chắc nhất vùng. Sổ gửi đồ sẽ mở khi hội buôn duyệt xong luật."
@@ -452,10 +348,6 @@
 			"at": {
 				"spot": "svc_vk_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Chọn đúng món của nghề mình. Hàng mới về theo từng chuyến buôn."
@@ -469,10 +361,6 @@
 			"at": {
 				"spot": "svc_tb_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Một bộ áo tốt phải giúp người mặc trở về."
@@ -486,10 +374,6 @@
 			"at": {
 				"spot": "svc_lr_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Lò còn đỏ đấy. Công thức rèn sẽ mở cùng tuyến truyện mới."
@@ -503,10 +387,6 @@
 			"at": {
 				"spot": "svc_nc_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Đá cường hoá cần thời gian tinh luyện. Quay lại khi xưởng nhận việc."
@@ -520,10 +400,6 @@
 			"at": {
 				"spot": "svc_hp_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Đừng đợi kiệt sức mới nhớ mang thuốc."
@@ -537,10 +413,6 @@
 			"at": {
 				"spot": "svc_qr_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Ngồi xuống đi, món nóng của quán giúp cậu vững tay cả buổi."
@@ -554,10 +426,6 @@
 			"at": {
 				"spot": "svc_nh_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Két ở đây chắc nhất vùng. Sổ gửi đồ sẽ mở khi hội buôn duyệt xong luật."
@@ -571,10 +439,6 @@
 			"at": {
 				"spot": "svc_vk_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Chọn đúng món của nghề mình. Hàng mới về theo từng chuyến buôn."
@@ -588,10 +452,6 @@
 			"at": {
 				"spot": "svc_tb_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Một bộ áo tốt phải giúp người mặc trở về."
@@ -605,10 +465,6 @@
 			"at": {
 				"spot": "svc_lr_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Lò còn đỏ đấy. Công thức rèn sẽ mở cùng tuyến truyện mới."
@@ -622,10 +478,6 @@
 			"at": {
 				"spot": "svc_nc_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Đá cường hoá cần thời gian tinh luyện. Quay lại khi xưởng nhận việc."
@@ -639,10 +491,6 @@
 			"at": {
 				"spot": "svc_hp_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Đừng đợi kiệt sức mới nhớ mang thuốc."
@@ -656,10 +504,6 @@
 			"at": {
 				"spot": "svc_qr_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Ngồi xuống đi, món nóng của quán giúp cậu vững tay cả buổi."
@@ -673,10 +517,6 @@
 			"at": {
 				"spot": "svc_nh_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Két ở đây chắc nhất vùng. Sổ gửi đồ sẽ mở khi hội buôn duyệt xong luật."
@@ -690,10 +530,6 @@
 			"at": {
 				"spot": "svc_vk_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Chọn đúng món của nghề mình. Hàng mới về theo từng chuyến buôn."
@@ -707,10 +543,6 @@
 			"at": {
 				"spot": "svc_tb_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Một bộ áo tốt phải giúp người mặc trở về."
@@ -724,10 +556,6 @@
 			"at": {
 				"spot": "svc_lr_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Lò còn đỏ đấy. Công thức rèn sẽ mở cùng tuyến truyện mới."
@@ -741,10 +569,6 @@
 			"at": {
 				"spot": "svc_nc_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Đá cường hoá cần thời gian tinh luyện. Quay lại khi xưởng nhận việc."
@@ -758,10 +582,6 @@
 			"at": {
 				"spot": "svc_hp_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Đừng đợi kiệt sức mới nhớ mang thuốc."
@@ -775,10 +595,6 @@
 			"at": {
 				"spot": "svc_qr_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Ngồi xuống đi, món nóng của quán giúp cậu vững tay cả buổi."
@@ -792,10 +608,6 @@
 			"at": {
 				"spot": "svc_nh_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Két ở đây chắc nhất vùng. Sổ gửi đồ sẽ mở khi hội buôn duyệt xong luật."
@@ -809,10 +621,6 @@
 			"at": {
 				"spot": "svc_vk_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Chọn đúng món của nghề mình. Hàng mới về theo từng chuyến buôn."
@@ -826,10 +634,6 @@
 			"at": {
 				"spot": "svc_tb_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Một bộ áo tốt phải giúp người mặc trở về."
@@ -843,10 +647,6 @@
 			"at": {
 				"spot": "svc_lr_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Lò còn đỏ đấy. Công thức rèn sẽ mở cùng tuyến truyện mới."
@@ -860,10 +660,6 @@
 			"at": {
 				"spot": "svc_nc_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Đá cường hoá cần thời gian tinh luyện. Quay lại khi xưởng nhận việc."
@@ -877,10 +673,6 @@
 			"at": {
 				"spot": "svc_hp_keeper"
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Đừng đợi kiệt sức mới nhớ mang thuốc."
@@ -896,10 +688,6 @@
 				"dx": -210,
 				"dy": -120
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Ta vẫn làm thừa một phần bánh. Tay ta nhớ, đầu ta thì không."
@@ -915,10 +703,6 @@
 				"dx": 150,
 				"dy": -130
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Em ghi tên mọi người vào sổ. Mai em quên thì còn hỏi lại được."
@@ -934,10 +718,6 @@
 				"dx": 70,
 				"dy": 10
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Nghề nào cũng bắt đầu bằng việc giữ được hơi thở."
@@ -953,10 +733,6 @@
 				"dx": -270,
 				"dy": 150
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Thư không người nhận vẫn là thư. Ta đưa nó tới khi có người nhận."
@@ -972,10 +748,6 @@
 				"dx": 70,
 				"dy": -50
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Đường này ta gác ba mươi năm. Ta nhớ từng bia mộ."
@@ -991,10 +763,6 @@
 				"dx": 390,
 				"dy": 110
 			},
-			"ages": [
-				16,
-				99
-			],
 			"stationary": true,
 			"idle": [
 				"Ta mang tin giữa các vùng. Dù chưa có hội lễ, cậu vẫn có thể ghé hỏi thăm; việc nhận nhà không phải đợi sự kiện."

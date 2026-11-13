@@ -281,8 +281,6 @@ namespace HavenLord.Importer
                 radius = (float)z.radius,
                 monsters = z.monsters?.ToArray() ?? Array.Empty<string>(),
                 count = z.count,
-                fromAge = z.fromAge ?? -1,
-                untilAge = z.untilAge ?? -1,
                 level = z.level ?? -1,
                 onDemand = z.onDemand ?? false,
                 boss = z.boss ?? false,

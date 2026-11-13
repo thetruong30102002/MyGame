@@ -25,7 +25,6 @@ const WAYSTONES: Record<string, NpcDef> = Object.fromEntries(
 			sprite: null,
 			prop: 'rune_stone',
 			at: { spot: r.waystone.spot, dx: r.waystone.dx, dy: r.waystone.dy },
-			ages: [0, 99],
 			region: r.id,
 			idle: ['«Những trạm bạn từng đặt chân tới đều nối với nhau qua cột đá này.»'],
 		} satisfies NpcDef,
@@ -37,13 +36,13 @@ export const SERVICE_NPCS: Record<string, NpcDef> = {
 	...WAYSTONES,
 	barber_mira: {
 		name: 'Mira', title: 'Thợ làm tóc', sprite: 'npc_silver_youth_f',
-		at: { spot: 'plaza', dx: 76, dy: 96 }, ages: [16, 99], region: 'human',
+		at: { spot: 'plaza', dx: 76, dy: 96 }, region: 'human',
 		idle: ['Ngồi xuống nào. Cậu muốn đổi kiểu tóc chứ?'],
 	},
 	/**
 	 * Bia Danh Vọng (K1 — docs/ke-hoach-kim-cuong.md): nhận quà thành tựu. Chỗ đứng lấy từ `CHRONICLER` dùng chung với máy chủ —
 	 * máy chủ chỉ trao quà khi người chơi đứng gần đúng chỗ này. Hình TẠM là đồ vật `rune_tablet` (phiến đá khắc chữ) — KHÔNG
-	 * dùng `rune_stone` nữa vì đó là cột dịch chuyển (11/10/2026); có bia do PixelLab vẽ thì đổi `prop`. Có ở mọi tuổi (thám hiểm / bạn bè đếm từ nhỏ).
+	 * dùng `rune_stone` nữa vì đó là cột dịch chuyển (11/10/2026); có bia do PixelLab vẽ thì đổi `prop`.
 	 */
 	[CHRONICLER.npc]: {
 		name: 'Bia Danh Vọng',
@@ -53,35 +52,17 @@ export const SERVICE_NPCS: Record<string, NpcDef> = {
 		at: { spot: CHRONICLER.spot, dx: CHRONICLER.dx, dy: CHRONICLER.dy },
 		// Chỉ ở Thistlewood: trạm các vùng khác cũng có địa điểm `plaza` nên thiếu dòng này là bia hiện ở mọi trạm (đã gặp 11/10/2026).
 		region: CHRONICLER.map.split('/')[0],
-		ages: [0, 99],
 		idle: ['«Tên những người làm nên chuyện được khắc ở đây.»', '«Chỉ người chơi trực tuyến mới được ghi danh.»'],
 	},
 	/**
 	 * Cặp anh em lữ hành tóc bạc (chủ dự án 09/10/2026): hình nhân vật người chơi CŨ, nay người chơi có hình mới nên hai bộ tóc
-	 * bạc thành NPC trò chuyện ở quảng trường — lúc nhỏ đi theo cha mẹ ghé chợ, mười sáu tuổi tự đi khắp lục địa.
+	 * bạc thành NPC trò chuyện ở quảng trường, đi khắp lục địa.
 	 */
-	traveler_sein_child: {
-		name: 'Sein',
-		title: 'Cậu bé lữ khách',
-		sprite: 'npc_silver_child',
-		at: { spot: 'plaza', dx: -36, dy: 96 },
-		ages: [0, 15],
-		idle: ['Bọn tớ theo đoàn buôn của cha, mai lại đi rồi.', 'Ngoài kia có đầm lầy toàn nhà sàn đấy! Cha kể vậy.'],
-	},
-	traveler_sera_child: {
-		name: 'Sera',
-		title: 'Cô bé lữ khách',
-		sprite: 'npc_silver_child_f',
-		at: { spot: 'plaza', dx: 8, dy: 96 },
-		ages: [0, 15],
-		idle: ['Tóc tớ với anh Sein giống mẹ, ai cũng nhìn.', 'Cậu có biết sa mạc phía nam có toà thành ốc đảo không?'],
-	},
 	traveler_sein: {
 		name: 'Sein',
 		title: 'Lữ khách tóc bạc',
 		sprite: 'npc_silver_youth',
 		at: { spot: 'plaza', dx: -36, dy: 96 },
-		ages: [16, 99],
 		idle: ['Lại gặp nhau rồi! Bọn ta vừa từ cao nguyên Gió Hú về — gió trên đó thổi bay cả mũ.', 'Đi đâu cũng nhớ ghé cột dịch chuyển, đỡ mỏi chân lắm.'],
 	},
 	traveler_sera: {
@@ -89,7 +70,6 @@ export const SERVICE_NPCS: Record<string, NpcDef> = {
 		title: 'Nữ lữ khách tóc bạc',
 		sprite: 'npc_silver_youth_f',
 		at: { spot: 'plaza', dx: 8, dy: 96 },
-		ages: [16, 99],
 		idle: ['Anh Sein cứ đòi đi săn rồng phương Đông. Ta thì chỉ muốn vẽ lại bản đồ lục địa.', 'Đầm lầy Mù Sương có ếch độc to bằng cái thúng, cẩn thận đấy.'],
 	},
 };
