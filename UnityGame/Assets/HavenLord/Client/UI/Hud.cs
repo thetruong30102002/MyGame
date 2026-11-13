@@ -274,7 +274,10 @@ namespace HavenLord.Client.UI
             mpBar = SmoothBar.Make(card, "Mp", new Vector2(0, 1), new Vector2(0, 1), new Vector2(64 * k, -29 * k), new Vector2(106 * k, 8 * k), UiStyle.Mana, 9, 6);
             staBar = SmoothBar.Make(card, "Stamina", new Vector2(0, 1), new Vector2(0, 1), new Vector2(64 * k, -47 * k), new Vector2(106 * k, 8 * k), UiStyle.Stamina, 9, 6);
             nameText = UiKit.Label(UiKit.Rect(root, "Name", new Vector2(0, 1), new Vector2(0, 1), new Vector2(18 + 64 * k, -8), new Vector2(200, 20)), "", 15, UiStyle.Parchment, TextAnchor.MiddleLeft, true);
-            levelText = UiKit.Label(UiKit.Rect(card, "Level", new Vector2(0, 1), new Vector2(0.5f, 0.5f), new Vector2(49 * k, -56 * k), new Vector2(26, 18)), "1", 11, UiStyle.InkBrown, TextAnchor.MiddleCenter, true, false);
+            // Số cấp trên đồng xu: chữ kem đậm viền nâu sẫm cho nổi (chủ dự án 13/11: "hơi mờ khó nhìn nổi lên xíu").
+            levelText = UiKit.Label(UiKit.Rect(card, "Level", new Vector2(0, 1), new Vector2(0.5f, 0.5f), new Vector2(49 * k, -56 * k), new Vector2(30, 22)), "1", 14, UiStyle.Hex(0xfff6dc), TextAnchor.MiddleCenter, true, false);
+            levelText.outlineWidth = 0.28f;
+            levelText.outlineColor = new Color32(48, 24, 8, 255);
             var badge = UiKit.Rect(root, "Points", new Vector2(0, 1), new Vector2(0, 1), new Vector2(18 + 64 * k + 205, -8), new Vector2(24, 20));
             UiStyle.Pill(badge, UiStyle.Hex(0xfff1c9), 10);
             var bin = UiKit.Rect(badge, "in", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(20, 16));
