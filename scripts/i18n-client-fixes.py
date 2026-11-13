@@ -24,5 +24,6 @@ data.update({
     'Tải bản mới lỗi: ': 'Update failed: ',
     '<color=#9fe39a>Vừa áp: ': '<color=#9fe39a>Applied: ',
     'Bạn': 'You',
+    'Ông Rơm': 'Ông Rơm',
 })
 path.write_text(json.dumps(dict(sorted(data.items())), ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
