@@ -98,6 +98,37 @@ Bản gốc đúng ý nhưng tiết lộ chủ yếu nằm ở sổ sách và ch
 
 **Hình cần thêm do bản sửa:** người gác đường nghĩa địa (M04–M06). Các nhân vật còn lại đã có trong danh sách hình mục 7 hoặc là NPC có sẵn (Iris, Orin, Ren, Mai).
 
+### Hình NPC đã vẽ (PixelLab 13/11/2026, mọi NPC tên tiếng Anh — chủ dự án "Tất cả npc sẽ có tên tiếng Anh")
+
+| Mã hình | Tên | Vai trong truyện |
+|---|---|---|
+| `npc_q2_nell_001` | Nell (Bà Nell) | Chủ quán, mẹ Kai |
+| `npc_q2_pip_001` | Pip | Đứa trẻ ở chợ, em gái người bị neo |
+| `npc_q2_edda_001` | Edda | Elf đưa thư |
+| `npc_q2_kai_001` | Kai | Thợ cầu tộc thú, con Bà Nell |
+| `npc_q2_sael_001` | Sael | Bác sĩ Ma tộc |
+| `npc_q2_linnea_001` | Linnea | Long tộc giữ niên luân |
+| `npc_q2_vera_001` | Vera | Tể thư |
+| `npc_q2_gareth_001` | Gareth | Người hướng dẫn nghề (M02, M07) |
+| `npc_q2_tobin_001` | Tobin | Người gác đường nghĩa địa (M04–M06) |
+| `npc_q2_ferris_001` | Ferris | Người giữ phà — chuỗi "Bến không có tên" |
+| `npc_q2_hamid_001` | Hamid | Người trực giếng — "Giá của một gáo nước" |
+| `npc_q2_oskar_001` | Oskar | Người giữ kho — "Lửa cho kho trú" |
+| `npc_q2_sev_001` | Sev | Ngư dân — "Cá đầu mùa" |
+| `npc_q2_bryony_001` | Bryony | Người chăm vườn nấm — "Đèn mọc từ đất" |
+| `npc_q2_puck_001` | Puck | Đại diện chợ nấm — "Người thuê đường rễ" |
+| `npc_q2_rowan_001` | Rowan | Hội giữ rừng — "Xin một cành, giữ một rễ" |
+| `npc_q2_theo_001` | Theo | Học trò học viện — "Bản chép bị che" |
+| `npc_q2_ivo_001` | Ivo | Thợ kính — "Đèn cho người về muộn" |
+| `npc_q2_vesper_001` | Vesper | Thợ nhuộm — "Màu vải của người mất" |
+| `npc_q2_edwin_001` | Edwin | Thợ phục chế — "Không bán một trang ký ức" |
+| `npc_q2_nico_001` | Nico | Nhà khảo cổ trẻ — "Bốn bản, một chỗ sai" |
+| `npc_q2_mara_001` | Mara | Quân y tiền tuyến — "Danh sách người nhận thuốc" |
+| `npc_q2_dax_001` | Dax | Lính gác — "Người giữ cửa" |
+| `npc_q2_harlan_001` | Harlan | Người giữ trạm gió (M13) |
+
+Còn dùng NPC có sẵn: Ren, Ela, Orin, Maya, Lena, Iris, Ruby, Tobias (Thistlewood / Gia viên); Nyra, Odessa, Zahra, Hassim, Orrin, Wenna, Kael, Hilde, Durin, Maris, Corvin (NPC truyện vùng); người đứng quầy các khu. Chưa vẽ: 4 Ma thần + Ma vương (boss, chờ lượt sau 28/11).
+
 ## 2. Quy tắc chung của bốn loại
 
 - **Chính**: tuyến có thứ tự, theo cấp tối thiểu và vùng. Mở cổng mới bằng mốc truyện và điều kiện chiến đấu đã duyệt; không bắt làm phụ hoặc daily. Đạt cấp 10 mới có cảnh thức tỉnh một trong tám nguyên tố với xác suất ngang nhau. Không ép class hay chiêu cụ thể; đi theo kế hoạch 140 chiêu, không theo luật mở skill cũ.

@@ -57242,6 +57242,1518 @@
 				"SW",
 				"NW"
 			]
+		},
+		"npc_q2_nell_001": {
+			"displayName": "Nell",
+			"role": "npc",
+			"identity": {
+				"characterId": "npc_q2_nell_001",
+				"hair": "see_prompt",
+				"eyes": "see_prompt",
+				"skin": "see_prompt",
+				"outfit": "see_prompt",
+				"weapon": "none",
+				"palette": "npc_none_01"
+			},
+			"atlas": "characters/npc_q2_nell_001/npc_q2_nell_001.json",
+			"frameSize": {
+				"width": 80,
+				"height": 88
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9545454545454546
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 13/11/2026: tấm nhiều NPC (ảnh mẫu nét = NPC tóc trắng + chủ quán Lau Xám + thợ rèn Đe Đỏ), cắt ô thành ảnh nhìn thẳng. Vùng —, vai tavern. NPC ĐỨNG YÊN (chốt 12/11): mọi hướng dùng chung ảnh nhìn thẳng. Tả: kind elderly tavern cook, silver bun, apron, clay bowl",
+			"bodyHeight": 75,
+			"portrait": "portraits/npc_q2_nell_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			]
+		},
+		"npc_q2_pip_001": {
+			"displayName": "Pip",
+			"role": "npc",
+			"identity": {
+				"characterId": "npc_q2_pip_001",
+				"hair": "see_prompt",
+				"eyes": "see_prompt",
+				"skin": "see_prompt",
+				"outfit": "see_prompt",
+				"weapon": "none",
+				"palette": "npc_none_01"
+			},
+			"atlas": "characters/npc_q2_pip_001/npc_q2_pip_001.json",
+			"frameSize": {
+				"width": 80,
+				"height": 88
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9545454545454546
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 13/11/2026: tấm nhiều NPC (ảnh mẫu nét = NPC tóc trắng + chủ quán Lau Xám + thợ rèn Đe Đỏ), cắt ô thành ảnh nhìn thẳng. Vùng —, vai tavern. NPC ĐỨNG YÊN (chốt 12/11): mọi hướng dùng chung ảnh nhìn thẳng. Tả: child market girl, messy brown hair, notebook",
+			"bodyHeight": 62,
+			"portrait": "portraits/npc_q2_pip_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			]
+		},
+		"npc_q2_edda_001": {
+			"displayName": "Edda",
+			"role": "npc",
+			"identity": {
+				"characterId": "npc_q2_edda_001",
+				"hair": "see_prompt",
+				"eyes": "see_prompt",
+				"skin": "see_prompt",
+				"outfit": "see_prompt",
+				"weapon": "none",
+				"palette": "npc_none_01"
+			},
+			"atlas": "characters/npc_q2_edda_001/npc_q2_edda_001.json",
+			"frameSize": {
+				"width": 80,
+				"height": 88
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9545454545454546
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 13/11/2026: tấm nhiều NPC (ảnh mẫu nét = NPC tóc trắng + chủ quán Lau Xám + thợ rèn Đe Đỏ), cắt ô thành ảnh nhìn thẳng. Vùng —, vai tavern. NPC ĐỨNG YÊN (chốt 12/11): mọi hướng dùng chung ảnh nhìn thẳng. Tả: elf letter carrier, platinum hair, satchel of letters",
+			"bodyHeight": 75,
+			"portrait": "portraits/npc_q2_edda_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			]
+		},
+		"npc_q2_kai_001": {
+			"displayName": "Kai",
+			"role": "npc",
+			"identity": {
+				"characterId": "npc_q2_kai_001",
+				"hair": "see_prompt",
+				"eyes": "see_prompt",
+				"skin": "see_prompt",
+				"outfit": "see_prompt",
+				"weapon": "none",
+				"palette": "npc_none_01"
+			},
+			"atlas": "characters/npc_q2_kai_001/npc_q2_kai_001.json",
+			"frameSize": {
+				"width": 80,
+				"height": 88
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9545454545454546
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 13/11/2026: tấm nhiều NPC (ảnh mẫu nét = NPC tóc trắng + chủ quán Lau Xám + thợ rèn Đe Đỏ), cắt ô thành ảnh nhìn thẳng. Vùng —, vai tavern. NPC ĐỨNG YÊN (chốt 12/11): mọi hướng dùng chung ảnh nhìn thẳng. Tả: beastfolk bridge builder, cat ears, blueprint",
+			"bodyHeight": 77,
+			"portrait": "portraits/npc_q2_kai_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			]
+		},
+		"npc_q2_sael_001": {
+			"displayName": "Sael",
+			"role": "npc",
+			"identity": {
+				"characterId": "npc_q2_sael_001",
+				"hair": "see_prompt",
+				"eyes": "see_prompt",
+				"skin": "see_prompt",
+				"outfit": "see_prompt",
+				"weapon": "none",
+				"palette": "npc_none_01"
+			},
+			"atlas": "characters/npc_q2_sael_001/npc_q2_sael_001.json",
+			"frameSize": {
+				"width": 80,
+				"height": 88
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9545454545454546
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 13/11/2026: tấm nhiều NPC (ảnh mẫu nét = NPC tóc trắng + chủ quán Lau Xám + thợ rèn Đe Đỏ), cắt ô thành ảnh nhìn thẳng. Vùng —, vai tavern. NPC ĐỨNG YÊN (chốt 12/11): mọi hướng dùng chung ảnh nhìn thẳng. Tả: demonkin doctor, small horns, grey coat",
+			"bodyHeight": 71,
+			"portrait": "portraits/npc_q2_sael_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			]
+		},
+		"npc_q2_linnea_001": {
+			"displayName": "Linnea",
+			"role": "npc",
+			"identity": {
+				"characterId": "npc_q2_linnea_001",
+				"hair": "see_prompt",
+				"eyes": "see_prompt",
+				"skin": "see_prompt",
+				"outfit": "see_prompt",
+				"weapon": "none",
+				"palette": "npc_none_01"
+			},
+			"atlas": "characters/npc_q2_linnea_001/npc_q2_linnea_001.json",
+			"frameSize": {
+				"width": 80,
+				"height": 88
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9545454545454546
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 13/11/2026: tấm nhiều NPC (ảnh mẫu nét = NPC tóc trắng + chủ quán Lau Xám + thợ rèn Đe Đỏ), cắt ô thành ảnh nhìn thẳng. Vùng —, vai tavern. NPC ĐỨNG YÊN (chốt 12/11): mọi hướng dùng chung ảnh nhìn thẳng. Tả: dragonkin archivist, teal hair, tree-ring disc",
+			"bodyHeight": 72,
+			"portrait": "portraits/npc_q2_linnea_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			]
+		},
+		"npc_q2_vera_001": {
+			"displayName": "Vera",
+			"role": "npc",
+			"identity": {
+				"characterId": "npc_q2_vera_001",
+				"hair": "see_prompt",
+				"eyes": "see_prompt",
+				"skin": "see_prompt",
+				"outfit": "see_prompt",
+				"weapon": "none",
+				"palette": "npc_none_01"
+			},
+			"atlas": "characters/npc_q2_vera_001/npc_q2_vera_001.json",
+			"frameSize": {
+				"width": 80,
+				"height": 88
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9545454545454546
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 13/11/2026: tấm nhiều NPC (ảnh mẫu nét = NPC tóc trắng + chủ quán Lau Xám + thợ rèn Đe Đỏ), cắt ô thành ảnh nhìn thẳng. Vùng —, vai tavern. NPC ĐỨNG YÊN (chốt 12/11): mọi hướng dùng chung ảnh nhìn thẳng. Tả: stern chancellor, dark blue robe, gold chain",
+			"bodyHeight": 72,
+			"portrait": "portraits/npc_q2_vera_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			]
+		},
+		"npc_q2_gareth_001": {
+			"displayName": "Gareth",
+			"role": "npc",
+			"identity": {
+				"characterId": "npc_q2_gareth_001",
+				"hair": "see_prompt",
+				"eyes": "see_prompt",
+				"skin": "see_prompt",
+				"outfit": "see_prompt",
+				"weapon": "none",
+				"palette": "npc_none_01"
+			},
+			"atlas": "characters/npc_q2_gareth_001/npc_q2_gareth_001.json",
+			"frameSize": {
+				"width": 80,
+				"height": 88
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9545454545454546
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 13/11/2026: tấm nhiều NPC (ảnh mẫu nét = NPC tóc trắng + chủ quán Lau Xám + thợ rèn Đe Đỏ), cắt ô thành ảnh nhìn thẳng. Vùng —, vai tavern. NPC ĐỨNG YÊN (chốt 12/11): mọi hướng dùng chung ảnh nhìn thẳng. Tả: class mentor, auburn beard, wooden training sword",
+			"bodyHeight": 72,
+			"portrait": "portraits/npc_q2_gareth_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			]
+		},
+		"npc_q2_tobin_001": {
+			"displayName": "Tobin",
+			"role": "npc",
+			"identity": {
+				"characterId": "npc_q2_tobin_001",
+				"hair": "see_prompt",
+				"eyes": "see_prompt",
+				"skin": "see_prompt",
+				"outfit": "see_prompt",
+				"weapon": "none",
+				"palette": "npc_none_01"
+			},
+			"atlas": "characters/npc_q2_tobin_001/npc_q2_tobin_001.json",
+			"frameSize": {
+				"width": 80,
+				"height": 88
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9545454545454546
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 13/11/2026: tấm nhiều NPC (ảnh mẫu nét = NPC tóc trắng + chủ quán Lau Xám + thợ rèn Đe Đỏ), cắt ô thành ảnh nhìn thẳng. NPC nhiệm vụ phụ hệ nhiệm vụ mới (docs/thiet-ke/he-nhiem-vu-bon-loai-2026-11.md). NPC ĐỨNG YÊN (chốt 12/11): mọi hướng dùng chung ảnh nhìn thẳng. Tả: old graveyard road keeper, grey cloak, lantern",
+			"bodyHeight": 70,
+			"portrait": "portraits/npc_q2_tobin_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			]
+		},
+		"npc_q2_ferris_001": {
+			"displayName": "Ferris",
+			"role": "npc",
+			"identity": {
+				"characterId": "npc_q2_ferris_001",
+				"hair": "see_prompt",
+				"eyes": "see_prompt",
+				"skin": "see_prompt",
+				"outfit": "see_prompt",
+				"weapon": "none",
+				"palette": "npc_none_01"
+			},
+			"atlas": "characters/npc_q2_ferris_001/npc_q2_ferris_001.json",
+			"frameSize": {
+				"width": 80,
+				"height": 88
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9545454545454546
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 13/11/2026: tấm nhiều NPC (ảnh mẫu nét = NPC tóc trắng + chủ quán Lau Xám + thợ rèn Đe Đỏ), cắt ô thành ảnh nhìn thẳng. NPC nhiệm vụ phụ hệ nhiệm vụ mới (docs/thiet-ke/he-nhiem-vu-bon-loai-2026-11.md). NPC ĐỨNG YÊN (chốt 12/11): mọi hướng dùng chung ảnh nhìn thẳng. Tả: swamp ferryman, punting pole",
+			"bodyHeight": 73,
+			"portrait": "portraits/npc_q2_ferris_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			]
+		},
+		"npc_q2_hamid_001": {
+			"displayName": "Hamid",
+			"role": "npc",
+			"identity": {
+				"characterId": "npc_q2_hamid_001",
+				"hair": "see_prompt",
+				"eyes": "see_prompt",
+				"skin": "see_prompt",
+				"outfit": "see_prompt",
+				"weapon": "none",
+				"palette": "npc_none_01"
+			},
+			"atlas": "characters/npc_q2_hamid_001/npc_q2_hamid_001.json",
+			"frameSize": {
+				"width": 80,
+				"height": 88
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9545454545454546
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 13/11/2026: tấm nhiều NPC (ảnh mẫu nét = NPC tóc trắng + chủ quán Lau Xám + thợ rèn Đe Đỏ), cắt ô thành ảnh nhìn thẳng. NPC nhiệm vụ phụ hệ nhiệm vụ mới (docs/thiet-ke/he-nhiem-vu-bon-loai-2026-11.md). NPC ĐỨNG YÊN (chốt 12/11): mọi hướng dùng chung ảnh nhìn thẳng. Tả: desert well keeper, brass ladle",
+			"bodyHeight": 72,
+			"portrait": "portraits/npc_q2_hamid_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			]
+		},
+		"npc_q2_oskar_001": {
+			"displayName": "Oskar",
+			"role": "npc",
+			"identity": {
+				"characterId": "npc_q2_oskar_001",
+				"hair": "see_prompt",
+				"eyes": "see_prompt",
+				"skin": "see_prompt",
+				"outfit": "see_prompt",
+				"weapon": "none",
+				"palette": "npc_none_01"
+			},
+			"atlas": "characters/npc_q2_oskar_001/npc_q2_oskar_001.json",
+			"frameSize": {
+				"width": 80,
+				"height": 88
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9545454545454546
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 13/11/2026: tấm nhiều NPC (ảnh mẫu nét = NPC tóc trắng + chủ quán Lau Xám + thợ rèn Đe Đỏ), cắt ô thành ảnh nhìn thẳng. NPC nhiệm vụ phụ hệ nhiệm vụ mới (docs/thiet-ke/he-nhiem-vu-bon-loai-2026-11.md). NPC ĐỨNG YÊN (chốt 12/11): mọi hướng dùng chung ảnh nhìn thẳng. Tả: northern storekeeper, fur coat, coal sack",
+			"bodyHeight": 72,
+			"portrait": "portraits/npc_q2_oskar_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			]
+		},
+		"npc_q2_sev_001": {
+			"displayName": "Sev",
+			"role": "npc",
+			"identity": {
+				"characterId": "npc_q2_sev_001",
+				"hair": "see_prompt",
+				"eyes": "see_prompt",
+				"skin": "see_prompt",
+				"outfit": "see_prompt",
+				"weapon": "none",
+				"palette": "npc_none_01"
+			},
+			"atlas": "characters/npc_q2_sev_001/npc_q2_sev_001.json",
+			"frameSize": {
+				"width": 80,
+				"height": 88
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9545454545454546
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 13/11/2026: tấm nhiều NPC (ảnh mẫu nét = NPC tóc trắng + chủ quán Lau Xám + thợ rèn Đe Đỏ), cắt ô thành ảnh nhìn thẳng. NPC nhiệm vụ phụ hệ nhiệm vụ mới (docs/thiet-ke/he-nhiem-vu-bon-loai-2026-11.md). NPC ĐỨNG YÊN (chốt 12/11): mọi hướng dùng chung ảnh nhìn thẳng. Tả: island fisherman, fishing net",
+			"bodyHeight": 74,
+			"portrait": "portraits/npc_q2_sev_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			]
+		},
+		"npc_q2_ivo_001": {
+			"displayName": "Ivo",
+			"role": "npc",
+			"identity": {
+				"characterId": "npc_q2_ivo_001",
+				"hair": "see_prompt",
+				"eyes": "see_prompt",
+				"skin": "see_prompt",
+				"outfit": "see_prompt",
+				"weapon": "none",
+				"palette": "npc_none_01"
+			},
+			"atlas": "characters/npc_q2_ivo_001/npc_q2_ivo_001.json",
+			"frameSize": {
+				"width": 80,
+				"height": 88
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9545454545454546
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 13/11/2026: tấm nhiều NPC (ảnh mẫu nét = NPC tóc trắng + chủ quán Lau Xám + thợ rèn Đe Đỏ), cắt ô thành ảnh nhìn thẳng. NPC nhiệm vụ phụ hệ nhiệm vụ mới (docs/thiet-ke/he-nhiem-vu-bon-loai-2026-11.md). NPC ĐỨNG YÊN (chốt 12/11): mọi hướng dùng chung ảnh nhìn thẳng. Tả: dawn sanctuary glassmaker, glass lamp shade",
+			"bodyHeight": 73,
+			"portrait": "portraits/npc_q2_ivo_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			]
+		},
+		"npc_q2_mara_001": {
+			"displayName": "Mara",
+			"role": "npc",
+			"identity": {
+				"characterId": "npc_q2_mara_001",
+				"hair": "see_prompt",
+				"eyes": "see_prompt",
+				"skin": "see_prompt",
+				"outfit": "see_prompt",
+				"weapon": "none",
+				"palette": "npc_none_01"
+			},
+			"atlas": "characters/npc_q2_mara_001/npc_q2_mara_001.json",
+			"frameSize": {
+				"width": 80,
+				"height": 88
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9545454545454546
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 13/11/2026: tấm nhiều NPC (ảnh mẫu nét = NPC tóc trắng + chủ quán Lau Xám + thợ rèn Đe Đỏ), cắt ô thành ảnh nhìn thẳng. NPC nhiệm vụ phụ hệ nhiệm vụ mới (docs/thiet-ke/he-nhiem-vu-bon-loai-2026-11.md). NPC ĐỨNG YÊN (chốt 12/11): mọi hướng dùng chung ảnh nhìn thẳng. Tả: army medic, bandage roll",
+			"bodyHeight": 71,
+			"portrait": "portraits/npc_q2_mara_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			]
+		},
+		"npc_q2_dax_001": {
+			"displayName": "Dax",
+			"role": "npc",
+			"identity": {
+				"characterId": "npc_q2_dax_001",
+				"hair": "see_prompt",
+				"eyes": "see_prompt",
+				"skin": "see_prompt",
+				"outfit": "see_prompt",
+				"weapon": "none",
+				"palette": "npc_none_01"
+			},
+			"atlas": "characters/npc_q2_dax_001/npc_q2_dax_001.json",
+			"frameSize": {
+				"width": 80,
+				"height": 88
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9545454545454546
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 13/11/2026: tấm nhiều NPC (ảnh mẫu nét = NPC tóc trắng + chủ quán Lau Xám + thợ rèn Đe Đỏ), cắt ô thành ảnh nhìn thẳng. NPC nhiệm vụ phụ hệ nhiệm vụ mới (docs/thiet-ke/he-nhiem-vu-bon-loai-2026-11.md). NPC ĐỨNG YÊN (chốt 12/11): mọi hướng dùng chung ảnh nhìn thẳng. Tả: coalition gate guard, spear",
+			"bodyHeight": 73,
+			"portrait": "portraits/npc_q2_dax_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			]
+		},
+		"npc_q2_bryony_001": {
+			"displayName": "Bryony",
+			"role": "npc",
+			"identity": {
+				"characterId": "npc_q2_bryony_001",
+				"hair": "see_prompt",
+				"eyes": "see_prompt",
+				"skin": "see_prompt",
+				"outfit": "see_prompt",
+				"weapon": "none",
+				"palette": "npc_none_01"
+			},
+			"atlas": "characters/npc_q2_bryony_001/npc_q2_bryony_001.json",
+			"frameSize": {
+				"width": 80,
+				"height": 88
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9545454545454546
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 13/11/2026: tấm nhiều NPC (ảnh mẫu nét = NPC tóc trắng + chủ quán Lau Xám + thợ rèn Đe Đỏ), cắt ô thành ảnh nhìn thẳng. NPC nhiệm vụ phụ hệ nhiệm vụ mới (docs/thiet-ke/he-nhiem-vu-bon-loai-2026-11.md). NPC ĐỨNG YÊN (chốt 12/11): mọi hướng dùng chung ảnh nhìn thẳng. Tả: mushroom folk gardener, watering can",
+			"bodyHeight": 58,
+			"portrait": "portraits/npc_q2_bryony_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			]
+		},
+		"npc_q2_puck_001": {
+			"displayName": "Puck",
+			"role": "npc",
+			"identity": {
+				"characterId": "npc_q2_puck_001",
+				"hair": "see_prompt",
+				"eyes": "see_prompt",
+				"skin": "see_prompt",
+				"outfit": "see_prompt",
+				"weapon": "none",
+				"palette": "npc_none_01"
+			},
+			"atlas": "characters/npc_q2_puck_001/npc_q2_puck_001.json",
+			"frameSize": {
+				"width": 80,
+				"height": 88
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9545454545454546
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 13/11/2026: tấm nhiều NPC (ảnh mẫu nét = NPC tóc trắng + chủ quán Lau Xám + thợ rèn Đe Đỏ), cắt ô thành ảnh nhìn thẳng. NPC nhiệm vụ phụ hệ nhiệm vụ mới (docs/thiet-ke/he-nhiem-vu-bon-loai-2026-11.md). NPC ĐỨNG YÊN (chốt 12/11): mọi hướng dùng chung ảnh nhìn thẳng. Tả: mushroom folk market representative, contract scroll",
+			"bodyHeight": 59,
+			"portrait": "portraits/npc_q2_puck_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			]
+		},
+		"npc_q2_rowan_001": {
+			"displayName": "Rowan",
+			"role": "npc",
+			"identity": {
+				"characterId": "npc_q2_rowan_001",
+				"hair": "see_prompt",
+				"eyes": "see_prompt",
+				"skin": "see_prompt",
+				"outfit": "see_prompt",
+				"weapon": "none",
+				"palette": "npc_none_01"
+			},
+			"atlas": "characters/npc_q2_rowan_001/npc_q2_rowan_001.json",
+			"frameSize": {
+				"width": 80,
+				"height": 88
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9545454545454546
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 13/11/2026: tấm nhiều NPC (ảnh mẫu nét = NPC tóc trắng + chủ quán Lau Xám + thợ rèn Đe Đỏ), cắt ô thành ảnh nhìn thẳng. NPC nhiệm vụ phụ hệ nhiệm vụ mới (docs/thiet-ke/he-nhiem-vu-bon-loai-2026-11.md). NPC ĐỨNG YÊN (chốt 12/11): mọi hướng dùng chung ảnh nhìn thẳng. Tả: elf forest warden, potted sapling",
+			"bodyHeight": 68,
+			"portrait": "portraits/npc_q2_rowan_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			]
+		},
+		"npc_q2_theo_001": {
+			"displayName": "Theo",
+			"role": "npc",
+			"identity": {
+				"characterId": "npc_q2_theo_001",
+				"hair": "see_prompt",
+				"eyes": "see_prompt",
+				"skin": "see_prompt",
+				"outfit": "see_prompt",
+				"weapon": "none",
+				"palette": "npc_none_01"
+			},
+			"atlas": "characters/npc_q2_theo_001/npc_q2_theo_001.json",
+			"frameSize": {
+				"width": 80,
+				"height": 88
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9545454545454546
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 13/11/2026: tấm nhiều NPC (ảnh mẫu nét = NPC tóc trắng + chủ quán Lau Xám + thợ rèn Đe Đỏ), cắt ô thành ảnh nhìn thẳng. NPC nhiệm vụ phụ hệ nhiệm vụ mới (docs/thiet-ke/he-nhiem-vu-bon-loai-2026-11.md). NPC ĐỨNG YÊN (chốt 12/11): mọi hướng dùng chung ảnh nhìn thẳng. Tả: academy student, books",
+			"bodyHeight": 70,
+			"portrait": "portraits/npc_q2_theo_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			]
+		},
+		"npc_q2_vesper_001": {
+			"displayName": "Vesper",
+			"role": "npc",
+			"identity": {
+				"characterId": "npc_q2_vesper_001",
+				"hair": "see_prompt",
+				"eyes": "see_prompt",
+				"skin": "see_prompt",
+				"outfit": "see_prompt",
+				"weapon": "none",
+				"palette": "npc_none_01"
+			},
+			"atlas": "characters/npc_q2_vesper_001/npc_q2_vesper_001.json",
+			"frameSize": {
+				"width": 80,
+				"height": 88
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9545454545454546
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 13/11/2026: tấm nhiều NPC (ảnh mẫu nét = NPC tóc trắng + chủ quán Lau Xám + thợ rèn Đe Đỏ), cắt ô thành ảnh nhìn thẳng. NPC nhiệm vụ phụ hệ nhiệm vụ mới (docs/thiet-ke/he-nhiem-vu-bon-loai-2026-11.md). NPC ĐỨNG YÊN (chốt 12/11): mọi hướng dùng chung ảnh nhìn thẳng. Tả: dark-realm dyer, cloth samples",
+			"bodyHeight": 73,
+			"portrait": "portraits/npc_q2_vesper_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			]
+		},
+		"npc_q2_edwin_001": {
+			"displayName": "Edwin",
+			"role": "npc",
+			"identity": {
+				"characterId": "npc_q2_edwin_001",
+				"hair": "see_prompt",
+				"eyes": "see_prompt",
+				"skin": "see_prompt",
+				"outfit": "see_prompt",
+				"weapon": "none",
+				"palette": "npc_none_01"
+			},
+			"atlas": "characters/npc_q2_edwin_001/npc_q2_edwin_001.json",
+			"frameSize": {
+				"width": 80,
+				"height": 88
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9545454545454546
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 13/11/2026: tấm nhiều NPC (ảnh mẫu nét = NPC tóc trắng + chủ quán Lau Xám + thợ rèn Đe Đỏ), cắt ô thành ảnh nhìn thẳng. NPC nhiệm vụ phụ hệ nhiệm vụ mới (docs/thiet-ke/he-nhiem-vu-bon-loai-2026-11.md). NPC ĐỨNG YÊN (chốt 12/11): mọi hướng dùng chung ảnh nhìn thẳng. Tả: restorer, spectacles, rune tablet fragment",
+			"bodyHeight": 75,
+			"portrait": "portraits/npc_q2_edwin_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			]
+		},
+		"npc_q2_nico_001": {
+			"displayName": "Nico",
+			"role": "npc",
+			"identity": {
+				"characterId": "npc_q2_nico_001",
+				"hair": "see_prompt",
+				"eyes": "see_prompt",
+				"skin": "see_prompt",
+				"outfit": "see_prompt",
+				"weapon": "none",
+				"palette": "npc_none_01"
+			},
+			"atlas": "characters/npc_q2_nico_001/npc_q2_nico_001.json",
+			"frameSize": {
+				"width": 80,
+				"height": 88
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9545454545454546
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 13/11/2026: tấm nhiều NPC (ảnh mẫu nét = NPC tóc trắng + chủ quán Lau Xám + thợ rèn Đe Đỏ), cắt ô thành ảnh nhìn thẳng. NPC nhiệm vụ phụ hệ nhiệm vụ mới (docs/thiet-ke/he-nhiem-vu-bon-loai-2026-11.md). NPC ĐỨNG YÊN (chốt 12/11): mọi hướng dùng chung ảnh nhìn thẳng. Tả: young archaeologist, magnifying lens",
+			"bodyHeight": 73,
+			"portrait": "portraits/npc_q2_nico_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			]
+		},
+		"npc_q2_harlan_001": {
+			"displayName": "Harlan",
+			"role": "npc",
+			"identity": {
+				"characterId": "npc_q2_harlan_001",
+				"hair": "see_prompt",
+				"eyes": "see_prompt",
+				"skin": "see_prompt",
+				"outfit": "see_prompt",
+				"weapon": "none",
+				"palette": "npc_none_01"
+			},
+			"atlas": "characters/npc_q2_harlan_001/npc_q2_harlan_001.json",
+			"frameSize": {
+				"width": 80,
+				"height": 88
+			},
+			"anchor": {
+				"x": 0.5,
+				"y": 0.9545454545454546
+			},
+			"animations": {
+				"idle": {
+					"fps": 6
+				},
+				"walk": {
+					"fps": 10
+				}
+			},
+			"source": {
+				"provider": "pixellab",
+				"ref": null,
+				"license": {
+					"name": "PixelLab Terms of Service",
+					"url": "https://pixellab.ai/termsofservice",
+					"commercialUse": true,
+					"attributionRequired": false
+				}
+			},
+			"notes": "PixelLab Pro Flash 13/11/2026: tấm nhiều NPC (ảnh mẫu nét = NPC tóc trắng + chủ quán Lau Xám + thợ rèn Đe Đỏ), cắt ô thành ảnh nhìn thẳng. NPC nhiệm vụ phụ hệ nhiệm vụ mới (docs/thiet-ke/he-nhiem-vu-bon-loai-2026-11.md). NPC ĐỨNG YÊN (chốt 12/11): mọi hướng dùng chung ảnh nhìn thẳng. Tả: wind station keeper, wind gauge",
+			"bodyHeight": 77,
+			"portrait": "portraits/npc_q2_harlan_001.png",
+			"directions": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			],
+			"provisional": [
+				"S",
+				"SW",
+				"W",
+				"NW",
+				"N",
+				"NE",
+				"E",
+				"SE"
+			]
 		}
 	}
 }
