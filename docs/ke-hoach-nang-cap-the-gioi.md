@@ -9631,7 +9631,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "id": "bilingual-en-vi",
       "group": "Tính năng đã chốt",
       "name": "Game hai ngôn ngữ Anh / Việt",
-      "detail": "Chủ dự án 13/11/2026: \"Game sẽ có 2 ngôn ngữ anh/ việt\". Mọi chữ hiện cho người chơi (UI, nhiệm vụ, thoại NPC, tên đồ / quái / map, thông báo máy chủ) có bản tiếng Việt và tiếng Anh; chọn ngôn ngữ trong Cài đặt (và lúc mở game lần đầu), lưu theo máy. Hướng làm đề xuất: gom chữ cứng trong client Unity + sim + máy chủ thành bảng khoá → chữ (vi gốc, en dịch), máy chủ gửi khoá + tham số thay vì câu tiếng Việt; font phải đủ dấu tiếng Việt và chữ Latin. Chưa chốt: dịch tay hay nhờ AI dịch rồi duyệt, tên riêng (Haven, Thistlewood…) giữ hay dịch. Chưa làm.",
+      "detail": "Chủ dự án 13/11/2026 chốt hai ngôn ngữ Việt / Anh; dịch bằng AI, giữ nguyên tên riêng (Haven, Thistlewood, Lau Xám, Ánh Tím, NPC…). Tiếng Việt là nguồn; client tra bảng câu đầy đủ rồi mẫu {0}, {1}. Dữ liệu sim có bảng Anh theo module. Máy chủ vẫn gửi câu Việt, client dịch lúc hiển thị nên không đổi giao thức. Chọn ngôn ngữ ở đăng nhập hoặc Cài đặt, lưu havenlord.lang. Đã làm mã và bảng dịch; 21 chuỗi nội suy client và 2 mẫu máy chủ đã có mẫu dịch riêng nhưng cần rà khi chạy game. Còn kiểm tràn chữ bằng Unity và nghiệm thu của chủ dự án. Chưa build / chạy Unity theo chỉ thị.",
       "weight": 4,
       "phase": 3,
       "region": null,
@@ -9643,25 +9643,25 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
           "label": "Chốt cách dịch + danh sách tên riêng giữ nguyên, chọn ngôn ngữ ở Cài đặt / lần đầu mở game",
           "weight": 10,
           "done": false,
-          "evidence": ""
+          "evidence": "13/11/2026: commit 88e5fb564; Loc, LocalizedLabel, chọn Tiếng Việt / English ở đăng nhập và Cài đặt, PlayerPrefs havenlord.lang. Font Inter TMP động dùng chung chữ Latin / Việt. Chưa nghiệm thu giao diện chạy thật."
         },
         {
-          "label": "Gom chữ cứng client / sim / máy chủ thành bảng khoá vi–en, máy chủ gửi khoá + tham số",
+          "label": "Gom chữ cứng client / sim / máy chủ thành bảng khoá vi–en, client dịch câu máy chủ",
           "weight": 45,
           "done": false,
-          "evidence": ""
+          "evidence": "13/11/2026: client 866 câu ở i18n.en.json (commit 39901a164 + bổ sung), sim 34 module / 2067 câu khác nhau (commit 253978d3c), máy chủ 235 câu gồm 2 mẫu xử lý tay (commit d43a201d3 + bổ sung). Mẫu {0}… giữ tham số; không đổi giao thức. Danh sách 21 chuỗi client phức tạp ở i18n.client.manual.json đã có mẫu riêng để rà runtime."
         },
         {
           "label": "Dịch toàn bộ nội dung (UI, nhiệm vụ, thoại, tên đồ / quái / map) và kiểm chữ tràn khung",
           "weight": 30,
           "done": false,
-          "evidence": ""
+          "evidence": "13/11/2026: bảng dịch AI đã sinh, kiểm tĩnh placeholder / thẻ TMP / ký hiệu trên các bảng; chưa xem trên PC / mobile nên chưa xác nhận tràn nút, thoại, HUD. Tên riêng đã khoá trong script dịch, vẫn cần đọc soát câu dài."
         },
         {
           "label": "Kiểm thử hai ngôn ngữ trên PC / mobile, chủ dự án nghiệm thu",
           "weight": 15,
           "done": false,
-          "evidence": ""
+          "evidence": "13/11/2026: dotnet build EditorCompile và npm test sim xanh; test máy chủ còn đỏ sẵn ở action, gear, roster. Theo chỉ thị chưa build / chạy Unity nên chưa nghiệm thu hai ngôn ngữ trên PC / mobile."
         }
       ]
     },

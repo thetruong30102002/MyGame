@@ -1,6 +1,6 @@
 {
-  "<vùng>/<map>": "<region>/<map>",
-  "<vùng>/<tên>": "<region>/<name>",
+  "<vùng>/<map>": "<vùng>/<map>",
+  "<vùng>/<tên>": "<vùng>/<tên>",
   "Bài viết không còn": "The article is gone.",
   "Bày trí chỉ ở trong nhà": "Indoor Only",
   "Bình hồi phục": "[x0]",
@@ -214,6 +214,7 @@
   "{0}: mỗi lần cộng / trừ tối đa {1}": "{0}: Each times plus / maximum minus {1}",
   "{0}: phải là số nguyên": "{0}: must be the integer",
   "{0}: {1} kim cương": "{0}:{1} diamonds",
+  "{0}: {1}{2} → {3} kim cương": "{0}: {1}{2} → {3} diamonds",
   "Ánh": "Light",
   "Ô này đang có cây": "There's a tree.",
   "Ô ruộng chưa mở hoặc không hợp lệ": "The field is not opened or valid",
@@ -229,6 +230,7 @@
   "Đã thu quyền quản trị của {0}.": "Retrieved administratorship of{0}Yeah.",
   "Đầu việc không hợp lệ: ": "Invalid job start:",
   "Đặt cấp: số nguyên 1–{0}": "Set level: integer 1–{0}",
+  "⚔ {0} đã xuất hiện ở {1} · Khu {2}!": "⚔ {0} has appeared in {1} · Channel {2}!",
   "✔ \"{0}\" đã có — đặt lại mật khẩu, đăng xuất các phiên cũ ({1})": "✔ \"{0}\" already exists — reset password and sign out old sessions ({1})",
   "✔ đã tạo tài khoản \"{0}\" trong {1}": "‹ Create account\"{0}\"in{1}",
   "✘ {0}\nCách dùng: npx tsx src/seed.ts <tên-đăng-nhập> <mật-khẩu>": "ISA {0}\nUse: npx tsx ottt/sed.ts <tên-đăng-nhập> <mật-khẩu>"

@@ -81,9 +81,16 @@ namespace HavenLord.Client
             foreach (var entry in english)
             {
                 if (!Regex.IsMatch(entry.Key, @"\{\d+\}")) continue;
-                var escaped = Regex.Escape(entry.Key);
-                var slots = Regex.Replace(escaped, @"\\\{(\d+)\\\}", m => @"(?<p" + m.Groups[1].Value + @">.+?)");
-                patterns.Add((new Regex("^" + slots + "$", RegexOptions.Singleline | RegexOptions.CultureInvariant), entry.Value));
+                var pieces = Regex.Split(entry.Key, @"(\{\d+\})");
+                var expression = new StringBuilder("^");
+                foreach (var piece in pieces)
+                {
+                    if (Regex.IsMatch(piece, @"^\{\d+\}$"))
+                        expression.Append("(?<p").Append(piece.Substring(1, piece.Length - 2)).Append(">.+?)");
+                    else expression.Append(Regex.Escape(piece));
+                }
+                expression.Append('$');
+                patterns.Add((new Regex(expression.ToString(), RegexOptions.Singleline | RegexOptions.CultureInvariant), entry.Value));
             }
         }
 
@@ -97,7 +104,11 @@ namespace HavenLord.Client
                 for (var i = 0; i < match.Groups.Count; i++)
                 {
                     var group = match.Groups["p" + i];
-                    if (group.Success) result = result.Replace("{" + i + "}", group.Value);
+                    if (group.Success)
+                    {
+                        var value = english.TryGetValue(group.Value, out var translated) ? translated : group.Value;
+                        result = result.Replace("{" + i + "}", value);
+                    }
                 }
                 return result;
             }

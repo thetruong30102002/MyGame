@@ -16,6 +16,8 @@ namespace HavenLord.Client.UI
         private void LateUpdate()
         {
             if (label == null) return;
+            var input = GetComponentInParent<TMP_InputField>();
+            if (input != null && input.textComponent == label) return;
             if (label.text != rendered)
             {
                 original = label.text;
