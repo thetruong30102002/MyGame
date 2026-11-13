@@ -9070,6 +9070,38 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "priority": 1
     },
     {
+      "id": "pk-do-sat",
+      "group": "Tính năng đã chốt",
+      "name": "Đồ sát, truy nã và tiếng xấu (PvP ngoài vùng an toàn)",
+      "detail": "Chủ dự án 13/11/2026: \"khi ra ngoài vùng sẽ k phải thích đánh ai thì đánh, phải bật đồ sát\", \"đồ sát là được đánh người, người đánh lại (đánh nhiều người sẽ bị truy nã, tiếng xấu)\". Chốt: không bật đồ sát vẫn bị đánh và được đánh trả kẻ đó; hạ 3 người vô tội / 30 phút → truy nã 30 phút (báo thế giới, ai cũng đánh được, hạ được nhận thưởng); tiếng xấu: gục mất xu / EXP nhiều hơn, quầy bán đắt / không tiếp, tên đỏ + danh hiệu; giảm bằng thời gian online và chuộc tội bằng xu ở chỗ Lena (nhiệm vụ chuộc tội làm sau). Cùng ngày: đi map / vùng không yêu cầu cấp, cấp thấp đi qua quái sẽ bị đánh. Số là số thử.",
+      "weight": 3,
+      "phase": 2,
+      "region": null,
+      "depends": [],
+      "requiresNewArt": false,
+      "steps": [
+        {
+          "label": "Luật + máy chủ + client (nút đồ sát, tên đỏ, truy nã, chuộc tội)",
+          "weight": 60,
+          "done": false,
+          "evidence": "13/11/2026 (chưa nghiệm thu trong game): packages/sim/src/pk.ts, apps/server/src/pvp.ts (bảng pk_states), GameController.Pk.cs, nút trên HUD; test máy chủ pvp.test.ts đủ ca đồ sát / đánh trả / truy nã / thưởng."
+        },
+        {
+          "label": "Nhiệm vụ chuộc tội ở nhà thờ",
+          "weight": 15,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Thử nhiều người trên máy chủ thật, cân số phạt / thưởng",
+          "weight": 25,
+          "done": false,
+          "evidence": ""
+        }
+      ],
+      "priority": 2
+    },
+    {
       "id": "web-spa",
       "group": "Web và công bố",
       "name": "Toàn bộ cổng web dùng chung khung React, chuyển mục không reload",
