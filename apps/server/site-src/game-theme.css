@@ -1,4 +1,5 @@
 /* Giao diện RPG: kim loại tối, vàng cổ và ánh ngọc; dùng lại hình pixel hiện hành. */
+/* Chữ nội dung ưu tiên dấu Việt rõ; tiêu đề và thương hiệu dùng nét serif. */
 :root{--ac-paper:#111c22;--ac-white:#e8e6d8;--ac-ink:#e8e6d8;--ac-quiet:#a3b3b6;--ac-line:#34474d;--ac-red:#e5bd72;--ac-dark:#0a1117;--ac-green:#75c7b1;--ac-soft:#22333b;--gold:#e5bd72;--mist:#a3b3b6}
 html[data-theme=havenlord]{color-scheme:dark}
 html,body{background:#080e14!important;color:#e8e6d8!important}
@@ -126,3 +127,37 @@ body{background-image:radial-gradient(ellipse at 15% 0,#21413d66,transparent 55%
 @media(max-width:780px){.web-app>div:not(.web-app .admin-scope){margin:0;border-width:0}.classic-home,.classic-world{padding-left:16px;padding-right:16px}.classic-banner{margin:0 -16px}.classic-panel-body{padding:16px}.web-container{padding:22px 18px}}
 @media(max-width:520px){.classic-masthead{min-height:110px}.classic-masthead .ac-brand{font-size:36px}.web-app .classic-nav{grid-template-columns:repeat(3,minmax(0,1fr))}.web-app .classic-nav a{padding:12px 2px}.classic-banner{height:320px;background-size:auto 600px}.classic-banner-title{left:22px;bottom:118px;max-width:85%}.classic-banner-title h1{font-size:33px}.classic-banner-title p{font-size:12px}.classic-banner-play{right:22px;bottom:55px;transform:none;padding:10px 18px}.classic-banner-link{left:22px;bottom:20px;font-size:11px}.classic-download-buttons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.classic-download-buttons>a{min-width:0;padding:11px 7px}.classic-class-feature{grid-template-columns:1fr;gap:0;padding:12px 20px 22px}.classic-character{min-height:240px}.classic-class-feature h3{font-size:26px}.classic-class-feature p{font-size:12px}.classic-bar{padding:12px;font-size:13px}.classic-bar>a{font-size:10px;white-space:nowrap}.classic-news h3{font-size:17px}.web-page-heading h1{font-size:28px}.web-app .roster-intro{gap:10px}.web-app .roster-tabs button{font-size:11px}.classic-topline{padding:8px 12px}.web-app .web-footer nav{gap:15px}}
 @media(prefers-reduced-motion:no-preference){.classic-download-buttons>a,.web-app .btn,.classic-nav a{transition:background .18s,border-color .18s,box-shadow .18s}.classic-banner-play{animation:haven-glow 4s ease-in-out infinite}@keyframes haven-glow{50%{box-shadow:0 4px 18px #0008,0 0 28px #d5b46d33}}}
+/* Thương hiệu Haven: huy hiệu cổng, chữ vàng và đội hình lữ hành. */
+.web-app,.web-app p,.web-app button,.web-app input,.web-app select,.web-app textarea,.web-app .admin-scope{font-family:"Be Vietnam Pro",Arial,sans-serif!important}
+.web-app h1,.web-app .classic-class-feature h3,.web-app .admin-scope h1,.web-app .haven-wordmark{font-family:"Noto Serif",Georgia,serif!important;font-weight:700}
+.web-app .ac-brand{gap:14px;font-family:"Noto Serif",Georgia,serif!important;letter-spacing:2px;color:#efd296}
+.web-app .ac-brand .haven-emblem{width:56px;height:68px;filter:drop-shadow(0 3px 5px #0008);color:#d7b674}
+.web-app .haven-wordmark{font-size:26px;line-height:1.1;letter-spacing:4px}
+.web-app .haven-wordmark small{font-family:"Be Vietnam Pro",sans-serif!important;font-size:9px;font-weight:500;letter-spacing:5px;margin-top:9px;color:#bfa87b;text-align:center}
+.web-app .classic-masthead{min-height:150px;background:radial-gradient(ellipse at 50% 110%,#36524777,transparent 65%),linear-gradient(110deg,#101d26,#172b30,#101d26)}
+.web-app .classic-masthead .haven-wordmark{font-size:46px;letter-spacing:6px;text-shadow:0 2px 2px #000,0 0 30px #dcbf6820}
+.web-app .classic-masthead .haven-emblem{width:66px;height:80px}
+.web-app .classic-masthead .classic-crest{font-size:15px;opacity:.45;margin:0 16px}
+.web-app .classic-banner{height:450px;isolation:isolate;background-size:cover;background-position:center 45%}
+.web-app .classic-banner:before{z-index:0;pointer-events:none;background:linear-gradient(90deg,#07121aeb 0%,#0b2028c9 37%,#112a3255 75%),linear-gradient(0deg,#0c1b24,transparent 65%)}
+.web-app .classic-banner:after{content:"";position:absolute;inset:15px;border:1px solid #d4b47133;pointer-events:none;z-index:3;clip-path:polygon(0 0,25% 0,25% 1px,75% 1px,75% 0,100% 0,100% 100%,75% 100%,75% calc(100% - 1px),25% calc(100% - 1px),25% 100%,0 100%)}
+.web-app .classic-banner-title{z-index:2;top:48px;bottom:auto;left:42px;max-width:52%}
+.web-app .haven-hero-kicker{font-size:9px;font-weight:600;color:#9ccbb6;letter-spacing:2.3px;display:block;margin-bottom:18px}
+.web-app .classic-banner-title h1{font-size:44px;line-height:1.38;letter-spacing:-1.2px;color:#f4e8cd;margin:0}
+.web-app .classic-banner-title h1 em{font-style:normal;color:#e5c586}
+.web-app .classic-banner-title p{font-size:13px;max-width:350px;color:#b7cecb;line-height:1.9;margin-top:19px}
+.web-app .classic-banner-play{z-index:4;left:42px;right:auto;bottom:64px;padding:13px 22px;font-family:"Be Vietnam Pro",sans-serif;font-size:12px;letter-spacing:.2px}
+.web-app .classic-banner-link{z-index:4;left:265px;bottom:75px;color:#c9d6c7!important;font-family:"Be Vietnam Pro",sans-serif;font-size:11px;font-weight:500}
+.haven-hero-caption{position:absolute;left:42px;bottom:27px;z-index:3;color:#809fa4;font-size:8px;letter-spacing:1.8px}
+.haven-hero-art{position:absolute;z-index:1;width:49%;right:0;top:0;bottom:0;pointer-events:none}
+.haven-hero-art img{position:absolute;image-rendering:pixelated;width:280px;height:320px;max-width:none;object-fit:contain;filter:drop-shadow(0 14px 7px #0009)}
+.haven-hero-lead{left:50%;bottom:24px;transform:translateX(-50%);z-index:3}
+.haven-companion-left{left:-48px;bottom:60px;opacity:.85;z-index:2}
+.haven-companion-right{right:-35px;bottom:60px;opacity:.85;z-index:2}
+.haven-sigil{position:absolute;width:290px;height:290px;left:50%;top:45%;transform:translate(-50%,-50%) rotate(45deg);border:1px solid #d8bd7844;box-shadow:0 0 60px #82d4ae18,inset 0 0 60px #82d4ae12;background:radial-gradient(ellipse,#8acba620,transparent 70%)}
+.haven-sigil:before{content:"";position:absolute;inset:18px;border:1px solid #a7d1b62b;border-radius:50%}
+.haven-sigil:after{content:"✦";position:absolute;top:-27px;left:calc(50% - 8px);color:#d1b97a;font-size:22px;transform:rotate(-45deg)}
+.web-app .web-footer .haven-emblem{width:35px;height:44px}.web-app .web-footer .haven-wordmark{font-size:22px}
+.web-app .admin-scope .ac-brand .haven-wordmark{font-size:25px}.web-app .admin-scope .ac-brand .haven-emblem{width:45px;height:55px}
+@media(max-width:780px){.web-app .classic-banner-title{left:28px;max-width:56%}.web-app .classic-banner-title h1{font-size:36px}.web-app .classic-banner-play{left:28px}.web-app .classic-banner-link{left:245px}.haven-hero-caption{left:28px}.haven-hero-art img{width:224px;height:256px}.haven-companion-left{left:-70px}.haven-companion-right{right:-55px}}
+@media(max-width:520px){.web-app .classic-masthead{min-height:132px;gap:0}.web-app .classic-masthead .haven-wordmark{font-size:34px;letter-spacing:4px}.web-app .classic-masthead .haven-emblem{width:48px;height:59px}.web-app .classic-masthead .classic-crest{display:none}.web-app .classic-banner{height:490px;background-size:auto 620px}.web-app .classic-banner-title{top:30px;left:27px;max-width:85%}.web-app .classic-banner-title h1{font-size:32px;line-height:1.4}.web-app .haven-hero-kicker{font-size:7px;letter-spacing:1.3px;margin-bottom:13px}.web-app .classic-banner-title p{font-size:11px;max-width:245px;margin-top:12px}.haven-hero-art{width:230px;height:240px;top:auto;right:-7px;bottom:33px;opacity:.85}.haven-hero-art img{width:180px;height:206px}.haven-hero-lead{bottom:0}.haven-companion-left{left:-24px;bottom:18px}.haven-companion-right{right:-18px;bottom:18px}.haven-sigil{width:160px;height:160px}.web-app .classic-banner-play{left:27px;bottom:66px;padding:11px 13px;font-size:10px}.web-app .classic-banner-link{left:27px;bottom:33px;font-size:10px}.haven-hero-caption{display:none}.web-app .classic-banner:before{background:linear-gradient(180deg,#081922e8 0%,#0b2028b3 48%,#0b202844),linear-gradient(90deg,#0c1b24aa,transparent)}.web-app .web-page-heading h1{font-size:26px}}
