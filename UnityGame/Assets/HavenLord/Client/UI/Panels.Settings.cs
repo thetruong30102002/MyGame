@@ -81,6 +81,11 @@ namespace HavenLord.Client.UI
             });
 
             var play = Group(new Vector2(456, -38), "TRÒ CHƠI", out var row2);
+            Selector(play, row2(), "Ngôn ngữ / Language", Loc.Language == "vi" ? "Tiếng Việt" : "English", _ =>
+            {
+                Loc.SetLanguage(Loc.Language == "vi" ? "en" : "vi");
+                Refresh();
+            });
             Switch(play, row2(), "Tên trên đầu nhân vật", hud.ShowNames, v => hud.ShowNames = v);
             Switch(play, row2(), "Bảng phím góc trái", hud.HelpShown, _ => hud.ToggleHelp());
             Switch(play, row2(), "Hiệu ứng thời tiết", Weather.Enabled, v => Weather.Enabled = v);
@@ -133,7 +138,7 @@ namespace HavenLord.Client.UI
             row = () =>
             {
                 var cur = y;
-                y -= 62;
+                y -= 52;
                 return cur;
             };
             return box;

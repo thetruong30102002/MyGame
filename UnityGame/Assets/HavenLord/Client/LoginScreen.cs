@@ -66,6 +66,7 @@ namespace HavenLord.Client
 
         private void Start()
         {
+            Loc.Initialize(database != null ? database.english : null);
             UiKit.LoadFonts();
             if (database != null) UiKit.Sprites = database.uiSets.Find(s => s != null && s.setId == "ui");
             if (FindFirstObjectByType<EventSystem>() == null)
@@ -85,10 +86,22 @@ namespace HavenLord.Client
             go.AddComponent<GraphicRaycaster>();
             root = (RectTransform)go.transform;
             BuildBackground();
+            Button(root, "Language", new Vector2(1, 1), new Vector2(1, 1), new Vector2(-20, -18), new Vector2(120, 30),
+                Loc.Language == "vi" ? "Tiếng Việt ▾" : "English ▾", ToggleLanguage, false);
             Rebuild();
             if (Array.IndexOf(Environment.GetCommandLineArgs(), "-havenShot") < 0) ShowBetaNotice();
             // Tự cập nhật: có bản mới thì tải + cài ngay (phủ màn đăng nhập), không thì không thấy gì.
             AutoUpdate.Begin(root, GetServerPreference());
+        }
+
+        private void ToggleLanguage()
+        {
+            Loc.SetLanguage(Loc.Language == "vi" ? "en" : "vi");
+            var old = root.Find("Language");
+            if (old != null) Destroy(old.gameObject);
+            Button(root, "Language", new Vector2(1, 1), new Vector2(1, 1), new Vector2(-20, -18), new Vector2(120, 30),
+                Loc.Language == "vi" ? "Tiếng Việt ▾" : "English ▾", ToggleLanguage, false);
+            Rebuild();
         }
 
         private Sprite Ui(string id) => UiKit.Sprites != null ? UiKit.Sprites.Get(id) : null;

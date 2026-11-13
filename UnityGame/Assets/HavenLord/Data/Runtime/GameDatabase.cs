@@ -26,6 +26,8 @@ namespace HavenLord.Data
         /// <summary>Dữ liệu hình / NPC của client (Data/Client/*.json — Tools~/export-client-data.mts).</summary>
         public TextAsset tempArt;
         public TextAsset npcs;
+        /// <summary>Bảng dịch chữ hiển thị, tiếng Việt làm khoá.</summary>
+        public TextAsset english;
         /// <summary>Vùng bắt đầu khi chơi offline.</summary>
         public string startRegion = "human";
 

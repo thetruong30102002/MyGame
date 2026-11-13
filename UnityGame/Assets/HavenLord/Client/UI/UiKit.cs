@@ -168,6 +168,7 @@ namespace HavenLord.Client.UI
             t.richText = true;
             t.textWrappingMode = TextWrappingModes.NoWrap;
             t.overflowMode = TextOverflowModes.Overflow;
+            rt.gameObject.AddComponent<LocalizedLabel>();
             return t;
         }
 

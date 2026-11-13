@@ -119,7 +119,7 @@ namespace HavenLord.Importer
             db.homeArtCatalog = AssetDatabase.LoadAssetAtPath<TextAsset>(ImportUtil.Root + "/Home/Catalog.json");
             db.simModules = FindAll<TextAsset>(SimDir).OrderBy(t => t.name, StringComparer.Ordinal).ToList();
             db.tempArt = AssetDatabase.LoadAssetAtPath<TextAsset>(ClientDir + "/tempArt.json");
-            db.npcs = AssetDatabase.LoadAssetAtPath<TextAsset>(ClientDir + "/npcs.json");
+            db.npcs = AssetDatabase.LoadAssetAtPath<TextAsset>(ClientDir + "/npcs.json");            db.english = AssetDatabase.LoadAssetAtPath<TextAsset>(ClientDir + "/i18n.en.json");
             EnsureAdditiveMaterial();
             if (db.Region(db.startRegion) == null && db.regions.Count > 0) db.startRegion = db.regions[0].region;
             EditorUtility.SetDirty(db);

@@ -1,0 +1,90 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using UnityEngine;
+
+namespace HavenLord.Client
+{
+    /// <summary>Chữ Việt là nguồn; bảng Anh chỉ được nạp khi người chơi chọn English.</summary>
+    public static class Loc
+    {
+        private const string Pref = "havenlord.lang";
+        private const int CacheLimit = 1024;
+        private static TextAsset source;
+        private static Dictionary<string, string> english;
+        private static List<(Regex regex, string value)> patterns;
+        private static readonly Dictionary<string, string> cache = new Dictionary<string, string>(StringComparer.Ordinal);
+        private static int version;
+
+        public static string Language { get; private set; } = PlayerPrefs.GetString(Pref, "vi") == "en" ? "en" : "vi";
+        public static int Version => version;
+
+        public static void Initialize(TextAsset table)
+        {
+            if (source == table) return;
+            source = table;
+            english = null;
+            patterns = null;
+            cache.Clear();
+            version++;
+        }
+
+        public static void SetLanguage(string language)
+        {
+            language = language == "en" ? "en" : "vi";
+            if (Language == language) return;
+            Language = language;
+            PlayerPrefs.SetString(Pref, language);
+            PlayerPrefs.Save();
+            cache.Clear();
+            version++;
+        }
+
+        public static string T(string vi)
+        {
+            if (Language == "vi" || string.IsNullOrEmpty(vi)) return vi;
+            if (cache.TryGetValue(vi, out var hit)) return hit;
+            Load();
+            var result = english.TryGetValue(vi, out var exact) ? exact : Pattern(vi);
+            if (cache.Count >= CacheLimit) cache.Clear();
+            cache[vi] = result;
+            return result;
+        }
+
+        private static void Load()
+        {
+            if (english != null) return;
+            english = source != null
+                ? JsonConvert.DeserializeObject<Dictionary<string, string>>(source.text)
+                : null;
+            if (english == null) english = new Dictionary<string, string>(StringComparer.Ordinal);
+            patterns = new List<(Regex, string)>();
+            foreach (var entry in english)
+            {
+                if (!Regex.IsMatch(entry.Key, @"\{\d+\}")) continue;
+                var escaped = Regex.Escape(entry.Key);
+                var slots = Regex.Replace(escaped, @"\\\{(\d+)\\\}", m => @"(?<p" + m.Groups[1].Value + @">.+?)");
+                patterns.Add((new Regex("^" + slots + "$", RegexOptions.Singleline | RegexOptions.CultureInvariant), entry.Value));
+            }
+        }
+
+        private static string Pattern(string vi)
+        {
+            foreach (var item in patterns)
+            {
+                var match = item.regex.Match(vi);
+                if (!match.Success) continue;
+                var result = item.value;
+                for (var i = 0; i < match.Groups.Count; i++)
+                {
+                    var group = match.Groups["p" + i];
+                    if (group.Success) result = result.Replace("{" + i + "}", group.Value);
+                }
+                return result;
+            }
+            return vi;
+        }
+    }
+}
