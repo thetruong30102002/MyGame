@@ -28,6 +28,22 @@ export function mapExists(dir: string, map: string): boolean {
 	return ok;
 }
 
+const names = new Map<string, string | null>();
+
+/** Tên hiển thị của map (thông báo thế giới); null = không đọc được. */
+export function mapName(dir: string, map: string): string | null {
+	const file = mapFile(dir, map);
+	if (!file) return null;
+	if (!names.has(file)) {
+		try {
+			names.set(file, (JSON.parse(readFileSync(file, 'utf8')) as { name?: string }).name ?? null);
+		} catch {
+			names.set(file, null);
+		}
+	}
+	return names.get(file) ?? null;
+}
+
 const spots = new Map<string, Record<string, { x: number; y: number }>>();
 
 /** Toạ độ một địa điểm (`spots`) của map; null = không có. */

@@ -15,6 +15,7 @@ import {
 	type MonsterZoneDef,
 } from '@havenlord/sim/mobs';
 import { enemyStatsAt, type EnemyStats } from '@havenlord/sim/skills';
+import { baseMap, CHANNEL_COUNT, channelled, channelOf, instanceKey } from '@havenlord/sim/channels';
 
 /** Phần thế giới mà sổ quái cần: vị trí người chơi + gửi tin. */
 export interface MobHost {
@@ -25,6 +26,8 @@ export interface MobHost {
 	 * kinh tế trao EXP / xu theo đúng con quái này, không tra lại bảng gốc.
 	 */
 	credited(player: string, type: string, stats: EnemyStats): void;
+	/** Boss vùng vừa xuất hiện ở khu `channel` của map `map` (khoá gốc, không kèm khu) — thông báo thế giới. Vắng = không báo. */
+	bossAppeared?(map: string, type: string, channel: number): void;
 }
 
 interface Mob extends MobView {
@@ -68,14 +71,34 @@ export function mapZonesFromDisk(dir: string): (map: string) => MonsterZoneDef[]
  */
 export class MobRegistry {
 	private readonly maps = new Map<string, MapMobs>();
-	/** Người chơi → map đang nhận quái. */
+	/** Người chơi → bản map (`map#khu`) đang nhận quái. */
 	private readonly subOf = new Map<string, string>();
+	/**
+	 * Boss vùng chỉ ở MỘT khu (chủ dự án 13/11/2026): khu hiện tại theo map gốc. Bốc ngẫu nhiên lần đầu có người vào map và mỗi lần
+	 * boss hồi sinh; báo thế giới khu nào.
+	 */
+	private readonly bossChannel = new Map<string, number>();
+	private readonly random: () => number;
 
 	constructor(
 		private readonly host: MobHost,
 		private readonly zonesOf: (map: string) => MonsterZoneDef[],
 		private readonly now: () => number = Date.now,
-	) {}
+		random: () => number = Math.random,
+	) {
+		this.random = random;
+	}
+
+	/** Khu đang có boss vùng của map gốc (bốc + báo lần đầu). */
+	private bossChannelOf(map: string, boss: string): number {
+		let k = this.bossChannel.get(map);
+		if (k === undefined) {
+			k = channelled(map) ? 1 + Math.floor(this.random() * CHANNEL_COUNT) : 1;
+			this.bossChannel.set(map, k);
+			this.host.bossAppeared?.(map, boss, k);
+		}
+		return k;
+	}
 
 	subscribe(player: string, map: string): void {
 		this.unsubscribe(player);
@@ -85,7 +108,7 @@ export class MobRegistry {
 		this.subOf.set(player, map);
 		// Quái chưa có chủ (map vắng người) → người mới vào làm chủ.
 		for (const mob of m.mobs.values()) if (!mob.owner) this.setOwner(m, mob, player, false);
-		this.host.send(player, { t: 'mobs', map, list: [...m.mobs.values()].map(view) });
+		this.host.send(player, { t: 'mobs', map: baseMap(map), list: [...m.mobs.values()].map(view) });
 	}
 
 	unsubscribe(player: string): void {
@@ -181,7 +204,7 @@ export class MobRegistry {
 	/** Nhịp 10 lần/giây: phát vị trí đã đổi, hồi sinh quái tới giờ. */
 	tick(): void {
 		const t = this.now();
-		for (const m of this.maps.values()) {
+		for (const [key, m] of this.maps) {
 			if (m.dirty.size && m.subs.size) {
 				const list: MobMove[] = [];
 				for (const id of m.dirty) {
@@ -196,6 +219,7 @@ export class MobRegistry {
 			m.dirty.clear();
 			for (const mob of m.mobs.values()) {
 				if (!mob.dead || t < mob.respawnAt) continue;
+				if (mob.regionBoss && this.moveBoss(key, m, mob)) continue;
 				// Boss vùng / quái sống lại quanh chỗ canh (không đúng chỗ cũ), máu đầy, chủ = người gần nhất.
 				const a = Math.random() * Math.PI * 2;
 				const r = Math.random() * mob.home.r * 0.7;
@@ -217,38 +241,67 @@ export class MobRegistry {
 		if (m) return m;
 		m = { mobs: new Map(), subs: new Set(), dirty: new Set() };
 		const t = this.now();
-		for (const z of this.zonesOf(map)) {
+		for (const z of this.zonesOf(baseMap(map))) {
 			if (!isSharedZone(z)) continue;
 			for (const s of zoneSpawnPoints(z)) {
-				const stats = enemyStatsAt(s.type, z.level);
-				if (!stats) continue;
-				const id = mobId(map, z.id, s.index);
-				const boss = !!z.boss || s.type.startsWith('boss_');
-				m.mobs.set(id, {
-					id,
-					type: s.type,
-					zone: z.id,
-					x: Math.round(s.x),
-					y: Math.round(s.y),
-					hp: stats.hp,
-					hpMax: stats.hp,
-					dead: false,
-					owner: null,
-					home: { x: z.x, y: z.y, r: z.radius },
-					boss,
-					...(z.level !== undefined ? { level: z.level } : {}),
-					stats,
-					regionBoss: !!z.boss,
-					hitters: new Map(),
-					respawnAt: 0,
-					movedAt: t,
-					dir: 'S',
-					anim: 'idle',
-				});
+				if (z.boss && this.bossChannelOf(baseMap(map), s.type) !== channelOf(map)) continue;
+				const mob = this.makeMob(map, z, s, t);
+				if (mob) m.mobs.set(mob.id, mob);
 			}
 		}
 		this.maps.set(map, m);
 		return m;
+	}
+
+	/**
+	 * Boss vùng hồi sinh: bốc lại khu (có thể trùng khu cũ), báo thế giới. Khác khu thì gỡ khỏi bản cũ và — nếu bản khu mới đang có
+	 * người — dựng boss ở đó ngay (bản chưa ai vào thì boss có mặt khi người đầu tiên vào). Trả `true` khi boss đã rời bản này.
+	 */
+	private moveBoss(key: string, m: MapMobs, mob: Mob): boolean {
+		const map = baseMap(key);
+		const k = channelled(map) ? 1 + Math.floor(this.random() * CHANNEL_COUNT) : 1;
+		this.bossChannel.set(map, k);
+		this.host.bossAppeared?.(map, mob.type, k);
+		if (k === channelOf(key)) return false;
+		m.mobs.delete(mob.id);
+		this.broadcast(m, { t: 'mobDie', id: mob.id, by: '', credit: [] });
+		const target = this.maps.get(instanceKey(map, k));
+		if (!target) return true;
+		const z = this.zonesOf(map).find((x) => x.id === mob.zone);
+		const index = Number(mob.id.split(':').pop());
+		const s = z ? zoneSpawnPoints(z).find((p) => p.index === index) : undefined;
+		const fresh = z && s ? this.makeMob(instanceKey(map, k), z, s, this.now()) : null;
+		if (!fresh) return true;
+		fresh.owner = this.nearest(target, fresh);
+		target.mobs.set(fresh.id, fresh);
+		this.broadcast(target, { t: 'mobSpawn', mob: view(fresh) });
+		return true;
+	}
+
+	private makeMob(map: string, z: MonsterZoneDef, s: ReturnType<typeof zoneSpawnPoints>[number], t: number): Mob | null {
+		const stats = enemyStatsAt(s.type, z.level);
+		if (!stats) return null;
+		return {
+			id: mobId(map, z.id, s.index),
+			type: s.type,
+			zone: z.id,
+			x: Math.round(s.x),
+			y: Math.round(s.y),
+			hp: stats.hp,
+			hpMax: stats.hp,
+			dead: false,
+			owner: null,
+			home: { x: z.x, y: z.y, r: z.radius },
+			boss: !!z.boss || s.type.startsWith('boss_'),
+			...(z.level !== undefined ? { level: z.level } : {}),
+			stats,
+			regionBoss: !!z.boss,
+			hitters: new Map(),
+			respawnAt: 0,
+			movedAt: t,
+			dir: 'S',
+			anim: 'idle',
+		};
 	}
 
 	private mapOf(player: string): MapMobs | null {

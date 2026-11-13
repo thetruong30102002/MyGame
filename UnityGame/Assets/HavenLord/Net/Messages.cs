@@ -24,6 +24,7 @@ namespace HavenLord.Net
             ["save"] = () => new ClientSave(),
             ["gear"] = () => new ClientGear(),
             ["map"] = () => new ClientMap(),
+            ["channel"] = () => new ClientChannel(),
             ["ping"] = () => new ClientPing(),
             ["friendAdd"] = () => new ClientFriendAdd(),
             ["friendRespond"] = () => new ClientFriendRespond(),
@@ -65,6 +66,7 @@ namespace HavenLord.Net
             ["snapshot"] = () => new ServerSnapshot(),
             ["chat"] = () => new ServerChat(),
             ["system"] = () => new ServerSystem(),
+            ["channel"] = () => new ServerChannel(),
             ["action"] = () => new ServerAction(),
             ["actionEnd"] = () => new ServerActionEnd(),
             ["gear"] = () => new ServerGear(),
@@ -206,6 +208,13 @@ namespace HavenLord.Net
     {
         protected override string Tag => "map";
         [JsonProperty("map")] public string Map;
+    }
+
+    /// <summary>Đổi khu của map đang đứng; 0 = chỉ hỏi số người từng khu.</summary>
+    public sealed class ClientChannel : ClientMessage
+    {
+        protected override string Tag => "channel";
+        [JsonProperty("channel")] public int Channel;
     }
 
     public sealed class ClientPing : ClientMessage
@@ -399,6 +408,14 @@ namespace HavenLord.Net
     {
         protected override string Tag => "system";
         [JsonProperty("text")] public string Text;
+    }
+
+    /// <summary>Khu đang đứng + số người từng khu của map (`@havenlord/sim/channels`).</summary>
+    public sealed class ServerChannel : ServerMessage
+    {
+        protected override string Tag => "channel";
+        [JsonProperty("channel")] public int Channel;
+        [JsonProperty("counts")] public int[] Counts;
     }
 
     public sealed class ServerAction : ServerMessage

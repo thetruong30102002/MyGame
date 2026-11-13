@@ -28,10 +28,13 @@ const reg = new MobRegistry(
 		position: (p) => pos[p] ?? null,
 		send: (p, m) => void (inbox[p] ??= []).push(m),
 		credited: (p, type) => void kills.push(`${p}:${type}`),
+		bossAppeared: (map, type, channel) => void bossNews.push(`${map}:${type}:${channel}`),
 	},
 	(map) => (map === 'human/graveyard' ? ZONES : []),
 	() => clock,
+	() => 0,
 );
+const bossNews: string[] = [];
 const last = <T extends ServerMessage['t']>(p: string, t: T) => (inbox[p] ?? []).filter((m): m is Extract<ServerMessage, { t: T }> => m.t === t).at(-1);
 
 test('khu dùng chung = thế giới người lớn, không gắn nhiệm vụ; chỗ sinh tất định', () => {
@@ -53,6 +56,17 @@ test('người đầu vào map nhận danh sách + làm chủ mọi quái; khu k
 	assert.equal(list.find((m) => m.boss)?.type, 'boss_lich_001');
 	reg.subscribe('Z', 'human/town');
 	assert.equal(last('Z', 'mobs'), undefined, 'map không có khu dùng chung: không gửi gì');
+});
+
+test('khu (13/11): khu 2 có quái riêng nhưng không có boss vùng; boss chỉ ở khu 1, báo thế giới một lần', () => {
+	pos.K = { x: 100, y: 100 };
+	reg.subscribe('K', 'human/graveyard#2');
+	const list = last('K', 'mobs')!;
+	assert.equal(list.map, 'human/graveyard', 'tin gửi client dùng map gốc');
+	assert.equal(list.list.length, 3);
+	assert.ok(list.list.every((m) => !m.boss && m.id.startsWith('human/graveyard#2:')));
+	assert.deepEqual(bossNews, ['human/graveyard:boss_lich_001:1']);
+	reg.unsubscribe('K');
 });
 
 test('chủ báo vị trí → người khác nhận, chủ không bị dội lại; không phải chủ / chạy quá nhanh thì bỏ', () => {
@@ -196,8 +210,9 @@ test('khống chế (M3.2b): người đứng gần gửi được, kẹp trần
 			push({ t: 'move', x: 100, y: 100, dir: 'S', anim: 'idle', sprite: 'player_hero_adult' });
 			push({ t: 'mobSub', on: true });
 			const mobs = got.find((m): m is Extract<ServerMessage, { t: 'mobs' }> => m.t === 'mobs');
-			assert.ok(mobs && mobs.list.length === 4);
-			const target = mobs.list[0]!;
+			// Boss vùng chỉ ở một khu ngẫu nhiên (13/11) — khu 1 có 3 quái thường, có thể thêm boss.
+			assert.ok(mobs && mobs.list.filter((m) => !m.boss).length === 3);
+			const target = mobs.list.find((m) => !m.boss)!;
 			push({ t: 'move', x: target.x, y: target.y, dir: 'S', anim: 'idle', sprite: 'player_hero_adult' });
 			push({ t: 'mobHit', id: target.id, dmg: 1e6 });
 			assert.ok(got.some((m) => m.t === 'mobDie' && m.id === target.id));

@@ -11,6 +11,9 @@ import { Economy } from './economy.ts';
 import { Farm } from './farm.ts';
 import { newPvpState, Pvp, type PvpState } from './pvp.ts';
 import { resetDiamonds } from '@havenlord/sim/talents';
+import { REGIONS } from '@havenlord/sim/regions';
+import { mapName } from './maps.ts';
+import { CHANNEL_COUNT, CHANNEL_HARD_CAP, channelled, instanceKey, pickChannel } from '@havenlord/sim/channels';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -24,6 +27,10 @@ interface Conn {
 	modelId: string;
 	view: PlayerView;
 	map: string;
+	/** Khu của map (`@havenlord/sim/channels`): chỉ người cùng map + cùng khu thấy nhau, đánh chung quái. */
+	channel: number;
+	/** Vừa đổi khu: lần báo `map` kế tiếp (client tải lại map) được nhận dù trùng map. */
+	rejoin?: boolean;
 	dirty: boolean;
 	lastMoveAt: number;
 	saves: RateLimiter;
@@ -109,6 +116,12 @@ export class World {
 				credited: (id, type, stats) => {
 					this.store.addKill(id, type);
 					this.economy.sharedKill(id, type, stats);
+				},
+				// Boss vùng chỉ ở một khu: báo cả thế giới tên boss, map, số khu (chủ dự án 13/11/2026).
+				bossAppeared: (map, type, channel) => {
+					const name = REGIONS.find((r) => r.chief?.id === type)?.chief?.name ?? type;
+					const text = `⚔ ${name} đã xuất hiện ở ${mapName(mapsDir, map) ?? map} · Khu ${channel}!`;
+					for (const o of this.conns.values()) send(o.ws, { t: 'system', text });
 				},
 			},
 			zonesOf,
@@ -252,6 +265,7 @@ export class World {
 			ws,
 			accountId: s.accountId,
 			map: p.map?.startsWith('home/') ? 'human/town' : p.map || 'human/town',
+			channel: 1,
 			modelId: ch.modelId!,
 			view: { id: ch.id, name: ch.name, gender: ch.gender, sprite: '', level: p.level, x: p.x, y: p.y, dir: 'S', anim: 'idle' },
 			dirty: false,
@@ -274,9 +288,11 @@ export class World {
 			eco: new RateLimiter(40, 10_000, this.now),
 			pvp: newPvpState(p.story, p.bonusPoints ?? 0, this.now()),
 		};
+		conn.channel = channelled(conn.map) ? pickChannel(this.counts(conn.map), 1) : 1;
 		this.conns.set(ch.id, conn);
-		const others = this.inMap(conn.map).filter((c) => c !== conn && c.view.sprite);
+		const others = this.inRoom(conn).filter((c) => c !== conn && c.view.sprite);
 		send(ws, { t: 'welcome', you: ch.id, players: others.map((c) => c.view) });
+		this.sendChannel(conn);
 		// Sau `welcome`: client đã sẵn sàng nhận trạng thái bạn bè + tin nhắn riêng chờ giao.
 		this.social.online(ch.id);
 		this.economy.online(ch.id);
@@ -300,7 +316,7 @@ export class World {
 				if (msg.ch === 'world') return this.worldChat(c, text);
 				if (!c.chat.allow('chat')) return send(c.ws, { t: 'system', text: 'Bạn chat nhanh quá, chậm lại chút nhé' });
 				const out: ServerMessage = { t: 'chat', from: c.view.id, name: c.view.name, text, at: Date.now() };
-				for (const o of this.inMap(c.map)) send(o.ws, out);
+				for (const o of this.inRoom(c)) send(o.ws, out);
 				return;
 			}
 			case 'action':
@@ -310,7 +326,7 @@ export class World {
 				if (!c.view.sprite || !c.actions.allow('actionEnd')) return;
 				// `hit` (đòn đã qua khung chạm): chỉ nhận đúng `true` — máy người xem vẽ nốt chiêu thay vì bỏ.
 				const out: ServerMessage = { t: 'actionEnd', id: c.view.id, ...(msg.hit === true ? { hit: true as const } : {}) };
-				for (const o of this.inMap(c.map)) if (o !== c) send(o.ws, out);
+				for (const o of this.inRoom(c)) if (o !== c) send(o.ws, out);
 				return;
 			}
 			case 'save':
@@ -319,6 +335,8 @@ export class World {
 				return this.gear(c, msg.gear);
 			case 'map':
 				return this.changeMap(c, msg.map);
+			case 'channel':
+				return this.switchChannel(c, msg.channel);
 			case 'ping':
 				return send(c.ws, { t: 'pong', at: Number(msg.at) || 0 });
 			case 'friendAdd':
@@ -332,7 +350,7 @@ export class World {
 				return this.social.handle(c.view.id, msg);
 			case 'mobSub':
 				if (!c.maps.allow('mobSub')) return;
-				return msg.on ? this.mobs.subscribe(c.view.id, c.map) : this.mobs.unsubscribe(c.view.id);
+				return msg.on ? this.mobs.subscribe(c.view.id, instanceKey(c.map, c.channel)) : this.mobs.unsubscribe(c.view.id);
 			case 'mobPos':
 				if (!c.mobPos.allow('mobPos')) return;
 				return this.mobs.positions(c.view.id, msg.list);
@@ -420,7 +438,7 @@ export class World {
 		}
 		if (first) {
 			this.pvp.shield(c);
-			for (const o of this.inMap(c.map)) if (o !== c) send(o.ws, { t: 'join', player: c.view });
+			for (const o of this.inRoom(c)) if (o !== c) send(o.ws, { t: 'join', player: c.view });
 		} else c.dirty = true;
 	}
 
@@ -441,7 +459,7 @@ export class World {
 		const cast = cleanCast(m.skill, m.fx, c.view);
 		const fx = cast.fx && fxAllowed(c.fxLast, cast.skill, Date.now()) ? cast.fx : undefined;
 		const out: ServerMessage = { t: 'action', id: c.view.id, anim, dir, skill: cast.skill, ...(fx ? { fx } : {}) };
-		for (const o of this.inMap(c.map)) if (o !== c) send(o.ws, out);
+		for (const o of this.inRoom(c)) if (o !== c) send(o.ws, out);
 		// PvP: máy chủ tính trúng từ chính chiêu + hướng + điểm nhắm đã kiểm (cổng `fxAllowed` = nhịp hồi chiêu chống spam).
 		if (fx) this.pvp.cast(c, cast.skill, fx);
 	}
@@ -452,16 +470,20 @@ export class World {
 	 */
 	private changeMap(c: Conn, raw: unknown, trusted = false): void {
 		const map = String(raw ?? '');
-		if (!MAP_ID.test(map) || map === c.map || (!trusted && !c.maps.allow('map'))) return;
+		if (!MAP_ID.test(map) || (map === c.map && !c.rejoin) || (!trusted && !c.maps.allow('map'))) return;
 		if (map.startsWith('home/') && (!trusted || !this.farm.canEnterMap(c.view.id, c.accountId, map) || !this.farm.canEnter(c.accountId))) return;
 		// Quái dùng chung của map cũ: thôi nhận (client bật lại cho map mới nếu ở thế giới người lớn).
 		this.mobs.unsubscribe(c.view.id);
-		for (const o of this.inMap(c.map)) if (o !== c) send(o.ws, { t: 'leave', id: c.view.id });
+		if (!c.rejoin) for (const o of this.inRoom(c)) if (o !== c) send(o.ws, { t: 'leave', id: c.view.id });
+		// Sang map mới: giữ số khu đang đứng nếu khu đó chưa đông, không thì khu vắng nhất. Vừa đổi khu (rejoin) thì giữ khu đã chọn.
+		if (!c.rejoin) c.channel = channelled(map) ? pickChannel(this.counts(map, c), c.channel) : 1;
+		c.rejoin = false;
 		c.map = map;
 		c.view.sprite = '';
 		c.dirty = false;
-		const others = this.inMap(map).filter((o) => o !== c && o.view.sprite);
+		const others = this.inRoom(c).filter((o) => o !== c && o.view.sprite);
 		send(c.ws, { t: 'welcome', you: c.view.id, players: others.map((o) => o.view) });
+		this.sendChannel(c);
 		this.rewards.visit(c.view.id, map);
 		this.social.presenceChanged(c.view.id);
 	}
@@ -479,7 +501,7 @@ export class World {
 		// Chưa vào map (chưa có gói vị trí đầu) thì người khác sẽ nhận đồ kèm tin `join`.
 		if (!c.view.sprite) return;
 		const out: ServerMessage = { t: 'gear', id: c.view.id, gear };
-		for (const o of this.inMap(c.map)) if (o !== c) send(o.ws, out);
+		for (const o of this.inRoom(c)) if (o !== c) send(o.ws, out);
 	}
 
 	/** Tiến độ client gửi: vị trí, map, truyện… — cấp / EXP / xu / bình KHÔNG lấy từ đây (máy chủ giữ — `Economy`, `Store.saveProgress`). */
@@ -496,7 +518,7 @@ export class World {
 		this.shop.offline(c.view.id);
 		this.economy.offline(c.view.id);
 		this.mobs.unsubscribe(c.view.id);
-		for (const o of this.inMap(c.map)) send(o.ws, { t: 'leave', id: c.view.id });
+		for (const o of this.inRoom(c)) send(o.ws, { t: 'leave', id: c.view.id });
 		this.social.presenceChanged(c.view.id);
 		console.log(`- ${c.view.name} (${this.conns.size} online)`);
 	}
@@ -505,12 +527,48 @@ export class World {
 		return [...this.conns.values()].filter((c) => c.map === map);
 	}
 
+	/** Người cùng map + cùng khu với `c` (gồm cả `c`). */
+	private inRoom(c: Conn): Conn[] {
+		return [...this.conns.values()].filter((o) => o.map === c.map && o.channel === c.channel);
+	}
+
+	/** Số người từng khu của map (bỏ qua `except`). */
+	private counts(map: string, except?: Conn): number[] {
+		const out = Array.from({ length: CHANNEL_COUNT }, () => 0);
+		for (const o of this.conns.values()) if (o !== except && o.map === map && o.channel >= 1 && o.channel <= CHANNEL_COUNT) out[o.channel - 1]! += 1;
+		return out;
+	}
+
+	private sendChannel(c: Conn): void {
+		send(c.ws, { t: 'channel', channel: c.channel, counts: channelled(c.map) ? this.counts(c.map) : [] });
+	}
+
+	/**
+	 * Đổi khu (bấm biển "Khu N"): rời khu cũ (người cũ thấy mình đi, thôi nhận quái), đặt khu mới rồi báo client — client tải lại map
+	 * và gửi lại `map` như lúc mới vào (nhận `welcome` + quái của khu mới). `channel` 0 = chỉ hỏi số người.
+	 */
+	private switchChannel(c: Conn, raw: unknown): void {
+		const k = Math.floor(Number(raw));
+		if (!k || k === c.channel || !channelled(c.map)) return this.sendChannel(c);
+		if (k < 1 || k > CHANNEL_COUNT || !c.maps.allow('channel')) return;
+		if ((this.counts(c.map, c)[k - 1] ?? 0) >= CHANNEL_HARD_CAP) return send(c.ws, { t: 'system', text: `Khu ${k} đã đầy, chọn khu khác nhé` });
+		this.mobs.unsubscribe(c.view.id);
+		for (const o of this.inRoom(c)) if (o !== c) send(o.ws, { t: 'leave', id: c.view.id });
+		c.channel = k;
+		c.rejoin = true;
+		c.view.sprite = '';
+		c.dirty = false;
+		this.sendChannel(c);
+		this.social.presenceChanged(c.view.id);
+	}
+
 	private broadcastSnapshots(): void {
 		const byMap = new Map<string, Conn[]>();
 		for (const c of this.conns.values()) {
-			const list = byMap.get(c.map);
+			const key = instanceKey(c.map, c.channel);
+			const list = byMap.get(key);
 			if (list) list.push(c);
-			else byMap.set(c.map, [c]);
+			else byMap.set(key, [c]);
 		}
 		for (const list of byMap.values()) {
 			const changed = list.filter((c) => c.dirty);

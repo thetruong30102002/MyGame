@@ -173,8 +173,9 @@ try {
 		assert.deepEqual(eco(), before, 'báo hạ quái dùng chung: bỏ');
 		// Bình EXP ×2 (ghi thẳng bảng — mua ở quầy cần đứng cạnh Bram, đã test riêng ở shop.test).
 		store.buyBuff(me, { id: 'exp2_30', price: 0, kind: 'exp', mult: 2, ms: 60_000 }, () => 1, 1e9);
-		const id = mobId('human/graveyard', 'gy_a', 0);
-		const m = world.mobs.mob('human/graveyard', id)!;
+		// Quái dùng chung theo khu (13/11): người vào map một mình ở khu 1 → bản `human/graveyard#1`.
+		const id = mobId('human/graveyard#1', 'gy_a', 0);
+		const m = world.mobs.mob('human/graveyard#1', id)!;
 		ws.push({ t: 'move', x: m.x, y: m.y, dir: 'S', anim: 'idle', sprite: 'player_hero_adult' });
 		ws.push({ t: 'mobHit', id, dmg: 1e6 });
 		assert.equal(eco().coins, before.coins + z.coins);

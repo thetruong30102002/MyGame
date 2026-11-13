@@ -76,6 +76,9 @@ namespace HavenLord.Client
                 case ServerChat c:
                     OnChat(c);
                     break;
+                case ServerChannel chn:
+                    OnChannel(chn);
+                    break;
                 case ServerSystem sys:
                     SystemChat(sys.Text);
                     hud.Toast(sys.Text, "info");

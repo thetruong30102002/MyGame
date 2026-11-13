@@ -577,6 +577,8 @@ export type ClientMessage =
 	| { t: 'gear'; gear: GearView }
 	/** Vừa sang map khác (`<vùng>/<map>`): máy chủ chuyển mình sang nhóm người chơi của map đó, gửi lại `welcome`. */
 	| { t: 'map'; map: string }
+	/** Đổi khu của map đang đứng (`@havenlord/sim/channels`); `channel: 0` = chỉ hỏi số người từng khu. */
+	| { t: 'channel'; channel: number }
 	| { t: 'ping'; at: number }
 	/** Mời kết bạn — theo id (bấm tên) hoặc theo tên gõ tay. */
 	| { t: 'friendAdd'; id?: string; name?: string }
@@ -639,6 +641,8 @@ export type ServerMessage =
 	| { t: 'snapshot'; players: Pick<PlayerView, 'id' | 'x' | 'y' | 'dir' | 'anim' | 'sprite' | 'level' | 'hp' | 'hpMax'>[] }
 	| { t: 'chat'; from: string; name: string; text: string; at: number; ch?: ChatChannel }
 	| { t: 'system'; text: string }
+	/** Khu đang đứng + số người từng khu của map này (gửi khi vào map, đổi khu, hoặc khi hỏi). */
+	| { t: 'channel'; channel: number; counts: number[] }
 	/** `fx` chỉ có khi mã chiêu có thật và phần chiêu hợp lệ (máy chủ đã chuẩn hoá + kẹp điểm nhắm quanh người gửi). */
 	| { t: 'action'; id: string; anim: ActionAnim; dir: string; skill?: string; fx?: ActionFx }
 	/** `hit` chỉ có khi đúng `true` (đòn đã qua khung chạm — xem tin `actionEnd` của máy khách). */

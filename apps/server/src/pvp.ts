@@ -16,6 +16,8 @@ export interface PvpState {
 export interface PvpPlayer {
 	view: { id: string; name: string; level: number; x: number; y: number; sprite: string; hp?: number; hpMax?: number };
 	map: string;
+	/** Khu của map (`@havenlord/sim/channels`) — chỉ người cùng khu đánh được nhau. Vắng = khu 1. */
+	channel?: number;
 	pvp: PvpState;
 }
 
@@ -37,8 +39,8 @@ export class Pvp {
 		private readonly rand: () => number = Math.random,
 	) {}
 
-	private inMap(map: string): PvpPlayer[] {
-		return [...this.players()].filter((p) => p.map === map && p.view.sprite);
+	private inMap(map: string, channel = 1): PvpPlayer[] {
+		return [...this.players()].filter((p) => p.map === map && (p.channel ?? 1) === channel && p.view.sprite);
 	}
 
 	private alive(p: PvpPlayer): boolean {
@@ -50,19 +52,20 @@ export class Pvp {
 		const skill = SKILLS.get(skillId);
 		if (!skill || !pvpAllowedOn(p.map) || !this.alive(p)) return;
 		const map = p.map;
+		const channel = p.channel ?? 1;
 		const x0 = p.view.x;
 		const y0 = p.view.y;
 		for (const st of pvpStrikes(skill.id, x0, y0, fx.ax, fx.ay, fx.tx, fx.ty)) {
-			this.schedule(st.delay * 1000, () => this.strike(p, map, skill, st, x0, y0));
+			this.schedule(st.delay * 1000, () => this.strike(p, map, channel, skill, st, x0, y0));
 		}
 	}
 
-	private strike(p: PvpPlayer, map: string, skill: SkillDef, st: PvpStrike, x0: number, y0: number): void {
+	private strike(p: PvpPlayer, map: string, channel: number, skill: SkillDef, st: PvpStrike, x0: number, y0: number): void {
 		// Người đánh đã rời map / gục / thoát: đòn thôi.
-		if (p.map !== map || !this.alive(p) || ![...this.players()].includes(p)) return;
+		if (p.map !== map || (p.channel ?? 1) !== channel || !this.alive(p) || ![...this.players()].includes(p)) return;
 		const now = this.now();
 		const strike = st.follow ? recenter(st, p.view.x - x0, p.view.y - y0) : st;
-		let targets = this.inMap(map).filter((o) => o !== p && this.alive(o) && o.pvp.shieldUntil <= now && pvpInStrike(strike, o.view.x, o.view.y));
+		let targets = this.inMap(map, channel).filter((o) => o !== p && this.alive(o) && o.pvp.shieldUntil <= now && pvpInStrike(strike, o.view.x, o.view.y));
 		if (strike.first && targets.length > 1) {
 			const f = strike.first;
 			targets.sort((a, b) => Math.hypot(a.view.x - f.x, a.view.y - f.y) - Math.hypot(b.view.x - f.x, b.view.y - f.y));
@@ -84,7 +87,7 @@ export class Pvp {
 				kx: Math.round(((o.view.x - p.view.x) / len) * 1000) / 1000,
 				ky: Math.round(((o.view.y - p.view.y) / len) * 1000) / 1000,
 			};
-			for (const w of this.inMap(map)) this.sendTo(w.view.id, msg);
+			for (const w of this.inMap(map, channel)) this.sendTo(w.view.id, msg);
 		}
 	}
 
@@ -96,7 +99,7 @@ export class Pvp {
 		p.pvp.hitBy.clear();
 		const killer = [...this.players()].find((o) => o.view.id === id);
 		const msg: ServerMessage = { t: 'pvpKill', by: id, byName: killer?.view.name ?? '?', to: p.view.id, toName: p.view.name };
-		for (const w of this.inMap(p.map)) this.sendTo(w.view.id, msg);
+		for (const w of this.inMap(p.map, p.channel ?? 1)) this.sendTo(w.view.id, msg);
 	}
 
 	/** Vừa vào map / hồi sinh: miễn PvP một lúc. */

@@ -189,6 +189,7 @@ namespace HavenLord.Client.UI
             BuildTarget();
             BuildBossBar();
             BuildClock();
+            BuildChannel();
             BuildTopRight();
             BuildSkillBar();
             BuildToasts();
@@ -712,6 +713,7 @@ namespace HavenLord.Client.UI
             UpdateTarget(dt);
             UpdateBossBar(dt);
             UpdateClock(dt);
+            UpdateChannel();
             UpdateSlots(dt);
             UpdateToasts(dt);
             UpdateFloats(dt);
