@@ -1,12 +1,24 @@
 [
   {
+    "featured": true,
+    "tag": "Cập nhật",
+    "title": "Bản cập nhật tới: hành trình mới ở Haven",
+    "date": "13/11/2026",
+    "body": [
+      "Bản cập nhật tới mở Hồi I ở Thistlewood với bốn loại nhiệm vụ: Chính, Phụ, Hằng ngày và Thế giới. Việc ngày làm mới lúc 00:00 giờ Việt Nam; máy chủ giữ tiến độ và trao thưởng.",
+      "Nhiệm vụ cấp 10 “Tám ngọn đèn” trao một trong tám thiên phú nguyên tố với xác suất ngang nhau. Chiêu Mộc, Bóng tối và Ánh sáng sẽ bổ sung sau.",
+      "Mỗi map có năm khu. Báo động boss vùng kéo dài 30 phút, nêu rõ boss, map và khu để mọi người cùng góp sức. Gia viên có lối vào trên thanh menu; trạm vùng có người đứng quầy riêng.",
+      "Ngân hàng cho gửi xu, mua hoặc bán thỏi vàng; giá và lãi suất thay đổi theo ngày, có thể lãi hoặc lỗ. Game có lựa chọn Tiếng Việt / English. Các thay đổi này chưa có trong bản cài đặt đang tải."
+    ]
+  },
+  {
     "tag": "Thông báo",
     "title": "Haven mới: 30 tạo hình, 5 class và thế giới tiếp theo",
     "date": "26/10/2026",
     "body": [
       "Cẩm nang mới giới thiệu 30 tạo hình thuộc Kiếm sĩ, Pháp sư, Cung thủ, Thương sĩ và Vệ sĩ. Mỗi class có 3 nam và 3 nữ, tóc, trang phục và một vũ khí được vẽ liền. Có thể xem ảnh native ở 8 hướng trên mục Thế giới.",
-      "Hướng mới dành bộ nhân vật đời cũ cho các vai NPC. Nội dung giới thiệu và tuyến truyện cũ đã được lưu trữ. Bộ chuyển động mới đang hoàn thiện; lần cập nhật web này chưa phát hành toàn bộ 30 nhân vật trong client.",
-      "Thiên phú dự kiến phát hiện một trong 8 nguyên tố ở cấp 10, tỷ lệ đều 12,5%. Thế giới tiếp tục phát triển khuôn viên và nhà riêng, hồ câu bạn bè, chợ giao thương, mê cung, thành thị và Thiên Thành giữ tri thức khởi nguyên.",
+      "Bộ chuyển động mới đang hoàn thiện; lần cập nhật web này chưa phát hành toàn bộ tạo hình mới trong client.",
+      "Kế hoạch tháng 10 từng giới thiệu tám nguyên tố ở cấp 10. Hướng tháng 11 đưa việc nhận thiên phú vào nhiệm vụ “Tám ngọn đèn”; Thiên Thành vẫn đang phát triển.",
       "Trang quản trị chuyển sang React, bổ sung thư viện nhân vật và lưu trữ bản tin. Các link tải/cập nhật client vẫn hoạt động; dữ liệu người chơi được giữ nguyên."
     ]
   }
