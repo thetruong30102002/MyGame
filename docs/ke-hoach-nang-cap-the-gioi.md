@@ -9032,8 +9032,8 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
     {
       "id": "story-reboot-game",
       "group": "Cốt truyện",
-      "name": "Viết lại 100% cốt truyện, nhiệm vụ chính / phụ và vai trò NPC",
-      "detail": "Chốt chủ dự án 08/11/2026: làm lại toàn bộ cốt truyện có chiều sâu, cảm động, động cơ và quan hệ nhân vật rõ, cú lật có gieo dấu hiệu và hậu quả; biên soạn nhiệm vụ mới, hội thoại và phần thưởng. Giữ tuyến chính theo cấp / Ma thần, bổ sung nhiệm vụ phụ có câu chuyện; giữ các trụ cột 5 tộc / 5 class / 8 nguyên tố phát hiện cấp 10 / Thiên Thành. 100% là phạm vi phải viết lại, KHÔNG phải tiến độ hoàn thành. Tuyến mở đầu phải giới thiệu mọi NPC cố định map đầu trước khi mở Gia viên. Duyệt bản chữ toàn bộ trước khi chuyển dữ liệu sim / máy chủ / Unity; chuyển save có phiên bản, không reset DB. Luật tạo hình / trang bị theo chốt kỹ thuật hiện hành, không suy từ mô tả truyện cũ. Chi tiết: docs/thiet-ke/tai-thiet-cot-truyen-npc-2026-11.md BỔ SUNG 08/11: skill đang chơi vẫn bản cũ; nhiệm vụ mới phải theo kế hoạch 140 chiêu (mỗi bộ 10 gồm 3 bị động, Kiếm 3 phái, Pháp sư 8 hệ), không lấy luật mở / học skill cũ làm chuẩn. Thêm NPC truyện tại các map quái, nối động cơ / quan hệ / dấu vết / hậu quả qua nhiều map thành tuyến có chiều sâu và drama có căn nguyên. Ưu tiên Gia viên và NPC vùng 1 trước.",
+      "name": "Viết lại cốt truyện và hệ nhiệm vụ Chính / Phụ / Hằng ngày / Thế giới",
+      "detail": "Chốt 08/11 và yêu cầu 13/11/2026: làm mới hoàn toàn cốt truyện, nhiệm vụ và vai trò NPC; bốn loại Chính / Phụ / Hằng ngày / Thế giới. Giữ 5 tộc / 5 class / 8 nguyên tố / Ma thần / Thiên Thành; người chơi không bị gán tuổi thơ Lior. Mở đầu giới thiệu mọi NPC cố định map đầu trước Gia viên; tuyến chính theo cấp/vùng, phụ đa nhánh song song; hằng ngày bốc tất định 0 giờ Việt Nam; thế giới chung máy chủ và thưởng theo đóng góp. Máy chủ kiểm điều kiện/thưởng, không tin số client. Có chuyển save phiên bản, không reset DB. Bản chữ đầy đủ đề xuất ở docs/thiet-ke/he-nhiem-vu-bon-loai-2026-11.md; dừng chờ chủ dự án duyệt trước khi sửa sim/máy chủ/Unity. Tiến độ vẫn theo việc đã nghiệm thu, số phần thưởng chỉ là bản thử chờ duyệt. Quy tắc hình/NPC và bộ 140 chiêu theo các chốt hiện hành.",
       "weight": 6,
       "phase": 2,
       "region": null,
@@ -9043,10 +9043,10 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "requiresNewArt": false,
       "steps": [
         {
-          "label": "Viết lại toàn bộ bản chữ, tuyến chính theo cấp / Ma thần, nhiệm vụ phụ, quan hệ NPC và các cú lật để chủ dự án duyệt",
+          "label": "Duyệt bản chữ bốn loại nhiệm vụ, tuyến chính theo cấp / Ma thần, quan hệ NPC và các cú lật",
           "weight": 30,
           "done": false,
-          "evidence": ""
+          "evidence": "13/11/2026: đã soạn bản đề xuất docs/thiet-ke/he-nhiem-vu-bon-loai-2026-11.md gồm 30 việc Chính, 26 chuỗi Phụ, 4 chuỗi xuyên vùng, bảng Hằng ngày và 4 mẫu Thế giới; có thoại, điều kiện, hậu quả, số thưởng thử và phương án save. Chờ chủ dự án duyệt bản chữ, chưa chuyển thành dữ liệu/game; không tăng % nghiệm thu."
         },
         {
           "label": "Dữ liệu nhiệm vụ / hội thoại / phần thưởng mới và phương án chuyển save không mất tiến độ / tài sản",
