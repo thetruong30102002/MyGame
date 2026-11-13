@@ -9628,6 +9628,44 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       ]
     },
     {
+      "id": "bilingual-en-vi",
+      "group": "Tính năng đã chốt",
+      "name": "Game hai ngôn ngữ Anh / Việt",
+      "detail": "Chủ dự án 13/11/2026: \"Game sẽ có 2 ngôn ngữ anh/ việt\". Mọi chữ hiện cho người chơi (UI, nhiệm vụ, thoại NPC, tên đồ / quái / map, thông báo máy chủ) có bản tiếng Việt và tiếng Anh; chọn ngôn ngữ trong Cài đặt (và lúc mở game lần đầu), lưu theo máy. Hướng làm đề xuất: gom chữ cứng trong client Unity + sim + máy chủ thành bảng khoá → chữ (vi gốc, en dịch), máy chủ gửi khoá + tham số thay vì câu tiếng Việt; font phải đủ dấu tiếng Việt và chữ Latin. Chưa chốt: dịch tay hay nhờ AI dịch rồi duyệt, tên riêng (Haven, Thistlewood…) giữ hay dịch. Chưa làm.",
+      "weight": 4,
+      "phase": 3,
+      "region": null,
+      "depends": [],
+      "requiresNewArt": false,
+      "priority": 2,
+      "steps": [
+        {
+          "label": "Chốt cách dịch + danh sách tên riêng giữ nguyên, chọn ngôn ngữ ở Cài đặt / lần đầu mở game",
+          "weight": 10,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Gom chữ cứng client / sim / máy chủ thành bảng khoá vi–en, máy chủ gửi khoá + tham số",
+          "weight": 45,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Dịch toàn bộ nội dung (UI, nhiệm vụ, thoại, tên đồ / quái / map) và kiểm chữ tràn khung",
+          "weight": 30,
+          "done": false,
+          "evidence": ""
+        },
+        {
+          "label": "Kiểm thử hai ngôn ngữ trên PC / mobile, chủ dự án nghiệm thu",
+          "weight": 15,
+          "done": false,
+          "evidence": ""
+        }
+      ]
+    },
+    {
       "id": "regional-service-npcs",
       "group": "Trung tâm vùng",
       "name": "NPC dịch vụ đủ mỗi vùng — 5 nghề riêng và NPC sự kiện dùng chung",
