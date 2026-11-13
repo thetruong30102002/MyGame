@@ -6,29 +6,33 @@ import time
 import urllib.parse
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'UnityGame/Assets/HavenLord/Data/Client/i18n.en.json'
 KEYS = ROOT / 'UnityGame/Assets/HavenLord/Data/Client/i18n.client.keys.json'
 NAMES = ['Thistlewood', 'Lau Xám', 'Ánh Tím', 'Haven', 'Bram', 'Nyra', 'Odessa', 'Zahra', 'Hassim',
-         'Orrin', 'Wenna', 'Kael', 'Hilde', 'Durin', 'Maris', 'Corvin', 'Sein', 'Sera']
+         'Orrin', 'Wenna', 'Kael', 'Hilde', 'Durin', 'Maris', 'Corvin', 'Sein', 'Sera',
+         'Sahrin', 'Mù Sương', 'Hồng Cát', 'Gió Hú', 'Tuyết Phong', 'Đe Đỏ', 'San Hô',
+         'Hư Không', 'Bình Minh', 'Ám Ma', 'Cổ Thụ', 'Hải Âu Bạc', 'Ông Rơm', 'Aldric', 'Mirelle', 'Lior']
 GLOSSARY = {'Bọc Nguyên Tố': 'Elemental Coating', 'Gia viên': 'Homestead', 'Tiềm năng': 'Talents',
             'kim cương': 'diamonds', 'Kim cương': 'Diamonds', 'xu': 'coins', 'Xu': 'Coins',
             'khu': 'Channel', 'Khu': 'Channel', 'Hằng ngày': 'Daily',
             'nhiệm vụ chính': 'Main quests', 'nhiệm vụ phụ': 'Side quests',
             'Bình hồi phục': 'Healing Potion', 'Bạn bè': 'Friends', 'tự đi': 'auto walk'}
 PROTECT = re.compile(r'</?[^>]+>|\{\d+\}|\\n|[·→▾▸]|\b(?:Esc|Enter|Tab|Shift|WASD|PC|APK|NPC|EXP|HP|MP|PvP)\b')
+VERIFY = re.compile(r'</?[^>]+>|\{\d+\}|[·→▾▸]')
 
 
-def mask(source):
+def mask(source, local=False):
     replacements = []
     parts = sorted(list(NAMES) + list(GLOSSARY), key=len, reverse=True)
     pattern = re.compile('|'.join(r'(?<!\w)' + re.escape(x) + r'(?!\w)' for x in parts) + '|' + PROTECT.pattern)
     def sub(match):
         word = match.group()
         target = GLOSSARY.get(word, word)
-        token = f'ZXQ{len(replacements)}ZXQ'
+        token = f'<x{len(replacements)}>' if local else f'ZXQ{len(replacements)}ZXQ'
         replacements.append((token, target))
         return token
     return pattern.sub(sub, source), replacements
@@ -54,21 +58,46 @@ def translate(vi):
     return None
 
 
+def translate_local(vi):
+    import argostranslate.translate
+    masked, replacements = mask(vi, True)
+    result = argostranslate.translate.translate(masked, 'vi', 'en')
+    for token, value in replacements:
+        result = result.replace(token, value)
+    valid = all(value in result for _, value in replacements) and Counter(VERIFY.findall(vi)) == Counter(VERIFY.findall(result))
+    if valid and result.strip() and '<x' not in result and not re.search(r'[\[(]x\d+[\])]', result):
+        return result
+    # Argos đôi khi đổi <x0> thành [x0] hoặc bỏ hẳn. Dịch từng đoạn để giữ nguyên ký hiệu.
+    pieces = re.split(r'(<x\d+>)', masked)
+    restored = dict(replacements)
+    translated = []
+    for piece in pieces:
+        translated.append(restored[piece] if piece in restored else argostranslate.translate.translate(piece, 'vi', 'en') if piece.strip() else piece)
+    return ''.join(translated)
+
+
 if __name__ == '__main__':
     cli = argparse.ArgumentParser()
     cli.add_argument('--keys', type=Path, default=KEYS)
     cli.add_argument('--out', type=Path, default=OUT)
+    cli.add_argument('--backend', choices=['google', 'argos'], default='google')
     args = cli.parse_args()
     keys = list(json.loads(args.keys.read_text(encoding='utf-8')))
     output = json.loads(args.out.read_text(encoding='utf-8')) if args.out.exists() else {}
     todo = [key for key in keys if key not in output]
     for start in range(0, len(todo), 40):
         batch = todo[start:start + 40]
-        with ThreadPoolExecutor(max_workers=8) as pool:
-            futures = {pool.submit(translate, key): key for key in batch}
-            for future in as_completed(futures):
-                result = future.result()
+        if args.backend == 'argos':
+            for key in batch:
+                result = translate_local(key)
                 if result is not None:
-                    output[futures[future]] = result
+                    output[key] = result
+        else:
+            with ThreadPoolExecutor(max_workers=8) as pool:
+                futures = {pool.submit(translate, key): key for key in batch}
+                for future in as_completed(futures):
+                    result = future.result()
+                    if result is not None:
+                        output[futures[future]] = result
         args.out.write_text(json.dumps(dict(sorted(output.items())), ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
         print(f'{len(output)}/{len(keys)} translated', flush=True)

@@ -70,12 +70,12 @@ namespace HavenLord.Client
                     if (table == null) continue;
                     var entries = JsonConvert.DeserializeObject<Dictionary<string, string>>(table.text);
                     if (entries == null) continue;
-                    foreach (var entry in entries) english[entry.Key] = entry.Value;
+                    foreach (var entry in entries) if (!english.ContainsKey(entry.Key)) english[entry.Key] = entry.Value;
                 }
             if (serverSource != null)
             {
                 var entries = JsonConvert.DeserializeObject<Dictionary<string, string>>(serverSource.text);
-                if (entries != null) foreach (var entry in entries) english[entry.Key] = entry.Value;
+                if (entries != null) foreach (var entry in entries) if (!english.ContainsKey(entry.Key)) english[entry.Key] = entry.Value;
             }
             patterns = new List<(Regex, string)>();
             foreach (var entry in english)

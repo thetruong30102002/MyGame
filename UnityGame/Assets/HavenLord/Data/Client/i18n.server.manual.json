@@ -1,0 +1,12 @@
+[
+  {
+    "file": "apps\\server\\src\\grant.ts",
+    "line": 27,
+    "source": "${ch.name}: ${n > 0 ? '+' : ''}${n} → ${balance} kim cương"
+  },
+  {
+    "file": "apps\\server\\src\\world.ts",
+    "line": 123,
+    "source": "⚔ ${name} đã xuất hiện ở ${mapName(mapsDir, map) ?? map} · Khu ${channel}!"
+  }
+]

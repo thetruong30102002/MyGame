@@ -35,6 +35,7 @@ namespace HavenLord.Client.UI
         private readonly Dictionary<string, (Image bg, TMP_Text label, RectTransform badge, TMP_Text count)> tabUi =
             new Dictionary<string, (Image, TMP_Text, RectTransform, TMP_Text)>();
         private int drawnVersion = -1;
+        private int drawnLanguage = -1;
         private string drawnTab;
         private bool expanded = true;
         private bool touch;
@@ -253,7 +254,7 @@ namespace HavenLord.Client.UI
         private void Update()
         {
             if (input.isFocused && Input.GetKeyDown(KeyCode.Escape)) CloseInput();
-            if (game.ChatVersion != drawnVersion || drawnTab != tab) Redraw(false);
+            if (game.ChatVersion != drawnVersion || drawnTab != tab || drawnLanguage != Loc.Version) Redraw(false);
         }
 
         private static string Channel(ChatLine l) => l.System ? "system" : l.Whisper != null ? "whisper" : l.Ch == "world" ? "world" : "map";
@@ -265,6 +266,7 @@ namespace HavenLord.Client.UI
         private void Redraw(bool force)
         {
             drawnVersion = game.ChatVersion;
+            drawnLanguage = Loc.Version;
             drawnTab = tab;
             var all = game.Chat;
             if (minimized)
@@ -317,7 +319,7 @@ namespace HavenLord.Client.UI
 
         private string Format(ChatLine l)
         {
-            if (l.System) return $"<color={SystemHex}><i>{Esc(l.Text)}</i></color>";
+            if (l.System) return $"<color={SystemHex}><i>{Esc(Loc.T(l.Text))}</i></color>";
             var name = l.Self && l.Whisper == null ? $"<color=#ffd98a>{Esc(l.Name)}</color>"
                 : $"<link=\"p|{l.FromId}|{Esc(l.Name)}\"><color=#9fd3ff><u>{Esc(l.Name)}</u></color></link>";
             if (l.Whisper == "out") return $"<color={WhisperHex}>→ {name}: {Esc(l.Text)}</color>";
