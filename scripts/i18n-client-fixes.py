@@ -26,4 +26,8 @@ data.update({
     'Bạn': 'You',
     'Ông Rơm': 'Ông Rơm',
 })
+# Bản dịch rà tay (Claude 13/11/2026): đè lên dịch máy cho các câu sai nghĩa / phần mới — giữ tên riêng, thẻ, {n}.
+review = Path(__file__).resolve().parent / 'i18n-client-review.json'
+if review.exists():
+    data.update(json.loads(review.read_text(encoding='utf-8')))
 path.write_text(json.dumps(dict(sorted(data.items())), ensure_ascii=False, indent=2) + '\n', encoding='utf-8')

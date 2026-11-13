@@ -31,6 +31,11 @@ OUT.mkdir(parents=True, exist_ok=True)
 translated = OUT / 'all.en.json'
 if translated.exists():
     table = json.loads(translated.read_text(encoding='utf-8'))
+    # Bản dịch rà tay (Claude 13/11/2026) đè lên dịch máy: câu sai nghĩa, chức danh / tên mới.
+    review = ROOT / 'scripts/i18n-sim-review.json'
+    if review.exists():
+        table.update(json.loads(review.read_text(encoding='utf-8')))
+        translated.write_text(json.dumps(dict(sorted(table.items())), ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     for name, keys in modules.items():
         (OUT / f'{name}.en.json').write_text(json.dumps({key: table[key] for key in keys if key in table}, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 print(f'{len(modules)} modules, {sum(map(len, modules.values()))} entries, {len(set().union(*modules.values()))} unique')

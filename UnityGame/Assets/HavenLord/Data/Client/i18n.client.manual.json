@@ -2,127 +2,106 @@
   {
     "file": "UnityGame\\Assets\\HavenLord\\Client\\Combat\\CombatSystem.Player.cs",
     "line": 365,
-    "source": "Bọc {(sim.BranchName.TryGetValue(bel, out var bn) ? bn : bel)} · {secs:0}s",
-    "template": "Bọc {0} · {1}s"
+    "source": "Bọc {(sim.BranchName.TryGetValue(bel, out var bn) ? bn : bel)} · {secs:0}s"
   },
   {
     "file": "UnityGame\\Assets\\HavenLord\\Client\\GameController.Admin.cs",
     "line": 105,
-    "source": "Đã áp {AdminLastChanges.Count} thay đổi cho {AdminPick?.Name}",
-    "template": "Đã áp {0} thay đổi cho {1}"
+    "source": "Đã áp {AdminLastChanges.Count} thay đổi cho {AdminPick?.Name}"
   },
   {
     "file": "UnityGame\\Assets\\HavenLord\\Client\\GameController.Story.cs",
     "line": 441,
-    "source": "Nhận {def?.Name ?? id}",
-    "template": "Nhận {0}"
+    "source": "Nhận {def?.Name ?? id}"
   },
   {
     "file": "UnityGame\\Assets\\HavenLord\\Client\\GameController.Story.cs",
     "line": 537,
-    "source": "Con đường: {(paths.TryGetValue(id, out var p) ? p.Name : id)}",
-    "template": "Con đường: {0}"
+    "source": "Con đường: {(paths.TryGetValue(id, out var p) ? p.Name : id)}"
   },
   {
     "file": "UnityGame\\Assets\\HavenLord\\Client\\GameController.Talents.cs",
     "line": 148,
-    "source": "Học được: {combat.Skill(id)?.Name}",
-    "template": "Học được: {0}"
+    "source": "Học được: {combat.Skill(id)?.Name}"
   },
   {
     "file": "UnityGame\\Assets\\HavenLord\\Client\\LayeredCharacterView.cs",
     "line": 98,
-    "source": "[layered] đầu {h.id} ({h.gender}/{h.mould}) không đội được thân {body?.id} ({body?.gender}/{body?.mould}) — đầu theo giới và khuôn",
-    "template": "[layered] đầu {0} ({1}/{2}) không đội được thân {3} ({4}/{5}) — đầu theo giới và khuôn"
+    "source": "[layered] đầu {h.id} ({h.gender}/{h.mould}) không đội được thân {body?.id} ({body?.gender}/{body?.mould}) — đầu theo giới và khuôn"
   },
   {
     "file": "UnityGame\\Assets\\HavenLord\\Client\\LoginScreen.cs",
-    "line": 335,
-    "source": "Cấp {lv}  ·  {(c.Gender == \"female\" ? \"Nữ\" : \"Nam\")}",
-    "template": "Cấp {0}  ·  {1}"
+    "line": 336,
+    "source": "Cấp {lv}  ·  {(c.Gender == \"female\" ? \"Nữ\" : \"Nam\")}"
   },
   {
     "file": "UnityGame\\Assets\\HavenLord\\Client\\UI\\ChatBox.cs",
-    "line": 275,
-    "source": "Trò chuyện <color=#ff8a7a>({(unread > 99 ? \"99+\" : unread.ToString())})</color> »",
-    "template": "Trò chuyện <color=#ff8a7a>({0})</color> »"
+    "line": 277,
+    "source": "Trò chuyện <color=#ff8a7a>({(unread > 99 ? \"99+\" : unread.ToString())})</color> »"
   },
   {
     "file": "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.Channel.cs",
     "line": 50,
-    "source": "Khu {n} · {counts[i]} người{(n == k ? \" ✓\" : full ? \" · đông\" : \"\")}",
-    "template": "Khu {0} · {1} người{2}"
+    "source": "Khu {n} · {counts[i]} người{(n == k ? \" ✓\" : full ? \" · đông\" : \"\")}"
   },
   {
     "file": "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Admin.cs",
     "line": 128,
-    "source": "{c.Name}  <size=12><color=#c9b48a>{c.Account}{(c.Online ? \" · đang online\" : \"\")}</color></size>",
-    "template": "{0}  <size=12><color=#c9b48a>{1}{2}</color></size>"
+    "source": "{c.Name}  <size=12><color=#c9b48a>{c.Account}{(c.Online ? \" · đang online\" : \"\")}</color></size>"
   },
   {
     "file": "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Book.cs",
     "line": 256,
-    "source": "{(string.IsNullOrEmpty(s.Ranged) ? \"Đánh gần\" : \"Đánh xa\")} · {s.Exp} EXP · {s.Coins} xu · đã hạ <b>{(kills.TryGetValue(e.Id, out var k) ? k : 0):#,0}</b>",
-    "template": "{0} · {1} EXP · {2} xu · đã hạ <b>{3}</b>"
+    "source": "{(string.IsNullOrEmpty(s.Ranged) ? \"Đánh gần\" : \"Đánh xa\")} · {s.Exp} EXP · {s.Coins} xu · đã hạ <b>{(kills.TryGetValue(e.Id, out var k) ? k : 0):#,0}</b>"
   },
   {
     "file": "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs",
-    "line": 270,
-    "source": "Thú cưng · {owned.Count}/{all.Count} loài · {game.Diamonds} kim cương · mảnh {(int?)state[\"petShards\"] ?? 0}",
-    "template": "Thú cưng · {0}/{1} loài · {2} kim cương · mảnh {3}"
+    "line": 279,
+    "source": "Thú cưng · {owned.Count}/{all.Count} loài · {game.Diamonds} kim cương · mảnh {(int?)state[\"petShards\"] ?? 0}"
   },
   {
     "file": "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs",
-    "line": 271,
-    "source": "Tỉ lệ: Thường {g?[\"rates\"]?[0]}% · Hiếm {g?[\"rates\"]?[1]}% · Sử thi {g?[\"rates\"]?[2]}% · Huyền thoại {g?[\"rates\"]?[3]}% · 10 lượt chắc chắn ≥ 1 Hiếm · {(int?)g?[\"pity\"]} lượt chắc chắn Huyền thoại (đã quay {(int?)state[\"petPity\"] ?? 0}).",
-    "template": "Tỉ lệ: Thường {0}% · Hiếm {1}% · Sử thi {2}% · Huyền thoại {3}% · 10 lượt chắc chắn ≥ 1 Hiếm · {4} lượt chắc chắn Huyền thoại (đã quay {5})."
+    "line": 280,
+    "source": "Tỉ lệ: Thường {g?[\"rates\"]?[0]}% · Hiếm {g?[\"rates\"]?[1]}% · Sử thi {g?[\"rates\"]?[2]}% · Huyền thoại {g?[\"rates\"]?[3]}% · 10 lượt chắc chắn ≥ 1 Hiếm · {(int?)g?[\"pity\"]} lượt chắc chắn Huyền thoại (đã quay {(int?)state[\"petPity\"] ?? 0})."
   },
   {
     "file": "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs",
-    "line": 272,
-    "source": "Quay 1 lần · {g?[\"one\"]} KC",
-    "template": "Quay 1 lần · {0} KC"
+    "line": 281,
+    "source": "Quay 1 lần · {g?[\"one\"]} KC"
   },
   {
     "file": "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs",
-    "line": 273,
-    "source": "Quay 10 lần · {g?[\"ten\"]} KC",
-    "template": "Quay 10 lần · {0} KC"
+    "line": 282,
+    "source": "Quay 10 lần · {g?[\"ten\"]} KC"
   },
   {
     "file": "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Farm.cs",
-    "line": 277,
-    "source": "Bấm thú đã có để thả / cất (tối đa {(int?)g?[\"out\"] ?? 6} con đi lại trong Gia viên). Thú chưa có: đổi bằng mảnh.",
-    "template": "Bấm thú đã có để thả / cất (tối đa {0} con đi lại trong Gia viên). Thú chưa có: đổi bằng mảnh."
+    "line": 286,
+    "source": "Bấm thú đã có để thả / cất (tối đa {(int?)g?[\"out\"] ?? 6} con đi lại trong Gia viên). Thú chưa có: đổi bằng mảnh."
   },
   {
     "file": "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Feedback.cs",
     "line": 85,
-    "source": "<color=#ffd166>{Esc(who)}</color>  <color=#8a7a66>{when}{(f.Build.HasValue ? \" · bản \" + f.Build : \"\")}{(string.IsNullOrEmpty(f.Platform) ? \"\" : \" · \" + f.Platform)}</color>",
-    "template": "<color=#ffd166>{0}</color>  <color=#8a7a66>{1}{2}{3}</color>"
+    "source": "<color=#ffd166>{Esc(who)}</color>  <color=#8a7a66>{when}{(f.Build.HasValue ? \" · bản \" + f.Build : \"\")}{(string.IsNullOrEmpty(f.Platform) ? \"\" : \" · \" + f.Platform)}</color>"
   },
   {
     "file": "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Quests.cs",
     "line": 63,
-    "source": "{(questShowDone ? \"▾\" : \"▸\")} Đã xong ({done.Count})",
-    "template": "{0} Đã xong ({1})"
+    "source": "{(questShowDone ? \"▾\" : \"▸\")} Đã xong ({done.Count})"
   },
   {
     "file": "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Services.cs",
     "line": 248,
-    "source": "{def.Settlement?.Name ?? def.Name} · cấp {def.Levels[0]:0}–{def.Levels[1]:0} · đã tới map nào thì dịch chuyển về map đó được",
-    "template": "{0} · cấp {1}–{2} · đã tới map nào thì dịch chuyển về map đó được"
+    "source": "{def.Settlement?.Name ?? def.Name} · cấp {def.Levels[0]:0}–{def.Levels[1]:0} · đã tới map nào thì dịch chuyển về map đó được"
   },
   {
     "file": "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Talents.cs",
     "line": 299,
-    "source": "\\n{(skill.MpCost > 0 ? skill.MpCost + \" MP · \" : \"\")}hồi {skill.Cooldown:0.#} giây",
-    "template": "\n{0}hồi {1} giây"
+    "source": "\\n{(skill.MpCost > 0 ? skill.MpCost + \" MP · \" : \"\")}hồi {skill.Cooldown:0.#} giây"
   },
   {
     "file": "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.WorldMap.cs",
     "line": 350,
-    "source": "{def?.Name ?? regionId}  <size=12><color=#e9c46a>cấp {def?.Levels[0]:0}–{def?.Levels[1]:0}</color></size>",
-    "template": "{0}  <size=12><color=#e9c46a>cấp {1}–{2}</color></size>"
+    "source": "{def?.Name ?? regionId}  <size=12><color=#e9c46a>cấp {def?.Levels[0]:0}–{def?.Levels[1]:0}</color></size>"
   }
 ]
