@@ -9033,7 +9033,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
       "id": "story-reboot-game",
       "group": "Cốt truyện",
       "name": "Viết lại cốt truyện và hệ nhiệm vụ Chính / Phụ / Hằng ngày / Thế giới",
-      "detail": "Chốt 08/11 và yêu cầu 13/11/2026: làm mới hoàn toàn cốt truyện, nhiệm vụ và vai trò NPC; bốn loại Chính / Phụ / Hằng ngày / Thế giới. Giữ 5 tộc / 5 class / 8 nguyên tố / Ma thần / Thiên Thành; người chơi không bị gán tuổi thơ Lior. Mở đầu giới thiệu mọi NPC cố định map đầu trước Gia viên; tuyến chính theo cấp/vùng, phụ đa nhánh song song; hằng ngày bốc tất định 0 giờ Việt Nam; thế giới chung máy chủ và thưởng theo đóng góp. Máy chủ kiểm điều kiện/thưởng, không tin số client. Có chuyển save phiên bản, không reset DB. Bản chữ đầy đủ đề xuất ở docs/thiet-ke/he-nhiem-vu-bon-loai-2026-11.md; dừng chờ chủ dự án duyệt trước khi sửa sim/máy chủ/Unity. Tiến độ vẫn theo việc đã nghiệm thu, số phần thưởng chỉ là bản thử chờ duyệt. Quy tắc hình/NPC và bộ 140 chiêu theo các chốt hiện hành.",
+      "detail": "Chốt 08/11 và yêu cầu 13/11/2026: làm mới hoàn toàn 100% cốt truyện, nhiệm vụ và vai trò NPC; bốn loại Chính / Phụ / Hằng ngày / Thế giới. Chốt bổ sung: BỎ chuyển sinh, kiếp trước, tuổi thơ/thân thế Lior; người chơi là nhân vật tự tạo hiện tại, quest cũ chỉ còn dữ liệu kỹ thuật để bảo toàn save. Giữ 5 tộc / 5 class / 8 nguyên tố / Ma thần / Thiên Thành. Mở đầu giới thiệu mọi NPC cố định map đầu trước Gia viên; tuyến chính theo cấp/vùng, phụ đa nhánh song song; hằng ngày bốc tất định 0 giờ Việt Nam; thế giới chung máy chủ và thưởng theo đóng góp. Máy chủ kiểm điều kiện/thưởng, không tin số client. Có chuyển save phiên bản, không reset DB. Bản chữ ở docs/thiet-ke/he-nhiem-vu-bon-loai-2026-11.md, đặc tả bàn giao ở docs/thiet-ke/he-nhiem-vu-bon-loai-ban-giao.md. Chủ dự án sẽ nhờ Claude dựng vào game sau; lượt này hoàn thiện tài liệu, chưa sửa sim/máy chủ/Unity. Tiến độ giữ theo việc đã nghiệm thu, phần thưởng là số thử. Quy tắc hình/NPC và bộ 140 chiêu theo các chốt hiện hành.",
       "weight": 6,
       "phase": 2,
       "region": null,
@@ -9046,7 +9046,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
           "label": "Duyệt bản chữ bốn loại nhiệm vụ, tuyến chính theo cấp / Ma thần, quan hệ NPC và các cú lật",
           "weight": 30,
           "done": false,
-          "evidence": "13/11/2026: đã soạn bản đề xuất docs/thiet-ke/he-nhiem-vu-bon-loai-2026-11.md gồm 30 việc Chính, 26 chuỗi Phụ, 4 chuỗi xuyên vùng, bảng Hằng ngày và 4 mẫu Thế giới; có thoại, điều kiện, hậu quả, số thưởng thử và phương án save. Chờ chủ dự án duyệt bản chữ, chưa chuyển thành dữ liệu/game; không tăng % nghiệm thu."
+          "evidence": "13/11/2026: bản chữ docs/thiet-ke/he-nhiem-vu-bon-loai-2026-11.md có 30 việc Chính, 26 chuỗi Phụ, 4 chuỗi xuyên vùng, bảng Hằng ngày và 4 mẫu Thế giới. Bản bàn giao he-nhiem-vu-bon-loai-ban-giao.md bổ sung ID bền, thoại theo 30 mốc, thưởng thử, quy tắc server, bốc ngày, phiên thế giới và chuyển 61 quest cũ chỉ ở tầng kỹ thuật. Theo chốt mới bỏ hoàn toàn chuyển sinh/kiếp trước/tuổi thơ Lior khỏi truyện mới. Chủ dự án sẽ nhờ Claude dựng sau; chưa nghiệm thu/game, giữ % cũ."
         },
         {
           "label": "Dữ liệu nhiệm vụ / hội thoại / phần thưởng mới và phương án chuyển save không mất tiến độ / tài sản",
