@@ -89,6 +89,7 @@ namespace HavenLord.Client
             farmPoll += dt;
             if (farmPoll >= 4) { farmPoll = 0; FarmSend("get"); }
             if (!InFarm) return;
+            FarmAutoDoor();
             if (FarmState != null && farmDrawn != FarmVersion) { DrawFarmPlots(); DrawDecor(); DrawOrchard(); DrawPets(); RefreshFarmBody(); farmDrawn = FarmVersion; }
             orchardClock += dt; if (orchardClock > 20) { orchardClock = 0; DrawOrchard(); }
             SwimTankFish();
@@ -118,9 +119,45 @@ namespace HavenLord.Client
             }
         }
 
+        /// <summary>Đang thả câu chờ cá cắn (đứng yên tới khi kéo / hết giờ).</summary>
+        private bool FarmFishing => InFarm && FarmState?["fish"] is JObject f && FarmNow < (double)f["expires"];
+
+        private bool doorArmed;
+
+        /// <summary>
+        /// Bước vào cửa / cầu thang / cổng hồ là sang luôn (chủ dự án 13/11/2026: "đi vào sang map mới luôn thay vì phải bấm E"). Vừa sang map đứng
+        /// sát cửa bên kia thì chưa tính — phải đi ra khỏi cửa một quãng rồi bước lại vào mới sang (không bị đẩy qua lại).
+        /// </summary>
+        private void FarmAutoDoor()
+        {
+            if (FarmBusy || changing || player == null || map == null || hud.Blocking) return;
+            var me = new Vector2((float)player.X, (float)player.Y);
+            var doors = new List<(Vector2 at, Action go)>();
+            if (RoomDoors.TryGetValue(map.def.id, out var rd))
+                foreach (var (to, at) in rd) doors.Add((at, () => { if (to == "garden") FarmSend("room"); else FarmSend("go", room: to); }));
+            else if (map.def.id == "pond") doors.Add((PondBack, () => FarmSend("pond")));
+            else
+            {
+                doors.Add((DoorSpot, () => FarmSend("room")));
+                doors.Add((PondGate, () => FarmSend("pond")));
+            }
+            if (doors.Count == 0) return;
+            var best = doors.OrderBy(d => Vector2.Distance(me, d.at)).First();
+            var dist = Vector2.Distance(me, best.at);
+            if (!doorArmed)
+            {
+                if (dist > 56) doorArmed = true;
+                return;
+            }
+            if (dist > 28) return;
+            doorArmed = false;
+            best.go();
+        }
+
         private void FarmMapReady(bool home)
         {
             InFarm = home;
+            doorArmed = false;
             if (!home)
             {
                 if (farmView != null) Destroy(farmView.gameObject);
@@ -207,7 +244,7 @@ namespace HavenLord.Client
                 var ms = (double?)crops?.FirstOrDefault(c => (string)c["id"] == crop)?["ms"] ?? 1;
                 var stage = Math.Min(3, (int)((double)p["growth"] / ms * 4));
                 var sprite = database.homeProps?.Find($"farm_crop_{crop}_{stage}")?.sprite;
-                var plant = new GameObject("Cây " + crop).AddComponent<SpriteRenderer>();plant.transform.SetParent(farmPlots.transform, false);plant.transform.localPosition = WorldCoords.PxToWorld(x, y - 2);plant.transform.localScale = new Vector3(.5f, .5f, 1);plant.sprite = sprite;
+                var plant = new GameObject("Cây " + crop).AddComponent<SpriteRenderer>();plant.transform.SetParent(farmPlots.transform, false);plant.transform.localPosition = WorldCoords.PxToWorld(x, y + 24); /* ô đất neo mép trên (y … y+32), cây neo chân: chân gần đáy ô → cây đứng giữa ô (13/11/2026) */plant.transform.localScale = new Vector3(.5f, .5f, 1);plant.sprite = sprite;
             }
         }
 
@@ -618,7 +655,7 @@ namespace HavenLord.Client
         // Nhà 3 phòng, mỗi phòng một map (sim FARM_ROOMS): cửa / cầu thang của từng phòng → phòng bên kia; "garden" = ra vườn.
         private static readonly Dictionary<string, (string to, Vector2 at)[]> RoomDoors = new Dictionary<string, (string, Vector2)[]>
         {
-            ["house"] = new[] { ("garden", new Vector2(320, 400)), ("kitchen", new Vector2(48, 288)), ("bedroom", new Vector2(548, 158)) },
+            ["house"] = new[] { ("garden", new Vector2(320, 400)), ("kitchen", new Vector2(48, 288)), ("bedroom", new Vector2(504, 288)) },
             ["kitchen"] = new[] { ("house", new Vector2(464, 288)) },
             ["bedroom"] = new[] { ("house", new Vector2(416, 358)) },
         };

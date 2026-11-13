@@ -64,7 +64,8 @@ export const isPondMap=(map:string)=>/^home\/\d+_pond$/.test(map);
  * phòng khách `house` (cửa dưới ra vườn, cửa trái sang bếp, cầu thang góc phải lên phòng ngủ), bếp `kitchen`, phòng ngủ tầng 2 `bedroom`
  * (tủ quần áo đổi bộ đồ ở nhà). Toạ độ cửa khớp `scripts/export-home-maps.mts`. */
 export const FARM_ROOMS = {
- house:{garden:[320,400],kitchen:[48,288],bedroom:[548,158]},
+ // Cầu thang dời ra giữa tường phải 12/11 (map house `stairs_up`) — chỗ lên phòng ngủ dời theo (13/11/2026).
+ house:{garden:[320,400],kitchen:[48,288],bedroom:[504,288]},
  kitchen:{house:[464,288]},
  bedroom:{house:[416,358]},
 } as const;

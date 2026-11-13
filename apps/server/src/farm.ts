@@ -196,11 +196,16 @@ export class Farm {
      // Đổi nhà đang ở (đã mua) hoặc về nhà nhỏ có sẵn (''); đồ bày trí trong nhà giữ nguyên, chỉ đổi mặt ngoài / tường / sàn / cầu thang.
      const hid=String(raw.item||'');if(hid&&!(s.houses??[]).includes(hid))throw new Error('Bạn chưa có nhà này');s.house=hid;return{value:null};
     }
-    if(op==='decorStore'||op==='decorPlace'){
+    if(op==='decorStore'||op==='decorPlace'||op==='decorSwap'){
      // Bày trí (Quản gia mở bảng): cất đồ của phòng đang đứng vào kho, hoặc đặt đồ trong kho ngay trước chỗ đang đứng.
      const room=roomOf(account,at.map);if(!room)throw new Error('Bày trí chỉ ở trong nhà');
      const list=decorOf(s,room),st=s.storage??(s.storage={});
-     if(op==='decorStore'){const i=Number(raw.plot);if(!Number.isInteger(i)||i<0||i>=list.length)throw new Error('Không có món này trong phòng');const [q]=list.splice(i,1);st[q!.id]=(st[q!.id]??0)+1;}
+     // Đổi món tại chỗ (◄ ► ở bảng bày trí, chủ dự án 13/11/2026: "trái phải là thay đổi đồ"): món mới từ kho đứng đúng chỗ món cũ, món cũ về kho.
+     if(op==='decorSwap'){const i=Number(raw.plot),id=String(raw.item||'');if(!Number.isInteger(i)||i<0||i>=list.length)throw new Error('Không có món này trong phòng');
+      if(!DECOR_ITEMS[id]||!((st[id]??0)>0))throw new Error('Kho không có món này');const old=list[i]!;const rest=list.filter((_,k)=>k!==i);
+      const issue=decorPlaceIssue(room,rest,id,old.x,old.y);if(issue)throw new Error(`${DECOR_ITEMS[id]!.name} không vừa chỗ này: ${issue}`);
+      list[i]={id,x:old.x,y:old.y};st[old.id]=(st[old.id]??0)+1;st[id]=(st[id]??0)-1;}
+     else if(op==='decorStore'){const i=Number(raw.plot);if(!Number.isInteger(i)||i<0||i>=list.length)throw new Error('Không có món này trong phòng');const [q]=list.splice(i,1);st[q!.id]=(st[q!.id]??0)+1;}
      else{const id=String(raw.item||'');if(!DECOR_ITEMS[id]||!((st[id]??0)>0))throw new Error('Kho không có món này');const {x,y}=decorSpot(id,at.x,at.y);
       const issue=decorPlaceIssue(room,list,id,x,y);if(issue)throw new Error(issue);list.push({id,x,y});st[id]=(st[id]??0)-1;}
      (s.decor??(s.decor={}))[room]=list;return{value:null};

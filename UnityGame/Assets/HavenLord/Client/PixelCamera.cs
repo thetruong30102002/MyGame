@@ -19,8 +19,8 @@ namespace HavenLord.Client
         private float shakeDuration;
         private float shakeStrength;
 
-        /// <summary>Tỉ lệ cố định ×1,75 (chủ dự án 12/11: "bỏ cài đặt phóng to thu nhỏ game chỉ có tỉ lệ 1.75x"); không còn chỉnh ở Cài đặt.</summary>
-        public const float FixedZoom = 1.75f;
+        /// <summary>Tỉ lệ cố định ×1,25 (chủ dự án 13/11/2026: "để lại tỉ lệ game thành 1.25x"; trước đó ×1,75 từ 12/11); không chỉnh ở Cài đặt.</summary>
+        public const float FixedZoom = 1.25f;
         public float Zoom { get; private set; } = FixedZoom;
         public Vector2 Bounds { get; set; }
         public Camera Cam => cam;

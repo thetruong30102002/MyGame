@@ -505,6 +505,22 @@ namespace HavenLord.Client
                 var issues = HavenLord.Client.UI.UiLint.TextOverFrames(hudObj.transform);
                 log.WriteLine($"chữ đè khung: {issues.Count}");
                 foreach (var it in issues) log.WriteLine("  - " + it);
+                // Nút bị che: HUD + từng bảng (Cài đặt, Túi đồ, Nhiệm vụ, Gia viên).
+                void Blocked(string where)
+                {
+                    var b = HavenLord.Client.UI.UiLint.BlockedPresses(hudObj.transform);
+                    log.WriteLine($"nút bị che ({where}): {b.Count}");
+                    foreach (var it in System.Linq.Enumerable.Take(b, 30)) log.WriteLine("  - " + it);
+                }
+                Blocked("HUD");
+                foreach (var k in new[] { HavenLord.Client.UI.Panels.Kind.Settings, HavenLord.Client.UI.Panels.Kind.Inventory, HavenLord.Client.UI.Panels.Kind.Quests, HavenLord.Client.UI.Panels.Kind.Farm })
+                {
+                    hudObj.Panels.Show(k);
+                    yield return new WaitForSeconds(0.6f);
+                    Blocked(k.ToString());
+                    yield return Shot("panel-" + k.ToString().ToLowerInvariant());
+                }
+                hudObj.Panels.Close();
             }
             yield return TalentResetCheck(game);
         }

@@ -178,6 +178,9 @@ namespace HavenLord.Client.UI
                 case Kind.Barber: BuildBarber(); break;
                 case Kind.Farm: BuildFarm(); break;
             }
+            // Ghi nhận bản dữ liệu thưởng đã vẽ cho MỌI bảng (13/11/2026): trước đây Gia viên / Thợ cắt tóc / Quản trị là bảng dịch vụ nhưng không
+            // ghi số này → `NeedsRewardsRedraw` luôn đúng → dựng lại bảng MỖI KHUNG HÌNH, nút bị huỷ trước khi nhả chuột ("không bấm được gì").
+            rewardsDrawn = game.RewardsVersion;
             if (slide) UiAnim.SlideIn(content, 18);
         }
 
@@ -226,8 +229,6 @@ namespace HavenLord.Client.UI
             var gild = UiKit.Rect(bar, "Gild", new Vector2(0, 0), new Vector2(0, 0), new Vector2(10, 5), new Vector2(WindowSize.x - 236, 1.5f));
             UiStyle.Pill(gild, UiStyle.Gold * new Color(1, 1, 1, .7f), 1);
             // Đầu cuộn da hai đầu thanh tiêu đề + góc hoa văn vàng bốn góc (mảnh PixelLab, ảnh mẫu chủ dự án 12/11).
-            UiKit.Ornament(bar, "title_cap_left", new Vector2(0, .5f), new Vector2(1, .5f), new Vector2(14, 0), 1.1f);
-            UiKit.Ornament(bar, "title_cap_left", new Vector2(1, .5f), new Vector2(1, .5f), new Vector2(-14, 0), 1.1f, true);
             UiKit.Ornament(window, "corner_gold", new Vector2(0, 1), new Vector2(0, 1), new Vector2(-6, 6), 1f);
             UiKit.Ornament(window, "corner_gold", new Vector2(1, 1), new Vector2(0, 1), new Vector2(6, 6), 1f, true);
             UiKit.Ornament(window, "corner_gold", new Vector2(0, 0), new Vector2(0, 1), new Vector2(-6, -6), 1f, false, true);
@@ -340,7 +341,7 @@ namespace HavenLord.Client.UI
             if (!enabled) img.color = new Color(0.36f, 0.34f, 0.33f, 0.8f);
             // Nút gỗ PixelLab (13/11/2026): ảnh thường / rê / khoá phủ lên nền cũ; chưa có ảnh thì giữ nền vẽ bằng code.
             var art = UiStyle.Frame(rt, enabled ? "ui2_btn_normal" : "ui2_btn_disabled", 1);
-            var t = UiKit.Label(UiKit.Stretch(rt, "t"), label, Mathf.Min(16, size.y * 0.42f), enabled ? UiStyle.GoldHi : new Color(1, 1, 1, 0.4f), TextAnchor.MiddleCenter, true, enabled);
+            var t = UiKit.Label(UiKit.Stretch(rt, "t"), label, Mathf.Min(17, size.y * 0.44f), enabled ? new Color(1f, 0.95f, 0.8f) : new Color(1, 1, 1, 0.45f), TextAnchor.MiddleCenter, true, true);
             t.rectTransform.offsetMin = new Vector2(icon != null ? 26 : 0, 1);
             if (icon != null)
             {

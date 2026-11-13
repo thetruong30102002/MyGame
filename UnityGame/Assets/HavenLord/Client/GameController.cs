@@ -224,7 +224,10 @@ namespace HavenLord.Client
             HandleKeys(talking);
             HandlePointer(talking);
 
-            var intent = changing || talking || combat.Pc.Dead || FarmBusy ? default : input.Intent();
+            // Đang thao tác (ra đòn, việc Gia viên, thả câu chờ cá) thì đứng yên — chủ dự án 13/11/2026: "các thao tác của nhân vật phải bắt nhân vật
+            // đứng yên thay vì vừa di chuyển vừa thao tác". Lăn né (Dash) vẫn đi vì chính nó là động tác di chuyển.
+            var acting = (combat.Acting && combat.Pc.Dash == null) || FarmBusy || FarmFishing;
+            var intent = changing || talking || combat.Pc.Dead || acting ? default : input.Intent();
             var stepCap = double.MaxValue;
             TickAutoWalk(ref intent, ref stepCap, talking, realDt);
             var moving = combat.Pc.Dash == null && (intent.x != 0 || intent.y != 0);

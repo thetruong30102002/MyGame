@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace HavenLord.Client.UI
@@ -71,6 +72,35 @@ namespace HavenLord.Client.UI
         {
             while (t != null && t.parent != root) t = t.parent;
             return t;
+        }
+
+        /// <summary>
+        /// Nút bị che (chủ dự án 13/11/2026: "vào cửa hàng … không bấm được gì"): bắn tia chuột vào giữa từng nút đang hiện dưới <paramref name="root"/>,
+        /// vật nhận tia đầu tiên phải là chính nút (hoặc con của nó). Trả danh sách nút bị vật khác chặn.
+        /// </summary>
+        public static List<string> BlockedPresses(Transform root)
+        {
+            var issues = new List<string>();
+            var es = EventSystem.current;
+            if (es == null) return new List<string> { "không có EventSystem" };
+            var hits = new List<RaycastResult>();
+            foreach (var p in root.GetComponentsInChildren<PressArea>(false))
+            {
+                var r = ScreenRect((RectTransform)p.transform);
+                if (r.width < 4 || r.height < 4) continue;
+                var c = r.center;
+                if (c.x < 0 || c.y < 0 || c.x > Screen.width || c.y > Screen.height) continue;
+                hits.Clear();
+                es.RaycastAll(new PointerEventData(es) { position = c }, hits);
+                if (hits.Count == 0) { issues.Add($"{Path(p.transform)}: tia chuột không trúng gì"); continue; }
+                var top = hits[0].gameObject.transform;
+                if (top == p.transform || top.IsChildOf(p.transform)) continue;
+                // Bấm vẫn tới nút nếu vật trên cùng là con của một nút khác chứa nút này? Không — sự kiện đi lên cha của vật trúng.
+                var handler = ExecuteEvents.GetEventHandler<IPointerClickHandler>(top.gameObject);
+                if (handler == p.gameObject) continue;
+                issues.Add($"{Path(p.transform)} bị che bởi {Path(top)}");
+            }
+            return issues;
         }
 
         private static bool Overlaps(Rect a, Rect b) => a.xMin < b.xMax && a.xMax > b.xMin && a.yMin < b.yMax && a.yMax > b.yMin;

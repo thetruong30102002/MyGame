@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json.Linq;
 using TMPro;
@@ -113,16 +114,45 @@ namespace HavenLord.Client.UI
                 }
                 if (key == "decor")
                 {
-                    // Bày trí (Quản gia, chủ dự án 12/11): đồ của phòng đang đứng — bấm để cất vào kho; đồ trong kho — bấm để đặt ngay trước chỗ đang đứng.
+                    // Bày trí (Quản gia) — lưới ô có hình kiểu Stardew Valley (chủ dự án 13/11/2026: "trái phải là thay đổi đồ thôi chứ không phải vị trí",
+                    // "UI hơi khó thao tác và xấu"). Trong phòng: mỗi món một ô, ◄ ► đổi sang món khác trong kho (ưu tiên cùng loại) ngay đúng chỗ đó,
+                    // nút Cất đưa về kho. Kho đồ: bấm ô là đặt ngay trước chỗ đang đứng.
                     var items = game.DecorItems;var room = game.RoomDecor();var st = state["storage"] as JObject;
                     string DName(string id) => (string)items?[id]?["name"] ?? id;
-                    FarmText("Hướng dẫn", "Đứng ở chỗ muốn đặt rồi bấm món trong kho (đồ đặt ngay trước mặt). Bấm món trong phòng để cất. Đồ phải nằm trên sàn, không chồng đồ khác, chừa lối cửa / cầu thang.", 95, 60);
-                    FarmText("Phòng", $"Trong phòng ({room.Count} món):", 160, 28, 16);
-                    for (var i = 0; i < room.Count; i++) { var idx = i; FarmButton("Cất" + i, "Cất " + DName((string)room[i]["id"]), i % 4 * 256, 190 + i / 4 * 42, () => game.FarmSend("decorStore", plot: idx)); }
-                    var y = 190 + ((room.Count + 3) / 4) * 42 + 10;
-                    var stock = st?.Properties().Where(p => (int)p.Value > 0).ToArray() ?? new JProperty[0];
-                    FarmText("Kho", stock.Length == 0 ? "Kho đồ trống · mua thêm đồ ở người bán đồ Gia viên (sắp mở)." : "Kho đồ:", y, 28, 16);
-                    for (var i = 0; i < stock.Length; i++) { var id = stock[i].Name; FarmButton("Đặt" + id, $"Đặt {DName(id)} ×{stock[i].Value}", i % 4 * 256, y + 30 + i / 4 * 42, () => game.FarmSend("decorPlace", item: id)); }
+                    string DCat(string id) => (string)items?[id]?["cat"] ?? "";
+                    var stock = st?.Properties().Where(p => (int)p.Value > 0).Select(p => p.Name).ToList() ?? new List<string>();
+                    // Món kế / trước trong kho để thay vào chỗ món `cur`: cùng loại trước, rồi các loại khác; xếp theo tên.
+                    string Cycle(string cur, int dir)
+                    {
+                        var same = stock.Where(x => DCat(x) == DCat(cur)).ToList();
+                        var pool = (same.Count > 0 ? same : stock).Append(cur).Distinct().OrderBy(DName, StringComparer.Ordinal).ToList();
+                        if (pool.Count <= 1) return null;
+                        var i = pool.IndexOf(cur);
+                        return pool[((i + dir) % pool.Count + pool.Count) % pool.Count];
+                    }
+                    FarmText("Phòng", $"Trong phòng · {room.Count} món  <color=#ffffff88>(◄ ► đổi sang món khác trong kho)</color>", 0, 28, 17);
+                    const float cw = 132, ch = 168, gx = 140;
+                    for (var i = 0; i < room.Count; i++)
+                    {
+                        var idx = i;var id = (string)room[i]["id"];
+                        float x = i % 7 * gx, y = 34 + i / 7 * (ch + 10);
+                        FarmCard("Phòng" + i, game.HomePropSprite(id), DName(id), DCat(id), x, y, () => { }, true, null, false, cw, ch - 38);
+                        var prev = Cycle(id, -1);var next = Cycle(id, 1);
+                        RoundButton(content, "Trước" + i, new Vector2(0, 1), new Vector2(0, 1), new Vector2(x, -(y + ch - 34)), 32, "◄",
+                            () => { if (prev != null) game.FarmSend("decorSwap", plot: idx, item: prev); else hud.Toast("Kho không có món khác để đổi", "info"); });
+                        GoldButton(content, "Cất" + i, new Vector2(0, 1), new Vector2(0, 1), new Vector2(x + 36, -(y + ch - 34)), new Vector2(cw - 72, 32), "Cất",
+                            () => game.FarmSend("decorStore", plot: idx));
+                        RoundButton(content, "Sau" + i, new Vector2(0, 1), new Vector2(0, 1), new Vector2(x + cw - 32, -(y + ch - 34)), 32, "►",
+                            () => { if (next != null) game.FarmSend("decorSwap", plot: idx, item: next); else hud.Toast("Kho không có món khác để đổi", "info"); });
+                    }
+                    var ky = 34 + ((room.Count + 6) / 7) * (ch + 10) + 8;
+                    FarmText("Kho", stock.Count == 0 ? "Kho đồ trống · mua đồ ở Ruby (người bán đồ Gia viên)." : "Kho đồ  <color=#ffffff88>(bấm để đặt ngay trước chỗ đang đứng)</color>", ky, 28, 17);
+                    for (var i = 0; i < stock.Count; i++)
+                    {
+                        var id = stock[i];
+                        FarmCard("Kho" + id, game.HomePropSprite(id), DName(id), "Đặt", i % 9 * 106, ky + 34 + i / 9 * 132, () => game.FarmSend("decorPlace", item: id), true,
+                            "×" + (int)st[id], false, 100, 124);
+                    }
                     return;
                 }
                 if (key.StartsWith("pen:", StringComparison.Ordinal))
