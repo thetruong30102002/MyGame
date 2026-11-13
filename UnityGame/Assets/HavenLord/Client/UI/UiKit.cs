@@ -20,6 +20,8 @@ namespace HavenLord.Client.UI
         private static Material regularOutline;
         private static Material boldOutline;
         public static UiSpriteSet Sprites;
+        /// <summary>Hệ số cỡ chữ của font hiện hành so với Inter (bố cục đặt cỡ theo Inter).</summary>
+        public const float FontScale = 1.1f;
 
         public static readonly Color Ink = new Color(0.07f, 0.075f, 0.1f, 0.78f);
         public static readonly Color InkSoft = new Color(0.07f, 0.075f, 0.1f, 0.55f);
@@ -27,12 +29,19 @@ namespace HavenLord.Client.UI
         public static readonly Color TextMain = new Color(0.98f, 0.94f, 0.86f);
         public static readonly Color TextDim = new Color(0.82f, 0.72f, 0.58f);
 
-        /// <summary>Font asset ĐỘNG từ Inter (Resources/Fonts — đủ dấu tiếng Việt): glyph sinh khi cần, nhiều atlas khi đầy.</summary>
+        /// <summary>
+        /// Font chữ game: Alegreya Sans (chủ dự án chọn 13/11/2026 — chất RPG, đủ dấu tiếng Việt; OFL, Resources/Fonts). Bản Medium cho chữ
+        /// thường, Bold cho tiêu đề; Inter làm font dự phòng cho ký tự Alegreya không có (★ ► ✓ …). Asset ĐỘNG: glyph sinh khi cần.
+        /// </summary>
         public static void LoadFonts()
         {
             if (Regular != null) return;
-            Regular = Make(Resources.Load<Font>("Fonts/Inter-Regular"));
-            Bold = Make(Resources.Load<Font>("Fonts/Inter-SemiBold")) ?? Regular;
+            var fallback = Make(Resources.Load<Font>("Fonts/Inter-Regular"));
+            Regular = Make(Resources.Load<Font>("Fonts/AlegreyaSans-Medium")) ?? fallback;
+            Bold = Make(Resources.Load<Font>("Fonts/AlegreyaSans-Bold")) ?? Make(Resources.Load<Font>("Fonts/Inter-SemiBold")) ?? Regular;
+            foreach (var f in new[] { Regular, Bold })
+                if (f != null && fallback != null && f != fallback)
+                    f.fallbackFontAssetTable = new System.Collections.Generic.List<TMP_FontAsset> { fallback };
             regularOutline = OutlineMaterial(Regular);
             boldOutline = OutlineMaterial(Bold);
         }
@@ -46,10 +55,11 @@ namespace HavenLord.Client.UI
             if (fa == null) return null;
             var m = new Material(fa.material);
             m.EnableKeyword("OUTLINE_ON");
-            m.SetFloat(ShaderUtilities.ID_OutlineWidth, 0.16f);
-            m.SetColor(ShaderUtilities.ID_OutlineColor, new Color(0.08f, 0.04f, 0.02f, 0.95f));
+            // Chủ dự án 13/11/2026: "chữ không nổi lắm" — viền dày + bóng đậm hơn.
+            m.SetFloat(ShaderUtilities.ID_OutlineWidth, 0.24f);
+            m.SetColor(ShaderUtilities.ID_OutlineColor, new Color(0.07f, 0.035f, 0.015f, 1f));
             m.EnableKeyword("UNDERLAY_ON");
-            m.SetColor(ShaderUtilities.ID_UnderlayColor, new Color(0, 0, 0, 0.55f));
+            m.SetColor(ShaderUtilities.ID_UnderlayColor, new Color(0, 0, 0, 0.75f));
             m.SetFloat(ShaderUtilities.ID_UnderlayOffsetX, 0.5f);
             m.SetFloat(ShaderUtilities.ID_UnderlayOffsetY, -0.7f);
             m.SetFloat(ShaderUtilities.ID_UnderlaySoftness, 0.35f);
@@ -160,7 +170,8 @@ namespace HavenLord.Client.UI
                 var m = bold ? boldOutline : regularOutline;
                 if (m != null) t.fontSharedMaterial = m;
             }
-            t.fontSize = size;
+            // Alegreya Sans nhỏ / hẹp hơn Inter ở cùng cỡ — nhân lên để giữ cỡ chữ nhìn thấy như bố cục cũ.
+            t.fontSize = size * FontScale;
             t.color = color;
             t.alignment = Align(align);
             t.text = text;

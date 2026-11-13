@@ -341,7 +341,8 @@ namespace HavenLord.Client.UI
 
         private void BuildTarget()
         {
-            targetRoot = UiKit.Rect(root, "Target", new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -14), new Vector2(360, 60));
+            // Dưới khung nhân vật bên trái (13/11/2026: luật UI không đè nhau — giữa trên đụng hàng menu / băng rôn khi màn hẹp).
+            targetRoot = UiKit.Rect(root, "Target", new Vector2(0, 1), new Vector2(0, 1), new Vector2(18, -156), new Vector2(330, 60));
             targetFace = UiStyle.Card(targetRoot, UiStyle.CardKind.Hud, 12);
             var pf = UiKit.Rect(targetRoot, "Face", new Vector2(0, 0.5f), new Vector2(0, 0.5f), new Vector2(6, 0), new Vector2(50, 50));
             UiStyle.Pill(pf, UiStyle.SurfaceWell, 5);
@@ -371,18 +372,22 @@ namespace HavenLord.Client.UI
             wallet.gameObject.SetActive(false);
             var mm = UiKit.Rect(root, "Minimap", new Vector2(1, 1), new Vector2(1, 1), new Vector2(-14, -14), new Vector2(192, 198));
             UiStyle.Card(mm, UiStyle.CardKind.Hud, 12, frame: "ui2_minimap_frame");
-            mapName = UiKit.Label(UiKit.Rect(mm, "Name", new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -6), new Vector2(180, 18)), "", 12, UiStyle.GoldHi, TextAnchor.MiddleCenter, true);
-            // Lòng khung bản đồ PixelLab (viền 18 px): bản đồ nằm gọn trong ô rỗng, tên map trên dải gỗ cạnh trên, nhãn PvP trên cạnh dưới.
+            mapName = UiKit.Label(UiKit.Rect(mm, "Name", new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -30), new Vector2(148, 18)), "", 12, UiStyle.GoldHi, TextAnchor.MiddleCenter, true);
+            // Lòng khung bản đồ PixelLab (viền 18 px): bản đồ nằm gọn trong ô rỗng; tên map (trên) + nhãn PvP (dưới) nằm TRONG lòng khung, đè lên
+            // mép bản đồ chứ không lên dải gỗ (luật chữ không đè khung 13/11/2026).
             minimapView = UiKit.Stretch(mm, "View");
-            minimapView.offsetMin = new Vector2(19, 30);
-            minimapView.offsetMax = new Vector2(-19, -26);
+            var mmIn = UiStyle.FrameInset(mm);
+            minimapView.offsetMin = new Vector2(mmIn.x, mmIn.y);
+            minimapView.offsetMax = new Vector2(-mmIn.z, -mmIn.w);
+            mapName.rectTransform.anchoredPosition = new Vector2(0, -mmIn.w - 1);
             UiStyle.Pill(minimapView, new Color(0, 0, 0, 0.35f), 8);
             minimapView.gameObject.AddComponent<RectMask2D>();
             minimap = UiKit.Icon(UiKit.Stretch(minimapView, "Map"), null);
             minimap.preserveAspect = false;
             dotLayer = UiKit.Stretch(minimapView, "Dots");
+            mapName.transform.SetAsLastSibling();
             meDot = Dot(Color.white, 8);
-            var tag = UiKit.Rect(mm, "PvpTag", new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(0, 7), new Vector2(178, 18));
+            var tag = UiKit.Rect(mm, "PvpTag", new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(0, mmIn.y + 1), new Vector2(Mathf.Min(140, 192 - mmIn.x - mmIn.z - 4), 18));
             pvpTagBg = UiStyle.Pill(tag, new Color(0.5f, 0.08f, 0.1f, 0.85f), 9);
             pvpTag = UiKit.Label(UiKit.Stretch(tag, "t"), "", 11, Color.white, TextAnchor.MiddleCenter, true, false);
         }
@@ -405,6 +410,7 @@ namespace HavenLord.Client.UI
             var shown = 10 - first;
             var width = shown * size + (shown - 1) * gap + 20;
             var bar = UiKit.Rect(root, "SkillBar", new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(0, 22), new Vector2(width, size + 18));
+            skillBarWidth = width;
             UiStyle.Card(bar, UiStyle.CardKind.Hud, 14);
             for (var i = 0; i < 10; i += 1)
             {
@@ -416,6 +422,7 @@ namespace HavenLord.Client.UI
                 glowRt.offsetMax = new Vector2(6, 6);
                 var glow = UiStyle.Pill(glowRt, new Color(1f, 0.85f, 0.4f, 0), 14);
                 UiStyle.Card(rt, UiStyle.CardKind.Dark, 5, false, true);
+                var slotInset = UiStyle.FrameInset(rt, 1);
                 var icon = UiKit.Icon(UiKit.Rect(rt, "Icon", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(size - 14, size - 14)), null);
                 var coolRt = UiKit.Rect(rt, "Cool", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(size - 12, size - 12));
                 var cool = coolRt.gameObject.AddComponent<Image>();
@@ -427,7 +434,7 @@ namespace HavenLord.Client.UI
                 cool.fillClockwise = false;
                 cool.raycastTarget = false;
                 var coolText = UiKit.Label(UiKit.Stretch(rt, "CoolText"), "", 16, Color.white, TextAnchor.MiddleCenter, true);
-                var keyRt = UiKit.Rect(rt, "Key", new Vector2(1, 0), new Vector2(1, 0), new Vector2(1, -1), new Vector2(18, 15));
+                var keyRt = UiKit.Rect(rt, "Key", new Vector2(1, 0), new Vector2(1, 0), new Vector2(-Mathf.Max(3, slotInset.z), Mathf.Max(3, slotInset.y)), new Vector2(16, 14));
                 UiStyle.Pill(keyRt, new Color(0.08f, 0.05f, 0.03f, 0.9f), 5);
                 slotKeyTexts.Add(UiKit.Label(UiKit.Stretch(keyRt, "t"), KeyOf(i), 10, UiStyle.GoldHi, TextAnchor.MiddleCenter, true, false));
                 var slot = new Slot { Root = rt, Icon = icon, Cool = cool, CoolText = coolText, Glow = glow };
@@ -473,25 +480,32 @@ namespace HavenLord.Client.UI
                 ("menu_friends", "Bạn bè", open(Panels.Kind.Friends)), ("menu_map", "Bản đồ", open(Panels.Kind.WorldMap)), ("menu_quest", "Thư viện", open(Panels.Kind.Codex)),
                 ("menu_event", "Điểm danh", open(Panels.Kind.Calendar)), ("menu_settings", "Cài đặt", open(Panels.Kind.Settings)),
             };
-            const float w = 38, gap = 2;
+            const float w = 50, gap = 2, h = 50, pad = 6;
+            // PC (chủ dự án 13/11/2026: "các UI cài đặt, gia viên nên để bên trên bên trái map"): 2 hàng × 5 ô sát bên trái bản đồ nhỏ góc
+            // trên phải — không đụng thanh mục tiêu giữa trên, đáy màn hình chỉ còn thanh chiêu. Điện thoại giữ 1 hàng dưới bản đồ nhỏ.
             var mobile = Application.isMobilePlatform;
+            var cols = mobile ? items.Length : 5;
+            var rows = (items.Length + cols - 1) / cols;
             var row = mobile
-                ? UiKit.Rect(root, "MenuRow", new Vector2(1, 1), new Vector2(1, 1), new Vector2(-12, -222), new Vector2(items.Length * (w + gap), 46))
-                : UiKit.Rect(root, "MenuRow", new Vector2(1, 0), new Vector2(1, 0), new Vector2(-10, 6), new Vector2(items.Length * (w + gap), 46));
+                ? UiKit.Rect(root, "MenuRow", new Vector2(1, 1), new Vector2(1, 1), new Vector2(-12, -222), new Vector2(cols * (w + gap), h))
+                : UiKit.Rect(root, "MenuRow", new Vector2(1, 1), new Vector2(1, 1), new Vector2(-14 - 192 - 12, -14), new Vector2(cols * (w + gap) - gap + pad * 2, rows * (h + gap) - gap + pad * 2));
+            // Nền tối mờ cho cụm nút (đặt trên cảnh map đông chi tiết vẫn đọc được chữ) — thẻ cũ, không khung ảnh.
+            if (!mobile) UiStyle.Card(row, UiStyle.CardKind.Hud, 10, true, false, "");
             for (var i = 0; i < items.Length; i++)
             {
                 var it = items[i];
-                var b = UiKit.Rect(row, it.label, new Vector2(0, 0), new Vector2(0, 0), new Vector2(i * (w + gap), 0), new Vector2(w, 46));
+                var b = UiKit.Rect(row, it.label, new Vector2(0, 1), new Vector2(0, 1), new Vector2((mobile ? 0 : pad) + i % cols * (w + gap), -(mobile ? 0 : pad) - i / cols * (h + gap)), new Vector2(w, h));
                 var hit = b.gameObject.AddComponent<Image>();hit.color = Color.clear;hit.raycastTarget = true;
                 var s = UiKit.Ornament(it.icon);
                 Image ic = null;
                 if (s != null)
                 {
+                    // Icon vừa ô 28 px, canh giữa phần trên ô (nhãn chữ ở dải 14 px dưới đáy, không chạm icon).
                     var k = Mathf.Min(28 / s.rect.width, 28 / s.rect.height);
-                    ic = UiKit.Icon(UiKit.Rect(b, "i", new Vector2(.5f, 1), new Vector2(.5f, 1), new Vector2(0, 0), s.rect.size * k), s);
+                    ic = UiKit.Icon(UiKit.Rect(b, "i", new Vector2(.5f, 1), new Vector2(.5f, .5f), new Vector2(0, -18), s.rect.size * k), s);
                     ic.color = new Color(1, 1, 1, .92f);
                 }
-                UiKit.Label(UiKit.Rect(b, "t", new Vector2(.5f, 0), new Vector2(.5f, 0), new Vector2(0, 0), new Vector2(w + 8, 14)), it.label, 10, UiStyle.Parchment, TextAnchor.MiddleCenter, true, true);
+                UiKit.Label(UiKit.Rect(b, "t", new Vector2(.5f, 0), new Vector2(.5f, 0), new Vector2(0, 1), new Vector2(w, 14)), it.label, 9, UiStyle.Parchment, TextAnchor.MiddleCenter, true, true);
                 var press = UiKit.Press(b, it.act);
                 if (ic != null)
                 {
@@ -502,6 +516,19 @@ namespace HavenLord.Client.UI
         }
 
         private RectTransform pkRoot;
+        private float skillBarWidth;
+        private bool pkLifted;
+
+        /// <summary>Màn hẹp (cửa sổ gần vuông): nút Đồ sát góc phải dưới chạm thanh chiêu giữa đáy → nâng nút lên trên thanh chiêu.</summary>
+        private void LayoutBottomRight()
+        {
+            if (pkRoot == null || Application.isMobilePlatform) return;
+            var free = root.rect.width / 2 - skillBarWidth / 2 - 10;
+            var lift = free < pkRoot.sizeDelta.x + 8;
+            if (lift == pkLifted) return;
+            pkLifted = lift;
+            pkRoot.anchoredPosition = new Vector2(-10, lift ? 100 : 10);
+        }
         private Image pkFace;
         private TMP_Text pkText;
 
@@ -514,7 +541,7 @@ namespace HavenLord.Client.UI
             var mobile = Application.isMobilePlatform;
             pkRoot = mobile
                 ? UiKit.Rect(root, "Pk", new Vector2(1, 1), new Vector2(1, 1), new Vector2(-12, -272), new Vector2(150, 30))
-                : UiKit.Rect(root, "Pk", new Vector2(1, 0), new Vector2(1, 0), new Vector2(-10, 58), new Vector2(150, 30));
+                : UiKit.Rect(root, "Pk", new Vector2(1, 0), new Vector2(1, 0), new Vector2(-10, 10), new Vector2(150, 30));
             pkFace = UiStyle.Pill(pkRoot, new Color(0.08f, 0.05f, 0.04f, 0.78f), 15);
             pkFace.raycastTarget = true;
             pkText = UiKit.Label(UiKit.Stretch(pkRoot, "t"), "", 13, UiStyle.Parchment, TextAnchor.MiddleCenter, true);
@@ -537,7 +564,7 @@ namespace HavenLord.Client.UI
 
         private void BuildToasts()
         {
-            toastRoot = UiKit.Rect(root, "Toasts", new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -92), new Vector2(600, 220));
+            toastRoot = UiKit.Rect(root, "Toasts", new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -292), new Vector2(560, 220));
             bannerRoot = UiKit.Rect(root, "Banner", new Vector2(0.5f, 1), new Vector2(0.5f, 0.5f), new Vector2(0, -168), new Vector2(460, 78));
             // Băng rôn tên map (13/11/2026): dải ruy băng gỗ PixelLab.
             UiStyle.Card(bannerRoot, UiStyle.CardKind.Chip, 5, frame: "ui2_ribbon");
@@ -610,6 +637,10 @@ namespace HavenLord.Client.UI
                 helpRows.Add((kt, vt, rows[i].k, rows[i].v));
             }
             RefreshKeys();
+            // Chủ dự án 13/11/2026: "Bảng hướng dẫn cũng bỏ, nên để nó ở trong cài đặt, gán phím" — không hiện trên màn chơi; phím Hướng dẫn
+            // mở tab Gán phím của Cài đặt (đủ mọi phím + chuột).
+            helpRoot.gameObject.SetActive(false);
+            helpT = 99999;
         }
 
         private static string L(KeyBinds.Act a) => KeyBinds.LabelOf(a);
@@ -693,6 +724,13 @@ namespace HavenLord.Client.UI
             UiStyle.Pill(rt, new Color(0.08f, 0.05f, 0.04f, 0.74f), Mathf.RoundToInt(height / 2));
             var t = UiKit.Label(UiKit.Stretch(rt, "t"), text, size, c, TextAnchor.MiddleCenter, true);
             var w = t.GetPreferredValues(text).x + (icon != null ? 56 : 34);
+            if (w > 440)
+            {
+                // Câu dài (vd "Thư viện có trang mới: …"): xuống dòng trong 440 px thay vì kéo dài đè sang bảng nhiệm vụ / khung bên cạnh.
+                w = 440;
+                t.textWrappingMode = TextWrappingModes.Normal;
+                height = Mathf.Max(height, t.GetPreferredValues(text, w - (icon != null ? 56 : 34), 400).y + 12);
+            }
             rt.sizeDelta = new Vector2(w, height);
             if (icon != null)
             {
@@ -768,11 +806,7 @@ namespace HavenLord.Client.UI
 
         public bool HelpShown => helpRoot != null && helpRoot.gameObject.activeSelf;
 
-        public void ToggleHelp()
-        {
-            helpRoot.gameObject.SetActive(!helpRoot.gameObject.activeSelf);
-            helpT = 99999;
-        }
+        public void ToggleHelp() => Panels.ShowKeys();
 
         /// <summary>Ô chiêu rung nhẹ (bấm chiêu chưa học / thiếu MP).</summary>
         public void Deny(int slot)
@@ -816,7 +850,8 @@ namespace HavenLord.Client.UI
             if (roundCard && classIcon != null && game.CurrentClassId != classShown)
             {
                 classShown = game.CurrentClassId;
-                var sp = classShown != null ? Set("items")?.Get($"shop_{classShown}_5") : null;
+                // Chưa có icon vũ khí của nghề (bộ đồ PixelLab mới): dùng chân dung nhân vật để khung tròn không trống.
+                var sp = (classShown != null ? Set("items")?.Get($"shop_{classShown}_5") : null) ?? game.PlayerPortrait;
                 classIcon.sprite = sp;
                 classIcon.enabled = sp != null;
                 if (sp != null) classIcon.preserveAspect = true;
@@ -1176,6 +1211,7 @@ namespace HavenLord.Client.UI
                 Destroy(toasts[i].rt.gameObject);
                 toasts.RemoveAt(i);
             }
+            LayoutBottomRight();
             if (bannerT > 0)
             {
                 bannerT -= dt;

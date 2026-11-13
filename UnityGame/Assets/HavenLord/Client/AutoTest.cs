@@ -498,6 +498,14 @@ namespace HavenLord.Client
             log.WriteLine($"thiên phú nguyên tố: {game.TalentElement ?? "(chưa — cấp 10)"}");
             game.ShowQuestHint();
             yield return Shot("quest-start");
+            // Luật chữ không đè khung (13/11/2026): quét HUD sau khi dựng — in từng chỗ vi phạm.
+            var hudObj = FindFirstObjectByType<HavenLord.Client.UI.Hud>();
+            if (hudObj != null)
+            {
+                var issues = HavenLord.Client.UI.UiLint.TextOverFrames(hudObj.transform);
+                log.WriteLine($"chữ đè khung: {issues.Count}");
+                foreach (var it in issues) log.WriteLine("  - " + it);
+            }
             yield return TalentResetCheck(game);
         }
 

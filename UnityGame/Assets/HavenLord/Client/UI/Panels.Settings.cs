@@ -16,6 +16,14 @@ namespace HavenLord.Client.UI
         private int settingsTab;
         private bool logoutArmed;
 
+        /// <summary>Mở thẳng tab Gán phím (phím Hướng dẫn — bảng phím trên màn chơi đã bỏ 13/11/2026).</summary>
+        public void ShowKeys()
+        {
+            settingsTab = 1;
+            if (Current == Kind.Settings) Refresh();
+            else Show(Kind.Settings);
+        }
+
         private void BuildSettings()
         {
             SettingsTabs();
@@ -87,7 +95,6 @@ namespace HavenLord.Client.UI
                 Refresh();
             });
             Switch(play, row2(), "Tên trên đầu nhân vật", hud.ShowNames, v => hud.ShowNames = v);
-            Switch(play, row2(), "Bảng phím góc trái", hud.HelpShown, _ => hud.ToggleHelp());
             Switch(play, row2(), "Hiệu ứng thời tiết", Weather.Enabled, v => Weather.Enabled = v);
             var bn = hud.BarNumbers;
             Selector(play, row2(), "Số trên thanh máu", Hud.BarNumberNames[bn], d =>
