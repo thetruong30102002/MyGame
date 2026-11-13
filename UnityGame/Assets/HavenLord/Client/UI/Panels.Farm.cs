@@ -5,17 +5,6 @@ using UnityEngine;
 
 namespace HavenLord.Client.UI
 {
-    public sealed partial class Hud
-    {
-        public void AddFarmButton()
-        {
-            var button = UiKit.Rect(root, "Gia viên", new Vector2(1, 0), new Vector2(1, 0), new Vector2(-28, 224), new Vector2(160, 36));
-            UiStyle.Pill(button, UiStyle.InkBrown, 8);
-            UiKit.Label(UiKit.Stretch(button, "Chữ"), "Gia viên", 17, UiStyle.GoldHi, TextAnchor.MiddleCenter, true);
-            UiKit.Press(button, () => game.ShowFarm());
-        }
-    }
-
     public sealed partial class Panels
     {
         private int farmVersionDrawn;

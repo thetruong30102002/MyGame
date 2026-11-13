@@ -385,16 +385,19 @@ namespace HavenLord.Client.UI
 
         /// <summary>
         /// Hàng nút icon (chủ dự án 12/11: "thêm hàng nút icon nhưng cố đừng che", "sắp xếp cho hợp lý như ảnh mẫu", "k che nội dung trên
-        /// map"): 8 icon PixelLab nhỏ + chữ dưới, không nền, sát đáy góc phải cạnh thanh chiêu (điện thoại: dưới bản đồ nhỏ góc phải trên vì
-        /// đáy phải là nút đánh). Bấm = mở thẳng tab cửa sổ; rê chuột = sáng icon.
+        /// map"): 9 icon PixelLab nhỏ + chữ dưới, không nền, sát đáy góc phải cạnh thanh chiêu (điện thoại: dưới bản đồ nhỏ góc phải trên vì
+        /// đáy phải là nút đánh). Bấm = mở thẳng tab cửa sổ (Gia viên: bảng Gia viên); rê chuột = sáng icon.
         /// </summary>
         private void BuildMenuRow(float barWidth)
         {
-            var items = new (string icon, string label, Panels.Kind kind)[]
+            Action open(Panels.Kind k) => () => Panels.Show(k);
+            // Gia viên (chủ dự án 13/11: "gia viên vào là một icon gia viên ở trên menu") thay nút chữ cũ góc phải.
+            var items = new (string icon, string label, Action act)[]
             {
-                ("menu_bag", "Túi đồ", Panels.Kind.Inventory), ("menu_hero", "Nhân vật", Panels.Kind.Character), ("menu_skills", "Tiềm năng", Panels.Kind.Talents),
-                ("menu_friends", "Bạn bè", Panels.Kind.Friends), ("menu_map", "Bản đồ", Panels.Kind.WorldMap), ("menu_quest", "Thư viện", Panels.Kind.Codex),
-                ("menu_event", "Điểm danh", Panels.Kind.Calendar), ("menu_settings", "Cài đặt", Panels.Kind.Settings),
+                ("menu_bag", "Túi đồ", open(Panels.Kind.Inventory)), ("menu_hero", "Nhân vật", open(Panels.Kind.Character)), ("menu_skills", "Tiềm năng", open(Panels.Kind.Talents)),
+                ("menu_home", "Gia viên", () => game.ShowFarm()),
+                ("menu_friends", "Bạn bè", open(Panels.Kind.Friends)), ("menu_map", "Bản đồ", open(Panels.Kind.WorldMap)), ("menu_quest", "Thư viện", open(Panels.Kind.Codex)),
+                ("menu_event", "Điểm danh", open(Panels.Kind.Calendar)), ("menu_settings", "Cài đặt", open(Panels.Kind.Settings)),
             };
             const float w = 38, gap = 2;
             var mobile = Application.isMobilePlatform;
@@ -415,8 +418,7 @@ namespace HavenLord.Client.UI
                     ic.color = new Color(1, 1, 1, .92f);
                 }
                 UiKit.Label(UiKit.Rect(b, "t", new Vector2(.5f, 0), new Vector2(.5f, 0), new Vector2(0, 0), new Vector2(w + 8, 14)), it.label, 10, UiStyle.Parchment, TextAnchor.MiddleCenter, true, true);
-                var kind = it.kind;
-                var press = UiKit.Press(b, () => Panels.Show(kind));
+                var press = UiKit.Press(b, it.act);
                 if (ic != null)
                 {
                     press.Enter = () => ic.color = Color.white;

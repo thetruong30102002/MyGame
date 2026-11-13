@@ -25,7 +25,6 @@ namespace HavenLord.Client
         private string farmAnim;
         private Dir8 farmDir;
         private float farmPoll;
-        private bool farmHud;
         private int farmDrawn = -1;
         private double farmTimeOffset;
         private LineRenderer fishLine;
@@ -85,7 +84,6 @@ namespace HavenLord.Client
 
         private void TickFarm(float dt)
         {
-            if (!farmHud) { hud.AddFarmButton(); farmHud = true; }
             if (online == null) return;
             farmPoll += dt;
             if (farmPoll >= 4) { farmPoll = 0; FarmSend("get"); }
