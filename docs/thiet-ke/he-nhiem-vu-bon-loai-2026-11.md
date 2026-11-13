@@ -19,6 +19,85 @@ Một quầy bánh biến mất khỏi chợ Thistlewood, nhưng vết dầu tr�
 
 **Bảng gài và trả:** bát thừa + quầy trống → người từng sống thật (hồi I); sổ nước + bản đo cầu → neo cứu người nhưng chuyển tải sang nơi khác (hồi II); thư mẹ Yên Đan + niên luân → không phải mọi người mất tên đều chết, và thế hệ sau bị cưỡng ép (hồi II–III); bản học viện + bản đèn đêm → Ánh sáng không tự là công lý, Bóng tối không tự là tội (hồi III); bốn bản sao + mục bị khóa → thần im lặng (hồi IV). Mỗi tiết lộ lớn cần ít nhất hai loại chứng cứ độc lập; Codex ghi nguồn, điều chắc và điều còn tranh cãi.
 
+## 1b. Bản sửa drama (Claude, 13/11/2026 — chủ dự án: "tự sửa cốt truyện cho drama, sâu sắc hơn")
+
+Bản gốc đúng ý nhưng tiết lộ chủ yếu nằm ở sổ sách và chứng cứ. Bản sửa gắn **mỗi bí mật vào một mối quan hệ**, cho người chơi **tự bị cuốn vào** cơ chế Mất Tên, và để mỗi hồi kết bằng một mất mát có thật. Giữ nguyên khung 30 nhiệm vụ Chính, ID, bốn loại, luật không chuyển sinh; dưới đây là các thay đổi đè lên bảng M01–M30 và mục 1. Phần nào mâu thuẫn với bản gốc thì **bản sửa thắng**.
+
+### Năm sợi dây mới
+
+1. **Bà Nhiên và Kha là mẹ con mà không biết.**
+   - Phần bánh thứ tư Bà Nhiên vẫn làm là cho đứa con bà không nhớ mặt.
+   - Kha bị neo khi còn nhỏ trong vụ Cầu Đêm. Anh lớn lên ở làng khác, không ai trong làng cũ nhận ra.
+   - Gieo dấu: M01 (bát thứ tư có vết sứt hình móc câu), M08 (Kha uống trà đúng một cách khuấy ngược), M17 (Kha nhận ra công thức bánh).
+   - Lật bài ở M22: người trở về từ vùng nấm nói tên cả hai.
+   - Cảnh: Bà Nhiên vẫn **không nhớ** Kha, nhưng mời anh ngồi ăn. Kha không đòi bà nhớ, chỉ xin được sửa mái quán.
+2. **Vân neo chính con gái mình — chị của Tâm.**
+   - Tể thư Vân không phải kẻ ác lạnh lùng. Hai mươi năm trước, cầu sập, bà chọn neo con gái mình (chị Tâm, khi ấy tự nguyện) để giữ cầu cho cả làng.
+   - Lần thứ hai bà lại dùng neo, lần này không hỏi ý ai, vì "đã trả giá một lần thì lần sau dễ hơn".
+   - Tâm là con nuôi của chính Vân, được gửi đi để Vân không phải nhìn mặt đứa còn lại.
+   - Lật bài ở M25, trước mặt Tâm.
+   - M27: Vân xin thay con gái làm neo. Người chơi **từ chối cho bà hi sinh**, vì "Chết thay không phải lời xin lỗi". Vân phải sống và ra điều trần.
+3. **Người chơi bị neo mà không biết.**
+   - Ở M13, khi cứu đoàn xe, Vân lặng lẽ dùng tên **người chơi** làm neo vì không còn ai khác. Không có dấu báo nào.
+   - Từ M14, các NPC quen bắt đầu quên dần người chơi:
+     - Ren gọi sai tên.
+     - Mai hỏi "cậu mới tới à?".
+     - Bảng Danh Vọng mờ chữ.
+   - Về mặt chơi, đây chỉ là thoại và cảnh, **không** tước tài sản hay chức năng.
+   - Lật bài ở M16 (Người Giữ Mùa cảm được "tên mượn" trên người chơi).
+   - Từ đó người chơi có lý do riêng để gỡ mạng neo. Cảnh cuối M30 là lựa chọn khó: gỡ neo của mình trước, hay giữ nó thêm một mùa để kịp gỡ neo của người khác.
+4. **Yên Đan và Ma thần Kẻ Trả Về.**
+   - Ma thần III (M20) là thực thể méo từ chính **neo của mẹ Yên Đan**. Nó nói bằng giọng bà, hứa trả bà về nếu Yên Đan đưa thêm một cái tên.
+   - Yên Đan từ chối, và chính cô ra đòn cuối.
+   - Lá thư "viết sau ngày mất" (M12) thật ra do mẹ viết **từ bên trong mạng neo**: bà còn ý thức, biết mình sẽ thành thứ gì, và xin con đừng đổi ai lấy bà.
+   - Đọc thư ở M12 (gieo dấu), hiểu trọn ý thư ở M20.
+5. **Iris — người đưa tin tử tế nhất lại là người chuyển tên.**
+   - Iris (NPC sự kiện từ đầu game, người giúp mở Gia viên) là người đưa danh sách tên từ các vùng về cho Vân, tin rằng mình đang "cứu người".
+   - Gieo dấu: Iris luôn biết trước vùng nào sắp có tai nạn (M04, M09, M13).
+   - Lật bài ở M23 bằng hai chứng cứ độc lập: sổ giao thư của Yên Đan và lời Sael.
+   - Iris không bỏ trốn. Cô tự đứng ra ở M26 làm chứng chống Vân, mất chỗ đứng ở Thistlewood (NPC dời sang tiền tuyến), nhưng được giữ mạng và được tha thứ có điều kiện.
+
+### Mỗi hồi một mất mát
+
+| Hồi | Kết bằng | Ai trả giá |
+|---|---|---|
+| I | M06: người gác đường nghĩa địa (NPC mới, đã giúp từ M04) bị Mất Tên ngay trước mặt người chơi khi cột mốc kích hoạt; hôm sau ông không nhận ra người chơi | Người gác — người chơi biết hiểm hoạ là thật và đang lan |
+| II | M16: người chơi biết chính mình đang bị neo; M20: Yên Đan tự tay hạ "mẹ" | Người chơi, Yên Đan |
+| III | M22: Bà Nhiên gặp lại Kha mà không nhớ con | Bà Nhiên, Kha |
+| IV | M25–M27: Vân bị phơi bày trước Tâm; **Orin** (thợ rèn Thistlewood) tự nguyện làm neo tạm giữ cầu tiền tuyến trong lúc đội kỹ thuật gỡ neo cưỡng ép — lần duy nhất trong truyện có người được hỏi ý và đồng ý | Vân, Tâm, Orin |
+| V | M30: Orin được gỡ neo nhưng mất ký ức nghề rèn hai mươi năm; ông học lại từ Ren. Người chơi chọn thứ tự gỡ neo | Orin, người chơi |
+
+### Luật giữ chiều sâu khi viết thoại
+
+- Không ai hoàn toàn đúng. Mỗi người sai có lý do người chơi hiểu được; mỗi người đúng cũng có lúc ích kỷ.
+- Không chết để gây sốc: không nhân vật có tên nào chết trong tuyến Chính. Người bị Mất Tên vẫn sống, cái mất là mối liên hệ (người gác đường ở M06 chỉ quên, không chết). Truyện để "bị quên" đau hơn "chết".
+- Mỗi tiết lộ lớn được gieo ít nhất hai lần trước, trong thoại hoặc vật thể người chơi thấy được.
+- Lựa chọn của người chơi (M30, M27, M20) đổi thoại, Codex và cảnh sinh hoạt sau, không tách trạng thái server (giữ luật mục 2).
+
+### Thay đổi vào bảng M01–M30 (chỉ dòng bị đổi)
+
+| ID | Thêm / đổi so với bản gốc |
+|---|---|
+| M01 | Bát thứ tư có vết sứt hình móc câu; Bà Nhiên: "Ta không nhớ làm cho ai. Tay ta vẫn nhớ." |
+| M03 | Iris hỏi người chơi tên đầy đủ và quê, ghi vào sổ "cho chắc" (gieo dấu Iris + người chơi bị neo) |
+| M04 | Iris tới trước lúc quái tràn một chút ("Ta có linh cảm") — gieo dấu |
+| M06 | Thêm cảnh người gác đường bị Mất Tên trước mặt người chơi; kết hồi I |
+| M08 | Kha khuấy trà ngược chiều như Bà Nhiên — gieo dấu mẹ con |
+| M12 | Thư mẹ Yên Đan có câu khó hiểu: "Nếu con gặp mẹ mà mẹ hỏi xin một cái tên — đừng đưa" |
+| M13 | Vân dùng tên người chơi làm neo cứu đoàn xe (người chơi chưa biết) |
+| M14 | Các NPC quen bắt đầu quên người chơi (thoại thay đổi theo cờ `q2_named`) |
+| M16 | Người Giữ Mùa: "Cậu mang một cái tên mượn. Ai cho mượn, cậu biết không?" — người chơi biết mình bị neo |
+| M17 | Kha nhận ra vị bánh của Bà Nhiên ở bếp tập thể Đe Đỏ |
+| M20 | Ma thần III nói bằng giọng mẹ Yên Đan; Yên Đan ra đòn cuối; thư M12 được hiểu trọn |
+| M22 | Người trở về gọi tên Kha và Bà Nhiên — cảnh hai mẹ con, bà không nhớ, mời anh ăn |
+| M23 | Chứng cứ thứ ba: sổ giao thư chỉ ra Iris |
+| M25 | Lật bài Vân neo con gái mình, Tâm có mặt; Tâm: "Bà đã cho em một tên để em khỏi nhớ chị?" |
+| M26 | Iris làm chứng chống Vân, rời Thistlewood |
+| M27 | Orin tự nguyện làm neo tạm; Vân xin chết thay, người chơi từ chối |
+| M30 | Lựa chọn thứ tự gỡ neo (mình / người khác); Orin học lại nghề từ Ren; Tâm đọc tên chị; Bà Nhiên dọn năm bát |
+
+**Hình cần thêm do bản sửa:** người gác đường nghĩa địa (M04–M06). Các nhân vật còn lại đã có trong danh sách hình mục 7 hoặc là NPC có sẵn (Iris, Orin, Ren, Mai).
+
 ## 2. Quy tắc chung của bốn loại
 
 - **Chính**: tuyến có thứ tự, theo cấp tối thiểu và vùng. Mở cổng mới bằng mốc truyện và điều kiện chiến đấu đã duyệt; không bắt làm phụ hoặc daily. Đạt cấp 10 mới có cảnh thức tỉnh một trong tám nguyên tố với xác suất ngang nhau. Không ép class hay chiêu cụ thể; đi theo kế hoạch 140 chiêu, không theo luật mở skill cũ.
