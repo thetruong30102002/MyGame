@@ -4,6 +4,7 @@ import {STORY} from '@havenlord/sim/story/story';
 import {COOK_QUALITY,FISH_MAX_TICKS,FISH_TICK_MS,cookQuality,fishFight,fishPower,type CookQuality} from '@havenlord/sim/minigames';
 import {VILLAGE_SHOP} from '@havenlord/sim/village';
 import {SERVICE_ROOMS,SERVICE_TOWNS,serviceRole} from '@havenlord/sim/serviceTowns';
+import {accrue,bankApply,bankQuote,type BankOp} from '@havenlord/sim/bank';
 import type {ServerMessage} from '@havenlord/protocol';
 import {spotOf} from './maps.ts';
 import type {Store} from './db.ts';
@@ -27,7 +28,7 @@ export class Farm {
  /** Cư dân Thistlewood cần làm quen để mở Gia viên: như trước 13/11 (người bán cũ nay đứng quầy trong nhà vẫn tính), NPC quầy mới `village_tl_*` không tính. */
  roster(){return Object.entries(STORY.npcs).flatMap(([id,n])=>{if(/^village_[a-z]{2}_/.test(id)||!n.sprite||(n.region&&n.region!=='human')||n.ages[0]>16||n.ages[1]<16)return[];const p=this.npcPlace(id);return p?[{id,name:n.name,map:p.map,x:p.x,y:p.y}]:[];});}
  canEnter(account:number){return this.store.farm.read(account).unlocked;}
- private send(id:string,account:number,enter=false){const state=this.store.farm.read(account);for(const p of state.plots)growPlot(p,this.now());const at=this.host.where(id);const fish=state.fish?{nonce:state.fish.nonce,biteAt:state.fish.biteAt,expires:state.fish.expires,hookedAt:state.fish.hookedAt??null,seed:state.fish.seed??null,power:state.fish.power??null}:null;const inRoom=roomOf(account,at?.map);const room=at&&isPondMap(at.map)?'pond':inRoom??'garden';this.host.send(id,{t:'farm',state:{...state,fish,required:this.roster(),map:room==='pond'?at!.map:inRoom?roomMap(account,inRoom):homeMap(account),room,now:this.now(),enter}});}
+ private send(id:string,account:number,enter=false){const state=this.store.farm.read(account);for(const p of state.plots)growPlot(p,this.now());const at=this.host.where(id);const fish=state.fish?{nonce:state.fish.nonce,biteAt:state.fish.biteAt,expires:state.fish.expires,hookedAt:state.fish.hookedAt??null,seed:state.fish.seed??null,power:state.fish.power??null}:null;const inRoom=roomOf(account,at?.map);const room=at&&isPondMap(at.map)?'pond':inRoom??'garden';this.host.send(id,{t:'farm',state:{...state,fish,bank:accrue(state.bank,this.now()),bankQuote:bankQuote(this.now()),required:this.roster(),map:room==='pond'?at!.map:inRoom?roomMap(account,inRoom):homeMap(account),room,now:this.now(),enter}});}
  handle(id:string,account:number,raw:{op?:unknown;plot?:unknown;crop?:unknown;npc?:unknown;nonce?:unknown;outfit?:unknown;item?:unknown;room?:unknown;toggles?:unknown}):void{
   const op=String(raw.op||'');const at=this.host.where(id);if(!at)return;
   const near=(x:number,y:number,r=110)=>Math.hypot(at.x-x,at.y-y)<=r;
@@ -93,6 +94,14 @@ export class Farm {
      // Quầy mỗi khu (13/11): túi thuốc ở người bán hồi phục, món ăn ở chủ quán rượu (hoặc Mai ở quảng trường Thistlewood).
      const item=VILLAGE_SHOP.find(x=>x.id===raw.item);const key=typeof raw.npc==='string'?raw.npc:item?.npc??'';const npc=item&&serviceRole(key)===serviceRole(item.npc)?this.npcPlace(key):null;
      if(!item||!npc||at.map!==npc.map||!near(npc.x,npc.y,160))throw new Error('Hãy tới đúng quầy hàng');if(coins<item.coins)throw new Error('Không đủ xu');return{value:null,coins:coins-item.coins,...('potions'in item?{potions:item.potions}:{buff:true})};
+    }
+    // Ngân hàng (13/11): gửi / rút xu, mua / bán thỏi vàng ở chủ ngân hàng khu bất kỳ — không cần mở Gia viên.
+    if(op==='bank'){
+     const key=typeof raw.npc==='string'?raw.npc:'';const npc=serviceRole(key)==='bank'?this.npcPlace(key):null;
+     if(!npc||at.map!==npc.map||!near(npc.x,npc.y,160))throw new Error('Hãy tới quầy chủ ngân hàng');
+     const kind=String(raw.item||'') as BankOp;if(!['deposit','withdraw','buyGold','sellGold'].includes(kind))throw new Error('Thao tác không có');
+     const r=bankApply(s.bank,coins,kind,Number(raw.plot),this.now());if('error'in r)throw new Error(r.error);
+     s.bank=r.bank;return{value:null,coins:r.pocket};
     }
     if(!s.unlocked||!(farmMaps(account).includes(at.map)||(isPondMap(at.map)&&(op==='cast'||op==='pull'||op==='land'))))throw new Error('Chỉ chủ nhà được thao tác trong Gia viên đã mở');
     if(op==='gacha'||op==='petOut'||op==='petTrade'){

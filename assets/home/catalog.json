@@ -1062,6 +1062,14 @@
       "h": 49
     },
     {
+      "id": "gold_bar",
+      "name": "Thỏi vàng",
+      "source": "sheet:G1_gold_bar#0@1x1",
+      "file": "items/gold_bar.png",
+      "w": 41,
+      "h": 30
+    },
+    {
       "id": "fish_lantern",
       "name": "Cá đèn lồng đầm lầy",
       "source": "sheet:F14_rare_fish#0@4x2",

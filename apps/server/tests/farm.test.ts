@@ -72,6 +72,12 @@ try{
  store.farm.run(acc,id,now,(_s,c)=>({value:null,coins:c+10000}));const before=store.ecoOf(id)!.coins;
  at={map:homeMap(acc),x:780,y:500};act('buy',{item:'plots'});assert.equal(store.farm.read(acc).plots.length,16);assert.equal(store.ecoOf(id)!.coins,before-600);
  act('buy',{item:'plots'});assert.equal(store.farm.read(acc).plots.length,20);assert.equal(store.ecoOf(id)!.coins,before-600-900);
+ // Ngân hàng (13/11): chỉ ở quầy chủ ngân hàng; gửi rồi rút đủ, xu trong túi về như cũ.
+ {const back=at,c0=store.ecoOf(id)!.coins,bank=farm.npcPlace('village_lx_bank')!;assert.equal(bank.map,'swamp/svc_nh');
+  act('bank',{npc:'village_lx_bank',item:'deposit',plot:1000});assert(failed(),'phải đứng ở quầy');
+  at={map:bank.map,x:bank.x,y:bank.y+50};act('bank',{npc:'village_lx_bank',item:'deposit',plot:1000});assert.equal(store.farm.read(acc).bank!.coins,1000);assert.equal(store.ecoOf(id)!.coins,c0-1000);
+  act('bank',{npc:'village_lx_bank',item:'withdraw',plot:5000});assert(failed(),'không rút quá sổ');
+  act('bank',{npc:'village_lx_bank',item:'withdraw',plot:1000});assert.equal(store.ecoOf(id)!.coins,c0);at=back;}
  act('buy',{item:'tank'});assert.equal(store.ecoOf(id)!.coins,before-1500-2000);act('buy',{item:'tank'});assert(failed(),'mua bể 1 lần');
  store.farm.run(acc,id,now,(_s,c)=>({value:null,coins:c-6500}));// trả lại đúng số xu thử đã cộng
  at={map:homeMap(acc),x:352+32*4,y:544+32};act('hoe',{plot:12});assert(store.farm.read(acc).plots[12]!.tilled);

@@ -12,6 +12,36 @@ namespace HavenLord.Client.UI
         private void FarmButton(string id, string text, float x, float y, Action action, bool enabled = true) => GoldButton(content, id, new Vector2(0, 1), new Vector2(0, 1), new Vector2(x, -y), new Vector2(240, 38), text, action, enabled);
 
         /// <summary>
+        /// Quầy ngân hàng (chủ dự án 13/11/2026, `packages/sim/src/bank.ts`): sổ gửi xu có lãi theo ngày, thỏi vàng giá đổi theo ngày (mua
+        /// cao hơn / bán thấp hơn 2 %). Máy chủ tính lãi và giá; bảng chỉ hiện số + nút.
+        /// </summary>
+        private void DrawBank(string key, JObject state)
+        {
+            var b = state["bank"] as JObject;var q = state["bankQuote"] as JObject;
+            long coins = (long?)b?["coins"] ?? 0;int bars = (int?)b?["bars"] ?? 0;
+            int price = (int?)q?["price"] ?? 0, buy = (int?)q?["buy"] ?? 0, sell = (int?)q?["sell"] ?? 0;var rate = (double?)q?["rate"] ?? 0;
+            var hist = (q?["history"] as JArray)?.Select(x => (int)x).ToList() ?? new System.Collections.Generic.List<int>();
+            var trend = hist.Count > 1 ? (hist[hist.Count - 1] >= hist[hist.Count - 2] ? "▲" : "▼") : "";
+            FarmText("Sổ", $"Sổ gửi: {coins:#,0} xu · Thỏi vàng: {bars} (bán hôm nay ≈ {(long)bars * sell:#,0} xu)", 0, 32, 19);
+            FarmText("Lãi", $"Lãi gửi hôm nay: {rate * 100:0.###} % / ngày (tính trên tối đa 200.000 xu, cộng mỗi ngày, đổi theo ngày).", 38, 28);
+            FarmText("Giá", $"Giá vàng hôm nay: {price:#,0} xu {trend} · mua {buy:#,0} · bán {sell:#,0} — 7 ngày: {string.Join(" → ", hist)}", 66, 28);
+            FarmCard("Vàng", ItemSprite("gold_bar"), "Thỏi vàng", $"{price:#,0} xu", 900, 100, () => { }, true, bars.ToString());
+            void Op(string id, string text, float x, float y, string op, int n, bool ok) => FarmButton(id, text, x, y, () => game.FarmSend("bank", plot: n, item: op, npc: key), ok && n > 0);
+            Op("G100", "Gửi 100 xu", 0, 105, "deposit", 100, true);
+            Op("G1k", "Gửi 1.000 xu", 256, 105, "deposit", 1000, true);
+            Op("G10k", "Gửi 10.000 xu", 512, 105, "deposit", 10000, true);
+            Op("R100", "Rút 100 xu", 0, 150, "withdraw", 100, coins >= 100);
+            Op("R1k", "Rút 1.000 xu", 256, 150, "withdraw", 1000, coins >= 1000);
+            Op("Rall", "Rút hết", 512, 150, "withdraw", (int)Math.Min(int.MaxValue, coins), coins > 0);
+            Op("M1", $"Mua 1 thỏi · {buy:#,0} xu", 0, 195, "buyGold", 1, true);
+            Op("M10", $"Mua 10 thỏi · {buy * 10:#,0} xu", 256, 195, "buyGold", 10, true);
+            Op("B1", $"Bán 1 thỏi · {sell:#,0} xu", 0, 240, "sellGold", 1, bars >= 1);
+            Op("B10", "Bán 10 thỏi", 256, 240, "sellGold", 10, bars >= 10);
+            Op("Ball", "Bán hết", 512, 240, "sellGold", bars, bars > 0);
+            FarmText("Lưu ý", "Gửi xu luôn có lãi. Thỏi vàng có thể lời hoặc lỗ: giá lên xuống mỗi ngày quanh 1.000 xu. Sổ dùng chung mọi chủ ngân hàng.", 290, 50);
+        }
+
+        /// <summary>
         /// Ô món kiểu lưới túi đồ (chủ dự án 12/11, ảnh UI tham khảo): ô gỗ nâu sẫm viền sáng, hình giữa ô, tên dưới, giá vàng, góc phải trên
         /// ghi số trong kho / đã có; ✓ = đang dùng; mờ = không mua được. Mặc định 116 × 132 — 8 ô một hàng.
         /// </summary>
@@ -253,10 +283,10 @@ namespace HavenLord.Client.UI
                     }
                     return;
                 }
+                if (key.EndsWith("_bank", StringComparison.Ordinal)) { DrawBank(key, state); return; }
                 // NPC quầy mỗi khu (`village_<mã>_<vai>`, 13/11/2026): chủ quán rượu bán món ăn, người bán hồi phục bán túi thuốc.
                 if (key == "village_food" || key.EndsWith("_tavern", StringComparison.Ordinal)) FarmButton("Món", "Món hầm · 30 xu", 0, 135, () => game.FarmSend("service", item: "village_food", npc: key));
                 else if (key == "village_heal" || key.EndsWith("_heal", StringComparison.Ordinal)) FarmButton("Thuốc", "Túi thuốc · 12 xu", 0, 135, () => game.FarmSend("service", item: "village_heal", npc: key));
-                else if (key.EndsWith("_bank", StringComparison.Ordinal)) FarmText("Chuẩn bị", "Két gửi đồ và gửi xu sẽ mở khi luật ngân hàng được duyệt.", 135, 65);
                 else if (key.EndsWith("_upgrade", StringComparison.Ordinal)) FarmText("Chuẩn bị", "Cường hoá vũ khí / trang bị sẽ mở khi bảng đá cường hoá được duyệt.", 135, 65);
                 else if (key == "village_event") FarmText("Sự kiện", "Chưa có sự kiện đang diễn ra. Bạn đã có thể làm quen Iris để nhận Gia viên.", 135, 60);
                 else FarmText("Chuẩn bị", "Danh mục vũ khí và công thức rèn sẽ mở theo thiết kế nghề / nhiệm vụ mới được duyệt.", 135, 65);

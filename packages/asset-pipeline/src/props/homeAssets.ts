@@ -64,6 +64,8 @@ export const HOME_ICONS = [
 	...(['meat_chicken', 'meat_beef', 'meat_lamb', 'fish_fillet', 'dish_roast_chicken', 'dish_beef_stew', 'dish_lamb_skewer', 'dish_grilled_fish', 'dish_fish_soup', 'dish_fried_rice', 'dish_pumpkin_soup', 'dish_strawberry_cake'] as const).map((id, i) => ({
 		id, name: ['Thịt gà', 'Thịt bò', 'Thịt cừu', 'Phi lê cá', 'Gà quay', 'Bò hầm', 'Xiên cừu nướng', 'Cá nướng', 'Súp cá', 'Cơm chiên dứa', 'Súp bí', 'Bánh kem dâu'][i]!, path: cell('K1_meat_dishes', i, '4x3'),
 	})),
+	// Thỏi vàng ngân hàng (13/11/2026, PixelLab 1 ảnh — `packages/sim/src/bank.ts`).
+	{ id: 'gold_bar', name: 'Thỏi vàng', path: cell('G1_gold_bar', 0, '1x1') },
 	// 16 cá hiếm (11/11, tấm F14 / F15) — câu được ở hồ sau Gia viên, tỉ lệ cực thấp (chốt 12/11).
 	{ id: 'fish_lantern', name: 'Cá đèn lồng đầm lầy', path: cell('F14_rare_fish', 0, '4x2') },
 	{ id: 'fish_swamp_pike', name: 'Cá chó độc tím', path: cell('F14_rare_fish', 1, '4x2') },

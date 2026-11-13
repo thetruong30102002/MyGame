@@ -1,0 +1,16 @@
+{
+	"BANK": {
+		"epochDay": 20770,
+		"goldBase": 1000,
+		"goldMin": 500,
+		"goldMax": 2000,
+		"goldSwing": 0.05,
+		"goldPull": 0.08,
+		"spread": 0.02,
+		"rateMin": 0.0002,
+		"rateMax": 0.0012,
+		"interestCap": 200000,
+		"maxDeposit": 10000000,
+		"maxBars": 9999
+	}
+}
