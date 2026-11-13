@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using Newtonsoft.Json.Linq;
+using TMPro;
 using UnityEngine;
 
 namespace HavenLord.Client.UI
@@ -8,7 +9,15 @@ namespace HavenLord.Client.UI
     public sealed partial class Panels
     {
         private int farmVersionDrawn;
-        private void FarmText(string id, string text, float y, float height = 28, float size = 15) => Text(content, id, new Vector2(0, 1), new Vector2(0, 1), new Vector2(0, -y), new Vector2(1020, height), text, size, UiStyle.Parchment);
+        private void FarmText(string id, string text, float y, float height = 28, float size = 15)
+        {
+            var label = Text(content, id, new Vector2(0, 1), new Vector2(0, 1), new Vector2(0, -y), new Vector2(1020, height), text, size, UiStyle.Parchment);
+            if (height < 50) return;
+            label.textWrappingMode = TextWrappingModes.Normal;
+            label.enableAutoSizing = true;
+            label.fontSizeMin = 11;
+            label.fontSizeMax = size;
+        }
         private void FarmButton(string id, string text, float x, float y, Action action, bool enabled = true) => GoldButton(content, id, new Vector2(0, 1), new Vector2(0, 1), new Vector2(x, -y), new Vector2(240, 38), text, action, enabled);
 
         /// <summary>
