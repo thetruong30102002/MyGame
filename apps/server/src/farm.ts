@@ -273,7 +273,7 @@ export class Farm {
      if(!pondSpotNear(at.x,at.y))throw new Error('Hãy tới chỗ câu bên bờ hồ');if(s.fish&&this.now()<s.fish.expires)throw new Error('Bạn đang câu cá');
      const biteAt=this.now()+3000+Math.floor(this.random()*9001);s.fish={nonce:randomUUID(),biteAt,expires:biteAt+1800,reward:chooseFarmFish(this.now(),this.random())};s.lastAction=this.now();return{value:null};
     }
-    const i=Number(raw.plot);if(!Number.isInteger(i)||i<0||i>=s.plots.length)throw new Error('Ô ruộng chưa mở hoặc không hợp lệ');const point=plotPoint(i);if(!near(point.x,point.y,105))throw new Error('Hãy tới gần ô ruộng');const p=s.plots[i]!;growPlot(p,this.now());
+    const i=Number(raw.plot);if(!Number.isInteger(i)||i<0||i>=s.plots.length)throw new Error('Ô ruộng chưa mở hoặc không hợp lệ');const point=plotPoint(i);/* đứng sát ô (tâm ô = mép trên + 16), không thao tác từ xa — 13/11/2026 */if(!near(point.x,point.y+16,64))throw new Error('Hãy đứng sát ô ruộng');const p=s.plots[i]!;growPlot(p,this.now());
     if(op==='hoe'){if(p.crop)throw new Error('Ô này đang có cây');p.tilled=true;}
     else if(op==='plant'){const c=FARM_CROPS.find(x=>x.id===raw.crop);if(!p.tilled||p.crop||!c)throw new Error('Cần ô đất đã xới và chưa có cây');const key=`seed_${c.id}`;if(!((s.inventory[key]??0)>0))throw new Error('Bạn hết hạt giống này');s.inventory[key]=(s.inventory[key]??0)-1;Object.assign(p,{crop:c.id,plantedAt:this.now(),lastAt:this.now(),growth:0,watered:false});}
     else if(op==='water'){if(!p.crop)throw new Error('Hãy gieo cây trước');p.watered=true;}

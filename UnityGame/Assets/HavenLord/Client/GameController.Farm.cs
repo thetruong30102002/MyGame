@@ -18,7 +18,7 @@ namespace HavenLord.Client
         public bool InFarm { get; private set; }
         public bool FarmBusy { get; private set; }
         public string FarmCrop = "wheat";
-        public string VillageKey { get; private set; }
+        public string VillageKey { get; set; }
         private LayeredCharacterView farmView;
         public LayeredCharacterView FarmView => farmView;
         private GameObject farmPlots;
@@ -88,8 +88,9 @@ namespace HavenLord.Client
             if (online == null) return;
             farmPoll += dt;
             if (farmPoll >= 4) { farmPoll = 0; FarmSend("get"); }
-            if (!InFarm) return;
+            if (!InFarm) { if (plotCursor != null) plotCursor.gameObject.SetActive(false); return; }
             FarmAutoDoor();
+            UpdatePlotCursor();
             if (FarmState != null && farmDrawn != FarmVersion) { DrawFarmPlots(); DrawDecor(); DrawOrchard(); DrawPets(); RefreshFarmBody(); farmDrawn = FarmVersion; }
             orchardClock += dt; if (orchardClock > 20) { orchardClock = 0; DrawOrchard(); }
             SwimTankFish();
@@ -252,6 +253,63 @@ namespace HavenLord.Client
         private JToken Layout => sim.Modules["farm"]["FARM_LAYOUT"];
         private int PlotCols => (int?)Layout?["plotCols"] ?? 8;
         private int PlotsMax => (int?)Layout?["plotsMax"] ?? 48;
+        /// <summary>Ô ruộng (chỉ số trong lưới, kể cả ô chưa mở) chứa điểm (x, y); −1 = ngoài lưới. Ô neo mép trên: x ∈ [cx−16, cx+16), y ∈ [top, top+32).</summary>
+        private int PlotAt(float x, float y)
+        {
+            var (px0, py0) = PlotPos(0);
+            var col = Mathf.FloorToInt((x - (px0 - 16)) / 32);
+            var row = Mathf.FloorToInt((y - py0) / 32);
+            if (col < 0 || col >= PlotCols || row < 0) return -1;
+            var i = row * PlotCols + col;
+            return i < PlotsMax ? i : -1;
+        }
+
+        /// <summary>
+        /// Ô ruộng đang chọn (chủ dự án 13/11/2026: "các ô ruộng cần focus được để làm … tại đúng ô chứ k làm kiểu từ xa"): ô ngay trước mặt
+        /// theo hướng đang nhìn (cách chân ~20 px), không có thì ô đang đứng lên; chỉ ô đã mở, tâm ô cách chân ≤ 56 px. −1 = không chọn ô nào.
+        /// </summary>
+        private int FocusedPlot()
+        {
+            if (!InFarm || player == null || map == null || map.def.id != "garden" || PlotCount == 0) return -1;
+            var d = player.View.Direction;
+            float dx = d == Dir8.E || d == Dir8.NE || d == Dir8.SE ? 1 : d == Dir8.W || d == Dir8.NW || d == Dir8.SW ? -1 : 0;
+            float dy = d == Dir8.S || d == Dir8.SE || d == Dir8.SW ? 1 : d == Dir8.N || d == Dir8.NE || d == Dir8.NW ? -1 : 0;
+            float fx = (float)player.X, fy = (float)player.Y - 6;
+            foreach (var (tx, ty) in new[] { (fx + dx * 22, fy + dy * 22), (fx, fy) })
+            {
+                var i = PlotAt(tx, ty);
+                if (i < 0 || i >= PlotCount) continue;
+                var (cx, top) = PlotPos(i);
+                if (Mathf.Sqrt((cx - fx) * (cx - fx) + (top + 16 - fy) * (top + 16 - fy)) <= 56) return i;
+            }
+            return -1;
+        }
+
+        private SpriteRenderer plotCursor;
+
+        /// <summary>Khung vàng trên ô đang chọn (như ô trỏ đất của game nông trại) — vẽ mỗi khung hình.</summary>
+        private void UpdatePlotCursor()
+        {
+            var i = FarmBusy ? -1 : FocusedPlot();
+            if (plotCursor == null)
+            {
+                if (i < 0) return;
+                const int n = 32;
+                var tex = new Texture2D(n, n, TextureFormat.RGBA32, false) { filterMode = FilterMode.Point };
+                var gold = new Color32(255, 214, 102, 255);var clear = new Color32(0, 0, 0, 0);
+                for (var y = 0; y < n; y++) for (var x = 0; x < n; x++) tex.SetPixel(x, y, x < 2 || y < 2 || x >= n - 2 || y >= n - 2 ? (Color)gold : clear);
+                tex.Apply();
+                plotCursor = new GameObject("Ô đang chọn").AddComponent<SpriteRenderer>();
+                plotCursor.sprite = Sprite.Create(tex, new Rect(0, 0, n, n), new Vector2(.5f, 1), WorldCoords.PixelsPerUnit, 0, SpriteMeshType.FullRect);
+                plotCursor.sortingOrder = -140;
+            }
+            plotCursor.gameObject.SetActive(i >= 0);
+            if (i < 0) return;
+            var (x0, y0) = PlotPos(i);
+            plotCursor.transform.position = WorldCoords.PxToWorld(x0, y0);
+            plotCursor.color = new Color(1, 1, 1, .65f + .35f * Mathf.Sin(Time.time * 6));
+        }
+
         private (float x, float y) PlotPos(int i) => ((float)((double?)Layout?["plotX"] ?? 352) + i % PlotCols * 32, (float)((double?)Layout?["plotY"] ?? 544) + i / PlotCols * 32);
         private int PlotCount => (FarmState?["plots"] as JArray)?.Count ?? 0;
         public Vector2 HouseDoor => DoorSpot;
@@ -352,7 +410,7 @@ namespace HavenLord.Client
             if (outcome != null)
             {
                 FarmSend("land", nonce: nonce, toggles: new List<int>(fightToggles));
-                hud.Toast(outcome == "caught" ? "Kéo được cá lên bờ!" : outcome == "snap" ? "Căng quá — đứt dây rồi!" : "Cá lết ra xa, sổng mất…", outcome == "caught" ? "good" : "warn");
+                hud.Toast(outcome == "caught" ? "Kéo được cá lên bờ! · đã cất vào Kho Gia viên" : outcome == "snap" ? "Căng quá — đứt dây rồi!" : "Cá lết ra xa, sổng mất…", outcome == "caught" ? "good" : "warn");
                 fight = null; hud.HideFish(); ClearFishingLine(); farmAnim = null;
             }
             return true;
@@ -693,12 +751,12 @@ namespace HavenLord.Client
             if (Vector2.Distance(at, ShopSpot) < 60 && Vector2.Distance(me, ShopSpot) < 130) { OpenShop(); return; }
             if (Vector2.Distance(me, at) < 100 && OrchardAction(at)) return;
             if (Vector2.Distance(me, at) < 120 && PenAction(me)) return;
-            var (px0, py0) = PlotPos(0);
-            var col = Mathf.RoundToInt((at.x - px0) / 32);var row = Mathf.RoundToInt((at.y - py0 + 10) / 32);
-            if (col >= 0 && col < PlotCols && row >= 0 && row * PlotCols + col < PlotsMax)
+            var cell = PlotAt(at.x, at.y);
+            if (cell >= 0)
             {
-                if (row * PlotCols + col < PlotCount) FarmPlotAction(row * PlotCols + col);
-                else hud.Toast("Ô đất chưa mở · gặp Ruby để mở thêm", "info");
+                if (cell >= PlotCount) hud.Toast("Ô đất chưa mở · gặp Ruby để mở thêm", "info");
+                else if (cell != FocusedPlot()) hud.Toast("Hãy đứng sát và quay mặt vào ô đất đó", "info");
+                else FarmPlotAction(cell);
                 return;
             }
             if (Vector2.Distance(at, PondGate) < 90) { FarmSend("pond"); return; }
@@ -723,16 +781,14 @@ namespace HavenLord.Client
             if (Vector2.Distance(me, SellSpot) < 90) { FarmSend("sell"); return; }
             if (Vector2.Distance(me, ShopSpot) < 110) { OpenShop(); return; }
             if (OrchardAction(me) || PenAction(me)) return;
-            if (PlotCount == 0) return;
-            var nearest = Enumerable.Range(0, PlotCount).OrderBy(i => Math.Pow(player.X - PlotPos(i).x, 2) + Math.Pow(player.Y - PlotPos(i).y, 2)).First();
-            FarmPlotAction(nearest);
+            var focused = FocusedPlot();
+            if (focused >= 0) FarmPlotAction(focused);
         }
 
         public void FarmPlotAction(int i)
         {
             if (!InFarm || FarmBusy || !(FarmState?["plots"] is JArray plots) || i < 0 || i >= plots.Count) return;
-            var (ppx, ppy) = PlotPos(i);
-            if (Math.Sqrt(Math.Pow(player.X - ppx, 2) + Math.Pow(player.Y - ppy, 2)) > 105) { hud.Toast("Hãy bước tới gần ô ruộng", "info"); return; }
+            if (i != FocusedPlot()) { hud.Toast("Hãy đứng sát và quay mặt vào ô đất đó", "info"); return; }
             var p = plots[i];
             var op = !(bool)p["tilled"] ? "hoe" : p["crop"].Type == JTokenType.Null ? "plant" : !(bool)p["watered"] ? "water" : "harvest";
             StartCoroutine(FarmAction(op, i));

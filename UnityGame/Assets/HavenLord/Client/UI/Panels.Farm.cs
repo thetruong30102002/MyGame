@@ -9,6 +9,8 @@ namespace HavenLord.Client.UI
 {
     public sealed partial class Panels
     {
+        /// <summary>Nhóm đang lọc ở Kho Gia viên.</summary>
+        private static string StorageCat = "Tất cả";
         private int farmVersionDrawn;
         private void FarmText(string id, string text, float y, float height = 28, float size = 15)
         {
@@ -111,6 +113,25 @@ namespace HavenLord.Client.UI
                 {
                     FarmText("Tên", $"{npc.Name} · {npc.Title}", 0, 32, 20);
                     FarmText("Thoại", npc.Idle?.FirstOrDefault() ?? "Rất vui được gặp cậu.", 45, 70);
+                }
+                if (key == "storage")
+                {
+                    // Kho Gia viên (chủ dự án 13/11/2026: "câu cá xong cần xem đc cá trong kho"): lưới ô có hình + số lượng, lọc theo nhóm.
+                    var inv = (state["inventory"] as JObject)?.Properties().Where(p => (int)p.Value > 0 && !p.Name.StartsWith("seed_", StringComparison.Ordinal))
+                        .Select(p => p.Name).ToList() ?? new List<string>();
+                    string Group(string id) => id.StartsWith("fish_", StringComparison.Ordinal) ? "Cá" : id.StartsWith("dish_", StringComparison.Ordinal) ? "Món ăn"
+                        : id.StartsWith("farm_", StringComparison.Ordinal) ? "Nông sản" : "Khác";
+                    FarmTabs("Nhóm kho", new[] { "Tất cả", "Cá", "Nông sản", "Món ăn", "Khác" }, StorageCat, 0, c => { StorageCat = c; Refresh(); });
+                    var shown = inv.Where(id => StorageCat == "Tất cả" || Group(id) == StorageCat).OrderBy(Group).ThenBy(FarmItemName, StringComparer.Ordinal).ToList();
+                    if (shown.Count == 0) FarmText("Trống", StorageCat == "Cá" ? "Chưa có cá · ra hồ câu sau khuôn viên để câu." : "Chưa có món nào trong nhóm này.", 50, 30, 16);
+                    for (var n = 0; n < shown.Count; n++)
+                    {
+                        var id = shown[n];
+                        var raw = id.Split('@')[0];
+                        FarmCard("Kho" + n, ItemSprite(raw), FarmItemName(raw), Group(id), n % 10 * 101, 44 + n / 10 * 122, () => { }, true, "×" + (int)state["inventory"][id], false, 95, 116);
+                    }
+                    GoldButton(content, "Về", new Vector2(0, 0), new Vector2(0, 0), new Vector2(0, 0), new Vector2(180, 40), "‹ Về Gia viên", () => { game.VillageKey = null; Refresh(); });
+                    return;
                 }
                 if (key == "decor")
                 {
@@ -340,7 +361,7 @@ namespace HavenLord.Client.UI
                 FarmButton("Cửa", game.Map.id == "house" ? "Ra khuôn viên" : "Vào nhà (tới cửa)", 256, 46, () => { Close();game.FarmSend("room"); }, game.Map.id == "house" || game.Map.id == "garden");
                 FarmButton("Bán", "Gửi nông sản / cá (tới hộp)", 512, 46, () => { Close();game.FarmSend("sell"); });
             }
-            FarmText("Hướng dẫn", "Bấm ô ruộng hoặc E khi đứng gần: cuốc → gieo → tưới → thu. Bấm đầu cầu / E để câu, đợi phao giật rồi bấm lại để kéo.", 96, 55);
+            FarmText("Hướng dẫn", "Đứng sát, quay mặt vào ô đất (ô sáng khung vàng) rồi bấm E / chuột: cuốc → gieo → tưới → thu. Bấm đầu cầu / E để câu, đợi phao giật rồi bấm lại để kéo.", 96, 55);
             var crops = game.Sim.Modules["farm"]["FARM_CROPS"] as JArray;
             if (crops != null) for (var i = 0; i < crops.Count; i++)
             {
@@ -349,7 +370,8 @@ namespace HavenLord.Client.UI
             }
             // 18 cây: lưới 4 cột; các phần bên dưới dời theo chiều cao lưới hạt.
             var dy = Math.Max(0, 165 + ((crops?.Count ?? 0) + 3) / 4 * 42 + 10 - 270);
-            FarmText("Kho", "Kho: " + string.Join(" · ", (state["inventory"] as JObject)?.Properties().Where(p => (int)p.Value > 0 && !p.Name.StartsWith("seed_", StringComparison.Ordinal)).Select(p => $"{FarmItemName(p.Name)} ×{p.Value}") ?? Enumerable.Empty<string>()), 270 + dy, 60);
+            var invCount = (state["inventory"] as JObject)?.Properties().Count(p => (int)p.Value > 0 && !p.Name.StartsWith("seed_", StringComparison.Ordinal)) ?? 0;
+            FarmButton("Kho", $"Kho Gia viên · {invCount} loại ›", 0, 270 + dy, () => { game.VillageKey = "storage"; Refresh(); });
             if (game.InFarm && game.Map.id == "bedroom")
             {
                 FarmButton("Nông gia", "Mặc bộ Nông gia (tới tủ)", 0, 350 + dy, () => game.FarmSend("outfit", outfit: "farmer1"));
