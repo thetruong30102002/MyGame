@@ -1,7 +1,7 @@
 import { inArea, lineSegments, scatterPoints, type Area } from './skillRules.ts';
 import { HERO_SKILLS, isSwordSkill, PATHS, type HeroPath, type SkillDef } from './skills.ts';
 import { attrBonus, cleanConverted } from './attributes.ts';
-import { BRANCHES, fitTiers, migrateBought, skillScale, talentPoints, tiersFrom, type TalentSpent, type Tiers } from './talents.ts';
+import { BRANCHES, fitTiers, migrateBought, skillScale, talentPoints, talentUnlocked, tiersFrom, type TalentSpent, type Tiers } from './talents.ts';
 import { REGIONS } from './regions.ts';
 
 /**
@@ -45,8 +45,12 @@ export interface PvpBuild {
 	defBonus?: number;
 }
 
-/** Dựng `PvpBuild` từ tiến độ: mốc đã mua kẹp theo điểm tiềm năng của cấp (+ thưởng) — bản lưu sửa tay không tăng sức đánh. */
-export function pvpBuild(level: number, story: unknown, bonusPoints = 0): PvpBuild {
+/**
+ * Dựng `PvpBuild` từ tiến độ: mốc đã mua kẹp theo điểm tiềm năng của cấp (+ thưởng) — bản lưu sửa tay không tăng sức đánh.
+ * `who` (máy chủ, từ 13/11/2026): nhánh mở theo thiên phú nguyên tố máy chủ đã bốc (`talentUnlocked`) + lớp theo class nhân vật —
+ * KHÔNG đọc `unlocked` / `path` client ghi trong bản lưu. Vắng = luật cũ (test / vector).
+ */
+export function pvpBuild(level: number, story: unknown, bonusPoints = 0, who?: { element: string | null; path: 'sword' | 'mage' }): PvpBuild {
 	const s = story && typeof story === 'object' ? (story as Record<string, unknown>) : {};
 	const unlocked = new Set(Array.isArray(s.unlocked) ? s.unlocked.filter((x): x is string => typeof x === 'string') : []);
 	const raw = s.talents && typeof s.talents === 'object' ? (s.talents as TalentSpent) : {};
@@ -59,8 +63,9 @@ export function pvpBuild(level: number, story: unknown, bonusPoints = 0): PvpBui
 	// Điểm tiềm năng đã đổi sang thuộc tính (`story.attrTalent`) trừ khỏi điểm cho cây, cộng vào điểm thuộc tính.
 	const pts = talentPoints(lv, bonusPoints);
 	const conv = cleanConverted(s.attrTalent, pts);
-	const tiers = fitTiers(tiersFrom(migrateBought(bought, s.swordStyle), (id) => unlocked.has(id)), pts - conv);
-	const path = s.path === 'sword' || s.path === 'mage' ? s.path : 'none';
+	const isUnlocked = who ? (id: string) => talentUnlocked(who.element, id) : (id: string) => unlocked.has(id);
+	const tiers = fitTiers(tiersFrom(migrateBought(bought, s.swordStyle), isUnlocked), pts - conv);
+	const path = who ? who.path : s.path === 'sword' || s.path === 'mage' ? s.path : 'none';
 	const a = attrBonus(s.attrs, lv, conv);
 	return { level: lv, path, tiers, swordMult: a.sword, magicMult: a.magic, defBonus: a.def };
 }

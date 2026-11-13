@@ -514,7 +514,7 @@ export interface EcoGain {
 	potions: number;
 	/** Số cấp vừa lên. */
 	levels: number;
-	reason: 'kill' | 'quest' | 'boss' | 'checkin' | 'spend' | 'potion' | 'admin';
+	reason: 'kill' | 'quest' | 'boss' | 'checkin' | 'spend' | 'potion' | 'admin' | 'pvp';
 	/** Loại quái / tên nhiệm vụ / lý do tiêu. */
 	what: string;
 }
@@ -552,6 +552,16 @@ export interface PlayerView {
 	/** Máu hiện tại / tối đa (máy người chơi báo kèm gói vị trí — để người khác vẽ thanh máu trong PvP). Vắng = client bản cũ. */
 	hp?: number;
 	hpMax?: number;
+	/** Đồ sát / tiếng xấu (`@havenlord/sim/pk`): bật đồ sát, điểm ác, truy nã, danh hiệu xấu. Vắng / rỗng = người thường. */
+	pk?: PkView;
+}
+
+/** Phần đồ sát người khác nhìn thấy (tên đỏ + danh hiệu). */
+export interface PkView {
+	on?: true;
+	infamy?: number;
+	wanted?: true;
+	title?: string;
 }
 
 export type ClientMessage =
@@ -581,6 +591,10 @@ export type ClientMessage =
 	| { t: 'channel'; channel: number }
 	/** Nhiệm vụ mới (`@havenlord/sim/quests2`): `get` / `talk` npc / `reach` spot / `track` id — máy chủ kiểm vị trí. */
 	| { t: 'q2'; op: string; npc?: string; spot?: string; id?: string }
+	/** Đồ sát (`@havenlord/sim/pk`): `on` / `off` / `atone` (chuộc `points` điểm ác ở chỗ Lena) / `get`. */
+	| { t: 'pk'; op: string; points?: number }
+	/** Gia viên / ngân hàng / quầy dịch vụ (`apps/server/src/farm.ts`): `op` + trường tuỳ thao tác. */
+	| { t: 'farm'; op: string; plot?: number; crop?: string; npc?: string; nonce?: string; outfit?: string; item?: string; room?: string; toggles?: number[] }
 	| { t: 'ping'; at: number }
 	/** Mời kết bạn — theo id (bấm tên) hoặc theo tên gõ tay. */
 	| { t: 'friendAdd'; id?: string; name?: string }
@@ -638,13 +652,15 @@ export type ServerMessage =
 	| { t: 'join'; player: PlayerView }
 	| { t: 'leave'; id: string }
 	/** Chỉ gồm người chơi có thay đổi kể từ ảnh chụp trước. */
-	| { t: 'snapshot'; players: Pick<PlayerView, 'id' | 'x' | 'y' | 'dir' | 'anim' | 'sprite' | 'level' | 'hp' | 'hpMax'>[] }
+	| { t: 'snapshot'; players: Pick<PlayerView, 'id' | 'x' | 'y' | 'dir' | 'anim' | 'sprite' | 'level' | 'hp' | 'hpMax' | 'pk'>[] }
 	| { t: 'chat'; from: string; name: string; text: string; at: number; ch?: ChatChannel }
 	| { t: 'system'; text: string }
 	/** Khu đang đứng + số người từng khu của map này (gửi khi vào map, đổi khu, hoặc khi hỏi). */
 	| { t: 'channel'; channel: number; counts: number[] }
 	/** Trạng thái nhiệm vụ mới của mình + phiên Thế giới đang mở. */
 	| { t: 'q2'; state: unknown; world: { id: string; title: string; boss: string; map: string; channel: number; endAt: number }[] }
+	/** Đồ sát của chính mình: đang bật, điểm ác, truy nã tới lúc nào (0 = không). */
+	| { t: 'pk'; on: boolean; infamy: number; wantedUntil: number }
 	/** `fx` chỉ có khi mã chiêu có thật và phần chiêu hợp lệ (máy chủ đã chuẩn hoá + kẹp điểm nhắm quanh người gửi). */
 	| { t: 'action'; id: string; anim: ActionAnim; dir: string; skill?: string; fx?: ActionFx }
 	/** `hit` chỉ có khi đúng `true` (đòn đã qua khung chạm — xem tin `actionEnd` của máy khách). */

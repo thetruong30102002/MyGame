@@ -38,7 +38,7 @@ class FakeWs {
 
 const chars: Record<string, CharacterInfo> = {};
 for (const [id, name] of [['c1', 'An'], ['c2', 'Binh'], ['c3', 'Cuong']] as const) {
-	chars[id] = { id, name, gender: 'male', createdAt: 0, progress: { level: 20, exp: 0, coins: 0, potions: 0, map: 'human/town', x: 100, y: 100, story: null, introSeen: true } };
+	chars[id] = { id, name, gender: 'male', modelId: 'player_hero_adult', classId: 'sword', createdAt: 0, progress: { level: 20, exp: 0, coins: 0, potions: 0, map: 'human/town', x: 100, y: 100, story: null, introSeen: true } };
 }
 const store = {
 	sessionAccount: (token: string) => ({ accountId: Number(token.slice(1)), username: token }),
@@ -60,6 +60,8 @@ const store = {
 	visit: () => {},
 	buffs: () => [],
 	spendBuffs: () => 0,
+	quests2: { read: () => ({ v: 2, active: {}, done: [], daily: null, tracked: null }), has: () => false, write: () => {} },
+	pk: { read: () => undefined, write: () => {} },
 } as unknown as Store;
 
 const world = new World(store);

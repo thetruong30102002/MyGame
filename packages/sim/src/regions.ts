@@ -227,7 +227,8 @@ export function regionGate(id: string, ctx: GateCtx): string | null {
 	if (!r.ready) return `${r.name} chưa mở — vùng đất này đang được xây dựng.`;
 	const need = regionNeeds(id);
 	if (!need) return null;
-	if (ctx.level < need.level) return `Cần cấp ${need.level} để vào ${r.name} (bạn đang cấp ${ctx.level}).`;
+	// Đi map / vùng không yêu cầu cấp (chủ dự án 13/11/2026: "người dùng có thể di chuyển các map luôn k yêu cầu level") — cấp thấp
+	// đi qua quái thì bị quái đánh. Cấp của vùng chỉ còn là gợi ý.
 	if (need.chief && !(ctx.bossKills[need.chief.id] ?? 0)) return `Hạ ${need.chief.name} ở ${need.chief.region} trước đã, rồi mới qua được ${r.name}.`;
 	return null;
 }

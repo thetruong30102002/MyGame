@@ -5,6 +5,7 @@ import type { ServerMessage } from '@havenlord/protocol';
 import { randomInt } from 'node:crypto';
 import { expForLevel } from '@havenlord/sim/skills';
 import { TALENT_ELEMENT_NAME, TALENT_ELEMENTS } from '@havenlord/sim/talents';
+import { PK_REFUSE_AT } from '@havenlord/sim/pk';
 import { STORY } from '@havenlord/sim/story/story';
 import {
 	newQ2State,
@@ -33,6 +34,10 @@ export interface Quests2Host {
 	farmOpen(account: number): boolean;
 	unlockFarm(id: string, account: number): void;
 	reward(id: string, exp: number, coins: number, ref: string, title: string): void;
+	/** Điểm ác (đồ sát): từ `PK_REFUSE_AT` người giao việc không tiếp. */
+	infamy?(id: string): number;
+	/** Vừa bốc thiên phú nguyên tố (PvP tính lại nhánh mở). */
+	element?(id: string, element: string): void;
 }
 
 /** Bảng trạng thái nhiệm vụ mới theo nhân vật (migration riêng, không đụng `progress.story` cũ — chưa chuyển save). */
@@ -86,6 +91,7 @@ export class Quests2 {
 				const at = this.host.where(id);
 				const place = this.npcPlace(npc);
 				if (!at || !place || at.map !== place.map || Math.hypot(at.x - place.x, at.y - place.y) > 170) throw new Error('Hãy tới gần người muốn trò chuyện');
+				if ((this.host.infamy?.(id) ?? 0) >= PK_REFUSE_AT) throw new Error('Người này không muốn dính dáng tới kẻ mang tiếng xấu — hãy chuộc tội ở chỗ Lena trước');
 				return this.event(id, { kind: 'talk', npc }, npc);
 			}
 			if (op === 'reach') {
@@ -211,6 +217,7 @@ export class Quests2 {
 			if (q.reward.element && !s.element) {
 				s.element = TALENT_ELEMENTS[this.pick(TALENT_ELEMENTS.length)]!;
 				this.host.send(id, { t: 'system', text: `Thiên phú thức tỉnh: hệ ${TALENT_ELEMENT_NAME[s.element]}` });
+				this.host.element?.(id, s.element);
 			}
 			this.host.send(id, { t: 'system', text: `Hoàn thành nhiệm vụ: ${q.title}` });
 		}

@@ -10,7 +10,8 @@ import { BUFF_TICK_MS, Shop } from './shop.ts';
 import { Economy } from './economy.ts';
 import { Farm } from './farm.ts';
 import { Quests2 } from './quests2.ts';
-import { newPvpState, Pvp, type PvpState } from './pvp.ts';
+import { newPvpState, pkView, Pvp, type PvpState } from './pvp.ts';
+import { PK_ATONE_NPC } from '@havenlord/sim/pk';
 import { resetDiamonds } from '@havenlord/sim/talents';
 import { REGIONS } from '@havenlord/sim/regions';
 import { mapName } from './maps.ts';
@@ -100,6 +101,28 @@ export class World {
 				if (c) send(c.ws, msg);
 			},
 			now,
+			undefined,
+			undefined,
+			{
+				save: (id, r) => store.pk.write(id, r),
+				bounty: (id, coins, what) => this.economy.pkBounty(id, coins, what),
+				penalty: (id, frac) => this.economy.pkPenalty(id, frac),
+				announce: (text) => {
+					for (const o of this.conns.values()) send(o.ws, { t: 'system', text });
+				},
+				changed: (id) => {
+					const c = this.conns.get(id);
+					if (!c) return;
+					c.view.pk = pkView(c.pvp, this.now());
+					c.dirty = true;
+				},
+				pay: (id, coins) => this.economy.pay(id, coins, 'Chuộc tội'),
+				nearAtoner: (id) => {
+					const c = this.conns.get(id);
+					const at = this.quests2.npcPlace(PK_ATONE_NPC);
+					return !!c && !!at && c.map === at.map && Math.hypot(c.view.x - at.x, c.view.y - at.y) <= 170;
+				},
+			},
 		);
 		this.timer = setInterval(() => {
 			this.broadcastSnapshots();
@@ -197,6 +220,7 @@ export class World {
 		});
 		this.farm = new Farm(store, {
 			life: (id, kind) => this.quests2.life(id, kind),
+			infamy: (id) => this.conns.get(id)?.pvp.pk.infamy ?? 0,
 			where: id => {const c=this.conns.get(id);return c?{map:c.map,x:c.view.x,y:c.view.y}:null;},
 			send: (id,msg) => {const c=this.conns.get(id);if(c)send(c.ws,msg);},
 			move: (id,map) => {const c=this.conns.get(id);if(c)this.changeMap(c,map,true);},
@@ -212,6 +236,8 @@ export class World {
 			farmOpen: (acc) => store.farm.read(acc).unlocked,
 			unlockFarm: (id, acc) => this.farm.unlockByQuest(id, acc),
 			reward: (id, exp, coins, ref, title) => this.economy.questReward(id, exp, coins, ref, title),
+			element: (id, el) => { const c = this.conns.get(id); if (c) c.pvp.element = el; },
+			infamy: (id) => this.conns.get(id)?.pvp.pk.infamy ?? 0,
 		}, mapsDir, now);
 	}
 
@@ -303,7 +329,7 @@ export class World {
 			mobPos: new RateLimiter(25, 1000),
 			mobActs: new RateLimiter(60, 1000),
 			eco: new RateLimiter(40, 10_000, this.now),
-			pvp: newPvpState(p.story, p.bonusPoints ?? 0, this.now()),
+			pvp: newPvpState(p.story, p.bonusPoints ?? 0, this.now(), this.store.quests2.read(ch.id).element ?? null, ch.classId, this.store.pk.read(ch.id)),
 		};
 		conn.channel = channelled(conn.map) ? pickChannel(this.counts(conn.map), 1) : 1;
 		this.conns.set(ch.id, conn);
@@ -415,6 +441,9 @@ export class World {
 			case 'pvpDown':
 				if (!c.eco.allow('pvpDown')) return;
 				return this.pvp.down(c, msg.by);
+			case 'pk':
+				if (!c.social.allow('pk')) return send(c.ws, { t: 'system', text: 'Thao tác nhanh quá, chậm lại chút nhé' });
+				return this.pvp.handle(c, msg);
 			default:
 		}
 	}
@@ -532,6 +561,7 @@ export class World {
 	}
 
 	private leave(c: Conn): void {
+		this.pvp.tick(c);
 		this.conns.delete(c.view.id);
 		this.shop.offline(c.view.id);
 		this.economy.offline(c.view.id);
@@ -591,7 +621,8 @@ export class World {
 		for (const list of byMap.values()) {
 			const changed = list.filter((c) => c.dirty);
 			if (!changed.length) continue;
-			const players = changed.map(({ view: v }) => ({ id: v.id, x: v.x, y: v.y, dir: v.dir, anim: v.anim, sprite: v.sprite, level: v.level, ...(v.hpMax ? { hp: v.hp, hpMax: v.hpMax } : {}) }));
+			// `pk` luôn gửi (rỗng = người thường) để máy nhận xoá được tên đỏ khi tắt đồ sát / hết truy nã.
+			const players = changed.map(({ view: v }) => ({ id: v.id, x: v.x, y: v.y, dir: v.dir, anim: v.anim, sprite: v.sprite, level: v.level, ...(v.hpMax ? { hp: v.hp, hpMax: v.hpMax } : {}), pk: v.pk ?? {} }));
 			for (const c of changed) c.dirty = false;
 			for (const c of list) {
 				const others = players.filter((p) => p.id !== c.view.id);

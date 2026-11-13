@@ -26,9 +26,12 @@ test('30 lựa chọn được kiểm tra, lưu cố định và truyền đúng
 		return { status: response.status, data: await response.json() as CharacterInfo };
 	};
 	try {
-		assert.equal(PLAYER_MODELS.length, 30);assert.equal(new Set(PLAYER_MODELS.map(m => m.id)).size, 30);
-		for (const role of ['sword', 'staff', 'bow', 'spear', 'shield'])
-			for (const gender of ['male', 'female']) assert.equal(PLAYER_MODELS.filter(m => m.classId === role && m.gender === gender).length, 3);
+		// Bộ mẫu đã lớn hơn 30 bản cũ (NPC + PixelLab + bản cũ): mã không trùng, mỗi class có cùng số mẫu theo giới, ít nhất 3.
+		assert.equal(new Set(PLAYER_MODELS.map(m => m.id)).size, PLAYER_MODELS.length);
+		for (const gender of ['male', 'female']) {
+			const counts = ['sword', 'staff', 'bow', 'spear', 'shield'].map(role => PLAYER_MODELS.filter(m => m.classId === role && m.gender === gender).length);
+			assert.ok(counts.every(n => n === counts[0] && n >= 3), gender + ': ' + counts.join(','));
+		}
 		for (const [i, model] of PLAYER_MODELS.entries()) {
 			const account = store.createAccount(`roster_${i}`, 'not-a-real-password-hash')!;
 			const token = `test-roster-token-${i}`;store.createSession(token, account, 60_000);

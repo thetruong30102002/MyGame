@@ -51,17 +51,16 @@ test('id map `vùng/map`: tách được; thiếu tiền tố thì là map cùng
 	assert.deepEqual(hubKeys(), ['human/town', 'swamp/hub', 'desert/hub', 'highland/hub', 'tundra/hub', 'volcano/hub', 'isles/hub']);
 });
 
-test('cổng vùng: vùng đầu luôn mở; vùng chưa có map → đang xây; đủ map thì xét cấp + boss chúa vùng trước', () => {
+test('cổng vùng: vùng đầu luôn mở; vùng chưa có map → đang xây; đủ map thì chỉ xét boss chúa vùng trước (không xét cấp — 13/11/2026)', () => {
 	assert.equal(regionGate('human', { level: 1, bossKills: {} }), null);
 	// Rừng Nấm Ngầm đã có map nhưng ĐÓNG TẠM (05/11/2026, mượn quái vùng khác) → đủ cấp + boss vẫn báo đang xây.
 	assert.match(regionGate('fungal', { level: 99, bossKills: { boss_kraken_001: 1 } })!, /đang được xây dựng/);
 	const isles = regionNeeds('isles')!;
 	const islesKills = isles.chief ? { [isles.chief.id]: 1 } : {};
 	assert.equal(regionGate('isles', { level: 99, bossKills: islesKills }), null);
-	assert.match(regionGate('isles', { level: isles.level - 1, bossKills: islesKills })!, new RegExp(`Cần cấp ${isles.level}`));
+	assert.equal(regionGate('isles', { level: 1, bossKills: islesKills }), null, 'cấp thấp vẫn đi được');
 	assert.match(regionGate('nowhere', { level: 1, bossKills: {} })!, /Không có vùng/);
-	// Thứ tự điều kiện: cấp trước, rồi boss chúa vùng trước.
-	assert.match(regionGate('swamp', { level: 9, bossKills: { boss_demon_001: 1 } })!, /Cần cấp 10/);
+	assert.equal(regionGate('swamp', { level: 1, bossKills: { boss_demon_001: 1 } }), null, 'không yêu cầu cấp');
 	assert.match(regionGate('swamp', { level: 12, bossKills: {} })!, /Hạ Quỷ vương rừng sâu/);
 	assert.equal(regionGate('swamp', { level: 12, bossKills: { boss_demon_001: 2 } }), null);
 	assert.match(regionGate('desert', { level: 25, bossKills: { boss_demon_001: 1 } })!, /Hạ Hydra bùn/);

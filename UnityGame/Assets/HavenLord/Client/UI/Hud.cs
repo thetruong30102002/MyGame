@@ -444,6 +444,7 @@ namespace HavenLord.Client.UI
             UiKit.Ornament(bar, "hotbar_wing_left", new Vector2(1, .5f), new Vector2(1, .5f), new Vector2(-10, 4), .45f, true).SetAsFirstSibling();
             UiKit.Ornament(bar, "crest", new Vector2(.5f, 1), new Vector2(.5f, 0), new Vector2(0, -8), .5f);
             BuildMenuRow(width);
+            BuildPkButton();
             expBar = SmoothBar.Make(root, "Exp", new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(-30, 8), new Vector2(width - 60, 8), UiStyle.Exp);
             expText = UiKit.Label(UiKit.Rect(expBar.Root, "t", new Vector2(1, 0.5f), new Vector2(0, 0.5f), new Vector2(8, 0), new Vector2(120, 14)), "", 11, new Color(0.86f, 0.76f, 1f), TextAnchor.MiddleLeft, true);
 
@@ -498,6 +499,40 @@ namespace HavenLord.Client.UI
                     press.Exit = () => ic.color = new Color(1, 1, 1, .92f);
                 }
             }
+        }
+
+        private RectTransform pkRoot;
+        private Image pkFace;
+        private TMP_Text pkText;
+
+        /// <summary>
+        /// Nút Đồ sát (chủ dự án 13/11/2026: "khi ra ngoài vùng ... phải bật đồ sát"): viên thuốc nhỏ trên hàng nút menu, chỉ hiện ở map cho
+        /// PvP. Đỏ = đang bật; kèm điểm ác / truy nã nếu có. Bấm = bật / tắt (máy chủ quyết, vừa đánh người thì phải chờ mới tắt được).
+        /// </summary>
+        private void BuildPkButton()
+        {
+            var mobile = Application.isMobilePlatform;
+            pkRoot = mobile
+                ? UiKit.Rect(root, "Pk", new Vector2(1, 1), new Vector2(1, 1), new Vector2(-12, -272), new Vector2(150, 30))
+                : UiKit.Rect(root, "Pk", new Vector2(1, 0), new Vector2(1, 0), new Vector2(-10, 58), new Vector2(150, 30));
+            pkFace = UiStyle.Pill(pkRoot, new Color(0.08f, 0.05f, 0.04f, 0.78f), 15);
+            pkFace.raycastTarget = true;
+            pkText = UiKit.Label(UiKit.Stretch(pkRoot, "t"), "", 13, UiStyle.Parchment, TextAnchor.MiddleCenter, true);
+            UiKit.Press(pkRoot, () => game.TogglePk());
+            pkRoot.gameObject.SetActive(false);
+        }
+
+        /// <summary>Vẽ lại nút Đồ sát. <paramref name="visible"/>: map này cho PvP.</summary>
+        public void SetPk(bool visible, bool on, int infamy, bool wanted)
+        {
+            if (pkRoot == null) return;
+            pkRoot.gameObject.SetActive(visible || wanted);
+            pkFace.color = wanted ? new Color(0.55f, 0.06f, 0.05f, 0.92f) : on ? new Color(0.42f, 0.08f, 0.06f, 0.88f) : new Color(0.08f, 0.05f, 0.04f, 0.78f);
+            var extra = wanted ? " · TRUY NÃ" : infamy > 0 ? $" · ác {infamy}" : "";
+            pkText.text = $"⚔ Đồ sát: {(on ? "BẬT" : "TẮT")}{extra}";
+            pkText.color = on || wanted ? new Color(1f, 0.82f, 0.78f) : UiStyle.Parchment;
+            var w = Mathf.Max(150, pkText.GetPreferredValues(pkText.text).x + 28);
+            pkRoot.sizeDelta = new Vector2(w, 30);
         }
 
         private void BuildToasts()
@@ -1215,8 +1250,12 @@ namespace HavenLord.Client.UI
                 {
                     if (r.Actor == null) continue;
                     var p = Plate(r, true);
-                    p.name.color = UiStyle.Sky;
-                    p.name.text = $"{r.Name}  <size=9>Lv{r.Level}</size>";
+                    // Đồ sát (13/11/2026): bật đồ sát / mang tiếng xấu thì tên đỏ + danh hiệu; truy nã đỏ đậm.
+                    var pk = r.Pk;
+                    var red = pk != null && (pk.On == true || pk.Wanted == true || (pk.Infamy ?? 0) > 0);
+                    p.name.color = pk?.Wanted == true ? new Color(1f, 0.25f, 0.2f) : red ? new Color(1f, 0.45f, 0.4f) : UiStyle.Sky;
+                    var title = !string.IsNullOrEmpty(pk?.Title) ? $"<size=9>« {pk.Title} »</size>\n" : "";
+                    p.name.text = $"{title}{r.Name}  <size=9>Lv{r.Level}{(pk?.On == true ? " · Đồ sát" : "")}</size>";
                     var hasHp = r.HpMax.HasValue && r.HpMax > 0;
                     p.bar.Root.gameObject.SetActive(hasHp);
                     if (hasHp)

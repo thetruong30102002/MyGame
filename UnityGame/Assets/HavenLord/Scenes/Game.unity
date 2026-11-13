@@ -119,7 +119,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &1618153646
+--- !u!1 &138305017
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,9 +127,90 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1618153649}
-  - component: {fileID: 1618153648}
-  - component: {fileID: 1618153647}
+  - component: {fileID: 138305021}
+  - component: {fileID: 138305020}
+  - component: {fileID: 138305019}
+  - component: {fileID: 138305018}
+  m_Layer: 0
+  m_Name: Game
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &138305018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138305017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 221f0ae0c23e28b4183c4f070e7954d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: HavenLord.Client::HavenLord.Client.LoginScreen
+  game: {fileID: 138305019}
+  database: {fileID: 11400000, guid: 8f3eff1a9644751418c303fc56714a14, type: 2}
+--- !u!114 &138305019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138305017}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fb8fc607d8f54b4cba6f07b06514f18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: HavenLord.Client::HavenLord.Client.GameController
+  FarmCrop: wheat
+  FurnitureCat: "Gi\u01B0\u1EDDng"
+  FurniturePage: 0
+  HousePage: 0
+  ShopCat: "H\u1EA1t gi\u1ED1ng"
+  database: {fileID: 11400000, guid: 8f3eff1a9644751418c303fc56714a14, type: 2}
+  pixelCamera: {fileID: 732488006}
+  input: {fileID: 138305020}
+  playerCharacter: player_integrated
+--- !u!114 &138305020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138305017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caaefc1589cb6584e80ae3334900d088, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: HavenLord.Client::HavenLord.Client.GameInput
+--- !u!4 &138305021
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138305017}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &732488005
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 732488008}
+  - component: {fileID: 732488007}
+  - component: {fileID: 732488006}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -137,26 +218,26 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1618153647
+--- !u!114 &732488006
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1618153646}
+  m_GameObject: {fileID: 732488005}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0958013670e6a040b77470060bbe6f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: HavenLord.Client::HavenLord.Client.PixelCamera
   followRate: 9
---- !u!20 &1618153648
+--- !u!20 &732488007
 Camera:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1618153646}
+  m_GameObject: {fileID: 732488005}
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
@@ -201,93 +282,16 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!4 &1618153649
+--- !u!4 &732488008
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1618153646}
+  m_GameObject: {fileID: 732488005}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1757851751
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1757851755}
-  - component: {fileID: 1757851754}
-  - component: {fileID: 1757851753}
-  - component: {fileID: 1757851752}
-  m_Layer: 0
-  m_Name: Game
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1757851752
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1757851751}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 221f0ae0c23e28b4183c4f070e7954d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: HavenLord.Client::HavenLord.Client.LoginScreen
-  game: {fileID: 1757851753}
-  database: {fileID: 11400000, guid: 8f3eff1a9644751418c303fc56714a14, type: 2}
---- !u!114 &1757851753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1757851751}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fb8fc607d8f54b4cba6f07b06514f18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: HavenLord.Client::HavenLord.Client.GameController
-  FarmCrop: wheat
-  database: {fileID: 11400000, guid: 8f3eff1a9644751418c303fc56714a14, type: 2}
-  pixelCamera: {fileID: 1618153647}
-  input: {fileID: 1757851754}
-  playerCharacter: player_integrated
---- !u!114 &1757851754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1757851751}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caaefc1589cb6584e80ae3334900d088, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: HavenLord.Client::HavenLord.Client.GameInput
---- !u!4 &1757851755
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1757851751}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -297,5 +301,5 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1618153649}
-  - {fileID: 1757851755}
+  - {fileID: 732488008}
+  - {fileID: 138305021}

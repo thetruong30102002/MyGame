@@ -71,6 +71,13 @@ const near = (a: number, b: number, what: string) => assert.ok(Math.abs(a - b) <
 	assert.equal(b.tiers.fire, 9, 'Hoả 9 (25 điểm) + 22 đã đổi = 47 điểm cấp 40');
 	const over = pvpBuild(40, { ...story, attrTalent: 30 });
 	assert.ok((over.tiers.fire ?? 0) < 9, 'đổi 30 thì cây chỉ còn 17 điểm — Hoả bị cắt');
+	// Từ 13/11/2026 máy chủ truyền hệ đã bốc + lớp theo class: bỏ qua `unlocked` / `path` client ghi trong bản lưu.
+	const forged = { unlocked: ['sword', 'fire', 'water'], path: 'sword', talents: { fire: 5, water: 5 } };
+	const real = pvpBuild(40, forged, 0, { element: 'water', path: 'mage' });
+	assert.equal(real.tiers.fire ?? 0, 0, 'hệ khác hệ máy chủ bốc: không tính');
+	assert.equal(real.tiers.water, 5, 'đúng hệ đã nhận: tính');
+	assert.equal(real.path, 'mage', 'lớp theo class, không theo bản lưu');
+	assert.equal(pvpBuild(40, forged, 0, { element: null, path: 'sword' }).tiers.water ?? 0, 0, 'chưa nhận thiên phú: không nhánh nguyên tố nào');
 }
 
 console.log('✔ attributes.test (sim): phần luật');

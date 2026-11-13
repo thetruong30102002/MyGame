@@ -117,6 +117,32 @@ export class Economy {
 		this.change(player, { exp: Math.max(0, Math.round(exp)), coins: Math.max(0, Math.round(coins)) }, 'quest', title, ref);
 	}
 
+	/** Tiền thưởng truy nã (đồ sát — `@havenlord/sim/pk`): máy chủ trả xu cho người hạ kẻ bị truy nã. */
+	pkBounty(player: string, coins: number, what: string): void {
+		this.change(player, { coins: Math.max(0, Math.round(coins)) }, 'pvp', what);
+	}
+
+	/** Gục khi mang tiếng xấu: mất phần `frac` số xu và EXP của cấp hiện tại (không tụt cấp). */
+	pkPenalty(player: string, frac: number): void {
+		const cur = this.eco.get(player);
+		if (!cur || frac <= 0) return;
+		const coins = Math.floor(cur.coins * frac);
+		const exp = Math.floor(cur.exp * frac);
+		if (coins <= 0 && exp <= 0) return;
+		const next: Eco = { ...cur, coins: cur.coins - coins, exp: cur.exp - exp };
+		if (!this.store.saveEco(player, next, { reason: 'pvp:Gục khi mang tiếng xấu', coins: -coins, potions: 0, exp: -exp, ref: null })) return;
+		this.eco.set(player, next);
+		this.host.send(player, { t: 'eco', ...next, gain: { exp: -exp, coins: -coins, potions: 0, levels: 0, reason: 'pvp', what: 'Gục khi mang tiếng xấu' } });
+	}
+
+	/** Trừ xu nếu đủ (chuộc tội); false = không đủ / chưa có sổ kinh tế. */
+	pay(player: string, coins: number, what: string): boolean {
+		const cur = this.eco.get(player);
+		if (!cur || cur.coins < coins) return false;
+		this.change(player, { coins: -coins }, 'spend', what);
+		return true;
+	}
+
 	/** Quà điểm danh (xu + bình — kim cương đã vào ví riêng). `ref` chống trao lặp. */
 	gift(player: string, coins: number, potions: number, ref: string): void {
 		this.change(player, { coins, potions }, 'checkin', 'Điểm danh', ref);

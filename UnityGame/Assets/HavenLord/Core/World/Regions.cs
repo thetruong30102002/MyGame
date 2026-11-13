@@ -120,7 +120,7 @@ namespace HavenLord.Core.World
             if (!r.Ready) return $"{r.Name} chưa mở — vùng đất này đang được xây dựng.";
             var need = RegionNeeds(id);
             if (need == null) return null;
-            if (ctx.Level < need.Level) return $"Cần cấp {WorldMath.NumToString(need.Level)} để vào {r.Name} (bạn đang cấp {WorldMath.NumToString(ctx.Level)}).";
+            // Không yêu cầu cấp khi đi vùng (13/11/2026) — cấp vùng chỉ còn là gợi ý.
             if (need.Chief != null)
             {
                 // JS: !(bossKills[id] ?? 0) — 0 / NaN / thiếu đều là chưa hạ.

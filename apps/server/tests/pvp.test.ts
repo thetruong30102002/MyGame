@@ -6,7 +6,8 @@ import assert from 'node:assert/strict';
 import type { ServerMessage } from '@havenlord/protocol';
 import { PVP_KILL_WINDOW_MS, PVP_SCALE, PVP_SPAWN_SHIELD_MS, pvpAllowedOn, pvpBuild, pvpDamage, pvpStrikes } from '@havenlord/sim/pvp';
 import { HERO_SKILLS, PATHS } from '@havenlord/sim/skills';
-import { newPvpState, Pvp, type PvpPlayer } from '../src/pvp.ts';
+import { PK_OFF_COOLDOWN_MS, PK_RETALIATE_MS, PK_WANTED_KILLS, pkBounty } from '@havenlord/sim/pk';
+import { newPvpState, Pvp, type PkHooks, type PvpPlayer } from '../src/pvp.ts';
 
 let passed = 0;
 const test = (name: string, fn: () => void): void => {
@@ -24,15 +25,28 @@ function rig() {
 	const queue: { at: number; run: () => void }[] = [];
 	const inbox = new Map<string, ServerMessage[]>();
 	const players: PvpPlayer[] = [];
+	const log: string[] = [];
+	const hooks: PkHooks = {
+		save: () => {},
+		bounty: (id, coins) => void log.push(`bounty:${id}:${coins}`),
+		penalty: (id, frac) => void log.push(`penalty:${id}:${frac}`),
+		announce: (text) => void log.push(`announce:${text}`),
+		changed: () => {},
+		pay: () => true,
+		nearAtoner: () => true,
+	};
 	const pvp = new Pvp(
 		() => players,
 		(id, msg) => inbox.get(id)!.push(msg),
 		() => now,
 		(ms, run) => queue.push({ at: now + ms, run }),
 		() => 0.5,
+		hooks,
 	);
-	const add = (id: string, x: number, y: number, map = MAP): PvpPlayer => {
+	// Ca cũ: mọi người bật đồ sát sẵn (luật trúng / né / sát thương giữ nguyên); ca đồ sát truyền `on = false`.
+	const add = (id: string, x: number, y: number, map = MAP, on = true): PvpPlayer => {
 		const p: PvpPlayer = { view: { id, name: id.toUpperCase(), level: 10, x, y, sprite: 'player_hero_adult', hp: 200, hpMax: 200 }, map, pvp: newPvpState(null, 0, now - PVP_SPAWN_SHIELD_MS) };
+		p.pvp.on = on;
 		players.push(p);
 		inbox.set(id, []);
 		return p;
@@ -46,7 +60,7 @@ function rig() {
 		}
 	};
 	const hits = (id: string) => inbox.get(id)!.filter((m): m is Extract<ServerMessage, { t: 'pvpHit' }> => m.t === 'pvpHit');
-	return { pvp, add, flush, hits, inbox, setNow: (t: number) => (now = t), getNow: () => now, players };
+	return { pvp, add, flush, hits, inbox, log, setNow: (t: number) => (now = t), getNow: () => now, players };
 }
 
 test('thị trấn (map trạm) an toàn, map ngoài thì PvP', () => {
@@ -155,6 +169,68 @@ test('báo gục chỉ nhận từ người vừa đánh trúng mình, trong th�
 	const k = r.inbox.get('a')!.filter((m) => m.t === 'pvpKill');
 	assert.equal(k.length, 1);
 	assert.deepEqual(k[0], { t: 'pvpKill', by: 'a', byName: 'A', to: 'b', toName: 'B' });
+});
+
+test('đồ sát: không bật thì không đánh được người; bị đánh thì được đánh trả kẻ đó, người khác thì không', () => {
+	const r = rig();
+	const a = r.add('a', 500, 500, MAP, false);
+	const b = r.add('b', 560, 500, MAP, false);
+	const c = r.add('c', 620, 500, MAP, false);
+	r.pvp.cast(a, 'slash', { ax: 1, ay: 0 });
+	r.flush();
+	assert.equal(r.hits('b').filter((m) => m.to === 'b').length, 0, 'a chưa bật đồ sát: không trúng b');
+	a.pvp.on = true;
+	r.pvp.cast(a, 'slash', { ax: 1, ay: 0 });
+	r.flush();
+	assert.equal(r.hits('b').filter((m) => m.to === 'b').length, 1, 'bật đồ sát: trúng b');
+	b.view.x = 440;
+	r.pvp.cast(b, 'slash', { ax: 1, ay: 0 });
+	r.flush();
+	assert.equal(r.hits('a').filter((m) => m.from === 'b' && m.to === 'a').length, 1, 'b không bật vẫn đánh trả được a');
+	c.view.x = 560;
+	c.view.y = 500;
+	a.view.x = 620;
+	r.pvp.cast(c, 'slash', { ax: 1, ay: 0 });
+	r.flush();
+	assert.equal(r.hits('a').filter((m) => m.from === 'c').length, 0, 'c chưa bị a đánh, không bật đồ sát: không đánh được a');
+});
+
+test('đồ sát: vừa đánh người thì chưa tắt được; hết thời gian chờ thì tắt', () => {
+	const r = rig();
+	const a = r.add('a', 500, 500);
+	r.add('b', 560, 500, MAP, false);
+	r.pvp.cast(a, 'slash', { ax: 1, ay: 0 });
+	r.flush();
+	r.pvp.handle(a, { op: 'off' });
+	assert.equal(a.pvp.on, true, 'vừa đánh: chưa tắt');
+	assert.ok(r.inbox.get('a')!.some((m) => m.t === 'system' && /chờ/.test(m.text)));
+	r.setNow(r.getNow() + PK_OFF_COOLDOWN_MS + 1);
+	r.pvp.handle(a, { op: 'off' });
+	assert.equal(a.pvp.on, false);
+});
+
+test('truy nã: hạ đủ người vô tội thì bị truy nã, ai cũng đánh được; hạ kẻ truy nã nhận thưởng', () => {
+	const r = rig();
+	const a = r.add('a', 500, 500);
+	const victims = Array.from({ length: PK_WANTED_KILLS }, (_, i) => r.add('v' + i, 560, 500, MAP, false));
+	for (const v of victims) {
+		r.pvp.cast(a, 'slash', { ax: 1, ay: 0 });
+		r.flush();
+		r.pvp.down(v, 'a');
+		v.view.hp = 0;
+	}
+	assert.ok(a.pvp.pk.infamy > 0, 'có điểm ác');
+	assert.ok(a.pvp.pk.wantedUntil > r.getNow(), 'bị truy nã');
+	assert.ok(r.log.some((l) => l.startsWith('announce:⚔ Truy nã')), 'báo cả thế giới');
+	const h = r.add('h', 440, 500, MAP, false);
+	r.setNow(r.getNow() + PK_RETALIATE_MS + 1);
+	r.pvp.cast(h, 'slash', { ax: 1, ay: 0 });
+	r.flush();
+	assert.equal(r.hits('h').filter((m) => m.from === 'h' && m.to === 'a').length, 1, 'người không bật đồ sát đánh được kẻ truy nã');
+	r.pvp.down(a, 'h');
+	assert.ok(r.log.includes(`bounty:h:${pkBounty(10)}`), 'thưởng truy nã');
+	assert.ok(r.log.some((l) => l.startsWith('penalty:a:')), 'kẻ mang tiếng xấu gục thì mất xu / EXP');
+	assert.equal(a.pvp.pk.wantedUntil, 0, 'bị hạ thì hết truy nã');
 });
 
 console.log(`${passed} ca đạt`);

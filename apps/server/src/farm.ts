@@ -1,5 +1,6 @@
 import {randomInt,randomUUID} from 'node:crypto';
 import {FARM_CROPS,FARM_FISH,FARM_LAYOUT,FARM_ROOMS,FARM_SHOP,FARM_TANK,FARM_ANIMALS,FARM_DISHES,FARM_HOUSES,farmDoor,FARM_FEED,FARM_FRUIT,FARM_PENS,HAVEN_DAY_MS,livestockOf,FARM_MACHINES,FARM_STOVE,FARM_MACHINE_SPOTS,FARM_PETS,FARM_PRODUCT_SELL,FARM_STARTER_CROPS,FARM_TREE_SPOTS,FARM_WARDROBE,treeStage,PET_GACHA,isPondMap,pondMap,DECOR_ITEMS,chooseFarmFish,decorOf,decorPlaceIssue,decorSpot,rollPet,growPlot,plotPoint,pondSpotNear,shopPrice,type FarmRoom,type FarmState} from '@havenlord/sim/farm';
+import {pkPriceMult,PK_REFUSE_AT} from '@havenlord/sim/pk';
 import {STORY} from '@havenlord/sim/story/story';
 import {COOK_QUALITY,FISH_MAX_TICKS,FISH_TICK_MS,cookQuality,fishFight,fishPower,type CookQuality} from '@havenlord/sim/minigames';
 import {VILLAGE_SHOP} from '@havenlord/sim/village';
@@ -9,7 +10,7 @@ import type {ServerMessage} from '@havenlord/protocol';
 import {spotOf} from './maps.ts';
 import type {Store} from './db.ts';
 
-export interface FarmHost {life?(id:string,kind:'harvest'|'fish'|'cook'|'feed'):void;where(id:string):{map:string;x:number;y:number}|null;send(id:string,msg:ServerMessage):void;move(id:string,map:string):void;refresh(id:string):void;count?(map:string):number}
+export interface FarmHost {/** Điểm ác (đồ sát): quầy bán đắt hơn / không tiếp. */infamy?(id:string):number;life?(id:string,kind:'harvest'|'fish'|'cook'|'feed'):void;where(id:string):{map:string;x:number;y:number}|null;send(id:string,msg:ServerMessage):void;move(id:string,map:string):void;refresh(id:string):void;count?(map:string):number}
 export const homeMap=(account:number,inside=false)=>`home/${account}${inside?'_inside':''}`;
 /** Map từng phòng trong nhà: phòng khách giữ id cũ `_inside`, thêm bếp / phòng ngủ. */
 export const roomMap=(account:number,room:FarmRoom)=>room==='house'?homeMap(account,true):`home/${account}_${room}`;
@@ -22,6 +23,16 @@ export class Farm {
  /** Map Gia viên nhân vật này được vào: Gia viên của mình + hồ bạn đang được mời. */
  canEnterMap(id:string,account:number,map:string){return farmMaps(account).includes(map)||this.pondGuests.get(id)===map;}
  constructor(private store:Store,private host:FarmHost,private mapsDir:string,private now:()=>number=Date.now,private random:()=>number=()=>randomInt(1000000)/1000000){}
+ /**
+  * Tiếng xấu ở quầy hàng (đồ sát, 13/11/2026): mua hàng (`buy` / `buySeed` / `service`) đắt thêm 1% mỗi điểm ác; từ `PK_REFUSE_AT` thì người
+  * bán không tiếp. Bọc hàm giao dịch: đưa vào số xu "quy đổi" (xu / hệ số) rồi nhân lại phần đã tiêu — mọi món dùng chung một chỗ.
+  */
+ private pkShop(id:string,op:string,fn:Parameters<Store['farm']['run']>[3]):Parameters<Store['farm']['run']>[3]{
+  const inf=op==='buy'||op==='buySeed'||op==='service'?this.host.infamy?.(id)??0:0;if(inf<=0)return fn;
+  if(inf>=PK_REFUSE_AT)throw new Error('Người bán không tiếp kẻ mang tiếng xấu — hãy chuộc tội ở chỗ Lena (nhà thờ) trước');
+  const m=pkPriceMult(inf);
+  return(s,coins,gems)=>{const view=Math.floor(coins/m);const r=fn(s,view,gems);if(r.coins===undefined||r.coins>=view)return r;return{...r,coins:Math.max(0,coins-Math.ceil((view-r.coins)*m))};};
+ }
  /** Chỗ đứng NPC: map trạm của vùng hoặc phòng nhà dịch vụ (`svc_*`, 13/11/2026). */
  npcPlace(id:string):{map:string;x:number;y:number}|null{const n=STORY.npcs[id];if(!n)return null;const region=n.region??'human';const hub=SERVICE_TOWNS.find(t=>t.region===region)?.hub??(region==='human'?'town':'hub');
   for(const m of [hub,...SERVICE_ROOMS.map(r=>`svc_${r}`)]){const s=spotOf(this.mapsDir,`${region}/${m}`,n.at.spot);if(s)return{map:`${region}/${m}`,x:s.x+(n.at.dx??0),y:s.y+(n.at.dy??0)};}return null;}
@@ -81,7 +92,7 @@ export class Farm {
     const target=roomMap(account,to);
     this.host.send(id,{t:'farm',state:{travel:to,spot:`from_${from}`,map:target}});this.host.move(id,target);this.send(id,account);return;
    }
-   const value=this.store.farm.run<unknown>(account,id,this.now(),(s,coins,gems)=>{
+   const value=this.store.farm.run<unknown>(account,id,this.now(),this.pkShop(id,op,(s,coins,gems)=>{
     if(op==='talk'){
      const npc=this.roster().find(n=>n.id===raw.npc);if(!npc||at.map!==npc.map||!near(npc.x,npc.y,130))throw new Error('Hãy tới gần người muốn trò chuyện');
      if(!s.visited.includes(npc.id))s.visited.push(npc.id);
@@ -262,7 +273,7 @@ export class Farm {
     else if(op==='water'){if(!p.crop)throw new Error('Hãy gieo cây trước');p.watered=true;}
     else if(op==='harvest'){const c=FARM_CROPS.find(x=>x.id===p.crop);if(!c||p.growth<c.ms)throw new Error('Cây chưa chín');const key=`farm_${c.id}`;s.inventory[key]=(s.inventory[key]||0)+1;Object.assign(p,{crop:null,growth:0,watered:false,lastAt:0,plantedAt:0});}
     else throw new Error('Thao tác Gia viên không hợp lệ');s.lastAction=this.now();return{value:null};
-   });
+   }));
    // Nhiệm vụ mới (13/11): việc sinh hoạt đã commit → sự kiện cho việc hằng ngày / phụ.
    const life=op==='harvest'?'harvest':op==='cookDone'?'cook':op==='feed'?'feed':op==='land'&&value==='caught'?'fish':null;if(life)this.host.life?.(id,life);
    this.host.refresh(id);if(op==='gacha')this.host.send(id,{t:'wallet',diamonds:this.store.diamonds(id)});this.send(id,account);

@@ -45,7 +45,7 @@ export function addExp(level: number, exp: number, gain: number): { level: numbe
 }
 
 /** Lý do một lần thay đổi (hiện ở client + nhật ký). */
-export type EcoReason = 'kill' | 'quest' | 'boss' | 'checkin' | 'spend' | 'potion' | 'admin';
+export type EcoReason = 'kill' | 'quest' | 'boss' | 'checkin' | 'spend' | 'potion' | 'admin' | 'pvp';
 
 /** Tổng EXP tích từ cấp 1 tới (`level`, `exp`) — đổi qua lại với `fromTotalExp`. Cấp tối đa: EXP lẻ không tính (luôn 0). */
 export function totalExp(level: number, exp: number): number {

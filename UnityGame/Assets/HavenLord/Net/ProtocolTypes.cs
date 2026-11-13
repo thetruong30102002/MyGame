@@ -211,6 +211,17 @@ namespace HavenLord.Net
         /// <summary>Máu hiện tại / tối đa (PvP). Vắng = client bản cũ.</summary>
         [JsonProperty("hp", NullValueHandling = NullValueHandling.Ignore)] public double? Hp;
         [JsonProperty("hpMax", NullValueHandling = NullValueHandling.Ignore)] public double? HpMax;
+        /// <summary>Đồ sát / tiếng xấu (tên đỏ + danh hiệu). Vắng = người thường.</summary>
+        [JsonProperty("pk", NullValueHandling = NullValueHandling.Ignore)] public PkView Pk;
+    }
+
+    /// <summary>Phần đồ sát người khác nhìn thấy (`@havenlord/protocol` PkView).</summary>
+    public sealed class PkView
+    {
+        [JsonProperty("on", NullValueHandling = NullValueHandling.Ignore)] public bool? On;
+        [JsonProperty("infamy", NullValueHandling = NullValueHandling.Ignore)] public int? Infamy;
+        [JsonProperty("wanted", NullValueHandling = NullValueHandling.Ignore)] public bool? Wanted;
+        [JsonProperty("title", NullValueHandling = NullValueHandling.Ignore)] public string Title;
     }
 
     /// <summary>Phần người chơi trong tin snapshot (Pick id/x/y/dir/anim/sprite/level).</summary>
@@ -225,6 +236,7 @@ namespace HavenLord.Net
         [JsonProperty("level")] public int Level;
         [JsonProperty("hp", NullValueHandling = NullValueHandling.Ignore)] public double? Hp;
         [JsonProperty("hpMax", NullValueHandling = NullValueHandling.Ignore)] public double? HpMax;
+        [JsonProperty("pk", NullValueHandling = NullValueHandling.Ignore)] public PkView Pk;
     }
 
     // ---- Xã hội ------------------------------------------------------------------------------------------------------

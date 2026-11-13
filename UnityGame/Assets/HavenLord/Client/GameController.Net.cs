@@ -29,6 +29,9 @@ namespace HavenLord.Client
                 case ServerQ2 q2:
                     OnQ2(q2);
                     break;
+                case ServerPk pk:
+                    OnPk(pk);
+                    break;
                 case ServerWelcome w:
                     remotes.Clear();
                     foreach (var p in w.Players) remotes.Upsert(p);

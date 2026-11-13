@@ -550,6 +550,7 @@ namespace HavenLord.Client
             }
             var n = population.NearestNpc(player.X, player.Y) ?? focus as Npc;
             if (n == null) return;
+            if (OfferAtonement(n)) return;
             QuestTalk(n.Key);
             if (OpenService(n)) return;
             Talk(n);
@@ -691,6 +692,7 @@ namespace HavenLord.Client
                 areaName = map.def.AreaAt(at.x, at.y);
                 PvpHere = idx.region != "home" && !SafeMaps().Contains(idx.region + "/" + mapId);
                 hud.Banner(map.def.displayName + (PvpHere ? "  ·  PvP" : "  ·  Vùng an toàn"));
+                RefreshPkHud();
                 if (online != null && idx.region != "home")
                 {
                     online.Progress.Map = idx.region + "/" + mapId;

@@ -35,6 +35,16 @@
     "source": "Khu {n} · {counts[i]} người{(n == k ? \" ✓\" : full ? \" · đông\" : \"\")}"
   },
   {
+    "file": "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.cs",
+    "line": 532,
+    "source": "⚔ Đồ sát: {(on ? \"BẬT\" : \"TẮT\")}{extra}"
+  },
+  {
+    "file": "UnityGame\\Assets\\HavenLord\\Client\\UI\\Hud.cs",
+    "line": 1258,
+    "source": "{title}{r.Name}  <size=9>Lv{r.Level}{(pk?.On == true ? \" · Đồ sát\" : \"\")}</size>"
+  },
+  {
     "file": "UnityGame\\Assets\\HavenLord\\Client\\UI\\Panels.Admin.cs",
     "line": 128,
     "source": "{c.Name}  <size=12><color=#c9b48a>{c.Account}{(c.Online ? \" · đang online\" : \"\")}</color></size>"

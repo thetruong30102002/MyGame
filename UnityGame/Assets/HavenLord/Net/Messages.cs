@@ -26,6 +26,7 @@ namespace HavenLord.Net
             ["map"] = () => new ClientMap(),
             ["channel"] = () => new ClientChannel(),
             ["q2"] = () => new ClientQ2(),
+            ["pk"] = () => new ClientPk(),
             ["ping"] = () => new ClientPing(),
             ["friendAdd"] = () => new ClientFriendAdd(),
             ["friendRespond"] = () => new ClientFriendRespond(),
@@ -68,6 +69,7 @@ namespace HavenLord.Net
             ["system"] = () => new ServerSystem(),
             ["channel"] = () => new ServerChannel(),
             ["q2"] = () => new ServerQ2(),
+            ["pk"] = () => new ServerPk(),
             ["action"] = () => new ServerAction(),
             ["actionEnd"] = () => new ServerActionEnd(),
             ["gear"] = () => new ServerGear(),
@@ -101,13 +103,13 @@ namespace HavenLord.Net
     {
         protected override string Tag => "farm";
         [JsonProperty("op")] public string Op;
-        [JsonProperty("plot")] public int? Plot;
-        [JsonProperty("crop")] public string Crop;
-        [JsonProperty("npc")] public string Npc;
-        [JsonProperty("nonce")] public string Nonce;
-        [JsonProperty("outfit")] public string Outfit;
-        [JsonProperty("item")] public string Item;
-        [JsonProperty("room")] public string Room;
+        [JsonProperty("plot", NullValueHandling = NullValueHandling.Ignore)] public int? Plot;
+        [JsonProperty("crop", NullValueHandling = NullValueHandling.Ignore)] public string Crop;
+        [JsonProperty("npc", NullValueHandling = NullValueHandling.Ignore)] public string Npc;
+        [JsonProperty("nonce", NullValueHandling = NullValueHandling.Ignore)] public string Nonce;
+        [JsonProperty("outfit", NullValueHandling = NullValueHandling.Ignore)] public string Outfit;
+        [JsonProperty("item", NullValueHandling = NullValueHandling.Ignore)] public string Item;
+        [JsonProperty("room", NullValueHandling = NullValueHandling.Ignore)] public string Room;
         [JsonProperty("toggles", NullValueHandling = NullValueHandling.Ignore)] public System.Collections.Generic.List<int> Toggles;
     }
     public sealed class ServerFarm : ServerMessage
@@ -219,6 +221,14 @@ namespace HavenLord.Net
     }
 
     /// <summary>Nhiệm vụ mới (`quests2`): get / talk npc / reach spot / track id — máy chủ kiểm vị trí.</summary>
+    /// <summary>Đồ sát: `on` / `off` / `atone` (chuộc `points` điểm ác ở chỗ Lena) / `get`.</summary>
+    public sealed class ClientPk : ClientMessage
+    {
+        protected override string Tag => "pk";
+        [JsonProperty("op")] public string Op;
+        [JsonProperty("points", NullValueHandling = NullValueHandling.Ignore)] public int? Points;
+    }
+
     public sealed class ClientQ2 : ClientMessage
     {
         protected override string Tag => "q2";
@@ -424,6 +434,15 @@ namespace HavenLord.Net
     }
 
     /// <summary>Trạng thái nhiệm vụ mới của mình + phiên Thế giới đang mở.</summary>
+    /// <summary>Đồ sát của chính mình: đang bật, điểm ác, truy nã tới lúc nào (0 = không).</summary>
+    public sealed class ServerPk : ServerMessage
+    {
+        protected override string Tag => "pk";
+        [JsonProperty("on")] public bool On;
+        [JsonProperty("infamy")] public int Infamy;
+        [JsonProperty("wantedUntil")] public double WantedUntil;
+    }
+
     public sealed class ServerQ2 : ServerMessage
     {
         protected override string Tag => "q2";
@@ -576,7 +595,7 @@ namespace HavenLord.Net
     {
         protected override string Tag => "bought";
         [JsonProperty("item")] public string Item;
-        [JsonProperty("gear")] public JObject Gear;
+        [JsonProperty("gear", NullValueHandling = NullValueHandling.Ignore)] public JObject Gear;
     }
 
     /// <summary>Trạm đã tới + (tuỳ chọn) mọi map đã tới.</summary>

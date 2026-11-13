@@ -3,6 +3,7 @@ import { dirname } from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
 import type { AdminChange, AdminField, AdminLogEntry, BuffKind, FeedbackEntry, FeedbackKind, FeedbackStatus, MyFeedback, BuffView, CharacterInfo, CharacterProgress, Gender } from '@havenlord/protocol';
 import type { Eco } from '@havenlord/sim/economy';
+import type { PkRecord } from '@havenlord/sim/pk';
 import { cleanBonusPoints } from '@havenlord/sim/talents';
 import { addItem, cleanGear, BAG_SIZE, type GearState } from '@havenlord/sim/equipment';
 import { playerModel, defaultPlayerModel } from '@havenlord/protocol';
@@ -17,6 +18,7 @@ export class Store {
 	private readonly db: DatabaseSync;
 	readonly farm: FarmStore;
 	readonly quests2: Quest2Store;
+	readonly pk: PkStore;
 
 	constructor(path: string) {
 		mkdirSync(dirname(path), { recursive: true });
@@ -222,6 +224,7 @@ export class Store {
 		this.db.exec('CREATE INDEX IF NOT EXISTS feedback_account ON feedback(account_id)');
 		this.farm = new FarmStore(this.db);
 		this.quests2 = new Quest2Store(this.db);
+		this.pk = new PkStore(this.db);
 	}
 
 	/** Thêm cột vào bảng đã có (CSDL cũ) — có rồi thì bỏ qua. */
@@ -1029,4 +1032,18 @@ export function keepNewerTalents(storedStory: unknown, next: CharacterProgress):
 /** Khoá so trùng tên: chữ thường + chuẩn hoá Unicode (để "Lior" và "lior", "Ánh" dựng sẵn/tổ hợp coi là một). */
 export function nameKey(name: string): string {
 	return name.normalize('NFC').toLocaleLowerCase('vi');
+}
+
+/** Tiếng xấu / truy nã theo nhân vật (đồ sát — `@havenlord/sim/pk`, 13/11/2026). Bảng riêng, không đụng `progress` client gửi. */
+export class PkStore {
+	constructor(private readonly db: DatabaseSync) {
+		db.exec('CREATE TABLE IF NOT EXISTS pk_states(character_id TEXT PRIMARY KEY REFERENCES characters(id) ON DELETE CASCADE, state TEXT NOT NULL, updated_at INTEGER NOT NULL);');
+	}
+	read(character: string): PkRecord | undefined {
+		const row = this.db.prepare('SELECT state FROM pk_states WHERE character_id=?').get(character) as { state: string } | undefined;
+		return row ? (JSON.parse(row.state) as PkRecord) : undefined;
+	}
+	write(character: string, r: PkRecord): void {
+		this.db.prepare('INSERT INTO pk_states(character_id,state,updated_at) VALUES(?,?,?) ON CONFLICT(character_id) DO UPDATE SET state=excluded.state,updated_at=excluded.updated_at').run(character, JSON.stringify(r), Date.now());
+	}
 }

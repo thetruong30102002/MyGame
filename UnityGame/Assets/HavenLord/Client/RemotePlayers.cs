@@ -30,6 +30,8 @@ namespace HavenLord.Client
             /// <summary>Đồ gắn (tin `gear` / PlayerView.gear) + thế cầm theo đòn vừa ra — chọn bản cầm vũ khí (<see cref="HeldWeapons"/>).</summary>
             public string[] Gear;
             public string Stance = "melee";
+            /// <summary>Đồ sát / tiếng xấu (tên đỏ + danh hiệu); null = người thường.</summary>
+            public PkView Pk;
         }
 
         private readonly Dictionary<string, Remote> remotes = new Dictionary<string, Remote>();
@@ -62,6 +64,7 @@ namespace HavenLord.Client
             r.Hp = p.Hp ?? r.Hp;
             r.HpMax = p.HpMax ?? r.HpMax;
             if (p.Gear != null) r.Gear = p.Gear;
+            r.Pk = p.Pk;
             EnsureSprite(r, p.Sprite);
             ApplyHeld(r);
         }
@@ -96,6 +99,7 @@ namespace HavenLord.Client
             r.Level = p.Level;
             r.Hp = p.Hp ?? r.Hp;
             r.HpMax = p.HpMax ?? r.HpMax;
+            if (p.Pk != null) r.Pk = p.Pk;
             EnsureSprite(r, p.Sprite);
         }
 

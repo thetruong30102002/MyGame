@@ -6,7 +6,7 @@
   },
   {
     "file": "apps\\server\\src\\world.ts",
-    "line": 127,
+    "line": 150,
     "source": "⚔ ${name} đã xuất hiện ở ${mapName(mapsDir, map) ?? map} · Khu ${channel}!"
   }
 ]
