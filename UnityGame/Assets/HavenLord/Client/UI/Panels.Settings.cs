@@ -84,6 +84,12 @@ namespace HavenLord.Client.UI
             Switch(play, row2(), "Tên trên đầu nhân vật", hud.ShowNames, v => hud.ShowNames = v);
             Switch(play, row2(), "Bảng phím góc trái", hud.HelpShown, _ => hud.ToggleHelp());
             Switch(play, row2(), "Hiệu ứng thời tiết", Weather.Enabled, v => Weather.Enabled = v);
+            var bn = hud.BarNumbers;
+            Selector(play, row2(), "Số trên thanh máu", Hud.BarNumberNames[bn], d =>
+            {
+                hud.BarNumbers = (bn + d + Hud.BarNumberNames.Length) % Hud.BarNumberNames.Length;
+                Refresh();
+            });
             var y2 = row2();
             Text(play, "ModeL", new Vector2(0, 1), new Vector2(0, 0.5f), new Vector2(18, y2), new Vector2(200, 24), "Kết nối", 15, UiKit.TextMain, TextAnchor.MiddleLeft, true);
             var online = game.Online ? game.Connected ? "Trực tuyến · đã lưu" : "Đang nối lại…" : "Chơi offline (không lưu)";

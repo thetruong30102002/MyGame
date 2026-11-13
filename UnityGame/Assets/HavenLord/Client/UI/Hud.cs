@@ -123,6 +123,24 @@ namespace HavenLord.Client.UI
         public bool Blocking => DialogOpen || (Panels != null && Panels.Open) || (Cinematic != null && Cinematic.Open) || (MangaCutscene != null && MangaCutscene.Open);
         public float FadeAlpha { get; set; }
         public bool ShowNames = true;
+        /// <summary>
+        /// Số trên thanh Máu / MP / Thể lực (chủ dự án 13/11/2026: "Hiện cả số 100/100 (có thể cấu hình % hoặc chi tiết) trong cài đặt"):
+        /// 0 chi tiết "100 / 100", 1 phần trăm "100%", 2 ẩn số. Lưu PlayerPrefs (riêng máy).
+        /// </summary>
+        public static readonly string[] BarNumberNames = { "Chi tiết (100 / 100)", "Phần trăm (100%)", "Ẩn số" };
+        public int BarNumbers
+        {
+            get => PlayerPrefs.GetInt("havenlord.hud.barNumbers", 0);
+            set { PlayerPrefs.SetInt("havenlord.hud.barNumbers", value); PlayerPrefs.Save(); }
+        }
+
+        private string BarLabel(double v, double max)
+        {
+            var mode = BarNumbers;
+            if (mode == 2) return "";
+            if (mode == 1) return max > 0 ? $"{Math.Round(Math.Max(0, v) / max * 100):0}%" : "0%";
+            return $"{(int)Math.Ceiling(Math.Max(0, v))} / {(int)Math.Ceiling(max)}";
+        }
         private GameObject pointsBadge;
         private TMPro.TMP_Text pointsText;
         private int shownPoints = -1;
@@ -254,7 +272,7 @@ namespace HavenLord.Client.UI
             press.Exit = () => img.color = Color.white;
             hpBar = SmoothBar.Make(card, "Hp", new Vector2(0, 1), new Vector2(0, 1), new Vector2(64 * k, -11 * k), new Vector2(106 * k, 8 * k), UiStyle.Hp, 10, 6);
             mpBar = SmoothBar.Make(card, "Mp", new Vector2(0, 1), new Vector2(0, 1), new Vector2(64 * k, -29 * k), new Vector2(106 * k, 8 * k), UiStyle.Mana, 9, 6);
-            staBar = SmoothBar.Make(card, "Stamina", new Vector2(0, 1), new Vector2(0, 1), new Vector2(64 * k, -47 * k), new Vector2(106 * k, 8 * k), UiStyle.Stamina, 0, 6);
+            staBar = SmoothBar.Make(card, "Stamina", new Vector2(0, 1), new Vector2(0, 1), new Vector2(64 * k, -47 * k), new Vector2(106 * k, 8 * k), UiStyle.Stamina, 9, 6);
             nameText = UiKit.Label(UiKit.Rect(root, "Name", new Vector2(0, 1), new Vector2(0, 1), new Vector2(18 + 64 * k, -8), new Vector2(200, 20)), "", 15, UiStyle.Parchment, TextAnchor.MiddleLeft, true);
             levelText = UiKit.Label(UiKit.Rect(card, "Level", new Vector2(0, 1), new Vector2(0.5f, 0.5f), new Vector2(49 * k, -56 * k), new Vector2(26, 18)), "1", 11, UiStyle.InkBrown, TextAnchor.MiddleCenter, true, false);
             var badge = UiKit.Rect(root, "Points", new Vector2(0, 1), new Vector2(0, 1), new Vector2(18 + 64 * k + 205, -8), new Vector2(24, 20));
@@ -752,9 +770,9 @@ namespace HavenLord.Client.UI
                 pointsBadge.SetActive(pts > 0);
                 pointsText.text = pts.ToString();
             }
-            hpBar.Set(pc.Hp, pc.HpMax);
-            mpBar.Set(pc.Mp, pc.MpMax);
-            staBar.Set(pc.Stamina, pc.StaminaMax);
+            hpBar.Set(pc.Hp, pc.HpMax, BarLabel(pc.Hp, pc.HpMax));
+            mpBar.Set(pc.Mp, pc.MpMax, BarLabel(pc.Mp, pc.MpMax));
+            staBar.Set(pc.Stamina, pc.StaminaMax, BarLabel(pc.Stamina, pc.StaminaMax));
             var need = game.ExpToNext;
             expBar.Set(pc.Exp, Math.Max(1, need), "");
             expText.text = need > 0 ? $"EXP {(int)(100.0 * pc.Exp / need)}%" : "Cấp tối đa";
