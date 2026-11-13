@@ -23,11 +23,15 @@ namespace HavenLord.Data
         public TextAsset homeArtCatalog;
         /// <summary>JSON xuất từ packages/sim (Data/Sim/*.json) — nạp vào Core.SimData lúc chạy.</summary>
         public List<TextAsset> simModules = new List<TextAsset>();
+        /// <summary>Bảng Anh riêng của từng module sim, ghép khi cần hiển thị.</summary>
+        public List<TextAsset> simEnglishModules = new List<TextAsset>();
         /// <summary>Dữ liệu hình / NPC của client (Data/Client/*.json — Tools~/export-client-data.mts).</summary>
         public TextAsset tempArt;
         public TextAsset npcs;
         /// <summary>Bảng dịch chữ hiển thị, tiếng Việt làm khoá.</summary>
         public TextAsset english;
+        /// <summary>Bảng Anh cho thông báo máy chủ và lỗi gửi người chơi.</summary>
+        public TextAsset serverEnglish;
         /// <summary>Vùng bắt đầu khi chơi offline.</summary>
         public string startRegion = "human";
 

@@ -105,7 +105,7 @@ namespace HavenLord.Client
                 Debug.LogError("[HavenLord] GameController thiếu GameDatabase — chạy menu Haven Lord/Nhập dữ liệu từ pipeline rồi Haven/Dựng scene chơi.");
                 return;
             }
-            Loc.Initialize(database.english);
+            Loc.Initialize(database.english, database.simEnglishModules, database.serverEnglish);
             sim = SimData.Load(database.SimModuleTexts());
             prog = new Progression(sim);
             talents = new Talents(sim);

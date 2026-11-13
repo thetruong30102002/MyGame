@@ -18,7 +18,7 @@ namespace HavenLord.Importer
     {
         public const string DatabasePath = ImportUtil.Root + "/GameDatabase.asset";
         public const string ScenePath = "Assets/HavenLord/Scenes/Game.unity";
-        private const string SimDir = "Assets/HavenLord/Data/Sim";
+        private const string SimDir = "Assets/HavenLord/Data/Sim";        private const string SimI18nDir = "Assets/HavenLord/Data/SimI18n";
         private const string ClientDir = "Assets/HavenLord/Data/Client";
         private const string AdditivePath = ImportUtil.Root + "/Resources/VfxAdditive.mat";
 
@@ -117,9 +117,9 @@ namespace HavenLord.Importer
             db.uiSets = FindAll<UiSpriteSet>(ImportUtil.Root).OrderBy(u => u.name, StringComparer.Ordinal).ToList();
             db.homeProps = AssetDatabase.LoadAssetAtPath<PropCatalog>(ImportUtil.Root + "/Home/PropCatalog.asset");
             db.homeArtCatalog = AssetDatabase.LoadAssetAtPath<TextAsset>(ImportUtil.Root + "/Home/Catalog.json");
-            db.simModules = FindAll<TextAsset>(SimDir).OrderBy(t => t.name, StringComparer.Ordinal).ToList();
+            db.simModules = FindAll<TextAsset>(SimDir).OrderBy(t => t.name, StringComparer.Ordinal).ToList();            db.simEnglishModules = FindAll<TextAsset>(SimI18nDir).Where(t => t.name.EndsWith(".en", StringComparison.Ordinal) && t.name != "all.en").OrderBy(t => t.name, StringComparer.Ordinal).ToList();
             db.tempArt = AssetDatabase.LoadAssetAtPath<TextAsset>(ClientDir + "/tempArt.json");
-            db.npcs = AssetDatabase.LoadAssetAtPath<TextAsset>(ClientDir + "/npcs.json");            db.english = AssetDatabase.LoadAssetAtPath<TextAsset>(ClientDir + "/i18n.en.json");
+            db.npcs = AssetDatabase.LoadAssetAtPath<TextAsset>(ClientDir + "/npcs.json");            db.english = AssetDatabase.LoadAssetAtPath<TextAsset>(ClientDir + "/i18n.en.json");            db.serverEnglish = AssetDatabase.LoadAssetAtPath<TextAsset>(ClientDir + "/i18n.server.en.json");
             EnsureAdditiveMaterial();
             if (db.Region(db.startRegion) == null && db.regions.Count > 0) db.startRegion = db.regions[0].region;
             EditorUtility.SetDirty(db);

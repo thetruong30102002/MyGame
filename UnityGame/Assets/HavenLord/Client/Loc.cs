@@ -13,6 +13,8 @@ namespace HavenLord.Client
         private const string Pref = "havenlord.lang";
         private const int CacheLimit = 1024;
         private static TextAsset source;
+        private static TextAsset serverSource;
+        private static IReadOnlyList<TextAsset> simSources;
         private static Dictionary<string, string> english;
         private static List<(Regex regex, string value)> patterns;
         private static readonly Dictionary<string, string> cache = new Dictionary<string, string>(StringComparer.Ordinal);
@@ -21,10 +23,12 @@ namespace HavenLord.Client
         public static string Language { get; private set; } = PlayerPrefs.GetString(Pref, "vi") == "en" ? "en" : "vi";
         public static int Version => version;
 
-        public static void Initialize(TextAsset table)
+        public static void Initialize(TextAsset table, IReadOnlyList<TextAsset> simTables = null, TextAsset serverTable = null)
         {
-            if (source == table) return;
+            if (source == table && simSources == simTables && serverSource == serverTable) return;
             source = table;
+            simSources = simTables;
+            serverSource = serverTable;
             english = null;
             patterns = null;
             cache.Clear();
@@ -60,6 +64,19 @@ namespace HavenLord.Client
                 ? JsonConvert.DeserializeObject<Dictionary<string, string>>(source.text)
                 : null;
             if (english == null) english = new Dictionary<string, string>(StringComparer.Ordinal);
+            if (simSources != null)
+                foreach (var table in simSources)
+                {
+                    if (table == null) continue;
+                    var entries = JsonConvert.DeserializeObject<Dictionary<string, string>>(table.text);
+                    if (entries == null) continue;
+                    foreach (var entry in entries) english[entry.Key] = entry.Value;
+                }
+            if (serverSource != null)
+            {
+                var entries = JsonConvert.DeserializeObject<Dictionary<string, string>>(serverSource.text);
+                if (entries != null) foreach (var entry in entries) english[entry.Key] = entry.Value;
+            }
             patterns = new List<(Regex, string)>();
             foreach (var entry in english)
             {

@@ -66,7 +66,8 @@ namespace HavenLord.Client
 
         private void Start()
         {
-            Loc.Initialize(database != null ? database.english : null);
+            Loc.Initialize(database != null ? database.english : null, database != null ? database.simEnglishModules : null,
+                database != null ? database.serverEnglish : null);
             UiKit.LoadFonts();
             if (database != null) UiKit.Sprites = database.uiSets.Find(s => s != null && s.setId == "ui");
             if (FindFirstObjectByType<EventSystem>() == null)
