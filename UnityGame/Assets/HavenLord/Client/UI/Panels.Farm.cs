@@ -114,6 +114,28 @@ namespace HavenLord.Client.UI
                     FarmText("Tên", $"{npc.Name} · {npc.Title}", 0, 32, 20);
                     FarmText("Thoại", npc.Idle?.FirstOrDefault() ?? "Rất vui được gặp cậu.", 45, 70);
                 }
+                if (key == "tank")
+                {
+                    // Bể cá (chủ dự án 13/11/2026: "cá trong bể cũng k xem chi tiết bể đc"): ô có hình từng con trong bể (bấm Lấy về kho) + cá trong kho
+                    // (bấm Thả vào bể). Thả / lấy phải đứng cạnh bể (máy chủ kiểm).
+                    var tank = state["tank"] as JArray ?? new JArray();
+                    FarmText("Bể", $"Bể cá · {tank.Count}/6 con  <color=#ffffff88>(đứng cạnh bể để thả / lấy)</color>", 0, 28, 17);
+                    if (tank.Count == 0) FarmText("Bể trống", "Bể đang trống · thả cá trong kho vào bên dưới.", 36, 28, 15);
+                    for (var n = 0; n < tank.Count; n++)
+                    {
+                        var idx = n;var fid = "fish_" + (string)tank[n];
+                        FarmCard("Bể" + n, ItemSprite(fid), FarmItemName(fid), "Lấy", n * 112, 36, () => game.FarmSend("untank", plot: idx), true, null, false, 104, 124);
+                    }
+                    var fishInv = (state["inventory"] as JObject)?.Properties().Where(p => p.Name.StartsWith("fish_", StringComparison.Ordinal) && (int)p.Value > 0).ToList() ?? new List<JProperty>();
+                    FarmText("Kho cá", fishInv.Count == 0 ? "Kho chưa có cá · ra hồ câu sau khuôn viên để câu." : "Cá trong kho  <color=#ffffff88>(bấm để thả vào bể)</color>", 176, 28, 17);
+                    for (var n = 0; n < fishInv.Count; n++)
+                    {
+                        var fid = fishInv[n].Name;var short_ = fid.Substring(5);
+                        FarmCard("Kho cá" + n, ItemSprite(fid), FarmItemName(fid), tank.Count >= 6 ? "Bể đầy" : "Thả", n % 10 * 101, 212 + n / 10 * 122,
+                            () => game.FarmSend("tank", item: short_), tank.Count < 6, "×" + (int)fishInv[n].Value, false, 95, 116);
+                    }
+                    return;
+                }
                 if (key == "storage")
                 {
                     // Kho Gia viên (chủ dự án 13/11/2026: "câu cá xong cần xem đc cá trong kho"): lưới ô có hình + số lượng, lọc theo nhóm.
@@ -382,12 +404,8 @@ namespace HavenLord.Client.UI
                 if (!game.OwnsTank) FarmText("Bể", "Chưa có bể cá · mua ở người bán đồ Gia viên ngoài khuôn viên.", 350 + dy);
                 else
                 {
-                    // Bể cá: thả cá trong kho vào bể (đứng cạnh bể), bấm cá trong bể để lấy lại.
                     var tank = state["tank"] as JArray ?? new JArray();
-                    FarmText("Bể", $"Bể cá · {tank.Count}/6 con · đứng cạnh bể để thả / lấy cá", 340 + dy);
-                    var fish = (state["inventory"] as JObject)?.Properties().Where(p => p.Name.StartsWith("fish_", StringComparison.Ordinal) && (int)p.Value > 0).ToArray() ?? new JProperty[0];
-                    for (var i = 0; i < fish.Length && i < 6; i++) { var id = fish[i].Name.Substring(5); FarmButton("Thả" + id, $"Thả {FarmItemName(fish[i].Name)}", i % 3 * 256, 372 + dy + i / 3 * 44, () => game.FarmSend("tank", item: id)); }
-                    for (var i = 0; i < tank.Count; i++) { var idx = i; FarmButton("Lấy" + i, $"Lấy {FarmItemName("fish_" + tank[i])}", 768, 372 + dy + i * 44, () => game.FarmSend("untank", plot: idx)); }
+                    FarmButton("Bể", $"Xem bể cá · {tank.Count}/6 con ›", 0, 350 + dy, () => { game.VillageKey = "tank"; Refresh(); });
                 }
             }
             else if (game.InFarm && game.Map.id == "kitchen") FarmText("Bếp", "Nấu ăn sẽ bổ sung sau đợt trồng trọt / câu cá này.", 350 + dy);

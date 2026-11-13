@@ -1,0 +1,13 @@
+{
+	"map": "bedroom",
+	"image": "bedroom.minimap.png",
+	"width": 64,
+	"height": 56,
+	"downscale": 8,
+	"world": {
+		"width": 512,
+		"height": 448,
+		"tileSize": 32
+	},
+	"version": "0b467a6b"
+}

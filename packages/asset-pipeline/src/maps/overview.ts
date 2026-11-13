@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto';
 import { readFileSync, writeFileSync } from 'node:fs';
-import { basename, join } from 'node:path';
+import { basename, dirname, join } from 'node:path';
 import { blit, createImage, crop, readPng, writePng, type RGBAImage } from '../image/rgba.js';
 
 export type Biome = 'wood' | 'light' | 'dark' | 'meadow' | 'deadland' | 'rocky' | 'swamp' | 'desert' | 'highland' | 'snow' | 'volcanic' | 'beach';
@@ -105,6 +105,12 @@ export function spritesFromAtlas(atlas: RGBAImage, atlasJson: { frames: Record<s
 
 export const MINIMAP_DOWNSCALE = 8;
 
+/** Tiền tố khoá atlas của thư mục map: `assets/maps/<vùng>` → vùng; Gia viên `assets/home/maps` → `home`. */
+function atlasRegion(regionDir: string): string {
+	const b = basename(regionDir);
+	return b === 'maps' ? basename(dirname(regionDir)) : b;
+}
+
 /**
  * Ghi `<mapId>.minimap.png` (1/8) + `<mapId>.minimap.json` vào thư mục vùng. `version` = sha1 của map + atlas để
  * trình duyệt không giữ ảnh cũ khi map đổi. Chỉ ĐỌC town.json/props.* — không bao giờ ghi lại chúng.
@@ -113,7 +119,7 @@ export function writeMinimap(regionDir: string, mapId: string, map?: OverviewMap
 	const mapRaw = readFileSync(join(regionDir, `${mapId}.json`));
 	const atlasRaw = readFileSync(join(regionDir, 'props.png'));
 	const data = map ?? (JSON.parse(mapRaw.toString('utf8')) as OverviewMap);
-	const sp = sprites ?? spritesFromAtlas(readPng(join(regionDir, 'props.png')), JSON.parse(readFileSync(join(regionDir, 'props.json'), 'utf8')) as Parameters<typeof spritesFromAtlas>[1], basename(regionDir));
+	const sp = sprites ?? spritesFromAtlas(readPng(join(regionDir, 'props.png')), JSON.parse(readFileSync(join(regionDir, 'props.json'), 'utf8')) as Parameters<typeof spritesFromAtlas>[1], atlasRegion(regionDir));
 	const img = renderOverview(data, sp, MINIMAP_DOWNSCALE);
 	const version = createHash('sha1').update(mapRaw).update(atlasRaw).digest('hex').slice(0, 8);
 	const png = join(regionDir, `${mapId}.minimap.png`);

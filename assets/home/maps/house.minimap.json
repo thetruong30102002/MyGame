@@ -1,0 +1,13 @@
+{
+	"map": "house",
+	"image": "house.minimap.png",
+	"width": 80,
+	"height": 56,
+	"downscale": 8,
+	"world": {
+		"width": 640,
+		"height": 448,
+		"tileSize": 32
+	},
+	"version": "b0d69256"
+}

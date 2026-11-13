@@ -564,7 +564,8 @@ namespace HavenLord.Client.UI
 
         private void BuildToasts()
         {
-            toastRoot = UiKit.Rect(root, "Toasts", new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -292), new Vector2(560, 220));
+            // Sát mép trên giữa (giữa trên đã trống — thanh mục tiêu sang trái): xa nhân vật / NPC / nhãn "E Nói chuyện" (13/11/2026).
+            toastRoot = UiKit.Rect(root, "Toasts", new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -14), new Vector2(560, 220));
             bannerRoot = UiKit.Rect(root, "Banner", new Vector2(0.5f, 1), new Vector2(0.5f, 0.5f), new Vector2(0, -168), new Vector2(460, 78));
             // Băng rôn tên map (13/11/2026): dải ruy băng gỗ PixelLab.
             UiStyle.Card(bannerRoot, UiStyle.CardKind.Chip, 5, frame: "ui2_ribbon");

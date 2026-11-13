@@ -1204,7 +1204,8 @@ function isGrayish(img: RGBAImage): boolean {
 
 /** Chỉ dựng lại ảnh minimap từ map + atlas ĐÃ xuất — không đụng <map>.json/props.* (khác lệnh `map`). */
 function buildMapOverview(region = 'human'): void {
-	const dir = join(WEB_ASSETS, 'maps', region);
+	// Gia viên (13/11/2026: bản đồ nhỏ trong khuôn viên bị trống) nằm ở assets/home/maps.
+	const dir = region === 'home' ? join(WEB_ASSETS, 'home', 'maps') : join(WEB_ASSETS, 'maps', region);
 	const index = JSON.parse(readFileSync(join(dir, 'world.json'), 'utf8')) as WorldIndex;
 	for (const id of Object.keys(index.maps)) {
 		const mini = writeMinimap(dir, id);

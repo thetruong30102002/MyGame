@@ -1,0 +1,13 @@
+{
+	"map": "garden",
+	"image": "garden.minimap.png",
+	"width": 192,
+	"height": 128,
+	"downscale": 8,
+	"world": {
+		"width": 1536,
+		"height": 1024,
+		"tileSize": 32
+	},
+	"version": "a08285b2"
+}
