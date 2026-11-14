@@ -35,6 +35,14 @@ namespace HavenLord.Client
             yield return new WaitForSeconds(1);
             if (game.Map?.id != "garden" || game.FarmView == null || game.FarmView.HeadId == null) { Fail("Không vào được Gia viên / thiếu đầu ghép"); yield break; }
             yield return Shot("farm-1-khuon-vien");
+            // Ảnh duyệt bảng dạng ô có hình (14/11/2026: "UI chữ nhiều ít hình quá"): bảng chính, mua hạt, thú cưng, bếp, máy, kho.
+            foreach (var (vk, tag) in new (string, string)[] { (null, "chinh"), ("seedshop", "mua-hat"), ("pets", "thu-cung"), ("cook", "bep"), ("machine:flour_mill", "may"), ("storage", "kho"), ("village_homeshop", "cua-hang"), ("houses", "nha"), ("furniture", "bay-tri") })
+            {
+                game.VillageKey = vk;hud.Panels.Show(UI.Panels.Kind.Farm);
+                yield return new WaitForSeconds(.6f);
+                yield return Shot("farm-ui-" + tag);
+            }
+            hud.Panels.Close();game.VillageKey = null;
             yield return FarmWalk(game, 352, 576);
             foreach (var op in new[] { "hoe", "plant", "water" })
             {

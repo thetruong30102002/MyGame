@@ -75,3 +75,16 @@ các nguồn". Ảnh chụp bản build 14/11 03:55 (màn 1600 × 900, chạy �
 3. **Đợt 3 (P3)**: thang cỡ chữ + tương phản cao trong Cài đặt, so sánh đồ, bản đồ / phím / nhiệm vụ.
 
 Mỗi đợt: build → chụp lại đủ các màn ở 1600 × 900 → bộ kiểm `UiLint` = 0 → chủ dự án duyệt ảnh trước khi phát.
+
+## 5. Tiến độ
+
+- **14/11 — đợt hình ảnh** (chủ dự án: "UI chữ nhiều ít hình quá nên game nhàm chán, cửa hàng hay bộ sưu tập đều cần có hình"): bảng Gia
+  viên chính đổi thành hàng nút + lưới hạt giống có hình (ô đang cầm viền vàng, rê chuột hiện thẻ chi tiết: thời gian lớn, giá hạt, giá bán);
+  bảng giá chữ thay bằng màn **Mua hạt giống** dạng ô; **thú cưng** là ô chân dung (chưa có = mảnh, đang thả = viền vàng); **bếp** và **máy
+  chế biến** là ô hình món / thành phẩm (rê chuột xem nguyên liệu đủ / thiếu); **chuồng** có hình con vật đầu dòng; quầy món hầm / túi thuốc
+  là ô có hình; **Thư viện** — trang mục lục thành "Bộ sưu tập" lưới chân dung (chưa gặp là bóng tối). Chưa chủ dự án duyệt ảnh.
+- **14/11 — tab có icon, bớt chữ** (chủ dự án: "các khung gỗ bên trên trông k UI game, phải thành các tab có icon", "game cố gắng đừng
+  nhiều chữ ở UI"): Gia viên và cửa hàng Ruby dùng dải tab icon (Hạt giống / Kho / Bể cá / Thú cưng / Mua hạt; Hạt giống / Cây quả / Vật
+  nuôi / Máy / Mở rộng / Nhà / Bày trí / Thú cưng), việc đi lại / gửi bán là nút có hình; bỏ dòng hướng dẫn dài (chuyển vào thẻ rê chuột).
+  Thanh skill một khung gỗ chung (`ui2_dialog_box`) thay khung từng ô. Dấu mục tiêu trên đầu NPC + mũi tên lối sang map đổi sang mũi tên
+  pixel vàng (`PixelMarks`), vòng sáng dưới chân mục tiêu; tên map khi vào: chữ lớn + hoa văn, không hộp. Tốc chạy 128 → 140 px/giây.

@@ -111,7 +111,7 @@ namespace HavenLord.Client
             Step("dừng", Vector2.zero, false);
             var dx = game.Player.X - x0;
             log.WriteLine($"chạy 1 giây: {dx:0.0} px (RunSpeed {GameController.RunSpeed})");
-            if (dx < GameController.RunSpeed * 0.8 || dx > GameController.RunSpeed * 1.1 || GameController.RunSpeed != 128) { Fail("Tốc chạy không phải 128 px/giây"); yield break; }
+            if (dx < GameController.RunSpeed * 0.8 || dx > GameController.RunSpeed * 1.1 || GameController.RunSpeed != 140) { Fail("Tốc chạy không phải 140 px/giây"); yield break; }
             yield return Shot("npc-run-end");
         }
     }

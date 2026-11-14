@@ -198,30 +198,60 @@ namespace HavenLord.Client.UI
 
         private void ContentsPage(RectTransform p, Chapter ch, HashSet<string> seen)
         {
-            Text(p, "H", new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -40), new Vector2(300, 24), "MỤC LỤC", 16, InkRed, TextAnchor.MiddleCenter, true).characterSpacing = 6;
+            // Mục lục là BỘ SƯU TẬP hình (chủ dự án 14/11/2026: "cửa hàng hay bộ sưu tập đều cần có hình"): mỗi mục một ô chân dung — đã gặp
+            // hiện màu + tên, chưa gặp là bóng tối "???", boss viền đỏ. Ô co theo số mục để vừa một trang (~400 × 350); ô nhỏ thì tên chỉ hiện
+            // khi rê chuột (dòng dưới trang).
+            Text(p, "H", new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -40), new Vector2(300, 24), "BỘ SƯU TẬP", 16, InkRed, TextAnchor.MiddleCenter, true).characterSpacing = 6;
             var n = ch.Entries.Count;
-            var cols = n > 16 ? 2 : 1;
-            var perCol = Mathf.CeilToInt(n / (float)cols);
-            var rowH = Mathf.Min(24f, 340f / Mathf.Max(1, perCol));
-            var colW = cols == 1 ? 340f : 180f;
+            const float areaW = 392, areaH = 336;
+            var cols = 1;
+            float cell;
+            while (true)
+            {
+                cell = Mathf.Min(areaW / cols, 104);
+                var rows = Mathf.CeilToInt(n / (float)cols);
+                if (rows * (cell + (cell >= 72 ? 18 : 0)) <= areaH || cols >= 12) break;
+                cols += 1;
+            }
+            var named = cell >= 72;
+            var rowStep = cell + (named ? 18 : 0);
+            var x0 = -cols * cell / 2;
+            var hover = Text(p, "Tip", new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(0, 40), new Vector2(380, 22), "Bấm ô để lật tới trang · ← → lật trang", 12, InkDim, TextAnchor.MiddleCenter);
             for (var i = 0; i < n; i += 1)
             {
                 var e = ch.Entries[i];
                 var known = seen.Contains(e.Id);
-                var col = i / perCol;
-                var x = cols == 1 ? -170f : -184f + col * 192f;
-                var row = UiKit.Rect(p, "R" + i, new Vector2(0.5f, 1), new Vector2(0, 1), new Vector2(x, -76 - (i % perCol) * rowH), new Vector2(colW, rowH));
-                UiKit.Panel(row, new Color(0, 0, 0, 0), true);
                 var boss = e.Kind == "boss";
-                var name = known ? e.Name : "???";
-                var label = Text(row, "n", new Vector2(0, 0.5f), new Vector2(0, 0.5f), Vector2.zero, new Vector2(colW - 34, rowH),
-                    (boss ? "<color=#7a2010>◆</color> " : "") + name, cols == 1 ? 14 : 12, known ? Ink : InkDim, TextAnchor.MiddleLeft, boss);
-                label.overflowMode = TextOverflowModes.Ellipsis;
-                Text(row, "p", new Vector2(1, 0.5f), new Vector2(1, 0.5f), Vector2.zero, new Vector2(34, rowH), (i + 3).ToString(), cols == 1 ? 13 : 11, InkDim, TextAnchor.MiddleRight);
-                var spread = 1 + i / 2;
-                UiKit.Press(row, () => BookGo(bookChapter, spread)).Enter = () => label.color = InkRed;
+                var slot = UiKit.Rect(p, "R" + i, new Vector2(0.5f, 1), new Vector2(0, 1), new Vector2(x0 + i % cols * cell + 2, -72 - i / cols * rowStep), new Vector2(cell - 4, cell - 4));
+                var edge = UiStyle.Pill(slot, boss ? new Color(0.55f, 0.16f, 0.08f, 0.9f) : new Color(0.35f, 0.22f, 0.12f, 0.75f), 6);
+                edge.raycastTarget = true;
+                var inner = UiKit.Stretch(slot, "in");
+                inner.offsetMin = new Vector2(2, 2);
+                inner.offsetMax = new Vector2(-2, -2);
+                var face = UiStyle.Pill(inner, known ? new Color(0.9f, 0.82f, 0.64f) : new Color(0.78f, 0.69f, 0.52f), 5);
+                var def = e.Sprite != null ? game.Database.Character(e.Sprite) : null;
+                var spr = def != null ? GameController.PortraitOf(def) : null;
+                if (spr != null)
+                {
+                    var r = spr.rect;var k = Mathf.Min((cell - 10) / r.width, (cell - 10) / r.height) * 1.35f;
+                    var holder = UiKit.Stretch(inner, "clip");
+                    holder.gameObject.AddComponent<RectMask2D>();
+                    var img = UiKit.Icon(UiKit.Rect(holder, "P", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0, -cell * 0.04f), new Vector2(r.width * k, r.height * k)), spr);
+                    img.color = known ? Color.white : new Color(0.12f, 0.08f, 0.05f, 0.75f);
+                }
+                else Text(inner, "Q", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(cell, cell), "?", cell * 0.45f, InkDim, TextAnchor.MiddleCenter, true);
+                var title = known ? e.Name : "???";
+                if (named)
+                {
+                    var label = Text(p, "n" + i, new Vector2(0.5f, 1), new Vector2(0, 1), new Vector2(x0 + i % cols * cell, -72 - i / cols * rowStep - cell + 2), new Vector2(cell, 18),
+                        title, 12, known ? Ink : InkDim, TextAnchor.MiddleCenter, boss);
+                    label.overflowMode = TextOverflowModes.Ellipsis;
+                }
+                var spread = 1 + i / 2;var pageNo = i + 3;
+                var press = UiKit.Press(slot, () => BookGo(bookChapter, spread));
+                press.Enter = () => { face.color = known ? Color.white : new Color(0.86f, 0.77f, 0.6f); hover.text = (boss ? "◆ " : "") + title + $"  ·  trang {pageNo}"; hover.color = InkRed; };
+                press.Exit = () => { face.color = known ? new Color(0.9f, 0.82f, 0.64f) : new Color(0.78f, 0.69f, 0.52f); hover.text = "Bấm ô để lật tới trang · ← → lật trang"; hover.color = InkDim; };
             }
-            Text(p, "Tip", new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(0, 40), new Vector2(360, 20), "Bấm tên để lật tới trang · ← → lật trang", 11, InkDim, TextAnchor.MiddleCenter);
         }
 
         private void EntryPage(RectTransform p, CodexEntry e, HashSet<string> seen, Dictionary<string, double> kills)

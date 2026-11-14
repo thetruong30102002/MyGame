@@ -89,6 +89,8 @@ namespace HavenLord.Client.UI
         private readonly List<(RectTransform rt, CanvasGroup g, float life)> toasts = new List<(RectTransform, CanvasGroup, float)>();
         private RectTransform bannerRoot;
         private TMP_Text bannerText;
+        private TMP_Text bannerSub;
+        private RectTransform bannerLineL, bannerLineR;
         private float bannerT;
         private RectTransform alertRoot;
         private TMP_Text alertText;
@@ -404,25 +406,31 @@ namespace HavenLord.Client.UI
 
         private void BuildSkillBar()
         {
-            const float size = 52, gap = 6;
+            const float size = 50, gap = 4, pad = 17;
             // PC: ô 1 / ô 2 (chém / phép thường) là chuột trái / phải — không chiếm chỗ trên thanh; điện thoại giữ đủ 10 ô (giữ ô để đánh).
             var first = Application.isMobilePlatform ? 0 : 2;
             var shown = 10 - first;
-            var width = shown * size + (shown - 1) * gap + 20;
-            var bar = UiKit.Rect(root, "SkillBar", new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(0, 22), new Vector2(width, size + 18));
+            var width = shown * size + (shown - 1) * gap + pad * 2;
+            var bar = UiKit.Rect(root, "SkillBar", new Vector2(0.5f, 0), new Vector2(0.5f, 0), new Vector2(0, 20), new Vector2(width, size + pad * 2 - 2));
             skillBarWidth = width;
-            UiStyle.Card(bar, UiStyle.CardKind.Hud, 14);
+            // MỘT khung gỗ chung bao cả thanh (chủ dự án 14/11/2026: "nên cả khung ngoài thay vì khung từng ô"): ảnh 9 mảnh `ui2_dialog_box`
+            // (viền gỗ, đinh vàng góc — cùng bộ với thẻ nhân vật); ô bên trong là giếng tối viền mảnh, không còn khung gỗ riêng mỗi ô.
+            if (UiStyle.Frame(bar, "ui2_dialog_box", 0) == null) UiStyle.Card(bar, UiStyle.CardKind.Hud, 14);
             for (var i = 0; i < 10; i += 1)
             {
                 var k = i;
-                var rt = UiKit.Rect(bar, "Slot" + i, new Vector2(0, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(10 + size / 2 + (i - first) * (size + gap), 0), new Vector2(size, size));
+                var rt = UiKit.Rect(bar, "Slot" + i, new Vector2(0, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(pad + size / 2 + (i - first) * (size + gap), 0), new Vector2(size, size));
                 if (i < first) rt.gameObject.SetActive(false);
                 var glowRt = UiKit.Stretch(rt, "Glow");
                 glowRt.offsetMin = new Vector2(-6, -6);
                 glowRt.offsetMax = new Vector2(6, 6);
                 var glow = UiStyle.Pill(glowRt, new Color(1f, 0.85f, 0.4f, 0), 14);
-                UiStyle.Card(rt, UiStyle.CardKind.Dark, 5, false, true);
-                var slotInset = UiStyle.FrameInset(rt, 1);
+                UiStyle.Pill(rt, new Color(0.55f, 0.4f, 0.24f, 0.55f), 5).raycastTarget = true;
+                var well = UiKit.Stretch(rt, "Well");
+                well.offsetMin = new Vector2(1.5f, 1.5f);
+                well.offsetMax = new Vector2(-1.5f, -1.5f);
+                UiStyle.Pill(well, new Color(0.05f, 0.035f, 0.025f, 0.92f), 4);
+                var slotInset = Vector4.zero;
                 var icon = UiKit.Icon(UiKit.Rect(rt, "Icon", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(size - 14, size - 14)), null);
                 var coolRt = UiKit.Rect(rt, "Cool", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(size - 12, size - 12));
                 var cool = coolRt.gameObject.AddComponent<Image>();
@@ -566,11 +574,17 @@ namespace HavenLord.Client.UI
         {
             // Sát mép trên giữa (giữa trên đã trống — thanh mục tiêu sang trái): xa nhân vật / NPC / nhãn "E Nói chuyện" (13/11/2026).
             toastRoot = UiKit.Rect(root, "Toasts", new Vector2(0.5f, 1), new Vector2(0.5f, 1), new Vector2(0, -14), new Vector2(560, 220));
-            bannerRoot = UiKit.Rect(root, "Banner", new Vector2(0.5f, 1), new Vector2(0.5f, 0.5f), new Vector2(0, -168), new Vector2(460, 78));
-            // Băng rôn tên map (13/11/2026): dải ruy băng gỗ PixelLab.
-            UiStyle.Card(bannerRoot, UiStyle.CardKind.Chip, 5, frame: "ui2_ribbon");
-            bannerText = UiKit.Label(UiKit.Stretch(bannerRoot, "t"), "", 22, UiStyle.GoldHi, TextAnchor.MiddleCenter, true, false);
-            bannerText.characterSpacing = 2;
+            // Tên map khi vào (chủ dự án 14/11/2026: "chữ sang map cũng quá phèn và AI"): KHÔNG hộp / băng rôn — tên lớn chữ kem đổ vàng,
+            // viền tối, hai dải hoa văn vàng mờ dần hai bên + dòng phụ nhỏ giãn chữ (an toàn xanh / PvP đỏ); hiện ra, nở nhẹ rồi mờ dần.
+            bannerRoot = UiKit.Rect(root, "Banner", new Vector2(0.5f, 1), new Vector2(0.5f, 0.5f), new Vector2(0, -176), new Vector2(760, 90));
+            bannerText = UiKit.Label(UiKit.Rect(bannerRoot, "t", new Vector2(.5f, 1), new Vector2(.5f, 1), Vector2.zero, new Vector2(760, 50)), "", 34, Color.white, TextAnchor.MiddleCenter, true, true);
+            bannerText.enableVertexGradient = true;
+            bannerText.colorGradient = new VertexGradient(UiStyle.Hex(0xfff6dc), UiStyle.Hex(0xfff6dc), UiStyle.Hex(0xf1c060), UiStyle.Hex(0xf1c060));
+            bannerText.characterSpacing = 3;
+            bannerSub = UiKit.Label(UiKit.Rect(bannerRoot, "s", new Vector2(.5f, 1), new Vector2(.5f, 1), new Vector2(0, -52), new Vector2(760, 22)), "", 14, UiStyle.Parchment, TextAnchor.MiddleCenter, true, true);
+            bannerSub.characterSpacing = 8;
+            bannerLineL = BannerLine(true);
+            bannerLineR = BannerLine(false);
             bannerRoot.gameObject.SetActive(false);
             // Báo động boss vùng (tin "⚔ … đã xuất hiện ở … · Khu n!"): dải ruy băng đỏ ui2_ribbon_alert dưới băng rôn tên map.
             alertRoot = UiKit.Rect(root, "Alert", new Vector2(0.5f, 1), new Vector2(0.5f, 0.5f), new Vector2(0, -232), new Vector2(560, 52));
@@ -758,11 +772,50 @@ namespace HavenLord.Client.UI
             UiAnim.Bounce(alertRoot, 0.08f);
         }
 
-        public void Banner(string text)
+        public void Banner(string text, string sub = null, Color? subColor = null)
         {
             bannerText.text = text;
-            bannerT = 2.8f;
+            bannerSub.text = sub ?? "";
+            bannerSub.color = subColor ?? UiStyle.Parchment;
+            // Hoa văn bám sát hai bên tên (theo bề rộng chữ thật).
+            var half = Mathf.Min(bannerText.GetPreferredValues(text).x, 600) / 2 + 18;
+            bannerLineL.anchoredPosition = new Vector2(-half, -25);
+            bannerLineR.anchoredPosition = new Vector2(half, -25);
+            bannerT = 3.2f;
             bannerRoot.gameObject.SetActive(true);
+        }
+
+        /// <summary>Dải hoa văn vàng cạnh tên map: hạt thoi ở đầu trong, đường kẻ mờ dần ra ngoài.</summary>
+        private RectTransform BannerLine(bool left)
+        {
+            var rt = UiKit.Rect(bannerRoot, left ? "LineL" : "LineR", new Vector2(.5f, 1), new Vector2(left ? 1 : 0, .5f), Vector2.zero, new Vector2(150, 12));
+            // Tâm dải làm trục để lật gương bên trái không quay vào phía chữ.
+            var line = UiKit.Rect(rt, "l", new Vector2(left ? 1 : 0, .5f), new Vector2(.5f, .5f), new Vector2(left ? -81 : 81, 0), new Vector2(138, 2));
+            var img = line.gameObject.AddComponent<Image>();
+            img.sprite = FadeSprite();
+            img.color = UiStyle.Hex(0xf1c060);
+            img.raycastTarget = false;
+            if (left) line.localScale = new Vector3(-1, 1, 1);
+            var gem = UiKit.Rect(rt, "g", new Vector2(left ? 1 : 0, .5f), new Vector2(.5f, .5f), new Vector2(left ? -5 : 5, 0), new Vector2(7, 7));
+            var gi = gem.gameObject.AddComponent<Image>();
+            gi.sprite = UiKit.WhiteSprite();
+            gi.color = UiStyle.Hex(0xffe08a);
+            gi.raycastTarget = false;
+            gem.localRotation = Quaternion.Euler(0, 0, 45);
+            return rt;
+        }
+
+        private static Sprite fadeSprite;
+
+        /// <summary>Dải ngang trắng mờ dần từ trái (đậm) sang phải (trong suốt).</summary>
+        private static Sprite FadeSprite()
+        {
+            if (fadeSprite != null) return fadeSprite;
+            const int w = 64;
+            var tex = new Texture2D(w, 1, TextureFormat.RGBA32, false) { wrapMode = TextureWrapMode.Clamp };
+            for (var x = 0; x < w; x++) tex.SetPixel(x, 0, new Color(1, 1, 1, 1 - x / (w - 1f)));
+            tex.Apply();
+            return fadeSprite = Sprite.Create(tex, new UnityEngine.Rect(0, 0, w, 1), new Vector2(0, .5f), 100);
         }
 
         public void Float(double x, double y, string text, int color, int size)
@@ -1015,52 +1068,20 @@ namespace HavenLord.Client.UI
             }
             var rt = UiKit.Rect(signRoot, "Exit_" + e.id, Vector2.zero, new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(10, 10));
             // Con đầu tiên là mũi tên (UpdateExitSigns nhấp nhô nó theo hướng lối).
-            var arrow = UiKit.Rect(rt, "Arrow", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(40, 30));
-            var img = UiKit.Icon(arrow, ExitArrowSprite());
-            img.color = col;
+            // Mũi tên pixel vàng (PixelMarks — cùng bộ với dấu mục tiêu trên đầu NPC, 14/11/2026), phóng đúng 2× theo điểm ảnh, xoay theo
+            // hướng lối; lối sang vùng còn khoá ánh đỏ. Tên nơi đến chữ kem viền tối nổi ngay trên, không hộp; điều kiện chỉ hiện khi còn khoá
+            // (chủ dự án: "game cố gắng đừng nhiều chữ ở UI").
+            var locked = note != null && note != "Sang vùng mới";
+            var arrow = UiKit.Rect(rt, "Arrow", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(34, 30));
+            var img = UiKit.Icon(arrow, PixelMarks.Right());
+            if (locked) img.color = Color.Lerp(Color.white, col, 0.75f);
             arrow.localRotation = Quaternion.Euler(0, 0, Mathf.Atan2(-d.y, d.x) * Mathf.Rad2Deg);
-            var plate = UiKit.Rect(rt, "Plate", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0f), new Vector2(0, 24), new Vector2(170, note != null ? 36 : 22));
-            UiStyle.Card(plate, UiStyle.CardKind.Hud, 8, false, true);
-            var t = UiKit.Label(UiKit.Stretch(plate, "t"), dest + (note != null ? $"\n<size=10><color=#{ColorUtility.ToHtmlStringRGB(col)}>{note}</color></size>" : ""),
-                12, UiStyle.Parchment, TextAnchor.MiddleCenter, true);
-            t.rectTransform.offsetMin = new Vector2(6, 2);
-            t.rectTransform.offsetMax = new Vector2(-6, -2);
-            t.enableAutoSizing = true;
-            t.fontSizeMin = 8;
-            t.fontSizeMax = 12;
+            var t = UiKit.Label(UiKit.Rect(rt, "Name", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0f), new Vector2(0, 22), new Vector2(240, 22)), dest, 15, UiStyle.Hex(0xfff3d6), TextAnchor.MiddleCenter, true, true);
+            t.characterSpacing = 1;
+            if (locked)
+                UiKit.Label(UiKit.Rect(rt, "Note", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0f), new Vector2(0, 42), new Vector2(260, 18)), note, 12, col, TextAnchor.MiddleCenter, true, true);
             return rt;
         }
-
-        private static Sprite exitArrow;
-
-        /// <summary>Mũi tên đôi chỉ sang phải (xoay theo hướng lối), lõi trắng viền tối — tô màu bằng Image.color (giống mũi tên lối của bản web).</summary>
-        private static Sprite ExitArrowSprite()
-        {
-            if (exitArrow != null) return exitArrow;
-            const int w = 40, h = 30;
-            var tex = new Texture2D(w, h, TextureFormat.RGBA32, false) { filterMode = FilterMode.Point, wrapMode = TextureWrapMode.Clamp };
-            var px = new Color[w * h];
-            // Một chữ V nằm ngang (đỉnh bên phải): điểm (x, y) thuộc nét nếu |y − tâm| ≈ (đỉnh − x) trong bề dày cho trước.
-            float Chevron(int x, int y, float tip, float thick)
-            {
-                var dy = Mathf.Abs(y + 0.5f - h / 2f);
-                var dx = tip - (x + 0.5f);
-                if (dx < 0 || dy > h / 2f - 1) return -1;
-                return Mathf.Abs(dx - dy * 0.75f);
-            }
-            for (var y = 0; y < h; y += 1)
-                for (var x = 0; x < w; x += 1)
-                {
-                    var best = Mathf.Min(Pos(Chevron(x, y, 22, 0)), Pos(Chevron(x, y, 37, 0)));
-                    px[y * w + x] = best <= 3.2f ? Color.white : best <= 5.2f ? new Color(0.05f, 0.05f, 0.07f, 1) : Color.clear;
-                }
-            tex.SetPixels(px);
-            tex.Apply();
-            exitArrow = Sprite.Create(tex, new UnityEngine.Rect(0, 0, w, h), new Vector2(0.5f, 0.5f), 100);
-            return exitArrow;
-        }
-
-        private static float Pos(float v) => v < 0 ? 99 : v;
 
         private void UpdateTarget(float dt)
         {
@@ -1216,9 +1237,12 @@ namespace HavenLord.Client.UI
             if (bannerT > 0)
             {
                 bannerT -= dt;
-                var appear = Mathf.Clamp01((2.8f - bannerT) / 0.25f);
-                UiKit.Group(bannerRoot).alpha = Mathf.Clamp01(Mathf.Min(bannerT / 0.6f, appear));
-                bannerRoot.localScale = Vector3.one * Mathf.Lerp(0.85f, 1f, EaseOut(appear));
+                var appear = Mathf.Clamp01((3.2f - bannerT) / 0.5f);
+                UiKit.Group(bannerRoot).alpha = Mathf.Clamp01(Mathf.Min(bannerT / 0.8f, appear));
+                bannerRoot.localScale = Vector3.one * Mathf.Lerp(0.94f, 1f, EaseOut(appear));
+                // Hoa văn kéo dài ra hai bên lúc hiện.
+                var grow = EaseOut(Mathf.Clamp01((3.2f - bannerT - 0.15f) / 0.6f));
+                bannerLineL.localScale = bannerLineR.localScale = new Vector3(grow, 1, 1);
                 if (bannerT <= 0) bannerRoot.gameObject.SetActive(false);
             }
             if (alertT > 0)

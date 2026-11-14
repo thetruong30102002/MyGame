@@ -9122,7 +9122,7 @@ Chốt mới nhất27/10: tạo nhân vật chọn TỘC → ĐẦU → BỘ. M�
           "label": "Đợt 1 (P1)",
           "weight": 35,
           "done": false,
-          "evidence": ""
+          "evidence": "14/11/2026 (chủ dự án: \"UI chữ nhiều ít hình quá … cửa hàng hay bộ sưu tập đều cần có hình\"): Gia viên chính + mua hạt + thú cưng + bếp + máy + chuồng + quầy dịch vụ đổi sang ô có hình, thẻ chi tiết khi rê chuột; Thư viện mục lục thành lưới chân dung. Chờ build + ảnh duyệt."
         },
         {
           "label": "Đợt 2 (P2)",

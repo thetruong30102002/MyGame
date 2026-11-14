@@ -22,8 +22,8 @@ namespace HavenLord.Client
     /// </summary>
     public sealed partial class GameController : MonoBehaviour, ICombatHooks
     {
-        /// <summary>Tốc chạy (px/giây). 150 → 128 (−15%, chủ dự án 05/11 duyệt; chốt 03/11 "giảm nhịp chân và tốc độ chạy bằng code").</summary>
-        public const float RunSpeed = 128;
+        /// <summary>Tốc chạy (px/giây). 150 → 128 (−15%, chủ dự án 05/11 duyệt; chốt 03/11 "giảm nhịp chân và tốc độ chạy bằng code") → 140 (14/11/2026: "tốc độ chạy tăng thêm 1 xíu").</summary>
+        public const float RunSpeed = 140;
         private const float StaminaDrain = 22;
         private const float ActionMoveScale = 0.4f;
         private const float OccludedAlpha = 0.55f;
@@ -580,29 +580,14 @@ namespace HavenLord.Client
 
         // ———————————————————————————— mục tiêu ————————————————————————————
 
+        private SpriteRenderer focusRing;
+
         private static SpriteRenderer MakeFocusMarker()
         {
-            // Tam giác vàng cam chỉ xuống có viền nâu (FocusMarker của web vẽ bằng Graphics) — dựng 1 lần lúc chạy.
-            const int w = 21, h = 15;
-            var tex = new Texture2D(w, h, TextureFormat.RGBA32, false) { filterMode = FilterMode.Point };
-            var outline = new Color32(0x2a, 0x16, 0x05, 255);
-            var fill = new Color32(0xff, 0xa2, 0x1f, 255);
-            var light = new Color32(0xff, 0xd8, 0x7a, 255);
-            for (var y = 0; y < h; y += 1)
-            for (var x = 0; x < w; x += 1)
-            {
-                var row = h - 1 - y;
-                var half = (h - 1 - row) * (w / 2f) / (h - 1);
-                var dx = Mathf.Abs(x - w / 2);
-                var c = new Color32(0, 0, 0, 0);
-                if (dx <= half) c = outline;
-                if (dx <= half - 2 && row >= 2 && row <= h - 3) c = row <= 4 ? light : fill;
-                tex.SetPixel(x, y, c);
-            }
-            tex.Apply();
+            // Mũi tên pixel vàng chỉ xuống (PixelMarks, 14/11/2026 — thay tam giác phẳng cũ): khối sáng / tối, viền nâu, điểm ảnh 1:1 như map.
             var go = new GameObject("FocusMarker");
             var sr = go.AddComponent<SpriteRenderer>();
-            sr.sprite = Sprite.Create(tex, new Rect(0, 0, w, h), new Vector2(0.5f, 0f), WorldCoords.PixelsPerUnit);
+            sr.sprite = PixelMarks.Down(WorldCoords.PixelsPerUnit);
             sr.sortingOrder = 450;
             go.SetActive(false);
             return sr;
@@ -613,9 +598,20 @@ namespace HavenLord.Client
             var c = WorldPopulation.FocusKept(Candidates(true, true), focus, player.X, player.Y);
             if (!c.HasValue) focus = null;
             focusMarker.gameObject.SetActive(c.HasValue);
+            if (focusRing == null)
+            {
+                // Vòng sáng dưới chân mục tiêu (trên bóng −100, dưới hình nhân vật).
+                focusRing = new GameObject("FocusRing").AddComponent<SpriteRenderer>();
+                focusRing.sprite = PixelMarks.Ring(WorldCoords.PixelsPerUnit);
+                focusRing.sortingOrder = -99;
+            }
+            focusRing.gameObject.SetActive(c.HasValue);
             if (!c.HasValue) return;
-            var bob = Mathf.Abs(Mathf.Sin(Time.time * 4)) * 4;
-            focusMarker.transform.position = WorldCoords.PxToWorld((float)c.Value.X, (float)(c.Value.Y - c.Value.H - 22 - bob));
+            // Nhấp nhô nhịp nảy (lên nhanh, rơi chậm) theo bước nguyên điểm ảnh — không trượt mượt kiểu vector.
+            var bob = Mathf.Round(Mathf.Abs(Mathf.Sin(Time.time * 3.2f)) * 4);
+            focusMarker.transform.position = WorldCoords.PxToWorld((float)c.Value.X, (float)(c.Value.Y - c.Value.H - 10 - bob));
+            focusRing.transform.position = WorldCoords.PxToWorld((float)c.Value.X, (float)c.Value.Y - 1);
+            focusRing.color = new Color(1, 1, 1, .55f + .3f * Mathf.Sin(Time.time * 4));
         }
 
         // ———————————————————————————— đổi map ————————————————————————————
@@ -694,7 +690,7 @@ namespace HavenLord.Client
                 population.Populate(map.def, region.region, online != null);
                 areaName = map.def.AreaAt(at.x, at.y);
                 PvpHere = idx.region != "home" && !SafeMaps().Contains(idx.region + "/" + mapId);
-                hud.Banner(map.def.displayName + (PvpHere ? "  ·  PvP" : "  ·  Vùng an toàn"));
+                hud.Banner(map.def.displayName, PvpHere ? "VÙNG PVP" : "VÙNG AN TOÀN", PvpHere ? UiStyle.Hex(0xff7a6b) : UiStyle.Hex(0x9be27a));
                 RefreshPkHud();
                 if (online != null && idx.region != "home")
                 {
