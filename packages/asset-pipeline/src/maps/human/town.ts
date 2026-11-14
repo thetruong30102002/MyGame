@@ -40,10 +40,11 @@ export function buildTown(meta: Record<string, PropMeta>, decalIds: string[], se
 		// Nhà cũ thành khu phụ cạnh lò rèn; giữ nguyên ảnh và ID, không đè dưới nhà mới.
 		L.place('house_inn', THISTLEWOOD_INN.auxiliaryInn.x, THISTLEWOOD_INN.auxiliaryInn.y, { force: true });
 	} else L.place('house_inn', px(35), px(10), { force: true });
-	// Nhà dịch vụ vào được (13/11/2026, GPT đợt 14): khu phố đông nam (quán rượu, ngân hàng, vũ khí, trang bị), lò rèn đầu đường bắc,
-	// tiệm hồi phục + xưởng nâng cấp góc tây bắc — chỗ trước nay chỉ có cây rải. Cửa / lối vào phòng gắn ở `maps/serviceRooms`.
+	// Nhà dịch vụ vào được (13/11/2026, GPT đợt 14): lò rèn đầu đường bắc, tiệm hồi phục + xưởng nâng cấp góc tây bắc, quán rượu /
+	// ngân hàng / vũ khí so le ở đông nam, trang bị góc tây nam (chủ dự án 14/11/2026: "xếp đều nhau quá xấu phải mỗi góc 1 nhà" — bỏ
+	// lưới 2 × 2 cũ). Cửa / lối vào phòng gắn ở `maps/serviceRooms`.
 	for (const [id, x, y] of [
-		['svc_house_qr', 1408, px(42)], ['svc_house_nh', 1768, px(42)], ['svc_house_vk', 1390, px(50)], ['svc_house_tb', 1720, px(50)],
+		['svc_house_qr', 1360, px(42)], ['svc_house_nh', 1820, px(45)], ['svc_house_vk', 1530, px(50)], ['svc_house_tb', 240, px(42)],
 		['svc_house_lr', 1340, px(8)], ['svc_house_hp', 264, px(8)], ['svc_house_nc', 240, px(16)],
 	] as const)
 		if (meta[id]) {

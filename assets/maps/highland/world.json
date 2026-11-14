@@ -38,50 +38,50 @@
 				{
 					"id": "to_svc_qr",
 					"to": "svc_qr",
-					"x": 1593,
-					"y": 1545,
+					"x": 1710,
+					"y": 853,
 					"label": "Quán rượu"
 				},
 				{
 					"id": "to_svc_nh",
 					"to": "svc_nh",
-					"x": 1172,
-					"y": 1545,
+					"x": 635,
+					"y": 1023,
 					"label": "Ngân hàng"
 				},
 				{
 					"id": "to_svc_vk",
 					"to": "svc_vk",
-					"x": 1157,
-					"y": 825,
+					"x": 1981,
+					"y": 1748,
 					"label": "Tiệm vũ khí"
 				},
 				{
 					"id": "to_svc_tb",
 					"to": "svc_tb",
-					"x": 1557,
-					"y": 825,
+					"x": 833,
+					"y": 1645,
 					"label": "Tiệm trang bị"
 				},
 				{
 					"id": "to_svc_lr",
 					"to": "svc_lr",
-					"x": 758,
-					"y": 1406,
+					"x": 1034,
+					"y": 690,
 					"label": "Lò rèn"
 				},
 				{
 					"id": "to_svc_nc",
 					"to": "svc_nc",
-					"x": 758,
-					"y": 1031,
+					"x": 1597,
+					"y": 1898,
 					"label": "Xưởng nâng cấp"
 				},
 				{
 					"id": "to_svc_hp",
 					"to": "svc_hp",
-					"x": 1978,
-					"y": 1031,
+					"x": 1153,
+					"y": 1933,
 					"label": "Tiệm hồi phục"
 				}
 			],

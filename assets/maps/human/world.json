@@ -38,29 +38,29 @@
 				{
 					"id": "to_svc_qr",
 					"to": "svc_qr",
-					"x": 1408,
+					"x": 1360,
 					"y": 2049,
 					"label": "Quán rượu"
 				},
 				{
 					"id": "to_svc_nh",
 					"to": "svc_nh",
-					"x": 1768,
-					"y": 2049,
+					"x": 1820,
+					"y": 2193,
 					"label": "Ngân hàng"
 				},
 				{
 					"id": "to_svc_vk",
 					"to": "svc_vk",
-					"x": 1390,
+					"x": 1530,
 					"y": 2433,
 					"label": "Tiệm vũ khí"
 				},
 				{
 					"id": "to_svc_tb",
 					"to": "svc_tb",
-					"x": 1720,
-					"y": 2433,
+					"x": 240,
+					"y": 2049,
 					"label": "Tiệm trang bị"
 				},
 				{

@@ -386,32 +386,44 @@ function buildKitMapOnce(spec: KitMapSpec, exits: readonly KitExit[], meta: Reco
 			const len = Math.hypot(inner.x - J.x, inner.y - J.y);
 			return { ux: (inner.x - J.x) / len, uy: (inner.y - J.y) / len, len };
 		});
-		const STEP = 5.2;
-		const slots: { x: number; y: number; ux: number; uy: number; nx: number }[] = [];
-		for (let s = 7.5; s < 30; s += STEP)
-			for (const st of streets) {
-				if (s > st.len - 4) continue;
-				for (const side of [-1, 1]) {
-					const nx = -st.uy * side;
-					const ny = st.ux * side;
-					// Nhà phía dưới đường cần lùi thêm (ảnh neo ở mép dưới, mái chìa lên trên).
-					const off = 3.2 + (ny > 0.5 ? 1.4 : 0);
-					slots.push({ x: J.x + 1 + st.ux * s + nx * off, y: J.y + 1 + st.uy * s + ny * off, ux: st.ux, uy: st.uy, nx });
-				}
-			}
+		// Xếp theo GÓC (chủ dự án 14/11/2026: "các nhà ở trung tâm xếp đều nhau quá xấu phải mỗi góc 1 nhà… nhìn cứ đều tăm tắp"): bỏ
+		// dãy nhà cách đều đối xứng hai bên đường. Các con đường chia trạm thành các góc; nhà chia lần lượt vào từng góc (thứ tự góc xáo
+		// ngẫu nhiên, góc nào cũng có nhà dịch vụ trước), trong góc đặt lệch tự do — xa gần quảng trường, lùi khỏi đường mỗi nhà một khác;
+		// cả khung hình nhà không đè đường / quảng trường / nước, nhà cách nhà ≥ 1,5 ô.
+		const angs = streets.map((st) => Math.atan2(st.uy, st.ux)).sort((a, b) => a - b);
+		const corners = angs.length
+			? angs.map((a, i) => ({ a0: a, a1: i + 1 < angs.length ? angs[i + 1]! : angs[0]! + Math.PI * 2 }))
+			: [0, 1, 2, 3].map((i) => ({ a0: (i * Math.PI) / 2, a1: ((i + 1) * Math.PI) / 2 }));
+		const order = corners.map((_, i) => i).sort(() => L.rand() - 0.5);
+		const houseBoxes: { x0: number; y0: number; x1: number; y1: number }[] = [];
+		const clearSite = (x: number, y: number, half: number, h: number): boolean => {
+			if (x - half < 2 || x + half > spec.w - 2 || y - h < 1 || y + 2.2 > spec.h - 1) return false;
+			// Toạ độ ô của `px()` là tâm ô (+0,5).
+			for (let ty = Math.floor(y + 0.5 - h); ty <= Math.floor(y + 2.1); ty += 1)
+				for (let tx = Math.floor(x + 0.5 - half); tx <= Math.floor(x + 0.5 + half); tx += 1) if (/[dcw#b]/.test(L.at(tx, ty))) return false;
+			return !houseBoxes.some((b) => x - half - 1.5 < b.x1 && x + half + 1.5 > b.x0 && y - h - 1.5 < b.y1 && y + 2 > b.y0);
+		};
 		const left: string[] = [];
-		let si = 0;
-		for (const id of queue) {
+		queue.forEach((id, k) => {
+			const m = meta[id];
+			if (!m) return;
+			const half = m.w / TILE / 2;
+			const h = m.h / TILE;
+			const svc = id.startsWith('svc_house_');
 			let done = false;
-			while (si < slots.length && !done) {
-				const sl0 = slots[si++]!;
-				// Nhà dịch vụ (~300 px) bên đường dọc: lùi thêm cho mép nhà không đè lòng đường.
-				const half = (meta[id]?.w ?? 0) / TILE / 2;
-				const sl = id.startsWith('svc_house_') && Math.abs(sl0.nx) > 0.5 && half + 1.6 > 3.2 ? { ...sl0, x: sl0.x + sl0.nx * (half + 1.6 - 3.2) } : sl0;
+			for (let tries = 0; tries < 480 && !done; tries += 1) {
+				// Hết chỗ trong góc được chia thì thử sang góc khác; vòng sau nới xa quảng trường dần.
+				const c = corners[order[(k + Math.floor(tries / 40)) % corners.length]!]!;
+				const span = c.a1 - c.a0;
+				const a = c.a0 + span * R(0.12, 0.88);
+				const r = R(7 + half, (svc ? 15 : 20) + half + Math.floor(tries / 160) * 4);
+				const sl = { x: J.x + 1 + Math.cos(a) * r, y: J.y + 1 + Math.sin(a) * r * 0.85 + h / 2 };
+				if (!clearSite(sl.x, sl.y, half, h)) continue;
 				// Nhà dịch vụ vào được (`maps/serviceRooms`): trước cửa phải đi được (không nước / vách).
-				if (id.startsWith('svc_house_') && [0.6, 1.4].some((d) => /[w#]/.test(L.at(Math.floor(sl.x + 0.5), Math.floor(sl.y + 0.5 + d))))) continue;
+				if (svc && [0.6, 1.4].some((d) => /[w#]/.test(L.at(Math.floor(sl.x + 0.5), Math.floor(sl.y + 0.5 + d))))) continue;
 				if (!L.place(id, px(sl.x), px(sl.y))) continue;
 				done = true;
+				houseBoxes.push({ x0: sl.x - half, y0: sl.y - h, x1: sl.x + half, y1: sl.y });
 				// Công trình biểu tượng (GPT đợt 12, cao ~280 px): giữ trống quanh thân để cây / đá rải sau không che mặt tiền.
 				const big = meta[id]!;
 				if (big.h > 240) {
@@ -419,12 +431,15 @@ function buildKitMapOnce(spec: KitMapSpec, exits: readonly KitExit[], meta: Reco
 					// Tán cây gốc dưới chân vẫn trùm lên mặt tiền → giữ trống thêm dải trước cửa.
 					L.reserve(sl.x, sl.y + 2, big.w / TILE / 2 + 1.5);
 				}
-				// Đồ sân nhà: hai bên hông, cùng hàng chân nhà.
-				for (const k of [-1, 1]) if (yard.length && L.rand() < 0.75) L.place(L.pick(yard), px(sl.x + sl.ux * k * 2.4 - sl.uy * 0), px(sl.y + sl.uy * k * 2.4) - 4);
+				// Đồ sân nhà: một cụm nhỏ sát hông trái hoặc phải (bên nào, mấy món tuỳ nhà), lệch hàng chân nhà một chút.
+				if (yard.length) {
+					const k = L.rand() < 0.5 ? -1 : 1;
+					for (let j = 0, n = Ri(1, 2); j < n; j += 1) L.place(L.pick(yard), px(sl.x + k * (half + 0.9 + j * 1.3)), px(sl.y - R(0, 0.8)) - 4);
+				}
 			}
 			if (!done) left.push(id);
-		}
-		// Hết chỗ dọc đường thì xếp vòng ngoài quanh quảng trường (đều góc).
+		});
+		// Hết chỗ trong các góc thì xếp vòng ngoài quanh quảng trường.
 		left.forEach((id, i) => {
 			const a = ((i + 0.5) / Math.max(1, left.length)) * Math.PI * 2;
 			for (let k = 0; k < 14; k += 1) if (L.place(id, px(J.x + Math.cos(a) * (12 + k * 0.4)), px(J.y + Math.sin(a) * (12 + k * 0.4) * 0.85) + 20)) break;
